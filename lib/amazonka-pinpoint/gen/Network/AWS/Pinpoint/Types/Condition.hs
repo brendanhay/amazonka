@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Condition where
+module Network.AWS.Pinpoint.Types.Condition
+  ( Condition (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkCondition,
+
+    -- * Lenses
+    cOperator,
+    cConditions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Operator
 import Network.AWS.Pinpoint.Types.SimpleCondition
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the conditions to evaluate for an activity in a journey, and how to evaluate those conditions.
 --
---
---
--- /See:/ 'condition' smart constructor.
+-- /See:/ 'mkCondition' smart constructor.
 data Condition = Condition'
-  { _cOperator :: !(Maybe Operator),
-    _cConditions :: !(Maybe [SimpleCondition])
+  { operator :: Lude.Maybe Operator,
+    conditions :: Lude.Maybe [SimpleCondition]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Condition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cOperator' - Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
---
--- * 'cConditions' - The conditions to evaluate for the activity.
-condition ::
+-- * 'conditions' - The conditions to evaluate for the activity.
+-- * 'operator' - Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
+mkCondition ::
   Condition
-condition =
-  Condition' {_cOperator = Nothing, _cConditions = Nothing}
+mkCondition =
+  Condition' {operator = Lude.Nothing, conditions = Lude.Nothing}
 
 -- | Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.
-cOperator :: Lens' Condition (Maybe Operator)
-cOperator = lens _cOperator (\s a -> s {_cOperator = a})
+--
+-- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cOperator :: Lens.Lens' Condition (Lude.Maybe Operator)
+cOperator = Lens.lens (operator :: Condition -> Lude.Maybe Operator) (\s a -> s {operator = a} :: Condition)
+{-# DEPRECATED cOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
 
 -- | The conditions to evaluate for the activity.
-cConditions :: Lens' Condition [SimpleCondition]
-cConditions = lens _cConditions (\s a -> s {_cConditions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'conditions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cConditions :: Lens.Lens' Condition (Lude.Maybe [SimpleCondition])
+cConditions = Lens.lens (conditions :: Condition -> Lude.Maybe [SimpleCondition]) (\s a -> s {conditions = a} :: Condition)
+{-# DEPRECATED cConditions "Use generic-lens or generic-optics with 'conditions' instead." #-}
 
-instance FromJSON Condition where
+instance Lude.FromJSON Condition where
   parseJSON =
-    withObject
+    Lude.withObject
       "Condition"
       ( \x ->
           Condition'
-            <$> (x .:? "Operator") <*> (x .:? "Conditions" .!= mempty)
+            Lude.<$> (x Lude..:? "Operator")
+            Lude.<*> (x Lude..:? "Conditions" Lude..!= Lude.mempty)
       )
 
-instance Hashable Condition
-
-instance NFData Condition
-
-instance ToJSON Condition where
+instance Lude.ToJSON Condition where
   toJSON Condition' {..} =
-    object
-      ( catMaybes
-          [ ("Operator" .=) <$> _cOperator,
-            ("Conditions" .=) <$> _cConditions
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Operator" Lude..=) Lude.<$> operator,
+            ("Conditions" Lude..=) Lude.<$> conditions
           ]
       )

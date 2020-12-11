@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.CredentialProviderType where
+module Network.AWS.CodeBuild.Types.CredentialProviderType
+  ( CredentialProviderType
+      ( CredentialProviderType',
+        SecretsManager
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CredentialProviderType = SecretsManager
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CredentialProviderType = CredentialProviderType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CredentialProviderType where
-  parser =
-    takeLowerText >>= \case
-      "secrets_manager" -> pure SecretsManager
-      e ->
-        fromTextError $
-          "Failure parsing CredentialProviderType from value: '" <> e
-            <> "'. Accepted values: secrets_manager"
+pattern SecretsManager :: CredentialProviderType
+pattern SecretsManager = CredentialProviderType' "SECRETS_MANAGER"
 
-instance ToText CredentialProviderType where
-  toText = \case
-    SecretsManager -> "SECRETS_MANAGER"
-
-instance Hashable CredentialProviderType
-
-instance NFData CredentialProviderType
-
-instance ToByteString CredentialProviderType
-
-instance ToQuery CredentialProviderType
-
-instance ToHeader CredentialProviderType
-
-instance ToJSON CredentialProviderType where
-  toJSON = toJSONText
-
-instance FromJSON CredentialProviderType where
-  parseJSON = parseJSONText "CredentialProviderType"
+{-# COMPLETE
+  SecretsManager,
+  CredentialProviderType'
+  #-}

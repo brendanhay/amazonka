@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns an array of reports.
 module Network.AWS.CodeBuild.BatchGetReports
-  ( -- * Creating a Request
-    batchGetReports,
-    BatchGetReports,
+  ( -- * Creating a request
+    BatchGetReports (..),
+    mkBatchGetReports,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgrReportARNs,
 
-    -- * Destructuring the Response
-    batchGetReportsResponse,
-    BatchGetReportsResponse,
+    -- * Destructuring the response
+    BatchGetReportsResponse (..),
+    mkBatchGetReportsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgrrsReports,
     bgrrsReportsNotFound,
     bgrrsResponseStatus,
@@ -38,110 +33,126 @@ module Network.AWS.CodeBuild.BatchGetReports
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetReports' smart constructor.
+-- | /See:/ 'mkBatchGetReports' smart constructor.
 newtype BatchGetReports = BatchGetReports'
-  { _bgrReportARNs ::
-      List1 Text
+  { reportARNs ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetReports' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgrReportARNs' - An array of ARNs that identify the @Report@ objects to return.
-batchGetReports ::
-  -- | 'bgrReportARNs'
-  NonEmpty Text ->
+-- * 'reportARNs' - An array of ARNs that identify the @Report@ objects to return.
+mkBatchGetReports ::
+  -- | 'reportARNs'
+  Lude.NonEmpty Lude.Text ->
   BatchGetReports
-batchGetReports pReportARNs_ =
-  BatchGetReports' {_bgrReportARNs = _List1 # pReportARNs_}
+mkBatchGetReports pReportARNs_ =
+  BatchGetReports' {reportARNs = pReportARNs_}
 
 -- | An array of ARNs that identify the @Report@ objects to return.
-bgrReportARNs :: Lens' BatchGetReports (NonEmpty Text)
-bgrReportARNs = lens _bgrReportARNs (\s a -> s {_bgrReportARNs = a}) . _List1
+--
+-- /Note:/ Consider using 'reportARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgrReportARNs :: Lens.Lens' BatchGetReports (Lude.NonEmpty Lude.Text)
+bgrReportARNs = Lens.lens (reportARNs :: BatchGetReports -> Lude.NonEmpty Lude.Text) (\s a -> s {reportARNs = a} :: BatchGetReports)
+{-# DEPRECATED bgrReportARNs "Use generic-lens or generic-optics with 'reportARNs' instead." #-}
 
-instance AWSRequest BatchGetReports where
+instance Lude.AWSRequest BatchGetReports where
   type Rs BatchGetReports = BatchGetReportsResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetReportsResponse'
-            <$> (x .?> "reports")
-            <*> (x .?> "reportsNotFound")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "reports")
+            Lude.<*> (x Lude..?> "reportsNotFound")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetReports
-
-instance NFData BatchGetReports
-
-instance ToHeaders BatchGetReports where
+instance Lude.ToHeaders BatchGetReports where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.BatchGetReports" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.BatchGetReports" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetReports where
+instance Lude.ToJSON BatchGetReports where
   toJSON BatchGetReports' {..} =
-    object (catMaybes [Just ("reportArns" .= _bgrReportARNs)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("reportArns" Lude..= reportARNs)])
 
-instance ToPath BatchGetReports where
-  toPath = const "/"
+instance Lude.ToPath BatchGetReports where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetReports where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetReports where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetReportsResponse' smart constructor.
+-- | /See:/ 'mkBatchGetReportsResponse' smart constructor.
 data BatchGetReportsResponse = BatchGetReportsResponse'
-  { _bgrrsReports ::
-      !(Maybe (List1 Report)),
-    _bgrrsReportsNotFound ::
-      !(Maybe (List1 Text)),
-    _bgrrsResponseStatus :: !Int
+  { reports ::
+      Lude.Maybe (Lude.NonEmpty Report),
+    reportsNotFound ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetReportsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgrrsReports' - The array of @Report@ objects returned by @BatchGetReports@ .
---
--- * 'bgrrsReportsNotFound' - An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @Report@ .
---
--- * 'bgrrsResponseStatus' - -- | The response status code.
-batchGetReportsResponse ::
-  -- | 'bgrrsResponseStatus'
-  Int ->
+-- * 'reports' - The array of @Report@ objects returned by @BatchGetReports@ .
+-- * 'reportsNotFound' - An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @Report@ .
+-- * 'responseStatus' - The response status code.
+mkBatchGetReportsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetReportsResponse
-batchGetReportsResponse pResponseStatus_ =
+mkBatchGetReportsResponse pResponseStatus_ =
   BatchGetReportsResponse'
-    { _bgrrsReports = Nothing,
-      _bgrrsReportsNotFound = Nothing,
-      _bgrrsResponseStatus = pResponseStatus_
+    { reports = Lude.Nothing,
+      reportsNotFound = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The array of @Report@ objects returned by @BatchGetReports@ .
-bgrrsReports :: Lens' BatchGetReportsResponse (Maybe (NonEmpty Report))
-bgrrsReports = lens _bgrrsReports (\s a -> s {_bgrrsReports = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'reports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgrrsReports :: Lens.Lens' BatchGetReportsResponse (Lude.Maybe (Lude.NonEmpty Report))
+bgrrsReports = Lens.lens (reports :: BatchGetReportsResponse -> Lude.Maybe (Lude.NonEmpty Report)) (\s a -> s {reports = a} :: BatchGetReportsResponse)
+{-# DEPRECATED bgrrsReports "Use generic-lens or generic-optics with 'reports' instead." #-}
 
 -- | An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @Report@ .
-bgrrsReportsNotFound :: Lens' BatchGetReportsResponse (Maybe (NonEmpty Text))
-bgrrsReportsNotFound = lens _bgrrsReportsNotFound (\s a -> s {_bgrrsReportsNotFound = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'reportsNotFound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgrrsReportsNotFound :: Lens.Lens' BatchGetReportsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+bgrrsReportsNotFound = Lens.lens (reportsNotFound :: BatchGetReportsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {reportsNotFound = a} :: BatchGetReportsResponse)
+{-# DEPRECATED bgrrsReportsNotFound "Use generic-lens or generic-optics with 'reportsNotFound' instead." #-}
 
--- | -- | The response status code.
-bgrrsResponseStatus :: Lens' BatchGetReportsResponse Int
-bgrrsResponseStatus = lens _bgrrsResponseStatus (\s a -> s {_bgrrsResponseStatus = a})
-
-instance NFData BatchGetReportsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgrrsResponseStatus :: Lens.Lens' BatchGetReportsResponse Lude.Int
+bgrrsResponseStatus = Lens.lens (responseStatus :: BatchGetReportsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetReportsResponse)
+{-# DEPRECATED bgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

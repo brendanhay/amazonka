@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.CommandFilterKey where
+module Network.AWS.SSM.Types.CommandFilterKey
+  ( CommandFilterKey
+      ( CommandFilterKey',
+        CommandDocumentName,
+        CommandExecutionStage,
+        CommandInvokedAfter,
+        CommandInvokedBefore,
+        CommandStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CommandFilterKey
-  = CommandDocumentName
-  | CommandExecutionStage
-  | CommandInvokedAfter
-  | CommandInvokedBefore
-  | CommandStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CommandFilterKey = CommandFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CommandFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "documentname" -> pure CommandDocumentName
-      "executionstage" -> pure CommandExecutionStage
-      "invokedafter" -> pure CommandInvokedAfter
-      "invokedbefore" -> pure CommandInvokedBefore
-      "status" -> pure CommandStatus
-      e ->
-        fromTextError $
-          "Failure parsing CommandFilterKey from value: '" <> e
-            <> "'. Accepted values: documentname, executionstage, invokedafter, invokedbefore, status"
+pattern CommandDocumentName :: CommandFilterKey
+pattern CommandDocumentName = CommandFilterKey' "DocumentName"
 
-instance ToText CommandFilterKey where
-  toText = \case
-    CommandDocumentName -> "DocumentName"
-    CommandExecutionStage -> "ExecutionStage"
-    CommandInvokedAfter -> "InvokedAfter"
-    CommandInvokedBefore -> "InvokedBefore"
-    CommandStatus -> "Status"
+pattern CommandExecutionStage :: CommandFilterKey
+pattern CommandExecutionStage = CommandFilterKey' "ExecutionStage"
 
-instance Hashable CommandFilterKey
+pattern CommandInvokedAfter :: CommandFilterKey
+pattern CommandInvokedAfter = CommandFilterKey' "InvokedAfter"
 
-instance NFData CommandFilterKey
+pattern CommandInvokedBefore :: CommandFilterKey
+pattern CommandInvokedBefore = CommandFilterKey' "InvokedBefore"
 
-instance ToByteString CommandFilterKey
+pattern CommandStatus :: CommandFilterKey
+pattern CommandStatus = CommandFilterKey' "Status"
 
-instance ToQuery CommandFilterKey
-
-instance ToHeader CommandFilterKey
-
-instance ToJSON CommandFilterKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  CommandDocumentName,
+  CommandExecutionStage,
+  CommandInvokedAfter,
+  CommandInvokedBefore,
+  CommandStatus,
+  CommandFilterKey'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.CustomerNodeEndpoint where
+module Network.AWS.ElastiCache.Types.CustomerNodeEndpoint
+  ( CustomerNodeEndpoint (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCustomerNodeEndpoint,
+
+    -- * Lenses
+    cneAddress,
+    cnePort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The endpoint from which data should be migrated.
 --
---
---
--- /See:/ 'customerNodeEndpoint' smart constructor.
+-- /See:/ 'mkCustomerNodeEndpoint' smart constructor.
 data CustomerNodeEndpoint = CustomerNodeEndpoint'
-  { _cneAddress ::
-      !(Maybe Text),
-    _cnePort :: !(Maybe Int)
+  { address ::
+      Lude.Maybe Lude.Text,
+    port :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomerNodeEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cneAddress' - The address of the node endpoint
---
--- * 'cnePort' - The port of the node endpoint
-customerNodeEndpoint ::
+-- * 'address' - The address of the node endpoint
+-- * 'port' - The port of the node endpoint
+mkCustomerNodeEndpoint ::
   CustomerNodeEndpoint
-customerNodeEndpoint =
-  CustomerNodeEndpoint' {_cneAddress = Nothing, _cnePort = Nothing}
+mkCustomerNodeEndpoint =
+  CustomerNodeEndpoint'
+    { address = Lude.Nothing,
+      port = Lude.Nothing
+    }
 
 -- | The address of the node endpoint
-cneAddress :: Lens' CustomerNodeEndpoint (Maybe Text)
-cneAddress = lens _cneAddress (\s a -> s {_cneAddress = a})
+--
+-- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cneAddress :: Lens.Lens' CustomerNodeEndpoint (Lude.Maybe Lude.Text)
+cneAddress = Lens.lens (address :: CustomerNodeEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: CustomerNodeEndpoint)
+{-# DEPRECATED cneAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | The port of the node endpoint
-cnePort :: Lens' CustomerNodeEndpoint (Maybe Int)
-cnePort = lens _cnePort (\s a -> s {_cnePort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnePort :: Lens.Lens' CustomerNodeEndpoint (Lude.Maybe Lude.Int)
+cnePort = Lens.lens (port :: CustomerNodeEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: CustomerNodeEndpoint)
+{-# DEPRECATED cnePort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Hashable CustomerNodeEndpoint
-
-instance NFData CustomerNodeEndpoint
-
-instance ToQuery CustomerNodeEndpoint where
+instance Lude.ToQuery CustomerNodeEndpoint where
   toQuery CustomerNodeEndpoint' {..} =
-    mconcat ["Address" =: _cneAddress, "Port" =: _cnePort]
+    Lude.mconcat ["Address" Lude.=: address, "Port" Lude.=: port]

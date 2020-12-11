@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CatalogEncryptionMode where
+module Network.AWS.Glue.Types.CatalogEncryptionMode
+  ( CatalogEncryptionMode
+      ( CatalogEncryptionMode',
+        CEMDisabled,
+        CEMSseKMS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CatalogEncryptionMode
-  = CEMDisabled
-  | CEMSseKMS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CatalogEncryptionMode = CatalogEncryptionMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CatalogEncryptionMode where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure CEMDisabled
-      "sse-kms" -> pure CEMSseKMS
-      e ->
-        fromTextError $
-          "Failure parsing CatalogEncryptionMode from value: '" <> e
-            <> "'. Accepted values: disabled, sse-kms"
+pattern CEMDisabled :: CatalogEncryptionMode
+pattern CEMDisabled = CatalogEncryptionMode' "DISABLED"
 
-instance ToText CatalogEncryptionMode where
-  toText = \case
-    CEMDisabled -> "DISABLED"
-    CEMSseKMS -> "SSE-KMS"
+pattern CEMSseKMS :: CatalogEncryptionMode
+pattern CEMSseKMS = CatalogEncryptionMode' "SSE-KMS"
 
-instance Hashable CatalogEncryptionMode
-
-instance NFData CatalogEncryptionMode
-
-instance ToByteString CatalogEncryptionMode
-
-instance ToQuery CatalogEncryptionMode
-
-instance ToHeader CatalogEncryptionMode
-
-instance ToJSON CatalogEncryptionMode where
-  toJSON = toJSONText
-
-instance FromJSON CatalogEncryptionMode where
-  parseJSON = parseJSONText "CatalogEncryptionMode"
+{-# COMPLETE
+  CEMDisabled,
+  CEMSseKMS,
+  CatalogEncryptionMode'
+  #-}

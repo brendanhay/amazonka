@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,156 @@
 --
 -- Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.
 --
---
 -- You can use 'DescribeLoadBalancers' to verify that the instance is deregistered from the load balancer.
---
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html Register or De-Register EC2 Instances> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-  ( -- * Creating a Request
-    deregisterInstancesFromLoadBalancer,
-    DeregisterInstancesFromLoadBalancer,
+  ( -- * Creating a request
+    DeregisterInstancesFromLoadBalancer (..),
+    mkDeregisterInstancesFromLoadBalancer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diflbLoadBalancerName,
     diflbInstances,
 
-    -- * Destructuring the Response
-    deregisterInstancesFromLoadBalancerResponse,
-    DeregisterInstancesFromLoadBalancerResponse,
+    -- * Destructuring the response
+    DeregisterInstancesFromLoadBalancerResponse (..),
+    mkDeregisterInstancesFromLoadBalancerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diflbrsInstances,
     diflbrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DeregisterInstancesFromLoadBalancer.
 --
---
---
--- /See:/ 'deregisterInstancesFromLoadBalancer' smart constructor.
+-- /See:/ 'mkDeregisterInstancesFromLoadBalancer' smart constructor.
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
-  { _diflbLoadBalancerName ::
-      !Text,
-    _diflbInstances ::
-      ![Instance]
+  { loadBalancerName ::
+      Lude.Text,
+    instances ::
+      [Instance]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstancesFromLoadBalancer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diflbLoadBalancerName' - The name of the load balancer.
---
--- * 'diflbInstances' - The IDs of the instances.
-deregisterInstancesFromLoadBalancer ::
-  -- | 'diflbLoadBalancerName'
-  Text ->
+-- * 'instances' - The IDs of the instances.
+-- * 'loadBalancerName' - The name of the load balancer.
+mkDeregisterInstancesFromLoadBalancer ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
   DeregisterInstancesFromLoadBalancer
-deregisterInstancesFromLoadBalancer pLoadBalancerName_ =
+mkDeregisterInstancesFromLoadBalancer pLoadBalancerName_ =
   DeregisterInstancesFromLoadBalancer'
-    { _diflbLoadBalancerName =
+    { loadBalancerName =
         pLoadBalancerName_,
-      _diflbInstances = mempty
+      instances = Lude.mempty
     }
 
 -- | The name of the load balancer.
-diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
-diflbLoadBalancerName = lens _diflbLoadBalancerName (\s a -> s {_diflbLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diflbLoadBalancerName :: Lens.Lens' DeregisterInstancesFromLoadBalancer Lude.Text
+diflbLoadBalancerName = Lens.lens (loadBalancerName :: DeregisterInstancesFromLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DeregisterInstancesFromLoadBalancer)
+{-# DEPRECATED diflbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The IDs of the instances.
-diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
-diflbInstances = lens _diflbInstances (\s a -> s {_diflbInstances = a}) . _Coerce
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diflbInstances :: Lens.Lens' DeregisterInstancesFromLoadBalancer [Instance]
+diflbInstances = Lens.lens (instances :: DeregisterInstancesFromLoadBalancer -> [Instance]) (\s a -> s {instances = a} :: DeregisterInstancesFromLoadBalancer)
+{-# DEPRECATED diflbInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
-instance AWSRequest DeregisterInstancesFromLoadBalancer where
+instance Lude.AWSRequest DeregisterInstancesFromLoadBalancer where
   type
     Rs DeregisterInstancesFromLoadBalancer =
       DeregisterInstancesFromLoadBalancerResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeregisterInstancesFromLoadBalancerResult"
       ( \s h x ->
           DeregisterInstancesFromLoadBalancerResponse'
-            <$> (x .@? "Instances" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Instances" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterInstancesFromLoadBalancer
+instance Lude.ToHeaders DeregisterInstancesFromLoadBalancer where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeregisterInstancesFromLoadBalancer
+instance Lude.ToPath DeregisterInstancesFromLoadBalancer where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeregisterInstancesFromLoadBalancer where
-  toHeaders = const mempty
-
-instance ToPath DeregisterInstancesFromLoadBalancer where
-  toPath = const "/"
-
-instance ToQuery DeregisterInstancesFromLoadBalancer where
+instance Lude.ToQuery DeregisterInstancesFromLoadBalancer where
   toQuery DeregisterInstancesFromLoadBalancer' {..} =
-    mconcat
-      [ "Action" =: ("DeregisterInstancesFromLoadBalancer" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _diflbLoadBalancerName,
-        "Instances" =: toQueryList "member" _diflbInstances
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeregisterInstancesFromLoadBalancer" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
+        "Instances" Lude.=: Lude.toQueryList "member" instances
       ]
 
 -- | Contains the output of DeregisterInstancesFromLoadBalancer.
 --
---
---
--- /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
+-- /See:/ 'mkDeregisterInstancesFromLoadBalancerResponse' smart constructor.
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
-  { _diflbrsInstances ::
-      !( Maybe
-           [Instance]
-       ),
-    _diflbrsResponseStatus ::
-      !Int
+  { instances ::
+      Lude.Maybe
+        [Instance],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstancesFromLoadBalancerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diflbrsInstances' - The remaining instances registered with the load balancer.
---
--- * 'diflbrsResponseStatus' - -- | The response status code.
-deregisterInstancesFromLoadBalancerResponse ::
-  -- | 'diflbrsResponseStatus'
-  Int ->
+-- * 'instances' - The remaining instances registered with the load balancer.
+-- * 'responseStatus' - The response status code.
+mkDeregisterInstancesFromLoadBalancerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterInstancesFromLoadBalancerResponse
-deregisterInstancesFromLoadBalancerResponse pResponseStatus_ =
+mkDeregisterInstancesFromLoadBalancerResponse pResponseStatus_ =
   DeregisterInstancesFromLoadBalancerResponse'
-    { _diflbrsInstances =
-        Nothing,
-      _diflbrsResponseStatus = pResponseStatus_
+    { instances =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The remaining instances registered with the load balancer.
-diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
-diflbrsInstances = lens _diflbrsInstances (\s a -> s {_diflbrsInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diflbrsInstances :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse (Lude.Maybe [Instance])
+diflbrsInstances = Lens.lens (instances :: DeregisterInstancesFromLoadBalancerResponse -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: DeregisterInstancesFromLoadBalancerResponse)
+{-# DEPRECATED diflbrsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
--- | -- | The response status code.
-diflbrsResponseStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
-diflbrsResponseStatus = lens _diflbrsResponseStatus (\s a -> s {_diflbrsResponseStatus = a})
-
-instance NFData DeregisterInstancesFromLoadBalancerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diflbrsResponseStatus :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse Lude.Int
+diflbrsResponseStatus = Lens.lens (responseStatus :: DeregisterInstancesFromLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterInstancesFromLoadBalancerResponse)
+{-# DEPRECATED diflbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

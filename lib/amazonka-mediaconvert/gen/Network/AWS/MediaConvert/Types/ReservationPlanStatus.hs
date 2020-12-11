@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.ReservationPlanStatus where
+module Network.AWS.MediaConvert.Types.ReservationPlanStatus
+  ( ReservationPlanStatus
+      ( ReservationPlanStatus',
+        Active,
+        Expired
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.
-data ReservationPlanStatus
-  = Active
-  | Expired
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReservationPlanStatus = ReservationPlanStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReservationPlanStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "expired" -> pure Expired
-      e ->
-        fromTextError $
-          "Failure parsing ReservationPlanStatus from value: '" <> e
-            <> "'. Accepted values: active, expired"
+pattern Active :: ReservationPlanStatus
+pattern Active = ReservationPlanStatus' "ACTIVE"
 
-instance ToText ReservationPlanStatus where
-  toText = \case
-    Active -> "ACTIVE"
-    Expired -> "EXPIRED"
+pattern Expired :: ReservationPlanStatus
+pattern Expired = ReservationPlanStatus' "EXPIRED"
 
-instance Hashable ReservationPlanStatus
-
-instance NFData ReservationPlanStatus
-
-instance ToByteString ReservationPlanStatus
-
-instance ToQuery ReservationPlanStatus
-
-instance ToHeader ReservationPlanStatus
-
-instance FromJSON ReservationPlanStatus where
-  parseJSON = parseJSONText "ReservationPlanStatus"
+{-# COMPLETE
+  Active,
+  Expired,
+  ReservationPlanStatus'
+  #-}

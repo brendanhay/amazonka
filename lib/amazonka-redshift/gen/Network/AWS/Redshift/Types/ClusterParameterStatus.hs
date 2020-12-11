@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,128 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ClusterParameterStatus where
+module Network.AWS.Redshift.Types.ClusterParameterStatus
+  ( ClusterParameterStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClusterParameterStatus,
+
+    -- * Lenses
+    cpsParameterApplyErrorDescription,
+    cpsParameterName,
+    cpsParameterApplyStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes the status of a parameter group.
 --
---
---
--- /See:/ 'clusterParameterStatus' smart constructor.
+-- /See:/ 'mkClusterParameterStatus' smart constructor.
 data ClusterParameterStatus = ClusterParameterStatus'
-  { _cpsParameterApplyErrorDescription ::
-      !(Maybe Text),
-    _cpsParameterName :: !(Maybe Text),
-    _cpsParameterApplyStatus :: !(Maybe Text)
+  { parameterApplyErrorDescription ::
+      Lude.Maybe Lude.Text,
+    parameterName :: Lude.Maybe Lude.Text,
+    parameterApplyStatus :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterParameterStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'parameterApplyErrorDescription' - The error that prevented the parameter from being applied to the database.
+-- * 'parameterApplyStatus' - The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied.
 --
--- * 'cpsParameterApplyErrorDescription' - The error that prevented the parameter from being applied to the database.
+-- The following are possible statuses and descriptions.
 --
--- * 'cpsParameterName' - The name of the parameter.
+--     * @in-sync@ : The parameter value is in sync with the database.
 --
--- * 'cpsParameterApplyStatus' - The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied. The following are possible statuses and descriptions.     * @in-sync@ : The parameter value is in sync with the database.     * @pending-reboot@ : The parameter value will be applied after the cluster reboots.     * @applying@ : The parameter value is being applied to the database.     * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.     * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.     * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
-clusterParameterStatus ::
+--
+--     * @pending-reboot@ : The parameter value will be applied after the cluster reboots.
+--
+--
+--     * @applying@ : The parameter value is being applied to the database.
+--
+--
+--     * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.
+--
+--
+--     * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.
+--
+--
+--     * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.
+--
+--
+--     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
+--
+--
+-- * 'parameterName' - The name of the parameter.
+mkClusterParameterStatus ::
   ClusterParameterStatus
-clusterParameterStatus =
+mkClusterParameterStatus =
   ClusterParameterStatus'
-    { _cpsParameterApplyErrorDescription =
-        Nothing,
-      _cpsParameterName = Nothing,
-      _cpsParameterApplyStatus = Nothing
+    { parameterApplyErrorDescription =
+        Lude.Nothing,
+      parameterName = Lude.Nothing,
+      parameterApplyStatus = Lude.Nothing
     }
 
 -- | The error that prevented the parameter from being applied to the database.
-cpsParameterApplyErrorDescription :: Lens' ClusterParameterStatus (Maybe Text)
-cpsParameterApplyErrorDescription = lens _cpsParameterApplyErrorDescription (\s a -> s {_cpsParameterApplyErrorDescription = a})
+--
+-- /Note:/ Consider using 'parameterApplyErrorDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsParameterApplyErrorDescription :: Lens.Lens' ClusterParameterStatus (Lude.Maybe Lude.Text)
+cpsParameterApplyErrorDescription = Lens.lens (parameterApplyErrorDescription :: ClusterParameterStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyErrorDescription = a} :: ClusterParameterStatus)
+{-# DEPRECATED cpsParameterApplyErrorDescription "Use generic-lens or generic-optics with 'parameterApplyErrorDescription' instead." #-}
 
 -- | The name of the parameter.
-cpsParameterName :: Lens' ClusterParameterStatus (Maybe Text)
-cpsParameterName = lens _cpsParameterName (\s a -> s {_cpsParameterName = a})
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsParameterName :: Lens.Lens' ClusterParameterStatus (Lude.Maybe Lude.Text)
+cpsParameterName = Lens.lens (parameterName :: ClusterParameterStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: ClusterParameterStatus)
+{-# DEPRECATED cpsParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
--- | The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied. The following are possible statuses and descriptions.     * @in-sync@ : The parameter value is in sync with the database.     * @pending-reboot@ : The parameter value will be applied after the cluster reboots.     * @applying@ : The parameter value is being applied to the database.     * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.     * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.     * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
-cpsParameterApplyStatus :: Lens' ClusterParameterStatus (Maybe Text)
-cpsParameterApplyStatus = lens _cpsParameterApplyStatus (\s a -> s {_cpsParameterApplyStatus = a})
+-- | The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied.
+--
+-- The following are possible statuses and descriptions.
+--
+--     * @in-sync@ : The parameter value is in sync with the database.
+--
+--
+--     * @pending-reboot@ : The parameter value will be applied after the cluster reboots.
+--
+--
+--     * @applying@ : The parameter value is being applied to the database.
+--
+--
+--     * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.
+--
+--
+--     * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.
+--
+--
+--     * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.
+--
+--
+--     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
+--
+--
+--
+-- /Note:/ Consider using 'parameterApplyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsParameterApplyStatus :: Lens.Lens' ClusterParameterStatus (Lude.Maybe Lude.Text)
+cpsParameterApplyStatus = Lens.lens (parameterApplyStatus :: ClusterParameterStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyStatus = a} :: ClusterParameterStatus)
+{-# DEPRECATED cpsParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
 
-instance FromXML ClusterParameterStatus where
+instance Lude.FromXML ClusterParameterStatus where
   parseXML x =
     ClusterParameterStatus'
-      <$> (x .@? "ParameterApplyErrorDescription")
-      <*> (x .@? "ParameterName")
-      <*> (x .@? "ParameterApplyStatus")
-
-instance Hashable ClusterParameterStatus
-
-instance NFData ClusterParameterStatus
+      Lude.<$> (x Lude..@? "ParameterApplyErrorDescription")
+      Lude.<*> (x Lude..@? "ParameterName")
+      Lude.<*> (x Lude..@? "ParameterApplyStatus")

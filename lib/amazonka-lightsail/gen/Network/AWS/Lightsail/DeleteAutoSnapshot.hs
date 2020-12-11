@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,148 @@
 --
 -- Deletes an automatic snapshot of an instance or disk. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
 module Network.AWS.Lightsail.DeleteAutoSnapshot
-  ( -- * Creating a Request
-    deleteAutoSnapshot,
-    DeleteAutoSnapshot,
+  ( -- * Creating a request
+    DeleteAutoSnapshot (..),
+    mkDeleteAutoSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dasResourceName,
     dasDate,
 
-    -- * Destructuring the Response
-    deleteAutoSnapshotResponse,
-    DeleteAutoSnapshotResponse,
+    -- * Destructuring the response
+    DeleteAutoSnapshotResponse (..),
+    mkDeleteAutoSnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dasrsOperations,
     dasrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAutoSnapshot' smart constructor.
+-- | /See:/ 'mkDeleteAutoSnapshot' smart constructor.
 data DeleteAutoSnapshot = DeleteAutoSnapshot'
-  { _dasResourceName ::
-      !Text,
-    _dasDate :: !Text
+  { resourceName ::
+      Lude.Text,
+    date :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAutoSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dasResourceName' - The name of the source instance or disk from which to delete the automatic snapshot.
---
--- * 'dasDate' - The date of the automatic snapshot to delete in @YYYY-MM-DD@ format. Use the @get auto snapshots@ operation to get the available automatic snapshots for a resource.
-deleteAutoSnapshot ::
-  -- | 'dasResourceName'
-  Text ->
-  -- | 'dasDate'
-  Text ->
+-- * 'date' - The date of the automatic snapshot to delete in @YYYY-MM-DD@ format. Use the @get auto snapshots@ operation to get the available automatic snapshots for a resource.
+-- * 'resourceName' - The name of the source instance or disk from which to delete the automatic snapshot.
+mkDeleteAutoSnapshot ::
+  -- | 'resourceName'
+  Lude.Text ->
+  -- | 'date'
+  Lude.Text ->
   DeleteAutoSnapshot
-deleteAutoSnapshot pResourceName_ pDate_ =
-  DeleteAutoSnapshot'
-    { _dasResourceName = pResourceName_,
-      _dasDate = pDate_
-    }
+mkDeleteAutoSnapshot pResourceName_ pDate_ =
+  DeleteAutoSnapshot' {resourceName = pResourceName_, date = pDate_}
 
 -- | The name of the source instance or disk from which to delete the automatic snapshot.
-dasResourceName :: Lens' DeleteAutoSnapshot Text
-dasResourceName = lens _dasResourceName (\s a -> s {_dasResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasResourceName :: Lens.Lens' DeleteAutoSnapshot Lude.Text
+dasResourceName = Lens.lens (resourceName :: DeleteAutoSnapshot -> Lude.Text) (\s a -> s {resourceName = a} :: DeleteAutoSnapshot)
+{-# DEPRECATED dasResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The date of the automatic snapshot to delete in @YYYY-MM-DD@ format. Use the @get auto snapshots@ operation to get the available automatic snapshots for a resource.
-dasDate :: Lens' DeleteAutoSnapshot Text
-dasDate = lens _dasDate (\s a -> s {_dasDate = a})
+--
+-- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasDate :: Lens.Lens' DeleteAutoSnapshot Lude.Text
+dasDate = Lens.lens (date :: DeleteAutoSnapshot -> Lude.Text) (\s a -> s {date = a} :: DeleteAutoSnapshot)
+{-# DEPRECATED dasDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
-instance AWSRequest DeleteAutoSnapshot where
+instance Lude.AWSRequest DeleteAutoSnapshot where
   type Rs DeleteAutoSnapshot = DeleteAutoSnapshotResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteAutoSnapshotResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteAutoSnapshot
-
-instance NFData DeleteAutoSnapshot
-
-instance ToHeaders DeleteAutoSnapshot where
+instance Lude.ToHeaders DeleteAutoSnapshot where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.DeleteAutoSnapshot" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.DeleteAutoSnapshot" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteAutoSnapshot where
+instance Lude.ToJSON DeleteAutoSnapshot where
   toJSON DeleteAutoSnapshot' {..} =
-    object
-      ( catMaybes
-          [ Just ("resourceName" .= _dasResourceName),
-            Just ("date" .= _dasDate)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("resourceName" Lude..= resourceName),
+            Lude.Just ("date" Lude..= date)
           ]
       )
 
-instance ToPath DeleteAutoSnapshot where
-  toPath = const "/"
+instance Lude.ToPath DeleteAutoSnapshot where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteAutoSnapshot where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAutoSnapshot where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAutoSnapshotResponse' smart constructor.
+-- | /See:/ 'mkDeleteAutoSnapshotResponse' smart constructor.
 data DeleteAutoSnapshotResponse = DeleteAutoSnapshotResponse'
-  { _dasrsOperations ::
-      !(Maybe [Operation]),
-    _dasrsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAutoSnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dasrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'dasrsResponseStatus' - -- | The response status code.
-deleteAutoSnapshotResponse ::
-  -- | 'dasrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteAutoSnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAutoSnapshotResponse
-deleteAutoSnapshotResponse pResponseStatus_ =
+mkDeleteAutoSnapshotResponse pResponseStatus_ =
   DeleteAutoSnapshotResponse'
-    { _dasrsOperations = Nothing,
-      _dasrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-dasrsOperations :: Lens' DeleteAutoSnapshotResponse [Operation]
-dasrsOperations = lens _dasrsOperations (\s a -> s {_dasrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasrsOperations :: Lens.Lens' DeleteAutoSnapshotResponse (Lude.Maybe [Operation])
+dasrsOperations = Lens.lens (operations :: DeleteAutoSnapshotResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteAutoSnapshotResponse)
+{-# DEPRECATED dasrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-dasrsResponseStatus :: Lens' DeleteAutoSnapshotResponse Int
-dasrsResponseStatus = lens _dasrsResponseStatus (\s a -> s {_dasrsResponseStatus = a})
-
-instance NFData DeleteAutoSnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasrsResponseStatus :: Lens.Lens' DeleteAutoSnapshotResponse Lude.Int
+dasrsResponseStatus = Lens.lens (responseStatus :: DeleteAutoSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAutoSnapshotResponse)
+{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

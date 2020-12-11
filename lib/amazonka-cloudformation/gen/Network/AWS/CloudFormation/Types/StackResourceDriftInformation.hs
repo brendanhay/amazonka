@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackResourceDriftInformation where
+module Network.AWS.CloudFormation.Types.StackResourceDriftInformation
+  ( StackResourceDriftInformation (..),
+
+    -- * Smart constructor
+    mkStackResourceDriftInformation,
+
+    -- * Lenses
+    srdiLastCheckTimestamp,
+    srdiStackResourceDriftStatus,
+  )
+where
 
 import Network.AWS.CloudFormation.Types.StackResourceDriftStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about whether the resource's actual configuration differs, or has /drifted/ , from its expected configuration.
 --
---
---
--- /See:/ 'stackResourceDriftInformation' smart constructor.
+-- /See:/ 'mkStackResourceDriftInformation' smart constructor.
 data StackResourceDriftInformation = StackResourceDriftInformation'
-  { _srdiLastCheckTimestamp ::
-      !(Maybe ISO8601),
-    _srdiStackResourceDriftStatus ::
-      !StackResourceDriftStatus
+  { lastCheckTimestamp ::
+      Lude.Maybe Lude.ISO8601,
+    stackResourceDriftStatus ::
+      StackResourceDriftStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackResourceDriftInformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'lastCheckTimestamp' - When AWS CloudFormation last checked if the resource had drifted from its expected configuration.
+-- * 'stackResourceDriftStatus' - Status of the resource's actual configuration compared to its expected configuration
 --
--- * 'srdiLastCheckTimestamp' - When AWS CloudFormation last checked if the resource had drifted from its expected configuration.
 --
--- * 'srdiStackResourceDriftStatus' - Status of the resource's actual configuration compared to its expected configuration     * @DELETED@ : The resource differs from its expected configuration in that it has been deleted.     * @MODIFIED@ : The resource differs from its expected configuration.     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of @NOT_CHECKED@ . For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection> .      * @IN_SYNC@ : The resources's actual configuration matches its expected configuration.
-stackResourceDriftInformation ::
-  -- | 'srdiStackResourceDriftStatus'
+--     * @DELETED@ : The resource differs from its expected configuration in that it has been deleted.
+--
+--
+--     * @MODIFIED@ : The resource differs from its expected configuration.
+--
+--
+--     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the resource differs from its expected configuration.
+-- Any resources that do not currently support drift detection have a status of @NOT_CHECKED@ . For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection> .
+--
+--
+--     * @IN_SYNC@ : The resources's actual configuration matches its expected configuration.
+mkStackResourceDriftInformation ::
+  -- | 'stackResourceDriftStatus'
   StackResourceDriftStatus ->
   StackResourceDriftInformation
-stackResourceDriftInformation pStackResourceDriftStatus_ =
+mkStackResourceDriftInformation pStackResourceDriftStatus_ =
   StackResourceDriftInformation'
-    { _srdiLastCheckTimestamp = Nothing,
-      _srdiStackResourceDriftStatus = pStackResourceDriftStatus_
+    { lastCheckTimestamp = Lude.Nothing,
+      stackResourceDriftStatus = pStackResourceDriftStatus_
     }
 
 -- | When AWS CloudFormation last checked if the resource had drifted from its expected configuration.
-srdiLastCheckTimestamp :: Lens' StackResourceDriftInformation (Maybe UTCTime)
-srdiLastCheckTimestamp = lens _srdiLastCheckTimestamp (\s a -> s {_srdiLastCheckTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srdiLastCheckTimestamp :: Lens.Lens' StackResourceDriftInformation (Lude.Maybe Lude.ISO8601)
+srdiLastCheckTimestamp = Lens.lens (lastCheckTimestamp :: StackResourceDriftInformation -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastCheckTimestamp = a} :: StackResourceDriftInformation)
+{-# DEPRECATED srdiLastCheckTimestamp "Use generic-lens or generic-optics with 'lastCheckTimestamp' instead." #-}
 
--- | Status of the resource's actual configuration compared to its expected configuration     * @DELETED@ : The resource differs from its expected configuration in that it has been deleted.     * @MODIFIED@ : The resource differs from its expected configuration.     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the resource differs from its expected configuration. Any resources that do not currently support drift detection have a status of @NOT_CHECKED@ . For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection> .      * @IN_SYNC@ : The resources's actual configuration matches its expected configuration.
-srdiStackResourceDriftStatus :: Lens' StackResourceDriftInformation StackResourceDriftStatus
-srdiStackResourceDriftStatus = lens _srdiStackResourceDriftStatus (\s a -> s {_srdiStackResourceDriftStatus = a})
+-- | Status of the resource's actual configuration compared to its expected configuration
+--
+--
+--     * @DELETED@ : The resource differs from its expected configuration in that it has been deleted.
+--
+--
+--     * @MODIFIED@ : The resource differs from its expected configuration.
+--
+--
+--     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the resource differs from its expected configuration.
+-- Any resources that do not currently support drift detection have a status of @NOT_CHECKED@ . For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection> .
+--
+--
+--     * @IN_SYNC@ : The resources's actual configuration matches its expected configuration.
+--
+--
+--
+-- /Note:/ Consider using 'stackResourceDriftStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srdiStackResourceDriftStatus :: Lens.Lens' StackResourceDriftInformation StackResourceDriftStatus
+srdiStackResourceDriftStatus = Lens.lens (stackResourceDriftStatus :: StackResourceDriftInformation -> StackResourceDriftStatus) (\s a -> s {stackResourceDriftStatus = a} :: StackResourceDriftInformation)
+{-# DEPRECATED srdiStackResourceDriftStatus "Use generic-lens or generic-optics with 'stackResourceDriftStatus' instead." #-}
 
-instance FromXML StackResourceDriftInformation where
+instance Lude.FromXML StackResourceDriftInformation where
   parseXML x =
     StackResourceDriftInformation'
-      <$> (x .@? "LastCheckTimestamp") <*> (x .@ "StackResourceDriftStatus")
-
-instance Hashable StackResourceDriftInformation
-
-instance NFData StackResourceDriftInformation
+      Lude.<$> (x Lude..@? "LastCheckTimestamp")
+      Lude.<*> (x Lude..@ "StackResourceDriftStatus")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostAndUsageReport.Types.ReportFormat where
+module Network.AWS.CostAndUsageReport.Types.ReportFormat
+  ( ReportFormat
+      ( ReportFormat',
+        Parquet,
+        TextORcsv
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The format that AWS saves the report in.
-data ReportFormat
-  = Parquet
-  | TextORcsv
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReportFormat = ReportFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReportFormat where
-  parser =
-    takeLowerText >>= \case
-      "parquet" -> pure Parquet
-      "textorcsv" -> pure TextORcsv
-      e ->
-        fromTextError $
-          "Failure parsing ReportFormat from value: '" <> e
-            <> "'. Accepted values: parquet, textorcsv"
+pattern Parquet :: ReportFormat
+pattern Parquet = ReportFormat' "Parquet"
 
-instance ToText ReportFormat where
-  toText = \case
-    Parquet -> "Parquet"
-    TextORcsv -> "textORcsv"
+pattern TextORcsv :: ReportFormat
+pattern TextORcsv = ReportFormat' "textORcsv"
 
-instance Hashable ReportFormat
-
-instance NFData ReportFormat
-
-instance ToByteString ReportFormat
-
-instance ToQuery ReportFormat
-
-instance ToHeader ReportFormat
-
-instance ToJSON ReportFormat where
-  toJSON = toJSONText
-
-instance FromJSON ReportFormat where
-  parseJSON = parseJSONText "ReportFormat"
+{-# COMPLETE
+  Parquet,
+  TextORcsv,
+  ReportFormat'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,99 @@
 --
 -- Stops a training job. To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms might use this 120-second window to save the model artifacts, so the results of the training is not lost.
 --
---
 -- When it receives a @StopTrainingJob@ request, Amazon SageMaker changes the status of the job to @Stopping@ . After Amazon SageMaker stops the job, it sets the status to @Stopped@ .
 module Network.AWS.SageMaker.StopTrainingJob
-  ( -- * Creating a Request
-    stopTrainingJob,
-    StopTrainingJob,
+  ( -- * Creating a request
+    StopTrainingJob (..),
+    mkStopTrainingJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stjTrainingJobName,
 
-    -- * Destructuring the Response
-    stopTrainingJobResponse,
-    StopTrainingJobResponse,
+    -- * Destructuring the response
+    StopTrainingJobResponse (..),
+    mkStopTrainingJobResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'stopTrainingJob' smart constructor.
+-- | /See:/ 'mkStopTrainingJob' smart constructor.
 newtype StopTrainingJob = StopTrainingJob'
-  { _stjTrainingJobName ::
-      Text
+  { trainingJobName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTrainingJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stjTrainingJobName' - The name of the training job to stop.
-stopTrainingJob ::
-  -- | 'stjTrainingJobName'
-  Text ->
+-- * 'trainingJobName' - The name of the training job to stop.
+mkStopTrainingJob ::
+  -- | 'trainingJobName'
+  Lude.Text ->
   StopTrainingJob
-stopTrainingJob pTrainingJobName_ =
-  StopTrainingJob' {_stjTrainingJobName = pTrainingJobName_}
+mkStopTrainingJob pTrainingJobName_ =
+  StopTrainingJob' {trainingJobName = pTrainingJobName_}
 
 -- | The name of the training job to stop.
-stjTrainingJobName :: Lens' StopTrainingJob Text
-stjTrainingJobName = lens _stjTrainingJobName (\s a -> s {_stjTrainingJobName = a})
+--
+-- /Note:/ Consider using 'trainingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stjTrainingJobName :: Lens.Lens' StopTrainingJob Lude.Text
+stjTrainingJobName = Lens.lens (trainingJobName :: StopTrainingJob -> Lude.Text) (\s a -> s {trainingJobName = a} :: StopTrainingJob)
+{-# DEPRECATED stjTrainingJobName "Use generic-lens or generic-optics with 'trainingJobName' instead." #-}
 
-instance AWSRequest StopTrainingJob where
+instance Lude.AWSRequest StopTrainingJob where
   type Rs StopTrainingJob = StopTrainingJobResponse
-  request = postJSON sageMaker
-  response = receiveNull StopTrainingJobResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull StopTrainingJobResponse'
 
-instance Hashable StopTrainingJob
-
-instance NFData StopTrainingJob
-
-instance ToHeaders StopTrainingJob where
+instance Lude.ToHeaders StopTrainingJob where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.StopTrainingJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.StopTrainingJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopTrainingJob where
+instance Lude.ToJSON StopTrainingJob where
   toJSON StopTrainingJob' {..} =
-    object
-      (catMaybes [Just ("TrainingJobName" .= _stjTrainingJobName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("TrainingJobName" Lude..= trainingJobName)]
+      )
 
-instance ToPath StopTrainingJob where
-  toPath = const "/"
+instance Lude.ToPath StopTrainingJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StopTrainingJob where
-  toQuery = const mempty
+instance Lude.ToQuery StopTrainingJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopTrainingJobResponse' smart constructor.
+-- | /See:/ 'mkStopTrainingJobResponse' smart constructor.
 data StopTrainingJobResponse = StopTrainingJobResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTrainingJobResponse' with the minimum fields required to make a request.
-stopTrainingJobResponse ::
+mkStopTrainingJobResponse ::
   StopTrainingJobResponse
-stopTrainingJobResponse = StopTrainingJobResponse'
-
-instance NFData StopTrainingJobResponse
+mkStopTrainingJobResponse = StopTrainingJobResponse'

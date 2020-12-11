@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioSelectorType where
+module Network.AWS.MediaConvert.Types.AudioSelectorType
+  ( AudioSelectorType
+      ( AudioSelectorType',
+        LanguageCode,
+        Pid,
+        Track
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the type of the audio selector.
-data AudioSelectorType
-  = LanguageCode
-  | Pid
-  | Track
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioSelectorType = AudioSelectorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioSelectorType where
-  parser =
-    takeLowerText >>= \case
-      "language_code" -> pure LanguageCode
-      "pid" -> pure Pid
-      "track" -> pure Track
-      e ->
-        fromTextError $
-          "Failure parsing AudioSelectorType from value: '" <> e
-            <> "'. Accepted values: language_code, pid, track"
+pattern LanguageCode :: AudioSelectorType
+pattern LanguageCode = AudioSelectorType' "LANGUAGE_CODE"
 
-instance ToText AudioSelectorType where
-  toText = \case
-    LanguageCode -> "LANGUAGE_CODE"
-    Pid -> "PID"
-    Track -> "TRACK"
+pattern Pid :: AudioSelectorType
+pattern Pid = AudioSelectorType' "PID"
 
-instance Hashable AudioSelectorType
+pattern Track :: AudioSelectorType
+pattern Track = AudioSelectorType' "TRACK"
 
-instance NFData AudioSelectorType
-
-instance ToByteString AudioSelectorType
-
-instance ToQuery AudioSelectorType
-
-instance ToHeader AudioSelectorType
-
-instance ToJSON AudioSelectorType where
-  toJSON = toJSONText
-
-instance FromJSON AudioSelectorType where
-  parseJSON = parseJSONText "AudioSelectorType"
+{-# COMPLETE
+  LanguageCode,
+  Pid,
+  Track,
+  AudioSelectorType'
+  #-}

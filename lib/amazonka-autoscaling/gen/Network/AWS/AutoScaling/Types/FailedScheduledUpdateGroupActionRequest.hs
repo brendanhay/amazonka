@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest where
+module Network.AWS.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest
+  ( FailedScheduledUpdateGroupActionRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFailedScheduledUpdateGroupActionRequest,
+
+    -- * Lenses
+    fsugarErrorCode,
+    fsugarErrorMessage,
+    fsugarScheduledActionName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a scheduled action that could not be created, updated, or deleted.
 --
---
---
--- /See:/ 'failedScheduledUpdateGroupActionRequest' smart constructor.
+-- /See:/ 'mkFailedScheduledUpdateGroupActionRequest' smart constructor.
 data FailedScheduledUpdateGroupActionRequest = FailedScheduledUpdateGroupActionRequest'
-  { _fsugarErrorCode ::
-      !( Maybe
-           Text
-       ),
-    _fsugarErrorMessage ::
-      !( Maybe
-           Text
-       ),
-    _fsugarScheduledActionName ::
-      !Text
+  { errorCode ::
+      Lude.Maybe
+        Lude.Text,
+    errorMessage ::
+      Lude.Maybe
+        Lude.Text,
+    scheduledActionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedScheduledUpdateGroupActionRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fsugarErrorCode' - The error code.
---
--- * 'fsugarErrorMessage' - The error message accompanying the error code.
---
--- * 'fsugarScheduledActionName' - The name of the scheduled action.
-failedScheduledUpdateGroupActionRequest ::
-  -- | 'fsugarScheduledActionName'
-  Text ->
+-- * 'errorCode' - The error code.
+-- * 'errorMessage' - The error message accompanying the error code.
+-- * 'scheduledActionName' - The name of the scheduled action.
+mkFailedScheduledUpdateGroupActionRequest ::
+  -- | 'scheduledActionName'
+  Lude.Text ->
   FailedScheduledUpdateGroupActionRequest
-failedScheduledUpdateGroupActionRequest pScheduledActionName_ =
+mkFailedScheduledUpdateGroupActionRequest pScheduledActionName_ =
   FailedScheduledUpdateGroupActionRequest'
-    { _fsugarErrorCode =
-        Nothing,
-      _fsugarErrorMessage = Nothing,
-      _fsugarScheduledActionName = pScheduledActionName_
+    { errorCode =
+        Lude.Nothing,
+      errorMessage = Lude.Nothing,
+      scheduledActionName = pScheduledActionName_
     }
 
 -- | The error code.
-fsugarErrorCode :: Lens' FailedScheduledUpdateGroupActionRequest (Maybe Text)
-fsugarErrorCode = lens _fsugarErrorCode (\s a -> s {_fsugarErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsugarErrorCode :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Lude.Maybe Lude.Text)
+fsugarErrorCode = Lens.lens (errorCode :: FailedScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: FailedScheduledUpdateGroupActionRequest)
+{-# DEPRECATED fsugarErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message accompanying the error code.
-fsugarErrorMessage :: Lens' FailedScheduledUpdateGroupActionRequest (Maybe Text)
-fsugarErrorMessage = lens _fsugarErrorMessage (\s a -> s {_fsugarErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsugarErrorMessage :: Lens.Lens' FailedScheduledUpdateGroupActionRequest (Lude.Maybe Lude.Text)
+fsugarErrorMessage = Lens.lens (errorMessage :: FailedScheduledUpdateGroupActionRequest -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: FailedScheduledUpdateGroupActionRequest)
+{-# DEPRECATED fsugarErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The name of the scheduled action.
-fsugarScheduledActionName :: Lens' FailedScheduledUpdateGroupActionRequest Text
-fsugarScheduledActionName = lens _fsugarScheduledActionName (\s a -> s {_fsugarScheduledActionName = a})
+--
+-- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsugarScheduledActionName :: Lens.Lens' FailedScheduledUpdateGroupActionRequest Lude.Text
+fsugarScheduledActionName = Lens.lens (scheduledActionName :: FailedScheduledUpdateGroupActionRequest -> Lude.Text) (\s a -> s {scheduledActionName = a} :: FailedScheduledUpdateGroupActionRequest)
+{-# DEPRECATED fsugarScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
-instance FromXML FailedScheduledUpdateGroupActionRequest where
+instance Lude.FromXML FailedScheduledUpdateGroupActionRequest where
   parseXML x =
     FailedScheduledUpdateGroupActionRequest'
-      <$> (x .@? "ErrorCode")
-      <*> (x .@? "ErrorMessage")
-      <*> (x .@ "ScheduledActionName")
-
-instance Hashable FailedScheduledUpdateGroupActionRequest
-
-instance NFData FailedScheduledUpdateGroupActionRequest
+      Lude.<$> (x Lude..@? "ErrorCode")
+      Lude.<*> (x Lude..@? "ErrorMessage")
+      Lude.<*> (x Lude..@ "ScheduledActionName")

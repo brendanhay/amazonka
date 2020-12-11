@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,125 @@
 --
 -- Disassociates a connection alias from a directory. Disassociating a connection alias disables cross-Region redirection between two directories in different AWS Regions. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html Cross-Region Redirection for Amazon WorkSpaces> .
 module Network.AWS.WorkSpaces.DisassociateConnectionAlias
-  ( -- * Creating a Request
-    disassociateConnectionAlias,
-    DisassociateConnectionAlias,
+  ( -- * Creating a request
+    DisassociateConnectionAlias (..),
+    mkDisassociateConnectionAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcaAliasId,
 
-    -- * Destructuring the Response
-    disassociateConnectionAliasResponse,
-    DisassociateConnectionAliasResponse,
+    -- * Destructuring the response
+    DisassociateConnectionAliasResponse (..),
+    mkDisassociateConnectionAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcasrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'disassociateConnectionAlias' smart constructor.
+-- | /See:/ 'mkDisassociateConnectionAlias' smart constructor.
 newtype DisassociateConnectionAlias = DisassociateConnectionAlias'
-  { _dcaAliasId ::
-      Text
+  { aliasId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateConnectionAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcaAliasId' - The identifier of the connection alias to disassociate.
-disassociateConnectionAlias ::
-  -- | 'dcaAliasId'
-  Text ->
+-- * 'aliasId' - The identifier of the connection alias to disassociate.
+mkDisassociateConnectionAlias ::
+  -- | 'aliasId'
+  Lude.Text ->
   DisassociateConnectionAlias
-disassociateConnectionAlias pAliasId_ =
-  DisassociateConnectionAlias' {_dcaAliasId = pAliasId_}
+mkDisassociateConnectionAlias pAliasId_ =
+  DisassociateConnectionAlias' {aliasId = pAliasId_}
 
 -- | The identifier of the connection alias to disassociate.
-dcaAliasId :: Lens' DisassociateConnectionAlias Text
-dcaAliasId = lens _dcaAliasId (\s a -> s {_dcaAliasId = a})
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaAliasId :: Lens.Lens' DisassociateConnectionAlias Lude.Text
+dcaAliasId = Lens.lens (aliasId :: DisassociateConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DisassociateConnectionAlias)
+{-# DEPRECATED dcaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance AWSRequest DisassociateConnectionAlias where
+instance Lude.AWSRequest DisassociateConnectionAlias where
   type
     Rs DisassociateConnectionAlias =
       DisassociateConnectionAliasResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisassociateConnectionAliasResponse' <$> (pure (fromEnum s))
+          DisassociateConnectionAliasResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateConnectionAlias
-
-instance NFData DisassociateConnectionAlias
-
-instance ToHeaders DisassociateConnectionAlias where
+instance Lude.ToHeaders DisassociateConnectionAlias where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DisassociateConnectionAlias" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkspacesService.DisassociateConnectionAlias" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateConnectionAlias where
+instance Lude.ToJSON DisassociateConnectionAlias where
   toJSON DisassociateConnectionAlias' {..} =
-    object (catMaybes [Just ("AliasId" .= _dcaAliasId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("AliasId" Lude..= aliasId)])
 
-instance ToPath DisassociateConnectionAlias where
-  toPath = const "/"
+instance Lude.ToPath DisassociateConnectionAlias where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateConnectionAlias where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateConnectionAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateConnectionAliasResponse' smart constructor.
+-- | /See:/ 'mkDisassociateConnectionAliasResponse' smart constructor.
 newtype DisassociateConnectionAliasResponse = DisassociateConnectionAliasResponse'
-  { _dcasrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateConnectionAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcasrsResponseStatus' - -- | The response status code.
-disassociateConnectionAliasResponse ::
-  -- | 'dcasrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateConnectionAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateConnectionAliasResponse
-disassociateConnectionAliasResponse pResponseStatus_ =
+mkDisassociateConnectionAliasResponse pResponseStatus_ =
   DisassociateConnectionAliasResponse'
-    { _dcasrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dcasrsResponseStatus :: Lens' DisassociateConnectionAliasResponse Int
-dcasrsResponseStatus = lens _dcasrsResponseStatus (\s a -> s {_dcasrsResponseStatus = a})
-
-instance NFData DisassociateConnectionAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcasrsResponseStatus :: Lens.Lens' DisassociateConnectionAliasResponse Lude.Int
+dcasrsResponseStatus = Lens.lens (responseStatus :: DisassociateConnectionAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateConnectionAliasResponse)
+{-# DEPRECATED dcasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

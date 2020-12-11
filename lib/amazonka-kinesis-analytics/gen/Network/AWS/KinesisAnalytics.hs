@@ -16,8 +16,8 @@
 --
 -- Amazon Kinesis Analytics takes care of everything required to run your queries continuously and scales automatically to match the volume and throughput rate of your incoming data. With Amazon Kinesis Analytics, you only pay for the resources your queries consume. There is no minimum fee or setup cost.
 module Network.AWS.KinesisAnalytics
-  ( -- * Service Configuration
-    kinesisAnalytics,
+  ( -- * Service configuration
+    kinesisAnalyticsService,
 
     -- * Errors
     -- $errors
@@ -100,8 +100,8 @@ module Network.AWS.KinesisAnalytics
     RecordFormatType (..),
 
     -- ** ApplicationDetail
-    ApplicationDetail,
-    applicationDetail,
+    ApplicationDetail (..),
+    mkApplicationDetail,
     adApplicationDescription,
     adOutputDescriptions,
     adCloudWatchLoggingOptionDescriptions,
@@ -116,15 +116,15 @@ module Network.AWS.KinesisAnalytics
     adApplicationVersionId,
 
     -- ** ApplicationSummary
-    ApplicationSummary,
-    applicationSummary,
+    ApplicationSummary (..),
+    mkApplicationSummary,
     asApplicationName,
     asApplicationARN,
     asApplicationStatus,
 
     -- ** ApplicationUpdate
-    ApplicationUpdate,
-    applicationUpdate,
+    ApplicationUpdate (..),
+    mkApplicationUpdate,
     auReferenceDataSourceUpdates,
     auInputUpdates,
     auCloudWatchLoggingOptionUpdates,
@@ -132,39 +132,39 @@ module Network.AWS.KinesisAnalytics
     auApplicationCodeUpdate,
 
     -- ** CSVMappingParameters
-    CSVMappingParameters,
-    csvMappingParameters,
+    CSVMappingParameters (..),
+    mkCSVMappingParameters,
     cmpRecordRowDelimiter,
     cmpRecordColumnDelimiter,
 
     -- ** CloudWatchLoggingOption
-    CloudWatchLoggingOption,
-    cloudWatchLoggingOption,
+    CloudWatchLoggingOption (..),
+    mkCloudWatchLoggingOption,
     cwloLogStreamARN,
     cwloRoleARN,
 
     -- ** CloudWatchLoggingOptionDescription
-    CloudWatchLoggingOptionDescription,
-    cloudWatchLoggingOptionDescription,
+    CloudWatchLoggingOptionDescription (..),
+    mkCloudWatchLoggingOptionDescription,
     cwlodCloudWatchLoggingOptionId,
     cwlodLogStreamARN,
     cwlodRoleARN,
 
     -- ** CloudWatchLoggingOptionUpdate
-    CloudWatchLoggingOptionUpdate,
-    cloudWatchLoggingOptionUpdate,
+    CloudWatchLoggingOptionUpdate (..),
+    mkCloudWatchLoggingOptionUpdate,
     cwlouRoleARNUpdate,
     cwlouLogStreamARNUpdate,
     cwlouCloudWatchLoggingOptionId,
 
     -- ** DestinationSchema
-    DestinationSchema,
-    destinationSchema,
+    DestinationSchema (..),
+    mkDestinationSchema,
     dsRecordFormatType,
 
     -- ** Input
-    Input,
-    input,
+    Input (..),
+    mkInput,
     iInputParallelism,
     iInputProcessingConfiguration,
     iKinesisStreamsInput,
@@ -173,14 +173,14 @@ module Network.AWS.KinesisAnalytics
     iInputSchema,
 
     -- ** InputConfiguration
-    InputConfiguration,
-    inputConfiguration,
+    InputConfiguration (..),
+    mkInputConfiguration,
     icId,
     icInputStartingPositionConfiguration,
 
     -- ** InputDescription
-    InputDescription,
-    inputDescription,
+    InputDescription (..),
+    mkInputDescription,
     idInputStartingPositionConfiguration,
     idInputParallelism,
     idInputId,
@@ -192,63 +192,63 @@ module Network.AWS.KinesisAnalytics
     idInputProcessingConfigurationDescription,
 
     -- ** InputLambdaProcessor
-    InputLambdaProcessor,
-    inputLambdaProcessor,
+    InputLambdaProcessor (..),
+    mkInputLambdaProcessor,
     ilpResourceARN,
     ilpRoleARN,
 
     -- ** InputLambdaProcessorDescription
-    InputLambdaProcessorDescription,
-    inputLambdaProcessorDescription,
+    InputLambdaProcessorDescription (..),
+    mkInputLambdaProcessorDescription,
     ilpdResourceARN,
     ilpdRoleARN,
 
     -- ** InputLambdaProcessorUpdate
-    InputLambdaProcessorUpdate,
-    inputLambdaProcessorUpdate,
+    InputLambdaProcessorUpdate (..),
+    mkInputLambdaProcessorUpdate,
     ilpuRoleARNUpdate,
     ilpuResourceARNUpdate,
 
     -- ** InputParallelism
-    InputParallelism,
-    inputParallelism,
+    InputParallelism (..),
+    mkInputParallelism,
     ipCount,
 
     -- ** InputParallelismUpdate
-    InputParallelismUpdate,
-    inputParallelismUpdate,
+    InputParallelismUpdate (..),
+    mkInputParallelismUpdate,
     ipuCountUpdate,
 
     -- ** InputProcessingConfiguration
-    InputProcessingConfiguration,
-    inputProcessingConfiguration,
+    InputProcessingConfiguration (..),
+    mkInputProcessingConfiguration,
     ipcInputLambdaProcessor,
 
     -- ** InputProcessingConfigurationDescription
-    InputProcessingConfigurationDescription,
-    inputProcessingConfigurationDescription,
+    InputProcessingConfigurationDescription (..),
+    mkInputProcessingConfigurationDescription,
     ipcdInputLambdaProcessorDescription,
 
     -- ** InputProcessingConfigurationUpdate
-    InputProcessingConfigurationUpdate,
-    inputProcessingConfigurationUpdate,
+    InputProcessingConfigurationUpdate (..),
+    mkInputProcessingConfigurationUpdate,
     ipcuInputLambdaProcessorUpdate,
 
     -- ** InputSchemaUpdate
-    InputSchemaUpdate,
-    inputSchemaUpdate,
+    InputSchemaUpdate (..),
+    mkInputSchemaUpdate,
     isuRecordFormatUpdate,
     isuRecordEncodingUpdate,
     isuRecordColumnUpdates,
 
     -- ** InputStartingPositionConfiguration
-    InputStartingPositionConfiguration,
-    inputStartingPositionConfiguration,
+    InputStartingPositionConfiguration (..),
+    mkInputStartingPositionConfiguration,
     ispcInputStartingPosition,
 
     -- ** InputUpdate
-    InputUpdate,
-    inputUpdate,
+    InputUpdate (..),
+    mkInputUpdate,
     iuInputProcessingConfigurationUpdate,
     iuKinesisStreamsInputUpdate,
     iuInputParallelismUpdate,
@@ -258,109 +258,109 @@ module Network.AWS.KinesisAnalytics
     iuInputId,
 
     -- ** JSONMappingParameters
-    JSONMappingParameters,
-    jsonMappingParameters,
+    JSONMappingParameters (..),
+    mkJSONMappingParameters,
     jmpRecordRowPath,
 
     -- ** KinesisFirehoseInput
-    KinesisFirehoseInput,
-    kinesisFirehoseInput,
+    KinesisFirehoseInput (..),
+    mkKinesisFirehoseInput,
     kfiResourceARN,
     kfiRoleARN,
 
     -- ** KinesisFirehoseInputDescription
-    KinesisFirehoseInputDescription,
-    kinesisFirehoseInputDescription,
+    KinesisFirehoseInputDescription (..),
+    mkKinesisFirehoseInputDescription,
     kfidResourceARN,
     kfidRoleARN,
 
     -- ** KinesisFirehoseInputUpdate
-    KinesisFirehoseInputUpdate,
-    kinesisFirehoseInputUpdate,
+    KinesisFirehoseInputUpdate (..),
+    mkKinesisFirehoseInputUpdate,
     kfiuRoleARNUpdate,
     kfiuResourceARNUpdate,
 
     -- ** KinesisFirehoseOutput
-    KinesisFirehoseOutput,
-    kinesisFirehoseOutput,
+    KinesisFirehoseOutput (..),
+    mkKinesisFirehoseOutput,
     kfoResourceARN,
     kfoRoleARN,
 
     -- ** KinesisFirehoseOutputDescription
-    KinesisFirehoseOutputDescription,
-    kinesisFirehoseOutputDescription,
+    KinesisFirehoseOutputDescription (..),
+    mkKinesisFirehoseOutputDescription,
     kfodResourceARN,
     kfodRoleARN,
 
     -- ** KinesisFirehoseOutputUpdate
-    KinesisFirehoseOutputUpdate,
-    kinesisFirehoseOutputUpdate,
+    KinesisFirehoseOutputUpdate (..),
+    mkKinesisFirehoseOutputUpdate,
     kfouRoleARNUpdate,
     kfouResourceARNUpdate,
 
     -- ** KinesisStreamsInput
-    KinesisStreamsInput,
-    kinesisStreamsInput,
+    KinesisStreamsInput (..),
+    mkKinesisStreamsInput,
     ksiResourceARN,
     ksiRoleARN,
 
     -- ** KinesisStreamsInputDescription
-    KinesisStreamsInputDescription,
-    kinesisStreamsInputDescription,
+    KinesisStreamsInputDescription (..),
+    mkKinesisStreamsInputDescription,
     ksidResourceARN,
     ksidRoleARN,
 
     -- ** KinesisStreamsInputUpdate
-    KinesisStreamsInputUpdate,
-    kinesisStreamsInputUpdate,
+    KinesisStreamsInputUpdate (..),
+    mkKinesisStreamsInputUpdate,
     ksiuRoleARNUpdate,
     ksiuResourceARNUpdate,
 
     -- ** KinesisStreamsOutput
-    KinesisStreamsOutput,
-    kinesisStreamsOutput,
+    KinesisStreamsOutput (..),
+    mkKinesisStreamsOutput,
     ksoResourceARN,
     ksoRoleARN,
 
     -- ** KinesisStreamsOutputDescription
-    KinesisStreamsOutputDescription,
-    kinesisStreamsOutputDescription,
+    KinesisStreamsOutputDescription (..),
+    mkKinesisStreamsOutputDescription,
     ksodResourceARN,
     ksodRoleARN,
 
     -- ** KinesisStreamsOutputUpdate
-    KinesisStreamsOutputUpdate,
-    kinesisStreamsOutputUpdate,
+    KinesisStreamsOutputUpdate (..),
+    mkKinesisStreamsOutputUpdate,
     ksouRoleARNUpdate,
     ksouResourceARNUpdate,
 
     -- ** LambdaOutput
-    LambdaOutput,
-    lambdaOutput,
+    LambdaOutput (..),
+    mkLambdaOutput,
     loResourceARN,
     loRoleARN,
 
     -- ** LambdaOutputDescription
-    LambdaOutputDescription,
-    lambdaOutputDescription,
+    LambdaOutputDescription (..),
+    mkLambdaOutputDescription,
     lodResourceARN,
     lodRoleARN,
 
     -- ** LambdaOutputUpdate
-    LambdaOutputUpdate,
-    lambdaOutputUpdate,
+    LambdaOutputUpdate (..),
+    mkLambdaOutputUpdate,
     louRoleARNUpdate,
     louResourceARNUpdate,
 
     -- ** MappingParameters
-    MappingParameters,
-    mappingParameters,
+    MappingParameters (..),
+    mkMappingParameters,
     mpCSVMappingParameters,
     mpJSONMappingParameters,
 
     -- ** Output
-    Output,
-    output,
+    Output (..),
+    mkOutput,
     oLambdaOutput,
     oKinesisStreamsOutput,
     oKinesisFirehoseOutput,
@@ -368,8 +368,8 @@ module Network.AWS.KinesisAnalytics
     oDestinationSchema,
 
     -- ** OutputDescription
-    OutputDescription,
-    outputDescription,
+    OutputDescription (..),
+    mkOutputDescription,
     odOutputId,
     odDestinationSchema,
     odKinesisFirehoseOutputDescription,
@@ -378,8 +378,8 @@ module Network.AWS.KinesisAnalytics
     odLambdaOutputDescription,
 
     -- ** OutputUpdate
-    OutputUpdate,
-    outputUpdate,
+    OutputUpdate (..),
+    mkOutputUpdate,
     ouKinesisStreamsOutputUpdate,
     ouDestinationSchemaUpdate,
     ouKinesisFirehoseOutputUpdate,
@@ -388,81 +388,92 @@ module Network.AWS.KinesisAnalytics
     ouOutputId,
 
     -- ** RecordColumn
-    RecordColumn,
-    recordColumn,
+    RecordColumn (..),
+    mkRecordColumn,
     rcMapping,
     rcName,
     rcSqlType,
 
     -- ** RecordFormat
-    RecordFormat,
-    recordFormat,
+    RecordFormat (..),
+    mkRecordFormat,
     rfMappingParameters,
     rfRecordFormatType,
 
     -- ** ReferenceDataSource
-    ReferenceDataSource,
-    referenceDataSource,
+    ReferenceDataSource (..),
+    mkReferenceDataSource,
     rdsS3ReferenceDataSource,
     rdsTableName,
     rdsReferenceSchema,
 
     -- ** ReferenceDataSourceDescription
-    ReferenceDataSourceDescription,
-    referenceDataSourceDescription,
+    ReferenceDataSourceDescription (..),
+    mkReferenceDataSourceDescription,
     rdsdReferenceSchema,
     rdsdReferenceId,
     rdsdTableName,
     rdsdS3ReferenceDataSourceDescription,
 
     -- ** ReferenceDataSourceUpdate
-    ReferenceDataSourceUpdate,
-    referenceDataSourceUpdate,
+    ReferenceDataSourceUpdate (..),
+    mkReferenceDataSourceUpdate,
     rdsuTableNameUpdate,
     rdsuS3ReferenceDataSourceUpdate,
     rdsuReferenceSchemaUpdate,
     rdsuReferenceId,
 
     -- ** S3Configuration
-    S3Configuration,
-    s3Configuration,
+    S3Configuration (..),
+    mkS3Configuration,
     scRoleARN,
     scBucketARN,
     scFileKey,
 
     -- ** S3ReferenceDataSource
-    S3ReferenceDataSource,
-    s3ReferenceDataSource,
+    S3ReferenceDataSource (..),
+    mkS3ReferenceDataSource,
     srdsBucketARN,
     srdsFileKey,
     srdsReferenceRoleARN,
 
     -- ** S3ReferenceDataSourceDescription
-    S3ReferenceDataSourceDescription,
-    s3ReferenceDataSourceDescription,
+    S3ReferenceDataSourceDescription (..),
+    mkS3ReferenceDataSourceDescription,
     srdsdBucketARN,
     srdsdFileKey,
     srdsdReferenceRoleARN,
 
     -- ** S3ReferenceDataSourceUpdate
-    S3ReferenceDataSourceUpdate,
-    s3ReferenceDataSourceUpdate,
+    S3ReferenceDataSourceUpdate (..),
+    mkS3ReferenceDataSourceUpdate,
     srdsuBucketARNUpdate,
     srdsuFileKeyUpdate,
     srdsuReferenceRoleARNUpdate,
 
     -- ** SourceSchema
-    SourceSchema,
-    sourceSchema,
+    SourceSchema (..),
+    mkSourceSchema,
     ssRecordEncoding,
     ssRecordFormat,
     ssRecordColumns,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -488,6 +499,7 @@ import Network.AWS.KinesisAnalytics.Types
 import Network.AWS.KinesisAnalytics.UntagResource
 import Network.AWS.KinesisAnalytics.UpdateApplication
 import Network.AWS.KinesisAnalytics.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

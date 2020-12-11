@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TriggerType where
+module Network.AWS.Glue.Types.TriggerType
+  ( TriggerType
+      ( TriggerType',
+        Conditional,
+        OnDemand,
+        Scheduled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TriggerType
-  = Conditional
-  | OnDemand
-  | Scheduled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TriggerType = TriggerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TriggerType where
-  parser =
-    takeLowerText >>= \case
-      "conditional" -> pure Conditional
-      "on_demand" -> pure OnDemand
-      "scheduled" -> pure Scheduled
-      e ->
-        fromTextError $
-          "Failure parsing TriggerType from value: '" <> e
-            <> "'. Accepted values: conditional, on_demand, scheduled"
+pattern Conditional :: TriggerType
+pattern Conditional = TriggerType' "CONDITIONAL"
 
-instance ToText TriggerType where
-  toText = \case
-    Conditional -> "CONDITIONAL"
-    OnDemand -> "ON_DEMAND"
-    Scheduled -> "SCHEDULED"
+pattern OnDemand :: TriggerType
+pattern OnDemand = TriggerType' "ON_DEMAND"
 
-instance Hashable TriggerType
+pattern Scheduled :: TriggerType
+pattern Scheduled = TriggerType' "SCHEDULED"
 
-instance NFData TriggerType
-
-instance ToByteString TriggerType
-
-instance ToQuery TriggerType
-
-instance ToHeader TriggerType
-
-instance ToJSON TriggerType where
-  toJSON = toJSONText
-
-instance FromJSON TriggerType where
-  parseJSON = parseJSONText "TriggerType"
+{-# COMPLETE
+  Conditional,
+  OnDemand,
+  Scheduled,
+  TriggerType'
+  #-}

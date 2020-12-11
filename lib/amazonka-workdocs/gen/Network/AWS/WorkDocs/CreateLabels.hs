@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,134 @@
 --
 -- Adds the specified list of labels to the given resource (a document or folder)
 module Network.AWS.WorkDocs.CreateLabels
-  ( -- * Creating a Request
-    createLabels,
-    CreateLabels,
+  ( -- * Creating a request
+    CreateLabels (..),
+    mkCreateLabels,
 
-    -- * Request Lenses
+    -- ** Request lenses
     clAuthenticationToken,
     clResourceId,
     clLabels,
 
-    -- * Destructuring the Response
-    createLabelsResponse,
-    CreateLabelsResponse,
+    -- * Destructuring the response
+    CreateLabelsResponse (..),
+    mkCreateLabelsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     clrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'createLabels' smart constructor.
+-- | /See:/ 'mkCreateLabels' smart constructor.
 data CreateLabels = CreateLabels'
-  { _clAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _clResourceId :: !Text,
-    _clLabels :: ![Text]
+  { authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    resourceId :: Lude.Text,
+    labels :: [Lude.Text]
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLabels' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'clResourceId' - The ID of the resource.
---
--- * 'clLabels' - List of labels to add to the resource.
-createLabels ::
-  -- | 'clResourceId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'labels' - List of labels to add to the resource.
+-- * 'resourceId' - The ID of the resource.
+mkCreateLabels ::
+  -- | 'resourceId'
+  Lude.Text ->
   CreateLabels
-createLabels pResourceId_ =
+mkCreateLabels pResourceId_ =
   CreateLabels'
-    { _clAuthenticationToken = Nothing,
-      _clResourceId = pResourceId_,
-      _clLabels = mempty
+    { authenticationToken = Lude.Nothing,
+      resourceId = pResourceId_,
+      labels = Lude.mempty
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-clAuthenticationToken :: Lens' CreateLabels (Maybe Text)
-clAuthenticationToken = lens _clAuthenticationToken (\s a -> s {_clAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clAuthenticationToken :: Lens.Lens' CreateLabels (Lude.Maybe (Lude.Sensitive Lude.Text))
+clAuthenticationToken = Lens.lens (authenticationToken :: CreateLabels -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateLabels)
+{-# DEPRECATED clAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the resource.
-clResourceId :: Lens' CreateLabels Text
-clResourceId = lens _clResourceId (\s a -> s {_clResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clResourceId :: Lens.Lens' CreateLabels Lude.Text
+clResourceId = Lens.lens (resourceId :: CreateLabels -> Lude.Text) (\s a -> s {resourceId = a} :: CreateLabels)
+{-# DEPRECATED clResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | List of labels to add to the resource.
-clLabels :: Lens' CreateLabels [Text]
-clLabels = lens _clLabels (\s a -> s {_clLabels = a}) . _Coerce
+--
+-- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clLabels :: Lens.Lens' CreateLabels [Lude.Text]
+clLabels = Lens.lens (labels :: CreateLabels -> [Lude.Text]) (\s a -> s {labels = a} :: CreateLabels)
+{-# DEPRECATED clLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
-instance AWSRequest CreateLabels where
+instance Lude.AWSRequest CreateLabels where
   type Rs CreateLabels = CreateLabelsResponse
-  request = putJSON workDocs
+  request = Req.putJSON workDocsService
   response =
-    receiveEmpty
-      (\s h x -> CreateLabelsResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateLabelsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateLabels
-
-instance NFData CreateLabels
-
-instance ToHeaders CreateLabels where
+instance Lude.ToHeaders CreateLabels where
   toHeaders CreateLabels' {..} =
-    mconcat
-      [ "Authentication" =# _clAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON CreateLabels where
+instance Lude.ToJSON CreateLabels where
   toJSON CreateLabels' {..} =
-    object (catMaybes [Just ("Labels" .= _clLabels)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Labels" Lude..= labels)])
 
-instance ToPath CreateLabels where
+instance Lude.ToPath CreateLabels where
   toPath CreateLabels' {..} =
-    mconcat ["/api/v1/resources/", toBS _clResourceId, "/labels"]
+    Lude.mconcat
+      ["/api/v1/resources/", Lude.toBS resourceId, "/labels"]
 
-instance ToQuery CreateLabels where
-  toQuery = const mempty
+instance Lude.ToQuery CreateLabels where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createLabelsResponse' smart constructor.
+-- | /See:/ 'mkCreateLabelsResponse' smart constructor.
 newtype CreateLabelsResponse = CreateLabelsResponse'
-  { _clrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLabelsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clrsResponseStatus' - -- | The response status code.
-createLabelsResponse ::
-  -- | 'clrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateLabelsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateLabelsResponse
-createLabelsResponse pResponseStatus_ =
-  CreateLabelsResponse' {_clrsResponseStatus = pResponseStatus_}
+mkCreateLabelsResponse pResponseStatus_ =
+  CreateLabelsResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-clrsResponseStatus :: Lens' CreateLabelsResponse Int
-clrsResponseStatus = lens _clrsResponseStatus (\s a -> s {_clrsResponseStatus = a})
-
-instance NFData CreateLabelsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsResponseStatus :: Lens.Lens' CreateLabelsResponse Lude.Int
+clrsResponseStatus = Lens.lens (responseStatus :: CreateLabelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLabelsResponse)
+{-# DEPRECATED clrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateErrorItem where
+module Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateErrorItem
+  ( EnableFastSnapshotRestoreStateErrorItem (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkEnableFastSnapshotRestoreStateErrorItem,
+
+    -- * Lenses
+    efsrseiError,
+    efsrseiAvailabilityZone,
+  )
+where
+
 import Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateError
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about an error that occurred when enabling fast snapshot restores.
 --
---
---
--- /See:/ 'enableFastSnapshotRestoreStateErrorItem' smart constructor.
+-- /See:/ 'mkEnableFastSnapshotRestoreStateErrorItem' smart constructor.
 data EnableFastSnapshotRestoreStateErrorItem = EnableFastSnapshotRestoreStateErrorItem'
-  { _efsrseiError ::
-      !( Maybe
-           EnableFastSnapshotRestoreStateError
-       ),
-    _efsrseiAvailabilityZone ::
-      !( Maybe
-           Text
-       )
+  { error ::
+      Lude.Maybe
+        EnableFastSnapshotRestoreStateError,
+    availabilityZone ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableFastSnapshotRestoreStateErrorItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'efsrseiError' - The error.
---
--- * 'efsrseiAvailabilityZone' - The Availability Zone.
-enableFastSnapshotRestoreStateErrorItem ::
+-- * 'availabilityZone' - The Availability Zone.
+-- * 'error' - The error.
+mkEnableFastSnapshotRestoreStateErrorItem ::
   EnableFastSnapshotRestoreStateErrorItem
-enableFastSnapshotRestoreStateErrorItem =
+mkEnableFastSnapshotRestoreStateErrorItem =
   EnableFastSnapshotRestoreStateErrorItem'
-    { _efsrseiError = Nothing,
-      _efsrseiAvailabilityZone = Nothing
+    { error = Lude.Nothing,
+      availabilityZone = Lude.Nothing
     }
 
 -- | The error.
-efsrseiError :: Lens' EnableFastSnapshotRestoreStateErrorItem (Maybe EnableFastSnapshotRestoreStateError)
-efsrseiError = lens _efsrseiError (\s a -> s {_efsrseiError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrseiError :: Lens.Lens' EnableFastSnapshotRestoreStateErrorItem (Lude.Maybe EnableFastSnapshotRestoreStateError)
+efsrseiError = Lens.lens (error :: EnableFastSnapshotRestoreStateErrorItem -> Lude.Maybe EnableFastSnapshotRestoreStateError) (\s a -> s {error = a} :: EnableFastSnapshotRestoreStateErrorItem)
+{-# DEPRECATED efsrseiError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The Availability Zone.
-efsrseiAvailabilityZone :: Lens' EnableFastSnapshotRestoreStateErrorItem (Maybe Text)
-efsrseiAvailabilityZone = lens _efsrseiAvailabilityZone (\s a -> s {_efsrseiAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrseiAvailabilityZone :: Lens.Lens' EnableFastSnapshotRestoreStateErrorItem (Lude.Maybe Lude.Text)
+efsrseiAvailabilityZone = Lens.lens (availabilityZone :: EnableFastSnapshotRestoreStateErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: EnableFastSnapshotRestoreStateErrorItem)
+{-# DEPRECATED efsrseiAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
-instance FromXML EnableFastSnapshotRestoreStateErrorItem where
+instance Lude.FromXML EnableFastSnapshotRestoreStateErrorItem where
   parseXML x =
     EnableFastSnapshotRestoreStateErrorItem'
-      <$> (x .@? "error") <*> (x .@? "availabilityZone")
-
-instance Hashable EnableFastSnapshotRestoreStateErrorItem
-
-instance NFData EnableFastSnapshotRestoreStateErrorItem
+      Lude.<$> (x Lude..@? "error") Lude.<*> (x Lude..@? "availabilityZone")

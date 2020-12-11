@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates the specified product.
 module Network.AWS.ServiceCatalog.UpdateProduct
-  ( -- * Creating a Request
-    updateProduct,
-    UpdateProduct,
+  ( -- * Creating a request
+    UpdateProduct (..),
+    mkUpdateProduct,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upRemoveTags,
     upOwner,
     upSupportURL,
@@ -36,217 +31,274 @@ module Network.AWS.ServiceCatalog.UpdateProduct
     upSupportDescription,
     upId,
 
-    -- * Destructuring the Response
-    updateProductResponse,
-    UpdateProductResponse,
+    -- * Destructuring the response
+    UpdateProductResponse (..),
+    mkUpdateProductResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ursProductViewDetail,
     ursTags,
     ursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'updateProduct' smart constructor.
+-- | /See:/ 'mkUpdateProduct' smart constructor.
 data UpdateProduct = UpdateProduct'
-  { _upRemoveTags ::
-      !(Maybe [Text]),
-    _upOwner :: !(Maybe Text),
-    _upSupportURL :: !(Maybe Text),
-    _upDistributor :: !(Maybe Text),
-    _upName :: !(Maybe Text),
-    _upAcceptLanguage :: !(Maybe Text),
-    _upAddTags :: !(Maybe [Tag]),
-    _upSupportEmail :: !(Maybe Text),
-    _upDescription :: !(Maybe Text),
-    _upSupportDescription :: !(Maybe Text),
-    _upId :: !Text
+  { removeTags ::
+      Lude.Maybe [Lude.Text],
+    owner :: Lude.Maybe Lude.Text,
+    supportURL :: Lude.Maybe Lude.Text,
+    distributor :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    addTags :: Lude.Maybe [Tag],
+    supportEmail :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    supportDescription :: Lude.Maybe Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProduct' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'upRemoveTags' - The tags to remove from the product.
 --
--- * 'upOwner' - The updated owner of the product.
+--     * @en@ - English (default)
 --
--- * 'upSupportURL' - The updated support URL for the product.
 --
--- * 'upDistributor' - The updated distributor of the product.
+--     * @jp@ - Japanese
 --
--- * 'upName' - The updated product name.
 --
--- * 'upAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+--     * @zh@ - Chinese
 --
--- * 'upAddTags' - The tags to add to the product.
 --
--- * 'upSupportEmail' - The updated support email for the product.
---
--- * 'upDescription' - The updated description of the product.
---
--- * 'upSupportDescription' - The updated support description for the product.
---
--- * 'upId' - The product identifier.
-updateProduct ::
-  -- | 'upId'
-  Text ->
+-- * 'addTags' - The tags to add to the product.
+-- * 'description' - The updated description of the product.
+-- * 'distributor' - The updated distributor of the product.
+-- * 'id' - The product identifier.
+-- * 'name' - The updated product name.
+-- * 'owner' - The updated owner of the product.
+-- * 'removeTags' - The tags to remove from the product.
+-- * 'supportDescription' - The updated support description for the product.
+-- * 'supportEmail' - The updated support email for the product.
+-- * 'supportURL' - The updated support URL for the product.
+mkUpdateProduct ::
+  -- | 'id'
+  Lude.Text ->
   UpdateProduct
-updateProduct pId_ =
+mkUpdateProduct pId_ =
   UpdateProduct'
-    { _upRemoveTags = Nothing,
-      _upOwner = Nothing,
-      _upSupportURL = Nothing,
-      _upDistributor = Nothing,
-      _upName = Nothing,
-      _upAcceptLanguage = Nothing,
-      _upAddTags = Nothing,
-      _upSupportEmail = Nothing,
-      _upDescription = Nothing,
-      _upSupportDescription = Nothing,
-      _upId = pId_
+    { removeTags = Lude.Nothing,
+      owner = Lude.Nothing,
+      supportURL = Lude.Nothing,
+      distributor = Lude.Nothing,
+      name = Lude.Nothing,
+      acceptLanguage = Lude.Nothing,
+      addTags = Lude.Nothing,
+      supportEmail = Lude.Nothing,
+      description = Lude.Nothing,
+      supportDescription = Lude.Nothing,
+      id = pId_
     }
 
 -- | The tags to remove from the product.
-upRemoveTags :: Lens' UpdateProduct [Text]
-upRemoveTags = lens _upRemoveTags (\s a -> s {_upRemoveTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upRemoveTags :: Lens.Lens' UpdateProduct (Lude.Maybe [Lude.Text])
+upRemoveTags = Lens.lens (removeTags :: UpdateProduct -> Lude.Maybe [Lude.Text]) (\s a -> s {removeTags = a} :: UpdateProduct)
+{-# DEPRECATED upRemoveTags "Use generic-lens or generic-optics with 'removeTags' instead." #-}
 
 -- | The updated owner of the product.
-upOwner :: Lens' UpdateProduct (Maybe Text)
-upOwner = lens _upOwner (\s a -> s {_upOwner = a})
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upOwner :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
+upOwner = Lens.lens (owner :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: UpdateProduct)
+{-# DEPRECATED upOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | The updated support URL for the product.
-upSupportURL :: Lens' UpdateProduct (Maybe Text)
-upSupportURL = lens _upSupportURL (\s a -> s {_upSupportURL = a})
+--
+-- /Note:/ Consider using 'supportURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSupportURL :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
+upSupportURL = Lens.lens (supportURL :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {supportURL = a} :: UpdateProduct)
+{-# DEPRECATED upSupportURL "Use generic-lens or generic-optics with 'supportURL' instead." #-}
 
 -- | The updated distributor of the product.
-upDistributor :: Lens' UpdateProduct (Maybe Text)
-upDistributor = lens _upDistributor (\s a -> s {_upDistributor = a})
+--
+-- /Note:/ Consider using 'distributor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDistributor :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
+upDistributor = Lens.lens (distributor :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {distributor = a} :: UpdateProduct)
+{-# DEPRECATED upDistributor "Use generic-lens or generic-optics with 'distributor' instead." #-}
 
 -- | The updated product name.
-upName :: Lens' UpdateProduct (Maybe Text)
-upName = lens _upName (\s a -> s {_upName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upName :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
+upName = Lens.lens (name :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateProduct)
+{-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-upAcceptLanguage :: Lens' UpdateProduct (Maybe Text)
-upAcceptLanguage = lens _upAcceptLanguage (\s a -> s {_upAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upAcceptLanguage :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
+upAcceptLanguage = Lens.lens (acceptLanguage :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: UpdateProduct)
+{-# DEPRECATED upAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The tags to add to the product.
-upAddTags :: Lens' UpdateProduct [Tag]
-upAddTags = lens _upAddTags (\s a -> s {_upAddTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upAddTags :: Lens.Lens' UpdateProduct (Lude.Maybe [Tag])
+upAddTags = Lens.lens (addTags :: UpdateProduct -> Lude.Maybe [Tag]) (\s a -> s {addTags = a} :: UpdateProduct)
+{-# DEPRECATED upAddTags "Use generic-lens or generic-optics with 'addTags' instead." #-}
 
 -- | The updated support email for the product.
-upSupportEmail :: Lens' UpdateProduct (Maybe Text)
-upSupportEmail = lens _upSupportEmail (\s a -> s {_upSupportEmail = a})
+--
+-- /Note:/ Consider using 'supportEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSupportEmail :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
+upSupportEmail = Lens.lens (supportEmail :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {supportEmail = a} :: UpdateProduct)
+{-# DEPRECATED upSupportEmail "Use generic-lens or generic-optics with 'supportEmail' instead." #-}
 
 -- | The updated description of the product.
-upDescription :: Lens' UpdateProduct (Maybe Text)
-upDescription = lens _upDescription (\s a -> s {_upDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDescription :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
+upDescription = Lens.lens (description :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateProduct)
+{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The updated support description for the product.
-upSupportDescription :: Lens' UpdateProduct (Maybe Text)
-upSupportDescription = lens _upSupportDescription (\s a -> s {_upSupportDescription = a})
+--
+-- /Note:/ Consider using 'supportDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSupportDescription :: Lens.Lens' UpdateProduct (Lude.Maybe Lude.Text)
+upSupportDescription = Lens.lens (supportDescription :: UpdateProduct -> Lude.Maybe Lude.Text) (\s a -> s {supportDescription = a} :: UpdateProduct)
+{-# DEPRECATED upSupportDescription "Use generic-lens or generic-optics with 'supportDescription' instead." #-}
 
 -- | The product identifier.
-upId :: Lens' UpdateProduct Text
-upId = lens _upId (\s a -> s {_upId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upId :: Lens.Lens' UpdateProduct Lude.Text
+upId = Lens.lens (id :: UpdateProduct -> Lude.Text) (\s a -> s {id = a} :: UpdateProduct)
+{-# DEPRECATED upId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest UpdateProduct where
+instance Lude.AWSRequest UpdateProduct where
   type Rs UpdateProduct = UpdateProductResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateProductResponse'
-            <$> (x .?> "ProductViewDetail")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ProductViewDetail")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateProduct
-
-instance NFData UpdateProduct
-
-instance ToHeaders UpdateProduct where
+instance Lude.ToHeaders UpdateProduct where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.UpdateProduct" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWS242ServiceCatalogService.UpdateProduct" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateProduct where
+instance Lude.ToJSON UpdateProduct where
   toJSON UpdateProduct' {..} =
-    object
-      ( catMaybes
-          [ ("RemoveTags" .=) <$> _upRemoveTags,
-            ("Owner" .=) <$> _upOwner,
-            ("SupportUrl" .=) <$> _upSupportURL,
-            ("Distributor" .=) <$> _upDistributor,
-            ("Name" .=) <$> _upName,
-            ("AcceptLanguage" .=) <$> _upAcceptLanguage,
-            ("AddTags" .=) <$> _upAddTags,
-            ("SupportEmail" .=) <$> _upSupportEmail,
-            ("Description" .=) <$> _upDescription,
-            ("SupportDescription" .=) <$> _upSupportDescription,
-            Just ("Id" .= _upId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RemoveTags" Lude..=) Lude.<$> removeTags,
+            ("Owner" Lude..=) Lude.<$> owner,
+            ("SupportUrl" Lude..=) Lude.<$> supportURL,
+            ("Distributor" Lude..=) Lude.<$> distributor,
+            ("Name" Lude..=) Lude.<$> name,
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("AddTags" Lude..=) Lude.<$> addTags,
+            ("SupportEmail" Lude..=) Lude.<$> supportEmail,
+            ("Description" Lude..=) Lude.<$> description,
+            ("SupportDescription" Lude..=) Lude.<$> supportDescription,
+            Lude.Just ("Id" Lude..= id)
           ]
       )
 
-instance ToPath UpdateProduct where
-  toPath = const "/"
+instance Lude.ToPath UpdateProduct where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateProduct where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateProduct where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateProductResponse' smart constructor.
+-- | /See:/ 'mkUpdateProductResponse' smart constructor.
 data UpdateProductResponse = UpdateProductResponse'
-  { _ursProductViewDetail ::
-      !(Maybe ProductViewDetail),
-    _ursTags :: !(Maybe [Tag]),
-    _ursResponseStatus :: !Int
+  { productViewDetail ::
+      Lude.Maybe ProductViewDetail,
+    tags :: Lude.Maybe [Tag],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProductResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ursProductViewDetail' - Information about the product view.
---
--- * 'ursTags' - Information about the tags associated with the product.
---
--- * 'ursResponseStatus' - -- | The response status code.
-updateProductResponse ::
-  -- | 'ursResponseStatus'
-  Int ->
+-- * 'productViewDetail' - Information about the product view.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Information about the tags associated with the product.
+mkUpdateProductResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateProductResponse
-updateProductResponse pResponseStatus_ =
+mkUpdateProductResponse pResponseStatus_ =
   UpdateProductResponse'
-    { _ursProductViewDetail = Nothing,
-      _ursTags = Nothing,
-      _ursResponseStatus = pResponseStatus_
+    { productViewDetail = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the product view.
-ursProductViewDetail :: Lens' UpdateProductResponse (Maybe ProductViewDetail)
-ursProductViewDetail = lens _ursProductViewDetail (\s a -> s {_ursProductViewDetail = a})
+--
+-- /Note:/ Consider using 'productViewDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursProductViewDetail :: Lens.Lens' UpdateProductResponse (Lude.Maybe ProductViewDetail)
+ursProductViewDetail = Lens.lens (productViewDetail :: UpdateProductResponse -> Lude.Maybe ProductViewDetail) (\s a -> s {productViewDetail = a} :: UpdateProductResponse)
+{-# DEPRECATED ursProductViewDetail "Use generic-lens or generic-optics with 'productViewDetail' instead." #-}
 
 -- | Information about the tags associated with the product.
-ursTags :: Lens' UpdateProductResponse [Tag]
-ursTags = lens _ursTags (\s a -> s {_ursTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursTags :: Lens.Lens' UpdateProductResponse (Lude.Maybe [Tag])
+ursTags = Lens.lens (tags :: UpdateProductResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UpdateProductResponse)
+{-# DEPRECATED ursTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ursResponseStatus :: Lens' UpdateProductResponse Int
-ursResponseStatus = lens _ursResponseStatus (\s a -> s {_ursResponseStatus = a})
-
-instance NFData UpdateProductResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursResponseStatus :: Lens.Lens' UpdateProductResponse Lude.Int
+ursResponseStatus = Lens.lens (responseStatus :: UpdateProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateProductResponse)
+{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

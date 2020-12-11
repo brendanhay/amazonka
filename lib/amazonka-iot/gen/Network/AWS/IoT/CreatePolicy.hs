@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Creates an AWS IoT policy.
 --
---
 -- The created policy is the default version for the policy. This operation creates a policy version with a version identifier of __1__ and sets __1__ as the policy's default version.
 module Network.AWS.IoT.CreatePolicy
-  ( -- * Creating a Request
-    createPolicy,
-    CreatePolicy,
+  ( -- * Creating a request
+    CreatePolicy (..),
+    mkCreatePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpTags,
     cpPolicyName,
     cpPolicyDocument,
 
-    -- * Destructuring the Response
-    createPolicyResponse,
-    CreatePolicyResponse,
+    -- * Destructuring the response
+    CreatePolicyResponse (..),
+    mkCreatePolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprsPolicyName,
     cprsPolicyDocument,
     cprsPolicyVersionId,
@@ -45,153 +39,171 @@ module Network.AWS.IoT.CreatePolicy
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the CreatePolicy operation.
 --
---
---
--- /See:/ 'createPolicy' smart constructor.
+-- /See:/ 'mkCreatePolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-  { _cpTags :: !(Maybe [Tag]),
-    _cpPolicyName :: !Text,
-    _cpPolicyDocument :: !Text
+  { tags :: Lude.Maybe [Tag],
+    policyName :: Lude.Text,
+    policyDocument :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpTags' - Metadata which can be used to manage the policy.
---
--- * 'cpPolicyName' - The policy name.
---
--- * 'cpPolicyDocument' - The JSON document that describes the policy. __policyDocument__ must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.
-createPolicy ::
-  -- | 'cpPolicyName'
-  Text ->
-  -- | 'cpPolicyDocument'
-  Text ->
+-- * 'policyDocument' - The JSON document that describes the policy. __policyDocument__ must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.
+-- * 'policyName' - The policy name.
+-- * 'tags' - Metadata which can be used to manage the policy.
+mkCreatePolicy ::
+  -- | 'policyName'
+  Lude.Text ->
+  -- | 'policyDocument'
+  Lude.Text ->
   CreatePolicy
-createPolicy pPolicyName_ pPolicyDocument_ =
+mkCreatePolicy pPolicyName_ pPolicyDocument_ =
   CreatePolicy'
-    { _cpTags = Nothing,
-      _cpPolicyName = pPolicyName_,
-      _cpPolicyDocument = pPolicyDocument_
+    { tags = Lude.Nothing,
+      policyName = pPolicyName_,
+      policyDocument = pPolicyDocument_
     }
 
 -- | Metadata which can be used to manage the policy.
-cpTags :: Lens' CreatePolicy [Tag]
-cpTags = lens _cpTags (\s a -> s {_cpTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTags :: Lens.Lens' CreatePolicy (Lude.Maybe [Tag])
+cpTags = Lens.lens (tags :: CreatePolicy -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePolicy)
+{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The policy name.
-cpPolicyName :: Lens' CreatePolicy Text
-cpPolicyName = lens _cpPolicyName (\s a -> s {_cpPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPolicyName :: Lens.Lens' CreatePolicy Lude.Text
+cpPolicyName = Lens.lens (policyName :: CreatePolicy -> Lude.Text) (\s a -> s {policyName = a} :: CreatePolicy)
+{-# DEPRECATED cpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The JSON document that describes the policy. __policyDocument__ must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.
-cpPolicyDocument :: Lens' CreatePolicy Text
-cpPolicyDocument = lens _cpPolicyDocument (\s a -> s {_cpPolicyDocument = a})
+--
+-- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPolicyDocument :: Lens.Lens' CreatePolicy Lude.Text
+cpPolicyDocument = Lens.lens (policyDocument :: CreatePolicy -> Lude.Text) (\s a -> s {policyDocument = a} :: CreatePolicy)
+{-# DEPRECATED cpPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
-instance AWSRequest CreatePolicy where
+instance Lude.AWSRequest CreatePolicy where
   type Rs CreatePolicy = CreatePolicyResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreatePolicyResponse'
-            <$> (x .?> "policyName")
-            <*> (x .?> "policyDocument")
-            <*> (x .?> "policyVersionId")
-            <*> (x .?> "policyArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "policyName")
+            Lude.<*> (x Lude..?> "policyDocument")
+            Lude.<*> (x Lude..?> "policyVersionId")
+            Lude.<*> (x Lude..?> "policyArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreatePolicy
+instance Lude.ToHeaders CreatePolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreatePolicy
-
-instance ToHeaders CreatePolicy where
-  toHeaders = const mempty
-
-instance ToJSON CreatePolicy where
+instance Lude.ToJSON CreatePolicy where
   toJSON CreatePolicy' {..} =
-    object
-      ( catMaybes
-          [ ("tags" .=) <$> _cpTags,
-            Just ("policyDocument" .= _cpPolicyDocument)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("policyDocument" Lude..= policyDocument)
           ]
       )
 
-instance ToPath CreatePolicy where
+instance Lude.ToPath CreatePolicy where
   toPath CreatePolicy' {..} =
-    mconcat ["/policies/", toBS _cpPolicyName]
+    Lude.mconcat ["/policies/", Lude.toBS policyName]
 
-instance ToQuery CreatePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery CreatePolicy where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output from the CreatePolicy operation.
 --
---
---
--- /See:/ 'createPolicyResponse' smart constructor.
+-- /See:/ 'mkCreatePolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-  { _cprsPolicyName ::
-      !(Maybe Text),
-    _cprsPolicyDocument :: !(Maybe Text),
-    _cprsPolicyVersionId :: !(Maybe Text),
-    _cprsPolicyARN :: !(Maybe Text),
-    _cprsResponseStatus :: !Int
+  { policyName ::
+      Lude.Maybe Lude.Text,
+    policyDocument :: Lude.Maybe Lude.Text,
+    policyVersionId :: Lude.Maybe Lude.Text,
+    policyARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprsPolicyName' - The policy name.
---
--- * 'cprsPolicyDocument' - The JSON document that describes the policy.
---
--- * 'cprsPolicyVersionId' - The policy version ID.
---
--- * 'cprsPolicyARN' - The policy ARN.
---
--- * 'cprsResponseStatus' - -- | The response status code.
-createPolicyResponse ::
-  -- | 'cprsResponseStatus'
-  Int ->
+-- * 'policyARN' - The policy ARN.
+-- * 'policyDocument' - The JSON document that describes the policy.
+-- * 'policyName' - The policy name.
+-- * 'policyVersionId' - The policy version ID.
+-- * 'responseStatus' - The response status code.
+mkCreatePolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePolicyResponse
-createPolicyResponse pResponseStatus_ =
+mkCreatePolicyResponse pResponseStatus_ =
   CreatePolicyResponse'
-    { _cprsPolicyName = Nothing,
-      _cprsPolicyDocument = Nothing,
-      _cprsPolicyVersionId = Nothing,
-      _cprsPolicyARN = Nothing,
-      _cprsResponseStatus = pResponseStatus_
+    { policyName = Lude.Nothing,
+      policyDocument = Lude.Nothing,
+      policyVersionId = Lude.Nothing,
+      policyARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The policy name.
-cprsPolicyName :: Lens' CreatePolicyResponse (Maybe Text)
-cprsPolicyName = lens _cprsPolicyName (\s a -> s {_cprsPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsPolicyName :: Lens.Lens' CreatePolicyResponse (Lude.Maybe Lude.Text)
+cprsPolicyName = Lens.lens (policyName :: CreatePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: CreatePolicyResponse)
+{-# DEPRECATED cprsPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The JSON document that describes the policy.
-cprsPolicyDocument :: Lens' CreatePolicyResponse (Maybe Text)
-cprsPolicyDocument = lens _cprsPolicyDocument (\s a -> s {_cprsPolicyDocument = a})
+--
+-- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsPolicyDocument :: Lens.Lens' CreatePolicyResponse (Lude.Maybe Lude.Text)
+cprsPolicyDocument = Lens.lens (policyDocument :: CreatePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyDocument = a} :: CreatePolicyResponse)
+{-# DEPRECATED cprsPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
 -- | The policy version ID.
-cprsPolicyVersionId :: Lens' CreatePolicyResponse (Maybe Text)
-cprsPolicyVersionId = lens _cprsPolicyVersionId (\s a -> s {_cprsPolicyVersionId = a})
+--
+-- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsPolicyVersionId :: Lens.Lens' CreatePolicyResponse (Lude.Maybe Lude.Text)
+cprsPolicyVersionId = Lens.lens (policyVersionId :: CreatePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyVersionId = a} :: CreatePolicyResponse)
+{-# DEPRECATED cprsPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
 
 -- | The policy ARN.
-cprsPolicyARN :: Lens' CreatePolicyResponse (Maybe Text)
-cprsPolicyARN = lens _cprsPolicyARN (\s a -> s {_cprsPolicyARN = a})
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsPolicyARN :: Lens.Lens' CreatePolicyResponse (Lude.Maybe Lude.Text)
+cprsPolicyARN = Lens.lens (policyARN :: CreatePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyARN = a} :: CreatePolicyResponse)
+{-# DEPRECATED cprsPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreatePolicyResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\s a -> s {_cprsResponseStatus = a})
-
-instance NFData CreatePolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsResponseStatus :: Lens.Lens' CreatePolicyResponse Lude.Int
+cprsResponseStatus = Lens.lens (responseStatus :: CreatePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePolicyResponse)
+{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

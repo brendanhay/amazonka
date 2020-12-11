@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ReplacementStrategy where
+module Network.AWS.EC2.Types.ReplacementStrategy
+  ( ReplacementStrategy
+      ( ReplacementStrategy',
+        RSLaunch
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReplacementStrategy = RSLaunch
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReplacementStrategy = ReplacementStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReplacementStrategy where
-  parser =
-    takeLowerText >>= \case
-      "launch" -> pure RSLaunch
-      e ->
-        fromTextError $
-          "Failure parsing ReplacementStrategy from value: '" <> e
-            <> "'. Accepted values: launch"
+pattern RSLaunch :: ReplacementStrategy
+pattern RSLaunch = ReplacementStrategy' "launch"
 
-instance ToText ReplacementStrategy where
-  toText = \case
-    RSLaunch -> "launch"
-
-instance Hashable ReplacementStrategy
-
-instance NFData ReplacementStrategy
-
-instance ToByteString ReplacementStrategy
-
-instance ToQuery ReplacementStrategy
-
-instance ToHeader ReplacementStrategy
-
-instance FromXML ReplacementStrategy where
-  parseXML = parseXMLText "ReplacementStrategy"
+{-# COMPLETE
+  RSLaunch,
+  ReplacementStrategy'
+  #-}

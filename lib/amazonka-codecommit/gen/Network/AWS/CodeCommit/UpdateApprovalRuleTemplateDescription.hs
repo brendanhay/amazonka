@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,162 +14,173 @@
 --
 -- Updates the description for a specified approval rule template.
 module Network.AWS.CodeCommit.UpdateApprovalRuleTemplateDescription
-  ( -- * Creating a Request
-    updateApprovalRuleTemplateDescription,
-    UpdateApprovalRuleTemplateDescription,
+  ( -- * Creating a request
+    UpdateApprovalRuleTemplateDescription (..),
+    mkUpdateApprovalRuleTemplateDescription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uartdApprovalRuleTemplateName,
     uartdApprovalRuleTemplateDescription,
 
-    -- * Destructuring the Response
-    updateApprovalRuleTemplateDescriptionResponse,
-    UpdateApprovalRuleTemplateDescriptionResponse,
+    -- * Destructuring the response
+    UpdateApprovalRuleTemplateDescriptionResponse (..),
+    mkUpdateApprovalRuleTemplateDescriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uartdrsResponseStatus,
     uartdrsApprovalRuleTemplate,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateApprovalRuleTemplateDescription' smart constructor.
+-- | /See:/ 'mkUpdateApprovalRuleTemplateDescription' smart constructor.
 data UpdateApprovalRuleTemplateDescription = UpdateApprovalRuleTemplateDescription'
-  { _uartdApprovalRuleTemplateName ::
-      !Text,
-    _uartdApprovalRuleTemplateDescription ::
-      !Text
+  { approvalRuleTemplateName ::
+      Lude.Text,
+    approvalRuleTemplateDescription ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApprovalRuleTemplateDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uartdApprovalRuleTemplateName' - The name of the template for which you want to update the description.
---
--- * 'uartdApprovalRuleTemplateDescription' - The updated description of the approval rule template.
-updateApprovalRuleTemplateDescription ::
-  -- | 'uartdApprovalRuleTemplateName'
-  Text ->
-  -- | 'uartdApprovalRuleTemplateDescription'
-  Text ->
+-- * 'approvalRuleTemplateDescription' - The updated description of the approval rule template.
+-- * 'approvalRuleTemplateName' - The name of the template for which you want to update the description.
+mkUpdateApprovalRuleTemplateDescription ::
+  -- | 'approvalRuleTemplateName'
+  Lude.Text ->
+  -- | 'approvalRuleTemplateDescription'
+  Lude.Text ->
   UpdateApprovalRuleTemplateDescription
-updateApprovalRuleTemplateDescription
+mkUpdateApprovalRuleTemplateDescription
   pApprovalRuleTemplateName_
   pApprovalRuleTemplateDescription_ =
     UpdateApprovalRuleTemplateDescription'
-      { _uartdApprovalRuleTemplateName =
+      { approvalRuleTemplateName =
           pApprovalRuleTemplateName_,
-        _uartdApprovalRuleTemplateDescription =
+        approvalRuleTemplateDescription =
           pApprovalRuleTemplateDescription_
       }
 
 -- | The name of the template for which you want to update the description.
-uartdApprovalRuleTemplateName :: Lens' UpdateApprovalRuleTemplateDescription Text
-uartdApprovalRuleTemplateName = lens _uartdApprovalRuleTemplateName (\s a -> s {_uartdApprovalRuleTemplateName = a})
+--
+-- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uartdApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateDescription Lude.Text
+uartdApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: UpdateApprovalRuleTemplateDescription -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: UpdateApprovalRuleTemplateDescription)
+{-# DEPRECATED uartdApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
 -- | The updated description of the approval rule template.
-uartdApprovalRuleTemplateDescription :: Lens' UpdateApprovalRuleTemplateDescription Text
-uartdApprovalRuleTemplateDescription = lens _uartdApprovalRuleTemplateDescription (\s a -> s {_uartdApprovalRuleTemplateDescription = a})
+--
+-- /Note:/ Consider using 'approvalRuleTemplateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uartdApprovalRuleTemplateDescription :: Lens.Lens' UpdateApprovalRuleTemplateDescription Lude.Text
+uartdApprovalRuleTemplateDescription = Lens.lens (approvalRuleTemplateDescription :: UpdateApprovalRuleTemplateDescription -> Lude.Text) (\s a -> s {approvalRuleTemplateDescription = a} :: UpdateApprovalRuleTemplateDescription)
+{-# DEPRECATED uartdApprovalRuleTemplateDescription "Use generic-lens or generic-optics with 'approvalRuleTemplateDescription' instead." #-}
 
-instance AWSRequest UpdateApprovalRuleTemplateDescription where
+instance Lude.AWSRequest UpdateApprovalRuleTemplateDescription where
   type
     Rs UpdateApprovalRuleTemplateDescription =
       UpdateApprovalRuleTemplateDescriptionResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateApprovalRuleTemplateDescriptionResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "approvalRuleTemplate")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "approvalRuleTemplate")
       )
 
-instance Hashable UpdateApprovalRuleTemplateDescription
-
-instance NFData UpdateApprovalRuleTemplateDescription
-
-instance ToHeaders UpdateApprovalRuleTemplateDescription where
+instance Lude.ToHeaders UpdateApprovalRuleTemplateDescription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "CodeCommit_20150413.UpdateApprovalRuleTemplateDescription" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeCommit_20150413.UpdateApprovalRuleTemplateDescription" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateApprovalRuleTemplateDescription where
+instance Lude.ToJSON UpdateApprovalRuleTemplateDescription where
   toJSON UpdateApprovalRuleTemplateDescription' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("approvalRuleTemplateName" .= _uartdApprovalRuleTemplateName),
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName),
+            Lude.Just
               ( "approvalRuleTemplateDescription"
-                  .= _uartdApprovalRuleTemplateDescription
+                  Lude..= approvalRuleTemplateDescription
               )
           ]
       )
 
-instance ToPath UpdateApprovalRuleTemplateDescription where
-  toPath = const "/"
+instance Lude.ToPath UpdateApprovalRuleTemplateDescription where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateApprovalRuleTemplateDescription where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateApprovalRuleTemplateDescription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateApprovalRuleTemplateDescriptionResponse' smart constructor.
+-- | /See:/ 'mkUpdateApprovalRuleTemplateDescriptionResponse' smart constructor.
 data UpdateApprovalRuleTemplateDescriptionResponse = UpdateApprovalRuleTemplateDescriptionResponse'
-  { _uartdrsResponseStatus ::
-      !Int,
-    _uartdrsApprovalRuleTemplate ::
-      !ApprovalRuleTemplate
+  { responseStatus ::
+      Lude.Int,
+    approvalRuleTemplate ::
+      ApprovalRuleTemplate
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'UpdateApprovalRuleTemplateDescriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uartdrsResponseStatus' - -- | The response status code.
---
--- * 'uartdrsApprovalRuleTemplate' - The structure and content of the updated approval rule template.
-updateApprovalRuleTemplateDescriptionResponse ::
-  -- | 'uartdrsResponseStatus'
-  Int ->
-  -- | 'uartdrsApprovalRuleTemplate'
+-- * 'approvalRuleTemplate' - The structure and content of the updated approval rule template.
+-- * 'responseStatus' - The response status code.
+mkUpdateApprovalRuleTemplateDescriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'approvalRuleTemplate'
   ApprovalRuleTemplate ->
   UpdateApprovalRuleTemplateDescriptionResponse
-updateApprovalRuleTemplateDescriptionResponse
+mkUpdateApprovalRuleTemplateDescriptionResponse
   pResponseStatus_
   pApprovalRuleTemplate_ =
     UpdateApprovalRuleTemplateDescriptionResponse'
-      { _uartdrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _uartdrsApprovalRuleTemplate =
-          pApprovalRuleTemplate_
+        approvalRuleTemplate = pApprovalRuleTemplate_
       }
 
--- | -- | The response status code.
-uartdrsResponseStatus :: Lens' UpdateApprovalRuleTemplateDescriptionResponse Int
-uartdrsResponseStatus = lens _uartdrsResponseStatus (\s a -> s {_uartdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uartdrsResponseStatus :: Lens.Lens' UpdateApprovalRuleTemplateDescriptionResponse Lude.Int
+uartdrsResponseStatus = Lens.lens (responseStatus :: UpdateApprovalRuleTemplateDescriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateApprovalRuleTemplateDescriptionResponse)
+{-# DEPRECATED uartdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The structure and content of the updated approval rule template.
-uartdrsApprovalRuleTemplate :: Lens' UpdateApprovalRuleTemplateDescriptionResponse ApprovalRuleTemplate
-uartdrsApprovalRuleTemplate = lens _uartdrsApprovalRuleTemplate (\s a -> s {_uartdrsApprovalRuleTemplate = a})
-
-instance NFData UpdateApprovalRuleTemplateDescriptionResponse
+--
+-- /Note:/ Consider using 'approvalRuleTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uartdrsApprovalRuleTemplate :: Lens.Lens' UpdateApprovalRuleTemplateDescriptionResponse ApprovalRuleTemplate
+uartdrsApprovalRuleTemplate = Lens.lens (approvalRuleTemplate :: UpdateApprovalRuleTemplateDescriptionResponse -> ApprovalRuleTemplate) (\s a -> s {approvalRuleTemplate = a} :: UpdateApprovalRuleTemplateDescriptionResponse)
+{-# DEPRECATED uartdrsApprovalRuleTemplate "Use generic-lens or generic-optics with 'approvalRuleTemplate' instead." #-}

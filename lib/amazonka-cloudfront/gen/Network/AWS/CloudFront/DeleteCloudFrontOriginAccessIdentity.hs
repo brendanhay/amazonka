@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,105 @@
 --
 -- Delete an origin access identity.
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
-  ( -- * Creating a Request
-    deleteCloudFrontOriginAccessIdentity,
-    DeleteCloudFrontOriginAccessIdentity,
+  ( -- * Creating a request
+    DeleteCloudFrontOriginAccessIdentity (..),
+    mkDeleteCloudFrontOriginAccessIdentity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcfoaiIfMatch,
     dcfoaiId,
 
-    -- * Destructuring the Response
-    deleteCloudFrontOriginAccessIdentityResponse,
-    DeleteCloudFrontOriginAccessIdentityResponse,
+    -- * Destructuring the response
+    DeleteCloudFrontOriginAccessIdentityResponse (..),
+    mkDeleteCloudFrontOriginAccessIdentityResponse,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Deletes a origin access identity.
 --
---
---
--- /See:/ 'deleteCloudFrontOriginAccessIdentity' smart constructor.
+-- /See:/ 'mkDeleteCloudFrontOriginAccessIdentity' smart constructor.
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
-  { _dcfoaiIfMatch ::
-      !(Maybe Text),
-    _dcfoaiId ::
-      !Text
+  { ifMatch ::
+      Lude.Maybe
+        Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcfoaiIfMatch' - The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'dcfoaiId' - The origin access identity's ID.
-deleteCloudFrontOriginAccessIdentity ::
-  -- | 'dcfoaiId'
-  Text ->
+-- * 'id' - The origin access identity's ID.
+-- * 'ifMatch' - The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
+mkDeleteCloudFrontOriginAccessIdentity ::
+  -- | 'id'
+  Lude.Text ->
   DeleteCloudFrontOriginAccessIdentity
-deleteCloudFrontOriginAccessIdentity pId_ =
+mkDeleteCloudFrontOriginAccessIdentity pId_ =
   DeleteCloudFrontOriginAccessIdentity'
-    { _dcfoaiIfMatch = Nothing,
-      _dcfoaiId = pId_
+    { ifMatch = Lude.Nothing,
+      id = pId_
     }
 
 -- | The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
-dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
-dcfoaiIfMatch = lens _dcfoaiIfMatch (\s a -> s {_dcfoaiIfMatch = a})
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfoaiIfMatch :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity (Lude.Maybe Lude.Text)
+dcfoaiIfMatch = Lens.lens (ifMatch :: DeleteCloudFrontOriginAccessIdentity -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: DeleteCloudFrontOriginAccessIdentity)
+{-# DEPRECATED dcfoaiIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
 -- | The origin access identity's ID.
-dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
-dcfoaiId = lens _dcfoaiId (\s a -> s {_dcfoaiId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfoaiId :: Lens.Lens' DeleteCloudFrontOriginAccessIdentity Lude.Text
+dcfoaiId = Lens.lens (id :: DeleteCloudFrontOriginAccessIdentity -> Lude.Text) (\s a -> s {id = a} :: DeleteCloudFrontOriginAccessIdentity)
+{-# DEPRECATED dcfoaiId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
+instance Lude.AWSRequest DeleteCloudFrontOriginAccessIdentity where
   type
     Rs DeleteCloudFrontOriginAccessIdentity =
       DeleteCloudFrontOriginAccessIdentityResponse
-  request = delete cloudFront
+  request = Req.delete cloudFrontService
   response =
-    receiveNull DeleteCloudFrontOriginAccessIdentityResponse'
+    Res.receiveNull DeleteCloudFrontOriginAccessIdentityResponse'
 
-instance Hashable DeleteCloudFrontOriginAccessIdentity
-
-instance NFData DeleteCloudFrontOriginAccessIdentity
-
-instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
+instance Lude.ToHeaders DeleteCloudFrontOriginAccessIdentity where
   toHeaders DeleteCloudFrontOriginAccessIdentity' {..} =
-    mconcat ["If-Match" =# _dcfoaiIfMatch]
+    Lude.mconcat ["If-Match" Lude.=# ifMatch]
 
-instance ToPath DeleteCloudFrontOriginAccessIdentity where
+instance Lude.ToPath DeleteCloudFrontOriginAccessIdentity where
   toPath DeleteCloudFrontOriginAccessIdentity' {..} =
-    mconcat
-      ["/2020-05-31/origin-access-identity/cloudfront/", toBS _dcfoaiId]
+    Lude.mconcat
+      ["/2020-05-31/origin-access-identity/cloudfront/", Lude.toBS id]
 
-instance ToQuery DeleteCloudFrontOriginAccessIdentity where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCloudFrontOriginAccessIdentity where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteCloudFrontOriginAccessIdentityResponse' smart constructor.
+-- | /See:/ 'mkDeleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
-deleteCloudFrontOriginAccessIdentityResponse ::
+mkDeleteCloudFrontOriginAccessIdentityResponse ::
   DeleteCloudFrontOriginAccessIdentityResponse
-deleteCloudFrontOriginAccessIdentityResponse =
+mkDeleteCloudFrontOriginAccessIdentityResponse =
   DeleteCloudFrontOriginAccessIdentityResponse'
-
-instance NFData DeleteCloudFrontOriginAccessIdentityResponse

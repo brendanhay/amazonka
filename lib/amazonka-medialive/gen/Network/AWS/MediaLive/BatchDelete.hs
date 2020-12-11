@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,162 +14,185 @@
 --
 -- Starts delete of resources.
 module Network.AWS.MediaLive.BatchDelete
-  ( -- * Creating a Request
-    batchDelete,
-    BatchDelete,
+  ( -- * Creating a request
+    BatchDelete (..),
+    mkBatchDelete,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bdChannelIds,
     bdInputIds,
     bdMultiplexIds,
     bdInputSecurityGroupIds,
 
-    -- * Destructuring the Response
-    batchDeleteResponse,
-    BatchDeleteResponse,
+    -- * Destructuring the response
+    BatchDeleteResponse (..),
+    mkBatchDeleteResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bdrsSuccessful,
     bdrsFailed,
     bdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to delete resources
 --
--- /See:/ 'batchDelete' smart constructor.
+-- /See:/ 'mkBatchDelete' smart constructor.
 data BatchDelete = BatchDelete'
-  { _bdChannelIds :: !(Maybe [Text]),
-    _bdInputIds :: !(Maybe [Text]),
-    _bdMultiplexIds :: !(Maybe [Text]),
-    _bdInputSecurityGroupIds :: !(Maybe [Text])
+  { channelIds ::
+      Lude.Maybe [Lude.Text],
+    inputIds :: Lude.Maybe [Lude.Text],
+    multiplexIds :: Lude.Maybe [Lude.Text],
+    inputSecurityGroupIds :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDelete' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdChannelIds' - List of channel IDs
---
--- * 'bdInputIds' - List of input IDs
---
--- * 'bdMultiplexIds' - List of multiplex IDs
---
--- * 'bdInputSecurityGroupIds' - List of input security group IDs
-batchDelete ::
+-- * 'channelIds' - List of channel IDs
+-- * 'inputIds' - List of input IDs
+-- * 'inputSecurityGroupIds' - List of input security group IDs
+-- * 'multiplexIds' - List of multiplex IDs
+mkBatchDelete ::
   BatchDelete
-batchDelete =
+mkBatchDelete =
   BatchDelete'
-    { _bdChannelIds = Nothing,
-      _bdInputIds = Nothing,
-      _bdMultiplexIds = Nothing,
-      _bdInputSecurityGroupIds = Nothing
+    { channelIds = Lude.Nothing,
+      inputIds = Lude.Nothing,
+      multiplexIds = Lude.Nothing,
+      inputSecurityGroupIds = Lude.Nothing
     }
 
 -- | List of channel IDs
-bdChannelIds :: Lens' BatchDelete [Text]
-bdChannelIds = lens _bdChannelIds (\s a -> s {_bdChannelIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'channelIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdChannelIds :: Lens.Lens' BatchDelete (Lude.Maybe [Lude.Text])
+bdChannelIds = Lens.lens (channelIds :: BatchDelete -> Lude.Maybe [Lude.Text]) (\s a -> s {channelIds = a} :: BatchDelete)
+{-# DEPRECATED bdChannelIds "Use generic-lens or generic-optics with 'channelIds' instead." #-}
 
 -- | List of input IDs
-bdInputIds :: Lens' BatchDelete [Text]
-bdInputIds = lens _bdInputIds (\s a -> s {_bdInputIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdInputIds :: Lens.Lens' BatchDelete (Lude.Maybe [Lude.Text])
+bdInputIds = Lens.lens (inputIds :: BatchDelete -> Lude.Maybe [Lude.Text]) (\s a -> s {inputIds = a} :: BatchDelete)
+{-# DEPRECATED bdInputIds "Use generic-lens or generic-optics with 'inputIds' instead." #-}
 
 -- | List of multiplex IDs
-bdMultiplexIds :: Lens' BatchDelete [Text]
-bdMultiplexIds = lens _bdMultiplexIds (\s a -> s {_bdMultiplexIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'multiplexIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdMultiplexIds :: Lens.Lens' BatchDelete (Lude.Maybe [Lude.Text])
+bdMultiplexIds = Lens.lens (multiplexIds :: BatchDelete -> Lude.Maybe [Lude.Text]) (\s a -> s {multiplexIds = a} :: BatchDelete)
+{-# DEPRECATED bdMultiplexIds "Use generic-lens or generic-optics with 'multiplexIds' instead." #-}
 
 -- | List of input security group IDs
-bdInputSecurityGroupIds :: Lens' BatchDelete [Text]
-bdInputSecurityGroupIds = lens _bdInputSecurityGroupIds (\s a -> s {_bdInputSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputSecurityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdInputSecurityGroupIds :: Lens.Lens' BatchDelete (Lude.Maybe [Lude.Text])
+bdInputSecurityGroupIds = Lens.lens (inputSecurityGroupIds :: BatchDelete -> Lude.Maybe [Lude.Text]) (\s a -> s {inputSecurityGroupIds = a} :: BatchDelete)
+{-# DEPRECATED bdInputSecurityGroupIds "Use generic-lens or generic-optics with 'inputSecurityGroupIds' instead." #-}
 
-instance AWSRequest BatchDelete where
+instance Lude.AWSRequest BatchDelete where
   type Rs BatchDelete = BatchDeleteResponse
-  request = postJSON mediaLive
+  request = Req.postJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchDeleteResponse'
-            <$> (x .?> "successful" .!@ mempty)
-            <*> (x .?> "failed" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "successful" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "failed" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchDelete
-
-instance NFData BatchDelete
-
-instance ToHeaders BatchDelete where
+instance Lude.ToHeaders BatchDelete where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON BatchDelete where
-  toJSON BatchDelete' {..} =
-    object
-      ( catMaybes
-          [ ("channelIds" .=) <$> _bdChannelIds,
-            ("inputIds" .=) <$> _bdInputIds,
-            ("multiplexIds" .=) <$> _bdMultiplexIds,
-            ("inputSecurityGroupIds" .=) <$> _bdInputSecurityGroupIds
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath BatchDelete where
-  toPath = const "/prod/batch/delete"
+instance Lude.ToJSON BatchDelete where
+  toJSON BatchDelete' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("channelIds" Lude..=) Lude.<$> channelIds,
+            ("inputIds" Lude..=) Lude.<$> inputIds,
+            ("multiplexIds" Lude..=) Lude.<$> multiplexIds,
+            ("inputSecurityGroupIds" Lude..=) Lude.<$> inputSecurityGroupIds
+          ]
+      )
 
-instance ToQuery BatchDelete where
-  toQuery = const mempty
+instance Lude.ToPath BatchDelete where
+  toPath = Lude.const "/prod/batch/delete"
+
+instance Lude.ToQuery BatchDelete where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for BatchDeleteResponse
 --
--- /See:/ 'batchDeleteResponse' smart constructor.
+-- /See:/ 'mkBatchDeleteResponse' smart constructor.
 data BatchDeleteResponse = BatchDeleteResponse'
-  { _bdrsSuccessful ::
-      !(Maybe [BatchSuccessfulResultModel]),
-    _bdrsFailed :: !(Maybe [BatchFailedResultModel]),
-    _bdrsResponseStatus :: !Int
+  { successful ::
+      Lude.Maybe [BatchSuccessfulResultModel],
+    failed :: Lude.Maybe [BatchFailedResultModel],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdrsSuccessful' - List of successful operations
---
--- * 'bdrsFailed' - List of failed operations
---
--- * 'bdrsResponseStatus' - -- | The response status code.
-batchDeleteResponse ::
-  -- | 'bdrsResponseStatus'
-  Int ->
+-- * 'failed' - List of failed operations
+-- * 'responseStatus' - The response status code.
+-- * 'successful' - List of successful operations
+mkBatchDeleteResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchDeleteResponse
-batchDeleteResponse pResponseStatus_ =
+mkBatchDeleteResponse pResponseStatus_ =
   BatchDeleteResponse'
-    { _bdrsSuccessful = Nothing,
-      _bdrsFailed = Nothing,
-      _bdrsResponseStatus = pResponseStatus_
+    { successful = Lude.Nothing,
+      failed = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | List of successful operations
-bdrsSuccessful :: Lens' BatchDeleteResponse [BatchSuccessfulResultModel]
-bdrsSuccessful = lens _bdrsSuccessful (\s a -> s {_bdrsSuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'successful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdrsSuccessful :: Lens.Lens' BatchDeleteResponse (Lude.Maybe [BatchSuccessfulResultModel])
+bdrsSuccessful = Lens.lens (successful :: BatchDeleteResponse -> Lude.Maybe [BatchSuccessfulResultModel]) (\s a -> s {successful = a} :: BatchDeleteResponse)
+{-# DEPRECATED bdrsSuccessful "Use generic-lens or generic-optics with 'successful' instead." #-}
 
 -- | List of failed operations
-bdrsFailed :: Lens' BatchDeleteResponse [BatchFailedResultModel]
-bdrsFailed = lens _bdrsFailed (\s a -> s {_bdrsFailed = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdrsFailed :: Lens.Lens' BatchDeleteResponse (Lude.Maybe [BatchFailedResultModel])
+bdrsFailed = Lens.lens (failed :: BatchDeleteResponse -> Lude.Maybe [BatchFailedResultModel]) (\s a -> s {failed = a} :: BatchDeleteResponse)
+{-# DEPRECATED bdrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
 
--- | -- | The response status code.
-bdrsResponseStatus :: Lens' BatchDeleteResponse Int
-bdrsResponseStatus = lens _bdrsResponseStatus (\s a -> s {_bdrsResponseStatus = a})
-
-instance NFData BatchDeleteResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdrsResponseStatus :: Lens.Lens' BatchDeleteResponse Lude.Int
+bdrsResponseStatus = Lens.lens (responseStatus :: BatchDeleteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteResponse)
+{-# DEPRECATED bdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

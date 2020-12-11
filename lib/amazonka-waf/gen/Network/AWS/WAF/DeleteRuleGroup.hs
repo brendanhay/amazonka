@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,160 @@
 --
 -- Permanently deletes a 'RuleGroup' . You can't delete a @RuleGroup@ if it's still used in any @WebACL@ objects or if it still includes any rules.
 --
---
 -- If you just want to remove a @RuleGroup@ from a @WebACL@ , use 'UpdateWebACL' .
---
 -- To permanently delete a @RuleGroup@ from AWS WAF, perform the following steps:
 --
 --     * Update the @RuleGroup@ to remove rules, if any. For more information, see 'UpdateRuleGroup' .
 --
+--
 --     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteRuleGroup@ request.
+--
 --
 --     * Submit a @DeleteRuleGroup@ request.
 module Network.AWS.WAF.DeleteRuleGroup
-  ( -- * Creating a Request
-    deleteRuleGroup,
-    DeleteRuleGroup,
+  ( -- * Creating a request
+    DeleteRuleGroup (..),
+    mkDeleteRuleGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drgRuleGroupId,
     drgChangeToken,
 
-    -- * Destructuring the Response
-    deleteRuleGroupResponse,
-    DeleteRuleGroupResponse,
+    -- * Destructuring the response
+    DeleteRuleGroupResponse (..),
+    mkDeleteRuleGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drgrsChangeToken,
     drgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
--- | /See:/ 'deleteRuleGroup' smart constructor.
+-- | /See:/ 'mkDeleteRuleGroup' smart constructor.
 data DeleteRuleGroup = DeleteRuleGroup'
-  { _drgRuleGroupId :: !Text,
-    _drgChangeToken :: !Text
+  { ruleGroupId :: Lude.Text,
+    changeToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRuleGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drgRuleGroupId' - The @RuleGroupId@ of the 'RuleGroup' that you want to delete. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
---
--- * 'drgChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-deleteRuleGroup ::
-  -- | 'drgRuleGroupId'
-  Text ->
-  -- | 'drgChangeToken'
-  Text ->
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'ruleGroupId' - The @RuleGroupId@ of the 'RuleGroup' that you want to delete. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+mkDeleteRuleGroup ::
+  -- | 'ruleGroupId'
+  Lude.Text ->
+  -- | 'changeToken'
+  Lude.Text ->
   DeleteRuleGroup
-deleteRuleGroup pRuleGroupId_ pChangeToken_ =
+mkDeleteRuleGroup pRuleGroupId_ pChangeToken_ =
   DeleteRuleGroup'
-    { _drgRuleGroupId = pRuleGroupId_,
-      _drgChangeToken = pChangeToken_
+    { ruleGroupId = pRuleGroupId_,
+      changeToken = pChangeToken_
     }
 
 -- | The @RuleGroupId@ of the 'RuleGroup' that you want to delete. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
-drgRuleGroupId :: Lens' DeleteRuleGroup Text
-drgRuleGroupId = lens _drgRuleGroupId (\s a -> s {_drgRuleGroupId = a})
+--
+-- /Note:/ Consider using 'ruleGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgRuleGroupId :: Lens.Lens' DeleteRuleGroup Lude.Text
+drgRuleGroupId = Lens.lens (ruleGroupId :: DeleteRuleGroup -> Lude.Text) (\s a -> s {ruleGroupId = a} :: DeleteRuleGroup)
+{-# DEPRECATED drgRuleGroupId "Use generic-lens or generic-optics with 'ruleGroupId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-drgChangeToken :: Lens' DeleteRuleGroup Text
-drgChangeToken = lens _drgChangeToken (\s a -> s {_drgChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgChangeToken :: Lens.Lens' DeleteRuleGroup Lude.Text
+drgChangeToken = Lens.lens (changeToken :: DeleteRuleGroup -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteRuleGroup)
+{-# DEPRECATED drgChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance AWSRequest DeleteRuleGroup where
+instance Lude.AWSRequest DeleteRuleGroup where
   type Rs DeleteRuleGroup = DeleteRuleGroupResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteRuleGroupResponse'
-            <$> (x .?> "ChangeToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteRuleGroup
-
-instance NFData DeleteRuleGroup
-
-instance ToHeaders DeleteRuleGroup where
+instance Lude.ToHeaders DeleteRuleGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_20150824.DeleteRuleGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_20150824.DeleteRuleGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRuleGroup where
+instance Lude.ToJSON DeleteRuleGroup where
   toJSON DeleteRuleGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("RuleGroupId" .= _drgRuleGroupId),
-            Just ("ChangeToken" .= _drgChangeToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("RuleGroupId" Lude..= ruleGroupId),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
-instance ToPath DeleteRuleGroup where
-  toPath = const "/"
+instance Lude.ToPath DeleteRuleGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRuleGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRuleGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRuleGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteRuleGroupResponse' smart constructor.
 data DeleteRuleGroupResponse = DeleteRuleGroupResponse'
-  { _drgrsChangeToken ::
-      !(Maybe Text),
-    _drgrsResponseStatus :: !Int
+  { changeToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRuleGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drgrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'drgrsResponseStatus' - -- | The response status code.
-deleteRuleGroupResponse ::
-  -- | 'drgrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+mkDeleteRuleGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRuleGroupResponse
-deleteRuleGroupResponse pResponseStatus_ =
+mkDeleteRuleGroupResponse pResponseStatus_ =
   DeleteRuleGroupResponse'
-    { _drgrsChangeToken = Nothing,
-      _drgrsResponseStatus = pResponseStatus_
+    { changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-drgrsChangeToken :: Lens' DeleteRuleGroupResponse (Maybe Text)
-drgrsChangeToken = lens _drgrsChangeToken (\s a -> s {_drgrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgrsChangeToken :: Lens.Lens' DeleteRuleGroupResponse (Lude.Maybe Lude.Text)
+drgrsChangeToken = Lens.lens (changeToken :: DeleteRuleGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteRuleGroupResponse)
+{-# DEPRECATED drgrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-drgrsResponseStatus :: Lens' DeleteRuleGroupResponse Int
-drgrsResponseStatus = lens _drgrsResponseStatus (\s a -> s {_drgrsResponseStatus = a})
-
-instance NFData DeleteRuleGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgrsResponseStatus :: Lens.Lens' DeleteRuleGroupResponse Lude.Int
+drgrsResponseStatus = Lens.lens (responseStatus :: DeleteRuleGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRuleGroupResponse)
+{-# DEPRECATED drgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

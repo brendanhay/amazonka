@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.InputSchemaUpdate where
+module Network.AWS.KinesisAnalytics.Types.InputSchemaUpdate
+  ( InputSchemaUpdate (..),
+
+    -- * Smart constructor
+    mkInputSchemaUpdate,
+
+    -- * Lenses
+    isuRecordFormatUpdate,
+    isuRecordEncodingUpdate,
+    isuRecordColumnUpdates,
+  )
+where
 
 import Network.AWS.KinesisAnalytics.Types.RecordColumn
 import Network.AWS.KinesisAnalytics.Types.RecordFormat
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes updates for the application's input schema.
 --
---
---
--- /See:/ 'inputSchemaUpdate' smart constructor.
+-- /See:/ 'mkInputSchemaUpdate' smart constructor.
 data InputSchemaUpdate = InputSchemaUpdate'
-  { _isuRecordFormatUpdate ::
-      !(Maybe RecordFormat),
-    _isuRecordEncodingUpdate :: !(Maybe Text),
-    _isuRecordColumnUpdates ::
-      !(Maybe (List1 RecordColumn))
+  { recordFormatUpdate ::
+      Lude.Maybe RecordFormat,
+    recordEncodingUpdate :: Lude.Maybe Lude.Text,
+    recordColumnUpdates ::
+      Lude.Maybe (Lude.NonEmpty RecordColumn)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSchemaUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isuRecordFormatUpdate' - Specifies the format of the records on the streaming source.
---
--- * 'isuRecordEncodingUpdate' - Specifies the encoding of the records in the streaming source. For example, UTF-8.
---
--- * 'isuRecordColumnUpdates' - A list of @RecordColumn@ objects. Each object describes the mapping of the streaming source element to the corresponding column in the in-application stream.
-inputSchemaUpdate ::
+-- * 'recordColumnUpdates' - A list of @RecordColumn@ objects. Each object describes the mapping of the streaming source element to the corresponding column in the in-application stream.
+-- * 'recordEncodingUpdate' - Specifies the encoding of the records in the streaming source. For example, UTF-8.
+-- * 'recordFormatUpdate' - Specifies the format of the records on the streaming source.
+mkInputSchemaUpdate ::
   InputSchemaUpdate
-inputSchemaUpdate =
+mkInputSchemaUpdate =
   InputSchemaUpdate'
-    { _isuRecordFormatUpdate = Nothing,
-      _isuRecordEncodingUpdate = Nothing,
-      _isuRecordColumnUpdates = Nothing
+    { recordFormatUpdate = Lude.Nothing,
+      recordEncodingUpdate = Lude.Nothing,
+      recordColumnUpdates = Lude.Nothing
     }
 
 -- | Specifies the format of the records on the streaming source.
-isuRecordFormatUpdate :: Lens' InputSchemaUpdate (Maybe RecordFormat)
-isuRecordFormatUpdate = lens _isuRecordFormatUpdate (\s a -> s {_isuRecordFormatUpdate = a})
+--
+-- /Note:/ Consider using 'recordFormatUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isuRecordFormatUpdate :: Lens.Lens' InputSchemaUpdate (Lude.Maybe RecordFormat)
+isuRecordFormatUpdate = Lens.lens (recordFormatUpdate :: InputSchemaUpdate -> Lude.Maybe RecordFormat) (\s a -> s {recordFormatUpdate = a} :: InputSchemaUpdate)
+{-# DEPRECATED isuRecordFormatUpdate "Use generic-lens or generic-optics with 'recordFormatUpdate' instead." #-}
 
 -- | Specifies the encoding of the records in the streaming source. For example, UTF-8.
-isuRecordEncodingUpdate :: Lens' InputSchemaUpdate (Maybe Text)
-isuRecordEncodingUpdate = lens _isuRecordEncodingUpdate (\s a -> s {_isuRecordEncodingUpdate = a})
+--
+-- /Note:/ Consider using 'recordEncodingUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isuRecordEncodingUpdate :: Lens.Lens' InputSchemaUpdate (Lude.Maybe Lude.Text)
+isuRecordEncodingUpdate = Lens.lens (recordEncodingUpdate :: InputSchemaUpdate -> Lude.Maybe Lude.Text) (\s a -> s {recordEncodingUpdate = a} :: InputSchemaUpdate)
+{-# DEPRECATED isuRecordEncodingUpdate "Use generic-lens or generic-optics with 'recordEncodingUpdate' instead." #-}
 
 -- | A list of @RecordColumn@ objects. Each object describes the mapping of the streaming source element to the corresponding column in the in-application stream.
-isuRecordColumnUpdates :: Lens' InputSchemaUpdate (Maybe (NonEmpty RecordColumn))
-isuRecordColumnUpdates = lens _isuRecordColumnUpdates (\s a -> s {_isuRecordColumnUpdates = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'recordColumnUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isuRecordColumnUpdates :: Lens.Lens' InputSchemaUpdate (Lude.Maybe (Lude.NonEmpty RecordColumn))
+isuRecordColumnUpdates = Lens.lens (recordColumnUpdates :: InputSchemaUpdate -> Lude.Maybe (Lude.NonEmpty RecordColumn)) (\s a -> s {recordColumnUpdates = a} :: InputSchemaUpdate)
+{-# DEPRECATED isuRecordColumnUpdates "Use generic-lens or generic-optics with 'recordColumnUpdates' instead." #-}
 
-instance Hashable InputSchemaUpdate
-
-instance NFData InputSchemaUpdate
-
-instance ToJSON InputSchemaUpdate where
+instance Lude.ToJSON InputSchemaUpdate where
   toJSON InputSchemaUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("RecordFormatUpdate" .=) <$> _isuRecordFormatUpdate,
-            ("RecordEncodingUpdate" .=) <$> _isuRecordEncodingUpdate,
-            ("RecordColumnUpdates" .=) <$> _isuRecordColumnUpdates
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RecordFormatUpdate" Lude..=) Lude.<$> recordFormatUpdate,
+            ("RecordEncodingUpdate" Lude..=) Lude.<$> recordEncodingUpdate,
+            ("RecordColumnUpdates" Lude..=) Lude.<$> recordColumnUpdates
           ]
       )

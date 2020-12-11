@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SlotStartTimeRangeRequest where
+module Network.AWS.EC2.Types.SlotStartTimeRangeRequest
+  ( SlotStartTimeRangeRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSlotStartTimeRangeRequest,
+
+    -- * Lenses
+    sstrrLatestTime,
+    sstrrEarliestTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the time period for a Scheduled Instance to start its first schedule.
 --
---
---
--- /See:/ 'slotStartTimeRangeRequest' smart constructor.
+-- /See:/ 'mkSlotStartTimeRangeRequest' smart constructor.
 data SlotStartTimeRangeRequest = SlotStartTimeRangeRequest'
-  { _sstrrLatestTime ::
-      !(Maybe ISO8601),
-    _sstrrEarliestTime :: !(Maybe ISO8601)
+  { latestTime ::
+      Lude.Maybe Lude.ISO8601,
+    earliestTime :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SlotStartTimeRangeRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sstrrLatestTime' - The latest date and time, in UTC, for the Scheduled Instance to start.
---
--- * 'sstrrEarliestTime' - The earliest date and time, in UTC, for the Scheduled Instance to start.
-slotStartTimeRangeRequest ::
+-- * 'earliestTime' - The earliest date and time, in UTC, for the Scheduled Instance to start.
+-- * 'latestTime' - The latest date and time, in UTC, for the Scheduled Instance to start.
+mkSlotStartTimeRangeRequest ::
   SlotStartTimeRangeRequest
-slotStartTimeRangeRequest =
+mkSlotStartTimeRangeRequest =
   SlotStartTimeRangeRequest'
-    { _sstrrLatestTime = Nothing,
-      _sstrrEarliestTime = Nothing
+    { latestTime = Lude.Nothing,
+      earliestTime = Lude.Nothing
     }
 
 -- | The latest date and time, in UTC, for the Scheduled Instance to start.
-sstrrLatestTime :: Lens' SlotStartTimeRangeRequest (Maybe UTCTime)
-sstrrLatestTime = lens _sstrrLatestTime (\s a -> s {_sstrrLatestTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'latestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sstrrLatestTime :: Lens.Lens' SlotStartTimeRangeRequest (Lude.Maybe Lude.ISO8601)
+sstrrLatestTime = Lens.lens (latestTime :: SlotStartTimeRangeRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {latestTime = a} :: SlotStartTimeRangeRequest)
+{-# DEPRECATED sstrrLatestTime "Use generic-lens or generic-optics with 'latestTime' instead." #-}
 
 -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
-sstrrEarliestTime :: Lens' SlotStartTimeRangeRequest (Maybe UTCTime)
-sstrrEarliestTime = lens _sstrrEarliestTime (\s a -> s {_sstrrEarliestTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'earliestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sstrrEarliestTime :: Lens.Lens' SlotStartTimeRangeRequest (Lude.Maybe Lude.ISO8601)
+sstrrEarliestTime = Lens.lens (earliestTime :: SlotStartTimeRangeRequest -> Lude.Maybe Lude.ISO8601) (\s a -> s {earliestTime = a} :: SlotStartTimeRangeRequest)
+{-# DEPRECATED sstrrEarliestTime "Use generic-lens or generic-optics with 'earliestTime' instead." #-}
 
-instance Hashable SlotStartTimeRangeRequest
-
-instance NFData SlotStartTimeRangeRequest
-
-instance ToQuery SlotStartTimeRangeRequest where
+instance Lude.ToQuery SlotStartTimeRangeRequest where
   toQuery SlotStartTimeRangeRequest' {..} =
-    mconcat
-      [ "LatestTime" =: _sstrrLatestTime,
-        "EarliestTime" =: _sstrrEarliestTime
+    Lude.mconcat
+      [ "LatestTime" Lude.=: latestTime,
+        "EarliestTime" Lude.=: earliestTime
       ]

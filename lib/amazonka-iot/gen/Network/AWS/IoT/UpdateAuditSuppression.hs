@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,168 @@
 --
 -- Updates a Device Defender audit suppression.
 module Network.AWS.IoT.UpdateAuditSuppression
-  ( -- * Creating a Request
-    updateAuditSuppression,
-    UpdateAuditSuppression,
+  ( -- * Creating a request
+    UpdateAuditSuppression (..),
+    mkUpdateAuditSuppression,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uasExpirationDate,
     uasSuppressIndefinitely,
     uasDescription,
     uasCheckName,
     uasResourceIdentifier,
 
-    -- * Destructuring the Response
-    updateAuditSuppressionResponse,
-    UpdateAuditSuppressionResponse,
+    -- * Destructuring the response
+    UpdateAuditSuppressionResponse (..),
+    mkUpdateAuditSuppressionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uasrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateAuditSuppression' smart constructor.
+-- | /See:/ 'mkUpdateAuditSuppression' smart constructor.
 data UpdateAuditSuppression = UpdateAuditSuppression'
-  { _uasExpirationDate ::
-      !(Maybe POSIX),
-    _uasSuppressIndefinitely :: !(Maybe Bool),
-    _uasDescription :: !(Maybe Text),
-    _uasCheckName :: !Text,
-    _uasResourceIdentifier :: !ResourceIdentifier
+  { expirationDate ::
+      Lude.Maybe Lude.Timestamp,
+    suppressIndefinitely :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text,
+    checkName :: Lude.Text,
+    resourceIdentifier :: ResourceIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAuditSuppression' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uasExpirationDate' - The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
---
--- * 'uasSuppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
---
--- * 'uasDescription' - The description of the audit suppression.
---
--- * 'uasCheckName' - Undocumented member.
---
--- * 'uasResourceIdentifier' - Undocumented member.
-updateAuditSuppression ::
-  -- | 'uasCheckName'
-  Text ->
-  -- | 'uasResourceIdentifier'
+-- * 'checkName' - Undocumented field.
+-- * 'description' - The description of the audit suppression.
+-- * 'expirationDate' - The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
+-- * 'resourceIdentifier' - Undocumented field.
+-- * 'suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
+mkUpdateAuditSuppression ::
+  -- | 'checkName'
+  Lude.Text ->
+  -- | 'resourceIdentifier'
   ResourceIdentifier ->
   UpdateAuditSuppression
-updateAuditSuppression pCheckName_ pResourceIdentifier_ =
+mkUpdateAuditSuppression pCheckName_ pResourceIdentifier_ =
   UpdateAuditSuppression'
-    { _uasExpirationDate = Nothing,
-      _uasSuppressIndefinitely = Nothing,
-      _uasDescription = Nothing,
-      _uasCheckName = pCheckName_,
-      _uasResourceIdentifier = pResourceIdentifier_
+    { expirationDate = Lude.Nothing,
+      suppressIndefinitely = Lude.Nothing,
+      description = Lude.Nothing,
+      checkName = pCheckName_,
+      resourceIdentifier = pResourceIdentifier_
     }
 
 -- | The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
-uasExpirationDate :: Lens' UpdateAuditSuppression (Maybe UTCTime)
-uasExpirationDate = lens _uasExpirationDate (\s a -> s {_uasExpirationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasExpirationDate :: Lens.Lens' UpdateAuditSuppression (Lude.Maybe Lude.Timestamp)
+uasExpirationDate = Lens.lens (expirationDate :: UpdateAuditSuppression -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationDate = a} :: UpdateAuditSuppression)
+{-# DEPRECATED uasExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | Indicates whether a suppression should exist indefinitely or not.
-uasSuppressIndefinitely :: Lens' UpdateAuditSuppression (Maybe Bool)
-uasSuppressIndefinitely = lens _uasSuppressIndefinitely (\s a -> s {_uasSuppressIndefinitely = a})
+--
+-- /Note:/ Consider using 'suppressIndefinitely' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasSuppressIndefinitely :: Lens.Lens' UpdateAuditSuppression (Lude.Maybe Lude.Bool)
+uasSuppressIndefinitely = Lens.lens (suppressIndefinitely :: UpdateAuditSuppression -> Lude.Maybe Lude.Bool) (\s a -> s {suppressIndefinitely = a} :: UpdateAuditSuppression)
+{-# DEPRECATED uasSuppressIndefinitely "Use generic-lens or generic-optics with 'suppressIndefinitely' instead." #-}
 
 -- | The description of the audit suppression.
-uasDescription :: Lens' UpdateAuditSuppression (Maybe Text)
-uasDescription = lens _uasDescription (\s a -> s {_uasDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasDescription :: Lens.Lens' UpdateAuditSuppression (Lude.Maybe Lude.Text)
+uasDescription = Lens.lens (description :: UpdateAuditSuppression -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAuditSuppression)
+{-# DEPRECATED uasDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-uasCheckName :: Lens' UpdateAuditSuppression Text
-uasCheckName = lens _uasCheckName (\s a -> s {_uasCheckName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasCheckName :: Lens.Lens' UpdateAuditSuppression Lude.Text
+uasCheckName = Lens.lens (checkName :: UpdateAuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: UpdateAuditSuppression)
+{-# DEPRECATED uasCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
--- | Undocumented member.
-uasResourceIdentifier :: Lens' UpdateAuditSuppression ResourceIdentifier
-uasResourceIdentifier = lens _uasResourceIdentifier (\s a -> s {_uasResourceIdentifier = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasResourceIdentifier :: Lens.Lens' UpdateAuditSuppression ResourceIdentifier
+uasResourceIdentifier = Lens.lens (resourceIdentifier :: UpdateAuditSuppression -> ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: UpdateAuditSuppression)
+{-# DEPRECATED uasResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance AWSRequest UpdateAuditSuppression where
+instance Lude.AWSRequest UpdateAuditSuppression where
   type Rs UpdateAuditSuppression = UpdateAuditSuppressionResponse
-  request = patchJSON ioT
+  request = Req.patchJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateAuditSuppressionResponse' <$> (pure (fromEnum s))
+          UpdateAuditSuppressionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateAuditSuppression
+instance Lude.ToHeaders UpdateAuditSuppression where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateAuditSuppression
-
-instance ToHeaders UpdateAuditSuppression where
-  toHeaders = const mempty
-
-instance ToJSON UpdateAuditSuppression where
+instance Lude.ToJSON UpdateAuditSuppression where
   toJSON UpdateAuditSuppression' {..} =
-    object
-      ( catMaybes
-          [ ("expirationDate" .=) <$> _uasExpirationDate,
-            ("suppressIndefinitely" .=) <$> _uasSuppressIndefinitely,
-            ("description" .=) <$> _uasDescription,
-            Just ("checkName" .= _uasCheckName),
-            Just ("resourceIdentifier" .= _uasResourceIdentifier)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("expirationDate" Lude..=) Lude.<$> expirationDate,
+            ("suppressIndefinitely" Lude..=) Lude.<$> suppressIndefinitely,
+            ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("checkName" Lude..= checkName),
+            Lude.Just ("resourceIdentifier" Lude..= resourceIdentifier)
           ]
       )
 
-instance ToPath UpdateAuditSuppression where
-  toPath = const "/audit/suppressions/update"
+instance Lude.ToPath UpdateAuditSuppression where
+  toPath = Lude.const "/audit/suppressions/update"
 
-instance ToQuery UpdateAuditSuppression where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAuditSuppression where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAuditSuppressionResponse' smart constructor.
+-- | /See:/ 'mkUpdateAuditSuppressionResponse' smart constructor.
 newtype UpdateAuditSuppressionResponse = UpdateAuditSuppressionResponse'
-  { _uasrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAuditSuppressionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uasrsResponseStatus' - -- | The response status code.
-updateAuditSuppressionResponse ::
-  -- | 'uasrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateAuditSuppressionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateAuditSuppressionResponse
-updateAuditSuppressionResponse pResponseStatus_ =
+mkUpdateAuditSuppressionResponse pResponseStatus_ =
   UpdateAuditSuppressionResponse'
-    { _uasrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uasrsResponseStatus :: Lens' UpdateAuditSuppressionResponse Int
-uasrsResponseStatus = lens _uasrsResponseStatus (\s a -> s {_uasrsResponseStatus = a})
-
-instance NFData UpdateAuditSuppressionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasrsResponseStatus :: Lens.Lens' UpdateAuditSuppressionResponse Lude.Int
+uasrsResponseStatus = Lens.lens (responseStatus :: UpdateAuditSuppressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAuditSuppressionResponse)
+{-# DEPRECATED uasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

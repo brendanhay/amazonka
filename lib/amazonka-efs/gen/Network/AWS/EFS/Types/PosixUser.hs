@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.PosixUser where
+module Network.AWS.EFS.Types.PosixUser
+  ( PosixUser (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPosixUser,
+
+    -- * Lenses
+    puSecondaryGids,
+    puUid,
+    puGid,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 --
---
---
--- /See:/ 'posixUser' smart constructor.
+-- /See:/ 'mkPosixUser' smart constructor.
 data PosixUser = PosixUser'
-  { _puSecondaryGids :: !(Maybe [Nat]),
-    _puUid :: !Nat,
-    _puGid :: !Nat
+  { secondaryGids ::
+      Lude.Maybe [Lude.Natural],
+    uid :: Lude.Natural,
+    gid :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PosixUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'puSecondaryGids' - Secondary POSIX group IDs used for all file system operations using this access point.
---
--- * 'puUid' - The POSIX user ID used for all file system operations using this access point.
---
--- * 'puGid' - The POSIX group ID used for all file system operations using this access point.
-posixUser ::
-  -- | 'puUid'
-  Natural ->
-  -- | 'puGid'
-  Natural ->
+-- * 'gid' - The POSIX group ID used for all file system operations using this access point.
+-- * 'secondaryGids' - Secondary POSIX group IDs used for all file system operations using this access point.
+-- * 'uid' - The POSIX user ID used for all file system operations using this access point.
+mkPosixUser ::
+  -- | 'uid'
+  Lude.Natural ->
+  -- | 'gid'
+  Lude.Natural ->
   PosixUser
-posixUser pUid_ pGid_ =
+mkPosixUser pUid_ pGid_ =
   PosixUser'
-    { _puSecondaryGids = Nothing,
-      _puUid = _Nat # pUid_,
-      _puGid = _Nat # pGid_
+    { secondaryGids = Lude.Nothing,
+      uid = pUid_,
+      gid = pGid_
     }
 
 -- | Secondary POSIX group IDs used for all file system operations using this access point.
-puSecondaryGids :: Lens' PosixUser [Natural]
-puSecondaryGids = lens _puSecondaryGids (\s a -> s {_puSecondaryGids = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondaryGids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puSecondaryGids :: Lens.Lens' PosixUser (Lude.Maybe [Lude.Natural])
+puSecondaryGids = Lens.lens (secondaryGids :: PosixUser -> Lude.Maybe [Lude.Natural]) (\s a -> s {secondaryGids = a} :: PosixUser)
+{-# DEPRECATED puSecondaryGids "Use generic-lens or generic-optics with 'secondaryGids' instead." #-}
 
 -- | The POSIX user ID used for all file system operations using this access point.
-puUid :: Lens' PosixUser Natural
-puUid = lens _puUid (\s a -> s {_puUid = a}) . _Nat
+--
+-- /Note:/ Consider using 'uid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puUid :: Lens.Lens' PosixUser Lude.Natural
+puUid = Lens.lens (uid :: PosixUser -> Lude.Natural) (\s a -> s {uid = a} :: PosixUser)
+{-# DEPRECATED puUid "Use generic-lens or generic-optics with 'uid' instead." #-}
 
 -- | The POSIX group ID used for all file system operations using this access point.
-puGid :: Lens' PosixUser Natural
-puGid = lens _puGid (\s a -> s {_puGid = a}) . _Nat
+--
+-- /Note:/ Consider using 'gid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puGid :: Lens.Lens' PosixUser Lude.Natural
+puGid = Lens.lens (gid :: PosixUser -> Lude.Natural) (\s a -> s {gid = a} :: PosixUser)
+{-# DEPRECATED puGid "Use generic-lens or generic-optics with 'gid' instead." #-}
 
-instance FromJSON PosixUser where
+instance Lude.FromJSON PosixUser where
   parseJSON =
-    withObject
+    Lude.withObject
       "PosixUser"
       ( \x ->
           PosixUser'
-            <$> (x .:? "SecondaryGids" .!= mempty)
-            <*> (x .: "Uid")
-            <*> (x .: "Gid")
+            Lude.<$> (x Lude..:? "SecondaryGids" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "Uid")
+            Lude.<*> (x Lude..: "Gid")
       )
 
-instance Hashable PosixUser
-
-instance NFData PosixUser
-
-instance ToJSON PosixUser where
+instance Lude.ToJSON PosixUser where
   toJSON PosixUser' {..} =
-    object
-      ( catMaybes
-          [ ("SecondaryGids" .=) <$> _puSecondaryGids,
-            Just ("Uid" .= _puUid),
-            Just ("Gid" .= _puGid)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SecondaryGids" Lude..=) Lude.<$> secondaryGids,
+            Lude.Just ("Uid" Lude..= uid),
+            Lude.Just ("Gid" Lude..= gid)
           ]
       )

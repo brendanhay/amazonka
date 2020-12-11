@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ServerValidationOutput where
+module Network.AWS.SMS.Types.ServerValidationOutput
+  ( ServerValidationOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServerValidationOutput,
+
+    -- * Lenses
+    svoServer,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.Server
 
 -- | Contains output from validating an instance.
 --
---
---
--- /See:/ 'serverValidationOutput' smart constructor.
+-- /See:/ 'mkServerValidationOutput' smart constructor.
 newtype ServerValidationOutput = ServerValidationOutput'
-  { _svoServer ::
-      Maybe Server
+  { server ::
+      Lude.Maybe Server
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerValidationOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'svoServer' - Undocumented member.
-serverValidationOutput ::
+-- * 'server' - Undocumented field.
+mkServerValidationOutput ::
   ServerValidationOutput
-serverValidationOutput =
-  ServerValidationOutput' {_svoServer = Nothing}
+mkServerValidationOutput =
+  ServerValidationOutput' {server = Lude.Nothing}
 
--- | Undocumented member.
-svoServer :: Lens' ServerValidationOutput (Maybe Server)
-svoServer = lens _svoServer (\s a -> s {_svoServer = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'server' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svoServer :: Lens.Lens' ServerValidationOutput (Lude.Maybe Server)
+svoServer = Lens.lens (server :: ServerValidationOutput -> Lude.Maybe Server) (\s a -> s {server = a} :: ServerValidationOutput)
+{-# DEPRECATED svoServer "Use generic-lens or generic-optics with 'server' instead." #-}
 
-instance FromJSON ServerValidationOutput where
+instance Lude.FromJSON ServerValidationOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServerValidationOutput"
-      (\x -> ServerValidationOutput' <$> (x .:? "server"))
-
-instance Hashable ServerValidationOutput
-
-instance NFData ServerValidationOutput
+      (\x -> ServerValidationOutput' Lude.<$> (x Lude..:? "server"))

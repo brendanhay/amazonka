@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.CostCategoryValues where
+module Network.AWS.CostExplorer.Types.CostCategoryValues
+  ( CostCategoryValues (..),
+
+    -- * Smart constructor
+    mkCostCategoryValues,
+
+    -- * Lenses
+    ccvValues,
+    ccvKey,
+    ccvMatchOptions,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.MatchOption
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Cost Categories values used for filtering the costs.
 --
---
---
--- /See:/ 'costCategoryValues' smart constructor.
+-- /See:/ 'mkCostCategoryValues' smart constructor.
 data CostCategoryValues = CostCategoryValues'
-  { _ccvValues ::
-      !(Maybe [Text]),
-    _ccvKey :: !(Maybe Text),
-    _ccvMatchOptions :: !(Maybe [MatchOption])
+  { values ::
+      Lude.Maybe [Lude.Text],
+    key :: Lude.Maybe Lude.Text,
+    matchOptions :: Lude.Maybe [MatchOption]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CostCategoryValues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccvValues' - The specific value of the Cost Category.
---
--- * 'ccvKey' - Undocumented member.
---
--- * 'ccvMatchOptions' - The match options that you can use to filter your results. MatchOptions is only applicable for only applicable for actions related to cost category. The default values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@ .
-costCategoryValues ::
+-- * 'key' - Undocumented field.
+-- * 'matchOptions' - The match options that you can use to filter your results. MatchOptions is only applicable for only applicable for actions related to cost category. The default values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@ .
+-- * 'values' - The specific value of the Cost Category.
+mkCostCategoryValues ::
   CostCategoryValues
-costCategoryValues =
+mkCostCategoryValues =
   CostCategoryValues'
-    { _ccvValues = Nothing,
-      _ccvKey = Nothing,
-      _ccvMatchOptions = Nothing
+    { values = Lude.Nothing,
+      key = Lude.Nothing,
+      matchOptions = Lude.Nothing
     }
 
 -- | The specific value of the Cost Category.
-ccvValues :: Lens' CostCategoryValues [Text]
-ccvValues = lens _ccvValues (\s a -> s {_ccvValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccvValues :: Lens.Lens' CostCategoryValues (Lude.Maybe [Lude.Text])
+ccvValues = Lens.lens (values :: CostCategoryValues -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: CostCategoryValues)
+{-# DEPRECATED ccvValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
--- | Undocumented member.
-ccvKey :: Lens' CostCategoryValues (Maybe Text)
-ccvKey = lens _ccvKey (\s a -> s {_ccvKey = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccvKey :: Lens.Lens' CostCategoryValues (Lude.Maybe Lude.Text)
+ccvKey = Lens.lens (key :: CostCategoryValues -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: CostCategoryValues)
+{-# DEPRECATED ccvKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The match options that you can use to filter your results. MatchOptions is only applicable for only applicable for actions related to cost category. The default values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@ .
-ccvMatchOptions :: Lens' CostCategoryValues [MatchOption]
-ccvMatchOptions = lens _ccvMatchOptions (\s a -> s {_ccvMatchOptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'matchOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccvMatchOptions :: Lens.Lens' CostCategoryValues (Lude.Maybe [MatchOption])
+ccvMatchOptions = Lens.lens (matchOptions :: CostCategoryValues -> Lude.Maybe [MatchOption]) (\s a -> s {matchOptions = a} :: CostCategoryValues)
+{-# DEPRECATED ccvMatchOptions "Use generic-lens or generic-optics with 'matchOptions' instead." #-}
 
-instance FromJSON CostCategoryValues where
+instance Lude.FromJSON CostCategoryValues where
   parseJSON =
-    withObject
+    Lude.withObject
       "CostCategoryValues"
       ( \x ->
           CostCategoryValues'
-            <$> (x .:? "Values" .!= mempty)
-            <*> (x .:? "Key")
-            <*> (x .:? "MatchOptions" .!= mempty)
+            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Key")
+            Lude.<*> (x Lude..:? "MatchOptions" Lude..!= Lude.mempty)
       )
 
-instance Hashable CostCategoryValues
-
-instance NFData CostCategoryValues
-
-instance ToJSON CostCategoryValues where
+instance Lude.ToJSON CostCategoryValues where
   toJSON CostCategoryValues' {..} =
-    object
-      ( catMaybes
-          [ ("Values" .=) <$> _ccvValues,
-            ("Key" .=) <$> _ccvKey,
-            ("MatchOptions" .=) <$> _ccvMatchOptions
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Values" Lude..=) Lude.<$> values,
+            ("Key" Lude..=) Lude.<$> key,
+            ("MatchOptions" Lude..=) Lude.<$> matchOptions
           ]
       )

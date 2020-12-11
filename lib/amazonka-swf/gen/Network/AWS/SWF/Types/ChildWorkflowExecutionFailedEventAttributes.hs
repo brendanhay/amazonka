@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,123 +7,140 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ChildWorkflowExecutionFailedEventAttributes where
+module Network.AWS.SWF.Types.ChildWorkflowExecutionFailedEventAttributes
+  ( ChildWorkflowExecutionFailedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkChildWorkflowExecutionFailedEventAttributes,
+
+    -- * Lenses
+    cwefeaReason,
+    cwefeaDetails,
+    cwefeaWorkflowExecution,
+    cwefeaWorkflowType,
+    cwefeaInitiatedEventId,
+    cwefeaStartedEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SWF.Types.WorkflowExecution
 import Network.AWS.SWF.Types.WorkflowType
 
 -- | Provides the details of the @ChildWorkflowExecutionFailed@ event.
 --
---
---
--- /See:/ 'childWorkflowExecutionFailedEventAttributes' smart constructor.
+-- /See:/ 'mkChildWorkflowExecutionFailedEventAttributes' smart constructor.
 data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedEventAttributes'
-  { _cwefeaReason ::
-      !( Maybe
-           Text
-       ),
-    _cwefeaDetails ::
-      !( Maybe
-           Text
-       ),
-    _cwefeaWorkflowExecution ::
-      !WorkflowExecution,
-    _cwefeaWorkflowType ::
-      !WorkflowType,
-    _cwefeaInitiatedEventId ::
-      !Integer,
-    _cwefeaStartedEventId ::
-      !Integer
+  { reason ::
+      Lude.Maybe
+        Lude.Text,
+    details ::
+      Lude.Maybe
+        Lude.Text,
+    workflowExecution ::
+      WorkflowExecution,
+    workflowType ::
+      WorkflowType,
+    initiatedEventId ::
+      Lude.Integer,
+    startedEventId ::
+      Lude.Integer
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChildWorkflowExecutionFailedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cwefeaReason' - The reason for the failure (if provided).
---
--- * 'cwefeaDetails' - The details of the failure (if provided).
---
--- * 'cwefeaWorkflowExecution' - The child workflow execution that failed.
---
--- * 'cwefeaWorkflowType' - The type of the child workflow execution.
---
--- * 'cwefeaInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
---
--- * 'cwefeaStartedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-childWorkflowExecutionFailedEventAttributes ::
-  -- | 'cwefeaWorkflowExecution'
+-- * 'details' - The details of the failure (if provided).
+-- * 'initiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'reason' - The reason for the failure (if provided).
+-- * 'startedEventId' - The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'workflowExecution' - The child workflow execution that failed.
+-- * 'workflowType' - The type of the child workflow execution.
+mkChildWorkflowExecutionFailedEventAttributes ::
+  -- | 'workflowExecution'
   WorkflowExecution ->
-  -- | 'cwefeaWorkflowType'
+  -- | 'workflowType'
   WorkflowType ->
-  -- | 'cwefeaInitiatedEventId'
-  Integer ->
-  -- | 'cwefeaStartedEventId'
-  Integer ->
+  -- | 'initiatedEventId'
+  Lude.Integer ->
+  -- | 'startedEventId'
+  Lude.Integer ->
   ChildWorkflowExecutionFailedEventAttributes
-childWorkflowExecutionFailedEventAttributes
+mkChildWorkflowExecutionFailedEventAttributes
   pWorkflowExecution_
   pWorkflowType_
   pInitiatedEventId_
   pStartedEventId_ =
     ChildWorkflowExecutionFailedEventAttributes'
-      { _cwefeaReason =
-          Nothing,
-        _cwefeaDetails = Nothing,
-        _cwefeaWorkflowExecution = pWorkflowExecution_,
-        _cwefeaWorkflowType = pWorkflowType_,
-        _cwefeaInitiatedEventId = pInitiatedEventId_,
-        _cwefeaStartedEventId = pStartedEventId_
+      { reason =
+          Lude.Nothing,
+        details = Lude.Nothing,
+        workflowExecution = pWorkflowExecution_,
+        workflowType = pWorkflowType_,
+        initiatedEventId = pInitiatedEventId_,
+        startedEventId = pStartedEventId_
       }
 
 -- | The reason for the failure (if provided).
-cwefeaReason :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
-cwefeaReason = lens _cwefeaReason (\s a -> s {_cwefeaReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwefeaReason :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes (Lude.Maybe Lude.Text)
+cwefeaReason = Lens.lens (reason :: ChildWorkflowExecutionFailedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: ChildWorkflowExecutionFailedEventAttributes)
+{-# DEPRECATED cwefeaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The details of the failure (if provided).
-cwefeaDetails :: Lens' ChildWorkflowExecutionFailedEventAttributes (Maybe Text)
-cwefeaDetails = lens _cwefeaDetails (\s a -> s {_cwefeaDetails = a})
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwefeaDetails :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes (Lude.Maybe Lude.Text)
+cwefeaDetails = Lens.lens (details :: ChildWorkflowExecutionFailedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: ChildWorkflowExecutionFailedEventAttributes)
+{-# DEPRECATED cwefeaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The child workflow execution that failed.
-cwefeaWorkflowExecution :: Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowExecution
-cwefeaWorkflowExecution = lens _cwefeaWorkflowExecution (\s a -> s {_cwefeaWorkflowExecution = a})
+--
+-- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwefeaWorkflowExecution :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowExecution
+cwefeaWorkflowExecution = Lens.lens (workflowExecution :: ChildWorkflowExecutionFailedEventAttributes -> WorkflowExecution) (\s a -> s {workflowExecution = a} :: ChildWorkflowExecutionFailedEventAttributes)
+{-# DEPRECATED cwefeaWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
 
 -- | The type of the child workflow execution.
-cwefeaWorkflowType :: Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowType
-cwefeaWorkflowType = lens _cwefeaWorkflowType (\s a -> s {_cwefeaWorkflowType = a})
+--
+-- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwefeaWorkflowType :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes WorkflowType
+cwefeaWorkflowType = Lens.lens (workflowType :: ChildWorkflowExecutionFailedEventAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: ChildWorkflowExecutionFailedEventAttributes)
+{-# DEPRECATED cwefeaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
 -- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding to the @StartChildWorkflowExecution@ 'Decision' to start this child workflow execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-cwefeaInitiatedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
-cwefeaInitiatedEventId = lens _cwefeaInitiatedEventId (\s a -> s {_cwefeaInitiatedEventId = a})
+--
+-- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwefeaInitiatedEventId :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes Lude.Integer
+cwefeaInitiatedEventId = Lens.lens (initiatedEventId :: ChildWorkflowExecutionFailedEventAttributes -> Lude.Integer) (\s a -> s {initiatedEventId = a} :: ChildWorkflowExecutionFailedEventAttributes)
+{-# DEPRECATED cwefeaInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
 
 -- | The ID of the @ChildWorkflowExecutionStarted@ event recorded when this child workflow execution was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-cwefeaStartedEventId :: Lens' ChildWorkflowExecutionFailedEventAttributes Integer
-cwefeaStartedEventId = lens _cwefeaStartedEventId (\s a -> s {_cwefeaStartedEventId = a})
+--
+-- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwefeaStartedEventId :: Lens.Lens' ChildWorkflowExecutionFailedEventAttributes Lude.Integer
+cwefeaStartedEventId = Lens.lens (startedEventId :: ChildWorkflowExecutionFailedEventAttributes -> Lude.Integer) (\s a -> s {startedEventId = a} :: ChildWorkflowExecutionFailedEventAttributes)
+{-# DEPRECATED cwefeaStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
 
-instance FromJSON ChildWorkflowExecutionFailedEventAttributes where
+instance Lude.FromJSON ChildWorkflowExecutionFailedEventAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "ChildWorkflowExecutionFailedEventAttributes"
       ( \x ->
           ChildWorkflowExecutionFailedEventAttributes'
-            <$> (x .:? "reason")
-            <*> (x .:? "details")
-            <*> (x .: "workflowExecution")
-            <*> (x .: "workflowType")
-            <*> (x .: "initiatedEventId")
-            <*> (x .: "startedEventId")
+            Lude.<$> (x Lude..:? "reason")
+            Lude.<*> (x Lude..:? "details")
+            Lude.<*> (x Lude..: "workflowExecution")
+            Lude.<*> (x Lude..: "workflowType")
+            Lude.<*> (x Lude..: "initiatedEventId")
+            Lude.<*> (x Lude..: "startedEventId")
       )
-
-instance Hashable ChildWorkflowExecutionFailedEventAttributes
-
-instance NFData ChildWorkflowExecutionFailedEventAttributes

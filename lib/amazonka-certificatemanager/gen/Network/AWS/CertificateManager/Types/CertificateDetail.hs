@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,41 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.CertificateDetail where
+module Network.AWS.CertificateManager.Types.CertificateDetail
+  ( CertificateDetail (..),
+
+    -- * Smart constructor
+    mkCertificateDetail,
+
+    -- * Lenses
+    cdSubject,
+    cdStatus,
+    cdFailureReason,
+    cdSubjectAlternativeNames,
+    cdInUseBy,
+    cdCreatedAt,
+    cdCertificateARN,
+    cdSerial,
+    cdRenewalEligibility,
+    cdExtendedKeyUsages,
+    cdImportedAt,
+    cdKeyUsages,
+    cdRevokedAt,
+    cdNotBefore,
+    cdRevocationReason,
+    cdDomainName,
+    cdRenewalSummary,
+    cdKeyAlgorithm,
+    cdType,
+    cdOptions,
+    cdIssuedAt,
+    cdSignatureAlgorithm,
+    cdDomainValidationOptions,
+    cdIssuer,
+    cdNotAfter,
+    cdCertificateAuthorityARN,
+  )
+where
 
 import Network.AWS.CertificateManager.Types.CertificateOptions
 import Network.AWS.CertificateManager.Types.CertificateStatus
@@ -26,271 +54,328 @@ import Network.AWS.CertificateManager.Types.KeyUsage
 import Network.AWS.CertificateManager.Types.RenewalEligibility
 import Network.AWS.CertificateManager.Types.RenewalSummary
 import Network.AWS.CertificateManager.Types.RevocationReason
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains metadata about an ACM certificate. This structure is returned in the response to a 'DescribeCertificate' request.
 --
---
---
--- /See:/ 'certificateDetail' smart constructor.
+-- /See:/ 'mkCertificateDetail' smart constructor.
 data CertificateDetail = CertificateDetail'
-  { _cdSubject ::
-      !(Maybe Text),
-    _cdStatus :: !(Maybe CertificateStatus),
-    _cdFailureReason :: !(Maybe FailureReason),
-    _cdSubjectAlternativeNames :: !(Maybe (List1 Text)),
-    _cdInUseBy :: !(Maybe [Text]),
-    _cdCreatedAt :: !(Maybe POSIX),
-    _cdCertificateARN :: !(Maybe Text),
-    _cdSerial :: !(Maybe Text),
-    _cdRenewalEligibility :: !(Maybe RenewalEligibility),
-    _cdExtendedKeyUsages :: !(Maybe [ExtendedKeyUsage]),
-    _cdImportedAt :: !(Maybe POSIX),
-    _cdKeyUsages :: !(Maybe [KeyUsage]),
-    _cdRevokedAt :: !(Maybe POSIX),
-    _cdNotBefore :: !(Maybe POSIX),
-    _cdRevocationReason :: !(Maybe RevocationReason),
-    _cdDomainName :: !(Maybe Text),
-    _cdRenewalSummary :: !(Maybe RenewalSummary),
-    _cdKeyAlgorithm :: !(Maybe KeyAlgorithm),
-    _cdType :: !(Maybe CertificateType),
-    _cdOptions :: !(Maybe CertificateOptions),
-    _cdIssuedAt :: !(Maybe POSIX),
-    _cdSignatureAlgorithm :: !(Maybe Text),
-    _cdDomainValidationOptions ::
-      !(Maybe (List1 DomainValidation)),
-    _cdIssuer :: !(Maybe Text),
-    _cdNotAfter :: !(Maybe POSIX),
-    _cdCertificateAuthorityARN :: !(Maybe Text)
+  { subject ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe CertificateStatus,
+    failureReason :: Lude.Maybe FailureReason,
+    subjectAlternativeNames ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    inUseBy :: Lude.Maybe [Lude.Text],
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    certificateARN :: Lude.Maybe Lude.Text,
+    serial :: Lude.Maybe Lude.Text,
+    renewalEligibility :: Lude.Maybe RenewalEligibility,
+    extendedKeyUsages :: Lude.Maybe [ExtendedKeyUsage],
+    importedAt :: Lude.Maybe Lude.Timestamp,
+    keyUsages :: Lude.Maybe [KeyUsage],
+    revokedAt :: Lude.Maybe Lude.Timestamp,
+    notBefore :: Lude.Maybe Lude.Timestamp,
+    revocationReason :: Lude.Maybe RevocationReason,
+    domainName :: Lude.Maybe Lude.Text,
+    renewalSummary :: Lude.Maybe RenewalSummary,
+    keyAlgorithm :: Lude.Maybe KeyAlgorithm,
+    type' :: Lude.Maybe CertificateType,
+    options :: Lude.Maybe CertificateOptions,
+    issuedAt :: Lude.Maybe Lude.Timestamp,
+    signatureAlgorithm :: Lude.Maybe Lude.Text,
+    domainValidationOptions ::
+      Lude.Maybe (Lude.NonEmpty DomainValidation),
+    issuer :: Lude.Maybe Lude.Text,
+    notAfter :: Lude.Maybe Lude.Timestamp,
+    certificateAuthorityARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateARN' - The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:
 --
--- * 'cdSubject' - The name of the entity that is associated with the public key contained in the certificate.
---
--- * 'cdStatus' - The status of the certificate.
---
--- * 'cdFailureReason' - The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
---
--- * 'cdSubjectAlternativeNames' - One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
---
--- * 'cdInUseBy' - A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
---
--- * 'cdCreatedAt' - The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
---
--- * 'cdCertificateARN' - The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- * 'cdSerial' - The serial number of the certificate.
---
--- * 'cdRenewalEligibility' - Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the 'RenewCertificate' command.
---
--- * 'cdExtendedKeyUsages' - Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
---
--- * 'cdImportedAt' - The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
---
--- * 'cdKeyUsages' - A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
---
--- * 'cdRevokedAt' - The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
---
--- * 'cdNotBefore' - The time before which the certificate is not valid.
---
--- * 'cdRevocationReason' - The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
---
--- * 'cdDomainName' - The fully qualified domain name for the certificate, such as www.example.com or example.com.
---
--- * 'cdRenewalSummary' - Contains information about the status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
---
--- * 'cdKeyAlgorithm' - The algorithm that was used to generate the public-private key pair.
---
--- * 'cdType' - The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
---
--- * 'cdOptions' - Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.
---
--- * 'cdIssuedAt' - The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
---
--- * 'cdSignatureAlgorithm' - The algorithm that was used to sign the certificate.
---
--- * 'cdDomainValidationOptions' - Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
---
--- * 'cdIssuer' - The name of the certificate authority that issued and signed the certificate.
---
--- * 'cdNotAfter' - The time after which the certificate is not valid.
---
--- * 'cdCertificateAuthorityARN' - The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:  @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
-certificateDetail ::
+-- @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
+-- * 'createdAt' - The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'domainName' - The fully qualified domain name for the certificate, such as www.example.com or example.com.
+-- * 'domainValidationOptions' - Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'extendedKeyUsages' - Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
+-- * 'failureReason' - The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
+-- * 'importedAt' - The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
+-- * 'inUseBy' - A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
+-- * 'issuedAt' - The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'issuer' - The name of the certificate authority that issued and signed the certificate.
+-- * 'keyAlgorithm' - The algorithm that was used to generate the public-private key pair.
+-- * 'keyUsages' - A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
+-- * 'notAfter' - The time after which the certificate is not valid.
+-- * 'notBefore' - The time before which the certificate is not valid.
+-- * 'options' - Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.
+-- * 'renewalEligibility' - Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the 'RenewCertificate' command.
+-- * 'renewalSummary' - Contains information about the status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'revocationReason' - The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
+-- * 'revokedAt' - The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
+-- * 'serial' - The serial number of the certificate.
+-- * 'signatureAlgorithm' - The algorithm that was used to sign the certificate.
+-- * 'status' - The status of the certificate.
+-- * 'subject' - The name of the entity that is associated with the public key contained in the certificate.
+-- * 'subjectAlternativeNames' - One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+-- * 'type'' - The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
+mkCertificateDetail ::
   CertificateDetail
-certificateDetail =
+mkCertificateDetail =
   CertificateDetail'
-    { _cdSubject = Nothing,
-      _cdStatus = Nothing,
-      _cdFailureReason = Nothing,
-      _cdSubjectAlternativeNames = Nothing,
-      _cdInUseBy = Nothing,
-      _cdCreatedAt = Nothing,
-      _cdCertificateARN = Nothing,
-      _cdSerial = Nothing,
-      _cdRenewalEligibility = Nothing,
-      _cdExtendedKeyUsages = Nothing,
-      _cdImportedAt = Nothing,
-      _cdKeyUsages = Nothing,
-      _cdRevokedAt = Nothing,
-      _cdNotBefore = Nothing,
-      _cdRevocationReason = Nothing,
-      _cdDomainName = Nothing,
-      _cdRenewalSummary = Nothing,
-      _cdKeyAlgorithm = Nothing,
-      _cdType = Nothing,
-      _cdOptions = Nothing,
-      _cdIssuedAt = Nothing,
-      _cdSignatureAlgorithm = Nothing,
-      _cdDomainValidationOptions = Nothing,
-      _cdIssuer = Nothing,
-      _cdNotAfter = Nothing,
-      _cdCertificateAuthorityARN = Nothing
+    { subject = Lude.Nothing,
+      status = Lude.Nothing,
+      failureReason = Lude.Nothing,
+      subjectAlternativeNames = Lude.Nothing,
+      inUseBy = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      certificateARN = Lude.Nothing,
+      serial = Lude.Nothing,
+      renewalEligibility = Lude.Nothing,
+      extendedKeyUsages = Lude.Nothing,
+      importedAt = Lude.Nothing,
+      keyUsages = Lude.Nothing,
+      revokedAt = Lude.Nothing,
+      notBefore = Lude.Nothing,
+      revocationReason = Lude.Nothing,
+      domainName = Lude.Nothing,
+      renewalSummary = Lude.Nothing,
+      keyAlgorithm = Lude.Nothing,
+      type' = Lude.Nothing,
+      options = Lude.Nothing,
+      issuedAt = Lude.Nothing,
+      signatureAlgorithm = Lude.Nothing,
+      domainValidationOptions = Lude.Nothing,
+      issuer = Lude.Nothing,
+      notAfter = Lude.Nothing,
+      certificateAuthorityARN = Lude.Nothing
     }
 
 -- | The name of the entity that is associated with the public key contained in the certificate.
-cdSubject :: Lens' CertificateDetail (Maybe Text)
-cdSubject = lens _cdSubject (\s a -> s {_cdSubject = a})
+--
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSubject :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Text)
+cdSubject = Lens.lens (subject :: CertificateDetail -> Lude.Maybe Lude.Text) (\s a -> s {subject = a} :: CertificateDetail)
+{-# DEPRECATED cdSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The status of the certificate.
-cdStatus :: Lens' CertificateDetail (Maybe CertificateStatus)
-cdStatus = lens _cdStatus (\s a -> s {_cdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdStatus :: Lens.Lens' CertificateDetail (Lude.Maybe CertificateStatus)
+cdStatus = Lens.lens (status :: CertificateDetail -> Lude.Maybe CertificateStatus) (\s a -> s {status = a} :: CertificateDetail)
+{-# DEPRECATED cdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The reason the certificate request failed. This value exists only when the certificate status is @FAILED@ . For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed> in the /AWS Certificate Manager User Guide/ .
-cdFailureReason :: Lens' CertificateDetail (Maybe FailureReason)
-cdFailureReason = lens _cdFailureReason (\s a -> s {_cdFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdFailureReason :: Lens.Lens' CertificateDetail (Lude.Maybe FailureReason)
+cdFailureReason = Lens.lens (failureReason :: CertificateDetail -> Lude.Maybe FailureReason) (\s a -> s {failureReason = a} :: CertificateDetail)
+{-# DEPRECATED cdFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
-cdSubjectAlternativeNames :: Lens' CertificateDetail (Maybe (NonEmpty Text))
-cdSubjectAlternativeNames = lens _cdSubjectAlternativeNames (\s a -> s {_cdSubjectAlternativeNames = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'subjectAlternativeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSubjectAlternativeNames :: Lens.Lens' CertificateDetail (Lude.Maybe (Lude.NonEmpty Lude.Text))
+cdSubjectAlternativeNames = Lens.lens (subjectAlternativeNames :: CertificateDetail -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {subjectAlternativeNames = a} :: CertificateDetail)
+{-# DEPRECATED cdSubjectAlternativeNames "Use generic-lens or generic-optics with 'subjectAlternativeNames' instead." #-}
 
 -- | A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources.
-cdInUseBy :: Lens' CertificateDetail [Text]
-cdInUseBy = lens _cdInUseBy (\s a -> s {_cdInUseBy = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inUseBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdInUseBy :: Lens.Lens' CertificateDetail (Lude.Maybe [Lude.Text])
+cdInUseBy = Lens.lens (inUseBy :: CertificateDetail -> Lude.Maybe [Lude.Text]) (\s a -> s {inUseBy = a} :: CertificateDetail)
+{-# DEPRECATED cdInUseBy "Use generic-lens or generic-optics with 'inUseBy' instead." #-}
 
 -- | The time at which the certificate was requested. This value exists only when the certificate type is @AMAZON_ISSUED@ .
-cdCreatedAt :: Lens' CertificateDetail (Maybe UTCTime)
-cdCreatedAt = lens _cdCreatedAt (\s a -> s {_cdCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCreatedAt :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Timestamp)
+cdCreatedAt = Lens.lens (createdAt :: CertificateDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: CertificateDetail)
+{-# DEPRECATED cdCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-cdCertificateARN :: Lens' CertificateDetail (Maybe Text)
-cdCertificateARN = lens _cdCertificateARN (\s a -> s {_cdCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCertificateARN :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Text)
+cdCertificateARN = Lens.lens (certificateARN :: CertificateDetail -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: CertificateDetail)
+{-# DEPRECATED cdCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | The serial number of the certificate.
-cdSerial :: Lens' CertificateDetail (Maybe Text)
-cdSerial = lens _cdSerial (\s a -> s {_cdSerial = a})
+--
+-- /Note:/ Consider using 'serial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSerial :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Text)
+cdSerial = Lens.lens (serial :: CertificateDetail -> Lude.Maybe Lude.Text) (\s a -> s {serial = a} :: CertificateDetail)
+{-# DEPRECATED cdSerial "Use generic-lens or generic-optics with 'serial' instead." #-}
 
 -- | Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the 'RenewCertificate' command.
-cdRenewalEligibility :: Lens' CertificateDetail (Maybe RenewalEligibility)
-cdRenewalEligibility = lens _cdRenewalEligibility (\s a -> s {_cdRenewalEligibility = a})
+--
+-- /Note:/ Consider using 'renewalEligibility' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdRenewalEligibility :: Lens.Lens' CertificateDetail (Lude.Maybe RenewalEligibility)
+cdRenewalEligibility = Lens.lens (renewalEligibility :: CertificateDetail -> Lude.Maybe RenewalEligibility) (\s a -> s {renewalEligibility = a} :: CertificateDetail)
+{-# DEPRECATED cdRenewalEligibility "Use generic-lens or generic-optics with 'renewalEligibility' instead." #-}
 
 -- | Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
-cdExtendedKeyUsages :: Lens' CertificateDetail [ExtendedKeyUsage]
-cdExtendedKeyUsages = lens _cdExtendedKeyUsages (\s a -> s {_cdExtendedKeyUsages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'extendedKeyUsages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdExtendedKeyUsages :: Lens.Lens' CertificateDetail (Lude.Maybe [ExtendedKeyUsage])
+cdExtendedKeyUsages = Lens.lens (extendedKeyUsages :: CertificateDetail -> Lude.Maybe [ExtendedKeyUsage]) (\s a -> s {extendedKeyUsages = a} :: CertificateDetail)
+{-# DEPRECATED cdExtendedKeyUsages "Use generic-lens or generic-optics with 'extendedKeyUsages' instead." #-}
 
 -- | The date and time at which the certificate was imported. This value exists only when the certificate type is @IMPORTED@ .
-cdImportedAt :: Lens' CertificateDetail (Maybe UTCTime)
-cdImportedAt = lens _cdImportedAt (\s a -> s {_cdImportedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'importedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdImportedAt :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Timestamp)
+cdImportedAt = Lens.lens (importedAt :: CertificateDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {importedAt = a} :: CertificateDetail)
+{-# DEPRECATED cdImportedAt "Use generic-lens or generic-optics with 'importedAt' instead." #-}
 
 -- | A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
-cdKeyUsages :: Lens' CertificateDetail [KeyUsage]
-cdKeyUsages = lens _cdKeyUsages (\s a -> s {_cdKeyUsages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'keyUsages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdKeyUsages :: Lens.Lens' CertificateDetail (Lude.Maybe [KeyUsage])
+cdKeyUsages = Lens.lens (keyUsages :: CertificateDetail -> Lude.Maybe [KeyUsage]) (\s a -> s {keyUsages = a} :: CertificateDetail)
+{-# DEPRECATED cdKeyUsages "Use generic-lens or generic-optics with 'keyUsages' instead." #-}
 
 -- | The time at which the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
-cdRevokedAt :: Lens' CertificateDetail (Maybe UTCTime)
-cdRevokedAt = lens _cdRevokedAt (\s a -> s {_cdRevokedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'revokedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdRevokedAt :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Timestamp)
+cdRevokedAt = Lens.lens (revokedAt :: CertificateDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {revokedAt = a} :: CertificateDetail)
+{-# DEPRECATED cdRevokedAt "Use generic-lens or generic-optics with 'revokedAt' instead." #-}
 
 -- | The time before which the certificate is not valid.
-cdNotBefore :: Lens' CertificateDetail (Maybe UTCTime)
-cdNotBefore = lens _cdNotBefore (\s a -> s {_cdNotBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdNotBefore :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Timestamp)
+cdNotBefore = Lens.lens (notBefore :: CertificateDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {notBefore = a} :: CertificateDetail)
+{-# DEPRECATED cdNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
 
 -- | The reason the certificate was revoked. This value exists only when the certificate status is @REVOKED@ .
-cdRevocationReason :: Lens' CertificateDetail (Maybe RevocationReason)
-cdRevocationReason = lens _cdRevocationReason (\s a -> s {_cdRevocationReason = a})
+--
+-- /Note:/ Consider using 'revocationReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdRevocationReason :: Lens.Lens' CertificateDetail (Lude.Maybe RevocationReason)
+cdRevocationReason = Lens.lens (revocationReason :: CertificateDetail -> Lude.Maybe RevocationReason) (\s a -> s {revocationReason = a} :: CertificateDetail)
+{-# DEPRECATED cdRevocationReason "Use generic-lens or generic-optics with 'revocationReason' instead." #-}
 
 -- | The fully qualified domain name for the certificate, such as www.example.com or example.com.
-cdDomainName :: Lens' CertificateDetail (Maybe Text)
-cdDomainName = lens _cdDomainName (\s a -> s {_cdDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDomainName :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Text)
+cdDomainName = Lens.lens (domainName :: CertificateDetail -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: CertificateDetail)
+{-# DEPRECATED cdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Contains information about the status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for the certificate. This field exists only when the certificate type is @AMAZON_ISSUED@ .
-cdRenewalSummary :: Lens' CertificateDetail (Maybe RenewalSummary)
-cdRenewalSummary = lens _cdRenewalSummary (\s a -> s {_cdRenewalSummary = a})
+--
+-- /Note:/ Consider using 'renewalSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdRenewalSummary :: Lens.Lens' CertificateDetail (Lude.Maybe RenewalSummary)
+cdRenewalSummary = Lens.lens (renewalSummary :: CertificateDetail -> Lude.Maybe RenewalSummary) (\s a -> s {renewalSummary = a} :: CertificateDetail)
+{-# DEPRECATED cdRenewalSummary "Use generic-lens or generic-optics with 'renewalSummary' instead." #-}
 
 -- | The algorithm that was used to generate the public-private key pair.
-cdKeyAlgorithm :: Lens' CertificateDetail (Maybe KeyAlgorithm)
-cdKeyAlgorithm = lens _cdKeyAlgorithm (\s a -> s {_cdKeyAlgorithm = a})
+--
+-- /Note:/ Consider using 'keyAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdKeyAlgorithm :: Lens.Lens' CertificateDetail (Lude.Maybe KeyAlgorithm)
+cdKeyAlgorithm = Lens.lens (keyAlgorithm :: CertificateDetail -> Lude.Maybe KeyAlgorithm) (\s a -> s {keyAlgorithm = a} :: CertificateDetail)
+{-# DEPRECATED cdKeyAlgorithm "Use generic-lens or generic-optics with 'keyAlgorithm' instead." #-}
 
 -- | The source of the certificate. For certificates provided by ACM, this value is @AMAZON_ISSUED@ . For certificates that you imported with 'ImportCertificate' , this value is @IMPORTED@ . ACM does not provide <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
-cdType :: Lens' CertificateDetail (Maybe CertificateType)
-cdType = lens _cdType (\s a -> s {_cdType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdType :: Lens.Lens' CertificateDetail (Lude.Maybe CertificateType)
+cdType = Lens.lens (type' :: CertificateDetail -> Lude.Maybe CertificateType) (\s a -> s {type' = a} :: CertificateDetail)
+{-# DEPRECATED cdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure.
-cdOptions :: Lens' CertificateDetail (Maybe CertificateOptions)
-cdOptions = lens _cdOptions (\s a -> s {_cdOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdOptions :: Lens.Lens' CertificateDetail (Lude.Maybe CertificateOptions)
+cdOptions = Lens.lens (options :: CertificateDetail -> Lude.Maybe CertificateOptions) (\s a -> s {options = a} :: CertificateDetail)
+{-# DEPRECATED cdOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | The time at which the certificate was issued. This value exists only when the certificate type is @AMAZON_ISSUED@ .
-cdIssuedAt :: Lens' CertificateDetail (Maybe UTCTime)
-cdIssuedAt = lens _cdIssuedAt (\s a -> s {_cdIssuedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'issuedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdIssuedAt :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Timestamp)
+cdIssuedAt = Lens.lens (issuedAt :: CertificateDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {issuedAt = a} :: CertificateDetail)
+{-# DEPRECATED cdIssuedAt "Use generic-lens or generic-optics with 'issuedAt' instead." #-}
 
 -- | The algorithm that was used to sign the certificate.
-cdSignatureAlgorithm :: Lens' CertificateDetail (Maybe Text)
-cdSignatureAlgorithm = lens _cdSignatureAlgorithm (\s a -> s {_cdSignatureAlgorithm = a})
+--
+-- /Note:/ Consider using 'signatureAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSignatureAlgorithm :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Text)
+cdSignatureAlgorithm = Lens.lens (signatureAlgorithm :: CertificateDetail -> Lude.Maybe Lude.Text) (\s a -> s {signatureAlgorithm = a} :: CertificateDetail)
+{-# DEPRECATED cdSignatureAlgorithm "Use generic-lens or generic-optics with 'signatureAlgorithm' instead." #-}
 
 -- | Contains information about the initial validation of each domain name that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
-cdDomainValidationOptions :: Lens' CertificateDetail (Maybe (NonEmpty DomainValidation))
-cdDomainValidationOptions = lens _cdDomainValidationOptions (\s a -> s {_cdDomainValidationOptions = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'domainValidationOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDomainValidationOptions :: Lens.Lens' CertificateDetail (Lude.Maybe (Lude.NonEmpty DomainValidation))
+cdDomainValidationOptions = Lens.lens (domainValidationOptions :: CertificateDetail -> Lude.Maybe (Lude.NonEmpty DomainValidation)) (\s a -> s {domainValidationOptions = a} :: CertificateDetail)
+{-# DEPRECATED cdDomainValidationOptions "Use generic-lens or generic-optics with 'domainValidationOptions' instead." #-}
 
 -- | The name of the certificate authority that issued and signed the certificate.
-cdIssuer :: Lens' CertificateDetail (Maybe Text)
-cdIssuer = lens _cdIssuer (\s a -> s {_cdIssuer = a})
+--
+-- /Note:/ Consider using 'issuer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdIssuer :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Text)
+cdIssuer = Lens.lens (issuer :: CertificateDetail -> Lude.Maybe Lude.Text) (\s a -> s {issuer = a} :: CertificateDetail)
+{-# DEPRECATED cdIssuer "Use generic-lens or generic-optics with 'issuer' instead." #-}
 
 -- | The time after which the certificate is not valid.
-cdNotAfter :: Lens' CertificateDetail (Maybe UTCTime)
-cdNotAfter = lens _cdNotAfter (\s a -> s {_cdNotAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdNotAfter :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Timestamp)
+cdNotAfter = Lens.lens (notAfter :: CertificateDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {notAfter = a} :: CertificateDetail)
+{-# DEPRECATED cdNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:  @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
-cdCertificateAuthorityARN :: Lens' CertificateDetail (Maybe Text)
-cdCertificateAuthorityARN = lens _cdCertificateAuthorityARN (\s a -> s {_cdCertificateAuthorityARN = a})
+-- | The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format:
+--
+-- @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@
+--
+-- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCertificateAuthorityARN :: Lens.Lens' CertificateDetail (Lude.Maybe Lude.Text)
+cdCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: CertificateDetail -> Lude.Maybe Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: CertificateDetail)
+{-# DEPRECATED cdCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
 
-instance FromJSON CertificateDetail where
+instance Lude.FromJSON CertificateDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "CertificateDetail"
       ( \x ->
           CertificateDetail'
-            <$> (x .:? "Subject")
-            <*> (x .:? "Status")
-            <*> (x .:? "FailureReason")
-            <*> (x .:? "SubjectAlternativeNames")
-            <*> (x .:? "InUseBy" .!= mempty)
-            <*> (x .:? "CreatedAt")
-            <*> (x .:? "CertificateArn")
-            <*> (x .:? "Serial")
-            <*> (x .:? "RenewalEligibility")
-            <*> (x .:? "ExtendedKeyUsages" .!= mempty)
-            <*> (x .:? "ImportedAt")
-            <*> (x .:? "KeyUsages" .!= mempty)
-            <*> (x .:? "RevokedAt")
-            <*> (x .:? "NotBefore")
-            <*> (x .:? "RevocationReason")
-            <*> (x .:? "DomainName")
-            <*> (x .:? "RenewalSummary")
-            <*> (x .:? "KeyAlgorithm")
-            <*> (x .:? "Type")
-            <*> (x .:? "Options")
-            <*> (x .:? "IssuedAt")
-            <*> (x .:? "SignatureAlgorithm")
-            <*> (x .:? "DomainValidationOptions")
-            <*> (x .:? "Issuer")
-            <*> (x .:? "NotAfter")
-            <*> (x .:? "CertificateAuthorityArn")
+            Lude.<$> (x Lude..:? "Subject")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "FailureReason")
+            Lude.<*> (x Lude..:? "SubjectAlternativeNames")
+            Lude.<*> (x Lude..:? "InUseBy" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CreatedAt")
+            Lude.<*> (x Lude..:? "CertificateArn")
+            Lude.<*> (x Lude..:? "Serial")
+            Lude.<*> (x Lude..:? "RenewalEligibility")
+            Lude.<*> (x Lude..:? "ExtendedKeyUsages" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ImportedAt")
+            Lude.<*> (x Lude..:? "KeyUsages" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "RevokedAt")
+            Lude.<*> (x Lude..:? "NotBefore")
+            Lude.<*> (x Lude..:? "RevocationReason")
+            Lude.<*> (x Lude..:? "DomainName")
+            Lude.<*> (x Lude..:? "RenewalSummary")
+            Lude.<*> (x Lude..:? "KeyAlgorithm")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Options")
+            Lude.<*> (x Lude..:? "IssuedAt")
+            Lude.<*> (x Lude..:? "SignatureAlgorithm")
+            Lude.<*> (x Lude..:? "DomainValidationOptions")
+            Lude.<*> (x Lude..:? "Issuer")
+            Lude.<*> (x Lude..:? "NotAfter")
+            Lude.<*> (x Lude..:? "CertificateAuthorityArn")
       )
-
-instance Hashable CertificateDetail
-
-instance NFData CertificateDetail

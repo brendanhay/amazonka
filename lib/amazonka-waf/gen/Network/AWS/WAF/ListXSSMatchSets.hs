@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,161 +14,175 @@
 --
 -- Returns an array of 'XssMatchSet' objects.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WAF.ListXSSMatchSets
-  ( -- * Creating a Request
-    listXSSMatchSets,
-    ListXSSMatchSets,
+  ( -- * Creating a request
+    ListXSSMatchSets (..),
+    mkListXSSMatchSets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lxmsNextMarker,
     lxmsLimit,
 
-    -- * Destructuring the Response
-    listXSSMatchSetsResponse,
-    ListXSSMatchSetsResponse,
+    -- * Destructuring the response
+    ListXSSMatchSetsResponse (..),
+    mkListXSSMatchSetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lxmsrsXSSMatchSets,
     lxmsrsNextMarker,
     lxmsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
 -- | A request to list the 'XssMatchSet' objects created by the current AWS account.
 --
---
---
--- /See:/ 'listXSSMatchSets' smart constructor.
+-- /See:/ 'mkListXSSMatchSets' smart constructor.
 data ListXSSMatchSets = ListXSSMatchSets'
-  { _lxmsNextMarker ::
-      !(Maybe Text),
-    _lxmsLimit :: !(Maybe Nat)
+  { nextMarker ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListXSSMatchSets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lxmsNextMarker' - If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
---
--- * 'lxmsLimit' - Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
-listXSSMatchSets ::
+-- * 'limit' - Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
+-- * 'nextMarker' - If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
+mkListXSSMatchSets ::
   ListXSSMatchSets
-listXSSMatchSets =
+mkListXSSMatchSets =
   ListXSSMatchSets'
-    { _lxmsNextMarker = Nothing,
-      _lxmsLimit = Nothing
+    { nextMarker = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more 'XssMatchSet' objects than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @XssMatchSets@ . For the second and subsequent @ListXssMatchSets@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @XssMatchSets@ .
-lxmsNextMarker :: Lens' ListXSSMatchSets (Maybe Text)
-lxmsNextMarker = lens _lxmsNextMarker (\s a -> s {_lxmsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lxmsNextMarker :: Lens.Lens' ListXSSMatchSets (Lude.Maybe Lude.Text)
+lxmsNextMarker = Lens.lens (nextMarker :: ListXSSMatchSets -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListXSSMatchSets)
+{-# DEPRECATED lxmsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Specifies the number of 'XssMatchSet' objects that you want AWS WAF to return for this request. If you have more @XssMatchSet@ objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
-lxmsLimit :: Lens' ListXSSMatchSets (Maybe Natural)
-lxmsLimit = lens _lxmsLimit (\s a -> s {_lxmsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lxmsLimit :: Lens.Lens' ListXSSMatchSets (Lude.Maybe Lude.Natural)
+lxmsLimit = Lens.lens (limit :: ListXSSMatchSets -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListXSSMatchSets)
+{-# DEPRECATED lxmsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager ListXSSMatchSets where
+instance Page.AWSPager ListXSSMatchSets where
   page rq rs
-    | stop (rs ^. lxmsrsNextMarker) = Nothing
-    | stop (rs ^. lxmsrsXSSMatchSets) = Nothing
-    | otherwise = Just $ rq & lxmsNextMarker .~ rs ^. lxmsrsNextMarker
+    | Page.stop (rs Lens.^. lxmsrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lxmsrsXSSMatchSets) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lxmsNextMarker Lens..~ rs Lens.^. lxmsrsNextMarker
 
-instance AWSRequest ListXSSMatchSets where
+instance Lude.AWSRequest ListXSSMatchSets where
   type Rs ListXSSMatchSets = ListXSSMatchSetsResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListXSSMatchSetsResponse'
-            <$> (x .?> "XssMatchSets" .!@ mempty)
-            <*> (x .?> "NextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "XssMatchSets" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListXSSMatchSets
-
-instance NFData ListXSSMatchSets
-
-instance ToHeaders ListXSSMatchSets where
+instance Lude.ToHeaders ListXSSMatchSets where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_20150824.ListXssMatchSets" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_20150824.ListXssMatchSets" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListXSSMatchSets where
+instance Lude.ToJSON ListXSSMatchSets where
   toJSON ListXSSMatchSets' {..} =
-    object
-      ( catMaybes
-          [ ("NextMarker" .=) <$> _lxmsNextMarker,
-            ("Limit" .=) <$> _lxmsLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListXSSMatchSets where
-  toPath = const "/"
+instance Lude.ToPath ListXSSMatchSets where
+  toPath = Lude.const "/"
 
-instance ToQuery ListXSSMatchSets where
-  toQuery = const mempty
+instance Lude.ToQuery ListXSSMatchSets where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response to a 'ListXssMatchSets' request.
 --
---
---
--- /See:/ 'listXSSMatchSetsResponse' smart constructor.
+-- /See:/ 'mkListXSSMatchSetsResponse' smart constructor.
 data ListXSSMatchSetsResponse = ListXSSMatchSetsResponse'
-  { _lxmsrsXSSMatchSets ::
-      !(Maybe [XSSMatchSetSummary]),
-    _lxmsrsNextMarker :: !(Maybe Text),
-    _lxmsrsResponseStatus :: !Int
+  { xssMatchSets ::
+      Lude.Maybe [XSSMatchSetSummary],
+    nextMarker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListXSSMatchSetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lxmsrsXSSMatchSets' - An array of 'XssMatchSetSummary' objects.
---
--- * 'lxmsrsNextMarker' - If you have more 'XssMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
---
--- * 'lxmsrsResponseStatus' - -- | The response status code.
-listXSSMatchSetsResponse ::
-  -- | 'lxmsrsResponseStatus'
-  Int ->
+-- * 'nextMarker' - If you have more 'XssMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+-- * 'responseStatus' - The response status code.
+-- * 'xssMatchSets' - An array of 'XssMatchSetSummary' objects.
+mkListXSSMatchSetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListXSSMatchSetsResponse
-listXSSMatchSetsResponse pResponseStatus_ =
+mkListXSSMatchSetsResponse pResponseStatus_ =
   ListXSSMatchSetsResponse'
-    { _lxmsrsXSSMatchSets = Nothing,
-      _lxmsrsNextMarker = Nothing,
-      _lxmsrsResponseStatus = pResponseStatus_
+    { xssMatchSets = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of 'XssMatchSetSummary' objects.
-lxmsrsXSSMatchSets :: Lens' ListXSSMatchSetsResponse [XSSMatchSetSummary]
-lxmsrsXSSMatchSets = lens _lxmsrsXSSMatchSets (\s a -> s {_lxmsrsXSSMatchSets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'xssMatchSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lxmsrsXSSMatchSets :: Lens.Lens' ListXSSMatchSetsResponse (Lude.Maybe [XSSMatchSetSummary])
+lxmsrsXSSMatchSets = Lens.lens (xssMatchSets :: ListXSSMatchSetsResponse -> Lude.Maybe [XSSMatchSetSummary]) (\s a -> s {xssMatchSets = a} :: ListXSSMatchSetsResponse)
+{-# DEPRECATED lxmsrsXSSMatchSets "Use generic-lens or generic-optics with 'xssMatchSets' instead." #-}
 
 -- | If you have more 'XssMatchSet' objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @XssMatchSet@ objects, submit another @ListXssMatchSets@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-lxmsrsNextMarker :: Lens' ListXSSMatchSetsResponse (Maybe Text)
-lxmsrsNextMarker = lens _lxmsrsNextMarker (\s a -> s {_lxmsrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lxmsrsNextMarker :: Lens.Lens' ListXSSMatchSetsResponse (Lude.Maybe Lude.Text)
+lxmsrsNextMarker = Lens.lens (nextMarker :: ListXSSMatchSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListXSSMatchSetsResponse)
+{-# DEPRECATED lxmsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lxmsrsResponseStatus :: Lens' ListXSSMatchSetsResponse Int
-lxmsrsResponseStatus = lens _lxmsrsResponseStatus (\s a -> s {_lxmsrsResponseStatus = a})
-
-instance NFData ListXSSMatchSetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lxmsrsResponseStatus :: Lens.Lens' ListXSSMatchSetsResponse Lude.Int
+lxmsrsResponseStatus = Lens.lens (responseStatus :: ListXSSMatchSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListXSSMatchSetsResponse)
+{-# DEPRECATED lxmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

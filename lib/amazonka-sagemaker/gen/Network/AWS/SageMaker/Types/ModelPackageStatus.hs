@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ModelPackageStatus where
+module Network.AWS.SageMaker.Types.ModelPackageStatus
+  ( ModelPackageStatus
+      ( ModelPackageStatus',
+        MPSCompleted,
+        MPSDeleting,
+        MPSFailed,
+        MPSInProgress,
+        MPSPending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ModelPackageStatus
-  = MPSCompleted
-  | MPSDeleting
-  | MPSFailed
-  | MPSInProgress
-  | MPSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ModelPackageStatus = ModelPackageStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ModelPackageStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure MPSCompleted
-      "deleting" -> pure MPSDeleting
-      "failed" -> pure MPSFailed
-      "inprogress" -> pure MPSInProgress
-      "pending" -> pure MPSPending
-      e ->
-        fromTextError $
-          "Failure parsing ModelPackageStatus from value: '" <> e
-            <> "'. Accepted values: completed, deleting, failed, inprogress, pending"
+pattern MPSCompleted :: ModelPackageStatus
+pattern MPSCompleted = ModelPackageStatus' "Completed"
 
-instance ToText ModelPackageStatus where
-  toText = \case
-    MPSCompleted -> "Completed"
-    MPSDeleting -> "Deleting"
-    MPSFailed -> "Failed"
-    MPSInProgress -> "InProgress"
-    MPSPending -> "Pending"
+pattern MPSDeleting :: ModelPackageStatus
+pattern MPSDeleting = ModelPackageStatus' "Deleting"
 
-instance Hashable ModelPackageStatus
+pattern MPSFailed :: ModelPackageStatus
+pattern MPSFailed = ModelPackageStatus' "Failed"
 
-instance NFData ModelPackageStatus
+pattern MPSInProgress :: ModelPackageStatus
+pattern MPSInProgress = ModelPackageStatus' "InProgress"
 
-instance ToByteString ModelPackageStatus
+pattern MPSPending :: ModelPackageStatus
+pattern MPSPending = ModelPackageStatus' "Pending"
 
-instance ToQuery ModelPackageStatus
-
-instance ToHeader ModelPackageStatus
-
-instance FromJSON ModelPackageStatus where
-  parseJSON = parseJSONText "ModelPackageStatus"
+{-# COMPLETE
+  MPSCompleted,
+  MPSDeleting,
+  MPSFailed,
+  MPSInProgress,
+  MPSPending,
+  ModelPackageStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,157 @@
 --
 -- Returns the 'XssMatchSet' that is specified by @XssMatchSetId@ .
 module Network.AWS.WAF.GetXSSMatchSet
-  ( -- * Creating a Request
-    getXSSMatchSet,
-    GetXSSMatchSet,
+  ( -- * Creating a request
+    GetXSSMatchSet (..),
+    mkGetXSSMatchSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gxmsXSSMatchSetId,
 
-    -- * Destructuring the Response
-    getXSSMatchSetResponse,
-    GetXSSMatchSetResponse,
+    -- * Destructuring the response
+    GetXSSMatchSetResponse (..),
+    mkGetXSSMatchSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gxmsrsXSSMatchSet,
     gxmsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
 -- | A request to get an 'XssMatchSet' .
 --
---
---
--- /See:/ 'getXSSMatchSet' smart constructor.
+-- /See:/ 'mkGetXSSMatchSet' smart constructor.
 newtype GetXSSMatchSet = GetXSSMatchSet'
-  { _gxmsXSSMatchSetId ::
-      Text
+  { xssMatchSetId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetXSSMatchSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gxmsXSSMatchSetId' - The @XssMatchSetId@ of the 'XssMatchSet' that you want to get. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
-getXSSMatchSet ::
-  -- | 'gxmsXSSMatchSetId'
-  Text ->
+-- * 'xssMatchSetId' - The @XssMatchSetId@ of the 'XssMatchSet' that you want to get. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
+mkGetXSSMatchSet ::
+  -- | 'xssMatchSetId'
+  Lude.Text ->
   GetXSSMatchSet
-getXSSMatchSet pXSSMatchSetId_ =
-  GetXSSMatchSet' {_gxmsXSSMatchSetId = pXSSMatchSetId_}
+mkGetXSSMatchSet pXSSMatchSetId_ =
+  GetXSSMatchSet' {xssMatchSetId = pXSSMatchSetId_}
 
 -- | The @XssMatchSetId@ of the 'XssMatchSet' that you want to get. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
-gxmsXSSMatchSetId :: Lens' GetXSSMatchSet Text
-gxmsXSSMatchSetId = lens _gxmsXSSMatchSetId (\s a -> s {_gxmsXSSMatchSetId = a})
+--
+-- /Note:/ Consider using 'xssMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gxmsXSSMatchSetId :: Lens.Lens' GetXSSMatchSet Lude.Text
+gxmsXSSMatchSetId = Lens.lens (xssMatchSetId :: GetXSSMatchSet -> Lude.Text) (\s a -> s {xssMatchSetId = a} :: GetXSSMatchSet)
+{-# DEPRECATED gxmsXSSMatchSetId "Use generic-lens or generic-optics with 'xssMatchSetId' instead." #-}
 
-instance AWSRequest GetXSSMatchSet where
+instance Lude.AWSRequest GetXSSMatchSet where
   type Rs GetXSSMatchSet = GetXSSMatchSetResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetXSSMatchSetResponse'
-            <$> (x .?> "XssMatchSet") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "XssMatchSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetXSSMatchSet
-
-instance NFData GetXSSMatchSet
-
-instance ToHeaders GetXSSMatchSet where
+instance Lude.ToHeaders GetXSSMatchSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_20150824.GetXssMatchSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_20150824.GetXssMatchSet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetXSSMatchSet where
+instance Lude.ToJSON GetXSSMatchSet where
   toJSON GetXSSMatchSet' {..} =
-    object (catMaybes [Just ("XssMatchSetId" .= _gxmsXSSMatchSetId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("XssMatchSetId" Lude..= xssMatchSetId)]
+      )
 
-instance ToPath GetXSSMatchSet where
-  toPath = const "/"
+instance Lude.ToPath GetXSSMatchSet where
+  toPath = Lude.const "/"
 
-instance ToQuery GetXSSMatchSet where
-  toQuery = const mempty
+instance Lude.ToQuery GetXSSMatchSet where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response to a 'GetXssMatchSet' request.
 --
---
---
--- /See:/ 'getXSSMatchSetResponse' smart constructor.
+-- /See:/ 'mkGetXSSMatchSetResponse' smart constructor.
 data GetXSSMatchSetResponse = GetXSSMatchSetResponse'
-  { _gxmsrsXSSMatchSet ::
-      !(Maybe XSSMatchSet),
-    _gxmsrsResponseStatus :: !Int
+  { xssMatchSet ::
+      Lude.Maybe XSSMatchSet,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetXSSMatchSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseStatus' - The response status code.
+-- * 'xssMatchSet' - Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:
 --
--- * 'gxmsrsXSSMatchSet' - Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects     * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 --
--- * 'gxmsrsResponseStatus' - -- | The response status code.
-getXSSMatchSetResponse ::
-  -- | 'gxmsrsResponseStatus'
-  Int ->
+--     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects
+--
+--
+--     * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@
+--
+--
+--     * 'FieldToMatch' : Contains @Data@ and @Type@
+mkGetXSSMatchSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetXSSMatchSetResponse
-getXSSMatchSetResponse pResponseStatus_ =
+mkGetXSSMatchSetResponse pResponseStatus_ =
   GetXSSMatchSetResponse'
-    { _gxmsrsXSSMatchSet = Nothing,
-      _gxmsrsResponseStatus = pResponseStatus_
+    { xssMatchSet = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects     * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
-gxmsrsXSSMatchSet :: Lens' GetXSSMatchSetResponse (Maybe XSSMatchSet)
-gxmsrsXSSMatchSet = lens _gxmsrsXSSMatchSet (\s a -> s {_gxmsrsXSSMatchSet = a})
+-- | Information about the 'XssMatchSet' that you specified in the @GetXssMatchSet@ request. For more information, see the following topics:
+--
+--
+--     * 'XssMatchSet' : Contains @Name@ , @XssMatchSetId@ , and an array of @XssMatchTuple@ objects
+--
+--
+--     * 'XssMatchTuple' : Each @XssMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@
+--
+--
+--     * 'FieldToMatch' : Contains @Data@ and @Type@
+--
+--
+--
+-- /Note:/ Consider using 'xssMatchSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gxmsrsXSSMatchSet :: Lens.Lens' GetXSSMatchSetResponse (Lude.Maybe XSSMatchSet)
+gxmsrsXSSMatchSet = Lens.lens (xssMatchSet :: GetXSSMatchSetResponse -> Lude.Maybe XSSMatchSet) (\s a -> s {xssMatchSet = a} :: GetXSSMatchSetResponse)
+{-# DEPRECATED gxmsrsXSSMatchSet "Use generic-lens or generic-optics with 'xssMatchSet' instead." #-}
 
--- | -- | The response status code.
-gxmsrsResponseStatus :: Lens' GetXSSMatchSetResponse Int
-gxmsrsResponseStatus = lens _gxmsrsResponseStatus (\s a -> s {_gxmsrsResponseStatus = a})
-
-instance NFData GetXSSMatchSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gxmsrsResponseStatus :: Lens.Lens' GetXSSMatchSetResponse Lude.Int
+gxmsrsResponseStatus = Lens.lens (responseStatus :: GetXSSMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetXSSMatchSetResponse)
+{-# DEPRECATED gxmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

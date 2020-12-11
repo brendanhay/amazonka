@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,140 @@
 --
 -- Returns the results for the AWS Trusted Advisor check summaries for the check IDs that you specified. You can get the check IDs by calling the 'DescribeTrustedAdvisorChecks' operation.
 --
---
 -- The response contains an array of 'TrustedAdvisorCheckSummary' objects.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
-  ( -- * Creating a Request
-    describeTrustedAdvisorCheckSummaries,
-    DescribeTrustedAdvisorCheckSummaries,
+  ( -- * Creating a request
+    DescribeTrustedAdvisorCheckSummaries (..),
+    mkDescribeTrustedAdvisorCheckSummaries,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtacsCheckIds,
 
-    -- * Destructuring the Response
-    describeTrustedAdvisorCheckSummariesResponse,
-    DescribeTrustedAdvisorCheckSummariesResponse,
+    -- * Destructuring the response
+    DescribeTrustedAdvisorCheckSummariesResponse (..),
+    mkDescribeTrustedAdvisorCheckSummariesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtacsrsResponseStatus,
     dtacsrsSummaries,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Support.Types
 
--- | /See:/ 'describeTrustedAdvisorCheckSummaries' smart constructor.
+-- | /See:/ 'mkDescribeTrustedAdvisorCheckSummaries' smart constructor.
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'
-  { _dtacsCheckIds ::
-      [Text]
+  { checkIds ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckSummaries' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtacsCheckIds' - The IDs of the Trusted Advisor checks.
-describeTrustedAdvisorCheckSummaries ::
+-- * 'checkIds' - The IDs of the Trusted Advisor checks.
+mkDescribeTrustedAdvisorCheckSummaries ::
   DescribeTrustedAdvisorCheckSummaries
-describeTrustedAdvisorCheckSummaries =
-  DescribeTrustedAdvisorCheckSummaries' {_dtacsCheckIds = mempty}
+mkDescribeTrustedAdvisorCheckSummaries =
+  DescribeTrustedAdvisorCheckSummaries' {checkIds = Lude.mempty}
 
 -- | The IDs of the Trusted Advisor checks.
-dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
-dtacsCheckIds = lens _dtacsCheckIds (\s a -> s {_dtacsCheckIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'checkIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtacsCheckIds :: Lens.Lens' DescribeTrustedAdvisorCheckSummaries [Lude.Text]
+dtacsCheckIds = Lens.lens (checkIds :: DescribeTrustedAdvisorCheckSummaries -> [Lude.Text]) (\s a -> s {checkIds = a} :: DescribeTrustedAdvisorCheckSummaries)
+{-# DEPRECATED dtacsCheckIds "Use generic-lens or generic-optics with 'checkIds' instead." #-}
 
-instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
+instance Lude.AWSRequest DescribeTrustedAdvisorCheckSummaries where
   type
     Rs DescribeTrustedAdvisorCheckSummaries =
       DescribeTrustedAdvisorCheckSummariesResponse
-  request = postJSON support
+  request = Req.postJSON supportService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTrustedAdvisorCheckSummariesResponse'
-            <$> (pure (fromEnum s)) <*> (x .?> "summaries" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "summaries" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeTrustedAdvisorCheckSummaries
-
-instance NFData DescribeTrustedAdvisorCheckSummaries
-
-instance ToHeaders DescribeTrustedAdvisorCheckSummaries where
+instance Lude.ToHeaders DescribeTrustedAdvisorCheckSummaries where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTrustedAdvisorCheckSummaries where
+instance Lude.ToJSON DescribeTrustedAdvisorCheckSummaries where
   toJSON DescribeTrustedAdvisorCheckSummaries' {..} =
-    object (catMaybes [Just ("checkIds" .= _dtacsCheckIds)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("checkIds" Lude..= checkIds)])
 
-instance ToPath DescribeTrustedAdvisorCheckSummaries where
-  toPath = const "/"
+instance Lude.ToPath DescribeTrustedAdvisorCheckSummaries where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTrustedAdvisorCheckSummaries where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTrustedAdvisorCheckSummaries where
+  toQuery = Lude.const Lude.mempty
 
 -- | The summaries of the Trusted Advisor checks returned by the 'DescribeTrustedAdvisorCheckSummaries' operation.
 --
---
---
--- /See:/ 'describeTrustedAdvisorCheckSummariesResponse' smart constructor.
+-- /See:/ 'mkDescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
-  { _dtacsrsResponseStatus ::
-      !Int,
-    _dtacsrsSummaries ::
-      ![TrustedAdvisorCheckSummary]
+  { responseStatus ::
+      Lude.Int,
+    summaries ::
+      [TrustedAdvisorCheckSummary]
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckSummariesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtacsrsResponseStatus' - -- | The response status code.
---
--- * 'dtacsrsSummaries' - The summary information for the requested Trusted Advisor checks.
-describeTrustedAdvisorCheckSummariesResponse ::
-  -- | 'dtacsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'summaries' - The summary information for the requested Trusted Advisor checks.
+mkDescribeTrustedAdvisorCheckSummariesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTrustedAdvisorCheckSummariesResponse
-describeTrustedAdvisorCheckSummariesResponse pResponseStatus_ =
+mkDescribeTrustedAdvisorCheckSummariesResponse pResponseStatus_ =
   DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _dtacsrsSummaries = mempty
+      summaries = Lude.mempty
     }
 
--- | -- | The response status code.
-dtacsrsResponseStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
-dtacsrsResponseStatus = lens _dtacsrsResponseStatus (\s a -> s {_dtacsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtacsrsResponseStatus :: Lens.Lens' DescribeTrustedAdvisorCheckSummariesResponse Lude.Int
+dtacsrsResponseStatus = Lens.lens (responseStatus :: DescribeTrustedAdvisorCheckSummariesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrustedAdvisorCheckSummariesResponse)
+{-# DEPRECATED dtacsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The summary information for the requested Trusted Advisor checks.
-dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-dtacsrsSummaries = lens _dtacsrsSummaries (\s a -> s {_dtacsrsSummaries = a}) . _Coerce
-
-instance NFData DescribeTrustedAdvisorCheckSummariesResponse
+--
+-- /Note:/ Consider using 'summaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtacsrsSummaries :: Lens.Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
+dtacsrsSummaries = Lens.lens (summaries :: DescribeTrustedAdvisorCheckSummariesResponse -> [TrustedAdvisorCheckSummary]) (\s a -> s {summaries = a} :: DescribeTrustedAdvisorCheckSummariesResponse)
+{-# DEPRECATED dtacsrsSummaries "Use generic-lens or generic-optics with 'summaries' instead." #-}

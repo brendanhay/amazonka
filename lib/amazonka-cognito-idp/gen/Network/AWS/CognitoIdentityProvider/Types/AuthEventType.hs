@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,23 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AuthEventType where
+module Network.AWS.CognitoIdentityProvider.Types.AuthEventType
+  ( AuthEventType (..),
+
+    -- * Smart constructor
+    mkAuthEventType,
+
+    -- * Lenses
+    aetEventRisk,
+    aetEventResponse,
+    aetEventContextData,
+    aetChallengeResponses,
+    aetEventType,
+    aetCreationDate,
+    aetEventFeedback,
+    aetEventId,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.ChallengeResponseType
 import Network.AWS.CognitoIdentityProvider.Types.EventContextDataType
@@ -21,108 +31,124 @@ import Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType
 import Network.AWS.CognitoIdentityProvider.Types.EventResponseType
 import Network.AWS.CognitoIdentityProvider.Types.EventRiskType
 import Network.AWS.CognitoIdentityProvider.Types.EventType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The authentication event type.
 --
---
---
--- /See:/ 'authEventType' smart constructor.
+-- /See:/ 'mkAuthEventType' smart constructor.
 data AuthEventType = AuthEventType'
-  { _aetEventRisk ::
-      !(Maybe EventRiskType),
-    _aetEventResponse :: !(Maybe EventResponseType),
-    _aetEventContextData :: !(Maybe EventContextDataType),
-    _aetChallengeResponses :: !(Maybe [ChallengeResponseType]),
-    _aetEventType :: !(Maybe EventType),
-    _aetCreationDate :: !(Maybe POSIX),
-    _aetEventFeedback :: !(Maybe EventFeedbackType),
-    _aetEventId :: !(Maybe Text)
+  { eventRisk ::
+      Lude.Maybe EventRiskType,
+    eventResponse :: Lude.Maybe EventResponseType,
+    eventContextData :: Lude.Maybe EventContextDataType,
+    challengeResponses :: Lude.Maybe [ChallengeResponseType],
+    eventType :: Lude.Maybe EventType,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    eventFeedback :: Lude.Maybe EventFeedbackType,
+    eventId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthEventType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aetEventRisk' - The event risk.
---
--- * 'aetEventResponse' - The event response.
---
--- * 'aetEventContextData' - The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.
---
--- * 'aetChallengeResponses' - The challenge responses.
---
--- * 'aetEventType' - The event type.
---
--- * 'aetCreationDate' - The creation date
---
--- * 'aetEventFeedback' - A flag specifying the user feedback captured at the time of an event request is good or bad.
---
--- * 'aetEventId' - The event ID.
-authEventType ::
+-- * 'challengeResponses' - The challenge responses.
+-- * 'creationDate' - The creation date
+-- * 'eventContextData' - The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.
+-- * 'eventFeedback' - A flag specifying the user feedback captured at the time of an event request is good or bad.
+-- * 'eventId' - The event ID.
+-- * 'eventResponse' - The event response.
+-- * 'eventRisk' - The event risk.
+-- * 'eventType' - The event type.
+mkAuthEventType ::
   AuthEventType
-authEventType =
+mkAuthEventType =
   AuthEventType'
-    { _aetEventRisk = Nothing,
-      _aetEventResponse = Nothing,
-      _aetEventContextData = Nothing,
-      _aetChallengeResponses = Nothing,
-      _aetEventType = Nothing,
-      _aetCreationDate = Nothing,
-      _aetEventFeedback = Nothing,
-      _aetEventId = Nothing
+    { eventRisk = Lude.Nothing,
+      eventResponse = Lude.Nothing,
+      eventContextData = Lude.Nothing,
+      challengeResponses = Lude.Nothing,
+      eventType = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      eventFeedback = Lude.Nothing,
+      eventId = Lude.Nothing
     }
 
 -- | The event risk.
-aetEventRisk :: Lens' AuthEventType (Maybe EventRiskType)
-aetEventRisk = lens _aetEventRisk (\s a -> s {_aetEventRisk = a})
+--
+-- /Note:/ Consider using 'eventRisk' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetEventRisk :: Lens.Lens' AuthEventType (Lude.Maybe EventRiskType)
+aetEventRisk = Lens.lens (eventRisk :: AuthEventType -> Lude.Maybe EventRiskType) (\s a -> s {eventRisk = a} :: AuthEventType)
+{-# DEPRECATED aetEventRisk "Use generic-lens or generic-optics with 'eventRisk' instead." #-}
 
 -- | The event response.
-aetEventResponse :: Lens' AuthEventType (Maybe EventResponseType)
-aetEventResponse = lens _aetEventResponse (\s a -> s {_aetEventResponse = a})
+--
+-- /Note:/ Consider using 'eventResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetEventResponse :: Lens.Lens' AuthEventType (Lude.Maybe EventResponseType)
+aetEventResponse = Lens.lens (eventResponse :: AuthEventType -> Lude.Maybe EventResponseType) (\s a -> s {eventResponse = a} :: AuthEventType)
+{-# DEPRECATED aetEventResponse "Use generic-lens or generic-optics with 'eventResponse' instead." #-}
 
 -- | The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.
-aetEventContextData :: Lens' AuthEventType (Maybe EventContextDataType)
-aetEventContextData = lens _aetEventContextData (\s a -> s {_aetEventContextData = a})
+--
+-- /Note:/ Consider using 'eventContextData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetEventContextData :: Lens.Lens' AuthEventType (Lude.Maybe EventContextDataType)
+aetEventContextData = Lens.lens (eventContextData :: AuthEventType -> Lude.Maybe EventContextDataType) (\s a -> s {eventContextData = a} :: AuthEventType)
+{-# DEPRECATED aetEventContextData "Use generic-lens or generic-optics with 'eventContextData' instead." #-}
 
 -- | The challenge responses.
-aetChallengeResponses :: Lens' AuthEventType [ChallengeResponseType]
-aetChallengeResponses = lens _aetChallengeResponses (\s a -> s {_aetChallengeResponses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'challengeResponses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetChallengeResponses :: Lens.Lens' AuthEventType (Lude.Maybe [ChallengeResponseType])
+aetChallengeResponses = Lens.lens (challengeResponses :: AuthEventType -> Lude.Maybe [ChallengeResponseType]) (\s a -> s {challengeResponses = a} :: AuthEventType)
+{-# DEPRECATED aetChallengeResponses "Use generic-lens or generic-optics with 'challengeResponses' instead." #-}
 
 -- | The event type.
-aetEventType :: Lens' AuthEventType (Maybe EventType)
-aetEventType = lens _aetEventType (\s a -> s {_aetEventType = a})
+--
+-- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetEventType :: Lens.Lens' AuthEventType (Lude.Maybe EventType)
+aetEventType = Lens.lens (eventType :: AuthEventType -> Lude.Maybe EventType) (\s a -> s {eventType = a} :: AuthEventType)
+{-# DEPRECATED aetEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
 
 -- | The creation date
-aetCreationDate :: Lens' AuthEventType (Maybe UTCTime)
-aetCreationDate = lens _aetCreationDate (\s a -> s {_aetCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetCreationDate :: Lens.Lens' AuthEventType (Lude.Maybe Lude.Timestamp)
+aetCreationDate = Lens.lens (creationDate :: AuthEventType -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: AuthEventType)
+{-# DEPRECATED aetCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | A flag specifying the user feedback captured at the time of an event request is good or bad.
-aetEventFeedback :: Lens' AuthEventType (Maybe EventFeedbackType)
-aetEventFeedback = lens _aetEventFeedback (\s a -> s {_aetEventFeedback = a})
+--
+-- /Note:/ Consider using 'eventFeedback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetEventFeedback :: Lens.Lens' AuthEventType (Lude.Maybe EventFeedbackType)
+aetEventFeedback = Lens.lens (eventFeedback :: AuthEventType -> Lude.Maybe EventFeedbackType) (\s a -> s {eventFeedback = a} :: AuthEventType)
+{-# DEPRECATED aetEventFeedback "Use generic-lens or generic-optics with 'eventFeedback' instead." #-}
 
 -- | The event ID.
-aetEventId :: Lens' AuthEventType (Maybe Text)
-aetEventId = lens _aetEventId (\s a -> s {_aetEventId = a})
+--
+-- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetEventId :: Lens.Lens' AuthEventType (Lude.Maybe Lude.Text)
+aetEventId = Lens.lens (eventId :: AuthEventType -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: AuthEventType)
+{-# DEPRECATED aetEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
-instance FromJSON AuthEventType where
+instance Lude.FromJSON AuthEventType where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuthEventType"
       ( \x ->
           AuthEventType'
-            <$> (x .:? "EventRisk")
-            <*> (x .:? "EventResponse")
-            <*> (x .:? "EventContextData")
-            <*> (x .:? "ChallengeResponses" .!= mempty)
-            <*> (x .:? "EventType")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "EventFeedback")
-            <*> (x .:? "EventId")
+            Lude.<$> (x Lude..:? "EventRisk")
+            Lude.<*> (x Lude..:? "EventResponse")
+            Lude.<*> (x Lude..:? "EventContextData")
+            Lude.<*> (x Lude..:? "ChallengeResponses" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "EventType")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "EventFeedback")
+            Lude.<*> (x Lude..:? "EventId")
       )
-
-instance Hashable AuthEventType
-
-instance NFData AuthEventType

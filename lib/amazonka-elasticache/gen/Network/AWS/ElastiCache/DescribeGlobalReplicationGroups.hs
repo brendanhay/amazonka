@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Returns information about a particular global replication group. If no identifier is specified, returns information about all Global Datastores.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeGlobalReplicationGroups
-  ( -- * Creating a Request
-    describeGlobalReplicationGroups,
-    DescribeGlobalReplicationGroups,
+  ( -- * Creating a request
+    DescribeGlobalReplicationGroups (..),
+    mkDescribeGlobalReplicationGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgrgsShowMemberInfo,
     dgrgsMarker,
     dgrgsMaxRecords,
     dgrgsGlobalReplicationGroupId,
 
-    -- * Destructuring the Response
-    describeGlobalReplicationGroupsResponse,
-    DescribeGlobalReplicationGroupsResponse,
+    -- * Destructuring the response
+    DescribeGlobalReplicationGroupsResponse (..),
+    mkDescribeGlobalReplicationGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dgrgsrsMarker,
     dgrgsrsGlobalReplicationGroups,
     dgrgsrsResponseStatus,
@@ -45,152 +38,174 @@ module Network.AWS.ElastiCache.DescribeGlobalReplicationGroups
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeGlobalReplicationGroups' smart constructor.
+-- | /See:/ 'mkDescribeGlobalReplicationGroups' smart constructor.
 data DescribeGlobalReplicationGroups = DescribeGlobalReplicationGroups'
-  { _dgrgsShowMemberInfo ::
-      !(Maybe Bool),
-    _dgrgsMarker ::
-      !(Maybe Text),
-    _dgrgsMaxRecords ::
-      !(Maybe Int),
-    _dgrgsGlobalReplicationGroupId ::
-      !(Maybe Text)
+  { showMemberInfo ::
+      Lude.Maybe Lude.Bool,
+    marker ::
+      Lude.Maybe Lude.Text,
+    maxRecords ::
+      Lude.Maybe Lude.Int,
+    globalReplicationGroupId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGlobalReplicationGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgrgsShowMemberInfo' - Returns the list of members that comprise the Global Datastore.
---
--- * 'dgrgsMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dgrgsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
---
--- * 'dgrgsGlobalReplicationGroupId' - The name of the Global Datastore
-describeGlobalReplicationGroups ::
+-- * 'globalReplicationGroupId' - The name of the Global Datastore
+-- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
+-- * 'showMemberInfo' - Returns the list of members that comprise the Global Datastore.
+mkDescribeGlobalReplicationGroups ::
   DescribeGlobalReplicationGroups
-describeGlobalReplicationGroups =
+mkDescribeGlobalReplicationGroups =
   DescribeGlobalReplicationGroups'
-    { _dgrgsShowMemberInfo = Nothing,
-      _dgrgsMarker = Nothing,
-      _dgrgsMaxRecords = Nothing,
-      _dgrgsGlobalReplicationGroupId = Nothing
+    { showMemberInfo = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      globalReplicationGroupId = Lude.Nothing
     }
 
 -- | Returns the list of members that comprise the Global Datastore.
-dgrgsShowMemberInfo :: Lens' DescribeGlobalReplicationGroups (Maybe Bool)
-dgrgsShowMemberInfo = lens _dgrgsShowMemberInfo (\s a -> s {_dgrgsShowMemberInfo = a})
+--
+-- /Note:/ Consider using 'showMemberInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgsShowMemberInfo :: Lens.Lens' DescribeGlobalReplicationGroups (Lude.Maybe Lude.Bool)
+dgrgsShowMemberInfo = Lens.lens (showMemberInfo :: DescribeGlobalReplicationGroups -> Lude.Maybe Lude.Bool) (\s a -> s {showMemberInfo = a} :: DescribeGlobalReplicationGroups)
+{-# DEPRECATED dgrgsShowMemberInfo "Use generic-lens or generic-optics with 'showMemberInfo' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dgrgsMarker :: Lens' DescribeGlobalReplicationGroups (Maybe Text)
-dgrgsMarker = lens _dgrgsMarker (\s a -> s {_dgrgsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgsMarker :: Lens.Lens' DescribeGlobalReplicationGroups (Lude.Maybe Lude.Text)
+dgrgsMarker = Lens.lens (marker :: DescribeGlobalReplicationGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeGlobalReplicationGroups)
+{-# DEPRECATED dgrgsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
-dgrgsMaxRecords :: Lens' DescribeGlobalReplicationGroups (Maybe Int)
-dgrgsMaxRecords = lens _dgrgsMaxRecords (\s a -> s {_dgrgsMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgsMaxRecords :: Lens.Lens' DescribeGlobalReplicationGroups (Lude.Maybe Lude.Int)
+dgrgsMaxRecords = Lens.lens (maxRecords :: DescribeGlobalReplicationGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeGlobalReplicationGroups)
+{-# DEPRECATED dgrgsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The name of the Global Datastore
-dgrgsGlobalReplicationGroupId :: Lens' DescribeGlobalReplicationGroups (Maybe Text)
-dgrgsGlobalReplicationGroupId = lens _dgrgsGlobalReplicationGroupId (\s a -> s {_dgrgsGlobalReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgsGlobalReplicationGroupId :: Lens.Lens' DescribeGlobalReplicationGroups (Lude.Maybe Lude.Text)
+dgrgsGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: DescribeGlobalReplicationGroups -> Lude.Maybe Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: DescribeGlobalReplicationGroups)
+{-# DEPRECATED dgrgsGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
-instance AWSPager DescribeGlobalReplicationGroups where
+instance Page.AWSPager DescribeGlobalReplicationGroups where
   page rq rs
-    | stop (rs ^. dgrgsrsMarker) = Nothing
-    | stop (rs ^. dgrgsrsGlobalReplicationGroups) = Nothing
-    | otherwise = Just $ rq & dgrgsMarker .~ rs ^. dgrgsrsMarker
+    | Page.stop (rs Lens.^. dgrgsrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dgrgsrsGlobalReplicationGroups) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dgrgsMarker Lens..~ rs Lens.^. dgrgsrsMarker
 
-instance AWSRequest DescribeGlobalReplicationGroups where
+instance Lude.AWSRequest DescribeGlobalReplicationGroups where
   type
     Rs DescribeGlobalReplicationGroups =
       DescribeGlobalReplicationGroupsResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeGlobalReplicationGroupsResult"
       ( \s h x ->
           DescribeGlobalReplicationGroupsResponse'
-            <$> (x .@? "Marker")
-            <*> ( x .@? "GlobalReplicationGroups" .!@ mempty
-                    >>= may (parseXMLList "GlobalReplicationGroup")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "GlobalReplicationGroups" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "GlobalReplicationGroup")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeGlobalReplicationGroups
+instance Lude.ToHeaders DescribeGlobalReplicationGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeGlobalReplicationGroups
+instance Lude.ToPath DescribeGlobalReplicationGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeGlobalReplicationGroups where
-  toHeaders = const mempty
-
-instance ToPath DescribeGlobalReplicationGroups where
-  toPath = const "/"
-
-instance ToQuery DescribeGlobalReplicationGroups where
+instance Lude.ToQuery DescribeGlobalReplicationGroups where
   toQuery DescribeGlobalReplicationGroups' {..} =
-    mconcat
-      [ "Action" =: ("DescribeGlobalReplicationGroups" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "ShowMemberInfo" =: _dgrgsShowMemberInfo,
-        "Marker" =: _dgrgsMarker,
-        "MaxRecords" =: _dgrgsMaxRecords,
-        "GlobalReplicationGroupId" =: _dgrgsGlobalReplicationGroupId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeGlobalReplicationGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "ShowMemberInfo" Lude.=: showMemberInfo,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId
       ]
 
--- | /See:/ 'describeGlobalReplicationGroupsResponse' smart constructor.
+-- | /See:/ 'mkDescribeGlobalReplicationGroupsResponse' smart constructor.
 data DescribeGlobalReplicationGroupsResponse = DescribeGlobalReplicationGroupsResponse'
-  { _dgrgsrsMarker ::
-      !( Maybe
-           Text
-       ),
-    _dgrgsrsGlobalReplicationGroups ::
-      !( Maybe
-           [GlobalReplicationGroup]
-       ),
-    _dgrgsrsResponseStatus ::
-      !Int
+  { marker ::
+      Lude.Maybe
+        Lude.Text,
+    globalReplicationGroups ::
+      Lude.Maybe
+        [GlobalReplicationGroup],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGlobalReplicationGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgrgsrsMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
---
--- * 'dgrgsrsGlobalReplicationGroups' - Indicates the slot configuration and global identifier for each slice group.
---
--- * 'dgrgsrsResponseStatus' - -- | The response status code.
-describeGlobalReplicationGroupsResponse ::
-  -- | 'dgrgsrsResponseStatus'
-  Int ->
+-- * 'globalReplicationGroups' - Indicates the slot configuration and global identifier for each slice group.
+-- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
+-- * 'responseStatus' - The response status code.
+mkDescribeGlobalReplicationGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeGlobalReplicationGroupsResponse
-describeGlobalReplicationGroupsResponse pResponseStatus_ =
+mkDescribeGlobalReplicationGroupsResponse pResponseStatus_ =
   DescribeGlobalReplicationGroupsResponse'
-    { _dgrgsrsMarker =
-        Nothing,
-      _dgrgsrsGlobalReplicationGroups = Nothing,
-      _dgrgsrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      globalReplicationGroups = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
-dgrgsrsMarker :: Lens' DescribeGlobalReplicationGroupsResponse (Maybe Text)
-dgrgsrsMarker = lens _dgrgsrsMarker (\s a -> s {_dgrgsrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgsrsMarker :: Lens.Lens' DescribeGlobalReplicationGroupsResponse (Lude.Maybe Lude.Text)
+dgrgsrsMarker = Lens.lens (marker :: DescribeGlobalReplicationGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeGlobalReplicationGroupsResponse)
+{-# DEPRECATED dgrgsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Indicates the slot configuration and global identifier for each slice group.
-dgrgsrsGlobalReplicationGroups :: Lens' DescribeGlobalReplicationGroupsResponse [GlobalReplicationGroup]
-dgrgsrsGlobalReplicationGroups = lens _dgrgsrsGlobalReplicationGroups (\s a -> s {_dgrgsrsGlobalReplicationGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'globalReplicationGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgsrsGlobalReplicationGroups :: Lens.Lens' DescribeGlobalReplicationGroupsResponse (Lude.Maybe [GlobalReplicationGroup])
+dgrgsrsGlobalReplicationGroups = Lens.lens (globalReplicationGroups :: DescribeGlobalReplicationGroupsResponse -> Lude.Maybe [GlobalReplicationGroup]) (\s a -> s {globalReplicationGroups = a} :: DescribeGlobalReplicationGroupsResponse)
+{-# DEPRECATED dgrgsrsGlobalReplicationGroups "Use generic-lens or generic-optics with 'globalReplicationGroups' instead." #-}
 
--- | -- | The response status code.
-dgrgsrsResponseStatus :: Lens' DescribeGlobalReplicationGroupsResponse Int
-dgrgsrsResponseStatus = lens _dgrgsrsResponseStatus (\s a -> s {_dgrgsrsResponseStatus = a})
-
-instance NFData DescribeGlobalReplicationGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgrgsrsResponseStatus :: Lens.Lens' DescribeGlobalReplicationGroupsResponse Lude.Int
+dgrgsrsResponseStatus = Lens.lens (responseStatus :: DescribeGlobalReplicationGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGlobalReplicationGroupsResponse)
+{-# DEPRECATED dgrgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

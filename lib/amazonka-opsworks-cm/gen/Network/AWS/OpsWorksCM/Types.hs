@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorksCM.Types
-  ( -- * Service Configuration
-    opsWorksCM,
+  ( -- * Service configuration
+    opsWorksCMService,
 
     -- * Errors
 
@@ -31,15 +29,15 @@ module Network.AWS.OpsWorksCM.Types
     ServerStatus (..),
 
     -- * AccountAttribute
-    AccountAttribute,
-    accountAttribute,
+    AccountAttribute (..),
+    mkAccountAttribute,
     aaUsed,
     aaMaximum,
     aaName,
 
     -- * Backup
-    Backup,
-    backup,
+    Backup (..),
+    mkBackup,
     bEngineVersion,
     bServiceRoleARN,
     bStatus,
@@ -66,14 +64,14 @@ module Network.AWS.OpsWorksCM.Types
     bToolsVersion,
 
     -- * EngineAttribute
-    EngineAttribute,
-    engineAttribute,
+    EngineAttribute (..),
+    mkEngineAttribute,
     eaValue,
     eaName,
 
     -- * Server
-    Server,
-    server,
+    Server (..),
+    mkServer,
     sEngineVersion,
     sServiceRoleARN,
     sDisableAutomatedBackup,
@@ -100,22 +98,22 @@ module Network.AWS.OpsWorksCM.Types
     sBackupRetentionCount,
 
     -- * ServerEvent
-    ServerEvent,
-    serverEvent,
+    ServerEvent (..),
+    mkServerEvent,
     seLogURL,
     seServerName,
     seCreatedAt,
     seMessage,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types.AccountAttribute
 import Network.AWS.OpsWorksCM.Types.Backup
 import Network.AWS.OpsWorksCM.Types.BackupStatus
@@ -127,47 +125,59 @@ import Network.AWS.OpsWorksCM.Types.Server
 import Network.AWS.OpsWorksCM.Types.ServerEvent
 import Network.AWS.OpsWorksCM.Types.ServerStatus
 import Network.AWS.OpsWorksCM.Types.Tag
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-11-01@ of the Amazon OpsWorks CM SDK configuration.
-opsWorksCM :: Service
-opsWorksCM =
-  Service
-    { _svcAbbrev = "OpsWorksCM",
-      _svcSigner = v4,
-      _svcPrefix = "opsworks-cm",
-      _svcVersion = "2016-11-01",
-      _svcEndpoint = defaultEndpoint opsWorksCM,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "OpsWorksCM",
-      _svcRetry = retry
+opsWorksCMService :: Lude.Service
+opsWorksCMService =
+  Lude.Service
+    { Lude._svcAbbrev = "OpsWorksCM",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "opsworks-cm",
+      Lude._svcVersion = "2016-11-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint opsWorksCMService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "OpsWorksCM",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

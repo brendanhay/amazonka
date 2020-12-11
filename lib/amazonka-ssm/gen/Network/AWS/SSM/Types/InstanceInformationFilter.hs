@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InstanceInformationFilter where
+module Network.AWS.SSM.Types.InstanceInformationFilter
+  ( InstanceInformationFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceInformationFilter,
+
+    -- * Lenses
+    iifKey,
+    iifValueSet,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.InstanceInformationFilterKey
 
 -- | Describes a filter for a specific list of instances. You can filter instances information by using tags. You specify tags by using a key-value mapping.
 --
---
 -- Use this action instead of the 'DescribeInstanceInformationRequest$InstanceInformationFilterList' method. The @InstanceInformationFilterList@ method is a legacy method and does not support tags.
 --
---
--- /See:/ 'instanceInformationFilter' smart constructor.
+-- /See:/ 'mkInstanceInformationFilter' smart constructor.
 data InstanceInformationFilter = InstanceInformationFilter'
-  { _iifKey ::
-      !InstanceInformationFilterKey,
-    _iifValueSet :: !(List1 Text)
+  { key ::
+      InstanceInformationFilterKey,
+    valueSet :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceInformationFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iifKey' - The name of the filter.
---
--- * 'iifValueSet' - The filter values.
-instanceInformationFilter ::
-  -- | 'iifKey'
+-- * 'key' - The name of the filter.
+-- * 'valueSet' - The filter values.
+mkInstanceInformationFilter ::
+  -- | 'key'
   InstanceInformationFilterKey ->
-  -- | 'iifValueSet'
-  NonEmpty Text ->
+  -- | 'valueSet'
+  Lude.NonEmpty Lude.Text ->
   InstanceInformationFilter
-instanceInformationFilter pKey_ pValueSet_ =
-  InstanceInformationFilter'
-    { _iifKey = pKey_,
-      _iifValueSet = _List1 # pValueSet_
-    }
+mkInstanceInformationFilter pKey_ pValueSet_ =
+  InstanceInformationFilter' {key = pKey_, valueSet = pValueSet_}
 
 -- | The name of the filter.
-iifKey :: Lens' InstanceInformationFilter InstanceInformationFilterKey
-iifKey = lens _iifKey (\s a -> s {_iifKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iifKey :: Lens.Lens' InstanceInformationFilter InstanceInformationFilterKey
+iifKey = Lens.lens (key :: InstanceInformationFilter -> InstanceInformationFilterKey) (\s a -> s {key = a} :: InstanceInformationFilter)
+{-# DEPRECATED iifKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The filter values.
-iifValueSet :: Lens' InstanceInformationFilter (NonEmpty Text)
-iifValueSet = lens _iifValueSet (\s a -> s {_iifValueSet = a}) . _List1
+--
+-- /Note:/ Consider using 'valueSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iifValueSet :: Lens.Lens' InstanceInformationFilter (Lude.NonEmpty Lude.Text)
+iifValueSet = Lens.lens (valueSet :: InstanceInformationFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {valueSet = a} :: InstanceInformationFilter)
+{-# DEPRECATED iifValueSet "Use generic-lens or generic-optics with 'valueSet' instead." #-}
 
-instance Hashable InstanceInformationFilter
-
-instance NFData InstanceInformationFilter
-
-instance ToJSON InstanceInformationFilter where
+instance Lude.ToJSON InstanceInformationFilter where
   toJSON InstanceInformationFilter' {..} =
-    object
-      ( catMaybes
-          [Just ("key" .= _iifKey), Just ("valueSet" .= _iifValueSet)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("key" Lude..= key),
+            Lude.Just ("valueSet" Lude..= valueSet)
+          ]
       )

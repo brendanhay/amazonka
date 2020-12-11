@@ -14,15 +14,12 @@
 -- __AWS Health__
 --
 -- The AWS Health API provides programmatic access to the AWS Health information that appears in the <https://phd.aws.amazon.com/phd/home#/ AWS Personal Health Dashboard> . You can use the API operations to get information about AWS Health events that affect your AWS services and resources.
---
 -- AWS Health has a single endpoint: health.us-east-1.amazonaws.com (HTTPS). Use this endpoint to call the AWS Health API operations.
---
 -- For authentication of requests, AWS Health uses the <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
---
 -- If your AWS account is part of AWS Organizations, you can use the AWS Health organizational view feature. This feature provides a centralized view of AWS Health events across all accounts in your organization. You can aggregate AWS Health events in real time to identify accounts in your organization that are affected by an operational event or get notified of security vulnerabilities. Use the organizational view API operations to enable this feature and return event information. For more information, see <https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html Aggregating AWS Health events> in the /AWS Health User Guide/ .
 module Network.AWS.AWSHealth
-  ( -- * Service Configuration
-    awsHealth,
+  ( -- * Service configuration
+    awsHealthService,
 
     -- * Errors
     -- $errors
@@ -90,8 +87,8 @@ module Network.AWS.AWSHealth
     EventTypeCategory (..),
 
     -- ** AffectedEntity
-    AffectedEntity,
-    affectedEntity,
+    AffectedEntity (..),
+    mkAffectedEntity,
     aeLastUpdatedTime,
     aeEntityValue,
     aeEntityURL,
@@ -102,20 +99,20 @@ module Network.AWS.AWSHealth
     aeStatusCode,
 
     -- ** DateTimeRange
-    DateTimeRange,
-    dateTimeRange,
+    DateTimeRange (..),
+    mkDateTimeRange,
     dtrTo,
     dtrFrom,
 
     -- ** EntityAggregate
-    EntityAggregate,
-    entityAggregate,
+    EntityAggregate (..),
+    mkEntityAggregate,
     eCount,
     eEventARN,
 
     -- ** EntityFilter
-    EntityFilter,
-    entityFilter,
+    EntityFilter (..),
+    mkEntityFilter,
     eStatusCodes,
     eEntityARNs,
     eEntityValues,
@@ -124,8 +121,8 @@ module Network.AWS.AWSHealth
     eEventARNs,
 
     -- ** Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eLastUpdatedTime,
     eArn,
     eService,
@@ -139,39 +136,39 @@ module Network.AWS.AWSHealth
     eStatusCode,
 
     -- ** EventAccountFilter
-    EventAccountFilter,
-    eventAccountFilter,
+    EventAccountFilter (..),
+    mkEventAccountFilter,
     eafAwsAccountId,
     eafEventARN,
 
     -- ** EventAggregate
-    EventAggregate,
-    eventAggregate,
+    EventAggregate (..),
+    mkEventAggregate,
     eaCount,
     eaAggregateValue,
 
     -- ** EventDescription
-    EventDescription,
-    eventDescription,
+    EventDescription (..),
+    mkEventDescription,
     edLatestDescription,
 
     -- ** EventDetails
-    EventDetails,
-    eventDetails,
+    EventDetails (..),
+    mkEventDetails,
     edEvent,
     edEventDescription,
     edEventMetadata,
 
     -- ** EventDetailsErrorItem
-    EventDetailsErrorItem,
-    eventDetailsErrorItem,
+    EventDetailsErrorItem (..),
+    mkEventDetailsErrorItem,
     edeiEventARN,
     edeiErrorName,
     edeiErrorMessage,
 
     -- ** EventFilter
-    EventFilter,
-    eventFilter,
+    EventFilter (..),
+    mkEventFilter,
     efEventARNs,
     efEventTypeCategories,
     efEventTypeCodes,
@@ -187,30 +184,30 @@ module Network.AWS.AWSHealth
     efLastUpdatedTimes,
 
     -- ** EventType
-    EventType,
-    eventType,
+    EventType (..),
+    mkEventType,
     etService,
     etCategory,
     etCode,
 
     -- ** EventTypeFilter
-    EventTypeFilter,
-    eventTypeFilter,
+    EventTypeFilter (..),
+    mkEventTypeFilter,
     etfEventTypeCategories,
     etfEventTypeCodes,
     etfServices,
 
     -- ** OrganizationAffectedEntitiesErrorItem
-    OrganizationAffectedEntitiesErrorItem,
-    organizationAffectedEntitiesErrorItem,
+    OrganizationAffectedEntitiesErrorItem (..),
+    mkOrganizationAffectedEntitiesErrorItem,
     oaeeiAwsAccountId,
     oaeeiEventARN,
     oaeeiErrorName,
     oaeeiErrorMessage,
 
     -- ** OrganizationEvent
-    OrganizationEvent,
-    organizationEvent,
+    OrganizationEvent (..),
+    mkOrganizationEvent,
     oeLastUpdatedTime,
     oeArn,
     oeService,
@@ -223,24 +220,24 @@ module Network.AWS.AWSHealth
     oeStatusCode,
 
     -- ** OrganizationEventDetails
-    OrganizationEventDetails,
-    organizationEventDetails,
+    OrganizationEventDetails (..),
+    mkOrganizationEventDetails,
     oedEvent,
     oedEventDescription,
     oedAwsAccountId,
     oedEventMetadata,
 
     -- ** OrganizationEventDetailsErrorItem
-    OrganizationEventDetailsErrorItem,
-    organizationEventDetailsErrorItem,
+    OrganizationEventDetailsErrorItem (..),
+    mkOrganizationEventDetailsErrorItem,
     oedeiAwsAccountId,
     oedeiEventARN,
     oedeiErrorName,
     oedeiErrorMessage,
 
     -- ** OrganizationEventFilter
-    OrganizationEventFilter,
-    organizationEventFilter,
+    OrganizationEventFilter (..),
+    mkOrganizationEventFilter,
     oefLastUpdatedTime,
     oefAwsAccountIds,
     oefEventTypeCategories,
@@ -252,6 +249,17 @@ module Network.AWS.AWSHealth
     oefEntityARNs,
     oefEntityValues,
     oefServices,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -270,6 +278,7 @@ import Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
 import Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization
 import Network.AWS.AWSHealth.Types
 import Network.AWS.AWSHealth.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

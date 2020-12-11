@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.InputOrigin where
+module Network.AWS.Lightsail.Types.InputOrigin
+  ( InputOrigin (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkInputOrigin,
+
+    -- * Lenses
+    ioRegionName,
+    ioName,
+    ioProtocolPolicy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.OriginProtocolPolicyEnum
 import Network.AWS.Lightsail.Types.RegionName
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the origin resource of an Amazon Lightsail content delivery network (CDN) distribution.
 --
---
 -- An origin can be a Lightsail instance or load balancer. A distribution pulls content from an origin, caches it, and serves it to viewers via a worldwide network of edge servers.
 --
---
--- /See:/ 'inputOrigin' smart constructor.
+-- /See:/ 'mkInputOrigin' smart constructor.
 data InputOrigin = InputOrigin'
-  { _ioRegionName ::
-      !(Maybe RegionName),
-    _ioName :: !(Maybe Text),
-    _ioProtocolPolicy :: !(Maybe OriginProtocolPolicyEnum)
+  { regionName ::
+      Lude.Maybe RegionName,
+    name :: Lude.Maybe Lude.Text,
+    protocolPolicy :: Lude.Maybe OriginProtocolPolicyEnum
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputOrigin' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ioRegionName' - The AWS Region name of the origin resource.
---
--- * 'ioName' - The name of the origin resource.
---
--- * 'ioProtocolPolicy' - The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
-inputOrigin ::
+-- * 'name' - The name of the origin resource.
+-- * 'protocolPolicy' - The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+-- * 'regionName' - The AWS Region name of the origin resource.
+mkInputOrigin ::
   InputOrigin
-inputOrigin =
+mkInputOrigin =
   InputOrigin'
-    { _ioRegionName = Nothing,
-      _ioName = Nothing,
-      _ioProtocolPolicy = Nothing
+    { regionName = Lude.Nothing,
+      name = Lude.Nothing,
+      protocolPolicy = Lude.Nothing
     }
 
 -- | The AWS Region name of the origin resource.
-ioRegionName :: Lens' InputOrigin (Maybe RegionName)
-ioRegionName = lens _ioRegionName (\s a -> s {_ioRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ioRegionName :: Lens.Lens' InputOrigin (Lude.Maybe RegionName)
+ioRegionName = Lens.lens (regionName :: InputOrigin -> Lude.Maybe RegionName) (\s a -> s {regionName = a} :: InputOrigin)
+{-# DEPRECATED ioRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | The name of the origin resource.
-ioName :: Lens' InputOrigin (Maybe Text)
-ioName = lens _ioName (\s a -> s {_ioName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ioName :: Lens.Lens' InputOrigin (Lude.Maybe Lude.Text)
+ioName = Lens.lens (name :: InputOrigin -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InputOrigin)
+{-# DEPRECATED ioName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
-ioProtocolPolicy :: Lens' InputOrigin (Maybe OriginProtocolPolicyEnum)
-ioProtocolPolicy = lens _ioProtocolPolicy (\s a -> s {_ioProtocolPolicy = a})
+--
+-- /Note:/ Consider using 'protocolPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ioProtocolPolicy :: Lens.Lens' InputOrigin (Lude.Maybe OriginProtocolPolicyEnum)
+ioProtocolPolicy = Lens.lens (protocolPolicy :: InputOrigin -> Lude.Maybe OriginProtocolPolicyEnum) (\s a -> s {protocolPolicy = a} :: InputOrigin)
+{-# DEPRECATED ioProtocolPolicy "Use generic-lens or generic-optics with 'protocolPolicy' instead." #-}
 
-instance Hashable InputOrigin
-
-instance NFData InputOrigin
-
-instance ToJSON InputOrigin where
+instance Lude.ToJSON InputOrigin where
   toJSON InputOrigin' {..} =
-    object
-      ( catMaybes
-          [ ("regionName" .=) <$> _ioRegionName,
-            ("name" .=) <$> _ioName,
-            ("protocolPolicy" .=) <$> _ioProtocolPolicy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("regionName" Lude..=) Lude.<$> regionName,
+            ("name" Lude..=) Lude.<$> name,
+            ("protocolPolicy" Lude..=) Lude.<$> protocolPolicy
           ]
       )

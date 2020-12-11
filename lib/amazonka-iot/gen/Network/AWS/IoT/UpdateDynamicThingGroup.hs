@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates a dynamic thing group.
 module Network.AWS.IoT.UpdateDynamicThingGroup
-  ( -- * Creating a Request
-    updateDynamicThingGroup,
-    UpdateDynamicThingGroup,
+  ( -- * Creating a request
+    UpdateDynamicThingGroup (..),
+    mkUpdateDynamicThingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udtgQueryVersion,
     udtgExpectedVersion,
     udtgQueryString,
@@ -31,158 +26,179 @@ module Network.AWS.IoT.UpdateDynamicThingGroup
     udtgThingGroupName,
     udtgThingGroupProperties,
 
-    -- * Destructuring the Response
-    updateDynamicThingGroupResponse,
-    UpdateDynamicThingGroupResponse,
+    -- * Destructuring the response
+    UpdateDynamicThingGroupResponse (..),
+    mkUpdateDynamicThingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udtgrsVersion,
     udtgrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDynamicThingGroup' smart constructor.
+-- | /See:/ 'mkUpdateDynamicThingGroup' smart constructor.
 data UpdateDynamicThingGroup = UpdateDynamicThingGroup'
-  { _udtgQueryVersion ::
-      !(Maybe Text),
-    _udtgExpectedVersion :: !(Maybe Integer),
-    _udtgQueryString :: !(Maybe Text),
-    _udtgIndexName :: !(Maybe Text),
-    _udtgThingGroupName :: !Text,
-    _udtgThingGroupProperties ::
-      !ThingGroupProperties
+  { queryVersion ::
+      Lude.Maybe Lude.Text,
+    expectedVersion :: Lude.Maybe Lude.Integer,
+    queryString :: Lude.Maybe Lude.Text,
+    indexName :: Lude.Maybe Lude.Text,
+    thingGroupName :: Lude.Text,
+    thingGroupProperties ::
+      ThingGroupProperties
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDynamicThingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udtgQueryVersion' - The dynamic thing group query version to update.
---
--- * 'udtgExpectedVersion' - The expected version of the dynamic thing group to update.
---
--- * 'udtgQueryString' - The dynamic thing group search query string to update.
---
--- * 'udtgIndexName' - The dynamic thing group index to update.
---
--- * 'udtgThingGroupName' - The name of the dynamic thing group to update.
---
--- * 'udtgThingGroupProperties' - The dynamic thing group properties to update.
-updateDynamicThingGroup ::
-  -- | 'udtgThingGroupName'
-  Text ->
-  -- | 'udtgThingGroupProperties'
+-- * 'expectedVersion' - The expected version of the dynamic thing group to update.
+-- * 'indexName' - The dynamic thing group index to update.
+-- * 'queryString' - The dynamic thing group search query string to update.
+-- * 'queryVersion' - The dynamic thing group query version to update.
+-- * 'thingGroupName' - The name of the dynamic thing group to update.
+-- * 'thingGroupProperties' - The dynamic thing group properties to update.
+mkUpdateDynamicThingGroup ::
+  -- | 'thingGroupName'
+  Lude.Text ->
+  -- | 'thingGroupProperties'
   ThingGroupProperties ->
   UpdateDynamicThingGroup
-updateDynamicThingGroup pThingGroupName_ pThingGroupProperties_ =
+mkUpdateDynamicThingGroup pThingGroupName_ pThingGroupProperties_ =
   UpdateDynamicThingGroup'
-    { _udtgQueryVersion = Nothing,
-      _udtgExpectedVersion = Nothing,
-      _udtgQueryString = Nothing,
-      _udtgIndexName = Nothing,
-      _udtgThingGroupName = pThingGroupName_,
-      _udtgThingGroupProperties = pThingGroupProperties_
+    { queryVersion = Lude.Nothing,
+      expectedVersion = Lude.Nothing,
+      queryString = Lude.Nothing,
+      indexName = Lude.Nothing,
+      thingGroupName = pThingGroupName_,
+      thingGroupProperties = pThingGroupProperties_
     }
 
 -- | The dynamic thing group query version to update.
-udtgQueryVersion :: Lens' UpdateDynamicThingGroup (Maybe Text)
-udtgQueryVersion = lens _udtgQueryVersion (\s a -> s {_udtgQueryVersion = a})
+--
+-- /Note:/ Consider using 'queryVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udtgQueryVersion :: Lens.Lens' UpdateDynamicThingGroup (Lude.Maybe Lude.Text)
+udtgQueryVersion = Lens.lens (queryVersion :: UpdateDynamicThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {queryVersion = a} :: UpdateDynamicThingGroup)
+{-# DEPRECATED udtgQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
 
 -- | The expected version of the dynamic thing group to update.
-udtgExpectedVersion :: Lens' UpdateDynamicThingGroup (Maybe Integer)
-udtgExpectedVersion = lens _udtgExpectedVersion (\s a -> s {_udtgExpectedVersion = a})
+--
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udtgExpectedVersion :: Lens.Lens' UpdateDynamicThingGroup (Lude.Maybe Lude.Integer)
+udtgExpectedVersion = Lens.lens (expectedVersion :: UpdateDynamicThingGroup -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: UpdateDynamicThingGroup)
+{-# DEPRECATED udtgExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
 
 -- | The dynamic thing group search query string to update.
-udtgQueryString :: Lens' UpdateDynamicThingGroup (Maybe Text)
-udtgQueryString = lens _udtgQueryString (\s a -> s {_udtgQueryString = a})
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udtgQueryString :: Lens.Lens' UpdateDynamicThingGroup (Lude.Maybe Lude.Text)
+udtgQueryString = Lens.lens (queryString :: UpdateDynamicThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {queryString = a} :: UpdateDynamicThingGroup)
+{-# DEPRECATED udtgQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
 -- | The dynamic thing group index to update.
-udtgIndexName :: Lens' UpdateDynamicThingGroup (Maybe Text)
-udtgIndexName = lens _udtgIndexName (\s a -> s {_udtgIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udtgIndexName :: Lens.Lens' UpdateDynamicThingGroup (Lude.Maybe Lude.Text)
+udtgIndexName = Lens.lens (indexName :: UpdateDynamicThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: UpdateDynamicThingGroup)
+{-# DEPRECATED udtgIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The name of the dynamic thing group to update.
-udtgThingGroupName :: Lens' UpdateDynamicThingGroup Text
-udtgThingGroupName = lens _udtgThingGroupName (\s a -> s {_udtgThingGroupName = a})
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udtgThingGroupName :: Lens.Lens' UpdateDynamicThingGroup Lude.Text
+udtgThingGroupName = Lens.lens (thingGroupName :: UpdateDynamicThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: UpdateDynamicThingGroup)
+{-# DEPRECATED udtgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | The dynamic thing group properties to update.
-udtgThingGroupProperties :: Lens' UpdateDynamicThingGroup ThingGroupProperties
-udtgThingGroupProperties = lens _udtgThingGroupProperties (\s a -> s {_udtgThingGroupProperties = a})
+--
+-- /Note:/ Consider using 'thingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udtgThingGroupProperties :: Lens.Lens' UpdateDynamicThingGroup ThingGroupProperties
+udtgThingGroupProperties = Lens.lens (thingGroupProperties :: UpdateDynamicThingGroup -> ThingGroupProperties) (\s a -> s {thingGroupProperties = a} :: UpdateDynamicThingGroup)
+{-# DEPRECATED udtgThingGroupProperties "Use generic-lens or generic-optics with 'thingGroupProperties' instead." #-}
 
-instance AWSRequest UpdateDynamicThingGroup where
+instance Lude.AWSRequest UpdateDynamicThingGroup where
   type Rs UpdateDynamicThingGroup = UpdateDynamicThingGroupResponse
-  request = patchJSON ioT
+  request = Req.patchJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateDynamicThingGroupResponse'
-            <$> (x .?> "version") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "version") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateDynamicThingGroup
+instance Lude.ToHeaders UpdateDynamicThingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateDynamicThingGroup
-
-instance ToHeaders UpdateDynamicThingGroup where
-  toHeaders = const mempty
-
-instance ToJSON UpdateDynamicThingGroup where
+instance Lude.ToJSON UpdateDynamicThingGroup where
   toJSON UpdateDynamicThingGroup' {..} =
-    object
-      ( catMaybes
-          [ ("queryVersion" .=) <$> _udtgQueryVersion,
-            ("expectedVersion" .=) <$> _udtgExpectedVersion,
-            ("queryString" .=) <$> _udtgQueryString,
-            ("indexName" .=) <$> _udtgIndexName,
-            Just ("thingGroupProperties" .= _udtgThingGroupProperties)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("queryVersion" Lude..=) Lude.<$> queryVersion,
+            ("expectedVersion" Lude..=) Lude.<$> expectedVersion,
+            ("queryString" Lude..=) Lude.<$> queryString,
+            ("indexName" Lude..=) Lude.<$> indexName,
+            Lude.Just ("thingGroupProperties" Lude..= thingGroupProperties)
           ]
       )
 
-instance ToPath UpdateDynamicThingGroup where
+instance Lude.ToPath UpdateDynamicThingGroup where
   toPath UpdateDynamicThingGroup' {..} =
-    mconcat ["/dynamic-thing-groups/", toBS _udtgThingGroupName]
+    Lude.mconcat ["/dynamic-thing-groups/", Lude.toBS thingGroupName]
 
-instance ToQuery UpdateDynamicThingGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDynamicThingGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDynamicThingGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateDynamicThingGroupResponse' smart constructor.
 data UpdateDynamicThingGroupResponse = UpdateDynamicThingGroupResponse'
-  { _udtgrsVersion ::
-      !(Maybe Integer),
-    _udtgrsResponseStatus ::
-      !Int
+  { version ::
+      Lude.Maybe Lude.Integer,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDynamicThingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udtgrsVersion' - The dynamic thing group version.
---
--- * 'udtgrsResponseStatus' - -- | The response status code.
-updateDynamicThingGroupResponse ::
-  -- | 'udtgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'version' - The dynamic thing group version.
+mkUpdateDynamicThingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDynamicThingGroupResponse
-updateDynamicThingGroupResponse pResponseStatus_ =
+mkUpdateDynamicThingGroupResponse pResponseStatus_ =
   UpdateDynamicThingGroupResponse'
-    { _udtgrsVersion = Nothing,
-      _udtgrsResponseStatus = pResponseStatus_
+    { version = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The dynamic thing group version.
-udtgrsVersion :: Lens' UpdateDynamicThingGroupResponse (Maybe Integer)
-udtgrsVersion = lens _udtgrsVersion (\s a -> s {_udtgrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udtgrsVersion :: Lens.Lens' UpdateDynamicThingGroupResponse (Lude.Maybe Lude.Integer)
+udtgrsVersion = Lens.lens (version :: UpdateDynamicThingGroupResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: UpdateDynamicThingGroupResponse)
+{-# DEPRECATED udtgrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | -- | The response status code.
-udtgrsResponseStatus :: Lens' UpdateDynamicThingGroupResponse Int
-udtgrsResponseStatus = lens _udtgrsResponseStatus (\s a -> s {_udtgrsResponseStatus = a})
-
-instance NFData UpdateDynamicThingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udtgrsResponseStatus :: Lens.Lens' UpdateDynamicThingGroupResponse Lude.Int
+udtgrsResponseStatus = Lens.lens (responseStatus :: UpdateDynamicThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDynamicThingGroupResponse)
+{-# DEPRECATED udtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

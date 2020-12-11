@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.AssociationStatus where
+module Network.AWS.WorkSpaces.Types.AssociationStatus
+  ( AssociationStatus
+      ( AssociationStatus',
+        AssociatedWithOwnerAccount,
+        AssociatedWithSharedAccount,
+        NotAssociated,
+        PendingAssociation,
+        PendingDisassociation
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssociationStatus
-  = AssociatedWithOwnerAccount
-  | AssociatedWithSharedAccount
-  | NotAssociated
-  | PendingAssociation
-  | PendingDisassociation
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssociationStatus = AssociationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssociationStatus where
-  parser =
-    takeLowerText >>= \case
-      "associated_with_owner_account" -> pure AssociatedWithOwnerAccount
-      "associated_with_shared_account" -> pure AssociatedWithSharedAccount
-      "not_associated" -> pure NotAssociated
-      "pending_association" -> pure PendingAssociation
-      "pending_disassociation" -> pure PendingDisassociation
-      e ->
-        fromTextError $
-          "Failure parsing AssociationStatus from value: '" <> e
-            <> "'. Accepted values: associated_with_owner_account, associated_with_shared_account, not_associated, pending_association, pending_disassociation"
+pattern AssociatedWithOwnerAccount :: AssociationStatus
+pattern AssociatedWithOwnerAccount = AssociationStatus' "ASSOCIATED_WITH_OWNER_ACCOUNT"
 
-instance ToText AssociationStatus where
-  toText = \case
-    AssociatedWithOwnerAccount -> "ASSOCIATED_WITH_OWNER_ACCOUNT"
-    AssociatedWithSharedAccount -> "ASSOCIATED_WITH_SHARED_ACCOUNT"
-    NotAssociated -> "NOT_ASSOCIATED"
-    PendingAssociation -> "PENDING_ASSOCIATION"
-    PendingDisassociation -> "PENDING_DISASSOCIATION"
+pattern AssociatedWithSharedAccount :: AssociationStatus
+pattern AssociatedWithSharedAccount = AssociationStatus' "ASSOCIATED_WITH_SHARED_ACCOUNT"
 
-instance Hashable AssociationStatus
+pattern NotAssociated :: AssociationStatus
+pattern NotAssociated = AssociationStatus' "NOT_ASSOCIATED"
 
-instance NFData AssociationStatus
+pattern PendingAssociation :: AssociationStatus
+pattern PendingAssociation = AssociationStatus' "PENDING_ASSOCIATION"
 
-instance ToByteString AssociationStatus
+pattern PendingDisassociation :: AssociationStatus
+pattern PendingDisassociation = AssociationStatus' "PENDING_DISASSOCIATION"
 
-instance ToQuery AssociationStatus
-
-instance ToHeader AssociationStatus
-
-instance FromJSON AssociationStatus where
-  parseJSON = parseJSONText "AssociationStatus"
+{-# COMPLETE
+  AssociatedWithOwnerAccount,
+  AssociatedWithSharedAccount,
+  NotAssociated,
+  PendingAssociation,
+  PendingDisassociation,
+  AssociationStatus'
+  #-}

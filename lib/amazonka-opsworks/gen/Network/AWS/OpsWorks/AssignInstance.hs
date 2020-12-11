@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,107 +17,120 @@
 --
 --     * You can assign registered on-premises instances to any layer type.
 --
+--
 --     * You can assign registered Amazon EC2 instances only to custom layers.
+--
 --
 --     * You cannot use this action with instances that were created with AWS OpsWorks Stacks.
 --
 --
---
 -- __Required Permissions__ : To use this action, an AWS Identity and Access Management (IAM) user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.AssignInstance
-  ( -- * Creating a Request
-    assignInstance,
-    AssignInstance,
+  ( -- * Creating a request
+    AssignInstance (..),
+    mkAssignInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aiInstanceId,
     aiLayerIds,
 
-    -- * Destructuring the Response
-    assignInstanceResponse,
-    AssignInstanceResponse,
+    -- * Destructuring the response
+    AssignInstanceResponse (..),
+    mkAssignInstanceResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'assignInstance' smart constructor.
+-- | /See:/ 'mkAssignInstance' smart constructor.
 data AssignInstance = AssignInstance'
-  { _aiInstanceId :: !Text,
-    _aiLayerIds :: ![Text]
+  { instanceId :: Lude.Text,
+    layerIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aiInstanceId' - The instance ID.
---
--- * 'aiLayerIds' - The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
-assignInstance ::
-  -- | 'aiInstanceId'
-  Text ->
+-- * 'instanceId' - The instance ID.
+-- * 'layerIds' - The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
+mkAssignInstance ::
+  -- | 'instanceId'
+  Lude.Text ->
   AssignInstance
-assignInstance pInstanceId_ =
+mkAssignInstance pInstanceId_ =
   AssignInstance'
-    { _aiInstanceId = pInstanceId_,
-      _aiLayerIds = mempty
+    { instanceId = pInstanceId_,
+      layerIds = Lude.mempty
     }
 
 -- | The instance ID.
-aiInstanceId :: Lens' AssignInstance Text
-aiInstanceId = lens _aiInstanceId (\s a -> s {_aiInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiInstanceId :: Lens.Lens' AssignInstance Lude.Text
+aiInstanceId = Lens.lens (instanceId :: AssignInstance -> Lude.Text) (\s a -> s {instanceId = a} :: AssignInstance)
+{-# DEPRECATED aiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
-aiLayerIds :: Lens' AssignInstance [Text]
-aiLayerIds = lens _aiLayerIds (\s a -> s {_aiLayerIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'layerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiLayerIds :: Lens.Lens' AssignInstance [Lude.Text]
+aiLayerIds = Lens.lens (layerIds :: AssignInstance -> [Lude.Text]) (\s a -> s {layerIds = a} :: AssignInstance)
+{-# DEPRECATED aiLayerIds "Use generic-lens or generic-optics with 'layerIds' instead." #-}
 
-instance AWSRequest AssignInstance where
+instance Lude.AWSRequest AssignInstance where
   type Rs AssignInstance = AssignInstanceResponse
-  request = postJSON opsWorks
-  response = receiveNull AssignInstanceResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull AssignInstanceResponse'
 
-instance Hashable AssignInstance
-
-instance NFData AssignInstance
-
-instance ToHeaders AssignInstance where
+instance Lude.ToHeaders AssignInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.AssignInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.AssignInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssignInstance where
+instance Lude.ToJSON AssignInstance where
   toJSON AssignInstance' {..} =
-    object
-      ( catMaybes
-          [ Just ("InstanceId" .= _aiInstanceId),
-            Just ("LayerIds" .= _aiLayerIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("LayerIds" Lude..= layerIds)
           ]
       )
 
-instance ToPath AssignInstance where
-  toPath = const "/"
+instance Lude.ToPath AssignInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery AssignInstance where
-  toQuery = const mempty
+instance Lude.ToQuery AssignInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'assignInstanceResponse' smart constructor.
+-- | /See:/ 'mkAssignInstanceResponse' smart constructor.
 data AssignInstanceResponse = AssignInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignInstanceResponse' with the minimum fields required to make a request.
-assignInstanceResponse ::
+mkAssignInstanceResponse ::
   AssignInstanceResponse
-assignInstanceResponse = AssignInstanceResponse'
-
-instance NFData AssignInstanceResponse
+mkAssignInstanceResponse = AssignInstanceResponse'

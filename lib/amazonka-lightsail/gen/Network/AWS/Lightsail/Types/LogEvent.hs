@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LogEvent where
+module Network.AWS.Lightsail.Types.LogEvent
+  ( LogEvent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLogEvent,
+
+    -- * Lenses
+    leCreatedAt,
+    leMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a database log event.
 --
---
---
--- /See:/ 'logEvent' smart constructor.
+-- /See:/ 'mkLogEvent' smart constructor.
 data LogEvent = LogEvent'
-  { _leCreatedAt :: !(Maybe POSIX),
-    _leMessage :: !(Maybe Text)
+  { createdAt :: Lude.Maybe Lude.Timestamp,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'leCreatedAt' - The timestamp when the database log event was created.
---
--- * 'leMessage' - The message of the database log event.
-logEvent ::
+-- * 'createdAt' - The timestamp when the database log event was created.
+-- * 'message' - The message of the database log event.
+mkLogEvent ::
   LogEvent
-logEvent = LogEvent' {_leCreatedAt = Nothing, _leMessage = Nothing}
+mkLogEvent =
+  LogEvent' {createdAt = Lude.Nothing, message = Lude.Nothing}
 
 -- | The timestamp when the database log event was created.
-leCreatedAt :: Lens' LogEvent (Maybe UTCTime)
-leCreatedAt = lens _leCreatedAt (\s a -> s {_leCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leCreatedAt :: Lens.Lens' LogEvent (Lude.Maybe Lude.Timestamp)
+leCreatedAt = Lens.lens (createdAt :: LogEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: LogEvent)
+{-# DEPRECATED leCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The message of the database log event.
-leMessage :: Lens' LogEvent (Maybe Text)
-leMessage = lens _leMessage (\s a -> s {_leMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leMessage :: Lens.Lens' LogEvent (Lude.Maybe Lude.Text)
+leMessage = Lens.lens (message :: LogEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: LogEvent)
+{-# DEPRECATED leMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON LogEvent where
+instance Lude.FromJSON LogEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "LogEvent"
-      (\x -> LogEvent' <$> (x .:? "createdAt") <*> (x .:? "message"))
-
-instance Hashable LogEvent
-
-instance NFData LogEvent
+      ( \x ->
+          LogEvent'
+            Lude.<$> (x Lude..:? "createdAt") Lude.<*> (x Lude..:? "message")
+      )

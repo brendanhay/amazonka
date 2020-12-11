@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types.GroupConfiguration where
+module Network.AWS.ResourceGroups.Types.GroupConfiguration
+  ( GroupConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroupConfiguration,
+
+    -- * Lenses
+    gcStatus,
+    gcFailureReason,
+    gcProposedConfiguration,
+    gcConfiguration,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ResourceGroups.Types.GroupConfigurationItem
 import Network.AWS.ResourceGroups.Types.GroupConfigurationStatus
 
 -- | A service configuration associated with a resource group. The configuration options are determined by the AWS service that defines the @Type@ , and specifies which resources can be included in the group. You can add a service configuration when you create the group.
 --
---
---
--- /See:/ 'groupConfiguration' smart constructor.
+-- /See:/ 'mkGroupConfiguration' smart constructor.
 data GroupConfiguration = GroupConfiguration'
-  { _gcStatus ::
-      !(Maybe GroupConfigurationStatus),
-    _gcFailureReason :: !(Maybe Text),
-    _gcProposedConfiguration ::
-      !(Maybe [GroupConfigurationItem]),
-    _gcConfiguration :: !(Maybe [GroupConfigurationItem])
+  { status ::
+      Lude.Maybe GroupConfigurationStatus,
+    failureReason :: Lude.Maybe Lude.Text,
+    proposedConfiguration ::
+      Lude.Maybe [GroupConfigurationItem],
+    configuration :: Lude.Maybe [GroupConfigurationItem]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcStatus' - The current status of an attempt to update the group configuration.
---
--- * 'gcFailureReason' - If present, the reason why a request to update the group configuration failed.
---
--- * 'gcProposedConfiguration' - If present, the new configuration that is in the process of being applied to the group.
---
--- * 'gcConfiguration' - The configuration currently associated with the group and in effect.
-groupConfiguration ::
+-- * 'configuration' - The configuration currently associated with the group and in effect.
+-- * 'failureReason' - If present, the reason why a request to update the group configuration failed.
+-- * 'proposedConfiguration' - If present, the new configuration that is in the process of being applied to the group.
+-- * 'status' - The current status of an attempt to update the group configuration.
+mkGroupConfiguration ::
   GroupConfiguration
-groupConfiguration =
+mkGroupConfiguration =
   GroupConfiguration'
-    { _gcStatus = Nothing,
-      _gcFailureReason = Nothing,
-      _gcProposedConfiguration = Nothing,
-      _gcConfiguration = Nothing
+    { status = Lude.Nothing,
+      failureReason = Lude.Nothing,
+      proposedConfiguration = Lude.Nothing,
+      configuration = Lude.Nothing
     }
 
 -- | The current status of an attempt to update the group configuration.
-gcStatus :: Lens' GroupConfiguration (Maybe GroupConfigurationStatus)
-gcStatus = lens _gcStatus (\s a -> s {_gcStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcStatus :: Lens.Lens' GroupConfiguration (Lude.Maybe GroupConfigurationStatus)
+gcStatus = Lens.lens (status :: GroupConfiguration -> Lude.Maybe GroupConfigurationStatus) (\s a -> s {status = a} :: GroupConfiguration)
+{-# DEPRECATED gcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | If present, the reason why a request to update the group configuration failed.
-gcFailureReason :: Lens' GroupConfiguration (Maybe Text)
-gcFailureReason = lens _gcFailureReason (\s a -> s {_gcFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcFailureReason :: Lens.Lens' GroupConfiguration (Lude.Maybe Lude.Text)
+gcFailureReason = Lens.lens (failureReason :: GroupConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: GroupConfiguration)
+{-# DEPRECATED gcFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | If present, the new configuration that is in the process of being applied to the group.
-gcProposedConfiguration :: Lens' GroupConfiguration [GroupConfigurationItem]
-gcProposedConfiguration = lens _gcProposedConfiguration (\s a -> s {_gcProposedConfiguration = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'proposedConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcProposedConfiguration :: Lens.Lens' GroupConfiguration (Lude.Maybe [GroupConfigurationItem])
+gcProposedConfiguration = Lens.lens (proposedConfiguration :: GroupConfiguration -> Lude.Maybe [GroupConfigurationItem]) (\s a -> s {proposedConfiguration = a} :: GroupConfiguration)
+{-# DEPRECATED gcProposedConfiguration "Use generic-lens or generic-optics with 'proposedConfiguration' instead." #-}
 
 -- | The configuration currently associated with the group and in effect.
-gcConfiguration :: Lens' GroupConfiguration [GroupConfigurationItem]
-gcConfiguration = lens _gcConfiguration (\s a -> s {_gcConfiguration = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcConfiguration :: Lens.Lens' GroupConfiguration (Lude.Maybe [GroupConfigurationItem])
+gcConfiguration = Lens.lens (configuration :: GroupConfiguration -> Lude.Maybe [GroupConfigurationItem]) (\s a -> s {configuration = a} :: GroupConfiguration)
+{-# DEPRECATED gcConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
-instance FromJSON GroupConfiguration where
+instance Lude.FromJSON GroupConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "GroupConfiguration"
       ( \x ->
           GroupConfiguration'
-            <$> (x .:? "Status")
-            <*> (x .:? "FailureReason")
-            <*> (x .:? "ProposedConfiguration" .!= mempty)
-            <*> (x .:? "Configuration" .!= mempty)
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "FailureReason")
+            Lude.<*> (x Lude..:? "ProposedConfiguration" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Configuration" Lude..!= Lude.mempty)
       )
-
-instance Hashable GroupConfiguration
-
-instance NFData GroupConfiguration

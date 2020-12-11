@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.ResultSetMetadata where
+module Network.AWS.Athena.Types.ResultSetMetadata
+  ( ResultSetMetadata (..),
+
+    -- * Smart constructor
+    mkResultSetMetadata,
+
+    -- * Lenses
+    rsmColumnInfo,
+  )
+where
 
 import Network.AWS.Athena.Types.ColumnInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The metadata that describes the column structure and data types of a table of query results. To return a @ResultSetMetadata@ object, use 'GetQueryResults' .
 --
---
---
--- /See:/ 'resultSetMetadata' smart constructor.
+-- /See:/ 'mkResultSetMetadata' smart constructor.
 newtype ResultSetMetadata = ResultSetMetadata'
-  { _rsmColumnInfo ::
-      Maybe [ColumnInfo]
+  { columnInfo ::
+      Lude.Maybe [ColumnInfo]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResultSetMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsmColumnInfo' - Information about the columns returned in a query result metadata.
-resultSetMetadata ::
+-- * 'columnInfo' - Information about the columns returned in a query result metadata.
+mkResultSetMetadata ::
   ResultSetMetadata
-resultSetMetadata = ResultSetMetadata' {_rsmColumnInfo = Nothing}
+mkResultSetMetadata = ResultSetMetadata' {columnInfo = Lude.Nothing}
 
 -- | Information about the columns returned in a query result metadata.
-rsmColumnInfo :: Lens' ResultSetMetadata [ColumnInfo]
-rsmColumnInfo = lens _rsmColumnInfo (\s a -> s {_rsmColumnInfo = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'columnInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsmColumnInfo :: Lens.Lens' ResultSetMetadata (Lude.Maybe [ColumnInfo])
+rsmColumnInfo = Lens.lens (columnInfo :: ResultSetMetadata -> Lude.Maybe [ColumnInfo]) (\s a -> s {columnInfo = a} :: ResultSetMetadata)
+{-# DEPRECATED rsmColumnInfo "Use generic-lens or generic-optics with 'columnInfo' instead." #-}
 
-instance FromJSON ResultSetMetadata where
+instance Lude.FromJSON ResultSetMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResultSetMetadata"
-      (\x -> ResultSetMetadata' <$> (x .:? "ColumnInfo" .!= mempty))
-
-instance Hashable ResultSetMetadata
-
-instance NFData ResultSetMetadata
+      ( \x ->
+          ResultSetMetadata'
+            Lude.<$> (x Lude..:? "ColumnInfo" Lude..!= Lude.mempty)
+      )

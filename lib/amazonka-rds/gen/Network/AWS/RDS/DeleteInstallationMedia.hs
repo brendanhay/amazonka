@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Deletes the installation medium for a DB engine that requires an on-premises customer provided license, such as Microsoft SQL Server.
 module Network.AWS.RDS.DeleteInstallationMedia
-  ( -- * Creating a Request
-    deleteInstallationMedia,
-    DeleteInstallationMedia,
+  ( -- * Creating a request
+    DeleteInstallationMedia (..),
+    mkDeleteInstallationMedia,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dInstallationMediaId,
 
-    -- * Destructuring the Response
-    installationMedia,
-    InstallationMedia,
+    -- * Destructuring the response
+    InstallationMedia (..),
+    mkInstallationMedia,
 
-    -- * Response Lenses
+    -- ** Response lenses
     imEngineVersion,
     imStatus,
     imInstallationMediaId,
@@ -42,60 +37,64 @@ module Network.AWS.RDS.DeleteInstallationMedia
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteInstallationMedia' smart constructor.
+-- | /See:/ 'mkDeleteInstallationMedia' smart constructor.
 newtype DeleteInstallationMedia = DeleteInstallationMedia'
-  { _dInstallationMediaId ::
-      Text
+  { installationMediaId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInstallationMedia' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dInstallationMediaId' - The installation medium ID.
-deleteInstallationMedia ::
-  -- | 'dInstallationMediaId'
-  Text ->
+-- * 'installationMediaId' - The installation medium ID.
+mkDeleteInstallationMedia ::
+  -- | 'installationMediaId'
+  Lude.Text ->
   DeleteInstallationMedia
-deleteInstallationMedia pInstallationMediaId_ =
+mkDeleteInstallationMedia pInstallationMediaId_ =
   DeleteInstallationMedia'
-    { _dInstallationMediaId =
+    { installationMediaId =
         pInstallationMediaId_
     }
 
 -- | The installation medium ID.
-dInstallationMediaId :: Lens' DeleteInstallationMedia Text
-dInstallationMediaId = lens _dInstallationMediaId (\s a -> s {_dInstallationMediaId = a})
+--
+-- /Note:/ Consider using 'installationMediaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dInstallationMediaId :: Lens.Lens' DeleteInstallationMedia Lude.Text
+dInstallationMediaId = Lens.lens (installationMediaId :: DeleteInstallationMedia -> Lude.Text) (\s a -> s {installationMediaId = a} :: DeleteInstallationMedia)
+{-# DEPRECATED dInstallationMediaId "Use generic-lens or generic-optics with 'installationMediaId' instead." #-}
 
-instance AWSRequest DeleteInstallationMedia where
+instance Lude.AWSRequest DeleteInstallationMedia where
   type Rs DeleteInstallationMedia = InstallationMedia
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteInstallationMediaResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable DeleteInstallationMedia
+instance Lude.ToHeaders DeleteInstallationMedia where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteInstallationMedia
+instance Lude.ToPath DeleteInstallationMedia where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteInstallationMedia where
-  toHeaders = const mempty
-
-instance ToPath DeleteInstallationMedia where
-  toPath = const "/"
-
-instance ToQuery DeleteInstallationMedia where
+instance Lude.ToQuery DeleteInstallationMedia where
   toQuery DeleteInstallationMedia' {..} =
-    mconcat
-      [ "Action" =: ("DeleteInstallationMedia" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "InstallationMediaId" =: _dInstallationMediaId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteInstallationMedia" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "InstallationMediaId" Lude.=: installationMediaId
       ]

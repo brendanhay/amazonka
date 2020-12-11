@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.STS.Types.FederatedUser where
+module Network.AWS.STS.Types.FederatedUser
+  ( FederatedUser (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFederatedUser,
+
+    -- * Lenses
+    fuFederatedUserId,
+    fuARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Identifiers for the federated user that is associated with the credentials.
 --
---
---
--- /See:/ 'federatedUser' smart constructor.
+-- /See:/ 'mkFederatedUser' smart constructor.
 data FederatedUser = FederatedUser'
-  { _fuFederatedUserId :: !Text,
-    _fuARN :: !Text
+  { federatedUserId :: Lude.Text,
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FederatedUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fuFederatedUserId' - The string that identifies the federated user associated with the credentials, similar to the unique ID of an IAM user.
---
--- * 'fuARN' - The ARN that specifies the federated user that is associated with the credentials. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-federatedUser ::
-  -- | 'fuFederatedUserId'
-  Text ->
-  -- | 'fuARN'
-  Text ->
+-- * 'arn' - The ARN that specifies the federated user that is associated with the credentials. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'federatedUserId' - The string that identifies the federated user associated with the credentials, similar to the unique ID of an IAM user.
+mkFederatedUser ::
+  -- | 'federatedUserId'
+  Lude.Text ->
+  -- | 'arn'
+  Lude.Text ->
   FederatedUser
-federatedUser pFederatedUserId_ pARN_ =
-  FederatedUser'
-    { _fuFederatedUserId = pFederatedUserId_,
-      _fuARN = pARN_
-    }
+mkFederatedUser pFederatedUserId_ pARN_ =
+  FederatedUser' {federatedUserId = pFederatedUserId_, arn = pARN_}
 
 -- | The string that identifies the federated user associated with the credentials, similar to the unique ID of an IAM user.
-fuFederatedUserId :: Lens' FederatedUser Text
-fuFederatedUserId = lens _fuFederatedUserId (\s a -> s {_fuFederatedUserId = a})
+--
+-- /Note:/ Consider using 'federatedUserId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fuFederatedUserId :: Lens.Lens' FederatedUser Lude.Text
+fuFederatedUserId = Lens.lens (federatedUserId :: FederatedUser -> Lude.Text) (\s a -> s {federatedUserId = a} :: FederatedUser)
+{-# DEPRECATED fuFederatedUserId "Use generic-lens or generic-optics with 'federatedUserId' instead." #-}
 
 -- | The ARN that specifies the federated user that is associated with the credentials. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-fuARN :: Lens' FederatedUser Text
-fuARN = lens _fuARN (\s a -> s {_fuARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fuARN :: Lens.Lens' FederatedUser Lude.Text
+fuARN = Lens.lens (arn :: FederatedUser -> Lude.Text) (\s a -> s {arn = a} :: FederatedUser)
+{-# DEPRECATED fuARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance FromXML FederatedUser where
+instance Lude.FromXML FederatedUser where
   parseXML x =
-    FederatedUser' <$> (x .@ "FederatedUserId") <*> (x .@ "Arn")
-
-instance Hashable FederatedUser
-
-instance NFData FederatedUser
+    FederatedUser'
+      Lude.<$> (x Lude..@ "FederatedUserId") Lude.<*> (x Lude..@ "Arn")

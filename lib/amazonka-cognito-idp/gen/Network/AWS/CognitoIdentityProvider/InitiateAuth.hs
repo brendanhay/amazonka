@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Initiates the authentication flow.
 module Network.AWS.CognitoIdentityProvider.InitiateAuth
-  ( -- * Creating a Request
-    initiateAuth,
-    InitiateAuth,
+  ( -- * Creating a request
+    InitiateAuth (..),
+    mkInitiateAuth,
 
-    -- * Request Lenses
+    -- ** Request lenses
     iaClientMetadata,
     iaAnalyticsMetadata,
     iaUserContextData,
@@ -31,11 +26,11 @@ module Network.AWS.CognitoIdentityProvider.InitiateAuth
     iaAuthFlow,
     iaClientId,
 
-    -- * Destructuring the Response
-    initiateAuthResponse,
-    InitiateAuthResponse,
+    -- * Destructuring the response
+    InitiateAuthResponse (..),
+    mkInitiateAuthResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     iarsChallengeName,
     iarsChallengeParameters,
     iarsAuthenticationResult,
@@ -45,190 +40,399 @@ module Network.AWS.CognitoIdentityProvider.InitiateAuth
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Initiates the authentication request.
 --
---
---
--- /See:/ 'initiateAuth' smart constructor.
+-- /See:/ 'mkInitiateAuth' smart constructor.
 data InitiateAuth = InitiateAuth'
-  { _iaClientMetadata ::
-      !(Maybe (Map Text (Text))),
-    _iaAnalyticsMetadata :: !(Maybe AnalyticsMetadataType),
-    _iaUserContextData :: !(Maybe UserContextDataType),
-    _iaAuthParameters :: !(Maybe (Sensitive (Map Text (Text)))),
-    _iaAuthFlow :: !AuthFlowType,
-    _iaClientId :: !(Sensitive Text)
+  { clientMetadata ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    analyticsMetadata :: Lude.Maybe AnalyticsMetadataType,
+    userContextData :: Lude.Maybe UserContextDataType,
+    authParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    authFlow :: AuthFlowType,
+    clientId :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateAuth' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @InitiateAuth@ calls.
+-- * 'authFlow' - The authentication flow for this call to execute. The API action will depend on this value. For example:
 --
--- * 'iaClientMetadata' - A map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers. You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the InitiateAuth API action, Amazon Cognito invokes the AWS Lambda functions that are specified for various triggers. The ClientMetadata value is passed as input to the functions for only the following triggers:     * Pre signup     * Pre authentication     * User migration When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which the function receives as input. This payload contains a @validationData@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your InitiateAuth request. In your function code in AWS Lambda, you can process the @validationData@ value to enhance your workflow for your specific needs. When you use the InitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it does not provide the ClientMetadata value as input:     * Post authentication     * Custom message     * Pre token generation     * Create auth challenge     * Define auth challenge     * Verify auth challenge For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
 --
--- * 'iaAnalyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @InitiateAuth@ calls.
+--     * @REFRESH_TOKEN_AUTH@ will take in a valid refresh token and return new tokens.
 --
--- * 'iaUserContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
 --
--- * 'iaAuthParameters' - The authentication parameters. These are inputs corresponding to the @AuthFlow@ that you are invoking. The required values depend on the value of @AuthFlow@ :     * For @USER_SRP_AUTH@ : @USERNAME@ (required), @SRP_A@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@ .     * For @REFRESH_TOKEN_AUTH/REFRESH_TOKEN@ : @REFRESH_TOKEN@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@ .     * For @CUSTOM_AUTH@ : @USERNAME@ (required), @SECRET_HASH@ (if app client is configured with client secret), @DEVICE_KEY@ . To start the authentication flow with password verification, include @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@ .
+--     * @USER_SRP_AUTH@ will take in @USERNAME@ and @SRP_A@ and return the SRP variables to be used for next challenge execution.
 --
--- * 'iaAuthFlow' - The authentication flow for this call to execute. The API action will depend on this value. For example:      * @REFRESH_TOKEN_AUTH@ will take in a valid refresh token and return new tokens.     * @USER_SRP_AUTH@ will take in @USERNAME@ and @SRP_A@ and return the SRP variables to be used for next challenge execution.     * @USER_PASSWORD_AUTH@ will take in @USERNAME@ and @PASSWORD@ and return the next challenge or tokens. Valid values include:     * @USER_SRP_AUTH@ : Authentication flow for the Secure Remote Password (SRP) protocol.     * @REFRESH_TOKEN_AUTH@ /@REFRESH_TOKEN@ : Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.     * @CUSTOM_AUTH@ : Custom authentication flow.     * @USER_PASSWORD_AUTH@ : Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool.      * @ADMIN_USER_PASSWORD_AUTH@ : Admin-based user password authentication. This replaces the @ADMIN_NO_SRP_AUTH@ authentication flow. In this flow, Cognito receives the password in the request instead of using the SRP process to verify passwords. @ADMIN_NO_SRP_AUTH@ is not a valid value.
 --
--- * 'iaClientId' - The app client ID.
-initiateAuth ::
-  -- | 'iaAuthFlow'
+--     * @USER_PASSWORD_AUTH@ will take in @USERNAME@ and @PASSWORD@ and return the next challenge or tokens.
+--
+--
+-- Valid values include:
+--
+--     * @USER_SRP_AUTH@ : Authentication flow for the Secure Remote Password (SRP) protocol.
+--
+--
+--     * @REFRESH_TOKEN_AUTH@ /@REFRESH_TOKEN@ : Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.
+--
+--
+--     * @CUSTOM_AUTH@ : Custom authentication flow.
+--
+--
+--     * @USER_PASSWORD_AUTH@ : Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool.
+--
+--
+--     * @ADMIN_USER_PASSWORD_AUTH@ : Admin-based user password authentication. This replaces the @ADMIN_NO_SRP_AUTH@ authentication flow. In this flow, Cognito receives the password in the request instead of using the SRP process to verify passwords.
+--
+--
+-- @ADMIN_NO_SRP_AUTH@ is not a valid value.
+-- * 'authParameters' - The authentication parameters. These are inputs corresponding to the @AuthFlow@ that you are invoking. The required values depend on the value of @AuthFlow@ :
+--
+--
+--     * For @USER_SRP_AUTH@ : @USERNAME@ (required), @SRP_A@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@ .
+--
+--
+--     * For @REFRESH_TOKEN_AUTH/REFRESH_TOKEN@ : @REFRESH_TOKEN@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@ .
+--
+--
+--     * For @CUSTOM_AUTH@ : @USERNAME@ (required), @SECRET_HASH@ (if app client is configured with client secret), @DEVICE_KEY@ . To start the authentication flow with password verification, include @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@ .
+--
+--
+-- * 'clientId' - The app client ID.
+-- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers.
+--
+-- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the InitiateAuth API action, Amazon Cognito invokes the AWS Lambda functions that are specified for various triggers. The ClientMetadata value is passed as input to the functions for only the following triggers:
+--
+--     * Pre signup
+--
+--
+--     * Pre authentication
+--
+--
+--     * User migration
+--
+--
+-- When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which the function receives as input. This payload contains a @validationData@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your InitiateAuth request. In your function code in AWS Lambda, you can process the @validationData@ value to enhance your workflow for your specific needs.
+-- When you use the InitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it does not provide the ClientMetadata value as input:
+--
+--     * Post authentication
+--
+--
+--     * Custom message
+--
+--
+--     * Pre token generation
+--
+--
+--     * Create auth challenge
+--
+--
+--     * Define auth challenge
+--
+--
+--     * Verify auth challenge
+--
+--
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+-- * 'userContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+mkInitiateAuth ::
+  -- | 'authFlow'
   AuthFlowType ->
-  -- | 'iaClientId'
-  Text ->
+  -- | 'clientId'
+  Lude.Sensitive Lude.Text ->
   InitiateAuth
-initiateAuth pAuthFlow_ pClientId_ =
+mkInitiateAuth pAuthFlow_ pClientId_ =
   InitiateAuth'
-    { _iaClientMetadata = Nothing,
-      _iaAnalyticsMetadata = Nothing,
-      _iaUserContextData = Nothing,
-      _iaAuthParameters = Nothing,
-      _iaAuthFlow = pAuthFlow_,
-      _iaClientId = _Sensitive # pClientId_
+    { clientMetadata = Lude.Nothing,
+      analyticsMetadata = Lude.Nothing,
+      userContextData = Lude.Nothing,
+      authParameters = Lude.Nothing,
+      authFlow = pAuthFlow_,
+      clientId = pClientId_
     }
 
--- | A map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers. You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the InitiateAuth API action, Amazon Cognito invokes the AWS Lambda functions that are specified for various triggers. The ClientMetadata value is passed as input to the functions for only the following triggers:     * Pre signup     * Pre authentication     * User migration When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which the function receives as input. This payload contains a @validationData@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your InitiateAuth request. In your function code in AWS Lambda, you can process the @validationData@ value to enhance your workflow for your specific needs. When you use the InitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it does not provide the ClientMetadata value as input:     * Post authentication     * Custom message     * Pre token generation     * Create auth challenge     * Define auth challenge     * Verify auth challenge For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
-iaClientMetadata :: Lens' InitiateAuth (HashMap Text (Text))
-iaClientMetadata = lens _iaClientMetadata (\s a -> s {_iaClientMetadata = a}) . _Default . _Map
+-- | A map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers.
+--
+-- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the InitiateAuth API action, Amazon Cognito invokes the AWS Lambda functions that are specified for various triggers. The ClientMetadata value is passed as input to the functions for only the following triggers:
+--
+--     * Pre signup
+--
+--
+--     * Pre authentication
+--
+--
+--     * User migration
+--
+--
+-- When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which the function receives as input. This payload contains a @validationData@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your InitiateAuth request. In your function code in AWS Lambda, you can process the @validationData@ value to enhance your workflow for your specific needs.
+-- When you use the InitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it does not provide the ClientMetadata value as input:
+--
+--     * Post authentication
+--
+--
+--     * Custom message
+--
+--
+--     * Pre token generation
+--
+--
+--     * Create auth challenge
+--
+--
+--     * Define auth challenge
+--
+--
+--     * Verify auth challenge
+--
+--
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+--
+-- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaClientMetadata :: Lens.Lens' InitiateAuth (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+iaClientMetadata = Lens.lens (clientMetadata :: InitiateAuth -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: InitiateAuth)
+{-# DEPRECATED iaClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for @InitiateAuth@ calls.
-iaAnalyticsMetadata :: Lens' InitiateAuth (Maybe AnalyticsMetadataType)
-iaAnalyticsMetadata = lens _iaAnalyticsMetadata (\s a -> s {_iaAnalyticsMetadata = a})
+--
+-- /Note:/ Consider using 'analyticsMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaAnalyticsMetadata :: Lens.Lens' InitiateAuth (Lude.Maybe AnalyticsMetadataType)
+iaAnalyticsMetadata = Lens.lens (analyticsMetadata :: InitiateAuth -> Lude.Maybe AnalyticsMetadataType) (\s a -> s {analyticsMetadata = a} :: InitiateAuth)
+{-# DEPRECATED iaAnalyticsMetadata "Use generic-lens or generic-optics with 'analyticsMetadata' instead." #-}
 
 -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-iaUserContextData :: Lens' InitiateAuth (Maybe UserContextDataType)
-iaUserContextData = lens _iaUserContextData (\s a -> s {_iaUserContextData = a})
+--
+-- /Note:/ Consider using 'userContextData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaUserContextData :: Lens.Lens' InitiateAuth (Lude.Maybe UserContextDataType)
+iaUserContextData = Lens.lens (userContextData :: InitiateAuth -> Lude.Maybe UserContextDataType) (\s a -> s {userContextData = a} :: InitiateAuth)
+{-# DEPRECATED iaUserContextData "Use generic-lens or generic-optics with 'userContextData' instead." #-}
 
--- | The authentication parameters. These are inputs corresponding to the @AuthFlow@ that you are invoking. The required values depend on the value of @AuthFlow@ :     * For @USER_SRP_AUTH@ : @USERNAME@ (required), @SRP_A@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@ .     * For @REFRESH_TOKEN_AUTH/REFRESH_TOKEN@ : @REFRESH_TOKEN@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@ .     * For @CUSTOM_AUTH@ : @USERNAME@ (required), @SECRET_HASH@ (if app client is configured with client secret), @DEVICE_KEY@ . To start the authentication flow with password verification, include @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@ .
-iaAuthParameters :: Lens' InitiateAuth (Maybe (HashMap Text (Text)))
-iaAuthParameters = lens _iaAuthParameters (\s a -> s {_iaAuthParameters = a}) . mapping (_Sensitive . _Map)
+-- | The authentication parameters. These are inputs corresponding to the @AuthFlow@ that you are invoking. The required values depend on the value of @AuthFlow@ :
+--
+--
+--     * For @USER_SRP_AUTH@ : @USERNAME@ (required), @SRP_A@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@ .
+--
+--
+--     * For @REFRESH_TOKEN_AUTH/REFRESH_TOKEN@ : @REFRESH_TOKEN@ (required), @SECRET_HASH@ (required if the app client is configured with a client secret), @DEVICE_KEY@ .
+--
+--
+--     * For @CUSTOM_AUTH@ : @USERNAME@ (required), @SECRET_HASH@ (if app client is configured with client secret), @DEVICE_KEY@ . To start the authentication flow with password verification, include @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@ .
+--
+--
+--
+-- /Note:/ Consider using 'authParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaAuthParameters :: Lens.Lens' InitiateAuth (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+iaAuthParameters = Lens.lens (authParameters :: InitiateAuth -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {authParameters = a} :: InitiateAuth)
+{-# DEPRECATED iaAuthParameters "Use generic-lens or generic-optics with 'authParameters' instead." #-}
 
--- | The authentication flow for this call to execute. The API action will depend on this value. For example:      * @REFRESH_TOKEN_AUTH@ will take in a valid refresh token and return new tokens.     * @USER_SRP_AUTH@ will take in @USERNAME@ and @SRP_A@ and return the SRP variables to be used for next challenge execution.     * @USER_PASSWORD_AUTH@ will take in @USERNAME@ and @PASSWORD@ and return the next challenge or tokens. Valid values include:     * @USER_SRP_AUTH@ : Authentication flow for the Secure Remote Password (SRP) protocol.     * @REFRESH_TOKEN_AUTH@ /@REFRESH_TOKEN@ : Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.     * @CUSTOM_AUTH@ : Custom authentication flow.     * @USER_PASSWORD_AUTH@ : Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool.      * @ADMIN_USER_PASSWORD_AUTH@ : Admin-based user password authentication. This replaces the @ADMIN_NO_SRP_AUTH@ authentication flow. In this flow, Cognito receives the password in the request instead of using the SRP process to verify passwords. @ADMIN_NO_SRP_AUTH@ is not a valid value.
-iaAuthFlow :: Lens' InitiateAuth AuthFlowType
-iaAuthFlow = lens _iaAuthFlow (\s a -> s {_iaAuthFlow = a})
+-- | The authentication flow for this call to execute. The API action will depend on this value. For example:
+--
+--
+--     * @REFRESH_TOKEN_AUTH@ will take in a valid refresh token and return new tokens.
+--
+--
+--     * @USER_SRP_AUTH@ will take in @USERNAME@ and @SRP_A@ and return the SRP variables to be used for next challenge execution.
+--
+--
+--     * @USER_PASSWORD_AUTH@ will take in @USERNAME@ and @PASSWORD@ and return the next challenge or tokens.
+--
+--
+-- Valid values include:
+--
+--     * @USER_SRP_AUTH@ : Authentication flow for the Secure Remote Password (SRP) protocol.
+--
+--
+--     * @REFRESH_TOKEN_AUTH@ /@REFRESH_TOKEN@ : Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.
+--
+--
+--     * @CUSTOM_AUTH@ : Custom authentication flow.
+--
+--
+--     * @USER_PASSWORD_AUTH@ : Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool.
+--
+--
+--     * @ADMIN_USER_PASSWORD_AUTH@ : Admin-based user password authentication. This replaces the @ADMIN_NO_SRP_AUTH@ authentication flow. In this flow, Cognito receives the password in the request instead of using the SRP process to verify passwords.
+--
+--
+-- @ADMIN_NO_SRP_AUTH@ is not a valid value.
+--
+-- /Note:/ Consider using 'authFlow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaAuthFlow :: Lens.Lens' InitiateAuth AuthFlowType
+iaAuthFlow = Lens.lens (authFlow :: InitiateAuth -> AuthFlowType) (\s a -> s {authFlow = a} :: InitiateAuth)
+{-# DEPRECATED iaAuthFlow "Use generic-lens or generic-optics with 'authFlow' instead." #-}
 
 -- | The app client ID.
-iaClientId :: Lens' InitiateAuth Text
-iaClientId = lens _iaClientId (\s a -> s {_iaClientId = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaClientId :: Lens.Lens' InitiateAuth (Lude.Sensitive Lude.Text)
+iaClientId = Lens.lens (clientId :: InitiateAuth -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: InitiateAuth)
+{-# DEPRECATED iaClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
-instance AWSRequest InitiateAuth where
+instance Lude.AWSRequest InitiateAuth where
   type Rs InitiateAuth = InitiateAuthResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           InitiateAuthResponse'
-            <$> (x .?> "ChallengeName")
-            <*> (x .?> "ChallengeParameters" .!@ mempty)
-            <*> (x .?> "AuthenticationResult")
-            <*> (x .?> "Session")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChallengeName")
+            Lude.<*> (x Lude..?> "ChallengeParameters" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "AuthenticationResult")
+            Lude.<*> (x Lude..?> "Session")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable InitiateAuth
-
-instance NFData InitiateAuth
-
-instance ToHeaders InitiateAuth where
+instance Lude.ToHeaders InitiateAuth where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.InitiateAuth" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.InitiateAuth" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON InitiateAuth where
+instance Lude.ToJSON InitiateAuth where
   toJSON InitiateAuth' {..} =
-    object
-      ( catMaybes
-          [ ("ClientMetadata" .=) <$> _iaClientMetadata,
-            ("AnalyticsMetadata" .=) <$> _iaAnalyticsMetadata,
-            ("UserContextData" .=) <$> _iaUserContextData,
-            ("AuthParameters" .=) <$> _iaAuthParameters,
-            Just ("AuthFlow" .= _iaAuthFlow),
-            Just ("ClientId" .= _iaClientId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
+            ("AnalyticsMetadata" Lude..=) Lude.<$> analyticsMetadata,
+            ("UserContextData" Lude..=) Lude.<$> userContextData,
+            ("AuthParameters" Lude..=) Lude.<$> authParameters,
+            Lude.Just ("AuthFlow" Lude..= authFlow),
+            Lude.Just ("ClientId" Lude..= clientId)
           ]
       )
 
-instance ToPath InitiateAuth where
-  toPath = const "/"
+instance Lude.ToPath InitiateAuth where
+  toPath = Lude.const "/"
 
-instance ToQuery InitiateAuth where
-  toQuery = const mempty
+instance Lude.ToQuery InitiateAuth where
+  toQuery = Lude.const Lude.mempty
 
 -- | Initiates the authentication response.
 --
---
---
--- /See:/ 'initiateAuthResponse' smart constructor.
+-- /See:/ 'mkInitiateAuthResponse' smart constructor.
 data InitiateAuthResponse = InitiateAuthResponse'
-  { _iarsChallengeName ::
-      !(Maybe ChallengeNameType),
-    _iarsChallengeParameters ::
-      !(Maybe (Map Text (Text))),
-    _iarsAuthenticationResult ::
-      !(Maybe AuthenticationResultType),
-    _iarsSession :: !(Maybe Text),
-    _iarsResponseStatus :: !Int
+  { challengeName ::
+      Lude.Maybe ChallengeNameType,
+    challengeParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    authenticationResult ::
+      Lude.Maybe AuthenticationResultType,
+    session :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateAuthResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'authenticationResult' - The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, @ChallengeName@ , @ChallengeParameters@ , and @Session@ are returned.
+-- * 'challengeName' - The name of the challenge which you are responding to with this call. This is returned to you in the @AdminInitiateAuth@ response if you need to pass another challenge.
 --
--- * 'iarsChallengeName' - The name of the challenge which you are responding to with this call. This is returned to you in the @AdminInitiateAuth@ response if you need to pass another challenge. Valid values include the following. Note that all of these challenges require @USERNAME@ and @SECRET_HASH@ (if applicable) in the parameters.     * @SMS_MFA@ : Next challenge is to supply an @SMS_MFA_CODE@ , delivered via SMS.     * @PASSWORD_VERIFIER@ : Next challenge is to supply @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , and @TIMESTAMP@ after the client-side SRP calculations.     * @CUSTOM_CHALLENGE@ : This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.     * @DEVICE_SRP_AUTH@ : If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.     * @DEVICE_PASSWORD_VERIFIER@ : Similar to @PASSWORD_VERIFIER@ , but for devices only.     * @NEW_PASSWORD_REQUIRED@ : For users which are required to change their passwords after successful first login. This challenge should be passed with @NEW_PASSWORD@ and any other required attributes.
+-- Valid values include the following. Note that all of these challenges require @USERNAME@ and @SECRET_HASH@ (if applicable) in the parameters.
 --
--- * 'iarsChallengeParameters' - The challenge parameters. These are returned to you in the @InitiateAuth@ response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (@RespondToAuthChallenge@ ).  All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
+--     * @SMS_MFA@ : Next challenge is to supply an @SMS_MFA_CODE@ , delivered via SMS.
 --
--- * 'iarsAuthenticationResult' - The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, @ChallengeName@ , @ChallengeParameters@ , and @Session@ are returned.
 --
--- * 'iarsSession' - The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
+--     * @PASSWORD_VERIFIER@ : Next challenge is to supply @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , and @TIMESTAMP@ after the client-side SRP calculations.
 --
--- * 'iarsResponseStatus' - -- | The response status code.
-initiateAuthResponse ::
-  -- | 'iarsResponseStatus'
-  Int ->
+--
+--     * @CUSTOM_CHALLENGE@ : This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.
+--
+--
+--     * @DEVICE_SRP_AUTH@ : If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.
+--
+--
+--     * @DEVICE_PASSWORD_VERIFIER@ : Similar to @PASSWORD_VERIFIER@ , but for devices only.
+--
+--
+--     * @NEW_PASSWORD_REQUIRED@ : For users which are required to change their passwords after successful first login. This challenge should be passed with @NEW_PASSWORD@ and any other required attributes.
+--
+--
+-- * 'challengeParameters' - The challenge parameters. These are returned to you in the @InitiateAuth@ response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (@RespondToAuthChallenge@ ).
+--
+-- All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
+-- * 'responseStatus' - The response status code.
+-- * 'session' - The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
+mkInitiateAuthResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   InitiateAuthResponse
-initiateAuthResponse pResponseStatus_ =
+mkInitiateAuthResponse pResponseStatus_ =
   InitiateAuthResponse'
-    { _iarsChallengeName = Nothing,
-      _iarsChallengeParameters = Nothing,
-      _iarsAuthenticationResult = Nothing,
-      _iarsSession = Nothing,
-      _iarsResponseStatus = pResponseStatus_
+    { challengeName = Lude.Nothing,
+      challengeParameters = Lude.Nothing,
+      authenticationResult = Lude.Nothing,
+      session = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The name of the challenge which you are responding to with this call. This is returned to you in the @AdminInitiateAuth@ response if you need to pass another challenge. Valid values include the following. Note that all of these challenges require @USERNAME@ and @SECRET_HASH@ (if applicable) in the parameters.     * @SMS_MFA@ : Next challenge is to supply an @SMS_MFA_CODE@ , delivered via SMS.     * @PASSWORD_VERIFIER@ : Next challenge is to supply @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , and @TIMESTAMP@ after the client-side SRP calculations.     * @CUSTOM_CHALLENGE@ : This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.     * @DEVICE_SRP_AUTH@ : If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.     * @DEVICE_PASSWORD_VERIFIER@ : Similar to @PASSWORD_VERIFIER@ , but for devices only.     * @NEW_PASSWORD_REQUIRED@ : For users which are required to change their passwords after successful first login. This challenge should be passed with @NEW_PASSWORD@ and any other required attributes.
-iarsChallengeName :: Lens' InitiateAuthResponse (Maybe ChallengeNameType)
-iarsChallengeName = lens _iarsChallengeName (\s a -> s {_iarsChallengeName = a})
+-- | The name of the challenge which you are responding to with this call. This is returned to you in the @AdminInitiateAuth@ response if you need to pass another challenge.
+--
+-- Valid values include the following. Note that all of these challenges require @USERNAME@ and @SECRET_HASH@ (if applicable) in the parameters.
+--
+--     * @SMS_MFA@ : Next challenge is to supply an @SMS_MFA_CODE@ , delivered via SMS.
+--
+--
+--     * @PASSWORD_VERIFIER@ : Next challenge is to supply @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , and @TIMESTAMP@ after the client-side SRP calculations.
+--
+--
+--     * @CUSTOM_CHALLENGE@ : This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.
+--
+--
+--     * @DEVICE_SRP_AUTH@ : If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.
+--
+--
+--     * @DEVICE_PASSWORD_VERIFIER@ : Similar to @PASSWORD_VERIFIER@ , but for devices only.
+--
+--
+--     * @NEW_PASSWORD_REQUIRED@ : For users which are required to change their passwords after successful first login. This challenge should be passed with @NEW_PASSWORD@ and any other required attributes.
+--
+--
+--
+-- /Note:/ Consider using 'challengeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iarsChallengeName :: Lens.Lens' InitiateAuthResponse (Lude.Maybe ChallengeNameType)
+iarsChallengeName = Lens.lens (challengeName :: InitiateAuthResponse -> Lude.Maybe ChallengeNameType) (\s a -> s {challengeName = a} :: InitiateAuthResponse)
+{-# DEPRECATED iarsChallengeName "Use generic-lens or generic-optics with 'challengeName' instead." #-}
 
--- | The challenge parameters. These are returned to you in the @InitiateAuth@ response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (@RespondToAuthChallenge@ ).  All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
-iarsChallengeParameters :: Lens' InitiateAuthResponse (HashMap Text (Text))
-iarsChallengeParameters = lens _iarsChallengeParameters (\s a -> s {_iarsChallengeParameters = a}) . _Default . _Map
+-- | The challenge parameters. These are returned to you in the @InitiateAuth@ response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (@RespondToAuthChallenge@ ).
+--
+-- All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
+--
+-- /Note:/ Consider using 'challengeParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iarsChallengeParameters :: Lens.Lens' InitiateAuthResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+iarsChallengeParameters = Lens.lens (challengeParameters :: InitiateAuthResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {challengeParameters = a} :: InitiateAuthResponse)
+{-# DEPRECATED iarsChallengeParameters "Use generic-lens or generic-optics with 'challengeParameters' instead." #-}
 
 -- | The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, @ChallengeName@ , @ChallengeParameters@ , and @Session@ are returned.
-iarsAuthenticationResult :: Lens' InitiateAuthResponse (Maybe AuthenticationResultType)
-iarsAuthenticationResult = lens _iarsAuthenticationResult (\s a -> s {_iarsAuthenticationResult = a})
+--
+-- /Note:/ Consider using 'authenticationResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iarsAuthenticationResult :: Lens.Lens' InitiateAuthResponse (Lude.Maybe AuthenticationResultType)
+iarsAuthenticationResult = Lens.lens (authenticationResult :: InitiateAuthResponse -> Lude.Maybe AuthenticationResultType) (\s a -> s {authenticationResult = a} :: InitiateAuthResponse)
+{-# DEPRECATED iarsAuthenticationResult "Use generic-lens or generic-optics with 'authenticationResult' instead." #-}
 
 -- | The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
-iarsSession :: Lens' InitiateAuthResponse (Maybe Text)
-iarsSession = lens _iarsSession (\s a -> s {_iarsSession = a})
+--
+-- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iarsSession :: Lens.Lens' InitiateAuthResponse (Lude.Maybe Lude.Text)
+iarsSession = Lens.lens (session :: InitiateAuthResponse -> Lude.Maybe Lude.Text) (\s a -> s {session = a} :: InitiateAuthResponse)
+{-# DEPRECATED iarsSession "Use generic-lens or generic-optics with 'session' instead." #-}
 
--- | -- | The response status code.
-iarsResponseStatus :: Lens' InitiateAuthResponse Int
-iarsResponseStatus = lens _iarsResponseStatus (\s a -> s {_iarsResponseStatus = a})
-
-instance NFData InitiateAuthResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iarsResponseStatus :: Lens.Lens' InitiateAuthResponse Lude.Int
+iarsResponseStatus = Lens.lens (responseStatus :: InitiateAuthResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InitiateAuthResponse)
+{-# DEPRECATED iarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

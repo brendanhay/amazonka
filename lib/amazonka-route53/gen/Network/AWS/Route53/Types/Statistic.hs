@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.Statistic where
+module Network.AWS.Route53.Types.Statistic
+  ( Statistic
+      ( Statistic',
+        Average,
+        Maximum,
+        Minimum,
+        SampleCount,
+        Sum
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data Statistic
-  = Average
-  | Maximum
-  | Minimum
-  | SampleCount
-  | Sum
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Statistic = Statistic' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Statistic where
-  parser =
-    takeLowerText >>= \case
-      "average" -> pure Average
-      "maximum" -> pure Maximum
-      "minimum" -> pure Minimum
-      "samplecount" -> pure SampleCount
-      "sum" -> pure Sum
-      e ->
-        fromTextError $
-          "Failure parsing Statistic from value: '" <> e
-            <> "'. Accepted values: average, maximum, minimum, samplecount, sum"
+pattern Average :: Statistic
+pattern Average = Statistic' "Average"
 
-instance ToText Statistic where
-  toText = \case
-    Average -> "Average"
-    Maximum -> "Maximum"
-    Minimum -> "Minimum"
-    SampleCount -> "SampleCount"
-    Sum -> "Sum"
+pattern Maximum :: Statistic
+pattern Maximum = Statistic' "Maximum"
 
-instance Hashable Statistic
+pattern Minimum :: Statistic
+pattern Minimum = Statistic' "Minimum"
 
-instance NFData Statistic
+pattern SampleCount :: Statistic
+pattern SampleCount = Statistic' "SampleCount"
 
-instance ToByteString Statistic
+pattern Sum :: Statistic
+pattern Sum = Statistic' "Sum"
 
-instance ToQuery Statistic
-
-instance ToHeader Statistic
-
-instance FromXML Statistic where
-  parseXML = parseXMLText "Statistic"
+{-# COMPLETE
+  Average,
+  Maximum,
+  Minimum,
+  SampleCount,
+  Sum,
+  Statistic'
+  #-}

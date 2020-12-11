@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,139 @@
 --
 -- Returns information about a specific database in Amazon Lightsail.
 module Network.AWS.Lightsail.GetRelationalDatabase
-  ( -- * Creating a Request
-    getRelationalDatabase,
-    GetRelationalDatabase,
+  ( -- * Creating a request
+    GetRelationalDatabase (..),
+    mkGetRelationalDatabase,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grdRelationalDatabaseName,
 
-    -- * Destructuring the Response
-    getRelationalDatabaseResponse,
-    GetRelationalDatabaseResponse,
+    -- * Destructuring the response
+    GetRelationalDatabaseResponse (..),
+    mkGetRelationalDatabaseResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grdrrsRelationalDatabase,
     grdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getRelationalDatabase' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabase' smart constructor.
 newtype GetRelationalDatabase = GetRelationalDatabase'
-  { _grdRelationalDatabaseName ::
-      Text
+  { relationalDatabaseName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabase' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grdRelationalDatabaseName' - The name of the database that you are looking up.
-getRelationalDatabase ::
-  -- | 'grdRelationalDatabaseName'
-  Text ->
+-- * 'relationalDatabaseName' - The name of the database that you are looking up.
+mkGetRelationalDatabase ::
+  -- | 'relationalDatabaseName'
+  Lude.Text ->
   GetRelationalDatabase
-getRelationalDatabase pRelationalDatabaseName_ =
+mkGetRelationalDatabase pRelationalDatabaseName_ =
   GetRelationalDatabase'
-    { _grdRelationalDatabaseName =
+    { relationalDatabaseName =
         pRelationalDatabaseName_
     }
 
 -- | The name of the database that you are looking up.
-grdRelationalDatabaseName :: Lens' GetRelationalDatabase Text
-grdRelationalDatabaseName = lens _grdRelationalDatabaseName (\s a -> s {_grdRelationalDatabaseName = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdRelationalDatabaseName :: Lens.Lens' GetRelationalDatabase Lude.Text
+grdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: GetRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: GetRelationalDatabase)
+{-# DEPRECATED grdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
-instance AWSRequest GetRelationalDatabase where
+instance Lude.AWSRequest GetRelationalDatabase where
   type Rs GetRelationalDatabase = GetRelationalDatabaseResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseResponse'
-            <$> (x .?> "relationalDatabase") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "relationalDatabase")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRelationalDatabase
-
-instance NFData GetRelationalDatabase
-
-instance ToHeaders GetRelationalDatabase where
+instance Lude.ToHeaders GetRelationalDatabase where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetRelationalDatabase" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetRelationalDatabase" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRelationalDatabase where
+instance Lude.ToJSON GetRelationalDatabase where
   toJSON GetRelationalDatabase' {..} =
-    object
-      ( catMaybes
-          [Just ("relationalDatabaseName" .= _grdRelationalDatabaseName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName)
+          ]
       )
 
-instance ToPath GetRelationalDatabase where
-  toPath = const "/"
+instance Lude.ToPath GetRelationalDatabase where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRelationalDatabase where
-  toQuery = const mempty
+instance Lude.ToQuery GetRelationalDatabase where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRelationalDatabaseResponse' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabaseResponse' smart constructor.
 data GetRelationalDatabaseResponse = GetRelationalDatabaseResponse'
-  { _grdrrsRelationalDatabase ::
-      !(Maybe RelationalDatabase),
-    _grdrrsResponseStatus :: !Int
+  { relationalDatabase ::
+      Lude.Maybe RelationalDatabase,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grdrrsRelationalDatabase' - An object describing the specified database.
---
--- * 'grdrrsResponseStatus' - -- | The response status code.
-getRelationalDatabaseResponse ::
-  -- | 'grdrrsResponseStatus'
-  Int ->
+-- * 'relationalDatabase' - An object describing the specified database.
+-- * 'responseStatus' - The response status code.
+mkGetRelationalDatabaseResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRelationalDatabaseResponse
-getRelationalDatabaseResponse pResponseStatus_ =
+mkGetRelationalDatabaseResponse pResponseStatus_ =
   GetRelationalDatabaseResponse'
-    { _grdrrsRelationalDatabase =
-        Nothing,
-      _grdrrsResponseStatus = pResponseStatus_
+    { relationalDatabase = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object describing the specified database.
-grdrrsRelationalDatabase :: Lens' GetRelationalDatabaseResponse (Maybe RelationalDatabase)
-grdrrsRelationalDatabase = lens _grdrrsRelationalDatabase (\s a -> s {_grdrrsRelationalDatabase = a})
+--
+-- /Note:/ Consider using 'relationalDatabase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdrrsRelationalDatabase :: Lens.Lens' GetRelationalDatabaseResponse (Lude.Maybe RelationalDatabase)
+grdrrsRelationalDatabase = Lens.lens (relationalDatabase :: GetRelationalDatabaseResponse -> Lude.Maybe RelationalDatabase) (\s a -> s {relationalDatabase = a} :: GetRelationalDatabaseResponse)
+{-# DEPRECATED grdrrsRelationalDatabase "Use generic-lens or generic-optics with 'relationalDatabase' instead." #-}
 
--- | -- | The response status code.
-grdrrsResponseStatus :: Lens' GetRelationalDatabaseResponse Int
-grdrrsResponseStatus = lens _grdrrsResponseStatus (\s a -> s {_grdrrsResponseStatus = a})
-
-instance NFData GetRelationalDatabaseResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdrrsResponseStatus :: Lens.Lens' GetRelationalDatabaseResponse Lude.Int
+grdrrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseResponse)
+{-# DEPRECATED grdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

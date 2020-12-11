@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination where
+module Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination
+  ( DatasetContentDeliveryDestination (..),
+
+    -- * Smart constructor
+    mkDatasetContentDeliveryDestination,
+
+    -- * Lenses
+    dcddS3DestinationConfiguration,
+    dcddIotEventsDestinationConfiguration,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration
 import Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The destination to which dataset contents are delivered.
 --
---
---
--- /See:/ 'datasetContentDeliveryDestination' smart constructor.
+-- /See:/ 'mkDatasetContentDeliveryDestination' smart constructor.
 data DatasetContentDeliveryDestination = DatasetContentDeliveryDestination'
-  { _dcddS3DestinationConfiguration ::
-      !( Maybe
-           S3DestinationConfiguration
-       ),
-    _dcddIotEventsDestinationConfiguration ::
-      !( Maybe
-           IotEventsDestinationConfiguration
-       )
+  { s3DestinationConfiguration ::
+      Lude.Maybe
+        S3DestinationConfiguration,
+    iotEventsDestinationConfiguration ::
+      Lude.Maybe
+        IotEventsDestinationConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetContentDeliveryDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcddS3DestinationConfiguration' - Configuration information for delivery of dataset contents to Amazon S3.
---
--- * 'dcddIotEventsDestinationConfiguration' - Configuration information for delivery of dataset contents to AWS IoT Events.
-datasetContentDeliveryDestination ::
+-- * 'iotEventsDestinationConfiguration' - Configuration information for delivery of dataset contents to AWS IoT Events.
+-- * 's3DestinationConfiguration' - Configuration information for delivery of dataset contents to Amazon S3.
+mkDatasetContentDeliveryDestination ::
   DatasetContentDeliveryDestination
-datasetContentDeliveryDestination =
+mkDatasetContentDeliveryDestination =
   DatasetContentDeliveryDestination'
-    { _dcddS3DestinationConfiguration =
-        Nothing,
-      _dcddIotEventsDestinationConfiguration = Nothing
+    { s3DestinationConfiguration =
+        Lude.Nothing,
+      iotEventsDestinationConfiguration = Lude.Nothing
     }
 
 -- | Configuration information for delivery of dataset contents to Amazon S3.
-dcddS3DestinationConfiguration :: Lens' DatasetContentDeliveryDestination (Maybe S3DestinationConfiguration)
-dcddS3DestinationConfiguration = lens _dcddS3DestinationConfiguration (\s a -> s {_dcddS3DestinationConfiguration = a})
+--
+-- /Note:/ Consider using 's3DestinationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcddS3DestinationConfiguration :: Lens.Lens' DatasetContentDeliveryDestination (Lude.Maybe S3DestinationConfiguration)
+dcddS3DestinationConfiguration = Lens.lens (s3DestinationConfiguration :: DatasetContentDeliveryDestination -> Lude.Maybe S3DestinationConfiguration) (\s a -> s {s3DestinationConfiguration = a} :: DatasetContentDeliveryDestination)
+{-# DEPRECATED dcddS3DestinationConfiguration "Use generic-lens or generic-optics with 's3DestinationConfiguration' instead." #-}
 
 -- | Configuration information for delivery of dataset contents to AWS IoT Events.
-dcddIotEventsDestinationConfiguration :: Lens' DatasetContentDeliveryDestination (Maybe IotEventsDestinationConfiguration)
-dcddIotEventsDestinationConfiguration = lens _dcddIotEventsDestinationConfiguration (\s a -> s {_dcddIotEventsDestinationConfiguration = a})
+--
+-- /Note:/ Consider using 'iotEventsDestinationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcddIotEventsDestinationConfiguration :: Lens.Lens' DatasetContentDeliveryDestination (Lude.Maybe IotEventsDestinationConfiguration)
+dcddIotEventsDestinationConfiguration = Lens.lens (iotEventsDestinationConfiguration :: DatasetContentDeliveryDestination -> Lude.Maybe IotEventsDestinationConfiguration) (\s a -> s {iotEventsDestinationConfiguration = a} :: DatasetContentDeliveryDestination)
+{-# DEPRECATED dcddIotEventsDestinationConfiguration "Use generic-lens or generic-optics with 'iotEventsDestinationConfiguration' instead." #-}
 
-instance FromJSON DatasetContentDeliveryDestination where
+instance Lude.FromJSON DatasetContentDeliveryDestination where
   parseJSON =
-    withObject
+    Lude.withObject
       "DatasetContentDeliveryDestination"
       ( \x ->
           DatasetContentDeliveryDestination'
-            <$> (x .:? "s3DestinationConfiguration")
-            <*> (x .:? "iotEventsDestinationConfiguration")
+            Lude.<$> (x Lude..:? "s3DestinationConfiguration")
+            Lude.<*> (x Lude..:? "iotEventsDestinationConfiguration")
       )
 
-instance Hashable DatasetContentDeliveryDestination
-
-instance NFData DatasetContentDeliveryDestination
-
-instance ToJSON DatasetContentDeliveryDestination where
+instance Lude.ToJSON DatasetContentDeliveryDestination where
   toJSON DatasetContentDeliveryDestination' {..} =
-    object
-      ( catMaybes
-          [ ("s3DestinationConfiguration" .=)
-              <$> _dcddS3DestinationConfiguration,
-            ("iotEventsDestinationConfiguration" .=)
-              <$> _dcddIotEventsDestinationConfiguration
+    Lude.object
+      ( Lude.catMaybes
+          [ ("s3DestinationConfiguration" Lude..=)
+              Lude.<$> s3DestinationConfiguration,
+            ("iotEventsDestinationConfiguration" Lude..=)
+              Lude.<$> iotEventsDestinationConfiguration
           ]
       )

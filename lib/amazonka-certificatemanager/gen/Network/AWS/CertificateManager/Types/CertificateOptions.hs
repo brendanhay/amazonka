@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.CertificateOptions where
+module Network.AWS.CertificateManager.Types.CertificateOptions
+  ( CertificateOptions (..),
+
+    -- * Smart constructor
+    mkCertificateOptions,
+
+    -- * Lenses
+    coCertificateTransparencyLoggingPreference,
+  )
+where
 
 import Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Structure that contains options for your certificate. Currently, you can use this only to specify whether to opt in to or out of certificate transparency logging. Some browsers require that public certificates issued for your domain be recorded in a log. Certificates that are not logged typically generate a browser error. Transparency makes it possible for you to detect SSL/TLS certificates that have been mistakenly or maliciously issued for your domain. For general information, see <https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency Certificate Transparency Logging> .
 --
---
---
--- /See:/ 'certificateOptions' smart constructor.
+-- /See:/ 'mkCertificateOptions' smart constructor.
 newtype CertificateOptions = CertificateOptions'
-  { _coCertificateTransparencyLoggingPreference ::
-      Maybe CertificateTransparencyLoggingPreference
+  { certificateTransparencyLoggingPreference ::
+      Lude.Maybe
+        CertificateTransparencyLoggingPreference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'coCertificateTransparencyLoggingPreference' - You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ .
-certificateOptions ::
+-- * 'certificateTransparencyLoggingPreference' - You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ .
+mkCertificateOptions ::
   CertificateOptions
-certificateOptions =
+mkCertificateOptions =
   CertificateOptions'
-    { _coCertificateTransparencyLoggingPreference =
-        Nothing
+    { certificateTransparencyLoggingPreference =
+        Lude.Nothing
     }
 
 -- | You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ .
-coCertificateTransparencyLoggingPreference :: Lens' CertificateOptions (Maybe CertificateTransparencyLoggingPreference)
-coCertificateTransparencyLoggingPreference = lens _coCertificateTransparencyLoggingPreference (\s a -> s {_coCertificateTransparencyLoggingPreference = a})
+--
+-- /Note:/ Consider using 'certificateTransparencyLoggingPreference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCertificateTransparencyLoggingPreference :: Lens.Lens' CertificateOptions (Lude.Maybe CertificateTransparencyLoggingPreference)
+coCertificateTransparencyLoggingPreference = Lens.lens (certificateTransparencyLoggingPreference :: CertificateOptions -> Lude.Maybe CertificateTransparencyLoggingPreference) (\s a -> s {certificateTransparencyLoggingPreference = a} :: CertificateOptions)
+{-# DEPRECATED coCertificateTransparencyLoggingPreference "Use generic-lens or generic-optics with 'certificateTransparencyLoggingPreference' instead." #-}
 
-instance FromJSON CertificateOptions where
+instance Lude.FromJSON CertificateOptions where
   parseJSON =
-    withObject
+    Lude.withObject
       "CertificateOptions"
       ( \x ->
           CertificateOptions'
-            <$> (x .:? "CertificateTransparencyLoggingPreference")
+            Lude.<$> (x Lude..:? "CertificateTransparencyLoggingPreference")
       )
 
-instance Hashable CertificateOptions
-
-instance NFData CertificateOptions
-
-instance ToJSON CertificateOptions where
+instance Lude.ToJSON CertificateOptions where
   toJSON CertificateOptions' {..} =
-    object
-      ( catMaybes
-          [ ("CertificateTransparencyLoggingPreference" .=)
-              <$> _coCertificateTransparencyLoggingPreference
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CertificateTransparencyLoggingPreference" Lude..=)
+              Lude.<$> certificateTransparencyLoggingPreference
           ]
       )

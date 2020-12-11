@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,83 +14,93 @@
 --
 -- Activates a partner event source that has been deactivated. Once activated, your matching event bus will start receiving events from the event source.
 module Network.AWS.CloudWatchEvents.ActivateEventSource
-  ( -- * Creating a Request
-    activateEventSource,
-    ActivateEventSource,
+  ( -- * Creating a request
+    ActivateEventSource (..),
+    mkActivateEventSource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aesName,
 
-    -- * Destructuring the Response
-    activateEventSourceResponse,
-    ActivateEventSourceResponse,
+    -- * Destructuring the response
+    ActivateEventSourceResponse (..),
+    mkActivateEventSourceResponse,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'activateEventSource' smart constructor.
+-- | /See:/ 'mkActivateEventSource' smart constructor.
 newtype ActivateEventSource = ActivateEventSource'
-  { _aesName ::
-      Text
+  { name ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivateEventSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aesName' - The name of the partner event source to activate.
-activateEventSource ::
-  -- | 'aesName'
-  Text ->
+-- * 'name' - The name of the partner event source to activate.
+mkActivateEventSource ::
+  -- | 'name'
+  Lude.Text ->
   ActivateEventSource
-activateEventSource pName_ =
-  ActivateEventSource' {_aesName = pName_}
+mkActivateEventSource pName_ = ActivateEventSource' {name = pName_}
 
 -- | The name of the partner event source to activate.
-aesName :: Lens' ActivateEventSource Text
-aesName = lens _aesName (\s a -> s {_aesName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aesName :: Lens.Lens' ActivateEventSource Lude.Text
+aesName = Lens.lens (name :: ActivateEventSource -> Lude.Text) (\s a -> s {name = a} :: ActivateEventSource)
+{-# DEPRECATED aesName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest ActivateEventSource where
+instance Lude.AWSRequest ActivateEventSource where
   type Rs ActivateEventSource = ActivateEventSourceResponse
-  request = postJSON cloudWatchEvents
-  response = receiveNull ActivateEventSourceResponse'
+  request = Req.postJSON cloudWatchEventsService
+  response = Res.receiveNull ActivateEventSourceResponse'
 
-instance Hashable ActivateEventSource
-
-instance NFData ActivateEventSource
-
-instance ToHeaders ActivateEventSource where
+instance Lude.ToHeaders ActivateEventSource where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.ActivateEventSource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.ActivateEventSource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ActivateEventSource where
+instance Lude.ToJSON ActivateEventSource where
   toJSON ActivateEventSource' {..} =
-    object (catMaybes [Just ("Name" .= _aesName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath ActivateEventSource where
-  toPath = const "/"
+instance Lude.ToPath ActivateEventSource where
+  toPath = Lude.const "/"
 
-instance ToQuery ActivateEventSource where
-  toQuery = const mempty
+instance Lude.ToQuery ActivateEventSource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'activateEventSourceResponse' smart constructor.
+-- | /See:/ 'mkActivateEventSourceResponse' smart constructor.
 data ActivateEventSourceResponse = ActivateEventSourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivateEventSourceResponse' with the minimum fields required to make a request.
-activateEventSourceResponse ::
+mkActivateEventSourceResponse ::
   ActivateEventSourceResponse
-activateEventSourceResponse = ActivateEventSourceResponse'
-
-instance NFData ActivateEventSourceResponse
+mkActivateEventSourceResponse = ActivateEventSourceResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.EncryptionKeyType where
+module Network.AWS.CodePipeline.Types.EncryptionKeyType
+  ( EncryptionKeyType
+      ( EncryptionKeyType',
+        KMS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EncryptionKeyType = KMS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EncryptionKeyType = EncryptionKeyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EncryptionKeyType where
-  parser =
-    takeLowerText >>= \case
-      "kms" -> pure KMS
-      e ->
-        fromTextError $
-          "Failure parsing EncryptionKeyType from value: '" <> e
-            <> "'. Accepted values: kms"
+pattern KMS :: EncryptionKeyType
+pattern KMS = EncryptionKeyType' "KMS"
 
-instance ToText EncryptionKeyType where
-  toText = \case
-    KMS -> "KMS"
-
-instance Hashable EncryptionKeyType
-
-instance NFData EncryptionKeyType
-
-instance ToByteString EncryptionKeyType
-
-instance ToQuery EncryptionKeyType
-
-instance ToHeader EncryptionKeyType
-
-instance ToJSON EncryptionKeyType where
-  toJSON = toJSONText
-
-instance FromJSON EncryptionKeyType where
-  parseJSON = parseJSONText "EncryptionKeyType"
+{-# COMPLETE
+  KMS,
+  EncryptionKeyType'
+  #-}

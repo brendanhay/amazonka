@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,164 +14,206 @@
 --
 -- Lists all portfolios in the catalog.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListPortfolios
-  ( -- * Creating a Request
-    listPortfolios,
-    ListPortfolios,
+  ( -- * Creating a request
+    ListPortfolios (..),
+    mkListPortfolios,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpAcceptLanguage,
     lpPageToken,
     lpPageSize,
 
-    -- * Destructuring the Response
-    listPortfoliosResponse,
-    ListPortfoliosResponse,
+    -- * Destructuring the response
+    ListPortfoliosResponse (..),
+    mkListPortfoliosResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lprsNextPageToken,
     lprsPortfolioDetails,
     lprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'listPortfolios' smart constructor.
+-- | /See:/ 'mkListPortfolios' smart constructor.
 data ListPortfolios = ListPortfolios'
-  { _lpAcceptLanguage ::
-      !(Maybe Text),
-    _lpPageToken :: !(Maybe Text),
-    _lpPageSize :: !(Maybe Nat)
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    pageToken :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPortfolios' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'lpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'lpPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+--     * @en@ - English (default)
 --
--- * 'lpPageSize' - The maximum number of items to return with this call.
-listPortfolios ::
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'pageSize' - The maximum number of items to return with this call.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+mkListPortfolios ::
   ListPortfolios
-listPortfolios =
+mkListPortfolios =
   ListPortfolios'
-    { _lpAcceptLanguage = Nothing,
-      _lpPageToken = Nothing,
-      _lpPageSize = Nothing
+    { acceptLanguage = Lude.Nothing,
+      pageToken = Lude.Nothing,
+      pageSize = Lude.Nothing
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-lpAcceptLanguage :: Lens' ListPortfolios (Maybe Text)
-lpAcceptLanguage = lens _lpAcceptLanguage (\s a -> s {_lpAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpAcceptLanguage :: Lens.Lens' ListPortfolios (Lude.Maybe Lude.Text)
+lpAcceptLanguage = Lens.lens (acceptLanguage :: ListPortfolios -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListPortfolios)
+{-# DEPRECATED lpAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-lpPageToken :: Lens' ListPortfolios (Maybe Text)
-lpPageToken = lens _lpPageToken (\s a -> s {_lpPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpPageToken :: Lens.Lens' ListPortfolios (Lude.Maybe Lude.Text)
+lpPageToken = Lens.lens (pageToken :: ListPortfolios -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListPortfolios)
+{-# DEPRECATED lpPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
-lpPageSize :: Lens' ListPortfolios (Maybe Natural)
-lpPageSize = lens _lpPageSize (\s a -> s {_lpPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpPageSize :: Lens.Lens' ListPortfolios (Lude.Maybe Lude.Natural)
+lpPageSize = Lens.lens (pageSize :: ListPortfolios -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListPortfolios)
+{-# DEPRECATED lpPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance AWSPager ListPortfolios where
+instance Page.AWSPager ListPortfolios where
   page rq rs
-    | stop (rs ^. lprsNextPageToken) = Nothing
-    | stop (rs ^. lprsPortfolioDetails) = Nothing
-    | otherwise = Just $ rq & lpPageToken .~ rs ^. lprsNextPageToken
+    | Page.stop (rs Lens.^. lprsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lprsPortfolioDetails) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpPageToken Lens..~ rs Lens.^. lprsNextPageToken
 
-instance AWSRequest ListPortfolios where
+instance Lude.AWSRequest ListPortfolios where
   type Rs ListPortfolios = ListPortfoliosResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListPortfoliosResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (x .?> "PortfolioDetails" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "PortfolioDetails" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListPortfolios
-
-instance NFData ListPortfolios
-
-instance ToHeaders ListPortfolios where
+instance Lude.ToHeaders ListPortfolios where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.ListPortfolios" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWS242ServiceCatalogService.ListPortfolios" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListPortfolios where
+instance Lude.ToJSON ListPortfolios where
   toJSON ListPortfolios' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _lpAcceptLanguage,
-            ("PageToken" .=) <$> _lpPageToken,
-            ("PageSize" .=) <$> _lpPageSize
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("PageToken" Lude..=) Lude.<$> pageToken,
+            ("PageSize" Lude..=) Lude.<$> pageSize
           ]
       )
 
-instance ToPath ListPortfolios where
-  toPath = const "/"
+instance Lude.ToPath ListPortfolios where
+  toPath = Lude.const "/"
 
-instance ToQuery ListPortfolios where
-  toQuery = const mempty
+instance Lude.ToQuery ListPortfolios where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listPortfoliosResponse' smart constructor.
+-- | /See:/ 'mkListPortfoliosResponse' smart constructor.
 data ListPortfoliosResponse = ListPortfoliosResponse'
-  { _lprsNextPageToken ::
-      !(Maybe Text),
-    _lprsPortfolioDetails ::
-      !(Maybe [PortfolioDetail]),
-    _lprsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    portfolioDetails ::
+      Lude.Maybe [PortfolioDetail],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPortfoliosResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
---
--- * 'lprsPortfolioDetails' - Information about the portfolios.
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listPortfoliosResponse ::
-  -- | 'lprsResponseStatus'
-  Int ->
+-- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'portfolioDetails' - Information about the portfolios.
+-- * 'responseStatus' - The response status code.
+mkListPortfoliosResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPortfoliosResponse
-listPortfoliosResponse pResponseStatus_ =
+mkListPortfoliosResponse pResponseStatus_ =
   ListPortfoliosResponse'
-    { _lprsNextPageToken = Nothing,
-      _lprsPortfolioDetails = Nothing,
-      _lprsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      portfolioDetails = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-lprsNextPageToken :: Lens' ListPortfoliosResponse (Maybe Text)
-lprsNextPageToken = lens _lprsNextPageToken (\s a -> s {_lprsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsNextPageToken :: Lens.Lens' ListPortfoliosResponse (Lude.Maybe Lude.Text)
+lprsNextPageToken = Lens.lens (nextPageToken :: ListPortfoliosResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListPortfoliosResponse)
+{-# DEPRECATED lprsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the portfolios.
-lprsPortfolioDetails :: Lens' ListPortfoliosResponse [PortfolioDetail]
-lprsPortfolioDetails = lens _lprsPortfolioDetails (\s a -> s {_lprsPortfolioDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'portfolioDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsPortfolioDetails :: Lens.Lens' ListPortfoliosResponse (Lude.Maybe [PortfolioDetail])
+lprsPortfolioDetails = Lens.lens (portfolioDetails :: ListPortfoliosResponse -> Lude.Maybe [PortfolioDetail]) (\s a -> s {portfolioDetails = a} :: ListPortfoliosResponse)
+{-# DEPRECATED lprsPortfolioDetails "Use generic-lens or generic-optics with 'portfolioDetails' instead." #-}
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListPortfoliosResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\s a -> s {_lprsResponseStatus = a})
-
-instance NFData ListPortfoliosResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsResponseStatus :: Lens.Lens' ListPortfoliosResponse Lude.Int
+lprsResponseStatus = Lens.lens (responseStatus :: ListPortfoliosResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPortfoliosResponse)
+{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.AvailabilityZone where
+module Network.AWS.Lightsail.Types.AvailabilityZone
+  ( AvailabilityZone (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAvailabilityZone,
+
+    -- * Lenses
+    azState,
+    azZoneName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Availability Zone.
 --
---
---
--- /See:/ 'availabilityZone' smart constructor.
+-- /See:/ 'mkAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { _azState ::
-      !(Maybe Text),
-    _azZoneName :: !(Maybe Text)
+  { state ::
+      Lude.Maybe Lude.Text,
+    zoneName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'azState' - The state of the Availability Zone.
---
--- * 'azZoneName' - The name of the Availability Zone. The format is @us-east-2a@ (case-sensitive).
-availabilityZone ::
+-- * 'state' - The state of the Availability Zone.
+-- * 'zoneName' - The name of the Availability Zone. The format is @us-east-2a@ (case-sensitive).
+mkAvailabilityZone ::
   AvailabilityZone
-availabilityZone =
-  AvailabilityZone' {_azState = Nothing, _azZoneName = Nothing}
+mkAvailabilityZone =
+  AvailabilityZone' {state = Lude.Nothing, zoneName = Lude.Nothing}
 
 -- | The state of the Availability Zone.
-azState :: Lens' AvailabilityZone (Maybe Text)
-azState = lens _azState (\s a -> s {_azState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azState :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azState = Lens.lens (state :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: AvailabilityZone)
+{-# DEPRECATED azState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The name of the Availability Zone. The format is @us-east-2a@ (case-sensitive).
-azZoneName :: Lens' AvailabilityZone (Maybe Text)
-azZoneName = lens _azZoneName (\s a -> s {_azZoneName = a})
+--
+-- /Note:/ Consider using 'zoneName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azZoneName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
+azZoneName = Lens.lens (zoneName :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {zoneName = a} :: AvailabilityZone)
+{-# DEPRECATED azZoneName "Use generic-lens or generic-optics with 'zoneName' instead." #-}
 
-instance FromJSON AvailabilityZone where
+instance Lude.FromJSON AvailabilityZone where
   parseJSON =
-    withObject
+    Lude.withObject
       "AvailabilityZone"
       ( \x ->
-          AvailabilityZone' <$> (x .:? "state") <*> (x .:? "zoneName")
+          AvailabilityZone'
+            Lude.<$> (x Lude..:? "state") Lude.<*> (x Lude..:? "zoneName")
       )
-
-instance Hashable AvailabilityZone
-
-instance NFData AvailabilityZone

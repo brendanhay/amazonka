@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,180 +14,218 @@
 --
 -- Associates a self-service action with a provisioning artifact.
 module Network.AWS.ServiceCatalog.AssociateServiceActionWithProvisioningArtifact
-  ( -- * Creating a Request
-    associateServiceActionWithProvisioningArtifact,
-    AssociateServiceActionWithProvisioningArtifact,
+  ( -- * Creating a request
+    AssociateServiceActionWithProvisioningArtifact (..),
+    mkAssociateServiceActionWithProvisioningArtifact,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asawpaAcceptLanguage,
     asawpaProductId,
     asawpaProvisioningArtifactId,
     asawpaServiceActionId,
 
-    -- * Destructuring the Response
-    associateServiceActionWithProvisioningArtifactResponse,
-    AssociateServiceActionWithProvisioningArtifactResponse,
+    -- * Destructuring the response
+    AssociateServiceActionWithProvisioningArtifactResponse (..),
+    mkAssociateServiceActionWithProvisioningArtifactResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asawparsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'associateServiceActionWithProvisioningArtifact' smart constructor.
+-- | /See:/ 'mkAssociateServiceActionWithProvisioningArtifact' smart constructor.
 data AssociateServiceActionWithProvisioningArtifact = AssociateServiceActionWithProvisioningArtifact'
-  { _asawpaAcceptLanguage ::
-      !( Maybe
-           Text
-       ),
-    _asawpaProductId ::
-      !Text,
-    _asawpaProvisioningArtifactId ::
-      !Text,
-    _asawpaServiceActionId ::
-      !Text
+  { acceptLanguage ::
+      Lude.Maybe
+        Lude.Text,
+    productId ::
+      Lude.Text,
+    provisioningArtifactId ::
+      Lude.Text,
+    serviceActionId ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'AssociateServiceActionWithProvisioningArtifact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'asawpaAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'asawpaProductId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
+--     * @en@ - English (default)
 --
--- * 'asawpaProvisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
 --
--- * 'asawpaServiceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-associateServiceActionWithProvisioningArtifact ::
-  -- | 'asawpaProductId'
-  Text ->
-  -- | 'asawpaProvisioningArtifactId'
-  Text ->
-  -- | 'asawpaServiceActionId'
-  Text ->
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+-- * 'serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+mkAssociateServiceActionWithProvisioningArtifact ::
+  -- | 'productId'
+  Lude.Text ->
+  -- | 'provisioningArtifactId'
+  Lude.Text ->
+  -- | 'serviceActionId'
+  Lude.Text ->
   AssociateServiceActionWithProvisioningArtifact
-associateServiceActionWithProvisioningArtifact
+mkAssociateServiceActionWithProvisioningArtifact
   pProductId_
   pProvisioningArtifactId_
   pServiceActionId_ =
     AssociateServiceActionWithProvisioningArtifact'
-      { _asawpaAcceptLanguage =
-          Nothing,
-        _asawpaProductId = pProductId_,
-        _asawpaProvisioningArtifactId =
+      { acceptLanguage =
+          Lude.Nothing,
+        productId = pProductId_,
+        provisioningArtifactId =
           pProvisioningArtifactId_,
-        _asawpaServiceActionId = pServiceActionId_
+        serviceActionId = pServiceActionId_
       }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-asawpaAcceptLanguage :: Lens' AssociateServiceActionWithProvisioningArtifact (Maybe Text)
-asawpaAcceptLanguage = lens _asawpaAcceptLanguage (\s a -> s {_asawpaAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asawpaAcceptLanguage :: Lens.Lens' AssociateServiceActionWithProvisioningArtifact (Lude.Maybe Lude.Text)
+asawpaAcceptLanguage = Lens.lens (acceptLanguage :: AssociateServiceActionWithProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: AssociateServiceActionWithProvisioningArtifact)
+{-# DEPRECATED asawpaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
-asawpaProductId :: Lens' AssociateServiceActionWithProvisioningArtifact Text
-asawpaProductId = lens _asawpaProductId (\s a -> s {_asawpaProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asawpaProductId :: Lens.Lens' AssociateServiceActionWithProvisioningArtifact Lude.Text
+asawpaProductId = Lens.lens (productId :: AssociateServiceActionWithProvisioningArtifact -> Lude.Text) (\s a -> s {productId = a} :: AssociateServiceActionWithProvisioningArtifact)
+{-# DEPRECATED asawpaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
-asawpaProvisioningArtifactId :: Lens' AssociateServiceActionWithProvisioningArtifact Text
-asawpaProvisioningArtifactId = lens _asawpaProvisioningArtifactId (\s a -> s {_asawpaProvisioningArtifactId = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asawpaProvisioningArtifactId :: Lens.Lens' AssociateServiceActionWithProvisioningArtifact Lude.Text
+asawpaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: AssociateServiceActionWithProvisioningArtifact -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: AssociateServiceActionWithProvisioningArtifact)
+{-# DEPRECATED asawpaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-asawpaServiceActionId :: Lens' AssociateServiceActionWithProvisioningArtifact Text
-asawpaServiceActionId = lens _asawpaServiceActionId (\s a -> s {_asawpaServiceActionId = a})
+--
+-- /Note:/ Consider using 'serviceActionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asawpaServiceActionId :: Lens.Lens' AssociateServiceActionWithProvisioningArtifact Lude.Text
+asawpaServiceActionId = Lens.lens (serviceActionId :: AssociateServiceActionWithProvisioningArtifact -> Lude.Text) (\s a -> s {serviceActionId = a} :: AssociateServiceActionWithProvisioningArtifact)
+{-# DEPRECATED asawpaServiceActionId "Use generic-lens or generic-optics with 'serviceActionId' instead." #-}
 
-instance AWSRequest AssociateServiceActionWithProvisioningArtifact where
+instance
+  Lude.AWSRequest
+    AssociateServiceActionWithProvisioningArtifact
+  where
   type
     Rs AssociateServiceActionWithProvisioningArtifact =
       AssociateServiceActionWithProvisioningArtifactResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           AssociateServiceActionWithProvisioningArtifactResponse'
-            <$> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateServiceActionWithProvisioningArtifact
-
-instance NFData AssociateServiceActionWithProvisioningArtifact
-
-instance ToHeaders AssociateServiceActionWithProvisioningArtifact where
+instance
+  Lude.ToHeaders
+    AssociateServiceActionWithProvisioningArtifact
+  where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateServiceActionWithProvisioningArtifact where
+instance Lude.ToJSON AssociateServiceActionWithProvisioningArtifact where
   toJSON AssociateServiceActionWithProvisioningArtifact' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _asawpaAcceptLanguage,
-            Just ("ProductId" .= _asawpaProductId),
-            Just ("ProvisioningArtifactId" .= _asawpaProvisioningArtifactId),
-            Just ("ServiceActionId" .= _asawpaServiceActionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("ProductId" Lude..= productId),
+            Lude.Just
+              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
+            Lude.Just ("ServiceActionId" Lude..= serviceActionId)
           ]
       )
 
-instance ToPath AssociateServiceActionWithProvisioningArtifact where
-  toPath = const "/"
+instance Lude.ToPath AssociateServiceActionWithProvisioningArtifact where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateServiceActionWithProvisioningArtifact where
-  toQuery = const mempty
+instance
+  Lude.ToQuery
+    AssociateServiceActionWithProvisioningArtifact
+  where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateServiceActionWithProvisioningArtifactResponse' smart constructor.
+-- | /See:/ 'mkAssociateServiceActionWithProvisioningArtifactResponse' smart constructor.
 newtype AssociateServiceActionWithProvisioningArtifactResponse = AssociateServiceActionWithProvisioningArtifactResponse'
-  { _asawparsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'AssociateServiceActionWithProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asawparsResponseStatus' - -- | The response status code.
-associateServiceActionWithProvisioningArtifactResponse ::
-  -- | 'asawparsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateServiceActionWithProvisioningArtifactResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateServiceActionWithProvisioningArtifactResponse
-associateServiceActionWithProvisioningArtifactResponse
+mkAssociateServiceActionWithProvisioningArtifactResponse
   pResponseStatus_ =
     AssociateServiceActionWithProvisioningArtifactResponse'
-      { _asawparsResponseStatus =
+      { responseStatus =
           pResponseStatus_
       }
 
--- | -- | The response status code.
-asawparsResponseStatus :: Lens' AssociateServiceActionWithProvisioningArtifactResponse Int
-asawparsResponseStatus = lens _asawparsResponseStatus (\s a -> s {_asawparsResponseStatus = a})
-
-instance
-  NFData
-    AssociateServiceActionWithProvisioningArtifactResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asawparsResponseStatus :: Lens.Lens' AssociateServiceActionWithProvisioningArtifactResponse Lude.Int
+asawparsResponseStatus = Lens.lens (responseStatus :: AssociateServiceActionWithProvisioningArtifactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateServiceActionWithProvisioningArtifactResponse)
+{-# DEPRECATED asawparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

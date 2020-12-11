@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificValue where
+module Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificValue
+  ( CacheNodeTypeSpecificValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCacheNodeTypeSpecificValue,
+
+    -- * Lenses
+    cntsvCacheNodeType,
+    cntsvValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A value that applies only to a certain cache node type.
 --
---
---
--- /See:/ 'cacheNodeTypeSpecificValue' smart constructor.
+-- /See:/ 'mkCacheNodeTypeSpecificValue' smart constructor.
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
-  { _cntsvCacheNodeType ::
-      !(Maybe Text),
-    _cntsvValue :: !(Maybe Text)
+  { cacheNodeType ::
+      Lude.Maybe Lude.Text,
+    value :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheNodeTypeSpecificValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cntsvCacheNodeType' - The cache node type for which this value applies.
---
--- * 'cntsvValue' - The value for the cache node type.
-cacheNodeTypeSpecificValue ::
+-- * 'cacheNodeType' - The cache node type for which this value applies.
+-- * 'value' - The value for the cache node type.
+mkCacheNodeTypeSpecificValue ::
   CacheNodeTypeSpecificValue
-cacheNodeTypeSpecificValue =
+mkCacheNodeTypeSpecificValue =
   CacheNodeTypeSpecificValue'
-    { _cntsvCacheNodeType = Nothing,
-      _cntsvValue = Nothing
+    { cacheNodeType = Lude.Nothing,
+      value = Lude.Nothing
     }
 
 -- | The cache node type for which this value applies.
-cntsvCacheNodeType :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
-cntsvCacheNodeType = lens _cntsvCacheNodeType (\s a -> s {_cntsvCacheNodeType = a})
+--
+-- /Note:/ Consider using 'cacheNodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntsvCacheNodeType :: Lens.Lens' CacheNodeTypeSpecificValue (Lude.Maybe Lude.Text)
+cntsvCacheNodeType = Lens.lens (cacheNodeType :: CacheNodeTypeSpecificValue -> Lude.Maybe Lude.Text) (\s a -> s {cacheNodeType = a} :: CacheNodeTypeSpecificValue)
+{-# DEPRECATED cntsvCacheNodeType "Use generic-lens or generic-optics with 'cacheNodeType' instead." #-}
 
 -- | The value for the cache node type.
-cntsvValue :: Lens' CacheNodeTypeSpecificValue (Maybe Text)
-cntsvValue = lens _cntsvValue (\s a -> s {_cntsvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cntsvValue :: Lens.Lens' CacheNodeTypeSpecificValue (Lude.Maybe Lude.Text)
+cntsvValue = Lens.lens (value :: CacheNodeTypeSpecificValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: CacheNodeTypeSpecificValue)
+{-# DEPRECATED cntsvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromXML CacheNodeTypeSpecificValue where
+instance Lude.FromXML CacheNodeTypeSpecificValue where
   parseXML x =
     CacheNodeTypeSpecificValue'
-      <$> (x .@? "CacheNodeType") <*> (x .@? "Value")
-
-instance Hashable CacheNodeTypeSpecificValue
-
-instance NFData CacheNodeTypeSpecificValue
+      Lude.<$> (x Lude..@? "CacheNodeType") Lude.<*> (x Lude..@? "Value")

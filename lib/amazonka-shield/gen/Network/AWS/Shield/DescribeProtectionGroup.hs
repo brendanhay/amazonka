@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,140 @@
 --
 -- Returns the specification for the specified protection group.
 module Network.AWS.Shield.DescribeProtectionGroup
-  ( -- * Creating a Request
-    describeProtectionGroup,
-    DescribeProtectionGroup,
+  ( -- * Creating a request
+    DescribeProtectionGroup (..),
+    mkDescribeProtectionGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dProtectionGroupId,
 
-    -- * Destructuring the Response
-    describeProtectionGroupResponse,
-    DescribeProtectionGroupResponse,
+    -- * Destructuring the response
+    DescribeProtectionGroupResponse (..),
+    mkDescribeProtectionGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsResponseStatus,
     drsProtectionGroup,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'describeProtectionGroup' smart constructor.
+-- | /See:/ 'mkDescribeProtectionGroup' smart constructor.
 newtype DescribeProtectionGroup = DescribeProtectionGroup'
-  { _dProtectionGroupId ::
-      Text
+  { protectionGroupId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProtectionGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dProtectionGroupId' - The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
-describeProtectionGroup ::
-  -- | 'dProtectionGroupId'
-  Text ->
+-- * 'protectionGroupId' - The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
+mkDescribeProtectionGroup ::
+  -- | 'protectionGroupId'
+  Lude.Text ->
   DescribeProtectionGroup
-describeProtectionGroup pProtectionGroupId_ =
-  DescribeProtectionGroup'
-    { _dProtectionGroupId =
-        pProtectionGroupId_
-    }
+mkDescribeProtectionGroup pProtectionGroupId_ =
+  DescribeProtectionGroup' {protectionGroupId = pProtectionGroupId_}
 
 -- | The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
-dProtectionGroupId :: Lens' DescribeProtectionGroup Text
-dProtectionGroupId = lens _dProtectionGroupId (\s a -> s {_dProtectionGroupId = a})
+--
+-- /Note:/ Consider using 'protectionGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dProtectionGroupId :: Lens.Lens' DescribeProtectionGroup Lude.Text
+dProtectionGroupId = Lens.lens (protectionGroupId :: DescribeProtectionGroup -> Lude.Text) (\s a -> s {protectionGroupId = a} :: DescribeProtectionGroup)
+{-# DEPRECATED dProtectionGroupId "Use generic-lens or generic-optics with 'protectionGroupId' instead." #-}
 
-instance AWSRequest DescribeProtectionGroup where
+instance Lude.AWSRequest DescribeProtectionGroup where
   type Rs DescribeProtectionGroup = DescribeProtectionGroupResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeProtectionGroupResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "ProtectionGroup")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "ProtectionGroup")
       )
 
-instance Hashable DescribeProtectionGroup
-
-instance NFData DescribeProtectionGroup
-
-instance ToHeaders DescribeProtectionGroup where
+instance Lude.ToHeaders DescribeProtectionGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.DescribeProtectionGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.DescribeProtectionGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeProtectionGroup where
+instance Lude.ToJSON DescribeProtectionGroup where
   toJSON DescribeProtectionGroup' {..} =
-    object
-      (catMaybes [Just ("ProtectionGroupId" .= _dProtectionGroupId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ProtectionGroupId" Lude..= protectionGroupId)]
+      )
 
-instance ToPath DescribeProtectionGroup where
-  toPath = const "/"
+instance Lude.ToPath DescribeProtectionGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeProtectionGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeProtectionGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeProtectionGroupResponse' smart constructor.
+-- | /See:/ 'mkDescribeProtectionGroupResponse' smart constructor.
 data DescribeProtectionGroupResponse = DescribeProtectionGroupResponse'
-  { _drsResponseStatus ::
-      !Int,
-    _drsProtectionGroup ::
-      !ProtectionGroup
+  { responseStatus ::
+      Lude.Int,
+    protectionGroup ::
+      ProtectionGroup
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProtectionGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsResponseStatus' - -- | The response status code.
---
--- * 'drsProtectionGroup' - A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
-describeProtectionGroupResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
-  -- | 'drsProtectionGroup'
+-- * 'protectionGroup' - A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
+-- * 'responseStatus' - The response status code.
+mkDescribeProtectionGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'protectionGroup'
   ProtectionGroup ->
   DescribeProtectionGroupResponse
-describeProtectionGroupResponse pResponseStatus_ pProtectionGroup_ =
-  DescribeProtectionGroupResponse'
-    { _drsResponseStatus =
-        pResponseStatus_,
-      _drsProtectionGroup = pProtectionGroup_
-    }
+mkDescribeProtectionGroupResponse
+  pResponseStatus_
+  pProtectionGroup_ =
+    DescribeProtectionGroupResponse'
+      { responseStatus =
+          pResponseStatus_,
+        protectionGroup = pProtectionGroup_
+      }
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeProtectionGroupResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeProtectionGroupResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeProtectionGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProtectionGroupResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
-drsProtectionGroup :: Lens' DescribeProtectionGroupResponse ProtectionGroup
-drsProtectionGroup = lens _drsProtectionGroup (\s a -> s {_drsProtectionGroup = a})
-
-instance NFData DescribeProtectionGroupResponse
+--
+-- /Note:/ Consider using 'protectionGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsProtectionGroup :: Lens.Lens' DescribeProtectionGroupResponse ProtectionGroup
+drsProtectionGroup = Lens.lens (protectionGroup :: DescribeProtectionGroupResponse -> ProtectionGroup) (\s a -> s {protectionGroup = a} :: DescribeProtectionGroupResponse)
+{-# DEPRECATED drsProtectionGroup "Use generic-lens or generic-optics with 'protectionGroup' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.BackupTypeFilter where
+module Network.AWS.DynamoDB.Types.BackupTypeFilter
+  ( BackupTypeFilter
+      ( BackupTypeFilter',
+        BTFAWSBackup,
+        BTFAll,
+        BTFSystem,
+        BTFUser
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BackupTypeFilter
-  = BTFAWSBackup
-  | BTFAll
-  | BTFSystem
-  | BTFUser
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BackupTypeFilter = BackupTypeFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BackupTypeFilter where
-  parser =
-    takeLowerText >>= \case
-      "aws_backup" -> pure BTFAWSBackup
-      "all" -> pure BTFAll
-      "system" -> pure BTFSystem
-      "user" -> pure BTFUser
-      e ->
-        fromTextError $
-          "Failure parsing BackupTypeFilter from value: '" <> e
-            <> "'. Accepted values: aws_backup, all, system, user"
+pattern BTFAWSBackup :: BackupTypeFilter
+pattern BTFAWSBackup = BackupTypeFilter' "AWS_BACKUP"
 
-instance ToText BackupTypeFilter where
-  toText = \case
-    BTFAWSBackup -> "AWS_BACKUP"
-    BTFAll -> "ALL"
-    BTFSystem -> "SYSTEM"
-    BTFUser -> "USER"
+pattern BTFAll :: BackupTypeFilter
+pattern BTFAll = BackupTypeFilter' "ALL"
 
-instance Hashable BackupTypeFilter
+pattern BTFSystem :: BackupTypeFilter
+pattern BTFSystem = BackupTypeFilter' "SYSTEM"
 
-instance NFData BackupTypeFilter
+pattern BTFUser :: BackupTypeFilter
+pattern BTFUser = BackupTypeFilter' "USER"
 
-instance ToByteString BackupTypeFilter
-
-instance ToQuery BackupTypeFilter
-
-instance ToHeader BackupTypeFilter
-
-instance ToJSON BackupTypeFilter where
-  toJSON = toJSONText
+{-# COMPLETE
+  BTFAWSBackup,
+  BTFAll,
+  BTFSystem,
+  BTFUser,
+  BackupTypeFilter'
+  #-}

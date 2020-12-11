@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,138 @@
 --
 -- This operation returns all of the tags that are associated with the specified domain.
 --
---
 -- All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.
 module Network.AWS.Route53Domains.ListTagsForDomain
-  ( -- * Creating a Request
-    listTagsForDomain,
-    ListTagsForDomain,
+  ( -- * Creating a request
+    ListTagsForDomain (..),
+    mkListTagsForDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfdDomainName,
 
-    -- * Destructuring the Response
-    listTagsForDomainResponse,
-    ListTagsForDomainResponse,
+    -- * Destructuring the response
+    ListTagsForDomainResponse (..),
+    mkListTagsForDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltfdrsResponseStatus,
     ltfdrsTagList,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
 -- | The ListTagsForDomainRequest includes the following elements.
 --
---
---
--- /See:/ 'listTagsForDomain' smart constructor.
+-- /See:/ 'mkListTagsForDomain' smart constructor.
 newtype ListTagsForDomain = ListTagsForDomain'
-  { _ltfdDomainName ::
-      Text
+  { domainName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfdDomainName' - The domain for which you want to get a list of tags.
-listTagsForDomain ::
-  -- | 'ltfdDomainName'
-  Text ->
+-- * 'domainName' - The domain for which you want to get a list of tags.
+mkListTagsForDomain ::
+  -- | 'domainName'
+  Lude.Text ->
   ListTagsForDomain
-listTagsForDomain pDomainName_ =
-  ListTagsForDomain' {_ltfdDomainName = pDomainName_}
+mkListTagsForDomain pDomainName_ =
+  ListTagsForDomain' {domainName = pDomainName_}
 
 -- | The domain for which you want to get a list of tags.
-ltfdDomainName :: Lens' ListTagsForDomain Text
-ltfdDomainName = lens _ltfdDomainName (\s a -> s {_ltfdDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfdDomainName :: Lens.Lens' ListTagsForDomain Lude.Text
+ltfdDomainName = Lens.lens (domainName :: ListTagsForDomain -> Lude.Text) (\s a -> s {domainName = a} :: ListTagsForDomain)
+{-# DEPRECATED ltfdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest ListTagsForDomain where
+instance Lude.AWSRequest ListTagsForDomain where
   type Rs ListTagsForDomain = ListTagsForDomainResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsForDomainResponse'
-            <$> (pure (fromEnum s)) <*> (x .?> "TagList" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "TagList" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListTagsForDomain
-
-instance NFData ListTagsForDomain
-
-instance ToHeaders ListTagsForDomain where
+instance Lude.ToHeaders ListTagsForDomain where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53Domains_v20140515.ListTagsForDomain" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Route53Domains_v20140515.ListTagsForDomain" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTagsForDomain where
+instance Lude.ToJSON ListTagsForDomain where
   toJSON ListTagsForDomain' {..} =
-    object (catMaybes [Just ("DomainName" .= _ltfdDomainName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("DomainName" Lude..= domainName)])
 
-instance ToPath ListTagsForDomain where
-  toPath = const "/"
+instance Lude.ToPath ListTagsForDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTagsForDomain where
-  toQuery = const mempty
+instance Lude.ToQuery ListTagsForDomain where
+  toQuery = Lude.const Lude.mempty
 
 -- | The ListTagsForDomain response includes the following elements.
 --
---
---
--- /See:/ 'listTagsForDomainResponse' smart constructor.
+-- /See:/ 'mkListTagsForDomainResponse' smart constructor.
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-  { _ltfdrsResponseStatus ::
-      !Int,
-    _ltfdrsTagList :: ![Tag]
+  { responseStatus ::
+      Lude.Int,
+    tagList :: [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfdrsResponseStatus' - -- | The response status code.
---
--- * 'ltfdrsTagList' - A list of the tags that are associated with the specified domain.
-listTagsForDomainResponse ::
-  -- | 'ltfdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tagList' - A list of the tags that are associated with the specified domain.
+mkListTagsForDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForDomainResponse
-listTagsForDomainResponse pResponseStatus_ =
+mkListTagsForDomainResponse pResponseStatus_ =
   ListTagsForDomainResponse'
-    { _ltfdrsResponseStatus =
-        pResponseStatus_,
-      _ltfdrsTagList = mempty
+    { responseStatus = pResponseStatus_,
+      tagList = Lude.mempty
     }
 
--- | -- | The response status code.
-ltfdrsResponseStatus :: Lens' ListTagsForDomainResponse Int
-ltfdrsResponseStatus = lens _ltfdrsResponseStatus (\s a -> s {_ltfdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfdrsResponseStatus :: Lens.Lens' ListTagsForDomainResponse Lude.Int
+ltfdrsResponseStatus = Lens.lens (responseStatus :: ListTagsForDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForDomainResponse)
+{-# DEPRECATED ltfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of the tags that are associated with the specified domain.
-ltfdrsTagList :: Lens' ListTagsForDomainResponse [Tag]
-ltfdrsTagList = lens _ltfdrsTagList (\s a -> s {_ltfdrsTagList = a}) . _Coerce
-
-instance NFData ListTagsForDomainResponse
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfdrsTagList :: Lens.Lens' ListTagsForDomainResponse [Tag]
+ltfdrsTagList = Lens.lens (tagList :: ListTagsForDomainResponse -> [Tag]) (\s a -> s {tagList = a} :: ListTagsForDomainResponse)
+{-# DEPRECATED ltfdrsTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}

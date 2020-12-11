@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Registers the user in the specified user pool and creates a user name, password, and user attributes.
 module Network.AWS.CognitoIdentityProvider.SignUp
-  ( -- * Creating a Request
-    signUp,
-    SignUp,
+  ( -- * Creating a request
+    SignUp (..),
+    mkSignUp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     suClientMetadata,
     suAnalyticsMetadata,
     suUserContextData,
@@ -34,11 +29,11 @@ module Network.AWS.CognitoIdentityProvider.SignUp
     suUsername,
     suPassword,
 
-    -- * Destructuring the Response
-    signUpResponse,
-    SignUpResponse,
+    -- * Destructuring the response
+    SignUpResponse (..),
+    mkSignUpResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sursCodeDeliveryDetails,
     sursResponseStatus,
     sursUserConfirmed,
@@ -47,212 +42,245 @@ module Network.AWS.CognitoIdentityProvider.SignUp
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to register a user.
 --
---
---
--- /See:/ 'signUp' smart constructor.
+-- /See:/ 'mkSignUp' smart constructor.
 data SignUp = SignUp'
-  { _suClientMetadata ::
-      !(Maybe (Map Text (Text))),
-    _suAnalyticsMetadata :: !(Maybe AnalyticsMetadataType),
-    _suUserContextData :: !(Maybe UserContextDataType),
-    _suUserAttributes :: !(Maybe [AttributeType]),
-    _suSecretHash :: !(Maybe (Sensitive Text)),
-    _suValidationData :: !(Maybe [AttributeType]),
-    _suClientId :: !(Sensitive Text),
-    _suUsername :: !(Sensitive Text),
-    _suPassword :: !(Sensitive Text)
+  { clientMetadata ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    analyticsMetadata :: Lude.Maybe AnalyticsMetadataType,
+    userContextData :: Lude.Maybe UserContextDataType,
+    userAttributes :: Lude.Maybe [AttributeType],
+    secretHash :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    validationData :: Lude.Maybe [AttributeType],
+    clientId :: Lude.Sensitive Lude.Text,
+    username :: Lude.Sensitive Lude.Text,
+    password :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SignUp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @SignUp@ calls.
+-- * 'clientId' - The ID of the client associated with the user pool.
+-- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
--- * 'suClientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.  You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: /pre sign-up/ , /custom message/ , and /post confirmation/ . When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+-- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: /pre sign-up/ , /custom message/ , and /post confirmation/ . When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+-- * 'password' - The password of the user you wish to register.
+-- * 'secretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
+-- * 'userAttributes' - An array of name-value pairs representing user attributes.
 --
--- * 'suAnalyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @SignUp@ calls.
---
--- * 'suUserContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
---
--- * 'suUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
---
--- * 'suSecretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
---
--- * 'suValidationData' - The validation data in the request to register a user.
---
--- * 'suClientId' - The ID of the client associated with the user pool.
---
--- * 'suUsername' - The user name of the user you wish to register.
---
--- * 'suPassword' - The password of the user you wish to register.
-signUp ::
-  -- | 'suClientId'
-  Text ->
-  -- | 'suUsername'
-  Text ->
-  -- | 'suPassword'
-  Text ->
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+-- * 'userContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+-- * 'username' - The user name of the user you wish to register.
+-- * 'validationData' - The validation data in the request to register a user.
+mkSignUp ::
+  -- | 'clientId'
+  Lude.Sensitive Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
+  -- | 'password'
+  Lude.Sensitive Lude.Text ->
   SignUp
-signUp pClientId_ pUsername_ pPassword_ =
+mkSignUp pClientId_ pUsername_ pPassword_ =
   SignUp'
-    { _suClientMetadata = Nothing,
-      _suAnalyticsMetadata = Nothing,
-      _suUserContextData = Nothing,
-      _suUserAttributes = Nothing,
-      _suSecretHash = Nothing,
-      _suValidationData = Nothing,
-      _suClientId = _Sensitive # pClientId_,
-      _suUsername = _Sensitive # pUsername_,
-      _suPassword = _Sensitive # pPassword_
+    { clientMetadata = Lude.Nothing,
+      analyticsMetadata = Lude.Nothing,
+      userContextData = Lude.Nothing,
+      userAttributes = Lude.Nothing,
+      secretHash = Lude.Nothing,
+      validationData = Lude.Nothing,
+      clientId = pClientId_,
+      username = pUsername_,
+      password = pPassword_
     }
 
--- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.  You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: /pre sign-up/ , /custom message/ , and /post confirmation/ . When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
-suClientMetadata :: Lens' SignUp (HashMap Text (Text))
-suClientMetadata = lens _suClientMetadata (\s a -> s {_suClientMetadata = a}) . _Default . _Map
+-- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+--
+-- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: /pre sign-up/ , /custom message/ , and /post confirmation/ . When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+--
+-- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suClientMetadata :: Lens.Lens' SignUp (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+suClientMetadata = Lens.lens (clientMetadata :: SignUp -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: SignUp)
+{-# DEPRECATED suClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for @SignUp@ calls.
-suAnalyticsMetadata :: Lens' SignUp (Maybe AnalyticsMetadataType)
-suAnalyticsMetadata = lens _suAnalyticsMetadata (\s a -> s {_suAnalyticsMetadata = a})
+--
+-- /Note:/ Consider using 'analyticsMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suAnalyticsMetadata :: Lens.Lens' SignUp (Lude.Maybe AnalyticsMetadataType)
+suAnalyticsMetadata = Lens.lens (analyticsMetadata :: SignUp -> Lude.Maybe AnalyticsMetadataType) (\s a -> s {analyticsMetadata = a} :: SignUp)
+{-# DEPRECATED suAnalyticsMetadata "Use generic-lens or generic-optics with 'analyticsMetadata' instead." #-}
 
 -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-suUserContextData :: Lens' SignUp (Maybe UserContextDataType)
-suUserContextData = lens _suUserContextData (\s a -> s {_suUserContextData = a})
+--
+-- /Note:/ Consider using 'userContextData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suUserContextData :: Lens.Lens' SignUp (Lude.Maybe UserContextDataType)
+suUserContextData = Lens.lens (userContextData :: SignUp -> Lude.Maybe UserContextDataType) (\s a -> s {userContextData = a} :: SignUp)
+{-# DEPRECATED suUserContextData "Use generic-lens or generic-optics with 'userContextData' instead." #-}
 
--- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
-suUserAttributes :: Lens' SignUp [AttributeType]
-suUserAttributes = lens _suUserAttributes (\s a -> s {_suUserAttributes = a}) . _Default . _Coerce
+-- | An array of name-value pairs representing user attributes.
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+--
+-- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suUserAttributes :: Lens.Lens' SignUp (Lude.Maybe [AttributeType])
+suUserAttributes = Lens.lens (userAttributes :: SignUp -> Lude.Maybe [AttributeType]) (\s a -> s {userAttributes = a} :: SignUp)
+{-# DEPRECATED suUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
-suSecretHash :: Lens' SignUp (Maybe Text)
-suSecretHash = lens _suSecretHash (\s a -> s {_suSecretHash = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'secretHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suSecretHash :: Lens.Lens' SignUp (Lude.Maybe (Lude.Sensitive Lude.Text))
+suSecretHash = Lens.lens (secretHash :: SignUp -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretHash = a} :: SignUp)
+{-# DEPRECATED suSecretHash "Use generic-lens or generic-optics with 'secretHash' instead." #-}
 
 -- | The validation data in the request to register a user.
-suValidationData :: Lens' SignUp [AttributeType]
-suValidationData = lens _suValidationData (\s a -> s {_suValidationData = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'validationData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suValidationData :: Lens.Lens' SignUp (Lude.Maybe [AttributeType])
+suValidationData = Lens.lens (validationData :: SignUp -> Lude.Maybe [AttributeType]) (\s a -> s {validationData = a} :: SignUp)
+{-# DEPRECATED suValidationData "Use generic-lens or generic-optics with 'validationData' instead." #-}
 
 -- | The ID of the client associated with the user pool.
-suClientId :: Lens' SignUp Text
-suClientId = lens _suClientId (\s a -> s {_suClientId = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suClientId :: Lens.Lens' SignUp (Lude.Sensitive Lude.Text)
+suClientId = Lens.lens (clientId :: SignUp -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: SignUp)
+{-# DEPRECATED suClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The user name of the user you wish to register.
-suUsername :: Lens' SignUp Text
-suUsername = lens _suUsername (\s a -> s {_suUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suUsername :: Lens.Lens' SignUp (Lude.Sensitive Lude.Text)
+suUsername = Lens.lens (username :: SignUp -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: SignUp)
+{-# DEPRECATED suUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The password of the user you wish to register.
-suPassword :: Lens' SignUp Text
-suPassword = lens _suPassword (\s a -> s {_suPassword = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suPassword :: Lens.Lens' SignUp (Lude.Sensitive Lude.Text)
+suPassword = Lens.lens (password :: SignUp -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: SignUp)
+{-# DEPRECATED suPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance AWSRequest SignUp where
+instance Lude.AWSRequest SignUp where
   type Rs SignUp = SignUpResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SignUpResponse'
-            <$> (x .?> "CodeDeliveryDetails")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "UserConfirmed")
-            <*> (x .:> "UserSub")
+            Lude.<$> (x Lude..?> "CodeDeliveryDetails")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "UserConfirmed")
+            Lude.<*> (x Lude..:> "UserSub")
       )
 
-instance Hashable SignUp
-
-instance NFData SignUp
-
-instance ToHeaders SignUp where
+instance Lude.ToHeaders SignUp where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.SignUp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSCognitoIdentityProviderService.SignUp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SignUp where
+instance Lude.ToJSON SignUp where
   toJSON SignUp' {..} =
-    object
-      ( catMaybes
-          [ ("ClientMetadata" .=) <$> _suClientMetadata,
-            ("AnalyticsMetadata" .=) <$> _suAnalyticsMetadata,
-            ("UserContextData" .=) <$> _suUserContextData,
-            ("UserAttributes" .=) <$> _suUserAttributes,
-            ("SecretHash" .=) <$> _suSecretHash,
-            ("ValidationData" .=) <$> _suValidationData,
-            Just ("ClientId" .= _suClientId),
-            Just ("Username" .= _suUsername),
-            Just ("Password" .= _suPassword)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
+            ("AnalyticsMetadata" Lude..=) Lude.<$> analyticsMetadata,
+            ("UserContextData" Lude..=) Lude.<$> userContextData,
+            ("UserAttributes" Lude..=) Lude.<$> userAttributes,
+            ("SecretHash" Lude..=) Lude.<$> secretHash,
+            ("ValidationData" Lude..=) Lude.<$> validationData,
+            Lude.Just ("ClientId" Lude..= clientId),
+            Lude.Just ("Username" Lude..= username),
+            Lude.Just ("Password" Lude..= password)
           ]
       )
 
-instance ToPath SignUp where
-  toPath = const "/"
+instance Lude.ToPath SignUp where
+  toPath = Lude.const "/"
 
-instance ToQuery SignUp where
-  toQuery = const mempty
+instance Lude.ToQuery SignUp where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response from the server for a registration request.
 --
---
---
--- /See:/ 'signUpResponse' smart constructor.
+-- /See:/ 'mkSignUpResponse' smart constructor.
 data SignUpResponse = SignUpResponse'
-  { _sursCodeDeliveryDetails ::
-      !(Maybe CodeDeliveryDetailsType),
-    _sursResponseStatus :: !Int,
-    _sursUserConfirmed :: !Bool,
-    _sursUserSub :: !Text
+  { codeDeliveryDetails ::
+      Lude.Maybe CodeDeliveryDetailsType,
+    responseStatus :: Lude.Int,
+    userConfirmed :: Lude.Bool,
+    userSub :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SignUpResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sursCodeDeliveryDetails' - The code delivery details returned by the server response to the user registration request.
---
--- * 'sursResponseStatus' - -- | The response status code.
---
--- * 'sursUserConfirmed' - A response from the server indicating that a user registration has been confirmed.
---
--- * 'sursUserSub' - The UUID of the authenticated user. This is not the same as @username@ .
-signUpResponse ::
-  -- | 'sursResponseStatus'
-  Int ->
-  -- | 'sursUserConfirmed'
-  Bool ->
-  -- | 'sursUserSub'
-  Text ->
+-- * 'codeDeliveryDetails' - The code delivery details returned by the server response to the user registration request.
+-- * 'responseStatus' - The response status code.
+-- * 'userConfirmed' - A response from the server indicating that a user registration has been confirmed.
+-- * 'userSub' - The UUID of the authenticated user. This is not the same as @username@ .
+mkSignUpResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'userConfirmed'
+  Lude.Bool ->
+  -- | 'userSub'
+  Lude.Text ->
   SignUpResponse
-signUpResponse pResponseStatus_ pUserConfirmed_ pUserSub_ =
+mkSignUpResponse pResponseStatus_ pUserConfirmed_ pUserSub_ =
   SignUpResponse'
-    { _sursCodeDeliveryDetails = Nothing,
-      _sursResponseStatus = pResponseStatus_,
-      _sursUserConfirmed = pUserConfirmed_,
-      _sursUserSub = pUserSub_
+    { codeDeliveryDetails = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      userConfirmed = pUserConfirmed_,
+      userSub = pUserSub_
     }
 
 -- | The code delivery details returned by the server response to the user registration request.
-sursCodeDeliveryDetails :: Lens' SignUpResponse (Maybe CodeDeliveryDetailsType)
-sursCodeDeliveryDetails = lens _sursCodeDeliveryDetails (\s a -> s {_sursCodeDeliveryDetails = a})
+--
+-- /Note:/ Consider using 'codeDeliveryDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sursCodeDeliveryDetails :: Lens.Lens' SignUpResponse (Lude.Maybe CodeDeliveryDetailsType)
+sursCodeDeliveryDetails = Lens.lens (codeDeliveryDetails :: SignUpResponse -> Lude.Maybe CodeDeliveryDetailsType) (\s a -> s {codeDeliveryDetails = a} :: SignUpResponse)
+{-# DEPRECATED sursCodeDeliveryDetails "Use generic-lens or generic-optics with 'codeDeliveryDetails' instead." #-}
 
--- | -- | The response status code.
-sursResponseStatus :: Lens' SignUpResponse Int
-sursResponseStatus = lens _sursResponseStatus (\s a -> s {_sursResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sursResponseStatus :: Lens.Lens' SignUpResponse Lude.Int
+sursResponseStatus = Lens.lens (responseStatus :: SignUpResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SignUpResponse)
+{-# DEPRECATED sursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A response from the server indicating that a user registration has been confirmed.
-sursUserConfirmed :: Lens' SignUpResponse Bool
-sursUserConfirmed = lens _sursUserConfirmed (\s a -> s {_sursUserConfirmed = a})
+--
+-- /Note:/ Consider using 'userConfirmed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sursUserConfirmed :: Lens.Lens' SignUpResponse Lude.Bool
+sursUserConfirmed = Lens.lens (userConfirmed :: SignUpResponse -> Lude.Bool) (\s a -> s {userConfirmed = a} :: SignUpResponse)
+{-# DEPRECATED sursUserConfirmed "Use generic-lens or generic-optics with 'userConfirmed' instead." #-}
 
 -- | The UUID of the authenticated user. This is not the same as @username@ .
-sursUserSub :: Lens' SignUpResponse Text
-sursUserSub = lens _sursUserSub (\s a -> s {_sursUserSub = a})
-
-instance NFData SignUpResponse
+--
+-- /Note:/ Consider using 'userSub' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sursUserSub :: Lens.Lens' SignUpResponse Lude.Text
+sursUserSub = Lens.lens (userSub :: SignUpResponse -> Lude.Text) (\s a -> s {userSub = a} :: SignUpResponse)
+{-# DEPRECATED sursUserSub "Use generic-lens or generic-optics with 'userSub' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.DomainInformation where
+module Network.AWS.ElasticSearch.Types.DomainInformation
+  ( DomainInformation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDomainInformation,
 
--- | /See:/ 'domainInformation' smart constructor.
+    -- * Lenses
+    diOwnerId,
+    diRegion,
+    diDomainName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+
+-- | /See:/ 'mkDomainInformation' smart constructor.
 data DomainInformation = DomainInformation'
-  { _diOwnerId ::
-      !(Maybe Text),
-    _diRegion :: !(Maybe Text),
-    _diDomainName :: !Text
+  { ownerId ::
+      Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    domainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainInformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diOwnerId' - Undocumented member.
---
--- * 'diRegion' - Undocumented member.
---
--- * 'diDomainName' - Undocumented member.
-domainInformation ::
-  -- | 'diDomainName'
-  Text ->
+-- * 'domainName' - Undocumented field.
+-- * 'ownerId' - Undocumented field.
+-- * 'region' - Undocumented field.
+mkDomainInformation ::
+  -- | 'domainName'
+  Lude.Text ->
   DomainInformation
-domainInformation pDomainName_ =
+mkDomainInformation pDomainName_ =
   DomainInformation'
-    { _diOwnerId = Nothing,
-      _diRegion = Nothing,
-      _diDomainName = pDomainName_
+    { ownerId = Lude.Nothing,
+      region = Lude.Nothing,
+      domainName = pDomainName_
     }
 
--- | Undocumented member.
-diOwnerId :: Lens' DomainInformation (Maybe Text)
-diOwnerId = lens _diOwnerId (\s a -> s {_diOwnerId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diOwnerId :: Lens.Lens' DomainInformation (Lude.Maybe Lude.Text)
+diOwnerId = Lens.lens (ownerId :: DomainInformation -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: DomainInformation)
+{-# DEPRECATED diOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
--- | Undocumented member.
-diRegion :: Lens' DomainInformation (Maybe Text)
-diRegion = lens _diRegion (\s a -> s {_diRegion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diRegion :: Lens.Lens' DomainInformation (Lude.Maybe Lude.Text)
+diRegion = Lens.lens (region :: DomainInformation -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: DomainInformation)
+{-# DEPRECATED diRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
--- | Undocumented member.
-diDomainName :: Lens' DomainInformation Text
-diDomainName = lens _diDomainName (\s a -> s {_diDomainName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDomainName :: Lens.Lens' DomainInformation Lude.Text
+diDomainName = Lens.lens (domainName :: DomainInformation -> Lude.Text) (\s a -> s {domainName = a} :: DomainInformation)
+{-# DEPRECATED diDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance FromJSON DomainInformation where
+instance Lude.FromJSON DomainInformation where
   parseJSON =
-    withObject
+    Lude.withObject
       "DomainInformation"
       ( \x ->
           DomainInformation'
-            <$> (x .:? "OwnerId") <*> (x .:? "Region") <*> (x .: "DomainName")
+            Lude.<$> (x Lude..:? "OwnerId")
+            Lude.<*> (x Lude..:? "Region")
+            Lude.<*> (x Lude..: "DomainName")
       )
 
-instance Hashable DomainInformation
-
-instance NFData DomainInformation
-
-instance ToJSON DomainInformation where
+instance Lude.ToJSON DomainInformation where
   toJSON DomainInformation' {..} =
-    object
-      ( catMaybes
-          [ ("OwnerId" .=) <$> _diOwnerId,
-            ("Region" .=) <$> _diRegion,
-            Just ("DomainName" .= _diDomainName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("OwnerId" Lude..=) Lude.<$> ownerId,
+            ("Region" Lude..=) Lude.<$> region,
+            Lude.Just ("DomainName" Lude..= domainName)
           ]
       )

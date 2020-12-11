@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DHCPOptions where
+module Network.AWS.EC2.Types.DHCPOptions
+  ( DHCPOptions (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkDHCPOptions,
+
+    -- * Lenses
+    doDHCPConfigurations,
+    doOwnerId,
+    doDHCPOptionsId,
+    doTags,
+  )
+where
+
 import Network.AWS.EC2.Types.DHCPConfiguration
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a set of DHCP options.
 --
---
---
--- /See:/ 'dhcpOptions' smart constructor.
+-- /See:/ 'mkDHCPOptions' smart constructor.
 data DHCPOptions = DHCPOptions'
-  { _doDHCPConfigurations ::
-      !(Maybe [DHCPConfiguration]),
-    _doOwnerId :: !(Maybe Text),
-    _doDHCPOptionsId :: !(Maybe Text),
-    _doTags :: !(Maybe [Tag])
+  { dhcpConfigurations ::
+      Lude.Maybe [DHCPConfiguration],
+    ownerId :: Lude.Maybe Lude.Text,
+    dhcpOptionsId :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DHCPOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'doDHCPConfigurations' - One or more DHCP options in the set.
---
--- * 'doOwnerId' - The ID of the AWS account that owns the DHCP options set.
---
--- * 'doDHCPOptionsId' - The ID of the set of DHCP options.
---
--- * 'doTags' - Any tags assigned to the DHCP options set.
-dhcpOptions ::
+-- * 'dhcpConfigurations' - One or more DHCP options in the set.
+-- * 'dhcpOptionsId' - The ID of the set of DHCP options.
+-- * 'ownerId' - The ID of the AWS account that owns the DHCP options set.
+-- * 'tags' - Any tags assigned to the DHCP options set.
+mkDHCPOptions ::
   DHCPOptions
-dhcpOptions =
+mkDHCPOptions =
   DHCPOptions'
-    { _doDHCPConfigurations = Nothing,
-      _doOwnerId = Nothing,
-      _doDHCPOptionsId = Nothing,
-      _doTags = Nothing
+    { dhcpConfigurations = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      dhcpOptionsId = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | One or more DHCP options in the set.
-doDHCPConfigurations :: Lens' DHCPOptions [DHCPConfiguration]
-doDHCPConfigurations = lens _doDHCPConfigurations (\s a -> s {_doDHCPConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dhcpConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doDHCPConfigurations :: Lens.Lens' DHCPOptions (Lude.Maybe [DHCPConfiguration])
+doDHCPConfigurations = Lens.lens (dhcpConfigurations :: DHCPOptions -> Lude.Maybe [DHCPConfiguration]) (\s a -> s {dhcpConfigurations = a} :: DHCPOptions)
+{-# DEPRECATED doDHCPConfigurations "Use generic-lens or generic-optics with 'dhcpConfigurations' instead." #-}
 
 -- | The ID of the AWS account that owns the DHCP options set.
-doOwnerId :: Lens' DHCPOptions (Maybe Text)
-doOwnerId = lens _doOwnerId (\s a -> s {_doOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doOwnerId :: Lens.Lens' DHCPOptions (Lude.Maybe Lude.Text)
+doOwnerId = Lens.lens (ownerId :: DHCPOptions -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: DHCPOptions)
+{-# DEPRECATED doOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The ID of the set of DHCP options.
-doDHCPOptionsId :: Lens' DHCPOptions (Maybe Text)
-doDHCPOptionsId = lens _doDHCPOptionsId (\s a -> s {_doDHCPOptionsId = a})
+--
+-- /Note:/ Consider using 'dhcpOptionsId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doDHCPOptionsId :: Lens.Lens' DHCPOptions (Lude.Maybe Lude.Text)
+doDHCPOptionsId = Lens.lens (dhcpOptionsId :: DHCPOptions -> Lude.Maybe Lude.Text) (\s a -> s {dhcpOptionsId = a} :: DHCPOptions)
+{-# DEPRECATED doDHCPOptionsId "Use generic-lens or generic-optics with 'dhcpOptionsId' instead." #-}
 
 -- | Any tags assigned to the DHCP options set.
-doTags :: Lens' DHCPOptions [Tag]
-doTags = lens _doTags (\s a -> s {_doTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doTags :: Lens.Lens' DHCPOptions (Lude.Maybe [Tag])
+doTags = Lens.lens (tags :: DHCPOptions -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DHCPOptions)
+{-# DEPRECATED doTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML DHCPOptions where
+instance Lude.FromXML DHCPOptions where
   parseXML x =
     DHCPOptions'
-      <$> ( x .@? "dhcpConfigurationSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "ownerId")
-      <*> (x .@? "dhcpOptionsId")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable DHCPOptions
-
-instance NFData DHCPOptions
+      Lude.<$> ( x Lude..@? "dhcpConfigurationSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> (x Lude..@? "dhcpOptionsId")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

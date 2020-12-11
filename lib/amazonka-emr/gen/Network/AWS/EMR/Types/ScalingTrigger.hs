@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ScalingTrigger where
+module Network.AWS.EMR.Types.ScalingTrigger
+  ( ScalingTrigger (..),
+
+    -- * Smart constructor
+    mkScalingTrigger,
+
+    -- * Lenses
+    stCloudWatchAlarmDefinition,
+  )
+where
 
 import Network.AWS.EMR.Types.CloudWatchAlarmDefinition
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The conditions that trigger an automatic scaling activity.
 --
---
---
--- /See:/ 'scalingTrigger' smart constructor.
+-- /See:/ 'mkScalingTrigger' smart constructor.
 newtype ScalingTrigger = ScalingTrigger'
-  { _stCloudWatchAlarmDefinition ::
+  { cloudWatchAlarmDefinition ::
       CloudWatchAlarmDefinition
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingTrigger' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stCloudWatchAlarmDefinition' - The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
-scalingTrigger ::
-  -- | 'stCloudWatchAlarmDefinition'
+-- * 'cloudWatchAlarmDefinition' - The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+mkScalingTrigger ::
+  -- | 'cloudWatchAlarmDefinition'
   CloudWatchAlarmDefinition ->
   ScalingTrigger
-scalingTrigger pCloudWatchAlarmDefinition_ =
+mkScalingTrigger pCloudWatchAlarmDefinition_ =
   ScalingTrigger'
-    { _stCloudWatchAlarmDefinition =
+    { cloudWatchAlarmDefinition =
         pCloudWatchAlarmDefinition_
     }
 
 -- | The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
-stCloudWatchAlarmDefinition :: Lens' ScalingTrigger CloudWatchAlarmDefinition
-stCloudWatchAlarmDefinition = lens _stCloudWatchAlarmDefinition (\s a -> s {_stCloudWatchAlarmDefinition = a})
+--
+-- /Note:/ Consider using 'cloudWatchAlarmDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stCloudWatchAlarmDefinition :: Lens.Lens' ScalingTrigger CloudWatchAlarmDefinition
+stCloudWatchAlarmDefinition = Lens.lens (cloudWatchAlarmDefinition :: ScalingTrigger -> CloudWatchAlarmDefinition) (\s a -> s {cloudWatchAlarmDefinition = a} :: ScalingTrigger)
+{-# DEPRECATED stCloudWatchAlarmDefinition "Use generic-lens or generic-optics with 'cloudWatchAlarmDefinition' instead." #-}
 
-instance FromJSON ScalingTrigger where
+instance Lude.FromJSON ScalingTrigger where
   parseJSON =
-    withObject
+    Lude.withObject
       "ScalingTrigger"
-      (\x -> ScalingTrigger' <$> (x .: "CloudWatchAlarmDefinition"))
+      ( \x ->
+          ScalingTrigger' Lude.<$> (x Lude..: "CloudWatchAlarmDefinition")
+      )
 
-instance Hashable ScalingTrigger
-
-instance NFData ScalingTrigger
-
-instance ToJSON ScalingTrigger where
+instance Lude.ToJSON ScalingTrigger where
   toJSON ScalingTrigger' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("CloudWatchAlarmDefinition" .= _stCloudWatchAlarmDefinition)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("CloudWatchAlarmDefinition" Lude..= cloudWatchAlarmDefinition)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.LambdaResource where
+module Network.AWS.Snowball.Types.LambdaResource
+  ( LambdaResource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLambdaResource,
+
+    -- * Lenses
+    lrEventTriggers,
+    lrLambdaARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Snowball.Types.EventTriggerDefinition
 
 -- | Identifies
 --
---
---
--- /See:/ 'lambdaResource' smart constructor.
+-- /See:/ 'mkLambdaResource' smart constructor.
 data LambdaResource = LambdaResource'
-  { _lrEventTriggers ::
-      !(Maybe [EventTriggerDefinition]),
-    _lrLambdaARN :: !(Maybe Text)
+  { eventTriggers ::
+      Lude.Maybe [EventTriggerDefinition],
+    lambdaARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrEventTriggers' - The array of ARNs for 'S3Resource' objects to trigger the 'LambdaResource' objects associated with this job.
---
--- * 'lrLambdaARN' - An Amazon Resource Name (ARN) that represents an AWS Lambda function to be triggered by PUT object actions on the associated local Amazon S3 resource.
-lambdaResource ::
+-- * 'eventTriggers' - The array of ARNs for 'S3Resource' objects to trigger the 'LambdaResource' objects associated with this job.
+-- * 'lambdaARN' - An Amazon Resource Name (ARN) that represents an AWS Lambda function to be triggered by PUT object actions on the associated local Amazon S3 resource.
+mkLambdaResource ::
   LambdaResource
-lambdaResource =
+mkLambdaResource =
   LambdaResource'
-    { _lrEventTriggers = Nothing,
-      _lrLambdaARN = Nothing
+    { eventTriggers = Lude.Nothing,
+      lambdaARN = Lude.Nothing
     }
 
 -- | The array of ARNs for 'S3Resource' objects to trigger the 'LambdaResource' objects associated with this job.
-lrEventTriggers :: Lens' LambdaResource [EventTriggerDefinition]
-lrEventTriggers = lens _lrEventTriggers (\s a -> s {_lrEventTriggers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventTriggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrEventTriggers :: Lens.Lens' LambdaResource (Lude.Maybe [EventTriggerDefinition])
+lrEventTriggers = Lens.lens (eventTriggers :: LambdaResource -> Lude.Maybe [EventTriggerDefinition]) (\s a -> s {eventTriggers = a} :: LambdaResource)
+{-# DEPRECATED lrEventTriggers "Use generic-lens or generic-optics with 'eventTriggers' instead." #-}
 
 -- | An Amazon Resource Name (ARN) that represents an AWS Lambda function to be triggered by PUT object actions on the associated local Amazon S3 resource.
-lrLambdaARN :: Lens' LambdaResource (Maybe Text)
-lrLambdaARN = lens _lrLambdaARN (\s a -> s {_lrLambdaARN = a})
+--
+-- /Note:/ Consider using 'lambdaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrLambdaARN :: Lens.Lens' LambdaResource (Lude.Maybe Lude.Text)
+lrLambdaARN = Lens.lens (lambdaARN :: LambdaResource -> Lude.Maybe Lude.Text) (\s a -> s {lambdaARN = a} :: LambdaResource)
+{-# DEPRECATED lrLambdaARN "Use generic-lens or generic-optics with 'lambdaARN' instead." #-}
 
-instance FromJSON LambdaResource where
+instance Lude.FromJSON LambdaResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "LambdaResource"
       ( \x ->
           LambdaResource'
-            <$> (x .:? "EventTriggers" .!= mempty) <*> (x .:? "LambdaArn")
+            Lude.<$> (x Lude..:? "EventTriggers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "LambdaArn")
       )
 
-instance Hashable LambdaResource
-
-instance NFData LambdaResource
-
-instance ToJSON LambdaResource where
+instance Lude.ToJSON LambdaResource where
   toJSON LambdaResource' {..} =
-    object
-      ( catMaybes
-          [ ("EventTriggers" .=) <$> _lrEventTriggers,
-            ("LambdaArn" .=) <$> _lrLambdaARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EventTriggers" Lude..=) Lude.<$> eventTriggers,
+            ("LambdaArn" Lude..=) Lude.<$> lambdaARN
           ]
       )

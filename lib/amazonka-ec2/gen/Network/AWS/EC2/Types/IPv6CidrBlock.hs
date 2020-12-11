@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.IPv6CidrBlock where
+module Network.AWS.EC2.Types.IPv6CidrBlock
+  ( IPv6CidrBlock (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIPv6CidrBlock,
+
+    -- * Lenses
+    icbIPv6CidrBlock,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an IPv6 CIDR block.
 --
---
---
--- /See:/ 'ipv6CidrBlock' smart constructor.
+-- /See:/ 'mkIPv6CidrBlock' smart constructor.
 newtype IPv6CidrBlock = IPv6CidrBlock'
-  { _icbIPv6CidrBlock ::
-      Maybe Text
+  { ipv6CidrBlock ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPv6CidrBlock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'icbIPv6CidrBlock' - The IPv6 CIDR block.
-ipv6CidrBlock ::
+-- * 'ipv6CidrBlock' - The IPv6 CIDR block.
+mkIPv6CidrBlock ::
   IPv6CidrBlock
-ipv6CidrBlock = IPv6CidrBlock' {_icbIPv6CidrBlock = Nothing}
+mkIPv6CidrBlock = IPv6CidrBlock' {ipv6CidrBlock = Lude.Nothing}
 
 -- | The IPv6 CIDR block.
-icbIPv6CidrBlock :: Lens' IPv6CidrBlock (Maybe Text)
-icbIPv6CidrBlock = lens _icbIPv6CidrBlock (\s a -> s {_icbIPv6CidrBlock = a})
+--
+-- /Note:/ Consider using 'ipv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icbIPv6CidrBlock :: Lens.Lens' IPv6CidrBlock (Lude.Maybe Lude.Text)
+icbIPv6CidrBlock = Lens.lens (ipv6CidrBlock :: IPv6CidrBlock -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlock = a} :: IPv6CidrBlock)
+{-# DEPRECATED icbIPv6CidrBlock "Use generic-lens or generic-optics with 'ipv6CidrBlock' instead." #-}
 
-instance FromXML IPv6CidrBlock where
-  parseXML x = IPv6CidrBlock' <$> (x .@? "ipv6CidrBlock")
-
-instance Hashable IPv6CidrBlock
-
-instance NFData IPv6CidrBlock
+instance Lude.FromXML IPv6CidrBlock where
+  parseXML x = IPv6CidrBlock' Lude.<$> (x Lude..@? "ipv6CidrBlock")

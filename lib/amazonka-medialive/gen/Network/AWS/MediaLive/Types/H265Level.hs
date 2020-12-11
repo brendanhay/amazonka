@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H265Level where
+module Network.AWS.MediaLive.Types.H265Level
+  ( H265Level
+      ( H265Level',
+        H265Level1,
+        H265Level2,
+        H265Level21,
+        H265Level3,
+        H265Level31,
+        H265Level4,
+        H265Level41,
+        H265Level5,
+        H265Level51,
+        H265Level52,
+        H265Level6,
+        H265Level61,
+        H265Level62,
+        H265LevelAuto
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H265 Level
-data H265Level
-  = H265Level1
-  | H265Level2
-  | H265Level21
-  | H265Level3
-  | H265Level31
-  | H265Level4
-  | H265Level41
-  | H265Level5
-  | H265Level51
-  | H265Level52
-  | H265Level6
-  | H265Level61
-  | H265Level62
-  | H265LevelAuto
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H265Level = H265Level' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H265Level where
-  parser =
-    takeLowerText >>= \case
-      "h265_level_1" -> pure H265Level1
-      "h265_level_2" -> pure H265Level2
-      "h265_level_2_1" -> pure H265Level21
-      "h265_level_3" -> pure H265Level3
-      "h265_level_3_1" -> pure H265Level31
-      "h265_level_4" -> pure H265Level4
-      "h265_level_4_1" -> pure H265Level41
-      "h265_level_5" -> pure H265Level5
-      "h265_level_5_1" -> pure H265Level51
-      "h265_level_5_2" -> pure H265Level52
-      "h265_level_6" -> pure H265Level6
-      "h265_level_6_1" -> pure H265Level61
-      "h265_level_6_2" -> pure H265Level62
-      "h265_level_auto" -> pure H265LevelAuto
-      e ->
-        fromTextError $
-          "Failure parsing H265Level from value: '" <> e
-            <> "'. Accepted values: h265_level_1, h265_level_2, h265_level_2_1, h265_level_3, h265_level_3_1, h265_level_4, h265_level_4_1, h265_level_5, h265_level_5_1, h265_level_5_2, h265_level_6, h265_level_6_1, h265_level_6_2, h265_level_auto"
+pattern H265Level1 :: H265Level
+pattern H265Level1 = H265Level' "H265_LEVEL_1"
 
-instance ToText H265Level where
-  toText = \case
-    H265Level1 -> "H265_LEVEL_1"
-    H265Level2 -> "H265_LEVEL_2"
-    H265Level21 -> "H265_LEVEL_2_1"
-    H265Level3 -> "H265_LEVEL_3"
-    H265Level31 -> "H265_LEVEL_3_1"
-    H265Level4 -> "H265_LEVEL_4"
-    H265Level41 -> "H265_LEVEL_4_1"
-    H265Level5 -> "H265_LEVEL_5"
-    H265Level51 -> "H265_LEVEL_5_1"
-    H265Level52 -> "H265_LEVEL_5_2"
-    H265Level6 -> "H265_LEVEL_6"
-    H265Level61 -> "H265_LEVEL_6_1"
-    H265Level62 -> "H265_LEVEL_6_2"
-    H265LevelAuto -> "H265_LEVEL_AUTO"
+pattern H265Level2 :: H265Level
+pattern H265Level2 = H265Level' "H265_LEVEL_2"
 
-instance Hashable H265Level
+pattern H265Level21 :: H265Level
+pattern H265Level21 = H265Level' "H265_LEVEL_2_1"
 
-instance NFData H265Level
+pattern H265Level3 :: H265Level
+pattern H265Level3 = H265Level' "H265_LEVEL_3"
 
-instance ToByteString H265Level
+pattern H265Level31 :: H265Level
+pattern H265Level31 = H265Level' "H265_LEVEL_3_1"
 
-instance ToQuery H265Level
+pattern H265Level4 :: H265Level
+pattern H265Level4 = H265Level' "H265_LEVEL_4"
 
-instance ToHeader H265Level
+pattern H265Level41 :: H265Level
+pattern H265Level41 = H265Level' "H265_LEVEL_4_1"
 
-instance ToJSON H265Level where
-  toJSON = toJSONText
+pattern H265Level5 :: H265Level
+pattern H265Level5 = H265Level' "H265_LEVEL_5"
 
-instance FromJSON H265Level where
-  parseJSON = parseJSONText "H265Level"
+pattern H265Level51 :: H265Level
+pattern H265Level51 = H265Level' "H265_LEVEL_5_1"
+
+pattern H265Level52 :: H265Level
+pattern H265Level52 = H265Level' "H265_LEVEL_5_2"
+
+pattern H265Level6 :: H265Level
+pattern H265Level6 = H265Level' "H265_LEVEL_6"
+
+pattern H265Level61 :: H265Level
+pattern H265Level61 = H265Level' "H265_LEVEL_6_1"
+
+pattern H265Level62 :: H265Level
+pattern H265Level62 = H265Level' "H265_LEVEL_6_2"
+
+pattern H265LevelAuto :: H265Level
+pattern H265LevelAuto = H265Level' "H265_LEVEL_AUTO"
+
+{-# COMPLETE
+  H265Level1,
+  H265Level2,
+  H265Level21,
+  H265Level3,
+  H265Level31,
+  H265Level4,
+  H265Level41,
+  H265Level5,
+  H265Level51,
+  H265Level52,
+  H265Level6,
+  H265Level61,
+  H265Level62,
+  H265LevelAuto,
+  H265Level'
+  #-}

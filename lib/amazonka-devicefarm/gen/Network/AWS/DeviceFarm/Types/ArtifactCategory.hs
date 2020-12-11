@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.ArtifactCategory where
+module Network.AWS.DeviceFarm.Types.ArtifactCategory
+  ( ArtifactCategory
+      ( ArtifactCategory',
+        File,
+        Log,
+        Screenshot
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ArtifactCategory
-  = File
-  | Log
-  | Screenshot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ArtifactCategory = ArtifactCategory' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ArtifactCategory where
-  parser =
-    takeLowerText >>= \case
-      "file" -> pure File
-      "log" -> pure Log
-      "screenshot" -> pure Screenshot
-      e ->
-        fromTextError $
-          "Failure parsing ArtifactCategory from value: '" <> e
-            <> "'. Accepted values: file, log, screenshot"
+pattern File :: ArtifactCategory
+pattern File = ArtifactCategory' "FILE"
 
-instance ToText ArtifactCategory where
-  toText = \case
-    File -> "FILE"
-    Log -> "LOG"
-    Screenshot -> "SCREENSHOT"
+pattern Log :: ArtifactCategory
+pattern Log = ArtifactCategory' "LOG"
 
-instance Hashable ArtifactCategory
+pattern Screenshot :: ArtifactCategory
+pattern Screenshot = ArtifactCategory' "SCREENSHOT"
 
-instance NFData ArtifactCategory
-
-instance ToByteString ArtifactCategory
-
-instance ToQuery ArtifactCategory
-
-instance ToHeader ArtifactCategory
-
-instance ToJSON ArtifactCategory where
-  toJSON = toJSONText
+{-# COMPLETE
+  File,
+  Log,
+  Screenshot,
+  ArtifactCategory'
+  #-}

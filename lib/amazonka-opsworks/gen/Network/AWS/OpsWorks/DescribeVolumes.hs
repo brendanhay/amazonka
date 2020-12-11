@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,175 @@
 --
 -- Describes an instance's Amazon EBS volumes.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DescribeVolumes
-  ( -- * Creating a Request
-    describeVolumes,
-    DescribeVolumes,
+  ( -- * Creating a request
+    DescribeVolumes (..),
+    mkDescribeVolumes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvInstanceId,
     dvVolumeIds,
-    dvRAIdArrayId,
+    dvRAIDArrayId,
     dvStackId,
 
-    -- * Destructuring the Response
-    describeVolumesResponse,
-    DescribeVolumesResponse,
+    -- * Destructuring the response
+    DescribeVolumesResponse (..),
+    mkDescribeVolumesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvrsVolumes,
     dvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVolumes' smart constructor.
+-- | /See:/ 'mkDescribeVolumes' smart constructor.
 data DescribeVolumes = DescribeVolumes'
-  { _dvInstanceId ::
-      !(Maybe Text),
-    _dvVolumeIds :: !(Maybe [Text]),
-    _dvRAIdArrayId :: !(Maybe Text),
-    _dvStackId :: !(Maybe Text)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    volumeIds :: Lude.Maybe [Lude.Text],
+    raidArrayId :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvInstanceId' - The instance ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified instance.
---
--- * 'dvVolumeIds' - Am array of volume IDs. If you use this parameter, @DescribeVolumes@ returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
---
--- * 'dvRAIdArrayId' - The RAID array ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified RAID array.
---
--- * 'dvStackId' - A stack ID. The action describes the stack's registered Amazon EBS volumes.
-describeVolumes ::
+-- * 'instanceId' - The instance ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified instance.
+-- * 'raidArrayId' - The RAID array ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified RAID array.
+-- * 'stackId' - A stack ID. The action describes the stack's registered Amazon EBS volumes.
+-- * 'volumeIds' - Am array of volume IDs. If you use this parameter, @DescribeVolumes@ returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
+mkDescribeVolumes ::
   DescribeVolumes
-describeVolumes =
+mkDescribeVolumes =
   DescribeVolumes'
-    { _dvInstanceId = Nothing,
-      _dvVolumeIds = Nothing,
-      _dvRAIdArrayId = Nothing,
-      _dvStackId = Nothing
+    { instanceId = Lude.Nothing,
+      volumeIds = Lude.Nothing,
+      raidArrayId = Lude.Nothing,
+      stackId = Lude.Nothing
     }
 
 -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified instance.
-dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
-dvInstanceId = lens _dvInstanceId (\s a -> s {_dvInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvInstanceId :: Lens.Lens' DescribeVolumes (Lude.Maybe Lude.Text)
+dvInstanceId = Lens.lens (instanceId :: DescribeVolumes -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DescribeVolumes)
+{-# DEPRECATED dvInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@ returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
-dvVolumeIds :: Lens' DescribeVolumes [Text]
-dvVolumeIds = lens _dvVolumeIds (\s a -> s {_dvVolumeIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'volumeIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvVolumeIds :: Lens.Lens' DescribeVolumes (Lude.Maybe [Lude.Text])
+dvVolumeIds = Lens.lens (volumeIds :: DescribeVolumes -> Lude.Maybe [Lude.Text]) (\s a -> s {volumeIds = a} :: DescribeVolumes)
+{-# DEPRECATED dvVolumeIds "Use generic-lens or generic-optics with 'volumeIds' instead." #-}
 
 -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified RAID array.
-dvRAIdArrayId :: Lens' DescribeVolumes (Maybe Text)
-dvRAIdArrayId = lens _dvRAIdArrayId (\s a -> s {_dvRAIdArrayId = a})
+--
+-- /Note:/ Consider using 'raidArrayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvRAIDArrayId :: Lens.Lens' DescribeVolumes (Lude.Maybe Lude.Text)
+dvRAIDArrayId = Lens.lens (raidArrayId :: DescribeVolumes -> Lude.Maybe Lude.Text) (\s a -> s {raidArrayId = a} :: DescribeVolumes)
+{-# DEPRECATED dvRAIDArrayId "Use generic-lens or generic-optics with 'raidArrayId' instead." #-}
 
 -- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
-dvStackId :: Lens' DescribeVolumes (Maybe Text)
-dvStackId = lens _dvStackId (\s a -> s {_dvStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvStackId :: Lens.Lens' DescribeVolumes (Lude.Maybe Lude.Text)
+dvStackId = Lens.lens (stackId :: DescribeVolumes -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DescribeVolumes)
+{-# DEPRECATED dvStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest DescribeVolumes where
+instance Lude.AWSRequest DescribeVolumes where
   type Rs DescribeVolumes = DescribeVolumesResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeVolumesResponse'
-            <$> (x .?> "Volumes" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Volumes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVolumes
-
-instance NFData DescribeVolumes
-
-instance ToHeaders DescribeVolumes where
+instance Lude.ToHeaders DescribeVolumes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeVolumes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeVolumes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeVolumes where
+instance Lude.ToJSON DescribeVolumes where
   toJSON DescribeVolumes' {..} =
-    object
-      ( catMaybes
-          [ ("InstanceId" .=) <$> _dvInstanceId,
-            ("VolumeIds" .=) <$> _dvVolumeIds,
-            ("RaidArrayId" .=) <$> _dvRAIdArrayId,
-            ("StackId" .=) <$> _dvStackId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InstanceId" Lude..=) Lude.<$> instanceId,
+            ("VolumeIds" Lude..=) Lude.<$> volumeIds,
+            ("RaidArrayId" Lude..=) Lude.<$> raidArrayId,
+            ("StackId" Lude..=) Lude.<$> stackId
           ]
       )
 
-instance ToPath DescribeVolumes where
-  toPath = const "/"
+instance Lude.ToPath DescribeVolumes where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeVolumes where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeVolumes where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeVolumes@ request.
 --
---
---
--- /See:/ 'describeVolumesResponse' smart constructor.
+-- /See:/ 'mkDescribeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
-  { _dvrsVolumes ::
-      !(Maybe [Volume]),
-    _dvrsResponseStatus :: !Int
+  { volumes ::
+      Lude.Maybe [Volume],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvrsVolumes' - An array of volume IDs.
---
--- * 'dvrsResponseStatus' - -- | The response status code.
-describeVolumesResponse ::
-  -- | 'dvrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'volumes' - An array of volume IDs.
+mkDescribeVolumesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVolumesResponse
-describeVolumesResponse pResponseStatus_ =
+mkDescribeVolumesResponse pResponseStatus_ =
   DescribeVolumesResponse'
-    { _dvrsVolumes = Nothing,
-      _dvrsResponseStatus = pResponseStatus_
+    { volumes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of volume IDs.
-dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrsVolumes = lens _dvrsVolumes (\s a -> s {_dvrsVolumes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'volumes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvrsVolumes :: Lens.Lens' DescribeVolumesResponse (Lude.Maybe [Volume])
+dvrsVolumes = Lens.lens (volumes :: DescribeVolumesResponse -> Lude.Maybe [Volume]) (\s a -> s {volumes = a} :: DescribeVolumesResponse)
+{-# DEPRECATED dvrsVolumes "Use generic-lens or generic-optics with 'volumes' instead." #-}
 
--- | -- | The response status code.
-dvrsResponseStatus :: Lens' DescribeVolumesResponse Int
-dvrsResponseStatus = lens _dvrsResponseStatus (\s a -> s {_dvrsResponseStatus = a})
-
-instance NFData DescribeVolumesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvrsResponseStatus :: Lens.Lens' DescribeVolumesResponse Lude.Int
+dvrsResponseStatus = Lens.lens (responseStatus :: DescribeVolumesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVolumesResponse)
+{-# DEPRECATED dvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

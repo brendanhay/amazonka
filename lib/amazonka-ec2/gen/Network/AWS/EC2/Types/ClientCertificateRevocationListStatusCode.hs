@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientCertificateRevocationListStatusCode where
+module Network.AWS.EC2.Types.ClientCertificateRevocationListStatusCode
+  ( ClientCertificateRevocationListStatusCode
+      ( ClientCertificateRevocationListStatusCode',
+        CCRLSCActive,
+        CCRLSCPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClientCertificateRevocationListStatusCode
-  = CCRLSCActive
-  | CCRLSCPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClientCertificateRevocationListStatusCode = ClientCertificateRevocationListStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClientCertificateRevocationListStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CCRLSCActive
-      "pending" -> pure CCRLSCPending
-      e ->
-        fromTextError $
-          "Failure parsing ClientCertificateRevocationListStatusCode from value: '" <> e
-            <> "'. Accepted values: active, pending"
+pattern CCRLSCActive :: ClientCertificateRevocationListStatusCode
+pattern CCRLSCActive = ClientCertificateRevocationListStatusCode' "active"
 
-instance ToText ClientCertificateRevocationListStatusCode where
-  toText = \case
-    CCRLSCActive -> "active"
-    CCRLSCPending -> "pending"
+pattern CCRLSCPending :: ClientCertificateRevocationListStatusCode
+pattern CCRLSCPending = ClientCertificateRevocationListStatusCode' "pending"
 
-instance Hashable ClientCertificateRevocationListStatusCode
-
-instance NFData ClientCertificateRevocationListStatusCode
-
-instance ToByteString ClientCertificateRevocationListStatusCode
-
-instance ToQuery ClientCertificateRevocationListStatusCode
-
-instance ToHeader ClientCertificateRevocationListStatusCode
-
-instance FromXML ClientCertificateRevocationListStatusCode where
-  parseXML = parseXMLText "ClientCertificateRevocationListStatusCode"
+{-# COMPLETE
+  CCRLSCActive,
+  CCRLSCPending,
+  ClientCertificateRevocationListStatusCode'
+  #-}

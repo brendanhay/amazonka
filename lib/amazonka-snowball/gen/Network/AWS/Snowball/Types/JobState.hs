@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.JobState where
+module Network.AWS.Snowball.Types.JobState
+  ( JobState
+      ( JobState',
+        JSCancelled,
+        JSComplete,
+        JSInProgress,
+        JSInTransitToAWS,
+        JSInTransitToCustomer,
+        JSListing,
+        JSNew,
+        JSPending,
+        JSPreparingAppliance,
+        JSPreparingShipment,
+        JSWithAWS,
+        JSWithAWSSortingFacility,
+        JSWithCustomer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobState
-  = JSCancelled
-  | JSComplete
-  | JSInProgress
-  | JSInTransitToAWS
-  | JSInTransitToCustomer
-  | JSListing
-  | JSNew
-  | JSPending
-  | JSPreparingAppliance
-  | JSPreparingShipment
-  | JSWithAWS
-  | JSWithAWSSortingFacility
-  | JSWithCustomer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobState = JobState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobState where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure JSCancelled
-      "complete" -> pure JSComplete
-      "inprogress" -> pure JSInProgress
-      "intransittoaws" -> pure JSInTransitToAWS
-      "intransittocustomer" -> pure JSInTransitToCustomer
-      "listing" -> pure JSListing
-      "new" -> pure JSNew
-      "pending" -> pure JSPending
-      "preparingappliance" -> pure JSPreparingAppliance
-      "preparingshipment" -> pure JSPreparingShipment
-      "withaws" -> pure JSWithAWS
-      "withawssortingfacility" -> pure JSWithAWSSortingFacility
-      "withcustomer" -> pure JSWithCustomer
-      e ->
-        fromTextError $
-          "Failure parsing JobState from value: '" <> e
-            <> "'. Accepted values: cancelled, complete, inprogress, intransittoaws, intransittocustomer, listing, new, pending, preparingappliance, preparingshipment, withaws, withawssortingfacility, withcustomer"
+pattern JSCancelled :: JobState
+pattern JSCancelled = JobState' "Cancelled"
 
-instance ToText JobState where
-  toText = \case
-    JSCancelled -> "Cancelled"
-    JSComplete -> "Complete"
-    JSInProgress -> "InProgress"
-    JSInTransitToAWS -> "InTransitToAWS"
-    JSInTransitToCustomer -> "InTransitToCustomer"
-    JSListing -> "Listing"
-    JSNew -> "New"
-    JSPending -> "Pending"
-    JSPreparingAppliance -> "PreparingAppliance"
-    JSPreparingShipment -> "PreparingShipment"
-    JSWithAWS -> "WithAWS"
-    JSWithAWSSortingFacility -> "WithAWSSortingFacility"
-    JSWithCustomer -> "WithCustomer"
+pattern JSComplete :: JobState
+pattern JSComplete = JobState' "Complete"
 
-instance Hashable JobState
+pattern JSInProgress :: JobState
+pattern JSInProgress = JobState' "InProgress"
 
-instance NFData JobState
+pattern JSInTransitToAWS :: JobState
+pattern JSInTransitToAWS = JobState' "InTransitToAWS"
 
-instance ToByteString JobState
+pattern JSInTransitToCustomer :: JobState
+pattern JSInTransitToCustomer = JobState' "InTransitToCustomer"
 
-instance ToQuery JobState
+pattern JSListing :: JobState
+pattern JSListing = JobState' "Listing"
 
-instance ToHeader JobState
+pattern JSNew :: JobState
+pattern JSNew = JobState' "New"
 
-instance ToJSON JobState where
-  toJSON = toJSONText
+pattern JSPending :: JobState
+pattern JSPending = JobState' "Pending"
 
-instance FromJSON JobState where
-  parseJSON = parseJSONText "JobState"
+pattern JSPreparingAppliance :: JobState
+pattern JSPreparingAppliance = JobState' "PreparingAppliance"
+
+pattern JSPreparingShipment :: JobState
+pattern JSPreparingShipment = JobState' "PreparingShipment"
+
+pattern JSWithAWS :: JobState
+pattern JSWithAWS = JobState' "WithAWS"
+
+pattern JSWithAWSSortingFacility :: JobState
+pattern JSWithAWSSortingFacility = JobState' "WithAWSSortingFacility"
+
+pattern JSWithCustomer :: JobState
+pattern JSWithCustomer = JobState' "WithCustomer"
+
+{-# COMPLETE
+  JSCancelled,
+  JSComplete,
+  JSInProgress,
+  JSInTransitToAWS,
+  JSInTransitToCustomer,
+  JSListing,
+  JSNew,
+  JSPending,
+  JSPreparingAppliance,
+  JSPreparingShipment,
+  JSWithAWS,
+  JSWithAWSSortingFacility,
+  JSWithCustomer,
+  JobState'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,175 +14,178 @@
 --
 -- Disassociates the specified subnets from the transit gateway multicast domain.
 module Network.AWS.EC2.DisassociateTransitGatewayMulticastDomain
-  ( -- * Creating a Request
-    disassociateTransitGatewayMulticastDomain,
-    DisassociateTransitGatewayMulticastDomain,
+  ( -- * Creating a request
+    DisassociateTransitGatewayMulticastDomain (..),
+    mkDisassociateTransitGatewayMulticastDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtgmdtSubnetIds,
     dtgmdtTransitGatewayMulticastDomainId,
     dtgmdtTransitGatewayAttachmentId,
     dtgmdtDryRun,
 
-    -- * Destructuring the Response
-    disassociateTransitGatewayMulticastDomainResponse,
-    DisassociateTransitGatewayMulticastDomainResponse,
+    -- * Destructuring the response
+    DisassociateTransitGatewayMulticastDomainResponse (..),
+    mkDisassociateTransitGatewayMulticastDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtgmdrsAssociations,
     dtgmdrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateTransitGatewayMulticastDomain' smart constructor.
+-- | /See:/ 'mkDisassociateTransitGatewayMulticastDomain' smart constructor.
 data DisassociateTransitGatewayMulticastDomain = DisassociateTransitGatewayMulticastDomain'
-  { _dtgmdtSubnetIds ::
-      !( Maybe
-           [Text]
-       ),
-    _dtgmdtTransitGatewayMulticastDomainId ::
-      !( Maybe
-           Text
-       ),
-    _dtgmdtTransitGatewayAttachmentId ::
-      !( Maybe
-           Text
-       ),
-    _dtgmdtDryRun ::
-      !( Maybe
-           Bool
-       )
+  { subnetIds ::
+      Lude.Maybe
+        [Lude.Text],
+    transitGatewayMulticastDomainId ::
+      Lude.Maybe
+        Lude.Text,
+    transitGatewayAttachmentId ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTransitGatewayMulticastDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgmdtSubnetIds' - The IDs of the subnets;
---
--- * 'dtgmdtTransitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
---
--- * 'dtgmdtTransitGatewayAttachmentId' - The ID of the attachment.
---
--- * 'dtgmdtDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-disassociateTransitGatewayMulticastDomain ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'subnetIds' - The IDs of the subnets;
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+mkDisassociateTransitGatewayMulticastDomain ::
   DisassociateTransitGatewayMulticastDomain
-disassociateTransitGatewayMulticastDomain =
+mkDisassociateTransitGatewayMulticastDomain =
   DisassociateTransitGatewayMulticastDomain'
-    { _dtgmdtSubnetIds =
-        Nothing,
-      _dtgmdtTransitGatewayMulticastDomainId = Nothing,
-      _dtgmdtTransitGatewayAttachmentId = Nothing,
-      _dtgmdtDryRun = Nothing
+    { subnetIds =
+        Lude.Nothing,
+      transitGatewayMulticastDomainId = Lude.Nothing,
+      transitGatewayAttachmentId = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The IDs of the subnets;
-dtgmdtSubnetIds :: Lens' DisassociateTransitGatewayMulticastDomain [Text]
-dtgmdtSubnetIds = lens _dtgmdtSubnetIds (\s a -> s {_dtgmdtSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdtSubnetIds :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Lude.Maybe [Lude.Text])
+dtgmdtSubnetIds = Lens.lens (subnetIds :: DisassociateTransitGatewayMulticastDomain -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: DisassociateTransitGatewayMulticastDomain)
+{-# DEPRECATED dtgmdtSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The ID of the transit gateway multicast domain.
-dtgmdtTransitGatewayMulticastDomainId :: Lens' DisassociateTransitGatewayMulticastDomain (Maybe Text)
-dtgmdtTransitGatewayMulticastDomainId = lens _dtgmdtTransitGatewayMulticastDomainId (\s a -> s {_dtgmdtTransitGatewayMulticastDomainId = a})
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdtTransitGatewayMulticastDomainId :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Lude.Maybe Lude.Text)
+dtgmdtTransitGatewayMulticastDomainId = Lens.lens (transitGatewayMulticastDomainId :: DisassociateTransitGatewayMulticastDomain -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayMulticastDomainId = a} :: DisassociateTransitGatewayMulticastDomain)
+{-# DEPRECATED dtgmdtTransitGatewayMulticastDomainId "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainId' instead." #-}
 
 -- | The ID of the attachment.
-dtgmdtTransitGatewayAttachmentId :: Lens' DisassociateTransitGatewayMulticastDomain (Maybe Text)
-dtgmdtTransitGatewayAttachmentId = lens _dtgmdtTransitGatewayAttachmentId (\s a -> s {_dtgmdtTransitGatewayAttachmentId = a})
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdtTransitGatewayAttachmentId :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Lude.Maybe Lude.Text)
+dtgmdtTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: DisassociateTransitGatewayMulticastDomain -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: DisassociateTransitGatewayMulticastDomain)
+{-# DEPRECATED dtgmdtTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dtgmdtDryRun :: Lens' DisassociateTransitGatewayMulticastDomain (Maybe Bool)
-dtgmdtDryRun = lens _dtgmdtDryRun (\s a -> s {_dtgmdtDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdtDryRun :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Lude.Maybe Lude.Bool)
+dtgmdtDryRun = Lens.lens (dryRun :: DisassociateTransitGatewayMulticastDomain -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DisassociateTransitGatewayMulticastDomain)
+{-# DEPRECATED dtgmdtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DisassociateTransitGatewayMulticastDomain where
+instance Lude.AWSRequest DisassociateTransitGatewayMulticastDomain where
   type
     Rs DisassociateTransitGatewayMulticastDomain =
       DisassociateTransitGatewayMulticastDomainResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DisassociateTransitGatewayMulticastDomainResponse'
-            <$> (x .@? "associations") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "associations") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateTransitGatewayMulticastDomain
+instance Lude.ToHeaders DisassociateTransitGatewayMulticastDomain where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisassociateTransitGatewayMulticastDomain
+instance Lude.ToPath DisassociateTransitGatewayMulticastDomain where
+  toPath = Lude.const "/"
 
-instance ToHeaders DisassociateTransitGatewayMulticastDomain where
-  toHeaders = const mempty
-
-instance ToPath DisassociateTransitGatewayMulticastDomain where
-  toPath = const "/"
-
-instance ToQuery DisassociateTransitGatewayMulticastDomain where
+instance Lude.ToQuery DisassociateTransitGatewayMulticastDomain where
   toQuery DisassociateTransitGatewayMulticastDomain' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DisassociateTransitGatewayMulticastDomain" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "SubnetIds" <$> _dtgmdtSubnetIds),
+          Lude.=: ("DisassociateTransitGatewayMulticastDomain" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "SubnetIds" Lude.<$> subnetIds),
         "TransitGatewayMulticastDomainId"
-          =: _dtgmdtTransitGatewayMulticastDomainId,
-        "TransitGatewayAttachmentId" =: _dtgmdtTransitGatewayAttachmentId,
-        "DryRun" =: _dtgmdtDryRun
+          Lude.=: transitGatewayMulticastDomainId,
+        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'disassociateTransitGatewayMulticastDomainResponse' smart constructor.
+-- | /See:/ 'mkDisassociateTransitGatewayMulticastDomainResponse' smart constructor.
 data DisassociateTransitGatewayMulticastDomainResponse = DisassociateTransitGatewayMulticastDomainResponse'
-  { _dtgmdrsAssociations ::
-      !( Maybe
-           TransitGatewayMulticastDomainAssociations
-       ),
-    _dtgmdrsResponseStatus ::
-      !Int
+  { associations ::
+      Lude.Maybe
+        TransitGatewayMulticastDomainAssociations,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DisassociateTransitGatewayMulticastDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgmdrsAssociations' - Information about the association.
---
--- * 'dtgmdrsResponseStatus' - -- | The response status code.
-disassociateTransitGatewayMulticastDomainResponse ::
-  -- | 'dtgmdrsResponseStatus'
-  Int ->
+-- * 'associations' - Information about the association.
+-- * 'responseStatus' - The response status code.
+mkDisassociateTransitGatewayMulticastDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateTransitGatewayMulticastDomainResponse
-disassociateTransitGatewayMulticastDomainResponse pResponseStatus_ =
-  DisassociateTransitGatewayMulticastDomainResponse'
-    { _dtgmdrsAssociations =
-        Nothing,
-      _dtgmdrsResponseStatus = pResponseStatus_
-    }
+mkDisassociateTransitGatewayMulticastDomainResponse
+  pResponseStatus_ =
+    DisassociateTransitGatewayMulticastDomainResponse'
+      { associations =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
 -- | Information about the association.
-dtgmdrsAssociations :: Lens' DisassociateTransitGatewayMulticastDomainResponse (Maybe TransitGatewayMulticastDomainAssociations)
-dtgmdrsAssociations = lens _dtgmdrsAssociations (\s a -> s {_dtgmdrsAssociations = a})
+--
+-- /Note:/ Consider using 'associations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdrsAssociations :: Lens.Lens' DisassociateTransitGatewayMulticastDomainResponse (Lude.Maybe TransitGatewayMulticastDomainAssociations)
+dtgmdrsAssociations = Lens.lens (associations :: DisassociateTransitGatewayMulticastDomainResponse -> Lude.Maybe TransitGatewayMulticastDomainAssociations) (\s a -> s {associations = a} :: DisassociateTransitGatewayMulticastDomainResponse)
+{-# DEPRECATED dtgmdrsAssociations "Use generic-lens or generic-optics with 'associations' instead." #-}
 
--- | -- | The response status code.
-dtgmdrsResponseStatus :: Lens' DisassociateTransitGatewayMulticastDomainResponse Int
-dtgmdrsResponseStatus = lens _dtgmdrsResponseStatus (\s a -> s {_dtgmdrsResponseStatus = a})
-
-instance NFData DisassociateTransitGatewayMulticastDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdrsResponseStatus :: Lens.Lens' DisassociateTransitGatewayMulticastDomainResponse Lude.Int
+dtgmdrsResponseStatus = Lens.lens (responseStatus :: DisassociateTransitGatewayMulticastDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateTransitGatewayMulticastDomainResponse)
+{-# DEPRECATED dtgmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

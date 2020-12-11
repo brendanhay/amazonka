@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,88 @@
 --
 -- Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications> .
 --
---
 -- When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.
 module Network.AWS.SNS.DeleteEndpoint
-  ( -- * Creating a Request
-    deleteEndpoint,
-    DeleteEndpoint,
+  ( -- * Creating a request
+    DeleteEndpoint (..),
+    mkDeleteEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deEndpointARN,
 
-    -- * Destructuring the Response
-    deleteEndpointResponse,
-    DeleteEndpointResponse,
+    -- * Destructuring the response
+    DeleteEndpointResponse (..),
+    mkDeleteEndpointResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
 -- | Input for DeleteEndpoint action.
 --
---
---
--- /See:/ 'deleteEndpoint' smart constructor.
-newtype DeleteEndpoint = DeleteEndpoint' {_deEndpointARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteEndpoint' smart constructor.
+newtype DeleteEndpoint = DeleteEndpoint' {endpointARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deEndpointARN' - EndpointArn of endpoint to delete.
-deleteEndpoint ::
-  -- | 'deEndpointARN'
-  Text ->
+-- * 'endpointARN' - EndpointArn of endpoint to delete.
+mkDeleteEndpoint ::
+  -- | 'endpointARN'
+  Lude.Text ->
   DeleteEndpoint
-deleteEndpoint pEndpointARN_ =
-  DeleteEndpoint' {_deEndpointARN = pEndpointARN_}
+mkDeleteEndpoint pEndpointARN_ =
+  DeleteEndpoint' {endpointARN = pEndpointARN_}
 
 -- | EndpointArn of endpoint to delete.
-deEndpointARN :: Lens' DeleteEndpoint Text
-deEndpointARN = lens _deEndpointARN (\s a -> s {_deEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEndpointARN :: Lens.Lens' DeleteEndpoint Lude.Text
+deEndpointARN = Lens.lens (endpointARN :: DeleteEndpoint -> Lude.Text) (\s a -> s {endpointARN = a} :: DeleteEndpoint)
+{-# DEPRECATED deEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
-instance AWSRequest DeleteEndpoint where
+instance Lude.AWSRequest DeleteEndpoint where
   type Rs DeleteEndpoint = DeleteEndpointResponse
-  request = postQuery sns
-  response = receiveNull DeleteEndpointResponse'
+  request = Req.postQuery snsService
+  response = Res.receiveNull DeleteEndpointResponse'
 
-instance Hashable DeleteEndpoint
+instance Lude.ToHeaders DeleteEndpoint where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteEndpoint
+instance Lude.ToPath DeleteEndpoint where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteEndpoint where
-  toHeaders = const mempty
-
-instance ToPath DeleteEndpoint where
-  toPath = const "/"
-
-instance ToQuery DeleteEndpoint where
+instance Lude.ToQuery DeleteEndpoint where
   toQuery DeleteEndpoint' {..} =
-    mconcat
-      [ "Action" =: ("DeleteEndpoint" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "EndpointArn" =: _deEndpointARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteEndpoint" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "EndpointArn" Lude.=: endpointARN
       ]
 
--- | /See:/ 'deleteEndpointResponse' smart constructor.
+-- | /See:/ 'mkDeleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEndpointResponse' with the minimum fields required to make a request.
-deleteEndpointResponse ::
+mkDeleteEndpointResponse ::
   DeleteEndpointResponse
-deleteEndpointResponse = DeleteEndpointResponse'
-
-instance NFData DeleteEndpointResponse
+mkDeleteEndpointResponse = DeleteEndpointResponse'

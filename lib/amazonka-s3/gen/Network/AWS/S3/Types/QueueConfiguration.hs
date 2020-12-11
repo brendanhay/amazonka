@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.QueueConfiguration where
+module Network.AWS.S3.Types.QueueConfiguration
+  ( QueueConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkQueueConfiguration,
+
+    -- * Lenses
+    qcId,
+    qcFilter,
+    qcQueueARN,
+    qcEvents,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Event
 import Network.AWS.S3.Types.NotificationConfigurationFilter
 
 -- | Specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.
 --
---
---
--- /See:/ 'queueConfiguration' smart constructor.
+-- /See:/ 'mkQueueConfiguration' smart constructor.
 data QueueConfiguration = QueueConfiguration'
-  { _qcId ::
-      !(Maybe Text),
-    _qcFilter :: !(Maybe NotificationConfigurationFilter),
-    _qcQueueARN :: !Text,
-    _qcEvents :: ![Event]
+  { id ::
+      Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe NotificationConfigurationFilter,
+    queueARN :: Lude.Text,
+    events :: [Event]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueueConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qcId' - Undocumented member.
---
--- * 'qcFilter' - Undocumented member.
---
--- * 'qcQueueARN' - The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
---
--- * 'qcEvents' - A collection of bucket events for which to send notifications
-queueConfiguration ::
-  -- | 'qcQueueARN'
-  Text ->
+-- * 'events' - A collection of bucket events for which to send notifications
+-- * 'filter' - Undocumented field.
+-- * 'id' - Undocumented field.
+-- * 'queueARN' - The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
+mkQueueConfiguration ::
+  -- | 'queueARN'
+  Lude.Text ->
   QueueConfiguration
-queueConfiguration pQueueARN_ =
+mkQueueConfiguration pQueueARN_ =
   QueueConfiguration'
-    { _qcId = Nothing,
-      _qcFilter = Nothing,
-      _qcQueueARN = pQueueARN_,
-      _qcEvents = mempty
+    { id = Lude.Nothing,
+      filter = Lude.Nothing,
+      queueARN = pQueueARN_,
+      events = Lude.mempty
     }
 
--- | Undocumented member.
-qcId :: Lens' QueueConfiguration (Maybe Text)
-qcId = lens _qcId (\s a -> s {_qcId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qcId :: Lens.Lens' QueueConfiguration (Lude.Maybe Lude.Text)
+qcId = Lens.lens (id :: QueueConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: QueueConfiguration)
+{-# DEPRECATED qcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | Undocumented member.
-qcFilter :: Lens' QueueConfiguration (Maybe NotificationConfigurationFilter)
-qcFilter = lens _qcFilter (\s a -> s {_qcFilter = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qcFilter :: Lens.Lens' QueueConfiguration (Lude.Maybe NotificationConfigurationFilter)
+qcFilter = Lens.lens (filter :: QueueConfiguration -> Lude.Maybe NotificationConfigurationFilter) (\s a -> s {filter = a} :: QueueConfiguration)
+{-# DEPRECATED qcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
-qcQueueARN :: Lens' QueueConfiguration Text
-qcQueueARN = lens _qcQueueARN (\s a -> s {_qcQueueARN = a})
+--
+-- /Note:/ Consider using 'queueARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qcQueueARN :: Lens.Lens' QueueConfiguration Lude.Text
+qcQueueARN = Lens.lens (queueARN :: QueueConfiguration -> Lude.Text) (\s a -> s {queueARN = a} :: QueueConfiguration)
+{-# DEPRECATED qcQueueARN "Use generic-lens or generic-optics with 'queueARN' instead." #-}
 
 -- | A collection of bucket events for which to send notifications
-qcEvents :: Lens' QueueConfiguration [Event]
-qcEvents = lens _qcEvents (\s a -> s {_qcEvents = a}) . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qcEvents :: Lens.Lens' QueueConfiguration [Event]
+qcEvents = Lens.lens (events :: QueueConfiguration -> [Event]) (\s a -> s {events = a} :: QueueConfiguration)
+{-# DEPRECATED qcEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
-instance FromXML QueueConfiguration where
+instance Lude.FromXML QueueConfiguration where
   parseXML x =
     QueueConfiguration'
-      <$> (x .@? "Id")
-      <*> (x .@? "Filter")
-      <*> (x .@ "Queue")
-      <*> (parseXMLList "Event" x)
+      Lude.<$> (x Lude..@? "Id")
+      Lude.<*> (x Lude..@? "Filter")
+      Lude.<*> (x Lude..@ "Queue")
+      Lude.<*> (Lude.parseXMLList "Event" x)
 
-instance Hashable QueueConfiguration
-
-instance NFData QueueConfiguration
-
-instance ToXML QueueConfiguration where
+instance Lude.ToXML QueueConfiguration where
   toXML QueueConfiguration' {..} =
-    mconcat
-      [ "Id" @= _qcId,
-        "Filter" @= _qcFilter,
-        "Queue" @= _qcQueueARN,
-        toXMLList "Event" _qcEvents
+    Lude.mconcat
+      [ "Id" Lude.@= id,
+        "Filter" Lude.@= filter,
+        "Queue" Lude.@= queueARN,
+        Lude.toXMLList "Event" events
       ]

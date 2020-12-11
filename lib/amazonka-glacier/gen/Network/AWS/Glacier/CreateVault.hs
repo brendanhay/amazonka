@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,150 @@
 --
 -- This operation creates a new vault with the specified name. The name of the vault must be unique within a region for an AWS account. You can create up to 1,000 vaults per account. If you need to create more vaults, contact Amazon S3 Glacier.
 --
---
 -- You must use the following guidelines when naming a vault.
 --
 --     * Names can be between 1 and 255 characters long.
 --
+--
 --     * Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
 --
 --
---
 -- This operation is idempotent.
---
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
---
 -- For conceptual information and underlying REST API, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/creating-vaults.html Creating a Vault in Amazon Glacier> and <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-put.html Create Vault > in the /Amazon Glacier Developer Guide/ .
 module Network.AWS.Glacier.CreateVault
-  ( -- * Creating a Request
-    createVault,
-    CreateVault,
+  ( -- * Creating a request
+    CreateVault (..),
+    mkCreateVault,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cvAccountId,
     cvVaultName,
 
-    -- * Destructuring the Response
-    createVaultResponse,
-    CreateVaultResponse,
+    -- * Destructuring the response
+    CreateVaultResponse (..),
+    mkCreateVaultResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cvrsLocation,
     cvrsResponseStatus,
   )
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Provides options to create a vault.
 --
---
---
--- /See:/ 'createVault' smart constructor.
+-- /See:/ 'mkCreateVault' smart constructor.
 data CreateVault = CreateVault'
-  { _cvAccountId :: !Text,
-    _cvVaultName :: !Text
+  { accountId :: Lude.Text,
+    vaultName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVault' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
---
--- * 'cvVaultName' - The name of the vault.
-createVault ::
-  -- | 'cvAccountId'
-  Text ->
-  -- | 'cvVaultName'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+-- * 'vaultName' - The name of the vault.
+mkCreateVault ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
   CreateVault
-createVault pAccountId_ pVaultName_ =
-  CreateVault'
-    { _cvAccountId = pAccountId_,
-      _cvVaultName = pVaultName_
-    }
+mkCreateVault pAccountId_ pVaultName_ =
+  CreateVault' {accountId = pAccountId_, vaultName = pVaultName_}
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
-cvAccountId :: Lens' CreateVault Text
-cvAccountId = lens _cvAccountId (\s a -> s {_cvAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvAccountId :: Lens.Lens' CreateVault Lude.Text
+cvAccountId = Lens.lens (accountId :: CreateVault -> Lude.Text) (\s a -> s {accountId = a} :: CreateVault)
+{-# DEPRECATED cvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-cvVaultName :: Lens' CreateVault Text
-cvVaultName = lens _cvVaultName (\s a -> s {_cvVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvVaultName :: Lens.Lens' CreateVault Lude.Text
+cvVaultName = Lens.lens (vaultName :: CreateVault -> Lude.Text) (\s a -> s {vaultName = a} :: CreateVault)
+{-# DEPRECATED cvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance AWSRequest CreateVault where
+instance Lude.AWSRequest CreateVault where
   type Rs CreateVault = CreateVaultResponse
-  request = putJSON glacier
+  request = Req.putJSON glacierService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           CreateVaultResponse'
-            <$> (h .#? "Location") <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "Location") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateVault
+instance Lude.ToHeaders CreateVault where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateVault
+instance Lude.ToJSON CreateVault where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders CreateVault where
-  toHeaders = const mempty
-
-instance ToJSON CreateVault where
-  toJSON = const (Object mempty)
-
-instance ToPath CreateVault where
+instance Lude.ToPath CreateVault where
   toPath CreateVault' {..} =
-    mconcat ["/", toBS _cvAccountId, "/vaults/", toBS _cvVaultName]
+    Lude.mconcat
+      ["/", Lude.toBS accountId, "/vaults/", Lude.toBS vaultName]
 
-instance ToQuery CreateVault where
-  toQuery = const mempty
+instance Lude.ToQuery CreateVault where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
---
---
--- /See:/ 'createVaultResponse' smart constructor.
+-- /See:/ 'mkCreateVaultResponse' smart constructor.
 data CreateVaultResponse = CreateVaultResponse'
-  { _cvrsLocation ::
-      !(Maybe Text),
-    _cvrsResponseStatus :: !Int
+  { location ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVaultResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvrsLocation' - The URI of the vault that was created.
---
--- * 'cvrsResponseStatus' - -- | The response status code.
-createVaultResponse ::
-  -- | 'cvrsResponseStatus'
-  Int ->
+-- * 'location' - The URI of the vault that was created.
+-- * 'responseStatus' - The response status code.
+mkCreateVaultResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateVaultResponse
-createVaultResponse pResponseStatus_ =
+mkCreateVaultResponse pResponseStatus_ =
   CreateVaultResponse'
-    { _cvrsLocation = Nothing,
-      _cvrsResponseStatus = pResponseStatus_
+    { location = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The URI of the vault that was created.
-cvrsLocation :: Lens' CreateVaultResponse (Maybe Text)
-cvrsLocation = lens _cvrsLocation (\s a -> s {_cvrsLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsLocation :: Lens.Lens' CreateVaultResponse (Lude.Maybe Lude.Text)
+cvrsLocation = Lens.lens (location :: CreateVaultResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateVaultResponse)
+{-# DEPRECATED cvrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
--- | -- | The response status code.
-cvrsResponseStatus :: Lens' CreateVaultResponse Int
-cvrsResponseStatus = lens _cvrsResponseStatus (\s a -> s {_cvrsResponseStatus = a})
-
-instance NFData CreateVaultResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsResponseStatus :: Lens.Lens' CreateVaultResponse Lude.Int
+cvrsResponseStatus = Lens.lens (responseStatus :: CreateVaultResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVaultResponse)
+{-# DEPRECATED cvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

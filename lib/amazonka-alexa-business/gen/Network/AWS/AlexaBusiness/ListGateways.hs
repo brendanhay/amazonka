@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries of gateways that are associated with that gateway group ARN.
 module Network.AWS.AlexaBusiness.ListGateways
-  ( -- * Creating a Request
-    listGateways,
-    ListGateways,
+  ( -- * Creating a request
+    ListGateways (..),
+    mkListGateways,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgNextToken,
     lgGatewayGroupARN,
     lgMaxResults,
 
-    -- * Destructuring the Response
-    listGatewaysResponse,
-    ListGatewaysResponse,
+    -- * Destructuring the response
+    ListGatewaysResponse (..),
+    mkListGatewaysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgrsNextToken,
     lgrsGateways,
     lgrsResponseStatus,
@@ -40,129 +35,150 @@ module Network.AWS.AlexaBusiness.ListGateways
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGateways' smart constructor.
+-- | /See:/ 'mkListGateways' smart constructor.
 data ListGateways = ListGateways'
-  { _lgNextToken :: !(Maybe Text),
-    _lgGatewayGroupARN :: !(Maybe Text),
-    _lgMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    gatewayGroupARN :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGateways' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgNextToken' - The token used to paginate though multiple pages of gateway summaries.
---
--- * 'lgGatewayGroupARN' - The gateway group ARN for which to list gateways.
---
--- * 'lgMaxResults' - The maximum number of gateway summaries to return. The default is 50.
-listGateways ::
+-- * 'gatewayGroupARN' - The gateway group ARN for which to list gateways.
+-- * 'maxResults' - The maximum number of gateway summaries to return. The default is 50.
+-- * 'nextToken' - The token used to paginate though multiple pages of gateway summaries.
+mkListGateways ::
   ListGateways
-listGateways =
+mkListGateways =
   ListGateways'
-    { _lgNextToken = Nothing,
-      _lgGatewayGroupARN = Nothing,
-      _lgMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      gatewayGroupARN = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token used to paginate though multiple pages of gateway summaries.
-lgNextToken :: Lens' ListGateways (Maybe Text)
-lgNextToken = lens _lgNextToken (\s a -> s {_lgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgNextToken :: Lens.Lens' ListGateways (Lude.Maybe Lude.Text)
+lgNextToken = Lens.lens (nextToken :: ListGateways -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGateways)
+{-# DEPRECATED lgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The gateway group ARN for which to list gateways.
-lgGatewayGroupARN :: Lens' ListGateways (Maybe Text)
-lgGatewayGroupARN = lens _lgGatewayGroupARN (\s a -> s {_lgGatewayGroupARN = a})
+--
+-- /Note:/ Consider using 'gatewayGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgGatewayGroupARN :: Lens.Lens' ListGateways (Lude.Maybe Lude.Text)
+lgGatewayGroupARN = Lens.lens (gatewayGroupARN :: ListGateways -> Lude.Maybe Lude.Text) (\s a -> s {gatewayGroupARN = a} :: ListGateways)
+{-# DEPRECATED lgGatewayGroupARN "Use generic-lens or generic-optics with 'gatewayGroupARN' instead." #-}
 
 -- | The maximum number of gateway summaries to return. The default is 50.
-lgMaxResults :: Lens' ListGateways (Maybe Natural)
-lgMaxResults = lens _lgMaxResults (\s a -> s {_lgMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgMaxResults :: Lens.Lens' ListGateways (Lude.Maybe Lude.Natural)
+lgMaxResults = Lens.lens (maxResults :: ListGateways -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListGateways)
+{-# DEPRECATED lgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListGateways where
+instance Lude.AWSRequest ListGateways where
   type Rs ListGateways = ListGatewaysResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGatewaysResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Gateways" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Gateways" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGateways
-
-instance NFData ListGateways
-
-instance ToHeaders ListGateways where
+instance Lude.ToHeaders ListGateways where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.ListGateways" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.ListGateways" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListGateways where
+instance Lude.ToJSON ListGateways where
   toJSON ListGateways' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lgNextToken,
-            ("GatewayGroupArn" .=) <$> _lgGatewayGroupARN,
-            ("MaxResults" .=) <$> _lgMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("GatewayGroupArn" Lude..=) Lude.<$> gatewayGroupARN,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListGateways where
-  toPath = const "/"
+instance Lude.ToPath ListGateways where
+  toPath = Lude.const "/"
 
-instance ToQuery ListGateways where
-  toQuery = const mempty
+instance Lude.ToQuery ListGateways where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listGatewaysResponse' smart constructor.
+-- | /See:/ 'mkListGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-  { _lgrsNextToken ::
-      !(Maybe Text),
-    _lgrsGateways :: !(Maybe [GatewaySummary]),
-    _lgrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    gateways :: Lude.Maybe [GatewaySummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGatewaysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgrsNextToken' - The token used to paginate though multiple pages of gateway summaries.
---
--- * 'lgrsGateways' - The gateways in the list.
---
--- * 'lgrsResponseStatus' - -- | The response status code.
-listGatewaysResponse ::
-  -- | 'lgrsResponseStatus'
-  Int ->
+-- * 'gateways' - The gateways in the list.
+-- * 'nextToken' - The token used to paginate though multiple pages of gateway summaries.
+-- * 'responseStatus' - The response status code.
+mkListGatewaysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGatewaysResponse
-listGatewaysResponse pResponseStatus_ =
+mkListGatewaysResponse pResponseStatus_ =
   ListGatewaysResponse'
-    { _lgrsNextToken = Nothing,
-      _lgrsGateways = Nothing,
-      _lgrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      gateways = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token used to paginate though multiple pages of gateway summaries.
-lgrsNextToken :: Lens' ListGatewaysResponse (Maybe Text)
-lgrsNextToken = lens _lgrsNextToken (\s a -> s {_lgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsNextToken :: Lens.Lens' ListGatewaysResponse (Lude.Maybe Lude.Text)
+lgrsNextToken = Lens.lens (nextToken :: ListGatewaysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGatewaysResponse)
+{-# DEPRECATED lgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The gateways in the list.
-lgrsGateways :: Lens' ListGatewaysResponse [GatewaySummary]
-lgrsGateways = lens _lgrsGateways (\s a -> s {_lgrsGateways = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gateways' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsGateways :: Lens.Lens' ListGatewaysResponse (Lude.Maybe [GatewaySummary])
+lgrsGateways = Lens.lens (gateways :: ListGatewaysResponse -> Lude.Maybe [GatewaySummary]) (\s a -> s {gateways = a} :: ListGatewaysResponse)
+{-# DEPRECATED lgrsGateways "Use generic-lens or generic-optics with 'gateways' instead." #-}
 
--- | -- | The response status code.
-lgrsResponseStatus :: Lens' ListGatewaysResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\s a -> s {_lgrsResponseStatus = a})
-
-instance NFData ListGatewaysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsResponseStatus :: Lens.Lens' ListGatewaysResponse Lude.Int
+lgrsResponseStatus = Lens.lens (responseStatus :: ListGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGatewaysResponse)
+{-# DEPRECATED lgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

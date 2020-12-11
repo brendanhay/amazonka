@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.DateColumnStatisticsData where
+module Network.AWS.Glue.Types.DateColumnStatisticsData
+  ( DateColumnStatisticsData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDateColumnStatisticsData,
+
+    -- * Lenses
+    dcsdMaximumValue,
+    dcsdMinimumValue,
+    dcsdNumberOfNulls,
+    dcsdNumberOfDistinctValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines column statistics supported for timestamp data columns.
 --
---
---
--- /See:/ 'dateColumnStatisticsData' smart constructor.
+-- /See:/ 'mkDateColumnStatisticsData' smart constructor.
 data DateColumnStatisticsData = DateColumnStatisticsData'
-  { _dcsdMaximumValue ::
-      !(Maybe POSIX),
-    _dcsdMinimumValue :: !(Maybe POSIX),
-    _dcsdNumberOfNulls :: !Nat,
-    _dcsdNumberOfDistinctValues :: !Nat
+  { maximumValue ::
+      Lude.Maybe Lude.Timestamp,
+    minimumValue :: Lude.Maybe Lude.Timestamp,
+    numberOfNulls :: Lude.Natural,
+    numberOfDistinctValues :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DateColumnStatisticsData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsdMaximumValue' - The highest value in the column.
---
--- * 'dcsdMinimumValue' - The lowest value in the column.
---
--- * 'dcsdNumberOfNulls' - The number of null values in the column.
---
--- * 'dcsdNumberOfDistinctValues' - The number of distinct values in a column.
-dateColumnStatisticsData ::
-  -- | 'dcsdNumberOfNulls'
-  Natural ->
-  -- | 'dcsdNumberOfDistinctValues'
-  Natural ->
+-- * 'maximumValue' - The highest value in the column.
+-- * 'minimumValue' - The lowest value in the column.
+-- * 'numberOfDistinctValues' - The number of distinct values in a column.
+-- * 'numberOfNulls' - The number of null values in the column.
+mkDateColumnStatisticsData ::
+  -- | 'numberOfNulls'
+  Lude.Natural ->
+  -- | 'numberOfDistinctValues'
+  Lude.Natural ->
   DateColumnStatisticsData
-dateColumnStatisticsData pNumberOfNulls_ pNumberOfDistinctValues_ =
+mkDateColumnStatisticsData pNumberOfNulls_ pNumberOfDistinctValues_ =
   DateColumnStatisticsData'
-    { _dcsdMaximumValue = Nothing,
-      _dcsdMinimumValue = Nothing,
-      _dcsdNumberOfNulls = _Nat # pNumberOfNulls_,
-      _dcsdNumberOfDistinctValues = _Nat # pNumberOfDistinctValues_
+    { maximumValue = Lude.Nothing,
+      minimumValue = Lude.Nothing,
+      numberOfNulls = pNumberOfNulls_,
+      numberOfDistinctValues = pNumberOfDistinctValues_
     }
 
 -- | The highest value in the column.
-dcsdMaximumValue :: Lens' DateColumnStatisticsData (Maybe UTCTime)
-dcsdMaximumValue = lens _dcsdMaximumValue (\s a -> s {_dcsdMaximumValue = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'maximumValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdMaximumValue :: Lens.Lens' DateColumnStatisticsData (Lude.Maybe Lude.Timestamp)
+dcsdMaximumValue = Lens.lens (maximumValue :: DateColumnStatisticsData -> Lude.Maybe Lude.Timestamp) (\s a -> s {maximumValue = a} :: DateColumnStatisticsData)
+{-# DEPRECATED dcsdMaximumValue "Use generic-lens or generic-optics with 'maximumValue' instead." #-}
 
 -- | The lowest value in the column.
-dcsdMinimumValue :: Lens' DateColumnStatisticsData (Maybe UTCTime)
-dcsdMinimumValue = lens _dcsdMinimumValue (\s a -> s {_dcsdMinimumValue = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'minimumValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdMinimumValue :: Lens.Lens' DateColumnStatisticsData (Lude.Maybe Lude.Timestamp)
+dcsdMinimumValue = Lens.lens (minimumValue :: DateColumnStatisticsData -> Lude.Maybe Lude.Timestamp) (\s a -> s {minimumValue = a} :: DateColumnStatisticsData)
+{-# DEPRECATED dcsdMinimumValue "Use generic-lens or generic-optics with 'minimumValue' instead." #-}
 
 -- | The number of null values in the column.
-dcsdNumberOfNulls :: Lens' DateColumnStatisticsData Natural
-dcsdNumberOfNulls = lens _dcsdNumberOfNulls (\s a -> s {_dcsdNumberOfNulls = a}) . _Nat
+--
+-- /Note:/ Consider using 'numberOfNulls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdNumberOfNulls :: Lens.Lens' DateColumnStatisticsData Lude.Natural
+dcsdNumberOfNulls = Lens.lens (numberOfNulls :: DateColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfNulls = a} :: DateColumnStatisticsData)
+{-# DEPRECATED dcsdNumberOfNulls "Use generic-lens or generic-optics with 'numberOfNulls' instead." #-}
 
 -- | The number of distinct values in a column.
-dcsdNumberOfDistinctValues :: Lens' DateColumnStatisticsData Natural
-dcsdNumberOfDistinctValues = lens _dcsdNumberOfDistinctValues (\s a -> s {_dcsdNumberOfDistinctValues = a}) . _Nat
+--
+-- /Note:/ Consider using 'numberOfDistinctValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdNumberOfDistinctValues :: Lens.Lens' DateColumnStatisticsData Lude.Natural
+dcsdNumberOfDistinctValues = Lens.lens (numberOfDistinctValues :: DateColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfDistinctValues = a} :: DateColumnStatisticsData)
+{-# DEPRECATED dcsdNumberOfDistinctValues "Use generic-lens or generic-optics with 'numberOfDistinctValues' instead." #-}
 
-instance FromJSON DateColumnStatisticsData where
+instance Lude.FromJSON DateColumnStatisticsData where
   parseJSON =
-    withObject
+    Lude.withObject
       "DateColumnStatisticsData"
       ( \x ->
           DateColumnStatisticsData'
-            <$> (x .:? "MaximumValue")
-            <*> (x .:? "MinimumValue")
-            <*> (x .: "NumberOfNulls")
-            <*> (x .: "NumberOfDistinctValues")
+            Lude.<$> (x Lude..:? "MaximumValue")
+            Lude.<*> (x Lude..:? "MinimumValue")
+            Lude.<*> (x Lude..: "NumberOfNulls")
+            Lude.<*> (x Lude..: "NumberOfDistinctValues")
       )
 
-instance Hashable DateColumnStatisticsData
-
-instance NFData DateColumnStatisticsData
-
-instance ToJSON DateColumnStatisticsData where
+instance Lude.ToJSON DateColumnStatisticsData where
   toJSON DateColumnStatisticsData' {..} =
-    object
-      ( catMaybes
-          [ ("MaximumValue" .=) <$> _dcsdMaximumValue,
-            ("MinimumValue" .=) <$> _dcsdMinimumValue,
-            Just ("NumberOfNulls" .= _dcsdNumberOfNulls),
-            Just ("NumberOfDistinctValues" .= _dcsdNumberOfDistinctValues)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MaximumValue" Lude..=) Lude.<$> maximumValue,
+            ("MinimumValue" Lude..=) Lude.<$> minimumValue,
+            Lude.Just ("NumberOfNulls" Lude..= numberOfNulls),
+            Lude.Just
+              ("NumberOfDistinctValues" Lude..= numberOfDistinctValues)
           ]
       )

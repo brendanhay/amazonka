@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,136 @@
 --
 -- Updates the properties associated with a set of queues for a routing profile.
 module Network.AWS.Connect.UpdateRoutingProfileQueues
-  ( -- * Creating a Request
-    updateRoutingProfileQueues,
-    UpdateRoutingProfileQueues,
+  ( -- * Creating a request
+    UpdateRoutingProfileQueues (..),
+    mkUpdateRoutingProfileQueues,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urpqInstanceId,
     urpqRoutingProfileId,
     urpqQueueConfigs,
 
-    -- * Destructuring the Response
-    updateRoutingProfileQueuesResponse,
-    UpdateRoutingProfileQueuesResponse,
+    -- * Destructuring the response
+    UpdateRoutingProfileQueuesResponse (..),
+    mkUpdateRoutingProfileQueuesResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateRoutingProfileQueues' smart constructor.
+-- | /See:/ 'mkUpdateRoutingProfileQueues' smart constructor.
 data UpdateRoutingProfileQueues = UpdateRoutingProfileQueues'
-  { _urpqInstanceId ::
-      !Text,
-    _urpqRoutingProfileId :: !Text,
-    _urpqQueueConfigs ::
-      !(List1 RoutingProfileQueueConfig)
+  { instanceId ::
+      Lude.Text,
+    routingProfileId :: Lude.Text,
+    queueConfigs ::
+      Lude.NonEmpty
+        RoutingProfileQueueConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoutingProfileQueues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urpqInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'urpqRoutingProfileId' - The identifier of the routing profile.
---
--- * 'urpqQueueConfigs' - The queues to be updated for this routing profile.
-updateRoutingProfileQueues ::
-  -- | 'urpqInstanceId'
-  Text ->
-  -- | 'urpqRoutingProfileId'
-  Text ->
-  -- | 'urpqQueueConfigs'
-  NonEmpty RoutingProfileQueueConfig ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'queueConfigs' - The queues to be updated for this routing profile.
+-- * 'routingProfileId' - The identifier of the routing profile.
+mkUpdateRoutingProfileQueues ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'routingProfileId'
+  Lude.Text ->
+  -- | 'queueConfigs'
+  Lude.NonEmpty RoutingProfileQueueConfig ->
   UpdateRoutingProfileQueues
-updateRoutingProfileQueues
+mkUpdateRoutingProfileQueues
   pInstanceId_
   pRoutingProfileId_
   pQueueConfigs_ =
     UpdateRoutingProfileQueues'
-      { _urpqInstanceId = pInstanceId_,
-        _urpqRoutingProfileId = pRoutingProfileId_,
-        _urpqQueueConfigs = _List1 # pQueueConfigs_
+      { instanceId = pInstanceId_,
+        routingProfileId = pRoutingProfileId_,
+        queueConfigs = pQueueConfigs_
       }
 
 -- | The identifier of the Amazon Connect instance.
-urpqInstanceId :: Lens' UpdateRoutingProfileQueues Text
-urpqInstanceId = lens _urpqInstanceId (\s a -> s {_urpqInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpqInstanceId :: Lens.Lens' UpdateRoutingProfileQueues Lude.Text
+urpqInstanceId = Lens.lens (instanceId :: UpdateRoutingProfileQueues -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateRoutingProfileQueues)
+{-# DEPRECATED urpqInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the routing profile.
-urpqRoutingProfileId :: Lens' UpdateRoutingProfileQueues Text
-urpqRoutingProfileId = lens _urpqRoutingProfileId (\s a -> s {_urpqRoutingProfileId = a})
+--
+-- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpqRoutingProfileId :: Lens.Lens' UpdateRoutingProfileQueues Lude.Text
+urpqRoutingProfileId = Lens.lens (routingProfileId :: UpdateRoutingProfileQueues -> Lude.Text) (\s a -> s {routingProfileId = a} :: UpdateRoutingProfileQueues)
+{-# DEPRECATED urpqRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
 
 -- | The queues to be updated for this routing profile.
-urpqQueueConfigs :: Lens' UpdateRoutingProfileQueues (NonEmpty RoutingProfileQueueConfig)
-urpqQueueConfigs = lens _urpqQueueConfigs (\s a -> s {_urpqQueueConfigs = a}) . _List1
+--
+-- /Note:/ Consider using 'queueConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpqQueueConfigs :: Lens.Lens' UpdateRoutingProfileQueues (Lude.NonEmpty RoutingProfileQueueConfig)
+urpqQueueConfigs = Lens.lens (queueConfigs :: UpdateRoutingProfileQueues -> Lude.NonEmpty RoutingProfileQueueConfig) (\s a -> s {queueConfigs = a} :: UpdateRoutingProfileQueues)
+{-# DEPRECATED urpqQueueConfigs "Use generic-lens or generic-optics with 'queueConfigs' instead." #-}
 
-instance AWSRequest UpdateRoutingProfileQueues where
+instance Lude.AWSRequest UpdateRoutingProfileQueues where
   type
     Rs UpdateRoutingProfileQueues =
       UpdateRoutingProfileQueuesResponse
-  request = postJSON connect
-  response = receiveNull UpdateRoutingProfileQueuesResponse'
+  request = Req.postJSON connectService
+  response = Res.receiveNull UpdateRoutingProfileQueuesResponse'
 
-instance Hashable UpdateRoutingProfileQueues
-
-instance NFData UpdateRoutingProfileQueues
-
-instance ToHeaders UpdateRoutingProfileQueues where
+instance Lude.ToHeaders UpdateRoutingProfileQueues where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateRoutingProfileQueues where
+instance Lude.ToJSON UpdateRoutingProfileQueues where
   toJSON UpdateRoutingProfileQueues' {..} =
-    object (catMaybes [Just ("QueueConfigs" .= _urpqQueueConfigs)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("QueueConfigs" Lude..= queueConfigs)])
 
-instance ToPath UpdateRoutingProfileQueues where
+instance Lude.ToPath UpdateRoutingProfileQueues where
   toPath UpdateRoutingProfileQueues' {..} =
-    mconcat
+    Lude.mconcat
       [ "/routing-profiles/",
-        toBS _urpqInstanceId,
+        Lude.toBS instanceId,
         "/",
-        toBS _urpqRoutingProfileId,
+        Lude.toBS routingProfileId,
         "/queues"
       ]
 
-instance ToQuery UpdateRoutingProfileQueues where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRoutingProfileQueues where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateRoutingProfileQueuesResponse' smart constructor.
+-- | /See:/ 'mkUpdateRoutingProfileQueuesResponse' smart constructor.
 data UpdateRoutingProfileQueuesResponse = UpdateRoutingProfileQueuesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoutingProfileQueuesResponse' with the minimum fields required to make a request.
-updateRoutingProfileQueuesResponse ::
+mkUpdateRoutingProfileQueuesResponse ::
   UpdateRoutingProfileQueuesResponse
-updateRoutingProfileQueuesResponse =
+mkUpdateRoutingProfileQueuesResponse =
   UpdateRoutingProfileQueuesResponse'
-
-instance NFData UpdateRoutingProfileQueuesResponse

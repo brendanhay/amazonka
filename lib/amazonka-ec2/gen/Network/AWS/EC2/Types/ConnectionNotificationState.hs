@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ConnectionNotificationState where
+module Network.AWS.EC2.Types.ConnectionNotificationState
+  ( ConnectionNotificationState
+      ( ConnectionNotificationState',
+        CNSDisabled,
+        CNSEnabled
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConnectionNotificationState
-  = CNSDisabled
-  | CNSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConnectionNotificationState = ConnectionNotificationState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConnectionNotificationState where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure CNSDisabled
-      "enabled" -> pure CNSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing ConnectionNotificationState from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern CNSDisabled :: ConnectionNotificationState
+pattern CNSDisabled = ConnectionNotificationState' "Disabled"
 
-instance ToText ConnectionNotificationState where
-  toText = \case
-    CNSDisabled -> "Disabled"
-    CNSEnabled -> "Enabled"
+pattern CNSEnabled :: ConnectionNotificationState
+pattern CNSEnabled = ConnectionNotificationState' "Enabled"
 
-instance Hashable ConnectionNotificationState
-
-instance NFData ConnectionNotificationState
-
-instance ToByteString ConnectionNotificationState
-
-instance ToQuery ConnectionNotificationState
-
-instance ToHeader ConnectionNotificationState
-
-instance FromXML ConnectionNotificationState where
-  parseXML = parseXMLText "ConnectionNotificationState"
+{-# COMPLETE
+  CNSDisabled,
+  CNSEnabled,
+  ConnectionNotificationState'
+  #-}

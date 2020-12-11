@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.SDKType where
+module Network.AWS.APIGateway.Types.SDKType
+  ( SDKType (..),
+
+    -- * Smart constructor
+    mkSDKType,
+
+    -- * Lenses
+    stFriendlyName,
+    stConfigurationProperties,
+    stId,
+    stDescription,
+  )
+where
 
 import Network.AWS.APIGateway.Types.SDKConfigurationProperty
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A type of SDK that API Gateway can generate.
 --
---
---
--- /See:/ 'sdkType' smart constructor.
+-- /See:/ 'mkSDKType' smart constructor.
 data SDKType = SDKType'
-  { _stFriendlyName :: !(Maybe Text),
-    _stConfigurationProperties :: !(Maybe [SDKConfigurationProperty]),
-    _stId :: !(Maybe Text),
-    _stDescription :: !(Maybe Text)
+  { friendlyName :: Lude.Maybe Lude.Text,
+    configurationProperties :: Lude.Maybe [SDKConfigurationProperty],
+    id :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SDKType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stFriendlyName' - The user-friendly name of an 'SdkType' instance.
---
--- * 'stConfigurationProperties' - A list of configuration properties of an 'SdkType' .
---
--- * 'stId' - The identifier of an 'SdkType' instance.
---
--- * 'stDescription' - The description of an 'SdkType' .
-sdkType ::
+-- * 'configurationProperties' - A list of configuration properties of an 'SdkType' .
+-- * 'description' - The description of an 'SdkType' .
+-- * 'friendlyName' - The user-friendly name of an 'SdkType' instance.
+-- * 'id' - The identifier of an 'SdkType' instance.
+mkSDKType ::
   SDKType
-sdkType =
+mkSDKType =
   SDKType'
-    { _stFriendlyName = Nothing,
-      _stConfigurationProperties = Nothing,
-      _stId = Nothing,
-      _stDescription = Nothing
+    { friendlyName = Lude.Nothing,
+      configurationProperties = Lude.Nothing,
+      id = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The user-friendly name of an 'SdkType' instance.
-stFriendlyName :: Lens' SDKType (Maybe Text)
-stFriendlyName = lens _stFriendlyName (\s a -> s {_stFriendlyName = a})
+--
+-- /Note:/ Consider using 'friendlyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stFriendlyName :: Lens.Lens' SDKType (Lude.Maybe Lude.Text)
+stFriendlyName = Lens.lens (friendlyName :: SDKType -> Lude.Maybe Lude.Text) (\s a -> s {friendlyName = a} :: SDKType)
+{-# DEPRECATED stFriendlyName "Use generic-lens or generic-optics with 'friendlyName' instead." #-}
 
 -- | A list of configuration properties of an 'SdkType' .
-stConfigurationProperties :: Lens' SDKType [SDKConfigurationProperty]
-stConfigurationProperties = lens _stConfigurationProperties (\s a -> s {_stConfigurationProperties = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stConfigurationProperties :: Lens.Lens' SDKType (Lude.Maybe [SDKConfigurationProperty])
+stConfigurationProperties = Lens.lens (configurationProperties :: SDKType -> Lude.Maybe [SDKConfigurationProperty]) (\s a -> s {configurationProperties = a} :: SDKType)
+{-# DEPRECATED stConfigurationProperties "Use generic-lens or generic-optics with 'configurationProperties' instead." #-}
 
 -- | The identifier of an 'SdkType' instance.
-stId :: Lens' SDKType (Maybe Text)
-stId = lens _stId (\s a -> s {_stId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stId :: Lens.Lens' SDKType (Lude.Maybe Lude.Text)
+stId = Lens.lens (id :: SDKType -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: SDKType)
+{-# DEPRECATED stId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The description of an 'SdkType' .
-stDescription :: Lens' SDKType (Maybe Text)
-stDescription = lens _stDescription (\s a -> s {_stDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stDescription :: Lens.Lens' SDKType (Lude.Maybe Lude.Text)
+stDescription = Lens.lens (description :: SDKType -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SDKType)
+{-# DEPRECATED stDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON SDKType where
+instance Lude.FromJSON SDKType where
   parseJSON =
-    withObject
+    Lude.withObject
       "SDKType"
       ( \x ->
           SDKType'
-            <$> (x .:? "friendlyName")
-            <*> (x .:? "configurationProperties" .!= mempty)
-            <*> (x .:? "id")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "friendlyName")
+            Lude.<*> (x Lude..:? "configurationProperties" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable SDKType
-
-instance NFData SDKType

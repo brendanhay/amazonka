@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AccountAttributeName where
+module Network.AWS.EC2.Types.AccountAttributeName
+  ( AccountAttributeName
+      ( AccountAttributeName',
+        DefaultVPC,
+        SupportedPlatforms
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccountAttributeName
-  = DefaultVPC
-  | SupportedPlatforms
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccountAttributeName = AccountAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccountAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "default-vpc" -> pure DefaultVPC
-      "supported-platforms" -> pure SupportedPlatforms
-      e ->
-        fromTextError $
-          "Failure parsing AccountAttributeName from value: '" <> e
-            <> "'. Accepted values: default-vpc, supported-platforms"
+pattern DefaultVPC :: AccountAttributeName
+pattern DefaultVPC = AccountAttributeName' "default-vpc"
 
-instance ToText AccountAttributeName where
-  toText = \case
-    DefaultVPC -> "default-vpc"
-    SupportedPlatforms -> "supported-platforms"
+pattern SupportedPlatforms :: AccountAttributeName
+pattern SupportedPlatforms = AccountAttributeName' "supported-platforms"
 
-instance Hashable AccountAttributeName
-
-instance NFData AccountAttributeName
-
-instance ToByteString AccountAttributeName
-
-instance ToQuery AccountAttributeName
-
-instance ToHeader AccountAttributeName
+{-# COMPLETE
+  DefaultVPC,
+  SupportedPlatforms,
+  AccountAttributeName'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.RateIncreaseCriteria where
+module Network.AWS.IoT.Types.RateIncreaseCriteria
+  ( RateIncreaseCriteria (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRateIncreaseCriteria,
+
+    -- * Lenses
+    ricNumberOfNotifiedThings,
+    ricNumberOfSucceededThings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Allows you to define a criteria to initiate the increase in rate of rollout for a job.
 --
---
---
--- /See:/ 'rateIncreaseCriteria' smart constructor.
+-- /See:/ 'mkRateIncreaseCriteria' smart constructor.
 data RateIncreaseCriteria = RateIncreaseCriteria'
-  { _ricNumberOfNotifiedThings ::
-      !(Maybe Nat),
-    _ricNumberOfSucceededThings :: !(Maybe Nat)
+  { numberOfNotifiedThings ::
+      Lude.Maybe Lude.Natural,
+    numberOfSucceededThings ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RateIncreaseCriteria' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ricNumberOfNotifiedThings' - The threshold for number of notified things that will initiate the increase in rate of rollout.
---
--- * 'ricNumberOfSucceededThings' - The threshold for number of succeeded things that will initiate the increase in rate of rollout.
-rateIncreaseCriteria ::
+-- * 'numberOfNotifiedThings' - The threshold for number of notified things that will initiate the increase in rate of rollout.
+-- * 'numberOfSucceededThings' - The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+mkRateIncreaseCriteria ::
   RateIncreaseCriteria
-rateIncreaseCriteria =
+mkRateIncreaseCriteria =
   RateIncreaseCriteria'
-    { _ricNumberOfNotifiedThings = Nothing,
-      _ricNumberOfSucceededThings = Nothing
+    { numberOfNotifiedThings = Lude.Nothing,
+      numberOfSucceededThings = Lude.Nothing
     }
 
 -- | The threshold for number of notified things that will initiate the increase in rate of rollout.
-ricNumberOfNotifiedThings :: Lens' RateIncreaseCriteria (Maybe Natural)
-ricNumberOfNotifiedThings = lens _ricNumberOfNotifiedThings (\s a -> s {_ricNumberOfNotifiedThings = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numberOfNotifiedThings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ricNumberOfNotifiedThings :: Lens.Lens' RateIncreaseCriteria (Lude.Maybe Lude.Natural)
+ricNumberOfNotifiedThings = Lens.lens (numberOfNotifiedThings :: RateIncreaseCriteria -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfNotifiedThings = a} :: RateIncreaseCriteria)
+{-# DEPRECATED ricNumberOfNotifiedThings "Use generic-lens or generic-optics with 'numberOfNotifiedThings' instead." #-}
 
 -- | The threshold for number of succeeded things that will initiate the increase in rate of rollout.
-ricNumberOfSucceededThings :: Lens' RateIncreaseCriteria (Maybe Natural)
-ricNumberOfSucceededThings = lens _ricNumberOfSucceededThings (\s a -> s {_ricNumberOfSucceededThings = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numberOfSucceededThings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ricNumberOfSucceededThings :: Lens.Lens' RateIncreaseCriteria (Lude.Maybe Lude.Natural)
+ricNumberOfSucceededThings = Lens.lens (numberOfSucceededThings :: RateIncreaseCriteria -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfSucceededThings = a} :: RateIncreaseCriteria)
+{-# DEPRECATED ricNumberOfSucceededThings "Use generic-lens or generic-optics with 'numberOfSucceededThings' instead." #-}
 
-instance FromJSON RateIncreaseCriteria where
+instance Lude.FromJSON RateIncreaseCriteria where
   parseJSON =
-    withObject
+    Lude.withObject
       "RateIncreaseCriteria"
       ( \x ->
           RateIncreaseCriteria'
-            <$> (x .:? "numberOfNotifiedThings")
-            <*> (x .:? "numberOfSucceededThings")
+            Lude.<$> (x Lude..:? "numberOfNotifiedThings")
+            Lude.<*> (x Lude..:? "numberOfSucceededThings")
       )
 
-instance Hashable RateIncreaseCriteria
-
-instance NFData RateIncreaseCriteria
-
-instance ToJSON RateIncreaseCriteria where
+instance Lude.ToJSON RateIncreaseCriteria where
   toJSON RateIncreaseCriteria' {..} =
-    object
-      ( catMaybes
-          [ ("numberOfNotifiedThings" .=) <$> _ricNumberOfNotifiedThings,
-            ("numberOfSucceededThings" .=) <$> _ricNumberOfSucceededThings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("numberOfNotifiedThings" Lude..=)
+              Lude.<$> numberOfNotifiedThings,
+            ("numberOfSucceededThings" Lude..=)
+              Lude.<$> numberOfSucceededThings
           ]
       )

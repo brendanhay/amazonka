@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns a list of IAM users that are in the specified IAM group. You can paginate the results using the @MaxItems@ and @Marker@ parameters.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IAM.GetGroup
-  ( -- * Creating a Request
-    getGroup,
-    GetGroup,
+  ( -- * Creating a request
+    GetGroup (..),
+    mkGetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggMarker,
     ggMaxItems,
     ggGroupName,
 
-    -- * Destructuring the Response
-    getGroupResponse,
-    GetGroupResponse,
+    -- * Destructuring the response
+    GetGroupResponse (..),
+    mkGetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggrsMarker,
     ggrsIsTruncated,
     ggrsResponseStatus,
@@ -46,154 +39,185 @@ module Network.AWS.IAM.GetGroup
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getGroup' smart constructor.
+-- | /See:/ 'mkGetGroup' smart constructor.
 data GetGroup = GetGroup'
-  { _ggMarker :: !(Maybe Text),
-    _ggMaxItems :: !(Maybe Nat),
-    _ggGroupName :: !Text
+  { marker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural,
+    groupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'groupName' - The name of the group.
 --
--- * 'ggMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
--- * 'ggMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
---
--- * 'ggGroupName' - The name of the group. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-getGroup ::
-  -- | 'ggGroupName'
-  Text ->
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+mkGetGroup ::
+  -- | 'groupName'
+  Lude.Text ->
   GetGroup
-getGroup pGroupName_ =
+mkGetGroup pGroupName_ =
   GetGroup'
-    { _ggMarker = Nothing,
-      _ggMaxItems = Nothing,
-      _ggGroupName = pGroupName_
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      groupName = pGroupName_
     }
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-ggMarker :: Lens' GetGroup (Maybe Text)
-ggMarker = lens _ggMarker (\s a -> s {_ggMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggMarker :: Lens.Lens' GetGroup (Lude.Maybe Lude.Text)
+ggMarker = Lens.lens (marker :: GetGroup -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: GetGroup)
+{-# DEPRECATED ggMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-ggMaxItems :: Lens' GetGroup (Maybe Natural)
-ggMaxItems = lens _ggMaxItems (\s a -> s {_ggMaxItems = a}) . mapping _Nat
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+--
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggMaxItems :: Lens.Lens' GetGroup (Lude.Maybe Lude.Natural)
+ggMaxItems = Lens.lens (maxItems :: GetGroup -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: GetGroup)
+{-# DEPRECATED ggMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The name of the group. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-ggGroupName :: Lens' GetGroup Text
-ggGroupName = lens _ggGroupName (\s a -> s {_ggGroupName = a})
+-- | The name of the group.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggGroupName :: Lens.Lens' GetGroup Lude.Text
+ggGroupName = Lens.lens (groupName :: GetGroup -> Lude.Text) (\s a -> s {groupName = a} :: GetGroup)
+{-# DEPRECATED ggGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance AWSPager GetGroup where
+instance Page.AWSPager GetGroup where
   page rq rs
-    | stop (rs ^. ggrsIsTruncated) = Nothing
-    | isNothing (rs ^. ggrsMarker) = Nothing
-    | otherwise = Just $ rq & ggMarker .~ rs ^. ggrsMarker
+    | Page.stop (rs Lens.^. ggrsIsTruncated) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. ggrsMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& ggMarker Lens..~ rs Lens.^. ggrsMarker
 
-instance AWSRequest GetGroup where
+instance Lude.AWSRequest GetGroup where
   type Rs GetGroup = GetGroupResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetGroupResult"
       ( \s h x ->
           GetGroupResponse'
-            <$> (x .@? "Marker")
-            <*> (x .@? "IsTruncated")
-            <*> (pure (fromEnum s))
-            <*> (x .@ "Group")
-            <*> (x .@? "Users" .!@ mempty >>= parseXMLList "member")
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "Group")
+            Lude.<*> ( x Lude..@? "Users" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable GetGroup
+instance Lude.ToHeaders GetGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetGroup
+instance Lude.ToPath GetGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetGroup where
-  toHeaders = const mempty
-
-instance ToPath GetGroup where
-  toPath = const "/"
-
-instance ToQuery GetGroup where
+instance Lude.ToQuery GetGroup where
   toQuery GetGroup' {..} =
-    mconcat
-      [ "Action" =: ("GetGroup" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "Marker" =: _ggMarker,
-        "MaxItems" =: _ggMaxItems,
-        "GroupName" =: _ggGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("GetGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "Marker" Lude.=: marker,
+        "MaxItems" Lude.=: maxItems,
+        "GroupName" Lude.=: groupName
       ]
 
 -- | Contains the response to a successful 'GetGroup' request.
 --
---
---
--- /See:/ 'getGroupResponse' smart constructor.
+-- /See:/ 'mkGetGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-  { _ggrsMarker ::
-      !(Maybe Text),
-    _ggrsIsTruncated :: !(Maybe Bool),
-    _ggrsResponseStatus :: !Int,
-    _ggrsGroup :: !Group,
-    _ggrsUsers :: ![User]
+  { marker ::
+      Lude.Maybe Lude.Text,
+    isTruncated :: Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int,
+    group :: Group,
+    users :: [User]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'ggrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
---
--- * 'ggrsResponseStatus' - -- | The response status code.
---
--- * 'ggrsGroup' - A structure that contains details about the group.
---
--- * 'ggrsUsers' - A list of users in the group.
-getGroupResponse ::
-  -- | 'ggrsResponseStatus'
-  Int ->
-  -- | 'ggrsGroup'
+-- * 'group' - A structure that contains details about the group.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'responseStatus' - The response status code.
+-- * 'users' - A list of users in the group.
+mkGetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'group'
   Group ->
   GetGroupResponse
-getGroupResponse pResponseStatus_ pGroup_ =
+mkGetGroupResponse pResponseStatus_ pGroup_ =
   GetGroupResponse'
-    { _ggrsMarker = Nothing,
-      _ggrsIsTruncated = Nothing,
-      _ggrsResponseStatus = pResponseStatus_,
-      _ggrsGroup = pGroup_,
-      _ggrsUsers = mempty
+    { marker = Lude.Nothing,
+      isTruncated = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      group = pGroup_,
+      users = Lude.mempty
     }
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-ggrsMarker :: Lens' GetGroupResponse (Maybe Text)
-ggrsMarker = lens _ggrsMarker (\s a -> s {_ggrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsMarker :: Lens.Lens' GetGroupResponse (Lude.Maybe Lude.Text)
+ggrsMarker = Lens.lens (marker :: GetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: GetGroupResponse)
+{-# DEPRECATED ggrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
-ggrsIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
-ggrsIsTruncated = lens _ggrsIsTruncated (\s a -> s {_ggrsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsIsTruncated :: Lens.Lens' GetGroupResponse (Lude.Maybe Lude.Bool)
+ggrsIsTruncated = Lens.lens (isTruncated :: GetGroupResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: GetGroupResponse)
+{-# DEPRECATED ggrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | -- | The response status code.
-ggrsResponseStatus :: Lens' GetGroupResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\s a -> s {_ggrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsResponseStatus :: Lens.Lens' GetGroupResponse Lude.Int
+ggrsResponseStatus = Lens.lens (responseStatus :: GetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupResponse)
+{-# DEPRECATED ggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure that contains details about the group.
-ggrsGroup :: Lens' GetGroupResponse Group
-ggrsGroup = lens _ggrsGroup (\s a -> s {_ggrsGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsGroup :: Lens.Lens' GetGroupResponse Group
+ggrsGroup = Lens.lens (group :: GetGroupResponse -> Group) (\s a -> s {group = a} :: GetGroupResponse)
+{-# DEPRECATED ggrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | A list of users in the group.
-ggrsUsers :: Lens' GetGroupResponse [User]
-ggrsUsers = lens _ggrsUsers (\s a -> s {_ggrsUsers = a}) . _Coerce
-
-instance NFData GetGroupResponse
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsUsers :: Lens.Lens' GetGroupResponse [User]
+ggrsUsers = Lens.lens (users :: GetGroupResponse -> [User]) (\s a -> s {users = a} :: GetGroupResponse)
+{-# DEPRECATED ggrsUsers "Use generic-lens or generic-optics with 'users' instead." #-}

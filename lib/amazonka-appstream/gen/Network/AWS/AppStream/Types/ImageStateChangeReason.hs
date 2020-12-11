@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.ImageStateChangeReason where
+module Network.AWS.AppStream.Types.ImageStateChangeReason
+  ( ImageStateChangeReason (..),
+
+    -- * Smart constructor
+    mkImageStateChangeReason,
+
+    -- * Lenses
+    iscrCode,
+    iscrMessage,
+  )
+where
 
 import Network.AWS.AppStream.Types.ImageStateChangeReasonCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the reason why the last image state change occurred.
 --
---
---
--- /See:/ 'imageStateChangeReason' smart constructor.
+-- /See:/ 'mkImageStateChangeReason' smart constructor.
 data ImageStateChangeReason = ImageStateChangeReason'
-  { _iscrCode ::
-      !(Maybe ImageStateChangeReasonCode),
-    _iscrMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe ImageStateChangeReasonCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageStateChangeReason' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iscrCode' - The state change reason code.
---
--- * 'iscrMessage' - The state change reason message.
-imageStateChangeReason ::
+-- * 'code' - The state change reason code.
+-- * 'message' - The state change reason message.
+mkImageStateChangeReason ::
   ImageStateChangeReason
-imageStateChangeReason =
+mkImageStateChangeReason =
   ImageStateChangeReason'
-    { _iscrCode = Nothing,
-      _iscrMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The state change reason code.
-iscrCode :: Lens' ImageStateChangeReason (Maybe ImageStateChangeReasonCode)
-iscrCode = lens _iscrCode (\s a -> s {_iscrCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscrCode :: Lens.Lens' ImageStateChangeReason (Lude.Maybe ImageStateChangeReasonCode)
+iscrCode = Lens.lens (code :: ImageStateChangeReason -> Lude.Maybe ImageStateChangeReasonCode) (\s a -> s {code = a} :: ImageStateChangeReason)
+{-# DEPRECATED iscrCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The state change reason message.
-iscrMessage :: Lens' ImageStateChangeReason (Maybe Text)
-iscrMessage = lens _iscrMessage (\s a -> s {_iscrMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscrMessage :: Lens.Lens' ImageStateChangeReason (Lude.Maybe Lude.Text)
+iscrMessage = Lens.lens (message :: ImageStateChangeReason -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ImageStateChangeReason)
+{-# DEPRECATED iscrMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON ImageStateChangeReason where
+instance Lude.FromJSON ImageStateChangeReason where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImageStateChangeReason"
       ( \x ->
-          ImageStateChangeReason' <$> (x .:? "Code") <*> (x .:? "Message")
+          ImageStateChangeReason'
+            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable ImageStateChangeReason
-
-instance NFData ImageStateChangeReason

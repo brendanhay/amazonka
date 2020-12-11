@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,107 @@
 --
 -- Deletes the retention configuration.
 module Network.AWS.Config.DeleteRetentionConfiguration
-  ( -- * Creating a Request
-    deleteRetentionConfiguration,
-    DeleteRetentionConfiguration,
+  ( -- * Creating a request
+    DeleteRetentionConfiguration (..),
+    mkDeleteRetentionConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drcRetentionConfigurationName,
 
-    -- * Destructuring the Response
-    deleteRetentionConfigurationResponse,
-    DeleteRetentionConfigurationResponse,
+    -- * Destructuring the response
+    DeleteRetentionConfigurationResponse (..),
+    mkDeleteRetentionConfigurationResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRetentionConfiguration' smart constructor.
+-- | /See:/ 'mkDeleteRetentionConfiguration' smart constructor.
 newtype DeleteRetentionConfiguration = DeleteRetentionConfiguration'
-  { _drcRetentionConfigurationName ::
-      Text
+  { retentionConfigurationName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRetentionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drcRetentionConfigurationName' - The name of the retention configuration to delete.
-deleteRetentionConfiguration ::
-  -- | 'drcRetentionConfigurationName'
-  Text ->
+-- * 'retentionConfigurationName' - The name of the retention configuration to delete.
+mkDeleteRetentionConfiguration ::
+  -- | 'retentionConfigurationName'
+  Lude.Text ->
   DeleteRetentionConfiguration
-deleteRetentionConfiguration pRetentionConfigurationName_ =
+mkDeleteRetentionConfiguration pRetentionConfigurationName_ =
   DeleteRetentionConfiguration'
-    { _drcRetentionConfigurationName =
+    { retentionConfigurationName =
         pRetentionConfigurationName_
     }
 
 -- | The name of the retention configuration to delete.
-drcRetentionConfigurationName :: Lens' DeleteRetentionConfiguration Text
-drcRetentionConfigurationName = lens _drcRetentionConfigurationName (\s a -> s {_drcRetentionConfigurationName = a})
+--
+-- /Note:/ Consider using 'retentionConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcRetentionConfigurationName :: Lens.Lens' DeleteRetentionConfiguration Lude.Text
+drcRetentionConfigurationName = Lens.lens (retentionConfigurationName :: DeleteRetentionConfiguration -> Lude.Text) (\s a -> s {retentionConfigurationName = a} :: DeleteRetentionConfiguration)
+{-# DEPRECATED drcRetentionConfigurationName "Use generic-lens or generic-optics with 'retentionConfigurationName' instead." #-}
 
-instance AWSRequest DeleteRetentionConfiguration where
+instance Lude.AWSRequest DeleteRetentionConfiguration where
   type
     Rs DeleteRetentionConfiguration =
       DeleteRetentionConfigurationResponse
-  request = postJSON config
-  response = receiveNull DeleteRetentionConfigurationResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull DeleteRetentionConfigurationResponse'
 
-instance Hashable DeleteRetentionConfiguration
-
-instance NFData DeleteRetentionConfiguration
-
-instance ToHeaders DeleteRetentionConfiguration where
+instance Lude.ToHeaders DeleteRetentionConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DeleteRetentionConfiguration" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DeleteRetentionConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRetentionConfiguration where
+instance Lude.ToJSON DeleteRetentionConfiguration where
   toJSON DeleteRetentionConfiguration' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("RetentionConfigurationName" .= _drcRetentionConfigurationName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("RetentionConfigurationName" Lude..= retentionConfigurationName)
           ]
       )
 
-instance ToPath DeleteRetentionConfiguration where
-  toPath = const "/"
+instance Lude.ToPath DeleteRetentionConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRetentionConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRetentionConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRetentionConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDeleteRetentionConfigurationResponse' smart constructor.
 data DeleteRetentionConfigurationResponse = DeleteRetentionConfigurationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRetentionConfigurationResponse' with the minimum fields required to make a request.
-deleteRetentionConfigurationResponse ::
+mkDeleteRetentionConfigurationResponse ::
   DeleteRetentionConfigurationResponse
-deleteRetentionConfigurationResponse =
+mkDeleteRetentionConfigurationResponse =
   DeleteRetentionConfigurationResponse'
-
-instance NFData DeleteRetentionConfigurationResponse

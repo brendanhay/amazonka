@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,94 +14,103 @@
 --
 -- Deletes the specified network interface. You must detach the network interface before you can delete it.
 module Network.AWS.EC2.DeleteNetworkInterface
-  ( -- * Creating a Request
-    deleteNetworkInterface,
-    DeleteNetworkInterface,
+  ( -- * Creating a request
+    DeleteNetworkInterface (..),
+    mkDeleteNetworkInterface,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dninDryRun,
     dninNetworkInterfaceId,
 
-    -- * Destructuring the Response
-    deleteNetworkInterfaceResponse,
-    DeleteNetworkInterfaceResponse,
+    -- * Destructuring the response
+    DeleteNetworkInterfaceResponse (..),
+    mkDeleteNetworkInterfaceResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DeleteNetworkInterface.
 --
---
---
--- /See:/ 'deleteNetworkInterface' smart constructor.
+-- /See:/ 'mkDeleteNetworkInterface' smart constructor.
 data DeleteNetworkInterface = DeleteNetworkInterface'
-  { _dninDryRun ::
-      !(Maybe Bool),
-    _dninNetworkInterfaceId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    networkInterfaceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNetworkInterface' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dninDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dninNetworkInterfaceId' - The ID of the network interface.
-deleteNetworkInterface ::
-  -- | 'dninNetworkInterfaceId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'networkInterfaceId' - The ID of the network interface.
+mkDeleteNetworkInterface ::
+  -- | 'networkInterfaceId'
+  Lude.Text ->
   DeleteNetworkInterface
-deleteNetworkInterface pNetworkInterfaceId_ =
+mkDeleteNetworkInterface pNetworkInterfaceId_ =
   DeleteNetworkInterface'
-    { _dninDryRun = Nothing,
-      _dninNetworkInterfaceId = pNetworkInterfaceId_
+    { dryRun = Lude.Nothing,
+      networkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dninDryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
-dninDryRun = lens _dninDryRun (\s a -> s {_dninDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dninDryRun :: Lens.Lens' DeleteNetworkInterface (Lude.Maybe Lude.Bool)
+dninDryRun = Lens.lens (dryRun :: DeleteNetworkInterface -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteNetworkInterface)
+{-# DEPRECATED dninDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the network interface.
-dninNetworkInterfaceId :: Lens' DeleteNetworkInterface Text
-dninNetworkInterfaceId = lens _dninNetworkInterfaceId (\s a -> s {_dninNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dninNetworkInterfaceId :: Lens.Lens' DeleteNetworkInterface Lude.Text
+dninNetworkInterfaceId = Lens.lens (networkInterfaceId :: DeleteNetworkInterface -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: DeleteNetworkInterface)
+{-# DEPRECATED dninNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
-instance AWSRequest DeleteNetworkInterface where
+instance Lude.AWSRequest DeleteNetworkInterface where
   type Rs DeleteNetworkInterface = DeleteNetworkInterfaceResponse
-  request = postQuery ec2
-  response = receiveNull DeleteNetworkInterfaceResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DeleteNetworkInterfaceResponse'
 
-instance Hashable DeleteNetworkInterface
+instance Lude.ToHeaders DeleteNetworkInterface where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteNetworkInterface
+instance Lude.ToPath DeleteNetworkInterface where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteNetworkInterface where
-  toHeaders = const mempty
-
-instance ToPath DeleteNetworkInterface where
-  toPath = const "/"
-
-instance ToQuery DeleteNetworkInterface where
+instance Lude.ToQuery DeleteNetworkInterface where
   toQuery DeleteNetworkInterface' {..} =
-    mconcat
-      [ "Action" =: ("DeleteNetworkInterface" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dninDryRun,
-        "NetworkInterfaceId" =: _dninNetworkInterfaceId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteNetworkInterface" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "NetworkInterfaceId" Lude.=: networkInterfaceId
       ]
 
--- | /See:/ 'deleteNetworkInterfaceResponse' smart constructor.
+-- | /See:/ 'mkDeleteNetworkInterfaceResponse' smart constructor.
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNetworkInterfaceResponse' with the minimum fields required to make a request.
-deleteNetworkInterfaceResponse ::
+mkDeleteNetworkInterfaceResponse ::
   DeleteNetworkInterfaceResponse
-deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse'
-
-instance NFData DeleteNetworkInterfaceResponse
+mkDeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse'

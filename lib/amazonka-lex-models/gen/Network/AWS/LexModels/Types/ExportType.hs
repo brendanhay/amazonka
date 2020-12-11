@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.ExportType where
+module Network.AWS.LexModels.Types.ExportType
+  ( ExportType
+      ( ExportType',
+        AlexaSkillsKit,
+        Lex
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExportType
-  = AlexaSkillsKit
-  | Lex
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExportType = ExportType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExportType where
-  parser =
-    takeLowerText >>= \case
-      "alexa_skills_kit" -> pure AlexaSkillsKit
-      "lex" -> pure Lex
-      e ->
-        fromTextError $
-          "Failure parsing ExportType from value: '" <> e
-            <> "'. Accepted values: alexa_skills_kit, lex"
+pattern AlexaSkillsKit :: ExportType
+pattern AlexaSkillsKit = ExportType' "ALEXA_SKILLS_KIT"
 
-instance ToText ExportType where
-  toText = \case
-    AlexaSkillsKit -> "ALEXA_SKILLS_KIT"
-    Lex -> "LEX"
+pattern Lex :: ExportType
+pattern Lex = ExportType' "LEX"
 
-instance Hashable ExportType
-
-instance NFData ExportType
-
-instance ToByteString ExportType
-
-instance ToQuery ExportType
-
-instance ToHeader ExportType
-
-instance ToJSON ExportType where
-  toJSON = toJSONText
-
-instance FromJSON ExportType where
-  parseJSON = parseJSONText "ExportType"
+{-# COMPLETE
+  AlexaSkillsKit,
+  Lex,
+  ExportType'
+  #-}

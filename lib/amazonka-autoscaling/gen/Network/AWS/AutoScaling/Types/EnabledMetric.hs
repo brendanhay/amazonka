@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,142 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.EnabledMetric where
+module Network.AWS.AutoScaling.Types.EnabledMetric
+  ( EnabledMetric (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEnabledMetric,
+
+    -- * Lenses
+    emGranularity,
+    emMetric,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an enabled metric.
 --
---
---
--- /See:/ 'enabledMetric' smart constructor.
+-- /See:/ 'mkEnabledMetric' smart constructor.
 data EnabledMetric = EnabledMetric'
-  { _emGranularity ::
-      !(Maybe Text),
-    _emMetric :: !(Maybe Text)
+  { granularity ::
+      Lude.Maybe Lude.Text,
+    metric :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnabledMetric' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'granularity' - The granularity of the metric. The only valid value is @1Minute@ .
+-- * 'metric' - One of the following metrics:
 --
--- * 'emGranularity' - The granularity of the metric. The only valid value is @1Minute@ .
 --
--- * 'emMetric' - One of the following metrics:     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@      * @GroupInServiceCapacity@      * @GroupPendingCapacity@      * @GroupStandbyCapacity@      * @GroupTerminatingCapacity@      * @GroupTotalCapacity@
-enabledMetric ::
+--     * @GroupMinSize@
+--
+--
+--     * @GroupMaxSize@
+--
+--
+--     * @GroupDesiredCapacity@
+--
+--
+--     * @GroupInServiceInstances@
+--
+--
+--     * @GroupPendingInstances@
+--
+--
+--     * @GroupStandbyInstances@
+--
+--
+--     * @GroupTerminatingInstances@
+--
+--
+--     * @GroupTotalInstances@
+--
+--
+--     * @GroupInServiceCapacity@
+--
+--
+--     * @GroupPendingCapacity@
+--
+--
+--     * @GroupStandbyCapacity@
+--
+--
+--     * @GroupTerminatingCapacity@
+--
+--
+--     * @GroupTotalCapacity@
+mkEnabledMetric ::
   EnabledMetric
-enabledMetric =
-  EnabledMetric' {_emGranularity = Nothing, _emMetric = Nothing}
+mkEnabledMetric =
+  EnabledMetric' {granularity = Lude.Nothing, metric = Lude.Nothing}
 
 -- | The granularity of the metric. The only valid value is @1Minute@ .
-emGranularity :: Lens' EnabledMetric (Maybe Text)
-emGranularity = lens _emGranularity (\s a -> s {_emGranularity = a})
+--
+-- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emGranularity :: Lens.Lens' EnabledMetric (Lude.Maybe Lude.Text)
+emGranularity = Lens.lens (granularity :: EnabledMetric -> Lude.Maybe Lude.Text) (\s a -> s {granularity = a} :: EnabledMetric)
+{-# DEPRECATED emGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
--- | One of the following metrics:     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@      * @GroupInServiceCapacity@      * @GroupPendingCapacity@      * @GroupStandbyCapacity@      * @GroupTerminatingCapacity@      * @GroupTotalCapacity@
-emMetric :: Lens' EnabledMetric (Maybe Text)
-emMetric = lens _emMetric (\s a -> s {_emMetric = a})
+-- | One of the following metrics:
+--
+--
+--     * @GroupMinSize@
+--
+--
+--     * @GroupMaxSize@
+--
+--
+--     * @GroupDesiredCapacity@
+--
+--
+--     * @GroupInServiceInstances@
+--
+--
+--     * @GroupPendingInstances@
+--
+--
+--     * @GroupStandbyInstances@
+--
+--
+--     * @GroupTerminatingInstances@
+--
+--
+--     * @GroupTotalInstances@
+--
+--
+--     * @GroupInServiceCapacity@
+--
+--
+--     * @GroupPendingCapacity@
+--
+--
+--     * @GroupStandbyCapacity@
+--
+--
+--     * @GroupTerminatingCapacity@
+--
+--
+--     * @GroupTotalCapacity@
+--
+--
+--
+-- /Note:/ Consider using 'metric' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emMetric :: Lens.Lens' EnabledMetric (Lude.Maybe Lude.Text)
+emMetric = Lens.lens (metric :: EnabledMetric -> Lude.Maybe Lude.Text) (\s a -> s {metric = a} :: EnabledMetric)
+{-# DEPRECATED emMetric "Use generic-lens or generic-optics with 'metric' instead." #-}
 
-instance FromXML EnabledMetric where
+instance Lude.FromXML EnabledMetric where
   parseXML x =
-    EnabledMetric' <$> (x .@? "Granularity") <*> (x .@? "Metric")
-
-instance Hashable EnabledMetric
-
-instance NFData EnabledMetric
+    EnabledMetric'
+      Lude.<$> (x Lude..@? "Granularity") Lude.<*> (x Lude..@? "Metric")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a scheduled audit that is run at a specified time interval.
 module Network.AWS.IoT.CreateScheduledAudit
-  ( -- * Creating a Request
-    createScheduledAudit,
-    CreateScheduledAudit,
+  ( -- * Creating a request
+    CreateScheduledAudit (..),
+    mkCreateScheduledAudit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csaDayOfMonth,
     csaDayOfWeek,
     csaTags,
@@ -31,156 +26,180 @@ module Network.AWS.IoT.CreateScheduledAudit
     csaTargetCheckNames,
     csaScheduledAuditName,
 
-    -- * Destructuring the Response
-    createScheduledAuditResponse,
-    CreateScheduledAuditResponse,
+    -- * Destructuring the response
+    CreateScheduledAuditResponse (..),
+    mkCreateScheduledAuditResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csarsScheduledAuditARN,
     csarsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createScheduledAudit' smart constructor.
+-- | /See:/ 'mkCreateScheduledAudit' smart constructor.
 data CreateScheduledAudit = CreateScheduledAudit'
-  { _csaDayOfMonth ::
-      !(Maybe Text),
-    _csaDayOfWeek :: !(Maybe DayOfWeek),
-    _csaTags :: !(Maybe [Tag]),
-    _csaFrequency :: !AuditFrequency,
-    _csaTargetCheckNames :: ![Text],
-    _csaScheduledAuditName :: !Text
+  { dayOfMonth ::
+      Lude.Maybe Lude.Text,
+    dayOfWeek :: Lude.Maybe DayOfWeek,
+    tags :: Lude.Maybe [Tag],
+    frequency :: AuditFrequency,
+    targetCheckNames :: [Lude.Text],
+    scheduledAuditName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateScheduledAudit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csaDayOfMonth' - The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
---
--- * 'csaDayOfWeek' - The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".
---
--- * 'csaTags' - Metadata that can be used to manage the scheduled audit.
---
--- * 'csaFrequency' - How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY" or "MONTHLY". The start time of each audit is determined by the system.
---
--- * 'csaTargetCheckNames' - Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
---
--- * 'csaScheduledAuditName' - The name you want to give to the scheduled audit. (Max. 128 chars)
-createScheduledAudit ::
-  -- | 'csaFrequency'
+-- * 'dayOfMonth' - The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
+-- * 'dayOfWeek' - The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".
+-- * 'frequency' - How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY" or "MONTHLY". The start time of each audit is determined by the system.
+-- * 'scheduledAuditName' - The name you want to give to the scheduled audit. (Max. 128 chars)
+-- * 'tags' - Metadata that can be used to manage the scheduled audit.
+-- * 'targetCheckNames' - Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
+mkCreateScheduledAudit ::
+  -- | 'frequency'
   AuditFrequency ->
-  -- | 'csaScheduledAuditName'
-  Text ->
+  -- | 'scheduledAuditName'
+  Lude.Text ->
   CreateScheduledAudit
-createScheduledAudit pFrequency_ pScheduledAuditName_ =
+mkCreateScheduledAudit pFrequency_ pScheduledAuditName_ =
   CreateScheduledAudit'
-    { _csaDayOfMonth = Nothing,
-      _csaDayOfWeek = Nothing,
-      _csaTags = Nothing,
-      _csaFrequency = pFrequency_,
-      _csaTargetCheckNames = mempty,
-      _csaScheduledAuditName = pScheduledAuditName_
+    { dayOfMonth = Lude.Nothing,
+      dayOfWeek = Lude.Nothing,
+      tags = Lude.Nothing,
+      frequency = pFrequency_,
+      targetCheckNames = Lude.mempty,
+      scheduledAuditName = pScheduledAuditName_
     }
 
 -- | The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
-csaDayOfMonth :: Lens' CreateScheduledAudit (Maybe Text)
-csaDayOfMonth = lens _csaDayOfMonth (\s a -> s {_csaDayOfMonth = a})
+--
+-- /Note:/ Consider using 'dayOfMonth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaDayOfMonth :: Lens.Lens' CreateScheduledAudit (Lude.Maybe Lude.Text)
+csaDayOfMonth = Lens.lens (dayOfMonth :: CreateScheduledAudit -> Lude.Maybe Lude.Text) (\s a -> s {dayOfMonth = a} :: CreateScheduledAudit)
+{-# DEPRECATED csaDayOfMonth "Use generic-lens or generic-optics with 'dayOfMonth' instead." #-}
 
 -- | The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".
-csaDayOfWeek :: Lens' CreateScheduledAudit (Maybe DayOfWeek)
-csaDayOfWeek = lens _csaDayOfWeek (\s a -> s {_csaDayOfWeek = a})
+--
+-- /Note:/ Consider using 'dayOfWeek' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaDayOfWeek :: Lens.Lens' CreateScheduledAudit (Lude.Maybe DayOfWeek)
+csaDayOfWeek = Lens.lens (dayOfWeek :: CreateScheduledAudit -> Lude.Maybe DayOfWeek) (\s a -> s {dayOfWeek = a} :: CreateScheduledAudit)
+{-# DEPRECATED csaDayOfWeek "Use generic-lens or generic-optics with 'dayOfWeek' instead." #-}
 
 -- | Metadata that can be used to manage the scheduled audit.
-csaTags :: Lens' CreateScheduledAudit [Tag]
-csaTags = lens _csaTags (\s a -> s {_csaTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaTags :: Lens.Lens' CreateScheduledAudit (Lude.Maybe [Tag])
+csaTags = Lens.lens (tags :: CreateScheduledAudit -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateScheduledAudit)
+{-# DEPRECATED csaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY" or "MONTHLY". The start time of each audit is determined by the system.
-csaFrequency :: Lens' CreateScheduledAudit AuditFrequency
-csaFrequency = lens _csaFrequency (\s a -> s {_csaFrequency = a})
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaFrequency :: Lens.Lens' CreateScheduledAudit AuditFrequency
+csaFrequency = Lens.lens (frequency :: CreateScheduledAudit -> AuditFrequency) (\s a -> s {frequency = a} :: CreateScheduledAudit)
+{-# DEPRECATED csaFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
 -- | Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
-csaTargetCheckNames :: Lens' CreateScheduledAudit [Text]
-csaTargetCheckNames = lens _csaTargetCheckNames (\s a -> s {_csaTargetCheckNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'targetCheckNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaTargetCheckNames :: Lens.Lens' CreateScheduledAudit [Lude.Text]
+csaTargetCheckNames = Lens.lens (targetCheckNames :: CreateScheduledAudit -> [Lude.Text]) (\s a -> s {targetCheckNames = a} :: CreateScheduledAudit)
+{-# DEPRECATED csaTargetCheckNames "Use generic-lens or generic-optics with 'targetCheckNames' instead." #-}
 
 -- | The name you want to give to the scheduled audit. (Max. 128 chars)
-csaScheduledAuditName :: Lens' CreateScheduledAudit Text
-csaScheduledAuditName = lens _csaScheduledAuditName (\s a -> s {_csaScheduledAuditName = a})
+--
+-- /Note:/ Consider using 'scheduledAuditName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaScheduledAuditName :: Lens.Lens' CreateScheduledAudit Lude.Text
+csaScheduledAuditName = Lens.lens (scheduledAuditName :: CreateScheduledAudit -> Lude.Text) (\s a -> s {scheduledAuditName = a} :: CreateScheduledAudit)
+{-# DEPRECATED csaScheduledAuditName "Use generic-lens or generic-optics with 'scheduledAuditName' instead." #-}
 
-instance AWSRequest CreateScheduledAudit where
+instance Lude.AWSRequest CreateScheduledAudit where
   type Rs CreateScheduledAudit = CreateScheduledAuditResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateScheduledAuditResponse'
-            <$> (x .?> "scheduledAuditArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "scheduledAuditArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateScheduledAudit
+instance Lude.ToHeaders CreateScheduledAudit where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateScheduledAudit
-
-instance ToHeaders CreateScheduledAudit where
-  toHeaders = const mempty
-
-instance ToJSON CreateScheduledAudit where
+instance Lude.ToJSON CreateScheduledAudit where
   toJSON CreateScheduledAudit' {..} =
-    object
-      ( catMaybes
-          [ ("dayOfMonth" .=) <$> _csaDayOfMonth,
-            ("dayOfWeek" .=) <$> _csaDayOfWeek,
-            ("tags" .=) <$> _csaTags,
-            Just ("frequency" .= _csaFrequency),
-            Just ("targetCheckNames" .= _csaTargetCheckNames)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("dayOfMonth" Lude..=) Lude.<$> dayOfMonth,
+            ("dayOfWeek" Lude..=) Lude.<$> dayOfWeek,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("frequency" Lude..= frequency),
+            Lude.Just ("targetCheckNames" Lude..= targetCheckNames)
           ]
       )
 
-instance ToPath CreateScheduledAudit where
+instance Lude.ToPath CreateScheduledAudit where
   toPath CreateScheduledAudit' {..} =
-    mconcat ["/audit/scheduledaudits/", toBS _csaScheduledAuditName]
+    Lude.mconcat
+      ["/audit/scheduledaudits/", Lude.toBS scheduledAuditName]
 
-instance ToQuery CreateScheduledAudit where
-  toQuery = const mempty
+instance Lude.ToQuery CreateScheduledAudit where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createScheduledAuditResponse' smart constructor.
+-- | /See:/ 'mkCreateScheduledAuditResponse' smart constructor.
 data CreateScheduledAuditResponse = CreateScheduledAuditResponse'
-  { _csarsScheduledAuditARN ::
-      !(Maybe Text),
-    _csarsResponseStatus :: !Int
+  { scheduledAuditARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateScheduledAuditResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csarsScheduledAuditARN' - The ARN of the scheduled audit.
---
--- * 'csarsResponseStatus' - -- | The response status code.
-createScheduledAuditResponse ::
-  -- | 'csarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'scheduledAuditARN' - The ARN of the scheduled audit.
+mkCreateScheduledAuditResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateScheduledAuditResponse
-createScheduledAuditResponse pResponseStatus_ =
+mkCreateScheduledAuditResponse pResponseStatus_ =
   CreateScheduledAuditResponse'
-    { _csarsScheduledAuditARN = Nothing,
-      _csarsResponseStatus = pResponseStatus_
+    { scheduledAuditARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the scheduled audit.
-csarsScheduledAuditARN :: Lens' CreateScheduledAuditResponse (Maybe Text)
-csarsScheduledAuditARN = lens _csarsScheduledAuditARN (\s a -> s {_csarsScheduledAuditARN = a})
+--
+-- /Note:/ Consider using 'scheduledAuditARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csarsScheduledAuditARN :: Lens.Lens' CreateScheduledAuditResponse (Lude.Maybe Lude.Text)
+csarsScheduledAuditARN = Lens.lens (scheduledAuditARN :: CreateScheduledAuditResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduledAuditARN = a} :: CreateScheduledAuditResponse)
+{-# DEPRECATED csarsScheduledAuditARN "Use generic-lens or generic-optics with 'scheduledAuditARN' instead." #-}
 
--- | -- | The response status code.
-csarsResponseStatus :: Lens' CreateScheduledAuditResponse Int
-csarsResponseStatus = lens _csarsResponseStatus (\s a -> s {_csarsResponseStatus = a})
-
-instance NFData CreateScheduledAuditResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csarsResponseStatus :: Lens.Lens' CreateScheduledAuditResponse Lude.Int
+csarsResponseStatus = Lens.lens (responseStatus :: CreateScheduledAuditResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateScheduledAuditResponse)
+{-# DEPRECATED csarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

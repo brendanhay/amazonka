@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.QueryInfo where
+module Network.AWS.Config.Types.QueryInfo
+  ( QueryInfo (..),
+
+    -- * Smart constructor
+    mkQueryInfo,
+
+    -- * Lenses
+    qiSelectFields,
+  )
+where
 
 import Network.AWS.Config.Types.FieldInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about the query.
 --
---
---
--- /See:/ 'queryInfo' smart constructor.
+-- /See:/ 'mkQueryInfo' smart constructor.
 newtype QueryInfo = QueryInfo'
-  { _qiSelectFields ::
-      Maybe [FieldInfo]
+  { selectFields ::
+      Lude.Maybe [FieldInfo]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qiSelectFields' - Returns a @FieldInfo@ object.
-queryInfo ::
+-- * 'selectFields' - Returns a @FieldInfo@ object.
+mkQueryInfo ::
   QueryInfo
-queryInfo = QueryInfo' {_qiSelectFields = Nothing}
+mkQueryInfo = QueryInfo' {selectFields = Lude.Nothing}
 
 -- | Returns a @FieldInfo@ object.
-qiSelectFields :: Lens' QueryInfo [FieldInfo]
-qiSelectFields = lens _qiSelectFields (\s a -> s {_qiSelectFields = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'selectFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qiSelectFields :: Lens.Lens' QueryInfo (Lude.Maybe [FieldInfo])
+qiSelectFields = Lens.lens (selectFields :: QueryInfo -> Lude.Maybe [FieldInfo]) (\s a -> s {selectFields = a} :: QueryInfo)
+{-# DEPRECATED qiSelectFields "Use generic-lens or generic-optics with 'selectFields' instead." #-}
 
-instance FromJSON QueryInfo where
+instance Lude.FromJSON QueryInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "QueryInfo"
-      (\x -> QueryInfo' <$> (x .:? "SelectFields" .!= mempty))
-
-instance Hashable QueryInfo
-
-instance NFData QueryInfo
+      ( \x ->
+          QueryInfo'
+            Lude.<$> (x Lude..:? "SelectFields" Lude..!= Lude.mempty)
+      )

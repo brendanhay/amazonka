@@ -14,15 +14,12 @@
 -- __AWS Systems Manager__
 --
 -- AWS Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A /managed instance/ is any Amazon Elastic Compute Cloud instance (EC2 instance), or any on-premises server or virtual machine (VM) in your hybrid environment that has been configured for Systems Manager.
---
 -- This reference is intended to be used with the <https://docs.aws.amazon.com/systems-manager/latest/userguide/ AWS Systems Manager User Guide> .
---
 -- To get started, verify prerequisites and configure managed instances. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html Setting up AWS Systems Manager> in the /AWS Systems Manager User Guide/ .
---
 -- For information about other API actions you can perform on EC2 instances, see the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ Amazon EC2 API Reference> . For information about how to use a Query API, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html Making API requests> .
 module Network.AWS.SSM
-  ( -- * Service Configuration
-    ssm,
+  ( -- * Service configuration
+    ssmService,
 
     -- * Errors
     -- $errors
@@ -31,7 +28,7 @@ module Network.AWS.SSM
     -- $waiters
 
     -- ** CommandExecuted
-    commandExecuted,
+    mkCommandExecuted,
 
     -- * Operations
     -- $operations
@@ -624,14 +621,14 @@ module Network.AWS.SSM
     StopType (..),
 
     -- ** AccountSharingInfo
-    AccountSharingInfo,
-    accountSharingInfo,
+    AccountSharingInfo (..),
+    mkAccountSharingInfo,
     asiSharedDocumentVersion,
     asiAccountId,
 
     -- ** Activation
-    Activation,
-    activation,
+    Activation (..),
+    mkActivation,
     aExpired,
     aDefaultInstanceName,
     aActivationId,
@@ -644,8 +641,8 @@ module Network.AWS.SSM
     aIAMRole,
 
     -- ** Association
-    Association,
-    association,
+    Association (..),
+    mkAssociation,
     assAssociationId,
     assInstanceId,
     assOverview,
@@ -658,8 +655,8 @@ module Network.AWS.SSM
     assAssociationName,
 
     -- ** AssociationDescription
-    AssociationDescription,
-    associationDescription,
+    AssociationDescription (..),
+    mkAssociationDescription,
     adAssociationId,
     adInstanceId,
     adStatus,
@@ -684,8 +681,8 @@ module Network.AWS.SSM
     adMaxConcurrency,
 
     -- ** AssociationExecution
-    AssociationExecution,
-    associationExecution,
+    AssociationExecution (..),
+    mkAssociationExecution,
     aeAssociationId,
     aeDetailedStatus,
     aeStatus,
@@ -696,15 +693,15 @@ module Network.AWS.SSM
     aeAssociationVersion,
 
     -- ** AssociationExecutionFilter
-    AssociationExecutionFilter,
-    associationExecutionFilter,
+    AssociationExecutionFilter (..),
+    mkAssociationExecutionFilter,
     aefKey,
     aefValue,
     aefType,
 
     -- ** AssociationExecutionTarget
-    AssociationExecutionTarget,
-    associationExecutionTarget,
+    AssociationExecutionTarget (..),
+    mkAssociationExecutionTarget,
     aetAssociationId,
     aetDetailedStatus,
     aetStatus,
@@ -716,35 +713,35 @@ module Network.AWS.SSM
     aetAssociationVersion,
 
     -- ** AssociationExecutionTargetsFilter
-    AssociationExecutionTargetsFilter,
-    associationExecutionTargetsFilter,
+    AssociationExecutionTargetsFilter (..),
+    mkAssociationExecutionTargetsFilter,
     aetfKey,
     aetfValue,
 
     -- ** AssociationFilter
-    AssociationFilter,
-    associationFilter,
+    AssociationFilter (..),
+    mkAssociationFilter,
     afKey,
     afValue,
 
     -- ** AssociationOverview
-    AssociationOverview,
-    associationOverview,
+    AssociationOverview (..),
+    mkAssociationOverview,
     aoDetailedStatus,
     aoStatus,
     aoAssociationStatusAggregatedCount,
 
     -- ** AssociationStatus
-    AssociationStatus,
-    associationStatus,
+    AssociationStatus (..),
+    mkAssociationStatus,
     asAdditionalInfo,
     asDate,
     asName,
     asMessage,
 
     -- ** AssociationVersionInfo
-    AssociationVersionInfo,
-    associationVersionInfo,
+    AssociationVersionInfo (..),
+    mkAssociationVersionInfo,
     aviAssociationId,
     aviApplyOnlyAtCronInterval,
     aviCreatedDate,
@@ -762,8 +759,8 @@ module Network.AWS.SSM
     aviMaxConcurrency,
 
     -- ** AttachmentContent
-    AttachmentContent,
-    attachmentContent,
+    AttachmentContent (..),
+    mkAttachmentContent,
     acHash,
     acSize,
     acURL,
@@ -771,20 +768,20 @@ module Network.AWS.SSM
     acHashType,
 
     -- ** AttachmentInformation
-    AttachmentInformation,
-    attachmentInformation,
+    AttachmentInformation (..),
+    mkAttachmentInformation,
     aiName,
 
     -- ** AttachmentsSource
-    AttachmentsSource,
-    attachmentsSource,
+    AttachmentsSource (..),
+    mkAttachmentsSource,
     aValues,
     aKey,
     aName,
 
     -- ** AutomationExecution
-    AutomationExecution,
-    automationExecution,
+    AutomationExecution (..),
+    mkAutomationExecution,
     aeCurrentStepName,
     aeTargetParameterName,
     aeTargetLocations,
@@ -812,14 +809,14 @@ module Network.AWS.SSM
     aeTarget,
 
     -- ** AutomationExecutionFilter
-    AutomationExecutionFilter,
-    automationExecutionFilter,
+    AutomationExecutionFilter (..),
+    mkAutomationExecutionFilter,
     autKey,
     autValues,
 
     -- ** AutomationExecutionMetadata
-    AutomationExecutionMetadata,
-    automationExecutionMetadata,
+    AutomationExecutionMetadata (..),
+    mkAutomationExecutionMetadata,
     aemCurrentStepName,
     aemTargetParameterName,
     aemLogFile,
@@ -844,14 +841,14 @@ module Network.AWS.SSM
     aemTarget,
 
     -- ** CloudWatchOutputConfig
-    CloudWatchOutputConfig,
-    cloudWatchOutputConfig,
+    CloudWatchOutputConfig (..),
+    mkCloudWatchOutputConfig,
     cwocCloudWatchLogGroupName,
     cwocCloudWatchOutputEnabled,
 
     -- ** Command
-    Command,
-    command,
+    Command (..),
+    mkCommand,
     cStatus,
     cExpiresAfter,
     cNotificationConfig,
@@ -878,14 +875,14 @@ module Network.AWS.SSM
     cServiceRole,
 
     -- ** CommandFilter
-    CommandFilter,
-    commandFilter,
+    CommandFilter (..),
+    mkCommandFilter,
     cfKey,
     cfValue,
 
     -- ** CommandInvocation
-    CommandInvocation,
-    commandInvocation,
+    CommandInvocation (..),
+    mkCommandInvocation,
     comInstanceId,
     comStatus,
     comNotificationConfig,
@@ -904,8 +901,8 @@ module Network.AWS.SSM
     comServiceRole,
 
     -- ** CommandPlugin
-    CommandPlugin,
-    commandPlugin,
+    CommandPlugin (..),
+    mkCommandPlugin,
     cpStatus,
     cpResponseStartDateTime,
     cpOutputS3KeyPrefix,
@@ -920,15 +917,15 @@ module Network.AWS.SSM
     cpResponseFinishDateTime,
 
     -- ** ComplianceExecutionSummary
-    ComplianceExecutionSummary,
-    complianceExecutionSummary,
+    ComplianceExecutionSummary (..),
+    mkComplianceExecutionSummary,
     cesExecutionId,
     cesExecutionType,
     cesExecutionTime,
 
     -- ** ComplianceItem
-    ComplianceItem,
-    complianceItem,
+    ComplianceItem (..),
+    mkComplianceItem,
     ciStatus,
     ciResourceId,
     ciResourceType,
@@ -940,8 +937,8 @@ module Network.AWS.SSM
     ciTitle,
 
     -- ** ComplianceItemEntry
-    ComplianceItemEntry,
-    complianceItemEntry,
+    ComplianceItemEntry (..),
+    mkComplianceItemEntry,
     cieDetails,
     cieId,
     cieTitle,
@@ -949,28 +946,28 @@ module Network.AWS.SSM
     cieStatus,
 
     -- ** ComplianceStringFilter
-    ComplianceStringFilter,
-    complianceStringFilter,
+    ComplianceStringFilter (..),
+    mkComplianceStringFilter,
     csfValues,
     csfKey,
     csfType,
 
     -- ** ComplianceSummaryItem
-    ComplianceSummaryItem,
-    complianceSummaryItem,
+    ComplianceSummaryItem (..),
+    mkComplianceSummaryItem,
     csiNonCompliantSummary,
     csiCompliantSummary,
     csiComplianceType,
 
     -- ** CompliantSummary
-    CompliantSummary,
-    compliantSummary,
+    CompliantSummary (..),
+    mkCompliantSummary,
     csCompliantCount,
     csSeveritySummary,
 
     -- ** CreateAssociationBatchRequestEntry
-    CreateAssociationBatchRequestEntry,
-    createAssociationBatchRequestEntry,
+    CreateAssociationBatchRequestEntry (..),
+    mkCreateAssociationBatchRequestEntry,
     cabreInstanceId,
     cabreApplyOnlyAtCronInterval,
     cabreMaxErrors,
@@ -987,21 +984,21 @@ module Network.AWS.SSM
     cabreName,
 
     -- ** DescribeActivationsFilter
-    DescribeActivationsFilter,
-    describeActivationsFilter,
+    DescribeActivationsFilter (..),
+    mkDescribeActivationsFilter,
     dafFilterKey,
     dafFilterValues,
 
     -- ** DocumentDefaultVersionDescription
-    DocumentDefaultVersionDescription,
-    documentDefaultVersionDescription,
+    DocumentDefaultVersionDescription (..),
+    mkDocumentDefaultVersionDescription,
     ddvdDefaultVersionName,
     ddvdDefaultVersion,
     ddvdName,
 
     -- ** DocumentDescription
-    DocumentDescription,
-    documentDescription,
+    DocumentDescription (..),
+    mkDocumentDescription,
     dStatus,
     dDocumentType,
     dHash,
@@ -1026,14 +1023,14 @@ module Network.AWS.SSM
     dLatestVersion,
 
     -- ** DocumentFilter
-    DocumentFilter,
-    documentFilter,
+    DocumentFilter (..),
+    mkDocumentFilter,
     dfKey,
     dfValue,
 
     -- ** DocumentIdentifier
-    DocumentIdentifier,
-    documentIdentifier,
+    DocumentIdentifier (..),
+    mkDocumentIdentifier,
     diDocumentType,
     diVersionName,
     diSchemaVersion,
@@ -1047,28 +1044,28 @@ module Network.AWS.SSM
     diTags,
 
     -- ** DocumentKeyValuesFilter
-    DocumentKeyValuesFilter,
-    documentKeyValuesFilter,
+    DocumentKeyValuesFilter (..),
+    mkDocumentKeyValuesFilter,
     dkvfValues,
     dkvfKey,
 
     -- ** DocumentParameter
-    DocumentParameter,
-    documentParameter,
+    DocumentParameter (..),
+    mkDocumentParameter,
     dpName,
     dpDefaultValue,
     dpType,
     dpDescription,
 
     -- ** DocumentRequires
-    DocumentRequires,
-    documentRequires,
+    DocumentRequires (..),
+    mkDocumentRequires,
     drVersion,
     drName,
 
     -- ** DocumentVersionInfo
-    DocumentVersionInfo,
-    documentVersionInfo,
+    DocumentVersionInfo (..),
+    mkDocumentVersionInfo,
     dviStatus,
     dviVersionName,
     dviCreatedDate,
@@ -1079,52 +1076,52 @@ module Network.AWS.SSM
     dviIsDefaultVersion,
 
     -- ** EffectivePatch
-    EffectivePatch,
-    effectivePatch,
+    EffectivePatch (..),
+    mkEffectivePatch,
     epPatch,
     epPatchStatus,
 
     -- ** FailedCreateAssociation
-    FailedCreateAssociation,
-    failedCreateAssociation,
+    FailedCreateAssociation (..),
+    mkFailedCreateAssociation,
     fcaEntry,
     fcaFault,
     fcaMessage,
 
     -- ** FailureDetails
-    FailureDetails,
-    failureDetails,
+    FailureDetails (..),
+    mkFailureDetails,
     fdFailureType,
     fdFailureStage,
     fdDetails,
 
     -- ** InstanceAggregatedAssociationOverview
-    InstanceAggregatedAssociationOverview,
-    instanceAggregatedAssociationOverview,
+    InstanceAggregatedAssociationOverview (..),
+    mkInstanceAggregatedAssociationOverview,
     iaaoDetailedStatus,
     iaaoInstanceAssociationStatusAggregatedCount,
 
     -- ** InstanceAssociation
-    InstanceAssociation,
-    instanceAssociation,
+    InstanceAssociation (..),
+    mkInstanceAssociation,
     iaAssociationId,
     iaInstanceId,
     iaContent,
     iaAssociationVersion,
 
     -- ** InstanceAssociationOutputLocation
-    InstanceAssociationOutputLocation,
-    instanceAssociationOutputLocation,
+    InstanceAssociationOutputLocation (..),
+    mkInstanceAssociationOutputLocation,
     iaolS3Location,
 
     -- ** InstanceAssociationOutputURL
-    InstanceAssociationOutputURL,
-    instanceAssociationOutputURL,
+    InstanceAssociationOutputURL (..),
+    mkInstanceAssociationOutputURL,
     iaouS3OutputURL,
 
     -- ** InstanceAssociationStatusInfo
-    InstanceAssociationStatusInfo,
-    instanceAssociationStatusInfo,
+    InstanceAssociationStatusInfo (..),
+    mkInstanceAssociationStatusInfo,
     iasiAssociationId,
     iasiInstanceId,
     iasiDetailedStatus,
@@ -1139,8 +1136,8 @@ module Network.AWS.SSM
     iasiAssociationName,
 
     -- ** InstanceInformation
-    InstanceInformation,
-    instanceInformation,
+    InstanceInformation (..),
+    mkInstanceInformation,
     iiInstanceId,
     iiPingStatus,
     iiIPAddress,
@@ -1162,20 +1159,20 @@ module Network.AWS.SSM
     iiIAMRole,
 
     -- ** InstanceInformationFilter
-    InstanceInformationFilter,
-    instanceInformationFilter,
+    InstanceInformationFilter (..),
+    mkInstanceInformationFilter,
     iifKey,
     iifValueSet,
 
     -- ** InstanceInformationStringFilter
-    InstanceInformationStringFilter,
-    instanceInformationStringFilter,
+    InstanceInformationStringFilter (..),
+    mkInstanceInformationStringFilter,
     iisfKey,
     iisfValues,
 
     -- ** InstancePatchState
-    InstancePatchState,
-    instancePatchState,
+    InstancePatchState (..),
+    mkInstancePatchState,
     ipsUnreportedNotApplicableCount,
     ipsRebootOption,
     ipsInstalledPendingRebootCount,
@@ -1197,22 +1194,22 @@ module Network.AWS.SSM
     ipsOperation,
 
     -- ** InstancePatchStateFilter
-    InstancePatchStateFilter,
-    instancePatchStateFilter,
+    InstancePatchStateFilter (..),
+    mkInstancePatchStateFilter,
     ipsfKey,
     ipsfValues,
     ipsfType,
 
     -- ** InventoryAggregator
-    InventoryAggregator,
-    inventoryAggregator,
+    InventoryAggregator (..),
+    mkInventoryAggregator,
     iaGroups,
     iaAggregators,
     iaExpression,
 
     -- ** InventoryDeletionStatusItem
-    InventoryDeletionStatusItem,
-    inventoryDeletionStatusItem,
+    InventoryDeletionStatusItem (..),
+    mkInventoryDeletionStatusItem,
     idsiTypeName,
     idsiLastStatusUpdateTime,
     idsiLastStatusMessage,
@@ -1222,35 +1219,35 @@ module Network.AWS.SSM
     idsiDeletionId,
 
     -- ** InventoryDeletionSummary
-    InventoryDeletionSummary,
-    inventoryDeletionSummary,
+    InventoryDeletionSummary (..),
+    mkInventoryDeletionSummary,
     idsRemainingCount,
     idsSummaryItems,
     idsTotalCount,
 
     -- ** InventoryDeletionSummaryItem
-    InventoryDeletionSummaryItem,
-    inventoryDeletionSummaryItem,
+    InventoryDeletionSummaryItem (..),
+    mkInventoryDeletionSummaryItem,
     idsiRemainingCount,
     idsiCount,
     idsiVersion,
 
     -- ** InventoryFilter
-    InventoryFilter,
-    inventoryFilter,
+    InventoryFilter (..),
+    mkInventoryFilter,
     ifType,
     ifKey,
     ifValues,
 
     -- ** InventoryGroup
-    InventoryGroup,
-    inventoryGroup,
+    InventoryGroup (..),
+    mkInventoryGroup,
     igName,
     igFilters,
 
     -- ** InventoryItem
-    InventoryItem,
-    inventoryItem,
+    InventoryItem (..),
+    mkInventoryItem,
     iiContext,
     iiContentHash,
     iiContent,
@@ -1259,28 +1256,28 @@ module Network.AWS.SSM
     iiCaptureTime,
 
     -- ** InventoryItemAttribute
-    InventoryItemAttribute,
-    inventoryItemAttribute,
+    InventoryItemAttribute (..),
+    mkInventoryItemAttribute,
     iiaName,
     iiaDataType,
 
     -- ** InventoryItemSchema
-    InventoryItemSchema,
-    inventoryItemSchema,
+    InventoryItemSchema (..),
+    mkInventoryItemSchema,
     iisVersion,
     iisDisplayName,
     iisTypeName,
     iisAttributes,
 
     -- ** InventoryResultEntity
-    InventoryResultEntity,
-    inventoryResultEntity,
+    InventoryResultEntity (..),
+    mkInventoryResultEntity,
     ireData,
     ireId,
 
     -- ** InventoryResultItem
-    InventoryResultItem,
-    inventoryResultItem,
+    InventoryResultItem (..),
+    mkInventoryResultItem,
     iriContentHash,
     iriCaptureTime,
     iriTypeName,
@@ -1288,21 +1285,21 @@ module Network.AWS.SSM
     iriContent,
 
     -- ** LoggingInfo
-    LoggingInfo,
-    loggingInfo,
+    LoggingInfo (..),
+    mkLoggingInfo,
     liS3KeyPrefix,
     liS3BucketName,
     liS3Region,
 
     -- ** MaintenanceWindowAutomationParameters
-    MaintenanceWindowAutomationParameters,
-    maintenanceWindowAutomationParameters,
+    MaintenanceWindowAutomationParameters (..),
+    mkMaintenanceWindowAutomationParameters,
     mwapParameters,
     mwapDocumentVersion,
 
     -- ** MaintenanceWindowExecution
-    MaintenanceWindowExecution,
-    maintenanceWindowExecution,
+    MaintenanceWindowExecution (..),
+    mkMaintenanceWindowExecution,
     mweStatus,
     mweStartTime,
     mweWindowExecutionId,
@@ -1311,8 +1308,8 @@ module Network.AWS.SSM
     mweWindowId,
 
     -- ** MaintenanceWindowExecutionTaskIdentity
-    MaintenanceWindowExecutionTaskIdentity,
-    maintenanceWindowExecutionTaskIdentity,
+    MaintenanceWindowExecutionTaskIdentity (..),
+    mkMaintenanceWindowExecutionTaskIdentity,
     mwetiStatus,
     mwetiTaskExecutionId,
     mwetiStartTime,
@@ -1323,8 +1320,8 @@ module Network.AWS.SSM
     mwetiEndTime,
 
     -- ** MaintenanceWindowExecutionTaskInvocationIdentity
-    MaintenanceWindowExecutionTaskInvocationIdentity,
-    maintenanceWindowExecutionTaskInvocationIdentity,
+    MaintenanceWindowExecutionTaskInvocationIdentity (..),
+    mkMaintenanceWindowExecutionTaskInvocationIdentity,
     mwetiiStatus,
     mwetiiExecutionId,
     mwetiiTaskExecutionId,
@@ -1339,14 +1336,14 @@ module Network.AWS.SSM
     mwetiiParameters,
 
     -- ** MaintenanceWindowFilter
-    MaintenanceWindowFilter,
-    maintenanceWindowFilter,
+    MaintenanceWindowFilter (..),
+    mkMaintenanceWindowFilter,
     mwfValues,
     mwfKey,
 
     -- ** MaintenanceWindowIdentity
-    MaintenanceWindowIdentity,
-    maintenanceWindowIdentity,
+    MaintenanceWindowIdentity (..),
+    mkMaintenanceWindowIdentity,
     mwiEnabled,
     mwiSchedule,
     mwiNextExecutionTime,
@@ -1361,21 +1358,21 @@ module Network.AWS.SSM
     mwiWindowId,
 
     -- ** MaintenanceWindowIdentityForTarget
-    MaintenanceWindowIdentityForTarget,
-    maintenanceWindowIdentityForTarget,
+    MaintenanceWindowIdentityForTarget (..),
+    mkMaintenanceWindowIdentityForTarget,
     mwiftName,
     mwiftWindowId,
 
     -- ** MaintenanceWindowLambdaParameters
-    MaintenanceWindowLambdaParameters,
-    maintenanceWindowLambdaParameters,
+    MaintenanceWindowLambdaParameters (..),
+    mkMaintenanceWindowLambdaParameters,
     mwlpPayload,
     mwlpQualifier,
     mwlpClientContext,
 
     -- ** MaintenanceWindowRunCommandParameters
-    MaintenanceWindowRunCommandParameters,
-    maintenanceWindowRunCommandParameters,
+    MaintenanceWindowRunCommandParameters (..),
+    mkMaintenanceWindowRunCommandParameters,
     mwrcpServiceRoleARN,
     mwrcpNotificationConfig,
     mwrcpDocumentHashType,
@@ -1389,14 +1386,14 @@ module Network.AWS.SSM
     mwrcpOutputS3BucketName,
 
     -- ** MaintenanceWindowStepFunctionsParameters
-    MaintenanceWindowStepFunctionsParameters,
-    maintenanceWindowStepFunctionsParameters,
+    MaintenanceWindowStepFunctionsParameters (..),
+    mkMaintenanceWindowStepFunctionsParameters,
     mwsfpInput,
     mwsfpName,
 
     -- ** MaintenanceWindowTarget
-    MaintenanceWindowTarget,
-    maintenanceWindowTarget,
+    MaintenanceWindowTarget (..),
+    mkMaintenanceWindowTarget,
     mResourceType,
     mOwnerInformation,
     mWindowTargetId,
@@ -1406,8 +1403,8 @@ module Network.AWS.SSM
     mWindowId,
 
     -- ** MaintenanceWindowTask
-    MaintenanceWindowTask,
-    maintenanceWindowTask,
+    MaintenanceWindowTask (..),
+    mkMaintenanceWindowTask,
     mwtServiceRoleARN,
     mwtWindowTaskId,
     mwtTaskParameters,
@@ -1423,34 +1420,34 @@ module Network.AWS.SSM
     mwtWindowId,
 
     -- ** MaintenanceWindowTaskInvocationParameters
-    MaintenanceWindowTaskInvocationParameters,
-    maintenanceWindowTaskInvocationParameters,
+    MaintenanceWindowTaskInvocationParameters (..),
+    mkMaintenanceWindowTaskInvocationParameters,
     mwtipAutomation,
     mwtipStepFunctions,
     mwtipRunCommand,
     mwtipLambda,
 
     -- ** MaintenanceWindowTaskParameterValueExpression
-    MaintenanceWindowTaskParameterValueExpression,
-    maintenanceWindowTaskParameterValueExpression,
+    MaintenanceWindowTaskParameterValueExpression (..),
+    mkMaintenanceWindowTaskParameterValueExpression,
     mwtpveValues,
 
     -- ** NonCompliantSummary
-    NonCompliantSummary,
-    nonCompliantSummary,
+    NonCompliantSummary (..),
+    mkNonCompliantSummary,
     ncsNonCompliantCount,
     ncsSeveritySummary,
 
     -- ** NotificationConfig
-    NotificationConfig,
-    notificationConfig,
+    NotificationConfig (..),
+    mkNotificationConfig,
     ncNotificationEvents,
     ncNotificationType,
     ncNotificationARN,
 
     -- ** OpsAggregator
-    OpsAggregator,
-    opsAggregator,
+    OpsAggregator (..),
+    mkOpsAggregator,
     oaTypeName,
     oaAggregators,
     oaValues,
@@ -1459,27 +1456,27 @@ module Network.AWS.SSM
     oaAggregatorType,
 
     -- ** OpsEntity
-    OpsEntity,
-    opsEntity,
+    OpsEntity (..),
+    mkOpsEntity,
     oeData,
     oeId,
 
     -- ** OpsEntityItem
-    OpsEntityItem,
-    opsEntityItem,
+    OpsEntityItem (..),
+    mkOpsEntityItem,
     oeiContent,
     oeiCaptureTime,
 
     -- ** OpsFilter
-    OpsFilter,
-    opsFilter,
+    OpsFilter (..),
+    mkOpsFilter,
     ofType,
     ofKey,
     ofValues,
 
     -- ** OpsItem
-    OpsItem,
-    opsItem,
+    OpsItem (..),
+    mkOpsItem,
     oiOpsItemId,
     oiStatus,
     oiPriority,
@@ -1498,26 +1495,26 @@ module Network.AWS.SSM
     oiNotifications,
 
     -- ** OpsItemDataValue
-    OpsItemDataValue,
-    opsItemDataValue,
+    OpsItemDataValue (..),
+    mkOpsItemDataValue,
     oidvValue,
     oidvType,
 
     -- ** OpsItemFilter
-    OpsItemFilter,
-    opsItemFilter,
+    OpsItemFilter (..),
+    mkOpsItemFilter,
     oifKey,
     oifValues,
     oifOperator,
 
     -- ** OpsItemNotification
-    OpsItemNotification,
-    opsItemNotification,
+    OpsItemNotification (..),
+    mkOpsItemNotification,
     oinARN,
 
     -- ** OpsItemSummary
-    OpsItemSummary,
-    opsItemSummary,
+    OpsItemSummary (..),
+    mkOpsItemSummary,
     oisOpsItemId,
     oisStatus,
     oisPriority,
@@ -1532,19 +1529,19 @@ module Network.AWS.SSM
     oisOperationalData,
 
     -- ** OpsResultAttribute
-    OpsResultAttribute,
-    opsResultAttribute,
+    OpsResultAttribute (..),
+    mkOpsResultAttribute,
     oraTypeName,
 
     -- ** OutputSource
-    OutputSource,
-    outputSource,
+    OutputSource (..),
+    mkOutputSource,
     osOutputSourceId,
     osOutputSourceType,
 
     -- ** Parameter
-    Parameter,
-    parameter,
+    Parameter (..),
+    mkParameter,
     pLastModifiedDate,
     pSelector,
     pARN,
@@ -1556,8 +1553,8 @@ module Network.AWS.SSM
     pDataType,
 
     -- ** ParameterHistory
-    ParameterHistory,
-    parameterHistory,
+    ParameterHistory (..),
+    mkParameterHistory,
     phLastModifiedDate,
     phKeyId,
     phValue,
@@ -1573,15 +1570,15 @@ module Network.AWS.SSM
     phPolicies,
 
     -- ** ParameterInlinePolicy
-    ParameterInlinePolicy,
-    parameterInlinePolicy,
+    ParameterInlinePolicy (..),
+    mkParameterInlinePolicy,
     pipPolicyType,
     pipPolicyStatus,
     pipPolicyText,
 
     -- ** ParameterMetadata
-    ParameterMetadata,
-    parameterMetadata,
+    ParameterMetadata (..),
+    mkParameterMetadata,
     pmLastModifiedDate,
     pmKeyId,
     pmName,
@@ -1595,21 +1592,21 @@ module Network.AWS.SSM
     pmPolicies,
 
     -- ** ParameterStringFilter
-    ParameterStringFilter,
-    parameterStringFilter,
+    ParameterStringFilter (..),
+    mkParameterStringFilter,
     psfValues,
     psfOption,
     psfKey,
 
     -- ** ParametersFilter
-    ParametersFilter,
-    parametersFilter,
+    ParametersFilter (..),
+    mkParametersFilter,
     pKey,
     pValues,
 
     -- ** Patch
-    Patch,
-    patch,
+    Patch (..),
+    mkPatch,
     patBugzillaIds,
     patVendor,
     patMsrcSeverity,
@@ -1635,8 +1632,8 @@ module Network.AWS.SSM
     patEpoch,
 
     -- ** PatchBaselineIdentity
-    PatchBaselineIdentity,
-    patchBaselineIdentity,
+    PatchBaselineIdentity (..),
+    mkPatchBaselineIdentity,
     pbiBaselineName,
     pbiBaselineDescription,
     pbiOperatingSystem,
@@ -1644,8 +1641,8 @@ module Network.AWS.SSM
     pbiBaselineId,
 
     -- ** PatchComplianceData
-    PatchComplianceData,
-    patchComplianceData,
+    PatchComplianceData (..),
+    mkPatchComplianceData,
     pcdCVEIds,
     pcdTitle,
     pcdKBId,
@@ -1655,31 +1652,31 @@ module Network.AWS.SSM
     pcdInstalledTime,
 
     -- ** PatchFilter
-    PatchFilter,
-    patchFilter,
+    PatchFilter (..),
+    mkPatchFilter,
     pfKey,
     pfValues,
 
     -- ** PatchFilterGroup
-    PatchFilterGroup,
-    patchFilterGroup,
+    PatchFilterGroup (..),
+    mkPatchFilterGroup,
     pfgPatchFilters,
 
     -- ** PatchGroupPatchBaselineMapping
-    PatchGroupPatchBaselineMapping,
-    patchGroupPatchBaselineMapping,
+    PatchGroupPatchBaselineMapping (..),
+    mkPatchGroupPatchBaselineMapping,
     pgpbmBaselineIdentity,
     pgpbmPatchGroup,
 
     -- ** PatchOrchestratorFilter
-    PatchOrchestratorFilter,
-    patchOrchestratorFilter,
+    PatchOrchestratorFilter (..),
+    mkPatchOrchestratorFilter,
     pofValues,
     pofKey,
 
     -- ** PatchRule
-    PatchRule,
-    patchRule,
+    PatchRule (..),
+    mkPatchRule,
     prApproveAfterDays,
     prApproveUntilDate,
     prEnableNonSecurity,
@@ -1687,27 +1684,27 @@ module Network.AWS.SSM
     prPatchFilterGroup,
 
     -- ** PatchRuleGroup
-    PatchRuleGroup,
-    patchRuleGroup,
+    PatchRuleGroup (..),
+    mkPatchRuleGroup,
     prgPatchRules,
 
     -- ** PatchSource
-    PatchSource,
-    patchSource,
+    PatchSource (..),
+    mkPatchSource,
     psName,
     psProducts,
     psConfiguration,
 
     -- ** PatchStatus
-    PatchStatus,
-    patchStatus,
+    PatchStatus (..),
+    mkPatchStatus,
     psApprovalDate,
     psDeploymentStatus,
     psComplianceLevel,
 
     -- ** ProgressCounters
-    ProgressCounters,
-    progressCounters,
+    ProgressCounters (..),
+    mkProgressCounters,
     pcFailedSteps,
     pcCancelledSteps,
     pcSuccessSteps,
@@ -1715,19 +1712,19 @@ module Network.AWS.SSM
     pcTimedOutSteps,
 
     -- ** RelatedOpsItem
-    RelatedOpsItem,
-    relatedOpsItem,
+    RelatedOpsItem (..),
+    mkRelatedOpsItem,
     roiOpsItemId,
 
     -- ** ResolvedTargets
-    ResolvedTargets,
-    resolvedTargets,
+    ResolvedTargets (..),
+    mkResolvedTargets,
     rtTruncated,
     rtParameterValues,
 
     -- ** ResourceComplianceSummaryItem
-    ResourceComplianceSummaryItem,
-    resourceComplianceSummaryItem,
+    ResourceComplianceSummaryItem (..),
+    mkResourceComplianceSummaryItem,
     rcsiNonCompliantSummary,
     rcsiStatus,
     rcsiResourceId,
@@ -1738,19 +1735,19 @@ module Network.AWS.SSM
     rcsiComplianceType,
 
     -- ** ResourceDataSyncAWSOrganizationsSource
-    ResourceDataSyncAWSOrganizationsSource,
-    resourceDataSyncAWSOrganizationsSource,
+    ResourceDataSyncAWSOrganizationsSource (..),
+    mkResourceDataSyncAWSOrganizationsSource,
     rdsaosOrganizationalUnits,
     rdsaosOrganizationSourceType,
 
     -- ** ResourceDataSyncDestinationDataSharing
-    ResourceDataSyncDestinationDataSharing,
-    resourceDataSyncDestinationDataSharing,
+    ResourceDataSyncDestinationDataSharing (..),
+    mkResourceDataSyncDestinationDataSharing,
     rdsddsDestinationDataSharingType,
 
     -- ** ResourceDataSyncItem
-    ResourceDataSyncItem,
-    resourceDataSyncItem,
+    ResourceDataSyncItem (..),
+    mkResourceDataSyncItem,
     rdsiSyncType,
     rdsiSyncSource,
     rdsiLastSyncStatusMessage,
@@ -1763,13 +1760,13 @@ module Network.AWS.SSM
     rdsiLastSuccessfulSyncTime,
 
     -- ** ResourceDataSyncOrganizationalUnit
-    ResourceDataSyncOrganizationalUnit,
-    resourceDataSyncOrganizationalUnit,
+    ResourceDataSyncOrganizationalUnit (..),
+    mkResourceDataSyncOrganizationalUnit,
     rdsouOrganizationalUnitId,
 
     -- ** ResourceDataSyncS3Destination
-    ResourceDataSyncS3Destination,
-    resourceDataSyncS3Destination,
+    ResourceDataSyncS3Destination (..),
+    mkResourceDataSyncS3Destination,
     rdssdPrefix,
     rdssdDestinationDataSharing,
     rdssdAWSKMSKeyARN,
@@ -1778,16 +1775,16 @@ module Network.AWS.SSM
     rdssdRegion,
 
     -- ** ResourceDataSyncSource
-    ResourceDataSyncSource,
-    resourceDataSyncSource,
+    ResourceDataSyncSource (..),
+    mkResourceDataSyncSource,
     rdssIncludeFutureRegions,
     rdssAWSOrganizationsSource,
     rdssSourceType,
     rdssSourceRegions,
 
     -- ** ResourceDataSyncSourceWithState
-    ResourceDataSyncSourceWithState,
-    resourceDataSyncSourceWithState,
+    ResourceDataSyncSourceWithState (..),
+    mkResourceDataSyncSourceWithState,
     rdsswsState,
     rdsswsIncludeFutureRegions,
     rdsswsSourceType,
@@ -1795,32 +1792,32 @@ module Network.AWS.SSM
     rdsswsSourceRegions,
 
     -- ** ResultAttribute
-    ResultAttribute,
-    resultAttribute,
+    ResultAttribute (..),
+    mkResultAttribute,
     raTypeName,
 
     -- ** S3OutputLocation
-    S3OutputLocation,
-    s3OutputLocation,
+    S3OutputLocation (..),
+    mkS3OutputLocation,
     solOutputS3KeyPrefix,
     solOutputS3Region,
     solOutputS3BucketName,
 
     -- ** S3OutputURL
-    S3OutputURL,
-    s3OutputURL,
+    S3OutputURL (..),
+    mkS3OutputURL,
     souOutputURL,
 
     -- ** ScheduledWindowExecution
-    ScheduledWindowExecution,
-    scheduledWindowExecution,
+    ScheduledWindowExecution (..),
+    mkScheduledWindowExecution,
     sweExecutionTime,
     sweName,
     sweWindowId,
 
     -- ** ServiceSetting
-    ServiceSetting,
-    serviceSetting,
+    ServiceSetting (..),
+    mkServiceSetting,
     ssStatus,
     ssLastModifiedDate,
     ssARN,
@@ -1829,33 +1826,33 @@ module Network.AWS.SSM
     ssSettingValue,
 
     -- ** Session
-    Session,
-    session,
-    sesStatus,
-    sesOutputURL,
-    sesDocumentName,
-    sesEndDate,
-    sesOwner,
-    sesStartDate,
-    sesDetails,
-    sesSessionId,
-    sesTarget,
+    Session (..),
+    mkSession,
+    sStatus,
+    sOutputURL,
+    sDocumentName,
+    sEndDate,
+    sOwner,
+    sStartDate,
+    sDetails,
+    sSessionId,
+    sTarget,
 
     -- ** SessionFilter
-    SessionFilter,
-    sessionFilter,
+    SessionFilter (..),
+    mkSessionFilter,
     sfKey,
     sfValue,
 
     -- ** SessionManagerOutputURL
-    SessionManagerOutputURL,
-    sessionManagerOutputURL,
+    SessionManagerOutputURL (..),
+    mkSessionManagerOutputURL,
     smouS3OutputURL,
     smouCloudWatchOutputURL,
 
     -- ** SeveritySummary
-    SeveritySummary,
-    severitySummary,
+    SeveritySummary (..),
+    mkSeveritySummary,
     ssLowCount,
     ssUnspecifiedCount,
     ssHighCount,
@@ -1864,8 +1861,8 @@ module Network.AWS.SSM
     ssCriticalCount,
 
     -- ** StepExecution
-    StepExecution,
-    stepExecution,
+    StepExecution (..),
+    mkStepExecution,
     seFailureDetails,
     seIsEnd,
     seInputs,
@@ -1890,34 +1887,46 @@ module Network.AWS.SSM
     seIsCritical,
 
     -- ** StepExecutionFilter
-    StepExecutionFilter,
-    stepExecutionFilter,
+    StepExecutionFilter (..),
+    mkStepExecutionFilter,
     sefKey,
     sefValues,
 
     -- ** Tag
-    Tag,
-    tag,
+    Tag (..),
+    mkTag,
     tagKey,
     tagValue,
 
     -- ** Target
-    Target,
-    target,
+    Target (..),
+    mkTarget,
     tValues,
     tKey,
 
     -- ** TargetLocation
-    TargetLocation,
-    targetLocation,
+    TargetLocation (..),
+    mkTargetLocation,
     tlAccounts,
     tlTargetLocationMaxConcurrency,
     tlTargetLocationMaxErrors,
     tlRegions,
     tlExecutionRoleName,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.AddTagsToResource
 import Network.AWS.SSM.CancelCommand
 import Network.AWS.SSM.CancelMaintenanceWindowExecution

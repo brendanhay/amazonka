@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.ResourceStateType where
+module Network.AWS.WorkDocs.Types.ResourceStateType
+  ( ResourceStateType
+      ( ResourceStateType',
+        RSTActive,
+        RSTRecycled,
+        RSTRecycling,
+        RSTRestoring
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceStateType
-  = RSTActive
-  | RSTRecycled
-  | RSTRecycling
-  | RSTRestoring
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceStateType = ResourceStateType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceStateType where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure RSTActive
-      "recycled" -> pure RSTRecycled
-      "recycling" -> pure RSTRecycling
-      "restoring" -> pure RSTRestoring
-      e ->
-        fromTextError $
-          "Failure parsing ResourceStateType from value: '" <> e
-            <> "'. Accepted values: active, recycled, recycling, restoring"
+pattern RSTActive :: ResourceStateType
+pattern RSTActive = ResourceStateType' "ACTIVE"
 
-instance ToText ResourceStateType where
-  toText = \case
-    RSTActive -> "ACTIVE"
-    RSTRecycled -> "RECYCLED"
-    RSTRecycling -> "RECYCLING"
-    RSTRestoring -> "RESTORING"
+pattern RSTRecycled :: ResourceStateType
+pattern RSTRecycled = ResourceStateType' "RECYCLED"
 
-instance Hashable ResourceStateType
+pattern RSTRecycling :: ResourceStateType
+pattern RSTRecycling = ResourceStateType' "RECYCLING"
 
-instance NFData ResourceStateType
+pattern RSTRestoring :: ResourceStateType
+pattern RSTRestoring = ResourceStateType' "RESTORING"
 
-instance ToByteString ResourceStateType
-
-instance ToQuery ResourceStateType
-
-instance ToHeader ResourceStateType
-
-instance ToJSON ResourceStateType where
-  toJSON = toJSONText
-
-instance FromJSON ResourceStateType where
-  parseJSON = parseJSONText "ResourceStateType"
+{-# COMPLETE
+  RSTActive,
+  RSTRecycled,
+  RSTRecycling,
+  RSTRestoring,
+  ResourceStateType'
+  #-}

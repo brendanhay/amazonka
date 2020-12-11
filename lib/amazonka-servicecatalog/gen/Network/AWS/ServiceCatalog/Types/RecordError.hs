@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.RecordError where
+module Network.AWS.ServiceCatalog.Types.RecordError
+  ( RecordError (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRecordError,
+
+    -- * Lenses
+    reCode,
+    reDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The error code and description resulting from an operation.
 --
---
---
--- /See:/ 'recordError' smart constructor.
+-- /See:/ 'mkRecordError' smart constructor.
 data RecordError = RecordError'
-  { _reCode :: !(Maybe Text),
-    _reDescription :: !(Maybe Text)
+  { code :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'reCode' - The numeric value of the error.
---
--- * 'reDescription' - The description of the error.
-recordError ::
+-- * 'code' - The numeric value of the error.
+-- * 'description' - The description of the error.
+mkRecordError ::
   RecordError
-recordError =
-  RecordError' {_reCode = Nothing, _reDescription = Nothing}
+mkRecordError =
+  RecordError' {code = Lude.Nothing, description = Lude.Nothing}
 
 -- | The numeric value of the error.
-reCode :: Lens' RecordError (Maybe Text)
-reCode = lens _reCode (\s a -> s {_reCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reCode :: Lens.Lens' RecordError (Lude.Maybe Lude.Text)
+reCode = Lens.lens (code :: RecordError -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: RecordError)
+{-# DEPRECATED reCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The description of the error.
-reDescription :: Lens' RecordError (Maybe Text)
-reDescription = lens _reDescription (\s a -> s {_reDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reDescription :: Lens.Lens' RecordError (Lude.Maybe Lude.Text)
+reDescription = Lens.lens (description :: RecordError -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RecordError)
+{-# DEPRECATED reDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON RecordError where
+instance Lude.FromJSON RecordError where
   parseJSON =
-    withObject
+    Lude.withObject
       "RecordError"
-      (\x -> RecordError' <$> (x .:? "Code") <*> (x .:? "Description"))
-
-instance Hashable RecordError
-
-instance NFData RecordError
+      ( \x ->
+          RecordError'
+            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Description")
+      )

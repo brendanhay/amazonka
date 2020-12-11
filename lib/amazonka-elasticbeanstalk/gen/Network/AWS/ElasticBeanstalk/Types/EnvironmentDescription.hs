@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,36 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EnvironmentDescription where
+module Network.AWS.ElasticBeanstalk.Types.EnvironmentDescription
+  ( EnvironmentDescription (..),
+
+    -- * Smart constructor
+    mkEnvironmentDescription,
+
+    -- * Lenses
+    eStatus,
+    eCNAME,
+    eTemplateName,
+    eAbortableOperationInProgress,
+    eEndpointURL,
+    eResources,
+    eDateUpdated,
+    eDateCreated,
+    eHealth,
+    eVersionLabel,
+    eOperationsRole,
+    ePlatformARN,
+    eTier,
+    eEnvironmentName,
+    eApplicationName,
+    eEnvironmentARN,
+    eSolutionStackName,
+    eEnvironmentId,
+    eHealthStatus,
+    eEnvironmentLinks,
+    eDescription,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth
 import Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus
@@ -21,227 +44,339 @@ import Network.AWS.ElasticBeanstalk.Types.EnvironmentLink
 import Network.AWS.ElasticBeanstalk.Types.EnvironmentResourcesDescription
 import Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus
 import Network.AWS.ElasticBeanstalk.Types.EnvironmentTier
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the properties of an environment.
 --
---
---
--- /See:/ 'environmentDescription' smart constructor.
+-- /See:/ 'mkEnvironmentDescription' smart constructor.
 data EnvironmentDescription = EnvironmentDescription'
-  { _eStatus ::
-      !(Maybe EnvironmentStatus),
-    _eCNAME :: !(Maybe Text),
-    _eTemplateName :: !(Maybe Text),
-    _eAbortableOperationInProgress ::
-      !(Maybe Bool),
-    _eEndpointURL :: !(Maybe Text),
-    _eResources ::
-      !(Maybe EnvironmentResourcesDescription),
-    _eDateUpdated :: !(Maybe ISO8601),
-    _eDateCreated :: !(Maybe ISO8601),
-    _eHealth :: !(Maybe EnvironmentHealth),
-    _eVersionLabel :: !(Maybe Text),
-    _eOperationsRole :: !(Maybe Text),
-    _ePlatformARN :: !(Maybe Text),
-    _eTier :: !(Maybe EnvironmentTier),
-    _eEnvironmentName :: !(Maybe Text),
-    _eApplicationName :: !(Maybe Text),
-    _eEnvironmentARN :: !(Maybe Text),
-    _eSolutionStackName :: !(Maybe Text),
-    _eEnvironmentId :: !(Maybe Text),
-    _eHealthStatus ::
-      !(Maybe EnvironmentHealthStatus),
-    _eEnvironmentLinks ::
-      !(Maybe [EnvironmentLink]),
-    _eDescription :: !(Maybe Text)
+  { status ::
+      Lude.Maybe EnvironmentStatus,
+    cNAME :: Lude.Maybe Lude.Text,
+    templateName :: Lude.Maybe Lude.Text,
+    abortableOperationInProgress ::
+      Lude.Maybe Lude.Bool,
+    endpointURL :: Lude.Maybe Lude.Text,
+    resources ::
+      Lude.Maybe EnvironmentResourcesDescription,
+    dateUpdated :: Lude.Maybe Lude.ISO8601,
+    dateCreated :: Lude.Maybe Lude.ISO8601,
+    health :: Lude.Maybe EnvironmentHealth,
+    versionLabel :: Lude.Maybe Lude.Text,
+    operationsRole :: Lude.Maybe Lude.Text,
+    platformARN :: Lude.Maybe Lude.Text,
+    tier :: Lude.Maybe EnvironmentTier,
+    environmentName :: Lude.Maybe Lude.Text,
+    applicationName :: Lude.Maybe Lude.Text,
+    environmentARN :: Lude.Maybe Lude.Text,
+    solutionStackName :: Lude.Maybe Lude.Text,
+    environmentId :: Lude.Maybe Lude.Text,
+    healthStatus ::
+      Lude.Maybe EnvironmentHealthStatus,
+    environmentLinks ::
+      Lude.Maybe [EnvironmentLink],
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'abortableOperationInProgress' - Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel.
 --
--- * 'eStatus' - The current operational status of the environment:     * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
+-- @true:@ There is an update in progress.
+-- @false:@ There are no updates currently in progress.
+-- * 'applicationName' - The name of the application associated with this environment.
+-- * 'cNAME' - The URL to the CNAME for this environment.
+-- * 'dateCreated' - The creation date for this environment.
+-- * 'dateUpdated' - The last modified date for this environment.
+-- * 'description' - Describes this environment.
+-- * 'endpointURL' - For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance.
+-- * 'environmentARN' - The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
+-- * 'environmentId' - The ID of this environment.
+-- * 'environmentLinks' - A list of links to other environments in the same group.
+-- * 'environmentName' - The name of this environment.
+-- * 'health' - Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:
 --
--- * 'eCNAME' - The URL to the CNAME for this environment.
 --
--- * 'eTemplateName' - The name of the configuration template used to originally launch this environment.
+--     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.
 --
--- * 'eAbortableOperationInProgress' - Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel. @true:@ There is an update in progress.  @false:@ There are no updates currently in progress.
 --
--- * 'eEndpointURL' - For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance.
+--     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.
 --
--- * 'eResources' - The description of the AWS resources used by this environment.
 --
--- * 'eDateUpdated' - The last modified date for this environment.
+--     * @Green@ : Indicates the environment is healthy and fully functional.
 --
--- * 'eDateCreated' - The creation date for this environment.
 --
--- * 'eHealth' - Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.     * @Green@ : Indicates the environment is healthy and fully functional.     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironment@ request. Default: @Grey@
+--     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironment@ request.
 --
--- * 'eVersionLabel' - The application version deployed in this environment.
 --
--- * 'eOperationsRole' - The Amazon Resource Name (ARN) of the environment's operations role. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles> in the /AWS Elastic Beanstalk Developer Guide/ .
+-- Default: @Grey@
+-- * 'healthStatus' - Returns the health status of the application running in your environment. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+-- * 'operationsRole' - The Amazon Resource Name (ARN) of the environment's operations role. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles> in the /AWS Elastic Beanstalk Developer Guide/ .
+-- * 'platformARN' - The ARN of the platform version.
+-- * 'resources' - The description of the AWS resources used by this environment.
+-- * 'solutionStackName' - The name of the @SolutionStack@ deployed with this environment.
+-- * 'status' - The current operational status of the environment:
 --
--- * 'ePlatformARN' - The ARN of the platform version.
 --
--- * 'eTier' - Describes the current tier of this environment.
+--     * @Launching@ : Environment is in the process of initial deployment.
 --
--- * 'eEnvironmentName' - The name of this environment.
 --
--- * 'eApplicationName' - The name of the application associated with this environment.
+--     * @Updating@ : Environment is in the process of updating its configuration settings or application version.
 --
--- * 'eEnvironmentARN' - The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
 --
--- * 'eSolutionStackName' - The name of the @SolutionStack@ deployed with this environment.
+--     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.
 --
--- * 'eEnvironmentId' - The ID of this environment.
 --
--- * 'eHealthStatus' - Returns the health status of the application running in your environment. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+--     * @Terminating@ : Environment is in the shut-down process.
 --
--- * 'eEnvironmentLinks' - A list of links to other environments in the same group.
 --
--- * 'eDescription' - Describes this environment.
-environmentDescription ::
+--     * @Terminated@ : Environment is not running.
+--
+--
+-- * 'templateName' - The name of the configuration template used to originally launch this environment.
+-- * 'tier' - Describes the current tier of this environment.
+-- * 'versionLabel' - The application version deployed in this environment.
+mkEnvironmentDescription ::
   EnvironmentDescription
-environmentDescription =
+mkEnvironmentDescription =
   EnvironmentDescription'
-    { _eStatus = Nothing,
-      _eCNAME = Nothing,
-      _eTemplateName = Nothing,
-      _eAbortableOperationInProgress = Nothing,
-      _eEndpointURL = Nothing,
-      _eResources = Nothing,
-      _eDateUpdated = Nothing,
-      _eDateCreated = Nothing,
-      _eHealth = Nothing,
-      _eVersionLabel = Nothing,
-      _eOperationsRole = Nothing,
-      _ePlatformARN = Nothing,
-      _eTier = Nothing,
-      _eEnvironmentName = Nothing,
-      _eApplicationName = Nothing,
-      _eEnvironmentARN = Nothing,
-      _eSolutionStackName = Nothing,
-      _eEnvironmentId = Nothing,
-      _eHealthStatus = Nothing,
-      _eEnvironmentLinks = Nothing,
-      _eDescription = Nothing
+    { status = Lude.Nothing,
+      cNAME = Lude.Nothing,
+      templateName = Lude.Nothing,
+      abortableOperationInProgress = Lude.Nothing,
+      endpointURL = Lude.Nothing,
+      resources = Lude.Nothing,
+      dateUpdated = Lude.Nothing,
+      dateCreated = Lude.Nothing,
+      health = Lude.Nothing,
+      versionLabel = Lude.Nothing,
+      operationsRole = Lude.Nothing,
+      platformARN = Lude.Nothing,
+      tier = Lude.Nothing,
+      environmentName = Lude.Nothing,
+      applicationName = Lude.Nothing,
+      environmentARN = Lude.Nothing,
+      solutionStackName = Lude.Nothing,
+      environmentId = Lude.Nothing,
+      healthStatus = Lude.Nothing,
+      environmentLinks = Lude.Nothing,
+      description = Lude.Nothing
     }
 
--- | The current operational status of the environment:     * @Launching@ : Environment is in the process of initial deployment.     * @Updating@ : Environment is in the process of updating its configuration settings or application version.     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.     * @Terminating@ : Environment is in the shut-down process.     * @Terminated@ : Environment is not running.
-eStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
-eStatus = lens _eStatus (\s a -> s {_eStatus = a})
+-- | The current operational status of the environment:
+--
+--
+--     * @Launching@ : Environment is in the process of initial deployment.
+--
+--
+--     * @Updating@ : Environment is in the process of updating its configuration settings or application version.
+--
+--
+--     * @Ready@ : Environment is available to have an action performed on it, such as update or terminate.
+--
+--
+--     * @Terminating@ : Environment is in the shut-down process.
+--
+--
+--     * @Terminated@ : Environment is not running.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eStatus :: Lens.Lens' EnvironmentDescription (Lude.Maybe EnvironmentStatus)
+eStatus = Lens.lens (status :: EnvironmentDescription -> Lude.Maybe EnvironmentStatus) (\s a -> s {status = a} :: EnvironmentDescription)
+{-# DEPRECATED eStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The URL to the CNAME for this environment.
-eCNAME :: Lens' EnvironmentDescription (Maybe Text)
-eCNAME = lens _eCNAME (\s a -> s {_eCNAME = a})
+--
+-- /Note:/ Consider using 'cNAME' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eCNAME :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eCNAME = Lens.lens (cNAME :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {cNAME = a} :: EnvironmentDescription)
+{-# DEPRECATED eCNAME "Use generic-lens or generic-optics with 'cNAME' instead." #-}
 
 -- | The name of the configuration template used to originally launch this environment.
-eTemplateName :: Lens' EnvironmentDescription (Maybe Text)
-eTemplateName = lens _eTemplateName (\s a -> s {_eTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eTemplateName :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eTemplateName = Lens.lens (templateName :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: EnvironmentDescription)
+{-# DEPRECATED eTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
--- | Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel. @true:@ There is an update in progress.  @false:@ There are no updates currently in progress.
-eAbortableOperationInProgress :: Lens' EnvironmentDescription (Maybe Bool)
-eAbortableOperationInProgress = lens _eAbortableOperationInProgress (\s a -> s {_eAbortableOperationInProgress = a})
+-- | Indicates if there is an in-progress environment configuration update or application version deployment that you can cancel.
+--
+-- @true:@ There is an update in progress.
+-- @false:@ There are no updates currently in progress.
+--
+-- /Note:/ Consider using 'abortableOperationInProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eAbortableOperationInProgress :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Bool)
+eAbortableOperationInProgress = Lens.lens (abortableOperationInProgress :: EnvironmentDescription -> Lude.Maybe Lude.Bool) (\s a -> s {abortableOperationInProgress = a} :: EnvironmentDescription)
+{-# DEPRECATED eAbortableOperationInProgress "Use generic-lens or generic-optics with 'abortableOperationInProgress' instead." #-}
 
 -- | For load-balanced, autoscaling environments, the URL to the LoadBalancer. For single-instance environments, the IP address of the instance.
-eEndpointURL :: Lens' EnvironmentDescription (Maybe Text)
-eEndpointURL = lens _eEndpointURL (\s a -> s {_eEndpointURL = a})
+--
+-- /Note:/ Consider using 'endpointURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEndpointURL :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eEndpointURL = Lens.lens (endpointURL :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {endpointURL = a} :: EnvironmentDescription)
+{-# DEPRECATED eEndpointURL "Use generic-lens or generic-optics with 'endpointURL' instead." #-}
 
 -- | The description of the AWS resources used by this environment.
-eResources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
-eResources = lens _eResources (\s a -> s {_eResources = a})
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eResources :: Lens.Lens' EnvironmentDescription (Lude.Maybe EnvironmentResourcesDescription)
+eResources = Lens.lens (resources :: EnvironmentDescription -> Lude.Maybe EnvironmentResourcesDescription) (\s a -> s {resources = a} :: EnvironmentDescription)
+{-# DEPRECATED eResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The last modified date for this environment.
-eDateUpdated :: Lens' EnvironmentDescription (Maybe UTCTime)
-eDateUpdated = lens _eDateUpdated (\s a -> s {_eDateUpdated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDateUpdated :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.ISO8601)
+eDateUpdated = Lens.lens (dateUpdated :: EnvironmentDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateUpdated = a} :: EnvironmentDescription)
+{-# DEPRECATED eDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
 
 -- | The creation date for this environment.
-eDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
-eDateCreated = lens _eDateCreated (\s a -> s {_eDateCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDateCreated :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.ISO8601)
+eDateCreated = Lens.lens (dateCreated :: EnvironmentDescription -> Lude.Maybe Lude.ISO8601) (\s a -> s {dateCreated = a} :: EnvironmentDescription)
+{-# DEPRECATED eDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
 
--- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.     * @Green@ : Indicates the environment is healthy and fully functional.     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironment@ request. Default: @Grey@
-eHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
-eHealth = lens _eHealth (\s a -> s {_eHealth = a})
+-- | Describes the health status of the environment. AWS Elastic Beanstalk indicates the failure levels for a running environment:
+--
+--
+--     * @Red@ : Indicates the environment is not responsive. Occurs when three or more consecutive failures occur for an environment.
+--
+--
+--     * @Yellow@ : Indicates that something is wrong. Occurs when two consecutive failures occur for an environment.
+--
+--
+--     * @Green@ : Indicates the environment is healthy and fully functional.
+--
+--
+--     * @Grey@ : Default health for a new environment. The environment is not fully launched and health checks have not started or health checks are suspended during an @UpdateEnvironment@ or @RestartEnvironment@ request.
+--
+--
+-- Default: @Grey@
+--
+-- /Note:/ Consider using 'health' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eHealth :: Lens.Lens' EnvironmentDescription (Lude.Maybe EnvironmentHealth)
+eHealth = Lens.lens (health :: EnvironmentDescription -> Lude.Maybe EnvironmentHealth) (\s a -> s {health = a} :: EnvironmentDescription)
+{-# DEPRECATED eHealth "Use generic-lens or generic-optics with 'health' instead." #-}
 
 -- | The application version deployed in this environment.
-eVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
-eVersionLabel = lens _eVersionLabel (\s a -> s {_eVersionLabel = a})
+--
+-- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eVersionLabel :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eVersionLabel = Lens.lens (versionLabel :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: EnvironmentDescription)
+{-# DEPRECATED eVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the environment's operations role. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles> in the /AWS Elastic Beanstalk Developer Guide/ .
-eOperationsRole :: Lens' EnvironmentDescription (Maybe Text)
-eOperationsRole = lens _eOperationsRole (\s a -> s {_eOperationsRole = a})
+--
+-- /Note:/ Consider using 'operationsRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eOperationsRole :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eOperationsRole = Lens.lens (operationsRole :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {operationsRole = a} :: EnvironmentDescription)
+{-# DEPRECATED eOperationsRole "Use generic-lens or generic-optics with 'operationsRole' instead." #-}
 
 -- | The ARN of the platform version.
-ePlatformARN :: Lens' EnvironmentDescription (Maybe Text)
-ePlatformARN = lens _ePlatformARN (\s a -> s {_ePlatformARN = a})
+--
+-- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ePlatformARN :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+ePlatformARN = Lens.lens (platformARN :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: EnvironmentDescription)
+{-# DEPRECATED ePlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
 
 -- | Describes the current tier of this environment.
-eTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
-eTier = lens _eTier (\s a -> s {_eTier = a})
+--
+-- /Note:/ Consider using 'tier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eTier :: Lens.Lens' EnvironmentDescription (Lude.Maybe EnvironmentTier)
+eTier = Lens.lens (tier :: EnvironmentDescription -> Lude.Maybe EnvironmentTier) (\s a -> s {tier = a} :: EnvironmentDescription)
+{-# DEPRECATED eTier "Use generic-lens or generic-optics with 'tier' instead." #-}
 
 -- | The name of this environment.
-eEnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
-eEnvironmentName = lens _eEnvironmentName (\s a -> s {_eEnvironmentName = a})
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEnvironmentName :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eEnvironmentName = Lens.lens (environmentName :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: EnvironmentDescription)
+{-# DEPRECATED eEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The name of the application associated with this environment.
-eApplicationName :: Lens' EnvironmentDescription (Maybe Text)
-eApplicationName = lens _eApplicationName (\s a -> s {_eApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eApplicationName :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eApplicationName = Lens.lens (applicationName :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: EnvironmentDescription)
+{-# DEPRECATED eApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.
-eEnvironmentARN :: Lens' EnvironmentDescription (Maybe Text)
-eEnvironmentARN = lens _eEnvironmentARN (\s a -> s {_eEnvironmentARN = a})
+--
+-- /Note:/ Consider using 'environmentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEnvironmentARN :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eEnvironmentARN = Lens.lens (environmentARN :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {environmentARN = a} :: EnvironmentDescription)
+{-# DEPRECATED eEnvironmentARN "Use generic-lens or generic-optics with 'environmentARN' instead." #-}
 
 -- | The name of the @SolutionStack@ deployed with this environment.
-eSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
-eSolutionStackName = lens _eSolutionStackName (\s a -> s {_eSolutionStackName = a})
+--
+-- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSolutionStackName :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eSolutionStackName = Lens.lens (solutionStackName :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {solutionStackName = a} :: EnvironmentDescription)
+{-# DEPRECATED eSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
 
 -- | The ID of this environment.
-eEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
-eEnvironmentId = lens _eEnvironmentId (\s a -> s {_eEnvironmentId = a})
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEnvironmentId :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eEnvironmentId = Lens.lens (environmentId :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: EnvironmentDescription)
+{-# DEPRECATED eEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | Returns the health status of the application running in your environment. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
-eHealthStatus :: Lens' EnvironmentDescription (Maybe EnvironmentHealthStatus)
-eHealthStatus = lens _eHealthStatus (\s a -> s {_eHealthStatus = a})
+--
+-- /Note:/ Consider using 'healthStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eHealthStatus :: Lens.Lens' EnvironmentDescription (Lude.Maybe EnvironmentHealthStatus)
+eHealthStatus = Lens.lens (healthStatus :: EnvironmentDescription -> Lude.Maybe EnvironmentHealthStatus) (\s a -> s {healthStatus = a} :: EnvironmentDescription)
+{-# DEPRECATED eHealthStatus "Use generic-lens or generic-optics with 'healthStatus' instead." #-}
 
 -- | A list of links to other environments in the same group.
-eEnvironmentLinks :: Lens' EnvironmentDescription [EnvironmentLink]
-eEnvironmentLinks = lens _eEnvironmentLinks (\s a -> s {_eEnvironmentLinks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'environmentLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEnvironmentLinks :: Lens.Lens' EnvironmentDescription (Lude.Maybe [EnvironmentLink])
+eEnvironmentLinks = Lens.lens (environmentLinks :: EnvironmentDescription -> Lude.Maybe [EnvironmentLink]) (\s a -> s {environmentLinks = a} :: EnvironmentDescription)
+{-# DEPRECATED eEnvironmentLinks "Use generic-lens or generic-optics with 'environmentLinks' instead." #-}
 
 -- | Describes this environment.
-eDescription :: Lens' EnvironmentDescription (Maybe Text)
-eDescription = lens _eDescription (\s a -> s {_eDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDescription :: Lens.Lens' EnvironmentDescription (Lude.Maybe Lude.Text)
+eDescription = Lens.lens (description :: EnvironmentDescription -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: EnvironmentDescription)
+{-# DEPRECATED eDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML EnvironmentDescription where
+instance Lude.FromXML EnvironmentDescription where
   parseXML x =
     EnvironmentDescription'
-      <$> (x .@? "Status")
-      <*> (x .@? "CNAME")
-      <*> (x .@? "TemplateName")
-      <*> (x .@? "AbortableOperationInProgress")
-      <*> (x .@? "EndpointURL")
-      <*> (x .@? "Resources")
-      <*> (x .@? "DateUpdated")
-      <*> (x .@? "DateCreated")
-      <*> (x .@? "Health")
-      <*> (x .@? "VersionLabel")
-      <*> (x .@? "OperationsRole")
-      <*> (x .@? "PlatformArn")
-      <*> (x .@? "Tier")
-      <*> (x .@? "EnvironmentName")
-      <*> (x .@? "ApplicationName")
-      <*> (x .@? "EnvironmentArn")
-      <*> (x .@? "SolutionStackName")
-      <*> (x .@? "EnvironmentId")
-      <*> (x .@? "HealthStatus")
-      <*> ( x .@? "EnvironmentLinks" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> (x .@? "Description")
-
-instance Hashable EnvironmentDescription
-
-instance NFData EnvironmentDescription
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "CNAME")
+      Lude.<*> (x Lude..@? "TemplateName")
+      Lude.<*> (x Lude..@? "AbortableOperationInProgress")
+      Lude.<*> (x Lude..@? "EndpointURL")
+      Lude.<*> (x Lude..@? "Resources")
+      Lude.<*> (x Lude..@? "DateUpdated")
+      Lude.<*> (x Lude..@? "DateCreated")
+      Lude.<*> (x Lude..@? "Health")
+      Lude.<*> (x Lude..@? "VersionLabel")
+      Lude.<*> (x Lude..@? "OperationsRole")
+      Lude.<*> (x Lude..@? "PlatformArn")
+      Lude.<*> (x Lude..@? "Tier")
+      Lude.<*> (x Lude..@? "EnvironmentName")
+      Lude.<*> (x Lude..@? "ApplicationName")
+      Lude.<*> (x Lude..@? "EnvironmentArn")
+      Lude.<*> (x Lude..@? "SolutionStackName")
+      Lude.<*> (x Lude..@? "EnvironmentId")
+      Lude.<*> (x Lude..@? "HealthStatus")
+      Lude.<*> ( x Lude..@? "EnvironmentLinks" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "Description")

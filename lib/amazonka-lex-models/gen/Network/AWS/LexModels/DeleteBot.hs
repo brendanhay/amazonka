@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,80 +14,88 @@
 --
 -- Deletes all versions of the bot, including the @> LATEST@ version. To delete a specific version of the bot, use the 'DeleteBotVersion' operation. The @DeleteBot@ operation doesn't immediately remove the bot schema. Instead, it is marked for deletion and removed later.
 --
---
 -- Amazon Lex stores utterances indefinitely for improving the ability of your bot to respond to user inputs. These utterances are not removed when the bot is deleted. To remove the utterances, use the 'DeleteUtterances' operation.
---
 -- If a bot has an alias, you can't delete it. Instead, the @DeleteBot@ operation returns a @ResourceInUseException@ exception that includes a reference to the alias that refers to the bot. To remove the reference to the bot, delete the alias. If you get the same exception again, delete the referring alias until the @DeleteBot@ operation is successful.
---
 -- This operation requires permissions for the @lex:DeleteBot@ action.
 module Network.AWS.LexModels.DeleteBot
-  ( -- * Creating a Request
-    deleteBot,
-    DeleteBot,
+  ( -- * Creating a request
+    DeleteBot (..),
+    mkDeleteBot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbName,
 
-    -- * Destructuring the Response
-    deleteBotResponse,
-    DeleteBotResponse,
+    -- * Destructuring the response
+    DeleteBotResponse (..),
+    mkDeleteBotResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBot' smart constructor.
-newtype DeleteBot = DeleteBot' {_dbName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteBot' smart constructor.
+newtype DeleteBot = DeleteBot' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbName' - The name of the bot. The name is case sensitive.
-deleteBot ::
-  -- | 'dbName'
-  Text ->
+-- * 'name' - The name of the bot. The name is case sensitive.
+mkDeleteBot ::
+  -- | 'name'
+  Lude.Text ->
   DeleteBot
-deleteBot pName_ = DeleteBot' {_dbName = pName_}
+mkDeleteBot pName_ = DeleteBot' {name = pName_}
 
 -- | The name of the bot. The name is case sensitive.
-dbName :: Lens' DeleteBot Text
-dbName = lens _dbName (\s a -> s {_dbName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbName :: Lens.Lens' DeleteBot Lude.Text
+dbName = Lens.lens (name :: DeleteBot -> Lude.Text) (\s a -> s {name = a} :: DeleteBot)
+{-# DEPRECATED dbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteBot where
+instance Lude.AWSRequest DeleteBot where
   type Rs DeleteBot = DeleteBotResponse
-  request = delete lexModels
-  response = receiveNull DeleteBotResponse'
+  request = Req.delete lexModelsService
+  response = Res.receiveNull DeleteBotResponse'
 
-instance Hashable DeleteBot
-
-instance NFData DeleteBot
-
-instance ToHeaders DeleteBot where
+instance Lude.ToHeaders DeleteBot where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteBot where
-  toPath DeleteBot' {..} = mconcat ["/bots/", toBS _dbName]
+instance Lude.ToPath DeleteBot where
+  toPath DeleteBot' {..} = Lude.mconcat ["/bots/", Lude.toBS name]
 
-instance ToQuery DeleteBot where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBot where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBotResponse' smart constructor.
+-- | /See:/ 'mkDeleteBotResponse' smart constructor.
 data DeleteBotResponse = DeleteBotResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBotResponse' with the minimum fields required to make a request.
-deleteBotResponse ::
+mkDeleteBotResponse ::
   DeleteBotResponse
-deleteBotResponse = DeleteBotResponse'
-
-instance NFData DeleteBotResponse
+mkDeleteBotResponse = DeleteBotResponse'

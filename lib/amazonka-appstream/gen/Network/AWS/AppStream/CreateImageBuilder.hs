@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates an image builder. An image builder is a virtual machine that is used to create an image.
 --
---
 -- The initial state of the builder is @PENDING@ . When it is ready, the state is @RUNNING@ .
 module Network.AWS.AppStream.CreateImageBuilder
-  ( -- * Creating a Request
-    createImageBuilder,
-    CreateImageBuilder,
+  ( -- * Creating a request
+    CreateImageBuilder (..),
+    mkCreateImageBuilder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cibDomainJoinInfo,
     cibIAMRoleARN,
     cibAccessEndpoints,
@@ -41,228 +35,476 @@ module Network.AWS.AppStream.CreateImageBuilder
     cibName,
     cibInstanceType,
 
-    -- * Destructuring the Response
-    createImageBuilderResponse,
-    CreateImageBuilderResponse,
+    -- * Destructuring the response
+    CreateImageBuilderResponse (..),
+    mkCreateImageBuilderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cibrsImageBuilder,
     cibrsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createImageBuilder' smart constructor.
+-- | /See:/ 'mkCreateImageBuilder' smart constructor.
 data CreateImageBuilder = CreateImageBuilder'
-  { _cibDomainJoinInfo ::
-      !(Maybe DomainJoinInfo),
-    _cibIAMRoleARN :: !(Maybe Text),
-    _cibAccessEndpoints ::
-      !(Maybe (List1 AccessEndpoint)),
-    _cibVPCConfig :: !(Maybe VPCConfig),
-    _cibImageARN :: !(Maybe Text),
-    _cibDisplayName :: !(Maybe Text),
-    _cibEnableDefaultInternetAccess :: !(Maybe Bool),
-    _cibImageName :: !(Maybe Text),
-    _cibDescription :: !(Maybe Text),
-    _cibAppstreamAgentVersion :: !(Maybe Text),
-    _cibTags :: !(Maybe (Map Text (Text))),
-    _cibName :: !Text,
-    _cibInstanceType :: !Text
+  { domainJoinInfo ::
+      Lude.Maybe DomainJoinInfo,
+    iamRoleARN :: Lude.Maybe Lude.Text,
+    accessEndpoints ::
+      Lude.Maybe (Lude.NonEmpty AccessEndpoint),
+    vpcConfig :: Lude.Maybe VPCConfig,
+    imageARN :: Lude.Maybe Lude.Text,
+    displayName :: Lude.Maybe Lude.Text,
+    enableDefaultInternetAccess :: Lude.Maybe Lude.Bool,
+    imageName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    appstreamAgentVersion :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    name :: Lude.Text,
+    instanceType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateImageBuilder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.
+-- * 'appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+-- * 'description' - The description to display.
+-- * 'displayName' - The image builder name to display.
+-- * 'domainJoinInfo' - The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+-- * 'enableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
+-- * 'iamRoleARN' - The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) @AssumeRole@ API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the __appstream_machine_role__ credential profile on the instance.
 --
--- * 'cibDomainJoinInfo' - The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+-- For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances> in the /Amazon AppStream 2.0 Administration Guide/ .
+-- * 'imageARN' - The ARN of the public, private, or shared image to use.
+-- * 'imageName' - The name of the image used to create the image builder.
+-- * 'instanceType' - The instance type to use when launching the image builder. The following instance types are available:
 --
--- * 'cibIAMRoleARN' - The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) @AssumeRole@ API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the __appstream_machine_role__ credential profile on the instance. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances> in the /Amazon AppStream 2.0 Administration Guide/ .
 --
--- * 'cibAccessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.
+--     * stream.standard.medium
 --
--- * 'cibVPCConfig' - The VPC configuration for the image builder. You can specify only one subnet.
 --
--- * 'cibImageARN' - The ARN of the public, private, or shared image to use.
+--     * stream.standard.large
 --
--- * 'cibDisplayName' - The image builder name to display.
 --
--- * 'cibEnableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
+--     * stream.compute.large
 --
--- * 'cibImageName' - The name of the image used to create the image builder.
 --
--- * 'cibDescription' - The description to display.
+--     * stream.compute.xlarge
 --
--- * 'cibAppstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
 --
--- * 'cibTags' - The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \ - @ If you do not specify a value, the value is set to an empty string. For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Administration Guide/ .
+--     * stream.compute.2xlarge
 --
--- * 'cibName' - A unique name for the image builder.
 --
--- * 'cibInstanceType' - The instance type to use when launching the image builder. The following instance types are available:     * stream.standard.medium     * stream.standard.large     * stream.compute.large     * stream.compute.xlarge     * stream.compute.2xlarge     * stream.compute.4xlarge     * stream.compute.8xlarge     * stream.memory.large     * stream.memory.xlarge     * stream.memory.2xlarge     * stream.memory.4xlarge     * stream.memory.8xlarge     * stream.memory.z1d.large     * stream.memory.z1d.xlarge     * stream.memory.z1d.2xlarge     * stream.memory.z1d.3xlarge     * stream.memory.z1d.6xlarge     * stream.memory.z1d.12xlarge     * stream.graphics-design.large     * stream.graphics-design.xlarge     * stream.graphics-design.2xlarge     * stream.graphics-design.4xlarge     * stream.graphics-desktop.2xlarge     * stream.graphics.g4dn.xlarge     * stream.graphics.g4dn.2xlarge     * stream.graphics.g4dn.4xlarge     * stream.graphics.g4dn.8xlarge     * stream.graphics.g4dn.12xlarge     * stream.graphics.g4dn.16xlarge     * stream.graphics-pro.4xlarge     * stream.graphics-pro.8xlarge     * stream.graphics-pro.16xlarge
-createImageBuilder ::
-  -- | 'cibName'
-  Text ->
-  -- | 'cibInstanceType'
-  Text ->
+--     * stream.compute.4xlarge
+--
+--
+--     * stream.compute.8xlarge
+--
+--
+--     * stream.memory.large
+--
+--
+--     * stream.memory.xlarge
+--
+--
+--     * stream.memory.2xlarge
+--
+--
+--     * stream.memory.4xlarge
+--
+--
+--     * stream.memory.8xlarge
+--
+--
+--     * stream.memory.z1d.large
+--
+--
+--     * stream.memory.z1d.xlarge
+--
+--
+--     * stream.memory.z1d.2xlarge
+--
+--
+--     * stream.memory.z1d.3xlarge
+--
+--
+--     * stream.memory.z1d.6xlarge
+--
+--
+--     * stream.memory.z1d.12xlarge
+--
+--
+--     * stream.graphics-design.large
+--
+--
+--     * stream.graphics-design.xlarge
+--
+--
+--     * stream.graphics-design.2xlarge
+--
+--
+--     * stream.graphics-design.4xlarge
+--
+--
+--     * stream.graphics-desktop.2xlarge
+--
+--
+--     * stream.graphics.g4dn.xlarge
+--
+--
+--     * stream.graphics.g4dn.2xlarge
+--
+--
+--     * stream.graphics.g4dn.4xlarge
+--
+--
+--     * stream.graphics.g4dn.8xlarge
+--
+--
+--     * stream.graphics.g4dn.12xlarge
+--
+--
+--     * stream.graphics.g4dn.16xlarge
+--
+--
+--     * stream.graphics-pro.4xlarge
+--
+--
+--     * stream.graphics-pro.8xlarge
+--
+--
+--     * stream.graphics-pro.16xlarge
+--
+--
+-- * 'name' - A unique name for the image builder.
+-- * 'tags' - The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
+--
+-- Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+-- _ . : / = + \ - @
+-- If you do not specify a value, the value is set to an empty string.
+-- For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Administration Guide/ .
+-- * 'vpcConfig' - The VPC configuration for the image builder. You can specify only one subnet.
+mkCreateImageBuilder ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'instanceType'
+  Lude.Text ->
   CreateImageBuilder
-createImageBuilder pName_ pInstanceType_ =
+mkCreateImageBuilder pName_ pInstanceType_ =
   CreateImageBuilder'
-    { _cibDomainJoinInfo = Nothing,
-      _cibIAMRoleARN = Nothing,
-      _cibAccessEndpoints = Nothing,
-      _cibVPCConfig = Nothing,
-      _cibImageARN = Nothing,
-      _cibDisplayName = Nothing,
-      _cibEnableDefaultInternetAccess = Nothing,
-      _cibImageName = Nothing,
-      _cibDescription = Nothing,
-      _cibAppstreamAgentVersion = Nothing,
-      _cibTags = Nothing,
-      _cibName = pName_,
-      _cibInstanceType = pInstanceType_
+    { domainJoinInfo = Lude.Nothing,
+      iamRoleARN = Lude.Nothing,
+      accessEndpoints = Lude.Nothing,
+      vpcConfig = Lude.Nothing,
+      imageARN = Lude.Nothing,
+      displayName = Lude.Nothing,
+      enableDefaultInternetAccess = Lude.Nothing,
+      imageName = Lude.Nothing,
+      description = Lude.Nothing,
+      appstreamAgentVersion = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_,
+      instanceType = pInstanceType_
     }
 
 -- | The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
-cibDomainJoinInfo :: Lens' CreateImageBuilder (Maybe DomainJoinInfo)
-cibDomainJoinInfo = lens _cibDomainJoinInfo (\s a -> s {_cibDomainJoinInfo = a})
+--
+-- /Note:/ Consider using 'domainJoinInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibDomainJoinInfo :: Lens.Lens' CreateImageBuilder (Lude.Maybe DomainJoinInfo)
+cibDomainJoinInfo = Lens.lens (domainJoinInfo :: CreateImageBuilder -> Lude.Maybe DomainJoinInfo) (\s a -> s {domainJoinInfo = a} :: CreateImageBuilder)
+{-# DEPRECATED cibDomainJoinInfo "Use generic-lens or generic-optics with 'domainJoinInfo' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) @AssumeRole@ API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the __appstream_machine_role__ credential profile on the instance. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances> in the /Amazon AppStream 2.0 Administration Guide/ .
-cibIAMRoleARN :: Lens' CreateImageBuilder (Maybe Text)
-cibIAMRoleARN = lens _cibIAMRoleARN (\s a -> s {_cibIAMRoleARN = a})
+-- | The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) @AssumeRole@ API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the __appstream_machine_role__ credential profile on the instance.
+--
+-- For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances> in the /Amazon AppStream 2.0 Administration Guide/ .
+--
+-- /Note:/ Consider using 'iamRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibIAMRoleARN :: Lens.Lens' CreateImageBuilder (Lude.Maybe Lude.Text)
+cibIAMRoleARN = Lens.lens (iamRoleARN :: CreateImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {iamRoleARN = a} :: CreateImageBuilder)
+{-# DEPRECATED cibIAMRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
 
 -- | The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.
-cibAccessEndpoints :: Lens' CreateImageBuilder (Maybe (NonEmpty AccessEndpoint))
-cibAccessEndpoints = lens _cibAccessEndpoints (\s a -> s {_cibAccessEndpoints = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'accessEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibAccessEndpoints :: Lens.Lens' CreateImageBuilder (Lude.Maybe (Lude.NonEmpty AccessEndpoint))
+cibAccessEndpoints = Lens.lens (accessEndpoints :: CreateImageBuilder -> Lude.Maybe (Lude.NonEmpty AccessEndpoint)) (\s a -> s {accessEndpoints = a} :: CreateImageBuilder)
+{-# DEPRECATED cibAccessEndpoints "Use generic-lens or generic-optics with 'accessEndpoints' instead." #-}
 
 -- | The VPC configuration for the image builder. You can specify only one subnet.
-cibVPCConfig :: Lens' CreateImageBuilder (Maybe VPCConfig)
-cibVPCConfig = lens _cibVPCConfig (\s a -> s {_cibVPCConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibVPCConfig :: Lens.Lens' CreateImageBuilder (Lude.Maybe VPCConfig)
+cibVPCConfig = Lens.lens (vpcConfig :: CreateImageBuilder -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: CreateImageBuilder)
+{-# DEPRECATED cibVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
 -- | The ARN of the public, private, or shared image to use.
-cibImageARN :: Lens' CreateImageBuilder (Maybe Text)
-cibImageARN = lens _cibImageARN (\s a -> s {_cibImageARN = a})
+--
+-- /Note:/ Consider using 'imageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibImageARN :: Lens.Lens' CreateImageBuilder (Lude.Maybe Lude.Text)
+cibImageARN = Lens.lens (imageARN :: CreateImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {imageARN = a} :: CreateImageBuilder)
+{-# DEPRECATED cibImageARN "Use generic-lens or generic-optics with 'imageARN' instead." #-}
 
 -- | The image builder name to display.
-cibDisplayName :: Lens' CreateImageBuilder (Maybe Text)
-cibDisplayName = lens _cibDisplayName (\s a -> s {_cibDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibDisplayName :: Lens.Lens' CreateImageBuilder (Lude.Maybe Lude.Text)
+cibDisplayName = Lens.lens (displayName :: CreateImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: CreateImageBuilder)
+{-# DEPRECATED cibDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | Enables or disables default internet access for the image builder.
-cibEnableDefaultInternetAccess :: Lens' CreateImageBuilder (Maybe Bool)
-cibEnableDefaultInternetAccess = lens _cibEnableDefaultInternetAccess (\s a -> s {_cibEnableDefaultInternetAccess = a})
+--
+-- /Note:/ Consider using 'enableDefaultInternetAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibEnableDefaultInternetAccess :: Lens.Lens' CreateImageBuilder (Lude.Maybe Lude.Bool)
+cibEnableDefaultInternetAccess = Lens.lens (enableDefaultInternetAccess :: CreateImageBuilder -> Lude.Maybe Lude.Bool) (\s a -> s {enableDefaultInternetAccess = a} :: CreateImageBuilder)
+{-# DEPRECATED cibEnableDefaultInternetAccess "Use generic-lens or generic-optics with 'enableDefaultInternetAccess' instead." #-}
 
 -- | The name of the image used to create the image builder.
-cibImageName :: Lens' CreateImageBuilder (Maybe Text)
-cibImageName = lens _cibImageName (\s a -> s {_cibImageName = a})
+--
+-- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibImageName :: Lens.Lens' CreateImageBuilder (Lude.Maybe Lude.Text)
+cibImageName = Lens.lens (imageName :: CreateImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {imageName = a} :: CreateImageBuilder)
+{-# DEPRECATED cibImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
 -- | The description to display.
-cibDescription :: Lens' CreateImageBuilder (Maybe Text)
-cibDescription = lens _cibDescription (\s a -> s {_cibDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibDescription :: Lens.Lens' CreateImageBuilder (Lude.Maybe Lude.Text)
+cibDescription = Lens.lens (description :: CreateImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateImageBuilder)
+{-# DEPRECATED cibDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
-cibAppstreamAgentVersion :: Lens' CreateImageBuilder (Maybe Text)
-cibAppstreamAgentVersion = lens _cibAppstreamAgentVersion (\s a -> s {_cibAppstreamAgentVersion = a})
+--
+-- /Note:/ Consider using 'appstreamAgentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibAppstreamAgentVersion :: Lens.Lens' CreateImageBuilder (Lude.Maybe Lude.Text)
+cibAppstreamAgentVersion = Lens.lens (appstreamAgentVersion :: CreateImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {appstreamAgentVersion = a} :: CreateImageBuilder)
+{-# DEPRECATED cibAppstreamAgentVersion "Use generic-lens or generic-optics with 'appstreamAgentVersion' instead." #-}
 
--- | The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.  Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:  _ . : / = + \ - @ If you do not specify a value, the value is set to an empty string. For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Administration Guide/ .
-cibTags :: Lens' CreateImageBuilder (HashMap Text (Text))
-cibTags = lens _cibTags (\s a -> s {_cibTags = a}) . _Default . _Map
+-- | The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
+--
+-- Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+-- _ . : / = + \ - @
+-- If you do not specify a value, the value is set to an empty string.
+-- For more information about tags, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources> in the /Amazon AppStream 2.0 Administration Guide/ .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibTags :: Lens.Lens' CreateImageBuilder (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cibTags = Lens.lens (tags :: CreateImageBuilder -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateImageBuilder)
+{-# DEPRECATED cibTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | A unique name for the image builder.
-cibName :: Lens' CreateImageBuilder Text
-cibName = lens _cibName (\s a -> s {_cibName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibName :: Lens.Lens' CreateImageBuilder Lude.Text
+cibName = Lens.lens (name :: CreateImageBuilder -> Lude.Text) (\s a -> s {name = a} :: CreateImageBuilder)
+{-# DEPRECATED cibName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The instance type to use when launching the image builder. The following instance types are available:     * stream.standard.medium     * stream.standard.large     * stream.compute.large     * stream.compute.xlarge     * stream.compute.2xlarge     * stream.compute.4xlarge     * stream.compute.8xlarge     * stream.memory.large     * stream.memory.xlarge     * stream.memory.2xlarge     * stream.memory.4xlarge     * stream.memory.8xlarge     * stream.memory.z1d.large     * stream.memory.z1d.xlarge     * stream.memory.z1d.2xlarge     * stream.memory.z1d.3xlarge     * stream.memory.z1d.6xlarge     * stream.memory.z1d.12xlarge     * stream.graphics-design.large     * stream.graphics-design.xlarge     * stream.graphics-design.2xlarge     * stream.graphics-design.4xlarge     * stream.graphics-desktop.2xlarge     * stream.graphics.g4dn.xlarge     * stream.graphics.g4dn.2xlarge     * stream.graphics.g4dn.4xlarge     * stream.graphics.g4dn.8xlarge     * stream.graphics.g4dn.12xlarge     * stream.graphics.g4dn.16xlarge     * stream.graphics-pro.4xlarge     * stream.graphics-pro.8xlarge     * stream.graphics-pro.16xlarge
-cibInstanceType :: Lens' CreateImageBuilder Text
-cibInstanceType = lens _cibInstanceType (\s a -> s {_cibInstanceType = a})
+-- | The instance type to use when launching the image builder. The following instance types are available:
+--
+--
+--     * stream.standard.medium
+--
+--
+--     * stream.standard.large
+--
+--
+--     * stream.compute.large
+--
+--
+--     * stream.compute.xlarge
+--
+--
+--     * stream.compute.2xlarge
+--
+--
+--     * stream.compute.4xlarge
+--
+--
+--     * stream.compute.8xlarge
+--
+--
+--     * stream.memory.large
+--
+--
+--     * stream.memory.xlarge
+--
+--
+--     * stream.memory.2xlarge
+--
+--
+--     * stream.memory.4xlarge
+--
+--
+--     * stream.memory.8xlarge
+--
+--
+--     * stream.memory.z1d.large
+--
+--
+--     * stream.memory.z1d.xlarge
+--
+--
+--     * stream.memory.z1d.2xlarge
+--
+--
+--     * stream.memory.z1d.3xlarge
+--
+--
+--     * stream.memory.z1d.6xlarge
+--
+--
+--     * stream.memory.z1d.12xlarge
+--
+--
+--     * stream.graphics-design.large
+--
+--
+--     * stream.graphics-design.xlarge
+--
+--
+--     * stream.graphics-design.2xlarge
+--
+--
+--     * stream.graphics-design.4xlarge
+--
+--
+--     * stream.graphics-desktop.2xlarge
+--
+--
+--     * stream.graphics.g4dn.xlarge
+--
+--
+--     * stream.graphics.g4dn.2xlarge
+--
+--
+--     * stream.graphics.g4dn.4xlarge
+--
+--
+--     * stream.graphics.g4dn.8xlarge
+--
+--
+--     * stream.graphics.g4dn.12xlarge
+--
+--
+--     * stream.graphics.g4dn.16xlarge
+--
+--
+--     * stream.graphics-pro.4xlarge
+--
+--
+--     * stream.graphics-pro.8xlarge
+--
+--
+--     * stream.graphics-pro.16xlarge
+--
+--
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibInstanceType :: Lens.Lens' CreateImageBuilder Lude.Text
+cibInstanceType = Lens.lens (instanceType :: CreateImageBuilder -> Lude.Text) (\s a -> s {instanceType = a} :: CreateImageBuilder)
+{-# DEPRECATED cibInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
-instance AWSRequest CreateImageBuilder where
+instance Lude.AWSRequest CreateImageBuilder where
   type Rs CreateImageBuilder = CreateImageBuilderResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateImageBuilderResponse'
-            <$> (x .?> "ImageBuilder") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ImageBuilder") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateImageBuilder
-
-instance NFData CreateImageBuilder
-
-instance ToHeaders CreateImageBuilder where
+instance Lude.ToHeaders CreateImageBuilder where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.CreateImageBuilder" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.CreateImageBuilder" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateImageBuilder where
+instance Lude.ToJSON CreateImageBuilder where
   toJSON CreateImageBuilder' {..} =
-    object
-      ( catMaybes
-          [ ("DomainJoinInfo" .=) <$> _cibDomainJoinInfo,
-            ("IamRoleArn" .=) <$> _cibIAMRoleARN,
-            ("AccessEndpoints" .=) <$> _cibAccessEndpoints,
-            ("VpcConfig" .=) <$> _cibVPCConfig,
-            ("ImageArn" .=) <$> _cibImageARN,
-            ("DisplayName" .=) <$> _cibDisplayName,
-            ("EnableDefaultInternetAccess" .=)
-              <$> _cibEnableDefaultInternetAccess,
-            ("ImageName" .=) <$> _cibImageName,
-            ("Description" .=) <$> _cibDescription,
-            ("AppstreamAgentVersion" .=) <$> _cibAppstreamAgentVersion,
-            ("Tags" .=) <$> _cibTags,
-            Just ("Name" .= _cibName),
-            Just ("InstanceType" .= _cibInstanceType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DomainJoinInfo" Lude..=) Lude.<$> domainJoinInfo,
+            ("IamRoleArn" Lude..=) Lude.<$> iamRoleARN,
+            ("AccessEndpoints" Lude..=) Lude.<$> accessEndpoints,
+            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+            ("ImageArn" Lude..=) Lude.<$> imageARN,
+            ("DisplayName" Lude..=) Lude.<$> displayName,
+            ("EnableDefaultInternetAccess" Lude..=)
+              Lude.<$> enableDefaultInternetAccess,
+            ("ImageName" Lude..=) Lude.<$> imageName,
+            ("Description" Lude..=) Lude.<$> description,
+            ("AppstreamAgentVersion" Lude..=) Lude.<$> appstreamAgentVersion,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("InstanceType" Lude..= instanceType)
           ]
       )
 
-instance ToPath CreateImageBuilder where
-  toPath = const "/"
+instance Lude.ToPath CreateImageBuilder where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateImageBuilder where
-  toQuery = const mempty
+instance Lude.ToQuery CreateImageBuilder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createImageBuilderResponse' smart constructor.
+-- | /See:/ 'mkCreateImageBuilderResponse' smart constructor.
 data CreateImageBuilderResponse = CreateImageBuilderResponse'
-  { _cibrsImageBuilder ::
-      !(Maybe ImageBuilder),
-    _cibrsResponseStatus :: !Int
+  { imageBuilder ::
+      Lude.Maybe ImageBuilder,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateImageBuilderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cibrsImageBuilder' - Information about the image builder.
---
--- * 'cibrsResponseStatus' - -- | The response status code.
-createImageBuilderResponse ::
-  -- | 'cibrsResponseStatus'
-  Int ->
+-- * 'imageBuilder' - Information about the image builder.
+-- * 'responseStatus' - The response status code.
+mkCreateImageBuilderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateImageBuilderResponse
-createImageBuilderResponse pResponseStatus_ =
+mkCreateImageBuilderResponse pResponseStatus_ =
   CreateImageBuilderResponse'
-    { _cibrsImageBuilder = Nothing,
-      _cibrsResponseStatus = pResponseStatus_
+    { imageBuilder = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the image builder.
-cibrsImageBuilder :: Lens' CreateImageBuilderResponse (Maybe ImageBuilder)
-cibrsImageBuilder = lens _cibrsImageBuilder (\s a -> s {_cibrsImageBuilder = a})
+--
+-- /Note:/ Consider using 'imageBuilder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibrsImageBuilder :: Lens.Lens' CreateImageBuilderResponse (Lude.Maybe ImageBuilder)
+cibrsImageBuilder = Lens.lens (imageBuilder :: CreateImageBuilderResponse -> Lude.Maybe ImageBuilder) (\s a -> s {imageBuilder = a} :: CreateImageBuilderResponse)
+{-# DEPRECATED cibrsImageBuilder "Use generic-lens or generic-optics with 'imageBuilder' instead." #-}
 
--- | -- | The response status code.
-cibrsResponseStatus :: Lens' CreateImageBuilderResponse Int
-cibrsResponseStatus = lens _cibrsResponseStatus (\s a -> s {_cibrsResponseStatus = a})
-
-instance NFData CreateImageBuilderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibrsResponseStatus :: Lens.Lens' CreateImageBuilderResponse Lude.Int
+cibrsResponseStatus = Lens.lens (responseStatus :: CreateImageBuilderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateImageBuilderResponse)
+{-# DEPRECATED cibrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

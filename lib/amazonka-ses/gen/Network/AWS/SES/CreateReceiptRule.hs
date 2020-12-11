@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,145 @@
 --
 -- Creates a receipt rule.
 --
---
 -- For information about setting up receipt rules, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.CreateReceiptRule
-  ( -- * Creating a Request
-    createReceiptRule,
-    CreateReceiptRule,
+  ( -- * Creating a request
+    CreateReceiptRule (..),
+    mkCreateReceiptRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crrAfter,
     crrRuleSetName,
     crrRule,
 
-    -- * Destructuring the Response
-    createReceiptRuleResponse,
-    CreateReceiptRuleResponse,
+    -- * Destructuring the response
+    CreateReceiptRuleResponse (..),
+    mkCreateReceiptRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to create a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'createReceiptRule' smart constructor.
+-- /See:/ 'mkCreateReceiptRule' smart constructor.
 data CreateReceiptRule = CreateReceiptRule'
-  { _crrAfter ::
-      !(Maybe Text),
-    _crrRuleSetName :: !Text,
-    _crrRule :: !ReceiptRule
+  { after ::
+      Lude.Maybe Lude.Text,
+    ruleSetName :: Lude.Text,
+    rule :: ReceiptRule
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrAfter' - The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.
---
--- * 'crrRuleSetName' - The name of the rule set that the receipt rule will be added to.
---
--- * 'crrRule' - A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
-createReceiptRule ::
-  -- | 'crrRuleSetName'
-  Text ->
-  -- | 'crrRule'
+-- * 'after' - The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.
+-- * 'rule' - A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+-- * 'ruleSetName' - The name of the rule set that the receipt rule will be added to.
+mkCreateReceiptRule ::
+  -- | 'ruleSetName'
+  Lude.Text ->
+  -- | 'rule'
   ReceiptRule ->
   CreateReceiptRule
-createReceiptRule pRuleSetName_ pRule_ =
+mkCreateReceiptRule pRuleSetName_ pRule_ =
   CreateReceiptRule'
-    { _crrAfter = Nothing,
-      _crrRuleSetName = pRuleSetName_,
-      _crrRule = pRule_
+    { after = Lude.Nothing,
+      ruleSetName = pRuleSetName_,
+      rule = pRule_
     }
 
 -- | The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.
-crrAfter :: Lens' CreateReceiptRule (Maybe Text)
-crrAfter = lens _crrAfter (\s a -> s {_crrAfter = a})
+--
+-- /Note:/ Consider using 'after' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrAfter :: Lens.Lens' CreateReceiptRule (Lude.Maybe Lude.Text)
+crrAfter = Lens.lens (after :: CreateReceiptRule -> Lude.Maybe Lude.Text) (\s a -> s {after = a} :: CreateReceiptRule)
+{-# DEPRECATED crrAfter "Use generic-lens or generic-optics with 'after' instead." #-}
 
 -- | The name of the rule set that the receipt rule will be added to.
-crrRuleSetName :: Lens' CreateReceiptRule Text
-crrRuleSetName = lens _crrRuleSetName (\s a -> s {_crrRuleSetName = a})
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrRuleSetName :: Lens.Lens' CreateReceiptRule Lude.Text
+crrRuleSetName = Lens.lens (ruleSetName :: CreateReceiptRule -> Lude.Text) (\s a -> s {ruleSetName = a} :: CreateReceiptRule)
+{-# DEPRECATED crrRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 -- | A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
-crrRule :: Lens' CreateReceiptRule ReceiptRule
-crrRule = lens _crrRule (\s a -> s {_crrRule = a})
+--
+-- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrRule :: Lens.Lens' CreateReceiptRule ReceiptRule
+crrRule = Lens.lens (rule :: CreateReceiptRule -> ReceiptRule) (\s a -> s {rule = a} :: CreateReceiptRule)
+{-# DEPRECATED crrRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
-instance AWSRequest CreateReceiptRule where
+instance Lude.AWSRequest CreateReceiptRule where
   type Rs CreateReceiptRule = CreateReceiptRuleResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateReceiptRuleResult"
-      (\s h x -> CreateReceiptRuleResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          CreateReceiptRuleResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateReceiptRule
+instance Lude.ToHeaders CreateReceiptRule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateReceiptRule
+instance Lude.ToPath CreateReceiptRule where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateReceiptRule where
-  toHeaders = const mempty
-
-instance ToPath CreateReceiptRule where
-  toPath = const "/"
-
-instance ToQuery CreateReceiptRule where
+instance Lude.ToQuery CreateReceiptRule where
   toQuery CreateReceiptRule' {..} =
-    mconcat
-      [ "Action" =: ("CreateReceiptRule" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "After" =: _crrAfter,
-        "RuleSetName" =: _crrRuleSetName,
-        "Rule" =: _crrRule
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateReceiptRule" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "After" Lude.=: after,
+        "RuleSetName" Lude.=: ruleSetName,
+        "Rule" Lude.=: rule
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'createReceiptRuleResponse' smart constructor.
+-- /See:/ 'mkCreateReceiptRuleResponse' smart constructor.
 newtype CreateReceiptRuleResponse = CreateReceiptRuleResponse'
-  { _crrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrrsResponseStatus' - -- | The response status code.
-createReceiptRuleResponse ::
-  -- | 'crrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateReceiptRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateReceiptRuleResponse
-createReceiptRuleResponse pResponseStatus_ =
-  CreateReceiptRuleResponse'
-    { _crrrsResponseStatus =
-        pResponseStatus_
-    }
+mkCreateReceiptRuleResponse pResponseStatus_ =
+  CreateReceiptRuleResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-crrrsResponseStatus :: Lens' CreateReceiptRuleResponse Int
-crrrsResponseStatus = lens _crrrsResponseStatus (\s a -> s {_crrrsResponseStatus = a})
-
-instance NFData CreateReceiptRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrrsResponseStatus :: Lens.Lens' CreateReceiptRuleResponse Lude.Int
+crrrsResponseStatus = Lens.lens (responseStatus :: CreateReceiptRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReceiptRuleResponse)
+{-# DEPRECATED crrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

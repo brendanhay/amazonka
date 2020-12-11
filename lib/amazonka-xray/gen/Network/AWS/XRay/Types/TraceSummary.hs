@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,38 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.TraceSummary where
+module Network.AWS.XRay.Types.TraceSummary
+  ( TraceSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTraceSummary,
+
+    -- * Lenses
+    tsAnnotations,
+    tsHasThrottle,
+    tsUsers,
+    tsEntryPoint,
+    tsHasFault,
+    tsServiceIds,
+    tsMatchedEventTime,
+    tsIsPartial,
+    tsErrorRootCauses,
+    tsResourceARNs,
+    tsAvailabilityZones,
+    tsInstanceIds,
+    tsResponseTimeRootCauses,
+    tsHasError,
+    tsId,
+    tsHTTP,
+    tsRevision,
+    tsDuration,
+    tsFaultRootCauses,
+    tsResponseTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.AvailabilityZoneDetail
 import Network.AWS.XRay.Types.ErrorRootCause
 import Network.AWS.XRay.Types.FaultRootCause
@@ -30,211 +52,251 @@ import Network.AWS.XRay.Types.ValueWithServiceIds
 
 -- | Metadata generated from the segment documents in a trace.
 --
---
---
--- /See:/ 'traceSummary' smart constructor.
+-- /See:/ 'mkTraceSummary' smart constructor.
 data TraceSummary = TraceSummary'
-  { _tsAnnotations ::
-      !(Maybe (Map Text ([ValueWithServiceIds]))),
-    _tsHasThrottle :: !(Maybe Bool),
-    _tsUsers :: !(Maybe [TraceUser]),
-    _tsEntryPoint :: !(Maybe ServiceId),
-    _tsHasFault :: !(Maybe Bool),
-    _tsServiceIds :: !(Maybe [ServiceId]),
-    _tsMatchedEventTime :: !(Maybe POSIX),
-    _tsIsPartial :: !(Maybe Bool),
-    _tsErrorRootCauses :: !(Maybe [ErrorRootCause]),
-    _tsResourceARNs :: !(Maybe [ResourceARNDetail]),
-    _tsAvailabilityZones :: !(Maybe [AvailabilityZoneDetail]),
-    _tsInstanceIds :: !(Maybe [InstanceIdDetail]),
-    _tsResponseTimeRootCauses :: !(Maybe [ResponseTimeRootCause]),
-    _tsHasError :: !(Maybe Bool),
-    _tsId :: !(Maybe Text),
-    _tsHTTP :: !(Maybe HTTP),
-    _tsRevision :: !(Maybe Int),
-    _tsDuration :: !(Maybe Double),
-    _tsFaultRootCauses :: !(Maybe [FaultRootCause]),
-    _tsResponseTime :: !(Maybe Double)
+  { annotations ::
+      Lude.Maybe (Lude.HashMap Lude.Text ([ValueWithServiceIds])),
+    hasThrottle :: Lude.Maybe Lude.Bool,
+    users :: Lude.Maybe [TraceUser],
+    entryPoint :: Lude.Maybe ServiceId,
+    hasFault :: Lude.Maybe Lude.Bool,
+    serviceIds :: Lude.Maybe [ServiceId],
+    matchedEventTime :: Lude.Maybe Lude.Timestamp,
+    isPartial :: Lude.Maybe Lude.Bool,
+    errorRootCauses :: Lude.Maybe [ErrorRootCause],
+    resourceARNs :: Lude.Maybe [ResourceARNDetail],
+    availabilityZones :: Lude.Maybe [AvailabilityZoneDetail],
+    instanceIds :: Lude.Maybe [InstanceIdDetail],
+    responseTimeRootCauses :: Lude.Maybe [ResponseTimeRootCause],
+    hasError :: Lude.Maybe Lude.Bool,
+    id :: Lude.Maybe Lude.Text,
+    hTTP :: Lude.Maybe HTTP,
+    revision :: Lude.Maybe Lude.Int,
+    duration :: Lude.Maybe Lude.Double,
+    faultRootCauses :: Lude.Maybe [FaultRootCause],
+    responseTime :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TraceSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsAnnotations' - Annotations from the trace's segment documents.
---
--- * 'tsHasThrottle' - One or more of the segment documents has a 429 throttling error.
---
--- * 'tsUsers' - Users from the trace's segment documents.
---
--- * 'tsEntryPoint' - The root of a trace.
---
--- * 'tsHasFault' - The root segment document has a 500 series error.
---
--- * 'tsServiceIds' - Service IDs from the trace's segment documents.
---
--- * 'tsMatchedEventTime' - The matched time stamp of a defined event.
---
--- * 'tsIsPartial' - One or more of the segment documents is in progress.
---
--- * 'tsErrorRootCauses' - A collection of ErrorRootCause structures corresponding to the trace segments.
---
--- * 'tsResourceARNs' - A list of resource ARNs for any resource corresponding to the trace segments.
---
--- * 'tsAvailabilityZones' - A list of Availability Zones for any zone corresponding to the trace segments.
---
--- * 'tsInstanceIds' - A list of EC2 instance IDs for any instance corresponding to the trace segments.
---
--- * 'tsResponseTimeRootCauses' - A collection of ResponseTimeRootCause structures corresponding to the trace segments.
---
--- * 'tsHasError' - The root segment document has a 400 series error.
---
--- * 'tsId' - The unique identifier for the request that generated the trace's segments and subsegments.
---
--- * 'tsHTTP' - Information about the HTTP request served by the trace.
---
--- * 'tsRevision' - The revision number of a trace.
---
--- * 'tsDuration' - The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
---
--- * 'tsFaultRootCauses' - A collection of FaultRootCause structures corresponding to the trace segments.
---
--- * 'tsResponseTime' - The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.
-traceSummary ::
+-- * 'annotations' - Annotations from the trace's segment documents.
+-- * 'availabilityZones' - A list of Availability Zones for any zone corresponding to the trace segments.
+-- * 'duration' - The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
+-- * 'entryPoint' - The root of a trace.
+-- * 'errorRootCauses' - A collection of ErrorRootCause structures corresponding to the trace segments.
+-- * 'faultRootCauses' - A collection of FaultRootCause structures corresponding to the trace segments.
+-- * 'hTTP' - Information about the HTTP request served by the trace.
+-- * 'hasError' - The root segment document has a 400 series error.
+-- * 'hasFault' - The root segment document has a 500 series error.
+-- * 'hasThrottle' - One or more of the segment documents has a 429 throttling error.
+-- * 'id' - The unique identifier for the request that generated the trace's segments and subsegments.
+-- * 'instanceIds' - A list of EC2 instance IDs for any instance corresponding to the trace segments.
+-- * 'isPartial' - One or more of the segment documents is in progress.
+-- * 'matchedEventTime' - The matched time stamp of a defined event.
+-- * 'resourceARNs' - A list of resource ARNs for any resource corresponding to the trace segments.
+-- * 'responseTime' - The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.
+-- * 'responseTimeRootCauses' - A collection of ResponseTimeRootCause structures corresponding to the trace segments.
+-- * 'revision' - The revision number of a trace.
+-- * 'serviceIds' - Service IDs from the trace's segment documents.
+-- * 'users' - Users from the trace's segment documents.
+mkTraceSummary ::
   TraceSummary
-traceSummary =
+mkTraceSummary =
   TraceSummary'
-    { _tsAnnotations = Nothing,
-      _tsHasThrottle = Nothing,
-      _tsUsers = Nothing,
-      _tsEntryPoint = Nothing,
-      _tsHasFault = Nothing,
-      _tsServiceIds = Nothing,
-      _tsMatchedEventTime = Nothing,
-      _tsIsPartial = Nothing,
-      _tsErrorRootCauses = Nothing,
-      _tsResourceARNs = Nothing,
-      _tsAvailabilityZones = Nothing,
-      _tsInstanceIds = Nothing,
-      _tsResponseTimeRootCauses = Nothing,
-      _tsHasError = Nothing,
-      _tsId = Nothing,
-      _tsHTTP = Nothing,
-      _tsRevision = Nothing,
-      _tsDuration = Nothing,
-      _tsFaultRootCauses = Nothing,
-      _tsResponseTime = Nothing
+    { annotations = Lude.Nothing,
+      hasThrottle = Lude.Nothing,
+      users = Lude.Nothing,
+      entryPoint = Lude.Nothing,
+      hasFault = Lude.Nothing,
+      serviceIds = Lude.Nothing,
+      matchedEventTime = Lude.Nothing,
+      isPartial = Lude.Nothing,
+      errorRootCauses = Lude.Nothing,
+      resourceARNs = Lude.Nothing,
+      availabilityZones = Lude.Nothing,
+      instanceIds = Lude.Nothing,
+      responseTimeRootCauses = Lude.Nothing,
+      hasError = Lude.Nothing,
+      id = Lude.Nothing,
+      hTTP = Lude.Nothing,
+      revision = Lude.Nothing,
+      duration = Lude.Nothing,
+      faultRootCauses = Lude.Nothing,
+      responseTime = Lude.Nothing
     }
 
 -- | Annotations from the trace's segment documents.
-tsAnnotations :: Lens' TraceSummary (HashMap Text ([ValueWithServiceIds]))
-tsAnnotations = lens _tsAnnotations (\s a -> s {_tsAnnotations = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'annotations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsAnnotations :: Lens.Lens' TraceSummary (Lude.Maybe (Lude.HashMap Lude.Text ([ValueWithServiceIds])))
+tsAnnotations = Lens.lens (annotations :: TraceSummary -> Lude.Maybe (Lude.HashMap Lude.Text ([ValueWithServiceIds]))) (\s a -> s {annotations = a} :: TraceSummary)
+{-# DEPRECATED tsAnnotations "Use generic-lens or generic-optics with 'annotations' instead." #-}
 
 -- | One or more of the segment documents has a 429 throttling error.
-tsHasThrottle :: Lens' TraceSummary (Maybe Bool)
-tsHasThrottle = lens _tsHasThrottle (\s a -> s {_tsHasThrottle = a})
+--
+-- /Note:/ Consider using 'hasThrottle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsHasThrottle :: Lens.Lens' TraceSummary (Lude.Maybe Lude.Bool)
+tsHasThrottle = Lens.lens (hasThrottle :: TraceSummary -> Lude.Maybe Lude.Bool) (\s a -> s {hasThrottle = a} :: TraceSummary)
+{-# DEPRECATED tsHasThrottle "Use generic-lens or generic-optics with 'hasThrottle' instead." #-}
 
 -- | Users from the trace's segment documents.
-tsUsers :: Lens' TraceSummary [TraceUser]
-tsUsers = lens _tsUsers (\s a -> s {_tsUsers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsUsers :: Lens.Lens' TraceSummary (Lude.Maybe [TraceUser])
+tsUsers = Lens.lens (users :: TraceSummary -> Lude.Maybe [TraceUser]) (\s a -> s {users = a} :: TraceSummary)
+{-# DEPRECATED tsUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The root of a trace.
-tsEntryPoint :: Lens' TraceSummary (Maybe ServiceId)
-tsEntryPoint = lens _tsEntryPoint (\s a -> s {_tsEntryPoint = a})
+--
+-- /Note:/ Consider using 'entryPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsEntryPoint :: Lens.Lens' TraceSummary (Lude.Maybe ServiceId)
+tsEntryPoint = Lens.lens (entryPoint :: TraceSummary -> Lude.Maybe ServiceId) (\s a -> s {entryPoint = a} :: TraceSummary)
+{-# DEPRECATED tsEntryPoint "Use generic-lens or generic-optics with 'entryPoint' instead." #-}
 
 -- | The root segment document has a 500 series error.
-tsHasFault :: Lens' TraceSummary (Maybe Bool)
-tsHasFault = lens _tsHasFault (\s a -> s {_tsHasFault = a})
+--
+-- /Note:/ Consider using 'hasFault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsHasFault :: Lens.Lens' TraceSummary (Lude.Maybe Lude.Bool)
+tsHasFault = Lens.lens (hasFault :: TraceSummary -> Lude.Maybe Lude.Bool) (\s a -> s {hasFault = a} :: TraceSummary)
+{-# DEPRECATED tsHasFault "Use generic-lens or generic-optics with 'hasFault' instead." #-}
 
 -- | Service IDs from the trace's segment documents.
-tsServiceIds :: Lens' TraceSummary [ServiceId]
-tsServiceIds = lens _tsServiceIds (\s a -> s {_tsServiceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsServiceIds :: Lens.Lens' TraceSummary (Lude.Maybe [ServiceId])
+tsServiceIds = Lens.lens (serviceIds :: TraceSummary -> Lude.Maybe [ServiceId]) (\s a -> s {serviceIds = a} :: TraceSummary)
+{-# DEPRECATED tsServiceIds "Use generic-lens or generic-optics with 'serviceIds' instead." #-}
 
 -- | The matched time stamp of a defined event.
-tsMatchedEventTime :: Lens' TraceSummary (Maybe UTCTime)
-tsMatchedEventTime = lens _tsMatchedEventTime (\s a -> s {_tsMatchedEventTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'matchedEventTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsMatchedEventTime :: Lens.Lens' TraceSummary (Lude.Maybe Lude.Timestamp)
+tsMatchedEventTime = Lens.lens (matchedEventTime :: TraceSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {matchedEventTime = a} :: TraceSummary)
+{-# DEPRECATED tsMatchedEventTime "Use generic-lens or generic-optics with 'matchedEventTime' instead." #-}
 
 -- | One or more of the segment documents is in progress.
-tsIsPartial :: Lens' TraceSummary (Maybe Bool)
-tsIsPartial = lens _tsIsPartial (\s a -> s {_tsIsPartial = a})
+--
+-- /Note:/ Consider using 'isPartial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsIsPartial :: Lens.Lens' TraceSummary (Lude.Maybe Lude.Bool)
+tsIsPartial = Lens.lens (isPartial :: TraceSummary -> Lude.Maybe Lude.Bool) (\s a -> s {isPartial = a} :: TraceSummary)
+{-# DEPRECATED tsIsPartial "Use generic-lens or generic-optics with 'isPartial' instead." #-}
 
 -- | A collection of ErrorRootCause structures corresponding to the trace segments.
-tsErrorRootCauses :: Lens' TraceSummary [ErrorRootCause]
-tsErrorRootCauses = lens _tsErrorRootCauses (\s a -> s {_tsErrorRootCauses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'errorRootCauses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsErrorRootCauses :: Lens.Lens' TraceSummary (Lude.Maybe [ErrorRootCause])
+tsErrorRootCauses = Lens.lens (errorRootCauses :: TraceSummary -> Lude.Maybe [ErrorRootCause]) (\s a -> s {errorRootCauses = a} :: TraceSummary)
+{-# DEPRECATED tsErrorRootCauses "Use generic-lens or generic-optics with 'errorRootCauses' instead." #-}
 
 -- | A list of resource ARNs for any resource corresponding to the trace segments.
-tsResourceARNs :: Lens' TraceSummary [ResourceARNDetail]
-tsResourceARNs = lens _tsResourceARNs (\s a -> s {_tsResourceARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsResourceARNs :: Lens.Lens' TraceSummary (Lude.Maybe [ResourceARNDetail])
+tsResourceARNs = Lens.lens (resourceARNs :: TraceSummary -> Lude.Maybe [ResourceARNDetail]) (\s a -> s {resourceARNs = a} :: TraceSummary)
+{-# DEPRECATED tsResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
 
 -- | A list of Availability Zones for any zone corresponding to the trace segments.
-tsAvailabilityZones :: Lens' TraceSummary [AvailabilityZoneDetail]
-tsAvailabilityZones = lens _tsAvailabilityZones (\s a -> s {_tsAvailabilityZones = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsAvailabilityZones :: Lens.Lens' TraceSummary (Lude.Maybe [AvailabilityZoneDetail])
+tsAvailabilityZones = Lens.lens (availabilityZones :: TraceSummary -> Lude.Maybe [AvailabilityZoneDetail]) (\s a -> s {availabilityZones = a} :: TraceSummary)
+{-# DEPRECATED tsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | A list of EC2 instance IDs for any instance corresponding to the trace segments.
-tsInstanceIds :: Lens' TraceSummary [InstanceIdDetail]
-tsInstanceIds = lens _tsInstanceIds (\s a -> s {_tsInstanceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsInstanceIds :: Lens.Lens' TraceSummary (Lude.Maybe [InstanceIdDetail])
+tsInstanceIds = Lens.lens (instanceIds :: TraceSummary -> Lude.Maybe [InstanceIdDetail]) (\s a -> s {instanceIds = a} :: TraceSummary)
+{-# DEPRECATED tsInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | A collection of ResponseTimeRootCause structures corresponding to the trace segments.
-tsResponseTimeRootCauses :: Lens' TraceSummary [ResponseTimeRootCause]
-tsResponseTimeRootCauses = lens _tsResponseTimeRootCauses (\s a -> s {_tsResponseTimeRootCauses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'responseTimeRootCauses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsResponseTimeRootCauses :: Lens.Lens' TraceSummary (Lude.Maybe [ResponseTimeRootCause])
+tsResponseTimeRootCauses = Lens.lens (responseTimeRootCauses :: TraceSummary -> Lude.Maybe [ResponseTimeRootCause]) (\s a -> s {responseTimeRootCauses = a} :: TraceSummary)
+{-# DEPRECATED tsResponseTimeRootCauses "Use generic-lens or generic-optics with 'responseTimeRootCauses' instead." #-}
 
 -- | The root segment document has a 400 series error.
-tsHasError :: Lens' TraceSummary (Maybe Bool)
-tsHasError = lens _tsHasError (\s a -> s {_tsHasError = a})
+--
+-- /Note:/ Consider using 'hasError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsHasError :: Lens.Lens' TraceSummary (Lude.Maybe Lude.Bool)
+tsHasError = Lens.lens (hasError :: TraceSummary -> Lude.Maybe Lude.Bool) (\s a -> s {hasError = a} :: TraceSummary)
+{-# DEPRECATED tsHasError "Use generic-lens or generic-optics with 'hasError' instead." #-}
 
 -- | The unique identifier for the request that generated the trace's segments and subsegments.
-tsId :: Lens' TraceSummary (Maybe Text)
-tsId = lens _tsId (\s a -> s {_tsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsId :: Lens.Lens' TraceSummary (Lude.Maybe Lude.Text)
+tsId = Lens.lens (id :: TraceSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: TraceSummary)
+{-# DEPRECATED tsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Information about the HTTP request served by the trace.
-tsHTTP :: Lens' TraceSummary (Maybe HTTP)
-tsHTTP = lens _tsHTTP (\s a -> s {_tsHTTP = a})
+--
+-- /Note:/ Consider using 'hTTP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsHTTP :: Lens.Lens' TraceSummary (Lude.Maybe HTTP)
+tsHTTP = Lens.lens (hTTP :: TraceSummary -> Lude.Maybe HTTP) (\s a -> s {hTTP = a} :: TraceSummary)
+{-# DEPRECATED tsHTTP "Use generic-lens or generic-optics with 'hTTP' instead." #-}
 
 -- | The revision number of a trace.
-tsRevision :: Lens' TraceSummary (Maybe Int)
-tsRevision = lens _tsRevision (\s a -> s {_tsRevision = a})
+--
+-- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsRevision :: Lens.Lens' TraceSummary (Lude.Maybe Lude.Int)
+tsRevision = Lens.lens (revision :: TraceSummary -> Lude.Maybe Lude.Int) (\s a -> s {revision = a} :: TraceSummary)
+{-# DEPRECATED tsRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
 
 -- | The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
-tsDuration :: Lens' TraceSummary (Maybe Double)
-tsDuration = lens _tsDuration (\s a -> s {_tsDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsDuration :: Lens.Lens' TraceSummary (Lude.Maybe Lude.Double)
+tsDuration = Lens.lens (duration :: TraceSummary -> Lude.Maybe Lude.Double) (\s a -> s {duration = a} :: TraceSummary)
+{-# DEPRECATED tsDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | A collection of FaultRootCause structures corresponding to the trace segments.
-tsFaultRootCauses :: Lens' TraceSummary [FaultRootCause]
-tsFaultRootCauses = lens _tsFaultRootCauses (\s a -> s {_tsFaultRootCauses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'faultRootCauses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsFaultRootCauses :: Lens.Lens' TraceSummary (Lude.Maybe [FaultRootCause])
+tsFaultRootCauses = Lens.lens (faultRootCauses :: TraceSummary -> Lude.Maybe [FaultRootCause]) (\s a -> s {faultRootCauses = a} :: TraceSummary)
+{-# DEPRECATED tsFaultRootCauses "Use generic-lens or generic-optics with 'faultRootCauses' instead." #-}
 
 -- | The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.
-tsResponseTime :: Lens' TraceSummary (Maybe Double)
-tsResponseTime = lens _tsResponseTime (\s a -> s {_tsResponseTime = a})
+--
+-- /Note:/ Consider using 'responseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsResponseTime :: Lens.Lens' TraceSummary (Lude.Maybe Lude.Double)
+tsResponseTime = Lens.lens (responseTime :: TraceSummary -> Lude.Maybe Lude.Double) (\s a -> s {responseTime = a} :: TraceSummary)
+{-# DEPRECATED tsResponseTime "Use generic-lens or generic-optics with 'responseTime' instead." #-}
 
-instance FromJSON TraceSummary where
+instance Lude.FromJSON TraceSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TraceSummary"
       ( \x ->
           TraceSummary'
-            <$> (x .:? "Annotations" .!= mempty)
-            <*> (x .:? "HasThrottle")
-            <*> (x .:? "Users" .!= mempty)
-            <*> (x .:? "EntryPoint")
-            <*> (x .:? "HasFault")
-            <*> (x .:? "ServiceIds" .!= mempty)
-            <*> (x .:? "MatchedEventTime")
-            <*> (x .:? "IsPartial")
-            <*> (x .:? "ErrorRootCauses" .!= mempty)
-            <*> (x .:? "ResourceARNs" .!= mempty)
-            <*> (x .:? "AvailabilityZones" .!= mempty)
-            <*> (x .:? "InstanceIds" .!= mempty)
-            <*> (x .:? "ResponseTimeRootCauses" .!= mempty)
-            <*> (x .:? "HasError")
-            <*> (x .:? "Id")
-            <*> (x .:? "Http")
-            <*> (x .:? "Revision")
-            <*> (x .:? "Duration")
-            <*> (x .:? "FaultRootCauses" .!= mempty)
-            <*> (x .:? "ResponseTime")
+            Lude.<$> (x Lude..:? "Annotations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "HasThrottle")
+            Lude.<*> (x Lude..:? "Users" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "EntryPoint")
+            Lude.<*> (x Lude..:? "HasFault")
+            Lude.<*> (x Lude..:? "ServiceIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "MatchedEventTime")
+            Lude.<*> (x Lude..:? "IsPartial")
+            Lude.<*> (x Lude..:? "ErrorRootCauses" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResourceARNs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AvailabilityZones" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "InstanceIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResponseTimeRootCauses" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "HasError")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Http")
+            Lude.<*> (x Lude..:? "Revision")
+            Lude.<*> (x Lude..:? "Duration")
+            Lude.<*> (x Lude..:? "FaultRootCauses" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResponseTime")
       )
-
-instance Hashable TraceSummary
-
-instance NFData TraceSummary

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TaskField where
+module Network.AWS.ECS.Types.TaskField
+  ( TaskField
+      ( TaskField',
+        TFTags
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskField = TFTags
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskField = TaskField' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskField where
-  parser =
-    takeLowerText >>= \case
-      "tags" -> pure TFTags
-      e ->
-        fromTextError $
-          "Failure parsing TaskField from value: '" <> e
-            <> "'. Accepted values: tags"
+pattern TFTags :: TaskField
+pattern TFTags = TaskField' "TAGS"
 
-instance ToText TaskField where
-  toText = \case
-    TFTags -> "TAGS"
-
-instance Hashable TaskField
-
-instance NFData TaskField
-
-instance ToByteString TaskField
-
-instance ToQuery TaskField
-
-instance ToHeader TaskField
-
-instance ToJSON TaskField where
-  toJSON = toJSONText
+{-# COMPLETE
+  TFTags,
+  TaskField'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Retrieves information about the partitions in a table.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetPartitions
-  ( -- * Creating a Request
-    getPartitions,
-    GetPartitions,
+  ( -- * Creating a request
+    GetPartitions (..),
+    mkGetPartitions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpsCatalogId,
     gpsNextToken,
     gpsExpression,
@@ -36,11 +29,11 @@ module Network.AWS.Glue.GetPartitions
     gpsDatabaseName,
     gpsTableName,
 
-    -- * Destructuring the Response
-    getPartitionsResponse,
-    GetPartitionsResponse,
+    -- * Destructuring the response
+    GetPartitionsResponse (..),
+    mkGetPartitionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gpsrsPartitions,
     gpsrsNextToken,
     gpsrsResponseStatus,
@@ -48,176 +41,364 @@ module Network.AWS.Glue.GetPartitions
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getPartitions' smart constructor.
+-- | /See:/ 'mkGetPartitions' smart constructor.
 data GetPartitions = GetPartitions'
-  { _gpsCatalogId :: !(Maybe Text),
-    _gpsNextToken :: !(Maybe Text),
-    _gpsExpression :: !(Maybe Text),
-    _gpsSegment :: !(Maybe Segment),
-    _gpsMaxResults :: !(Maybe Nat),
-    _gpsDatabaseName :: !Text,
-    _gpsTableName :: !Text
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    expression :: Lude.Maybe Lude.Text,
+    segment :: Lude.Maybe Segment,
+    maxResults :: Lude.Maybe Lude.Natural,
+    databaseName :: Lude.Text,
+    tableName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPartitions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is provided, the AWS account ID is used by default.
+-- * 'databaseName' - The name of the catalog database where the partitions reside.
+-- * 'expression' - An expression that filters the partitions to be returned.
 --
--- * 'gpsCatalogId' - The ID of the Data Catalog where the partitions in question reside. If none is provided, the AWS account ID is used by default.
+-- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause. The SQL statement parser <http://jsqlparser.sourceforge.net/home.php JSQLParser> parses the expression.
+-- /Operators/ : The following are the operators that you can use in the @Expression@ API call:
 --
--- * 'gpsNextToken' - A continuation token, if this is not the first call to retrieve these partitions.
+--     * =
 --
--- * 'gpsExpression' - An expression that filters the partitions to be returned. The expression uses SQL syntax similar to the SQL @WHERE@ filter clause. The SQL statement parser <http://jsqlparser.sourceforge.net/home.php JSQLParser> parses the expression.  /Operators/ : The following are the operators that you can use in the @Expression@ API call:     * =    * Checks whether the values of the two operands are equal; if yes, then the condition becomes true. Example: Assume 'variable a' holds 10 and 'variable b' holds 20.  (a = b) is not true.     * < >    * Checks whether the values of two operands are equal; if the values are not equal, then the condition becomes true. Example: (a < > b) is true.     * >    * Checks whether the value of the left operand is greater than the value of the right operand; if yes, then the condition becomes true. Example: (a > b) is not true.     * <    * Checks whether the value of the left operand is less than the value of the right operand; if yes, then the condition becomes true. Example: (a < b) is true.     * >=    * Checks whether the value of the left operand is greater than or equal to the value of the right operand; if yes, then the condition becomes true. Example: (a >= b) is not true.     * <=    * Checks whether the value of the left operand is less than or equal to the value of the right operand; if yes, then the condition becomes true. Example: (a <= b) is true.     * AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL    * Logical operators. /Supported Partition Key Types/ : The following are the supported partition keys.     * @string@      * @date@      * @timestamp@      * @int@      * @bigint@      * @long@      * @tinyint@      * @smallint@      * @decimal@  If an invalid type is encountered, an exception is thrown.  The following list shows the valid operators on each type. When you define a crawler, the @partitionKey@ type is created as a @STRING@ , to be compatible with the catalog partitions.  /Sample API Call/ :
+--     * Checks whether the values of the two operands are equal; if yes, then the condition becomes true.
+-- Example: Assume 'variable a' holds 10 and 'variable b' holds 20.
+-- (a = b) is not true.
 --
--- * 'gpsSegment' - The segment of the table's partitions to scan in this request.
 --
--- * 'gpsMaxResults' - The maximum number of partitions to return in a single response.
+--     * < >
 --
--- * 'gpsDatabaseName' - The name of the catalog database where the partitions reside.
+--     * Checks whether the values of two operands are equal; if the values are not equal, then the condition becomes true.
+-- Example: (a < > b) is true.
 --
--- * 'gpsTableName' - The name of the partitions' table.
-getPartitions ::
-  -- | 'gpsDatabaseName'
-  Text ->
-  -- | 'gpsTableName'
-  Text ->
+--
+--     * >
+--
+--     * Checks whether the value of the left operand is greater than the value of the right operand; if yes, then the condition becomes true.
+-- Example: (a > b) is not true.
+--
+--
+--     * <
+--
+--     * Checks whether the value of the left operand is less than the value of the right operand; if yes, then the condition becomes true.
+-- Example: (a < b) is true.
+--
+--
+--     * >=
+--
+--     * Checks whether the value of the left operand is greater than or equal to the value of the right operand; if yes, then the condition becomes true.
+-- Example: (a >= b) is not true.
+--
+--
+--     * <=
+--
+--     * Checks whether the value of the left operand is less than or equal to the value of the right operand; if yes, then the condition becomes true.
+-- Example: (a <= b) is true.
+--
+--
+--     * AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL
+--
+--     * Logical operators.
+--
+--
+-- /Supported Partition Key Types/ : The following are the supported partition keys.
+--
+--     * @string@
+--
+--
+--     * @date@
+--
+--
+--     * @timestamp@
+--
+--
+--     * @int@
+--
+--
+--     * @bigint@
+--
+--
+--     * @long@
+--
+--
+--     * @tinyint@
+--
+--
+--     * @smallint@
+--
+--
+--     * @decimal@
+--
+--
+-- If an invalid type is encountered, an exception is thrown.
+-- The following list shows the valid operators on each type. When you define a crawler, the @partitionKey@ type is created as a @STRING@ , to be compatible with the catalog partitions.
+-- /Sample API Call/ :
+-- * 'maxResults' - The maximum number of partitions to return in a single response.
+-- * 'nextToken' - A continuation token, if this is not the first call to retrieve these partitions.
+-- * 'segment' - The segment of the table's partitions to scan in this request.
+-- * 'tableName' - The name of the partitions' table.
+mkGetPartitions ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   GetPartitions
-getPartitions pDatabaseName_ pTableName_ =
+mkGetPartitions pDatabaseName_ pTableName_ =
   GetPartitions'
-    { _gpsCatalogId = Nothing,
-      _gpsNextToken = Nothing,
-      _gpsExpression = Nothing,
-      _gpsSegment = Nothing,
-      _gpsMaxResults = Nothing,
-      _gpsDatabaseName = pDatabaseName_,
-      _gpsTableName = pTableName_
+    { catalogId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      expression = Lude.Nothing,
+      segment = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_
     }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is provided, the AWS account ID is used by default.
-gpsCatalogId :: Lens' GetPartitions (Maybe Text)
-gpsCatalogId = lens _gpsCatalogId (\s a -> s {_gpsCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsCatalogId :: Lens.Lens' GetPartitions (Lude.Maybe Lude.Text)
+gpsCatalogId = Lens.lens (catalogId :: GetPartitions -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetPartitions)
+{-# DEPRECATED gpsCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | A continuation token, if this is not the first call to retrieve these partitions.
-gpsNextToken :: Lens' GetPartitions (Maybe Text)
-gpsNextToken = lens _gpsNextToken (\s a -> s {_gpsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsNextToken :: Lens.Lens' GetPartitions (Lude.Maybe Lude.Text)
+gpsNextToken = Lens.lens (nextToken :: GetPartitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPartitions)
+{-# DEPRECATED gpsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | An expression that filters the partitions to be returned. The expression uses SQL syntax similar to the SQL @WHERE@ filter clause. The SQL statement parser <http://jsqlparser.sourceforge.net/home.php JSQLParser> parses the expression.  /Operators/ : The following are the operators that you can use in the @Expression@ API call:     * =    * Checks whether the values of the two operands are equal; if yes, then the condition becomes true. Example: Assume 'variable a' holds 10 and 'variable b' holds 20.  (a = b) is not true.     * < >    * Checks whether the values of two operands are equal; if the values are not equal, then the condition becomes true. Example: (a < > b) is true.     * >    * Checks whether the value of the left operand is greater than the value of the right operand; if yes, then the condition becomes true. Example: (a > b) is not true.     * <    * Checks whether the value of the left operand is less than the value of the right operand; if yes, then the condition becomes true. Example: (a < b) is true.     * >=    * Checks whether the value of the left operand is greater than or equal to the value of the right operand; if yes, then the condition becomes true. Example: (a >= b) is not true.     * <=    * Checks whether the value of the left operand is less than or equal to the value of the right operand; if yes, then the condition becomes true. Example: (a <= b) is true.     * AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL    * Logical operators. /Supported Partition Key Types/ : The following are the supported partition keys.     * @string@      * @date@      * @timestamp@      * @int@      * @bigint@      * @long@      * @tinyint@      * @smallint@      * @decimal@  If an invalid type is encountered, an exception is thrown.  The following list shows the valid operators on each type. When you define a crawler, the @partitionKey@ type is created as a @STRING@ , to be compatible with the catalog partitions.  /Sample API Call/ :
-gpsExpression :: Lens' GetPartitions (Maybe Text)
-gpsExpression = lens _gpsExpression (\s a -> s {_gpsExpression = a})
+-- | An expression that filters the partitions to be returned.
+--
+-- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause. The SQL statement parser <http://jsqlparser.sourceforge.net/home.php JSQLParser> parses the expression.
+-- /Operators/ : The following are the operators that you can use in the @Expression@ API call:
+--
+--     * =
+--
+--     * Checks whether the values of the two operands are equal; if yes, then the condition becomes true.
+-- Example: Assume 'variable a' holds 10 and 'variable b' holds 20.
+-- (a = b) is not true.
+--
+--
+--     * < >
+--
+--     * Checks whether the values of two operands are equal; if the values are not equal, then the condition becomes true.
+-- Example: (a < > b) is true.
+--
+--
+--     * >
+--
+--     * Checks whether the value of the left operand is greater than the value of the right operand; if yes, then the condition becomes true.
+-- Example: (a > b) is not true.
+--
+--
+--     * <
+--
+--     * Checks whether the value of the left operand is less than the value of the right operand; if yes, then the condition becomes true.
+-- Example: (a < b) is true.
+--
+--
+--     * >=
+--
+--     * Checks whether the value of the left operand is greater than or equal to the value of the right operand; if yes, then the condition becomes true.
+-- Example: (a >= b) is not true.
+--
+--
+--     * <=
+--
+--     * Checks whether the value of the left operand is less than or equal to the value of the right operand; if yes, then the condition becomes true.
+-- Example: (a <= b) is true.
+--
+--
+--     * AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL
+--
+--     * Logical operators.
+--
+--
+-- /Supported Partition Key Types/ : The following are the supported partition keys.
+--
+--     * @string@
+--
+--
+--     * @date@
+--
+--
+--     * @timestamp@
+--
+--
+--     * @int@
+--
+--
+--     * @bigint@
+--
+--
+--     * @long@
+--
+--
+--     * @tinyint@
+--
+--
+--     * @smallint@
+--
+--
+--     * @decimal@
+--
+--
+-- If an invalid type is encountered, an exception is thrown.
+-- The following list shows the valid operators on each type. When you define a crawler, the @partitionKey@ type is created as a @STRING@ , to be compatible with the catalog partitions.
+-- /Sample API Call/ :
+--
+-- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsExpression :: Lens.Lens' GetPartitions (Lude.Maybe Lude.Text)
+gpsExpression = Lens.lens (expression :: GetPartitions -> Lude.Maybe Lude.Text) (\s a -> s {expression = a} :: GetPartitions)
+{-# DEPRECATED gpsExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
 -- | The segment of the table's partitions to scan in this request.
-gpsSegment :: Lens' GetPartitions (Maybe Segment)
-gpsSegment = lens _gpsSegment (\s a -> s {_gpsSegment = a})
+--
+-- /Note:/ Consider using 'segment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsSegment :: Lens.Lens' GetPartitions (Lude.Maybe Segment)
+gpsSegment = Lens.lens (segment :: GetPartitions -> Lude.Maybe Segment) (\s a -> s {segment = a} :: GetPartitions)
+{-# DEPRECATED gpsSegment "Use generic-lens or generic-optics with 'segment' instead." #-}
 
 -- | The maximum number of partitions to return in a single response.
-gpsMaxResults :: Lens' GetPartitions (Maybe Natural)
-gpsMaxResults = lens _gpsMaxResults (\s a -> s {_gpsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsMaxResults :: Lens.Lens' GetPartitions (Lude.Maybe Lude.Natural)
+gpsMaxResults = Lens.lens (maxResults :: GetPartitions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetPartitions)
+{-# DEPRECATED gpsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the catalog database where the partitions reside.
-gpsDatabaseName :: Lens' GetPartitions Text
-gpsDatabaseName = lens _gpsDatabaseName (\s a -> s {_gpsDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsDatabaseName :: Lens.Lens' GetPartitions Lude.Text
+gpsDatabaseName = Lens.lens (databaseName :: GetPartitions -> Lude.Text) (\s a -> s {databaseName = a} :: GetPartitions)
+{-# DEPRECATED gpsDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the partitions' table.
-gpsTableName :: Lens' GetPartitions Text
-gpsTableName = lens _gpsTableName (\s a -> s {_gpsTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsTableName :: Lens.Lens' GetPartitions Lude.Text
+gpsTableName = Lens.lens (tableName :: GetPartitions -> Lude.Text) (\s a -> s {tableName = a} :: GetPartitions)
+{-# DEPRECATED gpsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance AWSPager GetPartitions where
+instance Page.AWSPager GetPartitions where
   page rq rs
-    | stop (rs ^. gpsrsNextToken) = Nothing
-    | stop (rs ^. gpsrsPartitions) = Nothing
-    | otherwise = Just $ rq & gpsNextToken .~ rs ^. gpsrsNextToken
+    | Page.stop (rs Lens.^. gpsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gpsrsPartitions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gpsNextToken Lens..~ rs Lens.^. gpsrsNextToken
 
-instance AWSRequest GetPartitions where
+instance Lude.AWSRequest GetPartitions where
   type Rs GetPartitions = GetPartitionsResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPartitionsResponse'
-            <$> (x .?> "Partitions" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Partitions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPartitions
-
-instance NFData GetPartitions
-
-instance ToHeaders GetPartitions where
+instance Lude.ToHeaders GetPartitions where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetPartitions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.GetPartitions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetPartitions where
+instance Lude.ToJSON GetPartitions where
   toJSON GetPartitions' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _gpsCatalogId,
-            ("NextToken" .=) <$> _gpsNextToken,
-            ("Expression" .=) <$> _gpsExpression,
-            ("Segment" .=) <$> _gpsSegment,
-            ("MaxResults" .=) <$> _gpsMaxResults,
-            Just ("DatabaseName" .= _gpsDatabaseName),
-            Just ("TableName" .= _gpsTableName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Expression" Lude..=) Lude.<$> expression,
+            ("Segment" Lude..=) Lude.<$> segment,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
-instance ToPath GetPartitions where
-  toPath = const "/"
+instance Lude.ToPath GetPartitions where
+  toPath = Lude.const "/"
 
-instance ToQuery GetPartitions where
-  toQuery = const mempty
+instance Lude.ToQuery GetPartitions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getPartitionsResponse' smart constructor.
+-- | /See:/ 'mkGetPartitionsResponse' smart constructor.
 data GetPartitionsResponse = GetPartitionsResponse'
-  { _gpsrsPartitions ::
-      !(Maybe [Partition]),
-    _gpsrsNextToken :: !(Maybe Text),
-    _gpsrsResponseStatus :: !Int
+  { partitions ::
+      Lude.Maybe [Partition],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPartitionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpsrsPartitions' - A list of requested partitions.
---
--- * 'gpsrsNextToken' - A continuation token, if the returned list of partitions does not include the last one.
---
--- * 'gpsrsResponseStatus' - -- | The response status code.
-getPartitionsResponse ::
-  -- | 'gpsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A continuation token, if the returned list of partitions does not include the last one.
+-- * 'partitions' - A list of requested partitions.
+-- * 'responseStatus' - The response status code.
+mkGetPartitionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPartitionsResponse
-getPartitionsResponse pResponseStatus_ =
+mkGetPartitionsResponse pResponseStatus_ =
   GetPartitionsResponse'
-    { _gpsrsPartitions = Nothing,
-      _gpsrsNextToken = Nothing,
-      _gpsrsResponseStatus = pResponseStatus_
+    { partitions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of requested partitions.
-gpsrsPartitions :: Lens' GetPartitionsResponse [Partition]
-gpsrsPartitions = lens _gpsrsPartitions (\s a -> s {_gpsrsPartitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsrsPartitions :: Lens.Lens' GetPartitionsResponse (Lude.Maybe [Partition])
+gpsrsPartitions = Lens.lens (partitions :: GetPartitionsResponse -> Lude.Maybe [Partition]) (\s a -> s {partitions = a} :: GetPartitionsResponse)
+{-# DEPRECATED gpsrsPartitions "Use generic-lens or generic-optics with 'partitions' instead." #-}
 
 -- | A continuation token, if the returned list of partitions does not include the last one.
-gpsrsNextToken :: Lens' GetPartitionsResponse (Maybe Text)
-gpsrsNextToken = lens _gpsrsNextToken (\s a -> s {_gpsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsrsNextToken :: Lens.Lens' GetPartitionsResponse (Lude.Maybe Lude.Text)
+gpsrsNextToken = Lens.lens (nextToken :: GetPartitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPartitionsResponse)
+{-# DEPRECATED gpsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gpsrsResponseStatus :: Lens' GetPartitionsResponse Int
-gpsrsResponseStatus = lens _gpsrsResponseStatus (\s a -> s {_gpsrsResponseStatus = a})
-
-instance NFData GetPartitionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsrsResponseStatus :: Lens.Lens' GetPartitionsResponse Lude.Int
+gpsrsResponseStatus = Lens.lens (responseStatus :: GetPartitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPartitionsResponse)
+{-# DEPRECATED gpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

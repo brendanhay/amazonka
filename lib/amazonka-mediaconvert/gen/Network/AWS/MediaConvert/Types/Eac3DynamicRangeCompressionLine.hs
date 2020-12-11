@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionLine where
+module Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionLine
+  ( Eac3DynamicRangeCompressionLine
+      ( Eac3DynamicRangeCompressionLine',
+        EDRCLFilmLight,
+        EDRCLFilmStandard,
+        EDRCLMusicLight,
+        EDRCLMusicStandard,
+        EDRCLNone,
+        EDRCLSpeech
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify the absolute peak level for a signal with dynamic range compression.
-data Eac3DynamicRangeCompressionLine
-  = EDRCLFilmLight
-  | EDRCLFilmStandard
-  | EDRCLMusicLight
-  | EDRCLMusicStandard
-  | EDRCLNone
-  | EDRCLSpeech
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3DynamicRangeCompressionLine = Eac3DynamicRangeCompressionLine' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3DynamicRangeCompressionLine where
-  parser =
-    takeLowerText >>= \case
-      "film_light" -> pure EDRCLFilmLight
-      "film_standard" -> pure EDRCLFilmStandard
-      "music_light" -> pure EDRCLMusicLight
-      "music_standard" -> pure EDRCLMusicStandard
-      "none" -> pure EDRCLNone
-      "speech" -> pure EDRCLSpeech
-      e ->
-        fromTextError $
-          "Failure parsing Eac3DynamicRangeCompressionLine from value: '" <> e
-            <> "'. Accepted values: film_light, film_standard, music_light, music_standard, none, speech"
+pattern EDRCLFilmLight :: Eac3DynamicRangeCompressionLine
+pattern EDRCLFilmLight = Eac3DynamicRangeCompressionLine' "FILM_LIGHT"
 
-instance ToText Eac3DynamicRangeCompressionLine where
-  toText = \case
-    EDRCLFilmLight -> "FILM_LIGHT"
-    EDRCLFilmStandard -> "FILM_STANDARD"
-    EDRCLMusicLight -> "MUSIC_LIGHT"
-    EDRCLMusicStandard -> "MUSIC_STANDARD"
-    EDRCLNone -> "NONE"
-    EDRCLSpeech -> "SPEECH"
+pattern EDRCLFilmStandard :: Eac3DynamicRangeCompressionLine
+pattern EDRCLFilmStandard = Eac3DynamicRangeCompressionLine' "FILM_STANDARD"
 
-instance Hashable Eac3DynamicRangeCompressionLine
+pattern EDRCLMusicLight :: Eac3DynamicRangeCompressionLine
+pattern EDRCLMusicLight = Eac3DynamicRangeCompressionLine' "MUSIC_LIGHT"
 
-instance NFData Eac3DynamicRangeCompressionLine
+pattern EDRCLMusicStandard :: Eac3DynamicRangeCompressionLine
+pattern EDRCLMusicStandard = Eac3DynamicRangeCompressionLine' "MUSIC_STANDARD"
 
-instance ToByteString Eac3DynamicRangeCompressionLine
+pattern EDRCLNone :: Eac3DynamicRangeCompressionLine
+pattern EDRCLNone = Eac3DynamicRangeCompressionLine' "NONE"
 
-instance ToQuery Eac3DynamicRangeCompressionLine
+pattern EDRCLSpeech :: Eac3DynamicRangeCompressionLine
+pattern EDRCLSpeech = Eac3DynamicRangeCompressionLine' "SPEECH"
 
-instance ToHeader Eac3DynamicRangeCompressionLine
-
-instance ToJSON Eac3DynamicRangeCompressionLine where
-  toJSON = toJSONText
-
-instance FromJSON Eac3DynamicRangeCompressionLine where
-  parseJSON = parseJSONText "Eac3DynamicRangeCompressionLine"
+{-# COMPLETE
+  EDRCLFilmLight,
+  EDRCLFilmStandard,
+  EDRCLMusicLight,
+  EDRCLMusicStandard,
+  EDRCLNone,
+  EDRCLSpeech,
+  Eac3DynamicRangeCompressionLine'
+  #-}

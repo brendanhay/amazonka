@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPCAttachment where
+module Network.AWS.EC2.Types.VPCAttachment
+  ( VPCAttachment (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVPCAttachment,
+
+    -- * Lenses
+    vaState,
+    vaVPCId,
+  )
+where
+
 import Network.AWS.EC2.Types.AttachmentStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an attachment between a virtual private gateway and a VPC.
 --
---
---
--- /See:/ 'vpcAttachment' smart constructor.
+-- /See:/ 'mkVPCAttachment' smart constructor.
 data VPCAttachment = VPCAttachment'
-  { _vaState ::
-      !(Maybe AttachmentStatus),
-    _vaVPCId :: !(Maybe Text)
+  { state ::
+      Lude.Maybe AttachmentStatus,
+    vpcId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCAttachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vaState' - The current state of the attachment.
---
--- * 'vaVPCId' - The ID of the VPC.
-vpcAttachment ::
+-- * 'state' - The current state of the attachment.
+-- * 'vpcId' - The ID of the VPC.
+mkVPCAttachment ::
   VPCAttachment
-vpcAttachment =
-  VPCAttachment' {_vaState = Nothing, _vaVPCId = Nothing}
+mkVPCAttachment =
+  VPCAttachment' {state = Lude.Nothing, vpcId = Lude.Nothing}
 
 -- | The current state of the attachment.
-vaState :: Lens' VPCAttachment (Maybe AttachmentStatus)
-vaState = lens _vaState (\s a -> s {_vaState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vaState :: Lens.Lens' VPCAttachment (Lude.Maybe AttachmentStatus)
+vaState = Lens.lens (state :: VPCAttachment -> Lude.Maybe AttachmentStatus) (\s a -> s {state = a} :: VPCAttachment)
+{-# DEPRECATED vaState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the VPC.
-vaVPCId :: Lens' VPCAttachment (Maybe Text)
-vaVPCId = lens _vaVPCId (\s a -> s {_vaVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vaVPCId :: Lens.Lens' VPCAttachment (Lude.Maybe Lude.Text)
+vaVPCId = Lens.lens (vpcId :: VPCAttachment -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: VPCAttachment)
+{-# DEPRECATED vaVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance FromXML VPCAttachment where
-  parseXML x = VPCAttachment' <$> (x .@? "state") <*> (x .@? "vpcId")
-
-instance Hashable VPCAttachment
-
-instance NFData VPCAttachment
+instance Lude.FromXML VPCAttachment where
+  parseXML x =
+    VPCAttachment'
+      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "vpcId")

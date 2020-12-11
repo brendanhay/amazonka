@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.ResourceServerType where
+module Network.AWS.CognitoIdentityProvider.Types.ResourceServerType
+  ( ResourceServerType (..),
+
+    -- * Smart constructor
+    mkResourceServerType,
+
+    -- * Lenses
+    rstUserPoolId,
+    rstIdentifier,
+    rstScopes,
+    rstName,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A container for information about a resource server for a user pool.
 --
---
---
--- /See:/ 'resourceServerType' smart constructor.
+-- /See:/ 'mkResourceServerType' smart constructor.
 data ResourceServerType = ResourceServerType'
-  { _rstUserPoolId ::
-      !(Maybe Text),
-    _rstIdentifier :: !(Maybe Text),
-    _rstScopes :: !(Maybe [ResourceServerScopeType]),
-    _rstName :: !(Maybe Text)
+  { userPoolId ::
+      Lude.Maybe Lude.Text,
+    identifier :: Lude.Maybe Lude.Text,
+    scopes :: Lude.Maybe [ResourceServerScopeType],
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceServerType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rstUserPoolId' - The user pool ID for the user pool that hosts the resource server.
---
--- * 'rstIdentifier' - The identifier for the resource server.
---
--- * 'rstScopes' - A list of scopes that are defined for the resource server.
---
--- * 'rstName' - The name of the resource server.
-resourceServerType ::
+-- * 'identifier' - The identifier for the resource server.
+-- * 'name' - The name of the resource server.
+-- * 'scopes' - A list of scopes that are defined for the resource server.
+-- * 'userPoolId' - The user pool ID for the user pool that hosts the resource server.
+mkResourceServerType ::
   ResourceServerType
-resourceServerType =
+mkResourceServerType =
   ResourceServerType'
-    { _rstUserPoolId = Nothing,
-      _rstIdentifier = Nothing,
-      _rstScopes = Nothing,
-      _rstName = Nothing
+    { userPoolId = Lude.Nothing,
+      identifier = Lude.Nothing,
+      scopes = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The user pool ID for the user pool that hosts the resource server.
-rstUserPoolId :: Lens' ResourceServerType (Maybe Text)
-rstUserPoolId = lens _rstUserPoolId (\s a -> s {_rstUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rstUserPoolId :: Lens.Lens' ResourceServerType (Lude.Maybe Lude.Text)
+rstUserPoolId = Lens.lens (userPoolId :: ResourceServerType -> Lude.Maybe Lude.Text) (\s a -> s {userPoolId = a} :: ResourceServerType)
+{-# DEPRECATED rstUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identifier for the resource server.
-rstIdentifier :: Lens' ResourceServerType (Maybe Text)
-rstIdentifier = lens _rstIdentifier (\s a -> s {_rstIdentifier = a})
+--
+-- /Note:/ Consider using 'identifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rstIdentifier :: Lens.Lens' ResourceServerType (Lude.Maybe Lude.Text)
+rstIdentifier = Lens.lens (identifier :: ResourceServerType -> Lude.Maybe Lude.Text) (\s a -> s {identifier = a} :: ResourceServerType)
+{-# DEPRECATED rstIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
 
 -- | A list of scopes that are defined for the resource server.
-rstScopes :: Lens' ResourceServerType [ResourceServerScopeType]
-rstScopes = lens _rstScopes (\s a -> s {_rstScopes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rstScopes :: Lens.Lens' ResourceServerType (Lude.Maybe [ResourceServerScopeType])
+rstScopes = Lens.lens (scopes :: ResourceServerType -> Lude.Maybe [ResourceServerScopeType]) (\s a -> s {scopes = a} :: ResourceServerType)
+{-# DEPRECATED rstScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
 
 -- | The name of the resource server.
-rstName :: Lens' ResourceServerType (Maybe Text)
-rstName = lens _rstName (\s a -> s {_rstName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rstName :: Lens.Lens' ResourceServerType (Lude.Maybe Lude.Text)
+rstName = Lens.lens (name :: ResourceServerType -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourceServerType)
+{-# DEPRECATED rstName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON ResourceServerType where
+instance Lude.FromJSON ResourceServerType where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceServerType"
       ( \x ->
           ResourceServerType'
-            <$> (x .:? "UserPoolId")
-            <*> (x .:? "Identifier")
-            <*> (x .:? "Scopes" .!= mempty)
-            <*> (x .:? "Name")
+            Lude.<$> (x Lude..:? "UserPoolId")
+            Lude.<*> (x Lude..:? "Identifier")
+            Lude.<*> (x Lude..:? "Scopes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
       )
-
-instance Hashable ResourceServerType
-
-instance NFData ResourceServerType

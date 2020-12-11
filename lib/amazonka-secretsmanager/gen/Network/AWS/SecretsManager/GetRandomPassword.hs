@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,16 @@
 --
 -- Generates a random password of the specified complexity. This operation is intended for use in the Lambda rotation function. Per best practice, we recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 --
---
 -- __Minimum permissions__
---
 -- To run this command, you must have the following permissions:
 --
 --     * secretsmanager:GetRandomPassword
 module Network.AWS.SecretsManager.GetRandomPassword
-  ( -- * Creating a Request
-    getRandomPassword,
-    GetRandomPassword,
+  ( -- * Creating a request
+    GetRandomPassword (..),
+    mkGetRandomPassword,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grpIncludeSpace,
     grpExcludeNumbers,
     grpExcludeLowercase,
@@ -40,177 +33,206 @@ module Network.AWS.SecretsManager.GetRandomPassword
     grpExcludeUppercase,
     grpPasswordLength,
 
-    -- * Destructuring the Response
-    getRandomPasswordResponse,
-    GetRandomPasswordResponse,
+    -- * Destructuring the response
+    GetRandomPasswordResponse (..),
+    mkGetRandomPasswordResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsRandomPassword,
     grsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SecretsManager.Types
 
--- | /See:/ 'getRandomPassword' smart constructor.
+-- | /See:/ 'mkGetRandomPassword' smart constructor.
 data GetRandomPassword = GetRandomPassword'
-  { _grpIncludeSpace ::
-      !(Maybe Bool),
-    _grpExcludeNumbers :: !(Maybe Bool),
-    _grpExcludeLowercase :: !(Maybe Bool),
-    _grpExcludeCharacters :: !(Maybe Text),
-    _grpExcludePunctuation :: !(Maybe Bool),
-    _grpRequireEachIncludedType :: !(Maybe Bool),
-    _grpExcludeUppercase :: !(Maybe Bool),
-    _grpPasswordLength :: !(Maybe Nat)
+  { includeSpace ::
+      Lude.Maybe Lude.Bool,
+    excludeNumbers :: Lude.Maybe Lude.Bool,
+    excludeLowercase :: Lude.Maybe Lude.Bool,
+    excludeCharacters :: Lude.Maybe Lude.Text,
+    excludePunctuation :: Lude.Maybe Lude.Bool,
+    requireEachIncludedType :: Lude.Maybe Lude.Bool,
+    excludeUppercase :: Lude.Maybe Lude.Bool,
+    passwordLength :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRandomPassword' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'excludeCharacters' - A string that includes characters that should not be included in the generated password. The default is that all characters from the included sets can be used.
+-- * 'excludeLowercase' - Specifies that the generated password should not include lowercase letters. The default if you do not include this switch parameter is that lowercase letters can be included.
+-- * 'excludeNumbers' - Specifies that the generated password should not include digits. The default if you do not include this switch parameter is that digits can be included.
+-- * 'excludePunctuation' - Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
 --
--- * 'grpIncludeSpace' - Specifies that the generated password can include the space character. The default if you do not include this switch parameter is that the space character is not included.
---
--- * 'grpExcludeNumbers' - Specifies that the generated password should not include digits. The default if you do not include this switch parameter is that digits can be included.
---
--- * 'grpExcludeLowercase' - Specifies that the generated password should not include lowercase letters. The default if you do not include this switch parameter is that lowercase letters can be included.
---
--- * 'grpExcludeCharacters' - A string that includes characters that should not be included in the generated password. The default is that all characters from the included sets can be used.
---
--- * 'grpExcludePunctuation' - Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. The following are the punctuation characters that /can/ be included in the generated password if you don't explicitly exclude them with @ExcludeCharacters@ or @ExcludePunctuation@ : @! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~@
---
--- * 'grpRequireEachIncludedType' - A boolean value that specifies whether the generated password must include at least one of every allowed character type. The default value is @True@ and the operation requires at least one of every character type.
---
--- * 'grpExcludeUppercase' - Specifies that the generated password should not include uppercase letters. The default if you do not include this switch parameter is that uppercase letters can be included.
---
--- * 'grpPasswordLength' - The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
-getRandomPassword ::
+-- The following are the punctuation characters that /can/ be included in the generated password if you don't explicitly exclude them with @ExcludeCharacters@ or @ExcludePunctuation@ :
+-- @! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~@
+-- * 'excludeUppercase' - Specifies that the generated password should not include uppercase letters. The default if you do not include this switch parameter is that uppercase letters can be included.
+-- * 'includeSpace' - Specifies that the generated password can include the space character. The default if you do not include this switch parameter is that the space character is not included.
+-- * 'passwordLength' - The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
+-- * 'requireEachIncludedType' - A boolean value that specifies whether the generated password must include at least one of every allowed character type. The default value is @True@ and the operation requires at least one of every character type.
+mkGetRandomPassword ::
   GetRandomPassword
-getRandomPassword =
+mkGetRandomPassword =
   GetRandomPassword'
-    { _grpIncludeSpace = Nothing,
-      _grpExcludeNumbers = Nothing,
-      _grpExcludeLowercase = Nothing,
-      _grpExcludeCharacters = Nothing,
-      _grpExcludePunctuation = Nothing,
-      _grpRequireEachIncludedType = Nothing,
-      _grpExcludeUppercase = Nothing,
-      _grpPasswordLength = Nothing
+    { includeSpace = Lude.Nothing,
+      excludeNumbers = Lude.Nothing,
+      excludeLowercase = Lude.Nothing,
+      excludeCharacters = Lude.Nothing,
+      excludePunctuation = Lude.Nothing,
+      requireEachIncludedType = Lude.Nothing,
+      excludeUppercase = Lude.Nothing,
+      passwordLength = Lude.Nothing
     }
 
 -- | Specifies that the generated password can include the space character. The default if you do not include this switch parameter is that the space character is not included.
-grpIncludeSpace :: Lens' GetRandomPassword (Maybe Bool)
-grpIncludeSpace = lens _grpIncludeSpace (\s a -> s {_grpIncludeSpace = a})
+--
+-- /Note:/ Consider using 'includeSpace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpIncludeSpace :: Lens.Lens' GetRandomPassword (Lude.Maybe Lude.Bool)
+grpIncludeSpace = Lens.lens (includeSpace :: GetRandomPassword -> Lude.Maybe Lude.Bool) (\s a -> s {includeSpace = a} :: GetRandomPassword)
+{-# DEPRECATED grpIncludeSpace "Use generic-lens or generic-optics with 'includeSpace' instead." #-}
 
 -- | Specifies that the generated password should not include digits. The default if you do not include this switch parameter is that digits can be included.
-grpExcludeNumbers :: Lens' GetRandomPassword (Maybe Bool)
-grpExcludeNumbers = lens _grpExcludeNumbers (\s a -> s {_grpExcludeNumbers = a})
+--
+-- /Note:/ Consider using 'excludeNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpExcludeNumbers :: Lens.Lens' GetRandomPassword (Lude.Maybe Lude.Bool)
+grpExcludeNumbers = Lens.lens (excludeNumbers :: GetRandomPassword -> Lude.Maybe Lude.Bool) (\s a -> s {excludeNumbers = a} :: GetRandomPassword)
+{-# DEPRECATED grpExcludeNumbers "Use generic-lens or generic-optics with 'excludeNumbers' instead." #-}
 
 -- | Specifies that the generated password should not include lowercase letters. The default if you do not include this switch parameter is that lowercase letters can be included.
-grpExcludeLowercase :: Lens' GetRandomPassword (Maybe Bool)
-grpExcludeLowercase = lens _grpExcludeLowercase (\s a -> s {_grpExcludeLowercase = a})
+--
+-- /Note:/ Consider using 'excludeLowercase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpExcludeLowercase :: Lens.Lens' GetRandomPassword (Lude.Maybe Lude.Bool)
+grpExcludeLowercase = Lens.lens (excludeLowercase :: GetRandomPassword -> Lude.Maybe Lude.Bool) (\s a -> s {excludeLowercase = a} :: GetRandomPassword)
+{-# DEPRECATED grpExcludeLowercase "Use generic-lens or generic-optics with 'excludeLowercase' instead." #-}
 
 -- | A string that includes characters that should not be included in the generated password. The default is that all characters from the included sets can be used.
-grpExcludeCharacters :: Lens' GetRandomPassword (Maybe Text)
-grpExcludeCharacters = lens _grpExcludeCharacters (\s a -> s {_grpExcludeCharacters = a})
+--
+-- /Note:/ Consider using 'excludeCharacters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpExcludeCharacters :: Lens.Lens' GetRandomPassword (Lude.Maybe Lude.Text)
+grpExcludeCharacters = Lens.lens (excludeCharacters :: GetRandomPassword -> Lude.Maybe Lude.Text) (\s a -> s {excludeCharacters = a} :: GetRandomPassword)
+{-# DEPRECATED grpExcludeCharacters "Use generic-lens or generic-optics with 'excludeCharacters' instead." #-}
 
--- | Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. The following are the punctuation characters that /can/ be included in the generated password if you don't explicitly exclude them with @ExcludeCharacters@ or @ExcludePunctuation@ : @! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~@
-grpExcludePunctuation :: Lens' GetRandomPassword (Maybe Bool)
-grpExcludePunctuation = lens _grpExcludePunctuation (\s a -> s {_grpExcludePunctuation = a})
+-- | Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
+--
+-- The following are the punctuation characters that /can/ be included in the generated password if you don't explicitly exclude them with @ExcludeCharacters@ or @ExcludePunctuation@ :
+-- @! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~@
+--
+-- /Note:/ Consider using 'excludePunctuation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpExcludePunctuation :: Lens.Lens' GetRandomPassword (Lude.Maybe Lude.Bool)
+grpExcludePunctuation = Lens.lens (excludePunctuation :: GetRandomPassword -> Lude.Maybe Lude.Bool) (\s a -> s {excludePunctuation = a} :: GetRandomPassword)
+{-# DEPRECATED grpExcludePunctuation "Use generic-lens or generic-optics with 'excludePunctuation' instead." #-}
 
 -- | A boolean value that specifies whether the generated password must include at least one of every allowed character type. The default value is @True@ and the operation requires at least one of every character type.
-grpRequireEachIncludedType :: Lens' GetRandomPassword (Maybe Bool)
-grpRequireEachIncludedType = lens _grpRequireEachIncludedType (\s a -> s {_grpRequireEachIncludedType = a})
+--
+-- /Note:/ Consider using 'requireEachIncludedType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpRequireEachIncludedType :: Lens.Lens' GetRandomPassword (Lude.Maybe Lude.Bool)
+grpRequireEachIncludedType = Lens.lens (requireEachIncludedType :: GetRandomPassword -> Lude.Maybe Lude.Bool) (\s a -> s {requireEachIncludedType = a} :: GetRandomPassword)
+{-# DEPRECATED grpRequireEachIncludedType "Use generic-lens or generic-optics with 'requireEachIncludedType' instead." #-}
 
 -- | Specifies that the generated password should not include uppercase letters. The default if you do not include this switch parameter is that uppercase letters can be included.
-grpExcludeUppercase :: Lens' GetRandomPassword (Maybe Bool)
-grpExcludeUppercase = lens _grpExcludeUppercase (\s a -> s {_grpExcludeUppercase = a})
+--
+-- /Note:/ Consider using 'excludeUppercase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpExcludeUppercase :: Lens.Lens' GetRandomPassword (Lude.Maybe Lude.Bool)
+grpExcludeUppercase = Lens.lens (excludeUppercase :: GetRandomPassword -> Lude.Maybe Lude.Bool) (\s a -> s {excludeUppercase = a} :: GetRandomPassword)
+{-# DEPRECATED grpExcludeUppercase "Use generic-lens or generic-optics with 'excludeUppercase' instead." #-}
 
 -- | The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
-grpPasswordLength :: Lens' GetRandomPassword (Maybe Natural)
-grpPasswordLength = lens _grpPasswordLength (\s a -> s {_grpPasswordLength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'passwordLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpPasswordLength :: Lens.Lens' GetRandomPassword (Lude.Maybe Lude.Natural)
+grpPasswordLength = Lens.lens (passwordLength :: GetRandomPassword -> Lude.Maybe Lude.Natural) (\s a -> s {passwordLength = a} :: GetRandomPassword)
+{-# DEPRECATED grpPasswordLength "Use generic-lens or generic-optics with 'passwordLength' instead." #-}
 
-instance AWSRequest GetRandomPassword where
+instance Lude.AWSRequest GetRandomPassword where
   type Rs GetRandomPassword = GetRandomPasswordResponse
-  request = postJSON secretsManager
+  request = Req.postJSON secretsManagerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRandomPasswordResponse'
-            <$> (x .?> "RandomPassword") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RandomPassword")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRandomPassword
-
-instance NFData GetRandomPassword
-
-instance ToHeaders GetRandomPassword where
+instance Lude.ToHeaders GetRandomPassword where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("secretsmanager.GetRandomPassword" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("secretsmanager.GetRandomPassword" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRandomPassword where
+instance Lude.ToJSON GetRandomPassword where
   toJSON GetRandomPassword' {..} =
-    object
-      ( catMaybes
-          [ ("IncludeSpace" .=) <$> _grpIncludeSpace,
-            ("ExcludeNumbers" .=) <$> _grpExcludeNumbers,
-            ("ExcludeLowercase" .=) <$> _grpExcludeLowercase,
-            ("ExcludeCharacters" .=) <$> _grpExcludeCharacters,
-            ("ExcludePunctuation" .=) <$> _grpExcludePunctuation,
-            ("RequireEachIncludedType" .=) <$> _grpRequireEachIncludedType,
-            ("ExcludeUppercase" .=) <$> _grpExcludeUppercase,
-            ("PasswordLength" .=) <$> _grpPasswordLength
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IncludeSpace" Lude..=) Lude.<$> includeSpace,
+            ("ExcludeNumbers" Lude..=) Lude.<$> excludeNumbers,
+            ("ExcludeLowercase" Lude..=) Lude.<$> excludeLowercase,
+            ("ExcludeCharacters" Lude..=) Lude.<$> excludeCharacters,
+            ("ExcludePunctuation" Lude..=) Lude.<$> excludePunctuation,
+            ("RequireEachIncludedType" Lude..=)
+              Lude.<$> requireEachIncludedType,
+            ("ExcludeUppercase" Lude..=) Lude.<$> excludeUppercase,
+            ("PasswordLength" Lude..=) Lude.<$> passwordLength
           ]
       )
 
-instance ToPath GetRandomPassword where
-  toPath = const "/"
+instance Lude.ToPath GetRandomPassword where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRandomPassword where
-  toQuery = const mempty
+instance Lude.ToQuery GetRandomPassword where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRandomPasswordResponse' smart constructor.
+-- | /See:/ 'mkGetRandomPasswordResponse' smart constructor.
 data GetRandomPasswordResponse = GetRandomPasswordResponse'
-  { _grsRandomPassword ::
-      !(Maybe (Sensitive Text)),
-    _grsResponseStatus :: !Int
+  { randomPassword ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRandomPasswordResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsRandomPassword' - A string with the generated password.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getRandomPasswordResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- * 'randomPassword' - A string with the generated password.
+-- * 'responseStatus' - The response status code.
+mkGetRandomPasswordResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRandomPasswordResponse
-getRandomPasswordResponse pResponseStatus_ =
+mkGetRandomPasswordResponse pResponseStatus_ =
   GetRandomPasswordResponse'
-    { _grsRandomPassword = Nothing,
-      _grsResponseStatus = pResponseStatus_
+    { randomPassword = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A string with the generated password.
-grsRandomPassword :: Lens' GetRandomPasswordResponse (Maybe Text)
-grsRandomPassword = lens _grsRandomPassword (\s a -> s {_grsRandomPassword = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'randomPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsRandomPassword :: Lens.Lens' GetRandomPasswordResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+grsRandomPassword = Lens.lens (randomPassword :: GetRandomPasswordResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {randomPassword = a} :: GetRandomPasswordResponse)
+{-# DEPRECATED grsRandomPassword "Use generic-lens or generic-optics with 'randomPassword' instead." #-}
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetRandomPasswordResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
-
-instance NFData GetRandomPasswordResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetRandomPasswordResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetRandomPasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRandomPasswordResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

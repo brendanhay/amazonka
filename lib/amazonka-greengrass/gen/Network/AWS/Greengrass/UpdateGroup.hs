@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,124 @@
 --
 -- Updates a group.
 module Network.AWS.Greengrass.UpdateGroup
-  ( -- * Creating a Request
-    updateGroup,
-    UpdateGroup,
+  ( -- * Creating a request
+    UpdateGroup (..),
+    mkUpdateGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugName,
     ugGroupId,
 
-    -- * Destructuring the Response
-    updateGroupResponse,
-    UpdateGroupResponse,
+    -- * Destructuring the response
+    UpdateGroupResponse (..),
+    mkUpdateGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateGroup' smart constructor.
+-- | /See:/ 'mkUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { _ugName :: !(Maybe Text),
-    _ugGroupId :: !Text
+  { name :: Lude.Maybe Lude.Text,
+    groupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugName' - The name of the definition.
---
--- * 'ugGroupId' - The ID of the Greengrass group.
-updateGroup ::
-  -- | 'ugGroupId'
-  Text ->
+-- * 'groupId' - The ID of the Greengrass group.
+-- * 'name' - The name of the definition.
+mkUpdateGroup ::
+  -- | 'groupId'
+  Lude.Text ->
   UpdateGroup
-updateGroup pGroupId_ =
-  UpdateGroup' {_ugName = Nothing, _ugGroupId = pGroupId_}
+mkUpdateGroup pGroupId_ =
+  UpdateGroup' {name = Lude.Nothing, groupId = pGroupId_}
 
 -- | The name of the definition.
-ugName :: Lens' UpdateGroup (Maybe Text)
-ugName = lens _ugName (\s a -> s {_ugName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugName :: Lens.Lens' UpdateGroup (Lude.Maybe Lude.Text)
+ugName = Lens.lens (name :: UpdateGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateGroup)
+{-# DEPRECATED ugName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the Greengrass group.
-ugGroupId :: Lens' UpdateGroup Text
-ugGroupId = lens _ugGroupId (\s a -> s {_ugGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugGroupId :: Lens.Lens' UpdateGroup Lude.Text
+ugGroupId = Lens.lens (groupId :: UpdateGroup -> Lude.Text) (\s a -> s {groupId = a} :: UpdateGroup)
+{-# DEPRECATED ugGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest UpdateGroup where
+instance Lude.AWSRequest UpdateGroup where
   type Rs UpdateGroup = UpdateGroupResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveEmpty
-      (\s h x -> UpdateGroupResponse' <$> (pure (fromEnum s)))
-
-instance Hashable UpdateGroup
-
-instance NFData UpdateGroup
-
-instance ToHeaders UpdateGroup where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON UpdateGroup where
+instance Lude.ToHeaders UpdateGroup where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
-    object (catMaybes [("Name" .=) <$> _ugName])
+    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
 
-instance ToPath UpdateGroup where
+instance Lude.ToPath UpdateGroup where
   toPath UpdateGroup' {..} =
-    mconcat ["/greengrass/groups/", toBS _ugGroupId]
+    Lude.mconcat ["/greengrass/groups/", Lude.toBS groupId]
 
-instance ToQuery UpdateGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateGroupResponse' smart constructor.
 newtype UpdateGroupResponse = UpdateGroupResponse'
-  { _ugrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugrsResponseStatus' - -- | The response status code.
-updateGroupResponse ::
-  -- | 'ugrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGroupResponse
-updateGroupResponse pResponseStatus_ =
-  UpdateGroupResponse' {_ugrsResponseStatus = pResponseStatus_}
+mkUpdateGroupResponse pResponseStatus_ =
+  UpdateGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ugrsResponseStatus :: Lens' UpdateGroupResponse Int
-ugrsResponseStatus = lens _ugrsResponseStatus (\s a -> s {_ugrsResponseStatus = a})
-
-instance NFData UpdateGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugrsResponseStatus :: Lens.Lens' UpdateGroupResponse Lude.Int
+ugrsResponseStatus = Lens.lens (responseStatus :: UpdateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGroupResponse)
+{-# DEPRECATED ugrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

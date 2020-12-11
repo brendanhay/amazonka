@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,177 @@
 --
 -- Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call @GetPercentiles@ . This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group "1" contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group "5" contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.
 module Network.AWS.IoT.GetPercentiles
-  ( -- * Creating a Request
-    getPercentiles,
-    GetPercentiles,
+  ( -- * Creating a request
+    GetPercentiles (..),
+    mkGetPercentiles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpPercents,
     gpQueryVersion,
     gpAggregationField,
     gpIndexName,
     gpQueryString,
 
-    -- * Destructuring the Response
-    getPercentilesResponse,
-    GetPercentilesResponse,
+    -- * Destructuring the response
+    GetPercentilesResponse (..),
+    mkGetPercentilesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsPercentiles,
     grsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getPercentiles' smart constructor.
+-- | /See:/ 'mkGetPercentiles' smart constructor.
 data GetPercentiles = GetPercentiles'
-  { _gpPercents ::
-      !(Maybe [Double]),
-    _gpQueryVersion :: !(Maybe Text),
-    _gpAggregationField :: !(Maybe Text),
-    _gpIndexName :: !(Maybe Text),
-    _gpQueryString :: !Text
+  { percents ::
+      Lude.Maybe [Lude.Double],
+    queryVersion :: Lude.Maybe Lude.Text,
+    aggregationField :: Lude.Maybe Lude.Text,
+    indexName :: Lude.Maybe Lude.Text,
+    queryString :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPercentiles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpPercents' - The percentile groups returned.
---
--- * 'gpQueryVersion' - The query version.
---
--- * 'gpAggregationField' - The field to aggregate.
---
--- * 'gpIndexName' - The name of the index to search.
---
--- * 'gpQueryString' - The query string.
-getPercentiles ::
-  -- | 'gpQueryString'
-  Text ->
+-- * 'aggregationField' - The field to aggregate.
+-- * 'indexName' - The name of the index to search.
+-- * 'percents' - The percentile groups returned.
+-- * 'queryString' - The query string.
+-- * 'queryVersion' - The query version.
+mkGetPercentiles ::
+  -- | 'queryString'
+  Lude.Text ->
   GetPercentiles
-getPercentiles pQueryString_ =
+mkGetPercentiles pQueryString_ =
   GetPercentiles'
-    { _gpPercents = Nothing,
-      _gpQueryVersion = Nothing,
-      _gpAggregationField = Nothing,
-      _gpIndexName = Nothing,
-      _gpQueryString = pQueryString_
+    { percents = Lude.Nothing,
+      queryVersion = Lude.Nothing,
+      aggregationField = Lude.Nothing,
+      indexName = Lude.Nothing,
+      queryString = pQueryString_
     }
 
 -- | The percentile groups returned.
-gpPercents :: Lens' GetPercentiles [Double]
-gpPercents = lens _gpPercents (\s a -> s {_gpPercents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'percents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpPercents :: Lens.Lens' GetPercentiles (Lude.Maybe [Lude.Double])
+gpPercents = Lens.lens (percents :: GetPercentiles -> Lude.Maybe [Lude.Double]) (\s a -> s {percents = a} :: GetPercentiles)
+{-# DEPRECATED gpPercents "Use generic-lens or generic-optics with 'percents' instead." #-}
 
 -- | The query version.
-gpQueryVersion :: Lens' GetPercentiles (Maybe Text)
-gpQueryVersion = lens _gpQueryVersion (\s a -> s {_gpQueryVersion = a})
+--
+-- /Note:/ Consider using 'queryVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpQueryVersion :: Lens.Lens' GetPercentiles (Lude.Maybe Lude.Text)
+gpQueryVersion = Lens.lens (queryVersion :: GetPercentiles -> Lude.Maybe Lude.Text) (\s a -> s {queryVersion = a} :: GetPercentiles)
+{-# DEPRECATED gpQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
 
 -- | The field to aggregate.
-gpAggregationField :: Lens' GetPercentiles (Maybe Text)
-gpAggregationField = lens _gpAggregationField (\s a -> s {_gpAggregationField = a})
+--
+-- /Note:/ Consider using 'aggregationField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpAggregationField :: Lens.Lens' GetPercentiles (Lude.Maybe Lude.Text)
+gpAggregationField = Lens.lens (aggregationField :: GetPercentiles -> Lude.Maybe Lude.Text) (\s a -> s {aggregationField = a} :: GetPercentiles)
+{-# DEPRECATED gpAggregationField "Use generic-lens or generic-optics with 'aggregationField' instead." #-}
 
 -- | The name of the index to search.
-gpIndexName :: Lens' GetPercentiles (Maybe Text)
-gpIndexName = lens _gpIndexName (\s a -> s {_gpIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpIndexName :: Lens.Lens' GetPercentiles (Lude.Maybe Lude.Text)
+gpIndexName = Lens.lens (indexName :: GetPercentiles -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GetPercentiles)
+{-# DEPRECATED gpIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The query string.
-gpQueryString :: Lens' GetPercentiles Text
-gpQueryString = lens _gpQueryString (\s a -> s {_gpQueryString = a})
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpQueryString :: Lens.Lens' GetPercentiles Lude.Text
+gpQueryString = Lens.lens (queryString :: GetPercentiles -> Lude.Text) (\s a -> s {queryString = a} :: GetPercentiles)
+{-# DEPRECATED gpQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
-instance AWSRequest GetPercentiles where
+instance Lude.AWSRequest GetPercentiles where
   type Rs GetPercentiles = GetPercentilesResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPercentilesResponse'
-            <$> (x .?> "percentiles" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "percentiles" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPercentiles
+instance Lude.ToHeaders GetPercentiles where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetPercentiles
-
-instance ToHeaders GetPercentiles where
-  toHeaders = const mempty
-
-instance ToJSON GetPercentiles where
+instance Lude.ToJSON GetPercentiles where
   toJSON GetPercentiles' {..} =
-    object
-      ( catMaybes
-          [ ("percents" .=) <$> _gpPercents,
-            ("queryVersion" .=) <$> _gpQueryVersion,
-            ("aggregationField" .=) <$> _gpAggregationField,
-            ("indexName" .=) <$> _gpIndexName,
-            Just ("queryString" .= _gpQueryString)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("percents" Lude..=) Lude.<$> percents,
+            ("queryVersion" Lude..=) Lude.<$> queryVersion,
+            ("aggregationField" Lude..=) Lude.<$> aggregationField,
+            ("indexName" Lude..=) Lude.<$> indexName,
+            Lude.Just ("queryString" Lude..= queryString)
           ]
       )
 
-instance ToPath GetPercentiles where
-  toPath = const "/indices/percentiles"
+instance Lude.ToPath GetPercentiles where
+  toPath = Lude.const "/indices/percentiles"
 
-instance ToQuery GetPercentiles where
-  toQuery = const mempty
+instance Lude.ToQuery GetPercentiles where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getPercentilesResponse' smart constructor.
+-- | /See:/ 'mkGetPercentilesResponse' smart constructor.
 data GetPercentilesResponse = GetPercentilesResponse'
-  { _grsPercentiles ::
-      !(Maybe [PercentPair]),
-    _grsResponseStatus :: !Int
+  { percentiles ::
+      Lude.Maybe [PercentPair],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPercentilesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsPercentiles' - The percentile values of the aggregated fields.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getPercentilesResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- * 'percentiles' - The percentile values of the aggregated fields.
+-- * 'responseStatus' - The response status code.
+mkGetPercentilesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPercentilesResponse
-getPercentilesResponse pResponseStatus_ =
+mkGetPercentilesResponse pResponseStatus_ =
   GetPercentilesResponse'
-    { _grsPercentiles = Nothing,
-      _grsResponseStatus = pResponseStatus_
+    { percentiles = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The percentile values of the aggregated fields.
-grsPercentiles :: Lens' GetPercentilesResponse [PercentPair]
-grsPercentiles = lens _grsPercentiles (\s a -> s {_grsPercentiles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'percentiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsPercentiles :: Lens.Lens' GetPercentilesResponse (Lude.Maybe [PercentPair])
+grsPercentiles = Lens.lens (percentiles :: GetPercentilesResponse -> Lude.Maybe [PercentPair]) (\s a -> s {percentiles = a} :: GetPercentilesResponse)
+{-# DEPRECATED grsPercentiles "Use generic-lens or generic-optics with 'percentiles' instead." #-}
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetPercentilesResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
-
-instance NFData GetPercentilesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetPercentilesResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetPercentilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPercentilesResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

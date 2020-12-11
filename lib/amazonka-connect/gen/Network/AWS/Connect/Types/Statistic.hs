@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.Statistic where
+module Network.AWS.Connect.Types.Statistic
+  ( Statistic
+      ( Statistic',
+        Avg,
+        Max,
+        Sum
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Statistic
-  = Avg
-  | Max
-  | Sum
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Statistic = Statistic' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Statistic where
-  parser =
-    takeLowerText >>= \case
-      "avg" -> pure Avg
-      "max" -> pure Max
-      "sum" -> pure Sum
-      e ->
-        fromTextError $
-          "Failure parsing Statistic from value: '" <> e
-            <> "'. Accepted values: avg, max, sum"
+pattern Avg :: Statistic
+pattern Avg = Statistic' "AVG"
 
-instance ToText Statistic where
-  toText = \case
-    Avg -> "AVG"
-    Max -> "MAX"
-    Sum -> "SUM"
+pattern Max :: Statistic
+pattern Max = Statistic' "MAX"
 
-instance Hashable Statistic
+pattern Sum :: Statistic
+pattern Sum = Statistic' "SUM"
 
-instance NFData Statistic
-
-instance ToByteString Statistic
-
-instance ToQuery Statistic
-
-instance ToHeader Statistic
-
-instance ToJSON Statistic where
-  toJSON = toJSONText
-
-instance FromJSON Statistic where
-  parseJSON = parseJSONText "Statistic"
+{-# COMPLETE
+  Avg,
+  Max,
+  Sum,
+  Statistic'
+  #-}

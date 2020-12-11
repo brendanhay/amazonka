@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,149 @@
 --
 -- Generates a sample mapping template that can be used to transform a payload into the structure of a model.
 module Network.AWS.APIGateway.GetModelTemplate
-  ( -- * Creating a Request
-    getModelTemplate,
-    GetModelTemplate,
+  ( -- * Creating a request
+    GetModelTemplate (..),
+    mkGetModelTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmtRestAPIId,
     gmtModelName,
 
-    -- * Destructuring the Response
-    getModelTemplateResponse,
-    GetModelTemplateResponse,
+    -- * Destructuring the response
+    GetModelTemplateResponse (..),
+    mkGetModelTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmtrsValue,
     gmtrsResponseStatus,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to generate a sample mapping template used to transform the payload.
 --
---
---
--- /See:/ 'getModelTemplate' smart constructor.
+-- /See:/ 'mkGetModelTemplate' smart constructor.
 data GetModelTemplate = GetModelTemplate'
-  { _gmtRestAPIId :: !Text,
-    _gmtModelName :: !Text
+  { restAPIId :: Lude.Text,
+    modelName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModelTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmtRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'gmtModelName' - [Required] The name of the model for which to generate a template.
-getModelTemplate ::
-  -- | 'gmtRestAPIId'
-  Text ->
-  -- | 'gmtModelName'
-  Text ->
+-- * 'modelName' - [Required] The name of the model for which to generate a template.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetModelTemplate ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'modelName'
+  Lude.Text ->
   GetModelTemplate
-getModelTemplate pRestAPIId_ pModelName_ =
+mkGetModelTemplate pRestAPIId_ pModelName_ =
   GetModelTemplate'
-    { _gmtRestAPIId = pRestAPIId_,
-      _gmtModelName = pModelName_
+    { restAPIId = pRestAPIId_,
+      modelName = pModelName_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gmtRestAPIId :: Lens' GetModelTemplate Text
-gmtRestAPIId = lens _gmtRestAPIId (\s a -> s {_gmtRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmtRestAPIId :: Lens.Lens' GetModelTemplate Lude.Text
+gmtRestAPIId = Lens.lens (restAPIId :: GetModelTemplate -> Lude.Text) (\s a -> s {restAPIId = a} :: GetModelTemplate)
+{-# DEPRECATED gmtRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the model for which to generate a template.
-gmtModelName :: Lens' GetModelTemplate Text
-gmtModelName = lens _gmtModelName (\s a -> s {_gmtModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmtModelName :: Lens.Lens' GetModelTemplate Lude.Text
+gmtModelName = Lens.lens (modelName :: GetModelTemplate -> Lude.Text) (\s a -> s {modelName = a} :: GetModelTemplate)
+{-# DEPRECATED gmtModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
-instance AWSRequest GetModelTemplate where
+instance Lude.AWSRequest GetModelTemplate where
   type Rs GetModelTemplate = GetModelTemplateResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetModelTemplateResponse'
-            <$> (x .?> "value") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "value") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetModelTemplate
-
-instance NFData GetModelTemplate
-
-instance ToHeaders GetModelTemplate where
+instance Lude.ToHeaders GetModelTemplate where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetModelTemplate where
+instance Lude.ToPath GetModelTemplate where
   toPath GetModelTemplate' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _gmtRestAPIId,
+        Lude.toBS restAPIId,
         "/models/",
-        toBS _gmtModelName,
+        Lude.toBS modelName,
         "/default_template"
       ]
 
-instance ToQuery GetModelTemplate where
-  toQuery = const mempty
+instance Lude.ToQuery GetModelTemplate where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents a mapping template used to transform a payload.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings Mapping Templates>
 --
--- /See:/ 'getModelTemplateResponse' smart constructor.
+-- /See:/ 'mkGetModelTemplateResponse' smart constructor.
 data GetModelTemplateResponse = GetModelTemplateResponse'
-  { _gmtrsValue ::
-      !(Maybe Text),
-    _gmtrsResponseStatus :: !Int
+  { value ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModelTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmtrsValue' - The Apache <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)> template content used for the template resource.
---
--- * 'gmtrsResponseStatus' - -- | The response status code.
-getModelTemplateResponse ::
-  -- | 'gmtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'value' - The Apache <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)> template content used for the template resource.
+mkGetModelTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetModelTemplateResponse
-getModelTemplateResponse pResponseStatus_ =
+mkGetModelTemplateResponse pResponseStatus_ =
   GetModelTemplateResponse'
-    { _gmtrsValue = Nothing,
-      _gmtrsResponseStatus = pResponseStatus_
+    { value = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Apache <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)> template content used for the template resource.
-gmtrsValue :: Lens' GetModelTemplateResponse (Maybe Text)
-gmtrsValue = lens _gmtrsValue (\s a -> s {_gmtrsValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmtrsValue :: Lens.Lens' GetModelTemplateResponse (Lude.Maybe Lude.Text)
+gmtrsValue = Lens.lens (value :: GetModelTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: GetModelTemplateResponse)
+{-# DEPRECATED gmtrsValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | -- | The response status code.
-gmtrsResponseStatus :: Lens' GetModelTemplateResponse Int
-gmtrsResponseStatus = lens _gmtrsResponseStatus (\s a -> s {_gmtrsResponseStatus = a})
-
-instance NFData GetModelTemplateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmtrsResponseStatus :: Lens.Lens' GetModelTemplateResponse Lude.Int
+gmtrsResponseStatus = Lens.lens (responseStatus :: GetModelTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetModelTemplateResponse)
+{-# DEPRECATED gmtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

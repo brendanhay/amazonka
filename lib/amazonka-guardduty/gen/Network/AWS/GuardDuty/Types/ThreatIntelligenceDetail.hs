@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail where
+module Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail
+  ( ThreatIntelligenceDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkThreatIntelligenceDetail,
+
+    -- * Lenses
+    tidThreatNames,
+    tidThreatListName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An instance of a threat intelligence detail that constitutes evidence for the finding.
 --
---
---
--- /See:/ 'threatIntelligenceDetail' smart constructor.
+-- /See:/ 'mkThreatIntelligenceDetail' smart constructor.
 data ThreatIntelligenceDetail = ThreatIntelligenceDetail'
-  { _tidThreatNames ::
-      !(Maybe [Text]),
-    _tidThreatListName :: !(Maybe Text)
+  { threatNames ::
+      Lude.Maybe [Lude.Text],
+    threatListName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThreatIntelligenceDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tidThreatNames' - A list of names of the threats in the threat intelligence list that triggered the finding.
---
--- * 'tidThreatListName' - The name of the threat intelligence list that triggered the finding.
-threatIntelligenceDetail ::
+-- * 'threatListName' - The name of the threat intelligence list that triggered the finding.
+-- * 'threatNames' - A list of names of the threats in the threat intelligence list that triggered the finding.
+mkThreatIntelligenceDetail ::
   ThreatIntelligenceDetail
-threatIntelligenceDetail =
+mkThreatIntelligenceDetail =
   ThreatIntelligenceDetail'
-    { _tidThreatNames = Nothing,
-      _tidThreatListName = Nothing
+    { threatNames = Lude.Nothing,
+      threatListName = Lude.Nothing
     }
 
 -- | A list of names of the threats in the threat intelligence list that triggered the finding.
-tidThreatNames :: Lens' ThreatIntelligenceDetail [Text]
-tidThreatNames = lens _tidThreatNames (\s a -> s {_tidThreatNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'threatNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tidThreatNames :: Lens.Lens' ThreatIntelligenceDetail (Lude.Maybe [Lude.Text])
+tidThreatNames = Lens.lens (threatNames :: ThreatIntelligenceDetail -> Lude.Maybe [Lude.Text]) (\s a -> s {threatNames = a} :: ThreatIntelligenceDetail)
+{-# DEPRECATED tidThreatNames "Use generic-lens or generic-optics with 'threatNames' instead." #-}
 
 -- | The name of the threat intelligence list that triggered the finding.
-tidThreatListName :: Lens' ThreatIntelligenceDetail (Maybe Text)
-tidThreatListName = lens _tidThreatListName (\s a -> s {_tidThreatListName = a})
+--
+-- /Note:/ Consider using 'threatListName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tidThreatListName :: Lens.Lens' ThreatIntelligenceDetail (Lude.Maybe Lude.Text)
+tidThreatListName = Lens.lens (threatListName :: ThreatIntelligenceDetail -> Lude.Maybe Lude.Text) (\s a -> s {threatListName = a} :: ThreatIntelligenceDetail)
+{-# DEPRECATED tidThreatListName "Use generic-lens or generic-optics with 'threatListName' instead." #-}
 
-instance FromJSON ThreatIntelligenceDetail where
+instance Lude.FromJSON ThreatIntelligenceDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "ThreatIntelligenceDetail"
       ( \x ->
           ThreatIntelligenceDetail'
-            <$> (x .:? "threatNames" .!= mempty) <*> (x .:? "threatListName")
+            Lude.<$> (x Lude..:? "threatNames" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "threatListName")
       )
-
-instance Hashable ThreatIntelligenceDetail
-
-instance NFData ThreatIntelligenceDetail

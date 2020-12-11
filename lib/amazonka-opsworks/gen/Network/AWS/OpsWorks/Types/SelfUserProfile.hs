@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.SelfUserProfile where
+module Network.AWS.OpsWorks.Types.SelfUserProfile
+  ( SelfUserProfile (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSelfUserProfile,
+
+    -- * Lenses
+    supSSHPublicKey,
+    supSSHUsername,
+    supIAMUserARN,
+    supName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a user's SSH information.
 --
---
---
--- /See:/ 'selfUserProfile' smart constructor.
+-- /See:/ 'mkSelfUserProfile' smart constructor.
 data SelfUserProfile = SelfUserProfile'
-  { _supSSHPublicKey ::
-      !(Maybe Text),
-    _supSSHUsername :: !(Maybe Text),
-    _supIAMUserARN :: !(Maybe Text),
-    _supName :: !(Maybe Text)
+  { sshPublicKey ::
+      Lude.Maybe Lude.Text,
+    sshUsername :: Lude.Maybe Lude.Text,
+    iamUserARN :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelfUserProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'supSSHPublicKey' - The user's SSH public key.
---
--- * 'supSSHUsername' - The user's SSH user name.
---
--- * 'supIAMUserARN' - The user's IAM ARN.
---
--- * 'supName' - The user's name.
-selfUserProfile ::
+-- * 'iamUserARN' - The user's IAM ARN.
+-- * 'name' - The user's name.
+-- * 'sshPublicKey' - The user's SSH public key.
+-- * 'sshUsername' - The user's SSH user name.
+mkSelfUserProfile ::
   SelfUserProfile
-selfUserProfile =
+mkSelfUserProfile =
   SelfUserProfile'
-    { _supSSHPublicKey = Nothing,
-      _supSSHUsername = Nothing,
-      _supIAMUserARN = Nothing,
-      _supName = Nothing
+    { sshPublicKey = Lude.Nothing,
+      sshUsername = Lude.Nothing,
+      iamUserARN = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The user's SSH public key.
-supSSHPublicKey :: Lens' SelfUserProfile (Maybe Text)
-supSSHPublicKey = lens _supSSHPublicKey (\s a -> s {_supSSHPublicKey = a})
+--
+-- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+supSSHPublicKey :: Lens.Lens' SelfUserProfile (Lude.Maybe Lude.Text)
+supSSHPublicKey = Lens.lens (sshPublicKey :: SelfUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: SelfUserProfile)
+{-# DEPRECATED supSSHPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
 -- | The user's SSH user name.
-supSSHUsername :: Lens' SelfUserProfile (Maybe Text)
-supSSHUsername = lens _supSSHUsername (\s a -> s {_supSSHUsername = a})
+--
+-- /Note:/ Consider using 'sshUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+supSSHUsername :: Lens.Lens' SelfUserProfile (Lude.Maybe Lude.Text)
+supSSHUsername = Lens.lens (sshUsername :: SelfUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshUsername = a} :: SelfUserProfile)
+{-# DEPRECATED supSSHUsername "Use generic-lens or generic-optics with 'sshUsername' instead." #-}
 
 -- | The user's IAM ARN.
-supIAMUserARN :: Lens' SelfUserProfile (Maybe Text)
-supIAMUserARN = lens _supIAMUserARN (\s a -> s {_supIAMUserARN = a})
+--
+-- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+supIAMUserARN :: Lens.Lens' SelfUserProfile (Lude.Maybe Lude.Text)
+supIAMUserARN = Lens.lens (iamUserARN :: SelfUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: SelfUserProfile)
+{-# DEPRECATED supIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
 
 -- | The user's name.
-supName :: Lens' SelfUserProfile (Maybe Text)
-supName = lens _supName (\s a -> s {_supName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+supName :: Lens.Lens' SelfUserProfile (Lude.Maybe Lude.Text)
+supName = Lens.lens (name :: SelfUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SelfUserProfile)
+{-# DEPRECATED supName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON SelfUserProfile where
+instance Lude.FromJSON SelfUserProfile where
   parseJSON =
-    withObject
+    Lude.withObject
       "SelfUserProfile"
       ( \x ->
           SelfUserProfile'
-            <$> (x .:? "SshPublicKey")
-            <*> (x .:? "SshUsername")
-            <*> (x .:? "IamUserArn")
-            <*> (x .:? "Name")
+            Lude.<$> (x Lude..:? "SshPublicKey")
+            Lude.<*> (x Lude..:? "SshUsername")
+            Lude.<*> (x Lude..:? "IamUserArn")
+            Lude.<*> (x Lude..:? "Name")
       )
-
-instance Hashable SelfUserProfile
-
-instance NFData SelfUserProfile

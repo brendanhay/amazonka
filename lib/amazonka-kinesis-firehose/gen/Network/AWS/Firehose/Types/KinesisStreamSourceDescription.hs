@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.KinesisStreamSourceDescription where
+module Network.AWS.Firehose.Types.KinesisStreamSourceDescription
+  ( KinesisStreamSourceDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisStreamSourceDescription,
+
+    -- * Lenses
+    kssdDeliveryStartTimestamp,
+    kssdKinesisStreamARN,
+    kssdRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about a Kinesis data stream used as the source for a Kinesis Data Firehose delivery stream.
 --
---
---
--- /See:/ 'kinesisStreamSourceDescription' smart constructor.
+-- /See:/ 'mkKinesisStreamSourceDescription' smart constructor.
 data KinesisStreamSourceDescription = KinesisStreamSourceDescription'
-  { _kssdDeliveryStartTimestamp ::
-      !(Maybe POSIX),
-    _kssdKinesisStreamARN ::
-      !(Maybe Text),
-    _kssdRoleARN :: !(Maybe Text)
+  { deliveryStartTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    kinesisStreamARN ::
+      Lude.Maybe Lude.Text,
+    roleARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisStreamSourceDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kssdDeliveryStartTimestamp' - Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting with this timestamp.
---
--- * 'kssdKinesisStreamARN' - The Amazon Resource Name (ARN) of the source Kinesis data stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Kinesis Data Streams ARN Format> .
---
--- * 'kssdRoleARN' - The ARN of the role used by the source Kinesis data stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format> .
-kinesisStreamSourceDescription ::
+-- * 'deliveryStartTimestamp' - Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting with this timestamp.
+-- * 'kinesisStreamARN' - The Amazon Resource Name (ARN) of the source Kinesis data stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Kinesis Data Streams ARN Format> .
+-- * 'roleARN' - The ARN of the role used by the source Kinesis data stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format> .
+mkKinesisStreamSourceDescription ::
   KinesisStreamSourceDescription
-kinesisStreamSourceDescription =
+mkKinesisStreamSourceDescription =
   KinesisStreamSourceDescription'
-    { _kssdDeliveryStartTimestamp =
-        Nothing,
-      _kssdKinesisStreamARN = Nothing,
-      _kssdRoleARN = Nothing
+    { deliveryStartTimestamp =
+        Lude.Nothing,
+      kinesisStreamARN = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting with this timestamp.
-kssdDeliveryStartTimestamp :: Lens' KinesisStreamSourceDescription (Maybe UTCTime)
-kssdDeliveryStartTimestamp = lens _kssdDeliveryStartTimestamp (\s a -> s {_kssdDeliveryStartTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deliveryStartTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kssdDeliveryStartTimestamp :: Lens.Lens' KinesisStreamSourceDescription (Lude.Maybe Lude.Timestamp)
+kssdDeliveryStartTimestamp = Lens.lens (deliveryStartTimestamp :: KinesisStreamSourceDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {deliveryStartTimestamp = a} :: KinesisStreamSourceDescription)
+{-# DEPRECATED kssdDeliveryStartTimestamp "Use generic-lens or generic-optics with 'deliveryStartTimestamp' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the source Kinesis data stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Kinesis Data Streams ARN Format> .
-kssdKinesisStreamARN :: Lens' KinesisStreamSourceDescription (Maybe Text)
-kssdKinesisStreamARN = lens _kssdKinesisStreamARN (\s a -> s {_kssdKinesisStreamARN = a})
+--
+-- /Note:/ Consider using 'kinesisStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kssdKinesisStreamARN :: Lens.Lens' KinesisStreamSourceDescription (Lude.Maybe Lude.Text)
+kssdKinesisStreamARN = Lens.lens (kinesisStreamARN :: KinesisStreamSourceDescription -> Lude.Maybe Lude.Text) (\s a -> s {kinesisStreamARN = a} :: KinesisStreamSourceDescription)
+{-# DEPRECATED kssdKinesisStreamARN "Use generic-lens or generic-optics with 'kinesisStreamARN' instead." #-}
 
 -- | The ARN of the role used by the source Kinesis data stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format> .
-kssdRoleARN :: Lens' KinesisStreamSourceDescription (Maybe Text)
-kssdRoleARN = lens _kssdRoleARN (\s a -> s {_kssdRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kssdRoleARN :: Lens.Lens' KinesisStreamSourceDescription (Lude.Maybe Lude.Text)
+kssdRoleARN = Lens.lens (roleARN :: KinesisStreamSourceDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: KinesisStreamSourceDescription)
+{-# DEPRECATED kssdRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON KinesisStreamSourceDescription where
+instance Lude.FromJSON KinesisStreamSourceDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "KinesisStreamSourceDescription"
       ( \x ->
           KinesisStreamSourceDescription'
-            <$> (x .:? "DeliveryStartTimestamp")
-            <*> (x .:? "KinesisStreamARN")
-            <*> (x .:? "RoleARN")
+            Lude.<$> (x Lude..:? "DeliveryStartTimestamp")
+            Lude.<*> (x Lude..:? "KinesisStreamARN")
+            Lude.<*> (x Lude..:? "RoleARN")
       )
-
-instance Hashable KinesisStreamSourceDescription
-
-instance NFData KinesisStreamSourceDescription

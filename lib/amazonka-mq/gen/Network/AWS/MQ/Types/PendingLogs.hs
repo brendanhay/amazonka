@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.PendingLogs where
+module Network.AWS.MQ.Types.PendingLogs
+  ( PendingLogs (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPendingLogs,
+
+    -- * Lenses
+    plAudit,
+    plGeneral,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The list of information about logs to be enabled for the specified broker.
 --
--- /See:/ 'pendingLogs' smart constructor.
+-- /See:/ 'mkPendingLogs' smart constructor.
 data PendingLogs = PendingLogs'
-  { _plAudit :: !(Maybe Bool),
-    _plGeneral :: !(Maybe Bool)
+  { audit :: Lude.Maybe Lude.Bool,
+    general :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingLogs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plAudit' - Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
---
--- * 'plGeneral' - Enables general logging.
-pendingLogs ::
+-- * 'audit' - Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
+-- * 'general' - Enables general logging.
+mkPendingLogs ::
   PendingLogs
-pendingLogs =
-  PendingLogs' {_plAudit = Nothing, _plGeneral = Nothing}
+mkPendingLogs =
+  PendingLogs' {audit = Lude.Nothing, general = Lude.Nothing}
 
 -- | Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
-plAudit :: Lens' PendingLogs (Maybe Bool)
-plAudit = lens _plAudit (\s a -> s {_plAudit = a})
+--
+-- /Note:/ Consider using 'audit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plAudit :: Lens.Lens' PendingLogs (Lude.Maybe Lude.Bool)
+plAudit = Lens.lens (audit :: PendingLogs -> Lude.Maybe Lude.Bool) (\s a -> s {audit = a} :: PendingLogs)
+{-# DEPRECATED plAudit "Use generic-lens or generic-optics with 'audit' instead." #-}
 
 -- | Enables general logging.
-plGeneral :: Lens' PendingLogs (Maybe Bool)
-plGeneral = lens _plGeneral (\s a -> s {_plGeneral = a})
+--
+-- /Note:/ Consider using 'general' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plGeneral :: Lens.Lens' PendingLogs (Lude.Maybe Lude.Bool)
+plGeneral = Lens.lens (general :: PendingLogs -> Lude.Maybe Lude.Bool) (\s a -> s {general = a} :: PendingLogs)
+{-# DEPRECATED plGeneral "Use generic-lens or generic-optics with 'general' instead." #-}
 
-instance FromJSON PendingLogs where
+instance Lude.FromJSON PendingLogs where
   parseJSON =
-    withObject
+    Lude.withObject
       "PendingLogs"
-      (\x -> PendingLogs' <$> (x .:? "audit") <*> (x .:? "general"))
-
-instance Hashable PendingLogs
-
-instance NFData PendingLogs
+      ( \x ->
+          PendingLogs'
+            Lude.<$> (x Lude..:? "audit") Lude.<*> (x Lude..:? "general")
+      )

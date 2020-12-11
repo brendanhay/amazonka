@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,100 @@
 --
 -- Deletes the specified EBS volume. The volume must be in the @available@ state (not attached to an instance).
 --
---
 -- The volume can remain in the @deleting@ state for several minutes.
---
 -- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS volume> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.DeleteVolume
-  ( -- * Creating a Request
-    deleteVolume,
-    DeleteVolume,
+  ( -- * Creating a request
+    DeleteVolume (..),
+    mkDeleteVolume,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvvDryRun,
     dvvVolumeId,
 
-    -- * Destructuring the Response
-    deleteVolumeResponse,
-    DeleteVolumeResponse,
+    -- * Destructuring the response
+    DeleteVolumeResponse (..),
+    mkDeleteVolumeResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteVolume' smart constructor.
+-- | /See:/ 'mkDeleteVolume' smart constructor.
 data DeleteVolume = DeleteVolume'
-  { _dvvDryRun :: !(Maybe Bool),
-    _dvvVolumeId :: !Text
+  { dryRun :: Lude.Maybe Lude.Bool,
+    volumeId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dvvVolumeId' - The ID of the volume.
-deleteVolume ::
-  -- | 'dvvVolumeId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'volumeId' - The ID of the volume.
+mkDeleteVolume ::
+  -- | 'volumeId'
+  Lude.Text ->
   DeleteVolume
-deleteVolume pVolumeId_ =
-  DeleteVolume' {_dvvDryRun = Nothing, _dvvVolumeId = pVolumeId_}
+mkDeleteVolume pVolumeId_ =
+  DeleteVolume' {dryRun = Lude.Nothing, volumeId = pVolumeId_}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvvDryRun :: Lens' DeleteVolume (Maybe Bool)
-dvvDryRun = lens _dvvDryRun (\s a -> s {_dvvDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvvDryRun :: Lens.Lens' DeleteVolume (Lude.Maybe Lude.Bool)
+dvvDryRun = Lens.lens (dryRun :: DeleteVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVolume)
+{-# DEPRECATED dvvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the volume.
-dvvVolumeId :: Lens' DeleteVolume Text
-dvvVolumeId = lens _dvvVolumeId (\s a -> s {_dvvVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvvVolumeId :: Lens.Lens' DeleteVolume Lude.Text
+dvvVolumeId = Lens.lens (volumeId :: DeleteVolume -> Lude.Text) (\s a -> s {volumeId = a} :: DeleteVolume)
+{-# DEPRECATED dvvVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
-instance AWSRequest DeleteVolume where
+instance Lude.AWSRequest DeleteVolume where
   type Rs DeleteVolume = DeleteVolumeResponse
-  request = postQuery ec2
-  response = receiveNull DeleteVolumeResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DeleteVolumeResponse'
 
-instance Hashable DeleteVolume
+instance Lude.ToHeaders DeleteVolume where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteVolume
+instance Lude.ToPath DeleteVolume where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteVolume where
-  toHeaders = const mempty
-
-instance ToPath DeleteVolume where
-  toPath = const "/"
-
-instance ToQuery DeleteVolume where
+instance Lude.ToQuery DeleteVolume where
   toQuery DeleteVolume' {..} =
-    mconcat
-      [ "Action" =: ("DeleteVolume" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dvvDryRun,
-        "VolumeId" =: _dvvVolumeId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteVolume" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "VolumeId" Lude.=: volumeId
       ]
 
--- | /See:/ 'deleteVolumeResponse' smart constructor.
+-- | /See:/ 'mkDeleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.
-deleteVolumeResponse ::
+mkDeleteVolumeResponse ::
   DeleteVolumeResponse
-deleteVolumeResponse = DeleteVolumeResponse'
-
-instance NFData DeleteVolumeResponse
+mkDeleteVolumeResponse = DeleteVolumeResponse'

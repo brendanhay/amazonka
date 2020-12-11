@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectLockMode where
+module Network.AWS.S3.Types.ObjectLockMode
+  ( ObjectLockMode
+      ( ObjectLockMode',
+        Compliance,
+        Governance
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data ObjectLockMode
-  = Compliance
-  | Governance
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ObjectLockMode = ObjectLockMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ObjectLockMode where
-  parser =
-    takeLowerText >>= \case
-      "compliance" -> pure Compliance
-      "governance" -> pure Governance
-      e ->
-        fromTextError $
-          "Failure parsing ObjectLockMode from value: '" <> e
-            <> "'. Accepted values: compliance, governance"
+pattern Compliance :: ObjectLockMode
+pattern Compliance = ObjectLockMode' "COMPLIANCE"
 
-instance ToText ObjectLockMode where
-  toText = \case
-    Compliance -> "COMPLIANCE"
-    Governance -> "GOVERNANCE"
+pattern Governance :: ObjectLockMode
+pattern Governance = ObjectLockMode' "GOVERNANCE"
 
-instance Hashable ObjectLockMode
-
-instance NFData ObjectLockMode
-
-instance ToByteString ObjectLockMode
-
-instance ToQuery ObjectLockMode
-
-instance ToHeader ObjectLockMode
-
-instance FromXML ObjectLockMode where
-  parseXML = parseXMLText "ObjectLockMode"
-
-instance ToXML ObjectLockMode where
-  toXML = toXMLText
+{-# COMPLETE
+  Compliance,
+  Governance,
+  ObjectLockMode'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,130 @@
 --
 -- Gets information about a specified traffic policy instance.
 module Network.AWS.Route53.GetTrafficPolicyInstance
-  ( -- * Creating a Request
-    getTrafficPolicyInstance,
-    GetTrafficPolicyInstance,
+  ( -- * Creating a request
+    GetTrafficPolicyInstance (..),
+    mkGetTrafficPolicyInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtpiId,
 
-    -- * Destructuring the Response
-    getTrafficPolicyInstanceResponse,
-    GetTrafficPolicyInstanceResponse,
+    -- * Destructuring the response
+    GetTrafficPolicyInstanceResponse (..),
+    mkGetTrafficPolicyInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtpirsResponseStatus,
     gtpirsTrafficPolicyInstance,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | Gets information about a specified traffic policy instance.
 --
---
---
--- /See:/ 'getTrafficPolicyInstance' smart constructor.
+-- /See:/ 'mkGetTrafficPolicyInstance' smart constructor.
 newtype GetTrafficPolicyInstance = GetTrafficPolicyInstance'
-  { _gtpiId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrafficPolicyInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtpiId' - The ID of the traffic policy instance that you want to get information about.
-getTrafficPolicyInstance ::
-  -- | 'gtpiId'
-  Text ->
+-- * 'id' - The ID of the traffic policy instance that you want to get information about.
+mkGetTrafficPolicyInstance ::
+  -- | 'id'
+  Lude.Text ->
   GetTrafficPolicyInstance
-getTrafficPolicyInstance pId_ =
-  GetTrafficPolicyInstance' {_gtpiId = pId_}
+mkGetTrafficPolicyInstance pId_ =
+  GetTrafficPolicyInstance' {id = pId_}
 
 -- | The ID of the traffic policy instance that you want to get information about.
-gtpiId :: Lens' GetTrafficPolicyInstance Text
-gtpiId = lens _gtpiId (\s a -> s {_gtpiId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpiId :: Lens.Lens' GetTrafficPolicyInstance Lude.Text
+gtpiId = Lens.lens (id :: GetTrafficPolicyInstance -> Lude.Text) (\s a -> s {id = a} :: GetTrafficPolicyInstance)
+{-# DEPRECATED gtpiId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetTrafficPolicyInstance where
+instance Lude.AWSRequest GetTrafficPolicyInstance where
   type Rs GetTrafficPolicyInstance = GetTrafficPolicyInstanceResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetTrafficPolicyInstanceResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "TrafficPolicyInstance")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "TrafficPolicyInstance")
       )
 
-instance Hashable GetTrafficPolicyInstance
+instance Lude.ToHeaders GetTrafficPolicyInstance where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetTrafficPolicyInstance
-
-instance ToHeaders GetTrafficPolicyInstance where
-  toHeaders = const mempty
-
-instance ToPath GetTrafficPolicyInstance where
+instance Lude.ToPath GetTrafficPolicyInstance where
   toPath GetTrafficPolicyInstance' {..} =
-    mconcat ["/2013-04-01/trafficpolicyinstance/", toBS _gtpiId]
+    Lude.mconcat ["/2013-04-01/trafficpolicyinstance/", Lude.toBS id]
 
-instance ToQuery GetTrafficPolicyInstance where
-  toQuery = const mempty
+instance Lude.ToQuery GetTrafficPolicyInstance where
+  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
 --
---
---
--- /See:/ 'getTrafficPolicyInstanceResponse' smart constructor.
+-- /See:/ 'mkGetTrafficPolicyInstanceResponse' smart constructor.
 data GetTrafficPolicyInstanceResponse = GetTrafficPolicyInstanceResponse'
-  { _gtpirsResponseStatus ::
-      !Int,
-    _gtpirsTrafficPolicyInstance ::
-      !TrafficPolicyInstance
+  { responseStatus ::
+      Lude.Int,
+    trafficPolicyInstance ::
+      TrafficPolicyInstance
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrafficPolicyInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtpirsResponseStatus' - -- | The response status code.
---
--- * 'gtpirsTrafficPolicyInstance' - A complex type that contains settings for the traffic policy instance.
-getTrafficPolicyInstanceResponse ::
-  -- | 'gtpirsResponseStatus'
-  Int ->
-  -- | 'gtpirsTrafficPolicyInstance'
+-- * 'responseStatus' - The response status code.
+-- * 'trafficPolicyInstance' - A complex type that contains settings for the traffic policy instance.
+mkGetTrafficPolicyInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'trafficPolicyInstance'
   TrafficPolicyInstance ->
   GetTrafficPolicyInstanceResponse
-getTrafficPolicyInstanceResponse
+mkGetTrafficPolicyInstanceResponse
   pResponseStatus_
   pTrafficPolicyInstance_ =
     GetTrafficPolicyInstanceResponse'
-      { _gtpirsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _gtpirsTrafficPolicyInstance = pTrafficPolicyInstance_
+        trafficPolicyInstance = pTrafficPolicyInstance_
       }
 
--- | -- | The response status code.
-gtpirsResponseStatus :: Lens' GetTrafficPolicyInstanceResponse Int
-gtpirsResponseStatus = lens _gtpirsResponseStatus (\s a -> s {_gtpirsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpirsResponseStatus :: Lens.Lens' GetTrafficPolicyInstanceResponse Lude.Int
+gtpirsResponseStatus = Lens.lens (responseStatus :: GetTrafficPolicyInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTrafficPolicyInstanceResponse)
+{-# DEPRECATED gtpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains settings for the traffic policy instance.
-gtpirsTrafficPolicyInstance :: Lens' GetTrafficPolicyInstanceResponse TrafficPolicyInstance
-gtpirsTrafficPolicyInstance = lens _gtpirsTrafficPolicyInstance (\s a -> s {_gtpirsTrafficPolicyInstance = a})
-
-instance NFData GetTrafficPolicyInstanceResponse
+--
+-- /Note:/ Consider using 'trafficPolicyInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpirsTrafficPolicyInstance :: Lens.Lens' GetTrafficPolicyInstanceResponse TrafficPolicyInstance
+gtpirsTrafficPolicyInstance = Lens.lens (trafficPolicyInstance :: GetTrafficPolicyInstanceResponse -> TrafficPolicyInstance) (\s a -> s {trafficPolicyInstance = a} :: GetTrafficPolicyInstanceResponse)
+{-# DEPRECATED gtpirsTrafficPolicyInstance "Use generic-lens or generic-optics with 'trafficPolicyInstance' instead." #-}

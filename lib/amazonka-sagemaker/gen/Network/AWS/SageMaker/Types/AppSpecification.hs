@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AppSpecification where
+module Network.AWS.SageMaker.Types.AppSpecification
+  ( AppSpecification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAppSpecification,
+
+    -- * Lenses
+    asContainerArguments,
+    asContainerEntrypoint,
+    asImageURI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration to run a processing job in a specified container image.
 --
---
---
--- /See:/ 'appSpecification' smart constructor.
+-- /See:/ 'mkAppSpecification' smart constructor.
 data AppSpecification = AppSpecification'
-  { _asContainerArguments ::
-      !(Maybe (List1 Text)),
-    _asContainerEntrypoint :: !(Maybe (List1 Text)),
-    _asImageURI :: !Text
+  { containerArguments ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    containerEntrypoint ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    imageURI :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asContainerArguments' - The arguments for a container used to run a processing job.
---
--- * 'asContainerEntrypoint' - The entrypoint for a container used to run a processing job.
---
--- * 'asImageURI' - The container image to be run by the processing job.
-appSpecification ::
-  -- | 'asImageURI'
-  Text ->
+-- * 'containerArguments' - The arguments for a container used to run a processing job.
+-- * 'containerEntrypoint' - The entrypoint for a container used to run a processing job.
+-- * 'imageURI' - The container image to be run by the processing job.
+mkAppSpecification ::
+  -- | 'imageURI'
+  Lude.Text ->
   AppSpecification
-appSpecification pImageURI_ =
+mkAppSpecification pImageURI_ =
   AppSpecification'
-    { _asContainerArguments = Nothing,
-      _asContainerEntrypoint = Nothing,
-      _asImageURI = pImageURI_
+    { containerArguments = Lude.Nothing,
+      containerEntrypoint = Lude.Nothing,
+      imageURI = pImageURI_
     }
 
 -- | The arguments for a container used to run a processing job.
-asContainerArguments :: Lens' AppSpecification (Maybe (NonEmpty Text))
-asContainerArguments = lens _asContainerArguments (\s a -> s {_asContainerArguments = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'containerArguments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asContainerArguments :: Lens.Lens' AppSpecification (Lude.Maybe (Lude.NonEmpty Lude.Text))
+asContainerArguments = Lens.lens (containerArguments :: AppSpecification -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {containerArguments = a} :: AppSpecification)
+{-# DEPRECATED asContainerArguments "Use generic-lens or generic-optics with 'containerArguments' instead." #-}
 
 -- | The entrypoint for a container used to run a processing job.
-asContainerEntrypoint :: Lens' AppSpecification (Maybe (NonEmpty Text))
-asContainerEntrypoint = lens _asContainerEntrypoint (\s a -> s {_asContainerEntrypoint = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'containerEntrypoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asContainerEntrypoint :: Lens.Lens' AppSpecification (Lude.Maybe (Lude.NonEmpty Lude.Text))
+asContainerEntrypoint = Lens.lens (containerEntrypoint :: AppSpecification -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {containerEntrypoint = a} :: AppSpecification)
+{-# DEPRECATED asContainerEntrypoint "Use generic-lens or generic-optics with 'containerEntrypoint' instead." #-}
 
 -- | The container image to be run by the processing job.
-asImageURI :: Lens' AppSpecification Text
-asImageURI = lens _asImageURI (\s a -> s {_asImageURI = a})
+--
+-- /Note:/ Consider using 'imageURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asImageURI :: Lens.Lens' AppSpecification Lude.Text
+asImageURI = Lens.lens (imageURI :: AppSpecification -> Lude.Text) (\s a -> s {imageURI = a} :: AppSpecification)
+{-# DEPRECATED asImageURI "Use generic-lens or generic-optics with 'imageURI' instead." #-}
 
-instance FromJSON AppSpecification where
+instance Lude.FromJSON AppSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "AppSpecification"
       ( \x ->
           AppSpecification'
-            <$> (x .:? "ContainerArguments")
-            <*> (x .:? "ContainerEntrypoint")
-            <*> (x .: "ImageUri")
+            Lude.<$> (x Lude..:? "ContainerArguments")
+            Lude.<*> (x Lude..:? "ContainerEntrypoint")
+            Lude.<*> (x Lude..: "ImageUri")
       )
 
-instance Hashable AppSpecification
-
-instance NFData AppSpecification
-
-instance ToJSON AppSpecification where
+instance Lude.ToJSON AppSpecification where
   toJSON AppSpecification' {..} =
-    object
-      ( catMaybes
-          [ ("ContainerArguments" .=) <$> _asContainerArguments,
-            ("ContainerEntrypoint" .=) <$> _asContainerEntrypoint,
-            Just ("ImageUri" .= _asImageURI)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ContainerArguments" Lude..=) Lude.<$> containerArguments,
+            ("ContainerEntrypoint" Lude..=) Lude.<$> containerEntrypoint,
+            Lude.Just ("ImageUri" Lude..= imageURI)
           ]
       )

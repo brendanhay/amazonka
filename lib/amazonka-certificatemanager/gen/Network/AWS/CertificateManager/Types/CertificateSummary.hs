@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.CertificateSummary where
+module Network.AWS.CertificateManager.Types.CertificateSummary
+  ( CertificateSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCertificateSummary,
+
+    -- * Lenses
+    csCertificateARN,
+    csDomainName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This structure is returned in the response object of 'ListCertificates' action.
 --
---
---
--- /See:/ 'certificateSummary' smart constructor.
+-- /See:/ 'mkCertificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
-  { _csCertificateARN ::
-      !(Maybe Text),
-    _csDomainName :: !(Maybe Text)
+  { certificateARN ::
+      Lude.Maybe Lude.Text,
+    domainName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateARN' - Amazon Resource Name (ARN) of the certificate. This is of the form:
 --
--- * 'csCertificateARN' - Amazon Resource Name (ARN) of the certificate. This is of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- * 'csDomainName' - Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.
-certificateSummary ::
+-- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'domainName' - Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.
+mkCertificateSummary ::
   CertificateSummary
-certificateSummary =
+mkCertificateSummary =
   CertificateSummary'
-    { _csCertificateARN = Nothing,
-      _csDomainName = Nothing
+    { certificateARN = Lude.Nothing,
+      domainName = Lude.Nothing
     }
 
--- | Amazon Resource Name (ARN) of the certificate. This is of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-csCertificateARN :: Lens' CertificateSummary (Maybe Text)
-csCertificateARN = lens _csCertificateARN (\s a -> s {_csCertificateARN = a})
+-- | Amazon Resource Name (ARN) of the certificate. This is of the form:
+--
+-- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCertificateARN :: Lens.Lens' CertificateSummary (Lude.Maybe Lude.Text)
+csCertificateARN = Lens.lens (certificateARN :: CertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: CertificateSummary)
+{-# DEPRECATED csCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.
-csDomainName :: Lens' CertificateSummary (Maybe Text)
-csDomainName = lens _csDomainName (\s a -> s {_csDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDomainName :: Lens.Lens' CertificateSummary (Lude.Maybe Lude.Text)
+csDomainName = Lens.lens (domainName :: CertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: CertificateSummary)
+{-# DEPRECATED csDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance FromJSON CertificateSummary where
+instance Lude.FromJSON CertificateSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "CertificateSummary"
       ( \x ->
           CertificateSummary'
-            <$> (x .:? "CertificateArn") <*> (x .:? "DomainName")
+            Lude.<$> (x Lude..:? "CertificateArn") Lude.<*> (x Lude..:? "DomainName")
       )
-
-instance Hashable CertificateSummary
-
-instance NFData CertificateSummary

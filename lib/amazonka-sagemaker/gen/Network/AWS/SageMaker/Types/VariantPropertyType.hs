@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.VariantPropertyType where
+module Network.AWS.SageMaker.Types.VariantPropertyType
+  ( VariantPropertyType
+      ( VariantPropertyType',
+        DataCaptureConfig,
+        DesiredInstanceCount,
+        DesiredWeight
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VariantPropertyType
-  = DataCaptureConfig
-  | DesiredInstanceCount
-  | DesiredWeight
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VariantPropertyType = VariantPropertyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VariantPropertyType where
-  parser =
-    takeLowerText >>= \case
-      "datacaptureconfig" -> pure DataCaptureConfig
-      "desiredinstancecount" -> pure DesiredInstanceCount
-      "desiredweight" -> pure DesiredWeight
-      e ->
-        fromTextError $
-          "Failure parsing VariantPropertyType from value: '" <> e
-            <> "'. Accepted values: datacaptureconfig, desiredinstancecount, desiredweight"
+pattern DataCaptureConfig :: VariantPropertyType
+pattern DataCaptureConfig = VariantPropertyType' "DataCaptureConfig"
 
-instance ToText VariantPropertyType where
-  toText = \case
-    DataCaptureConfig -> "DataCaptureConfig"
-    DesiredInstanceCount -> "DesiredInstanceCount"
-    DesiredWeight -> "DesiredWeight"
+pattern DesiredInstanceCount :: VariantPropertyType
+pattern DesiredInstanceCount = VariantPropertyType' "DesiredInstanceCount"
 
-instance Hashable VariantPropertyType
+pattern DesiredWeight :: VariantPropertyType
+pattern DesiredWeight = VariantPropertyType' "DesiredWeight"
 
-instance NFData VariantPropertyType
-
-instance ToByteString VariantPropertyType
-
-instance ToQuery VariantPropertyType
-
-instance ToHeader VariantPropertyType
-
-instance ToJSON VariantPropertyType where
-  toJSON = toJSONText
+{-# COMPLETE
+  DataCaptureConfig,
+  DesiredInstanceCount,
+  DesiredWeight,
+  VariantPropertyType'
+  #-}

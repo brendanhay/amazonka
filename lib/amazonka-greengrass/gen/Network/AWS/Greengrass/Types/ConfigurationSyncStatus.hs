@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.ConfigurationSyncStatus where
+module Network.AWS.Greengrass.Types.ConfigurationSyncStatus
+  ( ConfigurationSyncStatus
+      ( ConfigurationSyncStatus',
+        InSync,
+        OutOfSync
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConfigurationSyncStatus
-  = InSync
-  | OutOfSync
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConfigurationSyncStatus = ConfigurationSyncStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConfigurationSyncStatus where
-  parser =
-    takeLowerText >>= \case
-      "insync" -> pure InSync
-      "outofsync" -> pure OutOfSync
-      e ->
-        fromTextError $
-          "Failure parsing ConfigurationSyncStatus from value: '" <> e
-            <> "'. Accepted values: insync, outofsync"
+pattern InSync :: ConfigurationSyncStatus
+pattern InSync = ConfigurationSyncStatus' "InSync"
 
-instance ToText ConfigurationSyncStatus where
-  toText = \case
-    InSync -> "InSync"
-    OutOfSync -> "OutOfSync"
+pattern OutOfSync :: ConfigurationSyncStatus
+pattern OutOfSync = ConfigurationSyncStatus' "OutOfSync"
 
-instance Hashable ConfigurationSyncStatus
-
-instance NFData ConfigurationSyncStatus
-
-instance ToByteString ConfigurationSyncStatus
-
-instance ToQuery ConfigurationSyncStatus
-
-instance ToHeader ConfigurationSyncStatus
-
-instance FromJSON ConfigurationSyncStatus where
-  parseJSON = parseJSONText "ConfigurationSyncStatus"
+{-# COMPLETE
+  InSync,
+  OutOfSync,
+  ConfigurationSyncStatus'
+  #-}

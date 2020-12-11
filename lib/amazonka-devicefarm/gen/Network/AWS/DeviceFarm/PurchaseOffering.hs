@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,163 @@
 --
 -- Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased quantity for an offering, unless the renewal was overridden. The API returns a @NotEligible@ error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> .
 module Network.AWS.DeviceFarm.PurchaseOffering
-  ( -- * Creating a Request
-    purchaseOffering,
-    PurchaseOffering,
+  ( -- * Creating a request
+    PurchaseOffering (..),
+    mkPurchaseOffering,
 
-    -- * Request Lenses
+    -- ** Request lenses
     poQuantity,
     poOfferingId,
     poOfferingPromotionId,
 
-    -- * Destructuring the Response
-    purchaseOfferingResponse,
-    PurchaseOfferingResponse,
+    -- * Destructuring the response
+    PurchaseOfferingResponse (..),
+    mkPurchaseOfferingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     porsOfferingTransaction,
     porsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request for a purchase offering.
 --
---
---
--- /See:/ 'purchaseOffering' smart constructor.
+-- /See:/ 'mkPurchaseOffering' smart constructor.
 data PurchaseOffering = PurchaseOffering'
-  { _poQuantity ::
-      !(Maybe Int),
-    _poOfferingId :: !(Maybe Text),
-    _poOfferingPromotionId :: !(Maybe Text)
+  { quantity ::
+      Lude.Maybe Lude.Int,
+    offeringId :: Lude.Maybe Lude.Text,
+    offeringPromotionId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseOffering' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'poQuantity' - The number of device slots to purchase in an offering request.
---
--- * 'poOfferingId' - The ID of the offering.
---
--- * 'poOfferingPromotionId' - The ID of the offering promotion to be applied to the purchase.
-purchaseOffering ::
+-- * 'offeringId' - The ID of the offering.
+-- * 'offeringPromotionId' - The ID of the offering promotion to be applied to the purchase.
+-- * 'quantity' - The number of device slots to purchase in an offering request.
+mkPurchaseOffering ::
   PurchaseOffering
-purchaseOffering =
+mkPurchaseOffering =
   PurchaseOffering'
-    { _poQuantity = Nothing,
-      _poOfferingId = Nothing,
-      _poOfferingPromotionId = Nothing
+    { quantity = Lude.Nothing,
+      offeringId = Lude.Nothing,
+      offeringPromotionId = Lude.Nothing
     }
 
 -- | The number of device slots to purchase in an offering request.
-poQuantity :: Lens' PurchaseOffering (Maybe Int)
-poQuantity = lens _poQuantity (\s a -> s {_poQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poQuantity :: Lens.Lens' PurchaseOffering (Lude.Maybe Lude.Int)
+poQuantity = Lens.lens (quantity :: PurchaseOffering -> Lude.Maybe Lude.Int) (\s a -> s {quantity = a} :: PurchaseOffering)
+{-# DEPRECATED poQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | The ID of the offering.
-poOfferingId :: Lens' PurchaseOffering (Maybe Text)
-poOfferingId = lens _poOfferingId (\s a -> s {_poOfferingId = a})
+--
+-- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poOfferingId :: Lens.Lens' PurchaseOffering (Lude.Maybe Lude.Text)
+poOfferingId = Lens.lens (offeringId :: PurchaseOffering -> Lude.Maybe Lude.Text) (\s a -> s {offeringId = a} :: PurchaseOffering)
+{-# DEPRECATED poOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
 -- | The ID of the offering promotion to be applied to the purchase.
-poOfferingPromotionId :: Lens' PurchaseOffering (Maybe Text)
-poOfferingPromotionId = lens _poOfferingPromotionId (\s a -> s {_poOfferingPromotionId = a})
+--
+-- /Note:/ Consider using 'offeringPromotionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poOfferingPromotionId :: Lens.Lens' PurchaseOffering (Lude.Maybe Lude.Text)
+poOfferingPromotionId = Lens.lens (offeringPromotionId :: PurchaseOffering -> Lude.Maybe Lude.Text) (\s a -> s {offeringPromotionId = a} :: PurchaseOffering)
+{-# DEPRECATED poOfferingPromotionId "Use generic-lens or generic-optics with 'offeringPromotionId' instead." #-}
 
-instance AWSRequest PurchaseOffering where
+instance Lude.AWSRequest PurchaseOffering where
   type Rs PurchaseOffering = PurchaseOfferingResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PurchaseOfferingResponse'
-            <$> (x .?> "offeringTransaction") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "offeringTransaction")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PurchaseOffering
-
-instance NFData PurchaseOffering
-
-instance ToHeaders PurchaseOffering where
+instance Lude.ToHeaders PurchaseOffering where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.PurchaseOffering" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.PurchaseOffering" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PurchaseOffering where
+instance Lude.ToJSON PurchaseOffering where
   toJSON PurchaseOffering' {..} =
-    object
-      ( catMaybes
-          [ ("quantity" .=) <$> _poQuantity,
-            ("offeringId" .=) <$> _poOfferingId,
-            ("offeringPromotionId" .=) <$> _poOfferingPromotionId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("quantity" Lude..=) Lude.<$> quantity,
+            ("offeringId" Lude..=) Lude.<$> offeringId,
+            ("offeringPromotionId" Lude..=) Lude.<$> offeringPromotionId
           ]
       )
 
-instance ToPath PurchaseOffering where
-  toPath = const "/"
+instance Lude.ToPath PurchaseOffering where
+  toPath = Lude.const "/"
 
-instance ToQuery PurchaseOffering where
-  toQuery = const mempty
+instance Lude.ToQuery PurchaseOffering where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of the purchase offering (for example, success or failure).
 --
---
---
--- /See:/ 'purchaseOfferingResponse' smart constructor.
+-- /See:/ 'mkPurchaseOfferingResponse' smart constructor.
 data PurchaseOfferingResponse = PurchaseOfferingResponse'
-  { _porsOfferingTransaction ::
-      !(Maybe OfferingTransaction),
-    _porsResponseStatus :: !Int
+  { offeringTransaction ::
+      Lude.Maybe OfferingTransaction,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseOfferingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'porsOfferingTransaction' - Represents the offering transaction for the purchase result.
---
--- * 'porsResponseStatus' - -- | The response status code.
-purchaseOfferingResponse ::
-  -- | 'porsResponseStatus'
-  Int ->
+-- * 'offeringTransaction' - Represents the offering transaction for the purchase result.
+-- * 'responseStatus' - The response status code.
+mkPurchaseOfferingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PurchaseOfferingResponse
-purchaseOfferingResponse pResponseStatus_ =
+mkPurchaseOfferingResponse pResponseStatus_ =
   PurchaseOfferingResponse'
-    { _porsOfferingTransaction = Nothing,
-      _porsResponseStatus = pResponseStatus_
+    { offeringTransaction = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Represents the offering transaction for the purchase result.
-porsOfferingTransaction :: Lens' PurchaseOfferingResponse (Maybe OfferingTransaction)
-porsOfferingTransaction = lens _porsOfferingTransaction (\s a -> s {_porsOfferingTransaction = a})
+--
+-- /Note:/ Consider using 'offeringTransaction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+porsOfferingTransaction :: Lens.Lens' PurchaseOfferingResponse (Lude.Maybe OfferingTransaction)
+porsOfferingTransaction = Lens.lens (offeringTransaction :: PurchaseOfferingResponse -> Lude.Maybe OfferingTransaction) (\s a -> s {offeringTransaction = a} :: PurchaseOfferingResponse)
+{-# DEPRECATED porsOfferingTransaction "Use generic-lens or generic-optics with 'offeringTransaction' instead." #-}
 
--- | -- | The response status code.
-porsResponseStatus :: Lens' PurchaseOfferingResponse Int
-porsResponseStatus = lens _porsResponseStatus (\s a -> s {_porsResponseStatus = a})
-
-instance NFData PurchaseOfferingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+porsResponseStatus :: Lens.Lens' PurchaseOfferingResponse Lude.Int
+porsResponseStatus = Lens.lens (responseStatus :: PurchaseOfferingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PurchaseOfferingResponse)
+{-# DEPRECATED porsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

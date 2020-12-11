@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.DevicePoolCompatibilityResult where
+module Network.AWS.DeviceFarm.Types.DevicePoolCompatibilityResult
+  ( DevicePoolCompatibilityResult (..),
+
+    -- * Smart constructor
+    mkDevicePoolCompatibilityResult,
+
+    -- * Lenses
+    dpcrDevice,
+    dpcrCompatible,
+    dpcrIncompatibilityMessages,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.Device
 import Network.AWS.DeviceFarm.Types.IncompatibilityMessage
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a device pool compatibility result.
 --
---
---
--- /See:/ 'devicePoolCompatibilityResult' smart constructor.
+-- /See:/ 'mkDevicePoolCompatibilityResult' smart constructor.
 data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
-  { _dpcrDevice ::
-      !(Maybe Device),
-    _dpcrCompatible ::
-      !(Maybe Bool),
-    _dpcrIncompatibilityMessages ::
-      !( Maybe
-           [IncompatibilityMessage]
-       )
+  { device ::
+      Lude.Maybe Device,
+    compatible ::
+      Lude.Maybe Lude.Bool,
+    incompatibilityMessages ::
+      Lude.Maybe
+        [IncompatibilityMessage]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DevicePoolCompatibilityResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpcrDevice' - The device (phone or tablet) to return information about.
---
--- * 'dpcrCompatible' - Whether the result was compatible with the device pool.
---
--- * 'dpcrIncompatibilityMessages' - Information about the compatibility.
-devicePoolCompatibilityResult ::
+-- * 'compatible' - Whether the result was compatible with the device pool.
+-- * 'device' - The device (phone or tablet) to return information about.
+-- * 'incompatibilityMessages' - Information about the compatibility.
+mkDevicePoolCompatibilityResult ::
   DevicePoolCompatibilityResult
-devicePoolCompatibilityResult =
+mkDevicePoolCompatibilityResult =
   DevicePoolCompatibilityResult'
-    { _dpcrDevice = Nothing,
-      _dpcrCompatible = Nothing,
-      _dpcrIncompatibilityMessages = Nothing
+    { device = Lude.Nothing,
+      compatible = Lude.Nothing,
+      incompatibilityMessages = Lude.Nothing
     }
 
 -- | The device (phone or tablet) to return information about.
-dpcrDevice :: Lens' DevicePoolCompatibilityResult (Maybe Device)
-dpcrDevice = lens _dpcrDevice (\s a -> s {_dpcrDevice = a})
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpcrDevice :: Lens.Lens' DevicePoolCompatibilityResult (Lude.Maybe Device)
+dpcrDevice = Lens.lens (device :: DevicePoolCompatibilityResult -> Lude.Maybe Device) (\s a -> s {device = a} :: DevicePoolCompatibilityResult)
+{-# DEPRECATED dpcrDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | Whether the result was compatible with the device pool.
-dpcrCompatible :: Lens' DevicePoolCompatibilityResult (Maybe Bool)
-dpcrCompatible = lens _dpcrCompatible (\s a -> s {_dpcrCompatible = a})
+--
+-- /Note:/ Consider using 'compatible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpcrCompatible :: Lens.Lens' DevicePoolCompatibilityResult (Lude.Maybe Lude.Bool)
+dpcrCompatible = Lens.lens (compatible :: DevicePoolCompatibilityResult -> Lude.Maybe Lude.Bool) (\s a -> s {compatible = a} :: DevicePoolCompatibilityResult)
+{-# DEPRECATED dpcrCompatible "Use generic-lens or generic-optics with 'compatible' instead." #-}
 
 -- | Information about the compatibility.
-dpcrIncompatibilityMessages :: Lens' DevicePoolCompatibilityResult [IncompatibilityMessage]
-dpcrIncompatibilityMessages = lens _dpcrIncompatibilityMessages (\s a -> s {_dpcrIncompatibilityMessages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'incompatibilityMessages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpcrIncompatibilityMessages :: Lens.Lens' DevicePoolCompatibilityResult (Lude.Maybe [IncompatibilityMessage])
+dpcrIncompatibilityMessages = Lens.lens (incompatibilityMessages :: DevicePoolCompatibilityResult -> Lude.Maybe [IncompatibilityMessage]) (\s a -> s {incompatibilityMessages = a} :: DevicePoolCompatibilityResult)
+{-# DEPRECATED dpcrIncompatibilityMessages "Use generic-lens or generic-optics with 'incompatibilityMessages' instead." #-}
 
-instance FromJSON DevicePoolCompatibilityResult where
+instance Lude.FromJSON DevicePoolCompatibilityResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "DevicePoolCompatibilityResult"
       ( \x ->
           DevicePoolCompatibilityResult'
-            <$> (x .:? "device")
-            <*> (x .:? "compatible")
-            <*> (x .:? "incompatibilityMessages" .!= mempty)
+            Lude.<$> (x Lude..:? "device")
+            Lude.<*> (x Lude..:? "compatible")
+            Lude.<*> (x Lude..:? "incompatibilityMessages" Lude..!= Lude.mempty)
       )
-
-instance Hashable DevicePoolCompatibilityResult
-
-instance NFData DevicePoolCompatibilityResult

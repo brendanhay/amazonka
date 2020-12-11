@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,166 @@
 --
 -- Used to failover the primary region to a selected secondary region. The selected secondary region will become primary, and all other clusters will become secondary.
 module Network.AWS.ElastiCache.FailoverGlobalReplicationGroup
-  ( -- * Creating a Request
-    failoverGlobalReplicationGroup,
-    FailoverGlobalReplicationGroup,
+  ( -- * Creating a request
+    FailoverGlobalReplicationGroup (..),
+    mkFailoverGlobalReplicationGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     fgrgGlobalReplicationGroupId,
     fgrgPrimaryRegion,
     fgrgPrimaryReplicationGroupId,
 
-    -- * Destructuring the Response
-    failoverGlobalReplicationGroupResponse,
-    FailoverGlobalReplicationGroupResponse,
+    -- * Destructuring the response
+    FailoverGlobalReplicationGroupResponse (..),
+    mkFailoverGlobalReplicationGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     fgrgrsGlobalReplicationGroup,
     fgrgrsResponseStatus,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'failoverGlobalReplicationGroup' smart constructor.
+-- | /See:/ 'mkFailoverGlobalReplicationGroup' smart constructor.
 data FailoverGlobalReplicationGroup = FailoverGlobalReplicationGroup'
-  { _fgrgGlobalReplicationGroupId ::
-      !Text,
-    _fgrgPrimaryRegion :: !Text,
-    _fgrgPrimaryReplicationGroupId ::
-      !Text
+  { globalReplicationGroupId ::
+      Lude.Text,
+    primaryRegion :: Lude.Text,
+    primaryReplicationGroupId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailoverGlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fgrgGlobalReplicationGroupId' - The name of the Global Datastore
---
--- * 'fgrgPrimaryRegion' - The AWS region of the primary cluster of the Global Datastore
---
--- * 'fgrgPrimaryReplicationGroupId' - The name of the primary replication group
-failoverGlobalReplicationGroup ::
-  -- | 'fgrgGlobalReplicationGroupId'
-  Text ->
-  -- | 'fgrgPrimaryRegion'
-  Text ->
-  -- | 'fgrgPrimaryReplicationGroupId'
-  Text ->
+-- * 'globalReplicationGroupId' - The name of the Global Datastore
+-- * 'primaryRegion' - The AWS region of the primary cluster of the Global Datastore
+-- * 'primaryReplicationGroupId' - The name of the primary replication group
+mkFailoverGlobalReplicationGroup ::
+  -- | 'globalReplicationGroupId'
+  Lude.Text ->
+  -- | 'primaryRegion'
+  Lude.Text ->
+  -- | 'primaryReplicationGroupId'
+  Lude.Text ->
   FailoverGlobalReplicationGroup
-failoverGlobalReplicationGroup
+mkFailoverGlobalReplicationGroup
   pGlobalReplicationGroupId_
   pPrimaryRegion_
   pPrimaryReplicationGroupId_ =
     FailoverGlobalReplicationGroup'
-      { _fgrgGlobalReplicationGroupId =
+      { globalReplicationGroupId =
           pGlobalReplicationGroupId_,
-        _fgrgPrimaryRegion = pPrimaryRegion_,
-        _fgrgPrimaryReplicationGroupId = pPrimaryReplicationGroupId_
+        primaryRegion = pPrimaryRegion_,
+        primaryReplicationGroupId = pPrimaryReplicationGroupId_
       }
 
 -- | The name of the Global Datastore
-fgrgGlobalReplicationGroupId :: Lens' FailoverGlobalReplicationGroup Text
-fgrgGlobalReplicationGroupId = lens _fgrgGlobalReplicationGroupId (\s a -> s {_fgrgGlobalReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fgrgGlobalReplicationGroupId :: Lens.Lens' FailoverGlobalReplicationGroup Lude.Text
+fgrgGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: FailoverGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: FailoverGlobalReplicationGroup)
+{-# DEPRECATED fgrgGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
 -- | The AWS region of the primary cluster of the Global Datastore
-fgrgPrimaryRegion :: Lens' FailoverGlobalReplicationGroup Text
-fgrgPrimaryRegion = lens _fgrgPrimaryRegion (\s a -> s {_fgrgPrimaryRegion = a})
+--
+-- /Note:/ Consider using 'primaryRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fgrgPrimaryRegion :: Lens.Lens' FailoverGlobalReplicationGroup Lude.Text
+fgrgPrimaryRegion = Lens.lens (primaryRegion :: FailoverGlobalReplicationGroup -> Lude.Text) (\s a -> s {primaryRegion = a} :: FailoverGlobalReplicationGroup)
+{-# DEPRECATED fgrgPrimaryRegion "Use generic-lens or generic-optics with 'primaryRegion' instead." #-}
 
 -- | The name of the primary replication group
-fgrgPrimaryReplicationGroupId :: Lens' FailoverGlobalReplicationGroup Text
-fgrgPrimaryReplicationGroupId = lens _fgrgPrimaryReplicationGroupId (\s a -> s {_fgrgPrimaryReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'primaryReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fgrgPrimaryReplicationGroupId :: Lens.Lens' FailoverGlobalReplicationGroup Lude.Text
+fgrgPrimaryReplicationGroupId = Lens.lens (primaryReplicationGroupId :: FailoverGlobalReplicationGroup -> Lude.Text) (\s a -> s {primaryReplicationGroupId = a} :: FailoverGlobalReplicationGroup)
+{-# DEPRECATED fgrgPrimaryReplicationGroupId "Use generic-lens or generic-optics with 'primaryReplicationGroupId' instead." #-}
 
-instance AWSRequest FailoverGlobalReplicationGroup where
+instance Lude.AWSRequest FailoverGlobalReplicationGroup where
   type
     Rs FailoverGlobalReplicationGroup =
       FailoverGlobalReplicationGroupResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "FailoverGlobalReplicationGroupResult"
       ( \s h x ->
           FailoverGlobalReplicationGroupResponse'
-            <$> (x .@? "GlobalReplicationGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "GlobalReplicationGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable FailoverGlobalReplicationGroup
+instance Lude.ToHeaders FailoverGlobalReplicationGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData FailoverGlobalReplicationGroup
+instance Lude.ToPath FailoverGlobalReplicationGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders FailoverGlobalReplicationGroup where
-  toHeaders = const mempty
-
-instance ToPath FailoverGlobalReplicationGroup where
-  toPath = const "/"
-
-instance ToQuery FailoverGlobalReplicationGroup where
+instance Lude.ToQuery FailoverGlobalReplicationGroup where
   toQuery FailoverGlobalReplicationGroup' {..} =
-    mconcat
-      [ "Action" =: ("FailoverGlobalReplicationGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "GlobalReplicationGroupId" =: _fgrgGlobalReplicationGroupId,
-        "PrimaryRegion" =: _fgrgPrimaryRegion,
-        "PrimaryReplicationGroupId" =: _fgrgPrimaryReplicationGroupId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("FailoverGlobalReplicationGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId,
+        "PrimaryRegion" Lude.=: primaryRegion,
+        "PrimaryReplicationGroupId" Lude.=: primaryReplicationGroupId
       ]
 
--- | /See:/ 'failoverGlobalReplicationGroupResponse' smart constructor.
+-- | /See:/ 'mkFailoverGlobalReplicationGroupResponse' smart constructor.
 data FailoverGlobalReplicationGroupResponse = FailoverGlobalReplicationGroupResponse'
-  { _fgrgrsGlobalReplicationGroup ::
-      !( Maybe
-           GlobalReplicationGroup
-       ),
-    _fgrgrsResponseStatus ::
-      !Int
+  { globalReplicationGroup ::
+      Lude.Maybe
+        GlobalReplicationGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailoverGlobalReplicationGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fgrgrsGlobalReplicationGroup' - Undocumented member.
---
--- * 'fgrgrsResponseStatus' - -- | The response status code.
-failoverGlobalReplicationGroupResponse ::
-  -- | 'fgrgrsResponseStatus'
-  Int ->
+-- * 'globalReplicationGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkFailoverGlobalReplicationGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   FailoverGlobalReplicationGroupResponse
-failoverGlobalReplicationGroupResponse pResponseStatus_ =
+mkFailoverGlobalReplicationGroupResponse pResponseStatus_ =
   FailoverGlobalReplicationGroupResponse'
-    { _fgrgrsGlobalReplicationGroup =
-        Nothing,
-      _fgrgrsResponseStatus = pResponseStatus_
+    { globalReplicationGroup =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-fgrgrsGlobalReplicationGroup :: Lens' FailoverGlobalReplicationGroupResponse (Maybe GlobalReplicationGroup)
-fgrgrsGlobalReplicationGroup = lens _fgrgrsGlobalReplicationGroup (\s a -> s {_fgrgrsGlobalReplicationGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'globalReplicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fgrgrsGlobalReplicationGroup :: Lens.Lens' FailoverGlobalReplicationGroupResponse (Lude.Maybe GlobalReplicationGroup)
+fgrgrsGlobalReplicationGroup = Lens.lens (globalReplicationGroup :: FailoverGlobalReplicationGroupResponse -> Lude.Maybe GlobalReplicationGroup) (\s a -> s {globalReplicationGroup = a} :: FailoverGlobalReplicationGroupResponse)
+{-# DEPRECATED fgrgrsGlobalReplicationGroup "Use generic-lens or generic-optics with 'globalReplicationGroup' instead." #-}
 
--- | -- | The response status code.
-fgrgrsResponseStatus :: Lens' FailoverGlobalReplicationGroupResponse Int
-fgrgrsResponseStatus = lens _fgrgrsResponseStatus (\s a -> s {_fgrgrsResponseStatus = a})
-
-instance NFData FailoverGlobalReplicationGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fgrgrsResponseStatus :: Lens.Lens' FailoverGlobalReplicationGroupResponse Lude.Int
+fgrgrsResponseStatus = Lens.lens (responseStatus :: FailoverGlobalReplicationGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: FailoverGlobalReplicationGroupResponse)
+{-# DEPRECATED fgrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

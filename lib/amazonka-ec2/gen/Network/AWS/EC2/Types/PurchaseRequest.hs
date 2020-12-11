@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PurchaseRequest where
+module Network.AWS.EC2.Types.PurchaseRequest
+  ( PurchaseRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPurchaseRequest,
+
+    -- * Lenses
+    prInstanceCount,
+    prPurchaseToken,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a request to purchase Scheduled Instances.
 --
---
---
--- /See:/ 'purchaseRequest' smart constructor.
+-- /See:/ 'mkPurchaseRequest' smart constructor.
 data PurchaseRequest = PurchaseRequest'
-  { _prInstanceCount :: !Int,
-    _prPurchaseToken :: !Text
+  { instanceCount :: Lude.Int,
+    purchaseToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prInstanceCount' - The number of instances.
---
--- * 'prPurchaseToken' - The purchase token.
-purchaseRequest ::
-  -- | 'prInstanceCount'
-  Int ->
-  -- | 'prPurchaseToken'
-  Text ->
+-- * 'instanceCount' - The number of instances.
+-- * 'purchaseToken' - The purchase token.
+mkPurchaseRequest ::
+  -- | 'instanceCount'
+  Lude.Int ->
+  -- | 'purchaseToken'
+  Lude.Text ->
   PurchaseRequest
-purchaseRequest pInstanceCount_ pPurchaseToken_ =
+mkPurchaseRequest pInstanceCount_ pPurchaseToken_ =
   PurchaseRequest'
-    { _prInstanceCount = pInstanceCount_,
-      _prPurchaseToken = pPurchaseToken_
+    { instanceCount = pInstanceCount_,
+      purchaseToken = pPurchaseToken_
     }
 
 -- | The number of instances.
-prInstanceCount :: Lens' PurchaseRequest Int
-prInstanceCount = lens _prInstanceCount (\s a -> s {_prInstanceCount = a})
+--
+-- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prInstanceCount :: Lens.Lens' PurchaseRequest Lude.Int
+prInstanceCount = Lens.lens (instanceCount :: PurchaseRequest -> Lude.Int) (\s a -> s {instanceCount = a} :: PurchaseRequest)
+{-# DEPRECATED prInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The purchase token.
-prPurchaseToken :: Lens' PurchaseRequest Text
-prPurchaseToken = lens _prPurchaseToken (\s a -> s {_prPurchaseToken = a})
+--
+-- /Note:/ Consider using 'purchaseToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prPurchaseToken :: Lens.Lens' PurchaseRequest Lude.Text
+prPurchaseToken = Lens.lens (purchaseToken :: PurchaseRequest -> Lude.Text) (\s a -> s {purchaseToken = a} :: PurchaseRequest)
+{-# DEPRECATED prPurchaseToken "Use generic-lens or generic-optics with 'purchaseToken' instead." #-}
 
-instance Hashable PurchaseRequest
-
-instance NFData PurchaseRequest
-
-instance ToQuery PurchaseRequest where
+instance Lude.ToQuery PurchaseRequest where
   toQuery PurchaseRequest' {..} =
-    mconcat
-      [ "InstanceCount" =: _prInstanceCount,
-        "PurchaseToken" =: _prPurchaseToken
+    Lude.mconcat
+      [ "InstanceCount" Lude.=: instanceCount,
+        "PurchaseToken" Lude.=: purchaseToken
       ]

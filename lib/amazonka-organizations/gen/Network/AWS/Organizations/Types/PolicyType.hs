@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.PolicyType where
+module Network.AWS.Organizations.Types.PolicyType
+  ( PolicyType
+      ( PolicyType',
+        AiservicesOptOutPolicy,
+        BackupPolicy,
+        ServiceControlPolicy,
+        TagPolicy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PolicyType
-  = AiservicesOptOutPolicy
-  | BackupPolicy
-  | ServiceControlPolicy
-  | TagPolicy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PolicyType = PolicyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PolicyType where
-  parser =
-    takeLowerText >>= \case
-      "aiservices_opt_out_policy" -> pure AiservicesOptOutPolicy
-      "backup_policy" -> pure BackupPolicy
-      "service_control_policy" -> pure ServiceControlPolicy
-      "tag_policy" -> pure TagPolicy
-      e ->
-        fromTextError $
-          "Failure parsing PolicyType from value: '" <> e
-            <> "'. Accepted values: aiservices_opt_out_policy, backup_policy, service_control_policy, tag_policy"
+pattern AiservicesOptOutPolicy :: PolicyType
+pattern AiservicesOptOutPolicy = PolicyType' "AISERVICES_OPT_OUT_POLICY"
 
-instance ToText PolicyType where
-  toText = \case
-    AiservicesOptOutPolicy -> "AISERVICES_OPT_OUT_POLICY"
-    BackupPolicy -> "BACKUP_POLICY"
-    ServiceControlPolicy -> "SERVICE_CONTROL_POLICY"
-    TagPolicy -> "TAG_POLICY"
+pattern BackupPolicy :: PolicyType
+pattern BackupPolicy = PolicyType' "BACKUP_POLICY"
 
-instance Hashable PolicyType
+pattern ServiceControlPolicy :: PolicyType
+pattern ServiceControlPolicy = PolicyType' "SERVICE_CONTROL_POLICY"
 
-instance NFData PolicyType
+pattern TagPolicy :: PolicyType
+pattern TagPolicy = PolicyType' "TAG_POLICY"
 
-instance ToByteString PolicyType
-
-instance ToQuery PolicyType
-
-instance ToHeader PolicyType
-
-instance ToJSON PolicyType where
-  toJSON = toJSONText
-
-instance FromJSON PolicyType where
-  parseJSON = parseJSONText "PolicyType"
+{-# COMPLETE
+  AiservicesOptOutPolicy,
+  BackupPolicy,
+  ServiceControlPolicy,
+  TagPolicy,
+  PolicyType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.TargetTypeEnum where
+module Network.AWS.ELBv2.Types.TargetTypeEnum
+  ( TargetTypeEnum
+      ( TargetTypeEnum',
+        IP,
+        Instance,
+        Lambda
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetTypeEnum
-  = IP
-  | Instance
-  | Lambda
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetTypeEnum = TargetTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "ip" -> pure IP
-      "instance" -> pure Instance
-      "lambda" -> pure Lambda
-      e ->
-        fromTextError $
-          "Failure parsing TargetTypeEnum from value: '" <> e
-            <> "'. Accepted values: ip, instance, lambda"
+pattern IP :: TargetTypeEnum
+pattern IP = TargetTypeEnum' "ip"
 
-instance ToText TargetTypeEnum where
-  toText = \case
-    IP -> "ip"
-    Instance -> "instance"
-    Lambda -> "lambda"
+pattern Instance :: TargetTypeEnum
+pattern Instance = TargetTypeEnum' "instance"
 
-instance Hashable TargetTypeEnum
+pattern Lambda :: TargetTypeEnum
+pattern Lambda = TargetTypeEnum' "lambda"
 
-instance NFData TargetTypeEnum
-
-instance ToByteString TargetTypeEnum
-
-instance ToQuery TargetTypeEnum
-
-instance ToHeader TargetTypeEnum
-
-instance FromXML TargetTypeEnum where
-  parseXML = parseXMLText "TargetTypeEnum"
+{-# COMPLETE
+  IP,
+  Instance,
+  Lambda,
+  TargetTypeEnum'
+  #-}

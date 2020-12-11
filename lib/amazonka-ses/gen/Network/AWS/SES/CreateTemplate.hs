@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,111 @@
 --
 -- Creates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide> .
 --
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.CreateTemplate
-  ( -- * Creating a Request
-    createTemplate,
-    CreateTemplate,
+  ( -- * Creating a request
+    CreateTemplate (..),
+    mkCreateTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctTemplate,
 
-    -- * Destructuring the Response
-    createTemplateResponse,
-    CreateTemplateResponse,
+    -- * Destructuring the response
+    CreateTemplateResponse (..),
+    mkCreateTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to create an email template. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'createTemplate' smart constructor.
-newtype CreateTemplate = CreateTemplate' {_ctTemplate :: Template}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkCreateTemplate' smart constructor.
+newtype CreateTemplate = CreateTemplate' {template :: Template}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctTemplate' - The content of the email, composed of a subject line, an HTML part, and a text-only part.
-createTemplate ::
-  -- | 'ctTemplate'
+-- * 'template' - The content of the email, composed of a subject line, an HTML part, and a text-only part.
+mkCreateTemplate ::
+  -- | 'template'
   Template ->
   CreateTemplate
-createTemplate pTemplate_ =
-  CreateTemplate' {_ctTemplate = pTemplate_}
+mkCreateTemplate pTemplate_ =
+  CreateTemplate' {template = pTemplate_}
 
 -- | The content of the email, composed of a subject line, an HTML part, and a text-only part.
-ctTemplate :: Lens' CreateTemplate Template
-ctTemplate = lens _ctTemplate (\s a -> s {_ctTemplate = a})
+--
+-- /Note:/ Consider using 'template' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTemplate :: Lens.Lens' CreateTemplate Template
+ctTemplate = Lens.lens (template :: CreateTemplate -> Template) (\s a -> s {template = a} :: CreateTemplate)
+{-# DEPRECATED ctTemplate "Use generic-lens or generic-optics with 'template' instead." #-}
 
-instance AWSRequest CreateTemplate where
+instance Lude.AWSRequest CreateTemplate where
   type Rs CreateTemplate = CreateTemplateResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateTemplateResult"
-      (\s h x -> CreateTemplateResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          CreateTemplateResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateTemplate
+instance Lude.ToHeaders CreateTemplate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateTemplate
+instance Lude.ToPath CreateTemplate where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateTemplate where
-  toHeaders = const mempty
-
-instance ToPath CreateTemplate where
-  toPath = const "/"
-
-instance ToQuery CreateTemplate where
+instance Lude.ToQuery CreateTemplate where
   toQuery CreateTemplate' {..} =
-    mconcat
-      [ "Action" =: ("CreateTemplate" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Template" =: _ctTemplate
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateTemplate" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Template" Lude.=: template
       ]
 
--- | /See:/ 'createTemplateResponse' smart constructor.
+-- | /See:/ 'mkCreateTemplateResponse' smart constructor.
 newtype CreateTemplateResponse = CreateTemplateResponse'
-  { _ctrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctrsResponseStatus' - -- | The response status code.
-createTemplateResponse ::
-  -- | 'ctrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTemplateResponse
-createTemplateResponse pResponseStatus_ =
-  CreateTemplateResponse' {_ctrsResponseStatus = pResponseStatus_}
+mkCreateTemplateResponse pResponseStatus_ =
+  CreateTemplateResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ctrsResponseStatus :: Lens' CreateTemplateResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\s a -> s {_ctrsResponseStatus = a})
-
-instance NFData CreateTemplateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrsResponseStatus :: Lens.Lens' CreateTemplateResponse Lude.Int
+ctrsResponseStatus = Lens.lens (responseStatus :: CreateTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTemplateResponse)
+{-# DEPRECATED ctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

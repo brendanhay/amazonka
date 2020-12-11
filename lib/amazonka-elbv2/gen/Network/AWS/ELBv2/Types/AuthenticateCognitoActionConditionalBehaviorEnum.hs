@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum where
+module Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
+  ( AuthenticateCognitoActionConditionalBehaviorEnum
+      ( AuthenticateCognitoActionConditionalBehaviorEnum',
+        Allow,
+        Authenticate,
+        Deny
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthenticateCognitoActionConditionalBehaviorEnum
-  = Allow
-  | Authenticate
-  | Deny
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthenticateCognitoActionConditionalBehaviorEnum = AuthenticateCognitoActionConditionalBehaviorEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthenticateCognitoActionConditionalBehaviorEnum where
-  parser =
-    takeLowerText >>= \case
-      "allow" -> pure Allow
-      "authenticate" -> pure Authenticate
-      "deny" -> pure Deny
-      e ->
-        fromTextError $
-          "Failure parsing AuthenticateCognitoActionConditionalBehaviorEnum from value: '" <> e
-            <> "'. Accepted values: allow, authenticate, deny"
+pattern Allow :: AuthenticateCognitoActionConditionalBehaviorEnum
+pattern Allow = AuthenticateCognitoActionConditionalBehaviorEnum' "allow"
 
-instance ToText AuthenticateCognitoActionConditionalBehaviorEnum where
-  toText = \case
-    Allow -> "allow"
-    Authenticate -> "authenticate"
-    Deny -> "deny"
+pattern Authenticate :: AuthenticateCognitoActionConditionalBehaviorEnum
+pattern Authenticate = AuthenticateCognitoActionConditionalBehaviorEnum' "authenticate"
 
-instance Hashable AuthenticateCognitoActionConditionalBehaviorEnum
+pattern Deny :: AuthenticateCognitoActionConditionalBehaviorEnum
+pattern Deny = AuthenticateCognitoActionConditionalBehaviorEnum' "deny"
 
-instance NFData AuthenticateCognitoActionConditionalBehaviorEnum
-
-instance ToByteString AuthenticateCognitoActionConditionalBehaviorEnum
-
-instance ToQuery AuthenticateCognitoActionConditionalBehaviorEnum
-
-instance ToHeader AuthenticateCognitoActionConditionalBehaviorEnum
-
-instance FromXML AuthenticateCognitoActionConditionalBehaviorEnum where
-  parseXML = parseXMLText "AuthenticateCognitoActionConditionalBehaviorEnum"
+{-# COMPLETE
+  Allow,
+  Authenticate,
+  Deny,
+  AuthenticateCognitoActionConditionalBehaviorEnum'
+  #-}

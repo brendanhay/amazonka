@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.ParameterMapEntry where
+module Network.AWS.MechanicalTurk.Types.ParameterMapEntry
+  ( ParameterMapEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameterMapEntry,
+
+    -- * Lenses
+    pmeValues,
+    pmeKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
 --
---
---
--- /See:/ 'parameterMapEntry' smart constructor.
+-- /See:/ 'mkParameterMapEntry' smart constructor.
 data ParameterMapEntry = ParameterMapEntry'
-  { _pmeValues ::
-      !(Maybe [Text]),
-    _pmeKey :: !(Maybe Text)
+  { values ::
+      Lude.Maybe [Lude.Text],
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterMapEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pmeValues' - The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
---
--- * 'pmeKey' - The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
-parameterMapEntry ::
+-- * 'key' - The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
+-- * 'values' - The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
+mkParameterMapEntry ::
   ParameterMapEntry
-parameterMapEntry =
-  ParameterMapEntry' {_pmeValues = Nothing, _pmeKey = Nothing}
+mkParameterMapEntry =
+  ParameterMapEntry' {values = Lude.Nothing, key = Lude.Nothing}
 
 -- | The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
-pmeValues :: Lens' ParameterMapEntry [Text]
-pmeValues = lens _pmeValues (\s a -> s {_pmeValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmeValues :: Lens.Lens' ParameterMapEntry (Lude.Maybe [Lude.Text])
+pmeValues = Lens.lens (values :: ParameterMapEntry -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: ParameterMapEntry)
+{-# DEPRECATED pmeValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
-pmeKey :: Lens' ParameterMapEntry (Maybe Text)
-pmeKey = lens _pmeKey (\s a -> s {_pmeKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmeKey :: Lens.Lens' ParameterMapEntry (Lude.Maybe Lude.Text)
+pmeKey = Lens.lens (key :: ParameterMapEntry -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ParameterMapEntry)
+{-# DEPRECATED pmeKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON ParameterMapEntry where
+instance Lude.FromJSON ParameterMapEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "ParameterMapEntry"
       ( \x ->
           ParameterMapEntry'
-            <$> (x .:? "Values" .!= mempty) <*> (x .:? "Key")
+            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Key")
       )
 
-instance Hashable ParameterMapEntry
-
-instance NFData ParameterMapEntry
-
-instance ToJSON ParameterMapEntry where
+instance Lude.ToJSON ParameterMapEntry where
   toJSON ParameterMapEntry' {..} =
-    object
-      (catMaybes [("Values" .=) <$> _pmeValues, ("Key" .=) <$> _pmeKey])
+    Lude.object
+      ( Lude.catMaybes
+          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
+      )

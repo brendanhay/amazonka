@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Compatibility where
+module Network.AWS.Glue.Types.Compatibility
+  ( Compatibility
+      ( Compatibility',
+        CBackward,
+        CBackwardAll,
+        CDisabled,
+        CForward,
+        CForwardAll,
+        CFull,
+        CFullAll,
+        CNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Compatibility
-  = CBackward
-  | CBackwardAll
-  | CDisabled
-  | CForward
-  | CForwardAll
-  | CFull
-  | CFullAll
-  | CNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Compatibility = Compatibility' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Compatibility where
-  parser =
-    takeLowerText >>= \case
-      "backward" -> pure CBackward
-      "backward_all" -> pure CBackwardAll
-      "disabled" -> pure CDisabled
-      "forward" -> pure CForward
-      "forward_all" -> pure CForwardAll
-      "full" -> pure CFull
-      "full_all" -> pure CFullAll
-      "none" -> pure CNone
-      e ->
-        fromTextError $
-          "Failure parsing Compatibility from value: '" <> e
-            <> "'. Accepted values: backward, backward_all, disabled, forward, forward_all, full, full_all, none"
+pattern CBackward :: Compatibility
+pattern CBackward = Compatibility' "BACKWARD"
 
-instance ToText Compatibility where
-  toText = \case
-    CBackward -> "BACKWARD"
-    CBackwardAll -> "BACKWARD_ALL"
-    CDisabled -> "DISABLED"
-    CForward -> "FORWARD"
-    CForwardAll -> "FORWARD_ALL"
-    CFull -> "FULL"
-    CFullAll -> "FULL_ALL"
-    CNone -> "NONE"
+pattern CBackwardAll :: Compatibility
+pattern CBackwardAll = Compatibility' "BACKWARD_ALL"
 
-instance Hashable Compatibility
+pattern CDisabled :: Compatibility
+pattern CDisabled = Compatibility' "DISABLED"
 
-instance NFData Compatibility
+pattern CForward :: Compatibility
+pattern CForward = Compatibility' "FORWARD"
 
-instance ToByteString Compatibility
+pattern CForwardAll :: Compatibility
+pattern CForwardAll = Compatibility' "FORWARD_ALL"
 
-instance ToQuery Compatibility
+pattern CFull :: Compatibility
+pattern CFull = Compatibility' "FULL"
 
-instance ToHeader Compatibility
+pattern CFullAll :: Compatibility
+pattern CFullAll = Compatibility' "FULL_ALL"
 
-instance ToJSON Compatibility where
-  toJSON = toJSONText
+pattern CNone :: Compatibility
+pattern CNone = Compatibility' "NONE"
 
-instance FromJSON Compatibility where
-  parseJSON = parseJSONText "Compatibility"
+{-# COMPLETE
+  CBackward,
+  CBackwardAll,
+  CDisabled,
+  CForward,
+  CForwardAll,
+  CFull,
+  CFullAll,
+  CNone,
+  Compatibility'
+  #-}

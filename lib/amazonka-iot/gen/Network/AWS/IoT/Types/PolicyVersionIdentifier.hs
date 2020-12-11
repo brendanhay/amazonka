@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.PolicyVersionIdentifier where
+module Network.AWS.IoT.Types.PolicyVersionIdentifier
+  ( PolicyVersionIdentifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPolicyVersionIdentifier,
+
+    -- * Lenses
+    pviPolicyName,
+    pviPolicyVersionId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the version of the policy associated with the resource.
 --
---
---
--- /See:/ 'policyVersionIdentifier' smart constructor.
+-- /See:/ 'mkPolicyVersionIdentifier' smart constructor.
 data PolicyVersionIdentifier = PolicyVersionIdentifier'
-  { _pviPolicyName ::
-      !(Maybe Text),
-    _pviPolicyVersionId :: !(Maybe Text)
+  { policyName ::
+      Lude.Maybe Lude.Text,
+    policyVersionId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyVersionIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pviPolicyName' - The name of the policy.
---
--- * 'pviPolicyVersionId' - The ID of the version of the policy associated with the resource.
-policyVersionIdentifier ::
+-- * 'policyName' - The name of the policy.
+-- * 'policyVersionId' - The ID of the version of the policy associated with the resource.
+mkPolicyVersionIdentifier ::
   PolicyVersionIdentifier
-policyVersionIdentifier =
+mkPolicyVersionIdentifier =
   PolicyVersionIdentifier'
-    { _pviPolicyName = Nothing,
-      _pviPolicyVersionId = Nothing
+    { policyName = Lude.Nothing,
+      policyVersionId = Lude.Nothing
     }
 
 -- | The name of the policy.
-pviPolicyName :: Lens' PolicyVersionIdentifier (Maybe Text)
-pviPolicyName = lens _pviPolicyName (\s a -> s {_pviPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pviPolicyName :: Lens.Lens' PolicyVersionIdentifier (Lude.Maybe Lude.Text)
+pviPolicyName = Lens.lens (policyName :: PolicyVersionIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: PolicyVersionIdentifier)
+{-# DEPRECATED pviPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The ID of the version of the policy associated with the resource.
-pviPolicyVersionId :: Lens' PolicyVersionIdentifier (Maybe Text)
-pviPolicyVersionId = lens _pviPolicyVersionId (\s a -> s {_pviPolicyVersionId = a})
+--
+-- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pviPolicyVersionId :: Lens.Lens' PolicyVersionIdentifier (Lude.Maybe Lude.Text)
+pviPolicyVersionId = Lens.lens (policyVersionId :: PolicyVersionIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {policyVersionId = a} :: PolicyVersionIdentifier)
+{-# DEPRECATED pviPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
 
-instance FromJSON PolicyVersionIdentifier where
+instance Lude.FromJSON PolicyVersionIdentifier where
   parseJSON =
-    withObject
+    Lude.withObject
       "PolicyVersionIdentifier"
       ( \x ->
           PolicyVersionIdentifier'
-            <$> (x .:? "policyName") <*> (x .:? "policyVersionId")
+            Lude.<$> (x Lude..:? "policyName") Lude.<*> (x Lude..:? "policyVersionId")
       )
 
-instance Hashable PolicyVersionIdentifier
-
-instance NFData PolicyVersionIdentifier
-
-instance ToJSON PolicyVersionIdentifier where
+instance Lude.ToJSON PolicyVersionIdentifier where
   toJSON PolicyVersionIdentifier' {..} =
-    object
-      ( catMaybes
-          [ ("policyName" .=) <$> _pviPolicyName,
-            ("policyVersionId" .=) <$> _pviPolicyVersionId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("policyName" Lude..=) Lude.<$> policyName,
+            ("policyVersionId" Lude..=) Lude.<$> policyVersionId
           ]
       )

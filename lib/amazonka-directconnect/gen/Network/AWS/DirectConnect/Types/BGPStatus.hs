@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.BGPStatus where
+module Network.AWS.DirectConnect.Types.BGPStatus
+  ( BGPStatus
+      ( BGPStatus',
+        Down,
+        UP,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BGPStatus
-  = Down
-  | UP
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BGPStatus = BGPStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BGPStatus where
-  parser =
-    takeLowerText >>= \case
-      "down" -> pure Down
-      "up" -> pure UP
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing BGPStatus from value: '" <> e
-            <> "'. Accepted values: down, up, unknown"
+pattern Down :: BGPStatus
+pattern Down = BGPStatus' "down"
 
-instance ToText BGPStatus where
-  toText = \case
-    Down -> "down"
-    UP -> "up"
-    Unknown -> "unknown"
+pattern UP :: BGPStatus
+pattern UP = BGPStatus' "up"
 
-instance Hashable BGPStatus
+pattern Unknown :: BGPStatus
+pattern Unknown = BGPStatus' "unknown"
 
-instance NFData BGPStatus
-
-instance ToByteString BGPStatus
-
-instance ToQuery BGPStatus
-
-instance ToHeader BGPStatus
-
-instance FromJSON BGPStatus where
-  parseJSON = parseJSONText "BGPStatus"
+{-# COMPLETE
+  Down,
+  UP,
+  Unknown,
+  BGPStatus'
+  #-}

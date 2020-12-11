@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists directories created within an account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListDirectories
-  ( -- * Creating a Request
-    listDirectories,
-    ListDirectories,
+  ( -- * Creating a request
+    ListDirectories (..),
+    mkListDirectories,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldState,
     ldNextToken,
     ldMaxResults,
 
-    -- * Destructuring the Response
-    listDirectoriesResponse,
-    ListDirectoriesResponse,
+    -- * Destructuring the response
+    ListDirectoriesResponse (..),
+    mkListDirectoriesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldrsNextToken,
     ldrsResponseStatus,
     ldrsDirectories,
@@ -44,131 +37,153 @@ module Network.AWS.CloudDirectory.ListDirectories
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listDirectories' smart constructor.
+-- | /See:/ 'mkListDirectories' smart constructor.
 data ListDirectories = ListDirectories'
-  { _ldState ::
-      !(Maybe DirectoryState),
-    _ldNextToken :: !(Maybe Text),
-    _ldMaxResults :: !(Maybe Nat)
+  { state ::
+      Lude.Maybe DirectoryState,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDirectories' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldState' - The state of the directories in the list. Can be either Enabled, Disabled, or Deleted.
---
--- * 'ldNextToken' - The pagination token.
---
--- * 'ldMaxResults' - The maximum number of results to retrieve.
-listDirectories ::
+-- * 'maxResults' - The maximum number of results to retrieve.
+-- * 'nextToken' - The pagination token.
+-- * 'state' - The state of the directories in the list. Can be either Enabled, Disabled, or Deleted.
+mkListDirectories ::
   ListDirectories
-listDirectories =
+mkListDirectories =
   ListDirectories'
-    { _ldState = Nothing,
-      _ldNextToken = Nothing,
-      _ldMaxResults = Nothing
+    { state = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The state of the directories in the list. Can be either Enabled, Disabled, or Deleted.
-ldState :: Lens' ListDirectories (Maybe DirectoryState)
-ldState = lens _ldState (\s a -> s {_ldState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldState :: Lens.Lens' ListDirectories (Lude.Maybe DirectoryState)
+ldState = Lens.lens (state :: ListDirectories -> Lude.Maybe DirectoryState) (\s a -> s {state = a} :: ListDirectories)
+{-# DEPRECATED ldState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The pagination token.
-ldNextToken :: Lens' ListDirectories (Maybe Text)
-ldNextToken = lens _ldNextToken (\s a -> s {_ldNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldNextToken :: Lens.Lens' ListDirectories (Lude.Maybe Lude.Text)
+ldNextToken = Lens.lens (nextToken :: ListDirectories -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDirectories)
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to retrieve.
-ldMaxResults :: Lens' ListDirectories (Maybe Natural)
-ldMaxResults = lens _ldMaxResults (\s a -> s {_ldMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMaxResults :: Lens.Lens' ListDirectories (Lude.Maybe Lude.Natural)
+ldMaxResults = Lens.lens (maxResults :: ListDirectories -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDirectories)
+{-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListDirectories where
+instance Page.AWSPager ListDirectories where
   page rq rs
-    | stop (rs ^. ldrsNextToken) = Nothing
-    | stop (rs ^. ldrsDirectories) = Nothing
-    | otherwise = Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
+    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldrsDirectories) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
 
-instance AWSRequest ListDirectories where
+instance Lude.AWSRequest ListDirectories where
   type Rs ListDirectories = ListDirectoriesResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDirectoriesResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "Directories" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "Directories" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListDirectories
+instance Lude.ToHeaders ListDirectories where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListDirectories
-
-instance ToHeaders ListDirectories where
-  toHeaders = const mempty
-
-instance ToJSON ListDirectories where
+instance Lude.ToJSON ListDirectories where
   toJSON ListDirectories' {..} =
-    object
-      ( catMaybes
-          [ ("state" .=) <$> _ldState,
-            ("NextToken" .=) <$> _ldNextToken,
-            ("MaxResults" .=) <$> _ldMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("state" Lude..=) Lude.<$> state,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListDirectories where
-  toPath = const "/amazonclouddirectory/2017-01-11/directory/list"
+instance Lude.ToPath ListDirectories where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/directory/list"
 
-instance ToQuery ListDirectories where
-  toQuery = const mempty
+instance Lude.ToQuery ListDirectories where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listDirectoriesResponse' smart constructor.
+-- | /See:/ 'mkListDirectoriesResponse' smart constructor.
 data ListDirectoriesResponse = ListDirectoriesResponse'
-  { _ldrsNextToken ::
-      !(Maybe Text),
-    _ldrsResponseStatus :: !Int,
-    _ldrsDirectories :: ![Directory]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    directories :: [Directory]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDirectoriesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsNextToken' - The pagination token.
---
--- * 'ldrsResponseStatus' - -- | The response status code.
---
--- * 'ldrsDirectories' - Lists all directories that are associated with your account in pagination fashion.
-listDirectoriesResponse ::
-  -- | 'ldrsResponseStatus'
-  Int ->
+-- * 'directories' - Lists all directories that are associated with your account in pagination fashion.
+-- * 'nextToken' - The pagination token.
+-- * 'responseStatus' - The response status code.
+mkListDirectoriesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDirectoriesResponse
-listDirectoriesResponse pResponseStatus_ =
+mkListDirectoriesResponse pResponseStatus_ =
   ListDirectoriesResponse'
-    { _ldrsNextToken = Nothing,
-      _ldrsResponseStatus = pResponseStatus_,
-      _ldrsDirectories = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      directories = Lude.mempty
     }
 
 -- | The pagination token.
-ldrsNextToken :: Lens' ListDirectoriesResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\s a -> s {_ldrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsNextToken :: Lens.Lens' ListDirectoriesResponse (Lude.Maybe Lude.Text)
+ldrsNextToken = Lens.lens (nextToken :: ListDirectoriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDirectoriesResponse)
+{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDirectoriesResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\s a -> s {_ldrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDirectoriesResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDirectoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDirectoriesResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Lists all directories that are associated with your account in pagination fashion.
-ldrsDirectories :: Lens' ListDirectoriesResponse [Directory]
-ldrsDirectories = lens _ldrsDirectories (\s a -> s {_ldrsDirectories = a}) . _Coerce
-
-instance NFData ListDirectoriesResponse
+--
+-- /Note:/ Consider using 'directories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsDirectories :: Lens.Lens' ListDirectoriesResponse [Directory]
+ldrsDirectories = Lens.lens (directories :: ListDirectoriesResponse -> [Directory]) (\s a -> s {directories = a} :: ListDirectoriesResponse)
+{-# DEPRECATED ldrsDirectories "Use generic-lens or generic-optics with 'directories' instead." #-}

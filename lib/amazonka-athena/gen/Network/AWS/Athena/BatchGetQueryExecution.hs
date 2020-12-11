@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns the details of a single query execution or a list of up to 50 query executions, which you provide as an array of query execution ID strings. Requires you to have access to the workgroup in which the queries ran. To get a list of query execution IDs, use 'ListQueryExecutionsInput$WorkGroup' . Query executions differ from named (saved) queries. Use 'BatchGetNamedQueryInput' to get details about named queries.
 module Network.AWS.Athena.BatchGetQueryExecution
-  ( -- * Creating a Request
-    batchGetQueryExecution,
-    BatchGetQueryExecution,
+  ( -- * Creating a request
+    BatchGetQueryExecution (..),
+    mkBatchGetQueryExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgqeQueryExecutionIds,
 
-    -- * Destructuring the Response
-    batchGetQueryExecutionResponse,
-    BatchGetQueryExecutionResponse,
+    -- * Destructuring the response
+    BatchGetQueryExecutionResponse (..),
+    mkBatchGetQueryExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgqersUnprocessedQueryExecutionIds,
     bgqersQueryExecutions,
     bgqersResponseStatus,
@@ -38,117 +33,130 @@ module Network.AWS.Athena.BatchGetQueryExecution
 where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetQueryExecution' smart constructor.
+-- | /See:/ 'mkBatchGetQueryExecution' smart constructor.
 newtype BatchGetQueryExecution = BatchGetQueryExecution'
-  { _bgqeQueryExecutionIds ::
-      List1 Text
+  { queryExecutionIds ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetQueryExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgqeQueryExecutionIds' - An array of query execution IDs.
-batchGetQueryExecution ::
-  -- | 'bgqeQueryExecutionIds'
-  NonEmpty Text ->
+-- * 'queryExecutionIds' - An array of query execution IDs.
+mkBatchGetQueryExecution ::
+  -- | 'queryExecutionIds'
+  Lude.NonEmpty Lude.Text ->
   BatchGetQueryExecution
-batchGetQueryExecution pQueryExecutionIds_ =
-  BatchGetQueryExecution'
-    { _bgqeQueryExecutionIds =
-        _List1 # pQueryExecutionIds_
-    }
+mkBatchGetQueryExecution pQueryExecutionIds_ =
+  BatchGetQueryExecution' {queryExecutionIds = pQueryExecutionIds_}
 
 -- | An array of query execution IDs.
-bgqeQueryExecutionIds :: Lens' BatchGetQueryExecution (NonEmpty Text)
-bgqeQueryExecutionIds = lens _bgqeQueryExecutionIds (\s a -> s {_bgqeQueryExecutionIds = a}) . _List1
+--
+-- /Note:/ Consider using 'queryExecutionIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgqeQueryExecutionIds :: Lens.Lens' BatchGetQueryExecution (Lude.NonEmpty Lude.Text)
+bgqeQueryExecutionIds = Lens.lens (queryExecutionIds :: BatchGetQueryExecution -> Lude.NonEmpty Lude.Text) (\s a -> s {queryExecutionIds = a} :: BatchGetQueryExecution)
+{-# DEPRECATED bgqeQueryExecutionIds "Use generic-lens or generic-optics with 'queryExecutionIds' instead." #-}
 
-instance AWSRequest BatchGetQueryExecution where
+instance Lude.AWSRequest BatchGetQueryExecution where
   type Rs BatchGetQueryExecution = BatchGetQueryExecutionResponse
-  request = postJSON athena
+  request = Req.postJSON athenaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetQueryExecutionResponse'
-            <$> (x .?> "UnprocessedQueryExecutionIds" .!@ mempty)
-            <*> (x .?> "QueryExecutions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UnprocessedQueryExecutionIds" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "QueryExecutions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetQueryExecution
-
-instance NFData BatchGetQueryExecution
-
-instance ToHeaders BatchGetQueryExecution where
+instance Lude.ToHeaders BatchGetQueryExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonAthena.BatchGetQueryExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonAthena.BatchGetQueryExecution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetQueryExecution where
+instance Lude.ToJSON BatchGetQueryExecution where
   toJSON BatchGetQueryExecution' {..} =
-    object
-      (catMaybes [Just ("QueryExecutionIds" .= _bgqeQueryExecutionIds)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("QueryExecutionIds" Lude..= queryExecutionIds)]
+      )
 
-instance ToPath BatchGetQueryExecution where
-  toPath = const "/"
+instance Lude.ToPath BatchGetQueryExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetQueryExecution where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetQueryExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetQueryExecutionResponse' smart constructor.
+-- | /See:/ 'mkBatchGetQueryExecutionResponse' smart constructor.
 data BatchGetQueryExecutionResponse = BatchGetQueryExecutionResponse'
-  { _bgqersUnprocessedQueryExecutionIds ::
-      !( Maybe
-           [UnprocessedQueryExecutionId]
-       ),
-    _bgqersQueryExecutions ::
-      !(Maybe [QueryExecution]),
-    _bgqersResponseStatus :: !Int
+  { unprocessedQueryExecutionIds ::
+      Lude.Maybe
+        [UnprocessedQueryExecutionId],
+    queryExecutions ::
+      Lude.Maybe [QueryExecution],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetQueryExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgqersUnprocessedQueryExecutionIds' - Information about the query executions that failed to run.
---
--- * 'bgqersQueryExecutions' - Information about a query execution.
---
--- * 'bgqersResponseStatus' - -- | The response status code.
-batchGetQueryExecutionResponse ::
-  -- | 'bgqersResponseStatus'
-  Int ->
+-- * 'queryExecutions' - Information about a query execution.
+-- * 'responseStatus' - The response status code.
+-- * 'unprocessedQueryExecutionIds' - Information about the query executions that failed to run.
+mkBatchGetQueryExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetQueryExecutionResponse
-batchGetQueryExecutionResponse pResponseStatus_ =
+mkBatchGetQueryExecutionResponse pResponseStatus_ =
   BatchGetQueryExecutionResponse'
-    { _bgqersUnprocessedQueryExecutionIds =
-        Nothing,
-      _bgqersQueryExecutions = Nothing,
-      _bgqersResponseStatus = pResponseStatus_
+    { unprocessedQueryExecutionIds =
+        Lude.Nothing,
+      queryExecutions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the query executions that failed to run.
-bgqersUnprocessedQueryExecutionIds :: Lens' BatchGetQueryExecutionResponse [UnprocessedQueryExecutionId]
-bgqersUnprocessedQueryExecutionIds = lens _bgqersUnprocessedQueryExecutionIds (\s a -> s {_bgqersUnprocessedQueryExecutionIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unprocessedQueryExecutionIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgqersUnprocessedQueryExecutionIds :: Lens.Lens' BatchGetQueryExecutionResponse (Lude.Maybe [UnprocessedQueryExecutionId])
+bgqersUnprocessedQueryExecutionIds = Lens.lens (unprocessedQueryExecutionIds :: BatchGetQueryExecutionResponse -> Lude.Maybe [UnprocessedQueryExecutionId]) (\s a -> s {unprocessedQueryExecutionIds = a} :: BatchGetQueryExecutionResponse)
+{-# DEPRECATED bgqersUnprocessedQueryExecutionIds "Use generic-lens or generic-optics with 'unprocessedQueryExecutionIds' instead." #-}
 
 -- | Information about a query execution.
-bgqersQueryExecutions :: Lens' BatchGetQueryExecutionResponse [QueryExecution]
-bgqersQueryExecutions = lens _bgqersQueryExecutions (\s a -> s {_bgqersQueryExecutions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'queryExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgqersQueryExecutions :: Lens.Lens' BatchGetQueryExecutionResponse (Lude.Maybe [QueryExecution])
+bgqersQueryExecutions = Lens.lens (queryExecutions :: BatchGetQueryExecutionResponse -> Lude.Maybe [QueryExecution]) (\s a -> s {queryExecutions = a} :: BatchGetQueryExecutionResponse)
+{-# DEPRECATED bgqersQueryExecutions "Use generic-lens or generic-optics with 'queryExecutions' instead." #-}
 
--- | -- | The response status code.
-bgqersResponseStatus :: Lens' BatchGetQueryExecutionResponse Int
-bgqersResponseStatus = lens _bgqersResponseStatus (\s a -> s {_bgqersResponseStatus = a})
-
-instance NFData BatchGetQueryExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgqersResponseStatus :: Lens.Lens' BatchGetQueryExecutionResponse Lude.Int
+bgqersResponseStatus = Lens.lens (responseStatus :: BatchGetQueryExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetQueryExecutionResponse)
+{-# DEPRECATED bgqersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

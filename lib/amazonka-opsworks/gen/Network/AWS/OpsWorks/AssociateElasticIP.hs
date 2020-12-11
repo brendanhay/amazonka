@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,114 @@
 --
 -- Associates one of the stack's registered Elastic IP addresses with a specified instance. The address must first be registered with the stack by calling 'RegisterElasticIp' . For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.AssociateElasticIP
-  ( -- * Creating a Request
-    associateElasticIP,
-    AssociateElasticIP,
+  ( -- * Creating a request
+    AssociateElasticIP (..),
+    mkAssociateElasticIP,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aeiInstanceId,
     aeiElasticIP,
 
-    -- * Destructuring the Response
-    associateElasticIPResponse,
-    AssociateElasticIPResponse,
+    -- * Destructuring the response
+    AssociateElasticIPResponse (..),
+    mkAssociateElasticIPResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateElasticIP' smart constructor.
+-- | /See:/ 'mkAssociateElasticIP' smart constructor.
 data AssociateElasticIP = AssociateElasticIP'
-  { _aeiInstanceId ::
-      !(Maybe Text),
-    _aeiElasticIP :: !Text
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    elasticIP :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateElasticIP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aeiInstanceId' - The instance ID.
---
--- * 'aeiElasticIP' - The Elastic IP address.
-associateElasticIP ::
-  -- | 'aeiElasticIP'
-  Text ->
+-- * 'elasticIP' - The Elastic IP address.
+-- * 'instanceId' - The instance ID.
+mkAssociateElasticIP ::
+  -- | 'elasticIP'
+  Lude.Text ->
   AssociateElasticIP
-associateElasticIP pElasticIP_ =
+mkAssociateElasticIP pElasticIP_ =
   AssociateElasticIP'
-    { _aeiInstanceId = Nothing,
-      _aeiElasticIP = pElasticIP_
+    { instanceId = Lude.Nothing,
+      elasticIP = pElasticIP_
     }
 
 -- | The instance ID.
-aeiInstanceId :: Lens' AssociateElasticIP (Maybe Text)
-aeiInstanceId = lens _aeiInstanceId (\s a -> s {_aeiInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeiInstanceId :: Lens.Lens' AssociateElasticIP (Lude.Maybe Lude.Text)
+aeiInstanceId = Lens.lens (instanceId :: AssociateElasticIP -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: AssociateElasticIP)
+{-# DEPRECATED aeiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The Elastic IP address.
-aeiElasticIP :: Lens' AssociateElasticIP Text
-aeiElasticIP = lens _aeiElasticIP (\s a -> s {_aeiElasticIP = a})
+--
+-- /Note:/ Consider using 'elasticIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeiElasticIP :: Lens.Lens' AssociateElasticIP Lude.Text
+aeiElasticIP = Lens.lens (elasticIP :: AssociateElasticIP -> Lude.Text) (\s a -> s {elasticIP = a} :: AssociateElasticIP)
+{-# DEPRECATED aeiElasticIP "Use generic-lens or generic-optics with 'elasticIP' instead." #-}
 
-instance AWSRequest AssociateElasticIP where
+instance Lude.AWSRequest AssociateElasticIP where
   type Rs AssociateElasticIP = AssociateElasticIPResponse
-  request = postJSON opsWorks
-  response = receiveNull AssociateElasticIPResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull AssociateElasticIPResponse'
 
-instance Hashable AssociateElasticIP
-
-instance NFData AssociateElasticIP
-
-instance ToHeaders AssociateElasticIP where
+instance Lude.ToHeaders AssociateElasticIP where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.AssociateElasticIp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.AssociateElasticIp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateElasticIP where
+instance Lude.ToJSON AssociateElasticIP where
   toJSON AssociateElasticIP' {..} =
-    object
-      ( catMaybes
-          [ ("InstanceId" .=) <$> _aeiInstanceId,
-            Just ("ElasticIp" .= _aeiElasticIP)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InstanceId" Lude..=) Lude.<$> instanceId,
+            Lude.Just ("ElasticIp" Lude..= elasticIP)
           ]
       )
 
-instance ToPath AssociateElasticIP where
-  toPath = const "/"
+instance Lude.ToPath AssociateElasticIP where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateElasticIP where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateElasticIP where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateElasticIPResponse' smart constructor.
+-- | /See:/ 'mkAssociateElasticIPResponse' smart constructor.
 data AssociateElasticIPResponse = AssociateElasticIPResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateElasticIPResponse' with the minimum fields required to make a request.
-associateElasticIPResponse ::
+mkAssociateElasticIPResponse ::
   AssociateElasticIPResponse
-associateElasticIPResponse = AssociateElasticIPResponse'
-
-instance NFData AssociateElasticIPResponse
+mkAssociateElasticIPResponse = AssociateElasticIPResponse'

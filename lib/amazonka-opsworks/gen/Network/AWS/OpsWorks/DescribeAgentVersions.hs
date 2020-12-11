@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,149 @@
 --
 -- Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack ID or a configuration manager. @DescribeAgentVersions@ returns a list of available agent versions for the specified stack or configuration manager.
 module Network.AWS.OpsWorks.DescribeAgentVersions
-  ( -- * Creating a Request
-    describeAgentVersions,
-    DescribeAgentVersions,
+  ( -- * Creating a request
+    DescribeAgentVersions (..),
+    mkDescribeAgentVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     davConfigurationManager,
     davStackId,
 
-    -- * Destructuring the Response
-    describeAgentVersionsResponse,
-    DescribeAgentVersionsResponse,
+    -- * Destructuring the response
+    DescribeAgentVersionsResponse (..),
+    mkDescribeAgentVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     davrsAgentVersions,
     davrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAgentVersions' smart constructor.
+-- | /See:/ 'mkDescribeAgentVersions' smart constructor.
 data DescribeAgentVersions = DescribeAgentVersions'
-  { _davConfigurationManager ::
-      !(Maybe StackConfigurationManager),
-    _davStackId :: !(Maybe Text)
+  { configurationManager ::
+      Lude.Maybe StackConfigurationManager,
+    stackId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAgentVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'davConfigurationManager' - The configuration manager.
---
--- * 'davStackId' - The stack ID.
-describeAgentVersions ::
+-- * 'configurationManager' - The configuration manager.
+-- * 'stackId' - The stack ID.
+mkDescribeAgentVersions ::
   DescribeAgentVersions
-describeAgentVersions =
+mkDescribeAgentVersions =
   DescribeAgentVersions'
-    { _davConfigurationManager = Nothing,
-      _davStackId = Nothing
+    { configurationManager = Lude.Nothing,
+      stackId = Lude.Nothing
     }
 
 -- | The configuration manager.
-davConfigurationManager :: Lens' DescribeAgentVersions (Maybe StackConfigurationManager)
-davConfigurationManager = lens _davConfigurationManager (\s a -> s {_davConfigurationManager = a})
+--
+-- /Note:/ Consider using 'configurationManager' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+davConfigurationManager :: Lens.Lens' DescribeAgentVersions (Lude.Maybe StackConfigurationManager)
+davConfigurationManager = Lens.lens (configurationManager :: DescribeAgentVersions -> Lude.Maybe StackConfigurationManager) (\s a -> s {configurationManager = a} :: DescribeAgentVersions)
+{-# DEPRECATED davConfigurationManager "Use generic-lens or generic-optics with 'configurationManager' instead." #-}
 
 -- | The stack ID.
-davStackId :: Lens' DescribeAgentVersions (Maybe Text)
-davStackId = lens _davStackId (\s a -> s {_davStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+davStackId :: Lens.Lens' DescribeAgentVersions (Lude.Maybe Lude.Text)
+davStackId = Lens.lens (stackId :: DescribeAgentVersions -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DescribeAgentVersions)
+{-# DEPRECATED davStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest DescribeAgentVersions where
+instance Lude.AWSRequest DescribeAgentVersions where
   type Rs DescribeAgentVersions = DescribeAgentVersionsResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAgentVersionsResponse'
-            <$> (x .?> "AgentVersions" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AgentVersions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAgentVersions
-
-instance NFData DescribeAgentVersions
-
-instance ToHeaders DescribeAgentVersions where
+instance Lude.ToHeaders DescribeAgentVersions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeAgentVersions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeAgentVersions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAgentVersions where
+instance Lude.ToJSON DescribeAgentVersions where
   toJSON DescribeAgentVersions' {..} =
-    object
-      ( catMaybes
-          [ ("ConfigurationManager" .=) <$> _davConfigurationManager,
-            ("StackId" .=) <$> _davStackId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ConfigurationManager" Lude..=) Lude.<$> configurationManager,
+            ("StackId" Lude..=) Lude.<$> stackId
           ]
       )
 
-instance ToPath DescribeAgentVersions where
-  toPath = const "/"
+instance Lude.ToPath DescribeAgentVersions where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAgentVersions where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAgentVersions where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeAgentVersions@ request.
 --
---
---
--- /See:/ 'describeAgentVersionsResponse' smart constructor.
+-- /See:/ 'mkDescribeAgentVersionsResponse' smart constructor.
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
-  { _davrsAgentVersions ::
-      !(Maybe [AgentVersion]),
-    _davrsResponseStatus :: !Int
+  { agentVersions ::
+      Lude.Maybe [AgentVersion],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAgentVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'davrsAgentVersions' - The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.
---
--- * 'davrsResponseStatus' - -- | The response status code.
-describeAgentVersionsResponse ::
-  -- | 'davrsResponseStatus'
-  Int ->
+-- * 'agentVersions' - The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.
+-- * 'responseStatus' - The response status code.
+mkDescribeAgentVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAgentVersionsResponse
-describeAgentVersionsResponse pResponseStatus_ =
+mkDescribeAgentVersionsResponse pResponseStatus_ =
   DescribeAgentVersionsResponse'
-    { _davrsAgentVersions = Nothing,
-      _davrsResponseStatus = pResponseStatus_
+    { agentVersions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The agent versions for the specified stack or configuration manager. Note that this value is the complete version number, not the abbreviated number used by the console.
-davrsAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
-davrsAgentVersions = lens _davrsAgentVersions (\s a -> s {_davrsAgentVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'agentVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+davrsAgentVersions :: Lens.Lens' DescribeAgentVersionsResponse (Lude.Maybe [AgentVersion])
+davrsAgentVersions = Lens.lens (agentVersions :: DescribeAgentVersionsResponse -> Lude.Maybe [AgentVersion]) (\s a -> s {agentVersions = a} :: DescribeAgentVersionsResponse)
+{-# DEPRECATED davrsAgentVersions "Use generic-lens or generic-optics with 'agentVersions' instead." #-}
 
--- | -- | The response status code.
-davrsResponseStatus :: Lens' DescribeAgentVersionsResponse Int
-davrsResponseStatus = lens _davrsResponseStatus (\s a -> s {_davrsResponseStatus = a})
-
-instance NFData DescribeAgentVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+davrsResponseStatus :: Lens.Lens' DescribeAgentVersionsResponse Lude.Int
+davrsResponseStatus = Lens.lens (responseStatus :: DescribeAgentVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAgentVersionsResponse)
+{-# DEPRECATED davrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

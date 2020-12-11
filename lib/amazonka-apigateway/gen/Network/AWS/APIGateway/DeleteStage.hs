@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,105 @@
 --
 -- Deletes a 'Stage' resource.
 module Network.AWS.APIGateway.DeleteStage
-  ( -- * Creating a Request
-    deleteStage,
-    DeleteStage,
+  ( -- * Creating a request
+    DeleteStage (..),
+    mkDeleteStage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsRestAPIId,
     dsStageName,
 
-    -- * Destructuring the Response
-    deleteStageResponse,
-    DeleteStageResponse,
+    -- * Destructuring the response
+    DeleteStageResponse (..),
+    mkDeleteStageResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests API Gateway to delete a 'Stage' resource.
 --
---
---
--- /See:/ 'deleteStage' smart constructor.
+-- /See:/ 'mkDeleteStage' smart constructor.
 data DeleteStage = DeleteStage'
-  { _dsRestAPIId :: !Text,
-    _dsStageName :: !Text
+  { restAPIId :: Lude.Text,
+    stageName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'dsStageName' - [Required] The name of the 'Stage' resource to delete.
-deleteStage ::
-  -- | 'dsRestAPIId'
-  Text ->
-  -- | 'dsStageName'
-  Text ->
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'stageName' - [Required] The name of the 'Stage' resource to delete.
+mkDeleteStage ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
   DeleteStage
-deleteStage pRestAPIId_ pStageName_ =
-  DeleteStage'
-    { _dsRestAPIId = pRestAPIId_,
-      _dsStageName = pStageName_
-    }
+mkDeleteStage pRestAPIId_ pStageName_ =
+  DeleteStage' {restAPIId = pRestAPIId_, stageName = pStageName_}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-dsRestAPIId :: Lens' DeleteStage Text
-dsRestAPIId = lens _dsRestAPIId (\s a -> s {_dsRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsRestAPIId :: Lens.Lens' DeleteStage Lude.Text
+dsRestAPIId = Lens.lens (restAPIId :: DeleteStage -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteStage)
+{-# DEPRECATED dsRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the 'Stage' resource to delete.
-dsStageName :: Lens' DeleteStage Text
-dsStageName = lens _dsStageName (\s a -> s {_dsStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStageName :: Lens.Lens' DeleteStage Lude.Text
+dsStageName = Lens.lens (stageName :: DeleteStage -> Lude.Text) (\s a -> s {stageName = a} :: DeleteStage)
+{-# DEPRECATED dsStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
-instance AWSRequest DeleteStage where
+instance Lude.AWSRequest DeleteStage where
   type Rs DeleteStage = DeleteStageResponse
-  request = delete apiGateway
-  response = receiveNull DeleteStageResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteStageResponse'
 
-instance Hashable DeleteStage
-
-instance NFData DeleteStage
-
-instance ToHeaders DeleteStage where
+instance Lude.ToHeaders DeleteStage where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteStage where
+instance Lude.ToPath DeleteStage where
   toPath DeleteStage' {..} =
-    mconcat
-      ["/restapis/", toBS _dsRestAPIId, "/stages/", toBS _dsStageName]
+    Lude.mconcat
+      [ "/restapis/",
+        Lude.toBS restAPIId,
+        "/stages/",
+        Lude.toBS stageName
+      ]
 
-instance ToQuery DeleteStage where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteStage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteStageResponse' smart constructor.
+-- | /See:/ 'mkDeleteStageResponse' smart constructor.
 data DeleteStageResponse = DeleteStageResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStageResponse' with the minimum fields required to make a request.
-deleteStageResponse ::
+mkDeleteStageResponse ::
   DeleteStageResponse
-deleteStageResponse = DeleteStageResponse'
-
-instance NFData DeleteStageResponse
+mkDeleteStageResponse = DeleteStageResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotInstanceType where
+module Network.AWS.EC2.Types.SpotInstanceType
+  ( SpotInstanceType
+      ( SpotInstanceType',
+        OneTime,
+        Persistent
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SpotInstanceType
-  = OneTime
-  | Persistent
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SpotInstanceType = SpotInstanceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SpotInstanceType where
-  parser =
-    takeLowerText >>= \case
-      "one-time" -> pure OneTime
-      "persistent" -> pure Persistent
-      e ->
-        fromTextError $
-          "Failure parsing SpotInstanceType from value: '" <> e
-            <> "'. Accepted values: one-time, persistent"
+pattern OneTime :: SpotInstanceType
+pattern OneTime = SpotInstanceType' "one-time"
 
-instance ToText SpotInstanceType where
-  toText = \case
-    OneTime -> "one-time"
-    Persistent -> "persistent"
+pattern Persistent :: SpotInstanceType
+pattern Persistent = SpotInstanceType' "persistent"
 
-instance Hashable SpotInstanceType
-
-instance NFData SpotInstanceType
-
-instance ToByteString SpotInstanceType
-
-instance ToQuery SpotInstanceType
-
-instance ToHeader SpotInstanceType
-
-instance FromXML SpotInstanceType where
-  parseXML = parseXMLText "SpotInstanceType"
+{-# COMPLETE
+  OneTime,
+  Persistent,
+  SpotInstanceType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,160 +14,165 @@
 --
 -- Lists an environment's upcoming and in-progress managed actions.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActions
-  ( -- * Creating a Request
-    describeEnvironmentManagedActions,
-    DescribeEnvironmentManagedActions,
+  ( -- * Creating a request
+    DescribeEnvironmentManagedActions (..),
+    mkDescribeEnvironmentManagedActions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     demaStatus,
     demaEnvironmentName,
     demaEnvironmentId,
 
-    -- * Destructuring the Response
-    describeEnvironmentManagedActionsResponse,
-    DescribeEnvironmentManagedActionsResponse,
+    -- * Destructuring the response
+    DescribeEnvironmentManagedActionsResponse (..),
+    mkDescribeEnvironmentManagedActionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     demarsManagedActions,
     demarsResponseStatus,
   )
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to list an environment's upcoming and in-progress managed actions.
 --
---
---
--- /See:/ 'describeEnvironmentManagedActions' smart constructor.
+-- /See:/ 'mkDescribeEnvironmentManagedActions' smart constructor.
 data DescribeEnvironmentManagedActions = DescribeEnvironmentManagedActions'
-  { _demaStatus ::
-      !(Maybe ActionStatus),
-    _demaEnvironmentName ::
-      !(Maybe Text),
-    _demaEnvironmentId ::
-      !(Maybe Text)
+  { status ::
+      Lude.Maybe ActionStatus,
+    environmentName ::
+      Lude.Maybe Lude.Text,
+    environmentId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentManagedActions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'demaStatus' - To show only actions with a particular status, specify a status.
---
--- * 'demaEnvironmentName' - The name of the target environment.
---
--- * 'demaEnvironmentId' - The environment ID of the target environment.
-describeEnvironmentManagedActions ::
+-- * 'environmentId' - The environment ID of the target environment.
+-- * 'environmentName' - The name of the target environment.
+-- * 'status' - To show only actions with a particular status, specify a status.
+mkDescribeEnvironmentManagedActions ::
   DescribeEnvironmentManagedActions
-describeEnvironmentManagedActions =
+mkDescribeEnvironmentManagedActions =
   DescribeEnvironmentManagedActions'
-    { _demaStatus = Nothing,
-      _demaEnvironmentName = Nothing,
-      _demaEnvironmentId = Nothing
+    { status = Lude.Nothing,
+      environmentName = Lude.Nothing,
+      environmentId = Lude.Nothing
     }
 
 -- | To show only actions with a particular status, specify a status.
-demaStatus :: Lens' DescribeEnvironmentManagedActions (Maybe ActionStatus)
-demaStatus = lens _demaStatus (\s a -> s {_demaStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demaStatus :: Lens.Lens' DescribeEnvironmentManagedActions (Lude.Maybe ActionStatus)
+demaStatus = Lens.lens (status :: DescribeEnvironmentManagedActions -> Lude.Maybe ActionStatus) (\s a -> s {status = a} :: DescribeEnvironmentManagedActions)
+{-# DEPRECATED demaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the target environment.
-demaEnvironmentName :: Lens' DescribeEnvironmentManagedActions (Maybe Text)
-demaEnvironmentName = lens _demaEnvironmentName (\s a -> s {_demaEnvironmentName = a})
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demaEnvironmentName :: Lens.Lens' DescribeEnvironmentManagedActions (Lude.Maybe Lude.Text)
+demaEnvironmentName = Lens.lens (environmentName :: DescribeEnvironmentManagedActions -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeEnvironmentManagedActions)
+{-# DEPRECATED demaEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The environment ID of the target environment.
-demaEnvironmentId :: Lens' DescribeEnvironmentManagedActions (Maybe Text)
-demaEnvironmentId = lens _demaEnvironmentId (\s a -> s {_demaEnvironmentId = a})
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demaEnvironmentId :: Lens.Lens' DescribeEnvironmentManagedActions (Lude.Maybe Lude.Text)
+demaEnvironmentId = Lens.lens (environmentId :: DescribeEnvironmentManagedActions -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: DescribeEnvironmentManagedActions)
+{-# DEPRECATED demaEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance AWSRequest DescribeEnvironmentManagedActions where
+instance Lude.AWSRequest DescribeEnvironmentManagedActions where
   type
     Rs DescribeEnvironmentManagedActions =
       DescribeEnvironmentManagedActionsResponse
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeEnvironmentManagedActionsResult"
       ( \s h x ->
           DescribeEnvironmentManagedActionsResponse'
-            <$> ( x .@? "ManagedActions" .!@ mempty
-                    >>= may (parseXMLList1 "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "ManagedActions" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLNonEmpty "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEnvironmentManagedActions
+instance Lude.ToHeaders DescribeEnvironmentManagedActions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeEnvironmentManagedActions
+instance Lude.ToPath DescribeEnvironmentManagedActions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeEnvironmentManagedActions where
-  toHeaders = const mempty
-
-instance ToPath DescribeEnvironmentManagedActions where
-  toPath = const "/"
-
-instance ToQuery DescribeEnvironmentManagedActions where
+instance Lude.ToQuery DescribeEnvironmentManagedActions where
   toQuery DescribeEnvironmentManagedActions' {..} =
-    mconcat
-      [ "Action" =: ("DescribeEnvironmentManagedActions" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Status" =: _demaStatus,
-        "EnvironmentName" =: _demaEnvironmentName,
-        "EnvironmentId" =: _demaEnvironmentId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeEnvironmentManagedActions" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Status" Lude.=: status,
+        "EnvironmentName" Lude.=: environmentName,
+        "EnvironmentId" Lude.=: environmentId
       ]
 
 -- | The result message containing a list of managed actions.
 --
---
---
--- /See:/ 'describeEnvironmentManagedActionsResponse' smart constructor.
+-- /See:/ 'mkDescribeEnvironmentManagedActionsResponse' smart constructor.
 data DescribeEnvironmentManagedActionsResponse = DescribeEnvironmentManagedActionsResponse'
-  { _demarsManagedActions ::
-      !( Maybe
-           ( List1
-               ManagedAction
-           )
-       ),
-    _demarsResponseStatus ::
-      !Int
+  { managedActions ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            ManagedAction
+        ),
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentManagedActionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'demarsManagedActions' - A list of upcoming and in-progress managed actions.
---
--- * 'demarsResponseStatus' - -- | The response status code.
-describeEnvironmentManagedActionsResponse ::
-  -- | 'demarsResponseStatus'
-  Int ->
+-- * 'managedActions' - A list of upcoming and in-progress managed actions.
+-- * 'responseStatus' - The response status code.
+mkDescribeEnvironmentManagedActionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEnvironmentManagedActionsResponse
-describeEnvironmentManagedActionsResponse pResponseStatus_ =
+mkDescribeEnvironmentManagedActionsResponse pResponseStatus_ =
   DescribeEnvironmentManagedActionsResponse'
-    { _demarsManagedActions =
-        Nothing,
-      _demarsResponseStatus = pResponseStatus_
+    { managedActions =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of upcoming and in-progress managed actions.
-demarsManagedActions :: Lens' DescribeEnvironmentManagedActionsResponse (Maybe (NonEmpty ManagedAction))
-demarsManagedActions = lens _demarsManagedActions (\s a -> s {_demarsManagedActions = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'managedActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demarsManagedActions :: Lens.Lens' DescribeEnvironmentManagedActionsResponse (Lude.Maybe (Lude.NonEmpty ManagedAction))
+demarsManagedActions = Lens.lens (managedActions :: DescribeEnvironmentManagedActionsResponse -> Lude.Maybe (Lude.NonEmpty ManagedAction)) (\s a -> s {managedActions = a} :: DescribeEnvironmentManagedActionsResponse)
+{-# DEPRECATED demarsManagedActions "Use generic-lens or generic-optics with 'managedActions' instead." #-}
 
--- | -- | The response status code.
-demarsResponseStatus :: Lens' DescribeEnvironmentManagedActionsResponse Int
-demarsResponseStatus = lens _demarsResponseStatus (\s a -> s {_demarsResponseStatus = a})
-
-instance NFData DescribeEnvironmentManagedActionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demarsResponseStatus :: Lens.Lens' DescribeEnvironmentManagedActionsResponse Lude.Int
+demarsResponseStatus = Lens.lens (responseStatus :: DescribeEnvironmentManagedActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEnvironmentManagedActionsResponse)
+{-# DEPRECATED demarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

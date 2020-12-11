@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InventoryItemSchema where
+module Network.AWS.SSM.Types.InventoryItemSchema
+  ( InventoryItemSchema (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInventoryItemSchema,
+
+    -- * Lenses
+    iisVersion,
+    iisDisplayName,
+    iisTypeName,
+    iisAttributes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.InventoryItemAttribute
 
 -- | The inventory item schema definition. Users can use this to compose inventory query filters.
 --
---
---
--- /See:/ 'inventoryItemSchema' smart constructor.
+-- /See:/ 'mkInventoryItemSchema' smart constructor.
 data InventoryItemSchema = InventoryItemSchema'
-  { _iisVersion ::
-      !(Maybe Text),
-    _iisDisplayName :: !(Maybe Text),
-    _iisTypeName :: !Text,
-    _iisAttributes :: !(List1 InventoryItemAttribute)
+  { version ::
+      Lude.Maybe Lude.Text,
+    displayName :: Lude.Maybe Lude.Text,
+    typeName :: Lude.Text,
+    attributes :: Lude.NonEmpty InventoryItemAttribute
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryItemSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iisVersion' - The schema version for the inventory item.
---
--- * 'iisDisplayName' - The alias name of the inventory type. The alias name is used for display purposes.
---
--- * 'iisTypeName' - The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
---
--- * 'iisAttributes' - The schema attributes for inventory. This contains data type and attribute name.
-inventoryItemSchema ::
-  -- | 'iisTypeName'
-  Text ->
-  -- | 'iisAttributes'
-  NonEmpty InventoryItemAttribute ->
+-- * 'attributes' - The schema attributes for inventory. This contains data type and attribute name.
+-- * 'displayName' - The alias name of the inventory type. The alias name is used for display purposes.
+-- * 'typeName' - The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
+-- * 'version' - The schema version for the inventory item.
+mkInventoryItemSchema ::
+  -- | 'typeName'
+  Lude.Text ->
+  -- | 'attributes'
+  Lude.NonEmpty InventoryItemAttribute ->
   InventoryItemSchema
-inventoryItemSchema pTypeName_ pAttributes_ =
+mkInventoryItemSchema pTypeName_ pAttributes_ =
   InventoryItemSchema'
-    { _iisVersion = Nothing,
-      _iisDisplayName = Nothing,
-      _iisTypeName = pTypeName_,
-      _iisAttributes = _List1 # pAttributes_
+    { version = Lude.Nothing,
+      displayName = Lude.Nothing,
+      typeName = pTypeName_,
+      attributes = pAttributes_
     }
 
 -- | The schema version for the inventory item.
-iisVersion :: Lens' InventoryItemSchema (Maybe Text)
-iisVersion = lens _iisVersion (\s a -> s {_iisVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iisVersion :: Lens.Lens' InventoryItemSchema (Lude.Maybe Lude.Text)
+iisVersion = Lens.lens (version :: InventoryItemSchema -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: InventoryItemSchema)
+{-# DEPRECATED iisVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The alias name of the inventory type. The alias name is used for display purposes.
-iisDisplayName :: Lens' InventoryItemSchema (Maybe Text)
-iisDisplayName = lens _iisDisplayName (\s a -> s {_iisDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iisDisplayName :: Lens.Lens' InventoryItemSchema (Lude.Maybe Lude.Text)
+iisDisplayName = Lens.lens (displayName :: InventoryItemSchema -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: InventoryItemSchema)
+{-# DEPRECATED iisDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
-iisTypeName :: Lens' InventoryItemSchema Text
-iisTypeName = lens _iisTypeName (\s a -> s {_iisTypeName = a})
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iisTypeName :: Lens.Lens' InventoryItemSchema Lude.Text
+iisTypeName = Lens.lens (typeName :: InventoryItemSchema -> Lude.Text) (\s a -> s {typeName = a} :: InventoryItemSchema)
+{-# DEPRECATED iisTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The schema attributes for inventory. This contains data type and attribute name.
-iisAttributes :: Lens' InventoryItemSchema (NonEmpty InventoryItemAttribute)
-iisAttributes = lens _iisAttributes (\s a -> s {_iisAttributes = a}) . _List1
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iisAttributes :: Lens.Lens' InventoryItemSchema (Lude.NonEmpty InventoryItemAttribute)
+iisAttributes = Lens.lens (attributes :: InventoryItemSchema -> Lude.NonEmpty InventoryItemAttribute) (\s a -> s {attributes = a} :: InventoryItemSchema)
+{-# DEPRECATED iisAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance FromJSON InventoryItemSchema where
+instance Lude.FromJSON InventoryItemSchema where
   parseJSON =
-    withObject
+    Lude.withObject
       "InventoryItemSchema"
       ( \x ->
           InventoryItemSchema'
-            <$> (x .:? "Version")
-            <*> (x .:? "DisplayName")
-            <*> (x .: "TypeName")
-            <*> (x .: "Attributes")
+            Lude.<$> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "DisplayName")
+            Lude.<*> (x Lude..: "TypeName")
+            Lude.<*> (x Lude..: "Attributes")
       )
-
-instance Hashable InventoryItemSchema
-
-instance NFData InventoryItemSchema

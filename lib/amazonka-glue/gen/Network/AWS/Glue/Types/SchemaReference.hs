@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SchemaReference where
+module Network.AWS.Glue.Types.SchemaReference
+  ( SchemaReference (..),
+
+    -- * Smart constructor
+    mkSchemaReference,
+
+    -- * Lenses
+    srSchemaVersionId,
+    srSchemaId,
+    srSchemaVersionNumber,
+  )
+where
 
 import Network.AWS.Glue.Types.SchemaId
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object that references a schema stored in the AWS Glue Schema Registry.
 --
---
---
--- /See:/ 'schemaReference' smart constructor.
+-- /See:/ 'mkSchemaReference' smart constructor.
 data SchemaReference = SchemaReference'
-  { _srSchemaVersionId ::
-      !(Maybe Text),
-    _srSchemaId :: !(Maybe SchemaId),
-    _srSchemaVersionNumber :: !(Maybe Nat)
+  { schemaVersionId ::
+      Lude.Maybe Lude.Text,
+    schemaId :: Lude.Maybe SchemaId,
+    schemaVersionNumber :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaReference' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srSchemaVersionId' - The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
---
--- * 'srSchemaId' - A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
---
--- * 'srSchemaVersionNumber' - The version number of the schema.
-schemaReference ::
+-- * 'schemaId' - A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
+-- * 'schemaVersionId' - The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
+-- * 'schemaVersionNumber' - The version number of the schema.
+mkSchemaReference ::
   SchemaReference
-schemaReference =
+mkSchemaReference =
   SchemaReference'
-    { _srSchemaVersionId = Nothing,
-      _srSchemaId = Nothing,
-      _srSchemaVersionNumber = Nothing
+    { schemaVersionId = Lude.Nothing,
+      schemaId = Lude.Nothing,
+      schemaVersionNumber = Lude.Nothing
     }
 
 -- | The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
-srSchemaVersionId :: Lens' SchemaReference (Maybe Text)
-srSchemaVersionId = lens _srSchemaVersionId (\s a -> s {_srSchemaVersionId = a})
+--
+-- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srSchemaVersionId :: Lens.Lens' SchemaReference (Lude.Maybe Lude.Text)
+srSchemaVersionId = Lens.lens (schemaVersionId :: SchemaReference -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: SchemaReference)
+{-# DEPRECATED srSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
-srSchemaId :: Lens' SchemaReference (Maybe SchemaId)
-srSchemaId = lens _srSchemaId (\s a -> s {_srSchemaId = a})
+--
+-- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srSchemaId :: Lens.Lens' SchemaReference (Lude.Maybe SchemaId)
+srSchemaId = Lens.lens (schemaId :: SchemaReference -> Lude.Maybe SchemaId) (\s a -> s {schemaId = a} :: SchemaReference)
+{-# DEPRECATED srSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
 -- | The version number of the schema.
-srSchemaVersionNumber :: Lens' SchemaReference (Maybe Natural)
-srSchemaVersionNumber = lens _srSchemaVersionNumber (\s a -> s {_srSchemaVersionNumber = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'schemaVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srSchemaVersionNumber :: Lens.Lens' SchemaReference (Lude.Maybe Lude.Natural)
+srSchemaVersionNumber = Lens.lens (schemaVersionNumber :: SchemaReference -> Lude.Maybe Lude.Natural) (\s a -> s {schemaVersionNumber = a} :: SchemaReference)
+{-# DEPRECATED srSchemaVersionNumber "Use generic-lens or generic-optics with 'schemaVersionNumber' instead." #-}
 
-instance FromJSON SchemaReference where
+instance Lude.FromJSON SchemaReference where
   parseJSON =
-    withObject
+    Lude.withObject
       "SchemaReference"
       ( \x ->
           SchemaReference'
-            <$> (x .:? "SchemaVersionId")
-            <*> (x .:? "SchemaId")
-            <*> (x .:? "SchemaVersionNumber")
+            Lude.<$> (x Lude..:? "SchemaVersionId")
+            Lude.<*> (x Lude..:? "SchemaId")
+            Lude.<*> (x Lude..:? "SchemaVersionNumber")
       )
 
-instance Hashable SchemaReference
-
-instance NFData SchemaReference
-
-instance ToJSON SchemaReference where
+instance Lude.ToJSON SchemaReference where
   toJSON SchemaReference' {..} =
-    object
-      ( catMaybes
-          [ ("SchemaVersionId" .=) <$> _srSchemaVersionId,
-            ("SchemaId" .=) <$> _srSchemaId,
-            ("SchemaVersionNumber" .=) <$> _srSchemaVersionNumber
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SchemaVersionId" Lude..=) Lude.<$> schemaVersionId,
+            ("SchemaId" Lude..=) Lude.<$> schemaId,
+            ("SchemaVersionNumber" Lude..=) Lude.<$> schemaVersionNumber
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.RevocationReason where
+module Network.AWS.CertificateManagerPCA.Types.RevocationReason
+  ( RevocationReason
+      ( RevocationReason',
+        AACompromise,
+        AffiliationChanged,
+        CertificateAuthorityCompromise,
+        CessationOfOperation,
+        KeyCompromise,
+        PrivilegeWithdrawn,
+        Superseded,
+        Unspecified
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RevocationReason
-  = AACompromise
-  | AffiliationChanged
-  | CertificateAuthorityCompromise
-  | CessationOfOperation
-  | KeyCompromise
-  | PrivilegeWithdrawn
-  | Superseded
-  | Unspecified
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RevocationReason = RevocationReason' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RevocationReason where
-  parser =
-    takeLowerText >>= \case
-      "a_a_compromise" -> pure AACompromise
-      "affiliation_changed" -> pure AffiliationChanged
-      "certificate_authority_compromise" -> pure CertificateAuthorityCompromise
-      "cessation_of_operation" -> pure CessationOfOperation
-      "key_compromise" -> pure KeyCompromise
-      "privilege_withdrawn" -> pure PrivilegeWithdrawn
-      "superseded" -> pure Superseded
-      "unspecified" -> pure Unspecified
-      e ->
-        fromTextError $
-          "Failure parsing RevocationReason from value: '" <> e
-            <> "'. Accepted values: a_a_compromise, affiliation_changed, certificate_authority_compromise, cessation_of_operation, key_compromise, privilege_withdrawn, superseded, unspecified"
+pattern AACompromise :: RevocationReason
+pattern AACompromise = RevocationReason' "A_A_COMPROMISE"
 
-instance ToText RevocationReason where
-  toText = \case
-    AACompromise -> "A_A_COMPROMISE"
-    AffiliationChanged -> "AFFILIATION_CHANGED"
-    CertificateAuthorityCompromise -> "CERTIFICATE_AUTHORITY_COMPROMISE"
-    CessationOfOperation -> "CESSATION_OF_OPERATION"
-    KeyCompromise -> "KEY_COMPROMISE"
-    PrivilegeWithdrawn -> "PRIVILEGE_WITHDRAWN"
-    Superseded -> "SUPERSEDED"
-    Unspecified -> "UNSPECIFIED"
+pattern AffiliationChanged :: RevocationReason
+pattern AffiliationChanged = RevocationReason' "AFFILIATION_CHANGED"
 
-instance Hashable RevocationReason
+pattern CertificateAuthorityCompromise :: RevocationReason
+pattern CertificateAuthorityCompromise = RevocationReason' "CERTIFICATE_AUTHORITY_COMPROMISE"
 
-instance NFData RevocationReason
+pattern CessationOfOperation :: RevocationReason
+pattern CessationOfOperation = RevocationReason' "CESSATION_OF_OPERATION"
 
-instance ToByteString RevocationReason
+pattern KeyCompromise :: RevocationReason
+pattern KeyCompromise = RevocationReason' "KEY_COMPROMISE"
 
-instance ToQuery RevocationReason
+pattern PrivilegeWithdrawn :: RevocationReason
+pattern PrivilegeWithdrawn = RevocationReason' "PRIVILEGE_WITHDRAWN"
 
-instance ToHeader RevocationReason
+pattern Superseded :: RevocationReason
+pattern Superseded = RevocationReason' "SUPERSEDED"
 
-instance ToJSON RevocationReason where
-  toJSON = toJSONText
+pattern Unspecified :: RevocationReason
+pattern Unspecified = RevocationReason' "UNSPECIFIED"
+
+{-# COMPLETE
+  AACompromise,
+  AffiliationChanged,
+  CertificateAuthorityCompromise,
+  CessationOfOperation,
+  KeyCompromise,
+  PrivilegeWithdrawn,
+  Superseded,
+  Unspecified,
+  RevocationReason'
+  #-}

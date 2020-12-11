@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,81 +14,90 @@
 --
 -- Deletes a scheduled action.
 module Network.AWS.Redshift.DeleteScheduledAction
-  ( -- * Creating a Request
-    deleteScheduledAction,
-    DeleteScheduledAction,
+  ( -- * Creating a request
+    DeleteScheduledAction (..),
+    mkDeleteScheduledAction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsaScheduledActionName,
 
-    -- * Destructuring the Response
-    deleteScheduledActionResponse,
-    DeleteScheduledActionResponse,
+    -- * Destructuring the response
+    DeleteScheduledActionResponse (..),
+    mkDeleteScheduledActionResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteScheduledAction' smart constructor.
+-- | /See:/ 'mkDeleteScheduledAction' smart constructor.
 newtype DeleteScheduledAction = DeleteScheduledAction'
-  { _dsaScheduledActionName ::
-      Text
+  { scheduledActionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduledAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsaScheduledActionName' - The name of the scheduled action to delete.
-deleteScheduledAction ::
-  -- | 'dsaScheduledActionName'
-  Text ->
+-- * 'scheduledActionName' - The name of the scheduled action to delete.
+mkDeleteScheduledAction ::
+  -- | 'scheduledActionName'
+  Lude.Text ->
   DeleteScheduledAction
-deleteScheduledAction pScheduledActionName_ =
+mkDeleteScheduledAction pScheduledActionName_ =
   DeleteScheduledAction'
-    { _dsaScheduledActionName =
+    { scheduledActionName =
         pScheduledActionName_
     }
 
 -- | The name of the scheduled action to delete.
-dsaScheduledActionName :: Lens' DeleteScheduledAction Text
-dsaScheduledActionName = lens _dsaScheduledActionName (\s a -> s {_dsaScheduledActionName = a})
+--
+-- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaScheduledActionName :: Lens.Lens' DeleteScheduledAction Lude.Text
+dsaScheduledActionName = Lens.lens (scheduledActionName :: DeleteScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: DeleteScheduledAction)
+{-# DEPRECATED dsaScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
-instance AWSRequest DeleteScheduledAction where
+instance Lude.AWSRequest DeleteScheduledAction where
   type Rs DeleteScheduledAction = DeleteScheduledActionResponse
-  request = postQuery redshift
-  response = receiveNull DeleteScheduledActionResponse'
+  request = Req.postQuery redshiftService
+  response = Res.receiveNull DeleteScheduledActionResponse'
 
-instance Hashable DeleteScheduledAction
+instance Lude.ToHeaders DeleteScheduledAction where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteScheduledAction
+instance Lude.ToPath DeleteScheduledAction where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteScheduledAction where
-  toHeaders = const mempty
-
-instance ToPath DeleteScheduledAction where
-  toPath = const "/"
-
-instance ToQuery DeleteScheduledAction where
+instance Lude.ToQuery DeleteScheduledAction where
   toQuery DeleteScheduledAction' {..} =
-    mconcat
-      [ "Action" =: ("DeleteScheduledAction" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ScheduledActionName" =: _dsaScheduledActionName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteScheduledAction" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ScheduledActionName" Lude.=: scheduledActionName
       ]
 
--- | /See:/ 'deleteScheduledActionResponse' smart constructor.
+-- | /See:/ 'mkDeleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduledActionResponse' with the minimum fields required to make a request.
-deleteScheduledActionResponse ::
+mkDeleteScheduledActionResponse ::
   DeleteScheduledActionResponse
-deleteScheduledActionResponse = DeleteScheduledActionResponse'
-
-instance NFData DeleteScheduledActionResponse
+mkDeleteScheduledActionResponse = DeleteScheduledActionResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ImageActionType where
+module Network.AWS.ECR.Types.ImageActionType
+  ( ImageActionType
+      ( ImageActionType',
+        Expire
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImageActionType = Expire
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImageActionType = ImageActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImageActionType where
-  parser =
-    takeLowerText >>= \case
-      "expire" -> pure Expire
-      e ->
-        fromTextError $
-          "Failure parsing ImageActionType from value: '" <> e
-            <> "'. Accepted values: expire"
+pattern Expire :: ImageActionType
+pattern Expire = ImageActionType' "EXPIRE"
 
-instance ToText ImageActionType where
-  toText = \case
-    Expire -> "EXPIRE"
-
-instance Hashable ImageActionType
-
-instance NFData ImageActionType
-
-instance ToByteString ImageActionType
-
-instance ToQuery ImageActionType
-
-instance ToHeader ImageActionType
-
-instance FromJSON ImageActionType where
-  parseJSON = parseJSONText "ImageActionType"
+{-# COMPLETE
+  Expire,
+  ImageActionType'
+  #-}

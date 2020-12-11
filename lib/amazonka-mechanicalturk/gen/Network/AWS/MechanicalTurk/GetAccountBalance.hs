@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,126 @@
 --
 -- The @GetAccountBalance@ operation retrieves the amount of money in your Amazon Mechanical Turk account.
 module Network.AWS.MechanicalTurk.GetAccountBalance
-  ( -- * Creating a Request
-    getAccountBalance,
-    GetAccountBalance,
+  ( -- * Creating a request
+    GetAccountBalance (..),
+    mkGetAccountBalance,
 
-    -- * Destructuring the Response
-    getAccountBalanceResponse,
-    GetAccountBalanceResponse,
+    -- * Destructuring the response
+    GetAccountBalanceResponse (..),
+    mkGetAccountBalanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gabrsAvailableBalance,
     gabrsOnHoldBalance,
     gabrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAccountBalance' smart constructor.
+-- | /See:/ 'mkGetAccountBalance' smart constructor.
 data GetAccountBalance = GetAccountBalance'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountBalance' with the minimum fields required to make a request.
-getAccountBalance ::
+mkGetAccountBalance ::
   GetAccountBalance
-getAccountBalance = GetAccountBalance'
+mkGetAccountBalance = GetAccountBalance'
 
-instance AWSRequest GetAccountBalance where
+instance Lude.AWSRequest GetAccountBalance where
   type Rs GetAccountBalance = GetAccountBalanceResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAccountBalanceResponse'
-            <$> (x .?> "AvailableBalance")
-            <*> (x .?> "OnHoldBalance")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AvailableBalance")
+            Lude.<*> (x Lude..?> "OnHoldBalance")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAccountBalance
-
-instance NFData GetAccountBalance
-
-instance ToHeaders GetAccountBalance where
+instance Lude.ToHeaders GetAccountBalance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.GetAccountBalance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.GetAccountBalance" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAccountBalance where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetAccountBalance where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetAccountBalance where
-  toPath = const "/"
+instance Lude.ToPath GetAccountBalance where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAccountBalance where
-  toQuery = const mempty
+instance Lude.ToQuery GetAccountBalance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAccountBalanceResponse' smart constructor.
+-- | /See:/ 'mkGetAccountBalanceResponse' smart constructor.
 data GetAccountBalanceResponse = GetAccountBalanceResponse'
-  { _gabrsAvailableBalance ::
-      !(Maybe Text),
-    _gabrsOnHoldBalance :: !(Maybe Text),
-    _gabrsResponseStatus :: !Int
+  { availableBalance ::
+      Lude.Maybe Lude.Text,
+    onHoldBalance :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountBalanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gabrsAvailableBalance' - Undocumented member.
---
--- * 'gabrsOnHoldBalance' - Undocumented member.
---
--- * 'gabrsResponseStatus' - -- | The response status code.
-getAccountBalanceResponse ::
-  -- | 'gabrsResponseStatus'
-  Int ->
+-- * 'availableBalance' - Undocumented field.
+-- * 'onHoldBalance' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetAccountBalanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAccountBalanceResponse
-getAccountBalanceResponse pResponseStatus_ =
+mkGetAccountBalanceResponse pResponseStatus_ =
   GetAccountBalanceResponse'
-    { _gabrsAvailableBalance = Nothing,
-      _gabrsOnHoldBalance = Nothing,
-      _gabrsResponseStatus = pResponseStatus_
+    { availableBalance = Lude.Nothing,
+      onHoldBalance = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-gabrsAvailableBalance :: Lens' GetAccountBalanceResponse (Maybe Text)
-gabrsAvailableBalance = lens _gabrsAvailableBalance (\s a -> s {_gabrsAvailableBalance = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'availableBalance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gabrsAvailableBalance :: Lens.Lens' GetAccountBalanceResponse (Lude.Maybe Lude.Text)
+gabrsAvailableBalance = Lens.lens (availableBalance :: GetAccountBalanceResponse -> Lude.Maybe Lude.Text) (\s a -> s {availableBalance = a} :: GetAccountBalanceResponse)
+{-# DEPRECATED gabrsAvailableBalance "Use generic-lens or generic-optics with 'availableBalance' instead." #-}
 
--- | Undocumented member.
-gabrsOnHoldBalance :: Lens' GetAccountBalanceResponse (Maybe Text)
-gabrsOnHoldBalance = lens _gabrsOnHoldBalance (\s a -> s {_gabrsOnHoldBalance = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'onHoldBalance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gabrsOnHoldBalance :: Lens.Lens' GetAccountBalanceResponse (Lude.Maybe Lude.Text)
+gabrsOnHoldBalance = Lens.lens (onHoldBalance :: GetAccountBalanceResponse -> Lude.Maybe Lude.Text) (\s a -> s {onHoldBalance = a} :: GetAccountBalanceResponse)
+{-# DEPRECATED gabrsOnHoldBalance "Use generic-lens or generic-optics with 'onHoldBalance' instead." #-}
 
--- | -- | The response status code.
-gabrsResponseStatus :: Lens' GetAccountBalanceResponse Int
-gabrsResponseStatus = lens _gabrsResponseStatus (\s a -> s {_gabrsResponseStatus = a})
-
-instance NFData GetAccountBalanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gabrsResponseStatus :: Lens.Lens' GetAccountBalanceResponse Lude.Int
+gabrsResponseStatus = Lens.lens (responseStatus :: GetAccountBalanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountBalanceResponse)
+{-# DEPRECATED gabrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory where
+module Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory
+  ( TestGridSessionArtifactCategory
+      ( TestGridSessionArtifactCategory',
+        TGSACLog,
+        TGSACVideo
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TestGridSessionArtifactCategory
-  = TGSACLog
-  | TGSACVideo
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TestGridSessionArtifactCategory = TestGridSessionArtifactCategory' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TestGridSessionArtifactCategory where
-  parser =
-    takeLowerText >>= \case
-      "log" -> pure TGSACLog
-      "video" -> pure TGSACVideo
-      e ->
-        fromTextError $
-          "Failure parsing TestGridSessionArtifactCategory from value: '" <> e
-            <> "'. Accepted values: log, video"
+pattern TGSACLog :: TestGridSessionArtifactCategory
+pattern TGSACLog = TestGridSessionArtifactCategory' "LOG"
 
-instance ToText TestGridSessionArtifactCategory where
-  toText = \case
-    TGSACLog -> "LOG"
-    TGSACVideo -> "VIDEO"
+pattern TGSACVideo :: TestGridSessionArtifactCategory
+pattern TGSACVideo = TestGridSessionArtifactCategory' "VIDEO"
 
-instance Hashable TestGridSessionArtifactCategory
-
-instance NFData TestGridSessionArtifactCategory
-
-instance ToByteString TestGridSessionArtifactCategory
-
-instance ToQuery TestGridSessionArtifactCategory
-
-instance ToHeader TestGridSessionArtifactCategory
-
-instance ToJSON TestGridSessionArtifactCategory where
-  toJSON = toJSONText
+{-# COMPLETE
+  TGSACLog,
+  TGSACVideo,
+  TestGridSessionArtifactCategory'
+  #-}

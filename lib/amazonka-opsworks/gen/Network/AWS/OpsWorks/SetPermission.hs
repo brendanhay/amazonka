@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,188 @@
 --
 -- Specifies a user's permissions. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html Security and Permissions> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.SetPermission
-  ( -- * Creating a Request
-    setPermission,
-    SetPermission,
+  ( -- * Creating a request
+    SetPermission (..),
+    mkSetPermission,
 
-    -- * Request Lenses
+    -- ** Request lenses
     spAllowSudo,
     spLevel,
     spAllowSSH,
     spStackId,
     spIAMUserARN,
 
-    -- * Destructuring the Response
-    setPermissionResponse,
-    SetPermissionResponse,
+    -- * Destructuring the response
+    SetPermissionResponse (..),
+    mkSetPermissionResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'setPermission' smart constructor.
+-- | /See:/ 'mkSetPermission' smart constructor.
 data SetPermission = SetPermission'
-  { _spAllowSudo :: !(Maybe Bool),
-    _spLevel :: !(Maybe Text),
-    _spAllowSSH :: !(Maybe Bool),
-    _spStackId :: !Text,
-    _spIAMUserARN :: !Text
+  { allowSudo ::
+      Lude.Maybe Lude.Bool,
+    level :: Lude.Maybe Lude.Text,
+    allowSSH :: Lude.Maybe Lude.Bool,
+    stackId :: Lude.Text,
+    iamUserARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetPermission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allowSSH' - The user is allowed to use SSH to communicate with the instance.
+-- * 'allowSudo' - The user is allowed to use __sudo__ to elevate privileges.
+-- * 'iamUserARN' - The user's IAM ARN. This can also be a federated user's ARN.
+-- * 'level' - The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.
 --
--- * 'spAllowSudo' - The user is allowed to use __sudo__ to elevate privileges.
 --
--- * 'spLevel' - The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information about the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--     * @deny@
 --
--- * 'spAllowSSH' - The user is allowed to use SSH to communicate with the instance.
 --
--- * 'spStackId' - The stack ID.
+--     * @show@
 --
--- * 'spIAMUserARN' - The user's IAM ARN. This can also be a federated user's ARN.
-setPermission ::
-  -- | 'spStackId'
-  Text ->
-  -- | 'spIAMUserARN'
-  Text ->
+--
+--     * @deploy@
+--
+--
+--     * @manage@
+--
+--
+--     * @iam_only@
+--
+--
+-- For more information about the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+-- * 'stackId' - The stack ID.
+mkSetPermission ::
+  -- | 'stackId'
+  Lude.Text ->
+  -- | 'iamUserARN'
+  Lude.Text ->
   SetPermission
-setPermission pStackId_ pIAMUserARN_ =
+mkSetPermission pStackId_ pIAMUserARN_ =
   SetPermission'
-    { _spAllowSudo = Nothing,
-      _spLevel = Nothing,
-      _spAllowSSH = Nothing,
-      _spStackId = pStackId_,
-      _spIAMUserARN = pIAMUserARN_
+    { allowSudo = Lude.Nothing,
+      level = Lude.Nothing,
+      allowSSH = Lude.Nothing,
+      stackId = pStackId_,
+      iamUserARN = pIAMUserARN_
     }
 
 -- | The user is allowed to use __sudo__ to elevate privileges.
-spAllowSudo :: Lens' SetPermission (Maybe Bool)
-spAllowSudo = lens _spAllowSudo (\s a -> s {_spAllowSudo = a})
+--
+-- /Note:/ Consider using 'allowSudo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spAllowSudo :: Lens.Lens' SetPermission (Lude.Maybe Lude.Bool)
+spAllowSudo = Lens.lens (allowSudo :: SetPermission -> Lude.Maybe Lude.Bool) (\s a -> s {allowSudo = a} :: SetPermission)
+{-# DEPRECATED spAllowSudo "Use generic-lens or generic-optics with 'allowSudo' instead." #-}
 
--- | The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information about the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
-spLevel :: Lens' SetPermission (Maybe Text)
-spLevel = lens _spLevel (\s a -> s {_spLevel = a})
+-- | The user's permission level, which must be set to one of the following strings. You cannot set your own permissions level.
+--
+--
+--     * @deny@
+--
+--
+--     * @show@
+--
+--
+--     * @deploy@
+--
+--
+--     * @manage@
+--
+--
+--     * @iam_only@
+--
+--
+-- For more information about the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
+--
+-- /Note:/ Consider using 'level' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spLevel :: Lens.Lens' SetPermission (Lude.Maybe Lude.Text)
+spLevel = Lens.lens (level :: SetPermission -> Lude.Maybe Lude.Text) (\s a -> s {level = a} :: SetPermission)
+{-# DEPRECATED spLevel "Use generic-lens or generic-optics with 'level' instead." #-}
 
 -- | The user is allowed to use SSH to communicate with the instance.
-spAllowSSH :: Lens' SetPermission (Maybe Bool)
-spAllowSSH = lens _spAllowSSH (\s a -> s {_spAllowSSH = a})
+--
+-- /Note:/ Consider using 'allowSSH' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spAllowSSH :: Lens.Lens' SetPermission (Lude.Maybe Lude.Bool)
+spAllowSSH = Lens.lens (allowSSH :: SetPermission -> Lude.Maybe Lude.Bool) (\s a -> s {allowSSH = a} :: SetPermission)
+{-# DEPRECATED spAllowSSH "Use generic-lens or generic-optics with 'allowSSH' instead." #-}
 
 -- | The stack ID.
-spStackId :: Lens' SetPermission Text
-spStackId = lens _spStackId (\s a -> s {_spStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spStackId :: Lens.Lens' SetPermission Lude.Text
+spStackId = Lens.lens (stackId :: SetPermission -> Lude.Text) (\s a -> s {stackId = a} :: SetPermission)
+{-# DEPRECATED spStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The user's IAM ARN. This can also be a federated user's ARN.
-spIAMUserARN :: Lens' SetPermission Text
-spIAMUserARN = lens _spIAMUserARN (\s a -> s {_spIAMUserARN = a})
+--
+-- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spIAMUserARN :: Lens.Lens' SetPermission Lude.Text
+spIAMUserARN = Lens.lens (iamUserARN :: SetPermission -> Lude.Text) (\s a -> s {iamUserARN = a} :: SetPermission)
+{-# DEPRECATED spIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
 
-instance AWSRequest SetPermission where
+instance Lude.AWSRequest SetPermission where
   type Rs SetPermission = SetPermissionResponse
-  request = postJSON opsWorks
-  response = receiveNull SetPermissionResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull SetPermissionResponse'
 
-instance Hashable SetPermission
-
-instance NFData SetPermission
-
-instance ToHeaders SetPermission where
+instance Lude.ToHeaders SetPermission where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.SetPermission" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.SetPermission" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SetPermission where
+instance Lude.ToJSON SetPermission where
   toJSON SetPermission' {..} =
-    object
-      ( catMaybes
-          [ ("AllowSudo" .=) <$> _spAllowSudo,
-            ("Level" .=) <$> _spLevel,
-            ("AllowSsh" .=) <$> _spAllowSSH,
-            Just ("StackId" .= _spStackId),
-            Just ("IamUserArn" .= _spIAMUserARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AllowSudo" Lude..=) Lude.<$> allowSudo,
+            ("Level" Lude..=) Lude.<$> level,
+            ("AllowSsh" Lude..=) Lude.<$> allowSSH,
+            Lude.Just ("StackId" Lude..= stackId),
+            Lude.Just ("IamUserArn" Lude..= iamUserARN)
           ]
       )
 
-instance ToPath SetPermission where
-  toPath = const "/"
+instance Lude.ToPath SetPermission where
+  toPath = Lude.const "/"
 
-instance ToQuery SetPermission where
-  toQuery = const mempty
+instance Lude.ToQuery SetPermission where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'setPermissionResponse' smart constructor.
+-- | /See:/ 'mkSetPermissionResponse' smart constructor.
 data SetPermissionResponse = SetPermissionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetPermissionResponse' with the minimum fields required to make a request.
-setPermissionResponse ::
+mkSetPermissionResponse ::
   SetPermissionResponse
-setPermissionResponse = SetPermissionResponse'
-
-instance NFData SetPermissionResponse
+mkSetPermissionResponse = SetPermissionResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,176 @@
 --
 -- The @Select@ operation returns a set of attributes for @ItemNames@ that match the select expression. @Select@ is similar to the standard SQL SELECT statement.
 --
---
 -- The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate @NextToken@ so the client can access the next page of results.
---
 -- For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.SDB.Select
-  ( -- * Creating a Request
-    select,
-    Select,
+  ( -- * Creating a request
+    Select (..),
+    mkSelect,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sConsistentRead,
     sNextToken,
     sSelectExpression,
 
-    -- * Destructuring the Response
-    selectResponse,
-    SelectResponse,
+    -- * Destructuring the response
+    SelectResponse (..),
+    mkSelectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsItems,
     srsNextToken,
     srsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SDB.Types
 
--- | /See:/ 'select' smart constructor.
+-- | /See:/ 'mkSelect' smart constructor.
 data Select = Select'
-  { _sConsistentRead :: !(Maybe Bool),
-    _sNextToken :: !(Maybe Text),
-    _sSelectExpression :: !Text
+  { consistentRead :: Lude.Maybe Lude.Bool,
+    nextToken :: Lude.Maybe Lude.Text,
+    selectExpression :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Select' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sConsistentRead' - @true@
---
--- * 'sNextToken' - @ItemNames@
---
--- * 'sSelectExpression' - The expression used to query the domain.
-select ::
-  -- | 'sSelectExpression'
-  Text ->
+-- * 'consistentRead' - @true@
+-- * 'nextToken' - @ItemNames@
+-- * 'selectExpression' - The expression used to query the domain.
+mkSelect ::
+  -- | 'selectExpression'
+  Lude.Text ->
   Select
-select pSelectExpression_ =
+mkSelect pSelectExpression_ =
   Select'
-    { _sConsistentRead = Nothing,
-      _sNextToken = Nothing,
-      _sSelectExpression = pSelectExpression_
+    { consistentRead = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      selectExpression = pSelectExpression_
     }
 
 -- | @true@
-sConsistentRead :: Lens' Select (Maybe Bool)
-sConsistentRead = lens _sConsistentRead (\s a -> s {_sConsistentRead = a})
+--
+-- /Note:/ Consider using 'consistentRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sConsistentRead :: Lens.Lens' Select (Lude.Maybe Lude.Bool)
+sConsistentRead = Lens.lens (consistentRead :: Select -> Lude.Maybe Lude.Bool) (\s a -> s {consistentRead = a} :: Select)
+{-# DEPRECATED sConsistentRead "Use generic-lens or generic-optics with 'consistentRead' instead." #-}
 
 -- | @ItemNames@
-sNextToken :: Lens' Select (Maybe Text)
-sNextToken = lens _sNextToken (\s a -> s {_sNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sNextToken :: Lens.Lens' Select (Lude.Maybe Lude.Text)
+sNextToken = Lens.lens (nextToken :: Select -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: Select)
+{-# DEPRECATED sNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The expression used to query the domain.
-sSelectExpression :: Lens' Select Text
-sSelectExpression = lens _sSelectExpression (\s a -> s {_sSelectExpression = a})
+--
+-- /Note:/ Consider using 'selectExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSelectExpression :: Lens.Lens' Select Lude.Text
+sSelectExpression = Lens.lens (selectExpression :: Select -> Lude.Text) (\s a -> s {selectExpression = a} :: Select)
+{-# DEPRECATED sSelectExpression "Use generic-lens or generic-optics with 'selectExpression' instead." #-}
 
-instance AWSPager Select where
+instance Page.AWSPager Select where
   page rq rs
-    | stop (rs ^. srsNextToken) = Nothing
-    | stop (rs ^. srsItems) = Nothing
-    | otherwise = Just $ rq & sNextToken .~ rs ^. srsNextToken
+    | Page.stop (rs Lens.^. srsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. srsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& sNextToken Lens..~ rs Lens.^. srsNextToken
 
-instance AWSRequest Select where
+instance Lude.AWSRequest Select where
   type Rs Select = SelectResponse
-  request = postQuery sdb
+  request = Req.postQuery sdbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "SelectResult"
       ( \s h x ->
           SelectResponse'
-            <$> (may (parseXMLList "Item") x)
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (Lude.may (Lude.parseXMLList "Item") x)
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable Select
+instance Lude.ToHeaders Select where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData Select
+instance Lude.ToPath Select where
+  toPath = Lude.const "/"
 
-instance ToHeaders Select where
-  toHeaders = const mempty
-
-instance ToPath Select where
-  toPath = const "/"
-
-instance ToQuery Select where
+instance Lude.ToQuery Select where
   toQuery Select' {..} =
-    mconcat
-      [ "Action" =: ("Select" :: ByteString),
-        "Version" =: ("2009-04-15" :: ByteString),
-        "ConsistentRead" =: _sConsistentRead,
-        "NextToken" =: _sNextToken,
-        "SelectExpression" =: _sSelectExpression
+    Lude.mconcat
+      [ "Action" Lude.=: ("Select" :: Lude.ByteString),
+        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
+        "ConsistentRead" Lude.=: consistentRead,
+        "NextToken" Lude.=: nextToken,
+        "SelectExpression" Lude.=: selectExpression
       ]
 
--- | /See:/ 'selectResponse' smart constructor.
+-- | /See:/ 'mkSelectResponse' smart constructor.
 data SelectResponse = SelectResponse'
-  { _srsItems :: !(Maybe [Item]),
-    _srsNextToken :: !(Maybe Text),
-    _srsResponseStatus :: !Int
+  { items :: Lude.Maybe [Item],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsItems' - A list of items that match the select expression.
---
--- * 'srsNextToken' - @MaxNumberOfItems@
---
--- * 'srsResponseStatus' - -- | The response status code.
-selectResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'items' - A list of items that match the select expression.
+-- * 'nextToken' - @MaxNumberOfItems@
+-- * 'responseStatus' - The response status code.
+mkSelectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SelectResponse
-selectResponse pResponseStatus_ =
+mkSelectResponse pResponseStatus_ =
   SelectResponse'
-    { _srsItems = Nothing,
-      _srsNextToken = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of items that match the select expression.
-srsItems :: Lens' SelectResponse [Item]
-srsItems = lens _srsItems (\s a -> s {_srsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsItems :: Lens.Lens' SelectResponse (Lude.Maybe [Item])
+srsItems = Lens.lens (items :: SelectResponse -> Lude.Maybe [Item]) (\s a -> s {items = a} :: SelectResponse)
+{-# DEPRECATED srsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | @MaxNumberOfItems@
-srsNextToken :: Lens' SelectResponse (Maybe Text)
-srsNextToken = lens _srsNextToken (\s a -> s {_srsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsNextToken :: Lens.Lens' SelectResponse (Lude.Maybe Lude.Text)
+srsNextToken = Lens.lens (nextToken :: SelectResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SelectResponse)
+{-# DEPRECATED srsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' SelectResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData SelectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' SelectResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: SelectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SelectResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

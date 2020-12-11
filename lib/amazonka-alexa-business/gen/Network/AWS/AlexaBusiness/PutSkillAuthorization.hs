@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,148 @@
 --
 -- Links a user's account to a third-party skill provider. If this API operation is called by an assumed IAM role, the skill being linked must be a private skill. Also, the skill must be owned by the AWS account that assumed the IAM role.
 module Network.AWS.AlexaBusiness.PutSkillAuthorization
-  ( -- * Creating a Request
-    putSkillAuthorization,
-    PutSkillAuthorization,
+  ( -- * Creating a request
+    PutSkillAuthorization (..),
+    mkPutSkillAuthorization,
 
-    -- * Request Lenses
+    -- ** Request lenses
     psaRoomARN,
     psaAuthorizationResult,
     psaSkillId,
 
-    -- * Destructuring the Response
-    putSkillAuthorizationResponse,
-    PutSkillAuthorizationResponse,
+    -- * Destructuring the response
+    PutSkillAuthorizationResponse (..),
+    mkPutSkillAuthorizationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     psarsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putSkillAuthorization' smart constructor.
+-- | /See:/ 'mkPutSkillAuthorization' smart constructor.
 data PutSkillAuthorization = PutSkillAuthorization'
-  { _psaRoomARN ::
-      !(Maybe Text),
-    _psaAuthorizationResult ::
-      !(Sensitive (Map Text (Text))),
-    _psaSkillId :: !Text
+  { roomARN ::
+      Lude.Maybe Lude.Text,
+    authorizationResult ::
+      Lude.HashMap Lude.Text (Lude.Text),
+    skillId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSkillAuthorization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psaRoomARN' - The room that the skill is authorized for.
---
--- * 'psaAuthorizationResult' - The authorization result specific to OAUTH code grant output. "Code” must be populated in the AuthorizationResult map to establish the authorization.
---
--- * 'psaSkillId' - The unique identifier of a skill.
-putSkillAuthorization ::
-  -- | 'psaSkillId'
-  Text ->
+-- * 'authorizationResult' - The authorization result specific to OAUTH code grant output. "Code” must be populated in the AuthorizationResult map to establish the authorization.
+-- * 'roomARN' - The room that the skill is authorized for.
+-- * 'skillId' - The unique identifier of a skill.
+mkPutSkillAuthorization ::
+  -- | 'skillId'
+  Lude.Text ->
   PutSkillAuthorization
-putSkillAuthorization pSkillId_ =
+mkPutSkillAuthorization pSkillId_ =
   PutSkillAuthorization'
-    { _psaRoomARN = Nothing,
-      _psaAuthorizationResult = mempty,
-      _psaSkillId = pSkillId_
+    { roomARN = Lude.Nothing,
+      authorizationResult = Lude.mempty,
+      skillId = pSkillId_
     }
 
 -- | The room that the skill is authorized for.
-psaRoomARN :: Lens' PutSkillAuthorization (Maybe Text)
-psaRoomARN = lens _psaRoomARN (\s a -> s {_psaRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psaRoomARN :: Lens.Lens' PutSkillAuthorization (Lude.Maybe Lude.Text)
+psaRoomARN = Lens.lens (roomARN :: PutSkillAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: PutSkillAuthorization)
+{-# DEPRECATED psaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 -- | The authorization result specific to OAUTH code grant output. "Code” must be populated in the AuthorizationResult map to establish the authorization.
-psaAuthorizationResult :: Lens' PutSkillAuthorization (HashMap Text (Text))
-psaAuthorizationResult = lens _psaAuthorizationResult (\s a -> s {_psaAuthorizationResult = a}) . _Sensitive . _Map
+--
+-- /Note:/ Consider using 'authorizationResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psaAuthorizationResult :: Lens.Lens' PutSkillAuthorization (Lude.HashMap Lude.Text (Lude.Text))
+psaAuthorizationResult = Lens.lens (authorizationResult :: PutSkillAuthorization -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {authorizationResult = a} :: PutSkillAuthorization)
+{-# DEPRECATED psaAuthorizationResult "Use generic-lens or generic-optics with 'authorizationResult' instead." #-}
 
 -- | The unique identifier of a skill.
-psaSkillId :: Lens' PutSkillAuthorization Text
-psaSkillId = lens _psaSkillId (\s a -> s {_psaSkillId = a})
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psaSkillId :: Lens.Lens' PutSkillAuthorization Lude.Text
+psaSkillId = Lens.lens (skillId :: PutSkillAuthorization -> Lude.Text) (\s a -> s {skillId = a} :: PutSkillAuthorization)
+{-# DEPRECATED psaSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
-instance AWSRequest PutSkillAuthorization where
+instance Lude.AWSRequest PutSkillAuthorization where
   type Rs PutSkillAuthorization = PutSkillAuthorizationResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> PutSkillAuthorizationResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          PutSkillAuthorizationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutSkillAuthorization
-
-instance NFData PutSkillAuthorization
-
-instance ToHeaders PutSkillAuthorization where
+instance Lude.ToHeaders PutSkillAuthorization where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.PutSkillAuthorization" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.PutSkillAuthorization" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutSkillAuthorization where
+instance Lude.ToJSON PutSkillAuthorization where
   toJSON PutSkillAuthorization' {..} =
-    object
-      ( catMaybes
-          [ ("RoomArn" .=) <$> _psaRoomARN,
-            Just ("AuthorizationResult" .= _psaAuthorizationResult),
-            Just ("SkillId" .= _psaSkillId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RoomArn" Lude..=) Lude.<$> roomARN,
+            Lude.Just ("AuthorizationResult" Lude..= authorizationResult),
+            Lude.Just ("SkillId" Lude..= skillId)
           ]
       )
 
-instance ToPath PutSkillAuthorization where
-  toPath = const "/"
+instance Lude.ToPath PutSkillAuthorization where
+  toPath = Lude.const "/"
 
-instance ToQuery PutSkillAuthorization where
-  toQuery = const mempty
+instance Lude.ToQuery PutSkillAuthorization where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putSkillAuthorizationResponse' smart constructor.
+-- | /See:/ 'mkPutSkillAuthorizationResponse' smart constructor.
 newtype PutSkillAuthorizationResponse = PutSkillAuthorizationResponse'
-  { _psarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSkillAuthorizationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psarsResponseStatus' - -- | The response status code.
-putSkillAuthorizationResponse ::
-  -- | 'psarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutSkillAuthorizationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutSkillAuthorizationResponse
-putSkillAuthorizationResponse pResponseStatus_ =
-  PutSkillAuthorizationResponse'
-    { _psarsResponseStatus =
-        pResponseStatus_
-    }
+mkPutSkillAuthorizationResponse pResponseStatus_ =
+  PutSkillAuthorizationResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-psarsResponseStatus :: Lens' PutSkillAuthorizationResponse Int
-psarsResponseStatus = lens _psarsResponseStatus (\s a -> s {_psarsResponseStatus = a})
-
-instance NFData PutSkillAuthorizationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psarsResponseStatus :: Lens.Lens' PutSkillAuthorizationResponse Lude.Int
+psarsResponseStatus = Lens.lens (responseStatus :: PutSkillAuthorizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutSkillAuthorizationResponse)
+{-# DEPRECATED psarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

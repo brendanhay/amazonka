@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ReplicationTime where
+module Network.AWS.S3.Types.ReplicationTime
+  ( ReplicationTime (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReplicationTime,
+
+    -- * Lenses
+    rtStatus,
+    rtTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ReplicationTimeStatus
 import Network.AWS.S3.Types.ReplicationTimeValue
 
 -- | A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a @Metrics@ block.
 --
---
---
--- /See:/ 'replicationTime' smart constructor.
+-- /See:/ 'mkReplicationTime' smart constructor.
 data ReplicationTime = ReplicationTime'
-  { _rtStatus ::
-      !ReplicationTimeStatus,
-    _rtTime :: !ReplicationTimeValue
+  { status ::
+      ReplicationTimeStatus,
+    time :: ReplicationTimeValue
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationTime' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtStatus' - Specifies whether the replication time is enabled.
---
--- * 'rtTime' - A container specifying the time by which replication should be complete for all objects and operations on objects.
-replicationTime ::
-  -- | 'rtStatus'
+-- * 'status' - Specifies whether the replication time is enabled.
+-- * 'time' - A container specifying the time by which replication should be complete for all objects and operations on objects.
+mkReplicationTime ::
+  -- | 'status'
   ReplicationTimeStatus ->
-  -- | 'rtTime'
+  -- | 'time'
   ReplicationTimeValue ->
   ReplicationTime
-replicationTime pStatus_ pTime_ =
-  ReplicationTime' {_rtStatus = pStatus_, _rtTime = pTime_}
+mkReplicationTime pStatus_ pTime_ =
+  ReplicationTime' {status = pStatus_, time = pTime_}
 
 -- | Specifies whether the replication time is enabled.
-rtStatus :: Lens' ReplicationTime ReplicationTimeStatus
-rtStatus = lens _rtStatus (\s a -> s {_rtStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtStatus :: Lens.Lens' ReplicationTime ReplicationTimeStatus
+rtStatus = Lens.lens (status :: ReplicationTime -> ReplicationTimeStatus) (\s a -> s {status = a} :: ReplicationTime)
+{-# DEPRECATED rtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A container specifying the time by which replication should be complete for all objects and operations on objects.
-rtTime :: Lens' ReplicationTime ReplicationTimeValue
-rtTime = lens _rtTime (\s a -> s {_rtTime = a})
+--
+-- /Note:/ Consider using 'time' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtTime :: Lens.Lens' ReplicationTime ReplicationTimeValue
+rtTime = Lens.lens (time :: ReplicationTime -> ReplicationTimeValue) (\s a -> s {time = a} :: ReplicationTime)
+{-# DEPRECATED rtTime "Use generic-lens or generic-optics with 'time' instead." #-}
 
-instance FromXML ReplicationTime where
-  parseXML x = ReplicationTime' <$> (x .@ "Status") <*> (x .@ "Time")
+instance Lude.FromXML ReplicationTime where
+  parseXML x =
+    ReplicationTime'
+      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Time")
 
-instance Hashable ReplicationTime
-
-instance NFData ReplicationTime
-
-instance ToXML ReplicationTime where
+instance Lude.ToXML ReplicationTime where
   toXML ReplicationTime' {..} =
-    mconcat ["Status" @= _rtStatus, "Time" @= _rtTime]
+    Lude.mconcat ["Status" Lude.@= status, "Time" Lude.@= time]

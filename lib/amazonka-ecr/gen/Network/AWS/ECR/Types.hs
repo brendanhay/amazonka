@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types
-  ( -- * Service Configuration
-    ecr,
+  ( -- * Service configuration
+    ecrService,
 
     -- * Errors
 
@@ -46,32 +44,32 @@ module Network.AWS.ECR.Types
     TagStatus (..),
 
     -- * Attribute
-    Attribute,
-    attribute,
+    Attribute (..),
+    mkAttribute,
     aValue,
     aKey,
 
     -- * AuthorizationData
-    AuthorizationData,
-    authorizationData,
+    AuthorizationData (..),
+    mkAuthorizationData,
     adExpiresAt,
     adProxyEndpoint,
     adAuthorizationToken,
 
     -- * DescribeImagesFilter
-    DescribeImagesFilter,
-    describeImagesFilter,
+    DescribeImagesFilter (..),
+    mkDescribeImagesFilter,
     difTagStatus,
 
     -- * EncryptionConfiguration
-    EncryptionConfiguration,
-    encryptionConfiguration,
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
     ecKmsKey,
     ecEncryptionType,
 
     -- * Image
-    Image,
-    image,
+    Image (..),
+    mkImage,
     iRegistryId,
     iImageManifestMediaType,
     iImageId,
@@ -79,8 +77,8 @@ module Network.AWS.ECR.Types
     iImageManifest,
 
     -- * ImageDetail
-    ImageDetail,
-    imageDetail,
+    ImageDetail (..),
+    mkImageDetail,
     idRegistryId,
     idImageTags,
     idImageScanStatus,
@@ -93,21 +91,21 @@ module Network.AWS.ECR.Types
     idRepositoryName,
 
     -- * ImageFailure
-    ImageFailure,
-    imageFailure,
+    ImageFailure (..),
+    mkImageFailure,
     ifFailureReason,
     ifFailureCode,
     ifImageId,
 
     -- * ImageIdentifier
-    ImageIdentifier,
-    imageIdentifier,
+    ImageIdentifier (..),
+    mkImageIdentifier,
     iiImageDigest,
     iiImageTag,
 
     -- * ImageScanFinding
-    ImageScanFinding,
-    imageScanFinding,
+    ImageScanFinding (..),
+    mkImageScanFinding,
     isfSeverity,
     isfUri,
     isfName,
@@ -115,54 +113,54 @@ module Network.AWS.ECR.Types
     isfDescription,
 
     -- * ImageScanFindings
-    ImageScanFindings,
-    imageScanFindings,
+    ImageScanFindings (..),
+    mkImageScanFindings,
     isfImageScanCompletedAt,
     isfFindings,
     isfFindingSeverityCounts,
     isfVulnerabilitySourceUpdatedAt,
 
     -- * ImageScanFindingsSummary
-    ImageScanFindingsSummary,
-    imageScanFindingsSummary,
+    ImageScanFindingsSummary (..),
+    mkImageScanFindingsSummary,
     isfsImageScanCompletedAt,
     isfsFindingSeverityCounts,
     isfsVulnerabilitySourceUpdatedAt,
 
     -- * ImageScanStatus
-    ImageScanStatus,
-    imageScanStatus,
+    ImageScanStatus (..),
+    mkImageScanStatus,
     issStatus,
     issDescription,
 
     -- * ImageScanningConfiguration
-    ImageScanningConfiguration,
-    imageScanningConfiguration,
+    ImageScanningConfiguration (..),
+    mkImageScanningConfiguration,
     iscScanOnPush,
 
     -- * Layer
-    Layer,
-    layer,
+    Layer (..),
+    mkLayer,
     lMediaType,
     lLayerDigest,
     lLayerSize,
     lLayerAvailability,
 
     -- * LayerFailure
-    LayerFailure,
-    layerFailure,
+    LayerFailure (..),
+    mkLayerFailure,
     lfFailureReason,
     lfFailureCode,
     lfLayerDigest,
 
     -- * LifecyclePolicyPreviewFilter
-    LifecyclePolicyPreviewFilter,
-    lifecyclePolicyPreviewFilter,
+    LifecyclePolicyPreviewFilter (..),
+    mkLifecyclePolicyPreviewFilter,
     lppfTagStatus,
 
     -- * LifecyclePolicyPreviewResult
-    LifecyclePolicyPreviewResult,
-    lifecyclePolicyPreviewResult,
+    LifecyclePolicyPreviewResult (..),
+    mkLifecyclePolicyPreviewResult,
     lpprImageTags,
     lpprAction,
     lpprImageDigest,
@@ -170,23 +168,23 @@ module Network.AWS.ECR.Types
     lpprAppliedRulePriority,
 
     -- * LifecyclePolicyPreviewSummary
-    LifecyclePolicyPreviewSummary,
-    lifecyclePolicyPreviewSummary,
+    LifecyclePolicyPreviewSummary (..),
+    mkLifecyclePolicyPreviewSummary,
     lppsExpiringImageTotalCount,
 
     -- * LifecyclePolicyRuleAction
-    LifecyclePolicyRuleAction,
-    lifecyclePolicyRuleAction,
+    LifecyclePolicyRuleAction (..),
+    mkLifecyclePolicyRuleAction,
     lpraType,
 
     -- * ListImagesFilter
-    ListImagesFilter,
-    listImagesFilter,
+    ListImagesFilter (..),
+    mkListImagesFilter,
     lifTagStatus,
 
     -- * Repository
-    Repository,
-    repository,
+    Repository (..),
+    mkRepository,
     rRepositoryARN,
     rCreatedAt,
     rRegistryId,
@@ -197,10 +195,10 @@ module Network.AWS.ECR.Types
     rImageTagMutability,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
   )
 where
 
@@ -236,48 +234,60 @@ import Network.AWS.ECR.Types.Repository
 import Network.AWS.ECR.Types.ScanStatus
 import Network.AWS.ECR.Types.Tag
 import Network.AWS.ECR.Types.TagStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-09-21@ of the Amazon EC2 Container Registry SDK configuration.
-ecr :: Service
-ecr =
-  Service
-    { _svcAbbrev = "ECR",
-      _svcSigner = v4,
-      _svcPrefix = "api.ecr",
-      _svcVersion = "2015-09-21",
-      _svcEndpoint = defaultEndpoint ecr,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "ECR",
-      _svcRetry = retry
+ecrService :: Lude.Service
+ecrService =
+  Lude.Service
+    { Lude._svcAbbrev = "ECR",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "api.ecr",
+      Lude._svcVersion = "2015-09-21",
+      Lude._svcEndpoint = Lude.defaultEndpoint ecrService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "ECR",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

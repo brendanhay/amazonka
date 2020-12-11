@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mpeg2FilterSettings where
+module Network.AWS.MediaLive.Types.Mpeg2FilterSettings
+  ( Mpeg2FilterSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMpeg2FilterSettings,
+
+    -- * Lenses
+    mfsTemporalFilterSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TemporalFilterSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Mpeg2 Filter Settings
 --
--- /See:/ 'mpeg2FilterSettings' smart constructor.
+-- /See:/ 'mkMpeg2FilterSettings' smart constructor.
 newtype Mpeg2FilterSettings = Mpeg2FilterSettings'
-  { _mfsTemporalFilterSettings ::
-      Maybe TemporalFilterSettings
+  { temporalFilterSettings ::
+      Lude.Maybe TemporalFilterSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mpeg2FilterSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mfsTemporalFilterSettings' - Undocumented member.
-mpeg2FilterSettings ::
+-- * 'temporalFilterSettings' - Undocumented field.
+mkMpeg2FilterSettings ::
   Mpeg2FilterSettings
-mpeg2FilterSettings =
-  Mpeg2FilterSettings' {_mfsTemporalFilterSettings = Nothing}
+mkMpeg2FilterSettings =
+  Mpeg2FilterSettings' {temporalFilterSettings = Lude.Nothing}
 
--- | Undocumented member.
-mfsTemporalFilterSettings :: Lens' Mpeg2FilterSettings (Maybe TemporalFilterSettings)
-mfsTemporalFilterSettings = lens _mfsTemporalFilterSettings (\s a -> s {_mfsTemporalFilterSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'temporalFilterSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfsTemporalFilterSettings :: Lens.Lens' Mpeg2FilterSettings (Lude.Maybe TemporalFilterSettings)
+mfsTemporalFilterSettings = Lens.lens (temporalFilterSettings :: Mpeg2FilterSettings -> Lude.Maybe TemporalFilterSettings) (\s a -> s {temporalFilterSettings = a} :: Mpeg2FilterSettings)
+{-# DEPRECATED mfsTemporalFilterSettings "Use generic-lens or generic-optics with 'temporalFilterSettings' instead." #-}
 
-instance FromJSON Mpeg2FilterSettings where
+instance Lude.FromJSON Mpeg2FilterSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "Mpeg2FilterSettings"
-      (\x -> Mpeg2FilterSettings' <$> (x .:? "temporalFilterSettings"))
+      ( \x ->
+          Mpeg2FilterSettings'
+            Lude.<$> (x Lude..:? "temporalFilterSettings")
+      )
 
-instance Hashable Mpeg2FilterSettings
-
-instance NFData Mpeg2FilterSettings
-
-instance ToJSON Mpeg2FilterSettings where
+instance Lude.ToJSON Mpeg2FilterSettings where
   toJSON Mpeg2FilterSettings' {..} =
-    object
-      ( catMaybes
-          [("temporalFilterSettings" .=) <$> _mfsTemporalFilterSettings]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("temporalFilterSettings" Lude..=)
+              Lude.<$> temporalFilterSettings
+          ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,165 @@
 --
 -- Creates an application.
 module Network.AWS.CodeDeploy.CreateApplication
-  ( -- * Creating a Request
-    createApplication,
-    CreateApplication,
+  ( -- * Creating a request
+    CreateApplication (..),
+    mkCreateApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caComputePlatform,
     caTags,
     caApplicationName,
 
-    -- * Destructuring the Response
-    createApplicationResponse,
-    CreateApplicationResponse,
+    -- * Destructuring the response
+    CreateApplicationResponse (..),
+    mkCreateApplicationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsApplicationId,
     carsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @CreateApplication@ operation.
 --
---
---
--- /See:/ 'createApplication' smart constructor.
+-- /See:/ 'mkCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { _caComputePlatform ::
-      !(Maybe ComputePlatform),
-    _caTags :: !(Maybe [Tag]),
-    _caApplicationName :: !Text
+  { computePlatform ::
+      Lude.Maybe ComputePlatform,
+    tags :: Lude.Maybe [Tag],
+    applicationName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caComputePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
---
--- * 'caTags' - The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
---
--- * 'caApplicationName' - The name of the application. This name must be unique with the applicable IAM user or AWS account.
-createApplication ::
-  -- | 'caApplicationName'
-  Text ->
+-- * 'applicationName' - The name of the application. This name must be unique with the applicable IAM user or AWS account.
+-- * 'computePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
+-- * 'tags' - The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
+mkCreateApplication ::
+  -- | 'applicationName'
+  Lude.Text ->
   CreateApplication
-createApplication pApplicationName_ =
+mkCreateApplication pApplicationName_ =
   CreateApplication'
-    { _caComputePlatform = Nothing,
-      _caTags = Nothing,
-      _caApplicationName = pApplicationName_
+    { computePlatform = Lude.Nothing,
+      tags = Lude.Nothing,
+      applicationName = pApplicationName_
     }
 
 -- | The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
-caComputePlatform :: Lens' CreateApplication (Maybe ComputePlatform)
-caComputePlatform = lens _caComputePlatform (\s a -> s {_caComputePlatform = a})
+--
+-- /Note:/ Consider using 'computePlatform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caComputePlatform :: Lens.Lens' CreateApplication (Lude.Maybe ComputePlatform)
+caComputePlatform = Lens.lens (computePlatform :: CreateApplication -> Lude.Maybe ComputePlatform) (\s a -> s {computePlatform = a} :: CreateApplication)
+{-# DEPRECATED caComputePlatform "Use generic-lens or generic-optics with 'computePlatform' instead." #-}
 
 -- | The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
-caTags :: Lens' CreateApplication [Tag]
-caTags = lens _caTags (\s a -> s {_caTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateApplication (Lude.Maybe [Tag])
+caTags = Lens.lens (tags :: CreateApplication -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApplication)
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the application. This name must be unique with the applicable IAM user or AWS account.
-caApplicationName :: Lens' CreateApplication Text
-caApplicationName = lens _caApplicationName (\s a -> s {_caApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caApplicationName :: Lens.Lens' CreateApplication Lude.Text
+caApplicationName = Lens.lens (applicationName :: CreateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: CreateApplication)
+{-# DEPRECATED caApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSRequest CreateApplication where
+instance Lude.AWSRequest CreateApplication where
   type Rs CreateApplication = CreateApplicationResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            <$> (x .?> "applicationId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "applicationId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateApplication
-
-instance NFData CreateApplication
-
-instance ToHeaders CreateApplication where
+instance Lude.ToHeaders CreateApplication where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.CreateApplication" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.CreateApplication" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateApplication where
+instance Lude.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    object
-      ( catMaybes
-          [ ("computePlatform" .=) <$> _caComputePlatform,
-            ("tags" .=) <$> _caTags,
-            Just ("applicationName" .= _caApplicationName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("computePlatform" Lude..=) Lude.<$> computePlatform,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("applicationName" Lude..= applicationName)
           ]
       )
 
-instance ToPath CreateApplication where
-  toPath = const "/"
+instance Lude.ToPath CreateApplication where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateApplication where
-  toQuery = const mempty
+instance Lude.ToQuery CreateApplication where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @CreateApplication@ operation.
 --
---
---
--- /See:/ 'createApplicationResponse' smart constructor.
+-- /See:/ 'mkCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-  { _carsApplicationId ::
-      !(Maybe Text),
-    _carsResponseStatus :: !Int
+  { applicationId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsApplicationId' - A unique application ID.
---
--- * 'carsResponseStatus' - -- | The response status code.
-createApplicationResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
+-- * 'applicationId' - A unique application ID.
+-- * 'responseStatus' - The response status code.
+mkCreateApplicationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateApplicationResponse
-createApplicationResponse pResponseStatus_ =
+mkCreateApplicationResponse pResponseStatus_ =
   CreateApplicationResponse'
-    { _carsApplicationId = Nothing,
-      _carsResponseStatus = pResponseStatus_
+    { applicationId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique application ID.
-carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
-carsApplicationId = lens _carsApplicationId (\s a -> s {_carsApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsApplicationId :: Lens.Lens' CreateApplicationResponse (Lude.Maybe Lude.Text)
+carsApplicationId = Lens.lens (applicationId :: CreateApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: CreateApplicationResponse)
+{-# DEPRECATED carsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateApplicationResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
-
-instance NFData CreateApplicationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateApplicationResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateApplicationResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

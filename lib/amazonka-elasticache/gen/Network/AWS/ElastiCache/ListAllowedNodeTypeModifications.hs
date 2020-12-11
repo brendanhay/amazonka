@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Lists all available node types that you can scale your Redis cluster's or replication group's current node type.
 --
---
 -- When you use the @ModifyCacheCluster@ or @ModifyReplicationGroup@ operations to scale your cluster or replication group, the value of the @CacheNodeType@ parameter must be one of the node types returned by this operation.
 module Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
-  ( -- * Creating a Request
-    listAllowedNodeTypeModifications,
-    ListAllowedNodeTypeModifications,
+  ( -- * Creating a request
+    ListAllowedNodeTypeModifications (..),
+    mkListAllowedNodeTypeModifications,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lantmCacheClusterId,
     lantmReplicationGroupId,
 
-    -- * Destructuring the Response
-    listAllowedNodeTypeModificationsResponse,
-    ListAllowedNodeTypeModificationsResponse,
+    -- * Destructuring the response
+    ListAllowedNodeTypeModificationsResponse (..),
+    mkListAllowedNodeTypeModificationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lantmrsScaleUpModifications,
     lantmrsScaleDownModifications,
     lantmrsResponseStatus,
@@ -42,135 +36,158 @@ module Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input parameters for the @ListAllowedNodeTypeModifications@ operation.
 --
---
---
--- /See:/ 'listAllowedNodeTypeModifications' smart constructor.
+-- /See:/ 'mkListAllowedNodeTypeModifications' smart constructor.
 data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
-  { _lantmCacheClusterId ::
-      !(Maybe Text),
-    _lantmReplicationGroupId ::
-      !(Maybe Text)
+  { cacheClusterId ::
+      Lude.Maybe Lude.Text,
+    replicationGroupId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAllowedNodeTypeModifications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cacheClusterId' - The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to.
 --
--- * 'lantmCacheClusterId' - The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+-- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+-- * 'replicationGroupId' - The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to.
 --
--- * 'lantmReplicationGroupId' - The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
-listAllowedNodeTypeModifications ::
+-- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+mkListAllowedNodeTypeModifications ::
   ListAllowedNodeTypeModifications
-listAllowedNodeTypeModifications =
+mkListAllowedNodeTypeModifications =
   ListAllowedNodeTypeModifications'
-    { _lantmCacheClusterId = Nothing,
-      _lantmReplicationGroupId = Nothing
+    { cacheClusterId = Lude.Nothing,
+      replicationGroupId = Lude.Nothing
     }
 
--- | The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
-lantmCacheClusterId :: Lens' ListAllowedNodeTypeModifications (Maybe Text)
-lantmCacheClusterId = lens _lantmCacheClusterId (\s a -> s {_lantmCacheClusterId = a})
+-- | The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to.
+--
+-- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+--
+-- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lantmCacheClusterId :: Lens.Lens' ListAllowedNodeTypeModifications (Lude.Maybe Lude.Text)
+lantmCacheClusterId = Lens.lens (cacheClusterId :: ListAllowedNodeTypeModifications -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: ListAllowedNodeTypeModifications)
+{-# DEPRECATED lantmCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
--- | The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to. /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
-lantmReplicationGroupId :: Lens' ListAllowedNodeTypeModifications (Maybe Text)
-lantmReplicationGroupId = lens _lantmReplicationGroupId (\s a -> s {_lantmReplicationGroupId = a})
+-- | The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to.
+--
+-- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lantmReplicationGroupId :: Lens.Lens' ListAllowedNodeTypeModifications (Lude.Maybe Lude.Text)
+lantmReplicationGroupId = Lens.lens (replicationGroupId :: ListAllowedNodeTypeModifications -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupId = a} :: ListAllowedNodeTypeModifications)
+{-# DEPRECATED lantmReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
-instance AWSRequest ListAllowedNodeTypeModifications where
+instance Lude.AWSRequest ListAllowedNodeTypeModifications where
   type
     Rs ListAllowedNodeTypeModifications =
       ListAllowedNodeTypeModificationsResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListAllowedNodeTypeModificationsResult"
       ( \s h x ->
           ListAllowedNodeTypeModificationsResponse'
-            <$> ( x .@? "ScaleUpModifications" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> ( x .@? "ScaleDownModifications" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "ScaleUpModifications" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> ( x Lude..@? "ScaleDownModifications" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAllowedNodeTypeModifications
+instance Lude.ToHeaders ListAllowedNodeTypeModifications where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListAllowedNodeTypeModifications
+instance Lude.ToPath ListAllowedNodeTypeModifications where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListAllowedNodeTypeModifications where
-  toHeaders = const mempty
-
-instance ToPath ListAllowedNodeTypeModifications where
-  toPath = const "/"
-
-instance ToQuery ListAllowedNodeTypeModifications where
+instance Lude.ToQuery ListAllowedNodeTypeModifications where
   toQuery ListAllowedNodeTypeModifications' {..} =
-    mconcat
-      [ "Action" =: ("ListAllowedNodeTypeModifications" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "CacheClusterId" =: _lantmCacheClusterId,
-        "ReplicationGroupId" =: _lantmReplicationGroupId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("ListAllowedNodeTypeModifications" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "CacheClusterId" Lude.=: cacheClusterId,
+        "ReplicationGroupId" Lude.=: replicationGroupId
       ]
 
 -- | Represents the allowed node types you can use to modify your cluster or replication group.
 --
---
---
--- /See:/ 'listAllowedNodeTypeModificationsResponse' smart constructor.
+-- /See:/ 'mkListAllowedNodeTypeModificationsResponse' smart constructor.
 data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModificationsResponse'
-  { _lantmrsScaleUpModifications ::
-      !( Maybe
-           [Text]
-       ),
-    _lantmrsScaleDownModifications ::
-      !( Maybe
-           [Text]
-       ),
-    _lantmrsResponseStatus ::
-      !Int
+  { scaleUpModifications ::
+      Lude.Maybe
+        [Lude.Text],
+    scaleDownModifications ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAllowedNodeTypeModificationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseStatus' - The response status code.
+-- * 'scaleDownModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
+-- * 'scaleUpModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group.
 --
--- * 'lantmrsScaleUpModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
---
--- * 'lantmrsScaleDownModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
---
--- * 'lantmrsResponseStatus' - -- | The response status code.
-listAllowedNodeTypeModificationsResponse ::
-  -- | 'lantmrsResponseStatus'
-  Int ->
+-- When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
+mkListAllowedNodeTypeModificationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAllowedNodeTypeModificationsResponse
-listAllowedNodeTypeModificationsResponse pResponseStatus_ =
+mkListAllowedNodeTypeModificationsResponse pResponseStatus_ =
   ListAllowedNodeTypeModificationsResponse'
-    { _lantmrsScaleUpModifications =
-        Nothing,
-      _lantmrsScaleDownModifications = Nothing,
-      _lantmrsResponseStatus = pResponseStatus_
+    { scaleUpModifications =
+        Lude.Nothing,
+      scaleDownModifications = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
-lantmrsScaleUpModifications :: Lens' ListAllowedNodeTypeModificationsResponse [Text]
-lantmrsScaleUpModifications = lens _lantmrsScaleUpModifications (\s a -> s {_lantmrsScaleUpModifications = a}) . _Default . _Coerce
+-- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group.
+--
+-- When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
+--
+-- /Note:/ Consider using 'scaleUpModifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lantmrsScaleUpModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Lude.Maybe [Lude.Text])
+lantmrsScaleUpModifications = Lens.lens (scaleUpModifications :: ListAllowedNodeTypeModificationsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {scaleUpModifications = a} :: ListAllowedNodeTypeModificationsResponse)
+{-# DEPRECATED lantmrsScaleUpModifications "Use generic-lens or generic-optics with 'scaleUpModifications' instead." #-}
 
 -- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
-lantmrsScaleDownModifications :: Lens' ListAllowedNodeTypeModificationsResponse [Text]
-lantmrsScaleDownModifications = lens _lantmrsScaleDownModifications (\s a -> s {_lantmrsScaleDownModifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'scaleDownModifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lantmrsScaleDownModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Lude.Maybe [Lude.Text])
+lantmrsScaleDownModifications = Lens.lens (scaleDownModifications :: ListAllowedNodeTypeModificationsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {scaleDownModifications = a} :: ListAllowedNodeTypeModificationsResponse)
+{-# DEPRECATED lantmrsScaleDownModifications "Use generic-lens or generic-optics with 'scaleDownModifications' instead." #-}
 
--- | -- | The response status code.
-lantmrsResponseStatus :: Lens' ListAllowedNodeTypeModificationsResponse Int
-lantmrsResponseStatus = lens _lantmrsResponseStatus (\s a -> s {_lantmrsResponseStatus = a})
-
-instance NFData ListAllowedNodeTypeModificationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lantmrsResponseStatus :: Lens.Lens' ListAllowedNodeTypeModificationsResponse Lude.Int
+lantmrsResponseStatus = Lens.lens (responseStatus :: ListAllowedNodeTypeModificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAllowedNodeTypeModificationsResponse)
+{-# DEPRECATED lantmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

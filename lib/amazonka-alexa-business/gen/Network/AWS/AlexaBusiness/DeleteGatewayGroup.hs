@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,119 @@
 --
 -- Deletes a gateway group.
 module Network.AWS.AlexaBusiness.DeleteGatewayGroup
-  ( -- * Creating a Request
-    deleteGatewayGroup,
-    DeleteGatewayGroup,
+  ( -- * Creating a request
+    DeleteGatewayGroup (..),
+    mkDeleteGatewayGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dggGatewayGroupARN,
 
-    -- * Destructuring the Response
-    deleteGatewayGroupResponse,
-    DeleteGatewayGroupResponse,
+    -- * Destructuring the response
+    DeleteGatewayGroupResponse (..),
+    mkDeleteGatewayGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dggrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteGatewayGroup' smart constructor.
+-- | /See:/ 'mkDeleteGatewayGroup' smart constructor.
 newtype DeleteGatewayGroup = DeleteGatewayGroup'
-  { _dggGatewayGroupARN ::
-      Text
+  { gatewayGroupARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGatewayGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dggGatewayGroupARN' - The ARN of the gateway group to delete.
-deleteGatewayGroup ::
-  -- | 'dggGatewayGroupARN'
-  Text ->
+-- * 'gatewayGroupARN' - The ARN of the gateway group to delete.
+mkDeleteGatewayGroup ::
+  -- | 'gatewayGroupARN'
+  Lude.Text ->
   DeleteGatewayGroup
-deleteGatewayGroup pGatewayGroupARN_ =
-  DeleteGatewayGroup' {_dggGatewayGroupARN = pGatewayGroupARN_}
+mkDeleteGatewayGroup pGatewayGroupARN_ =
+  DeleteGatewayGroup' {gatewayGroupARN = pGatewayGroupARN_}
 
 -- | The ARN of the gateway group to delete.
-dggGatewayGroupARN :: Lens' DeleteGatewayGroup Text
-dggGatewayGroupARN = lens _dggGatewayGroupARN (\s a -> s {_dggGatewayGroupARN = a})
+--
+-- /Note:/ Consider using 'gatewayGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dggGatewayGroupARN :: Lens.Lens' DeleteGatewayGroup Lude.Text
+dggGatewayGroupARN = Lens.lens (gatewayGroupARN :: DeleteGatewayGroup -> Lude.Text) (\s a -> s {gatewayGroupARN = a} :: DeleteGatewayGroup)
+{-# DEPRECATED dggGatewayGroupARN "Use generic-lens or generic-optics with 'gatewayGroupARN' instead." #-}
 
-instance AWSRequest DeleteGatewayGroup where
+instance Lude.AWSRequest DeleteGatewayGroup where
   type Rs DeleteGatewayGroup = DeleteGatewayGroupResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> DeleteGatewayGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteGatewayGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteGatewayGroup
-
-instance NFData DeleteGatewayGroup
-
-instance ToHeaders DeleteGatewayGroup where
+instance Lude.ToHeaders DeleteGatewayGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.DeleteGatewayGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.DeleteGatewayGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteGatewayGroup where
+instance Lude.ToJSON DeleteGatewayGroup where
   toJSON DeleteGatewayGroup' {..} =
-    object
-      (catMaybes [Just ("GatewayGroupArn" .= _dggGatewayGroupARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("GatewayGroupArn" Lude..= gatewayGroupARN)]
+      )
 
-instance ToPath DeleteGatewayGroup where
-  toPath = const "/"
+instance Lude.ToPath DeleteGatewayGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteGatewayGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteGatewayGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteGatewayGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteGatewayGroupResponse' smart constructor.
 newtype DeleteGatewayGroupResponse = DeleteGatewayGroupResponse'
-  { _dggrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGatewayGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dggrsResponseStatus' - -- | The response status code.
-deleteGatewayGroupResponse ::
-  -- | 'dggrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteGatewayGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteGatewayGroupResponse
-deleteGatewayGroupResponse pResponseStatus_ =
-  DeleteGatewayGroupResponse'
-    { _dggrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteGatewayGroupResponse pResponseStatus_ =
+  DeleteGatewayGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dggrsResponseStatus :: Lens' DeleteGatewayGroupResponse Int
-dggrsResponseStatus = lens _dggrsResponseStatus (\s a -> s {_dggrsResponseStatus = a})
-
-instance NFData DeleteGatewayGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dggrsResponseStatus :: Lens.Lens' DeleteGatewayGroupResponse Lude.Int
+dggrsResponseStatus = Lens.lens (responseStatus :: DeleteGatewayGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGatewayGroupResponse)
+{-# DEPRECATED dggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

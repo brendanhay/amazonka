@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.OutputGroup where
+module Network.AWS.MediaLive.Types.OutputGroup
+  ( OutputGroup (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkOutputGroup,
+
+    -- * Lenses
+    ogName,
+    ogOutputs,
+    ogOutputGroupSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Output
 import Network.AWS.MediaLive.Types.OutputGroupSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Output groups for this Live Event. Output groups contain information about where streams should be distributed.
 --
--- /See:/ 'outputGroup' smart constructor.
+-- /See:/ 'mkOutputGroup' smart constructor.
 data OutputGroup = OutputGroup'
-  { _ogName :: !(Maybe Text),
-    _ogOutputs :: ![Output],
-    _ogOutputGroupSettings :: !OutputGroupSettings
+  { name :: Lude.Maybe Lude.Text,
+    outputs :: [Output],
+    outputGroupSettings :: OutputGroupSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ogName' - Custom output group name optionally defined by the user.  Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
---
--- * 'ogOutputs' - Undocumented member.
---
--- * 'ogOutputGroupSettings' - Settings associated with the output group.
-outputGroup ::
-  -- | 'ogOutputGroupSettings'
+-- * 'name' - Custom output group name optionally defined by the user.  Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
+-- * 'outputGroupSettings' - Settings associated with the output group.
+-- * 'outputs' - Undocumented field.
+mkOutputGroup ::
+  -- | 'outputGroupSettings'
   OutputGroupSettings ->
   OutputGroup
-outputGroup pOutputGroupSettings_ =
+mkOutputGroup pOutputGroupSettings_ =
   OutputGroup'
-    { _ogName = Nothing,
-      _ogOutputs = mempty,
-      _ogOutputGroupSettings = pOutputGroupSettings_
+    { name = Lude.Nothing,
+      outputs = Lude.mempty,
+      outputGroupSettings = pOutputGroupSettings_
     }
 
 -- | Custom output group name optionally defined by the user.  Only letters, numbers, and the underscore character allowed; only 32 characters allowed.
-ogName :: Lens' OutputGroup (Maybe Text)
-ogName = lens _ogName (\s a -> s {_ogName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogName :: Lens.Lens' OutputGroup (Lude.Maybe Lude.Text)
+ogName = Lens.lens (name :: OutputGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: OutputGroup)
+{-# DEPRECATED ogName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Undocumented member.
-ogOutputs :: Lens' OutputGroup [Output]
-ogOutputs = lens _ogOutputs (\s a -> s {_ogOutputs = a}) . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'outputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogOutputs :: Lens.Lens' OutputGroup [Output]
+ogOutputs = Lens.lens (outputs :: OutputGroup -> [Output]) (\s a -> s {outputs = a} :: OutputGroup)
+{-# DEPRECATED ogOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
 
 -- | Settings associated with the output group.
-ogOutputGroupSettings :: Lens' OutputGroup OutputGroupSettings
-ogOutputGroupSettings = lens _ogOutputGroupSettings (\s a -> s {_ogOutputGroupSettings = a})
+--
+-- /Note:/ Consider using 'outputGroupSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogOutputGroupSettings :: Lens.Lens' OutputGroup OutputGroupSettings
+ogOutputGroupSettings = Lens.lens (outputGroupSettings :: OutputGroup -> OutputGroupSettings) (\s a -> s {outputGroupSettings = a} :: OutputGroup)
+{-# DEPRECATED ogOutputGroupSettings "Use generic-lens or generic-optics with 'outputGroupSettings' instead." #-}
 
-instance FromJSON OutputGroup where
+instance Lude.FromJSON OutputGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputGroup"
       ( \x ->
           OutputGroup'
-            <$> (x .:? "name")
-            <*> (x .:? "outputs" .!= mempty)
-            <*> (x .: "outputGroupSettings")
+            Lude.<$> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "outputs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "outputGroupSettings")
       )
 
-instance Hashable OutputGroup
-
-instance NFData OutputGroup
-
-instance ToJSON OutputGroup where
+instance Lude.ToJSON OutputGroup where
   toJSON OutputGroup' {..} =
-    object
-      ( catMaybes
-          [ ("name" .=) <$> _ogName,
-            Just ("outputs" .= _ogOutputs),
-            Just ("outputGroupSettings" .= _ogOutputGroupSettings)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("name" Lude..=) Lude.<$> name,
+            Lude.Just ("outputs" Lude..= outputs),
+            Lude.Just ("outputGroupSettings" Lude..= outputGroupSettings)
           ]
       )

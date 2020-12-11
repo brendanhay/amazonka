@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.TrainingData where
+module Network.AWS.Rekognition.Types.TrainingData
+  ( TrainingData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrainingData,
+
+    -- * Lenses
+    tAssets,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.Asset
 
 -- | The dataset used for training.
 --
---
---
--- /See:/ 'trainingData' smart constructor.
-newtype TrainingData = TrainingData' {_tAssets :: Maybe [Asset]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTrainingData' smart constructor.
+newtype TrainingData = TrainingData' {assets :: Lude.Maybe [Asset]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrainingData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tAssets' - A Sagemaker GroundTruth manifest file that contains the training images (assets).
-trainingData ::
+-- * 'assets' - A Sagemaker GroundTruth manifest file that contains the training images (assets).
+mkTrainingData ::
   TrainingData
-trainingData = TrainingData' {_tAssets = Nothing}
+mkTrainingData = TrainingData' {assets = Lude.Nothing}
 
 -- | A Sagemaker GroundTruth manifest file that contains the training images (assets).
-tAssets :: Lens' TrainingData [Asset]
-tAssets = lens _tAssets (\s a -> s {_tAssets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'assets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tAssets :: Lens.Lens' TrainingData (Lude.Maybe [Asset])
+tAssets = Lens.lens (assets :: TrainingData -> Lude.Maybe [Asset]) (\s a -> s {assets = a} :: TrainingData)
+{-# DEPRECATED tAssets "Use generic-lens or generic-optics with 'assets' instead." #-}
 
-instance FromJSON TrainingData where
+instance Lude.FromJSON TrainingData where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrainingData"
-      (\x -> TrainingData' <$> (x .:? "Assets" .!= mempty))
+      ( \x ->
+          TrainingData' Lude.<$> (x Lude..:? "Assets" Lude..!= Lude.mempty)
+      )
 
-instance Hashable TrainingData
-
-instance NFData TrainingData
-
-instance ToJSON TrainingData where
+instance Lude.ToJSON TrainingData where
   toJSON TrainingData' {..} =
-    object (catMaybes [("Assets" .=) <$> _tAssets])
+    Lude.object (Lude.catMaybes [("Assets" Lude..=) Lude.<$> assets])

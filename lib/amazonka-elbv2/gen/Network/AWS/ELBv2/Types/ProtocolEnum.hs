@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.ProtocolEnum where
+module Network.AWS.ELBv2.Types.ProtocolEnum
+  ( ProtocolEnum
+      ( ProtocolEnum',
+        Geneve,
+        HTTP,
+        HTTPS,
+        TCP,
+        TCPUdp,
+        TLS,
+        Udp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProtocolEnum
-  = Geneve
-  | HTTP
-  | HTTPS
-  | TCP
-  | TCPUdp
-  | TLS
-  | Udp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProtocolEnum = ProtocolEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProtocolEnum where
-  parser =
-    takeLowerText >>= \case
-      "geneve" -> pure Geneve
-      "http" -> pure HTTP
-      "https" -> pure HTTPS
-      "tcp" -> pure TCP
-      "tcp_udp" -> pure TCPUdp
-      "tls" -> pure TLS
-      "udp" -> pure Udp
-      e ->
-        fromTextError $
-          "Failure parsing ProtocolEnum from value: '" <> e
-            <> "'. Accepted values: geneve, http, https, tcp, tcp_udp, tls, udp"
+pattern Geneve :: ProtocolEnum
+pattern Geneve = ProtocolEnum' "GENEVE"
 
-instance ToText ProtocolEnum where
-  toText = \case
-    Geneve -> "GENEVE"
-    HTTP -> "HTTP"
-    HTTPS -> "HTTPS"
-    TCP -> "TCP"
-    TCPUdp -> "TCP_UDP"
-    TLS -> "TLS"
-    Udp -> "UDP"
+pattern HTTP :: ProtocolEnum
+pattern HTTP = ProtocolEnum' "HTTP"
 
-instance Hashable ProtocolEnum
+pattern HTTPS :: ProtocolEnum
+pattern HTTPS = ProtocolEnum' "HTTPS"
 
-instance NFData ProtocolEnum
+pattern TCP :: ProtocolEnum
+pattern TCP = ProtocolEnum' "TCP"
 
-instance ToByteString ProtocolEnum
+pattern TCPUdp :: ProtocolEnum
+pattern TCPUdp = ProtocolEnum' "TCP_UDP"
 
-instance ToQuery ProtocolEnum
+pattern TLS :: ProtocolEnum
+pattern TLS = ProtocolEnum' "TLS"
 
-instance ToHeader ProtocolEnum
+pattern Udp :: ProtocolEnum
+pattern Udp = ProtocolEnum' "UDP"
 
-instance FromXML ProtocolEnum where
-  parseXML = parseXMLText "ProtocolEnum"
+{-# COMPLETE
+  Geneve,
+  HTTP,
+  HTTPS,
+  TCP,
+  TCPUdp,
+  TLS,
+  Udp,
+  ProtocolEnum'
+  #-}

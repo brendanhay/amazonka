@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.KinesisDataStreamDestination where
+module Network.AWS.DynamoDB.Types.KinesisDataStreamDestination
+  ( KinesisDataStreamDestination (..),
+
+    -- * Smart constructor
+    mkKinesisDataStreamDestination,
+
+    -- * Lenses
+    kdsdDestinationStatus,
+    kdsdStreamARN,
+    kdsdDestinationStatusDescription,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.DestinationStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a Kinesis data stream destination.
 --
---
---
--- /See:/ 'kinesisDataStreamDestination' smart constructor.
+-- /See:/ 'mkKinesisDataStreamDestination' smart constructor.
 data KinesisDataStreamDestination = KinesisDataStreamDestination'
-  { _kdsdDestinationStatus ::
-      !(Maybe DestinationStatus),
-    _kdsdStreamARN :: !(Maybe Text),
-    _kdsdDestinationStatusDescription ::
-      !(Maybe Text)
+  { destinationStatus ::
+      Lude.Maybe DestinationStatus,
+    streamARN :: Lude.Maybe Lude.Text,
+    destinationStatusDescription ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisDataStreamDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kdsdDestinationStatus' - The current status of replication.
---
--- * 'kdsdStreamARN' - The ARN for a specific Kinesis data stream.
---
--- * 'kdsdDestinationStatusDescription' - The human-readable string that corresponds to the replica status.
-kinesisDataStreamDestination ::
+-- * 'destinationStatus' - The current status of replication.
+-- * 'destinationStatusDescription' - The human-readable string that corresponds to the replica status.
+-- * 'streamARN' - The ARN for a specific Kinesis data stream.
+mkKinesisDataStreamDestination ::
   KinesisDataStreamDestination
-kinesisDataStreamDestination =
+mkKinesisDataStreamDestination =
   KinesisDataStreamDestination'
-    { _kdsdDestinationStatus = Nothing,
-      _kdsdStreamARN = Nothing,
-      _kdsdDestinationStatusDescription = Nothing
+    { destinationStatus = Lude.Nothing,
+      streamARN = Lude.Nothing,
+      destinationStatusDescription = Lude.Nothing
     }
 
 -- | The current status of replication.
-kdsdDestinationStatus :: Lens' KinesisDataStreamDestination (Maybe DestinationStatus)
-kdsdDestinationStatus = lens _kdsdDestinationStatus (\s a -> s {_kdsdDestinationStatus = a})
+--
+-- /Note:/ Consider using 'destinationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kdsdDestinationStatus :: Lens.Lens' KinesisDataStreamDestination (Lude.Maybe DestinationStatus)
+kdsdDestinationStatus = Lens.lens (destinationStatus :: KinesisDataStreamDestination -> Lude.Maybe DestinationStatus) (\s a -> s {destinationStatus = a} :: KinesisDataStreamDestination)
+{-# DEPRECATED kdsdDestinationStatus "Use generic-lens or generic-optics with 'destinationStatus' instead." #-}
 
 -- | The ARN for a specific Kinesis data stream.
-kdsdStreamARN :: Lens' KinesisDataStreamDestination (Maybe Text)
-kdsdStreamARN = lens _kdsdStreamARN (\s a -> s {_kdsdStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kdsdStreamARN :: Lens.Lens' KinesisDataStreamDestination (Lude.Maybe Lude.Text)
+kdsdStreamARN = Lens.lens (streamARN :: KinesisDataStreamDestination -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: KinesisDataStreamDestination)
+{-# DEPRECATED kdsdStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The human-readable string that corresponds to the replica status.
-kdsdDestinationStatusDescription :: Lens' KinesisDataStreamDestination (Maybe Text)
-kdsdDestinationStatusDescription = lens _kdsdDestinationStatusDescription (\s a -> s {_kdsdDestinationStatusDescription = a})
+--
+-- /Note:/ Consider using 'destinationStatusDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kdsdDestinationStatusDescription :: Lens.Lens' KinesisDataStreamDestination (Lude.Maybe Lude.Text)
+kdsdDestinationStatusDescription = Lens.lens (destinationStatusDescription :: KinesisDataStreamDestination -> Lude.Maybe Lude.Text) (\s a -> s {destinationStatusDescription = a} :: KinesisDataStreamDestination)
+{-# DEPRECATED kdsdDestinationStatusDescription "Use generic-lens or generic-optics with 'destinationStatusDescription' instead." #-}
 
-instance FromJSON KinesisDataStreamDestination where
+instance Lude.FromJSON KinesisDataStreamDestination where
   parseJSON =
-    withObject
+    Lude.withObject
       "KinesisDataStreamDestination"
       ( \x ->
           KinesisDataStreamDestination'
-            <$> (x .:? "DestinationStatus")
-            <*> (x .:? "StreamArn")
-            <*> (x .:? "DestinationStatusDescription")
+            Lude.<$> (x Lude..:? "DestinationStatus")
+            Lude.<*> (x Lude..:? "StreamArn")
+            Lude.<*> (x Lude..:? "DestinationStatusDescription")
       )
-
-instance Hashable KinesisDataStreamDestination
-
-instance NFData KinesisDataStreamDestination

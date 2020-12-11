@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.Deployment where
+module Network.AWS.ElasticBeanstalk.Types.Deployment
+  ( Deployment (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeployment,
+
+    -- * Lenses
+    dDeploymentId,
+    dStatus,
+    dDeploymentTime,
+    dVersionLabel,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an application version deployment.
 --
---
---
--- /See:/ 'deployment' smart constructor.
+-- /See:/ 'mkDeployment' smart constructor.
 data Deployment = Deployment'
-  { _dDeploymentId :: !(Maybe Integer),
-    _dStatus :: !(Maybe Text),
-    _dDeploymentTime :: !(Maybe ISO8601),
-    _dVersionLabel :: !(Maybe Text)
+  { deploymentId ::
+      Lude.Maybe Lude.Integer,
+    status :: Lude.Maybe Lude.Text,
+    deploymentTime :: Lude.Maybe Lude.ISO8601,
+    versionLabel :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deploymentId' - The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
+-- * 'deploymentTime' - For in-progress deployments, the time that the deployment started.
 --
--- * 'dDeploymentId' - The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
+-- For completed deployments, the time that the deployment ended.
+-- * 'status' - The status of the deployment:
 --
--- * 'dStatus' - The status of the deployment:     * @In Progress@ : The deployment is in progress.     * @Deployed@ : The deployment succeeded.     * @Failed@ : The deployment failed.
 --
--- * 'dDeploymentTime' - For in-progress deployments, the time that the deployment started. For completed deployments, the time that the deployment ended.
+--     * @In Progress@ : The deployment is in progress.
 --
--- * 'dVersionLabel' - The version label of the application version in the deployment.
-deployment ::
+--
+--     * @Deployed@ : The deployment succeeded.
+--
+--
+--     * @Failed@ : The deployment failed.
+--
+--
+-- * 'versionLabel' - The version label of the application version in the deployment.
+mkDeployment ::
   Deployment
-deployment =
+mkDeployment =
   Deployment'
-    { _dDeploymentId = Nothing,
-      _dStatus = Nothing,
-      _dDeploymentTime = Nothing,
-      _dVersionLabel = Nothing
+    { deploymentId = Lude.Nothing,
+      status = Lude.Nothing,
+      deploymentTime = Lude.Nothing,
+      versionLabel = Lude.Nothing
     }
 
 -- | The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
-dDeploymentId :: Lens' Deployment (Maybe Integer)
-dDeploymentId = lens _dDeploymentId (\s a -> s {_dDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeploymentId :: Lens.Lens' Deployment (Lude.Maybe Lude.Integer)
+dDeploymentId = Lens.lens (deploymentId :: Deployment -> Lude.Maybe Lude.Integer) (\s a -> s {deploymentId = a} :: Deployment)
+{-# DEPRECATED dDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
--- | The status of the deployment:     * @In Progress@ : The deployment is in progress.     * @Deployed@ : The deployment succeeded.     * @Failed@ : The deployment failed.
-dStatus :: Lens' Deployment (Maybe Text)
-dStatus = lens _dStatus (\s a -> s {_dStatus = a})
+-- | The status of the deployment:
+--
+--
+--     * @In Progress@ : The deployment is in progress.
+--
+--
+--     * @Deployed@ : The deployment succeeded.
+--
+--
+--     * @Failed@ : The deployment failed.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStatus :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
+dStatus = Lens.lens (status :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Deployment)
+{-# DEPRECATED dStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | For in-progress deployments, the time that the deployment started. For completed deployments, the time that the deployment ended.
-dDeploymentTime :: Lens' Deployment (Maybe UTCTime)
-dDeploymentTime = lens _dDeploymentTime (\s a -> s {_dDeploymentTime = a}) . mapping _Time
+-- | For in-progress deployments, the time that the deployment started.
+--
+-- For completed deployments, the time that the deployment ended.
+--
+-- /Note:/ Consider using 'deploymentTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeploymentTime :: Lens.Lens' Deployment (Lude.Maybe Lude.ISO8601)
+dDeploymentTime = Lens.lens (deploymentTime :: Deployment -> Lude.Maybe Lude.ISO8601) (\s a -> s {deploymentTime = a} :: Deployment)
+{-# DEPRECATED dDeploymentTime "Use generic-lens or generic-optics with 'deploymentTime' instead." #-}
 
 -- | The version label of the application version in the deployment.
-dVersionLabel :: Lens' Deployment (Maybe Text)
-dVersionLabel = lens _dVersionLabel (\s a -> s {_dVersionLabel = a})
+--
+-- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dVersionLabel :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
+dVersionLabel = Lens.lens (versionLabel :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: Deployment)
+{-# DEPRECATED dVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
-instance FromXML Deployment where
+instance Lude.FromXML Deployment where
   parseXML x =
     Deployment'
-      <$> (x .@? "DeploymentId")
-      <*> (x .@? "Status")
-      <*> (x .@? "DeploymentTime")
-      <*> (x .@? "VersionLabel")
-
-instance Hashable Deployment
-
-instance NFData Deployment
+      Lude.<$> (x Lude..@? "DeploymentId")
+      Lude.<*> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "DeploymentTime")
+      Lude.<*> (x Lude..@? "VersionLabel")

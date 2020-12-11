@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspacesIPGroup where
+module Network.AWS.WorkSpaces.Types.WorkspacesIPGroup
+  ( WorkspacesIPGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkspacesIPGroup,
+
+    -- * Lenses
+    wigGroupDesc,
+    wigUserRules,
+    wigGroupId,
+    wigGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.IPRuleItem
 
 -- | Describes an IP access control group.
 --
---
---
--- /See:/ 'workspacesIPGroup' smart constructor.
+-- /See:/ 'mkWorkspacesIPGroup' smart constructor.
 data WorkspacesIPGroup = WorkspacesIPGroup'
-  { _wigGroupDesc ::
-      !(Maybe Text),
-    _wigUserRules :: !(Maybe [IPRuleItem]),
-    _wigGroupId :: !(Maybe Text),
-    _wigGroupName :: !(Maybe Text)
+  { groupDesc ::
+      Lude.Maybe Lude.Text,
+    userRules :: Lude.Maybe [IPRuleItem],
+    groupId :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspacesIPGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wigGroupDesc' - The description of the group.
---
--- * 'wigUserRules' - The rules.
---
--- * 'wigGroupId' - The identifier of the group.
---
--- * 'wigGroupName' - The name of the group.
-workspacesIPGroup ::
+-- * 'groupDesc' - The description of the group.
+-- * 'groupId' - The identifier of the group.
+-- * 'groupName' - The name of the group.
+-- * 'userRules' - The rules.
+mkWorkspacesIPGroup ::
   WorkspacesIPGroup
-workspacesIPGroup =
+mkWorkspacesIPGroup =
   WorkspacesIPGroup'
-    { _wigGroupDesc = Nothing,
-      _wigUserRules = Nothing,
-      _wigGroupId = Nothing,
-      _wigGroupName = Nothing
+    { groupDesc = Lude.Nothing,
+      userRules = Lude.Nothing,
+      groupId = Lude.Nothing,
+      groupName = Lude.Nothing
     }
 
 -- | The description of the group.
-wigGroupDesc :: Lens' WorkspacesIPGroup (Maybe Text)
-wigGroupDesc = lens _wigGroupDesc (\s a -> s {_wigGroupDesc = a})
+--
+-- /Note:/ Consider using 'groupDesc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wigGroupDesc :: Lens.Lens' WorkspacesIPGroup (Lude.Maybe Lude.Text)
+wigGroupDesc = Lens.lens (groupDesc :: WorkspacesIPGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupDesc = a} :: WorkspacesIPGroup)
+{-# DEPRECATED wigGroupDesc "Use generic-lens or generic-optics with 'groupDesc' instead." #-}
 
 -- | The rules.
-wigUserRules :: Lens' WorkspacesIPGroup [IPRuleItem]
-wigUserRules = lens _wigUserRules (\s a -> s {_wigUserRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wigUserRules :: Lens.Lens' WorkspacesIPGroup (Lude.Maybe [IPRuleItem])
+wigUserRules = Lens.lens (userRules :: WorkspacesIPGroup -> Lude.Maybe [IPRuleItem]) (\s a -> s {userRules = a} :: WorkspacesIPGroup)
+{-# DEPRECATED wigUserRules "Use generic-lens or generic-optics with 'userRules' instead." #-}
 
 -- | The identifier of the group.
-wigGroupId :: Lens' WorkspacesIPGroup (Maybe Text)
-wigGroupId = lens _wigGroupId (\s a -> s {_wigGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wigGroupId :: Lens.Lens' WorkspacesIPGroup (Lude.Maybe Lude.Text)
+wigGroupId = Lens.lens (groupId :: WorkspacesIPGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: WorkspacesIPGroup)
+{-# DEPRECATED wigGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The name of the group.
-wigGroupName :: Lens' WorkspacesIPGroup (Maybe Text)
-wigGroupName = lens _wigGroupName (\s a -> s {_wigGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wigGroupName :: Lens.Lens' WorkspacesIPGroup (Lude.Maybe Lude.Text)
+wigGroupName = Lens.lens (groupName :: WorkspacesIPGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: WorkspacesIPGroup)
+{-# DEPRECATED wigGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance FromJSON WorkspacesIPGroup where
+instance Lude.FromJSON WorkspacesIPGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkspacesIPGroup"
       ( \x ->
           WorkspacesIPGroup'
-            <$> (x .:? "groupDesc")
-            <*> (x .:? "userRules" .!= mempty)
-            <*> (x .:? "groupId")
-            <*> (x .:? "groupName")
+            Lude.<$> (x Lude..:? "groupDesc")
+            Lude.<*> (x Lude..:? "userRules" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "groupId")
+            Lude.<*> (x Lude..:? "groupName")
       )
-
-instance Hashable WorkspacesIPGroup
-
-instance NFData WorkspacesIPGroup

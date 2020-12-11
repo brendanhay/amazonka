@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.StepExecutionFilterKey where
+module Network.AWS.SSM.Types.StepExecutionFilterKey
+  ( StepExecutionFilterKey
+      ( StepExecutionFilterKey',
+        Action,
+        StartTimeAfter,
+        StartTimeBefore,
+        StepExecutionId,
+        StepExecutionStatus,
+        StepName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StepExecutionFilterKey
-  = Action
-  | StartTimeAfter
-  | StartTimeBefore
-  | StepExecutionId
-  | StepExecutionStatus
-  | StepName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StepExecutionFilterKey = StepExecutionFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StepExecutionFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "action" -> pure Action
-      "starttimeafter" -> pure StartTimeAfter
-      "starttimebefore" -> pure StartTimeBefore
-      "stepexecutionid" -> pure StepExecutionId
-      "stepexecutionstatus" -> pure StepExecutionStatus
-      "stepname" -> pure StepName
-      e ->
-        fromTextError $
-          "Failure parsing StepExecutionFilterKey from value: '" <> e
-            <> "'. Accepted values: action, starttimeafter, starttimebefore, stepexecutionid, stepexecutionstatus, stepname"
+pattern Action :: StepExecutionFilterKey
+pattern Action = StepExecutionFilterKey' "Action"
 
-instance ToText StepExecutionFilterKey where
-  toText = \case
-    Action -> "Action"
-    StartTimeAfter -> "StartTimeAfter"
-    StartTimeBefore -> "StartTimeBefore"
-    StepExecutionId -> "StepExecutionId"
-    StepExecutionStatus -> "StepExecutionStatus"
-    StepName -> "StepName"
+pattern StartTimeAfter :: StepExecutionFilterKey
+pattern StartTimeAfter = StepExecutionFilterKey' "StartTimeAfter"
 
-instance Hashable StepExecutionFilterKey
+pattern StartTimeBefore :: StepExecutionFilterKey
+pattern StartTimeBefore = StepExecutionFilterKey' "StartTimeBefore"
 
-instance NFData StepExecutionFilterKey
+pattern StepExecutionId :: StepExecutionFilterKey
+pattern StepExecutionId = StepExecutionFilterKey' "StepExecutionId"
 
-instance ToByteString StepExecutionFilterKey
+pattern StepExecutionStatus :: StepExecutionFilterKey
+pattern StepExecutionStatus = StepExecutionFilterKey' "StepExecutionStatus"
 
-instance ToQuery StepExecutionFilterKey
+pattern StepName :: StepExecutionFilterKey
+pattern StepName = StepExecutionFilterKey' "StepName"
 
-instance ToHeader StepExecutionFilterKey
-
-instance ToJSON StepExecutionFilterKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  Action,
+  StartTimeAfter,
+  StartTimeBefore,
+  StepExecutionId,
+  StepExecutionStatus,
+  StepName,
+  StepExecutionFilterKey'
+  #-}

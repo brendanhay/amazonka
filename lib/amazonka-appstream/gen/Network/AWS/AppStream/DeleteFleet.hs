@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,112 @@
 --
 -- Deletes the specified fleet.
 module Network.AWS.AppStream.DeleteFleet
-  ( -- * Creating a Request
-    deleteFleet,
-    DeleteFleet,
+  ( -- * Creating a request
+    DeleteFleet (..),
+    mkDeleteFleet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfName,
 
-    -- * Destructuring the Response
-    deleteFleetResponse,
-    DeleteFleetResponse,
+    -- * Destructuring the response
+    DeleteFleetResponse (..),
+    mkDeleteFleetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfrsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteFleet' smart constructor.
-newtype DeleteFleet = DeleteFleet' {_dfName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteFleet' smart constructor.
+newtype DeleteFleet = DeleteFleet' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFleet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfName' - The name of the fleet.
-deleteFleet ::
-  -- | 'dfName'
-  Text ->
+-- * 'name' - The name of the fleet.
+mkDeleteFleet ::
+  -- | 'name'
+  Lude.Text ->
   DeleteFleet
-deleteFleet pName_ = DeleteFleet' {_dfName = pName_}
+mkDeleteFleet pName_ = DeleteFleet' {name = pName_}
 
 -- | The name of the fleet.
-dfName :: Lens' DeleteFleet Text
-dfName = lens _dfName (\s a -> s {_dfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfName :: Lens.Lens' DeleteFleet Lude.Text
+dfName = Lens.lens (name :: DeleteFleet -> Lude.Text) (\s a -> s {name = a} :: DeleteFleet)
+{-# DEPRECATED dfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteFleet where
+instance Lude.AWSRequest DeleteFleet where
   type Rs DeleteFleet = DeleteFleetResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveEmpty
-      (\s h x -> DeleteFleetResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteFleetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteFleet
-
-instance NFData DeleteFleet
-
-instance ToHeaders DeleteFleet where
+instance Lude.ToHeaders DeleteFleet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.DeleteFleet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.DeleteFleet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteFleet where
+instance Lude.ToJSON DeleteFleet where
   toJSON DeleteFleet' {..} =
-    object (catMaybes [Just ("Name" .= _dfName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DeleteFleet where
-  toPath = const "/"
+instance Lude.ToPath DeleteFleet where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteFleet where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteFleet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteFleetResponse' smart constructor.
+-- | /See:/ 'mkDeleteFleetResponse' smart constructor.
 newtype DeleteFleetResponse = DeleteFleetResponse'
-  { _dfrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFleetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfrsResponseStatus' - -- | The response status code.
-deleteFleetResponse ::
-  -- | 'dfrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteFleetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteFleetResponse
-deleteFleetResponse pResponseStatus_ =
-  DeleteFleetResponse' {_dfrsResponseStatus = pResponseStatus_}
+mkDeleteFleetResponse pResponseStatus_ =
+  DeleteFleetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dfrsResponseStatus :: Lens' DeleteFleetResponse Int
-dfrsResponseStatus = lens _dfrsResponseStatus (\s a -> s {_dfrsResponseStatus = a})
-
-instance NFData DeleteFleetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfrsResponseStatus :: Lens.Lens' DeleteFleetResponse Lude.Int
+dfrsResponseStatus = Lens.lens (responseStatus :: DeleteFleetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFleetResponse)
+{-# DEPRECATED dfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.FindingPublishingFrequency where
+module Network.AWS.GuardDuty.Types.FindingPublishingFrequency
+  ( FindingPublishingFrequency
+      ( FindingPublishingFrequency',
+        FifteenMinutes,
+        OneHour,
+        SixHours
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FindingPublishingFrequency
-  = FifteenMinutes
-  | OneHour
-  | SixHours
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FindingPublishingFrequency = FindingPublishingFrequency' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FindingPublishingFrequency where
-  parser =
-    takeLowerText >>= \case
-      "fifteen_minutes" -> pure FifteenMinutes
-      "one_hour" -> pure OneHour
-      "six_hours" -> pure SixHours
-      e ->
-        fromTextError $
-          "Failure parsing FindingPublishingFrequency from value: '" <> e
-            <> "'. Accepted values: fifteen_minutes, one_hour, six_hours"
+pattern FifteenMinutes :: FindingPublishingFrequency
+pattern FifteenMinutes = FindingPublishingFrequency' "FIFTEEN_MINUTES"
 
-instance ToText FindingPublishingFrequency where
-  toText = \case
-    FifteenMinutes -> "FIFTEEN_MINUTES"
-    OneHour -> "ONE_HOUR"
-    SixHours -> "SIX_HOURS"
+pattern OneHour :: FindingPublishingFrequency
+pattern OneHour = FindingPublishingFrequency' "ONE_HOUR"
 
-instance Hashable FindingPublishingFrequency
+pattern SixHours :: FindingPublishingFrequency
+pattern SixHours = FindingPublishingFrequency' "SIX_HOURS"
 
-instance NFData FindingPublishingFrequency
-
-instance ToByteString FindingPublishingFrequency
-
-instance ToQuery FindingPublishingFrequency
-
-instance ToHeader FindingPublishingFrequency
-
-instance ToJSON FindingPublishingFrequency where
-  toJSON = toJSONText
-
-instance FromJSON FindingPublishingFrequency where
-  parseJSON = parseJSONText "FindingPublishingFrequency"
+{-# COMPLETE
+  FifteenMinutes,
+  OneHour,
+  SixHours,
+  FindingPublishingFrequency'
+  #-}

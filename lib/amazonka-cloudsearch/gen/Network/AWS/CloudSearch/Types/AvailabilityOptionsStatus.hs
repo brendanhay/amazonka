@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus where
+module Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus
+  ( AvailabilityOptionsStatus (..),
+
+    -- * Smart constructor
+    mkAvailabilityOptionsStatus,
+
+    -- * Lenses
+    aosOptions,
+    aosStatus,
+  )
+where
 
 import Network.AWS.CloudSearch.Types.OptionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status and configuration of the domain's availability options.
 --
---
---
--- /See:/ 'availabilityOptionsStatus' smart constructor.
+-- /See:/ 'mkAvailabilityOptionsStatus' smart constructor.
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
-  { _aosOptions ::
-      !Bool,
-    _aosStatus :: !OptionStatus
+  { options ::
+      Lude.Bool,
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityOptionsStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aosOptions' - The availability options configured for the domain.
---
--- * 'aosStatus' - Undocumented member.
-availabilityOptionsStatus ::
-  -- | 'aosOptions'
-  Bool ->
-  -- | 'aosStatus'
+-- * 'options' - The availability options configured for the domain.
+-- * 'status' - Undocumented field.
+mkAvailabilityOptionsStatus ::
+  -- | 'options'
+  Lude.Bool ->
+  -- | 'status'
   OptionStatus ->
   AvailabilityOptionsStatus
-availabilityOptionsStatus pOptions_ pStatus_ =
+mkAvailabilityOptionsStatus pOptions_ pStatus_ =
   AvailabilityOptionsStatus'
-    { _aosOptions = pOptions_,
-      _aosStatus = pStatus_
+    { options = pOptions_,
+      status = pStatus_
     }
 
 -- | The availability options configured for the domain.
-aosOptions :: Lens' AvailabilityOptionsStatus Bool
-aosOptions = lens _aosOptions (\s a -> s {_aosOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aosOptions :: Lens.Lens' AvailabilityOptionsStatus Lude.Bool
+aosOptions = Lens.lens (options :: AvailabilityOptionsStatus -> Lude.Bool) (\s a -> s {options = a} :: AvailabilityOptionsStatus)
+{-# DEPRECATED aosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
--- | Undocumented member.
-aosStatus :: Lens' AvailabilityOptionsStatus OptionStatus
-aosStatus = lens _aosStatus (\s a -> s {_aosStatus = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aosStatus :: Lens.Lens' AvailabilityOptionsStatus OptionStatus
+aosStatus = Lens.lens (status :: AvailabilityOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: AvailabilityOptionsStatus)
+{-# DEPRECATED aosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML AvailabilityOptionsStatus where
+instance Lude.FromXML AvailabilityOptionsStatus where
   parseXML x =
     AvailabilityOptionsStatus'
-      <$> (x .@ "Options") <*> (x .@ "Status")
-
-instance Hashable AvailabilityOptionsStatus
-
-instance NFData AvailabilityOptionsStatus
+      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")

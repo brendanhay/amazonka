@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Updates an existing 'Authorizer' resource.
 --
---
 -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.UpdateAuthorizer
-  ( -- * Creating a Request
-    updateAuthorizer,
-    UpdateAuthorizer,
+  ( -- * Creating a request
+    UpdateAuthorizer (..),
+    mkUpdateAuthorizer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaaPatchOperations,
     uaaRestAPIId,
     uaaAuthorizerId,
 
-    -- * Destructuring the Response
-    authorizer,
-    Authorizer,
+    -- * Destructuring the response
+    Authorizer (..),
+    mkAuthorizer,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aAuthorizerURI,
     aIdentityValidationExpression,
     aProviderARNs,
@@ -50,84 +44,95 @@ module Network.AWS.APIGateway.UpdateAuthorizer
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to update an existing 'Authorizer' resource.
 --
---
---
--- /See:/ 'updateAuthorizer' smart constructor.
+-- /See:/ 'mkUpdateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
-  { _uaaPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _uaaRestAPIId :: !Text,
-    _uaaAuthorizerId :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text,
+    authorizerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAuthorizer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'uaaRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'uaaAuthorizerId' - [Required] The identifier of the 'Authorizer' resource.
-updateAuthorizer ::
-  -- | 'uaaRestAPIId'
-  Text ->
-  -- | 'uaaAuthorizerId'
-  Text ->
+-- * 'authorizerId' - [Required] The identifier of the 'Authorizer' resource.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkUpdateAuthorizer ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'authorizerId'
+  Lude.Text ->
   UpdateAuthorizer
-updateAuthorizer pRestAPIId_ pAuthorizerId_ =
+mkUpdateAuthorizer pRestAPIId_ pAuthorizerId_ =
   UpdateAuthorizer'
-    { _uaaPatchOperations = Nothing,
-      _uaaRestAPIId = pRestAPIId_,
-      _uaaAuthorizerId = pAuthorizerId_
+    { patchOperations = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      authorizerId = pAuthorizerId_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-uaaPatchOperations :: Lens' UpdateAuthorizer [PatchOperation]
-uaaPatchOperations = lens _uaaPatchOperations (\s a -> s {_uaaPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaaPatchOperations :: Lens.Lens' UpdateAuthorizer (Lude.Maybe [PatchOperation])
+uaaPatchOperations = Lens.lens (patchOperations :: UpdateAuthorizer -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateAuthorizer)
+{-# DEPRECATED uaaPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-uaaRestAPIId :: Lens' UpdateAuthorizer Text
-uaaRestAPIId = lens _uaaRestAPIId (\s a -> s {_uaaRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaaRestAPIId :: Lens.Lens' UpdateAuthorizer Lude.Text
+uaaRestAPIId = Lens.lens (restAPIId :: UpdateAuthorizer -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateAuthorizer)
+{-# DEPRECATED uaaRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'Authorizer' resource.
-uaaAuthorizerId :: Lens' UpdateAuthorizer Text
-uaaAuthorizerId = lens _uaaAuthorizerId (\s a -> s {_uaaAuthorizerId = a})
+--
+-- /Note:/ Consider using 'authorizerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaaAuthorizerId :: Lens.Lens' UpdateAuthorizer Lude.Text
+uaaAuthorizerId = Lens.lens (authorizerId :: UpdateAuthorizer -> Lude.Text) (\s a -> s {authorizerId = a} :: UpdateAuthorizer)
+{-# DEPRECATED uaaAuthorizerId "Use generic-lens or generic-optics with 'authorizerId' instead." #-}
 
-instance AWSRequest UpdateAuthorizer where
+instance Lude.AWSRequest UpdateAuthorizer where
   type Rs UpdateAuthorizer = Authorizer
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateAuthorizer
-
-instance NFData UpdateAuthorizer
-
-instance ToHeaders UpdateAuthorizer where
+instance Lude.ToHeaders UpdateAuthorizer where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateAuthorizer where
+instance Lude.ToJSON UpdateAuthorizer where
   toJSON UpdateAuthorizer' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _uaaPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateAuthorizer where
+instance Lude.ToPath UpdateAuthorizer where
   toPath UpdateAuthorizer' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _uaaRestAPIId,
+        Lude.toBS restAPIId,
         "/authorizers/",
-        toBS _uaaAuthorizerId
+        Lude.toBS authorizerId
       ]
 
-instance ToQuery UpdateAuthorizer where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAuthorizer where
+  toQuery = Lude.const Lude.mempty

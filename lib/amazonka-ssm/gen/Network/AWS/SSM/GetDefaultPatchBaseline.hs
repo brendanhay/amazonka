@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,147 @@
 --
 -- Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
 --
---
 -- If you do not specify an operating system value, the default patch baseline for Windows is returned.
 module Network.AWS.SSM.GetDefaultPatchBaseline
-  ( -- * Creating a Request
-    getDefaultPatchBaseline,
-    GetDefaultPatchBaseline,
+  ( -- * Creating a request
+    GetDefaultPatchBaseline (..),
+    mkGetDefaultPatchBaseline,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdpbOperatingSystem,
 
-    -- * Destructuring the Response
-    getDefaultPatchBaselineResponse,
-    GetDefaultPatchBaselineResponse,
+    -- * Destructuring the response
+    GetDefaultPatchBaselineResponse (..),
+    mkGetDefaultPatchBaselineResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdpbrsOperatingSystem,
     gdpbrsBaselineId,
     gdpbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getDefaultPatchBaseline' smart constructor.
+-- | /See:/ 'mkGetDefaultPatchBaseline' smart constructor.
 newtype GetDefaultPatchBaseline = GetDefaultPatchBaseline'
-  { _gdpbOperatingSystem ::
-      Maybe OperatingSystem
+  { operatingSystem ::
+      Lude.Maybe OperatingSystem
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultPatchBaseline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdpbOperatingSystem' - Returns the default patch baseline for the specified operating system.
-getDefaultPatchBaseline ::
+-- * 'operatingSystem' - Returns the default patch baseline for the specified operating system.
+mkGetDefaultPatchBaseline ::
   GetDefaultPatchBaseline
-getDefaultPatchBaseline =
-  GetDefaultPatchBaseline' {_gdpbOperatingSystem = Nothing}
+mkGetDefaultPatchBaseline =
+  GetDefaultPatchBaseline' {operatingSystem = Lude.Nothing}
 
 -- | Returns the default patch baseline for the specified operating system.
-gdpbOperatingSystem :: Lens' GetDefaultPatchBaseline (Maybe OperatingSystem)
-gdpbOperatingSystem = lens _gdpbOperatingSystem (\s a -> s {_gdpbOperatingSystem = a})
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpbOperatingSystem :: Lens.Lens' GetDefaultPatchBaseline (Lude.Maybe OperatingSystem)
+gdpbOperatingSystem = Lens.lens (operatingSystem :: GetDefaultPatchBaseline -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: GetDefaultPatchBaseline)
+{-# DEPRECATED gdpbOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
-instance AWSRequest GetDefaultPatchBaseline where
+instance Lude.AWSRequest GetDefaultPatchBaseline where
   type Rs GetDefaultPatchBaseline = GetDefaultPatchBaselineResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDefaultPatchBaselineResponse'
-            <$> (x .?> "OperatingSystem")
-            <*> (x .?> "BaselineId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OperatingSystem")
+            Lude.<*> (x Lude..?> "BaselineId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDefaultPatchBaseline
-
-instance NFData GetDefaultPatchBaseline
-
-instance ToHeaders GetDefaultPatchBaseline where
+instance Lude.ToHeaders GetDefaultPatchBaseline where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.GetDefaultPatchBaseline" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.GetDefaultPatchBaseline" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDefaultPatchBaseline where
+instance Lude.ToJSON GetDefaultPatchBaseline where
   toJSON GetDefaultPatchBaseline' {..} =
-    object
-      (catMaybes [("OperatingSystem" .=) <$> _gdpbOperatingSystem])
+    Lude.object
+      ( Lude.catMaybes
+          [("OperatingSystem" Lude..=) Lude.<$> operatingSystem]
+      )
 
-instance ToPath GetDefaultPatchBaseline where
-  toPath = const "/"
+instance Lude.ToPath GetDefaultPatchBaseline where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDefaultPatchBaseline where
-  toQuery = const mempty
+instance Lude.ToQuery GetDefaultPatchBaseline where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDefaultPatchBaselineResponse' smart constructor.
+-- | /See:/ 'mkGetDefaultPatchBaselineResponse' smart constructor.
 data GetDefaultPatchBaselineResponse = GetDefaultPatchBaselineResponse'
-  { _gdpbrsOperatingSystem ::
-      !(Maybe OperatingSystem),
-    _gdpbrsBaselineId ::
-      !(Maybe Text),
-    _gdpbrsResponseStatus ::
-      !Int
+  { operatingSystem ::
+      Lude.Maybe OperatingSystem,
+    baselineId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultPatchBaselineResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdpbrsOperatingSystem' - The operating system for the returned patch baseline.
---
--- * 'gdpbrsBaselineId' - The ID of the default patch baseline.
---
--- * 'gdpbrsResponseStatus' - -- | The response status code.
-getDefaultPatchBaselineResponse ::
-  -- | 'gdpbrsResponseStatus'
-  Int ->
+-- * 'baselineId' - The ID of the default patch baseline.
+-- * 'operatingSystem' - The operating system for the returned patch baseline.
+-- * 'responseStatus' - The response status code.
+mkGetDefaultPatchBaselineResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDefaultPatchBaselineResponse
-getDefaultPatchBaselineResponse pResponseStatus_ =
+mkGetDefaultPatchBaselineResponse pResponseStatus_ =
   GetDefaultPatchBaselineResponse'
-    { _gdpbrsOperatingSystem =
-        Nothing,
-      _gdpbrsBaselineId = Nothing,
-      _gdpbrsResponseStatus = pResponseStatus_
+    { operatingSystem = Lude.Nothing,
+      baselineId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The operating system for the returned patch baseline.
-gdpbrsOperatingSystem :: Lens' GetDefaultPatchBaselineResponse (Maybe OperatingSystem)
-gdpbrsOperatingSystem = lens _gdpbrsOperatingSystem (\s a -> s {_gdpbrsOperatingSystem = a})
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpbrsOperatingSystem :: Lens.Lens' GetDefaultPatchBaselineResponse (Lude.Maybe OperatingSystem)
+gdpbrsOperatingSystem = Lens.lens (operatingSystem :: GetDefaultPatchBaselineResponse -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: GetDefaultPatchBaselineResponse)
+{-# DEPRECATED gdpbrsOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
 -- | The ID of the default patch baseline.
-gdpbrsBaselineId :: Lens' GetDefaultPatchBaselineResponse (Maybe Text)
-gdpbrsBaselineId = lens _gdpbrsBaselineId (\s a -> s {_gdpbrsBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpbrsBaselineId :: Lens.Lens' GetDefaultPatchBaselineResponse (Lude.Maybe Lude.Text)
+gdpbrsBaselineId = Lens.lens (baselineId :: GetDefaultPatchBaselineResponse -> Lude.Maybe Lude.Text) (\s a -> s {baselineId = a} :: GetDefaultPatchBaselineResponse)
+{-# DEPRECATED gdpbrsBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
--- | -- | The response status code.
-gdpbrsResponseStatus :: Lens' GetDefaultPatchBaselineResponse Int
-gdpbrsResponseStatus = lens _gdpbrsResponseStatus (\s a -> s {_gdpbrsResponseStatus = a})
-
-instance NFData GetDefaultPatchBaselineResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpbrsResponseStatus :: Lens.Lens' GetDefaultPatchBaselineResponse Lude.Int
+gdpbrsResponseStatus = Lens.lens (responseStatus :: GetDefaultPatchBaselineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDefaultPatchBaselineResponse)
+{-# DEPRECATED gdpbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

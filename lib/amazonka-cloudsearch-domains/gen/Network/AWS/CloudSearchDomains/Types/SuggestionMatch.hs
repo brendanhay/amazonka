@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearchDomains.Types.SuggestionMatch where
+module Network.AWS.CloudSearchDomains.Types.SuggestionMatch
+  ( SuggestionMatch (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSuggestionMatch,
+
+    -- * Lenses
+    smSuggestion,
+    smScore,
+    smId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An autocomplete suggestion that matches the query string specified in a @SuggestRequest@ .
 --
---
---
--- /See:/ 'suggestionMatch' smart constructor.
+-- /See:/ 'mkSuggestionMatch' smart constructor.
 data SuggestionMatch = SuggestionMatch'
-  { _smSuggestion ::
-      !(Maybe Text),
-    _smScore :: !(Maybe Integer),
-    _smId :: !(Maybe Text)
+  { suggestion ::
+      Lude.Maybe Lude.Text,
+    score :: Lude.Maybe Lude.Integer,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuggestionMatch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'smSuggestion' - The string that matches the query string specified in the @SuggestRequest@ .
---
--- * 'smScore' - The relevance score of a suggested match.
---
--- * 'smId' - The document ID of the suggested document.
-suggestionMatch ::
+-- * 'id' - The document ID of the suggested document.
+-- * 'score' - The relevance score of a suggested match.
+-- * 'suggestion' - The string that matches the query string specified in the @SuggestRequest@ .
+mkSuggestionMatch ::
   SuggestionMatch
-suggestionMatch =
+mkSuggestionMatch =
   SuggestionMatch'
-    { _smSuggestion = Nothing,
-      _smScore = Nothing,
-      _smId = Nothing
+    { suggestion = Lude.Nothing,
+      score = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The string that matches the query string specified in the @SuggestRequest@ .
-smSuggestion :: Lens' SuggestionMatch (Maybe Text)
-smSuggestion = lens _smSuggestion (\s a -> s {_smSuggestion = a})
+--
+-- /Note:/ Consider using 'suggestion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smSuggestion :: Lens.Lens' SuggestionMatch (Lude.Maybe Lude.Text)
+smSuggestion = Lens.lens (suggestion :: SuggestionMatch -> Lude.Maybe Lude.Text) (\s a -> s {suggestion = a} :: SuggestionMatch)
+{-# DEPRECATED smSuggestion "Use generic-lens or generic-optics with 'suggestion' instead." #-}
 
 -- | The relevance score of a suggested match.
-smScore :: Lens' SuggestionMatch (Maybe Integer)
-smScore = lens _smScore (\s a -> s {_smScore = a})
+--
+-- /Note:/ Consider using 'score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smScore :: Lens.Lens' SuggestionMatch (Lude.Maybe Lude.Integer)
+smScore = Lens.lens (score :: SuggestionMatch -> Lude.Maybe Lude.Integer) (\s a -> s {score = a} :: SuggestionMatch)
+{-# DEPRECATED smScore "Use generic-lens or generic-optics with 'score' instead." #-}
 
 -- | The document ID of the suggested document.
-smId :: Lens' SuggestionMatch (Maybe Text)
-smId = lens _smId (\s a -> s {_smId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smId :: Lens.Lens' SuggestionMatch (Lude.Maybe Lude.Text)
+smId = Lens.lens (id :: SuggestionMatch -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: SuggestionMatch)
+{-# DEPRECATED smId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON SuggestionMatch where
+instance Lude.FromJSON SuggestionMatch where
   parseJSON =
-    withObject
+    Lude.withObject
       "SuggestionMatch"
       ( \x ->
           SuggestionMatch'
-            <$> (x .:? "suggestion") <*> (x .:? "score") <*> (x .:? "id")
+            Lude.<$> (x Lude..:? "suggestion")
+            Lude.<*> (x Lude..:? "score")
+            Lude.<*> (x Lude..:? "id")
       )
-
-instance Hashable SuggestionMatch
-
-instance NFData SuggestionMatch

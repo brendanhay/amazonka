@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.EvaluationType where
+module Network.AWS.ServiceCatalog.Types.EvaluationType
+  ( EvaluationType
+      ( EvaluationType',
+        Dynamic,
+        Static
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EvaluationType
-  = Dynamic
-  | Static
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EvaluationType = EvaluationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EvaluationType where
-  parser =
-    takeLowerText >>= \case
-      "dynamic" -> pure Dynamic
-      "static" -> pure Static
-      e ->
-        fromTextError $
-          "Failure parsing EvaluationType from value: '" <> e
-            <> "'. Accepted values: dynamic, static"
+pattern Dynamic :: EvaluationType
+pattern Dynamic = EvaluationType' "DYNAMIC"
 
-instance ToText EvaluationType where
-  toText = \case
-    Dynamic -> "DYNAMIC"
-    Static -> "STATIC"
+pattern Static :: EvaluationType
+pattern Static = EvaluationType' "STATIC"
 
-instance Hashable EvaluationType
-
-instance NFData EvaluationType
-
-instance ToByteString EvaluationType
-
-instance ToQuery EvaluationType
-
-instance ToHeader EvaluationType
-
-instance FromJSON EvaluationType where
-  parseJSON = parseJSONText "EvaluationType"
+{-# COMPLETE
+  Dynamic,
+  Static,
+  EvaluationType'
+  #-}

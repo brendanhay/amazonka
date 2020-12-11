@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.RegistryId where
+module Network.AWS.Glue.Types.RegistryId
+  ( RegistryId (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRegistryId,
+
+    -- * Lenses
+    riRegistryName,
+    riRegistryARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
 --
---
---
--- /See:/ 'registryId' smart constructor.
+-- /See:/ 'mkRegistryId' smart constructor.
 data RegistryId = RegistryId'
-  { _riRegistryName :: !(Maybe Text),
-    _riRegistryARN :: !(Maybe Text)
+  { registryName :: Lude.Maybe Lude.Text,
+    registryARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegistryId' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riRegistryName' - Name of the registry. Used only for lookup. One of @RegistryArn@ or @RegistryName@ has to be provided.
---
--- * 'riRegistryARN' - Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
-registryId ::
+-- * 'registryARN' - Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
+-- * 'registryName' - Name of the registry. Used only for lookup. One of @RegistryArn@ or @RegistryName@ has to be provided.
+mkRegistryId ::
   RegistryId
-registryId =
-  RegistryId' {_riRegistryName = Nothing, _riRegistryARN = Nothing}
+mkRegistryId =
+  RegistryId'
+    { registryName = Lude.Nothing,
+      registryARN = Lude.Nothing
+    }
 
 -- | Name of the registry. Used only for lookup. One of @RegistryArn@ or @RegistryName@ has to be provided.
-riRegistryName :: Lens' RegistryId (Maybe Text)
-riRegistryName = lens _riRegistryName (\s a -> s {_riRegistryName = a})
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRegistryName :: Lens.Lens' RegistryId (Lude.Maybe Lude.Text)
+riRegistryName = Lens.lens (registryName :: RegistryId -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: RegistryId)
+{-# DEPRECATED riRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | Arn of the registry to be updated. One of @RegistryArn@ or @RegistryName@ has to be provided.
-riRegistryARN :: Lens' RegistryId (Maybe Text)
-riRegistryARN = lens _riRegistryARN (\s a -> s {_riRegistryARN = a})
+--
+-- /Note:/ Consider using 'registryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRegistryARN :: Lens.Lens' RegistryId (Lude.Maybe Lude.Text)
+riRegistryARN = Lens.lens (registryARN :: RegistryId -> Lude.Maybe Lude.Text) (\s a -> s {registryARN = a} :: RegistryId)
+{-# DEPRECATED riRegistryARN "Use generic-lens or generic-optics with 'registryARN' instead." #-}
 
-instance Hashable RegistryId
-
-instance NFData RegistryId
-
-instance ToJSON RegistryId where
+instance Lude.ToJSON RegistryId where
   toJSON RegistryId' {..} =
-    object
-      ( catMaybes
-          [ ("RegistryName" .=) <$> _riRegistryName,
-            ("RegistryArn" .=) <$> _riRegistryARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RegistryName" Lude..=) Lude.<$> registryName,
+            ("RegistryArn" Lude..=) Lude.<$> registryARN
           ]
       )

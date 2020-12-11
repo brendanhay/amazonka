@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.EventType where
+module Network.AWS.AWSHealth.Types.EventType
+  ( EventType (..),
+
+    -- * Smart constructor
+    mkEventType,
+
+    -- * Lenses
+    etService,
+    etCategory,
+    etCode,
+  )
+where
 
 import Network.AWS.AWSHealth.Types.EventTypeCategory
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Metadata about a type of event that is reported by AWS Health. Data consists of the category (for example, @issue@ ), the service (for example, @EC2@ ), and the event type code (for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ ).
 --
---
---
--- /See:/ 'eventType' smart constructor.
+-- /See:/ 'mkEventType' smart constructor.
 data EventType = EventType'
-  { _etService :: !(Maybe Text),
-    _etCategory :: !(Maybe EventTypeCategory),
-    _etCode :: !(Maybe Text)
+  { service :: Lude.Maybe Lude.Text,
+    category :: Lude.Maybe EventTypeCategory,
+    code :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etService' - The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
---
--- * 'etCategory' - A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
---
--- * 'etCode' - The unique identifier for the event type. The format is @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
-eventType ::
+-- * 'category' - A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
+-- * 'code' - The unique identifier for the event type. The format is @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
+-- * 'service' - The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
+mkEventType ::
   EventType
-eventType =
+mkEventType =
   EventType'
-    { _etService = Nothing,
-      _etCategory = Nothing,
-      _etCode = Nothing
+    { service = Lude.Nothing,
+      category = Lude.Nothing,
+      code = Lude.Nothing
     }
 
 -- | The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
-etService :: Lens' EventType (Maybe Text)
-etService = lens _etService (\s a -> s {_etService = a})
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etService :: Lens.Lens' EventType (Lude.Maybe Lude.Text)
+etService = Lens.lens (service :: EventType -> Lude.Maybe Lude.Text) (\s a -> s {service = a} :: EventType)
+{-# DEPRECATED etService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
-etCategory :: Lens' EventType (Maybe EventTypeCategory)
-etCategory = lens _etCategory (\s a -> s {_etCategory = a})
+--
+-- /Note:/ Consider using 'category' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etCategory :: Lens.Lens' EventType (Lude.Maybe EventTypeCategory)
+etCategory = Lens.lens (category :: EventType -> Lude.Maybe EventTypeCategory) (\s a -> s {category = a} :: EventType)
+{-# DEPRECATED etCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
 -- | The unique identifier for the event type. The format is @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
-etCode :: Lens' EventType (Maybe Text)
-etCode = lens _etCode (\s a -> s {_etCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etCode :: Lens.Lens' EventType (Lude.Maybe Lude.Text)
+etCode = Lens.lens (code :: EventType -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: EventType)
+{-# DEPRECATED etCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance FromJSON EventType where
+instance Lude.FromJSON EventType where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventType"
       ( \x ->
           EventType'
-            <$> (x .:? "service") <*> (x .:? "category") <*> (x .:? "code")
+            Lude.<$> (x Lude..:? "service")
+            Lude.<*> (x Lude..:? "category")
+            Lude.<*> (x Lude..:? "code")
       )
-
-instance Hashable EventType
-
-instance NFData EventType

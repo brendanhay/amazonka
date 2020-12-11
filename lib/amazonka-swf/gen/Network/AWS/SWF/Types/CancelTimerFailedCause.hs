@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.CancelTimerFailedCause where
+module Network.AWS.SWF.Types.CancelTimerFailedCause
+  ( CancelTimerFailedCause
+      ( CancelTimerFailedCause',
+        CTFCOperationNotPermitted,
+        CTFCTimerIdUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CancelTimerFailedCause
-  = CTFCOperationNotPermitted
-  | CTFCTimerIdUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CancelTimerFailedCause = CancelTimerFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CancelTimerFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "operation_not_permitted" -> pure CTFCOperationNotPermitted
-      "timer_id_unknown" -> pure CTFCTimerIdUnknown
-      e ->
-        fromTextError $
-          "Failure parsing CancelTimerFailedCause from value: '" <> e
-            <> "'. Accepted values: operation_not_permitted, timer_id_unknown"
+pattern CTFCOperationNotPermitted :: CancelTimerFailedCause
+pattern CTFCOperationNotPermitted = CancelTimerFailedCause' "OPERATION_NOT_PERMITTED"
 
-instance ToText CancelTimerFailedCause where
-  toText = \case
-    CTFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-    CTFCTimerIdUnknown -> "TIMER_ID_UNKNOWN"
+pattern CTFCTimerIdUnknown :: CancelTimerFailedCause
+pattern CTFCTimerIdUnknown = CancelTimerFailedCause' "TIMER_ID_UNKNOWN"
 
-instance Hashable CancelTimerFailedCause
-
-instance NFData CancelTimerFailedCause
-
-instance ToByteString CancelTimerFailedCause
-
-instance ToQuery CancelTimerFailedCause
-
-instance ToHeader CancelTimerFailedCause
-
-instance FromJSON CancelTimerFailedCause where
-  parseJSON = parseJSONText "CancelTimerFailedCause"
+{-# COMPLETE
+  CTFCOperationNotPermitted,
+  CTFCTimerIdUnknown,
+  CancelTimerFailedCause'
+  #-}

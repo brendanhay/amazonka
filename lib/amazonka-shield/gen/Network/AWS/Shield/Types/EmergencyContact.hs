@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.EmergencyContact where
+module Network.AWS.Shield.Types.EmergencyContact
+  ( EmergencyContact (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEmergencyContact,
+
+    -- * Lenses
+    ecPhoneNumber,
+    ecContactNotes,
+    ecEmailAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contact information that the DRT can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.
 --
---
---
--- /See:/ 'emergencyContact' smart constructor.
+-- /See:/ 'mkEmergencyContact' smart constructor.
 data EmergencyContact = EmergencyContact'
-  { _ecPhoneNumber ::
-      !(Maybe Text),
-    _ecContactNotes :: !(Maybe Text),
-    _ecEmailAddress :: !Text
+  { phoneNumber ::
+      Lude.Maybe Lude.Text,
+    contactNotes :: Lude.Maybe Lude.Text,
+    emailAddress :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmergencyContact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecPhoneNumber' - The phone number for the contact.
---
--- * 'ecContactNotes' - Additional notes regarding the contact.
---
--- * 'ecEmailAddress' - The email address for the contact.
-emergencyContact ::
-  -- | 'ecEmailAddress'
-  Text ->
+-- * 'contactNotes' - Additional notes regarding the contact.
+-- * 'emailAddress' - The email address for the contact.
+-- * 'phoneNumber' - The phone number for the contact.
+mkEmergencyContact ::
+  -- | 'emailAddress'
+  Lude.Text ->
   EmergencyContact
-emergencyContact pEmailAddress_ =
+mkEmergencyContact pEmailAddress_ =
   EmergencyContact'
-    { _ecPhoneNumber = Nothing,
-      _ecContactNotes = Nothing,
-      _ecEmailAddress = pEmailAddress_
+    { phoneNumber = Lude.Nothing,
+      contactNotes = Lude.Nothing,
+      emailAddress = pEmailAddress_
     }
 
 -- | The phone number for the contact.
-ecPhoneNumber :: Lens' EmergencyContact (Maybe Text)
-ecPhoneNumber = lens _ecPhoneNumber (\s a -> s {_ecPhoneNumber = a})
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecPhoneNumber :: Lens.Lens' EmergencyContact (Lude.Maybe Lude.Text)
+ecPhoneNumber = Lens.lens (phoneNumber :: EmergencyContact -> Lude.Maybe Lude.Text) (\s a -> s {phoneNumber = a} :: EmergencyContact)
+{-# DEPRECATED ecPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
 -- | Additional notes regarding the contact.
-ecContactNotes :: Lens' EmergencyContact (Maybe Text)
-ecContactNotes = lens _ecContactNotes (\s a -> s {_ecContactNotes = a})
+--
+-- /Note:/ Consider using 'contactNotes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecContactNotes :: Lens.Lens' EmergencyContact (Lude.Maybe Lude.Text)
+ecContactNotes = Lens.lens (contactNotes :: EmergencyContact -> Lude.Maybe Lude.Text) (\s a -> s {contactNotes = a} :: EmergencyContact)
+{-# DEPRECATED ecContactNotes "Use generic-lens or generic-optics with 'contactNotes' instead." #-}
 
 -- | The email address for the contact.
-ecEmailAddress :: Lens' EmergencyContact Text
-ecEmailAddress = lens _ecEmailAddress (\s a -> s {_ecEmailAddress = a})
+--
+-- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecEmailAddress :: Lens.Lens' EmergencyContact Lude.Text
+ecEmailAddress = Lens.lens (emailAddress :: EmergencyContact -> Lude.Text) (\s a -> s {emailAddress = a} :: EmergencyContact)
+{-# DEPRECATED ecEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
 
-instance FromJSON EmergencyContact where
+instance Lude.FromJSON EmergencyContact where
   parseJSON =
-    withObject
+    Lude.withObject
       "EmergencyContact"
       ( \x ->
           EmergencyContact'
-            <$> (x .:? "PhoneNumber")
-            <*> (x .:? "ContactNotes")
-            <*> (x .: "EmailAddress")
+            Lude.<$> (x Lude..:? "PhoneNumber")
+            Lude.<*> (x Lude..:? "ContactNotes")
+            Lude.<*> (x Lude..: "EmailAddress")
       )
 
-instance Hashable EmergencyContact
-
-instance NFData EmergencyContact
-
-instance ToJSON EmergencyContact where
+instance Lude.ToJSON EmergencyContact where
   toJSON EmergencyContact' {..} =
-    object
-      ( catMaybes
-          [ ("PhoneNumber" .=) <$> _ecPhoneNumber,
-            ("ContactNotes" .=) <$> _ecContactNotes,
-            Just ("EmailAddress" .= _ecEmailAddress)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PhoneNumber" Lude..=) Lude.<$> phoneNumber,
+            ("ContactNotes" Lude..=) Lude.<$> contactNotes,
+            Lude.Just ("EmailAddress" Lude..= emailAddress)
           ]
       )

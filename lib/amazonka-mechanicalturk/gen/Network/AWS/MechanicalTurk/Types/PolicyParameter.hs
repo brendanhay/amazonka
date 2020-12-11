@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.PolicyParameter where
+module Network.AWS.MechanicalTurk.Types.PolicyParameter
+  ( PolicyParameter (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkPolicyParameter,
+
+    -- * Lenses
+    ppValues,
+    ppMapEntries,
+    ppKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.ParameterMapEntry
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Name of the parameter from the Review policy.
 --
---
---
--- /See:/ 'policyParameter' smart constructor.
+-- /See:/ 'mkPolicyParameter' smart constructor.
 data PolicyParameter = PolicyParameter'
-  { _ppValues ::
-      !(Maybe [Text]),
-    _ppMapEntries :: !(Maybe [ParameterMapEntry]),
-    _ppKey :: !(Maybe Text)
+  { values ::
+      Lude.Maybe [Lude.Text],
+    mapEntries :: Lude.Maybe [ParameterMapEntry],
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppValues' - The list of values of the Parameter
---
--- * 'ppMapEntries' - List of ParameterMapEntry objects.
---
--- * 'ppKey' - Name of the parameter from the list of Review Polices.
-policyParameter ::
+-- * 'key' - Name of the parameter from the list of Review Polices.
+-- * 'mapEntries' - List of ParameterMapEntry objects.
+-- * 'values' - The list of values of the Parameter
+mkPolicyParameter ::
   PolicyParameter
-policyParameter =
+mkPolicyParameter =
   PolicyParameter'
-    { _ppValues = Nothing,
-      _ppMapEntries = Nothing,
-      _ppKey = Nothing
+    { values = Lude.Nothing,
+      mapEntries = Lude.Nothing,
+      key = Lude.Nothing
     }
 
 -- | The list of values of the Parameter
-ppValues :: Lens' PolicyParameter [Text]
-ppValues = lens _ppValues (\s a -> s {_ppValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppValues :: Lens.Lens' PolicyParameter (Lude.Maybe [Lude.Text])
+ppValues = Lens.lens (values :: PolicyParameter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: PolicyParameter)
+{-# DEPRECATED ppValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | List of ParameterMapEntry objects.
-ppMapEntries :: Lens' PolicyParameter [ParameterMapEntry]
-ppMapEntries = lens _ppMapEntries (\s a -> s {_ppMapEntries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'mapEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppMapEntries :: Lens.Lens' PolicyParameter (Lude.Maybe [ParameterMapEntry])
+ppMapEntries = Lens.lens (mapEntries :: PolicyParameter -> Lude.Maybe [ParameterMapEntry]) (\s a -> s {mapEntries = a} :: PolicyParameter)
+{-# DEPRECATED ppMapEntries "Use generic-lens or generic-optics with 'mapEntries' instead." #-}
 
 -- | Name of the parameter from the list of Review Polices.
-ppKey :: Lens' PolicyParameter (Maybe Text)
-ppKey = lens _ppKey (\s a -> s {_ppKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppKey :: Lens.Lens' PolicyParameter (Lude.Maybe Lude.Text)
+ppKey = Lens.lens (key :: PolicyParameter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: PolicyParameter)
+{-# DEPRECATED ppKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON PolicyParameter where
+instance Lude.FromJSON PolicyParameter where
   parseJSON =
-    withObject
+    Lude.withObject
       "PolicyParameter"
       ( \x ->
           PolicyParameter'
-            <$> (x .:? "Values" .!= mempty)
-            <*> (x .:? "MapEntries" .!= mempty)
-            <*> (x .:? "Key")
+            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "MapEntries" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Key")
       )
 
-instance Hashable PolicyParameter
-
-instance NFData PolicyParameter
-
-instance ToJSON PolicyParameter where
+instance Lude.ToJSON PolicyParameter where
   toJSON PolicyParameter' {..} =
-    object
-      ( catMaybes
-          [ ("Values" .=) <$> _ppValues,
-            ("MapEntries" .=) <$> _ppMapEntries,
-            ("Key" .=) <$> _ppKey
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Values" Lude..=) Lude.<$> values,
+            ("MapEntries" Lude..=) Lude.<$> mapEntries,
+            ("Key" Lude..=) Lude.<$> key
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.SplunkRetryOptions where
+module Network.AWS.Firehose.Types.SplunkRetryOptions
+  ( SplunkRetryOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSplunkRetryOptions,
+
+    -- * Lenses
+    sroDurationInSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk, or if it doesn't receive an acknowledgment from Splunk.
 --
---
---
--- /See:/ 'splunkRetryOptions' smart constructor.
+-- /See:/ 'mkSplunkRetryOptions' smart constructor.
 newtype SplunkRetryOptions = SplunkRetryOptions'
-  { _sroDurationInSeconds ::
-      Maybe Nat
+  { durationInSeconds ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SplunkRetryOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sroDurationInSeconds' - The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
-splunkRetryOptions ::
+-- * 'durationInSeconds' - The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
+mkSplunkRetryOptions ::
   SplunkRetryOptions
-splunkRetryOptions =
-  SplunkRetryOptions' {_sroDurationInSeconds = Nothing}
+mkSplunkRetryOptions =
+  SplunkRetryOptions' {durationInSeconds = Lude.Nothing}
 
 -- | The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.
-sroDurationInSeconds :: Lens' SplunkRetryOptions (Maybe Natural)
-sroDurationInSeconds = lens _sroDurationInSeconds (\s a -> s {_sroDurationInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'durationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sroDurationInSeconds :: Lens.Lens' SplunkRetryOptions (Lude.Maybe Lude.Natural)
+sroDurationInSeconds = Lens.lens (durationInSeconds :: SplunkRetryOptions -> Lude.Maybe Lude.Natural) (\s a -> s {durationInSeconds = a} :: SplunkRetryOptions)
+{-# DEPRECATED sroDurationInSeconds "Use generic-lens or generic-optics with 'durationInSeconds' instead." #-}
 
-instance FromJSON SplunkRetryOptions where
+instance Lude.FromJSON SplunkRetryOptions where
   parseJSON =
-    withObject
+    Lude.withObject
       "SplunkRetryOptions"
-      (\x -> SplunkRetryOptions' <$> (x .:? "DurationInSeconds"))
+      ( \x ->
+          SplunkRetryOptions' Lude.<$> (x Lude..:? "DurationInSeconds")
+      )
 
-instance Hashable SplunkRetryOptions
-
-instance NFData SplunkRetryOptions
-
-instance ToJSON SplunkRetryOptions where
+instance Lude.ToJSON SplunkRetryOptions where
   toJSON SplunkRetryOptions' {..} =
-    object
-      (catMaybes [("DurationInSeconds" .=) <$> _sroDurationInSeconds])
+    Lude.object
+      ( Lude.catMaybes
+          [("DurationInSeconds" Lude..=) Lude.<$> durationInSeconds]
+      )

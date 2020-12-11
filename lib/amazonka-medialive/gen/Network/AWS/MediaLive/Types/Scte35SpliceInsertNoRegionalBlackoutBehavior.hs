@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior where
+module Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior
+  ( Scte35SpliceInsertNoRegionalBlackoutBehavior
+      ( Scte35SpliceInsertNoRegionalBlackoutBehavior',
+        SSINRBBFollow,
+        SSINRBBIgnore
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Scte35 Splice Insert No Regional Blackout Behavior
-data Scte35SpliceInsertNoRegionalBlackoutBehavior
-  = SSINRBBFollow
-  | SSINRBBIgnore
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Scte35SpliceInsertNoRegionalBlackoutBehavior = Scte35SpliceInsertNoRegionalBlackoutBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Scte35SpliceInsertNoRegionalBlackoutBehavior where
-  parser =
-    takeLowerText >>= \case
-      "follow" -> pure SSINRBBFollow
-      "ignore" -> pure SSINRBBIgnore
-      e ->
-        fromTextError $
-          "Failure parsing Scte35SpliceInsertNoRegionalBlackoutBehavior from value: '" <> e
-            <> "'. Accepted values: follow, ignore"
+pattern SSINRBBFollow :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+pattern SSINRBBFollow = Scte35SpliceInsertNoRegionalBlackoutBehavior' "FOLLOW"
 
-instance ToText Scte35SpliceInsertNoRegionalBlackoutBehavior where
-  toText = \case
-    SSINRBBFollow -> "FOLLOW"
-    SSINRBBIgnore -> "IGNORE"
+pattern SSINRBBIgnore :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+pattern SSINRBBIgnore = Scte35SpliceInsertNoRegionalBlackoutBehavior' "IGNORE"
 
-instance Hashable Scte35SpliceInsertNoRegionalBlackoutBehavior
-
-instance NFData Scte35SpliceInsertNoRegionalBlackoutBehavior
-
-instance ToByteString Scte35SpliceInsertNoRegionalBlackoutBehavior
-
-instance ToQuery Scte35SpliceInsertNoRegionalBlackoutBehavior
-
-instance ToHeader Scte35SpliceInsertNoRegionalBlackoutBehavior
-
-instance ToJSON Scte35SpliceInsertNoRegionalBlackoutBehavior where
-  toJSON = toJSONText
-
-instance FromJSON Scte35SpliceInsertNoRegionalBlackoutBehavior where
-  parseJSON = parseJSONText "Scte35SpliceInsertNoRegionalBlackoutBehavior"
+{-# COMPLETE
+  SSINRBBFollow,
+  SSINRBBIgnore,
+  Scte35SpliceInsertNoRegionalBlackoutBehavior'
+  #-}

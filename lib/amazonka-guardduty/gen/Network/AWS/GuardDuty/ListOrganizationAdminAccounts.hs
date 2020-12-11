@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Lists the accounts configured as GuardDuty delegated administrators.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.GuardDuty.ListOrganizationAdminAccounts
-  ( -- * Creating a Request
-    listOrganizationAdminAccounts,
-    ListOrganizationAdminAccounts,
+  ( -- * Creating a request
+    ListOrganizationAdminAccounts (..),
+    mkListOrganizationAdminAccounts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     loaaNextToken,
     loaaMaxResults,
 
-    -- * Destructuring the Response
-    listOrganizationAdminAccountsResponse,
-    ListOrganizationAdminAccountsResponse,
+    -- * Destructuring the response
+    ListOrganizationAdminAccountsResponse (..),
+    mkListOrganizationAdminAccountsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     loaarsAdminAccounts,
     loaarsNextToken,
     loaarsResponseStatus,
@@ -43,126 +36,148 @@ module Network.AWS.GuardDuty.ListOrganizationAdminAccounts
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listOrganizationAdminAccounts' smart constructor.
+-- | /See:/ 'mkListOrganizationAdminAccounts' smart constructor.
 data ListOrganizationAdminAccounts = ListOrganizationAdminAccounts'
-  { _loaaNextToken ::
-      !(Maybe Text),
-    _loaaMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOrganizationAdminAccounts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loaaNextToken' - A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the @NextToken@ value returned from the previous request to continue listing results after the first page.
---
--- * 'loaaMaxResults' - The maximum number of results to return in the response.
-listOrganizationAdminAccounts ::
+-- * 'maxResults' - The maximum number of results to return in the response.
+-- * 'nextToken' - A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the @NextToken@ value returned from the previous request to continue listing results after the first page.
+mkListOrganizationAdminAccounts ::
   ListOrganizationAdminAccounts
-listOrganizationAdminAccounts =
+mkListOrganizationAdminAccounts =
   ListOrganizationAdminAccounts'
-    { _loaaNextToken = Nothing,
-      _loaaMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the @NextToken@ value returned from the previous request to continue listing results after the first page.
-loaaNextToken :: Lens' ListOrganizationAdminAccounts (Maybe Text)
-loaaNextToken = lens _loaaNextToken (\s a -> s {_loaaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaaNextToken :: Lens.Lens' ListOrganizationAdminAccounts (Lude.Maybe Lude.Text)
+loaaNextToken = Lens.lens (nextToken :: ListOrganizationAdminAccounts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOrganizationAdminAccounts)
+{-# DEPRECATED loaaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in the response.
-loaaMaxResults :: Lens' ListOrganizationAdminAccounts (Maybe Natural)
-loaaMaxResults = lens _loaaMaxResults (\s a -> s {_loaaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaaMaxResults :: Lens.Lens' ListOrganizationAdminAccounts (Lude.Maybe Lude.Natural)
+loaaMaxResults = Lens.lens (maxResults :: ListOrganizationAdminAccounts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListOrganizationAdminAccounts)
+{-# DEPRECATED loaaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListOrganizationAdminAccounts where
+instance Page.AWSPager ListOrganizationAdminAccounts where
   page rq rs
-    | stop (rs ^. loaarsNextToken) = Nothing
-    | stop (rs ^. loaarsAdminAccounts) = Nothing
-    | otherwise = Just $ rq & loaaNextToken .~ rs ^. loaarsNextToken
+    | Page.stop (rs Lens.^. loaarsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. loaarsAdminAccounts) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& loaaNextToken Lens..~ rs Lens.^. loaarsNextToken
 
-instance AWSRequest ListOrganizationAdminAccounts where
+instance Lude.AWSRequest ListOrganizationAdminAccounts where
   type
     Rs ListOrganizationAdminAccounts =
       ListOrganizationAdminAccountsResponse
-  request = get guardDuty
+  request = Req.get guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListOrganizationAdminAccountsResponse'
-            <$> (x .?> "adminAccounts" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "adminAccounts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListOrganizationAdminAccounts
-
-instance NFData ListOrganizationAdminAccounts
-
-instance ToHeaders ListOrganizationAdminAccounts where
+instance Lude.ToHeaders ListOrganizationAdminAccounts where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListOrganizationAdminAccounts where
-  toPath = const "/admin"
+instance Lude.ToPath ListOrganizationAdminAccounts where
+  toPath = Lude.const "/admin"
 
-instance ToQuery ListOrganizationAdminAccounts where
+instance Lude.ToQuery ListOrganizationAdminAccounts where
   toQuery ListOrganizationAdminAccounts' {..} =
-    mconcat
-      ["nextToken" =: _loaaNextToken, "maxResults" =: _loaaMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listOrganizationAdminAccountsResponse' smart constructor.
+-- | /See:/ 'mkListOrganizationAdminAccountsResponse' smart constructor.
 data ListOrganizationAdminAccountsResponse = ListOrganizationAdminAccountsResponse'
-  { _loaarsAdminAccounts ::
-      !( Maybe
-           [AdminAccount]
-       ),
-    _loaarsNextToken ::
-      !(Maybe Text),
-    _loaarsResponseStatus ::
-      !Int
+  { adminAccounts ::
+      Lude.Maybe
+        [AdminAccount],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOrganizationAdminAccountsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loaarsAdminAccounts' - An AdminAccounts object that includes a list of accounts configured as GuardDuty delegated administrators.
---
--- * 'loaarsNextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
---
--- * 'loaarsResponseStatus' - -- | The response status code.
-listOrganizationAdminAccountsResponse ::
-  -- | 'loaarsResponseStatus'
-  Int ->
+-- * 'adminAccounts' - An AdminAccounts object that includes a list of accounts configured as GuardDuty delegated administrators.
+-- * 'nextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
+-- * 'responseStatus' - The response status code.
+mkListOrganizationAdminAccountsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListOrganizationAdminAccountsResponse
-listOrganizationAdminAccountsResponse pResponseStatus_ =
+mkListOrganizationAdminAccountsResponse pResponseStatus_ =
   ListOrganizationAdminAccountsResponse'
-    { _loaarsAdminAccounts =
-        Nothing,
-      _loaarsNextToken = Nothing,
-      _loaarsResponseStatus = pResponseStatus_
+    { adminAccounts =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An AdminAccounts object that includes a list of accounts configured as GuardDuty delegated administrators.
-loaarsAdminAccounts :: Lens' ListOrganizationAdminAccountsResponse [AdminAccount]
-loaarsAdminAccounts = lens _loaarsAdminAccounts (\s a -> s {_loaarsAdminAccounts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'adminAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaarsAdminAccounts :: Lens.Lens' ListOrganizationAdminAccountsResponse (Lude.Maybe [AdminAccount])
+loaarsAdminAccounts = Lens.lens (adminAccounts :: ListOrganizationAdminAccountsResponse -> Lude.Maybe [AdminAccount]) (\s a -> s {adminAccounts = a} :: ListOrganizationAdminAccountsResponse)
+{-# DEPRECATED loaarsAdminAccounts "Use generic-lens or generic-optics with 'adminAccounts' instead." #-}
 
 -- | The pagination parameter to be used on the next list operation to retrieve more items.
-loaarsNextToken :: Lens' ListOrganizationAdminAccountsResponse (Maybe Text)
-loaarsNextToken = lens _loaarsNextToken (\s a -> s {_loaarsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaarsNextToken :: Lens.Lens' ListOrganizationAdminAccountsResponse (Lude.Maybe Lude.Text)
+loaarsNextToken = Lens.lens (nextToken :: ListOrganizationAdminAccountsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOrganizationAdminAccountsResponse)
+{-# DEPRECATED loaarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-loaarsResponseStatus :: Lens' ListOrganizationAdminAccountsResponse Int
-loaarsResponseStatus = lens _loaarsResponseStatus (\s a -> s {_loaarsResponseStatus = a})
-
-instance NFData ListOrganizationAdminAccountsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loaarsResponseStatus :: Lens.Lens' ListOrganizationAdminAccountsResponse Lude.Int
+loaarsResponseStatus = Lens.lens (responseStatus :: ListOrganizationAdminAccountsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOrganizationAdminAccountsResponse)
+{-# DEPRECATED loaarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,163 +14,297 @@
 --
 -- Updates the cache for the GraphQL API.
 module Network.AWS.AppSync.UpdateAPICache
-  ( -- * Creating a Request
-    updateAPICache,
-    UpdateAPICache,
+  ( -- * Creating a request
+    UpdateAPICache (..),
+    mkUpdateAPICache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uacApiId,
     uacTtl,
     uacApiCachingBehavior,
     uacType,
 
-    -- * Destructuring the Response
-    updateAPICacheResponse,
-    UpdateAPICacheResponse,
+    -- * Destructuring the response
+    UpdateAPICacheResponse (..),
+    mkUpdateAPICacheResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uacrsApiCache,
     uacrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @UpdateApiCache@ operation.
 --
---
---
--- /See:/ 'updateAPICache' smart constructor.
+-- /See:/ 'mkUpdateAPICache' smart constructor.
 data UpdateAPICache = UpdateAPICache'
-  { _uacApiId :: !Text,
-    _uacTtl :: !Integer,
-    _uacApiCachingBehavior :: !APICachingBehavior,
-    _uacType :: !APICacheType
+  { apiId :: Lude.Text,
+    ttl :: Lude.Integer,
+    apiCachingBehavior :: APICachingBehavior,
+    type' :: APICacheType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPICache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'apiCachingBehavior' - Caching behavior.
 --
--- * 'uacApiId' - The GraphQL API Id.
 --
--- * 'uacTtl' - TTL in seconds for cache entries. Valid values are between 1 and 3600 seconds.
+--     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
 --
--- * 'uacApiCachingBehavior' - Caching behavior.     * __FULL_REQUEST_CACHING__ : All requests are fully cached.     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
 --
--- * 'uacType' - The cache instance type. Valid values are      * @SMALL@      * @MEDIUM@      * @LARGE@      * @XLARGE@      * @LARGE_2X@      * @LARGE_4X@      * @LARGE_8X@ (not available in all regions)     * @LARGE_12X@  Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used. The following legacy instance types are available, but their use is discouraged:     * __T2_SMALL__ : A t2.small instance type.     * __T2_MEDIUM__ : A t2.medium instance type.     * __R4_LARGE__ : A r4.large instance type.     * __R4_XLARGE__ : A r4.xlarge instance type.     * __R4_2XLARGE__ : A r4.2xlarge instance type.     * __R4_4XLARGE__ : A r4.4xlarge instance type.     * __R4_8XLARGE__ : A r4.8xlarge instance type.
-updateAPICache ::
-  -- | 'uacApiId'
-  Text ->
-  -- | 'uacTtl'
-  Integer ->
-  -- | 'uacApiCachingBehavior'
+--     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
+--
+--
+-- * 'apiId' - The GraphQL API Id.
+-- * 'ttl' - TTL in seconds for cache entries.
+--
+-- Valid values are between 1 and 3600 seconds.
+-- * 'type'' - The cache instance type. Valid values are
+--
+--
+--     * @SMALL@
+--
+--
+--     * @MEDIUM@
+--
+--
+--     * @LARGE@
+--
+--
+--     * @XLARGE@
+--
+--
+--     * @LARGE_2X@
+--
+--
+--     * @LARGE_4X@
+--
+--
+--     * @LARGE_8X@ (not available in all regions)
+--
+--
+--     * @LARGE_12X@
+--
+--
+-- Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+-- The following legacy instance types are available, but their use is discouraged:
+--
+--     * __T2_SMALL__ : A t2.small instance type.
+--
+--
+--     * __T2_MEDIUM__ : A t2.medium instance type.
+--
+--
+--     * __R4_LARGE__ : A r4.large instance type.
+--
+--
+--     * __R4_XLARGE__ : A r4.xlarge instance type.
+--
+--
+--     * __R4_2XLARGE__ : A r4.2xlarge instance type.
+--
+--
+--     * __R4_4XLARGE__ : A r4.4xlarge instance type.
+--
+--
+--     * __R4_8XLARGE__ : A r4.8xlarge instance type.
+mkUpdateAPICache ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'ttl'
+  Lude.Integer ->
+  -- | 'apiCachingBehavior'
   APICachingBehavior ->
-  -- | 'uacType'
+  -- | 'type''
   APICacheType ->
   UpdateAPICache
-updateAPICache pApiId_ pTtl_ pApiCachingBehavior_ pType_ =
+mkUpdateAPICache pApiId_ pTtl_ pApiCachingBehavior_ pType_ =
   UpdateAPICache'
-    { _uacApiId = pApiId_,
-      _uacTtl = pTtl_,
-      _uacApiCachingBehavior = pApiCachingBehavior_,
-      _uacType = pType_
+    { apiId = pApiId_,
+      ttl = pTtl_,
+      apiCachingBehavior = pApiCachingBehavior_,
+      type' = pType_
     }
 
 -- | The GraphQL API Id.
-uacApiId :: Lens' UpdateAPICache Text
-uacApiId = lens _uacApiId (\s a -> s {_uacApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uacApiId :: Lens.Lens' UpdateAPICache Lude.Text
+uacApiId = Lens.lens (apiId :: UpdateAPICache -> Lude.Text) (\s a -> s {apiId = a} :: UpdateAPICache)
+{-# DEPRECATED uacApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
--- | TTL in seconds for cache entries. Valid values are between 1 and 3600 seconds.
-uacTtl :: Lens' UpdateAPICache Integer
-uacTtl = lens _uacTtl (\s a -> s {_uacTtl = a})
+-- | TTL in seconds for cache entries.
+--
+-- Valid values are between 1 and 3600 seconds.
+--
+-- /Note:/ Consider using 'ttl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uacTtl :: Lens.Lens' UpdateAPICache Lude.Integer
+uacTtl = Lens.lens (ttl :: UpdateAPICache -> Lude.Integer) (\s a -> s {ttl = a} :: UpdateAPICache)
+{-# DEPRECATED uacTtl "Use generic-lens or generic-optics with 'ttl' instead." #-}
 
--- | Caching behavior.     * __FULL_REQUEST_CACHING__ : All requests are fully cached.     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
-uacApiCachingBehavior :: Lens' UpdateAPICache APICachingBehavior
-uacApiCachingBehavior = lens _uacApiCachingBehavior (\s a -> s {_uacApiCachingBehavior = a})
+-- | Caching behavior.
+--
+--
+--     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
+--
+--
+--     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
+--
+--
+--
+-- /Note:/ Consider using 'apiCachingBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uacApiCachingBehavior :: Lens.Lens' UpdateAPICache APICachingBehavior
+uacApiCachingBehavior = Lens.lens (apiCachingBehavior :: UpdateAPICache -> APICachingBehavior) (\s a -> s {apiCachingBehavior = a} :: UpdateAPICache)
+{-# DEPRECATED uacApiCachingBehavior "Use generic-lens or generic-optics with 'apiCachingBehavior' instead." #-}
 
--- | The cache instance type. Valid values are      * @SMALL@      * @MEDIUM@      * @LARGE@      * @XLARGE@      * @LARGE_2X@      * @LARGE_4X@      * @LARGE_8X@ (not available in all regions)     * @LARGE_12X@  Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used. The following legacy instance types are available, but their use is discouraged:     * __T2_SMALL__ : A t2.small instance type.     * __T2_MEDIUM__ : A t2.medium instance type.     * __R4_LARGE__ : A r4.large instance type.     * __R4_XLARGE__ : A r4.xlarge instance type.     * __R4_2XLARGE__ : A r4.2xlarge instance type.     * __R4_4XLARGE__ : A r4.4xlarge instance type.     * __R4_8XLARGE__ : A r4.8xlarge instance type.
-uacType :: Lens' UpdateAPICache APICacheType
-uacType = lens _uacType (\s a -> s {_uacType = a})
+-- | The cache instance type. Valid values are
+--
+--
+--     * @SMALL@
+--
+--
+--     * @MEDIUM@
+--
+--
+--     * @LARGE@
+--
+--
+--     * @XLARGE@
+--
+--
+--     * @LARGE_2X@
+--
+--
+--     * @LARGE_4X@
+--
+--
+--     * @LARGE_8X@ (not available in all regions)
+--
+--
+--     * @LARGE_12X@
+--
+--
+-- Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+-- The following legacy instance types are available, but their use is discouraged:
+--
+--     * __T2_SMALL__ : A t2.small instance type.
+--
+--
+--     * __T2_MEDIUM__ : A t2.medium instance type.
+--
+--
+--     * __R4_LARGE__ : A r4.large instance type.
+--
+--
+--     * __R4_XLARGE__ : A r4.xlarge instance type.
+--
+--
+--     * __R4_2XLARGE__ : A r4.2xlarge instance type.
+--
+--
+--     * __R4_4XLARGE__ : A r4.4xlarge instance type.
+--
+--
+--     * __R4_8XLARGE__ : A r4.8xlarge instance type.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uacType :: Lens.Lens' UpdateAPICache APICacheType
+uacType = Lens.lens (type' :: UpdateAPICache -> APICacheType) (\s a -> s {type' = a} :: UpdateAPICache)
+{-# DEPRECATED uacType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance AWSRequest UpdateAPICache where
+instance Lude.AWSRequest UpdateAPICache where
   type Rs UpdateAPICache = UpdateAPICacheResponse
-  request = postJSON appSync
+  request = Req.postJSON appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateAPICacheResponse'
-            <$> (x .?> "apiCache") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "apiCache") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateAPICache
-
-instance NFData UpdateAPICache
-
-instance ToHeaders UpdateAPICache where
+instance Lude.ToHeaders UpdateAPICache where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateAPICache where
-  toJSON UpdateAPICache' {..} =
-    object
-      ( catMaybes
-          [ Just ("ttl" .= _uacTtl),
-            Just ("apiCachingBehavior" .= _uacApiCachingBehavior),
-            Just ("type" .= _uacType)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateAPICache where
-  toPath UpdateAPICache' {..} =
-    mconcat ["/v1/apis/", toBS _uacApiId, "/ApiCaches/update"]
+instance Lude.ToJSON UpdateAPICache where
+  toJSON UpdateAPICache' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ttl" Lude..= ttl),
+            Lude.Just ("apiCachingBehavior" Lude..= apiCachingBehavior),
+            Lude.Just ("type" Lude..= type')
+          ]
+      )
 
-instance ToQuery UpdateAPICache where
-  toQuery = const mempty
+instance Lude.ToPath UpdateAPICache where
+  toPath UpdateAPICache' {..} =
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/ApiCaches/update"]
+
+instance Lude.ToQuery UpdateAPICache where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @UpdateApiCache@ operation.
 --
---
---
--- /See:/ 'updateAPICacheResponse' smart constructor.
+-- /See:/ 'mkUpdateAPICacheResponse' smart constructor.
 data UpdateAPICacheResponse = UpdateAPICacheResponse'
-  { _uacrsApiCache ::
-      !(Maybe APICache),
-    _uacrsResponseStatus :: !Int
+  { apiCache ::
+      Lude.Maybe APICache,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPICacheResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uacrsApiCache' - The @ApiCache@ object.
---
--- * 'uacrsResponseStatus' - -- | The response status code.
-updateAPICacheResponse ::
-  -- | 'uacrsResponseStatus'
-  Int ->
+-- * 'apiCache' - The @ApiCache@ object.
+-- * 'responseStatus' - The response status code.
+mkUpdateAPICacheResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateAPICacheResponse
-updateAPICacheResponse pResponseStatus_ =
+mkUpdateAPICacheResponse pResponseStatus_ =
   UpdateAPICacheResponse'
-    { _uacrsApiCache = Nothing,
-      _uacrsResponseStatus = pResponseStatus_
+    { apiCache = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ApiCache@ object.
-uacrsApiCache :: Lens' UpdateAPICacheResponse (Maybe APICache)
-uacrsApiCache = lens _uacrsApiCache (\s a -> s {_uacrsApiCache = a})
+--
+-- /Note:/ Consider using 'apiCache' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uacrsApiCache :: Lens.Lens' UpdateAPICacheResponse (Lude.Maybe APICache)
+uacrsApiCache = Lens.lens (apiCache :: UpdateAPICacheResponse -> Lude.Maybe APICache) (\s a -> s {apiCache = a} :: UpdateAPICacheResponse)
+{-# DEPRECATED uacrsApiCache "Use generic-lens or generic-optics with 'apiCache' instead." #-}
 
--- | -- | The response status code.
-uacrsResponseStatus :: Lens' UpdateAPICacheResponse Int
-uacrsResponseStatus = lens _uacrsResponseStatus (\s a -> s {_uacrsResponseStatus = a})
-
-instance NFData UpdateAPICacheResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uacrsResponseStatus :: Lens.Lens' UpdateAPICacheResponse Lude.Int
+uacrsResponseStatus = Lens.lens (responseStatus :: UpdateAPICacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAPICacheResponse)
+{-# DEPRECATED uacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

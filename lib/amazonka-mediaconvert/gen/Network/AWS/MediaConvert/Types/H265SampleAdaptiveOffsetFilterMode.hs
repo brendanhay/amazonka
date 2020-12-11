@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode where
+module Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode
+  ( H265SampleAdaptiveOffsetFilterMode
+      ( H265SampleAdaptiveOffsetFilterMode',
+        HSAOFMAdaptive,
+        HSAOFMDefault,
+        HSAOFMOff
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify Sample Adaptive Offset (SAO) filter strength.  Adaptive mode dynamically selects best strength based on content
-data H265SampleAdaptiveOffsetFilterMode
-  = HSAOFMAdaptive
-  | HSAOFMDefault
-  | HSAOFMOff
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H265SampleAdaptiveOffsetFilterMode = H265SampleAdaptiveOffsetFilterMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H265SampleAdaptiveOffsetFilterMode where
-  parser =
-    takeLowerText >>= \case
-      "adaptive" -> pure HSAOFMAdaptive
-      "default" -> pure HSAOFMDefault
-      "off" -> pure HSAOFMOff
-      e ->
-        fromTextError $
-          "Failure parsing H265SampleAdaptiveOffsetFilterMode from value: '" <> e
-            <> "'. Accepted values: adaptive, default, off"
+pattern HSAOFMAdaptive :: H265SampleAdaptiveOffsetFilterMode
+pattern HSAOFMAdaptive = H265SampleAdaptiveOffsetFilterMode' "ADAPTIVE"
 
-instance ToText H265SampleAdaptiveOffsetFilterMode where
-  toText = \case
-    HSAOFMAdaptive -> "ADAPTIVE"
-    HSAOFMDefault -> "DEFAULT"
-    HSAOFMOff -> "OFF"
+pattern HSAOFMDefault :: H265SampleAdaptiveOffsetFilterMode
+pattern HSAOFMDefault = H265SampleAdaptiveOffsetFilterMode' "DEFAULT"
 
-instance Hashable H265SampleAdaptiveOffsetFilterMode
+pattern HSAOFMOff :: H265SampleAdaptiveOffsetFilterMode
+pattern HSAOFMOff = H265SampleAdaptiveOffsetFilterMode' "OFF"
 
-instance NFData H265SampleAdaptiveOffsetFilterMode
-
-instance ToByteString H265SampleAdaptiveOffsetFilterMode
-
-instance ToQuery H265SampleAdaptiveOffsetFilterMode
-
-instance ToHeader H265SampleAdaptiveOffsetFilterMode
-
-instance ToJSON H265SampleAdaptiveOffsetFilterMode where
-  toJSON = toJSONText
-
-instance FromJSON H265SampleAdaptiveOffsetFilterMode where
-  parseJSON = parseJSONText "H265SampleAdaptiveOffsetFilterMode"
+{-# COMPLETE
+  HSAOFMAdaptive,
+  HSAOFMDefault,
+  HSAOFMOff,
+  H265SampleAdaptiveOffsetFilterMode'
+  #-}

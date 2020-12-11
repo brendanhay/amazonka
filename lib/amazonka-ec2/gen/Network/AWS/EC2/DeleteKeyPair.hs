@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,111 @@
 --
 -- Deletes the specified key pair, by removing the public key from Amazon EC2.
 module Network.AWS.EC2.DeleteKeyPair
-  ( -- * Creating a Request
-    deleteKeyPair,
-    DeleteKeyPair,
+  ( -- * Creating a request
+    DeleteKeyPair (..),
+    mkDeleteKeyPair,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dkpKeyName,
     dkpKeyPairId,
     dkpDryRun,
 
-    -- * Destructuring the Response
-    deleteKeyPairResponse,
-    DeleteKeyPairResponse,
+    -- * Destructuring the response
+    DeleteKeyPairResponse (..),
+    mkDeleteKeyPairResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteKeyPair' smart constructor.
+-- | /See:/ 'mkDeleteKeyPair' smart constructor.
 data DeleteKeyPair = DeleteKeyPair'
-  { _dkpKeyName :: !(Maybe Text),
-    _dkpKeyPairId :: !(Maybe Text),
-    _dkpDryRun :: !(Maybe Bool)
+  { keyName ::
+      Lude.Maybe Lude.Text,
+    keyPairId :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteKeyPair' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dkpKeyName' - The name of the key pair.
---
--- * 'dkpKeyPairId' - The ID of the key pair.
---
--- * 'dkpDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-deleteKeyPair ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'keyName' - The name of the key pair.
+-- * 'keyPairId' - The ID of the key pair.
+mkDeleteKeyPair ::
   DeleteKeyPair
-deleteKeyPair =
+mkDeleteKeyPair =
   DeleteKeyPair'
-    { _dkpKeyName = Nothing,
-      _dkpKeyPairId = Nothing,
-      _dkpDryRun = Nothing
+    { keyName = Lude.Nothing,
+      keyPairId = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The name of the key pair.
-dkpKeyName :: Lens' DeleteKeyPair (Maybe Text)
-dkpKeyName = lens _dkpKeyName (\s a -> s {_dkpKeyName = a})
+--
+-- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpKeyName :: Lens.Lens' DeleteKeyPair (Lude.Maybe Lude.Text)
+dkpKeyName = Lens.lens (keyName :: DeleteKeyPair -> Lude.Maybe Lude.Text) (\s a -> s {keyName = a} :: DeleteKeyPair)
+{-# DEPRECATED dkpKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
 
 -- | The ID of the key pair.
-dkpKeyPairId :: Lens' DeleteKeyPair (Maybe Text)
-dkpKeyPairId = lens _dkpKeyPairId (\s a -> s {_dkpKeyPairId = a})
+--
+-- /Note:/ Consider using 'keyPairId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpKeyPairId :: Lens.Lens' DeleteKeyPair (Lude.Maybe Lude.Text)
+dkpKeyPairId = Lens.lens (keyPairId :: DeleteKeyPair -> Lude.Maybe Lude.Text) (\s a -> s {keyPairId = a} :: DeleteKeyPair)
+{-# DEPRECATED dkpKeyPairId "Use generic-lens or generic-optics with 'keyPairId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
-dkpDryRun = lens _dkpDryRun (\s a -> s {_dkpDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpDryRun :: Lens.Lens' DeleteKeyPair (Lude.Maybe Lude.Bool)
+dkpDryRun = Lens.lens (dryRun :: DeleteKeyPair -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteKeyPair)
+{-# DEPRECATED dkpDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DeleteKeyPair where
+instance Lude.AWSRequest DeleteKeyPair where
   type Rs DeleteKeyPair = DeleteKeyPairResponse
-  request = postQuery ec2
-  response = receiveNull DeleteKeyPairResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull DeleteKeyPairResponse'
 
-instance Hashable DeleteKeyPair
+instance Lude.ToHeaders DeleteKeyPair where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteKeyPair
+instance Lude.ToPath DeleteKeyPair where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteKeyPair where
-  toHeaders = const mempty
-
-instance ToPath DeleteKeyPair where
-  toPath = const "/"
-
-instance ToQuery DeleteKeyPair where
+instance Lude.ToQuery DeleteKeyPair where
   toQuery DeleteKeyPair' {..} =
-    mconcat
-      [ "Action" =: ("DeleteKeyPair" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "KeyName" =: _dkpKeyName,
-        "KeyPairId" =: _dkpKeyPairId,
-        "DryRun" =: _dkpDryRun
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteKeyPair" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "KeyName" Lude.=: keyName,
+        "KeyPairId" Lude.=: keyPairId,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'deleteKeyPairResponse' smart constructor.
+-- | /See:/ 'mkDeleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse = DeleteKeyPairResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteKeyPairResponse' with the minimum fields required to make a request.
-deleteKeyPairResponse ::
+mkDeleteKeyPairResponse ::
   DeleteKeyPairResponse
-deleteKeyPairResponse = DeleteKeyPairResponse'
-
-instance NFData DeleteKeyPairResponse
+mkDeleteKeyPairResponse = DeleteKeyPairResponse'

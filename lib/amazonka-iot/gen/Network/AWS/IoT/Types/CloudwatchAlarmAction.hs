@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CloudwatchAlarmAction where
+module Network.AWS.IoT.Types.CloudwatchAlarmAction
+  ( CloudwatchAlarmAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCloudwatchAlarmAction,
+
+    -- * Lenses
+    caaRoleARN,
+    caaAlarmName,
+    caaStateReason,
+    caaStateValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an action that updates a CloudWatch alarm.
 --
---
---
--- /See:/ 'cloudwatchAlarmAction' smart constructor.
+-- /See:/ 'mkCloudwatchAlarmAction' smart constructor.
 data CloudwatchAlarmAction = CloudwatchAlarmAction'
-  { _caaRoleARN ::
-      !Text,
-    _caaAlarmName :: !Text,
-    _caaStateReason :: !Text,
-    _caaStateValue :: !Text
+  { roleARN ::
+      Lude.Text,
+    alarmName :: Lude.Text,
+    stateReason :: Lude.Text,
+    stateValue :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudwatchAlarmAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caaRoleARN' - The IAM role that allows access to the CloudWatch alarm.
---
--- * 'caaAlarmName' - The CloudWatch alarm name.
---
--- * 'caaStateReason' - The reason for the alarm change.
---
--- * 'caaStateValue' - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-cloudwatchAlarmAction ::
-  -- | 'caaRoleARN'
-  Text ->
-  -- | 'caaAlarmName'
-  Text ->
-  -- | 'caaStateReason'
-  Text ->
-  -- | 'caaStateValue'
-  Text ->
+-- * 'alarmName' - The CloudWatch alarm name.
+-- * 'roleARN' - The IAM role that allows access to the CloudWatch alarm.
+-- * 'stateReason' - The reason for the alarm change.
+-- * 'stateValue' - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+mkCloudwatchAlarmAction ::
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'alarmName'
+  Lude.Text ->
+  -- | 'stateReason'
+  Lude.Text ->
+  -- | 'stateValue'
+  Lude.Text ->
   CloudwatchAlarmAction
-cloudwatchAlarmAction
+mkCloudwatchAlarmAction
   pRoleARN_
   pAlarmName_
   pStateReason_
   pStateValue_ =
     CloudwatchAlarmAction'
-      { _caaRoleARN = pRoleARN_,
-        _caaAlarmName = pAlarmName_,
-        _caaStateReason = pStateReason_,
-        _caaStateValue = pStateValue_
+      { roleARN = pRoleARN_,
+        alarmName = pAlarmName_,
+        stateReason = pStateReason_,
+        stateValue = pStateValue_
       }
 
 -- | The IAM role that allows access to the CloudWatch alarm.
-caaRoleARN :: Lens' CloudwatchAlarmAction Text
-caaRoleARN = lens _caaRoleARN (\s a -> s {_caaRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caaRoleARN :: Lens.Lens' CloudwatchAlarmAction Lude.Text
+caaRoleARN = Lens.lens (roleARN :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {roleARN = a} :: CloudwatchAlarmAction)
+{-# DEPRECATED caaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The CloudWatch alarm name.
-caaAlarmName :: Lens' CloudwatchAlarmAction Text
-caaAlarmName = lens _caaAlarmName (\s a -> s {_caaAlarmName = a})
+--
+-- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caaAlarmName :: Lens.Lens' CloudwatchAlarmAction Lude.Text
+caaAlarmName = Lens.lens (alarmName :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {alarmName = a} :: CloudwatchAlarmAction)
+{-# DEPRECATED caaAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
 -- | The reason for the alarm change.
-caaStateReason :: Lens' CloudwatchAlarmAction Text
-caaStateReason = lens _caaStateReason (\s a -> s {_caaStateReason = a})
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caaStateReason :: Lens.Lens' CloudwatchAlarmAction Lude.Text
+caaStateReason = Lens.lens (stateReason :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {stateReason = a} :: CloudwatchAlarmAction)
+{-# DEPRECATED caaStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
 -- | The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-caaStateValue :: Lens' CloudwatchAlarmAction Text
-caaStateValue = lens _caaStateValue (\s a -> s {_caaStateValue = a})
+--
+-- /Note:/ Consider using 'stateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caaStateValue :: Lens.Lens' CloudwatchAlarmAction Lude.Text
+caaStateValue = Lens.lens (stateValue :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {stateValue = a} :: CloudwatchAlarmAction)
+{-# DEPRECATED caaStateValue "Use generic-lens or generic-optics with 'stateValue' instead." #-}
 
-instance FromJSON CloudwatchAlarmAction where
+instance Lude.FromJSON CloudwatchAlarmAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudwatchAlarmAction"
       ( \x ->
           CloudwatchAlarmAction'
-            <$> (x .: "roleArn")
-            <*> (x .: "alarmName")
-            <*> (x .: "stateReason")
-            <*> (x .: "stateValue")
+            Lude.<$> (x Lude..: "roleArn")
+            Lude.<*> (x Lude..: "alarmName")
+            Lude.<*> (x Lude..: "stateReason")
+            Lude.<*> (x Lude..: "stateValue")
       )
 
-instance Hashable CloudwatchAlarmAction
-
-instance NFData CloudwatchAlarmAction
-
-instance ToJSON CloudwatchAlarmAction where
+instance Lude.ToJSON CloudwatchAlarmAction where
   toJSON CloudwatchAlarmAction' {..} =
-    object
-      ( catMaybes
-          [ Just ("roleArn" .= _caaRoleARN),
-            Just ("alarmName" .= _caaAlarmName),
-            Just ("stateReason" .= _caaStateReason),
-            Just ("stateValue" .= _caaStateValue)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("roleArn" Lude..= roleARN),
+            Lude.Just ("alarmName" Lude..= alarmName),
+            Lude.Just ("stateReason" Lude..= stateReason),
+            Lude.Just ("stateValue" Lude..= stateValue)
           ]
       )

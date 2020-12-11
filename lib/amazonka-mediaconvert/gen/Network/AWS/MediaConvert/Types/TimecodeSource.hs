@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.TimecodeSource where
+module Network.AWS.MediaConvert.Types.TimecodeSource
+  ( TimecodeSource
+      ( TimecodeSource',
+        TSEmbedded,
+        TSSpecifiedstart,
+        TSZerobased
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use Source (TimecodeSource) to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.
-data TimecodeSource
-  = TSEmbedded
-  | TSSpecifiedstart
-  | TSZerobased
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TimecodeSource = TimecodeSource' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TimecodeSource where
-  parser =
-    takeLowerText >>= \case
-      "embedded" -> pure TSEmbedded
-      "specifiedstart" -> pure TSSpecifiedstart
-      "zerobased" -> pure TSZerobased
-      e ->
-        fromTextError $
-          "Failure parsing TimecodeSource from value: '" <> e
-            <> "'. Accepted values: embedded, specifiedstart, zerobased"
+pattern TSEmbedded :: TimecodeSource
+pattern TSEmbedded = TimecodeSource' "EMBEDDED"
 
-instance ToText TimecodeSource where
-  toText = \case
-    TSEmbedded -> "EMBEDDED"
-    TSSpecifiedstart -> "SPECIFIEDSTART"
-    TSZerobased -> "ZEROBASED"
+pattern TSSpecifiedstart :: TimecodeSource
+pattern TSSpecifiedstart = TimecodeSource' "SPECIFIEDSTART"
 
-instance Hashable TimecodeSource
+pattern TSZerobased :: TimecodeSource
+pattern TSZerobased = TimecodeSource' "ZEROBASED"
 
-instance NFData TimecodeSource
-
-instance ToByteString TimecodeSource
-
-instance ToQuery TimecodeSource
-
-instance ToHeader TimecodeSource
-
-instance ToJSON TimecodeSource where
-  toJSON = toJSONText
-
-instance FromJSON TimecodeSource where
-  parseJSON = parseJSONText "TimecodeSource"
+{-# COMPLETE
+  TSEmbedded,
+  TSSpecifiedstart,
+  TSZerobased,
+  TimecodeSource'
+  #-}

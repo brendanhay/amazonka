@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode where
+module Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
+  ( HLSPlaybackMode
+      ( HLSPlaybackMode',
+        Live,
+        LiveReplay,
+        OnDemand
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HLSPlaybackMode
-  = Live
-  | LiveReplay
-  | OnDemand
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HLSPlaybackMode = HLSPlaybackMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HLSPlaybackMode where
-  parser =
-    takeLowerText >>= \case
-      "live" -> pure Live
-      "live_replay" -> pure LiveReplay
-      "on_demand" -> pure OnDemand
-      e ->
-        fromTextError $
-          "Failure parsing HLSPlaybackMode from value: '" <> e
-            <> "'. Accepted values: live, live_replay, on_demand"
+pattern Live :: HLSPlaybackMode
+pattern Live = HLSPlaybackMode' "LIVE"
 
-instance ToText HLSPlaybackMode where
-  toText = \case
-    Live -> "LIVE"
-    LiveReplay -> "LIVE_REPLAY"
-    OnDemand -> "ON_DEMAND"
+pattern LiveReplay :: HLSPlaybackMode
+pattern LiveReplay = HLSPlaybackMode' "LIVE_REPLAY"
 
-instance Hashable HLSPlaybackMode
+pattern OnDemand :: HLSPlaybackMode
+pattern OnDemand = HLSPlaybackMode' "ON_DEMAND"
 
-instance NFData HLSPlaybackMode
-
-instance ToByteString HLSPlaybackMode
-
-instance ToQuery HLSPlaybackMode
-
-instance ToHeader HLSPlaybackMode
-
-instance ToJSON HLSPlaybackMode where
-  toJSON = toJSONText
+{-# COMPLETE
+  Live,
+  LiveReplay,
+  OnDemand,
+  HLSPlaybackMode'
+  #-}

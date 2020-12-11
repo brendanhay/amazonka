@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputLossActionForUdpOut where
+module Network.AWS.MediaLive.Types.InputLossActionForUdpOut
+  ( InputLossActionForUdpOut
+      ( InputLossActionForUdpOut',
+        DropProgram,
+        DropTs,
+        EmitProgram
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Input Loss Action For Udp Out
-data InputLossActionForUdpOut
-  = DropProgram
-  | DropTs
-  | EmitProgram
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputLossActionForUdpOut = InputLossActionForUdpOut' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputLossActionForUdpOut where
-  parser =
-    takeLowerText >>= \case
-      "drop_program" -> pure DropProgram
-      "drop_ts" -> pure DropTs
-      "emit_program" -> pure EmitProgram
-      e ->
-        fromTextError $
-          "Failure parsing InputLossActionForUdpOut from value: '" <> e
-            <> "'. Accepted values: drop_program, drop_ts, emit_program"
+pattern DropProgram :: InputLossActionForUdpOut
+pattern DropProgram = InputLossActionForUdpOut' "DROP_PROGRAM"
 
-instance ToText InputLossActionForUdpOut where
-  toText = \case
-    DropProgram -> "DROP_PROGRAM"
-    DropTs -> "DROP_TS"
-    EmitProgram -> "EMIT_PROGRAM"
+pattern DropTs :: InputLossActionForUdpOut
+pattern DropTs = InputLossActionForUdpOut' "DROP_TS"
 
-instance Hashable InputLossActionForUdpOut
+pattern EmitProgram :: InputLossActionForUdpOut
+pattern EmitProgram = InputLossActionForUdpOut' "EMIT_PROGRAM"
 
-instance NFData InputLossActionForUdpOut
-
-instance ToByteString InputLossActionForUdpOut
-
-instance ToQuery InputLossActionForUdpOut
-
-instance ToHeader InputLossActionForUdpOut
-
-instance ToJSON InputLossActionForUdpOut where
-  toJSON = toJSONText
-
-instance FromJSON InputLossActionForUdpOut where
-  parseJSON = parseJSONText "InputLossActionForUdpOut"
+{-# COMPLETE
+  DropProgram,
+  DropTs,
+  EmitProgram,
+  InputLossActionForUdpOut'
+  #-}

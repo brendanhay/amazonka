@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.ServiceUpdateType where
+module Network.AWS.ElastiCache.Types.ServiceUpdateType
+  ( ServiceUpdateType
+      ( ServiceUpdateType',
+        SecurityUpdate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServiceUpdateType = SecurityUpdate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServiceUpdateType = ServiceUpdateType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServiceUpdateType where
-  parser =
-    takeLowerText >>= \case
-      "security-update" -> pure SecurityUpdate
-      e ->
-        fromTextError $
-          "Failure parsing ServiceUpdateType from value: '" <> e
-            <> "'. Accepted values: security-update"
+pattern SecurityUpdate :: ServiceUpdateType
+pattern SecurityUpdate = ServiceUpdateType' "security-update"
 
-instance ToText ServiceUpdateType where
-  toText = \case
-    SecurityUpdate -> "security-update"
-
-instance Hashable ServiceUpdateType
-
-instance NFData ServiceUpdateType
-
-instance ToByteString ServiceUpdateType
-
-instance ToQuery ServiceUpdateType
-
-instance ToHeader ServiceUpdateType
-
-instance FromXML ServiceUpdateType where
-  parseXML = parseXMLText "ServiceUpdateType"
+{-# COMPLETE
+  SecurityUpdate,
+  ServiceUpdateType'
+  #-}

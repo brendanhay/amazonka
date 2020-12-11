@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,164 +14,179 @@
 --
 -- Modifies the settings for the specified replication subnet group.
 module Network.AWS.DMS.ModifyReplicationSubnetGroup
-  ( -- * Creating a Request
-    modifyReplicationSubnetGroup,
-    ModifyReplicationSubnetGroup,
+  ( -- * Creating a request
+    ModifyReplicationSubnetGroup (..),
+    mkModifyReplicationSubnetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mrsgReplicationSubnetGroupDescription,
     mrsgReplicationSubnetGroupIdentifier,
     mrsgSubnetIds,
 
-    -- * Destructuring the Response
-    modifyReplicationSubnetGroupResponse,
-    ModifyReplicationSubnetGroupResponse,
+    -- * Destructuring the response
+    ModifyReplicationSubnetGroupResponse (..),
+    mkModifyReplicationSubnetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mrsgrsReplicationSubnetGroup,
     mrsgrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'modifyReplicationSubnetGroup' smart constructor.
+-- /See:/ 'mkModifyReplicationSubnetGroup' smart constructor.
 data ModifyReplicationSubnetGroup = ModifyReplicationSubnetGroup'
-  { _mrsgReplicationSubnetGroupDescription ::
-      !(Maybe Text),
-    _mrsgReplicationSubnetGroupIdentifier ::
-      !Text,
-    _mrsgSubnetIds :: ![Text]
+  { replicationSubnetGroupDescription ::
+      Lude.Maybe Lude.Text,
+    replicationSubnetGroupIdentifier ::
+      Lude.Text,
+    subnetIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReplicationSubnetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mrsgReplicationSubnetGroupDescription' - A description for the replication instance subnet group.
---
--- * 'mrsgReplicationSubnetGroupIdentifier' - The name of the replication instance subnet group.
---
--- * 'mrsgSubnetIds' - A list of subnet IDs.
-modifyReplicationSubnetGroup ::
-  -- | 'mrsgReplicationSubnetGroupIdentifier'
-  Text ->
+-- * 'replicationSubnetGroupDescription' - A description for the replication instance subnet group.
+-- * 'replicationSubnetGroupIdentifier' - The name of the replication instance subnet group.
+-- * 'subnetIds' - A list of subnet IDs.
+mkModifyReplicationSubnetGroup ::
+  -- | 'replicationSubnetGroupIdentifier'
+  Lude.Text ->
   ModifyReplicationSubnetGroup
-modifyReplicationSubnetGroup pReplicationSubnetGroupIdentifier_ =
+mkModifyReplicationSubnetGroup pReplicationSubnetGroupIdentifier_ =
   ModifyReplicationSubnetGroup'
-    { _mrsgReplicationSubnetGroupDescription =
-        Nothing,
-      _mrsgReplicationSubnetGroupIdentifier =
+    { replicationSubnetGroupDescription =
+        Lude.Nothing,
+      replicationSubnetGroupIdentifier =
         pReplicationSubnetGroupIdentifier_,
-      _mrsgSubnetIds = mempty
+      subnetIds = Lude.mempty
     }
 
 -- | A description for the replication instance subnet group.
-mrsgReplicationSubnetGroupDescription :: Lens' ModifyReplicationSubnetGroup (Maybe Text)
-mrsgReplicationSubnetGroupDescription = lens _mrsgReplicationSubnetGroupDescription (\s a -> s {_mrsgReplicationSubnetGroupDescription = a})
+--
+-- /Note:/ Consider using 'replicationSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrsgReplicationSubnetGroupDescription :: Lens.Lens' ModifyReplicationSubnetGroup (Lude.Maybe Lude.Text)
+mrsgReplicationSubnetGroupDescription = Lens.lens (replicationSubnetGroupDescription :: ModifyReplicationSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {replicationSubnetGroupDescription = a} :: ModifyReplicationSubnetGroup)
+{-# DEPRECATED mrsgReplicationSubnetGroupDescription "Use generic-lens or generic-optics with 'replicationSubnetGroupDescription' instead." #-}
 
 -- | The name of the replication instance subnet group.
-mrsgReplicationSubnetGroupIdentifier :: Lens' ModifyReplicationSubnetGroup Text
-mrsgReplicationSubnetGroupIdentifier = lens _mrsgReplicationSubnetGroupIdentifier (\s a -> s {_mrsgReplicationSubnetGroupIdentifier = a})
+--
+-- /Note:/ Consider using 'replicationSubnetGroupIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrsgReplicationSubnetGroupIdentifier :: Lens.Lens' ModifyReplicationSubnetGroup Lude.Text
+mrsgReplicationSubnetGroupIdentifier = Lens.lens (replicationSubnetGroupIdentifier :: ModifyReplicationSubnetGroup -> Lude.Text) (\s a -> s {replicationSubnetGroupIdentifier = a} :: ModifyReplicationSubnetGroup)
+{-# DEPRECATED mrsgReplicationSubnetGroupIdentifier "Use generic-lens or generic-optics with 'replicationSubnetGroupIdentifier' instead." #-}
 
 -- | A list of subnet IDs.
-mrsgSubnetIds :: Lens' ModifyReplicationSubnetGroup [Text]
-mrsgSubnetIds = lens _mrsgSubnetIds (\s a -> s {_mrsgSubnetIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrsgSubnetIds :: Lens.Lens' ModifyReplicationSubnetGroup [Lude.Text]
+mrsgSubnetIds = Lens.lens (subnetIds :: ModifyReplicationSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: ModifyReplicationSubnetGroup)
+{-# DEPRECATED mrsgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
-instance AWSRequest ModifyReplicationSubnetGroup where
+instance Lude.AWSRequest ModifyReplicationSubnetGroup where
   type
     Rs ModifyReplicationSubnetGroup =
       ModifyReplicationSubnetGroupResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ModifyReplicationSubnetGroupResponse'
-            <$> (x .?> "ReplicationSubnetGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicationSubnetGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyReplicationSubnetGroup
-
-instance NFData ModifyReplicationSubnetGroup
-
-instance ToHeaders ModifyReplicationSubnetGroup where
+instance Lude.ToHeaders ModifyReplicationSubnetGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.ModifyReplicationSubnetGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.ModifyReplicationSubnetGroup" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyReplicationSubnetGroup where
+instance Lude.ToJSON ModifyReplicationSubnetGroup where
   toJSON ModifyReplicationSubnetGroup' {..} =
-    object
-      ( catMaybes
-          [ ("ReplicationSubnetGroupDescription" .=)
-              <$> _mrsgReplicationSubnetGroupDescription,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ReplicationSubnetGroupDescription" Lude..=)
+              Lude.<$> replicationSubnetGroupDescription,
+            Lude.Just
               ( "ReplicationSubnetGroupIdentifier"
-                  .= _mrsgReplicationSubnetGroupIdentifier
+                  Lude..= replicationSubnetGroupIdentifier
               ),
-            Just ("SubnetIds" .= _mrsgSubnetIds)
+            Lude.Just ("SubnetIds" Lude..= subnetIds)
           ]
       )
 
-instance ToPath ModifyReplicationSubnetGroup where
-  toPath = const "/"
+instance Lude.ToPath ModifyReplicationSubnetGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyReplicationSubnetGroup where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyReplicationSubnetGroup where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'modifyReplicationSubnetGroupResponse' smart constructor.
+-- /See:/ 'mkModifyReplicationSubnetGroupResponse' smart constructor.
 data ModifyReplicationSubnetGroupResponse = ModifyReplicationSubnetGroupResponse'
-  { _mrsgrsReplicationSubnetGroup ::
-      !( Maybe
-           ReplicationSubnetGroup
-       ),
-    _mrsgrsResponseStatus ::
-      !Int
+  { replicationSubnetGroup ::
+      Lude.Maybe
+        ReplicationSubnetGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReplicationSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mrsgrsReplicationSubnetGroup' - The modified replication subnet group.
---
--- * 'mrsgrsResponseStatus' - -- | The response status code.
-modifyReplicationSubnetGroupResponse ::
-  -- | 'mrsgrsResponseStatus'
-  Int ->
+-- * 'replicationSubnetGroup' - The modified replication subnet group.
+-- * 'responseStatus' - The response status code.
+mkModifyReplicationSubnetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyReplicationSubnetGroupResponse
-modifyReplicationSubnetGroupResponse pResponseStatus_ =
+mkModifyReplicationSubnetGroupResponse pResponseStatus_ =
   ModifyReplicationSubnetGroupResponse'
-    { _mrsgrsReplicationSubnetGroup =
-        Nothing,
-      _mrsgrsResponseStatus = pResponseStatus_
+    { replicationSubnetGroup =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The modified replication subnet group.
-mrsgrsReplicationSubnetGroup :: Lens' ModifyReplicationSubnetGroupResponse (Maybe ReplicationSubnetGroup)
-mrsgrsReplicationSubnetGroup = lens _mrsgrsReplicationSubnetGroup (\s a -> s {_mrsgrsReplicationSubnetGroup = a})
+--
+-- /Note:/ Consider using 'replicationSubnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrsgrsReplicationSubnetGroup :: Lens.Lens' ModifyReplicationSubnetGroupResponse (Lude.Maybe ReplicationSubnetGroup)
+mrsgrsReplicationSubnetGroup = Lens.lens (replicationSubnetGroup :: ModifyReplicationSubnetGroupResponse -> Lude.Maybe ReplicationSubnetGroup) (\s a -> s {replicationSubnetGroup = a} :: ModifyReplicationSubnetGroupResponse)
+{-# DEPRECATED mrsgrsReplicationSubnetGroup "Use generic-lens or generic-optics with 'replicationSubnetGroup' instead." #-}
 
--- | -- | The response status code.
-mrsgrsResponseStatus :: Lens' ModifyReplicationSubnetGroupResponse Int
-mrsgrsResponseStatus = lens _mrsgrsResponseStatus (\s a -> s {_mrsgrsResponseStatus = a})
-
-instance NFData ModifyReplicationSubnetGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrsgrsResponseStatus :: Lens.Lens' ModifyReplicationSubnetGroupResponse Lude.Int
+mrsgrsResponseStatus = Lens.lens (responseStatus :: ModifyReplicationSubnetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyReplicationSubnetGroupResponse)
+{-# DEPRECATED mrsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

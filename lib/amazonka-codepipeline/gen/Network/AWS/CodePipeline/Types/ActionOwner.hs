@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionOwner where
+module Network.AWS.CodePipeline.Types.ActionOwner
+  ( ActionOwner
+      ( ActionOwner',
+        AWS,
+        Custom,
+        ThirdParty
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionOwner
-  = AWS
-  | Custom
-  | ThirdParty
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionOwner = ActionOwner' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionOwner where
-  parser =
-    takeLowerText >>= \case
-      "aws" -> pure AWS
-      "custom" -> pure Custom
-      "thirdparty" -> pure ThirdParty
-      e ->
-        fromTextError $
-          "Failure parsing ActionOwner from value: '" <> e
-            <> "'. Accepted values: aws, custom, thirdparty"
+pattern AWS :: ActionOwner
+pattern AWS = ActionOwner' "AWS"
 
-instance ToText ActionOwner where
-  toText = \case
-    AWS -> "AWS"
-    Custom -> "Custom"
-    ThirdParty -> "ThirdParty"
+pattern Custom :: ActionOwner
+pattern Custom = ActionOwner' "Custom"
 
-instance Hashable ActionOwner
+pattern ThirdParty :: ActionOwner
+pattern ThirdParty = ActionOwner' "ThirdParty"
 
-instance NFData ActionOwner
-
-instance ToByteString ActionOwner
-
-instance ToQuery ActionOwner
-
-instance ToHeader ActionOwner
-
-instance ToJSON ActionOwner where
-  toJSON = toJSONText
-
-instance FromJSON ActionOwner where
-  parseJSON = parseJSONText "ActionOwner"
+{-# COMPLETE
+  AWS,
+  Custom,
+  ThirdParty,
+  ActionOwner'
+  #-}

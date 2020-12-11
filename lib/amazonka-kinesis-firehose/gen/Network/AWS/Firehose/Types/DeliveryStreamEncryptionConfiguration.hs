@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfiguration where
+module Network.AWS.Firehose.Types.DeliveryStreamEncryptionConfiguration
+  ( DeliveryStreamEncryptionConfiguration (..),
+
+    -- * Smart constructor
+    mkDeliveryStreamEncryptionConfiguration,
+
+    -- * Lenses
+    dsecStatus,
+    dsecKeyType,
+    dsecKeyARN,
+    dsecFailureDescription,
+  )
+where
 
 import Network.AWS.Firehose.Types.DeliveryStreamEncryptionStatus
 import Network.AWS.Firehose.Types.FailureDescription
 import Network.AWS.Firehose.Types.KeyType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the server-side encryption (SSE) status for the delivery stream, the type customer master key (CMK) in use, if any, and the ARN of the CMK. You can get @DeliveryStreamEncryptionConfiguration@ by invoking the 'DescribeDeliveryStream' operation.
 --
---
---
--- /See:/ 'deliveryStreamEncryptionConfiguration' smart constructor.
+-- /See:/ 'mkDeliveryStreamEncryptionConfiguration' smart constructor.
 data DeliveryStreamEncryptionConfiguration = DeliveryStreamEncryptionConfiguration'
-  { _dsecStatus ::
-      !( Maybe
-           DeliveryStreamEncryptionStatus
-       ),
-    _dsecKeyType ::
-      !( Maybe
-           KeyType
-       ),
-    _dsecKeyARN ::
-      !(Maybe Text),
-    _dsecFailureDescription ::
-      !( Maybe
-           FailureDescription
-       )
+  { status ::
+      Lude.Maybe
+        DeliveryStreamEncryptionStatus,
+    keyType ::
+      Lude.Maybe
+        KeyType,
+    keyARN ::
+      Lude.Maybe
+        Lude.Text,
+    failureDescription ::
+      Lude.Maybe
+        FailureDescription
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliveryStreamEncryptionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsecStatus' - This is the server-side encryption (SSE) status for the delivery stream. For a full description of the different values of this status, see 'StartDeliveryStreamEncryption' and 'StopDeliveryStreamEncryption' . If this status is @ENABLING_FAILED@ or @DISABLING_FAILED@ , it is the status of the most recent attempt to enable or disable SSE, respectively.
---
--- * 'dsecKeyType' - Indicates the type of customer master key (CMK) that is used for encryption. The default setting is @AWS_OWNED_CMK@ . For more information about CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)> .
---
--- * 'dsecKeyARN' - If @KeyType@ is @CUSTOMER_MANAGED_CMK@ , this field contains the ARN of the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@ , @DeliveryStreamEncryptionConfiguration@ doesn't contain a value for @KeyARN@ .
---
--- * 'dsecFailureDescription' - Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
-deliveryStreamEncryptionConfiguration ::
+-- * 'failureDescription' - Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
+-- * 'keyARN' - If @KeyType@ is @CUSTOMER_MANAGED_CMK@ , this field contains the ARN of the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@ , @DeliveryStreamEncryptionConfiguration@ doesn't contain a value for @KeyARN@ .
+-- * 'keyType' - Indicates the type of customer master key (CMK) that is used for encryption. The default setting is @AWS_OWNED_CMK@ . For more information about CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)> .
+-- * 'status' - This is the server-side encryption (SSE) status for the delivery stream. For a full description of the different values of this status, see 'StartDeliveryStreamEncryption' and 'StopDeliveryStreamEncryption' . If this status is @ENABLING_FAILED@ or @DISABLING_FAILED@ , it is the status of the most recent attempt to enable or disable SSE, respectively.
+mkDeliveryStreamEncryptionConfiguration ::
   DeliveryStreamEncryptionConfiguration
-deliveryStreamEncryptionConfiguration =
+mkDeliveryStreamEncryptionConfiguration =
   DeliveryStreamEncryptionConfiguration'
-    { _dsecStatus = Nothing,
-      _dsecKeyType = Nothing,
-      _dsecKeyARN = Nothing,
-      _dsecFailureDescription = Nothing
+    { status = Lude.Nothing,
+      keyType = Lude.Nothing,
+      keyARN = Lude.Nothing,
+      failureDescription = Lude.Nothing
     }
 
 -- | This is the server-side encryption (SSE) status for the delivery stream. For a full description of the different values of this status, see 'StartDeliveryStreamEncryption' and 'StopDeliveryStreamEncryption' . If this status is @ENABLING_FAILED@ or @DISABLING_FAILED@ , it is the status of the most recent attempt to enable or disable SSE, respectively.
-dsecStatus :: Lens' DeliveryStreamEncryptionConfiguration (Maybe DeliveryStreamEncryptionStatus)
-dsecStatus = lens _dsecStatus (\s a -> s {_dsecStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsecStatus :: Lens.Lens' DeliveryStreamEncryptionConfiguration (Lude.Maybe DeliveryStreamEncryptionStatus)
+dsecStatus = Lens.lens (status :: DeliveryStreamEncryptionConfiguration -> Lude.Maybe DeliveryStreamEncryptionStatus) (\s a -> s {status = a} :: DeliveryStreamEncryptionConfiguration)
+{-# DEPRECATED dsecStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Indicates the type of customer master key (CMK) that is used for encryption. The default setting is @AWS_OWNED_CMK@ . For more information about CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)> .
-dsecKeyType :: Lens' DeliveryStreamEncryptionConfiguration (Maybe KeyType)
-dsecKeyType = lens _dsecKeyType (\s a -> s {_dsecKeyType = a})
+--
+-- /Note:/ Consider using 'keyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsecKeyType :: Lens.Lens' DeliveryStreamEncryptionConfiguration (Lude.Maybe KeyType)
+dsecKeyType = Lens.lens (keyType :: DeliveryStreamEncryptionConfiguration -> Lude.Maybe KeyType) (\s a -> s {keyType = a} :: DeliveryStreamEncryptionConfiguration)
+{-# DEPRECATED dsecKeyType "Use generic-lens or generic-optics with 'keyType' instead." #-}
 
 -- | If @KeyType@ is @CUSTOMER_MANAGED_CMK@ , this field contains the ARN of the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@ , @DeliveryStreamEncryptionConfiguration@ doesn't contain a value for @KeyARN@ .
-dsecKeyARN :: Lens' DeliveryStreamEncryptionConfiguration (Maybe Text)
-dsecKeyARN = lens _dsecKeyARN (\s a -> s {_dsecKeyARN = a})
+--
+-- /Note:/ Consider using 'keyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsecKeyARN :: Lens.Lens' DeliveryStreamEncryptionConfiguration (Lude.Maybe Lude.Text)
+dsecKeyARN = Lens.lens (keyARN :: DeliveryStreamEncryptionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {keyARN = a} :: DeliveryStreamEncryptionConfiguration)
+{-# DEPRECATED dsecKeyARN "Use generic-lens or generic-optics with 'keyARN' instead." #-}
 
 -- | Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
-dsecFailureDescription :: Lens' DeliveryStreamEncryptionConfiguration (Maybe FailureDescription)
-dsecFailureDescription = lens _dsecFailureDescription (\s a -> s {_dsecFailureDescription = a})
+--
+-- /Note:/ Consider using 'failureDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsecFailureDescription :: Lens.Lens' DeliveryStreamEncryptionConfiguration (Lude.Maybe FailureDescription)
+dsecFailureDescription = Lens.lens (failureDescription :: DeliveryStreamEncryptionConfiguration -> Lude.Maybe FailureDescription) (\s a -> s {failureDescription = a} :: DeliveryStreamEncryptionConfiguration)
+{-# DEPRECATED dsecFailureDescription "Use generic-lens or generic-optics with 'failureDescription' instead." #-}
 
-instance FromJSON DeliveryStreamEncryptionConfiguration where
+instance Lude.FromJSON DeliveryStreamEncryptionConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeliveryStreamEncryptionConfiguration"
       ( \x ->
           DeliveryStreamEncryptionConfiguration'
-            <$> (x .:? "Status")
-            <*> (x .:? "KeyType")
-            <*> (x .:? "KeyARN")
-            <*> (x .:? "FailureDescription")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "KeyType")
+            Lude.<*> (x Lude..:? "KeyARN")
+            Lude.<*> (x Lude..:? "FailureDescription")
       )
-
-instance Hashable DeliveryStreamEncryptionConfiguration
-
-instance NFData DeliveryStreamEncryptionConfiguration

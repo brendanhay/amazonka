@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.Category where
+module Network.AWS.AlexaBusiness.Types.Category
+  ( Category (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCategory,
+
+    -- * Lenses
+    cCategoryName,
+    cCategoryId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The skill store category that is shown. Alexa skills are assigned a specific skill category during creation, such as News, Social, and Sports.
 --
---
---
--- /See:/ 'category' smart constructor.
+-- /See:/ 'mkCategory' smart constructor.
 data Category = Category'
-  { _cCategoryName :: !(Maybe Text),
-    _cCategoryId :: !(Maybe Nat)
+  { categoryName :: Lude.Maybe Lude.Text,
+    categoryId :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Category' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cCategoryName' - The name of the skill store category.
---
--- * 'cCategoryId' - The ID of the skill store category.
-category ::
+-- * 'categoryId' - The ID of the skill store category.
+-- * 'categoryName' - The name of the skill store category.
+mkCategory ::
   Category
-category =
-  Category' {_cCategoryName = Nothing, _cCategoryId = Nothing}
+mkCategory =
+  Category' {categoryName = Lude.Nothing, categoryId = Lude.Nothing}
 
 -- | The name of the skill store category.
-cCategoryName :: Lens' Category (Maybe Text)
-cCategoryName = lens _cCategoryName (\s a -> s {_cCategoryName = a})
+--
+-- /Note:/ Consider using 'categoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCategoryName :: Lens.Lens' Category (Lude.Maybe Lude.Text)
+cCategoryName = Lens.lens (categoryName :: Category -> Lude.Maybe Lude.Text) (\s a -> s {categoryName = a} :: Category)
+{-# DEPRECATED cCategoryName "Use generic-lens or generic-optics with 'categoryName' instead." #-}
 
 -- | The ID of the skill store category.
-cCategoryId :: Lens' Category (Maybe Natural)
-cCategoryId = lens _cCategoryId (\s a -> s {_cCategoryId = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'categoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCategoryId :: Lens.Lens' Category (Lude.Maybe Lude.Natural)
+cCategoryId = Lens.lens (categoryId :: Category -> Lude.Maybe Lude.Natural) (\s a -> s {categoryId = a} :: Category)
+{-# DEPRECATED cCategoryId "Use generic-lens or generic-optics with 'categoryId' instead." #-}
 
-instance FromJSON Category where
+instance Lude.FromJSON Category where
   parseJSON =
-    withObject
+    Lude.withObject
       "Category"
       ( \x ->
-          Category' <$> (x .:? "CategoryName") <*> (x .:? "CategoryId")
+          Category'
+            Lude.<$> (x Lude..:? "CategoryName") Lude.<*> (x Lude..:? "CategoryId")
       )
-
-instance Hashable Category
-
-instance NFData Category

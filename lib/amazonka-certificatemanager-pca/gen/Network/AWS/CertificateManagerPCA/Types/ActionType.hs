@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.ActionType where
+module Network.AWS.CertificateManagerPCA.Types.ActionType
+  ( ActionType
+      ( ActionType',
+        GetCertificate,
+        IssueCertificate,
+        ListPermissions
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionType
-  = GetCertificate
-  | IssueCertificate
-  | ListPermissions
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionType = ActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionType where
-  parser =
-    takeLowerText >>= \case
-      "getcertificate" -> pure GetCertificate
-      "issuecertificate" -> pure IssueCertificate
-      "listpermissions" -> pure ListPermissions
-      e ->
-        fromTextError $
-          "Failure parsing ActionType from value: '" <> e
-            <> "'. Accepted values: getcertificate, issuecertificate, listpermissions"
+pattern GetCertificate :: ActionType
+pattern GetCertificate = ActionType' "GetCertificate"
 
-instance ToText ActionType where
-  toText = \case
-    GetCertificate -> "GetCertificate"
-    IssueCertificate -> "IssueCertificate"
-    ListPermissions -> "ListPermissions"
+pattern IssueCertificate :: ActionType
+pattern IssueCertificate = ActionType' "IssueCertificate"
 
-instance Hashable ActionType
+pattern ListPermissions :: ActionType
+pattern ListPermissions = ActionType' "ListPermissions"
 
-instance NFData ActionType
-
-instance ToByteString ActionType
-
-instance ToQuery ActionType
-
-instance ToHeader ActionType
-
-instance ToJSON ActionType where
-  toJSON = toJSONText
-
-instance FromJSON ActionType where
-  parseJSON = parseJSONText "ActionType"
+{-# COMPLETE
+  GetCertificate,
+  IssueCertificate,
+  ListPermissions,
+  ActionType'
+  #-}

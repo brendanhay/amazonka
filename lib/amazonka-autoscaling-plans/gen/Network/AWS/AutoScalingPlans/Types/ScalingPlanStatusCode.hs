@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode where
+module Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode
+  ( ScalingPlanStatusCode
+      ( ScalingPlanStatusCode',
+        SPSCActive,
+        SPSCActiveWithProblems,
+        SPSCCreationFailed,
+        SPSCCreationInProgress,
+        SPSCDeletionFailed,
+        SPSCDeletionInProgress,
+        SPSCUpdateFailed,
+        SPSCUpdateInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScalingPlanStatusCode
-  = SPSCActive
-  | SPSCActiveWithProblems
-  | SPSCCreationFailed
-  | SPSCCreationInProgress
-  | SPSCDeletionFailed
-  | SPSCDeletionInProgress
-  | SPSCUpdateFailed
-  | SPSCUpdateInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScalingPlanStatusCode = ScalingPlanStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScalingPlanStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure SPSCActive
-      "activewithproblems" -> pure SPSCActiveWithProblems
-      "creationfailed" -> pure SPSCCreationFailed
-      "creationinprogress" -> pure SPSCCreationInProgress
-      "deletionfailed" -> pure SPSCDeletionFailed
-      "deletioninprogress" -> pure SPSCDeletionInProgress
-      "updatefailed" -> pure SPSCUpdateFailed
-      "updateinprogress" -> pure SPSCUpdateInProgress
-      e ->
-        fromTextError $
-          "Failure parsing ScalingPlanStatusCode from value: '" <> e
-            <> "'. Accepted values: active, activewithproblems, creationfailed, creationinprogress, deletionfailed, deletioninprogress, updatefailed, updateinprogress"
+pattern SPSCActive :: ScalingPlanStatusCode
+pattern SPSCActive = ScalingPlanStatusCode' "Active"
 
-instance ToText ScalingPlanStatusCode where
-  toText = \case
-    SPSCActive -> "Active"
-    SPSCActiveWithProblems -> "ActiveWithProblems"
-    SPSCCreationFailed -> "CreationFailed"
-    SPSCCreationInProgress -> "CreationInProgress"
-    SPSCDeletionFailed -> "DeletionFailed"
-    SPSCDeletionInProgress -> "DeletionInProgress"
-    SPSCUpdateFailed -> "UpdateFailed"
-    SPSCUpdateInProgress -> "UpdateInProgress"
+pattern SPSCActiveWithProblems :: ScalingPlanStatusCode
+pattern SPSCActiveWithProblems = ScalingPlanStatusCode' "ActiveWithProblems"
 
-instance Hashable ScalingPlanStatusCode
+pattern SPSCCreationFailed :: ScalingPlanStatusCode
+pattern SPSCCreationFailed = ScalingPlanStatusCode' "CreationFailed"
 
-instance NFData ScalingPlanStatusCode
+pattern SPSCCreationInProgress :: ScalingPlanStatusCode
+pattern SPSCCreationInProgress = ScalingPlanStatusCode' "CreationInProgress"
 
-instance ToByteString ScalingPlanStatusCode
+pattern SPSCDeletionFailed :: ScalingPlanStatusCode
+pattern SPSCDeletionFailed = ScalingPlanStatusCode' "DeletionFailed"
 
-instance ToQuery ScalingPlanStatusCode
+pattern SPSCDeletionInProgress :: ScalingPlanStatusCode
+pattern SPSCDeletionInProgress = ScalingPlanStatusCode' "DeletionInProgress"
 
-instance ToHeader ScalingPlanStatusCode
+pattern SPSCUpdateFailed :: ScalingPlanStatusCode
+pattern SPSCUpdateFailed = ScalingPlanStatusCode' "UpdateFailed"
 
-instance FromJSON ScalingPlanStatusCode where
-  parseJSON = parseJSONText "ScalingPlanStatusCode"
+pattern SPSCUpdateInProgress :: ScalingPlanStatusCode
+pattern SPSCUpdateInProgress = ScalingPlanStatusCode' "UpdateInProgress"
+
+{-# COMPLETE
+  SPSCActive,
+  SPSCActiveWithProblems,
+  SPSCCreationFailed,
+  SPSCCreationInProgress,
+  SPSCDeletionFailed,
+  SPSCDeletionInProgress,
+  SPSCUpdateFailed,
+  SPSCUpdateInProgress,
+  ScalingPlanStatusCode'
+  #-}

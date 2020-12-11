@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType where
+module Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType
+  ( AudioOnlyHlsTrackType
+      ( AudioOnlyHlsTrackType',
+        AlternateAudioAutoSelect,
+        AlternateAudioAutoSelectDefault,
+        AlternateAudioNotAutoSelect,
+        AudioOnlyVariantStream
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Only Hls Track Type
-data AudioOnlyHlsTrackType
-  = AlternateAudioAutoSelect
-  | AlternateAudioAutoSelectDefault
-  | AlternateAudioNotAutoSelect
-  | AudioOnlyVariantStream
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioOnlyHlsTrackType = AudioOnlyHlsTrackType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioOnlyHlsTrackType where
-  parser =
-    takeLowerText >>= \case
-      "alternate_audio_auto_select" -> pure AlternateAudioAutoSelect
-      "alternate_audio_auto_select_default" -> pure AlternateAudioAutoSelectDefault
-      "alternate_audio_not_auto_select" -> pure AlternateAudioNotAutoSelect
-      "audio_only_variant_stream" -> pure AudioOnlyVariantStream
-      e ->
-        fromTextError $
-          "Failure parsing AudioOnlyHlsTrackType from value: '" <> e
-            <> "'. Accepted values: alternate_audio_auto_select, alternate_audio_auto_select_default, alternate_audio_not_auto_select, audio_only_variant_stream"
+pattern AlternateAudioAutoSelect :: AudioOnlyHlsTrackType
+pattern AlternateAudioAutoSelect = AudioOnlyHlsTrackType' "ALTERNATE_AUDIO_AUTO_SELECT"
 
-instance ToText AudioOnlyHlsTrackType where
-  toText = \case
-    AlternateAudioAutoSelect -> "ALTERNATE_AUDIO_AUTO_SELECT"
-    AlternateAudioAutoSelectDefault -> "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
-    AlternateAudioNotAutoSelect -> "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
-    AudioOnlyVariantStream -> "AUDIO_ONLY_VARIANT_STREAM"
+pattern AlternateAudioAutoSelectDefault :: AudioOnlyHlsTrackType
+pattern AlternateAudioAutoSelectDefault = AudioOnlyHlsTrackType' "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
 
-instance Hashable AudioOnlyHlsTrackType
+pattern AlternateAudioNotAutoSelect :: AudioOnlyHlsTrackType
+pattern AlternateAudioNotAutoSelect = AudioOnlyHlsTrackType' "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
 
-instance NFData AudioOnlyHlsTrackType
+pattern AudioOnlyVariantStream :: AudioOnlyHlsTrackType
+pattern AudioOnlyVariantStream = AudioOnlyHlsTrackType' "AUDIO_ONLY_VARIANT_STREAM"
 
-instance ToByteString AudioOnlyHlsTrackType
-
-instance ToQuery AudioOnlyHlsTrackType
-
-instance ToHeader AudioOnlyHlsTrackType
-
-instance ToJSON AudioOnlyHlsTrackType where
-  toJSON = toJSONText
-
-instance FromJSON AudioOnlyHlsTrackType where
-  parseJSON = parseJSONText "AudioOnlyHlsTrackType"
+{-# COMPLETE
+  AlternateAudioAutoSelect,
+  AlternateAudioAutoSelectDefault,
+  AlternateAudioNotAutoSelect,
+  AudioOnlyVariantStream,
+  AudioOnlyHlsTrackType'
+  #-}

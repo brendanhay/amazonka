@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Returns a list of all grants for which the grant's @RetiringPrincipal@ matches the one specified.
 --
---
 -- A typical use is to list all grants that you are able to retire. To retire a grant, use 'RetireGrant' .
 module Network.AWS.KMS.ListRetirableGrants
-  ( -- * Creating a Request
-    listRetirableGrants,
-    ListRetirableGrants,
+  ( -- * Creating a request
+    ListRetirableGrants (..),
+    mkListRetirableGrants,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrgMarker,
     lrgLimit,
     lrgRetiringPrincipal,
 
-    -- * Destructuring the Response
-    listGrantsResponse,
-    ListGrantsResponse,
+    -- * Destructuring the response
+    ListGrantsResponse (..),
+    mkListGrantsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgTruncated,
     lgGrants,
     lgNextMarker,
@@ -43,83 +37,100 @@ module Network.AWS.KMS.ListRetirableGrants
 where
 
 import Network.AWS.KMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listRetirableGrants' smart constructor.
+-- | /See:/ 'mkListRetirableGrants' smart constructor.
 data ListRetirableGrants = ListRetirableGrants'
-  { _lrgMarker ::
-      !(Maybe Text),
-    _lrgLimit :: !(Maybe Nat),
-    _lrgRetiringPrincipal :: !Text
+  { marker ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    retiringPrincipal :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRetirableGrants' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'limit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
 --
--- * 'lrgMarker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+-- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+-- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+-- * 'retiringPrincipal' - The retiring principal for which to list grants.
 --
--- * 'lrgLimit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
---
--- * 'lrgRetiringPrincipal' - The retiring principal for which to list grants. To specify the retiring principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /Amazon Web Services General Reference/ .
-listRetirableGrants ::
-  -- | 'lrgRetiringPrincipal'
-  Text ->
+-- To specify the retiring principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /Amazon Web Services General Reference/ .
+mkListRetirableGrants ::
+  -- | 'retiringPrincipal'
+  Lude.Text ->
   ListRetirableGrants
-listRetirableGrants pRetiringPrincipal_ =
+mkListRetirableGrants pRetiringPrincipal_ =
   ListRetirableGrants'
-    { _lrgMarker = Nothing,
-      _lrgLimit = Nothing,
-      _lrgRetiringPrincipal = pRetiringPrincipal_
+    { marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      retiringPrincipal = pRetiringPrincipal_
     }
 
 -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
-lrgMarker :: Lens' ListRetirableGrants (Maybe Text)
-lrgMarker = lens _lrgMarker (\s a -> s {_lrgMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrgMarker :: Lens.Lens' ListRetirableGrants (Lude.Maybe Lude.Text)
+lrgMarker = Lens.lens (marker :: ListRetirableGrants -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListRetirableGrants)
+{-# DEPRECATED lrgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer. This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
-lrgLimit :: Lens' ListRetirableGrants (Maybe Natural)
-lrgLimit = lens _lrgLimit (\s a -> s {_lrgLimit = a}) . mapping _Nat
+-- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrgLimit :: Lens.Lens' ListRetirableGrants (Lude.Maybe Lude.Natural)
+lrgLimit = Lens.lens (limit :: ListRetirableGrants -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListRetirableGrants)
+{-# DEPRECATED lrgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | The retiring principal for which to list grants. To specify the retiring principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /Amazon Web Services General Reference/ .
-lrgRetiringPrincipal :: Lens' ListRetirableGrants Text
-lrgRetiringPrincipal = lens _lrgRetiringPrincipal (\s a -> s {_lrgRetiringPrincipal = a})
+-- | The retiring principal for which to list grants.
+--
+-- To specify the retiring principal, use the <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an AWS principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and assumed role users. For examples of the ARN syntax for specifying a principal, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM)> in the Example ARNs section of the /Amazon Web Services General Reference/ .
+--
+-- /Note:/ Consider using 'retiringPrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrgRetiringPrincipal :: Lens.Lens' ListRetirableGrants Lude.Text
+lrgRetiringPrincipal = Lens.lens (retiringPrincipal :: ListRetirableGrants -> Lude.Text) (\s a -> s {retiringPrincipal = a} :: ListRetirableGrants)
+{-# DEPRECATED lrgRetiringPrincipal "Use generic-lens or generic-optics with 'retiringPrincipal' instead." #-}
 
-instance AWSRequest ListRetirableGrants where
+instance Lude.AWSRequest ListRetirableGrants where
   type Rs ListRetirableGrants = ListGrantsResponse
-  request = postJSON kms
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON kmsService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable ListRetirableGrants
-
-instance NFData ListRetirableGrants
-
-instance ToHeaders ListRetirableGrants where
+instance Lude.ToHeaders ListRetirableGrants where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("TrentService.ListRetirableGrants" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("TrentService.ListRetirableGrants" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListRetirableGrants where
+instance Lude.ToJSON ListRetirableGrants where
   toJSON ListRetirableGrants' {..} =
-    object
-      ( catMaybes
-          [ ("Marker" .=) <$> _lrgMarker,
-            ("Limit" .=) <$> _lrgLimit,
-            Just ("RetiringPrincipal" .= _lrgRetiringPrincipal)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("RetiringPrincipal" Lude..= retiringPrincipal)
           ]
       )
 
-instance ToPath ListRetirableGrants where
-  toPath = const "/"
+instance Lude.ToPath ListRetirableGrants where
+  toPath = Lude.const "/"
 
-instance ToQuery ListRetirableGrants where
-  toQuery = const mempty
+instance Lude.ToQuery ListRetirableGrants where
+  toQuery = Lude.const Lude.mempty

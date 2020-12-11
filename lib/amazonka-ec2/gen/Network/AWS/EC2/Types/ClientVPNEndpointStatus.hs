@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNEndpointStatus where
+module Network.AWS.EC2.Types.ClientVPNEndpointStatus
+  ( ClientVPNEndpointStatus (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClientVPNEndpointStatus,
+
+    -- * Lenses
+    cvesCode,
+    cvesMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.ClientVPNEndpointStatusCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the state of a Client VPN endpoint.
 --
---
---
--- /See:/ 'clientVPNEndpointStatus' smart constructor.
+-- /See:/ 'mkClientVPNEndpointStatus' smart constructor.
 data ClientVPNEndpointStatus = ClientVPNEndpointStatus'
-  { _cvesCode ::
-      !(Maybe ClientVPNEndpointStatusCode),
-    _cvesMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe ClientVPNEndpointStatusCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNEndpointStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'code' - The state of the Client VPN endpoint. Possible states include:
 --
--- * 'cvesCode' - The state of the Client VPN endpoint. Possible states include:     * @pending-associate@ - The Client VPN endpoint has been created but no target networks have been associated. The Client VPN endpoint cannot accept connections.     * @available@ - The Client VPN endpoint has been created and a target network has been associated. The Client VPN endpoint can accept connections.     * @deleting@ - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept connections.     * @deleted@ - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept connections.
 --
--- * 'cvesMessage' - A message about the status of the Client VPN endpoint.
-clientVPNEndpointStatus ::
+--     * @pending-associate@ - The Client VPN endpoint has been created but no target networks have been associated. The Client VPN endpoint cannot accept connections.
+--
+--
+--     * @available@ - The Client VPN endpoint has been created and a target network has been associated. The Client VPN endpoint can accept connections.
+--
+--
+--     * @deleting@ - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept connections.
+--
+--
+--     * @deleted@ - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept connections.
+--
+--
+-- * 'message' - A message about the status of the Client VPN endpoint.
+mkClientVPNEndpointStatus ::
   ClientVPNEndpointStatus
-clientVPNEndpointStatus =
+mkClientVPNEndpointStatus =
   ClientVPNEndpointStatus'
-    { _cvesCode = Nothing,
-      _cvesMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
--- | The state of the Client VPN endpoint. Possible states include:     * @pending-associate@ - The Client VPN endpoint has been created but no target networks have been associated. The Client VPN endpoint cannot accept connections.     * @available@ - The Client VPN endpoint has been created and a target network has been associated. The Client VPN endpoint can accept connections.     * @deleting@ - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept connections.     * @deleted@ - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept connections.
-cvesCode :: Lens' ClientVPNEndpointStatus (Maybe ClientVPNEndpointStatusCode)
-cvesCode = lens _cvesCode (\s a -> s {_cvesCode = a})
+-- | The state of the Client VPN endpoint. Possible states include:
+--
+--
+--     * @pending-associate@ - The Client VPN endpoint has been created but no target networks have been associated. The Client VPN endpoint cannot accept connections.
+--
+--
+--     * @available@ - The Client VPN endpoint has been created and a target network has been associated. The Client VPN endpoint can accept connections.
+--
+--
+--     * @deleting@ - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept connections.
+--
+--
+--     * @deleted@ - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept connections.
+--
+--
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvesCode :: Lens.Lens' ClientVPNEndpointStatus (Lude.Maybe ClientVPNEndpointStatusCode)
+cvesCode = Lens.lens (code :: ClientVPNEndpointStatus -> Lude.Maybe ClientVPNEndpointStatusCode) (\s a -> s {code = a} :: ClientVPNEndpointStatus)
+{-# DEPRECATED cvesCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | A message about the status of the Client VPN endpoint.
-cvesMessage :: Lens' ClientVPNEndpointStatus (Maybe Text)
-cvesMessage = lens _cvesMessage (\s a -> s {_cvesMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvesMessage :: Lens.Lens' ClientVPNEndpointStatus (Lude.Maybe Lude.Text)
+cvesMessage = Lens.lens (message :: ClientVPNEndpointStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ClientVPNEndpointStatus)
+{-# DEPRECATED cvesMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML ClientVPNEndpointStatus where
+instance Lude.FromXML ClientVPNEndpointStatus where
   parseXML x =
-    ClientVPNEndpointStatus' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable ClientVPNEndpointStatus
-
-instance NFData ClientVPNEndpointStatus
+    ClientVPNEndpointStatus'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

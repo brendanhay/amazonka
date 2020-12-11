@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.AutoScalingType where
+module Network.AWS.OpsWorks.Types.AutoScalingType
+  ( AutoScalingType
+      ( AutoScalingType',
+        Load,
+        Timer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoScalingType
-  = Load
-  | Timer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoScalingType = AutoScalingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoScalingType where
-  parser =
-    takeLowerText >>= \case
-      "load" -> pure Load
-      "timer" -> pure Timer
-      e ->
-        fromTextError $
-          "Failure parsing AutoScalingType from value: '" <> e
-            <> "'. Accepted values: load, timer"
+pattern Load :: AutoScalingType
+pattern Load = AutoScalingType' "load"
 
-instance ToText AutoScalingType where
-  toText = \case
-    Load -> "load"
-    Timer -> "timer"
+pattern Timer :: AutoScalingType
+pattern Timer = AutoScalingType' "timer"
 
-instance Hashable AutoScalingType
-
-instance NFData AutoScalingType
-
-instance ToByteString AutoScalingType
-
-instance ToQuery AutoScalingType
-
-instance ToHeader AutoScalingType
-
-instance ToJSON AutoScalingType where
-  toJSON = toJSONText
-
-instance FromJSON AutoScalingType where
-  parseJSON = parseJSONText "AutoScalingType"
+{-# COMPLETE
+  Load,
+  Timer,
+  AutoScalingType'
+  #-}

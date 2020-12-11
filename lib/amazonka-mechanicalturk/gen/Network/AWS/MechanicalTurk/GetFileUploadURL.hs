@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,153 @@
 --
 -- The @GetFileUploadURL@ operation generates and returns a temporary URL. You use the temporary URL to retrieve a file uploaded by a Worker as an answer to a FileUploadAnswer question for a HIT. The temporary URL is generated the instant the GetFileUploadURL operation is called, and is valid for 60 seconds. You can get a temporary file upload URL any time until the HIT is disposed. After the HIT is disposed, any uploaded files are deleted, and cannot be retrieved. Pending Deprecation on December 12, 2017. The Answer Specification structure will no longer support the @FileUploadAnswer@ element to be used for the QuestionForm data structure. Instead, we recommend that Requesters who want to create HITs asking Workers to upload files to use Amazon S3.
 module Network.AWS.MechanicalTurk.GetFileUploadURL
-  ( -- * Creating a Request
-    getFileUploadURL,
-    GetFileUploadURL,
+  ( -- * Creating a request
+    GetFileUploadURL (..),
+    mkGetFileUploadURL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gfuuAssignmentId,
     gfuuQuestionIdentifier,
 
-    -- * Destructuring the Response
-    getFileUploadURLResponse,
-    GetFileUploadURLResponse,
+    -- * Destructuring the response
+    GetFileUploadURLResponse (..),
+    mkGetFileUploadURLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gfuursFileUploadURL,
     gfuursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFileUploadURL' smart constructor.
+-- | /See:/ 'mkGetFileUploadURL' smart constructor.
 data GetFileUploadURL = GetFileUploadURL'
-  { _gfuuAssignmentId ::
-      !Text,
-    _gfuuQuestionIdentifier :: !Text
+  { assignmentId ::
+      Lude.Text,
+    questionIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFileUploadURL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfuuAssignmentId' - The ID of the assignment that contains the question with a FileUploadAnswer.
---
--- * 'gfuuQuestionIdentifier' - The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT.
-getFileUploadURL ::
-  -- | 'gfuuAssignmentId'
-  Text ->
-  -- | 'gfuuQuestionIdentifier'
-  Text ->
+-- * 'assignmentId' - The ID of the assignment that contains the question with a FileUploadAnswer.
+-- * 'questionIdentifier' - The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT.
+mkGetFileUploadURL ::
+  -- | 'assignmentId'
+  Lude.Text ->
+  -- | 'questionIdentifier'
+  Lude.Text ->
   GetFileUploadURL
-getFileUploadURL pAssignmentId_ pQuestionIdentifier_ =
+mkGetFileUploadURL pAssignmentId_ pQuestionIdentifier_ =
   GetFileUploadURL'
-    { _gfuuAssignmentId = pAssignmentId_,
-      _gfuuQuestionIdentifier = pQuestionIdentifier_
+    { assignmentId = pAssignmentId_,
+      questionIdentifier = pQuestionIdentifier_
     }
 
 -- | The ID of the assignment that contains the question with a FileUploadAnswer.
-gfuuAssignmentId :: Lens' GetFileUploadURL Text
-gfuuAssignmentId = lens _gfuuAssignmentId (\s a -> s {_gfuuAssignmentId = a})
+--
+-- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfuuAssignmentId :: Lens.Lens' GetFileUploadURL Lude.Text
+gfuuAssignmentId = Lens.lens (assignmentId :: GetFileUploadURL -> Lude.Text) (\s a -> s {assignmentId = a} :: GetFileUploadURL)
+{-# DEPRECATED gfuuAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
 -- | The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT.
-gfuuQuestionIdentifier :: Lens' GetFileUploadURL Text
-gfuuQuestionIdentifier = lens _gfuuQuestionIdentifier (\s a -> s {_gfuuQuestionIdentifier = a})
+--
+-- /Note:/ Consider using 'questionIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfuuQuestionIdentifier :: Lens.Lens' GetFileUploadURL Lude.Text
+gfuuQuestionIdentifier = Lens.lens (questionIdentifier :: GetFileUploadURL -> Lude.Text) (\s a -> s {questionIdentifier = a} :: GetFileUploadURL)
+{-# DEPRECATED gfuuQuestionIdentifier "Use generic-lens or generic-optics with 'questionIdentifier' instead." #-}
 
-instance AWSRequest GetFileUploadURL where
+instance Lude.AWSRequest GetFileUploadURL where
   type Rs GetFileUploadURL = GetFileUploadURLResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetFileUploadURLResponse'
-            <$> (x .?> "FileUploadURL") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FileUploadURL")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetFileUploadURL
-
-instance NFData GetFileUploadURL
-
-instance ToHeaders GetFileUploadURL where
+instance Lude.ToHeaders GetFileUploadURL where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.GetFileUploadURL" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.GetFileUploadURL" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetFileUploadURL where
+instance Lude.ToJSON GetFileUploadURL where
   toJSON GetFileUploadURL' {..} =
-    object
-      ( catMaybes
-          [ Just ("AssignmentId" .= _gfuuAssignmentId),
-            Just ("QuestionIdentifier" .= _gfuuQuestionIdentifier)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("AssignmentId" Lude..= assignmentId),
+            Lude.Just ("QuestionIdentifier" Lude..= questionIdentifier)
           ]
       )
 
-instance ToPath GetFileUploadURL where
-  toPath = const "/"
+instance Lude.ToPath GetFileUploadURL where
+  toPath = Lude.const "/"
 
-instance ToQuery GetFileUploadURL where
-  toQuery = const mempty
+instance Lude.ToQuery GetFileUploadURL where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getFileUploadURLResponse' smart constructor.
+-- | /See:/ 'mkGetFileUploadURLResponse' smart constructor.
 data GetFileUploadURLResponse = GetFileUploadURLResponse'
-  { _gfuursFileUploadURL ::
-      !(Maybe Text),
-    _gfuursResponseStatus :: !Int
+  { fileUploadURL ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFileUploadURLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfuursFileUploadURL' - A temporary URL for the file that the Worker uploaded for the answer.
---
--- * 'gfuursResponseStatus' - -- | The response status code.
-getFileUploadURLResponse ::
-  -- | 'gfuursResponseStatus'
-  Int ->
+-- * 'fileUploadURL' - A temporary URL for the file that the Worker uploaded for the answer.
+-- * 'responseStatus' - The response status code.
+mkGetFileUploadURLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFileUploadURLResponse
-getFileUploadURLResponse pResponseStatus_ =
+mkGetFileUploadURLResponse pResponseStatus_ =
   GetFileUploadURLResponse'
-    { _gfuursFileUploadURL = Nothing,
-      _gfuursResponseStatus = pResponseStatus_
+    { fileUploadURL = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A temporary URL for the file that the Worker uploaded for the answer.
-gfuursFileUploadURL :: Lens' GetFileUploadURLResponse (Maybe Text)
-gfuursFileUploadURL = lens _gfuursFileUploadURL (\s a -> s {_gfuursFileUploadURL = a})
+--
+-- /Note:/ Consider using 'fileUploadURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfuursFileUploadURL :: Lens.Lens' GetFileUploadURLResponse (Lude.Maybe Lude.Text)
+gfuursFileUploadURL = Lens.lens (fileUploadURL :: GetFileUploadURLResponse -> Lude.Maybe Lude.Text) (\s a -> s {fileUploadURL = a} :: GetFileUploadURLResponse)
+{-# DEPRECATED gfuursFileUploadURL "Use generic-lens or generic-optics with 'fileUploadURL' instead." #-}
 
--- | -- | The response status code.
-gfuursResponseStatus :: Lens' GetFileUploadURLResponse Int
-gfuursResponseStatus = lens _gfuursResponseStatus (\s a -> s {_gfuursResponseStatus = a})
-
-instance NFData GetFileUploadURLResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfuursResponseStatus :: Lens.Lens' GetFileUploadURLResponse Lude.Int
+gfuursResponseStatus = Lens.lens (responseStatus :: GetFileUploadURLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFileUploadURLResponse)
+{-# DEPRECATED gfuursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

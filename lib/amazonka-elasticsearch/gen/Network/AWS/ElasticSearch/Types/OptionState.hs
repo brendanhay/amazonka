@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.OptionState where
+module Network.AWS.ElasticSearch.Types.OptionState
+  ( OptionState
+      ( OptionState',
+        Active,
+        Processing,
+        RequiresIndexDocuments
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The state of a requested change. One of the following:
 --
 --
---     * Processing: The request change is still in-process.    * Active: The request change is processed and deployed to the Elasticsearch domain.
-data OptionState
-  = Active
-  | Processing
-  | RequiresIndexDocuments
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+--     * Processing: The request change is still in-process.
+--
+--     * Active: The request change is processed and deployed to the Elasticsearch domain.
+newtype OptionState = OptionState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OptionState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "processing" -> pure Processing
-      "requiresindexdocuments" -> pure RequiresIndexDocuments
-      e ->
-        fromTextError $
-          "Failure parsing OptionState from value: '" <> e
-            <> "'. Accepted values: active, processing, requiresindexdocuments"
+pattern Active :: OptionState
+pattern Active = OptionState' "Active"
 
-instance ToText OptionState where
-  toText = \case
-    Active -> "Active"
-    Processing -> "Processing"
-    RequiresIndexDocuments -> "RequiresIndexDocuments"
+pattern Processing :: OptionState
+pattern Processing = OptionState' "Processing"
 
-instance Hashable OptionState
+pattern RequiresIndexDocuments :: OptionState
+pattern RequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
 
-instance NFData OptionState
-
-instance ToByteString OptionState
-
-instance ToQuery OptionState
-
-instance ToHeader OptionState
-
-instance FromJSON OptionState where
-  parseJSON = parseJSONText "OptionState"
+{-# COMPLETE
+  Active,
+  Processing,
+  RequiresIndexDocuments,
+  OptionState'
+  #-}

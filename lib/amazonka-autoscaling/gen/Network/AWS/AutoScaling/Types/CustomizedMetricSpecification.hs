@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,140 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.CustomizedMetricSpecification where
+module Network.AWS.AutoScaling.Types.CustomizedMetricSpecification
+  ( CustomizedMetricSpecification (..),
+
+    -- * Smart constructor
+    mkCustomizedMetricSpecification,
+
+    -- * Lenses
+    cmsDimensions,
+    cmsUnit,
+    cmsMetricName,
+    cmsNamespace,
+    cmsStatistic,
+  )
+where
 
 import Network.AWS.AutoScaling.Types.MetricDimension
 import Network.AWS.AutoScaling.Types.MetricStatistic
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Amazon EC2 Auto Scaling.
---
 --
 -- To create your customized metric specification:
 --
 --     * Add values for each required parameter from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publish Custom Metrics> in the /Amazon CloudWatch User Guide/ .
 --
---     * Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.
 --
+--     * Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.
 --
 --
 -- For more information about CloudWatch, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html Amazon CloudWatch Concepts> .
 --
---
--- /See:/ 'customizedMetricSpecification' smart constructor.
+-- /See:/ 'mkCustomizedMetricSpecification' smart constructor.
 data CustomizedMetricSpecification = CustomizedMetricSpecification'
-  { _cmsDimensions ::
-      !(Maybe [MetricDimension]),
-    _cmsUnit :: !(Maybe Text),
-    _cmsMetricName :: !Text,
-    _cmsNamespace :: !Text,
-    _cmsStatistic ::
-      !MetricStatistic
+  { dimensions ::
+      Lude.Maybe [MetricDimension],
+    unit :: Lude.Maybe Lude.Text,
+    metricName :: Lude.Text,
+    namespace :: Lude.Text,
+    statistic :: MetricStatistic
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomizedMetricSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dimensions' - The dimensions of the metric.
 --
--- * 'cmsDimensions' - The dimensions of the metric. Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
---
--- * 'cmsUnit' - The unit of the metric.
---
--- * 'cmsMetricName' - The name of the metric.
---
--- * 'cmsNamespace' - The namespace of the metric.
---
--- * 'cmsStatistic' - The statistic of the metric.
-customizedMetricSpecification ::
-  -- | 'cmsMetricName'
-  Text ->
-  -- | 'cmsNamespace'
-  Text ->
-  -- | 'cmsStatistic'
+-- Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
+-- * 'metricName' - The name of the metric.
+-- * 'namespace' - The namespace of the metric.
+-- * 'statistic' - The statistic of the metric.
+-- * 'unit' - The unit of the metric.
+mkCustomizedMetricSpecification ::
+  -- | 'metricName'
+  Lude.Text ->
+  -- | 'namespace'
+  Lude.Text ->
+  -- | 'statistic'
   MetricStatistic ->
   CustomizedMetricSpecification
-customizedMetricSpecification pMetricName_ pNamespace_ pStatistic_ =
-  CustomizedMetricSpecification'
-    { _cmsDimensions = Nothing,
-      _cmsUnit = Nothing,
-      _cmsMetricName = pMetricName_,
-      _cmsNamespace = pNamespace_,
-      _cmsStatistic = pStatistic_
-    }
+mkCustomizedMetricSpecification
+  pMetricName_
+  pNamespace_
+  pStatistic_ =
+    CustomizedMetricSpecification'
+      { dimensions = Lude.Nothing,
+        unit = Lude.Nothing,
+        metricName = pMetricName_,
+        namespace = pNamespace_,
+        statistic = pStatistic_
+      }
 
--- | The dimensions of the metric. Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
-cmsDimensions :: Lens' CustomizedMetricSpecification [MetricDimension]
-cmsDimensions = lens _cmsDimensions (\s a -> s {_cmsDimensions = a}) . _Default . _Coerce
+-- | The dimensions of the metric.
+--
+-- Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsDimensions :: Lens.Lens' CustomizedMetricSpecification (Lude.Maybe [MetricDimension])
+cmsDimensions = Lens.lens (dimensions :: CustomizedMetricSpecification -> Lude.Maybe [MetricDimension]) (\s a -> s {dimensions = a} :: CustomizedMetricSpecification)
+{-# DEPRECATED cmsDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | The unit of the metric.
-cmsUnit :: Lens' CustomizedMetricSpecification (Maybe Text)
-cmsUnit = lens _cmsUnit (\s a -> s {_cmsUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsUnit :: Lens.Lens' CustomizedMetricSpecification (Lude.Maybe Lude.Text)
+cmsUnit = Lens.lens (unit :: CustomizedMetricSpecification -> Lude.Maybe Lude.Text) (\s a -> s {unit = a} :: CustomizedMetricSpecification)
+{-# DEPRECATED cmsUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | The name of the metric.
-cmsMetricName :: Lens' CustomizedMetricSpecification Text
-cmsMetricName = lens _cmsMetricName (\s a -> s {_cmsMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsMetricName :: Lens.Lens' CustomizedMetricSpecification Lude.Text
+cmsMetricName = Lens.lens (metricName :: CustomizedMetricSpecification -> Lude.Text) (\s a -> s {metricName = a} :: CustomizedMetricSpecification)
+{-# DEPRECATED cmsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The namespace of the metric.
-cmsNamespace :: Lens' CustomizedMetricSpecification Text
-cmsNamespace = lens _cmsNamespace (\s a -> s {_cmsNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsNamespace :: Lens.Lens' CustomizedMetricSpecification Lude.Text
+cmsNamespace = Lens.lens (namespace :: CustomizedMetricSpecification -> Lude.Text) (\s a -> s {namespace = a} :: CustomizedMetricSpecification)
+{-# DEPRECATED cmsNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The statistic of the metric.
-cmsStatistic :: Lens' CustomizedMetricSpecification MetricStatistic
-cmsStatistic = lens _cmsStatistic (\s a -> s {_cmsStatistic = a})
+--
+-- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsStatistic :: Lens.Lens' CustomizedMetricSpecification MetricStatistic
+cmsStatistic = Lens.lens (statistic :: CustomizedMetricSpecification -> MetricStatistic) (\s a -> s {statistic = a} :: CustomizedMetricSpecification)
+{-# DEPRECATED cmsStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
 
-instance FromXML CustomizedMetricSpecification where
+instance Lude.FromXML CustomizedMetricSpecification where
   parseXML x =
     CustomizedMetricSpecification'
-      <$> (x .@? "Dimensions" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "Unit")
-      <*> (x .@ "MetricName")
-      <*> (x .@ "Namespace")
-      <*> (x .@ "Statistic")
+      Lude.<$> ( x Lude..@? "Dimensions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "Unit")
+      Lude.<*> (x Lude..@ "MetricName")
+      Lude.<*> (x Lude..@ "Namespace")
+      Lude.<*> (x Lude..@ "Statistic")
 
-instance Hashable CustomizedMetricSpecification
-
-instance NFData CustomizedMetricSpecification
-
-instance ToQuery CustomizedMetricSpecification where
+instance Lude.ToQuery CustomizedMetricSpecification where
   toQuery CustomizedMetricSpecification' {..} =
-    mconcat
-      [ "Dimensions" =: toQuery (toQueryList "member" <$> _cmsDimensions),
-        "Unit" =: _cmsUnit,
-        "MetricName" =: _cmsMetricName,
-        "Namespace" =: _cmsNamespace,
-        "Statistic" =: _cmsStatistic
+    Lude.mconcat
+      [ "Dimensions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions),
+        "Unit" Lude.=: unit,
+        "MetricName" Lude.=: metricName,
+        "Namespace" Lude.=: namespace,
+        "Statistic" Lude.=: statistic
       ]

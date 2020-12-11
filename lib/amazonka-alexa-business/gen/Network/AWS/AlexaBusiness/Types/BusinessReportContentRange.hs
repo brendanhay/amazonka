@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.BusinessReportContentRange where
+module Network.AWS.AlexaBusiness.Types.BusinessReportContentRange
+  ( BusinessReportContentRange (..),
+
+    -- * Smart constructor
+    mkBusinessReportContentRange,
+
+    -- * Lenses
+    brcrInterval,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.BusinessReportInterval
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The content range of the report.
 --
---
---
--- /See:/ 'businessReportContentRange' smart constructor.
+-- /See:/ 'mkBusinessReportContentRange' smart constructor.
 newtype BusinessReportContentRange = BusinessReportContentRange'
-  { _brcrInterval ::
+  { interval ::
       BusinessReportInterval
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BusinessReportContentRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'brcrInterval' - The interval of the content range.
-businessReportContentRange ::
-  -- | 'brcrInterval'
+-- * 'interval' - The interval of the content range.
+mkBusinessReportContentRange ::
+  -- | 'interval'
   BusinessReportInterval ->
   BusinessReportContentRange
-businessReportContentRange pInterval_ =
-  BusinessReportContentRange' {_brcrInterval = pInterval_}
+mkBusinessReportContentRange pInterval_ =
+  BusinessReportContentRange' {interval = pInterval_}
 
 -- | The interval of the content range.
-brcrInterval :: Lens' BusinessReportContentRange BusinessReportInterval
-brcrInterval = lens _brcrInterval (\s a -> s {_brcrInterval = a})
+--
+-- /Note:/ Consider using 'interval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brcrInterval :: Lens.Lens' BusinessReportContentRange BusinessReportInterval
+brcrInterval = Lens.lens (interval :: BusinessReportContentRange -> BusinessReportInterval) (\s a -> s {interval = a} :: BusinessReportContentRange)
+{-# DEPRECATED brcrInterval "Use generic-lens or generic-optics with 'interval' instead." #-}
 
-instance FromJSON BusinessReportContentRange where
+instance Lude.FromJSON BusinessReportContentRange where
   parseJSON =
-    withObject
+    Lude.withObject
       "BusinessReportContentRange"
-      (\x -> BusinessReportContentRange' <$> (x .: "Interval"))
+      ( \x ->
+          BusinessReportContentRange' Lude.<$> (x Lude..: "Interval")
+      )
 
-instance Hashable BusinessReportContentRange
-
-instance NFData BusinessReportContentRange
-
-instance ToJSON BusinessReportContentRange where
+instance Lude.ToJSON BusinessReportContentRange where
   toJSON BusinessReportContentRange' {..} =
-    object (catMaybes [Just ("Interval" .= _brcrInterval)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Interval" Lude..= interval)])

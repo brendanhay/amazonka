@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameServerInstanceStatus where
+module Network.AWS.GameLift.Types.GameServerInstanceStatus
+  ( GameServerInstanceStatus
+      ( GameServerInstanceStatus',
+        GSISActive,
+        GSISDraining,
+        GSISSpotTerminating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GameServerInstanceStatus
-  = GSISActive
-  | GSISDraining
-  | GSISSpotTerminating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GameServerInstanceStatus = GameServerInstanceStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GameServerInstanceStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure GSISActive
-      "draining" -> pure GSISDraining
-      "spot_terminating" -> pure GSISSpotTerminating
-      e ->
-        fromTextError $
-          "Failure parsing GameServerInstanceStatus from value: '" <> e
-            <> "'. Accepted values: active, draining, spot_terminating"
+pattern GSISActive :: GameServerInstanceStatus
+pattern GSISActive = GameServerInstanceStatus' "ACTIVE"
 
-instance ToText GameServerInstanceStatus where
-  toText = \case
-    GSISActive -> "ACTIVE"
-    GSISDraining -> "DRAINING"
-    GSISSpotTerminating -> "SPOT_TERMINATING"
+pattern GSISDraining :: GameServerInstanceStatus
+pattern GSISDraining = GameServerInstanceStatus' "DRAINING"
 
-instance Hashable GameServerInstanceStatus
+pattern GSISSpotTerminating :: GameServerInstanceStatus
+pattern GSISSpotTerminating = GameServerInstanceStatus' "SPOT_TERMINATING"
 
-instance NFData GameServerInstanceStatus
-
-instance ToByteString GameServerInstanceStatus
-
-instance ToQuery GameServerInstanceStatus
-
-instance ToHeader GameServerInstanceStatus
-
-instance FromJSON GameServerInstanceStatus where
-  parseJSON = parseJSONText "GameServerInstanceStatus"
+{-# COMPLETE
+  GSISActive,
+  GSISDraining,
+  GSISSpotTerminating,
+  GameServerInstanceStatus'
+  #-}

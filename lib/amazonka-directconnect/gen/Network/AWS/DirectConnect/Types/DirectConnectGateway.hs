@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,148 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.DirectConnectGateway where
+module Network.AWS.DirectConnect.Types.DirectConnectGateway
+  ( DirectConnectGateway (..),
+
+    -- * Smart constructor
+    mkDirectConnectGateway,
+
+    -- * Lenses
+    dcgDirectConnectGatewayId,
+    dcgStateChangeError,
+    dcgAmazonSideASN,
+    dcgDirectConnectGatewayName,
+    dcgDirectConnectGatewayState,
+    dcgOwnerAccount,
+  )
+where
 
 import Network.AWS.DirectConnect.Types.DirectConnectGatewayState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.
 --
---
---
--- /See:/ 'directConnectGateway' smart constructor.
+-- /See:/ 'mkDirectConnectGateway' smart constructor.
 data DirectConnectGateway = DirectConnectGateway'
-  { _dcgDirectConnectGatewayId ::
-      !(Maybe Text),
-    _dcgStateChangeError :: !(Maybe Text),
-    _dcgAmazonSideASN :: !(Maybe Integer),
-    _dcgDirectConnectGatewayName :: !(Maybe Text),
-    _dcgDirectConnectGatewayState ::
-      !(Maybe DirectConnectGatewayState),
-    _dcgOwnerAccount :: !(Maybe Text)
+  { directConnectGatewayId ::
+      Lude.Maybe Lude.Text,
+    stateChangeError :: Lude.Maybe Lude.Text,
+    amazonSideASN :: Lude.Maybe Lude.Integer,
+    directConnectGatewayName :: Lude.Maybe Lude.Text,
+    directConnectGatewayState ::
+      Lude.Maybe DirectConnectGatewayState,
+    ownerAccount :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectConnectGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'amazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'directConnectGatewayName' - The name of the Direct Connect gateway.
+-- * 'directConnectGatewayState' - The state of the Direct Connect gateway. The following are the possible values:
 --
--- * 'dcgDirectConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- * 'dcgStateChangeError' - The error message if the state of an object failed to advance.
+--     * @pending@ : The initial state after calling 'CreateDirectConnectGateway' .
 --
--- * 'dcgAmazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
 --
--- * 'dcgDirectConnectGatewayName' - The name of the Direct Connect gateway.
+--     * @available@ : The Direct Connect gateway is ready for use.
 --
--- * 'dcgDirectConnectGatewayState' - The state of the Direct Connect gateway. The following are the possible values:     * @pending@ : The initial state after calling 'CreateDirectConnectGateway' .     * @available@ : The Direct Connect gateway is ready for use.     * @deleting@ : The initial state after calling 'DeleteDirectConnectGateway' .     * @deleted@ : The Direct Connect gateway is deleted and cannot pass traffic.
 --
--- * 'dcgOwnerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
-directConnectGateway ::
+--     * @deleting@ : The initial state after calling 'DeleteDirectConnectGateway' .
+--
+--
+--     * @deleted@ : The Direct Connect gateway is deleted and cannot pass traffic.
+--
+--
+-- * 'ownerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
+-- * 'stateChangeError' - The error message if the state of an object failed to advance.
+mkDirectConnectGateway ::
   DirectConnectGateway
-directConnectGateway =
+mkDirectConnectGateway =
   DirectConnectGateway'
-    { _dcgDirectConnectGatewayId = Nothing,
-      _dcgStateChangeError = Nothing,
-      _dcgAmazonSideASN = Nothing,
-      _dcgDirectConnectGatewayName = Nothing,
-      _dcgDirectConnectGatewayState = Nothing,
-      _dcgOwnerAccount = Nothing
+    { directConnectGatewayId = Lude.Nothing,
+      stateChangeError = Lude.Nothing,
+      amazonSideASN = Lude.Nothing,
+      directConnectGatewayName = Lude.Nothing,
+      directConnectGatewayState = Lude.Nothing,
+      ownerAccount = Lude.Nothing
     }
 
 -- | The ID of the Direct Connect gateway.
-dcgDirectConnectGatewayId :: Lens' DirectConnectGateway (Maybe Text)
-dcgDirectConnectGatewayId = lens _dcgDirectConnectGatewayId (\s a -> s {_dcgDirectConnectGatewayId = a})
+--
+-- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgDirectConnectGatewayId :: Lens.Lens' DirectConnectGateway (Lude.Maybe Lude.Text)
+dcgDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: DirectConnectGateway -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayId = a} :: DirectConnectGateway)
+{-# DEPRECATED dcgDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
 
 -- | The error message if the state of an object failed to advance.
-dcgStateChangeError :: Lens' DirectConnectGateway (Maybe Text)
-dcgStateChangeError = lens _dcgStateChangeError (\s a -> s {_dcgStateChangeError = a})
+--
+-- /Note:/ Consider using 'stateChangeError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgStateChangeError :: Lens.Lens' DirectConnectGateway (Lude.Maybe Lude.Text)
+dcgStateChangeError = Lens.lens (stateChangeError :: DirectConnectGateway -> Lude.Maybe Lude.Text) (\s a -> s {stateChangeError = a} :: DirectConnectGateway)
+{-# DEPRECATED dcgStateChangeError "Use generic-lens or generic-optics with 'stateChangeError' instead." #-}
 
 -- | The autonomous system number (ASN) for the Amazon side of the connection.
-dcgAmazonSideASN :: Lens' DirectConnectGateway (Maybe Integer)
-dcgAmazonSideASN = lens _dcgAmazonSideASN (\s a -> s {_dcgAmazonSideASN = a})
+--
+-- /Note:/ Consider using 'amazonSideASN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgAmazonSideASN :: Lens.Lens' DirectConnectGateway (Lude.Maybe Lude.Integer)
+dcgAmazonSideASN = Lens.lens (amazonSideASN :: DirectConnectGateway -> Lude.Maybe Lude.Integer) (\s a -> s {amazonSideASN = a} :: DirectConnectGateway)
+{-# DEPRECATED dcgAmazonSideASN "Use generic-lens or generic-optics with 'amazonSideASN' instead." #-}
 
 -- | The name of the Direct Connect gateway.
-dcgDirectConnectGatewayName :: Lens' DirectConnectGateway (Maybe Text)
-dcgDirectConnectGatewayName = lens _dcgDirectConnectGatewayName (\s a -> s {_dcgDirectConnectGatewayName = a})
+--
+-- /Note:/ Consider using 'directConnectGatewayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgDirectConnectGatewayName :: Lens.Lens' DirectConnectGateway (Lude.Maybe Lude.Text)
+dcgDirectConnectGatewayName = Lens.lens (directConnectGatewayName :: DirectConnectGateway -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayName = a} :: DirectConnectGateway)
+{-# DEPRECATED dcgDirectConnectGatewayName "Use generic-lens or generic-optics with 'directConnectGatewayName' instead." #-}
 
--- | The state of the Direct Connect gateway. The following are the possible values:     * @pending@ : The initial state after calling 'CreateDirectConnectGateway' .     * @available@ : The Direct Connect gateway is ready for use.     * @deleting@ : The initial state after calling 'DeleteDirectConnectGateway' .     * @deleted@ : The Direct Connect gateway is deleted and cannot pass traffic.
-dcgDirectConnectGatewayState :: Lens' DirectConnectGateway (Maybe DirectConnectGatewayState)
-dcgDirectConnectGatewayState = lens _dcgDirectConnectGatewayState (\s a -> s {_dcgDirectConnectGatewayState = a})
+-- | The state of the Direct Connect gateway. The following are the possible values:
+--
+--
+--     * @pending@ : The initial state after calling 'CreateDirectConnectGateway' .
+--
+--
+--     * @available@ : The Direct Connect gateway is ready for use.
+--
+--
+--     * @deleting@ : The initial state after calling 'DeleteDirectConnectGateway' .
+--
+--
+--     * @deleted@ : The Direct Connect gateway is deleted and cannot pass traffic.
+--
+--
+--
+-- /Note:/ Consider using 'directConnectGatewayState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgDirectConnectGatewayState :: Lens.Lens' DirectConnectGateway (Lude.Maybe DirectConnectGatewayState)
+dcgDirectConnectGatewayState = Lens.lens (directConnectGatewayState :: DirectConnectGateway -> Lude.Maybe DirectConnectGatewayState) (\s a -> s {directConnectGatewayState = a} :: DirectConnectGateway)
+{-# DEPRECATED dcgDirectConnectGatewayState "Use generic-lens or generic-optics with 'directConnectGatewayState' instead." #-}
 
 -- | The ID of the AWS account that owns the Direct Connect gateway.
-dcgOwnerAccount :: Lens' DirectConnectGateway (Maybe Text)
-dcgOwnerAccount = lens _dcgOwnerAccount (\s a -> s {_dcgOwnerAccount = a})
+--
+-- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgOwnerAccount :: Lens.Lens' DirectConnectGateway (Lude.Maybe Lude.Text)
+dcgOwnerAccount = Lens.lens (ownerAccount :: DirectConnectGateway -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccount = a} :: DirectConnectGateway)
+{-# DEPRECATED dcgOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
-instance FromJSON DirectConnectGateway where
+instance Lude.FromJSON DirectConnectGateway where
   parseJSON =
-    withObject
+    Lude.withObject
       "DirectConnectGateway"
       ( \x ->
           DirectConnectGateway'
-            <$> (x .:? "directConnectGatewayId")
-            <*> (x .:? "stateChangeError")
-            <*> (x .:? "amazonSideAsn")
-            <*> (x .:? "directConnectGatewayName")
-            <*> (x .:? "directConnectGatewayState")
-            <*> (x .:? "ownerAccount")
+            Lude.<$> (x Lude..:? "directConnectGatewayId")
+            Lude.<*> (x Lude..:? "stateChangeError")
+            Lude.<*> (x Lude..:? "amazonSideAsn")
+            Lude.<*> (x Lude..:? "directConnectGatewayName")
+            Lude.<*> (x Lude..:? "directConnectGatewayState")
+            Lude.<*> (x Lude..:? "ownerAccount")
       )
-
-instance Hashable DirectConnectGateway
-
-instance NFData DirectConnectGateway

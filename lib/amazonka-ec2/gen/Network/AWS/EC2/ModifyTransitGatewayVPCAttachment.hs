@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,173 +14,187 @@
 --
 -- Modifies the specified VPC attachment.
 module Network.AWS.EC2.ModifyTransitGatewayVPCAttachment
-  ( -- * Creating a Request
-    modifyTransitGatewayVPCAttachment,
-    ModifyTransitGatewayVPCAttachment,
+  ( -- * Creating a request
+    ModifyTransitGatewayVPCAttachment (..),
+    mkModifyTransitGatewayVPCAttachment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mtgvaAddSubnetIds,
     mtgvaOptions,
     mtgvaRemoveSubnetIds,
     mtgvaDryRun,
     mtgvaTransitGatewayAttachmentId,
 
-    -- * Destructuring the Response
-    modifyTransitGatewayVPCAttachmentResponse,
-    ModifyTransitGatewayVPCAttachmentResponse,
+    -- * Destructuring the response
+    ModifyTransitGatewayVPCAttachmentResponse (..),
+    mkModifyTransitGatewayVPCAttachmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mtgvarsTransitGatewayVPCAttachment,
     mtgvarsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyTransitGatewayVPCAttachment' smart constructor.
+-- | /See:/ 'mkModifyTransitGatewayVPCAttachment' smart constructor.
 data ModifyTransitGatewayVPCAttachment = ModifyTransitGatewayVPCAttachment'
-  { _mtgvaAddSubnetIds ::
-      !(Maybe [Text]),
-    _mtgvaOptions ::
-      !( Maybe
-           ModifyTransitGatewayVPCAttachmentRequestOptions
-       ),
-    _mtgvaRemoveSubnetIds ::
-      !(Maybe [Text]),
-    _mtgvaDryRun ::
-      !(Maybe Bool),
-    _mtgvaTransitGatewayAttachmentId ::
-      !Text
+  { addSubnetIds ::
+      Lude.Maybe [Lude.Text],
+    options ::
+      Lude.Maybe
+        ModifyTransitGatewayVPCAttachmentRequestOptions,
+    removeSubnetIds ::
+      Lude.Maybe [Lude.Text],
+    dryRun ::
+      Lude.Maybe Lude.Bool,
+    transitGatewayAttachmentId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTransitGatewayVPCAttachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtgvaAddSubnetIds' - The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
---
--- * 'mtgvaOptions' - The new VPC attachment options.
---
--- * 'mtgvaRemoveSubnetIds' - The IDs of one or more subnets to remove.
---
--- * 'mtgvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'mtgvaTransitGatewayAttachmentId' - The ID of the attachment.
-modifyTransitGatewayVPCAttachment ::
-  -- | 'mtgvaTransitGatewayAttachmentId'
-  Text ->
+-- * 'addSubnetIds' - The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'options' - The new VPC attachment options.
+-- * 'removeSubnetIds' - The IDs of one or more subnets to remove.
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+mkModifyTransitGatewayVPCAttachment ::
+  -- | 'transitGatewayAttachmentId'
+  Lude.Text ->
   ModifyTransitGatewayVPCAttachment
-modifyTransitGatewayVPCAttachment pTransitGatewayAttachmentId_ =
+mkModifyTransitGatewayVPCAttachment pTransitGatewayAttachmentId_ =
   ModifyTransitGatewayVPCAttachment'
-    { _mtgvaAddSubnetIds = Nothing,
-      _mtgvaOptions = Nothing,
-      _mtgvaRemoveSubnetIds = Nothing,
-      _mtgvaDryRun = Nothing,
-      _mtgvaTransitGatewayAttachmentId =
-        pTransitGatewayAttachmentId_
+    { addSubnetIds = Lude.Nothing,
+      options = Lude.Nothing,
+      removeSubnetIds = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      transitGatewayAttachmentId = pTransitGatewayAttachmentId_
     }
 
 -- | The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
-mtgvaAddSubnetIds :: Lens' ModifyTransitGatewayVPCAttachment [Text]
-mtgvaAddSubnetIds = lens _mtgvaAddSubnetIds (\s a -> s {_mtgvaAddSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addSubnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgvaAddSubnetIds :: Lens.Lens' ModifyTransitGatewayVPCAttachment (Lude.Maybe [Lude.Text])
+mtgvaAddSubnetIds = Lens.lens (addSubnetIds :: ModifyTransitGatewayVPCAttachment -> Lude.Maybe [Lude.Text]) (\s a -> s {addSubnetIds = a} :: ModifyTransitGatewayVPCAttachment)
+{-# DEPRECATED mtgvaAddSubnetIds "Use generic-lens or generic-optics with 'addSubnetIds' instead." #-}
 
 -- | The new VPC attachment options.
-mtgvaOptions :: Lens' ModifyTransitGatewayVPCAttachment (Maybe ModifyTransitGatewayVPCAttachmentRequestOptions)
-mtgvaOptions = lens _mtgvaOptions (\s a -> s {_mtgvaOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgvaOptions :: Lens.Lens' ModifyTransitGatewayVPCAttachment (Lude.Maybe ModifyTransitGatewayVPCAttachmentRequestOptions)
+mtgvaOptions = Lens.lens (options :: ModifyTransitGatewayVPCAttachment -> Lude.Maybe ModifyTransitGatewayVPCAttachmentRequestOptions) (\s a -> s {options = a} :: ModifyTransitGatewayVPCAttachment)
+{-# DEPRECATED mtgvaOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | The IDs of one or more subnets to remove.
-mtgvaRemoveSubnetIds :: Lens' ModifyTransitGatewayVPCAttachment [Text]
-mtgvaRemoveSubnetIds = lens _mtgvaRemoveSubnetIds (\s a -> s {_mtgvaRemoveSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeSubnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgvaRemoveSubnetIds :: Lens.Lens' ModifyTransitGatewayVPCAttachment (Lude.Maybe [Lude.Text])
+mtgvaRemoveSubnetIds = Lens.lens (removeSubnetIds :: ModifyTransitGatewayVPCAttachment -> Lude.Maybe [Lude.Text]) (\s a -> s {removeSubnetIds = a} :: ModifyTransitGatewayVPCAttachment)
+{-# DEPRECATED mtgvaRemoveSubnetIds "Use generic-lens or generic-optics with 'removeSubnetIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mtgvaDryRun :: Lens' ModifyTransitGatewayVPCAttachment (Maybe Bool)
-mtgvaDryRun = lens _mtgvaDryRun (\s a -> s {_mtgvaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgvaDryRun :: Lens.Lens' ModifyTransitGatewayVPCAttachment (Lude.Maybe Lude.Bool)
+mtgvaDryRun = Lens.lens (dryRun :: ModifyTransitGatewayVPCAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyTransitGatewayVPCAttachment)
+{-# DEPRECATED mtgvaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the attachment.
-mtgvaTransitGatewayAttachmentId :: Lens' ModifyTransitGatewayVPCAttachment Text
-mtgvaTransitGatewayAttachmentId = lens _mtgvaTransitGatewayAttachmentId (\s a -> s {_mtgvaTransitGatewayAttachmentId = a})
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgvaTransitGatewayAttachmentId :: Lens.Lens' ModifyTransitGatewayVPCAttachment Lude.Text
+mtgvaTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: ModifyTransitGatewayVPCAttachment -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: ModifyTransitGatewayVPCAttachment)
+{-# DEPRECATED mtgvaTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
-instance AWSRequest ModifyTransitGatewayVPCAttachment where
+instance Lude.AWSRequest ModifyTransitGatewayVPCAttachment where
   type
     Rs ModifyTransitGatewayVPCAttachment =
       ModifyTransitGatewayVPCAttachmentResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyTransitGatewayVPCAttachmentResponse'
-            <$> (x .@? "transitGatewayVpcAttachment") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "transitGatewayVpcAttachment")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyTransitGatewayVPCAttachment
+instance Lude.ToHeaders ModifyTransitGatewayVPCAttachment where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyTransitGatewayVPCAttachment
+instance Lude.ToPath ModifyTransitGatewayVPCAttachment where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyTransitGatewayVPCAttachment where
-  toHeaders = const mempty
-
-instance ToPath ModifyTransitGatewayVPCAttachment where
-  toPath = const "/"
-
-instance ToQuery ModifyTransitGatewayVPCAttachment where
+instance Lude.ToQuery ModifyTransitGatewayVPCAttachment where
   toQuery ModifyTransitGatewayVPCAttachment' {..} =
-    mconcat
-      [ "Action" =: ("ModifyTransitGatewayVpcAttachment" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "AddSubnetIds" <$> _mtgvaAddSubnetIds),
-        "Options" =: _mtgvaOptions,
-        toQuery (toQueryList "RemoveSubnetIds" <$> _mtgvaRemoveSubnetIds),
-        "DryRun" =: _mtgvaDryRun,
-        "TransitGatewayAttachmentId" =: _mtgvaTransitGatewayAttachmentId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("ModifyTransitGatewayVpcAttachment" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          (Lude.toQueryList "AddSubnetIds" Lude.<$> addSubnetIds),
+        "Options" Lude.=: options,
+        Lude.toQuery
+          (Lude.toQueryList "RemoveSubnetIds" Lude.<$> removeSubnetIds),
+        "DryRun" Lude.=: dryRun,
+        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId
       ]
 
--- | /See:/ 'modifyTransitGatewayVPCAttachmentResponse' smart constructor.
+-- | /See:/ 'mkModifyTransitGatewayVPCAttachmentResponse' smart constructor.
 data ModifyTransitGatewayVPCAttachmentResponse = ModifyTransitGatewayVPCAttachmentResponse'
-  { _mtgvarsTransitGatewayVPCAttachment ::
-      !( Maybe
-           TransitGatewayVPCAttachment
-       ),
-    _mtgvarsResponseStatus ::
-      !Int
+  { transitGatewayVPCAttachment ::
+      Lude.Maybe
+        TransitGatewayVPCAttachment,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTransitGatewayVPCAttachmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtgvarsTransitGatewayVPCAttachment' - Information about the modified attachment.
---
--- * 'mtgvarsResponseStatus' - -- | The response status code.
-modifyTransitGatewayVPCAttachmentResponse ::
-  -- | 'mtgvarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'transitGatewayVPCAttachment' - Information about the modified attachment.
+mkModifyTransitGatewayVPCAttachmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyTransitGatewayVPCAttachmentResponse
-modifyTransitGatewayVPCAttachmentResponse pResponseStatus_ =
+mkModifyTransitGatewayVPCAttachmentResponse pResponseStatus_ =
   ModifyTransitGatewayVPCAttachmentResponse'
-    { _mtgvarsTransitGatewayVPCAttachment =
-        Nothing,
-      _mtgvarsResponseStatus = pResponseStatus_
+    { transitGatewayVPCAttachment =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the modified attachment.
-mtgvarsTransitGatewayVPCAttachment :: Lens' ModifyTransitGatewayVPCAttachmentResponse (Maybe TransitGatewayVPCAttachment)
-mtgvarsTransitGatewayVPCAttachment = lens _mtgvarsTransitGatewayVPCAttachment (\s a -> s {_mtgvarsTransitGatewayVPCAttachment = a})
+--
+-- /Note:/ Consider using 'transitGatewayVPCAttachment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgvarsTransitGatewayVPCAttachment :: Lens.Lens' ModifyTransitGatewayVPCAttachmentResponse (Lude.Maybe TransitGatewayVPCAttachment)
+mtgvarsTransitGatewayVPCAttachment = Lens.lens (transitGatewayVPCAttachment :: ModifyTransitGatewayVPCAttachmentResponse -> Lude.Maybe TransitGatewayVPCAttachment) (\s a -> s {transitGatewayVPCAttachment = a} :: ModifyTransitGatewayVPCAttachmentResponse)
+{-# DEPRECATED mtgvarsTransitGatewayVPCAttachment "Use generic-lens or generic-optics with 'transitGatewayVPCAttachment' instead." #-}
 
--- | -- | The response status code.
-mtgvarsResponseStatus :: Lens' ModifyTransitGatewayVPCAttachmentResponse Int
-mtgvarsResponseStatus = lens _mtgvarsResponseStatus (\s a -> s {_mtgvarsResponseStatus = a})
-
-instance NFData ModifyTransitGatewayVPCAttachmentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgvarsResponseStatus :: Lens.Lens' ModifyTransitGatewayVPCAttachmentResponse Lude.Int
+mtgvarsResponseStatus = Lens.lens (responseStatus :: ModifyTransitGatewayVPCAttachmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyTransitGatewayVPCAttachmentResponse)
+{-# DEPRECATED mtgvarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

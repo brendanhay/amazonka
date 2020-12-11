@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,81 +7,123 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.NotificationSpecification where
+module Network.AWS.MechanicalTurk.Types.NotificationSpecification
+  ( NotificationSpecification (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkNotificationSpecification,
+
+    -- * Lenses
+    nsDestination,
+    nsTransport,
+    nsVersion,
+    nsEventTypes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.EventType
 import Network.AWS.MechanicalTurk.Types.NotificationTransport
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The NotificationSpecification data structure describes a HIT event notification for a HIT type.
 --
---
---
--- /See:/ 'notificationSpecification' smart constructor.
+-- /See:/ 'mkNotificationSpecification' smart constructor.
 data NotificationSpecification = NotificationSpecification'
-  { _nsDestination ::
-      !Text,
-    _nsTransport :: !NotificationTransport,
-    _nsVersion :: !Text,
-    _nsEventTypes :: ![EventType]
+  { destination ::
+      Lude.Text,
+    transport :: NotificationTransport,
+    version :: Lude.Text,
+    eventTypes :: [EventType]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'destination' - The target for notification messages. The Destination’s format is determined by the specified Transport:
 --
--- * 'nsDestination' - The target for notification messages. The Destination’s format is determined by the specified Transport:      * When Transport is Email, the Destination is your email address.     * When Transport is SQS, the Destination is your queue URL.     * When Transport is SNS, the Destination is the ARN of your topic.
 --
--- * 'nsTransport' - The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS.
+--     * When Transport is Email, the Destination is your email address.
 --
--- * 'nsVersion' - The version of the Notification API to use. Valid value is 2006-05-05.
 --
--- * 'nsEventTypes' - The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
-notificationSpecification ::
-  -- | 'nsDestination'
-  Text ->
-  -- | 'nsTransport'
+--     * When Transport is SQS, the Destination is your queue URL.
+--
+--
+--     * When Transport is SNS, the Destination is the ARN of your topic.
+--
+--
+-- * 'eventTypes' - The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
+-- * 'transport' - The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS.
+-- * 'version' - The version of the Notification API to use. Valid value is 2006-05-05.
+mkNotificationSpecification ::
+  -- | 'destination'
+  Lude.Text ->
+  -- | 'transport'
   NotificationTransport ->
-  -- | 'nsVersion'
-  Text ->
+  -- | 'version'
+  Lude.Text ->
   NotificationSpecification
-notificationSpecification pDestination_ pTransport_ pVersion_ =
+mkNotificationSpecification pDestination_ pTransport_ pVersion_ =
   NotificationSpecification'
-    { _nsDestination = pDestination_,
-      _nsTransport = pTransport_,
-      _nsVersion = pVersion_,
-      _nsEventTypes = mempty
+    { destination = pDestination_,
+      transport = pTransport_,
+      version = pVersion_,
+      eventTypes = Lude.mempty
     }
 
--- | The target for notification messages. The Destination’s format is determined by the specified Transport:      * When Transport is Email, the Destination is your email address.     * When Transport is SQS, the Destination is your queue URL.     * When Transport is SNS, the Destination is the ARN of your topic.
-nsDestination :: Lens' NotificationSpecification Text
-nsDestination = lens _nsDestination (\s a -> s {_nsDestination = a})
+-- | The target for notification messages. The Destination’s format is determined by the specified Transport:
+--
+--
+--     * When Transport is Email, the Destination is your email address.
+--
+--
+--     * When Transport is SQS, the Destination is your queue URL.
+--
+--
+--     * When Transport is SNS, the Destination is the ARN of your topic.
+--
+--
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsDestination :: Lens.Lens' NotificationSpecification Lude.Text
+nsDestination = Lens.lens (destination :: NotificationSpecification -> Lude.Text) (\s a -> s {destination = a} :: NotificationSpecification)
+{-# DEPRECATED nsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS.
-nsTransport :: Lens' NotificationSpecification NotificationTransport
-nsTransport = lens _nsTransport (\s a -> s {_nsTransport = a})
+--
+-- /Note:/ Consider using 'transport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsTransport :: Lens.Lens' NotificationSpecification NotificationTransport
+nsTransport = Lens.lens (transport :: NotificationSpecification -> NotificationTransport) (\s a -> s {transport = a} :: NotificationSpecification)
+{-# DEPRECATED nsTransport "Use generic-lens or generic-optics with 'transport' instead." #-}
 
 -- | The version of the Notification API to use. Valid value is 2006-05-05.
-nsVersion :: Lens' NotificationSpecification Text
-nsVersion = lens _nsVersion (\s a -> s {_nsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsVersion :: Lens.Lens' NotificationSpecification Lude.Text
+nsVersion = Lens.lens (version :: NotificationSpecification -> Lude.Text) (\s a -> s {version = a} :: NotificationSpecification)
+{-# DEPRECATED nsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
-nsEventTypes :: Lens' NotificationSpecification [EventType]
-nsEventTypes = lens _nsEventTypes (\s a -> s {_nsEventTypes = a}) . _Coerce
+--
+-- /Note:/ Consider using 'eventTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsEventTypes :: Lens.Lens' NotificationSpecification [EventType]
+nsEventTypes = Lens.lens (eventTypes :: NotificationSpecification -> [EventType]) (\s a -> s {eventTypes = a} :: NotificationSpecification)
+{-# DEPRECATED nsEventTypes "Use generic-lens or generic-optics with 'eventTypes' instead." #-}
 
-instance Hashable NotificationSpecification
-
-instance NFData NotificationSpecification
-
-instance ToJSON NotificationSpecification where
+instance Lude.ToJSON NotificationSpecification where
   toJSON NotificationSpecification' {..} =
-    object
-      ( catMaybes
-          [ Just ("Destination" .= _nsDestination),
-            Just ("Transport" .= _nsTransport),
-            Just ("Version" .= _nsVersion),
-            Just ("EventTypes" .= _nsEventTypes)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Destination" Lude..= destination),
+            Lude.Just ("Transport" Lude..= transport),
+            Lude.Just ("Version" Lude..= version),
+            Lude.Just ("EventTypes" Lude..= eventTypes)
           ]
       )

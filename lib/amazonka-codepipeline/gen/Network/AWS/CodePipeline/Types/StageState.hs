@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.StageState where
+module Network.AWS.CodePipeline.Types.StageState
+  ( StageState (..),
+
+    -- * Smart constructor
+    mkStageState,
+
+    -- * Lenses
+    ssInboundExecution,
+    ssInboundTransitionState,
+    ssActionStates,
+    ssStageName,
+    ssLatestExecution,
+  )
+where
 
 import Network.AWS.CodePipeline.Types.ActionState
 import Network.AWS.CodePipeline.Types.StageExecution
 import Network.AWS.CodePipeline.Types.TransitionState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about the state of the stage.
 --
---
---
--- /See:/ 'stageState' smart constructor.
+-- /See:/ 'mkStageState' smart constructor.
 data StageState = StageState'
-  { _ssInboundExecution ::
-      !(Maybe StageExecution),
-    _ssInboundTransitionState :: !(Maybe TransitionState),
-    _ssActionStates :: !(Maybe [ActionState]),
-    _ssStageName :: !(Maybe Text),
-    _ssLatestExecution :: !(Maybe StageExecution)
+  { inboundExecution ::
+      Lude.Maybe StageExecution,
+    inboundTransitionState :: Lude.Maybe TransitionState,
+    actionStates :: Lude.Maybe [ActionState],
+    stageName :: Lude.Maybe Lude.Text,
+    latestExecution :: Lude.Maybe StageExecution
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StageState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssInboundExecution' - Undocumented member.
---
--- * 'ssInboundTransitionState' - The state of the inbound transition, which is either enabled or disabled.
---
--- * 'ssActionStates' - The state of the stage.
---
--- * 'ssStageName' - The name of the stage.
---
--- * 'ssLatestExecution' - Information about the latest execution in the stage, including its ID and status.
-stageState ::
+-- * 'actionStates' - The state of the stage.
+-- * 'inboundExecution' - Undocumented field.
+-- * 'inboundTransitionState' - The state of the inbound transition, which is either enabled or disabled.
+-- * 'latestExecution' - Information about the latest execution in the stage, including its ID and status.
+-- * 'stageName' - The name of the stage.
+mkStageState ::
   StageState
-stageState =
+mkStageState =
   StageState'
-    { _ssInboundExecution = Nothing,
-      _ssInboundTransitionState = Nothing,
-      _ssActionStates = Nothing,
-      _ssStageName = Nothing,
-      _ssLatestExecution = Nothing
+    { inboundExecution = Lude.Nothing,
+      inboundTransitionState = Lude.Nothing,
+      actionStates = Lude.Nothing,
+      stageName = Lude.Nothing,
+      latestExecution = Lude.Nothing
     }
 
--- | Undocumented member.
-ssInboundExecution :: Lens' StageState (Maybe StageExecution)
-ssInboundExecution = lens _ssInboundExecution (\s a -> s {_ssInboundExecution = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'inboundExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssInboundExecution :: Lens.Lens' StageState (Lude.Maybe StageExecution)
+ssInboundExecution = Lens.lens (inboundExecution :: StageState -> Lude.Maybe StageExecution) (\s a -> s {inboundExecution = a} :: StageState)
+{-# DEPRECATED ssInboundExecution "Use generic-lens or generic-optics with 'inboundExecution' instead." #-}
 
 -- | The state of the inbound transition, which is either enabled or disabled.
-ssInboundTransitionState :: Lens' StageState (Maybe TransitionState)
-ssInboundTransitionState = lens _ssInboundTransitionState (\s a -> s {_ssInboundTransitionState = a})
+--
+-- /Note:/ Consider using 'inboundTransitionState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssInboundTransitionState :: Lens.Lens' StageState (Lude.Maybe TransitionState)
+ssInboundTransitionState = Lens.lens (inboundTransitionState :: StageState -> Lude.Maybe TransitionState) (\s a -> s {inboundTransitionState = a} :: StageState)
+{-# DEPRECATED ssInboundTransitionState "Use generic-lens or generic-optics with 'inboundTransitionState' instead." #-}
 
 -- | The state of the stage.
-ssActionStates :: Lens' StageState [ActionState]
-ssActionStates = lens _ssActionStates (\s a -> s {_ssActionStates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'actionStates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssActionStates :: Lens.Lens' StageState (Lude.Maybe [ActionState])
+ssActionStates = Lens.lens (actionStates :: StageState -> Lude.Maybe [ActionState]) (\s a -> s {actionStates = a} :: StageState)
+{-# DEPRECATED ssActionStates "Use generic-lens or generic-optics with 'actionStates' instead." #-}
 
 -- | The name of the stage.
-ssStageName :: Lens' StageState (Maybe Text)
-ssStageName = lens _ssStageName (\s a -> s {_ssStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStageName :: Lens.Lens' StageState (Lude.Maybe Lude.Text)
+ssStageName = Lens.lens (stageName :: StageState -> Lude.Maybe Lude.Text) (\s a -> s {stageName = a} :: StageState)
+{-# DEPRECATED ssStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | Information about the latest execution in the stage, including its ID and status.
-ssLatestExecution :: Lens' StageState (Maybe StageExecution)
-ssLatestExecution = lens _ssLatestExecution (\s a -> s {_ssLatestExecution = a})
+--
+-- /Note:/ Consider using 'latestExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssLatestExecution :: Lens.Lens' StageState (Lude.Maybe StageExecution)
+ssLatestExecution = Lens.lens (latestExecution :: StageState -> Lude.Maybe StageExecution) (\s a -> s {latestExecution = a} :: StageState)
+{-# DEPRECATED ssLatestExecution "Use generic-lens or generic-optics with 'latestExecution' instead." #-}
 
-instance FromJSON StageState where
+instance Lude.FromJSON StageState where
   parseJSON =
-    withObject
+    Lude.withObject
       "StageState"
       ( \x ->
           StageState'
-            <$> (x .:? "inboundExecution")
-            <*> (x .:? "inboundTransitionState")
-            <*> (x .:? "actionStates" .!= mempty)
-            <*> (x .:? "stageName")
-            <*> (x .:? "latestExecution")
+            Lude.<$> (x Lude..:? "inboundExecution")
+            Lude.<*> (x Lude..:? "inboundTransitionState")
+            Lude.<*> (x Lude..:? "actionStates" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "stageName")
+            Lude.<*> (x Lude..:? "latestExecution")
       )
-
-instance Hashable StageState
-
-instance NFData StageState

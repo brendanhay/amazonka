@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,128 @@
 --
 -- Deprecates a thing type. You can not associate new things with deprecated thing type.
 module Network.AWS.IoT.DeprecateThingType
-  ( -- * Creating a Request
-    deprecateThingType,
-    DeprecateThingType,
+  ( -- * Creating a request
+    DeprecateThingType (..),
+    mkDeprecateThingType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     depUndoDeprecate,
     depThingTypeName,
 
-    -- * Destructuring the Response
-    deprecateThingTypeResponse,
-    DeprecateThingTypeResponse,
+    -- * Destructuring the response
+    DeprecateThingTypeResponse (..),
+    mkDeprecateThingTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     deprsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the DeprecateThingType operation.
 --
---
---
--- /See:/ 'deprecateThingType' smart constructor.
+-- /See:/ 'mkDeprecateThingType' smart constructor.
 data DeprecateThingType = DeprecateThingType'
-  { _depUndoDeprecate ::
-      !(Maybe Bool),
-    _depThingTypeName :: !Text
+  { undoDeprecate ::
+      Lude.Maybe Lude.Bool,
+    thingTypeName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeprecateThingType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'depUndoDeprecate' - Whether to undeprecate a deprecated thing type. If __true__ , the thing type will not be deprecated anymore and you can associate it with things.
---
--- * 'depThingTypeName' - The name of the thing type to deprecate.
-deprecateThingType ::
-  -- | 'depThingTypeName'
-  Text ->
+-- * 'thingTypeName' - The name of the thing type to deprecate.
+-- * 'undoDeprecate' - Whether to undeprecate a deprecated thing type. If __true__ , the thing type will not be deprecated anymore and you can associate it with things.
+mkDeprecateThingType ::
+  -- | 'thingTypeName'
+  Lude.Text ->
   DeprecateThingType
-deprecateThingType pThingTypeName_ =
+mkDeprecateThingType pThingTypeName_ =
   DeprecateThingType'
-    { _depUndoDeprecate = Nothing,
-      _depThingTypeName = pThingTypeName_
+    { undoDeprecate = Lude.Nothing,
+      thingTypeName = pThingTypeName_
     }
 
 -- | Whether to undeprecate a deprecated thing type. If __true__ , the thing type will not be deprecated anymore and you can associate it with things.
-depUndoDeprecate :: Lens' DeprecateThingType (Maybe Bool)
-depUndoDeprecate = lens _depUndoDeprecate (\s a -> s {_depUndoDeprecate = a})
+--
+-- /Note:/ Consider using 'undoDeprecate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depUndoDeprecate :: Lens.Lens' DeprecateThingType (Lude.Maybe Lude.Bool)
+depUndoDeprecate = Lens.lens (undoDeprecate :: DeprecateThingType -> Lude.Maybe Lude.Bool) (\s a -> s {undoDeprecate = a} :: DeprecateThingType)
+{-# DEPRECATED depUndoDeprecate "Use generic-lens or generic-optics with 'undoDeprecate' instead." #-}
 
 -- | The name of the thing type to deprecate.
-depThingTypeName :: Lens' DeprecateThingType Text
-depThingTypeName = lens _depThingTypeName (\s a -> s {_depThingTypeName = a})
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depThingTypeName :: Lens.Lens' DeprecateThingType Lude.Text
+depThingTypeName = Lens.lens (thingTypeName :: DeprecateThingType -> Lude.Text) (\s a -> s {thingTypeName = a} :: DeprecateThingType)
+{-# DEPRECATED depThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
-instance AWSRequest DeprecateThingType where
+instance Lude.AWSRequest DeprecateThingType where
   type Rs DeprecateThingType = DeprecateThingTypeResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeprecateThingTypeResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeprecateThingTypeResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeprecateThingType
+instance Lude.ToHeaders DeprecateThingType where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeprecateThingType
-
-instance ToHeaders DeprecateThingType where
-  toHeaders = const mempty
-
-instance ToJSON DeprecateThingType where
+instance Lude.ToJSON DeprecateThingType where
   toJSON DeprecateThingType' {..} =
-    object (catMaybes [("undoDeprecate" .=) <$> _depUndoDeprecate])
+    Lude.object
+      (Lude.catMaybes [("undoDeprecate" Lude..=) Lude.<$> undoDeprecate])
 
-instance ToPath DeprecateThingType where
+instance Lude.ToPath DeprecateThingType where
   toPath DeprecateThingType' {..} =
-    mconcat ["/thing-types/", toBS _depThingTypeName, "/deprecate"]
+    Lude.mconcat
+      ["/thing-types/", Lude.toBS thingTypeName, "/deprecate"]
 
-instance ToQuery DeprecateThingType where
-  toQuery = const mempty
+instance Lude.ToQuery DeprecateThingType where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output for the DeprecateThingType operation.
 --
---
---
--- /See:/ 'deprecateThingTypeResponse' smart constructor.
+-- /See:/ 'mkDeprecateThingTypeResponse' smart constructor.
 newtype DeprecateThingTypeResponse = DeprecateThingTypeResponse'
-  { _deprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeprecateThingTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deprsResponseStatus' - -- | The response status code.
-deprecateThingTypeResponse ::
-  -- | 'deprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeprecateThingTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeprecateThingTypeResponse
-deprecateThingTypeResponse pResponseStatus_ =
-  DeprecateThingTypeResponse'
-    { _deprsResponseStatus =
-        pResponseStatus_
-    }
+mkDeprecateThingTypeResponse pResponseStatus_ =
+  DeprecateThingTypeResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-deprsResponseStatus :: Lens' DeprecateThingTypeResponse Int
-deprsResponseStatus = lens _deprsResponseStatus (\s a -> s {_deprsResponseStatus = a})
-
-instance NFData DeprecateThingTypeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deprsResponseStatus :: Lens.Lens' DeprecateThingTypeResponse Lude.Int
+deprsResponseStatus = Lens.lens (responseStatus :: DeprecateThingTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeprecateThingTypeResponse)
+{-# DEPRECATED deprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

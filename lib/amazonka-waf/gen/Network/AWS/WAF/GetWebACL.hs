@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,153 @@
 --
 -- Returns the 'WebACL' that is specified by @WebACLId@ .
 module Network.AWS.WAF.GetWebACL
-  ( -- * Creating a Request
-    getWebACL,
-    GetWebACL,
+  ( -- * Creating a request
+    GetWebACL (..),
+    mkGetWebACL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gwaWebACLId,
 
-    -- * Destructuring the Response
-    getWebACLResponse,
-    GetWebACLResponse,
+    -- * Destructuring the response
+    GetWebACLResponse (..),
+    mkGetWebACLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gwarsWebACL,
     gwarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
--- | /See:/ 'getWebACL' smart constructor.
-newtype GetWebACL = GetWebACL' {_gwaWebACLId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetWebACL' smart constructor.
+newtype GetWebACL = GetWebACL' {webACLId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWebACL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gwaWebACLId' - The @WebACLId@ of the 'WebACL' that you want to get. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
-getWebACL ::
-  -- | 'gwaWebACLId'
-  Text ->
+-- * 'webACLId' - The @WebACLId@ of the 'WebACL' that you want to get. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
+mkGetWebACL ::
+  -- | 'webACLId'
+  Lude.Text ->
   GetWebACL
-getWebACL pWebACLId_ = GetWebACL' {_gwaWebACLId = pWebACLId_}
+mkGetWebACL pWebACLId_ = GetWebACL' {webACLId = pWebACLId_}
 
 -- | The @WebACLId@ of the 'WebACL' that you want to get. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
-gwaWebACLId :: Lens' GetWebACL Text
-gwaWebACLId = lens _gwaWebACLId (\s a -> s {_gwaWebACLId = a})
+--
+-- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwaWebACLId :: Lens.Lens' GetWebACL Lude.Text
+gwaWebACLId = Lens.lens (webACLId :: GetWebACL -> Lude.Text) (\s a -> s {webACLId = a} :: GetWebACL)
+{-# DEPRECATED gwaWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
-instance AWSRequest GetWebACL where
+instance Lude.AWSRequest GetWebACL where
   type Rs GetWebACL = GetWebACLResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetWebACLResponse' <$> (x .?> "WebACL") <*> (pure (fromEnum s))
+          GetWebACLResponse'
+            Lude.<$> (x Lude..?> "WebACL") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetWebACL
-
-instance NFData GetWebACL
-
-instance ToHeaders GetWebACL where
+instance Lude.ToHeaders GetWebACL where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSWAF_20150824.GetWebACL" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSWAF_20150824.GetWebACL" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetWebACL where
+instance Lude.ToJSON GetWebACL where
   toJSON GetWebACL' {..} =
-    object (catMaybes [Just ("WebACLId" .= _gwaWebACLId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("WebACLId" Lude..= webACLId)])
 
-instance ToPath GetWebACL where
-  toPath = const "/"
+instance Lude.ToPath GetWebACL where
+  toPath = Lude.const "/"
 
-instance ToQuery GetWebACL where
-  toQuery = const mempty
+instance Lude.ToQuery GetWebACL where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getWebACLResponse' smart constructor.
+-- | /See:/ 'mkGetWebACLResponse' smart constructor.
 data GetWebACLResponse = GetWebACLResponse'
-  { _gwarsWebACL ::
-      !(Maybe WebACL),
-    _gwarsResponseStatus :: !Int
+  { webACL ::
+      Lude.Maybe WebACL,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWebACLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseStatus' - The response status code.
+-- * 'webACL' - Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:
 --
--- * 'gwarsWebACL' - Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@      * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@      * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@      * @Action@ : Contains @Type@
 --
--- * 'gwarsResponseStatus' - -- | The response status code.
-getWebACLResponse ::
-  -- | 'gwarsResponseStatus'
-  Int ->
+--     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@
+--
+--
+--     * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@
+--
+--
+--     * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@
+--
+--
+--     * @Action@ : Contains @Type@
+mkGetWebACLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetWebACLResponse
-getWebACLResponse pResponseStatus_ =
+mkGetWebACLResponse pResponseStatus_ =
   GetWebACLResponse'
-    { _gwarsWebACL = Nothing,
-      _gwarsResponseStatus = pResponseStatus_
+    { webACL = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@      * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@      * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@      * @Action@ : Contains @Type@
-gwarsWebACL :: Lens' GetWebACLResponse (Maybe WebACL)
-gwarsWebACL = lens _gwarsWebACL (\s a -> s {_gwarsWebACL = a})
+-- | Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:
+--
+--
+--     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@
+--
+--
+--     * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@
+--
+--
+--     * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@
+--
+--
+--     * @Action@ : Contains @Type@
+--
+--
+--
+-- /Note:/ Consider using 'webACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwarsWebACL :: Lens.Lens' GetWebACLResponse (Lude.Maybe WebACL)
+gwarsWebACL = Lens.lens (webACL :: GetWebACLResponse -> Lude.Maybe WebACL) (\s a -> s {webACL = a} :: GetWebACLResponse)
+{-# DEPRECATED gwarsWebACL "Use generic-lens or generic-optics with 'webACL' instead." #-}
 
--- | -- | The response status code.
-gwarsResponseStatus :: Lens' GetWebACLResponse Int
-gwarsResponseStatus = lens _gwarsResponseStatus (\s a -> s {_gwarsResponseStatus = a})
-
-instance NFData GetWebACLResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwarsResponseStatus :: Lens.Lens' GetWebACLResponse Lude.Int
+gwarsResponseStatus = Lens.lens (responseStatus :: GetWebACLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetWebACLResponse)
+{-# DEPRECATED gwarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

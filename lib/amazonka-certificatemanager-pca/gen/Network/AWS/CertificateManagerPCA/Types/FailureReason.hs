@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.FailureReason where
+module Network.AWS.CertificateManagerPCA.Types.FailureReason
+  ( FailureReason
+      ( FailureReason',
+        Other,
+        RequestTimedOut,
+        UnsupportedAlgorithm
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FailureReason
-  = Other
-  | RequestTimedOut
-  | UnsupportedAlgorithm
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FailureReason = FailureReason' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FailureReason where
-  parser =
-    takeLowerText >>= \case
-      "other" -> pure Other
-      "request_timed_out" -> pure RequestTimedOut
-      "unsupported_algorithm" -> pure UnsupportedAlgorithm
-      e ->
-        fromTextError $
-          "Failure parsing FailureReason from value: '" <> e
-            <> "'. Accepted values: other, request_timed_out, unsupported_algorithm"
+pattern Other :: FailureReason
+pattern Other = FailureReason' "OTHER"
 
-instance ToText FailureReason where
-  toText = \case
-    Other -> "OTHER"
-    RequestTimedOut -> "REQUEST_TIMED_OUT"
-    UnsupportedAlgorithm -> "UNSUPPORTED_ALGORITHM"
+pattern RequestTimedOut :: FailureReason
+pattern RequestTimedOut = FailureReason' "REQUEST_TIMED_OUT"
 
-instance Hashable FailureReason
+pattern UnsupportedAlgorithm :: FailureReason
+pattern UnsupportedAlgorithm = FailureReason' "UNSUPPORTED_ALGORITHM"
 
-instance NFData FailureReason
-
-instance ToByteString FailureReason
-
-instance ToQuery FailureReason
-
-instance ToHeader FailureReason
-
-instance FromJSON FailureReason where
-  parseJSON = parseJSONText "FailureReason"
+{-# COMPLETE
+  Other,
+  RequestTimedOut,
+  UnsupportedAlgorithm,
+  FailureReason'
+  #-}

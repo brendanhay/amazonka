@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ReportWithRawData where
+module Network.AWS.CodeBuild.Types.ReportWithRawData
+  ( ReportWithRawData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReportWithRawData,
 
--- | /See:/ 'reportWithRawData' smart constructor.
+    -- * Lenses
+    rwrdData,
+    rwrdReportARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+
+-- | /See:/ 'mkReportWithRawData' smart constructor.
 data ReportWithRawData = ReportWithRawData'
-  { _rwrdData ::
-      !(Maybe Text),
-    _rwrdReportARN :: !(Maybe Text)
+  { data' ::
+      Lude.Maybe Lude.Text,
+    reportARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReportWithRawData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rwrdData' - Undocumented member.
---
--- * 'rwrdReportARN' - Undocumented member.
-reportWithRawData ::
+-- * 'data'' - Undocumented field.
+-- * 'reportARN' - Undocumented field.
+mkReportWithRawData ::
   ReportWithRawData
-reportWithRawData =
-  ReportWithRawData' {_rwrdData = Nothing, _rwrdReportARN = Nothing}
+mkReportWithRawData =
+  ReportWithRawData'
+    { data' = Lude.Nothing,
+      reportARN = Lude.Nothing
+    }
 
--- | Undocumented member.
-rwrdData :: Lens' ReportWithRawData (Maybe Text)
-rwrdData = lens _rwrdData (\s a -> s {_rwrdData = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrdData :: Lens.Lens' ReportWithRawData (Lude.Maybe Lude.Text)
+rwrdData = Lens.lens (data' :: ReportWithRawData -> Lude.Maybe Lude.Text) (\s a -> s {data' = a} :: ReportWithRawData)
+{-# DEPRECATED rwrdData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
--- | Undocumented member.
-rwrdReportARN :: Lens' ReportWithRawData (Maybe Text)
-rwrdReportARN = lens _rwrdReportARN (\s a -> s {_rwrdReportARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'reportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrdReportARN :: Lens.Lens' ReportWithRawData (Lude.Maybe Lude.Text)
+rwrdReportARN = Lens.lens (reportARN :: ReportWithRawData -> Lude.Maybe Lude.Text) (\s a -> s {reportARN = a} :: ReportWithRawData)
+{-# DEPRECATED rwrdReportARN "Use generic-lens or generic-optics with 'reportARN' instead." #-}
 
-instance FromJSON ReportWithRawData where
+instance Lude.FromJSON ReportWithRawData where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReportWithRawData"
       ( \x ->
-          ReportWithRawData' <$> (x .:? "data") <*> (x .:? "reportArn")
+          ReportWithRawData'
+            Lude.<$> (x Lude..:? "data") Lude.<*> (x Lude..:? "reportArn")
       )
-
-instance Hashable ReportWithRawData
-
-instance NFData ReportWithRawData

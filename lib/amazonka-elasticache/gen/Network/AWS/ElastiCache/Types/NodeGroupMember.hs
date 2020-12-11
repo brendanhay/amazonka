@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.NodeGroupMember where
+module Network.AWS.ElastiCache.Types.NodeGroupMember
+  ( NodeGroupMember (..),
+
+    -- * Smart constructor
+    mkNodeGroupMember,
+
+    -- * Lenses
+    ngmCacheClusterId,
+    ngmCacheNodeId,
+    ngmPreferredAvailabilityZone,
+    ngmCurrentRole,
+    ngmPreferredOutpostARN,
+    ngmReadEndpoint,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.Endpoint
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a single node within a node group (shard).
 --
---
---
--- /See:/ 'nodeGroupMember' smart constructor.
+-- /See:/ 'mkNodeGroupMember' smart constructor.
 data NodeGroupMember = NodeGroupMember'
-  { _ngmCacheClusterId ::
-      !(Maybe Text),
-    _ngmCacheNodeId :: !(Maybe Text),
-    _ngmPreferredAvailabilityZone :: !(Maybe Text),
-    _ngmCurrentRole :: !(Maybe Text),
-    _ngmPreferredOutpostARN :: !(Maybe Text),
-    _ngmReadEndpoint :: !(Maybe Endpoint)
+  { cacheClusterId ::
+      Lude.Maybe Lude.Text,
+    cacheNodeId :: Lude.Maybe Lude.Text,
+    preferredAvailabilityZone :: Lude.Maybe Lude.Text,
+    currentRole :: Lude.Maybe Lude.Text,
+    preferredOutpostARN :: Lude.Maybe Lude.Text,
+    readEndpoint :: Lude.Maybe Endpoint
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeGroupMember' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ngmCacheClusterId' - The ID of the cluster to which the node belongs.
---
--- * 'ngmCacheNodeId' - The ID of the node within its cluster. A node ID is a numeric identifier (0001, 0002, etc.).
---
--- * 'ngmPreferredAvailabilityZone' - The name of the Availability Zone in which the node is located.
---
--- * 'ngmCurrentRole' - The role that is currently assigned to the node - @primary@ or @replica@ . This member is only applicable for Redis (cluster mode disabled) replication groups.
---
--- * 'ngmPreferredOutpostARN' - The outpost ARN of the node group member.
---
--- * 'ngmReadEndpoint' - The information required for client programs to connect to a node for read operations. The read endpoint is only applicable on Redis (cluster mode disabled) clusters.
-nodeGroupMember ::
+-- * 'cacheClusterId' - The ID of the cluster to which the node belongs.
+-- * 'cacheNodeId' - The ID of the node within its cluster. A node ID is a numeric identifier (0001, 0002, etc.).
+-- * 'currentRole' - The role that is currently assigned to the node - @primary@ or @replica@ . This member is only applicable for Redis (cluster mode disabled) replication groups.
+-- * 'preferredAvailabilityZone' - The name of the Availability Zone in which the node is located.
+-- * 'preferredOutpostARN' - The outpost ARN of the node group member.
+-- * 'readEndpoint' - The information required for client programs to connect to a node for read operations. The read endpoint is only applicable on Redis (cluster mode disabled) clusters.
+mkNodeGroupMember ::
   NodeGroupMember
-nodeGroupMember =
+mkNodeGroupMember =
   NodeGroupMember'
-    { _ngmCacheClusterId = Nothing,
-      _ngmCacheNodeId = Nothing,
-      _ngmPreferredAvailabilityZone = Nothing,
-      _ngmCurrentRole = Nothing,
-      _ngmPreferredOutpostARN = Nothing,
-      _ngmReadEndpoint = Nothing
+    { cacheClusterId = Lude.Nothing,
+      cacheNodeId = Lude.Nothing,
+      preferredAvailabilityZone = Lude.Nothing,
+      currentRole = Lude.Nothing,
+      preferredOutpostARN = Lude.Nothing,
+      readEndpoint = Lude.Nothing
     }
 
 -- | The ID of the cluster to which the node belongs.
-ngmCacheClusterId :: Lens' NodeGroupMember (Maybe Text)
-ngmCacheClusterId = lens _ngmCacheClusterId (\s a -> s {_ngmCacheClusterId = a})
+--
+-- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmCacheClusterId :: Lens.Lens' NodeGroupMember (Lude.Maybe Lude.Text)
+ngmCacheClusterId = Lens.lens (cacheClusterId :: NodeGroupMember -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: NodeGroupMember)
+{-# DEPRECATED ngmCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
 -- | The ID of the node within its cluster. A node ID is a numeric identifier (0001, 0002, etc.).
-ngmCacheNodeId :: Lens' NodeGroupMember (Maybe Text)
-ngmCacheNodeId = lens _ngmCacheNodeId (\s a -> s {_ngmCacheNodeId = a})
+--
+-- /Note:/ Consider using 'cacheNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmCacheNodeId :: Lens.Lens' NodeGroupMember (Lude.Maybe Lude.Text)
+ngmCacheNodeId = Lens.lens (cacheNodeId :: NodeGroupMember -> Lude.Maybe Lude.Text) (\s a -> s {cacheNodeId = a} :: NodeGroupMember)
+{-# DEPRECATED ngmCacheNodeId "Use generic-lens or generic-optics with 'cacheNodeId' instead." #-}
 
 -- | The name of the Availability Zone in which the node is located.
-ngmPreferredAvailabilityZone :: Lens' NodeGroupMember (Maybe Text)
-ngmPreferredAvailabilityZone = lens _ngmPreferredAvailabilityZone (\s a -> s {_ngmPreferredAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'preferredAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmPreferredAvailabilityZone :: Lens.Lens' NodeGroupMember (Lude.Maybe Lude.Text)
+ngmPreferredAvailabilityZone = Lens.lens (preferredAvailabilityZone :: NodeGroupMember -> Lude.Maybe Lude.Text) (\s a -> s {preferredAvailabilityZone = a} :: NodeGroupMember)
+{-# DEPRECATED ngmPreferredAvailabilityZone "Use generic-lens or generic-optics with 'preferredAvailabilityZone' instead." #-}
 
 -- | The role that is currently assigned to the node - @primary@ or @replica@ . This member is only applicable for Redis (cluster mode disabled) replication groups.
-ngmCurrentRole :: Lens' NodeGroupMember (Maybe Text)
-ngmCurrentRole = lens _ngmCurrentRole (\s a -> s {_ngmCurrentRole = a})
+--
+-- /Note:/ Consider using 'currentRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmCurrentRole :: Lens.Lens' NodeGroupMember (Lude.Maybe Lude.Text)
+ngmCurrentRole = Lens.lens (currentRole :: NodeGroupMember -> Lude.Maybe Lude.Text) (\s a -> s {currentRole = a} :: NodeGroupMember)
+{-# DEPRECATED ngmCurrentRole "Use generic-lens or generic-optics with 'currentRole' instead." #-}
 
 -- | The outpost ARN of the node group member.
-ngmPreferredOutpostARN :: Lens' NodeGroupMember (Maybe Text)
-ngmPreferredOutpostARN = lens _ngmPreferredOutpostARN (\s a -> s {_ngmPreferredOutpostARN = a})
+--
+-- /Note:/ Consider using 'preferredOutpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmPreferredOutpostARN :: Lens.Lens' NodeGroupMember (Lude.Maybe Lude.Text)
+ngmPreferredOutpostARN = Lens.lens (preferredOutpostARN :: NodeGroupMember -> Lude.Maybe Lude.Text) (\s a -> s {preferredOutpostARN = a} :: NodeGroupMember)
+{-# DEPRECATED ngmPreferredOutpostARN "Use generic-lens or generic-optics with 'preferredOutpostARN' instead." #-}
 
 -- | The information required for client programs to connect to a node for read operations. The read endpoint is only applicable on Redis (cluster mode disabled) clusters.
-ngmReadEndpoint :: Lens' NodeGroupMember (Maybe Endpoint)
-ngmReadEndpoint = lens _ngmReadEndpoint (\s a -> s {_ngmReadEndpoint = a})
+--
+-- /Note:/ Consider using 'readEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmReadEndpoint :: Lens.Lens' NodeGroupMember (Lude.Maybe Endpoint)
+ngmReadEndpoint = Lens.lens (readEndpoint :: NodeGroupMember -> Lude.Maybe Endpoint) (\s a -> s {readEndpoint = a} :: NodeGroupMember)
+{-# DEPRECATED ngmReadEndpoint "Use generic-lens or generic-optics with 'readEndpoint' instead." #-}
 
-instance FromXML NodeGroupMember where
+instance Lude.FromXML NodeGroupMember where
   parseXML x =
     NodeGroupMember'
-      <$> (x .@? "CacheClusterId")
-      <*> (x .@? "CacheNodeId")
-      <*> (x .@? "PreferredAvailabilityZone")
-      <*> (x .@? "CurrentRole")
-      <*> (x .@? "PreferredOutpostArn")
-      <*> (x .@? "ReadEndpoint")
-
-instance Hashable NodeGroupMember
-
-instance NFData NodeGroupMember
+      Lude.<$> (x Lude..@? "CacheClusterId")
+      Lude.<*> (x Lude..@? "CacheNodeId")
+      Lude.<*> (x Lude..@? "PreferredAvailabilityZone")
+      Lude.<*> (x Lude..@? "CurrentRole")
+      Lude.<*> (x Lude..@? "PreferredOutpostArn")
+      Lude.<*> (x Lude..@? "ReadEndpoint")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,116 @@
 --
 -- Deletes an identity provider for a user pool.
 module Network.AWS.CognitoIdentityProvider.DeleteIdentityProvider
-  ( -- * Creating a Request
-    deleteIdentityProvider,
-    DeleteIdentityProvider,
+  ( -- * Creating a request
+    DeleteIdentityProvider (..),
+    mkDeleteIdentityProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delUserPoolId,
     delProviderName,
 
-    -- * Destructuring the Response
-    deleteIdentityProviderResponse,
-    DeleteIdentityProviderResponse,
+    -- * Destructuring the response
+    DeleteIdentityProviderResponse (..),
+    mkDeleteIdentityProviderResponse,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteIdentityProvider' smart constructor.
+-- | /See:/ 'mkDeleteIdentityProvider' smart constructor.
 data DeleteIdentityProvider = DeleteIdentityProvider'
-  { _delUserPoolId ::
-      !Text,
-    _delProviderName :: !Text
+  { userPoolId ::
+      Lude.Text,
+    providerName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentityProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delUserPoolId' - The user pool ID.
---
--- * 'delProviderName' - The identity provider name.
-deleteIdentityProvider ::
-  -- | 'delUserPoolId'
-  Text ->
-  -- | 'delProviderName'
-  Text ->
+-- * 'providerName' - The identity provider name.
+-- * 'userPoolId' - The user pool ID.
+mkDeleteIdentityProvider ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'providerName'
+  Lude.Text ->
   DeleteIdentityProvider
-deleteIdentityProvider pUserPoolId_ pProviderName_ =
+mkDeleteIdentityProvider pUserPoolId_ pProviderName_ =
   DeleteIdentityProvider'
-    { _delUserPoolId = pUserPoolId_,
-      _delProviderName = pProviderName_
+    { userPoolId = pUserPoolId_,
+      providerName = pProviderName_
     }
 
 -- | The user pool ID.
-delUserPoolId :: Lens' DeleteIdentityProvider Text
-delUserPoolId = lens _delUserPoolId (\s a -> s {_delUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delUserPoolId :: Lens.Lens' DeleteIdentityProvider Lude.Text
+delUserPoolId = Lens.lens (userPoolId :: DeleteIdentityProvider -> Lude.Text) (\s a -> s {userPoolId = a} :: DeleteIdentityProvider)
+{-# DEPRECATED delUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identity provider name.
-delProviderName :: Lens' DeleteIdentityProvider Text
-delProviderName = lens _delProviderName (\s a -> s {_delProviderName = a})
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delProviderName :: Lens.Lens' DeleteIdentityProvider Lude.Text
+delProviderName = Lens.lens (providerName :: DeleteIdentityProvider -> Lude.Text) (\s a -> s {providerName = a} :: DeleteIdentityProvider)
+{-# DEPRECATED delProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
-instance AWSRequest DeleteIdentityProvider where
+instance Lude.AWSRequest DeleteIdentityProvider where
   type Rs DeleteIdentityProvider = DeleteIdentityProviderResponse
-  request = postJSON cognitoIdentityProvider
-  response = receiveNull DeleteIdentityProviderResponse'
+  request = Req.postJSON cognitoIdentityProviderService
+  response = Res.receiveNull DeleteIdentityProviderResponse'
 
-instance Hashable DeleteIdentityProvider
-
-instance NFData DeleteIdentityProvider
-
-instance ToHeaders DeleteIdentityProvider where
+instance Lude.ToHeaders DeleteIdentityProvider where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.DeleteIdentityProvider" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.DeleteIdentityProvider" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteIdentityProvider where
+instance Lude.ToJSON DeleteIdentityProvider where
   toJSON DeleteIdentityProvider' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _delUserPoolId),
-            Just ("ProviderName" .= _delProviderName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("ProviderName" Lude..= providerName)
           ]
       )
 
-instance ToPath DeleteIdentityProvider where
-  toPath = const "/"
+instance Lude.ToPath DeleteIdentityProvider where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteIdentityProvider where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteIdentityProvider where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteIdentityProviderResponse' smart constructor.
+-- | /See:/ 'mkDeleteIdentityProviderResponse' smart constructor.
 data DeleteIdentityProviderResponse = DeleteIdentityProviderResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIdentityProviderResponse' with the minimum fields required to make a request.
-deleteIdentityProviderResponse ::
+mkDeleteIdentityProviderResponse ::
   DeleteIdentityProviderResponse
-deleteIdentityProviderResponse = DeleteIdentityProviderResponse'
-
-instance NFData DeleteIdentityProviderResponse
+mkDeleteIdentityProviderResponse = DeleteIdentityProviderResponse'

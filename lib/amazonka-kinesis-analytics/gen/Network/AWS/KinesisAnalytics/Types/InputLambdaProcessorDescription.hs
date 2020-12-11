@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription where
+module Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription
+  ( InputLambdaProcessorDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInputLambdaProcessorDescription,
+
+    -- * Lenses
+    ilpdResourceARN,
+    ilpdRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object that contains the Amazon Resource Name (ARN) of the <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess records in the stream, and the ARN of the IAM role that is used to access the AWS Lambda expression.
 --
---
---
--- /See:/ 'inputLambdaProcessorDescription' smart constructor.
+-- /See:/ 'mkInputLambdaProcessorDescription' smart constructor.
 data InputLambdaProcessorDescription = InputLambdaProcessorDescription'
-  { _ilpdResourceARN ::
-      !(Maybe Text),
-    _ilpdRoleARN ::
-      !(Maybe Text)
+  { resourceARN ::
+      Lude.Maybe Lude.Text,
+    roleARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputLambdaProcessorDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ilpdResourceARN' - The ARN of the <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
---
--- * 'ilpdRoleARN' - The ARN of the IAM role that is used to access the AWS Lambda function.
-inputLambdaProcessorDescription ::
+-- * 'resourceARN' - The ARN of the <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
+-- * 'roleARN' - The ARN of the IAM role that is used to access the AWS Lambda function.
+mkInputLambdaProcessorDescription ::
   InputLambdaProcessorDescription
-inputLambdaProcessorDescription =
+mkInputLambdaProcessorDescription =
   InputLambdaProcessorDescription'
-    { _ilpdResourceARN = Nothing,
-      _ilpdRoleARN = Nothing
+    { resourceARN = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | The ARN of the <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
-ilpdResourceARN :: Lens' InputLambdaProcessorDescription (Maybe Text)
-ilpdResourceARN = lens _ilpdResourceARN (\s a -> s {_ilpdResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilpdResourceARN :: Lens.Lens' InputLambdaProcessorDescription (Lude.Maybe Lude.Text)
+ilpdResourceARN = Lens.lens (resourceARN :: InputLambdaProcessorDescription -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: InputLambdaProcessorDescription)
+{-# DEPRECATED ilpdResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The ARN of the IAM role that is used to access the AWS Lambda function.
-ilpdRoleARN :: Lens' InputLambdaProcessorDescription (Maybe Text)
-ilpdRoleARN = lens _ilpdRoleARN (\s a -> s {_ilpdRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilpdRoleARN :: Lens.Lens' InputLambdaProcessorDescription (Lude.Maybe Lude.Text)
+ilpdRoleARN = Lens.lens (roleARN :: InputLambdaProcessorDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: InputLambdaProcessorDescription)
+{-# DEPRECATED ilpdRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON InputLambdaProcessorDescription where
+instance Lude.FromJSON InputLambdaProcessorDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputLambdaProcessorDescription"
       ( \x ->
           InputLambdaProcessorDescription'
-            <$> (x .:? "ResourceARN") <*> (x .:? "RoleARN")
+            Lude.<$> (x Lude..:? "ResourceARN") Lude.<*> (x Lude..:? "RoleARN")
       )
-
-instance Hashable InputLambdaProcessorDescription
-
-instance NFData InputLambdaProcessorDescription

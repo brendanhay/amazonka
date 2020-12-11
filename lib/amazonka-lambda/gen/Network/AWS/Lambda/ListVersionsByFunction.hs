@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns a list of <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html versions> , with the version-specific configuration of each. Lambda returns up to 50 versions per call.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListVersionsByFunction
-  ( -- * Creating a Request
-    listVersionsByFunction,
-    ListVersionsByFunction,
+  ( -- * Creating a request
+    ListVersionsByFunction (..),
+    mkListVersionsByFunction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lvbfMarker,
     lvbfMaxItems,
     lvbfFunctionName,
 
-    -- * Destructuring the Response
-    listVersionsByFunctionResponse,
-    ListVersionsByFunctionResponse,
+    -- * Destructuring the response
+    ListVersionsByFunctionResponse (..),
+    mkListVersionsByFunctionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lvbfrsVersions,
     lvbfrsNextMarker,
     lvbfrsResponseStatus,
@@ -44,129 +37,170 @@ module Network.AWS.Lambda.ListVersionsByFunction
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listVersionsByFunction' smart constructor.
+-- | /See:/ 'mkListVersionsByFunction' smart constructor.
 data ListVersionsByFunction = ListVersionsByFunction'
-  { _lvbfMarker ::
-      !(Maybe Text),
-    _lvbfMaxItems :: !(Maybe Nat),
-    _lvbfFunctionName :: !Text
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural,
+    functionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVersionsByFunction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'lvbfMarker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+-- __Name formats__
 --
--- * 'lvbfMaxItems' - The maximum number of versions to return.
+--     * __Function name__ - @MyFunction@ .
 --
--- * 'lvbfFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-listVersionsByFunction ::
-  -- | 'lvbfFunctionName'
-  Text ->
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+-- * 'maxItems' - The maximum number of versions to return.
+mkListVersionsByFunction ::
+  -- | 'functionName'
+  Lude.Text ->
   ListVersionsByFunction
-listVersionsByFunction pFunctionName_ =
+mkListVersionsByFunction pFunctionName_ =
   ListVersionsByFunction'
-    { _lvbfMarker = Nothing,
-      _lvbfMaxItems = Nothing,
-      _lvbfFunctionName = pFunctionName_
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      functionName = pFunctionName_
     }
 
 -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
-lvbfMarker :: Lens' ListVersionsByFunction (Maybe Text)
-lvbfMarker = lens _lvbfMarker (\s a -> s {_lvbfMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvbfMarker :: Lens.Lens' ListVersionsByFunction (Lude.Maybe Lude.Text)
+lvbfMarker = Lens.lens (marker :: ListVersionsByFunction -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListVersionsByFunction)
+{-# DEPRECATED lvbfMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of versions to return.
-lvbfMaxItems :: Lens' ListVersionsByFunction (Maybe Natural)
-lvbfMaxItems = lens _lvbfMaxItems (\s a -> s {_lvbfMaxItems = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvbfMaxItems :: Lens.Lens' ListVersionsByFunction (Lude.Maybe Lude.Natural)
+lvbfMaxItems = Lens.lens (maxItems :: ListVersionsByFunction -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListVersionsByFunction)
+{-# DEPRECATED lvbfMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-lvbfFunctionName :: Lens' ListVersionsByFunction Text
-lvbfFunctionName = lens _lvbfFunctionName (\s a -> s {_lvbfFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvbfFunctionName :: Lens.Lens' ListVersionsByFunction Lude.Text
+lvbfFunctionName = Lens.lens (functionName :: ListVersionsByFunction -> Lude.Text) (\s a -> s {functionName = a} :: ListVersionsByFunction)
+{-# DEPRECATED lvbfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSPager ListVersionsByFunction where
+instance Page.AWSPager ListVersionsByFunction where
   page rq rs
-    | stop (rs ^. lvbfrsNextMarker) = Nothing
-    | stop (rs ^. lvbfrsVersions) = Nothing
-    | otherwise = Just $ rq & lvbfMarker .~ rs ^. lvbfrsNextMarker
+    | Page.stop (rs Lens.^. lvbfrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lvbfrsVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lvbfMarker Lens..~ rs Lens.^. lvbfrsNextMarker
 
-instance AWSRequest ListVersionsByFunction where
+instance Lude.AWSRequest ListVersionsByFunction where
   type Rs ListVersionsByFunction = ListVersionsByFunctionResponse
-  request = get lambda
+  request = Req.get lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListVersionsByFunctionResponse'
-            <$> (x .?> "Versions" .!@ mempty)
-            <*> (x .?> "NextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Versions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListVersionsByFunction
+instance Lude.ToHeaders ListVersionsByFunction where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListVersionsByFunction
-
-instance ToHeaders ListVersionsByFunction where
-  toHeaders = const mempty
-
-instance ToPath ListVersionsByFunction where
+instance Lude.ToPath ListVersionsByFunction where
   toPath ListVersionsByFunction' {..} =
-    mconcat
-      ["/2015-03-31/functions/", toBS _lvbfFunctionName, "/versions"]
+    Lude.mconcat
+      ["/2015-03-31/functions/", Lude.toBS functionName, "/versions"]
 
-instance ToQuery ListVersionsByFunction where
+instance Lude.ToQuery ListVersionsByFunction where
   toQuery ListVersionsByFunction' {..} =
-    mconcat ["Marker" =: _lvbfMarker, "MaxItems" =: _lvbfMaxItems]
+    Lude.mconcat
+      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
--- | /See:/ 'listVersionsByFunctionResponse' smart constructor.
+-- | /See:/ 'mkListVersionsByFunctionResponse' smart constructor.
 data ListVersionsByFunctionResponse = ListVersionsByFunctionResponse'
-  { _lvbfrsVersions ::
-      !( Maybe
-           [FunctionConfiguration]
-       ),
-    _lvbfrsNextMarker ::
-      !(Maybe Text),
-    _lvbfrsResponseStatus :: !Int
+  { versions ::
+      Lude.Maybe
+        [FunctionConfiguration],
+    nextMarker ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVersionsByFunctionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvbfrsVersions' - A list of Lambda function versions.
---
--- * 'lvbfrsNextMarker' - The pagination token that's included if more results are available.
---
--- * 'lvbfrsResponseStatus' - -- | The response status code.
-listVersionsByFunctionResponse ::
-  -- | 'lvbfrsResponseStatus'
-  Int ->
+-- * 'nextMarker' - The pagination token that's included if more results are available.
+-- * 'responseStatus' - The response status code.
+-- * 'versions' - A list of Lambda function versions.
+mkListVersionsByFunctionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListVersionsByFunctionResponse
-listVersionsByFunctionResponse pResponseStatus_ =
+mkListVersionsByFunctionResponse pResponseStatus_ =
   ListVersionsByFunctionResponse'
-    { _lvbfrsVersions = Nothing,
-      _lvbfrsNextMarker = Nothing,
-      _lvbfrsResponseStatus = pResponseStatus_
+    { versions = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of Lambda function versions.
-lvbfrsVersions :: Lens' ListVersionsByFunctionResponse [FunctionConfiguration]
-lvbfrsVersions = lens _lvbfrsVersions (\s a -> s {_lvbfrsVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'versions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvbfrsVersions :: Lens.Lens' ListVersionsByFunctionResponse (Lude.Maybe [FunctionConfiguration])
+lvbfrsVersions = Lens.lens (versions :: ListVersionsByFunctionResponse -> Lude.Maybe [FunctionConfiguration]) (\s a -> s {versions = a} :: ListVersionsByFunctionResponse)
+{-# DEPRECATED lvbfrsVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
 
 -- | The pagination token that's included if more results are available.
-lvbfrsNextMarker :: Lens' ListVersionsByFunctionResponse (Maybe Text)
-lvbfrsNextMarker = lens _lvbfrsNextMarker (\s a -> s {_lvbfrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvbfrsNextMarker :: Lens.Lens' ListVersionsByFunctionResponse (Lude.Maybe Lude.Text)
+lvbfrsNextMarker = Lens.lens (nextMarker :: ListVersionsByFunctionResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListVersionsByFunctionResponse)
+{-# DEPRECATED lvbfrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lvbfrsResponseStatus :: Lens' ListVersionsByFunctionResponse Int
-lvbfrsResponseStatus = lens _lvbfrsResponseStatus (\s a -> s {_lvbfrsResponseStatus = a})
-
-instance NFData ListVersionsByFunctionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvbfrsResponseStatus :: Lens.Lens' ListVersionsByFunctionResponse Lude.Int
+lvbfrsResponseStatus = Lens.lens (responseStatus :: ListVersionsByFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVersionsByFunctionResponse)
+{-# DEPRECATED lvbfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

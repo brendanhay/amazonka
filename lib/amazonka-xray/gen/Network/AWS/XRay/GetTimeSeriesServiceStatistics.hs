@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Get an aggregation of service statistics defined by a specific time range.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.XRay.GetTimeSeriesServiceStatistics
-  ( -- * Creating a Request
-    getTimeSeriesServiceStatistics,
-    GetTimeSeriesServiceStatistics,
+  ( -- * Creating a request
+    GetTimeSeriesServiceStatistics (..),
+    mkGetTimeSeriesServiceStatistics,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtsssEntitySelectorExpression,
     gtsssPeriod,
     gtsssForecastStatistics,
@@ -37,11 +30,11 @@ module Network.AWS.XRay.GetTimeSeriesServiceStatistics
     gtsssStartTime,
     gtsssEndTime,
 
-    -- * Destructuring the Response
-    getTimeSeriesServiceStatisticsResponse,
-    GetTimeSeriesServiceStatisticsResponse,
+    -- * Destructuring the response
+    GetTimeSeriesServiceStatisticsResponse (..),
+    mkGetTimeSeriesServiceStatisticsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtsssrsContainsOldGroupVersions,
     gtsssrsTimeSeriesServiceStatistics,
     gtsssrsNextToken,
@@ -49,204 +42,239 @@ module Network.AWS.XRay.GetTimeSeriesServiceStatistics
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'getTimeSeriesServiceStatistics' smart constructor.
+-- | /See:/ 'mkGetTimeSeriesServiceStatistics' smart constructor.
 data GetTimeSeriesServiceStatistics = GetTimeSeriesServiceStatistics'
-  { _gtsssEntitySelectorExpression ::
-      !(Maybe Text),
-    _gtsssPeriod :: !(Maybe Int),
-    _gtsssForecastStatistics ::
-      !(Maybe Bool),
-    _gtsssNextToken ::
-      !(Maybe Text),
-    _gtsssGroupARN ::
-      !(Maybe Text),
-    _gtsssGroupName ::
-      !(Maybe Text),
-    _gtsssStartTime :: !POSIX,
-    _gtsssEndTime :: !POSIX
+  { entitySelectorExpression ::
+      Lude.Maybe Lude.Text,
+    period :: Lude.Maybe Lude.Int,
+    forecastStatistics ::
+      Lude.Maybe Lude.Bool,
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    groupARN ::
+      Lude.Maybe Lude.Text,
+    groupName ::
+      Lude.Maybe Lude.Text,
+    startTime :: Lude.Timestamp,
+    endTime :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTimeSeriesServiceStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtsssEntitySelectorExpression' - A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned.
---
--- * 'gtsssPeriod' - Aggregation period in seconds.
---
--- * 'gtsssForecastStatistics' - The forecasted high and low fault count values. Forecast enabled requests require the EntitySelectorExpression ID be provided.
---
--- * 'gtsssNextToken' - Pagination token.
---
--- * 'gtsssGroupARN' - The Amazon Resource Name (ARN) of the group for which to pull statistics from.
---
--- * 'gtsssGroupName' - The case-sensitive name of the group for which to pull statistics from.
---
--- * 'gtsssStartTime' - The start of the time frame for which to aggregate statistics.
---
--- * 'gtsssEndTime' - The end of the time frame for which to aggregate statistics.
-getTimeSeriesServiceStatistics ::
-  -- | 'gtsssStartTime'
-  UTCTime ->
-  -- | 'gtsssEndTime'
-  UTCTime ->
+-- * 'endTime' - The end of the time frame for which to aggregate statistics.
+-- * 'entitySelectorExpression' - A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned.
+-- * 'forecastStatistics' - The forecasted high and low fault count values. Forecast enabled requests require the EntitySelectorExpression ID be provided.
+-- * 'groupARN' - The Amazon Resource Name (ARN) of the group for which to pull statistics from.
+-- * 'groupName' - The case-sensitive name of the group for which to pull statistics from.
+-- * 'nextToken' - Pagination token.
+-- * 'period' - Aggregation period in seconds.
+-- * 'startTime' - The start of the time frame for which to aggregate statistics.
+mkGetTimeSeriesServiceStatistics ::
+  -- | 'startTime'
+  Lude.Timestamp ->
+  -- | 'endTime'
+  Lude.Timestamp ->
   GetTimeSeriesServiceStatistics
-getTimeSeriesServiceStatistics pStartTime_ pEndTime_ =
+mkGetTimeSeriesServiceStatistics pStartTime_ pEndTime_ =
   GetTimeSeriesServiceStatistics'
-    { _gtsssEntitySelectorExpression =
-        Nothing,
-      _gtsssPeriod = Nothing,
-      _gtsssForecastStatistics = Nothing,
-      _gtsssNextToken = Nothing,
-      _gtsssGroupARN = Nothing,
-      _gtsssGroupName = Nothing,
-      _gtsssStartTime = _Time # pStartTime_,
-      _gtsssEndTime = _Time # pEndTime_
+    { entitySelectorExpression =
+        Lude.Nothing,
+      period = Lude.Nothing,
+      forecastStatistics = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      groupARN = Lude.Nothing,
+      groupName = Lude.Nothing,
+      startTime = pStartTime_,
+      endTime = pEndTime_
     }
 
 -- | A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned.
-gtsssEntitySelectorExpression :: Lens' GetTimeSeriesServiceStatistics (Maybe Text)
-gtsssEntitySelectorExpression = lens _gtsssEntitySelectorExpression (\s a -> s {_gtsssEntitySelectorExpression = a})
+--
+-- /Note:/ Consider using 'entitySelectorExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssEntitySelectorExpression :: Lens.Lens' GetTimeSeriesServiceStatistics (Lude.Maybe Lude.Text)
+gtsssEntitySelectorExpression = Lens.lens (entitySelectorExpression :: GetTimeSeriesServiceStatistics -> Lude.Maybe Lude.Text) (\s a -> s {entitySelectorExpression = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssEntitySelectorExpression "Use generic-lens or generic-optics with 'entitySelectorExpression' instead." #-}
 
 -- | Aggregation period in seconds.
-gtsssPeriod :: Lens' GetTimeSeriesServiceStatistics (Maybe Int)
-gtsssPeriod = lens _gtsssPeriod (\s a -> s {_gtsssPeriod = a})
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssPeriod :: Lens.Lens' GetTimeSeriesServiceStatistics (Lude.Maybe Lude.Int)
+gtsssPeriod = Lens.lens (period :: GetTimeSeriesServiceStatistics -> Lude.Maybe Lude.Int) (\s a -> s {period = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The forecasted high and low fault count values. Forecast enabled requests require the EntitySelectorExpression ID be provided.
-gtsssForecastStatistics :: Lens' GetTimeSeriesServiceStatistics (Maybe Bool)
-gtsssForecastStatistics = lens _gtsssForecastStatistics (\s a -> s {_gtsssForecastStatistics = a})
+--
+-- /Note:/ Consider using 'forecastStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssForecastStatistics :: Lens.Lens' GetTimeSeriesServiceStatistics (Lude.Maybe Lude.Bool)
+gtsssForecastStatistics = Lens.lens (forecastStatistics :: GetTimeSeriesServiceStatistics -> Lude.Maybe Lude.Bool) (\s a -> s {forecastStatistics = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssForecastStatistics "Use generic-lens or generic-optics with 'forecastStatistics' instead." #-}
 
 -- | Pagination token.
-gtsssNextToken :: Lens' GetTimeSeriesServiceStatistics (Maybe Text)
-gtsssNextToken = lens _gtsssNextToken (\s a -> s {_gtsssNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssNextToken :: Lens.Lens' GetTimeSeriesServiceStatistics (Lude.Maybe Lude.Text)
+gtsssNextToken = Lens.lens (nextToken :: GetTimeSeriesServiceStatistics -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the group for which to pull statistics from.
-gtsssGroupARN :: Lens' GetTimeSeriesServiceStatistics (Maybe Text)
-gtsssGroupARN = lens _gtsssGroupARN (\s a -> s {_gtsssGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssGroupARN :: Lens.Lens' GetTimeSeriesServiceStatistics (Lude.Maybe Lude.Text)
+gtsssGroupARN = Lens.lens (groupARN :: GetTimeSeriesServiceStatistics -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The case-sensitive name of the group for which to pull statistics from.
-gtsssGroupName :: Lens' GetTimeSeriesServiceStatistics (Maybe Text)
-gtsssGroupName = lens _gtsssGroupName (\s a -> s {_gtsssGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssGroupName :: Lens.Lens' GetTimeSeriesServiceStatistics (Lude.Maybe Lude.Text)
+gtsssGroupName = Lens.lens (groupName :: GetTimeSeriesServiceStatistics -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The start of the time frame for which to aggregate statistics.
-gtsssStartTime :: Lens' GetTimeSeriesServiceStatistics UTCTime
-gtsssStartTime = lens _gtsssStartTime (\s a -> s {_gtsssStartTime = a}) . _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssStartTime :: Lens.Lens' GetTimeSeriesServiceStatistics Lude.Timestamp
+gtsssStartTime = Lens.lens (startTime :: GetTimeSeriesServiceStatistics -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end of the time frame for which to aggregate statistics.
-gtsssEndTime :: Lens' GetTimeSeriesServiceStatistics UTCTime
-gtsssEndTime = lens _gtsssEndTime (\s a -> s {_gtsssEndTime = a}) . _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssEndTime :: Lens.Lens' GetTimeSeriesServiceStatistics Lude.Timestamp
+gtsssEndTime = Lens.lens (endTime :: GetTimeSeriesServiceStatistics -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetTimeSeriesServiceStatistics)
+{-# DEPRECATED gtsssEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance AWSPager GetTimeSeriesServiceStatistics where
+instance Page.AWSPager GetTimeSeriesServiceStatistics where
   page rq rs
-    | stop (rs ^. gtsssrsNextToken) = Nothing
-    | stop (rs ^. gtsssrsTimeSeriesServiceStatistics) = Nothing
-    | otherwise = Just $ rq & gtsssNextToken .~ rs ^. gtsssrsNextToken
+    | Page.stop (rs Lens.^. gtsssrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gtsssrsTimeSeriesServiceStatistics) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gtsssNextToken Lens..~ rs Lens.^. gtsssrsNextToken
 
-instance AWSRequest GetTimeSeriesServiceStatistics where
+instance Lude.AWSRequest GetTimeSeriesServiceStatistics where
   type
     Rs GetTimeSeriesServiceStatistics =
       GetTimeSeriesServiceStatisticsResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetTimeSeriesServiceStatisticsResponse'
-            <$> (x .?> "ContainsOldGroupVersions")
-            <*> (x .?> "TimeSeriesServiceStatistics" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ContainsOldGroupVersions")
+            Lude.<*> (x Lude..?> "TimeSeriesServiceStatistics" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTimeSeriesServiceStatistics
+instance Lude.ToHeaders GetTimeSeriesServiceStatistics where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetTimeSeriesServiceStatistics
-
-instance ToHeaders GetTimeSeriesServiceStatistics where
-  toHeaders = const mempty
-
-instance ToJSON GetTimeSeriesServiceStatistics where
+instance Lude.ToJSON GetTimeSeriesServiceStatistics where
   toJSON GetTimeSeriesServiceStatistics' {..} =
-    object
-      ( catMaybes
-          [ ("EntitySelectorExpression" .=)
-              <$> _gtsssEntitySelectorExpression,
-            ("Period" .=) <$> _gtsssPeriod,
-            ("ForecastStatistics" .=) <$> _gtsssForecastStatistics,
-            ("NextToken" .=) <$> _gtsssNextToken,
-            ("GroupARN" .=) <$> _gtsssGroupARN,
-            ("GroupName" .=) <$> _gtsssGroupName,
-            Just ("StartTime" .= _gtsssStartTime),
-            Just ("EndTime" .= _gtsssEndTime)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EntitySelectorExpression" Lude..=)
+              Lude.<$> entitySelectorExpression,
+            ("Period" Lude..=) Lude.<$> period,
+            ("ForecastStatistics" Lude..=) Lude.<$> forecastStatistics,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("GroupARN" Lude..=) Lude.<$> groupARN,
+            ("GroupName" Lude..=) Lude.<$> groupName,
+            Lude.Just ("StartTime" Lude..= startTime),
+            Lude.Just ("EndTime" Lude..= endTime)
           ]
       )
 
-instance ToPath GetTimeSeriesServiceStatistics where
-  toPath = const "/TimeSeriesServiceStatistics"
+instance Lude.ToPath GetTimeSeriesServiceStatistics where
+  toPath = Lude.const "/TimeSeriesServiceStatistics"
 
-instance ToQuery GetTimeSeriesServiceStatistics where
-  toQuery = const mempty
+instance Lude.ToQuery GetTimeSeriesServiceStatistics where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getTimeSeriesServiceStatisticsResponse' smart constructor.
+-- | /See:/ 'mkGetTimeSeriesServiceStatisticsResponse' smart constructor.
 data GetTimeSeriesServiceStatisticsResponse = GetTimeSeriesServiceStatisticsResponse'
-  { _gtsssrsContainsOldGroupVersions ::
-      !(Maybe Bool),
-    _gtsssrsTimeSeriesServiceStatistics ::
-      !( Maybe
-           [TimeSeriesServiceStatistics]
-       ),
-    _gtsssrsNextToken ::
-      !(Maybe Text),
-    _gtsssrsResponseStatus ::
-      !Int
+  { containsOldGroupVersions ::
+      Lude.Maybe
+        Lude.Bool,
+    timeSeriesServiceStatistics ::
+      Lude.Maybe
+        [TimeSeriesServiceStatistics],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTimeSeriesServiceStatisticsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtsssrsContainsOldGroupVersions' - A flag indicating whether or not a group's filter expression has been consistent, or if a returned aggregation might show statistics from an older version of the group's filter expression.
---
--- * 'gtsssrsTimeSeriesServiceStatistics' - The collection of statistics.
---
--- * 'gtsssrsNextToken' - Pagination token.
---
--- * 'gtsssrsResponseStatus' - -- | The response status code.
-getTimeSeriesServiceStatisticsResponse ::
-  -- | 'gtsssrsResponseStatus'
-  Int ->
+-- * 'containsOldGroupVersions' - A flag indicating whether or not a group's filter expression has been consistent, or if a returned aggregation might show statistics from an older version of the group's filter expression.
+-- * 'nextToken' - Pagination token.
+-- * 'responseStatus' - The response status code.
+-- * 'timeSeriesServiceStatistics' - The collection of statistics.
+mkGetTimeSeriesServiceStatisticsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTimeSeriesServiceStatisticsResponse
-getTimeSeriesServiceStatisticsResponse pResponseStatus_ =
+mkGetTimeSeriesServiceStatisticsResponse pResponseStatus_ =
   GetTimeSeriesServiceStatisticsResponse'
-    { _gtsssrsContainsOldGroupVersions =
-        Nothing,
-      _gtsssrsTimeSeriesServiceStatistics = Nothing,
-      _gtsssrsNextToken = Nothing,
-      _gtsssrsResponseStatus = pResponseStatus_
+    { containsOldGroupVersions =
+        Lude.Nothing,
+      timeSeriesServiceStatistics = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A flag indicating whether or not a group's filter expression has been consistent, or if a returned aggregation might show statistics from an older version of the group's filter expression.
-gtsssrsContainsOldGroupVersions :: Lens' GetTimeSeriesServiceStatisticsResponse (Maybe Bool)
-gtsssrsContainsOldGroupVersions = lens _gtsssrsContainsOldGroupVersions (\s a -> s {_gtsssrsContainsOldGroupVersions = a})
+--
+-- /Note:/ Consider using 'containsOldGroupVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssrsContainsOldGroupVersions :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse (Lude.Maybe Lude.Bool)
+gtsssrsContainsOldGroupVersions = Lens.lens (containsOldGroupVersions :: GetTimeSeriesServiceStatisticsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {containsOldGroupVersions = a} :: GetTimeSeriesServiceStatisticsResponse)
+{-# DEPRECATED gtsssrsContainsOldGroupVersions "Use generic-lens or generic-optics with 'containsOldGroupVersions' instead." #-}
 
 -- | The collection of statistics.
-gtsssrsTimeSeriesServiceStatistics :: Lens' GetTimeSeriesServiceStatisticsResponse [TimeSeriesServiceStatistics]
-gtsssrsTimeSeriesServiceStatistics = lens _gtsssrsTimeSeriesServiceStatistics (\s a -> s {_gtsssrsTimeSeriesServiceStatistics = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'timeSeriesServiceStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssrsTimeSeriesServiceStatistics :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse (Lude.Maybe [TimeSeriesServiceStatistics])
+gtsssrsTimeSeriesServiceStatistics = Lens.lens (timeSeriesServiceStatistics :: GetTimeSeriesServiceStatisticsResponse -> Lude.Maybe [TimeSeriesServiceStatistics]) (\s a -> s {timeSeriesServiceStatistics = a} :: GetTimeSeriesServiceStatisticsResponse)
+{-# DEPRECATED gtsssrsTimeSeriesServiceStatistics "Use generic-lens or generic-optics with 'timeSeriesServiceStatistics' instead." #-}
 
 -- | Pagination token.
-gtsssrsNextToken :: Lens' GetTimeSeriesServiceStatisticsResponse (Maybe Text)
-gtsssrsNextToken = lens _gtsssrsNextToken (\s a -> s {_gtsssrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssrsNextToken :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse (Lude.Maybe Lude.Text)
+gtsssrsNextToken = Lens.lens (nextToken :: GetTimeSeriesServiceStatisticsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTimeSeriesServiceStatisticsResponse)
+{-# DEPRECATED gtsssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gtsssrsResponseStatus :: Lens' GetTimeSeriesServiceStatisticsResponse Int
-gtsssrsResponseStatus = lens _gtsssrsResponseStatus (\s a -> s {_gtsssrsResponseStatus = a})
-
-instance NFData GetTimeSeriesServiceStatisticsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsssrsResponseStatus :: Lens.Lens' GetTimeSeriesServiceStatisticsResponse Lude.Int
+gtsssrsResponseStatus = Lens.lens (responseStatus :: GetTimeSeriesServiceStatisticsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTimeSeriesServiceStatisticsResponse)
+{-# DEPRECATED gtsssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

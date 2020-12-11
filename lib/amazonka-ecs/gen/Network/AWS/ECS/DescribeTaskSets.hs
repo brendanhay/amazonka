@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Describes the task sets in the specified cluster and service. This is used when a service uses the @EXTERNAL@ deployment controller type. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS Deployment Types> in the /Amazon Elastic Container Service Developer Guide/ .
 module Network.AWS.ECS.DescribeTaskSets
-  ( -- * Creating a Request
-    describeTaskSets,
-    DescribeTaskSets,
+  ( -- * Creating a request
+    DescribeTaskSets (..),
+    mkDescribeTaskSets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtssTaskSets,
     dtssInclude,
     dtssCluster,
     dtssService,
 
-    -- * Destructuring the Response
-    describeTaskSetsResponse,
-    DescribeTaskSetsResponse,
+    -- * Destructuring the response
+    DescribeTaskSetsResponse (..),
+    mkDescribeTaskSetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtssrsTaskSets,
     dtssrsFailures,
     dtssrsResponseStatus,
@@ -41,146 +36,167 @@ module Network.AWS.ECS.DescribeTaskSets
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeTaskSets' smart constructor.
+-- | /See:/ 'mkDescribeTaskSets' smart constructor.
 data DescribeTaskSets = DescribeTaskSets'
-  { _dtssTaskSets ::
-      !(Maybe [Text]),
-    _dtssInclude :: !(Maybe [TaskSetField]),
-    _dtssCluster :: !Text,
-    _dtssService :: !Text
+  { taskSets ::
+      Lude.Maybe [Lude.Text],
+    include :: Lude.Maybe [TaskSetField],
+    cluster :: Lude.Text,
+    service :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTaskSets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtssTaskSets' - The ID or full Amazon Resource Name (ARN) of task sets to describe.
---
--- * 'dtssInclude' - Specifies whether to see the resource tags for the task set. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
---
--- * 'dtssCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task sets exist in.
---
--- * 'dtssService' - The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.
-describeTaskSets ::
-  -- | 'dtssCluster'
-  Text ->
-  -- | 'dtssService'
-  Text ->
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task sets exist in.
+-- * 'include' - Specifies whether to see the resource tags for the task set. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+-- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.
+-- * 'taskSets' - The ID or full Amazon Resource Name (ARN) of task sets to describe.
+mkDescribeTaskSets ::
+  -- | 'cluster'
+  Lude.Text ->
+  -- | 'service'
+  Lude.Text ->
   DescribeTaskSets
-describeTaskSets pCluster_ pService_ =
+mkDescribeTaskSets pCluster_ pService_ =
   DescribeTaskSets'
-    { _dtssTaskSets = Nothing,
-      _dtssInclude = Nothing,
-      _dtssCluster = pCluster_,
-      _dtssService = pService_
+    { taskSets = Lude.Nothing,
+      include = Lude.Nothing,
+      cluster = pCluster_,
+      service = pService_
     }
 
 -- | The ID or full Amazon Resource Name (ARN) of task sets to describe.
-dtssTaskSets :: Lens' DescribeTaskSets [Text]
-dtssTaskSets = lens _dtssTaskSets (\s a -> s {_dtssTaskSets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'taskSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtssTaskSets :: Lens.Lens' DescribeTaskSets (Lude.Maybe [Lude.Text])
+dtssTaskSets = Lens.lens (taskSets :: DescribeTaskSets -> Lude.Maybe [Lude.Text]) (\s a -> s {taskSets = a} :: DescribeTaskSets)
+{-# DEPRECATED dtssTaskSets "Use generic-lens or generic-optics with 'taskSets' instead." #-}
 
 -- | Specifies whether to see the resource tags for the task set. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
-dtssInclude :: Lens' DescribeTaskSets [TaskSetField]
-dtssInclude = lens _dtssInclude (\s a -> s {_dtssInclude = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtssInclude :: Lens.Lens' DescribeTaskSets (Lude.Maybe [TaskSetField])
+dtssInclude = Lens.lens (include :: DescribeTaskSets -> Lude.Maybe [TaskSetField]) (\s a -> s {include = a} :: DescribeTaskSets)
+{-# DEPRECATED dtssInclude "Use generic-lens or generic-optics with 'include' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task sets exist in.
-dtssCluster :: Lens' DescribeTaskSets Text
-dtssCluster = lens _dtssCluster (\s a -> s {_dtssCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtssCluster :: Lens.Lens' DescribeTaskSets Lude.Text
+dtssCluster = Lens.lens (cluster :: DescribeTaskSets -> Lude.Text) (\s a -> s {cluster = a} :: DescribeTaskSets)
+{-# DEPRECATED dtssCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that the task sets exist in.
-dtssService :: Lens' DescribeTaskSets Text
-dtssService = lens _dtssService (\s a -> s {_dtssService = a})
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtssService :: Lens.Lens' DescribeTaskSets Lude.Text
+dtssService = Lens.lens (service :: DescribeTaskSets -> Lude.Text) (\s a -> s {service = a} :: DescribeTaskSets)
+{-# DEPRECATED dtssService "Use generic-lens or generic-optics with 'service' instead." #-}
 
-instance AWSRequest DescribeTaskSets where
+instance Lude.AWSRequest DescribeTaskSets where
   type Rs DescribeTaskSets = DescribeTaskSetsResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTaskSetsResponse'
-            <$> (x .?> "taskSets" .!@ mempty)
-            <*> (x .?> "failures" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "taskSets" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "failures" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTaskSets
-
-instance NFData DescribeTaskSets
-
-instance ToHeaders DescribeTaskSets where
+instance Lude.ToHeaders DescribeTaskSets where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskSets" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskSets" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTaskSets where
+instance Lude.ToJSON DescribeTaskSets where
   toJSON DescribeTaskSets' {..} =
-    object
-      ( catMaybes
-          [ ("taskSets" .=) <$> _dtssTaskSets,
-            ("include" .=) <$> _dtssInclude,
-            Just ("cluster" .= _dtssCluster),
-            Just ("service" .= _dtssService)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("taskSets" Lude..=) Lude.<$> taskSets,
+            ("include" Lude..=) Lude.<$> include,
+            Lude.Just ("cluster" Lude..= cluster),
+            Lude.Just ("service" Lude..= service)
           ]
       )
 
-instance ToPath DescribeTaskSets where
-  toPath = const "/"
+instance Lude.ToPath DescribeTaskSets where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTaskSets where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTaskSets where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeTaskSetsResponse' smart constructor.
+-- | /See:/ 'mkDescribeTaskSetsResponse' smart constructor.
 data DescribeTaskSetsResponse = DescribeTaskSetsResponse'
-  { _dtssrsTaskSets ::
-      !(Maybe [TaskSet]),
-    _dtssrsFailures :: !(Maybe [Failure]),
-    _dtssrsResponseStatus :: !Int
+  { taskSets ::
+      Lude.Maybe [TaskSet],
+    failures :: Lude.Maybe [Failure],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTaskSetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtssrsTaskSets' - The list of task sets described.
---
--- * 'dtssrsFailures' - Any failures associated with the call.
---
--- * 'dtssrsResponseStatus' - -- | The response status code.
-describeTaskSetsResponse ::
-  -- | 'dtssrsResponseStatus'
-  Int ->
+-- * 'failures' - Any failures associated with the call.
+-- * 'responseStatus' - The response status code.
+-- * 'taskSets' - The list of task sets described.
+mkDescribeTaskSetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTaskSetsResponse
-describeTaskSetsResponse pResponseStatus_ =
+mkDescribeTaskSetsResponse pResponseStatus_ =
   DescribeTaskSetsResponse'
-    { _dtssrsTaskSets = Nothing,
-      _dtssrsFailures = Nothing,
-      _dtssrsResponseStatus = pResponseStatus_
+    { taskSets = Lude.Nothing,
+      failures = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of task sets described.
-dtssrsTaskSets :: Lens' DescribeTaskSetsResponse [TaskSet]
-dtssrsTaskSets = lens _dtssrsTaskSets (\s a -> s {_dtssrsTaskSets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'taskSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtssrsTaskSets :: Lens.Lens' DescribeTaskSetsResponse (Lude.Maybe [TaskSet])
+dtssrsTaskSets = Lens.lens (taskSets :: DescribeTaskSetsResponse -> Lude.Maybe [TaskSet]) (\s a -> s {taskSets = a} :: DescribeTaskSetsResponse)
+{-# DEPRECATED dtssrsTaskSets "Use generic-lens or generic-optics with 'taskSets' instead." #-}
 
 -- | Any failures associated with the call.
-dtssrsFailures :: Lens' DescribeTaskSetsResponse [Failure]
-dtssrsFailures = lens _dtssrsFailures (\s a -> s {_dtssrsFailures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtssrsFailures :: Lens.Lens' DescribeTaskSetsResponse (Lude.Maybe [Failure])
+dtssrsFailures = Lens.lens (failures :: DescribeTaskSetsResponse -> Lude.Maybe [Failure]) (\s a -> s {failures = a} :: DescribeTaskSetsResponse)
+{-# DEPRECATED dtssrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
--- | -- | The response status code.
-dtssrsResponseStatus :: Lens' DescribeTaskSetsResponse Int
-dtssrsResponseStatus = lens _dtssrsResponseStatus (\s a -> s {_dtssrsResponseStatus = a})
-
-instance NFData DescribeTaskSetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtssrsResponseStatus :: Lens.Lens' DescribeTaskSetsResponse Lude.Int
+dtssrsResponseStatus = Lens.lens (responseStatus :: DescribeTaskSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTaskSetsResponse)
+{-# DEPRECATED dtssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

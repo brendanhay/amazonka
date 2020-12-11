@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.BusinessReportS3Location where
+module Network.AWS.AlexaBusiness.Types.BusinessReportS3Location
+  ( BusinessReportS3Location (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBusinessReportS3Location,
+
+    -- * Lenses
+    brslPath,
+    brslBucketName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The S3 location of the output reports.
 --
---
---
--- /See:/ 'businessReportS3Location' smart constructor.
+-- /See:/ 'mkBusinessReportS3Location' smart constructor.
 data BusinessReportS3Location = BusinessReportS3Location'
-  { _brslPath ::
-      !(Maybe Text),
-    _brslBucketName :: !(Maybe Text)
+  { path ::
+      Lude.Maybe Lude.Text,
+    bucketName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BusinessReportS3Location' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'brslPath' - The path of the business report.
---
--- * 'brslBucketName' - The S3 bucket name of the output reports.
-businessReportS3Location ::
+-- * 'bucketName' - The S3 bucket name of the output reports.
+-- * 'path' - The path of the business report.
+mkBusinessReportS3Location ::
   BusinessReportS3Location
-businessReportS3Location =
+mkBusinessReportS3Location =
   BusinessReportS3Location'
-    { _brslPath = Nothing,
-      _brslBucketName = Nothing
+    { path = Lude.Nothing,
+      bucketName = Lude.Nothing
     }
 
 -- | The path of the business report.
-brslPath :: Lens' BusinessReportS3Location (Maybe Text)
-brslPath = lens _brslPath (\s a -> s {_brslPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brslPath :: Lens.Lens' BusinessReportS3Location (Lude.Maybe Lude.Text)
+brslPath = Lens.lens (path :: BusinessReportS3Location -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: BusinessReportS3Location)
+{-# DEPRECATED brslPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The S3 bucket name of the output reports.
-brslBucketName :: Lens' BusinessReportS3Location (Maybe Text)
-brslBucketName = lens _brslBucketName (\s a -> s {_brslBucketName = a})
+--
+-- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brslBucketName :: Lens.Lens' BusinessReportS3Location (Lude.Maybe Lude.Text)
+brslBucketName = Lens.lens (bucketName :: BusinessReportS3Location -> Lude.Maybe Lude.Text) (\s a -> s {bucketName = a} :: BusinessReportS3Location)
+{-# DEPRECATED brslBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
-instance FromJSON BusinessReportS3Location where
+instance Lude.FromJSON BusinessReportS3Location where
   parseJSON =
-    withObject
+    Lude.withObject
       "BusinessReportS3Location"
       ( \x ->
           BusinessReportS3Location'
-            <$> (x .:? "Path") <*> (x .:? "BucketName")
+            Lude.<$> (x Lude..:? "Path") Lude.<*> (x Lude..:? "BucketName")
       )
-
-instance Hashable BusinessReportS3Location
-
-instance NFData BusinessReportS3Location

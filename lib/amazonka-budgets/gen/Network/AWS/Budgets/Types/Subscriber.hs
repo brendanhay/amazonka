@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.Subscriber where
+module Network.AWS.Budgets.Types.Subscriber
+  ( Subscriber (..),
+
+    -- * Smart constructor
+    mkSubscriber,
+
+    -- * Lenses
+    sSubscriptionType,
+    sAddress,
+  )
+where
 
 import Network.AWS.Budgets.Types.SubscriptionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
---
 --
 -- For example, an email subscriber would have the following parameters:
 --
 --     * A @subscriptionType@ of @EMAIL@
 --
+--
 --     * An @address@ of @example@example.com@
 --
 --
 --
---
--- /See:/ 'subscriber' smart constructor.
+-- /See:/ 'mkSubscriber' smart constructor.
 data Subscriber = Subscriber'
-  { _sSubscriptionType ::
-      !SubscriptionType,
-    _sAddress :: !(Sensitive Text)
+  { subscriptionType :: SubscriptionType,
+    address :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscriber' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'address' - The address that AWS sends budget notifications to, either an SNS topic or an email.
 --
--- * 'sSubscriptionType' - The type of notification that AWS sends to a subscriber.
---
--- * 'sAddress' - The address that AWS sends budget notifications to, either an SNS topic or an email. When you create a subscriber, the value of @Address@ can't contain line breaks.
-subscriber ::
-  -- | 'sSubscriptionType'
+-- When you create a subscriber, the value of @Address@ can't contain line breaks.
+-- * 'subscriptionType' - The type of notification that AWS sends to a subscriber.
+mkSubscriber ::
+  -- | 'subscriptionType'
   SubscriptionType ->
-  -- | 'sAddress'
-  Text ->
+  -- | 'address'
+  Lude.Sensitive Lude.Text ->
   Subscriber
-subscriber pSubscriptionType_ pAddress_ =
+mkSubscriber pSubscriptionType_ pAddress_ =
   Subscriber'
-    { _sSubscriptionType = pSubscriptionType_,
-      _sAddress = _Sensitive # pAddress_
+    { subscriptionType = pSubscriptionType_,
+      address = pAddress_
     }
 
 -- | The type of notification that AWS sends to a subscriber.
-sSubscriptionType :: Lens' Subscriber SubscriptionType
-sSubscriptionType = lens _sSubscriptionType (\s a -> s {_sSubscriptionType = a})
+--
+-- /Note:/ Consider using 'subscriptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubscriptionType :: Lens.Lens' Subscriber SubscriptionType
+sSubscriptionType = Lens.lens (subscriptionType :: Subscriber -> SubscriptionType) (\s a -> s {subscriptionType = a} :: Subscriber)
+{-# DEPRECATED sSubscriptionType "Use generic-lens or generic-optics with 'subscriptionType' instead." #-}
 
--- | The address that AWS sends budget notifications to, either an SNS topic or an email. When you create a subscriber, the value of @Address@ can't contain line breaks.
-sAddress :: Lens' Subscriber Text
-sAddress = lens _sAddress (\s a -> s {_sAddress = a}) . _Sensitive
+-- | The address that AWS sends budget notifications to, either an SNS topic or an email.
+--
+-- When you create a subscriber, the value of @Address@ can't contain line breaks.
+--
+-- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAddress :: Lens.Lens' Subscriber (Lude.Sensitive Lude.Text)
+sAddress = Lens.lens (address :: Subscriber -> Lude.Sensitive Lude.Text) (\s a -> s {address = a} :: Subscriber)
+{-# DEPRECATED sAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
-instance FromJSON Subscriber where
+instance Lude.FromJSON Subscriber where
   parseJSON =
-    withObject
+    Lude.withObject
       "Subscriber"
       ( \x ->
-          Subscriber' <$> (x .: "SubscriptionType") <*> (x .: "Address")
+          Subscriber'
+            Lude.<$> (x Lude..: "SubscriptionType") Lude.<*> (x Lude..: "Address")
       )
 
-instance Hashable Subscriber
-
-instance NFData Subscriber
-
-instance ToJSON Subscriber where
+instance Lude.ToJSON Subscriber where
   toJSON Subscriber' {..} =
-    object
-      ( catMaybes
-          [ Just ("SubscriptionType" .= _sSubscriptionType),
-            Just ("Address" .= _sAddress)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("SubscriptionType" Lude..= subscriptionType),
+            Lude.Just ("Address" Lude..= address)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Searches for routes in the specified local gateway route table.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.SearchLocalGatewayRoutes
-  ( -- * Creating a Request
-    searchLocalGatewayRoutes,
-    SearchLocalGatewayRoutes,
+  ( -- * Creating a request
+    SearchLocalGatewayRoutes (..),
+    mkSearchLocalGatewayRoutes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     slgrNextToken,
     slgrDryRun,
     slgrMaxResults,
     slgrLocalGatewayRouteTableId,
     slgrFilters,
 
-    -- * Destructuring the Response
-    searchLocalGatewayRoutesResponse,
-    SearchLocalGatewayRoutesResponse,
+    -- * Destructuring the response
+    SearchLocalGatewayRoutesResponse (..),
+    mkSearchLocalGatewayRoutesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     slgrrsRoutes,
     slgrrsNextToken,
     slgrrsResponseStatus,
@@ -46,152 +39,178 @@ module Network.AWS.EC2.SearchLocalGatewayRoutes
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'searchLocalGatewayRoutes' smart constructor.
+-- | /See:/ 'mkSearchLocalGatewayRoutes' smart constructor.
 data SearchLocalGatewayRoutes = SearchLocalGatewayRoutes'
-  { _slgrNextToken ::
-      !(Maybe Text),
-    _slgrDryRun :: !(Maybe Bool),
-    _slgrMaxResults :: !(Maybe Int),
-    _slgrLocalGatewayRouteTableId :: !Text,
-    _slgrFilters :: ![Filter]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Int,
+    localGatewayRouteTableId :: Lude.Text,
+    filters :: [Filter]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchLocalGatewayRoutes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slgrNextToken' - The token for the next page of results.
---
--- * 'slgrDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'slgrMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
---
--- * 'slgrLocalGatewayRouteTableId' - The ID of the local gateway route table.
---
--- * 'slgrFilters' - One or more filters.
-searchLocalGatewayRoutes ::
-  -- | 'slgrLocalGatewayRouteTableId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters.
+-- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'nextToken' - The token for the next page of results.
+mkSearchLocalGatewayRoutes ::
+  -- | 'localGatewayRouteTableId'
+  Lude.Text ->
   SearchLocalGatewayRoutes
-searchLocalGatewayRoutes pLocalGatewayRouteTableId_ =
+mkSearchLocalGatewayRoutes pLocalGatewayRouteTableId_ =
   SearchLocalGatewayRoutes'
-    { _slgrNextToken = Nothing,
-      _slgrDryRun = Nothing,
-      _slgrMaxResults = Nothing,
-      _slgrLocalGatewayRouteTableId = pLocalGatewayRouteTableId_,
-      _slgrFilters = mempty
+    { nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      localGatewayRouteTableId = pLocalGatewayRouteTableId_,
+      filters = Lude.mempty
     }
 
 -- | The token for the next page of results.
-slgrNextToken :: Lens' SearchLocalGatewayRoutes (Maybe Text)
-slgrNextToken = lens _slgrNextToken (\s a -> s {_slgrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slgrNextToken :: Lens.Lens' SearchLocalGatewayRoutes (Lude.Maybe Lude.Text)
+slgrNextToken = Lens.lens (nextToken :: SearchLocalGatewayRoutes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchLocalGatewayRoutes)
+{-# DEPRECATED slgrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-slgrDryRun :: Lens' SearchLocalGatewayRoutes (Maybe Bool)
-slgrDryRun = lens _slgrDryRun (\s a -> s {_slgrDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slgrDryRun :: Lens.Lens' SearchLocalGatewayRoutes (Lude.Maybe Lude.Bool)
+slgrDryRun = Lens.lens (dryRun :: SearchLocalGatewayRoutes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: SearchLocalGatewayRoutes)
+{-# DEPRECATED slgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-slgrMaxResults :: Lens' SearchLocalGatewayRoutes (Maybe Int)
-slgrMaxResults = lens _slgrMaxResults (\s a -> s {_slgrMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slgrMaxResults :: Lens.Lens' SearchLocalGatewayRoutes (Lude.Maybe Lude.Int)
+slgrMaxResults = Lens.lens (maxResults :: SearchLocalGatewayRoutes -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: SearchLocalGatewayRoutes)
+{-# DEPRECATED slgrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the local gateway route table.
-slgrLocalGatewayRouteTableId :: Lens' SearchLocalGatewayRoutes Text
-slgrLocalGatewayRouteTableId = lens _slgrLocalGatewayRouteTableId (\s a -> s {_slgrLocalGatewayRouteTableId = a})
+--
+-- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slgrLocalGatewayRouteTableId :: Lens.Lens' SearchLocalGatewayRoutes Lude.Text
+slgrLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: SearchLocalGatewayRoutes -> Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: SearchLocalGatewayRoutes)
+{-# DEPRECATED slgrLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
 
 -- | One or more filters.
-slgrFilters :: Lens' SearchLocalGatewayRoutes [Filter]
-slgrFilters = lens _slgrFilters (\s a -> s {_slgrFilters = a}) . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slgrFilters :: Lens.Lens' SearchLocalGatewayRoutes [Filter]
+slgrFilters = Lens.lens (filters :: SearchLocalGatewayRoutes -> [Filter]) (\s a -> s {filters = a} :: SearchLocalGatewayRoutes)
+{-# DEPRECATED slgrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
-instance AWSPager SearchLocalGatewayRoutes where
+instance Page.AWSPager SearchLocalGatewayRoutes where
   page rq rs
-    | stop (rs ^. slgrrsNextToken) = Nothing
-    | stop (rs ^. slgrrsRoutes) = Nothing
-    | otherwise = Just $ rq & slgrNextToken .~ rs ^. slgrrsNextToken
+    | Page.stop (rs Lens.^. slgrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. slgrrsRoutes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& slgrNextToken Lens..~ rs Lens.^. slgrrsNextToken
 
-instance AWSRequest SearchLocalGatewayRoutes where
+instance Lude.AWSRequest SearchLocalGatewayRoutes where
   type Rs SearchLocalGatewayRoutes = SearchLocalGatewayRoutesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           SearchLocalGatewayRoutesResponse'
-            <$> (x .@? "routeSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "routeSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchLocalGatewayRoutes
+instance Lude.ToHeaders SearchLocalGatewayRoutes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SearchLocalGatewayRoutes
+instance Lude.ToPath SearchLocalGatewayRoutes where
+  toPath = Lude.const "/"
 
-instance ToHeaders SearchLocalGatewayRoutes where
-  toHeaders = const mempty
-
-instance ToPath SearchLocalGatewayRoutes where
-  toPath = const "/"
-
-instance ToQuery SearchLocalGatewayRoutes where
+instance Lude.ToQuery SearchLocalGatewayRoutes where
   toQuery SearchLocalGatewayRoutes' {..} =
-    mconcat
-      [ "Action" =: ("SearchLocalGatewayRoutes" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "NextToken" =: _slgrNextToken,
-        "DryRun" =: _slgrDryRun,
-        "MaxResults" =: _slgrMaxResults,
-        "LocalGatewayRouteTableId" =: _slgrLocalGatewayRouteTableId,
-        toQueryList "Filter" _slgrFilters
+    Lude.mconcat
+      [ "Action" Lude.=: ("SearchLocalGatewayRoutes" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults,
+        "LocalGatewayRouteTableId" Lude.=: localGatewayRouteTableId,
+        Lude.toQueryList "Filter" filters
       ]
 
--- | /See:/ 'searchLocalGatewayRoutesResponse' smart constructor.
+-- | /See:/ 'mkSearchLocalGatewayRoutesResponse' smart constructor.
 data SearchLocalGatewayRoutesResponse = SearchLocalGatewayRoutesResponse'
-  { _slgrrsRoutes ::
-      !( Maybe
-           [LocalGatewayRoute]
-       ),
-    _slgrrsNextToken ::
-      !(Maybe Text),
-    _slgrrsResponseStatus ::
-      !Int
+  { routes ::
+      Lude.Maybe
+        [LocalGatewayRoute],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchLocalGatewayRoutesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slgrrsRoutes' - Information about the routes.
---
--- * 'slgrrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'slgrrsResponseStatus' - -- | The response status code.
-searchLocalGatewayRoutesResponse ::
-  -- | 'slgrrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'routes' - Information about the routes.
+mkSearchLocalGatewayRoutesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchLocalGatewayRoutesResponse
-searchLocalGatewayRoutesResponse pResponseStatus_ =
+mkSearchLocalGatewayRoutesResponse pResponseStatus_ =
   SearchLocalGatewayRoutesResponse'
-    { _slgrrsRoutes = Nothing,
-      _slgrrsNextToken = Nothing,
-      _slgrrsResponseStatus = pResponseStatus_
+    { routes = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the routes.
-slgrrsRoutes :: Lens' SearchLocalGatewayRoutesResponse [LocalGatewayRoute]
-slgrrsRoutes = lens _slgrrsRoutes (\s a -> s {_slgrrsRoutes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'routes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slgrrsRoutes :: Lens.Lens' SearchLocalGatewayRoutesResponse (Lude.Maybe [LocalGatewayRoute])
+slgrrsRoutes = Lens.lens (routes :: SearchLocalGatewayRoutesResponse -> Lude.Maybe [LocalGatewayRoute]) (\s a -> s {routes = a} :: SearchLocalGatewayRoutesResponse)
+{-# DEPRECATED slgrrsRoutes "Use generic-lens or generic-optics with 'routes' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-slgrrsNextToken :: Lens' SearchLocalGatewayRoutesResponse (Maybe Text)
-slgrrsNextToken = lens _slgrrsNextToken (\s a -> s {_slgrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slgrrsNextToken :: Lens.Lens' SearchLocalGatewayRoutesResponse (Lude.Maybe Lude.Text)
+slgrrsNextToken = Lens.lens (nextToken :: SearchLocalGatewayRoutesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchLocalGatewayRoutesResponse)
+{-# DEPRECATED slgrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-slgrrsResponseStatus :: Lens' SearchLocalGatewayRoutesResponse Int
-slgrrsResponseStatus = lens _slgrrsResponseStatus (\s a -> s {_slgrrsResponseStatus = a})
-
-instance NFData SearchLocalGatewayRoutesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slgrrsResponseStatus :: Lens.Lens' SearchLocalGatewayRoutesResponse Lude.Int
+slgrrsResponseStatus = Lens.lens (responseStatus :: SearchLocalGatewayRoutesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchLocalGatewayRoutesResponse)
+{-# DEPRECATED slgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

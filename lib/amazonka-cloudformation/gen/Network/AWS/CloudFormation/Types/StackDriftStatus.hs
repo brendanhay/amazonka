@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackDriftStatus where
+module Network.AWS.CloudFormation.Types.StackDriftStatus
+  ( StackDriftStatus
+      ( StackDriftStatus',
+        SDSDrifted,
+        SDSInSync,
+        SDSNotChecked,
+        SDSUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackDriftStatus
-  = SDSDrifted
-  | SDSInSync
-  | SDSNotChecked
-  | SDSUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackDriftStatus = StackDriftStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackDriftStatus where
-  parser =
-    takeLowerText >>= \case
-      "drifted" -> pure SDSDrifted
-      "in_sync" -> pure SDSInSync
-      "not_checked" -> pure SDSNotChecked
-      "unknown" -> pure SDSUnknown
-      e ->
-        fromTextError $
-          "Failure parsing StackDriftStatus from value: '" <> e
-            <> "'. Accepted values: drifted, in_sync, not_checked, unknown"
+pattern SDSDrifted :: StackDriftStatus
+pattern SDSDrifted = StackDriftStatus' "DRIFTED"
 
-instance ToText StackDriftStatus where
-  toText = \case
-    SDSDrifted -> "DRIFTED"
-    SDSInSync -> "IN_SYNC"
-    SDSNotChecked -> "NOT_CHECKED"
-    SDSUnknown -> "UNKNOWN"
+pattern SDSInSync :: StackDriftStatus
+pattern SDSInSync = StackDriftStatus' "IN_SYNC"
 
-instance Hashable StackDriftStatus
+pattern SDSNotChecked :: StackDriftStatus
+pattern SDSNotChecked = StackDriftStatus' "NOT_CHECKED"
 
-instance NFData StackDriftStatus
+pattern SDSUnknown :: StackDriftStatus
+pattern SDSUnknown = StackDriftStatus' "UNKNOWN"
 
-instance ToByteString StackDriftStatus
-
-instance ToQuery StackDriftStatus
-
-instance ToHeader StackDriftStatus
-
-instance FromXML StackDriftStatus where
-  parseXML = parseXMLText "StackDriftStatus"
+{-# COMPLETE
+  SDSDrifted,
+  SDSInSync,
+  SDSNotChecked,
+  SDSUnknown,
+  StackDriftStatus'
+  #-}

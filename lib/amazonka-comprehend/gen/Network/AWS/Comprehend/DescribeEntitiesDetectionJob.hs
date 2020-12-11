@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,138 @@
 --
 -- Gets the properties associated with an entities detection job. Use this operation to get the status of a detection job.
 module Network.AWS.Comprehend.DescribeEntitiesDetectionJob
-  ( -- * Creating a Request
-    describeEntitiesDetectionJob,
-    DescribeEntitiesDetectionJob,
+  ( -- * Creating a request
+    DescribeEntitiesDetectionJob (..),
+    mkDescribeEntitiesDetectionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dJobId,
 
-    -- * Destructuring the Response
-    describeEntitiesDetectionJobResponse,
-    DescribeEntitiesDetectionJobResponse,
+    -- * Destructuring the response
+    DescribeEntitiesDetectionJobResponse (..),
+    mkDescribeEntitiesDetectionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsEntitiesDetectionJobProperties,
     desrsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEntitiesDetectionJob' smart constructor.
+-- | /See:/ 'mkDescribeEntitiesDetectionJob' smart constructor.
 newtype DescribeEntitiesDetectionJob = DescribeEntitiesDetectionJob'
-  { _dJobId ::
-      Text
+  { jobId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEntitiesDetectionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dJobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-describeEntitiesDetectionJob ::
-  -- | 'dJobId'
-  Text ->
+-- * 'jobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+mkDescribeEntitiesDetectionJob ::
+  -- | 'jobId'
+  Lude.Text ->
   DescribeEntitiesDetectionJob
-describeEntitiesDetectionJob pJobId_ =
-  DescribeEntitiesDetectionJob' {_dJobId = pJobId_}
+mkDescribeEntitiesDetectionJob pJobId_ =
+  DescribeEntitiesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-dJobId :: Lens' DescribeEntitiesDetectionJob Text
-dJobId = lens _dJobId (\s a -> s {_dJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dJobId :: Lens.Lens' DescribeEntitiesDetectionJob Lude.Text
+dJobId = Lens.lens (jobId :: DescribeEntitiesDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeEntitiesDetectionJob)
+{-# DEPRECATED dJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest DescribeEntitiesDetectionJob where
+instance Lude.AWSRequest DescribeEntitiesDetectionJob where
   type
     Rs DescribeEntitiesDetectionJob =
       DescribeEntitiesDetectionJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEntitiesDetectionJobResponse'
-            <$> (x .?> "EntitiesDetectionJobProperties") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EntitiesDetectionJobProperties")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEntitiesDetectionJob
-
-instance NFData DescribeEntitiesDetectionJob
-
-instance ToHeaders DescribeEntitiesDetectionJob where
+instance Lude.ToHeaders DescribeEntitiesDetectionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.DescribeEntitiesDetectionJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.DescribeEntitiesDetectionJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEntitiesDetectionJob where
+instance Lude.ToJSON DescribeEntitiesDetectionJob where
   toJSON DescribeEntitiesDetectionJob' {..} =
-    object (catMaybes [Just ("JobId" .= _dJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
 
-instance ToPath DescribeEntitiesDetectionJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeEntitiesDetectionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEntitiesDetectionJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEntitiesDetectionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEntitiesDetectionJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeEntitiesDetectionJobResponse' smart constructor.
 data DescribeEntitiesDetectionJobResponse = DescribeEntitiesDetectionJobResponse'
-  { _desrsEntitiesDetectionJobProperties ::
-      !( Maybe
-           EntitiesDetectionJobProperties
-       ),
-    _desrsResponseStatus ::
-      !Int
+  { entitiesDetectionJobProperties ::
+      Lude.Maybe
+        EntitiesDetectionJobProperties,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEntitiesDetectionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsEntitiesDetectionJobProperties' - An object that contains the properties associated with an entities detection job.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeEntitiesDetectionJobResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'entitiesDetectionJobProperties' - An object that contains the properties associated with an entities detection job.
+-- * 'responseStatus' - The response status code.
+mkDescribeEntitiesDetectionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEntitiesDetectionJobResponse
-describeEntitiesDetectionJobResponse pResponseStatus_ =
+mkDescribeEntitiesDetectionJobResponse pResponseStatus_ =
   DescribeEntitiesDetectionJobResponse'
-    { _desrsEntitiesDetectionJobProperties =
-        Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { entitiesDetectionJobProperties =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that contains the properties associated with an entities detection job.
-desrsEntitiesDetectionJobProperties :: Lens' DescribeEntitiesDetectionJobResponse (Maybe EntitiesDetectionJobProperties)
-desrsEntitiesDetectionJobProperties = lens _desrsEntitiesDetectionJobProperties (\s a -> s {_desrsEntitiesDetectionJobProperties = a})
+--
+-- /Note:/ Consider using 'entitiesDetectionJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsEntitiesDetectionJobProperties :: Lens.Lens' DescribeEntitiesDetectionJobResponse (Lude.Maybe EntitiesDetectionJobProperties)
+desrsEntitiesDetectionJobProperties = Lens.lens (entitiesDetectionJobProperties :: DescribeEntitiesDetectionJobResponse -> Lude.Maybe EntitiesDetectionJobProperties) (\s a -> s {entitiesDetectionJobProperties = a} :: DescribeEntitiesDetectionJobResponse)
+{-# DEPRECATED desrsEntitiesDetectionJobProperties "Use generic-lens or generic-optics with 'entitiesDetectionJobProperties' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeEntitiesDetectionJobResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeEntitiesDetectionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeEntitiesDetectionJobResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeEntitiesDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEntitiesDetectionJobResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

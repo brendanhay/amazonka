@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.StatusCode where
+module Network.AWS.Glacier.Types.StatusCode
+  ( StatusCode
+      ( StatusCode',
+        Failed,
+        InProgress,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StatusCode
-  = Failed
-  | InProgress
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StatusCode = StatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StatusCode where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "inprogress" -> pure InProgress
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing StatusCode from value: '" <> e
-            <> "'. Accepted values: failed, inprogress, succeeded"
+pattern Failed :: StatusCode
+pattern Failed = StatusCode' "Failed"
 
-instance ToText StatusCode where
-  toText = \case
-    Failed -> "Failed"
-    InProgress -> "InProgress"
-    Succeeded -> "Succeeded"
+pattern InProgress :: StatusCode
+pattern InProgress = StatusCode' "InProgress"
 
-instance Hashable StatusCode
+pattern Succeeded :: StatusCode
+pattern Succeeded = StatusCode' "Succeeded"
 
-instance NFData StatusCode
-
-instance ToByteString StatusCode
-
-instance ToQuery StatusCode
-
-instance ToHeader StatusCode
-
-instance FromJSON StatusCode where
-  parseJSON = parseJSONText "StatusCode"
+{-# COMPLETE
+  Failed,
+  InProgress,
+  Succeeded,
+  StatusCode'
+  #-}

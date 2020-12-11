@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.PiiEntitiesDetectionMaskMode where
+module Network.AWS.Comprehend.Types.PiiEntitiesDetectionMaskMode
+  ( PiiEntitiesDetectionMaskMode
+      ( PiiEntitiesDetectionMaskMode',
+        Mask,
+        ReplaceWithPiiEntityType
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PiiEntitiesDetectionMaskMode
-  = Mask
-  | ReplaceWithPiiEntityType
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PiiEntitiesDetectionMaskMode = PiiEntitiesDetectionMaskMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PiiEntitiesDetectionMaskMode where
-  parser =
-    takeLowerText >>= \case
-      "mask" -> pure Mask
-      "replace_with_pii_entity_type" -> pure ReplaceWithPiiEntityType
-      e ->
-        fromTextError $
-          "Failure parsing PiiEntitiesDetectionMaskMode from value: '" <> e
-            <> "'. Accepted values: mask, replace_with_pii_entity_type"
+pattern Mask :: PiiEntitiesDetectionMaskMode
+pattern Mask = PiiEntitiesDetectionMaskMode' "MASK"
 
-instance ToText PiiEntitiesDetectionMaskMode where
-  toText = \case
-    Mask -> "MASK"
-    ReplaceWithPiiEntityType -> "REPLACE_WITH_PII_ENTITY_TYPE"
+pattern ReplaceWithPiiEntityType :: PiiEntitiesDetectionMaskMode
+pattern ReplaceWithPiiEntityType = PiiEntitiesDetectionMaskMode' "REPLACE_WITH_PII_ENTITY_TYPE"
 
-instance Hashable PiiEntitiesDetectionMaskMode
-
-instance NFData PiiEntitiesDetectionMaskMode
-
-instance ToByteString PiiEntitiesDetectionMaskMode
-
-instance ToQuery PiiEntitiesDetectionMaskMode
-
-instance ToHeader PiiEntitiesDetectionMaskMode
-
-instance ToJSON PiiEntitiesDetectionMaskMode where
-  toJSON = toJSONText
-
-instance FromJSON PiiEntitiesDetectionMaskMode where
-  parseJSON = parseJSONText "PiiEntitiesDetectionMaskMode"
+{-# COMPLETE
+  Mask,
+  ReplaceWithPiiEntityType,
+  PiiEntitiesDetectionMaskMode'
+  #-}

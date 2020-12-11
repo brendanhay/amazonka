@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,120 @@
 --
 -- Removes an object lifecycle policy from a container. It takes up to 20 minutes for the change to take effect.
 module Network.AWS.MediaStore.DeleteLifecyclePolicy
-  ( -- * Creating a Request
-    deleteLifecyclePolicy,
-    DeleteLifecyclePolicy,
+  ( -- * Creating a request
+    DeleteLifecyclePolicy (..),
+    mkDeleteLifecyclePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlpContainerName,
 
-    -- * Destructuring the Response
-    deleteLifecyclePolicyResponse,
-    DeleteLifecyclePolicyResponse,
+    -- * Destructuring the response
+    DeleteLifecyclePolicyResponse (..),
+    mkDeleteLifecyclePolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLifecyclePolicy' smart constructor.
+-- | /See:/ 'mkDeleteLifecyclePolicy' smart constructor.
 newtype DeleteLifecyclePolicy = DeleteLifecyclePolicy'
-  { _dlpContainerName ::
-      Text
+  { containerName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLifecyclePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlpContainerName' - The name of the container that holds the object lifecycle policy.
-deleteLifecyclePolicy ::
-  -- | 'dlpContainerName'
-  Text ->
+-- * 'containerName' - The name of the container that holds the object lifecycle policy.
+mkDeleteLifecyclePolicy ::
+  -- | 'containerName'
+  Lude.Text ->
   DeleteLifecyclePolicy
-deleteLifecyclePolicy pContainerName_ =
-  DeleteLifecyclePolicy' {_dlpContainerName = pContainerName_}
+mkDeleteLifecyclePolicy pContainerName_ =
+  DeleteLifecyclePolicy' {containerName = pContainerName_}
 
 -- | The name of the container that holds the object lifecycle policy.
-dlpContainerName :: Lens' DeleteLifecyclePolicy Text
-dlpContainerName = lens _dlpContainerName (\s a -> s {_dlpContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlpContainerName :: Lens.Lens' DeleteLifecyclePolicy Lude.Text
+dlpContainerName = Lens.lens (containerName :: DeleteLifecyclePolicy -> Lude.Text) (\s a -> s {containerName = a} :: DeleteLifecyclePolicy)
+{-# DEPRECATED dlpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance AWSRequest DeleteLifecyclePolicy where
+instance Lude.AWSRequest DeleteLifecyclePolicy where
   type Rs DeleteLifecyclePolicy = DeleteLifecyclePolicyResponse
-  request = postJSON mediaStore
+  request = Req.postJSON mediaStoreService
   response =
-    receiveEmpty
-      (\s h x -> DeleteLifecyclePolicyResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteLifecyclePolicyResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteLifecyclePolicy
-
-instance NFData DeleteLifecyclePolicy
-
-instance ToHeaders DeleteLifecyclePolicy where
+instance Lude.ToHeaders DeleteLifecyclePolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MediaStore_20170901.DeleteLifecyclePolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MediaStore_20170901.DeleteLifecyclePolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteLifecyclePolicy where
+instance Lude.ToJSON DeleteLifecyclePolicy where
   toJSON DeleteLifecyclePolicy' {..} =
-    object (catMaybes [Just ("ContainerName" .= _dlpContainerName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ContainerName" Lude..= containerName)]
+      )
 
-instance ToPath DeleteLifecyclePolicy where
-  toPath = const "/"
+instance Lude.ToPath DeleteLifecyclePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteLifecyclePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLifecyclePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteLifecyclePolicyResponse' smart constructor.
+-- | /See:/ 'mkDeleteLifecyclePolicyResponse' smart constructor.
 newtype DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
-  { _dlprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLifecyclePolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlprsResponseStatus' - -- | The response status code.
-deleteLifecyclePolicyResponse ::
-  -- | 'dlprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteLifecyclePolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLifecyclePolicyResponse
-deleteLifecyclePolicyResponse pResponseStatus_ =
-  DeleteLifecyclePolicyResponse'
-    { _dlprsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteLifecyclePolicyResponse pResponseStatus_ =
+  DeleteLifecyclePolicyResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dlprsResponseStatus :: Lens' DeleteLifecyclePolicyResponse Int
-dlprsResponseStatus = lens _dlprsResponseStatus (\s a -> s {_dlprsResponseStatus = a})
-
-instance NFData DeleteLifecyclePolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlprsResponseStatus :: Lens.Lens' DeleteLifecyclePolicyResponse Lude.Int
+dlprsResponseStatus = Lens.lens (responseStatus :: DeleteLifecyclePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLifecyclePolicyResponse)
+{-# DEPRECATED dlprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Creates a <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html version> from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change.
 --
---
 -- AWS Lambda doesn't publish a version if the function's configuration and code haven't changed since the last version. Use 'UpdateFunctionCode' or 'UpdateFunctionConfiguration' to update the function before publishing a version.
---
 -- Clients can invoke versions directly or with an alias. To create an alias, use 'CreateAlias' .
 module Network.AWS.Lambda.PublishVersion
-  ( -- * Creating a Request
-    publishVersion,
-    PublishVersion,
+  ( -- * Creating a request
+    PublishVersion (..),
+    mkPublishVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pvCodeSha256,
     pvDescription,
     pvRevisionId,
     pvFunctionName,
 
-    -- * Destructuring the Response
-    functionConfiguration,
-    FunctionConfiguration,
+    -- * Destructuring the response
+    FunctionConfiguration (..),
+    mkFunctionConfiguration,
 
-    -- * Response Lenses
+    -- ** Response lenses
     fcMemorySize,
     fcRuntime,
     fcState,
@@ -72,86 +65,122 @@ module Network.AWS.Lambda.PublishVersion
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'publishVersion' smart constructor.
+-- | /See:/ 'mkPublishVersion' smart constructor.
 data PublishVersion = PublishVersion'
-  { _pvCodeSha256 ::
-      !(Maybe Text),
-    _pvDescription :: !(Maybe Text),
-    _pvRevisionId :: !(Maybe Text),
-    _pvFunctionName :: !Text
+  { codeSha256 ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    revisionId :: Lude.Maybe Lude.Text,
+    functionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublishVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'codeSha256' - Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of 'UpdateFunctionCode' .
+-- * 'description' - A description for the version to override the description in the function configuration.
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'pvCodeSha256' - Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of 'UpdateFunctionCode' .
+-- __Name formats__
 --
--- * 'pvDescription' - A description for the version to override the description in the function configuration.
+--     * __Function name__ - @MyFunction@ .
 --
--- * 'pvRevisionId' - Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.
 --
--- * 'pvFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-publishVersion ::
-  -- | 'pvFunctionName'
-  Text ->
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'revisionId' - Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.
+mkPublishVersion ::
+  -- | 'functionName'
+  Lude.Text ->
   PublishVersion
-publishVersion pFunctionName_ =
+mkPublishVersion pFunctionName_ =
   PublishVersion'
-    { _pvCodeSha256 = Nothing,
-      _pvDescription = Nothing,
-      _pvRevisionId = Nothing,
-      _pvFunctionName = pFunctionName_
+    { codeSha256 = Lude.Nothing,
+      description = Lude.Nothing,
+      revisionId = Lude.Nothing,
+      functionName = pFunctionName_
     }
 
 -- | Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of 'UpdateFunctionCode' .
-pvCodeSha256 :: Lens' PublishVersion (Maybe Text)
-pvCodeSha256 = lens _pvCodeSha256 (\s a -> s {_pvCodeSha256 = a})
+--
+-- /Note:/ Consider using 'codeSha256' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvCodeSha256 :: Lens.Lens' PublishVersion (Lude.Maybe Lude.Text)
+pvCodeSha256 = Lens.lens (codeSha256 :: PublishVersion -> Lude.Maybe Lude.Text) (\s a -> s {codeSha256 = a} :: PublishVersion)
+{-# DEPRECATED pvCodeSha256 "Use generic-lens or generic-optics with 'codeSha256' instead." #-}
 
 -- | A description for the version to override the description in the function configuration.
-pvDescription :: Lens' PublishVersion (Maybe Text)
-pvDescription = lens _pvDescription (\s a -> s {_pvDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvDescription :: Lens.Lens' PublishVersion (Lude.Maybe Lude.Text)
+pvDescription = Lens.lens (description :: PublishVersion -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PublishVersion)
+{-# DEPRECATED pvDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.
-pvRevisionId :: Lens' PublishVersion (Maybe Text)
-pvRevisionId = lens _pvRevisionId (\s a -> s {_pvRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvRevisionId :: Lens.Lens' PublishVersion (Lude.Maybe Lude.Text)
+pvRevisionId = Lens.lens (revisionId :: PublishVersion -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: PublishVersion)
+{-# DEPRECATED pvRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-pvFunctionName :: Lens' PublishVersion Text
-pvFunctionName = lens _pvFunctionName (\s a -> s {_pvFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvFunctionName :: Lens.Lens' PublishVersion Lude.Text
+pvFunctionName = Lens.lens (functionName :: PublishVersion -> Lude.Text) (\s a -> s {functionName = a} :: PublishVersion)
+{-# DEPRECATED pvFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSRequest PublishVersion where
+instance Lude.AWSRequest PublishVersion where
   type Rs PublishVersion = FunctionConfiguration
-  request = postJSON lambda
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON lambdaService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable PublishVersion
+instance Lude.ToHeaders PublishVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PublishVersion
-
-instance ToHeaders PublishVersion where
-  toHeaders = const mempty
-
-instance ToJSON PublishVersion where
+instance Lude.ToJSON PublishVersion where
   toJSON PublishVersion' {..} =
-    object
-      ( catMaybes
-          [ ("CodeSha256" .=) <$> _pvCodeSha256,
-            ("Description" .=) <$> _pvDescription,
-            ("RevisionId" .=) <$> _pvRevisionId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CodeSha256" Lude..=) Lude.<$> codeSha256,
+            ("Description" Lude..=) Lude.<$> description,
+            ("RevisionId" Lude..=) Lude.<$> revisionId
           ]
       )
 
-instance ToPath PublishVersion where
+instance Lude.ToPath PublishVersion where
   toPath PublishVersion' {..} =
-    mconcat
-      ["/2015-03-31/functions/", toBS _pvFunctionName, "/versions"]
+    Lude.mconcat
+      ["/2015-03-31/functions/", Lude.toBS functionName, "/versions"]
 
-instance ToQuery PublishVersion where
-  toQuery = const mempty
+instance Lude.ToQuery PublishVersion where
+  toQuery = Lude.const Lude.mempty

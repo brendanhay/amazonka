@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.OutputFileURIValue where
+module Network.AWS.IoTAnalytics.Types.OutputFileURIValue
+  ( OutputFileURIValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOutputFileURIValue,
+
+    -- * Lenses
+    ofuvFileName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The value of the variable as a structure that specifies an output file URI.
 --
---
---
--- /See:/ 'outputFileURIValue' smart constructor.
+-- /See:/ 'mkOutputFileURIValue' smart constructor.
 newtype OutputFileURIValue = OutputFileURIValue'
-  { _ofuvFileName ::
-      Text
+  { fileName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputFileURIValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ofuvFileName' - The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
-outputFileURIValue ::
-  -- | 'ofuvFileName'
-  Text ->
+-- * 'fileName' - The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
+mkOutputFileURIValue ::
+  -- | 'fileName'
+  Lude.Text ->
   OutputFileURIValue
-outputFileURIValue pFileName_ =
-  OutputFileURIValue' {_ofuvFileName = pFileName_}
+mkOutputFileURIValue pFileName_ =
+  OutputFileURIValue' {fileName = pFileName_}
 
 -- | The URI of the location where dataset contents are stored, usually the URI of a file in an S3 bucket.
-ofuvFileName :: Lens' OutputFileURIValue Text
-ofuvFileName = lens _ofuvFileName (\s a -> s {_ofuvFileName = a})
+--
+-- /Note:/ Consider using 'fileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ofuvFileName :: Lens.Lens' OutputFileURIValue Lude.Text
+ofuvFileName = Lens.lens (fileName :: OutputFileURIValue -> Lude.Text) (\s a -> s {fileName = a} :: OutputFileURIValue)
+{-# DEPRECATED ofuvFileName "Use generic-lens or generic-optics with 'fileName' instead." #-}
 
-instance FromJSON OutputFileURIValue where
+instance Lude.FromJSON OutputFileURIValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputFileURIValue"
-      (\x -> OutputFileURIValue' <$> (x .: "fileName"))
+      (\x -> OutputFileURIValue' Lude.<$> (x Lude..: "fileName"))
 
-instance Hashable OutputFileURIValue
-
-instance NFData OutputFileURIValue
-
-instance ToJSON OutputFileURIValue where
+instance Lude.ToJSON OutputFileURIValue where
   toJSON OutputFileURIValue' {..} =
-    object (catMaybes [Just ("fileName" .= _ofuvFileName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("fileName" Lude..= fileName)])

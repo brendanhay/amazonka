@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.JobExecutionFailureType where
+module Network.AWS.IoT.Types.JobExecutionFailureType
+  ( JobExecutionFailureType
+      ( JobExecutionFailureType',
+        JEFTAll,
+        JEFTFailed,
+        JEFTRejected,
+        JEFTTimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobExecutionFailureType
-  = JEFTAll
-  | JEFTFailed
-  | JEFTRejected
-  | JEFTTimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobExecutionFailureType = JobExecutionFailureType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobExecutionFailureType where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure JEFTAll
-      "failed" -> pure JEFTFailed
-      "rejected" -> pure JEFTRejected
-      "timed_out" -> pure JEFTTimedOut
-      e ->
-        fromTextError $
-          "Failure parsing JobExecutionFailureType from value: '" <> e
-            <> "'. Accepted values: all, failed, rejected, timed_out"
+pattern JEFTAll :: JobExecutionFailureType
+pattern JEFTAll = JobExecutionFailureType' "ALL"
 
-instance ToText JobExecutionFailureType where
-  toText = \case
-    JEFTAll -> "ALL"
-    JEFTFailed -> "FAILED"
-    JEFTRejected -> "REJECTED"
-    JEFTTimedOut -> "TIMED_OUT"
+pattern JEFTFailed :: JobExecutionFailureType
+pattern JEFTFailed = JobExecutionFailureType' "FAILED"
 
-instance Hashable JobExecutionFailureType
+pattern JEFTRejected :: JobExecutionFailureType
+pattern JEFTRejected = JobExecutionFailureType' "REJECTED"
 
-instance NFData JobExecutionFailureType
+pattern JEFTTimedOut :: JobExecutionFailureType
+pattern JEFTTimedOut = JobExecutionFailureType' "TIMED_OUT"
 
-instance ToByteString JobExecutionFailureType
-
-instance ToQuery JobExecutionFailureType
-
-instance ToHeader JobExecutionFailureType
-
-instance ToJSON JobExecutionFailureType where
-  toJSON = toJSONText
-
-instance FromJSON JobExecutionFailureType where
-  parseJSON = parseJSONText "JobExecutionFailureType"
+{-# COMPLETE
+  JEFTAll,
+  JEFTFailed,
+  JEFTRejected,
+  JEFTTimedOut,
+  JobExecutionFailureType'
+  #-}

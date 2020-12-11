@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,133 +7,171 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ConflictMetadata where
+module Network.AWS.CodeCommit.Types.ConflictMetadata
+  ( ConflictMetadata (..),
+
+    -- * Smart constructor
+    mkConflictMetadata,
+
+    -- * Lenses
+    cmNumberOfConflicts,
+    cmContentConflict,
+    cmFileSizes,
+    cmFilePath,
+    cmIsBinaryFile,
+    cmFileModeConflict,
+    cmObjectTypeConflict,
+    cmMergeOperations,
+    cmObjectTypes,
+    cmFileModes,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.FileModes
 import Network.AWS.CodeCommit.Types.FileSizes
 import Network.AWS.CodeCommit.Types.IsBinaryFile
 import Network.AWS.CodeCommit.Types.MergeOperations
 import Network.AWS.CodeCommit.Types.ObjectTypes
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the metadata for a conflict in a merge operation.
 --
---
---
--- /See:/ 'conflictMetadata' smart constructor.
+-- /See:/ 'mkConflictMetadata' smart constructor.
 data ConflictMetadata = ConflictMetadata'
-  { _cmNumberOfConflicts ::
-      !(Maybe Int),
-    _cmContentConflict :: !(Maybe Bool),
-    _cmFileSizes :: !(Maybe FileSizes),
-    _cmFilePath :: !(Maybe Text),
-    _cmIsBinaryFile :: !(Maybe IsBinaryFile),
-    _cmFileModeConflict :: !(Maybe Bool),
-    _cmObjectTypeConflict :: !(Maybe Bool),
-    _cmMergeOperations :: !(Maybe MergeOperations),
-    _cmObjectTypes :: !(Maybe ObjectTypes),
-    _cmFileModes :: !(Maybe FileModes)
+  { numberOfConflicts ::
+      Lude.Maybe Lude.Int,
+    contentConflict :: Lude.Maybe Lude.Bool,
+    fileSizes :: Lude.Maybe FileSizes,
+    filePath :: Lude.Maybe Lude.Text,
+    isBinaryFile :: Lude.Maybe IsBinaryFile,
+    fileModeConflict :: Lude.Maybe Lude.Bool,
+    objectTypeConflict :: Lude.Maybe Lude.Bool,
+    mergeOperations :: Lude.Maybe MergeOperations,
+    objectTypes :: Lude.Maybe ObjectTypes,
+    fileModes :: Lude.Maybe FileModes
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConflictMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmNumberOfConflicts' - The number of conflicts, including both hunk conflicts and metadata conflicts.
---
--- * 'cmContentConflict' - A boolean value indicating whether there are conflicts in the content of a file.
---
--- * 'cmFileSizes' - The file sizes of the file in the source, destination, and base of the merge.
---
--- * 'cmFilePath' - The path of the file that contains conflicts.
---
--- * 'cmIsBinaryFile' - A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.
---
--- * 'cmFileModeConflict' - A boolean value indicating whether there are conflicts in the file mode of a file.
---
--- * 'cmObjectTypeConflict' - A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.
---
--- * 'cmMergeOperations' - Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.
---
--- * 'cmObjectTypes' - Information about any object type conflicts in a merge operation.
---
--- * 'cmFileModes' - The file modes of the file in the source, destination, and base of the merge.
-conflictMetadata ::
+-- * 'contentConflict' - A boolean value indicating whether there are conflicts in the content of a file.
+-- * 'fileModeConflict' - A boolean value indicating whether there are conflicts in the file mode of a file.
+-- * 'fileModes' - The file modes of the file in the source, destination, and base of the merge.
+-- * 'filePath' - The path of the file that contains conflicts.
+-- * 'fileSizes' - The file sizes of the file in the source, destination, and base of the merge.
+-- * 'isBinaryFile' - A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.
+-- * 'mergeOperations' - Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.
+-- * 'numberOfConflicts' - The number of conflicts, including both hunk conflicts and metadata conflicts.
+-- * 'objectTypeConflict' - A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.
+-- * 'objectTypes' - Information about any object type conflicts in a merge operation.
+mkConflictMetadata ::
   ConflictMetadata
-conflictMetadata =
+mkConflictMetadata =
   ConflictMetadata'
-    { _cmNumberOfConflicts = Nothing,
-      _cmContentConflict = Nothing,
-      _cmFileSizes = Nothing,
-      _cmFilePath = Nothing,
-      _cmIsBinaryFile = Nothing,
-      _cmFileModeConflict = Nothing,
-      _cmObjectTypeConflict = Nothing,
-      _cmMergeOperations = Nothing,
-      _cmObjectTypes = Nothing,
-      _cmFileModes = Nothing
+    { numberOfConflicts = Lude.Nothing,
+      contentConflict = Lude.Nothing,
+      fileSizes = Lude.Nothing,
+      filePath = Lude.Nothing,
+      isBinaryFile = Lude.Nothing,
+      fileModeConflict = Lude.Nothing,
+      objectTypeConflict = Lude.Nothing,
+      mergeOperations = Lude.Nothing,
+      objectTypes = Lude.Nothing,
+      fileModes = Lude.Nothing
     }
 
 -- | The number of conflicts, including both hunk conflicts and metadata conflicts.
-cmNumberOfConflicts :: Lens' ConflictMetadata (Maybe Int)
-cmNumberOfConflicts = lens _cmNumberOfConflicts (\s a -> s {_cmNumberOfConflicts = a})
+--
+-- /Note:/ Consider using 'numberOfConflicts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmNumberOfConflicts :: Lens.Lens' ConflictMetadata (Lude.Maybe Lude.Int)
+cmNumberOfConflicts = Lens.lens (numberOfConflicts :: ConflictMetadata -> Lude.Maybe Lude.Int) (\s a -> s {numberOfConflicts = a} :: ConflictMetadata)
+{-# DEPRECATED cmNumberOfConflicts "Use generic-lens or generic-optics with 'numberOfConflicts' instead." #-}
 
 -- | A boolean value indicating whether there are conflicts in the content of a file.
-cmContentConflict :: Lens' ConflictMetadata (Maybe Bool)
-cmContentConflict = lens _cmContentConflict (\s a -> s {_cmContentConflict = a})
+--
+-- /Note:/ Consider using 'contentConflict' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmContentConflict :: Lens.Lens' ConflictMetadata (Lude.Maybe Lude.Bool)
+cmContentConflict = Lens.lens (contentConflict :: ConflictMetadata -> Lude.Maybe Lude.Bool) (\s a -> s {contentConflict = a} :: ConflictMetadata)
+{-# DEPRECATED cmContentConflict "Use generic-lens or generic-optics with 'contentConflict' instead." #-}
 
 -- | The file sizes of the file in the source, destination, and base of the merge.
-cmFileSizes :: Lens' ConflictMetadata (Maybe FileSizes)
-cmFileSizes = lens _cmFileSizes (\s a -> s {_cmFileSizes = a})
+--
+-- /Note:/ Consider using 'fileSizes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmFileSizes :: Lens.Lens' ConflictMetadata (Lude.Maybe FileSizes)
+cmFileSizes = Lens.lens (fileSizes :: ConflictMetadata -> Lude.Maybe FileSizes) (\s a -> s {fileSizes = a} :: ConflictMetadata)
+{-# DEPRECATED cmFileSizes "Use generic-lens or generic-optics with 'fileSizes' instead." #-}
 
 -- | The path of the file that contains conflicts.
-cmFilePath :: Lens' ConflictMetadata (Maybe Text)
-cmFilePath = lens _cmFilePath (\s a -> s {_cmFilePath = a})
+--
+-- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmFilePath :: Lens.Lens' ConflictMetadata (Lude.Maybe Lude.Text)
+cmFilePath = Lens.lens (filePath :: ConflictMetadata -> Lude.Maybe Lude.Text) (\s a -> s {filePath = a} :: ConflictMetadata)
+{-# DEPRECATED cmFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
 -- | A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.
-cmIsBinaryFile :: Lens' ConflictMetadata (Maybe IsBinaryFile)
-cmIsBinaryFile = lens _cmIsBinaryFile (\s a -> s {_cmIsBinaryFile = a})
+--
+-- /Note:/ Consider using 'isBinaryFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmIsBinaryFile :: Lens.Lens' ConflictMetadata (Lude.Maybe IsBinaryFile)
+cmIsBinaryFile = Lens.lens (isBinaryFile :: ConflictMetadata -> Lude.Maybe IsBinaryFile) (\s a -> s {isBinaryFile = a} :: ConflictMetadata)
+{-# DEPRECATED cmIsBinaryFile "Use generic-lens or generic-optics with 'isBinaryFile' instead." #-}
 
 -- | A boolean value indicating whether there are conflicts in the file mode of a file.
-cmFileModeConflict :: Lens' ConflictMetadata (Maybe Bool)
-cmFileModeConflict = lens _cmFileModeConflict (\s a -> s {_cmFileModeConflict = a})
+--
+-- /Note:/ Consider using 'fileModeConflict' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmFileModeConflict :: Lens.Lens' ConflictMetadata (Lude.Maybe Lude.Bool)
+cmFileModeConflict = Lens.lens (fileModeConflict :: ConflictMetadata -> Lude.Maybe Lude.Bool) (\s a -> s {fileModeConflict = a} :: ConflictMetadata)
+{-# DEPRECATED cmFileModeConflict "Use generic-lens or generic-optics with 'fileModeConflict' instead." #-}
 
 -- | A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.
-cmObjectTypeConflict :: Lens' ConflictMetadata (Maybe Bool)
-cmObjectTypeConflict = lens _cmObjectTypeConflict (\s a -> s {_cmObjectTypeConflict = a})
+--
+-- /Note:/ Consider using 'objectTypeConflict' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmObjectTypeConflict :: Lens.Lens' ConflictMetadata (Lude.Maybe Lude.Bool)
+cmObjectTypeConflict = Lens.lens (objectTypeConflict :: ConflictMetadata -> Lude.Maybe Lude.Bool) (\s a -> s {objectTypeConflict = a} :: ConflictMetadata)
+{-# DEPRECATED cmObjectTypeConflict "Use generic-lens or generic-optics with 'objectTypeConflict' instead." #-}
 
 -- | Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.
-cmMergeOperations :: Lens' ConflictMetadata (Maybe MergeOperations)
-cmMergeOperations = lens _cmMergeOperations (\s a -> s {_cmMergeOperations = a})
+--
+-- /Note:/ Consider using 'mergeOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmMergeOperations :: Lens.Lens' ConflictMetadata (Lude.Maybe MergeOperations)
+cmMergeOperations = Lens.lens (mergeOperations :: ConflictMetadata -> Lude.Maybe MergeOperations) (\s a -> s {mergeOperations = a} :: ConflictMetadata)
+{-# DEPRECATED cmMergeOperations "Use generic-lens or generic-optics with 'mergeOperations' instead." #-}
 
 -- | Information about any object type conflicts in a merge operation.
-cmObjectTypes :: Lens' ConflictMetadata (Maybe ObjectTypes)
-cmObjectTypes = lens _cmObjectTypes (\s a -> s {_cmObjectTypes = a})
+--
+-- /Note:/ Consider using 'objectTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmObjectTypes :: Lens.Lens' ConflictMetadata (Lude.Maybe ObjectTypes)
+cmObjectTypes = Lens.lens (objectTypes :: ConflictMetadata -> Lude.Maybe ObjectTypes) (\s a -> s {objectTypes = a} :: ConflictMetadata)
+{-# DEPRECATED cmObjectTypes "Use generic-lens or generic-optics with 'objectTypes' instead." #-}
 
 -- | The file modes of the file in the source, destination, and base of the merge.
-cmFileModes :: Lens' ConflictMetadata (Maybe FileModes)
-cmFileModes = lens _cmFileModes (\s a -> s {_cmFileModes = a})
+--
+-- /Note:/ Consider using 'fileModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmFileModes :: Lens.Lens' ConflictMetadata (Lude.Maybe FileModes)
+cmFileModes = Lens.lens (fileModes :: ConflictMetadata -> Lude.Maybe FileModes) (\s a -> s {fileModes = a} :: ConflictMetadata)
+{-# DEPRECATED cmFileModes "Use generic-lens or generic-optics with 'fileModes' instead." #-}
 
-instance FromJSON ConflictMetadata where
+instance Lude.FromJSON ConflictMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConflictMetadata"
       ( \x ->
           ConflictMetadata'
-            <$> (x .:? "numberOfConflicts")
-            <*> (x .:? "contentConflict")
-            <*> (x .:? "fileSizes")
-            <*> (x .:? "filePath")
-            <*> (x .:? "isBinaryFile")
-            <*> (x .:? "fileModeConflict")
-            <*> (x .:? "objectTypeConflict")
-            <*> (x .:? "mergeOperations")
-            <*> (x .:? "objectTypes")
-            <*> (x .:? "fileModes")
+            Lude.<$> (x Lude..:? "numberOfConflicts")
+            Lude.<*> (x Lude..:? "contentConflict")
+            Lude.<*> (x Lude..:? "fileSizes")
+            Lude.<*> (x Lude..:? "filePath")
+            Lude.<*> (x Lude..:? "isBinaryFile")
+            Lude.<*> (x Lude..:? "fileModeConflict")
+            Lude.<*> (x Lude..:? "objectTypeConflict")
+            Lude.<*> (x Lude..:? "mergeOperations")
+            Lude.<*> (x Lude..:? "objectTypes")
+            Lude.<*> (x Lude..:? "fileModes")
       )
-
-instance Hashable ConflictMetadata
-
-instance NFData ConflictMetadata

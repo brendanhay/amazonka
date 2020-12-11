@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,145 +7,187 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDeviceSummary where
+module Network.AWS.MediaLive.Types.InputDeviceSummary
+  ( InputDeviceSummary (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkInputDeviceSummary,
+
+    -- * Lenses
+    idsARN,
+    idsMACAddress,
+    idsHdDeviceSettings,
+    idsName,
+    idsId,
+    idsDeviceUpdateStatus,
+    idsDeviceSettingsSyncState,
+    idsType,
+    idsSerialNumber,
+    idsNetworkSettings,
+    idsConnectionState,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.DeviceSettingsSyncState
 import Network.AWS.MediaLive.Types.DeviceUpdateStatus
 import Network.AWS.MediaLive.Types.InputDeviceConnectionState
 import Network.AWS.MediaLive.Types.InputDeviceHdSettings
 import Network.AWS.MediaLive.Types.InputDeviceNetworkSettings
 import Network.AWS.MediaLive.Types.InputDeviceType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details of the input device.
 --
--- /See:/ 'inputDeviceSummary' smart constructor.
+-- /See:/ 'mkInputDeviceSummary' smart constructor.
 data InputDeviceSummary = InputDeviceSummary'
-  { _idsARN ::
-      !(Maybe Text),
-    _idsMACAddress :: !(Maybe Text),
-    _idsHdDeviceSettings ::
-      !(Maybe InputDeviceHdSettings),
-    _idsName :: !(Maybe Text),
-    _idsId :: !(Maybe Text),
-    _idsDeviceUpdateStatus :: !(Maybe DeviceUpdateStatus),
-    _idsDeviceSettingsSyncState ::
-      !(Maybe DeviceSettingsSyncState),
-    _idsType :: !(Maybe InputDeviceType),
-    _idsSerialNumber :: !(Maybe Text),
-    _idsNetworkSettings ::
-      !(Maybe InputDeviceNetworkSettings),
-    _idsConnectionState ::
-      !(Maybe InputDeviceConnectionState)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    mACAddress :: Lude.Maybe Lude.Text,
+    hdDeviceSettings :: Lude.Maybe InputDeviceHdSettings,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    deviceUpdateStatus :: Lude.Maybe DeviceUpdateStatus,
+    deviceSettingsSyncState ::
+      Lude.Maybe DeviceSettingsSyncState,
+    type' :: Lude.Maybe InputDeviceType,
+    serialNumber :: Lude.Maybe Lude.Text,
+    networkSettings ::
+      Lude.Maybe InputDeviceNetworkSettings,
+    connectionState ::
+      Lude.Maybe InputDeviceConnectionState
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDeviceSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idsARN' - The unique ARN of the input device.
---
--- * 'idsMACAddress' - The network MAC address of the input device.
---
--- * 'idsHdDeviceSettings' - Settings that describe an input device that is type HD.
---
--- * 'idsName' - A name that you specify for the input device.
---
--- * 'idsId' - The unique ID of the input device.
---
--- * 'idsDeviceUpdateStatus' - The status of software on the input device.
---
--- * 'idsDeviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
---
--- * 'idsType' - The type of the input device.
---
--- * 'idsSerialNumber' - The unique serial number of the input device.
---
--- * 'idsNetworkSettings' - Network settings for the input device.
---
--- * 'idsConnectionState' - The state of the connection between the input device and AWS.
-inputDeviceSummary ::
+-- * 'arn' - The unique ARN of the input device.
+-- * 'connectionState' - The state of the connection between the input device and AWS.
+-- * 'deviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+-- * 'deviceUpdateStatus' - The status of software on the input device.
+-- * 'hdDeviceSettings' - Settings that describe an input device that is type HD.
+-- * 'id' - The unique ID of the input device.
+-- * 'mACAddress' - The network MAC address of the input device.
+-- * 'name' - A name that you specify for the input device.
+-- * 'networkSettings' - Network settings for the input device.
+-- * 'serialNumber' - The unique serial number of the input device.
+-- * 'type'' - The type of the input device.
+mkInputDeviceSummary ::
   InputDeviceSummary
-inputDeviceSummary =
+mkInputDeviceSummary =
   InputDeviceSummary'
-    { _idsARN = Nothing,
-      _idsMACAddress = Nothing,
-      _idsHdDeviceSettings = Nothing,
-      _idsName = Nothing,
-      _idsId = Nothing,
-      _idsDeviceUpdateStatus = Nothing,
-      _idsDeviceSettingsSyncState = Nothing,
-      _idsType = Nothing,
-      _idsSerialNumber = Nothing,
-      _idsNetworkSettings = Nothing,
-      _idsConnectionState = Nothing
+    { arn = Lude.Nothing,
+      mACAddress = Lude.Nothing,
+      hdDeviceSettings = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      deviceUpdateStatus = Lude.Nothing,
+      deviceSettingsSyncState = Lude.Nothing,
+      type' = Lude.Nothing,
+      serialNumber = Lude.Nothing,
+      networkSettings = Lude.Nothing,
+      connectionState = Lude.Nothing
     }
 
 -- | The unique ARN of the input device.
-idsARN :: Lens' InputDeviceSummary (Maybe Text)
-idsARN = lens _idsARN (\s a -> s {_idsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsARN :: Lens.Lens' InputDeviceSummary (Lude.Maybe Lude.Text)
+idsARN = Lens.lens (arn :: InputDeviceSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: InputDeviceSummary)
+{-# DEPRECATED idsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The network MAC address of the input device.
-idsMACAddress :: Lens' InputDeviceSummary (Maybe Text)
-idsMACAddress = lens _idsMACAddress (\s a -> s {_idsMACAddress = a})
+--
+-- /Note:/ Consider using 'mACAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsMACAddress :: Lens.Lens' InputDeviceSummary (Lude.Maybe Lude.Text)
+idsMACAddress = Lens.lens (mACAddress :: InputDeviceSummary -> Lude.Maybe Lude.Text) (\s a -> s {mACAddress = a} :: InputDeviceSummary)
+{-# DEPRECATED idsMACAddress "Use generic-lens or generic-optics with 'mACAddress' instead." #-}
 
 -- | Settings that describe an input device that is type HD.
-idsHdDeviceSettings :: Lens' InputDeviceSummary (Maybe InputDeviceHdSettings)
-idsHdDeviceSettings = lens _idsHdDeviceSettings (\s a -> s {_idsHdDeviceSettings = a})
+--
+-- /Note:/ Consider using 'hdDeviceSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsHdDeviceSettings :: Lens.Lens' InputDeviceSummary (Lude.Maybe InputDeviceHdSettings)
+idsHdDeviceSettings = Lens.lens (hdDeviceSettings :: InputDeviceSummary -> Lude.Maybe InputDeviceHdSettings) (\s a -> s {hdDeviceSettings = a} :: InputDeviceSummary)
+{-# DEPRECATED idsHdDeviceSettings "Use generic-lens or generic-optics with 'hdDeviceSettings' instead." #-}
 
 -- | A name that you specify for the input device.
-idsName :: Lens' InputDeviceSummary (Maybe Text)
-idsName = lens _idsName (\s a -> s {_idsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsName :: Lens.Lens' InputDeviceSummary (Lude.Maybe Lude.Text)
+idsName = Lens.lens (name :: InputDeviceSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InputDeviceSummary)
+{-# DEPRECATED idsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique ID of the input device.
-idsId :: Lens' InputDeviceSummary (Maybe Text)
-idsId = lens _idsId (\s a -> s {_idsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsId :: Lens.Lens' InputDeviceSummary (Lude.Maybe Lude.Text)
+idsId = Lens.lens (id :: InputDeviceSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InputDeviceSummary)
+{-# DEPRECATED idsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The status of software on the input device.
-idsDeviceUpdateStatus :: Lens' InputDeviceSummary (Maybe DeviceUpdateStatus)
-idsDeviceUpdateStatus = lens _idsDeviceUpdateStatus (\s a -> s {_idsDeviceUpdateStatus = a})
+--
+-- /Note:/ Consider using 'deviceUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsDeviceUpdateStatus :: Lens.Lens' InputDeviceSummary (Lude.Maybe DeviceUpdateStatus)
+idsDeviceUpdateStatus = Lens.lens (deviceUpdateStatus :: InputDeviceSummary -> Lude.Maybe DeviceUpdateStatus) (\s a -> s {deviceUpdateStatus = a} :: InputDeviceSummary)
+{-# DEPRECATED idsDeviceUpdateStatus "Use generic-lens or generic-optics with 'deviceUpdateStatus' instead." #-}
 
 -- | The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
-idsDeviceSettingsSyncState :: Lens' InputDeviceSummary (Maybe DeviceSettingsSyncState)
-idsDeviceSettingsSyncState = lens _idsDeviceSettingsSyncState (\s a -> s {_idsDeviceSettingsSyncState = a})
+--
+-- /Note:/ Consider using 'deviceSettingsSyncState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsDeviceSettingsSyncState :: Lens.Lens' InputDeviceSummary (Lude.Maybe DeviceSettingsSyncState)
+idsDeviceSettingsSyncState = Lens.lens (deviceSettingsSyncState :: InputDeviceSummary -> Lude.Maybe DeviceSettingsSyncState) (\s a -> s {deviceSettingsSyncState = a} :: InputDeviceSummary)
+{-# DEPRECATED idsDeviceSettingsSyncState "Use generic-lens or generic-optics with 'deviceSettingsSyncState' instead." #-}
 
 -- | The type of the input device.
-idsType :: Lens' InputDeviceSummary (Maybe InputDeviceType)
-idsType = lens _idsType (\s a -> s {_idsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsType :: Lens.Lens' InputDeviceSummary (Lude.Maybe InputDeviceType)
+idsType = Lens.lens (type' :: InputDeviceSummary -> Lude.Maybe InputDeviceType) (\s a -> s {type' = a} :: InputDeviceSummary)
+{-# DEPRECATED idsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The unique serial number of the input device.
-idsSerialNumber :: Lens' InputDeviceSummary (Maybe Text)
-idsSerialNumber = lens _idsSerialNumber (\s a -> s {_idsSerialNumber = a})
+--
+-- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsSerialNumber :: Lens.Lens' InputDeviceSummary (Lude.Maybe Lude.Text)
+idsSerialNumber = Lens.lens (serialNumber :: InputDeviceSummary -> Lude.Maybe Lude.Text) (\s a -> s {serialNumber = a} :: InputDeviceSummary)
+{-# DEPRECATED idsSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
 -- | Network settings for the input device.
-idsNetworkSettings :: Lens' InputDeviceSummary (Maybe InputDeviceNetworkSettings)
-idsNetworkSettings = lens _idsNetworkSettings (\s a -> s {_idsNetworkSettings = a})
+--
+-- /Note:/ Consider using 'networkSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsNetworkSettings :: Lens.Lens' InputDeviceSummary (Lude.Maybe InputDeviceNetworkSettings)
+idsNetworkSettings = Lens.lens (networkSettings :: InputDeviceSummary -> Lude.Maybe InputDeviceNetworkSettings) (\s a -> s {networkSettings = a} :: InputDeviceSummary)
+{-# DEPRECATED idsNetworkSettings "Use generic-lens or generic-optics with 'networkSettings' instead." #-}
 
 -- | The state of the connection between the input device and AWS.
-idsConnectionState :: Lens' InputDeviceSummary (Maybe InputDeviceConnectionState)
-idsConnectionState = lens _idsConnectionState (\s a -> s {_idsConnectionState = a})
+--
+-- /Note:/ Consider using 'connectionState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsConnectionState :: Lens.Lens' InputDeviceSummary (Lude.Maybe InputDeviceConnectionState)
+idsConnectionState = Lens.lens (connectionState :: InputDeviceSummary -> Lude.Maybe InputDeviceConnectionState) (\s a -> s {connectionState = a} :: InputDeviceSummary)
+{-# DEPRECATED idsConnectionState "Use generic-lens or generic-optics with 'connectionState' instead." #-}
 
-instance FromJSON InputDeviceSummary where
+instance Lude.FromJSON InputDeviceSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputDeviceSummary"
       ( \x ->
           InputDeviceSummary'
-            <$> (x .:? "arn")
-            <*> (x .:? "macAddress")
-            <*> (x .:? "hdDeviceSettings")
-            <*> (x .:? "name")
-            <*> (x .:? "id")
-            <*> (x .:? "deviceUpdateStatus")
-            <*> (x .:? "deviceSettingsSyncState")
-            <*> (x .:? "type")
-            <*> (x .:? "serialNumber")
-            <*> (x .:? "networkSettings")
-            <*> (x .:? "connectionState")
+            Lude.<$> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "macAddress")
+            Lude.<*> (x Lude..:? "hdDeviceSettings")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "deviceUpdateStatus")
+            Lude.<*> (x Lude..:? "deviceSettingsSyncState")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "serialNumber")
+            Lude.<*> (x Lude..:? "networkSettings")
+            Lude.<*> (x Lude..:? "connectionState")
       )
-
-instance Hashable InputDeviceSummary
-
-instance NFData InputDeviceSummary

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Creates an Amazon Redshift event notification subscription. This action requires an ARN (Amazon Resource Name) of an Amazon SNS topic created by either the Amazon Redshift console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS console.
 --
---
 -- You can specify the source type, and lists of Amazon Redshift source IDs, event categories, and event severities. Notifications will be sent for all events you want that match those criteria. For example, you can specify source type = cluster, source ID = my-cluster-1 and mycluster2, event categories = Availability, Backup, and severity = ERROR. The subscription will only send notifications for those ERROR events in the Availability and Backup categories for the specified clusters.
---
 -- If you specify both the source type and source IDs, such as source type = cluster and source identifier = my-cluster-1, notifications will be sent for all the cluster events for my-cluster-1. If you specify a source type but do not specify a source identifier, you will receive notice of the events for the objects of that type in your AWS account. If you do not specify either the SourceType nor the SourceIdentifier, you will be notified of events generated from all Amazon Redshift sources belonging to your AWS account. You must specify a source type if you specify a source ID.
 module Network.AWS.Redshift.CreateEventSubscription
-  ( -- * Creating a Request
-    createEventSubscription,
-    CreateEventSubscription,
+  ( -- * Creating a request
+    CreateEventSubscription (..),
+    mkCreateEventSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cesEnabled,
     cesSourceType,
     cesSeverity,
@@ -38,179 +31,254 @@ module Network.AWS.Redshift.CreateEventSubscription
     cesSubscriptionName,
     cesSNSTopicARN,
 
-    -- * Destructuring the Response
-    createEventSubscriptionResponse,
-    CreateEventSubscriptionResponse,
+    -- * Destructuring the response
+    CreateEventSubscriptionResponse (..),
+    mkCreateEventSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cesrsEventSubscription,
     cesrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createEventSubscription' smart constructor.
+-- /See:/ 'mkCreateEventSubscription' smart constructor.
 data CreateEventSubscription = CreateEventSubscription'
-  { _cesEnabled ::
-      !(Maybe Bool),
-    _cesSourceType :: !(Maybe Text),
-    _cesSeverity :: !(Maybe Text),
-    _cesEventCategories :: !(Maybe [Text]),
-    _cesSourceIds :: !(Maybe [Text]),
-    _cesTags :: !(Maybe [Tag]),
-    _cesSubscriptionName :: !Text,
-    _cesSNSTopicARN :: !Text
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    sourceType :: Lude.Maybe Lude.Text,
+    severity :: Lude.Maybe Lude.Text,
+    eventCategories :: Lude.Maybe [Lude.Text],
+    sourceIds :: Lude.Maybe [Lude.Text],
+    tags :: Lude.Maybe [Tag],
+    subscriptionName :: Lude.Text,
+    snsTopicARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEventSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'enabled' - A boolean value; set to @true@ to activate the subscription, and set to @false@ to create the subscription but not activate it.
+-- * 'eventCategories' - Specifies the Amazon Redshift event categories to be published by the event notification subscription.
 --
--- * 'cesEnabled' - A boolean value; set to @true@ to activate the subscription, and set to @false@ to create the subscription but not activate it.
+-- Values: configuration, management, monitoring, security
+-- * 'severity' - Specifies the Amazon Redshift event severity to be published by the event notification subscription.
 --
--- * 'cesSourceType' - The type of source that will be generating the events. For example, if you want to be notified of events generated by a cluster, you would set this parameter to cluster. If this value is not specified, events are returned for all Amazon Redshift objects in your AWS account. You must specify a source type in order to specify source IDs. Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.
+-- Values: ERROR, INFO
+-- * 'snsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
+-- * 'sourceIds' - A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified.
 --
--- * 'cesSeverity' - Specifies the Amazon Redshift event severity to be published by the event notification subscription. Values: ERROR, INFO
+-- Example: my-cluster-1, my-cluster-2
+-- Example: my-snapshot-20131010
+-- * 'sourceType' - The type of source that will be generating the events. For example, if you want to be notified of events generated by a cluster, you would set this parameter to cluster. If this value is not specified, events are returned for all Amazon Redshift objects in your AWS account. You must specify a source type in order to specify source IDs.
 --
--- * 'cesEventCategories' - Specifies the Amazon Redshift event categories to be published by the event notification subscription. Values: configuration, management, monitoring, security
+-- Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.
+-- * 'subscriptionName' - The name of the event subscription to be created.
 --
--- * 'cesSourceIds' - A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified. Example: my-cluster-1, my-cluster-2 Example: my-snapshot-20131010
+-- Constraints:
 --
--- * 'cesTags' - A list of tag instances.
+--     * Cannot be null, empty, or blank.
 --
--- * 'cesSubscriptionName' - The name of the event subscription to be created. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- * 'cesSNSTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
-createEventSubscription ::
-  -- | 'cesSubscriptionName'
-  Text ->
-  -- | 'cesSNSTopicARN'
-  Text ->
+--     * Must contain from 1 to 255 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- * 'tags' - A list of tag instances.
+mkCreateEventSubscription ::
+  -- | 'subscriptionName'
+  Lude.Text ->
+  -- | 'snsTopicARN'
+  Lude.Text ->
   CreateEventSubscription
-createEventSubscription pSubscriptionName_ pSNSTopicARN_ =
+mkCreateEventSubscription pSubscriptionName_ pSNSTopicARN_ =
   CreateEventSubscription'
-    { _cesEnabled = Nothing,
-      _cesSourceType = Nothing,
-      _cesSeverity = Nothing,
-      _cesEventCategories = Nothing,
-      _cesSourceIds = Nothing,
-      _cesTags = Nothing,
-      _cesSubscriptionName = pSubscriptionName_,
-      _cesSNSTopicARN = pSNSTopicARN_
+    { enabled = Lude.Nothing,
+      sourceType = Lude.Nothing,
+      severity = Lude.Nothing,
+      eventCategories = Lude.Nothing,
+      sourceIds = Lude.Nothing,
+      tags = Lude.Nothing,
+      subscriptionName = pSubscriptionName_,
+      snsTopicARN = pSNSTopicARN_
     }
 
 -- | A boolean value; set to @true@ to activate the subscription, and set to @false@ to create the subscription but not activate it.
-cesEnabled :: Lens' CreateEventSubscription (Maybe Bool)
-cesEnabled = lens _cesEnabled (\s a -> s {_cesEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesEnabled :: Lens.Lens' CreateEventSubscription (Lude.Maybe Lude.Bool)
+cesEnabled = Lens.lens (enabled :: CreateEventSubscription -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: CreateEventSubscription)
+{-# DEPRECATED cesEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
--- | The type of source that will be generating the events. For example, if you want to be notified of events generated by a cluster, you would set this parameter to cluster. If this value is not specified, events are returned for all Amazon Redshift objects in your AWS account. You must specify a source type in order to specify source IDs. Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.
-cesSourceType :: Lens' CreateEventSubscription (Maybe Text)
-cesSourceType = lens _cesSourceType (\s a -> s {_cesSourceType = a})
+-- | The type of source that will be generating the events. For example, if you want to be notified of events generated by a cluster, you would set this parameter to cluster. If this value is not specified, events are returned for all Amazon Redshift objects in your AWS account. You must specify a source type in order to specify source IDs.
+--
+-- Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesSourceType :: Lens.Lens' CreateEventSubscription (Lude.Maybe Lude.Text)
+cesSourceType = Lens.lens (sourceType :: CreateEventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: CreateEventSubscription)
+{-# DEPRECATED cesSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
--- | Specifies the Amazon Redshift event severity to be published by the event notification subscription. Values: ERROR, INFO
-cesSeverity :: Lens' CreateEventSubscription (Maybe Text)
-cesSeverity = lens _cesSeverity (\s a -> s {_cesSeverity = a})
+-- | Specifies the Amazon Redshift event severity to be published by the event notification subscription.
+--
+-- Values: ERROR, INFO
+--
+-- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesSeverity :: Lens.Lens' CreateEventSubscription (Lude.Maybe Lude.Text)
+cesSeverity = Lens.lens (severity :: CreateEventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {severity = a} :: CreateEventSubscription)
+{-# DEPRECATED cesSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
--- | Specifies the Amazon Redshift event categories to be published by the event notification subscription. Values: configuration, management, monitoring, security
-cesEventCategories :: Lens' CreateEventSubscription [Text]
-cesEventCategories = lens _cesEventCategories (\s a -> s {_cesEventCategories = a}) . _Default . _Coerce
+-- | Specifies the Amazon Redshift event categories to be published by the event notification subscription.
+--
+-- Values: configuration, management, monitoring, security
+--
+-- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesEventCategories :: Lens.Lens' CreateEventSubscription (Lude.Maybe [Lude.Text])
+cesEventCategories = Lens.lens (eventCategories :: CreateEventSubscription -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: CreateEventSubscription)
+{-# DEPRECATED cesEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
 
--- | A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified. Example: my-cluster-1, my-cluster-2 Example: my-snapshot-20131010
-cesSourceIds :: Lens' CreateEventSubscription [Text]
-cesSourceIds = lens _cesSourceIds (\s a -> s {_cesSourceIds = a}) . _Default . _Coerce
+-- | A list of one or more identifiers of Amazon Redshift source objects. All of the objects must be of the same type as was specified in the source type parameter. The event subscription will return only events generated by the specified objects. If not specified, then events are returned for all objects within the source type specified.
+--
+-- Example: my-cluster-1, my-cluster-2
+-- Example: my-snapshot-20131010
+--
+-- /Note:/ Consider using 'sourceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesSourceIds :: Lens.Lens' CreateEventSubscription (Lude.Maybe [Lude.Text])
+cesSourceIds = Lens.lens (sourceIds :: CreateEventSubscription -> Lude.Maybe [Lude.Text]) (\s a -> s {sourceIds = a} :: CreateEventSubscription)
+{-# DEPRECATED cesSourceIds "Use generic-lens or generic-optics with 'sourceIds' instead." #-}
 
 -- | A list of tag instances.
-cesTags :: Lens' CreateEventSubscription [Tag]
-cesTags = lens _cesTags (\s a -> s {_cesTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesTags :: Lens.Lens' CreateEventSubscription (Lude.Maybe [Tag])
+cesTags = Lens.lens (tags :: CreateEventSubscription -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEventSubscription)
+{-# DEPRECATED cesTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the event subscription to be created. Constraints:     * Cannot be null, empty, or blank.     * Must contain from 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
-cesSubscriptionName :: Lens' CreateEventSubscription Text
-cesSubscriptionName = lens _cesSubscriptionName (\s a -> s {_cesSubscriptionName = a})
+-- | The name of the event subscription to be created.
+--
+-- Constraints:
+--
+--     * Cannot be null, empty, or blank.
+--
+--
+--     * Must contain from 1 to 255 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+--
+-- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesSubscriptionName :: Lens.Lens' CreateEventSubscription Lude.Text
+cesSubscriptionName = Lens.lens (subscriptionName :: CreateEventSubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: CreateEventSubscription)
+{-# DEPRECATED cesSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event notifications. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
-cesSNSTopicARN :: Lens' CreateEventSubscription Text
-cesSNSTopicARN = lens _cesSNSTopicARN (\s a -> s {_cesSNSTopicARN = a})
+--
+-- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesSNSTopicARN :: Lens.Lens' CreateEventSubscription Lude.Text
+cesSNSTopicARN = Lens.lens (snsTopicARN :: CreateEventSubscription -> Lude.Text) (\s a -> s {snsTopicARN = a} :: CreateEventSubscription)
+{-# DEPRECATED cesSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
 
-instance AWSRequest CreateEventSubscription where
+instance Lude.AWSRequest CreateEventSubscription where
   type Rs CreateEventSubscription = CreateEventSubscriptionResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateEventSubscriptionResult"
       ( \s h x ->
           CreateEventSubscriptionResponse'
-            <$> (x .@? "EventSubscription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "EventSubscription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateEventSubscription
+instance Lude.ToHeaders CreateEventSubscription where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateEventSubscription
+instance Lude.ToPath CreateEventSubscription where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateEventSubscription where
-  toHeaders = const mempty
-
-instance ToPath CreateEventSubscription where
-  toPath = const "/"
-
-instance ToQuery CreateEventSubscription where
+instance Lude.ToQuery CreateEventSubscription where
   toQuery CreateEventSubscription' {..} =
-    mconcat
-      [ "Action" =: ("CreateEventSubscription" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "Enabled" =: _cesEnabled,
-        "SourceType" =: _cesSourceType,
-        "Severity" =: _cesSeverity,
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateEventSubscription" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "Enabled" Lude.=: enabled,
+        "SourceType" Lude.=: sourceType,
+        "Severity" Lude.=: severity,
         "EventCategories"
-          =: toQuery (toQueryList "EventCategory" <$> _cesEventCategories),
-        "SourceIds" =: toQuery (toQueryList "SourceId" <$> _cesSourceIds),
-        "Tags" =: toQuery (toQueryList "Tag" <$> _cesTags),
-        "SubscriptionName" =: _cesSubscriptionName,
-        "SnsTopicArn" =: _cesSNSTopicARN
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "EventCategory" Lude.<$> eventCategories),
+        "SourceIds"
+          Lude.=: Lude.toQuery (Lude.toQueryList "SourceId" Lude.<$> sourceIds),
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "SubscriptionName" Lude.=: subscriptionName,
+        "SnsTopicArn" Lude.=: snsTopicARN
       ]
 
--- | /See:/ 'createEventSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkCreateEventSubscriptionResponse' smart constructor.
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
-  { _cesrsEventSubscription ::
-      !(Maybe EventSubscription),
-    _cesrsResponseStatus ::
-      !Int
+  { eventSubscription ::
+      Lude.Maybe
+        EventSubscription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEventSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cesrsEventSubscription' - Undocumented member.
---
--- * 'cesrsResponseStatus' - -- | The response status code.
-createEventSubscriptionResponse ::
-  -- | 'cesrsResponseStatus'
-  Int ->
+-- * 'eventSubscription' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateEventSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateEventSubscriptionResponse
-createEventSubscriptionResponse pResponseStatus_ =
+mkCreateEventSubscriptionResponse pResponseStatus_ =
   CreateEventSubscriptionResponse'
-    { _cesrsEventSubscription =
-        Nothing,
-      _cesrsResponseStatus = pResponseStatus_
+    { eventSubscription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-cesrsEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
-cesrsEventSubscription = lens _cesrsEventSubscription (\s a -> s {_cesrsEventSubscription = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'eventSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesrsEventSubscription :: Lens.Lens' CreateEventSubscriptionResponse (Lude.Maybe EventSubscription)
+cesrsEventSubscription = Lens.lens (eventSubscription :: CreateEventSubscriptionResponse -> Lude.Maybe EventSubscription) (\s a -> s {eventSubscription = a} :: CreateEventSubscriptionResponse)
+{-# DEPRECATED cesrsEventSubscription "Use generic-lens or generic-optics with 'eventSubscription' instead." #-}
 
--- | -- | The response status code.
-cesrsResponseStatus :: Lens' CreateEventSubscriptionResponse Int
-cesrsResponseStatus = lens _cesrsResponseStatus (\s a -> s {_cesrsResponseStatus = a})
-
-instance NFData CreateEventSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesrsResponseStatus :: Lens.Lens' CreateEventSubscriptionResponse Lude.Int
+cesrsResponseStatus = Lens.lens (responseStatus :: CreateEventSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEventSubscriptionResponse)
+{-# DEPRECATED cesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

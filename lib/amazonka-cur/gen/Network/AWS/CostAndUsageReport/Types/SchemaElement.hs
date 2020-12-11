@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostAndUsageReport.Types.SchemaElement where
+module Network.AWS.CostAndUsageReport.Types.SchemaElement
+  ( SchemaElement
+      ( SchemaElement',
+        Resources
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Whether or not AWS includes resource IDs in the report.
-data SchemaElement = Resources
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SchemaElement = SchemaElement' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SchemaElement where
-  parser =
-    takeLowerText >>= \case
-      "resources" -> pure Resources
-      e ->
-        fromTextError $
-          "Failure parsing SchemaElement from value: '" <> e
-            <> "'. Accepted values: resources"
+pattern Resources :: SchemaElement
+pattern Resources = SchemaElement' "RESOURCES"
 
-instance ToText SchemaElement where
-  toText = \case
-    Resources -> "RESOURCES"
-
-instance Hashable SchemaElement
-
-instance NFData SchemaElement
-
-instance ToByteString SchemaElement
-
-instance ToQuery SchemaElement
-
-instance ToHeader SchemaElement
-
-instance ToJSON SchemaElement where
-  toJSON = toJSONText
-
-instance FromJSON SchemaElement where
-  parseJSON = parseJSONText "SchemaElement"
+{-# COMPLETE
+  Resources,
+  SchemaElement'
+  #-}

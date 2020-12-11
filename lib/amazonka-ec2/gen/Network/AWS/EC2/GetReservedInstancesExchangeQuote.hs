@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Returns a quote and exchange information for exchanging one or more specified Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange cannot be performed, the reason is returned in the response. Use 'AcceptReservedInstancesExchangeQuote' to perform the exchange.
 module Network.AWS.EC2.GetReservedInstancesExchangeQuote
-  ( -- * Creating a Request
-    getReservedInstancesExchangeQuote,
-    GetReservedInstancesExchangeQuote,
+  ( -- * Creating a request
+    GetReservedInstancesExchangeQuote (..),
+    mkGetReservedInstancesExchangeQuote,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grieqTargetConfigurations,
     grieqDryRun,
     grieqReservedInstanceIds,
 
-    -- * Destructuring the Response
-    getReservedInstancesExchangeQuoteResponse,
-    GetReservedInstancesExchangeQuoteResponse,
+    -- * Destructuring the response
+    GetReservedInstancesExchangeQuoteResponse (..),
+    mkGetReservedInstancesExchangeQuoteResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grieqrsValidationFailureReason,
     grieqrsTargetConfigurationValueRollup,
     grieqrsCurrencyCode,
@@ -47,240 +42,253 @@ module Network.AWS.EC2.GetReservedInstancesExchangeQuote
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for GetReservedInstanceExchangeQuote.
 --
---
---
--- /See:/ 'getReservedInstancesExchangeQuote' smart constructor.
+-- /See:/ 'mkGetReservedInstancesExchangeQuote' smart constructor.
 data GetReservedInstancesExchangeQuote = GetReservedInstancesExchangeQuote'
-  { _grieqTargetConfigurations ::
-      !( Maybe
-           [TargetConfigurationRequest]
-       ),
-    _grieqDryRun ::
-      !(Maybe Bool),
-    _grieqReservedInstanceIds ::
-      ![Text]
+  { targetConfigurations ::
+      Lude.Maybe
+        [TargetConfigurationRequest],
+    dryRun ::
+      Lude.Maybe Lude.Bool,
+    reservedInstanceIds ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReservedInstancesExchangeQuote' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grieqTargetConfigurations' - The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
---
--- * 'grieqDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'grieqReservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange.
-getReservedInstancesExchangeQuote ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'reservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange.
+-- * 'targetConfigurations' - The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
+mkGetReservedInstancesExchangeQuote ::
   GetReservedInstancesExchangeQuote
-getReservedInstancesExchangeQuote =
+mkGetReservedInstancesExchangeQuote =
   GetReservedInstancesExchangeQuote'
-    { _grieqTargetConfigurations =
-        Nothing,
-      _grieqDryRun = Nothing,
-      _grieqReservedInstanceIds = mempty
+    { targetConfigurations =
+        Lude.Nothing,
+      dryRun = Lude.Nothing,
+      reservedInstanceIds = Lude.mempty
     }
 
 -- | The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
-grieqTargetConfigurations :: Lens' GetReservedInstancesExchangeQuote [TargetConfigurationRequest]
-grieqTargetConfigurations = lens _grieqTargetConfigurations (\s a -> s {_grieqTargetConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqTargetConfigurations :: Lens.Lens' GetReservedInstancesExchangeQuote (Lude.Maybe [TargetConfigurationRequest])
+grieqTargetConfigurations = Lens.lens (targetConfigurations :: GetReservedInstancesExchangeQuote -> Lude.Maybe [TargetConfigurationRequest]) (\s a -> s {targetConfigurations = a} :: GetReservedInstancesExchangeQuote)
+{-# DEPRECATED grieqTargetConfigurations "Use generic-lens or generic-optics with 'targetConfigurations' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-grieqDryRun :: Lens' GetReservedInstancesExchangeQuote (Maybe Bool)
-grieqDryRun = lens _grieqDryRun (\s a -> s {_grieqDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqDryRun :: Lens.Lens' GetReservedInstancesExchangeQuote (Lude.Maybe Lude.Bool)
+grieqDryRun = Lens.lens (dryRun :: GetReservedInstancesExchangeQuote -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetReservedInstancesExchangeQuote)
+{-# DEPRECATED grieqDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the Convertible Reserved Instances to exchange.
-grieqReservedInstanceIds :: Lens' GetReservedInstancesExchangeQuote [Text]
-grieqReservedInstanceIds = lens _grieqReservedInstanceIds (\s a -> s {_grieqReservedInstanceIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'reservedInstanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqReservedInstanceIds :: Lens.Lens' GetReservedInstancesExchangeQuote [Lude.Text]
+grieqReservedInstanceIds = Lens.lens (reservedInstanceIds :: GetReservedInstancesExchangeQuote -> [Lude.Text]) (\s a -> s {reservedInstanceIds = a} :: GetReservedInstancesExchangeQuote)
+{-# DEPRECATED grieqReservedInstanceIds "Use generic-lens or generic-optics with 'reservedInstanceIds' instead." #-}
 
-instance AWSRequest GetReservedInstancesExchangeQuote where
+instance Lude.AWSRequest GetReservedInstancesExchangeQuote where
   type
     Rs GetReservedInstancesExchangeQuote =
       GetReservedInstancesExchangeQuoteResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetReservedInstancesExchangeQuoteResponse'
-            <$> (x .@? "validationFailureReason")
-            <*> (x .@? "targetConfigurationValueRollup")
-            <*> (x .@? "currencyCode")
-            <*> ( x .@? "targetConfigurationValueSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (x .@? "reservedInstanceValueRollup")
-            <*> (x .@? "outputReservedInstancesWillExpireAt")
-            <*> ( x .@? "reservedInstanceValueSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (x .@? "isValidExchange")
-            <*> (x .@? "paymentDue")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "validationFailureReason")
+            Lude.<*> (x Lude..@? "targetConfigurationValueRollup")
+            Lude.<*> (x Lude..@? "currencyCode")
+            Lude.<*> ( x Lude..@? "targetConfigurationValueSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "reservedInstanceValueRollup")
+            Lude.<*> (x Lude..@? "outputReservedInstancesWillExpireAt")
+            Lude.<*> ( x Lude..@? "reservedInstanceValueSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "isValidExchange")
+            Lude.<*> (x Lude..@? "paymentDue")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetReservedInstancesExchangeQuote
+instance Lude.ToHeaders GetReservedInstancesExchangeQuote where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetReservedInstancesExchangeQuote
+instance Lude.ToPath GetReservedInstancesExchangeQuote where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetReservedInstancesExchangeQuote where
-  toHeaders = const mempty
-
-instance ToPath GetReservedInstancesExchangeQuote where
-  toPath = const "/"
-
-instance ToQuery GetReservedInstancesExchangeQuote where
+instance Lude.ToQuery GetReservedInstancesExchangeQuote where
   toQuery GetReservedInstancesExchangeQuote' {..} =
-    mconcat
-      [ "Action" =: ("GetReservedInstancesExchangeQuote" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery
-          (toQueryList "TargetConfiguration" <$> _grieqTargetConfigurations),
-        "DryRun" =: _grieqDryRun,
-        toQueryList "ReservedInstanceId" _grieqReservedInstanceIds
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("GetReservedInstancesExchangeQuote" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          ( Lude.toQueryList "TargetConfiguration"
+              Lude.<$> targetConfigurations
+          ),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "ReservedInstanceId" reservedInstanceIds
       ]
 
 -- | Contains the output of GetReservedInstancesExchangeQuote.
 --
---
---
--- /See:/ 'getReservedInstancesExchangeQuoteResponse' smart constructor.
+-- /See:/ 'mkGetReservedInstancesExchangeQuoteResponse' smart constructor.
 data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuoteResponse'
-  { _grieqrsValidationFailureReason ::
-      !( Maybe
-           Text
-       ),
-    _grieqrsTargetConfigurationValueRollup ::
-      !( Maybe
-           ReservationValue
-       ),
-    _grieqrsCurrencyCode ::
-      !( Maybe
-           Text
-       ),
-    _grieqrsTargetConfigurationValueSet ::
-      !( Maybe
-           [TargetReservationValue]
-       ),
-    _grieqrsReservedInstanceValueRollup ::
-      !( Maybe
-           ReservationValue
-       ),
-    _grieqrsOutputReservedInstancesWillExpireAt ::
-      !( Maybe
-           ISO8601
-       ),
-    _grieqrsReservedInstanceValueSet ::
-      !( Maybe
-           [ReservedInstanceReservationValue]
-       ),
-    _grieqrsIsValidExchange ::
-      !( Maybe
-           Bool
-       ),
-    _grieqrsPaymentDue ::
-      !( Maybe
-           Text
-       ),
-    _grieqrsResponseStatus ::
-      !Int
+  { validationFailureReason ::
+      Lude.Maybe
+        Lude.Text,
+    targetConfigurationValueRollup ::
+      Lude.Maybe
+        ReservationValue,
+    currencyCode ::
+      Lude.Maybe
+        Lude.Text,
+    targetConfigurationValueSet ::
+      Lude.Maybe
+        [TargetReservationValue],
+    reservedInstanceValueRollup ::
+      Lude.Maybe
+        ReservationValue,
+    outputReservedInstancesWillExpireAt ::
+      Lude.Maybe
+        Lude.ISO8601,
+    reservedInstanceValueSet ::
+      Lude.Maybe
+        [ReservedInstanceReservationValue],
+    isValidExchange ::
+      Lude.Maybe
+        Lude.Bool,
+    paymentDue ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReservedInstancesExchangeQuoteResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grieqrsValidationFailureReason' - Describes the reason why the exchange cannot be completed.
---
--- * 'grieqrsTargetConfigurationValueRollup' - The cost associated with the Reserved Instance.
---
--- * 'grieqrsCurrencyCode' - The currency of the transaction.
---
--- * 'grieqrsTargetConfigurationValueSet' - The values of the target Convertible Reserved Instances.
---
--- * 'grieqrsReservedInstanceValueRollup' - The cost associated with the Reserved Instance.
---
--- * 'grieqrsOutputReservedInstancesWillExpireAt' - The new end date of the reservation term.
---
--- * 'grieqrsReservedInstanceValueSet' - The configuration of your Convertible Reserved Instances.
---
--- * 'grieqrsIsValidExchange' - If @true@ , the exchange is valid. If @false@ , the exchange cannot be completed.
---
--- * 'grieqrsPaymentDue' - The total true upfront charge for the exchange.
---
--- * 'grieqrsResponseStatus' - -- | The response status code.
-getReservedInstancesExchangeQuoteResponse ::
-  -- | 'grieqrsResponseStatus'
-  Int ->
+-- * 'currencyCode' - The currency of the transaction.
+-- * 'isValidExchange' - If @true@ , the exchange is valid. If @false@ , the exchange cannot be completed.
+-- * 'outputReservedInstancesWillExpireAt' - The new end date of the reservation term.
+-- * 'paymentDue' - The total true upfront charge for the exchange.
+-- * 'reservedInstanceValueRollup' - The cost associated with the Reserved Instance.
+-- * 'reservedInstanceValueSet' - The configuration of your Convertible Reserved Instances.
+-- * 'responseStatus' - The response status code.
+-- * 'targetConfigurationValueRollup' - The cost associated with the Reserved Instance.
+-- * 'targetConfigurationValueSet' - The values of the target Convertible Reserved Instances.
+-- * 'validationFailureReason' - Describes the reason why the exchange cannot be completed.
+mkGetReservedInstancesExchangeQuoteResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetReservedInstancesExchangeQuoteResponse
-getReservedInstancesExchangeQuoteResponse pResponseStatus_ =
+mkGetReservedInstancesExchangeQuoteResponse pResponseStatus_ =
   GetReservedInstancesExchangeQuoteResponse'
-    { _grieqrsValidationFailureReason =
-        Nothing,
-      _grieqrsTargetConfigurationValueRollup = Nothing,
-      _grieqrsCurrencyCode = Nothing,
-      _grieqrsTargetConfigurationValueSet = Nothing,
-      _grieqrsReservedInstanceValueRollup = Nothing,
-      _grieqrsOutputReservedInstancesWillExpireAt =
-        Nothing,
-      _grieqrsReservedInstanceValueSet = Nothing,
-      _grieqrsIsValidExchange = Nothing,
-      _grieqrsPaymentDue = Nothing,
-      _grieqrsResponseStatus = pResponseStatus_
+    { validationFailureReason =
+        Lude.Nothing,
+      targetConfigurationValueRollup = Lude.Nothing,
+      currencyCode = Lude.Nothing,
+      targetConfigurationValueSet = Lude.Nothing,
+      reservedInstanceValueRollup = Lude.Nothing,
+      outputReservedInstancesWillExpireAt = Lude.Nothing,
+      reservedInstanceValueSet = Lude.Nothing,
+      isValidExchange = Lude.Nothing,
+      paymentDue = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Describes the reason why the exchange cannot be completed.
-grieqrsValidationFailureReason :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Text)
-grieqrsValidationFailureReason = lens _grieqrsValidationFailureReason (\s a -> s {_grieqrsValidationFailureReason = a})
+--
+-- /Note:/ Consider using 'validationFailureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsValidationFailureReason :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe Lude.Text)
+grieqrsValidationFailureReason = Lens.lens (validationFailureReason :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe Lude.Text) (\s a -> s {validationFailureReason = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsValidationFailureReason "Use generic-lens or generic-optics with 'validationFailureReason' instead." #-}
 
 -- | The cost associated with the Reserved Instance.
-grieqrsTargetConfigurationValueRollup :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe ReservationValue)
-grieqrsTargetConfigurationValueRollup = lens _grieqrsTargetConfigurationValueRollup (\s a -> s {_grieqrsTargetConfigurationValueRollup = a})
+--
+-- /Note:/ Consider using 'targetConfigurationValueRollup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsTargetConfigurationValueRollup :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe ReservationValue)
+grieqrsTargetConfigurationValueRollup = Lens.lens (targetConfigurationValueRollup :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe ReservationValue) (\s a -> s {targetConfigurationValueRollup = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsTargetConfigurationValueRollup "Use generic-lens or generic-optics with 'targetConfigurationValueRollup' instead." #-}
 
 -- | The currency of the transaction.
-grieqrsCurrencyCode :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Text)
-grieqrsCurrencyCode = lens _grieqrsCurrencyCode (\s a -> s {_grieqrsCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsCurrencyCode :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe Lude.Text)
+grieqrsCurrencyCode = Lens.lens (currencyCode :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe Lude.Text) (\s a -> s {currencyCode = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The values of the target Convertible Reserved Instances.
-grieqrsTargetConfigurationValueSet :: Lens' GetReservedInstancesExchangeQuoteResponse [TargetReservationValue]
-grieqrsTargetConfigurationValueSet = lens _grieqrsTargetConfigurationValueSet (\s a -> s {_grieqrsTargetConfigurationValueSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetConfigurationValueSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsTargetConfigurationValueSet :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe [TargetReservationValue])
+grieqrsTargetConfigurationValueSet = Lens.lens (targetConfigurationValueSet :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe [TargetReservationValue]) (\s a -> s {targetConfigurationValueSet = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsTargetConfigurationValueSet "Use generic-lens or generic-optics with 'targetConfigurationValueSet' instead." #-}
 
 -- | The cost associated with the Reserved Instance.
-grieqrsReservedInstanceValueRollup :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe ReservationValue)
-grieqrsReservedInstanceValueRollup = lens _grieqrsReservedInstanceValueRollup (\s a -> s {_grieqrsReservedInstanceValueRollup = a})
+--
+-- /Note:/ Consider using 'reservedInstanceValueRollup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsReservedInstanceValueRollup :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe ReservationValue)
+grieqrsReservedInstanceValueRollup = Lens.lens (reservedInstanceValueRollup :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe ReservationValue) (\s a -> s {reservedInstanceValueRollup = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsReservedInstanceValueRollup "Use generic-lens or generic-optics with 'reservedInstanceValueRollup' instead." #-}
 
 -- | The new end date of the reservation term.
-grieqrsOutputReservedInstancesWillExpireAt :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe UTCTime)
-grieqrsOutputReservedInstancesWillExpireAt = lens _grieqrsOutputReservedInstancesWillExpireAt (\s a -> s {_grieqrsOutputReservedInstancesWillExpireAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'outputReservedInstancesWillExpireAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsOutputReservedInstancesWillExpireAt :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe Lude.ISO8601)
+grieqrsOutputReservedInstancesWillExpireAt = Lens.lens (outputReservedInstancesWillExpireAt :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe Lude.ISO8601) (\s a -> s {outputReservedInstancesWillExpireAt = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsOutputReservedInstancesWillExpireAt "Use generic-lens or generic-optics with 'outputReservedInstancesWillExpireAt' instead." #-}
 
 -- | The configuration of your Convertible Reserved Instances.
-grieqrsReservedInstanceValueSet :: Lens' GetReservedInstancesExchangeQuoteResponse [ReservedInstanceReservationValue]
-grieqrsReservedInstanceValueSet = lens _grieqrsReservedInstanceValueSet (\s a -> s {_grieqrsReservedInstanceValueSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'reservedInstanceValueSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsReservedInstanceValueSet :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe [ReservedInstanceReservationValue])
+grieqrsReservedInstanceValueSet = Lens.lens (reservedInstanceValueSet :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe [ReservedInstanceReservationValue]) (\s a -> s {reservedInstanceValueSet = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsReservedInstanceValueSet "Use generic-lens or generic-optics with 'reservedInstanceValueSet' instead." #-}
 
 -- | If @true@ , the exchange is valid. If @false@ , the exchange cannot be completed.
-grieqrsIsValidExchange :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Bool)
-grieqrsIsValidExchange = lens _grieqrsIsValidExchange (\s a -> s {_grieqrsIsValidExchange = a})
+--
+-- /Note:/ Consider using 'isValidExchange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsIsValidExchange :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe Lude.Bool)
+grieqrsIsValidExchange = Lens.lens (isValidExchange :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isValidExchange = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsIsValidExchange "Use generic-lens or generic-optics with 'isValidExchange' instead." #-}
 
 -- | The total true upfront charge for the exchange.
-grieqrsPaymentDue :: Lens' GetReservedInstancesExchangeQuoteResponse (Maybe Text)
-grieqrsPaymentDue = lens _grieqrsPaymentDue (\s a -> s {_grieqrsPaymentDue = a})
+--
+-- /Note:/ Consider using 'paymentDue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsPaymentDue :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse (Lude.Maybe Lude.Text)
+grieqrsPaymentDue = Lens.lens (paymentDue :: GetReservedInstancesExchangeQuoteResponse -> Lude.Maybe Lude.Text) (\s a -> s {paymentDue = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsPaymentDue "Use generic-lens or generic-optics with 'paymentDue' instead." #-}
 
--- | -- | The response status code.
-grieqrsResponseStatus :: Lens' GetReservedInstancesExchangeQuoteResponse Int
-grieqrsResponseStatus = lens _grieqrsResponseStatus (\s a -> s {_grieqrsResponseStatus = a})
-
-instance NFData GetReservedInstancesExchangeQuoteResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqrsResponseStatus :: Lens.Lens' GetReservedInstancesExchangeQuoteResponse Lude.Int
+grieqrsResponseStatus = Lens.lens (responseStatus :: GetReservedInstancesExchangeQuoteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED grieqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

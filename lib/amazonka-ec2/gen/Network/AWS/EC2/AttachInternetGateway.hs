@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,115 @@
 --
 -- Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC. For more information about your VPC and internet gateway, see the <https://docs.aws.amazon.com/vpc/latest/userguide/ Amazon Virtual Private Cloud User Guide> .
 module Network.AWS.EC2.AttachInternetGateway
-  ( -- * Creating a Request
-    attachInternetGateway,
-    AttachInternetGateway,
+  ( -- * Creating a request
+    AttachInternetGateway (..),
+    mkAttachInternetGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aigDryRun,
     aigInternetGatewayId,
     aigVPCId,
 
-    -- * Destructuring the Response
-    attachInternetGatewayResponse,
-    AttachInternetGatewayResponse,
+    -- * Destructuring the response
+    AttachInternetGatewayResponse (..),
+    mkAttachInternetGatewayResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachInternetGateway' smart constructor.
+-- | /See:/ 'mkAttachInternetGateway' smart constructor.
 data AttachInternetGateway = AttachInternetGateway'
-  { _aigDryRun ::
-      !(Maybe Bool),
-    _aigInternetGatewayId :: !Text,
-    _aigVPCId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    internetGatewayId :: Lude.Text,
+    vpcId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInternetGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aigDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'aigInternetGatewayId' - The ID of the internet gateway.
---
--- * 'aigVPCId' - The ID of the VPC.
-attachInternetGateway ::
-  -- | 'aigInternetGatewayId'
-  Text ->
-  -- | 'aigVPCId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'internetGatewayId' - The ID of the internet gateway.
+-- * 'vpcId' - The ID of the VPC.
+mkAttachInternetGateway ::
+  -- | 'internetGatewayId'
+  Lude.Text ->
+  -- | 'vpcId'
+  Lude.Text ->
   AttachInternetGateway
-attachInternetGateway pInternetGatewayId_ pVPCId_ =
+mkAttachInternetGateway pInternetGatewayId_ pVPCId_ =
   AttachInternetGateway'
-    { _aigDryRun = Nothing,
-      _aigInternetGatewayId = pInternetGatewayId_,
-      _aigVPCId = pVPCId_
+    { dryRun = Lude.Nothing,
+      internetGatewayId = pInternetGatewayId_,
+      vpcId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
-aigDryRun = lens _aigDryRun (\s a -> s {_aigDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigDryRun :: Lens.Lens' AttachInternetGateway (Lude.Maybe Lude.Bool)
+aigDryRun = Lens.lens (dryRun :: AttachInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AttachInternetGateway)
+{-# DEPRECATED aigDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the internet gateway.
-aigInternetGatewayId :: Lens' AttachInternetGateway Text
-aigInternetGatewayId = lens _aigInternetGatewayId (\s a -> s {_aigInternetGatewayId = a})
+--
+-- /Note:/ Consider using 'internetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigInternetGatewayId :: Lens.Lens' AttachInternetGateway Lude.Text
+aigInternetGatewayId = Lens.lens (internetGatewayId :: AttachInternetGateway -> Lude.Text) (\s a -> s {internetGatewayId = a} :: AttachInternetGateway)
+{-# DEPRECATED aigInternetGatewayId "Use generic-lens or generic-optics with 'internetGatewayId' instead." #-}
 
 -- | The ID of the VPC.
-aigVPCId :: Lens' AttachInternetGateway Text
-aigVPCId = lens _aigVPCId (\s a -> s {_aigVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigVPCId :: Lens.Lens' AttachInternetGateway Lude.Text
+aigVPCId = Lens.lens (vpcId :: AttachInternetGateway -> Lude.Text) (\s a -> s {vpcId = a} :: AttachInternetGateway)
+{-# DEPRECATED aigVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance AWSRequest AttachInternetGateway where
+instance Lude.AWSRequest AttachInternetGateway where
   type Rs AttachInternetGateway = AttachInternetGatewayResponse
-  request = postQuery ec2
-  response = receiveNull AttachInternetGatewayResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull AttachInternetGatewayResponse'
 
-instance Hashable AttachInternetGateway
+instance Lude.ToHeaders AttachInternetGateway where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AttachInternetGateway
+instance Lude.ToPath AttachInternetGateway where
+  toPath = Lude.const "/"
 
-instance ToHeaders AttachInternetGateway where
-  toHeaders = const mempty
-
-instance ToPath AttachInternetGateway where
-  toPath = const "/"
-
-instance ToQuery AttachInternetGateway where
+instance Lude.ToQuery AttachInternetGateway where
   toQuery AttachInternetGateway' {..} =
-    mconcat
-      [ "Action" =: ("AttachInternetGateway" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _aigDryRun,
-        "InternetGatewayId" =: _aigInternetGatewayId,
-        "VpcId" =: _aigVPCId
+    Lude.mconcat
+      [ "Action" Lude.=: ("AttachInternetGateway" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "InternetGatewayId" Lude.=: internetGatewayId,
+        "VpcId" Lude.=: vpcId
       ]
 
--- | /See:/ 'attachInternetGatewayResponse' smart constructor.
+-- | /See:/ 'mkAttachInternetGatewayResponse' smart constructor.
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInternetGatewayResponse' with the minimum fields required to make a request.
-attachInternetGatewayResponse ::
+mkAttachInternetGatewayResponse ::
   AttachInternetGatewayResponse
-attachInternetGatewayResponse = AttachInternetGatewayResponse'
-
-instance NFData AttachInternetGatewayResponse
+mkAttachInternetGatewayResponse = AttachInternetGatewayResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EnaSupport where
+module Network.AWS.EC2.Types.EnaSupport
+  ( EnaSupport
+      ( EnaSupport',
+        ESRequired,
+        ESSupported,
+        ESUnsupported
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnaSupport
-  = ESRequired
-  | ESSupported
-  | ESUnsupported
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnaSupport = EnaSupport' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnaSupport where
-  parser =
-    takeLowerText >>= \case
-      "required" -> pure ESRequired
-      "supported" -> pure ESSupported
-      "unsupported" -> pure ESUnsupported
-      e ->
-        fromTextError $
-          "Failure parsing EnaSupport from value: '" <> e
-            <> "'. Accepted values: required, supported, unsupported"
+pattern ESRequired :: EnaSupport
+pattern ESRequired = EnaSupport' "required"
 
-instance ToText EnaSupport where
-  toText = \case
-    ESRequired -> "required"
-    ESSupported -> "supported"
-    ESUnsupported -> "unsupported"
+pattern ESSupported :: EnaSupport
+pattern ESSupported = EnaSupport' "supported"
 
-instance Hashable EnaSupport
+pattern ESUnsupported :: EnaSupport
+pattern ESUnsupported = EnaSupport' "unsupported"
 
-instance NFData EnaSupport
-
-instance ToByteString EnaSupport
-
-instance ToQuery EnaSupport
-
-instance ToHeader EnaSupport
-
-instance FromXML EnaSupport where
-  parseXML = parseXMLText "EnaSupport"
+{-# COMPLETE
+  ESRequired,
+  ESSupported,
+  ESUnsupported,
+  EnaSupport'
+  #-}

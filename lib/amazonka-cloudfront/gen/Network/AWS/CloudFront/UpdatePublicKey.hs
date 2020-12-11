@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Update public key information. Note that the only value you can change is the comment.
 module Network.AWS.CloudFront.UpdatePublicKey
-  ( -- * Creating a Request
-    updatePublicKey,
-    UpdatePublicKey,
+  ( -- * Creating a request
+    UpdatePublicKey (..),
+    mkUpdatePublicKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upkIfMatch,
     upkPublicKeyConfig,
     upkId,
 
-    -- * Destructuring the Response
-    updatePublicKeyResponse,
-    UpdatePublicKeyResponse,
+    -- * Destructuring the response
+    UpdatePublicKeyResponse (..),
+    mkUpdatePublicKeyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     upkrsETag,
     upkrsPublicKey,
     upkrsResponseStatus,
@@ -40,124 +35,144 @@ module Network.AWS.CloudFront.UpdatePublicKey
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updatePublicKey' smart constructor.
+-- | /See:/ 'mkUpdatePublicKey' smart constructor.
 data UpdatePublicKey = UpdatePublicKey'
-  { _upkIfMatch ::
-      !(Maybe Text),
-    _upkPublicKeyConfig :: !PublicKeyConfig,
-    _upkId :: !Text
+  { ifMatch ::
+      Lude.Maybe Lude.Text,
+    publicKeyConfig :: PublicKeyConfig,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePublicKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upkIfMatch' - The value of the @ETag@ header that you received when retrieving the public key to update. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'upkPublicKeyConfig' - A public key configuration.
---
--- * 'upkId' - The identifier of the public key that you are updating.
-updatePublicKey ::
-  -- | 'upkPublicKeyConfig'
+-- * 'id' - The identifier of the public key that you are updating.
+-- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the public key to update. For example: @E2QWRUHAPOMQZL@ .
+-- * 'publicKeyConfig' - A public key configuration.
+mkUpdatePublicKey ::
+  -- | 'publicKeyConfig'
   PublicKeyConfig ->
-  -- | 'upkId'
-  Text ->
+  -- | 'id'
+  Lude.Text ->
   UpdatePublicKey
-updatePublicKey pPublicKeyConfig_ pId_ =
+mkUpdatePublicKey pPublicKeyConfig_ pId_ =
   UpdatePublicKey'
-    { _upkIfMatch = Nothing,
-      _upkPublicKeyConfig = pPublicKeyConfig_,
-      _upkId = pId_
+    { ifMatch = Lude.Nothing,
+      publicKeyConfig = pPublicKeyConfig_,
+      id = pId_
     }
 
 -- | The value of the @ETag@ header that you received when retrieving the public key to update. For example: @E2QWRUHAPOMQZL@ .
-upkIfMatch :: Lens' UpdatePublicKey (Maybe Text)
-upkIfMatch = lens _upkIfMatch (\s a -> s {_upkIfMatch = a})
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkIfMatch :: Lens.Lens' UpdatePublicKey (Lude.Maybe Lude.Text)
+upkIfMatch = Lens.lens (ifMatch :: UpdatePublicKey -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: UpdatePublicKey)
+{-# DEPRECATED upkIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
 -- | A public key configuration.
-upkPublicKeyConfig :: Lens' UpdatePublicKey PublicKeyConfig
-upkPublicKeyConfig = lens _upkPublicKeyConfig (\s a -> s {_upkPublicKeyConfig = a})
+--
+-- /Note:/ Consider using 'publicKeyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkPublicKeyConfig :: Lens.Lens' UpdatePublicKey PublicKeyConfig
+upkPublicKeyConfig = Lens.lens (publicKeyConfig :: UpdatePublicKey -> PublicKeyConfig) (\s a -> s {publicKeyConfig = a} :: UpdatePublicKey)
+{-# DEPRECATED upkPublicKeyConfig "Use generic-lens or generic-optics with 'publicKeyConfig' instead." #-}
 
 -- | The identifier of the public key that you are updating.
-upkId :: Lens' UpdatePublicKey Text
-upkId = lens _upkId (\s a -> s {_upkId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkId :: Lens.Lens' UpdatePublicKey Lude.Text
+upkId = Lens.lens (id :: UpdatePublicKey -> Lude.Text) (\s a -> s {id = a} :: UpdatePublicKey)
+{-# DEPRECATED upkId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest UpdatePublicKey where
+instance Lude.AWSRequest UpdatePublicKey where
   type Rs UpdatePublicKey = UpdatePublicKeyResponse
-  request = putXML cloudFront
+  request = Req.putXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           UpdatePublicKeyResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdatePublicKey
-
-instance NFData UpdatePublicKey
-
-instance ToElement UpdatePublicKey where
+instance Lude.ToElement UpdatePublicKey where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}PublicKeyConfig"
-      . _upkPublicKeyConfig
+      Lude.. publicKeyConfig
 
-instance ToHeaders UpdatePublicKey where
+instance Lude.ToHeaders UpdatePublicKey where
   toHeaders UpdatePublicKey' {..} =
-    mconcat ["If-Match" =# _upkIfMatch]
+    Lude.mconcat ["If-Match" Lude.=# ifMatch]
 
-instance ToPath UpdatePublicKey where
+instance Lude.ToPath UpdatePublicKey where
   toPath UpdatePublicKey' {..} =
-    mconcat ["/2020-05-31/public-key/", toBS _upkId, "/config"]
+    Lude.mconcat ["/2020-05-31/public-key/", Lude.toBS id, "/config"]
 
-instance ToQuery UpdatePublicKey where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePublicKey where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updatePublicKeyResponse' smart constructor.
+-- | /See:/ 'mkUpdatePublicKeyResponse' smart constructor.
 data UpdatePublicKeyResponse = UpdatePublicKeyResponse'
-  { _upkrsETag ::
-      !(Maybe Text),
-    _upkrsPublicKey :: !(Maybe PublicKey),
-    _upkrsResponseStatus :: !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    publicKey :: Lude.Maybe PublicKey,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePublicKeyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upkrsETag' - The identifier of the current version of the public key.
---
--- * 'upkrsPublicKey' - The public key.
---
--- * 'upkrsResponseStatus' - -- | The response status code.
-updatePublicKeyResponse ::
-  -- | 'upkrsResponseStatus'
-  Int ->
+-- * 'eTag' - The identifier of the current version of the public key.
+-- * 'publicKey' - The public key.
+-- * 'responseStatus' - The response status code.
+mkUpdatePublicKeyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdatePublicKeyResponse
-updatePublicKeyResponse pResponseStatus_ =
+mkUpdatePublicKeyResponse pResponseStatus_ =
   UpdatePublicKeyResponse'
-    { _upkrsETag = Nothing,
-      _upkrsPublicKey = Nothing,
-      _upkrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      publicKey = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the current version of the public key.
-upkrsETag :: Lens' UpdatePublicKeyResponse (Maybe Text)
-upkrsETag = lens _upkrsETag (\s a -> s {_upkrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkrsETag :: Lens.Lens' UpdatePublicKeyResponse (Lude.Maybe Lude.Text)
+upkrsETag = Lens.lens (eTag :: UpdatePublicKeyResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: UpdatePublicKeyResponse)
+{-# DEPRECATED upkrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The public key.
-upkrsPublicKey :: Lens' UpdatePublicKeyResponse (Maybe PublicKey)
-upkrsPublicKey = lens _upkrsPublicKey (\s a -> s {_upkrsPublicKey = a})
+--
+-- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkrsPublicKey :: Lens.Lens' UpdatePublicKeyResponse (Lude.Maybe PublicKey)
+upkrsPublicKey = Lens.lens (publicKey :: UpdatePublicKeyResponse -> Lude.Maybe PublicKey) (\s a -> s {publicKey = a} :: UpdatePublicKeyResponse)
+{-# DEPRECATED upkrsPublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
 
--- | -- | The response status code.
-upkrsResponseStatus :: Lens' UpdatePublicKeyResponse Int
-upkrsResponseStatus = lens _upkrsResponseStatus (\s a -> s {_upkrsResponseStatus = a})
-
-instance NFData UpdatePublicKeyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkrsResponseStatus :: Lens.Lens' UpdatePublicKeyResponse Lude.Int
+upkrsResponseStatus = Lens.lens (responseStatus :: UpdatePublicKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePublicKeyResponse)
+{-# DEPRECATED upkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

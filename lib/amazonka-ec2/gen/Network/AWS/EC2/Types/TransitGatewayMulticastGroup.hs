@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,135 +7,173 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayMulticastGroup where
+module Network.AWS.EC2.Types.TransitGatewayMulticastGroup
+  ( TransitGatewayMulticastGroup (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkTransitGatewayMulticastGroup,
+
+    -- * Lenses
+    tgmgResourceId,
+    tgmgResourceType,
+    tgmgSourceType,
+    tgmgMemberType,
+    tgmgNetworkInterfaceId,
+    tgmgSubnetId,
+    tgmgGroupMember,
+    tgmgGroupSource,
+    tgmgGroupIPAddress,
+    tgmgTransitGatewayAttachmentId,
+  )
+where
+
 import Network.AWS.EC2.Types.MembershipType
 import Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the transit gateway multicast group resources.
 --
---
---
--- /See:/ 'transitGatewayMulticastGroup' smart constructor.
+-- /See:/ 'mkTransitGatewayMulticastGroup' smart constructor.
 data TransitGatewayMulticastGroup = TransitGatewayMulticastGroup'
-  { _tgmgResourceId ::
-      !(Maybe Text),
-    _tgmgResourceType ::
-      !( Maybe
-           TransitGatewayAttachmentResourceType
-       ),
-    _tgmgSourceType ::
-      !(Maybe MembershipType),
-    _tgmgMemberType ::
-      !(Maybe MembershipType),
-    _tgmgNetworkInterfaceId ::
-      !(Maybe Text),
-    _tgmgSubnetId :: !(Maybe Text),
-    _tgmgGroupMember :: !(Maybe Bool),
-    _tgmgGroupSource :: !(Maybe Bool),
-    _tgmgGroupIPAddress ::
-      !(Maybe Text),
-    _tgmgTransitGatewayAttachmentId ::
-      !(Maybe Text)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceType ::
+      Lude.Maybe
+        TransitGatewayAttachmentResourceType,
+    sourceType ::
+      Lude.Maybe MembershipType,
+    memberType ::
+      Lude.Maybe MembershipType,
+    networkInterfaceId ::
+      Lude.Maybe Lude.Text,
+    subnetId :: Lude.Maybe Lude.Text,
+    groupMember ::
+      Lude.Maybe Lude.Bool,
+    groupSource ::
+      Lude.Maybe Lude.Bool,
+    groupIPAddress ::
+      Lude.Maybe Lude.Text,
+    transitGatewayAttachmentId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayMulticastGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgmgResourceId' - The ID of the resource.
---
--- * 'tgmgResourceType' - The type of resource, for example a VPC attachment.
---
--- * 'tgmgSourceType' - The source type.
---
--- * 'tgmgMemberType' - The member type (for example, @static@ ).
---
--- * 'tgmgNetworkInterfaceId' - The ID of the transit gateway attachment.
---
--- * 'tgmgSubnetId' - The ID of the subnet.
---
--- * 'tgmgGroupMember' - Indicates that the resource is a transit gateway multicast group member.
---
--- * 'tgmgGroupSource' - Indicates that the resource is a transit gateway multicast group member.
---
--- * 'tgmgGroupIPAddress' - The IP address assigned to the transit gateway multicast group.
---
--- * 'tgmgTransitGatewayAttachmentId' - The ID of the transit gateway attachment.
-transitGatewayMulticastGroup ::
+-- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
+-- * 'groupMember' - Indicates that the resource is a transit gateway multicast group member.
+-- * 'groupSource' - Indicates that the resource is a transit gateway multicast group member.
+-- * 'memberType' - The member type (for example, @static@ ).
+-- * 'networkInterfaceId' - The ID of the transit gateway attachment.
+-- * 'resourceId' - The ID of the resource.
+-- * 'resourceType' - The type of resource, for example a VPC attachment.
+-- * 'sourceType' - The source type.
+-- * 'subnetId' - The ID of the subnet.
+-- * 'transitGatewayAttachmentId' - The ID of the transit gateway attachment.
+mkTransitGatewayMulticastGroup ::
   TransitGatewayMulticastGroup
-transitGatewayMulticastGroup =
+mkTransitGatewayMulticastGroup =
   TransitGatewayMulticastGroup'
-    { _tgmgResourceId = Nothing,
-      _tgmgResourceType = Nothing,
-      _tgmgSourceType = Nothing,
-      _tgmgMemberType = Nothing,
-      _tgmgNetworkInterfaceId = Nothing,
-      _tgmgSubnetId = Nothing,
-      _tgmgGroupMember = Nothing,
-      _tgmgGroupSource = Nothing,
-      _tgmgGroupIPAddress = Nothing,
-      _tgmgTransitGatewayAttachmentId = Nothing
+    { resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      sourceType = Lude.Nothing,
+      memberType = Lude.Nothing,
+      networkInterfaceId = Lude.Nothing,
+      subnetId = Lude.Nothing,
+      groupMember = Lude.Nothing,
+      groupSource = Lude.Nothing,
+      groupIPAddress = Lude.Nothing,
+      transitGatewayAttachmentId = Lude.Nothing
     }
 
 -- | The ID of the resource.
-tgmgResourceId :: Lens' TransitGatewayMulticastGroup (Maybe Text)
-tgmgResourceId = lens _tgmgResourceId (\s a -> s {_tgmgResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgResourceId :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe Lude.Text)
+tgmgResourceId = Lens.lens (resourceId :: TransitGatewayMulticastGroup -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of resource, for example a VPC attachment.
-tgmgResourceType :: Lens' TransitGatewayMulticastGroup (Maybe TransitGatewayAttachmentResourceType)
-tgmgResourceType = lens _tgmgResourceType (\s a -> s {_tgmgResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgResourceType :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe TransitGatewayAttachmentResourceType)
+tgmgResourceType = Lens.lens (resourceType :: TransitGatewayMulticastGroup -> Lude.Maybe TransitGatewayAttachmentResourceType) (\s a -> s {resourceType = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The source type.
-tgmgSourceType :: Lens' TransitGatewayMulticastGroup (Maybe MembershipType)
-tgmgSourceType = lens _tgmgSourceType (\s a -> s {_tgmgSourceType = a})
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgSourceType :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe MembershipType)
+tgmgSourceType = Lens.lens (sourceType :: TransitGatewayMulticastGroup -> Lude.Maybe MembershipType) (\s a -> s {sourceType = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | The member type (for example, @static@ ).
-tgmgMemberType :: Lens' TransitGatewayMulticastGroup (Maybe MembershipType)
-tgmgMemberType = lens _tgmgMemberType (\s a -> s {_tgmgMemberType = a})
+--
+-- /Note:/ Consider using 'memberType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgMemberType :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe MembershipType)
+tgmgMemberType = Lens.lens (memberType :: TransitGatewayMulticastGroup -> Lude.Maybe MembershipType) (\s a -> s {memberType = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgMemberType "Use generic-lens or generic-optics with 'memberType' instead." #-}
 
 -- | The ID of the transit gateway attachment.
-tgmgNetworkInterfaceId :: Lens' TransitGatewayMulticastGroup (Maybe Text)
-tgmgNetworkInterfaceId = lens _tgmgNetworkInterfaceId (\s a -> s {_tgmgNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgNetworkInterfaceId :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe Lude.Text)
+tgmgNetworkInterfaceId = Lens.lens (networkInterfaceId :: TransitGatewayMulticastGroup -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The ID of the subnet.
-tgmgSubnetId :: Lens' TransitGatewayMulticastGroup (Maybe Text)
-tgmgSubnetId = lens _tgmgSubnetId (\s a -> s {_tgmgSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgSubnetId :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe Lude.Text)
+tgmgSubnetId = Lens.lens (subnetId :: TransitGatewayMulticastGroup -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | Indicates that the resource is a transit gateway multicast group member.
-tgmgGroupMember :: Lens' TransitGatewayMulticastGroup (Maybe Bool)
-tgmgGroupMember = lens _tgmgGroupMember (\s a -> s {_tgmgGroupMember = a})
+--
+-- /Note:/ Consider using 'groupMember' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgGroupMember :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe Lude.Bool)
+tgmgGroupMember = Lens.lens (groupMember :: TransitGatewayMulticastGroup -> Lude.Maybe Lude.Bool) (\s a -> s {groupMember = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgGroupMember "Use generic-lens or generic-optics with 'groupMember' instead." #-}
 
 -- | Indicates that the resource is a transit gateway multicast group member.
-tgmgGroupSource :: Lens' TransitGatewayMulticastGroup (Maybe Bool)
-tgmgGroupSource = lens _tgmgGroupSource (\s a -> s {_tgmgGroupSource = a})
+--
+-- /Note:/ Consider using 'groupSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgGroupSource :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe Lude.Bool)
+tgmgGroupSource = Lens.lens (groupSource :: TransitGatewayMulticastGroup -> Lude.Maybe Lude.Bool) (\s a -> s {groupSource = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgGroupSource "Use generic-lens or generic-optics with 'groupSource' instead." #-}
 
 -- | The IP address assigned to the transit gateway multicast group.
-tgmgGroupIPAddress :: Lens' TransitGatewayMulticastGroup (Maybe Text)
-tgmgGroupIPAddress = lens _tgmgGroupIPAddress (\s a -> s {_tgmgGroupIPAddress = a})
+--
+-- /Note:/ Consider using 'groupIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgGroupIPAddress :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe Lude.Text)
+tgmgGroupIPAddress = Lens.lens (groupIPAddress :: TransitGatewayMulticastGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupIPAddress = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgGroupIPAddress "Use generic-lens or generic-optics with 'groupIPAddress' instead." #-}
 
 -- | The ID of the transit gateway attachment.
-tgmgTransitGatewayAttachmentId :: Lens' TransitGatewayMulticastGroup (Maybe Text)
-tgmgTransitGatewayAttachmentId = lens _tgmgTransitGatewayAttachmentId (\s a -> s {_tgmgTransitGatewayAttachmentId = a})
+--
+-- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmgTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayMulticastGroup (Lude.Maybe Lude.Text)
+tgmgTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: TransitGatewayMulticastGroup -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: TransitGatewayMulticastGroup)
+{-# DEPRECATED tgmgTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
-instance FromXML TransitGatewayMulticastGroup where
+instance Lude.FromXML TransitGatewayMulticastGroup where
   parseXML x =
     TransitGatewayMulticastGroup'
-      <$> (x .@? "resourceId")
-      <*> (x .@? "resourceType")
-      <*> (x .@? "sourceType")
-      <*> (x .@? "memberType")
-      <*> (x .@? "networkInterfaceId")
-      <*> (x .@? "subnetId")
-      <*> (x .@? "groupMember")
-      <*> (x .@? "groupSource")
-      <*> (x .@? "groupIpAddress")
-      <*> (x .@? "transitGatewayAttachmentId")
-
-instance Hashable TransitGatewayMulticastGroup
-
-instance NFData TransitGatewayMulticastGroup
+      Lude.<$> (x Lude..@? "resourceId")
+      Lude.<*> (x Lude..@? "resourceType")
+      Lude.<*> (x Lude..@? "sourceType")
+      Lude.<*> (x Lude..@? "memberType")
+      Lude.<*> (x Lude..@? "networkInterfaceId")
+      Lude.<*> (x Lude..@? "subnetId")
+      Lude.<*> (x Lude..@? "groupMember")
+      Lude.<*> (x Lude..@? "groupSource")
+      Lude.<*> (x Lude..@? "groupIpAddress")
+      Lude.<*> (x Lude..@? "transitGatewayAttachmentId")

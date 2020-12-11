@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,31 +7,42 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.WebvttDestinationSettings where
+module Network.AWS.MediaLive.Types.WebvttDestinationSettings
+  ( WebvttDestinationSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWebvttDestinationSettings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Webvtt Destination Settings
 --
--- /See:/ 'webvttDestinationSettings' smart constructor.
+-- /See:/ 'mkWebvttDestinationSettings' smart constructor.
 data WebvttDestinationSettings = WebvttDestinationSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WebvttDestinationSettings' with the minimum fields required to make a request.
-webvttDestinationSettings ::
+mkWebvttDestinationSettings ::
   WebvttDestinationSettings
-webvttDestinationSettings = WebvttDestinationSettings'
+mkWebvttDestinationSettings = WebvttDestinationSettings'
 
-instance FromJSON WebvttDestinationSettings where
+instance Lude.FromJSON WebvttDestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "WebvttDestinationSettings"
-      (\x -> pure WebvttDestinationSettings')
+      (\x -> Lude.pure WebvttDestinationSettings')
 
-instance Hashable WebvttDestinationSettings
-
-instance NFData WebvttDestinationSettings
-
-instance ToJSON WebvttDestinationSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON WebvttDestinationSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

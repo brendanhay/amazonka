@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,109 @@
 --
 -- Revokes access to integrated applications from Amazon Connect.
 module Network.AWS.Connect.DisassociateApprovedOrigin
-  ( -- * Creating a Request
-    disassociateApprovedOrigin,
-    DisassociateApprovedOrigin,
+  ( -- * Creating a request
+    DisassociateApprovedOrigin (..),
+    mkDisassociateApprovedOrigin,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daoInstanceId,
     daoOrigin,
 
-    -- * Destructuring the Response
-    disassociateApprovedOriginResponse,
-    DisassociateApprovedOriginResponse,
+    -- * Destructuring the response
+    DisassociateApprovedOriginResponse (..),
+    mkDisassociateApprovedOriginResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateApprovedOrigin' smart constructor.
+-- | /See:/ 'mkDisassociateApprovedOrigin' smart constructor.
 data DisassociateApprovedOrigin = DisassociateApprovedOrigin'
-  { _daoInstanceId ::
-      !Text,
-    _daoOrigin :: !Text
+  { instanceId ::
+      Lude.Text,
+    origin :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateApprovedOrigin' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daoInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'daoOrigin' - The domain URL of the integrated application.
-disassociateApprovedOrigin ::
-  -- | 'daoInstanceId'
-  Text ->
-  -- | 'daoOrigin'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'origin' - The domain URL of the integrated application.
+mkDisassociateApprovedOrigin ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'origin'
+  Lude.Text ->
   DisassociateApprovedOrigin
-disassociateApprovedOrigin pInstanceId_ pOrigin_ =
+mkDisassociateApprovedOrigin pInstanceId_ pOrigin_ =
   DisassociateApprovedOrigin'
-    { _daoInstanceId = pInstanceId_,
-      _daoOrigin = pOrigin_
+    { instanceId = pInstanceId_,
+      origin = pOrigin_
     }
 
 -- | The identifier of the Amazon Connect instance.
-daoInstanceId :: Lens' DisassociateApprovedOrigin Text
-daoInstanceId = lens _daoInstanceId (\s a -> s {_daoInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoInstanceId :: Lens.Lens' DisassociateApprovedOrigin Lude.Text
+daoInstanceId = Lens.lens (instanceId :: DisassociateApprovedOrigin -> Lude.Text) (\s a -> s {instanceId = a} :: DisassociateApprovedOrigin)
+{-# DEPRECATED daoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The domain URL of the integrated application.
-daoOrigin :: Lens' DisassociateApprovedOrigin Text
-daoOrigin = lens _daoOrigin (\s a -> s {_daoOrigin = a})
+--
+-- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoOrigin :: Lens.Lens' DisassociateApprovedOrigin Lude.Text
+daoOrigin = Lens.lens (origin :: DisassociateApprovedOrigin -> Lude.Text) (\s a -> s {origin = a} :: DisassociateApprovedOrigin)
+{-# DEPRECATED daoOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
 
-instance AWSRequest DisassociateApprovedOrigin where
+instance Lude.AWSRequest DisassociateApprovedOrigin where
   type
     Rs DisassociateApprovedOrigin =
       DisassociateApprovedOriginResponse
-  request = delete connect
-  response = receiveNull DisassociateApprovedOriginResponse'
+  request = Req.delete connectService
+  response = Res.receiveNull DisassociateApprovedOriginResponse'
 
-instance Hashable DisassociateApprovedOrigin
-
-instance NFData DisassociateApprovedOrigin
-
-instance ToHeaders DisassociateApprovedOrigin where
+instance Lude.ToHeaders DisassociateApprovedOrigin where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DisassociateApprovedOrigin where
+instance Lude.ToPath DisassociateApprovedOrigin where
   toPath DisassociateApprovedOrigin' {..} =
-    mconcat ["/instance/", toBS _daoInstanceId, "/approved-origin"]
+    Lude.mconcat
+      ["/instance/", Lude.toBS instanceId, "/approved-origin"]
 
-instance ToQuery DisassociateApprovedOrigin where
+instance Lude.ToQuery DisassociateApprovedOrigin where
   toQuery DisassociateApprovedOrigin' {..} =
-    mconcat ["origin" =: _daoOrigin]
+    Lude.mconcat ["origin" Lude.=: origin]
 
--- | /See:/ 'disassociateApprovedOriginResponse' smart constructor.
+-- | /See:/ 'mkDisassociateApprovedOriginResponse' smart constructor.
 data DisassociateApprovedOriginResponse = DisassociateApprovedOriginResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateApprovedOriginResponse' with the minimum fields required to make a request.
-disassociateApprovedOriginResponse ::
+mkDisassociateApprovedOriginResponse ::
   DisassociateApprovedOriginResponse
-disassociateApprovedOriginResponse =
+mkDisassociateApprovedOriginResponse =
   DisassociateApprovedOriginResponse'
-
-instance NFData DisassociateApprovedOriginResponse

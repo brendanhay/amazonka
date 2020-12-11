@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns a list of all pending aggregation requests.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribePendingAggregationRequests
-  ( -- * Creating a Request
-    describePendingAggregationRequests,
-    DescribePendingAggregationRequests,
+  ( -- * Creating a request
+    DescribePendingAggregationRequests (..),
+    mkDescribePendingAggregationRequests,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dparNextToken,
     dparLimit,
 
-    -- * Destructuring the Response
-    describePendingAggregationRequestsResponse,
-    DescribePendingAggregationRequestsResponse,
+    -- * Destructuring the response
+    DescribePendingAggregationRequestsResponse (..),
+    mkDescribePendingAggregationRequestsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dparrsNextToken,
     dparrsPendingAggregationRequests,
     dparrsResponseStatus,
@@ -43,146 +36,161 @@ module Network.AWS.Config.DescribePendingAggregationRequests
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describePendingAggregationRequests' smart constructor.
+-- | /See:/ 'mkDescribePendingAggregationRequests' smart constructor.
 data DescribePendingAggregationRequests = DescribePendingAggregationRequests'
-  { _dparNextToken ::
-      !(Maybe Text),
-    _dparLimit ::
-      !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePendingAggregationRequests' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dparNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dparLimit' - The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-describePendingAggregationRequests ::
+-- * 'limit' - The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+mkDescribePendingAggregationRequests ::
   DescribePendingAggregationRequests
-describePendingAggregationRequests =
+mkDescribePendingAggregationRequests =
   DescribePendingAggregationRequests'
-    { _dparNextToken = Nothing,
-      _dparLimit = Nothing
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dparNextToken :: Lens' DescribePendingAggregationRequests (Maybe Text)
-dparNextToken = lens _dparNextToken (\s a -> s {_dparNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dparNextToken :: Lens.Lens' DescribePendingAggregationRequests (Lude.Maybe Lude.Text)
+dparNextToken = Lens.lens (nextToken :: DescribePendingAggregationRequests -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePendingAggregationRequests)
+{-# DEPRECATED dparNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-dparLimit :: Lens' DescribePendingAggregationRequests (Maybe Natural)
-dparLimit = lens _dparLimit (\s a -> s {_dparLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dparLimit :: Lens.Lens' DescribePendingAggregationRequests (Lude.Maybe Lude.Natural)
+dparLimit = Lens.lens (limit :: DescribePendingAggregationRequests -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribePendingAggregationRequests)
+{-# DEPRECATED dparLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager DescribePendingAggregationRequests where
+instance Page.AWSPager DescribePendingAggregationRequests where
   page rq rs
-    | stop (rs ^. dparrsNextToken) = Nothing
-    | stop (rs ^. dparrsPendingAggregationRequests) = Nothing
-    | otherwise = Just $ rq & dparNextToken .~ rs ^. dparrsNextToken
+    | Page.stop (rs Lens.^. dparrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dparrsPendingAggregationRequests) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dparNextToken Lens..~ rs Lens.^. dparrsNextToken
 
-instance AWSRequest DescribePendingAggregationRequests where
+instance Lude.AWSRequest DescribePendingAggregationRequests where
   type
     Rs DescribePendingAggregationRequests =
       DescribePendingAggregationRequestsResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribePendingAggregationRequestsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "PendingAggregationRequests" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "PendingAggregationRequests" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribePendingAggregationRequests
-
-instance NFData DescribePendingAggregationRequests
-
-instance ToHeaders DescribePendingAggregationRequests where
+instance Lude.ToHeaders DescribePendingAggregationRequests where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribePendingAggregationRequests" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribePendingAggregationRequests" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribePendingAggregationRequests where
+instance Lude.ToJSON DescribePendingAggregationRequests where
   toJSON DescribePendingAggregationRequests' {..} =
-    object
-      ( catMaybes
-          [("NextToken" .=) <$> _dparNextToken, ("Limit" .=) <$> _dparLimit]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
+          ]
       )
 
-instance ToPath DescribePendingAggregationRequests where
-  toPath = const "/"
+instance Lude.ToPath DescribePendingAggregationRequests where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribePendingAggregationRequests where
-  toQuery = const mempty
+instance Lude.ToQuery DescribePendingAggregationRequests where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describePendingAggregationRequestsResponse' smart constructor.
+-- | /See:/ 'mkDescribePendingAggregationRequestsResponse' smart constructor.
 data DescribePendingAggregationRequestsResponse = DescribePendingAggregationRequestsResponse'
-  { _dparrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dparrsPendingAggregationRequests ::
-      !( Maybe
-           [PendingAggregationRequest]
-       ),
-    _dparrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    pendingAggregationRequests ::
+      Lude.Maybe
+        [PendingAggregationRequest],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePendingAggregationRequestsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dparrsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dparrsPendingAggregationRequests' - Returns a PendingAggregationRequests object.
---
--- * 'dparrsResponseStatus' - -- | The response status code.
-describePendingAggregationRequestsResponse ::
-  -- | 'dparrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'pendingAggregationRequests' - Returns a PendingAggregationRequests object.
+-- * 'responseStatus' - The response status code.
+mkDescribePendingAggregationRequestsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribePendingAggregationRequestsResponse
-describePendingAggregationRequestsResponse pResponseStatus_ =
+mkDescribePendingAggregationRequestsResponse pResponseStatus_ =
   DescribePendingAggregationRequestsResponse'
-    { _dparrsNextToken =
-        Nothing,
-      _dparrsPendingAggregationRequests = Nothing,
-      _dparrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Lude.Nothing,
+      pendingAggregationRequests = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dparrsNextToken :: Lens' DescribePendingAggregationRequestsResponse (Maybe Text)
-dparrsNextToken = lens _dparrsNextToken (\s a -> s {_dparrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dparrsNextToken :: Lens.Lens' DescribePendingAggregationRequestsResponse (Lude.Maybe Lude.Text)
+dparrsNextToken = Lens.lens (nextToken :: DescribePendingAggregationRequestsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePendingAggregationRequestsResponse)
+{-# DEPRECATED dparrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Returns a PendingAggregationRequests object.
-dparrsPendingAggregationRequests :: Lens' DescribePendingAggregationRequestsResponse [PendingAggregationRequest]
-dparrsPendingAggregationRequests = lens _dparrsPendingAggregationRequests (\s a -> s {_dparrsPendingAggregationRequests = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pendingAggregationRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dparrsPendingAggregationRequests :: Lens.Lens' DescribePendingAggregationRequestsResponse (Lude.Maybe [PendingAggregationRequest])
+dparrsPendingAggregationRequests = Lens.lens (pendingAggregationRequests :: DescribePendingAggregationRequestsResponse -> Lude.Maybe [PendingAggregationRequest]) (\s a -> s {pendingAggregationRequests = a} :: DescribePendingAggregationRequestsResponse)
+{-# DEPRECATED dparrsPendingAggregationRequests "Use generic-lens or generic-optics with 'pendingAggregationRequests' instead." #-}
 
--- | -- | The response status code.
-dparrsResponseStatus :: Lens' DescribePendingAggregationRequestsResponse Int
-dparrsResponseStatus = lens _dparrsResponseStatus (\s a -> s {_dparrsResponseStatus = a})
-
-instance NFData DescribePendingAggregationRequestsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dparrsResponseStatus :: Lens.Lens' DescribePendingAggregationRequestsResponse Lude.Int
+dparrsResponseStatus = Lens.lens (responseStatus :: DescribePendingAggregationRequestsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePendingAggregationRequestsResponse)
+{-# DEPRECATED dparrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

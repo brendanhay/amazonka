@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,157 @@
 --
 -- Returns the name, ARN, rules, definition, and effective dates of a Cost Category that's defined in the account.
 --
---
 -- You have the option to use @EffectiveOn@ to return a Cost Category that is active on a specific date. If there is no @EffectiveOn@ specified, you’ll see a Cost Category that is effective on the current date. If Cost Category is still effective, @EffectiveEnd@ is omitted in the response.
 module Network.AWS.CostExplorer.DescribeCostCategoryDefinition
-  ( -- * Creating a Request
-    describeCostCategoryDefinition,
-    DescribeCostCategoryDefinition,
+  ( -- * Creating a request
+    DescribeCostCategoryDefinition (..),
+    mkDescribeCostCategoryDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dEffectiveOn,
     dCostCategoryARN,
 
-    -- * Destructuring the Response
-    describeCostCategoryDefinitionResponse,
-    DescribeCostCategoryDefinitionResponse,
+    -- * Destructuring the response
+    DescribeCostCategoryDefinitionResponse (..),
+    mkDescribeCostCategoryDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsCostCategory,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeCostCategoryDefinition' smart constructor.
+-- | /See:/ 'mkDescribeCostCategoryDefinition' smart constructor.
 data DescribeCostCategoryDefinition = DescribeCostCategoryDefinition'
-  { _dEffectiveOn ::
-      !(Maybe Text),
-    _dCostCategoryARN :: !Text
+  { effectiveOn ::
+      Lude.Maybe Lude.Text,
+    costCategoryARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCostCategoryDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dEffectiveOn' - The date when the Cost Category was effective.
---
--- * 'dCostCategoryARN' - The unique identifier for your Cost Category.
-describeCostCategoryDefinition ::
-  -- | 'dCostCategoryARN'
-  Text ->
+-- * 'costCategoryARN' - The unique identifier for your Cost Category.
+-- * 'effectiveOn' - The date when the Cost Category was effective.
+mkDescribeCostCategoryDefinition ::
+  -- | 'costCategoryARN'
+  Lude.Text ->
   DescribeCostCategoryDefinition
-describeCostCategoryDefinition pCostCategoryARN_ =
+mkDescribeCostCategoryDefinition pCostCategoryARN_ =
   DescribeCostCategoryDefinition'
-    { _dEffectiveOn = Nothing,
-      _dCostCategoryARN = pCostCategoryARN_
+    { effectiveOn = Lude.Nothing,
+      costCategoryARN = pCostCategoryARN_
     }
 
 -- | The date when the Cost Category was effective.
-dEffectiveOn :: Lens' DescribeCostCategoryDefinition (Maybe Text)
-dEffectiveOn = lens _dEffectiveOn (\s a -> s {_dEffectiveOn = a})
+--
+-- /Note:/ Consider using 'effectiveOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dEffectiveOn :: Lens.Lens' DescribeCostCategoryDefinition (Lude.Maybe Lude.Text)
+dEffectiveOn = Lens.lens (effectiveOn :: DescribeCostCategoryDefinition -> Lude.Maybe Lude.Text) (\s a -> s {effectiveOn = a} :: DescribeCostCategoryDefinition)
+{-# DEPRECATED dEffectiveOn "Use generic-lens or generic-optics with 'effectiveOn' instead." #-}
 
 -- | The unique identifier for your Cost Category.
-dCostCategoryARN :: Lens' DescribeCostCategoryDefinition Text
-dCostCategoryARN = lens _dCostCategoryARN (\s a -> s {_dCostCategoryARN = a})
+--
+-- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCostCategoryARN :: Lens.Lens' DescribeCostCategoryDefinition Lude.Text
+dCostCategoryARN = Lens.lens (costCategoryARN :: DescribeCostCategoryDefinition -> Lude.Text) (\s a -> s {costCategoryARN = a} :: DescribeCostCategoryDefinition)
+{-# DEPRECATED dCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
 
-instance AWSRequest DescribeCostCategoryDefinition where
+instance Lude.AWSRequest DescribeCostCategoryDefinition where
   type
     Rs DescribeCostCategoryDefinition =
       DescribeCostCategoryDefinitionResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCostCategoryDefinitionResponse'
-            <$> (x .?> "CostCategory") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CostCategory") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCostCategoryDefinition
-
-instance NFData DescribeCostCategoryDefinition
-
-instance ToHeaders DescribeCostCategoryDefinition where
+instance Lude.ToHeaders DescribeCostCategoryDefinition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSInsightsIndexService.DescribeCostCategoryDefinition" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.DescribeCostCategoryDefinition" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCostCategoryDefinition where
+instance Lude.ToJSON DescribeCostCategoryDefinition where
   toJSON DescribeCostCategoryDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("EffectiveOn" .=) <$> _dEffectiveOn,
-            Just ("CostCategoryArn" .= _dCostCategoryARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EffectiveOn" Lude..=) Lude.<$> effectiveOn,
+            Lude.Just ("CostCategoryArn" Lude..= costCategoryARN)
           ]
       )
 
-instance ToPath DescribeCostCategoryDefinition where
-  toPath = const "/"
+instance Lude.ToPath DescribeCostCategoryDefinition where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCostCategoryDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCostCategoryDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeCostCategoryDefinitionResponse' smart constructor.
+-- | /See:/ 'mkDescribeCostCategoryDefinitionResponse' smart constructor.
 data DescribeCostCategoryDefinitionResponse = DescribeCostCategoryDefinitionResponse'
-  { _drsCostCategory ::
-      !( Maybe
-           CostCategory
-       ),
-    _drsResponseStatus ::
-      !Int
+  { costCategory ::
+      Lude.Maybe
+        CostCategory,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCostCategoryDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsCostCategory' - Undocumented member.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeCostCategoryDefinitionResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'costCategory' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDescribeCostCategoryDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCostCategoryDefinitionResponse
-describeCostCategoryDefinitionResponse pResponseStatus_ =
+mkDescribeCostCategoryDefinitionResponse pResponseStatus_ =
   DescribeCostCategoryDefinitionResponse'
-    { _drsCostCategory =
-        Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { costCategory =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-drsCostCategory :: Lens' DescribeCostCategoryDefinitionResponse (Maybe CostCategory)
-drsCostCategory = lens _drsCostCategory (\s a -> s {_drsCostCategory = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'costCategory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsCostCategory :: Lens.Lens' DescribeCostCategoryDefinitionResponse (Lude.Maybe CostCategory)
+drsCostCategory = Lens.lens (costCategory :: DescribeCostCategoryDefinitionResponse -> Lude.Maybe CostCategory) (\s a -> s {costCategory = a} :: DescribeCostCategoryDefinitionResponse)
+{-# DEPRECATED drsCostCategory "Use generic-lens or generic-optics with 'costCategory' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeCostCategoryDefinitionResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeCostCategoryDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeCostCategoryDefinitionResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeCostCategoryDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCostCategoryDefinitionResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

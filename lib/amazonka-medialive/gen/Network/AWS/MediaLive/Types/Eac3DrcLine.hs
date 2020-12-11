@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Eac3DrcLine where
+module Network.AWS.MediaLive.Types.Eac3DrcLine
+  ( Eac3DrcLine
+      ( Eac3DrcLine',
+        EDLFilmLight,
+        EDLFilmStandard,
+        EDLMusicLight,
+        EDLMusicStandard,
+        EDLNone,
+        EDLSpeech
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Eac3 Drc Line
-data Eac3DrcLine
-  = EDLFilmLight
-  | EDLFilmStandard
-  | EDLMusicLight
-  | EDLMusicStandard
-  | EDLNone
-  | EDLSpeech
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3DrcLine = Eac3DrcLine' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3DrcLine where
-  parser =
-    takeLowerText >>= \case
-      "film_light" -> pure EDLFilmLight
-      "film_standard" -> pure EDLFilmStandard
-      "music_light" -> pure EDLMusicLight
-      "music_standard" -> pure EDLMusicStandard
-      "none" -> pure EDLNone
-      "speech" -> pure EDLSpeech
-      e ->
-        fromTextError $
-          "Failure parsing Eac3DrcLine from value: '" <> e
-            <> "'. Accepted values: film_light, film_standard, music_light, music_standard, none, speech"
+pattern EDLFilmLight :: Eac3DrcLine
+pattern EDLFilmLight = Eac3DrcLine' "FILM_LIGHT"
 
-instance ToText Eac3DrcLine where
-  toText = \case
-    EDLFilmLight -> "FILM_LIGHT"
-    EDLFilmStandard -> "FILM_STANDARD"
-    EDLMusicLight -> "MUSIC_LIGHT"
-    EDLMusicStandard -> "MUSIC_STANDARD"
-    EDLNone -> "NONE"
-    EDLSpeech -> "SPEECH"
+pattern EDLFilmStandard :: Eac3DrcLine
+pattern EDLFilmStandard = Eac3DrcLine' "FILM_STANDARD"
 
-instance Hashable Eac3DrcLine
+pattern EDLMusicLight :: Eac3DrcLine
+pattern EDLMusicLight = Eac3DrcLine' "MUSIC_LIGHT"
 
-instance NFData Eac3DrcLine
+pattern EDLMusicStandard :: Eac3DrcLine
+pattern EDLMusicStandard = Eac3DrcLine' "MUSIC_STANDARD"
 
-instance ToByteString Eac3DrcLine
+pattern EDLNone :: Eac3DrcLine
+pattern EDLNone = Eac3DrcLine' "NONE"
 
-instance ToQuery Eac3DrcLine
+pattern EDLSpeech :: Eac3DrcLine
+pattern EDLSpeech = Eac3DrcLine' "SPEECH"
 
-instance ToHeader Eac3DrcLine
-
-instance ToJSON Eac3DrcLine where
-  toJSON = toJSONText
-
-instance FromJSON Eac3DrcLine where
-  parseJSON = parseJSONText "Eac3DrcLine"
+{-# COMPLETE
+  EDLFilmLight,
+  EDLFilmStandard,
+  EDLMusicLight,
+  EDLMusicStandard,
+  EDLNone,
+  EDLSpeech,
+  Eac3DrcLine'
+  #-}

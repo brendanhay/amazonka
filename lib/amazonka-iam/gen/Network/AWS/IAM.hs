@@ -15,8 +15,8 @@
 --
 -- AWS Identity and Access Management (IAM) is a web service for securely controlling access to AWS services. With IAM, you can centrally manage users, security credentials such as access keys, and permissions that control which AWS resources users and applications can access. For more information about IAM, see <http://aws.amazon.com/iam/ AWS Identity and Access Management (IAM)> and the <https://docs.aws.amazon.com/IAM/latest/UserGuide/ AWS Identity and Access Management User Guide> .
 module Network.AWS.IAM
-  ( -- * Service Configuration
-    iam,
+  ( -- * Service configuration
+    iamService,
 
     -- * Errors
     -- $errors
@@ -25,16 +25,16 @@ module Network.AWS.IAM
     -- $waiters
 
     -- ** InstanceProfileExists
-    instanceProfileExists,
+    mkInstanceProfileExists,
 
     -- ** UserExists
-    userExists,
+    mkUserExists,
 
     -- ** RoleExists
-    roleExists,
+    mkRoleExists,
 
     -- ** PolicyExists
-    policyExists,
+    mkPolicyExists,
 
     -- * Operations
     -- $operations
@@ -522,8 +522,8 @@ module Network.AWS.IAM
     SummaryKeyType (..),
 
     -- ** AccessDetail
-    AccessDetail,
-    accessDetail,
+    AccessDetail (..),
+    mkAccessDetail,
     adEntityPath,
     adRegion,
     adLastAuthenticatedTime,
@@ -532,8 +532,8 @@ module Network.AWS.IAM
     adServiceNamespace,
 
     -- ** AccessKeyInfo
-    AccessKeyInfo,
-    accessKeyInfo,
+    AccessKeyInfo (..),
+    mkAccessKeyInfo,
     akiCreateDate,
     akiUserName,
     akiAccessKeyId,
@@ -541,54 +541,54 @@ module Network.AWS.IAM
     akiSecretAccessKey,
 
     -- ** AccessKeyLastUsed
-    AccessKeyLastUsed,
-    accessKeyLastUsed,
+    AccessKeyLastUsed (..),
+    mkAccessKeyLastUsed,
     akluLastUsedDate,
     akluServiceName,
     akluRegion,
 
     -- ** AccessKeyMetadata
-    AccessKeyMetadata,
-    accessKeyMetadata,
+    AccessKeyMetadata (..),
+    mkAccessKeyMetadata,
     akmStatus,
     akmCreateDate,
     akmUserName,
     akmAccessKeyId,
 
     -- ** AttachedPermissionsBoundary
-    AttachedPermissionsBoundary,
-    attachedPermissionsBoundary,
+    AttachedPermissionsBoundary (..),
+    mkAttachedPermissionsBoundary,
     apbPermissionsBoundaryType,
     apbPermissionsBoundaryARN,
 
     -- ** AttachedPolicy
-    AttachedPolicy,
-    attachedPolicy,
+    AttachedPolicy (..),
+    mkAttachedPolicy,
     apPolicyName,
     apPolicyARN,
 
     -- ** ContextEntry
-    ContextEntry,
-    contextEntry,
+    ContextEntry (..),
+    mkContextEntry,
     ceContextKeyValues,
     ceContextKeyName,
     ceContextKeyType,
 
     -- ** DeletionTaskFailureReasonType
-    DeletionTaskFailureReasonType,
-    deletionTaskFailureReasonType,
+    DeletionTaskFailureReasonType (..),
+    mkDeletionTaskFailureReasonType,
     dtfrtRoleUsageList,
     dtfrtReason,
 
     -- ** EntityDetails
-    EntityDetails,
-    entityDetails,
+    EntityDetails (..),
+    mkEntityDetails,
     edLastAuthenticated,
     edEntityInfo,
 
     -- ** EntityInfo
-    EntityInfo,
-    entityInfo,
+    EntityInfo (..),
+    mkEntityInfo,
     eiPath,
     eiARN,
     eiName,
@@ -596,14 +596,14 @@ module Network.AWS.IAM
     eiId,
 
     -- ** ErrorDetails
-    ErrorDetails,
-    errorDetails,
+    ErrorDetails (..),
+    mkErrorDetails,
     edMessage,
     edCode,
 
     -- ** EvaluationResult
-    EvaluationResult,
-    evaluationResult,
+    EvaluationResult (..),
+    mkEvaluationResult,
     erMatchedStatements,
     erEvalDecisionDetails,
     erResourceSpecificResults,
@@ -615,13 +615,13 @@ module Network.AWS.IAM
     erEvalDecision,
 
     -- ** GetContextKeysForPolicyResponse
-    GetContextKeysForPolicyResponse,
-    getContextKeysForPolicyResponse,
+    GetContextKeysForPolicyResponse (..),
+    mkGetContextKeysForPolicyResponse,
     gckfpContextKeyNames,
 
     -- ** Group
-    Group,
-    group',
+    Group (..),
+    mkGroup,
     gPath,
     gGroupName,
     gGroupId,
@@ -629,8 +629,8 @@ module Network.AWS.IAM
     gCreateDate,
 
     -- ** GroupDetail
-    GroupDetail,
-    groupDetail,
+    GroupDetail (..),
+    mkGroupDetail,
     gdARN,
     gdPath,
     gdCreateDate,
@@ -640,8 +640,8 @@ module Network.AWS.IAM
     gdAttachedManagedPolicies,
 
     -- ** InstanceProfile
-    InstanceProfile,
-    instanceProfile,
+    InstanceProfile (..),
+    mkInstanceProfile,
     ipPath,
     ipInstanceProfileName,
     ipInstanceProfileId,
@@ -650,28 +650,28 @@ module Network.AWS.IAM
     ipRoles,
 
     -- ** ListPoliciesGrantingServiceAccessEntry
-    ListPoliciesGrantingServiceAccessEntry,
-    listPoliciesGrantingServiceAccessEntry,
+    ListPoliciesGrantingServiceAccessEntry (..),
+    mkListPoliciesGrantingServiceAccessEntry,
     lpgsaeServiceNamespace,
     lpgsaePolicies,
 
     -- ** LoginProfile
-    LoginProfile,
-    loginProfile,
+    LoginProfile (..),
+    mkLoginProfile,
     lpPasswordResetRequired,
     lpUserName,
     lpCreateDate,
 
     -- ** MFADevice
-    MFADevice,
-    mfaDevice,
+    MFADevice (..),
+    mkMFADevice,
     mdUserName,
     mdSerialNumber,
     mdEnableDate,
 
     -- ** ManagedPolicyDetail
-    ManagedPolicyDetail,
-    managedPolicyDetail,
+    ManagedPolicyDetail (..),
+    mkManagedPolicyDetail,
     mpdPolicyName,
     mpdARN,
     mpdUpdateDate,
@@ -686,18 +686,18 @@ module Network.AWS.IAM
     mpdDescription,
 
     -- ** OpenIdConnectProviderListEntry
-    OpenIdConnectProviderListEntry,
-    openIdConnectProviderListEntry,
+    OpenIdConnectProviderListEntry (..),
+    mkOpenIdConnectProviderListEntry,
     oicpleARN,
 
     -- ** OrganizationsDecisionDetail
-    OrganizationsDecisionDetail,
-    organizationsDecisionDetail,
+    OrganizationsDecisionDetail (..),
+    mkOrganizationsDecisionDetail,
     oddAllowedByOrganizations,
 
     -- ** PasswordPolicy
-    PasswordPolicy,
-    passwordPolicy,
+    PasswordPolicy (..),
+    mkPasswordPolicy,
     ppExpirePasswords,
     ppMinimumPasswordLength,
     ppRequireNumbers,
@@ -710,13 +710,13 @@ module Network.AWS.IAM
     ppAllowUsersToChangePassword,
 
     -- ** PermissionsBoundaryDecisionDetail
-    PermissionsBoundaryDecisionDetail,
-    permissionsBoundaryDecisionDetail,
+    PermissionsBoundaryDecisionDetail (..),
+    mkPermissionsBoundaryDecisionDetail,
     pbddAllowedByPermissionsBoundary,
 
     -- ** Policy
-    Policy,
-    policy,
+    Policy (..),
+    mkPolicy,
     pPolicyName,
     pARN,
     pUpdateDate,
@@ -730,14 +730,14 @@ module Network.AWS.IAM
     pDescription,
 
     -- ** PolicyDetail
-    PolicyDetail,
-    policyDetail,
+    PolicyDetail (..),
+    mkPolicyDetail,
     pdPolicyDocument,
     pdPolicyName,
 
     -- ** PolicyGrantingServiceAccess
-    PolicyGrantingServiceAccess,
-    policyGrantingServiceAccess,
+    PolicyGrantingServiceAccess (..),
+    mkPolicyGrantingServiceAccess,
     pgsaEntityName,
     pgsaEntityType,
     pgsaPolicyARN,
@@ -745,40 +745,40 @@ module Network.AWS.IAM
     pgsaPolicyType,
 
     -- ** PolicyGroup
-    PolicyGroup,
-    policyGroup,
+    PolicyGroup (..),
+    mkPolicyGroup,
     pgGroupId,
     pgGroupName,
 
     -- ** PolicyRole
-    PolicyRole,
-    policyRole,
+    PolicyRole (..),
+    mkPolicyRole,
     prRoleName,
     prRoleId,
 
     -- ** PolicyUser
-    PolicyUser,
-    policyUser,
+    PolicyUser (..),
+    mkPolicyUser,
     puUserName,
     puUserId,
 
     -- ** PolicyVersion
-    PolicyVersion,
-    policyVersion,
+    PolicyVersion (..),
+    mkPolicyVersion,
     pvVersionId,
     pvCreateDate,
     pvDocument,
     pvIsDefaultVersion,
 
     -- ** Position
-    Position,
-    position,
+    Position (..),
+    mkPosition,
     pLine,
     pColumn,
 
     -- ** ResourceSpecificResult
-    ResourceSpecificResult,
-    resourceSpecificResult,
+    ResourceSpecificResult (..),
+    mkResourceSpecificResult,
     rsrMatchedStatements,
     rsrEvalDecisionDetails,
     rsrMissingContextValues,
@@ -787,8 +787,8 @@ module Network.AWS.IAM
     rsrEvalResourceDecision,
 
     -- ** Role
-    Role,
-    role',
+    Role (..),
+    mkRole,
     rMaxSessionDuration,
     rAssumeRolePolicyDocument,
     rRoleLastUsed,
@@ -802,8 +802,8 @@ module Network.AWS.IAM
     rCreateDate,
 
     -- ** RoleDetail
-    RoleDetail,
-    roleDetail,
+    RoleDetail (..),
+    mkRoleDetail,
     rdAssumeRolePolicyDocument,
     rdARN,
     rdPath,
@@ -818,27 +818,27 @@ module Network.AWS.IAM
     rdAttachedManagedPolicies,
 
     -- ** RoleLastUsed
-    RoleLastUsed,
-    roleLastUsed,
+    RoleLastUsed (..),
+    mkRoleLastUsed,
     rluLastUsedDate,
     rluRegion,
 
     -- ** RoleUsageType
-    RoleUsageType,
-    roleUsageType,
+    RoleUsageType (..),
+    mkRoleUsageType,
     rutResources,
     rutRegion,
 
     -- ** SAMLProviderListEntry
-    SAMLProviderListEntry,
-    sAMLProviderListEntry,
+    SAMLProviderListEntry (..),
+    mkSAMLProviderListEntry,
     samlpleARN,
     samlpleCreateDate,
     samlpleValidUntil,
 
     -- ** SSHPublicKey
-    SSHPublicKey,
-    sshPublicKey,
+    SSHPublicKey (..),
+    mkSSHPublicKey,
     spkUploadDate,
     spkUserName,
     spkSSHPublicKeyId,
@@ -847,23 +847,23 @@ module Network.AWS.IAM
     spkStatus,
 
     -- ** SSHPublicKeyMetadata
-    SSHPublicKeyMetadata,
-    sshPublicKeyMetadata,
+    SSHPublicKeyMetadata (..),
+    mkSSHPublicKeyMetadata,
     spkmUserName,
     spkmSSHPublicKeyId,
     spkmStatus,
     spkmUploadDate,
 
     -- ** ServerCertificate
-    ServerCertificate,
-    serverCertificate,
+    ServerCertificate (..),
+    mkServerCertificate,
     sCertificateChain,
     sServerCertificateMetadata,
     sCertificateBody,
 
     -- ** ServerCertificateMetadata
-    ServerCertificateMetadata,
-    serverCertificateMetadata,
+    ServerCertificateMetadata (..),
+    mkServerCertificateMetadata,
     scmUploadDate,
     scmExpiration,
     scmPath,
@@ -872,8 +872,8 @@ module Network.AWS.IAM
     scmARN,
 
     -- ** ServiceLastAccessed
-    ServiceLastAccessed,
-    serviceLastAccessed,
+    ServiceLastAccessed (..),
+    mkServiceLastAccessed,
     slaLastAuthenticated,
     slaTrackedActionsLastAccessed,
     slaLastAuthenticatedEntity,
@@ -883,8 +883,8 @@ module Network.AWS.IAM
     slaServiceNamespace,
 
     -- ** ServiceSpecificCredential
-    ServiceSpecificCredential,
-    serviceSpecificCredential,
+    ServiceSpecificCredential (..),
+    mkServiceSpecificCredential,
     sscCreateDate,
     sscServiceName,
     sscServiceUserName,
@@ -894,8 +894,8 @@ module Network.AWS.IAM
     sscStatus,
 
     -- ** ServiceSpecificCredentialMetadata
-    ServiceSpecificCredentialMetadata,
-    serviceSpecificCredentialMetadata,
+    ServiceSpecificCredentialMetadata (..),
+    mkServiceSpecificCredentialMetadata,
     sscmUserName,
     sscmStatus,
     sscmServiceUserName,
@@ -904,8 +904,8 @@ module Network.AWS.IAM
     sscmServiceName,
 
     -- ** SigningCertificate
-    SigningCertificate,
-    signingCertificate,
+    SigningCertificate (..),
+    mkSigningCertificate,
     scUploadDate,
     scUserName,
     scCertificateId,
@@ -913,37 +913,37 @@ module Network.AWS.IAM
     scStatus,
 
     -- ** SimulatePolicyResponse
-    SimulatePolicyResponse,
-    simulatePolicyResponse,
+    SimulatePolicyResponse (..),
+    mkSimulatePolicyResponse,
     spEvaluationResults,
     spMarker,
     spIsTruncated,
 
     -- ** Statement
-    Statement,
-    statement,
+    Statement (..),
+    mkStatement,
     sSourcePolicyType,
     sSourcePolicyId,
     sEndPosition,
     sStartPosition,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TrackedActionLastAccessed
-    TrackedActionLastAccessed,
-    trackedActionLastAccessed,
+    TrackedActionLastAccessed (..),
+    mkTrackedActionLastAccessed,
     talaLastAccessedTime,
     talaActionName,
     talaLastAccessedEntity,
     talaLastAccessedRegion,
 
     -- ** User
-    User,
-    user,
+    User (..),
+    mkUser,
     uPasswordLastUsed,
     uPermissionsBoundary,
     uTags,
@@ -954,8 +954,8 @@ module Network.AWS.IAM
     uCreateDate,
 
     -- ** UserDetail
-    UserDetail,
-    userDetail,
+    UserDetail (..),
+    mkUserDetail,
     udGroupList,
     udARN,
     udPath,
@@ -968,13 +968,24 @@ module Network.AWS.IAM
     udAttachedManagedPolicies,
 
     -- ** VirtualMFADevice
-    VirtualMFADevice,
-    virtualMFADevice,
+    VirtualMFADevice (..),
+    mkVirtualMFADevice,
     vmdQRCodePNG,
     vmdBase32StringSeed,
     vmdUser,
     vmdEnableDate,
     vmdSerialNumber,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -1120,6 +1131,7 @@ import Network.AWS.IAM.UploadSSHPublicKey
 import Network.AWS.IAM.UploadServerCertificate
 import Network.AWS.IAM.UploadSigningCertificate
 import Network.AWS.IAM.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

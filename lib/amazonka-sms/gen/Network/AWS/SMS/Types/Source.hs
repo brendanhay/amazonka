@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.Source where
+module Network.AWS.SMS.Types.Source
+  ( Source (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSource,
+
+    -- * Lenses
+    sS3Location,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.S3Location
 
 -- | Contains the location of a validation script.
 --
---
---
--- /See:/ 'source' smart constructor.
-newtype Source = Source' {_sS3Location :: Maybe S3Location}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkSource' smart constructor.
+newtype Source = Source' {s3Location :: Lude.Maybe S3Location}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Source' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sS3Location' - Undocumented member.
-source ::
+-- * 's3Location' - Undocumented field.
+mkSource ::
   Source
-source = Source' {_sS3Location = Nothing}
+mkSource = Source' {s3Location = Lude.Nothing}
 
--- | Undocumented member.
-sS3Location :: Lens' Source (Maybe S3Location)
-sS3Location = lens _sS3Location (\s a -> s {_sS3Location = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sS3Location :: Lens.Lens' Source (Lude.Maybe S3Location)
+sS3Location = Lens.lens (s3Location :: Source -> Lude.Maybe S3Location) (\s a -> s {s3Location = a} :: Source)
+{-# DEPRECATED sS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
-instance FromJSON Source where
+instance Lude.FromJSON Source where
   parseJSON =
-    withObject "Source" (\x -> Source' <$> (x .:? "s3Location"))
+    Lude.withObject
+      "Source"
+      (\x -> Source' Lude.<$> (x Lude..:? "s3Location"))
 
-instance Hashable Source
-
-instance NFData Source
-
-instance ToJSON Source where
+instance Lude.ToJSON Source where
   toJSON Source' {..} =
-    object (catMaybes [("s3Location" .=) <$> _sS3Location])
+    Lude.object
+      (Lude.catMaybes [("s3Location" Lude..=) Lude.<$> s3Location])

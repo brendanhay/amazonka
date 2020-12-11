@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,12 +8,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types
-  ( -- * Service Configuration
-    route53,
+  ( -- * Service configuration
+    route53Service,
 
     -- * Errors
 
-    -- * Re-exported Types
+    -- * Re-exported types
     module Network.AWS.Route53.Internal,
 
     -- * AccountLimitType
@@ -67,47 +65,47 @@ module Network.AWS.Route53.Types
     VPCRegion (..),
 
     -- * AccountLimit
-    AccountLimit,
-    accountLimit,
+    AccountLimit (..),
+    mkAccountLimit,
     alType,
     alValue,
 
     -- * AlarmIdentifier
-    AlarmIdentifier,
-    alarmIdentifier,
+    AlarmIdentifier (..),
+    mkAlarmIdentifier,
     aiRegion,
     aiName,
 
     -- * AliasTarget
-    AliasTarget,
-    aliasTarget,
+    AliasTarget (..),
+    mkAliasTarget,
     atHostedZoneId,
     atDNSName,
     atEvaluateTargetHealth,
 
     -- * Change
-    Change,
-    change,
+    Change (..),
+    mkChange,
     cAction,
     cResourceRecordSet,
 
     -- * ChangeBatch
-    ChangeBatch,
-    changeBatch,
+    ChangeBatch (..),
+    mkChangeBatch,
     cbComment,
     cbChanges,
 
     -- * ChangeInfo
-    ChangeInfo,
-    changeInfo,
+    ChangeInfo (..),
+    mkChangeInfo,
     ciComment,
     ciId,
     ciStatus,
     ciSubmittedAt,
 
     -- * CloudWatchAlarmConfiguration
-    CloudWatchAlarmConfiguration,
-    cloudWatchAlarmConfiguration,
+    CloudWatchAlarmConfiguration (..),
+    mkCloudWatchAlarmConfiguration,
     cwacDimensions,
     cwacEvaluationPeriods,
     cwacThreshold,
@@ -118,28 +116,28 @@ module Network.AWS.Route53.Types
     cwacStatistic,
 
     -- * DelegationSet
-    DelegationSet,
-    delegationSet,
+    DelegationSet (..),
+    mkDelegationSet,
     dsId,
     dsCallerReference,
     dsNameServers,
 
     -- * Dimension
-    Dimension,
-    dimension,
+    Dimension (..),
+    mkDimension,
     dName,
     dValue,
 
     -- * GeoLocation
-    GeoLocation,
-    geoLocation,
+    GeoLocation (..),
+    mkGeoLocation,
     glSubdivisionCode,
     glCountryCode,
     glContinentCode,
 
     -- * GeoLocationDetails
-    GeoLocationDetails,
-    geoLocationDetails,
+    GeoLocationDetails (..),
+    mkGeoLocationDetails,
     gldSubdivisionName,
     gldSubdivisionCode,
     gldCountryName,
@@ -148,8 +146,8 @@ module Network.AWS.Route53.Types
     gldContinentName,
 
     -- * HealthCheck
-    HealthCheck,
-    healthCheck,
+    HealthCheck (..),
+    mkHealthCheck,
     hcLinkedService,
     hcCloudWatchAlarmConfiguration,
     hcId,
@@ -158,8 +156,8 @@ module Network.AWS.Route53.Types
     hcHealthCheckVersion,
 
     -- * HealthCheckConfig
-    HealthCheckConfig,
-    healthCheckConfig,
+    HealthCheckConfig (..),
+    mkHealthCheckConfig,
     hccFailureThreshold,
     hccIPAddress,
     hccEnableSNI,
@@ -179,15 +177,15 @@ module Network.AWS.Route53.Types
     hccType,
 
     -- * HealthCheckObservation
-    HealthCheckObservation,
-    healthCheckObservation,
+    HealthCheckObservation (..),
+    mkHealthCheckObservation,
     hcoIPAddress,
     hcoStatusReport,
     hcoRegion,
 
     -- * HostedZone
-    HostedZone,
-    hostedZone,
+    HostedZone (..),
+    mkHostedZone,
     hzLinkedService,
     hzConfig,
     hzResourceRecordSetCount,
@@ -196,51 +194,51 @@ module Network.AWS.Route53.Types
     hzCallerReference,
 
     -- * HostedZoneConfig
-    HostedZoneConfig,
-    hostedZoneConfig,
+    HostedZoneConfig (..),
+    mkHostedZoneConfig,
     hzcPrivateZone,
     hzcComment,
 
     -- * HostedZoneLimit
-    HostedZoneLimit,
-    hostedZoneLimit,
+    HostedZoneLimit (..),
+    mkHostedZoneLimit,
     hzlType,
     hzlValue,
 
     -- * HostedZoneOwner
-    HostedZoneOwner,
-    hostedZoneOwner,
+    HostedZoneOwner (..),
+    mkHostedZoneOwner,
     hzoOwningAccount,
     hzoOwningService,
 
     -- * HostedZoneSummary
-    HostedZoneSummary,
-    hostedZoneSummary,
+    HostedZoneSummary (..),
+    mkHostedZoneSummary,
     hzsHostedZoneId,
     hzsName,
     hzsOwner,
 
     -- * LinkedService
-    LinkedService,
-    linkedService,
+    LinkedService (..),
+    mkLinkedService,
     lsServicePrincipal,
     lsDescription,
 
     -- * QueryLoggingConfig
-    QueryLoggingConfig,
-    queryLoggingConfig,
+    QueryLoggingConfig (..),
+    mkQueryLoggingConfig,
     qlcId,
     qlcHostedZoneId,
     qlcCloudWatchLogsLogGroupARN,
 
     -- * ResourceRecord
-    ResourceRecord,
-    resourceRecord,
+    ResourceRecord (..),
+    mkResourceRecord,
     rrValue,
 
     -- * ResourceRecordSet
-    ResourceRecordSet,
-    resourceRecordSet,
+    ResourceRecordSet (..),
+    mkResourceRecordSet,
     rrsTTL,
     rrsResourceRecords,
     rrsAliasTarget,
@@ -256,33 +254,33 @@ module Network.AWS.Route53.Types
     rrsType,
 
     -- * ResourceTagSet
-    ResourceTagSet,
-    resourceTagSet,
+    ResourceTagSet (..),
+    mkResourceTagSet,
     rtsResourceId,
     rtsResourceType,
     rtsTags,
 
     -- * ReusableDelegationSetLimit
-    ReusableDelegationSetLimit,
-    reusableDelegationSetLimit,
+    ReusableDelegationSetLimit (..),
+    mkReusableDelegationSetLimit,
     rdslType,
     rdslValue,
 
     -- * StatusReport
-    StatusReport,
-    statusReport,
+    StatusReport (..),
+    mkStatusReport,
     srStatus,
     srCheckedTime,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * TrafficPolicy
-    TrafficPolicy,
-    trafficPolicy,
+    TrafficPolicy (..),
+    mkTrafficPolicy,
     tpComment,
     tpId,
     tpVersion,
@@ -291,8 +289,8 @@ module Network.AWS.Route53.Types
     tpDocument,
 
     -- * TrafficPolicyInstance
-    TrafficPolicyInstance,
-    trafficPolicyInstance,
+    TrafficPolicyInstance (..),
+    mkTrafficPolicyInstance,
     tpiId,
     tpiHostedZoneId,
     tpiName,
@@ -304,8 +302,8 @@ module Network.AWS.Route53.Types
     tpiTrafficPolicyType,
 
     -- * TrafficPolicySummary
-    TrafficPolicySummary,
-    trafficPolicySummary,
+    TrafficPolicySummary (..),
+    mkTrafficPolicySummary,
     tpsId,
     tpsName,
     tpsType,
@@ -313,15 +311,15 @@ module Network.AWS.Route53.Types
     tpsTrafficPolicyCount,
 
     -- * VPC
-    VPC,
-    vpc,
+    VPC (..),
+    mkVPC,
     vpcVPCRegion,
     vpcVPCId,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.AccountLimit
 import Network.AWS.Route53.Types.AccountLimitType
@@ -370,50 +368,64 @@ import Network.AWS.Route53.Types.TrafficPolicyInstance
 import Network.AWS.Route53.Types.TrafficPolicySummary
 import Network.AWS.Route53.Types.VPC
 import Network.AWS.Route53.Types.VPCRegion
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2013-04-01@ of the Amazon Route 53 SDK configuration.
-route53 :: Service
-route53 =
-  Service
-    { _svcAbbrev = "Route53",
-      _svcSigner = v4,
-      _svcPrefix = "route53",
-      _svcVersion = "2013-04-01",
-      _svcEndpoint = defaultEndpoint route53,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "Route53",
-      _svcRetry = retry
+route53Service :: Lude.Service
+route53Service =
+  Lude.Service
+    { Lude._svcAbbrev = "Route53",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "route53",
+      Lude._svcVersion = "2013-04-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint route53Service,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "Route53",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e =
-        Just "request_limit_exceeded"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "PriorRequestNotComplete" . hasStatus 400) e =
-        Just "still_processing"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "request_limit_exceeded"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          (Lude.hasCode "PriorRequestNotComplete" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "still_processing"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

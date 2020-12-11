@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,170 +14,174 @@
 --
 -- Lists origin access identities.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
-  ( -- * Creating a Request
-    listCloudFrontOriginAccessIdentities,
-    ListCloudFrontOriginAccessIdentities,
+  ( -- * Creating a request
+    ListCloudFrontOriginAccessIdentities (..),
+    mkListCloudFrontOriginAccessIdentities,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcfoaiMarker,
     lcfoaiMaxItems,
 
-    -- * Destructuring the Response
-    listCloudFrontOriginAccessIdentitiesResponse,
-    ListCloudFrontOriginAccessIdentitiesResponse,
+    -- * Destructuring the response
+    ListCloudFrontOriginAccessIdentitiesResponse (..),
+    mkListCloudFrontOriginAccessIdentitiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcfoairsResponseStatus,
     lcfoairsCloudFrontOriginAccessIdentityList,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to list origin access identities.
 --
---
---
--- /See:/ 'listCloudFrontOriginAccessIdentities' smart constructor.
+-- /See:/ 'mkListCloudFrontOriginAccessIdentities' smart constructor.
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
-  { _lcfoaiMarker ::
-      !(Maybe Text),
-    _lcfoaiMaxItems ::
-      !(Maybe Text)
+  { marker ::
+      Lude.Maybe
+        Lude.Text,
+    maxItems ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCloudFrontOriginAccessIdentities' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcfoaiMarker' - Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last identity on that page).
---
--- * 'lcfoaiMaxItems' - The maximum number of origin access identities you want in the response body.
-listCloudFrontOriginAccessIdentities ::
+-- * 'marker' - Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last identity on that page).
+-- * 'maxItems' - The maximum number of origin access identities you want in the response body.
+mkListCloudFrontOriginAccessIdentities ::
   ListCloudFrontOriginAccessIdentities
-listCloudFrontOriginAccessIdentities =
+mkListCloudFrontOriginAccessIdentities =
   ListCloudFrontOriginAccessIdentities'
-    { _lcfoaiMarker = Nothing,
-      _lcfoaiMaxItems = Nothing
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
 
 -- | Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last identity on that page).
-lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoaiMarker = lens _lcfoaiMarker (\s a -> s {_lcfoaiMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfoaiMarker :: Lens.Lens' ListCloudFrontOriginAccessIdentities (Lude.Maybe Lude.Text)
+lcfoaiMarker = Lens.lens (marker :: ListCloudFrontOriginAccessIdentities -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListCloudFrontOriginAccessIdentities)
+{-# DEPRECATED lcfoaiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of origin access identities you want in the response body.
-lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s {_lcfoaiMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfoaiMaxItems :: Lens.Lens' ListCloudFrontOriginAccessIdentities (Lude.Maybe Lude.Text)
+lcfoaiMaxItems = Lens.lens (maxItems :: ListCloudFrontOriginAccessIdentities -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListCloudFrontOriginAccessIdentities)
+{-# DEPRECATED lcfoaiMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSPager ListCloudFrontOriginAccessIdentities where
+instance Page.AWSPager ListCloudFrontOriginAccessIdentities where
   page rq rs
-    | stop
+    | Page.stop
         ( rs
-            ^. lcfoairsCloudFrontOriginAccessIdentityList . cfoailIsTruncated
+            Lens.^. lcfoairsCloudFrontOriginAccessIdentityList
+              Lude.. cfoailIsTruncated
         ) =
-      Nothing
-    | isNothing
+      Lude.Nothing
+    | Lude.isNothing
         ( rs
-            ^? lcfoairsCloudFrontOriginAccessIdentityList
-              . cfoailNextMarker
-              . _Just
+            Lens.^? lcfoairsCloudFrontOriginAccessIdentityList
+              Lude.. cfoailNextMarker
+              Lude.. Lens._Just
         ) =
-      Nothing
-    | otherwise =
-      Just $
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
         rq
-          & lcfoaiMarker
-          .~ rs
-          ^? lcfoairsCloudFrontOriginAccessIdentityList
-            . cfoailNextMarker
-            . _Just
+          Lude.& lcfoaiMarker
+          Lens..~ rs
+          Lens.^? lcfoairsCloudFrontOriginAccessIdentityList
+            Lude.. cfoailNextMarker
+            Lude.. Lens._Just
 
-instance AWSRequest ListCloudFrontOriginAccessIdentities where
+instance Lude.AWSRequest ListCloudFrontOriginAccessIdentities where
   type
     Rs ListCloudFrontOriginAccessIdentities =
       ListCloudFrontOriginAccessIdentitiesResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListCloudFrontOriginAccessIdentitiesResponse'
-            <$> (pure (fromEnum s)) <*> (parseXML x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.parseXML x)
       )
 
-instance Hashable ListCloudFrontOriginAccessIdentities
+instance Lude.ToHeaders ListCloudFrontOriginAccessIdentities where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListCloudFrontOriginAccessIdentities
+instance Lude.ToPath ListCloudFrontOriginAccessIdentities where
+  toPath = Lude.const "/2020-05-31/origin-access-identity/cloudfront"
 
-instance ToHeaders ListCloudFrontOriginAccessIdentities where
-  toHeaders = const mempty
-
-instance ToPath ListCloudFrontOriginAccessIdentities where
-  toPath = const "/2020-05-31/origin-access-identity/cloudfront"
-
-instance ToQuery ListCloudFrontOriginAccessIdentities where
+instance Lude.ToQuery ListCloudFrontOriginAccessIdentities where
   toQuery ListCloudFrontOriginAccessIdentities' {..} =
-    mconcat
-      ["Marker" =: _lcfoaiMarker, "MaxItems" =: _lcfoaiMaxItems]
+    Lude.mconcat
+      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'listCloudFrontOriginAccessIdentitiesResponse' smart constructor.
+-- /See:/ 'mkListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
-  { _lcfoairsResponseStatus ::
-      !Int,
-    _lcfoairsCloudFrontOriginAccessIdentityList ::
-      !CloudFrontOriginAccessIdentityList
+  { responseStatus ::
+      Lude.Int,
+    cloudFrontOriginAccessIdentityList ::
+      CloudFrontOriginAccessIdentityList
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCloudFrontOriginAccessIdentitiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcfoairsResponseStatus' - -- | The response status code.
---
--- * 'lcfoairsCloudFrontOriginAccessIdentityList' - The @CloudFrontOriginAccessIdentityList@ type.
-listCloudFrontOriginAccessIdentitiesResponse ::
-  -- | 'lcfoairsResponseStatus'
-  Int ->
-  -- | 'lcfoairsCloudFrontOriginAccessIdentityList'
+-- * 'cloudFrontOriginAccessIdentityList' - The @CloudFrontOriginAccessIdentityList@ type.
+-- * 'responseStatus' - The response status code.
+mkListCloudFrontOriginAccessIdentitiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'cloudFrontOriginAccessIdentityList'
   CloudFrontOriginAccessIdentityList ->
   ListCloudFrontOriginAccessIdentitiesResponse
-listCloudFrontOriginAccessIdentitiesResponse
+mkListCloudFrontOriginAccessIdentitiesResponse
   pResponseStatus_
   pCloudFrontOriginAccessIdentityList_ =
     ListCloudFrontOriginAccessIdentitiesResponse'
-      { _lcfoairsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _lcfoairsCloudFrontOriginAccessIdentityList =
+        cloudFrontOriginAccessIdentityList =
           pCloudFrontOriginAccessIdentityList_
       }
 
--- | -- | The response status code.
-lcfoairsResponseStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
-lcfoairsResponseStatus = lens _lcfoairsResponseStatus (\s a -> s {_lcfoairsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfoairsResponseStatus :: Lens.Lens' ListCloudFrontOriginAccessIdentitiesResponse Lude.Int
+lcfoairsResponseStatus = Lens.lens (responseStatus :: ListCloudFrontOriginAccessIdentitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCloudFrontOriginAccessIdentitiesResponse)
+{-# DEPRECATED lcfoairsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The @CloudFrontOriginAccessIdentityList@ type.
-lcfoairsCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
-lcfoairsCloudFrontOriginAccessIdentityList = lens _lcfoairsCloudFrontOriginAccessIdentityList (\s a -> s {_lcfoairsCloudFrontOriginAccessIdentityList = a})
-
-instance NFData ListCloudFrontOriginAccessIdentitiesResponse
+--
+-- /Note:/ Consider using 'cloudFrontOriginAccessIdentityList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfoairsCloudFrontOriginAccessIdentityList :: Lens.Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
+lcfoairsCloudFrontOriginAccessIdentityList = Lens.lens (cloudFrontOriginAccessIdentityList :: ListCloudFrontOriginAccessIdentitiesResponse -> CloudFrontOriginAccessIdentityList) (\s a -> s {cloudFrontOriginAccessIdentityList = a} :: ListCloudFrontOriginAccessIdentitiesResponse)
+{-# DEPRECATED lcfoairsCloudFrontOriginAccessIdentityList "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentityList' instead." #-}

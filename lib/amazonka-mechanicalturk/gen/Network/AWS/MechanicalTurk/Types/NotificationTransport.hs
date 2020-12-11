@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.NotificationTransport where
+module Network.AWS.MechanicalTurk.Types.NotificationTransport
+  ( NotificationTransport
+      ( NotificationTransport',
+        Email,
+        SNS,
+        Sqs
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotificationTransport
-  = Email
-  | SNS
-  | Sqs
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotificationTransport = NotificationTransport' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotificationTransport where
-  parser =
-    takeLowerText >>= \case
-      "email" -> pure Email
-      "sns" -> pure SNS
-      "sqs" -> pure Sqs
-      e ->
-        fromTextError $
-          "Failure parsing NotificationTransport from value: '" <> e
-            <> "'. Accepted values: email, sns, sqs"
+pattern Email :: NotificationTransport
+pattern Email = NotificationTransport' "Email"
 
-instance ToText NotificationTransport where
-  toText = \case
-    Email -> "Email"
-    SNS -> "SNS"
-    Sqs -> "SQS"
+pattern SNS :: NotificationTransport
+pattern SNS = NotificationTransport' "SNS"
 
-instance Hashable NotificationTransport
+pattern Sqs :: NotificationTransport
+pattern Sqs = NotificationTransport' "SQS"
 
-instance NFData NotificationTransport
-
-instance ToByteString NotificationTransport
-
-instance ToQuery NotificationTransport
-
-instance ToHeader NotificationTransport
-
-instance ToJSON NotificationTransport where
-  toJSON = toJSONText
+{-# COMPLETE
+  Email,
+  SNS,
+  Sqs,
+  NotificationTransport'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,183 +14,190 @@
 --
 -- Increase the number of node groups in the Global Datastore
 module Network.AWS.ElastiCache.IncreaseNodeGroupsInGlobalReplicationGroup
-  ( -- * Creating a Request
-    increaseNodeGroupsInGlobalReplicationGroup,
-    IncreaseNodeGroupsInGlobalReplicationGroup,
+  ( -- * Creating a request
+    IncreaseNodeGroupsInGlobalReplicationGroup (..),
+    mkIncreaseNodeGroupsInGlobalReplicationGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ingigrgRegionalConfigurations,
     ingigrgGlobalReplicationGroupId,
     ingigrgNodeGroupCount,
     ingigrgApplyImmediately,
 
-    -- * Destructuring the Response
-    increaseNodeGroupsInGlobalReplicationGroupResponse,
-    IncreaseNodeGroupsInGlobalReplicationGroupResponse,
+    -- * Destructuring the response
+    IncreaseNodeGroupsInGlobalReplicationGroupResponse (..),
+    mkIncreaseNodeGroupsInGlobalReplicationGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ingigrgrsGlobalReplicationGroup,
     ingigrgrsResponseStatus,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'increaseNodeGroupsInGlobalReplicationGroup' smart constructor.
+-- | /See:/ 'mkIncreaseNodeGroupsInGlobalReplicationGroup' smart constructor.
 data IncreaseNodeGroupsInGlobalReplicationGroup = IncreaseNodeGroupsInGlobalReplicationGroup'
-  { _ingigrgRegionalConfigurations ::
-      !( Maybe
-           [RegionalConfiguration]
-       ),
-    _ingigrgGlobalReplicationGroupId ::
-      !Text,
-    _ingigrgNodeGroupCount ::
-      !Int,
-    _ingigrgApplyImmediately ::
-      !Bool
+  { regionalConfigurations ::
+      Lude.Maybe
+        [RegionalConfiguration],
+    globalReplicationGroupId ::
+      Lude.Text,
+    nodeGroupCount ::
+      Lude.Int,
+    applyImmediately ::
+      Lude.Bool
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IncreaseNodeGroupsInGlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ingigrgRegionalConfigurations' - Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
---
--- * 'ingigrgGlobalReplicationGroupId' - The name of the Global Datastore
---
--- * 'ingigrgNodeGroupCount' - The number of node groups you wish to add
---
--- * 'ingigrgApplyImmediately' - Indicates that the process begins immediately. At present, the only permitted value for this parameter is true.
-increaseNodeGroupsInGlobalReplicationGroup ::
-  -- | 'ingigrgGlobalReplicationGroupId'
-  Text ->
-  -- | 'ingigrgNodeGroupCount'
-  Int ->
-  -- | 'ingigrgApplyImmediately'
-  Bool ->
+-- * 'applyImmediately' - Indicates that the process begins immediately. At present, the only permitted value for this parameter is true.
+-- * 'globalReplicationGroupId' - The name of the Global Datastore
+-- * 'nodeGroupCount' - The number of node groups you wish to add
+-- * 'regionalConfigurations' - Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
+mkIncreaseNodeGroupsInGlobalReplicationGroup ::
+  -- | 'globalReplicationGroupId'
+  Lude.Text ->
+  -- | 'nodeGroupCount'
+  Lude.Int ->
+  -- | 'applyImmediately'
+  Lude.Bool ->
   IncreaseNodeGroupsInGlobalReplicationGroup
-increaseNodeGroupsInGlobalReplicationGroup
+mkIncreaseNodeGroupsInGlobalReplicationGroup
   pGlobalReplicationGroupId_
   pNodeGroupCount_
   pApplyImmediately_ =
     IncreaseNodeGroupsInGlobalReplicationGroup'
-      { _ingigrgRegionalConfigurations =
-          Nothing,
-        _ingigrgGlobalReplicationGroupId =
+      { regionalConfigurations =
+          Lude.Nothing,
+        globalReplicationGroupId =
           pGlobalReplicationGroupId_,
-        _ingigrgNodeGroupCount = pNodeGroupCount_,
-        _ingigrgApplyImmediately = pApplyImmediately_
+        nodeGroupCount = pNodeGroupCount_,
+        applyImmediately = pApplyImmediately_
       }
 
 -- | Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
-ingigrgRegionalConfigurations :: Lens' IncreaseNodeGroupsInGlobalReplicationGroup [RegionalConfiguration]
-ingigrgRegionalConfigurations = lens _ingigrgRegionalConfigurations (\s a -> s {_ingigrgRegionalConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'regionalConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ingigrgRegionalConfigurations :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup (Lude.Maybe [RegionalConfiguration])
+ingigrgRegionalConfigurations = Lens.lens (regionalConfigurations :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Maybe [RegionalConfiguration]) (\s a -> s {regionalConfigurations = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
+{-# DEPRECATED ingigrgRegionalConfigurations "Use generic-lens or generic-optics with 'regionalConfigurations' instead." #-}
 
 -- | The name of the Global Datastore
-ingigrgGlobalReplicationGroupId :: Lens' IncreaseNodeGroupsInGlobalReplicationGroup Text
-ingigrgGlobalReplicationGroupId = lens _ingigrgGlobalReplicationGroupId (\s a -> s {_ingigrgGlobalReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ingigrgGlobalReplicationGroupId :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup Lude.Text
+ingigrgGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
+{-# DEPRECATED ingigrgGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
 -- | The number of node groups you wish to add
-ingigrgNodeGroupCount :: Lens' IncreaseNodeGroupsInGlobalReplicationGroup Int
-ingigrgNodeGroupCount = lens _ingigrgNodeGroupCount (\s a -> s {_ingigrgNodeGroupCount = a})
+--
+-- /Note:/ Consider using 'nodeGroupCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ingigrgNodeGroupCount :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup Lude.Int
+ingigrgNodeGroupCount = Lens.lens (nodeGroupCount :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Int) (\s a -> s {nodeGroupCount = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
+{-# DEPRECATED ingigrgNodeGroupCount "Use generic-lens or generic-optics with 'nodeGroupCount' instead." #-}
 
 -- | Indicates that the process begins immediately. At present, the only permitted value for this parameter is true.
-ingigrgApplyImmediately :: Lens' IncreaseNodeGroupsInGlobalReplicationGroup Bool
-ingigrgApplyImmediately = lens _ingigrgApplyImmediately (\s a -> s {_ingigrgApplyImmediately = a})
+--
+-- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ingigrgApplyImmediately :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup Lude.Bool
+ingigrgApplyImmediately = Lens.lens (applyImmediately :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Bool) (\s a -> s {applyImmediately = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
+{-# DEPRECATED ingigrgApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
-instance AWSRequest IncreaseNodeGroupsInGlobalReplicationGroup where
+instance Lude.AWSRequest IncreaseNodeGroupsInGlobalReplicationGroup where
   type
     Rs IncreaseNodeGroupsInGlobalReplicationGroup =
       IncreaseNodeGroupsInGlobalReplicationGroupResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "IncreaseNodeGroupsInGlobalReplicationGroupResult"
       ( \s h x ->
           IncreaseNodeGroupsInGlobalReplicationGroupResponse'
-            <$> (x .@? "GlobalReplicationGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "GlobalReplicationGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable IncreaseNodeGroupsInGlobalReplicationGroup
+instance Lude.ToHeaders IncreaseNodeGroupsInGlobalReplicationGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData IncreaseNodeGroupsInGlobalReplicationGroup
+instance Lude.ToPath IncreaseNodeGroupsInGlobalReplicationGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders IncreaseNodeGroupsInGlobalReplicationGroup where
-  toHeaders = const mempty
-
-instance ToPath IncreaseNodeGroupsInGlobalReplicationGroup where
-  toPath = const "/"
-
-instance ToQuery IncreaseNodeGroupsInGlobalReplicationGroup where
+instance Lude.ToQuery IncreaseNodeGroupsInGlobalReplicationGroup where
   toQuery IncreaseNodeGroupsInGlobalReplicationGroup' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("IncreaseNodeGroupsInGlobalReplicationGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
+          Lude.=: ("IncreaseNodeGroupsInGlobalReplicationGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
         "RegionalConfigurations"
-          =: toQuery
-            ( toQueryList "RegionalConfiguration"
-                <$> _ingigrgRegionalConfigurations
+          Lude.=: Lude.toQuery
+            ( Lude.toQueryList "RegionalConfiguration"
+                Lude.<$> regionalConfigurations
             ),
-        "GlobalReplicationGroupId" =: _ingigrgGlobalReplicationGroupId,
-        "NodeGroupCount" =: _ingigrgNodeGroupCount,
-        "ApplyImmediately" =: _ingigrgApplyImmediately
+        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId,
+        "NodeGroupCount" Lude.=: nodeGroupCount,
+        "ApplyImmediately" Lude.=: applyImmediately
       ]
 
--- | /See:/ 'increaseNodeGroupsInGlobalReplicationGroupResponse' smart constructor.
+-- | /See:/ 'mkIncreaseNodeGroupsInGlobalReplicationGroupResponse' smart constructor.
 data IncreaseNodeGroupsInGlobalReplicationGroupResponse = IncreaseNodeGroupsInGlobalReplicationGroupResponse'
-  { _ingigrgrsGlobalReplicationGroup ::
-      !( Maybe
-           GlobalReplicationGroup
-       ),
-    _ingigrgrsResponseStatus ::
-      !Int
+  { globalReplicationGroup ::
+      Lude.Maybe
+        GlobalReplicationGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'IncreaseNodeGroupsInGlobalReplicationGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ingigrgrsGlobalReplicationGroup' - Undocumented member.
---
--- * 'ingigrgrsResponseStatus' - -- | The response status code.
-increaseNodeGroupsInGlobalReplicationGroupResponse ::
-  -- | 'ingigrgrsResponseStatus'
-  Int ->
+-- * 'globalReplicationGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkIncreaseNodeGroupsInGlobalReplicationGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   IncreaseNodeGroupsInGlobalReplicationGroupResponse
-increaseNodeGroupsInGlobalReplicationGroupResponse pResponseStatus_ =
-  IncreaseNodeGroupsInGlobalReplicationGroupResponse'
-    { _ingigrgrsGlobalReplicationGroup =
-        Nothing,
-      _ingigrgrsResponseStatus = pResponseStatus_
-    }
+mkIncreaseNodeGroupsInGlobalReplicationGroupResponse
+  pResponseStatus_ =
+    IncreaseNodeGroupsInGlobalReplicationGroupResponse'
+      { globalReplicationGroup =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
--- | Undocumented member.
-ingigrgrsGlobalReplicationGroup :: Lens' IncreaseNodeGroupsInGlobalReplicationGroupResponse (Maybe GlobalReplicationGroup)
-ingigrgrsGlobalReplicationGroup = lens _ingigrgrsGlobalReplicationGroup (\s a -> s {_ingigrgrsGlobalReplicationGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'globalReplicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ingigrgrsGlobalReplicationGroup :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroupResponse (Lude.Maybe GlobalReplicationGroup)
+ingigrgrsGlobalReplicationGroup = Lens.lens (globalReplicationGroup :: IncreaseNodeGroupsInGlobalReplicationGroupResponse -> Lude.Maybe GlobalReplicationGroup) (\s a -> s {globalReplicationGroup = a} :: IncreaseNodeGroupsInGlobalReplicationGroupResponse)
+{-# DEPRECATED ingigrgrsGlobalReplicationGroup "Use generic-lens or generic-optics with 'globalReplicationGroup' instead." #-}
 
--- | -- | The response status code.
-ingigrgrsResponseStatus :: Lens' IncreaseNodeGroupsInGlobalReplicationGroupResponse Int
-ingigrgrsResponseStatus = lens _ingigrgrsResponseStatus (\s a -> s {_ingigrgrsResponseStatus = a})
-
-instance NFData IncreaseNodeGroupsInGlobalReplicationGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ingigrgrsResponseStatus :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroupResponse Lude.Int
+ingigrgrsResponseStatus = Lens.lens (responseStatus :: IncreaseNodeGroupsInGlobalReplicationGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: IncreaseNodeGroupsInGlobalReplicationGroupResponse)
+{-# DEPRECATED ingigrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

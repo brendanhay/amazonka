@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,156 @@
 --
 -- Attaches the specified object to the specified index.
 module Network.AWS.CloudDirectory.AttachToIndex
-  ( -- * Creating a Request
-    attachToIndex,
-    AttachToIndex,
+  ( -- * Creating a request
+    AttachToIndex (..),
+    mkAttachToIndex,
 
-    -- * Request Lenses
+    -- ** Request lenses
     atiDirectoryARN,
     atiIndexReference,
     atiTargetReference,
 
-    -- * Destructuring the Response
-    attachToIndexResponse,
-    AttachToIndexResponse,
+    -- * Destructuring the response
+    AttachToIndexResponse (..),
+    mkAttachToIndexResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     atirsAttachedObjectIdentifier,
     atirsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachToIndex' smart constructor.
+-- | /See:/ 'mkAttachToIndex' smart constructor.
 data AttachToIndex = AttachToIndex'
-  { _atiDirectoryARN :: !Text,
-    _atiIndexReference :: !ObjectReference,
-    _atiTargetReference :: !ObjectReference
+  { directoryARN :: Lude.Text,
+    indexReference :: ObjectReference,
+    targetReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachToIndex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atiDirectoryARN' - The Amazon Resource Name (ARN) of the directory where the object and index exist.
---
--- * 'atiIndexReference' - A reference to the index that you are attaching the object to.
---
--- * 'atiTargetReference' - A reference to the object that you are attaching to the index.
-attachToIndex ::
-  -- | 'atiDirectoryARN'
-  Text ->
-  -- | 'atiIndexReference'
+-- * 'directoryARN' - The Amazon Resource Name (ARN) of the directory where the object and index exist.
+-- * 'indexReference' - A reference to the index that you are attaching the object to.
+-- * 'targetReference' - A reference to the object that you are attaching to the index.
+mkAttachToIndex ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'indexReference'
   ObjectReference ->
-  -- | 'atiTargetReference'
+  -- | 'targetReference'
   ObjectReference ->
   AttachToIndex
-attachToIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
+mkAttachToIndex pDirectoryARN_ pIndexReference_ pTargetReference_ =
   AttachToIndex'
-    { _atiDirectoryARN = pDirectoryARN_,
-      _atiIndexReference = pIndexReference_,
-      _atiTargetReference = pTargetReference_
+    { directoryARN = pDirectoryARN_,
+      indexReference = pIndexReference_,
+      targetReference = pTargetReference_
     }
 
 -- | The Amazon Resource Name (ARN) of the directory where the object and index exist.
-atiDirectoryARN :: Lens' AttachToIndex Text
-atiDirectoryARN = lens _atiDirectoryARN (\s a -> s {_atiDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atiDirectoryARN :: Lens.Lens' AttachToIndex Lude.Text
+atiDirectoryARN = Lens.lens (directoryARN :: AttachToIndex -> Lude.Text) (\s a -> s {directoryARN = a} :: AttachToIndex)
+{-# DEPRECATED atiDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | A reference to the index that you are attaching the object to.
-atiIndexReference :: Lens' AttachToIndex ObjectReference
-atiIndexReference = lens _atiIndexReference (\s a -> s {_atiIndexReference = a})
+--
+-- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atiIndexReference :: Lens.Lens' AttachToIndex ObjectReference
+atiIndexReference = Lens.lens (indexReference :: AttachToIndex -> ObjectReference) (\s a -> s {indexReference = a} :: AttachToIndex)
+{-# DEPRECATED atiIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
 
 -- | A reference to the object that you are attaching to the index.
-atiTargetReference :: Lens' AttachToIndex ObjectReference
-atiTargetReference = lens _atiTargetReference (\s a -> s {_atiTargetReference = a})
+--
+-- /Note:/ Consider using 'targetReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atiTargetReference :: Lens.Lens' AttachToIndex ObjectReference
+atiTargetReference = Lens.lens (targetReference :: AttachToIndex -> ObjectReference) (\s a -> s {targetReference = a} :: AttachToIndex)
+{-# DEPRECATED atiTargetReference "Use generic-lens or generic-optics with 'targetReference' instead." #-}
 
-instance AWSRequest AttachToIndex where
+instance Lude.AWSRequest AttachToIndex where
   type Rs AttachToIndex = AttachToIndexResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AttachToIndexResponse'
-            <$> (x .?> "AttachedObjectIdentifier") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AttachedObjectIdentifier")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AttachToIndex
-
-instance NFData AttachToIndex
-
-instance ToHeaders AttachToIndex where
+instance Lude.ToHeaders AttachToIndex where
   toHeaders AttachToIndex' {..} =
-    mconcat ["x-amz-data-partition" =# _atiDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON AttachToIndex where
+instance Lude.ToJSON AttachToIndex where
   toJSON AttachToIndex' {..} =
-    object
-      ( catMaybes
-          [ Just ("IndexReference" .= _atiIndexReference),
-            Just ("TargetReference" .= _atiTargetReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("IndexReference" Lude..= indexReference),
+            Lude.Just ("TargetReference" Lude..= targetReference)
           ]
       )
 
-instance ToPath AttachToIndex where
-  toPath = const "/amazonclouddirectory/2017-01-11/index/attach"
+instance Lude.ToPath AttachToIndex where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/index/attach"
 
-instance ToQuery AttachToIndex where
-  toQuery = const mempty
+instance Lude.ToQuery AttachToIndex where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'attachToIndexResponse' smart constructor.
+-- | /See:/ 'mkAttachToIndexResponse' smart constructor.
 data AttachToIndexResponse = AttachToIndexResponse'
-  { _atirsAttachedObjectIdentifier ::
-      !(Maybe Text),
-    _atirsResponseStatus :: !Int
+  { attachedObjectIdentifier ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachToIndexResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atirsAttachedObjectIdentifier' - The @ObjectIdentifier@ of the object that was attached to the index.
---
--- * 'atirsResponseStatus' - -- | The response status code.
-attachToIndexResponse ::
-  -- | 'atirsResponseStatus'
-  Int ->
+-- * 'attachedObjectIdentifier' - The @ObjectIdentifier@ of the object that was attached to the index.
+-- * 'responseStatus' - The response status code.
+mkAttachToIndexResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AttachToIndexResponse
-attachToIndexResponse pResponseStatus_ =
+mkAttachToIndexResponse pResponseStatus_ =
   AttachToIndexResponse'
-    { _atirsAttachedObjectIdentifier = Nothing,
-      _atirsResponseStatus = pResponseStatus_
+    { attachedObjectIdentifier = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ObjectIdentifier@ of the object that was attached to the index.
-atirsAttachedObjectIdentifier :: Lens' AttachToIndexResponse (Maybe Text)
-atirsAttachedObjectIdentifier = lens _atirsAttachedObjectIdentifier (\s a -> s {_atirsAttachedObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'attachedObjectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atirsAttachedObjectIdentifier :: Lens.Lens' AttachToIndexResponse (Lude.Maybe Lude.Text)
+atirsAttachedObjectIdentifier = Lens.lens (attachedObjectIdentifier :: AttachToIndexResponse -> Lude.Maybe Lude.Text) (\s a -> s {attachedObjectIdentifier = a} :: AttachToIndexResponse)
+{-# DEPRECATED atirsAttachedObjectIdentifier "Use generic-lens or generic-optics with 'attachedObjectIdentifier' instead." #-}
 
--- | -- | The response status code.
-atirsResponseStatus :: Lens' AttachToIndexResponse Int
-atirsResponseStatus = lens _atirsResponseStatus (\s a -> s {_atirsResponseStatus = a})
-
-instance NFData AttachToIndexResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atirsResponseStatus :: Lens.Lens' AttachToIndexResponse Lude.Int
+atirsResponseStatus = Lens.lens (responseStatus :: AttachToIndexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachToIndexResponse)
+{-# DEPRECATED atirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

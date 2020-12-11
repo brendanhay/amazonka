@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ScheduleState where
+module Network.AWS.Redshift.Types.ScheduleState
+  ( ScheduleState
+      ( ScheduleState',
+        Active,
+        Failed,
+        Modifying
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data ScheduleState
-  = Active
-  | Failed
-  | Modifying
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScheduleState = ScheduleState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScheduleState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "failed" -> pure Failed
-      "modifying" -> pure Modifying
-      e ->
-        fromTextError $
-          "Failure parsing ScheduleState from value: '" <> e
-            <> "'. Accepted values: active, failed, modifying"
+pattern Active :: ScheduleState
+pattern Active = ScheduleState' "ACTIVE"
 
-instance ToText ScheduleState where
-  toText = \case
-    Active -> "ACTIVE"
-    Failed -> "FAILED"
-    Modifying -> "MODIFYING"
+pattern Failed :: ScheduleState
+pattern Failed = ScheduleState' "FAILED"
 
-instance Hashable ScheduleState
+pattern Modifying :: ScheduleState
+pattern Modifying = ScheduleState' "MODIFYING"
 
-instance NFData ScheduleState
-
-instance ToByteString ScheduleState
-
-instance ToQuery ScheduleState
-
-instance ToHeader ScheduleState
-
-instance FromXML ScheduleState where
-  parseXML = parseXMLText "ScheduleState"
+{-# COMPLETE
+  Active,
+  Failed,
+  Modifying,
+  ScheduleState'
+  #-}

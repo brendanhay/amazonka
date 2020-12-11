@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.RDSDatabaseCredentials where
+module Network.AWS.MachineLearning.Types.RDSDatabaseCredentials
+  ( RDSDatabaseCredentials (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRDSDatabaseCredentials,
+
+    -- * Lenses
+    rdsdcUsername,
+    rdsdcPassword,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The database credentials to connect to a database on an RDS DB instance.
 --
---
---
--- /See:/ 'rdsDatabaseCredentials' smart constructor.
+-- /See:/ 'mkRDSDatabaseCredentials' smart constructor.
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
-  { _rdsdcUsername ::
-      !Text,
-    _rdsdcPassword :: !Text
+  { username ::
+      Lude.Text,
+    password :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RDSDatabaseCredentials' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdsdcUsername' - Undocumented member.
---
--- * 'rdsdcPassword' - Undocumented member.
-rdsDatabaseCredentials ::
-  -- | 'rdsdcUsername'
-  Text ->
-  -- | 'rdsdcPassword'
-  Text ->
+-- * 'password' - Undocumented field.
+-- * 'username' - Undocumented field.
+mkRDSDatabaseCredentials ::
+  -- | 'username'
+  Lude.Text ->
+  -- | 'password'
+  Lude.Text ->
   RDSDatabaseCredentials
-rdsDatabaseCredentials pUsername_ pPassword_ =
+mkRDSDatabaseCredentials pUsername_ pPassword_ =
   RDSDatabaseCredentials'
-    { _rdsdcUsername = pUsername_,
-      _rdsdcPassword = pPassword_
+    { username = pUsername_,
+      password = pPassword_
     }
 
--- | Undocumented member.
-rdsdcUsername :: Lens' RDSDatabaseCredentials Text
-rdsdcUsername = lens _rdsdcUsername (\s a -> s {_rdsdcUsername = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsdcUsername :: Lens.Lens' RDSDatabaseCredentials Lude.Text
+rdsdcUsername = Lens.lens (username :: RDSDatabaseCredentials -> Lude.Text) (\s a -> s {username = a} :: RDSDatabaseCredentials)
+{-# DEPRECATED rdsdcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
--- | Undocumented member.
-rdsdcPassword :: Lens' RDSDatabaseCredentials Text
-rdsdcPassword = lens _rdsdcPassword (\s a -> s {_rdsdcPassword = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsdcPassword :: Lens.Lens' RDSDatabaseCredentials Lude.Text
+rdsdcPassword = Lens.lens (password :: RDSDatabaseCredentials -> Lude.Text) (\s a -> s {password = a} :: RDSDatabaseCredentials)
+{-# DEPRECATED rdsdcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance Hashable RDSDatabaseCredentials
-
-instance NFData RDSDatabaseCredentials
-
-instance ToJSON RDSDatabaseCredentials where
+instance Lude.ToJSON RDSDatabaseCredentials where
   toJSON RDSDatabaseCredentials' {..} =
-    object
-      ( catMaybes
-          [ Just ("Username" .= _rdsdcUsername),
-            Just ("Password" .= _rdsdcPassword)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Username" Lude..= username),
+            Lude.Just ("Password" Lude..= password)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.ExcludedRule where
+module Network.AWS.WAF.Types.ExcludedRule
+  ( ExcludedRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExcludedRule,
+
+    -- * Lenses
+    erRuleId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The rule to exclude from a rule group. This is applicable only when the @ActivatedRule@ refers to a @RuleGroup@ . The rule must belong to the @RuleGroup@ that is specified by the @ActivatedRule@ .
 --
---
---
--- /See:/ 'excludedRule' smart constructor.
-newtype ExcludedRule = ExcludedRule' {_erRuleId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkExcludedRule' smart constructor.
+newtype ExcludedRule = ExcludedRule' {ruleId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExcludedRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'erRuleId' - The unique identifier for the rule to exclude from the rule group.
-excludedRule ::
-  -- | 'erRuleId'
-  Text ->
+-- * 'ruleId' - The unique identifier for the rule to exclude from the rule group.
+mkExcludedRule ::
+  -- | 'ruleId'
+  Lude.Text ->
   ExcludedRule
-excludedRule pRuleId_ = ExcludedRule' {_erRuleId = pRuleId_}
+mkExcludedRule pRuleId_ = ExcludedRule' {ruleId = pRuleId_}
 
 -- | The unique identifier for the rule to exclude from the rule group.
-erRuleId :: Lens' ExcludedRule Text
-erRuleId = lens _erRuleId (\s a -> s {_erRuleId = a})
+--
+-- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erRuleId :: Lens.Lens' ExcludedRule Lude.Text
+erRuleId = Lens.lens (ruleId :: ExcludedRule -> Lude.Text) (\s a -> s {ruleId = a} :: ExcludedRule)
+{-# DEPRECATED erRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
-instance FromJSON ExcludedRule where
+instance Lude.FromJSON ExcludedRule where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExcludedRule"
-      (\x -> ExcludedRule' <$> (x .: "RuleId"))
+      (\x -> ExcludedRule' Lude.<$> (x Lude..: "RuleId"))
 
-instance Hashable ExcludedRule
-
-instance NFData ExcludedRule
-
-instance ToJSON ExcludedRule where
+instance Lude.ToJSON ExcludedRule where
   toJSON ExcludedRule' {..} =
-    object (catMaybes [Just ("RuleId" .= _erRuleId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("RuleId" Lude..= ruleId)])

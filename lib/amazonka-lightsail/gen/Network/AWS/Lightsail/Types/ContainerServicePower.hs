@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContainerServicePower where
+module Network.AWS.Lightsail.Types.ContainerServicePower
+  ( ContainerServicePower (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkContainerServicePower,
+
+    -- * Lenses
+    cspPowerId,
+    cspCpuCount,
+    cspName,
+    cspPrice,
+    cspIsActive,
+    cspRamSizeInGb,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the powers that can be specified for an Amazon Lightsail container service.
 --
---
 -- The power specifies the amount of RAM, the number of vCPUs, and the base price of the container service.
 --
---
--- /See:/ 'containerServicePower' smart constructor.
+-- /See:/ 'mkContainerServicePower' smart constructor.
 data ContainerServicePower = ContainerServicePower'
-  { _cspPowerId ::
-      !(Maybe Text),
-    _cspCpuCount :: !(Maybe Double),
-    _cspName :: !(Maybe Text),
-    _cspPrice :: !(Maybe Double),
-    _cspIsActive :: !(Maybe Bool),
-    _cspRamSizeInGb :: !(Maybe Double)
+  { powerId ::
+      Lude.Maybe Lude.Text,
+    cpuCount :: Lude.Maybe Lude.Double,
+    name :: Lude.Maybe Lude.Text,
+    price :: Lude.Maybe Lude.Double,
+    isActive :: Lude.Maybe Lude.Bool,
+    ramSizeInGb :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerServicePower' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cspPowerId' - The ID of the power (e.g., @nano-1@ ).
---
--- * 'cspCpuCount' - The number of vCPUs included in the power.
---
--- * 'cspName' - The friendly name of the power (e.g., @nano@ ).
---
--- * 'cspPrice' - The monthly price of the power in USD.
---
--- * 'cspIsActive' - A Boolean value indicating whether the power is active and can be specified for container services.
---
--- * 'cspRamSizeInGb' - The amount of RAM (in GB) of the power.
-containerServicePower ::
+-- * 'cpuCount' - The number of vCPUs included in the power.
+-- * 'isActive' - A Boolean value indicating whether the power is active and can be specified for container services.
+-- * 'name' - The friendly name of the power (e.g., @nano@ ).
+-- * 'powerId' - The ID of the power (e.g., @nano-1@ ).
+-- * 'price' - The monthly price of the power in USD.
+-- * 'ramSizeInGb' - The amount of RAM (in GB) of the power.
+mkContainerServicePower ::
   ContainerServicePower
-containerServicePower =
+mkContainerServicePower =
   ContainerServicePower'
-    { _cspPowerId = Nothing,
-      _cspCpuCount = Nothing,
-      _cspName = Nothing,
-      _cspPrice = Nothing,
-      _cspIsActive = Nothing,
-      _cspRamSizeInGb = Nothing
+    { powerId = Lude.Nothing,
+      cpuCount = Lude.Nothing,
+      name = Lude.Nothing,
+      price = Lude.Nothing,
+      isActive = Lude.Nothing,
+      ramSizeInGb = Lude.Nothing
     }
 
 -- | The ID of the power (e.g., @nano-1@ ).
-cspPowerId :: Lens' ContainerServicePower (Maybe Text)
-cspPowerId = lens _cspPowerId (\s a -> s {_cspPowerId = a})
+--
+-- /Note:/ Consider using 'powerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspPowerId :: Lens.Lens' ContainerServicePower (Lude.Maybe Lude.Text)
+cspPowerId = Lens.lens (powerId :: ContainerServicePower -> Lude.Maybe Lude.Text) (\s a -> s {powerId = a} :: ContainerServicePower)
+{-# DEPRECATED cspPowerId "Use generic-lens or generic-optics with 'powerId' instead." #-}
 
 -- | The number of vCPUs included in the power.
-cspCpuCount :: Lens' ContainerServicePower (Maybe Double)
-cspCpuCount = lens _cspCpuCount (\s a -> s {_cspCpuCount = a})
+--
+-- /Note:/ Consider using 'cpuCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspCpuCount :: Lens.Lens' ContainerServicePower (Lude.Maybe Lude.Double)
+cspCpuCount = Lens.lens (cpuCount :: ContainerServicePower -> Lude.Maybe Lude.Double) (\s a -> s {cpuCount = a} :: ContainerServicePower)
+{-# DEPRECATED cspCpuCount "Use generic-lens or generic-optics with 'cpuCount' instead." #-}
 
 -- | The friendly name of the power (e.g., @nano@ ).
-cspName :: Lens' ContainerServicePower (Maybe Text)
-cspName = lens _cspName (\s a -> s {_cspName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspName :: Lens.Lens' ContainerServicePower (Lude.Maybe Lude.Text)
+cspName = Lens.lens (name :: ContainerServicePower -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ContainerServicePower)
+{-# DEPRECATED cspName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The monthly price of the power in USD.
-cspPrice :: Lens' ContainerServicePower (Maybe Double)
-cspPrice = lens _cspPrice (\s a -> s {_cspPrice = a})
+--
+-- /Note:/ Consider using 'price' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspPrice :: Lens.Lens' ContainerServicePower (Lude.Maybe Lude.Double)
+cspPrice = Lens.lens (price :: ContainerServicePower -> Lude.Maybe Lude.Double) (\s a -> s {price = a} :: ContainerServicePower)
+{-# DEPRECATED cspPrice "Use generic-lens or generic-optics with 'price' instead." #-}
 
 -- | A Boolean value indicating whether the power is active and can be specified for container services.
-cspIsActive :: Lens' ContainerServicePower (Maybe Bool)
-cspIsActive = lens _cspIsActive (\s a -> s {_cspIsActive = a})
+--
+-- /Note:/ Consider using 'isActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspIsActive :: Lens.Lens' ContainerServicePower (Lude.Maybe Lude.Bool)
+cspIsActive = Lens.lens (isActive :: ContainerServicePower -> Lude.Maybe Lude.Bool) (\s a -> s {isActive = a} :: ContainerServicePower)
+{-# DEPRECATED cspIsActive "Use generic-lens or generic-optics with 'isActive' instead." #-}
 
 -- | The amount of RAM (in GB) of the power.
-cspRamSizeInGb :: Lens' ContainerServicePower (Maybe Double)
-cspRamSizeInGb = lens _cspRamSizeInGb (\s a -> s {_cspRamSizeInGb = a})
+--
+-- /Note:/ Consider using 'ramSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspRamSizeInGb :: Lens.Lens' ContainerServicePower (Lude.Maybe Lude.Double)
+cspRamSizeInGb = Lens.lens (ramSizeInGb :: ContainerServicePower -> Lude.Maybe Lude.Double) (\s a -> s {ramSizeInGb = a} :: ContainerServicePower)
+{-# DEPRECATED cspRamSizeInGb "Use generic-lens or generic-optics with 'ramSizeInGb' instead." #-}
 
-instance FromJSON ContainerServicePower where
+instance Lude.FromJSON ContainerServicePower where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContainerServicePower"
       ( \x ->
           ContainerServicePower'
-            <$> (x .:? "powerId")
-            <*> (x .:? "cpuCount")
-            <*> (x .:? "name")
-            <*> (x .:? "price")
-            <*> (x .:? "isActive")
-            <*> (x .:? "ramSizeInGb")
+            Lude.<$> (x Lude..:? "powerId")
+            Lude.<*> (x Lude..:? "cpuCount")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "price")
+            Lude.<*> (x Lude..:? "isActive")
+            Lude.<*> (x Lude..:? "ramSizeInGb")
       )
-
-instance Hashable ContainerServicePower
-
-instance NFData ContainerServicePower

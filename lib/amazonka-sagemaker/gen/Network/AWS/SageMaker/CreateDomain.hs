@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,24 @@
 --
 -- Creates a @Domain@ used by Amazon SageMaker Studio. A domain consists of an associated Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC) configurations. An AWS account is limited to one domain per region. Users within a domain can share notebook files and other artifacts with each other.
 --
---
 -- When a domain is created, an EFS volume is created for use by all of the users within the domain. Each user receives a private home directory within the EFS volume for notebooks, Git repositories, and data files.
---
 -- __VPC configuration__
---
 -- All SageMaker Studio traffic between the domain and the EFS volume is through the specified VPC and subnets. For other Studio traffic, you can specify the @AppNetworkAccessType@ parameter. @AppNetworkAccessType@ corresponds to the network access type that you choose when you onboard to Studio. The following options are available:
 --
 --     * @PublicInternetOnly@ - Non-EFS traffic goes through a VPC managed by Amazon SageMaker, which allows internet access. This is the default value.
 --
+--
 --     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets. Internet access is disabled by default. To allow internet access, you must specify a NAT gateway.
---
 -- When internet access is disabled, you won't be able to run a Studio notebook or to train or host models unless your VPC has an interface endpoint to the SageMaker API and runtime or a NAT gateway and your security groups allow outbound connections.
---
 --
 --
 -- For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html Connect SageMaker Studio Notebooks to Resources in a VPC> .
 module Network.AWS.SageMaker.CreateDomain
-  ( -- * Creating a Request
-    createDomain,
-    CreateDomain,
+  ( -- * Creating a request
+    CreateDomain (..),
+    mkCreateDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdHomeEfsFileSystemKMSKeyId,
     cdKMSKeyId,
     cdAppNetworkAccessType,
@@ -51,209 +42,260 @@ module Network.AWS.SageMaker.CreateDomain
     cdSubnetIds,
     cdVPCId,
 
-    -- * Destructuring the Response
-    createDomainResponse,
-    CreateDomainResponse,
+    -- * Destructuring the response
+    CreateDomainResponse (..),
+    mkCreateDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdrsDomainARN,
     cdrsURL,
     cdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'createDomain' smart constructor.
+-- | /See:/ 'mkCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
-  { _cdHomeEfsFileSystemKMSKeyId ::
-      !(Maybe Text),
-    _cdKMSKeyId :: !(Maybe Text),
-    _cdAppNetworkAccessType :: !(Maybe AppNetworkAccessType),
-    _cdTags :: !(Maybe [Tag]),
-    _cdDomainName :: !Text,
-    _cdAuthMode :: !AuthMode,
-    _cdDefaultUserSettings :: !UserSettings,
-    _cdSubnetIds :: !(List1 Text),
-    _cdVPCId :: !Text
+  { homeEfsFileSystemKMSKeyId ::
+      Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    appNetworkAccessType :: Lude.Maybe AppNetworkAccessType,
+    tags :: Lude.Maybe [Tag],
+    domainName :: Lude.Text,
+    authMode :: AuthMode,
+    defaultUserSettings :: UserSettings,
+    subnetIds :: Lude.NonEmpty Lude.Text,
+    vpcId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'appNetworkAccessType' - Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .
 --
--- * 'cdHomeEfsFileSystemKMSKeyId' - This member is deprecated and replaced with @KmsKeyId@ .
 --
--- * 'cdKMSKeyId' - SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default. For more control, specify a customer managed CMK.
+--     * @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access
 --
--- * 'cdAppNetworkAccessType' - Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .     * @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
 --
--- * 'cdTags' - Tags to associated with the Domain. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the 'Search' API.
+--     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
 --
--- * 'cdDomainName' - A name for the domain.
 --
--- * 'cdAuthMode' - The mode of authentication that members use to access the domain.
---
--- * 'cdDefaultUserSettings' - The default user settings.
---
--- * 'cdSubnetIds' - The VPC subnets that Studio uses for communication.
---
--- * 'cdVPCId' - The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-createDomain ::
-  -- | 'cdDomainName'
-  Text ->
-  -- | 'cdAuthMode'
+-- * 'authMode' - The mode of authentication that members use to access the domain.
+-- * 'defaultUserSettings' - The default user settings.
+-- * 'domainName' - A name for the domain.
+-- * 'homeEfsFileSystemKMSKeyId' - This member is deprecated and replaced with @KmsKeyId@ .
+-- * 'kmsKeyId' - SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default. For more control, specify a customer managed CMK.
+-- * 'subnetIds' - The VPC subnets that Studio uses for communication.
+-- * 'tags' - Tags to associated with the Domain. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the 'Search' API.
+-- * 'vpcId' - The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+mkCreateDomain ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'authMode'
   AuthMode ->
-  -- | 'cdDefaultUserSettings'
+  -- | 'defaultUserSettings'
   UserSettings ->
-  -- | 'cdSubnetIds'
-  NonEmpty Text ->
-  -- | 'cdVPCId'
-  Text ->
+  -- | 'subnetIds'
+  Lude.NonEmpty Lude.Text ->
+  -- | 'vpcId'
+  Lude.Text ->
   CreateDomain
-createDomain
+mkCreateDomain
   pDomainName_
   pAuthMode_
   pDefaultUserSettings_
   pSubnetIds_
   pVPCId_ =
     CreateDomain'
-      { _cdHomeEfsFileSystemKMSKeyId = Nothing,
-        _cdKMSKeyId = Nothing,
-        _cdAppNetworkAccessType = Nothing,
-        _cdTags = Nothing,
-        _cdDomainName = pDomainName_,
-        _cdAuthMode = pAuthMode_,
-        _cdDefaultUserSettings = pDefaultUserSettings_,
-        _cdSubnetIds = _List1 # pSubnetIds_,
-        _cdVPCId = pVPCId_
+      { homeEfsFileSystemKMSKeyId = Lude.Nothing,
+        kmsKeyId = Lude.Nothing,
+        appNetworkAccessType = Lude.Nothing,
+        tags = Lude.Nothing,
+        domainName = pDomainName_,
+        authMode = pAuthMode_,
+        defaultUserSettings = pDefaultUserSettings_,
+        subnetIds = pSubnetIds_,
+        vpcId = pVPCId_
       }
 
 -- | This member is deprecated and replaced with @KmsKeyId@ .
-cdHomeEfsFileSystemKMSKeyId :: Lens' CreateDomain (Maybe Text)
-cdHomeEfsFileSystemKMSKeyId = lens _cdHomeEfsFileSystemKMSKeyId (\s a -> s {_cdHomeEfsFileSystemKMSKeyId = a})
+--
+-- /Note:/ Consider using 'homeEfsFileSystemKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdHomeEfsFileSystemKMSKeyId :: Lens.Lens' CreateDomain (Lude.Maybe Lude.Text)
+cdHomeEfsFileSystemKMSKeyId = Lens.lens (homeEfsFileSystemKMSKeyId :: CreateDomain -> Lude.Maybe Lude.Text) (\s a -> s {homeEfsFileSystemKMSKeyId = a} :: CreateDomain)
+{-# DEPRECATED cdHomeEfsFileSystemKMSKeyId "Use generic-lens or generic-optics with 'homeEfsFileSystemKMSKeyId' instead." #-}
 
 -- | SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default. For more control, specify a customer managed CMK.
-cdKMSKeyId :: Lens' CreateDomain (Maybe Text)
-cdKMSKeyId = lens _cdKMSKeyId (\s a -> s {_cdKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdKMSKeyId :: Lens.Lens' CreateDomain (Lude.Maybe Lude.Text)
+cdKMSKeyId = Lens.lens (kmsKeyId :: CreateDomain -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateDomain)
+{-# DEPRECATED cdKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
--- | Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .     * @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
-cdAppNetworkAccessType :: Lens' CreateDomain (Maybe AppNetworkAccessType)
-cdAppNetworkAccessType = lens _cdAppNetworkAccessType (\s a -> s {_cdAppNetworkAccessType = a})
+-- | Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .
+--
+--
+--     * @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access
+--
+--
+--     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
+--
+--
+--
+-- /Note:/ Consider using 'appNetworkAccessType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdAppNetworkAccessType :: Lens.Lens' CreateDomain (Lude.Maybe AppNetworkAccessType)
+cdAppNetworkAccessType = Lens.lens (appNetworkAccessType :: CreateDomain -> Lude.Maybe AppNetworkAccessType) (\s a -> s {appNetworkAccessType = a} :: CreateDomain)
+{-# DEPRECATED cdAppNetworkAccessType "Use generic-lens or generic-optics with 'appNetworkAccessType' instead." #-}
 
 -- | Tags to associated with the Domain. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the 'Search' API.
-cdTags :: Lens' CreateDomain [Tag]
-cdTags = lens _cdTags (\s a -> s {_cdTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdTags :: Lens.Lens' CreateDomain (Lude.Maybe [Tag])
+cdTags = Lens.lens (tags :: CreateDomain -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDomain)
+{-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | A name for the domain.
-cdDomainName :: Lens' CreateDomain Text
-cdDomainName = lens _cdDomainName (\s a -> s {_cdDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDomainName :: Lens.Lens' CreateDomain Lude.Text
+cdDomainName = Lens.lens (domainName :: CreateDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomain)
+{-# DEPRECATED cdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The mode of authentication that members use to access the domain.
-cdAuthMode :: Lens' CreateDomain AuthMode
-cdAuthMode = lens _cdAuthMode (\s a -> s {_cdAuthMode = a})
+--
+-- /Note:/ Consider using 'authMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdAuthMode :: Lens.Lens' CreateDomain AuthMode
+cdAuthMode = Lens.lens (authMode :: CreateDomain -> AuthMode) (\s a -> s {authMode = a} :: CreateDomain)
+{-# DEPRECATED cdAuthMode "Use generic-lens or generic-optics with 'authMode' instead." #-}
 
 -- | The default user settings.
-cdDefaultUserSettings :: Lens' CreateDomain UserSettings
-cdDefaultUserSettings = lens _cdDefaultUserSettings (\s a -> s {_cdDefaultUserSettings = a})
+--
+-- /Note:/ Consider using 'defaultUserSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDefaultUserSettings :: Lens.Lens' CreateDomain UserSettings
+cdDefaultUserSettings = Lens.lens (defaultUserSettings :: CreateDomain -> UserSettings) (\s a -> s {defaultUserSettings = a} :: CreateDomain)
+{-# DEPRECATED cdDefaultUserSettings "Use generic-lens or generic-optics with 'defaultUserSettings' instead." #-}
 
 -- | The VPC subnets that Studio uses for communication.
-cdSubnetIds :: Lens' CreateDomain (NonEmpty Text)
-cdSubnetIds = lens _cdSubnetIds (\s a -> s {_cdSubnetIds = a}) . _List1
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSubnetIds :: Lens.Lens' CreateDomain (Lude.NonEmpty Lude.Text)
+cdSubnetIds = Lens.lens (subnetIds :: CreateDomain -> Lude.NonEmpty Lude.Text) (\s a -> s {subnetIds = a} :: CreateDomain)
+{-# DEPRECATED cdSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-cdVPCId :: Lens' CreateDomain Text
-cdVPCId = lens _cdVPCId (\s a -> s {_cdVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdVPCId :: Lens.Lens' CreateDomain Lude.Text
+cdVPCId = Lens.lens (vpcId :: CreateDomain -> Lude.Text) (\s a -> s {vpcId = a} :: CreateDomain)
+{-# DEPRECATED cdVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance AWSRequest CreateDomain where
+instance Lude.AWSRequest CreateDomain where
   type Rs CreateDomain = CreateDomainResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDomainResponse'
-            <$> (x .?> "DomainArn") <*> (x .?> "Url") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DomainArn")
+            Lude.<*> (x Lude..?> "Url")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDomain
-
-instance NFData CreateDomain
-
-instance ToHeaders CreateDomain where
+instance Lude.ToHeaders CreateDomain where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.CreateDomain" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.CreateDomain" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDomain where
+instance Lude.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
-    object
-      ( catMaybes
-          [ ("HomeEfsFileSystemKmsKeyId" .=) <$> _cdHomeEfsFileSystemKMSKeyId,
-            ("KmsKeyId" .=) <$> _cdKMSKeyId,
-            ("AppNetworkAccessType" .=) <$> _cdAppNetworkAccessType,
-            ("Tags" .=) <$> _cdTags,
-            Just ("DomainName" .= _cdDomainName),
-            Just ("AuthMode" .= _cdAuthMode),
-            Just ("DefaultUserSettings" .= _cdDefaultUserSettings),
-            Just ("SubnetIds" .= _cdSubnetIds),
-            Just ("VpcId" .= _cdVPCId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("HomeEfsFileSystemKmsKeyId" Lude..=)
+              Lude.<$> homeEfsFileSystemKMSKeyId,
+            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            ("AppNetworkAccessType" Lude..=) Lude.<$> appNetworkAccessType,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("DomainName" Lude..= domainName),
+            Lude.Just ("AuthMode" Lude..= authMode),
+            Lude.Just ("DefaultUserSettings" Lude..= defaultUserSettings),
+            Lude.Just ("SubnetIds" Lude..= subnetIds),
+            Lude.Just ("VpcId" Lude..= vpcId)
           ]
       )
 
-instance ToPath CreateDomain where
-  toPath = const "/"
+instance Lude.ToPath CreateDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDomain where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDomain where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDomainResponse' smart constructor.
+-- | /See:/ 'mkCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  { _cdrsDomainARN ::
-      !(Maybe Text),
-    _cdrsURL :: !(Maybe Text),
-    _cdrsResponseStatus :: !Int
+  { domainARN ::
+      Lude.Maybe Lude.Text,
+    url :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrsDomainARN' - The Amazon Resource Name (ARN) of the created domain.
---
--- * 'cdrsURL' - The URL to the created domain.
---
--- * 'cdrsResponseStatus' - -- | The response status code.
-createDomainResponse ::
-  -- | 'cdrsResponseStatus'
-  Int ->
+-- * 'domainARN' - The Amazon Resource Name (ARN) of the created domain.
+-- * 'responseStatus' - The response status code.
+-- * 'url' - The URL to the created domain.
+mkCreateDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDomainResponse
-createDomainResponse pResponseStatus_ =
+mkCreateDomainResponse pResponseStatus_ =
   CreateDomainResponse'
-    { _cdrsDomainARN = Nothing,
-      _cdrsURL = Nothing,
-      _cdrsResponseStatus = pResponseStatus_
+    { domainARN = Lude.Nothing,
+      url = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the created domain.
-cdrsDomainARN :: Lens' CreateDomainResponse (Maybe Text)
-cdrsDomainARN = lens _cdrsDomainARN (\s a -> s {_cdrsDomainARN = a})
+--
+-- /Note:/ Consider using 'domainARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsDomainARN :: Lens.Lens' CreateDomainResponse (Lude.Maybe Lude.Text)
+cdrsDomainARN = Lens.lens (domainARN :: CreateDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainARN = a} :: CreateDomainResponse)
+{-# DEPRECATED cdrsDomainARN "Use generic-lens or generic-optics with 'domainARN' instead." #-}
 
 -- | The URL to the created domain.
-cdrsURL :: Lens' CreateDomainResponse (Maybe Text)
-cdrsURL = lens _cdrsURL (\s a -> s {_cdrsURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsURL :: Lens.Lens' CreateDomainResponse (Lude.Maybe Lude.Text)
+cdrsURL = Lens.lens (url :: CreateDomainResponse -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: CreateDomainResponse)
+{-# DEPRECATED cdrsURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDomainResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\s a -> s {_cdrsResponseStatus = a})
-
-instance NFData CreateDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsResponseStatus :: Lens.Lens' CreateDomainResponse Lude.Int
+cdrsResponseStatus = Lens.lens (responseStatus :: CreateDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDomainResponse)
+{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

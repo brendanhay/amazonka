@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PeeringTgwInfo where
+module Network.AWS.EC2.Types.PeeringTgwInfo
+  ( PeeringTgwInfo (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPeeringTgwInfo,
+
+    -- * Lenses
+    ptiOwnerId,
+    ptiTransitGatewayId,
+    ptiRegion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the transit gateway in the peering attachment.
 --
---
---
--- /See:/ 'peeringTgwInfo' smart constructor.
+-- /See:/ 'mkPeeringTgwInfo' smart constructor.
 data PeeringTgwInfo = PeeringTgwInfo'
-  { _ptiOwnerId :: !(Maybe Text),
-    _ptiTransitGatewayId :: !(Maybe Text),
-    _ptiRegion :: !(Maybe Text)
+  { ownerId ::
+      Lude.Maybe Lude.Text,
+    transitGatewayId :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PeeringTgwInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptiOwnerId' - The AWS account ID of the owner of the transit gateway.
---
--- * 'ptiTransitGatewayId' - The ID of the transit gateway.
---
--- * 'ptiRegion' - The Region of the transit gateway.
-peeringTgwInfo ::
+-- * 'ownerId' - The AWS account ID of the owner of the transit gateway.
+-- * 'region' - The Region of the transit gateway.
+-- * 'transitGatewayId' - The ID of the transit gateway.
+mkPeeringTgwInfo ::
   PeeringTgwInfo
-peeringTgwInfo =
+mkPeeringTgwInfo =
   PeeringTgwInfo'
-    { _ptiOwnerId = Nothing,
-      _ptiTransitGatewayId = Nothing,
-      _ptiRegion = Nothing
+    { ownerId = Lude.Nothing,
+      transitGatewayId = Lude.Nothing,
+      region = Lude.Nothing
     }
 
 -- | The AWS account ID of the owner of the transit gateway.
-ptiOwnerId :: Lens' PeeringTgwInfo (Maybe Text)
-ptiOwnerId = lens _ptiOwnerId (\s a -> s {_ptiOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptiOwnerId :: Lens.Lens' PeeringTgwInfo (Lude.Maybe Lude.Text)
+ptiOwnerId = Lens.lens (ownerId :: PeeringTgwInfo -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: PeeringTgwInfo)
+{-# DEPRECATED ptiOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The ID of the transit gateway.
-ptiTransitGatewayId :: Lens' PeeringTgwInfo (Maybe Text)
-ptiTransitGatewayId = lens _ptiTransitGatewayId (\s a -> s {_ptiTransitGatewayId = a})
+--
+-- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptiTransitGatewayId :: Lens.Lens' PeeringTgwInfo (Lude.Maybe Lude.Text)
+ptiTransitGatewayId = Lens.lens (transitGatewayId :: PeeringTgwInfo -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayId = a} :: PeeringTgwInfo)
+{-# DEPRECATED ptiTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
 -- | The Region of the transit gateway.
-ptiRegion :: Lens' PeeringTgwInfo (Maybe Text)
-ptiRegion = lens _ptiRegion (\s a -> s {_ptiRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptiRegion :: Lens.Lens' PeeringTgwInfo (Lude.Maybe Lude.Text)
+ptiRegion = Lens.lens (region :: PeeringTgwInfo -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: PeeringTgwInfo)
+{-# DEPRECATED ptiRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance FromXML PeeringTgwInfo where
+instance Lude.FromXML PeeringTgwInfo where
   parseXML x =
     PeeringTgwInfo'
-      <$> (x .@? "ownerId")
-      <*> (x .@? "transitGatewayId")
-      <*> (x .@? "region")
-
-instance Hashable PeeringTgwInfo
-
-instance NFData PeeringTgwInfo
+      Lude.<$> (x Lude..@? "ownerId")
+      Lude.<*> (x Lude..@? "transitGatewayId")
+      Lude.<*> (x Lude..@? "region")

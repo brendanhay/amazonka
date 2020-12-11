@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.Permission where
+module Network.AWS.AppStream.Types.Permission
+  ( Permission
+      ( Permission',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Permission
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Permission = Permission' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Permission where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing Permission from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: Permission
+pattern Disabled = Permission' "DISABLED"
 
-instance ToText Permission where
-  toText = \case
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
+pattern Enabled :: Permission
+pattern Enabled = Permission' "ENABLED"
 
-instance Hashable Permission
-
-instance NFData Permission
-
-instance ToByteString Permission
-
-instance ToQuery Permission
-
-instance ToHeader Permission
-
-instance ToJSON Permission where
-  toJSON = toJSONText
-
-instance FromJSON Permission where
-  parseJSON = parseJSONText "Permission"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  Permission'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,116 @@
 --
 -- Cancels a cluster job. You can only cancel a cluster job while it's in the @AwaitingQuorum@ status. You'll have at least an hour after creating a cluster job to cancel it.
 module Network.AWS.Snowball.CancelCluster
-  ( -- * Creating a Request
-    cancelCluster,
-    CancelCluster,
+  ( -- * Creating a request
+    CancelCluster (..),
+    mkCancelCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccClusterId,
 
-    -- * Destructuring the Response
-    cancelClusterResponse,
-    CancelClusterResponse,
+    -- * Destructuring the response
+    CancelClusterResponse (..),
+    mkCancelClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
--- | /See:/ 'cancelCluster' smart constructor.
-newtype CancelCluster = CancelCluster' {_ccClusterId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkCancelCluster' smart constructor.
+newtype CancelCluster = CancelCluster' {clusterId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccClusterId' - The 39-character ID for the cluster that you want to cancel, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
-cancelCluster ::
-  -- | 'ccClusterId'
-  Text ->
+-- * 'clusterId' - The 39-character ID for the cluster that you want to cancel, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
+mkCancelCluster ::
+  -- | 'clusterId'
+  Lude.Text ->
   CancelCluster
-cancelCluster pClusterId_ =
-  CancelCluster' {_ccClusterId = pClusterId_}
+mkCancelCluster pClusterId_ =
+  CancelCluster' {clusterId = pClusterId_}
 
 -- | The 39-character ID for the cluster that you want to cancel, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
-ccClusterId :: Lens' CancelCluster Text
-ccClusterId = lens _ccClusterId (\s a -> s {_ccClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClusterId :: Lens.Lens' CancelCluster Lude.Text
+ccClusterId = Lens.lens (clusterId :: CancelCluster -> Lude.Text) (\s a -> s {clusterId = a} :: CancelCluster)
+{-# DEPRECATED ccClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance AWSRequest CancelCluster where
+instance Lude.AWSRequest CancelCluster where
   type Rs CancelCluster = CancelClusterResponse
-  request = postJSON snowball
+  request = Req.postJSON snowballService
   response =
-    receiveEmpty
-      (\s h x -> CancelClusterResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CancelClusterResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CancelCluster
-
-instance NFData CancelCluster
-
-instance ToHeaders CancelCluster where
+instance Lude.ToHeaders CancelCluster where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSIESnowballJobManagementService.CancelCluster" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSIESnowballJobManagementService.CancelCluster" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CancelCluster where
+instance Lude.ToJSON CancelCluster where
   toJSON CancelCluster' {..} =
-    object (catMaybes [Just ("ClusterId" .= _ccClusterId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ClusterId" Lude..= clusterId)])
 
-instance ToPath CancelCluster where
-  toPath = const "/"
+instance Lude.ToPath CancelCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery CancelCluster where
-  toQuery = const mempty
+instance Lude.ToQuery CancelCluster where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'cancelClusterResponse' smart constructor.
+-- | /See:/ 'mkCancelClusterResponse' smart constructor.
 newtype CancelClusterResponse = CancelClusterResponse'
-  { _ccrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-cancelClusterResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCancelClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelClusterResponse
-cancelClusterResponse pResponseStatus_ =
-  CancelClusterResponse' {_ccrsResponseStatus = pResponseStatus_}
+mkCancelClusterResponse pResponseStatus_ =
+  CancelClusterResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CancelClusterResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CancelClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CancelClusterResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CancelClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelClusterResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

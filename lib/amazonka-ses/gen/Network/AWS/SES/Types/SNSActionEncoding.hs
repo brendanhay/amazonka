@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.SNSActionEncoding where
+module Network.AWS.SES.Types.SNSActionEncoding
+  ( SNSActionEncoding
+      ( SNSActionEncoding',
+        BASE64,
+        Utf8
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SNSActionEncoding
-  = BASE64
-  | Utf8
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SNSActionEncoding = SNSActionEncoding' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SNSActionEncoding where
-  parser =
-    takeLowerText >>= \case
-      "base64" -> pure BASE64
-      "utf-8" -> pure Utf8
-      e ->
-        fromTextError $
-          "Failure parsing SNSActionEncoding from value: '" <> e
-            <> "'. Accepted values: base64, utf-8"
+pattern BASE64 :: SNSActionEncoding
+pattern BASE64 = SNSActionEncoding' "Base64"
 
-instance ToText SNSActionEncoding where
-  toText = \case
-    BASE64 -> "Base64"
-    Utf8 -> "UTF-8"
+pattern Utf8 :: SNSActionEncoding
+pattern Utf8 = SNSActionEncoding' "UTF-8"
 
-instance Hashable SNSActionEncoding
-
-instance NFData SNSActionEncoding
-
-instance ToByteString SNSActionEncoding
-
-instance ToQuery SNSActionEncoding
-
-instance ToHeader SNSActionEncoding
-
-instance FromXML SNSActionEncoding where
-  parseXML = parseXMLText "SNSActionEncoding"
+{-# COMPLETE
+  BASE64,
+  Utf8,
+  SNSActionEncoding'
+  #-}

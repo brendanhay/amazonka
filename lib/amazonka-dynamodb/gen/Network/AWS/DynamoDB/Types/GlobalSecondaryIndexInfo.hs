@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexInfo where
+module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexInfo
+  ( GlobalSecondaryIndexInfo (..),
+
+    -- * Smart constructor
+    mkGlobalSecondaryIndexInfo,
+
+    -- * Lenses
+    gsiiProvisionedThroughput,
+    gsiiKeySchema,
+    gsiiProjection,
+    gsiiIndexName,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
 import Network.AWS.DynamoDB.Types.ProvisionedThroughput
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the properties of a global secondary index for the table when the backup was created.
 --
---
---
--- /See:/ 'globalSecondaryIndexInfo' smart constructor.
+-- /See:/ 'mkGlobalSecondaryIndexInfo' smart constructor.
 data GlobalSecondaryIndexInfo = GlobalSecondaryIndexInfo'
-  { _gsiiProvisionedThroughput ::
-      !(Maybe ProvisionedThroughput),
-    _gsiiKeySchema ::
-      !(Maybe (List1 KeySchemaElement)),
-    _gsiiProjection :: !(Maybe Projection),
-    _gsiiIndexName :: !(Maybe Text)
+  { provisionedThroughput ::
+      Lude.Maybe ProvisionedThroughput,
+    keySchema ::
+      Lude.Maybe
+        (Lude.NonEmpty KeySchemaElement),
+    projection :: Lude.Maybe Projection,
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalSecondaryIndexInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'indexName' - The name of the global secondary index.
+-- * 'keySchema' - The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 --
--- * 'gsiiProvisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
 --
--- * 'gsiiKeySchema' - The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:     * @HASH@ - partition key     * @RANGE@ - sort key
+--     * @HASH@ - partition key
 --
--- * 'gsiiProjection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 --
--- * 'gsiiIndexName' - The name of the global secondary index.
-globalSecondaryIndexInfo ::
+--     * @RANGE@ - sort key
+--
+--
+-- * 'projection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+-- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
+mkGlobalSecondaryIndexInfo ::
   GlobalSecondaryIndexInfo
-globalSecondaryIndexInfo =
+mkGlobalSecondaryIndexInfo =
   GlobalSecondaryIndexInfo'
-    { _gsiiProvisionedThroughput = Nothing,
-      _gsiiKeySchema = Nothing,
-      _gsiiProjection = Nothing,
-      _gsiiIndexName = Nothing
+    { provisionedThroughput = Lude.Nothing,
+      keySchema = Lude.Nothing,
+      projection = Lude.Nothing,
+      indexName = Lude.Nothing
     }
 
 -- | Represents the provisioned throughput settings for the specified global secondary index.
-gsiiProvisionedThroughput :: Lens' GlobalSecondaryIndexInfo (Maybe ProvisionedThroughput)
-gsiiProvisionedThroughput = lens _gsiiProvisionedThroughput (\s a -> s {_gsiiProvisionedThroughput = a})
+--
+-- /Note:/ Consider using 'provisionedThroughput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiiProvisionedThroughput :: Lens.Lens' GlobalSecondaryIndexInfo (Lude.Maybe ProvisionedThroughput)
+gsiiProvisionedThroughput = Lens.lens (provisionedThroughput :: GlobalSecondaryIndexInfo -> Lude.Maybe ProvisionedThroughput) (\s a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexInfo)
+{-# DEPRECATED gsiiProvisionedThroughput "Use generic-lens or generic-optics with 'provisionedThroughput' instead." #-}
 
--- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:     * @HASH@ - partition key     * @RANGE@ - sort key
-gsiiKeySchema :: Lens' GlobalSecondaryIndexInfo (Maybe (NonEmpty KeySchemaElement))
-gsiiKeySchema = lens _gsiiKeySchema (\s a -> s {_gsiiKeySchema = a}) . mapping _List1
+-- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+--
+--
+--     * @HASH@ - partition key
+--
+--
+--     * @RANGE@ - sort key
+--
+--
+--
+-- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiiKeySchema :: Lens.Lens' GlobalSecondaryIndexInfo (Lude.Maybe (Lude.NonEmpty KeySchemaElement))
+gsiiKeySchema = Lens.lens (keySchema :: GlobalSecondaryIndexInfo -> Lude.Maybe (Lude.NonEmpty KeySchemaElement)) (\s a -> s {keySchema = a} :: GlobalSecondaryIndexInfo)
+{-# DEPRECATED gsiiKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
 
 -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-gsiiProjection :: Lens' GlobalSecondaryIndexInfo (Maybe Projection)
-gsiiProjection = lens _gsiiProjection (\s a -> s {_gsiiProjection = a})
+--
+-- /Note:/ Consider using 'projection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiiProjection :: Lens.Lens' GlobalSecondaryIndexInfo (Lude.Maybe Projection)
+gsiiProjection = Lens.lens (projection :: GlobalSecondaryIndexInfo -> Lude.Maybe Projection) (\s a -> s {projection = a} :: GlobalSecondaryIndexInfo)
+{-# DEPRECATED gsiiProjection "Use generic-lens or generic-optics with 'projection' instead." #-}
 
 -- | The name of the global secondary index.
-gsiiIndexName :: Lens' GlobalSecondaryIndexInfo (Maybe Text)
-gsiiIndexName = lens _gsiiIndexName (\s a -> s {_gsiiIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiiIndexName :: Lens.Lens' GlobalSecondaryIndexInfo (Lude.Maybe Lude.Text)
+gsiiIndexName = Lens.lens (indexName :: GlobalSecondaryIndexInfo -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GlobalSecondaryIndexInfo)
+{-# DEPRECATED gsiiIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance FromJSON GlobalSecondaryIndexInfo where
+instance Lude.FromJSON GlobalSecondaryIndexInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "GlobalSecondaryIndexInfo"
       ( \x ->
           GlobalSecondaryIndexInfo'
-            <$> (x .:? "ProvisionedThroughput")
-            <*> (x .:? "KeySchema")
-            <*> (x .:? "Projection")
-            <*> (x .:? "IndexName")
+            Lude.<$> (x Lude..:? "ProvisionedThroughput")
+            Lude.<*> (x Lude..:? "KeySchema")
+            Lude.<*> (x Lude..:? "Projection")
+            Lude.<*> (x Lude..:? "IndexName")
       )
-
-instance Hashable GlobalSecondaryIndexInfo
-
-instance NFData GlobalSecondaryIndexInfo

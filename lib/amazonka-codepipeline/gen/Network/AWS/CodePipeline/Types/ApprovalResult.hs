@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ApprovalResult where
+module Network.AWS.CodePipeline.Types.ApprovalResult
+  ( ApprovalResult (..),
+
+    -- * Smart constructor
+    mkApprovalResult,
+
+    -- * Lenses
+    arSummary,
+    arStatus,
+  )
+where
 
 import Network.AWS.CodePipeline.Types.ApprovalStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about the result of an approval request.
 --
---
---
--- /See:/ 'approvalResult' smart constructor.
+-- /See:/ 'mkApprovalResult' smart constructor.
 data ApprovalResult = ApprovalResult'
-  { _arSummary :: !Text,
-    _arStatus :: !ApprovalStatus
+  { summary :: Lude.Text,
+    status :: ApprovalStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApprovalResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arSummary' - The summary of the current status of the approval request.
---
--- * 'arStatus' - The response submitted by a reviewer assigned to an approval action request.
-approvalResult ::
-  -- | 'arSummary'
-  Text ->
-  -- | 'arStatus'
+-- * 'status' - The response submitted by a reviewer assigned to an approval action request.
+-- * 'summary' - The summary of the current status of the approval request.
+mkApprovalResult ::
+  -- | 'summary'
+  Lude.Text ->
+  -- | 'status'
   ApprovalStatus ->
   ApprovalResult
-approvalResult pSummary_ pStatus_ =
-  ApprovalResult' {_arSummary = pSummary_, _arStatus = pStatus_}
+mkApprovalResult pSummary_ pStatus_ =
+  ApprovalResult' {summary = pSummary_, status = pStatus_}
 
 -- | The summary of the current status of the approval request.
-arSummary :: Lens' ApprovalResult Text
-arSummary = lens _arSummary (\s a -> s {_arSummary = a})
+--
+-- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arSummary :: Lens.Lens' ApprovalResult Lude.Text
+arSummary = Lens.lens (summary :: ApprovalResult -> Lude.Text) (\s a -> s {summary = a} :: ApprovalResult)
+{-# DEPRECATED arSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
 
 -- | The response submitted by a reviewer assigned to an approval action request.
-arStatus :: Lens' ApprovalResult ApprovalStatus
-arStatus = lens _arStatus (\s a -> s {_arStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arStatus :: Lens.Lens' ApprovalResult ApprovalStatus
+arStatus = Lens.lens (status :: ApprovalResult -> ApprovalStatus) (\s a -> s {status = a} :: ApprovalResult)
+{-# DEPRECATED arStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Hashable ApprovalResult
-
-instance NFData ApprovalResult
-
-instance ToJSON ApprovalResult where
+instance Lude.ToJSON ApprovalResult where
   toJSON ApprovalResult' {..} =
-    object
-      ( catMaybes
-          [Just ("summary" .= _arSummary), Just ("status" .= _arStatus)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("summary" Lude..= summary),
+            Lude.Just ("status" Lude..= status)
+          ]
       )

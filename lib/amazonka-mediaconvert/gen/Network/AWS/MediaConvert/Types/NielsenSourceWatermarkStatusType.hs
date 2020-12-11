@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.NielsenSourceWatermarkStatusType where
+module Network.AWS.MediaConvert.Types.NielsenSourceWatermarkStatusType
+  ( NielsenSourceWatermarkStatusType
+      ( NielsenSourceWatermarkStatusType',
+        Clean,
+        Watermarked
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already  have non-linear Nielsen watermarks.
-data NielsenSourceWatermarkStatusType
-  = Clean
-  | Watermarked
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NielsenSourceWatermarkStatusType = NielsenSourceWatermarkStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NielsenSourceWatermarkStatusType where
-  parser =
-    takeLowerText >>= \case
-      "clean" -> pure Clean
-      "watermarked" -> pure Watermarked
-      e ->
-        fromTextError $
-          "Failure parsing NielsenSourceWatermarkStatusType from value: '" <> e
-            <> "'. Accepted values: clean, watermarked"
+pattern Clean :: NielsenSourceWatermarkStatusType
+pattern Clean = NielsenSourceWatermarkStatusType' "CLEAN"
 
-instance ToText NielsenSourceWatermarkStatusType where
-  toText = \case
-    Clean -> "CLEAN"
-    Watermarked -> "WATERMARKED"
+pattern Watermarked :: NielsenSourceWatermarkStatusType
+pattern Watermarked = NielsenSourceWatermarkStatusType' "WATERMARKED"
 
-instance Hashable NielsenSourceWatermarkStatusType
-
-instance NFData NielsenSourceWatermarkStatusType
-
-instance ToByteString NielsenSourceWatermarkStatusType
-
-instance ToQuery NielsenSourceWatermarkStatusType
-
-instance ToHeader NielsenSourceWatermarkStatusType
-
-instance ToJSON NielsenSourceWatermarkStatusType where
-  toJSON = toJSONText
-
-instance FromJSON NielsenSourceWatermarkStatusType where
-  parseJSON = parseJSONText "NielsenSourceWatermarkStatusType"
+{-# COMPLETE
+  Clean,
+  Watermarked,
+  NielsenSourceWatermarkStatusType'
+  #-}

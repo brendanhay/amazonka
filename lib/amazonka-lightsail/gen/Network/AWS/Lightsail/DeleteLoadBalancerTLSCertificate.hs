@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,160 +14,180 @@
 --
 -- Deletes an SSL/TLS certificate associated with a Lightsail load balancer.
 --
---
 -- The @DeleteLoadBalancerTlsCertificate@ operation supports tag-based access control via resource tags applied to the resource identified by @load balancer name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.DeleteLoadBalancerTLSCertificate
-  ( -- * Creating a Request
-    deleteLoadBalancerTLSCertificate,
-    DeleteLoadBalancerTLSCertificate,
+  ( -- * Creating a request
+    DeleteLoadBalancerTLSCertificate (..),
+    mkDeleteLoadBalancerTLSCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlbtcForce,
     dlbtcLoadBalancerName,
     dlbtcCertificateName,
 
-    -- * Destructuring the Response
-    deleteLoadBalancerTLSCertificateResponse,
-    DeleteLoadBalancerTLSCertificateResponse,
+    -- * Destructuring the response
+    DeleteLoadBalancerTLSCertificateResponse (..),
+    mkDeleteLoadBalancerTLSCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlbtcrsOperations,
     dlbtcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLoadBalancerTLSCertificate' smart constructor.
+-- | /See:/ 'mkDeleteLoadBalancerTLSCertificate' smart constructor.
 data DeleteLoadBalancerTLSCertificate = DeleteLoadBalancerTLSCertificate'
-  { _dlbtcForce ::
-      !(Maybe Bool),
-    _dlbtcLoadBalancerName ::
-      !Text,
-    _dlbtcCertificateName ::
-      !Text
+  { force ::
+      Lude.Maybe Lude.Bool,
+    loadBalancerName ::
+      Lude.Text,
+    certificateName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoadBalancerTLSCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateName' - The SSL/TLS certificate name.
+-- * 'force' - When @true@ , forces the deletion of an SSL/TLS certificate.
 --
--- * 'dlbtcForce' - When @true@ , forces the deletion of an SSL/TLS certificate. There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The @force@ parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
---
--- * 'dlbtcLoadBalancerName' - The load balancer name.
---
--- * 'dlbtcCertificateName' - The SSL/TLS certificate name.
-deleteLoadBalancerTLSCertificate ::
-  -- | 'dlbtcLoadBalancerName'
-  Text ->
-  -- | 'dlbtcCertificateName'
-  Text ->
+-- There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The @force@ parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
+-- * 'loadBalancerName' - The load balancer name.
+mkDeleteLoadBalancerTLSCertificate ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
+  -- | 'certificateName'
+  Lude.Text ->
   DeleteLoadBalancerTLSCertificate
-deleteLoadBalancerTLSCertificate
+mkDeleteLoadBalancerTLSCertificate
   pLoadBalancerName_
   pCertificateName_ =
     DeleteLoadBalancerTLSCertificate'
-      { _dlbtcForce = Nothing,
-        _dlbtcLoadBalancerName = pLoadBalancerName_,
-        _dlbtcCertificateName = pCertificateName_
+      { force = Lude.Nothing,
+        loadBalancerName = pLoadBalancerName_,
+        certificateName = pCertificateName_
       }
 
--- | When @true@ , forces the deletion of an SSL/TLS certificate. There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The @force@ parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
-dlbtcForce :: Lens' DeleteLoadBalancerTLSCertificate (Maybe Bool)
-dlbtcForce = lens _dlbtcForce (\s a -> s {_dlbtcForce = a})
+-- | When @true@ , forces the deletion of an SSL/TLS certificate.
+--
+-- There can be two certificates associated with a Lightsail load balancer: the primary and the backup. The @force@ parameter is required when the primary SSL/TLS certificate is in use by an instance attached to the load balancer.
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtcForce :: Lens.Lens' DeleteLoadBalancerTLSCertificate (Lude.Maybe Lude.Bool)
+dlbtcForce = Lens.lens (force :: DeleteLoadBalancerTLSCertificate -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteLoadBalancerTLSCertificate)
+{-# DEPRECATED dlbtcForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The load balancer name.
-dlbtcLoadBalancerName :: Lens' DeleteLoadBalancerTLSCertificate Text
-dlbtcLoadBalancerName = lens _dlbtcLoadBalancerName (\s a -> s {_dlbtcLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtcLoadBalancerName :: Lens.Lens' DeleteLoadBalancerTLSCertificate Lude.Text
+dlbtcLoadBalancerName = Lens.lens (loadBalancerName :: DeleteLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {loadBalancerName = a} :: DeleteLoadBalancerTLSCertificate)
+{-# DEPRECATED dlbtcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The SSL/TLS certificate name.
-dlbtcCertificateName :: Lens' DeleteLoadBalancerTLSCertificate Text
-dlbtcCertificateName = lens _dlbtcCertificateName (\s a -> s {_dlbtcCertificateName = a})
+--
+-- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtcCertificateName :: Lens.Lens' DeleteLoadBalancerTLSCertificate Lude.Text
+dlbtcCertificateName = Lens.lens (certificateName :: DeleteLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {certificateName = a} :: DeleteLoadBalancerTLSCertificate)
+{-# DEPRECATED dlbtcCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
 
-instance AWSRequest DeleteLoadBalancerTLSCertificate where
+instance Lude.AWSRequest DeleteLoadBalancerTLSCertificate where
   type
     Rs DeleteLoadBalancerTLSCertificate =
       DeleteLoadBalancerTLSCertificateResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteLoadBalancerTLSCertificateResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteLoadBalancerTLSCertificate
-
-instance NFData DeleteLoadBalancerTLSCertificate
-
-instance ToHeaders DeleteLoadBalancerTLSCertificate where
+instance Lude.ToHeaders DeleteLoadBalancerTLSCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Lightsail_20161128.DeleteLoadBalancerTlsCertificate" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.DeleteLoadBalancerTlsCertificate" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteLoadBalancerTLSCertificate where
+instance Lude.ToJSON DeleteLoadBalancerTLSCertificate where
   toJSON DeleteLoadBalancerTLSCertificate' {..} =
-    object
-      ( catMaybes
-          [ ("force" .=) <$> _dlbtcForce,
-            Just ("loadBalancerName" .= _dlbtcLoadBalancerName),
-            Just ("certificateName" .= _dlbtcCertificateName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("force" Lude..=) Lude.<$> force,
+            Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
+            Lude.Just ("certificateName" Lude..= certificateName)
           ]
       )
 
-instance ToPath DeleteLoadBalancerTLSCertificate where
-  toPath = const "/"
+instance Lude.ToPath DeleteLoadBalancerTLSCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteLoadBalancerTLSCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLoadBalancerTLSCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteLoadBalancerTLSCertificateResponse' smart constructor.
+-- | /See:/ 'mkDeleteLoadBalancerTLSCertificateResponse' smart constructor.
 data DeleteLoadBalancerTLSCertificateResponse = DeleteLoadBalancerTLSCertificateResponse'
-  { _dlbtcrsOperations ::
-      !( Maybe
-           [Operation]
-       ),
-    _dlbtcrsResponseStatus ::
-      !Int
+  { operations ::
+      Lude.Maybe
+        [Operation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoadBalancerTLSCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlbtcrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'dlbtcrsResponseStatus' - -- | The response status code.
-deleteLoadBalancerTLSCertificateResponse ::
-  -- | 'dlbtcrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteLoadBalancerTLSCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLoadBalancerTLSCertificateResponse
-deleteLoadBalancerTLSCertificateResponse pResponseStatus_ =
+mkDeleteLoadBalancerTLSCertificateResponse pResponseStatus_ =
   DeleteLoadBalancerTLSCertificateResponse'
-    { _dlbtcrsOperations =
-        Nothing,
-      _dlbtcrsResponseStatus = pResponseStatus_
+    { operations =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-dlbtcrsOperations :: Lens' DeleteLoadBalancerTLSCertificateResponse [Operation]
-dlbtcrsOperations = lens _dlbtcrsOperations (\s a -> s {_dlbtcrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtcrsOperations :: Lens.Lens' DeleteLoadBalancerTLSCertificateResponse (Lude.Maybe [Operation])
+dlbtcrsOperations = Lens.lens (operations :: DeleteLoadBalancerTLSCertificateResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteLoadBalancerTLSCertificateResponse)
+{-# DEPRECATED dlbtcrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-dlbtcrsResponseStatus :: Lens' DeleteLoadBalancerTLSCertificateResponse Int
-dlbtcrsResponseStatus = lens _dlbtcrsResponseStatus (\s a -> s {_dlbtcrsResponseStatus = a})
-
-instance NFData DeleteLoadBalancerTLSCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtcrsResponseStatus :: Lens.Lens' DeleteLoadBalancerTLSCertificateResponse Lude.Int
+dlbtcrsResponseStatus = Lens.lens (responseStatus :: DeleteLoadBalancerTLSCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLoadBalancerTLSCertificateResponse)
+{-# DEPRECATED dlbtcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

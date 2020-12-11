@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.Mitigation where
+module Network.AWS.Shield.Types.Mitigation
+  ( Mitigation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMitigation,
+
+    -- * Lenses
+    mMitigationName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The mitigation applied to a DDoS attack.
 --
---
---
--- /See:/ 'mitigation' smart constructor.
-newtype Mitigation = Mitigation' {_mMitigationName :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkMitigation' smart constructor.
+newtype Mitigation = Mitigation'
+  { mitigationName ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mitigation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mMitigationName' - The name of the mitigation taken for this attack.
-mitigation ::
+-- * 'mitigationName' - The name of the mitigation taken for this attack.
+mkMitigation ::
   Mitigation
-mitigation = Mitigation' {_mMitigationName = Nothing}
+mkMitigation = Mitigation' {mitigationName = Lude.Nothing}
 
 -- | The name of the mitigation taken for this attack.
-mMitigationName :: Lens' Mitigation (Maybe Text)
-mMitigationName = lens _mMitigationName (\s a -> s {_mMitigationName = a})
+--
+-- /Note:/ Consider using 'mitigationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mMitigationName :: Lens.Lens' Mitigation (Lude.Maybe Lude.Text)
+mMitigationName = Lens.lens (mitigationName :: Mitigation -> Lude.Maybe Lude.Text) (\s a -> s {mitigationName = a} :: Mitigation)
+{-# DEPRECATED mMitigationName "Use generic-lens or generic-optics with 'mitigationName' instead." #-}
 
-instance FromJSON Mitigation where
+instance Lude.FromJSON Mitigation where
   parseJSON =
-    withObject
+    Lude.withObject
       "Mitigation"
-      (\x -> Mitigation' <$> (x .:? "MitigationName"))
-
-instance Hashable Mitigation
-
-instance NFData Mitigation
+      (\x -> Mitigation' Lude.<$> (x Lude..:? "MitigationName"))

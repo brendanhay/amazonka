@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a new 'BasePathMapping' resource.
 module Network.AWS.APIGateway.CreateBasePathMapping
-  ( -- * Creating a Request
-    createBasePathMapping,
-    CreateBasePathMapping,
+  ( -- * Creating a request
+    CreateBasePathMapping (..),
+    mkCreateBasePathMapping,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cbpmStage,
     cbpmBasePath,
     cbpmDomainName,
     cbpmRestAPIId,
 
-    -- * Destructuring the Response
-    basePathMapping,
-    BasePathMapping,
+    -- * Destructuring the response
+    BasePathMapping (..),
+    mkBasePathMapping,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bpmStage,
     bpmBasePath,
     bpmRestAPIId,
@@ -41,93 +36,104 @@ module Network.AWS.APIGateway.CreateBasePathMapping
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests API Gateway to create a new 'BasePathMapping' resource.
 --
---
---
--- /See:/ 'createBasePathMapping' smart constructor.
+-- /See:/ 'mkCreateBasePathMapping' smart constructor.
 data CreateBasePathMapping = CreateBasePathMapping'
-  { _cbpmStage ::
-      !(Maybe Text),
-    _cbpmBasePath :: !(Maybe Text),
-    _cbpmDomainName :: !Text,
-    _cbpmRestAPIId :: !Text
+  { stage ::
+      Lude.Maybe Lude.Text,
+    basePath :: Lude.Maybe Lude.Text,
+    domainName :: Lude.Text,
+    restAPIId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBasePathMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbpmStage' - The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.
---
--- * 'cbpmBasePath' - The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.
---
--- * 'cbpmDomainName' - [Required] The domain name of the 'BasePathMapping' resource to create.
---
--- * 'cbpmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-createBasePathMapping ::
-  -- | 'cbpmDomainName'
-  Text ->
-  -- | 'cbpmRestAPIId'
-  Text ->
+-- * 'basePath' - The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.
+-- * 'domainName' - [Required] The domain name of the 'BasePathMapping' resource to create.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'stage' - The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.
+mkCreateBasePathMapping ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   CreateBasePathMapping
-createBasePathMapping pDomainName_ pRestAPIId_ =
+mkCreateBasePathMapping pDomainName_ pRestAPIId_ =
   CreateBasePathMapping'
-    { _cbpmStage = Nothing,
-      _cbpmBasePath = Nothing,
-      _cbpmDomainName = pDomainName_,
-      _cbpmRestAPIId = pRestAPIId_
+    { stage = Lude.Nothing,
+      basePath = Lude.Nothing,
+      domainName = pDomainName_,
+      restAPIId = pRestAPIId_
     }
 
 -- | The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.
-cbpmStage :: Lens' CreateBasePathMapping (Maybe Text)
-cbpmStage = lens _cbpmStage (\s a -> s {_cbpmStage = a})
+--
+-- /Note:/ Consider using 'stage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpmStage :: Lens.Lens' CreateBasePathMapping (Lude.Maybe Lude.Text)
+cbpmStage = Lens.lens (stage :: CreateBasePathMapping -> Lude.Maybe Lude.Text) (\s a -> s {stage = a} :: CreateBasePathMapping)
+{-# DEPRECATED cbpmStage "Use generic-lens or generic-optics with 'stage' instead." #-}
 
 -- | The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.
-cbpmBasePath :: Lens' CreateBasePathMapping (Maybe Text)
-cbpmBasePath = lens _cbpmBasePath (\s a -> s {_cbpmBasePath = a})
+--
+-- /Note:/ Consider using 'basePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpmBasePath :: Lens.Lens' CreateBasePathMapping (Lude.Maybe Lude.Text)
+cbpmBasePath = Lens.lens (basePath :: CreateBasePathMapping -> Lude.Maybe Lude.Text) (\s a -> s {basePath = a} :: CreateBasePathMapping)
+{-# DEPRECATED cbpmBasePath "Use generic-lens or generic-optics with 'basePath' instead." #-}
 
 -- | [Required] The domain name of the 'BasePathMapping' resource to create.
-cbpmDomainName :: Lens' CreateBasePathMapping Text
-cbpmDomainName = lens _cbpmDomainName (\s a -> s {_cbpmDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpmDomainName :: Lens.Lens' CreateBasePathMapping Lude.Text
+cbpmDomainName = Lens.lens (domainName :: CreateBasePathMapping -> Lude.Text) (\s a -> s {domainName = a} :: CreateBasePathMapping)
+{-# DEPRECATED cbpmDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-cbpmRestAPIId :: Lens' CreateBasePathMapping Text
-cbpmRestAPIId = lens _cbpmRestAPIId (\s a -> s {_cbpmRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpmRestAPIId :: Lens.Lens' CreateBasePathMapping Lude.Text
+cbpmRestAPIId = Lens.lens (restAPIId :: CreateBasePathMapping -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateBasePathMapping)
+{-# DEPRECATED cbpmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
-instance AWSRequest CreateBasePathMapping where
+instance Lude.AWSRequest CreateBasePathMapping where
   type Rs CreateBasePathMapping = BasePathMapping
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateBasePathMapping
-
-instance NFData CreateBasePathMapping
-
-instance ToHeaders CreateBasePathMapping where
+instance Lude.ToHeaders CreateBasePathMapping where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON CreateBasePathMapping where
+instance Lude.ToJSON CreateBasePathMapping where
   toJSON CreateBasePathMapping' {..} =
-    object
-      ( catMaybes
-          [ ("stage" .=) <$> _cbpmStage,
-            ("basePath" .=) <$> _cbpmBasePath,
-            Just ("restApiId" .= _cbpmRestAPIId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("stage" Lude..=) Lude.<$> stage,
+            ("basePath" Lude..=) Lude.<$> basePath,
+            Lude.Just ("restApiId" Lude..= restAPIId)
           ]
       )
 
-instance ToPath CreateBasePathMapping where
+instance Lude.ToPath CreateBasePathMapping where
   toPath CreateBasePathMapping' {..} =
-    mconcat
-      ["/domainnames/", toBS _cbpmDomainName, "/basepathmappings"]
+    Lude.mconcat
+      ["/domainnames/", Lude.toBS domainName, "/basepathmappings"]
 
-instance ToQuery CreateBasePathMapping where
-  toQuery = const mempty
+instance Lude.ToQuery CreateBasePathMapping where
+  toQuery = Lude.const Lude.mempty

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,180 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Schedule where
+module Network.AWS.Pinpoint.Types.Schedule
+  ( Schedule (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkSchedule,
+
+    -- * Lenses
+    sFrequency,
+    sQuietTime,
+    sEventFilter,
+    sIsLocalTime,
+    sEndTime,
+    sTimezone,
+    sStartTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.CampaignEventFilter
 import Network.AWS.Pinpoint.Types.Frequency
 import Network.AWS.Pinpoint.Types.QuietTime
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the schedule settings for a campaign.
 --
---
---
--- /See:/ 'schedule' smart constructor.
+-- /See:/ 'mkSchedule' smart constructor.
 data Schedule = Schedule'
-  { _sFrequency :: !(Maybe Frequency),
-    _sQuietTime :: !(Maybe QuietTime),
-    _sEventFilter :: !(Maybe CampaignEventFilter),
-    _sIsLocalTime :: !(Maybe Bool),
-    _sEndTime :: !(Maybe Text),
-    _sTimezone :: !(Maybe Text),
-    _sStartTime :: !Text
+  { frequency :: Lude.Maybe Frequency,
+    quietTime :: Lude.Maybe QuietTime,
+    eventFilter :: Lude.Maybe CampaignEventFilter,
+    isLocalTime :: Lude.Maybe Lude.Bool,
+    endTime :: Lude.Maybe Lude.Text,
+    timezone :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Schedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'endTime' - The scheduled time, in ISO 8601 format, when the campaign ended or will end.
+-- * 'eventFilter' - The type of event that causes the campaign to be sent, if the value of the Frequency property is EVENT.
+-- * 'frequency' - Specifies how often the campaign is sent or whether the campaign is sent in response to a specific event.
+-- * 'isLocalTime' - Specifies whether the start and end times for the campaign schedule use each recipient's local time. To base the schedule on each recipient's local time, set this value to true.
+-- * 'quietTime' - The default quiet time for the campaign. Quiet time is a specific time range when a campaign doesn't send messages to endpoints, if all the following conditions are met:
 --
--- * 'sFrequency' - Specifies how often the campaign is sent or whether the campaign is sent in response to a specific event.
 --
--- * 'sQuietTime' - The default quiet time for the campaign. Quiet time is a specific time range when a campaign doesn't send messages to endpoints, if all the following conditions are met:     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the campaign.     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the campaign. If any of the preceding conditions isn't met, the endpoint will receive messages from the campaign, even if quiet time is enabled.
+--     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.
 --
--- * 'sEventFilter' - The type of event that causes the campaign to be sent, if the value of the Frequency property is EVENT.
 --
--- * 'sIsLocalTime' - Specifies whether the start and end times for the campaign schedule use each recipient's local time. To base the schedule on each recipient's local time, set this value to true.
+--     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the campaign.
 --
--- * 'sEndTime' - The scheduled time, in ISO 8601 format, when the campaign ended or will end.
 --
--- * 'sTimezone' - The starting UTC offset for the campaign schedule, if the value of the IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05,                   UTC+05:30, UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+09, UTC+09:30,                   UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+13, UTC-02, UTC-03, UTC-04, UTC-05, UTC-06,                   UTC-07, UTC-08, UTC-09, UTC-10, and UTC-11.
+--     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the campaign.
 --
--- * 'sStartTime' - The scheduled time when the campaign began or will begin. Valid values are: IMMEDIATE, to start the campaign immediately; or, a specific time in ISO 8601 format.
-schedule ::
-  -- | 'sStartTime'
-  Text ->
+--
+-- If any of the preceding conditions isn't met, the endpoint will receive messages from the campaign, even if quiet time is enabled.
+-- * 'startTime' - The scheduled time when the campaign began or will begin. Valid values are: IMMEDIATE, to start the campaign immediately; or, a specific time in ISO 8601 format.
+-- * 'timezone' - The starting UTC offset for the campaign schedule, if the value of the IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05,
+--
+--                   UTC+05:30, UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+09, UTC+09:30,
+--                   UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+13, UTC-02, UTC-03, UTC-04, UTC-05, UTC-06,
+--                   UTC-07, UTC-08, UTC-09, UTC-10, and UTC-11.
+mkSchedule ::
+  -- | 'startTime'
+  Lude.Text ->
   Schedule
-schedule pStartTime_ =
+mkSchedule pStartTime_ =
   Schedule'
-    { _sFrequency = Nothing,
-      _sQuietTime = Nothing,
-      _sEventFilter = Nothing,
-      _sIsLocalTime = Nothing,
-      _sEndTime = Nothing,
-      _sTimezone = Nothing,
-      _sStartTime = pStartTime_
+    { frequency = Lude.Nothing,
+      quietTime = Lude.Nothing,
+      eventFilter = Lude.Nothing,
+      isLocalTime = Lude.Nothing,
+      endTime = Lude.Nothing,
+      timezone = Lude.Nothing,
+      startTime = pStartTime_
     }
 
 -- | Specifies how often the campaign is sent or whether the campaign is sent in response to a specific event.
-sFrequency :: Lens' Schedule (Maybe Frequency)
-sFrequency = lens _sFrequency (\s a -> s {_sFrequency = a})
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sFrequency :: Lens.Lens' Schedule (Lude.Maybe Frequency)
+sFrequency = Lens.lens (frequency :: Schedule -> Lude.Maybe Frequency) (\s a -> s {frequency = a} :: Schedule)
+{-# DEPRECATED sFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
--- | The default quiet time for the campaign. Quiet time is a specific time range when a campaign doesn't send messages to endpoints, if all the following conditions are met:     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the campaign.     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the campaign. If any of the preceding conditions isn't met, the endpoint will receive messages from the campaign, even if quiet time is enabled.
-sQuietTime :: Lens' Schedule (Maybe QuietTime)
-sQuietTime = lens _sQuietTime (\s a -> s {_sQuietTime = a})
+-- | The default quiet time for the campaign. Quiet time is a specific time range when a campaign doesn't send messages to endpoints, if all the following conditions are met:
+--
+--
+--     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.
+--
+--
+--     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the campaign.
+--
+--
+--     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the campaign.
+--
+--
+-- If any of the preceding conditions isn't met, the endpoint will receive messages from the campaign, even if quiet time is enabled.
+--
+-- /Note:/ Consider using 'quietTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sQuietTime :: Lens.Lens' Schedule (Lude.Maybe QuietTime)
+sQuietTime = Lens.lens (quietTime :: Schedule -> Lude.Maybe QuietTime) (\s a -> s {quietTime = a} :: Schedule)
+{-# DEPRECATED sQuietTime "Use generic-lens or generic-optics with 'quietTime' instead." #-}
 
 -- | The type of event that causes the campaign to be sent, if the value of the Frequency property is EVENT.
-sEventFilter :: Lens' Schedule (Maybe CampaignEventFilter)
-sEventFilter = lens _sEventFilter (\s a -> s {_sEventFilter = a})
+--
+-- /Note:/ Consider using 'eventFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEventFilter :: Lens.Lens' Schedule (Lude.Maybe CampaignEventFilter)
+sEventFilter = Lens.lens (eventFilter :: Schedule -> Lude.Maybe CampaignEventFilter) (\s a -> s {eventFilter = a} :: Schedule)
+{-# DEPRECATED sEventFilter "Use generic-lens or generic-optics with 'eventFilter' instead." #-}
 
 -- | Specifies whether the start and end times for the campaign schedule use each recipient's local time. To base the schedule on each recipient's local time, set this value to true.
-sIsLocalTime :: Lens' Schedule (Maybe Bool)
-sIsLocalTime = lens _sIsLocalTime (\s a -> s {_sIsLocalTime = a})
+--
+-- /Note:/ Consider using 'isLocalTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sIsLocalTime :: Lens.Lens' Schedule (Lude.Maybe Lude.Bool)
+sIsLocalTime = Lens.lens (isLocalTime :: Schedule -> Lude.Maybe Lude.Bool) (\s a -> s {isLocalTime = a} :: Schedule)
+{-# DEPRECATED sIsLocalTime "Use generic-lens or generic-optics with 'isLocalTime' instead." #-}
 
 -- | The scheduled time, in ISO 8601 format, when the campaign ended or will end.
-sEndTime :: Lens' Schedule (Maybe Text)
-sEndTime = lens _sEndTime (\s a -> s {_sEndTime = a})
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEndTime :: Lens.Lens' Schedule (Lude.Maybe Lude.Text)
+sEndTime = Lens.lens (endTime :: Schedule -> Lude.Maybe Lude.Text) (\s a -> s {endTime = a} :: Schedule)
+{-# DEPRECATED sEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
--- | The starting UTC offset for the campaign schedule, if the value of the IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05,                   UTC+05:30, UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+09, UTC+09:30,                   UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+13, UTC-02, UTC-03, UTC-04, UTC-05, UTC-06,                   UTC-07, UTC-08, UTC-09, UTC-10, and UTC-11.
-sTimezone :: Lens' Schedule (Maybe Text)
-sTimezone = lens _sTimezone (\s a -> s {_sTimezone = a})
+-- | The starting UTC offset for the campaign schedule, if the value of the IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05,
+--
+--                   UTC+05:30, UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+09, UTC+09:30,
+--                   UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+13, UTC-02, UTC-03, UTC-04, UTC-05, UTC-06,
+--                   UTC-07, UTC-08, UTC-09, UTC-10, and UTC-11.
+--
+-- /Note:/ Consider using 'timezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTimezone :: Lens.Lens' Schedule (Lude.Maybe Lude.Text)
+sTimezone = Lens.lens (timezone :: Schedule -> Lude.Maybe Lude.Text) (\s a -> s {timezone = a} :: Schedule)
+{-# DEPRECATED sTimezone "Use generic-lens or generic-optics with 'timezone' instead." #-}
 
 -- | The scheduled time when the campaign began or will begin. Valid values are: IMMEDIATE, to start the campaign immediately; or, a specific time in ISO 8601 format.
-sStartTime :: Lens' Schedule Text
-sStartTime = lens _sStartTime (\s a -> s {_sStartTime = a})
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStartTime :: Lens.Lens' Schedule Lude.Text
+sStartTime = Lens.lens (startTime :: Schedule -> Lude.Text) (\s a -> s {startTime = a} :: Schedule)
+{-# DEPRECATED sStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
-instance FromJSON Schedule where
+instance Lude.FromJSON Schedule where
   parseJSON =
-    withObject
+    Lude.withObject
       "Schedule"
       ( \x ->
           Schedule'
-            <$> (x .:? "Frequency")
-            <*> (x .:? "QuietTime")
-            <*> (x .:? "EventFilter")
-            <*> (x .:? "IsLocalTime")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "Timezone")
-            <*> (x .: "StartTime")
+            Lude.<$> (x Lude..:? "Frequency")
+            Lude.<*> (x Lude..:? "QuietTime")
+            Lude.<*> (x Lude..:? "EventFilter")
+            Lude.<*> (x Lude..:? "IsLocalTime")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "Timezone")
+            Lude.<*> (x Lude..: "StartTime")
       )
 
-instance Hashable Schedule
-
-instance NFData Schedule
-
-instance ToJSON Schedule where
+instance Lude.ToJSON Schedule where
   toJSON Schedule' {..} =
-    object
-      ( catMaybes
-          [ ("Frequency" .=) <$> _sFrequency,
-            ("QuietTime" .=) <$> _sQuietTime,
-            ("EventFilter" .=) <$> _sEventFilter,
-            ("IsLocalTime" .=) <$> _sIsLocalTime,
-            ("EndTime" .=) <$> _sEndTime,
-            ("Timezone" .=) <$> _sTimezone,
-            Just ("StartTime" .= _sStartTime)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Frequency" Lude..=) Lude.<$> frequency,
+            ("QuietTime" Lude..=) Lude.<$> quietTime,
+            ("EventFilter" Lude..=) Lude.<$> eventFilter,
+            ("IsLocalTime" Lude..=) Lude.<$> isLocalTime,
+            ("EndTime" Lude..=) Lude.<$> endTime,
+            ("Timezone" Lude..=) Lude.<$> timezone,
+            Lude.Just ("StartTime" Lude..= startTime)
           ]
       )

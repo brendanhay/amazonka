@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.CacheClusterSize where
+module Network.AWS.APIGateway.Types.CacheClusterSize
+  ( CacheClusterSize
+      ( CacheClusterSize',
+        D0_5,
+        D118,
+        D13_5,
+        D1_6,
+        D237,
+        D28_4,
+        D58_2,
+        D6_1
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns the size of the __CacheCluster__ .
-data CacheClusterSize
-  = D0_5
-  | D118
-  | D13_5
-  | D1_6
-  | D237
-  | D28_4
-  | D58_2
-  | D6_1
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CacheClusterSize = CacheClusterSize' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CacheClusterSize where
-  parser =
-    takeLowerText >>= \case
-      "0.5" -> pure D0_5
-      "118" -> pure D118
-      "13.5" -> pure D13_5
-      "1.6" -> pure D1_6
-      "237" -> pure D237
-      "28.4" -> pure D28_4
-      "58.2" -> pure D58_2
-      "6.1" -> pure D6_1
-      e ->
-        fromTextError $
-          "Failure parsing CacheClusterSize from value: '" <> e
-            <> "'. Accepted values: 0.5, 118, 13.5, 1.6, 237, 28.4, 58.2, 6.1"
+pattern D0_5 :: CacheClusterSize
+pattern D0_5 = CacheClusterSize' "0.5"
 
-instance ToText CacheClusterSize where
-  toText = \case
-    D0_5 -> "0.5"
-    D118 -> "118"
-    D13_5 -> "13.5"
-    D1_6 -> "1.6"
-    D237 -> "237"
-    D28_4 -> "28.4"
-    D58_2 -> "58.2"
-    D6_1 -> "6.1"
+pattern D118 :: CacheClusterSize
+pattern D118 = CacheClusterSize' "118"
 
-instance Hashable CacheClusterSize
+pattern D13_5 :: CacheClusterSize
+pattern D13_5 = CacheClusterSize' "13.5"
 
-instance NFData CacheClusterSize
+pattern D1_6 :: CacheClusterSize
+pattern D1_6 = CacheClusterSize' "1.6"
 
-instance ToByteString CacheClusterSize
+pattern D237 :: CacheClusterSize
+pattern D237 = CacheClusterSize' "237"
 
-instance ToQuery CacheClusterSize
+pattern D28_4 :: CacheClusterSize
+pattern D28_4 = CacheClusterSize' "28.4"
 
-instance ToHeader CacheClusterSize
+pattern D58_2 :: CacheClusterSize
+pattern D58_2 = CacheClusterSize' "58.2"
 
-instance ToJSON CacheClusterSize where
-  toJSON = toJSONText
+pattern D6_1 :: CacheClusterSize
+pattern D6_1 = CacheClusterSize' "6.1"
 
-instance FromJSON CacheClusterSize where
-  parseJSON = parseJSONText "CacheClusterSize"
+{-# COMPLETE
+  D0_5,
+  D118,
+  D13_5,
+  D1_6,
+  D237,
+  D28_4,
+  D58_2,
+  D6_1,
+  CacheClusterSize'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types.QueryType where
+module Network.AWS.ResourceGroups.Types.QueryType
+  ( QueryType
+      ( QueryType',
+        CloudformationStack10,
+        TagFilters10
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QueryType
-  = CloudformationStack10
-  | TagFilters10
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QueryType = QueryType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QueryType where
-  parser =
-    takeLowerText >>= \case
-      "cloudformation_stack_1_0" -> pure CloudformationStack10
-      "tag_filters_1_0" -> pure TagFilters10
-      e ->
-        fromTextError $
-          "Failure parsing QueryType from value: '" <> e
-            <> "'. Accepted values: cloudformation_stack_1_0, tag_filters_1_0"
+pattern CloudformationStack10 :: QueryType
+pattern CloudformationStack10 = QueryType' "CLOUDFORMATION_STACK_1_0"
 
-instance ToText QueryType where
-  toText = \case
-    CloudformationStack10 -> "CLOUDFORMATION_STACK_1_0"
-    TagFilters10 -> "TAG_FILTERS_1_0"
+pattern TagFilters10 :: QueryType
+pattern TagFilters10 = QueryType' "TAG_FILTERS_1_0"
 
-instance Hashable QueryType
-
-instance NFData QueryType
-
-instance ToByteString QueryType
-
-instance ToQuery QueryType
-
-instance ToHeader QueryType
-
-instance ToJSON QueryType where
-  toJSON = toJSONText
-
-instance FromJSON QueryType where
-  parseJSON = parseJSONText "QueryType"
+{-# COMPLETE
+  CloudformationStack10,
+  TagFilters10,
+  QueryType'
+  #-}

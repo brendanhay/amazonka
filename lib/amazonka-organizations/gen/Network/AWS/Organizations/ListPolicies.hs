@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,166 +14,215 @@
 --
 -- Retrieves the list of all policies in an organization of a specified type.
 --
---
 -- This operation can be called only from the organization's management account or by a member account that is a delegated administrator for an AWS service.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Organizations.ListPolicies
-  ( -- * Creating a Request
-    listPolicies,
-    ListPolicies,
+  ( -- * Creating a request
+    ListPolicies (..),
+    mkListPolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpNextToken,
     lpMaxResults,
     lpFilter,
 
-    -- * Destructuring the Response
-    listPoliciesResponse,
-    ListPoliciesResponse,
+    -- * Destructuring the response
+    ListPoliciesResponse (..),
+    mkListPoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lprsNextToken,
     lprsPolicies,
     lprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listPolicies' smart constructor.
+-- | /See:/ 'mkListPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-  { _lpNextToken :: !(Maybe Text),
-    _lpMaxResults :: !(Maybe Nat),
-    _lpFilter :: !PolicyType
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    filter :: PolicyType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filter' - Specifies the type of policy that you want to include in the response. You must specify one of the following values:
 --
--- * 'lpNextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 --
--- * 'lpMaxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
 --
--- * 'lpFilter' - Specifies the type of policy that you want to include in the response. You must specify one of the following values:     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
-listPolicies ::
-  -- | 'lpFilter'
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+--
+--
+-- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+-- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+mkListPolicies ::
+  -- | 'filter'
   PolicyType ->
   ListPolicies
-listPolicies pFilter_ =
+mkListPolicies pFilter_ =
   ListPolicies'
-    { _lpNextToken = Nothing,
-      _lpMaxResults = Nothing,
-      _lpFilter = pFilter_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      filter = pFilter_
     }
 
 -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-lpNextToken :: Lens' ListPolicies (Maybe Text)
-lpNextToken = lens _lpNextToken (\s a -> s {_lpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpNextToken :: Lens.Lens' ListPolicies (Lude.Maybe Lude.Text)
+lpNextToken = Lens.lens (nextToken :: ListPolicies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPolicies)
+{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-lpMaxResults :: Lens' ListPolicies (Maybe Natural)
-lpMaxResults = lens _lpMaxResults (\s a -> s {_lpMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpMaxResults :: Lens.Lens' ListPolicies (Lude.Maybe Lude.Natural)
+lpMaxResults = Lens.lens (maxResults :: ListPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPolicies)
+{-# DEPRECATED lpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | Specifies the type of policy that you want to include in the response. You must specify one of the following values:     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
-lpFilter :: Lens' ListPolicies PolicyType
-lpFilter = lens _lpFilter (\s a -> s {_lpFilter = a})
+-- | Specifies the type of policy that you want to include in the response. You must specify one of the following values:
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+--
+--
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpFilter :: Lens.Lens' ListPolicies PolicyType
+lpFilter = Lens.lens (filter :: ListPolicies -> PolicyType) (\s a -> s {filter = a} :: ListPolicies)
+{-# DEPRECATED lpFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
-instance AWSPager ListPolicies where
+instance Page.AWSPager ListPolicies where
   page rq rs
-    | stop (rs ^. lprsNextToken) = Nothing
-    | stop (rs ^. lprsPolicies) = Nothing
-    | otherwise = Just $ rq & lpNextToken .~ rs ^. lprsNextToken
+    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lprsPolicies) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
 
-instance AWSRequest ListPolicies where
+instance Lude.AWSRequest ListPolicies where
   type Rs ListPolicies = ListPoliciesResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListPoliciesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Policies" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Policies" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListPolicies
-
-instance NFData ListPolicies
-
-instance ToHeaders ListPolicies where
+instance Lude.ToHeaders ListPolicies where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.ListPolicies" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSOrganizationsV20161128.ListPolicies" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListPolicies where
+instance Lude.ToJSON ListPolicies where
   toJSON ListPolicies' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lpNextToken,
-            ("MaxResults" .=) <$> _lpMaxResults,
-            Just ("Filter" .= _lpFilter)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("Filter" Lude..= filter)
           ]
       )
 
-instance ToPath ListPolicies where
-  toPath = const "/"
+instance Lude.ToPath ListPolicies where
+  toPath = Lude.const "/"
 
-instance ToQuery ListPolicies where
-  toQuery = const mempty
+instance Lude.ToQuery ListPolicies where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listPoliciesResponse' smart constructor.
+-- | /See:/ 'mkListPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-  { _lprsNextToken ::
-      !(Maybe Text),
-    _lprsPolicies :: !(Maybe [PolicySummary]),
-    _lprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    policies :: Lude.Maybe [PolicySummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsNextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
---
--- * 'lprsPolicies' - A list of policies that match the filter criteria in the request. The output list doesn't include the policy contents. To see the content for a policy, see 'DescribePolicy' .
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listPoliciesResponse ::
-  -- | 'lprsResponseStatus'
-  Int ->
+-- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
+-- * 'policies' - A list of policies that match the filter criteria in the request. The output list doesn't include the policy contents. To see the content for a policy, see 'DescribePolicy' .
+-- * 'responseStatus' - The response status code.
+mkListPoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPoliciesResponse
-listPoliciesResponse pResponseStatus_ =
+mkListPoliciesResponse pResponseStatus_ =
   ListPoliciesResponse'
-    { _lprsNextToken = Nothing,
-      _lprsPolicies = Nothing,
-      _lprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      policies = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-lprsNextToken :: Lens' ListPoliciesResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\s a -> s {_lprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsNextToken :: Lens.Lens' ListPoliciesResponse (Lude.Maybe Lude.Text)
+lprsNextToken = Lens.lens (nextToken :: ListPoliciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPoliciesResponse)
+{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of policies that match the filter criteria in the request. The output list doesn't include the policy contents. To see the content for a policy, see 'DescribePolicy' .
-lprsPolicies :: Lens' ListPoliciesResponse [PolicySummary]
-lprsPolicies = lens _lprsPolicies (\s a -> s {_lprsPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsPolicies :: Lens.Lens' ListPoliciesResponse (Lude.Maybe [PolicySummary])
+lprsPolicies = Lens.lens (policies :: ListPoliciesResponse -> Lude.Maybe [PolicySummary]) (\s a -> s {policies = a} :: ListPoliciesResponse)
+{-# DEPRECATED lprsPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListPoliciesResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\s a -> s {_lprsResponseStatus = a})
-
-instance NFData ListPoliciesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsResponseStatus :: Lens.Lens' ListPoliciesResponse Lude.Int
+lprsResponseStatus = Lens.lens (responseStatus :: ListPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPoliciesResponse)
+{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.SAMLIdp where
+module Network.AWS.ElasticSearch.Types.SAMLIdp
+  ( SAMLIdp (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSAMLIdp,
+
+    -- * Lenses
+    samliMetadataContent,
+    samliEntityId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the SAML Identity Provider's information.
 --
---
---
--- /See:/ 'sAMLIdp' smart constructor.
+-- /See:/ 'mkSAMLIdp' smart constructor.
 data SAMLIdp = SAMLIdp'
-  { _samliMetadataContent :: !Text,
-    _samliEntityId :: !Text
+  { metadataContent :: Lude.Text,
+    entityId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SAMLIdp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'samliMetadataContent' - The Metadata of the SAML application in xml format.
---
--- * 'samliEntityId' - The unique Entity ID of the application in SAML Identity Provider.
-sAMLIdp ::
-  -- | 'samliMetadataContent'
-  Text ->
-  -- | 'samliEntityId'
-  Text ->
+-- * 'entityId' - The unique Entity ID of the application in SAML Identity Provider.
+-- * 'metadataContent' - The Metadata of the SAML application in xml format.
+mkSAMLIdp ::
+  -- | 'metadataContent'
+  Lude.Text ->
+  -- | 'entityId'
+  Lude.Text ->
   SAMLIdp
-sAMLIdp pMetadataContent_ pEntityId_ =
+mkSAMLIdp pMetadataContent_ pEntityId_ =
   SAMLIdp'
-    { _samliMetadataContent = pMetadataContent_,
-      _samliEntityId = pEntityId_
+    { metadataContent = pMetadataContent_,
+      entityId = pEntityId_
     }
 
 -- | The Metadata of the SAML application in xml format.
-samliMetadataContent :: Lens' SAMLIdp Text
-samliMetadataContent = lens _samliMetadataContent (\s a -> s {_samliMetadataContent = a})
+--
+-- /Note:/ Consider using 'metadataContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samliMetadataContent :: Lens.Lens' SAMLIdp Lude.Text
+samliMetadataContent = Lens.lens (metadataContent :: SAMLIdp -> Lude.Text) (\s a -> s {metadataContent = a} :: SAMLIdp)
+{-# DEPRECATED samliMetadataContent "Use generic-lens or generic-optics with 'metadataContent' instead." #-}
 
 -- | The unique Entity ID of the application in SAML Identity Provider.
-samliEntityId :: Lens' SAMLIdp Text
-samliEntityId = lens _samliEntityId (\s a -> s {_samliEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samliEntityId :: Lens.Lens' SAMLIdp Lude.Text
+samliEntityId = Lens.lens (entityId :: SAMLIdp -> Lude.Text) (\s a -> s {entityId = a} :: SAMLIdp)
+{-# DEPRECATED samliEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
-instance FromJSON SAMLIdp where
+instance Lude.FromJSON SAMLIdp where
   parseJSON =
-    withObject
+    Lude.withObject
       "SAMLIdp"
       ( \x ->
-          SAMLIdp' <$> (x .: "MetadataContent") <*> (x .: "EntityId")
+          SAMLIdp'
+            Lude.<$> (x Lude..: "MetadataContent") Lude.<*> (x Lude..: "EntityId")
       )
 
-instance Hashable SAMLIdp
-
-instance NFData SAMLIdp
-
-instance ToJSON SAMLIdp where
+instance Lude.ToJSON SAMLIdp where
   toJSON SAMLIdp' {..} =
-    object
-      ( catMaybes
-          [ Just ("MetadataContent" .= _samliMetadataContent),
-            Just ("EntityId" .= _samliEntityId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("MetadataContent" Lude..= metadataContent),
+            Lude.Just ("EntityId" Lude..= entityId)
           ]
       )

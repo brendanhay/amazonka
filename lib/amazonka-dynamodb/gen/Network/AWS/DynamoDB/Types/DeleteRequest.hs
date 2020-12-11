@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.DeleteRequest where
+module Network.AWS.DynamoDB.Types.DeleteRequest
+  ( DeleteRequest (..),
+
+    -- * Smart constructor
+    mkDeleteRequest,
+
+    -- * Lenses
+    drKey,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.AttributeValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a request to perform a @DeleteItem@ operation on an item.
 --
---
---
--- /See:/ 'deleteRequest' smart constructor.
+-- /See:/ 'mkDeleteRequest' smart constructor.
 newtype DeleteRequest = DeleteRequest'
-  { _drKey ::
-      Map Text (AttributeValue)
+  { key ::
+      Lude.HashMap Lude.Text (AttributeValue)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drKey' - A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.
-deleteRequest ::
+-- * 'key' - A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.
+mkDeleteRequest ::
   DeleteRequest
-deleteRequest = DeleteRequest' {_drKey = mempty}
+mkDeleteRequest = DeleteRequest' {key = Lude.mempty}
 
 -- | A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.
-drKey :: Lens' DeleteRequest (HashMap Text (AttributeValue))
-drKey = lens _drKey (\s a -> s {_drKey = a}) . _Map
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drKey :: Lens.Lens' DeleteRequest (Lude.HashMap Lude.Text (AttributeValue))
+drKey = Lens.lens (key :: DeleteRequest -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: DeleteRequest)
+{-# DEPRECATED drKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON DeleteRequest where
+instance Lude.FromJSON DeleteRequest where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeleteRequest"
-      (\x -> DeleteRequest' <$> (x .:? "Key" .!= mempty))
+      ( \x ->
+          DeleteRequest' Lude.<$> (x Lude..:? "Key" Lude..!= Lude.mempty)
+      )
 
-instance Hashable DeleteRequest
-
-instance NFData DeleteRequest
-
-instance ToJSON DeleteRequest where
+instance Lude.ToJSON DeleteRequest where
   toJSON DeleteRequest' {..} =
-    object (catMaybes [Just ("Key" .= _drKey)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Key" Lude..= key)])

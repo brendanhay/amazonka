@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.TermInYears where
+module Network.AWS.CostExplorer.Types.TermInYears
+  ( TermInYears
+      ( TermInYears',
+        OneYear,
+        ThreeYears
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TermInYears
-  = OneYear
-  | ThreeYears
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TermInYears = TermInYears' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TermInYears where
-  parser =
-    takeLowerText >>= \case
-      "one_year" -> pure OneYear
-      "three_years" -> pure ThreeYears
-      e ->
-        fromTextError $
-          "Failure parsing TermInYears from value: '" <> e
-            <> "'. Accepted values: one_year, three_years"
+pattern OneYear :: TermInYears
+pattern OneYear = TermInYears' "ONE_YEAR"
 
-instance ToText TermInYears where
-  toText = \case
-    OneYear -> "ONE_YEAR"
-    ThreeYears -> "THREE_YEARS"
+pattern ThreeYears :: TermInYears
+pattern ThreeYears = TermInYears' "THREE_YEARS"
 
-instance Hashable TermInYears
-
-instance NFData TermInYears
-
-instance ToByteString TermInYears
-
-instance ToQuery TermInYears
-
-instance ToHeader TermInYears
-
-instance ToJSON TermInYears where
-  toJSON = toJSONText
-
-instance FromJSON TermInYears where
-  parseJSON = parseJSONText "TermInYears"
+{-# COMPLETE
+  OneYear,
+  ThreeYears,
+  TermInYears'
+  #-}

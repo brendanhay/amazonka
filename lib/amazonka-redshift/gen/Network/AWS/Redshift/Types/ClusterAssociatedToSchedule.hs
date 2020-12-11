@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ClusterAssociatedToSchedule where
+module Network.AWS.Redshift.Types.ClusterAssociatedToSchedule
+  ( ClusterAssociatedToSchedule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClusterAssociatedToSchedule,
+
+    -- * Lenses
+    catsScheduleAssociationState,
+    catsClusterIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.ScheduleState
 
 -- |
 --
---
---
--- /See:/ 'clusterAssociatedToSchedule' smart constructor.
+-- /See:/ 'mkClusterAssociatedToSchedule' smart constructor.
 data ClusterAssociatedToSchedule = ClusterAssociatedToSchedule'
-  { _catsScheduleAssociationState ::
-      !(Maybe ScheduleState),
-    _catsClusterIdentifier ::
-      !(Maybe Text)
+  { scheduleAssociationState ::
+      Lude.Maybe ScheduleState,
+    clusterIdentifier ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterAssociatedToSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'catsScheduleAssociationState' -
---
--- * 'catsClusterIdentifier' -
-clusterAssociatedToSchedule ::
+-- * 'clusterIdentifier' -
+-- * 'scheduleAssociationState' -
+mkClusterAssociatedToSchedule ::
   ClusterAssociatedToSchedule
-clusterAssociatedToSchedule =
+mkClusterAssociatedToSchedule =
   ClusterAssociatedToSchedule'
-    { _catsScheduleAssociationState =
-        Nothing,
-      _catsClusterIdentifier = Nothing
+    { scheduleAssociationState =
+        Lude.Nothing,
+      clusterIdentifier = Lude.Nothing
     }
 
 -- |
-catsScheduleAssociationState :: Lens' ClusterAssociatedToSchedule (Maybe ScheduleState)
-catsScheduleAssociationState = lens _catsScheduleAssociationState (\s a -> s {_catsScheduleAssociationState = a})
+--
+-- /Note:/ Consider using 'scheduleAssociationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+catsScheduleAssociationState :: Lens.Lens' ClusterAssociatedToSchedule (Lude.Maybe ScheduleState)
+catsScheduleAssociationState = Lens.lens (scheduleAssociationState :: ClusterAssociatedToSchedule -> Lude.Maybe ScheduleState) (\s a -> s {scheduleAssociationState = a} :: ClusterAssociatedToSchedule)
+{-# DEPRECATED catsScheduleAssociationState "Use generic-lens or generic-optics with 'scheduleAssociationState' instead." #-}
 
 -- |
-catsClusterIdentifier :: Lens' ClusterAssociatedToSchedule (Maybe Text)
-catsClusterIdentifier = lens _catsClusterIdentifier (\s a -> s {_catsClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+catsClusterIdentifier :: Lens.Lens' ClusterAssociatedToSchedule (Lude.Maybe Lude.Text)
+catsClusterIdentifier = Lens.lens (clusterIdentifier :: ClusterAssociatedToSchedule -> Lude.Maybe Lude.Text) (\s a -> s {clusterIdentifier = a} :: ClusterAssociatedToSchedule)
+{-# DEPRECATED catsClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance FromXML ClusterAssociatedToSchedule where
+instance Lude.FromXML ClusterAssociatedToSchedule where
   parseXML x =
     ClusterAssociatedToSchedule'
-      <$> (x .@? "ScheduleAssociationState") <*> (x .@? "ClusterIdentifier")
-
-instance Hashable ClusterAssociatedToSchedule
-
-instance NFData ClusterAssociatedToSchedule
+      Lude.<$> (x Lude..@? "ScheduleAssociationState")
+      Lude.<*> (x Lude..@? "ClusterIdentifier")

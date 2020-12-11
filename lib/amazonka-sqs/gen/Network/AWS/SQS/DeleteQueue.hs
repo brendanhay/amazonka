@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,85 +14,93 @@
 --
 -- Deletes the queue specified by the @QueueUrl@ , regardless of the queue's contents.
 --
---
 -- /Important:/ Be careful with the @DeleteQueue@ action: When you delete a queue, any messages in the queue are no longer available.
---
 -- When you delete a queue, the deletion process takes up to 60 seconds. Requests you send involving that queue during the 60 seconds might succeed. For example, a @'SendMessage' @ request might succeed, but after 60 seconds the queue and the message you sent no longer exist.
---
 -- When you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.
 module Network.AWS.SQS.DeleteQueue
-  ( -- * Creating a Request
-    deleteQueue,
-    DeleteQueue,
+  ( -- * Creating a request
+    DeleteQueue (..),
+    mkDeleteQueue,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dqQueueURL,
 
-    -- * Destructuring the Response
-    deleteQueueResponse,
-    DeleteQueueResponse,
+    -- * Destructuring the response
+    DeleteQueueResponse (..),
+    mkDeleteQueueResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SQS.Types
 
 -- |
 --
---
---
--- /See:/ 'deleteQueue' smart constructor.
-newtype DeleteQueue = DeleteQueue' {_dqQueueURL :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteQueue' smart constructor.
+newtype DeleteQueue = DeleteQueue' {queueURL :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'queueURL' - The URL of the Amazon SQS queue to delete.
 --
--- * 'dqQueueURL' - The URL of the Amazon SQS queue to delete. Queue URLs and names are case-sensitive.
-deleteQueue ::
-  -- | 'dqQueueURL'
-  Text ->
+-- Queue URLs and names are case-sensitive.
+mkDeleteQueue ::
+  -- | 'queueURL'
+  Lude.Text ->
   DeleteQueue
-deleteQueue pQueueURL_ = DeleteQueue' {_dqQueueURL = pQueueURL_}
+mkDeleteQueue pQueueURL_ = DeleteQueue' {queueURL = pQueueURL_}
 
--- | The URL of the Amazon SQS queue to delete. Queue URLs and names are case-sensitive.
-dqQueueURL :: Lens' DeleteQueue Text
-dqQueueURL = lens _dqQueueURL (\s a -> s {_dqQueueURL = a})
+-- | The URL of the Amazon SQS queue to delete.
+--
+-- Queue URLs and names are case-sensitive.
+--
+-- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqQueueURL :: Lens.Lens' DeleteQueue Lude.Text
+dqQueueURL = Lens.lens (queueURL :: DeleteQueue -> Lude.Text) (\s a -> s {queueURL = a} :: DeleteQueue)
+{-# DEPRECATED dqQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
 
-instance AWSRequest DeleteQueue where
+instance Lude.AWSRequest DeleteQueue where
   type Rs DeleteQueue = DeleteQueueResponse
-  request = postQuery sqs
-  response = receiveNull DeleteQueueResponse'
+  request = Req.postQuery sqsService
+  response = Res.receiveNull DeleteQueueResponse'
 
-instance Hashable DeleteQueue
+instance Lude.ToHeaders DeleteQueue where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteQueue
+instance Lude.ToPath DeleteQueue where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteQueue where
-  toHeaders = const mempty
-
-instance ToPath DeleteQueue where
-  toPath = const "/"
-
-instance ToQuery DeleteQueue where
+instance Lude.ToQuery DeleteQueue where
   toQuery DeleteQueue' {..} =
-    mconcat
-      [ "Action" =: ("DeleteQueue" :: ByteString),
-        "Version" =: ("2012-11-05" :: ByteString),
-        "QueueUrl" =: _dqQueueURL
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteQueue" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "QueueUrl" Lude.=: queueURL
       ]
 
--- | /See:/ 'deleteQueueResponse' smart constructor.
+-- | /See:/ 'mkDeleteQueueResponse' smart constructor.
 data DeleteQueueResponse = DeleteQueueResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueueResponse' with the minimum fields required to make a request.
-deleteQueueResponse ::
+mkDeleteQueueResponse ::
   DeleteQueueResponse
-deleteQueueResponse = DeleteQueueResponse'
-
-instance NFData DeleteQueueResponse
+mkDeleteQueueResponse = DeleteQueueResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.FieldType where
+module Network.AWS.IoT.Types.FieldType
+  ( FieldType
+      ( FieldType',
+        Boolean,
+        Number,
+        String
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FieldType
-  = Boolean
-  | Number
-  | String
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FieldType = FieldType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FieldType where
-  parser =
-    takeLowerText >>= \case
-      "boolean" -> pure Boolean
-      "number" -> pure Number
-      "string" -> pure String
-      e ->
-        fromTextError $
-          "Failure parsing FieldType from value: '" <> e
-            <> "'. Accepted values: boolean, number, string"
+pattern Boolean :: FieldType
+pattern Boolean = FieldType' "Boolean"
 
-instance ToText FieldType where
-  toText = \case
-    Boolean -> "Boolean"
-    Number -> "Number"
-    String -> "String"
+pattern Number :: FieldType
+pattern Number = FieldType' "Number"
 
-instance Hashable FieldType
+pattern String :: FieldType
+pattern String = FieldType' "String"
 
-instance NFData FieldType
-
-instance ToByteString FieldType
-
-instance ToQuery FieldType
-
-instance ToHeader FieldType
-
-instance ToJSON FieldType where
-  toJSON = toJSONText
-
-instance FromJSON FieldType where
-  parseJSON = parseJSONText "FieldType"
+{-# COMPLETE
+  Boolean,
+  Number,
+  String,
+  FieldType'
+  #-}

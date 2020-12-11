@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,104 @@
 --
 -- Retrieves the current encryption configuration for X-Ray data.
 module Network.AWS.XRay.GetEncryptionConfig
-  ( -- * Creating a Request
-    getEncryptionConfig,
-    GetEncryptionConfig,
+  ( -- * Creating a request
+    GetEncryptionConfig (..),
+    mkGetEncryptionConfig,
 
-    -- * Destructuring the Response
-    getEncryptionConfigResponse,
-    GetEncryptionConfigResponse,
+    -- * Destructuring the response
+    GetEncryptionConfigResponse (..),
+    mkGetEncryptionConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gecrsEncryptionConfig,
     gecrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'getEncryptionConfig' smart constructor.
+-- | /See:/ 'mkGetEncryptionConfig' smart constructor.
 data GetEncryptionConfig = GetEncryptionConfig'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEncryptionConfig' with the minimum fields required to make a request.
-getEncryptionConfig ::
+mkGetEncryptionConfig ::
   GetEncryptionConfig
-getEncryptionConfig = GetEncryptionConfig'
+mkGetEncryptionConfig = GetEncryptionConfig'
 
-instance AWSRequest GetEncryptionConfig where
+instance Lude.AWSRequest GetEncryptionConfig where
   type Rs GetEncryptionConfig = GetEncryptionConfigResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetEncryptionConfigResponse'
-            <$> (x .?> "EncryptionConfig") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EncryptionConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetEncryptionConfig
+instance Lude.ToHeaders GetEncryptionConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetEncryptionConfig
+instance Lude.ToJSON GetEncryptionConfig where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders GetEncryptionConfig where
-  toHeaders = const mempty
+instance Lude.ToPath GetEncryptionConfig where
+  toPath = Lude.const "/EncryptionConfig"
 
-instance ToJSON GetEncryptionConfig where
-  toJSON = const (Object mempty)
+instance Lude.ToQuery GetEncryptionConfig where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath GetEncryptionConfig where
-  toPath = const "/EncryptionConfig"
-
-instance ToQuery GetEncryptionConfig where
-  toQuery = const mempty
-
--- | /See:/ 'getEncryptionConfigResponse' smart constructor.
+-- | /See:/ 'mkGetEncryptionConfigResponse' smart constructor.
 data GetEncryptionConfigResponse = GetEncryptionConfigResponse'
-  { _gecrsEncryptionConfig ::
-      !(Maybe EncryptionConfig),
-    _gecrsResponseStatus :: !Int
+  { encryptionConfig ::
+      Lude.Maybe EncryptionConfig,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEncryptionConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gecrsEncryptionConfig' - The encryption configuration document.
---
--- * 'gecrsResponseStatus' - -- | The response status code.
-getEncryptionConfigResponse ::
-  -- | 'gecrsResponseStatus'
-  Int ->
+-- * 'encryptionConfig' - The encryption configuration document.
+-- * 'responseStatus' - The response status code.
+mkGetEncryptionConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetEncryptionConfigResponse
-getEncryptionConfigResponse pResponseStatus_ =
+mkGetEncryptionConfigResponse pResponseStatus_ =
   GetEncryptionConfigResponse'
-    { _gecrsEncryptionConfig = Nothing,
-      _gecrsResponseStatus = pResponseStatus_
+    { encryptionConfig = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The encryption configuration document.
-gecrsEncryptionConfig :: Lens' GetEncryptionConfigResponse (Maybe EncryptionConfig)
-gecrsEncryptionConfig = lens _gecrsEncryptionConfig (\s a -> s {_gecrsEncryptionConfig = a})
+--
+-- /Note:/ Consider using 'encryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gecrsEncryptionConfig :: Lens.Lens' GetEncryptionConfigResponse (Lude.Maybe EncryptionConfig)
+gecrsEncryptionConfig = Lens.lens (encryptionConfig :: GetEncryptionConfigResponse -> Lude.Maybe EncryptionConfig) (\s a -> s {encryptionConfig = a} :: GetEncryptionConfigResponse)
+{-# DEPRECATED gecrsEncryptionConfig "Use generic-lens or generic-optics with 'encryptionConfig' instead." #-}
 
--- | -- | The response status code.
-gecrsResponseStatus :: Lens' GetEncryptionConfigResponse Int
-gecrsResponseStatus = lens _gecrsResponseStatus (\s a -> s {_gecrsResponseStatus = a})
-
-instance NFData GetEncryptionConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gecrsResponseStatus :: Lens.Lens' GetEncryptionConfigResponse Lude.Int
+gecrsResponseStatus = Lens.lens (responseStatus :: GetEncryptionConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEncryptionConfigResponse)
+{-# DEPRECATED gecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

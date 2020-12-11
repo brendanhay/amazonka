@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,136 @@
 --
 -- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
 --
---
 -- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
---
 -- Deletes an HSM. After completion, this operation cannot be undone and your key material cannot be recovered.
 module Network.AWS.CloudHSM.DeleteHSM
-  ( -- * Creating a Request
-    deleteHSM,
-    DeleteHSM,
+  ( -- * Creating a request
+    DeleteHSM (..),
+    mkDeleteHSM,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dhHSMARN,
 
-    -- * Destructuring the Response
-    deleteHSMResponse,
-    DeleteHSMResponse,
+    -- * Destructuring the response
+    DeleteHSMResponse (..),
+    mkDeleteHSMResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dhsmrsResponseStatus,
     dhsmrsStatus,
   )
 where
 
 import Network.AWS.CloudHSM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'DeleteHsm' operation.
 --
---
---
--- /See:/ 'deleteHSM' smart constructor.
-newtype DeleteHSM = DeleteHSM' {_dhHSMARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteHSM' smart constructor.
+newtype DeleteHSM = DeleteHSM' {hsmARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSM' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhHSMARN' - The ARN of the HSM to delete.
-deleteHSM ::
-  -- | 'dhHSMARN'
-  Text ->
+-- * 'hsmARN' - The ARN of the HSM to delete.
+mkDeleteHSM ::
+  -- | 'hsmARN'
+  Lude.Text ->
   DeleteHSM
-deleteHSM pHSMARN_ = DeleteHSM' {_dhHSMARN = pHSMARN_}
+mkDeleteHSM pHSMARN_ = DeleteHSM' {hsmARN = pHSMARN_}
 
 -- | The ARN of the HSM to delete.
-dhHSMARN :: Lens' DeleteHSM Text
-dhHSMARN = lens _dhHSMARN (\s a -> s {_dhHSMARN = a})
+--
+-- /Note:/ Consider using 'hsmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhHSMARN :: Lens.Lens' DeleteHSM Lude.Text
+dhHSMARN = Lens.lens (hsmARN :: DeleteHSM -> Lude.Text) (\s a -> s {hsmARN = a} :: DeleteHSM)
+{-# DEPRECATED dhHSMARN "Use generic-lens or generic-optics with 'hsmARN' instead." #-}
 
-instance AWSRequest DeleteHSM where
+instance Lude.AWSRequest DeleteHSM where
   type Rs DeleteHSM = DeleteHSMResponse
-  request = postJSON cloudHSM
+  request = Req.postJSON cloudHSMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          DeleteHSMResponse' <$> (pure (fromEnum s)) <*> (x .:> "Status")
+          DeleteHSMResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Status")
       )
 
-instance Hashable DeleteHSM
-
-instance NFData DeleteHSM
-
-instance ToHeaders DeleteHSM where
+instance Lude.ToHeaders DeleteHSM where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CloudHsmFrontendService.DeleteHsm" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CloudHsmFrontendService.DeleteHsm" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteHSM where
+instance Lude.ToJSON DeleteHSM where
   toJSON DeleteHSM' {..} =
-    object (catMaybes [Just ("HsmArn" .= _dhHSMARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("HsmArn" Lude..= hsmARN)])
 
-instance ToPath DeleteHSM where
-  toPath = const "/"
+instance Lude.ToPath DeleteHSM where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteHSM where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteHSM where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of the 'DeleteHsm' operation.
 --
---
---
--- /See:/ 'deleteHSMResponse' smart constructor.
+-- /See:/ 'mkDeleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
-  { _dhsmrsResponseStatus ::
-      !Int,
-    _dhsmrsStatus :: !Text
+  { responseStatus ::
+      Lude.Int,
+    status :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSMResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dhsmrsResponseStatus' - -- | The response status code.
---
--- * 'dhsmrsStatus' - The status of the operation.
-deleteHSMResponse ::
-  -- | 'dhsmrsResponseStatus'
-  Int ->
-  -- | 'dhsmrsStatus'
-  Text ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the operation.
+mkDeleteHSMResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'status'
+  Lude.Text ->
   DeleteHSMResponse
-deleteHSMResponse pResponseStatus_ pStatus_ =
+mkDeleteHSMResponse pResponseStatus_ pStatus_ =
   DeleteHSMResponse'
-    { _dhsmrsResponseStatus = pResponseStatus_,
-      _dhsmrsStatus = pStatus_
+    { responseStatus = pResponseStatus_,
+      status = pStatus_
     }
 
--- | -- | The response status code.
-dhsmrsResponseStatus :: Lens' DeleteHSMResponse Int
-dhsmrsResponseStatus = lens _dhsmrsResponseStatus (\s a -> s {_dhsmrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhsmrsResponseStatus :: Lens.Lens' DeleteHSMResponse Lude.Int
+dhsmrsResponseStatus = Lens.lens (responseStatus :: DeleteHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHSMResponse)
+{-# DEPRECATED dhsmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the operation.
-dhsmrsStatus :: Lens' DeleteHSMResponse Text
-dhsmrsStatus = lens _dhsmrsStatus (\s a -> s {_dhsmrsStatus = a})
-
-instance NFData DeleteHSMResponse
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhsmrsStatus :: Lens.Lens' DeleteHSMResponse Lude.Text
+dhsmrsStatus = Lens.lens (status :: DeleteHSMResponse -> Lude.Text) (\s a -> s {status = a} :: DeleteHSMResponse)
+{-# DEPRECATED dhsmrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}

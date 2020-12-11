@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Lists information about a resource.
 module Network.AWS.APIGateway.GetResource
-  ( -- * Creating a Request
-    getResource,
-    GetResource,
+  ( -- * Creating a request
+    GetResource (..),
+    mkGetResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grEmbed,
     grRestAPIId,
     grResourceId,
 
-    -- * Destructuring the Response
-    resource,
-    Resource,
+    -- * Destructuring the response
+    Resource (..),
+    mkResource,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rPathPart,
     rPath,
     rId,
@@ -42,79 +37,91 @@ module Network.AWS.APIGateway.GetResource
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to list information about a resource.
 --
---
---
--- /See:/ 'getResource' smart constructor.
+-- /See:/ 'mkGetResource' smart constructor.
 data GetResource = GetResource'
-  { _grEmbed :: !(Maybe [Text]),
-    _grRestAPIId :: !Text,
-    _grResourceId :: !Text
+  { embed :: Lude.Maybe [Lude.Text],
+    restAPIId :: Lude.Text,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grEmbed' - A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
---
--- * 'grRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'grResourceId' - [Required] The identifier for the 'Resource' resource.
-getResource ::
-  -- | 'grRestAPIId'
-  Text ->
-  -- | 'grResourceId'
-  Text ->
+-- * 'embed' - A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
+-- * 'resourceId' - [Required] The identifier for the 'Resource' resource.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetResource ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   GetResource
-getResource pRestAPIId_ pResourceId_ =
+mkGetResource pRestAPIId_ pResourceId_ =
   GetResource'
-    { _grEmbed = Nothing,
-      _grRestAPIId = pRestAPIId_,
-      _grResourceId = pResourceId_
+    { embed = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      resourceId = pResourceId_
     }
 
 -- | A query parameter to retrieve the specified resources embedded in the returned 'Resource' representation in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods@ .
-grEmbed :: Lens' GetResource [Text]
-grEmbed = lens _grEmbed (\s a -> s {_grEmbed = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'embed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grEmbed :: Lens.Lens' GetResource (Lude.Maybe [Lude.Text])
+grEmbed = Lens.lens (embed :: GetResource -> Lude.Maybe [Lude.Text]) (\s a -> s {embed = a} :: GetResource)
+{-# DEPRECATED grEmbed "Use generic-lens or generic-optics with 'embed' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-grRestAPIId :: Lens' GetResource Text
-grRestAPIId = lens _grRestAPIId (\s a -> s {_grRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grRestAPIId :: Lens.Lens' GetResource Lude.Text
+grRestAPIId = Lens.lens (restAPIId :: GetResource -> Lude.Text) (\s a -> s {restAPIId = a} :: GetResource)
+{-# DEPRECATED grRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier for the 'Resource' resource.
-grResourceId :: Lens' GetResource Text
-grResourceId = lens _grResourceId (\s a -> s {_grResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grResourceId :: Lens.Lens' GetResource Lude.Text
+grResourceId = Lens.lens (resourceId :: GetResource -> Lude.Text) (\s a -> s {resourceId = a} :: GetResource)
+{-# DEPRECATED grResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSRequest GetResource where
+instance Lude.AWSRequest GetResource where
   type Rs GetResource = Resource
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetResource
-
-instance NFData GetResource
-
-instance ToHeaders GetResource where
+instance Lude.ToHeaders GetResource where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetResource where
+instance Lude.ToPath GetResource where
   toPath GetResource' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _grRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _grResourceId
+        Lude.toBS resourceId
       ]
 
-instance ToQuery GetResource where
+instance Lude.ToQuery GetResource where
   toQuery GetResource' {..} =
-    mconcat ["embed" =: toQuery (toQueryList "member" <$> _grEmbed)]
+    Lude.mconcat
+      [ "embed"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> embed)
+      ]

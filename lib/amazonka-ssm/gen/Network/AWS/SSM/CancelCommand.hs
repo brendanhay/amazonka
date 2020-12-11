@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,138 @@
 --
 -- Attempts to cancel the command specified by the Command ID. There is no guarantee that the command will be terminated and the underlying process stopped.
 module Network.AWS.SSM.CancelCommand
-  ( -- * Creating a Request
-    cancelCommand,
-    CancelCommand,
+  ( -- * Creating a request
+    CancelCommand (..),
+    mkCancelCommand,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccInstanceIds,
     ccCommandId,
 
-    -- * Destructuring the Response
-    cancelCommandResponse,
-    CancelCommandResponse,
+    -- * Destructuring the response
+    CancelCommandResponse (..),
+    mkCancelCommandResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
 -- |
 --
---
---
--- /See:/ 'cancelCommand' smart constructor.
+-- /See:/ 'mkCancelCommand' smart constructor.
 data CancelCommand = CancelCommand'
-  { _ccInstanceIds ::
-      !(Maybe [Text]),
-    _ccCommandId :: !Text
+  { instanceIds ::
+      Lude.Maybe [Lude.Text],
+    commandId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelCommand' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccInstanceIds' - (Optional) A list of instance IDs on which you want to cancel the command. If not provided, the command is canceled on every instance on which it was requested.
---
--- * 'ccCommandId' - The ID of the command you want to cancel.
-cancelCommand ::
-  -- | 'ccCommandId'
-  Text ->
+-- * 'commandId' - The ID of the command you want to cancel.
+-- * 'instanceIds' - (Optional) A list of instance IDs on which you want to cancel the command. If not provided, the command is canceled on every instance on which it was requested.
+mkCancelCommand ::
+  -- | 'commandId'
+  Lude.Text ->
   CancelCommand
-cancelCommand pCommandId_ =
+mkCancelCommand pCommandId_ =
   CancelCommand'
-    { _ccInstanceIds = Nothing,
-      _ccCommandId = pCommandId_
+    { instanceIds = Lude.Nothing,
+      commandId = pCommandId_
     }
 
 -- | (Optional) A list of instance IDs on which you want to cancel the command. If not provided, the command is canceled on every instance on which it was requested.
-ccInstanceIds :: Lens' CancelCommand [Text]
-ccInstanceIds = lens _ccInstanceIds (\s a -> s {_ccInstanceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccInstanceIds :: Lens.Lens' CancelCommand (Lude.Maybe [Lude.Text])
+ccInstanceIds = Lens.lens (instanceIds :: CancelCommand -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: CancelCommand)
+{-# DEPRECATED ccInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The ID of the command you want to cancel.
-ccCommandId :: Lens' CancelCommand Text
-ccCommandId = lens _ccCommandId (\s a -> s {_ccCommandId = a})
+--
+-- /Note:/ Consider using 'commandId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCommandId :: Lens.Lens' CancelCommand Lude.Text
+ccCommandId = Lens.lens (commandId :: CancelCommand -> Lude.Text) (\s a -> s {commandId = a} :: CancelCommand)
+{-# DEPRECATED ccCommandId "Use generic-lens or generic-optics with 'commandId' instead." #-}
 
-instance AWSRequest CancelCommand where
+instance Lude.AWSRequest CancelCommand where
   type Rs CancelCommand = CancelCommandResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveEmpty
-      (\s h x -> CancelCommandResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CancelCommandResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CancelCommand
-
-instance NFData CancelCommand
-
-instance ToHeaders CancelCommand where
+instance Lude.ToHeaders CancelCommand where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.CancelCommand" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.CancelCommand" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CancelCommand where
+instance Lude.ToJSON CancelCommand where
   toJSON CancelCommand' {..} =
-    object
-      ( catMaybes
-          [ ("InstanceIds" .=) <$> _ccInstanceIds,
-            Just ("CommandId" .= _ccCommandId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InstanceIds" Lude..=) Lude.<$> instanceIds,
+            Lude.Just ("CommandId" Lude..= commandId)
           ]
       )
 
-instance ToPath CancelCommand where
-  toPath = const "/"
+instance Lude.ToPath CancelCommand where
+  toPath = Lude.const "/"
 
-instance ToQuery CancelCommand where
-  toQuery = const mempty
+instance Lude.ToQuery CancelCommand where
+  toQuery = Lude.const Lude.mempty
 
 -- | Whether or not the command was successfully canceled. There is no guarantee that a request can be canceled.
 --
---
---
--- /See:/ 'cancelCommandResponse' smart constructor.
+-- /See:/ 'mkCancelCommandResponse' smart constructor.
 newtype CancelCommandResponse = CancelCommandResponse'
-  { _ccrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelCommandResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-cancelCommandResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCancelCommandResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelCommandResponse
-cancelCommandResponse pResponseStatus_ =
-  CancelCommandResponse' {_ccrsResponseStatus = pResponseStatus_}
+mkCancelCommandResponse pResponseStatus_ =
+  CancelCommandResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CancelCommandResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CancelCommandResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CancelCommandResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CancelCommandResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelCommandResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

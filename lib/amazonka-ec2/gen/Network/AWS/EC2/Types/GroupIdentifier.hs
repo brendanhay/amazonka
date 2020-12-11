@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.GroupIdentifier where
+module Network.AWS.EC2.Types.GroupIdentifier
+  ( GroupIdentifier (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroupIdentifier,
+
+    -- * Lenses
+    giGroupId,
+    giGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a security group.
 --
---
---
--- /See:/ 'groupIdentifier' smart constructor.
+-- /See:/ 'mkGroupIdentifier' smart constructor.
 data GroupIdentifier = GroupIdentifier'
-  { _giGroupId ::
-      !(Maybe Text),
-    _giGroupName :: !(Maybe Text)
+  { groupId ::
+      Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giGroupId' - The ID of the security group.
---
--- * 'giGroupName' - The name of the security group.
-groupIdentifier ::
+-- * 'groupId' - The ID of the security group.
+-- * 'groupName' - The name of the security group.
+mkGroupIdentifier ::
   GroupIdentifier
-groupIdentifier =
-  GroupIdentifier' {_giGroupId = Nothing, _giGroupName = Nothing}
+mkGroupIdentifier =
+  GroupIdentifier'
+    { groupId = Lude.Nothing,
+      groupName = Lude.Nothing
+    }
 
 -- | The ID of the security group.
-giGroupId :: Lens' GroupIdentifier (Maybe Text)
-giGroupId = lens _giGroupId (\s a -> s {_giGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giGroupId :: Lens.Lens' GroupIdentifier (Lude.Maybe Lude.Text)
+giGroupId = Lens.lens (groupId :: GroupIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: GroupIdentifier)
+{-# DEPRECATED giGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The name of the security group.
-giGroupName :: Lens' GroupIdentifier (Maybe Text)
-giGroupName = lens _giGroupName (\s a -> s {_giGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giGroupName :: Lens.Lens' GroupIdentifier (Lude.Maybe Lude.Text)
+giGroupName = Lens.lens (groupName :: GroupIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GroupIdentifier)
+{-# DEPRECATED giGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance FromXML GroupIdentifier where
+instance Lude.FromXML GroupIdentifier where
   parseXML x =
-    GroupIdentifier' <$> (x .@? "groupId") <*> (x .@? "groupName")
+    GroupIdentifier'
+      Lude.<$> (x Lude..@? "groupId") Lude.<*> (x Lude..@? "groupName")
 
-instance Hashable GroupIdentifier
-
-instance NFData GroupIdentifier
-
-instance ToQuery GroupIdentifier where
+instance Lude.ToQuery GroupIdentifier where
   toQuery GroupIdentifier' {..} =
-    mconcat ["GroupId" =: _giGroupId, "GroupName" =: _giGroupName]
+    Lude.mconcat
+      ["GroupId" Lude.=: groupId, "GroupName" Lude.=: groupName]

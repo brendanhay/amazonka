@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists training jobs.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListTrainingJobs
-  ( -- * Creating a Request
-    listTrainingJobs,
-    ListTrainingJobs,
+  ( -- * Creating a request
+    ListTrainingJobs (..),
+    mkListTrainingJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltjsNameContains,
     ltjsLastModifiedTimeBefore,
     ltjsCreationTimeAfter,
@@ -39,213 +32,250 @@ module Network.AWS.SageMaker.ListTrainingJobs
     ltjsMaxResults,
     ltjsSortBy,
 
-    -- * Destructuring the Response
-    listTrainingJobsResponse,
-    ListTrainingJobsResponse,
+    -- * Destructuring the response
+    ListTrainingJobsResponse (..),
+    mkListTrainingJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltjrsNextToken,
     ltjrsResponseStatus,
     ltjrsTrainingJobSummaries,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listTrainingJobs' smart constructor.
+-- | /See:/ 'mkListTrainingJobs' smart constructor.
 data ListTrainingJobs = ListTrainingJobs'
-  { _ltjsNameContains ::
-      !(Maybe Text),
-    _ltjsLastModifiedTimeBefore :: !(Maybe POSIX),
-    _ltjsCreationTimeAfter :: !(Maybe POSIX),
-    _ltjsNextToken :: !(Maybe Text),
-    _ltjsSortOrder :: !(Maybe SortOrder),
-    _ltjsLastModifiedTimeAfter :: !(Maybe POSIX),
-    _ltjsCreationTimeBefore :: !(Maybe POSIX),
-    _ltjsStatusEquals :: !(Maybe TrainingJobStatus),
-    _ltjsMaxResults :: !(Maybe Nat),
-    _ltjsSortBy :: !(Maybe SortBy)
+  { nameContains ::
+      Lude.Maybe Lude.Text,
+    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe SortOrder,
+    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    statusEquals :: Lude.Maybe TrainingJobStatus,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe SortBy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrainingJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltjsNameContains' - A string in the training job name. This filter returns only training jobs whose name contains the specified string.
---
--- * 'ltjsLastModifiedTimeBefore' - A filter that returns only training jobs modified before the specified time (timestamp).
---
--- * 'ltjsCreationTimeAfter' - A filter that returns only training jobs created after the specified time (timestamp).
---
--- * 'ltjsNextToken' - If the result of the previous @ListTrainingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
---
--- * 'ltjsSortOrder' - The sort order for results. The default is @Ascending@ .
---
--- * 'ltjsLastModifiedTimeAfter' - A filter that returns only training jobs modified after the specified time (timestamp).
---
--- * 'ltjsCreationTimeBefore' - A filter that returns only training jobs created before the specified time (timestamp).
---
--- * 'ltjsStatusEquals' - A filter that retrieves only training jobs with a specific status.
---
--- * 'ltjsMaxResults' - The maximum number of training jobs to return in the response.
---
--- * 'ltjsSortBy' - The field to sort results by. The default is @CreationTime@ .
-listTrainingJobs ::
+-- * 'creationTimeAfter' - A filter that returns only training jobs created after the specified time (timestamp).
+-- * 'creationTimeBefore' - A filter that returns only training jobs created before the specified time (timestamp).
+-- * 'lastModifiedTimeAfter' - A filter that returns only training jobs modified after the specified time (timestamp).
+-- * 'lastModifiedTimeBefore' - A filter that returns only training jobs modified before the specified time (timestamp).
+-- * 'maxResults' - The maximum number of training jobs to return in the response.
+-- * 'nameContains' - A string in the training job name. This filter returns only training jobs whose name contains the specified string.
+-- * 'nextToken' - If the result of the previous @ListTrainingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
+-- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
+-- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'statusEquals' - A filter that retrieves only training jobs with a specific status.
+mkListTrainingJobs ::
   ListTrainingJobs
-listTrainingJobs =
+mkListTrainingJobs =
   ListTrainingJobs'
-    { _ltjsNameContains = Nothing,
-      _ltjsLastModifiedTimeBefore = Nothing,
-      _ltjsCreationTimeAfter = Nothing,
-      _ltjsNextToken = Nothing,
-      _ltjsSortOrder = Nothing,
-      _ltjsLastModifiedTimeAfter = Nothing,
-      _ltjsCreationTimeBefore = Nothing,
-      _ltjsStatusEquals = Nothing,
-      _ltjsMaxResults = Nothing,
-      _ltjsSortBy = Nothing
+    { nameContains = Lude.Nothing,
+      lastModifiedTimeBefore = Lude.Nothing,
+      creationTimeAfter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      lastModifiedTimeAfter = Lude.Nothing,
+      creationTimeBefore = Lude.Nothing,
+      statusEquals = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
 -- | A string in the training job name. This filter returns only training jobs whose name contains the specified string.
-ltjsNameContains :: Lens' ListTrainingJobs (Maybe Text)
-ltjsNameContains = lens _ltjsNameContains (\s a -> s {_ltjsNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsNameContains :: Lens.Lens' ListTrainingJobs (Lude.Maybe Lude.Text)
+ltjsNameContains = Lens.lens (nameContains :: ListTrainingJobs -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A filter that returns only training jobs modified before the specified time (timestamp).
-ltjsLastModifiedTimeBefore :: Lens' ListTrainingJobs (Maybe UTCTime)
-ltjsLastModifiedTimeBefore = lens _ltjsLastModifiedTimeBefore (\s a -> s {_ltjsLastModifiedTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsLastModifiedTimeBefore :: Lens.Lens' ListTrainingJobs (Lude.Maybe Lude.Timestamp)
+ltjsLastModifiedTimeBefore = Lens.lens (lastModifiedTimeBefore :: ListTrainingJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeBefore = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | A filter that returns only training jobs created after the specified time (timestamp).
-ltjsCreationTimeAfter :: Lens' ListTrainingJobs (Maybe UTCTime)
-ltjsCreationTimeAfter = lens _ltjsCreationTimeAfter (\s a -> s {_ltjsCreationTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsCreationTimeAfter :: Lens.Lens' ListTrainingJobs (Lude.Maybe Lude.Timestamp)
+ltjsCreationTimeAfter = Lens.lens (creationTimeAfter :: ListTrainingJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | If the result of the previous @ListTrainingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of training jobs, use the token in the next request.
-ltjsNextToken :: Lens' ListTrainingJobs (Maybe Text)
-ltjsNextToken = lens _ltjsNextToken (\s a -> s {_ltjsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsNextToken :: Lens.Lens' ListTrainingJobs (Lude.Maybe Lude.Text)
+ltjsNextToken = Lens.lens (nextToken :: ListTrainingJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The sort order for results. The default is @Ascending@ .
-ltjsSortOrder :: Lens' ListTrainingJobs (Maybe SortOrder)
-ltjsSortOrder = lens _ltjsSortOrder (\s a -> s {_ltjsSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsSortOrder :: Lens.Lens' ListTrainingJobs (Lude.Maybe SortOrder)
+ltjsSortOrder = Lens.lens (sortOrder :: ListTrainingJobs -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only training jobs modified after the specified time (timestamp).
-ltjsLastModifiedTimeAfter :: Lens' ListTrainingJobs (Maybe UTCTime)
-ltjsLastModifiedTimeAfter = lens _ltjsLastModifiedTimeAfter (\s a -> s {_ltjsLastModifiedTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsLastModifiedTimeAfter :: Lens.Lens' ListTrainingJobs (Lude.Maybe Lude.Timestamp)
+ltjsLastModifiedTimeAfter = Lens.lens (lastModifiedTimeAfter :: ListTrainingJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeAfter = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
 
 -- | A filter that returns only training jobs created before the specified time (timestamp).
-ltjsCreationTimeBefore :: Lens' ListTrainingJobs (Maybe UTCTime)
-ltjsCreationTimeBefore = lens _ltjsCreationTimeBefore (\s a -> s {_ltjsCreationTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsCreationTimeBefore :: Lens.Lens' ListTrainingJobs (Lude.Maybe Lude.Timestamp)
+ltjsCreationTimeBefore = Lens.lens (creationTimeBefore :: ListTrainingJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | A filter that retrieves only training jobs with a specific status.
-ltjsStatusEquals :: Lens' ListTrainingJobs (Maybe TrainingJobStatus)
-ltjsStatusEquals = lens _ltjsStatusEquals (\s a -> s {_ltjsStatusEquals = a})
+--
+-- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsStatusEquals :: Lens.Lens' ListTrainingJobs (Lude.Maybe TrainingJobStatus)
+ltjsStatusEquals = Lens.lens (statusEquals :: ListTrainingJobs -> Lude.Maybe TrainingJobStatus) (\s a -> s {statusEquals = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
 
 -- | The maximum number of training jobs to return in the response.
-ltjsMaxResults :: Lens' ListTrainingJobs (Maybe Natural)
-ltjsMaxResults = lens _ltjsMaxResults (\s a -> s {_ltjsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsMaxResults :: Lens.Lens' ListTrainingJobs (Lude.Maybe Lude.Natural)
+ltjsMaxResults = Lens.lens (maxResults :: ListTrainingJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The field to sort results by. The default is @CreationTime@ .
-ltjsSortBy :: Lens' ListTrainingJobs (Maybe SortBy)
-ltjsSortBy = lens _ltjsSortBy (\s a -> s {_ltjsSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjsSortBy :: Lens.Lens' ListTrainingJobs (Lude.Maybe SortBy)
+ltjsSortBy = Lens.lens (sortBy :: ListTrainingJobs -> Lude.Maybe SortBy) (\s a -> s {sortBy = a} :: ListTrainingJobs)
+{-# DEPRECATED ltjsSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListTrainingJobs where
+instance Page.AWSPager ListTrainingJobs where
   page rq rs
-    | stop (rs ^. ltjrsNextToken) = Nothing
-    | stop (rs ^. ltjrsTrainingJobSummaries) = Nothing
-    | otherwise = Just $ rq & ltjsNextToken .~ rs ^. ltjrsNextToken
+    | Page.stop (rs Lens.^. ltjrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltjrsTrainingJobSummaries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltjsNextToken Lens..~ rs Lens.^. ltjrsNextToken
 
-instance AWSRequest ListTrainingJobs where
+instance Lude.AWSRequest ListTrainingJobs where
   type Rs ListTrainingJobs = ListTrainingJobsResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTrainingJobsResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "TrainingJobSummaries" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "TrainingJobSummaries" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListTrainingJobs
-
-instance NFData ListTrainingJobs
-
-instance ToHeaders ListTrainingJobs where
+instance Lude.ToHeaders ListTrainingJobs where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.ListTrainingJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.ListTrainingJobs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTrainingJobs where
+instance Lude.ToJSON ListTrainingJobs where
   toJSON ListTrainingJobs' {..} =
-    object
-      ( catMaybes
-          [ ("NameContains" .=) <$> _ltjsNameContains,
-            ("LastModifiedTimeBefore" .=) <$> _ltjsLastModifiedTimeBefore,
-            ("CreationTimeAfter" .=) <$> _ltjsCreationTimeAfter,
-            ("NextToken" .=) <$> _ltjsNextToken,
-            ("SortOrder" .=) <$> _ltjsSortOrder,
-            ("LastModifiedTimeAfter" .=) <$> _ltjsLastModifiedTimeAfter,
-            ("CreationTimeBefore" .=) <$> _ltjsCreationTimeBefore,
-            ("StatusEquals" .=) <$> _ltjsStatusEquals,
-            ("MaxResults" .=) <$> _ltjsMaxResults,
-            ("SortBy" .=) <$> _ltjsSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NameContains" Lude..=) Lude.<$> nameContains,
+            ("LastModifiedTimeBefore" Lude..=) Lude.<$> lastModifiedTimeBefore,
+            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("LastModifiedTimeAfter" Lude..=) Lude.<$> lastModifiedTimeAfter,
+            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
+            ("StatusEquals" Lude..=) Lude.<$> statusEquals,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListTrainingJobs where
-  toPath = const "/"
+instance Lude.ToPath ListTrainingJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTrainingJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListTrainingJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTrainingJobsResponse' smart constructor.
+-- | /See:/ 'mkListTrainingJobsResponse' smart constructor.
 data ListTrainingJobsResponse = ListTrainingJobsResponse'
-  { _ltjrsNextToken ::
-      !(Maybe Text),
-    _ltjrsResponseStatus :: !Int,
-    _ltjrsTrainingJobSummaries ::
-      ![TrainingJobSummary]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    trainingJobSummaries ::
+      [TrainingJobSummary]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrainingJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltjrsNextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request.
---
--- * 'ltjrsResponseStatus' - -- | The response status code.
---
--- * 'ltjrsTrainingJobSummaries' - An array of @TrainingJobSummary@ objects, each listing a training job.
-listTrainingJobsResponse ::
-  -- | 'ltjrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request.
+-- * 'responseStatus' - The response status code.
+-- * 'trainingJobSummaries' - An array of @TrainingJobSummary@ objects, each listing a training job.
+mkListTrainingJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTrainingJobsResponse
-listTrainingJobsResponse pResponseStatus_ =
+mkListTrainingJobsResponse pResponseStatus_ =
   ListTrainingJobsResponse'
-    { _ltjrsNextToken = Nothing,
-      _ltjrsResponseStatus = pResponseStatus_,
-      _ltjrsTrainingJobSummaries = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      trainingJobSummaries = Lude.mempty
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of training jobs, use it in the subsequent request.
-ltjrsNextToken :: Lens' ListTrainingJobsResponse (Maybe Text)
-ltjrsNextToken = lens _ltjrsNextToken (\s a -> s {_ltjrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjrsNextToken :: Lens.Lens' ListTrainingJobsResponse (Lude.Maybe Lude.Text)
+ltjrsNextToken = Lens.lens (nextToken :: ListTrainingJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrainingJobsResponse)
+{-# DEPRECATED ltjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltjrsResponseStatus :: Lens' ListTrainingJobsResponse Int
-ltjrsResponseStatus = lens _ltjrsResponseStatus (\s a -> s {_ltjrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjrsResponseStatus :: Lens.Lens' ListTrainingJobsResponse Lude.Int
+ltjrsResponseStatus = Lens.lens (responseStatus :: ListTrainingJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTrainingJobsResponse)
+{-# DEPRECATED ltjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | An array of @TrainingJobSummary@ objects, each listing a training job.
-ltjrsTrainingJobSummaries :: Lens' ListTrainingJobsResponse [TrainingJobSummary]
-ltjrsTrainingJobSummaries = lens _ltjrsTrainingJobSummaries (\s a -> s {_ltjrsTrainingJobSummaries = a}) . _Coerce
-
-instance NFData ListTrainingJobsResponse
+--
+-- /Note:/ Consider using 'trainingJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjrsTrainingJobSummaries :: Lens.Lens' ListTrainingJobsResponse [TrainingJobSummary]
+ltjrsTrainingJobSummaries = Lens.lens (trainingJobSummaries :: ListTrainingJobsResponse -> [TrainingJobSummary]) (\s a -> s {trainingJobSummaries = a} :: ListTrainingJobsResponse)
+{-# DEPRECATED ltjrsTrainingJobSummaries "Use generic-lens or generic-optics with 'trainingJobSummaries' instead." #-}

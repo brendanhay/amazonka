@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns information about all the instance profiles in an AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListInstanceProfiles
-  ( -- * Creating a Request
-    listInstanceProfiles,
-    ListInstanceProfiles,
+  ( -- * Creating a request
+    ListInstanceProfiles (..),
+    mkListInstanceProfiles,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lipNextToken,
     lipMaxResults,
 
-    -- * Destructuring the Response
-    listInstanceProfilesResponse,
-    ListInstanceProfilesResponse,
+    -- * Destructuring the response
+    ListInstanceProfilesResponse (..),
+    mkListInstanceProfilesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     liprsNextToken,
     liprsInstanceProfiles,
     liprsResponseStatus,
@@ -43,130 +36,150 @@ module Network.AWS.DeviceFarm.ListInstanceProfiles
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listInstanceProfiles' smart constructor.
+-- | /See:/ 'mkListInstanceProfiles' smart constructor.
 data ListInstanceProfiles = ListInstanceProfiles'
-  { _lipNextToken ::
-      !(Maybe Text),
-    _lipMaxResults :: !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceProfiles' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lipNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lipMaxResults' - An integer that specifies the maximum number of items you want to return in the API response.
-listInstanceProfiles ::
+-- * 'maxResults' - An integer that specifies the maximum number of items you want to return in the API response.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListInstanceProfiles ::
   ListInstanceProfiles
-listInstanceProfiles =
+mkListInstanceProfiles =
   ListInstanceProfiles'
-    { _lipNextToken = Nothing,
-      _lipMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lipNextToken :: Lens' ListInstanceProfiles (Maybe Text)
-lipNextToken = lens _lipNextToken (\s a -> s {_lipNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipNextToken :: Lens.Lens' ListInstanceProfiles (Lude.Maybe Lude.Text)
+lipNextToken = Lens.lens (nextToken :: ListInstanceProfiles -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstanceProfiles)
+{-# DEPRECATED lipNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An integer that specifies the maximum number of items you want to return in the API response.
-lipMaxResults :: Lens' ListInstanceProfiles (Maybe Int)
-lipMaxResults = lens _lipMaxResults (\s a -> s {_lipMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipMaxResults :: Lens.Lens' ListInstanceProfiles (Lude.Maybe Lude.Int)
+lipMaxResults = Lens.lens (maxResults :: ListInstanceProfiles -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListInstanceProfiles)
+{-# DEPRECATED lipMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListInstanceProfiles where
+instance Page.AWSPager ListInstanceProfiles where
   page rq rs
-    | stop (rs ^. liprsNextToken) = Nothing
-    | stop (rs ^. liprsInstanceProfiles) = Nothing
-    | otherwise = Just $ rq & lipNextToken .~ rs ^. liprsNextToken
+    | Page.stop (rs Lens.^. liprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. liprsInstanceProfiles) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lipNextToken Lens..~ rs Lens.^. liprsNextToken
 
-instance AWSRequest ListInstanceProfiles where
+instance Lude.AWSRequest ListInstanceProfiles where
   type Rs ListInstanceProfiles = ListInstanceProfilesResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListInstanceProfilesResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "instanceProfiles" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "instanceProfiles" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListInstanceProfiles
-
-instance NFData ListInstanceProfiles
-
-instance ToHeaders ListInstanceProfiles where
+instance Lude.ToHeaders ListInstanceProfiles where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListInstanceProfiles" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.ListInstanceProfiles" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListInstanceProfiles where
+instance Lude.ToJSON ListInstanceProfiles where
   toJSON ListInstanceProfiles' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _lipNextToken,
-            ("maxResults" .=) <$> _lipMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListInstanceProfiles where
-  toPath = const "/"
+instance Lude.ToPath ListInstanceProfiles where
+  toPath = Lude.const "/"
 
-instance ToQuery ListInstanceProfiles where
-  toQuery = const mempty
+instance Lude.ToQuery ListInstanceProfiles where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listInstanceProfilesResponse' smart constructor.
+-- | /See:/ 'mkListInstanceProfilesResponse' smart constructor.
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
-  { _liprsNextToken ::
-      !(Maybe Text),
-    _liprsInstanceProfiles ::
-      !(Maybe [InstanceProfile]),
-    _liprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    instanceProfiles ::
+      Lude.Maybe [InstanceProfile],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceProfilesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liprsNextToken' - An identifier that can be used in the next call to this operation to return the next set of items in the list.
---
--- * 'liprsInstanceProfiles' - An object that contains information about your instance profiles.
---
--- * 'liprsResponseStatus' - -- | The response status code.
-listInstanceProfilesResponse ::
-  -- | 'liprsResponseStatus'
-  Int ->
+-- * 'instanceProfiles' - An object that contains information about your instance profiles.
+-- * 'nextToken' - An identifier that can be used in the next call to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+mkListInstanceProfilesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListInstanceProfilesResponse
-listInstanceProfilesResponse pResponseStatus_ =
+mkListInstanceProfilesResponse pResponseStatus_ =
   ListInstanceProfilesResponse'
-    { _liprsNextToken = Nothing,
-      _liprsInstanceProfiles = Nothing,
-      _liprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      instanceProfiles = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An identifier that can be used in the next call to this operation to return the next set of items in the list.
-liprsNextToken :: Lens' ListInstanceProfilesResponse (Maybe Text)
-liprsNextToken = lens _liprsNextToken (\s a -> s {_liprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liprsNextToken :: Lens.Lens' ListInstanceProfilesResponse (Lude.Maybe Lude.Text)
+liprsNextToken = Lens.lens (nextToken :: ListInstanceProfilesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstanceProfilesResponse)
+{-# DEPRECATED liprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An object that contains information about your instance profiles.
-liprsInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
-liprsInstanceProfiles = lens _liprsInstanceProfiles (\s a -> s {_liprsInstanceProfiles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liprsInstanceProfiles :: Lens.Lens' ListInstanceProfilesResponse (Lude.Maybe [InstanceProfile])
+liprsInstanceProfiles = Lens.lens (instanceProfiles :: ListInstanceProfilesResponse -> Lude.Maybe [InstanceProfile]) (\s a -> s {instanceProfiles = a} :: ListInstanceProfilesResponse)
+{-# DEPRECATED liprsInstanceProfiles "Use generic-lens or generic-optics with 'instanceProfiles' instead." #-}
 
--- | -- | The response status code.
-liprsResponseStatus :: Lens' ListInstanceProfilesResponse Int
-liprsResponseStatus = lens _liprsResponseStatus (\s a -> s {_liprsResponseStatus = a})
-
-instance NFData ListInstanceProfilesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liprsResponseStatus :: Lens.Lens' ListInstanceProfilesResponse Lude.Int
+liprsResponseStatus = Lens.lens (responseStatus :: ListInstanceProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstanceProfilesResponse)
+{-# DEPRECATED liprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

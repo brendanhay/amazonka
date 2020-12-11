@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,152 +14,167 @@
 --
 -- Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.
 --
---
 -- A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html PutLogEvents> .
---
 -- Through an access policy, a destination controls what is written to it. By default, @PutDestination@ does not set any access policy with the destination, which means a cross-account user cannot call <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html PutSubscriptionFilter> against this destination. To enable this, the destination owner must call <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html PutDestinationPolicy> after @PutDestination@ .
---
 -- To perform a @PutDestination@ operation, you must also have the @iam:PassRole@ permission.
 module Network.AWS.CloudWatchLogs.PutDestination
-  ( -- * Creating a Request
-    putDestination,
-    PutDestination,
+  ( -- * Creating a request
+    PutDestination (..),
+    mkPutDestination,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pdDestinationName,
     pdTargetARN,
     pdRoleARN,
 
-    -- * Destructuring the Response
-    putDestinationResponse,
-    PutDestinationResponse,
+    -- * Destructuring the response
+    PutDestinationResponse (..),
+    mkPutDestinationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pdrsDestination,
     pdrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putDestination' smart constructor.
+-- | /See:/ 'mkPutDestination' smart constructor.
 data PutDestination = PutDestination'
-  { _pdDestinationName :: !Text,
-    _pdTargetARN :: !Text,
-    _pdRoleARN :: !Text
+  { destinationName :: Lude.Text,
+    targetARN :: Lude.Text,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdDestinationName' - A name for the destination.
---
--- * 'pdTargetARN' - The ARN of an Amazon Kinesis stream to which to deliver matching log events.
---
--- * 'pdRoleARN' - The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis @PutRecord@ operation on the destination stream.
-putDestination ::
-  -- | 'pdDestinationName'
-  Text ->
-  -- | 'pdTargetARN'
-  Text ->
-  -- | 'pdRoleARN'
-  Text ->
+-- * 'destinationName' - A name for the destination.
+-- * 'roleARN' - The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis @PutRecord@ operation on the destination stream.
+-- * 'targetARN' - The ARN of an Amazon Kinesis stream to which to deliver matching log events.
+mkPutDestination ::
+  -- | 'destinationName'
+  Lude.Text ->
+  -- | 'targetARN'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   PutDestination
-putDestination pDestinationName_ pTargetARN_ pRoleARN_ =
+mkPutDestination pDestinationName_ pTargetARN_ pRoleARN_ =
   PutDestination'
-    { _pdDestinationName = pDestinationName_,
-      _pdTargetARN = pTargetARN_,
-      _pdRoleARN = pRoleARN_
+    { destinationName = pDestinationName_,
+      targetARN = pTargetARN_,
+      roleARN = pRoleARN_
     }
 
 -- | A name for the destination.
-pdDestinationName :: Lens' PutDestination Text
-pdDestinationName = lens _pdDestinationName (\s a -> s {_pdDestinationName = a})
+--
+-- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdDestinationName :: Lens.Lens' PutDestination Lude.Text
+pdDestinationName = Lens.lens (destinationName :: PutDestination -> Lude.Text) (\s a -> s {destinationName = a} :: PutDestination)
+{-# DEPRECATED pdDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
 -- | The ARN of an Amazon Kinesis stream to which to deliver matching log events.
-pdTargetARN :: Lens' PutDestination Text
-pdTargetARN = lens _pdTargetARN (\s a -> s {_pdTargetARN = a})
+--
+-- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdTargetARN :: Lens.Lens' PutDestination Lude.Text
+pdTargetARN = Lens.lens (targetARN :: PutDestination -> Lude.Text) (\s a -> s {targetARN = a} :: PutDestination)
+{-# DEPRECATED pdTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis @PutRecord@ operation on the destination stream.
-pdRoleARN :: Lens' PutDestination Text
-pdRoleARN = lens _pdRoleARN (\s a -> s {_pdRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdRoleARN :: Lens.Lens' PutDestination Lude.Text
+pdRoleARN = Lens.lens (roleARN :: PutDestination -> Lude.Text) (\s a -> s {roleARN = a} :: PutDestination)
+{-# DEPRECATED pdRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance AWSRequest PutDestination where
+instance Lude.AWSRequest PutDestination where
   type Rs PutDestination = PutDestinationResponse
-  request = postJSON cloudWatchLogs
+  request = Req.postJSON cloudWatchLogsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutDestinationResponse'
-            <$> (x .?> "destination") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "destination") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutDestination
-
-instance NFData PutDestination
-
-instance ToHeaders PutDestination where
+instance Lude.ToHeaders PutDestination where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Logs_20140328.PutDestination" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Logs_20140328.PutDestination" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutDestination where
+instance Lude.ToJSON PutDestination where
   toJSON PutDestination' {..} =
-    object
-      ( catMaybes
-          [ Just ("destinationName" .= _pdDestinationName),
-            Just ("targetArn" .= _pdTargetARN),
-            Just ("roleArn" .= _pdRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("destinationName" Lude..= destinationName),
+            Lude.Just ("targetArn" Lude..= targetARN),
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )
 
-instance ToPath PutDestination where
-  toPath = const "/"
+instance Lude.ToPath PutDestination where
+  toPath = Lude.const "/"
 
-instance ToQuery PutDestination where
-  toQuery = const mempty
+instance Lude.ToQuery PutDestination where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putDestinationResponse' smart constructor.
+-- | /See:/ 'mkPutDestinationResponse' smart constructor.
 data PutDestinationResponse = PutDestinationResponse'
-  { _pdrsDestination ::
-      !(Maybe Destination),
-    _pdrsResponseStatus :: !Int
+  { destination ::
+      Lude.Maybe Destination,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDestinationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdrsDestination' - The destination.
---
--- * 'pdrsResponseStatus' - -- | The response status code.
-putDestinationResponse ::
-  -- | 'pdrsResponseStatus'
-  Int ->
+-- * 'destination' - The destination.
+-- * 'responseStatus' - The response status code.
+mkPutDestinationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutDestinationResponse
-putDestinationResponse pResponseStatus_ =
+mkPutDestinationResponse pResponseStatus_ =
   PutDestinationResponse'
-    { _pdrsDestination = Nothing,
-      _pdrsResponseStatus = pResponseStatus_
+    { destination = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The destination.
-pdrsDestination :: Lens' PutDestinationResponse (Maybe Destination)
-pdrsDestination = lens _pdrsDestination (\s a -> s {_pdrsDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdrsDestination :: Lens.Lens' PutDestinationResponse (Lude.Maybe Destination)
+pdrsDestination = Lens.lens (destination :: PutDestinationResponse -> Lude.Maybe Destination) (\s a -> s {destination = a} :: PutDestinationResponse)
+{-# DEPRECATED pdrsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
--- | -- | The response status code.
-pdrsResponseStatus :: Lens' PutDestinationResponse Int
-pdrsResponseStatus = lens _pdrsResponseStatus (\s a -> s {_pdrsResponseStatus = a})
-
-instance NFData PutDestinationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdrsResponseStatus :: Lens.Lens' PutDestinationResponse Lude.Int
+pdrsResponseStatus = Lens.lens (responseStatus :: PutDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutDestinationResponse)
+{-# DEPRECATED pdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

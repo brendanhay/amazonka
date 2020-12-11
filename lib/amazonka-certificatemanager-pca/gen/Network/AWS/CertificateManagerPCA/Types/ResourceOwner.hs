@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.ResourceOwner where
+module Network.AWS.CertificateManagerPCA.Types.ResourceOwner
+  ( ResourceOwner
+      ( ResourceOwner',
+        OtherAccounts,
+        Self
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceOwner
-  = OtherAccounts
-  | Self
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceOwner = ResourceOwner' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceOwner where
-  parser =
-    takeLowerText >>= \case
-      "other_accounts" -> pure OtherAccounts
-      "self" -> pure Self
-      e ->
-        fromTextError $
-          "Failure parsing ResourceOwner from value: '" <> e
-            <> "'. Accepted values: other_accounts, self"
+pattern OtherAccounts :: ResourceOwner
+pattern OtherAccounts = ResourceOwner' "OTHER_ACCOUNTS"
 
-instance ToText ResourceOwner where
-  toText = \case
-    OtherAccounts -> "OTHER_ACCOUNTS"
-    Self -> "SELF"
+pattern Self :: ResourceOwner
+pattern Self = ResourceOwner' "SELF"
 
-instance Hashable ResourceOwner
-
-instance NFData ResourceOwner
-
-instance ToByteString ResourceOwner
-
-instance ToQuery ResourceOwner
-
-instance ToHeader ResourceOwner
-
-instance ToJSON ResourceOwner where
-  toJSON = toJSONText
+{-# COMPLETE
+  OtherAccounts,
+  Self,
+  ResourceOwner'
+  #-}

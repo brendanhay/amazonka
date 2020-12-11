@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ReservedInstancesOffering where
+module Network.AWS.EC2.Types.ReservedInstancesOffering
+  ( ReservedInstancesOffering (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkReservedInstancesOffering,
+
+    -- * Lenses
+    rioMarketplace,
+    rioCurrencyCode,
+    rioProductDescription,
+    rioInstanceType,
+    rioAvailabilityZone,
+    rioPricingDetails,
+    rioScope,
+    rioRecurringCharges,
+    rioOfferingType,
+    rioUsagePrice,
+    rioFixedPrice,
+    rioInstanceTenancy,
+    rioReservedInstancesOfferingId,
+    rioOfferingClass,
+    rioDuration,
+  )
+where
+
 import Network.AWS.EC2.Types.CurrencyCodeValues
 import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.OfferingClassType
@@ -25,177 +41,209 @@ import Network.AWS.EC2.Types.RIProductDescription
 import Network.AWS.EC2.Types.RecurringCharge
 import Network.AWS.EC2.Types.Scope
 import Network.AWS.EC2.Types.Tenancy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a Reserved Instance offering.
 --
---
---
--- /See:/ 'reservedInstancesOffering' smart constructor.
+-- /See:/ 'mkReservedInstancesOffering' smart constructor.
 data ReservedInstancesOffering = ReservedInstancesOffering'
-  { _rioMarketplace ::
-      !(Maybe Bool),
-    _rioCurrencyCode ::
-      !(Maybe CurrencyCodeValues),
-    _rioProductDescription ::
-      !(Maybe RIProductDescription),
-    _rioInstanceType ::
-      !(Maybe InstanceType),
-    _rioAvailabilityZone :: !(Maybe Text),
-    _rioPricingDetails ::
-      !(Maybe [PricingDetail]),
-    _rioScope :: !(Maybe Scope),
-    _rioRecurringCharges ::
-      !(Maybe [RecurringCharge]),
-    _rioOfferingType ::
-      !(Maybe OfferingTypeValues),
-    _rioUsagePrice :: !(Maybe Double),
-    _rioFixedPrice :: !(Maybe Double),
-    _rioInstanceTenancy :: !(Maybe Tenancy),
-    _rioReservedInstancesOfferingId ::
-      !(Maybe Text),
-    _rioOfferingClass ::
-      !(Maybe OfferingClassType),
-    _rioDuration :: !(Maybe Integer)
+  { marketplace ::
+      Lude.Maybe Lude.Bool,
+    currencyCode ::
+      Lude.Maybe CurrencyCodeValues,
+    productDescription ::
+      Lude.Maybe RIProductDescription,
+    instanceType :: Lude.Maybe InstanceType,
+    availabilityZone ::
+      Lude.Maybe Lude.Text,
+    pricingDetails ::
+      Lude.Maybe [PricingDetail],
+    scope :: Lude.Maybe Scope,
+    recurringCharges ::
+      Lude.Maybe [RecurringCharge],
+    offeringType ::
+      Lude.Maybe OfferingTypeValues,
+    usagePrice :: Lude.Maybe Lude.Double,
+    fixedPrice :: Lude.Maybe Lude.Double,
+    instanceTenancy :: Lude.Maybe Tenancy,
+    reservedInstancesOfferingId ::
+      Lude.Maybe Lude.Text,
+    offeringClass ::
+      Lude.Maybe OfferingClassType,
+    duration :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstancesOffering' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rioMarketplace' - Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it's a Reserved Instance Marketplace offering, this is @true@ .
---
--- * 'rioCurrencyCode' - The currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is @USD@ .
---
--- * 'rioProductDescription' - The Reserved Instance product platform description.
---
--- * 'rioInstanceType' - The instance type on which the Reserved Instance can be used.
---
--- * 'rioAvailabilityZone' - The Availability Zone in which the Reserved Instance can be used.
---
--- * 'rioPricingDetails' - The pricing details of the Reserved Instance offering.
---
--- * 'rioScope' - Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.
---
--- * 'rioRecurringCharges' - The recurring charge tag assigned to the resource.
---
--- * 'rioOfferingType' - The Reserved Instance offering type.
---
--- * 'rioUsagePrice' - The usage price of the Reserved Instance, per hour.
---
--- * 'rioFixedPrice' - The purchase price of the Reserved Instance.
---
--- * 'rioInstanceTenancy' - The tenancy of the instance.
---
--- * 'rioReservedInstancesOfferingId' - The ID of the Reserved Instance offering. This is the offering ID used in 'GetReservedInstancesExchangeQuote' to confirm that an exchange can be made.
---
--- * 'rioOfferingClass' - If @convertible@ it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If @standard@ , it is not possible to perform an exchange.
---
--- * 'rioDuration' - The duration of the Reserved Instance, in seconds.
-reservedInstancesOffering ::
+-- * 'availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
+-- * 'currencyCode' - The currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is @USD@ .
+-- * 'duration' - The duration of the Reserved Instance, in seconds.
+-- * 'fixedPrice' - The purchase price of the Reserved Instance.
+-- * 'instanceTenancy' - The tenancy of the instance.
+-- * 'instanceType' - The instance type on which the Reserved Instance can be used.
+-- * 'marketplace' - Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it's a Reserved Instance Marketplace offering, this is @true@ .
+-- * 'offeringClass' - If @convertible@ it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If @standard@ , it is not possible to perform an exchange.
+-- * 'offeringType' - The Reserved Instance offering type.
+-- * 'pricingDetails' - The pricing details of the Reserved Instance offering.
+-- * 'productDescription' - The Reserved Instance product platform description.
+-- * 'recurringCharges' - The recurring charge tag assigned to the resource.
+-- * 'reservedInstancesOfferingId' - The ID of the Reserved Instance offering. This is the offering ID used in 'GetReservedInstancesExchangeQuote' to confirm that an exchange can be made.
+-- * 'scope' - Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.
+-- * 'usagePrice' - The usage price of the Reserved Instance, per hour.
+mkReservedInstancesOffering ::
   ReservedInstancesOffering
-reservedInstancesOffering =
+mkReservedInstancesOffering =
   ReservedInstancesOffering'
-    { _rioMarketplace = Nothing,
-      _rioCurrencyCode = Nothing,
-      _rioProductDescription = Nothing,
-      _rioInstanceType = Nothing,
-      _rioAvailabilityZone = Nothing,
-      _rioPricingDetails = Nothing,
-      _rioScope = Nothing,
-      _rioRecurringCharges = Nothing,
-      _rioOfferingType = Nothing,
-      _rioUsagePrice = Nothing,
-      _rioFixedPrice = Nothing,
-      _rioInstanceTenancy = Nothing,
-      _rioReservedInstancesOfferingId = Nothing,
-      _rioOfferingClass = Nothing,
-      _rioDuration = Nothing
+    { marketplace = Lude.Nothing,
+      currencyCode = Lude.Nothing,
+      productDescription = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      pricingDetails = Lude.Nothing,
+      scope = Lude.Nothing,
+      recurringCharges = Lude.Nothing,
+      offeringType = Lude.Nothing,
+      usagePrice = Lude.Nothing,
+      fixedPrice = Lude.Nothing,
+      instanceTenancy = Lude.Nothing,
+      reservedInstancesOfferingId = Lude.Nothing,
+      offeringClass = Lude.Nothing,
+      duration = Lude.Nothing
     }
 
 -- | Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it's a Reserved Instance Marketplace offering, this is @true@ .
-rioMarketplace :: Lens' ReservedInstancesOffering (Maybe Bool)
-rioMarketplace = lens _rioMarketplace (\s a -> s {_rioMarketplace = a})
+--
+-- /Note:/ Consider using 'marketplace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioMarketplace :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe Lude.Bool)
+rioMarketplace = Lens.lens (marketplace :: ReservedInstancesOffering -> Lude.Maybe Lude.Bool) (\s a -> s {marketplace = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioMarketplace "Use generic-lens or generic-optics with 'marketplace' instead." #-}
 
 -- | The currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is @USD@ .
-rioCurrencyCode :: Lens' ReservedInstancesOffering (Maybe CurrencyCodeValues)
-rioCurrencyCode = lens _rioCurrencyCode (\s a -> s {_rioCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioCurrencyCode :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe CurrencyCodeValues)
+rioCurrencyCode = Lens.lens (currencyCode :: ReservedInstancesOffering -> Lude.Maybe CurrencyCodeValues) (\s a -> s {currencyCode = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The Reserved Instance product platform description.
-rioProductDescription :: Lens' ReservedInstancesOffering (Maybe RIProductDescription)
-rioProductDescription = lens _rioProductDescription (\s a -> s {_rioProductDescription = a})
+--
+-- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioProductDescription :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe RIProductDescription)
+rioProductDescription = Lens.lens (productDescription :: ReservedInstancesOffering -> Lude.Maybe RIProductDescription) (\s a -> s {productDescription = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
 
 -- | The instance type on which the Reserved Instance can be used.
-rioInstanceType :: Lens' ReservedInstancesOffering (Maybe InstanceType)
-rioInstanceType = lens _rioInstanceType (\s a -> s {_rioInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioInstanceType :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe InstanceType)
+rioInstanceType = Lens.lens (instanceType :: ReservedInstancesOffering -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The Availability Zone in which the Reserved Instance can be used.
-rioAvailabilityZone :: Lens' ReservedInstancesOffering (Maybe Text)
-rioAvailabilityZone = lens _rioAvailabilityZone (\s a -> s {_rioAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioAvailabilityZone :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe Lude.Text)
+rioAvailabilityZone = Lens.lens (availabilityZone :: ReservedInstancesOffering -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The pricing details of the Reserved Instance offering.
-rioPricingDetails :: Lens' ReservedInstancesOffering [PricingDetail]
-rioPricingDetails = lens _rioPricingDetails (\s a -> s {_rioPricingDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pricingDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioPricingDetails :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe [PricingDetail])
+rioPricingDetails = Lens.lens (pricingDetails :: ReservedInstancesOffering -> Lude.Maybe [PricingDetail]) (\s a -> s {pricingDetails = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioPricingDetails "Use generic-lens or generic-optics with 'pricingDetails' instead." #-}
 
 -- | Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.
-rioScope :: Lens' ReservedInstancesOffering (Maybe Scope)
-rioScope = lens _rioScope (\s a -> s {_rioScope = a})
+--
+-- /Note:/ Consider using 'scope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioScope :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe Scope)
+rioScope = Lens.lens (scope :: ReservedInstancesOffering -> Lude.Maybe Scope) (\s a -> s {scope = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioScope "Use generic-lens or generic-optics with 'scope' instead." #-}
 
 -- | The recurring charge tag assigned to the resource.
-rioRecurringCharges :: Lens' ReservedInstancesOffering [RecurringCharge]
-rioRecurringCharges = lens _rioRecurringCharges (\s a -> s {_rioRecurringCharges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'recurringCharges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioRecurringCharges :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe [RecurringCharge])
+rioRecurringCharges = Lens.lens (recurringCharges :: ReservedInstancesOffering -> Lude.Maybe [RecurringCharge]) (\s a -> s {recurringCharges = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioRecurringCharges "Use generic-lens or generic-optics with 'recurringCharges' instead." #-}
 
 -- | The Reserved Instance offering type.
-rioOfferingType :: Lens' ReservedInstancesOffering (Maybe OfferingTypeValues)
-rioOfferingType = lens _rioOfferingType (\s a -> s {_rioOfferingType = a})
+--
+-- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioOfferingType :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe OfferingTypeValues)
+rioOfferingType = Lens.lens (offeringType :: ReservedInstancesOffering -> Lude.Maybe OfferingTypeValues) (\s a -> s {offeringType = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
 
 -- | The usage price of the Reserved Instance, per hour.
-rioUsagePrice :: Lens' ReservedInstancesOffering (Maybe Double)
-rioUsagePrice = lens _rioUsagePrice (\s a -> s {_rioUsagePrice = a})
+--
+-- /Note:/ Consider using 'usagePrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioUsagePrice :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe Lude.Double)
+rioUsagePrice = Lens.lens (usagePrice :: ReservedInstancesOffering -> Lude.Maybe Lude.Double) (\s a -> s {usagePrice = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioUsagePrice "Use generic-lens or generic-optics with 'usagePrice' instead." #-}
 
 -- | The purchase price of the Reserved Instance.
-rioFixedPrice :: Lens' ReservedInstancesOffering (Maybe Double)
-rioFixedPrice = lens _rioFixedPrice (\s a -> s {_rioFixedPrice = a})
+--
+-- /Note:/ Consider using 'fixedPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioFixedPrice :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe Lude.Double)
+rioFixedPrice = Lens.lens (fixedPrice :: ReservedInstancesOffering -> Lude.Maybe Lude.Double) (\s a -> s {fixedPrice = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioFixedPrice "Use generic-lens or generic-optics with 'fixedPrice' instead." #-}
 
 -- | The tenancy of the instance.
-rioInstanceTenancy :: Lens' ReservedInstancesOffering (Maybe Tenancy)
-rioInstanceTenancy = lens _rioInstanceTenancy (\s a -> s {_rioInstanceTenancy = a})
+--
+-- /Note:/ Consider using 'instanceTenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioInstanceTenancy :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe Tenancy)
+rioInstanceTenancy = Lens.lens (instanceTenancy :: ReservedInstancesOffering -> Lude.Maybe Tenancy) (\s a -> s {instanceTenancy = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioInstanceTenancy "Use generic-lens or generic-optics with 'instanceTenancy' instead." #-}
 
 -- | The ID of the Reserved Instance offering. This is the offering ID used in 'GetReservedInstancesExchangeQuote' to confirm that an exchange can be made.
-rioReservedInstancesOfferingId :: Lens' ReservedInstancesOffering (Maybe Text)
-rioReservedInstancesOfferingId = lens _rioReservedInstancesOfferingId (\s a -> s {_rioReservedInstancesOfferingId = a})
+--
+-- /Note:/ Consider using 'reservedInstancesOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioReservedInstancesOfferingId :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe Lude.Text)
+rioReservedInstancesOfferingId = Lens.lens (reservedInstancesOfferingId :: ReservedInstancesOffering -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesOfferingId = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioReservedInstancesOfferingId "Use generic-lens or generic-optics with 'reservedInstancesOfferingId' instead." #-}
 
 -- | If @convertible@ it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If @standard@ , it is not possible to perform an exchange.
-rioOfferingClass :: Lens' ReservedInstancesOffering (Maybe OfferingClassType)
-rioOfferingClass = lens _rioOfferingClass (\s a -> s {_rioOfferingClass = a})
+--
+-- /Note:/ Consider using 'offeringClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioOfferingClass :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe OfferingClassType)
+rioOfferingClass = Lens.lens (offeringClass :: ReservedInstancesOffering -> Lude.Maybe OfferingClassType) (\s a -> s {offeringClass = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioOfferingClass "Use generic-lens or generic-optics with 'offeringClass' instead." #-}
 
 -- | The duration of the Reserved Instance, in seconds.
-rioDuration :: Lens' ReservedInstancesOffering (Maybe Integer)
-rioDuration = lens _rioDuration (\s a -> s {_rioDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rioDuration :: Lens.Lens' ReservedInstancesOffering (Lude.Maybe Lude.Integer)
+rioDuration = Lens.lens (duration :: ReservedInstancesOffering -> Lude.Maybe Lude.Integer) (\s a -> s {duration = a} :: ReservedInstancesOffering)
+{-# DEPRECATED rioDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance FromXML ReservedInstancesOffering where
+instance Lude.FromXML ReservedInstancesOffering where
   parseXML x =
     ReservedInstancesOffering'
-      <$> (x .@? "marketplace")
-      <*> (x .@? "currencyCode")
-      <*> (x .@? "productDescription")
-      <*> (x .@? "instanceType")
-      <*> (x .@? "availabilityZone")
-      <*> ( x .@? "pricingDetailsSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "scope")
-      <*> (x .@? "recurringCharges" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "offeringType")
-      <*> (x .@? "usagePrice")
-      <*> (x .@? "fixedPrice")
-      <*> (x .@? "instanceTenancy")
-      <*> (x .@? "reservedInstancesOfferingId")
-      <*> (x .@? "offeringClass")
-      <*> (x .@? "duration")
-
-instance Hashable ReservedInstancesOffering
-
-instance NFData ReservedInstancesOffering
+      Lude.<$> (x Lude..@? "marketplace")
+      Lude.<*> (x Lude..@? "currencyCode")
+      Lude.<*> (x Lude..@? "productDescription")
+      Lude.<*> (x Lude..@? "instanceType")
+      Lude.<*> (x Lude..@? "availabilityZone")
+      Lude.<*> ( x Lude..@? "pricingDetailsSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "scope")
+      Lude.<*> ( x Lude..@? "recurringCharges" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "offeringType")
+      Lude.<*> (x Lude..@? "usagePrice")
+      Lude.<*> (x Lude..@? "fixedPrice")
+      Lude.<*> (x Lude..@? "instanceTenancy")
+      Lude.<*> (x Lude..@? "reservedInstancesOfferingId")
+      Lude.<*> (x Lude..@? "offeringClass")
+      Lude.<*> (x Lude..@? "duration")

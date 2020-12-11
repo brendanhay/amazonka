@@ -15,8 +15,8 @@
 --
 -- <https://aws.amazon.com/servicecatalog/ AWS Service Catalog> enables organizations to create and manage catalogs of IT services that are approved for AWS. To get the most out of this documentation, you should be familiar with the terminology discussed in <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html AWS Service Catalog Concepts> .
 module Network.AWS.ServiceCatalog
-  ( -- * Service Configuration
-    serviceCatalog,
+  ( -- * Service configuration
+    serviceCatalogService,
 
     -- * Errors
     -- $errors
@@ -384,24 +384,24 @@ module Network.AWS.ServiceCatalog
     StackSetOperationType (..),
 
     -- ** AccessLevelFilter
-    AccessLevelFilter,
-    accessLevelFilter,
+    AccessLevelFilter (..),
+    mkAccessLevelFilter,
     alfValue,
     alfKey,
 
     -- ** BudgetDetail
-    BudgetDetail,
-    budgetDetail,
+    BudgetDetail (..),
+    mkBudgetDetail,
     bdBudgetName,
 
     -- ** CloudWatchDashboard
-    CloudWatchDashboard,
-    cloudWatchDashboard,
+    CloudWatchDashboard (..),
+    mkCloudWatchDashboard,
     cwdName,
 
     -- ** ConstraintDetail
-    ConstraintDetail,
-    constraintDetail,
+    ConstraintDetail (..),
+    mkConstraintDetail,
     cdPortfolioId,
     cdConstraintId,
     cdOwner,
@@ -410,21 +410,21 @@ module Network.AWS.ServiceCatalog
     cdProductId,
 
     -- ** ConstraintSummary
-    ConstraintSummary,
-    constraintSummary,
+    ConstraintSummary (..),
+    mkConstraintSummary,
     csType,
     csDescription,
 
     -- ** ExecutionParameter
-    ExecutionParameter,
-    executionParameter,
+    ExecutionParameter (..),
+    mkExecutionParameter,
     epDefaultValues,
     epName,
     epType,
 
     -- ** FailedServiceActionAssociation
-    FailedServiceActionAssociation,
-    failedServiceActionAssociation,
+    FailedServiceActionAssociation (..),
+    mkFailedServiceActionAssociation,
     fsaaProvisioningArtifactId,
     fsaaErrorCode,
     fsaaErrorMessage,
@@ -432,46 +432,46 @@ module Network.AWS.ServiceCatalog
     fsaaProductId,
 
     -- ** LaunchPath
-    LaunchPath,
-    launchPath,
+    LaunchPath (..),
+    mkLaunchPath,
     lpName,
     lpId,
 
     -- ** LaunchPathSummary
-    LaunchPathSummary,
-    launchPathSummary,
+    LaunchPathSummary (..),
+    mkLaunchPathSummary,
     lpsConstraintSummaries,
     lpsName,
     lpsId,
     lpsTags,
 
     -- ** ListRecordHistorySearchFilter
-    ListRecordHistorySearchFilter,
-    listRecordHistorySearchFilter,
+    ListRecordHistorySearchFilter (..),
+    mkListRecordHistorySearchFilter,
     lrhsfValue,
     lrhsfKey,
 
     -- ** ListTagOptionsFilters
-    ListTagOptionsFilters,
-    listTagOptionsFilters,
+    ListTagOptionsFilters (..),
+    mkListTagOptionsFilters,
     ltofValue,
     ltofActive,
     ltofKey,
 
     -- ** OrganizationNode
-    OrganizationNode,
-    organizationNode,
+    OrganizationNode (..),
+    mkOrganizationNode,
     onValue,
     onType,
 
     -- ** ParameterConstraints
-    ParameterConstraints,
-    parameterConstraints,
+    ParameterConstraints (..),
+    mkParameterConstraints,
     pcAllowedValues,
 
     -- ** PortfolioDetail
-    PortfolioDetail,
-    portfolioDetail,
+    PortfolioDetail (..),
+    mkPortfolioDetail,
     pdARN,
     pdCreatedTime,
     pdId,
@@ -480,28 +480,28 @@ module Network.AWS.ServiceCatalog
     pdProviderName,
 
     -- ** Principal
-    Principal,
-    principal,
+    Principal (..),
+    mkPrincipal,
     pPrincipalType,
     pPrincipalARN,
 
     -- ** ProductViewAggregationValue
-    ProductViewAggregationValue,
-    productViewAggregationValue,
+    ProductViewAggregationValue (..),
+    mkProductViewAggregationValue,
     pvavValue,
     pvavApproximateCount,
 
     -- ** ProductViewDetail
-    ProductViewDetail,
-    productViewDetail,
+    ProductViewDetail (..),
+    mkProductViewDetail,
     pvdStatus,
     pvdProductViewSummary,
     pvdCreatedTime,
     pvdProductARN,
 
     -- ** ProductViewSummary
-    ProductViewSummary,
-    productViewSummary,
+    ProductViewSummary (..),
+    mkProductViewSummary,
     pvsOwner,
     pvsSupportURL,
     pvsShortDescription,
@@ -515,8 +515,8 @@ module Network.AWS.ServiceCatalog
     pvsSupportDescription,
 
     -- ** ProvisionedProductAttribute
-    ProvisionedProductAttribute,
-    provisionedProductAttribute,
+    ProvisionedProductAttribute (..),
+    mkProvisionedProductAttribute,
     ppaIdempotencyToken,
     ppaStatus,
     ppaProductName,
@@ -538,8 +538,8 @@ module Network.AWS.ServiceCatalog
     ppaTags,
 
     -- ** ProvisionedProductDetail
-    ProvisionedProductDetail,
-    provisionedProductDetail,
+    ProvisionedProductDetail (..),
+    mkProvisionedProductDetail,
     ppdLaunchRoleARN,
     ppdIdempotencyToken,
     ppdStatus,
@@ -556,8 +556,8 @@ module Network.AWS.ServiceCatalog
     ppdProductId,
 
     -- ** ProvisionedProductPlanDetails
-    ProvisionedProductPlanDetails,
-    provisionedProductPlanDetails,
+    ProvisionedProductPlanDetails (..),
+    mkProvisionedProductPlanDetails,
     pppdStatus,
     pppdProvisionProductId,
     pppdProvisioningArtifactId,
@@ -575,8 +575,8 @@ module Network.AWS.ServiceCatalog
     pppdTags,
 
     -- ** ProvisionedProductPlanSummary
-    ProvisionedProductPlanSummary,
-    provisionedProductPlanSummary,
+    ProvisionedProductPlanSummary (..),
+    mkProvisionedProductPlanSummary,
     pppsProvisionProductId,
     pppsProvisioningArtifactId,
     pppsProvisionProductName,
@@ -585,8 +585,8 @@ module Network.AWS.ServiceCatalog
     pppsPlanType,
 
     -- ** ProvisioningArtifact
-    ProvisioningArtifact,
-    provisioningArtifact,
+    ProvisioningArtifact (..),
+    mkProvisioningArtifact,
     paCreatedTime,
     paName,
     paId,
@@ -594,8 +594,8 @@ module Network.AWS.ServiceCatalog
     paDescription,
 
     -- ** ProvisioningArtifactDetail
-    ProvisioningArtifactDetail,
-    provisioningArtifactDetail,
+    ProvisioningArtifactDetail (..),
+    mkProvisioningArtifactDetail,
     padCreatedTime,
     padActive,
     padName,
@@ -605,14 +605,14 @@ module Network.AWS.ServiceCatalog
     padDescription,
 
     -- ** ProvisioningArtifactOutput
-    ProvisioningArtifactOutput,
-    provisioningArtifactOutput,
+    ProvisioningArtifactOutput (..),
+    mkProvisioningArtifactOutput,
     paoKey,
     paoDescription,
 
     -- ** ProvisioningArtifactParameter
-    ProvisioningArtifactParameter,
-    provisioningArtifactParameter,
+    ProvisioningArtifactParameter (..),
+    mkProvisioningArtifactParameter,
     pIsNoEcho,
     pParameterKey,
     pParameterType,
@@ -621,14 +621,14 @@ module Network.AWS.ServiceCatalog
     pDescription,
 
     -- ** ProvisioningArtifactPreferences
-    ProvisioningArtifactPreferences,
-    provisioningArtifactPreferences,
+    ProvisioningArtifactPreferences (..),
+    mkProvisioningArtifactPreferences,
     papStackSetRegions,
     papStackSetAccounts,
 
     -- ** ProvisioningArtifactProperties
-    ProvisioningArtifactProperties,
-    provisioningArtifactProperties,
+    ProvisioningArtifactProperties (..),
+    mkProvisioningArtifactProperties,
     papDisableTemplateValidation,
     papName,
     papType,
@@ -636,8 +636,8 @@ module Network.AWS.ServiceCatalog
     papInfo,
 
     -- ** ProvisioningArtifactSummary
-    ProvisioningArtifactSummary,
-    provisioningArtifactSummary,
+    ProvisioningArtifactSummary (..),
+    mkProvisioningArtifactSummary,
     pasProvisioningArtifactMetadata,
     pasCreatedTime,
     pasName,
@@ -645,20 +645,20 @@ module Network.AWS.ServiceCatalog
     pasDescription,
 
     -- ** ProvisioningArtifactView
-    ProvisioningArtifactView,
-    provisioningArtifactView,
+    ProvisioningArtifactView (..),
+    mkProvisioningArtifactView,
     pavProductViewSummary,
     pavProvisioningArtifact,
 
     -- ** ProvisioningParameter
-    ProvisioningParameter,
-    provisioningParameter,
+    ProvisioningParameter (..),
+    mkProvisioningParameter,
     ppValue,
     ppKey,
 
     -- ** ProvisioningPreferences
-    ProvisioningPreferences,
-    provisioningPreferences,
+    ProvisioningPreferences (..),
+    mkProvisioningPreferences,
     ppStackSetRegions,
     ppStackSetMaxConcurrencyPercentage,
     ppStackSetFailureToleranceCount,
@@ -667,8 +667,8 @@ module Network.AWS.ServiceCatalog
     ppStackSetMaxConcurrencyCount,
 
     -- ** RecordDetail
-    RecordDetail,
-    recordDetail,
+    RecordDetail (..),
+    mkRecordDetail,
     rdLaunchRoleARN,
     rdStatus,
     rdRecordTags,
@@ -685,27 +685,27 @@ module Network.AWS.ServiceCatalog
     rdProductId,
 
     -- ** RecordError
-    RecordError,
-    recordError,
+    RecordError (..),
+    mkRecordError,
     reCode,
     reDescription,
 
     -- ** RecordOutput
-    RecordOutput,
-    recordOutput,
+    RecordOutput (..),
+    mkRecordOutput,
     roOutputValue,
     roOutputKey,
     roDescription,
 
     -- ** RecordTag
-    RecordTag,
-    recordTag,
+    RecordTag (..),
+    mkRecordTag,
     rtValue,
     rtKey,
 
     -- ** ResourceChange
-    ResourceChange,
-    resourceChange,
+    ResourceChange (..),
+    mkResourceChange,
     rcLogicalResourceId,
     rcPhysicalResourceId,
     rcResourceType,
@@ -715,15 +715,15 @@ module Network.AWS.ServiceCatalog
     rcReplacement,
 
     -- ** ResourceChangeDetail
-    ResourceChangeDetail,
-    resourceChangeDetail,
+    ResourceChangeDetail (..),
+    mkResourceChangeDetail,
     rcdCausingEntity,
     rcdEvaluation,
     rcdTarget,
 
     -- ** ResourceDetail
-    ResourceDetail,
-    resourceDetail,
+    ResourceDetail (..),
+    mkResourceDetail,
     rARN,
     rCreatedTime,
     rName,
@@ -731,83 +731,83 @@ module Network.AWS.ServiceCatalog
     rDescription,
 
     -- ** ResourceTargetDefinition
-    ResourceTargetDefinition,
-    resourceTargetDefinition,
+    ResourceTargetDefinition (..),
+    mkResourceTargetDefinition,
     rtdAttribute,
     rtdRequiresRecreation,
     rtdName,
 
     -- ** ServiceActionAssociation
-    ServiceActionAssociation,
-    serviceActionAssociation,
+    ServiceActionAssociation (..),
+    mkServiceActionAssociation,
     saaServiceActionId,
     saaProductId,
     saaProvisioningArtifactId,
 
     -- ** ServiceActionDetail
-    ServiceActionDetail,
-    serviceActionDetail,
+    ServiceActionDetail (..),
+    mkServiceActionDetail,
     sadServiceActionSummary,
     sadDefinition,
 
     -- ** ServiceActionSummary
-    ServiceActionSummary,
-    serviceActionSummary,
+    ServiceActionSummary (..),
+    mkServiceActionSummary,
     sasName,
     sasId,
     sasDefinitionType,
     sasDescription,
 
     -- ** ShareDetails
-    ShareDetails,
-    shareDetails,
+    ShareDetails (..),
+    mkShareDetails,
     sdShareErrors,
     sdSuccessfulShares,
 
     -- ** ShareError
-    ShareError,
-    shareError,
+    ShareError (..),
+    mkShareError,
     seAccounts,
     seError,
     seMessage,
 
     -- ** StackInstance
-    StackInstance,
-    stackInstance,
+    StackInstance (..),
+    mkStackInstance,
     siAccount,
     siRegion,
     siStackInstanceStatus,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TagOptionDetail
-    TagOptionDetail,
-    tagOptionDetail,
+    TagOptionDetail (..),
+    mkTagOptionDetail,
     todValue,
     todActive,
     todKey,
     todId,
 
     -- ** TagOptionSummary
-    TagOptionSummary,
-    tagOptionSummary,
+    TagOptionSummary (..),
+    mkTagOptionSummary,
     tosValues,
     tosKey,
 
     -- ** UpdateProvisioningParameter
-    UpdateProvisioningParameter,
-    updateProvisioningParameter,
+    UpdateProvisioningParameter (..),
+    mkUpdateProvisioningParameter,
     uppValue,
     uppKey,
     uppUsePreviousValue,
 
     -- ** UpdateProvisioningPreferences
-    UpdateProvisioningPreferences,
-    updateProvisioningPreferences,
+    UpdateProvisioningPreferences (..),
+    mkUpdateProvisioningPreferences,
     uppStackSetRegions,
     uppStackSetMaxConcurrencyPercentage,
     uppStackSetFailureToleranceCount,
@@ -817,13 +817,25 @@ module Network.AWS.ServiceCatalog
     uppStackSetOperationType,
 
     -- ** UsageInstruction
-    UsageInstruction,
-    usageInstruction,
+    UsageInstruction (..),
+    mkUsageInstruction,
     uiValue,
     uiType,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.AcceptPortfolioShare
 import Network.AWS.ServiceCatalog.AssociateBudgetWithResource
 import Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio

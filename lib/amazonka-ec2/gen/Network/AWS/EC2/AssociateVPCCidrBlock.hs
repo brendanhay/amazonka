@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html BYOIP> ). The IPv6 CIDR block size is fixed at /56.
 --
---
 -- You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.
---
 -- For more information about associating CIDR blocks with your VPC and applicable restrictions, see <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing VPC and Subnet Sizing> in the /Amazon Virtual Private Cloud User Guide/ .
 module Network.AWS.EC2.AssociateVPCCidrBlock
-  ( -- * Creating a Request
-    associateVPCCidrBlock,
-    AssociateVPCCidrBlock,
+  ( -- * Creating a request
+    AssociateVPCCidrBlock (..),
+    mkAssociateVPCCidrBlock,
 
-    -- * Request Lenses
+    -- ** Request lenses
     avcbIPv6CidrBlock,
     avcbIPv6CidrBlockNetworkBorderGroup,
     avcbCidrBlock,
@@ -36,11 +29,11 @@ module Network.AWS.EC2.AssociateVPCCidrBlock
     avcbAmazonProvidedIPv6CidrBlock,
     avcbVPCId,
 
-    -- * Destructuring the Response
-    associateVPCCidrBlockResponse,
-    AssociateVPCCidrBlockResponse,
+    -- * Destructuring the response
+    AssociateVPCCidrBlockResponse (..),
+    mkAssociateVPCCidrBlockResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     avcbrsVPCId,
     avcbrsCidrBlockAssociation,
     avcbrsIPv6CidrBlockAssociation,
@@ -49,168 +42,202 @@ module Network.AWS.EC2.AssociateVPCCidrBlock
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateVPCCidrBlock' smart constructor.
+-- | /See:/ 'mkAssociateVPCCidrBlock' smart constructor.
 data AssociateVPCCidrBlock = AssociateVPCCidrBlock'
-  { _avcbIPv6CidrBlock ::
-      !(Maybe Text),
-    _avcbIPv6CidrBlockNetworkBorderGroup ::
-      !(Maybe Text),
-    _avcbCidrBlock :: !(Maybe Text),
-    _avcbIPv6Pool :: !(Maybe Text),
-    _avcbAmazonProvidedIPv6CidrBlock ::
-      !(Maybe Bool),
-    _avcbVPCId :: !Text
+  { ipv6CidrBlock ::
+      Lude.Maybe Lude.Text,
+    ipv6CidrBlockNetworkBorderGroup ::
+      Lude.Maybe Lude.Text,
+    cidrBlock :: Lude.Maybe Lude.Text,
+    ipv6Pool :: Lude.Maybe Lude.Text,
+    amazonProvidedIPv6CidrBlock ::
+      Lude.Maybe Lude.Bool,
+    vpcId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateVPCCidrBlock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'amazonProvidedIPv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
+-- * 'cidrBlock' - An IPv4 CIDR block to associate with the VPC.
+-- * 'ipv6CidrBlock' - An IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request.
 --
--- * 'avcbIPv6CidrBlock' - An IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request. To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+-- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+-- * 'ipv6CidrBlockNetworkBorderGroup' - The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.
 --
--- * 'avcbIPv6CidrBlockNetworkBorderGroup' - The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location. You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this parameter. You can have one IPv6 CIDR block association per network border group.
---
--- * 'avcbCidrBlock' - An IPv4 CIDR block to associate with the VPC.
---
--- * 'avcbIPv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
---
--- * 'avcbAmazonProvidedIPv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
---
--- * 'avcbVPCId' - The ID of the VPC.
-associateVPCCidrBlock ::
-  -- | 'avcbVPCId'
-  Text ->
+-- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this parameter.
+-- You can have one IPv6 CIDR block association per network border group.
+-- * 'ipv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
+-- * 'vpcId' - The ID of the VPC.
+mkAssociateVPCCidrBlock ::
+  -- | 'vpcId'
+  Lude.Text ->
   AssociateVPCCidrBlock
-associateVPCCidrBlock pVPCId_ =
+mkAssociateVPCCidrBlock pVPCId_ =
   AssociateVPCCidrBlock'
-    { _avcbIPv6CidrBlock = Nothing,
-      _avcbIPv6CidrBlockNetworkBorderGroup = Nothing,
-      _avcbCidrBlock = Nothing,
-      _avcbIPv6Pool = Nothing,
-      _avcbAmazonProvidedIPv6CidrBlock = Nothing,
-      _avcbVPCId = pVPCId_
+    { ipv6CidrBlock = Lude.Nothing,
+      ipv6CidrBlockNetworkBorderGroup = Lude.Nothing,
+      cidrBlock = Lude.Nothing,
+      ipv6Pool = Lude.Nothing,
+      amazonProvidedIPv6CidrBlock = Lude.Nothing,
+      vpcId = pVPCId_
     }
 
--- | An IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request. To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
-avcbIPv6CidrBlock :: Lens' AssociateVPCCidrBlock (Maybe Text)
-avcbIPv6CidrBlock = lens _avcbIPv6CidrBlock (\s a -> s {_avcbIPv6CidrBlock = a})
+-- | An IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request.
+--
+-- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+--
+-- /Note:/ Consider using 'ipv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbIPv6CidrBlock :: Lens.Lens' AssociateVPCCidrBlock (Lude.Maybe Lude.Text)
+avcbIPv6CidrBlock = Lens.lens (ipv6CidrBlock :: AssociateVPCCidrBlock -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlock = a} :: AssociateVPCCidrBlock)
+{-# DEPRECATED avcbIPv6CidrBlock "Use generic-lens or generic-optics with 'ipv6CidrBlock' instead." #-}
 
--- | The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location. You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this parameter. You can have one IPv6 CIDR block association per network border group.
-avcbIPv6CidrBlockNetworkBorderGroup :: Lens' AssociateVPCCidrBlock (Maybe Text)
-avcbIPv6CidrBlockNetworkBorderGroup = lens _avcbIPv6CidrBlockNetworkBorderGroup (\s a -> s {_avcbIPv6CidrBlockNetworkBorderGroup = a})
+-- | The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.
+--
+-- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this parameter.
+-- You can have one IPv6 CIDR block association per network border group.
+--
+-- /Note:/ Consider using 'ipv6CidrBlockNetworkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbIPv6CidrBlockNetworkBorderGroup :: Lens.Lens' AssociateVPCCidrBlock (Lude.Maybe Lude.Text)
+avcbIPv6CidrBlockNetworkBorderGroup = Lens.lens (ipv6CidrBlockNetworkBorderGroup :: AssociateVPCCidrBlock -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlockNetworkBorderGroup = a} :: AssociateVPCCidrBlock)
+{-# DEPRECATED avcbIPv6CidrBlockNetworkBorderGroup "Use generic-lens or generic-optics with 'ipv6CidrBlockNetworkBorderGroup' instead." #-}
 
 -- | An IPv4 CIDR block to associate with the VPC.
-avcbCidrBlock :: Lens' AssociateVPCCidrBlock (Maybe Text)
-avcbCidrBlock = lens _avcbCidrBlock (\s a -> s {_avcbCidrBlock = a})
+--
+-- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbCidrBlock :: Lens.Lens' AssociateVPCCidrBlock (Lude.Maybe Lude.Text)
+avcbCidrBlock = Lens.lens (cidrBlock :: AssociateVPCCidrBlock -> Lude.Maybe Lude.Text) (\s a -> s {cidrBlock = a} :: AssociateVPCCidrBlock)
+{-# DEPRECATED avcbCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
 -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
-avcbIPv6Pool :: Lens' AssociateVPCCidrBlock (Maybe Text)
-avcbIPv6Pool = lens _avcbIPv6Pool (\s a -> s {_avcbIPv6Pool = a})
+--
+-- /Note:/ Consider using 'ipv6Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbIPv6Pool :: Lens.Lens' AssociateVPCCidrBlock (Lude.Maybe Lude.Text)
+avcbIPv6Pool = Lens.lens (ipv6Pool :: AssociateVPCCidrBlock -> Lude.Maybe Lude.Text) (\s a -> s {ipv6Pool = a} :: AssociateVPCCidrBlock)
+{-# DEPRECATED avcbIPv6Pool "Use generic-lens or generic-optics with 'ipv6Pool' instead." #-}
 
 -- | Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
-avcbAmazonProvidedIPv6CidrBlock :: Lens' AssociateVPCCidrBlock (Maybe Bool)
-avcbAmazonProvidedIPv6CidrBlock = lens _avcbAmazonProvidedIPv6CidrBlock (\s a -> s {_avcbAmazonProvidedIPv6CidrBlock = a})
+--
+-- /Note:/ Consider using 'amazonProvidedIPv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbAmazonProvidedIPv6CidrBlock :: Lens.Lens' AssociateVPCCidrBlock (Lude.Maybe Lude.Bool)
+avcbAmazonProvidedIPv6CidrBlock = Lens.lens (amazonProvidedIPv6CidrBlock :: AssociateVPCCidrBlock -> Lude.Maybe Lude.Bool) (\s a -> s {amazonProvidedIPv6CidrBlock = a} :: AssociateVPCCidrBlock)
+{-# DEPRECATED avcbAmazonProvidedIPv6CidrBlock "Use generic-lens or generic-optics with 'amazonProvidedIPv6CidrBlock' instead." #-}
 
 -- | The ID of the VPC.
-avcbVPCId :: Lens' AssociateVPCCidrBlock Text
-avcbVPCId = lens _avcbVPCId (\s a -> s {_avcbVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbVPCId :: Lens.Lens' AssociateVPCCidrBlock Lude.Text
+avcbVPCId = Lens.lens (vpcId :: AssociateVPCCidrBlock -> Lude.Text) (\s a -> s {vpcId = a} :: AssociateVPCCidrBlock)
+{-# DEPRECATED avcbVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance AWSRequest AssociateVPCCidrBlock where
+instance Lude.AWSRequest AssociateVPCCidrBlock where
   type Rs AssociateVPCCidrBlock = AssociateVPCCidrBlockResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           AssociateVPCCidrBlockResponse'
-            <$> (x .@? "vpcId")
-            <*> (x .@? "cidrBlockAssociation")
-            <*> (x .@? "ipv6CidrBlockAssociation")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "vpcId")
+            Lude.<*> (x Lude..@? "cidrBlockAssociation")
+            Lude.<*> (x Lude..@? "ipv6CidrBlockAssociation")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateVPCCidrBlock
+instance Lude.ToHeaders AssociateVPCCidrBlock where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AssociateVPCCidrBlock
+instance Lude.ToPath AssociateVPCCidrBlock where
+  toPath = Lude.const "/"
 
-instance ToHeaders AssociateVPCCidrBlock where
-  toHeaders = const mempty
-
-instance ToPath AssociateVPCCidrBlock where
-  toPath = const "/"
-
-instance ToQuery AssociateVPCCidrBlock where
+instance Lude.ToQuery AssociateVPCCidrBlock where
   toQuery AssociateVPCCidrBlock' {..} =
-    mconcat
-      [ "Action" =: ("AssociateVpcCidrBlock" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "Ipv6CidrBlock" =: _avcbIPv6CidrBlock,
+    Lude.mconcat
+      [ "Action" Lude.=: ("AssociateVpcCidrBlock" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Ipv6CidrBlock" Lude.=: ipv6CidrBlock,
         "Ipv6CidrBlockNetworkBorderGroup"
-          =: _avcbIPv6CidrBlockNetworkBorderGroup,
-        "CidrBlock" =: _avcbCidrBlock,
-        "Ipv6Pool" =: _avcbIPv6Pool,
-        "AmazonProvidedIpv6CidrBlock" =: _avcbAmazonProvidedIPv6CidrBlock,
-        "VpcId" =: _avcbVPCId
+          Lude.=: ipv6CidrBlockNetworkBorderGroup,
+        "CidrBlock" Lude.=: cidrBlock,
+        "Ipv6Pool" Lude.=: ipv6Pool,
+        "AmazonProvidedIpv6CidrBlock" Lude.=: amazonProvidedIPv6CidrBlock,
+        "VpcId" Lude.=: vpcId
       ]
 
--- | /See:/ 'associateVPCCidrBlockResponse' smart constructor.
+-- | /See:/ 'mkAssociateVPCCidrBlockResponse' smart constructor.
 data AssociateVPCCidrBlockResponse = AssociateVPCCidrBlockResponse'
-  { _avcbrsVPCId ::
-      !(Maybe Text),
-    _avcbrsCidrBlockAssociation ::
-      !( Maybe
-           VPCCidrBlockAssociation
-       ),
-    _avcbrsIPv6CidrBlockAssociation ::
-      !( Maybe
-           VPCIPv6CidrBlockAssociation
-       ),
-    _avcbrsResponseStatus :: !Int
+  { vpcId ::
+      Lude.Maybe Lude.Text,
+    cidrBlockAssociation ::
+      Lude.Maybe
+        VPCCidrBlockAssociation,
+    ipv6CidrBlockAssociation ::
+      Lude.Maybe
+        VPCIPv6CidrBlockAssociation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateVPCCidrBlockResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avcbrsVPCId' - The ID of the VPC.
---
--- * 'avcbrsCidrBlockAssociation' - Information about the IPv4 CIDR block association.
---
--- * 'avcbrsIPv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
---
--- * 'avcbrsResponseStatus' - -- | The response status code.
-associateVPCCidrBlockResponse ::
-  -- | 'avcbrsResponseStatus'
-  Int ->
+-- * 'cidrBlockAssociation' - Information about the IPv4 CIDR block association.
+-- * 'ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
+-- * 'responseStatus' - The response status code.
+-- * 'vpcId' - The ID of the VPC.
+mkAssociateVPCCidrBlockResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateVPCCidrBlockResponse
-associateVPCCidrBlockResponse pResponseStatus_ =
+mkAssociateVPCCidrBlockResponse pResponseStatus_ =
   AssociateVPCCidrBlockResponse'
-    { _avcbrsVPCId = Nothing,
-      _avcbrsCidrBlockAssociation = Nothing,
-      _avcbrsIPv6CidrBlockAssociation = Nothing,
-      _avcbrsResponseStatus = pResponseStatus_
+    { vpcId = Lude.Nothing,
+      cidrBlockAssociation = Lude.Nothing,
+      ipv6CidrBlockAssociation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the VPC.
-avcbrsVPCId :: Lens' AssociateVPCCidrBlockResponse (Maybe Text)
-avcbrsVPCId = lens _avcbrsVPCId (\s a -> s {_avcbrsVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbrsVPCId :: Lens.Lens' AssociateVPCCidrBlockResponse (Lude.Maybe Lude.Text)
+avcbrsVPCId = Lens.lens (vpcId :: AssociateVPCCidrBlockResponse -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: AssociateVPCCidrBlockResponse)
+{-# DEPRECATED avcbrsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | Information about the IPv4 CIDR block association.
-avcbrsCidrBlockAssociation :: Lens' AssociateVPCCidrBlockResponse (Maybe VPCCidrBlockAssociation)
-avcbrsCidrBlockAssociation = lens _avcbrsCidrBlockAssociation (\s a -> s {_avcbrsCidrBlockAssociation = a})
+--
+-- /Note:/ Consider using 'cidrBlockAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbrsCidrBlockAssociation :: Lens.Lens' AssociateVPCCidrBlockResponse (Lude.Maybe VPCCidrBlockAssociation)
+avcbrsCidrBlockAssociation = Lens.lens (cidrBlockAssociation :: AssociateVPCCidrBlockResponse -> Lude.Maybe VPCCidrBlockAssociation) (\s a -> s {cidrBlockAssociation = a} :: AssociateVPCCidrBlockResponse)
+{-# DEPRECATED avcbrsCidrBlockAssociation "Use generic-lens or generic-optics with 'cidrBlockAssociation' instead." #-}
 
 -- | Information about the IPv6 CIDR block association.
-avcbrsIPv6CidrBlockAssociation :: Lens' AssociateVPCCidrBlockResponse (Maybe VPCIPv6CidrBlockAssociation)
-avcbrsIPv6CidrBlockAssociation = lens _avcbrsIPv6CidrBlockAssociation (\s a -> s {_avcbrsIPv6CidrBlockAssociation = a})
+--
+-- /Note:/ Consider using 'ipv6CidrBlockAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbrsIPv6CidrBlockAssociation :: Lens.Lens' AssociateVPCCidrBlockResponse (Lude.Maybe VPCIPv6CidrBlockAssociation)
+avcbrsIPv6CidrBlockAssociation = Lens.lens (ipv6CidrBlockAssociation :: AssociateVPCCidrBlockResponse -> Lude.Maybe VPCIPv6CidrBlockAssociation) (\s a -> s {ipv6CidrBlockAssociation = a} :: AssociateVPCCidrBlockResponse)
+{-# DEPRECATED avcbrsIPv6CidrBlockAssociation "Use generic-lens or generic-optics with 'ipv6CidrBlockAssociation' instead." #-}
 
--- | -- | The response status code.
-avcbrsResponseStatus :: Lens' AssociateVPCCidrBlockResponse Int
-avcbrsResponseStatus = lens _avcbrsResponseStatus (\s a -> s {_avcbrsResponseStatus = a})
-
-instance NFData AssociateVPCCidrBlockResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbrsResponseStatus :: Lens.Lens' AssociateVPCCidrBlockResponse Lude.Int
+avcbrsResponseStatus = Lens.lens (responseStatus :: AssociateVPCCidrBlockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateVPCCidrBlockResponse)
+{-# DEPRECATED avcbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

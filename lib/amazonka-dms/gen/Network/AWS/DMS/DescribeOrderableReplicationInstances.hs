@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns information about the replication instance types that can be created in the specified region.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DMS.DescribeOrderableReplicationInstances
-  ( -- * Creating a Request
-    describeOrderableReplicationInstances,
-    DescribeOrderableReplicationInstances,
+  ( -- * Creating a request
+    DescribeOrderableReplicationInstances (..),
+    mkDescribeOrderableReplicationInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     doriMarker,
     doriMaxRecords,
 
-    -- * Destructuring the Response
-    describeOrderableReplicationInstancesResponse,
-    DescribeOrderableReplicationInstancesResponse,
+    -- * Destructuring the response
+    DescribeOrderableReplicationInstancesResponse (..),
+    mkDescribeOrderableReplicationInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dorirsMarker,
     dorirsOrderableReplicationInstances,
     dorirsResponseStatus,
@@ -43,156 +36,175 @@ module Network.AWS.DMS.DescribeOrderableReplicationInstances
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeOrderableReplicationInstances' smart constructor.
+-- /See:/ 'mkDescribeOrderableReplicationInstances' smart constructor.
 data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstances'
-  { _doriMarker ::
-      !(Maybe Text),
-    _doriMaxRecords ::
-      !(Maybe Int)
+  { marker ::
+      Lude.Maybe
+        Lude.Text,
+    maxRecords ::
+      Lude.Maybe
+        Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrderableReplicationInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
--- * 'doriMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'doriMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-describeOrderableReplicationInstances ::
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+mkDescribeOrderableReplicationInstances ::
   DescribeOrderableReplicationInstances
-describeOrderableReplicationInstances =
+mkDescribeOrderableReplicationInstances =
   DescribeOrderableReplicationInstances'
-    { _doriMarker = Nothing,
-      _doriMaxRecords = Nothing
+    { marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-doriMarker :: Lens' DescribeOrderableReplicationInstances (Maybe Text)
-doriMarker = lens _doriMarker (\s a -> s {_doriMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doriMarker :: Lens.Lens' DescribeOrderableReplicationInstances (Lude.Maybe Lude.Text)
+doriMarker = Lens.lens (marker :: DescribeOrderableReplicationInstances -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeOrderableReplicationInstances)
+{-# DEPRECATED doriMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-doriMaxRecords :: Lens' DescribeOrderableReplicationInstances (Maybe Int)
-doriMaxRecords = lens _doriMaxRecords (\s a -> s {_doriMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doriMaxRecords :: Lens.Lens' DescribeOrderableReplicationInstances (Lude.Maybe Lude.Int)
+doriMaxRecords = Lens.lens (maxRecords :: DescribeOrderableReplicationInstances -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeOrderableReplicationInstances)
+{-# DEPRECATED doriMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeOrderableReplicationInstances where
+instance Page.AWSPager DescribeOrderableReplicationInstances where
   page rq rs
-    | stop (rs ^. dorirsMarker) = Nothing
-    | stop (rs ^. dorirsOrderableReplicationInstances) = Nothing
-    | otherwise = Just $ rq & doriMarker .~ rs ^. dorirsMarker
+    | Page.stop (rs Lens.^. dorirsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dorirsOrderableReplicationInstances) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& doriMarker Lens..~ rs Lens.^. dorirsMarker
 
-instance AWSRequest DescribeOrderableReplicationInstances where
+instance Lude.AWSRequest DescribeOrderableReplicationInstances where
   type
     Rs DescribeOrderableReplicationInstances =
       DescribeOrderableReplicationInstancesResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeOrderableReplicationInstancesResponse'
-            <$> (x .?> "Marker")
-            <*> (x .?> "OrderableReplicationInstances" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Marker")
+            Lude.<*> (x Lude..?> "OrderableReplicationInstances" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeOrderableReplicationInstances
-
-instance NFData DescribeOrderableReplicationInstances
-
-instance ToHeaders DescribeOrderableReplicationInstances where
+instance Lude.ToHeaders DescribeOrderableReplicationInstances where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonDMSv20160101.DescribeOrderableReplicationInstances" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.DescribeOrderableReplicationInstances" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeOrderableReplicationInstances where
+instance Lude.ToJSON DescribeOrderableReplicationInstances where
   toJSON DescribeOrderableReplicationInstances' {..} =
-    object
-      ( catMaybes
-          [ ("Marker" .=) <$> _doriMarker,
-            ("MaxRecords" .=) <$> _doriMaxRecords
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Marker" Lude..=) Lude.<$> marker,
+            ("MaxRecords" Lude..=) Lude.<$> maxRecords
           ]
       )
 
-instance ToPath DescribeOrderableReplicationInstances where
-  toPath = const "/"
+instance Lude.ToPath DescribeOrderableReplicationInstances where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeOrderableReplicationInstances where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeOrderableReplicationInstances where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeOrderableReplicationInstancesResponse' smart constructor.
+-- /See:/ 'mkDescribeOrderableReplicationInstancesResponse' smart constructor.
 data DescribeOrderableReplicationInstancesResponse = DescribeOrderableReplicationInstancesResponse'
-  { _dorirsMarker ::
-      !( Maybe
-           Text
-       ),
-    _dorirsOrderableReplicationInstances ::
-      !( Maybe
-           [OrderableReplicationInstance]
-       ),
-    _dorirsResponseStatus ::
-      !Int
+  { marker ::
+      Lude.Maybe
+        Lude.Text,
+    orderableReplicationInstances ::
+      Lude.Maybe
+        [OrderableReplicationInstance],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeOrderableReplicationInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dorirsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dorirsOrderableReplicationInstances' - The order-able replication instances available.
---
--- * 'dorirsResponseStatus' - -- | The response status code.
-describeOrderableReplicationInstancesResponse ::
-  -- | 'dorirsResponseStatus'
-  Int ->
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'orderableReplicationInstances' - The order-able replication instances available.
+-- * 'responseStatus' - The response status code.
+mkDescribeOrderableReplicationInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeOrderableReplicationInstancesResponse
-describeOrderableReplicationInstancesResponse pResponseStatus_ =
+mkDescribeOrderableReplicationInstancesResponse pResponseStatus_ =
   DescribeOrderableReplicationInstancesResponse'
-    { _dorirsMarker =
-        Nothing,
-      _dorirsOrderableReplicationInstances = Nothing,
-      _dorirsResponseStatus = pResponseStatus_
+    { marker =
+        Lude.Nothing,
+      orderableReplicationInstances = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dorirsMarker :: Lens' DescribeOrderableReplicationInstancesResponse (Maybe Text)
-dorirsMarker = lens _dorirsMarker (\s a -> s {_dorirsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorirsMarker :: Lens.Lens' DescribeOrderableReplicationInstancesResponse (Lude.Maybe Lude.Text)
+dorirsMarker = Lens.lens (marker :: DescribeOrderableReplicationInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeOrderableReplicationInstancesResponse)
+{-# DEPRECATED dorirsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The order-able replication instances available.
-dorirsOrderableReplicationInstances :: Lens' DescribeOrderableReplicationInstancesResponse [OrderableReplicationInstance]
-dorirsOrderableReplicationInstances = lens _dorirsOrderableReplicationInstances (\s a -> s {_dorirsOrderableReplicationInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'orderableReplicationInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorirsOrderableReplicationInstances :: Lens.Lens' DescribeOrderableReplicationInstancesResponse (Lude.Maybe [OrderableReplicationInstance])
+dorirsOrderableReplicationInstances = Lens.lens (orderableReplicationInstances :: DescribeOrderableReplicationInstancesResponse -> Lude.Maybe [OrderableReplicationInstance]) (\s a -> s {orderableReplicationInstances = a} :: DescribeOrderableReplicationInstancesResponse)
+{-# DEPRECATED dorirsOrderableReplicationInstances "Use generic-lens or generic-optics with 'orderableReplicationInstances' instead." #-}
 
--- | -- | The response status code.
-dorirsResponseStatus :: Lens' DescribeOrderableReplicationInstancesResponse Int
-dorirsResponseStatus = lens _dorirsResponseStatus (\s a -> s {_dorirsResponseStatus = a})
-
-instance NFData DescribeOrderableReplicationInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorirsResponseStatus :: Lens.Lens' DescribeOrderableReplicationInstancesResponse Lude.Int
+dorirsResponseStatus = Lens.lens (responseStatus :: DescribeOrderableReplicationInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOrderableReplicationInstancesResponse)
+{-# DEPRECATED dorirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

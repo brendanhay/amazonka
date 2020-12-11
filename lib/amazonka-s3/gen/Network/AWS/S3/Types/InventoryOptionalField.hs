@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.InventoryOptionalField where
+module Network.AWS.S3.Types.InventoryOptionalField
+  ( InventoryOptionalField
+      ( InventoryOptionalField',
+        FieldETag,
+        FieldEncryptionStatus,
+        FieldIntelligentTieringAccessTier,
+        FieldIsMultipartUploaded,
+        FieldLastModifiedDate,
+        FieldObjectLockLegalHoldStatus,
+        FieldObjectLockMode,
+        FieldObjectLockRetainUntilDate,
+        FieldReplicationStatus,
+        FieldSize,
+        FieldStorageClass
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data InventoryOptionalField
-  = FieldETag
-  | FieldEncryptionStatus
-  | FieldIntelligentTieringAccessTier
-  | FieldIsMultipartUploaded
-  | FieldLastModifiedDate
-  | FieldObjectLockLegalHoldStatus
-  | FieldObjectLockMode
-  | FieldObjectLockRetainUntilDate
-  | FieldReplicationStatus
-  | FieldSize
-  | FieldStorageClass
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InventoryOptionalField = InventoryOptionalField' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InventoryOptionalField where
-  parser =
-    takeLowerText >>= \case
-      "etag" -> pure FieldETag
-      "encryptionstatus" -> pure FieldEncryptionStatus
-      "intelligenttieringaccesstier" -> pure FieldIntelligentTieringAccessTier
-      "ismultipartuploaded" -> pure FieldIsMultipartUploaded
-      "lastmodifieddate" -> pure FieldLastModifiedDate
-      "objectlocklegalholdstatus" -> pure FieldObjectLockLegalHoldStatus
-      "objectlockmode" -> pure FieldObjectLockMode
-      "objectlockretainuntildate" -> pure FieldObjectLockRetainUntilDate
-      "replicationstatus" -> pure FieldReplicationStatus
-      "size" -> pure FieldSize
-      "storageclass" -> pure FieldStorageClass
-      e ->
-        fromTextError $
-          "Failure parsing InventoryOptionalField from value: '" <> e
-            <> "'. Accepted values: etag, encryptionstatus, intelligenttieringaccesstier, ismultipartuploaded, lastmodifieddate, objectlocklegalholdstatus, objectlockmode, objectlockretainuntildate, replicationstatus, size, storageclass"
+pattern FieldETag :: InventoryOptionalField
+pattern FieldETag = InventoryOptionalField' "ETag"
 
-instance ToText InventoryOptionalField where
-  toText = \case
-    FieldETag -> "ETag"
-    FieldEncryptionStatus -> "EncryptionStatus"
-    FieldIntelligentTieringAccessTier -> "IntelligentTieringAccessTier"
-    FieldIsMultipartUploaded -> "IsMultipartUploaded"
-    FieldLastModifiedDate -> "LastModifiedDate"
-    FieldObjectLockLegalHoldStatus -> "ObjectLockLegalHoldStatus"
-    FieldObjectLockMode -> "ObjectLockMode"
-    FieldObjectLockRetainUntilDate -> "ObjectLockRetainUntilDate"
-    FieldReplicationStatus -> "ReplicationStatus"
-    FieldSize -> "Size"
-    FieldStorageClass -> "StorageClass"
+pattern FieldEncryptionStatus :: InventoryOptionalField
+pattern FieldEncryptionStatus = InventoryOptionalField' "EncryptionStatus"
 
-instance Hashable InventoryOptionalField
+pattern FieldIntelligentTieringAccessTier :: InventoryOptionalField
+pattern FieldIntelligentTieringAccessTier = InventoryOptionalField' "IntelligentTieringAccessTier"
 
-instance NFData InventoryOptionalField
+pattern FieldIsMultipartUploaded :: InventoryOptionalField
+pattern FieldIsMultipartUploaded = InventoryOptionalField' "IsMultipartUploaded"
 
-instance ToByteString InventoryOptionalField
+pattern FieldLastModifiedDate :: InventoryOptionalField
+pattern FieldLastModifiedDate = InventoryOptionalField' "LastModifiedDate"
 
-instance ToQuery InventoryOptionalField
+pattern FieldObjectLockLegalHoldStatus :: InventoryOptionalField
+pattern FieldObjectLockLegalHoldStatus = InventoryOptionalField' "ObjectLockLegalHoldStatus"
 
-instance ToHeader InventoryOptionalField
+pattern FieldObjectLockMode :: InventoryOptionalField
+pattern FieldObjectLockMode = InventoryOptionalField' "ObjectLockMode"
 
-instance FromXML InventoryOptionalField where
-  parseXML = parseXMLText "InventoryOptionalField"
+pattern FieldObjectLockRetainUntilDate :: InventoryOptionalField
+pattern FieldObjectLockRetainUntilDate = InventoryOptionalField' "ObjectLockRetainUntilDate"
 
-instance ToXML InventoryOptionalField where
-  toXML = toXMLText
+pattern FieldReplicationStatus :: InventoryOptionalField
+pattern FieldReplicationStatus = InventoryOptionalField' "ReplicationStatus"
+
+pattern FieldSize :: InventoryOptionalField
+pattern FieldSize = InventoryOptionalField' "Size"
+
+pattern FieldStorageClass :: InventoryOptionalField
+pattern FieldStorageClass = InventoryOptionalField' "StorageClass"
+
+{-# COMPLETE
+  FieldETag,
+  FieldEncryptionStatus,
+  FieldIntelligentTieringAccessTier,
+  FieldIsMultipartUploaded,
+  FieldLastModifiedDate,
+  FieldObjectLockLegalHoldStatus,
+  FieldObjectLockMode,
+  FieldObjectLockRetainUntilDate,
+  FieldReplicationStatus,
+  FieldSize,
+  FieldStorageClass,
+  InventoryOptionalField'
+  #-}

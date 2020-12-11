@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ScheduledInstancesMonitoring where
+module Network.AWS.EC2.Types.ScheduledInstancesMonitoring
+  ( ScheduledInstancesMonitoring (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkScheduledInstancesMonitoring,
+
+    -- * Lenses
+    simEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes whether monitoring is enabled for a Scheduled Instance.
 --
---
---
--- /See:/ 'scheduledInstancesMonitoring' smart constructor.
+-- /See:/ 'mkScheduledInstancesMonitoring' smart constructor.
 newtype ScheduledInstancesMonitoring = ScheduledInstancesMonitoring'
-  { _simEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstancesMonitoring' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'simEnabled' - Indicates whether monitoring is enabled.
-scheduledInstancesMonitoring ::
+-- * 'enabled' - Indicates whether monitoring is enabled.
+mkScheduledInstancesMonitoring ::
   ScheduledInstancesMonitoring
-scheduledInstancesMonitoring =
-  ScheduledInstancesMonitoring' {_simEnabled = Nothing}
+mkScheduledInstancesMonitoring =
+  ScheduledInstancesMonitoring' {enabled = Lude.Nothing}
 
 -- | Indicates whether monitoring is enabled.
-simEnabled :: Lens' ScheduledInstancesMonitoring (Maybe Bool)
-simEnabled = lens _simEnabled (\s a -> s {_simEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+simEnabled :: Lens.Lens' ScheduledInstancesMonitoring (Lude.Maybe Lude.Bool)
+simEnabled = Lens.lens (enabled :: ScheduledInstancesMonitoring -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ScheduledInstancesMonitoring)
+{-# DEPRECATED simEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Hashable ScheduledInstancesMonitoring
-
-instance NFData ScheduledInstancesMonitoring
-
-instance ToQuery ScheduledInstancesMonitoring where
+instance Lude.ToQuery ScheduledInstancesMonitoring where
   toQuery ScheduledInstancesMonitoring' {..} =
-    mconcat ["Enabled" =: _simEnabled]
+    Lude.mconcat ["Enabled" Lude.=: enabled]

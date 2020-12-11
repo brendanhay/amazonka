@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.AssessmentRunNotificationSNSStatusCode where
+module Network.AWS.Inspector.Types.AssessmentRunNotificationSNSStatusCode
+  ( AssessmentRunNotificationSNSStatusCode
+      ( AssessmentRunNotificationSNSStatusCode',
+        AccessDenied,
+        InternalError,
+        Success,
+        TopicDoesNotExist
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssessmentRunNotificationSNSStatusCode
-  = AccessDenied
-  | InternalError
-  | Success
-  | TopicDoesNotExist
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssessmentRunNotificationSNSStatusCode = AssessmentRunNotificationSNSStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssessmentRunNotificationSNSStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "access_denied" -> pure AccessDenied
-      "internal_error" -> pure InternalError
-      "success" -> pure Success
-      "topic_does_not_exist" -> pure TopicDoesNotExist
-      e ->
-        fromTextError $
-          "Failure parsing AssessmentRunNotificationSNSStatusCode from value: '" <> e
-            <> "'. Accepted values: access_denied, internal_error, success, topic_does_not_exist"
+pattern AccessDenied :: AssessmentRunNotificationSNSStatusCode
+pattern AccessDenied = AssessmentRunNotificationSNSStatusCode' "ACCESS_DENIED"
 
-instance ToText AssessmentRunNotificationSNSStatusCode where
-  toText = \case
-    AccessDenied -> "ACCESS_DENIED"
-    InternalError -> "INTERNAL_ERROR"
-    Success -> "SUCCESS"
-    TopicDoesNotExist -> "TOPIC_DOES_NOT_EXIST"
+pattern InternalError :: AssessmentRunNotificationSNSStatusCode
+pattern InternalError = AssessmentRunNotificationSNSStatusCode' "INTERNAL_ERROR"
 
-instance Hashable AssessmentRunNotificationSNSStatusCode
+pattern Success :: AssessmentRunNotificationSNSStatusCode
+pattern Success = AssessmentRunNotificationSNSStatusCode' "SUCCESS"
 
-instance NFData AssessmentRunNotificationSNSStatusCode
+pattern TopicDoesNotExist :: AssessmentRunNotificationSNSStatusCode
+pattern TopicDoesNotExist = AssessmentRunNotificationSNSStatusCode' "TOPIC_DOES_NOT_EXIST"
 
-instance ToByteString AssessmentRunNotificationSNSStatusCode
-
-instance ToQuery AssessmentRunNotificationSNSStatusCode
-
-instance ToHeader AssessmentRunNotificationSNSStatusCode
-
-instance FromJSON AssessmentRunNotificationSNSStatusCode where
-  parseJSON = parseJSONText "AssessmentRunNotificationSNSStatusCode"
+{-# COMPLETE
+  AccessDenied,
+  InternalError,
+  Success,
+  TopicDoesNotExist,
+  AssessmentRunNotificationSNSStatusCode'
+  #-}

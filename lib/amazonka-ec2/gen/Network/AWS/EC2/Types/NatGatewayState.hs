@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NatGatewayState where
+module Network.AWS.EC2.Types.NatGatewayState
+  ( NatGatewayState
+      ( NatGatewayState',
+        NGSAvailable,
+        NGSDeleted,
+        NGSDeleting,
+        NGSFailed,
+        NGSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NatGatewayState
-  = NGSAvailable
-  | NGSDeleted
-  | NGSDeleting
-  | NGSFailed
-  | NGSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NatGatewayState = NatGatewayState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NatGatewayState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure NGSAvailable
-      "deleted" -> pure NGSDeleted
-      "deleting" -> pure NGSDeleting
-      "failed" -> pure NGSFailed
-      "pending" -> pure NGSPending
-      e ->
-        fromTextError $
-          "Failure parsing NatGatewayState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, failed, pending"
+pattern NGSAvailable :: NatGatewayState
+pattern NGSAvailable = NatGatewayState' "available"
 
-instance ToText NatGatewayState where
-  toText = \case
-    NGSAvailable -> "available"
-    NGSDeleted -> "deleted"
-    NGSDeleting -> "deleting"
-    NGSFailed -> "failed"
-    NGSPending -> "pending"
+pattern NGSDeleted :: NatGatewayState
+pattern NGSDeleted = NatGatewayState' "deleted"
 
-instance Hashable NatGatewayState
+pattern NGSDeleting :: NatGatewayState
+pattern NGSDeleting = NatGatewayState' "deleting"
 
-instance NFData NatGatewayState
+pattern NGSFailed :: NatGatewayState
+pattern NGSFailed = NatGatewayState' "failed"
 
-instance ToByteString NatGatewayState
+pattern NGSPending :: NatGatewayState
+pattern NGSPending = NatGatewayState' "pending"
 
-instance ToQuery NatGatewayState
-
-instance ToHeader NatGatewayState
-
-instance FromXML NatGatewayState where
-  parseXML = parseXMLText "NatGatewayState"
+{-# COMPLETE
+  NGSAvailable,
+  NGSDeleted,
+  NGSDeleting,
+  NGSFailed,
+  NGSPending,
+  NatGatewayState'
+  #-}

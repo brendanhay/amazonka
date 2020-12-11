@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Creates an AWS Firewall Manager protocols list.
 module Network.AWS.FMS.PutProtocolsList
-  ( -- * Creating a Request
-    putProtocolsList,
-    PutProtocolsList,
+  ( -- * Creating a request
+    PutProtocolsList (..),
+    mkPutProtocolsList,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pplTagList,
     pplProtocolsList,
 
-    -- * Destructuring the Response
-    putProtocolsListResponse,
-    PutProtocolsListResponse,
+    -- * Destructuring the response
+    PutProtocolsListResponse (..),
+    mkPutProtocolsListResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pplrsProtocolsList,
     pplrsProtocolsListARN,
     pplrsResponseStatus,
@@ -39,124 +34,141 @@ module Network.AWS.FMS.PutProtocolsList
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putProtocolsList' smart constructor.
+-- | /See:/ 'mkPutProtocolsList' smart constructor.
 data PutProtocolsList = PutProtocolsList'
-  { _pplTagList ::
-      !(Maybe [Tag]),
-    _pplProtocolsList :: !ProtocolsListData
+  { tagList ::
+      Lude.Maybe [Tag],
+    protocolsList :: ProtocolsListData
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutProtocolsList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pplTagList' - The tags associated with the resource.
---
--- * 'pplProtocolsList' - The details of the AWS Firewall Manager protocols list to be created.
-putProtocolsList ::
-  -- | 'pplProtocolsList'
+-- * 'protocolsList' - The details of the AWS Firewall Manager protocols list to be created.
+-- * 'tagList' - The tags associated with the resource.
+mkPutProtocolsList ::
+  -- | 'protocolsList'
   ProtocolsListData ->
   PutProtocolsList
-putProtocolsList pProtocolsList_ =
+mkPutProtocolsList pProtocolsList_ =
   PutProtocolsList'
-    { _pplTagList = Nothing,
-      _pplProtocolsList = pProtocolsList_
+    { tagList = Lude.Nothing,
+      protocolsList = pProtocolsList_
     }
 
 -- | The tags associated with the resource.
-pplTagList :: Lens' PutProtocolsList [Tag]
-pplTagList = lens _pplTagList (\s a -> s {_pplTagList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pplTagList :: Lens.Lens' PutProtocolsList (Lude.Maybe [Tag])
+pplTagList = Lens.lens (tagList :: PutProtocolsList -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: PutProtocolsList)
+{-# DEPRECATED pplTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 -- | The details of the AWS Firewall Manager protocols list to be created.
-pplProtocolsList :: Lens' PutProtocolsList ProtocolsListData
-pplProtocolsList = lens _pplProtocolsList (\s a -> s {_pplProtocolsList = a})
+--
+-- /Note:/ Consider using 'protocolsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pplProtocolsList :: Lens.Lens' PutProtocolsList ProtocolsListData
+pplProtocolsList = Lens.lens (protocolsList :: PutProtocolsList -> ProtocolsListData) (\s a -> s {protocolsList = a} :: PutProtocolsList)
+{-# DEPRECATED pplProtocolsList "Use generic-lens or generic-optics with 'protocolsList' instead." #-}
 
-instance AWSRequest PutProtocolsList where
+instance Lude.AWSRequest PutProtocolsList where
   type Rs PutProtocolsList = PutProtocolsListResponse
-  request = postJSON fms
+  request = Req.postJSON fmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutProtocolsListResponse'
-            <$> (x .?> "ProtocolsList")
-            <*> (x .?> "ProtocolsListArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ProtocolsList")
+            Lude.<*> (x Lude..?> "ProtocolsListArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutProtocolsList
-
-instance NFData PutProtocolsList
-
-instance ToHeaders PutProtocolsList where
+instance Lude.ToHeaders PutProtocolsList where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSFMS_20180101.PutProtocolsList" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSFMS_20180101.PutProtocolsList" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutProtocolsList where
+instance Lude.ToJSON PutProtocolsList where
   toJSON PutProtocolsList' {..} =
-    object
-      ( catMaybes
-          [ ("TagList" .=) <$> _pplTagList,
-            Just ("ProtocolsList" .= _pplProtocolsList)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TagList" Lude..=) Lude.<$> tagList,
+            Lude.Just ("ProtocolsList" Lude..= protocolsList)
           ]
       )
 
-instance ToPath PutProtocolsList where
-  toPath = const "/"
+instance Lude.ToPath PutProtocolsList where
+  toPath = Lude.const "/"
 
-instance ToQuery PutProtocolsList where
-  toQuery = const mempty
+instance Lude.ToQuery PutProtocolsList where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putProtocolsListResponse' smart constructor.
+-- | /See:/ 'mkPutProtocolsListResponse' smart constructor.
 data PutProtocolsListResponse = PutProtocolsListResponse'
-  { _pplrsProtocolsList ::
-      !(Maybe ProtocolsListData),
-    _pplrsProtocolsListARN :: !(Maybe Text),
-    _pplrsResponseStatus :: !Int
+  { protocolsList ::
+      Lude.Maybe ProtocolsListData,
+    protocolsListARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutProtocolsListResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pplrsProtocolsList' - The details of the AWS Firewall Manager protocols list.
---
--- * 'pplrsProtocolsListARN' - The Amazon Resource Name (ARN) of the protocols list.
---
--- * 'pplrsResponseStatus' - -- | The response status code.
-putProtocolsListResponse ::
-  -- | 'pplrsResponseStatus'
-  Int ->
+-- * 'protocolsList' - The details of the AWS Firewall Manager protocols list.
+-- * 'protocolsListARN' - The Amazon Resource Name (ARN) of the protocols list.
+-- * 'responseStatus' - The response status code.
+mkPutProtocolsListResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutProtocolsListResponse
-putProtocolsListResponse pResponseStatus_ =
+mkPutProtocolsListResponse pResponseStatus_ =
   PutProtocolsListResponse'
-    { _pplrsProtocolsList = Nothing,
-      _pplrsProtocolsListARN = Nothing,
-      _pplrsResponseStatus = pResponseStatus_
+    { protocolsList = Lude.Nothing,
+      protocolsListARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The details of the AWS Firewall Manager protocols list.
-pplrsProtocolsList :: Lens' PutProtocolsListResponse (Maybe ProtocolsListData)
-pplrsProtocolsList = lens _pplrsProtocolsList (\s a -> s {_pplrsProtocolsList = a})
+--
+-- /Note:/ Consider using 'protocolsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pplrsProtocolsList :: Lens.Lens' PutProtocolsListResponse (Lude.Maybe ProtocolsListData)
+pplrsProtocolsList = Lens.lens (protocolsList :: PutProtocolsListResponse -> Lude.Maybe ProtocolsListData) (\s a -> s {protocolsList = a} :: PutProtocolsListResponse)
+{-# DEPRECATED pplrsProtocolsList "Use generic-lens or generic-optics with 'protocolsList' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the protocols list.
-pplrsProtocolsListARN :: Lens' PutProtocolsListResponse (Maybe Text)
-pplrsProtocolsListARN = lens _pplrsProtocolsListARN (\s a -> s {_pplrsProtocolsListARN = a})
+--
+-- /Note:/ Consider using 'protocolsListARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pplrsProtocolsListARN :: Lens.Lens' PutProtocolsListResponse (Lude.Maybe Lude.Text)
+pplrsProtocolsListARN = Lens.lens (protocolsListARN :: PutProtocolsListResponse -> Lude.Maybe Lude.Text) (\s a -> s {protocolsListARN = a} :: PutProtocolsListResponse)
+{-# DEPRECATED pplrsProtocolsListARN "Use generic-lens or generic-optics with 'protocolsListARN' instead." #-}
 
--- | -- | The response status code.
-pplrsResponseStatus :: Lens' PutProtocolsListResponse Int
-pplrsResponseStatus = lens _pplrsResponseStatus (\s a -> s {_pplrsResponseStatus = a})
-
-instance NFData PutProtocolsListResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pplrsResponseStatus :: Lens.Lens' PutProtocolsListResponse Lude.Int
+pplrsResponseStatus = Lens.lens (responseStatus :: PutProtocolsListResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutProtocolsListResponse)
+{-# DEPRECATED pplrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

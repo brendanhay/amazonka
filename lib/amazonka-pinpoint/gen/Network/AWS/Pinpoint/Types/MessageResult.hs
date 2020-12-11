@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,163 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.MessageResult where
+module Network.AWS.Pinpoint.Types.MessageResult
+  ( MessageResult (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMessageResult,
+
+    -- * Lenses
+    mrStatusMessage,
+    mrUpdatedToken,
+    mrMessageId,
+    mrDeliveryStatus,
+    mrStatusCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.DeliveryStatus
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the results of sending a message directly to an endpoint address.
 --
---
---
--- /See:/ 'messageResult' smart constructor.
+-- /See:/ 'mkMessageResult' smart constructor.
 data MessageResult = MessageResult'
-  { _mrStatusMessage ::
-      !(Maybe Text),
-    _mrUpdatedToken :: !(Maybe Text),
-    _mrMessageId :: !(Maybe Text),
-    _mrDeliveryStatus :: !DeliveryStatus,
-    _mrStatusCode :: !Int
+  { statusMessage ::
+      Lude.Maybe Lude.Text,
+    updatedToken :: Lude.Maybe Lude.Text,
+    messageId :: Lude.Maybe Lude.Text,
+    deliveryStatus :: DeliveryStatus,
+    statusCode :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deliveryStatus' - The delivery status of the message. Possible values are:
 --
--- * 'mrStatusMessage' - The status message for delivering the message.
 --
--- * 'mrUpdatedToken' - For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.
+--     * DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.
 --
--- * 'mrMessageId' - The unique identifier for the message that was sent.
 --
--- * 'mrDeliveryStatus' - The delivery status of the message. Possible values are:     * DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.     * OPT_OUT - The user who's associated with the endpoint address has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.     * PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint address. Amazon Pinpoint won't attempt to send the message again.     * SUCCESSFUL - The message was successfully delivered to the endpoint address.     * TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.     * THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint address.     * TIMEOUT - The message couldn't be sent within the timeout period.     * UNKNOWN_FAILURE - An unknown error occurred.
+--     * OPT_OUT - The user who's associated with the endpoint address has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.
 --
--- * 'mrStatusCode' - The downstream service status code for delivering the message.
-messageResult ::
-  -- | 'mrDeliveryStatus'
+--
+--     * PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint address. Amazon Pinpoint won't attempt to send the message again.
+--
+--
+--     * SUCCESSFUL - The message was successfully delivered to the endpoint address.
+--
+--
+--     * TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.
+--
+--
+--     * THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint address.
+--
+--
+--     * TIMEOUT - The message couldn't be sent within the timeout period.
+--
+--
+--     * UNKNOWN_FAILURE - An unknown error occurred.
+--
+--
+-- * 'messageId' - The unique identifier for the message that was sent.
+-- * 'statusCode' - The downstream service status code for delivering the message.
+-- * 'statusMessage' - The status message for delivering the message.
+-- * 'updatedToken' - For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.
+mkMessageResult ::
+  -- | 'deliveryStatus'
   DeliveryStatus ->
-  -- | 'mrStatusCode'
-  Int ->
+  -- | 'statusCode'
+  Lude.Int ->
   MessageResult
-messageResult pDeliveryStatus_ pStatusCode_ =
+mkMessageResult pDeliveryStatus_ pStatusCode_ =
   MessageResult'
-    { _mrStatusMessage = Nothing,
-      _mrUpdatedToken = Nothing,
-      _mrMessageId = Nothing,
-      _mrDeliveryStatus = pDeliveryStatus_,
-      _mrStatusCode = pStatusCode_
+    { statusMessage = Lude.Nothing,
+      updatedToken = Lude.Nothing,
+      messageId = Lude.Nothing,
+      deliveryStatus = pDeliveryStatus_,
+      statusCode = pStatusCode_
     }
 
 -- | The status message for delivering the message.
-mrStatusMessage :: Lens' MessageResult (Maybe Text)
-mrStatusMessage = lens _mrStatusMessage (\s a -> s {_mrStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrStatusMessage :: Lens.Lens' MessageResult (Lude.Maybe Lude.Text)
+mrStatusMessage = Lens.lens (statusMessage :: MessageResult -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: MessageResult)
+{-# DEPRECATED mrStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.
-mrUpdatedToken :: Lens' MessageResult (Maybe Text)
-mrUpdatedToken = lens _mrUpdatedToken (\s a -> s {_mrUpdatedToken = a})
+--
+-- /Note:/ Consider using 'updatedToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrUpdatedToken :: Lens.Lens' MessageResult (Lude.Maybe Lude.Text)
+mrUpdatedToken = Lens.lens (updatedToken :: MessageResult -> Lude.Maybe Lude.Text) (\s a -> s {updatedToken = a} :: MessageResult)
+{-# DEPRECATED mrUpdatedToken "Use generic-lens or generic-optics with 'updatedToken' instead." #-}
 
 -- | The unique identifier for the message that was sent.
-mrMessageId :: Lens' MessageResult (Maybe Text)
-mrMessageId = lens _mrMessageId (\s a -> s {_mrMessageId = a})
+--
+-- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrMessageId :: Lens.Lens' MessageResult (Lude.Maybe Lude.Text)
+mrMessageId = Lens.lens (messageId :: MessageResult -> Lude.Maybe Lude.Text) (\s a -> s {messageId = a} :: MessageResult)
+{-# DEPRECATED mrMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
 
--- | The delivery status of the message. Possible values are:     * DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.     * OPT_OUT - The user who's associated with the endpoint address has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.     * PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint address. Amazon Pinpoint won't attempt to send the message again.     * SUCCESSFUL - The message was successfully delivered to the endpoint address.     * TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.     * THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint address.     * TIMEOUT - The message couldn't be sent within the timeout period.     * UNKNOWN_FAILURE - An unknown error occurred.
-mrDeliveryStatus :: Lens' MessageResult DeliveryStatus
-mrDeliveryStatus = lens _mrDeliveryStatus (\s a -> s {_mrDeliveryStatus = a})
+-- | The delivery status of the message. Possible values are:
+--
+--
+--     * DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.
+--
+--
+--     * OPT_OUT - The user who's associated with the endpoint address has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.
+--
+--
+--     * PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint address. Amazon Pinpoint won't attempt to send the message again.
+--
+--
+--     * SUCCESSFUL - The message was successfully delivered to the endpoint address.
+--
+--
+--     * TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.
+--
+--
+--     * THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint address.
+--
+--
+--     * TIMEOUT - The message couldn't be sent within the timeout period.
+--
+--
+--     * UNKNOWN_FAILURE - An unknown error occurred.
+--
+--
+--
+-- /Note:/ Consider using 'deliveryStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrDeliveryStatus :: Lens.Lens' MessageResult DeliveryStatus
+mrDeliveryStatus = Lens.lens (deliveryStatus :: MessageResult -> DeliveryStatus) (\s a -> s {deliveryStatus = a} :: MessageResult)
+{-# DEPRECATED mrDeliveryStatus "Use generic-lens or generic-optics with 'deliveryStatus' instead." #-}
 
 -- | The downstream service status code for delivering the message.
-mrStatusCode :: Lens' MessageResult Int
-mrStatusCode = lens _mrStatusCode (\s a -> s {_mrStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrStatusCode :: Lens.Lens' MessageResult Lude.Int
+mrStatusCode = Lens.lens (statusCode :: MessageResult -> Lude.Int) (\s a -> s {statusCode = a} :: MessageResult)
+{-# DEPRECATED mrStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance FromJSON MessageResult where
+instance Lude.FromJSON MessageResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "MessageResult"
       ( \x ->
           MessageResult'
-            <$> (x .:? "StatusMessage")
-            <*> (x .:? "UpdatedToken")
-            <*> (x .:? "MessageId")
-            <*> (x .: "DeliveryStatus")
-            <*> (x .: "StatusCode")
+            Lude.<$> (x Lude..:? "StatusMessage")
+            Lude.<*> (x Lude..:? "UpdatedToken")
+            Lude.<*> (x Lude..:? "MessageId")
+            Lude.<*> (x Lude..: "DeliveryStatus")
+            Lude.<*> (x Lude..: "StatusCode")
       )
-
-instance Hashable MessageResult
-
-instance NFData MessageResult

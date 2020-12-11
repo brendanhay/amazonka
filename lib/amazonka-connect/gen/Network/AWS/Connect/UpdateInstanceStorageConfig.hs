@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,152 @@
 --
 -- Updates an existing configuration for a resource type. This API is idempotent.
 module Network.AWS.Connect.UpdateInstanceStorageConfig
-  ( -- * Creating a Request
-    updateInstanceStorageConfig,
-    UpdateInstanceStorageConfig,
+  ( -- * Creating a request
+    UpdateInstanceStorageConfig (..),
+    mkUpdateInstanceStorageConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uiscInstanceId,
     uiscAssociationId,
     uiscResourceType,
     uiscStorageConfig,
 
-    -- * Destructuring the Response
-    updateInstanceStorageConfigResponse,
-    UpdateInstanceStorageConfigResponse,
+    -- * Destructuring the response
+    UpdateInstanceStorageConfigResponse (..),
+    mkUpdateInstanceStorageConfigResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateInstanceStorageConfig' smart constructor.
+-- | /See:/ 'mkUpdateInstanceStorageConfig' smart constructor.
 data UpdateInstanceStorageConfig = UpdateInstanceStorageConfig'
-  { _uiscInstanceId ::
-      !Text,
-    _uiscAssociationId :: !Text,
-    _uiscResourceType ::
-      !InstanceStorageResourceType,
-    _uiscStorageConfig ::
-      !InstanceStorageConfig
+  { instanceId ::
+      Lude.Text,
+    associationId :: Lude.Text,
+    resourceType ::
+      InstanceStorageResourceType,
+    storageConfig ::
+      InstanceStorageConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInstanceStorageConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uiscInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'uiscAssociationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
---
--- * 'uiscResourceType' - A valid resource type.
---
--- * 'uiscStorageConfig' - Undocumented member.
-updateInstanceStorageConfig ::
-  -- | 'uiscInstanceId'
-  Text ->
-  -- | 'uiscAssociationId'
-  Text ->
-  -- | 'uiscResourceType'
+-- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'resourceType' - A valid resource type.
+-- * 'storageConfig' - Undocumented field.
+mkUpdateInstanceStorageConfig ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'associationId'
+  Lude.Text ->
+  -- | 'resourceType'
   InstanceStorageResourceType ->
-  -- | 'uiscStorageConfig'
+  -- | 'storageConfig'
   InstanceStorageConfig ->
   UpdateInstanceStorageConfig
-updateInstanceStorageConfig
+mkUpdateInstanceStorageConfig
   pInstanceId_
   pAssociationId_
   pResourceType_
   pStorageConfig_ =
     UpdateInstanceStorageConfig'
-      { _uiscInstanceId = pInstanceId_,
-        _uiscAssociationId = pAssociationId_,
-        _uiscResourceType = pResourceType_,
-        _uiscStorageConfig = pStorageConfig_
+      { instanceId = pInstanceId_,
+        associationId = pAssociationId_,
+        resourceType = pResourceType_,
+        storageConfig = pStorageConfig_
       }
 
 -- | The identifier of the Amazon Connect instance.
-uiscInstanceId :: Lens' UpdateInstanceStorageConfig Text
-uiscInstanceId = lens _uiscInstanceId (\s a -> s {_uiscInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiscInstanceId :: Lens.Lens' UpdateInstanceStorageConfig Lude.Text
+uiscInstanceId = Lens.lens (instanceId :: UpdateInstanceStorageConfig -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateInstanceStorageConfig)
+{-# DEPRECATED uiscInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-uiscAssociationId :: Lens' UpdateInstanceStorageConfig Text
-uiscAssociationId = lens _uiscAssociationId (\s a -> s {_uiscAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiscAssociationId :: Lens.Lens' UpdateInstanceStorageConfig Lude.Text
+uiscAssociationId = Lens.lens (associationId :: UpdateInstanceStorageConfig -> Lude.Text) (\s a -> s {associationId = a} :: UpdateInstanceStorageConfig)
+{-# DEPRECATED uiscAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | A valid resource type.
-uiscResourceType :: Lens' UpdateInstanceStorageConfig InstanceStorageResourceType
-uiscResourceType = lens _uiscResourceType (\s a -> s {_uiscResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiscResourceType :: Lens.Lens' UpdateInstanceStorageConfig InstanceStorageResourceType
+uiscResourceType = Lens.lens (resourceType :: UpdateInstanceStorageConfig -> InstanceStorageResourceType) (\s a -> s {resourceType = a} :: UpdateInstanceStorageConfig)
+{-# DEPRECATED uiscResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
--- | Undocumented member.
-uiscStorageConfig :: Lens' UpdateInstanceStorageConfig InstanceStorageConfig
-uiscStorageConfig = lens _uiscStorageConfig (\s a -> s {_uiscStorageConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'storageConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiscStorageConfig :: Lens.Lens' UpdateInstanceStorageConfig InstanceStorageConfig
+uiscStorageConfig = Lens.lens (storageConfig :: UpdateInstanceStorageConfig -> InstanceStorageConfig) (\s a -> s {storageConfig = a} :: UpdateInstanceStorageConfig)
+{-# DEPRECATED uiscStorageConfig "Use generic-lens or generic-optics with 'storageConfig' instead." #-}
 
-instance AWSRequest UpdateInstanceStorageConfig where
+instance Lude.AWSRequest UpdateInstanceStorageConfig where
   type
     Rs UpdateInstanceStorageConfig =
       UpdateInstanceStorageConfigResponse
-  request = postJSON connect
-  response = receiveNull UpdateInstanceStorageConfigResponse'
+  request = Req.postJSON connectService
+  response = Res.receiveNull UpdateInstanceStorageConfigResponse'
 
-instance Hashable UpdateInstanceStorageConfig
-
-instance NFData UpdateInstanceStorageConfig
-
-instance ToHeaders UpdateInstanceStorageConfig where
+instance Lude.ToHeaders UpdateInstanceStorageConfig where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateInstanceStorageConfig where
+instance Lude.ToJSON UpdateInstanceStorageConfig where
   toJSON UpdateInstanceStorageConfig' {..} =
-    object (catMaybes [Just ("StorageConfig" .= _uiscStorageConfig)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("StorageConfig" Lude..= storageConfig)]
+      )
 
-instance ToPath UpdateInstanceStorageConfig where
+instance Lude.ToPath UpdateInstanceStorageConfig where
   toPath UpdateInstanceStorageConfig' {..} =
-    mconcat
+    Lude.mconcat
       [ "/instance/",
-        toBS _uiscInstanceId,
+        Lude.toBS instanceId,
         "/storage-config/",
-        toBS _uiscAssociationId
+        Lude.toBS associationId
       ]
 
-instance ToQuery UpdateInstanceStorageConfig where
+instance Lude.ToQuery UpdateInstanceStorageConfig where
   toQuery UpdateInstanceStorageConfig' {..} =
-    mconcat ["resourceType" =: _uiscResourceType]
+    Lude.mconcat ["resourceType" Lude.=: resourceType]
 
--- | /See:/ 'updateInstanceStorageConfigResponse' smart constructor.
+-- | /See:/ 'mkUpdateInstanceStorageConfigResponse' smart constructor.
 data UpdateInstanceStorageConfigResponse = UpdateInstanceStorageConfigResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInstanceStorageConfigResponse' with the minimum fields required to make a request.
-updateInstanceStorageConfigResponse ::
+mkUpdateInstanceStorageConfigResponse ::
   UpdateInstanceStorageConfigResponse
-updateInstanceStorageConfigResponse =
+mkUpdateInstanceStorageConfigResponse =
   UpdateInstanceStorageConfigResponse'
-
-instance NFData UpdateInstanceStorageConfigResponse

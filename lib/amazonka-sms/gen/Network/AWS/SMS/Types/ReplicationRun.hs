@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,140 +7,211 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ReplicationRun where
+module Network.AWS.SMS.Types.ReplicationRun
+  ( ReplicationRun (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReplicationRun,
+
+    -- * Lenses
+    rrState,
+    rrReplicationRunId,
+    rrEncrypted,
+    rrStageDetails,
+    rrScheduledStartTime,
+    rrStatusMessage,
+    rrKmsKeyId,
+    rrCompletedTime,
+    rrAmiId,
+    rrType,
+    rrDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.ReplicationRunStageDetails
 import Network.AWS.SMS.Types.ReplicationRunState
 import Network.AWS.SMS.Types.ReplicationRunType
 
 -- | Represents a replication run.
 --
---
---
--- /See:/ 'replicationRun' smart constructor.
+-- /See:/ 'mkReplicationRun' smart constructor.
 data ReplicationRun = ReplicationRun'
-  { _rrState ::
-      !(Maybe ReplicationRunState),
-    _rrReplicationRunId :: !(Maybe Text),
-    _rrEncrypted :: !(Maybe Bool),
-    _rrStageDetails :: !(Maybe ReplicationRunStageDetails),
-    _rrScheduledStartTime :: !(Maybe POSIX),
-    _rrStatusMessage :: !(Maybe Text),
-    _rrKmsKeyId :: !(Maybe Text),
-    _rrCompletedTime :: !(Maybe POSIX),
-    _rrAmiId :: !(Maybe Text),
-    _rrType :: !(Maybe ReplicationRunType),
-    _rrDescription :: !(Maybe Text)
+  { state ::
+      Lude.Maybe ReplicationRunState,
+    replicationRunId :: Lude.Maybe Lude.Text,
+    encrypted :: Lude.Maybe Lude.Bool,
+    stageDetails :: Lude.Maybe ReplicationRunStageDetails,
+    scheduledStartTime :: Lude.Maybe Lude.Timestamp,
+    statusMessage :: Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    completedTime :: Lude.Maybe Lude.Timestamp,
+    amiId :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe ReplicationRunType,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'amiId' - The ID of the Amazon Machine Image (AMI) from the replication run.
+-- * 'completedTime' - The completion time of the last replication run.
+-- * 'description' - The description of the replication run.
+-- * 'encrypted' - Indicates whether the replication run should produce an encrypted AMI.
+-- * 'kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
 --
--- * 'rrState' - The state of the replication run.
 --
--- * 'rrReplicationRunId' - The ID of the replication run.
+--     * KMS key ID
 --
--- * 'rrEncrypted' - Indicates whether the replication run should produce an encrypted AMI.
 --
--- * 'rrStageDetails' - Details about the current stage of the replication run.
+--     * KMS key alias
 --
--- * 'rrScheduledStartTime' - The start time of the next replication run.
 --
--- * 'rrStatusMessage' - The description of the current status of the replication job.
+--     * ARN referring to the KMS key ID
 --
--- * 'rrKmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:     * KMS key ID     * KMS key alias     * ARN referring to the KMS key ID     * ARN referring to the KMS key alias If encrypted is /true/ but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
 --
--- * 'rrCompletedTime' - The completion time of the last replication run.
+--     * ARN referring to the KMS key alias
 --
--- * 'rrAmiId' - The ID of the Amazon Machine Image (AMI) from the replication run.
 --
--- * 'rrType' - The type of replication run.
---
--- * 'rrDescription' - The description of the replication run.
-replicationRun ::
+-- If encrypted is /true/ but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
+-- * 'replicationRunId' - The ID of the replication run.
+-- * 'scheduledStartTime' - The start time of the next replication run.
+-- * 'stageDetails' - Details about the current stage of the replication run.
+-- * 'state' - The state of the replication run.
+-- * 'statusMessage' - The description of the current status of the replication job.
+-- * 'type'' - The type of replication run.
+mkReplicationRun ::
   ReplicationRun
-replicationRun =
+mkReplicationRun =
   ReplicationRun'
-    { _rrState = Nothing,
-      _rrReplicationRunId = Nothing,
-      _rrEncrypted = Nothing,
-      _rrStageDetails = Nothing,
-      _rrScheduledStartTime = Nothing,
-      _rrStatusMessage = Nothing,
-      _rrKmsKeyId = Nothing,
-      _rrCompletedTime = Nothing,
-      _rrAmiId = Nothing,
-      _rrType = Nothing,
-      _rrDescription = Nothing
+    { state = Lude.Nothing,
+      replicationRunId = Lude.Nothing,
+      encrypted = Lude.Nothing,
+      stageDetails = Lude.Nothing,
+      scheduledStartTime = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      completedTime = Lude.Nothing,
+      amiId = Lude.Nothing,
+      type' = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The state of the replication run.
-rrState :: Lens' ReplicationRun (Maybe ReplicationRunState)
-rrState = lens _rrState (\s a -> s {_rrState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrState :: Lens.Lens' ReplicationRun (Lude.Maybe ReplicationRunState)
+rrState = Lens.lens (state :: ReplicationRun -> Lude.Maybe ReplicationRunState) (\s a -> s {state = a} :: ReplicationRun)
+{-# DEPRECATED rrState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the replication run.
-rrReplicationRunId :: Lens' ReplicationRun (Maybe Text)
-rrReplicationRunId = lens _rrReplicationRunId (\s a -> s {_rrReplicationRunId = a})
+--
+-- /Note:/ Consider using 'replicationRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrReplicationRunId :: Lens.Lens' ReplicationRun (Lude.Maybe Lude.Text)
+rrReplicationRunId = Lens.lens (replicationRunId :: ReplicationRun -> Lude.Maybe Lude.Text) (\s a -> s {replicationRunId = a} :: ReplicationRun)
+{-# DEPRECATED rrReplicationRunId "Use generic-lens or generic-optics with 'replicationRunId' instead." #-}
 
 -- | Indicates whether the replication run should produce an encrypted AMI.
-rrEncrypted :: Lens' ReplicationRun (Maybe Bool)
-rrEncrypted = lens _rrEncrypted (\s a -> s {_rrEncrypted = a})
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrEncrypted :: Lens.Lens' ReplicationRun (Lude.Maybe Lude.Bool)
+rrEncrypted = Lens.lens (encrypted :: ReplicationRun -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: ReplicationRun)
+{-# DEPRECATED rrEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
 -- | Details about the current stage of the replication run.
-rrStageDetails :: Lens' ReplicationRun (Maybe ReplicationRunStageDetails)
-rrStageDetails = lens _rrStageDetails (\s a -> s {_rrStageDetails = a})
+--
+-- /Note:/ Consider using 'stageDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrStageDetails :: Lens.Lens' ReplicationRun (Lude.Maybe ReplicationRunStageDetails)
+rrStageDetails = Lens.lens (stageDetails :: ReplicationRun -> Lude.Maybe ReplicationRunStageDetails) (\s a -> s {stageDetails = a} :: ReplicationRun)
+{-# DEPRECATED rrStageDetails "Use generic-lens or generic-optics with 'stageDetails' instead." #-}
 
 -- | The start time of the next replication run.
-rrScheduledStartTime :: Lens' ReplicationRun (Maybe UTCTime)
-rrScheduledStartTime = lens _rrScheduledStartTime (\s a -> s {_rrScheduledStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'scheduledStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrScheduledStartTime :: Lens.Lens' ReplicationRun (Lude.Maybe Lude.Timestamp)
+rrScheduledStartTime = Lens.lens (scheduledStartTime :: ReplicationRun -> Lude.Maybe Lude.Timestamp) (\s a -> s {scheduledStartTime = a} :: ReplicationRun)
+{-# DEPRECATED rrScheduledStartTime "Use generic-lens or generic-optics with 'scheduledStartTime' instead." #-}
 
 -- | The description of the current status of the replication job.
-rrStatusMessage :: Lens' ReplicationRun (Maybe Text)
-rrStatusMessage = lens _rrStatusMessage (\s a -> s {_rrStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrStatusMessage :: Lens.Lens' ReplicationRun (Lude.Maybe Lude.Text)
+rrStatusMessage = Lens.lens (statusMessage :: ReplicationRun -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ReplicationRun)
+{-# DEPRECATED rrStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
--- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:     * KMS key ID     * KMS key alias     * ARN referring to the KMS key ID     * ARN referring to the KMS key alias If encrypted is /true/ but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
-rrKmsKeyId :: Lens' ReplicationRun (Maybe Text)
-rrKmsKeyId = lens _rrKmsKeyId (\s a -> s {_rrKmsKeyId = a})
+-- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
+--
+--
+--     * KMS key ID
+--
+--
+--     * KMS key alias
+--
+--
+--     * ARN referring to the KMS key ID
+--
+--
+--     * ARN referring to the KMS key alias
+--
+--
+-- If encrypted is /true/ but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrKmsKeyId :: Lens.Lens' ReplicationRun (Lude.Maybe Lude.Text)
+rrKmsKeyId = Lens.lens (kmsKeyId :: ReplicationRun -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: ReplicationRun)
+{-# DEPRECATED rrKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The completion time of the last replication run.
-rrCompletedTime :: Lens' ReplicationRun (Maybe UTCTime)
-rrCompletedTime = lens _rrCompletedTime (\s a -> s {_rrCompletedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'completedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrCompletedTime :: Lens.Lens' ReplicationRun (Lude.Maybe Lude.Timestamp)
+rrCompletedTime = Lens.lens (completedTime :: ReplicationRun -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedTime = a} :: ReplicationRun)
+{-# DEPRECATED rrCompletedTime "Use generic-lens or generic-optics with 'completedTime' instead." #-}
 
 -- | The ID of the Amazon Machine Image (AMI) from the replication run.
-rrAmiId :: Lens' ReplicationRun (Maybe Text)
-rrAmiId = lens _rrAmiId (\s a -> s {_rrAmiId = a})
+--
+-- /Note:/ Consider using 'amiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrAmiId :: Lens.Lens' ReplicationRun (Lude.Maybe Lude.Text)
+rrAmiId = Lens.lens (amiId :: ReplicationRun -> Lude.Maybe Lude.Text) (\s a -> s {amiId = a} :: ReplicationRun)
+{-# DEPRECATED rrAmiId "Use generic-lens or generic-optics with 'amiId' instead." #-}
 
 -- | The type of replication run.
-rrType :: Lens' ReplicationRun (Maybe ReplicationRunType)
-rrType = lens _rrType (\s a -> s {_rrType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrType :: Lens.Lens' ReplicationRun (Lude.Maybe ReplicationRunType)
+rrType = Lens.lens (type' :: ReplicationRun -> Lude.Maybe ReplicationRunType) (\s a -> s {type' = a} :: ReplicationRun)
+{-# DEPRECATED rrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The description of the replication run.
-rrDescription :: Lens' ReplicationRun (Maybe Text)
-rrDescription = lens _rrDescription (\s a -> s {_rrDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrDescription :: Lens.Lens' ReplicationRun (Lude.Maybe Lude.Text)
+rrDescription = Lens.lens (description :: ReplicationRun -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ReplicationRun)
+{-# DEPRECATED rrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ReplicationRun where
+instance Lude.FromJSON ReplicationRun where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReplicationRun"
       ( \x ->
           ReplicationRun'
-            <$> (x .:? "state")
-            <*> (x .:? "replicationRunId")
-            <*> (x .:? "encrypted")
-            <*> (x .:? "stageDetails")
-            <*> (x .:? "scheduledStartTime")
-            <*> (x .:? "statusMessage")
-            <*> (x .:? "kmsKeyId")
-            <*> (x .:? "completedTime")
-            <*> (x .:? "amiId")
-            <*> (x .:? "type")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "replicationRunId")
+            Lude.<*> (x Lude..:? "encrypted")
+            Lude.<*> (x Lude..:? "stageDetails")
+            Lude.<*> (x Lude..:? "scheduledStartTime")
+            Lude.<*> (x Lude..:? "statusMessage")
+            Lude.<*> (x Lude..:? "kmsKeyId")
+            Lude.<*> (x Lude..:? "completedTime")
+            Lude.<*> (x Lude..:? "amiId")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable ReplicationRun
-
-instance NFData ReplicationRun

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,124 @@
 --
 -- Retrieve the tags for a MediaConvert resource.
 module Network.AWS.MediaConvert.ListTagsForResource
-  ( -- * Creating a Request
-    listTagsForResource,
-    ListTagsForResource,
+  ( -- * Creating a request
+    ListTagsForResource (..),
+    mkListTagsForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfrARN,
 
-    -- * Destructuring the Response
-    listTagsForResourceResponse,
-    ListTagsForResourceResponse,
+    -- * Destructuring the response
+    ListTagsForResourceResponse (..),
+    mkListTagsForResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltfrrsResourceTags,
     ltfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTagsForResource' smart constructor.
+-- | /See:/ 'mkListTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-  { _ltfrARN ::
-      Text
+  { arn ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfrARN' - The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
-listTagsForResource ::
-  -- | 'ltfrARN'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
+mkListTagsForResource ::
+  -- | 'arn'
+  Lude.Text ->
   ListTagsForResource
-listTagsForResource pARN_ = ListTagsForResource' {_ltfrARN = pARN_}
+mkListTagsForResource pARN_ = ListTagsForResource' {arn = pARN_}
 
 -- | The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
-ltfrARN :: Lens' ListTagsForResource Text
-ltfrARN = lens _ltfrARN (\s a -> s {_ltfrARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrARN :: Lens.Lens' ListTagsForResource Lude.Text
+ltfrARN = Lens.lens (arn :: ListTagsForResource -> Lude.Text) (\s a -> s {arn = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest ListTagsForResource where
+instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
-  request = get mediaConvert
+  request = Req.get mediaConvertService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            <$> (x .?> "resourceTags") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "resourceTags") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTagsForResource
-
-instance NFData ListTagsForResource
-
-instance ToHeaders ListTagsForResource where
+instance Lude.ToHeaders ListTagsForResource where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListTagsForResource where
+instance Lude.ToPath ListTagsForResource where
   toPath ListTagsForResource' {..} =
-    mconcat ["/2017-08-29/tags/", toBS _ltfrARN]
+    Lude.mconcat ["/2017-08-29/tags/", Lude.toBS arn]
 
-instance ToQuery ListTagsForResource where
-  toQuery = const mempty
+instance Lude.ToQuery ListTagsForResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTagsForResourceResponse' smart constructor.
+-- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { _ltfrrsResourceTags ::
-      !(Maybe ResourceTags),
-    _ltfrrsResponseStatus :: !Int
+  { resourceTags ::
+      Lude.Maybe ResourceTags,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfrrsResourceTags' - The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
---
--- * 'ltfrrsResponseStatus' - -- | The response status code.
-listTagsForResourceResponse ::
-  -- | 'ltfrrsResponseStatus'
-  Int ->
+-- * 'resourceTags' - The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+-- * 'responseStatus' - The response status code.
+mkListTagsForResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForResourceResponse
-listTagsForResourceResponse pResponseStatus_ =
+mkListTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-    { _ltfrrsResourceTags = Nothing,
-      _ltfrrsResponseStatus = pResponseStatus_
+    { resourceTags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
-ltfrrsResourceTags :: Lens' ListTagsForResourceResponse (Maybe ResourceTags)
-ltfrrsResourceTags = lens _ltfrrsResourceTags (\s a -> s {_ltfrrsResourceTags = a})
+--
+-- /Note:/ Consider using 'resourceTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsResourceTags :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe ResourceTags)
+ltfrrsResourceTags = Lens.lens (resourceTags :: ListTagsForResourceResponse -> Lude.Maybe ResourceTags) (\s a -> s {resourceTags = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsResourceTags "Use generic-lens or generic-optics with 'resourceTags' instead." #-}
 
--- | -- | The response status code.
-ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\s a -> s {_ltfrrsResponseStatus = a})
-
-instance NFData ListTagsForResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
+ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

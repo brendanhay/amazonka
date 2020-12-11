@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10 times per second, per account.
 --
---
 -- For an overview on tagging DynamoDB resources, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB> in the /Amazon DynamoDB Developer Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.DynamoDB.ListTagsOfResource
-  ( -- * Creating a Request
-    listTagsOfResource,
-    ListTagsOfResource,
+  ( -- * Creating a request
+    ListTagsOfResource (..),
+    mkListTagsOfResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltorNextToken,
     ltorResourceARN,
 
-    -- * Destructuring the Response
-    listTagsOfResourceResponse,
-    ListTagsOfResourceResponse,
+    -- * Destructuring the response
+    ListTagsOfResourceResponse (..),
+    mkListTagsOfResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltorrsNextToken,
     ltorrsTags,
     ltorrsResponseStatus,
@@ -45,131 +38,151 @@ module Network.AWS.DynamoDB.ListTagsOfResource
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTagsOfResource' smart constructor.
+-- | /See:/ 'mkListTagsOfResource' smart constructor.
 data ListTagsOfResource = ListTagsOfResource'
-  { _ltorNextToken ::
-      !(Maybe Text),
-    _ltorResourceARN :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsOfResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltorNextToken' - An optional string that, if supplied, must be copied from the output of a previous call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.
---
--- * 'ltorResourceARN' - The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).
-listTagsOfResource ::
-  -- | 'ltorResourceARN'
-  Text ->
+-- * 'nextToken' - An optional string that, if supplied, must be copied from the output of a previous call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.
+-- * 'resourceARN' - The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).
+mkListTagsOfResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   ListTagsOfResource
-listTagsOfResource pResourceARN_ =
+mkListTagsOfResource pResourceARN_ =
   ListTagsOfResource'
-    { _ltorNextToken = Nothing,
-      _ltorResourceARN = pResourceARN_
+    { nextToken = Lude.Nothing,
+      resourceARN = pResourceARN_
     }
 
 -- | An optional string that, if supplied, must be copied from the output of a previous call to ListTagOfResource. When provided in this manner, this API fetches the next page of results.
-ltorNextToken :: Lens' ListTagsOfResource (Maybe Text)
-ltorNextToken = lens _ltorNextToken (\s a -> s {_ltorNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltorNextToken :: Lens.Lens' ListTagsOfResource (Lude.Maybe Lude.Text)
+ltorNextToken = Lens.lens (nextToken :: ListTagsOfResource -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsOfResource)
+{-# DEPRECATED ltorNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).
-ltorResourceARN :: Lens' ListTagsOfResource Text
-ltorResourceARN = lens _ltorResourceARN (\s a -> s {_ltorResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltorResourceARN :: Lens.Lens' ListTagsOfResource Lude.Text
+ltorResourceARN = Lens.lens (resourceARN :: ListTagsOfResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsOfResource)
+{-# DEPRECATED ltorResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSPager ListTagsOfResource where
+instance Page.AWSPager ListTagsOfResource where
   page rq rs
-    | stop (rs ^. ltorrsNextToken) = Nothing
-    | stop (rs ^. ltorrsTags) = Nothing
-    | otherwise = Just $ rq & ltorNextToken .~ rs ^. ltorrsNextToken
+    | Page.stop (rs Lens.^. ltorrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltorrsTags) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltorNextToken Lens..~ rs Lens.^. ltorrsNextToken
 
-instance AWSRequest ListTagsOfResource where
+instance Lude.AWSRequest ListTagsOfResource where
   type Rs ListTagsOfResource = ListTagsOfResourceResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsOfResourceResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTagsOfResource
-
-instance NFData ListTagsOfResource
-
-instance ToHeaders ListTagsOfResource where
+instance Lude.ToHeaders ListTagsOfResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.ListTagsOfResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.ListTagsOfResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTagsOfResource where
+instance Lude.ToJSON ListTagsOfResource where
   toJSON ListTagsOfResource' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ltorNextToken,
-            Just ("ResourceArn" .= _ltorResourceARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("ResourceArn" Lude..= resourceARN)
           ]
       )
 
-instance ToPath ListTagsOfResource where
-  toPath = const "/"
+instance Lude.ToPath ListTagsOfResource where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTagsOfResource where
-  toQuery = const mempty
+instance Lude.ToQuery ListTagsOfResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTagsOfResourceResponse' smart constructor.
+-- | /See:/ 'mkListTagsOfResourceResponse' smart constructor.
 data ListTagsOfResourceResponse = ListTagsOfResourceResponse'
-  { _ltorrsNextToken ::
-      !(Maybe Text),
-    _ltorrsTags :: !(Maybe [Tag]),
-    _ltorrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsOfResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltorrsNextToken' - If this value is returned, there are additional results to be displayed. To retrieve them, call ListTagsOfResource again, with NextToken set to this value.
---
--- * 'ltorrsTags' - The tags currently associated with the Amazon DynamoDB resource.
---
--- * 'ltorrsResponseStatus' - -- | The response status code.
-listTagsOfResourceResponse ::
-  -- | 'ltorrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If this value is returned, there are additional results to be displayed. To retrieve them, call ListTagsOfResource again, with NextToken set to this value.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The tags currently associated with the Amazon DynamoDB resource.
+mkListTagsOfResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsOfResourceResponse
-listTagsOfResourceResponse pResponseStatus_ =
+mkListTagsOfResourceResponse pResponseStatus_ =
   ListTagsOfResourceResponse'
-    { _ltorrsNextToken = Nothing,
-      _ltorrsTags = Nothing,
-      _ltorrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If this value is returned, there are additional results to be displayed. To retrieve them, call ListTagsOfResource again, with NextToken set to this value.
-ltorrsNextToken :: Lens' ListTagsOfResourceResponse (Maybe Text)
-ltorrsNextToken = lens _ltorrsNextToken (\s a -> s {_ltorrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltorrsNextToken :: Lens.Lens' ListTagsOfResourceResponse (Lude.Maybe Lude.Text)
+ltorrsNextToken = Lens.lens (nextToken :: ListTagsOfResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsOfResourceResponse)
+{-# DEPRECATED ltorrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The tags currently associated with the Amazon DynamoDB resource.
-ltorrsTags :: Lens' ListTagsOfResourceResponse [Tag]
-ltorrsTags = lens _ltorrsTags (\s a -> s {_ltorrsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltorrsTags :: Lens.Lens' ListTagsOfResourceResponse (Lude.Maybe [Tag])
+ltorrsTags = Lens.lens (tags :: ListTagsOfResourceResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ListTagsOfResourceResponse)
+{-# DEPRECATED ltorrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ltorrsResponseStatus :: Lens' ListTagsOfResourceResponse Int
-ltorrsResponseStatus = lens _ltorrsResponseStatus (\s a -> s {_ltorrsResponseStatus = a})
-
-instance NFData ListTagsOfResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltorrsResponseStatus :: Lens.Lens' ListTagsOfResourceResponse Lude.Int
+ltorrsResponseStatus = Lens.lens (responseStatus :: ListTagsOfResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsOfResourceResponse)
+{-# DEPRECATED ltorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

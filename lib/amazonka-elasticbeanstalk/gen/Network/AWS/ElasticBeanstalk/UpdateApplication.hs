@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,97 @@
 --
 -- Updates the specified application to have the specified properties.
 module Network.AWS.ElasticBeanstalk.UpdateApplication
-  ( -- * Creating a Request
-    updateApplication,
-    UpdateApplication,
+  ( -- * Creating a request
+    UpdateApplication (..),
+    mkUpdateApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaDescription,
     uaApplicationName,
 
-    -- * Destructuring the Response
-    applicationDescriptionMessage,
-    ApplicationDescriptionMessage,
+    -- * Destructuring the response
+    ApplicationDescriptionMessage (..),
+    mkApplicationDescriptionMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     admApplication,
   )
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to update an application.
 --
---
---
--- /See:/ 'updateApplication' smart constructor.
+-- /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { _uaDescription ::
-      !(Maybe Text),
-    _uaApplicationName :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    applicationName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationName' - The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+-- * 'description' - A new description for the application.
 --
--- * 'uaDescription' - A new description for the application. Default: If not specified, AWS Elastic Beanstalk does not update the description.
---
--- * 'uaApplicationName' - The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-updateApplication ::
-  -- | 'uaApplicationName'
-  Text ->
+-- Default: If not specified, AWS Elastic Beanstalk does not update the description.
+mkUpdateApplication ::
+  -- | 'applicationName'
+  Lude.Text ->
   UpdateApplication
-updateApplication pApplicationName_ =
+mkUpdateApplication pApplicationName_ =
   UpdateApplication'
-    { _uaDescription = Nothing,
-      _uaApplicationName = pApplicationName_
+    { description = Lude.Nothing,
+      applicationName = pApplicationName_
     }
 
--- | A new description for the application. Default: If not specified, AWS Elastic Beanstalk does not update the description.
-uaDescription :: Lens' UpdateApplication (Maybe Text)
-uaDescription = lens _uaDescription (\s a -> s {_uaDescription = a})
+-- | A new description for the application.
+--
+-- Default: If not specified, AWS Elastic Beanstalk does not update the description.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaDescription :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
+uaDescription = Lens.lens (description :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApplication)
+{-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the application to update. If no such application is found, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-uaApplicationName :: Lens' UpdateApplication Text
-uaApplicationName = lens _uaApplicationName (\s a -> s {_uaApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaApplicationName :: Lens.Lens' UpdateApplication Lude.Text
+uaApplicationName = Lens.lens (applicationName :: UpdateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplication)
+{-# DEPRECATED uaApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSRequest UpdateApplication where
+instance Lude.AWSRequest UpdateApplication where
   type Rs UpdateApplication = ApplicationDescriptionMessage
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "UpdateApplicationResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable UpdateApplication
+instance Lude.ToHeaders UpdateApplication where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateApplication
+instance Lude.ToPath UpdateApplication where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateApplication where
-  toHeaders = const mempty
-
-instance ToPath UpdateApplication where
-  toPath = const "/"
-
-instance ToQuery UpdateApplication where
+instance Lude.ToQuery UpdateApplication where
   toQuery UpdateApplication' {..} =
-    mconcat
-      [ "Action" =: ("UpdateApplication" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Description" =: _uaDescription,
-        "ApplicationName" =: _uaApplicationName
+    Lude.mconcat
+      [ "Action" Lude.=: ("UpdateApplication" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Description" Lude.=: description,
+        "ApplicationName" Lude.=: applicationName
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.AppsListDataSummary where
+module Network.AWS.FMS.Types.AppsListDataSummary
+  ( AppsListDataSummary (..),
+
+    -- * Smart constructor
+    mkAppsListDataSummary,
+
+    -- * Lenses
+    aldsListARN,
+    aldsAppsList,
+    aldsListId,
+    aldsListName,
+  )
+where
 
 import Network.AWS.FMS.Types.App
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details of the AWS Firewall Manager applications list.
 --
---
---
--- /See:/ 'appsListDataSummary' smart constructor.
+-- /See:/ 'mkAppsListDataSummary' smart constructor.
 data AppsListDataSummary = AppsListDataSummary'
-  { _aldsListARN ::
-      !(Maybe Text),
-    _aldsAppsList :: !(Maybe [App]),
-    _aldsListId :: !(Maybe Text),
-    _aldsListName :: !(Maybe Text)
+  { listARN ::
+      Lude.Maybe Lude.Text,
+    appsList :: Lude.Maybe [App],
+    listId :: Lude.Maybe Lude.Text,
+    listName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppsListDataSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aldsListARN' - The Amazon Resource Name (ARN) of the applications list.
---
--- * 'aldsAppsList' - An array of @App@ objects in the AWS Firewall Manager applications list.
---
--- * 'aldsListId' - The ID of the applications list.
---
--- * 'aldsListName' - The name of the applications list.
-appsListDataSummary ::
+-- * 'appsList' - An array of @App@ objects in the AWS Firewall Manager applications list.
+-- * 'listARN' - The Amazon Resource Name (ARN) of the applications list.
+-- * 'listId' - The ID of the applications list.
+-- * 'listName' - The name of the applications list.
+mkAppsListDataSummary ::
   AppsListDataSummary
-appsListDataSummary =
+mkAppsListDataSummary =
   AppsListDataSummary'
-    { _aldsListARN = Nothing,
-      _aldsAppsList = Nothing,
-      _aldsListId = Nothing,
-      _aldsListName = Nothing
+    { listARN = Lude.Nothing,
+      appsList = Lude.Nothing,
+      listId = Lude.Nothing,
+      listName = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the applications list.
-aldsListARN :: Lens' AppsListDataSummary (Maybe Text)
-aldsListARN = lens _aldsListARN (\s a -> s {_aldsListARN = a})
+--
+-- /Note:/ Consider using 'listARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldsListARN :: Lens.Lens' AppsListDataSummary (Lude.Maybe Lude.Text)
+aldsListARN = Lens.lens (listARN :: AppsListDataSummary -> Lude.Maybe Lude.Text) (\s a -> s {listARN = a} :: AppsListDataSummary)
+{-# DEPRECATED aldsListARN "Use generic-lens or generic-optics with 'listARN' instead." #-}
 
 -- | An array of @App@ objects in the AWS Firewall Manager applications list.
-aldsAppsList :: Lens' AppsListDataSummary [App]
-aldsAppsList = lens _aldsAppsList (\s a -> s {_aldsAppsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'appsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldsAppsList :: Lens.Lens' AppsListDataSummary (Lude.Maybe [App])
+aldsAppsList = Lens.lens (appsList :: AppsListDataSummary -> Lude.Maybe [App]) (\s a -> s {appsList = a} :: AppsListDataSummary)
+{-# DEPRECATED aldsAppsList "Use generic-lens or generic-optics with 'appsList' instead." #-}
 
 -- | The ID of the applications list.
-aldsListId :: Lens' AppsListDataSummary (Maybe Text)
-aldsListId = lens _aldsListId (\s a -> s {_aldsListId = a})
+--
+-- /Note:/ Consider using 'listId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldsListId :: Lens.Lens' AppsListDataSummary (Lude.Maybe Lude.Text)
+aldsListId = Lens.lens (listId :: AppsListDataSummary -> Lude.Maybe Lude.Text) (\s a -> s {listId = a} :: AppsListDataSummary)
+{-# DEPRECATED aldsListId "Use generic-lens or generic-optics with 'listId' instead." #-}
 
 -- | The name of the applications list.
-aldsListName :: Lens' AppsListDataSummary (Maybe Text)
-aldsListName = lens _aldsListName (\s a -> s {_aldsListName = a})
+--
+-- /Note:/ Consider using 'listName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldsListName :: Lens.Lens' AppsListDataSummary (Lude.Maybe Lude.Text)
+aldsListName = Lens.lens (listName :: AppsListDataSummary -> Lude.Maybe Lude.Text) (\s a -> s {listName = a} :: AppsListDataSummary)
+{-# DEPRECATED aldsListName "Use generic-lens or generic-optics with 'listName' instead." #-}
 
-instance FromJSON AppsListDataSummary where
+instance Lude.FromJSON AppsListDataSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "AppsListDataSummary"
       ( \x ->
           AppsListDataSummary'
-            <$> (x .:? "ListArn")
-            <*> (x .:? "AppsList" .!= mempty)
-            <*> (x .:? "ListId")
-            <*> (x .:? "ListName")
+            Lude.<$> (x Lude..:? "ListArn")
+            Lude.<*> (x Lude..:? "AppsList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ListId")
+            Lude.<*> (x Lude..:? "ListName")
       )
-
-instance Hashable AppsListDataSummary
-
-instance NFData AppsListDataSummary

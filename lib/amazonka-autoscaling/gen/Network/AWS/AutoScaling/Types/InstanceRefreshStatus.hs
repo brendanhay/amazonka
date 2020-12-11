@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.InstanceRefreshStatus where
+module Network.AWS.AutoScaling.Types.InstanceRefreshStatus
+  ( InstanceRefreshStatus
+      ( InstanceRefreshStatus',
+        IRSCancelled,
+        IRSCancelling,
+        IRSFailed,
+        IRSInProgress,
+        IRSPending,
+        IRSSuccessful
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceRefreshStatus
-  = IRSCancelled
-  | IRSCancelling
-  | IRSFailed
-  | IRSInProgress
-  | IRSPending
-  | IRSSuccessful
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceRefreshStatus = InstanceRefreshStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceRefreshStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure IRSCancelled
-      "cancelling" -> pure IRSCancelling
-      "failed" -> pure IRSFailed
-      "inprogress" -> pure IRSInProgress
-      "pending" -> pure IRSPending
-      "successful" -> pure IRSSuccessful
-      e ->
-        fromTextError $
-          "Failure parsing InstanceRefreshStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, cancelling, failed, inprogress, pending, successful"
+pattern IRSCancelled :: InstanceRefreshStatus
+pattern IRSCancelled = InstanceRefreshStatus' "Cancelled"
 
-instance ToText InstanceRefreshStatus where
-  toText = \case
-    IRSCancelled -> "Cancelled"
-    IRSCancelling -> "Cancelling"
-    IRSFailed -> "Failed"
-    IRSInProgress -> "InProgress"
-    IRSPending -> "Pending"
-    IRSSuccessful -> "Successful"
+pattern IRSCancelling :: InstanceRefreshStatus
+pattern IRSCancelling = InstanceRefreshStatus' "Cancelling"
 
-instance Hashable InstanceRefreshStatus
+pattern IRSFailed :: InstanceRefreshStatus
+pattern IRSFailed = InstanceRefreshStatus' "Failed"
 
-instance NFData InstanceRefreshStatus
+pattern IRSInProgress :: InstanceRefreshStatus
+pattern IRSInProgress = InstanceRefreshStatus' "InProgress"
 
-instance ToByteString InstanceRefreshStatus
+pattern IRSPending :: InstanceRefreshStatus
+pattern IRSPending = InstanceRefreshStatus' "Pending"
 
-instance ToQuery InstanceRefreshStatus
+pattern IRSSuccessful :: InstanceRefreshStatus
+pattern IRSSuccessful = InstanceRefreshStatus' "Successful"
 
-instance ToHeader InstanceRefreshStatus
-
-instance FromXML InstanceRefreshStatus where
-  parseXML = parseXMLText "InstanceRefreshStatus"
+{-# COMPLETE
+  IRSCancelled,
+  IRSCancelling,
+  IRSFailed,
+  IRSInProgress,
+  IRSPending,
+  IRSSuccessful,
+  InstanceRefreshStatus'
+  #-}

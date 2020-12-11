@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,141 @@
 --
 -- Removes the association between a template and a repository so that approval rules based on the template are not automatically created when pull requests are created in the specified repository. This does not delete any approval rules previously created for pull requests through the template association.
 module Network.AWS.CodeCommit.DisassociateApprovalRuleTemplateFromRepository
-  ( -- * Creating a Request
-    disassociateApprovalRuleTemplateFromRepository,
-    DisassociateApprovalRuleTemplateFromRepository,
+  ( -- * Creating a request
+    DisassociateApprovalRuleTemplateFromRepository (..),
+    mkDisassociateApprovalRuleTemplateFromRepository,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dartfrApprovalRuleTemplateName,
     dartfrRepositoryName,
 
-    -- * Destructuring the Response
-    disassociateApprovalRuleTemplateFromRepositoryResponse,
-    DisassociateApprovalRuleTemplateFromRepositoryResponse,
+    -- * Destructuring the response
+    DisassociateApprovalRuleTemplateFromRepositoryResponse (..),
+    mkDisassociateApprovalRuleTemplateFromRepositoryResponse,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateApprovalRuleTemplateFromRepository' smart constructor.
+-- | /See:/ 'mkDisassociateApprovalRuleTemplateFromRepository' smart constructor.
 data DisassociateApprovalRuleTemplateFromRepository = DisassociateApprovalRuleTemplateFromRepository'
-  { _dartfrApprovalRuleTemplateName ::
-      !Text,
-    _dartfrRepositoryName ::
-      !Text
+  { approvalRuleTemplateName ::
+      Lude.Text,
+    repositoryName ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DisassociateApprovalRuleTemplateFromRepository' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dartfrApprovalRuleTemplateName' - The name of the approval rule template to disassociate from a specified repository.
---
--- * 'dartfrRepositoryName' - The name of the repository you want to disassociate from the template.
-disassociateApprovalRuleTemplateFromRepository ::
-  -- | 'dartfrApprovalRuleTemplateName'
-  Text ->
-  -- | 'dartfrRepositoryName'
-  Text ->
+-- * 'approvalRuleTemplateName' - The name of the approval rule template to disassociate from a specified repository.
+-- * 'repositoryName' - The name of the repository you want to disassociate from the template.
+mkDisassociateApprovalRuleTemplateFromRepository ::
+  -- | 'approvalRuleTemplateName'
+  Lude.Text ->
+  -- | 'repositoryName'
+  Lude.Text ->
   DisassociateApprovalRuleTemplateFromRepository
-disassociateApprovalRuleTemplateFromRepository
+mkDisassociateApprovalRuleTemplateFromRepository
   pApprovalRuleTemplateName_
   pRepositoryName_ =
     DisassociateApprovalRuleTemplateFromRepository'
-      { _dartfrApprovalRuleTemplateName =
+      { approvalRuleTemplateName =
           pApprovalRuleTemplateName_,
-        _dartfrRepositoryName = pRepositoryName_
+        repositoryName = pRepositoryName_
       }
 
 -- | The name of the approval rule template to disassociate from a specified repository.
-dartfrApprovalRuleTemplateName :: Lens' DisassociateApprovalRuleTemplateFromRepository Text
-dartfrApprovalRuleTemplateName = lens _dartfrApprovalRuleTemplateName (\s a -> s {_dartfrApprovalRuleTemplateName = a})
+--
+-- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dartfrApprovalRuleTemplateName :: Lens.Lens' DisassociateApprovalRuleTemplateFromRepository Lude.Text
+dartfrApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: DisassociateApprovalRuleTemplateFromRepository -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: DisassociateApprovalRuleTemplateFromRepository)
+{-# DEPRECATED dartfrApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
 -- | The name of the repository you want to disassociate from the template.
-dartfrRepositoryName :: Lens' DisassociateApprovalRuleTemplateFromRepository Text
-dartfrRepositoryName = lens _dartfrRepositoryName (\s a -> s {_dartfrRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dartfrRepositoryName :: Lens.Lens' DisassociateApprovalRuleTemplateFromRepository Lude.Text
+dartfrRepositoryName = Lens.lens (repositoryName :: DisassociateApprovalRuleTemplateFromRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: DisassociateApprovalRuleTemplateFromRepository)
+{-# DEPRECATED dartfrRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest DisassociateApprovalRuleTemplateFromRepository where
+instance
+  Lude.AWSRequest
+    DisassociateApprovalRuleTemplateFromRepository
+  where
   type
     Rs DisassociateApprovalRuleTemplateFromRepository =
       DisassociateApprovalRuleTemplateFromRepositoryResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveNull
+    Res.receiveNull
       DisassociateApprovalRuleTemplateFromRepositoryResponse'
 
-instance Hashable DisassociateApprovalRuleTemplateFromRepository
-
-instance NFData DisassociateApprovalRuleTemplateFromRepository
-
-instance ToHeaders DisassociateApprovalRuleTemplateFromRepository where
+instance
+  Lude.ToHeaders
+    DisassociateApprovalRuleTemplateFromRepository
+  where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeCommit_20150413.DisassociateApprovalRuleTemplateFromRepository" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateApprovalRuleTemplateFromRepository where
+instance Lude.ToJSON DisassociateApprovalRuleTemplateFromRepository where
   toJSON DisassociateApprovalRuleTemplateFromRepository' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("approvalRuleTemplateName" .= _dartfrApprovalRuleTemplateName),
-            Just ("repositoryName" .= _dartfrRepositoryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName),
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
-instance ToPath DisassociateApprovalRuleTemplateFromRepository where
-  toPath = const "/"
+instance Lude.ToPath DisassociateApprovalRuleTemplateFromRepository where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateApprovalRuleTemplateFromRepository where
-  toQuery = const mempty
+instance
+  Lude.ToQuery
+    DisassociateApprovalRuleTemplateFromRepository
+  where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateApprovalRuleTemplateFromRepositoryResponse' smart constructor.
+-- | /See:/ 'mkDisassociateApprovalRuleTemplateFromRepositoryResponse' smart constructor.
 data DisassociateApprovalRuleTemplateFromRepositoryResponse = DisassociateApprovalRuleTemplateFromRepositoryResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DisassociateApprovalRuleTemplateFromRepositoryResponse' with the minimum fields required to make a request.
-disassociateApprovalRuleTemplateFromRepositoryResponse ::
+mkDisassociateApprovalRuleTemplateFromRepositoryResponse ::
   DisassociateApprovalRuleTemplateFromRepositoryResponse
-disassociateApprovalRuleTemplateFromRepositoryResponse =
+mkDisassociateApprovalRuleTemplateFromRepositoryResponse =
   DisassociateApprovalRuleTemplateFromRepositoryResponse'
-
-instance
-  NFData
-    DisassociateApprovalRuleTemplateFromRepositoryResponse

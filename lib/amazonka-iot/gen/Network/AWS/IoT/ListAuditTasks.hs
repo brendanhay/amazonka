@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists the Device Defender audits that have been performed during a given time period.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListAuditTasks
-  ( -- * Creating a Request
-    listAuditTasks,
-    ListAuditTasks,
+  ( -- * Creating a request
+    ListAuditTasks (..),
+    mkListAuditTasks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     latTaskType,
     latNextToken,
     latMaxResults,
@@ -35,11 +28,11 @@ module Network.AWS.IoT.ListAuditTasks
     latStartTime,
     latEndTime,
 
-    -- * Destructuring the Response
-    listAuditTasksResponse,
-    ListAuditTasksResponse,
+    -- * Destructuring the response
+    ListAuditTasksResponse (..),
+    mkListAuditTasksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     latrsTasks,
     latrsNextToken,
     latrsResponseStatus,
@@ -47,157 +40,184 @@ module Network.AWS.IoT.ListAuditTasks
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAuditTasks' smart constructor.
+-- | /See:/ 'mkListAuditTasks' smart constructor.
 data ListAuditTasks = ListAuditTasks'
-  { _latTaskType ::
-      !(Maybe AuditTaskType),
-    _latNextToken :: !(Maybe Text),
-    _latMaxResults :: !(Maybe Nat),
-    _latTaskStatus :: !(Maybe AuditTaskStatus),
-    _latStartTime :: !POSIX,
-    _latEndTime :: !POSIX
+  { taskType ::
+      Lude.Maybe AuditTaskType,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    taskStatus :: Lude.Maybe AuditTaskStatus,
+    startTime :: Lude.Timestamp,
+    endTime :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditTasks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'latTaskType' - A filter to limit the output to the specified type of audit: can be one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
---
--- * 'latNextToken' - The token for the next set of results.
---
--- * 'latMaxResults' - The maximum number of results to return at one time. The default is 25.
---
--- * 'latTaskStatus' - A filter to limit the output to audits with the specified completion status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
---
--- * 'latStartTime' - The beginning of the time period. Audit information is retained for a limited time (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".
---
--- * 'latEndTime' - The end of the time period.
-listAuditTasks ::
-  -- | 'latStartTime'
-  UTCTime ->
-  -- | 'latEndTime'
-  UTCTime ->
+-- * 'endTime' - The end of the time period.
+-- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'startTime' - The beginning of the time period. Audit information is retained for a limited time (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".
+-- * 'taskStatus' - A filter to limit the output to audits with the specified completion status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
+-- * 'taskType' - A filter to limit the output to the specified type of audit: can be one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
+mkListAuditTasks ::
+  -- | 'startTime'
+  Lude.Timestamp ->
+  -- | 'endTime'
+  Lude.Timestamp ->
   ListAuditTasks
-listAuditTasks pStartTime_ pEndTime_ =
+mkListAuditTasks pStartTime_ pEndTime_ =
   ListAuditTasks'
-    { _latTaskType = Nothing,
-      _latNextToken = Nothing,
-      _latMaxResults = Nothing,
-      _latTaskStatus = Nothing,
-      _latStartTime = _Time # pStartTime_,
-      _latEndTime = _Time # pEndTime_
+    { taskType = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      taskStatus = Lude.Nothing,
+      startTime = pStartTime_,
+      endTime = pEndTime_
     }
 
 -- | A filter to limit the output to the specified type of audit: can be one of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".
-latTaskType :: Lens' ListAuditTasks (Maybe AuditTaskType)
-latTaskType = lens _latTaskType (\s a -> s {_latTaskType = a})
+--
+-- /Note:/ Consider using 'taskType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latTaskType :: Lens.Lens' ListAuditTasks (Lude.Maybe AuditTaskType)
+latTaskType = Lens.lens (taskType :: ListAuditTasks -> Lude.Maybe AuditTaskType) (\s a -> s {taskType = a} :: ListAuditTasks)
+{-# DEPRECATED latTaskType "Use generic-lens or generic-optics with 'taskType' instead." #-}
 
 -- | The token for the next set of results.
-latNextToken :: Lens' ListAuditTasks (Maybe Text)
-latNextToken = lens _latNextToken (\s a -> s {_latNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latNextToken :: Lens.Lens' ListAuditTasks (Lude.Maybe Lude.Text)
+latNextToken = Lens.lens (nextToken :: ListAuditTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditTasks)
+{-# DEPRECATED latNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time. The default is 25.
-latMaxResults :: Lens' ListAuditTasks (Maybe Natural)
-latMaxResults = lens _latMaxResults (\s a -> s {_latMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latMaxResults :: Lens.Lens' ListAuditTasks (Lude.Maybe Lude.Natural)
+latMaxResults = Lens.lens (maxResults :: ListAuditTasks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAuditTasks)
+{-# DEPRECATED latMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A filter to limit the output to audits with the specified completion status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
-latTaskStatus :: Lens' ListAuditTasks (Maybe AuditTaskStatus)
-latTaskStatus = lens _latTaskStatus (\s a -> s {_latTaskStatus = a})
+--
+-- /Note:/ Consider using 'taskStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latTaskStatus :: Lens.Lens' ListAuditTasks (Lude.Maybe AuditTaskStatus)
+latTaskStatus = Lens.lens (taskStatus :: ListAuditTasks -> Lude.Maybe AuditTaskStatus) (\s a -> s {taskStatus = a} :: ListAuditTasks)
+{-# DEPRECATED latTaskStatus "Use generic-lens or generic-optics with 'taskStatus' instead." #-}
 
 -- | The beginning of the time period. Audit information is retained for a limited time (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".
-latStartTime :: Lens' ListAuditTasks UTCTime
-latStartTime = lens _latStartTime (\s a -> s {_latStartTime = a}) . _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latStartTime :: Lens.Lens' ListAuditTasks Lude.Timestamp
+latStartTime = Lens.lens (startTime :: ListAuditTasks -> Lude.Timestamp) (\s a -> s {startTime = a} :: ListAuditTasks)
+{-# DEPRECATED latStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end of the time period.
-latEndTime :: Lens' ListAuditTasks UTCTime
-latEndTime = lens _latEndTime (\s a -> s {_latEndTime = a}) . _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latEndTime :: Lens.Lens' ListAuditTasks Lude.Timestamp
+latEndTime = Lens.lens (endTime :: ListAuditTasks -> Lude.Timestamp) (\s a -> s {endTime = a} :: ListAuditTasks)
+{-# DEPRECATED latEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance AWSPager ListAuditTasks where
+instance Page.AWSPager ListAuditTasks where
   page rq rs
-    | stop (rs ^. latrsNextToken) = Nothing
-    | stop (rs ^. latrsTasks) = Nothing
-    | otherwise = Just $ rq & latNextToken .~ rs ^. latrsNextToken
+    | Page.stop (rs Lens.^. latrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. latrsTasks) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& latNextToken Lens..~ rs Lens.^. latrsNextToken
 
-instance AWSRequest ListAuditTasks where
+instance Lude.AWSRequest ListAuditTasks where
   type Rs ListAuditTasks = ListAuditTasksResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAuditTasksResponse'
-            <$> (x .?> "tasks" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "tasks" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAuditTasks
+instance Lude.ToHeaders ListAuditTasks where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListAuditTasks
+instance Lude.ToPath ListAuditTasks where
+  toPath = Lude.const "/audit/tasks"
 
-instance ToHeaders ListAuditTasks where
-  toHeaders = const mempty
-
-instance ToPath ListAuditTasks where
-  toPath = const "/audit/tasks"
-
-instance ToQuery ListAuditTasks where
+instance Lude.ToQuery ListAuditTasks where
   toQuery ListAuditTasks' {..} =
-    mconcat
-      [ "taskType" =: _latTaskType,
-        "nextToken" =: _latNextToken,
-        "maxResults" =: _latMaxResults,
-        "taskStatus" =: _latTaskStatus,
-        "startTime" =: _latStartTime,
-        "endTime" =: _latEndTime
+    Lude.mconcat
+      [ "taskType" Lude.=: taskType,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults,
+        "taskStatus" Lude.=: taskStatus,
+        "startTime" Lude.=: startTime,
+        "endTime" Lude.=: endTime
       ]
 
--- | /See:/ 'listAuditTasksResponse' smart constructor.
+-- | /See:/ 'mkListAuditTasksResponse' smart constructor.
 data ListAuditTasksResponse = ListAuditTasksResponse'
-  { _latrsTasks ::
-      !(Maybe [AuditTaskMetadata]),
-    _latrsNextToken :: !(Maybe Text),
-    _latrsResponseStatus :: !Int
+  { tasks ::
+      Lude.Maybe [AuditTaskMetadata],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditTasksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'latrsTasks' - The audits that were performed during the specified time period.
---
--- * 'latrsNextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
---
--- * 'latrsResponseStatus' - -- | The response status code.
-listAuditTasksResponse ::
-  -- | 'latrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'tasks' - The audits that were performed during the specified time period.
+mkListAuditTasksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAuditTasksResponse
-listAuditTasksResponse pResponseStatus_ =
+mkListAuditTasksResponse pResponseStatus_ =
   ListAuditTasksResponse'
-    { _latrsTasks = Nothing,
-      _latrsNextToken = Nothing,
-      _latrsResponseStatus = pResponseStatus_
+    { tasks = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The audits that were performed during the specified time period.
-latrsTasks :: Lens' ListAuditTasksResponse [AuditTaskMetadata]
-latrsTasks = lens _latrsTasks (\s a -> s {_latrsTasks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latrsTasks :: Lens.Lens' ListAuditTasksResponse (Lude.Maybe [AuditTaskMetadata])
+latrsTasks = Lens.lens (tasks :: ListAuditTasksResponse -> Lude.Maybe [AuditTaskMetadata]) (\s a -> s {tasks = a} :: ListAuditTasksResponse)
+{-# DEPRECATED latrsTasks "Use generic-lens or generic-optics with 'tasks' instead." #-}
 
 -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
-latrsNextToken :: Lens' ListAuditTasksResponse (Maybe Text)
-latrsNextToken = lens _latrsNextToken (\s a -> s {_latrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latrsNextToken :: Lens.Lens' ListAuditTasksResponse (Lude.Maybe Lude.Text)
+latrsNextToken = Lens.lens (nextToken :: ListAuditTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditTasksResponse)
+{-# DEPRECATED latrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-latrsResponseStatus :: Lens' ListAuditTasksResponse Int
-latrsResponseStatus = lens _latrsResponseStatus (\s a -> s {_latrsResponseStatus = a})
-
-instance NFData ListAuditTasksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latrsResponseStatus :: Lens.Lens' ListAuditTasksResponse Lude.Int
+latrsResponseStatus = Lens.lens (responseStatus :: ListAuditTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAuditTasksResponse)
+{-# DEPRECATED latrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

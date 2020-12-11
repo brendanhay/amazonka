@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Represents a get integration response.
 module Network.AWS.APIGateway.GetIntegrationResponse
-  ( -- * Creating a Request
-    getIntegrationResponse,
-    GetIntegrationResponse,
+  ( -- * Creating a request
+    GetIntegrationResponse (..),
+    mkGetIntegrationResponse,
 
-    -- * Request Lenses
+    -- ** Request lenses
     giiRestAPIId,
     giiResourceId,
     giiHttpMethod,
     giiStatusCode,
 
-    -- * Destructuring the Response
-    integrationResponse,
-    IntegrationResponse,
+    -- * Destructuring the response
+    IntegrationResponse (..),
+    mkIntegrationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     intContentHandling,
     intResponseTemplates,
     intSelectionPattern,
@@ -43,99 +38,110 @@ module Network.AWS.APIGateway.GetIntegrationResponse
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a get integration response request.
 --
---
---
--- /See:/ 'getIntegrationResponse' smart constructor.
+-- /See:/ 'mkGetIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-  { _giiRestAPIId ::
-      !Text,
-    _giiResourceId :: !Text,
-    _giiHttpMethod :: !Text,
-    _giiStatusCode :: !Text
+  { restAPIId ::
+      Lude.Text,
+    resourceId :: Lude.Text,
+    httpMethod :: Lude.Text,
+    statusCode :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntegrationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giiRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'giiResourceId' - [Required] Specifies a get integration response request's resource identifier.
---
--- * 'giiHttpMethod' - [Required] Specifies a get integration response request's HTTP method.
---
--- * 'giiStatusCode' - [Required] Specifies a get integration response request's status code.
-getIntegrationResponse ::
-  -- | 'giiRestAPIId'
-  Text ->
-  -- | 'giiResourceId'
-  Text ->
-  -- | 'giiHttpMethod'
-  Text ->
-  -- | 'giiStatusCode'
-  Text ->
+-- * 'httpMethod' - [Required] Specifies a get integration response request's HTTP method.
+-- * 'resourceId' - [Required] Specifies a get integration response request's resource identifier.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'statusCode' - [Required] Specifies a get integration response request's status code.
+mkGetIntegrationResponse ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'httpMethod'
+  Lude.Text ->
+  -- | 'statusCode'
+  Lude.Text ->
   GetIntegrationResponse
-getIntegrationResponse
+mkGetIntegrationResponse
   pRestAPIId_
   pResourceId_
   pHttpMethod_
   pStatusCode_ =
     GetIntegrationResponse'
-      { _giiRestAPIId = pRestAPIId_,
-        _giiResourceId = pResourceId_,
-        _giiHttpMethod = pHttpMethod_,
-        _giiStatusCode = pStatusCode_
+      { restAPIId = pRestAPIId_,
+        resourceId = pResourceId_,
+        httpMethod = pHttpMethod_,
+        statusCode = pStatusCode_
       }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-giiRestAPIId :: Lens' GetIntegrationResponse Text
-giiRestAPIId = lens _giiRestAPIId (\s a -> s {_giiRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giiRestAPIId :: Lens.Lens' GetIntegrationResponse Lude.Text
+giiRestAPIId = Lens.lens (restAPIId :: GetIntegrationResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: GetIntegrationResponse)
+{-# DEPRECATED giiRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Specifies a get integration response request's resource identifier.
-giiResourceId :: Lens' GetIntegrationResponse Text
-giiResourceId = lens _giiResourceId (\s a -> s {_giiResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giiResourceId :: Lens.Lens' GetIntegrationResponse Lude.Text
+giiResourceId = Lens.lens (resourceId :: GetIntegrationResponse -> Lude.Text) (\s a -> s {resourceId = a} :: GetIntegrationResponse)
+{-# DEPRECATED giiResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Specifies a get integration response request's HTTP method.
-giiHttpMethod :: Lens' GetIntegrationResponse Text
-giiHttpMethod = lens _giiHttpMethod (\s a -> s {_giiHttpMethod = a})
+--
+-- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giiHttpMethod :: Lens.Lens' GetIntegrationResponse Lude.Text
+giiHttpMethod = Lens.lens (httpMethod :: GetIntegrationResponse -> Lude.Text) (\s a -> s {httpMethod = a} :: GetIntegrationResponse)
+{-# DEPRECATED giiHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
 
 -- | [Required] Specifies a get integration response request's status code.
-giiStatusCode :: Lens' GetIntegrationResponse Text
-giiStatusCode = lens _giiStatusCode (\s a -> s {_giiStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giiStatusCode :: Lens.Lens' GetIntegrationResponse Lude.Text
+giiStatusCode = Lens.lens (statusCode :: GetIntegrationResponse -> Lude.Text) (\s a -> s {statusCode = a} :: GetIntegrationResponse)
+{-# DEPRECATED giiStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance AWSRequest GetIntegrationResponse where
+instance Lude.AWSRequest GetIntegrationResponse where
   type Rs GetIntegrationResponse = IntegrationResponse
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetIntegrationResponse
-
-instance NFData GetIntegrationResponse
-
-instance ToHeaders GetIntegrationResponse where
+instance Lude.ToHeaders GetIntegrationResponse where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetIntegrationResponse where
+instance Lude.ToPath GetIntegrationResponse where
   toPath GetIntegrationResponse' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _giiRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _giiResourceId,
+        Lude.toBS resourceId,
         "/methods/",
-        toBS _giiHttpMethod,
+        Lude.toBS httpMethod,
         "/integration/responses/",
-        toBS _giiStatusCode
+        Lude.toBS statusCode
       ]
 
-instance ToQuery GetIntegrationResponse where
-  toQuery = const mempty
+instance Lude.ToQuery GetIntegrationResponse where
+  toQuery = Lude.const Lude.mempty

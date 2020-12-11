@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,188 +14,210 @@
 --
 -- Describes one or more of your instances, including information about the operating system platform, the version of SSM Agent installed on the instance, instance status, and so on.
 --
---
 -- If you specify one or more instance IDs, it returns information for those instances. If you do not specify instance IDs, it returns information for all your instances. If you specify an instance ID that is not valid or an instance that you do not own, you receive an error.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInstanceInformation
-  ( -- * Creating a Request
-    describeInstanceInformation,
-    DescribeInstanceInformation,
+  ( -- * Creating a request
+    DescribeInstanceInformation (..),
+    mkDescribeInstanceInformation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diiInstanceInformationFilterList,
     diiFilters,
     diiNextToken,
     diiMaxResults,
 
-    -- * Destructuring the Response
-    describeInstanceInformationResponse,
-    DescribeInstanceInformationResponse,
+    -- * Destructuring the response
+    DescribeInstanceInformationResponse (..),
+    mkDescribeInstanceInformationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diirsNextToken,
     diirsInstanceInformationList,
     diirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describeInstanceInformation' smart constructor.
+-- | /See:/ 'mkDescribeInstanceInformation' smart constructor.
 data DescribeInstanceInformation = DescribeInstanceInformation'
-  { _diiInstanceInformationFilterList ::
-      !( Maybe
-           [InstanceInformationFilter]
-       ),
-    _diiFilters ::
-      !( Maybe
-           [InstanceInformationStringFilter]
-       ),
-    _diiNextToken :: !(Maybe Text),
-    _diiMaxResults :: !(Maybe Nat)
+  { instanceInformationFilterList ::
+      Lude.Maybe
+        [InstanceInformationFilter],
+    filters ::
+      Lude.Maybe
+        [InstanceInformationStringFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceInformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diiInstanceInformationFilterList' - This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
---
--- * 'diiFilters' - One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
---
--- * 'diiNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'diiMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-describeInstanceInformation ::
+-- * 'filters' - One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
+-- * 'instanceInformationFilterList' - This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkDescribeInstanceInformation ::
   DescribeInstanceInformation
-describeInstanceInformation =
+mkDescribeInstanceInformation =
   DescribeInstanceInformation'
-    { _diiInstanceInformationFilterList =
-        Nothing,
-      _diiFilters = Nothing,
-      _diiNextToken = Nothing,
-      _diiMaxResults = Nothing
+    { instanceInformationFilterList =
+        Lude.Nothing,
+      filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
-diiInstanceInformationFilterList :: Lens' DescribeInstanceInformation [InstanceInformationFilter]
-diiInstanceInformationFilterList = lens _diiInstanceInformationFilterList (\s a -> s {_diiInstanceInformationFilterList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceInformationFilterList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diiInstanceInformationFilterList :: Lens.Lens' DescribeInstanceInformation (Lude.Maybe [InstanceInformationFilter])
+diiInstanceInformationFilterList = Lens.lens (instanceInformationFilterList :: DescribeInstanceInformation -> Lude.Maybe [InstanceInformationFilter]) (\s a -> s {instanceInformationFilterList = a} :: DescribeInstanceInformation)
+{-# DEPRECATED diiInstanceInformationFilterList "Use generic-lens or generic-optics with 'instanceInformationFilterList' instead." #-}
 
 -- | One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
-diiFilters :: Lens' DescribeInstanceInformation [InstanceInformationStringFilter]
-diiFilters = lens _diiFilters (\s a -> s {_diiFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diiFilters :: Lens.Lens' DescribeInstanceInformation (Lude.Maybe [InstanceInformationStringFilter])
+diiFilters = Lens.lens (filters :: DescribeInstanceInformation -> Lude.Maybe [InstanceInformationStringFilter]) (\s a -> s {filters = a} :: DescribeInstanceInformation)
+{-# DEPRECATED diiFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-diiNextToken :: Lens' DescribeInstanceInformation (Maybe Text)
-diiNextToken = lens _diiNextToken (\s a -> s {_diiNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diiNextToken :: Lens.Lens' DescribeInstanceInformation (Lude.Maybe Lude.Text)
+diiNextToken = Lens.lens (nextToken :: DescribeInstanceInformation -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceInformation)
+{-# DEPRECATED diiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-diiMaxResults :: Lens' DescribeInstanceInformation (Maybe Natural)
-diiMaxResults = lens _diiMaxResults (\s a -> s {_diiMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diiMaxResults :: Lens.Lens' DescribeInstanceInformation (Lude.Maybe Lude.Natural)
+diiMaxResults = Lens.lens (maxResults :: DescribeInstanceInformation -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInstanceInformation)
+{-# DEPRECATED diiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeInstanceInformation where
+instance Page.AWSPager DescribeInstanceInformation where
   page rq rs
-    | stop (rs ^. diirsNextToken) = Nothing
-    | stop (rs ^. diirsInstanceInformationList) = Nothing
-    | otherwise = Just $ rq & diiNextToken .~ rs ^. diirsNextToken
+    | Page.stop (rs Lens.^. diirsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. diirsInstanceInformationList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& diiNextToken Lens..~ rs Lens.^. diirsNextToken
 
-instance AWSRequest DescribeInstanceInformation where
+instance Lude.AWSRequest DescribeInstanceInformation where
   type
     Rs DescribeInstanceInformation =
       DescribeInstanceInformationResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeInstanceInformationResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "InstanceInformationList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "InstanceInformationList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInstanceInformation
-
-instance NFData DescribeInstanceInformation
-
-instance ToHeaders DescribeInstanceInformation where
+instance Lude.ToHeaders DescribeInstanceInformation where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.DescribeInstanceInformation" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.DescribeInstanceInformation" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeInstanceInformation where
+instance Lude.ToJSON DescribeInstanceInformation where
   toJSON DescribeInstanceInformation' {..} =
-    object
-      ( catMaybes
-          [ ("InstanceInformationFilterList" .=)
-              <$> _diiInstanceInformationFilterList,
-            ("Filters" .=) <$> _diiFilters,
-            ("NextToken" .=) <$> _diiNextToken,
-            ("MaxResults" .=) <$> _diiMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InstanceInformationFilterList" Lude..=)
+              Lude.<$> instanceInformationFilterList,
+            ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeInstanceInformation where
-  toPath = const "/"
+instance Lude.ToPath DescribeInstanceInformation where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeInstanceInformation where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeInstanceInformation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeInstanceInformationResponse' smart constructor.
+-- | /See:/ 'mkDescribeInstanceInformationResponse' smart constructor.
 data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
-  { _diirsNextToken ::
-      !(Maybe Text),
-    _diirsInstanceInformationList ::
-      !( Maybe
-           [InstanceInformation]
-       ),
-    _diirsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    instanceInformationList ::
+      Lude.Maybe
+        [InstanceInformation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceInformationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diirsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'diirsInstanceInformationList' - The instance information list.
---
--- * 'diirsResponseStatus' - -- | The response status code.
-describeInstanceInformationResponse ::
-  -- | 'diirsResponseStatus'
-  Int ->
+-- * 'instanceInformationList' - The instance information list.
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'responseStatus' - The response status code.
+mkDescribeInstanceInformationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInstanceInformationResponse
-describeInstanceInformationResponse pResponseStatus_ =
+mkDescribeInstanceInformationResponse pResponseStatus_ =
   DescribeInstanceInformationResponse'
-    { _diirsNextToken = Nothing,
-      _diirsInstanceInformationList = Nothing,
-      _diirsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      instanceInformationList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-diirsNextToken :: Lens' DescribeInstanceInformationResponse (Maybe Text)
-diirsNextToken = lens _diirsNextToken (\s a -> s {_diirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsNextToken :: Lens.Lens' DescribeInstanceInformationResponse (Lude.Maybe Lude.Text)
+diirsNextToken = Lens.lens (nextToken :: DescribeInstanceInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceInformationResponse)
+{-# DEPRECATED diirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The instance information list.
-diirsInstanceInformationList :: Lens' DescribeInstanceInformationResponse [InstanceInformation]
-diirsInstanceInformationList = lens _diirsInstanceInformationList (\s a -> s {_diirsInstanceInformationList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceInformationList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsInstanceInformationList :: Lens.Lens' DescribeInstanceInformationResponse (Lude.Maybe [InstanceInformation])
+diirsInstanceInformationList = Lens.lens (instanceInformationList :: DescribeInstanceInformationResponse -> Lude.Maybe [InstanceInformation]) (\s a -> s {instanceInformationList = a} :: DescribeInstanceInformationResponse)
+{-# DEPRECATED diirsInstanceInformationList "Use generic-lens or generic-optics with 'instanceInformationList' instead." #-}
 
--- | -- | The response status code.
-diirsResponseStatus :: Lens' DescribeInstanceInformationResponse Int
-diirsResponseStatus = lens _diirsResponseStatus (\s a -> s {_diirsResponseStatus = a})
-
-instance NFData DescribeInstanceInformationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diirsResponseStatus :: Lens.Lens' DescribeInstanceInformationResponse Lude.Int
+diirsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceInformationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceInformationResponse)
+{-# DEPRECATED diirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

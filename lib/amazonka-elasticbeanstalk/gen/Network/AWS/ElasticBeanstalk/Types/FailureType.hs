@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.FailureType where
+module Network.AWS.ElasticBeanstalk.Types.FailureType
+  ( FailureType
+      ( FailureType',
+        CancellationFailed,
+        InternalFailure,
+        InvalidEnvironmentState,
+        PermissionsError,
+        RollbackFailed,
+        RollbackSuccessful,
+        UpdateCancelled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FailureType
-  = CancellationFailed
-  | InternalFailure
-  | InvalidEnvironmentState
-  | PermissionsError
-  | RollbackFailed
-  | RollbackSuccessful
-  | UpdateCancelled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FailureType = FailureType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FailureType where
-  parser =
-    takeLowerText >>= \case
-      "cancellationfailed" -> pure CancellationFailed
-      "internalfailure" -> pure InternalFailure
-      "invalidenvironmentstate" -> pure InvalidEnvironmentState
-      "permissionserror" -> pure PermissionsError
-      "rollbackfailed" -> pure RollbackFailed
-      "rollbacksuccessful" -> pure RollbackSuccessful
-      "updatecancelled" -> pure UpdateCancelled
-      e ->
-        fromTextError $
-          "Failure parsing FailureType from value: '" <> e
-            <> "'. Accepted values: cancellationfailed, internalfailure, invalidenvironmentstate, permissionserror, rollbackfailed, rollbacksuccessful, updatecancelled"
+pattern CancellationFailed :: FailureType
+pattern CancellationFailed = FailureType' "CancellationFailed"
 
-instance ToText FailureType where
-  toText = \case
-    CancellationFailed -> "CancellationFailed"
-    InternalFailure -> "InternalFailure"
-    InvalidEnvironmentState -> "InvalidEnvironmentState"
-    PermissionsError -> "PermissionsError"
-    RollbackFailed -> "RollbackFailed"
-    RollbackSuccessful -> "RollbackSuccessful"
-    UpdateCancelled -> "UpdateCancelled"
+pattern InternalFailure :: FailureType
+pattern InternalFailure = FailureType' "InternalFailure"
 
-instance Hashable FailureType
+pattern InvalidEnvironmentState :: FailureType
+pattern InvalidEnvironmentState = FailureType' "InvalidEnvironmentState"
 
-instance NFData FailureType
+pattern PermissionsError :: FailureType
+pattern PermissionsError = FailureType' "PermissionsError"
 
-instance ToByteString FailureType
+pattern RollbackFailed :: FailureType
+pattern RollbackFailed = FailureType' "RollbackFailed"
 
-instance ToQuery FailureType
+pattern RollbackSuccessful :: FailureType
+pattern RollbackSuccessful = FailureType' "RollbackSuccessful"
 
-instance ToHeader FailureType
+pattern UpdateCancelled :: FailureType
+pattern UpdateCancelled = FailureType' "UpdateCancelled"
 
-instance FromXML FailureType where
-  parseXML = parseXMLText "FailureType"
+{-# COMPLETE
+  CancellationFailed,
+  InternalFailure,
+  InvalidEnvironmentState,
+  PermissionsError,
+  RollbackFailed,
+  RollbackSuccessful,
+  UpdateCancelled,
+  FailureType'
+  #-}

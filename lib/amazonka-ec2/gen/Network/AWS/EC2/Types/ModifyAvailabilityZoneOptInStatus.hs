@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ModifyAvailabilityZoneOptInStatus where
+module Network.AWS.EC2.Types.ModifyAvailabilityZoneOptInStatus
+  ( ModifyAvailabilityZoneOptInStatus
+      ( ModifyAvailabilityZoneOptInStatus',
+        NotOptedIn,
+        OptedIn
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ModifyAvailabilityZoneOptInStatus
-  = NotOptedIn
-  | OptedIn
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ModifyAvailabilityZoneOptInStatus = ModifyAvailabilityZoneOptInStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ModifyAvailabilityZoneOptInStatus where
-  parser =
-    takeLowerText >>= \case
-      "not-opted-in" -> pure NotOptedIn
-      "opted-in" -> pure OptedIn
-      e ->
-        fromTextError $
-          "Failure parsing ModifyAvailabilityZoneOptInStatus from value: '" <> e
-            <> "'. Accepted values: not-opted-in, opted-in"
+pattern NotOptedIn :: ModifyAvailabilityZoneOptInStatus
+pattern NotOptedIn = ModifyAvailabilityZoneOptInStatus' "not-opted-in"
 
-instance ToText ModifyAvailabilityZoneOptInStatus where
-  toText = \case
-    NotOptedIn -> "not-opted-in"
-    OptedIn -> "opted-in"
+pattern OptedIn :: ModifyAvailabilityZoneOptInStatus
+pattern OptedIn = ModifyAvailabilityZoneOptInStatus' "opted-in"
 
-instance Hashable ModifyAvailabilityZoneOptInStatus
-
-instance NFData ModifyAvailabilityZoneOptInStatus
-
-instance ToByteString ModifyAvailabilityZoneOptInStatus
-
-instance ToQuery ModifyAvailabilityZoneOptInStatus
-
-instance ToHeader ModifyAvailabilityZoneOptInStatus
+{-# COMPLETE
+  NotOptedIn,
+  OptedIn,
+  ModifyAvailabilityZoneOptInStatus'
+  #-}

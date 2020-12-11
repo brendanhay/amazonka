@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.FileModeTypeEnum where
+module Network.AWS.CodeCommit.Types.FileModeTypeEnum
+  ( FileModeTypeEnum
+      ( FileModeTypeEnum',
+        Executable,
+        Normal,
+        Symlink
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FileModeTypeEnum
-  = Executable
-  | Normal
-  | Symlink
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FileModeTypeEnum = FileModeTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FileModeTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "executable" -> pure Executable
-      "normal" -> pure Normal
-      "symlink" -> pure Symlink
-      e ->
-        fromTextError $
-          "Failure parsing FileModeTypeEnum from value: '" <> e
-            <> "'. Accepted values: executable, normal, symlink"
+pattern Executable :: FileModeTypeEnum
+pattern Executable = FileModeTypeEnum' "EXECUTABLE"
 
-instance ToText FileModeTypeEnum where
-  toText = \case
-    Executable -> "EXECUTABLE"
-    Normal -> "NORMAL"
-    Symlink -> "SYMLINK"
+pattern Normal :: FileModeTypeEnum
+pattern Normal = FileModeTypeEnum' "NORMAL"
 
-instance Hashable FileModeTypeEnum
+pattern Symlink :: FileModeTypeEnum
+pattern Symlink = FileModeTypeEnum' "SYMLINK"
 
-instance NFData FileModeTypeEnum
-
-instance ToByteString FileModeTypeEnum
-
-instance ToQuery FileModeTypeEnum
-
-instance ToHeader FileModeTypeEnum
-
-instance ToJSON FileModeTypeEnum where
-  toJSON = toJSONText
-
-instance FromJSON FileModeTypeEnum where
-  parseJSON = parseJSONText "FileModeTypeEnum"
+{-# COMPLETE
+  Executable,
+  Normal,
+  Symlink,
+  FileModeTypeEnum'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.FolderName where
+module Network.AWS.WorkMail.Types.FolderName
+  ( FolderName
+      ( FolderName',
+        DeletedItems,
+        Drafts,
+        Inbox,
+        JunkEmail,
+        SentItems
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FolderName
-  = DeletedItems
-  | Drafts
-  | Inbox
-  | JunkEmail
-  | SentItems
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FolderName = FolderName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FolderName where
-  parser =
-    takeLowerText >>= \case
-      "deleted_items" -> pure DeletedItems
-      "drafts" -> pure Drafts
-      "inbox" -> pure Inbox
-      "junk_email" -> pure JunkEmail
-      "sent_items" -> pure SentItems
-      e ->
-        fromTextError $
-          "Failure parsing FolderName from value: '" <> e
-            <> "'. Accepted values: deleted_items, drafts, inbox, junk_email, sent_items"
+pattern DeletedItems :: FolderName
+pattern DeletedItems = FolderName' "DELETED_ITEMS"
 
-instance ToText FolderName where
-  toText = \case
-    DeletedItems -> "DELETED_ITEMS"
-    Drafts -> "DRAFTS"
-    Inbox -> "INBOX"
-    JunkEmail -> "JUNK_EMAIL"
-    SentItems -> "SENT_ITEMS"
+pattern Drafts :: FolderName
+pattern Drafts = FolderName' "DRAFTS"
 
-instance Hashable FolderName
+pattern Inbox :: FolderName
+pattern Inbox = FolderName' "INBOX"
 
-instance NFData FolderName
+pattern JunkEmail :: FolderName
+pattern JunkEmail = FolderName' "JUNK_EMAIL"
 
-instance ToByteString FolderName
+pattern SentItems :: FolderName
+pattern SentItems = FolderName' "SENT_ITEMS"
 
-instance ToQuery FolderName
-
-instance ToHeader FolderName
-
-instance ToJSON FolderName where
-  toJSON = toJSONText
-
-instance FromJSON FolderName where
-  parseJSON = parseJSONText "FolderName"
+{-# COMPLETE
+  DeletedItems,
+  Drafts,
+  Inbox,
+  JunkEmail,
+  SentItems,
+  FolderName'
+  #-}

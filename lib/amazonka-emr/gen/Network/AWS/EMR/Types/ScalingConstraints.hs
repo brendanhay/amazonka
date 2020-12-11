@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ScalingConstraints where
+module Network.AWS.EMR.Types.ScalingConstraints
+  ( ScalingConstraints (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkScalingConstraints,
+
+    -- * Lenses
+    scMinCapacity,
+    scMaxCapacity,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activities triggered by automatic scaling rules will not cause an instance group to grow above or below these limits.
 --
---
---
--- /See:/ 'scalingConstraints' smart constructor.
+-- /See:/ 'mkScalingConstraints' smart constructor.
 data ScalingConstraints = ScalingConstraints'
-  { _scMinCapacity ::
-      !Int,
-    _scMaxCapacity :: !Int
+  { minCapacity ::
+      Lude.Int,
+    maxCapacity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingConstraints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scMinCapacity' - The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
---
--- * 'scMaxCapacity' - The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
-scalingConstraints ::
-  -- | 'scMinCapacity'
-  Int ->
-  -- | 'scMaxCapacity'
-  Int ->
+-- * 'maxCapacity' - The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+-- * 'minCapacity' - The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+mkScalingConstraints ::
+  -- | 'minCapacity'
+  Lude.Int ->
+  -- | 'maxCapacity'
+  Lude.Int ->
   ScalingConstraints
-scalingConstraints pMinCapacity_ pMaxCapacity_ =
+mkScalingConstraints pMinCapacity_ pMaxCapacity_ =
   ScalingConstraints'
-    { _scMinCapacity = pMinCapacity_,
-      _scMaxCapacity = pMaxCapacity_
+    { minCapacity = pMinCapacity_,
+      maxCapacity = pMaxCapacity_
     }
 
 -- | The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
-scMinCapacity :: Lens' ScalingConstraints Int
-scMinCapacity = lens _scMinCapacity (\s a -> s {_scMinCapacity = a})
+--
+-- /Note:/ Consider using 'minCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scMinCapacity :: Lens.Lens' ScalingConstraints Lude.Int
+scMinCapacity = Lens.lens (minCapacity :: ScalingConstraints -> Lude.Int) (\s a -> s {minCapacity = a} :: ScalingConstraints)
+{-# DEPRECATED scMinCapacity "Use generic-lens or generic-optics with 'minCapacity' instead." #-}
 
 -- | The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
-scMaxCapacity :: Lens' ScalingConstraints Int
-scMaxCapacity = lens _scMaxCapacity (\s a -> s {_scMaxCapacity = a})
+--
+-- /Note:/ Consider using 'maxCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scMaxCapacity :: Lens.Lens' ScalingConstraints Lude.Int
+scMaxCapacity = Lens.lens (maxCapacity :: ScalingConstraints -> Lude.Int) (\s a -> s {maxCapacity = a} :: ScalingConstraints)
+{-# DEPRECATED scMaxCapacity "Use generic-lens or generic-optics with 'maxCapacity' instead." #-}
 
-instance FromJSON ScalingConstraints where
+instance Lude.FromJSON ScalingConstraints where
   parseJSON =
-    withObject
+    Lude.withObject
       "ScalingConstraints"
       ( \x ->
           ScalingConstraints'
-            <$> (x .: "MinCapacity") <*> (x .: "MaxCapacity")
+            Lude.<$> (x Lude..: "MinCapacity") Lude.<*> (x Lude..: "MaxCapacity")
       )
 
-instance Hashable ScalingConstraints
-
-instance NFData ScalingConstraints
-
-instance ToJSON ScalingConstraints where
+instance Lude.ToJSON ScalingConstraints where
   toJSON ScalingConstraints' {..} =
-    object
-      ( catMaybes
-          [ Just ("MinCapacity" .= _scMinCapacity),
-            Just ("MaxCapacity" .= _scMaxCapacity)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("MinCapacity" Lude..= minCapacity),
+            Lude.Just ("MaxCapacity" Lude..= maxCapacity)
           ]
       )

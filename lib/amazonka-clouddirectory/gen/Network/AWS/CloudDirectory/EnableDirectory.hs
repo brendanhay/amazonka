@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,125 @@
 --
 -- Enables the specified directory. Only disabled directories can be enabled. Once enabled, the directory can then be read and written to.
 module Network.AWS.CloudDirectory.EnableDirectory
-  ( -- * Creating a Request
-    enableDirectory,
-    EnableDirectory,
+  ( -- * Creating a request
+    EnableDirectory (..),
+    mkEnableDirectory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     edDirectoryARN,
 
-    -- * Destructuring the Response
-    enableDirectoryResponse,
-    EnableDirectoryResponse,
+    -- * Destructuring the response
+    EnableDirectoryResponse (..),
+    mkEnableDirectoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     edrsResponseStatus,
     edrsDirectoryARN,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'enableDirectory' smart constructor.
-newtype EnableDirectory = EnableDirectory' {_edDirectoryARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkEnableDirectory' smart constructor.
+newtype EnableDirectory = EnableDirectory'
+  { directoryARN ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableDirectory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edDirectoryARN' - The ARN of the directory to enable.
-enableDirectory ::
-  -- | 'edDirectoryARN'
-  Text ->
+-- * 'directoryARN' - The ARN of the directory to enable.
+mkEnableDirectory ::
+  -- | 'directoryARN'
+  Lude.Text ->
   EnableDirectory
-enableDirectory pDirectoryARN_ =
-  EnableDirectory' {_edDirectoryARN = pDirectoryARN_}
+mkEnableDirectory pDirectoryARN_ =
+  EnableDirectory' {directoryARN = pDirectoryARN_}
 
 -- | The ARN of the directory to enable.
-edDirectoryARN :: Lens' EnableDirectory Text
-edDirectoryARN = lens _edDirectoryARN (\s a -> s {_edDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edDirectoryARN :: Lens.Lens' EnableDirectory Lude.Text
+edDirectoryARN = Lens.lens (directoryARN :: EnableDirectory -> Lude.Text) (\s a -> s {directoryARN = a} :: EnableDirectory)
+{-# DEPRECATED edDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
-instance AWSRequest EnableDirectory where
+instance Lude.AWSRequest EnableDirectory where
   type Rs EnableDirectory = EnableDirectoryResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           EnableDirectoryResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "DirectoryArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "DirectoryArn")
       )
 
-instance Hashable EnableDirectory
-
-instance NFData EnableDirectory
-
-instance ToHeaders EnableDirectory where
+instance Lude.ToHeaders EnableDirectory where
   toHeaders EnableDirectory' {..} =
-    mconcat ["x-amz-data-partition" =# _edDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON EnableDirectory where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON EnableDirectory where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath EnableDirectory where
-  toPath = const "/amazonclouddirectory/2017-01-11/directory/enable"
+instance Lude.ToPath EnableDirectory where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/directory/enable"
 
-instance ToQuery EnableDirectory where
-  toQuery = const mempty
+instance Lude.ToQuery EnableDirectory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'enableDirectoryResponse' smart constructor.
+-- | /See:/ 'mkEnableDirectoryResponse' smart constructor.
 data EnableDirectoryResponse = EnableDirectoryResponse'
-  { _edrsResponseStatus ::
-      !Int,
-    _edrsDirectoryARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    directoryARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableDirectoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edrsResponseStatus' - -- | The response status code.
---
--- * 'edrsDirectoryARN' - The ARN of the enabled directory.
-enableDirectoryResponse ::
-  -- | 'edrsResponseStatus'
-  Int ->
-  -- | 'edrsDirectoryARN'
-  Text ->
+-- * 'directoryARN' - The ARN of the enabled directory.
+-- * 'responseStatus' - The response status code.
+mkEnableDirectoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'directoryARN'
+  Lude.Text ->
   EnableDirectoryResponse
-enableDirectoryResponse pResponseStatus_ pDirectoryARN_ =
+mkEnableDirectoryResponse pResponseStatus_ pDirectoryARN_ =
   EnableDirectoryResponse'
-    { _edrsResponseStatus = pResponseStatus_,
-      _edrsDirectoryARN = pDirectoryARN_
+    { responseStatus = pResponseStatus_,
+      directoryARN = pDirectoryARN_
     }
 
--- | -- | The response status code.
-edrsResponseStatus :: Lens' EnableDirectoryResponse Int
-edrsResponseStatus = lens _edrsResponseStatus (\s a -> s {_edrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edrsResponseStatus :: Lens.Lens' EnableDirectoryResponse Lude.Int
+edrsResponseStatus = Lens.lens (responseStatus :: EnableDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableDirectoryResponse)
+{-# DEPRECATED edrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ARN of the enabled directory.
-edrsDirectoryARN :: Lens' EnableDirectoryResponse Text
-edrsDirectoryARN = lens _edrsDirectoryARN (\s a -> s {_edrsDirectoryARN = a})
-
-instance NFData EnableDirectoryResponse
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edrsDirectoryARN :: Lens.Lens' EnableDirectoryResponse Lude.Text
+edrsDirectoryARN = Lens.lens (directoryARN :: EnableDirectoryResponse -> Lude.Text) (\s a -> s {directoryARN = a} :: EnableDirectoryResponse)
+{-# DEPRECATED edrsDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}

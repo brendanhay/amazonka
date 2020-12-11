@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,154 @@
 --
 -- Update a thing group.
 module Network.AWS.IoT.UpdateThingGroup
-  ( -- * Creating a Request
-    updateThingGroup,
-    UpdateThingGroup,
+  ( -- * Creating a request
+    UpdateThingGroup (..),
+    mkUpdateThingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utgExpectedVersion,
     utgThingGroupName,
     utgThingGroupProperties,
 
-    -- * Destructuring the Response
-    updateThingGroupResponse,
-    UpdateThingGroupResponse,
+    -- * Destructuring the response
+    UpdateThingGroupResponse (..),
+    mkUpdateThingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utgrsVersion,
     utgrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateThingGroup' smart constructor.
+-- | /See:/ 'mkUpdateThingGroup' smart constructor.
 data UpdateThingGroup = UpdateThingGroup'
-  { _utgExpectedVersion ::
-      !(Maybe Integer),
-    _utgThingGroupName :: !Text,
-    _utgThingGroupProperties :: !ThingGroupProperties
+  { expectedVersion ::
+      Lude.Maybe Lude.Integer,
+    thingGroupName :: Lude.Text,
+    thingGroupProperties :: ThingGroupProperties
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utgExpectedVersion' - The expected version of the thing group. If this does not match the version of the thing group being updated, the update will fail.
---
--- * 'utgThingGroupName' - The thing group to update.
---
--- * 'utgThingGroupProperties' - The thing group properties.
-updateThingGroup ::
-  -- | 'utgThingGroupName'
-  Text ->
-  -- | 'utgThingGroupProperties'
+-- * 'expectedVersion' - The expected version of the thing group. If this does not match the version of the thing group being updated, the update will fail.
+-- * 'thingGroupName' - The thing group to update.
+-- * 'thingGroupProperties' - The thing group properties.
+mkUpdateThingGroup ::
+  -- | 'thingGroupName'
+  Lude.Text ->
+  -- | 'thingGroupProperties'
   ThingGroupProperties ->
   UpdateThingGroup
-updateThingGroup pThingGroupName_ pThingGroupProperties_ =
+mkUpdateThingGroup pThingGroupName_ pThingGroupProperties_ =
   UpdateThingGroup'
-    { _utgExpectedVersion = Nothing,
-      _utgThingGroupName = pThingGroupName_,
-      _utgThingGroupProperties = pThingGroupProperties_
+    { expectedVersion = Lude.Nothing,
+      thingGroupName = pThingGroupName_,
+      thingGroupProperties = pThingGroupProperties_
     }
 
 -- | The expected version of the thing group. If this does not match the version of the thing group being updated, the update will fail.
-utgExpectedVersion :: Lens' UpdateThingGroup (Maybe Integer)
-utgExpectedVersion = lens _utgExpectedVersion (\s a -> s {_utgExpectedVersion = a})
+--
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgExpectedVersion :: Lens.Lens' UpdateThingGroup (Lude.Maybe Lude.Integer)
+utgExpectedVersion = Lens.lens (expectedVersion :: UpdateThingGroup -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: UpdateThingGroup)
+{-# DEPRECATED utgExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
 
 -- | The thing group to update.
-utgThingGroupName :: Lens' UpdateThingGroup Text
-utgThingGroupName = lens _utgThingGroupName (\s a -> s {_utgThingGroupName = a})
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgThingGroupName :: Lens.Lens' UpdateThingGroup Lude.Text
+utgThingGroupName = Lens.lens (thingGroupName :: UpdateThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: UpdateThingGroup)
+{-# DEPRECATED utgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | The thing group properties.
-utgThingGroupProperties :: Lens' UpdateThingGroup ThingGroupProperties
-utgThingGroupProperties = lens _utgThingGroupProperties (\s a -> s {_utgThingGroupProperties = a})
+--
+-- /Note:/ Consider using 'thingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgThingGroupProperties :: Lens.Lens' UpdateThingGroup ThingGroupProperties
+utgThingGroupProperties = Lens.lens (thingGroupProperties :: UpdateThingGroup -> ThingGroupProperties) (\s a -> s {thingGroupProperties = a} :: UpdateThingGroup)
+{-# DEPRECATED utgThingGroupProperties "Use generic-lens or generic-optics with 'thingGroupProperties' instead." #-}
 
-instance AWSRequest UpdateThingGroup where
+instance Lude.AWSRequest UpdateThingGroup where
   type Rs UpdateThingGroup = UpdateThingGroupResponse
-  request = patchJSON ioT
+  request = Req.patchJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateThingGroupResponse'
-            <$> (x .?> "version") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "version") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateThingGroup
+instance Lude.ToHeaders UpdateThingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateThingGroup
-
-instance ToHeaders UpdateThingGroup where
-  toHeaders = const mempty
-
-instance ToJSON UpdateThingGroup where
+instance Lude.ToJSON UpdateThingGroup where
   toJSON UpdateThingGroup' {..} =
-    object
-      ( catMaybes
-          [ ("expectedVersion" .=) <$> _utgExpectedVersion,
-            Just ("thingGroupProperties" .= _utgThingGroupProperties)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("expectedVersion" Lude..=) Lude.<$> expectedVersion,
+            Lude.Just ("thingGroupProperties" Lude..= thingGroupProperties)
           ]
       )
 
-instance ToPath UpdateThingGroup where
+instance Lude.ToPath UpdateThingGroup where
   toPath UpdateThingGroup' {..} =
-    mconcat ["/thing-groups/", toBS _utgThingGroupName]
+    Lude.mconcat ["/thing-groups/", Lude.toBS thingGroupName]
 
-instance ToQuery UpdateThingGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateThingGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateThingGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateThingGroupResponse' smart constructor.
 data UpdateThingGroupResponse = UpdateThingGroupResponse'
-  { _utgrsVersion ::
-      !(Maybe Integer),
-    _utgrsResponseStatus :: !Int
+  { version ::
+      Lude.Maybe Lude.Integer,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utgrsVersion' - The version of the updated thing group.
---
--- * 'utgrsResponseStatus' - -- | The response status code.
-updateThingGroupResponse ::
-  -- | 'utgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'version' - The version of the updated thing group.
+mkUpdateThingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateThingGroupResponse
-updateThingGroupResponse pResponseStatus_ =
+mkUpdateThingGroupResponse pResponseStatus_ =
   UpdateThingGroupResponse'
-    { _utgrsVersion = Nothing,
-      _utgrsResponseStatus = pResponseStatus_
+    { version = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The version of the updated thing group.
-utgrsVersion :: Lens' UpdateThingGroupResponse (Maybe Integer)
-utgrsVersion = lens _utgrsVersion (\s a -> s {_utgrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgrsVersion :: Lens.Lens' UpdateThingGroupResponse (Lude.Maybe Lude.Integer)
+utgrsVersion = Lens.lens (version :: UpdateThingGroupResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: UpdateThingGroupResponse)
+{-# DEPRECATED utgrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | -- | The response status code.
-utgrsResponseStatus :: Lens' UpdateThingGroupResponse Int
-utgrsResponseStatus = lens _utgrsResponseStatus (\s a -> s {_utgrsResponseStatus = a})
-
-instance NFData UpdateThingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgrsResponseStatus :: Lens.Lens' UpdateThingGroupResponse Lude.Int
+utgrsResponseStatus = Lens.lens (responseStatus :: UpdateThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateThingGroupResponse)
+{-# DEPRECATED utgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

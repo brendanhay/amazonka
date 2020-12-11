@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,183 +14,205 @@
 --
 -- Lists the tasks in a maintenance window.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeMaintenanceWindowTasks
-  ( -- * Creating a Request
-    describeMaintenanceWindowTasks,
-    DescribeMaintenanceWindowTasks,
+  ( -- * Creating a request
+    DescribeMaintenanceWindowTasks (..),
+    mkDescribeMaintenanceWindowTasks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dFilters,
     dNextToken,
     dMaxResults,
     dWindowId,
 
-    -- * Destructuring the Response
-    describeMaintenanceWindowTasksResponse,
-    DescribeMaintenanceWindowTasksResponse,
+    -- * Destructuring the response
+    DescribeMaintenanceWindowTasksResponse (..),
+    mkDescribeMaintenanceWindowTasksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmwtsrsTasks,
     dmwtsrsNextToken,
     dmwtsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describeMaintenanceWindowTasks' smart constructor.
+-- | /See:/ 'mkDescribeMaintenanceWindowTasks' smart constructor.
 data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
-  { _dFilters ::
-      !( Maybe
-           [MaintenanceWindowFilter]
-       ),
-    _dNextToken :: !(Maybe Text),
-    _dMaxResults :: !(Maybe Nat),
-    _dWindowId :: !Text
+  { filters ::
+      Lude.Maybe
+        [MaintenanceWindowFilter],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    windowId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowTasks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dFilters' - Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are WindowTaskId, TaskArn, Priority, and TaskType.
---
--- * 'dNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'dMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
---
--- * 'dWindowId' - The ID of the maintenance window whose tasks should be retrieved.
-describeMaintenanceWindowTasks ::
-  -- | 'dWindowId'
-  Text ->
+-- * 'filters' - Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are WindowTaskId, TaskArn, Priority, and TaskType.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'windowId' - The ID of the maintenance window whose tasks should be retrieved.
+mkDescribeMaintenanceWindowTasks ::
+  -- | 'windowId'
+  Lude.Text ->
   DescribeMaintenanceWindowTasks
-describeMaintenanceWindowTasks pWindowId_ =
+mkDescribeMaintenanceWindowTasks pWindowId_ =
   DescribeMaintenanceWindowTasks'
-    { _dFilters = Nothing,
-      _dNextToken = Nothing,
-      _dMaxResults = Nothing,
-      _dWindowId = pWindowId_
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      windowId = pWindowId_
     }
 
 -- | Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are WindowTaskId, TaskArn, Priority, and TaskType.
-dFilters :: Lens' DescribeMaintenanceWindowTasks [MaintenanceWindowFilter]
-dFilters = lens _dFilters (\s a -> s {_dFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dFilters :: Lens.Lens' DescribeMaintenanceWindowTasks (Lude.Maybe [MaintenanceWindowFilter])
+dFilters = Lens.lens (filters :: DescribeMaintenanceWindowTasks -> Lude.Maybe [MaintenanceWindowFilter]) (\s a -> s {filters = a} :: DescribeMaintenanceWindowTasks)
+{-# DEPRECATED dFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-dNextToken :: Lens' DescribeMaintenanceWindowTasks (Maybe Text)
-dNextToken = lens _dNextToken (\s a -> s {_dNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNextToken :: Lens.Lens' DescribeMaintenanceWindowTasks (Lude.Maybe Lude.Text)
+dNextToken = Lens.lens (nextToken :: DescribeMaintenanceWindowTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMaintenanceWindowTasks)
+{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-dMaxResults :: Lens' DescribeMaintenanceWindowTasks (Maybe Natural)
-dMaxResults = lens _dMaxResults (\s a -> s {_dMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMaxResults :: Lens.Lens' DescribeMaintenanceWindowTasks (Lude.Maybe Lude.Natural)
+dMaxResults = Lens.lens (maxResults :: DescribeMaintenanceWindowTasks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeMaintenanceWindowTasks)
+{-# DEPRECATED dMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the maintenance window whose tasks should be retrieved.
-dWindowId :: Lens' DescribeMaintenanceWindowTasks Text
-dWindowId = lens _dWindowId (\s a -> s {_dWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dWindowId :: Lens.Lens' DescribeMaintenanceWindowTasks Lude.Text
+dWindowId = Lens.lens (windowId :: DescribeMaintenanceWindowTasks -> Lude.Text) (\s a -> s {windowId = a} :: DescribeMaintenanceWindowTasks)
+{-# DEPRECATED dWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance AWSPager DescribeMaintenanceWindowTasks where
+instance Page.AWSPager DescribeMaintenanceWindowTasks where
   page rq rs
-    | stop (rs ^. dmwtsrsNextToken) = Nothing
-    | stop (rs ^. dmwtsrsTasks) = Nothing
-    | otherwise = Just $ rq & dNextToken .~ rs ^. dmwtsrsNextToken
+    | Page.stop (rs Lens.^. dmwtsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dmwtsrsTasks) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dNextToken Lens..~ rs Lens.^. dmwtsrsNextToken
 
-instance AWSRequest DescribeMaintenanceWindowTasks where
+instance Lude.AWSRequest DescribeMaintenanceWindowTasks where
   type
     Rs DescribeMaintenanceWindowTasks =
       DescribeMaintenanceWindowTasksResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowTasksResponse'
-            <$> (x .?> "Tasks" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Tasks" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeMaintenanceWindowTasks
-
-instance NFData DescribeMaintenanceWindowTasks
-
-instance ToHeaders DescribeMaintenanceWindowTasks where
+instance Lude.ToHeaders DescribeMaintenanceWindowTasks where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.DescribeMaintenanceWindowTasks" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.DescribeMaintenanceWindowTasks" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeMaintenanceWindowTasks where
+instance Lude.ToJSON DescribeMaintenanceWindowTasks where
   toJSON DescribeMaintenanceWindowTasks' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _dFilters,
-            ("NextToken" .=) <$> _dNextToken,
-            ("MaxResults" .=) <$> _dMaxResults,
-            Just ("WindowId" .= _dWindowId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("WindowId" Lude..= windowId)
           ]
       )
 
-instance ToPath DescribeMaintenanceWindowTasks where
-  toPath = const "/"
+instance Lude.ToPath DescribeMaintenanceWindowTasks where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeMaintenanceWindowTasks where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeMaintenanceWindowTasks where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeMaintenanceWindowTasksResponse' smart constructor.
+-- | /See:/ 'mkDescribeMaintenanceWindowTasksResponse' smart constructor.
 data DescribeMaintenanceWindowTasksResponse = DescribeMaintenanceWindowTasksResponse'
-  { _dmwtsrsTasks ::
-      !( Maybe
-           [MaintenanceWindowTask]
-       ),
-    _dmwtsrsNextToken ::
-      !(Maybe Text),
-    _dmwtsrsResponseStatus ::
-      !Int
+  { tasks ::
+      Lude.Maybe
+        [MaintenanceWindowTask],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowTasksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmwtsrsTasks' - Information about the tasks in the maintenance window.
---
--- * 'dmwtsrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'dmwtsrsResponseStatus' - -- | The response status code.
-describeMaintenanceWindowTasksResponse ::
-  -- | 'dmwtsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'responseStatus' - The response status code.
+-- * 'tasks' - Information about the tasks in the maintenance window.
+mkDescribeMaintenanceWindowTasksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMaintenanceWindowTasksResponse
-describeMaintenanceWindowTasksResponse pResponseStatus_ =
+mkDescribeMaintenanceWindowTasksResponse pResponseStatus_ =
   DescribeMaintenanceWindowTasksResponse'
-    { _dmwtsrsTasks = Nothing,
-      _dmwtsrsNextToken = Nothing,
-      _dmwtsrsResponseStatus = pResponseStatus_
+    { tasks = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the tasks in the maintenance window.
-dmwtsrsTasks :: Lens' DescribeMaintenanceWindowTasksResponse [MaintenanceWindowTask]
-dmwtsrsTasks = lens _dmwtsrsTasks (\s a -> s {_dmwtsrsTasks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwtsrsTasks :: Lens.Lens' DescribeMaintenanceWindowTasksResponse (Lude.Maybe [MaintenanceWindowTask])
+dmwtsrsTasks = Lens.lens (tasks :: DescribeMaintenanceWindowTasksResponse -> Lude.Maybe [MaintenanceWindowTask]) (\s a -> s {tasks = a} :: DescribeMaintenanceWindowTasksResponse)
+{-# DEPRECATED dmwtsrsTasks "Use generic-lens or generic-optics with 'tasks' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-dmwtsrsNextToken :: Lens' DescribeMaintenanceWindowTasksResponse (Maybe Text)
-dmwtsrsNextToken = lens _dmwtsrsNextToken (\s a -> s {_dmwtsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwtsrsNextToken :: Lens.Lens' DescribeMaintenanceWindowTasksResponse (Lude.Maybe Lude.Text)
+dmwtsrsNextToken = Lens.lens (nextToken :: DescribeMaintenanceWindowTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMaintenanceWindowTasksResponse)
+{-# DEPRECATED dmwtsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dmwtsrsResponseStatus :: Lens' DescribeMaintenanceWindowTasksResponse Int
-dmwtsrsResponseStatus = lens _dmwtsrsResponseStatus (\s a -> s {_dmwtsrsResponseStatus = a})
-
-instance NFData DescribeMaintenanceWindowTasksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwtsrsResponseStatus :: Lens.Lens' DescribeMaintenanceWindowTasksResponse Lude.Int
+dmwtsrsResponseStatus = Lens.lens (responseStatus :: DescribeMaintenanceWindowTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMaintenanceWindowTasksResponse)
+{-# DEPRECATED dmwtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

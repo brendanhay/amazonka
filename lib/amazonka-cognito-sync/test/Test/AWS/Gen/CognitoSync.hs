@@ -28,109 +28,109 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDescribeDataset $
---             describeDataset
+--             mkDescribeDataset
 --
 --         , requestSetCognitoEvents $
---             setCognitoEvents
+--             mkSetCognitoEvents
 --
 --         , requestDescribeIdentityPoolUsage $
---             describeIdentityPoolUsage
+--             mkDescribeIdentityPoolUsage
 --
 --         , requestGetBulkPublishDetails $
---             getBulkPublishDetails
+--             mkGetBulkPublishDetails
 --
 --         , requestListIdentityPoolUsage $
---             listIdentityPoolUsage
+--             mkListIdentityPoolUsage
 --
 --         , requestSetIdentityPoolConfiguration $
---             setIdentityPoolConfiguration
+--             mkSetIdentityPoolConfiguration
 --
 --         , requestDeleteDataset $
---             deleteDataset
+--             mkDeleteDataset
 --
 --         , requestGetCognitoEvents $
---             getCognitoEvents
+--             mkGetCognitoEvents
 --
 --         , requestDescribeIdentityUsage $
---             describeIdentityUsage
+--             mkDescribeIdentityUsage
 --
 --         , requestRegisterDevice $
---             registerDevice
+--             mkRegisterDevice
 --
 --         , requestSubscribeToDataset $
---             subscribeToDataset
+--             mkSubscribeToDataset
 --
 --         , requestGetIdentityPoolConfiguration $
---             getIdentityPoolConfiguration
+--             mkGetIdentityPoolConfiguration
 --
 --         , requestListRecords $
---             listRecords
+--             mkListRecords
 --
 --         , requestUnsubscribeFromDataset $
---             unsubscribeFromDataset
+--             mkUnsubscribeFromDataset
 --
 --         , requestUpdateRecords $
---             updateRecords
+--             mkUpdateRecords
 --
 --         , requestListDatasets $
---             listDatasets
+--             mkListDatasets
 --
 --         , requestBulkPublish $
---             bulkPublish
+--             mkBulkPublish
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribeDataset $
---             describeDatasetResponse
+--             mkDescribeDatasetResponse
 --
 --         , responseSetCognitoEvents $
---             setCognitoEventsResponse
+--             mkSetCognitoEventsResponse
 --
 --         , responseDescribeIdentityPoolUsage $
---             describeIdentityPoolUsageResponse
+--             mkDescribeIdentityPoolUsageResponse
 --
 --         , responseGetBulkPublishDetails $
---             getBulkPublishDetailsResponse
+--             mkGetBulkPublishDetailsResponse
 --
 --         , responseListIdentityPoolUsage $
---             listIdentityPoolUsageResponse
+--             mkListIdentityPoolUsageResponse
 --
 --         , responseSetIdentityPoolConfiguration $
---             setIdentityPoolConfigurationResponse
+--             mkSetIdentityPoolConfigurationResponse
 --
 --         , responseDeleteDataset $
---             deleteDatasetResponse
+--             mkDeleteDatasetResponse
 --
 --         , responseGetCognitoEvents $
---             getCognitoEventsResponse
+--             mkGetCognitoEventsResponse
 --
 --         , responseDescribeIdentityUsage $
---             describeIdentityUsageResponse
+--             mkDescribeIdentityUsageResponse
 --
 --         , responseRegisterDevice $
---             registerDeviceResponse
+--             mkRegisterDeviceResponse
 --
 --         , responseSubscribeToDataset $
---             subscribeToDatasetResponse
+--             mkSubscribeToDatasetResponse
 --
 --         , responseGetIdentityPoolConfiguration $
---             getIdentityPoolConfigurationResponse
+--             mkGetIdentityPoolConfigurationResponse
 --
 --         , responseListRecords $
---             listRecordsResponse
+--             mkListRecordsResponse
 --
 --         , responseUnsubscribeFromDataset $
---             unsubscribeFromDatasetResponse
+--             mkUnsubscribeFromDatasetResponse
 --
 --         , responseUpdateRecords $
---             updateRecordsResponse
+--             mkUpdateRecordsResponse
 --
 --         , responseListDatasets $
---             listDatasetsResponse
+--             mkListDatasetsResponse
 --
 --         , responseBulkPublish $
---             bulkPublishResponse
+--             mkBulkPublishResponse
 --
 --           ]
 --     ]
@@ -246,7 +246,7 @@ responseDescribeDataset =
   res
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy DescribeDataset)
 
 responseSetCognitoEvents :: SetCognitoEventsResponse -> TestTree
@@ -254,7 +254,7 @@ responseSetCognitoEvents =
   res
     "SetCognitoEventsResponse"
     "fixture/SetCognitoEventsResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy SetCognitoEvents)
 
 responseDescribeIdentityPoolUsage :: DescribeIdentityPoolUsageResponse -> TestTree
@@ -262,7 +262,7 @@ responseDescribeIdentityPoolUsage =
   res
     "DescribeIdentityPoolUsageResponse"
     "fixture/DescribeIdentityPoolUsageResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy DescribeIdentityPoolUsage)
 
 responseGetBulkPublishDetails :: GetBulkPublishDetailsResponse -> TestTree
@@ -270,7 +270,7 @@ responseGetBulkPublishDetails =
   res
     "GetBulkPublishDetailsResponse"
     "fixture/GetBulkPublishDetailsResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy GetBulkPublishDetails)
 
 responseListIdentityPoolUsage :: ListIdentityPoolUsageResponse -> TestTree
@@ -278,7 +278,7 @@ responseListIdentityPoolUsage =
   res
     "ListIdentityPoolUsageResponse"
     "fixture/ListIdentityPoolUsageResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy ListIdentityPoolUsage)
 
 responseSetIdentityPoolConfiguration :: SetIdentityPoolConfigurationResponse -> TestTree
@@ -286,7 +286,7 @@ responseSetIdentityPoolConfiguration =
   res
     "SetIdentityPoolConfigurationResponse"
     "fixture/SetIdentityPoolConfigurationResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy SetIdentityPoolConfiguration)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
@@ -294,7 +294,7 @@ responseDeleteDataset =
   res
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy DeleteDataset)
 
 responseGetCognitoEvents :: GetCognitoEventsResponse -> TestTree
@@ -302,7 +302,7 @@ responseGetCognitoEvents =
   res
     "GetCognitoEventsResponse"
     "fixture/GetCognitoEventsResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy GetCognitoEvents)
 
 responseDescribeIdentityUsage :: DescribeIdentityUsageResponse -> TestTree
@@ -310,7 +310,7 @@ responseDescribeIdentityUsage =
   res
     "DescribeIdentityUsageResponse"
     "fixture/DescribeIdentityUsageResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy DescribeIdentityUsage)
 
 responseRegisterDevice :: RegisterDeviceResponse -> TestTree
@@ -318,7 +318,7 @@ responseRegisterDevice =
   res
     "RegisterDeviceResponse"
     "fixture/RegisterDeviceResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy RegisterDevice)
 
 responseSubscribeToDataset :: SubscribeToDatasetResponse -> TestTree
@@ -326,7 +326,7 @@ responseSubscribeToDataset =
   res
     "SubscribeToDatasetResponse"
     "fixture/SubscribeToDatasetResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy SubscribeToDataset)
 
 responseGetIdentityPoolConfiguration :: GetIdentityPoolConfigurationResponse -> TestTree
@@ -334,7 +334,7 @@ responseGetIdentityPoolConfiguration =
   res
     "GetIdentityPoolConfigurationResponse"
     "fixture/GetIdentityPoolConfigurationResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy GetIdentityPoolConfiguration)
 
 responseListRecords :: ListRecordsResponse -> TestTree
@@ -342,7 +342,7 @@ responseListRecords =
   res
     "ListRecordsResponse"
     "fixture/ListRecordsResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy ListRecords)
 
 responseUnsubscribeFromDataset :: UnsubscribeFromDatasetResponse -> TestTree
@@ -350,7 +350,7 @@ responseUnsubscribeFromDataset =
   res
     "UnsubscribeFromDatasetResponse"
     "fixture/UnsubscribeFromDatasetResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy UnsubscribeFromDataset)
 
 responseUpdateRecords :: UpdateRecordsResponse -> TestTree
@@ -358,7 +358,7 @@ responseUpdateRecords =
   res
     "UpdateRecordsResponse"
     "fixture/UpdateRecordsResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy UpdateRecords)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
@@ -366,7 +366,7 @@ responseListDatasets =
   res
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy ListDatasets)
 
 responseBulkPublish :: BulkPublishResponse -> TestTree
@@ -374,5 +374,5 @@ responseBulkPublish =
   res
     "BulkPublishResponse"
     "fixture/BulkPublishResponse.proto"
-    cognitoSync
+    cognitoSyncService
     (Proxy :: Proxy BulkPublish)

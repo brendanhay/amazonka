@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,170 @@
 --
 -- Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN connection. You can modify multiple options for a tunnel in a single request, but you can only modify one tunnel at a time. For more information, see <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html Site-to-Site VPN Tunnel Options for Your Site-to-Site VPN Connection> in the /AWS Site-to-Site VPN User Guide/ .
 module Network.AWS.EC2.ModifyVPNTunnelOptions
-  ( -- * Creating a Request
-    modifyVPNTunnelOptions,
-    ModifyVPNTunnelOptions,
+  ( -- * Creating a request
+    ModifyVPNTunnelOptions (..),
+    mkModifyVPNTunnelOptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mvtoDryRun,
     mvtoVPNConnectionId,
     mvtoVPNTunnelOutsideIPAddress,
     mvtoTunnelOptions,
 
-    -- * Destructuring the Response
-    modifyVPNTunnelOptionsResponse,
-    ModifyVPNTunnelOptionsResponse,
+    -- * Destructuring the response
+    ModifyVPNTunnelOptionsResponse (..),
+    mkModifyVPNTunnelOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mvtorsVPNConnection,
     mvtorsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyVPNTunnelOptions' smart constructor.
+-- | /See:/ 'mkModifyVPNTunnelOptions' smart constructor.
 data ModifyVPNTunnelOptions = ModifyVPNTunnelOptions'
-  { _mvtoDryRun ::
-      !(Maybe Bool),
-    _mvtoVPNConnectionId :: !Text,
-    _mvtoVPNTunnelOutsideIPAddress :: !Text,
-    _mvtoTunnelOptions ::
-      !ModifyVPNTunnelOptionsSpecification
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    vpnConnectionId :: Lude.Text,
+    vpnTunnelOutsideIPAddress :: Lude.Text,
+    tunnelOptions ::
+      ModifyVPNTunnelOptionsSpecification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNTunnelOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvtoDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'mvtoVPNConnectionId' - The ID of the AWS Site-to-Site VPN connection.
---
--- * 'mvtoVPNTunnelOutsideIPAddress' - The external IP address of the VPN tunnel.
---
--- * 'mvtoTunnelOptions' - The tunnel options to modify.
-modifyVPNTunnelOptions ::
-  -- | 'mvtoVPNConnectionId'
-  Text ->
-  -- | 'mvtoVPNTunnelOutsideIPAddress'
-  Text ->
-  -- | 'mvtoTunnelOptions'
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'tunnelOptions' - The tunnel options to modify.
+-- * 'vpnConnectionId' - The ID of the AWS Site-to-Site VPN connection.
+-- * 'vpnTunnelOutsideIPAddress' - The external IP address of the VPN tunnel.
+mkModifyVPNTunnelOptions ::
+  -- | 'vpnConnectionId'
+  Lude.Text ->
+  -- | 'vpnTunnelOutsideIPAddress'
+  Lude.Text ->
+  -- | 'tunnelOptions'
   ModifyVPNTunnelOptionsSpecification ->
   ModifyVPNTunnelOptions
-modifyVPNTunnelOptions
+mkModifyVPNTunnelOptions
   pVPNConnectionId_
   pVPNTunnelOutsideIPAddress_
   pTunnelOptions_ =
     ModifyVPNTunnelOptions'
-      { _mvtoDryRun = Nothing,
-        _mvtoVPNConnectionId = pVPNConnectionId_,
-        _mvtoVPNTunnelOutsideIPAddress = pVPNTunnelOutsideIPAddress_,
-        _mvtoTunnelOptions = pTunnelOptions_
+      { dryRun = Lude.Nothing,
+        vpnConnectionId = pVPNConnectionId_,
+        vpnTunnelOutsideIPAddress = pVPNTunnelOutsideIPAddress_,
+        tunnelOptions = pTunnelOptions_
       }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mvtoDryRun :: Lens' ModifyVPNTunnelOptions (Maybe Bool)
-mvtoDryRun = lens _mvtoDryRun (\s a -> s {_mvtoDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvtoDryRun :: Lens.Lens' ModifyVPNTunnelOptions (Lude.Maybe Lude.Bool)
+mvtoDryRun = Lens.lens (dryRun :: ModifyVPNTunnelOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPNTunnelOptions)
+{-# DEPRECATED mvtoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the AWS Site-to-Site VPN connection.
-mvtoVPNConnectionId :: Lens' ModifyVPNTunnelOptions Text
-mvtoVPNConnectionId = lens _mvtoVPNConnectionId (\s a -> s {_mvtoVPNConnectionId = a})
+--
+-- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvtoVPNConnectionId :: Lens.Lens' ModifyVPNTunnelOptions Lude.Text
+mvtoVPNConnectionId = Lens.lens (vpnConnectionId :: ModifyVPNTunnelOptions -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: ModifyVPNTunnelOptions)
+{-# DEPRECATED mvtoVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
 
 -- | The external IP address of the VPN tunnel.
-mvtoVPNTunnelOutsideIPAddress :: Lens' ModifyVPNTunnelOptions Text
-mvtoVPNTunnelOutsideIPAddress = lens _mvtoVPNTunnelOutsideIPAddress (\s a -> s {_mvtoVPNTunnelOutsideIPAddress = a})
+--
+-- /Note:/ Consider using 'vpnTunnelOutsideIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvtoVPNTunnelOutsideIPAddress :: Lens.Lens' ModifyVPNTunnelOptions Lude.Text
+mvtoVPNTunnelOutsideIPAddress = Lens.lens (vpnTunnelOutsideIPAddress :: ModifyVPNTunnelOptions -> Lude.Text) (\s a -> s {vpnTunnelOutsideIPAddress = a} :: ModifyVPNTunnelOptions)
+{-# DEPRECATED mvtoVPNTunnelOutsideIPAddress "Use generic-lens or generic-optics with 'vpnTunnelOutsideIPAddress' instead." #-}
 
 -- | The tunnel options to modify.
-mvtoTunnelOptions :: Lens' ModifyVPNTunnelOptions ModifyVPNTunnelOptionsSpecification
-mvtoTunnelOptions = lens _mvtoTunnelOptions (\s a -> s {_mvtoTunnelOptions = a})
+--
+-- /Note:/ Consider using 'tunnelOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvtoTunnelOptions :: Lens.Lens' ModifyVPNTunnelOptions ModifyVPNTunnelOptionsSpecification
+mvtoTunnelOptions = Lens.lens (tunnelOptions :: ModifyVPNTunnelOptions -> ModifyVPNTunnelOptionsSpecification) (\s a -> s {tunnelOptions = a} :: ModifyVPNTunnelOptions)
+{-# DEPRECATED mvtoTunnelOptions "Use generic-lens or generic-optics with 'tunnelOptions' instead." #-}
 
-instance AWSRequest ModifyVPNTunnelOptions where
+instance Lude.AWSRequest ModifyVPNTunnelOptions where
   type Rs ModifyVPNTunnelOptions = ModifyVPNTunnelOptionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyVPNTunnelOptionsResponse'
-            <$> (x .@? "vpnConnection") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "vpnConnection")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyVPNTunnelOptions
+instance Lude.ToHeaders ModifyVPNTunnelOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyVPNTunnelOptions
+instance Lude.ToPath ModifyVPNTunnelOptions where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyVPNTunnelOptions where
-  toHeaders = const mempty
-
-instance ToPath ModifyVPNTunnelOptions where
-  toPath = const "/"
-
-instance ToQuery ModifyVPNTunnelOptions where
+instance Lude.ToQuery ModifyVPNTunnelOptions where
   toQuery ModifyVPNTunnelOptions' {..} =
-    mconcat
-      [ "Action" =: ("ModifyVpnTunnelOptions" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _mvtoDryRun,
-        "VpnConnectionId" =: _mvtoVPNConnectionId,
-        "VpnTunnelOutsideIpAddress" =: _mvtoVPNTunnelOutsideIPAddress,
-        "TunnelOptions" =: _mvtoTunnelOptions
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyVpnTunnelOptions" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "VpnConnectionId" Lude.=: vpnConnectionId,
+        "VpnTunnelOutsideIpAddress" Lude.=: vpnTunnelOutsideIPAddress,
+        "TunnelOptions" Lude.=: tunnelOptions
       ]
 
--- | /See:/ 'modifyVPNTunnelOptionsResponse' smart constructor.
+-- | /See:/ 'mkModifyVPNTunnelOptionsResponse' smart constructor.
 data ModifyVPNTunnelOptionsResponse = ModifyVPNTunnelOptionsResponse'
-  { _mvtorsVPNConnection ::
-      !(Maybe VPNConnection),
-    _mvtorsResponseStatus :: !Int
+  { vpnConnection ::
+      Lude.Maybe VPNConnection,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNTunnelOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvtorsVPNConnection' - Undocumented member.
---
--- * 'mvtorsResponseStatus' - -- | The response status code.
-modifyVPNTunnelOptionsResponse ::
-  -- | 'mvtorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vpnConnection' - Undocumented field.
+mkModifyVPNTunnelOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyVPNTunnelOptionsResponse
-modifyVPNTunnelOptionsResponse pResponseStatus_ =
+mkModifyVPNTunnelOptionsResponse pResponseStatus_ =
   ModifyVPNTunnelOptionsResponse'
-    { _mvtorsVPNConnection = Nothing,
-      _mvtorsResponseStatus = pResponseStatus_
+    { vpnConnection = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mvtorsVPNConnection :: Lens' ModifyVPNTunnelOptionsResponse (Maybe VPNConnection)
-mvtorsVPNConnection = lens _mvtorsVPNConnection (\s a -> s {_mvtorsVPNConnection = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'vpnConnection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvtorsVPNConnection :: Lens.Lens' ModifyVPNTunnelOptionsResponse (Lude.Maybe VPNConnection)
+mvtorsVPNConnection = Lens.lens (vpnConnection :: ModifyVPNTunnelOptionsResponse -> Lude.Maybe VPNConnection) (\s a -> s {vpnConnection = a} :: ModifyVPNTunnelOptionsResponse)
+{-# DEPRECATED mvtorsVPNConnection "Use generic-lens or generic-optics with 'vpnConnection' instead." #-}
 
--- | -- | The response status code.
-mvtorsResponseStatus :: Lens' ModifyVPNTunnelOptionsResponse Int
-mvtorsResponseStatus = lens _mvtorsResponseStatus (\s a -> s {_mvtorsResponseStatus = a})
-
-instance NFData ModifyVPNTunnelOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvtorsResponseStatus :: Lens.Lens' ModifyVPNTunnelOptionsResponse Lude.Int
+mvtorsResponseStatus = Lens.lens (responseStatus :: ModifyVPNTunnelOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyVPNTunnelOptionsResponse)
+{-# DEPRECATED mvtorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

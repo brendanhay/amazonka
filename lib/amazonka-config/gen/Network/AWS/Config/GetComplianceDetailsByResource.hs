@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Returns the evaluation results for the specified AWS resource. The results indicate which AWS Config rules were used to evaluate the resource, when each rule was last used, and whether the resource complies with each rule.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.GetComplianceDetailsByResource
-  ( -- * Creating a Request
-    getComplianceDetailsByResource,
-    GetComplianceDetailsByResource,
+  ( -- * Creating a request
+    GetComplianceDetailsByResource (..),
+    mkGetComplianceDetailsByResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcdbrComplianceTypes,
     gcdbrNextToken,
     gcdbrResourceType,
     gcdbrResourceId,
 
-    -- * Destructuring the Response
-    getComplianceDetailsByResourceResponse,
-    GetComplianceDetailsByResourceResponse,
+    -- * Destructuring the response
+    GetComplianceDetailsByResourceResponse (..),
+    mkGetComplianceDetailsByResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcdbrrsEvaluationResults,
     gcdbrrsNextToken,
     gcdbrrsResponseStatus,
@@ -45,169 +38,193 @@ module Network.AWS.Config.GetComplianceDetailsByResource
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'getComplianceDetailsByResource' smart constructor.
+-- /See:/ 'mkGetComplianceDetailsByResource' smart constructor.
 data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
-  { _gcdbrComplianceTypes ::
-      !(Maybe [ComplianceType]),
-    _gcdbrNextToken ::
-      !(Maybe Text),
-    _gcdbrResourceType :: !Text,
-    _gcdbrResourceId :: !Text
+  { complianceTypes ::
+      Lude.Maybe [ComplianceType],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    resourceType :: Lude.Text,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceDetailsByResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'complianceTypes' - Filters the results by compliance.
 --
--- * 'gcdbrComplianceTypes' - Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
---
--- * 'gcdbrNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gcdbrResourceType' - The type of the AWS resource for which you want compliance information.
---
--- * 'gcdbrResourceId' - The ID of the AWS resource for which you want compliance information.
-getComplianceDetailsByResource ::
-  -- | 'gcdbrResourceType'
-  Text ->
-  -- | 'gcdbrResourceId'
-  Text ->
+-- The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'resourceId' - The ID of the AWS resource for which you want compliance information.
+-- * 'resourceType' - The type of the AWS resource for which you want compliance information.
+mkGetComplianceDetailsByResource ::
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   GetComplianceDetailsByResource
-getComplianceDetailsByResource pResourceType_ pResourceId_ =
+mkGetComplianceDetailsByResource pResourceType_ pResourceId_ =
   GetComplianceDetailsByResource'
-    { _gcdbrComplianceTypes = Nothing,
-      _gcdbrNextToken = Nothing,
-      _gcdbrResourceType = pResourceType_,
-      _gcdbrResourceId = pResourceId_
+    { complianceTypes = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      resourceType = pResourceType_,
+      resourceId = pResourceId_
     }
 
--- | Filters the results by compliance. The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
-gcdbrComplianceTypes :: Lens' GetComplianceDetailsByResource [ComplianceType]
-gcdbrComplianceTypes = lens _gcdbrComplianceTypes (\s a -> s {_gcdbrComplianceTypes = a}) . _Default . _Coerce
+-- | Filters the results by compliance.
+--
+-- The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @NOT_APPLICABLE@ .
+--
+-- /Note:/ Consider using 'complianceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdbrComplianceTypes :: Lens.Lens' GetComplianceDetailsByResource (Lude.Maybe [ComplianceType])
+gcdbrComplianceTypes = Lens.lens (complianceTypes :: GetComplianceDetailsByResource -> Lude.Maybe [ComplianceType]) (\s a -> s {complianceTypes = a} :: GetComplianceDetailsByResource)
+{-# DEPRECATED gcdbrComplianceTypes "Use generic-lens or generic-optics with 'complianceTypes' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-gcdbrNextToken :: Lens' GetComplianceDetailsByResource (Maybe Text)
-gcdbrNextToken = lens _gcdbrNextToken (\s a -> s {_gcdbrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdbrNextToken :: Lens.Lens' GetComplianceDetailsByResource (Lude.Maybe Lude.Text)
+gcdbrNextToken = Lens.lens (nextToken :: GetComplianceDetailsByResource -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetComplianceDetailsByResource)
+{-# DEPRECATED gcdbrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The type of the AWS resource for which you want compliance information.
-gcdbrResourceType :: Lens' GetComplianceDetailsByResource Text
-gcdbrResourceType = lens _gcdbrResourceType (\s a -> s {_gcdbrResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdbrResourceType :: Lens.Lens' GetComplianceDetailsByResource Lude.Text
+gcdbrResourceType = Lens.lens (resourceType :: GetComplianceDetailsByResource -> Lude.Text) (\s a -> s {resourceType = a} :: GetComplianceDetailsByResource)
+{-# DEPRECATED gcdbrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ID of the AWS resource for which you want compliance information.
-gcdbrResourceId :: Lens' GetComplianceDetailsByResource Text
-gcdbrResourceId = lens _gcdbrResourceId (\s a -> s {_gcdbrResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdbrResourceId :: Lens.Lens' GetComplianceDetailsByResource Lude.Text
+gcdbrResourceId = Lens.lens (resourceId :: GetComplianceDetailsByResource -> Lude.Text) (\s a -> s {resourceId = a} :: GetComplianceDetailsByResource)
+{-# DEPRECATED gcdbrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSPager GetComplianceDetailsByResource where
+instance Page.AWSPager GetComplianceDetailsByResource where
   page rq rs
-    | stop (rs ^. gcdbrrsNextToken) = Nothing
-    | stop (rs ^. gcdbrrsEvaluationResults) = Nothing
-    | otherwise = Just $ rq & gcdbrNextToken .~ rs ^. gcdbrrsNextToken
+    | Page.stop (rs Lens.^. gcdbrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gcdbrrsEvaluationResults) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gcdbrNextToken Lens..~ rs Lens.^. gcdbrrsNextToken
 
-instance AWSRequest GetComplianceDetailsByResource where
+instance Lude.AWSRequest GetComplianceDetailsByResource where
   type
     Rs GetComplianceDetailsByResource =
       GetComplianceDetailsByResourceResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetComplianceDetailsByResourceResponse'
-            <$> (x .?> "EvaluationResults" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EvaluationResults" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetComplianceDetailsByResource
-
-instance NFData GetComplianceDetailsByResource
-
-instance ToHeaders GetComplianceDetailsByResource where
+instance Lude.ToHeaders GetComplianceDetailsByResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.GetComplianceDetailsByResource" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.GetComplianceDetailsByResource" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetComplianceDetailsByResource where
+instance Lude.ToJSON GetComplianceDetailsByResource where
   toJSON GetComplianceDetailsByResource' {..} =
-    object
-      ( catMaybes
-          [ ("ComplianceTypes" .=) <$> _gcdbrComplianceTypes,
-            ("NextToken" .=) <$> _gcdbrNextToken,
-            Just ("ResourceType" .= _gcdbrResourceType),
-            Just ("ResourceId" .= _gcdbrResourceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ComplianceTypes" Lude..=) Lude.<$> complianceTypes,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("ResourceType" Lude..= resourceType),
+            Lude.Just ("ResourceId" Lude..= resourceId)
           ]
       )
 
-instance ToPath GetComplianceDetailsByResource where
-  toPath = const "/"
+instance Lude.ToPath GetComplianceDetailsByResource where
+  toPath = Lude.const "/"
 
-instance ToQuery GetComplianceDetailsByResource where
-  toQuery = const mempty
+instance Lude.ToQuery GetComplianceDetailsByResource where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'getComplianceDetailsByResourceResponse' smart constructor.
+-- /See:/ 'mkGetComplianceDetailsByResourceResponse' smart constructor.
 data GetComplianceDetailsByResourceResponse = GetComplianceDetailsByResourceResponse'
-  { _gcdbrrsEvaluationResults ::
-      !( Maybe
-           [EvaluationResult]
-       ),
-    _gcdbrrsNextToken ::
-      !(Maybe Text),
-    _gcdbrrsResponseStatus ::
-      !Int
+  { evaluationResults ::
+      Lude.Maybe
+        [EvaluationResult],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceDetailsByResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcdbrrsEvaluationResults' - Indicates whether the specified AWS resource complies each AWS Config rule.
---
--- * 'gcdbrrsNextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
---
--- * 'gcdbrrsResponseStatus' - -- | The response status code.
-getComplianceDetailsByResourceResponse ::
-  -- | 'gcdbrrsResponseStatus'
-  Int ->
+-- * 'evaluationResults' - Indicates whether the specified AWS resource complies each AWS Config rule.
+-- * 'nextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+mkGetComplianceDetailsByResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetComplianceDetailsByResourceResponse
-getComplianceDetailsByResourceResponse pResponseStatus_ =
+mkGetComplianceDetailsByResourceResponse pResponseStatus_ =
   GetComplianceDetailsByResourceResponse'
-    { _gcdbrrsEvaluationResults =
-        Nothing,
-      _gcdbrrsNextToken = Nothing,
-      _gcdbrrsResponseStatus = pResponseStatus_
+    { evaluationResults =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates whether the specified AWS resource complies each AWS Config rule.
-gcdbrrsEvaluationResults :: Lens' GetComplianceDetailsByResourceResponse [EvaluationResult]
-gcdbrrsEvaluationResults = lens _gcdbrrsEvaluationResults (\s a -> s {_gcdbrrsEvaluationResults = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'evaluationResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdbrrsEvaluationResults :: Lens.Lens' GetComplianceDetailsByResourceResponse (Lude.Maybe [EvaluationResult])
+gcdbrrsEvaluationResults = Lens.lens (evaluationResults :: GetComplianceDetailsByResourceResponse -> Lude.Maybe [EvaluationResult]) (\s a -> s {evaluationResults = a} :: GetComplianceDetailsByResourceResponse)
+{-# DEPRECATED gcdbrrsEvaluationResults "Use generic-lens or generic-optics with 'evaluationResults' instead." #-}
 
 -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
-gcdbrrsNextToken :: Lens' GetComplianceDetailsByResourceResponse (Maybe Text)
-gcdbrrsNextToken = lens _gcdbrrsNextToken (\s a -> s {_gcdbrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdbrrsNextToken :: Lens.Lens' GetComplianceDetailsByResourceResponse (Lude.Maybe Lude.Text)
+gcdbrrsNextToken = Lens.lens (nextToken :: GetComplianceDetailsByResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetComplianceDetailsByResourceResponse)
+{-# DEPRECATED gcdbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gcdbrrsResponseStatus :: Lens' GetComplianceDetailsByResourceResponse Int
-gcdbrrsResponseStatus = lens _gcdbrrsResponseStatus (\s a -> s {_gcdbrrsResponseStatus = a})
-
-instance NFData GetComplianceDetailsByResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdbrrsResponseStatus :: Lens.Lens' GetComplianceDetailsByResourceResponse Lude.Int
+gcdbrrsResponseStatus = Lens.lens (responseStatus :: GetComplianceDetailsByResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetComplianceDetailsByResourceResponse)
+{-# DEPRECATED gcdbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

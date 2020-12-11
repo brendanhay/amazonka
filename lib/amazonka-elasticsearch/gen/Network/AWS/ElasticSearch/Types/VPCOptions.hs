@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.VPCOptions where
+module Network.AWS.ElasticSearch.Types.VPCOptions
+  ( VPCOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVPCOptions,
+
+    -- * Lenses
+    voSecurityGroupIds,
+    voSubnetIds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains> .
 --
---
---
--- /See:/ 'vpcOptions' smart constructor.
+-- /See:/ 'mkVPCOptions' smart constructor.
 data VPCOptions = VPCOptions'
-  { _voSecurityGroupIds ::
-      !(Maybe [Text]),
-    _voSubnetIds :: !(Maybe [Text])
+  { securityGroupIds ::
+      Lude.Maybe [Lude.Text],
+    subnetIds :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'voSecurityGroupIds' - Specifies the security groups for VPC endpoint.
---
--- * 'voSubnetIds' - Specifies the subnets for VPC endpoint.
-vpcOptions ::
+-- * 'securityGroupIds' - Specifies the security groups for VPC endpoint.
+-- * 'subnetIds' - Specifies the subnets for VPC endpoint.
+mkVPCOptions ::
   VPCOptions
-vpcOptions =
+mkVPCOptions =
   VPCOptions'
-    { _voSecurityGroupIds = Nothing,
-      _voSubnetIds = Nothing
+    { securityGroupIds = Lude.Nothing,
+      subnetIds = Lude.Nothing
     }
 
 -- | Specifies the security groups for VPC endpoint.
-voSecurityGroupIds :: Lens' VPCOptions [Text]
-voSecurityGroupIds = lens _voSecurityGroupIds (\s a -> s {_voSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+voSecurityGroupIds :: Lens.Lens' VPCOptions (Lude.Maybe [Lude.Text])
+voSecurityGroupIds = Lens.lens (securityGroupIds :: VPCOptions -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: VPCOptions)
+{-# DEPRECATED voSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
 -- | Specifies the subnets for VPC endpoint.
-voSubnetIds :: Lens' VPCOptions [Text]
-voSubnetIds = lens _voSubnetIds (\s a -> s {_voSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+voSubnetIds :: Lens.Lens' VPCOptions (Lude.Maybe [Lude.Text])
+voSubnetIds = Lens.lens (subnetIds :: VPCOptions -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: VPCOptions)
+{-# DEPRECATED voSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
-instance Hashable VPCOptions
-
-instance NFData VPCOptions
-
-instance ToJSON VPCOptions where
+instance Lude.ToJSON VPCOptions where
   toJSON VPCOptions' {..} =
-    object
-      ( catMaybes
-          [ ("SecurityGroupIds" .=) <$> _voSecurityGroupIds,
-            ("SubnetIds" .=) <$> _voSubnetIds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SecurityGroupIds" Lude..=) Lude.<$> securityGroupIds,
+            ("SubnetIds" Lude..=) Lude.<$> subnetIds
           ]
       )

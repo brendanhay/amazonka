@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,138 @@
 --
 -- Undeprecates a previously deprecated /activity type/ . After an activity type has been undeprecated, you can create new tasks of that activity type.
 --
---
 -- __Access Control__
---
 -- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
+--
 --     * Use an @Action@ element to allow or deny permission to call this action.
+--
 --
 --     * Constrain the following parameters by using a @Condition@ element with the appropriate keys.
 --
 --     * @activityType.name@ : String constraint. The key is @swf:activityType.name@ .
+--
 --
 --     * @activityType.version@ : String constraint. The key is @swf:activityType.version@ .
 --
 --
 --
 --
---
 -- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 module Network.AWS.SWF.UndeprecateActivityType
-  ( -- * Creating a Request
-    undeprecateActivityType,
-    UndeprecateActivityType,
+  ( -- * Creating a request
+    UndeprecateActivityType (..),
+    mkUndeprecateActivityType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uatDomain,
     uatActivityType,
 
-    -- * Destructuring the Response
-    undeprecateActivityTypeResponse,
-    UndeprecateActivityTypeResponse,
+    -- * Destructuring the response
+    UndeprecateActivityTypeResponse (..),
+    mkUndeprecateActivityTypeResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SWF.Types
 
--- | /See:/ 'undeprecateActivityType' smart constructor.
+-- | /See:/ 'mkUndeprecateActivityType' smart constructor.
 data UndeprecateActivityType = UndeprecateActivityType'
-  { _uatDomain ::
-      !Text,
-    _uatActivityType :: !ActivityType
+  { domain ::
+      Lude.Text,
+    activityType :: ActivityType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UndeprecateActivityType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uatDomain' - The name of the domain of the deprecated activity type.
---
--- * 'uatActivityType' - The activity type to undeprecate.
-undeprecateActivityType ::
-  -- | 'uatDomain'
-  Text ->
-  -- | 'uatActivityType'
+-- * 'activityType' - The activity type to undeprecate.
+-- * 'domain' - The name of the domain of the deprecated activity type.
+mkUndeprecateActivityType ::
+  -- | 'domain'
+  Lude.Text ->
+  -- | 'activityType'
   ActivityType ->
   UndeprecateActivityType
-undeprecateActivityType pDomain_ pActivityType_ =
+mkUndeprecateActivityType pDomain_ pActivityType_ =
   UndeprecateActivityType'
-    { _uatDomain = pDomain_,
-      _uatActivityType = pActivityType_
+    { domain = pDomain_,
+      activityType = pActivityType_
     }
 
 -- | The name of the domain of the deprecated activity type.
-uatDomain :: Lens' UndeprecateActivityType Text
-uatDomain = lens _uatDomain (\s a -> s {_uatDomain = a})
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uatDomain :: Lens.Lens' UndeprecateActivityType Lude.Text
+uatDomain = Lens.lens (domain :: UndeprecateActivityType -> Lude.Text) (\s a -> s {domain = a} :: UndeprecateActivityType)
+{-# DEPRECATED uatDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The activity type to undeprecate.
-uatActivityType :: Lens' UndeprecateActivityType ActivityType
-uatActivityType = lens _uatActivityType (\s a -> s {_uatActivityType = a})
+--
+-- /Note:/ Consider using 'activityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uatActivityType :: Lens.Lens' UndeprecateActivityType ActivityType
+uatActivityType = Lens.lens (activityType :: UndeprecateActivityType -> ActivityType) (\s a -> s {activityType = a} :: UndeprecateActivityType)
+{-# DEPRECATED uatActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
 
-instance AWSRequest UndeprecateActivityType where
+instance Lude.AWSRequest UndeprecateActivityType where
   type Rs UndeprecateActivityType = UndeprecateActivityTypeResponse
-  request = postJSON swf
-  response = receiveNull UndeprecateActivityTypeResponse'
+  request = Req.postJSON swfService
+  response = Res.receiveNull UndeprecateActivityTypeResponse'
 
-instance Hashable UndeprecateActivityType
-
-instance NFData UndeprecateActivityType
-
-instance ToHeaders UndeprecateActivityType where
+instance Lude.ToHeaders UndeprecateActivityType where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SimpleWorkflowService.UndeprecateActivityType" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ( "SimpleWorkflowService.UndeprecateActivityType" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UndeprecateActivityType where
+instance Lude.ToJSON UndeprecateActivityType where
   toJSON UndeprecateActivityType' {..} =
-    object
-      ( catMaybes
-          [ Just ("domain" .= _uatDomain),
-            Just ("activityType" .= _uatActivityType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("domain" Lude..= domain),
+            Lude.Just ("activityType" Lude..= activityType)
           ]
       )
 
-instance ToPath UndeprecateActivityType where
-  toPath = const "/"
+instance Lude.ToPath UndeprecateActivityType where
+  toPath = Lude.const "/"
 
-instance ToQuery UndeprecateActivityType where
-  toQuery = const mempty
+instance Lude.ToQuery UndeprecateActivityType where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'undeprecateActivityTypeResponse' smart constructor.
+-- | /See:/ 'mkUndeprecateActivityTypeResponse' smart constructor.
 data UndeprecateActivityTypeResponse = UndeprecateActivityTypeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UndeprecateActivityTypeResponse' with the minimum fields required to make a request.
-undeprecateActivityTypeResponse ::
+mkUndeprecateActivityTypeResponse ::
   UndeprecateActivityTypeResponse
-undeprecateActivityTypeResponse = UndeprecateActivityTypeResponse'
-
-instance NFData UndeprecateActivityTypeResponse
+mkUndeprecateActivityTypeResponse =
+  UndeprecateActivityTypeResponse'

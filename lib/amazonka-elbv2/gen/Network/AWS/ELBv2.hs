@@ -14,23 +14,22 @@
 -- __Elastic Load Balancing__
 --
 -- A load balancer distributes incoming traffic across targets, such as your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered targets and ensures that it routes traffic only to healthy targets. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer. You configure a target group with a protocol and port number for connections from the load balancer to the targets, and with health check settings to be used when checking the health status of the targets.
---
 -- Elastic Load Balancing supports the following types of load balancers: Application Load Balancers, Network Load Balancers, Gateway Load Balancers, and Classic Load Balancers. This reference covers the following load balancer types:
 --
 --     * Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS.
 --
+--
 --     * Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP.
+--
 --
 --     * Gateway Load Balancer - Operates at the network layer (layer 3).
 --
 --
---
 -- For more information, see the <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/ Elastic Load Balancing User Guide> .
---
 -- All Elastic Load Balancing operations are idempotent, which means that they complete at most one time. If you repeat an operation, it succeeds.
 module Network.AWS.ELBv2
-  ( -- * Service Configuration
-    eLBv2,
+  ( -- * Service configuration
+    eLBv2Service,
 
     -- * Errors
     -- $errors
@@ -39,19 +38,19 @@ module Network.AWS.ELBv2
     -- $waiters
 
     -- ** LoadBalancersDeleted
-    loadBalancersDeleted,
+    mkLoadBalancersDeleted,
 
     -- ** TargetDeregistered
-    targetDeregistered,
+    mkTargetDeregistered,
 
     -- ** LoadBalancerAvailable
-    loadBalancerAvailable,
+    mkLoadBalancerAvailable,
 
     -- ** TargetInService
-    targetInService,
+    mkTargetInService,
 
     -- ** LoadBalancerExists
-    loadBalancerExists,
+    mkLoadBalancerExists,
 
     -- * Operations
     -- $operations
@@ -197,8 +196,8 @@ module Network.AWS.ELBv2
     TargetTypeEnum (..),
 
     -- ** Action
-    Action,
-    action,
+    Action (..),
+    mkAction,
     aFixedResponseConfig,
     aTargetGroupARN,
     aForwardConfig,
@@ -209,8 +208,8 @@ module Network.AWS.ELBv2
     aType,
 
     -- ** AuthenticateCognitoActionConfig
-    AuthenticateCognitoActionConfig,
-    authenticateCognitoActionConfig,
+    AuthenticateCognitoActionConfig (..),
+    mkAuthenticateCognitoActionConfig,
     acacAuthenticationRequestExtraParams,
     acacScope,
     acacOnUnauthenticatedRequest,
@@ -221,8 +220,8 @@ module Network.AWS.ELBv2
     acacUserPoolDomain,
 
     -- ** AuthenticateOidcActionConfig
-    AuthenticateOidcActionConfig,
-    authenticateOidcActionConfig,
+    AuthenticateOidcActionConfig (..),
+    mkAuthenticateOidcActionConfig,
     aoacClientSecret,
     aoacUseExistingClientSecret,
     aoacAuthenticationRequestExtraParams,
@@ -237,63 +236,63 @@ module Network.AWS.ELBv2
     aoacClientId,
 
     -- ** AvailabilityZone
-    AvailabilityZone,
-    availabilityZone,
+    AvailabilityZone (..),
+    mkAvailabilityZone,
     azSubnetId,
     azZoneName,
     azLoadBalancerAddresses,
     azOutpostId,
 
     -- ** Certificate
-    Certificate,
-    certificate,
+    Certificate (..),
+    mkCertificate,
     cCertificateARN,
     cIsDefault,
 
     -- ** Cipher
-    Cipher,
-    cipher,
+    Cipher (..),
+    mkCipher,
     cPriority,
     cName,
 
     -- ** FixedResponseActionConfig
-    FixedResponseActionConfig,
-    fixedResponseActionConfig,
+    FixedResponseActionConfig (..),
+    mkFixedResponseActionConfig,
     fracMessageBody,
     fracContentType,
     fracStatusCode,
 
     -- ** ForwardActionConfig
-    ForwardActionConfig,
-    forwardActionConfig,
+    ForwardActionConfig (..),
+    mkForwardActionConfig,
     facTargetGroups,
     facTargetGroupStickinessConfig,
 
     -- ** HTTPHeaderConditionConfig
-    HTTPHeaderConditionConfig,
-    hTTPHeaderConditionConfig,
+    HTTPHeaderConditionConfig (..),
+    mkHTTPHeaderConditionConfig,
     httphccValues,
     httphccHTTPHeaderName,
 
     -- ** HTTPRequestMethodConditionConfig
-    HTTPRequestMethodConditionConfig,
-    hTTPRequestMethodConditionConfig,
+    HTTPRequestMethodConditionConfig (..),
+    mkHTTPRequestMethodConditionConfig,
     httprmccValues,
 
     -- ** HostHeaderConditionConfig
-    HostHeaderConditionConfig,
-    hostHeaderConditionConfig,
+    HostHeaderConditionConfig (..),
+    mkHostHeaderConditionConfig,
     hhccValues,
 
     -- ** Limit
-    Limit,
-    limit,
+    Limit (..),
+    mkLimit,
     lMax,
     lName,
 
     -- ** Listener
-    Listener,
-    listener,
+    Listener (..),
+    mkListener,
     lSSLPolicy,
     lListenerARN,
     lProtocol,
@@ -304,8 +303,8 @@ module Network.AWS.ELBv2
     lPort,
 
     -- ** LoadBalancer
-    LoadBalancer,
-    loadBalancer,
+    LoadBalancer (..),
+    mkLoadBalancer,
     lbState,
     lbSecurityGroups,
     lbLoadBalancerName,
@@ -321,50 +320,50 @@ module Network.AWS.ELBv2
     lbDNSName,
 
     -- ** LoadBalancerAddress
-    LoadBalancerAddress,
-    loadBalancerAddress,
+    LoadBalancerAddress (..),
+    mkLoadBalancerAddress,
     lbaIPv6Address,
     lbaIPAddress,
     lbaAllocationId,
     lbaPrivateIPv4Address,
 
     -- ** LoadBalancerAttribute
-    LoadBalancerAttribute,
-    loadBalancerAttribute,
+    LoadBalancerAttribute (..),
+    mkLoadBalancerAttribute,
     lbaValue,
     lbaKey,
 
     -- ** LoadBalancerState
-    LoadBalancerState,
-    loadBalancerState,
+    LoadBalancerState (..),
+    mkLoadBalancerState,
     lbsReason,
     lbsCode,
 
     -- ** Matcher
-    Matcher,
-    matcher,
+    Matcher (..),
+    mkMatcher,
     mHTTPCode,
     mGrpcCode,
 
     -- ** PathPatternConditionConfig
-    PathPatternConditionConfig,
-    pathPatternConditionConfig,
+    PathPatternConditionConfig (..),
+    mkPathPatternConditionConfig,
     ppccValues,
 
     -- ** QueryStringConditionConfig
-    QueryStringConditionConfig,
-    queryStringConditionConfig,
+    QueryStringConditionConfig (..),
+    mkQueryStringConditionConfig,
     qsccValues,
 
     -- ** QueryStringKeyValuePair
-    QueryStringKeyValuePair,
-    queryStringKeyValuePair,
+    QueryStringKeyValuePair (..),
+    mkQueryStringKeyValuePair,
     qskvpValue,
     qskvpKey,
 
     -- ** RedirectActionConfig
-    RedirectActionConfig,
-    redirectActionConfig,
+    RedirectActionConfig (..),
+    mkRedirectActionConfig,
     racPath,
     racProtocol,
     racQuery,
@@ -373,8 +372,8 @@ module Network.AWS.ELBv2
     racStatusCode,
 
     -- ** Rule
-    Rule,
-    rule,
+    Rule (..),
+    mkRule,
     rPriority,
     rActions,
     rConditions,
@@ -382,8 +381,8 @@ module Network.AWS.ELBv2
     rIsDefault,
 
     -- ** RuleCondition
-    RuleCondition,
-    ruleCondition,
+    RuleCondition (..),
+    mkRuleCondition,
     rcField,
     rcHTTPHeaderConfig,
     rcHostHeaderConfig,
@@ -394,53 +393,53 @@ module Network.AWS.ELBv2
     rcQueryStringConfig,
 
     -- ** RulePriorityPair
-    RulePriorityPair,
-    rulePriorityPair,
+    RulePriorityPair (..),
+    mkRulePriorityPair,
     rppPriority,
     rppRuleARN,
 
     -- ** SSLPolicy
-    SSLPolicy,
-    sslPolicy,
+    SSLPolicy (..),
+    mkSSLPolicy,
     spCiphers,
     spName,
     spSSLProtocols,
 
     -- ** SourceIPConditionConfig
-    SourceIPConditionConfig,
-    sourceIPConditionConfig,
+    SourceIPConditionConfig (..),
+    mkSourceIPConditionConfig,
     siccValues,
 
     -- ** SubnetMapping
-    SubnetMapping,
-    subnetMapping,
+    SubnetMapping (..),
+    mkSubnetMapping,
     smIPv6Address,
     smAllocationId,
     smPrivateIPv4Address,
     smSubnetId,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TagDescription
-    TagDescription,
-    tagDescription,
+    TagDescription (..),
+    mkTagDescription,
     tdResourceARN,
     tdTags,
 
     -- ** TargetDescription
-    TargetDescription,
-    targetDescription,
+    TargetDescription (..),
+    mkTargetDescription,
     tdAvailabilityZone,
     tdPort,
     tdId,
 
     -- ** TargetGroup
-    TargetGroup,
-    targetGroup,
+    TargetGroup (..),
+    mkTargetGroup,
     tgProtocolVersion,
     tgMatcher,
     tgHealthCheckPath,
@@ -460,36 +459,47 @@ module Network.AWS.ELBv2
     tgPort,
 
     -- ** TargetGroupAttribute
-    TargetGroupAttribute,
-    targetGroupAttribute,
+    TargetGroupAttribute (..),
+    mkTargetGroupAttribute,
     tgaValue,
     tgaKey,
 
     -- ** TargetGroupStickinessConfig
-    TargetGroupStickinessConfig,
-    targetGroupStickinessConfig,
+    TargetGroupStickinessConfig (..),
+    mkTargetGroupStickinessConfig,
     tgscEnabled,
     tgscDurationSeconds,
 
     -- ** TargetGroupTuple
-    TargetGroupTuple,
-    targetGroupTuple,
+    TargetGroupTuple (..),
+    mkTargetGroupTuple,
     tgtWeight,
     tgtTargetGroupARN,
 
     -- ** TargetHealth
-    TargetHealth,
-    targetHealth,
+    TargetHealth (..),
+    mkTargetHealth,
     thState,
     thReason,
     thDescription,
 
     -- ** TargetHealthDescription
-    TargetHealthDescription,
-    targetHealthDescription,
+    TargetHealthDescription (..),
+    mkTargetHealthDescription,
     thdTargetHealth,
     thdHealthCheckPort,
     thdTarget,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -529,6 +539,7 @@ import Network.AWS.ELBv2.SetSecurityGroups
 import Network.AWS.ELBv2.SetSubnets
 import Network.AWS.ELBv2.Types
 import Network.AWS.ELBv2.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

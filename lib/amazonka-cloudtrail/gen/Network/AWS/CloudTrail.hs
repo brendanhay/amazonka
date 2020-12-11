@@ -14,13 +14,11 @@
 -- __AWS CloudTrail__
 --
 -- This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters, and common errors for CloudTrail.
---
 -- CloudTrail is a web service that records AWS API calls for your AWS account and delivers log files to an Amazon S3 bucket. The recorded information includes the identity of the user, the start time of the AWS API call, the source IP address, the request parameters, and the response elements returned by the service.
---
 -- See the <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html AWS CloudTrail User Guide> for information about the data that is included with each AWS API call listed in the log files.
 module Network.AWS.CloudTrail
-  ( -- * Service Configuration
-    cloudTrail,
+  ( -- * Service configuration
+    cloudTrailService,
 
     -- * Errors
     -- $errors
@@ -100,14 +98,14 @@ module Network.AWS.CloudTrail
     ReadWriteType (..),
 
     -- ** AdvancedEventSelector
-    AdvancedEventSelector,
-    advancedEventSelector,
+    AdvancedEventSelector (..),
+    mkAdvancedEventSelector,
     aesName,
     aesFieldSelectors,
 
     -- ** AdvancedFieldSelector
-    AdvancedFieldSelector,
-    advancedFieldSelector,
+    AdvancedFieldSelector (..),
+    mkAdvancedFieldSelector,
     afsEndsWith,
     afsNotStartsWith,
     afsEquals,
@@ -117,14 +115,14 @@ module Network.AWS.CloudTrail
     afsField,
 
     -- ** DataResource
-    DataResource,
-    dataResource,
+    DataResource (..),
+    mkDataResource,
     drValues,
     drType,
 
     -- ** Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eUsername,
     eResources,
     eEventTime,
@@ -136,53 +134,53 @@ module Network.AWS.CloudTrail
     eEventId,
 
     -- ** EventSelector
-    EventSelector,
-    eventSelector,
+    EventSelector (..),
+    mkEventSelector,
     esDataResources,
     esReadWriteType,
     esExcludeManagementEventSources,
     esIncludeManagementEvents,
 
     -- ** InsightSelector
-    InsightSelector,
-    insightSelector,
+    InsightSelector (..),
+    mkInsightSelector,
     isInsightType,
 
     -- ** LookupAttribute
-    LookupAttribute,
-    lookupAttribute,
+    LookupAttribute (..),
+    mkLookupAttribute,
     laAttributeKey,
     laAttributeValue,
 
     -- ** PublicKey
-    PublicKey,
-    publicKey,
+    PublicKey (..),
+    mkPublicKey,
     pkFingerprint,
     pkValidityEndTime,
     pkValue,
     pkValidityStartTime,
 
     -- ** Resource
-    Resource,
-    resource,
+    Resource (..),
+    mkResource,
     rResourceType,
     rResourceName,
 
     -- ** ResourceTag
-    ResourceTag,
-    resourceTag,
+    ResourceTag (..),
+    mkResourceTag,
     rResourceId,
     rTagsList,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** Trail
-    Trail,
-    trail,
+    Trail (..),
+    mkTrail,
     tLogFileValidationEnabled,
     tTrailARN,
     tS3KeyPrefix,
@@ -201,11 +199,22 @@ module Network.AWS.CloudTrail
     tIsMultiRegionTrail,
 
     -- ** TrailInfo
-    TrailInfo,
-    trailInfo,
+    TrailInfo (..),
+    mkTrailInfo,
     tiTrailARN,
     tiHomeRegion,
     tiName,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -229,6 +238,7 @@ import Network.AWS.CloudTrail.StopLogging
 import Network.AWS.CloudTrail.Types
 import Network.AWS.CloudTrail.UpdateTrail
 import Network.AWS.CloudTrail.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

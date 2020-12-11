@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,161 +14,180 @@
 --
 -- Gets information about all of the versions of a bot.
 --
---
 -- The @GetBotVersions@ operation returns a @BotMetadata@ object for each version of a bot. For example, if a bot has three numbered versions, the @GetBotVersions@ operation returns four @BotMetadata@ objects in the response, one for each numbered version and one for the @> LATEST@ version.
---
 -- The @GetBotVersions@ operation always returns at least one version, the @> LATEST@ version.
---
 -- This operation requires permissions for the @lex:GetBotVersions@ action.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.LexModels.GetBotVersions
-  ( -- * Creating a Request
-    getBotVersions,
-    GetBotVersions,
+  ( -- * Creating a request
+    GetBotVersions (..),
+    mkGetBotVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbvNextToken,
     gbvMaxResults,
     gbvName,
 
-    -- * Destructuring the Response
-    getBotVersionsResponse,
-    GetBotVersionsResponse,
+    -- * Destructuring the response
+    GetBotVersionsResponse (..),
+    mkGetBotVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbvrsBots,
     gbvrsNextToken,
     gbvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getBotVersions' smart constructor.
+-- | /See:/ 'mkGetBotVersions' smart constructor.
 data GetBotVersions = GetBotVersions'
-  { _gbvNextToken ::
-      !(Maybe Text),
-    _gbvMaxResults :: !(Maybe Nat),
-    _gbvName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbvNextToken' - A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
---
--- * 'gbvMaxResults' - The maximum number of bot versions to return in the response. The default is 10.
---
--- * 'gbvName' - The name of the bot for which versions should be returned.
-getBotVersions ::
-  -- | 'gbvName'
-  Text ->
+-- * 'maxResults' - The maximum number of bot versions to return in the response. The default is 10.
+-- * 'name' - The name of the bot for which versions should be returned.
+-- * 'nextToken' - A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+mkGetBotVersions ::
+  -- | 'name'
+  Lude.Text ->
   GetBotVersions
-getBotVersions pName_ =
+mkGetBotVersions pName_ =
   GetBotVersions'
-    { _gbvNextToken = Nothing,
-      _gbvMaxResults = Nothing,
-      _gbvName = pName_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      name = pName_
     }
 
 -- | A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
-gbvNextToken :: Lens' GetBotVersions (Maybe Text)
-gbvNextToken = lens _gbvNextToken (\s a -> s {_gbvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbvNextToken :: Lens.Lens' GetBotVersions (Lude.Maybe Lude.Text)
+gbvNextToken = Lens.lens (nextToken :: GetBotVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBotVersions)
+{-# DEPRECATED gbvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of bot versions to return in the response. The default is 10.
-gbvMaxResults :: Lens' GetBotVersions (Maybe Natural)
-gbvMaxResults = lens _gbvMaxResults (\s a -> s {_gbvMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbvMaxResults :: Lens.Lens' GetBotVersions (Lude.Maybe Lude.Natural)
+gbvMaxResults = Lens.lens (maxResults :: GetBotVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetBotVersions)
+{-# DEPRECATED gbvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the bot for which versions should be returned.
-gbvName :: Lens' GetBotVersions Text
-gbvName = lens _gbvName (\s a -> s {_gbvName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbvName :: Lens.Lens' GetBotVersions Lude.Text
+gbvName = Lens.lens (name :: GetBotVersions -> Lude.Text) (\s a -> s {name = a} :: GetBotVersions)
+{-# DEPRECATED gbvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSPager GetBotVersions where
+instance Page.AWSPager GetBotVersions where
   page rq rs
-    | stop (rs ^. gbvrsNextToken) = Nothing
-    | stop (rs ^. gbvrsBots) = Nothing
-    | otherwise = Just $ rq & gbvNextToken .~ rs ^. gbvrsNextToken
+    | Page.stop (rs Lens.^. gbvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gbvrsBots) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gbvNextToken Lens..~ rs Lens.^. gbvrsNextToken
 
-instance AWSRequest GetBotVersions where
+instance Lude.AWSRequest GetBotVersions where
   type Rs GetBotVersions = GetBotVersionsResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetBotVersionsResponse'
-            <$> (x .?> "bots" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "bots" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetBotVersions
-
-instance NFData GetBotVersions
-
-instance ToHeaders GetBotVersions where
+instance Lude.ToHeaders GetBotVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetBotVersions where
+instance Lude.ToPath GetBotVersions where
   toPath GetBotVersions' {..} =
-    mconcat ["/bots/", toBS _gbvName, "/versions/"]
+    Lude.mconcat ["/bots/", Lude.toBS name, "/versions/"]
 
-instance ToQuery GetBotVersions where
+instance Lude.ToQuery GetBotVersions where
   toQuery GetBotVersions' {..} =
-    mconcat
-      ["nextToken" =: _gbvNextToken, "maxResults" =: _gbvMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'getBotVersionsResponse' smart constructor.
+-- | /See:/ 'mkGetBotVersionsResponse' smart constructor.
 data GetBotVersionsResponse = GetBotVersionsResponse'
-  { _gbvrsBots ::
-      !(Maybe [BotMetadata]),
-    _gbvrsNextToken :: !(Maybe Text),
-    _gbvrsResponseStatus :: !Int
+  { bots ::
+      Lude.Maybe [BotMetadata],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbvrsBots' - An array of @BotMetadata@ objects, one for each numbered version of the bot plus one for the @> LATEST@ version.
---
--- * 'gbvrsNextToken' - A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
---
--- * 'gbvrsResponseStatus' - -- | The response status code.
-getBotVersionsResponse ::
-  -- | 'gbvrsResponseStatus'
-  Int ->
+-- * 'bots' - An array of @BotMetadata@ objects, one for each numbered version of the bot plus one for the @> LATEST@ version.
+-- * 'nextToken' - A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+-- * 'responseStatus' - The response status code.
+mkGetBotVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetBotVersionsResponse
-getBotVersionsResponse pResponseStatus_ =
+mkGetBotVersionsResponse pResponseStatus_ =
   GetBotVersionsResponse'
-    { _gbvrsBots = Nothing,
-      _gbvrsNextToken = Nothing,
-      _gbvrsResponseStatus = pResponseStatus_
+    { bots = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of @BotMetadata@ objects, one for each numbered version of the bot plus one for the @> LATEST@ version.
-gbvrsBots :: Lens' GetBotVersionsResponse [BotMetadata]
-gbvrsBots = lens _gbvrsBots (\s a -> s {_gbvrsBots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'bots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbvrsBots :: Lens.Lens' GetBotVersionsResponse (Lude.Maybe [BotMetadata])
+gbvrsBots = Lens.lens (bots :: GetBotVersionsResponse -> Lude.Maybe [BotMetadata]) (\s a -> s {bots = a} :: GetBotVersionsResponse)
+{-# DEPRECATED gbvrsBots "Use generic-lens or generic-optics with 'bots' instead." #-}
 
 -- | A pagination token for fetching the next page of bot versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
-gbvrsNextToken :: Lens' GetBotVersionsResponse (Maybe Text)
-gbvrsNextToken = lens _gbvrsNextToken (\s a -> s {_gbvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbvrsNextToken :: Lens.Lens' GetBotVersionsResponse (Lude.Maybe Lude.Text)
+gbvrsNextToken = Lens.lens (nextToken :: GetBotVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBotVersionsResponse)
+{-# DEPRECATED gbvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gbvrsResponseStatus :: Lens' GetBotVersionsResponse Int
-gbvrsResponseStatus = lens _gbvrsResponseStatus (\s a -> s {_gbvrsResponseStatus = a})
-
-instance NFData GetBotVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbvrsResponseStatus :: Lens.Lens' GetBotVersionsResponse Lude.Int
+gbvrsResponseStatus = Lens.lens (responseStatus :: GetBotVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBotVersionsResponse)
+{-# DEPRECATED gbvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

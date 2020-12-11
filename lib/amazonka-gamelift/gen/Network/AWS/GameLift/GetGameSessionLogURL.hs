@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,143 +17,163 @@
 --
 --     * 'CreateGameSession'
 --
+--
 --     * 'DescribeGameSessions'
+--
 --
 --     * 'DescribeGameSessionDetails'
 --
+--
 --     * 'SearchGameSessions'
+--
 --
 --     * 'UpdateGameSession'
 --
+--
 --     * 'GetGameSessionLogUrl'
+--
 --
 --     * Game session placements
 --
 --     * 'StartGameSessionPlacement'
 --
+--
 --     * 'DescribeGameSessionPlacement'
+--
 --
 --     * 'StopGameSessionPlacement'
 module Network.AWS.GameLift.GetGameSessionLogURL
-  ( -- * Creating a Request
-    getGameSessionLogURL,
-    GetGameSessionLogURL,
+  ( -- * Creating a request
+    GetGameSessionLogURL (..),
+    mkGetGameSessionLogURL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggsluGameSessionId,
 
-    -- * Destructuring the Response
-    getGameSessionLogURLResponse,
-    GetGameSessionLogURLResponse,
+    -- * Destructuring the response
+    GetGameSessionLogURLResponse (..),
+    mkGetGameSessionLogURLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggslursPreSignedURL,
     ggslursResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'getGameSessionLogURL' smart constructor.
+-- /See:/ 'mkGetGameSessionLogURL' smart constructor.
 newtype GetGameSessionLogURL = GetGameSessionLogURL'
-  { _ggsluGameSessionId ::
-      Text
+  { gameSessionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGameSessionLogURL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggsluGameSessionId' - A unique identifier for the game session to get logs for.
-getGameSessionLogURL ::
-  -- | 'ggsluGameSessionId'
-  Text ->
+-- * 'gameSessionId' - A unique identifier for the game session to get logs for.
+mkGetGameSessionLogURL ::
+  -- | 'gameSessionId'
+  Lude.Text ->
   GetGameSessionLogURL
-getGameSessionLogURL pGameSessionId_ =
-  GetGameSessionLogURL' {_ggsluGameSessionId = pGameSessionId_}
+mkGetGameSessionLogURL pGameSessionId_ =
+  GetGameSessionLogURL' {gameSessionId = pGameSessionId_}
 
 -- | A unique identifier for the game session to get logs for.
-ggsluGameSessionId :: Lens' GetGameSessionLogURL Text
-ggsluGameSessionId = lens _ggsluGameSessionId (\s a -> s {_ggsluGameSessionId = a})
+--
+-- /Note:/ Consider using 'gameSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggsluGameSessionId :: Lens.Lens' GetGameSessionLogURL Lude.Text
+ggsluGameSessionId = Lens.lens (gameSessionId :: GetGameSessionLogURL -> Lude.Text) (\s a -> s {gameSessionId = a} :: GetGameSessionLogURL)
+{-# DEPRECATED ggsluGameSessionId "Use generic-lens or generic-optics with 'gameSessionId' instead." #-}
 
-instance AWSRequest GetGameSessionLogURL where
+instance Lude.AWSRequest GetGameSessionLogURL where
   type Rs GetGameSessionLogURL = GetGameSessionLogURLResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetGameSessionLogURLResponse'
-            <$> (x .?> "PreSignedUrl") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PreSignedUrl") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetGameSessionLogURL
-
-instance NFData GetGameSessionLogURL
-
-instance ToHeaders GetGameSessionLogURL where
+instance Lude.ToHeaders GetGameSessionLogURL where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.GetGameSessionLogUrl" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.GetGameSessionLogUrl" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetGameSessionLogURL where
+instance Lude.ToJSON GetGameSessionLogURL where
   toJSON GetGameSessionLogURL' {..} =
-    object
-      (catMaybes [Just ("GameSessionId" .= _ggsluGameSessionId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("GameSessionId" Lude..= gameSessionId)]
+      )
 
-instance ToPath GetGameSessionLogURL where
-  toPath = const "/"
+instance Lude.ToPath GetGameSessionLogURL where
+  toPath = Lude.const "/"
 
-instance ToQuery GetGameSessionLogURL where
-  toQuery = const mempty
+instance Lude.ToQuery GetGameSessionLogURL where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'getGameSessionLogURLResponse' smart constructor.
+-- /See:/ 'mkGetGameSessionLogURLResponse' smart constructor.
 data GetGameSessionLogURLResponse = GetGameSessionLogURLResponse'
-  { _ggslursPreSignedURL ::
-      !(Maybe Text),
-    _ggslursResponseStatus :: !Int
+  { preSignedURL ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGameSessionLogURLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggslursPreSignedURL' - Location of the requested game session logs, available for download. This URL is valid for 15 minutes, after which S3 will reject any download request using this URL. You can request a new URL any time within the 14-day period that the logs are retained.
---
--- * 'ggslursResponseStatus' - -- | The response status code.
-getGameSessionLogURLResponse ::
-  -- | 'ggslursResponseStatus'
-  Int ->
+-- * 'preSignedURL' - Location of the requested game session logs, available for download. This URL is valid for 15 minutes, after which S3 will reject any download request using this URL. You can request a new URL any time within the 14-day period that the logs are retained.
+-- * 'responseStatus' - The response status code.
+mkGetGameSessionLogURLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGameSessionLogURLResponse
-getGameSessionLogURLResponse pResponseStatus_ =
+mkGetGameSessionLogURLResponse pResponseStatus_ =
   GetGameSessionLogURLResponse'
-    { _ggslursPreSignedURL = Nothing,
-      _ggslursResponseStatus = pResponseStatus_
+    { preSignedURL = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Location of the requested game session logs, available for download. This URL is valid for 15 minutes, after which S3 will reject any download request using this URL. You can request a new URL any time within the 14-day period that the logs are retained.
-ggslursPreSignedURL :: Lens' GetGameSessionLogURLResponse (Maybe Text)
-ggslursPreSignedURL = lens _ggslursPreSignedURL (\s a -> s {_ggslursPreSignedURL = a})
+--
+-- /Note:/ Consider using 'preSignedURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggslursPreSignedURL :: Lens.Lens' GetGameSessionLogURLResponse (Lude.Maybe Lude.Text)
+ggslursPreSignedURL = Lens.lens (preSignedURL :: GetGameSessionLogURLResponse -> Lude.Maybe Lude.Text) (\s a -> s {preSignedURL = a} :: GetGameSessionLogURLResponse)
+{-# DEPRECATED ggslursPreSignedURL "Use generic-lens or generic-optics with 'preSignedURL' instead." #-}
 
--- | -- | The response status code.
-ggslursResponseStatus :: Lens' GetGameSessionLogURLResponse Int
-ggslursResponseStatus = lens _ggslursResponseStatus (\s a -> s {_ggslursResponseStatus = a})
-
-instance NFData GetGameSessionLogURLResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggslursResponseStatus :: Lens.Lens' GetGameSessionLogURLResponse Lude.Int
+ggslursResponseStatus = Lens.lens (responseStatus :: GetGameSessionLogURLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGameSessionLogURLResponse)
+{-# DEPRECATED ggslursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

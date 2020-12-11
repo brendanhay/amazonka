@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.S3ArtifactLocation where
+module Network.AWS.CodePipeline.Types.S3ArtifactLocation
+  ( S3ArtifactLocation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkS3ArtifactLocation,
+
+    -- * Lenses
+    salBucketName,
+    salObjectKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The location of the S3 bucket that contains a revision.
 --
---
---
--- /See:/ 's3ArtifactLocation' smart constructor.
+-- /See:/ 'mkS3ArtifactLocation' smart constructor.
 data S3ArtifactLocation = S3ArtifactLocation'
-  { _salBucketName ::
-      !Text,
-    _salObjectKey :: !Text
+  { bucketName ::
+      Lude.Text,
+    objectKey :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3ArtifactLocation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'salBucketName' - The name of the S3 bucket.
---
--- * 'salObjectKey' - The key of the object in the S3 bucket, which uniquely identifies the object in the bucket.
-s3ArtifactLocation ::
-  -- | 'salBucketName'
-  Text ->
-  -- | 'salObjectKey'
-  Text ->
+-- * 'bucketName' - The name of the S3 bucket.
+-- * 'objectKey' - The key of the object in the S3 bucket, which uniquely identifies the object in the bucket.
+mkS3ArtifactLocation ::
+  -- | 'bucketName'
+  Lude.Text ->
+  -- | 'objectKey'
+  Lude.Text ->
   S3ArtifactLocation
-s3ArtifactLocation pBucketName_ pObjectKey_ =
+mkS3ArtifactLocation pBucketName_ pObjectKey_ =
   S3ArtifactLocation'
-    { _salBucketName = pBucketName_,
-      _salObjectKey = pObjectKey_
+    { bucketName = pBucketName_,
+      objectKey = pObjectKey_
     }
 
 -- | The name of the S3 bucket.
-salBucketName :: Lens' S3ArtifactLocation Text
-salBucketName = lens _salBucketName (\s a -> s {_salBucketName = a})
+--
+-- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+salBucketName :: Lens.Lens' S3ArtifactLocation Lude.Text
+salBucketName = Lens.lens (bucketName :: S3ArtifactLocation -> Lude.Text) (\s a -> s {bucketName = a} :: S3ArtifactLocation)
+{-# DEPRECATED salBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
 -- | The key of the object in the S3 bucket, which uniquely identifies the object in the bucket.
-salObjectKey :: Lens' S3ArtifactLocation Text
-salObjectKey = lens _salObjectKey (\s a -> s {_salObjectKey = a})
+--
+-- /Note:/ Consider using 'objectKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+salObjectKey :: Lens.Lens' S3ArtifactLocation Lude.Text
+salObjectKey = Lens.lens (objectKey :: S3ArtifactLocation -> Lude.Text) (\s a -> s {objectKey = a} :: S3ArtifactLocation)
+{-# DEPRECATED salObjectKey "Use generic-lens or generic-optics with 'objectKey' instead." #-}
 
-instance FromJSON S3ArtifactLocation where
+instance Lude.FromJSON S3ArtifactLocation where
   parseJSON =
-    withObject
+    Lude.withObject
       "S3ArtifactLocation"
       ( \x ->
-          S3ArtifactLocation' <$> (x .: "bucketName") <*> (x .: "objectKey")
+          S3ArtifactLocation'
+            Lude.<$> (x Lude..: "bucketName") Lude.<*> (x Lude..: "objectKey")
       )
-
-instance Hashable S3ArtifactLocation
-
-instance NFData S3ArtifactLocation

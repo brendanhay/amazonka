@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.JobStatus where
+module Network.AWS.IoT.Types.JobStatus
+  ( JobStatus
+      ( JobStatus',
+        JSCanceled,
+        JSCompleted,
+        JSDeletionInProgress,
+        JSInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobStatus
-  = JSCanceled
-  | JSCompleted
-  | JSDeletionInProgress
-  | JSInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobStatus = JobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobStatus where
-  parser =
-    takeLowerText >>= \case
-      "canceled" -> pure JSCanceled
-      "completed" -> pure JSCompleted
-      "deletion_in_progress" -> pure JSDeletionInProgress
-      "in_progress" -> pure JSInProgress
-      e ->
-        fromTextError $
-          "Failure parsing JobStatus from value: '" <> e
-            <> "'. Accepted values: canceled, completed, deletion_in_progress, in_progress"
+pattern JSCanceled :: JobStatus
+pattern JSCanceled = JobStatus' "CANCELED"
 
-instance ToText JobStatus where
-  toText = \case
-    JSCanceled -> "CANCELED"
-    JSCompleted -> "COMPLETED"
-    JSDeletionInProgress -> "DELETION_IN_PROGRESS"
-    JSInProgress -> "IN_PROGRESS"
+pattern JSCompleted :: JobStatus
+pattern JSCompleted = JobStatus' "COMPLETED"
 
-instance Hashable JobStatus
+pattern JSDeletionInProgress :: JobStatus
+pattern JSDeletionInProgress = JobStatus' "DELETION_IN_PROGRESS"
 
-instance NFData JobStatus
+pattern JSInProgress :: JobStatus
+pattern JSInProgress = JobStatus' "IN_PROGRESS"
 
-instance ToByteString JobStatus
-
-instance ToQuery JobStatus
-
-instance ToHeader JobStatus
-
-instance ToJSON JobStatus where
-  toJSON = toJSONText
-
-instance FromJSON JobStatus where
-  parseJSON = parseJSONText "JobStatus"
+{-# COMPLETE
+  JSCanceled,
+  JSCompleted,
+  JSDeletionInProgress,
+  JSInProgress,
+  JobStatus'
+  #-}

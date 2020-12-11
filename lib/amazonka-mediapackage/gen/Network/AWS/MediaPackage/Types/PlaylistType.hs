@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.PlaylistType where
+module Network.AWS.MediaPackage.Types.PlaylistType
+  ( PlaylistType
+      ( PlaylistType',
+        PTEvent,
+        PTNone,
+        PTVod
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlaylistType
-  = PTEvent
-  | PTNone
-  | PTVod
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlaylistType = PlaylistType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlaylistType where
-  parser =
-    takeLowerText >>= \case
-      "event" -> pure PTEvent
-      "none" -> pure PTNone
-      "vod" -> pure PTVod
-      e ->
-        fromTextError $
-          "Failure parsing PlaylistType from value: '" <> e
-            <> "'. Accepted values: event, none, vod"
+pattern PTEvent :: PlaylistType
+pattern PTEvent = PlaylistType' "EVENT"
 
-instance ToText PlaylistType where
-  toText = \case
-    PTEvent -> "EVENT"
-    PTNone -> "NONE"
-    PTVod -> "VOD"
+pattern PTNone :: PlaylistType
+pattern PTNone = PlaylistType' "NONE"
 
-instance Hashable PlaylistType
+pattern PTVod :: PlaylistType
+pattern PTVod = PlaylistType' "VOD"
 
-instance NFData PlaylistType
-
-instance ToByteString PlaylistType
-
-instance ToQuery PlaylistType
-
-instance ToHeader PlaylistType
-
-instance ToJSON PlaylistType where
-  toJSON = toJSONText
-
-instance FromJSON PlaylistType where
-  parseJSON = parseJSONText "PlaylistType"
+{-# COMPLETE
+  PTEvent,
+  PTNone,
+  PTVod,
+  PlaylistType'
+  #-}

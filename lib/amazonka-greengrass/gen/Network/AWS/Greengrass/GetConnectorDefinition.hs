@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves information about a connector definition.
 module Network.AWS.Greengrass.GetConnectorDefinition
-  ( -- * Creating a Request
-    getConnectorDefinition,
-    GetConnectorDefinition,
+  ( -- * Creating a request
+    GetConnectorDefinition (..),
+    mkGetConnectorDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcdConnectorDefinitionId,
 
-    -- * Destructuring the Response
-    getConnectorDefinitionResponse,
-    GetConnectorDefinitionResponse,
+    -- * Destructuring the response
+    GetConnectorDefinitionResponse (..),
+    mkGetConnectorDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grsLatestVersionARN,
     grsARN,
     grsName,
@@ -44,167 +39,199 @@ module Network.AWS.Greengrass.GetConnectorDefinition
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getConnectorDefinition' smart constructor.
+-- | /See:/ 'mkGetConnectorDefinition' smart constructor.
 newtype GetConnectorDefinition = GetConnectorDefinition'
-  { _gcdConnectorDefinitionId ::
-      Text
+  { connectorDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectorDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcdConnectorDefinitionId' - The ID of the connector definition.
-getConnectorDefinition ::
-  -- | 'gcdConnectorDefinitionId'
-  Text ->
+-- * 'connectorDefinitionId' - The ID of the connector definition.
+mkGetConnectorDefinition ::
+  -- | 'connectorDefinitionId'
+  Lude.Text ->
   GetConnectorDefinition
-getConnectorDefinition pConnectorDefinitionId_ =
+mkGetConnectorDefinition pConnectorDefinitionId_ =
   GetConnectorDefinition'
-    { _gcdConnectorDefinitionId =
+    { connectorDefinitionId =
         pConnectorDefinitionId_
     }
 
 -- | The ID of the connector definition.
-gcdConnectorDefinitionId :: Lens' GetConnectorDefinition Text
-gcdConnectorDefinitionId = lens _gcdConnectorDefinitionId (\s a -> s {_gcdConnectorDefinitionId = a})
+--
+-- /Note:/ Consider using 'connectorDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdConnectorDefinitionId :: Lens.Lens' GetConnectorDefinition Lude.Text
+gcdConnectorDefinitionId = Lens.lens (connectorDefinitionId :: GetConnectorDefinition -> Lude.Text) (\s a -> s {connectorDefinitionId = a} :: GetConnectorDefinition)
+{-# DEPRECATED gcdConnectorDefinitionId "Use generic-lens or generic-optics with 'connectorDefinitionId' instead." #-}
 
-instance AWSRequest GetConnectorDefinition where
+instance Lude.AWSRequest GetConnectorDefinition where
   type Rs GetConnectorDefinition = GetConnectorDefinitionResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetConnectorDefinitionResponse'
-            <$> (x .?> "LatestVersionArn")
-            <*> (x .?> "Arn")
-            <*> (x .?> "Name")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Id")
-            <*> (x .?> "LatestVersion")
-            <*> (x .?> "LastUpdatedTimestamp")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LatestVersionArn")
+            Lude.<*> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (x Lude..?> "LatestVersion")
+            Lude.<*> (x Lude..?> "LastUpdatedTimestamp")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetConnectorDefinition
-
-instance NFData GetConnectorDefinition
-
-instance ToHeaders GetConnectorDefinition where
+instance Lude.ToHeaders GetConnectorDefinition where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetConnectorDefinition where
+instance Lude.ToPath GetConnectorDefinition where
   toPath GetConnectorDefinition' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/connectors/",
-        toBS _gcdConnectorDefinitionId
+        Lude.toBS connectorDefinitionId
       ]
 
-instance ToQuery GetConnectorDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery GetConnectorDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getConnectorDefinitionResponse' smart constructor.
+-- | /See:/ 'mkGetConnectorDefinitionResponse' smart constructor.
 data GetConnectorDefinitionResponse = GetConnectorDefinitionResponse'
-  { _grsLatestVersionARN ::
-      !(Maybe Text),
-    _grsARN :: !(Maybe Text),
-    _grsName :: !(Maybe Text),
-    _grsCreationTimestamp ::
-      !(Maybe Text),
-    _grsId :: !(Maybe Text),
-    _grsLatestVersion ::
-      !(Maybe Text),
-    _grsLastUpdatedTimestamp ::
-      !(Maybe Text),
-    _grsTags ::
-      !(Maybe (Map Text (Text))),
-    _grsResponseStatus :: !Int
+  { latestVersionARN ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    latestVersion ::
+      Lude.Maybe Lude.Text,
+    lastUpdatedTimestamp ::
+      Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectorDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsLatestVersionARN' - The ARN of the latest version associated with the definition.
---
--- * 'grsARN' - The ARN of the definition.
---
--- * 'grsName' - The name of the definition.
---
--- * 'grsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
---
--- * 'grsId' - The ID of the definition.
---
--- * 'grsLatestVersion' - The ID of the latest version associated with the definition.
---
--- * 'grsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
---
--- * 'grsTags' - Tag(s) attached to the resource arn.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getConnectorDefinitionResponse ::
-  -- | 'grsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the definition.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
+-- * 'id' - The ID of the definition.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
+-- * 'latestVersion' - The ID of the latest version associated with the definition.
+-- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
+-- * 'name' - The name of the definition.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Tag(s) attached to the resource arn.
+mkGetConnectorDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetConnectorDefinitionResponse
-getConnectorDefinitionResponse pResponseStatus_ =
+mkGetConnectorDefinitionResponse pResponseStatus_ =
   GetConnectorDefinitionResponse'
-    { _grsLatestVersionARN = Nothing,
-      _grsARN = Nothing,
-      _grsName = Nothing,
-      _grsCreationTimestamp = Nothing,
-      _grsId = Nothing,
-      _grsLatestVersion = Nothing,
-      _grsLastUpdatedTimestamp = Nothing,
-      _grsTags = Nothing,
-      _grsResponseStatus = pResponseStatus_
+    { latestVersionARN = Lude.Nothing,
+      arn = Lude.Nothing,
+      name = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      id = Lude.Nothing,
+      latestVersion = Lude.Nothing,
+      lastUpdatedTimestamp = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the latest version associated with the definition.
-grsLatestVersionARN :: Lens' GetConnectorDefinitionResponse (Maybe Text)
-grsLatestVersionARN = lens _grsLatestVersionARN (\s a -> s {_grsLatestVersionARN = a})
+--
+-- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsLatestVersionARN :: Lens.Lens' GetConnectorDefinitionResponse (Lude.Maybe Lude.Text)
+grsLatestVersionARN = Lens.lens (latestVersionARN :: GetConnectorDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: GetConnectorDefinitionResponse)
+{-# DEPRECATED grsLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
-grsARN :: Lens' GetConnectorDefinitionResponse (Maybe Text)
-grsARN = lens _grsARN (\s a -> s {_grsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsARN :: Lens.Lens' GetConnectorDefinitionResponse (Lude.Maybe Lude.Text)
+grsARN = Lens.lens (arn :: GetConnectorDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetConnectorDefinitionResponse)
+{-# DEPRECATED grsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the definition.
-grsName :: Lens' GetConnectorDefinitionResponse (Maybe Text)
-grsName = lens _grsName (\s a -> s {_grsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsName :: Lens.Lens' GetConnectorDefinitionResponse (Lude.Maybe Lude.Text)
+grsName = Lens.lens (name :: GetConnectorDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetConnectorDefinitionResponse)
+{-# DEPRECATED grsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
-grsCreationTimestamp :: Lens' GetConnectorDefinitionResponse (Maybe Text)
-grsCreationTimestamp = lens _grsCreationTimestamp (\s a -> s {_grsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsCreationTimestamp :: Lens.Lens' GetConnectorDefinitionResponse (Lude.Maybe Lude.Text)
+grsCreationTimestamp = Lens.lens (creationTimestamp :: GetConnectorDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: GetConnectorDefinitionResponse)
+{-# DEPRECATED grsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
-grsId :: Lens' GetConnectorDefinitionResponse (Maybe Text)
-grsId = lens _grsId (\s a -> s {_grsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsId :: Lens.Lens' GetConnectorDefinitionResponse (Lude.Maybe Lude.Text)
+grsId = Lens.lens (id :: GetConnectorDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetConnectorDefinitionResponse)
+{-# DEPRECATED grsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ID of the latest version associated with the definition.
-grsLatestVersion :: Lens' GetConnectorDefinitionResponse (Maybe Text)
-grsLatestVersion = lens _grsLatestVersion (\s a -> s {_grsLatestVersion = a})
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsLatestVersion :: Lens.Lens' GetConnectorDefinitionResponse (Lude.Maybe Lude.Text)
+grsLatestVersion = Lens.lens (latestVersion :: GetConnectorDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: GetConnectorDefinitionResponse)
+{-# DEPRECATED grsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
-grsLastUpdatedTimestamp :: Lens' GetConnectorDefinitionResponse (Maybe Text)
-grsLastUpdatedTimestamp = lens _grsLastUpdatedTimestamp (\s a -> s {_grsLastUpdatedTimestamp = a})
+--
+-- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsLastUpdatedTimestamp :: Lens.Lens' GetConnectorDefinitionResponse (Lude.Maybe Lude.Text)
+grsLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: GetConnectorDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: GetConnectorDefinitionResponse)
+{-# DEPRECATED grsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
 
 -- | Tag(s) attached to the resource arn.
-grsTags :: Lens' GetConnectorDefinitionResponse (HashMap Text (Text))
-grsTags = lens _grsTags (\s a -> s {_grsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsTags :: Lens.Lens' GetConnectorDefinitionResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+grsTags = Lens.lens (tags :: GetConnectorDefinitionResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GetConnectorDefinitionResponse)
+{-# DEPRECATED grsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetConnectorDefinitionResponse Int
-grsResponseStatus = lens _grsResponseStatus (\s a -> s {_grsResponseStatus = a})
-
-instance NFData GetConnectorDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetConnectorDefinitionResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetConnectorDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectorDefinitionResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

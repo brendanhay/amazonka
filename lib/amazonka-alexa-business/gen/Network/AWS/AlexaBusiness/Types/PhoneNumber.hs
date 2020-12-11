@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.PhoneNumber where
+module Network.AWS.AlexaBusiness.Types.PhoneNumber
+  ( PhoneNumber (..),
+
+    -- * Smart constructor
+    mkPhoneNumber,
+
+    -- * Lenses
+    pnNumber,
+    pnType,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.PhoneNumberType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The phone number for the contact containing the raw number and phone number type.
 --
---
---
--- /See:/ 'phoneNumber' smart constructor.
+-- /See:/ 'mkPhoneNumber' smart constructor.
 data PhoneNumber = PhoneNumber'
-  { _pnNumber :: !(Sensitive Text),
-    _pnType :: !(Sensitive PhoneNumberType)
+  { number :: Lude.Sensitive Lude.Text,
+    type' :: PhoneNumberType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhoneNumber' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pnNumber' - The raw value of the phone number.
---
--- * 'pnType' - The type of the phone number.
-phoneNumber ::
-  -- | 'pnNumber'
-  Text ->
-  -- | 'pnType'
+-- * 'number' - The raw value of the phone number.
+-- * 'type'' - The type of the phone number.
+mkPhoneNumber ::
+  -- | 'number'
+  Lude.Sensitive Lude.Text ->
+  -- | 'type''
   PhoneNumberType ->
   PhoneNumber
-phoneNumber pNumber_ pType_ =
-  PhoneNumber'
-    { _pnNumber = _Sensitive # pNumber_,
-      _pnType = _Sensitive # pType_
-    }
+mkPhoneNumber pNumber_ pType_ =
+  PhoneNumber' {number = pNumber_, type' = pType_}
 
 -- | The raw value of the phone number.
-pnNumber :: Lens' PhoneNumber Text
-pnNumber = lens _pnNumber (\s a -> s {_pnNumber = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'number' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnNumber :: Lens.Lens' PhoneNumber (Lude.Sensitive Lude.Text)
+pnNumber = Lens.lens (number :: PhoneNumber -> Lude.Sensitive Lude.Text) (\s a -> s {number = a} :: PhoneNumber)
+{-# DEPRECATED pnNumber "Use generic-lens or generic-optics with 'number' instead." #-}
 
 -- | The type of the phone number.
-pnType :: Lens' PhoneNumber PhoneNumberType
-pnType = lens _pnType (\s a -> s {_pnType = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnType :: Lens.Lens' PhoneNumber PhoneNumberType
+pnType = Lens.lens (type' :: PhoneNumber -> PhoneNumberType) (\s a -> s {type' = a} :: PhoneNumber)
+{-# DEPRECATED pnType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON PhoneNumber where
+instance Lude.FromJSON PhoneNumber where
   parseJSON =
-    withObject
+    Lude.withObject
       "PhoneNumber"
-      (\x -> PhoneNumber' <$> (x .: "Number") <*> (x .: "Type"))
+      ( \x ->
+          PhoneNumber'
+            Lude.<$> (x Lude..: "Number") Lude.<*> (x Lude..: "Type")
+      )
 
-instance Hashable PhoneNumber
-
-instance NFData PhoneNumber
-
-instance ToJSON PhoneNumber where
+instance Lude.ToJSON PhoneNumber where
   toJSON PhoneNumber' {..} =
-    object
-      ( catMaybes
-          [Just ("Number" .= _pnNumber), Just ("Type" .= _pnType)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Number" Lude..= number),
+            Lude.Just ("Type" Lude..= type')
+          ]
       )

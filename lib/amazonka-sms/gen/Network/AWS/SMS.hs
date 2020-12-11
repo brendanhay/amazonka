@@ -17,10 +17,11 @@
 --
 --     * <http://aws.amazon.com/server-migration-service/ AWS Server Migration Service product page>
 --
+--
 --     * <https://docs.aws.amazon.com/server-migration-service/latest/userguide/ AWS Server Migration Service User Guide>
 module Network.AWS.SMS
-  ( -- * Service Configuration
-    sms,
+  ( -- * Service configuration
+    smsService,
 
     -- * Errors
     -- $errors
@@ -196,8 +197,8 @@ module Network.AWS.SMS
     ValidationStatus (..),
 
     -- ** AppSummary
-    AppSummary,
-    appSummary,
+    AppSummary (..),
+    mkAppSummary,
     asCreationTime,
     asTotalServers,
     asStatus,
@@ -219,21 +220,21 @@ module Network.AWS.SMS
     asDescription,
 
     -- ** AppValidationConfiguration
-    AppValidationConfiguration,
-    appValidationConfiguration,
+    AppValidationConfiguration (..),
+    mkAppValidationConfiguration,
     avcSsmValidationParameters,
     avcName,
     avcValidationId,
     avcAppValidationStrategy,
 
     -- ** AppValidationOutput
-    AppValidationOutput,
-    appValidationOutput,
+    AppValidationOutput (..),
+    mkAppValidationOutput,
     avoSsmOutput,
 
     -- ** Connector
-    Connector,
-    connector,
+    Connector (..),
+    mkConnector,
     cStatus,
     cVmManagerName,
     cIpAddress,
@@ -246,22 +247,22 @@ module Network.AWS.SMS
     cCapabilityList,
 
     -- ** LaunchDetails
-    LaunchDetails,
-    launchDetails,
+    LaunchDetails (..),
+    mkLaunchDetails,
     ldStackId,
     ldLatestLaunchTime,
     ldStackName,
 
     -- ** NotificationContext
-    NotificationContext,
-    notificationContext,
+    NotificationContext (..),
+    mkNotificationContext,
     ncStatus,
     ncStatusMessage,
     ncValidationId,
 
     -- ** ReplicationJob
-    ReplicationJob,
-    replicationJob,
+    ReplicationJob (..),
+    mkReplicationJob,
     rjFrequency,
     rjNumberOfRecentAMIsToKeep,
     rjState,
@@ -282,8 +283,8 @@ module Network.AWS.SMS
     rjDescription,
 
     -- ** ReplicationRun
-    ReplicationRun,
-    replicationRun,
+    ReplicationRun (..),
+    mkReplicationRun,
     rrState,
     rrReplicationRunId,
     rrEncrypted,
@@ -297,25 +298,25 @@ module Network.AWS.SMS
     rrDescription,
 
     -- ** ReplicationRunStageDetails
-    ReplicationRunStageDetails,
-    replicationRunStageDetails,
+    ReplicationRunStageDetails (..),
+    mkReplicationRunStageDetails,
     rrsdStage,
     rrsdStageProgress,
 
     -- ** S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slBucket,
     slKey,
 
     -- ** SSMOutput
-    SSMOutput,
-    sSMOutput,
+    SSMOutput (..),
+    mkSSMOutput,
     ssmoS3Location,
 
     -- ** SSMValidationParameters
-    SSMValidationParameters,
-    sSMValidationParameters,
+    SSMValidationParameters (..),
+    mkSSMValidationParameters,
     ssmvpInstanceId,
     ssmvpCommand,
     ssmvpExecutionTimeoutSeconds,
@@ -324,8 +325,8 @@ module Network.AWS.SMS
     ssmvpOutputS3BucketName,
 
     -- ** Server
-    Server,
-    server,
+    Server (..),
+    mkServer,
     sServerType,
     sServerId,
     sReplicationJobTerminated,
@@ -333,34 +334,34 @@ module Network.AWS.SMS
     sReplicationJobId,
 
     -- ** ServerGroup
-    ServerGroup,
-    serverGroup,
+    ServerGroup (..),
+    mkServerGroup,
     sgServerList,
     sgName,
     sgServerGroupId,
 
     -- ** ServerGroupLaunchConfiguration
-    ServerGroupLaunchConfiguration,
-    serverGroupLaunchConfiguration,
+    ServerGroupLaunchConfiguration (..),
+    mkServerGroupLaunchConfiguration,
     sglcServerGroupId,
     sglcLaunchOrder,
     sglcServerLaunchConfigurations,
 
     -- ** ServerGroupReplicationConfiguration
-    ServerGroupReplicationConfiguration,
-    serverGroupReplicationConfiguration,
+    ServerGroupReplicationConfiguration (..),
+    mkServerGroupReplicationConfiguration,
     sgrcServerGroupId,
     sgrcServerReplicationConfigurations,
 
     -- ** ServerGroupValidationConfiguration
-    ServerGroupValidationConfiguration,
-    serverGroupValidationConfiguration,
+    ServerGroupValidationConfiguration (..),
+    mkServerGroupValidationConfiguration,
     sgvcServerValidationConfigurations,
     sgvcServerGroupId,
 
     -- ** ServerLaunchConfiguration
-    ServerLaunchConfiguration,
-    serverLaunchConfiguration,
+    ServerLaunchConfiguration (..),
+    mkServerLaunchConfiguration,
     slcEc2KeyName,
     slcConfigureScriptType,
     slcAssociatePublicIPAddress,
@@ -375,14 +376,14 @@ module Network.AWS.SMS
     slcVpc,
 
     -- ** ServerReplicationConfiguration
-    ServerReplicationConfiguration,
-    serverReplicationConfiguration,
+    ServerReplicationConfiguration (..),
+    mkServerReplicationConfiguration,
     srcServerReplicationParameters,
     srcServer,
 
     -- ** ServerReplicationParameters
-    ServerReplicationParameters,
-    serverReplicationParameters,
+    ServerReplicationParameters (..),
+    mkServerReplicationParameters,
     srpFrequency,
     srpNumberOfRecentAMIsToKeep,
     srpSeedTime,
@@ -392,8 +393,8 @@ module Network.AWS.SMS
     srpRunOnce,
 
     -- ** ServerValidationConfiguration
-    ServerValidationConfiguration,
-    serverValidationConfiguration,
+    ServerValidationConfiguration (..),
+    mkServerValidationConfiguration,
     svcServerValidationStrategy,
     svcUserDataValidationParameters,
     svcName,
@@ -401,35 +402,35 @@ module Network.AWS.SMS
     svcValidationId,
 
     -- ** ServerValidationOutput
-    ServerValidationOutput,
-    serverValidationOutput,
+    ServerValidationOutput (..),
+    mkServerValidationOutput,
     svoServer,
 
     -- ** Source
-    Source,
-    source,
+    Source (..),
+    mkSource,
     sS3Location,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** UserData
-    UserData,
-    userData,
+    UserData (..),
+    mkUserData,
     udS3Location,
 
     -- ** UserDataValidationParameters
-    UserDataValidationParameters,
-    userDataValidationParameters,
+    UserDataValidationParameters (..),
+    mkUserDataValidationParameters,
     udvpScriptType,
     udvpSource,
 
     -- ** VMServer
-    VMServer,
-    vMServer,
+    VMServer (..),
+    mkVMServer,
     vmsVmManagerName,
     vmsVmManagerType,
     vmsVmServerAddress,
@@ -437,14 +438,14 @@ module Network.AWS.SMS
     vmsVmPath,
 
     -- ** VMServerAddress
-    VMServerAddress,
-    vMServerAddress,
+    VMServerAddress (..),
+    mkVMServerAddress,
     vmsaVmManagerId,
     vmsaVmId,
 
     -- ** ValidationOutput
-    ValidationOutput,
-    validationOutput,
+    ValidationOutput (..),
+    mkValidationOutput,
     voStatus,
     voAppValidationOutput,
     voLatestValidationTime,
@@ -452,9 +453,21 @@ module Network.AWS.SMS
     voStatusMessage,
     voValidationId,
     voServerValidationOutput,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.CreateApp
 import Network.AWS.SMS.CreateReplicationJob
 import Network.AWS.SMS.DeleteApp

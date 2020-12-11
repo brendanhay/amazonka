@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a role alias.
 module Network.AWS.IoT.CreateRoleAlias
-  ( -- * Creating a Request
-    createRoleAlias,
-    CreateRoleAlias,
+  ( -- * Creating a request
+    CreateRoleAlias (..),
+    mkCreateRoleAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     craCredentialDurationSeconds,
     craTags,
     craRoleAlias,
     craRoleARN,
 
-    -- * Destructuring the Response
-    createRoleAliasResponse,
-    CreateRoleAliasResponse,
+    -- * Destructuring the response
+    CreateRoleAliasResponse (..),
+    mkCreateRoleAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crarsRoleAliasARN,
     crarsRoleAlias,
     crarsResponseStatus,
@@ -41,138 +36,158 @@ module Network.AWS.IoT.CreateRoleAlias
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createRoleAlias' smart constructor.
+-- | /See:/ 'mkCreateRoleAlias' smart constructor.
 data CreateRoleAlias = CreateRoleAlias'
-  { _craCredentialDurationSeconds ::
-      !(Maybe Nat),
-    _craTags :: !(Maybe [Tag]),
-    _craRoleAlias :: !Text,
-    _craRoleARN :: !Text
+  { credentialDurationSeconds ::
+      Lude.Maybe Lude.Natural,
+    tags :: Lude.Maybe [Tag],
+    roleAlias :: Lude.Text,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoleAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'craCredentialDurationSeconds' - How long (in seconds) the credentials will be valid.
---
--- * 'craTags' - Metadata which can be used to manage the role alias.
---
--- * 'craRoleAlias' - The role alias that points to a role ARN. This allows you to change the role without having to update the device.
---
--- * 'craRoleARN' - The role ARN.
-createRoleAlias ::
-  -- | 'craRoleAlias'
-  Text ->
-  -- | 'craRoleARN'
-  Text ->
+-- * 'credentialDurationSeconds' - How long (in seconds) the credentials will be valid.
+-- * 'roleARN' - The role ARN.
+-- * 'roleAlias' - The role alias that points to a role ARN. This allows you to change the role without having to update the device.
+-- * 'tags' - Metadata which can be used to manage the role alias.
+mkCreateRoleAlias ::
+  -- | 'roleAlias'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   CreateRoleAlias
-createRoleAlias pRoleAlias_ pRoleARN_ =
+mkCreateRoleAlias pRoleAlias_ pRoleARN_ =
   CreateRoleAlias'
-    { _craCredentialDurationSeconds = Nothing,
-      _craTags = Nothing,
-      _craRoleAlias = pRoleAlias_,
-      _craRoleARN = pRoleARN_
+    { credentialDurationSeconds = Lude.Nothing,
+      tags = Lude.Nothing,
+      roleAlias = pRoleAlias_,
+      roleARN = pRoleARN_
     }
 
 -- | How long (in seconds) the credentials will be valid.
-craCredentialDurationSeconds :: Lens' CreateRoleAlias (Maybe Natural)
-craCredentialDurationSeconds = lens _craCredentialDurationSeconds (\s a -> s {_craCredentialDurationSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'credentialDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craCredentialDurationSeconds :: Lens.Lens' CreateRoleAlias (Lude.Maybe Lude.Natural)
+craCredentialDurationSeconds = Lens.lens (credentialDurationSeconds :: CreateRoleAlias -> Lude.Maybe Lude.Natural) (\s a -> s {credentialDurationSeconds = a} :: CreateRoleAlias)
+{-# DEPRECATED craCredentialDurationSeconds "Use generic-lens or generic-optics with 'credentialDurationSeconds' instead." #-}
 
 -- | Metadata which can be used to manage the role alias.
-craTags :: Lens' CreateRoleAlias [Tag]
-craTags = lens _craTags (\s a -> s {_craTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craTags :: Lens.Lens' CreateRoleAlias (Lude.Maybe [Tag])
+craTags = Lens.lens (tags :: CreateRoleAlias -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRoleAlias)
+{-# DEPRECATED craTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The role alias that points to a role ARN. This allows you to change the role without having to update the device.
-craRoleAlias :: Lens' CreateRoleAlias Text
-craRoleAlias = lens _craRoleAlias (\s a -> s {_craRoleAlias = a})
+--
+-- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craRoleAlias :: Lens.Lens' CreateRoleAlias Lude.Text
+craRoleAlias = Lens.lens (roleAlias :: CreateRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: CreateRoleAlias)
+{-# DEPRECATED craRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
 -- | The role ARN.
-craRoleARN :: Lens' CreateRoleAlias Text
-craRoleARN = lens _craRoleARN (\s a -> s {_craRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craRoleARN :: Lens.Lens' CreateRoleAlias Lude.Text
+craRoleARN = Lens.lens (roleARN :: CreateRoleAlias -> Lude.Text) (\s a -> s {roleARN = a} :: CreateRoleAlias)
+{-# DEPRECATED craRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance AWSRequest CreateRoleAlias where
+instance Lude.AWSRequest CreateRoleAlias where
   type Rs CreateRoleAlias = CreateRoleAliasResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateRoleAliasResponse'
-            <$> (x .?> "roleAliasArn")
-            <*> (x .?> "roleAlias")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "roleAliasArn")
+            Lude.<*> (x Lude..?> "roleAlias")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateRoleAlias
+instance Lude.ToHeaders CreateRoleAlias where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateRoleAlias
-
-instance ToHeaders CreateRoleAlias where
-  toHeaders = const mempty
-
-instance ToJSON CreateRoleAlias where
+instance Lude.ToJSON CreateRoleAlias where
   toJSON CreateRoleAlias' {..} =
-    object
-      ( catMaybes
-          [ ("credentialDurationSeconds" .=)
-              <$> _craCredentialDurationSeconds,
-            ("tags" .=) <$> _craTags,
-            Just ("roleArn" .= _craRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("credentialDurationSeconds" Lude..=)
+              Lude.<$> credentialDurationSeconds,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )
 
-instance ToPath CreateRoleAlias where
+instance Lude.ToPath CreateRoleAlias where
   toPath CreateRoleAlias' {..} =
-    mconcat ["/role-aliases/", toBS _craRoleAlias]
+    Lude.mconcat ["/role-aliases/", Lude.toBS roleAlias]
 
-instance ToQuery CreateRoleAlias where
-  toQuery = const mempty
+instance Lude.ToQuery CreateRoleAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createRoleAliasResponse' smart constructor.
+-- | /See:/ 'mkCreateRoleAliasResponse' smart constructor.
 data CreateRoleAliasResponse = CreateRoleAliasResponse'
-  { _crarsRoleAliasARN ::
-      !(Maybe Text),
-    _crarsRoleAlias :: !(Maybe Text),
-    _crarsResponseStatus :: !Int
+  { roleAliasARN ::
+      Lude.Maybe Lude.Text,
+    roleAlias :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRoleAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crarsRoleAliasARN' - The role alias ARN.
---
--- * 'crarsRoleAlias' - The role alias.
---
--- * 'crarsResponseStatus' - -- | The response status code.
-createRoleAliasResponse ::
-  -- | 'crarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'roleAlias' - The role alias.
+-- * 'roleAliasARN' - The role alias ARN.
+mkCreateRoleAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateRoleAliasResponse
-createRoleAliasResponse pResponseStatus_ =
+mkCreateRoleAliasResponse pResponseStatus_ =
   CreateRoleAliasResponse'
-    { _crarsRoleAliasARN = Nothing,
-      _crarsRoleAlias = Nothing,
-      _crarsResponseStatus = pResponseStatus_
+    { roleAliasARN = Lude.Nothing,
+      roleAlias = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The role alias ARN.
-crarsRoleAliasARN :: Lens' CreateRoleAliasResponse (Maybe Text)
-crarsRoleAliasARN = lens _crarsRoleAliasARN (\s a -> s {_crarsRoleAliasARN = a})
+--
+-- /Note:/ Consider using 'roleAliasARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crarsRoleAliasARN :: Lens.Lens' CreateRoleAliasResponse (Lude.Maybe Lude.Text)
+crarsRoleAliasARN = Lens.lens (roleAliasARN :: CreateRoleAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleAliasARN = a} :: CreateRoleAliasResponse)
+{-# DEPRECATED crarsRoleAliasARN "Use generic-lens or generic-optics with 'roleAliasARN' instead." #-}
 
 -- | The role alias.
-crarsRoleAlias :: Lens' CreateRoleAliasResponse (Maybe Text)
-crarsRoleAlias = lens _crarsRoleAlias (\s a -> s {_crarsRoleAlias = a})
+--
+-- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crarsRoleAlias :: Lens.Lens' CreateRoleAliasResponse (Lude.Maybe Lude.Text)
+crarsRoleAlias = Lens.lens (roleAlias :: CreateRoleAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleAlias = a} :: CreateRoleAliasResponse)
+{-# DEPRECATED crarsRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
--- | -- | The response status code.
-crarsResponseStatus :: Lens' CreateRoleAliasResponse Int
-crarsResponseStatus = lens _crarsResponseStatus (\s a -> s {_crarsResponseStatus = a})
-
-instance NFData CreateRoleAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crarsResponseStatus :: Lens.Lens' CreateRoleAliasResponse Lude.Int
+crarsResponseStatus = Lens.lens (responseStatus :: CreateRoleAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRoleAliasResponse)
+{-# DEPRECATED crarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

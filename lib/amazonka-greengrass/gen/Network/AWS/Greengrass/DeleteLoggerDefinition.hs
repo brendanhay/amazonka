@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,119 @@
 --
 -- Deletes a logger definition.
 module Network.AWS.Greengrass.DeleteLoggerDefinition
-  ( -- * Creating a Request
-    deleteLoggerDefinition,
-    DeleteLoggerDefinition,
+  ( -- * Creating a request
+    DeleteLoggerDefinition (..),
+    mkDeleteLoggerDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dldLoggerDefinitionId,
 
-    -- * Destructuring the Response
-    deleteLoggerDefinitionResponse,
-    DeleteLoggerDefinitionResponse,
+    -- * Destructuring the response
+    DeleteLoggerDefinitionResponse (..),
+    mkDeleteLoggerDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dldrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLoggerDefinition' smart constructor.
+-- | /See:/ 'mkDeleteLoggerDefinition' smart constructor.
 newtype DeleteLoggerDefinition = DeleteLoggerDefinition'
-  { _dldLoggerDefinitionId ::
-      Text
+  { loggerDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoggerDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dldLoggerDefinitionId' - The ID of the logger definition.
-deleteLoggerDefinition ::
-  -- | 'dldLoggerDefinitionId'
-  Text ->
+-- * 'loggerDefinitionId' - The ID of the logger definition.
+mkDeleteLoggerDefinition ::
+  -- | 'loggerDefinitionId'
+  Lude.Text ->
   DeleteLoggerDefinition
-deleteLoggerDefinition pLoggerDefinitionId_ =
+mkDeleteLoggerDefinition pLoggerDefinitionId_ =
   DeleteLoggerDefinition'
-    { _dldLoggerDefinitionId =
+    { loggerDefinitionId =
         pLoggerDefinitionId_
     }
 
 -- | The ID of the logger definition.
-dldLoggerDefinitionId :: Lens' DeleteLoggerDefinition Text
-dldLoggerDefinitionId = lens _dldLoggerDefinitionId (\s a -> s {_dldLoggerDefinitionId = a})
+--
+-- /Note:/ Consider using 'loggerDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dldLoggerDefinitionId :: Lens.Lens' DeleteLoggerDefinition Lude.Text
+dldLoggerDefinitionId = Lens.lens (loggerDefinitionId :: DeleteLoggerDefinition -> Lude.Text) (\s a -> s {loggerDefinitionId = a} :: DeleteLoggerDefinition)
+{-# DEPRECATED dldLoggerDefinitionId "Use generic-lens or generic-optics with 'loggerDefinitionId' instead." #-}
 
-instance AWSRequest DeleteLoggerDefinition where
+instance Lude.AWSRequest DeleteLoggerDefinition where
   type Rs DeleteLoggerDefinition = DeleteLoggerDefinitionResponse
-  request = delete greengrass
+  request = Req.delete greengrassService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteLoggerDefinitionResponse' <$> (pure (fromEnum s))
+          DeleteLoggerDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteLoggerDefinition
-
-instance NFData DeleteLoggerDefinition
-
-instance ToHeaders DeleteLoggerDefinition where
+instance Lude.ToHeaders DeleteLoggerDefinition where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteLoggerDefinition where
+instance Lude.ToPath DeleteLoggerDefinition where
   toPath DeleteLoggerDefinition' {..} =
-    mconcat
-      ["/greengrass/definition/loggers/", toBS _dldLoggerDefinitionId]
+    Lude.mconcat
+      ["/greengrass/definition/loggers/", Lude.toBS loggerDefinitionId]
 
-instance ToQuery DeleteLoggerDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLoggerDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteLoggerDefinitionResponse' smart constructor.
+-- | /See:/ 'mkDeleteLoggerDefinitionResponse' smart constructor.
 newtype DeleteLoggerDefinitionResponse = DeleteLoggerDefinitionResponse'
-  { _dldrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoggerDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dldrsResponseStatus' - -- | The response status code.
-deleteLoggerDefinitionResponse ::
-  -- | 'dldrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteLoggerDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLoggerDefinitionResponse
-deleteLoggerDefinitionResponse pResponseStatus_ =
+mkDeleteLoggerDefinitionResponse pResponseStatus_ =
   DeleteLoggerDefinitionResponse'
-    { _dldrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dldrsResponseStatus :: Lens' DeleteLoggerDefinitionResponse Int
-dldrsResponseStatus = lens _dldrsResponseStatus (\s a -> s {_dldrsResponseStatus = a})
-
-instance NFData DeleteLoggerDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dldrsResponseStatus :: Lens.Lens' DeleteLoggerDefinitionResponse Lude.Int
+dldrsResponseStatus = Lens.lens (responseStatus :: DeleteLoggerDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLoggerDefinitionResponse)
+{-# DEPRECATED dldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.IPSetFormat where
+module Network.AWS.GuardDuty.Types.IPSetFormat
+  ( IPSetFormat
+      ( IPSetFormat',
+        AlienVault,
+        FireEye,
+        OtxCSV,
+        ProofPoint,
+        Stix,
+        Txt
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IPSetFormat
-  = AlienVault
-  | FireEye
-  | OtxCSV
-  | ProofPoint
-  | Stix
-  | Txt
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IPSetFormat = IPSetFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IPSetFormat where
-  parser =
-    takeLowerText >>= \case
-      "alien_vault" -> pure AlienVault
-      "fire_eye" -> pure FireEye
-      "otx_csv" -> pure OtxCSV
-      "proof_point" -> pure ProofPoint
-      "stix" -> pure Stix
-      "txt" -> pure Txt
-      e ->
-        fromTextError $
-          "Failure parsing IPSetFormat from value: '" <> e
-            <> "'. Accepted values: alien_vault, fire_eye, otx_csv, proof_point, stix, txt"
+pattern AlienVault :: IPSetFormat
+pattern AlienVault = IPSetFormat' "ALIEN_VAULT"
 
-instance ToText IPSetFormat where
-  toText = \case
-    AlienVault -> "ALIEN_VAULT"
-    FireEye -> "FIRE_EYE"
-    OtxCSV -> "OTX_CSV"
-    ProofPoint -> "PROOF_POINT"
-    Stix -> "STIX"
-    Txt -> "TXT"
+pattern FireEye :: IPSetFormat
+pattern FireEye = IPSetFormat' "FIRE_EYE"
 
-instance Hashable IPSetFormat
+pattern OtxCSV :: IPSetFormat
+pattern OtxCSV = IPSetFormat' "OTX_CSV"
 
-instance NFData IPSetFormat
+pattern ProofPoint :: IPSetFormat
+pattern ProofPoint = IPSetFormat' "PROOF_POINT"
 
-instance ToByteString IPSetFormat
+pattern Stix :: IPSetFormat
+pattern Stix = IPSetFormat' "STIX"
 
-instance ToQuery IPSetFormat
+pattern Txt :: IPSetFormat
+pattern Txt = IPSetFormat' "TXT"
 
-instance ToHeader IPSetFormat
-
-instance ToJSON IPSetFormat where
-  toJSON = toJSONText
-
-instance FromJSON IPSetFormat where
-  parseJSON = parseJSONText "IPSetFormat"
+{-# COMPLETE
+  AlienVault,
+  FireEye,
+  OtxCSV,
+  ProofPoint,
+  Stix,
+  Txt,
+  IPSetFormat'
+  #-}

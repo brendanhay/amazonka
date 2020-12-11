@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.EncryptionType where
+module Network.AWS.ECR.Types.EncryptionType
+  ( EncryptionType
+      ( EncryptionType',
+        AES256,
+        KMS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EncryptionType
-  = AES256
-  | KMS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EncryptionType = EncryptionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EncryptionType where
-  parser =
-    takeLowerText >>= \case
-      "aes256" -> pure AES256
-      "kms" -> pure KMS
-      e ->
-        fromTextError $
-          "Failure parsing EncryptionType from value: '" <> e
-            <> "'. Accepted values: aes256, kms"
+pattern AES256 :: EncryptionType
+pattern AES256 = EncryptionType' "AES256"
 
-instance ToText EncryptionType where
-  toText = \case
-    AES256 -> "AES256"
-    KMS -> "KMS"
+pattern KMS :: EncryptionType
+pattern KMS = EncryptionType' "KMS"
 
-instance Hashable EncryptionType
-
-instance NFData EncryptionType
-
-instance ToByteString EncryptionType
-
-instance ToQuery EncryptionType
-
-instance ToHeader EncryptionType
-
-instance ToJSON EncryptionType where
-  toJSON = toJSONText
-
-instance FromJSON EncryptionType where
-  parseJSON = parseJSONText "EncryptionType"
+{-# COMPLETE
+  AES256,
+  KMS,
+  EncryptionType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file.
 module Network.AWS.Transcribe.CreateVocabulary
-  ( -- * Creating a Request
-    createVocabulary,
-    CreateVocabulary,
+  ( -- * Creating a request
+    CreateVocabulary (..),
+    mkCreateVocabulary,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cvVocabularyFileURI,
     cvPhrases,
     cvVocabularyName,
     cvLanguageCode,
 
-    -- * Destructuring the Response
-    createVocabularyResponse,
-    CreateVocabularyResponse,
+    -- * Destructuring the response
+    CreateVocabularyResponse (..),
+    mkCreateVocabularyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cvrsFailureReason,
     cvrsLanguageCode,
     cvrsVocabularyName,
@@ -43,173 +38,207 @@ module Network.AWS.Transcribe.CreateVocabulary
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'createVocabulary' smart constructor.
+-- | /See:/ 'mkCreateVocabulary' smart constructor.
 data CreateVocabulary = CreateVocabulary'
-  { _cvVocabularyFileURI ::
-      !(Maybe Text),
-    _cvPhrases :: !(Maybe [Text]),
-    _cvVocabularyName :: !Text,
-    _cvLanguageCode :: !LanguageCode
+  { vocabularyFileURI ::
+      Lude.Maybe Lude.Text,
+    phrases :: Lude.Maybe [Lude.Text],
+    vocabularyName :: Lude.Text,
+    languageCode :: LanguageCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVocabulary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'languageCode' - The language code of the vocabulary entries.
+-- * 'phrases' - An array of strings that contains the vocabulary entries.
+-- * 'vocabularyFileURI' - The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is
 --
--- * 'cvVocabularyFileURI' - The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is  For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ . For more information about custom vocabularies, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies> .
---
--- * 'cvPhrases' - An array of strings that contains the vocabulary entries.
---
--- * 'cvVocabularyName' - The name of the vocabulary. The name must be unique within an AWS account. The name is case sensitive. If you try to create a vocabulary with the same name as a previous vocabulary you will receive a @ConflictException@ error.
---
--- * 'cvLanguageCode' - The language code of the vocabulary entries.
-createVocabulary ::
-  -- | 'cvVocabularyName'
-  Text ->
-  -- | 'cvLanguageCode'
+-- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+-- For more information about custom vocabularies, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies> .
+-- * 'vocabularyName' - The name of the vocabulary. The name must be unique within an AWS account. The name is case sensitive. If you try to create a vocabulary with the same name as a previous vocabulary you will receive a @ConflictException@ error.
+mkCreateVocabulary ::
+  -- | 'vocabularyName'
+  Lude.Text ->
+  -- | 'languageCode'
   LanguageCode ->
   CreateVocabulary
-createVocabulary pVocabularyName_ pLanguageCode_ =
+mkCreateVocabulary pVocabularyName_ pLanguageCode_ =
   CreateVocabulary'
-    { _cvVocabularyFileURI = Nothing,
-      _cvPhrases = Nothing,
-      _cvVocabularyName = pVocabularyName_,
-      _cvLanguageCode = pLanguageCode_
+    { vocabularyFileURI = Lude.Nothing,
+      phrases = Lude.Nothing,
+      vocabularyName = pVocabularyName_,
+      languageCode = pLanguageCode_
     }
 
--- | The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is  For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ . For more information about custom vocabularies, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies> .
-cvVocabularyFileURI :: Lens' CreateVocabulary (Maybe Text)
-cvVocabularyFileURI = lens _cvVocabularyFileURI (\s a -> s {_cvVocabularyFileURI = a})
+-- | The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is
+--
+-- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+-- For more information about custom vocabularies, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies> .
+--
+-- /Note:/ Consider using 'vocabularyFileURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvVocabularyFileURI :: Lens.Lens' CreateVocabulary (Lude.Maybe Lude.Text)
+cvVocabularyFileURI = Lens.lens (vocabularyFileURI :: CreateVocabulary -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyFileURI = a} :: CreateVocabulary)
+{-# DEPRECATED cvVocabularyFileURI "Use generic-lens or generic-optics with 'vocabularyFileURI' instead." #-}
 
 -- | An array of strings that contains the vocabulary entries.
-cvPhrases :: Lens' CreateVocabulary [Text]
-cvPhrases = lens _cvPhrases (\s a -> s {_cvPhrases = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'phrases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvPhrases :: Lens.Lens' CreateVocabulary (Lude.Maybe [Lude.Text])
+cvPhrases = Lens.lens (phrases :: CreateVocabulary -> Lude.Maybe [Lude.Text]) (\s a -> s {phrases = a} :: CreateVocabulary)
+{-# DEPRECATED cvPhrases "Use generic-lens or generic-optics with 'phrases' instead." #-}
 
 -- | The name of the vocabulary. The name must be unique within an AWS account. The name is case sensitive. If you try to create a vocabulary with the same name as a previous vocabulary you will receive a @ConflictException@ error.
-cvVocabularyName :: Lens' CreateVocabulary Text
-cvVocabularyName = lens _cvVocabularyName (\s a -> s {_cvVocabularyName = a})
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvVocabularyName :: Lens.Lens' CreateVocabulary Lude.Text
+cvVocabularyName = Lens.lens (vocabularyName :: CreateVocabulary -> Lude.Text) (\s a -> s {vocabularyName = a} :: CreateVocabulary)
+{-# DEPRECATED cvVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The language code of the vocabulary entries.
-cvLanguageCode :: Lens' CreateVocabulary LanguageCode
-cvLanguageCode = lens _cvLanguageCode (\s a -> s {_cvLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvLanguageCode :: Lens.Lens' CreateVocabulary LanguageCode
+cvLanguageCode = Lens.lens (languageCode :: CreateVocabulary -> LanguageCode) (\s a -> s {languageCode = a} :: CreateVocabulary)
+{-# DEPRECATED cvLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
-instance AWSRequest CreateVocabulary where
+instance Lude.AWSRequest CreateVocabulary where
   type Rs CreateVocabulary = CreateVocabularyResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateVocabularyResponse'
-            <$> (x .?> "FailureReason")
-            <*> (x .?> "LanguageCode")
-            <*> (x .?> "VocabularyName")
-            <*> (x .?> "LastModifiedTime")
-            <*> (x .?> "VocabularyState")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "LanguageCode")
+            Lude.<*> (x Lude..?> "VocabularyName")
+            Lude.<*> (x Lude..?> "LastModifiedTime")
+            Lude.<*> (x Lude..?> "VocabularyState")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateVocabulary
-
-instance NFData CreateVocabulary
-
-instance ToHeaders CreateVocabulary where
+instance Lude.ToHeaders CreateVocabulary where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Transcribe.CreateVocabulary" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Transcribe.CreateVocabulary" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateVocabulary where
+instance Lude.ToJSON CreateVocabulary where
   toJSON CreateVocabulary' {..} =
-    object
-      ( catMaybes
-          [ ("VocabularyFileUri" .=) <$> _cvVocabularyFileURI,
-            ("Phrases" .=) <$> _cvPhrases,
-            Just ("VocabularyName" .= _cvVocabularyName),
-            Just ("LanguageCode" .= _cvLanguageCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("VocabularyFileUri" Lude..=) Lude.<$> vocabularyFileURI,
+            ("Phrases" Lude..=) Lude.<$> phrases,
+            Lude.Just ("VocabularyName" Lude..= vocabularyName),
+            Lude.Just ("LanguageCode" Lude..= languageCode)
           ]
       )
 
-instance ToPath CreateVocabulary where
-  toPath = const "/"
+instance Lude.ToPath CreateVocabulary where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateVocabulary where
-  toQuery = const mempty
+instance Lude.ToQuery CreateVocabulary where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createVocabularyResponse' smart constructor.
+-- | /See:/ 'mkCreateVocabularyResponse' smart constructor.
 data CreateVocabularyResponse = CreateVocabularyResponse'
-  { _cvrsFailureReason ::
-      !(Maybe Text),
-    _cvrsLanguageCode ::
-      !(Maybe LanguageCode),
-    _cvrsVocabularyName :: !(Maybe Text),
-    _cvrsLastModifiedTime :: !(Maybe POSIX),
-    _cvrsVocabularyState ::
-      !(Maybe VocabularyState),
-    _cvrsResponseStatus :: !Int
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    languageCode :: Lude.Maybe LanguageCode,
+    vocabularyName :: Lude.Maybe Lude.Text,
+    lastModifiedTime ::
+      Lude.Maybe Lude.Timestamp,
+    vocabularyState ::
+      Lude.Maybe VocabularyState,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVocabularyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvrsFailureReason' - If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
---
--- * 'cvrsLanguageCode' - The language code of the vocabulary entries.
---
--- * 'cvrsVocabularyName' - The name of the vocabulary.
---
--- * 'cvrsLastModifiedTime' - The date and time that the vocabulary was created.
---
--- * 'cvrsVocabularyState' - The processing state of the vocabulary. When the @VocabularyState@ field contains @READY@ the vocabulary is ready to be used in a @StartTranscriptionJob@ request.
---
--- * 'cvrsResponseStatus' - -- | The response status code.
-createVocabularyResponse ::
-  -- | 'cvrsResponseStatus'
-  Int ->
+-- * 'failureReason' - If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
+-- * 'languageCode' - The language code of the vocabulary entries.
+-- * 'lastModifiedTime' - The date and time that the vocabulary was created.
+-- * 'responseStatus' - The response status code.
+-- * 'vocabularyName' - The name of the vocabulary.
+-- * 'vocabularyState' - The processing state of the vocabulary. When the @VocabularyState@ field contains @READY@ the vocabulary is ready to be used in a @StartTranscriptionJob@ request.
+mkCreateVocabularyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateVocabularyResponse
-createVocabularyResponse pResponseStatus_ =
+mkCreateVocabularyResponse pResponseStatus_ =
   CreateVocabularyResponse'
-    { _cvrsFailureReason = Nothing,
-      _cvrsLanguageCode = Nothing,
-      _cvrsVocabularyName = Nothing,
-      _cvrsLastModifiedTime = Nothing,
-      _cvrsVocabularyState = Nothing,
-      _cvrsResponseStatus = pResponseStatus_
+    { failureReason = Lude.Nothing,
+      languageCode = Lude.Nothing,
+      vocabularyName = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      vocabularyState = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
-cvrsFailureReason :: Lens' CreateVocabularyResponse (Maybe Text)
-cvrsFailureReason = lens _cvrsFailureReason (\s a -> s {_cvrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsFailureReason :: Lens.Lens' CreateVocabularyResponse (Lude.Maybe Lude.Text)
+cvrsFailureReason = Lens.lens (failureReason :: CreateVocabularyResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: CreateVocabularyResponse)
+{-# DEPRECATED cvrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The language code of the vocabulary entries.
-cvrsLanguageCode :: Lens' CreateVocabularyResponse (Maybe LanguageCode)
-cvrsLanguageCode = lens _cvrsLanguageCode (\s a -> s {_cvrsLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsLanguageCode :: Lens.Lens' CreateVocabularyResponse (Lude.Maybe LanguageCode)
+cvrsLanguageCode = Lens.lens (languageCode :: CreateVocabularyResponse -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: CreateVocabularyResponse)
+{-# DEPRECATED cvrsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The name of the vocabulary.
-cvrsVocabularyName :: Lens' CreateVocabularyResponse (Maybe Text)
-cvrsVocabularyName = lens _cvrsVocabularyName (\s a -> s {_cvrsVocabularyName = a})
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsVocabularyName :: Lens.Lens' CreateVocabularyResponse (Lude.Maybe Lude.Text)
+cvrsVocabularyName = Lens.lens (vocabularyName :: CreateVocabularyResponse -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyName = a} :: CreateVocabularyResponse)
+{-# DEPRECATED cvrsVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The date and time that the vocabulary was created.
-cvrsLastModifiedTime :: Lens' CreateVocabularyResponse (Maybe UTCTime)
-cvrsLastModifiedTime = lens _cvrsLastModifiedTime (\s a -> s {_cvrsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsLastModifiedTime :: Lens.Lens' CreateVocabularyResponse (Lude.Maybe Lude.Timestamp)
+cvrsLastModifiedTime = Lens.lens (lastModifiedTime :: CreateVocabularyResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: CreateVocabularyResponse)
+{-# DEPRECATED cvrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The processing state of the vocabulary. When the @VocabularyState@ field contains @READY@ the vocabulary is ready to be used in a @StartTranscriptionJob@ request.
-cvrsVocabularyState :: Lens' CreateVocabularyResponse (Maybe VocabularyState)
-cvrsVocabularyState = lens _cvrsVocabularyState (\s a -> s {_cvrsVocabularyState = a})
+--
+-- /Note:/ Consider using 'vocabularyState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsVocabularyState :: Lens.Lens' CreateVocabularyResponse (Lude.Maybe VocabularyState)
+cvrsVocabularyState = Lens.lens (vocabularyState :: CreateVocabularyResponse -> Lude.Maybe VocabularyState) (\s a -> s {vocabularyState = a} :: CreateVocabularyResponse)
+{-# DEPRECATED cvrsVocabularyState "Use generic-lens or generic-optics with 'vocabularyState' instead." #-}
 
--- | -- | The response status code.
-cvrsResponseStatus :: Lens' CreateVocabularyResponse Int
-cvrsResponseStatus = lens _cvrsResponseStatus (\s a -> s {_cvrsResponseStatus = a})
-
-instance NFData CreateVocabularyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrsResponseStatus :: Lens.Lens' CreateVocabularyResponse Lude.Int
+cvrsResponseStatus = Lens.lens (responseStatus :: CreateVocabularyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVocabularyResponse)
+{-# DEPRECATED cvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

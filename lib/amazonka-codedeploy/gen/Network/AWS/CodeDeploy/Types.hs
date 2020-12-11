@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeDeploy.Types
-  ( -- * Service Configuration
-    codeDeploy,
+  ( -- * Service configuration
+    codeDeployService,
 
     -- * Errors
 
@@ -106,26 +104,26 @@ module Network.AWS.CodeDeploy.Types
     TriggerEventType (..),
 
     -- * Alarm
-    Alarm,
-    alarm,
+    Alarm (..),
+    mkAlarm,
     aName,
 
     -- * AlarmConfiguration
-    AlarmConfiguration,
-    alarmConfiguration,
+    AlarmConfiguration (..),
+    mkAlarmConfiguration,
     acIgnorePollAlarmFailure,
     acEnabled,
     acAlarms,
 
     -- * AppSpecContent
-    AppSpecContent,
-    appSpecContent,
+    AppSpecContent (..),
+    mkAppSpecContent,
     ascContent,
     ascSha256,
 
     -- * ApplicationInfo
-    ApplicationInfo,
-    applicationInfo,
+    ApplicationInfo (..),
+    mkApplicationInfo,
     aiLinkedToGitHub,
     aiComputePlatform,
     aiApplicationId,
@@ -134,33 +132,33 @@ module Network.AWS.CodeDeploy.Types
     aiCreateTime,
 
     -- * AutoRollbackConfiguration
-    AutoRollbackConfiguration,
-    autoRollbackConfiguration,
+    AutoRollbackConfiguration (..),
+    mkAutoRollbackConfiguration,
     arcEnabled,
     arcEvents,
 
     -- * AutoScalingGroup
-    AutoScalingGroup,
-    autoScalingGroup,
+    AutoScalingGroup (..),
+    mkAutoScalingGroup,
     asgHook,
     asgName,
 
     -- * BlueGreenDeploymentConfiguration
-    BlueGreenDeploymentConfiguration,
-    blueGreenDeploymentConfiguration,
+    BlueGreenDeploymentConfiguration (..),
+    mkBlueGreenDeploymentConfiguration,
     bgdcDeploymentReadyOption,
     bgdcGreenFleetProvisioningOption,
     bgdcTerminateBlueInstancesOnDeploymentSuccess,
 
     -- * BlueInstanceTerminationOption
-    BlueInstanceTerminationOption,
-    blueInstanceTerminationOption,
+    BlueInstanceTerminationOption (..),
+    mkBlueInstanceTerminationOption,
     bitoAction,
     bitoTerminationWaitTimeInMinutes,
 
     -- * CloudFormationTarget
-    CloudFormationTarget,
-    cloudFormationTarget,
+    CloudFormationTarget (..),
+    mkCloudFormationTarget,
     cftTargetId,
     cftStatus,
     cftDeploymentId,
@@ -170,8 +168,8 @@ module Network.AWS.CodeDeploy.Types
     cftTargetVersionWeight,
 
     -- * DeploymentConfigInfo
-    DeploymentConfigInfo,
-    deploymentConfigInfo,
+    DeploymentConfigInfo (..),
+    mkDeploymentConfigInfo,
     dciDeploymentConfigName,
     dciComputePlatform,
     dciMinimumHealthyHosts,
@@ -180,8 +178,8 @@ module Network.AWS.CodeDeploy.Types
     dciCreateTime,
 
     -- * DeploymentGroupInfo
-    DeploymentGroupInfo,
-    deploymentGroupInfo,
+    DeploymentGroupInfo (..),
+    mkDeploymentGroupInfo,
     dgiServiceRoleARN,
     dgiEc2TagSet,
     dgiDeploymentConfigName,
@@ -205,8 +203,8 @@ module Network.AWS.CodeDeploy.Types
     dgiDeploymentGroupName,
 
     -- * DeploymentInfo
-    DeploymentInfo,
-    deploymentInfo,
+    DeploymentInfo (..),
+    mkDeploymentInfo,
     diCreator,
     diStatus,
     diDeploymentId,
@@ -237,8 +235,8 @@ module Network.AWS.CodeDeploy.Types
     diIgnoreApplicationStopFailures,
 
     -- * DeploymentOverview
-    DeploymentOverview,
-    deploymentOverview,
+    DeploymentOverview (..),
+    mkDeploymentOverview,
     doPending,
     doSkipped,
     doInProgress,
@@ -247,20 +245,20 @@ module Network.AWS.CodeDeploy.Types
     doFailed,
 
     -- * DeploymentReadyOption
-    DeploymentReadyOption,
-    deploymentReadyOption,
+    DeploymentReadyOption (..),
+    mkDeploymentReadyOption,
     droActionOnTimeout,
     droWaitTimeInMinutes,
 
     -- * DeploymentStyle
-    DeploymentStyle,
-    deploymentStyle,
+    DeploymentStyle (..),
+    mkDeploymentStyle,
     dsDeploymentOption,
     dsDeploymentType,
 
     -- * DeploymentTarget
-    DeploymentTarget,
-    deploymentTarget,
+    DeploymentTarget (..),
+    mkDeploymentTarget,
     dtInstanceTarget,
     dtCloudFormationTarget,
     dtEcsTarget,
@@ -268,34 +266,34 @@ module Network.AWS.CodeDeploy.Types
     dtLambdaTarget,
 
     -- * Diagnostics
-    Diagnostics,
-    diagnostics,
+    Diagnostics (..),
+    mkDiagnostics,
     dLogTail,
     dErrorCode,
     dScriptName,
     dMessage,
 
     -- * EC2TagFilter
-    EC2TagFilter,
-    ec2TagFilter,
+    EC2TagFilter (..),
+    mkEC2TagFilter,
     etfValue,
     etfKey,
     etfType,
 
     -- * EC2TagSet
-    EC2TagSet,
-    ec2TagSet,
+    EC2TagSet (..),
+    mkEC2TagSet,
     etsEc2TagSetList,
 
     -- * ECSService
-    ECSService,
-    eCSService,
+    ECSService (..),
+    mkECSService,
     ecssServiceName,
     ecssClusterName,
 
     -- * ECSTarget
-    ECSTarget,
-    eCSTarget,
+    ECSTarget (..),
+    mkECSTarget,
     ecstTargetARN,
     ecstTargetId,
     ecstStatus,
@@ -305,8 +303,8 @@ module Network.AWS.CodeDeploy.Types
     ecstLifecycleEvents,
 
     -- * ECSTaskSet
-    ECSTaskSet,
-    eCSTaskSet,
+    ECSTaskSet (..),
+    mkECSTaskSet,
     ecstsRunningCount,
     ecstsStatus,
     ecstsIdentifer,
@@ -317,19 +315,19 @@ module Network.AWS.CodeDeploy.Types
     ecstsTaskSetLabel,
 
     -- * ELBInfo
-    ELBInfo,
-    eLBInfo,
+    ELBInfo (..),
+    mkELBInfo,
     elbiName,
 
     -- * ErrorInformation
-    ErrorInformation,
-    errorInformation,
+    ErrorInformation (..),
+    mkErrorInformation,
     eiCode,
     eiMessage,
 
     -- * GenericRevisionInfo
-    GenericRevisionInfo,
-    genericRevisionInfo,
+    GenericRevisionInfo (..),
+    mkGenericRevisionInfo,
     griRegisterTime,
     griFirstUsedTime,
     griDeploymentGroups,
@@ -337,19 +335,19 @@ module Network.AWS.CodeDeploy.Types
     griDescription,
 
     -- * GitHubLocation
-    GitHubLocation,
-    gitHubLocation,
+    GitHubLocation (..),
+    mkGitHubLocation,
     ghlCommitId,
     ghlRepository,
 
     -- * GreenFleetProvisioningOption
-    GreenFleetProvisioningOption,
-    greenFleetProvisioningOption,
+    GreenFleetProvisioningOption (..),
+    mkGreenFleetProvisioningOption,
     gfpoAction,
 
     -- * InstanceInfo
-    InstanceInfo,
-    instanceInfo,
+    InstanceInfo (..),
+    mkInstanceInfo,
     iiRegisterTime,
     iiInstanceARN,
     iiDeregisterTime,
@@ -359,8 +357,8 @@ module Network.AWS.CodeDeploy.Types
     iiTags,
 
     -- * InstanceTarget
-    InstanceTarget,
-    instanceTarget,
+    InstanceTarget (..),
+    mkInstanceTarget,
     itTargetARN,
     itTargetId,
     itStatus,
@@ -370,8 +368,8 @@ module Network.AWS.CodeDeploy.Types
     itLifecycleEvents,
 
     -- * LambdaFunctionInfo
-    LambdaFunctionInfo,
-    lambdaFunctionInfo,
+    LambdaFunctionInfo (..),
+    mkLambdaFunctionInfo,
     lfiCurrentVersion,
     lfiFunctionAlias,
     lfiFunctionName,
@@ -379,8 +377,8 @@ module Network.AWS.CodeDeploy.Types
     lfiTargetVersionWeight,
 
     -- * LambdaTarget
-    LambdaTarget,
-    lambdaTarget,
+    LambdaTarget (..),
+    mkLambdaTarget,
     ltTargetARN,
     ltTargetId,
     ltStatus,
@@ -390,16 +388,16 @@ module Network.AWS.CodeDeploy.Types
     ltLambdaFunctionInfo,
 
     -- * LastDeploymentInfo
-    LastDeploymentInfo,
-    lastDeploymentInfo,
+    LastDeploymentInfo (..),
+    mkLastDeploymentInfo,
     ldiStatus,
     ldiDeploymentId,
     ldiEndTime,
     ldiCreateTime,
 
     -- * LifecycleEvent
-    LifecycleEvent,
-    lifecycleEvent,
+    LifecycleEvent (..),
+    mkLifecycleEvent,
     leStatus,
     leLifecycleEventName,
     leStartTime,
@@ -407,38 +405,38 @@ module Network.AWS.CodeDeploy.Types
     leEndTime,
 
     -- * LoadBalancerInfo
-    LoadBalancerInfo,
-    loadBalancerInfo,
+    LoadBalancerInfo (..),
+    mkLoadBalancerInfo,
     lbiElbInfoList,
     lbiTargetGroupInfoList,
     lbiTargetGroupPairInfoList,
 
     -- * MinimumHealthyHosts
-    MinimumHealthyHosts,
-    minimumHealthyHosts,
+    MinimumHealthyHosts (..),
+    mkMinimumHealthyHosts,
     mhhValue,
     mhhType,
 
     -- * OnPremisesTagSet
-    OnPremisesTagSet,
-    onPremisesTagSet,
+    OnPremisesTagSet (..),
+    mkOnPremisesTagSet,
     optsOnPremisesTagSetList,
 
     -- * RawString
-    RawString,
-    rawString,
+    RawString (..),
+    mkRawString,
     rsContent,
     rsSha256,
 
     -- * RevisionInfo
-    RevisionInfo,
-    revisionInfo,
+    RevisionInfo (..),
+    mkRevisionInfo,
     riGenericRevisionInfo,
     riRevisionLocation,
 
     -- * RevisionLocation
-    RevisionLocation,
-    revisionLocation,
+    RevisionLocation (..),
+    mkRevisionLocation,
     rlString,
     rlRevisionType,
     rlS3Location,
@@ -446,15 +444,15 @@ module Network.AWS.CodeDeploy.Types
     rlGitHubLocation,
 
     -- * RollbackInfo
-    RollbackInfo,
-    rollbackInfo,
+    RollbackInfo (..),
+    mkRollbackInfo,
     riRollbackTriggeringDeploymentId,
     riRollbackMessage,
     riRollbackDeploymentId,
 
     -- * S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slBundleType,
     slETag,
     slBucket,
@@ -462,70 +460,70 @@ module Network.AWS.CodeDeploy.Types
     slVersion,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * TagFilter
-    TagFilter,
-    tagFilter,
+    TagFilter (..),
+    mkTagFilter,
     tfValue,
     tfKey,
     tfType,
 
     -- * TargetGroupInfo
-    TargetGroupInfo,
-    targetGroupInfo,
+    TargetGroupInfo (..),
+    mkTargetGroupInfo,
     tgiName,
 
     -- * TargetGroupPairInfo
-    TargetGroupPairInfo,
-    targetGroupPairInfo,
+    TargetGroupPairInfo (..),
+    mkTargetGroupPairInfo,
     tgpiProdTrafficRoute,
     tgpiTestTrafficRoute,
     tgpiTargetGroups,
 
     -- * TargetInstances
-    TargetInstances,
-    targetInstances,
+    TargetInstances (..),
+    mkTargetInstances,
     tiEc2TagSet,
     tiTagFilters,
     tiAutoScalingGroups,
 
     -- * TimeBasedCanary
-    TimeBasedCanary,
-    timeBasedCanary,
+    TimeBasedCanary (..),
+    mkTimeBasedCanary,
     tbcCanaryInterval,
     tbcCanaryPercentage,
 
     -- * TimeBasedLinear
-    TimeBasedLinear,
-    timeBasedLinear,
+    TimeBasedLinear (..),
+    mkTimeBasedLinear,
     tblLinearInterval,
     tblLinearPercentage,
 
     -- * TimeRange
-    TimeRange,
-    timeRange,
+    TimeRange (..),
+    mkTimeRange,
     trStart,
     trEnd,
 
     -- * TrafficRoute
-    TrafficRoute,
-    trafficRoute,
+    TrafficRoute (..),
+    mkTrafficRoute,
     trListenerARNs,
 
     -- * TrafficRoutingConfig
-    TrafficRoutingConfig,
-    trafficRoutingConfig,
+    TrafficRoutingConfig (..),
+    mkTrafficRoutingConfig,
     trcTimeBasedCanary,
     trcTimeBasedLinear,
     trcType,
 
     -- * TriggerConfig
-    TriggerConfig,
-    triggerConfig,
+    TriggerConfig (..),
+    mkTriggerConfig,
     tcTriggerName,
     tcTriggerEvents,
     tcTriggerTargetARN,
@@ -614,48 +612,60 @@ import Network.AWS.CodeDeploy.Types.TrafficRoutingConfig
 import Network.AWS.CodeDeploy.Types.TrafficRoutingType
 import Network.AWS.CodeDeploy.Types.TriggerConfig
 import Network.AWS.CodeDeploy.Types.TriggerEventType
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-10-06@ of the Amazon CodeDeploy SDK configuration.
-codeDeploy :: Service
-codeDeploy =
-  Service
-    { _svcAbbrev = "CodeDeploy",
-      _svcSigner = v4,
-      _svcPrefix = "codedeploy",
-      _svcVersion = "2014-10-06",
-      _svcEndpoint = defaultEndpoint codeDeploy,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "CodeDeploy",
-      _svcRetry = retry
+codeDeployService :: Lude.Service
+codeDeployService =
+  Lude.Service
+    { Lude._svcAbbrev = "CodeDeploy",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "codedeploy",
+      Lude._svcVersion = "2014-10-06",
+      Lude._svcEndpoint = Lude.defaultEndpoint codeDeployService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "CodeDeploy",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

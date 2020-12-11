@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,78 +14,91 @@
 --
 -- Deletes a virtual MFA device.
 module Network.AWS.IAM.DeleteVirtualMFADevice
-  ( -- * Creating a Request
-    deleteVirtualMFADevice,
-    DeleteVirtualMFADevice,
+  ( -- * Creating a request
+    DeleteVirtualMFADevice (..),
+    mkDeleteVirtualMFADevice,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvmdSerialNumber,
 
-    -- * Destructuring the Response
-    deleteVirtualMFADeviceResponse,
-    DeleteVirtualMFADeviceResponse,
+    -- * Destructuring the response
+    DeleteVirtualMFADeviceResponse (..),
+    mkDeleteVirtualMFADeviceResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteVirtualMFADevice' smart constructor.
+-- | /See:/ 'mkDeleteVirtualMFADevice' smart constructor.
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
-  { _dvmdSerialNumber ::
-      Text
+  { serialNumber ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVirtualMFADevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'serialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.
 --
--- * 'dvmdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
-deleteVirtualMFADevice ::
-  -- | 'dvmdSerialNumber'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
+mkDeleteVirtualMFADevice ::
+  -- | 'serialNumber'
+  Lude.Text ->
   DeleteVirtualMFADevice
-deleteVirtualMFADevice pSerialNumber_ =
-  DeleteVirtualMFADevice' {_dvmdSerialNumber = pSerialNumber_}
+mkDeleteVirtualMFADevice pSerialNumber_ =
+  DeleteVirtualMFADevice' {serialNumber = pSerialNumber_}
 
--- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
-dvmdSerialNumber :: Lens' DeleteVirtualMFADevice Text
-dvmdSerialNumber = lens _dvmdSerialNumber (\s a -> s {_dvmdSerialNumber = a})
+-- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
+--
+-- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmdSerialNumber :: Lens.Lens' DeleteVirtualMFADevice Lude.Text
+dvmdSerialNumber = Lens.lens (serialNumber :: DeleteVirtualMFADevice -> Lude.Text) (\s a -> s {serialNumber = a} :: DeleteVirtualMFADevice)
+{-# DEPRECATED dvmdSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
-instance AWSRequest DeleteVirtualMFADevice where
+instance Lude.AWSRequest DeleteVirtualMFADevice where
   type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
-  request = postQuery iam
-  response = receiveNull DeleteVirtualMFADeviceResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteVirtualMFADeviceResponse'
 
-instance Hashable DeleteVirtualMFADevice
+instance Lude.ToHeaders DeleteVirtualMFADevice where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteVirtualMFADevice
+instance Lude.ToPath DeleteVirtualMFADevice where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteVirtualMFADevice where
-  toHeaders = const mempty
-
-instance ToPath DeleteVirtualMFADevice where
-  toPath = const "/"
-
-instance ToQuery DeleteVirtualMFADevice where
+instance Lude.ToQuery DeleteVirtualMFADevice where
   toQuery DeleteVirtualMFADevice' {..} =
-    mconcat
-      [ "Action" =: ("DeleteVirtualMFADevice" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "SerialNumber" =: _dvmdSerialNumber
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteVirtualMFADevice" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "SerialNumber" Lude.=: serialNumber
       ]
 
--- | /See:/ 'deleteVirtualMFADeviceResponse' smart constructor.
+-- | /See:/ 'mkDeleteVirtualMFADeviceResponse' smart constructor.
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVirtualMFADeviceResponse' with the minimum fields required to make a request.
-deleteVirtualMFADeviceResponse ::
+mkDeleteVirtualMFADeviceResponse ::
   DeleteVirtualMFADeviceResponse
-deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'
-
-instance NFData DeleteVirtualMFADeviceResponse
+mkDeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'

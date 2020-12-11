@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.LDAPSType where
+module Network.AWS.DirectoryService.Types.LDAPSType
+  ( LDAPSType
+      ( LDAPSType',
+        Client
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LDAPSType = Client
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LDAPSType = LDAPSType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LDAPSType where
-  parser =
-    takeLowerText >>= \case
-      "client" -> pure Client
-      e ->
-        fromTextError $
-          "Failure parsing LDAPSType from value: '" <> e
-            <> "'. Accepted values: client"
+pattern Client :: LDAPSType
+pattern Client = LDAPSType' "Client"
 
-instance ToText LDAPSType where
-  toText = \case
-    Client -> "Client"
-
-instance Hashable LDAPSType
-
-instance NFData LDAPSType
-
-instance ToByteString LDAPSType
-
-instance ToQuery LDAPSType
-
-instance ToHeader LDAPSType
-
-instance ToJSON LDAPSType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Client,
+  LDAPSType'
+  #-}

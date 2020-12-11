@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ContributorInsightsSummary where
+module Network.AWS.DynamoDB.Types.ContributorInsightsSummary
+  ( ContributorInsightsSummary (..),
+
+    -- * Smart constructor
+    mkContributorInsightsSummary,
+
+    -- * Lenses
+    cisContributorInsightsStatus,
+    cisTableName,
+    cisIndexName,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.ContributorInsightsStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a Contributor Insights summary entry.
 --
---
---
--- /See:/ 'contributorInsightsSummary' smart constructor.
+-- /See:/ 'mkContributorInsightsSummary' smart constructor.
 data ContributorInsightsSummary = ContributorInsightsSummary'
-  { _cisContributorInsightsStatus ::
-      !(Maybe ContributorInsightsStatus),
-    _cisTableName :: !(Maybe Text),
-    _cisIndexName :: !(Maybe Text)
+  { contributorInsightsStatus ::
+      Lude.Maybe ContributorInsightsStatus,
+    tableName :: Lude.Maybe Lude.Text,
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContributorInsightsSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cisContributorInsightsStatus' - Describes the current status for contributor insights for the given table and index, if applicable.
---
--- * 'cisTableName' - Name of the table associated with the summary.
---
--- * 'cisIndexName' - Name of the index associated with the summary, if any.
-contributorInsightsSummary ::
+-- * 'contributorInsightsStatus' - Describes the current status for contributor insights for the given table and index, if applicable.
+-- * 'indexName' - Name of the index associated with the summary, if any.
+-- * 'tableName' - Name of the table associated with the summary.
+mkContributorInsightsSummary ::
   ContributorInsightsSummary
-contributorInsightsSummary =
+mkContributorInsightsSummary =
   ContributorInsightsSummary'
-    { _cisContributorInsightsStatus =
-        Nothing,
-      _cisTableName = Nothing,
-      _cisIndexName = Nothing
+    { contributorInsightsStatus =
+        Lude.Nothing,
+      tableName = Lude.Nothing,
+      indexName = Lude.Nothing
     }
 
 -- | Describes the current status for contributor insights for the given table and index, if applicable.
-cisContributorInsightsStatus :: Lens' ContributorInsightsSummary (Maybe ContributorInsightsStatus)
-cisContributorInsightsStatus = lens _cisContributorInsightsStatus (\s a -> s {_cisContributorInsightsStatus = a})
+--
+-- /Note:/ Consider using 'contributorInsightsStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisContributorInsightsStatus :: Lens.Lens' ContributorInsightsSummary (Lude.Maybe ContributorInsightsStatus)
+cisContributorInsightsStatus = Lens.lens (contributorInsightsStatus :: ContributorInsightsSummary -> Lude.Maybe ContributorInsightsStatus) (\s a -> s {contributorInsightsStatus = a} :: ContributorInsightsSummary)
+{-# DEPRECATED cisContributorInsightsStatus "Use generic-lens or generic-optics with 'contributorInsightsStatus' instead." #-}
 
 -- | Name of the table associated with the summary.
-cisTableName :: Lens' ContributorInsightsSummary (Maybe Text)
-cisTableName = lens _cisTableName (\s a -> s {_cisTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisTableName :: Lens.Lens' ContributorInsightsSummary (Lude.Maybe Lude.Text)
+cisTableName = Lens.lens (tableName :: ContributorInsightsSummary -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: ContributorInsightsSummary)
+{-# DEPRECATED cisTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | Name of the index associated with the summary, if any.
-cisIndexName :: Lens' ContributorInsightsSummary (Maybe Text)
-cisIndexName = lens _cisIndexName (\s a -> s {_cisIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisIndexName :: Lens.Lens' ContributorInsightsSummary (Lude.Maybe Lude.Text)
+cisIndexName = Lens.lens (indexName :: ContributorInsightsSummary -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: ContributorInsightsSummary)
+{-# DEPRECATED cisIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance FromJSON ContributorInsightsSummary where
+instance Lude.FromJSON ContributorInsightsSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContributorInsightsSummary"
       ( \x ->
           ContributorInsightsSummary'
-            <$> (x .:? "ContributorInsightsStatus")
-            <*> (x .:? "TableName")
-            <*> (x .:? "IndexName")
+            Lude.<$> (x Lude..:? "ContributorInsightsStatus")
+            Lude.<*> (x Lude..:? "TableName")
+            Lude.<*> (x Lude..:? "IndexName")
       )
-
-instance Hashable ContributorInsightsSummary
-
-instance NFData ContributorInsightsSummary

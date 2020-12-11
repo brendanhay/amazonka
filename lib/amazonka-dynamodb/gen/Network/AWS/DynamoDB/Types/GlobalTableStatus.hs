@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.GlobalTableStatus where
+module Network.AWS.DynamoDB.Types.GlobalTableStatus
+  ( GlobalTableStatus
+      ( GlobalTableStatus',
+        GTSActive,
+        GTSCreating,
+        GTSDeleting,
+        GTSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GlobalTableStatus
-  = GTSActive
-  | GTSCreating
-  | GTSDeleting
-  | GTSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GlobalTableStatus = GlobalTableStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GlobalTableStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure GTSActive
-      "creating" -> pure GTSCreating
-      "deleting" -> pure GTSDeleting
-      "updating" -> pure GTSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing GlobalTableStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, deleting, updating"
+pattern GTSActive :: GlobalTableStatus
+pattern GTSActive = GlobalTableStatus' "ACTIVE"
 
-instance ToText GlobalTableStatus where
-  toText = \case
-    GTSActive -> "ACTIVE"
-    GTSCreating -> "CREATING"
-    GTSDeleting -> "DELETING"
-    GTSUpdating -> "UPDATING"
+pattern GTSCreating :: GlobalTableStatus
+pattern GTSCreating = GlobalTableStatus' "CREATING"
 
-instance Hashable GlobalTableStatus
+pattern GTSDeleting :: GlobalTableStatus
+pattern GTSDeleting = GlobalTableStatus' "DELETING"
 
-instance NFData GlobalTableStatus
+pattern GTSUpdating :: GlobalTableStatus
+pattern GTSUpdating = GlobalTableStatus' "UPDATING"
 
-instance ToByteString GlobalTableStatus
-
-instance ToQuery GlobalTableStatus
-
-instance ToHeader GlobalTableStatus
-
-instance FromJSON GlobalTableStatus where
-  parseJSON = parseJSONText "GlobalTableStatus"
+{-# COMPLETE
+  GTSActive,
+  GTSCreating,
+  GTSDeleting,
+  GTSUpdating,
+  GlobalTableStatus'
+  #-}

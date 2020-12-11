@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- List bulk thing provisioning tasks.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListThingRegistrationTasks
-  ( -- * Creating a Request
-    listThingRegistrationTasks,
-    ListThingRegistrationTasks,
+  ( -- * Creating a request
+    ListThingRegistrationTasks (..),
+    mkListThingRegistrationTasks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltrtStatus,
     ltrtNextToken,
     ltrtMaxResults,
 
-    -- * Destructuring the Response
-    listThingRegistrationTasksResponse,
-    ListThingRegistrationTasksResponse,
+    -- * Destructuring the response
+    ListThingRegistrationTasksResponse (..),
+    mkListThingRegistrationTasksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrtrsNextToken,
     ltrtrsTaskIds,
     ltrtrsResponseStatus,
@@ -44,130 +37,152 @@ module Network.AWS.IoT.ListThingRegistrationTasks
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listThingRegistrationTasks' smart constructor.
+-- | /See:/ 'mkListThingRegistrationTasks' smart constructor.
 data ListThingRegistrationTasks = ListThingRegistrationTasks'
-  { _ltrtStatus ::
-      !(Maybe TaskStatus),
-    _ltrtNextToken :: !(Maybe Text),
-    _ltrtMaxResults :: !(Maybe Nat)
+  { status ::
+      Lude.Maybe TaskStatus,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingRegistrationTasks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrtStatus' - The status of the bulk thing provisioning task.
---
--- * 'ltrtNextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
---
--- * 'ltrtMaxResults' - The maximum number of results to return at one time.
-listThingRegistrationTasks ::
+-- * 'maxResults' - The maximum number of results to return at one time.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+-- * 'status' - The status of the bulk thing provisioning task.
+mkListThingRegistrationTasks ::
   ListThingRegistrationTasks
-listThingRegistrationTasks =
+mkListThingRegistrationTasks =
   ListThingRegistrationTasks'
-    { _ltrtStatus = Nothing,
-      _ltrtNextToken = Nothing,
-      _ltrtMaxResults = Nothing
+    { status = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The status of the bulk thing provisioning task.
-ltrtStatus :: Lens' ListThingRegistrationTasks (Maybe TaskStatus)
-ltrtStatus = lens _ltrtStatus (\s a -> s {_ltrtStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtStatus :: Lens.Lens' ListThingRegistrationTasks (Lude.Maybe TaskStatus)
+ltrtStatus = Lens.lens (status :: ListThingRegistrationTasks -> Lude.Maybe TaskStatus) (\s a -> s {status = a} :: ListThingRegistrationTasks)
+{-# DEPRECATED ltrtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
-ltrtNextToken :: Lens' ListThingRegistrationTasks (Maybe Text)
-ltrtNextToken = lens _ltrtNextToken (\s a -> s {_ltrtNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtNextToken :: Lens.Lens' ListThingRegistrationTasks (Lude.Maybe Lude.Text)
+ltrtNextToken = Lens.lens (nextToken :: ListThingRegistrationTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingRegistrationTasks)
+{-# DEPRECATED ltrtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time.
-ltrtMaxResults :: Lens' ListThingRegistrationTasks (Maybe Natural)
-ltrtMaxResults = lens _ltrtMaxResults (\s a -> s {_ltrtMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtMaxResults :: Lens.Lens' ListThingRegistrationTasks (Lude.Maybe Lude.Natural)
+ltrtMaxResults = Lens.lens (maxResults :: ListThingRegistrationTasks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThingRegistrationTasks)
+{-# DEPRECATED ltrtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListThingRegistrationTasks where
+instance Page.AWSPager ListThingRegistrationTasks where
   page rq rs
-    | stop (rs ^. ltrtrsNextToken) = Nothing
-    | stop (rs ^. ltrtrsTaskIds) = Nothing
-    | otherwise = Just $ rq & ltrtNextToken .~ rs ^. ltrtrsNextToken
+    | Page.stop (rs Lens.^. ltrtrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrtrsTaskIds) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltrtNextToken Lens..~ rs Lens.^. ltrtrsNextToken
 
-instance AWSRequest ListThingRegistrationTasks where
+instance Lude.AWSRequest ListThingRegistrationTasks where
   type
     Rs ListThingRegistrationTasks =
       ListThingRegistrationTasksResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListThingRegistrationTasksResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "taskIds" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "taskIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListThingRegistrationTasks
+instance Lude.ToHeaders ListThingRegistrationTasks where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListThingRegistrationTasks
+instance Lude.ToPath ListThingRegistrationTasks where
+  toPath = Lude.const "/thing-registration-tasks"
 
-instance ToHeaders ListThingRegistrationTasks where
-  toHeaders = const mempty
-
-instance ToPath ListThingRegistrationTasks where
-  toPath = const "/thing-registration-tasks"
-
-instance ToQuery ListThingRegistrationTasks where
+instance Lude.ToQuery ListThingRegistrationTasks where
   toQuery ListThingRegistrationTasks' {..} =
-    mconcat
-      [ "status" =: _ltrtStatus,
-        "nextToken" =: _ltrtNextToken,
-        "maxResults" =: _ltrtMaxResults
+    Lude.mconcat
+      [ "status" Lude.=: status,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listThingRegistrationTasksResponse' smart constructor.
+-- | /See:/ 'mkListThingRegistrationTasksResponse' smart constructor.
 data ListThingRegistrationTasksResponse = ListThingRegistrationTasksResponse'
-  { _ltrtrsNextToken ::
-      !(Maybe Text),
-    _ltrtrsTaskIds ::
-      !(Maybe [Text]),
-    _ltrtrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    taskIds ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingRegistrationTasksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrtrsNextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
---
--- * 'ltrtrsTaskIds' - A list of bulk thing provisioning task IDs.
---
--- * 'ltrtrsResponseStatus' - -- | The response status code.
-listThingRegistrationTasksResponse ::
-  -- | 'ltrtrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+-- * 'taskIds' - A list of bulk thing provisioning task IDs.
+mkListThingRegistrationTasksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListThingRegistrationTasksResponse
-listThingRegistrationTasksResponse pResponseStatus_ =
+mkListThingRegistrationTasksResponse pResponseStatus_ =
   ListThingRegistrationTasksResponse'
-    { _ltrtrsNextToken = Nothing,
-      _ltrtrsTaskIds = Nothing,
-      _ltrtrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      taskIds = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to get the next set of results, or __null__ if there are no additional results.
-ltrtrsNextToken :: Lens' ListThingRegistrationTasksResponse (Maybe Text)
-ltrtrsNextToken = lens _ltrtrsNextToken (\s a -> s {_ltrtrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtrsNextToken :: Lens.Lens' ListThingRegistrationTasksResponse (Lude.Maybe Lude.Text)
+ltrtrsNextToken = Lens.lens (nextToken :: ListThingRegistrationTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingRegistrationTasksResponse)
+{-# DEPRECATED ltrtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of bulk thing provisioning task IDs.
-ltrtrsTaskIds :: Lens' ListThingRegistrationTasksResponse [Text]
-ltrtrsTaskIds = lens _ltrtrsTaskIds (\s a -> s {_ltrtrsTaskIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'taskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtrsTaskIds :: Lens.Lens' ListThingRegistrationTasksResponse (Lude.Maybe [Lude.Text])
+ltrtrsTaskIds = Lens.lens (taskIds :: ListThingRegistrationTasksResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {taskIds = a} :: ListThingRegistrationTasksResponse)
+{-# DEPRECATED ltrtrsTaskIds "Use generic-lens or generic-optics with 'taskIds' instead." #-}
 
--- | -- | The response status code.
-ltrtrsResponseStatus :: Lens' ListThingRegistrationTasksResponse Int
-ltrtrsResponseStatus = lens _ltrtrsResponseStatus (\s a -> s {_ltrtrsResponseStatus = a})
-
-instance NFData ListThingRegistrationTasksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtrsResponseStatus :: Lens.Lens' ListThingRegistrationTasksResponse Lude.Int
+ltrtrsResponseStatus = Lens.lens (responseStatus :: ListThingRegistrationTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListThingRegistrationTasksResponse)
+{-# DEPRECATED ltrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

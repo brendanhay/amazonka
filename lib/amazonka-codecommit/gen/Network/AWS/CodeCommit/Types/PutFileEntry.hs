@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.PutFileEntry where
+module Network.AWS.CodeCommit.Types.PutFileEntry
+  ( PutFileEntry (..),
+
+    -- * Smart constructor
+    mkPutFileEntry,
+
+    -- * Lenses
+    pfeFileContent,
+    pfeFileMode,
+    pfeSourceFile,
+    pfeFilePath,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
 import Network.AWS.CodeCommit.Types.SourceFileSpecifier
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a file added or updated as part of a commit.
 --
---
---
--- /See:/ 'putFileEntry' smart constructor.
+-- /See:/ 'mkPutFileEntry' smart constructor.
 data PutFileEntry = PutFileEntry'
-  { _pfeFileContent ::
-      !(Maybe Base64),
-    _pfeFileMode :: !(Maybe FileModeTypeEnum),
-    _pfeSourceFile :: !(Maybe SourceFileSpecifier),
-    _pfeFilePath :: !Text
+  { fileContent ::
+      Lude.Maybe Lude.Base64,
+    fileMode :: Lude.Maybe FileModeTypeEnum,
+    sourceFile :: Lude.Maybe SourceFileSpecifier,
+    filePath :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutFileEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pfeFileContent' - The content of the file, if a source file is not specified.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'pfeFileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
---
--- * 'pfeSourceFile' - The name and full path of the file that contains the changes you want to make as part of the commit, if you are not providing the file content directly.
---
--- * 'pfeFilePath' - The full path to the file in the repository, including the name of the file.
-putFileEntry ::
-  -- | 'pfeFilePath'
-  Text ->
+-- * 'fileContent' - The content of the file, if a source file is not specified.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'fileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+-- * 'filePath' - The full path to the file in the repository, including the name of the file.
+-- * 'sourceFile' - The name and full path of the file that contains the changes you want to make as part of the commit, if you are not providing the file content directly.
+mkPutFileEntry ::
+  -- | 'filePath'
+  Lude.Text ->
   PutFileEntry
-putFileEntry pFilePath_ =
+mkPutFileEntry pFilePath_ =
   PutFileEntry'
-    { _pfeFileContent = Nothing,
-      _pfeFileMode = Nothing,
-      _pfeSourceFile = Nothing,
-      _pfeFilePath = pFilePath_
+    { fileContent = Lude.Nothing,
+      fileMode = Lude.Nothing,
+      sourceFile = Lude.Nothing,
+      filePath = pFilePath_
     }
 
--- | The content of the file, if a source file is not specified.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-pfeFileContent :: Lens' PutFileEntry (Maybe ByteString)
-pfeFileContent = lens _pfeFileContent (\s a -> s {_pfeFileContent = a}) . mapping _Base64
+-- | The content of the file, if a source file is not specified.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'fileContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfeFileContent :: Lens.Lens' PutFileEntry (Lude.Maybe Lude.Base64)
+pfeFileContent = Lens.lens (fileContent :: PutFileEntry -> Lude.Maybe Lude.Base64) (\s a -> s {fileContent = a} :: PutFileEntry)
+{-# DEPRECATED pfeFileContent "Use generic-lens or generic-optics with 'fileContent' instead." #-}
 
 -- | The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
-pfeFileMode :: Lens' PutFileEntry (Maybe FileModeTypeEnum)
-pfeFileMode = lens _pfeFileMode (\s a -> s {_pfeFileMode = a})
+--
+-- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfeFileMode :: Lens.Lens' PutFileEntry (Lude.Maybe FileModeTypeEnum)
+pfeFileMode = Lens.lens (fileMode :: PutFileEntry -> Lude.Maybe FileModeTypeEnum) (\s a -> s {fileMode = a} :: PutFileEntry)
+{-# DEPRECATED pfeFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
 
 -- | The name and full path of the file that contains the changes you want to make as part of the commit, if you are not providing the file content directly.
-pfeSourceFile :: Lens' PutFileEntry (Maybe SourceFileSpecifier)
-pfeSourceFile = lens _pfeSourceFile (\s a -> s {_pfeSourceFile = a})
+--
+-- /Note:/ Consider using 'sourceFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfeSourceFile :: Lens.Lens' PutFileEntry (Lude.Maybe SourceFileSpecifier)
+pfeSourceFile = Lens.lens (sourceFile :: PutFileEntry -> Lude.Maybe SourceFileSpecifier) (\s a -> s {sourceFile = a} :: PutFileEntry)
+{-# DEPRECATED pfeSourceFile "Use generic-lens or generic-optics with 'sourceFile' instead." #-}
 
 -- | The full path to the file in the repository, including the name of the file.
-pfeFilePath :: Lens' PutFileEntry Text
-pfeFilePath = lens _pfeFilePath (\s a -> s {_pfeFilePath = a})
+--
+-- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfeFilePath :: Lens.Lens' PutFileEntry Lude.Text
+pfeFilePath = Lens.lens (filePath :: PutFileEntry -> Lude.Text) (\s a -> s {filePath = a} :: PutFileEntry)
+{-# DEPRECATED pfeFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
-instance Hashable PutFileEntry
-
-instance NFData PutFileEntry
-
-instance ToJSON PutFileEntry where
+instance Lude.ToJSON PutFileEntry where
   toJSON PutFileEntry' {..} =
-    object
-      ( catMaybes
-          [ ("fileContent" .=) <$> _pfeFileContent,
-            ("fileMode" .=) <$> _pfeFileMode,
-            ("sourceFile" .=) <$> _pfeSourceFile,
-            Just ("filePath" .= _pfeFilePath)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("fileContent" Lude..=) Lude.<$> fileContent,
+            ("fileMode" Lude..=) Lude.<$> fileMode,
+            ("sourceFile" Lude..=) Lude.<$> sourceFile,
+            Lude.Just ("filePath" Lude..= filePath)
           ]
       )

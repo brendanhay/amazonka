@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,173 @@
 --
 -- Gets information about vocabulary filters.
 module Network.AWS.Transcribe.ListVocabularyFilters
-  ( -- * Creating a Request
-    listVocabularyFilters,
-    ListVocabularyFilters,
+  ( -- * Creating a request
+    ListVocabularyFilters (..),
+    mkListVocabularyFilters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lvfNameContains,
     lvfNextToken,
     lvfMaxResults,
 
-    -- * Destructuring the Response
-    listVocabularyFiltersResponse,
-    ListVocabularyFiltersResponse,
+    -- * Destructuring the response
+    ListVocabularyFiltersResponse (..),
+    mkListVocabularyFiltersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lvfrsNextToken,
     lvfrsVocabularyFilters,
     lvfrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'listVocabularyFilters' smart constructor.
+-- | /See:/ 'mkListVocabularyFilters' smart constructor.
 data ListVocabularyFilters = ListVocabularyFilters'
-  { _lvfNameContains ::
-      !(Maybe Text),
-    _lvfNextToken :: !(Maybe Text),
-    _lvfMaxResults :: !(Maybe Nat)
+  { nameContains ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVocabularyFilters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvfNameContains' - Filters the response so that it only contains vocabulary filters whose name contains the specified string.
---
--- * 'lvfNextToken' - If the result of the previous request to @ListVocabularyFilters@ was truncated, include the @NextToken@ to fetch the next set of collections.
---
--- * 'lvfMaxResults' - The maximum number of filters to return in the response. If there are fewer results in the list, this response contains only the actual results.
-listVocabularyFilters ::
+-- * 'maxResults' - The maximum number of filters to return in the response. If there are fewer results in the list, this response contains only the actual results.
+-- * 'nameContains' - Filters the response so that it only contains vocabulary filters whose name contains the specified string.
+-- * 'nextToken' - If the result of the previous request to @ListVocabularyFilters@ was truncated, include the @NextToken@ to fetch the next set of collections.
+mkListVocabularyFilters ::
   ListVocabularyFilters
-listVocabularyFilters =
+mkListVocabularyFilters =
   ListVocabularyFilters'
-    { _lvfNameContains = Nothing,
-      _lvfNextToken = Nothing,
-      _lvfMaxResults = Nothing
+    { nameContains = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Filters the response so that it only contains vocabulary filters whose name contains the specified string.
-lvfNameContains :: Lens' ListVocabularyFilters (Maybe Text)
-lvfNameContains = lens _lvfNameContains (\s a -> s {_lvfNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvfNameContains :: Lens.Lens' ListVocabularyFilters (Lude.Maybe Lude.Text)
+lvfNameContains = Lens.lens (nameContains :: ListVocabularyFilters -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListVocabularyFilters)
+{-# DEPRECATED lvfNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | If the result of the previous request to @ListVocabularyFilters@ was truncated, include the @NextToken@ to fetch the next set of collections.
-lvfNextToken :: Lens' ListVocabularyFilters (Maybe Text)
-lvfNextToken = lens _lvfNextToken (\s a -> s {_lvfNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvfNextToken :: Lens.Lens' ListVocabularyFilters (Lude.Maybe Lude.Text)
+lvfNextToken = Lens.lens (nextToken :: ListVocabularyFilters -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVocabularyFilters)
+{-# DEPRECATED lvfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of filters to return in the response. If there are fewer results in the list, this response contains only the actual results.
-lvfMaxResults :: Lens' ListVocabularyFilters (Maybe Natural)
-lvfMaxResults = lens _lvfMaxResults (\s a -> s {_lvfMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvfMaxResults :: Lens.Lens' ListVocabularyFilters (Lude.Maybe Lude.Natural)
+lvfMaxResults = Lens.lens (maxResults :: ListVocabularyFilters -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListVocabularyFilters)
+{-# DEPRECATED lvfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListVocabularyFilters where
+instance Lude.AWSRequest ListVocabularyFilters where
   type Rs ListVocabularyFilters = ListVocabularyFiltersResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListVocabularyFiltersResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "VocabularyFilters" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "VocabularyFilters" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListVocabularyFilters
-
-instance NFData ListVocabularyFilters
-
-instance ToHeaders ListVocabularyFilters where
+instance Lude.ToHeaders ListVocabularyFilters where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Transcribe.ListVocabularyFilters" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Transcribe.ListVocabularyFilters" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListVocabularyFilters where
+instance Lude.ToJSON ListVocabularyFilters where
   toJSON ListVocabularyFilters' {..} =
-    object
-      ( catMaybes
-          [ ("NameContains" .=) <$> _lvfNameContains,
-            ("NextToken" .=) <$> _lvfNextToken,
-            ("MaxResults" .=) <$> _lvfMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NameContains" Lude..=) Lude.<$> nameContains,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListVocabularyFilters where
-  toPath = const "/"
+instance Lude.ToPath ListVocabularyFilters where
+  toPath = Lude.const "/"
 
-instance ToQuery ListVocabularyFilters where
-  toQuery = const mempty
+instance Lude.ToQuery ListVocabularyFilters where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listVocabularyFiltersResponse' smart constructor.
+-- | /See:/ 'mkListVocabularyFiltersResponse' smart constructor.
 data ListVocabularyFiltersResponse = ListVocabularyFiltersResponse'
-  { _lvfrsNextToken ::
-      !(Maybe Text),
-    _lvfrsVocabularyFilters ::
-      !(Maybe [VocabularyFilterInfo]),
-    _lvfrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    vocabularyFilters ::
+      Lude.Maybe
+        [VocabularyFilterInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVocabularyFiltersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvfrsNextToken' - The @ListVocabularyFilters@ operation returns a page of collections at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListVocabularyFilters@ operation to return in the next page of jobs.
---
--- * 'lvfrsVocabularyFilters' - The list of vocabulary filters. It contains at most @MaxResults@ number of filters. If there are more filters, call the @ListVocabularyFilters@ operation again with the @NextToken@ parameter in the request set to the value of the @NextToken@ field in the response.
---
--- * 'lvfrsResponseStatus' - -- | The response status code.
-listVocabularyFiltersResponse ::
-  -- | 'lvfrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The @ListVocabularyFilters@ operation returns a page of collections at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListVocabularyFilters@ operation to return in the next page of jobs.
+-- * 'responseStatus' - The response status code.
+-- * 'vocabularyFilters' - The list of vocabulary filters. It contains at most @MaxResults@ number of filters. If there are more filters, call the @ListVocabularyFilters@ operation again with the @NextToken@ parameter in the request set to the value of the @NextToken@ field in the response.
+mkListVocabularyFiltersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListVocabularyFiltersResponse
-listVocabularyFiltersResponse pResponseStatus_ =
+mkListVocabularyFiltersResponse pResponseStatus_ =
   ListVocabularyFiltersResponse'
-    { _lvfrsNextToken = Nothing,
-      _lvfrsVocabularyFilters = Nothing,
-      _lvfrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      vocabularyFilters = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ListVocabularyFilters@ operation returns a page of collections at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListVocabularyFilters@ operation to return in the next page of jobs.
-lvfrsNextToken :: Lens' ListVocabularyFiltersResponse (Maybe Text)
-lvfrsNextToken = lens _lvfrsNextToken (\s a -> s {_lvfrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvfrsNextToken :: Lens.Lens' ListVocabularyFiltersResponse (Lude.Maybe Lude.Text)
+lvfrsNextToken = Lens.lens (nextToken :: ListVocabularyFiltersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListVocabularyFiltersResponse)
+{-# DEPRECATED lvfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of vocabulary filters. It contains at most @MaxResults@ number of filters. If there are more filters, call the @ListVocabularyFilters@ operation again with the @NextToken@ parameter in the request set to the value of the @NextToken@ field in the response.
-lvfrsVocabularyFilters :: Lens' ListVocabularyFiltersResponse [VocabularyFilterInfo]
-lvfrsVocabularyFilters = lens _lvfrsVocabularyFilters (\s a -> s {_lvfrsVocabularyFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vocabularyFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvfrsVocabularyFilters :: Lens.Lens' ListVocabularyFiltersResponse (Lude.Maybe [VocabularyFilterInfo])
+lvfrsVocabularyFilters = Lens.lens (vocabularyFilters :: ListVocabularyFiltersResponse -> Lude.Maybe [VocabularyFilterInfo]) (\s a -> s {vocabularyFilters = a} :: ListVocabularyFiltersResponse)
+{-# DEPRECATED lvfrsVocabularyFilters "Use generic-lens or generic-optics with 'vocabularyFilters' instead." #-}
 
--- | -- | The response status code.
-lvfrsResponseStatus :: Lens' ListVocabularyFiltersResponse Int
-lvfrsResponseStatus = lens _lvfrsResponseStatus (\s a -> s {_lvfrsResponseStatus = a})
-
-instance NFData ListVocabularyFiltersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvfrsResponseStatus :: Lens.Lens' ListVocabularyFiltersResponse Lude.Int
+lvfrsResponseStatus = Lens.lens (responseStatus :: ListVocabularyFiltersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVocabularyFiltersResponse)
+{-# DEPRECATED lvfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

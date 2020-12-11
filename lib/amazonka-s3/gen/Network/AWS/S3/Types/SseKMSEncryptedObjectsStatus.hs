@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.SseKMSEncryptedObjectsStatus where
+module Network.AWS.S3.Types.SseKMSEncryptedObjectsStatus
+  ( SseKMSEncryptedObjectsStatus
+      ( SseKMSEncryptedObjectsStatus',
+        SKEOSDisabled,
+        SKEOSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data SseKMSEncryptedObjectsStatus
-  = SKEOSDisabled
-  | SKEOSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SseKMSEncryptedObjectsStatus = SseKMSEncryptedObjectsStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SseKMSEncryptedObjectsStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure SKEOSDisabled
-      "enabled" -> pure SKEOSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing SseKMSEncryptedObjectsStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern SKEOSDisabled :: SseKMSEncryptedObjectsStatus
+pattern SKEOSDisabled = SseKMSEncryptedObjectsStatus' "Disabled"
 
-instance ToText SseKMSEncryptedObjectsStatus where
-  toText = \case
-    SKEOSDisabled -> "Disabled"
-    SKEOSEnabled -> "Enabled"
+pattern SKEOSEnabled :: SseKMSEncryptedObjectsStatus
+pattern SKEOSEnabled = SseKMSEncryptedObjectsStatus' "Enabled"
 
-instance Hashable SseKMSEncryptedObjectsStatus
-
-instance NFData SseKMSEncryptedObjectsStatus
-
-instance ToByteString SseKMSEncryptedObjectsStatus
-
-instance ToQuery SseKMSEncryptedObjectsStatus
-
-instance ToHeader SseKMSEncryptedObjectsStatus
-
-instance FromXML SseKMSEncryptedObjectsStatus where
-  parseXML = parseXMLText "SseKMSEncryptedObjectsStatus"
-
-instance ToXML SseKMSEncryptedObjectsStatus where
-  toXML = toXMLText
+{-# COMPLETE
+  SKEOSDisabled,
+  SKEOSEnabled,
+  SseKMSEncryptedObjectsStatus'
+  #-}

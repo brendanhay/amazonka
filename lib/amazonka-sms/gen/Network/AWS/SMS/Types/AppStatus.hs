@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.AppStatus where
+module Network.AWS.SMS.Types.AppStatus
+  ( AppStatus
+      ( AppStatus',
+        Active,
+        Creating,
+        DeleteFailed,
+        Deleted,
+        Deleting,
+        Updating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AppStatus
-  = Active
-  | Creating
-  | DeleteFailed
-  | Deleted
-  | Deleting
-  | Updating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AppStatus = AppStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AppStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "creating" -> pure Creating
-      "delete_failed" -> pure DeleteFailed
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "updating" -> pure Updating
-      e ->
-        fromTextError $
-          "Failure parsing AppStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, delete_failed, deleted, deleting, updating"
+pattern Active :: AppStatus
+pattern Active = AppStatus' "ACTIVE"
 
-instance ToText AppStatus where
-  toText = \case
-    Active -> "ACTIVE"
-    Creating -> "CREATING"
-    DeleteFailed -> "DELETE_FAILED"
-    Deleted -> "DELETED"
-    Deleting -> "DELETING"
-    Updating -> "UPDATING"
+pattern Creating :: AppStatus
+pattern Creating = AppStatus' "CREATING"
 
-instance Hashable AppStatus
+pattern DeleteFailed :: AppStatus
+pattern DeleteFailed = AppStatus' "DELETE_FAILED"
 
-instance NFData AppStatus
+pattern Deleted :: AppStatus
+pattern Deleted = AppStatus' "DELETED"
 
-instance ToByteString AppStatus
+pattern Deleting :: AppStatus
+pattern Deleting = AppStatus' "DELETING"
 
-instance ToQuery AppStatus
+pattern Updating :: AppStatus
+pattern Updating = AppStatus' "UPDATING"
 
-instance ToHeader AppStatus
-
-instance FromJSON AppStatus where
-  parseJSON = parseJSONText "AppStatus"
+{-# COMPLETE
+  Active,
+  Creating,
+  DeleteFailed,
+  Deleted,
+  Deleting,
+  Updating,
+  AppStatus'
+  #-}

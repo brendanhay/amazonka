@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.StorageTypeLimit where
+module Network.AWS.ElasticSearch.Types.StorageTypeLimit
+  ( StorageTypeLimit (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStorageTypeLimit,
+
+    -- * Lenses
+    stlLimitName,
+    stlLimitValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Limits that are applicable for given storage type.
 --
---
---
--- /See:/ 'storageTypeLimit' smart constructor.
+-- /See:/ 'mkStorageTypeLimit' smart constructor.
 data StorageTypeLimit = StorageTypeLimit'
-  { _stlLimitName ::
-      !(Maybe Text),
-    _stlLimitValues :: !(Maybe [Text])
+  { limitName ::
+      Lude.Maybe Lude.Text,
+    limitValues :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageTypeLimit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'limitName' - Name of storage limits that are applicable for given storage type. If @'StorageType' @ is ebs, following storage options are applicable
 --
--- * 'stlLimitName' - Name of storage limits that are applicable for given storage type. If @'StorageType' @ is ebs, following storage options are applicable     * MinimumVolumeSizeMinimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumVolumeSizeMaximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumIopsMaximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.     * MinimumIopsMinimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
+--     * MinimumVolumeSize
+-- Minimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.
+--     * MaximumVolumeSize
+-- Maximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.
+--     * MaximumIops
+-- Maximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
+--     * MinimumIops
+-- Minimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
 --
--- * 'stlLimitValues' - Values for the @'StorageTypeLimit$LimitName' @ .
-storageTypeLimit ::
+-- * 'limitValues' - Values for the @'StorageTypeLimit$LimitName' @ .
+mkStorageTypeLimit ::
   StorageTypeLimit
-storageTypeLimit =
+mkStorageTypeLimit =
   StorageTypeLimit'
-    { _stlLimitName = Nothing,
-      _stlLimitValues = Nothing
+    { limitName = Lude.Nothing,
+      limitValues = Lude.Nothing
     }
 
--- | Name of storage limits that are applicable for given storage type. If @'StorageType' @ is ebs, following storage options are applicable     * MinimumVolumeSizeMinimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumVolumeSizeMaximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.     * MaximumIopsMaximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.     * MinimumIopsMinimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
-stlLimitName :: Lens' StorageTypeLimit (Maybe Text)
-stlLimitName = lens _stlLimitName (\s a -> s {_stlLimitName = a})
+-- | Name of storage limits that are applicable for given storage type. If @'StorageType' @ is ebs, following storage options are applicable
+--
+--     * MinimumVolumeSize
+-- Minimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.
+--     * MaximumVolumeSize
+-- Maximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.
+--     * MaximumIops
+-- Maximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
+--     * MinimumIops
+-- Minimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
+--
+--
+-- /Note:/ Consider using 'limitName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stlLimitName :: Lens.Lens' StorageTypeLimit (Lude.Maybe Lude.Text)
+stlLimitName = Lens.lens (limitName :: StorageTypeLimit -> Lude.Maybe Lude.Text) (\s a -> s {limitName = a} :: StorageTypeLimit)
+{-# DEPRECATED stlLimitName "Use generic-lens or generic-optics with 'limitName' instead." #-}
 
 -- | Values for the @'StorageTypeLimit$LimitName' @ .
-stlLimitValues :: Lens' StorageTypeLimit [Text]
-stlLimitValues = lens _stlLimitValues (\s a -> s {_stlLimitValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'limitValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stlLimitValues :: Lens.Lens' StorageTypeLimit (Lude.Maybe [Lude.Text])
+stlLimitValues = Lens.lens (limitValues :: StorageTypeLimit -> Lude.Maybe [Lude.Text]) (\s a -> s {limitValues = a} :: StorageTypeLimit)
+{-# DEPRECATED stlLimitValues "Use generic-lens or generic-optics with 'limitValues' instead." #-}
 
-instance FromJSON StorageTypeLimit where
+instance Lude.FromJSON StorageTypeLimit where
   parseJSON =
-    withObject
+    Lude.withObject
       "StorageTypeLimit"
       ( \x ->
           StorageTypeLimit'
-            <$> (x .:? "LimitName") <*> (x .:? "LimitValues" .!= mempty)
+            Lude.<$> (x Lude..:? "LimitName")
+            Lude.<*> (x Lude..:? "LimitValues" Lude..!= Lude.mempty)
       )
-
-instance Hashable StorageTypeLimit
-
-instance NFData StorageTypeLimit

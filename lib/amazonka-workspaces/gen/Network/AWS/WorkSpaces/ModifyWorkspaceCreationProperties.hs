@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,150 @@
 --
 -- Modify the default properties used to create WorkSpaces.
 module Network.AWS.WorkSpaces.ModifyWorkspaceCreationProperties
-  ( -- * Creating a Request
-    modifyWorkspaceCreationProperties,
-    ModifyWorkspaceCreationProperties,
+  ( -- * Creating a request
+    ModifyWorkspaceCreationProperties (..),
+    mkModifyWorkspaceCreationProperties,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mwcpResourceId,
     mwcpWorkspaceCreationProperties,
 
-    -- * Destructuring the Response
-    modifyWorkspaceCreationPropertiesResponse,
-    ModifyWorkspaceCreationPropertiesResponse,
+    -- * Destructuring the response
+    ModifyWorkspaceCreationPropertiesResponse (..),
+    mkModifyWorkspaceCreationPropertiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mwcprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'modifyWorkspaceCreationProperties' smart constructor.
+-- | /See:/ 'mkModifyWorkspaceCreationProperties' smart constructor.
 data ModifyWorkspaceCreationProperties = ModifyWorkspaceCreationProperties'
-  { _mwcpResourceId ::
-      !Text,
-    _mwcpWorkspaceCreationProperties ::
-      !WorkspaceCreationProperties
+  { resourceId ::
+      Lude.Text,
+    workspaceCreationProperties ::
+      WorkspaceCreationProperties
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyWorkspaceCreationProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwcpResourceId' - The identifier of the directory.
---
--- * 'mwcpWorkspaceCreationProperties' - The default properties for creating WorkSpaces.
-modifyWorkspaceCreationProperties ::
-  -- | 'mwcpResourceId'
-  Text ->
-  -- | 'mwcpWorkspaceCreationProperties'
+-- * 'resourceId' - The identifier of the directory.
+-- * 'workspaceCreationProperties' - The default properties for creating WorkSpaces.
+mkModifyWorkspaceCreationProperties ::
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'workspaceCreationProperties'
   WorkspaceCreationProperties ->
   ModifyWorkspaceCreationProperties
-modifyWorkspaceCreationProperties
+mkModifyWorkspaceCreationProperties
   pResourceId_
   pWorkspaceCreationProperties_ =
     ModifyWorkspaceCreationProperties'
-      { _mwcpResourceId =
-          pResourceId_,
-        _mwcpWorkspaceCreationProperties =
-          pWorkspaceCreationProperties_
+      { resourceId = pResourceId_,
+        workspaceCreationProperties = pWorkspaceCreationProperties_
       }
 
 -- | The identifier of the directory.
-mwcpResourceId :: Lens' ModifyWorkspaceCreationProperties Text
-mwcpResourceId = lens _mwcpResourceId (\s a -> s {_mwcpResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwcpResourceId :: Lens.Lens' ModifyWorkspaceCreationProperties Lude.Text
+mwcpResourceId = Lens.lens (resourceId :: ModifyWorkspaceCreationProperties -> Lude.Text) (\s a -> s {resourceId = a} :: ModifyWorkspaceCreationProperties)
+{-# DEPRECATED mwcpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The default properties for creating WorkSpaces.
-mwcpWorkspaceCreationProperties :: Lens' ModifyWorkspaceCreationProperties WorkspaceCreationProperties
-mwcpWorkspaceCreationProperties = lens _mwcpWorkspaceCreationProperties (\s a -> s {_mwcpWorkspaceCreationProperties = a})
+--
+-- /Note:/ Consider using 'workspaceCreationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwcpWorkspaceCreationProperties :: Lens.Lens' ModifyWorkspaceCreationProperties WorkspaceCreationProperties
+mwcpWorkspaceCreationProperties = Lens.lens (workspaceCreationProperties :: ModifyWorkspaceCreationProperties -> WorkspaceCreationProperties) (\s a -> s {workspaceCreationProperties = a} :: ModifyWorkspaceCreationProperties)
+{-# DEPRECATED mwcpWorkspaceCreationProperties "Use generic-lens or generic-optics with 'workspaceCreationProperties' instead." #-}
 
-instance AWSRequest ModifyWorkspaceCreationProperties where
+instance Lude.AWSRequest ModifyWorkspaceCreationProperties where
   type
     Rs ModifyWorkspaceCreationProperties =
       ModifyWorkspaceCreationPropertiesResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          ModifyWorkspaceCreationPropertiesResponse' <$> (pure (fromEnum s))
+          ModifyWorkspaceCreationPropertiesResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyWorkspaceCreationProperties
-
-instance NFData ModifyWorkspaceCreationProperties
-
-instance ToHeaders ModifyWorkspaceCreationProperties where
+instance Lude.ToHeaders ModifyWorkspaceCreationProperties where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "WorkspacesService.ModifyWorkspaceCreationProperties" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkspacesService.ModifyWorkspaceCreationProperties" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyWorkspaceCreationProperties where
+instance Lude.ToJSON ModifyWorkspaceCreationProperties where
   toJSON ModifyWorkspaceCreationProperties' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceId" .= _mwcpResourceId),
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just
               ( "WorkspaceCreationProperties"
-                  .= _mwcpWorkspaceCreationProperties
+                  Lude..= workspaceCreationProperties
               )
           ]
       )
 
-instance ToPath ModifyWorkspaceCreationProperties where
-  toPath = const "/"
+instance Lude.ToPath ModifyWorkspaceCreationProperties where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyWorkspaceCreationProperties where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyWorkspaceCreationProperties where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyWorkspaceCreationPropertiesResponse' smart constructor.
+-- | /See:/ 'mkModifyWorkspaceCreationPropertiesResponse' smart constructor.
 newtype ModifyWorkspaceCreationPropertiesResponse = ModifyWorkspaceCreationPropertiesResponse'
-  { _mwcprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyWorkspaceCreationPropertiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwcprsResponseStatus' - -- | The response status code.
-modifyWorkspaceCreationPropertiesResponse ::
-  -- | 'mwcprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkModifyWorkspaceCreationPropertiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyWorkspaceCreationPropertiesResponse
-modifyWorkspaceCreationPropertiesResponse pResponseStatus_ =
+mkModifyWorkspaceCreationPropertiesResponse pResponseStatus_ =
   ModifyWorkspaceCreationPropertiesResponse'
-    { _mwcprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-mwcprsResponseStatus :: Lens' ModifyWorkspaceCreationPropertiesResponse Int
-mwcprsResponseStatus = lens _mwcprsResponseStatus (\s a -> s {_mwcprsResponseStatus = a})
-
-instance NFData ModifyWorkspaceCreationPropertiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwcprsResponseStatus :: Lens.Lens' ModifyWorkspaceCreationPropertiesResponse Lude.Int
+mwcprsResponseStatus = Lens.lens (responseStatus :: ModifyWorkspaceCreationPropertiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyWorkspaceCreationPropertiesResponse)
+{-# DEPRECATED mwcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

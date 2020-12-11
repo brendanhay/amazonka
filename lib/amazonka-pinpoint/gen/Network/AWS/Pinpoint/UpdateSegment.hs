@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,166 @@
 --
 -- Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.
 module Network.AWS.Pinpoint.UpdateSegment
-  ( -- * Creating a Request
-    updateSegment,
-    UpdateSegment,
+  ( -- * Creating a request
+    UpdateSegment (..),
+    mkUpdateSegment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usSegmentId,
     usApplicationId,
     usWriteSegmentRequest,
 
-    -- * Destructuring the Response
-    updateSegmentResponse,
-    UpdateSegmentResponse,
+    -- * Destructuring the response
+    UpdateSegmentResponse (..),
+    mkUpdateSegmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usrsResponseStatus,
     usrsSegmentResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateSegment' smart constructor.
+-- | /See:/ 'mkUpdateSegment' smart constructor.
 data UpdateSegment = UpdateSegment'
-  { _usSegmentId :: !Text,
-    _usApplicationId :: !Text,
-    _usWriteSegmentRequest :: !WriteSegmentRequest
+  { segmentId :: Lude.Text,
+    applicationId :: Lude.Text,
+    writeSegmentRequest :: WriteSegmentRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSegment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usSegmentId' - The unique identifier for the segment.
---
--- * 'usApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'usWriteSegmentRequest' - Undocumented member.
-updateSegment ::
-  -- | 'usSegmentId'
-  Text ->
-  -- | 'usApplicationId'
-  Text ->
-  -- | 'usWriteSegmentRequest'
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'segmentId' - The unique identifier for the segment.
+-- * 'writeSegmentRequest' - Undocumented field.
+mkUpdateSegment ::
+  -- | 'segmentId'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'writeSegmentRequest'
   WriteSegmentRequest ->
   UpdateSegment
-updateSegment pSegmentId_ pApplicationId_ pWriteSegmentRequest_ =
+mkUpdateSegment pSegmentId_ pApplicationId_ pWriteSegmentRequest_ =
   UpdateSegment'
-    { _usSegmentId = pSegmentId_,
-      _usApplicationId = pApplicationId_,
-      _usWriteSegmentRequest = pWriteSegmentRequest_
+    { segmentId = pSegmentId_,
+      applicationId = pApplicationId_,
+      writeSegmentRequest = pWriteSegmentRequest_
     }
 
 -- | The unique identifier for the segment.
-usSegmentId :: Lens' UpdateSegment Text
-usSegmentId = lens _usSegmentId (\s a -> s {_usSegmentId = a})
+--
+-- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usSegmentId :: Lens.Lens' UpdateSegment Lude.Text
+usSegmentId = Lens.lens (segmentId :: UpdateSegment -> Lude.Text) (\s a -> s {segmentId = a} :: UpdateSegment)
+{-# DEPRECATED usSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-usApplicationId :: Lens' UpdateSegment Text
-usApplicationId = lens _usApplicationId (\s a -> s {_usApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usApplicationId :: Lens.Lens' UpdateSegment Lude.Text
+usApplicationId = Lens.lens (applicationId :: UpdateSegment -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateSegment)
+{-# DEPRECATED usApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | Undocumented member.
-usWriteSegmentRequest :: Lens' UpdateSegment WriteSegmentRequest
-usWriteSegmentRequest = lens _usWriteSegmentRequest (\s a -> s {_usWriteSegmentRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'writeSegmentRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usWriteSegmentRequest :: Lens.Lens' UpdateSegment WriteSegmentRequest
+usWriteSegmentRequest = Lens.lens (writeSegmentRequest :: UpdateSegment -> WriteSegmentRequest) (\s a -> s {writeSegmentRequest = a} :: UpdateSegment)
+{-# DEPRECATED usWriteSegmentRequest "Use generic-lens or generic-optics with 'writeSegmentRequest' instead." #-}
 
-instance AWSRequest UpdateSegment where
+instance Lude.AWSRequest UpdateSegment where
   type Rs UpdateSegment = UpdateSegmentResponse
-  request = putJSON pinpoint
+  request = Req.putJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateSegmentResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable UpdateSegment
-
-instance NFData UpdateSegment
-
-instance ToHeaders UpdateSegment where
+instance Lude.ToHeaders UpdateSegment where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateSegment where
+instance Lude.ToJSON UpdateSegment where
   toJSON UpdateSegment' {..} =
-    object
-      ( catMaybes
-          [Just ("WriteSegmentRequest" .= _usWriteSegmentRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("WriteSegmentRequest" Lude..= writeSegmentRequest)]
       )
 
-instance ToPath UpdateSegment where
+instance Lude.ToPath UpdateSegment where
   toPath UpdateSegment' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _usApplicationId,
+        Lude.toBS applicationId,
         "/segments/",
-        toBS _usSegmentId
+        Lude.toBS segmentId
       ]
 
-instance ToQuery UpdateSegment where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateSegment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateSegmentResponse' smart constructor.
+-- | /See:/ 'mkUpdateSegmentResponse' smart constructor.
 data UpdateSegmentResponse = UpdateSegmentResponse'
-  { _usrsResponseStatus ::
-      !Int,
-    _usrsSegmentResponse :: !SegmentResponse
+  { responseStatus ::
+      Lude.Int,
+    segmentResponse :: SegmentResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSegmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usrsResponseStatus' - -- | The response status code.
---
--- * 'usrsSegmentResponse' - Undocumented member.
-updateSegmentResponse ::
-  -- | 'usrsResponseStatus'
-  Int ->
-  -- | 'usrsSegmentResponse'
+-- * 'responseStatus' - The response status code.
+-- * 'segmentResponse' - Undocumented field.
+mkUpdateSegmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'segmentResponse'
   SegmentResponse ->
   UpdateSegmentResponse
-updateSegmentResponse pResponseStatus_ pSegmentResponse_ =
+mkUpdateSegmentResponse pResponseStatus_ pSegmentResponse_ =
   UpdateSegmentResponse'
-    { _usrsResponseStatus = pResponseStatus_,
-      _usrsSegmentResponse = pSegmentResponse_
+    { responseStatus = pResponseStatus_,
+      segmentResponse = pSegmentResponse_
     }
 
--- | -- | The response status code.
-usrsResponseStatus :: Lens' UpdateSegmentResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\s a -> s {_usrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrsResponseStatus :: Lens.Lens' UpdateSegmentResponse Lude.Int
+usrsResponseStatus = Lens.lens (responseStatus :: UpdateSegmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSegmentResponse)
+{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-usrsSegmentResponse :: Lens' UpdateSegmentResponse SegmentResponse
-usrsSegmentResponse = lens _usrsSegmentResponse (\s a -> s {_usrsSegmentResponse = a})
-
-instance NFData UpdateSegmentResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'segmentResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrsSegmentResponse :: Lens.Lens' UpdateSegmentResponse SegmentResponse
+usrsSegmentResponse = Lens.lens (segmentResponse :: UpdateSegmentResponse -> SegmentResponse) (\s a -> s {segmentResponse = a} :: UpdateSegmentResponse)
+{-# DEPRECATED usrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}

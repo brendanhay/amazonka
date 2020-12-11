@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,15 @@
 --
 -- Updates the parameter values for stack instances for the specified accounts, within the specified Regions. A stack instance refers to a stack in a specific account and Region.
 --
---
 -- You can only update stack instances in Regions and accounts where they already exist; to create additional stack instances, use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html CreateStackInstances> .
---
 -- During stack set updates, any parameters overridden for a stack instance are not updated, but retain their overridden value.
---
 -- You can only update the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update the stack set template. If you add a parameter to a template, before you can override the parameter value specified in the stack set you must first use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update all stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the parameter value using @UpdateStackInstances@ .
 module Network.AWS.CloudFormation.UpdateStackInstances
-  ( -- * Creating a Request
-    updateStackInstances,
-    UpdateStackInstances,
+  ( -- * Creating a request
+    UpdateStackInstances (..),
+    mkUpdateStackInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usiAccounts,
     usiOperationPreferences,
     usiOperationId,
@@ -39,164 +31,251 @@ module Network.AWS.CloudFormation.UpdateStackInstances
     usiStackSetName,
     usiRegions,
 
-    -- * Destructuring the Response
-    updateStackInstancesResponse,
-    UpdateStackInstancesResponse,
+    -- * Destructuring the response
+    UpdateStackInstancesResponse (..),
+    mkUpdateStackInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usirsOperationId,
     usirsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateStackInstances' smart constructor.
+-- | /See:/ 'mkUpdateStackInstances' smart constructor.
 data UpdateStackInstances = UpdateStackInstances'
-  { _usiAccounts ::
-      !(Maybe [Text]),
-    _usiOperationPreferences ::
-      !(Maybe StackSetOperationPreferences),
-    _usiOperationId :: !(Maybe Text),
-    _usiDeploymentTargets ::
-      !(Maybe DeploymentTargets),
-    _usiParameterOverrides :: !(Maybe [Parameter]),
-    _usiStackSetName :: !Text,
-    _usiRegions :: ![Text]
+  { accounts ::
+      Lude.Maybe [Lude.Text],
+    operationPreferences ::
+      Lude.Maybe StackSetOperationPreferences,
+    operationId :: Lude.Maybe Lude.Text,
+    deploymentTargets :: Lude.Maybe DeploymentTargets,
+    parameterOverrides :: Lude.Maybe [Parameter],
+    stackSetName :: Lude.Text,
+    regions :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateStackInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accounts' - [@Self-managed@ permissions] The names of one or more AWS accounts for which you want to update parameter values for stack instances. The overridden parameter values will be applied to all stack instances in the specified accounts and Regions.
 --
--- * 'usiAccounts' - [@Self-managed@ permissions] The names of one or more AWS accounts for which you want to update parameter values for stack instances. The overridden parameter values will be applied to all stack instances in the specified accounts and Regions. You can specify @Accounts@ or @DeploymentTargets@ , but not both.
+-- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
+-- * 'deploymentTargets' - [@Service-managed@ permissions] The AWS Organizations accounts for which you want to update parameter values for stack instances. If your update targets OUs, the overridden parameter values only apply to the accounts that are currently in the target OUs and their child OUs. Accounts added to the target OUs and their child OUs in the future won't use the overridden values.
 --
--- * 'usiOperationPreferences' - Preferences for how AWS CloudFormation performs this stack set operation.
+-- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
+-- * 'operationId' - The unique identifier for this stack set operation.
 --
--- * 'usiOperationId' - The unique identifier for this stack set operation.  The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them. If you don't specify an operation ID, the SDK generates one automatically.
+-- The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
+-- If you don't specify an operation ID, the SDK generates one automatically.
+-- * 'operationPreferences' - Preferences for how AWS CloudFormation performs this stack set operation.
+-- * 'parameterOverrides' - A list of input parameters whose values you want to update for the specified stack instances.
 --
--- * 'usiDeploymentTargets' - [@Service-managed@ permissions] The AWS Organizations accounts for which you want to update parameter values for stack instances. If your update targets OUs, the overridden parameter values only apply to the accounts that are currently in the target OUs and their child OUs. Accounts added to the target OUs and their child OUs in the future won't use the overridden values. You can specify @Accounts@ or @DeploymentTargets@ , but not both.
+-- Any overridden parameter values will be applied to all stack instances in the specified accounts and Regions. When specifying parameters and their values, be aware of how AWS CloudFormation sets parameter values during stack instance update operations:
 --
--- * 'usiParameterOverrides' - A list of input parameters whose values you want to update for the specified stack instances.  Any overridden parameter values will be applied to all stack instances in the specified accounts and Regions. When specifying parameters and their values, be aware of how AWS CloudFormation sets parameter values during stack instance update operations:     * To override the current value for a parameter, include the parameter and specify its value.     * To leave a parameter set to its present value, you can do one of the following:     * Do not include the parameter in the list.     * Include the parameter and specify @UsePreviousValue@ as @true@ . (You cannot specify both a value and set @UsePreviousValue@ to @true@ .)     * To set all overridden parameter back to the values specified in the stack set, specify a parameter list but do not include any parameters.     * To leave all parameters set to their present values, do not specify this property at all. During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value. You can only override the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use @UpdateStackSet@ to update the stack set template. If you add a parameter to a template, before you can override the parameter value specified in the stack set you must first use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update all stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the parameter value using @UpdateStackInstances@ .
+--     * To override the current value for a parameter, include the parameter and specify its value.
 --
--- * 'usiStackSetName' - The name or unique ID of the stack set associated with the stack instances.
 --
--- * 'usiRegions' - The names of one or more Regions in which you want to update parameter values for stack instances. The overridden parameter values will be applied to all stack instances in the specified accounts and Regions.
-updateStackInstances ::
-  -- | 'usiStackSetName'
-  Text ->
+--     * To leave a parameter set to its present value, you can do one of the following:
+--
+--     * Do not include the parameter in the list.
+--
+--
+--     * Include the parameter and specify @UsePreviousValue@ as @true@ . (You cannot specify both a value and set @UsePreviousValue@ to @true@ .)
+--
+--
+--
+--
+--     * To set all overridden parameter back to the values specified in the stack set, specify a parameter list but do not include any parameters.
+--
+--
+--     * To leave all parameters set to their present values, do not specify this property at all.
+--
+--
+-- During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value.
+-- You can only override the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use @UpdateStackSet@ to update the stack set template. If you add a parameter to a template, before you can override the parameter value specified in the stack set you must first use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update all stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the parameter value using @UpdateStackInstances@ .
+-- * 'regions' - The names of one or more Regions in which you want to update parameter values for stack instances. The overridden parameter values will be applied to all stack instances in the specified accounts and Regions.
+-- * 'stackSetName' - The name or unique ID of the stack set associated with the stack instances.
+mkUpdateStackInstances ::
+  -- | 'stackSetName'
+  Lude.Text ->
   UpdateStackInstances
-updateStackInstances pStackSetName_ =
+mkUpdateStackInstances pStackSetName_ =
   UpdateStackInstances'
-    { _usiAccounts = Nothing,
-      _usiOperationPreferences = Nothing,
-      _usiOperationId = Nothing,
-      _usiDeploymentTargets = Nothing,
-      _usiParameterOverrides = Nothing,
-      _usiStackSetName = pStackSetName_,
-      _usiRegions = mempty
+    { accounts = Lude.Nothing,
+      operationPreferences = Lude.Nothing,
+      operationId = Lude.Nothing,
+      deploymentTargets = Lude.Nothing,
+      parameterOverrides = Lude.Nothing,
+      stackSetName = pStackSetName_,
+      regions = Lude.mempty
     }
 
--- | [@Self-managed@ permissions] The names of one or more AWS accounts for which you want to update parameter values for stack instances. The overridden parameter values will be applied to all stack instances in the specified accounts and Regions. You can specify @Accounts@ or @DeploymentTargets@ , but not both.
-usiAccounts :: Lens' UpdateStackInstances [Text]
-usiAccounts = lens _usiAccounts (\s a -> s {_usiAccounts = a}) . _Default . _Coerce
+-- | [@Self-managed@ permissions] The names of one or more AWS accounts for which you want to update parameter values for stack instances. The overridden parameter values will be applied to all stack instances in the specified accounts and Regions.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
+--
+-- /Note:/ Consider using 'accounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usiAccounts :: Lens.Lens' UpdateStackInstances (Lude.Maybe [Lude.Text])
+usiAccounts = Lens.lens (accounts :: UpdateStackInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {accounts = a} :: UpdateStackInstances)
+{-# DEPRECATED usiAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
 
 -- | Preferences for how AWS CloudFormation performs this stack set operation.
-usiOperationPreferences :: Lens' UpdateStackInstances (Maybe StackSetOperationPreferences)
-usiOperationPreferences = lens _usiOperationPreferences (\s a -> s {_usiOperationPreferences = a})
+--
+-- /Note:/ Consider using 'operationPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usiOperationPreferences :: Lens.Lens' UpdateStackInstances (Lude.Maybe StackSetOperationPreferences)
+usiOperationPreferences = Lens.lens (operationPreferences :: UpdateStackInstances -> Lude.Maybe StackSetOperationPreferences) (\s a -> s {operationPreferences = a} :: UpdateStackInstances)
+{-# DEPRECATED usiOperationPreferences "Use generic-lens or generic-optics with 'operationPreferences' instead." #-}
 
--- | The unique identifier for this stack set operation.  The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them. If you don't specify an operation ID, the SDK generates one automatically.
-usiOperationId :: Lens' UpdateStackInstances (Maybe Text)
-usiOperationId = lens _usiOperationId (\s a -> s {_usiOperationId = a})
+-- | The unique identifier for this stack set operation.
+--
+-- The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
+-- If you don't specify an operation ID, the SDK generates one automatically.
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usiOperationId :: Lens.Lens' UpdateStackInstances (Lude.Maybe Lude.Text)
+usiOperationId = Lens.lens (operationId :: UpdateStackInstances -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: UpdateStackInstances)
+{-# DEPRECATED usiOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
--- | [@Service-managed@ permissions] The AWS Organizations accounts for which you want to update parameter values for stack instances. If your update targets OUs, the overridden parameter values only apply to the accounts that are currently in the target OUs and their child OUs. Accounts added to the target OUs and their child OUs in the future won't use the overridden values. You can specify @Accounts@ or @DeploymentTargets@ , but not both.
-usiDeploymentTargets :: Lens' UpdateStackInstances (Maybe DeploymentTargets)
-usiDeploymentTargets = lens _usiDeploymentTargets (\s a -> s {_usiDeploymentTargets = a})
+-- | [@Service-managed@ permissions] The AWS Organizations accounts for which you want to update parameter values for stack instances. If your update targets OUs, the overridden parameter values only apply to the accounts that are currently in the target OUs and their child OUs. Accounts added to the target OUs and their child OUs in the future won't use the overridden values.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
+--
+-- /Note:/ Consider using 'deploymentTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usiDeploymentTargets :: Lens.Lens' UpdateStackInstances (Lude.Maybe DeploymentTargets)
+usiDeploymentTargets = Lens.lens (deploymentTargets :: UpdateStackInstances -> Lude.Maybe DeploymentTargets) (\s a -> s {deploymentTargets = a} :: UpdateStackInstances)
+{-# DEPRECATED usiDeploymentTargets "Use generic-lens or generic-optics with 'deploymentTargets' instead." #-}
 
--- | A list of input parameters whose values you want to update for the specified stack instances.  Any overridden parameter values will be applied to all stack instances in the specified accounts and Regions. When specifying parameters and their values, be aware of how AWS CloudFormation sets parameter values during stack instance update operations:     * To override the current value for a parameter, include the parameter and specify its value.     * To leave a parameter set to its present value, you can do one of the following:     * Do not include the parameter in the list.     * Include the parameter and specify @UsePreviousValue@ as @true@ . (You cannot specify both a value and set @UsePreviousValue@ to @true@ .)     * To set all overridden parameter back to the values specified in the stack set, specify a parameter list but do not include any parameters.     * To leave all parameters set to their present values, do not specify this property at all. During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value. You can only override the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use @UpdateStackSet@ to update the stack set template. If you add a parameter to a template, before you can override the parameter value specified in the stack set you must first use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update all stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the parameter value using @UpdateStackInstances@ .
-usiParameterOverrides :: Lens' UpdateStackInstances [Parameter]
-usiParameterOverrides = lens _usiParameterOverrides (\s a -> s {_usiParameterOverrides = a}) . _Default . _Coerce
+-- | A list of input parameters whose values you want to update for the specified stack instances.
+--
+-- Any overridden parameter values will be applied to all stack instances in the specified accounts and Regions. When specifying parameters and their values, be aware of how AWS CloudFormation sets parameter values during stack instance update operations:
+--
+--     * To override the current value for a parameter, include the parameter and specify its value.
+--
+--
+--     * To leave a parameter set to its present value, you can do one of the following:
+--
+--     * Do not include the parameter in the list.
+--
+--
+--     * Include the parameter and specify @UsePreviousValue@ as @true@ . (You cannot specify both a value and set @UsePreviousValue@ to @true@ .)
+--
+--
+--
+--
+--     * To set all overridden parameter back to the values specified in the stack set, specify a parameter list but do not include any parameters.
+--
+--
+--     * To leave all parameters set to their present values, do not specify this property at all.
+--
+--
+-- During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value.
+-- You can only override the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use @UpdateStackSet@ to update the stack set template. If you add a parameter to a template, before you can override the parameter value specified in the stack set you must first use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update all stack instances with the updated template and parameter value specified in the stack set. Once a stack instance has been updated with the new parameter, you can then override the parameter value using @UpdateStackInstances@ .
+--
+-- /Note:/ Consider using 'parameterOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usiParameterOverrides :: Lens.Lens' UpdateStackInstances (Lude.Maybe [Parameter])
+usiParameterOverrides = Lens.lens (parameterOverrides :: UpdateStackInstances -> Lude.Maybe [Parameter]) (\s a -> s {parameterOverrides = a} :: UpdateStackInstances)
+{-# DEPRECATED usiParameterOverrides "Use generic-lens or generic-optics with 'parameterOverrides' instead." #-}
 
 -- | The name or unique ID of the stack set associated with the stack instances.
-usiStackSetName :: Lens' UpdateStackInstances Text
-usiStackSetName = lens _usiStackSetName (\s a -> s {_usiStackSetName = a})
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usiStackSetName :: Lens.Lens' UpdateStackInstances Lude.Text
+usiStackSetName = Lens.lens (stackSetName :: UpdateStackInstances -> Lude.Text) (\s a -> s {stackSetName = a} :: UpdateStackInstances)
+{-# DEPRECATED usiStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 -- | The names of one or more Regions in which you want to update parameter values for stack instances. The overridden parameter values will be applied to all stack instances in the specified accounts and Regions.
-usiRegions :: Lens' UpdateStackInstances [Text]
-usiRegions = lens _usiRegions (\s a -> s {_usiRegions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'regions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usiRegions :: Lens.Lens' UpdateStackInstances [Lude.Text]
+usiRegions = Lens.lens (regions :: UpdateStackInstances -> [Lude.Text]) (\s a -> s {regions = a} :: UpdateStackInstances)
+{-# DEPRECATED usiRegions "Use generic-lens or generic-optics with 'regions' instead." #-}
 
-instance AWSRequest UpdateStackInstances where
+instance Lude.AWSRequest UpdateStackInstances where
   type Rs UpdateStackInstances = UpdateStackInstancesResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "UpdateStackInstancesResult"
       ( \s h x ->
           UpdateStackInstancesResponse'
-            <$> (x .@? "OperationId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateStackInstances
+instance Lude.ToHeaders UpdateStackInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateStackInstances
+instance Lude.ToPath UpdateStackInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateStackInstances where
-  toHeaders = const mempty
-
-instance ToPath UpdateStackInstances where
-  toPath = const "/"
-
-instance ToQuery UpdateStackInstances where
+instance Lude.ToQuery UpdateStackInstances where
   toQuery UpdateStackInstances' {..} =
-    mconcat
-      [ "Action" =: ("UpdateStackInstances" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "Accounts" =: toQuery (toQueryList "member" <$> _usiAccounts),
-        "OperationPreferences" =: _usiOperationPreferences,
-        "OperationId" =: _usiOperationId,
-        "DeploymentTargets" =: _usiDeploymentTargets,
+    Lude.mconcat
+      [ "Action" Lude.=: ("UpdateStackInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "Accounts"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> accounts),
+        "OperationPreferences" Lude.=: operationPreferences,
+        "OperationId" Lude.=: operationId,
+        "DeploymentTargets" Lude.=: deploymentTargets,
         "ParameterOverrides"
-          =: toQuery (toQueryList "member" <$> _usiParameterOverrides),
-        "StackSetName" =: _usiStackSetName,
-        "Regions" =: toQueryList "member" _usiRegions
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> parameterOverrides),
+        "StackSetName" Lude.=: stackSetName,
+        "Regions" Lude.=: Lude.toQueryList "member" regions
       ]
 
--- | /See:/ 'updateStackInstancesResponse' smart constructor.
+-- | /See:/ 'mkUpdateStackInstancesResponse' smart constructor.
 data UpdateStackInstancesResponse = UpdateStackInstancesResponse'
-  { _usirsOperationId ::
-      !(Maybe Text),
-    _usirsResponseStatus :: !Int
+  { operationId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateStackInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usirsOperationId' - The unique identifier for this stack set operation.
---
--- * 'usirsResponseStatus' - -- | The response status code.
-updateStackInstancesResponse ::
-  -- | 'usirsResponseStatus'
-  Int ->
+-- * 'operationId' - The unique identifier for this stack set operation.
+-- * 'responseStatus' - The response status code.
+mkUpdateStackInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateStackInstancesResponse
-updateStackInstancesResponse pResponseStatus_ =
+mkUpdateStackInstancesResponse pResponseStatus_ =
   UpdateStackInstancesResponse'
-    { _usirsOperationId = Nothing,
-      _usirsResponseStatus = pResponseStatus_
+    { operationId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique identifier for this stack set operation.
-usirsOperationId :: Lens' UpdateStackInstancesResponse (Maybe Text)
-usirsOperationId = lens _usirsOperationId (\s a -> s {_usirsOperationId = a})
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usirsOperationId :: Lens.Lens' UpdateStackInstancesResponse (Lude.Maybe Lude.Text)
+usirsOperationId = Lens.lens (operationId :: UpdateStackInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: UpdateStackInstancesResponse)
+{-# DEPRECATED usirsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
--- | -- | The response status code.
-usirsResponseStatus :: Lens' UpdateStackInstancesResponse Int
-usirsResponseStatus = lens _usirsResponseStatus (\s a -> s {_usirsResponseStatus = a})
-
-instance NFData UpdateStackInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usirsResponseStatus :: Lens.Lens' UpdateStackInstancesResponse Lude.Int
+usirsResponseStatus = Lens.lens (responseStatus :: UpdateStackInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateStackInstancesResponse)
+{-# DEPRECATED usirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

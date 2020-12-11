@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.UserPendingChanges where
+module Network.AWS.MQ.Types.UserPendingChanges
+  ( UserPendingChanges (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkUserPendingChanges,
+
+    -- * Lenses
+    upcGroups,
+    upcConsoleAccess,
+    upcPendingChange,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.ChangeType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about the status of the changes pending for the ActiveMQ user.
 --
--- /See:/ 'userPendingChanges' smart constructor.
+-- /See:/ 'mkUserPendingChanges' smart constructor.
 data UserPendingChanges = UserPendingChanges'
-  { _upcGroups ::
-      !(Maybe [Text]),
-    _upcConsoleAccess :: !(Maybe Bool),
-    _upcPendingChange :: !(Maybe ChangeType)
+  { groups ::
+      Lude.Maybe [Lude.Text],
+    consoleAccess :: Lude.Maybe Lude.Bool,
+    pendingChange :: Lude.Maybe ChangeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPendingChanges' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upcGroups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- * 'upcConsoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
---
--- * 'upcPendingChange' - Required. The type of change pending for the ActiveMQ user.
-userPendingChanges ::
+-- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+-- * 'groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'pendingChange' - Required. The type of change pending for the ActiveMQ user.
+mkUserPendingChanges ::
   UserPendingChanges
-userPendingChanges =
+mkUserPendingChanges =
   UserPendingChanges'
-    { _upcGroups = Nothing,
-      _upcConsoleAccess = Nothing,
-      _upcPendingChange = Nothing
+    { groups = Lude.Nothing,
+      consoleAccess = Lude.Nothing,
+      pendingChange = Lude.Nothing
     }
 
 -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-upcGroups :: Lens' UserPendingChanges [Text]
-upcGroups = lens _upcGroups (\s a -> s {_upcGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcGroups :: Lens.Lens' UserPendingChanges (Lude.Maybe [Lude.Text])
+upcGroups = Lens.lens (groups :: UserPendingChanges -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: UserPendingChanges)
+{-# DEPRECATED upcGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-upcConsoleAccess :: Lens' UserPendingChanges (Maybe Bool)
-upcConsoleAccess = lens _upcConsoleAccess (\s a -> s {_upcConsoleAccess = a})
+--
+-- /Note:/ Consider using 'consoleAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcConsoleAccess :: Lens.Lens' UserPendingChanges (Lude.Maybe Lude.Bool)
+upcConsoleAccess = Lens.lens (consoleAccess :: UserPendingChanges -> Lude.Maybe Lude.Bool) (\s a -> s {consoleAccess = a} :: UserPendingChanges)
+{-# DEPRECATED upcConsoleAccess "Use generic-lens or generic-optics with 'consoleAccess' instead." #-}
 
 -- | Required. The type of change pending for the ActiveMQ user.
-upcPendingChange :: Lens' UserPendingChanges (Maybe ChangeType)
-upcPendingChange = lens _upcPendingChange (\s a -> s {_upcPendingChange = a})
+--
+-- /Note:/ Consider using 'pendingChange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upcPendingChange :: Lens.Lens' UserPendingChanges (Lude.Maybe ChangeType)
+upcPendingChange = Lens.lens (pendingChange :: UserPendingChanges -> Lude.Maybe ChangeType) (\s a -> s {pendingChange = a} :: UserPendingChanges)
+{-# DEPRECATED upcPendingChange "Use generic-lens or generic-optics with 'pendingChange' instead." #-}
 
-instance FromJSON UserPendingChanges where
+instance Lude.FromJSON UserPendingChanges where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserPendingChanges"
       ( \x ->
           UserPendingChanges'
-            <$> (x .:? "groups" .!= mempty)
-            <*> (x .:? "consoleAccess")
-            <*> (x .:? "pendingChange")
+            Lude.<$> (x Lude..:? "groups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "consoleAccess")
+            Lude.<*> (x Lude..:? "pendingChange")
       )
-
-instance Hashable UserPendingChanges
-
-instance NFData UserPendingChanges

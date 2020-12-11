@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,159 @@
 --
 -- Returns the 'SizeConstraintSet' specified by @SizeConstraintSetId@ .
 module Network.AWS.WAFRegional.GetSizeConstraintSet
-  ( -- * Creating a Request
-    getSizeConstraintSet,
-    GetSizeConstraintSet,
+  ( -- * Creating a request
+    GetSizeConstraintSet (..),
+    mkGetSizeConstraintSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gscsSizeConstraintSetId,
 
-    -- * Destructuring the Response
-    getSizeConstraintSetResponse,
-    GetSizeConstraintSetResponse,
+    -- * Destructuring the response
+    GetSizeConstraintSetResponse (..),
+    mkGetSizeConstraintSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gscsrsSizeConstraintSet,
     gscsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'getSizeConstraintSet' smart constructor.
+-- | /See:/ 'mkGetSizeConstraintSet' smart constructor.
 newtype GetSizeConstraintSet = GetSizeConstraintSet'
-  { _gscsSizeConstraintSetId ::
-      Text
+  { sizeConstraintSetId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSizeConstraintSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gscsSizeConstraintSetId' - The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-getSizeConstraintSet ::
-  -- | 'gscsSizeConstraintSetId'
-  Text ->
+-- * 'sizeConstraintSetId' - The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
+mkGetSizeConstraintSet ::
+  -- | 'sizeConstraintSetId'
+  Lude.Text ->
   GetSizeConstraintSet
-getSizeConstraintSet pSizeConstraintSetId_ =
+mkGetSizeConstraintSet pSizeConstraintSetId_ =
   GetSizeConstraintSet'
-    { _gscsSizeConstraintSetId =
+    { sizeConstraintSetId =
         pSizeConstraintSetId_
     }
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-gscsSizeConstraintSetId :: Lens' GetSizeConstraintSet Text
-gscsSizeConstraintSetId = lens _gscsSizeConstraintSetId (\s a -> s {_gscsSizeConstraintSetId = a})
+--
+-- /Note:/ Consider using 'sizeConstraintSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscsSizeConstraintSetId :: Lens.Lens' GetSizeConstraintSet Lude.Text
+gscsSizeConstraintSetId = Lens.lens (sizeConstraintSetId :: GetSizeConstraintSet -> Lude.Text) (\s a -> s {sizeConstraintSetId = a} :: GetSizeConstraintSet)
+{-# DEPRECATED gscsSizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead." #-}
 
-instance AWSRequest GetSizeConstraintSet where
+instance Lude.AWSRequest GetSizeConstraintSet where
   type Rs GetSizeConstraintSet = GetSizeConstraintSetResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSizeConstraintSetResponse'
-            <$> (x .?> "SizeConstraintSet") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SizeConstraintSet")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSizeConstraintSet
-
-instance NFData GetSizeConstraintSet
-
-instance ToHeaders GetSizeConstraintSet where
+instance Lude.ToHeaders GetSizeConstraintSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.GetSizeConstraintSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.GetSizeConstraintSet" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetSizeConstraintSet where
+instance Lude.ToJSON GetSizeConstraintSet where
   toJSON GetSizeConstraintSet' {..} =
-    object
-      ( catMaybes
-          [Just ("SizeConstraintSetId" .= _gscsSizeConstraintSetId)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("SizeConstraintSetId" Lude..= sizeConstraintSetId)]
       )
 
-instance ToPath GetSizeConstraintSet where
-  toPath = const "/"
+instance Lude.ToPath GetSizeConstraintSet where
+  toPath = Lude.const "/"
 
-instance ToQuery GetSizeConstraintSet where
-  toQuery = const mempty
+instance Lude.ToQuery GetSizeConstraintSet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSizeConstraintSetResponse' smart constructor.
+-- | /See:/ 'mkGetSizeConstraintSetResponse' smart constructor.
 data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
-  { _gscsrsSizeConstraintSet ::
-      !(Maybe SizeConstraintSet),
-    _gscsrsResponseStatus :: !Int
+  { sizeConstraintSet ::
+      Lude.Maybe SizeConstraintSet,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSizeConstraintSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseStatus' - The response status code.
+-- * 'sizeConstraintSet' - Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:
 --
--- * 'gscsrsSizeConstraintSet' - Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@      * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@      * 'FieldToMatch' : Contains @Data@ and @Type@
 --
--- * 'gscsrsResponseStatus' - -- | The response status code.
-getSizeConstraintSetResponse ::
-  -- | 'gscsrsResponseStatus'
-  Int ->
+--     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@
+--
+--
+--     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@
+--
+--
+--     * 'FieldToMatch' : Contains @Data@ and @Type@
+mkGetSizeConstraintSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSizeConstraintSetResponse
-getSizeConstraintSetResponse pResponseStatus_ =
+mkGetSizeConstraintSetResponse pResponseStatus_ =
   GetSizeConstraintSetResponse'
-    { _gscsrsSizeConstraintSet = Nothing,
-      _gscsrsResponseStatus = pResponseStatus_
+    { sizeConstraintSet = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@      * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@      * 'FieldToMatch' : Contains @Data@ and @Type@
-gscsrsSizeConstraintSet :: Lens' GetSizeConstraintSetResponse (Maybe SizeConstraintSet)
-gscsrsSizeConstraintSet = lens _gscsrsSizeConstraintSet (\s a -> s {_gscsrsSizeConstraintSet = a})
+-- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:
+--
+--
+--     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@
+--
+--
+--     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@
+--
+--
+--     * 'FieldToMatch' : Contains @Data@ and @Type@
+--
+--
+--
+-- /Note:/ Consider using 'sizeConstraintSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscsrsSizeConstraintSet :: Lens.Lens' GetSizeConstraintSetResponse (Lude.Maybe SizeConstraintSet)
+gscsrsSizeConstraintSet = Lens.lens (sizeConstraintSet :: GetSizeConstraintSetResponse -> Lude.Maybe SizeConstraintSet) (\s a -> s {sizeConstraintSet = a} :: GetSizeConstraintSetResponse)
+{-# DEPRECATED gscsrsSizeConstraintSet "Use generic-lens or generic-optics with 'sizeConstraintSet' instead." #-}
 
--- | -- | The response status code.
-gscsrsResponseStatus :: Lens' GetSizeConstraintSetResponse Int
-gscsrsResponseStatus = lens _gscsrsResponseStatus (\s a -> s {_gscsrsResponseStatus = a})
-
-instance NFData GetSizeConstraintSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscsrsResponseStatus :: Lens.Lens' GetSizeConstraintSetResponse Lude.Int
+gscsrsResponseStatus = Lens.lens (responseStatus :: GetSizeConstraintSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSizeConstraintSetResponse)
+{-# DEPRECATED gscsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

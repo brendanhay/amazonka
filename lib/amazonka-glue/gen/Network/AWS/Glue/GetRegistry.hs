@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes the specified registry in detail.
 module Network.AWS.Glue.GetRegistry
-  ( -- * Creating a Request
-    getRegistry,
-    GetRegistry,
+  ( -- * Creating a request
+    GetRegistry (..),
+    mkGetRegistry,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grRegistryId,
 
-    -- * Destructuring the Response
-    getRegistryResponse,
-    GetRegistryResponse,
+    -- * Destructuring the response
+    GetRegistryResponse (..),
+    mkGetRegistryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grrsStatus,
     grrsRegistryName,
     grrsCreatedTime,
@@ -42,141 +37,165 @@ module Network.AWS.Glue.GetRegistry
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getRegistry' smart constructor.
-newtype GetRegistry = GetRegistry' {_grRegistryId :: RegistryId}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetRegistry' smart constructor.
+newtype GetRegistry = GetRegistry' {registryId :: RegistryId}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegistry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grRegistryId' - This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
-getRegistry ::
-  -- | 'grRegistryId'
+-- * 'registryId' - This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
+mkGetRegistry ::
+  -- | 'registryId'
   RegistryId ->
   GetRegistry
-getRegistry pRegistryId_ =
-  GetRegistry' {_grRegistryId = pRegistryId_}
+mkGetRegistry pRegistryId_ =
+  GetRegistry' {registryId = pRegistryId_}
 
 -- | This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).
-grRegistryId :: Lens' GetRegistry RegistryId
-grRegistryId = lens _grRegistryId (\s a -> s {_grRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grRegistryId :: Lens.Lens' GetRegistry RegistryId
+grRegistryId = Lens.lens (registryId :: GetRegistry -> RegistryId) (\s a -> s {registryId = a} :: GetRegistry)
+{-# DEPRECATED grRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
-instance AWSRequest GetRegistry where
+instance Lude.AWSRequest GetRegistry where
   type Rs GetRegistry = GetRegistryResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRegistryResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "RegistryName")
-            <*> (x .?> "CreatedTime")
-            <*> (x .?> "RegistryArn")
-            <*> (x .?> "UpdatedTime")
-            <*> (x .?> "Description")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "RegistryName")
+            Lude.<*> (x Lude..?> "CreatedTime")
+            Lude.<*> (x Lude..?> "RegistryArn")
+            Lude.<*> (x Lude..?> "UpdatedTime")
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRegistry
-
-instance NFData GetRegistry
-
-instance ToHeaders GetRegistry where
+instance Lude.ToHeaders GetRegistry where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetRegistry" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetRegistry" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRegistry where
+instance Lude.ToJSON GetRegistry where
   toJSON GetRegistry' {..} =
-    object (catMaybes [Just ("RegistryId" .= _grRegistryId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("RegistryId" Lude..= registryId)])
 
-instance ToPath GetRegistry where
-  toPath = const "/"
+instance Lude.ToPath GetRegistry where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRegistry where
-  toQuery = const mempty
+instance Lude.ToQuery GetRegistry where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRegistryResponse' smart constructor.
+-- | /See:/ 'mkGetRegistryResponse' smart constructor.
 data GetRegistryResponse = GetRegistryResponse'
-  { _grrsStatus ::
-      !(Maybe RegistryStatus),
-    _grrsRegistryName :: !(Maybe Text),
-    _grrsCreatedTime :: !(Maybe Text),
-    _grrsRegistryARN :: !(Maybe Text),
-    _grrsUpdatedTime :: !(Maybe Text),
-    _grrsDescription :: !(Maybe Text),
-    _grrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe RegistryStatus,
+    registryName :: Lude.Maybe Lude.Text,
+    createdTime :: Lude.Maybe Lude.Text,
+    registryARN :: Lude.Maybe Lude.Text,
+    updatedTime :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegistryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grrsStatus' - The status of the registry.
---
--- * 'grrsRegistryName' - The name of the registry.
---
--- * 'grrsCreatedTime' - The date and time the registry was created.
---
--- * 'grrsRegistryARN' - The Amazon Resource Name (ARN) of the registry.
---
--- * 'grrsUpdatedTime' - The date and time the registry was updated.
---
--- * 'grrsDescription' - A description of the registry.
---
--- * 'grrsResponseStatus' - -- | The response status code.
-getRegistryResponse ::
-  -- | 'grrsResponseStatus'
-  Int ->
+-- * 'createdTime' - The date and time the registry was created.
+-- * 'description' - A description of the registry.
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
+-- * 'registryName' - The name of the registry.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the registry.
+-- * 'updatedTime' - The date and time the registry was updated.
+mkGetRegistryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRegistryResponse
-getRegistryResponse pResponseStatus_ =
+mkGetRegistryResponse pResponseStatus_ =
   GetRegistryResponse'
-    { _grrsStatus = Nothing,
-      _grrsRegistryName = Nothing,
-      _grrsCreatedTime = Nothing,
-      _grrsRegistryARN = Nothing,
-      _grrsUpdatedTime = Nothing,
-      _grrsDescription = Nothing,
-      _grrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      registryName = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      registryARN = Lude.Nothing,
+      updatedTime = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the registry.
-grrsStatus :: Lens' GetRegistryResponse (Maybe RegistryStatus)
-grrsStatus = lens _grrsStatus (\s a -> s {_grrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsStatus :: Lens.Lens' GetRegistryResponse (Lude.Maybe RegistryStatus)
+grrsStatus = Lens.lens (status :: GetRegistryResponse -> Lude.Maybe RegistryStatus) (\s a -> s {status = a} :: GetRegistryResponse)
+{-# DEPRECATED grrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the registry.
-grrsRegistryName :: Lens' GetRegistryResponse (Maybe Text)
-grrsRegistryName = lens _grrsRegistryName (\s a -> s {_grrsRegistryName = a})
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsRegistryName :: Lens.Lens' GetRegistryResponse (Lude.Maybe Lude.Text)
+grrsRegistryName = Lens.lens (registryName :: GetRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: GetRegistryResponse)
+{-# DEPRECATED grrsRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | The date and time the registry was created.
-grrsCreatedTime :: Lens' GetRegistryResponse (Maybe Text)
-grrsCreatedTime = lens _grrsCreatedTime (\s a -> s {_grrsCreatedTime = a})
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsCreatedTime :: Lens.Lens' GetRegistryResponse (Lude.Maybe Lude.Text)
+grrsCreatedTime = Lens.lens (createdTime :: GetRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdTime = a} :: GetRegistryResponse)
+{-# DEPRECATED grrsCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the registry.
-grrsRegistryARN :: Lens' GetRegistryResponse (Maybe Text)
-grrsRegistryARN = lens _grrsRegistryARN (\s a -> s {_grrsRegistryARN = a})
+--
+-- /Note:/ Consider using 'registryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsRegistryARN :: Lens.Lens' GetRegistryResponse (Lude.Maybe Lude.Text)
+grrsRegistryARN = Lens.lens (registryARN :: GetRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryARN = a} :: GetRegistryResponse)
+{-# DEPRECATED grrsRegistryARN "Use generic-lens or generic-optics with 'registryARN' instead." #-}
 
 -- | The date and time the registry was updated.
-grrsUpdatedTime :: Lens' GetRegistryResponse (Maybe Text)
-grrsUpdatedTime = lens _grrsUpdatedTime (\s a -> s {_grrsUpdatedTime = a})
+--
+-- /Note:/ Consider using 'updatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsUpdatedTime :: Lens.Lens' GetRegistryResponse (Lude.Maybe Lude.Text)
+grrsUpdatedTime = Lens.lens (updatedTime :: GetRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {updatedTime = a} :: GetRegistryResponse)
+{-# DEPRECATED grrsUpdatedTime "Use generic-lens or generic-optics with 'updatedTime' instead." #-}
 
 -- | A description of the registry.
-grrsDescription :: Lens' GetRegistryResponse (Maybe Text)
-grrsDescription = lens _grrsDescription (\s a -> s {_grrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsDescription :: Lens.Lens' GetRegistryResponse (Lude.Maybe Lude.Text)
+grrsDescription = Lens.lens (description :: GetRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GetRegistryResponse)
+{-# DEPRECATED grrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GetRegistryResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\s a -> s {_grrsResponseStatus = a})
-
-instance NFData GetRegistryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsResponseStatus :: Lens.Lens' GetRegistryResponse Lude.Int
+grrsResponseStatus = Lens.lens (responseStatus :: GetRegistryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRegistryResponse)
+{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

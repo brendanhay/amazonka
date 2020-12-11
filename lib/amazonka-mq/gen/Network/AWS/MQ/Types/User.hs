@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.User where
+module Network.AWS.MQ.Types.User
+  ( User (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUser,
+
+    -- * Lenses
+    uGroups,
+    uConsoleAccess,
+    uUsername,
+    uPassword,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A user associated with the broker.
 --
--- /See:/ 'user' smart constructor.
+-- /See:/ 'mkUser' smart constructor.
 data User = User'
-  { _uGroups :: !(Maybe [Text]),
-    _uConsoleAccess :: !(Maybe Bool),
-    _uUsername :: !(Maybe Text),
-    _uPassword :: !(Maybe Text)
+  { groups :: Lude.Maybe [Lude.Text],
+    consoleAccess :: Lude.Maybe Lude.Bool,
+    username :: Lude.Maybe Lude.Text,
+    password :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'User' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uGroups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- * 'uConsoleAccess' - Enables access to the ActiveMQ Web Console for the ActiveMQ user (Does not apply to RabbitMQ brokers).
---
--- * 'uUsername' - Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- * 'uPassword' - Required. The password of the broker user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
-user ::
+-- * 'consoleAccess' - Enables access to the ActiveMQ Web Console for the ActiveMQ user (Does not apply to RabbitMQ brokers).
+-- * 'groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'password' - Required. The password of the broker user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
+-- * 'username' - Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+mkUser ::
   User
-user =
+mkUser =
   User'
-    { _uGroups = Nothing,
-      _uConsoleAccess = Nothing,
-      _uUsername = Nothing,
-      _uPassword = Nothing
+    { groups = Lude.Nothing,
+      consoleAccess = Lude.Nothing,
+      username = Lude.Nothing,
+      password = Lude.Nothing
     }
 
 -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-uGroups :: Lens' User [Text]
-uGroups = lens _uGroups (\s a -> s {_uGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uGroups :: Lens.Lens' User (Lude.Maybe [Lude.Text])
+uGroups = Lens.lens (groups :: User -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: User)
+{-# DEPRECATED uGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | Enables access to the ActiveMQ Web Console for the ActiveMQ user (Does not apply to RabbitMQ brokers).
-uConsoleAccess :: Lens' User (Maybe Bool)
-uConsoleAccess = lens _uConsoleAccess (\s a -> s {_uConsoleAccess = a})
+--
+-- /Note:/ Consider using 'consoleAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uConsoleAccess :: Lens.Lens' User (Lude.Maybe Lude.Bool)
+uConsoleAccess = Lens.lens (consoleAccess :: User -> Lude.Maybe Lude.Bool) (\s a -> s {consoleAccess = a} :: User)
+{-# DEPRECATED uConsoleAccess "Use generic-lens or generic-optics with 'consoleAccess' instead." #-}
 
 -- | Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-uUsername :: Lens' User (Maybe Text)
-uUsername = lens _uUsername (\s a -> s {_uUsername = a})
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uUsername :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uUsername = Lens.lens (username :: User -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: User)
+{-# DEPRECATED uUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | Required. The password of the broker user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
-uPassword :: Lens' User (Maybe Text)
-uPassword = lens _uPassword (\s a -> s {_uPassword = a})
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uPassword :: Lens.Lens' User (Lude.Maybe Lude.Text)
+uPassword = Lens.lens (password :: User -> Lude.Maybe Lude.Text) (\s a -> s {password = a} :: User)
+{-# DEPRECATED uPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance Hashable User
-
-instance NFData User
-
-instance ToJSON User where
+instance Lude.ToJSON User where
   toJSON User' {..} =
-    object
-      ( catMaybes
-          [ ("groups" .=) <$> _uGroups,
-            ("consoleAccess" .=) <$> _uConsoleAccess,
-            ("username" .=) <$> _uUsername,
-            ("password" .=) <$> _uPassword
+    Lude.object
+      ( Lude.catMaybes
+          [ ("groups" Lude..=) Lude.<$> groups,
+            ("consoleAccess" Lude..=) Lude.<$> consoleAccess,
+            ("username" Lude..=) Lude.<$> username,
+            ("password" Lude..=) Lude.<$> password
           ]
       )

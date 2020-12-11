@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Create a new version of your custom platform.
 module Network.AWS.ElasticBeanstalk.CreatePlatformVersion
-  ( -- * Creating a Request
-    createPlatformVersion,
-    CreatePlatformVersion,
+  ( -- * Creating a request
+    CreatePlatformVersion (..),
+    mkCreatePlatformVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpvOptionSettings,
     cpvEnvironmentName,
     cpvTags,
@@ -31,11 +26,11 @@ module Network.AWS.ElasticBeanstalk.CreatePlatformVersion
     cpvPlatformVersion,
     cpvPlatformDefinitionBundle,
 
-    -- * Destructuring the Response
-    createPlatformVersionResponse,
-    CreatePlatformVersionResponse,
+    -- * Destructuring the response
+    CreatePlatformVersionResponse (..),
+    mkCreatePlatformVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpvrsBuilder,
     cpvrsPlatformSummary,
     cpvrsResponseStatus,
@@ -43,164 +38,191 @@ module Network.AWS.ElasticBeanstalk.CreatePlatformVersion
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to create a new platform version.
 --
---
---
--- /See:/ 'createPlatformVersion' smart constructor.
+-- /See:/ 'mkCreatePlatformVersion' smart constructor.
 data CreatePlatformVersion = CreatePlatformVersion'
-  { _cpvOptionSettings ::
-      !(Maybe [ConfigurationOptionSetting]),
-    _cpvEnvironmentName :: !(Maybe Text),
-    _cpvTags :: !(Maybe [Tag]),
-    _cpvPlatformName :: !Text,
-    _cpvPlatformVersion :: !Text,
-    _cpvPlatformDefinitionBundle :: !S3Location
+  { optionSettings ::
+      Lude.Maybe [ConfigurationOptionSetting],
+    environmentName :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    platformName :: Lude.Text,
+    platformVersion :: Lude.Text,
+    platformDefinitionBundle :: S3Location
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlatformVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'environmentName' - The name of the builder environment.
+-- * 'optionSettings' - The configuration option settings to apply to the builder environment.
+-- * 'platformDefinitionBundle' - The location of the platform definition archive in Amazon S3.
+-- * 'platformName' - The name of your custom platform.
+-- * 'platformVersion' - The number, such as 1.0.2, for the new platform version.
+-- * 'tags' - Specifies the tags applied to the new platform version.
 --
--- * 'cpvOptionSettings' - The configuration option settings to apply to the builder environment.
---
--- * 'cpvEnvironmentName' - The name of the builder environment.
---
--- * 'cpvTags' - Specifies the tags applied to the new platform version. Elastic Beanstalk applies these tags only to the platform version. Environments that you create using the platform version don't inherit the tags.
---
--- * 'cpvPlatformName' - The name of your custom platform.
---
--- * 'cpvPlatformVersion' - The number, such as 1.0.2, for the new platform version.
---
--- * 'cpvPlatformDefinitionBundle' - The location of the platform definition archive in Amazon S3.
-createPlatformVersion ::
-  -- | 'cpvPlatformName'
-  Text ->
-  -- | 'cpvPlatformVersion'
-  Text ->
-  -- | 'cpvPlatformDefinitionBundle'
+-- Elastic Beanstalk applies these tags only to the platform version. Environments that you create using the platform version don't inherit the tags.
+mkCreatePlatformVersion ::
+  -- | 'platformName'
+  Lude.Text ->
+  -- | 'platformVersion'
+  Lude.Text ->
+  -- | 'platformDefinitionBundle'
   S3Location ->
   CreatePlatformVersion
-createPlatformVersion
+mkCreatePlatformVersion
   pPlatformName_
   pPlatformVersion_
   pPlatformDefinitionBundle_ =
     CreatePlatformVersion'
-      { _cpvOptionSettings = Nothing,
-        _cpvEnvironmentName = Nothing,
-        _cpvTags = Nothing,
-        _cpvPlatformName = pPlatformName_,
-        _cpvPlatformVersion = pPlatformVersion_,
-        _cpvPlatformDefinitionBundle = pPlatformDefinitionBundle_
+      { optionSettings = Lude.Nothing,
+        environmentName = Lude.Nothing,
+        tags = Lude.Nothing,
+        platformName = pPlatformName_,
+        platformVersion = pPlatformVersion_,
+        platformDefinitionBundle = pPlatformDefinitionBundle_
       }
 
 -- | The configuration option settings to apply to the builder environment.
-cpvOptionSettings :: Lens' CreatePlatformVersion [ConfigurationOptionSetting]
-cpvOptionSettings = lens _cpvOptionSettings (\s a -> s {_cpvOptionSettings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvOptionSettings :: Lens.Lens' CreatePlatformVersion (Lude.Maybe [ConfigurationOptionSetting])
+cpvOptionSettings = Lens.lens (optionSettings :: CreatePlatformVersion -> Lude.Maybe [ConfigurationOptionSetting]) (\s a -> s {optionSettings = a} :: CreatePlatformVersion)
+{-# DEPRECATED cpvOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
 
 -- | The name of the builder environment.
-cpvEnvironmentName :: Lens' CreatePlatformVersion (Maybe Text)
-cpvEnvironmentName = lens _cpvEnvironmentName (\s a -> s {_cpvEnvironmentName = a})
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvEnvironmentName :: Lens.Lens' CreatePlatformVersion (Lude.Maybe Lude.Text)
+cpvEnvironmentName = Lens.lens (environmentName :: CreatePlatformVersion -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: CreatePlatformVersion)
+{-# DEPRECATED cpvEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
--- | Specifies the tags applied to the new platform version. Elastic Beanstalk applies these tags only to the platform version. Environments that you create using the platform version don't inherit the tags.
-cpvTags :: Lens' CreatePlatformVersion [Tag]
-cpvTags = lens _cpvTags (\s a -> s {_cpvTags = a}) . _Default . _Coerce
+-- | Specifies the tags applied to the new platform version.
+--
+-- Elastic Beanstalk applies these tags only to the platform version. Environments that you create using the platform version don't inherit the tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvTags :: Lens.Lens' CreatePlatformVersion (Lude.Maybe [Tag])
+cpvTags = Lens.lens (tags :: CreatePlatformVersion -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePlatformVersion)
+{-# DEPRECATED cpvTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of your custom platform.
-cpvPlatformName :: Lens' CreatePlatformVersion Text
-cpvPlatformName = lens _cpvPlatformName (\s a -> s {_cpvPlatformName = a})
+--
+-- /Note:/ Consider using 'platformName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvPlatformName :: Lens.Lens' CreatePlatformVersion Lude.Text
+cpvPlatformName = Lens.lens (platformName :: CreatePlatformVersion -> Lude.Text) (\s a -> s {platformName = a} :: CreatePlatformVersion)
+{-# DEPRECATED cpvPlatformName "Use generic-lens or generic-optics with 'platformName' instead." #-}
 
 -- | The number, such as 1.0.2, for the new platform version.
-cpvPlatformVersion :: Lens' CreatePlatformVersion Text
-cpvPlatformVersion = lens _cpvPlatformVersion (\s a -> s {_cpvPlatformVersion = a})
+--
+-- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvPlatformVersion :: Lens.Lens' CreatePlatformVersion Lude.Text
+cpvPlatformVersion = Lens.lens (platformVersion :: CreatePlatformVersion -> Lude.Text) (\s a -> s {platformVersion = a} :: CreatePlatformVersion)
+{-# DEPRECATED cpvPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
 
 -- | The location of the platform definition archive in Amazon S3.
-cpvPlatformDefinitionBundle :: Lens' CreatePlatformVersion S3Location
-cpvPlatformDefinitionBundle = lens _cpvPlatformDefinitionBundle (\s a -> s {_cpvPlatformDefinitionBundle = a})
+--
+-- /Note:/ Consider using 'platformDefinitionBundle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvPlatformDefinitionBundle :: Lens.Lens' CreatePlatformVersion S3Location
+cpvPlatformDefinitionBundle = Lens.lens (platformDefinitionBundle :: CreatePlatformVersion -> S3Location) (\s a -> s {platformDefinitionBundle = a} :: CreatePlatformVersion)
+{-# DEPRECATED cpvPlatformDefinitionBundle "Use generic-lens or generic-optics with 'platformDefinitionBundle' instead." #-}
 
-instance AWSRequest CreatePlatformVersion where
+instance Lude.AWSRequest CreatePlatformVersion where
   type Rs CreatePlatformVersion = CreatePlatformVersionResponse
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreatePlatformVersionResult"
       ( \s h x ->
           CreatePlatformVersionResponse'
-            <$> (x .@? "Builder")
-            <*> (x .@? "PlatformSummary")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Builder")
+            Lude.<*> (x Lude..@? "PlatformSummary")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreatePlatformVersion
+instance Lude.ToHeaders CreatePlatformVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreatePlatformVersion
+instance Lude.ToPath CreatePlatformVersion where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreatePlatformVersion where
-  toHeaders = const mempty
-
-instance ToPath CreatePlatformVersion where
-  toPath = const "/"
-
-instance ToQuery CreatePlatformVersion where
+instance Lude.ToQuery CreatePlatformVersion where
   toQuery CreatePlatformVersion' {..} =
-    mconcat
-      [ "Action" =: ("CreatePlatformVersion" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreatePlatformVersion" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
         "OptionSettings"
-          =: toQuery (toQueryList "member" <$> _cpvOptionSettings),
-        "EnvironmentName" =: _cpvEnvironmentName,
-        "Tags" =: toQuery (toQueryList "member" <$> _cpvTags),
-        "PlatformName" =: _cpvPlatformName,
-        "PlatformVersion" =: _cpvPlatformVersion,
-        "PlatformDefinitionBundle" =: _cpvPlatformDefinitionBundle
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> optionSettings),
+        "EnvironmentName" Lude.=: environmentName,
+        "Tags"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
+        "PlatformName" Lude.=: platformName,
+        "PlatformVersion" Lude.=: platformVersion,
+        "PlatformDefinitionBundle" Lude.=: platformDefinitionBundle
       ]
 
--- | /See:/ 'createPlatformVersionResponse' smart constructor.
+-- | /See:/ 'mkCreatePlatformVersionResponse' smart constructor.
 data CreatePlatformVersionResponse = CreatePlatformVersionResponse'
-  { _cpvrsBuilder ::
-      !(Maybe Builder),
-    _cpvrsPlatformSummary ::
-      !(Maybe PlatformSummary),
-    _cpvrsResponseStatus :: !Int
+  { builder ::
+      Lude.Maybe Builder,
+    platformSummary ::
+      Lude.Maybe PlatformSummary,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlatformVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpvrsBuilder' - The builder used to create the custom platform.
---
--- * 'cpvrsPlatformSummary' - Detailed information about the new version of the custom platform.
---
--- * 'cpvrsResponseStatus' - -- | The response status code.
-createPlatformVersionResponse ::
-  -- | 'cpvrsResponseStatus'
-  Int ->
+-- * 'builder' - The builder used to create the custom platform.
+-- * 'platformSummary' - Detailed information about the new version of the custom platform.
+-- * 'responseStatus' - The response status code.
+mkCreatePlatformVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePlatformVersionResponse
-createPlatformVersionResponse pResponseStatus_ =
+mkCreatePlatformVersionResponse pResponseStatus_ =
   CreatePlatformVersionResponse'
-    { _cpvrsBuilder = Nothing,
-      _cpvrsPlatformSummary = Nothing,
-      _cpvrsResponseStatus = pResponseStatus_
+    { builder = Lude.Nothing,
+      platformSummary = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The builder used to create the custom platform.
-cpvrsBuilder :: Lens' CreatePlatformVersionResponse (Maybe Builder)
-cpvrsBuilder = lens _cpvrsBuilder (\s a -> s {_cpvrsBuilder = a})
+--
+-- /Note:/ Consider using 'builder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvrsBuilder :: Lens.Lens' CreatePlatformVersionResponse (Lude.Maybe Builder)
+cpvrsBuilder = Lens.lens (builder :: CreatePlatformVersionResponse -> Lude.Maybe Builder) (\s a -> s {builder = a} :: CreatePlatformVersionResponse)
+{-# DEPRECATED cpvrsBuilder "Use generic-lens or generic-optics with 'builder' instead." #-}
 
 -- | Detailed information about the new version of the custom platform.
-cpvrsPlatformSummary :: Lens' CreatePlatformVersionResponse (Maybe PlatformSummary)
-cpvrsPlatformSummary = lens _cpvrsPlatformSummary (\s a -> s {_cpvrsPlatformSummary = a})
+--
+-- /Note:/ Consider using 'platformSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvrsPlatformSummary :: Lens.Lens' CreatePlatformVersionResponse (Lude.Maybe PlatformSummary)
+cpvrsPlatformSummary = Lens.lens (platformSummary :: CreatePlatformVersionResponse -> Lude.Maybe PlatformSummary) (\s a -> s {platformSummary = a} :: CreatePlatformVersionResponse)
+{-# DEPRECATED cpvrsPlatformSummary "Use generic-lens or generic-optics with 'platformSummary' instead." #-}
 
--- | -- | The response status code.
-cpvrsResponseStatus :: Lens' CreatePlatformVersionResponse Int
-cpvrsResponseStatus = lens _cpvrsResponseStatus (\s a -> s {_cpvrsResponseStatus = a})
-
-instance NFData CreatePlatformVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvrsResponseStatus :: Lens.Lens' CreatePlatformVersionResponse Lude.Int
+cpvrsResponseStatus = Lens.lens (responseStatus :: CreatePlatformVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePlatformVersionResponse)
+{-# DEPRECATED cpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

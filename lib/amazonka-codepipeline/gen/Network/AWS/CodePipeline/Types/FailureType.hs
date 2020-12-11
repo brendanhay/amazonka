@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.FailureType where
+module Network.AWS.CodePipeline.Types.FailureType
+  ( FailureType
+      ( FailureType',
+        ConfigurationError,
+        JobFailed,
+        PermissionError,
+        RevisionOutOfSync,
+        RevisionUnavailable,
+        SystemUnavailable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FailureType
-  = ConfigurationError
-  | JobFailed
-  | PermissionError
-  | RevisionOutOfSync
-  | RevisionUnavailable
-  | SystemUnavailable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FailureType = FailureType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FailureType where
-  parser =
-    takeLowerText >>= \case
-      "configurationerror" -> pure ConfigurationError
-      "jobfailed" -> pure JobFailed
-      "permissionerror" -> pure PermissionError
-      "revisionoutofsync" -> pure RevisionOutOfSync
-      "revisionunavailable" -> pure RevisionUnavailable
-      "systemunavailable" -> pure SystemUnavailable
-      e ->
-        fromTextError $
-          "Failure parsing FailureType from value: '" <> e
-            <> "'. Accepted values: configurationerror, jobfailed, permissionerror, revisionoutofsync, revisionunavailable, systemunavailable"
+pattern ConfigurationError :: FailureType
+pattern ConfigurationError = FailureType' "ConfigurationError"
 
-instance ToText FailureType where
-  toText = \case
-    ConfigurationError -> "ConfigurationError"
-    JobFailed -> "JobFailed"
-    PermissionError -> "PermissionError"
-    RevisionOutOfSync -> "RevisionOutOfSync"
-    RevisionUnavailable -> "RevisionUnavailable"
-    SystemUnavailable -> "SystemUnavailable"
+pattern JobFailed :: FailureType
+pattern JobFailed = FailureType' "JobFailed"
 
-instance Hashable FailureType
+pattern PermissionError :: FailureType
+pattern PermissionError = FailureType' "PermissionError"
 
-instance NFData FailureType
+pattern RevisionOutOfSync :: FailureType
+pattern RevisionOutOfSync = FailureType' "RevisionOutOfSync"
 
-instance ToByteString FailureType
+pattern RevisionUnavailable :: FailureType
+pattern RevisionUnavailable = FailureType' "RevisionUnavailable"
 
-instance ToQuery FailureType
+pattern SystemUnavailable :: FailureType
+pattern SystemUnavailable = FailureType' "SystemUnavailable"
 
-instance ToHeader FailureType
-
-instance ToJSON FailureType where
-  toJSON = toJSONText
+{-# COMPLETE
+  ConfigurationError,
+  JobFailed,
+  PermissionError,
+  RevisionOutOfSync,
+  RevisionUnavailable,
+  SystemUnavailable,
+  FailureType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ResolvedTargets where
+module Network.AWS.SSM.Types.ResolvedTargets
+  ( ResolvedTargets (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResolvedTargets,
+
+    -- * Lenses
+    rtTruncated,
+    rtParameterValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about targets that resolved during the Automation execution.
 --
---
---
--- /See:/ 'resolvedTargets' smart constructor.
+-- /See:/ 'mkResolvedTargets' smart constructor.
 data ResolvedTargets = ResolvedTargets'
-  { _rtTruncated ::
-      !(Maybe Bool),
-    _rtParameterValues :: !(Maybe [Text])
+  { truncated ::
+      Lude.Maybe Lude.Bool,
+    parameterValues :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolvedTargets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtTruncated' - A boolean value indicating whether the resolved target list is truncated.
---
--- * 'rtParameterValues' - A list of parameter values sent to targets that resolved during the Automation execution.
-resolvedTargets ::
+-- * 'parameterValues' - A list of parameter values sent to targets that resolved during the Automation execution.
+-- * 'truncated' - A boolean value indicating whether the resolved target list is truncated.
+mkResolvedTargets ::
   ResolvedTargets
-resolvedTargets =
+mkResolvedTargets =
   ResolvedTargets'
-    { _rtTruncated = Nothing,
-      _rtParameterValues = Nothing
+    { truncated = Lude.Nothing,
+      parameterValues = Lude.Nothing
     }
 
 -- | A boolean value indicating whether the resolved target list is truncated.
-rtTruncated :: Lens' ResolvedTargets (Maybe Bool)
-rtTruncated = lens _rtTruncated (\s a -> s {_rtTruncated = a})
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtTruncated :: Lens.Lens' ResolvedTargets (Lude.Maybe Lude.Bool)
+rtTruncated = Lens.lens (truncated :: ResolvedTargets -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: ResolvedTargets)
+{-# DEPRECATED rtTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | A list of parameter values sent to targets that resolved during the Automation execution.
-rtParameterValues :: Lens' ResolvedTargets [Text]
-rtParameterValues = lens _rtParameterValues (\s a -> s {_rtParameterValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameterValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtParameterValues :: Lens.Lens' ResolvedTargets (Lude.Maybe [Lude.Text])
+rtParameterValues = Lens.lens (parameterValues :: ResolvedTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {parameterValues = a} :: ResolvedTargets)
+{-# DEPRECATED rtParameterValues "Use generic-lens or generic-optics with 'parameterValues' instead." #-}
 
-instance FromJSON ResolvedTargets where
+instance Lude.FromJSON ResolvedTargets where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResolvedTargets"
       ( \x ->
           ResolvedTargets'
-            <$> (x .:? "Truncated") <*> (x .:? "ParameterValues" .!= mempty)
+            Lude.<$> (x Lude..:? "Truncated")
+            Lude.<*> (x Lude..:? "ParameterValues" Lude..!= Lude.mempty)
       )
-
-instance Hashable ResolvedTargets
-
-instance NFData ResolvedTargets

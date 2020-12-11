@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditTaskMetadata where
+module Network.AWS.IoT.Types.AuditTaskMetadata
+  ( AuditTaskMetadata (..),
+
+    -- * Smart constructor
+    mkAuditTaskMetadata,
+
+    -- * Lenses
+    atmTaskType,
+    atmTaskId,
+    atmTaskStatus,
+  )
+where
 
 import Network.AWS.IoT.Types.AuditTaskStatus
 import Network.AWS.IoT.Types.AuditTaskType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The audits that were performed.
 --
---
---
--- /See:/ 'auditTaskMetadata' smart constructor.
+-- /See:/ 'mkAuditTaskMetadata' smart constructor.
 data AuditTaskMetadata = AuditTaskMetadata'
-  { _atmTaskType ::
-      !(Maybe AuditTaskType),
-    _atmTaskId :: !(Maybe Text),
-    _atmTaskStatus :: !(Maybe AuditTaskStatus)
+  { taskType ::
+      Lude.Maybe AuditTaskType,
+    taskId :: Lude.Maybe Lude.Text,
+    taskStatus :: Lude.Maybe AuditTaskStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditTaskMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atmTaskType' - The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
---
--- * 'atmTaskId' - The ID of this audit.
---
--- * 'atmTaskStatus' - The status of this audit. One of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
-auditTaskMetadata ::
+-- * 'taskId' - The ID of this audit.
+-- * 'taskStatus' - The status of this audit. One of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
+-- * 'taskType' - The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
+mkAuditTaskMetadata ::
   AuditTaskMetadata
-auditTaskMetadata =
+mkAuditTaskMetadata =
   AuditTaskMetadata'
-    { _atmTaskType = Nothing,
-      _atmTaskId = Nothing,
-      _atmTaskStatus = Nothing
+    { taskType = Lude.Nothing,
+      taskId = Lude.Nothing,
+      taskStatus = Lude.Nothing
     }
 
 -- | The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
-atmTaskType :: Lens' AuditTaskMetadata (Maybe AuditTaskType)
-atmTaskType = lens _atmTaskType (\s a -> s {_atmTaskType = a})
+--
+-- /Note:/ Consider using 'taskType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmTaskType :: Lens.Lens' AuditTaskMetadata (Lude.Maybe AuditTaskType)
+atmTaskType = Lens.lens (taskType :: AuditTaskMetadata -> Lude.Maybe AuditTaskType) (\s a -> s {taskType = a} :: AuditTaskMetadata)
+{-# DEPRECATED atmTaskType "Use generic-lens or generic-optics with 'taskType' instead." #-}
 
 -- | The ID of this audit.
-atmTaskId :: Lens' AuditTaskMetadata (Maybe Text)
-atmTaskId = lens _atmTaskId (\s a -> s {_atmTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmTaskId :: Lens.Lens' AuditTaskMetadata (Lude.Maybe Lude.Text)
+atmTaskId = Lens.lens (taskId :: AuditTaskMetadata -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: AuditTaskMetadata)
+{-# DEPRECATED atmTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | The status of this audit. One of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
-atmTaskStatus :: Lens' AuditTaskMetadata (Maybe AuditTaskStatus)
-atmTaskStatus = lens _atmTaskStatus (\s a -> s {_atmTaskStatus = a})
+--
+-- /Note:/ Consider using 'taskStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmTaskStatus :: Lens.Lens' AuditTaskMetadata (Lude.Maybe AuditTaskStatus)
+atmTaskStatus = Lens.lens (taskStatus :: AuditTaskMetadata -> Lude.Maybe AuditTaskStatus) (\s a -> s {taskStatus = a} :: AuditTaskMetadata)
+{-# DEPRECATED atmTaskStatus "Use generic-lens or generic-optics with 'taskStatus' instead." #-}
 
-instance FromJSON AuditTaskMetadata where
+instance Lude.FromJSON AuditTaskMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuditTaskMetadata"
       ( \x ->
           AuditTaskMetadata'
-            <$> (x .:? "taskType") <*> (x .:? "taskId") <*> (x .:? "taskStatus")
+            Lude.<$> (x Lude..:? "taskType")
+            Lude.<*> (x Lude..:? "taskId")
+            Lude.<*> (x Lude..:? "taskStatus")
       )
-
-instance Hashable AuditTaskMetadata
-
-instance NFData AuditTaskMetadata

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.ProtectionLimits where
+module Network.AWS.Shield.Types.ProtectionLimits
+  ( ProtectionLimits (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProtectionLimits,
+
+    -- * Lenses
+    plProtectedResourceTypeLimits,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Shield.Types.Limit
 
 -- | Limits settings on protections for your subscription.
 --
---
---
--- /See:/ 'protectionLimits' smart constructor.
+-- /See:/ 'mkProtectionLimits' smart constructor.
 newtype ProtectionLimits = ProtectionLimits'
-  { _plProtectedResourceTypeLimits ::
+  { protectedResourceTypeLimits ::
       [Limit]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectionLimits' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plProtectedResourceTypeLimits' - The maximum number of resource types that you can specify in a protection.
-protectionLimits ::
+-- * 'protectedResourceTypeLimits' - The maximum number of resource types that you can specify in a protection.
+mkProtectionLimits ::
   ProtectionLimits
-protectionLimits =
-  ProtectionLimits' {_plProtectedResourceTypeLimits = mempty}
+mkProtectionLimits =
+  ProtectionLimits' {protectedResourceTypeLimits = Lude.mempty}
 
 -- | The maximum number of resource types that you can specify in a protection.
-plProtectedResourceTypeLimits :: Lens' ProtectionLimits [Limit]
-plProtectedResourceTypeLimits = lens _plProtectedResourceTypeLimits (\s a -> s {_plProtectedResourceTypeLimits = a}) . _Coerce
+--
+-- /Note:/ Consider using 'protectedResourceTypeLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plProtectedResourceTypeLimits :: Lens.Lens' ProtectionLimits [Limit]
+plProtectedResourceTypeLimits = Lens.lens (protectedResourceTypeLimits :: ProtectionLimits -> [Limit]) (\s a -> s {protectedResourceTypeLimits = a} :: ProtectionLimits)
+{-# DEPRECATED plProtectedResourceTypeLimits "Use generic-lens or generic-optics with 'protectedResourceTypeLimits' instead." #-}
 
-instance FromJSON ProtectionLimits where
+instance Lude.FromJSON ProtectionLimits where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProtectionLimits"
       ( \x ->
           ProtectionLimits'
-            <$> (x .:? "ProtectedResourceTypeLimits" .!= mempty)
+            Lude.<$> (x Lude..:? "ProtectedResourceTypeLimits" Lude..!= Lude.mempty)
       )
-
-instance Hashable ProtectionLimits
-
-instance NFData ProtectionLimits

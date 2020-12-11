@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,165 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.AttackVectorDescription where
+module Network.AWS.Shield.Types.AttackVectorDescription
+  ( AttackVectorDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttackVectorDescription,
+
+    -- * Lenses
+    avdVectorType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the attack.
 --
---
---
--- /See:/ 'attackVectorDescription' smart constructor.
+-- /See:/ 'mkAttackVectorDescription' smart constructor.
 newtype AttackVectorDescription = AttackVectorDescription'
-  { _avdVectorType ::
-      Text
+  { vectorType ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackVectorDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'vectorType' - The attack type. Valid values:
 --
--- * 'avdVectorType' - The attack type. Valid values:     * UDP_TRAFFIC     * UDP_FRAGMENT     * GENERIC_UDP_REFLECTION     * DNS_REFLECTION     * NTP_REFLECTION     * CHARGEN_REFLECTION     * SSDP_REFLECTION     * PORT_MAPPER     * RIP_REFLECTION     * SNMP_REFLECTION     * MSSQL_REFLECTION     * NET_BIOS_REFLECTION     * SYN_FLOOD     * ACK_FLOOD     * REQUEST_FLOOD     * HTTP_REFLECTION     * UDS_REFLECTION     * MEMCACHED_REFLECTION
-attackVectorDescription ::
-  -- | 'avdVectorType'
-  Text ->
+--
+--     * UDP_TRAFFIC
+--
+--
+--     * UDP_FRAGMENT
+--
+--
+--     * GENERIC_UDP_REFLECTION
+--
+--
+--     * DNS_REFLECTION
+--
+--
+--     * NTP_REFLECTION
+--
+--
+--     * CHARGEN_REFLECTION
+--
+--
+--     * SSDP_REFLECTION
+--
+--
+--     * PORT_MAPPER
+--
+--
+--     * RIP_REFLECTION
+--
+--
+--     * SNMP_REFLECTION
+--
+--
+--     * MSSQL_REFLECTION
+--
+--
+--     * NET_BIOS_REFLECTION
+--
+--
+--     * SYN_FLOOD
+--
+--
+--     * ACK_FLOOD
+--
+--
+--     * REQUEST_FLOOD
+--
+--
+--     * HTTP_REFLECTION
+--
+--
+--     * UDS_REFLECTION
+--
+--
+--     * MEMCACHED_REFLECTION
+mkAttackVectorDescription ::
+  -- | 'vectorType'
+  Lude.Text ->
   AttackVectorDescription
-attackVectorDescription pVectorType_ =
-  AttackVectorDescription' {_avdVectorType = pVectorType_}
+mkAttackVectorDescription pVectorType_ =
+  AttackVectorDescription' {vectorType = pVectorType_}
 
--- | The attack type. Valid values:     * UDP_TRAFFIC     * UDP_FRAGMENT     * GENERIC_UDP_REFLECTION     * DNS_REFLECTION     * NTP_REFLECTION     * CHARGEN_REFLECTION     * SSDP_REFLECTION     * PORT_MAPPER     * RIP_REFLECTION     * SNMP_REFLECTION     * MSSQL_REFLECTION     * NET_BIOS_REFLECTION     * SYN_FLOOD     * ACK_FLOOD     * REQUEST_FLOOD     * HTTP_REFLECTION     * UDS_REFLECTION     * MEMCACHED_REFLECTION
-avdVectorType :: Lens' AttackVectorDescription Text
-avdVectorType = lens _avdVectorType (\s a -> s {_avdVectorType = a})
+-- | The attack type. Valid values:
+--
+--
+--     * UDP_TRAFFIC
+--
+--
+--     * UDP_FRAGMENT
+--
+--
+--     * GENERIC_UDP_REFLECTION
+--
+--
+--     * DNS_REFLECTION
+--
+--
+--     * NTP_REFLECTION
+--
+--
+--     * CHARGEN_REFLECTION
+--
+--
+--     * SSDP_REFLECTION
+--
+--
+--     * PORT_MAPPER
+--
+--
+--     * RIP_REFLECTION
+--
+--
+--     * SNMP_REFLECTION
+--
+--
+--     * MSSQL_REFLECTION
+--
+--
+--     * NET_BIOS_REFLECTION
+--
+--
+--     * SYN_FLOOD
+--
+--
+--     * ACK_FLOOD
+--
+--
+--     * REQUEST_FLOOD
+--
+--
+--     * HTTP_REFLECTION
+--
+--
+--     * UDS_REFLECTION
+--
+--
+--     * MEMCACHED_REFLECTION
+--
+--
+--
+-- /Note:/ Consider using 'vectorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avdVectorType :: Lens.Lens' AttackVectorDescription Lude.Text
+avdVectorType = Lens.lens (vectorType :: AttackVectorDescription -> Lude.Text) (\s a -> s {vectorType = a} :: AttackVectorDescription)
+{-# DEPRECATED avdVectorType "Use generic-lens or generic-optics with 'vectorType' instead." #-}
 
-instance FromJSON AttackVectorDescription where
+instance Lude.FromJSON AttackVectorDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttackVectorDescription"
-      (\x -> AttackVectorDescription' <$> (x .: "VectorType"))
-
-instance Hashable AttackVectorDescription
-
-instance NFData AttackVectorDescription
+      (\x -> AttackVectorDescription' Lude.<$> (x Lude..: "VectorType"))

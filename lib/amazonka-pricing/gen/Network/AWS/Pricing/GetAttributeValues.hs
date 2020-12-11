@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,177 +14,199 @@
 --
 -- Returns a list of attribute values. Attibutes are similar to the details in a Price List API offer file. For a list of available attributes, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs Offer File Definitions> in the <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html AWS Billing and Cost Management User Guide> .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Pricing.GetAttributeValues
-  ( -- * Creating a Request
-    getAttributeValues,
-    GetAttributeValues,
+  ( -- * Creating a request
+    GetAttributeValues (..),
+    mkGetAttributeValues,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gavNextToken,
     gavMaxResults,
     gavServiceCode,
     gavAttributeName,
 
-    -- * Destructuring the Response
-    getAttributeValuesResponse,
-    GetAttributeValuesResponse,
+    -- * Destructuring the response
+    GetAttributeValuesResponse (..),
+    mkGetAttributeValuesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gavrsAttributeValues,
     gavrsNextToken,
     gavrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Pricing.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAttributeValues' smart constructor.
+-- | /See:/ 'mkGetAttributeValues' smart constructor.
 data GetAttributeValues = GetAttributeValues'
-  { _gavNextToken ::
-      !(Maybe Text),
-    _gavMaxResults :: !(Maybe Nat),
-    _gavServiceCode :: !Text,
-    _gavAttributeName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    serviceCode :: Lude.Text,
+    attributeName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAttributeValues' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gavNextToken' - The pagination token that indicates the next set of results that you want to retrieve.
---
--- * 'gavMaxResults' - The maximum number of results to return in response.
---
--- * 'gavServiceCode' - The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use @AmazonEC2@ .
---
--- * 'gavAttributeName' - The name of the attribute that you want to retrieve the values for, such as @volumeType@ .
-getAttributeValues ::
-  -- | 'gavServiceCode'
-  Text ->
-  -- | 'gavAttributeName'
-  Text ->
+-- * 'attributeName' - The name of the attribute that you want to retrieve the values for, such as @volumeType@ .
+-- * 'maxResults' - The maximum number of results to return in response.
+-- * 'nextToken' - The pagination token that indicates the next set of results that you want to retrieve.
+-- * 'serviceCode' - The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use @AmazonEC2@ .
+mkGetAttributeValues ::
+  -- | 'serviceCode'
+  Lude.Text ->
+  -- | 'attributeName'
+  Lude.Text ->
   GetAttributeValues
-getAttributeValues pServiceCode_ pAttributeName_ =
+mkGetAttributeValues pServiceCode_ pAttributeName_ =
   GetAttributeValues'
-    { _gavNextToken = Nothing,
-      _gavMaxResults = Nothing,
-      _gavServiceCode = pServiceCode_,
-      _gavAttributeName = pAttributeName_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      serviceCode = pServiceCode_,
+      attributeName = pAttributeName_
     }
 
 -- | The pagination token that indicates the next set of results that you want to retrieve.
-gavNextToken :: Lens' GetAttributeValues (Maybe Text)
-gavNextToken = lens _gavNextToken (\s a -> s {_gavNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavNextToken :: Lens.Lens' GetAttributeValues (Lude.Maybe Lude.Text)
+gavNextToken = Lens.lens (nextToken :: GetAttributeValues -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetAttributeValues)
+{-# DEPRECATED gavNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in response.
-gavMaxResults :: Lens' GetAttributeValues (Maybe Natural)
-gavMaxResults = lens _gavMaxResults (\s a -> s {_gavMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavMaxResults :: Lens.Lens' GetAttributeValues (Lude.Maybe Lude.Natural)
+gavMaxResults = Lens.lens (maxResults :: GetAttributeValues -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetAttributeValues)
+{-# DEPRECATED gavMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use @AmazonEC2@ .
-gavServiceCode :: Lens' GetAttributeValues Text
-gavServiceCode = lens _gavServiceCode (\s a -> s {_gavServiceCode = a})
+--
+-- /Note:/ Consider using 'serviceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavServiceCode :: Lens.Lens' GetAttributeValues Lude.Text
+gavServiceCode = Lens.lens (serviceCode :: GetAttributeValues -> Lude.Text) (\s a -> s {serviceCode = a} :: GetAttributeValues)
+{-# DEPRECATED gavServiceCode "Use generic-lens or generic-optics with 'serviceCode' instead." #-}
 
 -- | The name of the attribute that you want to retrieve the values for, such as @volumeType@ .
-gavAttributeName :: Lens' GetAttributeValues Text
-gavAttributeName = lens _gavAttributeName (\s a -> s {_gavAttributeName = a})
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavAttributeName :: Lens.Lens' GetAttributeValues Lude.Text
+gavAttributeName = Lens.lens (attributeName :: GetAttributeValues -> Lude.Text) (\s a -> s {attributeName = a} :: GetAttributeValues)
+{-# DEPRECATED gavAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance AWSPager GetAttributeValues where
+instance Page.AWSPager GetAttributeValues where
   page rq rs
-    | stop (rs ^. gavrsNextToken) = Nothing
-    | stop (rs ^. gavrsAttributeValues) = Nothing
-    | otherwise = Just $ rq & gavNextToken .~ rs ^. gavrsNextToken
+    | Page.stop (rs Lens.^. gavrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gavrsAttributeValues) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gavNextToken Lens..~ rs Lens.^. gavrsNextToken
 
-instance AWSRequest GetAttributeValues where
+instance Lude.AWSRequest GetAttributeValues where
   type Rs GetAttributeValues = GetAttributeValuesResponse
-  request = postJSON pricing
+  request = Req.postJSON pricingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAttributeValuesResponse'
-            <$> (x .?> "AttributeValues" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AttributeValues" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAttributeValues
-
-instance NFData GetAttributeValues
-
-instance ToHeaders GetAttributeValues where
+instance Lude.ToHeaders GetAttributeValues where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSPriceListService.GetAttributeValues" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSPriceListService.GetAttributeValues" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAttributeValues where
+instance Lude.ToJSON GetAttributeValues where
   toJSON GetAttributeValues' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gavNextToken,
-            ("MaxResults" .=) <$> _gavMaxResults,
-            Just ("ServiceCode" .= _gavServiceCode),
-            Just ("AttributeName" .= _gavAttributeName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ServiceCode" Lude..= serviceCode),
+            Lude.Just ("AttributeName" Lude..= attributeName)
           ]
       )
 
-instance ToPath GetAttributeValues where
-  toPath = const "/"
+instance Lude.ToPath GetAttributeValues where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAttributeValues where
-  toQuery = const mempty
+instance Lude.ToQuery GetAttributeValues where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAttributeValuesResponse' smart constructor.
+-- | /See:/ 'mkGetAttributeValuesResponse' smart constructor.
 data GetAttributeValuesResponse = GetAttributeValuesResponse'
-  { _gavrsAttributeValues ::
-      !(Maybe [AttributeValue]),
-    _gavrsNextToken :: !(Maybe Text),
-    _gavrsResponseStatus :: !Int
+  { attributeValues ::
+      Lude.Maybe [AttributeValue],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAttributeValuesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gavrsAttributeValues' - The list of values for an attribute. For example, @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available values for the @AmazonEC2@ @volumeType@ .
---
--- * 'gavrsNextToken' - The pagination token that indicates the next set of results to retrieve.
---
--- * 'gavrsResponseStatus' - -- | The response status code.
-getAttributeValuesResponse ::
-  -- | 'gavrsResponseStatus'
-  Int ->
+-- * 'attributeValues' - The list of values for an attribute. For example, @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available values for the @AmazonEC2@ @volumeType@ .
+-- * 'nextToken' - The pagination token that indicates the next set of results to retrieve.
+-- * 'responseStatus' - The response status code.
+mkGetAttributeValuesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAttributeValuesResponse
-getAttributeValuesResponse pResponseStatus_ =
+mkGetAttributeValuesResponse pResponseStatus_ =
   GetAttributeValuesResponse'
-    { _gavrsAttributeValues = Nothing,
-      _gavrsNextToken = Nothing,
-      _gavrsResponseStatus = pResponseStatus_
+    { attributeValues = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of values for an attribute. For example, @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available values for the @AmazonEC2@ @volumeType@ .
-gavrsAttributeValues :: Lens' GetAttributeValuesResponse [AttributeValue]
-gavrsAttributeValues = lens _gavrsAttributeValues (\s a -> s {_gavrsAttributeValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavrsAttributeValues :: Lens.Lens' GetAttributeValuesResponse (Lude.Maybe [AttributeValue])
+gavrsAttributeValues = Lens.lens (attributeValues :: GetAttributeValuesResponse -> Lude.Maybe [AttributeValue]) (\s a -> s {attributeValues = a} :: GetAttributeValuesResponse)
+{-# DEPRECATED gavrsAttributeValues "Use generic-lens or generic-optics with 'attributeValues' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-gavrsNextToken :: Lens' GetAttributeValuesResponse (Maybe Text)
-gavrsNextToken = lens _gavrsNextToken (\s a -> s {_gavrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavrsNextToken :: Lens.Lens' GetAttributeValuesResponse (Lude.Maybe Lude.Text)
+gavrsNextToken = Lens.lens (nextToken :: GetAttributeValuesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetAttributeValuesResponse)
+{-# DEPRECATED gavrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gavrsResponseStatus :: Lens' GetAttributeValuesResponse Int
-gavrsResponseStatus = lens _gavrsResponseStatus (\s a -> s {_gavrsResponseStatus = a})
-
-instance NFData GetAttributeValuesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavrsResponseStatus :: Lens.Lens' GetAttributeValuesResponse Lude.Int
+gavrsResponseStatus = Lens.lens (responseStatus :: GetAttributeValuesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAttributeValuesResponse)
+{-# DEPRECATED gavrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

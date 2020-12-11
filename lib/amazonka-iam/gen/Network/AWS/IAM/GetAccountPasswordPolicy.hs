@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,116 @@
 --
 -- Retrieves the password policy for the AWS account. For more information about using a password policy, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy> .
 module Network.AWS.IAM.GetAccountPasswordPolicy
-  ( -- * Creating a Request
-    getAccountPasswordPolicy,
-    GetAccountPasswordPolicy,
+  ( -- * Creating a request
+    GetAccountPasswordPolicy (..),
+    mkGetAccountPasswordPolicy,
 
-    -- * Destructuring the Response
-    getAccountPasswordPolicyResponse,
-    GetAccountPasswordPolicyResponse,
+    -- * Destructuring the response
+    GetAccountPasswordPolicyResponse (..),
+    mkGetAccountPasswordPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gapprsResponseStatus,
     gapprsPasswordPolicy,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAccountPasswordPolicy' smart constructor.
+-- | /See:/ 'mkGetAccountPasswordPolicy' smart constructor.
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountPasswordPolicy' with the minimum fields required to make a request.
-getAccountPasswordPolicy ::
+mkGetAccountPasswordPolicy ::
   GetAccountPasswordPolicy
-getAccountPasswordPolicy = GetAccountPasswordPolicy'
+mkGetAccountPasswordPolicy = GetAccountPasswordPolicy'
 
-instance AWSRequest GetAccountPasswordPolicy where
+instance Lude.AWSRequest GetAccountPasswordPolicy where
   type Rs GetAccountPasswordPolicy = GetAccountPasswordPolicyResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetAccountPasswordPolicyResult"
       ( \s h x ->
           GetAccountPasswordPolicyResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "PasswordPolicy")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "PasswordPolicy")
       )
 
-instance Hashable GetAccountPasswordPolicy
+instance Lude.ToHeaders GetAccountPasswordPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetAccountPasswordPolicy
+instance Lude.ToPath GetAccountPasswordPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetAccountPasswordPolicy where
-  toHeaders = const mempty
-
-instance ToPath GetAccountPasswordPolicy where
-  toPath = const "/"
-
-instance ToQuery GetAccountPasswordPolicy where
+instance Lude.ToQuery GetAccountPasswordPolicy where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("GetAccountPasswordPolicy" :: ByteString),
-            "Version" =: ("2010-05-08" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action" Lude.=: ("GetAccountPasswordPolicy" :: Lude.ByteString),
+            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
           ]
       )
 
 -- | Contains the response to a successful 'GetAccountPasswordPolicy' request.
 --
---
---
--- /See:/ 'getAccountPasswordPolicyResponse' smart constructor.
+-- /See:/ 'mkGetAccountPasswordPolicyResponse' smart constructor.
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
-  { _gapprsResponseStatus ::
-      !Int,
-    _gapprsPasswordPolicy ::
-      !PasswordPolicy
+  { responseStatus ::
+      Lude.Int,
+    passwordPolicy ::
+      PasswordPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountPasswordPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gapprsResponseStatus' - -- | The response status code.
---
--- * 'gapprsPasswordPolicy' - A structure that contains details about the account's password policy.
-getAccountPasswordPolicyResponse ::
-  -- | 'gapprsResponseStatus'
-  Int ->
-  -- | 'gapprsPasswordPolicy'
+-- * 'passwordPolicy' - A structure that contains details about the account's password policy.
+-- * 'responseStatus' - The response status code.
+mkGetAccountPasswordPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'passwordPolicy'
   PasswordPolicy ->
   GetAccountPasswordPolicyResponse
-getAccountPasswordPolicyResponse pResponseStatus_ pPasswordPolicy_ =
-  GetAccountPasswordPolicyResponse'
-    { _gapprsResponseStatus =
-        pResponseStatus_,
-      _gapprsPasswordPolicy = pPasswordPolicy_
-    }
+mkGetAccountPasswordPolicyResponse
+  pResponseStatus_
+  pPasswordPolicy_ =
+    GetAccountPasswordPolicyResponse'
+      { responseStatus =
+          pResponseStatus_,
+        passwordPolicy = pPasswordPolicy_
+      }
 
--- | -- | The response status code.
-gapprsResponseStatus :: Lens' GetAccountPasswordPolicyResponse Int
-gapprsResponseStatus = lens _gapprsResponseStatus (\s a -> s {_gapprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gapprsResponseStatus :: Lens.Lens' GetAccountPasswordPolicyResponse Lude.Int
+gapprsResponseStatus = Lens.lens (responseStatus :: GetAccountPasswordPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountPasswordPolicyResponse)
+{-# DEPRECATED gapprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure that contains details about the account's password policy.
-gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
-gapprsPasswordPolicy = lens _gapprsPasswordPolicy (\s a -> s {_gapprsPasswordPolicy = a})
-
-instance NFData GetAccountPasswordPolicyResponse
+--
+-- /Note:/ Consider using 'passwordPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gapprsPasswordPolicy :: Lens.Lens' GetAccountPasswordPolicyResponse PasswordPolicy
+gapprsPasswordPolicy = Lens.lens (passwordPolicy :: GetAccountPasswordPolicyResponse -> PasswordPolicy) (\s a -> s {passwordPolicy = a} :: GetAccountPasswordPolicyResponse)
+{-# DEPRECATED gapprsPasswordPolicy "Use generic-lens or generic-optics with 'passwordPolicy' instead." #-}

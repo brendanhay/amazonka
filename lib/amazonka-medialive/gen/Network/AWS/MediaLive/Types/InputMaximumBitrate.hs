@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputMaximumBitrate where
+module Network.AWS.MediaLive.Types.InputMaximumBitrate
+  ( InputMaximumBitrate
+      ( InputMaximumBitrate',
+        Max10Mbps,
+        Max20Mbps,
+        Max50Mbps
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Maximum input bitrate in megabits per second. Bitrates up to 50 Mbps are supported currently.
-data InputMaximumBitrate
-  = Max10Mbps
-  | Max20Mbps
-  | Max50Mbps
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputMaximumBitrate = InputMaximumBitrate' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputMaximumBitrate where
-  parser =
-    takeLowerText >>= \case
-      "max_10_mbps" -> pure Max10Mbps
-      "max_20_mbps" -> pure Max20Mbps
-      "max_50_mbps" -> pure Max50Mbps
-      e ->
-        fromTextError $
-          "Failure parsing InputMaximumBitrate from value: '" <> e
-            <> "'. Accepted values: max_10_mbps, max_20_mbps, max_50_mbps"
+pattern Max10Mbps :: InputMaximumBitrate
+pattern Max10Mbps = InputMaximumBitrate' "MAX_10_MBPS"
 
-instance ToText InputMaximumBitrate where
-  toText = \case
-    Max10Mbps -> "MAX_10_MBPS"
-    Max20Mbps -> "MAX_20_MBPS"
-    Max50Mbps -> "MAX_50_MBPS"
+pattern Max20Mbps :: InputMaximumBitrate
+pattern Max20Mbps = InputMaximumBitrate' "MAX_20_MBPS"
 
-instance Hashable InputMaximumBitrate
+pattern Max50Mbps :: InputMaximumBitrate
+pattern Max50Mbps = InputMaximumBitrate' "MAX_50_MBPS"
 
-instance NFData InputMaximumBitrate
-
-instance ToByteString InputMaximumBitrate
-
-instance ToQuery InputMaximumBitrate
-
-instance ToHeader InputMaximumBitrate
-
-instance ToJSON InputMaximumBitrate where
-  toJSON = toJSONText
-
-instance FromJSON InputMaximumBitrate where
-  parseJSON = parseJSONText "InputMaximumBitrate"
+{-# COMPLETE
+  Max10Mbps,
+  Max20Mbps,
+  Max50Mbps,
+  InputMaximumBitrate'
+  #-}

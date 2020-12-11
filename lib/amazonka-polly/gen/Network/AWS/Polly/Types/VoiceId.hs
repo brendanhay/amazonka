@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,232 +7,349 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Types.VoiceId where
+module Network.AWS.Polly.Types.VoiceId
+  ( VoiceId
+      ( VoiceId',
+        Aditi,
+        Amy,
+        Astrid,
+        Bianca,
+        Brian,
+        Camila,
+        Carla,
+        Carmen,
+        Celine,
+        Chantal,
+        Conchita,
+        Cristiano,
+        Dora,
+        Emma,
+        Enrique,
+        Ewa,
+        Filiz,
+        Geraint,
+        Giorgio,
+        Gwyneth,
+        Hans,
+        Ines,
+        Ivy,
+        Jacek,
+        Jan,
+        Joanna,
+        Joey,
+        Justin,
+        Karl,
+        Kendra,
+        Kevin,
+        Kimberly,
+        Lea,
+        Liv,
+        Lotte,
+        Lucia,
+        Lupe,
+        Mads,
+        Maja,
+        Marlene,
+        Mathieu,
+        Matthew,
+        Maxim,
+        Mia,
+        Miguel,
+        Mizuki,
+        Naja,
+        Nicole,
+        Olivia,
+        Penelope,
+        Raveena,
+        Ricardo,
+        Ruben,
+        Russell,
+        Salli,
+        Seoyeon,
+        Takumi,
+        Tatyana,
+        Vicki,
+        Vitoria,
+        Zeina,
+        Zhiyu
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VoiceId
-  = Aditi
-  | Amy
-  | Astrid
-  | Bianca
-  | Brian
-  | Camila
-  | Carla
-  | Carmen
-  | Celine
-  | Chantal
-  | Conchita
-  | Cristiano
-  | Dora
-  | Emma
-  | Enrique
-  | Ewa
-  | Filiz
-  | Geraint
-  | Giorgio
-  | Gwyneth
-  | Hans
-  | Ines
-  | Ivy
-  | Jacek
-  | Jan
-  | Joanna
-  | Joey
-  | Justin
-  | Karl
-  | Kendra
-  | Kevin
-  | Kimberly
-  | Lea
-  | Liv
-  | Lotte
-  | Lucia
-  | Lupe
-  | Mads
-  | Maja
-  | Marlene
-  | Mathieu
-  | Matthew
-  | Maxim
-  | Mia
-  | Miguel
-  | Mizuki
-  | Naja
-  | Nicole
-  | Olivia
-  | Penelope
-  | Raveena
-  | Ricardo
-  | Ruben
-  | Russell
-  | Salli
-  | Seoyeon
-  | Takumi
-  | Tatyana
-  | Vicki
-  | Vitoria
-  | Zeina
-  | Zhiyu
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VoiceId = VoiceId' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VoiceId where
-  parser =
-    takeLowerText >>= \case
-      "aditi" -> pure Aditi
-      "amy" -> pure Amy
-      "astrid" -> pure Astrid
-      "bianca" -> pure Bianca
-      "brian" -> pure Brian
-      "camila" -> pure Camila
-      "carla" -> pure Carla
-      "carmen" -> pure Carmen
-      "celine" -> pure Celine
-      "chantal" -> pure Chantal
-      "conchita" -> pure Conchita
-      "cristiano" -> pure Cristiano
-      "dora" -> pure Dora
-      "emma" -> pure Emma
-      "enrique" -> pure Enrique
-      "ewa" -> pure Ewa
-      "filiz" -> pure Filiz
-      "geraint" -> pure Geraint
-      "giorgio" -> pure Giorgio
-      "gwyneth" -> pure Gwyneth
-      "hans" -> pure Hans
-      "ines" -> pure Ines
-      "ivy" -> pure Ivy
-      "jacek" -> pure Jacek
-      "jan" -> pure Jan
-      "joanna" -> pure Joanna
-      "joey" -> pure Joey
-      "justin" -> pure Justin
-      "karl" -> pure Karl
-      "kendra" -> pure Kendra
-      "kevin" -> pure Kevin
-      "kimberly" -> pure Kimberly
-      "lea" -> pure Lea
-      "liv" -> pure Liv
-      "lotte" -> pure Lotte
-      "lucia" -> pure Lucia
-      "lupe" -> pure Lupe
-      "mads" -> pure Mads
-      "maja" -> pure Maja
-      "marlene" -> pure Marlene
-      "mathieu" -> pure Mathieu
-      "matthew" -> pure Matthew
-      "maxim" -> pure Maxim
-      "mia" -> pure Mia
-      "miguel" -> pure Miguel
-      "mizuki" -> pure Mizuki
-      "naja" -> pure Naja
-      "nicole" -> pure Nicole
-      "olivia" -> pure Olivia
-      "penelope" -> pure Penelope
-      "raveena" -> pure Raveena
-      "ricardo" -> pure Ricardo
-      "ruben" -> pure Ruben
-      "russell" -> pure Russell
-      "salli" -> pure Salli
-      "seoyeon" -> pure Seoyeon
-      "takumi" -> pure Takumi
-      "tatyana" -> pure Tatyana
-      "vicki" -> pure Vicki
-      "vitoria" -> pure Vitoria
-      "zeina" -> pure Zeina
-      "zhiyu" -> pure Zhiyu
-      e ->
-        fromTextError $
-          "Failure parsing VoiceId from value: '" <> e
-            <> "'. Accepted values: aditi, amy, astrid, bianca, brian, camila, carla, carmen, celine, chantal, conchita, cristiano, dora, emma, enrique, ewa, filiz, geraint, giorgio, gwyneth, hans, ines, ivy, jacek, jan, joanna, joey, justin, karl, kendra, kevin, kimberly, lea, liv, lotte, lucia, lupe, mads, maja, marlene, mathieu, matthew, maxim, mia, miguel, mizuki, naja, nicole, olivia, penelope, raveena, ricardo, ruben, russell, salli, seoyeon, takumi, tatyana, vicki, vitoria, zeina, zhiyu"
+pattern Aditi :: VoiceId
+pattern Aditi = VoiceId' "Aditi"
 
-instance ToText VoiceId where
-  toText = \case
-    Aditi -> "Aditi"
-    Amy -> "Amy"
-    Astrid -> "Astrid"
-    Bianca -> "Bianca"
-    Brian -> "Brian"
-    Camila -> "Camila"
-    Carla -> "Carla"
-    Carmen -> "Carmen"
-    Celine -> "Celine"
-    Chantal -> "Chantal"
-    Conchita -> "Conchita"
-    Cristiano -> "Cristiano"
-    Dora -> "Dora"
-    Emma -> "Emma"
-    Enrique -> "Enrique"
-    Ewa -> "Ewa"
-    Filiz -> "Filiz"
-    Geraint -> "Geraint"
-    Giorgio -> "Giorgio"
-    Gwyneth -> "Gwyneth"
-    Hans -> "Hans"
-    Ines -> "Ines"
-    Ivy -> "Ivy"
-    Jacek -> "Jacek"
-    Jan -> "Jan"
-    Joanna -> "Joanna"
-    Joey -> "Joey"
-    Justin -> "Justin"
-    Karl -> "Karl"
-    Kendra -> "Kendra"
-    Kevin -> "Kevin"
-    Kimberly -> "Kimberly"
-    Lea -> "Lea"
-    Liv -> "Liv"
-    Lotte -> "Lotte"
-    Lucia -> "Lucia"
-    Lupe -> "Lupe"
-    Mads -> "Mads"
-    Maja -> "Maja"
-    Marlene -> "Marlene"
-    Mathieu -> "Mathieu"
-    Matthew -> "Matthew"
-    Maxim -> "Maxim"
-    Mia -> "Mia"
-    Miguel -> "Miguel"
-    Mizuki -> "Mizuki"
-    Naja -> "Naja"
-    Nicole -> "Nicole"
-    Olivia -> "Olivia"
-    Penelope -> "Penelope"
-    Raveena -> "Raveena"
-    Ricardo -> "Ricardo"
-    Ruben -> "Ruben"
-    Russell -> "Russell"
-    Salli -> "Salli"
-    Seoyeon -> "Seoyeon"
-    Takumi -> "Takumi"
-    Tatyana -> "Tatyana"
-    Vicki -> "Vicki"
-    Vitoria -> "Vitoria"
-    Zeina -> "Zeina"
-    Zhiyu -> "Zhiyu"
+pattern Amy :: VoiceId
+pattern Amy = VoiceId' "Amy"
 
-instance Hashable VoiceId
+pattern Astrid :: VoiceId
+pattern Astrid = VoiceId' "Astrid"
 
-instance NFData VoiceId
+pattern Bianca :: VoiceId
+pattern Bianca = VoiceId' "Bianca"
 
-instance ToByteString VoiceId
+pattern Brian :: VoiceId
+pattern Brian = VoiceId' "Brian"
 
-instance ToQuery VoiceId
+pattern Camila :: VoiceId
+pattern Camila = VoiceId' "Camila"
 
-instance ToHeader VoiceId
+pattern Carla :: VoiceId
+pattern Carla = VoiceId' "Carla"
 
-instance ToJSON VoiceId where
-  toJSON = toJSONText
+pattern Carmen :: VoiceId
+pattern Carmen = VoiceId' "Carmen"
 
-instance FromJSON VoiceId where
-  parseJSON = parseJSONText "VoiceId"
+pattern Celine :: VoiceId
+pattern Celine = VoiceId' "Celine"
+
+pattern Chantal :: VoiceId
+pattern Chantal = VoiceId' "Chantal"
+
+pattern Conchita :: VoiceId
+pattern Conchita = VoiceId' "Conchita"
+
+pattern Cristiano :: VoiceId
+pattern Cristiano = VoiceId' "Cristiano"
+
+pattern Dora :: VoiceId
+pattern Dora = VoiceId' "Dora"
+
+pattern Emma :: VoiceId
+pattern Emma = VoiceId' "Emma"
+
+pattern Enrique :: VoiceId
+pattern Enrique = VoiceId' "Enrique"
+
+pattern Ewa :: VoiceId
+pattern Ewa = VoiceId' "Ewa"
+
+pattern Filiz :: VoiceId
+pattern Filiz = VoiceId' "Filiz"
+
+pattern Geraint :: VoiceId
+pattern Geraint = VoiceId' "Geraint"
+
+pattern Giorgio :: VoiceId
+pattern Giorgio = VoiceId' "Giorgio"
+
+pattern Gwyneth :: VoiceId
+pattern Gwyneth = VoiceId' "Gwyneth"
+
+pattern Hans :: VoiceId
+pattern Hans = VoiceId' "Hans"
+
+pattern Ines :: VoiceId
+pattern Ines = VoiceId' "Ines"
+
+pattern Ivy :: VoiceId
+pattern Ivy = VoiceId' "Ivy"
+
+pattern Jacek :: VoiceId
+pattern Jacek = VoiceId' "Jacek"
+
+pattern Jan :: VoiceId
+pattern Jan = VoiceId' "Jan"
+
+pattern Joanna :: VoiceId
+pattern Joanna = VoiceId' "Joanna"
+
+pattern Joey :: VoiceId
+pattern Joey = VoiceId' "Joey"
+
+pattern Justin :: VoiceId
+pattern Justin = VoiceId' "Justin"
+
+pattern Karl :: VoiceId
+pattern Karl = VoiceId' "Karl"
+
+pattern Kendra :: VoiceId
+pattern Kendra = VoiceId' "Kendra"
+
+pattern Kevin :: VoiceId
+pattern Kevin = VoiceId' "Kevin"
+
+pattern Kimberly :: VoiceId
+pattern Kimberly = VoiceId' "Kimberly"
+
+pattern Lea :: VoiceId
+pattern Lea = VoiceId' "Lea"
+
+pattern Liv :: VoiceId
+pattern Liv = VoiceId' "Liv"
+
+pattern Lotte :: VoiceId
+pattern Lotte = VoiceId' "Lotte"
+
+pattern Lucia :: VoiceId
+pattern Lucia = VoiceId' "Lucia"
+
+pattern Lupe :: VoiceId
+pattern Lupe = VoiceId' "Lupe"
+
+pattern Mads :: VoiceId
+pattern Mads = VoiceId' "Mads"
+
+pattern Maja :: VoiceId
+pattern Maja = VoiceId' "Maja"
+
+pattern Marlene :: VoiceId
+pattern Marlene = VoiceId' "Marlene"
+
+pattern Mathieu :: VoiceId
+pattern Mathieu = VoiceId' "Mathieu"
+
+pattern Matthew :: VoiceId
+pattern Matthew = VoiceId' "Matthew"
+
+pattern Maxim :: VoiceId
+pattern Maxim = VoiceId' "Maxim"
+
+pattern Mia :: VoiceId
+pattern Mia = VoiceId' "Mia"
+
+pattern Miguel :: VoiceId
+pattern Miguel = VoiceId' "Miguel"
+
+pattern Mizuki :: VoiceId
+pattern Mizuki = VoiceId' "Mizuki"
+
+pattern Naja :: VoiceId
+pattern Naja = VoiceId' "Naja"
+
+pattern Nicole :: VoiceId
+pattern Nicole = VoiceId' "Nicole"
+
+pattern Olivia :: VoiceId
+pattern Olivia = VoiceId' "Olivia"
+
+pattern Penelope :: VoiceId
+pattern Penelope = VoiceId' "Penelope"
+
+pattern Raveena :: VoiceId
+pattern Raveena = VoiceId' "Raveena"
+
+pattern Ricardo :: VoiceId
+pattern Ricardo = VoiceId' "Ricardo"
+
+pattern Ruben :: VoiceId
+pattern Ruben = VoiceId' "Ruben"
+
+pattern Russell :: VoiceId
+pattern Russell = VoiceId' "Russell"
+
+pattern Salli :: VoiceId
+pattern Salli = VoiceId' "Salli"
+
+pattern Seoyeon :: VoiceId
+pattern Seoyeon = VoiceId' "Seoyeon"
+
+pattern Takumi :: VoiceId
+pattern Takumi = VoiceId' "Takumi"
+
+pattern Tatyana :: VoiceId
+pattern Tatyana = VoiceId' "Tatyana"
+
+pattern Vicki :: VoiceId
+pattern Vicki = VoiceId' "Vicki"
+
+pattern Vitoria :: VoiceId
+pattern Vitoria = VoiceId' "Vitoria"
+
+pattern Zeina :: VoiceId
+pattern Zeina = VoiceId' "Zeina"
+
+pattern Zhiyu :: VoiceId
+pattern Zhiyu = VoiceId' "Zhiyu"
+
+{-# COMPLETE
+  Aditi,
+  Amy,
+  Astrid,
+  Bianca,
+  Brian,
+  Camila,
+  Carla,
+  Carmen,
+  Celine,
+  Chantal,
+  Conchita,
+  Cristiano,
+  Dora,
+  Emma,
+  Enrique,
+  Ewa,
+  Filiz,
+  Geraint,
+  Giorgio,
+  Gwyneth,
+  Hans,
+  Ines,
+  Ivy,
+  Jacek,
+  Jan,
+  Joanna,
+  Joey,
+  Justin,
+  Karl,
+  Kendra,
+  Kevin,
+  Kimberly,
+  Lea,
+  Liv,
+  Lotte,
+  Lucia,
+  Lupe,
+  Mads,
+  Maja,
+  Marlene,
+  Mathieu,
+  Matthew,
+  Maxim,
+  Mia,
+  Miguel,
+  Mizuki,
+  Naja,
+  Nicole,
+  Olivia,
+  Penelope,
+  Raveena,
+  Ricardo,
+  Ruben,
+  Russell,
+  Salli,
+  Seoyeon,
+  Takumi,
+  Tatyana,
+  Vicki,
+  Vitoria,
+  Zeina,
+  Zhiyu,
+  VoiceId'
+  #-}

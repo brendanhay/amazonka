@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ReportGroupStatusType where
+module Network.AWS.CodeBuild.Types.ReportGroupStatusType
+  ( ReportGroupStatusType
+      ( ReportGroupStatusType',
+        Active,
+        Deleting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReportGroupStatusType
-  = Active
-  | Deleting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReportGroupStatusType = ReportGroupStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReportGroupStatusType where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "deleting" -> pure Deleting
-      e ->
-        fromTextError $
-          "Failure parsing ReportGroupStatusType from value: '" <> e
-            <> "'. Accepted values: active, deleting"
+pattern Active :: ReportGroupStatusType
+pattern Active = ReportGroupStatusType' "ACTIVE"
 
-instance ToText ReportGroupStatusType where
-  toText = \case
-    Active -> "ACTIVE"
-    Deleting -> "DELETING"
+pattern Deleting :: ReportGroupStatusType
+pattern Deleting = ReportGroupStatusType' "DELETING"
 
-instance Hashable ReportGroupStatusType
-
-instance NFData ReportGroupStatusType
-
-instance ToByteString ReportGroupStatusType
-
-instance ToQuery ReportGroupStatusType
-
-instance ToHeader ReportGroupStatusType
-
-instance FromJSON ReportGroupStatusType where
-  parseJSON = parseJSONText "ReportGroupStatusType"
+{-# COMPLETE
+  Active,
+  Deleting,
+  ReportGroupStatusType'
+  #-}

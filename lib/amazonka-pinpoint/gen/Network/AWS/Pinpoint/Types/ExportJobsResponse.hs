@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ExportJobsResponse where
+module Network.AWS.Pinpoint.Types.ExportJobsResponse
+  ( ExportJobsResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkExportJobsResponse,
+
+    -- * Lenses
+    ejNextToken,
+    ejItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ExportJobResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.
 --
---
---
--- /See:/ 'exportJobsResponse' smart constructor.
+-- /See:/ 'mkExportJobsResponse' smart constructor.
 data ExportJobsResponse = ExportJobsResponse'
-  { _ejNextToken ::
-      !(Maybe Text),
-    _ejItem :: ![ExportJobResponse]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    item :: [ExportJobResponse]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ejNextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- * 'ejItem' - An array of responses, one for each export job that's associated with the application (Export Jobs resource) or segment (Segment Export Jobs resource).
-exportJobsResponse ::
+-- * 'item' - An array of responses, one for each export job that's associated with the application (Export Jobs resource) or segment (Segment Export Jobs resource).
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+mkExportJobsResponse ::
   ExportJobsResponse
-exportJobsResponse =
-  ExportJobsResponse' {_ejNextToken = Nothing, _ejItem = mempty}
+mkExportJobsResponse =
+  ExportJobsResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-ejNextToken :: Lens' ExportJobsResponse (Maybe Text)
-ejNextToken = lens _ejNextToken (\s a -> s {_ejNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ejNextToken :: Lens.Lens' ExportJobsResponse (Lude.Maybe Lude.Text)
+ejNextToken = Lens.lens (nextToken :: ExportJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ExportJobsResponse)
+{-# DEPRECATED ejNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of responses, one for each export job that's associated with the application (Export Jobs resource) or segment (Segment Export Jobs resource).
-ejItem :: Lens' ExportJobsResponse [ExportJobResponse]
-ejItem = lens _ejItem (\s a -> s {_ejItem = a}) . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ejItem :: Lens.Lens' ExportJobsResponse [ExportJobResponse]
+ejItem = Lens.lens (item :: ExportJobsResponse -> [ExportJobResponse]) (\s a -> s {item = a} :: ExportJobsResponse)
+{-# DEPRECATED ejItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON ExportJobsResponse where
+instance Lude.FromJSON ExportJobsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExportJobsResponse"
       ( \x ->
           ExportJobsResponse'
-            <$> (x .:? "NextToken") <*> (x .:? "Item" .!= mempty)
+            Lude.<$> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
       )
-
-instance Hashable ExportJobsResponse
-
-instance NFData ExportJobsResponse

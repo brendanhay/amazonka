@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,29 +7,42 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Rec601Settings where
+module Network.AWS.MediaLive.Types.Rec601Settings
+  ( Rec601Settings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRec601Settings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Rec601 Settings
 --
--- /See:/ 'rec601Settings' smart constructor.
+-- /See:/ 'mkRec601Settings' smart constructor.
 data Rec601Settings = Rec601Settings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Rec601Settings' with the minimum fields required to make a request.
-rec601Settings ::
+mkRec601Settings ::
   Rec601Settings
-rec601Settings = Rec601Settings'
+mkRec601Settings = Rec601Settings'
 
-instance FromJSON Rec601Settings where
+instance Lude.FromJSON Rec601Settings where
   parseJSON =
-    withObject "Rec601Settings" (\x -> pure Rec601Settings')
+    Lude.withObject
+      "Rec601Settings"
+      (\x -> Lude.pure Rec601Settings')
 
-instance Hashable Rec601Settings
-
-instance NFData Rec601Settings
-
-instance ToJSON Rec601Settings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON Rec601Settings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

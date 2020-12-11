@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsItemFilter where
+module Network.AWS.SSM.Types.OpsItemFilter
+  ( OpsItemFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOpsItemFilter,
+
+    -- * Lenses
+    oifKey,
+    oifValues,
+    oifOperator,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.OpsItemFilterKey
 import Network.AWS.SSM.Types.OpsItemFilterOperator
 
 -- | Describes an OpsItem filter.
 --
---
---
--- /See:/ 'opsItemFilter' smart constructor.
+-- /See:/ 'mkOpsItemFilter' smart constructor.
 data OpsItemFilter = OpsItemFilter'
-  { _oifKey :: !OpsItemFilterKey,
-    _oifValues :: ![Text],
-    _oifOperator :: !OpsItemFilterOperator
+  { key :: OpsItemFilterKey,
+    values :: [Lude.Text],
+    operator :: OpsItemFilterOperator
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsItemFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oifKey' - The name of the filter.
---
--- * 'oifValues' - The filter value.
---
--- * 'oifOperator' - The operator used by the filter call.
-opsItemFilter ::
-  -- | 'oifKey'
+-- * 'key' - The name of the filter.
+-- * 'operator' - The operator used by the filter call.
+-- * 'values' - The filter value.
+mkOpsItemFilter ::
+  -- | 'key'
   OpsItemFilterKey ->
-  -- | 'oifOperator'
+  -- | 'operator'
   OpsItemFilterOperator ->
   OpsItemFilter
-opsItemFilter pKey_ pOperator_ =
+mkOpsItemFilter pKey_ pOperator_ =
   OpsItemFilter'
-    { _oifKey = pKey_,
-      _oifValues = mempty,
-      _oifOperator = pOperator_
+    { key = pKey_,
+      values = Lude.mempty,
+      operator = pOperator_
     }
 
 -- | The name of the filter.
-oifKey :: Lens' OpsItemFilter OpsItemFilterKey
-oifKey = lens _oifKey (\s a -> s {_oifKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oifKey :: Lens.Lens' OpsItemFilter OpsItemFilterKey
+oifKey = Lens.lens (key :: OpsItemFilter -> OpsItemFilterKey) (\s a -> s {key = a} :: OpsItemFilter)
+{-# DEPRECATED oifKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The filter value.
-oifValues :: Lens' OpsItemFilter [Text]
-oifValues = lens _oifValues (\s a -> s {_oifValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oifValues :: Lens.Lens' OpsItemFilter [Lude.Text]
+oifValues = Lens.lens (values :: OpsItemFilter -> [Lude.Text]) (\s a -> s {values = a} :: OpsItemFilter)
+{-# DEPRECATED oifValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The operator used by the filter call.
-oifOperator :: Lens' OpsItemFilter OpsItemFilterOperator
-oifOperator = lens _oifOperator (\s a -> s {_oifOperator = a})
+--
+-- /Note:/ Consider using 'operator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oifOperator :: Lens.Lens' OpsItemFilter OpsItemFilterOperator
+oifOperator = Lens.lens (operator :: OpsItemFilter -> OpsItemFilterOperator) (\s a -> s {operator = a} :: OpsItemFilter)
+{-# DEPRECATED oifOperator "Use generic-lens or generic-optics with 'operator' instead." #-}
 
-instance Hashable OpsItemFilter
-
-instance NFData OpsItemFilter
-
-instance ToJSON OpsItemFilter where
+instance Lude.ToJSON OpsItemFilter where
   toJSON OpsItemFilter' {..} =
-    object
-      ( catMaybes
-          [ Just ("Key" .= _oifKey),
-            Just ("Values" .= _oifValues),
-            Just ("Operator" .= _oifOperator)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Operator" Lude..= operator)
           ]
       )

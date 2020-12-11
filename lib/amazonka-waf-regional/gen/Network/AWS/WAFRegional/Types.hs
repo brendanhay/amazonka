@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types
-  ( -- * Service Configuration
-    wAFRegional,
+  ( -- * Service configuration
+    wAFRegionalService,
 
     -- * Errors
 
@@ -61,8 +59,8 @@ module Network.AWS.WAFRegional.Types
     WafRuleType (..),
 
     -- * ActivatedRule
-    ActivatedRule,
-    activatedRule,
+    ActivatedRule (..),
+    mkActivatedRule,
     arOverrideAction,
     arAction,
     arExcludedRules,
@@ -71,77 +69,77 @@ module Network.AWS.WAFRegional.Types
     arRuleId,
 
     -- * ByteMatchSet
-    ByteMatchSet,
-    byteMatchSet,
+    ByteMatchSet (..),
+    mkByteMatchSet,
     bmsName,
     bmsByteMatchSetId,
     bmsByteMatchTuples,
 
     -- * ByteMatchSetSummary
-    ByteMatchSetSummary,
-    byteMatchSetSummary,
+    ByteMatchSetSummary (..),
+    mkByteMatchSetSummary,
     bmssByteMatchSetId,
     bmssName,
 
     -- * ByteMatchSetUpdate
-    ByteMatchSetUpdate,
-    byteMatchSetUpdate,
+    ByteMatchSetUpdate (..),
+    mkByteMatchSetUpdate,
     bmsuAction,
     bmsuByteMatchTuple,
 
     -- * ByteMatchTuple
-    ByteMatchTuple,
-    byteMatchTuple,
+    ByteMatchTuple (..),
+    mkByteMatchTuple,
     bmtFieldToMatch,
     bmtTargetString,
     bmtTextTransformation,
     bmtPositionalConstraint,
 
     -- * ExcludedRule
-    ExcludedRule,
-    excludedRule,
+    ExcludedRule (..),
+    mkExcludedRule,
     erRuleId,
 
     -- * FieldToMatch
-    FieldToMatch,
-    fieldToMatch,
+    FieldToMatch (..),
+    mkFieldToMatch,
     ftmData,
     ftmType,
 
     -- * GeoMatchConstraint
-    GeoMatchConstraint,
-    geoMatchConstraint,
+    GeoMatchConstraint (..),
+    mkGeoMatchConstraint,
     gmcType,
     gmcValue,
 
     -- * GeoMatchSet
-    GeoMatchSet,
-    geoMatchSet,
+    GeoMatchSet (..),
+    mkGeoMatchSet,
     gmsName,
     gmsGeoMatchSetId,
     gmsGeoMatchConstraints,
 
     -- * GeoMatchSetSummary
-    GeoMatchSetSummary,
-    geoMatchSetSummary,
+    GeoMatchSetSummary (..),
+    mkGeoMatchSetSummary,
     gmssGeoMatchSetId,
     gmssName,
 
     -- * GeoMatchSetUpdate
-    GeoMatchSetUpdate,
-    geoMatchSetUpdate,
+    GeoMatchSetUpdate (..),
+    mkGeoMatchSetUpdate,
     gmsuAction,
     gmsuGeoMatchConstraint,
 
     -- * HTTPHeader
-    HTTPHeader,
-    hTTPHeader,
+    HTTPHeader (..),
+    mkHTTPHeader,
     httphValue,
     httphName,
 
     -- * HTTPRequest
-    HTTPRequest,
-    hTTPRequest,
+    HTTPRequest (..),
+    mkHTTPRequest,
     httprHTTPVersion,
     httprCountry,
     httprURI,
@@ -150,47 +148,47 @@ module Network.AWS.WAFRegional.Types
     httprClientIP,
 
     -- * IPSet
-    IPSet,
-    ipSet,
+    IPSet (..),
+    mkIPSet,
     isName,
     isIPSetId,
     isIPSetDescriptors,
 
     -- * IPSetDescriptor
-    IPSetDescriptor,
-    ipSetDescriptor,
+    IPSetDescriptor (..),
+    mkIPSetDescriptor,
     isdType,
     isdValue,
 
     -- * IPSetSummary
-    IPSetSummary,
-    ipSetSummary,
+    IPSetSummary (..),
+    mkIPSetSummary,
     issIPSetId,
     issName,
 
     -- * IPSetUpdate
-    IPSetUpdate,
-    ipSetUpdate,
+    IPSetUpdate (..),
+    mkIPSetUpdate,
     isuAction,
     isuIPSetDescriptor,
 
     -- * LoggingConfiguration
-    LoggingConfiguration,
-    loggingConfiguration,
+    LoggingConfiguration (..),
+    mkLoggingConfiguration,
     lcRedactedFields,
     lcResourceARN,
     lcLogDestinationConfigs,
 
     -- * Predicate
-    Predicate,
-    predicate,
+    Predicate (..),
+    mkPredicate,
     pNegated,
     pType,
     pDataId,
 
     -- * RateBasedRule
-    RateBasedRule,
-    rateBasedRule,
+    RateBasedRule (..),
+    mkRateBasedRule,
     rbrMetricName,
     rbrName,
     rbrRuleId,
@@ -199,92 +197,92 @@ module Network.AWS.WAFRegional.Types
     rbrRateLimit,
 
     -- * RegexMatchSet
-    RegexMatchSet,
-    regexMatchSet,
+    RegexMatchSet (..),
+    mkRegexMatchSet,
     rmsName,
     rmsRegexMatchTuples,
     rmsRegexMatchSetId,
 
     -- * RegexMatchSetSummary
-    RegexMatchSetSummary,
-    regexMatchSetSummary,
+    RegexMatchSetSummary (..),
+    mkRegexMatchSetSummary,
     rmssRegexMatchSetId,
     rmssName,
 
     -- * RegexMatchSetUpdate
-    RegexMatchSetUpdate,
-    regexMatchSetUpdate,
+    RegexMatchSetUpdate (..),
+    mkRegexMatchSetUpdate,
     rmsuAction,
     rmsuRegexMatchTuple,
 
     -- * RegexMatchTuple
-    RegexMatchTuple,
-    regexMatchTuple,
+    RegexMatchTuple (..),
+    mkRegexMatchTuple,
     rmtFieldToMatch,
     rmtTextTransformation,
     rmtRegexPatternSetId,
 
     -- * RegexPatternSet
-    RegexPatternSet,
-    regexPatternSet,
+    RegexPatternSet (..),
+    mkRegexPatternSet,
     rpsName,
     rpsRegexPatternSetId,
     rpsRegexPatternStrings,
 
     -- * RegexPatternSetSummary
-    RegexPatternSetSummary,
-    regexPatternSetSummary,
+    RegexPatternSetSummary (..),
+    mkRegexPatternSetSummary,
     rpssRegexPatternSetId,
     rpssName,
 
     -- * RegexPatternSetUpdate
-    RegexPatternSetUpdate,
-    regexPatternSetUpdate,
+    RegexPatternSetUpdate (..),
+    mkRegexPatternSetUpdate,
     rpsuAction,
     rpsuRegexPatternString,
 
     -- * Rule
-    Rule,
-    rule,
+    Rule (..),
+    mkRule,
     rMetricName,
     rName,
     rRuleId,
     rPredicates,
 
     -- * RuleGroup
-    RuleGroup,
-    ruleGroup,
+    RuleGroup (..),
+    mkRuleGroup,
     rgMetricName,
     rgName,
     rgRuleGroupId,
 
     -- * RuleGroupSummary
-    RuleGroupSummary,
-    ruleGroupSummary,
+    RuleGroupSummary (..),
+    mkRuleGroupSummary,
     rgsRuleGroupId,
     rgsName,
 
     -- * RuleGroupUpdate
-    RuleGroupUpdate,
-    ruleGroupUpdate,
+    RuleGroupUpdate (..),
+    mkRuleGroupUpdate,
     rguAction,
     rguActivatedRule,
 
     -- * RuleSummary
-    RuleSummary,
-    ruleSummary,
+    RuleSummary (..),
+    mkRuleSummary,
     rsRuleId,
     rsName,
 
     -- * RuleUpdate
-    RuleUpdate,
-    ruleUpdate,
+    RuleUpdate (..),
+    mkRuleUpdate,
     ruAction,
     ruPredicate,
 
     -- * SampledHTTPRequest
-    SampledHTTPRequest,
-    sampledHTTPRequest,
+    SampledHTTPRequest (..),
+    mkSampledHTTPRequest,
     shttprRuleWithinRuleGroup,
     shttprAction,
     shttprTimestamp,
@@ -292,95 +290,95 @@ module Network.AWS.WAFRegional.Types
     shttprWeight,
 
     -- * SizeConstraint
-    SizeConstraint,
-    sizeConstraint,
+    SizeConstraint (..),
+    mkSizeConstraint,
     scFieldToMatch,
     scTextTransformation,
     scComparisonOperator,
     scSize,
 
     -- * SizeConstraintSet
-    SizeConstraintSet,
-    sizeConstraintSet,
+    SizeConstraintSet (..),
+    mkSizeConstraintSet,
     scsName,
     scsSizeConstraintSetId,
     scsSizeConstraints,
 
     -- * SizeConstraintSetSummary
-    SizeConstraintSetSummary,
-    sizeConstraintSetSummary,
+    SizeConstraintSetSummary (..),
+    mkSizeConstraintSetSummary,
     scssSizeConstraintSetId,
     scssName,
 
     -- * SizeConstraintSetUpdate
-    SizeConstraintSetUpdate,
-    sizeConstraintSetUpdate,
+    SizeConstraintSetUpdate (..),
+    mkSizeConstraintSetUpdate,
     scsuAction,
     scsuSizeConstraint,
 
     -- * SqlInjectionMatchSet
-    SqlInjectionMatchSet,
-    sqlInjectionMatchSet,
+    SqlInjectionMatchSet (..),
+    mkSqlInjectionMatchSet,
     simsName,
     simsSqlInjectionMatchSetId,
     simsSqlInjectionMatchTuples,
 
     -- * SqlInjectionMatchSetSummary
-    SqlInjectionMatchSetSummary,
-    sqlInjectionMatchSetSummary,
+    SqlInjectionMatchSetSummary (..),
+    mkSqlInjectionMatchSetSummary,
     simssSqlInjectionMatchSetId,
     simssName,
 
     -- * SqlInjectionMatchSetUpdate
-    SqlInjectionMatchSetUpdate,
-    sqlInjectionMatchSetUpdate,
+    SqlInjectionMatchSetUpdate (..),
+    mkSqlInjectionMatchSetUpdate,
     simsuAction,
     simsuSqlInjectionMatchTuple,
 
     -- * SqlInjectionMatchTuple
-    SqlInjectionMatchTuple,
-    sqlInjectionMatchTuple,
+    SqlInjectionMatchTuple (..),
+    mkSqlInjectionMatchTuple,
     simtFieldToMatch,
     simtTextTransformation,
 
     -- * SubscribedRuleGroupSummary
-    SubscribedRuleGroupSummary,
-    subscribedRuleGroupSummary,
+    SubscribedRuleGroupSummary (..),
+    mkSubscribedRuleGroupSummary,
     srgsRuleGroupId,
     srgsName,
     srgsMetricName,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * TagInfoForResource
-    TagInfoForResource,
-    tagInfoForResource,
+    TagInfoForResource (..),
+    mkTagInfoForResource,
     tifrTagList,
     tifrResourceARN,
 
     -- * TimeWindow
-    TimeWindow,
-    timeWindow,
+    TimeWindow (..),
+    mkTimeWindow,
     twStartTime,
     twEndTime,
 
     -- * WafAction
-    WafAction,
-    wafAction,
+    WafAction (..),
+    mkWafAction,
     waType,
 
     -- * WafOverrideAction
-    WafOverrideAction,
-    wafOverrideAction,
+    WafOverrideAction (..),
+    mkWafOverrideAction,
     woaType,
 
     -- * WebACL
-    WebACL,
-    webACL,
+    WebACL (..),
+    mkWebACL,
     waMetricName,
     waName,
     waWebACLARN,
@@ -389,47 +387,47 @@ module Network.AWS.WAFRegional.Types
     waRules,
 
     -- * WebACLSummary
-    WebACLSummary,
-    webACLSummary,
+    WebACLSummary (..),
+    mkWebACLSummary,
     wasWebACLId,
     wasName,
 
     -- * WebACLUpdate
-    WebACLUpdate,
-    webACLUpdate,
+    WebACLUpdate (..),
+    mkWebACLUpdate,
     wauAction,
     wauActivatedRule,
 
     -- * XSSMatchSet
-    XSSMatchSet,
-    xssMatchSet,
+    XSSMatchSet (..),
+    mkXSSMatchSet,
     xmsName,
     xmsXSSMatchSetId,
     xmsXSSMatchTuples,
 
     -- * XSSMatchSetSummary
-    XSSMatchSetSummary,
-    xssMatchSetSummary,
+    XSSMatchSetSummary (..),
+    mkXSSMatchSetSummary,
     xmssXSSMatchSetId,
     xmssName,
 
     -- * XSSMatchSetUpdate
-    XSSMatchSetUpdate,
-    xssMatchSetUpdate,
+    XSSMatchSetUpdate (..),
+    mkXSSMatchSetUpdate,
     xmsuAction,
     xmsuXSSMatchTuple,
 
     -- * XSSMatchTuple
-    XSSMatchTuple,
-    xssMatchTuple,
+    XSSMatchTuple (..),
+    mkXSSMatchTuple,
     xmtFieldToMatch,
     xmtTextTransformation,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.WAFRegional.Types.ActivatedRule
 import Network.AWS.WAFRegional.Types.ByteMatchSet
 import Network.AWS.WAFRegional.Types.ByteMatchSetSummary
@@ -502,43 +500,55 @@ import Network.AWS.WAFRegional.Types.XSSMatchSetUpdate
 import Network.AWS.WAFRegional.Types.XSSMatchTuple
 
 -- | API version @2016-11-28@ of the Amazon WAF Regional SDK configuration.
-wAFRegional :: Service
-wAFRegional =
-  Service
-    { _svcAbbrev = "WAFRegional",
-      _svcSigner = v4,
-      _svcPrefix = "waf-regional",
-      _svcVersion = "2016-11-28",
-      _svcEndpoint = defaultEndpoint wAFRegional,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "WAFRegional",
-      _svcRetry = retry
+wAFRegionalService :: Lude.Service
+wAFRegionalService =
+  Lude.Service
+    { Lude._svcAbbrev = "WAFRegional",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "waf-regional",
+      Lude._svcVersion = "2016-11-28",
+      Lude._svcEndpoint = Lude.defaultEndpoint wAFRegionalService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "WAFRegional",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

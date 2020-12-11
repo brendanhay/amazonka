@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,129 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.PartOfSpeechTagType where
+module Network.AWS.Comprehend.Types.PartOfSpeechTagType
+  ( PartOfSpeechTagType
+      ( PartOfSpeechTagType',
+        Adj,
+        Adp,
+        Adv,
+        Aux,
+        Cconj,
+        Conj,
+        Det,
+        Intj,
+        Noun,
+        Num,
+        O,
+        Part,
+        Pron,
+        Propn,
+        Punct,
+        Sconj,
+        Sym,
+        Verb
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PartOfSpeechTagType
-  = Adj
-  | Adp
-  | Adv
-  | Aux
-  | Cconj
-  | Conj
-  | Det
-  | Intj
-  | Noun
-  | Num
-  | O
-  | Part
-  | Pron
-  | Propn
-  | Punct
-  | Sconj
-  | Sym
-  | Verb
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PartOfSpeechTagType = PartOfSpeechTagType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PartOfSpeechTagType where
-  parser =
-    takeLowerText >>= \case
-      "adj" -> pure Adj
-      "adp" -> pure Adp
-      "adv" -> pure Adv
-      "aux" -> pure Aux
-      "cconj" -> pure Cconj
-      "conj" -> pure Conj
-      "det" -> pure Det
-      "intj" -> pure Intj
-      "noun" -> pure Noun
-      "num" -> pure Num
-      "o" -> pure O
-      "part" -> pure Part
-      "pron" -> pure Pron
-      "propn" -> pure Propn
-      "punct" -> pure Punct
-      "sconj" -> pure Sconj
-      "sym" -> pure Sym
-      "verb" -> pure Verb
-      e ->
-        fromTextError $
-          "Failure parsing PartOfSpeechTagType from value: '" <> e
-            <> "'. Accepted values: adj, adp, adv, aux, cconj, conj, det, intj, noun, num, o, part, pron, propn, punct, sconj, sym, verb"
+pattern Adj :: PartOfSpeechTagType
+pattern Adj = PartOfSpeechTagType' "ADJ"
 
-instance ToText PartOfSpeechTagType where
-  toText = \case
-    Adj -> "ADJ"
-    Adp -> "ADP"
-    Adv -> "ADV"
-    Aux -> "AUX"
-    Cconj -> "CCONJ"
-    Conj -> "CONJ"
-    Det -> "DET"
-    Intj -> "INTJ"
-    Noun -> "NOUN"
-    Num -> "NUM"
-    O -> "O"
-    Part -> "PART"
-    Pron -> "PRON"
-    Propn -> "PROPN"
-    Punct -> "PUNCT"
-    Sconj -> "SCONJ"
-    Sym -> "SYM"
-    Verb -> "VERB"
+pattern Adp :: PartOfSpeechTagType
+pattern Adp = PartOfSpeechTagType' "ADP"
 
-instance Hashable PartOfSpeechTagType
+pattern Adv :: PartOfSpeechTagType
+pattern Adv = PartOfSpeechTagType' "ADV"
 
-instance NFData PartOfSpeechTagType
+pattern Aux :: PartOfSpeechTagType
+pattern Aux = PartOfSpeechTagType' "AUX"
 
-instance ToByteString PartOfSpeechTagType
+pattern Cconj :: PartOfSpeechTagType
+pattern Cconj = PartOfSpeechTagType' "CCONJ"
 
-instance ToQuery PartOfSpeechTagType
+pattern Conj :: PartOfSpeechTagType
+pattern Conj = PartOfSpeechTagType' "CONJ"
 
-instance ToHeader PartOfSpeechTagType
+pattern Det :: PartOfSpeechTagType
+pattern Det = PartOfSpeechTagType' "DET"
 
-instance FromJSON PartOfSpeechTagType where
-  parseJSON = parseJSONText "PartOfSpeechTagType"
+pattern Intj :: PartOfSpeechTagType
+pattern Intj = PartOfSpeechTagType' "INTJ"
+
+pattern Noun :: PartOfSpeechTagType
+pattern Noun = PartOfSpeechTagType' "NOUN"
+
+pattern Num :: PartOfSpeechTagType
+pattern Num = PartOfSpeechTagType' "NUM"
+
+pattern O :: PartOfSpeechTagType
+pattern O = PartOfSpeechTagType' "O"
+
+pattern Part :: PartOfSpeechTagType
+pattern Part = PartOfSpeechTagType' "PART"
+
+pattern Pron :: PartOfSpeechTagType
+pattern Pron = PartOfSpeechTagType' "PRON"
+
+pattern Propn :: PartOfSpeechTagType
+pattern Propn = PartOfSpeechTagType' "PROPN"
+
+pattern Punct :: PartOfSpeechTagType
+pattern Punct = PartOfSpeechTagType' "PUNCT"
+
+pattern Sconj :: PartOfSpeechTagType
+pattern Sconj = PartOfSpeechTagType' "SCONJ"
+
+pattern Sym :: PartOfSpeechTagType
+pattern Sym = PartOfSpeechTagType' "SYM"
+
+pattern Verb :: PartOfSpeechTagType
+pattern Verb = PartOfSpeechTagType' "VERB"
+
+{-# COMPLETE
+  Adj,
+  Adp,
+  Adv,
+  Aux,
+  Cconj,
+  Conj,
+  Det,
+  Intj,
+  Noun,
+  Num,
+  O,
+  Part,
+  Pron,
+  Propn,
+  Punct,
+  Sconj,
+  Sym,
+  Verb,
+  PartOfSpeechTagType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.AuthMechanismValue where
+module Network.AWS.DMS.Types.AuthMechanismValue
+  ( AuthMechanismValue
+      ( AuthMechanismValue',
+        AMVDefault,
+        AMVMongodbCr,
+        AMVScramSha1
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthMechanismValue
-  = AMVDefault
-  | AMVMongodbCr
-  | AMVScramSha1
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthMechanismValue = AuthMechanismValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthMechanismValue where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure AMVDefault
-      "mongodb_cr" -> pure AMVMongodbCr
-      "scram_sha_1" -> pure AMVScramSha1
-      e ->
-        fromTextError $
-          "Failure parsing AuthMechanismValue from value: '" <> e
-            <> "'. Accepted values: default, mongodb_cr, scram_sha_1"
+pattern AMVDefault :: AuthMechanismValue
+pattern AMVDefault = AuthMechanismValue' "default"
 
-instance ToText AuthMechanismValue where
-  toText = \case
-    AMVDefault -> "default"
-    AMVMongodbCr -> "mongodb_cr"
-    AMVScramSha1 -> "scram_sha_1"
+pattern AMVMongodbCr :: AuthMechanismValue
+pattern AMVMongodbCr = AuthMechanismValue' "mongodb_cr"
 
-instance Hashable AuthMechanismValue
+pattern AMVScramSha1 :: AuthMechanismValue
+pattern AMVScramSha1 = AuthMechanismValue' "scram_sha_1"
 
-instance NFData AuthMechanismValue
-
-instance ToByteString AuthMechanismValue
-
-instance ToQuery AuthMechanismValue
-
-instance ToHeader AuthMechanismValue
-
-instance ToJSON AuthMechanismValue where
-  toJSON = toJSONText
-
-instance FromJSON AuthMechanismValue where
-  parseJSON = parseJSONText "AuthMechanismValue"
+{-# COMPLETE
+  AMVDefault,
+  AMVMongodbCr,
+  AMVScramSha1,
+  AuthMechanismValue'
+  #-}

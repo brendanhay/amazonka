@@ -14,29 +14,28 @@
 -- __Amazon GameLift Service__
 --
 -- GameLift provides solutions for hosting session-based multiplayer game servers in the cloud, including tools for deploying, operating, and scaling game servers. Built on AWS global computing infrastructure, GameLift helps you deliver high-performance, high-reliability, low-cost game servers while dynamically scaling your resource usage to meet player demand.
---
 -- __About GameLift solutions__
---
 -- Get more information on these GameLift solutions in the <http://docs.aws.amazon.com/gamelift/latest/developerguide/ Amazon GameLift Developer Guide> .
 --
 --     * Managed GameLift -- GameLift offers a fully managed service to set up and maintain computing machines for hosting, manage game session and player session life cycle, and handle security, storage, and performance tracking. You can use automatic scaling tools to balance hosting costs against meeting player demand., configure your game session management to minimize player latency, or add FlexMatch for matchmaking.
 --
+--
 --     * Managed GameLift with Realtime Servers – With GameLift Realtime Servers, you can quickly configure and set up game servers for your game. Realtime Servers provides a game server framework with core Amazon GameLift infrastructure already built in.
+--
 --
 --     * GameLift FleetIQ – Use GameLift FleetIQ as a standalone feature while managing your own EC2 instances and Auto Scaling groups for game hosting. GameLift FleetIQ provides optimizations that make low-cost Spot Instances viable for game hosting.
 --
 --
---
 -- __About this API Reference__
---
 -- This reference guide describes the low-level service API for Amazon GameLift. You can find links to language-specific SDK guides and the AWS CLI reference with each operation and data type topic. Useful links:
 --
 --     * <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html GameLift API operations listed by tasks>
 --
+--
 --     * <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-components.html GameLift tools and resources>
 module Network.AWS.GameLift
-  ( -- * Service Configuration
-    gameLift,
+  ( -- * Service configuration
+    gameLiftService,
 
     -- * Errors
     -- $errors
@@ -431,15 +430,15 @@ module Network.AWS.GameLift
     SortOrder (..),
 
     -- ** AWSCredentials
-    AWSCredentials,
-    awsCredentials,
+    AWSCredentials (..),
+    mkAWSCredentials,
     acSecretAccessKey,
     acSessionToken,
     acAccessKeyId,
 
     -- ** Alias
-    Alias,
-    alias,
+    Alias (..),
+    mkAlias,
     aCreationTime,
     aLastUpdatedTime,
     aAliasId,
@@ -449,16 +448,16 @@ module Network.AWS.GameLift
     aDescription,
 
     -- ** AttributeValue
-    AttributeValue,
-    attributeValue,
+    AttributeValue (..),
+    mkAttributeValue,
     avSL,
     avSDM,
     avN,
     avS,
 
     -- ** Build
-    Build,
-    build,
+    Build (..),
+    mkBuild,
     bCreationTime,
     bStatus,
     bOperatingSystem,
@@ -469,19 +468,19 @@ module Network.AWS.GameLift
     bSizeOnDisk,
 
     -- ** CertificateConfiguration
-    CertificateConfiguration,
-    certificateConfiguration,
+    CertificateConfiguration (..),
+    mkCertificateConfiguration,
     ccCertificateType,
 
     -- ** DesiredPlayerSession
-    DesiredPlayerSession,
-    desiredPlayerSession,
+    DesiredPlayerSession (..),
+    mkDesiredPlayerSession,
     dpsPlayerData,
     dpsPlayerId,
 
     -- ** EC2InstanceCounts
-    EC2InstanceCounts,
-    ec2InstanceCounts,
+    EC2InstanceCounts (..),
+    mkEC2InstanceCounts,
     eicIdLE,
     eicTERMINATING,
     eicPENDING,
@@ -491,15 +490,15 @@ module Network.AWS.GameLift
     eicACTIVE,
 
     -- ** EC2InstanceLimit
-    EC2InstanceLimit,
-    ec2InstanceLimit,
+    EC2InstanceLimit (..),
+    mkEC2InstanceLimit,
     eilEC2InstanceType,
     eilCurrentInstances,
     eilInstanceLimit,
 
     -- ** Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eResourceId,
     ePreSignedLogURL,
     eEventTime,
@@ -508,8 +507,8 @@ module Network.AWS.GameLift
     eEventId,
 
     -- ** FleetAttributes
-    FleetAttributes,
-    fleetAttributes,
+    FleetAttributes (..),
+    mkFleetAttributes,
     faCreationTime,
     faStatus,
     faServerLaunchParameters,
@@ -535,15 +534,15 @@ module Network.AWS.GameLift
     faResourceCreationLimitPolicy,
 
     -- ** FleetCapacity
-    FleetCapacity,
-    fleetCapacity,
+    FleetCapacity (..),
+    mkFleetCapacity,
     fcInstanceType,
     fcFleetId,
     fcInstanceCounts,
 
     -- ** FleetUtilization
-    FleetUtilization,
-    fleetUtilization,
+    FleetUtilization (..),
+    mkFleetUtilization,
     fuActiveGameSessionCount,
     fuMaximumPlayerSessionCount,
     fuCurrentPlayerSessionCount,
@@ -551,14 +550,14 @@ module Network.AWS.GameLift
     fuActiveServerProcessCount,
 
     -- ** GameProperty
-    GameProperty,
-    gameProperty,
+    GameProperty (..),
+    mkGameProperty,
     gpKey,
     gpValue,
 
     -- ** GameServer
-    GameServer,
-    gameServer,
+    GameServer (..),
+    mkGameServer,
     gsInstanceId,
     gsLastClaimTime,
     gsGameServerGroupName,
@@ -572,8 +571,8 @@ module Network.AWS.GameLift
     gsGameServerGroupARN,
 
     -- ** GameServerGroup
-    GameServerGroup,
-    gameServerGroup,
+    GameServerGroup (..),
+    mkGameServerGroup,
     gsgCreationTime,
     gsgStatus,
     gsgInstanceDefinitions,
@@ -588,22 +587,22 @@ module Network.AWS.GameLift
     gsgRoleARN,
 
     -- ** GameServerGroupAutoScalingPolicy
-    GameServerGroupAutoScalingPolicy,
-    gameServerGroupAutoScalingPolicy,
+    GameServerGroupAutoScalingPolicy (..),
+    mkGameServerGroupAutoScalingPolicy,
     gsgaspEstimatedInstanceWarmup,
     gsgaspTargetTrackingConfiguration,
 
     -- ** GameServerInstance
-    GameServerInstance,
-    gameServerInstance,
+    GameServerInstance (..),
+    mkGameServerInstance,
     gsiInstanceId,
     gsiGameServerGroupName,
     gsiInstanceStatus,
     gsiGameServerGroupARN,
 
     -- ** GameSession
-    GameSession,
-    gameSession,
+    GameSession (..),
+    mkGameSession,
     gsCreationTime,
     gsStatus,
     gsGameProperties,
@@ -624,8 +623,8 @@ module Network.AWS.GameLift
     gsPort,
 
     -- ** GameSessionConnectionInfo
-    GameSessionConnectionInfo,
-    gameSessionConnectionInfo,
+    GameSessionConnectionInfo (..),
+    mkGameSessionConnectionInfo,
     gsciMatchedPlayerSessions,
     gsciIPAddress,
     gsciGameSessionARN,
@@ -633,14 +632,14 @@ module Network.AWS.GameLift
     gsciPort,
 
     -- ** GameSessionDetail
-    GameSessionDetail,
-    gameSessionDetail,
+    GameSessionDetail (..),
+    mkGameSessionDetail,
     gsdGameSession,
     gsdProtectionPolicy,
 
     -- ** GameSessionPlacement
-    GameSessionPlacement,
-    gameSessionPlacement,
+    GameSessionPlacement (..),
+    mkGameSessionPlacement,
     gspStatus,
     gspPlacementId,
     gspGameProperties,
@@ -661,8 +660,8 @@ module Network.AWS.GameLift
     gspPort,
 
     -- ** GameSessionQueue
-    GameSessionQueue,
-    gameSessionQueue,
+    GameSessionQueue (..),
+    mkGameSessionQueue,
     gsqGameSessionQueueARN,
     gsqPlayerLatencyPolicies,
     gsqTimeoutInSeconds,
@@ -670,21 +669,21 @@ module Network.AWS.GameLift
     gsqName,
 
     -- ** GameSessionQueueDestination
-    GameSessionQueueDestination,
-    gameSessionQueueDestination,
+    GameSessionQueueDestination (..),
+    mkGameSessionQueueDestination,
     gsqdDestinationARN,
 
     -- ** IPPermission
-    IPPermission,
-    ipPermission,
+    IPPermission (..),
+    mkIPPermission,
     ipFromPort,
     ipToPort,
     ipIPRange,
     ipProtocol,
 
     -- ** Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iCreationTime,
     iInstanceId,
     iStatus,
@@ -695,8 +694,8 @@ module Network.AWS.GameLift
     iDNSName,
 
     -- ** InstanceAccess
-    InstanceAccess,
-    instanceAccess,
+    InstanceAccess (..),
+    mkInstanceAccess,
     iaInstanceId,
     iaIPAddress,
     iaOperatingSystem,
@@ -704,33 +703,33 @@ module Network.AWS.GameLift
     iaFleetId,
 
     -- ** InstanceCredentials
-    InstanceCredentials,
-    instanceCredentials,
+    InstanceCredentials (..),
+    mkInstanceCredentials,
     icUserName,
     icSecret,
 
     -- ** InstanceDefinition
-    InstanceDefinition,
-    instanceDefinition,
+    InstanceDefinition (..),
+    mkInstanceDefinition,
     idWeightedCapacity,
     idInstanceType,
 
     -- ** LaunchTemplateSpecification
-    LaunchTemplateSpecification,
-    launchTemplateSpecification,
+    LaunchTemplateSpecification (..),
+    mkLaunchTemplateSpecification,
     ltsLaunchTemplateName,
     ltsLaunchTemplateId,
     ltsVersion,
 
     -- ** MatchedPlayerSession
-    MatchedPlayerSession,
-    matchedPlayerSession,
+    MatchedPlayerSession (..),
+    mkMatchedPlayerSession,
     mpsPlayerSessionId,
     mpsPlayerId,
 
     -- ** MatchmakingConfiguration
-    MatchmakingConfiguration,
-    matchmakingConfiguration,
+    MatchmakingConfiguration (..),
+    mkMatchmakingConfiguration,
     mcCreationTime,
     mcBackfillMode,
     mcGameProperties,
@@ -750,16 +749,16 @@ module Network.AWS.GameLift
     mcRuleSetARN,
 
     -- ** MatchmakingRuleSet
-    MatchmakingRuleSet,
-    matchmakingRuleSet,
+    MatchmakingRuleSet (..),
+    mkMatchmakingRuleSet,
     mrsCreationTime,
     mrsRuleSetName,
     mrsRuleSetARN,
     mrsRuleSetBody,
 
     -- ** MatchmakingTicket
-    MatchmakingTicket,
-    matchmakingTicket,
+    MatchmakingTicket (..),
+    mkMatchmakingTicket,
     mtStatus,
     mtConfigurationName,
     mtStartTime,
@@ -773,35 +772,35 @@ module Network.AWS.GameLift
     mtPlayers,
 
     -- ** PlacedPlayerSession
-    PlacedPlayerSession,
-    placedPlayerSession,
+    PlacedPlayerSession (..),
+    mkPlacedPlayerSession,
     ppsPlayerSessionId,
     ppsPlayerId,
 
     -- ** Player
-    Player,
-    player,
+    Player (..),
+    mkPlayer,
     pPlayerAttributes,
     pTeam,
     pPlayerId,
     pLatencyInMs,
 
     -- ** PlayerLatency
-    PlayerLatency,
-    playerLatency,
+    PlayerLatency (..),
+    mkPlayerLatency,
     plLatencyInMilliseconds,
     plRegionIdentifier,
     plPlayerId,
 
     -- ** PlayerLatencyPolicy
-    PlayerLatencyPolicy,
-    playerLatencyPolicy,
+    PlayerLatencyPolicy (..),
+    mkPlayerLatencyPolicy,
     plpPolicyDurationSeconds,
     plpMaximumIndividualPlayerLatencyMilliseconds,
 
     -- ** PlayerSession
-    PlayerSession,
-    playerSession,
+    PlayerSession (..),
+    mkPlayerSession,
     psCreationTime,
     psStatus,
     psIPAddress,
@@ -816,36 +815,36 @@ module Network.AWS.GameLift
     psPort,
 
     -- ** ResourceCreationLimitPolicy
-    ResourceCreationLimitPolicy,
-    resourceCreationLimitPolicy,
+    ResourceCreationLimitPolicy (..),
+    mkResourceCreationLimitPolicy,
     rclpNewGameSessionsPerCreator,
     rclpPolicyPeriodInMinutes,
 
     -- ** RoutingStrategy
-    RoutingStrategy,
-    routingStrategy,
+    RoutingStrategy (..),
+    mkRoutingStrategy,
     rsType,
     rsMessage,
     rsFleetId,
 
     -- ** RuntimeConfiguration
-    RuntimeConfiguration,
-    runtimeConfiguration,
+    RuntimeConfiguration (..),
+    mkRuntimeConfiguration,
     rcGameSessionActivationTimeoutSeconds,
     rcServerProcesses,
     rcMaxConcurrentGameSessionActivations,
 
     -- ** S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slBucket,
     slKey,
     slObjectVersion,
     slRoleARN,
 
     -- ** ScalingPolicy
-    ScalingPolicy,
-    scalingPolicy,
+    ScalingPolicy (..),
+    mkScalingPolicy,
     spStatus,
     spScalingAdjustmentType,
     spEvaluationPeriods,
@@ -859,8 +858,8 @@ module Network.AWS.GameLift
     spTargetConfiguration,
 
     -- ** Script
-    Script,
-    script,
+    Script (..),
+    mkScript,
     sCreationTime,
     sStorageLocation,
     sName,
@@ -870,31 +869,31 @@ module Network.AWS.GameLift
     sSizeOnDisk,
 
     -- ** ServerProcess
-    ServerProcess,
-    serverProcess,
+    ServerProcess (..),
+    mkServerProcess,
     spParameters,
     spLaunchPath,
     spConcurrentExecutions,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** TargetConfiguration
-    TargetConfiguration,
-    targetConfiguration,
+    TargetConfiguration (..),
+    mkTargetConfiguration,
     tcTargetValue,
 
     -- ** TargetTrackingConfiguration
-    TargetTrackingConfiguration,
-    targetTrackingConfiguration,
+    TargetTrackingConfiguration (..),
+    mkTargetTrackingConfiguration,
     ttcTargetValue,
 
     -- ** VPCPeeringAuthorization
-    VPCPeeringAuthorization,
-    vpcPeeringAuthorization,
+    VPCPeeringAuthorization (..),
+    mkVPCPeeringAuthorization,
     vpaCreationTime,
     vpaPeerVPCId,
     vpaPeerVPCAWSAccountId,
@@ -902,8 +901,8 @@ module Network.AWS.GameLift
     vpaExpirationTime,
 
     -- ** VPCPeeringConnection
-    VPCPeeringConnection,
-    vpcPeeringConnection,
+    VPCPeeringConnection (..),
+    mkVPCPeeringConnection,
     vpcVPCPeeringConnectionId,
     vpcStatus,
     vpcPeerVPCId,
@@ -913,10 +912,21 @@ module Network.AWS.GameLift
     vpcFleetId,
 
     -- ** VPCPeeringConnectionStatus
-    VPCPeeringConnectionStatus,
-    vpcPeeringConnectionStatus,
+    VPCPeeringConnectionStatus (..),
+    mkVPCPeeringConnectionStatus,
     vpcsCode,
     vpcsMessage,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -1012,6 +1022,7 @@ import Network.AWS.GameLift.UpdateRuntimeConfiguration
 import Network.AWS.GameLift.UpdateScript
 import Network.AWS.GameLift.ValidateMatchmakingRuleSet
 import Network.AWS.GameLift.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

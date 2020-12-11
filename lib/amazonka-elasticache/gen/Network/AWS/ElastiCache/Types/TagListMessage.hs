@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.TagListMessage where
+module Network.AWS.ElastiCache.Types.TagListMessage
+  ( TagListMessage (..),
+
+    -- * Smart constructor
+    mkTagListMessage,
+
+    -- * Lenses
+    tlmTagList,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output from the @AddTagsToResource@ , @ListTagsForResource@ , and @RemoveTagsFromResource@ operations.
 --
---
---
--- /See:/ 'tagListMessage' smart constructor.
+-- /See:/ 'mkTagListMessage' smart constructor.
 newtype TagListMessage = TagListMessage'
-  { _tlmTagList ::
-      Maybe [Tag]
+  { tagList ::
+      Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagListMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tlmTagList' - A list of cost allocation tags as key-value pairs.
-tagListMessage ::
+-- * 'tagList' - A list of cost allocation tags as key-value pairs.
+mkTagListMessage ::
   TagListMessage
-tagListMessage = TagListMessage' {_tlmTagList = Nothing}
+mkTagListMessage = TagListMessage' {tagList = Lude.Nothing}
 
 -- | A list of cost allocation tags as key-value pairs.
-tlmTagList :: Lens' TagListMessage [Tag]
-tlmTagList = lens _tlmTagList (\s a -> s {_tlmTagList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlmTagList :: Lens.Lens' TagListMessage (Lude.Maybe [Tag])
+tlmTagList = Lens.lens (tagList :: TagListMessage -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: TagListMessage)
+{-# DEPRECATED tlmTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
-instance FromXML TagListMessage where
+instance Lude.FromXML TagListMessage where
   parseXML x =
     TagListMessage'
-      <$> (x .@? "TagList" .!@ mempty >>= may (parseXMLList "Tag"))
-
-instance Hashable TagListMessage
-
-instance NFData TagListMessage
+      Lude.<$> ( x Lude..@? "TagList" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.CacheParameterGroupStatus where
+module Network.AWS.ElastiCache.Types.CacheParameterGroupStatus
+  ( CacheParameterGroupStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCacheParameterGroupStatus,
+
+    -- * Lenses
+    cpgsCacheParameterGroupName,
+    cpgsCacheNodeIdsToReboot,
+    cpgsParameterApplyStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status of the cache parameter group.
 --
---
---
--- /See:/ 'cacheParameterGroupStatus' smart constructor.
+-- /See:/ 'mkCacheParameterGroupStatus' smart constructor.
 data CacheParameterGroupStatus = CacheParameterGroupStatus'
-  { _cpgsCacheParameterGroupName ::
-      !(Maybe Text),
-    _cpgsCacheNodeIdsToReboot ::
-      !(Maybe [Text]),
-    _cpgsParameterApplyStatus ::
-      !(Maybe Text)
+  { cacheParameterGroupName ::
+      Lude.Maybe Lude.Text,
+    cacheNodeIdsToReboot ::
+      Lude.Maybe [Lude.Text],
+    parameterApplyStatus ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheParameterGroupStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpgsCacheParameterGroupName' - The name of the cache parameter group.
---
--- * 'cpgsCacheNodeIdsToReboot' - A list of the cache node IDs which need to be rebooted for parameter changes to be applied. A node ID is a numeric identifier (0001, 0002, etc.).
---
--- * 'cpgsParameterApplyStatus' - The status of parameter updates.
-cacheParameterGroupStatus ::
+-- * 'cacheNodeIdsToReboot' - A list of the cache node IDs which need to be rebooted for parameter changes to be applied. A node ID is a numeric identifier (0001, 0002, etc.).
+-- * 'cacheParameterGroupName' - The name of the cache parameter group.
+-- * 'parameterApplyStatus' - The status of parameter updates.
+mkCacheParameterGroupStatus ::
   CacheParameterGroupStatus
-cacheParameterGroupStatus =
+mkCacheParameterGroupStatus =
   CacheParameterGroupStatus'
-    { _cpgsCacheParameterGroupName =
-        Nothing,
-      _cpgsCacheNodeIdsToReboot = Nothing,
-      _cpgsParameterApplyStatus = Nothing
+    { cacheParameterGroupName =
+        Lude.Nothing,
+      cacheNodeIdsToReboot = Lude.Nothing,
+      parameterApplyStatus = Lude.Nothing
     }
 
 -- | The name of the cache parameter group.
-cpgsCacheParameterGroupName :: Lens' CacheParameterGroupStatus (Maybe Text)
-cpgsCacheParameterGroupName = lens _cpgsCacheParameterGroupName (\s a -> s {_cpgsCacheParameterGroupName = a})
+--
+-- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgsCacheParameterGroupName :: Lens.Lens' CacheParameterGroupStatus (Lude.Maybe Lude.Text)
+cpgsCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: CacheParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: CacheParameterGroupStatus)
+{-# DEPRECATED cpgsCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
 -- | A list of the cache node IDs which need to be rebooted for parameter changes to be applied. A node ID is a numeric identifier (0001, 0002, etc.).
-cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus [Text]
-cpgsCacheNodeIdsToReboot = lens _cpgsCacheNodeIdsToReboot (\s a -> s {_cpgsCacheNodeIdsToReboot = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cacheNodeIdsToReboot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgsCacheNodeIdsToReboot :: Lens.Lens' CacheParameterGroupStatus (Lude.Maybe [Lude.Text])
+cpgsCacheNodeIdsToReboot = Lens.lens (cacheNodeIdsToReboot :: CacheParameterGroupStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {cacheNodeIdsToReboot = a} :: CacheParameterGroupStatus)
+{-# DEPRECATED cpgsCacheNodeIdsToReboot "Use generic-lens or generic-optics with 'cacheNodeIdsToReboot' instead." #-}
 
 -- | The status of parameter updates.
-cpgsParameterApplyStatus :: Lens' CacheParameterGroupStatus (Maybe Text)
-cpgsParameterApplyStatus = lens _cpgsParameterApplyStatus (\s a -> s {_cpgsParameterApplyStatus = a})
+--
+-- /Note:/ Consider using 'parameterApplyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgsParameterApplyStatus :: Lens.Lens' CacheParameterGroupStatus (Lude.Maybe Lude.Text)
+cpgsParameterApplyStatus = Lens.lens (parameterApplyStatus :: CacheParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyStatus = a} :: CacheParameterGroupStatus)
+{-# DEPRECATED cpgsParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
 
-instance FromXML CacheParameterGroupStatus where
+instance Lude.FromXML CacheParameterGroupStatus where
   parseXML x =
     CacheParameterGroupStatus'
-      <$> (x .@? "CacheParameterGroupName")
-      <*> ( x .@? "CacheNodeIdsToReboot" .!@ mempty
-              >>= may (parseXMLList "CacheNodeId")
-          )
-      <*> (x .@? "ParameterApplyStatus")
-
-instance Hashable CacheParameterGroupStatus
-
-instance NFData CacheParameterGroupStatus
+      Lude.<$> (x Lude..@? "CacheParameterGroupName")
+      Lude.<*> ( x Lude..@? "CacheNodeIdsToReboot" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "CacheNodeId")
+               )
+      Lude.<*> (x Lude..@? "ParameterApplyStatus")

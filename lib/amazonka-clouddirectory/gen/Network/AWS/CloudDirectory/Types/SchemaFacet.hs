@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.SchemaFacet where
+module Network.AWS.CloudDirectory.Types.SchemaFacet
+  ( SchemaFacet (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSchemaFacet,
+
+    -- * Lenses
+    sfFacetName,
+    sfSchemaARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A facet.
 --
---
---
--- /See:/ 'schemaFacet' smart constructor.
+-- /See:/ 'mkSchemaFacet' smart constructor.
 data SchemaFacet = SchemaFacet'
-  { _sfFacetName :: !(Maybe Text),
-    _sfSchemaARN :: !(Maybe Text)
+  { facetName :: Lude.Maybe Lude.Text,
+    schemaARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaFacet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sfFacetName' - The name of the facet.
---
--- * 'sfSchemaARN' - The ARN of the schema that contains the facet with no minor component. See 'arns' and <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade> for a description of when to provide minor versions.
-schemaFacet ::
+-- * 'facetName' - The name of the facet.
+-- * 'schemaARN' - The ARN of the schema that contains the facet with no minor component. See 'arns' and <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade> for a description of when to provide minor versions.
+mkSchemaFacet ::
   SchemaFacet
-schemaFacet =
-  SchemaFacet' {_sfFacetName = Nothing, _sfSchemaARN = Nothing}
+mkSchemaFacet =
+  SchemaFacet' {facetName = Lude.Nothing, schemaARN = Lude.Nothing}
 
 -- | The name of the facet.
-sfFacetName :: Lens' SchemaFacet (Maybe Text)
-sfFacetName = lens _sfFacetName (\s a -> s {_sfFacetName = a})
+--
+-- /Note:/ Consider using 'facetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfFacetName :: Lens.Lens' SchemaFacet (Lude.Maybe Lude.Text)
+sfFacetName = Lens.lens (facetName :: SchemaFacet -> Lude.Maybe Lude.Text) (\s a -> s {facetName = a} :: SchemaFacet)
+{-# DEPRECATED sfFacetName "Use generic-lens or generic-optics with 'facetName' instead." #-}
 
 -- | The ARN of the schema that contains the facet with no minor component. See 'arns' and <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html In-Place Schema Upgrade> for a description of when to provide minor versions.
-sfSchemaARN :: Lens' SchemaFacet (Maybe Text)
-sfSchemaARN = lens _sfSchemaARN (\s a -> s {_sfSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfSchemaARN :: Lens.Lens' SchemaFacet (Lude.Maybe Lude.Text)
+sfSchemaARN = Lens.lens (schemaARN :: SchemaFacet -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: SchemaFacet)
+{-# DEPRECATED sfSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
-instance FromJSON SchemaFacet where
+instance Lude.FromJSON SchemaFacet where
   parseJSON =
-    withObject
+    Lude.withObject
       "SchemaFacet"
       ( \x ->
-          SchemaFacet' <$> (x .:? "FacetName") <*> (x .:? "SchemaArn")
+          SchemaFacet'
+            Lude.<$> (x Lude..:? "FacetName") Lude.<*> (x Lude..:? "SchemaArn")
       )
 
-instance Hashable SchemaFacet
-
-instance NFData SchemaFacet
-
-instance ToJSON SchemaFacet where
+instance Lude.ToJSON SchemaFacet where
   toJSON SchemaFacet' {..} =
-    object
-      ( catMaybes
-          [ ("FacetName" .=) <$> _sfFacetName,
-            ("SchemaArn" .=) <$> _sfSchemaARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FacetName" Lude..=) Lude.<$> facetName,
+            ("SchemaArn" Lude..=) Lude.<$> schemaARN
           ]
       )

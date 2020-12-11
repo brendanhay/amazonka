@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,160 +14,168 @@
 --
 -- Updates variant weight of one or more variants associated with an existing endpoint, or capacity of one variant associated with an existing endpoint. When it receives the request, Amazon SageMaker sets the endpoint status to @Updating@ . After updating the endpoint, it sets the status to @InService@ . To check the status of an endpoint, use the 'DescribeEndpoint' API.
 module Network.AWS.SageMaker.UpdateEndpointWeightsAndCapacities
-  ( -- * Creating a Request
-    updateEndpointWeightsAndCapacities,
-    UpdateEndpointWeightsAndCapacities,
+  ( -- * Creating a request
+    UpdateEndpointWeightsAndCapacities (..),
+    mkUpdateEndpointWeightsAndCapacities,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uewacEndpointName,
     uewacDesiredWeightsAndCapacities,
 
-    -- * Destructuring the Response
-    updateEndpointWeightsAndCapacitiesResponse,
-    UpdateEndpointWeightsAndCapacitiesResponse,
+    -- * Destructuring the response
+    UpdateEndpointWeightsAndCapacitiesResponse (..),
+    mkUpdateEndpointWeightsAndCapacitiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uewacrsResponseStatus,
     uewacrsEndpointARN,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'updateEndpointWeightsAndCapacities' smart constructor.
+-- | /See:/ 'mkUpdateEndpointWeightsAndCapacities' smart constructor.
 data UpdateEndpointWeightsAndCapacities = UpdateEndpointWeightsAndCapacities'
-  { _uewacEndpointName ::
-      !Text,
-    _uewacDesiredWeightsAndCapacities ::
-      !( List1
-           DesiredWeightAndCapacity
-       )
+  { endpointName ::
+      Lude.Text,
+    desiredWeightsAndCapacities ::
+      Lude.NonEmpty
+        DesiredWeightAndCapacity
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpointWeightsAndCapacities' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uewacEndpointName' - The name of an existing Amazon SageMaker endpoint.
---
--- * 'uewacDesiredWeightsAndCapacities' - An object that provides new capacity and weight values for a variant.
-updateEndpointWeightsAndCapacities ::
-  -- | 'uewacEndpointName'
-  Text ->
-  -- | 'uewacDesiredWeightsAndCapacities'
-  NonEmpty DesiredWeightAndCapacity ->
+-- * 'desiredWeightsAndCapacities' - An object that provides new capacity and weight values for a variant.
+-- * 'endpointName' - The name of an existing Amazon SageMaker endpoint.
+mkUpdateEndpointWeightsAndCapacities ::
+  -- | 'endpointName'
+  Lude.Text ->
+  -- | 'desiredWeightsAndCapacities'
+  Lude.NonEmpty DesiredWeightAndCapacity ->
   UpdateEndpointWeightsAndCapacities
-updateEndpointWeightsAndCapacities
+mkUpdateEndpointWeightsAndCapacities
   pEndpointName_
   pDesiredWeightsAndCapacities_ =
     UpdateEndpointWeightsAndCapacities'
-      { _uewacEndpointName =
+      { endpointName =
           pEndpointName_,
-        _uewacDesiredWeightsAndCapacities =
-          _List1 # pDesiredWeightsAndCapacities_
+        desiredWeightsAndCapacities = pDesiredWeightsAndCapacities_
       }
 
 -- | The name of an existing Amazon SageMaker endpoint.
-uewacEndpointName :: Lens' UpdateEndpointWeightsAndCapacities Text
-uewacEndpointName = lens _uewacEndpointName (\s a -> s {_uewacEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uewacEndpointName :: Lens.Lens' UpdateEndpointWeightsAndCapacities Lude.Text
+uewacEndpointName = Lens.lens (endpointName :: UpdateEndpointWeightsAndCapacities -> Lude.Text) (\s a -> s {endpointName = a} :: UpdateEndpointWeightsAndCapacities)
+{-# DEPRECATED uewacEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | An object that provides new capacity and weight values for a variant.
-uewacDesiredWeightsAndCapacities :: Lens' UpdateEndpointWeightsAndCapacities (NonEmpty DesiredWeightAndCapacity)
-uewacDesiredWeightsAndCapacities = lens _uewacDesiredWeightsAndCapacities (\s a -> s {_uewacDesiredWeightsAndCapacities = a}) . _List1
+--
+-- /Note:/ Consider using 'desiredWeightsAndCapacities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uewacDesiredWeightsAndCapacities :: Lens.Lens' UpdateEndpointWeightsAndCapacities (Lude.NonEmpty DesiredWeightAndCapacity)
+uewacDesiredWeightsAndCapacities = Lens.lens (desiredWeightsAndCapacities :: UpdateEndpointWeightsAndCapacities -> Lude.NonEmpty DesiredWeightAndCapacity) (\s a -> s {desiredWeightsAndCapacities = a} :: UpdateEndpointWeightsAndCapacities)
+{-# DEPRECATED uewacDesiredWeightsAndCapacities "Use generic-lens or generic-optics with 'desiredWeightsAndCapacities' instead." #-}
 
-instance AWSRequest UpdateEndpointWeightsAndCapacities where
+instance Lude.AWSRequest UpdateEndpointWeightsAndCapacities where
   type
     Rs UpdateEndpointWeightsAndCapacities =
       UpdateEndpointWeightsAndCapacitiesResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateEndpointWeightsAndCapacitiesResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "EndpointArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "EndpointArn")
       )
 
-instance Hashable UpdateEndpointWeightsAndCapacities
-
-instance NFData UpdateEndpointWeightsAndCapacities
-
-instance ToHeaders UpdateEndpointWeightsAndCapacities where
+instance Lude.ToHeaders UpdateEndpointWeightsAndCapacities where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.UpdateEndpointWeightsAndCapacities" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "SageMaker.UpdateEndpointWeightsAndCapacities" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateEndpointWeightsAndCapacities where
+instance Lude.ToJSON UpdateEndpointWeightsAndCapacities where
   toJSON UpdateEndpointWeightsAndCapacities' {..} =
-    object
-      ( catMaybes
-          [ Just ("EndpointName" .= _uewacEndpointName),
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("EndpointName" Lude..= endpointName),
+            Lude.Just
               ( "DesiredWeightsAndCapacities"
-                  .= _uewacDesiredWeightsAndCapacities
+                  Lude..= desiredWeightsAndCapacities
               )
           ]
       )
 
-instance ToPath UpdateEndpointWeightsAndCapacities where
-  toPath = const "/"
+instance Lude.ToPath UpdateEndpointWeightsAndCapacities where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateEndpointWeightsAndCapacities where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateEndpointWeightsAndCapacities where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateEndpointWeightsAndCapacitiesResponse' smart constructor.
+-- | /See:/ 'mkUpdateEndpointWeightsAndCapacitiesResponse' smart constructor.
 data UpdateEndpointWeightsAndCapacitiesResponse = UpdateEndpointWeightsAndCapacitiesResponse'
-  { _uewacrsResponseStatus ::
-      !Int,
-    _uewacrsEndpointARN ::
-      !Text
+  { responseStatus ::
+      Lude.Int,
+    endpointARN ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpointWeightsAndCapacitiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uewacrsResponseStatus' - -- | The response status code.
---
--- * 'uewacrsEndpointARN' - The Amazon Resource Name (ARN) of the updated endpoint.
-updateEndpointWeightsAndCapacitiesResponse ::
-  -- | 'uewacrsResponseStatus'
-  Int ->
-  -- | 'uewacrsEndpointARN'
-  Text ->
+-- * 'endpointARN' - The Amazon Resource Name (ARN) of the updated endpoint.
+-- * 'responseStatus' - The response status code.
+mkUpdateEndpointWeightsAndCapacitiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'endpointARN'
+  Lude.Text ->
   UpdateEndpointWeightsAndCapacitiesResponse
-updateEndpointWeightsAndCapacitiesResponse
+mkUpdateEndpointWeightsAndCapacitiesResponse
   pResponseStatus_
   pEndpointARN_ =
     UpdateEndpointWeightsAndCapacitiesResponse'
-      { _uewacrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _uewacrsEndpointARN = pEndpointARN_
+        endpointARN = pEndpointARN_
       }
 
--- | -- | The response status code.
-uewacrsResponseStatus :: Lens' UpdateEndpointWeightsAndCapacitiesResponse Int
-uewacrsResponseStatus = lens _uewacrsResponseStatus (\s a -> s {_uewacrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uewacrsResponseStatus :: Lens.Lens' UpdateEndpointWeightsAndCapacitiesResponse Lude.Int
+uewacrsResponseStatus = Lens.lens (responseStatus :: UpdateEndpointWeightsAndCapacitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEndpointWeightsAndCapacitiesResponse)
+{-# DEPRECATED uewacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the updated endpoint.
-uewacrsEndpointARN :: Lens' UpdateEndpointWeightsAndCapacitiesResponse Text
-uewacrsEndpointARN = lens _uewacrsEndpointARN (\s a -> s {_uewacrsEndpointARN = a})
-
-instance NFData UpdateEndpointWeightsAndCapacitiesResponse
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uewacrsEndpointARN :: Lens.Lens' UpdateEndpointWeightsAndCapacitiesResponse Lude.Text
+uewacrsEndpointARN = Lens.lens (endpointARN :: UpdateEndpointWeightsAndCapacitiesResponse -> Lude.Text) (\s a -> s {endpointARN = a} :: UpdateEndpointWeightsAndCapacitiesResponse)
+{-# DEPRECATED uewacrsEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}

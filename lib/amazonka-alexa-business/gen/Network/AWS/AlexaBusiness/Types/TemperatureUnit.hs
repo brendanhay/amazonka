@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.TemperatureUnit where
+module Network.AWS.AlexaBusiness.Types.TemperatureUnit
+  ( TemperatureUnit
+      ( TemperatureUnit',
+        Celsius,
+        Fahrenheit
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TemperatureUnit
-  = Celsius
-  | Fahrenheit
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TemperatureUnit = TemperatureUnit' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TemperatureUnit where
-  parser =
-    takeLowerText >>= \case
-      "celsius" -> pure Celsius
-      "fahrenheit" -> pure Fahrenheit
-      e ->
-        fromTextError $
-          "Failure parsing TemperatureUnit from value: '" <> e
-            <> "'. Accepted values: celsius, fahrenheit"
+pattern Celsius :: TemperatureUnit
+pattern Celsius = TemperatureUnit' "CELSIUS"
 
-instance ToText TemperatureUnit where
-  toText = \case
-    Celsius -> "CELSIUS"
-    Fahrenheit -> "FAHRENHEIT"
+pattern Fahrenheit :: TemperatureUnit
+pattern Fahrenheit = TemperatureUnit' "FAHRENHEIT"
 
-instance Hashable TemperatureUnit
-
-instance NFData TemperatureUnit
-
-instance ToByteString TemperatureUnit
-
-instance ToQuery TemperatureUnit
-
-instance ToHeader TemperatureUnit
-
-instance ToJSON TemperatureUnit where
-  toJSON = toJSONText
-
-instance FromJSON TemperatureUnit where
-  parseJSON = parseJSONText "TemperatureUnit"
+{-# COMPLETE
+  Celsius,
+  Fahrenheit,
+  TemperatureUnit'
+  #-}

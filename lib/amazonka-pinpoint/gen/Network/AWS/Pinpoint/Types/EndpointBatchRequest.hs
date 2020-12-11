@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EndpointBatchRequest where
+module Network.AWS.Pinpoint.Types.EndpointBatchRequest
+  ( EndpointBatchRequest (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEndpointBatchRequest,
+
+    -- * Lenses
+    ebrItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointBatchItem
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a batch of endpoints to create or update and the settings and attributes to set or change for each endpoint.
 --
---
---
--- /See:/ 'endpointBatchRequest' smart constructor.
+-- /See:/ 'mkEndpointBatchRequest' smart constructor.
 newtype EndpointBatchRequest = EndpointBatchRequest'
-  { _ebrItem ::
+  { item ::
       [EndpointBatchItem]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointBatchRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ebrItem' - An array that defines the endpoints to create or update and, for each endpoint, the property values to set or change. An array can contain a maximum of 100 items.
-endpointBatchRequest ::
+-- * 'item' - An array that defines the endpoints to create or update and, for each endpoint, the property values to set or change. An array can contain a maximum of 100 items.
+mkEndpointBatchRequest ::
   EndpointBatchRequest
-endpointBatchRequest = EndpointBatchRequest' {_ebrItem = mempty}
+mkEndpointBatchRequest = EndpointBatchRequest' {item = Lude.mempty}
 
 -- | An array that defines the endpoints to create or update and, for each endpoint, the property values to set or change. An array can contain a maximum of 100 items.
-ebrItem :: Lens' EndpointBatchRequest [EndpointBatchItem]
-ebrItem = lens _ebrItem (\s a -> s {_ebrItem = a}) . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebrItem :: Lens.Lens' EndpointBatchRequest [EndpointBatchItem]
+ebrItem = Lens.lens (item :: EndpointBatchRequest -> [EndpointBatchItem]) (\s a -> s {item = a} :: EndpointBatchRequest)
+{-# DEPRECATED ebrItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Hashable EndpointBatchRequest
-
-instance NFData EndpointBatchRequest
-
-instance ToJSON EndpointBatchRequest where
+instance Lude.ToJSON EndpointBatchRequest where
   toJSON EndpointBatchRequest' {..} =
-    object (catMaybes [Just ("Item" .= _ebrItem)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Item" Lude..= item)])

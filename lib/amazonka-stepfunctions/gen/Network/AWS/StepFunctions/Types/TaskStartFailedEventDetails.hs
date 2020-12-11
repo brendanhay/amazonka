@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails where
+module Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails
+  ( TaskStartFailedEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTaskStartFailedEventDetails,
+
+    -- * Lenses
+    tsfedsError,
+    tsfedsCause,
+    tsfedsResourceType,
+    tsfedsResource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about a task that failed to start during an execution.
 --
---
---
--- /See:/ 'taskStartFailedEventDetails' smart constructor.
+-- /See:/ 'mkTaskStartFailedEventDetails' smart constructor.
 data TaskStartFailedEventDetails = TaskStartFailedEventDetails'
-  { _tsfedsError ::
-      !(Maybe (Sensitive Text)),
-    _tsfedsCause ::
-      !(Maybe (Sensitive Text)),
-    _tsfedsResourceType :: !Text,
-    _tsfedsResource :: !Text
+  { error ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    cause ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    resourceType :: Lude.Text,
+    resource :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskStartFailedEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsfedsError' - The error code of the failure.
---
--- * 'tsfedsCause' - A more detailed explanation of the cause of the failure.
---
--- * 'tsfedsResourceType' - The action of the resource called by a task state.
---
--- * 'tsfedsResource' - The service name of the resource in a task state.
-taskStartFailedEventDetails ::
-  -- | 'tsfedsResourceType'
-  Text ->
-  -- | 'tsfedsResource'
-  Text ->
+-- * 'cause' - A more detailed explanation of the cause of the failure.
+-- * 'error' - The error code of the failure.
+-- * 'resource' - The service name of the resource in a task state.
+-- * 'resourceType' - The action of the resource called by a task state.
+mkTaskStartFailedEventDetails ::
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'resource'
+  Lude.Text ->
   TaskStartFailedEventDetails
-taskStartFailedEventDetails pResourceType_ pResource_ =
+mkTaskStartFailedEventDetails pResourceType_ pResource_ =
   TaskStartFailedEventDetails'
-    { _tsfedsError = Nothing,
-      _tsfedsCause = Nothing,
-      _tsfedsResourceType = pResourceType_,
-      _tsfedsResource = pResource_
+    { error = Lude.Nothing,
+      cause = Lude.Nothing,
+      resourceType = pResourceType_,
+      resource = pResource_
     }
 
 -- | The error code of the failure.
-tsfedsError :: Lens' TaskStartFailedEventDetails (Maybe Text)
-tsfedsError = lens _tsfedsError (\s a -> s {_tsfedsError = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedsError :: Lens.Lens' TaskStartFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+tsfedsError = Lens.lens (error :: TaskStartFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: TaskStartFailedEventDetails)
+{-# DEPRECATED tsfedsError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the failure.
-tsfedsCause :: Lens' TaskStartFailedEventDetails (Maybe Text)
-tsfedsCause = lens _tsfedsCause (\s a -> s {_tsfedsCause = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedsCause :: Lens.Lens' TaskStartFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+tsfedsCause = Lens.lens (cause :: TaskStartFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: TaskStartFailedEventDetails)
+{-# DEPRECATED tsfedsCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
 -- | The action of the resource called by a task state.
-tsfedsResourceType :: Lens' TaskStartFailedEventDetails Text
-tsfedsResourceType = lens _tsfedsResourceType (\s a -> s {_tsfedsResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedsResourceType :: Lens.Lens' TaskStartFailedEventDetails Lude.Text
+tsfedsResourceType = Lens.lens (resourceType :: TaskStartFailedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskStartFailedEventDetails)
+{-# DEPRECATED tsfedsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The service name of the resource in a task state.
-tsfedsResource :: Lens' TaskStartFailedEventDetails Text
-tsfedsResource = lens _tsfedsResource (\s a -> s {_tsfedsResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedsResource :: Lens.Lens' TaskStartFailedEventDetails Lude.Text
+tsfedsResource = Lens.lens (resource :: TaskStartFailedEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskStartFailedEventDetails)
+{-# DEPRECATED tsfedsResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance FromJSON TaskStartFailedEventDetails where
+instance Lude.FromJSON TaskStartFailedEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "TaskStartFailedEventDetails"
       ( \x ->
           TaskStartFailedEventDetails'
-            <$> (x .:? "error")
-            <*> (x .:? "cause")
-            <*> (x .: "resourceType")
-            <*> (x .: "resource")
+            Lude.<$> (x Lude..:? "error")
+            Lude.<*> (x Lude..:? "cause")
+            Lude.<*> (x Lude..: "resourceType")
+            Lude.<*> (x Lude..: "resource")
       )
-
-instance Hashable TaskStartFailedEventDetails
-
-instance NFData TaskStartFailedEventDetails

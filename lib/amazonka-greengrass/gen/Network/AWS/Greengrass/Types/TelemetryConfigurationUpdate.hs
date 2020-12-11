@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.TelemetryConfigurationUpdate where
+module Network.AWS.Greengrass.Types.TelemetryConfigurationUpdate
+  ( TelemetryConfigurationUpdate (..),
+
+    -- * Smart constructor
+    mkTelemetryConfigurationUpdate,
+
+    -- * Lenses
+    tcuTelemetry,
+  )
+where
 
 import Network.AWS.Greengrass.Types.Telemetry
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration settings for running telemetry.
 --
--- /See:/ 'telemetryConfigurationUpdate' smart constructor.
+-- /See:/ 'mkTelemetryConfigurationUpdate' smart constructor.
 newtype TelemetryConfigurationUpdate = TelemetryConfigurationUpdate'
-  { _tcuTelemetry ::
+  { telemetry ::
       Telemetry
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TelemetryConfigurationUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcuTelemetry' - Configure telemetry to be on or off.
-telemetryConfigurationUpdate ::
-  -- | 'tcuTelemetry'
+-- * 'telemetry' - Configure telemetry to be on or off.
+mkTelemetryConfigurationUpdate ::
+  -- | 'telemetry'
   Telemetry ->
   TelemetryConfigurationUpdate
-telemetryConfigurationUpdate pTelemetry_ =
-  TelemetryConfigurationUpdate' {_tcuTelemetry = pTelemetry_}
+mkTelemetryConfigurationUpdate pTelemetry_ =
+  TelemetryConfigurationUpdate' {telemetry = pTelemetry_}
 
 -- | Configure telemetry to be on or off.
-tcuTelemetry :: Lens' TelemetryConfigurationUpdate Telemetry
-tcuTelemetry = lens _tcuTelemetry (\s a -> s {_tcuTelemetry = a})
+--
+-- /Note:/ Consider using 'telemetry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcuTelemetry :: Lens.Lens' TelemetryConfigurationUpdate Telemetry
+tcuTelemetry = Lens.lens (telemetry :: TelemetryConfigurationUpdate -> Telemetry) (\s a -> s {telemetry = a} :: TelemetryConfigurationUpdate)
+{-# DEPRECATED tcuTelemetry "Use generic-lens or generic-optics with 'telemetry' instead." #-}
 
-instance Hashable TelemetryConfigurationUpdate
-
-instance NFData TelemetryConfigurationUpdate
-
-instance ToJSON TelemetryConfigurationUpdate where
+instance Lude.ToJSON TelemetryConfigurationUpdate where
   toJSON TelemetryConfigurationUpdate' {..} =
-    object (catMaybes [Just ("Telemetry" .= _tcuTelemetry)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Telemetry" Lude..= telemetry)])

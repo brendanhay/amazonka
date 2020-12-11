@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.LoadBalancerState where
+module Network.AWS.ELBv2.Types.LoadBalancerState
+  ( LoadBalancerState (..),
+
+    -- * Smart constructor
+    mkLoadBalancerState,
+
+    -- * Lenses
+    lbsReason,
+    lbsCode,
+  )
+where
 
 import Network.AWS.ELBv2.Types.LoadBalancerStateEnum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the state of the load balancer.
 --
---
---
--- /See:/ 'loadBalancerState' smart constructor.
+-- /See:/ 'mkLoadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
-  { _lbsReason ::
-      !(Maybe Text),
-    _lbsCode :: !(Maybe LoadBalancerStateEnum)
+  { reason ::
+      Lude.Maybe Lude.Text,
+    code :: Lude.Maybe LoadBalancerStateEnum
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbsReason' - A description of the state.
---
--- * 'lbsCode' - The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
-loadBalancerState ::
+-- * 'code' - The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
+-- * 'reason' - A description of the state.
+mkLoadBalancerState ::
   LoadBalancerState
-loadBalancerState =
-  LoadBalancerState' {_lbsReason = Nothing, _lbsCode = Nothing}
+mkLoadBalancerState =
+  LoadBalancerState' {reason = Lude.Nothing, code = Lude.Nothing}
 
 -- | A description of the state.
-lbsReason :: Lens' LoadBalancerState (Maybe Text)
-lbsReason = lens _lbsReason (\s a -> s {_lbsReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbsReason :: Lens.Lens' LoadBalancerState (Lude.Maybe Lude.Text)
+lbsReason = Lens.lens (reason :: LoadBalancerState -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: LoadBalancerState)
+{-# DEPRECATED lbsReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The state code. The initial state of the load balancer is @provisioning@ . After the load balancer is fully set up and ready to route traffic, its state is @active@ . If the load balancer could not be set up, its state is @failed@ .
-lbsCode :: Lens' LoadBalancerState (Maybe LoadBalancerStateEnum)
-lbsCode = lens _lbsCode (\s a -> s {_lbsCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbsCode :: Lens.Lens' LoadBalancerState (Lude.Maybe LoadBalancerStateEnum)
+lbsCode = Lens.lens (code :: LoadBalancerState -> Lude.Maybe LoadBalancerStateEnum) (\s a -> s {code = a} :: LoadBalancerState)
+{-# DEPRECATED lbsCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance FromXML LoadBalancerState where
+instance Lude.FromXML LoadBalancerState where
   parseXML x =
-    LoadBalancerState' <$> (x .@? "Reason") <*> (x .@? "Code")
-
-instance Hashable LoadBalancerState
-
-instance NFData LoadBalancerState
+    LoadBalancerState'
+      Lude.<$> (x Lude..@? "Reason") Lude.<*> (x Lude..@? "Code")

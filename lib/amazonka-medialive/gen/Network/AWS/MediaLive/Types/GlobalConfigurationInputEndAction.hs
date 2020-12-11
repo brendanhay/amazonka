@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.GlobalConfigurationInputEndAction where
+module Network.AWS.MediaLive.Types.GlobalConfigurationInputEndAction
+  ( GlobalConfigurationInputEndAction
+      ( GlobalConfigurationInputEndAction',
+        GCIEANone,
+        GCIEASwitchAndLoopInputs
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Global Configuration Input End Action
-data GlobalConfigurationInputEndAction
-  = GCIEANone
-  | GCIEASwitchAndLoopInputs
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GlobalConfigurationInputEndAction = GlobalConfigurationInputEndAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GlobalConfigurationInputEndAction where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure GCIEANone
-      "switch_and_loop_inputs" -> pure GCIEASwitchAndLoopInputs
-      e ->
-        fromTextError $
-          "Failure parsing GlobalConfigurationInputEndAction from value: '" <> e
-            <> "'. Accepted values: none, switch_and_loop_inputs"
+pattern GCIEANone :: GlobalConfigurationInputEndAction
+pattern GCIEANone = GlobalConfigurationInputEndAction' "NONE"
 
-instance ToText GlobalConfigurationInputEndAction where
-  toText = \case
-    GCIEANone -> "NONE"
-    GCIEASwitchAndLoopInputs -> "SWITCH_AND_LOOP_INPUTS"
+pattern GCIEASwitchAndLoopInputs :: GlobalConfigurationInputEndAction
+pattern GCIEASwitchAndLoopInputs = GlobalConfigurationInputEndAction' "SWITCH_AND_LOOP_INPUTS"
 
-instance Hashable GlobalConfigurationInputEndAction
-
-instance NFData GlobalConfigurationInputEndAction
-
-instance ToByteString GlobalConfigurationInputEndAction
-
-instance ToQuery GlobalConfigurationInputEndAction
-
-instance ToHeader GlobalConfigurationInputEndAction
-
-instance ToJSON GlobalConfigurationInputEndAction where
-  toJSON = toJSONText
-
-instance FromJSON GlobalConfigurationInputEndAction where
-  parseJSON = parseJSONText "GlobalConfigurationInputEndAction"
+{-# COMPLETE
+  GCIEANone,
+  GCIEASwitchAndLoopInputs,
+  GlobalConfigurationInputEndAction'
+  #-}

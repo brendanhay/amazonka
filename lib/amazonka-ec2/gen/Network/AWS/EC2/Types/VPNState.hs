@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPNState where
+module Network.AWS.EC2.Types.VPNState
+  ( VPNState
+      ( VPNState',
+        VSAvailable,
+        VSDeleted,
+        VSDeleting,
+        VSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VPNState
-  = VSAvailable
-  | VSDeleted
-  | VSDeleting
-  | VSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VPNState = VPNState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VPNState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure VSAvailable
-      "deleted" -> pure VSDeleted
-      "deleting" -> pure VSDeleting
-      "pending" -> pure VSPending
-      e ->
-        fromTextError $
-          "Failure parsing VPNState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, pending"
+pattern VSAvailable :: VPNState
+pattern VSAvailable = VPNState' "available"
 
-instance ToText VPNState where
-  toText = \case
-    VSAvailable -> "available"
-    VSDeleted -> "deleted"
-    VSDeleting -> "deleting"
-    VSPending -> "pending"
+pattern VSDeleted :: VPNState
+pattern VSDeleted = VPNState' "deleted"
 
-instance Hashable VPNState
+pattern VSDeleting :: VPNState
+pattern VSDeleting = VPNState' "deleting"
 
-instance NFData VPNState
+pattern VSPending :: VPNState
+pattern VSPending = VPNState' "pending"
 
-instance ToByteString VPNState
-
-instance ToQuery VPNState
-
-instance ToHeader VPNState
-
-instance FromXML VPNState where
-  parseXML = parseXMLText "VPNState"
+{-# COMPLETE
+  VSAvailable,
+  VSDeleted,
+  VSDeleting,
+  VSPending,
+  VPNState'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,124 @@
 --
 -- Deletes an application.
 module Network.AWS.Pinpoint.DeleteApp
-  ( -- * Creating a Request
-    deleteApp,
-    DeleteApp,
+  ( -- * Creating a request
+    DeleteApp (..),
+    mkDeleteApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daApplicationId,
 
-    -- * Destructuring the Response
-    deleteAppResponse,
-    DeleteAppResponse,
+    -- * Destructuring the response
+    DeleteAppResponse (..),
+    mkDeleteAppResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsResponseStatus,
     darsApplicationResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteApp' smart constructor.
-newtype DeleteApp = DeleteApp' {_daApplicationId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteApp' smart constructor.
+newtype DeleteApp = DeleteApp' {applicationId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-deleteApp ::
-  -- | 'daApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkDeleteApp ::
+  -- | 'applicationId'
+  Lude.Text ->
   DeleteApp
-deleteApp pApplicationId_ =
-  DeleteApp' {_daApplicationId = pApplicationId_}
+mkDeleteApp pApplicationId_ =
+  DeleteApp' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-daApplicationId :: Lens' DeleteApp Text
-daApplicationId = lens _daApplicationId (\s a -> s {_daApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daApplicationId :: Lens.Lens' DeleteApp Lude.Text
+daApplicationId = Lens.lens (applicationId :: DeleteApp -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteApp)
+{-# DEPRECATED daApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest DeleteApp where
+instance Lude.AWSRequest DeleteApp where
   type Rs DeleteApp = DeleteAppResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          DeleteAppResponse' <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+          DeleteAppResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteApp
-
-instance NFData DeleteApp
-
-instance ToHeaders DeleteApp where
+instance Lude.ToHeaders DeleteApp where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteApp where
+instance Lude.ToPath DeleteApp where
   toPath DeleteApp' {..} =
-    mconcat ["/v1/apps/", toBS _daApplicationId]
+    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId]
 
-instance ToQuery DeleteApp where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAppResponse' smart constructor.
+-- | /See:/ 'mkDeleteAppResponse' smart constructor.
 data DeleteAppResponse = DeleteAppResponse'
-  { _darsResponseStatus ::
-      !Int,
-    _darsApplicationResponse :: !ApplicationResponse
+  { responseStatus ::
+      Lude.Int,
+    applicationResponse :: ApplicationResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAppResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsResponseStatus' - -- | The response status code.
---
--- * 'darsApplicationResponse' - Undocumented member.
-deleteAppResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
-  -- | 'darsApplicationResponse'
+-- * 'applicationResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteAppResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'applicationResponse'
   ApplicationResponse ->
   DeleteAppResponse
-deleteAppResponse pResponseStatus_ pApplicationResponse_ =
+mkDeleteAppResponse pResponseStatus_ pApplicationResponse_ =
   DeleteAppResponse'
-    { _darsResponseStatus = pResponseStatus_,
-      _darsApplicationResponse = pApplicationResponse_
+    { responseStatus = pResponseStatus_,
+      applicationResponse = pApplicationResponse_
     }
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DeleteAppResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DeleteAppResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DeleteAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAppResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-darsApplicationResponse :: Lens' DeleteAppResponse ApplicationResponse
-darsApplicationResponse = lens _darsApplicationResponse (\s a -> s {_darsApplicationResponse = a})
-
-instance NFData DeleteAppResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'applicationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsApplicationResponse :: Lens.Lens' DeleteAppResponse ApplicationResponse
+darsApplicationResponse = Lens.lens (applicationResponse :: DeleteAppResponse -> ApplicationResponse) (\s a -> s {applicationResponse = a} :: DeleteAppResponse)
+{-# DEPRECATED darsApplicationResponse "Use generic-lens or generic-optics with 'applicationResponse' instead." #-}

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types
-  ( -- * Service Configuration
-    mediaLive,
+  ( -- * Service configuration
+    mediaLiveService,
 
     -- * Errors
 
@@ -748,8 +746,8 @@ module Network.AWS.MediaLive.Types
     WavCodingMode (..),
 
     -- * AacSettings
-    AacSettings,
-    aacSettings,
+    AacSettings (..),
+    mkAacSettings,
     aRawFormat,
     aCodingMode,
     aProfile,
@@ -761,8 +759,8 @@ module Network.AWS.MediaLive.Types
     aInputType,
 
     -- * Ac3Settings
-    Ac3Settings,
-    ac3Settings,
+    Ac3Settings (..),
+    mkAc3Settings,
     asLfeFilter,
     asMetadataControl,
     asBitstreamMode,
@@ -772,46 +770,46 @@ module Network.AWS.MediaLive.Types
     asDrcProfile,
 
     -- * AncillarySourceSettings
-    AncillarySourceSettings,
-    ancillarySourceSettings,
+    AncillarySourceSettings (..),
+    mkAncillarySourceSettings,
     assSourceAncillaryChannelNumber,
 
     -- * ArchiveContainerSettings
-    ArchiveContainerSettings,
-    archiveContainerSettings,
+    ArchiveContainerSettings (..),
+    mkArchiveContainerSettings,
     acsM2tsSettings,
     acsRawSettings,
 
     -- * ArchiveGroupSettings
-    ArchiveGroupSettings,
-    archiveGroupSettings,
+    ArchiveGroupSettings (..),
+    mkArchiveGroupSettings,
     agsRolloverInterval,
     agsDestination,
 
     -- * ArchiveOutputSettings
-    ArchiveOutputSettings,
-    archiveOutputSettings,
+    ArchiveOutputSettings (..),
+    mkArchiveOutputSettings,
     aosExtension,
     aosNameModifier,
     aosContainerSettings,
 
     -- * AribDestinationSettings
-    AribDestinationSettings,
-    aribDestinationSettings,
+    AribDestinationSettings (..),
+    mkAribDestinationSettings,
 
     -- * AribSourceSettings
-    AribSourceSettings,
-    aribSourceSettings,
+    AribSourceSettings (..),
+    mkAribSourceSettings,
 
     -- * AudioChannelMapping
-    AudioChannelMapping,
-    audioChannelMapping,
+    AudioChannelMapping (..),
+    mkAudioChannelMapping,
     acmOutputChannel,
     acmInputChannelLevels,
 
     -- * AudioCodecSettings
-    AudioCodecSettings,
-    audioCodecSettings,
+    AudioCodecSettings (..),
+    mkAudioCodecSettings,
     acsPassThroughSettings,
     acsAc3Settings,
     acsMp2Settings,
@@ -820,8 +818,8 @@ module Network.AWS.MediaLive.Types
     acsEac3Settings,
 
     -- * AudioDescription
-    AudioDescription,
-    audioDescription,
+    AudioDescription (..),
+    mkAudioDescription,
     adLanguageCode,
     adAudioType,
     adAudioNormalizationSettings,
@@ -834,117 +832,117 @@ module Network.AWS.MediaLive.Types
     adName,
 
     -- * AudioLanguageSelection
-    AudioLanguageSelection,
-    audioLanguageSelection,
+    AudioLanguageSelection (..),
+    mkAudioLanguageSelection,
     alsLanguageSelectionPolicy,
     alsLanguageCode,
 
     -- * AudioNormalizationSettings
-    AudioNormalizationSettings,
-    audioNormalizationSettings,
+    AudioNormalizationSettings (..),
+    mkAudioNormalizationSettings,
     ansAlgorithmControl,
     ansTargetLkfs,
     ansAlgorithm,
 
     -- * AudioOnlyHlsSettings
-    AudioOnlyHlsSettings,
-    audioOnlyHlsSettings,
+    AudioOnlyHlsSettings (..),
+    mkAudioOnlyHlsSettings,
     aohsAudioOnlyImage,
     aohsSegmentType,
     aohsAudioGroupId,
     aohsAudioTrackType,
 
     -- * AudioPidSelection
-    AudioPidSelection,
-    audioPidSelection,
+    AudioPidSelection (..),
+    mkAudioPidSelection,
     apsPid,
 
     -- * AudioSelector
-    AudioSelector,
-    audioSelector,
+    AudioSelector (..),
+    mkAudioSelector,
     asSelectorSettings,
     asName,
 
     -- * AudioSelectorSettings
-    AudioSelectorSettings,
-    audioSelectorSettings,
+    AudioSelectorSettings (..),
+    mkAudioSelectorSettings,
     assAudioLanguageSelection,
     assAudioTrackSelection,
     assAudioPidSelection,
 
     -- * AudioTrack
-    AudioTrack,
-    audioTrack,
+    AudioTrack (..),
+    mkAudioTrack,
     atTrack,
 
     -- * AudioTrackSelection
-    AudioTrackSelection,
-    audioTrackSelection,
+    AudioTrackSelection (..),
+    mkAudioTrackSelection,
     atsTracks,
 
     -- * AutomaticInputFailoverSettings
-    AutomaticInputFailoverSettings,
-    automaticInputFailoverSettings,
+    AutomaticInputFailoverSettings (..),
+    mkAutomaticInputFailoverSettings,
     aifsFailoverConditions,
     aifsErrorClearTimeMsec,
     aifsInputPreference,
     aifsSecondaryInputId,
 
     -- * AvailBlanking
-    AvailBlanking,
-    availBlanking,
+    AvailBlanking (..),
+    mkAvailBlanking,
     abState,
     abAvailBlankingImage,
 
     -- * AvailConfiguration
-    AvailConfiguration,
-    availConfiguration,
+    AvailConfiguration (..),
+    mkAvailConfiguration,
     acAvailSettings,
 
     -- * AvailSettings
-    AvailSettings,
-    availSettings,
+    AvailSettings (..),
+    mkAvailSettings,
     asScte35SpliceInsert,
     asScte35TimeSignalApos,
 
     -- * BatchFailedResultModel
-    BatchFailedResultModel,
-    batchFailedResultModel,
+    BatchFailedResultModel (..),
+    mkBatchFailedResultModel,
     bfrmARN,
     bfrmId,
     bfrmCode,
     bfrmMessage,
 
     -- * BatchScheduleActionCreateRequest
-    BatchScheduleActionCreateRequest,
-    batchScheduleActionCreateRequest,
+    BatchScheduleActionCreateRequest (..),
+    mkBatchScheduleActionCreateRequest,
     bsacrScheduleActions,
 
     -- * BatchScheduleActionCreateResult
-    BatchScheduleActionCreateResult,
-    batchScheduleActionCreateResult,
+    BatchScheduleActionCreateResult (..),
+    mkBatchScheduleActionCreateResult,
     bScheduleActions,
 
     -- * BatchScheduleActionDeleteRequest
-    BatchScheduleActionDeleteRequest,
-    batchScheduleActionDeleteRequest,
+    BatchScheduleActionDeleteRequest (..),
+    mkBatchScheduleActionDeleteRequest,
     bsadrActionNames,
 
     -- * BatchScheduleActionDeleteResult
-    BatchScheduleActionDeleteResult,
-    batchScheduleActionDeleteResult,
+    BatchScheduleActionDeleteResult (..),
+    mkBatchScheduleActionDeleteResult,
     bsadrScheduleActions,
 
     -- * BatchSuccessfulResultModel
-    BatchSuccessfulResultModel,
-    batchSuccessfulResultModel,
+    BatchSuccessfulResultModel (..),
+    mkBatchSuccessfulResultModel,
     bsrmState,
     bsrmARN,
     bsrmId,
 
     -- * BlackoutSlate
-    BlackoutSlate,
-    blackoutSlate,
+    BlackoutSlate (..),
+    mkBlackoutSlate,
     bsNetworkEndBlackoutImage,
     bsState,
     bsNetworkEndBlackout,
@@ -952,8 +950,8 @@ module Network.AWS.MediaLive.Types
     bsBlackoutSlateImage,
 
     -- * BurnInDestinationSettings
-    BurnInDestinationSettings,
-    burnInDestinationSettings,
+    BurnInDestinationSettings (..),
+    mkBurnInDestinationSettings,
     bidsBackgroundOpacity,
     bidsFontOpacity,
     bidsShadowYOffset,
@@ -973,8 +971,8 @@ module Network.AWS.MediaLive.Types
     bidsFontColor,
 
     -- * CaptionDescription
-    CaptionDescription,
-    captionDescription,
+    CaptionDescription (..),
+    mkCaptionDescription,
     cdLanguageCode,
     cdDestinationSettings,
     cdLanguageDescription,
@@ -982,8 +980,8 @@ module Network.AWS.MediaLive.Types
     cdName,
 
     -- * CaptionDestinationSettings
-    CaptionDestinationSettings,
-    captionDestinationSettings,
+    CaptionDestinationSettings (..),
+    mkCaptionDestinationSettings,
     cdsTeletextDestinationSettings,
     cdsEbuTtDDestinationSettings,
     cdsRtmpCaptionInfoDestinationSettings,
@@ -999,22 +997,22 @@ module Network.AWS.MediaLive.Types
     cdsAribDestinationSettings,
 
     -- * CaptionLanguageMapping
-    CaptionLanguageMapping,
-    captionLanguageMapping,
+    CaptionLanguageMapping (..),
+    mkCaptionLanguageMapping,
     clmLanguageCode,
     clmLanguageDescription,
     clmCaptionChannel,
 
     -- * CaptionSelector
-    CaptionSelector,
-    captionSelector,
+    CaptionSelector (..),
+    mkCaptionSelector,
     cLanguageCode,
     cSelectorSettings,
     cName,
 
     -- * CaptionSelectorSettings
-    CaptionSelectorSettings,
-    captionSelectorSettings,
+    CaptionSelectorSettings (..),
+    mkCaptionSelectorSettings,
     cssTeletextSourceSettings,
     cssAribSourceSettings,
     cssScte27SourceSettings,
@@ -1024,13 +1022,13 @@ module Network.AWS.MediaLive.Types
     cssEmbeddedSourceSettings,
 
     -- * CdiInputSpecification
-    CdiInputSpecification,
-    cdiInputSpecification,
+    CdiInputSpecification (..),
+    mkCdiInputSpecification,
     cisResolution,
 
     -- * Channel
-    Channel,
-    channel,
+    Channel (..),
+    mkChannel,
     chaState,
     chaLogLevel,
     chaARN,
@@ -1049,13 +1047,13 @@ module Network.AWS.MediaLive.Types
     chaRoleARN,
 
     -- * ChannelEgressEndpoint
-    ChannelEgressEndpoint,
-    channelEgressEndpoint,
+    ChannelEgressEndpoint (..),
+    mkChannelEgressEndpoint,
     ceeSourceIP,
 
     -- * ChannelSummary
-    ChannelSummary,
-    channelSummary,
+    ChannelSummary (..),
+    mkChannelSummary,
     csState,
     csLogLevel,
     csARN,
@@ -1072,27 +1070,27 @@ module Network.AWS.MediaLive.Types
     csRoleARN,
 
     -- * ColorSpacePassthroughSettings
-    ColorSpacePassthroughSettings,
-    colorSpacePassthroughSettings,
+    ColorSpacePassthroughSettings (..),
+    mkColorSpacePassthroughSettings,
 
     -- * DvbNitSettings
-    DvbNitSettings,
-    dvbNitSettings,
+    DvbNitSettings (..),
+    mkDvbNitSettings,
     dnsRepInterval,
     dnsNetworkName,
     dnsNetworkId,
 
     -- * DvbSdtSettings
-    DvbSdtSettings,
-    dvbSdtSettings,
+    DvbSdtSettings (..),
+    mkDvbSdtSettings,
     dssRepInterval,
     dssServiceProviderName,
     dssOutputSdt,
     dssServiceName,
 
     -- * DvbSubDestinationSettings
-    DvbSubDestinationSettings,
-    dvbSubDestinationSettings,
+    DvbSubDestinationSettings (..),
+    mkDvbSubDestinationSettings,
     dsdsBackgroundOpacity,
     dsdsFontOpacity,
     dsdsShadowYOffset,
@@ -1112,18 +1110,18 @@ module Network.AWS.MediaLive.Types
     dsdsFontColor,
 
     -- * DvbSubSourceSettings
-    DvbSubSourceSettings,
-    dvbSubSourceSettings,
+    DvbSubSourceSettings (..),
+    mkDvbSubSourceSettings,
     dsssPid,
 
     -- * DvbTdtSettings
-    DvbTdtSettings,
-    dvbTdtSettings,
+    DvbTdtSettings (..),
+    mkDvbTdtSettings,
     dtsRepInterval,
 
     -- * Eac3Settings
-    Eac3Settings,
-    eac3Settings,
+    Eac3Settings (..),
+    mkEac3Settings,
     esStereoDownmix,
     esLoRoCenterMixLevel,
     esLtRtCenterMixLevel,
@@ -1146,31 +1144,31 @@ module Network.AWS.MediaLive.Types
     esDialnorm,
 
     -- * EbuTtDDestinationSettings
-    EbuTtDDestinationSettings,
-    ebuTtDDestinationSettings,
+    EbuTtDDestinationSettings (..),
+    mkEbuTtDDestinationSettings,
     etddsFillLineGap,
     etddsFontFamily,
     etddsStyleControl,
 
     -- * EmbeddedDestinationSettings
-    EmbeddedDestinationSettings,
-    embeddedDestinationSettings,
+    EmbeddedDestinationSettings (..),
+    mkEmbeddedDestinationSettings,
 
     -- * EmbeddedPlusScte20DestinationSettings
-    EmbeddedPlusScte20DestinationSettings,
-    embeddedPlusScte20DestinationSettings,
+    EmbeddedPlusScte20DestinationSettings (..),
+    mkEmbeddedPlusScte20DestinationSettings,
 
     -- * EmbeddedSourceSettings
-    EmbeddedSourceSettings,
-    embeddedSourceSettings,
+    EmbeddedSourceSettings (..),
+    mkEmbeddedSourceSettings,
     essConvert608To708,
     essScte20Detection,
     essSource608TrackNumber,
     essSource608ChannelNumber,
 
     -- * EncoderSettings
-    EncoderSettings,
-    encoderSettings,
+    EncoderSettings (..),
+    mkEncoderSettings,
     esCaptionDescriptions,
     esAvailConfiguration,
     esFeatureActivations,
@@ -1184,64 +1182,64 @@ module Network.AWS.MediaLive.Types
     esTimecodeConfig,
 
     -- * FailoverCondition
-    FailoverCondition,
-    failoverCondition,
+    FailoverCondition (..),
+    mkFailoverCondition,
     fcFailoverConditionSettings,
 
     -- * FailoverConditionSettings
-    FailoverConditionSettings,
-    failoverConditionSettings,
+    FailoverConditionSettings (..),
+    mkFailoverConditionSettings,
     fcsInputLossSettings,
 
     -- * FeatureActivations
-    FeatureActivations,
-    featureActivations,
+    FeatureActivations (..),
+    mkFeatureActivations,
     faInputPrepareScheduleActions,
 
     -- * FecOutputSettings
-    FecOutputSettings,
-    fecOutputSettings,
+    FecOutputSettings (..),
+    mkFecOutputSettings,
     fosRowLength,
     fosIncludeFec,
     fosColumnDepth,
 
     -- * FixedModeScheduleActionStartSettings
-    FixedModeScheduleActionStartSettings,
-    fixedModeScheduleActionStartSettings,
+    FixedModeScheduleActionStartSettings (..),
+    mkFixedModeScheduleActionStartSettings,
     fmsassTime,
 
     -- * Fmp4HlsSettings
-    Fmp4HlsSettings,
-    fmp4HlsSettings,
+    Fmp4HlsSettings (..),
+    mkFmp4HlsSettings,
     fhsNielsenId3Behavior,
     fhsAudioRenditionSets,
     fhsTimedMetadataBehavior,
 
     -- * FollowModeScheduleActionStartSettings
-    FollowModeScheduleActionStartSettings,
-    followModeScheduleActionStartSettings,
+    FollowModeScheduleActionStartSettings (..),
+    mkFollowModeScheduleActionStartSettings,
     fmsassReferenceActionName,
     fmsassFollowPoint,
 
     -- * FrameCaptureGroupSettings
-    FrameCaptureGroupSettings,
-    frameCaptureGroupSettings,
+    FrameCaptureGroupSettings (..),
+    mkFrameCaptureGroupSettings,
     fcgsDestination,
 
     -- * FrameCaptureOutputSettings
-    FrameCaptureOutputSettings,
-    frameCaptureOutputSettings,
+    FrameCaptureOutputSettings (..),
+    mkFrameCaptureOutputSettings,
     fcosNameModifier,
 
     -- * FrameCaptureSettings
-    FrameCaptureSettings,
-    frameCaptureSettings,
+    FrameCaptureSettings (..),
+    mkFrameCaptureSettings,
     fcsCaptureIntervalUnits,
     fcsCaptureInterval,
 
     -- * GlobalConfiguration
-    GlobalConfiguration,
-    globalConfiguration,
+    GlobalConfiguration (..),
+    mkGlobalConfiguration,
     gcOutputLockingMode,
     gcInputLossBehavior,
     gcInitialAudioGain,
@@ -1250,78 +1248,78 @@ module Network.AWS.MediaLive.Types
     gcOutputTimingSource,
 
     -- * H264ColorSpaceSettings
-    H264ColorSpaceSettings,
-    h264ColorSpaceSettings,
+    H264ColorSpaceSettings (..),
+    mkH264ColorSpaceSettings,
     hRec709Settings,
     hRec601Settings,
     hColorSpacePassthroughSettings,
 
     -- * H264FilterSettings
-    H264FilterSettings,
-    h264FilterSettings,
+    H264FilterSettings (..),
+    mkH264FilterSettings,
     hTemporalFilterSettings,
 
     -- * H264Settings
-    H264Settings,
-    h264Settings,
-    hssTemporalAq,
-    hssSceneChangeDetect,
-    hssScanType,
-    hssTimecodeInsertion,
-    hssParNumerator,
-    hssAfdSignaling,
-    hssGopSize,
-    hssGopSizeUnits,
-    hssSubgopLength,
-    hssQualityLevel,
-    hssSlices,
-    hssProfile,
-    hssRateControlMode,
-    hssMinIInterval,
-    hssQvbrQualityLevel,
-    hssColorSpaceSettings,
-    hssParControl,
-    hssFlickerAq,
-    hssBufSize,
-    hssSpatialAq,
-    hssGopNumBFrames,
-    hssFixedAfd,
-    hssSoftness,
-    hssFilterSettings,
-    hssBitrate,
-    hssFramerateDenominator,
-    hssForceFieldPictures,
-    hssEntropyEncoding,
-    hssFramerateControl,
-    hssColorMetadata,
-    hssLookAheadRateControl,
-    hssAdaptiveQuantization,
-    hssFramerateNumerator,
-    hssLevel,
-    hssGopBReference,
-    hssMaxBitrate,
-    hssSyntax,
-    hssBufFillPct,
-    hssGopClosedCadence,
-    hssNumRefFrames,
-    hssParDenominator,
+    H264Settings (..),
+    mkH264Settings,
+    hTemporalAq,
+    hSceneChangeDetect,
+    hScanType,
+    hTimecodeInsertion,
+    hParNumerator,
+    hAfdSignaling,
+    hGopSize,
+    hGopSizeUnits,
+    hSubgopLength,
+    hQualityLevel,
+    hSlices,
+    hProfile,
+    hRateControlMode,
+    hMinIInterval,
+    hQvbrQualityLevel,
+    hColorSpaceSettings,
+    hParControl,
+    hFlickerAq,
+    hBufSize,
+    hSpatialAq,
+    hGopNumBFrames,
+    hFixedAfd,
+    hSoftness,
+    hFilterSettings,
+    hBitrate,
+    hFramerateDenominator,
+    hForceFieldPictures,
+    hEntropyEncoding,
+    hFramerateControl,
+    hColorMetadata,
+    hLookAheadRateControl,
+    hAdaptiveQuantization,
+    hFramerateNumerator,
+    hLevel,
+    hGopBReference,
+    hMaxBitrate,
+    hSyntax,
+    hBufFillPct,
+    hGopClosedCadence,
+    hNumRefFrames,
+    hParDenominator,
 
     -- * H265ColorSpaceSettings
-    H265ColorSpaceSettings,
-    h265ColorSpaceSettings,
+    H265ColorSpaceSettings (..),
+    mkH265ColorSpaceSettings,
     hcssHdr10Settings,
     hcssRec709Settings,
     hcssRec601Settings,
     hcssColorSpacePassthroughSettings,
 
     -- * H265FilterSettings
-    H265FilterSettings,
-    h265FilterSettings,
+    H265FilterSettings (..),
+    mkH265FilterSettings,
     hfsTemporalFilterSettings,
 
     -- * H265Settings
-    H265Settings,
-    h265Settings,
+    H265Settings (..),
+    mkH265Settings,
     hsSceneChangeDetect,
     hsScanType,
     hsTimecodeInsertion,
@@ -1353,14 +1351,14 @@ module Network.AWS.MediaLive.Types
     hsFramerateDenominator,
 
     -- * Hdr10Settings
-    Hdr10Settings,
-    hdr10Settings,
+    Hdr10Settings (..),
+    mkHdr10Settings,
     hsMaxFall,
     hsMaxCll,
 
     -- * HlsAkamaiSettings
-    HlsAkamaiSettings,
-    hlsAkamaiSettings,
+    HlsAkamaiSettings (..),
+    mkHlsAkamaiSettings,
     hasHTTPTransferMode,
     hasNumRetries,
     hasToken,
@@ -1370,24 +1368,24 @@ module Network.AWS.MediaLive.Types
     hasSalt,
 
     -- * HlsBasicPutSettings
-    HlsBasicPutSettings,
-    hlsBasicPutSettings,
+    HlsBasicPutSettings (..),
+    mkHlsBasicPutSettings,
     hbpsNumRetries,
     hbpsConnectionRetryInterval,
     hbpsFilecacheDuration,
     hbpsRestartDelay,
 
     -- * HlsCdnSettings
-    HlsCdnSettings,
-    hlsCdnSettings,
+    HlsCdnSettings (..),
+    mkHlsCdnSettings,
     hcsHlsAkamaiSettings,
     hcsHlsMediaStoreSettings,
     hcsHlsBasicPutSettings,
     hcsHlsWebdavSettings,
 
     -- * HlsGroupSettings
-    HlsGroupSettings,
-    hlsGroupSettings,
+    HlsGroupSettings (..),
+    mkHlsGroupSettings,
     hgsDirectoryStructure,
     hgsEncryptionType,
     hgsTimedMetadataId3Period,
@@ -1432,21 +1430,21 @@ module Network.AWS.MediaLive.Types
     hgsDestination,
 
     -- * HlsId3SegmentTaggingScheduleActionSettings
-    HlsId3SegmentTaggingScheduleActionSettings,
-    hlsId3SegmentTaggingScheduleActionSettings,
+    HlsId3SegmentTaggingScheduleActionSettings (..),
+    mkHlsId3SegmentTaggingScheduleActionSettings,
     histsasTag,
 
     -- * HlsInputSettings
-    HlsInputSettings,
-    hlsInputSettings,
+    HlsInputSettings (..),
+    mkHlsInputSettings,
     hisBufferSegments,
     hisRetries,
     hisRetryInterval,
     hisBandwidth,
 
     -- * HlsMediaStoreSettings
-    HlsMediaStoreSettings,
-    hlsMediaStoreSettings,
+    HlsMediaStoreSettings (..),
+    mkHlsMediaStoreSettings,
     hmssNumRetries,
     hmssConnectionRetryInterval,
     hmssFilecacheDuration,
@@ -1454,28 +1452,28 @@ module Network.AWS.MediaLive.Types
     hmssRestartDelay,
 
     -- * HlsOutputSettings
-    HlsOutputSettings,
-    hlsOutputSettings,
+    HlsOutputSettings (..),
+    mkHlsOutputSettings,
     hosH265PackagingType,
     hosSegmentModifier,
     hosNameModifier,
     hosHlsSettings,
 
     -- * HlsSettings
-    HlsSettings,
-    hlsSettings,
+    HlsSettings (..),
+    mkHlsSettings,
     hsFmp4HlsSettings,
     hsAudioOnlyHlsSettings,
     hsStandardHlsSettings,
 
     -- * HlsTimedMetadataScheduleActionSettings
-    HlsTimedMetadataScheduleActionSettings,
-    hlsTimedMetadataScheduleActionSettings,
+    HlsTimedMetadataScheduleActionSettings (..),
+    mkHlsTimedMetadataScheduleActionSettings,
     htmsasId3,
 
     -- * HlsWebdavSettings
-    HlsWebdavSettings,
-    hlsWebdavSettings,
+    HlsWebdavSettings (..),
+    mkHlsWebdavSettings,
     hwsHTTPTransferMode,
     hwsNumRetries,
     hwsConnectionRetryInterval,
@@ -1483,12 +1481,12 @@ module Network.AWS.MediaLive.Types
     hwsRestartDelay,
 
     -- * ImmediateModeScheduleActionStartSettings
-    ImmediateModeScheduleActionStartSettings,
-    immediateModeScheduleActionStartSettings,
+    ImmediateModeScheduleActionStartSettings (..),
+    mkImmediateModeScheduleActionStartSettings,
 
     -- * Input
-    Input,
-    input,
+    Input (..),
+    mkInput,
     iState,
     iSecurityGroups,
     iARN,
@@ -1506,54 +1504,54 @@ module Network.AWS.MediaLive.Types
     iRoleARN,
 
     -- * InputAttachment
-    InputAttachment,
-    inputAttachment,
+    InputAttachment (..),
+    mkInputAttachment,
     iaInputAttachmentName,
     iaInputId,
     iaAutomaticInputFailoverSettings,
     iaInputSettings,
 
     -- * InputChannelLevel
-    InputChannelLevel,
-    inputChannelLevel,
+    InputChannelLevel (..),
+    mkInputChannelLevel,
     iclInputChannel,
     iclGain,
 
     -- * InputClippingSettings
-    InputClippingSettings,
-    inputClippingSettings,
+    InputClippingSettings (..),
+    mkInputClippingSettings,
     icsStopTimecode,
     icsStartTimecode,
     icsInputTimecodeSource,
 
     -- * InputDestination
-    InputDestination,
-    inputDestination,
+    InputDestination (..),
+    mkInputDestination,
     idURL,
     idIP,
     idVPC,
     idPort,
 
     -- * InputDestinationRequest
-    InputDestinationRequest,
-    inputDestinationRequest,
+    InputDestinationRequest (..),
+    mkInputDestinationRequest,
     idrStreamName,
 
     -- * InputDestinationVPC
-    InputDestinationVPC,
-    inputDestinationVPC,
+    InputDestinationVPC (..),
+    mkInputDestinationVPC,
     idvNetworkInterfaceId,
     idvAvailabilityZone,
 
     -- * InputDeviceConfigurableSettings
-    InputDeviceConfigurableSettings,
-    inputDeviceConfigurableSettings,
+    InputDeviceConfigurableSettings (..),
+    mkInputDeviceConfigurableSettings,
     idcsConfiguredInput,
     idcsMaxBitrate,
 
     -- * InputDeviceHdSettings
-    InputDeviceHdSettings,
-    inputDeviceHdSettings,
+    InputDeviceHdSettings (..),
+    mkInputDeviceHdSettings,
     idhsFramerate,
     idhsScanType,
     idhsDeviceState,
@@ -1564,8 +1562,8 @@ module Network.AWS.MediaLive.Types
     idhsMaxBitrate,
 
     -- * InputDeviceNetworkSettings
-    InputDeviceNetworkSettings,
-    inputDeviceNetworkSettings,
+    InputDeviceNetworkSettings (..),
+    mkInputDeviceNetworkSettings,
     idnsIPAddress,
     idnsGateway,
     idnsDNSAddresses,
@@ -1573,18 +1571,18 @@ module Network.AWS.MediaLive.Types
     idnsSubnetMask,
 
     -- * InputDeviceRequest
-    InputDeviceRequest,
-    inputDeviceRequest,
+    InputDeviceRequest (..),
+    mkInputDeviceRequest,
     idrId,
 
     -- * InputDeviceSettings
-    InputDeviceSettings,
-    inputDeviceSettings,
+    InputDeviceSettings (..),
+    mkInputDeviceSettings,
     idssId,
 
     -- * InputDeviceSummary
-    InputDeviceSummary,
-    inputDeviceSummary,
+    InputDeviceSummary (..),
+    mkInputDeviceSummary,
     idsARN,
     idsMACAddress,
     idsHdDeviceSettings,
@@ -1598,15 +1596,15 @@ module Network.AWS.MediaLive.Types
     idsConnectionState,
 
     -- * InputLocation
-    InputLocation,
-    inputLocation,
+    InputLocation (..),
+    mkInputLocation,
     ilUsername,
     ilPasswordParam,
     ilURI,
 
     -- * InputLossBehavior
-    InputLossBehavior,
-    inputLossBehavior,
+    InputLossBehavior (..),
+    mkInputLossBehavior,
     ilbInputLossImageColor,
     ilbBlackFrameMsec,
     ilbRepeatFrameMsec,
@@ -1614,20 +1612,20 @@ module Network.AWS.MediaLive.Types
     ilbInputLossImageSlate,
 
     -- * InputLossFailoverSettings
-    InputLossFailoverSettings,
-    inputLossFailoverSettings,
+    InputLossFailoverSettings (..),
+    mkInputLossFailoverSettings,
     ilfsInputLossThresholdMsec,
 
     -- * InputPrepareScheduleActionSettings
-    InputPrepareScheduleActionSettings,
-    inputPrepareScheduleActionSettings,
+    InputPrepareScheduleActionSettings (..),
+    mkInputPrepareScheduleActionSettings,
     ipsasInputAttachmentNameReference,
     ipsasInputClippingSettings,
     ipsasURLPath,
 
     -- * InputSecurityGroup
-    InputSecurityGroup,
-    inputSecurityGroup,
+    InputSecurityGroup (..),
+    mkInputSecurityGroup,
     isgState,
     isgARN,
     isgInputs,
@@ -1636,8 +1634,8 @@ module Network.AWS.MediaLive.Types
     isgTags,
 
     -- * InputSettings
-    InputSettings,
-    inputSettings,
+    InputSettings (..),
+    mkInputSettings,
     isVideoSelector,
     isSmpte2038DataPreference,
     isNetworkInputSettings,
@@ -1650,57 +1648,57 @@ module Network.AWS.MediaLive.Types
     isSourceEndBehavior,
 
     -- * InputSource
-    InputSource,
-    inputSource,
+    InputSource (..),
+    mkInputSource,
     isURL,
     isUsername,
     isPasswordParam,
 
     -- * InputSourceRequest
-    InputSourceRequest,
-    inputSourceRequest,
+    InputSourceRequest (..),
+    mkInputSourceRequest,
     isrURL,
     isrUsername,
     isrPasswordParam,
 
     -- * InputSpecification
-    InputSpecification,
-    inputSpecification,
+    InputSpecification (..),
+    mkInputSpecification,
     isResolution,
     isCodec,
     isMaximumBitrate,
 
     -- * InputSwitchScheduleActionSettings
-    InputSwitchScheduleActionSettings,
-    inputSwitchScheduleActionSettings,
+    InputSwitchScheduleActionSettings (..),
+    mkInputSwitchScheduleActionSettings,
     issasInputClippingSettings,
     issasURLPath,
     issasInputAttachmentNameReference,
 
     -- * InputVPCRequest
-    InputVPCRequest,
-    inputVPCRequest,
+    InputVPCRequest (..),
+    mkInputVPCRequest,
     ivrSecurityGroupIds,
     ivrSubnetIds,
 
     -- * InputWhitelistRule
-    InputWhitelistRule,
-    inputWhitelistRule,
+    InputWhitelistRule (..),
+    mkInputWhitelistRule,
     iwrCidr,
 
     -- * InputWhitelistRuleCidr
-    InputWhitelistRuleCidr,
-    inputWhitelistRuleCidr,
+    InputWhitelistRuleCidr (..),
+    mkInputWhitelistRuleCidr,
     iwrcCidr,
 
     -- * KeyProviderSettings
-    KeyProviderSettings,
-    keyProviderSettings,
+    KeyProviderSettings (..),
+    mkKeyProviderSettings,
     kpsStaticKeySettings,
 
     -- * M2tsSettings
-    M2tsSettings,
-    m2tsSettings,
+    M2tsSettings (..),
+    mkM2tsSettings,
     mPmtPid,
     mEtvSignalPid,
     mVideoPid,
@@ -1750,8 +1748,8 @@ module Network.AWS.MediaLive.Types
     mDvbTdtSettings,
 
     -- * M3u8Settings
-    M3u8Settings,
-    m3u8Settings,
+    M3u8Settings (..),
+    mkM3u8Settings,
     mssPmtPid,
     mssVideoPid,
     mssNielsenId3Behavior,
@@ -1771,44 +1769,44 @@ module Network.AWS.MediaLive.Types
     mssPcrControl,
 
     -- * MediaConnectFlow
-    MediaConnectFlow,
-    mediaConnectFlow,
+    MediaConnectFlow (..),
+    mkMediaConnectFlow,
     mcfFlowARN,
 
     -- * MediaConnectFlowRequest
-    MediaConnectFlowRequest,
-    mediaConnectFlowRequest,
+    MediaConnectFlowRequest (..),
+    mkMediaConnectFlowRequest,
     mcfrFlowARN,
 
     -- * MediaPackageGroupSettings
-    MediaPackageGroupSettings,
-    mediaPackageGroupSettings,
+    MediaPackageGroupSettings (..),
+    mkMediaPackageGroupSettings,
     mpgsDestination,
 
     -- * MediaPackageOutputDestinationSettings
-    MediaPackageOutputDestinationSettings,
-    mediaPackageOutputDestinationSettings,
+    MediaPackageOutputDestinationSettings (..),
+    mkMediaPackageOutputDestinationSettings,
     mpodsChannelId,
 
     -- * MediaPackageOutputSettings
-    MediaPackageOutputSettings,
-    mediaPackageOutputSettings,
+    MediaPackageOutputSettings (..),
+    mkMediaPackageOutputSettings,
 
     -- * Mp2Settings
-    Mp2Settings,
-    mp2Settings,
+    Mp2Settings (..),
+    mkMp2Settings,
     msCodingMode,
     msSampleRate,
     msBitrate,
 
     -- * Mpeg2FilterSettings
-    Mpeg2FilterSettings,
-    mpeg2FilterSettings,
+    Mpeg2FilterSettings (..),
+    mkMpeg2FilterSettings,
     mfsTemporalFilterSettings,
 
     -- * Mpeg2Settings
-    Mpeg2Settings,
-    mpeg2Settings,
+    Mpeg2Settings (..),
+    mkMpeg2Settings,
     msScanType,
     msTimecodeInsertion,
     msAfdSignaling,
@@ -1827,8 +1825,8 @@ module Network.AWS.MediaLive.Types
     msFramerateDenominator,
 
     -- * MsSmoothGroupSettings
-    MsSmoothGroupSettings,
-    msSmoothGroupSettings,
+    MsSmoothGroupSettings (..),
+    mkMsSmoothGroupSettings,
     msgsFragmentLength,
     msgsStreamManifestBehavior,
     msgsSendDelayMs,
@@ -1850,14 +1848,14 @@ module Network.AWS.MediaLive.Types
     msgsDestination,
 
     -- * MsSmoothOutputSettings
-    MsSmoothOutputSettings,
-    msSmoothOutputSettings,
+    MsSmoothOutputSettings (..),
+    mkMsSmoothOutputSettings,
     msosH265PackagingType,
     msosNameModifier,
 
     -- * Multiplex
-    Multiplex,
-    multiplex,
+    Multiplex (..),
+    mkMultiplex,
     mState,
     mARN,
     mPipelinesRunningCount,
@@ -1870,27 +1868,27 @@ module Network.AWS.MediaLive.Types
     mTags,
 
     -- * MultiplexGroupSettings
-    MultiplexGroupSettings,
-    multiplexGroupSettings,
+    MultiplexGroupSettings (..),
+    mkMultiplexGroupSettings,
 
     -- * MultiplexMediaConnectOutputDestinationSettings
-    MultiplexMediaConnectOutputDestinationSettings,
-    multiplexMediaConnectOutputDestinationSettings,
+    MultiplexMediaConnectOutputDestinationSettings (..),
+    mkMultiplexMediaConnectOutputDestinationSettings,
     mmcodsEntitlementARN,
 
     -- * MultiplexOutputDestination
-    MultiplexOutputDestination,
-    multiplexOutputDestination,
+    MultiplexOutputDestination (..),
+    mkMultiplexOutputDestination,
     modMediaConnectSettings,
 
     -- * MultiplexOutputSettings
-    MultiplexOutputSettings,
-    multiplexOutputSettings,
+    MultiplexOutputSettings (..),
+    mkMultiplexOutputSettings,
     mosDestination,
 
     -- * MultiplexProgram
-    MultiplexProgram,
-    multiplexProgram,
+    MultiplexProgram (..),
+    mkMultiplexProgram,
     mpPacketIdentifiersMap,
     mpPipelineDetails,
     mpProgramName,
@@ -1898,14 +1896,14 @@ module Network.AWS.MediaLive.Types
     mpMultiplexProgramSettings,
 
     -- * MultiplexProgramChannelDestinationSettings
-    MultiplexProgramChannelDestinationSettings,
-    multiplexProgramChannelDestinationSettings,
+    MultiplexProgramChannelDestinationSettings (..),
+    mkMultiplexProgramChannelDestinationSettings,
     mpcdsMultiplexId,
     mpcdsProgramName,
 
     -- * MultiplexProgramPacketIdentifiersMap
-    MultiplexProgramPacketIdentifiersMap,
-    multiplexProgramPacketIdentifiersMap,
+    MultiplexProgramPacketIdentifiersMap (..),
+    mkMultiplexProgramPacketIdentifiersMap,
     mppimPmtPid,
     mppimEtvSignalPid,
     mppimVideoPid,
@@ -1921,54 +1919,54 @@ module Network.AWS.MediaLive.Types
     mppimDvbTeletextPid,
 
     -- * MultiplexProgramPipelineDetail
-    MultiplexProgramPipelineDetail,
-    multiplexProgramPipelineDetail,
+    MultiplexProgramPipelineDetail (..),
+    mkMultiplexProgramPipelineDetail,
     mppdPipelineId,
     mppdActiveChannelPipeline,
 
     -- * MultiplexProgramServiceDescriptor
-    MultiplexProgramServiceDescriptor,
-    multiplexProgramServiceDescriptor,
+    MultiplexProgramServiceDescriptor (..),
+    mkMultiplexProgramServiceDescriptor,
     mpsdProviderName,
     mpsdServiceName,
 
     -- * MultiplexProgramSettings
-    MultiplexProgramSettings,
-    multiplexProgramSettings,
+    MultiplexProgramSettings (..),
+    mkMultiplexProgramSettings,
     mpsPreferredChannelPipeline,
     mpsVideoSettings,
     mpsServiceDescriptor,
     mpsProgramNumber,
 
     -- * MultiplexProgramSummary
-    MultiplexProgramSummary,
-    multiplexProgramSummary,
+    MultiplexProgramSummary (..),
+    mkMultiplexProgramSummary,
     mpsProgramName,
     mpsChannelId,
 
     -- * MultiplexSettings
-    MultiplexSettings,
-    multiplexSettings,
+    MultiplexSettings (..),
+    mkMultiplexSettings,
     msMaximumVideoBufferDelayMilliseconds,
     msTransportStreamReservedBitrate,
     msTransportStreamBitrate,
     msTransportStreamId,
 
     -- * MultiplexSettingsSummary
-    MultiplexSettingsSummary,
-    multiplexSettingsSummary,
+    MultiplexSettingsSummary (..),
+    mkMultiplexSettingsSummary,
     mssTransportStreamBitrate,
 
     -- * MultiplexStatmuxVideoSettings
-    MultiplexStatmuxVideoSettings,
-    multiplexStatmuxVideoSettings,
+    MultiplexStatmuxVideoSettings (..),
+    mkMultiplexStatmuxVideoSettings,
     msvsPriority,
     msvsMinimumBitrate,
     msvsMaximumBitrate,
 
     -- * MultiplexSummary
-    MultiplexSummary,
-    multiplexSummary,
+    MultiplexSummary (..),
+    mkMultiplexSummary,
     msState,
     msARN,
     msPipelinesRunningCount,
@@ -1980,26 +1978,26 @@ module Network.AWS.MediaLive.Types
     msTags,
 
     -- * MultiplexVideoSettings
-    MultiplexVideoSettings,
-    multiplexVideoSettings,
+    MultiplexVideoSettings (..),
+    mkMultiplexVideoSettings,
     mvsStatmuxSettings,
     mvsConstantBitrate,
 
     -- * NetworkInputSettings
-    NetworkInputSettings,
-    networkInputSettings,
+    NetworkInputSettings (..),
+    mkNetworkInputSettings,
     nisHlsInputSettings,
     nisServerValidation,
 
     -- * NielsenConfiguration
-    NielsenConfiguration,
-    nielsenConfiguration,
+    NielsenConfiguration (..),
+    mkNielsenConfiguration,
     ncDistributorId,
     ncNielsenPcmToId3Tagging,
 
     -- * Offering
-    Offering,
-    offering,
+    Offering (..),
+    mkOffering,
     oResourceSpecification,
     oCurrencyCode,
     oARN,
@@ -2013,8 +2011,8 @@ module Network.AWS.MediaLive.Types
     oDuration,
 
     -- * Output
-    Output,
-    output,
+    Output (..),
+    mkOutput,
     oCaptionDescriptionNames,
     oVideoDescriptionName,
     oOutputName,
@@ -2022,31 +2020,31 @@ module Network.AWS.MediaLive.Types
     oOutputSettings,
 
     -- * OutputDestination
-    OutputDestination,
-    outputDestination,
+    OutputDestination (..),
+    mkOutputDestination,
     odSettings,
     odMediaPackageSettings,
     odId,
     odMultiplexSettings,
 
     -- * OutputDestinationSettings
-    OutputDestinationSettings,
-    outputDestinationSettings,
+    OutputDestinationSettings (..),
+    mkOutputDestinationSettings,
     odsURL,
     odsUsername,
     odsPasswordParam,
     odsStreamName,
 
     -- * OutputGroup
-    OutputGroup,
-    outputGroup,
+    OutputGroup (..),
+    mkOutputGroup,
     ogName,
     ogOutputs,
     ogOutputGroupSettings,
 
     -- * OutputGroupSettings
-    OutputGroupSettings,
-    outputGroupSettings,
+    OutputGroupSettings (..),
+    mkOutputGroupSettings,
     ogsMediaPackageGroupSettings,
     ogsMsSmoothGroupSettings,
     ogsRtmpGroupSettings,
@@ -2057,13 +2055,13 @@ module Network.AWS.MediaLive.Types
     ogsFrameCaptureGroupSettings,
 
     -- * OutputLocationRef
-    OutputLocationRef,
-    outputLocationRef,
+    OutputLocationRef (..),
+    mkOutputLocationRef,
     olrDestinationRefId,
 
     -- * OutputSettings
-    OutputSettings,
-    outputSettings,
+    OutputSettings (..),
+    mkOutputSettings,
     osMultiplexOutputSettings,
     osArchiveOutputSettings,
     osRtmpOutputSettings,
@@ -2074,48 +2072,48 @@ module Network.AWS.MediaLive.Types
     osMsSmoothOutputSettings,
 
     -- * PassThroughSettings
-    PassThroughSettings,
-    passThroughSettings,
+    PassThroughSettings (..),
+    mkPassThroughSettings,
 
     -- * PauseStateScheduleActionSettings
-    PauseStateScheduleActionSettings,
-    pauseStateScheduleActionSettings,
+    PauseStateScheduleActionSettings (..),
+    mkPauseStateScheduleActionSettings,
     pssasPipelines,
 
     -- * PipelineDetail
-    PipelineDetail,
-    pipelineDetail,
+    PipelineDetail (..),
+    mkPipelineDetail,
     pdPipelineId,
     pdActiveInputSwitchActionName,
     pdActiveInputAttachmentName,
 
     -- * PipelinePauseStateSettings
-    PipelinePauseStateSettings,
-    pipelinePauseStateSettings,
+    PipelinePauseStateSettings (..),
+    mkPipelinePauseStateSettings,
     ppssPipelineId,
 
     -- * RawSettings
-    RawSettings,
-    rawSettings,
+    RawSettings (..),
+    mkRawSettings,
 
     -- * Rec601Settings
-    Rec601Settings,
-    rec601Settings,
+    Rec601Settings (..),
+    mkRec601Settings,
 
     -- * Rec709Settings
-    Rec709Settings,
-    rec709Settings,
+    Rec709Settings (..),
+    mkRec709Settings,
 
     -- * RemixSettings
-    RemixSettings,
-    remixSettings,
+    RemixSettings (..),
+    mkRemixSettings,
     rsChannelsIn,
     rsChannelsOut,
     rsChannelMappings,
 
     -- * Reservation
-    Reservation,
-    reservation,
+    Reservation (..),
+    mkReservation,
     rState,
     rResourceSpecification,
     rCurrencyCode,
@@ -2136,8 +2134,8 @@ module Network.AWS.MediaLive.Types
     rTags,
 
     -- * ReservationResourceSpecification
-    ReservationResourceSpecification,
-    reservationResourceSpecification,
+    ReservationResourceSpecification (..),
+    mkReservationResourceSpecification,
     rrsVideoQuality,
     rrsMaximumFramerate,
     rrsResourceType,
@@ -2148,12 +2146,12 @@ module Network.AWS.MediaLive.Types
     rrsMaximumBitrate,
 
     -- * RtmpCaptionInfoDestinationSettings
-    RtmpCaptionInfoDestinationSettings,
-    rtmpCaptionInfoDestinationSettings,
+    RtmpCaptionInfoDestinationSettings (..),
+    mkRtmpCaptionInfoDestinationSettings,
 
     -- * RtmpGroupSettings
-    RtmpGroupSettings,
-    rtmpGroupSettings,
+    RtmpGroupSettings (..),
+    mkRtmpGroupSettings,
     rgsInputLossAction,
     rgsCaptionData,
     rgsAdMarkers,
@@ -2163,23 +2161,23 @@ module Network.AWS.MediaLive.Types
     rgsCacheFullBehavior,
 
     -- * RtmpOutputSettings
-    RtmpOutputSettings,
-    rtmpOutputSettings,
+    RtmpOutputSettings (..),
+    mkRtmpOutputSettings,
     rosNumRetries,
     rosCertificateMode,
     rosConnectionRetryInterval,
     rosDestination,
 
     -- * ScheduleAction
-    ScheduleAction,
-    scheduleAction,
+    ScheduleAction (..),
+    mkScheduleAction,
     saActionName,
     saScheduleActionStartSettings,
     saScheduleActionSettings,
 
     -- * ScheduleActionSettings
-    ScheduleActionSettings,
-    scheduleActionSettings,
+    ScheduleActionSettings (..),
+    mkScheduleActionSettings,
     sasStaticImageDeactivateSettings,
     sasScte35SpliceInsertSettings,
     sasStaticImageActivateSettings,
@@ -2192,57 +2190,57 @@ module Network.AWS.MediaLive.Types
     sasInputSwitchSettings,
 
     -- * ScheduleActionStartSettings
-    ScheduleActionStartSettings,
-    scheduleActionStartSettings,
+    ScheduleActionStartSettings (..),
+    mkScheduleActionStartSettings,
     sassImmediateModeScheduleActionStartSettings,
     sassFollowModeScheduleActionStartSettings,
     sassFixedModeScheduleActionStartSettings,
 
     -- * Scte20PlusEmbeddedDestinationSettings
-    Scte20PlusEmbeddedDestinationSettings,
-    scte20PlusEmbeddedDestinationSettings,
+    Scte20PlusEmbeddedDestinationSettings (..),
+    mkScte20PlusEmbeddedDestinationSettings,
 
     -- * Scte20SourceSettings
-    Scte20SourceSettings,
-    scte20SourceSettings,
+    Scte20SourceSettings (..),
+    mkScte20SourceSettings,
     sssConvert608To708,
     sssSource608ChannelNumber,
 
     -- * Scte27DestinationSettings
-    Scte27DestinationSettings,
-    scte27DestinationSettings,
+    Scte27DestinationSettings (..),
+    mkScte27DestinationSettings,
 
     -- * Scte27SourceSettings
-    Scte27SourceSettings,
-    scte27SourceSettings,
+    Scte27SourceSettings (..),
+    mkScte27SourceSettings,
     sssPid,
 
     -- * Scte35DeliveryRestrictions
-    Scte35DeliveryRestrictions,
-    scte35DeliveryRestrictions,
+    Scte35DeliveryRestrictions (..),
+    mkScte35DeliveryRestrictions,
     sdrDeviceRestrictions,
     sdrArchiveAllowedFlag,
     sdrWebDeliveryAllowedFlag,
     sdrNoRegionalBlackoutFlag,
 
     -- * Scte35Descriptor
-    Scte35Descriptor,
-    scte35Descriptor,
+    Scte35Descriptor (..),
+    mkScte35Descriptor,
     sdScte35DescriptorSettings,
 
     -- * Scte35DescriptorSettings
-    Scte35DescriptorSettings,
-    scte35DescriptorSettings,
+    Scte35DescriptorSettings (..),
+    mkScte35DescriptorSettings,
     sdsSegmentationDescriptorScte35DescriptorSettings,
 
     -- * Scte35ReturnToNetworkScheduleActionSettings
-    Scte35ReturnToNetworkScheduleActionSettings,
-    scte35ReturnToNetworkScheduleActionSettings,
+    Scte35ReturnToNetworkScheduleActionSettings (..),
+    mkScte35ReturnToNetworkScheduleActionSettings,
     srtnsasSpliceEventId,
 
     -- * Scte35SegmentationDescriptor
-    Scte35SegmentationDescriptor,
-    scte35SegmentationDescriptor,
+    Scte35SegmentationDescriptor (..),
+    mkScte35SegmentationDescriptor,
     ssdSegmentationUpidType,
     ssdSegmentsExpected,
     ssdSubSegmentsExpected,
@@ -2256,48 +2254,48 @@ module Network.AWS.MediaLive.Types
     ssdSegmentationCancelIndicator,
 
     -- * Scte35SpliceInsert
-    Scte35SpliceInsert,
-    scte35SpliceInsert,
+    Scte35SpliceInsert (..),
+    mkScte35SpliceInsert,
     ssiWebDeliveryAllowedFlag,
     ssiAdAvailOffset,
     ssiNoRegionalBlackoutFlag,
 
     -- * Scte35SpliceInsertScheduleActionSettings
-    Scte35SpliceInsertScheduleActionSettings,
-    scte35SpliceInsertScheduleActionSettings,
+    Scte35SpliceInsertScheduleActionSettings (..),
+    mkScte35SpliceInsertScheduleActionSettings,
     ssisasDuration,
     ssisasSpliceEventId,
 
     -- * Scte35TimeSignalApos
-    Scte35TimeSignalApos,
-    scte35TimeSignalApos,
+    Scte35TimeSignalApos (..),
+    mkScte35TimeSignalApos,
     stsaWebDeliveryAllowedFlag,
     stsaAdAvailOffset,
     stsaNoRegionalBlackoutFlag,
 
     -- * Scte35TimeSignalScheduleActionSettings
-    Scte35TimeSignalScheduleActionSettings,
-    scte35TimeSignalScheduleActionSettings,
+    Scte35TimeSignalScheduleActionSettings (..),
+    mkScte35TimeSignalScheduleActionSettings,
     stssasScte35Descriptors,
 
     -- * SmpteTtDestinationSettings
-    SmpteTtDestinationSettings,
-    smpteTtDestinationSettings,
+    SmpteTtDestinationSettings (..),
+    mkSmpteTtDestinationSettings,
 
     -- * StandardHlsSettings
-    StandardHlsSettings,
-    standardHlsSettings,
+    StandardHlsSettings (..),
+    mkStandardHlsSettings,
     shsAudioRenditionSets,
     shsM3u8Settings,
 
     -- * StartTimecode
-    StartTimecode,
-    startTimecode,
+    StartTimecode (..),
+    mkStartTimecode,
     sTimecode,
 
     -- * StaticImageActivateScheduleActionSettings
-    StaticImageActivateScheduleActionSettings,
-    staticImageActivateScheduleActionSettings,
+    StaticImageActivateScheduleActionSettings (..),
+    mkStaticImageActivateScheduleActionSettings,
     siasasImageX,
     siasasHeight,
     siasasFadeOut,
@@ -2310,88 +2308,88 @@ module Network.AWS.MediaLive.Types
     siasasImage,
 
     -- * StaticImageDeactivateScheduleActionSettings
-    StaticImageDeactivateScheduleActionSettings,
-    staticImageDeactivateScheduleActionSettings,
+    StaticImageDeactivateScheduleActionSettings (..),
+    mkStaticImageDeactivateScheduleActionSettings,
     sidsasFadeOut,
     sidsasLayer,
 
     -- * StaticKeySettings
-    StaticKeySettings,
-    staticKeySettings,
+    StaticKeySettings (..),
+    mkStaticKeySettings,
     sksKeyProviderServer,
     sksStaticKeyValue,
 
     -- * StopTimecode
-    StopTimecode,
-    stopTimecode,
+    StopTimecode (..),
+    mkStopTimecode,
     stLastFrameClippingBehavior,
     stTimecode,
 
     -- * TeletextDestinationSettings
-    TeletextDestinationSettings,
-    teletextDestinationSettings,
+    TeletextDestinationSettings (..),
+    mkTeletextDestinationSettings,
 
     -- * TeletextSourceSettings
-    TeletextSourceSettings,
-    teletextSourceSettings,
+    TeletextSourceSettings (..),
+    mkTeletextSourceSettings,
     tssPageNumber,
 
     -- * TemporalFilterSettings
-    TemporalFilterSettings,
-    temporalFilterSettings,
+    TemporalFilterSettings (..),
+    mkTemporalFilterSettings,
     tfsStrength,
     tfsPostFilterSharpening,
 
     -- * TimecodeConfig
-    TimecodeConfig,
-    timecodeConfig,
+    TimecodeConfig (..),
+    mkTimecodeConfig,
     tcSyncThreshold,
     tcSource,
 
     -- * TransferringInputDeviceSummary
-    TransferringInputDeviceSummary,
-    transferringInputDeviceSummary,
+    TransferringInputDeviceSummary (..),
+    mkTransferringInputDeviceSummary,
     tidsTransferType,
     tidsId,
     tidsTargetCustomerId,
     tidsMessage,
 
     -- * TtmlDestinationSettings
-    TtmlDestinationSettings,
-    ttmlDestinationSettings,
+    TtmlDestinationSettings (..),
+    mkTtmlDestinationSettings,
     tdsStyleControl,
 
     -- * UdpContainerSettings
-    UdpContainerSettings,
-    udpContainerSettings,
+    UdpContainerSettings (..),
+    mkUdpContainerSettings,
     ucsM2tsSettings,
 
     -- * UdpGroupSettings
-    UdpGroupSettings,
-    udpGroupSettings,
+    UdpGroupSettings (..),
+    mkUdpGroupSettings,
     ugsTimedMetadataId3Period,
     ugsInputLossAction,
     ugsTimedMetadataId3Frame,
 
     -- * UdpOutputSettings
-    UdpOutputSettings,
-    udpOutputSettings,
+    UdpOutputSettings (..),
+    mkUdpOutputSettings,
     uosFecOutputSettings,
     uosBufferMsec,
     uosDestination,
     uosContainerSettings,
 
     -- * VideoCodecSettings
-    VideoCodecSettings,
-    videoCodecSettings,
+    VideoCodecSettings (..),
+    mkVideoCodecSettings,
     vcsFrameCaptureSettings,
     vcsH265Settings,
     vcsH264Settings,
     vcsMpeg2Settings,
 
     -- * VideoDescription
-    VideoDescription,
-    videoDescription,
+    VideoDescription (..),
+    mkVideoDescription,
     vdHeight,
     vdSharpness,
     vdWidth,
@@ -2401,42 +2399,42 @@ module Network.AWS.MediaLive.Types
     vdName,
 
     -- * VideoSelector
-    VideoSelector,
-    videoSelector,
+    VideoSelector (..),
+    mkVideoSelector,
     vsSelectorSettings,
     vsColorSpaceUsage,
     vsColorSpace,
 
     -- * VideoSelectorPid
-    VideoSelectorPid,
-    videoSelectorPid,
+    VideoSelectorPid (..),
+    mkVideoSelectorPid,
     vspPid,
 
     -- * VideoSelectorProgramId
-    VideoSelectorProgramId,
-    videoSelectorProgramId,
+    VideoSelectorProgramId (..),
+    mkVideoSelectorProgramId,
     vspiProgramId,
 
     -- * VideoSelectorSettings
-    VideoSelectorSettings,
-    videoSelectorSettings,
+    VideoSelectorSettings (..),
+    mkVideoSelectorSettings,
     vssVideoSelectorProgramId,
     vssVideoSelectorPid,
 
     -- * WavSettings
-    WavSettings,
-    wavSettings,
+    WavSettings (..),
+    mkWavSettings,
     wsBitDepth,
     wsCodingMode,
     wsSampleRate,
 
     -- * WebvttDestinationSettings
-    WebvttDestinationSettings,
-    webvttDestinationSettings,
+    WebvttDestinationSettings (..),
+    mkWebvttDestinationSettings,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AacCodingMode
 import Network.AWS.MediaLive.Types.AacInputType
 import Network.AWS.MediaLive.Types.AacProfile
@@ -2882,47 +2880,59 @@ import Network.AWS.MediaLive.Types.VideoSelectorSettings
 import Network.AWS.MediaLive.Types.WavCodingMode
 import Network.AWS.MediaLive.Types.WavSettings
 import Network.AWS.MediaLive.Types.WebvttDestinationSettings
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-10-14@ of the Amazon Elemental MediaLive SDK configuration.
-mediaLive :: Service
-mediaLive =
-  Service
-    { _svcAbbrev = "MediaLive",
-      _svcSigner = v4,
-      _svcPrefix = "medialive",
-      _svcVersion = "2017-10-14",
-      _svcEndpoint = defaultEndpoint mediaLive,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "MediaLive",
-      _svcRetry = retry
+mediaLiveService :: Lude.Service
+mediaLiveService =
+  Lude.Service
+    { Lude._svcAbbrev = "MediaLive",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "medialive",
+      Lude._svcVersion = "2017-10-14",
+      Lude._svcEndpoint = Lude.defaultEndpoint mediaLiveService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "MediaLive",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

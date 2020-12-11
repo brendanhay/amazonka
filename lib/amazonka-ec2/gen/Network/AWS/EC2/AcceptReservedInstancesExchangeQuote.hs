@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,159 +14,165 @@
 --
 -- Accepts the Convertible Reserved Instance exchange quote described in the 'GetReservedInstancesExchangeQuote' call.
 module Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
-  ( -- * Creating a Request
-    acceptReservedInstancesExchangeQuote,
-    AcceptReservedInstancesExchangeQuote,
+  ( -- * Creating a request
+    AcceptReservedInstancesExchangeQuote (..),
+    mkAcceptReservedInstancesExchangeQuote,
 
-    -- * Request Lenses
+    -- ** Request lenses
     arieqTargetConfigurations,
     arieqDryRun,
     arieqReservedInstanceIds,
 
-    -- * Destructuring the Response
-    acceptReservedInstancesExchangeQuoteResponse,
-    AcceptReservedInstancesExchangeQuoteResponse,
+    -- * Destructuring the response
+    AcceptReservedInstancesExchangeQuoteResponse (..),
+    mkAcceptReservedInstancesExchangeQuoteResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     arieqrsExchangeId,
     arieqrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for accepting the quote.
 --
---
---
--- /See:/ 'acceptReservedInstancesExchangeQuote' smart constructor.
+-- /See:/ 'mkAcceptReservedInstancesExchangeQuote' smart constructor.
 data AcceptReservedInstancesExchangeQuote = AcceptReservedInstancesExchangeQuote'
-  { _arieqTargetConfigurations ::
-      !( Maybe
-           [TargetConfigurationRequest]
-       ),
-    _arieqDryRun ::
-      !(Maybe Bool),
-    _arieqReservedInstanceIds ::
-      ![Text]
+  { targetConfigurations ::
+      Lude.Maybe
+        [TargetConfigurationRequest],
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    reservedInstanceIds ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptReservedInstancesExchangeQuote' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arieqTargetConfigurations' - The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
---
--- * 'arieqDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'arieqReservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved Instance of the same or higher value.
-acceptReservedInstancesExchangeQuote ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'reservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved Instance of the same or higher value.
+-- * 'targetConfigurations' - The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
+mkAcceptReservedInstancesExchangeQuote ::
   AcceptReservedInstancesExchangeQuote
-acceptReservedInstancesExchangeQuote =
+mkAcceptReservedInstancesExchangeQuote =
   AcceptReservedInstancesExchangeQuote'
-    { _arieqTargetConfigurations =
-        Nothing,
-      _arieqDryRun = Nothing,
-      _arieqReservedInstanceIds = mempty
+    { targetConfigurations =
+        Lude.Nothing,
+      dryRun = Lude.Nothing,
+      reservedInstanceIds = Lude.mempty
     }
 
 -- | The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
-arieqTargetConfigurations :: Lens' AcceptReservedInstancesExchangeQuote [TargetConfigurationRequest]
-arieqTargetConfigurations = lens _arieqTargetConfigurations (\s a -> s {_arieqTargetConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arieqTargetConfigurations :: Lens.Lens' AcceptReservedInstancesExchangeQuote (Lude.Maybe [TargetConfigurationRequest])
+arieqTargetConfigurations = Lens.lens (targetConfigurations :: AcceptReservedInstancesExchangeQuote -> Lude.Maybe [TargetConfigurationRequest]) (\s a -> s {targetConfigurations = a} :: AcceptReservedInstancesExchangeQuote)
+{-# DEPRECATED arieqTargetConfigurations "Use generic-lens or generic-optics with 'targetConfigurations' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-arieqDryRun :: Lens' AcceptReservedInstancesExchangeQuote (Maybe Bool)
-arieqDryRun = lens _arieqDryRun (\s a -> s {_arieqDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arieqDryRun :: Lens.Lens' AcceptReservedInstancesExchangeQuote (Lude.Maybe Lude.Bool)
+arieqDryRun = Lens.lens (dryRun :: AcceptReservedInstancesExchangeQuote -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AcceptReservedInstancesExchangeQuote)
+{-# DEPRECATED arieqDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the Convertible Reserved Instances to exchange for another Convertible Reserved Instance of the same or higher value.
-arieqReservedInstanceIds :: Lens' AcceptReservedInstancesExchangeQuote [Text]
-arieqReservedInstanceIds = lens _arieqReservedInstanceIds (\s a -> s {_arieqReservedInstanceIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'reservedInstanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arieqReservedInstanceIds :: Lens.Lens' AcceptReservedInstancesExchangeQuote [Lude.Text]
+arieqReservedInstanceIds = Lens.lens (reservedInstanceIds :: AcceptReservedInstancesExchangeQuote -> [Lude.Text]) (\s a -> s {reservedInstanceIds = a} :: AcceptReservedInstancesExchangeQuote)
+{-# DEPRECATED arieqReservedInstanceIds "Use generic-lens or generic-optics with 'reservedInstanceIds' instead." #-}
 
-instance AWSRequest AcceptReservedInstancesExchangeQuote where
+instance Lude.AWSRequest AcceptReservedInstancesExchangeQuote where
   type
     Rs AcceptReservedInstancesExchangeQuote =
       AcceptReservedInstancesExchangeQuoteResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           AcceptReservedInstancesExchangeQuoteResponse'
-            <$> (x .@? "exchangeId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "exchangeId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AcceptReservedInstancesExchangeQuote
+instance Lude.ToHeaders AcceptReservedInstancesExchangeQuote where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AcceptReservedInstancesExchangeQuote
+instance Lude.ToPath AcceptReservedInstancesExchangeQuote where
+  toPath = Lude.const "/"
 
-instance ToHeaders AcceptReservedInstancesExchangeQuote where
-  toHeaders = const mempty
-
-instance ToPath AcceptReservedInstancesExchangeQuote where
-  toPath = const "/"
-
-instance ToQuery AcceptReservedInstancesExchangeQuote where
+instance Lude.ToQuery AcceptReservedInstancesExchangeQuote where
   toQuery AcceptReservedInstancesExchangeQuote' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("AcceptReservedInstancesExchangeQuote" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery
-          (toQueryList "TargetConfiguration" <$> _arieqTargetConfigurations),
-        "DryRun" =: _arieqDryRun,
-        toQueryList "ReservedInstanceId" _arieqReservedInstanceIds
+          Lude.=: ("AcceptReservedInstancesExchangeQuote" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          ( Lude.toQueryList "TargetConfiguration"
+              Lude.<$> targetConfigurations
+          ),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "ReservedInstanceId" reservedInstanceIds
       ]
 
 -- | The result of the exchange and whether it was @successful@ .
 --
---
---
--- /See:/ 'acceptReservedInstancesExchangeQuoteResponse' smart constructor.
+-- /See:/ 'mkAcceptReservedInstancesExchangeQuoteResponse' smart constructor.
 data AcceptReservedInstancesExchangeQuoteResponse = AcceptReservedInstancesExchangeQuoteResponse'
-  { _arieqrsExchangeId ::
-      !( Maybe
-           Text
-       ),
-    _arieqrsResponseStatus ::
-      !Int
+  { exchangeId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptReservedInstancesExchangeQuoteResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arieqrsExchangeId' - The ID of the successful exchange.
---
--- * 'arieqrsResponseStatus' - -- | The response status code.
-acceptReservedInstancesExchangeQuoteResponse ::
-  -- | 'arieqrsResponseStatus'
-  Int ->
+-- * 'exchangeId' - The ID of the successful exchange.
+-- * 'responseStatus' - The response status code.
+mkAcceptReservedInstancesExchangeQuoteResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AcceptReservedInstancesExchangeQuoteResponse
-acceptReservedInstancesExchangeQuoteResponse pResponseStatus_ =
+mkAcceptReservedInstancesExchangeQuoteResponse pResponseStatus_ =
   AcceptReservedInstancesExchangeQuoteResponse'
-    { _arieqrsExchangeId =
-        Nothing,
-      _arieqrsResponseStatus = pResponseStatus_
+    { exchangeId =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the successful exchange.
-arieqrsExchangeId :: Lens' AcceptReservedInstancesExchangeQuoteResponse (Maybe Text)
-arieqrsExchangeId = lens _arieqrsExchangeId (\s a -> s {_arieqrsExchangeId = a})
+--
+-- /Note:/ Consider using 'exchangeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arieqrsExchangeId :: Lens.Lens' AcceptReservedInstancesExchangeQuoteResponse (Lude.Maybe Lude.Text)
+arieqrsExchangeId = Lens.lens (exchangeId :: AcceptReservedInstancesExchangeQuoteResponse -> Lude.Maybe Lude.Text) (\s a -> s {exchangeId = a} :: AcceptReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED arieqrsExchangeId "Use generic-lens or generic-optics with 'exchangeId' instead." #-}
 
--- | -- | The response status code.
-arieqrsResponseStatus :: Lens' AcceptReservedInstancesExchangeQuoteResponse Int
-arieqrsResponseStatus = lens _arieqrsResponseStatus (\s a -> s {_arieqrsResponseStatus = a})
-
-instance NFData AcceptReservedInstancesExchangeQuoteResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arieqrsResponseStatus :: Lens.Lens' AcceptReservedInstancesExchangeQuoteResponse Lude.Int
+arieqrsResponseStatus = Lens.lens (responseStatus :: AcceptReservedInstancesExchangeQuoteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AcceptReservedInstancesExchangeQuoteResponse)
+{-# DEPRECATED arieqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

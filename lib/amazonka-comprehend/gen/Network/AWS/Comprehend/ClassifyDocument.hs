@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.
 module Network.AWS.Comprehend.ClassifyDocument
-  ( -- * Creating a Request
-    classifyDocument,
-    ClassifyDocument,
+  ( -- * Creating a request
+    ClassifyDocument (..),
+    mkClassifyDocument,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdText,
     cdEndpointARN,
 
-    -- * Destructuring the Response
-    classifyDocumentResponse,
-    ClassifyDocumentResponse,
+    -- * Destructuring the response
+    ClassifyDocumentResponse (..),
+    mkClassifyDocumentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdrsLabels,
     cdrsClasses,
     cdrsResponseStatus,
@@ -39,124 +34,134 @@ module Network.AWS.Comprehend.ClassifyDocument
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'classifyDocument' smart constructor.
+-- | /See:/ 'mkClassifyDocument' smart constructor.
 data ClassifyDocument = ClassifyDocument'
-  { _cdText ::
-      !(Sensitive Text),
-    _cdEndpointARN :: !Text
+  { text ::
+      Lude.Sensitive Lude.Text,
+    endpointARN :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassifyDocument' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdText' - The document text to be analyzed.
---
--- * 'cdEndpointARN' - The Amazon Resource Number (ARN) of the endpoint.
-classifyDocument ::
-  -- | 'cdText'
-  Text ->
-  -- | 'cdEndpointARN'
-  Text ->
+-- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint.
+-- * 'text' - The document text to be analyzed.
+mkClassifyDocument ::
+  -- | 'text'
+  Lude.Sensitive Lude.Text ->
+  -- | 'endpointARN'
+  Lude.Text ->
   ClassifyDocument
-classifyDocument pText_ pEndpointARN_ =
-  ClassifyDocument'
-    { _cdText = _Sensitive # pText_,
-      _cdEndpointARN = pEndpointARN_
-    }
+mkClassifyDocument pText_ pEndpointARN_ =
+  ClassifyDocument' {text = pText_, endpointARN = pEndpointARN_}
 
 -- | The document text to be analyzed.
-cdText :: Lens' ClassifyDocument Text
-cdText = lens _cdText (\s a -> s {_cdText = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdText :: Lens.Lens' ClassifyDocument (Lude.Sensitive Lude.Text)
+cdText = Lens.lens (text :: ClassifyDocument -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: ClassifyDocument)
+{-# DEPRECATED cdText "Use generic-lens or generic-optics with 'text' instead." #-}
 
 -- | The Amazon Resource Number (ARN) of the endpoint.
-cdEndpointARN :: Lens' ClassifyDocument Text
-cdEndpointARN = lens _cdEndpointARN (\s a -> s {_cdEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdEndpointARN :: Lens.Lens' ClassifyDocument Lude.Text
+cdEndpointARN = Lens.lens (endpointARN :: ClassifyDocument -> Lude.Text) (\s a -> s {endpointARN = a} :: ClassifyDocument)
+{-# DEPRECATED cdEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
-instance AWSRequest ClassifyDocument where
+instance Lude.AWSRequest ClassifyDocument where
   type Rs ClassifyDocument = ClassifyDocumentResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ClassifyDocumentResponse'
-            <$> (x .?> "Labels" .!@ mempty)
-            <*> (x .?> "Classes" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Labels" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Classes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ClassifyDocument
-
-instance NFData ClassifyDocument
-
-instance ToHeaders ClassifyDocument where
+instance Lude.ToHeaders ClassifyDocument where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.ClassifyDocument" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.ClassifyDocument" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ClassifyDocument where
+instance Lude.ToJSON ClassifyDocument where
   toJSON ClassifyDocument' {..} =
-    object
-      ( catMaybes
-          [Just ("Text" .= _cdText), Just ("EndpointArn" .= _cdEndpointARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Text" Lude..= text),
+            Lude.Just ("EndpointArn" Lude..= endpointARN)
+          ]
       )
 
-instance ToPath ClassifyDocument where
-  toPath = const "/"
+instance Lude.ToPath ClassifyDocument where
+  toPath = Lude.const "/"
 
-instance ToQuery ClassifyDocument where
-  toQuery = const mempty
+instance Lude.ToQuery ClassifyDocument where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'classifyDocumentResponse' smart constructor.
+-- | /See:/ 'mkClassifyDocumentResponse' smart constructor.
 data ClassifyDocumentResponse = ClassifyDocumentResponse'
-  { _cdrsLabels ::
-      !(Maybe [DocumentLabel]),
-    _cdrsClasses :: !(Maybe [DocumentClass]),
-    _cdrsResponseStatus :: !Int
+  { labels ::
+      Lude.Maybe [DocumentLabel],
+    classes :: Lude.Maybe [DocumentClass],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassifyDocumentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrsLabels' - The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time.
---
--- * 'cdrsClasses' - The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time.
---
--- * 'cdrsResponseStatus' - -- | The response status code.
-classifyDocumentResponse ::
-  -- | 'cdrsResponseStatus'
-  Int ->
+-- * 'classes' - The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time.
+-- * 'labels' - The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time.
+-- * 'responseStatus' - The response status code.
+mkClassifyDocumentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ClassifyDocumentResponse
-classifyDocumentResponse pResponseStatus_ =
+mkClassifyDocumentResponse pResponseStatus_ =
   ClassifyDocumentResponse'
-    { _cdrsLabels = Nothing,
-      _cdrsClasses = Nothing,
-      _cdrsResponseStatus = pResponseStatus_
+    { labels = Lude.Nothing,
+      classes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time.
-cdrsLabels :: Lens' ClassifyDocumentResponse [DocumentLabel]
-cdrsLabels = lens _cdrsLabels (\s a -> s {_cdrsLabels = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsLabels :: Lens.Lens' ClassifyDocumentResponse (Lude.Maybe [DocumentLabel])
+cdrsLabels = Lens.lens (labels :: ClassifyDocumentResponse -> Lude.Maybe [DocumentLabel]) (\s a -> s {labels = a} :: ClassifyDocumentResponse)
+{-# DEPRECATED cdrsLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
 -- | The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time.
-cdrsClasses :: Lens' ClassifyDocumentResponse [DocumentClass]
-cdrsClasses = lens _cdrsClasses (\s a -> s {_cdrsClasses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'classes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsClasses :: Lens.Lens' ClassifyDocumentResponse (Lude.Maybe [DocumentClass])
+cdrsClasses = Lens.lens (classes :: ClassifyDocumentResponse -> Lude.Maybe [DocumentClass]) (\s a -> s {classes = a} :: ClassifyDocumentResponse)
+{-# DEPRECATED cdrsClasses "Use generic-lens or generic-optics with 'classes' instead." #-}
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' ClassifyDocumentResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\s a -> s {_cdrsResponseStatus = a})
-
-instance NFData ClassifyDocumentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsResponseStatus :: Lens.Lens' ClassifyDocumentResponse Lude.Int
+cdrsResponseStatus = Lens.lens (responseStatus :: ClassifyDocumentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ClassifyDocumentResponse)
+{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,165 @@
 --
 -- Deletes a message template for messages that were sent through the voice channel.
 module Network.AWS.Pinpoint.DeleteVoiceTemplate
-  ( -- * Creating a Request
-    deleteVoiceTemplate,
-    DeleteVoiceTemplate,
+  ( -- * Creating a request
+    DeleteVoiceTemplate (..),
+    mkDeleteVoiceTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvtVersion,
     dvtTemplateName,
 
-    -- * Destructuring the Response
-    deleteVoiceTemplateResponse,
-    DeleteVoiceTemplateResponse,
+    -- * Destructuring the response
+    DeleteVoiceTemplateResponse (..),
+    mkDeleteVoiceTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvtrsResponseStatus,
     dvtrsMessageBody,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteVoiceTemplate' smart constructor.
+-- | /See:/ 'mkDeleteVoiceTemplate' smart constructor.
 data DeleteVoiceTemplate = DeleteVoiceTemplate'
-  { _dvtVersion ::
-      !(Maybe Text),
-    _dvtTemplateName :: !Text
+  { version ::
+      Lude.Maybe Lude.Text,
+    templateName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVoiceTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+-- * 'version' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
 --
--- * 'dvtVersion' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
 --
--- * 'dvtTemplateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-deleteVoiceTemplate ::
-  -- | 'dvtTemplateName'
-  Text ->
+--     * For a get operation, retrieves information about the active version of the template.
+--
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+mkDeleteVoiceTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
   DeleteVoiceTemplate
-deleteVoiceTemplate pTemplateName_ =
+mkDeleteVoiceTemplate pTemplateName_ =
   DeleteVoiceTemplate'
-    { _dvtVersion = Nothing,
-      _dvtTemplateName = pTemplateName_
+    { version = Lude.Nothing,
+      templateName = pTemplateName_
     }
 
--- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
-dvtVersion :: Lens' DeleteVoiceTemplate (Maybe Text)
-dvtVersion = lens _dvtVersion (\s a -> s {_dvtVersion = a})
+-- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
+--
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
+--
+--     * For a get operation, retrieves information about the active version of the template.
+--
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+--
+--
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvtVersion :: Lens.Lens' DeleteVoiceTemplate (Lude.Maybe Lude.Text)
+dvtVersion = Lens.lens (version :: DeleteVoiceTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: DeleteVoiceTemplate)
+{-# DEPRECATED dvtVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-dvtTemplateName :: Lens' DeleteVoiceTemplate Text
-dvtTemplateName = lens _dvtTemplateName (\s a -> s {_dvtTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvtTemplateName :: Lens.Lens' DeleteVoiceTemplate Lude.Text
+dvtTemplateName = Lens.lens (templateName :: DeleteVoiceTemplate -> Lude.Text) (\s a -> s {templateName = a} :: DeleteVoiceTemplate)
+{-# DEPRECATED dvtTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance AWSRequest DeleteVoiceTemplate where
+instance Lude.AWSRequest DeleteVoiceTemplate where
   type Rs DeleteVoiceTemplate = DeleteVoiceTemplateResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteVoiceTemplateResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteVoiceTemplate
-
-instance NFData DeleteVoiceTemplate
-
-instance ToHeaders DeleteVoiceTemplate where
+instance Lude.ToHeaders DeleteVoiceTemplate where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteVoiceTemplate where
+instance Lude.ToPath DeleteVoiceTemplate where
   toPath DeleteVoiceTemplate' {..} =
-    mconcat ["/v1/templates/", toBS _dvtTemplateName, "/voice"]
+    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/voice"]
 
-instance ToQuery DeleteVoiceTemplate where
+instance Lude.ToQuery DeleteVoiceTemplate where
   toQuery DeleteVoiceTemplate' {..} =
-    mconcat ["version" =: _dvtVersion]
+    Lude.mconcat ["version" Lude.=: version]
 
--- | /See:/ 'deleteVoiceTemplateResponse' smart constructor.
+-- | /See:/ 'mkDeleteVoiceTemplateResponse' smart constructor.
 data DeleteVoiceTemplateResponse = DeleteVoiceTemplateResponse'
-  { _dvtrsResponseStatus ::
-      !Int,
-    _dvtrsMessageBody :: !MessageBody
+  { responseStatus ::
+      Lude.Int,
+    messageBody :: MessageBody
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVoiceTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvtrsResponseStatus' - -- | The response status code.
---
--- * 'dvtrsMessageBody' - Undocumented member.
-deleteVoiceTemplateResponse ::
-  -- | 'dvtrsResponseStatus'
-  Int ->
-  -- | 'dvtrsMessageBody'
+-- * 'messageBody' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteVoiceTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'messageBody'
   MessageBody ->
   DeleteVoiceTemplateResponse
-deleteVoiceTemplateResponse pResponseStatus_ pMessageBody_ =
+mkDeleteVoiceTemplateResponse pResponseStatus_ pMessageBody_ =
   DeleteVoiceTemplateResponse'
-    { _dvtrsResponseStatus =
-        pResponseStatus_,
-      _dvtrsMessageBody = pMessageBody_
+    { responseStatus = pResponseStatus_,
+      messageBody = pMessageBody_
     }
 
--- | -- | The response status code.
-dvtrsResponseStatus :: Lens' DeleteVoiceTemplateResponse Int
-dvtrsResponseStatus = lens _dvtrsResponseStatus (\s a -> s {_dvtrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvtrsResponseStatus :: Lens.Lens' DeleteVoiceTemplateResponse Lude.Int
+dvtrsResponseStatus = Lens.lens (responseStatus :: DeleteVoiceTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVoiceTemplateResponse)
+{-# DEPRECATED dvtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-dvtrsMessageBody :: Lens' DeleteVoiceTemplateResponse MessageBody
-dvtrsMessageBody = lens _dvtrsMessageBody (\s a -> s {_dvtrsMessageBody = a})
-
-instance NFData DeleteVoiceTemplateResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvtrsMessageBody :: Lens.Lens' DeleteVoiceTemplateResponse MessageBody
+dvtrsMessageBody = Lens.lens (messageBody :: DeleteVoiceTemplateResponse -> MessageBody) (\s a -> s {messageBody = a} :: DeleteVoiceTemplateResponse)
+{-# DEPRECATED dvtrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,50 +14,54 @@
 --
 -- Retrieves the details for FlexMatch matchmaking rule sets. You can request all existing rule sets for the Region, or provide a list of one or more rule set names. When requesting multiple items, use the pagination parameters to retrieve results as a set of sequential pages. If successful, a rule set is returned for each requested name.
 --
---
 -- __Learn more__
 --
 --     * <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a Rule Set>
---
 --
 --
 -- __Related operations__
 --
 --     * 'CreateMatchmakingConfiguration'
 --
+--
 --     * 'DescribeMatchmakingConfigurations'
+--
 --
 --     * 'UpdateMatchmakingConfiguration'
 --
+--
 --     * 'DeleteMatchmakingConfiguration'
+--
 --
 --     * 'CreateMatchmakingRuleSet'
 --
+--
 --     * 'DescribeMatchmakingRuleSets'
 --
+--
 --     * 'ValidateMatchmakingRuleSet'
+--
 --
 --     * 'DeleteMatchmakingRuleSet'
 --
 --
 --
---
 -- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeMatchmakingRuleSets
-  ( -- * Creating a Request
-    describeMatchmakingRuleSets,
-    DescribeMatchmakingRuleSets,
+  ( -- * Creating a request
+    DescribeMatchmakingRuleSets (..),
+    mkDescribeMatchmakingRuleSets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmrsNextToken,
     dmrsNames,
     dmrsLimit,
 
-    -- * Destructuring the Response
-    describeMatchmakingRuleSetsResponse,
-    DescribeMatchmakingRuleSetsResponse,
+    -- * Destructuring the response
+    DescribeMatchmakingRuleSetsResponse (..),
+    mkDescribeMatchmakingRuleSetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmrssrsNextToken,
     dmrssrsResponseStatus,
     dmrssrsRuleSets,
@@ -70,150 +69,171 @@ module Network.AWS.GameLift.DescribeMatchmakingRuleSets
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'describeMatchmakingRuleSets' smart constructor.
+-- /See:/ 'mkDescribeMatchmakingRuleSets' smart constructor.
 data DescribeMatchmakingRuleSets = DescribeMatchmakingRuleSets'
-  { _dmrsNextToken ::
-      !(Maybe Text),
-    _dmrsNames :: !(Maybe (List1 Text)),
-    _dmrsLimit :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    names ::
+      Lude.Maybe
+        (Lude.NonEmpty Lude.Text),
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMatchmakingRuleSets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmrsNextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
---
--- * 'dmrsNames' - A list of one or more matchmaking rule set names to retrieve details for. (Note: The rule set name is different from the optional "name" field in the rule set body.) You can use either the rule set name or ARN value.
---
--- * 'dmrsLimit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
-describeMatchmakingRuleSets ::
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
+-- * 'names' - A list of one or more matchmaking rule set names to retrieve details for. (Note: The rule set name is different from the optional "name" field in the rule set body.) You can use either the rule set name or ARN value.
+-- * 'nextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+mkDescribeMatchmakingRuleSets ::
   DescribeMatchmakingRuleSets
-describeMatchmakingRuleSets =
+mkDescribeMatchmakingRuleSets =
   DescribeMatchmakingRuleSets'
-    { _dmrsNextToken = Nothing,
-      _dmrsNames = Nothing,
-      _dmrsLimit = Nothing
+    { nextToken = Lude.Nothing,
+      names = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
-dmrsNextToken :: Lens' DescribeMatchmakingRuleSets (Maybe Text)
-dmrsNextToken = lens _dmrsNextToken (\s a -> s {_dmrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsNextToken :: Lens.Lens' DescribeMatchmakingRuleSets (Lude.Maybe Lude.Text)
+dmrsNextToken = Lens.lens (nextToken :: DescribeMatchmakingRuleSets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMatchmakingRuleSets)
+{-# DEPRECATED dmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of one or more matchmaking rule set names to retrieve details for. (Note: The rule set name is different from the optional "name" field in the rule set body.) You can use either the rule set name or ARN value.
-dmrsNames :: Lens' DescribeMatchmakingRuleSets (Maybe (NonEmpty Text))
-dmrsNames = lens _dmrsNames (\s a -> s {_dmrsNames = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsNames :: Lens.Lens' DescribeMatchmakingRuleSets (Lude.Maybe (Lude.NonEmpty Lude.Text))
+dmrsNames = Lens.lens (names :: DescribeMatchmakingRuleSets -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {names = a} :: DescribeMatchmakingRuleSets)
+{-# DEPRECATED dmrsNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
-dmrsLimit :: Lens' DescribeMatchmakingRuleSets (Maybe Natural)
-dmrsLimit = lens _dmrsLimit (\s a -> s {_dmrsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrsLimit :: Lens.Lens' DescribeMatchmakingRuleSets (Lude.Maybe Lude.Natural)
+dmrsLimit = Lens.lens (limit :: DescribeMatchmakingRuleSets -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeMatchmakingRuleSets)
+{-# DEPRECATED dmrsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager DescribeMatchmakingRuleSets where
+instance Page.AWSPager DescribeMatchmakingRuleSets where
   page rq rs
-    | stop (rs ^. dmrssrsNextToken) = Nothing
-    | stop (rs ^. dmrssrsRuleSets) = Nothing
-    | otherwise = Just $ rq & dmrsNextToken .~ rs ^. dmrssrsNextToken
+    | Page.stop (rs Lens.^. dmrssrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dmrssrsRuleSets) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dmrsNextToken Lens..~ rs Lens.^. dmrssrsNextToken
 
-instance AWSRequest DescribeMatchmakingRuleSets where
+instance Lude.AWSRequest DescribeMatchmakingRuleSets where
   type
     Rs DescribeMatchmakingRuleSets =
       DescribeMatchmakingRuleSetsResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeMatchmakingRuleSetsResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "RuleSets" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "RuleSets" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeMatchmakingRuleSets
-
-instance NFData DescribeMatchmakingRuleSets
-
-instance ToHeaders DescribeMatchmakingRuleSets where
+instance Lude.ToHeaders DescribeMatchmakingRuleSets where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("GameLift.DescribeMatchmakingRuleSets" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("GameLift.DescribeMatchmakingRuleSets" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeMatchmakingRuleSets where
+instance Lude.ToJSON DescribeMatchmakingRuleSets where
   toJSON DescribeMatchmakingRuleSets' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _dmrsNextToken,
-            ("Names" .=) <$> _dmrsNames,
-            ("Limit" .=) <$> _dmrsLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Names" Lude..=) Lude.<$> names,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath DescribeMatchmakingRuleSets where
-  toPath = const "/"
+instance Lude.ToPath DescribeMatchmakingRuleSets where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeMatchmakingRuleSets where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeMatchmakingRuleSets where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'describeMatchmakingRuleSetsResponse' smart constructor.
+-- /See:/ 'mkDescribeMatchmakingRuleSetsResponse' smart constructor.
 data DescribeMatchmakingRuleSetsResponse = DescribeMatchmakingRuleSetsResponse'
-  { _dmrssrsNextToken ::
-      !(Maybe Text),
-    _dmrssrsResponseStatus ::
-      !Int,
-    _dmrssrsRuleSets ::
-      ![MatchmakingRuleSet]
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int,
+    ruleSets ::
+      [MatchmakingRuleSet]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMatchmakingRuleSetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmrssrsNextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
---
--- * 'dmrssrsResponseStatus' - -- | The response status code.
---
--- * 'dmrssrsRuleSets' - A collection of requested matchmaking rule set objects.
-describeMatchmakingRuleSetsResponse ::
-  -- | 'dmrssrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+-- * 'responseStatus' - The response status code.
+-- * 'ruleSets' - A collection of requested matchmaking rule set objects.
+mkDescribeMatchmakingRuleSetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMatchmakingRuleSetsResponse
-describeMatchmakingRuleSetsResponse pResponseStatus_ =
+mkDescribeMatchmakingRuleSetsResponse pResponseStatus_ =
   DescribeMatchmakingRuleSetsResponse'
-    { _dmrssrsNextToken = Nothing,
-      _dmrssrsResponseStatus = pResponseStatus_,
-      _dmrssrsRuleSets = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      ruleSets = Lude.mempty
     }
 
 -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-dmrssrsNextToken :: Lens' DescribeMatchmakingRuleSetsResponse (Maybe Text)
-dmrssrsNextToken = lens _dmrssrsNextToken (\s a -> s {_dmrssrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrssrsNextToken :: Lens.Lens' DescribeMatchmakingRuleSetsResponse (Lude.Maybe Lude.Text)
+dmrssrsNextToken = Lens.lens (nextToken :: DescribeMatchmakingRuleSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMatchmakingRuleSetsResponse)
+{-# DEPRECATED dmrssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dmrssrsResponseStatus :: Lens' DescribeMatchmakingRuleSetsResponse Int
-dmrssrsResponseStatus = lens _dmrssrsResponseStatus (\s a -> s {_dmrssrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrssrsResponseStatus :: Lens.Lens' DescribeMatchmakingRuleSetsResponse Lude.Int
+dmrssrsResponseStatus = Lens.lens (responseStatus :: DescribeMatchmakingRuleSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMatchmakingRuleSetsResponse)
+{-# DEPRECATED dmrssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A collection of requested matchmaking rule set objects.
-dmrssrsRuleSets :: Lens' DescribeMatchmakingRuleSetsResponse [MatchmakingRuleSet]
-dmrssrsRuleSets = lens _dmrssrsRuleSets (\s a -> s {_dmrssrsRuleSets = a}) . _Coerce
-
-instance NFData DescribeMatchmakingRuleSetsResponse
+--
+-- /Note:/ Consider using 'ruleSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrssrsRuleSets :: Lens.Lens' DescribeMatchmakingRuleSetsResponse [MatchmakingRuleSet]
+dmrssrsRuleSets = Lens.lens (ruleSets :: DescribeMatchmakingRuleSetsResponse -> [MatchmakingRuleSet]) (\s a -> s {ruleSets = a} :: DescribeMatchmakingRuleSetsResponse)
+{-# DEPRECATED dmrssrsRuleSets "Use generic-lens or generic-optics with 'ruleSets' instead." #-}

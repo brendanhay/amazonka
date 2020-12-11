@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,126 @@
 --
 -- Sets the conference preferences on a specific conference provider at the account level.
 module Network.AWS.AlexaBusiness.PutConferencePreference
-  ( -- * Creating a Request
-    putConferencePreference,
-    PutConferencePreference,
+  ( -- * Creating a request
+    PutConferencePreference (..),
+    mkPutConferencePreference,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pcpConferencePreference,
 
-    -- * Destructuring the Response
-    putConferencePreferenceResponse,
-    PutConferencePreferenceResponse,
+    -- * Destructuring the response
+    PutConferencePreferenceResponse (..),
+    mkPutConferencePreferenceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pcprsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putConferencePreference' smart constructor.
+-- | /See:/ 'mkPutConferencePreference' smart constructor.
 newtype PutConferencePreference = PutConferencePreference'
-  { _pcpConferencePreference ::
+  { conferencePreference ::
       ConferencePreference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConferencePreference' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcpConferencePreference' - The conference preference of a specific conference provider.
-putConferencePreference ::
-  -- | 'pcpConferencePreference'
+-- * 'conferencePreference' - The conference preference of a specific conference provider.
+mkPutConferencePreference ::
+  -- | 'conferencePreference'
   ConferencePreference ->
   PutConferencePreference
-putConferencePreference pConferencePreference_ =
+mkPutConferencePreference pConferencePreference_ =
   PutConferencePreference'
-    { _pcpConferencePreference =
+    { conferencePreference =
         pConferencePreference_
     }
 
 -- | The conference preference of a specific conference provider.
-pcpConferencePreference :: Lens' PutConferencePreference ConferencePreference
-pcpConferencePreference = lens _pcpConferencePreference (\s a -> s {_pcpConferencePreference = a})
+--
+-- /Note:/ Consider using 'conferencePreference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpConferencePreference :: Lens.Lens' PutConferencePreference ConferencePreference
+pcpConferencePreference = Lens.lens (conferencePreference :: PutConferencePreference -> ConferencePreference) (\s a -> s {conferencePreference = a} :: PutConferencePreference)
+{-# DEPRECATED pcpConferencePreference "Use generic-lens or generic-optics with 'conferencePreference' instead." #-}
 
-instance AWSRequest PutConferencePreference where
+instance Lude.AWSRequest PutConferencePreference where
   type Rs PutConferencePreference = PutConferencePreferenceResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          PutConferencePreferenceResponse' <$> (pure (fromEnum s))
+          PutConferencePreferenceResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutConferencePreference
-
-instance NFData PutConferencePreference
-
-instance ToHeaders PutConferencePreference where
+instance Lude.ToHeaders PutConferencePreference where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.PutConferencePreference" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.PutConferencePreference" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutConferencePreference where
+instance Lude.ToJSON PutConferencePreference where
   toJSON PutConferencePreference' {..} =
-    object
-      ( catMaybes
-          [Just ("ConferencePreference" .= _pcpConferencePreference)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ConferencePreference" Lude..= conferencePreference)]
       )
 
-instance ToPath PutConferencePreference where
-  toPath = const "/"
+instance Lude.ToPath PutConferencePreference where
+  toPath = Lude.const "/"
 
-instance ToQuery PutConferencePreference where
-  toQuery = const mempty
+instance Lude.ToQuery PutConferencePreference where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putConferencePreferenceResponse' smart constructor.
+-- | /See:/ 'mkPutConferencePreferenceResponse' smart constructor.
 newtype PutConferencePreferenceResponse = PutConferencePreferenceResponse'
-  { _pcprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConferencePreferenceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcprsResponseStatus' - -- | The response status code.
-putConferencePreferenceResponse ::
-  -- | 'pcprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutConferencePreferenceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutConferencePreferenceResponse
-putConferencePreferenceResponse pResponseStatus_ =
+mkPutConferencePreferenceResponse pResponseStatus_ =
   PutConferencePreferenceResponse'
-    { _pcprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-pcprsResponseStatus :: Lens' PutConferencePreferenceResponse Int
-pcprsResponseStatus = lens _pcprsResponseStatus (\s a -> s {_pcprsResponseStatus = a})
-
-instance NFData PutConferencePreferenceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcprsResponseStatus :: Lens.Lens' PutConferencePreferenceResponse Lude.Int
+pcprsResponseStatus = Lens.lens (responseStatus :: PutConferencePreferenceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutConferencePreferenceResponse)
+{-# DEPRECATED pcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

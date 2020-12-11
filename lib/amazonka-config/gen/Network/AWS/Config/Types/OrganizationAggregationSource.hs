@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.OrganizationAggregationSource where
+module Network.AWS.Config.Types.OrganizationAggregationSource
+  ( OrganizationAggregationSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOrganizationAggregationSource,
+
+    -- * Lenses
+    oasAWSRegions,
+    oasAllAWSRegions,
+    oasRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
 --
---
---
--- /See:/ 'organizationAggregationSource' smart constructor.
+-- /See:/ 'mkOrganizationAggregationSource' smart constructor.
 data OrganizationAggregationSource = OrganizationAggregationSource'
-  { _oasAWSRegions ::
-      !(Maybe (List1 Text)),
-    _oasAllAWSRegions ::
-      !(Maybe Bool),
-    _oasRoleARN :: !Text
+  { awsRegions ::
+      Lude.Maybe
+        (Lude.NonEmpty Lude.Text),
+    allAWSRegions ::
+      Lude.Maybe Lude.Bool,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationAggregationSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oasAWSRegions' - The source regions being aggregated.
---
--- * 'oasAllAWSRegions' - If true, aggregate existing AWS Config regions and future regions.
---
--- * 'oasRoleARN' - ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
-organizationAggregationSource ::
-  -- | 'oasRoleARN'
-  Text ->
+-- * 'allAWSRegions' - If true, aggregate existing AWS Config regions and future regions.
+-- * 'awsRegions' - The source regions being aggregated.
+-- * 'roleARN' - ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+mkOrganizationAggregationSource ::
+  -- | 'roleARN'
+  Lude.Text ->
   OrganizationAggregationSource
-organizationAggregationSource pRoleARN_ =
+mkOrganizationAggregationSource pRoleARN_ =
   OrganizationAggregationSource'
-    { _oasAWSRegions = Nothing,
-      _oasAllAWSRegions = Nothing,
-      _oasRoleARN = pRoleARN_
+    { awsRegions = Lude.Nothing,
+      allAWSRegions = Lude.Nothing,
+      roleARN = pRoleARN_
     }
 
 -- | The source regions being aggregated.
-oasAWSRegions :: Lens' OrganizationAggregationSource (Maybe (NonEmpty Text))
-oasAWSRegions = lens _oasAWSRegions (\s a -> s {_oasAWSRegions = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'awsRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oasAWSRegions :: Lens.Lens' OrganizationAggregationSource (Lude.Maybe (Lude.NonEmpty Lude.Text))
+oasAWSRegions = Lens.lens (awsRegions :: OrganizationAggregationSource -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {awsRegions = a} :: OrganizationAggregationSource)
+{-# DEPRECATED oasAWSRegions "Use generic-lens or generic-optics with 'awsRegions' instead." #-}
 
 -- | If true, aggregate existing AWS Config regions and future regions.
-oasAllAWSRegions :: Lens' OrganizationAggregationSource (Maybe Bool)
-oasAllAWSRegions = lens _oasAllAWSRegions (\s a -> s {_oasAllAWSRegions = a})
+--
+-- /Note:/ Consider using 'allAWSRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oasAllAWSRegions :: Lens.Lens' OrganizationAggregationSource (Lude.Maybe Lude.Bool)
+oasAllAWSRegions = Lens.lens (allAWSRegions :: OrganizationAggregationSource -> Lude.Maybe Lude.Bool) (\s a -> s {allAWSRegions = a} :: OrganizationAggregationSource)
+{-# DEPRECATED oasAllAWSRegions "Use generic-lens or generic-optics with 'allAWSRegions' instead." #-}
 
 -- | ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
-oasRoleARN :: Lens' OrganizationAggregationSource Text
-oasRoleARN = lens _oasRoleARN (\s a -> s {_oasRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oasRoleARN :: Lens.Lens' OrganizationAggregationSource Lude.Text
+oasRoleARN = Lens.lens (roleARN :: OrganizationAggregationSource -> Lude.Text) (\s a -> s {roleARN = a} :: OrganizationAggregationSource)
+{-# DEPRECATED oasRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON OrganizationAggregationSource where
+instance Lude.FromJSON OrganizationAggregationSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "OrganizationAggregationSource"
       ( \x ->
           OrganizationAggregationSource'
-            <$> (x .:? "AwsRegions")
-            <*> (x .:? "AllAwsRegions")
-            <*> (x .: "RoleArn")
+            Lude.<$> (x Lude..:? "AwsRegions")
+            Lude.<*> (x Lude..:? "AllAwsRegions")
+            Lude.<*> (x Lude..: "RoleArn")
       )
 
-instance Hashable OrganizationAggregationSource
-
-instance NFData OrganizationAggregationSource
-
-instance ToJSON OrganizationAggregationSource where
+instance Lude.ToJSON OrganizationAggregationSource where
   toJSON OrganizationAggregationSource' {..} =
-    object
-      ( catMaybes
-          [ ("AwsRegions" .=) <$> _oasAWSRegions,
-            ("AllAwsRegions" .=) <$> _oasAllAWSRegions,
-            Just ("RoleArn" .= _oasRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AwsRegions" Lude..=) Lude.<$> awsRegions,
+            ("AllAwsRegions" Lude..=) Lude.<$> allAWSRegions,
+            Lude.Just ("RoleArn" Lude..= roleARN)
           ]
       )

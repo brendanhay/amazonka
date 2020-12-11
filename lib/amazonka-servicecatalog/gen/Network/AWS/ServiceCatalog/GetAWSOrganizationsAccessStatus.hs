@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,119 @@
 --
 -- Get the Access Status for AWS Organization portfolio share feature. This API can only be called by the management account in the organization or by a delegated admin.
 module Network.AWS.ServiceCatalog.GetAWSOrganizationsAccessStatus
-  ( -- * Creating a Request
-    getAWSOrganizationsAccessStatus,
-    GetAWSOrganizationsAccessStatus,
+  ( -- * Creating a request
+    GetAWSOrganizationsAccessStatus (..),
+    mkGetAWSOrganizationsAccessStatus,
 
-    -- * Destructuring the Response
-    getAWSOrganizationsAccessStatusResponse,
-    GetAWSOrganizationsAccessStatusResponse,
+    -- * Destructuring the response
+    GetAWSOrganizationsAccessStatusResponse (..),
+    mkGetAWSOrganizationsAccessStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gaoasrsAccessStatus,
     gaoasrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'getAWSOrganizationsAccessStatus' smart constructor.
+-- | /See:/ 'mkGetAWSOrganizationsAccessStatus' smart constructor.
 data GetAWSOrganizationsAccessStatus = GetAWSOrganizationsAccessStatus'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAWSOrganizationsAccessStatus' with the minimum fields required to make a request.
-getAWSOrganizationsAccessStatus ::
+mkGetAWSOrganizationsAccessStatus ::
   GetAWSOrganizationsAccessStatus
-getAWSOrganizationsAccessStatus = GetAWSOrganizationsAccessStatus'
+mkGetAWSOrganizationsAccessStatus =
+  GetAWSOrganizationsAccessStatus'
 
-instance AWSRequest GetAWSOrganizationsAccessStatus where
+instance Lude.AWSRequest GetAWSOrganizationsAccessStatus where
   type
     Rs GetAWSOrganizationsAccessStatus =
       GetAWSOrganizationsAccessStatusResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAWSOrganizationsAccessStatusResponse'
-            <$> (x .?> "AccessStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AccessStatus") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAWSOrganizationsAccessStatus
-
-instance NFData GetAWSOrganizationsAccessStatus
-
-instance ToHeaders GetAWSOrganizationsAccessStatus where
+instance Lude.ToHeaders GetAWSOrganizationsAccessStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAWSOrganizationsAccessStatus where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetAWSOrganizationsAccessStatus where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetAWSOrganizationsAccessStatus where
-  toPath = const "/"
+instance Lude.ToPath GetAWSOrganizationsAccessStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAWSOrganizationsAccessStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetAWSOrganizationsAccessStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAWSOrganizationsAccessStatusResponse' smart constructor.
+-- | /See:/ 'mkGetAWSOrganizationsAccessStatusResponse' smart constructor.
 data GetAWSOrganizationsAccessStatusResponse = GetAWSOrganizationsAccessStatusResponse'
-  { _gaoasrsAccessStatus ::
-      !( Maybe
-           AccessStatus
-       ),
-    _gaoasrsResponseStatus ::
-      !Int
+  { accessStatus ::
+      Lude.Maybe
+        AccessStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAWSOrganizationsAccessStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaoasrsAccessStatus' - The status of the portfolio share feature.
---
--- * 'gaoasrsResponseStatus' - -- | The response status code.
-getAWSOrganizationsAccessStatusResponse ::
-  -- | 'gaoasrsResponseStatus'
-  Int ->
+-- * 'accessStatus' - The status of the portfolio share feature.
+-- * 'responseStatus' - The response status code.
+mkGetAWSOrganizationsAccessStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAWSOrganizationsAccessStatusResponse
-getAWSOrganizationsAccessStatusResponse pResponseStatus_ =
+mkGetAWSOrganizationsAccessStatusResponse pResponseStatus_ =
   GetAWSOrganizationsAccessStatusResponse'
-    { _gaoasrsAccessStatus =
-        Nothing,
-      _gaoasrsResponseStatus = pResponseStatus_
+    { accessStatus =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the portfolio share feature.
-gaoasrsAccessStatus :: Lens' GetAWSOrganizationsAccessStatusResponse (Maybe AccessStatus)
-gaoasrsAccessStatus = lens _gaoasrsAccessStatus (\s a -> s {_gaoasrsAccessStatus = a})
+--
+-- /Note:/ Consider using 'accessStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaoasrsAccessStatus :: Lens.Lens' GetAWSOrganizationsAccessStatusResponse (Lude.Maybe AccessStatus)
+gaoasrsAccessStatus = Lens.lens (accessStatus :: GetAWSOrganizationsAccessStatusResponse -> Lude.Maybe AccessStatus) (\s a -> s {accessStatus = a} :: GetAWSOrganizationsAccessStatusResponse)
+{-# DEPRECATED gaoasrsAccessStatus "Use generic-lens or generic-optics with 'accessStatus' instead." #-}
 
--- | -- | The response status code.
-gaoasrsResponseStatus :: Lens' GetAWSOrganizationsAccessStatusResponse Int
-gaoasrsResponseStatus = lens _gaoasrsResponseStatus (\s a -> s {_gaoasrsResponseStatus = a})
-
-instance NFData GetAWSOrganizationsAccessStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaoasrsResponseStatus :: Lens.Lens' GetAWSOrganizationsAccessStatusResponse Lude.Int
+gaoasrsResponseStatus = Lens.lens (responseStatus :: GetAWSOrganizationsAccessStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAWSOrganizationsAccessStatusResponse)
+{-# DEPRECATED gaoasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

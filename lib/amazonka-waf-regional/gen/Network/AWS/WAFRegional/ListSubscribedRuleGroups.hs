@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,164 @@
 --
 -- Returns an array of 'RuleGroup' objects that you are subscribed to.
 module Network.AWS.WAFRegional.ListSubscribedRuleGroups
-  ( -- * Creating a Request
-    listSubscribedRuleGroups,
-    ListSubscribedRuleGroups,
+  ( -- * Creating a request
+    ListSubscribedRuleGroups (..),
+    mkListSubscribedRuleGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsrgNextMarker,
     lsrgLimit,
 
-    -- * Destructuring the Response
-    listSubscribedRuleGroupsResponse,
-    ListSubscribedRuleGroupsResponse,
+    -- * Destructuring the response
+    ListSubscribedRuleGroupsResponse (..),
+    mkListSubscribedRuleGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsrgrsRuleGroups,
     lsrgrsNextMarker,
     lsrgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'listSubscribedRuleGroups' smart constructor.
+-- | /See:/ 'mkListSubscribedRuleGroups' smart constructor.
 data ListSubscribedRuleGroups = ListSubscribedRuleGroups'
-  { _lsrgNextMarker ::
-      !(Maybe Text),
-    _lsrgLimit :: !(Maybe Nat)
+  { nextMarker ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscribedRuleGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsrgNextMarker' - If you specify a value for @Limit@ and you have more @ByteMatchSets@ subscribed rule groups than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of subscribed rule groups. For the second and subsequent @ListSubscribedRuleGroupsRequest@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of subscribed rule groups.
---
--- * 'lsrgLimit' - Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of objects.
-listSubscribedRuleGroups ::
+-- * 'limit' - Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of objects.
+-- * 'nextMarker' - If you specify a value for @Limit@ and you have more @ByteMatchSets@ subscribed rule groups than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of subscribed rule groups. For the second and subsequent @ListSubscribedRuleGroupsRequest@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of subscribed rule groups.
+mkListSubscribedRuleGroups ::
   ListSubscribedRuleGroups
-listSubscribedRuleGroups =
+mkListSubscribedRuleGroups =
   ListSubscribedRuleGroups'
-    { _lsrgNextMarker = Nothing,
-      _lsrgLimit = Nothing
+    { nextMarker = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @ByteMatchSets@ subscribed rule groups than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of subscribed rule groups. For the second and subsequent @ListSubscribedRuleGroupsRequest@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of subscribed rule groups.
-lsrgNextMarker :: Lens' ListSubscribedRuleGroups (Maybe Text)
-lsrgNextMarker = lens _lsrgNextMarker (\s a -> s {_lsrgNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrgNextMarker :: Lens.Lens' ListSubscribedRuleGroups (Lude.Maybe Lude.Text)
+lsrgNextMarker = Lens.lens (nextMarker :: ListSubscribedRuleGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListSubscribedRuleGroups)
+{-# DEPRECATED lsrgNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of objects.
-lsrgLimit :: Lens' ListSubscribedRuleGroups (Maybe Natural)
-lsrgLimit = lens _lsrgLimit (\s a -> s {_lsrgLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrgLimit :: Lens.Lens' ListSubscribedRuleGroups (Lude.Maybe Lude.Natural)
+lsrgLimit = Lens.lens (limit :: ListSubscribedRuleGroups -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListSubscribedRuleGroups)
+{-# DEPRECATED lsrgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSRequest ListSubscribedRuleGroups where
+instance Lude.AWSRequest ListSubscribedRuleGroups where
   type Rs ListSubscribedRuleGroups = ListSubscribedRuleGroupsResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListSubscribedRuleGroupsResponse'
-            <$> (x .?> "RuleGroups" .!@ mempty)
-            <*> (x .?> "NextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RuleGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListSubscribedRuleGroups
-
-instance NFData ListSubscribedRuleGroups
-
-instance ToHeaders ListSubscribedRuleGroups where
+instance Lude.ToHeaders ListSubscribedRuleGroups where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSWAF_Regional_20161128.ListSubscribedRuleGroups" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.ListSubscribedRuleGroups" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListSubscribedRuleGroups where
+instance Lude.ToJSON ListSubscribedRuleGroups where
   toJSON ListSubscribedRuleGroups' {..} =
-    object
-      ( catMaybes
-          [ ("NextMarker" .=) <$> _lsrgNextMarker,
-            ("Limit" .=) <$> _lsrgLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListSubscribedRuleGroups where
-  toPath = const "/"
+instance Lude.ToPath ListSubscribedRuleGroups where
+  toPath = Lude.const "/"
 
-instance ToQuery ListSubscribedRuleGroups where
-  toQuery = const mempty
+instance Lude.ToQuery ListSubscribedRuleGroups where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listSubscribedRuleGroupsResponse' smart constructor.
+-- | /See:/ 'mkListSubscribedRuleGroupsResponse' smart constructor.
 data ListSubscribedRuleGroupsResponse = ListSubscribedRuleGroupsResponse'
-  { _lsrgrsRuleGroups ::
-      !( Maybe
-           [SubscribedRuleGroupSummary]
-       ),
-    _lsrgrsNextMarker ::
-      !(Maybe Text),
-    _lsrgrsResponseStatus ::
-      !Int
+  { ruleGroups ::
+      Lude.Maybe
+        [SubscribedRuleGroupSummary],
+    nextMarker ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscribedRuleGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsrgrsRuleGroups' - An array of 'RuleGroup' objects.
---
--- * 'lsrgrsNextMarker' - If you have more objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more objects, submit another @ListSubscribedRuleGroups@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
---
--- * 'lsrgrsResponseStatus' - -- | The response status code.
-listSubscribedRuleGroupsResponse ::
-  -- | 'lsrgrsResponseStatus'
-  Int ->
+-- * 'nextMarker' - If you have more objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more objects, submit another @ListSubscribedRuleGroups@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+-- * 'responseStatus' - The response status code.
+-- * 'ruleGroups' - An array of 'RuleGroup' objects.
+mkListSubscribedRuleGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSubscribedRuleGroupsResponse
-listSubscribedRuleGroupsResponse pResponseStatus_ =
+mkListSubscribedRuleGroupsResponse pResponseStatus_ =
   ListSubscribedRuleGroupsResponse'
-    { _lsrgrsRuleGroups = Nothing,
-      _lsrgrsNextMarker = Nothing,
-      _lsrgrsResponseStatus = pResponseStatus_
+    { ruleGroups = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of 'RuleGroup' objects.
-lsrgrsRuleGroups :: Lens' ListSubscribedRuleGroupsResponse [SubscribedRuleGroupSummary]
-lsrgrsRuleGroups = lens _lsrgrsRuleGroups (\s a -> s {_lsrgrsRuleGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ruleGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrgrsRuleGroups :: Lens.Lens' ListSubscribedRuleGroupsResponse (Lude.Maybe [SubscribedRuleGroupSummary])
+lsrgrsRuleGroups = Lens.lens (ruleGroups :: ListSubscribedRuleGroupsResponse -> Lude.Maybe [SubscribedRuleGroupSummary]) (\s a -> s {ruleGroups = a} :: ListSubscribedRuleGroupsResponse)
+{-# DEPRECATED lsrgrsRuleGroups "Use generic-lens or generic-optics with 'ruleGroups' instead." #-}
 
 -- | If you have more objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more objects, submit another @ListSubscribedRuleGroups@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-lsrgrsNextMarker :: Lens' ListSubscribedRuleGroupsResponse (Maybe Text)
-lsrgrsNextMarker = lens _lsrgrsNextMarker (\s a -> s {_lsrgrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrgrsNextMarker :: Lens.Lens' ListSubscribedRuleGroupsResponse (Lude.Maybe Lude.Text)
+lsrgrsNextMarker = Lens.lens (nextMarker :: ListSubscribedRuleGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListSubscribedRuleGroupsResponse)
+{-# DEPRECATED lsrgrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lsrgrsResponseStatus :: Lens' ListSubscribedRuleGroupsResponse Int
-lsrgrsResponseStatus = lens _lsrgrsResponseStatus (\s a -> s {_lsrgrsResponseStatus = a})
-
-instance NFData ListSubscribedRuleGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrgrsResponseStatus :: Lens.Lens' ListSubscribedRuleGroupsResponse Lude.Int
+lsrgrsResponseStatus = Lens.lens (responseStatus :: ListSubscribedRuleGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSubscribedRuleGroupsResponse)
+{-# DEPRECATED lsrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

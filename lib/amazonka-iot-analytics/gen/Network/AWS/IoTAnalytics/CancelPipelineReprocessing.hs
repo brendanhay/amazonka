@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,131 @@
 --
 -- Cancels the reprocessing of data through the pipeline.
 module Network.AWS.IoTAnalytics.CancelPipelineReprocessing
-  ( -- * Creating a Request
-    cancelPipelineReprocessing,
-    CancelPipelineReprocessing,
+  ( -- * Creating a request
+    CancelPipelineReprocessing (..),
+    mkCancelPipelineReprocessing,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cprPipelineName,
     cprReprocessingId,
 
-    -- * Destructuring the Response
-    cancelPipelineReprocessingResponse,
-    CancelPipelineReprocessingResponse,
+    -- * Destructuring the response
+    CancelPipelineReprocessingResponse (..),
+    mkCancelPipelineReprocessingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprrsResponseStatus,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelPipelineReprocessing' smart constructor.
+-- | /See:/ 'mkCancelPipelineReprocessing' smart constructor.
 data CancelPipelineReprocessing = CancelPipelineReprocessing'
-  { _cprPipelineName ::
-      !Text,
-    _cprReprocessingId :: !Text
+  { pipelineName ::
+      Lude.Text,
+    reprocessingId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelPipelineReprocessing' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprPipelineName' - The name of pipeline for which data reprocessing is canceled.
---
--- * 'cprReprocessingId' - The ID of the reprocessing task (returned by @StartPipelineReprocessing@ ).
-cancelPipelineReprocessing ::
-  -- | 'cprPipelineName'
-  Text ->
-  -- | 'cprReprocessingId'
-  Text ->
+-- * 'pipelineName' - The name of pipeline for which data reprocessing is canceled.
+-- * 'reprocessingId' - The ID of the reprocessing task (returned by @StartPipelineReprocessing@ ).
+mkCancelPipelineReprocessing ::
+  -- | 'pipelineName'
+  Lude.Text ->
+  -- | 'reprocessingId'
+  Lude.Text ->
   CancelPipelineReprocessing
-cancelPipelineReprocessing pPipelineName_ pReprocessingId_ =
+mkCancelPipelineReprocessing pPipelineName_ pReprocessingId_ =
   CancelPipelineReprocessing'
-    { _cprPipelineName = pPipelineName_,
-      _cprReprocessingId = pReprocessingId_
+    { pipelineName = pPipelineName_,
+      reprocessingId = pReprocessingId_
     }
 
 -- | The name of pipeline for which data reprocessing is canceled.
-cprPipelineName :: Lens' CancelPipelineReprocessing Text
-cprPipelineName = lens _cprPipelineName (\s a -> s {_cprPipelineName = a})
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprPipelineName :: Lens.Lens' CancelPipelineReprocessing Lude.Text
+cprPipelineName = Lens.lens (pipelineName :: CancelPipelineReprocessing -> Lude.Text) (\s a -> s {pipelineName = a} :: CancelPipelineReprocessing)
+{-# DEPRECATED cprPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The ID of the reprocessing task (returned by @StartPipelineReprocessing@ ).
-cprReprocessingId :: Lens' CancelPipelineReprocessing Text
-cprReprocessingId = lens _cprReprocessingId (\s a -> s {_cprReprocessingId = a})
+--
+-- /Note:/ Consider using 'reprocessingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprReprocessingId :: Lens.Lens' CancelPipelineReprocessing Lude.Text
+cprReprocessingId = Lens.lens (reprocessingId :: CancelPipelineReprocessing -> Lude.Text) (\s a -> s {reprocessingId = a} :: CancelPipelineReprocessing)
+{-# DEPRECATED cprReprocessingId "Use generic-lens or generic-optics with 'reprocessingId' instead." #-}
 
-instance AWSRequest CancelPipelineReprocessing where
+instance Lude.AWSRequest CancelPipelineReprocessing where
   type
     Rs CancelPipelineReprocessing =
       CancelPipelineReprocessingResponse
-  request = delete ioTAnalytics
+  request = Req.delete ioTAnalyticsService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          CancelPipelineReprocessingResponse' <$> (pure (fromEnum s))
+          CancelPipelineReprocessingResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CancelPipelineReprocessing
+instance Lude.ToHeaders CancelPipelineReprocessing where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelPipelineReprocessing
-
-instance ToHeaders CancelPipelineReprocessing where
-  toHeaders = const mempty
-
-instance ToPath CancelPipelineReprocessing where
+instance Lude.ToPath CancelPipelineReprocessing where
   toPath CancelPipelineReprocessing' {..} =
-    mconcat
+    Lude.mconcat
       [ "/pipelines/",
-        toBS _cprPipelineName,
+        Lude.toBS pipelineName,
         "/reprocessing/",
-        toBS _cprReprocessingId
+        Lude.toBS reprocessingId
       ]
 
-instance ToQuery CancelPipelineReprocessing where
-  toQuery = const mempty
+instance Lude.ToQuery CancelPipelineReprocessing where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'cancelPipelineReprocessingResponse' smart constructor.
+-- | /See:/ 'mkCancelPipelineReprocessingResponse' smart constructor.
 newtype CancelPipelineReprocessingResponse = CancelPipelineReprocessingResponse'
-  { _cprrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelPipelineReprocessingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprrsResponseStatus' - -- | The response status code.
-cancelPipelineReprocessingResponse ::
-  -- | 'cprrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCancelPipelineReprocessingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelPipelineReprocessingResponse
-cancelPipelineReprocessingResponse pResponseStatus_ =
+mkCancelPipelineReprocessingResponse pResponseStatus_ =
   CancelPipelineReprocessingResponse'
-    { _cprrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-cprrsResponseStatus :: Lens' CancelPipelineReprocessingResponse Int
-cprrsResponseStatus = lens _cprrsResponseStatus (\s a -> s {_cprrsResponseStatus = a})
-
-instance NFData CancelPipelineReprocessingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprrsResponseStatus :: Lens.Lens' CancelPipelineReprocessingResponse Lude.Int
+cprrsResponseStatus = Lens.lens (responseStatus :: CancelPipelineReprocessingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelPipelineReprocessingResponse)
+{-# DEPRECATED cprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

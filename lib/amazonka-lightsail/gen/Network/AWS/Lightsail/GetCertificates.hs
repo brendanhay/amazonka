@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,174 @@
 --
 -- Returns information about one or more Amazon Lightsail SSL/TLS certificates.
 module Network.AWS.Lightsail.GetCertificates
-  ( -- * Creating a Request
-    getCertificates,
-    GetCertificates,
+  ( -- * Creating a request
+    GetCertificates (..),
+    mkGetCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcCertificateStatuses,
     gcCertificateName,
     gcIncludeCertificateDetails,
 
-    -- * Destructuring the Response
-    getCertificatesResponse,
-    GetCertificatesResponse,
+    -- * Destructuring the response
+    GetCertificatesResponse (..),
+    mkGetCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcrsCertificates,
     gcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCertificates' smart constructor.
+-- | /See:/ 'mkGetCertificates' smart constructor.
 data GetCertificates = GetCertificates'
-  { _gcCertificateStatuses ::
-      !(Maybe [CertificateStatus]),
-    _gcCertificateName :: !(Maybe Text),
-    _gcIncludeCertificateDetails :: !(Maybe Bool)
+  { certificateStatuses ::
+      Lude.Maybe [CertificateStatus],
+    certificateName :: Lude.Maybe Lude.Text,
+    includeCertificateDetails :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateName' - The name for the certificate for which to return information.
 --
--- * 'gcCertificateStatuses' - The status of the certificates for which to return information. For example, specify @ISSUED@ to return only certificates with an @ISSUED@ status. When omitted, the response includes all of your certificates in the AWS Region where the request is made, regardless of their current status.
+-- When omitted, the response includes all of your certificates in the AWS Region where the request is made.
+-- * 'certificateStatuses' - The status of the certificates for which to return information.
 --
--- * 'gcCertificateName' - The name for the certificate for which to return information. When omitted, the response includes all of your certificates in the AWS Region where the request is made.
+-- For example, specify @ISSUED@ to return only certificates with an @ISSUED@ status.
+-- When omitted, the response includes all of your certificates in the AWS Region where the request is made, regardless of their current status.
+-- * 'includeCertificateDetails' - Indicates whether to include detailed information about the certificates in the response.
 --
--- * 'gcIncludeCertificateDetails' - Indicates whether to include detailed information about the certificates in the response. When omitted, the response includes only the certificate names, Amazon Resource Names (ARNs), domain names, and tags.
-getCertificates ::
+-- When omitted, the response includes only the certificate names, Amazon Resource Names (ARNs), domain names, and tags.
+mkGetCertificates ::
   GetCertificates
-getCertificates =
+mkGetCertificates =
   GetCertificates'
-    { _gcCertificateStatuses = Nothing,
-      _gcCertificateName = Nothing,
-      _gcIncludeCertificateDetails = Nothing
+    { certificateStatuses = Lude.Nothing,
+      certificateName = Lude.Nothing,
+      includeCertificateDetails = Lude.Nothing
     }
 
--- | The status of the certificates for which to return information. For example, specify @ISSUED@ to return only certificates with an @ISSUED@ status. When omitted, the response includes all of your certificates in the AWS Region where the request is made, regardless of their current status.
-gcCertificateStatuses :: Lens' GetCertificates [CertificateStatus]
-gcCertificateStatuses = lens _gcCertificateStatuses (\s a -> s {_gcCertificateStatuses = a}) . _Default . _Coerce
+-- | The status of the certificates for which to return information.
+--
+-- For example, specify @ISSUED@ to return only certificates with an @ISSUED@ status.
+-- When omitted, the response includes all of your certificates in the AWS Region where the request is made, regardless of their current status.
+--
+-- /Note:/ Consider using 'certificateStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcCertificateStatuses :: Lens.Lens' GetCertificates (Lude.Maybe [CertificateStatus])
+gcCertificateStatuses = Lens.lens (certificateStatuses :: GetCertificates -> Lude.Maybe [CertificateStatus]) (\s a -> s {certificateStatuses = a} :: GetCertificates)
+{-# DEPRECATED gcCertificateStatuses "Use generic-lens or generic-optics with 'certificateStatuses' instead." #-}
 
--- | The name for the certificate for which to return information. When omitted, the response includes all of your certificates in the AWS Region where the request is made.
-gcCertificateName :: Lens' GetCertificates (Maybe Text)
-gcCertificateName = lens _gcCertificateName (\s a -> s {_gcCertificateName = a})
+-- | The name for the certificate for which to return information.
+--
+-- When omitted, the response includes all of your certificates in the AWS Region where the request is made.
+--
+-- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcCertificateName :: Lens.Lens' GetCertificates (Lude.Maybe Lude.Text)
+gcCertificateName = Lens.lens (certificateName :: GetCertificates -> Lude.Maybe Lude.Text) (\s a -> s {certificateName = a} :: GetCertificates)
+{-# DEPRECATED gcCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
 
--- | Indicates whether to include detailed information about the certificates in the response. When omitted, the response includes only the certificate names, Amazon Resource Names (ARNs), domain names, and tags.
-gcIncludeCertificateDetails :: Lens' GetCertificates (Maybe Bool)
-gcIncludeCertificateDetails = lens _gcIncludeCertificateDetails (\s a -> s {_gcIncludeCertificateDetails = a})
+-- | Indicates whether to include detailed information about the certificates in the response.
+--
+-- When omitted, the response includes only the certificate names, Amazon Resource Names (ARNs), domain names, and tags.
+--
+-- /Note:/ Consider using 'includeCertificateDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcIncludeCertificateDetails :: Lens.Lens' GetCertificates (Lude.Maybe Lude.Bool)
+gcIncludeCertificateDetails = Lens.lens (includeCertificateDetails :: GetCertificates -> Lude.Maybe Lude.Bool) (\s a -> s {includeCertificateDetails = a} :: GetCertificates)
+{-# DEPRECATED gcIncludeCertificateDetails "Use generic-lens or generic-optics with 'includeCertificateDetails' instead." #-}
 
-instance AWSRequest GetCertificates where
+instance Lude.AWSRequest GetCertificates where
   type Rs GetCertificates = GetCertificatesResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCertificatesResponse'
-            <$> (x .?> "certificates" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "certificates" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCertificates
-
-instance NFData GetCertificates
-
-instance ToHeaders GetCertificates where
+instance Lude.ToHeaders GetCertificates where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetCertificates" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetCertificates" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCertificates where
+instance Lude.ToJSON GetCertificates where
   toJSON GetCertificates' {..} =
-    object
-      ( catMaybes
-          [ ("certificateStatuses" .=) <$> _gcCertificateStatuses,
-            ("certificateName" .=) <$> _gcCertificateName,
-            ("includeCertificateDetails" .=) <$> _gcIncludeCertificateDetails
+    Lude.object
+      ( Lude.catMaybes
+          [ ("certificateStatuses" Lude..=) Lude.<$> certificateStatuses,
+            ("certificateName" Lude..=) Lude.<$> certificateName,
+            ("includeCertificateDetails" Lude..=)
+              Lude.<$> includeCertificateDetails
           ]
       )
 
-instance ToPath GetCertificates where
-  toPath = const "/"
+instance Lude.ToPath GetCertificates where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCertificates where
-  toQuery = const mempty
+instance Lude.ToQuery GetCertificates where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCertificatesResponse' smart constructor.
+-- | /See:/ 'mkGetCertificatesResponse' smart constructor.
 data GetCertificatesResponse = GetCertificatesResponse'
-  { _gcrsCertificates ::
-      !(Maybe [CertificateSummary]),
-    _gcrsResponseStatus :: !Int
+  { certificates ::
+      Lude.Maybe [CertificateSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsCertificates' - An object that describes certificates.
---
--- * 'gcrsResponseStatus' - -- | The response status code.
-getCertificatesResponse ::
-  -- | 'gcrsResponseStatus'
-  Int ->
+-- * 'certificates' - An object that describes certificates.
+-- * 'responseStatus' - The response status code.
+mkGetCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCertificatesResponse
-getCertificatesResponse pResponseStatus_ =
+mkGetCertificatesResponse pResponseStatus_ =
   GetCertificatesResponse'
-    { _gcrsCertificates = Nothing,
-      _gcrsResponseStatus = pResponseStatus_
+    { certificates = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that describes certificates.
-gcrsCertificates :: Lens' GetCertificatesResponse [CertificateSummary]
-gcrsCertificates = lens _gcrsCertificates (\s a -> s {_gcrsCertificates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsCertificates :: Lens.Lens' GetCertificatesResponse (Lude.Maybe [CertificateSummary])
+gcrsCertificates = Lens.lens (certificates :: GetCertificatesResponse -> Lude.Maybe [CertificateSummary]) (\s a -> s {certificates = a} :: GetCertificatesResponse)
+{-# DEPRECATED gcrsCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetCertificatesResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\s a -> s {_gcrsResponseStatus = a})
-
-instance NFData GetCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsResponseStatus :: Lens.Lens' GetCertificatesResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCertificatesResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

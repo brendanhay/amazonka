@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SendUsersMessageResponse where
+module Network.AWS.Pinpoint.Types.SendUsersMessageResponse
+  ( SendUsersMessageResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkSendUsersMessageResponse,
+
+    -- * Lenses
+    sumRequestId,
+    sumResult,
+    sumApplicationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointMessageResult
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about which users and endpoints a message was sent to.
 --
---
---
--- /See:/ 'sendUsersMessageResponse' smart constructor.
+-- /See:/ 'mkSendUsersMessageResponse' smart constructor.
 data SendUsersMessageResponse = SendUsersMessageResponse'
-  { _sumRequestId ::
-      !(Maybe Text),
-    _sumResult ::
-      !( Maybe
-           ( Map
-               Text
-               ( Map
-                   Text
-                   (EndpointMessageResult)
-               )
-           )
-       ),
-    _sumApplicationId :: !Text
+  { requestId ::
+      Lude.Maybe Lude.Text,
+    result ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            ( Lude.HashMap
+                Lude.Text
+                (EndpointMessageResult)
+            )
+        ),
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendUsersMessageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sumRequestId' - The unique identifier that was assigned to the message request.
---
--- * 'sumResult' - An object that indicates which endpoints the message was sent to, for each user. The object lists user IDs and, for each user ID, provides the endpoint IDs that the message was sent to. For each endpoint ID, it provides an EndpointMessageResult object.
---
--- * 'sumApplicationId' - The unique identifier for the application that was used to send the message.
-sendUsersMessageResponse ::
-  -- | 'sumApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application that was used to send the message.
+-- * 'requestId' - The unique identifier that was assigned to the message request.
+-- * 'result' - An object that indicates which endpoints the message was sent to, for each user. The object lists user IDs and, for each user ID, provides the endpoint IDs that the message was sent to. For each endpoint ID, it provides an EndpointMessageResult object.
+mkSendUsersMessageResponse ::
+  -- | 'applicationId'
+  Lude.Text ->
   SendUsersMessageResponse
-sendUsersMessageResponse pApplicationId_ =
+mkSendUsersMessageResponse pApplicationId_ =
   SendUsersMessageResponse'
-    { _sumRequestId = Nothing,
-      _sumResult = Nothing,
-      _sumApplicationId = pApplicationId_
+    { requestId = Lude.Nothing,
+      result = Lude.Nothing,
+      applicationId = pApplicationId_
     }
 
 -- | The unique identifier that was assigned to the message request.
-sumRequestId :: Lens' SendUsersMessageResponse (Maybe Text)
-sumRequestId = lens _sumRequestId (\s a -> s {_sumRequestId = a})
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumRequestId :: Lens.Lens' SendUsersMessageResponse (Lude.Maybe Lude.Text)
+sumRequestId = Lens.lens (requestId :: SendUsersMessageResponse -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: SendUsersMessageResponse)
+{-# DEPRECATED sumRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | An object that indicates which endpoints the message was sent to, for each user. The object lists user IDs and, for each user ID, provides the endpoint IDs that the message was sent to. For each endpoint ID, it provides an EndpointMessageResult object.
-sumResult :: Lens' SendUsersMessageResponse (HashMap Text (HashMap Text (EndpointMessageResult)))
-sumResult = lens _sumResult (\s a -> s {_sumResult = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumResult :: Lens.Lens' SendUsersMessageResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.HashMap Lude.Text (EndpointMessageResult))))
+sumResult = Lens.lens (result :: SendUsersMessageResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.HashMap Lude.Text (EndpointMessageResult)))) (\s a -> s {result = a} :: SendUsersMessageResponse)
+{-# DEPRECATED sumResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The unique identifier for the application that was used to send the message.
-sumApplicationId :: Lens' SendUsersMessageResponse Text
-sumApplicationId = lens _sumApplicationId (\s a -> s {_sumApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumApplicationId :: Lens.Lens' SendUsersMessageResponse Lude.Text
+sumApplicationId = Lens.lens (applicationId :: SendUsersMessageResponse -> Lude.Text) (\s a -> s {applicationId = a} :: SendUsersMessageResponse)
+{-# DEPRECATED sumApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance FromJSON SendUsersMessageResponse where
+instance Lude.FromJSON SendUsersMessageResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "SendUsersMessageResponse"
       ( \x ->
           SendUsersMessageResponse'
-            <$> (x .:? "RequestId")
-            <*> (x .:? "Result" .!= mempty)
-            <*> (x .: "ApplicationId")
+            Lude.<$> (x Lude..:? "RequestId")
+            Lude.<*> (x Lude..:? "Result" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "ApplicationId")
       )
-
-instance Hashable SendUsersMessageResponse
-
-instance NFData SendUsersMessageResponse

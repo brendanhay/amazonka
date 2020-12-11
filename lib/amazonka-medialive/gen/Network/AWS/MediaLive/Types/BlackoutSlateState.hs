@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BlackoutSlateState where
+module Network.AWS.MediaLive.Types.BlackoutSlateState
+  ( BlackoutSlateState
+      ( BlackoutSlateState',
+        BSSDisabled,
+        BSSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Blackout Slate State
-data BlackoutSlateState
-  = BSSDisabled
-  | BSSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BlackoutSlateState = BlackoutSlateState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BlackoutSlateState where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure BSSDisabled
-      "enabled" -> pure BSSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing BlackoutSlateState from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern BSSDisabled :: BlackoutSlateState
+pattern BSSDisabled = BlackoutSlateState' "DISABLED"
 
-instance ToText BlackoutSlateState where
-  toText = \case
-    BSSDisabled -> "DISABLED"
-    BSSEnabled -> "ENABLED"
+pattern BSSEnabled :: BlackoutSlateState
+pattern BSSEnabled = BlackoutSlateState' "ENABLED"
 
-instance Hashable BlackoutSlateState
-
-instance NFData BlackoutSlateState
-
-instance ToByteString BlackoutSlateState
-
-instance ToQuery BlackoutSlateState
-
-instance ToHeader BlackoutSlateState
-
-instance ToJSON BlackoutSlateState where
-  toJSON = toJSONText
-
-instance FromJSON BlackoutSlateState where
-  parseJSON = parseJSONText "BlackoutSlateState"
+{-# COMPLETE
+  BSSDisabled,
+  BSSEnabled,
+  BlackoutSlateState'
+  #-}

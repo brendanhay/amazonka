@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AttachmentStatus where
+module Network.AWS.EC2.Types.AttachmentStatus
+  ( AttachmentStatus
+      ( AttachmentStatus',
+        AAttached,
+        AAttaching,
+        AAvailable,
+        ABusy,
+        ADetached,
+        ADetaching
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AttachmentStatus
-  = AAttached
-  | AAttaching
-  | AAvailable
-  | ABusy
-  | ADetached
-  | ADetaching
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AttachmentStatus = AttachmentStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AttachmentStatus where
-  parser =
-    takeLowerText >>= \case
-      "attached" -> pure AAttached
-      "attaching" -> pure AAttaching
-      "available" -> pure AAvailable
-      "busy" -> pure ABusy
-      "detached" -> pure ADetached
-      "detaching" -> pure ADetaching
-      e ->
-        fromTextError $
-          "Failure parsing AttachmentStatus from value: '" <> e
-            <> "'. Accepted values: attached, attaching, available, busy, detached, detaching"
+pattern AAttached :: AttachmentStatus
+pattern AAttached = AttachmentStatus' "attached"
 
-instance ToText AttachmentStatus where
-  toText = \case
-    AAttached -> "attached"
-    AAttaching -> "attaching"
-    AAvailable -> "available"
-    ABusy -> "busy"
-    ADetached -> "detached"
-    ADetaching -> "detaching"
+pattern AAttaching :: AttachmentStatus
+pattern AAttaching = AttachmentStatus' "attaching"
 
-instance Hashable AttachmentStatus
+pattern AAvailable :: AttachmentStatus
+pattern AAvailable = AttachmentStatus' "available"
 
-instance NFData AttachmentStatus
+pattern ABusy :: AttachmentStatus
+pattern ABusy = AttachmentStatus' "busy"
 
-instance ToByteString AttachmentStatus
+pattern ADetached :: AttachmentStatus
+pattern ADetached = AttachmentStatus' "detached"
 
-instance ToQuery AttachmentStatus
+pattern ADetaching :: AttachmentStatus
+pattern ADetaching = AttachmentStatus' "detaching"
 
-instance ToHeader AttachmentStatus
-
-instance FromXML AttachmentStatus where
-  parseXML = parseXMLText "AttachmentStatus"
+{-# COMPLETE
+  AAttached,
+  AAttaching,
+  AAvailable,
+  ABusy,
+  ADetached,
+  ADetaching,
+  AttachmentStatus'
+  #-}

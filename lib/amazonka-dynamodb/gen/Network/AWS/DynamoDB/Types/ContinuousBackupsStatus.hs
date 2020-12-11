@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ContinuousBackupsStatus where
+module Network.AWS.DynamoDB.Types.ContinuousBackupsStatus
+  ( ContinuousBackupsStatus
+      ( ContinuousBackupsStatus',
+        CBSDisabled,
+        CBSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContinuousBackupsStatus
-  = CBSDisabled
-  | CBSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContinuousBackupsStatus = ContinuousBackupsStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContinuousBackupsStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure CBSDisabled
-      "enabled" -> pure CBSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing ContinuousBackupsStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern CBSDisabled :: ContinuousBackupsStatus
+pattern CBSDisabled = ContinuousBackupsStatus' "DISABLED"
 
-instance ToText ContinuousBackupsStatus where
-  toText = \case
-    CBSDisabled -> "DISABLED"
-    CBSEnabled -> "ENABLED"
+pattern CBSEnabled :: ContinuousBackupsStatus
+pattern CBSEnabled = ContinuousBackupsStatus' "ENABLED"
 
-instance Hashable ContinuousBackupsStatus
-
-instance NFData ContinuousBackupsStatus
-
-instance ToByteString ContinuousBackupsStatus
-
-instance ToQuery ContinuousBackupsStatus
-
-instance ToHeader ContinuousBackupsStatus
-
-instance FromJSON ContinuousBackupsStatus where
-  parseJSON = parseJSONText "ContinuousBackupsStatus"
+{-# COMPLETE
+  CBSDisabled,
+  CBSEnabled,
+  ContinuousBackupsStatus'
+  #-}

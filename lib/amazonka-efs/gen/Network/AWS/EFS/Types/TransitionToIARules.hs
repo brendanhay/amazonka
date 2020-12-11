@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.TransitionToIARules where
+module Network.AWS.EFS.Types.TransitionToIARules
+  ( TransitionToIARules
+      ( TransitionToIARules',
+        After14Days,
+        After30Days,
+        After60Days,
+        After7Days,
+        After90Days
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransitionToIARules
-  = After14Days
-  | After30Days
-  | After60Days
-  | After7Days
-  | After90Days
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransitionToIARules = TransitionToIARules' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransitionToIARules where
-  parser =
-    takeLowerText >>= \case
-      "after_14_days" -> pure After14Days
-      "after_30_days" -> pure After30Days
-      "after_60_days" -> pure After60Days
-      "after_7_days" -> pure After7Days
-      "after_90_days" -> pure After90Days
-      e ->
-        fromTextError $
-          "Failure parsing TransitionToIARules from value: '" <> e
-            <> "'. Accepted values: after_14_days, after_30_days, after_60_days, after_7_days, after_90_days"
+pattern After14Days :: TransitionToIARules
+pattern After14Days = TransitionToIARules' "AFTER_14_DAYS"
 
-instance ToText TransitionToIARules where
-  toText = \case
-    After14Days -> "AFTER_14_DAYS"
-    After30Days -> "AFTER_30_DAYS"
-    After60Days -> "AFTER_60_DAYS"
-    After7Days -> "AFTER_7_DAYS"
-    After90Days -> "AFTER_90_DAYS"
+pattern After30Days :: TransitionToIARules
+pattern After30Days = TransitionToIARules' "AFTER_30_DAYS"
 
-instance Hashable TransitionToIARules
+pattern After60Days :: TransitionToIARules
+pattern After60Days = TransitionToIARules' "AFTER_60_DAYS"
 
-instance NFData TransitionToIARules
+pattern After7Days :: TransitionToIARules
+pattern After7Days = TransitionToIARules' "AFTER_7_DAYS"
 
-instance ToByteString TransitionToIARules
+pattern After90Days :: TransitionToIARules
+pattern After90Days = TransitionToIARules' "AFTER_90_DAYS"
 
-instance ToQuery TransitionToIARules
-
-instance ToHeader TransitionToIARules
-
-instance ToJSON TransitionToIARules where
-  toJSON = toJSONText
-
-instance FromJSON TransitionToIARules where
-  parseJSON = parseJSONText "TransitionToIARules"
+{-# COMPLETE
+  After14Days,
+  After30Days,
+  After60Days,
+  After7Days,
+  After90Days,
+  TransitionToIARules'
+  #-}

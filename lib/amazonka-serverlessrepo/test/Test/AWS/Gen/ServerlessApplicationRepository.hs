@@ -28,91 +28,91 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetApplicationPolicy $
---             getApplicationPolicy
+--             mkGetApplicationPolicy
 --
 --         , requestCreateApplicationVersion $
---             createApplicationVersion
+--             mkCreateApplicationVersion
 --
 --         , requestUnshareApplication $
---             unshareApplication
+--             mkUnshareApplication
 --
 --         , requestDeleteApplication $
---             deleteApplication
+--             mkDeleteApplication
 --
 --         , requestUpdateApplication $
---             updateApplication
+--             mkUpdateApplication
 --
 --         , requestCreateCloudFormationTemplate $
---             createCloudFormationTemplate
+--             mkCreateCloudFormationTemplate
 --
 --         , requestCreateApplication $
---             createApplication
+--             mkCreateApplication
 --
 --         , requestListApplicationDependencies $
---             listApplicationDependencies
+--             mkListApplicationDependencies
 --
 --         , requestListApplicationVersions $
---             listApplicationVersions
+--             mkListApplicationVersions
 --
 --         , requestGetApplication $
---             getApplication
+--             mkGetApplication
 --
 --         , requestGetCloudFormationTemplate $
---             getCloudFormationTemplate
+--             mkGetCloudFormationTemplate
 --
 --         , requestCreateCloudFormationChangeSet $
---             createCloudFormationChangeSet
+--             mkCreateCloudFormationChangeSet
 --
 --         , requestPutApplicationPolicy $
---             putApplicationPolicy
+--             mkPutApplicationPolicy
 --
 --         , requestListApplications $
---             listApplications
+--             mkListApplications
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetApplicationPolicy $
---             getApplicationPolicyResponse
+--             mkGetApplicationPolicyResponse
 --
 --         , responseCreateApplicationVersion $
---             createApplicationVersionResponse
+--             mkCreateApplicationVersionResponse
 --
 --         , responseUnshareApplication $
---             unshareApplicationResponse
+--             mkUnshareApplicationResponse
 --
 --         , responseDeleteApplication $
---             deleteApplicationResponse
+--             mkDeleteApplicationResponse
 --
 --         , responseUpdateApplication $
---             updateApplicationResponse
+--             mkUpdateApplicationResponse
 --
 --         , responseCreateCloudFormationTemplate $
---             createCloudFormationTemplateResponse
+--             mkCreateCloudFormationTemplateResponse
 --
 --         , responseCreateApplication $
---             createApplicationResponse
+--             mkCreateApplicationResponse
 --
 --         , responseListApplicationDependencies $
---             listApplicationDependenciesResponse
+--             mkListApplicationDependenciesResponse
 --
 --         , responseListApplicationVersions $
---             listApplicationVersionsResponse
+--             mkListApplicationVersionsResponse
 --
 --         , responseGetApplication $
---             getApplicationResponse
+--             mkGetApplicationResponse
 --
 --         , responseGetCloudFormationTemplate $
---             getCloudFormationTemplateResponse
+--             mkGetCloudFormationTemplateResponse
 --
 --         , responseCreateCloudFormationChangeSet $
---             createCloudFormationChangeSetResponse
+--             mkCreateCloudFormationChangeSetResponse
 --
 --         , responsePutApplicationPolicy $
---             putApplicationPolicyResponse
+--             mkPutApplicationPolicyResponse
 --
 --         , responseListApplications $
---             listApplicationsResponse
+--             mkListApplicationsResponse
 --
 --           ]
 --     ]
@@ -210,7 +210,7 @@ responseGetApplicationPolicy =
   res
     "GetApplicationPolicyResponse"
     "fixture/GetApplicationPolicyResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy GetApplicationPolicy)
 
 responseCreateApplicationVersion :: CreateApplicationVersionResponse -> TestTree
@@ -218,7 +218,7 @@ responseCreateApplicationVersion =
   res
     "CreateApplicationVersionResponse"
     "fixture/CreateApplicationVersionResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy CreateApplicationVersion)
 
 responseUnshareApplication :: UnshareApplicationResponse -> TestTree
@@ -226,7 +226,7 @@ responseUnshareApplication =
   res
     "UnshareApplicationResponse"
     "fixture/UnshareApplicationResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy UnshareApplication)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
@@ -234,7 +234,7 @@ responseDeleteApplication =
   res
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
@@ -242,7 +242,7 @@ responseUpdateApplication =
   res
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy UpdateApplication)
 
 responseCreateCloudFormationTemplate :: CreateCloudFormationTemplateResponse -> TestTree
@@ -250,7 +250,7 @@ responseCreateCloudFormationTemplate =
   res
     "CreateCloudFormationTemplateResponse"
     "fixture/CreateCloudFormationTemplateResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy CreateCloudFormationTemplate)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
@@ -258,7 +258,7 @@ responseCreateApplication =
   res
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy CreateApplication)
 
 responseListApplicationDependencies :: ListApplicationDependenciesResponse -> TestTree
@@ -266,7 +266,7 @@ responseListApplicationDependencies =
   res
     "ListApplicationDependenciesResponse"
     "fixture/ListApplicationDependenciesResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy ListApplicationDependencies)
 
 responseListApplicationVersions :: ListApplicationVersionsResponse -> TestTree
@@ -274,7 +274,7 @@ responseListApplicationVersions =
   res
     "ListApplicationVersionsResponse"
     "fixture/ListApplicationVersionsResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy ListApplicationVersions)
 
 responseGetApplication :: GetApplicationResponse -> TestTree
@@ -282,7 +282,7 @@ responseGetApplication =
   res
     "GetApplicationResponse"
     "fixture/GetApplicationResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy GetApplication)
 
 responseGetCloudFormationTemplate :: GetCloudFormationTemplateResponse -> TestTree
@@ -290,7 +290,7 @@ responseGetCloudFormationTemplate =
   res
     "GetCloudFormationTemplateResponse"
     "fixture/GetCloudFormationTemplateResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy GetCloudFormationTemplate)
 
 responseCreateCloudFormationChangeSet :: CreateCloudFormationChangeSetResponse -> TestTree
@@ -298,7 +298,7 @@ responseCreateCloudFormationChangeSet =
   res
     "CreateCloudFormationChangeSetResponse"
     "fixture/CreateCloudFormationChangeSetResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy CreateCloudFormationChangeSet)
 
 responsePutApplicationPolicy :: PutApplicationPolicyResponse -> TestTree
@@ -306,7 +306,7 @@ responsePutApplicationPolicy =
   res
     "PutApplicationPolicyResponse"
     "fixture/PutApplicationPolicyResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy PutApplicationPolicy)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
@@ -314,5 +314,5 @@ responseListApplications =
   res
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
-    serverlessApplicationRepository
+    serverlessApplicationRepositoryService
     (Proxy :: Proxy ListApplications)

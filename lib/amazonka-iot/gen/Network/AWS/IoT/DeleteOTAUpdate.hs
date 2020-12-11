@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,133 @@
 --
 -- Delete an OTA update.
 module Network.AWS.IoT.DeleteOTAUpdate
-  ( -- * Creating a Request
-    deleteOTAUpdate,
-    DeleteOTAUpdate,
+  ( -- * Creating a request
+    DeleteOTAUpdate (..),
+    mkDeleteOTAUpdate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dotauForceDeleteAWSJob,
     dotauDeleteStream,
     dotauOtaUpdateId,
 
-    -- * Destructuring the Response
-    deleteOTAUpdateResponse,
-    DeleteOTAUpdateResponse,
+    -- * Destructuring the response
+    DeleteOTAUpdateResponse (..),
+    mkDeleteOTAUpdateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dotaursResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteOTAUpdate' smart constructor.
+-- | /See:/ 'mkDeleteOTAUpdate' smart constructor.
 data DeleteOTAUpdate = DeleteOTAUpdate'
-  { _dotauForceDeleteAWSJob ::
-      !(Maybe Bool),
-    _dotauDeleteStream :: !(Maybe Bool),
-    _dotauOtaUpdateId :: !Text
+  { forceDeleteAWSJob ::
+      Lude.Maybe Lude.Bool,
+    deleteStream :: Lude.Maybe Lude.Bool,
+    otaUpdateId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOTAUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dotauForceDeleteAWSJob' - Specifies if the AWS Job associated with the OTA update should be deleted when the OTA update is deleted.
---
--- * 'dotauDeleteStream' - Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.
---
--- * 'dotauOtaUpdateId' - The ID of the OTA update to delete.
-deleteOTAUpdate ::
-  -- | 'dotauOtaUpdateId'
-  Text ->
+-- * 'deleteStream' - Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.
+-- * 'forceDeleteAWSJob' - Specifies if the AWS Job associated with the OTA update should be deleted when the OTA update is deleted.
+-- * 'otaUpdateId' - The ID of the OTA update to delete.
+mkDeleteOTAUpdate ::
+  -- | 'otaUpdateId'
+  Lude.Text ->
   DeleteOTAUpdate
-deleteOTAUpdate pOtaUpdateId_ =
+mkDeleteOTAUpdate pOtaUpdateId_ =
   DeleteOTAUpdate'
-    { _dotauForceDeleteAWSJob = Nothing,
-      _dotauDeleteStream = Nothing,
-      _dotauOtaUpdateId = pOtaUpdateId_
+    { forceDeleteAWSJob = Lude.Nothing,
+      deleteStream = Lude.Nothing,
+      otaUpdateId = pOtaUpdateId_
     }
 
 -- | Specifies if the AWS Job associated with the OTA update should be deleted when the OTA update is deleted.
-dotauForceDeleteAWSJob :: Lens' DeleteOTAUpdate (Maybe Bool)
-dotauForceDeleteAWSJob = lens _dotauForceDeleteAWSJob (\s a -> s {_dotauForceDeleteAWSJob = a})
+--
+-- /Note:/ Consider using 'forceDeleteAWSJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dotauForceDeleteAWSJob :: Lens.Lens' DeleteOTAUpdate (Lude.Maybe Lude.Bool)
+dotauForceDeleteAWSJob = Lens.lens (forceDeleteAWSJob :: DeleteOTAUpdate -> Lude.Maybe Lude.Bool) (\s a -> s {forceDeleteAWSJob = a} :: DeleteOTAUpdate)
+{-# DEPRECATED dotauForceDeleteAWSJob "Use generic-lens or generic-optics with 'forceDeleteAWSJob' instead." #-}
 
 -- | Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.
-dotauDeleteStream :: Lens' DeleteOTAUpdate (Maybe Bool)
-dotauDeleteStream = lens _dotauDeleteStream (\s a -> s {_dotauDeleteStream = a})
+--
+-- /Note:/ Consider using 'deleteStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dotauDeleteStream :: Lens.Lens' DeleteOTAUpdate (Lude.Maybe Lude.Bool)
+dotauDeleteStream = Lens.lens (deleteStream :: DeleteOTAUpdate -> Lude.Maybe Lude.Bool) (\s a -> s {deleteStream = a} :: DeleteOTAUpdate)
+{-# DEPRECATED dotauDeleteStream "Use generic-lens or generic-optics with 'deleteStream' instead." #-}
 
 -- | The ID of the OTA update to delete.
-dotauOtaUpdateId :: Lens' DeleteOTAUpdate Text
-dotauOtaUpdateId = lens _dotauOtaUpdateId (\s a -> s {_dotauOtaUpdateId = a})
+--
+-- /Note:/ Consider using 'otaUpdateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dotauOtaUpdateId :: Lens.Lens' DeleteOTAUpdate Lude.Text
+dotauOtaUpdateId = Lens.lens (otaUpdateId :: DeleteOTAUpdate -> Lude.Text) (\s a -> s {otaUpdateId = a} :: DeleteOTAUpdate)
+{-# DEPRECATED dotauOtaUpdateId "Use generic-lens or generic-optics with 'otaUpdateId' instead." #-}
 
-instance AWSRequest DeleteOTAUpdate where
+instance Lude.AWSRequest DeleteOTAUpdate where
   type Rs DeleteOTAUpdate = DeleteOTAUpdateResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteOTAUpdateResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteOTAUpdateResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteOTAUpdate
+instance Lude.ToHeaders DeleteOTAUpdate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteOTAUpdate
-
-instance ToHeaders DeleteOTAUpdate where
-  toHeaders = const mempty
-
-instance ToPath DeleteOTAUpdate where
+instance Lude.ToPath DeleteOTAUpdate where
   toPath DeleteOTAUpdate' {..} =
-    mconcat ["/otaUpdates/", toBS _dotauOtaUpdateId]
+    Lude.mconcat ["/otaUpdates/", Lude.toBS otaUpdateId]
 
-instance ToQuery DeleteOTAUpdate where
+instance Lude.ToQuery DeleteOTAUpdate where
   toQuery DeleteOTAUpdate' {..} =
-    mconcat
-      [ "forceDeleteAWSJob" =: _dotauForceDeleteAWSJob,
-        "deleteStream" =: _dotauDeleteStream
+    Lude.mconcat
+      [ "forceDeleteAWSJob" Lude.=: forceDeleteAWSJob,
+        "deleteStream" Lude.=: deleteStream
       ]
 
--- | /See:/ 'deleteOTAUpdateResponse' smart constructor.
+-- | /See:/ 'mkDeleteOTAUpdateResponse' smart constructor.
 newtype DeleteOTAUpdateResponse = DeleteOTAUpdateResponse'
-  { _dotaursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOTAUpdateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dotaursResponseStatus' - -- | The response status code.
-deleteOTAUpdateResponse ::
-  -- | 'dotaursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteOTAUpdateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteOTAUpdateResponse
-deleteOTAUpdateResponse pResponseStatus_ =
-  DeleteOTAUpdateResponse'
-    { _dotaursResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteOTAUpdateResponse pResponseStatus_ =
+  DeleteOTAUpdateResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dotaursResponseStatus :: Lens' DeleteOTAUpdateResponse Int
-dotaursResponseStatus = lens _dotaursResponseStatus (\s a -> s {_dotaursResponseStatus = a})
-
-instance NFData DeleteOTAUpdateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dotaursResponseStatus :: Lens.Lens' DeleteOTAUpdateResponse Lude.Int
+dotaursResponseStatus = Lens.lens (responseStatus :: DeleteOTAUpdateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteOTAUpdateResponse)
+{-# DEPRECATED dotaursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,31 +14,30 @@
 --
 -- Configures one or more gateway local disks as working storage for a gateway. This operation is only supported in the stored volume gateway type. This operation is deprecated in cached volume API version 20120630. Use 'AddUploadBuffer' instead.
 --
---
 -- In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add working storage, and one or more disk IDs that you want to configure as working storage.
 module Network.AWS.StorageGateway.AddWorkingStorage
-  ( -- * Creating a Request
-    addWorkingStorage,
-    AddWorkingStorage,
+  ( -- * Creating a request
+    AddWorkingStorage (..),
+    mkAddWorkingStorage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     awsGatewayARN,
     awsDiskIds,
 
-    -- * Destructuring the Response
-    addWorkingStorageResponse,
-    AddWorkingStorageResponse,
+    -- * Destructuring the response
+    AddWorkingStorageResponse (..),
+    mkAddWorkingStorageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     awsrsGatewayARN,
     awsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing one or more of the following fields:
@@ -53,114 +47,126 @@ import Network.AWS.StorageGateway.Types
 --
 --
 --
---
--- /See:/ 'addWorkingStorage' smart constructor.
+-- /See:/ 'mkAddWorkingStorage' smart constructor.
 data AddWorkingStorage = AddWorkingStorage'
-  { _awsGatewayARN ::
-      !Text,
-    _awsDiskIds :: ![Text]
+  { gatewayARN ::
+      Lude.Text,
+    diskIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddWorkingStorage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'awsGatewayARN' - Undocumented member.
---
--- * 'awsDiskIds' - An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
-addWorkingStorage ::
-  -- | 'awsGatewayARN'
-  Text ->
+-- * 'diskIds' - An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
+-- * 'gatewayARN' - Undocumented field.
+mkAddWorkingStorage ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   AddWorkingStorage
-addWorkingStorage pGatewayARN_ =
+mkAddWorkingStorage pGatewayARN_ =
   AddWorkingStorage'
-    { _awsGatewayARN = pGatewayARN_,
-      _awsDiskIds = mempty
+    { gatewayARN = pGatewayARN_,
+      diskIds = Lude.mempty
     }
 
--- | Undocumented member.
-awsGatewayARN :: Lens' AddWorkingStorage Text
-awsGatewayARN = lens _awsGatewayARN (\s a -> s {_awsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+awsGatewayARN :: Lens.Lens' AddWorkingStorage Lude.Text
+awsGatewayARN = Lens.lens (gatewayARN :: AddWorkingStorage -> Lude.Text) (\s a -> s {gatewayARN = a} :: AddWorkingStorage)
+{-# DEPRECATED awsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
-awsDiskIds :: Lens' AddWorkingStorage [Text]
-awsDiskIds = lens _awsDiskIds (\s a -> s {_awsDiskIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'diskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+awsDiskIds :: Lens.Lens' AddWorkingStorage [Lude.Text]
+awsDiskIds = Lens.lens (diskIds :: AddWorkingStorage -> [Lude.Text]) (\s a -> s {diskIds = a} :: AddWorkingStorage)
+{-# DEPRECATED awsDiskIds "Use generic-lens or generic-optics with 'diskIds' instead." #-}
 
-instance AWSRequest AddWorkingStorage where
+instance Lude.AWSRequest AddWorkingStorage where
   type Rs AddWorkingStorage = AddWorkingStorageResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AddWorkingStorageResponse'
-            <$> (x .?> "GatewayARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AddWorkingStorage
-
-instance NFData AddWorkingStorage
-
-instance ToHeaders AddWorkingStorage where
+instance Lude.ToHeaders AddWorkingStorage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.AddWorkingStorage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.AddWorkingStorage" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddWorkingStorage where
+instance Lude.ToJSON AddWorkingStorage where
   toJSON AddWorkingStorage' {..} =
-    object
-      ( catMaybes
-          [ Just ("GatewayARN" .= _awsGatewayARN),
-            Just ("DiskIds" .= _awsDiskIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            Lude.Just ("DiskIds" Lude..= diskIds)
           ]
       )
 
-instance ToPath AddWorkingStorage where
-  toPath = const "/"
+instance Lude.ToPath AddWorkingStorage where
+  toPath = Lude.const "/"
 
-instance ToQuery AddWorkingStorage where
-  toQuery = const mempty
+instance Lude.ToQuery AddWorkingStorage where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway for which working storage was configured.
 --
---
---
--- /See:/ 'addWorkingStorageResponse' smart constructor.
+-- /See:/ 'mkAddWorkingStorageResponse' smart constructor.
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
-  { _awsrsGatewayARN ::
-      !(Maybe Text),
-    _awsrsResponseStatus :: !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddWorkingStorageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'awsrsGatewayARN' - Undocumented member.
---
--- * 'awsrsResponseStatus' - -- | The response status code.
-addWorkingStorageResponse ::
-  -- | 'awsrsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkAddWorkingStorageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddWorkingStorageResponse
-addWorkingStorageResponse pResponseStatus_ =
+mkAddWorkingStorageResponse pResponseStatus_ =
   AddWorkingStorageResponse'
-    { _awsrsGatewayARN = Nothing,
-      _awsrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
-awsrsGatewayARN = lens _awsrsGatewayARN (\s a -> s {_awsrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+awsrsGatewayARN :: Lens.Lens' AddWorkingStorageResponse (Lude.Maybe Lude.Text)
+awsrsGatewayARN = Lens.lens (gatewayARN :: AddWorkingStorageResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: AddWorkingStorageResponse)
+{-# DEPRECATED awsrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | -- | The response status code.
-awsrsResponseStatus :: Lens' AddWorkingStorageResponse Int
-awsrsResponseStatus = lens _awsrsResponseStatus (\s a -> s {_awsrsResponseStatus = a})
-
-instance NFData AddWorkingStorageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+awsrsResponseStatus :: Lens.Lens' AddWorkingStorageResponse Lude.Int
+awsrsResponseStatus = Lens.lens (responseStatus :: AddWorkingStorageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddWorkingStorageResponse)
+{-# DEPRECATED awsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

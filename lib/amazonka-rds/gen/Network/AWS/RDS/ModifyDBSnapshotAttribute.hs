@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,165 +14,193 @@
 --
 -- Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.
 --
---
 -- To share a manual DB snapshot with other AWS accounts, specify @restore@ as the @AttributeName@ and use the @ValuesToAdd@ parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual DB snapshot. Uses the value @all@ to make the manual DB snapshot public, which means it can be copied or restored by all AWS accounts.
---
 -- If the manual DB snapshot is encrypted, it can be shared, but only by specifying a list of authorized AWS account IDs for the @ValuesToAdd@ parameter. You can't use @all@ as a value for that parameter in this case.
---
 -- To view which AWS accounts have access to copy or restore a manual DB snapshot, or whether a manual DB snapshot public or private, use the 'DescribeDBSnapshotAttributes' API action. The accounts are returned as values for the @restore@ attribute.
 module Network.AWS.RDS.ModifyDBSnapshotAttribute
-  ( -- * Creating a Request
-    modifyDBSnapshotAttribute,
-    ModifyDBSnapshotAttribute,
+  ( -- * Creating a request
+    ModifyDBSnapshotAttribute (..),
+    mkModifyDBSnapshotAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mdsaValuesToAdd,
     mdsaValuesToRemove,
     mdsaDBSnapshotIdentifier,
     mdsaAttributeName,
 
-    -- * Destructuring the Response
-    modifyDBSnapshotAttributeResponse,
-    ModifyDBSnapshotAttributeResponse,
+    -- * Destructuring the response
+    ModifyDBSnapshotAttributeResponse (..),
+    mkModifyDBSnapshotAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mdsarsDBSnapshotAttributesResult,
     mdsarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'modifyDBSnapshotAttribute' smart constructor.
+-- /See:/ 'mkModifyDBSnapshotAttribute' smart constructor.
 data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
-  { _mdsaValuesToAdd ::
-      !(Maybe [Text]),
-    _mdsaValuesToRemove :: !(Maybe [Text]),
-    _mdsaDBSnapshotIdentifier :: !Text,
-    _mdsaAttributeName :: !Text
+  { valuesToAdd ::
+      Lude.Maybe [Lude.Text],
+    valuesToRemove ::
+      Lude.Maybe [Lude.Text],
+    dbSnapshotIdentifier :: Lude.Text,
+    attributeName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBSnapshotAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributeName' - The name of the DB snapshot attribute to modify.
 --
--- * 'mdsaValuesToAdd' - A list of DB snapshot attributes to add to the attribute specified by @AttributeName@ . To authorize other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB snapshots that contain private information that you don't want available to all AWS accounts.
+-- To manage authorization for other AWS accounts to copy or restore a manual DB snapshot, set this value to @restore@ .
+-- * 'dbSnapshotIdentifier' - The identifier for the DB snapshot to modify the attributes for.
+-- * 'valuesToAdd' - A list of DB snapshot attributes to add to the attribute specified by @AttributeName@ .
 --
--- * 'mdsaValuesToRemove' - A list of DB snapshot attributes to remove from the attribute specified by @AttributeName@ . To remove authorization for other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore the manual DB snapshot.
+-- To authorize other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB snapshots that contain private information that you don't want available to all AWS accounts.
+-- * 'valuesToRemove' - A list of DB snapshot attributes to remove from the attribute specified by @AttributeName@ .
 --
--- * 'mdsaDBSnapshotIdentifier' - The identifier for the DB snapshot to modify the attributes for.
---
--- * 'mdsaAttributeName' - The name of the DB snapshot attribute to modify. To manage authorization for other AWS accounts to copy or restore a manual DB snapshot, set this value to @restore@ .
-modifyDBSnapshotAttribute ::
-  -- | 'mdsaDBSnapshotIdentifier'
-  Text ->
-  -- | 'mdsaAttributeName'
-  Text ->
+-- To remove authorization for other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore the manual DB snapshot.
+mkModifyDBSnapshotAttribute ::
+  -- | 'dbSnapshotIdentifier'
+  Lude.Text ->
+  -- | 'attributeName'
+  Lude.Text ->
   ModifyDBSnapshotAttribute
-modifyDBSnapshotAttribute pDBSnapshotIdentifier_ pAttributeName_ =
+mkModifyDBSnapshotAttribute pDBSnapshotIdentifier_ pAttributeName_ =
   ModifyDBSnapshotAttribute'
-    { _mdsaValuesToAdd = Nothing,
-      _mdsaValuesToRemove = Nothing,
-      _mdsaDBSnapshotIdentifier = pDBSnapshotIdentifier_,
-      _mdsaAttributeName = pAttributeName_
+    { valuesToAdd = Lude.Nothing,
+      valuesToRemove = Lude.Nothing,
+      dbSnapshotIdentifier = pDBSnapshotIdentifier_,
+      attributeName = pAttributeName_
     }
 
--- | A list of DB snapshot attributes to add to the attribute specified by @AttributeName@ . To authorize other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB snapshots that contain private information that you don't want available to all AWS accounts.
-mdsaValuesToAdd :: Lens' ModifyDBSnapshotAttribute [Text]
-mdsaValuesToAdd = lens _mdsaValuesToAdd (\s a -> s {_mdsaValuesToAdd = a}) . _Default . _Coerce
+-- | A list of DB snapshot attributes to add to the attribute specified by @AttributeName@ .
+--
+-- To authorize other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB snapshots that contain private information that you don't want available to all AWS accounts.
+--
+-- /Note:/ Consider using 'valuesToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdsaValuesToAdd :: Lens.Lens' ModifyDBSnapshotAttribute (Lude.Maybe [Lude.Text])
+mdsaValuesToAdd = Lens.lens (valuesToAdd :: ModifyDBSnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {valuesToAdd = a} :: ModifyDBSnapshotAttribute)
+{-# DEPRECATED mdsaValuesToAdd "Use generic-lens or generic-optics with 'valuesToAdd' instead." #-}
 
--- | A list of DB snapshot attributes to remove from the attribute specified by @AttributeName@ . To remove authorization for other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore the manual DB snapshot.
-mdsaValuesToRemove :: Lens' ModifyDBSnapshotAttribute [Text]
-mdsaValuesToRemove = lens _mdsaValuesToRemove (\s a -> s {_mdsaValuesToRemove = a}) . _Default . _Coerce
+-- | A list of DB snapshot attributes to remove from the attribute specified by @AttributeName@ .
+--
+-- To remove authorization for other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore the manual DB snapshot.
+--
+-- /Note:/ Consider using 'valuesToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdsaValuesToRemove :: Lens.Lens' ModifyDBSnapshotAttribute (Lude.Maybe [Lude.Text])
+mdsaValuesToRemove = Lens.lens (valuesToRemove :: ModifyDBSnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {valuesToRemove = a} :: ModifyDBSnapshotAttribute)
+{-# DEPRECATED mdsaValuesToRemove "Use generic-lens or generic-optics with 'valuesToRemove' instead." #-}
 
 -- | The identifier for the DB snapshot to modify the attributes for.
-mdsaDBSnapshotIdentifier :: Lens' ModifyDBSnapshotAttribute Text
-mdsaDBSnapshotIdentifier = lens _mdsaDBSnapshotIdentifier (\s a -> s {_mdsaDBSnapshotIdentifier = a})
+--
+-- /Note:/ Consider using 'dbSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdsaDBSnapshotIdentifier :: Lens.Lens' ModifyDBSnapshotAttribute Lude.Text
+mdsaDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: ModifyDBSnapshotAttribute -> Lude.Text) (\s a -> s {dbSnapshotIdentifier = a} :: ModifyDBSnapshotAttribute)
+{-# DEPRECATED mdsaDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dbSnapshotIdentifier' instead." #-}
 
--- | The name of the DB snapshot attribute to modify. To manage authorization for other AWS accounts to copy or restore a manual DB snapshot, set this value to @restore@ .
-mdsaAttributeName :: Lens' ModifyDBSnapshotAttribute Text
-mdsaAttributeName = lens _mdsaAttributeName (\s a -> s {_mdsaAttributeName = a})
+-- | The name of the DB snapshot attribute to modify.
+--
+-- To manage authorization for other AWS accounts to copy or restore a manual DB snapshot, set this value to @restore@ .
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdsaAttributeName :: Lens.Lens' ModifyDBSnapshotAttribute Lude.Text
+mdsaAttributeName = Lens.lens (attributeName :: ModifyDBSnapshotAttribute -> Lude.Text) (\s a -> s {attributeName = a} :: ModifyDBSnapshotAttribute)
+{-# DEPRECATED mdsaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance AWSRequest ModifyDBSnapshotAttribute where
+instance Lude.AWSRequest ModifyDBSnapshotAttribute where
   type
     Rs ModifyDBSnapshotAttribute =
       ModifyDBSnapshotAttributeResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyDBSnapshotAttributeResult"
       ( \s h x ->
           ModifyDBSnapshotAttributeResponse'
-            <$> (x .@? "DBSnapshotAttributesResult") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBSnapshotAttributesResult")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyDBSnapshotAttribute
+instance Lude.ToHeaders ModifyDBSnapshotAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyDBSnapshotAttribute
+instance Lude.ToPath ModifyDBSnapshotAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyDBSnapshotAttribute where
-  toHeaders = const mempty
-
-instance ToPath ModifyDBSnapshotAttribute where
-  toPath = const "/"
-
-instance ToQuery ModifyDBSnapshotAttribute where
+instance Lude.ToQuery ModifyDBSnapshotAttribute where
   toQuery ModifyDBSnapshotAttribute' {..} =
-    mconcat
-      [ "Action" =: ("ModifyDBSnapshotAttribute" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyDBSnapshotAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "ValuesToAdd"
-          =: toQuery (toQueryList "AttributeValue" <$> _mdsaValuesToAdd),
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "AttributeValue" Lude.<$> valuesToAdd),
         "ValuesToRemove"
-          =: toQuery (toQueryList "AttributeValue" <$> _mdsaValuesToRemove),
-        "DBSnapshotIdentifier" =: _mdsaDBSnapshotIdentifier,
-        "AttributeName" =: _mdsaAttributeName
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "AttributeValue" Lude.<$> valuesToRemove),
+        "DBSnapshotIdentifier" Lude.=: dbSnapshotIdentifier,
+        "AttributeName" Lude.=: attributeName
       ]
 
--- | /See:/ 'modifyDBSnapshotAttributeResponse' smart constructor.
+-- | /See:/ 'mkModifyDBSnapshotAttributeResponse' smart constructor.
 data ModifyDBSnapshotAttributeResponse = ModifyDBSnapshotAttributeResponse'
-  { _mdsarsDBSnapshotAttributesResult ::
-      !( Maybe
-           DBSnapshotAttributesResult
-       ),
-    _mdsarsResponseStatus ::
-      !Int
+  { dbSnapshotAttributesResult ::
+      Lude.Maybe
+        DBSnapshotAttributesResult,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdsarsDBSnapshotAttributesResult' - Undocumented member.
---
--- * 'mdsarsResponseStatus' - -- | The response status code.
-modifyDBSnapshotAttributeResponse ::
-  -- | 'mdsarsResponseStatus'
-  Int ->
+-- * 'dbSnapshotAttributesResult' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkModifyDBSnapshotAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyDBSnapshotAttributeResponse
-modifyDBSnapshotAttributeResponse pResponseStatus_ =
+mkModifyDBSnapshotAttributeResponse pResponseStatus_ =
   ModifyDBSnapshotAttributeResponse'
-    { _mdsarsDBSnapshotAttributesResult =
-        Nothing,
-      _mdsarsResponseStatus = pResponseStatus_
+    { dbSnapshotAttributesResult =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mdsarsDBSnapshotAttributesResult :: Lens' ModifyDBSnapshotAttributeResponse (Maybe DBSnapshotAttributesResult)
-mdsarsDBSnapshotAttributesResult = lens _mdsarsDBSnapshotAttributesResult (\s a -> s {_mdsarsDBSnapshotAttributesResult = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dbSnapshotAttributesResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdsarsDBSnapshotAttributesResult :: Lens.Lens' ModifyDBSnapshotAttributeResponse (Lude.Maybe DBSnapshotAttributesResult)
+mdsarsDBSnapshotAttributesResult = Lens.lens (dbSnapshotAttributesResult :: ModifyDBSnapshotAttributeResponse -> Lude.Maybe DBSnapshotAttributesResult) (\s a -> s {dbSnapshotAttributesResult = a} :: ModifyDBSnapshotAttributeResponse)
+{-# DEPRECATED mdsarsDBSnapshotAttributesResult "Use generic-lens or generic-optics with 'dbSnapshotAttributesResult' instead." #-}
 
--- | -- | The response status code.
-mdsarsResponseStatus :: Lens' ModifyDBSnapshotAttributeResponse Int
-mdsarsResponseStatus = lens _mdsarsResponseStatus (\s a -> s {_mdsarsResponseStatus = a})
-
-instance NFData ModifyDBSnapshotAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdsarsResponseStatus :: Lens.Lens' ModifyDBSnapshotAttributeResponse Lude.Int
+mdsarsResponseStatus = Lens.lens (responseStatus :: ModifyDBSnapshotAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyDBSnapshotAttributeResponse)
+{-# DEPRECATED mdsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

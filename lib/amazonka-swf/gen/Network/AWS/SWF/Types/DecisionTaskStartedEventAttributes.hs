@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.DecisionTaskStartedEventAttributes where
+module Network.AWS.SWF.Types.DecisionTaskStartedEventAttributes
+  ( DecisionTaskStartedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDecisionTaskStartedEventAttributes,
+
+    -- * Lenses
+    dtseaIdentity,
+    dtseaScheduledEventId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the details of the @DecisionTaskStarted@ event.
 --
---
---
--- /See:/ 'decisionTaskStartedEventAttributes' smart constructor.
+-- /See:/ 'mkDecisionTaskStartedEventAttributes' smart constructor.
 data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'
-  { _dtseaIdentity ::
-      !(Maybe Text),
-    _dtseaScheduledEventId ::
-      !Integer
+  { identity ::
+      Lude.Maybe Lude.Text,
+    scheduledEventId ::
+      Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DecisionTaskStartedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtseaIdentity' - Identity of the decider making the request. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
---
--- * 'dtseaScheduledEventId' - The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-decisionTaskStartedEventAttributes ::
-  -- | 'dtseaScheduledEventId'
-  Integer ->
+-- * 'identity' - Identity of the decider making the request. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
+-- * 'scheduledEventId' - The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+mkDecisionTaskStartedEventAttributes ::
+  -- | 'scheduledEventId'
+  Lude.Integer ->
   DecisionTaskStartedEventAttributes
-decisionTaskStartedEventAttributes pScheduledEventId_ =
+mkDecisionTaskStartedEventAttributes pScheduledEventId_ =
   DecisionTaskStartedEventAttributes'
-    { _dtseaIdentity = Nothing,
-      _dtseaScheduledEventId = pScheduledEventId_
+    { identity = Lude.Nothing,
+      scheduledEventId = pScheduledEventId_
     }
 
 -- | Identity of the decider making the request. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
-dtseaIdentity :: Lens' DecisionTaskStartedEventAttributes (Maybe Text)
-dtseaIdentity = lens _dtseaIdentity (\s a -> s {_dtseaIdentity = a})
+--
+-- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtseaIdentity :: Lens.Lens' DecisionTaskStartedEventAttributes (Lude.Maybe Lude.Text)
+dtseaIdentity = Lens.lens (identity :: DecisionTaskStartedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {identity = a} :: DecisionTaskStartedEventAttributes)
+{-# DEPRECATED dtseaIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
 -- | The ID of the @DecisionTaskScheduled@ event that was recorded when this decision task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-dtseaScheduledEventId :: Lens' DecisionTaskStartedEventAttributes Integer
-dtseaScheduledEventId = lens _dtseaScheduledEventId (\s a -> s {_dtseaScheduledEventId = a})
+--
+-- /Note:/ Consider using 'scheduledEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtseaScheduledEventId :: Lens.Lens' DecisionTaskStartedEventAttributes Lude.Integer
+dtseaScheduledEventId = Lens.lens (scheduledEventId :: DecisionTaskStartedEventAttributes -> Lude.Integer) (\s a -> s {scheduledEventId = a} :: DecisionTaskStartedEventAttributes)
+{-# DEPRECATED dtseaScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
 
-instance FromJSON DecisionTaskStartedEventAttributes where
+instance Lude.FromJSON DecisionTaskStartedEventAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "DecisionTaskStartedEventAttributes"
       ( \x ->
           DecisionTaskStartedEventAttributes'
-            <$> (x .:? "identity") <*> (x .: "scheduledEventId")
+            Lude.<$> (x Lude..:? "identity") Lude.<*> (x Lude..: "scheduledEventId")
       )
-
-instance Hashable DecisionTaskStartedEventAttributes
-
-instance NFData DecisionTaskStartedEventAttributes

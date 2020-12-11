@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,187 @@
 --
 -- Modify a setting for an Amazon Aurora global cluster. You can change one or more database configuration parameters by specifying these parameters and the new values in the request. For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 module Network.AWS.RDS.ModifyGlobalCluster
-  ( -- * Creating a Request
-    modifyGlobalCluster,
-    ModifyGlobalCluster,
+  ( -- * Creating a request
+    ModifyGlobalCluster (..),
+    mkModifyGlobalCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mgcDeletionProtection,
     mgcGlobalClusterIdentifier,
     mgcNewGlobalClusterIdentifier,
 
-    -- * Destructuring the Response
-    modifyGlobalClusterResponse,
-    ModifyGlobalClusterResponse,
+    -- * Destructuring the response
+    ModifyGlobalClusterResponse (..),
+    mkModifyGlobalClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mgcrsGlobalCluster,
     mgcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyGlobalCluster' smart constructor.
+-- | /See:/ 'mkModifyGlobalCluster' smart constructor.
 data ModifyGlobalCluster = ModifyGlobalCluster'
-  { _mgcDeletionProtection ::
-      !(Maybe Bool),
-    _mgcGlobalClusterIdentifier :: !(Maybe Text),
-    _mgcNewGlobalClusterIdentifier :: !(Maybe Text)
+  { deletionProtection ::
+      Lude.Maybe Lude.Bool,
+    globalClusterIdentifier :: Lude.Maybe Lude.Text,
+    newGlobalClusterIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyGlobalCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deletionProtection' - Indicates if the global database cluster has deletion protection enabled. The global database cluster can't be deleted when deletion protection is enabled.
+-- * 'globalClusterIdentifier' - The DB cluster identifier for the global cluster being modified. This parameter isn't case-sensitive.
 --
--- * 'mgcDeletionProtection' - Indicates if the global database cluster has deletion protection enabled. The global database cluster can't be deleted when deletion protection is enabled.
+-- Constraints:
 --
--- * 'mgcGlobalClusterIdentifier' - The DB cluster identifier for the global cluster being modified. This parameter isn't case-sensitive.  Constraints:     * Must match the identifier of an existing global database cluster.
+--     * Must match the identifier of an existing global database cluster.
 --
--- * 'mgcNewGlobalClusterIdentifier' - The new cluster identifier for the global database cluster when modifying a global database cluster. This value is stored as a lowercase string.  Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * The first character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
-modifyGlobalCluster ::
+--
+-- * 'newGlobalClusterIdentifier' - The new cluster identifier for the global database cluster when modifying a global database cluster. This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 letters, numbers, or hyphens
+--
+--
+--     * The first character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+-- Example: @my-cluster2@
+mkModifyGlobalCluster ::
   ModifyGlobalCluster
-modifyGlobalCluster =
+mkModifyGlobalCluster =
   ModifyGlobalCluster'
-    { _mgcDeletionProtection = Nothing,
-      _mgcGlobalClusterIdentifier = Nothing,
-      _mgcNewGlobalClusterIdentifier = Nothing
+    { deletionProtection = Lude.Nothing,
+      globalClusterIdentifier = Lude.Nothing,
+      newGlobalClusterIdentifier = Lude.Nothing
     }
 
 -- | Indicates if the global database cluster has deletion protection enabled. The global database cluster can't be deleted when deletion protection is enabled.
-mgcDeletionProtection :: Lens' ModifyGlobalCluster (Maybe Bool)
-mgcDeletionProtection = lens _mgcDeletionProtection (\s a -> s {_mgcDeletionProtection = a})
+--
+-- /Note:/ Consider using 'deletionProtection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mgcDeletionProtection :: Lens.Lens' ModifyGlobalCluster (Lude.Maybe Lude.Bool)
+mgcDeletionProtection = Lens.lens (deletionProtection :: ModifyGlobalCluster -> Lude.Maybe Lude.Bool) (\s a -> s {deletionProtection = a} :: ModifyGlobalCluster)
+{-# DEPRECATED mgcDeletionProtection "Use generic-lens or generic-optics with 'deletionProtection' instead." #-}
 
--- | The DB cluster identifier for the global cluster being modified. This parameter isn't case-sensitive.  Constraints:     * Must match the identifier of an existing global database cluster.
-mgcGlobalClusterIdentifier :: Lens' ModifyGlobalCluster (Maybe Text)
-mgcGlobalClusterIdentifier = lens _mgcGlobalClusterIdentifier (\s a -> s {_mgcGlobalClusterIdentifier = a})
+-- | The DB cluster identifier for the global cluster being modified. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing global database cluster.
+--
+--
+--
+-- /Note:/ Consider using 'globalClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mgcGlobalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Lude.Maybe Lude.Text)
+mgcGlobalClusterIdentifier = Lens.lens (globalClusterIdentifier :: ModifyGlobalCluster -> Lude.Maybe Lude.Text) (\s a -> s {globalClusterIdentifier = a} :: ModifyGlobalCluster)
+{-# DEPRECATED mgcGlobalClusterIdentifier "Use generic-lens or generic-optics with 'globalClusterIdentifier' instead." #-}
 
--- | The new cluster identifier for the global database cluster when modifying a global database cluster. This value is stored as a lowercase string.  Constraints:     * Must contain from 1 to 63 letters, numbers, or hyphens     * The first character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens Example: @my-cluster2@
-mgcNewGlobalClusterIdentifier :: Lens' ModifyGlobalCluster (Maybe Text)
-mgcNewGlobalClusterIdentifier = lens _mgcNewGlobalClusterIdentifier (\s a -> s {_mgcNewGlobalClusterIdentifier = a})
+-- | The new cluster identifier for the global database cluster when modifying a global database cluster. This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 letters, numbers, or hyphens
+--
+--
+--     * The first character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+-- Example: @my-cluster2@
+--
+-- /Note:/ Consider using 'newGlobalClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mgcNewGlobalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Lude.Maybe Lude.Text)
+mgcNewGlobalClusterIdentifier = Lens.lens (newGlobalClusterIdentifier :: ModifyGlobalCluster -> Lude.Maybe Lude.Text) (\s a -> s {newGlobalClusterIdentifier = a} :: ModifyGlobalCluster)
+{-# DEPRECATED mgcNewGlobalClusterIdentifier "Use generic-lens or generic-optics with 'newGlobalClusterIdentifier' instead." #-}
 
-instance AWSRequest ModifyGlobalCluster where
+instance Lude.AWSRequest ModifyGlobalCluster where
   type Rs ModifyGlobalCluster = ModifyGlobalClusterResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyGlobalClusterResult"
       ( \s h x ->
           ModifyGlobalClusterResponse'
-            <$> (x .@? "GlobalCluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "GlobalCluster")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyGlobalCluster
+instance Lude.ToHeaders ModifyGlobalCluster where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyGlobalCluster
+instance Lude.ToPath ModifyGlobalCluster where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyGlobalCluster where
-  toHeaders = const mempty
-
-instance ToPath ModifyGlobalCluster where
-  toPath = const "/"
-
-instance ToQuery ModifyGlobalCluster where
+instance Lude.ToQuery ModifyGlobalCluster where
   toQuery ModifyGlobalCluster' {..} =
-    mconcat
-      [ "Action" =: ("ModifyGlobalCluster" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DeletionProtection" =: _mgcDeletionProtection,
-        "GlobalClusterIdentifier" =: _mgcGlobalClusterIdentifier,
-        "NewGlobalClusterIdentifier" =: _mgcNewGlobalClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyGlobalCluster" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DeletionProtection" Lude.=: deletionProtection,
+        "GlobalClusterIdentifier" Lude.=: globalClusterIdentifier,
+        "NewGlobalClusterIdentifier" Lude.=: newGlobalClusterIdentifier
       ]
 
--- | /See:/ 'modifyGlobalClusterResponse' smart constructor.
+-- | /See:/ 'mkModifyGlobalClusterResponse' smart constructor.
 data ModifyGlobalClusterResponse = ModifyGlobalClusterResponse'
-  { _mgcrsGlobalCluster ::
-      !(Maybe GlobalCluster),
-    _mgcrsResponseStatus :: !Int
+  { globalCluster ::
+      Lude.Maybe GlobalCluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyGlobalClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mgcrsGlobalCluster' - Undocumented member.
---
--- * 'mgcrsResponseStatus' - -- | The response status code.
-modifyGlobalClusterResponse ::
-  -- | 'mgcrsResponseStatus'
-  Int ->
+-- * 'globalCluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkModifyGlobalClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyGlobalClusterResponse
-modifyGlobalClusterResponse pResponseStatus_ =
+mkModifyGlobalClusterResponse pResponseStatus_ =
   ModifyGlobalClusterResponse'
-    { _mgcrsGlobalCluster = Nothing,
-      _mgcrsResponseStatus = pResponseStatus_
+    { globalCluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mgcrsGlobalCluster :: Lens' ModifyGlobalClusterResponse (Maybe GlobalCluster)
-mgcrsGlobalCluster = lens _mgcrsGlobalCluster (\s a -> s {_mgcrsGlobalCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'globalCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mgcrsGlobalCluster :: Lens.Lens' ModifyGlobalClusterResponse (Lude.Maybe GlobalCluster)
+mgcrsGlobalCluster = Lens.lens (globalCluster :: ModifyGlobalClusterResponse -> Lude.Maybe GlobalCluster) (\s a -> s {globalCluster = a} :: ModifyGlobalClusterResponse)
+{-# DEPRECATED mgcrsGlobalCluster "Use generic-lens or generic-optics with 'globalCluster' instead." #-}
 
--- | -- | The response status code.
-mgcrsResponseStatus :: Lens' ModifyGlobalClusterResponse Int
-mgcrsResponseStatus = lens _mgcrsResponseStatus (\s a -> s {_mgcrsResponseStatus = a})
-
-instance NFData ModifyGlobalClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mgcrsResponseStatus :: Lens.Lens' ModifyGlobalClusterResponse Lude.Int
+mgcrsResponseStatus = Lens.lens (responseStatus :: ModifyGlobalClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyGlobalClusterResponse)
+{-# DEPRECATED mgcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

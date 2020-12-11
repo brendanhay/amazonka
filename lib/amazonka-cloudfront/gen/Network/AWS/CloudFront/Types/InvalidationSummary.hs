@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.InvalidationSummary where
+module Network.AWS.CloudFront.Types.InvalidationSummary
+  ( InvalidationSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInvalidationSummary,
+
+    -- * Lenses
+    isId,
+    isCreateTime,
+    isStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A summary of an invalidation request.
 --
---
---
--- /See:/ 'invalidationSummary' smart constructor.
+-- /See:/ 'mkInvalidationSummary' smart constructor.
 data InvalidationSummary = InvalidationSummary'
-  { _isId :: !Text,
-    _isCreateTime :: !ISO8601,
-    _isStatus :: !Text
+  { id :: Lude.Text,
+    createTime :: Lude.ISO8601,
+    status :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InvalidationSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isId' - The unique ID for an invalidation request.
---
--- * 'isCreateTime' - The time that an invalidation request was created.
---
--- * 'isStatus' - The status of an invalidation request.
-invalidationSummary ::
-  -- | 'isId'
-  Text ->
-  -- | 'isCreateTime'
-  UTCTime ->
-  -- | 'isStatus'
-  Text ->
+-- * 'createTime' - The time that an invalidation request was created.
+-- * 'id' - The unique ID for an invalidation request.
+-- * 'status' - The status of an invalidation request.
+mkInvalidationSummary ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'createTime'
+  Lude.ISO8601 ->
+  -- | 'status'
+  Lude.Text ->
   InvalidationSummary
-invalidationSummary pId_ pCreateTime_ pStatus_ =
+mkInvalidationSummary pId_ pCreateTime_ pStatus_ =
   InvalidationSummary'
-    { _isId = pId_,
-      _isCreateTime = _Time # pCreateTime_,
-      _isStatus = pStatus_
+    { id = pId_,
+      createTime = pCreateTime_,
+      status = pStatus_
     }
 
 -- | The unique ID for an invalidation request.
-isId :: Lens' InvalidationSummary Text
-isId = lens _isId (\s a -> s {_isId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isId :: Lens.Lens' InvalidationSummary Lude.Text
+isId = Lens.lens (id :: InvalidationSummary -> Lude.Text) (\s a -> s {id = a} :: InvalidationSummary)
+{-# DEPRECATED isId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The time that an invalidation request was created.
-isCreateTime :: Lens' InvalidationSummary UTCTime
-isCreateTime = lens _isCreateTime (\s a -> s {_isCreateTime = a}) . _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isCreateTime :: Lens.Lens' InvalidationSummary Lude.ISO8601
+isCreateTime = Lens.lens (createTime :: InvalidationSummary -> Lude.ISO8601) (\s a -> s {createTime = a} :: InvalidationSummary)
+{-# DEPRECATED isCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The status of an invalidation request.
-isStatus :: Lens' InvalidationSummary Text
-isStatus = lens _isStatus (\s a -> s {_isStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isStatus :: Lens.Lens' InvalidationSummary Lude.Text
+isStatus = Lens.lens (status :: InvalidationSummary -> Lude.Text) (\s a -> s {status = a} :: InvalidationSummary)
+{-# DEPRECATED isStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML InvalidationSummary where
+instance Lude.FromXML InvalidationSummary where
   parseXML x =
     InvalidationSummary'
-      <$> (x .@ "Id") <*> (x .@ "CreateTime") <*> (x .@ "Status")
-
-instance Hashable InvalidationSummary
-
-instance NFData InvalidationSummary
+      Lude.<$> (x Lude..@ "Id")
+      Lude.<*> (x Lude..@ "CreateTime")
+      Lude.<*> (x Lude..@ "Status")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Creates a signed, short-term URL that can be passed to a Selenium @RemoteWebDriver@ constructor.
 module Network.AWS.DeviceFarm.CreateTestGridURL
-  ( -- * Creating a Request
-    createTestGridURL,
-    CreateTestGridURL,
+  ( -- * Creating a request
+    CreateTestGridURL (..),
+    mkCreateTestGridURL,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctguProjectARN,
     ctguExpiresInSeconds,
 
-    -- * Destructuring the Response
-    createTestGridURLResponse,
-    CreateTestGridURLResponse,
+    -- * Destructuring the response
+    CreateTestGridURLResponse (..),
+    mkCreateTestGridURLResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctgursExpires,
     ctgursUrl,
     ctgursResponseStatus,
@@ -39,124 +34,143 @@ module Network.AWS.DeviceFarm.CreateTestGridURL
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createTestGridURL' smart constructor.
+-- | /See:/ 'mkCreateTestGridURL' smart constructor.
 data CreateTestGridURL = CreateTestGridURL'
-  { _ctguProjectARN ::
-      !Text,
-    _ctguExpiresInSeconds :: !Nat
+  { projectARN ::
+      Lude.Text,
+    expiresInSeconds :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTestGridURL' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctguProjectARN' - ARN (from 'CreateTestGridProject' or 'ListTestGridProjects' ) to associate with the short-term URL.
---
--- * 'ctguExpiresInSeconds' - Lifetime, in seconds, of the URL.
-createTestGridURL ::
-  -- | 'ctguProjectARN'
-  Text ->
-  -- | 'ctguExpiresInSeconds'
-  Natural ->
+-- * 'expiresInSeconds' - Lifetime, in seconds, of the URL.
+-- * 'projectARN' - ARN (from 'CreateTestGridProject' or 'ListTestGridProjects' ) to associate with the short-term URL.
+mkCreateTestGridURL ::
+  -- | 'projectARN'
+  Lude.Text ->
+  -- | 'expiresInSeconds'
+  Lude.Natural ->
   CreateTestGridURL
-createTestGridURL pProjectARN_ pExpiresInSeconds_ =
+mkCreateTestGridURL pProjectARN_ pExpiresInSeconds_ =
   CreateTestGridURL'
-    { _ctguProjectARN = pProjectARN_,
-      _ctguExpiresInSeconds = _Nat # pExpiresInSeconds_
+    { projectARN = pProjectARN_,
+      expiresInSeconds = pExpiresInSeconds_
     }
 
 -- | ARN (from 'CreateTestGridProject' or 'ListTestGridProjects' ) to associate with the short-term URL.
-ctguProjectARN :: Lens' CreateTestGridURL Text
-ctguProjectARN = lens _ctguProjectARN (\s a -> s {_ctguProjectARN = a})
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctguProjectARN :: Lens.Lens' CreateTestGridURL Lude.Text
+ctguProjectARN = Lens.lens (projectARN :: CreateTestGridURL -> Lude.Text) (\s a -> s {projectARN = a} :: CreateTestGridURL)
+{-# DEPRECATED ctguProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 -- | Lifetime, in seconds, of the URL.
-ctguExpiresInSeconds :: Lens' CreateTestGridURL Natural
-ctguExpiresInSeconds = lens _ctguExpiresInSeconds (\s a -> s {_ctguExpiresInSeconds = a}) . _Nat
+--
+-- /Note:/ Consider using 'expiresInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctguExpiresInSeconds :: Lens.Lens' CreateTestGridURL Lude.Natural
+ctguExpiresInSeconds = Lens.lens (expiresInSeconds :: CreateTestGridURL -> Lude.Natural) (\s a -> s {expiresInSeconds = a} :: CreateTestGridURL)
+{-# DEPRECATED ctguExpiresInSeconds "Use generic-lens or generic-optics with 'expiresInSeconds' instead." #-}
 
-instance AWSRequest CreateTestGridURL where
+instance Lude.AWSRequest CreateTestGridURL where
   type Rs CreateTestGridURL = CreateTestGridURLResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateTestGridURLResponse'
-            <$> (x .?> "expires") <*> (x .?> "url") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "expires")
+            Lude.<*> (x Lude..?> "url")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateTestGridURL
-
-instance NFData CreateTestGridURL
-
-instance ToHeaders CreateTestGridURL where
+instance Lude.ToHeaders CreateTestGridURL where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.CreateTestGridUrl" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.CreateTestGridUrl" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateTestGridURL where
+instance Lude.ToJSON CreateTestGridURL where
   toJSON CreateTestGridURL' {..} =
-    object
-      ( catMaybes
-          [ Just ("projectArn" .= _ctguProjectARN),
-            Just ("expiresInSeconds" .= _ctguExpiresInSeconds)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("projectArn" Lude..= projectARN),
+            Lude.Just ("expiresInSeconds" Lude..= expiresInSeconds)
           ]
       )
 
-instance ToPath CreateTestGridURL where
-  toPath = const "/"
+instance Lude.ToPath CreateTestGridURL where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateTestGridURL where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTestGridURL where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createTestGridURLResponse' smart constructor.
+-- | /See:/ 'mkCreateTestGridURLResponse' smart constructor.
 data CreateTestGridURLResponse = CreateTestGridURLResponse'
-  { _ctgursExpires ::
-      !(Maybe POSIX),
-    _ctgursUrl :: !(Maybe Text),
-    _ctgursResponseStatus :: !Int
+  { expires ::
+      Lude.Maybe Lude.Timestamp,
+    url :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTestGridURLResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctgursExpires' - The number of seconds the URL from 'CreateTestGridUrlResult$url' stays active.
---
--- * 'ctgursUrl' - A signed URL, expiring in 'CreateTestGridUrlRequest$expiresInSeconds' seconds, to be passed to a @RemoteWebDriver@ .
---
--- * 'ctgursResponseStatus' - -- | The response status code.
-createTestGridURLResponse ::
-  -- | 'ctgursResponseStatus'
-  Int ->
+-- * 'expires' - The number of seconds the URL from 'CreateTestGridUrlResult$url' stays active.
+-- * 'responseStatus' - The response status code.
+-- * 'url' - A signed URL, expiring in 'CreateTestGridUrlRequest$expiresInSeconds' seconds, to be passed to a @RemoteWebDriver@ .
+mkCreateTestGridURLResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTestGridURLResponse
-createTestGridURLResponse pResponseStatus_ =
+mkCreateTestGridURLResponse pResponseStatus_ =
   CreateTestGridURLResponse'
-    { _ctgursExpires = Nothing,
-      _ctgursUrl = Nothing,
-      _ctgursResponseStatus = pResponseStatus_
+    { expires = Lude.Nothing,
+      url = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The number of seconds the URL from 'CreateTestGridUrlResult$url' stays active.
-ctgursExpires :: Lens' CreateTestGridURLResponse (Maybe UTCTime)
-ctgursExpires = lens _ctgursExpires (\s a -> s {_ctgursExpires = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgursExpires :: Lens.Lens' CreateTestGridURLResponse (Lude.Maybe Lude.Timestamp)
+ctgursExpires = Lens.lens (expires :: CreateTestGridURLResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {expires = a} :: CreateTestGridURLResponse)
+{-# DEPRECATED ctgursExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
 -- | A signed URL, expiring in 'CreateTestGridUrlRequest$expiresInSeconds' seconds, to be passed to a @RemoteWebDriver@ .
-ctgursUrl :: Lens' CreateTestGridURLResponse (Maybe Text)
-ctgursUrl = lens _ctgursUrl (\s a -> s {_ctgursUrl = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgursUrl :: Lens.Lens' CreateTestGridURLResponse (Lude.Maybe Lude.Text)
+ctgursUrl = Lens.lens (url :: CreateTestGridURLResponse -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: CreateTestGridURLResponse)
+{-# DEPRECATED ctgursUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
--- | -- | The response status code.
-ctgursResponseStatus :: Lens' CreateTestGridURLResponse Int
-ctgursResponseStatus = lens _ctgursResponseStatus (\s a -> s {_ctgursResponseStatus = a})
-
-instance NFData CreateTestGridURLResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgursResponseStatus :: Lens.Lens' CreateTestGridURLResponse Lude.Int
+ctgursResponseStatus = Lens.lens (responseStatus :: CreateTestGridURLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTestGridURLResponse)
+{-# DEPRECATED ctgursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

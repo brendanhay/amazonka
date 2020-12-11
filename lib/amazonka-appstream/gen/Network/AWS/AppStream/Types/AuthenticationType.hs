@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.AuthenticationType where
+module Network.AWS.AppStream.Types.AuthenticationType
+  ( AuthenticationType
+      ( AuthenticationType',
+        API,
+        Saml,
+        Userpool
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthenticationType
-  = API
-  | Saml
-  | Userpool
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthenticationType = AuthenticationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthenticationType where
-  parser =
-    takeLowerText >>= \case
-      "api" -> pure API
-      "saml" -> pure Saml
-      "userpool" -> pure Userpool
-      e ->
-        fromTextError $
-          "Failure parsing AuthenticationType from value: '" <> e
-            <> "'. Accepted values: api, saml, userpool"
+pattern API :: AuthenticationType
+pattern API = AuthenticationType' "API"
 
-instance ToText AuthenticationType where
-  toText = \case
-    API -> "API"
-    Saml -> "SAML"
-    Userpool -> "USERPOOL"
+pattern Saml :: AuthenticationType
+pattern Saml = AuthenticationType' "SAML"
 
-instance Hashable AuthenticationType
+pattern Userpool :: AuthenticationType
+pattern Userpool = AuthenticationType' "USERPOOL"
 
-instance NFData AuthenticationType
-
-instance ToByteString AuthenticationType
-
-instance ToQuery AuthenticationType
-
-instance ToHeader AuthenticationType
-
-instance ToJSON AuthenticationType where
-  toJSON = toJSONText
-
-instance FromJSON AuthenticationType where
-  parseJSON = parseJSONText "AuthenticationType"
+{-# COMPLETE
+  API,
+  Saml,
+  Userpool,
+  AuthenticationType'
+  #-}

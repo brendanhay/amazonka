@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,121 @@
 --
 -- Deregisters an AWS Batch job definition. Job definitions will be permanently deleted after 180 days.
 module Network.AWS.Batch.DeregisterJobDefinition
-  ( -- * Creating a Request
-    deregisterJobDefinition,
-    DeregisterJobDefinition,
+  ( -- * Creating a request
+    DeregisterJobDefinition (..),
+    mkDeregisterJobDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     djdJobDefinition,
 
-    -- * Destructuring the Response
-    deregisterJobDefinitionResponse,
-    DeregisterJobDefinitionResponse,
+    -- * Destructuring the response
+    DeregisterJobDefinitionResponse (..),
+    mkDeregisterJobDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     derrsResponseStatus,
   )
 where
 
 import Network.AWS.Batch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterJobDefinition' smart constructor.
+-- | /See:/ 'mkDeregisterJobDefinition' smart constructor.
 newtype DeregisterJobDefinition = DeregisterJobDefinition'
-  { _djdJobDefinition ::
-      Text
+  { jobDefinition ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterJobDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'djdJobDefinition' - The name and revision (@name:revision@ ) or full Amazon Resource Name (ARN) of the job definition to deregister.
-deregisterJobDefinition ::
-  -- | 'djdJobDefinition'
-  Text ->
+-- * 'jobDefinition' - The name and revision (@name:revision@ ) or full Amazon Resource Name (ARN) of the job definition to deregister.
+mkDeregisterJobDefinition ::
+  -- | 'jobDefinition'
+  Lude.Text ->
   DeregisterJobDefinition
-deregisterJobDefinition pJobDefinition_ =
-  DeregisterJobDefinition' {_djdJobDefinition = pJobDefinition_}
+mkDeregisterJobDefinition pJobDefinition_ =
+  DeregisterJobDefinition' {jobDefinition = pJobDefinition_}
 
 -- | The name and revision (@name:revision@ ) or full Amazon Resource Name (ARN) of the job definition to deregister.
-djdJobDefinition :: Lens' DeregisterJobDefinition Text
-djdJobDefinition = lens _djdJobDefinition (\s a -> s {_djdJobDefinition = a})
+--
+-- /Note:/ Consider using 'jobDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djdJobDefinition :: Lens.Lens' DeregisterJobDefinition Lude.Text
+djdJobDefinition = Lens.lens (jobDefinition :: DeregisterJobDefinition -> Lude.Text) (\s a -> s {jobDefinition = a} :: DeregisterJobDefinition)
+{-# DEPRECATED djdJobDefinition "Use generic-lens or generic-optics with 'jobDefinition' instead." #-}
 
-instance AWSRequest DeregisterJobDefinition where
+instance Lude.AWSRequest DeregisterJobDefinition where
   type Rs DeregisterJobDefinition = DeregisterJobDefinitionResponse
-  request = postJSON batch
+  request = Req.postJSON batchService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeregisterJobDefinitionResponse' <$> (pure (fromEnum s))
+          DeregisterJobDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterJobDefinition
-
-instance NFData DeregisterJobDefinition
-
-instance ToHeaders DeregisterJobDefinition where
+instance Lude.ToHeaders DeregisterJobDefinition where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON DeregisterJobDefinition where
+instance Lude.ToJSON DeregisterJobDefinition where
   toJSON DeregisterJobDefinition' {..} =
-    object (catMaybes [Just ("jobDefinition" .= _djdJobDefinition)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("jobDefinition" Lude..= jobDefinition)]
+      )
 
-instance ToPath DeregisterJobDefinition where
-  toPath = const "/v1/deregisterjobdefinition"
+instance Lude.ToPath DeregisterJobDefinition where
+  toPath = Lude.const "/v1/deregisterjobdefinition"
 
-instance ToQuery DeregisterJobDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterJobDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterJobDefinitionResponse' smart constructor.
+-- | /See:/ 'mkDeregisterJobDefinitionResponse' smart constructor.
 newtype DeregisterJobDefinitionResponse = DeregisterJobDefinitionResponse'
-  { _derrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterJobDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'derrsResponseStatus' - -- | The response status code.
-deregisterJobDefinitionResponse ::
-  -- | 'derrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeregisterJobDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterJobDefinitionResponse
-deregisterJobDefinitionResponse pResponseStatus_ =
+mkDeregisterJobDefinitionResponse pResponseStatus_ =
   DeregisterJobDefinitionResponse'
-    { _derrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-derrsResponseStatus :: Lens' DeregisterJobDefinitionResponse Int
-derrsResponseStatus = lens _derrsResponseStatus (\s a -> s {_derrsResponseStatus = a})
-
-instance NFData DeregisterJobDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsResponseStatus :: Lens.Lens' DeregisterJobDefinitionResponse Lude.Int
+derrsResponseStatus = Lens.lens (responseStatus :: DeregisterJobDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterJobDefinitionResponse)
+{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

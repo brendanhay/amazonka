@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Creates a new registry which may be used to hold a collection of schemas.
 module Network.AWS.Glue.CreateRegistry
-  ( -- * Creating a Request
-    createRegistry,
-    CreateRegistry,
+  ( -- * Creating a request
+    CreateRegistry (..),
+    mkCreateRegistry,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crDescription,
     crTags,
     crRegistryName,
 
-    -- * Destructuring the Response
-    createRegistryResponse,
-    CreateRegistryResponse,
+    -- * Destructuring the response
+    CreateRegistryResponse (..),
+    mkCreateRegistryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crrsRegistryName,
     crrsRegistryARN,
     crrsDescription,
@@ -42,150 +37,176 @@ module Network.AWS.Glue.CreateRegistry
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createRegistry' smart constructor.
+-- | /See:/ 'mkCreateRegistry' smart constructor.
 data CreateRegistry = CreateRegistry'
-  { _crDescription ::
-      !(Maybe Text),
-    _crTags :: !(Maybe (Map Text (Text))),
-    _crRegistryName :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    registryName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRegistry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crDescription' - A description of the registry. If description is not provided, there will not be any default value for this.
---
--- * 'crTags' - AWS tags that contain a key value pair and may be searched by console, command line, or API.
---
--- * 'crRegistryName' - Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
-createRegistry ::
-  -- | 'crRegistryName'
-  Text ->
+-- * 'description' - A description of the registry. If description is not provided, there will not be any default value for this.
+-- * 'registryName' - Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
+-- * 'tags' - AWS tags that contain a key value pair and may be searched by console, command line, or API.
+mkCreateRegistry ::
+  -- | 'registryName'
+  Lude.Text ->
   CreateRegistry
-createRegistry pRegistryName_ =
+mkCreateRegistry pRegistryName_ =
   CreateRegistry'
-    { _crDescription = Nothing,
-      _crTags = Nothing,
-      _crRegistryName = pRegistryName_
+    { description = Lude.Nothing,
+      tags = Lude.Nothing,
+      registryName = pRegistryName_
     }
 
 -- | A description of the registry. If description is not provided, there will not be any default value for this.
-crDescription :: Lens' CreateRegistry (Maybe Text)
-crDescription = lens _crDescription (\s a -> s {_crDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crDescription :: Lens.Lens' CreateRegistry (Lude.Maybe Lude.Text)
+crDescription = Lens.lens (description :: CreateRegistry -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateRegistry)
+{-# DEPRECATED crDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | AWS tags that contain a key value pair and may be searched by console, command line, or API.
-crTags :: Lens' CreateRegistry (HashMap Text (Text))
-crTags = lens _crTags (\s a -> s {_crTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crTags :: Lens.Lens' CreateRegistry (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+crTags = Lens.lens (tags :: CreateRegistry -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRegistry)
+{-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Name of the registry to be created of max length of 255, and may only contain letters, numbers, hyphen, underscore, dollar sign, or hash mark. No whitespace.
-crRegistryName :: Lens' CreateRegistry Text
-crRegistryName = lens _crRegistryName (\s a -> s {_crRegistryName = a})
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRegistryName :: Lens.Lens' CreateRegistry Lude.Text
+crRegistryName = Lens.lens (registryName :: CreateRegistry -> Lude.Text) (\s a -> s {registryName = a} :: CreateRegistry)
+{-# DEPRECATED crRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
-instance AWSRequest CreateRegistry where
+instance Lude.AWSRequest CreateRegistry where
   type Rs CreateRegistry = CreateRegistryResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateRegistryResponse'
-            <$> (x .?> "RegistryName")
-            <*> (x .?> "RegistryArn")
-            <*> (x .?> "Description")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RegistryName")
+            Lude.<*> (x Lude..?> "RegistryArn")
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateRegistry
-
-instance NFData CreateRegistry
-
-instance ToHeaders CreateRegistry where
+instance Lude.ToHeaders CreateRegistry where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CreateRegistry" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.CreateRegistry" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateRegistry where
+instance Lude.ToJSON CreateRegistry where
   toJSON CreateRegistry' {..} =
-    object
-      ( catMaybes
-          [ ("Description" .=) <$> _crDescription,
-            ("Tags" .=) <$> _crTags,
-            Just ("RegistryName" .= _crRegistryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("RegistryName" Lude..= registryName)
           ]
       )
 
-instance ToPath CreateRegistry where
-  toPath = const "/"
+instance Lude.ToPath CreateRegistry where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateRegistry where
-  toQuery = const mempty
+instance Lude.ToQuery CreateRegistry where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createRegistryResponse' smart constructor.
+-- | /See:/ 'mkCreateRegistryResponse' smart constructor.
 data CreateRegistryResponse = CreateRegistryResponse'
-  { _crrsRegistryName ::
-      !(Maybe Text),
-    _crrsRegistryARN :: !(Maybe Text),
-    _crrsDescription :: !(Maybe Text),
-    _crrsTags :: !(Maybe (Map Text (Text))),
-    _crrsResponseStatus :: !Int
+  { registryName ::
+      Lude.Maybe Lude.Text,
+    registryARN :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRegistryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrsRegistryName' - The name of the registry.
---
--- * 'crrsRegistryARN' - The Amazon Resource Name (ARN) of the newly created registry.
---
--- * 'crrsDescription' - A description of the registry.
---
--- * 'crrsTags' - The tags for the registry.
---
--- * 'crrsResponseStatus' - -- | The response status code.
-createRegistryResponse ::
-  -- | 'crrsResponseStatus'
-  Int ->
+-- * 'description' - A description of the registry.
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the newly created registry.
+-- * 'registryName' - The name of the registry.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The tags for the registry.
+mkCreateRegistryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateRegistryResponse
-createRegistryResponse pResponseStatus_ =
+mkCreateRegistryResponse pResponseStatus_ =
   CreateRegistryResponse'
-    { _crrsRegistryName = Nothing,
-      _crrsRegistryARN = Nothing,
-      _crrsDescription = Nothing,
-      _crrsTags = Nothing,
-      _crrsResponseStatus = pResponseStatus_
+    { registryName = Lude.Nothing,
+      registryARN = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the registry.
-crrsRegistryName :: Lens' CreateRegistryResponse (Maybe Text)
-crrsRegistryName = lens _crrsRegistryName (\s a -> s {_crrsRegistryName = a})
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsRegistryName :: Lens.Lens' CreateRegistryResponse (Lude.Maybe Lude.Text)
+crrsRegistryName = Lens.lens (registryName :: CreateRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: CreateRegistryResponse)
+{-# DEPRECATED crrsRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the newly created registry.
-crrsRegistryARN :: Lens' CreateRegistryResponse (Maybe Text)
-crrsRegistryARN = lens _crrsRegistryARN (\s a -> s {_crrsRegistryARN = a})
+--
+-- /Note:/ Consider using 'registryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsRegistryARN :: Lens.Lens' CreateRegistryResponse (Lude.Maybe Lude.Text)
+crrsRegistryARN = Lens.lens (registryARN :: CreateRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryARN = a} :: CreateRegistryResponse)
+{-# DEPRECATED crrsRegistryARN "Use generic-lens or generic-optics with 'registryARN' instead." #-}
 
 -- | A description of the registry.
-crrsDescription :: Lens' CreateRegistryResponse (Maybe Text)
-crrsDescription = lens _crrsDescription (\s a -> s {_crrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsDescription :: Lens.Lens' CreateRegistryResponse (Lude.Maybe Lude.Text)
+crrsDescription = Lens.lens (description :: CreateRegistryResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateRegistryResponse)
+{-# DEPRECATED crrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags for the registry.
-crrsTags :: Lens' CreateRegistryResponse (HashMap Text (Text))
-crrsTags = lens _crrsTags (\s a -> s {_crrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsTags :: Lens.Lens' CreateRegistryResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+crrsTags = Lens.lens (tags :: CreateRegistryResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRegistryResponse)
+{-# DEPRECATED crrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-crrsResponseStatus :: Lens' CreateRegistryResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\s a -> s {_crrsResponseStatus = a})
-
-instance NFData CreateRegistryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsResponseStatus :: Lens.Lens' CreateRegistryResponse Lude.Int
+crrsResponseStatus = Lens.lens (responseStatus :: CreateRegistryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRegistryResponse)
+{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

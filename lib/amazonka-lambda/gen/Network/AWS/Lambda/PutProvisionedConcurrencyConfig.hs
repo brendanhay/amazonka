@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Adds a provisioned concurrency configuration to a function's alias or version.
 module Network.AWS.Lambda.PutProvisionedConcurrencyConfig
-  ( -- * Creating a Request
-    putProvisionedConcurrencyConfig,
-    PutProvisionedConcurrencyConfig,
+  ( -- * Creating a request
+    PutProvisionedConcurrencyConfig (..),
+    mkPutProvisionedConcurrencyConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ppccFunctionName,
     ppccQualifier,
     ppccProvisionedConcurrentExecutions,
 
-    -- * Destructuring the Response
-    putProvisionedConcurrencyConfigResponse,
-    PutProvisionedConcurrencyConfigResponse,
+    -- * Destructuring the response
+    PutProvisionedConcurrencyConfigResponse (..),
+    mkPutProvisionedConcurrencyConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ppccrsStatus,
     ppccrsRequestedProvisionedConcurrentExecutions,
     ppccrsAvailableProvisionedConcurrentExecutions,
@@ -44,202 +39,247 @@ module Network.AWS.Lambda.PutProvisionedConcurrencyConfig
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putProvisionedConcurrencyConfig' smart constructor.
+-- | /See:/ 'mkPutProvisionedConcurrencyConfig' smart constructor.
 data PutProvisionedConcurrencyConfig = PutProvisionedConcurrencyConfig'
-  { _ppccFunctionName ::
-      !Text,
-    _ppccQualifier :: !Text,
-    _ppccProvisionedConcurrentExecutions ::
-      !Nat
+  { functionName ::
+      Lude.Text,
+    qualifier :: Lude.Text,
+    provisionedConcurrentExecutions ::
+      Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutProvisionedConcurrencyConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'ppccFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- __Name formats__
 --
--- * 'ppccQualifier' - The version number or alias name.
+--     * __Function name__ - @my-function@ .
 --
--- * 'ppccProvisionedConcurrentExecutions' - The amount of provisioned concurrency to allocate for the version or alias.
-putProvisionedConcurrencyConfig ::
-  -- | 'ppccFunctionName'
-  Text ->
-  -- | 'ppccQualifier'
-  Text ->
-  -- | 'ppccProvisionedConcurrentExecutions'
-  Natural ->
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'provisionedConcurrentExecutions' - The amount of provisioned concurrency to allocate for the version or alias.
+-- * 'qualifier' - The version number or alias name.
+mkPutProvisionedConcurrencyConfig ::
+  -- | 'functionName'
+  Lude.Text ->
+  -- | 'qualifier'
+  Lude.Text ->
+  -- | 'provisionedConcurrentExecutions'
+  Lude.Natural ->
   PutProvisionedConcurrencyConfig
-putProvisionedConcurrencyConfig
+mkPutProvisionedConcurrencyConfig
   pFunctionName_
   pQualifier_
   pProvisionedConcurrentExecutions_ =
     PutProvisionedConcurrencyConfig'
-      { _ppccFunctionName =
-          pFunctionName_,
-        _ppccQualifier = pQualifier_,
-        _ppccProvisionedConcurrentExecutions =
-          _Nat # pProvisionedConcurrentExecutions_
+      { functionName = pFunctionName_,
+        qualifier = pQualifier_,
+        provisionedConcurrentExecutions =
+          pProvisionedConcurrentExecutions_
       }
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-ppccFunctionName :: Lens' PutProvisionedConcurrencyConfig Text
-ppccFunctionName = lens _ppccFunctionName (\s a -> s {_ppccFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccFunctionName :: Lens.Lens' PutProvisionedConcurrencyConfig Lude.Text
+ppccFunctionName = Lens.lens (functionName :: PutProvisionedConcurrencyConfig -> Lude.Text) (\s a -> s {functionName = a} :: PutProvisionedConcurrencyConfig)
+{-# DEPRECATED ppccFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | The version number or alias name.
-ppccQualifier :: Lens' PutProvisionedConcurrencyConfig Text
-ppccQualifier = lens _ppccQualifier (\s a -> s {_ppccQualifier = a})
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccQualifier :: Lens.Lens' PutProvisionedConcurrencyConfig Lude.Text
+ppccQualifier = Lens.lens (qualifier :: PutProvisionedConcurrencyConfig -> Lude.Text) (\s a -> s {qualifier = a} :: PutProvisionedConcurrencyConfig)
+{-# DEPRECATED ppccQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 -- | The amount of provisioned concurrency to allocate for the version or alias.
-ppccProvisionedConcurrentExecutions :: Lens' PutProvisionedConcurrencyConfig Natural
-ppccProvisionedConcurrentExecutions = lens _ppccProvisionedConcurrentExecutions (\s a -> s {_ppccProvisionedConcurrentExecutions = a}) . _Nat
+--
+-- /Note:/ Consider using 'provisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccProvisionedConcurrentExecutions :: Lens.Lens' PutProvisionedConcurrencyConfig Lude.Natural
+ppccProvisionedConcurrentExecutions = Lens.lens (provisionedConcurrentExecutions :: PutProvisionedConcurrencyConfig -> Lude.Natural) (\s a -> s {provisionedConcurrentExecutions = a} :: PutProvisionedConcurrencyConfig)
+{-# DEPRECATED ppccProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'provisionedConcurrentExecutions' instead." #-}
 
-instance AWSRequest PutProvisionedConcurrencyConfig where
+instance Lude.AWSRequest PutProvisionedConcurrencyConfig where
   type
     Rs PutProvisionedConcurrencyConfig =
       PutProvisionedConcurrencyConfigResponse
-  request = putJSON lambda
+  request = Req.putJSON lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutProvisionedConcurrencyConfigResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "RequestedProvisionedConcurrentExecutions")
-            <*> (x .?> "AvailableProvisionedConcurrentExecutions")
-            <*> (x .?> "StatusReason")
-            <*> (x .?> "AllocatedProvisionedConcurrentExecutions")
-            <*> (x .?> "LastModified")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "RequestedProvisionedConcurrentExecutions")
+            Lude.<*> (x Lude..?> "AvailableProvisionedConcurrentExecutions")
+            Lude.<*> (x Lude..?> "StatusReason")
+            Lude.<*> (x Lude..?> "AllocatedProvisionedConcurrentExecutions")
+            Lude.<*> (x Lude..?> "LastModified")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutProvisionedConcurrencyConfig
+instance Lude.ToHeaders PutProvisionedConcurrencyConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutProvisionedConcurrencyConfig
-
-instance ToHeaders PutProvisionedConcurrencyConfig where
-  toHeaders = const mempty
-
-instance ToJSON PutProvisionedConcurrencyConfig where
+instance Lude.ToJSON PutProvisionedConcurrencyConfig where
   toJSON PutProvisionedConcurrencyConfig' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "ProvisionedConcurrentExecutions"
-                  .= _ppccProvisionedConcurrentExecutions
+                  Lude..= provisionedConcurrentExecutions
               )
           ]
       )
 
-instance ToPath PutProvisionedConcurrencyConfig where
+instance Lude.ToPath PutProvisionedConcurrencyConfig where
   toPath PutProvisionedConcurrencyConfig' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2019-09-30/functions/",
-        toBS _ppccFunctionName,
+        Lude.toBS functionName,
         "/provisioned-concurrency"
       ]
 
-instance ToQuery PutProvisionedConcurrencyConfig where
+instance Lude.ToQuery PutProvisionedConcurrencyConfig where
   toQuery PutProvisionedConcurrencyConfig' {..} =
-    mconcat ["Qualifier" =: _ppccQualifier]
+    Lude.mconcat ["Qualifier" Lude.=: qualifier]
 
--- | /See:/ 'putProvisionedConcurrencyConfigResponse' smart constructor.
+-- | /See:/ 'mkPutProvisionedConcurrencyConfigResponse' smart constructor.
 data PutProvisionedConcurrencyConfigResponse = PutProvisionedConcurrencyConfigResponse'
-  { _ppccrsStatus ::
-      !( Maybe
-           ProvisionedConcurrencyStatusEnum
-       ),
-    _ppccrsRequestedProvisionedConcurrentExecutions ::
-      !( Maybe
-           Nat
-       ),
-    _ppccrsAvailableProvisionedConcurrentExecutions ::
-      !( Maybe
-           Nat
-       ),
-    _ppccrsStatusReason ::
-      !( Maybe
-           Text
-       ),
-    _ppccrsAllocatedProvisionedConcurrentExecutions ::
-      !( Maybe
-           Nat
-       ),
-    _ppccrsLastModified ::
-      !( Maybe
-           Text
-       ),
-    _ppccrsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        ProvisionedConcurrencyStatusEnum,
+    requestedProvisionedConcurrentExecutions ::
+      Lude.Maybe
+        Lude.Natural,
+    availableProvisionedConcurrentExecutions ::
+      Lude.Maybe
+        Lude.Natural,
+    statusReason ::
+      Lude.Maybe
+        Lude.Text,
+    allocatedProvisionedConcurrentExecutions ::
+      Lude.Maybe
+        Lude.Natural,
+    lastModified ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutProvisionedConcurrencyConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppccrsStatus' - The status of the allocation process.
---
--- * 'ppccrsRequestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
---
--- * 'ppccrsAvailableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
---
--- * 'ppccrsStatusReason' - For failed allocations, the reason that provisioned concurrency could not be allocated.
---
--- * 'ppccrsAllocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
---
--- * 'ppccrsLastModified' - The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
---
--- * 'ppccrsResponseStatus' - -- | The response status code.
-putProvisionedConcurrencyConfigResponse ::
-  -- | 'ppccrsResponseStatus'
-  Int ->
+-- * 'allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
+-- * 'availableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
+-- * 'lastModified' - The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
+-- * 'requestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the allocation process.
+-- * 'statusReason' - For failed allocations, the reason that provisioned concurrency could not be allocated.
+mkPutProvisionedConcurrencyConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutProvisionedConcurrencyConfigResponse
-putProvisionedConcurrencyConfigResponse pResponseStatus_ =
+mkPutProvisionedConcurrencyConfigResponse pResponseStatus_ =
   PutProvisionedConcurrencyConfigResponse'
-    { _ppccrsStatus = Nothing,
-      _ppccrsRequestedProvisionedConcurrentExecutions =
-        Nothing,
-      _ppccrsAvailableProvisionedConcurrentExecutions =
-        Nothing,
-      _ppccrsStatusReason = Nothing,
-      _ppccrsAllocatedProvisionedConcurrentExecutions =
-        Nothing,
-      _ppccrsLastModified = Nothing,
-      _ppccrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      requestedProvisionedConcurrentExecutions =
+        Lude.Nothing,
+      availableProvisionedConcurrentExecutions =
+        Lude.Nothing,
+      statusReason = Lude.Nothing,
+      allocatedProvisionedConcurrentExecutions =
+        Lude.Nothing,
+      lastModified = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the allocation process.
-ppccrsStatus :: Lens' PutProvisionedConcurrencyConfigResponse (Maybe ProvisionedConcurrencyStatusEnum)
-ppccrsStatus = lens _ppccrsStatus (\s a -> s {_ppccrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccrsStatus :: Lens.Lens' PutProvisionedConcurrencyConfigResponse (Lude.Maybe ProvisionedConcurrencyStatusEnum)
+ppccrsStatus = Lens.lens (status :: PutProvisionedConcurrencyConfigResponse -> Lude.Maybe ProvisionedConcurrencyStatusEnum) (\s a -> s {status = a} :: PutProvisionedConcurrencyConfigResponse)
+{-# DEPRECATED ppccrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The amount of provisioned concurrency requested.
-ppccrsRequestedProvisionedConcurrentExecutions :: Lens' PutProvisionedConcurrencyConfigResponse (Maybe Natural)
-ppccrsRequestedProvisionedConcurrentExecutions = lens _ppccrsRequestedProvisionedConcurrentExecutions (\s a -> s {_ppccrsRequestedProvisionedConcurrentExecutions = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'requestedProvisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccrsRequestedProvisionedConcurrentExecutions :: Lens.Lens' PutProvisionedConcurrencyConfigResponse (Lude.Maybe Lude.Natural)
+ppccrsRequestedProvisionedConcurrentExecutions = Lens.lens (requestedProvisionedConcurrentExecutions :: PutProvisionedConcurrencyConfigResponse -> Lude.Maybe Lude.Natural) (\s a -> s {requestedProvisionedConcurrentExecutions = a} :: PutProvisionedConcurrencyConfigResponse)
+{-# DEPRECATED ppccrsRequestedProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'requestedProvisionedConcurrentExecutions' instead." #-}
 
 -- | The amount of provisioned concurrency available.
-ppccrsAvailableProvisionedConcurrentExecutions :: Lens' PutProvisionedConcurrencyConfigResponse (Maybe Natural)
-ppccrsAvailableProvisionedConcurrentExecutions = lens _ppccrsAvailableProvisionedConcurrentExecutions (\s a -> s {_ppccrsAvailableProvisionedConcurrentExecutions = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'availableProvisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccrsAvailableProvisionedConcurrentExecutions :: Lens.Lens' PutProvisionedConcurrencyConfigResponse (Lude.Maybe Lude.Natural)
+ppccrsAvailableProvisionedConcurrentExecutions = Lens.lens (availableProvisionedConcurrentExecutions :: PutProvisionedConcurrencyConfigResponse -> Lude.Maybe Lude.Natural) (\s a -> s {availableProvisionedConcurrentExecutions = a} :: PutProvisionedConcurrencyConfigResponse)
+{-# DEPRECATED ppccrsAvailableProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'availableProvisionedConcurrentExecutions' instead." #-}
 
 -- | For failed allocations, the reason that provisioned concurrency could not be allocated.
-ppccrsStatusReason :: Lens' PutProvisionedConcurrencyConfigResponse (Maybe Text)
-ppccrsStatusReason = lens _ppccrsStatusReason (\s a -> s {_ppccrsStatusReason = a})
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccrsStatusReason :: Lens.Lens' PutProvisionedConcurrencyConfigResponse (Lude.Maybe Lude.Text)
+ppccrsStatusReason = Lens.lens (statusReason :: PutProvisionedConcurrencyConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: PutProvisionedConcurrencyConfigResponse)
+{-# DEPRECATED ppccrsStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
 -- | The amount of provisioned concurrency allocated.
-ppccrsAllocatedProvisionedConcurrentExecutions :: Lens' PutProvisionedConcurrencyConfigResponse (Maybe Natural)
-ppccrsAllocatedProvisionedConcurrentExecutions = lens _ppccrsAllocatedProvisionedConcurrentExecutions (\s a -> s {_ppccrsAllocatedProvisionedConcurrentExecutions = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'allocatedProvisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccrsAllocatedProvisionedConcurrentExecutions :: Lens.Lens' PutProvisionedConcurrencyConfigResponse (Lude.Maybe Lude.Natural)
+ppccrsAllocatedProvisionedConcurrentExecutions = Lens.lens (allocatedProvisionedConcurrentExecutions :: PutProvisionedConcurrencyConfigResponse -> Lude.Maybe Lude.Natural) (\s a -> s {allocatedProvisionedConcurrentExecutions = a} :: PutProvisionedConcurrencyConfigResponse)
+{-# DEPRECATED ppccrsAllocatedProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'allocatedProvisionedConcurrentExecutions' instead." #-}
 
 -- | The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
-ppccrsLastModified :: Lens' PutProvisionedConcurrencyConfigResponse (Maybe Text)
-ppccrsLastModified = lens _ppccrsLastModified (\s a -> s {_ppccrsLastModified = a})
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccrsLastModified :: Lens.Lens' PutProvisionedConcurrencyConfigResponse (Lude.Maybe Lude.Text)
+ppccrsLastModified = Lens.lens (lastModified :: PutProvisionedConcurrencyConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModified = a} :: PutProvisionedConcurrencyConfigResponse)
+{-# DEPRECATED ppccrsLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
--- | -- | The response status code.
-ppccrsResponseStatus :: Lens' PutProvisionedConcurrencyConfigResponse Int
-ppccrsResponseStatus = lens _ppccrsResponseStatus (\s a -> s {_ppccrsResponseStatus = a})
-
-instance NFData PutProvisionedConcurrencyConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccrsResponseStatus :: Lens.Lens' PutProvisionedConcurrencyConfigResponse Lude.Int
+ppccrsResponseStatus = Lens.lens (responseStatus :: PutProvisionedConcurrencyConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutProvisionedConcurrencyConfigResponse)
+{-# DEPRECATED ppccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

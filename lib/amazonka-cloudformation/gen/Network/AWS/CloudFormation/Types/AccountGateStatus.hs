@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.AccountGateStatus where
+module Network.AWS.CloudFormation.Types.AccountGateStatus
+  ( AccountGateStatus
+      ( AccountGateStatus',
+        AGSFailed,
+        AGSSkipped,
+        AGSSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccountGateStatus
-  = AGSFailed
-  | AGSSkipped
-  | AGSSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccountGateStatus = AccountGateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccountGateStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure AGSFailed
-      "skipped" -> pure AGSSkipped
-      "succeeded" -> pure AGSSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing AccountGateStatus from value: '" <> e
-            <> "'. Accepted values: failed, skipped, succeeded"
+pattern AGSFailed :: AccountGateStatus
+pattern AGSFailed = AccountGateStatus' "FAILED"
 
-instance ToText AccountGateStatus where
-  toText = \case
-    AGSFailed -> "FAILED"
-    AGSSkipped -> "SKIPPED"
-    AGSSucceeded -> "SUCCEEDED"
+pattern AGSSkipped :: AccountGateStatus
+pattern AGSSkipped = AccountGateStatus' "SKIPPED"
 
-instance Hashable AccountGateStatus
+pattern AGSSucceeded :: AccountGateStatus
+pattern AGSSucceeded = AccountGateStatus' "SUCCEEDED"
 
-instance NFData AccountGateStatus
-
-instance ToByteString AccountGateStatus
-
-instance ToQuery AccountGateStatus
-
-instance ToHeader AccountGateStatus
-
-instance FromXML AccountGateStatus where
-  parseXML = parseXMLText "AccountGateStatus"
+{-# COMPLETE
+  AGSFailed,
+  AGSSkipped,
+  AGSSucceeded,
+  AccountGateStatus'
+  #-}

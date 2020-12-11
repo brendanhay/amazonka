@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContainerServiceDeploymentState where
+module Network.AWS.Lightsail.Types.ContainerServiceDeploymentState
+  ( ContainerServiceDeploymentState
+      ( ContainerServiceDeploymentState',
+        Activating,
+        Active,
+        Failed,
+        Inactive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContainerServiceDeploymentState
-  = Activating
-  | Active
-  | Failed
-  | Inactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContainerServiceDeploymentState = ContainerServiceDeploymentState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContainerServiceDeploymentState where
-  parser =
-    takeLowerText >>= \case
-      "activating" -> pure Activating
-      "active" -> pure Active
-      "failed" -> pure Failed
-      "inactive" -> pure Inactive
-      e ->
-        fromTextError $
-          "Failure parsing ContainerServiceDeploymentState from value: '" <> e
-            <> "'. Accepted values: activating, active, failed, inactive"
+pattern Activating :: ContainerServiceDeploymentState
+pattern Activating = ContainerServiceDeploymentState' "ACTIVATING"
 
-instance ToText ContainerServiceDeploymentState where
-  toText = \case
-    Activating -> "ACTIVATING"
-    Active -> "ACTIVE"
-    Failed -> "FAILED"
-    Inactive -> "INACTIVE"
+pattern Active :: ContainerServiceDeploymentState
+pattern Active = ContainerServiceDeploymentState' "ACTIVE"
 
-instance Hashable ContainerServiceDeploymentState
+pattern Failed :: ContainerServiceDeploymentState
+pattern Failed = ContainerServiceDeploymentState' "FAILED"
 
-instance NFData ContainerServiceDeploymentState
+pattern Inactive :: ContainerServiceDeploymentState
+pattern Inactive = ContainerServiceDeploymentState' "INACTIVE"
 
-instance ToByteString ContainerServiceDeploymentState
-
-instance ToQuery ContainerServiceDeploymentState
-
-instance ToHeader ContainerServiceDeploymentState
-
-instance FromJSON ContainerServiceDeploymentState where
-  parseJSON = parseJSONText "ContainerServiceDeploymentState"
+{-# COMPLETE
+  Activating,
+  Active,
+  Failed,
+  Inactive,
+  ContainerServiceDeploymentState'
+  #-}

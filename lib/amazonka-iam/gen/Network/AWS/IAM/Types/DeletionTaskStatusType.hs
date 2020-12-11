@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.DeletionTaskStatusType where
+module Network.AWS.IAM.Types.DeletionTaskStatusType
+  ( DeletionTaskStatusType
+      ( DeletionTaskStatusType',
+        DTSTFailed,
+        DTSTInProgress,
+        DTSTNotStarted,
+        DTSTSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeletionTaskStatusType
-  = DTSTFailed
-  | DTSTInProgress
-  | DTSTNotStarted
-  | DTSTSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeletionTaskStatusType = DeletionTaskStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeletionTaskStatusType where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure DTSTFailed
-      "in_progress" -> pure DTSTInProgress
-      "not_started" -> pure DTSTNotStarted
-      "succeeded" -> pure DTSTSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing DeletionTaskStatusType from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, not_started, succeeded"
+pattern DTSTFailed :: DeletionTaskStatusType
+pattern DTSTFailed = DeletionTaskStatusType' "FAILED"
 
-instance ToText DeletionTaskStatusType where
-  toText = \case
-    DTSTFailed -> "FAILED"
-    DTSTInProgress -> "IN_PROGRESS"
-    DTSTNotStarted -> "NOT_STARTED"
-    DTSTSucceeded -> "SUCCEEDED"
+pattern DTSTInProgress :: DeletionTaskStatusType
+pattern DTSTInProgress = DeletionTaskStatusType' "IN_PROGRESS"
 
-instance Hashable DeletionTaskStatusType
+pattern DTSTNotStarted :: DeletionTaskStatusType
+pattern DTSTNotStarted = DeletionTaskStatusType' "NOT_STARTED"
 
-instance NFData DeletionTaskStatusType
+pattern DTSTSucceeded :: DeletionTaskStatusType
+pattern DTSTSucceeded = DeletionTaskStatusType' "SUCCEEDED"
 
-instance ToByteString DeletionTaskStatusType
-
-instance ToQuery DeletionTaskStatusType
-
-instance ToHeader DeletionTaskStatusType
-
-instance FromXML DeletionTaskStatusType where
-  parseXML = parseXMLText "DeletionTaskStatusType"
+{-# COMPLETE
+  DTSTFailed,
+  DTSTInProgress,
+  DTSTNotStarted,
+  DTSTSucceeded,
+  DeletionTaskStatusType'
+  #-}

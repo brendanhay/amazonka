@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.TemplateType where
+module Network.AWS.Pinpoint.Types.TemplateType
+  ( TemplateType
+      ( TemplateType',
+        TTEmail,
+        TTPush,
+        TTSms,
+        TTVoice
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TemplateType
-  = TTEmail
-  | TTPush
-  | TTSms
-  | TTVoice
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TemplateType = TemplateType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TemplateType where
-  parser =
-    takeLowerText >>= \case
-      "email" -> pure TTEmail
-      "push" -> pure TTPush
-      "sms" -> pure TTSms
-      "voice" -> pure TTVoice
-      e ->
-        fromTextError $
-          "Failure parsing TemplateType from value: '" <> e
-            <> "'. Accepted values: email, push, sms, voice"
+pattern TTEmail :: TemplateType
+pattern TTEmail = TemplateType' "EMAIL"
 
-instance ToText TemplateType where
-  toText = \case
-    TTEmail -> "EMAIL"
-    TTPush -> "PUSH"
-    TTSms -> "SMS"
-    TTVoice -> "VOICE"
+pattern TTPush :: TemplateType
+pattern TTPush = TemplateType' "PUSH"
 
-instance Hashable TemplateType
+pattern TTSms :: TemplateType
+pattern TTSms = TemplateType' "SMS"
 
-instance NFData TemplateType
+pattern TTVoice :: TemplateType
+pattern TTVoice = TemplateType' "VOICE"
 
-instance ToByteString TemplateType
-
-instance ToQuery TemplateType
-
-instance ToHeader TemplateType
-
-instance FromJSON TemplateType where
-  parseJSON = parseJSONText "TemplateType"
+{-# COMPLETE
+  TTEmail,
+  TTPush,
+  TTSms,
+  TTVoice,
+  TemplateType'
+  #-}

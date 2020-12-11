@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns a list of cache subnet group descriptions. If a subnet group name is specified, the list contains only the description of that group. This is applicable only when you have ElastiCache in VPC setup. All ElastiCache clusters now launch in VPC by default.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
-  ( -- * Creating a Request
-    describeCacheSubnetGroups,
-    DescribeCacheSubnetGroups,
+  ( -- * Creating a request
+    DescribeCacheSubnetGroups (..),
+    mkDescribeCacheSubnetGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcsgCacheSubnetGroupName,
     dcsgMarker,
     dcsgMaxRecords,
 
-    -- * Destructuring the Response
-    describeCacheSubnetGroupsResponse,
-    DescribeCacheSubnetGroupsResponse,
+    -- * Destructuring the response
+    DescribeCacheSubnetGroupsResponse (..),
+    mkDescribeCacheSubnetGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcsgrsMarker,
     dcsgrsCacheSubnetGroups,
     dcsgrsResponseStatus,
@@ -44,145 +37,167 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @DescribeCacheSubnetGroups@ operation.
 --
---
---
--- /See:/ 'describeCacheSubnetGroups' smart constructor.
+-- /See:/ 'mkDescribeCacheSubnetGroups' smart constructor.
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
-  { _dcsgCacheSubnetGroupName ::
-      !(Maybe Text),
-    _dcsgMarker :: !(Maybe Text),
-    _dcsgMaxRecords :: !(Maybe Int)
+  { cacheSubnetGroupName ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheSubnetGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cacheSubnetGroupName' - The name of the cache subnet group to return details for.
+-- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
 --
--- * 'dcsgCacheSubnetGroupName' - The name of the cache subnet group to return details for.
---
--- * 'dcsgMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dcsgMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-describeCacheSubnetGroups ::
+-- Default: 100
+-- Constraints: minimum 20; maximum 100.
+mkDescribeCacheSubnetGroups ::
   DescribeCacheSubnetGroups
-describeCacheSubnetGroups =
+mkDescribeCacheSubnetGroups =
   DescribeCacheSubnetGroups'
-    { _dcsgCacheSubnetGroupName = Nothing,
-      _dcsgMarker = Nothing,
-      _dcsgMaxRecords = Nothing
+    { cacheSubnetGroupName = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | The name of the cache subnet group to return details for.
-dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
-dcsgCacheSubnetGroupName = lens _dcsgCacheSubnetGroupName (\s a -> s {_dcsgCacheSubnetGroupName = a})
+--
+-- /Note:/ Consider using 'cacheSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgCacheSubnetGroupName :: Lens.Lens' DescribeCacheSubnetGroups (Lude.Maybe Lude.Text)
+dcsgCacheSubnetGroupName = Lens.lens (cacheSubnetGroupName :: DescribeCacheSubnetGroups -> Lude.Maybe Lude.Text) (\s a -> s {cacheSubnetGroupName = a} :: DescribeCacheSubnetGroups)
+{-# DEPRECATED dcsgCacheSubnetGroupName "Use generic-lens or generic-optics with 'cacheSubnetGroupName' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
-dcsgMarker = lens _dcsgMarker (\s a -> s {_dcsgMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgMarker :: Lens.Lens' DescribeCacheSubnetGroups (Lude.Maybe Lude.Text)
+dcsgMarker = Lens.lens (marker :: DescribeCacheSubnetGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheSubnetGroups)
+{-# DEPRECATED dcsgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
-dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s {_dcsgMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+-- Constraints: minimum 20; maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgMaxRecords :: Lens.Lens' DescribeCacheSubnetGroups (Lude.Maybe Lude.Int)
+dcsgMaxRecords = Lens.lens (maxRecords :: DescribeCacheSubnetGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeCacheSubnetGroups)
+{-# DEPRECATED dcsgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeCacheSubnetGroups where
+instance Page.AWSPager DescribeCacheSubnetGroups where
   page rq rs
-    | stop (rs ^. dcsgrsMarker) = Nothing
-    | stop (rs ^. dcsgrsCacheSubnetGroups) = Nothing
-    | otherwise = Just $ rq & dcsgMarker .~ rs ^. dcsgrsMarker
+    | Page.stop (rs Lens.^. dcsgrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcsgrsCacheSubnetGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dcsgMarker Lens..~ rs Lens.^. dcsgrsMarker
 
-instance AWSRequest DescribeCacheSubnetGroups where
+instance Lude.AWSRequest DescribeCacheSubnetGroups where
   type
     Rs DescribeCacheSubnetGroups =
       DescribeCacheSubnetGroupsResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeCacheSubnetGroupsResult"
       ( \s h x ->
           DescribeCacheSubnetGroupsResponse'
-            <$> (x .@? "Marker")
-            <*> ( x .@? "CacheSubnetGroups" .!@ mempty
-                    >>= may (parseXMLList "CacheSubnetGroup")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "CacheSubnetGroups" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "CacheSubnetGroup")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCacheSubnetGroups
+instance Lude.ToHeaders DescribeCacheSubnetGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeCacheSubnetGroups
+instance Lude.ToPath DescribeCacheSubnetGroups where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeCacheSubnetGroups where
-  toHeaders = const mempty
-
-instance ToPath DescribeCacheSubnetGroups where
-  toPath = const "/"
-
-instance ToQuery DescribeCacheSubnetGroups where
+instance Lude.ToQuery DescribeCacheSubnetGroups where
   toQuery DescribeCacheSubnetGroups' {..} =
-    mconcat
-      [ "Action" =: ("DescribeCacheSubnetGroups" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "CacheSubnetGroupName" =: _dcsgCacheSubnetGroupName,
-        "Marker" =: _dcsgMarker,
-        "MaxRecords" =: _dcsgMaxRecords
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeCacheSubnetGroups" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "CacheSubnetGroupName" Lude.=: cacheSubnetGroupName,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | Represents the output of a @DescribeCacheSubnetGroups@ operation.
 --
---
---
--- /See:/ 'describeCacheSubnetGroupsResponse' smart constructor.
+-- /See:/ 'mkDescribeCacheSubnetGroupsResponse' smart constructor.
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
-  { _dcsgrsMarker ::
-      !(Maybe Text),
-    _dcsgrsCacheSubnetGroups ::
-      !( Maybe
-           [CacheSubnetGroup]
-       ),
-    _dcsgrsResponseStatus ::
-      !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    cacheSubnetGroups ::
+      Lude.Maybe
+        [CacheSubnetGroup],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheSubnetGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsgrsMarker' - Provides an identifier to allow retrieval of paginated results.
---
--- * 'dcsgrsCacheSubnetGroups' - A list of cache subnet groups. Each element in the list contains detailed information about one group.
---
--- * 'dcsgrsResponseStatus' - -- | The response status code.
-describeCacheSubnetGroupsResponse ::
-  -- | 'dcsgrsResponseStatus'
-  Int ->
+-- * 'cacheSubnetGroups' - A list of cache subnet groups. Each element in the list contains detailed information about one group.
+-- * 'marker' - Provides an identifier to allow retrieval of paginated results.
+-- * 'responseStatus' - The response status code.
+mkDescribeCacheSubnetGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCacheSubnetGroupsResponse
-describeCacheSubnetGroupsResponse pResponseStatus_ =
+mkDescribeCacheSubnetGroupsResponse pResponseStatus_ =
   DescribeCacheSubnetGroupsResponse'
-    { _dcsgrsMarker = Nothing,
-      _dcsgrsCacheSubnetGroups = Nothing,
-      _dcsgrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      cacheSubnetGroups = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcsgrsMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
-dcsgrsMarker = lens _dcsgrsMarker (\s a -> s {_dcsgrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgrsMarker :: Lens.Lens' DescribeCacheSubnetGroupsResponse (Lude.Maybe Lude.Text)
+dcsgrsMarker = Lens.lens (marker :: DescribeCacheSubnetGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheSubnetGroupsResponse)
+{-# DEPRECATED dcsgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A list of cache subnet groups. Each element in the list contains detailed information about one group.
-dcsgrsCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
-dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\s a -> s {_dcsgrsCacheSubnetGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cacheSubnetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgrsCacheSubnetGroups :: Lens.Lens' DescribeCacheSubnetGroupsResponse (Lude.Maybe [CacheSubnetGroup])
+dcsgrsCacheSubnetGroups = Lens.lens (cacheSubnetGroups :: DescribeCacheSubnetGroupsResponse -> Lude.Maybe [CacheSubnetGroup]) (\s a -> s {cacheSubnetGroups = a} :: DescribeCacheSubnetGroupsResponse)
+{-# DEPRECATED dcsgrsCacheSubnetGroups "Use generic-lens or generic-optics with 'cacheSubnetGroups' instead." #-}
 
--- | -- | The response status code.
-dcsgrsResponseStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
-dcsgrsResponseStatus = lens _dcsgrsResponseStatus (\s a -> s {_dcsgrsResponseStatus = a})
-
-instance NFData DescribeCacheSubnetGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsgrsResponseStatus :: Lens.Lens' DescribeCacheSubnetGroupsResponse Lude.Int
+dcsgrsResponseStatus = Lens.lens (responseStatus :: DescribeCacheSubnetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCacheSubnetGroupsResponse)
+{-# DEPRECATED dcsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

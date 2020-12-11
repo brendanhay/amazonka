@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.UserStackAssociationErrorCode where
+module Network.AWS.AppStream.Types.UserStackAssociationErrorCode
+  ( UserStackAssociationErrorCode
+      ( UserStackAssociationErrorCode',
+        USAECDirectoryNotFound,
+        USAECInternalError,
+        USAECStackNotFound,
+        USAECUserNameNotFound
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UserStackAssociationErrorCode
-  = USAECDirectoryNotFound
-  | USAECInternalError
-  | USAECStackNotFound
-  | USAECUserNameNotFound
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UserStackAssociationErrorCode = UserStackAssociationErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UserStackAssociationErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "directory_not_found" -> pure USAECDirectoryNotFound
-      "internal_error" -> pure USAECInternalError
-      "stack_not_found" -> pure USAECStackNotFound
-      "user_name_not_found" -> pure USAECUserNameNotFound
-      e ->
-        fromTextError $
-          "Failure parsing UserStackAssociationErrorCode from value: '" <> e
-            <> "'. Accepted values: directory_not_found, internal_error, stack_not_found, user_name_not_found"
+pattern USAECDirectoryNotFound :: UserStackAssociationErrorCode
+pattern USAECDirectoryNotFound = UserStackAssociationErrorCode' "DIRECTORY_NOT_FOUND"
 
-instance ToText UserStackAssociationErrorCode where
-  toText = \case
-    USAECDirectoryNotFound -> "DIRECTORY_NOT_FOUND"
-    USAECInternalError -> "INTERNAL_ERROR"
-    USAECStackNotFound -> "STACK_NOT_FOUND"
-    USAECUserNameNotFound -> "USER_NAME_NOT_FOUND"
+pattern USAECInternalError :: UserStackAssociationErrorCode
+pattern USAECInternalError = UserStackAssociationErrorCode' "INTERNAL_ERROR"
 
-instance Hashable UserStackAssociationErrorCode
+pattern USAECStackNotFound :: UserStackAssociationErrorCode
+pattern USAECStackNotFound = UserStackAssociationErrorCode' "STACK_NOT_FOUND"
 
-instance NFData UserStackAssociationErrorCode
+pattern USAECUserNameNotFound :: UserStackAssociationErrorCode
+pattern USAECUserNameNotFound = UserStackAssociationErrorCode' "USER_NAME_NOT_FOUND"
 
-instance ToByteString UserStackAssociationErrorCode
-
-instance ToQuery UserStackAssociationErrorCode
-
-instance ToHeader UserStackAssociationErrorCode
-
-instance FromJSON UserStackAssociationErrorCode where
-  parseJSON = parseJSONText "UserStackAssociationErrorCode"
+{-# COMPLETE
+  USAECDirectoryNotFound,
+  USAECInternalError,
+  USAECStackNotFound,
+  USAECUserNameNotFound,
+  UserStackAssociationErrorCode'
+  #-}

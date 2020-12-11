@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Gets the specified application.
 module Network.AWS.ServerlessApplicationRepository.GetApplication
-  ( -- * Creating a Request
-    getApplication,
-    GetApplication,
+  ( -- * Creating a request
+    GetApplication (..),
+    mkGetApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaSemanticVersion,
     gaApplicationId,
 
-    -- * Destructuring the Response
-    getApplicationResponse,
-    GetApplicationResponse,
+    -- * Destructuring the response
+    GetApplicationResponse (..),
+    mkGetApplicationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     garsCreationTime,
     garsHomePageURL,
     garsLicenseURL,
@@ -49,214 +44,284 @@ module Network.AWS.ServerlessApplicationRepository.GetApplication
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServerlessApplicationRepository.Types
 
--- | /See:/ 'getApplication' smart constructor.
+-- | /See:/ 'mkGetApplication' smart constructor.
 data GetApplication = GetApplication'
-  { _gaSemanticVersion ::
-      !(Maybe Text),
-    _gaApplicationId :: !Text
+  { semanticVersion ::
+      Lude.Maybe Lude.Text,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaSemanticVersion' - The semantic version of the application to get.
---
--- * 'gaApplicationId' - The Amazon Resource Name (ARN) of the application.
-getApplication ::
-  -- | 'gaApplicationId'
-  Text ->
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- * 'semanticVersion' - The semantic version of the application to get.
+mkGetApplication ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetApplication
-getApplication pApplicationId_ =
+mkGetApplication pApplicationId_ =
   GetApplication'
-    { _gaSemanticVersion = Nothing,
-      _gaApplicationId = pApplicationId_
+    { semanticVersion = Lude.Nothing,
+      applicationId = pApplicationId_
     }
 
 -- | The semantic version of the application to get.
-gaSemanticVersion :: Lens' GetApplication (Maybe Text)
-gaSemanticVersion = lens _gaSemanticVersion (\s a -> s {_gaSemanticVersion = a})
+--
+-- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaSemanticVersion :: Lens.Lens' GetApplication (Lude.Maybe Lude.Text)
+gaSemanticVersion = Lens.lens (semanticVersion :: GetApplication -> Lude.Maybe Lude.Text) (\s a -> s {semanticVersion = a} :: GetApplication)
+{-# DEPRECATED gaSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the application.
-gaApplicationId :: Lens' GetApplication Text
-gaApplicationId = lens _gaApplicationId (\s a -> s {_gaApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaApplicationId :: Lens.Lens' GetApplication Lude.Text
+gaApplicationId = Lens.lens (applicationId :: GetApplication -> Lude.Text) (\s a -> s {applicationId = a} :: GetApplication)
+{-# DEPRECATED gaApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetApplication where
+instance Lude.AWSRequest GetApplication where
   type Rs GetApplication = GetApplicationResponse
-  request = get serverlessApplicationRepository
+  request = Req.get serverlessApplicationRepositoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetApplicationResponse'
-            <$> (x .?> "creationTime")
-            <*> (x .?> "homePageUrl")
-            <*> (x .?> "licenseUrl")
-            <*> (x .?> "readmeUrl")
-            <*> (x .?> "applicationId")
-            <*> (x .?> "name")
-            <*> (x .?> "version")
-            <*> (x .?> "author")
-            <*> (x .?> "labels" .!@ mempty)
-            <*> (x .?> "verifiedAuthorUrl")
-            <*> (x .?> "description")
-            <*> (x .?> "spdxLicenseId")
-            <*> (x .?> "isVerifiedAuthor")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "creationTime")
+            Lude.<*> (x Lude..?> "homePageUrl")
+            Lude.<*> (x Lude..?> "licenseUrl")
+            Lude.<*> (x Lude..?> "readmeUrl")
+            Lude.<*> (x Lude..?> "applicationId")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "version")
+            Lude.<*> (x Lude..?> "author")
+            Lude.<*> (x Lude..?> "labels" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "verifiedAuthorUrl")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (x Lude..?> "spdxLicenseId")
+            Lude.<*> (x Lude..?> "isVerifiedAuthor")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetApplication
-
-instance NFData GetApplication
-
-instance ToHeaders GetApplication where
+instance Lude.ToHeaders GetApplication where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetApplication where
+instance Lude.ToPath GetApplication where
   toPath GetApplication' {..} =
-    mconcat ["/applications/", toBS _gaApplicationId]
+    Lude.mconcat ["/applications/", Lude.toBS applicationId]
 
-instance ToQuery GetApplication where
+instance Lude.ToQuery GetApplication where
   toQuery GetApplication' {..} =
-    mconcat ["semanticVersion" =: _gaSemanticVersion]
+    Lude.mconcat ["semanticVersion" Lude.=: semanticVersion]
 
--- | /See:/ 'getApplicationResponse' smart constructor.
+-- | /See:/ 'mkGetApplicationResponse' smart constructor.
 data GetApplicationResponse = GetApplicationResponse'
-  { _garsCreationTime ::
-      !(Maybe Text),
-    _garsHomePageURL :: !(Maybe Text),
-    _garsLicenseURL :: !(Maybe Text),
-    _garsReadmeURL :: !(Maybe Text),
-    _garsApplicationId :: !(Maybe Text),
-    _garsName :: !(Maybe Text),
-    _garsVersion :: !(Maybe Version),
-    _garsAuthor :: !(Maybe Text),
-    _garsLabels :: !(Maybe [Text]),
-    _garsVerifiedAuthorURL :: !(Maybe Text),
-    _garsDescription :: !(Maybe Text),
-    _garsSpdxLicenseId :: !(Maybe Text),
-    _garsIsVerifiedAuthor :: !(Maybe Bool),
-    _garsResponseStatus :: !Int
+  { creationTime ::
+      Lude.Maybe Lude.Text,
+    homePageURL :: Lude.Maybe Lude.Text,
+    licenseURL :: Lude.Maybe Lude.Text,
+    readmeURL :: Lude.Maybe Lude.Text,
+    applicationId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Version,
+    author :: Lude.Maybe Lude.Text,
+    labels :: Lude.Maybe [Lude.Text],
+    verifiedAuthorURL :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    spdxLicenseId :: Lude.Maybe Lude.Text,
+    isVerifiedAuthor :: Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplicationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationId' - The application Amazon Resource Name (ARN).
+-- * 'author' - The name of the author publishing the app.
 --
--- * 'garsCreationTime' - The date and time this resource was created.
+-- Minimum length=1. Maximum length=127.
+-- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- * 'creationTime' - The date and time this resource was created.
+-- * 'description' - The description of the application.
 --
--- * 'garsHomePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
+-- Minimum length=1. Maximum length=256
+-- * 'homePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
+-- * 'isVerifiedAuthor' - Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+-- * 'labels' - Labels to improve discovery of apps in search results.
 --
--- * 'garsLicenseURL' - A link to a license file of the app that matches the spdxLicenseID value of your application. Maximum size 5 MB
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+-- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- * 'licenseURL' - A link to a license file of the app that matches the spdxLicenseID value of your application.
 --
--- * 'garsReadmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
+-- Maximum size 5 MB
+-- * 'name' - The name of the application.
 --
--- * 'garsApplicationId' - The application Amazon Resource Name (ARN).
+-- Minimum length=1. Maximum length=140
+-- Pattern: "[a-zA-Z0-9\\-]+";
+-- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
 --
--- * 'garsName' - The name of the application. Minimum length=1. Maximum length=140 Pattern: "[a-zA-Z0-9\\-]+";
---
--- * 'garsVersion' - Version information about the application.
---
--- * 'garsAuthor' - The name of the author publishing the app. Minimum length=1. Maximum length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
---
--- * 'garsLabels' - Labels to improve discovery of apps in search results. Minimum length=1. Maximum length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
---
--- * 'garsVerifiedAuthorURL' - The URL to the public profile of a verified author. This URL is submitted by the author.
---
--- * 'garsDescription' - The description of the application. Minimum length=1. Maximum length=256
---
--- * 'garsSpdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
---
--- * 'garsIsVerifiedAuthor' - Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
---
--- * 'garsResponseStatus' - -- | The response status code.
-getApplicationResponse ::
-  -- | 'garsResponseStatus'
-  Int ->
+-- Maximum size 5 MB
+-- * 'responseStatus' - The response status code.
+-- * 'spdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
+-- * 'verifiedAuthorURL' - The URL to the public profile of a verified author. This URL is submitted by the author.
+-- * 'version' - Version information about the application.
+mkGetApplicationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetApplicationResponse
-getApplicationResponse pResponseStatus_ =
+mkGetApplicationResponse pResponseStatus_ =
   GetApplicationResponse'
-    { _garsCreationTime = Nothing,
-      _garsHomePageURL = Nothing,
-      _garsLicenseURL = Nothing,
-      _garsReadmeURL = Nothing,
-      _garsApplicationId = Nothing,
-      _garsName = Nothing,
-      _garsVersion = Nothing,
-      _garsAuthor = Nothing,
-      _garsLabels = Nothing,
-      _garsVerifiedAuthorURL = Nothing,
-      _garsDescription = Nothing,
-      _garsSpdxLicenseId = Nothing,
-      _garsIsVerifiedAuthor = Nothing,
-      _garsResponseStatus = pResponseStatus_
+    { creationTime = Lude.Nothing,
+      homePageURL = Lude.Nothing,
+      licenseURL = Lude.Nothing,
+      readmeURL = Lude.Nothing,
+      applicationId = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      author = Lude.Nothing,
+      labels = Lude.Nothing,
+      verifiedAuthorURL = Lude.Nothing,
+      description = Lude.Nothing,
+      spdxLicenseId = Lude.Nothing,
+      isVerifiedAuthor = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The date and time this resource was created.
-garsCreationTime :: Lens' GetApplicationResponse (Maybe Text)
-garsCreationTime = lens _garsCreationTime (\s a -> s {_garsCreationTime = a})
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsCreationTime :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsCreationTime = Lens.lens (creationTime :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTime = a} :: GetApplicationResponse)
+{-# DEPRECATED garsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
-garsHomePageURL :: Lens' GetApplicationResponse (Maybe Text)
-garsHomePageURL = lens _garsHomePageURL (\s a -> s {_garsHomePageURL = a})
+--
+-- /Note:/ Consider using 'homePageURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsHomePageURL :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsHomePageURL = Lens.lens (homePageURL :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {homePageURL = a} :: GetApplicationResponse)
+{-# DEPRECATED garsHomePageURL "Use generic-lens or generic-optics with 'homePageURL' instead." #-}
 
--- | A link to a license file of the app that matches the spdxLicenseID value of your application. Maximum size 5 MB
-garsLicenseURL :: Lens' GetApplicationResponse (Maybe Text)
-garsLicenseURL = lens _garsLicenseURL (\s a -> s {_garsLicenseURL = a})
+-- | A link to a license file of the app that matches the spdxLicenseID value of your application.
+--
+-- Maximum size 5 MB
+--
+-- /Note:/ Consider using 'licenseURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsLicenseURL :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsLicenseURL = Lens.lens (licenseURL :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {licenseURL = a} :: GetApplicationResponse)
+{-# DEPRECATED garsLicenseURL "Use generic-lens or generic-optics with 'licenseURL' instead." #-}
 
--- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works. Maximum size 5 MB
-garsReadmeURL :: Lens' GetApplicationResponse (Maybe Text)
-garsReadmeURL = lens _garsReadmeURL (\s a -> s {_garsReadmeURL = a})
+-- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+--
+-- /Note:/ Consider using 'readmeURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsReadmeURL :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsReadmeURL = Lens.lens (readmeURL :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {readmeURL = a} :: GetApplicationResponse)
+{-# DEPRECATED garsReadmeURL "Use generic-lens or generic-optics with 'readmeURL' instead." #-}
 
 -- | The application Amazon Resource Name (ARN).
-garsApplicationId :: Lens' GetApplicationResponse (Maybe Text)
-garsApplicationId = lens _garsApplicationId (\s a -> s {_garsApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsApplicationId :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsApplicationId = Lens.lens (applicationId :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: GetApplicationResponse)
+{-# DEPRECATED garsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | The name of the application. Minimum length=1. Maximum length=140 Pattern: "[a-zA-Z0-9\\-]+";
-garsName :: Lens' GetApplicationResponse (Maybe Text)
-garsName = lens _garsName (\s a -> s {_garsName = a})
+-- | The name of the application.
+--
+-- Minimum length=1. Maximum length=140
+-- Pattern: "[a-zA-Z0-9\\-]+";
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsName :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsName = Lens.lens (name :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetApplicationResponse)
+{-# DEPRECATED garsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Version information about the application.
-garsVersion :: Lens' GetApplicationResponse (Maybe Version)
-garsVersion = lens _garsVersion (\s a -> s {_garsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsVersion :: Lens.Lens' GetApplicationResponse (Lude.Maybe Version)
+garsVersion = Lens.lens (version :: GetApplicationResponse -> Lude.Maybe Version) (\s a -> s {version = a} :: GetApplicationResponse)
+{-# DEPRECATED garsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | The name of the author publishing the app. Minimum length=1. Maximum length=127. Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
-garsAuthor :: Lens' GetApplicationResponse (Maybe Text)
-garsAuthor = lens _garsAuthor (\s a -> s {_garsAuthor = a})
+-- | The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+-- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+--
+-- /Note:/ Consider using 'author' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsAuthor :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsAuthor = Lens.lens (author :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {author = a} :: GetApplicationResponse)
+{-# DEPRECATED garsAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
 
--- | Labels to improve discovery of apps in search results. Minimum length=1. Maximum length=127. Maximum number of labels: 10 Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
-garsLabels :: Lens' GetApplicationResponse [Text]
-garsLabels = lens _garsLabels (\s a -> s {_garsLabels = a}) . _Default . _Coerce
+-- | Labels to improve discovery of apps in search results.
+--
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+-- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+--
+-- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsLabels :: Lens.Lens' GetApplicationResponse (Lude.Maybe [Lude.Text])
+garsLabels = Lens.lens (labels :: GetApplicationResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: GetApplicationResponse)
+{-# DEPRECATED garsLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
 -- | The URL to the public profile of a verified author. This URL is submitted by the author.
-garsVerifiedAuthorURL :: Lens' GetApplicationResponse (Maybe Text)
-garsVerifiedAuthorURL = lens _garsVerifiedAuthorURL (\s a -> s {_garsVerifiedAuthorURL = a})
+--
+-- /Note:/ Consider using 'verifiedAuthorURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsVerifiedAuthorURL :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsVerifiedAuthorURL = Lens.lens (verifiedAuthorURL :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {verifiedAuthorURL = a} :: GetApplicationResponse)
+{-# DEPRECATED garsVerifiedAuthorURL "Use generic-lens or generic-optics with 'verifiedAuthorURL' instead." #-}
 
--- | The description of the application. Minimum length=1. Maximum length=256
-garsDescription :: Lens' GetApplicationResponse (Maybe Text)
-garsDescription = lens _garsDescription (\s a -> s {_garsDescription = a})
+-- | The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsDescription :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsDescription = Lens.lens (description :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GetApplicationResponse)
+{-# DEPRECATED garsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A valid identifier from https://spdx.org/licenses/.
-garsSpdxLicenseId :: Lens' GetApplicationResponse (Maybe Text)
-garsSpdxLicenseId = lens _garsSpdxLicenseId (\s a -> s {_garsSpdxLicenseId = a})
+--
+-- /Note:/ Consider using 'spdxLicenseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsSpdxLicenseId :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Text)
+garsSpdxLicenseId = Lens.lens (spdxLicenseId :: GetApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {spdxLicenseId = a} :: GetApplicationResponse)
+{-# DEPRECATED garsSpdxLicenseId "Use generic-lens or generic-optics with 'spdxLicenseId' instead." #-}
 
 -- | Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
-garsIsVerifiedAuthor :: Lens' GetApplicationResponse (Maybe Bool)
-garsIsVerifiedAuthor = lens _garsIsVerifiedAuthor (\s a -> s {_garsIsVerifiedAuthor = a})
+--
+-- /Note:/ Consider using 'isVerifiedAuthor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsIsVerifiedAuthor :: Lens.Lens' GetApplicationResponse (Lude.Maybe Lude.Bool)
+garsIsVerifiedAuthor = Lens.lens (isVerifiedAuthor :: GetApplicationResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isVerifiedAuthor = a} :: GetApplicationResponse)
+{-# DEPRECATED garsIsVerifiedAuthor "Use generic-lens or generic-optics with 'isVerifiedAuthor' instead." #-}
 
--- | -- | The response status code.
-garsResponseStatus :: Lens' GetApplicationResponse Int
-garsResponseStatus = lens _garsResponseStatus (\s a -> s {_garsResponseStatus = a})
-
-instance NFData GetApplicationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsResponseStatus :: Lens.Lens' GetApplicationResponse Lude.Int
+garsResponseStatus = Lens.lens (responseStatus :: GetApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetApplicationResponse)
+{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

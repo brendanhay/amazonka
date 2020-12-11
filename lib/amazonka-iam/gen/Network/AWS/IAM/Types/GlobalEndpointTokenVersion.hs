@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.GlobalEndpointTokenVersion where
+module Network.AWS.IAM.Types.GlobalEndpointTokenVersion
+  ( GlobalEndpointTokenVersion
+      ( GlobalEndpointTokenVersion',
+        V1Token,
+        V2Token
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GlobalEndpointTokenVersion
-  = V1Token
-  | V2Token
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GlobalEndpointTokenVersion = GlobalEndpointTokenVersion' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GlobalEndpointTokenVersion where
-  parser =
-    takeLowerText >>= \case
-      "v1token" -> pure V1Token
-      "v2token" -> pure V2Token
-      e ->
-        fromTextError $
-          "Failure parsing GlobalEndpointTokenVersion from value: '" <> e
-            <> "'. Accepted values: v1token, v2token"
+pattern V1Token :: GlobalEndpointTokenVersion
+pattern V1Token = GlobalEndpointTokenVersion' "v1Token"
 
-instance ToText GlobalEndpointTokenVersion where
-  toText = \case
-    V1Token -> "v1Token"
-    V2Token -> "v2Token"
+pattern V2Token :: GlobalEndpointTokenVersion
+pattern V2Token = GlobalEndpointTokenVersion' "v2Token"
 
-instance Hashable GlobalEndpointTokenVersion
-
-instance NFData GlobalEndpointTokenVersion
-
-instance ToByteString GlobalEndpointTokenVersion
-
-instance ToQuery GlobalEndpointTokenVersion
-
-instance ToHeader GlobalEndpointTokenVersion
+{-# COMPLETE
+  V1Token,
+  V2Token,
+  GlobalEndpointTokenVersion'
+  #-}

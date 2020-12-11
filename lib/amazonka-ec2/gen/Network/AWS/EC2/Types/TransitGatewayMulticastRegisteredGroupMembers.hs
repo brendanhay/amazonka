@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayMulticastRegisteredGroupMembers where
+module Network.AWS.EC2.Types.TransitGatewayMulticastRegisteredGroupMembers
+  ( TransitGatewayMulticastRegisteredGroupMembers (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTransitGatewayMulticastRegisteredGroupMembers,
+
+    -- * Lenses
+    tgmrgmTransitGatewayMulticastDomainId,
+    tgmrgmRegisteredNetworkInterfaceIds,
+    tgmrgmGroupIPAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the registered transit gateway multicast group members.
 --
---
---
--- /See:/ 'transitGatewayMulticastRegisteredGroupMembers' smart constructor.
+-- /See:/ 'mkTransitGatewayMulticastRegisteredGroupMembers' smart constructor.
 data TransitGatewayMulticastRegisteredGroupMembers = TransitGatewayMulticastRegisteredGroupMembers'
-  { _tgmrgmTransitGatewayMulticastDomainId ::
-      !( Maybe
-           Text
-       ),
-    _tgmrgmRegisteredNetworkInterfaceIds ::
-      !( Maybe
-           [Text]
-       ),
-    _tgmrgmGroupIPAddress ::
-      !( Maybe
-           Text
-       )
+  { transitGatewayMulticastDomainId ::
+      Lude.Maybe
+        Lude.Text,
+    registeredNetworkInterfaceIds ::
+      Lude.Maybe
+        [Lude.Text],
+    groupIPAddress ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'TransitGatewayMulticastRegisteredGroupMembers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgmrgmTransitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
---
--- * 'tgmrgmRegisteredNetworkInterfaceIds' - The ID of the registered network interfaces.
---
--- * 'tgmrgmGroupIPAddress' - The IP address assigned to the transit gateway multicast group.
-transitGatewayMulticastRegisteredGroupMembers ::
+-- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
+-- * 'registeredNetworkInterfaceIds' - The ID of the registered network interfaces.
+-- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+mkTransitGatewayMulticastRegisteredGroupMembers ::
   TransitGatewayMulticastRegisteredGroupMembers
-transitGatewayMulticastRegisteredGroupMembers =
+mkTransitGatewayMulticastRegisteredGroupMembers =
   TransitGatewayMulticastRegisteredGroupMembers'
-    { _tgmrgmTransitGatewayMulticastDomainId =
-        Nothing,
-      _tgmrgmRegisteredNetworkInterfaceIds = Nothing,
-      _tgmrgmGroupIPAddress = Nothing
+    { transitGatewayMulticastDomainId =
+        Lude.Nothing,
+      registeredNetworkInterfaceIds = Lude.Nothing,
+      groupIPAddress = Lude.Nothing
     }
 
 -- | The ID of the transit gateway multicast domain.
-tgmrgmTransitGatewayMulticastDomainId :: Lens' TransitGatewayMulticastRegisteredGroupMembers (Maybe Text)
-tgmrgmTransitGatewayMulticastDomainId = lens _tgmrgmTransitGatewayMulticastDomainId (\s a -> s {_tgmrgmTransitGatewayMulticastDomainId = a})
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmrgmTransitGatewayMulticastDomainId :: Lens.Lens' TransitGatewayMulticastRegisteredGroupMembers (Lude.Maybe Lude.Text)
+tgmrgmTransitGatewayMulticastDomainId = Lens.lens (transitGatewayMulticastDomainId :: TransitGatewayMulticastRegisteredGroupMembers -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayMulticastDomainId = a} :: TransitGatewayMulticastRegisteredGroupMembers)
+{-# DEPRECATED tgmrgmTransitGatewayMulticastDomainId "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainId' instead." #-}
 
 -- | The ID of the registered network interfaces.
-tgmrgmRegisteredNetworkInterfaceIds :: Lens' TransitGatewayMulticastRegisteredGroupMembers [Text]
-tgmrgmRegisteredNetworkInterfaceIds = lens _tgmrgmRegisteredNetworkInterfaceIds (\s a -> s {_tgmrgmRegisteredNetworkInterfaceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'registeredNetworkInterfaceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmrgmRegisteredNetworkInterfaceIds :: Lens.Lens' TransitGatewayMulticastRegisteredGroupMembers (Lude.Maybe [Lude.Text])
+tgmrgmRegisteredNetworkInterfaceIds = Lens.lens (registeredNetworkInterfaceIds :: TransitGatewayMulticastRegisteredGroupMembers -> Lude.Maybe [Lude.Text]) (\s a -> s {registeredNetworkInterfaceIds = a} :: TransitGatewayMulticastRegisteredGroupMembers)
+{-# DEPRECATED tgmrgmRegisteredNetworkInterfaceIds "Use generic-lens or generic-optics with 'registeredNetworkInterfaceIds' instead." #-}
 
 -- | The IP address assigned to the transit gateway multicast group.
-tgmrgmGroupIPAddress :: Lens' TransitGatewayMulticastRegisteredGroupMembers (Maybe Text)
-tgmrgmGroupIPAddress = lens _tgmrgmGroupIPAddress (\s a -> s {_tgmrgmGroupIPAddress = a})
+--
+-- /Note:/ Consider using 'groupIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgmrgmGroupIPAddress :: Lens.Lens' TransitGatewayMulticastRegisteredGroupMembers (Lude.Maybe Lude.Text)
+tgmrgmGroupIPAddress = Lens.lens (groupIPAddress :: TransitGatewayMulticastRegisteredGroupMembers -> Lude.Maybe Lude.Text) (\s a -> s {groupIPAddress = a} :: TransitGatewayMulticastRegisteredGroupMembers)
+{-# DEPRECATED tgmrgmGroupIPAddress "Use generic-lens or generic-optics with 'groupIPAddress' instead." #-}
 
-instance FromXML TransitGatewayMulticastRegisteredGroupMembers where
+instance Lude.FromXML TransitGatewayMulticastRegisteredGroupMembers where
   parseXML x =
     TransitGatewayMulticastRegisteredGroupMembers'
-      <$> (x .@? "transitGatewayMulticastDomainId")
-      <*> ( x .@? "registeredNetworkInterfaceIds" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "groupIpAddress")
-
-instance Hashable TransitGatewayMulticastRegisteredGroupMembers
-
-instance NFData TransitGatewayMulticastRegisteredGroupMembers
+      Lude.<$> (x Lude..@? "transitGatewayMulticastDomainId")
+      Lude.<*> ( x Lude..@? "registeredNetworkInterfaceIds" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "groupIpAddress")

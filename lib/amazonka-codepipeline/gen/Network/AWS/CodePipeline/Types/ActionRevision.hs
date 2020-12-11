@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionRevision where
+module Network.AWS.CodePipeline.Types.ActionRevision
+  ( ActionRevision (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActionRevision,
+
+    -- * Lenses
+    aRevisionId,
+    aRevisionChangeId,
+    aCreated,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about the version (or revision) of an action.
 --
---
---
--- /See:/ 'actionRevision' smart constructor.
+-- /See:/ 'mkActionRevision' smart constructor.
 data ActionRevision = ActionRevision'
-  { _aRevisionId :: !Text,
-    _aRevisionChangeId :: !Text,
-    _aCreated :: !POSIX
+  { revisionId :: Lude.Text,
+    revisionChangeId :: Lude.Text,
+    created :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionRevision' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aRevisionId' - The system-generated unique ID that identifies the revision number of the action.
---
--- * 'aRevisionChangeId' - The unique identifier of the change that set the state to this revision (for example, a deployment ID or timestamp).
---
--- * 'aCreated' - The date and time when the most recent version of the action was created, in timestamp format.
-actionRevision ::
-  -- | 'aRevisionId'
-  Text ->
-  -- | 'aRevisionChangeId'
-  Text ->
-  -- | 'aCreated'
-  UTCTime ->
+-- * 'created' - The date and time when the most recent version of the action was created, in timestamp format.
+-- * 'revisionChangeId' - The unique identifier of the change that set the state to this revision (for example, a deployment ID or timestamp).
+-- * 'revisionId' - The system-generated unique ID that identifies the revision number of the action.
+mkActionRevision ::
+  -- | 'revisionId'
+  Lude.Text ->
+  -- | 'revisionChangeId'
+  Lude.Text ->
+  -- | 'created'
+  Lude.Timestamp ->
   ActionRevision
-actionRevision pRevisionId_ pRevisionChangeId_ pCreated_ =
+mkActionRevision pRevisionId_ pRevisionChangeId_ pCreated_ =
   ActionRevision'
-    { _aRevisionId = pRevisionId_,
-      _aRevisionChangeId = pRevisionChangeId_,
-      _aCreated = _Time # pCreated_
+    { revisionId = pRevisionId_,
+      revisionChangeId = pRevisionChangeId_,
+      created = pCreated_
     }
 
 -- | The system-generated unique ID that identifies the revision number of the action.
-aRevisionId :: Lens' ActionRevision Text
-aRevisionId = lens _aRevisionId (\s a -> s {_aRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRevisionId :: Lens.Lens' ActionRevision Lude.Text
+aRevisionId = Lens.lens (revisionId :: ActionRevision -> Lude.Text) (\s a -> s {revisionId = a} :: ActionRevision)
+{-# DEPRECATED aRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
 -- | The unique identifier of the change that set the state to this revision (for example, a deployment ID or timestamp).
-aRevisionChangeId :: Lens' ActionRevision Text
-aRevisionChangeId = lens _aRevisionChangeId (\s a -> s {_aRevisionChangeId = a})
+--
+-- /Note:/ Consider using 'revisionChangeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRevisionChangeId :: Lens.Lens' ActionRevision Lude.Text
+aRevisionChangeId = Lens.lens (revisionChangeId :: ActionRevision -> Lude.Text) (\s a -> s {revisionChangeId = a} :: ActionRevision)
+{-# DEPRECATED aRevisionChangeId "Use generic-lens or generic-optics with 'revisionChangeId' instead." #-}
 
 -- | The date and time when the most recent version of the action was created, in timestamp format.
-aCreated :: Lens' ActionRevision UTCTime
-aCreated = lens _aCreated (\s a -> s {_aCreated = a}) . _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCreated :: Lens.Lens' ActionRevision Lude.Timestamp
+aCreated = Lens.lens (created :: ActionRevision -> Lude.Timestamp) (\s a -> s {created = a} :: ActionRevision)
+{-# DEPRECATED aCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
-instance FromJSON ActionRevision where
+instance Lude.FromJSON ActionRevision where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActionRevision"
       ( \x ->
           ActionRevision'
-            <$> (x .: "revisionId")
-            <*> (x .: "revisionChangeId")
-            <*> (x .: "created")
+            Lude.<$> (x Lude..: "revisionId")
+            Lude.<*> (x Lude..: "revisionChangeId")
+            Lude.<*> (x Lude..: "created")
       )
 
-instance Hashable ActionRevision
-
-instance NFData ActionRevision
-
-instance ToJSON ActionRevision where
+instance Lude.ToJSON ActionRevision where
   toJSON ActionRevision' {..} =
-    object
-      ( catMaybes
-          [ Just ("revisionId" .= _aRevisionId),
-            Just ("revisionChangeId" .= _aRevisionChangeId),
-            Just ("created" .= _aCreated)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("revisionId" Lude..= revisionId),
+            Lude.Just ("revisionChangeId" Lude..= revisionChangeId),
+            Lude.Just ("created" Lude..= created)
           ]
       )

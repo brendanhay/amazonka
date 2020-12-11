@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType where
+module Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType
+  ( FragmentSelectorType
+      ( FragmentSelectorType',
+        FSTProducerTimestamp,
+        FSTServerTimestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FragmentSelectorType
-  = FSTProducerTimestamp
-  | FSTServerTimestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FragmentSelectorType = FragmentSelectorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FragmentSelectorType where
-  parser =
-    takeLowerText >>= \case
-      "producer_timestamp" -> pure FSTProducerTimestamp
-      "server_timestamp" -> pure FSTServerTimestamp
-      e ->
-        fromTextError $
-          "Failure parsing FragmentSelectorType from value: '" <> e
-            <> "'. Accepted values: producer_timestamp, server_timestamp"
+pattern FSTProducerTimestamp :: FragmentSelectorType
+pattern FSTProducerTimestamp = FragmentSelectorType' "PRODUCER_TIMESTAMP"
 
-instance ToText FragmentSelectorType where
-  toText = \case
-    FSTProducerTimestamp -> "PRODUCER_TIMESTAMP"
-    FSTServerTimestamp -> "SERVER_TIMESTAMP"
+pattern FSTServerTimestamp :: FragmentSelectorType
+pattern FSTServerTimestamp = FragmentSelectorType' "SERVER_TIMESTAMP"
 
-instance Hashable FragmentSelectorType
-
-instance NFData FragmentSelectorType
-
-instance ToByteString FragmentSelectorType
-
-instance ToQuery FragmentSelectorType
-
-instance ToHeader FragmentSelectorType
-
-instance ToJSON FragmentSelectorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  FSTProducerTimestamp,
+  FSTServerTimestamp,
+  FragmentSelectorType'
+  #-}

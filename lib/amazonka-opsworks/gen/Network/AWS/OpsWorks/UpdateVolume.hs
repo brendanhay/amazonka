@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,125 @@
 --
 -- Updates an Amazon EBS volume's name or mount point. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.UpdateVolume
-  ( -- * Creating a Request
-    updateVolume,
-    UpdateVolume,
+  ( -- * Creating a request
+    UpdateVolume (..),
+    mkUpdateVolume,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uName,
     uMountPoint,
     uVolumeId,
 
-    -- * Destructuring the Response
-    updateVolumeResponse,
-    UpdateVolumeResponse,
+    -- * Destructuring the response
+    UpdateVolumeResponse (..),
+    mkUpdateVolumeResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateVolume' smart constructor.
+-- | /See:/ 'mkUpdateVolume' smart constructor.
 data UpdateVolume = UpdateVolume'
-  { _uName :: !(Maybe Text),
-    _uMountPoint :: !(Maybe Text),
-    _uVolumeId :: !Text
+  { name :: Lude.Maybe Lude.Text,
+    mountPoint :: Lude.Maybe Lude.Text,
+    volumeId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uName' - The new name.
---
--- * 'uMountPoint' - The new mount point.
---
--- * 'uVolumeId' - The volume ID.
-updateVolume ::
-  -- | 'uVolumeId'
-  Text ->
+-- * 'mountPoint' - The new mount point.
+-- * 'name' - The new name.
+-- * 'volumeId' - The volume ID.
+mkUpdateVolume ::
+  -- | 'volumeId'
+  Lude.Text ->
   UpdateVolume
-updateVolume pVolumeId_ =
+mkUpdateVolume pVolumeId_ =
   UpdateVolume'
-    { _uName = Nothing,
-      _uMountPoint = Nothing,
-      _uVolumeId = pVolumeId_
+    { name = Lude.Nothing,
+      mountPoint = Lude.Nothing,
+      volumeId = pVolumeId_
     }
 
 -- | The new name.
-uName :: Lens' UpdateVolume (Maybe Text)
-uName = lens _uName (\s a -> s {_uName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uName :: Lens.Lens' UpdateVolume (Lude.Maybe Lude.Text)
+uName = Lens.lens (name :: UpdateVolume -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateVolume)
+{-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The new mount point.
-uMountPoint :: Lens' UpdateVolume (Maybe Text)
-uMountPoint = lens _uMountPoint (\s a -> s {_uMountPoint = a})
+--
+-- /Note:/ Consider using 'mountPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uMountPoint :: Lens.Lens' UpdateVolume (Lude.Maybe Lude.Text)
+uMountPoint = Lens.lens (mountPoint :: UpdateVolume -> Lude.Maybe Lude.Text) (\s a -> s {mountPoint = a} :: UpdateVolume)
+{-# DEPRECATED uMountPoint "Use generic-lens or generic-optics with 'mountPoint' instead." #-}
 
 -- | The volume ID.
-uVolumeId :: Lens' UpdateVolume Text
-uVolumeId = lens _uVolumeId (\s a -> s {_uVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uVolumeId :: Lens.Lens' UpdateVolume Lude.Text
+uVolumeId = Lens.lens (volumeId :: UpdateVolume -> Lude.Text) (\s a -> s {volumeId = a} :: UpdateVolume)
+{-# DEPRECATED uVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
-instance AWSRequest UpdateVolume where
+instance Lude.AWSRequest UpdateVolume where
   type Rs UpdateVolume = UpdateVolumeResponse
-  request = postJSON opsWorks
-  response = receiveNull UpdateVolumeResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull UpdateVolumeResponse'
 
-instance Hashable UpdateVolume
-
-instance NFData UpdateVolume
-
-instance ToHeaders UpdateVolume where
+instance Lude.ToHeaders UpdateVolume where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.UpdateVolume" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.UpdateVolume" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateVolume where
+instance Lude.ToJSON UpdateVolume where
   toJSON UpdateVolume' {..} =
-    object
-      ( catMaybes
-          [ ("Name" .=) <$> _uName,
-            ("MountPoint" .=) <$> _uMountPoint,
-            Just ("VolumeId" .= _uVolumeId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            ("MountPoint" Lude..=) Lude.<$> mountPoint,
+            Lude.Just ("VolumeId" Lude..= volumeId)
           ]
       )
 
-instance ToPath UpdateVolume where
-  toPath = const "/"
+instance Lude.ToPath UpdateVolume where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateVolume where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateVolume where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateVolumeResponse' smart constructor.
+-- | /See:/ 'mkUpdateVolumeResponse' smart constructor.
 data UpdateVolumeResponse = UpdateVolumeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVolumeResponse' with the minimum fields required to make a request.
-updateVolumeResponse ::
+mkUpdateVolumeResponse ::
   UpdateVolumeResponse
-updateVolumeResponse = UpdateVolumeResponse'
-
-instance NFData UpdateVolumeResponse
+mkUpdateVolumeResponse = UpdateVolumeResponse'

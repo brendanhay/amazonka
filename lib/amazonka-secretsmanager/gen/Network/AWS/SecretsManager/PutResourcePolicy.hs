@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,171 +14,191 @@
 --
 -- Attaches the contents of the specified resource-based permission policy to a secret. A resource-based policy is optional. Alternatively, you can use IAM identity-based policies that specify the secret's Amazon Resource Name (ARN) in the policy statement's @Resources@ element. You can also use a combination of both identity-based and resource-based policies. The affected users and roles receive the permissions that are permitted by all of the relevant policies. For more information, see <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html Using Resource-Based Policies for AWS Secrets Manager> . For the complete description of the AWS policy syntax and grammar, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference> in the /IAM User Guide/ .
 --
---
 -- __Minimum permissions__
---
 -- To run this command, you must have the following permissions:
 --
 --     * secretsmanager:PutResourcePolicy
---
 --
 --
 -- __Related operations__
 --
 --     * To retrieve the resource policy attached to a secret, use 'GetResourcePolicy' .
 --
+--
 --     * To delete the resource-based policy that's attached to a secret, use 'DeleteResourcePolicy' .
+--
 --
 --     * To list all of the currently available secrets, use 'ListSecrets' .
 module Network.AWS.SecretsManager.PutResourcePolicy
-  ( -- * Creating a Request
-    putResourcePolicy,
-    PutResourcePolicy,
+  ( -- * Creating a request
+    PutResourcePolicy (..),
+    mkPutResourcePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     prpBlockPublicPolicy,
     prpSecretId,
     prpResourcePolicy,
 
-    -- * Destructuring the Response
-    putResourcePolicyResponse,
-    PutResourcePolicyResponse,
+    -- * Destructuring the response
+    PutResourcePolicyResponse (..),
+    mkPutResourcePolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     prprsARN,
     prprsName,
     prprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SecretsManager.Types
 
--- | /See:/ 'putResourcePolicy' smart constructor.
+-- | /See:/ 'mkPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { _prpBlockPublicPolicy ::
-      !(Maybe Bool),
-    _prpSecretId :: !Text,
-    _prpResourcePolicy :: !Text
+  { blockPublicPolicy ::
+      Lude.Maybe Lude.Bool,
+    secretId :: Lude.Text,
+    resourcePolicy :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourcePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prpBlockPublicPolicy' - Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
---
--- * 'prpSecretId' - Specifies the secret that you want to attach the resource-based policy to. You can specify either the ARN or the friendly name of the secret.
---
--- * 'prpResourcePolicy' - A JSON-formatted string that's constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
-putResourcePolicy ::
-  -- | 'prpSecretId'
-  Text ->
-  -- | 'prpResourcePolicy'
-  Text ->
+-- * 'blockPublicPolicy' - Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+-- * 'resourcePolicy' - A JSON-formatted string that's constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+-- * 'secretId' - Specifies the secret that you want to attach the resource-based policy to. You can specify either the ARN or the friendly name of the secret.
+mkPutResourcePolicy ::
+  -- | 'secretId'
+  Lude.Text ->
+  -- | 'resourcePolicy'
+  Lude.Text ->
   PutResourcePolicy
-putResourcePolicy pSecretId_ pResourcePolicy_ =
+mkPutResourcePolicy pSecretId_ pResourcePolicy_ =
   PutResourcePolicy'
-    { _prpBlockPublicPolicy = Nothing,
-      _prpSecretId = pSecretId_,
-      _prpResourcePolicy = pResourcePolicy_
+    { blockPublicPolicy = Lude.Nothing,
+      secretId = pSecretId_,
+      resourcePolicy = pResourcePolicy_
     }
 
 -- | Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-prpBlockPublicPolicy :: Lens' PutResourcePolicy (Maybe Bool)
-prpBlockPublicPolicy = lens _prpBlockPublicPolicy (\s a -> s {_prpBlockPublicPolicy = a})
+--
+-- /Note:/ Consider using 'blockPublicPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpBlockPublicPolicy :: Lens.Lens' PutResourcePolicy (Lude.Maybe Lude.Bool)
+prpBlockPublicPolicy = Lens.lens (blockPublicPolicy :: PutResourcePolicy -> Lude.Maybe Lude.Bool) (\s a -> s {blockPublicPolicy = a} :: PutResourcePolicy)
+{-# DEPRECATED prpBlockPublicPolicy "Use generic-lens or generic-optics with 'blockPublicPolicy' instead." #-}
 
 -- | Specifies the secret that you want to attach the resource-based policy to. You can specify either the ARN or the friendly name of the secret.
-prpSecretId :: Lens' PutResourcePolicy Text
-prpSecretId = lens _prpSecretId (\s a -> s {_prpSecretId = a})
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpSecretId :: Lens.Lens' PutResourcePolicy Lude.Text
+prpSecretId = Lens.lens (secretId :: PutResourcePolicy -> Lude.Text) (\s a -> s {secretId = a} :: PutResourcePolicy)
+{-# DEPRECATED prpSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 -- | A JSON-formatted string that's constructed according to the grammar and syntax for an AWS resource-based policy. The policy in the string identifies who can access or manage this secret and its versions. For information on how to format a JSON parameter for the various command line tool environments, see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
-prpResourcePolicy :: Lens' PutResourcePolicy Text
-prpResourcePolicy = lens _prpResourcePolicy (\s a -> s {_prpResourcePolicy = a})
+--
+-- /Note:/ Consider using 'resourcePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpResourcePolicy :: Lens.Lens' PutResourcePolicy Lude.Text
+prpResourcePolicy = Lens.lens (resourcePolicy :: PutResourcePolicy -> Lude.Text) (\s a -> s {resourcePolicy = a} :: PutResourcePolicy)
+{-# DEPRECATED prpResourcePolicy "Use generic-lens or generic-optics with 'resourcePolicy' instead." #-}
 
-instance AWSRequest PutResourcePolicy where
+instance Lude.AWSRequest PutResourcePolicy where
   type Rs PutResourcePolicy = PutResourcePolicyResponse
-  request = postJSON secretsManager
+  request = Req.postJSON secretsManagerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            <$> (x .?> "ARN") <*> (x .?> "Name") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ARN")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutResourcePolicy
-
-instance NFData PutResourcePolicy
-
-instance ToHeaders PutResourcePolicy where
+instance Lude.ToHeaders PutResourcePolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("secretsmanager.PutResourcePolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("secretsmanager.PutResourcePolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutResourcePolicy where
+instance Lude.ToJSON PutResourcePolicy where
   toJSON PutResourcePolicy' {..} =
-    object
-      ( catMaybes
-          [ ("BlockPublicPolicy" .=) <$> _prpBlockPublicPolicy,
-            Just ("SecretId" .= _prpSecretId),
-            Just ("ResourcePolicy" .= _prpResourcePolicy)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("BlockPublicPolicy" Lude..=) Lude.<$> blockPublicPolicy,
+            Lude.Just ("SecretId" Lude..= secretId),
+            Lude.Just ("ResourcePolicy" Lude..= resourcePolicy)
           ]
       )
 
-instance ToPath PutResourcePolicy where
-  toPath = const "/"
+instance Lude.ToPath PutResourcePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery PutResourcePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutResourcePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putResourcePolicyResponse' smart constructor.
+-- | /See:/ 'mkPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
-  { _prprsARN ::
-      !(Maybe Text),
-    _prprsName :: !(Maybe Text),
-    _prprsResponseStatus :: !Int
+  { arn ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourcePolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prprsARN' - The ARN of the secret retrieved by the resource-based policy.
---
--- * 'prprsName' - The friendly name of the secret that the retrieved by the resource-based policy.
---
--- * 'prprsResponseStatus' - -- | The response status code.
-putResourcePolicyResponse ::
-  -- | 'prprsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the secret retrieved by the resource-based policy.
+-- * 'name' - The friendly name of the secret that the retrieved by the resource-based policy.
+-- * 'responseStatus' - The response status code.
+mkPutResourcePolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutResourcePolicyResponse
-putResourcePolicyResponse pResponseStatus_ =
+mkPutResourcePolicyResponse pResponseStatus_ =
   PutResourcePolicyResponse'
-    { _prprsARN = Nothing,
-      _prprsName = Nothing,
-      _prprsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the secret retrieved by the resource-based policy.
-prprsARN :: Lens' PutResourcePolicyResponse (Maybe Text)
-prprsARN = lens _prprsARN (\s a -> s {_prprsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prprsARN :: Lens.Lens' PutResourcePolicyResponse (Lude.Maybe Lude.Text)
+prprsARN = Lens.lens (arn :: PutResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PutResourcePolicyResponse)
+{-# DEPRECATED prprsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The friendly name of the secret that the retrieved by the resource-based policy.
-prprsName :: Lens' PutResourcePolicyResponse (Maybe Text)
-prprsName = lens _prprsName (\s a -> s {_prprsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prprsName :: Lens.Lens' PutResourcePolicyResponse (Lude.Maybe Lude.Text)
+prprsName = Lens.lens (name :: PutResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PutResourcePolicyResponse)
+{-# DEPRECATED prprsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-prprsResponseStatus :: Lens' PutResourcePolicyResponse Int
-prprsResponseStatus = lens _prprsResponseStatus (\s a -> s {_prprsResponseStatus = a})
-
-instance NFData PutResourcePolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prprsResponseStatus :: Lens.Lens' PutResourcePolicyResponse Lude.Int
+prprsResponseStatus = Lens.lens (responseStatus :: PutResourcePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutResourcePolicyResponse)
+{-# DEPRECATED prprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

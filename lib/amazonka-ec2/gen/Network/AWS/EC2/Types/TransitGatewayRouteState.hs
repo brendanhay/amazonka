@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayRouteState where
+module Network.AWS.EC2.Types.TransitGatewayRouteState
+  ( TransitGatewayRouteState
+      ( TransitGatewayRouteState',
+        TGRSActive,
+        TGRSBlackhole,
+        TGRSDeleted,
+        TGRSDeleting,
+        TGRSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransitGatewayRouteState
-  = TGRSActive
-  | TGRSBlackhole
-  | TGRSDeleted
-  | TGRSDeleting
-  | TGRSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransitGatewayRouteState = TransitGatewayRouteState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransitGatewayRouteState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure TGRSActive
-      "blackhole" -> pure TGRSBlackhole
-      "deleted" -> pure TGRSDeleted
-      "deleting" -> pure TGRSDeleting
-      "pending" -> pure TGRSPending
-      e ->
-        fromTextError $
-          "Failure parsing TransitGatewayRouteState from value: '" <> e
-            <> "'. Accepted values: active, blackhole, deleted, deleting, pending"
+pattern TGRSActive :: TransitGatewayRouteState
+pattern TGRSActive = TransitGatewayRouteState' "active"
 
-instance ToText TransitGatewayRouteState where
-  toText = \case
-    TGRSActive -> "active"
-    TGRSBlackhole -> "blackhole"
-    TGRSDeleted -> "deleted"
-    TGRSDeleting -> "deleting"
-    TGRSPending -> "pending"
+pattern TGRSBlackhole :: TransitGatewayRouteState
+pattern TGRSBlackhole = TransitGatewayRouteState' "blackhole"
 
-instance Hashable TransitGatewayRouteState
+pattern TGRSDeleted :: TransitGatewayRouteState
+pattern TGRSDeleted = TransitGatewayRouteState' "deleted"
 
-instance NFData TransitGatewayRouteState
+pattern TGRSDeleting :: TransitGatewayRouteState
+pattern TGRSDeleting = TransitGatewayRouteState' "deleting"
 
-instance ToByteString TransitGatewayRouteState
+pattern TGRSPending :: TransitGatewayRouteState
+pattern TGRSPending = TransitGatewayRouteState' "pending"
 
-instance ToQuery TransitGatewayRouteState
-
-instance ToHeader TransitGatewayRouteState
-
-instance FromXML TransitGatewayRouteState where
-  parseXML = parseXMLText "TransitGatewayRouteState"
+{-# COMPLETE
+  TGRSActive,
+  TGRSBlackhole,
+  TGRSDeleted,
+  TGRSDeleting,
+  TGRSPending,
+  TransitGatewayRouteState'
+  #-}

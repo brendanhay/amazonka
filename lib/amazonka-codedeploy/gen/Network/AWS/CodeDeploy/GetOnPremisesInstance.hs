@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,135 @@
 --
 -- Gets information about an on-premises instance.
 module Network.AWS.CodeDeploy.GetOnPremisesInstance
-  ( -- * Creating a Request
-    getOnPremisesInstance,
-    GetOnPremisesInstance,
+  ( -- * Creating a request
+    GetOnPremisesInstance (..),
+    mkGetOnPremisesInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gopiInstanceName,
 
-    -- * Destructuring the Response
-    getOnPremisesInstanceResponse,
-    GetOnPremisesInstanceResponse,
+    -- * Destructuring the response
+    GetOnPremisesInstanceResponse (..),
+    mkGetOnPremisesInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gopirsInstanceInfo,
     gopirsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @GetOnPremisesInstance@ operation.
 --
---
---
--- /See:/ 'getOnPremisesInstance' smart constructor.
+-- /See:/ 'mkGetOnPremisesInstance' smart constructor.
 newtype GetOnPremisesInstance = GetOnPremisesInstance'
-  { _gopiInstanceName ::
-      Text
+  { instanceName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOnPremisesInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gopiInstanceName' - The name of the on-premises instance about which to get information.
-getOnPremisesInstance ::
-  -- | 'gopiInstanceName'
-  Text ->
+-- * 'instanceName' - The name of the on-premises instance about which to get information.
+mkGetOnPremisesInstance ::
+  -- | 'instanceName'
+  Lude.Text ->
   GetOnPremisesInstance
-getOnPremisesInstance pInstanceName_ =
-  GetOnPremisesInstance' {_gopiInstanceName = pInstanceName_}
+mkGetOnPremisesInstance pInstanceName_ =
+  GetOnPremisesInstance' {instanceName = pInstanceName_}
 
 -- | The name of the on-premises instance about which to get information.
-gopiInstanceName :: Lens' GetOnPremisesInstance Text
-gopiInstanceName = lens _gopiInstanceName (\s a -> s {_gopiInstanceName = a})
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gopiInstanceName :: Lens.Lens' GetOnPremisesInstance Lude.Text
+gopiInstanceName = Lens.lens (instanceName :: GetOnPremisesInstance -> Lude.Text) (\s a -> s {instanceName = a} :: GetOnPremisesInstance)
+{-# DEPRECATED gopiInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance AWSRequest GetOnPremisesInstance where
+instance Lude.AWSRequest GetOnPremisesInstance where
   type Rs GetOnPremisesInstance = GetOnPremisesInstanceResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetOnPremisesInstanceResponse'
-            <$> (x .?> "instanceInfo") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "instanceInfo") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetOnPremisesInstance
-
-instance NFData GetOnPremisesInstance
-
-instance ToHeaders GetOnPremisesInstance where
+instance Lude.ToHeaders GetOnPremisesInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.GetOnPremisesInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.GetOnPremisesInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetOnPremisesInstance where
+instance Lude.ToJSON GetOnPremisesInstance where
   toJSON GetOnPremisesInstance' {..} =
-    object (catMaybes [Just ("instanceName" .= _gopiInstanceName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("instanceName" Lude..= instanceName)])
 
-instance ToPath GetOnPremisesInstance where
-  toPath = const "/"
+instance Lude.ToPath GetOnPremisesInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery GetOnPremisesInstance where
-  toQuery = const mempty
+instance Lude.ToQuery GetOnPremisesInstance where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetOnPremisesInstance@ operation.
 --
---
---
--- /See:/ 'getOnPremisesInstanceResponse' smart constructor.
+-- /See:/ 'mkGetOnPremisesInstanceResponse' smart constructor.
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
-  { _gopirsInstanceInfo ::
-      !(Maybe InstanceInfo),
-    _gopirsResponseStatus :: !Int
+  { instanceInfo ::
+      Lude.Maybe InstanceInfo,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOnPremisesInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gopirsInstanceInfo' - Information about the on-premises instance.
---
--- * 'gopirsResponseStatus' - -- | The response status code.
-getOnPremisesInstanceResponse ::
-  -- | 'gopirsResponseStatus'
-  Int ->
+-- * 'instanceInfo' - Information about the on-premises instance.
+-- * 'responseStatus' - The response status code.
+mkGetOnPremisesInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetOnPremisesInstanceResponse
-getOnPremisesInstanceResponse pResponseStatus_ =
+mkGetOnPremisesInstanceResponse pResponseStatus_ =
   GetOnPremisesInstanceResponse'
-    { _gopirsInstanceInfo = Nothing,
-      _gopirsResponseStatus = pResponseStatus_
+    { instanceInfo = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the on-premises instance.
-gopirsInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
-gopirsInstanceInfo = lens _gopirsInstanceInfo (\s a -> s {_gopirsInstanceInfo = a})
+--
+-- /Note:/ Consider using 'instanceInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gopirsInstanceInfo :: Lens.Lens' GetOnPremisesInstanceResponse (Lude.Maybe InstanceInfo)
+gopirsInstanceInfo = Lens.lens (instanceInfo :: GetOnPremisesInstanceResponse -> Lude.Maybe InstanceInfo) (\s a -> s {instanceInfo = a} :: GetOnPremisesInstanceResponse)
+{-# DEPRECATED gopirsInstanceInfo "Use generic-lens or generic-optics with 'instanceInfo' instead." #-}
 
--- | -- | The response status code.
-gopirsResponseStatus :: Lens' GetOnPremisesInstanceResponse Int
-gopirsResponseStatus = lens _gopirsResponseStatus (\s a -> s {_gopirsResponseStatus = a})
-
-instance NFData GetOnPremisesInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gopirsResponseStatus :: Lens.Lens' GetOnPremisesInstanceResponse Lude.Int
+gopirsResponseStatus = Lens.lens (responseStatus :: GetOnPremisesInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOnPremisesInstanceResponse)
+{-# DEPRECATED gopirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

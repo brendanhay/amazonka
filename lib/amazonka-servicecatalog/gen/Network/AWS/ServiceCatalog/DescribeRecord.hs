@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Gets information about the specified request operation.
 --
---
 -- Use this operation after calling a request operation (for example, 'ProvisionProduct' , 'TerminateProvisionedProduct' , or 'UpdateProvisionedProduct' ).
 module Network.AWS.ServiceCatalog.DescribeRecord
-  ( -- * Creating a Request
-    describeRecord,
-    DescribeRecord,
+  ( -- * Creating a request
+    DescribeRecord (..),
+    mkDescribeRecord,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drAcceptLanguage,
     drPageToken,
     drPageSize,
     drId,
 
-    -- * Destructuring the Response
-    describeRecordResponse,
-    DescribeRecordResponse,
+    -- * Destructuring the response
+    DescribeRecordResponse (..),
+    mkDescribeRecordResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drrsRecordDetail,
     drrsNextPageToken,
     drrsRecordOutputs,
@@ -44,152 +38,197 @@ module Network.AWS.ServiceCatalog.DescribeRecord
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'describeRecord' smart constructor.
+-- | /See:/ 'mkDescribeRecord' smart constructor.
 data DescribeRecord = DescribeRecord'
-  { _drAcceptLanguage ::
-      !(Maybe Text),
-    _drPageToken :: !(Maybe Text),
-    _drPageSize :: !(Maybe Nat),
-    _drId :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    pageToken :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Natural,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRecord' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'drAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'drPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+--     * @en@ - English (default)
 --
--- * 'drPageSize' - The maximum number of items to return with this call.
 --
--- * 'drId' - The record identifier of the provisioned product. This identifier is returned by the request operation.
-describeRecord ::
-  -- | 'drId'
-  Text ->
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'id' - The record identifier of the provisioned product. This identifier is returned by the request operation.
+-- * 'pageSize' - The maximum number of items to return with this call.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+mkDescribeRecord ::
+  -- | 'id'
+  Lude.Text ->
   DescribeRecord
-describeRecord pId_ =
+mkDescribeRecord pId_ =
   DescribeRecord'
-    { _drAcceptLanguage = Nothing,
-      _drPageToken = Nothing,
-      _drPageSize = Nothing,
-      _drId = pId_
+    { acceptLanguage = Lude.Nothing,
+      pageToken = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      id = pId_
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-drAcceptLanguage :: Lens' DescribeRecord (Maybe Text)
-drAcceptLanguage = lens _drAcceptLanguage (\s a -> s {_drAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drAcceptLanguage :: Lens.Lens' DescribeRecord (Lude.Maybe Lude.Text)
+drAcceptLanguage = Lens.lens (acceptLanguage :: DescribeRecord -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeRecord)
+{-# DEPRECATED drAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-drPageToken :: Lens' DescribeRecord (Maybe Text)
-drPageToken = lens _drPageToken (\s a -> s {_drPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drPageToken :: Lens.Lens' DescribeRecord (Lude.Maybe Lude.Text)
+drPageToken = Lens.lens (pageToken :: DescribeRecord -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: DescribeRecord)
+{-# DEPRECATED drPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
-drPageSize :: Lens' DescribeRecord (Maybe Natural)
-drPageSize = lens _drPageSize (\s a -> s {_drPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drPageSize :: Lens.Lens' DescribeRecord (Lude.Maybe Lude.Natural)
+drPageSize = Lens.lens (pageSize :: DescribeRecord -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: DescribeRecord)
+{-# DEPRECATED drPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The record identifier of the provisioned product. This identifier is returned by the request operation.
-drId :: Lens' DescribeRecord Text
-drId = lens _drId (\s a -> s {_drId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drId :: Lens.Lens' DescribeRecord Lude.Text
+drId = Lens.lens (id :: DescribeRecord -> Lude.Text) (\s a -> s {id = a} :: DescribeRecord)
+{-# DEPRECATED drId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DescribeRecord where
+instance Lude.AWSRequest DescribeRecord where
   type Rs DescribeRecord = DescribeRecordResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRecordResponse'
-            <$> (x .?> "RecordDetail")
-            <*> (x .?> "NextPageToken")
-            <*> (x .?> "RecordOutputs" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RecordDetail")
+            Lude.<*> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "RecordOutputs" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRecord
-
-instance NFData DescribeRecord
-
-instance ToHeaders DescribeRecord where
+instance Lude.ToHeaders DescribeRecord where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.DescribeRecord" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWS242ServiceCatalogService.DescribeRecord" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeRecord where
+instance Lude.ToJSON DescribeRecord where
   toJSON DescribeRecord' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _drAcceptLanguage,
-            ("PageToken" .=) <$> _drPageToken,
-            ("PageSize" .=) <$> _drPageSize,
-            Just ("Id" .= _drId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("PageToken" Lude..=) Lude.<$> pageToken,
+            ("PageSize" Lude..=) Lude.<$> pageSize,
+            Lude.Just ("Id" Lude..= id)
           ]
       )
 
-instance ToPath DescribeRecord where
-  toPath = const "/"
+instance Lude.ToPath DescribeRecord where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeRecord where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeRecord where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeRecordResponse' smart constructor.
+-- | /See:/ 'mkDescribeRecordResponse' smart constructor.
 data DescribeRecordResponse = DescribeRecordResponse'
-  { _drrsRecordDetail ::
-      !(Maybe RecordDetail),
-    _drrsNextPageToken :: !(Maybe Text),
-    _drrsRecordOutputs :: !(Maybe [RecordOutput]),
-    _drrsResponseStatus :: !Int
+  { recordDetail ::
+      Lude.Maybe RecordDetail,
+    nextPageToken :: Lude.Maybe Lude.Text,
+    recordOutputs :: Lude.Maybe [RecordOutput],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRecordResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsRecordDetail' - Information about the product.
---
--- * 'drrsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
---
--- * 'drrsRecordOutputs' - Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
---
--- * 'drrsResponseStatus' - -- | The response status code.
-describeRecordResponse ::
-  -- | 'drrsResponseStatus'
-  Int ->
+-- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'recordDetail' - Information about the product.
+-- * 'recordOutputs' - Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
+-- * 'responseStatus' - The response status code.
+mkDescribeRecordResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRecordResponse
-describeRecordResponse pResponseStatus_ =
+mkDescribeRecordResponse pResponseStatus_ =
   DescribeRecordResponse'
-    { _drrsRecordDetail = Nothing,
-      _drrsNextPageToken = Nothing,
-      _drrsRecordOutputs = Nothing,
-      _drrsResponseStatus = pResponseStatus_
+    { recordDetail = Lude.Nothing,
+      nextPageToken = Lude.Nothing,
+      recordOutputs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the product.
-drrsRecordDetail :: Lens' DescribeRecordResponse (Maybe RecordDetail)
-drrsRecordDetail = lens _drrsRecordDetail (\s a -> s {_drrsRecordDetail = a})
+--
+-- /Note:/ Consider using 'recordDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsRecordDetail :: Lens.Lens' DescribeRecordResponse (Lude.Maybe RecordDetail)
+drrsRecordDetail = Lens.lens (recordDetail :: DescribeRecordResponse -> Lude.Maybe RecordDetail) (\s a -> s {recordDetail = a} :: DescribeRecordResponse)
+{-# DEPRECATED drrsRecordDetail "Use generic-lens or generic-optics with 'recordDetail' instead." #-}
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-drrsNextPageToken :: Lens' DescribeRecordResponse (Maybe Text)
-drrsNextPageToken = lens _drrsNextPageToken (\s a -> s {_drrsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsNextPageToken :: Lens.Lens' DescribeRecordResponse (Lude.Maybe Lude.Text)
+drrsNextPageToken = Lens.lens (nextPageToken :: DescribeRecordResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: DescribeRecordResponse)
+{-# DEPRECATED drrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
-drrsRecordOutputs :: Lens' DescribeRecordResponse [RecordOutput]
-drrsRecordOutputs = lens _drrsRecordOutputs (\s a -> s {_drrsRecordOutputs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'recordOutputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsRecordOutputs :: Lens.Lens' DescribeRecordResponse (Lude.Maybe [RecordOutput])
+drrsRecordOutputs = Lens.lens (recordOutputs :: DescribeRecordResponse -> Lude.Maybe [RecordOutput]) (\s a -> s {recordOutputs = a} :: DescribeRecordResponse)
+{-# DEPRECATED drrsRecordOutputs "Use generic-lens or generic-optics with 'recordOutputs' instead." #-}
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DescribeRecordResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\s a -> s {_drrsResponseStatus = a})
-
-instance NFData DescribeRecordResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResponseStatus :: Lens.Lens' DescribeRecordResponse Lude.Int
+drrsResponseStatus = Lens.lens (responseStatus :: DescribeRecordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRecordResponse)
+{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

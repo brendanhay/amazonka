@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,132 @@
 --
 -- Deletes a Device Defender audit suppression.
 module Network.AWS.IoT.DeleteAuditSuppression
-  ( -- * Creating a Request
-    deleteAuditSuppression,
-    DeleteAuditSuppression,
+  ( -- * Creating a request
+    DeleteAuditSuppression (..),
+    mkDeleteAuditSuppression,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dasCheckName,
     dasResourceIdentifier,
 
-    -- * Destructuring the Response
-    deleteAuditSuppressionResponse,
-    DeleteAuditSuppressionResponse,
+    -- * Destructuring the response
+    DeleteAuditSuppressionResponse (..),
+    mkDeleteAuditSuppressionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dasrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAuditSuppression' smart constructor.
+-- | /See:/ 'mkDeleteAuditSuppression' smart constructor.
 data DeleteAuditSuppression = DeleteAuditSuppression'
-  { _dasCheckName ::
-      !Text,
-    _dasResourceIdentifier :: !ResourceIdentifier
+  { checkName ::
+      Lude.Text,
+    resourceIdentifier :: ResourceIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAuditSuppression' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dasCheckName' - Undocumented member.
---
--- * 'dasResourceIdentifier' - Undocumented member.
-deleteAuditSuppression ::
-  -- | 'dasCheckName'
-  Text ->
-  -- | 'dasResourceIdentifier'
+-- * 'checkName' - Undocumented field.
+-- * 'resourceIdentifier' - Undocumented field.
+mkDeleteAuditSuppression ::
+  -- | 'checkName'
+  Lude.Text ->
+  -- | 'resourceIdentifier'
   ResourceIdentifier ->
   DeleteAuditSuppression
-deleteAuditSuppression pCheckName_ pResourceIdentifier_ =
+mkDeleteAuditSuppression pCheckName_ pResourceIdentifier_ =
   DeleteAuditSuppression'
-    { _dasCheckName = pCheckName_,
-      _dasResourceIdentifier = pResourceIdentifier_
+    { checkName = pCheckName_,
+      resourceIdentifier = pResourceIdentifier_
     }
 
--- | Undocumented member.
-dasCheckName :: Lens' DeleteAuditSuppression Text
-dasCheckName = lens _dasCheckName (\s a -> s {_dasCheckName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasCheckName :: Lens.Lens' DeleteAuditSuppression Lude.Text
+dasCheckName = Lens.lens (checkName :: DeleteAuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: DeleteAuditSuppression)
+{-# DEPRECATED dasCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
--- | Undocumented member.
-dasResourceIdentifier :: Lens' DeleteAuditSuppression ResourceIdentifier
-dasResourceIdentifier = lens _dasResourceIdentifier (\s a -> s {_dasResourceIdentifier = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasResourceIdentifier :: Lens.Lens' DeleteAuditSuppression ResourceIdentifier
+dasResourceIdentifier = Lens.lens (resourceIdentifier :: DeleteAuditSuppression -> ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: DeleteAuditSuppression)
+{-# DEPRECATED dasResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance AWSRequest DeleteAuditSuppression where
+instance Lude.AWSRequest DeleteAuditSuppression where
   type Rs DeleteAuditSuppression = DeleteAuditSuppressionResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteAuditSuppressionResponse' <$> (pure (fromEnum s))
+          DeleteAuditSuppressionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteAuditSuppression
+instance Lude.ToHeaders DeleteAuditSuppression where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteAuditSuppression
-
-instance ToHeaders DeleteAuditSuppression where
-  toHeaders = const mempty
-
-instance ToJSON DeleteAuditSuppression where
+instance Lude.ToJSON DeleteAuditSuppression where
   toJSON DeleteAuditSuppression' {..} =
-    object
-      ( catMaybes
-          [ Just ("checkName" .= _dasCheckName),
-            Just ("resourceIdentifier" .= _dasResourceIdentifier)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("checkName" Lude..= checkName),
+            Lude.Just ("resourceIdentifier" Lude..= resourceIdentifier)
           ]
       )
 
-instance ToPath DeleteAuditSuppression where
-  toPath = const "/audit/suppressions/delete"
+instance Lude.ToPath DeleteAuditSuppression where
+  toPath = Lude.const "/audit/suppressions/delete"
 
-instance ToQuery DeleteAuditSuppression where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAuditSuppression where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAuditSuppressionResponse' smart constructor.
+-- | /See:/ 'mkDeleteAuditSuppressionResponse' smart constructor.
 newtype DeleteAuditSuppressionResponse = DeleteAuditSuppressionResponse'
-  { _dasrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAuditSuppressionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dasrsResponseStatus' - -- | The response status code.
-deleteAuditSuppressionResponse ::
-  -- | 'dasrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteAuditSuppressionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAuditSuppressionResponse
-deleteAuditSuppressionResponse pResponseStatus_ =
+mkDeleteAuditSuppressionResponse pResponseStatus_ =
   DeleteAuditSuppressionResponse'
-    { _dasrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dasrsResponseStatus :: Lens' DeleteAuditSuppressionResponse Int
-dasrsResponseStatus = lens _dasrsResponseStatus (\s a -> s {_dasrsResponseStatus = a})
-
-instance NFData DeleteAuditSuppressionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasrsResponseStatus :: Lens.Lens' DeleteAuditSuppressionResponse Lude.Int
+dasrsResponseStatus = Lens.lens (responseStatus :: DeleteAuditSuppressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAuditSuppressionResponse)
+{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

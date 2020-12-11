@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.ComputeResourceUpdate where
+module Network.AWS.Batch.Types.ComputeResourceUpdate
+  ( ComputeResourceUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkComputeResourceUpdate,
+
+    -- * Lenses
+    cruMinvCPUs,
+    cruMaxvCPUs,
+    cruDesiredvCPUs,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing the attributes of a compute environment that can be updated.
 --
---
---
--- /See:/ 'computeResourceUpdate' smart constructor.
+-- /See:/ 'mkComputeResourceUpdate' smart constructor.
 data ComputeResourceUpdate = ComputeResourceUpdate'
-  { _cruMinvCPUs ::
-      !(Maybe Int),
-    _cruMaxvCPUs :: !(Maybe Int),
-    _cruDesiredvCPUs :: !(Maybe Int)
+  { minvCPUs ::
+      Lude.Maybe Lude.Int,
+    maxvCPUs :: Lude.Maybe Lude.Int,
+    desiredvCPUs :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComputeResourceUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cruMinvCPUs' - The minimum number of Amazon EC2 vCPUs that an environment should maintain.
---
--- * 'cruMaxvCPUs' - The maximum number of Amazon EC2 vCPUs that an environment can reach.
---
--- * 'cruDesiredvCPUs' - The desired number of Amazon EC2 vCPUS in the compute environment.
-computeResourceUpdate ::
+-- * 'desiredvCPUs' - The desired number of Amazon EC2 vCPUS in the compute environment.
+-- * 'maxvCPUs' - The maximum number of Amazon EC2 vCPUs that an environment can reach.
+-- * 'minvCPUs' - The minimum number of Amazon EC2 vCPUs that an environment should maintain.
+mkComputeResourceUpdate ::
   ComputeResourceUpdate
-computeResourceUpdate =
+mkComputeResourceUpdate =
   ComputeResourceUpdate'
-    { _cruMinvCPUs = Nothing,
-      _cruMaxvCPUs = Nothing,
-      _cruDesiredvCPUs = Nothing
+    { minvCPUs = Lude.Nothing,
+      maxvCPUs = Lude.Nothing,
+      desiredvCPUs = Lude.Nothing
     }
 
 -- | The minimum number of Amazon EC2 vCPUs that an environment should maintain.
-cruMinvCPUs :: Lens' ComputeResourceUpdate (Maybe Int)
-cruMinvCPUs = lens _cruMinvCPUs (\s a -> s {_cruMinvCPUs = a})
+--
+-- /Note:/ Consider using 'minvCPUs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cruMinvCPUs :: Lens.Lens' ComputeResourceUpdate (Lude.Maybe Lude.Int)
+cruMinvCPUs = Lens.lens (minvCPUs :: ComputeResourceUpdate -> Lude.Maybe Lude.Int) (\s a -> s {minvCPUs = a} :: ComputeResourceUpdate)
+{-# DEPRECATED cruMinvCPUs "Use generic-lens or generic-optics with 'minvCPUs' instead." #-}
 
 -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
-cruMaxvCPUs :: Lens' ComputeResourceUpdate (Maybe Int)
-cruMaxvCPUs = lens _cruMaxvCPUs (\s a -> s {_cruMaxvCPUs = a})
+--
+-- /Note:/ Consider using 'maxvCPUs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cruMaxvCPUs :: Lens.Lens' ComputeResourceUpdate (Lude.Maybe Lude.Int)
+cruMaxvCPUs = Lens.lens (maxvCPUs :: ComputeResourceUpdate -> Lude.Maybe Lude.Int) (\s a -> s {maxvCPUs = a} :: ComputeResourceUpdate)
+{-# DEPRECATED cruMaxvCPUs "Use generic-lens or generic-optics with 'maxvCPUs' instead." #-}
 
 -- | The desired number of Amazon EC2 vCPUS in the compute environment.
-cruDesiredvCPUs :: Lens' ComputeResourceUpdate (Maybe Int)
-cruDesiredvCPUs = lens _cruDesiredvCPUs (\s a -> s {_cruDesiredvCPUs = a})
+--
+-- /Note:/ Consider using 'desiredvCPUs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cruDesiredvCPUs :: Lens.Lens' ComputeResourceUpdate (Lude.Maybe Lude.Int)
+cruDesiredvCPUs = Lens.lens (desiredvCPUs :: ComputeResourceUpdate -> Lude.Maybe Lude.Int) (\s a -> s {desiredvCPUs = a} :: ComputeResourceUpdate)
+{-# DEPRECATED cruDesiredvCPUs "Use generic-lens or generic-optics with 'desiredvCPUs' instead." #-}
 
-instance Hashable ComputeResourceUpdate
-
-instance NFData ComputeResourceUpdate
-
-instance ToJSON ComputeResourceUpdate where
+instance Lude.ToJSON ComputeResourceUpdate where
   toJSON ComputeResourceUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("minvCpus" .=) <$> _cruMinvCPUs,
-            ("maxvCpus" .=) <$> _cruMaxvCPUs,
-            ("desiredvCpus" .=) <$> _cruDesiredvCPUs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("minvCpus" Lude..=) Lude.<$> minvCPUs,
+            ("maxvCpus" Lude..=) Lude.<$> maxvCPUs,
+            ("desiredvCpus" Lude..=) Lude.<$> desiredvCPUs
           ]
       )

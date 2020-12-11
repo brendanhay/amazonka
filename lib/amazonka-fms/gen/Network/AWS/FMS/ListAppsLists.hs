@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Returns an array of @AppsListDataSummary@ objects.
 module Network.AWS.FMS.ListAppsLists
-  ( -- * Creating a Request
-    listAppsLists,
-    ListAppsLists,
+  ( -- * Creating a request
+    ListAppsLists (..),
+    mkListAppsLists,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lalDefaultLists,
     lalNextToken,
     lalMaxResults,
 
-    -- * Destructuring the Response
-    listAppsListsResponse,
-    ListAppsListsResponse,
+    -- * Destructuring the response
+    ListAppsListsResponse (..),
+    mkListAppsListsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lalrsNextToken,
     lalrsAppsLists,
     lalrsResponseStatus,
@@ -40,133 +35,156 @@ module Network.AWS.FMS.ListAppsLists
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAppsLists' smart constructor.
+-- | /See:/ 'mkListAppsLists' smart constructor.
 data ListAppsLists = ListAppsLists'
-  { _lalDefaultLists ::
-      !(Maybe Bool),
-    _lalNextToken :: !(Maybe Text),
-    _lalMaxResults :: !Nat
+  { defaultLists ::
+      Lude.Maybe Lude.Bool,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAppsLists' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'defaultLists' - Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.
+-- * 'maxResults' - The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects.
 --
--- * 'lalDefaultLists' - Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.
---
--- * 'lalNextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.
---
--- * 'lalMaxResults' - The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects. If you don't specify this, AWS Firewall Manager returns all available objects.
-listAppsLists ::
-  -- | 'lalMaxResults'
-  Natural ->
+-- If you don't specify this, AWS Firewall Manager returns all available objects.
+-- * 'nextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.
+mkListAppsLists ::
+  -- | 'maxResults'
+  Lude.Natural ->
   ListAppsLists
-listAppsLists pMaxResults_ =
+mkListAppsLists pMaxResults_ =
   ListAppsLists'
-    { _lalDefaultLists = Nothing,
-      _lalNextToken = Nothing,
-      _lalMaxResults = _Nat # pMaxResults_
+    { defaultLists = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = pMaxResults_
     }
 
 -- | Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.
-lalDefaultLists :: Lens' ListAppsLists (Maybe Bool)
-lalDefaultLists = lens _lalDefaultLists (\s a -> s {_lalDefaultLists = a})
+--
+-- /Note:/ Consider using 'defaultLists' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lalDefaultLists :: Lens.Lens' ListAppsLists (Lude.Maybe Lude.Bool)
+lalDefaultLists = Lens.lens (defaultLists :: ListAppsLists -> Lude.Maybe Lude.Bool) (\s a -> s {defaultLists = a} :: ListAppsLists)
+{-# DEPRECATED lalDefaultLists "Use generic-lens or generic-optics with 'defaultLists' instead." #-}
 
 -- | If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.
-lalNextToken :: Lens' ListAppsLists (Maybe Text)
-lalNextToken = lens _lalNextToken (\s a -> s {_lalNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lalNextToken :: Lens.Lens' ListAppsLists (Lude.Maybe Lude.Text)
+lalNextToken = Lens.lens (nextToken :: ListAppsLists -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAppsLists)
+{-# DEPRECATED lalNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects. If you don't specify this, AWS Firewall Manager returns all available objects.
-lalMaxResults :: Lens' ListAppsLists Natural
-lalMaxResults = lens _lalMaxResults (\s a -> s {_lalMaxResults = a}) . _Nat
+-- | The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects.
+--
+-- If you don't specify this, AWS Firewall Manager returns all available objects.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lalMaxResults :: Lens.Lens' ListAppsLists Lude.Natural
+lalMaxResults = Lens.lens (maxResults :: ListAppsLists -> Lude.Natural) (\s a -> s {maxResults = a} :: ListAppsLists)
+{-# DEPRECATED lalMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListAppsLists where
+instance Lude.AWSRequest ListAppsLists where
   type Rs ListAppsLists = ListAppsListsResponse
-  request = postJSON fms
+  request = Req.postJSON fmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAppsListsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "AppsLists" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "AppsLists" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAppsLists
-
-instance NFData ListAppsLists
-
-instance ToHeaders ListAppsLists where
+instance Lude.ToHeaders ListAppsLists where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSFMS_20180101.ListAppsLists" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSFMS_20180101.ListAppsLists" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAppsLists where
+instance Lude.ToJSON ListAppsLists where
   toJSON ListAppsLists' {..} =
-    object
-      ( catMaybes
-          [ ("DefaultLists" .=) <$> _lalDefaultLists,
-            ("NextToken" .=) <$> _lalNextToken,
-            Just ("MaxResults" .= _lalMaxResults)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DefaultLists" Lude..=) Lude.<$> defaultLists,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("MaxResults" Lude..= maxResults)
           ]
       )
 
-instance ToPath ListAppsLists where
-  toPath = const "/"
+instance Lude.ToPath ListAppsLists where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAppsLists where
-  toQuery = const mempty
+instance Lude.ToQuery ListAppsLists where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAppsListsResponse' smart constructor.
+-- | /See:/ 'mkListAppsListsResponse' smart constructor.
 data ListAppsListsResponse = ListAppsListsResponse'
-  { _lalrsNextToken ::
-      !(Maybe Text),
-    _lalrsAppsLists ::
-      !(Maybe [AppsListDataSummary]),
-    _lalrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    appsLists :: Lude.Maybe [AppsListDataSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAppsListsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lalrsNextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.
---
--- * 'lalrsAppsLists' - An array of @AppsListDataSummary@ objects.
---
--- * 'lalrsResponseStatus' - -- | The response status code.
-listAppsListsResponse ::
-  -- | 'lalrsResponseStatus'
-  Int ->
+-- * 'appsLists' - An array of @AppsListDataSummary@ objects.
+-- * 'nextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.
+-- * 'responseStatus' - The response status code.
+mkListAppsListsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAppsListsResponse
-listAppsListsResponse pResponseStatus_ =
+mkListAppsListsResponse pResponseStatus_ =
   ListAppsListsResponse'
-    { _lalrsNextToken = Nothing,
-      _lalrsAppsLists = Nothing,
-      _lalrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      appsLists = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.
-lalrsNextToken :: Lens' ListAppsListsResponse (Maybe Text)
-lalrsNextToken = lens _lalrsNextToken (\s a -> s {_lalrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lalrsNextToken :: Lens.Lens' ListAppsListsResponse (Lude.Maybe Lude.Text)
+lalrsNextToken = Lens.lens (nextToken :: ListAppsListsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAppsListsResponse)
+{-# DEPRECATED lalrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @AppsListDataSummary@ objects.
-lalrsAppsLists :: Lens' ListAppsListsResponse [AppsListDataSummary]
-lalrsAppsLists = lens _lalrsAppsLists (\s a -> s {_lalrsAppsLists = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'appsLists' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lalrsAppsLists :: Lens.Lens' ListAppsListsResponse (Lude.Maybe [AppsListDataSummary])
+lalrsAppsLists = Lens.lens (appsLists :: ListAppsListsResponse -> Lude.Maybe [AppsListDataSummary]) (\s a -> s {appsLists = a} :: ListAppsListsResponse)
+{-# DEPRECATED lalrsAppsLists "Use generic-lens or generic-optics with 'appsLists' instead." #-}
 
--- | -- | The response status code.
-lalrsResponseStatus :: Lens' ListAppsListsResponse Int
-lalrsResponseStatus = lens _lalrsResponseStatus (\s a -> s {_lalrsResponseStatus = a})
-
-instance NFData ListAppsListsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lalrsResponseStatus :: Lens.Lens' ListAppsListsResponse Lude.Int
+lalrsResponseStatus = Lens.lens (responseStatus :: ListAppsListsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAppsListsResponse)
+{-# DEPRECATED lalrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

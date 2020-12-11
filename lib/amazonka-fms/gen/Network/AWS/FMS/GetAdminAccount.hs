@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Returns the AWS Organizations master account that is associated with AWS Firewall Manager as the AWS Firewall Manager administrator.
 module Network.AWS.FMS.GetAdminAccount
-  ( -- * Creating a Request
-    getAdminAccount,
-    GetAdminAccount,
+  ( -- * Creating a request
+    GetAdminAccount (..),
+    mkGetAdminAccount,
 
-    -- * Destructuring the Response
-    getAdminAccountResponse,
-    GetAdminAccountResponse,
+    -- * Destructuring the response
+    GetAdminAccountResponse (..),
+    mkGetAdminAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gaarsAdminAccount,
     gaarsRoleStatus,
     gaarsResponseStatus,
@@ -35,95 +30,108 @@ module Network.AWS.FMS.GetAdminAccount
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAdminAccount' smart constructor.
+-- | /See:/ 'mkGetAdminAccount' smart constructor.
 data GetAdminAccount = GetAdminAccount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAdminAccount' with the minimum fields required to make a request.
-getAdminAccount ::
+mkGetAdminAccount ::
   GetAdminAccount
-getAdminAccount = GetAdminAccount'
+mkGetAdminAccount = GetAdminAccount'
 
-instance AWSRequest GetAdminAccount where
+instance Lude.AWSRequest GetAdminAccount where
   type Rs GetAdminAccount = GetAdminAccountResponse
-  request = postJSON fms
+  request = Req.postJSON fmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAdminAccountResponse'
-            <$> (x .?> "AdminAccount")
-            <*> (x .?> "RoleStatus")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AdminAccount")
+            Lude.<*> (x Lude..?> "RoleStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAdminAccount
-
-instance NFData GetAdminAccount
-
-instance ToHeaders GetAdminAccount where
+instance Lude.ToHeaders GetAdminAccount where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSFMS_20180101.GetAdminAccount" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSFMS_20180101.GetAdminAccount" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAdminAccount where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetAdminAccount where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetAdminAccount where
-  toPath = const "/"
+instance Lude.ToPath GetAdminAccount where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAdminAccount where
-  toQuery = const mempty
+instance Lude.ToQuery GetAdminAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAdminAccountResponse' smart constructor.
+-- | /See:/ 'mkGetAdminAccountResponse' smart constructor.
 data GetAdminAccountResponse = GetAdminAccountResponse'
-  { _gaarsAdminAccount ::
-      !(Maybe Text),
-    _gaarsRoleStatus ::
-      !(Maybe AccountRoleStatus),
-    _gaarsResponseStatus :: !Int
+  { adminAccount ::
+      Lude.Maybe Lude.Text,
+    roleStatus :: Lude.Maybe AccountRoleStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAdminAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaarsAdminAccount' - The AWS account that is set as the AWS Firewall Manager administrator.
---
--- * 'gaarsRoleStatus' - The status of the AWS account that you set as the AWS Firewall Manager administrator.
---
--- * 'gaarsResponseStatus' - -- | The response status code.
-getAdminAccountResponse ::
-  -- | 'gaarsResponseStatus'
-  Int ->
+-- * 'adminAccount' - The AWS account that is set as the AWS Firewall Manager administrator.
+-- * 'responseStatus' - The response status code.
+-- * 'roleStatus' - The status of the AWS account that you set as the AWS Firewall Manager administrator.
+mkGetAdminAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAdminAccountResponse
-getAdminAccountResponse pResponseStatus_ =
+mkGetAdminAccountResponse pResponseStatus_ =
   GetAdminAccountResponse'
-    { _gaarsAdminAccount = Nothing,
-      _gaarsRoleStatus = Nothing,
-      _gaarsResponseStatus = pResponseStatus_
+    { adminAccount = Lude.Nothing,
+      roleStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The AWS account that is set as the AWS Firewall Manager administrator.
-gaarsAdminAccount :: Lens' GetAdminAccountResponse (Maybe Text)
-gaarsAdminAccount = lens _gaarsAdminAccount (\s a -> s {_gaarsAdminAccount = a})
+--
+-- /Note:/ Consider using 'adminAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaarsAdminAccount :: Lens.Lens' GetAdminAccountResponse (Lude.Maybe Lude.Text)
+gaarsAdminAccount = Lens.lens (adminAccount :: GetAdminAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {adminAccount = a} :: GetAdminAccountResponse)
+{-# DEPRECATED gaarsAdminAccount "Use generic-lens or generic-optics with 'adminAccount' instead." #-}
 
 -- | The status of the AWS account that you set as the AWS Firewall Manager administrator.
-gaarsRoleStatus :: Lens' GetAdminAccountResponse (Maybe AccountRoleStatus)
-gaarsRoleStatus = lens _gaarsRoleStatus (\s a -> s {_gaarsRoleStatus = a})
+--
+-- /Note:/ Consider using 'roleStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaarsRoleStatus :: Lens.Lens' GetAdminAccountResponse (Lude.Maybe AccountRoleStatus)
+gaarsRoleStatus = Lens.lens (roleStatus :: GetAdminAccountResponse -> Lude.Maybe AccountRoleStatus) (\s a -> s {roleStatus = a} :: GetAdminAccountResponse)
+{-# DEPRECATED gaarsRoleStatus "Use generic-lens or generic-optics with 'roleStatus' instead." #-}
 
--- | -- | The response status code.
-gaarsResponseStatus :: Lens' GetAdminAccountResponse Int
-gaarsResponseStatus = lens _gaarsResponseStatus (\s a -> s {_gaarsResponseStatus = a})
-
-instance NFData GetAdminAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaarsResponseStatus :: Lens.Lens' GetAdminAccountResponse Lude.Int
+gaarsResponseStatus = Lens.lens (responseStatus :: GetAdminAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAdminAccountResponse)
+{-# DEPRECATED gaarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

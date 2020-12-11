@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,24 @@
 --
 -- This operation returns information about a job you previously initiated, including the job initiation date, the user who initiated the job, the job status code/message and the Amazon SNS topic to notify after Amazon S3 Glacier (Glacier) completes the job. For more information about initiating a job, see 'InitiateJob' .
 --
---
 -- A job ID will not expire for at least 24 hours after Glacier completes the job.
---
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
---
 -- For more information about using this operation, see the documentation for the underlying REST API <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-describe-job-get.html Describe Job> in the /Amazon Glacier Developer Guide/ .
 module Network.AWS.Glacier.DescribeJob
-  ( -- * Creating a Request
-    describeJob,
-    DescribeJob,
+  ( -- * Creating a request
+    DescribeJob (..),
+    mkDescribeJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     djAccountId,
     djVaultName,
     djJobId,
 
-    -- * Destructuring the Response
-    glacierJobDescription,
-    GlacierJobDescription,
+    -- * Destructuring the response
+    GlacierJobDescription (..),
+    mkGlacierJobDescription,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gjdSHA256TreeHash,
     gjdArchiveId,
     gjdSelectParameters,
@@ -65,81 +57,87 @@ module Network.AWS.Glacier.DescribeJob
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Provides options for retrieving a job description.
 --
---
---
--- /See:/ 'describeJob' smart constructor.
+-- /See:/ 'mkDescribeJob' smart constructor.
 data DescribeJob = DescribeJob'
-  { _djAccountId :: !Text,
-    _djVaultName :: !Text,
-    _djJobId :: !Text
+  { accountId :: Lude.Text,
+    vaultName :: Lude.Text,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'djAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- * 'djVaultName' - The name of the vault.
---
--- * 'djJobId' - The ID of the job to describe.
-describeJob ::
-  -- | 'djAccountId'
-  Text ->
-  -- | 'djVaultName'
-  Text ->
-  -- | 'djJobId'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'jobId' - The ID of the job to describe.
+-- * 'vaultName' - The name of the vault.
+mkDescribeJob ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
+  -- | 'jobId'
+  Lude.Text ->
   DescribeJob
-describeJob pAccountId_ pVaultName_ pJobId_ =
+mkDescribeJob pAccountId_ pVaultName_ pJobId_ =
   DescribeJob'
-    { _djAccountId = pAccountId_,
-      _djVaultName = pVaultName_,
-      _djJobId = pJobId_
+    { accountId = pAccountId_,
+      vaultName = pVaultName_,
+      jobId = pJobId_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-djAccountId :: Lens' DescribeJob Text
-djAccountId = lens _djAccountId (\s a -> s {_djAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djAccountId :: Lens.Lens' DescribeJob Lude.Text
+djAccountId = Lens.lens (accountId :: DescribeJob -> Lude.Text) (\s a -> s {accountId = a} :: DescribeJob)
+{-# DEPRECATED djAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-djVaultName :: Lens' DescribeJob Text
-djVaultName = lens _djVaultName (\s a -> s {_djVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djVaultName :: Lens.Lens' DescribeJob Lude.Text
+djVaultName = Lens.lens (vaultName :: DescribeJob -> Lude.Text) (\s a -> s {vaultName = a} :: DescribeJob)
+{-# DEPRECATED djVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The ID of the job to describe.
-djJobId :: Lens' DescribeJob Text
-djJobId = lens _djJobId (\s a -> s {_djJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djJobId :: Lens.Lens' DescribeJob Lude.Text
+djJobId = Lens.lens (jobId :: DescribeJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeJob)
+{-# DEPRECATED djJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest DescribeJob where
+instance Lude.AWSRequest DescribeJob where
   type Rs DescribeJob = GlacierJobDescription
-  request = get glacier
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get glacierService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable DescribeJob
+instance Lude.ToHeaders DescribeJob where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeJob
-
-instance ToHeaders DescribeJob where
-  toHeaders = const mempty
-
-instance ToPath DescribeJob where
+instance Lude.ToPath DescribeJob where
   toPath DescribeJob' {..} =
-    mconcat
+    Lude.mconcat
       [ "/",
-        toBS _djAccountId,
+        Lude.toBS accountId,
         "/vaults/",
-        toBS _djVaultName,
+        Lude.toBS vaultName,
         "/jobs/",
-        toBS _djJobId
+        Lude.toBS jobId
       ]
 
-instance ToQuery DescribeJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeJob where
+  toQuery = Lude.const Lude.mempty

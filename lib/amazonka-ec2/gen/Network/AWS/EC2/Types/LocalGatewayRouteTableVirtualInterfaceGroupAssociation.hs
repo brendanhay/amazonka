@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,150 +7,168 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociation where
+module Network.AWS.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+  ( LocalGatewayRouteTableVirtualInterfaceGroupAssociation (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+
+    -- * Lenses
+    lgrtvigaState,
+    lgrtvigaLocalGatewayRouteTableARN,
+    lgrtvigaLocalGatewayId,
+    lgrtvigaOwnerId,
+    lgrtvigaLocalGatewayRouteTableId,
+    lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId,
+    lgrtvigaLocalGatewayVirtualInterfaceGroupId,
+    lgrtvigaTags,
+  )
+where
+
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an association between a local gateway route table and a virtual interface group.
 --
---
---
--- /See:/ 'localGatewayRouteTableVirtualInterfaceGroupAssociation' smart constructor.
+-- /See:/ 'mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation' smart constructor.
 data LocalGatewayRouteTableVirtualInterfaceGroupAssociation = LocalGatewayRouteTableVirtualInterfaceGroupAssociation'
-  { _lgrtvigaState ::
-      !( Maybe
-           Text
-       ),
-    _lgrtvigaLocalGatewayRouteTableARN ::
-      !( Maybe
-           Text
-       ),
-    _lgrtvigaLocalGatewayId ::
-      !( Maybe
-           Text
-       ),
-    _lgrtvigaOwnerId ::
-      !( Maybe
-           Text
-       ),
-    _lgrtvigaLocalGatewayRouteTableId ::
-      !( Maybe
-           Text
-       ),
-    _lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId ::
-      !( Maybe
-           Text
-       ),
-    _lgrtvigaLocalGatewayVirtualInterfaceGroupId ::
-      !( Maybe
-           Text
-       ),
-    _lgrtvigaTags ::
-      !( Maybe
-           [Tag]
-       )
+  { state ::
+      Lude.Maybe
+        Lude.Text,
+    localGatewayRouteTableARN ::
+      Lude.Maybe
+        Lude.Text,
+    localGatewayId ::
+      Lude.Maybe
+        Lude.Text,
+    ownerId ::
+      Lude.Maybe
+        Lude.Text,
+    localGatewayRouteTableId ::
+      Lude.Maybe
+        Lude.Text,
+    localGatewayRouteTableVirtualInterfaceGroupAssociationId ::
+      Lude.Maybe
+        Lude.Text,
+    localGatewayVirtualInterfaceGroupId ::
+      Lude.Maybe
+        Lude.Text,
+    tags ::
+      Lude.Maybe
+        [Tag]
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'LocalGatewayRouteTableVirtualInterfaceGroupAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgrtvigaState' - The state of the association.
---
--- * 'lgrtvigaLocalGatewayRouteTableARN' - The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.
---
--- * 'lgrtvigaLocalGatewayId' - The ID of the local gateway.
---
--- * 'lgrtvigaOwnerId' - The AWS account ID that owns the local gateway virtual interface group association.
---
--- * 'lgrtvigaLocalGatewayRouteTableId' - The ID of the local gateway route table.
---
--- * 'lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId' - The ID of the association.
---
--- * 'lgrtvigaLocalGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
---
--- * 'lgrtvigaTags' - The tags assigned to the association.
-localGatewayRouteTableVirtualInterfaceGroupAssociation ::
+-- * 'localGatewayId' - The ID of the local gateway.
+-- * 'localGatewayRouteTableARN' - The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.
+-- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
+-- * 'localGatewayRouteTableVirtualInterfaceGroupAssociationId' - The ID of the association.
+-- * 'localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
+-- * 'ownerId' - The AWS account ID that owns the local gateway virtual interface group association.
+-- * 'state' - The state of the association.
+-- * 'tags' - The tags assigned to the association.
+mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation ::
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-localGatewayRouteTableVirtualInterfaceGroupAssociation =
+mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation =
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation'
-    { _lgrtvigaState =
-        Nothing,
-      _lgrtvigaLocalGatewayRouteTableARN =
-        Nothing,
-      _lgrtvigaLocalGatewayId = Nothing,
-      _lgrtvigaOwnerId = Nothing,
-      _lgrtvigaLocalGatewayRouteTableId =
-        Nothing,
-      _lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId =
-        Nothing,
-      _lgrtvigaLocalGatewayVirtualInterfaceGroupId =
-        Nothing,
-      _lgrtvigaTags = Nothing
+    { state =
+        Lude.Nothing,
+      localGatewayRouteTableARN =
+        Lude.Nothing,
+      localGatewayId = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      localGatewayRouteTableId = Lude.Nothing,
+      localGatewayRouteTableVirtualInterfaceGroupAssociationId =
+        Lude.Nothing,
+      localGatewayVirtualInterfaceGroupId =
+        Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The state of the association.
-lgrtvigaState :: Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Maybe Text)
-lgrtvigaState = lens _lgrtvigaState (\s a -> s {_lgrtvigaState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtvigaState :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Lude.Maybe Lude.Text)
+lgrtvigaState = Lens.lens (state :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
+{-# DEPRECATED lgrtvigaState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.
-lgrtvigaLocalGatewayRouteTableARN :: Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Maybe Text)
-lgrtvigaLocalGatewayRouteTableARN = lens _lgrtvigaLocalGatewayRouteTableARN (\s a -> s {_lgrtvigaLocalGatewayRouteTableARN = a})
+--
+-- /Note:/ Consider using 'localGatewayRouteTableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtvigaLocalGatewayRouteTableARN :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Lude.Maybe Lude.Text)
+lgrtvigaLocalGatewayRouteTableARN = Lens.lens (localGatewayRouteTableARN :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayRouteTableARN = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
+{-# DEPRECATED lgrtvigaLocalGatewayRouteTableARN "Use generic-lens or generic-optics with 'localGatewayRouteTableARN' instead." #-}
 
 -- | The ID of the local gateway.
-lgrtvigaLocalGatewayId :: Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Maybe Text)
-lgrtvigaLocalGatewayId = lens _lgrtvigaLocalGatewayId (\s a -> s {_lgrtvigaLocalGatewayId = a})
+--
+-- /Note:/ Consider using 'localGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtvigaLocalGatewayId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Lude.Maybe Lude.Text)
+lgrtvigaLocalGatewayId = Lens.lens (localGatewayId :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
+{-# DEPRECATED lgrtvigaLocalGatewayId "Use generic-lens or generic-optics with 'localGatewayId' instead." #-}
 
 -- | The AWS account ID that owns the local gateway virtual interface group association.
-lgrtvigaOwnerId :: Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Maybe Text)
-lgrtvigaOwnerId = lens _lgrtvigaOwnerId (\s a -> s {_lgrtvigaOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtvigaOwnerId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Lude.Maybe Lude.Text)
+lgrtvigaOwnerId = Lens.lens (ownerId :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
+{-# DEPRECATED lgrtvigaOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The ID of the local gateway route table.
-lgrtvigaLocalGatewayRouteTableId :: Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Maybe Text)
-lgrtvigaLocalGatewayRouteTableId = lens _lgrtvigaLocalGatewayRouteTableId (\s a -> s {_lgrtvigaLocalGatewayRouteTableId = a})
+--
+-- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtvigaLocalGatewayRouteTableId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Lude.Maybe Lude.Text)
+lgrtvigaLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
+{-# DEPRECATED lgrtvigaLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
 
 -- | The ID of the association.
-lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId :: Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Maybe Text)
-lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId = lens _lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId (\s a -> s {_lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId = a})
+--
+-- /Note:/ Consider using 'localGatewayRouteTableVirtualInterfaceGroupAssociationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Lude.Maybe Lude.Text)
+lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId = Lens.lens (localGatewayRouteTableVirtualInterfaceGroupAssociationId :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayRouteTableVirtualInterfaceGroupAssociationId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
+{-# DEPRECATED lgrtvigaLocalGatewayRouteTableVirtualInterfaceGroupAssociationId "Use generic-lens or generic-optics with 'localGatewayRouteTableVirtualInterfaceGroupAssociationId' instead." #-}
 
 -- | The ID of the virtual interface group.
-lgrtvigaLocalGatewayVirtualInterfaceGroupId :: Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Maybe Text)
-lgrtvigaLocalGatewayVirtualInterfaceGroupId = lens _lgrtvigaLocalGatewayVirtualInterfaceGroupId (\s a -> s {_lgrtvigaLocalGatewayVirtualInterfaceGroupId = a})
+--
+-- /Note:/ Consider using 'localGatewayVirtualInterfaceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtvigaLocalGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Lude.Maybe Lude.Text)
+lgrtvigaLocalGatewayVirtualInterfaceGroupId = Lens.lens (localGatewayVirtualInterfaceGroupId :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayVirtualInterfaceGroupId = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
+{-# DEPRECATED lgrtvigaLocalGatewayVirtualInterfaceGroupId "Use generic-lens or generic-optics with 'localGatewayVirtualInterfaceGroupId' instead." #-}
 
 -- | The tags assigned to the association.
-lgrtvigaTags :: Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation [Tag]
-lgrtvigaTags = lens _lgrtvigaTags (\s a -> s {_lgrtvigaTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrtvigaTags :: Lens.Lens' LocalGatewayRouteTableVirtualInterfaceGroupAssociation (Lude.Maybe [Tag])
+lgrtvigaTags = Lens.lens (tags :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
+{-# DEPRECATED lgrtvigaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance
-  FromXML
+  Lude.FromXML
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation
   where
   parseXML x =
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation'
-      <$> (x .@? "state")
-      <*> (x .@? "localGatewayRouteTableArn")
-      <*> (x .@? "localGatewayId")
-      <*> (x .@? "ownerId")
-      <*> (x .@? "localGatewayRouteTableId")
-      <*> (x .@? "localGatewayRouteTableVirtualInterfaceGroupAssociationId")
-      <*> (x .@? "localGatewayVirtualInterfaceGroupId")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance
-  Hashable
-    LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-
-instance
-  NFData
-    LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "localGatewayRouteTableArn")
+      Lude.<*> (x Lude..@? "localGatewayId")
+      Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> (x Lude..@? "localGatewayRouteTableId")
+      Lude.<*> ( x
+                   Lude..@? "localGatewayRouteTableVirtualInterfaceGroupAssociationId"
+               )
+      Lude.<*> (x Lude..@? "localGatewayVirtualInterfaceGroupId")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

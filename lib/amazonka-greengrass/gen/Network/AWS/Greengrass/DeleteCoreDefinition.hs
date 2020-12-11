@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,101 +14,113 @@
 --
 -- Deletes a core definition.
 module Network.AWS.Greengrass.DeleteCoreDefinition
-  ( -- * Creating a Request
-    deleteCoreDefinition,
-    DeleteCoreDefinition,
+  ( -- * Creating a request
+    DeleteCoreDefinition (..),
+    mkDeleteCoreDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcdCoreDefinitionId,
 
-    -- * Destructuring the Response
-    deleteCoreDefinitionResponse,
-    DeleteCoreDefinitionResponse,
+    -- * Destructuring the response
+    DeleteCoreDefinitionResponse (..),
+    mkDeleteCoreDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteCoreDefinition' smart constructor.
+-- | /See:/ 'mkDeleteCoreDefinition' smart constructor.
 newtype DeleteCoreDefinition = DeleteCoreDefinition'
-  { _dcdCoreDefinitionId ::
-      Text
+  { coreDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCoreDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcdCoreDefinitionId' - The ID of the core definition.
-deleteCoreDefinition ::
-  -- | 'dcdCoreDefinitionId'
-  Text ->
+-- * 'coreDefinitionId' - The ID of the core definition.
+mkDeleteCoreDefinition ::
+  -- | 'coreDefinitionId'
+  Lude.Text ->
   DeleteCoreDefinition
-deleteCoreDefinition pCoreDefinitionId_ =
-  DeleteCoreDefinition' {_dcdCoreDefinitionId = pCoreDefinitionId_}
+mkDeleteCoreDefinition pCoreDefinitionId_ =
+  DeleteCoreDefinition' {coreDefinitionId = pCoreDefinitionId_}
 
 -- | The ID of the core definition.
-dcdCoreDefinitionId :: Lens' DeleteCoreDefinition Text
-dcdCoreDefinitionId = lens _dcdCoreDefinitionId (\s a -> s {_dcdCoreDefinitionId = a})
+--
+-- /Note:/ Consider using 'coreDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcdCoreDefinitionId :: Lens.Lens' DeleteCoreDefinition Lude.Text
+dcdCoreDefinitionId = Lens.lens (coreDefinitionId :: DeleteCoreDefinition -> Lude.Text) (\s a -> s {coreDefinitionId = a} :: DeleteCoreDefinition)
+{-# DEPRECATED dcdCoreDefinitionId "Use generic-lens or generic-optics with 'coreDefinitionId' instead." #-}
 
-instance AWSRequest DeleteCoreDefinition where
+instance Lude.AWSRequest DeleteCoreDefinition where
   type Rs DeleteCoreDefinition = DeleteCoreDefinitionResponse
-  request = delete greengrass
+  request = Req.delete greengrassService
   response =
-    receiveEmpty
-      (\s h x -> DeleteCoreDefinitionResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteCoreDefinition
-
-instance NFData DeleteCoreDefinition
-
-instance ToHeaders DeleteCoreDefinition where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteCoreDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath DeleteCoreDefinition where
+instance Lude.ToHeaders DeleteCoreDefinition where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToPath DeleteCoreDefinition where
   toPath DeleteCoreDefinition' {..} =
-    mconcat
-      ["/greengrass/definition/cores/", toBS _dcdCoreDefinitionId]
+    Lude.mconcat
+      ["/greengrass/definition/cores/", Lude.toBS coreDefinitionId]
 
-instance ToQuery DeleteCoreDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCoreDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteCoreDefinitionResponse' smart constructor.
+-- | /See:/ 'mkDeleteCoreDefinitionResponse' smart constructor.
 newtype DeleteCoreDefinitionResponse = DeleteCoreDefinitionResponse'
-  { _drsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCoreDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteCoreDefinitionResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteCoreDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteCoreDefinitionResponse
-deleteCoreDefinitionResponse pResponseStatus_ =
-  DeleteCoreDefinitionResponse'
-    { _drsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteCoreDefinitionResponse pResponseStatus_ =
+  DeleteCoreDefinitionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteCoreDefinitionResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteCoreDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteCoreDefinitionResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteCoreDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCoreDefinitionResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

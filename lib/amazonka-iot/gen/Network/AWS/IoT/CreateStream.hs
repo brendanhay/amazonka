@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream.
 module Network.AWS.IoT.CreateStream
-  ( -- * Creating a Request
-    createStream,
-    CreateStream,
+  ( -- * Creating a request
+    CreateStream (..),
+    mkCreateStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csDescription,
     csTags,
     csStreamId,
     csFiles,
     csRoleARN,
 
-    -- * Destructuring the Response
-    createStreamResponse,
-    CreateStreamResponse,
+    -- * Destructuring the response
+    CreateStreamResponse (..),
+    mkCreateStreamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csrsStreamVersion,
     csrsStreamARN,
     csrsDescription,
@@ -44,164 +39,192 @@ module Network.AWS.IoT.CreateStream
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createStream' smart constructor.
+-- | /See:/ 'mkCreateStream' smart constructor.
 data CreateStream = CreateStream'
-  { _csDescription :: !(Maybe Text),
-    _csTags :: !(Maybe [Tag]),
-    _csStreamId :: !Text,
-    _csFiles :: !(List1 StreamFile),
-    _csRoleARN :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    streamId :: Lude.Text,
+    files :: Lude.NonEmpty StreamFile,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csDescription' - A description of the stream.
---
--- * 'csTags' - Metadata which can be used to manage streams.
---
--- * 'csStreamId' - The stream ID.
---
--- * 'csFiles' - The files to stream.
---
--- * 'csRoleARN' - An IAM role that allows the IoT service principal assumes to access your S3 files.
-createStream ::
-  -- | 'csStreamId'
-  Text ->
-  -- | 'csFiles'
-  NonEmpty StreamFile ->
-  -- | 'csRoleARN'
-  Text ->
+-- * 'description' - A description of the stream.
+-- * 'files' - The files to stream.
+-- * 'roleARN' - An IAM role that allows the IoT service principal assumes to access your S3 files.
+-- * 'streamId' - The stream ID.
+-- * 'tags' - Metadata which can be used to manage streams.
+mkCreateStream ::
+  -- | 'streamId'
+  Lude.Text ->
+  -- | 'files'
+  Lude.NonEmpty StreamFile ->
+  -- | 'roleARN'
+  Lude.Text ->
   CreateStream
-createStream pStreamId_ pFiles_ pRoleARN_ =
+mkCreateStream pStreamId_ pFiles_ pRoleARN_ =
   CreateStream'
-    { _csDescription = Nothing,
-      _csTags = Nothing,
-      _csStreamId = pStreamId_,
-      _csFiles = _List1 # pFiles_,
-      _csRoleARN = pRoleARN_
+    { description = Lude.Nothing,
+      tags = Lude.Nothing,
+      streamId = pStreamId_,
+      files = pFiles_,
+      roleARN = pRoleARN_
     }
 
 -- | A description of the stream.
-csDescription :: Lens' CreateStream (Maybe Text)
-csDescription = lens _csDescription (\s a -> s {_csDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDescription :: Lens.Lens' CreateStream (Lude.Maybe Lude.Text)
+csDescription = Lens.lens (description :: CreateStream -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateStream)
+{-# DEPRECATED csDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Metadata which can be used to manage streams.
-csTags :: Lens' CreateStream [Tag]
-csTags = lens _csTags (\s a -> s {_csTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTags :: Lens.Lens' CreateStream (Lude.Maybe [Tag])
+csTags = Lens.lens (tags :: CreateStream -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateStream)
+{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The stream ID.
-csStreamId :: Lens' CreateStream Text
-csStreamId = lens _csStreamId (\s a -> s {_csStreamId = a})
+--
+-- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStreamId :: Lens.Lens' CreateStream Lude.Text
+csStreamId = Lens.lens (streamId :: CreateStream -> Lude.Text) (\s a -> s {streamId = a} :: CreateStream)
+{-# DEPRECATED csStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
 
 -- | The files to stream.
-csFiles :: Lens' CreateStream (NonEmpty StreamFile)
-csFiles = lens _csFiles (\s a -> s {_csFiles = a}) . _List1
+--
+-- /Note:/ Consider using 'files' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csFiles :: Lens.Lens' CreateStream (Lude.NonEmpty StreamFile)
+csFiles = Lens.lens (files :: CreateStream -> Lude.NonEmpty StreamFile) (\s a -> s {files = a} :: CreateStream)
+{-# DEPRECATED csFiles "Use generic-lens or generic-optics with 'files' instead." #-}
 
 -- | An IAM role that allows the IoT service principal assumes to access your S3 files.
-csRoleARN :: Lens' CreateStream Text
-csRoleARN = lens _csRoleARN (\s a -> s {_csRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csRoleARN :: Lens.Lens' CreateStream Lude.Text
+csRoleARN = Lens.lens (roleARN :: CreateStream -> Lude.Text) (\s a -> s {roleARN = a} :: CreateStream)
+{-# DEPRECATED csRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance AWSRequest CreateStream where
+instance Lude.AWSRequest CreateStream where
   type Rs CreateStream = CreateStreamResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateStreamResponse'
-            <$> (x .?> "streamVersion")
-            <*> (x .?> "streamArn")
-            <*> (x .?> "description")
-            <*> (x .?> "streamId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "streamVersion")
+            Lude.<*> (x Lude..?> "streamArn")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (x Lude..?> "streamId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateStream
+instance Lude.ToHeaders CreateStream where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateStream
-
-instance ToHeaders CreateStream where
-  toHeaders = const mempty
-
-instance ToJSON CreateStream where
+instance Lude.ToJSON CreateStream where
   toJSON CreateStream' {..} =
-    object
-      ( catMaybes
-          [ ("description" .=) <$> _csDescription,
-            ("tags" .=) <$> _csTags,
-            Just ("files" .= _csFiles),
-            Just ("roleArn" .= _csRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("files" Lude..= files),
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )
 
-instance ToPath CreateStream where
-  toPath CreateStream' {..} = mconcat ["/streams/", toBS _csStreamId]
+instance Lude.ToPath CreateStream where
+  toPath CreateStream' {..} =
+    Lude.mconcat ["/streams/", Lude.toBS streamId]
 
-instance ToQuery CreateStream where
-  toQuery = const mempty
+instance Lude.ToQuery CreateStream where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createStreamResponse' smart constructor.
+-- | /See:/ 'mkCreateStreamResponse' smart constructor.
 data CreateStreamResponse = CreateStreamResponse'
-  { _csrsStreamVersion ::
-      !(Maybe Nat),
-    _csrsStreamARN :: !(Maybe Text),
-    _csrsDescription :: !(Maybe Text),
-    _csrsStreamId :: !(Maybe Text),
-    _csrsResponseStatus :: !Int
+  { streamVersion ::
+      Lude.Maybe Lude.Natural,
+    streamARN :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    streamId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csrsStreamVersion' - The version of the stream.
---
--- * 'csrsStreamARN' - The stream ARN.
---
--- * 'csrsDescription' - A description of the stream.
---
--- * 'csrsStreamId' - The stream ID.
---
--- * 'csrsResponseStatus' - -- | The response status code.
-createStreamResponse ::
-  -- | 'csrsResponseStatus'
-  Int ->
+-- * 'description' - A description of the stream.
+-- * 'responseStatus' - The response status code.
+-- * 'streamARN' - The stream ARN.
+-- * 'streamId' - The stream ID.
+-- * 'streamVersion' - The version of the stream.
+mkCreateStreamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateStreamResponse
-createStreamResponse pResponseStatus_ =
+mkCreateStreamResponse pResponseStatus_ =
   CreateStreamResponse'
-    { _csrsStreamVersion = Nothing,
-      _csrsStreamARN = Nothing,
-      _csrsDescription = Nothing,
-      _csrsStreamId = Nothing,
-      _csrsResponseStatus = pResponseStatus_
+    { streamVersion = Lude.Nothing,
+      streamARN = Lude.Nothing,
+      description = Lude.Nothing,
+      streamId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The version of the stream.
-csrsStreamVersion :: Lens' CreateStreamResponse (Maybe Natural)
-csrsStreamVersion = lens _csrsStreamVersion (\s a -> s {_csrsStreamVersion = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'streamVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsStreamVersion :: Lens.Lens' CreateStreamResponse (Lude.Maybe Lude.Natural)
+csrsStreamVersion = Lens.lens (streamVersion :: CreateStreamResponse -> Lude.Maybe Lude.Natural) (\s a -> s {streamVersion = a} :: CreateStreamResponse)
+{-# DEPRECATED csrsStreamVersion "Use generic-lens or generic-optics with 'streamVersion' instead." #-}
 
 -- | The stream ARN.
-csrsStreamARN :: Lens' CreateStreamResponse (Maybe Text)
-csrsStreamARN = lens _csrsStreamARN (\s a -> s {_csrsStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsStreamARN :: Lens.Lens' CreateStreamResponse (Lude.Maybe Lude.Text)
+csrsStreamARN = Lens.lens (streamARN :: CreateStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: CreateStreamResponse)
+{-# DEPRECATED csrsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | A description of the stream.
-csrsDescription :: Lens' CreateStreamResponse (Maybe Text)
-csrsDescription = lens _csrsDescription (\s a -> s {_csrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsDescription :: Lens.Lens' CreateStreamResponse (Lude.Maybe Lude.Text)
+csrsDescription = Lens.lens (description :: CreateStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateStreamResponse)
+{-# DEPRECATED csrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The stream ID.
-csrsStreamId :: Lens' CreateStreamResponse (Maybe Text)
-csrsStreamId = lens _csrsStreamId (\s a -> s {_csrsStreamId = a})
+--
+-- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsStreamId :: Lens.Lens' CreateStreamResponse (Lude.Maybe Lude.Text)
+csrsStreamId = Lens.lens (streamId :: CreateStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamId = a} :: CreateStreamResponse)
+{-# DEPRECATED csrsStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CreateStreamResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\s a -> s {_csrsResponseStatus = a})
-
-instance NFData CreateStreamResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' CreateStreamResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CreateStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStreamResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

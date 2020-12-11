@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,156 @@
 --
 -- Tests the connection between the replication instance and the endpoint.
 module Network.AWS.DMS.TestConnection
-  ( -- * Creating a Request
-    testConnection,
-    TestConnection,
+  ( -- * Creating a request
+    TestConnection (..),
+    mkTestConnection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     tcReplicationInstanceARN,
     tcEndpointARN,
 
-    -- * Destructuring the Response
-    testConnectionResponse,
-    TestConnectionResponse,
+    -- * Destructuring the response
+    TestConnectionResponse (..),
+    mkTestConnectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     tcrsConnection,
     tcrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'testConnection' smart constructor.
+-- /See:/ 'mkTestConnection' smart constructor.
 data TestConnection = TestConnection'
-  { _tcReplicationInstanceARN ::
-      !Text,
-    _tcEndpointARN :: !Text
+  { replicationInstanceARN ::
+      Lude.Text,
+    endpointARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcReplicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
---
--- * 'tcEndpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-testConnection ::
-  -- | 'tcReplicationInstanceARN'
-  Text ->
-  -- | 'tcEndpointARN'
-  Text ->
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+-- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+mkTestConnection ::
+  -- | 'replicationInstanceARN'
+  Lude.Text ->
+  -- | 'endpointARN'
+  Lude.Text ->
   TestConnection
-testConnection pReplicationInstanceARN_ pEndpointARN_ =
+mkTestConnection pReplicationInstanceARN_ pEndpointARN_ =
   TestConnection'
-    { _tcReplicationInstanceARN =
+    { replicationInstanceARN =
         pReplicationInstanceARN_,
-      _tcEndpointARN = pEndpointARN_
+      endpointARN = pEndpointARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
-tcReplicationInstanceARN :: Lens' TestConnection Text
-tcReplicationInstanceARN = lens _tcReplicationInstanceARN (\s a -> s {_tcReplicationInstanceARN = a})
+--
+-- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcReplicationInstanceARN :: Lens.Lens' TestConnection Lude.Text
+tcReplicationInstanceARN = Lens.lens (replicationInstanceARN :: TestConnection -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: TestConnection)
+{-# DEPRECATED tcReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-tcEndpointARN :: Lens' TestConnection Text
-tcEndpointARN = lens _tcEndpointARN (\s a -> s {_tcEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcEndpointARN :: Lens.Lens' TestConnection Lude.Text
+tcEndpointARN = Lens.lens (endpointARN :: TestConnection -> Lude.Text) (\s a -> s {endpointARN = a} :: TestConnection)
+{-# DEPRECATED tcEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
-instance AWSRequest TestConnection where
+instance Lude.AWSRequest TestConnection where
   type Rs TestConnection = TestConnectionResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           TestConnectionResponse'
-            <$> (x .?> "Connection") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Connection") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable TestConnection
-
-instance NFData TestConnection
-
-instance ToHeaders TestConnection where
+instance Lude.ToHeaders TestConnection where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.TestConnection" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.TestConnection" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON TestConnection where
+instance Lude.ToJSON TestConnection where
   toJSON TestConnection' {..} =
-    object
-      ( catMaybes
-          [ Just ("ReplicationInstanceArn" .= _tcReplicationInstanceARN),
-            Just ("EndpointArn" .= _tcEndpointARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN),
+            Lude.Just ("EndpointArn" Lude..= endpointARN)
           ]
       )
 
-instance ToPath TestConnection where
-  toPath = const "/"
+instance Lude.ToPath TestConnection where
+  toPath = Lude.const "/"
 
-instance ToQuery TestConnection where
-  toQuery = const mempty
+instance Lude.ToQuery TestConnection where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'testConnectionResponse' smart constructor.
+-- /See:/ 'mkTestConnectionResponse' smart constructor.
 data TestConnectionResponse = TestConnectionResponse'
-  { _tcrsConnection ::
-      !(Maybe Connection),
-    _tcrsResponseStatus :: !Int
+  { connection ::
+      Lude.Maybe Connection,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestConnectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcrsConnection' - The connection tested.
---
--- * 'tcrsResponseStatus' - -- | The response status code.
-testConnectionResponse ::
-  -- | 'tcrsResponseStatus'
-  Int ->
+-- * 'connection' - The connection tested.
+-- * 'responseStatus' - The response status code.
+mkTestConnectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TestConnectionResponse
-testConnectionResponse pResponseStatus_ =
+mkTestConnectionResponse pResponseStatus_ =
   TestConnectionResponse'
-    { _tcrsConnection = Nothing,
-      _tcrsResponseStatus = pResponseStatus_
+    { connection = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The connection tested.
-tcrsConnection :: Lens' TestConnectionResponse (Maybe Connection)
-tcrsConnection = lens _tcrsConnection (\s a -> s {_tcrsConnection = a})
+--
+-- /Note:/ Consider using 'connection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcrsConnection :: Lens.Lens' TestConnectionResponse (Lude.Maybe Connection)
+tcrsConnection = Lens.lens (connection :: TestConnectionResponse -> Lude.Maybe Connection) (\s a -> s {connection = a} :: TestConnectionResponse)
+{-# DEPRECATED tcrsConnection "Use generic-lens or generic-optics with 'connection' instead." #-}
 
--- | -- | The response status code.
-tcrsResponseStatus :: Lens' TestConnectionResponse Int
-tcrsResponseStatus = lens _tcrsResponseStatus (\s a -> s {_tcrsResponseStatus = a})
-
-instance NFData TestConnectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcrsResponseStatus :: Lens.Lens' TestConnectionResponse Lude.Int
+tcrsResponseStatus = Lens.lens (responseStatus :: TestConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestConnectionResponse)
+{-# DEPRECATED tcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

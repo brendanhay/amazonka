@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.ECSService where
+module Network.AWS.CodeDeploy.Types.ECSService
+  ( ECSService (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkECSService,
+
+    -- * Lenses
+    ecssServiceName,
+    ecssClusterName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the service and cluster names used to identify an Amazon ECS deployment's target.
 --
---
---
--- /See:/ 'eCSService' smart constructor.
+-- /See:/ 'mkECSService' smart constructor.
 data ECSService = ECSService'
-  { _ecssServiceName :: !(Maybe Text),
-    _ecssClusterName :: !(Maybe Text)
+  { serviceName :: Lude.Maybe Lude.Text,
+    clusterName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ECSService' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecssServiceName' - The name of the target Amazon ECS service.
---
--- * 'ecssClusterName' - The name of the cluster that the Amazon ECS service is associated with.
-eCSService ::
+-- * 'clusterName' - The name of the cluster that the Amazon ECS service is associated with.
+-- * 'serviceName' - The name of the target Amazon ECS service.
+mkECSService ::
   ECSService
-eCSService =
+mkECSService =
   ECSService'
-    { _ecssServiceName = Nothing,
-      _ecssClusterName = Nothing
+    { serviceName = Lude.Nothing,
+      clusterName = Lude.Nothing
     }
 
 -- | The name of the target Amazon ECS service.
-ecssServiceName :: Lens' ECSService (Maybe Text)
-ecssServiceName = lens _ecssServiceName (\s a -> s {_ecssServiceName = a})
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecssServiceName :: Lens.Lens' ECSService (Lude.Maybe Lude.Text)
+ecssServiceName = Lens.lens (serviceName :: ECSService -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: ECSService)
+{-# DEPRECATED ecssServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The name of the cluster that the Amazon ECS service is associated with.
-ecssClusterName :: Lens' ECSService (Maybe Text)
-ecssClusterName = lens _ecssClusterName (\s a -> s {_ecssClusterName = a})
+--
+-- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecssClusterName :: Lens.Lens' ECSService (Lude.Maybe Lude.Text)
+ecssClusterName = Lens.lens (clusterName :: ECSService -> Lude.Maybe Lude.Text) (\s a -> s {clusterName = a} :: ECSService)
+{-# DEPRECATED ecssClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
 
-instance FromJSON ECSService where
+instance Lude.FromJSON ECSService where
   parseJSON =
-    withObject
+    Lude.withObject
       "ECSService"
       ( \x ->
-          ECSService' <$> (x .:? "serviceName") <*> (x .:? "clusterName")
+          ECSService'
+            Lude.<$> (x Lude..:? "serviceName") Lude.<*> (x Lude..:? "clusterName")
       )
 
-instance Hashable ECSService
-
-instance NFData ECSService
-
-instance ToJSON ECSService where
+instance Lude.ToJSON ECSService where
   toJSON ECSService' {..} =
-    object
-      ( catMaybes
-          [ ("serviceName" .=) <$> _ecssServiceName,
-            ("clusterName" .=) <$> _ecssClusterName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("serviceName" Lude..=) Lude.<$> serviceName,
+            ("clusterName" Lude..=) Lude.<$> clusterName
           ]
       )

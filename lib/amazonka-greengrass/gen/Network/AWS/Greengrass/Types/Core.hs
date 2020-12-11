@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,110 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.Core where
+module Network.AWS.Greengrass.Types.Core
+  ( Core (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCore,
+
+    -- * Lenses
+    cSyncShadow,
+    cThingARN,
+    cId,
+    cCertificateARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a core.
 --
--- /See:/ 'core' smart constructor.
+-- /See:/ 'mkCore' smart constructor.
 data Core = Core'
-  { _cSyncShadow :: !(Maybe Bool),
-    _cThingARN :: !Text,
-    _cId :: !Text,
-    _cCertificateARN :: !Text
+  { syncShadow :: Lude.Maybe Lude.Bool,
+    thingARN :: Lude.Text,
+    id :: Lude.Text,
+    certificateARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Core' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cSyncShadow' - If true, the core's local shadow is automatically synced with the cloud.
---
--- * 'cThingARN' - The ARN of the thing which is the core.
---
--- * 'cId' - A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
---
--- * 'cCertificateARN' - The ARN of the certificate associated with the core.
-core ::
-  -- | 'cThingARN'
-  Text ->
-  -- | 'cId'
-  Text ->
-  -- | 'cCertificateARN'
-  Text ->
+-- * 'certificateARN' - The ARN of the certificate associated with the core.
+-- * 'id' - A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+-- * 'syncShadow' - If true, the core's local shadow is automatically synced with the cloud.
+-- * 'thingARN' - The ARN of the thing which is the core.
+mkCore ::
+  -- | 'thingARN'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
+  -- | 'certificateARN'
+  Lude.Text ->
   Core
-core pThingARN_ pId_ pCertificateARN_ =
+mkCore pThingARN_ pId_ pCertificateARN_ =
   Core'
-    { _cSyncShadow = Nothing,
-      _cThingARN = pThingARN_,
-      _cId = pId_,
-      _cCertificateARN = pCertificateARN_
+    { syncShadow = Lude.Nothing,
+      thingARN = pThingARN_,
+      id = pId_,
+      certificateARN = pCertificateARN_
     }
 
 -- | If true, the core's local shadow is automatically synced with the cloud.
-cSyncShadow :: Lens' Core (Maybe Bool)
-cSyncShadow = lens _cSyncShadow (\s a -> s {_cSyncShadow = a})
+--
+-- /Note:/ Consider using 'syncShadow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSyncShadow :: Lens.Lens' Core (Lude.Maybe Lude.Bool)
+cSyncShadow = Lens.lens (syncShadow :: Core -> Lude.Maybe Lude.Bool) (\s a -> s {syncShadow = a} :: Core)
+{-# DEPRECATED cSyncShadow "Use generic-lens or generic-optics with 'syncShadow' instead." #-}
 
 -- | The ARN of the thing which is the core.
-cThingARN :: Lens' Core Text
-cThingARN = lens _cThingARN (\s a -> s {_cThingARN = a})
+--
+-- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cThingARN :: Lens.Lens' Core Lude.Text
+cThingARN = Lens.lens (thingARN :: Core -> Lude.Text) (\s a -> s {thingARN = a} :: Core)
+{-# DEPRECATED cThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
 
 -- | A descriptive or arbitrary ID for the core. This value must be unique within the core definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-cId :: Lens' Core Text
-cId = lens _cId (\s a -> s {_cId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cId :: Lens.Lens' Core Lude.Text
+cId = Lens.lens (id :: Core -> Lude.Text) (\s a -> s {id = a} :: Core)
+{-# DEPRECATED cId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ARN of the certificate associated with the core.
-cCertificateARN :: Lens' Core Text
-cCertificateARN = lens _cCertificateARN (\s a -> s {_cCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCertificateARN :: Lens.Lens' Core Lude.Text
+cCertificateARN = Lens.lens (certificateARN :: Core -> Lude.Text) (\s a -> s {certificateARN = a} :: Core)
+{-# DEPRECATED cCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
-instance FromJSON Core where
+instance Lude.FromJSON Core where
   parseJSON =
-    withObject
+    Lude.withObject
       "Core"
       ( \x ->
           Core'
-            <$> (x .:? "SyncShadow")
-            <*> (x .: "ThingArn")
-            <*> (x .: "Id")
-            <*> (x .: "CertificateArn")
+            Lude.<$> (x Lude..:? "SyncShadow")
+            Lude.<*> (x Lude..: "ThingArn")
+            Lude.<*> (x Lude..: "Id")
+            Lude.<*> (x Lude..: "CertificateArn")
       )
 
-instance Hashable Core
-
-instance NFData Core
-
-instance ToJSON Core where
+instance Lude.ToJSON Core where
   toJSON Core' {..} =
-    object
-      ( catMaybes
-          [ ("SyncShadow" .=) <$> _cSyncShadow,
-            Just ("ThingArn" .= _cThingARN),
-            Just ("Id" .= _cId),
-            Just ("CertificateArn" .= _cCertificateARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SyncShadow" Lude..=) Lude.<$> syncShadow,
+            Lude.Just ("ThingArn" Lude..= thingARN),
+            Lude.Just ("Id" Lude..= id),
+            Lude.Just ("CertificateArn" Lude..= certificateARN)
           ]
       )

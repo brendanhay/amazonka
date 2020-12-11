@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Updates the specified portfolio.
 --
---
 -- You cannot update a product that was shared with you.
 module Network.AWS.ServiceCatalog.UpdatePortfolio
-  ( -- * Creating a Request
-    updatePortfolio,
-    UpdatePortfolio,
+  ( -- * Creating a request
+    UpdatePortfolio (..),
+    mkUpdatePortfolio,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uRemoveTags,
     uAcceptLanguage,
     uDisplayName,
@@ -35,181 +29,230 @@ module Network.AWS.ServiceCatalog.UpdatePortfolio
     uProviderName,
     uId,
 
-    -- * Destructuring the Response
-    updatePortfolioResponse,
-    UpdatePortfolioResponse,
+    -- * Destructuring the response
+    UpdatePortfolioResponse (..),
+    mkUpdatePortfolioResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uprsPortfolioDetail,
     uprsTags,
     uprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'updatePortfolio' smart constructor.
+-- | /See:/ 'mkUpdatePortfolio' smart constructor.
 data UpdatePortfolio = UpdatePortfolio'
-  { _uRemoveTags ::
-      !(Maybe [Text]),
-    _uAcceptLanguage :: !(Maybe Text),
-    _uDisplayName :: !(Maybe Text),
-    _uAddTags :: !(Maybe [Tag]),
-    _uDescription :: !(Maybe Text),
-    _uProviderName :: !(Maybe Text),
-    _uId :: !Text
+  { removeTags ::
+      Lude.Maybe [Lude.Text],
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    displayName :: Lude.Maybe Lude.Text,
+    addTags :: Lude.Maybe [Tag],
+    description :: Lude.Maybe Lude.Text,
+    providerName :: Lude.Maybe Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePortfolio' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'uRemoveTags' - The tags to remove.
 --
--- * 'uAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+--     * @en@ - English (default)
 --
--- * 'uDisplayName' - The name to use for display purposes.
 --
--- * 'uAddTags' - The tags to add.
+--     * @jp@ - Japanese
 --
--- * 'uDescription' - The updated description of the portfolio.
 --
--- * 'uProviderName' - The updated name of the portfolio provider.
+--     * @zh@ - Chinese
 --
--- * 'uId' - The portfolio identifier.
-updatePortfolio ::
-  -- | 'uId'
-  Text ->
+--
+-- * 'addTags' - The tags to add.
+-- * 'description' - The updated description of the portfolio.
+-- * 'displayName' - The name to use for display purposes.
+-- * 'id' - The portfolio identifier.
+-- * 'providerName' - The updated name of the portfolio provider.
+-- * 'removeTags' - The tags to remove.
+mkUpdatePortfolio ::
+  -- | 'id'
+  Lude.Text ->
   UpdatePortfolio
-updatePortfolio pId_ =
+mkUpdatePortfolio pId_ =
   UpdatePortfolio'
-    { _uRemoveTags = Nothing,
-      _uAcceptLanguage = Nothing,
-      _uDisplayName = Nothing,
-      _uAddTags = Nothing,
-      _uDescription = Nothing,
-      _uProviderName = Nothing,
-      _uId = pId_
+    { removeTags = Lude.Nothing,
+      acceptLanguage = Lude.Nothing,
+      displayName = Lude.Nothing,
+      addTags = Lude.Nothing,
+      description = Lude.Nothing,
+      providerName = Lude.Nothing,
+      id = pId_
     }
 
 -- | The tags to remove.
-uRemoveTags :: Lens' UpdatePortfolio [Text]
-uRemoveTags = lens _uRemoveTags (\s a -> s {_uRemoveTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uRemoveTags :: Lens.Lens' UpdatePortfolio (Lude.Maybe [Lude.Text])
+uRemoveTags = Lens.lens (removeTags :: UpdatePortfolio -> Lude.Maybe [Lude.Text]) (\s a -> s {removeTags = a} :: UpdatePortfolio)
+{-# DEPRECATED uRemoveTags "Use generic-lens or generic-optics with 'removeTags' instead." #-}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-uAcceptLanguage :: Lens' UpdatePortfolio (Maybe Text)
-uAcceptLanguage = lens _uAcceptLanguage (\s a -> s {_uAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uAcceptLanguage :: Lens.Lens' UpdatePortfolio (Lude.Maybe Lude.Text)
+uAcceptLanguage = Lens.lens (acceptLanguage :: UpdatePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: UpdatePortfolio)
+{-# DEPRECATED uAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The name to use for display purposes.
-uDisplayName :: Lens' UpdatePortfolio (Maybe Text)
-uDisplayName = lens _uDisplayName (\s a -> s {_uDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDisplayName :: Lens.Lens' UpdatePortfolio (Lude.Maybe Lude.Text)
+uDisplayName = Lens.lens (displayName :: UpdatePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: UpdatePortfolio)
+{-# DEPRECATED uDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The tags to add.
-uAddTags :: Lens' UpdatePortfolio [Tag]
-uAddTags = lens _uAddTags (\s a -> s {_uAddTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uAddTags :: Lens.Lens' UpdatePortfolio (Lude.Maybe [Tag])
+uAddTags = Lens.lens (addTags :: UpdatePortfolio -> Lude.Maybe [Tag]) (\s a -> s {addTags = a} :: UpdatePortfolio)
+{-# DEPRECATED uAddTags "Use generic-lens or generic-optics with 'addTags' instead." #-}
 
 -- | The updated description of the portfolio.
-uDescription :: Lens' UpdatePortfolio (Maybe Text)
-uDescription = lens _uDescription (\s a -> s {_uDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDescription :: Lens.Lens' UpdatePortfolio (Lude.Maybe Lude.Text)
+uDescription = Lens.lens (description :: UpdatePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdatePortfolio)
+{-# DEPRECATED uDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The updated name of the portfolio provider.
-uProviderName :: Lens' UpdatePortfolio (Maybe Text)
-uProviderName = lens _uProviderName (\s a -> s {_uProviderName = a})
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uProviderName :: Lens.Lens' UpdatePortfolio (Lude.Maybe Lude.Text)
+uProviderName = Lens.lens (providerName :: UpdatePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: UpdatePortfolio)
+{-# DEPRECATED uProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 -- | The portfolio identifier.
-uId :: Lens' UpdatePortfolio Text
-uId = lens _uId (\s a -> s {_uId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uId :: Lens.Lens' UpdatePortfolio Lude.Text
+uId = Lens.lens (id :: UpdatePortfolio -> Lude.Text) (\s a -> s {id = a} :: UpdatePortfolio)
+{-# DEPRECATED uId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest UpdatePortfolio where
+instance Lude.AWSRequest UpdatePortfolio where
   type Rs UpdatePortfolio = UpdatePortfolioResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdatePortfolioResponse'
-            <$> (x .?> "PortfolioDetail")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PortfolioDetail")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdatePortfolio
-
-instance NFData UpdatePortfolio
-
-instance ToHeaders UpdatePortfolio where
+instance Lude.ToHeaders UpdatePortfolio where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.UpdatePortfolio" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWS242ServiceCatalogService.UpdatePortfolio" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdatePortfolio where
+instance Lude.ToJSON UpdatePortfolio where
   toJSON UpdatePortfolio' {..} =
-    object
-      ( catMaybes
-          [ ("RemoveTags" .=) <$> _uRemoveTags,
-            ("AcceptLanguage" .=) <$> _uAcceptLanguage,
-            ("DisplayName" .=) <$> _uDisplayName,
-            ("AddTags" .=) <$> _uAddTags,
-            ("Description" .=) <$> _uDescription,
-            ("ProviderName" .=) <$> _uProviderName,
-            Just ("Id" .= _uId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RemoveTags" Lude..=) Lude.<$> removeTags,
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("DisplayName" Lude..=) Lude.<$> displayName,
+            ("AddTags" Lude..=) Lude.<$> addTags,
+            ("Description" Lude..=) Lude.<$> description,
+            ("ProviderName" Lude..=) Lude.<$> providerName,
+            Lude.Just ("Id" Lude..= id)
           ]
       )
 
-instance ToPath UpdatePortfolio where
-  toPath = const "/"
+instance Lude.ToPath UpdatePortfolio where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdatePortfolio where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePortfolio where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updatePortfolioResponse' smart constructor.
+-- | /See:/ 'mkUpdatePortfolioResponse' smart constructor.
 data UpdatePortfolioResponse = UpdatePortfolioResponse'
-  { _uprsPortfolioDetail ::
-      !(Maybe PortfolioDetail),
-    _uprsTags :: !(Maybe [Tag]),
-    _uprsResponseStatus :: !Int
+  { portfolioDetail ::
+      Lude.Maybe PortfolioDetail,
+    tags :: Lude.Maybe [Tag],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePortfolioResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uprsPortfolioDetail' - Information about the portfolio.
---
--- * 'uprsTags' - Information about the tags associated with the portfolio.
---
--- * 'uprsResponseStatus' - -- | The response status code.
-updatePortfolioResponse ::
-  -- | 'uprsResponseStatus'
-  Int ->
+-- * 'portfolioDetail' - Information about the portfolio.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Information about the tags associated with the portfolio.
+mkUpdatePortfolioResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdatePortfolioResponse
-updatePortfolioResponse pResponseStatus_ =
+mkUpdatePortfolioResponse pResponseStatus_ =
   UpdatePortfolioResponse'
-    { _uprsPortfolioDetail = Nothing,
-      _uprsTags = Nothing,
-      _uprsResponseStatus = pResponseStatus_
+    { portfolioDetail = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the portfolio.
-uprsPortfolioDetail :: Lens' UpdatePortfolioResponse (Maybe PortfolioDetail)
-uprsPortfolioDetail = lens _uprsPortfolioDetail (\s a -> s {_uprsPortfolioDetail = a})
+--
+-- /Note:/ Consider using 'portfolioDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsPortfolioDetail :: Lens.Lens' UpdatePortfolioResponse (Lude.Maybe PortfolioDetail)
+uprsPortfolioDetail = Lens.lens (portfolioDetail :: UpdatePortfolioResponse -> Lude.Maybe PortfolioDetail) (\s a -> s {portfolioDetail = a} :: UpdatePortfolioResponse)
+{-# DEPRECATED uprsPortfolioDetail "Use generic-lens or generic-optics with 'portfolioDetail' instead." #-}
 
 -- | Information about the tags associated with the portfolio.
-uprsTags :: Lens' UpdatePortfolioResponse [Tag]
-uprsTags = lens _uprsTags (\s a -> s {_uprsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsTags :: Lens.Lens' UpdatePortfolioResponse (Lude.Maybe [Tag])
+uprsTags = Lens.lens (tags :: UpdatePortfolioResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UpdatePortfolioResponse)
+{-# DEPRECATED uprsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-uprsResponseStatus :: Lens' UpdatePortfolioResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\s a -> s {_uprsResponseStatus = a})
-
-instance NFData UpdatePortfolioResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsResponseStatus :: Lens.Lens' UpdatePortfolioResponse Lude.Int
+uprsResponseStatus = Lens.lens (responseStatus :: UpdatePortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePortfolioResponse)
+{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

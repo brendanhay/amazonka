@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.Principal where
+module Network.AWS.WorkDocs.Types.Principal
+  ( Principal (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPrincipal,
+
+    -- * Lenses
+    pRoles,
+    pId,
+    pType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkDocs.Types.PermissionInfo
 import Network.AWS.WorkDocs.Types.PrincipalType
 
 -- | Describes a resource.
 --
---
---
--- /See:/ 'principal' smart constructor.
+-- /See:/ 'mkPrincipal' smart constructor.
 data Principal = Principal'
-  { _pRoles :: !(Maybe [PermissionInfo]),
-    _pId :: !(Maybe Text),
-    _pType :: !(Maybe PrincipalType)
+  { roles :: Lude.Maybe [PermissionInfo],
+    id :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe PrincipalType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Principal' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pRoles' - The permission information for the resource.
---
--- * 'pId' - The ID of the resource.
---
--- * 'pType' - The type of resource.
-principal ::
+-- * 'id' - The ID of the resource.
+-- * 'roles' - The permission information for the resource.
+-- * 'type'' - The type of resource.
+mkPrincipal ::
   Principal
-principal =
-  Principal' {_pRoles = Nothing, _pId = Nothing, _pType = Nothing}
+mkPrincipal =
+  Principal'
+    { roles = Lude.Nothing,
+      id = Lude.Nothing,
+      type' = Lude.Nothing
+    }
 
 -- | The permission information for the resource.
-pRoles :: Lens' Principal [PermissionInfo]
-pRoles = lens _pRoles (\s a -> s {_pRoles = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'roles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pRoles :: Lens.Lens' Principal (Lude.Maybe [PermissionInfo])
+pRoles = Lens.lens (roles :: Principal -> Lude.Maybe [PermissionInfo]) (\s a -> s {roles = a} :: Principal)
+{-# DEPRECATED pRoles "Use generic-lens or generic-optics with 'roles' instead." #-}
 
 -- | The ID of the resource.
-pId :: Lens' Principal (Maybe Text)
-pId = lens _pId (\s a -> s {_pId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pId :: Lens.Lens' Principal (Lude.Maybe Lude.Text)
+pId = Lens.lens (id :: Principal -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Principal)
+{-# DEPRECATED pId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of resource.
-pType :: Lens' Principal (Maybe PrincipalType)
-pType = lens _pType (\s a -> s {_pType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pType :: Lens.Lens' Principal (Lude.Maybe PrincipalType)
+pType = Lens.lens (type' :: Principal -> Lude.Maybe PrincipalType) (\s a -> s {type' = a} :: Principal)
+{-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON Principal where
+instance Lude.FromJSON Principal where
   parseJSON =
-    withObject
+    Lude.withObject
       "Principal"
       ( \x ->
           Principal'
-            <$> (x .:? "Roles" .!= mempty) <*> (x .:? "Id") <*> (x .:? "Type")
+            Lude.<$> (x Lude..:? "Roles" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Type")
       )
-
-instance Hashable Principal
-
-instance NFData Principal

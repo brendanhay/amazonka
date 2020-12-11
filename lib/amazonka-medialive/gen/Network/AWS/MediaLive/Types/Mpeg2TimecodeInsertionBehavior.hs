@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mpeg2TimecodeInsertionBehavior where
+module Network.AWS.MediaLive.Types.Mpeg2TimecodeInsertionBehavior
+  ( Mpeg2TimecodeInsertionBehavior
+      ( Mpeg2TimecodeInsertionBehavior',
+        MTIBDisabled,
+        MTIBGopTimecode
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Mpeg2 Timecode Insertion Behavior
-data Mpeg2TimecodeInsertionBehavior
-  = MTIBDisabled
-  | MTIBGopTimecode
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2TimecodeInsertionBehavior = Mpeg2TimecodeInsertionBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2TimecodeInsertionBehavior where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure MTIBDisabled
-      "gop_timecode" -> pure MTIBGopTimecode
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2TimecodeInsertionBehavior from value: '" <> e
-            <> "'. Accepted values: disabled, gop_timecode"
+pattern MTIBDisabled :: Mpeg2TimecodeInsertionBehavior
+pattern MTIBDisabled = Mpeg2TimecodeInsertionBehavior' "DISABLED"
 
-instance ToText Mpeg2TimecodeInsertionBehavior where
-  toText = \case
-    MTIBDisabled -> "DISABLED"
-    MTIBGopTimecode -> "GOP_TIMECODE"
+pattern MTIBGopTimecode :: Mpeg2TimecodeInsertionBehavior
+pattern MTIBGopTimecode = Mpeg2TimecodeInsertionBehavior' "GOP_TIMECODE"
 
-instance Hashable Mpeg2TimecodeInsertionBehavior
-
-instance NFData Mpeg2TimecodeInsertionBehavior
-
-instance ToByteString Mpeg2TimecodeInsertionBehavior
-
-instance ToQuery Mpeg2TimecodeInsertionBehavior
-
-instance ToHeader Mpeg2TimecodeInsertionBehavior
-
-instance ToJSON Mpeg2TimecodeInsertionBehavior where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2TimecodeInsertionBehavior where
-  parseJSON = parseJSONText "Mpeg2TimecodeInsertionBehavior"
+{-# COMPLETE
+  MTIBDisabled,
+  MTIBGopTimecode,
+  Mpeg2TimecodeInsertionBehavior'
+  #-}

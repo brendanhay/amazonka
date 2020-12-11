@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,131 @@
 --
 -- Describes an existing backup of a table.
 --
---
 -- You can call @DescribeBackup@ at a maximum rate of 10 times per second.
 module Network.AWS.DynamoDB.DescribeBackup
-  ( -- * Creating a Request
-    describeBackup,
-    DescribeBackup,
+  ( -- * Creating a request
+    DescribeBackup (..),
+    mkDescribeBackup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dBackupARN,
 
-    -- * Destructuring the Response
-    describeBackupResponse,
-    DescribeBackupResponse,
+    -- * Destructuring the response
+    DescribeBackupResponse (..),
+    mkDescribeBackupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsBackupDescription,
     desrsResponseStatus,
   )
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeBackup' smart constructor.
-newtype DescribeBackup = DescribeBackup' {_dBackupARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeBackup' smart constructor.
+newtype DescribeBackup = DescribeBackup' {backupARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBackup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dBackupARN' - The Amazon Resource Name (ARN) associated with the backup.
-describeBackup ::
-  -- | 'dBackupARN'
-  Text ->
+-- * 'backupARN' - The Amazon Resource Name (ARN) associated with the backup.
+mkDescribeBackup ::
+  -- | 'backupARN'
+  Lude.Text ->
   DescribeBackup
-describeBackup pBackupARN_ =
-  DescribeBackup' {_dBackupARN = pBackupARN_}
+mkDescribeBackup pBackupARN_ =
+  DescribeBackup' {backupARN = pBackupARN_}
 
 -- | The Amazon Resource Name (ARN) associated with the backup.
-dBackupARN :: Lens' DescribeBackup Text
-dBackupARN = lens _dBackupARN (\s a -> s {_dBackupARN = a})
+--
+-- /Note:/ Consider using 'backupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dBackupARN :: Lens.Lens' DescribeBackup Lude.Text
+dBackupARN = Lens.lens (backupARN :: DescribeBackup -> Lude.Text) (\s a -> s {backupARN = a} :: DescribeBackup)
+{-# DEPRECATED dBackupARN "Use generic-lens or generic-optics with 'backupARN' instead." #-}
 
-instance AWSRequest DescribeBackup where
+instance Lude.AWSRequest DescribeBackup where
   type Rs DescribeBackup = DescribeBackupResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeBackupResponse'
-            <$> (x .?> "BackupDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BackupDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeBackup
-
-instance NFData DescribeBackup
-
-instance ToHeaders DescribeBackup where
+instance Lude.ToHeaders DescribeBackup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.DescribeBackup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.DescribeBackup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeBackup where
+instance Lude.ToJSON DescribeBackup where
   toJSON DescribeBackup' {..} =
-    object (catMaybes [Just ("BackupArn" .= _dBackupARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("BackupArn" Lude..= backupARN)])
 
-instance ToPath DescribeBackup where
-  toPath = const "/"
+instance Lude.ToPath DescribeBackup where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeBackup where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeBackup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeBackupResponse' smart constructor.
+-- | /See:/ 'mkDescribeBackupResponse' smart constructor.
 data DescribeBackupResponse = DescribeBackupResponse'
-  { _desrsBackupDescription ::
-      !(Maybe BackupDescription),
-    _desrsResponseStatus :: !Int
+  { backupDescription ::
+      Lude.Maybe BackupDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBackupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsBackupDescription' - Contains the description of the backup created for the table.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeBackupResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'backupDescription' - Contains the description of the backup created for the table.
+-- * 'responseStatus' - The response status code.
+mkDescribeBackupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBackupResponse
-describeBackupResponse pResponseStatus_ =
+mkDescribeBackupResponse pResponseStatus_ =
   DescribeBackupResponse'
-    { _desrsBackupDescription = Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { backupDescription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Contains the description of the backup created for the table.
-desrsBackupDescription :: Lens' DescribeBackupResponse (Maybe BackupDescription)
-desrsBackupDescription = lens _desrsBackupDescription (\s a -> s {_desrsBackupDescription = a})
+--
+-- /Note:/ Consider using 'backupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsBackupDescription :: Lens.Lens' DescribeBackupResponse (Lude.Maybe BackupDescription)
+desrsBackupDescription = Lens.lens (backupDescription :: DescribeBackupResponse -> Lude.Maybe BackupDescription) (\s a -> s {backupDescription = a} :: DescribeBackupResponse)
+{-# DEPRECATED desrsBackupDescription "Use generic-lens or generic-optics with 'backupDescription' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeBackupResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeBackupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeBackupResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBackupResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

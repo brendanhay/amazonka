@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,101 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.ReservationUtilizationGroup where
+module Network.AWS.CostExplorer.Types.ReservationUtilizationGroup
+  ( ReservationUtilizationGroup (..),
+
+    -- * Smart constructor
+    mkReservationUtilizationGroup,
+
+    -- * Lenses
+    rugValue,
+    rugKey,
+    rugAttributes,
+    rugUtilization,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.ReservationAggregates
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A group of reservations that share a set of attributes.
 --
---
---
--- /See:/ 'reservationUtilizationGroup' smart constructor.
+-- /See:/ 'mkReservationUtilizationGroup' smart constructor.
 data ReservationUtilizationGroup = ReservationUtilizationGroup'
-  { _rugValue ::
-      !(Maybe Text),
-    _rugKey :: !(Maybe Text),
-    _rugAttributes ::
-      !(Maybe (Map Text (Text))),
-    _rugUtilization ::
-      !(Maybe ReservationAggregates)
+  { value ::
+      Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text,
+    attributes ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    utilization ::
+      Lude.Maybe ReservationAggregates
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationUtilizationGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rugValue' - The value of a specific reservation attribute.
---
--- * 'rugKey' - The key for a specific reservation attribute.
---
--- * 'rugAttributes' - The attributes for this group of reservations.
---
--- * 'rugUtilization' - How much you used this group of reservations.
-reservationUtilizationGroup ::
+-- * 'attributes' - The attributes for this group of reservations.
+-- * 'key' - The key for a specific reservation attribute.
+-- * 'utilization' - How much you used this group of reservations.
+-- * 'value' - The value of a specific reservation attribute.
+mkReservationUtilizationGroup ::
   ReservationUtilizationGroup
-reservationUtilizationGroup =
+mkReservationUtilizationGroup =
   ReservationUtilizationGroup'
-    { _rugValue = Nothing,
-      _rugKey = Nothing,
-      _rugAttributes = Nothing,
-      _rugUtilization = Nothing
+    { value = Lude.Nothing,
+      key = Lude.Nothing,
+      attributes = Lude.Nothing,
+      utilization = Lude.Nothing
     }
 
 -- | The value of a specific reservation attribute.
-rugValue :: Lens' ReservationUtilizationGroup (Maybe Text)
-rugValue = lens _rugValue (\s a -> s {_rugValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rugValue :: Lens.Lens' ReservationUtilizationGroup (Lude.Maybe Lude.Text)
+rugValue = Lens.lens (value :: ReservationUtilizationGroup -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ReservationUtilizationGroup)
+{-# DEPRECATED rugValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The key for a specific reservation attribute.
-rugKey :: Lens' ReservationUtilizationGroup (Maybe Text)
-rugKey = lens _rugKey (\s a -> s {_rugKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rugKey :: Lens.Lens' ReservationUtilizationGroup (Lude.Maybe Lude.Text)
+rugKey = Lens.lens (key :: ReservationUtilizationGroup -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ReservationUtilizationGroup)
+{-# DEPRECATED rugKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The attributes for this group of reservations.
-rugAttributes :: Lens' ReservationUtilizationGroup (HashMap Text (Text))
-rugAttributes = lens _rugAttributes (\s a -> s {_rugAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rugAttributes :: Lens.Lens' ReservationUtilizationGroup (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+rugAttributes = Lens.lens (attributes :: ReservationUtilizationGroup -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: ReservationUtilizationGroup)
+{-# DEPRECATED rugAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | How much you used this group of reservations.
-rugUtilization :: Lens' ReservationUtilizationGroup (Maybe ReservationAggregates)
-rugUtilization = lens _rugUtilization (\s a -> s {_rugUtilization = a})
+--
+-- /Note:/ Consider using 'utilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rugUtilization :: Lens.Lens' ReservationUtilizationGroup (Lude.Maybe ReservationAggregates)
+rugUtilization = Lens.lens (utilization :: ReservationUtilizationGroup -> Lude.Maybe ReservationAggregates) (\s a -> s {utilization = a} :: ReservationUtilizationGroup)
+{-# DEPRECATED rugUtilization "Use generic-lens or generic-optics with 'utilization' instead." #-}
 
-instance FromJSON ReservationUtilizationGroup where
+instance Lude.FromJSON ReservationUtilizationGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReservationUtilizationGroup"
       ( \x ->
           ReservationUtilizationGroup'
-            <$> (x .:? "Value")
-            <*> (x .:? "Key")
-            <*> (x .:? "Attributes" .!= mempty)
-            <*> (x .:? "Utilization")
+            Lude.<$> (x Lude..:? "Value")
+            Lude.<*> (x Lude..:? "Key")
+            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Utilization")
       )
-
-instance Hashable ReservationUtilizationGroup
-
-instance NFData ReservationUtilizationGroup

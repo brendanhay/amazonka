@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.PlatformStatus where
+module Network.AWS.ElasticBeanstalk.Types.PlatformStatus
+  ( PlatformStatus
+      ( PlatformStatus',
+        Creating,
+        Deleted,
+        Deleting,
+        Failed,
+        Ready
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlatformStatus
-  = Creating
-  | Deleted
-  | Deleting
-  | Failed
-  | Ready
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlatformStatus = PlatformStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlatformStatus where
-  parser =
-    takeLowerText >>= \case
-      "creating" -> pure Creating
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "failed" -> pure Failed
-      "ready" -> pure Ready
-      e ->
-        fromTextError $
-          "Failure parsing PlatformStatus from value: '" <> e
-            <> "'. Accepted values: creating, deleted, deleting, failed, ready"
+pattern Creating :: PlatformStatus
+pattern Creating = PlatformStatus' "Creating"
 
-instance ToText PlatformStatus where
-  toText = \case
-    Creating -> "Creating"
-    Deleted -> "Deleted"
-    Deleting -> "Deleting"
-    Failed -> "Failed"
-    Ready -> "Ready"
+pattern Deleted :: PlatformStatus
+pattern Deleted = PlatformStatus' "Deleted"
 
-instance Hashable PlatformStatus
+pattern Deleting :: PlatformStatus
+pattern Deleting = PlatformStatus' "Deleting"
 
-instance NFData PlatformStatus
+pattern Failed :: PlatformStatus
+pattern Failed = PlatformStatus' "Failed"
 
-instance ToByteString PlatformStatus
+pattern Ready :: PlatformStatus
+pattern Ready = PlatformStatus' "Ready"
 
-instance ToQuery PlatformStatus
-
-instance ToHeader PlatformStatus
-
-instance FromXML PlatformStatus where
-  parseXML = parseXMLText "PlatformStatus"
+{-# COMPLETE
+  Creating,
+  Deleted,
+  Deleting,
+  Failed,
+  Ready,
+  PlatformStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.BuiltinIntentSlot where
+module Network.AWS.LexModels.Types.BuiltinIntentSlot
+  ( BuiltinIntentSlot (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBuiltinIntentSlot,
+
+    -- * Lenses
+    bisName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about a slot used in a built-in intent.
 --
---
---
--- /See:/ 'builtinIntentSlot' smart constructor.
+-- /See:/ 'mkBuiltinIntentSlot' smart constructor.
 newtype BuiltinIntentSlot = BuiltinIntentSlot'
-  { _bisName ::
-      Maybe Text
+  { name ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuiltinIntentSlot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bisName' - A list of the slots defined for the intent.
-builtinIntentSlot ::
+-- * 'name' - A list of the slots defined for the intent.
+mkBuiltinIntentSlot ::
   BuiltinIntentSlot
-builtinIntentSlot = BuiltinIntentSlot' {_bisName = Nothing}
+mkBuiltinIntentSlot = BuiltinIntentSlot' {name = Lude.Nothing}
 
 -- | A list of the slots defined for the intent.
-bisName :: Lens' BuiltinIntentSlot (Maybe Text)
-bisName = lens _bisName (\s a -> s {_bisName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bisName :: Lens.Lens' BuiltinIntentSlot (Lude.Maybe Lude.Text)
+bisName = Lens.lens (name :: BuiltinIntentSlot -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: BuiltinIntentSlot)
+{-# DEPRECATED bisName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON BuiltinIntentSlot where
+instance Lude.FromJSON BuiltinIntentSlot where
   parseJSON =
-    withObject
+    Lude.withObject
       "BuiltinIntentSlot"
-      (\x -> BuiltinIntentSlot' <$> (x .:? "name"))
-
-instance Hashable BuiltinIntentSlot
-
-instance NFData BuiltinIntentSlot
+      (\x -> BuiltinIntentSlot' Lude.<$> (x Lude..:? "name"))

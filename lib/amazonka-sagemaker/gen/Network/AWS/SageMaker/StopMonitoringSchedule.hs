@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,102 @@
 --
 -- Stops a previously started monitoring schedule.
 module Network.AWS.SageMaker.StopMonitoringSchedule
-  ( -- * Creating a Request
-    stopMonitoringSchedule,
-    StopMonitoringSchedule,
+  ( -- * Creating a request
+    StopMonitoringSchedule (..),
+    mkStopMonitoringSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     smsMonitoringScheduleName,
 
-    -- * Destructuring the Response
-    stopMonitoringScheduleResponse,
-    StopMonitoringScheduleResponse,
+    -- * Destructuring the response
+    StopMonitoringScheduleResponse (..),
+    mkStopMonitoringScheduleResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'stopMonitoringSchedule' smart constructor.
+-- | /See:/ 'mkStopMonitoringSchedule' smart constructor.
 newtype StopMonitoringSchedule = StopMonitoringSchedule'
-  { _smsMonitoringScheduleName ::
-      Text
+  { monitoringScheduleName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMonitoringSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'smsMonitoringScheduleName' - The name of the schedule to stop.
-stopMonitoringSchedule ::
-  -- | 'smsMonitoringScheduleName'
-  Text ->
+-- * 'monitoringScheduleName' - The name of the schedule to stop.
+mkStopMonitoringSchedule ::
+  -- | 'monitoringScheduleName'
+  Lude.Text ->
   StopMonitoringSchedule
-stopMonitoringSchedule pMonitoringScheduleName_ =
+mkStopMonitoringSchedule pMonitoringScheduleName_ =
   StopMonitoringSchedule'
-    { _smsMonitoringScheduleName =
+    { monitoringScheduleName =
         pMonitoringScheduleName_
     }
 
 -- | The name of the schedule to stop.
-smsMonitoringScheduleName :: Lens' StopMonitoringSchedule Text
-smsMonitoringScheduleName = lens _smsMonitoringScheduleName (\s a -> s {_smsMonitoringScheduleName = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsMonitoringScheduleName :: Lens.Lens' StopMonitoringSchedule Lude.Text
+smsMonitoringScheduleName = Lens.lens (monitoringScheduleName :: StopMonitoringSchedule -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: StopMonitoringSchedule)
+{-# DEPRECATED smsMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
-instance AWSRequest StopMonitoringSchedule where
+instance Lude.AWSRequest StopMonitoringSchedule where
   type Rs StopMonitoringSchedule = StopMonitoringScheduleResponse
-  request = postJSON sageMaker
-  response = receiveNull StopMonitoringScheduleResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull StopMonitoringScheduleResponse'
 
-instance Hashable StopMonitoringSchedule
-
-instance NFData StopMonitoringSchedule
-
-instance ToHeaders StopMonitoringSchedule where
+instance Lude.ToHeaders StopMonitoringSchedule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.StopMonitoringSchedule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.StopMonitoringSchedule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopMonitoringSchedule where
+instance Lude.ToJSON StopMonitoringSchedule where
   toJSON StopMonitoringSchedule' {..} =
-    object
-      ( catMaybes
-          [Just ("MonitoringScheduleName" .= _smsMonitoringScheduleName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("MonitoringScheduleName" Lude..= monitoringScheduleName)
+          ]
       )
 
-instance ToPath StopMonitoringSchedule where
-  toPath = const "/"
+instance Lude.ToPath StopMonitoringSchedule where
+  toPath = Lude.const "/"
 
-instance ToQuery StopMonitoringSchedule where
-  toQuery = const mempty
+instance Lude.ToQuery StopMonitoringSchedule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopMonitoringScheduleResponse' smart constructor.
+-- | /See:/ 'mkStopMonitoringScheduleResponse' smart constructor.
 data StopMonitoringScheduleResponse = StopMonitoringScheduleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopMonitoringScheduleResponse' with the minimum fields required to make a request.
-stopMonitoringScheduleResponse ::
+mkStopMonitoringScheduleResponse ::
   StopMonitoringScheduleResponse
-stopMonitoringScheduleResponse = StopMonitoringScheduleResponse'
-
-instance NFData StopMonitoringScheduleResponse
+mkStopMonitoringScheduleResponse = StopMonitoringScheduleResponse'

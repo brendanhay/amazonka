@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,78 +14,87 @@
 --
 -- Deletes a usage limit from a cluster.
 module Network.AWS.Redshift.DeleteUsageLimit
-  ( -- * Creating a Request
-    deleteUsageLimit,
-    DeleteUsageLimit,
+  ( -- * Creating a request
+    DeleteUsageLimit (..),
+    mkDeleteUsageLimit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dulUsageLimitId,
 
-    -- * Destructuring the Response
-    deleteUsageLimitResponse,
-    DeleteUsageLimitResponse,
+    -- * Destructuring the response
+    DeleteUsageLimitResponse (..),
+    mkDeleteUsageLimitResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUsageLimit' smart constructor.
+-- | /See:/ 'mkDeleteUsageLimit' smart constructor.
 newtype DeleteUsageLimit = DeleteUsageLimit'
-  { _dulUsageLimitId ::
-      Text
+  { usageLimitId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUsageLimit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dulUsageLimitId' - The identifier of the usage limit to delete.
-deleteUsageLimit ::
-  -- | 'dulUsageLimitId'
-  Text ->
+-- * 'usageLimitId' - The identifier of the usage limit to delete.
+mkDeleteUsageLimit ::
+  -- | 'usageLimitId'
+  Lude.Text ->
   DeleteUsageLimit
-deleteUsageLimit pUsageLimitId_ =
-  DeleteUsageLimit' {_dulUsageLimitId = pUsageLimitId_}
+mkDeleteUsageLimit pUsageLimitId_ =
+  DeleteUsageLimit' {usageLimitId = pUsageLimitId_}
 
 -- | The identifier of the usage limit to delete.
-dulUsageLimitId :: Lens' DeleteUsageLimit Text
-dulUsageLimitId = lens _dulUsageLimitId (\s a -> s {_dulUsageLimitId = a})
+--
+-- /Note:/ Consider using 'usageLimitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dulUsageLimitId :: Lens.Lens' DeleteUsageLimit Lude.Text
+dulUsageLimitId = Lens.lens (usageLimitId :: DeleteUsageLimit -> Lude.Text) (\s a -> s {usageLimitId = a} :: DeleteUsageLimit)
+{-# DEPRECATED dulUsageLimitId "Use generic-lens or generic-optics with 'usageLimitId' instead." #-}
 
-instance AWSRequest DeleteUsageLimit where
+instance Lude.AWSRequest DeleteUsageLimit where
   type Rs DeleteUsageLimit = DeleteUsageLimitResponse
-  request = postQuery redshift
-  response = receiveNull DeleteUsageLimitResponse'
+  request = Req.postQuery redshiftService
+  response = Res.receiveNull DeleteUsageLimitResponse'
 
-instance Hashable DeleteUsageLimit
+instance Lude.ToHeaders DeleteUsageLimit where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteUsageLimit
+instance Lude.ToPath DeleteUsageLimit where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteUsageLimit where
-  toHeaders = const mempty
-
-instance ToPath DeleteUsageLimit where
-  toPath = const "/"
-
-instance ToQuery DeleteUsageLimit where
+instance Lude.ToQuery DeleteUsageLimit where
   toQuery DeleteUsageLimit' {..} =
-    mconcat
-      [ "Action" =: ("DeleteUsageLimit" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "UsageLimitId" =: _dulUsageLimitId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteUsageLimit" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "UsageLimitId" Lude.=: usageLimitId
       ]
 
--- | /See:/ 'deleteUsageLimitResponse' smart constructor.
+-- | /See:/ 'mkDeleteUsageLimitResponse' smart constructor.
 data DeleteUsageLimitResponse = DeleteUsageLimitResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUsageLimitResponse' with the minimum fields required to make a request.
-deleteUsageLimitResponse ::
+mkDeleteUsageLimitResponse ::
   DeleteUsageLimitResponse
-deleteUsageLimitResponse = DeleteUsageLimitResponse'
-
-instance NFData DeleteUsageLimitResponse
+mkDeleteUsageLimitResponse = DeleteUsageLimitResponse'

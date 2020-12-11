@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.AutoScalingInstanceDetails where
+module Network.AWS.AutoScaling.Types.AutoScalingInstanceDetails
+  ( AutoScalingInstanceDetails (..),
+
+    -- * Smart constructor
+    mkAutoScalingInstanceDetails,
+
+    -- * Lenses
+    asidWeightedCapacity,
+    asidInstanceType,
+    asidLaunchConfigurationName,
+    asidLaunchTemplate,
+    asidInstanceId,
+    asidAutoScalingGroupName,
+    asidAvailabilityZone,
+    asidLifecycleState,
+    asidHealthStatus,
+    asidProtectedFromScaleIn,
+  )
+where
 
 import Network.AWS.AutoScaling.Types.LaunchTemplateSpecification
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an EC2 instance associated with an Auto Scaling group.
 --
---
---
--- /See:/ 'autoScalingInstanceDetails' smart constructor.
+-- /See:/ 'mkAutoScalingInstanceDetails' smart constructor.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
-  { _asidWeightedCapacity ::
-      !(Maybe Text),
-    _asidInstanceType :: !(Maybe Text),
-    _asidLaunchConfigurationName ::
-      !(Maybe Text),
-    _asidLaunchTemplate ::
-      !(Maybe LaunchTemplateSpecification),
-    _asidInstanceId :: !Text,
-    _asidAutoScalingGroupName :: !Text,
-    _asidAvailabilityZone :: !Text,
-    _asidLifecycleState :: !Text,
-    _asidHealthStatus :: !Text,
-    _asidProtectedFromScaleIn :: !Bool
+  { weightedCapacity ::
+      Lude.Maybe Lude.Text,
+    instanceType :: Lude.Maybe Lude.Text,
+    launchConfigurationName ::
+      Lude.Maybe Lude.Text,
+    launchTemplate ::
+      Lude.Maybe
+        LaunchTemplateSpecification,
+    instanceId :: Lude.Text,
+    autoScalingGroupName :: Lude.Text,
+    availabilityZone :: Lude.Text,
+    lifecycleState :: Lude.Text,
+    healthStatus :: Lude.Text,
+    protectedFromScaleIn :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingInstanceDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group for the instance.
+-- * 'availabilityZone' - The Availability Zone for the instance.
+-- * 'healthStatus' - The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
+-- * 'instanceId' - The ID of the instance.
+-- * 'instanceType' - The instance type of the EC2 instance.
+-- * 'launchConfigurationName' - The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group.
+-- * 'launchTemplate' - The launch template for the instance.
+-- * 'lifecycleState' - The lifecycle state for the instance.
+-- * 'protectedFromScaleIn' - Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+-- * 'weightedCapacity' - The number of capacity units contributed by the instance based on its instance type.
 --
--- * 'asidWeightedCapacity' - The number of capacity units contributed by the instance based on its instance type. Valid Range: Minimum value of 1. Maximum value of 999.
---
--- * 'asidInstanceType' - The instance type of the EC2 instance.
---
--- * 'asidLaunchConfigurationName' - The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group.
---
--- * 'asidLaunchTemplate' - The launch template for the instance.
---
--- * 'asidInstanceId' - The ID of the instance.
---
--- * 'asidAutoScalingGroupName' - The name of the Auto Scaling group for the instance.
---
--- * 'asidAvailabilityZone' - The Availability Zone for the instance.
---
--- * 'asidLifecycleState' - The lifecycle state for the instance.
---
--- * 'asidHealthStatus' - The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
---
--- * 'asidProtectedFromScaleIn' - Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
-autoScalingInstanceDetails ::
-  -- | 'asidInstanceId'
-  Text ->
-  -- | 'asidAutoScalingGroupName'
-  Text ->
-  -- | 'asidAvailabilityZone'
-  Text ->
-  -- | 'asidLifecycleState'
-  Text ->
-  -- | 'asidHealthStatus'
-  Text ->
-  -- | 'asidProtectedFromScaleIn'
-  Bool ->
+-- Valid Range: Minimum value of 1. Maximum value of 999.
+mkAutoScalingInstanceDetails ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
+  -- | 'availabilityZone'
+  Lude.Text ->
+  -- | 'lifecycleState'
+  Lude.Text ->
+  -- | 'healthStatus'
+  Lude.Text ->
+  -- | 'protectedFromScaleIn'
+  Lude.Bool ->
   AutoScalingInstanceDetails
-autoScalingInstanceDetails
+mkAutoScalingInstanceDetails
   pInstanceId_
   pAutoScalingGroupName_
   pAvailabilityZone_
@@ -86,72 +95,100 @@ autoScalingInstanceDetails
   pHealthStatus_
   pProtectedFromScaleIn_ =
     AutoScalingInstanceDetails'
-      { _asidWeightedCapacity = Nothing,
-        _asidInstanceType = Nothing,
-        _asidLaunchConfigurationName = Nothing,
-        _asidLaunchTemplate = Nothing,
-        _asidInstanceId = pInstanceId_,
-        _asidAutoScalingGroupName = pAutoScalingGroupName_,
-        _asidAvailabilityZone = pAvailabilityZone_,
-        _asidLifecycleState = pLifecycleState_,
-        _asidHealthStatus = pHealthStatus_,
-        _asidProtectedFromScaleIn = pProtectedFromScaleIn_
+      { weightedCapacity = Lude.Nothing,
+        instanceType = Lude.Nothing,
+        launchConfigurationName = Lude.Nothing,
+        launchTemplate = Lude.Nothing,
+        instanceId = pInstanceId_,
+        autoScalingGroupName = pAutoScalingGroupName_,
+        availabilityZone = pAvailabilityZone_,
+        lifecycleState = pLifecycleState_,
+        healthStatus = pHealthStatus_,
+        protectedFromScaleIn = pProtectedFromScaleIn_
       }
 
--- | The number of capacity units contributed by the instance based on its instance type. Valid Range: Minimum value of 1. Maximum value of 999.
-asidWeightedCapacity :: Lens' AutoScalingInstanceDetails (Maybe Text)
-asidWeightedCapacity = lens _asidWeightedCapacity (\s a -> s {_asidWeightedCapacity = a})
+-- | The number of capacity units contributed by the instance based on its instance type.
+--
+-- Valid Range: Minimum value of 1. Maximum value of 999.
+--
+-- /Note:/ Consider using 'weightedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidWeightedCapacity :: Lens.Lens' AutoScalingInstanceDetails (Lude.Maybe Lude.Text)
+asidWeightedCapacity = Lens.lens (weightedCapacity :: AutoScalingInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {weightedCapacity = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidWeightedCapacity "Use generic-lens or generic-optics with 'weightedCapacity' instead." #-}
 
 -- | The instance type of the EC2 instance.
-asidInstanceType :: Lens' AutoScalingInstanceDetails (Maybe Text)
-asidInstanceType = lens _asidInstanceType (\s a -> s {_asidInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidInstanceType :: Lens.Lens' AutoScalingInstanceDetails (Lude.Maybe Lude.Text)
+asidInstanceType = Lens.lens (instanceType :: AutoScalingInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group.
-asidLaunchConfigurationName :: Lens' AutoScalingInstanceDetails (Maybe Text)
-asidLaunchConfigurationName = lens _asidLaunchConfigurationName (\s a -> s {_asidLaunchConfigurationName = a})
+--
+-- /Note:/ Consider using 'launchConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidLaunchConfigurationName :: Lens.Lens' AutoScalingInstanceDetails (Lude.Maybe Lude.Text)
+asidLaunchConfigurationName = Lens.lens (launchConfigurationName :: AutoScalingInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {launchConfigurationName = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidLaunchConfigurationName "Use generic-lens or generic-optics with 'launchConfigurationName' instead." #-}
 
 -- | The launch template for the instance.
-asidLaunchTemplate :: Lens' AutoScalingInstanceDetails (Maybe LaunchTemplateSpecification)
-asidLaunchTemplate = lens _asidLaunchTemplate (\s a -> s {_asidLaunchTemplate = a})
+--
+-- /Note:/ Consider using 'launchTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidLaunchTemplate :: Lens.Lens' AutoScalingInstanceDetails (Lude.Maybe LaunchTemplateSpecification)
+asidLaunchTemplate = Lens.lens (launchTemplate :: AutoScalingInstanceDetails -> Lude.Maybe LaunchTemplateSpecification) (\s a -> s {launchTemplate = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidLaunchTemplate "Use generic-lens or generic-optics with 'launchTemplate' instead." #-}
 
 -- | The ID of the instance.
-asidInstanceId :: Lens' AutoScalingInstanceDetails Text
-asidInstanceId = lens _asidInstanceId (\s a -> s {_asidInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidInstanceId :: Lens.Lens' AutoScalingInstanceDetails Lude.Text
+asidInstanceId = Lens.lens (instanceId :: AutoScalingInstanceDetails -> Lude.Text) (\s a -> s {instanceId = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The name of the Auto Scaling group for the instance.
-asidAutoScalingGroupName :: Lens' AutoScalingInstanceDetails Text
-asidAutoScalingGroupName = lens _asidAutoScalingGroupName (\s a -> s {_asidAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidAutoScalingGroupName :: Lens.Lens' AutoScalingInstanceDetails Lude.Text
+asidAutoScalingGroupName = Lens.lens (autoScalingGroupName :: AutoScalingInstanceDetails -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The Availability Zone for the instance.
-asidAvailabilityZone :: Lens' AutoScalingInstanceDetails Text
-asidAvailabilityZone = lens _asidAvailabilityZone (\s a -> s {_asidAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidAvailabilityZone :: Lens.Lens' AutoScalingInstanceDetails Lude.Text
+asidAvailabilityZone = Lens.lens (availabilityZone :: AutoScalingInstanceDetails -> Lude.Text) (\s a -> s {availabilityZone = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The lifecycle state for the instance.
-asidLifecycleState :: Lens' AutoScalingInstanceDetails Text
-asidLifecycleState = lens _asidLifecycleState (\s a -> s {_asidLifecycleState = a})
+--
+-- /Note:/ Consider using 'lifecycleState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidLifecycleState :: Lens.Lens' AutoScalingInstanceDetails Lude.Text
+asidLifecycleState = Lens.lens (lifecycleState :: AutoScalingInstanceDetails -> Lude.Text) (\s a -> s {lifecycleState = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidLifecycleState "Use generic-lens or generic-optics with 'lifecycleState' instead." #-}
 
 -- | The last reported health status of this instance. "Healthy" means that the instance is healthy and should remain in service. "Unhealthy" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it.
-asidHealthStatus :: Lens' AutoScalingInstanceDetails Text
-asidHealthStatus = lens _asidHealthStatus (\s a -> s {_asidHealthStatus = a})
+--
+-- /Note:/ Consider using 'healthStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidHealthStatus :: Lens.Lens' AutoScalingInstanceDetails Lude.Text
+asidHealthStatus = Lens.lens (healthStatus :: AutoScalingInstanceDetails -> Lude.Text) (\s a -> s {healthStatus = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidHealthStatus "Use generic-lens or generic-optics with 'healthStatus' instead." #-}
 
 -- | Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
-asidProtectedFromScaleIn :: Lens' AutoScalingInstanceDetails Bool
-asidProtectedFromScaleIn = lens _asidProtectedFromScaleIn (\s a -> s {_asidProtectedFromScaleIn = a})
+--
+-- /Note:/ Consider using 'protectedFromScaleIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asidProtectedFromScaleIn :: Lens.Lens' AutoScalingInstanceDetails Lude.Bool
+asidProtectedFromScaleIn = Lens.lens (protectedFromScaleIn :: AutoScalingInstanceDetails -> Lude.Bool) (\s a -> s {protectedFromScaleIn = a} :: AutoScalingInstanceDetails)
+{-# DEPRECATED asidProtectedFromScaleIn "Use generic-lens or generic-optics with 'protectedFromScaleIn' instead." #-}
 
-instance FromXML AutoScalingInstanceDetails where
+instance Lude.FromXML AutoScalingInstanceDetails where
   parseXML x =
     AutoScalingInstanceDetails'
-      <$> (x .@? "WeightedCapacity")
-      <*> (x .@? "InstanceType")
-      <*> (x .@? "LaunchConfigurationName")
-      <*> (x .@? "LaunchTemplate")
-      <*> (x .@ "InstanceId")
-      <*> (x .@ "AutoScalingGroupName")
-      <*> (x .@ "AvailabilityZone")
-      <*> (x .@ "LifecycleState")
-      <*> (x .@ "HealthStatus")
-      <*> (x .@ "ProtectedFromScaleIn")
-
-instance Hashable AutoScalingInstanceDetails
-
-instance NFData AutoScalingInstanceDetails
+      Lude.<$> (x Lude..@? "WeightedCapacity")
+      Lude.<*> (x Lude..@? "InstanceType")
+      Lude.<*> (x Lude..@? "LaunchConfigurationName")
+      Lude.<*> (x Lude..@? "LaunchTemplate")
+      Lude.<*> (x Lude..@ "InstanceId")
+      Lude.<*> (x Lude..@ "AutoScalingGroupName")
+      Lude.<*> (x Lude..@ "AvailabilityZone")
+      Lude.<*> (x Lude..@ "LifecycleState")
+      Lude.<*> (x Lude..@ "HealthStatus")
+      Lude.<*> (x Lude..@ "ProtectedFromScaleIn")

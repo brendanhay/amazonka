@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.UdpContainerSettings where
+module Network.AWS.MediaLive.Types.UdpContainerSettings
+  ( UdpContainerSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkUdpContainerSettings,
+
+    -- * Lenses
+    ucsM2tsSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.M2tsSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Udp Container Settings
 --
--- /See:/ 'udpContainerSettings' smart constructor.
+-- /See:/ 'mkUdpContainerSettings' smart constructor.
 newtype UdpContainerSettings = UdpContainerSettings'
-  { _ucsM2tsSettings ::
-      Maybe M2tsSettings
+  { m2tsSettings ::
+      Lude.Maybe M2tsSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UdpContainerSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucsM2tsSettings' - Undocumented member.
-udpContainerSettings ::
+-- * 'm2tsSettings' - Undocumented field.
+mkUdpContainerSettings ::
   UdpContainerSettings
-udpContainerSettings =
-  UdpContainerSettings' {_ucsM2tsSettings = Nothing}
+mkUdpContainerSettings =
+  UdpContainerSettings' {m2tsSettings = Lude.Nothing}
 
--- | Undocumented member.
-ucsM2tsSettings :: Lens' UdpContainerSettings (Maybe M2tsSettings)
-ucsM2tsSettings = lens _ucsM2tsSettings (\s a -> s {_ucsM2tsSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'm2tsSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsM2tsSettings :: Lens.Lens' UdpContainerSettings (Lude.Maybe M2tsSettings)
+ucsM2tsSettings = Lens.lens (m2tsSettings :: UdpContainerSettings -> Lude.Maybe M2tsSettings) (\s a -> s {m2tsSettings = a} :: UdpContainerSettings)
+{-# DEPRECATED ucsM2tsSettings "Use generic-lens or generic-optics with 'm2tsSettings' instead." #-}
 
-instance FromJSON UdpContainerSettings where
+instance Lude.FromJSON UdpContainerSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "UdpContainerSettings"
-      (\x -> UdpContainerSettings' <$> (x .:? "m2tsSettings"))
+      (\x -> UdpContainerSettings' Lude.<$> (x Lude..:? "m2tsSettings"))
 
-instance Hashable UdpContainerSettings
-
-instance NFData UdpContainerSettings
-
-instance ToJSON UdpContainerSettings where
+instance Lude.ToJSON UdpContainerSettings where
   toJSON UdpContainerSettings' {..} =
-    object (catMaybes [("m2tsSettings" .=) <$> _ucsM2tsSettings])
+    Lude.object
+      (Lude.catMaybes [("m2tsSettings" Lude..=) Lude.<$> m2tsSettings])

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,142 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig where
+module Network.AWS.SageMaker.Types.LabelingJobAlgorithmsConfig
+  ( LabelingJobAlgorithmsConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLabelingJobAlgorithmsConfig,
+
+    -- * Lenses
+    ljacLabelingJobResourceConfig,
+    ljacInitialActiveLearningModelARN,
+    ljacLabelingJobAlgorithmSpecificationARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.LabelingJobResourceConfig
 
 -- | Provides configuration information for auto-labeling of your data objects. A @LabelingJobAlgorithmsConfig@ object must be supplied in order to use auto-labeling.
 --
---
---
--- /See:/ 'labelingJobAlgorithmsConfig' smart constructor.
+-- /See:/ 'mkLabelingJobAlgorithmsConfig' smart constructor.
 data LabelingJobAlgorithmsConfig = LabelingJobAlgorithmsConfig'
-  { _ljacLabelingJobResourceConfig ::
-      !(Maybe LabelingJobResourceConfig),
-    _ljacInitialActiveLearningModelARN ::
-      !(Maybe Text),
-    _ljacLabelingJobAlgorithmSpecificationARN ::
-      !Text
+  { labelingJobResourceConfig ::
+      Lude.Maybe
+        LabelingJobResourceConfig,
+    initialActiveLearningModelARN ::
+      Lude.Maybe Lude.Text,
+    labelingJobAlgorithmSpecificationARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobAlgorithmsConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'initialActiveLearningModelARN' - At the end of an auto-label job Ground Truth sends the Amazon Resource Name (ARN) of the final model used for auto-labeling. You can use this model as the starting point for subsequent similar jobs by providing the ARN of the model here.
+-- * 'labelingJobAlgorithmSpecificationARN' - Specifies the Amazon Resource Name (ARN) of the algorithm used for auto-labeling. You must select one of the following ARNs:
 --
--- * 'ljacLabelingJobResourceConfig' - Provides configuration information for a labeling job.
 --
--- * 'ljacInitialActiveLearningModelARN' - At the end of an auto-label job Ground Truth sends the Amazon Resource Name (ARN) of the final model used for auto-labeling. You can use this model as the starting point for subsequent similar jobs by providing the ARN of the model here.
+--     * /Image classification/
+-- @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/image-classification@
 --
--- * 'ljacLabelingJobAlgorithmSpecificationARN' - Specifies the Amazon Resource Name (ARN) of the algorithm used for auto-labeling. You must select one of the following ARNs:     * /Image classification/  @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/image-classification@      * /Text classification/  @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/text-classification@      * /Object detection/  @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/object-detection@      * /Semantic Segmentation/  @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/semantic-segmentation@
-labelingJobAlgorithmsConfig ::
-  -- | 'ljacLabelingJobAlgorithmSpecificationARN'
-  Text ->
+--
+--     * /Text classification/
+-- @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/text-classification@
+--
+--
+--     * /Object detection/
+-- @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/object-detection@
+--
+--
+--     * /Semantic Segmentation/
+-- @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/semantic-segmentation@
+--
+--
+-- * 'labelingJobResourceConfig' - Provides configuration information for a labeling job.
+mkLabelingJobAlgorithmsConfig ::
+  -- | 'labelingJobAlgorithmSpecificationARN'
+  Lude.Text ->
   LabelingJobAlgorithmsConfig
-labelingJobAlgorithmsConfig pLabelingJobAlgorithmSpecificationARN_ =
-  LabelingJobAlgorithmsConfig'
-    { _ljacLabelingJobResourceConfig =
-        Nothing,
-      _ljacInitialActiveLearningModelARN = Nothing,
-      _ljacLabelingJobAlgorithmSpecificationARN =
-        pLabelingJobAlgorithmSpecificationARN_
-    }
+mkLabelingJobAlgorithmsConfig
+  pLabelingJobAlgorithmSpecificationARN_ =
+    LabelingJobAlgorithmsConfig'
+      { labelingJobResourceConfig =
+          Lude.Nothing,
+        initialActiveLearningModelARN = Lude.Nothing,
+        labelingJobAlgorithmSpecificationARN =
+          pLabelingJobAlgorithmSpecificationARN_
+      }
 
 -- | Provides configuration information for a labeling job.
-ljacLabelingJobResourceConfig :: Lens' LabelingJobAlgorithmsConfig (Maybe LabelingJobResourceConfig)
-ljacLabelingJobResourceConfig = lens _ljacLabelingJobResourceConfig (\s a -> s {_ljacLabelingJobResourceConfig = a})
+--
+-- /Note:/ Consider using 'labelingJobResourceConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljacLabelingJobResourceConfig :: Lens.Lens' LabelingJobAlgorithmsConfig (Lude.Maybe LabelingJobResourceConfig)
+ljacLabelingJobResourceConfig = Lens.lens (labelingJobResourceConfig :: LabelingJobAlgorithmsConfig -> Lude.Maybe LabelingJobResourceConfig) (\s a -> s {labelingJobResourceConfig = a} :: LabelingJobAlgorithmsConfig)
+{-# DEPRECATED ljacLabelingJobResourceConfig "Use generic-lens or generic-optics with 'labelingJobResourceConfig' instead." #-}
 
 -- | At the end of an auto-label job Ground Truth sends the Amazon Resource Name (ARN) of the final model used for auto-labeling. You can use this model as the starting point for subsequent similar jobs by providing the ARN of the model here.
-ljacInitialActiveLearningModelARN :: Lens' LabelingJobAlgorithmsConfig (Maybe Text)
-ljacInitialActiveLearningModelARN = lens _ljacInitialActiveLearningModelARN (\s a -> s {_ljacInitialActiveLearningModelARN = a})
+--
+-- /Note:/ Consider using 'initialActiveLearningModelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljacInitialActiveLearningModelARN :: Lens.Lens' LabelingJobAlgorithmsConfig (Lude.Maybe Lude.Text)
+ljacInitialActiveLearningModelARN = Lens.lens (initialActiveLearningModelARN :: LabelingJobAlgorithmsConfig -> Lude.Maybe Lude.Text) (\s a -> s {initialActiveLearningModelARN = a} :: LabelingJobAlgorithmsConfig)
+{-# DEPRECATED ljacInitialActiveLearningModelARN "Use generic-lens or generic-optics with 'initialActiveLearningModelARN' instead." #-}
 
--- | Specifies the Amazon Resource Name (ARN) of the algorithm used for auto-labeling. You must select one of the following ARNs:     * /Image classification/  @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/image-classification@      * /Text classification/  @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/text-classification@      * /Object detection/  @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/object-detection@      * /Semantic Segmentation/  @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/semantic-segmentation@
-ljacLabelingJobAlgorithmSpecificationARN :: Lens' LabelingJobAlgorithmsConfig Text
-ljacLabelingJobAlgorithmSpecificationARN = lens _ljacLabelingJobAlgorithmSpecificationARN (\s a -> s {_ljacLabelingJobAlgorithmSpecificationARN = a})
+-- | Specifies the Amazon Resource Name (ARN) of the algorithm used for auto-labeling. You must select one of the following ARNs:
+--
+--
+--     * /Image classification/
+-- @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/image-classification@
+--
+--
+--     * /Text classification/
+-- @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/text-classification@
+--
+--
+--     * /Object detection/
+-- @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/object-detection@
+--
+--
+--     * /Semantic Segmentation/
+-- @arn:aws:sagemaker:/region/ :027400017018:labeling-job-algorithm-specification/semantic-segmentation@
+--
+--
+--
+-- /Note:/ Consider using 'labelingJobAlgorithmSpecificationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljacLabelingJobAlgorithmSpecificationARN :: Lens.Lens' LabelingJobAlgorithmsConfig Lude.Text
+ljacLabelingJobAlgorithmSpecificationARN = Lens.lens (labelingJobAlgorithmSpecificationARN :: LabelingJobAlgorithmsConfig -> Lude.Text) (\s a -> s {labelingJobAlgorithmSpecificationARN = a} :: LabelingJobAlgorithmsConfig)
+{-# DEPRECATED ljacLabelingJobAlgorithmSpecificationARN "Use generic-lens or generic-optics with 'labelingJobAlgorithmSpecificationARN' instead." #-}
 
-instance FromJSON LabelingJobAlgorithmsConfig where
+instance Lude.FromJSON LabelingJobAlgorithmsConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "LabelingJobAlgorithmsConfig"
       ( \x ->
           LabelingJobAlgorithmsConfig'
-            <$> (x .:? "LabelingJobResourceConfig")
-            <*> (x .:? "InitialActiveLearningModelArn")
-            <*> (x .: "LabelingJobAlgorithmSpecificationArn")
+            Lude.<$> (x Lude..:? "LabelingJobResourceConfig")
+            Lude.<*> (x Lude..:? "InitialActiveLearningModelArn")
+            Lude.<*> (x Lude..: "LabelingJobAlgorithmSpecificationArn")
       )
 
-instance Hashable LabelingJobAlgorithmsConfig
-
-instance NFData LabelingJobAlgorithmsConfig
-
-instance ToJSON LabelingJobAlgorithmsConfig where
+instance Lude.ToJSON LabelingJobAlgorithmsConfig where
   toJSON LabelingJobAlgorithmsConfig' {..} =
-    object
-      ( catMaybes
-          [ ("LabelingJobResourceConfig" .=)
-              <$> _ljacLabelingJobResourceConfig,
-            ("InitialActiveLearningModelArn" .=)
-              <$> _ljacInitialActiveLearningModelARN,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("LabelingJobResourceConfig" Lude..=)
+              Lude.<$> labelingJobResourceConfig,
+            ("InitialActiveLearningModelArn" Lude..=)
+              Lude.<$> initialActiveLearningModelARN,
+            Lude.Just
               ( "LabelingJobAlgorithmSpecificationArn"
-                  .= _ljacLabelingJobAlgorithmSpecificationARN
+                  Lude..= labelingJobAlgorithmSpecificationARN
               )
           ]
       )

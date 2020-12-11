@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,154 +7,205 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.CompositeAlarm where
+module Network.AWS.CloudWatch.Types.CompositeAlarm
+  ( CompositeAlarm (..),
+
+    -- * Smart constructor
+    mkCompositeAlarm,
+
+    -- * Lenses
+    caAlarmName,
+    caStateUpdatedTimestamp,
+    caAlarmDescription,
+    caAlarmRule,
+    caOKActions,
+    caStateValue,
+    caAlarmConfigurationUpdatedTimestamp,
+    caActionsEnabled,
+    caInsufficientDataActions,
+    caStateReason,
+    caStateReasonData,
+    caAlarmARN,
+    caAlarmActions,
+  )
+where
 
 import Network.AWS.CloudWatch.Types.StateValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details about a composite alarm.
 --
---
---
--- /See:/ 'compositeAlarm' smart constructor.
+-- /See:/ 'mkCompositeAlarm' smart constructor.
 data CompositeAlarm = CompositeAlarm'
-  { _caAlarmName ::
-      !(Maybe Text),
-    _caStateUpdatedTimestamp :: !(Maybe ISO8601),
-    _caAlarmDescription :: !(Maybe Text),
-    _caAlarmRule :: !(Maybe Text),
-    _caOKActions :: !(Maybe [Text]),
-    _caStateValue :: !(Maybe StateValue),
-    _caAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601),
-    _caActionsEnabled :: !(Maybe Bool),
-    _caInsufficientDataActions :: !(Maybe [Text]),
-    _caStateReason :: !(Maybe Text),
-    _caStateReasonData :: !(Maybe Text),
-    _caAlarmARN :: !(Maybe Text),
-    _caAlarmActions :: !(Maybe [Text])
+  { alarmName ::
+      Lude.Maybe Lude.Text,
+    stateUpdatedTimestamp :: Lude.Maybe Lude.ISO8601,
+    alarmDescription :: Lude.Maybe Lude.Text,
+    alarmRule :: Lude.Maybe Lude.Text,
+    okActions :: Lude.Maybe [Lude.Text],
+    stateValue :: Lude.Maybe StateValue,
+    alarmConfigurationUpdatedTimestamp :: Lude.Maybe Lude.ISO8601,
+    actionsEnabled :: Lude.Maybe Lude.Bool,
+    insufficientDataActions :: Lude.Maybe [Lude.Text],
+    stateReason :: Lude.Maybe Lude.Text,
+    stateReasonData :: Lude.Maybe Lude.Text,
+    alarmARN :: Lude.Maybe Lude.Text,
+    alarmActions :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompositeAlarm' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caAlarmName' - The name of the alarm.
---
--- * 'caStateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
---
--- * 'caAlarmDescription' - The description of the alarm.
---
--- * 'caAlarmRule' - The rule that this alarm uses to evaluate its alarm state.
---
--- * 'caOKActions' - The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
---
--- * 'caStateValue' - The state value for the alarm.
---
--- * 'caAlarmConfigurationUpdatedTimestamp' - The time stamp of the last update to the alarm configuration.
---
--- * 'caActionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state.
---
--- * 'caInsufficientDataActions' - The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
---
--- * 'caStateReason' - An explanation for the alarm state, in text format.
---
--- * 'caStateReasonData' - An explanation for the alarm state, in JSON format.
---
--- * 'caAlarmARN' - The Amazon Resource Name (ARN) of the alarm.
---
--- * 'caAlarmActions' - The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-compositeAlarm ::
+-- * 'actionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state.
+-- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
+-- * 'alarmActions' - The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- * 'alarmConfigurationUpdatedTimestamp' - The time stamp of the last update to the alarm configuration.
+-- * 'alarmDescription' - The description of the alarm.
+-- * 'alarmName' - The name of the alarm.
+-- * 'alarmRule' - The rule that this alarm uses to evaluate its alarm state.
+-- * 'insufficientDataActions' - The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- * 'okActions' - The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- * 'stateReason' - An explanation for the alarm state, in text format.
+-- * 'stateReasonData' - An explanation for the alarm state, in JSON format.
+-- * 'stateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
+-- * 'stateValue' - The state value for the alarm.
+mkCompositeAlarm ::
   CompositeAlarm
-compositeAlarm =
+mkCompositeAlarm =
   CompositeAlarm'
-    { _caAlarmName = Nothing,
-      _caStateUpdatedTimestamp = Nothing,
-      _caAlarmDescription = Nothing,
-      _caAlarmRule = Nothing,
-      _caOKActions = Nothing,
-      _caStateValue = Nothing,
-      _caAlarmConfigurationUpdatedTimestamp = Nothing,
-      _caActionsEnabled = Nothing,
-      _caInsufficientDataActions = Nothing,
-      _caStateReason = Nothing,
-      _caStateReasonData = Nothing,
-      _caAlarmARN = Nothing,
-      _caAlarmActions = Nothing
+    { alarmName = Lude.Nothing,
+      stateUpdatedTimestamp = Lude.Nothing,
+      alarmDescription = Lude.Nothing,
+      alarmRule = Lude.Nothing,
+      okActions = Lude.Nothing,
+      stateValue = Lude.Nothing,
+      alarmConfigurationUpdatedTimestamp = Lude.Nothing,
+      actionsEnabled = Lude.Nothing,
+      insufficientDataActions = Lude.Nothing,
+      stateReason = Lude.Nothing,
+      stateReasonData = Lude.Nothing,
+      alarmARN = Lude.Nothing,
+      alarmActions = Lude.Nothing
     }
 
 -- | The name of the alarm.
-caAlarmName :: Lens' CompositeAlarm (Maybe Text)
-caAlarmName = lens _caAlarmName (\s a -> s {_caAlarmName = a})
+--
+-- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlarmName :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.Text)
+caAlarmName = Lens.lens (alarmName :: CompositeAlarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmName = a} :: CompositeAlarm)
+{-# DEPRECATED caAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
 -- | The time stamp of the last update to the alarm state.
-caStateUpdatedTimestamp :: Lens' CompositeAlarm (Maybe UTCTime)
-caStateUpdatedTimestamp = lens _caStateUpdatedTimestamp (\s a -> s {_caStateUpdatedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'stateUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caStateUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.ISO8601)
+caStateUpdatedTimestamp = Lens.lens (stateUpdatedTimestamp :: CompositeAlarm -> Lude.Maybe Lude.ISO8601) (\s a -> s {stateUpdatedTimestamp = a} :: CompositeAlarm)
+{-# DEPRECATED caStateUpdatedTimestamp "Use generic-lens or generic-optics with 'stateUpdatedTimestamp' instead." #-}
 
 -- | The description of the alarm.
-caAlarmDescription :: Lens' CompositeAlarm (Maybe Text)
-caAlarmDescription = lens _caAlarmDescription (\s a -> s {_caAlarmDescription = a})
+--
+-- /Note:/ Consider using 'alarmDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlarmDescription :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.Text)
+caAlarmDescription = Lens.lens (alarmDescription :: CompositeAlarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmDescription = a} :: CompositeAlarm)
+{-# DEPRECATED caAlarmDescription "Use generic-lens or generic-optics with 'alarmDescription' instead." #-}
 
 -- | The rule that this alarm uses to evaluate its alarm state.
-caAlarmRule :: Lens' CompositeAlarm (Maybe Text)
-caAlarmRule = lens _caAlarmRule (\s a -> s {_caAlarmRule = a})
+--
+-- /Note:/ Consider using 'alarmRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlarmRule :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.Text)
+caAlarmRule = Lens.lens (alarmRule :: CompositeAlarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmRule = a} :: CompositeAlarm)
+{-# DEPRECATED caAlarmRule "Use generic-lens or generic-optics with 'alarmRule' instead." #-}
 
 -- | The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-caOKActions :: Lens' CompositeAlarm [Text]
-caOKActions = lens _caOKActions (\s a -> s {_caOKActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'okActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caOKActions :: Lens.Lens' CompositeAlarm (Lude.Maybe [Lude.Text])
+caOKActions = Lens.lens (okActions :: CompositeAlarm -> Lude.Maybe [Lude.Text]) (\s a -> s {okActions = a} :: CompositeAlarm)
+{-# DEPRECATED caOKActions "Use generic-lens or generic-optics with 'okActions' instead." #-}
 
 -- | The state value for the alarm.
-caStateValue :: Lens' CompositeAlarm (Maybe StateValue)
-caStateValue = lens _caStateValue (\s a -> s {_caStateValue = a})
+--
+-- /Note:/ Consider using 'stateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caStateValue :: Lens.Lens' CompositeAlarm (Lude.Maybe StateValue)
+caStateValue = Lens.lens (stateValue :: CompositeAlarm -> Lude.Maybe StateValue) (\s a -> s {stateValue = a} :: CompositeAlarm)
+{-# DEPRECATED caStateValue "Use generic-lens or generic-optics with 'stateValue' instead." #-}
 
 -- | The time stamp of the last update to the alarm configuration.
-caAlarmConfigurationUpdatedTimestamp :: Lens' CompositeAlarm (Maybe UTCTime)
-caAlarmConfigurationUpdatedTimestamp = lens _caAlarmConfigurationUpdatedTimestamp (\s a -> s {_caAlarmConfigurationUpdatedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'alarmConfigurationUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlarmConfigurationUpdatedTimestamp :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.ISO8601)
+caAlarmConfigurationUpdatedTimestamp = Lens.lens (alarmConfigurationUpdatedTimestamp :: CompositeAlarm -> Lude.Maybe Lude.ISO8601) (\s a -> s {alarmConfigurationUpdatedTimestamp = a} :: CompositeAlarm)
+{-# DEPRECATED caAlarmConfigurationUpdatedTimestamp "Use generic-lens or generic-optics with 'alarmConfigurationUpdatedTimestamp' instead." #-}
 
 -- | Indicates whether actions should be executed during any changes to the alarm state.
-caActionsEnabled :: Lens' CompositeAlarm (Maybe Bool)
-caActionsEnabled = lens _caActionsEnabled (\s a -> s {_caActionsEnabled = a})
+--
+-- /Note:/ Consider using 'actionsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caActionsEnabled :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.Bool)
+caActionsEnabled = Lens.lens (actionsEnabled :: CompositeAlarm -> Lude.Maybe Lude.Bool) (\s a -> s {actionsEnabled = a} :: CompositeAlarm)
+{-# DEPRECATED caActionsEnabled "Use generic-lens or generic-optics with 'actionsEnabled' instead." #-}
 
 -- | The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-caInsufficientDataActions :: Lens' CompositeAlarm [Text]
-caInsufficientDataActions = lens _caInsufficientDataActions (\s a -> s {_caInsufficientDataActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'insufficientDataActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caInsufficientDataActions :: Lens.Lens' CompositeAlarm (Lude.Maybe [Lude.Text])
+caInsufficientDataActions = Lens.lens (insufficientDataActions :: CompositeAlarm -> Lude.Maybe [Lude.Text]) (\s a -> s {insufficientDataActions = a} :: CompositeAlarm)
+{-# DEPRECATED caInsufficientDataActions "Use generic-lens or generic-optics with 'insufficientDataActions' instead." #-}
 
 -- | An explanation for the alarm state, in text format.
-caStateReason :: Lens' CompositeAlarm (Maybe Text)
-caStateReason = lens _caStateReason (\s a -> s {_caStateReason = a})
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caStateReason :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.Text)
+caStateReason = Lens.lens (stateReason :: CompositeAlarm -> Lude.Maybe Lude.Text) (\s a -> s {stateReason = a} :: CompositeAlarm)
+{-# DEPRECATED caStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
 -- | An explanation for the alarm state, in JSON format.
-caStateReasonData :: Lens' CompositeAlarm (Maybe Text)
-caStateReasonData = lens _caStateReasonData (\s a -> s {_caStateReasonData = a})
+--
+-- /Note:/ Consider using 'stateReasonData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caStateReasonData :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.Text)
+caStateReasonData = Lens.lens (stateReasonData :: CompositeAlarm -> Lude.Maybe Lude.Text) (\s a -> s {stateReasonData = a} :: CompositeAlarm)
+{-# DEPRECATED caStateReasonData "Use generic-lens or generic-optics with 'stateReasonData' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-caAlarmARN :: Lens' CompositeAlarm (Maybe Text)
-caAlarmARN = lens _caAlarmARN (\s a -> s {_caAlarmARN = a})
+--
+-- /Note:/ Consider using 'alarmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlarmARN :: Lens.Lens' CompositeAlarm (Lude.Maybe Lude.Text)
+caAlarmARN = Lens.lens (alarmARN :: CompositeAlarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmARN = a} :: CompositeAlarm)
+{-# DEPRECATED caAlarmARN "Use generic-lens or generic-optics with 'alarmARN' instead." #-}
 
 -- | The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-caAlarmActions :: Lens' CompositeAlarm [Text]
-caAlarmActions = lens _caAlarmActions (\s a -> s {_caAlarmActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'alarmActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlarmActions :: Lens.Lens' CompositeAlarm (Lude.Maybe [Lude.Text])
+caAlarmActions = Lens.lens (alarmActions :: CompositeAlarm -> Lude.Maybe [Lude.Text]) (\s a -> s {alarmActions = a} :: CompositeAlarm)
+{-# DEPRECATED caAlarmActions "Use generic-lens or generic-optics with 'alarmActions' instead." #-}
 
-instance FromXML CompositeAlarm where
+instance Lude.FromXML CompositeAlarm where
   parseXML x =
     CompositeAlarm'
-      <$> (x .@? "AlarmName")
-      <*> (x .@? "StateUpdatedTimestamp")
-      <*> (x .@? "AlarmDescription")
-      <*> (x .@? "AlarmRule")
-      <*> (x .@? "OKActions" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "StateValue")
-      <*> (x .@? "AlarmConfigurationUpdatedTimestamp")
-      <*> (x .@? "ActionsEnabled")
-      <*> ( x .@? "InsufficientDataActions" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> (x .@? "StateReason")
-      <*> (x .@? "StateReasonData")
-      <*> (x .@? "AlarmArn")
-      <*> (x .@? "AlarmActions" .!@ mempty >>= may (parseXMLList "member"))
-
-instance Hashable CompositeAlarm
-
-instance NFData CompositeAlarm
+      Lude.<$> (x Lude..@? "AlarmName")
+      Lude.<*> (x Lude..@? "StateUpdatedTimestamp")
+      Lude.<*> (x Lude..@? "AlarmDescription")
+      Lude.<*> (x Lude..@? "AlarmRule")
+      Lude.<*> ( x Lude..@? "OKActions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "StateValue")
+      Lude.<*> (x Lude..@? "AlarmConfigurationUpdatedTimestamp")
+      Lude.<*> (x Lude..@? "ActionsEnabled")
+      Lude.<*> ( x Lude..@? "InsufficientDataActions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "StateReason")
+      Lude.<*> (x Lude..@? "StateReasonData")
+      Lude.<*> (x Lude..@? "AlarmArn")
+      Lude.<*> ( x Lude..@? "AlarmActions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

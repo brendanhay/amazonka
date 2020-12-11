@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AutoRegistrationStatus where
+module Network.AWS.IoT.Types.AutoRegistrationStatus
+  ( AutoRegistrationStatus
+      ( AutoRegistrationStatus',
+        Disable,
+        Enable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoRegistrationStatus
-  = Disable
-  | Enable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoRegistrationStatus = AutoRegistrationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoRegistrationStatus where
-  parser =
-    takeLowerText >>= \case
-      "disable" -> pure Disable
-      "enable" -> pure Enable
-      e ->
-        fromTextError $
-          "Failure parsing AutoRegistrationStatus from value: '" <> e
-            <> "'. Accepted values: disable, enable"
+pattern Disable :: AutoRegistrationStatus
+pattern Disable = AutoRegistrationStatus' "DISABLE"
 
-instance ToText AutoRegistrationStatus where
-  toText = \case
-    Disable -> "DISABLE"
-    Enable -> "ENABLE"
+pattern Enable :: AutoRegistrationStatus
+pattern Enable = AutoRegistrationStatus' "ENABLE"
 
-instance Hashable AutoRegistrationStatus
-
-instance NFData AutoRegistrationStatus
-
-instance ToByteString AutoRegistrationStatus
-
-instance ToQuery AutoRegistrationStatus
-
-instance ToHeader AutoRegistrationStatus
-
-instance ToJSON AutoRegistrationStatus where
-  toJSON = toJSONText
-
-instance FromJSON AutoRegistrationStatus where
-  parseJSON = parseJSONText "AutoRegistrationStatus"
+{-# COMPLETE
+  Disable,
+  Enable,
+  AutoRegistrationStatus'
+  #-}

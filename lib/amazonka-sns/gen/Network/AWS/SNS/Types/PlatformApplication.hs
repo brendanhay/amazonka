@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SNS.Types.PlatformApplication where
+module Network.AWS.SNS.Types.PlatformApplication
+  ( PlatformApplication (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPlatformApplication,
+
+    -- * Lenses
+    paPlatformApplicationARN,
+    paAttributes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Platform application object.
 --
---
---
--- /See:/ 'platformApplication' smart constructor.
+-- /See:/ 'mkPlatformApplication' smart constructor.
 data PlatformApplication = PlatformApplication'
-  { _paPlatformApplicationARN ::
-      !(Maybe Text),
-    _paAttributes :: !(Maybe (Map Text (Text)))
+  { platformApplicationARN ::
+      Lude.Maybe Lude.Text,
+    attributes ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paPlatformApplicationARN' - PlatformApplicationArn for platform application object.
---
--- * 'paAttributes' - Attributes for platform application object.
-platformApplication ::
+-- * 'attributes' - Attributes for platform application object.
+-- * 'platformApplicationARN' - PlatformApplicationArn for platform application object.
+mkPlatformApplication ::
   PlatformApplication
-platformApplication =
+mkPlatformApplication =
   PlatformApplication'
-    { _paPlatformApplicationARN = Nothing,
-      _paAttributes = Nothing
+    { platformApplicationARN = Lude.Nothing,
+      attributes = Lude.Nothing
     }
 
 -- | PlatformApplicationArn for platform application object.
-paPlatformApplicationARN :: Lens' PlatformApplication (Maybe Text)
-paPlatformApplicationARN = lens _paPlatformApplicationARN (\s a -> s {_paPlatformApplicationARN = a})
+--
+-- /Note:/ Consider using 'platformApplicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paPlatformApplicationARN :: Lens.Lens' PlatformApplication (Lude.Maybe Lude.Text)
+paPlatformApplicationARN = Lens.lens (platformApplicationARN :: PlatformApplication -> Lude.Maybe Lude.Text) (\s a -> s {platformApplicationARN = a} :: PlatformApplication)
+{-# DEPRECATED paPlatformApplicationARN "Use generic-lens or generic-optics with 'platformApplicationARN' instead." #-}
 
 -- | Attributes for platform application object.
-paAttributes :: Lens' PlatformApplication (HashMap Text (Text))
-paAttributes = lens _paAttributes (\s a -> s {_paAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paAttributes :: Lens.Lens' PlatformApplication (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+paAttributes = Lens.lens (attributes :: PlatformApplication -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: PlatformApplication)
+{-# DEPRECATED paAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance FromXML PlatformApplication where
+instance Lude.FromXML PlatformApplication where
   parseXML x =
     PlatformApplication'
-      <$> (x .@? "PlatformApplicationArn")
-      <*> ( x .@? "Attributes" .!@ mempty
-              >>= may (parseXMLMap "entry" "key" "value")
-          )
-
-instance Hashable PlatformApplication
-
-instance NFData PlatformApplication
+      Lude.<$> (x Lude..@? "PlatformApplicationArn")
+      Lude.<*> ( x Lude..@? "Attributes" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+               )

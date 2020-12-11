@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.OperationTargetType where
+module Network.AWS.Route53AutoNaming.Types.OperationTargetType
+  ( OperationTargetType
+      ( OperationTargetType',
+        OTTInstance,
+        OTTNamespace,
+        OTTService
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationTargetType
-  = OTTInstance
-  | OTTNamespace
-  | OTTService
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationTargetType = OperationTargetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationTargetType where
-  parser =
-    takeLowerText >>= \case
-      "instance" -> pure OTTInstance
-      "namespace" -> pure OTTNamespace
-      "service" -> pure OTTService
-      e ->
-        fromTextError $
-          "Failure parsing OperationTargetType from value: '" <> e
-            <> "'. Accepted values: instance, namespace, service"
+pattern OTTInstance :: OperationTargetType
+pattern OTTInstance = OperationTargetType' "INSTANCE"
 
-instance ToText OperationTargetType where
-  toText = \case
-    OTTInstance -> "INSTANCE"
-    OTTNamespace -> "NAMESPACE"
-    OTTService -> "SERVICE"
+pattern OTTNamespace :: OperationTargetType
+pattern OTTNamespace = OperationTargetType' "NAMESPACE"
 
-instance Hashable OperationTargetType
+pattern OTTService :: OperationTargetType
+pattern OTTService = OperationTargetType' "SERVICE"
 
-instance NFData OperationTargetType
-
-instance ToByteString OperationTargetType
-
-instance ToQuery OperationTargetType
-
-instance ToHeader OperationTargetType
-
-instance FromJSON OperationTargetType where
-  parseJSON = parseJSONText "OperationTargetType"
+{-# COMPLETE
+  OTTInstance,
+  OTTNamespace,
+  OTTService,
+  OperationTargetType'
+  #-}

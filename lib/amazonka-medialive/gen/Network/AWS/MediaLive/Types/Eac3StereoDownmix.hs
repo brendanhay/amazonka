@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Eac3StereoDownmix where
+module Network.AWS.MediaLive.Types.Eac3StereoDownmix
+  ( Eac3StereoDownmix
+      ( Eac3StereoDownmix',
+        DPL2,
+        LoRo,
+        LtRt,
+        NotIndicated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Eac3 Stereo Downmix
-data Eac3StereoDownmix
-  = DPL2
-  | LoRo
-  | LtRt
-  | NotIndicated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3StereoDownmix = Eac3StereoDownmix' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3StereoDownmix where
-  parser =
-    takeLowerText >>= \case
-      "dpl2" -> pure DPL2
-      "lo_ro" -> pure LoRo
-      "lt_rt" -> pure LtRt
-      "not_indicated" -> pure NotIndicated
-      e ->
-        fromTextError $
-          "Failure parsing Eac3StereoDownmix from value: '" <> e
-            <> "'. Accepted values: dpl2, lo_ro, lt_rt, not_indicated"
+pattern DPL2 :: Eac3StereoDownmix
+pattern DPL2 = Eac3StereoDownmix' "DPL2"
 
-instance ToText Eac3StereoDownmix where
-  toText = \case
-    DPL2 -> "DPL2"
-    LoRo -> "LO_RO"
-    LtRt -> "LT_RT"
-    NotIndicated -> "NOT_INDICATED"
+pattern LoRo :: Eac3StereoDownmix
+pattern LoRo = Eac3StereoDownmix' "LO_RO"
 
-instance Hashable Eac3StereoDownmix
+pattern LtRt :: Eac3StereoDownmix
+pattern LtRt = Eac3StereoDownmix' "LT_RT"
 
-instance NFData Eac3StereoDownmix
+pattern NotIndicated :: Eac3StereoDownmix
+pattern NotIndicated = Eac3StereoDownmix' "NOT_INDICATED"
 
-instance ToByteString Eac3StereoDownmix
-
-instance ToQuery Eac3StereoDownmix
-
-instance ToHeader Eac3StereoDownmix
-
-instance ToJSON Eac3StereoDownmix where
-  toJSON = toJSONText
-
-instance FromJSON Eac3StereoDownmix where
-  parseJSON = parseJSONText "Eac3StereoDownmix"
+{-# COMPLETE
+  DPL2,
+  LoRo,
+  LtRt,
+  NotIndicated,
+  Eac3StereoDownmix'
+  #-}

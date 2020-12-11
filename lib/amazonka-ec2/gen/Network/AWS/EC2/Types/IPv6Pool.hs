@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.IPv6Pool where
+module Network.AWS.EC2.Types.IPv6Pool
+  ( IPv6Pool (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkIPv6Pool,
+
+    -- * Lenses
+    ipPoolCidrBlocks,
+    ipPoolId,
+    ipDescription,
+    ipTags,
+  )
+where
+
 import Network.AWS.EC2.Types.PoolCidrBlock
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an IPv6 address pool.
 --
---
---
--- /See:/ 'ipv6Pool' smart constructor.
+-- /See:/ 'mkIPv6Pool' smart constructor.
 data IPv6Pool = IPv6Pool'
-  { _ipPoolCidrBlocks ::
-      !(Maybe [PoolCidrBlock]),
-    _ipPoolId :: !(Maybe Text),
-    _ipDescription :: !(Maybe Text),
-    _ipTags :: !(Maybe [Tag])
+  { poolCidrBlocks ::
+      Lude.Maybe [PoolCidrBlock],
+    poolId :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPv6Pool' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipPoolCidrBlocks' - The CIDR blocks for the address pool.
---
--- * 'ipPoolId' - The ID of the address pool.
---
--- * 'ipDescription' - The description for the address pool.
---
--- * 'ipTags' - Any tags for the address pool.
-ipv6Pool ::
+-- * 'description' - The description for the address pool.
+-- * 'poolCidrBlocks' - The CIDR blocks for the address pool.
+-- * 'poolId' - The ID of the address pool.
+-- * 'tags' - Any tags for the address pool.
+mkIPv6Pool ::
   IPv6Pool
-ipv6Pool =
+mkIPv6Pool =
   IPv6Pool'
-    { _ipPoolCidrBlocks = Nothing,
-      _ipPoolId = Nothing,
-      _ipDescription = Nothing,
-      _ipTags = Nothing
+    { poolCidrBlocks = Lude.Nothing,
+      poolId = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The CIDR blocks for the address pool.
-ipPoolCidrBlocks :: Lens' IPv6Pool [PoolCidrBlock]
-ipPoolCidrBlocks = lens _ipPoolCidrBlocks (\s a -> s {_ipPoolCidrBlocks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'poolCidrBlocks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipPoolCidrBlocks :: Lens.Lens' IPv6Pool (Lude.Maybe [PoolCidrBlock])
+ipPoolCidrBlocks = Lens.lens (poolCidrBlocks :: IPv6Pool -> Lude.Maybe [PoolCidrBlock]) (\s a -> s {poolCidrBlocks = a} :: IPv6Pool)
+{-# DEPRECATED ipPoolCidrBlocks "Use generic-lens or generic-optics with 'poolCidrBlocks' instead." #-}
 
 -- | The ID of the address pool.
-ipPoolId :: Lens' IPv6Pool (Maybe Text)
-ipPoolId = lens _ipPoolId (\s a -> s {_ipPoolId = a})
+--
+-- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipPoolId :: Lens.Lens' IPv6Pool (Lude.Maybe Lude.Text)
+ipPoolId = Lens.lens (poolId :: IPv6Pool -> Lude.Maybe Lude.Text) (\s a -> s {poolId = a} :: IPv6Pool)
+{-# DEPRECATED ipPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
 -- | The description for the address pool.
-ipDescription :: Lens' IPv6Pool (Maybe Text)
-ipDescription = lens _ipDescription (\s a -> s {_ipDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipDescription :: Lens.Lens' IPv6Pool (Lude.Maybe Lude.Text)
+ipDescription = Lens.lens (description :: IPv6Pool -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: IPv6Pool)
+{-# DEPRECATED ipDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Any tags for the address pool.
-ipTags :: Lens' IPv6Pool [Tag]
-ipTags = lens _ipTags (\s a -> s {_ipTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipTags :: Lens.Lens' IPv6Pool (Lude.Maybe [Tag])
+ipTags = Lens.lens (tags :: IPv6Pool -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: IPv6Pool)
+{-# DEPRECATED ipTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML IPv6Pool where
+instance Lude.FromXML IPv6Pool where
   parseXML x =
     IPv6Pool'
-      <$> (x .@? "poolCidrBlockSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "poolId")
-      <*> (x .@? "description")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable IPv6Pool
-
-instance NFData IPv6Pool
+      Lude.<$> ( x Lude..@? "poolCidrBlockSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "poolId")
+      Lude.<*> (x Lude..@? "description")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

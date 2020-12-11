@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Gets all the usage plan keys representing the API keys added to a specified usage plan.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetUsagePlanKeys
-  ( -- * Creating a Request
-    getUsagePlanKeys,
-    GetUsagePlanKeys,
+  ( -- * Creating a request
+    GetUsagePlanKeys (..),
+    mkGetUsagePlanKeys,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gupkNameQuery,
     gupkLimit,
     gupkPosition,
     gupkUsagePlanId,
 
-    -- * Destructuring the Response
-    getUsagePlanKeysResponse,
-    GetUsagePlanKeysResponse,
+    -- * Destructuring the response
+    GetUsagePlanKeysResponse (..),
+    mkGetUsagePlanKeysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gupkrsItems,
     gupkrsPosition,
     gupkrsResponseStatus,
@@ -45,147 +38,170 @@ module Network.AWS.APIGateway.GetUsagePlanKeys
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.
 --
---
---
--- /See:/ 'getUsagePlanKeys' smart constructor.
+-- /See:/ 'mkGetUsagePlanKeys' smart constructor.
 data GetUsagePlanKeys = GetUsagePlanKeys'
-  { _gupkNameQuery ::
-      !(Maybe Text),
-    _gupkLimit :: !(Maybe Int),
-    _gupkPosition :: !(Maybe Text),
-    _gupkUsagePlanId :: !Text
+  { nameQuery ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text,
+    usagePlanId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsagePlanKeys' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gupkNameQuery' - A query parameter specifying the name of the to-be-returned usage plan keys.
---
--- * 'gupkLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gupkPosition' - The current pagination position in the paged result set.
---
--- * 'gupkUsagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
-getUsagePlanKeys ::
-  -- | 'gupkUsagePlanId'
-  Text ->
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'nameQuery' - A query parameter specifying the name of the to-be-returned usage plan keys.
+-- * 'position' - The current pagination position in the paged result set.
+-- * 'usagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+mkGetUsagePlanKeys ::
+  -- | 'usagePlanId'
+  Lude.Text ->
   GetUsagePlanKeys
-getUsagePlanKeys pUsagePlanId_ =
+mkGetUsagePlanKeys pUsagePlanId_ =
   GetUsagePlanKeys'
-    { _gupkNameQuery = Nothing,
-      _gupkLimit = Nothing,
-      _gupkPosition = Nothing,
-      _gupkUsagePlanId = pUsagePlanId_
+    { nameQuery = Lude.Nothing,
+      limit = Lude.Nothing,
+      position = Lude.Nothing,
+      usagePlanId = pUsagePlanId_
     }
 
 -- | A query parameter specifying the name of the to-be-returned usage plan keys.
-gupkNameQuery :: Lens' GetUsagePlanKeys (Maybe Text)
-gupkNameQuery = lens _gupkNameQuery (\s a -> s {_gupkNameQuery = a})
+--
+-- /Note:/ Consider using 'nameQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupkNameQuery :: Lens.Lens' GetUsagePlanKeys (Lude.Maybe Lude.Text)
+gupkNameQuery = Lens.lens (nameQuery :: GetUsagePlanKeys -> Lude.Maybe Lude.Text) (\s a -> s {nameQuery = a} :: GetUsagePlanKeys)
+{-# DEPRECATED gupkNameQuery "Use generic-lens or generic-optics with 'nameQuery' instead." #-}
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gupkLimit :: Lens' GetUsagePlanKeys (Maybe Int)
-gupkLimit = lens _gupkLimit (\s a -> s {_gupkLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupkLimit :: Lens.Lens' GetUsagePlanKeys (Lude.Maybe Lude.Int)
+gupkLimit = Lens.lens (limit :: GetUsagePlanKeys -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetUsagePlanKeys)
+{-# DEPRECATED gupkLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gupkPosition :: Lens' GetUsagePlanKeys (Maybe Text)
-gupkPosition = lens _gupkPosition (\s a -> s {_gupkPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupkPosition :: Lens.Lens' GetUsagePlanKeys (Lude.Maybe Lude.Text)
+gupkPosition = Lens.lens (position :: GetUsagePlanKeys -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetUsagePlanKeys)
+{-# DEPRECATED gupkPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 -- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
-gupkUsagePlanId :: Lens' GetUsagePlanKeys Text
-gupkUsagePlanId = lens _gupkUsagePlanId (\s a -> s {_gupkUsagePlanId = a})
+--
+-- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupkUsagePlanId :: Lens.Lens' GetUsagePlanKeys Lude.Text
+gupkUsagePlanId = Lens.lens (usagePlanId :: GetUsagePlanKeys -> Lude.Text) (\s a -> s {usagePlanId = a} :: GetUsagePlanKeys)
+{-# DEPRECATED gupkUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
 
-instance AWSPager GetUsagePlanKeys where
+instance Page.AWSPager GetUsagePlanKeys where
   page rq rs
-    | stop (rs ^. gupkrsPosition) = Nothing
-    | stop (rs ^. gupkrsItems) = Nothing
-    | otherwise = Just $ rq & gupkPosition .~ rs ^. gupkrsPosition
+    | Page.stop (rs Lens.^. gupkrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. gupkrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gupkPosition Lens..~ rs Lens.^. gupkrsPosition
 
-instance AWSRequest GetUsagePlanKeys where
+instance Lude.AWSRequest GetUsagePlanKeys where
   type Rs GetUsagePlanKeys = GetUsagePlanKeysResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetUsagePlanKeysResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetUsagePlanKeys
-
-instance NFData GetUsagePlanKeys
-
-instance ToHeaders GetUsagePlanKeys where
+instance Lude.ToHeaders GetUsagePlanKeys where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetUsagePlanKeys where
+instance Lude.ToPath GetUsagePlanKeys where
   toPath GetUsagePlanKeys' {..} =
-    mconcat ["/usageplans/", toBS _gupkUsagePlanId, "/keys"]
+    Lude.mconcat ["/usageplans/", Lude.toBS usagePlanId, "/keys"]
 
-instance ToQuery GetUsagePlanKeys where
+instance Lude.ToQuery GetUsagePlanKeys where
   toQuery GetUsagePlanKeys' {..} =
-    mconcat
-      [ "name" =: _gupkNameQuery,
-        "limit" =: _gupkLimit,
-        "position" =: _gupkPosition
+    Lude.mconcat
+      [ "name" Lude.=: nameQuery,
+        "limit" Lude.=: limit,
+        "position" Lude.=: position
       ]
 
 -- | Represents the collection of usage plan keys added to usage plans for the associated API keys and, possibly, other types of keys.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
--- /See:/ 'getUsagePlanKeysResponse' smart constructor.
+-- /See:/ 'mkGetUsagePlanKeysResponse' smart constructor.
 data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'
-  { _gupkrsItems ::
-      !(Maybe [UsagePlanKey]),
-    _gupkrsPosition :: !(Maybe Text),
-    _gupkrsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [UsagePlanKey],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsagePlanKeysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gupkrsItems' - The current page of elements from this collection.
---
--- * 'gupkrsPosition' - Undocumented member.
---
--- * 'gupkrsResponseStatus' - -- | The response status code.
-getUsagePlanKeysResponse ::
-  -- | 'gupkrsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetUsagePlanKeysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetUsagePlanKeysResponse
-getUsagePlanKeysResponse pResponseStatus_ =
+mkGetUsagePlanKeysResponse pResponseStatus_ =
   GetUsagePlanKeysResponse'
-    { _gupkrsItems = Nothing,
-      _gupkrsPosition = Nothing,
-      _gupkrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-gupkrsItems :: Lens' GetUsagePlanKeysResponse [UsagePlanKey]
-gupkrsItems = lens _gupkrsItems (\s a -> s {_gupkrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupkrsItems :: Lens.Lens' GetUsagePlanKeysResponse (Lude.Maybe [UsagePlanKey])
+gupkrsItems = Lens.lens (items :: GetUsagePlanKeysResponse -> Lude.Maybe [UsagePlanKey]) (\s a -> s {items = a} :: GetUsagePlanKeysResponse)
+{-# DEPRECATED gupkrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-gupkrsPosition :: Lens' GetUsagePlanKeysResponse (Maybe Text)
-gupkrsPosition = lens _gupkrsPosition (\s a -> s {_gupkrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupkrsPosition :: Lens.Lens' GetUsagePlanKeysResponse (Lude.Maybe Lude.Text)
+gupkrsPosition = Lens.lens (position :: GetUsagePlanKeysResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetUsagePlanKeysResponse)
+{-# DEPRECATED gupkrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-gupkrsResponseStatus :: Lens' GetUsagePlanKeysResponse Int
-gupkrsResponseStatus = lens _gupkrsResponseStatus (\s a -> s {_gupkrsResponseStatus = a})
-
-instance NFData GetUsagePlanKeysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupkrsResponseStatus :: Lens.Lens' GetUsagePlanKeysResponse Lude.Int
+gupkrsResponseStatus = Lens.lens (responseStatus :: GetUsagePlanKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUsagePlanKeysResponse)
+{-# DEPRECATED gupkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

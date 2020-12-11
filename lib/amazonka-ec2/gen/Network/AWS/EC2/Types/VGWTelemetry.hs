@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VGWTelemetry where
+module Network.AWS.EC2.Types.VGWTelemetry
+  ( VGWTelemetry (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVGWTelemetry,
+
+    -- * Lenses
+    vtStatus,
+    vtOutsideIPAddress,
+    vtCertificateARN,
+    vtLastStatusChange,
+    vtAcceptedRouteCount,
+    vtStatusMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.TelemetryStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes telemetry for a VPN tunnel.
 --
---
---
--- /See:/ 'vgwTelemetry' smart constructor.
+-- /See:/ 'mkVGWTelemetry' smart constructor.
 data VGWTelemetry = VGWTelemetry'
-  { _vtStatus ::
-      !(Maybe TelemetryStatus),
-    _vtOutsideIPAddress :: !(Maybe Text),
-    _vtCertificateARN :: !(Maybe Text),
-    _vtLastStatusChange :: !(Maybe ISO8601),
-    _vtAcceptedRouteCount :: !(Maybe Int),
-    _vtStatusMessage :: !(Maybe Text)
+  { status ::
+      Lude.Maybe TelemetryStatus,
+    outsideIPAddress :: Lude.Maybe Lude.Text,
+    certificateARN :: Lude.Maybe Lude.Text,
+    lastStatusChange :: Lude.Maybe Lude.ISO8601,
+    acceptedRouteCount :: Lude.Maybe Lude.Int,
+    statusMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VGWTelemetry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vtStatus' - The status of the VPN tunnel.
---
--- * 'vtOutsideIPAddress' - The Internet-routable IP address of the virtual private gateway's outside interface.
---
--- * 'vtCertificateARN' - The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
---
--- * 'vtLastStatusChange' - The date and time of the last change in status.
---
--- * 'vtAcceptedRouteCount' - The number of accepted routes.
---
--- * 'vtStatusMessage' - If an error occurs, a description of the error.
-vgwTelemetry ::
+-- * 'acceptedRouteCount' - The number of accepted routes.
+-- * 'certificateARN' - The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+-- * 'lastStatusChange' - The date and time of the last change in status.
+-- * 'outsideIPAddress' - The Internet-routable IP address of the virtual private gateway's outside interface.
+-- * 'status' - The status of the VPN tunnel.
+-- * 'statusMessage' - If an error occurs, a description of the error.
+mkVGWTelemetry ::
   VGWTelemetry
-vgwTelemetry =
+mkVGWTelemetry =
   VGWTelemetry'
-    { _vtStatus = Nothing,
-      _vtOutsideIPAddress = Nothing,
-      _vtCertificateARN = Nothing,
-      _vtLastStatusChange = Nothing,
-      _vtAcceptedRouteCount = Nothing,
-      _vtStatusMessage = Nothing
+    { status = Lude.Nothing,
+      outsideIPAddress = Lude.Nothing,
+      certificateARN = Lude.Nothing,
+      lastStatusChange = Lude.Nothing,
+      acceptedRouteCount = Lude.Nothing,
+      statusMessage = Lude.Nothing
     }
 
 -- | The status of the VPN tunnel.
-vtStatus :: Lens' VGWTelemetry (Maybe TelemetryStatus)
-vtStatus = lens _vtStatus (\s a -> s {_vtStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtStatus :: Lens.Lens' VGWTelemetry (Lude.Maybe TelemetryStatus)
+vtStatus = Lens.lens (status :: VGWTelemetry -> Lude.Maybe TelemetryStatus) (\s a -> s {status = a} :: VGWTelemetry)
+{-# DEPRECATED vtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The Internet-routable IP address of the virtual private gateway's outside interface.
-vtOutsideIPAddress :: Lens' VGWTelemetry (Maybe Text)
-vtOutsideIPAddress = lens _vtOutsideIPAddress (\s a -> s {_vtOutsideIPAddress = a})
+--
+-- /Note:/ Consider using 'outsideIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtOutsideIPAddress :: Lens.Lens' VGWTelemetry (Lude.Maybe Lude.Text)
+vtOutsideIPAddress = Lens.lens (outsideIPAddress :: VGWTelemetry -> Lude.Maybe Lude.Text) (\s a -> s {outsideIPAddress = a} :: VGWTelemetry)
+{-# DEPRECATED vtOutsideIPAddress "Use generic-lens or generic-optics with 'outsideIPAddress' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
-vtCertificateARN :: Lens' VGWTelemetry (Maybe Text)
-vtCertificateARN = lens _vtCertificateARN (\s a -> s {_vtCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtCertificateARN :: Lens.Lens' VGWTelemetry (Lude.Maybe Lude.Text)
+vtCertificateARN = Lens.lens (certificateARN :: VGWTelemetry -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: VGWTelemetry)
+{-# DEPRECATED vtCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | The date and time of the last change in status.
-vtLastStatusChange :: Lens' VGWTelemetry (Maybe UTCTime)
-vtLastStatusChange = lens _vtLastStatusChange (\s a -> s {_vtLastStatusChange = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastStatusChange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtLastStatusChange :: Lens.Lens' VGWTelemetry (Lude.Maybe Lude.ISO8601)
+vtLastStatusChange = Lens.lens (lastStatusChange :: VGWTelemetry -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastStatusChange = a} :: VGWTelemetry)
+{-# DEPRECATED vtLastStatusChange "Use generic-lens or generic-optics with 'lastStatusChange' instead." #-}
 
 -- | The number of accepted routes.
-vtAcceptedRouteCount :: Lens' VGWTelemetry (Maybe Int)
-vtAcceptedRouteCount = lens _vtAcceptedRouteCount (\s a -> s {_vtAcceptedRouteCount = a})
+--
+-- /Note:/ Consider using 'acceptedRouteCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtAcceptedRouteCount :: Lens.Lens' VGWTelemetry (Lude.Maybe Lude.Int)
+vtAcceptedRouteCount = Lens.lens (acceptedRouteCount :: VGWTelemetry -> Lude.Maybe Lude.Int) (\s a -> s {acceptedRouteCount = a} :: VGWTelemetry)
+{-# DEPRECATED vtAcceptedRouteCount "Use generic-lens or generic-optics with 'acceptedRouteCount' instead." #-}
 
 -- | If an error occurs, a description of the error.
-vtStatusMessage :: Lens' VGWTelemetry (Maybe Text)
-vtStatusMessage = lens _vtStatusMessage (\s a -> s {_vtStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtStatusMessage :: Lens.Lens' VGWTelemetry (Lude.Maybe Lude.Text)
+vtStatusMessage = Lens.lens (statusMessage :: VGWTelemetry -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: VGWTelemetry)
+{-# DEPRECATED vtStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
-instance FromXML VGWTelemetry where
+instance Lude.FromXML VGWTelemetry where
   parseXML x =
     VGWTelemetry'
-      <$> (x .@? "status")
-      <*> (x .@? "outsideIpAddress")
-      <*> (x .@? "certificateArn")
-      <*> (x .@? "lastStatusChange")
-      <*> (x .@? "acceptedRouteCount")
-      <*> (x .@? "statusMessage")
-
-instance Hashable VGWTelemetry
-
-instance NFData VGWTelemetry
+      Lude.<$> (x Lude..@? "status")
+      Lude.<*> (x Lude..@? "outsideIpAddress")
+      Lude.<*> (x Lude..@? "certificateArn")
+      Lude.<*> (x Lude..@? "lastStatusChange")
+      Lude.<*> (x Lude..@? "acceptedRouteCount")
+      Lude.<*> (x Lude..@? "statusMessage")

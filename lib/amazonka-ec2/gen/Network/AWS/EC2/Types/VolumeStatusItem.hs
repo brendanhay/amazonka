@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,105 +7,137 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeStatusItem where
+module Network.AWS.EC2.Types.VolumeStatusItem
+  ( VolumeStatusItem (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVolumeStatusItem,
+
+    -- * Lenses
+    vsiVolumeStatus,
+    vsiActions,
+    vsiOutpostARN,
+    vsiEvents,
+    vsiAvailabilityZone,
+    vsiVolumeId,
+    vsiAttachmentStatuses,
+  )
+where
+
 import Network.AWS.EC2.Types.VolumeStatusAction
 import Network.AWS.EC2.Types.VolumeStatusAttachmentStatus
 import Network.AWS.EC2.Types.VolumeStatusEvent
 import Network.AWS.EC2.Types.VolumeStatusInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the volume status.
 --
---
---
--- /See:/ 'volumeStatusItem' smart constructor.
+-- /See:/ 'mkVolumeStatusItem' smart constructor.
 data VolumeStatusItem = VolumeStatusItem'
-  { _vsiVolumeStatus ::
-      !(Maybe VolumeStatusInfo),
-    _vsiActions :: !(Maybe [VolumeStatusAction]),
-    _vsiOutpostARN :: !(Maybe Text),
-    _vsiEvents :: !(Maybe [VolumeStatusEvent]),
-    _vsiAvailabilityZone :: !(Maybe Text),
-    _vsiVolumeId :: !(Maybe Text),
-    _vsiAttachmentStatuses ::
-      !(Maybe [VolumeStatusAttachmentStatus])
+  { volumeStatus ::
+      Lude.Maybe VolumeStatusInfo,
+    actions :: Lude.Maybe [VolumeStatusAction],
+    outpostARN :: Lude.Maybe Lude.Text,
+    events :: Lude.Maybe [VolumeStatusEvent],
+    availabilityZone :: Lude.Maybe Lude.Text,
+    volumeId :: Lude.Maybe Lude.Text,
+    attachmentStatuses ::
+      Lude.Maybe [VolumeStatusAttachmentStatus]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeStatusItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vsiVolumeStatus' - The volume status.
---
--- * 'vsiActions' - The details of the operation.
---
--- * 'vsiOutpostARN' - The Amazon Resource Name (ARN) of the Outpost.
---
--- * 'vsiEvents' - A list of events associated with the volume.
---
--- * 'vsiAvailabilityZone' - The Availability Zone of the volume.
---
--- * 'vsiVolumeId' - The volume ID.
---
--- * 'vsiAttachmentStatuses' - Information about the instances to which the volume is attached.
-volumeStatusItem ::
+-- * 'actions' - The details of the operation.
+-- * 'attachmentStatuses' - Information about the instances to which the volume is attached.
+-- * 'availabilityZone' - The Availability Zone of the volume.
+-- * 'events' - A list of events associated with the volume.
+-- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
+-- * 'volumeId' - The volume ID.
+-- * 'volumeStatus' - The volume status.
+mkVolumeStatusItem ::
   VolumeStatusItem
-volumeStatusItem =
+mkVolumeStatusItem =
   VolumeStatusItem'
-    { _vsiVolumeStatus = Nothing,
-      _vsiActions = Nothing,
-      _vsiOutpostARN = Nothing,
-      _vsiEvents = Nothing,
-      _vsiAvailabilityZone = Nothing,
-      _vsiVolumeId = Nothing,
-      _vsiAttachmentStatuses = Nothing
+    { volumeStatus = Lude.Nothing,
+      actions = Lude.Nothing,
+      outpostARN = Lude.Nothing,
+      events = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      volumeId = Lude.Nothing,
+      attachmentStatuses = Lude.Nothing
     }
 
 -- | The volume status.
-vsiVolumeStatus :: Lens' VolumeStatusItem (Maybe VolumeStatusInfo)
-vsiVolumeStatus = lens _vsiVolumeStatus (\s a -> s {_vsiVolumeStatus = a})
+--
+-- /Note:/ Consider using 'volumeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsiVolumeStatus :: Lens.Lens' VolumeStatusItem (Lude.Maybe VolumeStatusInfo)
+vsiVolumeStatus = Lens.lens (volumeStatus :: VolumeStatusItem -> Lude.Maybe VolumeStatusInfo) (\s a -> s {volumeStatus = a} :: VolumeStatusItem)
+{-# DEPRECATED vsiVolumeStatus "Use generic-lens or generic-optics with 'volumeStatus' instead." #-}
 
 -- | The details of the operation.
-vsiActions :: Lens' VolumeStatusItem [VolumeStatusAction]
-vsiActions = lens _vsiActions (\s a -> s {_vsiActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsiActions :: Lens.Lens' VolumeStatusItem (Lude.Maybe [VolumeStatusAction])
+vsiActions = Lens.lens (actions :: VolumeStatusItem -> Lude.Maybe [VolumeStatusAction]) (\s a -> s {actions = a} :: VolumeStatusItem)
+{-# DEPRECATED vsiActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
-vsiOutpostARN :: Lens' VolumeStatusItem (Maybe Text)
-vsiOutpostARN = lens _vsiOutpostARN (\s a -> s {_vsiOutpostARN = a})
+--
+-- /Note:/ Consider using 'outpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsiOutpostARN :: Lens.Lens' VolumeStatusItem (Lude.Maybe Lude.Text)
+vsiOutpostARN = Lens.lens (outpostARN :: VolumeStatusItem -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: VolumeStatusItem)
+{-# DEPRECATED vsiOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
 
 -- | A list of events associated with the volume.
-vsiEvents :: Lens' VolumeStatusItem [VolumeStatusEvent]
-vsiEvents = lens _vsiEvents (\s a -> s {_vsiEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsiEvents :: Lens.Lens' VolumeStatusItem (Lude.Maybe [VolumeStatusEvent])
+vsiEvents = Lens.lens (events :: VolumeStatusItem -> Lude.Maybe [VolumeStatusEvent]) (\s a -> s {events = a} :: VolumeStatusItem)
+{-# DEPRECATED vsiEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | The Availability Zone of the volume.
-vsiAvailabilityZone :: Lens' VolumeStatusItem (Maybe Text)
-vsiAvailabilityZone = lens _vsiAvailabilityZone (\s a -> s {_vsiAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsiAvailabilityZone :: Lens.Lens' VolumeStatusItem (Lude.Maybe Lude.Text)
+vsiAvailabilityZone = Lens.lens (availabilityZone :: VolumeStatusItem -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: VolumeStatusItem)
+{-# DEPRECATED vsiAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The volume ID.
-vsiVolumeId :: Lens' VolumeStatusItem (Maybe Text)
-vsiVolumeId = lens _vsiVolumeId (\s a -> s {_vsiVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsiVolumeId :: Lens.Lens' VolumeStatusItem (Lude.Maybe Lude.Text)
+vsiVolumeId = Lens.lens (volumeId :: VolumeStatusItem -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: VolumeStatusItem)
+{-# DEPRECATED vsiVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
 -- | Information about the instances to which the volume is attached.
-vsiAttachmentStatuses :: Lens' VolumeStatusItem [VolumeStatusAttachmentStatus]
-vsiAttachmentStatuses = lens _vsiAttachmentStatuses (\s a -> s {_vsiAttachmentStatuses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attachmentStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsiAttachmentStatuses :: Lens.Lens' VolumeStatusItem (Lude.Maybe [VolumeStatusAttachmentStatus])
+vsiAttachmentStatuses = Lens.lens (attachmentStatuses :: VolumeStatusItem -> Lude.Maybe [VolumeStatusAttachmentStatus]) (\s a -> s {attachmentStatuses = a} :: VolumeStatusItem)
+{-# DEPRECATED vsiAttachmentStatuses "Use generic-lens or generic-optics with 'attachmentStatuses' instead." #-}
 
-instance FromXML VolumeStatusItem where
+instance Lude.FromXML VolumeStatusItem where
   parseXML x =
     VolumeStatusItem'
-      <$> (x .@? "volumeStatus")
-      <*> (x .@? "actionsSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "outpostArn")
-      <*> (x .@? "eventsSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "availabilityZone")
-      <*> (x .@? "volumeId")
-      <*> ( x .@? "attachmentStatuses" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-
-instance Hashable VolumeStatusItem
-
-instance NFData VolumeStatusItem
+      Lude.<$> (x Lude..@? "volumeStatus")
+      Lude.<*> ( x Lude..@? "actionsSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "outpostArn")
+      Lude.<*> ( x Lude..@? "eventsSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "availabilityZone")
+      Lude.<*> (x Lude..@? "volumeId")
+      Lude.<*> ( x Lude..@? "attachmentStatuses" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

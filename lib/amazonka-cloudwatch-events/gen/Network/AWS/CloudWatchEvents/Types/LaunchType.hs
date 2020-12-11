@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.LaunchType where
+module Network.AWS.CloudWatchEvents.Types.LaunchType
+  ( LaunchType
+      ( LaunchType',
+        EC2,
+        Fargate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LaunchType
-  = EC2
-  | Fargate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LaunchType = LaunchType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LaunchType where
-  parser =
-    takeLowerText >>= \case
-      "ec2" -> pure EC2
-      "fargate" -> pure Fargate
-      e ->
-        fromTextError $
-          "Failure parsing LaunchType from value: '" <> e
-            <> "'. Accepted values: ec2, fargate"
+pattern EC2 :: LaunchType
+pattern EC2 = LaunchType' "EC2"
 
-instance ToText LaunchType where
-  toText = \case
-    EC2 -> "EC2"
-    Fargate -> "FARGATE"
+pattern Fargate :: LaunchType
+pattern Fargate = LaunchType' "FARGATE"
 
-instance Hashable LaunchType
-
-instance NFData LaunchType
-
-instance ToByteString LaunchType
-
-instance ToQuery LaunchType
-
-instance ToHeader LaunchType
-
-instance ToJSON LaunchType where
-  toJSON = toJSONText
-
-instance FromJSON LaunchType where
-  parseJSON = parseJSONText "LaunchType"
+{-# COMPLETE
+  EC2,
+  Fargate,
+  LaunchType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,155 @@
 --
 -- Gets information about a deployment group.
 module Network.AWS.CodeDeploy.GetDeploymentGroup
-  ( -- * Creating a Request
-    getDeploymentGroup,
-    GetDeploymentGroup,
+  ( -- * Creating a request
+    GetDeploymentGroup (..),
+    mkGetDeploymentGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdgApplicationName,
     gdgDeploymentGroupName,
 
-    -- * Destructuring the Response
-    getDeploymentGroupResponse,
-    GetDeploymentGroupResponse,
+    -- * Destructuring the response
+    GetDeploymentGroupResponse (..),
+    mkGetDeploymentGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdgrsDeploymentGroupInfo,
     gdgrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @GetDeploymentGroup@ operation.
 --
---
---
--- /See:/ 'getDeploymentGroup' smart constructor.
+-- /See:/ 'mkGetDeploymentGroup' smart constructor.
 data GetDeploymentGroup = GetDeploymentGroup'
-  { _gdgApplicationName ::
-      !Text,
-    _gdgDeploymentGroupName :: !Text
+  { applicationName ::
+      Lude.Text,
+    deploymentGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeploymentGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdgApplicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
---
--- * 'gdgDeploymentGroupName' - The name of a deployment group for the specified application.
-getDeploymentGroup ::
-  -- | 'gdgApplicationName'
-  Text ->
-  -- | 'gdgDeploymentGroupName'
-  Text ->
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+-- * 'deploymentGroupName' - The name of a deployment group for the specified application.
+mkGetDeploymentGroup ::
+  -- | 'applicationName'
+  Lude.Text ->
+  -- | 'deploymentGroupName'
+  Lude.Text ->
   GetDeploymentGroup
-getDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
+mkGetDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
   GetDeploymentGroup'
-    { _gdgApplicationName = pApplicationName_,
-      _gdgDeploymentGroupName = pDeploymentGroupName_
+    { applicationName = pApplicationName_,
+      deploymentGroupName = pDeploymentGroupName_
     }
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-gdgApplicationName :: Lens' GetDeploymentGroup Text
-gdgApplicationName = lens _gdgApplicationName (\s a -> s {_gdgApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdgApplicationName :: Lens.Lens' GetDeploymentGroup Lude.Text
+gdgApplicationName = Lens.lens (applicationName :: GetDeploymentGroup -> Lude.Text) (\s a -> s {applicationName = a} :: GetDeploymentGroup)
+{-# DEPRECATED gdgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The name of a deployment group for the specified application.
-gdgDeploymentGroupName :: Lens' GetDeploymentGroup Text
-gdgDeploymentGroupName = lens _gdgDeploymentGroupName (\s a -> s {_gdgDeploymentGroupName = a})
+--
+-- /Note:/ Consider using 'deploymentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdgDeploymentGroupName :: Lens.Lens' GetDeploymentGroup Lude.Text
+gdgDeploymentGroupName = Lens.lens (deploymentGroupName :: GetDeploymentGroup -> Lude.Text) (\s a -> s {deploymentGroupName = a} :: GetDeploymentGroup)
+{-# DEPRECATED gdgDeploymentGroupName "Use generic-lens or generic-optics with 'deploymentGroupName' instead." #-}
 
-instance AWSRequest GetDeploymentGroup where
+instance Lude.AWSRequest GetDeploymentGroup where
   type Rs GetDeploymentGroup = GetDeploymentGroupResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDeploymentGroupResponse'
-            <$> (x .?> "deploymentGroupInfo") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "deploymentGroupInfo")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDeploymentGroup
-
-instance NFData GetDeploymentGroup
-
-instance ToHeaders GetDeploymentGroup where
+instance Lude.ToHeaders GetDeploymentGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.GetDeploymentGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.GetDeploymentGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDeploymentGroup where
+instance Lude.ToJSON GetDeploymentGroup where
   toJSON GetDeploymentGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("applicationName" .= _gdgApplicationName),
-            Just ("deploymentGroupName" .= _gdgDeploymentGroupName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("applicationName" Lude..= applicationName),
+            Lude.Just ("deploymentGroupName" Lude..= deploymentGroupName)
           ]
       )
 
-instance ToPath GetDeploymentGroup where
-  toPath = const "/"
+instance Lude.ToPath GetDeploymentGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDeploymentGroup where
-  toQuery = const mempty
+instance Lude.ToQuery GetDeploymentGroup where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetDeploymentGroup@ operation.
 --
---
---
--- /See:/ 'getDeploymentGroupResponse' smart constructor.
+-- /See:/ 'mkGetDeploymentGroupResponse' smart constructor.
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
-  { _gdgrsDeploymentGroupInfo ::
-      !(Maybe DeploymentGroupInfo),
-    _gdgrsResponseStatus :: !Int
+  { deploymentGroupInfo ::
+      Lude.Maybe DeploymentGroupInfo,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeploymentGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdgrsDeploymentGroupInfo' - Information about the deployment group.
---
--- * 'gdgrsResponseStatus' - -- | The response status code.
-getDeploymentGroupResponse ::
-  -- | 'gdgrsResponseStatus'
-  Int ->
+-- * 'deploymentGroupInfo' - Information about the deployment group.
+-- * 'responseStatus' - The response status code.
+mkGetDeploymentGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDeploymentGroupResponse
-getDeploymentGroupResponse pResponseStatus_ =
+mkGetDeploymentGroupResponse pResponseStatus_ =
   GetDeploymentGroupResponse'
-    { _gdgrsDeploymentGroupInfo = Nothing,
-      _gdgrsResponseStatus = pResponseStatus_
+    { deploymentGroupInfo = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the deployment group.
-gdgrsDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
-gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\s a -> s {_gdgrsDeploymentGroupInfo = a})
+--
+-- /Note:/ Consider using 'deploymentGroupInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdgrsDeploymentGroupInfo :: Lens.Lens' GetDeploymentGroupResponse (Lude.Maybe DeploymentGroupInfo)
+gdgrsDeploymentGroupInfo = Lens.lens (deploymentGroupInfo :: GetDeploymentGroupResponse -> Lude.Maybe DeploymentGroupInfo) (\s a -> s {deploymentGroupInfo = a} :: GetDeploymentGroupResponse)
+{-# DEPRECATED gdgrsDeploymentGroupInfo "Use generic-lens or generic-optics with 'deploymentGroupInfo' instead." #-}
 
--- | -- | The response status code.
-gdgrsResponseStatus :: Lens' GetDeploymentGroupResponse Int
-gdgrsResponseStatus = lens _gdgrsResponseStatus (\s a -> s {_gdgrsResponseStatus = a})
-
-instance NFData GetDeploymentGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdgrsResponseStatus :: Lens.Lens' GetDeploymentGroupResponse Lude.Int
+gdgrsResponseStatus = Lens.lens (responseStatus :: GetDeploymentGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeploymentGroupResponse)
+{-# DEPRECATED gdgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,121 +7,195 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.OrganizationConformancePackDetailedStatus where
+module Network.AWS.Config.Types.OrganizationConformancePackDetailedStatus
+  ( OrganizationConformancePackDetailedStatus (..),
+
+    -- * Smart constructor
+    mkOrganizationConformancePackDetailedStatus,
+
+    -- * Lenses
+    ocpdsErrorCode,
+    ocpdsErrorMessage,
+    ocpdsLastUpdateTime,
+    ocpdsAccountId,
+    ocpdsConformancePackName,
+    ocpdsStatus,
+  )
+where
 
 import Network.AWS.Config.Types.OrganizationResourceDetailedStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Organization conformance pack creation or deletion status in each member account. This includes the name of the conformance pack, the status, error code and error message when the conformance pack creation or deletion failed.
 --
---
---
--- /See:/ 'organizationConformancePackDetailedStatus' smart constructor.
+-- /See:/ 'mkOrganizationConformancePackDetailedStatus' smart constructor.
 data OrganizationConformancePackDetailedStatus = OrganizationConformancePackDetailedStatus'
-  { _ocpdsErrorCode ::
-      !( Maybe
-           Text
-       ),
-    _ocpdsErrorMessage ::
-      !( Maybe
-           Text
-       ),
-    _ocpdsLastUpdateTime ::
-      !( Maybe
-           POSIX
-       ),
-    _ocpdsAccountId ::
-      !Text,
-    _ocpdsConformancePackName ::
-      !Text,
-    _ocpdsStatus ::
-      !OrganizationResourceDetailedStatus
+  { errorCode ::
+      Lude.Maybe
+        Lude.Text,
+    errorMessage ::
+      Lude.Maybe
+        Lude.Text,
+    lastUpdateTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    accountId ::
+      Lude.Text,
+    conformancePackName ::
+      Lude.Text,
+    status ::
+      OrganizationResourceDetailedStatus
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationConformancePackDetailedStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accountId' - The 12-digit account ID of a member account.
+-- * 'conformancePackName' - The name of conformance pack deployed in the member account.
+-- * 'errorCode' - An error code that is returned when conformance pack creation or deletion failed in the member account.
+-- * 'errorMessage' - An error message indicating that conformance pack account creation or deletion has failed due to an error in the member account.
+-- * 'lastUpdateTime' - The timestamp of the last status update.
+-- * 'status' - Indicates deployment status for conformance pack in a member account. When master account calls @PutOrganizationConformancePack@ action for the first time, conformance pack status is created in the member account. When master account calls @PutOrganizationConformancePack@ action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes @OrganizationConformancePack@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
 --
--- * 'ocpdsErrorCode' - An error code that is returned when conformance pack creation or deletion failed in the member account.
+-- AWS Config sets the state of the conformance pack to:
 --
--- * 'ocpdsErrorMessage' - An error message indicating that conformance pack account creation or deletion has failed due to an error in the member account.
+--     * @CREATE_SUCCESSFUL@ when conformance pack has been created in the member account.
 --
--- * 'ocpdsLastUpdateTime' - The timestamp of the last status update.
 --
--- * 'ocpdsAccountId' - The 12-digit account ID of a member account.
+--     * @CREATE_IN_PROGRESS@ when conformance pack is being created in the member account.
 --
--- * 'ocpdsConformancePackName' - The name of conformance pack deployed in the member account.
 --
--- * 'ocpdsStatus' - Indicates deployment status for conformance pack in a member account. When master account calls @PutOrganizationConformancePack@ action for the first time, conformance pack status is created in the member account. When master account calls @PutOrganizationConformancePack@ action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes @OrganizationConformancePack@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .  AWS Config sets the state of the conformance pack to:     * @CREATE_SUCCESSFUL@ when conformance pack has been created in the member account.      * @CREATE_IN_PROGRESS@ when conformance pack is being created in the member account.     * @CREATE_FAILED@ when conformance pack creation has failed in the member account.     * @DELETE_FAILED@ when conformance pack deletion has failed in the member account.     * @DELETE_IN_PROGRESS@ when conformance pack is being deleted in the member account.     * @DELETE_SUCCESSFUL@ when conformance pack has been deleted in the member account.      * @UPDATE_SUCCESSFUL@ when conformance pack has been updated in the member account.     * @UPDATE_IN_PROGRESS@ when conformance pack is being updated in the member account.     * @UPDATE_FAILED@ when conformance pack deletion has failed in the member account.
-organizationConformancePackDetailedStatus ::
-  -- | 'ocpdsAccountId'
-  Text ->
-  -- | 'ocpdsConformancePackName'
-  Text ->
-  -- | 'ocpdsStatus'
+--     * @CREATE_FAILED@ when conformance pack creation has failed in the member account.
+--
+--
+--     * @DELETE_FAILED@ when conformance pack deletion has failed in the member account.
+--
+--
+--     * @DELETE_IN_PROGRESS@ when conformance pack is being deleted in the member account.
+--
+--
+--     * @DELETE_SUCCESSFUL@ when conformance pack has been deleted in the member account.
+--
+--
+--     * @UPDATE_SUCCESSFUL@ when conformance pack has been updated in the member account.
+--
+--
+--     * @UPDATE_IN_PROGRESS@ when conformance pack is being updated in the member account.
+--
+--
+--     * @UPDATE_FAILED@ when conformance pack deletion has failed in the member account.
+mkOrganizationConformancePackDetailedStatus ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'conformancePackName'
+  Lude.Text ->
+  -- | 'status'
   OrganizationResourceDetailedStatus ->
   OrganizationConformancePackDetailedStatus
-organizationConformancePackDetailedStatus
+mkOrganizationConformancePackDetailedStatus
   pAccountId_
   pConformancePackName_
   pStatus_ =
     OrganizationConformancePackDetailedStatus'
-      { _ocpdsErrorCode =
-          Nothing,
-        _ocpdsErrorMessage = Nothing,
-        _ocpdsLastUpdateTime = Nothing,
-        _ocpdsAccountId = pAccountId_,
-        _ocpdsConformancePackName = pConformancePackName_,
-        _ocpdsStatus = pStatus_
+      { errorCode =
+          Lude.Nothing,
+        errorMessage = Lude.Nothing,
+        lastUpdateTime = Lude.Nothing,
+        accountId = pAccountId_,
+        conformancePackName = pConformancePackName_,
+        status = pStatus_
       }
 
 -- | An error code that is returned when conformance pack creation or deletion failed in the member account.
-ocpdsErrorCode :: Lens' OrganizationConformancePackDetailedStatus (Maybe Text)
-ocpdsErrorCode = lens _ocpdsErrorCode (\s a -> s {_ocpdsErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpdsErrorCode :: Lens.Lens' OrganizationConformancePackDetailedStatus (Lude.Maybe Lude.Text)
+ocpdsErrorCode = Lens.lens (errorCode :: OrganizationConformancePackDetailedStatus -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: OrganizationConformancePackDetailedStatus)
+{-# DEPRECATED ocpdsErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | An error message indicating that conformance pack account creation or deletion has failed due to an error in the member account.
-ocpdsErrorMessage :: Lens' OrganizationConformancePackDetailedStatus (Maybe Text)
-ocpdsErrorMessage = lens _ocpdsErrorMessage (\s a -> s {_ocpdsErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpdsErrorMessage :: Lens.Lens' OrganizationConformancePackDetailedStatus (Lude.Maybe Lude.Text)
+ocpdsErrorMessage = Lens.lens (errorMessage :: OrganizationConformancePackDetailedStatus -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: OrganizationConformancePackDetailedStatus)
+{-# DEPRECATED ocpdsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The timestamp of the last status update.
-ocpdsLastUpdateTime :: Lens' OrganizationConformancePackDetailedStatus (Maybe UTCTime)
-ocpdsLastUpdateTime = lens _ocpdsLastUpdateTime (\s a -> s {_ocpdsLastUpdateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpdsLastUpdateTime :: Lens.Lens' OrganizationConformancePackDetailedStatus (Lude.Maybe Lude.Timestamp)
+ocpdsLastUpdateTime = Lens.lens (lastUpdateTime :: OrganizationConformancePackDetailedStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: OrganizationConformancePackDetailedStatus)
+{-# DEPRECATED ocpdsLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
 -- | The 12-digit account ID of a member account.
-ocpdsAccountId :: Lens' OrganizationConformancePackDetailedStatus Text
-ocpdsAccountId = lens _ocpdsAccountId (\s a -> s {_ocpdsAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpdsAccountId :: Lens.Lens' OrganizationConformancePackDetailedStatus Lude.Text
+ocpdsAccountId = Lens.lens (accountId :: OrganizationConformancePackDetailedStatus -> Lude.Text) (\s a -> s {accountId = a} :: OrganizationConformancePackDetailedStatus)
+{-# DEPRECATED ocpdsAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of conformance pack deployed in the member account.
-ocpdsConformancePackName :: Lens' OrganizationConformancePackDetailedStatus Text
-ocpdsConformancePackName = lens _ocpdsConformancePackName (\s a -> s {_ocpdsConformancePackName = a})
+--
+-- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpdsConformancePackName :: Lens.Lens' OrganizationConformancePackDetailedStatus Lude.Text
+ocpdsConformancePackName = Lens.lens (conformancePackName :: OrganizationConformancePackDetailedStatus -> Lude.Text) (\s a -> s {conformancePackName = a} :: OrganizationConformancePackDetailedStatus)
+{-# DEPRECATED ocpdsConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
--- | Indicates deployment status for conformance pack in a member account. When master account calls @PutOrganizationConformancePack@ action for the first time, conformance pack status is created in the member account. When master account calls @PutOrganizationConformancePack@ action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes @OrganizationConformancePack@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .  AWS Config sets the state of the conformance pack to:     * @CREATE_SUCCESSFUL@ when conformance pack has been created in the member account.      * @CREATE_IN_PROGRESS@ when conformance pack is being created in the member account.     * @CREATE_FAILED@ when conformance pack creation has failed in the member account.     * @DELETE_FAILED@ when conformance pack deletion has failed in the member account.     * @DELETE_IN_PROGRESS@ when conformance pack is being deleted in the member account.     * @DELETE_SUCCESSFUL@ when conformance pack has been deleted in the member account.      * @UPDATE_SUCCESSFUL@ when conformance pack has been updated in the member account.     * @UPDATE_IN_PROGRESS@ when conformance pack is being updated in the member account.     * @UPDATE_FAILED@ when conformance pack deletion has failed in the member account.
-ocpdsStatus :: Lens' OrganizationConformancePackDetailedStatus OrganizationResourceDetailedStatus
-ocpdsStatus = lens _ocpdsStatus (\s a -> s {_ocpdsStatus = a})
+-- | Indicates deployment status for conformance pack in a member account. When master account calls @PutOrganizationConformancePack@ action for the first time, conformance pack status is created in the member account. When master account calls @PutOrganizationConformancePack@ action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes @OrganizationConformancePack@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
+--
+-- AWS Config sets the state of the conformance pack to:
+--
+--     * @CREATE_SUCCESSFUL@ when conformance pack has been created in the member account.
+--
+--
+--     * @CREATE_IN_PROGRESS@ when conformance pack is being created in the member account.
+--
+--
+--     * @CREATE_FAILED@ when conformance pack creation has failed in the member account.
+--
+--
+--     * @DELETE_FAILED@ when conformance pack deletion has failed in the member account.
+--
+--
+--     * @DELETE_IN_PROGRESS@ when conformance pack is being deleted in the member account.
+--
+--
+--     * @DELETE_SUCCESSFUL@ when conformance pack has been deleted in the member account.
+--
+--
+--     * @UPDATE_SUCCESSFUL@ when conformance pack has been updated in the member account.
+--
+--
+--     * @UPDATE_IN_PROGRESS@ when conformance pack is being updated in the member account.
+--
+--
+--     * @UPDATE_FAILED@ when conformance pack deletion has failed in the member account.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocpdsStatus :: Lens.Lens' OrganizationConformancePackDetailedStatus OrganizationResourceDetailedStatus
+ocpdsStatus = Lens.lens (status :: OrganizationConformancePackDetailedStatus -> OrganizationResourceDetailedStatus) (\s a -> s {status = a} :: OrganizationConformancePackDetailedStatus)
+{-# DEPRECATED ocpdsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON OrganizationConformancePackDetailedStatus where
+instance Lude.FromJSON OrganizationConformancePackDetailedStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "OrganizationConformancePackDetailedStatus"
       ( \x ->
           OrganizationConformancePackDetailedStatus'
-            <$> (x .:? "ErrorCode")
-            <*> (x .:? "ErrorMessage")
-            <*> (x .:? "LastUpdateTime")
-            <*> (x .: "AccountId")
-            <*> (x .: "ConformancePackName")
-            <*> (x .: "Status")
+            Lude.<$> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "ErrorMessage")
+            Lude.<*> (x Lude..:? "LastUpdateTime")
+            Lude.<*> (x Lude..: "AccountId")
+            Lude.<*> (x Lude..: "ConformancePackName")
+            Lude.<*> (x Lude..: "Status")
       )
-
-instance Hashable OrganizationConformancePackDetailedStatus
-
-instance NFData OrganizationConformancePackDetailedStatus

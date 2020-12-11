@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.ByteMatchSetUpdate where
+module Network.AWS.WAF.Types.ByteMatchSetUpdate
+  ( ByteMatchSetUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkByteMatchSetUpdate,
+
+    -- * Lenses
+    bmsuAction,
+    bmsuByteMatchTuple,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WAF.Types.ByteMatchTuple
 import Network.AWS.WAF.Types.ChangeAction
 
 -- | In an 'UpdateByteMatchSet' request, @ByteMatchSetUpdate@ specifies whether to insert or delete a 'ByteMatchTuple' and includes the settings for the @ByteMatchTuple@ .
 --
---
---
--- /See:/ 'byteMatchSetUpdate' smart constructor.
+-- /See:/ 'mkByteMatchSetUpdate' smart constructor.
 data ByteMatchSetUpdate = ByteMatchSetUpdate'
-  { _bmsuAction ::
-      !ChangeAction,
-    _bmsuByteMatchTuple :: !ByteMatchTuple
+  { action ::
+      ChangeAction,
+    byteMatchTuple :: ByteMatchTuple
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ByteMatchSetUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bmsuAction' - Specifies whether to insert or delete a 'ByteMatchTuple' .
---
--- * 'bmsuByteMatchTuple' - Information about the part of a web request that you want AWS WAF to inspect and the value that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @ByteMatchTuple@ values must exactly match the values in the @ByteMatchTuple@ that you want to delete from the @ByteMatchSet@ .
-byteMatchSetUpdate ::
-  -- | 'bmsuAction'
+-- * 'action' - Specifies whether to insert or delete a 'ByteMatchTuple' .
+-- * 'byteMatchTuple' - Information about the part of a web request that you want AWS WAF to inspect and the value that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @ByteMatchTuple@ values must exactly match the values in the @ByteMatchTuple@ that you want to delete from the @ByteMatchSet@ .
+mkByteMatchSetUpdate ::
+  -- | 'action'
   ChangeAction ->
-  -- | 'bmsuByteMatchTuple'
+  -- | 'byteMatchTuple'
   ByteMatchTuple ->
   ByteMatchSetUpdate
-byteMatchSetUpdate pAction_ pByteMatchTuple_ =
+mkByteMatchSetUpdate pAction_ pByteMatchTuple_ =
   ByteMatchSetUpdate'
-    { _bmsuAction = pAction_,
-      _bmsuByteMatchTuple = pByteMatchTuple_
+    { action = pAction_,
+      byteMatchTuple = pByteMatchTuple_
     }
 
 -- | Specifies whether to insert or delete a 'ByteMatchTuple' .
-bmsuAction :: Lens' ByteMatchSetUpdate ChangeAction
-bmsuAction = lens _bmsuAction (\s a -> s {_bmsuAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmsuAction :: Lens.Lens' ByteMatchSetUpdate ChangeAction
+bmsuAction = Lens.lens (action :: ByteMatchSetUpdate -> ChangeAction) (\s a -> s {action = a} :: ByteMatchSetUpdate)
+{-# DEPRECATED bmsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Information about the part of a web request that you want AWS WAF to inspect and the value that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @ByteMatchTuple@ values must exactly match the values in the @ByteMatchTuple@ that you want to delete from the @ByteMatchSet@ .
-bmsuByteMatchTuple :: Lens' ByteMatchSetUpdate ByteMatchTuple
-bmsuByteMatchTuple = lens _bmsuByteMatchTuple (\s a -> s {_bmsuByteMatchTuple = a})
+--
+-- /Note:/ Consider using 'byteMatchTuple' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmsuByteMatchTuple :: Lens.Lens' ByteMatchSetUpdate ByteMatchTuple
+bmsuByteMatchTuple = Lens.lens (byteMatchTuple :: ByteMatchSetUpdate -> ByteMatchTuple) (\s a -> s {byteMatchTuple = a} :: ByteMatchSetUpdate)
+{-# DEPRECATED bmsuByteMatchTuple "Use generic-lens or generic-optics with 'byteMatchTuple' instead." #-}
 
-instance Hashable ByteMatchSetUpdate
-
-instance NFData ByteMatchSetUpdate
-
-instance ToJSON ByteMatchSetUpdate where
+instance Lude.ToJSON ByteMatchSetUpdate where
   toJSON ByteMatchSetUpdate' {..} =
-    object
-      ( catMaybes
-          [ Just ("Action" .= _bmsuAction),
-            Just ("ByteMatchTuple" .= _bmsuByteMatchTuple)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Action" Lude..= action),
+            Lude.Just ("ByteMatchTuple" Lude..= byteMatchTuple)
           ]
       )

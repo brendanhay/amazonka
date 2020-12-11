@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.RedactionConfig where
+module Network.AWS.Comprehend.Types.RedactionConfig
+  ( RedactionConfig (..),
+
+    -- * Smart constructor
+    mkRedactionConfig,
+
+    -- * Lenses
+    rcMaskCharacter,
+    rcMaskMode,
+    rcPiiEntityTypes,
+  )
+where
 
 import Network.AWS.Comprehend.Types.PiiEntitiesDetectionMaskMode
 import Network.AWS.Comprehend.Types.PiiEntityType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides configuration parameters for PII entity redaction.
 --
---
---
--- /See:/ 'redactionConfig' smart constructor.
+-- /See:/ 'mkRedactionConfig' smart constructor.
 data RedactionConfig = RedactionConfig'
-  { _rcMaskCharacter ::
-      !(Maybe Text),
-    _rcMaskMode :: !(Maybe PiiEntitiesDetectionMaskMode),
-    _rcPiiEntityTypes :: !(Maybe [PiiEntityType])
+  { maskCharacter ::
+      Lude.Maybe Lude.Text,
+    maskMode :: Lude.Maybe PiiEntitiesDetectionMaskMode,
+    piiEntityTypes :: Lude.Maybe [PiiEntityType]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RedactionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcMaskCharacter' - A character that replaces each character in the redacted PII entity.
---
--- * 'rcMaskMode' - Specifies whether the PII entity is redacted with the mask character or the entity type.
---
--- * 'rcPiiEntityTypes' - An array of the types of PII entities that Amazon Comprehend detects in the input text for your request.
-redactionConfig ::
+-- * 'maskCharacter' - A character that replaces each character in the redacted PII entity.
+-- * 'maskMode' - Specifies whether the PII entity is redacted with the mask character or the entity type.
+-- * 'piiEntityTypes' - An array of the types of PII entities that Amazon Comprehend detects in the input text for your request.
+mkRedactionConfig ::
   RedactionConfig
-redactionConfig =
+mkRedactionConfig =
   RedactionConfig'
-    { _rcMaskCharacter = Nothing,
-      _rcMaskMode = Nothing,
-      _rcPiiEntityTypes = Nothing
+    { maskCharacter = Lude.Nothing,
+      maskMode = Lude.Nothing,
+      piiEntityTypes = Lude.Nothing
     }
 
 -- | A character that replaces each character in the redacted PII entity.
-rcMaskCharacter :: Lens' RedactionConfig (Maybe Text)
-rcMaskCharacter = lens _rcMaskCharacter (\s a -> s {_rcMaskCharacter = a})
+--
+-- /Note:/ Consider using 'maskCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcMaskCharacter :: Lens.Lens' RedactionConfig (Lude.Maybe Lude.Text)
+rcMaskCharacter = Lens.lens (maskCharacter :: RedactionConfig -> Lude.Maybe Lude.Text) (\s a -> s {maskCharacter = a} :: RedactionConfig)
+{-# DEPRECATED rcMaskCharacter "Use generic-lens or generic-optics with 'maskCharacter' instead." #-}
 
 -- | Specifies whether the PII entity is redacted with the mask character or the entity type.
-rcMaskMode :: Lens' RedactionConfig (Maybe PiiEntitiesDetectionMaskMode)
-rcMaskMode = lens _rcMaskMode (\s a -> s {_rcMaskMode = a})
+--
+-- /Note:/ Consider using 'maskMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcMaskMode :: Lens.Lens' RedactionConfig (Lude.Maybe PiiEntitiesDetectionMaskMode)
+rcMaskMode = Lens.lens (maskMode :: RedactionConfig -> Lude.Maybe PiiEntitiesDetectionMaskMode) (\s a -> s {maskMode = a} :: RedactionConfig)
+{-# DEPRECATED rcMaskMode "Use generic-lens or generic-optics with 'maskMode' instead." #-}
 
 -- | An array of the types of PII entities that Amazon Comprehend detects in the input text for your request.
-rcPiiEntityTypes :: Lens' RedactionConfig [PiiEntityType]
-rcPiiEntityTypes = lens _rcPiiEntityTypes (\s a -> s {_rcPiiEntityTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'piiEntityTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcPiiEntityTypes :: Lens.Lens' RedactionConfig (Lude.Maybe [PiiEntityType])
+rcPiiEntityTypes = Lens.lens (piiEntityTypes :: RedactionConfig -> Lude.Maybe [PiiEntityType]) (\s a -> s {piiEntityTypes = a} :: RedactionConfig)
+{-# DEPRECATED rcPiiEntityTypes "Use generic-lens or generic-optics with 'piiEntityTypes' instead." #-}
 
-instance FromJSON RedactionConfig where
+instance Lude.FromJSON RedactionConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "RedactionConfig"
       ( \x ->
           RedactionConfig'
-            <$> (x .:? "MaskCharacter")
-            <*> (x .:? "MaskMode")
-            <*> (x .:? "PiiEntityTypes" .!= mempty)
+            Lude.<$> (x Lude..:? "MaskCharacter")
+            Lude.<*> (x Lude..:? "MaskMode")
+            Lude.<*> (x Lude..:? "PiiEntityTypes" Lude..!= Lude.mempty)
       )
 
-instance Hashable RedactionConfig
-
-instance NFData RedactionConfig
-
-instance ToJSON RedactionConfig where
+instance Lude.ToJSON RedactionConfig where
   toJSON RedactionConfig' {..} =
-    object
-      ( catMaybes
-          [ ("MaskCharacter" .=) <$> _rcMaskCharacter,
-            ("MaskMode" .=) <$> _rcMaskMode,
-            ("PiiEntityTypes" .=) <$> _rcPiiEntityTypes
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MaskCharacter" Lude..=) Lude.<$> maskCharacter,
+            ("MaskMode" Lude..=) Lude.<$> maskMode,
+            ("PiiEntityTypes" Lude..=) Lude.<$> piiEntityTypes
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,149 +17,167 @@
 --
 --     * 'CreateGameSession'
 --
+--
 --     * 'DescribeGameSessions'
+--
 --
 --     * 'DescribeGameSessionDetails'
 --
+--
 --     * 'SearchGameSessions'
+--
 --
 --     * 'UpdateGameSession'
 --
+--
 --     * 'GetGameSessionLogUrl'
+--
 --
 --     * Game session placements
 --
 --     * 'StartGameSessionPlacement'
 --
+--
 --     * 'DescribeGameSessionPlacement'
+--
 --
 --     * 'StopGameSessionPlacement'
 module Network.AWS.GameLift.DescribeGameSessionPlacement
-  ( -- * Creating a Request
-    describeGameSessionPlacement,
-    DescribeGameSessionPlacement,
+  ( -- * Creating a request
+    DescribeGameSessionPlacement (..),
+    mkDescribeGameSessionPlacement,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgspPlacementId,
 
-    -- * Destructuring the Response
-    describeGameSessionPlacementResponse,
-    DescribeGameSessionPlacementResponse,
+    -- * Destructuring the response
+    DescribeGameSessionPlacementResponse (..),
+    mkDescribeGameSessionPlacementResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dgsprsGameSessionPlacement,
     dgsprsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'describeGameSessionPlacement' smart constructor.
+-- /See:/ 'mkDescribeGameSessionPlacement' smart constructor.
 newtype DescribeGameSessionPlacement = DescribeGameSessionPlacement'
-  { _dgspPlacementId ::
-      Text
+  { placementId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameSessionPlacement' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgspPlacementId' - A unique identifier for a game session placement to retrieve.
-describeGameSessionPlacement ::
-  -- | 'dgspPlacementId'
-  Text ->
+-- * 'placementId' - A unique identifier for a game session placement to retrieve.
+mkDescribeGameSessionPlacement ::
+  -- | 'placementId'
+  Lude.Text ->
   DescribeGameSessionPlacement
-describeGameSessionPlacement pPlacementId_ =
-  DescribeGameSessionPlacement' {_dgspPlacementId = pPlacementId_}
+mkDescribeGameSessionPlacement pPlacementId_ =
+  DescribeGameSessionPlacement' {placementId = pPlacementId_}
 
 -- | A unique identifier for a game session placement to retrieve.
-dgspPlacementId :: Lens' DescribeGameSessionPlacement Text
-dgspPlacementId = lens _dgspPlacementId (\s a -> s {_dgspPlacementId = a})
+--
+-- /Note:/ Consider using 'placementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgspPlacementId :: Lens.Lens' DescribeGameSessionPlacement Lude.Text
+dgspPlacementId = Lens.lens (placementId :: DescribeGameSessionPlacement -> Lude.Text) (\s a -> s {placementId = a} :: DescribeGameSessionPlacement)
+{-# DEPRECATED dgspPlacementId "Use generic-lens or generic-optics with 'placementId' instead." #-}
 
-instance AWSRequest DescribeGameSessionPlacement where
+instance Lude.AWSRequest DescribeGameSessionPlacement where
   type
     Rs DescribeGameSessionPlacement =
       DescribeGameSessionPlacementResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeGameSessionPlacementResponse'
-            <$> (x .?> "GameSessionPlacement") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GameSessionPlacement")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeGameSessionPlacement
-
-instance NFData DescribeGameSessionPlacement
-
-instance ToHeaders DescribeGameSessionPlacement where
+instance Lude.ToHeaders DescribeGameSessionPlacement where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("GameLift.DescribeGameSessionPlacement" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("GameLift.DescribeGameSessionPlacement" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeGameSessionPlacement where
+instance Lude.ToJSON DescribeGameSessionPlacement where
   toJSON DescribeGameSessionPlacement' {..} =
-    object (catMaybes [Just ("PlacementId" .= _dgspPlacementId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("PlacementId" Lude..= placementId)])
 
-instance ToPath DescribeGameSessionPlacement where
-  toPath = const "/"
+instance Lude.ToPath DescribeGameSessionPlacement where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeGameSessionPlacement where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeGameSessionPlacement where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'describeGameSessionPlacementResponse' smart constructor.
+-- /See:/ 'mkDescribeGameSessionPlacementResponse' smart constructor.
 data DescribeGameSessionPlacementResponse = DescribeGameSessionPlacementResponse'
-  { _dgsprsGameSessionPlacement ::
-      !( Maybe
-           GameSessionPlacement
-       ),
-    _dgsprsResponseStatus ::
-      !Int
+  { gameSessionPlacement ::
+      Lude.Maybe
+        GameSessionPlacement,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameSessionPlacementResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgsprsGameSessionPlacement' - Object that describes the requested game session placement.
---
--- * 'dgsprsResponseStatus' - -- | The response status code.
-describeGameSessionPlacementResponse ::
-  -- | 'dgsprsResponseStatus'
-  Int ->
+-- * 'gameSessionPlacement' - Object that describes the requested game session placement.
+-- * 'responseStatus' - The response status code.
+mkDescribeGameSessionPlacementResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeGameSessionPlacementResponse
-describeGameSessionPlacementResponse pResponseStatus_ =
+mkDescribeGameSessionPlacementResponse pResponseStatus_ =
   DescribeGameSessionPlacementResponse'
-    { _dgsprsGameSessionPlacement =
-        Nothing,
-      _dgsprsResponseStatus = pResponseStatus_
+    { gameSessionPlacement =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Object that describes the requested game session placement.
-dgsprsGameSessionPlacement :: Lens' DescribeGameSessionPlacementResponse (Maybe GameSessionPlacement)
-dgsprsGameSessionPlacement = lens _dgsprsGameSessionPlacement (\s a -> s {_dgsprsGameSessionPlacement = a})
+--
+-- /Note:/ Consider using 'gameSessionPlacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsprsGameSessionPlacement :: Lens.Lens' DescribeGameSessionPlacementResponse (Lude.Maybe GameSessionPlacement)
+dgsprsGameSessionPlacement = Lens.lens (gameSessionPlacement :: DescribeGameSessionPlacementResponse -> Lude.Maybe GameSessionPlacement) (\s a -> s {gameSessionPlacement = a} :: DescribeGameSessionPlacementResponse)
+{-# DEPRECATED dgsprsGameSessionPlacement "Use generic-lens or generic-optics with 'gameSessionPlacement' instead." #-}
 
--- | -- | The response status code.
-dgsprsResponseStatus :: Lens' DescribeGameSessionPlacementResponse Int
-dgsprsResponseStatus = lens _dgsprsResponseStatus (\s a -> s {_dgsprsResponseStatus = a})
-
-instance NFData DescribeGameSessionPlacementResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsprsResponseStatus :: Lens.Lens' DescribeGameSessionPlacementResponse Lude.Int
+dgsprsResponseStatus = Lens.lens (responseStatus :: DescribeGameSessionPlacementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGameSessionPlacementResponse)
+{-# DEPRECATED dgsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

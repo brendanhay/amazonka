@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Returns a paginated list of individual assessments based on filter settings.
 --
---
 -- These filter settings can specify a combination of premigration assessment runs, migration tasks, and assessment status values.
 module Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments
-  ( -- * Creating a Request
-    describeReplicationTaskIndividualAssessments,
-    DescribeReplicationTaskIndividualAssessments,
+  ( -- * Creating a request
+    DescribeReplicationTaskIndividualAssessments (..),
+    mkDescribeReplicationTaskIndividualAssessments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drtiaFilters,
     drtiaMarker,
     drtiaMaxRecords,
 
-    -- * Destructuring the Response
-    describeReplicationTaskIndividualAssessmentsResponse,
-    DescribeReplicationTaskIndividualAssessmentsResponse,
+    -- * Destructuring the response
+    DescribeReplicationTaskIndividualAssessmentsResponse (..),
+    mkDescribeReplicationTaskIndividualAssessmentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drtiarsReplicationTaskIndividualAssessments,
     drtiarsMarker,
     drtiarsResponseStatus,
@@ -43,176 +37,185 @@ module Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeReplicationTaskIndividualAssessments' smart constructor.
+-- /See:/ 'mkDescribeReplicationTaskIndividualAssessments' smart constructor.
 data DescribeReplicationTaskIndividualAssessments = DescribeReplicationTaskIndividualAssessments'
-  { _drtiaFilters ::
-      !( Maybe
-           [Filter]
-       ),
-    _drtiaMarker ::
-      !( Maybe
-           Text
-       ),
-    _drtiaMaxRecords ::
-      !( Maybe
-           Int
-       )
+  { filters ::
+      Lude.Maybe
+        [Filter],
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    maxRecords ::
+      Lude.Maybe
+        Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationTaskIndividualAssessments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - Filters applied to the individual assessments described in the form of key-value pairs.
 --
--- * 'drtiaFilters' - Filters applied to the individual assessments described in the form of key-value pairs. Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @status@
---
--- * 'drtiaMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'drtiaMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
-describeReplicationTaskIndividualAssessments ::
+-- Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @status@
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+mkDescribeReplicationTaskIndividualAssessments ::
   DescribeReplicationTaskIndividualAssessments
-describeReplicationTaskIndividualAssessments =
+mkDescribeReplicationTaskIndividualAssessments =
   DescribeReplicationTaskIndividualAssessments'
-    { _drtiaFilters =
-        Nothing,
-      _drtiaMarker = Nothing,
-      _drtiaMaxRecords = Nothing
+    { filters =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
--- | Filters applied to the individual assessments described in the form of key-value pairs. Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @status@
-drtiaFilters :: Lens' DescribeReplicationTaskIndividualAssessments [Filter]
-drtiaFilters = lens _drtiaFilters (\s a -> s {_drtiaFilters = a}) . _Default . _Coerce
+-- | Filters applied to the individual assessments described in the form of key-value pairs.
+--
+-- Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @status@
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtiaFilters :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Lude.Maybe [Filter])
+drtiaFilters = Lens.lens (filters :: DescribeReplicationTaskIndividualAssessments -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReplicationTaskIndividualAssessments)
+{-# DEPRECATED drtiaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-drtiaMarker :: Lens' DescribeReplicationTaskIndividualAssessments (Maybe Text)
-drtiaMarker = lens _drtiaMarker (\s a -> s {_drtiaMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtiaMarker :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Lude.Maybe Lude.Text)
+drtiaMarker = Lens.lens (marker :: DescribeReplicationTaskIndividualAssessments -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTaskIndividualAssessments)
+{-# DEPRECATED drtiaMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
-drtiaMaxRecords :: Lens' DescribeReplicationTaskIndividualAssessments (Maybe Int)
-drtiaMaxRecords = lens _drtiaMaxRecords (\s a -> s {_drtiaMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtiaMaxRecords :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Lude.Maybe Lude.Int)
+drtiaMaxRecords = Lens.lens (maxRecords :: DescribeReplicationTaskIndividualAssessments -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReplicationTaskIndividualAssessments)
+{-# DEPRECATED drtiaMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSRequest DescribeReplicationTaskIndividualAssessments where
+instance
+  Lude.AWSRequest
+    DescribeReplicationTaskIndividualAssessments
+  where
   type
     Rs DescribeReplicationTaskIndividualAssessments =
       DescribeReplicationTaskIndividualAssessmentsResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeReplicationTaskIndividualAssessmentsResponse'
-            <$> (x .?> "ReplicationTaskIndividualAssessments" .!@ mempty)
-            <*> (x .?> "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "ReplicationTaskIndividualAssessments"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeReplicationTaskIndividualAssessments
-
-instance NFData DescribeReplicationTaskIndividualAssessments
-
-instance ToHeaders DescribeReplicationTaskIndividualAssessments where
+instance
+  Lude.ToHeaders
+    DescribeReplicationTaskIndividualAssessments
+  where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonDMSv20160101.DescribeReplicationTaskIndividualAssessments" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.DescribeReplicationTaskIndividualAssessments" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeReplicationTaskIndividualAssessments where
+instance Lude.ToJSON DescribeReplicationTaskIndividualAssessments where
   toJSON DescribeReplicationTaskIndividualAssessments' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _drtiaFilters,
-            ("Marker" .=) <$> _drtiaMarker,
-            ("MaxRecords" .=) <$> _drtiaMaxRecords
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("MaxRecords" Lude..=) Lude.<$> maxRecords
           ]
       )
 
-instance ToPath DescribeReplicationTaskIndividualAssessments where
-  toPath = const "/"
+instance Lude.ToPath DescribeReplicationTaskIndividualAssessments where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeReplicationTaskIndividualAssessments where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeReplicationTaskIndividualAssessments where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeReplicationTaskIndividualAssessmentsResponse' smart constructor.
+-- /See:/ 'mkDescribeReplicationTaskIndividualAssessmentsResponse' smart constructor.
 data DescribeReplicationTaskIndividualAssessmentsResponse = DescribeReplicationTaskIndividualAssessmentsResponse'
-  { _drtiarsReplicationTaskIndividualAssessments ::
-      !( Maybe
-           [ReplicationTaskIndividualAssessment]
-       ),
-    _drtiarsMarker ::
-      !( Maybe
-           Text
-       ),
-    _drtiarsResponseStatus ::
-      !Int
+  { replicationTaskIndividualAssessments ::
+      Lude.Maybe
+        [ReplicationTaskIndividualAssessment],
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeReplicationTaskIndividualAssessmentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drtiarsReplicationTaskIndividualAssessments' - One or more individual assessments as specified by @Filters@ .
---
--- * 'drtiarsMarker' - A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
---
--- * 'drtiarsResponseStatus' - -- | The response status code.
-describeReplicationTaskIndividualAssessmentsResponse ::
-  -- | 'drtiarsResponseStatus'
-  Int ->
+-- * 'marker' - A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
+-- * 'replicationTaskIndividualAssessments' - One or more individual assessments as specified by @Filters@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeReplicationTaskIndividualAssessmentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeReplicationTaskIndividualAssessmentsResponse
-describeReplicationTaskIndividualAssessmentsResponse
+mkDescribeReplicationTaskIndividualAssessmentsResponse
   pResponseStatus_ =
     DescribeReplicationTaskIndividualAssessmentsResponse'
-      { _drtiarsReplicationTaskIndividualAssessments =
-          Nothing,
-        _drtiarsMarker = Nothing,
-        _drtiarsResponseStatus = pResponseStatus_
+      { replicationTaskIndividualAssessments =
+          Lude.Nothing,
+        marker = Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | One or more individual assessments as specified by @Filters@ .
-drtiarsReplicationTaskIndividualAssessments :: Lens' DescribeReplicationTaskIndividualAssessmentsResponse [ReplicationTaskIndividualAssessment]
-drtiarsReplicationTaskIndividualAssessments = lens _drtiarsReplicationTaskIndividualAssessments (\s a -> s {_drtiarsReplicationTaskIndividualAssessments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicationTaskIndividualAssessments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtiarsReplicationTaskIndividualAssessments :: Lens.Lens' DescribeReplicationTaskIndividualAssessmentsResponse (Lude.Maybe [ReplicationTaskIndividualAssessment])
+drtiarsReplicationTaskIndividualAssessments = Lens.lens (replicationTaskIndividualAssessments :: DescribeReplicationTaskIndividualAssessmentsResponse -> Lude.Maybe [ReplicationTaskIndividualAssessment]) (\s a -> s {replicationTaskIndividualAssessments = a} :: DescribeReplicationTaskIndividualAssessmentsResponse)
+{-# DEPRECATED drtiarsReplicationTaskIndividualAssessments "Use generic-lens or generic-optics with 'replicationTaskIndividualAssessments' instead." #-}
 
 -- | A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
-drtiarsMarker :: Lens' DescribeReplicationTaskIndividualAssessmentsResponse (Maybe Text)
-drtiarsMarker = lens _drtiarsMarker (\s a -> s {_drtiarsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtiarsMarker :: Lens.Lens' DescribeReplicationTaskIndividualAssessmentsResponse (Lude.Maybe Lude.Text)
+drtiarsMarker = Lens.lens (marker :: DescribeReplicationTaskIndividualAssessmentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTaskIndividualAssessmentsResponse)
+{-# DEPRECATED drtiarsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-drtiarsResponseStatus :: Lens' DescribeReplicationTaskIndividualAssessmentsResponse Int
-drtiarsResponseStatus = lens _drtiarsResponseStatus (\s a -> s {_drtiarsResponseStatus = a})
-
-instance
-  NFData
-    DescribeReplicationTaskIndividualAssessmentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtiarsResponseStatus :: Lens.Lens' DescribeReplicationTaskIndividualAssessmentsResponse Lude.Int
+drtiarsResponseStatus = Lens.lens (responseStatus :: DescribeReplicationTaskIndividualAssessmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReplicationTaskIndividualAssessmentsResponse)
+{-# DEPRECATED drtiarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

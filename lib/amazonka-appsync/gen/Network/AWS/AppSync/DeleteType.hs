@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,123 @@
 --
 -- Deletes a @Type@ object.
 module Network.AWS.AppSync.DeleteType
-  ( -- * Creating a Request
-    deleteType,
-    DeleteType,
+  ( -- * Creating a request
+    DeleteType (..),
+    mkDeleteType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtApiId,
     dtTypeName,
 
-    -- * Destructuring the Response
-    deleteTypeResponse,
-    DeleteTypeResponse,
+    -- * Destructuring the response
+    DeleteTypeResponse (..),
+    mkDeleteTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteType' smart constructor.
+-- | /See:/ 'mkDeleteType' smart constructor.
 data DeleteType = DeleteType'
-  { _dtApiId :: !Text,
-    _dtTypeName :: !Text
+  { apiId :: Lude.Text,
+    typeName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtApiId' - The API ID.
---
--- * 'dtTypeName' - The type name.
-deleteType ::
-  -- | 'dtApiId'
-  Text ->
-  -- | 'dtTypeName'
-  Text ->
+-- * 'apiId' - The API ID.
+-- * 'typeName' - The type name.
+mkDeleteType ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'typeName'
+  Lude.Text ->
   DeleteType
-deleteType pApiId_ pTypeName_ =
-  DeleteType' {_dtApiId = pApiId_, _dtTypeName = pTypeName_}
+mkDeleteType pApiId_ pTypeName_ =
+  DeleteType' {apiId = pApiId_, typeName = pTypeName_}
 
 -- | The API ID.
-dtApiId :: Lens' DeleteType Text
-dtApiId = lens _dtApiId (\s a -> s {_dtApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtApiId :: Lens.Lens' DeleteType Lude.Text
+dtApiId = Lens.lens (apiId :: DeleteType -> Lude.Text) (\s a -> s {apiId = a} :: DeleteType)
+{-# DEPRECATED dtApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The type name.
-dtTypeName :: Lens' DeleteType Text
-dtTypeName = lens _dtTypeName (\s a -> s {_dtTypeName = a})
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTypeName :: Lens.Lens' DeleteType Lude.Text
+dtTypeName = Lens.lens (typeName :: DeleteType -> Lude.Text) (\s a -> s {typeName = a} :: DeleteType)
+{-# DEPRECATED dtTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
-instance AWSRequest DeleteType where
+instance Lude.AWSRequest DeleteType where
   type Rs DeleteType = DeleteTypeResponse
-  request = delete appSync
+  request = Req.delete appSyncService
   response =
-    receiveEmpty
-      (\s h x -> DeleteTypeResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteType
-
-instance NFData DeleteType
-
-instance ToHeaders DeleteType where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteTypeResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath DeleteType where
+instance Lude.ToHeaders DeleteType where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToPath DeleteType where
   toPath DeleteType' {..} =
-    mconcat ["/v1/apis/", toBS _dtApiId, "/types/", toBS _dtTypeName]
+    Lude.mconcat
+      ["/v1/apis/", Lude.toBS apiId, "/types/", Lude.toBS typeName]
 
-instance ToQuery DeleteType where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteType where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteTypeResponse' smart constructor.
+-- | /See:/ 'mkDeleteTypeResponse' smart constructor.
 newtype DeleteTypeResponse = DeleteTypeResponse'
-  { _dtrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrsResponseStatus' - -- | The response status code.
-deleteTypeResponse ::
-  -- | 'dtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTypeResponse
-deleteTypeResponse pResponseStatus_ =
-  DeleteTypeResponse' {_dtrsResponseStatus = pResponseStatus_}
+mkDeleteTypeResponse pResponseStatus_ =
+  DeleteTypeResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DeleteTypeResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\s a -> s {_dtrsResponseStatus = a})
-
-instance NFData DeleteTypeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsResponseStatus :: Lens.Lens' DeleteTypeResponse Lude.Int
+dtrsResponseStatus = Lens.lens (responseStatus :: DeleteTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTypeResponse)
+{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

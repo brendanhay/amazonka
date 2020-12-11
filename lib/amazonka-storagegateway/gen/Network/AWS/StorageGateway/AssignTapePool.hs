@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,173 @@
 --
 -- Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the S3 storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 --
---
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 module Network.AWS.StorageGateway.AssignTapePool
-  ( -- * Creating a Request
-    assignTapePool,
-    AssignTapePool,
+  ( -- * Creating a request
+    AssignTapePool (..),
+    mkAssignTapePool,
 
-    -- * Request Lenses
+    -- ** Request lenses
     atpBypassGovernanceRetention,
     atpTapeARN,
     atpPoolId,
 
-    -- * Destructuring the Response
-    assignTapePoolResponse,
-    AssignTapePoolResponse,
+    -- * Destructuring the response
+    AssignTapePoolResponse (..),
+    mkAssignTapePoolResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     atprsTapeARN,
     atprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'assignTapePool' smart constructor.
+-- | /See:/ 'mkAssignTapePool' smart constructor.
 data AssignTapePool = AssignTapePool'
-  { _atpBypassGovernanceRetention ::
-      !(Maybe Bool),
-    _atpTapeARN :: !Text,
-    _atpPoolId :: !Text
+  { bypassGovernanceRetention ::
+      Lude.Maybe Lude.Bool,
+    tapeARN :: Lude.Text,
+    poolId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignTapePool' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bypassGovernanceRetention' - Set permissions to bypass governance retention. If the lock type of the archived tape is @Governance@ , the tape's archived age is not older than @RetentionLockInDays@ , and the user does not already have @BypassGovernanceRetention@ , setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console.
 --
--- * 'atpBypassGovernanceRetention' - Set permissions to bypass governance retention. If the lock type of the archived tape is @Governance@ , the tape's archived age is not older than @RetentionLockInDays@ , and the user does not already have @BypassGovernanceRetention@ , setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console. Valid values: @TRUE@ | @FALSE@
+-- Valid values: @TRUE@ | @FALSE@
+-- * 'poolId' - The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 --
--- * 'atpTapeARN' - The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the tape pool.
---
--- * 'atpPoolId' - The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool. Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-assignTapePool ::
-  -- | 'atpTapeARN'
-  Text ->
-  -- | 'atpPoolId'
-  Text ->
+-- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+-- * 'tapeARN' - The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the tape pool.
+mkAssignTapePool ::
+  -- | 'tapeARN'
+  Lude.Text ->
+  -- | 'poolId'
+  Lude.Text ->
   AssignTapePool
-assignTapePool pTapeARN_ pPoolId_ =
+mkAssignTapePool pTapeARN_ pPoolId_ =
   AssignTapePool'
-    { _atpBypassGovernanceRetention = Nothing,
-      _atpTapeARN = pTapeARN_,
-      _atpPoolId = pPoolId_
+    { bypassGovernanceRetention = Lude.Nothing,
+      tapeARN = pTapeARN_,
+      poolId = pPoolId_
     }
 
--- | Set permissions to bypass governance retention. If the lock type of the archived tape is @Governance@ , the tape's archived age is not older than @RetentionLockInDays@ , and the user does not already have @BypassGovernanceRetention@ , setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console. Valid values: @TRUE@ | @FALSE@
-atpBypassGovernanceRetention :: Lens' AssignTapePool (Maybe Bool)
-atpBypassGovernanceRetention = lens _atpBypassGovernanceRetention (\s a -> s {_atpBypassGovernanceRetention = a})
+-- | Set permissions to bypass governance retention. If the lock type of the archived tape is @Governance@ , the tape's archived age is not older than @RetentionLockInDays@ , and the user does not already have @BypassGovernanceRetention@ , setting this to TRUE enables the user to bypass the retention lock. This parameter is set to true by default for calls from the console.
+--
+-- Valid values: @TRUE@ | @FALSE@
+--
+-- /Note:/ Consider using 'bypassGovernanceRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atpBypassGovernanceRetention :: Lens.Lens' AssignTapePool (Lude.Maybe Lude.Bool)
+atpBypassGovernanceRetention = Lens.lens (bypassGovernanceRetention :: AssignTapePool -> Lude.Maybe Lude.Bool) (\s a -> s {bypassGovernanceRetention = a} :: AssignTapePool)
+{-# DEPRECATED atpBypassGovernanceRetention "Use generic-lens or generic-optics with 'bypassGovernanceRetention' instead." #-}
 
 -- | The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the tape pool.
-atpTapeARN :: Lens' AssignTapePool Text
-atpTapeARN = lens _atpTapeARN (\s a -> s {_atpTapeARN = a})
+--
+-- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atpTapeARN :: Lens.Lens' AssignTapePool Lude.Text
+atpTapeARN = Lens.lens (tapeARN :: AssignTapePool -> Lude.Text) (\s a -> s {tapeARN = a} :: AssignTapePool)
+{-# DEPRECATED atpTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
--- | The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool. Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-atpPoolId :: Lens' AssignTapePool Text
-atpPoolId = lens _atpPoolId (\s a -> s {_atpPoolId = a})
+-- | The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
+--
+-- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+--
+-- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atpPoolId :: Lens.Lens' AssignTapePool Lude.Text
+atpPoolId = Lens.lens (poolId :: AssignTapePool -> Lude.Text) (\s a -> s {poolId = a} :: AssignTapePool)
+{-# DEPRECATED atpPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
-instance AWSRequest AssignTapePool where
+instance Lude.AWSRequest AssignTapePool where
   type Rs AssignTapePool = AssignTapePoolResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AssignTapePoolResponse'
-            <$> (x .?> "TapeARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TapeARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssignTapePool
-
-instance NFData AssignTapePool
-
-instance ToHeaders AssignTapePool where
+instance Lude.ToHeaders AssignTapePool where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.AssignTapePool" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.AssignTapePool" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssignTapePool where
+instance Lude.ToJSON AssignTapePool where
   toJSON AssignTapePool' {..} =
-    object
-      ( catMaybes
-          [ ("BypassGovernanceRetention" .=)
-              <$> _atpBypassGovernanceRetention,
-            Just ("TapeARN" .= _atpTapeARN),
-            Just ("PoolId" .= _atpPoolId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("BypassGovernanceRetention" Lude..=)
+              Lude.<$> bypassGovernanceRetention,
+            Lude.Just ("TapeARN" Lude..= tapeARN),
+            Lude.Just ("PoolId" Lude..= poolId)
           ]
       )
 
-instance ToPath AssignTapePool where
-  toPath = const "/"
+instance Lude.ToPath AssignTapePool where
+  toPath = Lude.const "/"
 
-instance ToQuery AssignTapePool where
-  toQuery = const mempty
+instance Lude.ToQuery AssignTapePool where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'assignTapePoolResponse' smart constructor.
+-- | /See:/ 'mkAssignTapePoolResponse' smart constructor.
 data AssignTapePoolResponse = AssignTapePoolResponse'
-  { _atprsTapeARN ::
-      !(Maybe Text),
-    _atprsResponseStatus :: !Int
+  { tapeARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignTapePoolResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atprsTapeARN' - The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape pool.
---
--- * 'atprsResponseStatus' - -- | The response status code.
-assignTapePoolResponse ::
-  -- | 'atprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tapeARN' - The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape pool.
+mkAssignTapePoolResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssignTapePoolResponse
-assignTapePoolResponse pResponseStatus_ =
+mkAssignTapePoolResponse pResponseStatus_ =
   AssignTapePoolResponse'
-    { _atprsTapeARN = Nothing,
-      _atprsResponseStatus = pResponseStatus_
+    { tapeARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape pool.
-atprsTapeARN :: Lens' AssignTapePoolResponse (Maybe Text)
-atprsTapeARN = lens _atprsTapeARN (\s a -> s {_atprsTapeARN = a})
+--
+-- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atprsTapeARN :: Lens.Lens' AssignTapePoolResponse (Lude.Maybe Lude.Text)
+atprsTapeARN = Lens.lens (tapeARN :: AssignTapePoolResponse -> Lude.Maybe Lude.Text) (\s a -> s {tapeARN = a} :: AssignTapePoolResponse)
+{-# DEPRECATED atprsTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
--- | -- | The response status code.
-atprsResponseStatus :: Lens' AssignTapePoolResponse Int
-atprsResponseStatus = lens _atprsResponseStatus (\s a -> s {_atprsResponseStatus = a})
-
-instance NFData AssignTapePoolResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atprsResponseStatus :: Lens.Lens' AssignTapePoolResponse Lude.Int
+atprsResponseStatus = Lens.lens (responseStatus :: AssignTapePoolResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssignTapePoolResponse)
+{-# DEPRECATED atprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

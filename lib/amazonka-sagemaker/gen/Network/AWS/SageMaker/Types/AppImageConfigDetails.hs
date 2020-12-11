@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AppImageConfigDetails where
+module Network.AWS.SageMaker.Types.AppImageConfigDetails
+  ( AppImageConfigDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAppImageConfigDetails,
+
+    -- * Lenses
+    aicdCreationTime,
+    aicdAppImageConfigName,
+    aicdLastModifiedTime,
+    aicdKernelGatewayImageConfig,
+    aicdAppImageConfigARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.KernelGatewayImageConfig
 
 -- | The configuration for running a SageMaker image as a KernelGateway app.
 --
---
---
--- /See:/ 'appImageConfigDetails' smart constructor.
+-- /See:/ 'mkAppImageConfigDetails' smart constructor.
 data AppImageConfigDetails = AppImageConfigDetails'
-  { _aicdCreationTime ::
-      !(Maybe POSIX),
-    _aicdAppImageConfigName :: !(Maybe Text),
-    _aicdLastModifiedTime :: !(Maybe POSIX),
-    _aicdKernelGatewayImageConfig ::
-      !(Maybe KernelGatewayImageConfig),
-    _aicdAppImageConfigARN :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    appImageConfigName :: Lude.Maybe Lude.Text,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    kernelGatewayImageConfig ::
+      Lude.Maybe KernelGatewayImageConfig,
+    appImageConfigARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppImageConfigDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aicdCreationTime' - When the AppImageConfig was created.
---
--- * 'aicdAppImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
---
--- * 'aicdLastModifiedTime' - When the AppImageConfig was last modified.
---
--- * 'aicdKernelGatewayImageConfig' - The configuration for the file system and kernels in the SageMaker image.
---
--- * 'aicdAppImageConfigARN' - The Amazon Resource Name (ARN) of the AppImageConfig.
-appImageConfigDetails ::
+-- * 'appImageConfigARN' - The Amazon Resource Name (ARN) of the AppImageConfig.
+-- * 'appImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
+-- * 'creationTime' - When the AppImageConfig was created.
+-- * 'kernelGatewayImageConfig' - The configuration for the file system and kernels in the SageMaker image.
+-- * 'lastModifiedTime' - When the AppImageConfig was last modified.
+mkAppImageConfigDetails ::
   AppImageConfigDetails
-appImageConfigDetails =
+mkAppImageConfigDetails =
   AppImageConfigDetails'
-    { _aicdCreationTime = Nothing,
-      _aicdAppImageConfigName = Nothing,
-      _aicdLastModifiedTime = Nothing,
-      _aicdKernelGatewayImageConfig = Nothing,
-      _aicdAppImageConfigARN = Nothing
+    { creationTime = Lude.Nothing,
+      appImageConfigName = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      kernelGatewayImageConfig = Lude.Nothing,
+      appImageConfigARN = Lude.Nothing
     }
 
 -- | When the AppImageConfig was created.
-aicdCreationTime :: Lens' AppImageConfigDetails (Maybe UTCTime)
-aicdCreationTime = lens _aicdCreationTime (\s a -> s {_aicdCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aicdCreationTime :: Lens.Lens' AppImageConfigDetails (Lude.Maybe Lude.Timestamp)
+aicdCreationTime = Lens.lens (creationTime :: AppImageConfigDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: AppImageConfigDetails)
+{-# DEPRECATED aicdCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The name of the AppImageConfig. Must be unique to your account.
-aicdAppImageConfigName :: Lens' AppImageConfigDetails (Maybe Text)
-aicdAppImageConfigName = lens _aicdAppImageConfigName (\s a -> s {_aicdAppImageConfigName = a})
+--
+-- /Note:/ Consider using 'appImageConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aicdAppImageConfigName :: Lens.Lens' AppImageConfigDetails (Lude.Maybe Lude.Text)
+aicdAppImageConfigName = Lens.lens (appImageConfigName :: AppImageConfigDetails -> Lude.Maybe Lude.Text) (\s a -> s {appImageConfigName = a} :: AppImageConfigDetails)
+{-# DEPRECATED aicdAppImageConfigName "Use generic-lens or generic-optics with 'appImageConfigName' instead." #-}
 
 -- | When the AppImageConfig was last modified.
-aicdLastModifiedTime :: Lens' AppImageConfigDetails (Maybe UTCTime)
-aicdLastModifiedTime = lens _aicdLastModifiedTime (\s a -> s {_aicdLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aicdLastModifiedTime :: Lens.Lens' AppImageConfigDetails (Lude.Maybe Lude.Timestamp)
+aicdLastModifiedTime = Lens.lens (lastModifiedTime :: AppImageConfigDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: AppImageConfigDetails)
+{-# DEPRECATED aicdLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The configuration for the file system and kernels in the SageMaker image.
-aicdKernelGatewayImageConfig :: Lens' AppImageConfigDetails (Maybe KernelGatewayImageConfig)
-aicdKernelGatewayImageConfig = lens _aicdKernelGatewayImageConfig (\s a -> s {_aicdKernelGatewayImageConfig = a})
+--
+-- /Note:/ Consider using 'kernelGatewayImageConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aicdKernelGatewayImageConfig :: Lens.Lens' AppImageConfigDetails (Lude.Maybe KernelGatewayImageConfig)
+aicdKernelGatewayImageConfig = Lens.lens (kernelGatewayImageConfig :: AppImageConfigDetails -> Lude.Maybe KernelGatewayImageConfig) (\s a -> s {kernelGatewayImageConfig = a} :: AppImageConfigDetails)
+{-# DEPRECATED aicdKernelGatewayImageConfig "Use generic-lens or generic-optics with 'kernelGatewayImageConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AppImageConfig.
-aicdAppImageConfigARN :: Lens' AppImageConfigDetails (Maybe Text)
-aicdAppImageConfigARN = lens _aicdAppImageConfigARN (\s a -> s {_aicdAppImageConfigARN = a})
+--
+-- /Note:/ Consider using 'appImageConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aicdAppImageConfigARN :: Lens.Lens' AppImageConfigDetails (Lude.Maybe Lude.Text)
+aicdAppImageConfigARN = Lens.lens (appImageConfigARN :: AppImageConfigDetails -> Lude.Maybe Lude.Text) (\s a -> s {appImageConfigARN = a} :: AppImageConfigDetails)
+{-# DEPRECATED aicdAppImageConfigARN "Use generic-lens or generic-optics with 'appImageConfigARN' instead." #-}
 
-instance FromJSON AppImageConfigDetails where
+instance Lude.FromJSON AppImageConfigDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "AppImageConfigDetails"
       ( \x ->
           AppImageConfigDetails'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "AppImageConfigName")
-            <*> (x .:? "LastModifiedTime")
-            <*> (x .:? "KernelGatewayImageConfig")
-            <*> (x .:? "AppImageConfigArn")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "AppImageConfigName")
+            Lude.<*> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..:? "KernelGatewayImageConfig")
+            Lude.<*> (x Lude..:? "AppImageConfigArn")
       )
-
-instance Hashable AppImageConfigDetails
-
-instance NFData AppImageConfigDetails

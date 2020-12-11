@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,139 @@
 --
 -- Deletes from the system the certificate that was registered for a secured LDAP connection.
 module Network.AWS.DirectoryService.DeregisterCertificate
-  ( -- * Creating a Request
-    deregisterCertificate,
-    DeregisterCertificate,
+  ( -- * Creating a request
+    DeregisterCertificate (..),
+    mkDeregisterCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     derDirectoryId,
     derCertificateId,
 
-    -- * Destructuring the Response
-    deregisterCertificateResponse,
-    DeregisterCertificateResponse,
+    -- * Destructuring the response
+    DeregisterCertificateResponse (..),
+    mkDeregisterCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterCertificate' smart constructor.
+-- | /See:/ 'mkDeregisterCertificate' smart constructor.
 data DeregisterCertificate = DeregisterCertificate'
-  { _derDirectoryId ::
-      !Text,
-    _derCertificateId :: !Text
+  { directoryId ::
+      Lude.Text,
+    certificateId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'derDirectoryId' - The identifier of the directory.
---
--- * 'derCertificateId' - The identifier of the certificate.
-deregisterCertificate ::
-  -- | 'derDirectoryId'
-  Text ->
-  -- | 'derCertificateId'
-  Text ->
+-- * 'certificateId' - The identifier of the certificate.
+-- * 'directoryId' - The identifier of the directory.
+mkDeregisterCertificate ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'certificateId'
+  Lude.Text ->
   DeregisterCertificate
-deregisterCertificate pDirectoryId_ pCertificateId_ =
+mkDeregisterCertificate pDirectoryId_ pCertificateId_ =
   DeregisterCertificate'
-    { _derDirectoryId = pDirectoryId_,
-      _derCertificateId = pCertificateId_
+    { directoryId = pDirectoryId_,
+      certificateId = pCertificateId_
     }
 
 -- | The identifier of the directory.
-derDirectoryId :: Lens' DeregisterCertificate Text
-derDirectoryId = lens _derDirectoryId (\s a -> s {_derDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derDirectoryId :: Lens.Lens' DeregisterCertificate Lude.Text
+derDirectoryId = Lens.lens (directoryId :: DeregisterCertificate -> Lude.Text) (\s a -> s {directoryId = a} :: DeregisterCertificate)
+{-# DEPRECATED derDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifier of the certificate.
-derCertificateId :: Lens' DeregisterCertificate Text
-derCertificateId = lens _derCertificateId (\s a -> s {_derCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derCertificateId :: Lens.Lens' DeregisterCertificate Lude.Text
+derCertificateId = Lens.lens (certificateId :: DeregisterCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DeregisterCertificate)
+{-# DEPRECATED derCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
-instance AWSRequest DeregisterCertificate where
+instance Lude.AWSRequest DeregisterCertificate where
   type Rs DeregisterCertificate = DeregisterCertificateResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> DeregisterCertificateResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeregisterCertificateResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeregisterCertificate
-
-instance NFData DeregisterCertificate
-
-instance ToHeaders DeregisterCertificate where
+instance Lude.ToHeaders DeregisterCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.DeregisterCertificate" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.DeregisterCertificate" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterCertificate where
+instance Lude.ToJSON DeregisterCertificate where
   toJSON DeregisterCertificate' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _derDirectoryId),
-            Just ("CertificateId" .= _derCertificateId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("CertificateId" Lude..= certificateId)
           ]
       )
 
-instance ToPath DeregisterCertificate where
-  toPath = const "/"
+instance Lude.ToPath DeregisterCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterCertificateResponse' smart constructor.
+-- | /See:/ 'mkDeregisterCertificateResponse' smart constructor.
 newtype DeregisterCertificateResponse = DeregisterCertificateResponse'
-  { _dcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-deregisterCertificateResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeregisterCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterCertificateResponse
-deregisterCertificateResponse pResponseStatus_ =
-  DeregisterCertificateResponse'
-    { _dcrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeregisterCertificateResponse pResponseStatus_ =
+  DeregisterCertificateResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DeregisterCertificateResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
-
-instance NFData DeregisterCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DeregisterCertificateResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DeregisterCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterCertificateResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

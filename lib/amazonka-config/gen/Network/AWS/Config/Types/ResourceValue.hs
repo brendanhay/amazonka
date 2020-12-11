@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ResourceValue where
+module Network.AWS.Config.Types.ResourceValue
+  ( ResourceValue (..),
+
+    -- * Smart constructor
+    mkResourceValue,
+
+    -- * Lenses
+    rvValue,
+  )
+where
 
 import Network.AWS.Config.Types.ResourceValueType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The dynamic value of the resource.
 --
---
---
--- /See:/ 'resourceValue' smart constructor.
-newtype ResourceValue = ResourceValue'
-  { _rvValue ::
-      ResourceValueType
-  }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkResourceValue' smart constructor.
+newtype ResourceValue = ResourceValue' {value :: ResourceValueType}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvValue' - The value is a resource ID.
-resourceValue ::
-  -- | 'rvValue'
+-- * 'value' - The value is a resource ID.
+mkResourceValue ::
+  -- | 'value'
   ResourceValueType ->
   ResourceValue
-resourceValue pValue_ = ResourceValue' {_rvValue = pValue_}
+mkResourceValue pValue_ = ResourceValue' {value = pValue_}
 
 -- | The value is a resource ID.
-rvValue :: Lens' ResourceValue ResourceValueType
-rvValue = lens _rvValue (\s a -> s {_rvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvValue :: Lens.Lens' ResourceValue ResourceValueType
+rvValue = Lens.lens (value :: ResourceValue -> ResourceValueType) (\s a -> s {value = a} :: ResourceValue)
+{-# DEPRECATED rvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromJSON ResourceValue where
+instance Lude.FromJSON ResourceValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceValue"
-      (\x -> ResourceValue' <$> (x .: "Value"))
+      (\x -> ResourceValue' Lude.<$> (x Lude..: "Value"))
 
-instance Hashable ResourceValue
-
-instance NFData ResourceValue
-
-instance ToJSON ResourceValue where
+instance Lude.ToJSON ResourceValue where
   toJSON ResourceValue' {..} =
-    object (catMaybes [Just ("Value" .= _rvValue)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Value" Lude..= value)])

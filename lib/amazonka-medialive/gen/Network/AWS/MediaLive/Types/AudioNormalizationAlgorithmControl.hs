@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioNormalizationAlgorithmControl where
+module Network.AWS.MediaLive.Types.AudioNormalizationAlgorithmControl
+  ( AudioNormalizationAlgorithmControl
+      ( AudioNormalizationAlgorithmControl',
+        CorrectAudio
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Normalization Algorithm Control
-data AudioNormalizationAlgorithmControl = CorrectAudio
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioNormalizationAlgorithmControl = AudioNormalizationAlgorithmControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioNormalizationAlgorithmControl where
-  parser =
-    takeLowerText >>= \case
-      "correct_audio" -> pure CorrectAudio
-      e ->
-        fromTextError $
-          "Failure parsing AudioNormalizationAlgorithmControl from value: '" <> e
-            <> "'. Accepted values: correct_audio"
+pattern CorrectAudio :: AudioNormalizationAlgorithmControl
+pattern CorrectAudio = AudioNormalizationAlgorithmControl' "CORRECT_AUDIO"
 
-instance ToText AudioNormalizationAlgorithmControl where
-  toText = \case
-    CorrectAudio -> "CORRECT_AUDIO"
-
-instance Hashable AudioNormalizationAlgorithmControl
-
-instance NFData AudioNormalizationAlgorithmControl
-
-instance ToByteString AudioNormalizationAlgorithmControl
-
-instance ToQuery AudioNormalizationAlgorithmControl
-
-instance ToHeader AudioNormalizationAlgorithmControl
-
-instance ToJSON AudioNormalizationAlgorithmControl where
-  toJSON = toJSONText
-
-instance FromJSON AudioNormalizationAlgorithmControl where
-  parseJSON = parseJSONText "AudioNormalizationAlgorithmControl"
+{-# COMPLETE
+  CorrectAudio,
+  AudioNormalizationAlgorithmControl'
+  #-}

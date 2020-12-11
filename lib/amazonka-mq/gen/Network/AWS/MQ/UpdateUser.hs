@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,171 @@
 --
 -- Updates the information for an ActiveMQ user.
 module Network.AWS.MQ.UpdateUser
-  ( -- * Creating a Request
-    updateUser,
-    UpdateUser,
+  ( -- * Creating a request
+    UpdateUser (..),
+    mkUpdateUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uuGroups,
     uuConsoleAccess,
     uuPassword,
     uuUsername,
     uuBrokerId,
 
-    -- * Destructuring the Response
-    updateUserResponse,
-    UpdateUserResponse,
+    -- * Destructuring the response
+    UpdateUserResponse (..),
+    mkUpdateUserResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Updates the information for an ActiveMQ user.
 --
--- /See:/ 'updateUser' smart constructor.
+-- /See:/ 'mkUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { _uuGroups :: !(Maybe [Text]),
-    _uuConsoleAccess :: !(Maybe Bool),
-    _uuPassword :: !(Maybe Text),
-    _uuUsername :: !Text,
-    _uuBrokerId :: !Text
+  { groups :: Lude.Maybe [Lude.Text],
+    consoleAccess :: Lude.Maybe Lude.Bool,
+    password :: Lude.Maybe Lude.Text,
+    username :: Lude.Text,
+    brokerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uuGroups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- * 'uuConsoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
---
--- * 'uuPassword' - The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
---
--- * 'uuUsername' - Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
---
--- * 'uuBrokerId' - The unique ID that Amazon MQ generates for the broker.
-updateUser ::
-  -- | 'uuUsername'
-  Text ->
-  -- | 'uuBrokerId'
-  Text ->
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+-- * 'groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'password' - The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
+-- * 'username' - Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+mkUpdateUser ::
+  -- | 'username'
+  Lude.Text ->
+  -- | 'brokerId'
+  Lude.Text ->
   UpdateUser
-updateUser pUsername_ pBrokerId_ =
+mkUpdateUser pUsername_ pBrokerId_ =
   UpdateUser'
-    { _uuGroups = Nothing,
-      _uuConsoleAccess = Nothing,
-      _uuPassword = Nothing,
-      _uuUsername = pUsername_,
-      _uuBrokerId = pBrokerId_
+    { groups = Lude.Nothing,
+      consoleAccess = Lude.Nothing,
+      password = Lude.Nothing,
+      username = pUsername_,
+      brokerId = pBrokerId_
     }
 
 -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-uuGroups :: Lens' UpdateUser [Text]
-uuGroups = lens _uuGroups (\s a -> s {_uuGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuGroups :: Lens.Lens' UpdateUser (Lude.Maybe [Lude.Text])
+uuGroups = Lens.lens (groups :: UpdateUser -> Lude.Maybe [Lude.Text]) (\s a -> s {groups = a} :: UpdateUser)
+{-# DEPRECATED uuGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-uuConsoleAccess :: Lens' UpdateUser (Maybe Bool)
-uuConsoleAccess = lens _uuConsoleAccess (\s a -> s {_uuConsoleAccess = a})
+--
+-- /Note:/ Consider using 'consoleAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuConsoleAccess :: Lens.Lens' UpdateUser (Lude.Maybe Lude.Bool)
+uuConsoleAccess = Lens.lens (consoleAccess :: UpdateUser -> Lude.Maybe Lude.Bool) (\s a -> s {consoleAccess = a} :: UpdateUser)
+{-# DEPRECATED uuConsoleAccess "Use generic-lens or generic-optics with 'consoleAccess' instead." #-}
 
 -- | The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas.
-uuPassword :: Lens' UpdateUser (Maybe Text)
-uuPassword = lens _uuPassword (\s a -> s {_uuPassword = a})
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuPassword :: Lens.Lens' UpdateUser (Lude.Maybe Lude.Text)
+uuPassword = Lens.lens (password :: UpdateUser -> Lude.Maybe Lude.Text) (\s a -> s {password = a} :: UpdateUser)
+{-# DEPRECATED uuPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
-uuUsername :: Lens' UpdateUser Text
-uuUsername = lens _uuUsername (\s a -> s {_uuUsername = a})
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuUsername :: Lens.Lens' UpdateUser Lude.Text
+uuUsername = Lens.lens (username :: UpdateUser -> Lude.Text) (\s a -> s {username = a} :: UpdateUser)
+{-# DEPRECATED uuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The unique ID that Amazon MQ generates for the broker.
-uuBrokerId :: Lens' UpdateUser Text
-uuBrokerId = lens _uuBrokerId (\s a -> s {_uuBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuBrokerId :: Lens.Lens' UpdateUser Lude.Text
+uuBrokerId = Lens.lens (brokerId :: UpdateUser -> Lude.Text) (\s a -> s {brokerId = a} :: UpdateUser)
+{-# DEPRECATED uuBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
-instance AWSRequest UpdateUser where
+instance Lude.AWSRequest UpdateUser where
   type Rs UpdateUser = UpdateUserResponse
-  request = putJSON mq
+  request = Req.putJSON mqService
   response =
-    receiveEmpty
-      (\s h x -> UpdateUserResponse' <$> (pure (fromEnum s)))
-
-instance Hashable UpdateUser
-
-instance NFData UpdateUser
-
-instance ToHeaders UpdateUser where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateUserResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON UpdateUser where
-  toJSON UpdateUser' {..} =
-    object
-      ( catMaybes
-          [ ("groups" .=) <$> _uuGroups,
-            ("consoleAccess" .=) <$> _uuConsoleAccess,
-            ("password" .=) <$> _uuPassword
+instance Lude.ToHeaders UpdateUser where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateUser where
+instance Lude.ToJSON UpdateUser where
+  toJSON UpdateUser' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("groups" Lude..=) Lude.<$> groups,
+            ("consoleAccess" Lude..=) Lude.<$> consoleAccess,
+            ("password" Lude..=) Lude.<$> password
+          ]
+      )
+
+instance Lude.ToPath UpdateUser where
   toPath UpdateUser' {..} =
-    mconcat
-      ["/v1/brokers/", toBS _uuBrokerId, "/users/", toBS _uuUsername]
+    Lude.mconcat
+      ["/v1/brokers/", Lude.toBS brokerId, "/users/", Lude.toBS username]
 
-instance ToQuery UpdateUser where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUser where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateUserResponse' smart constructor.
+-- | /See:/ 'mkUpdateUserResponse' smart constructor.
 newtype UpdateUserResponse = UpdateUserResponse'
-  { _uursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uursResponseStatus' - -- | The response status code.
-updateUserResponse ::
-  -- | 'uursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateUserResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateUserResponse
-updateUserResponse pResponseStatus_ =
-  UpdateUserResponse' {_uursResponseStatus = pResponseStatus_}
+mkUpdateUserResponse pResponseStatus_ =
+  UpdateUserResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-uursResponseStatus :: Lens' UpdateUserResponse Int
-uursResponseStatus = lens _uursResponseStatus (\s a -> s {_uursResponseStatus = a})
-
-instance NFData UpdateUserResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uursResponseStatus :: Lens.Lens' UpdateUserResponse Lude.Int
+uursResponseStatus = Lens.lens (responseStatus :: UpdateUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateUserResponse)
+{-# DEPRECATED uursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

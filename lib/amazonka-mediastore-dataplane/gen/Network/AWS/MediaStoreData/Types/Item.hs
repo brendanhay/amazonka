@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaStoreData.Types.Item where
+module Network.AWS.MediaStoreData.Types.Item
+  ( Item (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkItem,
+
+    -- * Lenses
+    iETag,
+    iContentLength,
+    iName,
+    iType,
+    iLastModified,
+    iContentType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types.ItemType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A metadata entry for a folder or object.
 --
---
---
--- /See:/ 'item' smart constructor.
+-- /See:/ 'mkItem' smart constructor.
 data Item = Item'
-  { _iETag :: !(Maybe Text),
-    _iContentLength :: !(Maybe Nat),
-    _iName :: !(Maybe Text),
-    _iType :: !(Maybe ItemType),
-    _iLastModified :: !(Maybe POSIX),
-    _iContentType :: !(Maybe Text)
+  { eTag :: Lude.Maybe Lude.Text,
+    contentLength :: Lude.Maybe Lude.Natural,
+    name :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe ItemType,
+    lastModified :: Lude.Maybe Lude.Timestamp,
+    contentType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Item' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iETag' - The ETag that represents a unique instance of the item.
---
--- * 'iContentLength' - The length of the item in bytes.
---
--- * 'iName' - The name of the item.
---
--- * 'iType' - The item type (folder or object).
---
--- * 'iLastModified' - The date and time that the item was last modified.
---
--- * 'iContentType' - The content type of the item.
-item ::
+-- * 'contentLength' - The length of the item in bytes.
+-- * 'contentType' - The content type of the item.
+-- * 'eTag' - The ETag that represents a unique instance of the item.
+-- * 'lastModified' - The date and time that the item was last modified.
+-- * 'name' - The name of the item.
+-- * 'type'' - The item type (folder or object).
+mkItem ::
   Item
-item =
+mkItem =
   Item'
-    { _iETag = Nothing,
-      _iContentLength = Nothing,
-      _iName = Nothing,
-      _iType = Nothing,
-      _iLastModified = Nothing,
-      _iContentType = Nothing
+    { eTag = Lude.Nothing,
+      contentLength = Lude.Nothing,
+      name = Lude.Nothing,
+      type' = Lude.Nothing,
+      lastModified = Lude.Nothing,
+      contentType = Lude.Nothing
     }
 
 -- | The ETag that represents a unique instance of the item.
-iETag :: Lens' Item (Maybe Text)
-iETag = lens _iETag (\s a -> s {_iETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iETag :: Lens.Lens' Item (Lude.Maybe Lude.Text)
+iETag = Lens.lens (eTag :: Item -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: Item)
+{-# DEPRECATED iETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The length of the item in bytes.
-iContentLength :: Lens' Item (Maybe Natural)
-iContentLength = lens _iContentLength (\s a -> s {_iContentLength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'contentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iContentLength :: Lens.Lens' Item (Lude.Maybe Lude.Natural)
+iContentLength = Lens.lens (contentLength :: Item -> Lude.Maybe Lude.Natural) (\s a -> s {contentLength = a} :: Item)
+{-# DEPRECATED iContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
 
 -- | The name of the item.
-iName :: Lens' Item (Maybe Text)
-iName = lens _iName (\s a -> s {_iName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iName :: Lens.Lens' Item (Lude.Maybe Lude.Text)
+iName = Lens.lens (name :: Item -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Item)
+{-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The item type (folder or object).
-iType :: Lens' Item (Maybe ItemType)
-iType = lens _iType (\s a -> s {_iType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iType :: Lens.Lens' Item (Lude.Maybe ItemType)
+iType = Lens.lens (type' :: Item -> Lude.Maybe ItemType) (\s a -> s {type' = a} :: Item)
+{-# DEPRECATED iType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The date and time that the item was last modified.
-iLastModified :: Lens' Item (Maybe UTCTime)
-iLastModified = lens _iLastModified (\s a -> s {_iLastModified = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLastModified :: Lens.Lens' Item (Lude.Maybe Lude.Timestamp)
+iLastModified = Lens.lens (lastModified :: Item -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModified = a} :: Item)
+{-# DEPRECATED iLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
 -- | The content type of the item.
-iContentType :: Lens' Item (Maybe Text)
-iContentType = lens _iContentType (\s a -> s {_iContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iContentType :: Lens.Lens' Item (Lude.Maybe Lude.Text)
+iContentType = Lens.lens (contentType :: Item -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: Item)
+{-# DEPRECATED iContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
-instance FromJSON Item where
+instance Lude.FromJSON Item where
   parseJSON =
-    withObject
+    Lude.withObject
       "Item"
       ( \x ->
           Item'
-            <$> (x .:? "ETag")
-            <*> (x .:? "ContentLength")
-            <*> (x .:? "Name")
-            <*> (x .:? "Type")
-            <*> (x .:? "LastModified")
-            <*> (x .:? "ContentType")
+            Lude.<$> (x Lude..:? "ETag")
+            Lude.<*> (x Lude..:? "ContentLength")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "LastModified")
+            Lude.<*> (x Lude..:? "ContentType")
       )
-
-instance Hashable Item
-
-instance NFData Item

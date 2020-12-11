@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.RequestCancelActivityTaskFailedCause where
+module Network.AWS.SWF.Types.RequestCancelActivityTaskFailedCause
+  ( RequestCancelActivityTaskFailedCause
+      ( RequestCancelActivityTaskFailedCause',
+        RCATFCActivityIdUnknown,
+        RCATFCOperationNotPermitted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RequestCancelActivityTaskFailedCause
-  = RCATFCActivityIdUnknown
-  | RCATFCOperationNotPermitted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RequestCancelActivityTaskFailedCause = RequestCancelActivityTaskFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RequestCancelActivityTaskFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "activity_id_unknown" -> pure RCATFCActivityIdUnknown
-      "operation_not_permitted" -> pure RCATFCOperationNotPermitted
-      e ->
-        fromTextError $
-          "Failure parsing RequestCancelActivityTaskFailedCause from value: '" <> e
-            <> "'. Accepted values: activity_id_unknown, operation_not_permitted"
+pattern RCATFCActivityIdUnknown :: RequestCancelActivityTaskFailedCause
+pattern RCATFCActivityIdUnknown = RequestCancelActivityTaskFailedCause' "ACTIVITY_ID_UNKNOWN"
 
-instance ToText RequestCancelActivityTaskFailedCause where
-  toText = \case
-    RCATFCActivityIdUnknown -> "ACTIVITY_ID_UNKNOWN"
-    RCATFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
+pattern RCATFCOperationNotPermitted :: RequestCancelActivityTaskFailedCause
+pattern RCATFCOperationNotPermitted = RequestCancelActivityTaskFailedCause' "OPERATION_NOT_PERMITTED"
 
-instance Hashable RequestCancelActivityTaskFailedCause
-
-instance NFData RequestCancelActivityTaskFailedCause
-
-instance ToByteString RequestCancelActivityTaskFailedCause
-
-instance ToQuery RequestCancelActivityTaskFailedCause
-
-instance ToHeader RequestCancelActivityTaskFailedCause
-
-instance FromJSON RequestCancelActivityTaskFailedCause where
-  parseJSON = parseJSONText "RequestCancelActivityTaskFailedCause"
+{-# COMPLETE
+  RCATFCActivityIdUnknown,
+  RCATFCOperationNotPermitted,
+  RequestCancelActivityTaskFailedCause'
+  #-}

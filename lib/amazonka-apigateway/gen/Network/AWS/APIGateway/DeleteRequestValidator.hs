@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,109 @@
 --
 -- Deletes a 'RequestValidator' of a given 'RestApi' .
 module Network.AWS.APIGateway.DeleteRequestValidator
-  ( -- * Creating a Request
-    deleteRequestValidator,
-    DeleteRequestValidator,
+  ( -- * Creating a request
+    DeleteRequestValidator (..),
+    mkDeleteRequestValidator,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drvRestAPIId,
     drvRequestValidatorId,
 
-    -- * Destructuring the Response
-    deleteRequestValidatorResponse,
-    DeleteRequestValidatorResponse,
+    -- * Destructuring the response
+    DeleteRequestValidatorResponse (..),
+    mkDeleteRequestValidatorResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Deletes a specified 'RequestValidator' of a given 'RestApi' .
 --
---
---
--- /See:/ 'deleteRequestValidator' smart constructor.
+-- /See:/ 'mkDeleteRequestValidator' smart constructor.
 data DeleteRequestValidator = DeleteRequestValidator'
-  { _drvRestAPIId ::
-      !Text,
-    _drvRequestValidatorId :: !Text
+  { restAPIId ::
+      Lude.Text,
+    requestValidatorId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRequestValidator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'drvRequestValidatorId' - [Required] The identifier of the 'RequestValidator' to be deleted.
-deleteRequestValidator ::
-  -- | 'drvRestAPIId'
-  Text ->
-  -- | 'drvRequestValidatorId'
-  Text ->
+-- * 'requestValidatorId' - [Required] The identifier of the 'RequestValidator' to be deleted.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkDeleteRequestValidator ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'requestValidatorId'
+  Lude.Text ->
   DeleteRequestValidator
-deleteRequestValidator pRestAPIId_ pRequestValidatorId_ =
+mkDeleteRequestValidator pRestAPIId_ pRequestValidatorId_ =
   DeleteRequestValidator'
-    { _drvRestAPIId = pRestAPIId_,
-      _drvRequestValidatorId = pRequestValidatorId_
+    { restAPIId = pRestAPIId_,
+      requestValidatorId = pRequestValidatorId_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-drvRestAPIId :: Lens' DeleteRequestValidator Text
-drvRestAPIId = lens _drvRestAPIId (\s a -> s {_drvRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drvRestAPIId :: Lens.Lens' DeleteRequestValidator Lude.Text
+drvRestAPIId = Lens.lens (restAPIId :: DeleteRequestValidator -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteRequestValidator)
+{-# DEPRECATED drvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'RequestValidator' to be deleted.
-drvRequestValidatorId :: Lens' DeleteRequestValidator Text
-drvRequestValidatorId = lens _drvRequestValidatorId (\s a -> s {_drvRequestValidatorId = a})
+--
+-- /Note:/ Consider using 'requestValidatorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drvRequestValidatorId :: Lens.Lens' DeleteRequestValidator Lude.Text
+drvRequestValidatorId = Lens.lens (requestValidatorId :: DeleteRequestValidator -> Lude.Text) (\s a -> s {requestValidatorId = a} :: DeleteRequestValidator)
+{-# DEPRECATED drvRequestValidatorId "Use generic-lens or generic-optics with 'requestValidatorId' instead." #-}
 
-instance AWSRequest DeleteRequestValidator where
+instance Lude.AWSRequest DeleteRequestValidator where
   type Rs DeleteRequestValidator = DeleteRequestValidatorResponse
-  request = delete apiGateway
-  response = receiveNull DeleteRequestValidatorResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteRequestValidatorResponse'
 
-instance Hashable DeleteRequestValidator
-
-instance NFData DeleteRequestValidator
-
-instance ToHeaders DeleteRequestValidator where
+instance Lude.ToHeaders DeleteRequestValidator where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteRequestValidator where
+instance Lude.ToPath DeleteRequestValidator where
   toPath DeleteRequestValidator' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _drvRestAPIId,
+        Lude.toBS restAPIId,
         "/requestvalidators/",
-        toBS _drvRequestValidatorId
+        Lude.toBS requestValidatorId
       ]
 
-instance ToQuery DeleteRequestValidator where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRequestValidator where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRequestValidatorResponse' smart constructor.
+-- | /See:/ 'mkDeleteRequestValidatorResponse' smart constructor.
 data DeleteRequestValidatorResponse = DeleteRequestValidatorResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRequestValidatorResponse' with the minimum fields required to make a request.
-deleteRequestValidatorResponse ::
+mkDeleteRequestValidatorResponse ::
   DeleteRequestValidatorResponse
-deleteRequestValidatorResponse = DeleteRequestValidatorResponse'
-
-instance NFData DeleteRequestValidatorResponse
+mkDeleteRequestValidatorResponse = DeleteRequestValidatorResponse'

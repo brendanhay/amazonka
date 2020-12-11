@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.FileHeaderInfo where
+module Network.AWS.Glacier.Types.FileHeaderInfo
+  ( FileHeaderInfo
+      ( FileHeaderInfo',
+        Ignore,
+        None,
+        Use
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FileHeaderInfo
-  = Ignore
-  | None
-  | Use
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FileHeaderInfo = FileHeaderInfo' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FileHeaderInfo where
-  parser =
-    takeLowerText >>= \case
-      "ignore" -> pure Ignore
-      "none" -> pure None
-      "use" -> pure Use
-      e ->
-        fromTextError $
-          "Failure parsing FileHeaderInfo from value: '" <> e
-            <> "'. Accepted values: ignore, none, use"
+pattern Ignore :: FileHeaderInfo
+pattern Ignore = FileHeaderInfo' "IGNORE"
 
-instance ToText FileHeaderInfo where
-  toText = \case
-    Ignore -> "IGNORE"
-    None -> "NONE"
-    Use -> "USE"
+pattern None :: FileHeaderInfo
+pattern None = FileHeaderInfo' "NONE"
 
-instance Hashable FileHeaderInfo
+pattern Use :: FileHeaderInfo
+pattern Use = FileHeaderInfo' "USE"
 
-instance NFData FileHeaderInfo
-
-instance ToByteString FileHeaderInfo
-
-instance ToQuery FileHeaderInfo
-
-instance ToHeader FileHeaderInfo
-
-instance ToJSON FileHeaderInfo where
-  toJSON = toJSONText
-
-instance FromJSON FileHeaderInfo where
-  parseJSON = parseJSONText "FileHeaderInfo"
+{-# COMPLETE
+  Ignore,
+  None,
+  Use,
+  FileHeaderInfo'
+  #-}

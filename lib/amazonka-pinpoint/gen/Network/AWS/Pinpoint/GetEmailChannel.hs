@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,129 @@
 --
 -- Retrieves information about the status and settings of the email channel for an application.
 module Network.AWS.Pinpoint.GetEmailChannel
-  ( -- * Creating a Request
-    getEmailChannel,
-    GetEmailChannel,
+  ( -- * Creating a request
+    GetEmailChannel (..),
+    mkGetEmailChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gecApplicationId,
 
-    -- * Destructuring the Response
-    getEmailChannelResponse,
-    GetEmailChannelResponse,
+    -- * Destructuring the response
+    GetEmailChannelResponse (..),
+    mkGetEmailChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gecrsResponseStatus,
     gecrsEmailChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getEmailChannel' smart constructor.
+-- | /See:/ 'mkGetEmailChannel' smart constructor.
 newtype GetEmailChannel = GetEmailChannel'
-  { _gecApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEmailChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gecApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getEmailChannel ::
-  -- | 'gecApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkGetEmailChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetEmailChannel
-getEmailChannel pApplicationId_ =
-  GetEmailChannel' {_gecApplicationId = pApplicationId_}
+mkGetEmailChannel pApplicationId_ =
+  GetEmailChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gecApplicationId :: Lens' GetEmailChannel Text
-gecApplicationId = lens _gecApplicationId (\s a -> s {_gecApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gecApplicationId :: Lens.Lens' GetEmailChannel Lude.Text
+gecApplicationId = Lens.lens (applicationId :: GetEmailChannel -> Lude.Text) (\s a -> s {applicationId = a} :: GetEmailChannel)
+{-# DEPRECATED gecApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetEmailChannel where
+instance Lude.AWSRequest GetEmailChannel where
   type Rs GetEmailChannel = GetEmailChannelResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetEmailChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetEmailChannel
-
-instance NFData GetEmailChannel
-
-instance ToHeaders GetEmailChannel where
+instance Lude.ToHeaders GetEmailChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetEmailChannel where
+instance Lude.ToPath GetEmailChannel where
   toPath GetEmailChannel' {..} =
-    mconcat ["/v1/apps/", toBS _gecApplicationId, "/channels/email"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/channels/email"]
 
-instance ToQuery GetEmailChannel where
-  toQuery = const mempty
+instance Lude.ToQuery GetEmailChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getEmailChannelResponse' smart constructor.
+-- | /See:/ 'mkGetEmailChannelResponse' smart constructor.
 data GetEmailChannelResponse = GetEmailChannelResponse'
-  { _gecrsResponseStatus ::
-      !Int,
-    _gecrsEmailChannelResponse ::
-      !EmailChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    emailChannelResponse ::
+      EmailChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEmailChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gecrsResponseStatus' - -- | The response status code.
---
--- * 'gecrsEmailChannelResponse' - Undocumented member.
-getEmailChannelResponse ::
-  -- | 'gecrsResponseStatus'
-  Int ->
-  -- | 'gecrsEmailChannelResponse'
+-- * 'emailChannelResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetEmailChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'emailChannelResponse'
   EmailChannelResponse ->
   GetEmailChannelResponse
-getEmailChannelResponse pResponseStatus_ pEmailChannelResponse_ =
+mkGetEmailChannelResponse pResponseStatus_ pEmailChannelResponse_ =
   GetEmailChannelResponse'
-    { _gecrsResponseStatus = pResponseStatus_,
-      _gecrsEmailChannelResponse = pEmailChannelResponse_
+    { responseStatus = pResponseStatus_,
+      emailChannelResponse = pEmailChannelResponse_
     }
 
--- | -- | The response status code.
-gecrsResponseStatus :: Lens' GetEmailChannelResponse Int
-gecrsResponseStatus = lens _gecrsResponseStatus (\s a -> s {_gecrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gecrsResponseStatus :: Lens.Lens' GetEmailChannelResponse Lude.Int
+gecrsResponseStatus = Lens.lens (responseStatus :: GetEmailChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEmailChannelResponse)
+{-# DEPRECATED gecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gecrsEmailChannelResponse :: Lens' GetEmailChannelResponse EmailChannelResponse
-gecrsEmailChannelResponse = lens _gecrsEmailChannelResponse (\s a -> s {_gecrsEmailChannelResponse = a})
-
-instance NFData GetEmailChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'emailChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gecrsEmailChannelResponse :: Lens.Lens' GetEmailChannelResponse EmailChannelResponse
+gecrsEmailChannelResponse = Lens.lens (emailChannelResponse :: GetEmailChannelResponse -> EmailChannelResponse) (\s a -> s {emailChannelResponse = a} :: GetEmailChannelResponse)
+{-# DEPRECATED gecrsEmailChannelResponse "Use generic-lens or generic-optics with 'emailChannelResponse' instead." #-}

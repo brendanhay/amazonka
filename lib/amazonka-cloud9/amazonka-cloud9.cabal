@@ -38,13 +38,33 @@ source-repository head
   location: git://github.com/brendanhay/amazonka.git
   subdir:   lib/amazonka-cloud9
 
-library
-  default-language: Haskell2010
-  hs-source-dirs:   src gen
+common base
+  default-language:   Haskell2010
   ghc-options:
-    -Wall -fwarn-incomplete-uni-patterns
-    -fwarn-incomplete-record-updates -funbox-strict-fields
+    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates
 
+  default-extensions:
+    NoImplicitPrelude
+    DeriveAnyClass
+    DeriveGeneric
+    DerivingStrategies
+    DuplicateRecordFields
+    GeneralizedNewtypeDeriving
+    LambdaCase
+    OverloadedStrings
+    PatternSynonyms
+    RecordWildCards
+    ScopedTypeVariables
+    StandaloneDeriving
+    StrictData
+    TypeFamilies
+
+  build-depends:      base >=4.12 && <5
+
+library
+  import:          base
+  hs-source-dirs:  src gen
   exposed-modules:
     Network.AWS.Cloud9
     Network.AWS.Cloud9.CreateEnvironmentEC
@@ -75,16 +95,14 @@ library
     Network.AWS.Cloud9.Types.Permissions
     Network.AWS.Cloud9.Types.Tag
 
-  build-depends:
-    , amazonka-core  >=2.0.0.0 && <2.0.0.1
-    , base           >=4.12    && <5
+  build-depends:   amazonka-core ==2.0.0.0.*
 
 test-suite amazonka-cloud9-test
-  type:             exitcode-stdio-1.0
-  default-language: Haskell2010
-  hs-source-dirs:   test
-  main-is:          Main.hs
-  ghc-options:      -Wall -threaded
+  import:         base
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Main.hs
+  ghc-options:    -threaded
 
   -- This section is encoded by the template and any modules added by
   -- hand outside these namespaces will not correctly be added to the
@@ -98,8 +116,8 @@ test-suite amazonka-cloud9-test
     , amazonka-cloud9
     , amazonka-core         >=2.0.0.0 && <2.0.0.1
     , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , base
     , bytestring
+    , case-insensitive
     , tasty
     , tasty-hunit
     , text

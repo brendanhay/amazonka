@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists models created with the 'CreateModel' API.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListModels
-  ( -- * Creating a Request
-    listModels,
-    ListModels,
+  ( -- * Creating a request
+    ListModels (..),
+    mkListModels,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lmNameContains,
     lmCreationTimeAfter,
     lmNextToken,
@@ -36,184 +29,215 @@ module Network.AWS.SageMaker.ListModels
     lmMaxResults,
     lmSortBy,
 
-    -- * Destructuring the Response
-    listModelsResponse,
-    ListModelsResponse,
+    -- * Destructuring the response
+    ListModelsResponse (..),
+    mkListModelsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lmrsNextToken,
     lmrsResponseStatus,
     lmrsModels,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listModels' smart constructor.
+-- | /See:/ 'mkListModels' smart constructor.
 data ListModels = ListModels'
-  { _lmNameContains :: !(Maybe Text),
-    _lmCreationTimeAfter :: !(Maybe POSIX),
-    _lmNextToken :: !(Maybe Text),
-    _lmSortOrder :: !(Maybe OrderKey),
-    _lmCreationTimeBefore :: !(Maybe POSIX),
-    _lmMaxResults :: !(Maybe Nat),
-    _lmSortBy :: !(Maybe ModelSortKey)
+  { nameContains :: Lude.Maybe Lude.Text,
+    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe OrderKey,
+    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe ModelSortKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListModels' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmNameContains' - A string in the training job name. This filter returns only models in the training job whose name contains the specified string.
---
--- * 'lmCreationTimeAfter' - A filter that returns only models with a creation time greater than or equal to the specified time (timestamp).
---
--- * 'lmNextToken' - If the response to a previous @ListModels@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of models, use the token in the next request.
---
--- * 'lmSortOrder' - The sort order for results. The default is @Descending@ .
---
--- * 'lmCreationTimeBefore' - A filter that returns only models created before the specified time (timestamp).
---
--- * 'lmMaxResults' - The maximum number of models to return in the response.
---
--- * 'lmSortBy' - Sorts the list of results. The default is @CreationTime@ .
-listModels ::
+-- * 'creationTimeAfter' - A filter that returns only models with a creation time greater than or equal to the specified time (timestamp).
+-- * 'creationTimeBefore' - A filter that returns only models created before the specified time (timestamp).
+-- * 'maxResults' - The maximum number of models to return in the response.
+-- * 'nameContains' - A string in the training job name. This filter returns only models in the training job whose name contains the specified string.
+-- * 'nextToken' - If the response to a previous @ListModels@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of models, use the token in the next request.
+-- * 'sortBy' - Sorts the list of results. The default is @CreationTime@ .
+-- * 'sortOrder' - The sort order for results. The default is @Descending@ .
+mkListModels ::
   ListModels
-listModels =
+mkListModels =
   ListModels'
-    { _lmNameContains = Nothing,
-      _lmCreationTimeAfter = Nothing,
-      _lmNextToken = Nothing,
-      _lmSortOrder = Nothing,
-      _lmCreationTimeBefore = Nothing,
-      _lmMaxResults = Nothing,
-      _lmSortBy = Nothing
+    { nameContains = Lude.Nothing,
+      creationTimeAfter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      creationTimeBefore = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
 -- | A string in the training job name. This filter returns only models in the training job whose name contains the specified string.
-lmNameContains :: Lens' ListModels (Maybe Text)
-lmNameContains = lens _lmNameContains (\s a -> s {_lmNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmNameContains :: Lens.Lens' ListModels (Lude.Maybe Lude.Text)
+lmNameContains = Lens.lens (nameContains :: ListModels -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListModels)
+{-# DEPRECATED lmNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A filter that returns only models with a creation time greater than or equal to the specified time (timestamp).
-lmCreationTimeAfter :: Lens' ListModels (Maybe UTCTime)
-lmCreationTimeAfter = lens _lmCreationTimeAfter (\s a -> s {_lmCreationTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmCreationTimeAfter :: Lens.Lens' ListModels (Lude.Maybe Lude.Timestamp)
+lmCreationTimeAfter = Lens.lens (creationTimeAfter :: ListModels -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListModels)
+{-# DEPRECATED lmCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | If the response to a previous @ListModels@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of models, use the token in the next request.
-lmNextToken :: Lens' ListModels (Maybe Text)
-lmNextToken = lens _lmNextToken (\s a -> s {_lmNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmNextToken :: Lens.Lens' ListModels (Lude.Maybe Lude.Text)
+lmNextToken = Lens.lens (nextToken :: ListModels -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListModels)
+{-# DEPRECATED lmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The sort order for results. The default is @Descending@ .
-lmSortOrder :: Lens' ListModels (Maybe OrderKey)
-lmSortOrder = lens _lmSortOrder (\s a -> s {_lmSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmSortOrder :: Lens.Lens' ListModels (Lude.Maybe OrderKey)
+lmSortOrder = Lens.lens (sortOrder :: ListModels -> Lude.Maybe OrderKey) (\s a -> s {sortOrder = a} :: ListModels)
+{-# DEPRECATED lmSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only models created before the specified time (timestamp).
-lmCreationTimeBefore :: Lens' ListModels (Maybe UTCTime)
-lmCreationTimeBefore = lens _lmCreationTimeBefore (\s a -> s {_lmCreationTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmCreationTimeBefore :: Lens.Lens' ListModels (Lude.Maybe Lude.Timestamp)
+lmCreationTimeBefore = Lens.lens (creationTimeBefore :: ListModels -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListModels)
+{-# DEPRECATED lmCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | The maximum number of models to return in the response.
-lmMaxResults :: Lens' ListModels (Maybe Natural)
-lmMaxResults = lens _lmMaxResults (\s a -> s {_lmMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmMaxResults :: Lens.Lens' ListModels (Lude.Maybe Lude.Natural)
+lmMaxResults = Lens.lens (maxResults :: ListModels -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListModels)
+{-# DEPRECATED lmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Sorts the list of results. The default is @CreationTime@ .
-lmSortBy :: Lens' ListModels (Maybe ModelSortKey)
-lmSortBy = lens _lmSortBy (\s a -> s {_lmSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmSortBy :: Lens.Lens' ListModels (Lude.Maybe ModelSortKey)
+lmSortBy = Lens.lens (sortBy :: ListModels -> Lude.Maybe ModelSortKey) (\s a -> s {sortBy = a} :: ListModels)
+{-# DEPRECATED lmSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListModels where
+instance Page.AWSPager ListModels where
   page rq rs
-    | stop (rs ^. lmrsNextToken) = Nothing
-    | stop (rs ^. lmrsModels) = Nothing
-    | otherwise = Just $ rq & lmNextToken .~ rs ^. lmrsNextToken
+    | Page.stop (rs Lens.^. lmrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lmrsModels) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lmNextToken Lens..~ rs Lens.^. lmrsNextToken
 
-instance AWSRequest ListModels where
+instance Lude.AWSRequest ListModels where
   type Rs ListModels = ListModelsResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListModelsResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "Models" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "Models" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListModels
-
-instance NFData ListModels
-
-instance ToHeaders ListModels where
+instance Lude.ToHeaders ListModels where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.ListModels" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.ListModels" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListModels where
+instance Lude.ToJSON ListModels where
   toJSON ListModels' {..} =
-    object
-      ( catMaybes
-          [ ("NameContains" .=) <$> _lmNameContains,
-            ("CreationTimeAfter" .=) <$> _lmCreationTimeAfter,
-            ("NextToken" .=) <$> _lmNextToken,
-            ("SortOrder" .=) <$> _lmSortOrder,
-            ("CreationTimeBefore" .=) <$> _lmCreationTimeBefore,
-            ("MaxResults" .=) <$> _lmMaxResults,
-            ("SortBy" .=) <$> _lmSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NameContains" Lude..=) Lude.<$> nameContains,
+            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListModels where
-  toPath = const "/"
+instance Lude.ToPath ListModels where
+  toPath = Lude.const "/"
 
-instance ToQuery ListModels where
-  toQuery = const mempty
+instance Lude.ToQuery ListModels where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listModelsResponse' smart constructor.
+-- | /See:/ 'mkListModelsResponse' smart constructor.
 data ListModelsResponse = ListModelsResponse'
-  { _lmrsNextToken ::
-      !(Maybe Text),
-    _lmrsResponseStatus :: !Int,
-    _lmrsModels :: ![ModelSummary]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    models :: [ModelSummary]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListModelsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmrsNextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of models, use it in the subsequent request.
---
--- * 'lmrsResponseStatus' - -- | The response status code.
---
--- * 'lmrsModels' - An array of @ModelSummary@ objects, each of which lists a model.
-listModelsResponse ::
-  -- | 'lmrsResponseStatus'
-  Int ->
+-- * 'models' - An array of @ModelSummary@ objects, each of which lists a model.
+-- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of models, use it in the subsequent request.
+-- * 'responseStatus' - The response status code.
+mkListModelsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListModelsResponse
-listModelsResponse pResponseStatus_ =
+mkListModelsResponse pResponseStatus_ =
   ListModelsResponse'
-    { _lmrsNextToken = Nothing,
-      _lmrsResponseStatus = pResponseStatus_,
-      _lmrsModels = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      models = Lude.mempty
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of models, use it in the subsequent request.
-lmrsNextToken :: Lens' ListModelsResponse (Maybe Text)
-lmrsNextToken = lens _lmrsNextToken (\s a -> s {_lmrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrsNextToken :: Lens.Lens' ListModelsResponse (Lude.Maybe Lude.Text)
+lmrsNextToken = Lens.lens (nextToken :: ListModelsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListModelsResponse)
+{-# DEPRECATED lmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lmrsResponseStatus :: Lens' ListModelsResponse Int
-lmrsResponseStatus = lens _lmrsResponseStatus (\s a -> s {_lmrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrsResponseStatus :: Lens.Lens' ListModelsResponse Lude.Int
+lmrsResponseStatus = Lens.lens (responseStatus :: ListModelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListModelsResponse)
+{-# DEPRECATED lmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | An array of @ModelSummary@ objects, each of which lists a model.
-lmrsModels :: Lens' ListModelsResponse [ModelSummary]
-lmrsModels = lens _lmrsModels (\s a -> s {_lmrsModels = a}) . _Coerce
-
-instance NFData ListModelsResponse
+--
+-- /Note:/ Consider using 'models' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrsModels :: Lens.Lens' ListModelsResponse [ModelSummary]
+lmrsModels = Lens.lens (models :: ListModelsResponse -> [ModelSummary]) (\s a -> s {models = a} :: ListModelsResponse)
+{-# DEPRECATED lmrsModels "Use generic-lens or generic-optics with 'models' instead." #-}

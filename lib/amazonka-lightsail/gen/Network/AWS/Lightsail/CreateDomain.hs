@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,150 @@
 --
 -- Creates a domain resource for the specified domain (e.g., example.com).
 --
---
 -- The @create domain@ operation supports tag-based access control via request tags. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.CreateDomain
-  ( -- * Creating a Request
-    createDomain,
-    CreateDomain,
+  ( -- * Creating a request
+    CreateDomain (..),
+    mkCreateDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     creTags,
     creDomainName,
 
-    -- * Destructuring the Response
-    createDomainResponse,
-    CreateDomainResponse,
+    -- * Destructuring the response
+    CreateDomainResponse (..),
+    mkCreateDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdrsOperation,
     cdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDomain' smart constructor.
+-- | /See:/ 'mkCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
-  { _creTags :: !(Maybe [Tag]),
-    _creDomainName :: !Text
+  { tags :: Lude.Maybe [Tag],
+    domainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'domainName' - The domain name to manage (e.g., @example.com@ ).
+-- * 'tags' - The tag keys and optional values to add to the resource during create.
 --
--- * 'creTags' - The tag keys and optional values to add to the resource during create. Use the @TagResource@ action to tag a resource after it's created.
---
--- * 'creDomainName' - The domain name to manage (e.g., @example.com@ ).
-createDomain ::
-  -- | 'creDomainName'
-  Text ->
+-- Use the @TagResource@ action to tag a resource after it's created.
+mkCreateDomain ::
+  -- | 'domainName'
+  Lude.Text ->
   CreateDomain
-createDomain pDomainName_ =
-  CreateDomain' {_creTags = Nothing, _creDomainName = pDomainName_}
+mkCreateDomain pDomainName_ =
+  CreateDomain' {tags = Lude.Nothing, domainName = pDomainName_}
 
--- | The tag keys and optional values to add to the resource during create. Use the @TagResource@ action to tag a resource after it's created.
-creTags :: Lens' CreateDomain [Tag]
-creTags = lens _creTags (\s a -> s {_creTags = a}) . _Default . _Coerce
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+creTags :: Lens.Lens' CreateDomain (Lude.Maybe [Tag])
+creTags = Lens.lens (tags :: CreateDomain -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDomain)
+{-# DEPRECATED creTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The domain name to manage (e.g., @example.com@ ).
-creDomainName :: Lens' CreateDomain Text
-creDomainName = lens _creDomainName (\s a -> s {_creDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+creDomainName :: Lens.Lens' CreateDomain Lude.Text
+creDomainName = Lens.lens (domainName :: CreateDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomain)
+{-# DEPRECATED creDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest CreateDomain where
+instance Lude.AWSRequest CreateDomain where
   type Rs CreateDomain = CreateDomainResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDomainResponse'
-            <$> (x .?> "operation") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDomain
-
-instance NFData CreateDomain
-
-instance ToHeaders CreateDomain where
+instance Lude.ToHeaders CreateDomain where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.CreateDomain" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.CreateDomain" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDomain where
+instance Lude.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
-    object
-      ( catMaybes
-          [("tags" .=) <$> _creTags, Just ("domainName" .= _creDomainName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("domainName" Lude..= domainName)
+          ]
       )
 
-instance ToPath CreateDomain where
-  toPath = const "/"
+instance Lude.ToPath CreateDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDomain where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDomain where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDomainResponse' smart constructor.
+-- | /See:/ 'mkCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  { _cdrsOperation ::
-      !(Maybe Operation),
-    _cdrsResponseStatus :: !Int
+  { operation ::
+      Lude.Maybe Operation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrsOperation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'cdrsResponseStatus' - -- | The response status code.
-createDomainResponse ::
-  -- | 'cdrsResponseStatus'
-  Int ->
+-- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkCreateDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDomainResponse
-createDomainResponse pResponseStatus_ =
+mkCreateDomainResponse pResponseStatus_ =
   CreateDomainResponse'
-    { _cdrsOperation = Nothing,
-      _cdrsResponseStatus = pResponseStatus_
+    { operation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-cdrsOperation :: Lens' CreateDomainResponse (Maybe Operation)
-cdrsOperation = lens _cdrsOperation (\s a -> s {_cdrsOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsOperation :: Lens.Lens' CreateDomainResponse (Lude.Maybe Operation)
+cdrsOperation = Lens.lens (operation :: CreateDomainResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: CreateDomainResponse)
+{-# DEPRECATED cdrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDomainResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\s a -> s {_cdrsResponseStatus = a})
-
-instance NFData CreateDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsResponseStatus :: Lens.Lens' CreateDomainResponse Lude.Int
+cdrsResponseStatus = Lens.lens (responseStatus :: CreateDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDomainResponse)
+{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

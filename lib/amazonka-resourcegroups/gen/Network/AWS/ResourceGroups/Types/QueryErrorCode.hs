@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types.QueryErrorCode where
+module Network.AWS.ResourceGroups.Types.QueryErrorCode
+  ( QueryErrorCode
+      ( QueryErrorCode',
+        CloudformationStackInactive,
+        CloudformationStackNotExisting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QueryErrorCode
-  = CloudformationStackInactive
-  | CloudformationStackNotExisting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QueryErrorCode = QueryErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QueryErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "cloudformation_stack_inactive" -> pure CloudformationStackInactive
-      "cloudformation_stack_not_existing" -> pure CloudformationStackNotExisting
-      e ->
-        fromTextError $
-          "Failure parsing QueryErrorCode from value: '" <> e
-            <> "'. Accepted values: cloudformation_stack_inactive, cloudformation_stack_not_existing"
+pattern CloudformationStackInactive :: QueryErrorCode
+pattern CloudformationStackInactive = QueryErrorCode' "CLOUDFORMATION_STACK_INACTIVE"
 
-instance ToText QueryErrorCode where
-  toText = \case
-    CloudformationStackInactive -> "CLOUDFORMATION_STACK_INACTIVE"
-    CloudformationStackNotExisting -> "CLOUDFORMATION_STACK_NOT_EXISTING"
+pattern CloudformationStackNotExisting :: QueryErrorCode
+pattern CloudformationStackNotExisting = QueryErrorCode' "CLOUDFORMATION_STACK_NOT_EXISTING"
 
-instance Hashable QueryErrorCode
-
-instance NFData QueryErrorCode
-
-instance ToByteString QueryErrorCode
-
-instance ToQuery QueryErrorCode
-
-instance ToHeader QueryErrorCode
-
-instance FromJSON QueryErrorCode where
-  parseJSON = parseJSONText "QueryErrorCode"
+{-# COMPLETE
+  CloudformationStackInactive,
+  CloudformationStackNotExisting,
+  QueryErrorCode'
+  #-}

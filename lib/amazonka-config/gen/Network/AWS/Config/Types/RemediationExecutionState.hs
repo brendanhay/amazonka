@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.RemediationExecutionState where
+module Network.AWS.Config.Types.RemediationExecutionState
+  ( RemediationExecutionState
+      ( RemediationExecutionState',
+        RESFailed,
+        RESInProgress,
+        RESQueued,
+        RESSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RemediationExecutionState
-  = RESFailed
-  | RESInProgress
-  | RESQueued
-  | RESSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RemediationExecutionState = RemediationExecutionState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RemediationExecutionState where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure RESFailed
-      "in_progress" -> pure RESInProgress
-      "queued" -> pure RESQueued
-      "succeeded" -> pure RESSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing RemediationExecutionState from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, queued, succeeded"
+pattern RESFailed :: RemediationExecutionState
+pattern RESFailed = RemediationExecutionState' "FAILED"
 
-instance ToText RemediationExecutionState where
-  toText = \case
-    RESFailed -> "FAILED"
-    RESInProgress -> "IN_PROGRESS"
-    RESQueued -> "QUEUED"
-    RESSucceeded -> "SUCCEEDED"
+pattern RESInProgress :: RemediationExecutionState
+pattern RESInProgress = RemediationExecutionState' "IN_PROGRESS"
 
-instance Hashable RemediationExecutionState
+pattern RESQueued :: RemediationExecutionState
+pattern RESQueued = RemediationExecutionState' "QUEUED"
 
-instance NFData RemediationExecutionState
+pattern RESSucceeded :: RemediationExecutionState
+pattern RESSucceeded = RemediationExecutionState' "SUCCEEDED"
 
-instance ToByteString RemediationExecutionState
-
-instance ToQuery RemediationExecutionState
-
-instance ToHeader RemediationExecutionState
-
-instance FromJSON RemediationExecutionState where
-  parseJSON = parseJSONText "RemediationExecutionState"
+{-# COMPLETE
+  RESFailed,
+  RESInProgress,
+  RESQueued,
+  RESSucceeded,
+  RemediationExecutionState'
+  #-}

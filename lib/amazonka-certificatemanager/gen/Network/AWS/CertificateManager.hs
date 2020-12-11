@@ -14,11 +14,10 @@
 -- __AWS Certificate Manager__
 --
 -- Welcome to the AWS Certificate Manager (ACM) API documentation.
---
 -- You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information about using ACM, see the <https://docs.aws.amazon.com/acm/latest/userguide/ /AWS Certificate Manager User Guide/ > .
 module Network.AWS.CertificateManager
-  ( -- * Service Configuration
-    certificateManager,
+  ( -- * Service configuration
+    certificateManagerService,
 
     -- * Errors
     -- $errors
@@ -27,7 +26,7 @@ module Network.AWS.CertificateManager
     -- $waiters
 
     -- ** CertificateValidated
-    certificateValidated,
+    mkCertificateValidated,
 
     -- * Operations
     -- $operations
@@ -113,8 +112,8 @@ module Network.AWS.CertificateManager
     ValidationMethod (..),
 
     -- ** CertificateDetail
-    CertificateDetail,
-    certificateDetail,
+    CertificateDetail (..),
+    mkCertificateDetail,
     cdSubject,
     cdStatus,
     cdFailureReason,
@@ -143,19 +142,19 @@ module Network.AWS.CertificateManager
     cdCertificateAuthorityARN,
 
     -- ** CertificateOptions
-    CertificateOptions,
-    certificateOptions,
+    CertificateOptions (..),
+    mkCertificateOptions,
     coCertificateTransparencyLoggingPreference,
 
     -- ** CertificateSummary
-    CertificateSummary,
-    certificateSummary,
+    CertificateSummary (..),
+    mkCertificateSummary,
     csCertificateARN,
     csDomainName,
 
     -- ** DomainValidation
-    DomainValidation,
-    domainValidation,
+    DomainValidation (..),
+    mkDomainValidation,
     dvValidationEmails,
     dvValidationMethod,
     dvResourceRecord,
@@ -164,49 +163,60 @@ module Network.AWS.CertificateManager
     dvDomainName,
 
     -- ** DomainValidationOption
-    DomainValidationOption,
-    domainValidationOption,
+    DomainValidationOption (..),
+    mkDomainValidationOption,
     dvoDomainName,
     dvoValidationDomain,
 
     -- ** ExtendedKeyUsage
-    ExtendedKeyUsage,
-    extendedKeyUsage,
+    ExtendedKeyUsage (..),
+    mkExtendedKeyUsage,
     ekuOId,
     ekuName,
 
     -- ** Filters
-    Filters,
-    filters,
+    Filters (..),
+    mkFilters,
     fKeyTypes,
     fKeyUsage,
     fExtendedKeyUsage,
 
     -- ** KeyUsage
-    KeyUsage,
-    keyUsage,
+    KeyUsage (..),
+    mkKeyUsage,
     kuName,
 
     -- ** RenewalSummary
-    RenewalSummary,
-    renewalSummary,
+    RenewalSummary (..),
+    mkRenewalSummary,
     rsRenewalStatusReason,
     rsRenewalStatus,
     rsDomainValidationOptions,
     rsUpdatedAt,
 
     -- ** ResourceRecord
-    ResourceRecord,
-    resourceRecord,
+    ResourceRecord (..),
+    mkResourceRecord,
     rrName,
     rrType,
     rrValue,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -225,6 +235,7 @@ import Network.AWS.CertificateManager.ResendValidationEmail
 import Network.AWS.CertificateManager.Types
 import Network.AWS.CertificateManager.UpdateCertificateOptions
 import Network.AWS.CertificateManager.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,137 @@
 --
 -- Temporarily sets the state of an alarm for testing purposes. When the updated state differs from the previous value, the action configured for the appropriate state is invoked. For example, if your alarm is configured to send an Amazon SNS message when an alarm is triggered, temporarily changing the alarm state to @ALARM@ sends an SNS message.
 --
---
 -- Metric alarms returns to their actual state quickly, often within seconds. Because the metric alarm state change happens quickly, it is typically only visible in the alarm's __History__ tab in the Amazon CloudWatch console or through <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html DescribeAlarmHistory> .
---
 -- If you use @SetAlarmState@ on a composite alarm, the composite alarm is not guaranteed to return to its actual state. It returns to its actual state only once any of its children alarms change state. It is also reevaluated if you update its configuration.
---
 -- If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling policies, you must include information in the @StateReasonData@ parameter to enable the policy to take the correct action.
 module Network.AWS.CloudWatch.SetAlarmState
-  ( -- * Creating a Request
-    setAlarmState,
-    SetAlarmState,
+  ( -- * Creating a request
+    SetAlarmState (..),
+    mkSetAlarmState,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sasStateReasonData,
     sasAlarmName,
     sasStateValue,
     sasStateReason,
 
-    -- * Destructuring the Response
-    setAlarmStateResponse,
-    SetAlarmStateResponse,
+    -- * Destructuring the response
+    SetAlarmStateResponse (..),
+    mkSetAlarmStateResponse,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'setAlarmState' smart constructor.
+-- | /See:/ 'mkSetAlarmState' smart constructor.
 data SetAlarmState = SetAlarmState'
-  { _sasStateReasonData ::
-      !(Maybe Text),
-    _sasAlarmName :: !Text,
-    _sasStateValue :: !StateValue,
-    _sasStateReason :: !Text
+  { stateReasonData ::
+      Lude.Maybe Lude.Text,
+    alarmName :: Lude.Text,
+    stateValue :: StateValue,
+    stateReason :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetAlarmState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'alarmName' - The name of the alarm.
+-- * 'stateReason' - The reason that this alarm is set to this specific state, in text format.
+-- * 'stateReasonData' - The reason that this alarm is set to this specific state, in JSON format.
 --
--- * 'sasStateReasonData' - The reason that this alarm is set to this specific state, in JSON format. For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.
---
--- * 'sasAlarmName' - The name of the alarm.
---
--- * 'sasStateValue' - The value of the state.
---
--- * 'sasStateReason' - The reason that this alarm is set to this specific state, in text format.
-setAlarmState ::
-  -- | 'sasAlarmName'
-  Text ->
-  -- | 'sasStateValue'
+-- For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.
+-- * 'stateValue' - The value of the state.
+mkSetAlarmState ::
+  -- | 'alarmName'
+  Lude.Text ->
+  -- | 'stateValue'
   StateValue ->
-  -- | 'sasStateReason'
-  Text ->
+  -- | 'stateReason'
+  Lude.Text ->
   SetAlarmState
-setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
+mkSetAlarmState pAlarmName_ pStateValue_ pStateReason_ =
   SetAlarmState'
-    { _sasStateReasonData = Nothing,
-      _sasAlarmName = pAlarmName_,
-      _sasStateValue = pStateValue_,
-      _sasStateReason = pStateReason_
+    { stateReasonData = Lude.Nothing,
+      alarmName = pAlarmName_,
+      stateValue = pStateValue_,
+      stateReason = pStateReason_
     }
 
--- | The reason that this alarm is set to this specific state, in JSON format. For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.
-sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
-sasStateReasonData = lens _sasStateReasonData (\s a -> s {_sasStateReasonData = a})
+-- | The reason that this alarm is set to this specific state, in JSON format.
+--
+-- For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.
+--
+-- /Note:/ Consider using 'stateReasonData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasStateReasonData :: Lens.Lens' SetAlarmState (Lude.Maybe Lude.Text)
+sasStateReasonData = Lens.lens (stateReasonData :: SetAlarmState -> Lude.Maybe Lude.Text) (\s a -> s {stateReasonData = a} :: SetAlarmState)
+{-# DEPRECATED sasStateReasonData "Use generic-lens or generic-optics with 'stateReasonData' instead." #-}
 
 -- | The name of the alarm.
-sasAlarmName :: Lens' SetAlarmState Text
-sasAlarmName = lens _sasAlarmName (\s a -> s {_sasAlarmName = a})
+--
+-- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasAlarmName :: Lens.Lens' SetAlarmState Lude.Text
+sasAlarmName = Lens.lens (alarmName :: SetAlarmState -> Lude.Text) (\s a -> s {alarmName = a} :: SetAlarmState)
+{-# DEPRECATED sasAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
 -- | The value of the state.
-sasStateValue :: Lens' SetAlarmState StateValue
-sasStateValue = lens _sasStateValue (\s a -> s {_sasStateValue = a})
+--
+-- /Note:/ Consider using 'stateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasStateValue :: Lens.Lens' SetAlarmState StateValue
+sasStateValue = Lens.lens (stateValue :: SetAlarmState -> StateValue) (\s a -> s {stateValue = a} :: SetAlarmState)
+{-# DEPRECATED sasStateValue "Use generic-lens or generic-optics with 'stateValue' instead." #-}
 
 -- | The reason that this alarm is set to this specific state, in text format.
-sasStateReason :: Lens' SetAlarmState Text
-sasStateReason = lens _sasStateReason (\s a -> s {_sasStateReason = a})
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasStateReason :: Lens.Lens' SetAlarmState Lude.Text
+sasStateReason = Lens.lens (stateReason :: SetAlarmState -> Lude.Text) (\s a -> s {stateReason = a} :: SetAlarmState)
+{-# DEPRECATED sasStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
-instance AWSRequest SetAlarmState where
+instance Lude.AWSRequest SetAlarmState where
   type Rs SetAlarmState = SetAlarmStateResponse
-  request = postQuery cloudWatch
-  response = receiveNull SetAlarmStateResponse'
+  request = Req.postQuery cloudWatchService
+  response = Res.receiveNull SetAlarmStateResponse'
 
-instance Hashable SetAlarmState
+instance Lude.ToHeaders SetAlarmState where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetAlarmState
+instance Lude.ToPath SetAlarmState where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetAlarmState where
-  toHeaders = const mempty
-
-instance ToPath SetAlarmState where
-  toPath = const "/"
-
-instance ToQuery SetAlarmState where
+instance Lude.ToQuery SetAlarmState where
   toQuery SetAlarmState' {..} =
-    mconcat
-      [ "Action" =: ("SetAlarmState" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "StateReasonData" =: _sasStateReasonData,
-        "AlarmName" =: _sasAlarmName,
-        "StateValue" =: _sasStateValue,
-        "StateReason" =: _sasStateReason
+    Lude.mconcat
+      [ "Action" Lude.=: ("SetAlarmState" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "StateReasonData" Lude.=: stateReasonData,
+        "AlarmName" Lude.=: alarmName,
+        "StateValue" Lude.=: stateValue,
+        "StateReason" Lude.=: stateReason
       ]
 
--- | /See:/ 'setAlarmStateResponse' smart constructor.
+-- | /See:/ 'mkSetAlarmStateResponse' smart constructor.
 data SetAlarmStateResponse = SetAlarmStateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetAlarmStateResponse' with the minimum fields required to make a request.
-setAlarmStateResponse ::
+mkSetAlarmStateResponse ::
   SetAlarmStateResponse
-setAlarmStateResponse = SetAlarmStateResponse'
-
-instance NFData SetAlarmStateResponse
+mkSetAlarmStateResponse = SetAlarmStateResponse'

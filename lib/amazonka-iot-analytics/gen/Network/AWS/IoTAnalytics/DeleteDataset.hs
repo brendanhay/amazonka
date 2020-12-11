@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,74 +14,82 @@
 --
 -- Deletes the specified dataset.
 --
---
 -- You do not have to delete the content of the dataset before you perform this operation.
 module Network.AWS.IoTAnalytics.DeleteDataset
-  ( -- * Creating a Request
-    deleteDataset,
-    DeleteDataset,
+  ( -- * Creating a request
+    DeleteDataset (..),
+    mkDeleteDataset,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dDatasetName,
 
-    -- * Destructuring the Response
-    deleteDatasetResponse,
-    DeleteDatasetResponse,
+    -- * Destructuring the response
+    DeleteDatasetResponse (..),
+    mkDeleteDatasetResponse,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDataset' smart constructor.
-newtype DeleteDataset = DeleteDataset' {_dDatasetName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteDataset' smart constructor.
+newtype DeleteDataset = DeleteDataset' {datasetName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dDatasetName' - The name of the data set to delete.
-deleteDataset ::
-  -- | 'dDatasetName'
-  Text ->
+-- * 'datasetName' - The name of the data set to delete.
+mkDeleteDataset ::
+  -- | 'datasetName'
+  Lude.Text ->
   DeleteDataset
-deleteDataset pDatasetName_ =
-  DeleteDataset' {_dDatasetName = pDatasetName_}
+mkDeleteDataset pDatasetName_ =
+  DeleteDataset' {datasetName = pDatasetName_}
 
 -- | The name of the data set to delete.
-dDatasetName :: Lens' DeleteDataset Text
-dDatasetName = lens _dDatasetName (\s a -> s {_dDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDatasetName :: Lens.Lens' DeleteDataset Lude.Text
+dDatasetName = Lens.lens (datasetName :: DeleteDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DeleteDataset)
+{-# DEPRECATED dDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance AWSRequest DeleteDataset where
+instance Lude.AWSRequest DeleteDataset where
   type Rs DeleteDataset = DeleteDatasetResponse
-  request = delete ioTAnalytics
-  response = receiveNull DeleteDatasetResponse'
+  request = Req.delete ioTAnalyticsService
+  response = Res.receiveNull DeleteDatasetResponse'
 
-instance Hashable DeleteDataset
+instance Lude.ToHeaders DeleteDataset where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDataset
-
-instance ToHeaders DeleteDataset where
-  toHeaders = const mempty
-
-instance ToPath DeleteDataset where
+instance Lude.ToPath DeleteDataset where
   toPath DeleteDataset' {..} =
-    mconcat ["/datasets/", toBS _dDatasetName]
+    Lude.mconcat ["/datasets/", Lude.toBS datasetName]
 
-instance ToQuery DeleteDataset where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDataset where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDatasetResponse' smart constructor.
+-- | /See:/ 'mkDeleteDatasetResponse' smart constructor.
 data DeleteDatasetResponse = DeleteDatasetResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDatasetResponse' with the minimum fields required to make a request.
-deleteDatasetResponse ::
+mkDeleteDatasetResponse ::
   DeleteDatasetResponse
-deleteDatasetResponse = DeleteDatasetResponse'
-
-instance NFData DeleteDatasetResponse
+mkDeleteDatasetResponse = DeleteDatasetResponse'

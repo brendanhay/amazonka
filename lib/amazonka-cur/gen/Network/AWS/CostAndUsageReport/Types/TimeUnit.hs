@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostAndUsageReport.Types.TimeUnit where
+module Network.AWS.CostAndUsageReport.Types.TimeUnit
+  ( TimeUnit
+      ( TimeUnit',
+        Daily,
+        Hourly,
+        Monthly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The length of time covered by the report.
-data TimeUnit
-  = Daily
-  | Hourly
-  | Monthly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TimeUnit = TimeUnit' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TimeUnit where
-  parser =
-    takeLowerText >>= \case
-      "daily" -> pure Daily
-      "hourly" -> pure Hourly
-      "monthly" -> pure Monthly
-      e ->
-        fromTextError $
-          "Failure parsing TimeUnit from value: '" <> e
-            <> "'. Accepted values: daily, hourly, monthly"
+pattern Daily :: TimeUnit
+pattern Daily = TimeUnit' "DAILY"
 
-instance ToText TimeUnit where
-  toText = \case
-    Daily -> "DAILY"
-    Hourly -> "HOURLY"
-    Monthly -> "MONTHLY"
+pattern Hourly :: TimeUnit
+pattern Hourly = TimeUnit' "HOURLY"
 
-instance Hashable TimeUnit
+pattern Monthly :: TimeUnit
+pattern Monthly = TimeUnit' "MONTHLY"
 
-instance NFData TimeUnit
-
-instance ToByteString TimeUnit
-
-instance ToQuery TimeUnit
-
-instance ToHeader TimeUnit
-
-instance ToJSON TimeUnit where
-  toJSON = toJSONText
-
-instance FromJSON TimeUnit where
-  parseJSON = parseJSONText "TimeUnit"
+{-# COMPLETE
+  Daily,
+  Hourly,
+  Monthly,
+  TimeUnit'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Lists all Amazon ES domains associated with the package.
 module Network.AWS.ElasticSearch.ListDomainsForPackage
-  ( -- * Creating a Request
-    listDomainsForPackage,
-    ListDomainsForPackage,
+  ( -- * Creating a request
+    ListDomainsForPackage (..),
+    mkListDomainsForPackage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldfpNextToken,
     ldfpMaxResults,
     ldfpPackageId,
 
-    -- * Destructuring the Response
-    listDomainsForPackageResponse,
-    ListDomainsForPackageResponse,
+    -- * Destructuring the response
+    ListDomainsForPackageResponse (..),
+    mkListDomainsForPackageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldfprsDomainPackageDetailsList,
     ldfprsNextToken,
     ldfprsResponseStatus,
@@ -40,130 +35,145 @@ module Network.AWS.ElasticSearch.ListDomainsForPackage
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for request parameters to @'ListDomainsForPackage' @ operation.
 --
---
---
--- /See:/ 'listDomainsForPackage' smart constructor.
+-- /See:/ 'mkListDomainsForPackage' smart constructor.
 data ListDomainsForPackage = ListDomainsForPackage'
-  { _ldfpNextToken ::
-      !(Maybe Text),
-    _ldfpMaxResults :: !(Maybe Int),
-    _ldfpPackageId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    packageId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainsForPackage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldfpNextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
---
--- * 'ldfpMaxResults' - Limits results to a maximum number of domains.
---
--- * 'ldfpPackageId' - The package for which to list domains.
-listDomainsForPackage ::
-  -- | 'ldfpPackageId'
-  Text ->
+-- * 'maxResults' - Limits results to a maximum number of domains.
+-- * 'nextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+-- * 'packageId' - The package for which to list domains.
+mkListDomainsForPackage ::
+  -- | 'packageId'
+  Lude.Text ->
   ListDomainsForPackage
-listDomainsForPackage pPackageId_ =
+mkListDomainsForPackage pPackageId_ =
   ListDomainsForPackage'
-    { _ldfpNextToken = Nothing,
-      _ldfpMaxResults = Nothing,
-      _ldfpPackageId = pPackageId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      packageId = pPackageId_
     }
 
 -- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
-ldfpNextToken :: Lens' ListDomainsForPackage (Maybe Text)
-ldfpNextToken = lens _ldfpNextToken (\s a -> s {_ldfpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldfpNextToken :: Lens.Lens' ListDomainsForPackage (Lude.Maybe Lude.Text)
+ldfpNextToken = Lens.lens (nextToken :: ListDomainsForPackage -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDomainsForPackage)
+{-# DEPRECATED ldfpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Limits results to a maximum number of domains.
-ldfpMaxResults :: Lens' ListDomainsForPackage (Maybe Int)
-ldfpMaxResults = lens _ldfpMaxResults (\s a -> s {_ldfpMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldfpMaxResults :: Lens.Lens' ListDomainsForPackage (Lude.Maybe Lude.Int)
+ldfpMaxResults = Lens.lens (maxResults :: ListDomainsForPackage -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListDomainsForPackage)
+{-# DEPRECATED ldfpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The package for which to list domains.
-ldfpPackageId :: Lens' ListDomainsForPackage Text
-ldfpPackageId = lens _ldfpPackageId (\s a -> s {_ldfpPackageId = a})
+--
+-- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldfpPackageId :: Lens.Lens' ListDomainsForPackage Lude.Text
+ldfpPackageId = Lens.lens (packageId :: ListDomainsForPackage -> Lude.Text) (\s a -> s {packageId = a} :: ListDomainsForPackage)
+{-# DEPRECATED ldfpPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
 
-instance AWSRequest ListDomainsForPackage where
+instance Lude.AWSRequest ListDomainsForPackage where
   type Rs ListDomainsForPackage = ListDomainsForPackageResponse
-  request = get elasticSearch
+  request = Req.get elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDomainsForPackageResponse'
-            <$> (x .?> "DomainPackageDetailsList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DomainPackageDetailsList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDomainsForPackage
+instance Lude.ToHeaders ListDomainsForPackage where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListDomainsForPackage
-
-instance ToHeaders ListDomainsForPackage where
-  toHeaders = const mempty
-
-instance ToPath ListDomainsForPackage where
+instance Lude.ToPath ListDomainsForPackage where
   toPath ListDomainsForPackage' {..} =
-    mconcat
-      ["/2015-01-01/packages/", toBS _ldfpPackageId, "/domains"]
+    Lude.mconcat
+      ["/2015-01-01/packages/", Lude.toBS packageId, "/domains"]
 
-instance ToQuery ListDomainsForPackage where
+instance Lude.ToQuery ListDomainsForPackage where
   toQuery ListDomainsForPackage' {..} =
-    mconcat
-      ["nextToken" =: _ldfpNextToken, "maxResults" =: _ldfpMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
 -- | Container for response parameters to @'ListDomainsForPackage' @ operation.
 --
---
---
--- /See:/ 'listDomainsForPackageResponse' smart constructor.
+-- /See:/ 'mkListDomainsForPackageResponse' smart constructor.
 data ListDomainsForPackageResponse = ListDomainsForPackageResponse'
-  { _ldfprsDomainPackageDetailsList ::
-      !(Maybe [DomainPackageDetails]),
-    _ldfprsNextToken ::
-      !(Maybe Text),
-    _ldfprsResponseStatus :: !Int
+  { domainPackageDetailsList ::
+      Lude.Maybe
+        [DomainPackageDetails],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainsForPackageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldfprsDomainPackageDetailsList' - List of @DomainPackageDetails@ objects.
---
--- * 'ldfprsNextToken' - Undocumented member.
---
--- * 'ldfprsResponseStatus' - -- | The response status code.
-listDomainsForPackageResponse ::
-  -- | 'ldfprsResponseStatus'
-  Int ->
+-- * 'domainPackageDetailsList' - List of @DomainPackageDetails@ objects.
+-- * 'nextToken' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkListDomainsForPackageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDomainsForPackageResponse
-listDomainsForPackageResponse pResponseStatus_ =
+mkListDomainsForPackageResponse pResponseStatus_ =
   ListDomainsForPackageResponse'
-    { _ldfprsDomainPackageDetailsList =
-        Nothing,
-      _ldfprsNextToken = Nothing,
-      _ldfprsResponseStatus = pResponseStatus_
+    { domainPackageDetailsList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | List of @DomainPackageDetails@ objects.
-ldfprsDomainPackageDetailsList :: Lens' ListDomainsForPackageResponse [DomainPackageDetails]
-ldfprsDomainPackageDetailsList = lens _ldfprsDomainPackageDetailsList (\s a -> s {_ldfprsDomainPackageDetailsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domainPackageDetailsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldfprsDomainPackageDetailsList :: Lens.Lens' ListDomainsForPackageResponse (Lude.Maybe [DomainPackageDetails])
+ldfprsDomainPackageDetailsList = Lens.lens (domainPackageDetailsList :: ListDomainsForPackageResponse -> Lude.Maybe [DomainPackageDetails]) (\s a -> s {domainPackageDetailsList = a} :: ListDomainsForPackageResponse)
+{-# DEPRECATED ldfprsDomainPackageDetailsList "Use generic-lens or generic-optics with 'domainPackageDetailsList' instead." #-}
 
--- | Undocumented member.
-ldfprsNextToken :: Lens' ListDomainsForPackageResponse (Maybe Text)
-ldfprsNextToken = lens _ldfprsNextToken (\s a -> s {_ldfprsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldfprsNextToken :: Lens.Lens' ListDomainsForPackageResponse (Lude.Maybe Lude.Text)
+ldfprsNextToken = Lens.lens (nextToken :: ListDomainsForPackageResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDomainsForPackageResponse)
+{-# DEPRECATED ldfprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ldfprsResponseStatus :: Lens' ListDomainsForPackageResponse Int
-ldfprsResponseStatus = lens _ldfprsResponseStatus (\s a -> s {_ldfprsResponseStatus = a})
-
-instance NFData ListDomainsForPackageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldfprsResponseStatus :: Lens.Lens' ListDomainsForPackageResponse Lude.Int
+ldfprsResponseStatus = Lens.lens (responseStatus :: ListDomainsForPackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainsForPackageResponse)
+{-# DEPRECATED ldfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

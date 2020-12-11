@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,101 +14,111 @@
 --
 -- Deletes an @ApiCache@ object.
 module Network.AWS.AppSync.DeleteAPICache
-  ( -- * Creating a Request
-    deleteAPICache,
-    DeleteAPICache,
+  ( -- * Creating a request
+    DeleteAPICache (..),
+    mkDeleteAPICache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dacApiId,
 
-    -- * Destructuring the Response
-    deleteAPICacheResponse,
-    DeleteAPICacheResponse,
+    -- * Destructuring the response
+    DeleteAPICacheResponse (..),
+    mkDeleteAPICacheResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dacrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @DeleteApiCache@ operation.
 --
---
---
--- /See:/ 'deleteAPICache' smart constructor.
-newtype DeleteAPICache = DeleteAPICache' {_dacApiId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteAPICache' smart constructor.
+newtype DeleteAPICache = DeleteAPICache' {apiId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPICache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dacApiId' - The API ID.
-deleteAPICache ::
-  -- | 'dacApiId'
-  Text ->
+-- * 'apiId' - The API ID.
+mkDeleteAPICache ::
+  -- | 'apiId'
+  Lude.Text ->
   DeleteAPICache
-deleteAPICache pApiId_ = DeleteAPICache' {_dacApiId = pApiId_}
+mkDeleteAPICache pApiId_ = DeleteAPICache' {apiId = pApiId_}
 
 -- | The API ID.
-dacApiId :: Lens' DeleteAPICache Text
-dacApiId = lens _dacApiId (\s a -> s {_dacApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacApiId :: Lens.Lens' DeleteAPICache Lude.Text
+dacApiId = Lens.lens (apiId :: DeleteAPICache -> Lude.Text) (\s a -> s {apiId = a} :: DeleteAPICache)
+{-# DEPRECATED dacApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSRequest DeleteAPICache where
+instance Lude.AWSRequest DeleteAPICache where
   type Rs DeleteAPICache = DeleteAPICacheResponse
-  request = delete appSync
+  request = Req.delete appSyncService
   response =
-    receiveEmpty
-      (\s h x -> DeleteAPICacheResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteAPICache
-
-instance NFData DeleteAPICache
-
-instance ToHeaders DeleteAPICache where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteAPICacheResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath DeleteAPICache where
-  toPath DeleteAPICache' {..} =
-    mconcat ["/v1/apis/", toBS _dacApiId, "/ApiCaches"]
+instance Lude.ToHeaders DeleteAPICache where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
 
-instance ToQuery DeleteAPICache where
-  toQuery = const mempty
+instance Lude.ToPath DeleteAPICache where
+  toPath DeleteAPICache' {..} =
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/ApiCaches"]
+
+instance Lude.ToQuery DeleteAPICache where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @DeleteApiCache@ operation.
 --
---
---
--- /See:/ 'deleteAPICacheResponse' smart constructor.
+-- /See:/ 'mkDeleteAPICacheResponse' smart constructor.
 newtype DeleteAPICacheResponse = DeleteAPICacheResponse'
-  { _dacrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPICacheResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dacrsResponseStatus' - -- | The response status code.
-deleteAPICacheResponse ::
-  -- | 'dacrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteAPICacheResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAPICacheResponse
-deleteAPICacheResponse pResponseStatus_ =
-  DeleteAPICacheResponse' {_dacrsResponseStatus = pResponseStatus_}
+mkDeleteAPICacheResponse pResponseStatus_ =
+  DeleteAPICacheResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dacrsResponseStatus :: Lens' DeleteAPICacheResponse Int
-dacrsResponseStatus = lens _dacrsResponseStatus (\s a -> s {_dacrsResponseStatus = a})
-
-instance NFData DeleteAPICacheResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dacrsResponseStatus :: Lens.Lens' DeleteAPICacheResponse Lude.Int
+dacrsResponseStatus = Lens.lens (responseStatus :: DeleteAPICacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAPICacheResponse)
+{-# DEPRECATED dacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

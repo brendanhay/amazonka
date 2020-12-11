@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,173 +14,194 @@
 --
 -- Provides details about all active and terminated Automation executions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeAutomationExecutions
-  ( -- * Creating a Request
-    describeAutomationExecutions,
-    DescribeAutomationExecutions,
+  ( -- * Creating a request
+    DescribeAutomationExecutions (..),
+    mkDescribeAutomationExecutions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daesFilters,
     daesNextToken,
     daesMaxResults,
 
-    -- * Destructuring the Response
-    describeAutomationExecutionsResponse,
-    DescribeAutomationExecutionsResponse,
+    -- * Destructuring the response
+    DescribeAutomationExecutionsResponse (..),
+    mkDescribeAutomationExecutionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     daesrsNextToken,
     daesrsAutomationExecutionMetadataList,
     daesrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describeAutomationExecutions' smart constructor.
+-- | /See:/ 'mkDescribeAutomationExecutions' smart constructor.
 data DescribeAutomationExecutions = DescribeAutomationExecutions'
-  { _daesFilters ::
-      !( Maybe
-           ( List1
-               AutomationExecutionFilter
-           )
-       ),
-    _daesNextToken :: !(Maybe Text),
-    _daesMaxResults :: !(Maybe Nat)
+  { filters ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            AutomationExecutionFilter
+        ),
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutomationExecutions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daesFilters' - Filters used to limit the scope of executions that are requested.
---
--- * 'daesNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'daesMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-describeAutomationExecutions ::
+-- * 'filters' - Filters used to limit the scope of executions that are requested.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkDescribeAutomationExecutions ::
   DescribeAutomationExecutions
-describeAutomationExecutions =
+mkDescribeAutomationExecutions =
   DescribeAutomationExecutions'
-    { _daesFilters = Nothing,
-      _daesNextToken = Nothing,
-      _daesMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Filters used to limit the scope of executions that are requested.
-daesFilters :: Lens' DescribeAutomationExecutions (Maybe (NonEmpty AutomationExecutionFilter))
-daesFilters = lens _daesFilters (\s a -> s {_daesFilters = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daesFilters :: Lens.Lens' DescribeAutomationExecutions (Lude.Maybe (Lude.NonEmpty AutomationExecutionFilter))
+daesFilters = Lens.lens (filters :: DescribeAutomationExecutions -> Lude.Maybe (Lude.NonEmpty AutomationExecutionFilter)) (\s a -> s {filters = a} :: DescribeAutomationExecutions)
+{-# DEPRECATED daesFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-daesNextToken :: Lens' DescribeAutomationExecutions (Maybe Text)
-daesNextToken = lens _daesNextToken (\s a -> s {_daesNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daesNextToken :: Lens.Lens' DescribeAutomationExecutions (Lude.Maybe Lude.Text)
+daesNextToken = Lens.lens (nextToken :: DescribeAutomationExecutions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAutomationExecutions)
+{-# DEPRECATED daesNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-daesMaxResults :: Lens' DescribeAutomationExecutions (Maybe Natural)
-daesMaxResults = lens _daesMaxResults (\s a -> s {_daesMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daesMaxResults :: Lens.Lens' DescribeAutomationExecutions (Lude.Maybe Lude.Natural)
+daesMaxResults = Lens.lens (maxResults :: DescribeAutomationExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAutomationExecutions)
+{-# DEPRECATED daesMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeAutomationExecutions where
+instance Page.AWSPager DescribeAutomationExecutions where
   page rq rs
-    | stop (rs ^. daesrsNextToken) = Nothing
-    | stop (rs ^. daesrsAutomationExecutionMetadataList) = Nothing
-    | otherwise = Just $ rq & daesNextToken .~ rs ^. daesrsNextToken
+    | Page.stop (rs Lens.^. daesrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. daesrsAutomationExecutionMetadataList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& daesNextToken Lens..~ rs Lens.^. daesrsNextToken
 
-instance AWSRequest DescribeAutomationExecutions where
+instance Lude.AWSRequest DescribeAutomationExecutions where
   type
     Rs DescribeAutomationExecutions =
       DescribeAutomationExecutionsResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAutomationExecutionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "AutomationExecutionMetadataList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "AutomationExecutionMetadataList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAutomationExecutions
-
-instance NFData DescribeAutomationExecutions
-
-instance ToHeaders DescribeAutomationExecutions where
+instance Lude.ToHeaders DescribeAutomationExecutions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.DescribeAutomationExecutions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.DescribeAutomationExecutions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAutomationExecutions where
+instance Lude.ToJSON DescribeAutomationExecutions where
   toJSON DescribeAutomationExecutions' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _daesFilters,
-            ("NextToken" .=) <$> _daesNextToken,
-            ("MaxResults" .=) <$> _daesMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeAutomationExecutions where
-  toPath = const "/"
+instance Lude.ToPath DescribeAutomationExecutions where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAutomationExecutions where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAutomationExecutions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAutomationExecutionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeAutomationExecutionsResponse' smart constructor.
 data DescribeAutomationExecutionsResponse = DescribeAutomationExecutionsResponse'
-  { _daesrsNextToken ::
-      !(Maybe Text),
-    _daesrsAutomationExecutionMetadataList ::
-      !( Maybe
-           [AutomationExecutionMetadata]
-       ),
-    _daesrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    automationExecutionMetadataList ::
+      Lude.Maybe
+        [AutomationExecutionMetadata],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutomationExecutionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daesrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'daesrsAutomationExecutionMetadataList' - The list of details about each automation execution which has occurred which matches the filter specification, if any.
---
--- * 'daesrsResponseStatus' - -- | The response status code.
-describeAutomationExecutionsResponse ::
-  -- | 'daesrsResponseStatus'
-  Int ->
+-- * 'automationExecutionMetadataList' - The list of details about each automation execution which has occurred which matches the filter specification, if any.
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'responseStatus' - The response status code.
+mkDescribeAutomationExecutionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAutomationExecutionsResponse
-describeAutomationExecutionsResponse pResponseStatus_ =
+mkDescribeAutomationExecutionsResponse pResponseStatus_ =
   DescribeAutomationExecutionsResponse'
-    { _daesrsNextToken = Nothing,
-      _daesrsAutomationExecutionMetadataList = Nothing,
-      _daesrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      automationExecutionMetadataList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-daesrsNextToken :: Lens' DescribeAutomationExecutionsResponse (Maybe Text)
-daesrsNextToken = lens _daesrsNextToken (\s a -> s {_daesrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daesrsNextToken :: Lens.Lens' DescribeAutomationExecutionsResponse (Lude.Maybe Lude.Text)
+daesrsNextToken = Lens.lens (nextToken :: DescribeAutomationExecutionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAutomationExecutionsResponse)
+{-# DEPRECATED daesrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of details about each automation execution which has occurred which matches the filter specification, if any.
-daesrsAutomationExecutionMetadataList :: Lens' DescribeAutomationExecutionsResponse [AutomationExecutionMetadata]
-daesrsAutomationExecutionMetadataList = lens _daesrsAutomationExecutionMetadataList (\s a -> s {_daesrsAutomationExecutionMetadataList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'automationExecutionMetadataList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daesrsAutomationExecutionMetadataList :: Lens.Lens' DescribeAutomationExecutionsResponse (Lude.Maybe [AutomationExecutionMetadata])
+daesrsAutomationExecutionMetadataList = Lens.lens (automationExecutionMetadataList :: DescribeAutomationExecutionsResponse -> Lude.Maybe [AutomationExecutionMetadata]) (\s a -> s {automationExecutionMetadataList = a} :: DescribeAutomationExecutionsResponse)
+{-# DEPRECATED daesrsAutomationExecutionMetadataList "Use generic-lens or generic-optics with 'automationExecutionMetadataList' instead." #-}
 
--- | -- | The response status code.
-daesrsResponseStatus :: Lens' DescribeAutomationExecutionsResponse Int
-daesrsResponseStatus = lens _daesrsResponseStatus (\s a -> s {_daesrsResponseStatus = a})
-
-instance NFData DescribeAutomationExecutionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daesrsResponseStatus :: Lens.Lens' DescribeAutomationExecutionsResponse Lude.Int
+daesrsResponseStatus = Lens.lens (responseStatus :: DescribeAutomationExecutionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAutomationExecutionsResponse)
+{-# DEPRECATED daesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.S3Encryption where
+module Network.AWS.Glue.Types.S3Encryption
+  ( S3Encryption (..),
+
+    -- * Smart constructor
+    mkS3Encryption,
+
+    -- * Lenses
+    seS3EncryptionMode,
+    seKMSKeyARN,
+  )
+where
 
 import Network.AWS.Glue.Types.S3EncryptionMode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies how Amazon Simple Storage Service (Amazon S3) data should be encrypted.
 --
---
---
--- /See:/ 's3Encryption' smart constructor.
+-- /See:/ 'mkS3Encryption' smart constructor.
 data S3Encryption = S3Encryption'
-  { _seS3EncryptionMode ::
-      !(Maybe S3EncryptionMode),
-    _seKMSKeyARN :: !(Maybe Text)
+  { s3EncryptionMode ::
+      Lude.Maybe S3EncryptionMode,
+    kmsKeyARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Encryption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'seS3EncryptionMode' - The encryption mode to use for Amazon S3 data.
---
--- * 'seKMSKeyARN' - The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-s3Encryption ::
+-- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+-- * 's3EncryptionMode' - The encryption mode to use for Amazon S3 data.
+mkS3Encryption ::
   S3Encryption
-s3Encryption =
+mkS3Encryption =
   S3Encryption'
-    { _seS3EncryptionMode = Nothing,
-      _seKMSKeyARN = Nothing
+    { s3EncryptionMode = Lude.Nothing,
+      kmsKeyARN = Lude.Nothing
     }
 
 -- | The encryption mode to use for Amazon S3 data.
-seS3EncryptionMode :: Lens' S3Encryption (Maybe S3EncryptionMode)
-seS3EncryptionMode = lens _seS3EncryptionMode (\s a -> s {_seS3EncryptionMode = a})
+--
+-- /Note:/ Consider using 's3EncryptionMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seS3EncryptionMode :: Lens.Lens' S3Encryption (Lude.Maybe S3EncryptionMode)
+seS3EncryptionMode = Lens.lens (s3EncryptionMode :: S3Encryption -> Lude.Maybe S3EncryptionMode) (\s a -> s {s3EncryptionMode = a} :: S3Encryption)
+{-# DEPRECATED seS3EncryptionMode "Use generic-lens or generic-optics with 's3EncryptionMode' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-seKMSKeyARN :: Lens' S3Encryption (Maybe Text)
-seKMSKeyARN = lens _seKMSKeyARN (\s a -> s {_seKMSKeyARN = a})
+--
+-- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seKMSKeyARN :: Lens.Lens' S3Encryption (Lude.Maybe Lude.Text)
+seKMSKeyARN = Lens.lens (kmsKeyARN :: S3Encryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: S3Encryption)
+{-# DEPRECATED seKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
-instance FromJSON S3Encryption where
+instance Lude.FromJSON S3Encryption where
   parseJSON =
-    withObject
+    Lude.withObject
       "S3Encryption"
       ( \x ->
           S3Encryption'
-            <$> (x .:? "S3EncryptionMode") <*> (x .:? "KmsKeyArn")
+            Lude.<$> (x Lude..:? "S3EncryptionMode") Lude.<*> (x Lude..:? "KmsKeyArn")
       )
 
-instance Hashable S3Encryption
-
-instance NFData S3Encryption
-
-instance ToJSON S3Encryption where
+instance Lude.ToJSON S3Encryption where
   toJSON S3Encryption' {..} =
-    object
-      ( catMaybes
-          [ ("S3EncryptionMode" .=) <$> _seS3EncryptionMode,
-            ("KmsKeyArn" .=) <$> _seKMSKeyARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3EncryptionMode" Lude..=) Lude.<$> s3EncryptionMode,
+            ("KmsKeyArn" Lude..=) Lude.<$> kmsKeyARN
           ]
       )

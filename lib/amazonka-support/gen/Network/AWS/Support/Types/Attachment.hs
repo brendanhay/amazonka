@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Support.Types.Attachment where
+module Network.AWS.Support.Types.Attachment
+  ( Attachment (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttachment,
+
+    -- * Lenses
+    aData,
+    aFileName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An attachment to a case communication. The attachment consists of the file name and the content of the file.
 --
---
---
--- /See:/ 'attachment' smart constructor.
+-- /See:/ 'mkAttachment' smart constructor.
 data Attachment = Attachment'
-  { _aData :: !(Maybe Base64),
-    _aFileName :: !(Maybe Text)
+  { data' :: Lude.Maybe Lude.Base64,
+    fileName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Attachment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aData' - The content of the attachment file.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'aFileName' - The name of the attachment file.
-attachment ::
+-- * 'data'' - The content of the attachment file.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'fileName' - The name of the attachment file.
+mkAttachment ::
   Attachment
-attachment = Attachment' {_aData = Nothing, _aFileName = Nothing}
+mkAttachment =
+  Attachment' {data' = Lude.Nothing, fileName = Lude.Nothing}
 
--- | The content of the attachment file.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-aData :: Lens' Attachment (Maybe ByteString)
-aData = lens _aData (\s a -> s {_aData = a}) . mapping _Base64
+-- | The content of the attachment file.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aData :: Lens.Lens' Attachment (Lude.Maybe Lude.Base64)
+aData = Lens.lens (data' :: Attachment -> Lude.Maybe Lude.Base64) (\s a -> s {data' = a} :: Attachment)
+{-# DEPRECATED aData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The name of the attachment file.
-aFileName :: Lens' Attachment (Maybe Text)
-aFileName = lens _aFileName (\s a -> s {_aFileName = a})
+--
+-- /Note:/ Consider using 'fileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aFileName :: Lens.Lens' Attachment (Lude.Maybe Lude.Text)
+aFileName = Lens.lens (fileName :: Attachment -> Lude.Maybe Lude.Text) (\s a -> s {fileName = a} :: Attachment)
+{-# DEPRECATED aFileName "Use generic-lens or generic-optics with 'fileName' instead." #-}
 
-instance FromJSON Attachment where
+instance Lude.FromJSON Attachment where
   parseJSON =
-    withObject
+    Lude.withObject
       "Attachment"
-      (\x -> Attachment' <$> (x .:? "data") <*> (x .:? "fileName"))
+      ( \x ->
+          Attachment'
+            Lude.<$> (x Lude..:? "data") Lude.<*> (x Lude..:? "fileName")
+      )
 
-instance Hashable Attachment
-
-instance NFData Attachment
-
-instance ToJSON Attachment where
+instance Lude.ToJSON Attachment where
   toJSON Attachment' {..} =
-    object
-      ( catMaybes
-          [("data" .=) <$> _aData, ("fileName" .=) <$> _aFileName]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("data" Lude..=) Lude.<$> data',
+            ("fileName" Lude..=) Lude.<$> fileName
+          ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.RecordType where
+module Network.AWS.Route53AutoNaming.Types.RecordType
+  ( RecordType
+      ( RecordType',
+        A,
+        Aaaa,
+        Cname,
+        Srv
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RecordType
-  = A
-  | Aaaa
-  | Cname
-  | Srv
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RecordType = RecordType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RecordType where
-  parser =
-    takeLowerText >>= \case
-      "a" -> pure A
-      "aaaa" -> pure Aaaa
-      "cname" -> pure Cname
-      "srv" -> pure Srv
-      e ->
-        fromTextError $
-          "Failure parsing RecordType from value: '" <> e
-            <> "'. Accepted values: a, aaaa, cname, srv"
+pattern A :: RecordType
+pattern A = RecordType' "A"
 
-instance ToText RecordType where
-  toText = \case
-    A -> "A"
-    Aaaa -> "AAAA"
-    Cname -> "CNAME"
-    Srv -> "SRV"
+pattern Aaaa :: RecordType
+pattern Aaaa = RecordType' "AAAA"
 
-instance Hashable RecordType
+pattern Cname :: RecordType
+pattern Cname = RecordType' "CNAME"
 
-instance NFData RecordType
+pattern Srv :: RecordType
+pattern Srv = RecordType' "SRV"
 
-instance ToByteString RecordType
-
-instance ToQuery RecordType
-
-instance ToHeader RecordType
-
-instance ToJSON RecordType where
-  toJSON = toJSONText
-
-instance FromJSON RecordType where
-  parseJSON = parseJSONText "RecordType"
+{-# COMPLETE
+  A,
+  Aaaa,
+  Cname,
+  Srv,
+  RecordType'
+  #-}

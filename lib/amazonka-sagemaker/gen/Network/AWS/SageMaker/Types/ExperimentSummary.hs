@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ExperimentSummary where
+module Network.AWS.SageMaker.Types.ExperimentSummary
+  ( ExperimentSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExperimentSummary,
+
+    -- * Lenses
+    expCreationTime,
+    expLastModifiedTime,
+    expExperimentName,
+    expExperimentSource,
+    expExperimentARN,
+    expDisplayName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ExperimentSource
 
 -- | A summary of the properties of an experiment. To get the complete set of properties, call the 'DescribeExperiment' API and provide the @ExperimentName@ .
 --
---
---
--- /See:/ 'experimentSummary' smart constructor.
+-- /See:/ 'mkExperimentSummary' smart constructor.
 data ExperimentSummary = ExperimentSummary'
-  { _expCreationTime ::
-      !(Maybe POSIX),
-    _expLastModifiedTime :: !(Maybe POSIX),
-    _expExperimentName :: !(Maybe Text),
-    _expExperimentSource :: !(Maybe ExperimentSource),
-    _expExperimentARN :: !(Maybe Text),
-    _expDisplayName :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    experimentName :: Lude.Maybe Lude.Text,
+    experimentSource :: Lude.Maybe ExperimentSource,
+    experimentARN :: Lude.Maybe Lude.Text,
+    displayName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExperimentSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'expCreationTime' - When the experiment was created.
---
--- * 'expLastModifiedTime' - When the experiment was last modified.
---
--- * 'expExperimentName' - The name of the experiment.
---
--- * 'expExperimentSource' - Undocumented member.
---
--- * 'expExperimentARN' - The Amazon Resource Name (ARN) of the experiment.
---
--- * 'expDisplayName' - The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
-experimentSummary ::
+-- * 'creationTime' - When the experiment was created.
+-- * 'displayName' - The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
+-- * 'experimentARN' - The Amazon Resource Name (ARN) of the experiment.
+-- * 'experimentName' - The name of the experiment.
+-- * 'experimentSource' - Undocumented field.
+-- * 'lastModifiedTime' - When the experiment was last modified.
+mkExperimentSummary ::
   ExperimentSummary
-experimentSummary =
+mkExperimentSummary =
   ExperimentSummary'
-    { _expCreationTime = Nothing,
-      _expLastModifiedTime = Nothing,
-      _expExperimentName = Nothing,
-      _expExperimentSource = Nothing,
-      _expExperimentARN = Nothing,
-      _expDisplayName = Nothing
+    { creationTime = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      experimentName = Lude.Nothing,
+      experimentSource = Lude.Nothing,
+      experimentARN = Lude.Nothing,
+      displayName = Lude.Nothing
     }
 
 -- | When the experiment was created.
-expCreationTime :: Lens' ExperimentSummary (Maybe UTCTime)
-expCreationTime = lens _expCreationTime (\s a -> s {_expCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+expCreationTime :: Lens.Lens' ExperimentSummary (Lude.Maybe Lude.Timestamp)
+expCreationTime = Lens.lens (creationTime :: ExperimentSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: ExperimentSummary)
+{-# DEPRECATED expCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | When the experiment was last modified.
-expLastModifiedTime :: Lens' ExperimentSummary (Maybe UTCTime)
-expLastModifiedTime = lens _expLastModifiedTime (\s a -> s {_expLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+expLastModifiedTime :: Lens.Lens' ExperimentSummary (Lude.Maybe Lude.Timestamp)
+expLastModifiedTime = Lens.lens (lastModifiedTime :: ExperimentSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: ExperimentSummary)
+{-# DEPRECATED expLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The name of the experiment.
-expExperimentName :: Lens' ExperimentSummary (Maybe Text)
-expExperimentName = lens _expExperimentName (\s a -> s {_expExperimentName = a})
+--
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+expExperimentName :: Lens.Lens' ExperimentSummary (Lude.Maybe Lude.Text)
+expExperimentName = Lens.lens (experimentName :: ExperimentSummary -> Lude.Maybe Lude.Text) (\s a -> s {experimentName = a} :: ExperimentSummary)
+{-# DEPRECATED expExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
--- | Undocumented member.
-expExperimentSource :: Lens' ExperimentSummary (Maybe ExperimentSource)
-expExperimentSource = lens _expExperimentSource (\s a -> s {_expExperimentSource = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'experimentSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+expExperimentSource :: Lens.Lens' ExperimentSummary (Lude.Maybe ExperimentSource)
+expExperimentSource = Lens.lens (experimentSource :: ExperimentSummary -> Lude.Maybe ExperimentSource) (\s a -> s {experimentSource = a} :: ExperimentSummary)
+{-# DEPRECATED expExperimentSource "Use generic-lens or generic-optics with 'experimentSource' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the experiment.
-expExperimentARN :: Lens' ExperimentSummary (Maybe Text)
-expExperimentARN = lens _expExperimentARN (\s a -> s {_expExperimentARN = a})
+--
+-- /Note:/ Consider using 'experimentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+expExperimentARN :: Lens.Lens' ExperimentSummary (Lude.Maybe Lude.Text)
+expExperimentARN = Lens.lens (experimentARN :: ExperimentSummary -> Lude.Maybe Lude.Text) (\s a -> s {experimentARN = a} :: ExperimentSummary)
+{-# DEPRECATED expExperimentARN "Use generic-lens or generic-optics with 'experimentARN' instead." #-}
 
 -- | The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
-expDisplayName :: Lens' ExperimentSummary (Maybe Text)
-expDisplayName = lens _expDisplayName (\s a -> s {_expDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+expDisplayName :: Lens.Lens' ExperimentSummary (Lude.Maybe Lude.Text)
+expDisplayName = Lens.lens (displayName :: ExperimentSummary -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: ExperimentSummary)
+{-# DEPRECATED expDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
-instance FromJSON ExperimentSummary where
+instance Lude.FromJSON ExperimentSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExperimentSummary"
       ( \x ->
           ExperimentSummary'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "LastModifiedTime")
-            <*> (x .:? "ExperimentName")
-            <*> (x .:? "ExperimentSource")
-            <*> (x .:? "ExperimentArn")
-            <*> (x .:? "DisplayName")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..:? "ExperimentName")
+            Lude.<*> (x Lude..:? "ExperimentSource")
+            Lude.<*> (x Lude..:? "ExperimentArn")
+            Lude.<*> (x Lude..:? "DisplayName")
       )
-
-instance Hashable ExperimentSummary
-
-instance NFData ExperimentSummary

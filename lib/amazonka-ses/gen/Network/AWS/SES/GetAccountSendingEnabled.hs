@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,112 @@
 --
 -- Returns the email sending status of the Amazon SES account for the current region.
 --
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.GetAccountSendingEnabled
-  ( -- * Creating a Request
-    getAccountSendingEnabled,
-    GetAccountSendingEnabled,
+  ( -- * Creating a request
+    GetAccountSendingEnabled (..),
+    mkGetAccountSendingEnabled,
 
-    -- * Destructuring the Response
-    getAccountSendingEnabledResponse,
-    GetAccountSendingEnabledResponse,
+    -- * Destructuring the response
+    GetAccountSendingEnabledResponse (..),
+    mkGetAccountSendingEnabledResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gasersEnabled,
     gasersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
--- | /See:/ 'getAccountSendingEnabled' smart constructor.
+-- | /See:/ 'mkGetAccountSendingEnabled' smart constructor.
 data GetAccountSendingEnabled = GetAccountSendingEnabled'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountSendingEnabled' with the minimum fields required to make a request.
-getAccountSendingEnabled ::
+mkGetAccountSendingEnabled ::
   GetAccountSendingEnabled
-getAccountSendingEnabled = GetAccountSendingEnabled'
+mkGetAccountSendingEnabled = GetAccountSendingEnabled'
 
-instance AWSRequest GetAccountSendingEnabled where
+instance Lude.AWSRequest GetAccountSendingEnabled where
   type Rs GetAccountSendingEnabled = GetAccountSendingEnabledResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetAccountSendingEnabledResult"
       ( \s h x ->
           GetAccountSendingEnabledResponse'
-            <$> (x .@? "Enabled") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Enabled") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAccountSendingEnabled
+instance Lude.ToHeaders GetAccountSendingEnabled where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetAccountSendingEnabled
+instance Lude.ToPath GetAccountSendingEnabled where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetAccountSendingEnabled where
-  toHeaders = const mempty
-
-instance ToPath GetAccountSendingEnabled where
-  toPath = const "/"
-
-instance ToQuery GetAccountSendingEnabled where
+instance Lude.ToQuery GetAccountSendingEnabled where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("GetAccountSendingEnabled" :: ByteString),
-            "Version" =: ("2010-12-01" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action" Lude.=: ("GetAccountSendingEnabled" :: Lude.ByteString),
+            "Version" Lude.=: ("2010-12-01" :: Lude.ByteString)
           ]
       )
 
 -- | Represents a request to return the email sending status for your Amazon SES account in the current AWS Region.
 --
---
---
--- /See:/ 'getAccountSendingEnabledResponse' smart constructor.
+-- /See:/ 'mkGetAccountSendingEnabledResponse' smart constructor.
 data GetAccountSendingEnabledResponse = GetAccountSendingEnabledResponse'
-  { _gasersEnabled ::
-      !(Maybe Bool),
-    _gasersResponseStatus ::
-      !Int
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountSendingEnabledResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasersEnabled' - Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
---
--- * 'gasersResponseStatus' - -- | The response status code.
-getAccountSendingEnabledResponse ::
-  -- | 'gasersResponseStatus'
-  Int ->
+-- * 'enabled' - Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
+-- * 'responseStatus' - The response status code.
+mkGetAccountSendingEnabledResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAccountSendingEnabledResponse
-getAccountSendingEnabledResponse pResponseStatus_ =
+mkGetAccountSendingEnabledResponse pResponseStatus_ =
   GetAccountSendingEnabledResponse'
-    { _gasersEnabled = Nothing,
-      _gasersResponseStatus = pResponseStatus_
+    { enabled = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
-gasersEnabled :: Lens' GetAccountSendingEnabledResponse (Maybe Bool)
-gasersEnabled = lens _gasersEnabled (\s a -> s {_gasersEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasersEnabled :: Lens.Lens' GetAccountSendingEnabledResponse (Lude.Maybe Lude.Bool)
+gasersEnabled = Lens.lens (enabled :: GetAccountSendingEnabledResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: GetAccountSendingEnabledResponse)
+{-# DEPRECATED gasersEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
--- | -- | The response status code.
-gasersResponseStatus :: Lens' GetAccountSendingEnabledResponse Int
-gasersResponseStatus = lens _gasersResponseStatus (\s a -> s {_gasersResponseStatus = a})
-
-instance NFData GetAccountSendingEnabledResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasersResponseStatus :: Lens.Lens' GetAccountSendingEnabledResponse Lude.Int
+gasersResponseStatus = Lens.lens (responseStatus :: GetAccountSendingEnabledResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountSendingEnabledResponse)
+{-# DEPRECATED gasersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

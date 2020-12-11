@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.TemplateConfiguration where
+module Network.AWS.Pinpoint.Types.TemplateConfiguration
+  ( TemplateConfiguration (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkTemplateConfiguration,
+
+    -- * Lenses
+    tcSMSTemplate,
+    tcVoiceTemplate,
+    tcPushTemplate,
+    tcEmailTemplate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Template
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the message template to use for the message, for each type of channel.
 --
---
---
--- /See:/ 'templateConfiguration' smart constructor.
+-- /See:/ 'mkTemplateConfiguration' smart constructor.
 data TemplateConfiguration = TemplateConfiguration'
-  { _tcSMSTemplate ::
-      !(Maybe Template),
-    _tcVoiceTemplate :: !(Maybe Template),
-    _tcPushTemplate :: !(Maybe Template),
-    _tcEmailTemplate :: !(Maybe Template)
+  { sMSTemplate ::
+      Lude.Maybe Template,
+    voiceTemplate :: Lude.Maybe Template,
+    pushTemplate :: Lude.Maybe Template,
+    emailTemplate :: Lude.Maybe Template
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemplateConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcSMSTemplate' - The SMS template to use for the message.
---
--- * 'tcVoiceTemplate' - The voice template to use for the message. This object isn't supported for campaigns.
---
--- * 'tcPushTemplate' - The push notification template to use for the message.
---
--- * 'tcEmailTemplate' - The email template to use for the message.
-templateConfiguration ::
+-- * 'emailTemplate' - The email template to use for the message.
+-- * 'pushTemplate' - The push notification template to use for the message.
+-- * 'sMSTemplate' - The SMS template to use for the message.
+-- * 'voiceTemplate' - The voice template to use for the message. This object isn't supported for campaigns.
+mkTemplateConfiguration ::
   TemplateConfiguration
-templateConfiguration =
+mkTemplateConfiguration =
   TemplateConfiguration'
-    { _tcSMSTemplate = Nothing,
-      _tcVoiceTemplate = Nothing,
-      _tcPushTemplate = Nothing,
-      _tcEmailTemplate = Nothing
+    { sMSTemplate = Lude.Nothing,
+      voiceTemplate = Lude.Nothing,
+      pushTemplate = Lude.Nothing,
+      emailTemplate = Lude.Nothing
     }
 
 -- | The SMS template to use for the message.
-tcSMSTemplate :: Lens' TemplateConfiguration (Maybe Template)
-tcSMSTemplate = lens _tcSMSTemplate (\s a -> s {_tcSMSTemplate = a})
+--
+-- /Note:/ Consider using 'sMSTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcSMSTemplate :: Lens.Lens' TemplateConfiguration (Lude.Maybe Template)
+tcSMSTemplate = Lens.lens (sMSTemplate :: TemplateConfiguration -> Lude.Maybe Template) (\s a -> s {sMSTemplate = a} :: TemplateConfiguration)
+{-# DEPRECATED tcSMSTemplate "Use generic-lens or generic-optics with 'sMSTemplate' instead." #-}
 
 -- | The voice template to use for the message. This object isn't supported for campaigns.
-tcVoiceTemplate :: Lens' TemplateConfiguration (Maybe Template)
-tcVoiceTemplate = lens _tcVoiceTemplate (\s a -> s {_tcVoiceTemplate = a})
+--
+-- /Note:/ Consider using 'voiceTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcVoiceTemplate :: Lens.Lens' TemplateConfiguration (Lude.Maybe Template)
+tcVoiceTemplate = Lens.lens (voiceTemplate :: TemplateConfiguration -> Lude.Maybe Template) (\s a -> s {voiceTemplate = a} :: TemplateConfiguration)
+{-# DEPRECATED tcVoiceTemplate "Use generic-lens or generic-optics with 'voiceTemplate' instead." #-}
 
 -- | The push notification template to use for the message.
-tcPushTemplate :: Lens' TemplateConfiguration (Maybe Template)
-tcPushTemplate = lens _tcPushTemplate (\s a -> s {_tcPushTemplate = a})
+--
+-- /Note:/ Consider using 'pushTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcPushTemplate :: Lens.Lens' TemplateConfiguration (Lude.Maybe Template)
+tcPushTemplate = Lens.lens (pushTemplate :: TemplateConfiguration -> Lude.Maybe Template) (\s a -> s {pushTemplate = a} :: TemplateConfiguration)
+{-# DEPRECATED tcPushTemplate "Use generic-lens or generic-optics with 'pushTemplate' instead." #-}
 
 -- | The email template to use for the message.
-tcEmailTemplate :: Lens' TemplateConfiguration (Maybe Template)
-tcEmailTemplate = lens _tcEmailTemplate (\s a -> s {_tcEmailTemplate = a})
+--
+-- /Note:/ Consider using 'emailTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcEmailTemplate :: Lens.Lens' TemplateConfiguration (Lude.Maybe Template)
+tcEmailTemplate = Lens.lens (emailTemplate :: TemplateConfiguration -> Lude.Maybe Template) (\s a -> s {emailTemplate = a} :: TemplateConfiguration)
+{-# DEPRECATED tcEmailTemplate "Use generic-lens or generic-optics with 'emailTemplate' instead." #-}
 
-instance FromJSON TemplateConfiguration where
+instance Lude.FromJSON TemplateConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "TemplateConfiguration"
       ( \x ->
           TemplateConfiguration'
-            <$> (x .:? "SMSTemplate")
-            <*> (x .:? "VoiceTemplate")
-            <*> (x .:? "PushTemplate")
-            <*> (x .:? "EmailTemplate")
+            Lude.<$> (x Lude..:? "SMSTemplate")
+            Lude.<*> (x Lude..:? "VoiceTemplate")
+            Lude.<*> (x Lude..:? "PushTemplate")
+            Lude.<*> (x Lude..:? "EmailTemplate")
       )
 
-instance Hashable TemplateConfiguration
-
-instance NFData TemplateConfiguration
-
-instance ToJSON TemplateConfiguration where
+instance Lude.ToJSON TemplateConfiguration where
   toJSON TemplateConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("SMSTemplate" .=) <$> _tcSMSTemplate,
-            ("VoiceTemplate" .=) <$> _tcVoiceTemplate,
-            ("PushTemplate" .=) <$> _tcPushTemplate,
-            ("EmailTemplate" .=) <$> _tcEmailTemplate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SMSTemplate" Lude..=) Lude.<$> sMSTemplate,
+            ("VoiceTemplate" Lude..=) Lude.<$> voiceTemplate,
+            ("PushTemplate" Lude..=) Lude.<$> pushTemplate,
+            ("EmailTemplate" Lude..=) Lude.<$> emailTemplate
           ]
       )

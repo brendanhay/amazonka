@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.SseKMSEncryptedObjects where
+module Network.AWS.S3.Types.SseKMSEncryptedObjects
+  ( SseKMSEncryptedObjects (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSseKMSEncryptedObjects,
+
+    -- * Lenses
+    skeoStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.SseKMSEncryptedObjectsStatus
 
 -- | A container for filter information for the selection of S3 objects encrypted with AWS KMS.
 --
---
---
--- /See:/ 'sseKMSEncryptedObjects' smart constructor.
+-- /See:/ 'mkSseKMSEncryptedObjects' smart constructor.
 newtype SseKMSEncryptedObjects = SseKMSEncryptedObjects'
-  { _skeoStatus ::
+  { status ::
       SseKMSEncryptedObjectsStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SseKMSEncryptedObjects' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'skeoStatus' - Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
-sseKMSEncryptedObjects ::
-  -- | 'skeoStatus'
+-- * 'status' - Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
+mkSseKMSEncryptedObjects ::
+  -- | 'status'
   SseKMSEncryptedObjectsStatus ->
   SseKMSEncryptedObjects
-sseKMSEncryptedObjects pStatus_ =
-  SseKMSEncryptedObjects' {_skeoStatus = pStatus_}
+mkSseKMSEncryptedObjects pStatus_ =
+  SseKMSEncryptedObjects' {status = pStatus_}
 
 -- | Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
-skeoStatus :: Lens' SseKMSEncryptedObjects SseKMSEncryptedObjectsStatus
-skeoStatus = lens _skeoStatus (\s a -> s {_skeoStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skeoStatus :: Lens.Lens' SseKMSEncryptedObjects SseKMSEncryptedObjectsStatus
+skeoStatus = Lens.lens (status :: SseKMSEncryptedObjects -> SseKMSEncryptedObjectsStatus) (\s a -> s {status = a} :: SseKMSEncryptedObjects)
+{-# DEPRECATED skeoStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML SseKMSEncryptedObjects where
-  parseXML x = SseKMSEncryptedObjects' <$> (x .@ "Status")
+instance Lude.FromXML SseKMSEncryptedObjects where
+  parseXML x = SseKMSEncryptedObjects' Lude.<$> (x Lude..@ "Status")
 
-instance Hashable SseKMSEncryptedObjects
-
-instance NFData SseKMSEncryptedObjects
-
-instance ToXML SseKMSEncryptedObjects where
+instance Lude.ToXML SseKMSEncryptedObjects where
   toXML SseKMSEncryptedObjects' {..} =
-    mconcat ["Status" @= _skeoStatus]
+    Lude.mconcat ["Status" Lude.@= status]

@@ -13,8 +13,8 @@
 --
 -- Definition of the public APIs exposed by Amazon Machine Learning
 module Network.AWS.MachineLearning
-  ( -- * Service Configuration
-    machineLearning,
+  ( -- * Service configuration
+    machineLearningService,
 
     -- * Errors
     -- $errors
@@ -23,16 +23,16 @@ module Network.AWS.MachineLearning
     -- $waiters
 
     -- ** MLModelAvailable
-    mLModelAvailable,
+    mkMLModelAvailable,
 
     -- ** BatchPredictionAvailable
-    batchPredictionAvailable,
+    mkBatchPredictionAvailable,
 
     -- ** DataSourceAvailable
-    dataSourceAvailable,
+    mkDataSourceAvailable,
 
     -- ** EvaluationAvailable
-    evaluationAvailable,
+    mkEvaluationAvailable,
 
     -- * Operations
     -- $operations
@@ -157,8 +157,8 @@ module Network.AWS.MachineLearning
     TaggableResourceType (..),
 
     -- ** BatchPrediction
-    BatchPrediction,
-    batchPrediction,
+    BatchPrediction (..),
+    mkBatchPrediction,
     bpStatus,
     bpLastUpdatedAt,
     bpCreatedAt,
@@ -177,8 +177,8 @@ module Network.AWS.MachineLearning
     bpOutputURI,
 
     -- ** DataSource
-    DataSource,
-    dataSource,
+    DataSource (..),
+    mkDataSource,
     dsStatus,
     dsNumberOfFiles,
     dsLastUpdatedAt,
@@ -199,8 +199,8 @@ module Network.AWS.MachineLearning
     dsRoleARN,
 
     -- ** Evaluation
-    Evaluation,
-    evaluation,
+    Evaluation (..),
+    mkEvaluation,
     eStatus,
     ePerformanceMetrics,
     eLastUpdatedAt,
@@ -217,8 +217,8 @@ module Network.AWS.MachineLearning
     eEvaluationDataSourceId,
 
     -- ** MLModel
-    MLModel,
-    mLModel,
+    MLModel (..),
+    mkMLModel,
     mlmStatus,
     mlmLastUpdatedAt,
     mlmTrainingParameters,
@@ -240,21 +240,21 @@ module Network.AWS.MachineLearning
     mlmMLModelType,
 
     -- ** PerformanceMetrics
-    PerformanceMetrics,
-    performanceMetrics,
+    PerformanceMetrics (..),
+    mkPerformanceMetrics,
     pmProperties,
 
     -- ** Prediction
-    Prediction,
-    prediction,
+    Prediction (..),
+    mkPrediction,
     pPredictedValue,
     pPredictedLabel,
     pPredictedScores,
     pDetails,
 
     -- ** RDSDataSpec
-    RDSDataSpec,
-    rdsDataSpec,
+    RDSDataSpec (..),
+    mkRDSDataSpec,
     rdsdsDataSchemaURI,
     rdsdsDataSchema,
     rdsdsDataRearrangement,
@@ -268,20 +268,20 @@ module Network.AWS.MachineLearning
     rdsdsSecurityGroupIds,
 
     -- ** RDSDatabase
-    RDSDatabase,
-    rdsDatabase,
+    RDSDatabase (..),
+    mkRDSDatabase,
     rdsdInstanceIdentifier,
     rdsdDatabaseName,
 
     -- ** RDSDatabaseCredentials
-    RDSDatabaseCredentials,
-    rdsDatabaseCredentials,
+    RDSDatabaseCredentials (..),
+    mkRDSDatabaseCredentials,
     rdsdcUsername,
     rdsdcPassword,
 
     -- ** RDSMetadata
-    RDSMetadata,
-    rdsMetadata,
+    RDSMetadata (..),
+    mkRDSMetadata,
     rmSelectSqlQuery,
     rmDataPipelineId,
     rmDatabase,
@@ -290,56 +290,67 @@ module Network.AWS.MachineLearning
     rmServiceRole,
 
     -- ** RealtimeEndpointInfo
-    RealtimeEndpointInfo,
-    realtimeEndpointInfo,
+    RealtimeEndpointInfo (..),
+    mkRealtimeEndpointInfo,
     reiCreatedAt,
     reiEndpointURL,
     reiEndpointStatus,
     reiPeakRequestsPerSecond,
 
     -- ** RedshiftDataSpec
-    RedshiftDataSpec,
-    redshiftDataSpec,
-    rDataSchemaURI,
-    rDataSchema,
-    rDataRearrangement,
-    rDatabaseInformation,
-    rSelectSqlQuery,
-    rDatabaseCredentials,
-    rS3StagingLocation,
+    RedshiftDataSpec (..),
+    mkRedshiftDataSpec,
+    rdsDataSchemaURI,
+    rdsDataSchema,
+    rdsDataRearrangement,
+    rdsDatabaseInformation,
+    rdsSelectSqlQuery,
+    rdsDatabaseCredentials,
+    rdsS3StagingLocation,
 
     -- ** RedshiftDatabase
-    RedshiftDatabase,
-    redshiftDatabase,
+    RedshiftDatabase (..),
+    mkRedshiftDatabase,
     rdDatabaseName,
     rdClusterIdentifier,
 
     -- ** RedshiftDatabaseCredentials
-    RedshiftDatabaseCredentials,
-    redshiftDatabaseCredentials,
+    RedshiftDatabaseCredentials (..),
+    mkRedshiftDatabaseCredentials,
     rdcUsername,
     rdcPassword,
 
     -- ** RedshiftMetadata
-    RedshiftMetadata,
-    redshiftMetadata,
-    redSelectSqlQuery,
-    redRedshiftDatabase,
-    redDatabaseUserName,
+    RedshiftMetadata (..),
+    mkRedshiftMetadata,
+    rSelectSqlQuery,
+    rRedshiftDatabase,
+    rDatabaseUserName,
 
     -- ** S3DataSpec
-    S3DataSpec,
-    s3DataSpec,
+    S3DataSpec (..),
+    mkS3DataSpec,
     sdsDataSchema,
     sdsDataSchemaLocationS3,
     sdsDataRearrangement,
     sdsDataLocationS3,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -373,6 +384,7 @@ import Network.AWS.MachineLearning.UpdateDataSource
 import Network.AWS.MachineLearning.UpdateEvaluation
 import Network.AWS.MachineLearning.UpdateMLModel
 import Network.AWS.MachineLearning.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

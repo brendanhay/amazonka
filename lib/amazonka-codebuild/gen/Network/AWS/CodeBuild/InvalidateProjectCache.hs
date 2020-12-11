@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,121 @@
 --
 -- Resets the cache for a project.
 module Network.AWS.CodeBuild.InvalidateProjectCache
-  ( -- * Creating a Request
-    invalidateProjectCache,
-    InvalidateProjectCache,
+  ( -- * Creating a request
+    InvalidateProjectCache (..),
+    mkInvalidateProjectCache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ipcProjectName,
 
-    -- * Destructuring the Response
-    invalidateProjectCacheResponse,
-    InvalidateProjectCacheResponse,
+    -- * Destructuring the response
+    InvalidateProjectCacheResponse (..),
+    mkInvalidateProjectCacheResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ipcrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'invalidateProjectCache' smart constructor.
+-- | /See:/ 'mkInvalidateProjectCache' smart constructor.
 newtype InvalidateProjectCache = InvalidateProjectCache'
-  { _ipcProjectName ::
-      Text
+  { projectName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InvalidateProjectCache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipcProjectName' - The name of the AWS CodeBuild build project that the cache is reset for.
-invalidateProjectCache ::
-  -- | 'ipcProjectName'
-  Text ->
+-- * 'projectName' - The name of the AWS CodeBuild build project that the cache is reset for.
+mkInvalidateProjectCache ::
+  -- | 'projectName'
+  Lude.Text ->
   InvalidateProjectCache
-invalidateProjectCache pProjectName_ =
-  InvalidateProjectCache' {_ipcProjectName = pProjectName_}
+mkInvalidateProjectCache pProjectName_ =
+  InvalidateProjectCache' {projectName = pProjectName_}
 
 -- | The name of the AWS CodeBuild build project that the cache is reset for.
-ipcProjectName :: Lens' InvalidateProjectCache Text
-ipcProjectName = lens _ipcProjectName (\s a -> s {_ipcProjectName = a})
+--
+-- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipcProjectName :: Lens.Lens' InvalidateProjectCache Lude.Text
+ipcProjectName = Lens.lens (projectName :: InvalidateProjectCache -> Lude.Text) (\s a -> s {projectName = a} :: InvalidateProjectCache)
+{-# DEPRECATED ipcProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
 
-instance AWSRequest InvalidateProjectCache where
+instance Lude.AWSRequest InvalidateProjectCache where
   type Rs InvalidateProjectCache = InvalidateProjectCacheResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          InvalidateProjectCacheResponse' <$> (pure (fromEnum s))
+          InvalidateProjectCacheResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable InvalidateProjectCache
-
-instance NFData InvalidateProjectCache
-
-instance ToHeaders InvalidateProjectCache where
+instance Lude.ToHeaders InvalidateProjectCache where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.InvalidateProjectCache" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.InvalidateProjectCache" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON InvalidateProjectCache where
+instance Lude.ToJSON InvalidateProjectCache where
   toJSON InvalidateProjectCache' {..} =
-    object (catMaybes [Just ("projectName" .= _ipcProjectName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("projectName" Lude..= projectName)])
 
-instance ToPath InvalidateProjectCache where
-  toPath = const "/"
+instance Lude.ToPath InvalidateProjectCache where
+  toPath = Lude.const "/"
 
-instance ToQuery InvalidateProjectCache where
-  toQuery = const mempty
+instance Lude.ToQuery InvalidateProjectCache where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'invalidateProjectCacheResponse' smart constructor.
+-- | /See:/ 'mkInvalidateProjectCacheResponse' smart constructor.
 newtype InvalidateProjectCacheResponse = InvalidateProjectCacheResponse'
-  { _ipcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InvalidateProjectCacheResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipcrsResponseStatus' - -- | The response status code.
-invalidateProjectCacheResponse ::
-  -- | 'ipcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkInvalidateProjectCacheResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   InvalidateProjectCacheResponse
-invalidateProjectCacheResponse pResponseStatus_ =
+mkInvalidateProjectCacheResponse pResponseStatus_ =
   InvalidateProjectCacheResponse'
-    { _ipcrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ipcrsResponseStatus :: Lens' InvalidateProjectCacheResponse Int
-ipcrsResponseStatus = lens _ipcrsResponseStatus (\s a -> s {_ipcrsResponseStatus = a})
-
-instance NFData InvalidateProjectCacheResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipcrsResponseStatus :: Lens.Lens' InvalidateProjectCacheResponse Lude.Int
+ipcrsResponseStatus = Lens.lens (responseStatus :: InvalidateProjectCacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InvalidateProjectCacheResponse)
+{-# DEPRECATED ipcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

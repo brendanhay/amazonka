@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode where
+module Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode
+  ( SmoothGroupSegmentationMode
+      ( SmoothGroupSegmentationMode',
+        UseInputSegmentation,
+        UseSegmentDuration
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Smooth Group Segmentation Mode
-data SmoothGroupSegmentationMode
-  = UseInputSegmentation
-  | UseSegmentDuration
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SmoothGroupSegmentationMode = SmoothGroupSegmentationMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SmoothGroupSegmentationMode where
-  parser =
-    takeLowerText >>= \case
-      "use_input_segmentation" -> pure UseInputSegmentation
-      "use_segment_duration" -> pure UseSegmentDuration
-      e ->
-        fromTextError $
-          "Failure parsing SmoothGroupSegmentationMode from value: '" <> e
-            <> "'. Accepted values: use_input_segmentation, use_segment_duration"
+pattern UseInputSegmentation :: SmoothGroupSegmentationMode
+pattern UseInputSegmentation = SmoothGroupSegmentationMode' "USE_INPUT_SEGMENTATION"
 
-instance ToText SmoothGroupSegmentationMode where
-  toText = \case
-    UseInputSegmentation -> "USE_INPUT_SEGMENTATION"
-    UseSegmentDuration -> "USE_SEGMENT_DURATION"
+pattern UseSegmentDuration :: SmoothGroupSegmentationMode
+pattern UseSegmentDuration = SmoothGroupSegmentationMode' "USE_SEGMENT_DURATION"
 
-instance Hashable SmoothGroupSegmentationMode
-
-instance NFData SmoothGroupSegmentationMode
-
-instance ToByteString SmoothGroupSegmentationMode
-
-instance ToQuery SmoothGroupSegmentationMode
-
-instance ToHeader SmoothGroupSegmentationMode
-
-instance ToJSON SmoothGroupSegmentationMode where
-  toJSON = toJSONText
-
-instance FromJSON SmoothGroupSegmentationMode where
-  parseJSON = parseJSONText "SmoothGroupSegmentationMode"
+{-# COMPLETE
+  UseInputSegmentation,
+  UseSegmentDuration,
+  SmoothGroupSegmentationMode'
+  #-}

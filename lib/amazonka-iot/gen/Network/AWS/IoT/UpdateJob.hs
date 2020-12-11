@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates supported fields of the specified job.
 module Network.AWS.IoT.UpdateJob
-  ( -- * Creating a Request
-    updateJob,
-    UpdateJob,
+  ( -- * Creating a request
+    UpdateJob (..),
+    mkUpdateJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ujJobExecutionsRolloutConfig,
     ujAbortConfig,
     ujNamespaceId,
@@ -32,129 +27,157 @@ module Network.AWS.IoT.UpdateJob
     ujTimeoutConfig,
     ujJobId,
 
-    -- * Destructuring the Response
-    updateJobResponse,
-    UpdateJobResponse,
+    -- * Destructuring the response
+    UpdateJobResponse (..),
+    mkUpdateJobResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateJob' smart constructor.
+-- | /See:/ 'mkUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { _ujJobExecutionsRolloutConfig ::
-      !(Maybe JobExecutionsRolloutConfig),
-    _ujAbortConfig :: !(Maybe AbortConfig),
-    _ujNamespaceId :: !(Maybe Text),
-    _ujPresignedURLConfig :: !(Maybe PresignedURLConfig),
-    _ujDescription :: !(Maybe Text),
-    _ujTimeoutConfig :: !(Maybe TimeoutConfig),
-    _ujJobId :: !Text
+  { jobExecutionsRolloutConfig ::
+      Lude.Maybe JobExecutionsRolloutConfig,
+    abortConfig :: Lude.Maybe AbortConfig,
+    namespaceId :: Lude.Maybe Lude.Text,
+    presignedURLConfig :: Lude.Maybe PresignedURLConfig,
+    description :: Lude.Maybe Lude.Text,
+    timeoutConfig :: Lude.Maybe TimeoutConfig,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'abortConfig' - Allows you to create criteria to abort a job.
+-- * 'description' - A short text description of the job.
+-- * 'jobExecutionsRolloutConfig' - Allows you to create a staged rollout of the job.
+-- * 'jobId' - The ID of the job to be updated.
+-- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- * 'ujJobExecutionsRolloutConfig' - Allows you to create a staged rollout of the job.
---
--- * 'ujAbortConfig' - Allows you to create criteria to abort a job.
---
--- * 'ujNamespaceId' - The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
---
--- * 'ujPresignedURLConfig' - Configuration information for pre-signed S3 URLs.
---
--- * 'ujDescription' - A short text description of the job.
---
--- * 'ujTimeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
---
--- * 'ujJobId' - The ID of the job to be updated.
-updateJob ::
-  -- | 'ujJobId'
-  Text ->
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+-- * 'presignedURLConfig' - Configuration information for pre-signed S3 URLs.
+-- * 'timeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
+mkUpdateJob ::
+  -- | 'jobId'
+  Lude.Text ->
   UpdateJob
-updateJob pJobId_ =
+mkUpdateJob pJobId_ =
   UpdateJob'
-    { _ujJobExecutionsRolloutConfig = Nothing,
-      _ujAbortConfig = Nothing,
-      _ujNamespaceId = Nothing,
-      _ujPresignedURLConfig = Nothing,
-      _ujDescription = Nothing,
-      _ujTimeoutConfig = Nothing,
-      _ujJobId = pJobId_
+    { jobExecutionsRolloutConfig = Lude.Nothing,
+      abortConfig = Lude.Nothing,
+      namespaceId = Lude.Nothing,
+      presignedURLConfig = Lude.Nothing,
+      description = Lude.Nothing,
+      timeoutConfig = Lude.Nothing,
+      jobId = pJobId_
     }
 
 -- | Allows you to create a staged rollout of the job.
-ujJobExecutionsRolloutConfig :: Lens' UpdateJob (Maybe JobExecutionsRolloutConfig)
-ujJobExecutionsRolloutConfig = lens _ujJobExecutionsRolloutConfig (\s a -> s {_ujJobExecutionsRolloutConfig = a})
+--
+-- /Note:/ Consider using 'jobExecutionsRolloutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujJobExecutionsRolloutConfig :: Lens.Lens' UpdateJob (Lude.Maybe JobExecutionsRolloutConfig)
+ujJobExecutionsRolloutConfig = Lens.lens (jobExecutionsRolloutConfig :: UpdateJob -> Lude.Maybe JobExecutionsRolloutConfig) (\s a -> s {jobExecutionsRolloutConfig = a} :: UpdateJob)
+{-# DEPRECATED ujJobExecutionsRolloutConfig "Use generic-lens or generic-optics with 'jobExecutionsRolloutConfig' instead." #-}
 
 -- | Allows you to create criteria to abort a job.
-ujAbortConfig :: Lens' UpdateJob (Maybe AbortConfig)
-ujAbortConfig = lens _ujAbortConfig (\s a -> s {_ujAbortConfig = a})
+--
+-- /Note:/ Consider using 'abortConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujAbortConfig :: Lens.Lens' UpdateJob (Lude.Maybe AbortConfig)
+ujAbortConfig = Lens.lens (abortConfig :: UpdateJob -> Lude.Maybe AbortConfig) (\s a -> s {abortConfig = a} :: UpdateJob)
+{-# DEPRECATED ujAbortConfig "Use generic-lens or generic-optics with 'abortConfig' instead." #-}
 
--- | The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
-ujNamespaceId :: Lens' UpdateJob (Maybe Text)
-ujNamespaceId = lens _ujNamespaceId (\s a -> s {_ujNamespaceId = a})
+-- | The namespace used to indicate that a job is a customer-managed job.
+--
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+--
+-- /Note:/ Consider using 'namespaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujNamespaceId :: Lens.Lens' UpdateJob (Lude.Maybe Lude.Text)
+ujNamespaceId = Lens.lens (namespaceId :: UpdateJob -> Lude.Maybe Lude.Text) (\s a -> s {namespaceId = a} :: UpdateJob)
+{-# DEPRECATED ujNamespaceId "Use generic-lens or generic-optics with 'namespaceId' instead." #-}
 
 -- | Configuration information for pre-signed S3 URLs.
-ujPresignedURLConfig :: Lens' UpdateJob (Maybe PresignedURLConfig)
-ujPresignedURLConfig = lens _ujPresignedURLConfig (\s a -> s {_ujPresignedURLConfig = a})
+--
+-- /Note:/ Consider using 'presignedURLConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujPresignedURLConfig :: Lens.Lens' UpdateJob (Lude.Maybe PresignedURLConfig)
+ujPresignedURLConfig = Lens.lens (presignedURLConfig :: UpdateJob -> Lude.Maybe PresignedURLConfig) (\s a -> s {presignedURLConfig = a} :: UpdateJob)
+{-# DEPRECATED ujPresignedURLConfig "Use generic-lens or generic-optics with 'presignedURLConfig' instead." #-}
 
 -- | A short text description of the job.
-ujDescription :: Lens' UpdateJob (Maybe Text)
-ujDescription = lens _ujDescription (\s a -> s {_ujDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujDescription :: Lens.Lens' UpdateJob (Lude.Maybe Lude.Text)
+ujDescription = Lens.lens (description :: UpdateJob -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateJob)
+{-# DEPRECATED ujDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
-ujTimeoutConfig :: Lens' UpdateJob (Maybe TimeoutConfig)
-ujTimeoutConfig = lens _ujTimeoutConfig (\s a -> s {_ujTimeoutConfig = a})
+--
+-- /Note:/ Consider using 'timeoutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujTimeoutConfig :: Lens.Lens' UpdateJob (Lude.Maybe TimeoutConfig)
+ujTimeoutConfig = Lens.lens (timeoutConfig :: UpdateJob -> Lude.Maybe TimeoutConfig) (\s a -> s {timeoutConfig = a} :: UpdateJob)
+{-# DEPRECATED ujTimeoutConfig "Use generic-lens or generic-optics with 'timeoutConfig' instead." #-}
 
 -- | The ID of the job to be updated.
-ujJobId :: Lens' UpdateJob Text
-ujJobId = lens _ujJobId (\s a -> s {_ujJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujJobId :: Lens.Lens' UpdateJob Lude.Text
+ujJobId = Lens.lens (jobId :: UpdateJob -> Lude.Text) (\s a -> s {jobId = a} :: UpdateJob)
+{-# DEPRECATED ujJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest UpdateJob where
+instance Lude.AWSRequest UpdateJob where
   type Rs UpdateJob = UpdateJobResponse
-  request = patchJSON ioT
-  response = receiveNull UpdateJobResponse'
+  request = Req.patchJSON ioTService
+  response = Res.receiveNull UpdateJobResponse'
 
-instance Hashable UpdateJob
+instance Lude.ToHeaders UpdateJob where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateJob
-
-instance ToHeaders UpdateJob where
-  toHeaders = const mempty
-
-instance ToJSON UpdateJob where
+instance Lude.ToJSON UpdateJob where
   toJSON UpdateJob' {..} =
-    object
-      ( catMaybes
-          [ ("jobExecutionsRolloutConfig" .=)
-              <$> _ujJobExecutionsRolloutConfig,
-            ("abortConfig" .=) <$> _ujAbortConfig,
-            ("presignedUrlConfig" .=) <$> _ujPresignedURLConfig,
-            ("description" .=) <$> _ujDescription,
-            ("timeoutConfig" .=) <$> _ujTimeoutConfig
+    Lude.object
+      ( Lude.catMaybes
+          [ ("jobExecutionsRolloutConfig" Lude..=)
+              Lude.<$> jobExecutionsRolloutConfig,
+            ("abortConfig" Lude..=) Lude.<$> abortConfig,
+            ("presignedUrlConfig" Lude..=) Lude.<$> presignedURLConfig,
+            ("description" Lude..=) Lude.<$> description,
+            ("timeoutConfig" Lude..=) Lude.<$> timeoutConfig
           ]
       )
 
-instance ToPath UpdateJob where
-  toPath UpdateJob' {..} = mconcat ["/jobs/", toBS _ujJobId]
+instance Lude.ToPath UpdateJob where
+  toPath UpdateJob' {..} = Lude.mconcat ["/jobs/", Lude.toBS jobId]
 
-instance ToQuery UpdateJob where
-  toQuery UpdateJob' {..} = mconcat ["namespaceId" =: _ujNamespaceId]
+instance Lude.ToQuery UpdateJob where
+  toQuery UpdateJob' {..} =
+    Lude.mconcat ["namespaceId" Lude.=: namespaceId]
 
--- | /See:/ 'updateJobResponse' smart constructor.
+-- | /See:/ 'mkUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
-updateJobResponse ::
+mkUpdateJobResponse ::
   UpdateJobResponse
-updateJobResponse = UpdateJobResponse'
-
-instance NFData UpdateJobResponse
+mkUpdateJobResponse = UpdateJobResponse'

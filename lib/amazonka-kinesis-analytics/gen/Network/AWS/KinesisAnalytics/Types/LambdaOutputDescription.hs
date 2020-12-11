@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.LambdaOutputDescription where
+module Network.AWS.KinesisAnalytics.Types.LambdaOutputDescription
+  ( LambdaOutputDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLambdaOutputDescription,
+
+    -- * Lenses
+    lodResourceARN,
+    lodRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | For an application output, describes the AWS Lambda function configured as its destination.
 --
---
---
--- /See:/ 'lambdaOutputDescription' smart constructor.
+-- /See:/ 'mkLambdaOutputDescription' smart constructor.
 data LambdaOutputDescription = LambdaOutputDescription'
-  { _lodResourceARN ::
-      !(Maybe Text),
-    _lodRoleARN :: !(Maybe Text)
+  { resourceARN ::
+      Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaOutputDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lodResourceARN' - Amazon Resource Name (ARN) of the destination Lambda function.
---
--- * 'lodRoleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function.
-lambdaOutputDescription ::
+-- * 'resourceARN' - Amazon Resource Name (ARN) of the destination Lambda function.
+-- * 'roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function.
+mkLambdaOutputDescription ::
   LambdaOutputDescription
-lambdaOutputDescription =
+mkLambdaOutputDescription =
   LambdaOutputDescription'
-    { _lodResourceARN = Nothing,
-      _lodRoleARN = Nothing
+    { resourceARN = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the destination Lambda function.
-lodResourceARN :: Lens' LambdaOutputDescription (Maybe Text)
-lodResourceARN = lens _lodResourceARN (\s a -> s {_lodResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lodResourceARN :: Lens.Lens' LambdaOutputDescription (Lude.Maybe Lude.Text)
+lodResourceARN = Lens.lens (resourceARN :: LambdaOutputDescription -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: LambdaOutputDescription)
+{-# DEPRECATED lodResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function.
-lodRoleARN :: Lens' LambdaOutputDescription (Maybe Text)
-lodRoleARN = lens _lodRoleARN (\s a -> s {_lodRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lodRoleARN :: Lens.Lens' LambdaOutputDescription (Lude.Maybe Lude.Text)
+lodRoleARN = Lens.lens (roleARN :: LambdaOutputDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: LambdaOutputDescription)
+{-# DEPRECATED lodRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON LambdaOutputDescription where
+instance Lude.FromJSON LambdaOutputDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "LambdaOutputDescription"
       ( \x ->
           LambdaOutputDescription'
-            <$> (x .:? "ResourceARN") <*> (x .:? "RoleARN")
+            Lude.<$> (x Lude..:? "ResourceARN") Lude.<*> (x Lude..:? "RoleARN")
       )
-
-instance Hashable LambdaOutputDescription
-
-instance NFData LambdaOutputDescription

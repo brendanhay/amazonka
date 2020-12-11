@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.MinimumProtocolVersion where
+module Network.AWS.CloudFront.Types.MinimumProtocolVersion
+  ( MinimumProtocolVersion
+      ( MinimumProtocolVersion',
+        MPVSSLV3,
+        MPVTLSV1,
+        MPVTLSV12016,
+        MPVTLSV1_12016,
+        MPVTLSV1_22018,
+        MPVTLSV1_22019
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MinimumProtocolVersion
-  = MPVSSLV3
-  | MPVTLSV1
-  | MPVTLSV12016
-  | MPVTLSV1_12016
-  | MPVTLSV1_22018
-  | MPVTLSV1_22019
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MinimumProtocolVersion = MinimumProtocolVersion' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MinimumProtocolVersion where
-  parser =
-    takeLowerText >>= \case
-      "sslv3" -> pure MPVSSLV3
-      "tlsv1" -> pure MPVTLSV1
-      "tlsv1_2016" -> pure MPVTLSV12016
-      "tlsv1.1_2016" -> pure MPVTLSV1_12016
-      "tlsv1.2_2018" -> pure MPVTLSV1_22018
-      "tlsv1.2_2019" -> pure MPVTLSV1_22019
-      e ->
-        fromTextError $
-          "Failure parsing MinimumProtocolVersion from value: '" <> e
-            <> "'. Accepted values: sslv3, tlsv1, tlsv1_2016, tlsv1.1_2016, tlsv1.2_2018, tlsv1.2_2019"
+pattern MPVSSLV3 :: MinimumProtocolVersion
+pattern MPVSSLV3 = MinimumProtocolVersion' "SSLv3"
 
-instance ToText MinimumProtocolVersion where
-  toText = \case
-    MPVSSLV3 -> "SSLv3"
-    MPVTLSV1 -> "TLSv1"
-    MPVTLSV12016 -> "TLSv1_2016"
-    MPVTLSV1_12016 -> "TLSv1.1_2016"
-    MPVTLSV1_22018 -> "TLSv1.2_2018"
-    MPVTLSV1_22019 -> "TLSv1.2_2019"
+pattern MPVTLSV1 :: MinimumProtocolVersion
+pattern MPVTLSV1 = MinimumProtocolVersion' "TLSv1"
 
-instance Hashable MinimumProtocolVersion
+pattern MPVTLSV12016 :: MinimumProtocolVersion
+pattern MPVTLSV12016 = MinimumProtocolVersion' "TLSv1_2016"
 
-instance NFData MinimumProtocolVersion
+pattern MPVTLSV1_12016 :: MinimumProtocolVersion
+pattern MPVTLSV1_12016 = MinimumProtocolVersion' "TLSv1.1_2016"
 
-instance ToByteString MinimumProtocolVersion
+pattern MPVTLSV1_22018 :: MinimumProtocolVersion
+pattern MPVTLSV1_22018 = MinimumProtocolVersion' "TLSv1.2_2018"
 
-instance ToQuery MinimumProtocolVersion
+pattern MPVTLSV1_22019 :: MinimumProtocolVersion
+pattern MPVTLSV1_22019 = MinimumProtocolVersion' "TLSv1.2_2019"
 
-instance ToHeader MinimumProtocolVersion
-
-instance FromXML MinimumProtocolVersion where
-  parseXML = parseXMLText "MinimumProtocolVersion"
-
-instance ToXML MinimumProtocolVersion where
-  toXML = toXMLText
+{-# COMPLETE
+  MPVSSLV3,
+  MPVTLSV1,
+  MPVTLSV12016,
+  MPVTLSV1_12016,
+  MPVTLSV1_22018,
+  MPVTLSV1_22019,
+  MinimumProtocolVersion'
+  #-}

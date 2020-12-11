@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EndpointsResponse where
+module Network.AWS.Pinpoint.Types.EndpointsResponse
+  ( EndpointsResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEndpointsResponse,
+
+    -- * Lenses
+    eItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about all the endpoints that are associated with a user ID.
 --
---
---
--- /See:/ 'endpointsResponse' smart constructor.
+-- /See:/ 'mkEndpointsResponse' smart constructor.
 newtype EndpointsResponse = EndpointsResponse'
-  { _eItem ::
+  { item ::
       [EndpointResponse]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eItem' - An array of responses, one for each endpoint that's associated with the user ID.
-endpointsResponse ::
+-- * 'item' - An array of responses, one for each endpoint that's associated with the user ID.
+mkEndpointsResponse ::
   EndpointsResponse
-endpointsResponse = EndpointsResponse' {_eItem = mempty}
+mkEndpointsResponse = EndpointsResponse' {item = Lude.mempty}
 
 -- | An array of responses, one for each endpoint that's associated with the user ID.
-eItem :: Lens' EndpointsResponse [EndpointResponse]
-eItem = lens _eItem (\s a -> s {_eItem = a}) . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eItem :: Lens.Lens' EndpointsResponse [EndpointResponse]
+eItem = Lens.lens (item :: EndpointsResponse -> [EndpointResponse]) (\s a -> s {item = a} :: EndpointsResponse)
+{-# DEPRECATED eItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON EndpointsResponse where
+instance Lude.FromJSON EndpointsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "EndpointsResponse"
-      (\x -> EndpointsResponse' <$> (x .:? "Item" .!= mempty))
-
-instance Hashable EndpointsResponse
-
-instance NFData EndpointsResponse
+      ( \x ->
+          EndpointsResponse'
+            Lude.<$> (x Lude..:? "Item" Lude..!= Lude.mempty)
+      )

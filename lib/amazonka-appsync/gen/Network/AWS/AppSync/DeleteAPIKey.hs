@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,123 @@
 --
 -- Deletes an API key.
 module Network.AWS.AppSync.DeleteAPIKey
-  ( -- * Creating a Request
-    deleteAPIKey,
-    DeleteAPIKey,
+  ( -- * Creating a request
+    DeleteAPIKey (..),
+    mkDeleteAPIKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dakApiId,
     dakId,
 
-    -- * Destructuring the Response
-    deleteAPIKeyResponse,
-    DeleteAPIKeyResponse,
+    -- * Destructuring the response
+    DeleteAPIKeyResponse (..),
+    mkDeleteAPIKeyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dakrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAPIKey' smart constructor.
+-- | /See:/ 'mkDeleteAPIKey' smart constructor.
 data DeleteAPIKey = DeleteAPIKey'
-  { _dakApiId :: !Text,
-    _dakId :: !Text
+  { apiId :: Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPIKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dakApiId' - The API ID.
---
--- * 'dakId' - The ID for the API key.
-deleteAPIKey ::
-  -- | 'dakApiId'
-  Text ->
-  -- | 'dakId'
-  Text ->
+-- * 'apiId' - The API ID.
+-- * 'id' - The ID for the API key.
+mkDeleteAPIKey ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   DeleteAPIKey
-deleteAPIKey pApiId_ pId_ =
-  DeleteAPIKey' {_dakApiId = pApiId_, _dakId = pId_}
+mkDeleteAPIKey pApiId_ pId_ =
+  DeleteAPIKey' {apiId = pApiId_, id = pId_}
 
 -- | The API ID.
-dakApiId :: Lens' DeleteAPIKey Text
-dakApiId = lens _dakApiId (\s a -> s {_dakApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dakApiId :: Lens.Lens' DeleteAPIKey Lude.Text
+dakApiId = Lens.lens (apiId :: DeleteAPIKey -> Lude.Text) (\s a -> s {apiId = a} :: DeleteAPIKey)
+{-# DEPRECATED dakApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The ID for the API key.
-dakId :: Lens' DeleteAPIKey Text
-dakId = lens _dakId (\s a -> s {_dakId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dakId :: Lens.Lens' DeleteAPIKey Lude.Text
+dakId = Lens.lens (id :: DeleteAPIKey -> Lude.Text) (\s a -> s {id = a} :: DeleteAPIKey)
+{-# DEPRECATED dakId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteAPIKey where
+instance Lude.AWSRequest DeleteAPIKey where
   type Rs DeleteAPIKey = DeleteAPIKeyResponse
-  request = delete appSync
+  request = Req.delete appSyncService
   response =
-    receiveEmpty
-      (\s h x -> DeleteAPIKeyResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteAPIKey
-
-instance NFData DeleteAPIKey
-
-instance ToHeaders DeleteAPIKey where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteAPIKeyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath DeleteAPIKey where
+instance Lude.ToHeaders DeleteAPIKey where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToPath DeleteAPIKey where
   toPath DeleteAPIKey' {..} =
-    mconcat ["/v1/apis/", toBS _dakApiId, "/apikeys/", toBS _dakId]
+    Lude.mconcat
+      ["/v1/apis/", Lude.toBS apiId, "/apikeys/", Lude.toBS id]
 
-instance ToQuery DeleteAPIKey where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAPIKey where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAPIKeyResponse' smart constructor.
+-- | /See:/ 'mkDeleteAPIKeyResponse' smart constructor.
 newtype DeleteAPIKeyResponse = DeleteAPIKeyResponse'
-  { _dakrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAPIKeyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dakrsResponseStatus' - -- | The response status code.
-deleteAPIKeyResponse ::
-  -- | 'dakrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteAPIKeyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAPIKeyResponse
-deleteAPIKeyResponse pResponseStatus_ =
-  DeleteAPIKeyResponse' {_dakrsResponseStatus = pResponseStatus_}
+mkDeleteAPIKeyResponse pResponseStatus_ =
+  DeleteAPIKeyResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dakrsResponseStatus :: Lens' DeleteAPIKeyResponse Int
-dakrsResponseStatus = lens _dakrsResponseStatus (\s a -> s {_dakrsResponseStatus = a})
-
-instance NFData DeleteAPIKeyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dakrsResponseStatus :: Lens.Lens' DeleteAPIKeyResponse Lude.Int
+dakrsResponseStatus = Lens.lens (responseStatus :: DeleteAPIKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAPIKeyResponse)
+{-# DEPRECATED dakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

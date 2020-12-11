@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.SSEType where
+module Network.AWS.DynamoDB.Types.SSEType
+  ( SSEType
+      ( SSEType',
+        AES256,
+        KMS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SSEType
-  = AES256
-  | KMS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SSEType = SSEType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SSEType where
-  parser =
-    takeLowerText >>= \case
-      "aes256" -> pure AES256
-      "kms" -> pure KMS
-      e ->
-        fromTextError $
-          "Failure parsing SSEType from value: '" <> e
-            <> "'. Accepted values: aes256, kms"
+pattern AES256 :: SSEType
+pattern AES256 = SSEType' "AES256"
 
-instance ToText SSEType where
-  toText = \case
-    AES256 -> "AES256"
-    KMS -> "KMS"
+pattern KMS :: SSEType
+pattern KMS = SSEType' "KMS"
 
-instance Hashable SSEType
-
-instance NFData SSEType
-
-instance ToByteString SSEType
-
-instance ToQuery SSEType
-
-instance ToHeader SSEType
-
-instance ToJSON SSEType where
-  toJSON = toJSONText
-
-instance FromJSON SSEType where
-  parseJSON = parseJSONText "SSEType"
+{-# COMPLETE
+  AES256,
+  KMS,
+  SSEType'
+  #-}

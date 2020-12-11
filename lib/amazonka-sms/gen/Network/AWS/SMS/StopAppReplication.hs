@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,115 @@
 --
 -- Stops replicating the specified application by deleting the replication job for each server in the application.
 module Network.AWS.SMS.StopAppReplication
-  ( -- * Creating a Request
-    stopAppReplication,
-    StopAppReplication,
+  ( -- * Creating a request
+    StopAppReplication (..),
+    mkStopAppReplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sAppId,
 
-    -- * Destructuring the Response
-    stopAppReplicationResponse,
-    StopAppReplicationResponse,
+    -- * Destructuring the response
+    StopAppReplicationResponse (..),
+    mkStopAppReplicationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sarrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'stopAppReplication' smart constructor.
+-- | /See:/ 'mkStopAppReplication' smart constructor.
 newtype StopAppReplication = StopAppReplication'
-  { _sAppId ::
-      Maybe Text
+  { appId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAppReplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sAppId' - The ID of the application.
-stopAppReplication ::
+-- * 'appId' - The ID of the application.
+mkStopAppReplication ::
   StopAppReplication
-stopAppReplication = StopAppReplication' {_sAppId = Nothing}
+mkStopAppReplication = StopAppReplication' {appId = Lude.Nothing}
 
 -- | The ID of the application.
-sAppId :: Lens' StopAppReplication (Maybe Text)
-sAppId = lens _sAppId (\s a -> s {_sAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAppId :: Lens.Lens' StopAppReplication (Lude.Maybe Lude.Text)
+sAppId = Lens.lens (appId :: StopAppReplication -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: StopAppReplication)
+{-# DEPRECATED sAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance AWSRequest StopAppReplication where
+instance Lude.AWSRequest StopAppReplication where
   type Rs StopAppReplication = StopAppReplicationResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveEmpty
-      (\s h x -> StopAppReplicationResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StopAppReplicationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StopAppReplication
-
-instance NFData StopAppReplication
-
-instance ToHeaders StopAppReplication where
+instance Lude.ToHeaders StopAppReplication where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.StopAppReplication" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.StopAppReplication" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopAppReplication where
+instance Lude.ToJSON StopAppReplication where
   toJSON StopAppReplication' {..} =
-    object (catMaybes [("appId" .=) <$> _sAppId])
+    Lude.object (Lude.catMaybes [("appId" Lude..=) Lude.<$> appId])
 
-instance ToPath StopAppReplication where
-  toPath = const "/"
+instance Lude.ToPath StopAppReplication where
+  toPath = Lude.const "/"
 
-instance ToQuery StopAppReplication where
-  toQuery = const mempty
+instance Lude.ToQuery StopAppReplication where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopAppReplicationResponse' smart constructor.
+-- | /See:/ 'mkStopAppReplicationResponse' smart constructor.
 newtype StopAppReplicationResponse = StopAppReplicationResponse'
-  { _sarrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAppReplicationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sarrsResponseStatus' - -- | The response status code.
-stopAppReplicationResponse ::
-  -- | 'sarrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopAppReplicationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopAppReplicationResponse
-stopAppReplicationResponse pResponseStatus_ =
-  StopAppReplicationResponse'
-    { _sarrsResponseStatus =
-        pResponseStatus_
-    }
+mkStopAppReplicationResponse pResponseStatus_ =
+  StopAppReplicationResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-sarrsResponseStatus :: Lens' StopAppReplicationResponse Int
-sarrsResponseStatus = lens _sarrsResponseStatus (\s a -> s {_sarrsResponseStatus = a})
-
-instance NFData StopAppReplicationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarrsResponseStatus :: Lens.Lens' StopAppReplicationResponse Lude.Int
+sarrsResponseStatus = Lens.lens (responseStatus :: StopAppReplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopAppReplicationResponse)
+{-# DEPRECATED sarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

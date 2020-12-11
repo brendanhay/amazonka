@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,154 +14,165 @@
 --
 -- Permanently deletes an 'XssMatchSet' . You can't delete an @XssMatchSet@ if it's still used in any @Rules@ or if it still contains any 'XssMatchTuple' objects.
 --
---
 -- If you just want to remove an @XssMatchSet@ from a @Rule@ , use 'UpdateRule' .
---
 -- To permanently delete an @XssMatchSet@ from AWS WAF, perform the following steps:
 --
 --     * Update the @XssMatchSet@ to remove filters, if any. For more information, see 'UpdateXssMatchSet' .
 --
+--
 --     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteXssMatchSet@ request.
+--
 --
 --     * Submit a @DeleteXssMatchSet@ request.
 module Network.AWS.WAFRegional.DeleteXSSMatchSet
-  ( -- * Creating a Request
-    deleteXSSMatchSet,
-    DeleteXSSMatchSet,
+  ( -- * Creating a request
+    DeleteXSSMatchSet (..),
+    mkDeleteXSSMatchSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dxmsXSSMatchSetId,
     dxmsChangeToken,
 
-    -- * Destructuring the Response
-    deleteXSSMatchSetResponse,
-    DeleteXSSMatchSetResponse,
+    -- * Destructuring the response
+    DeleteXSSMatchSetResponse (..),
+    mkDeleteXSSMatchSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dxmsrsChangeToken,
     dxmsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
 -- | A request to delete an 'XssMatchSet' from AWS WAF.
 --
---
---
--- /See:/ 'deleteXSSMatchSet' smart constructor.
+-- /See:/ 'mkDeleteXSSMatchSet' smart constructor.
 data DeleteXSSMatchSet = DeleteXSSMatchSet'
-  { _dxmsXSSMatchSetId ::
-      !Text,
-    _dxmsChangeToken :: !Text
+  { xssMatchSetId ::
+      Lude.Text,
+    changeToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteXSSMatchSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dxmsXSSMatchSetId' - The @XssMatchSetId@ of the 'XssMatchSet' that you want to delete. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
---
--- * 'dxmsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-deleteXSSMatchSet ::
-  -- | 'dxmsXSSMatchSetId'
-  Text ->
-  -- | 'dxmsChangeToken'
-  Text ->
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'xssMatchSetId' - The @XssMatchSetId@ of the 'XssMatchSet' that you want to delete. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
+mkDeleteXSSMatchSet ::
+  -- | 'xssMatchSetId'
+  Lude.Text ->
+  -- | 'changeToken'
+  Lude.Text ->
   DeleteXSSMatchSet
-deleteXSSMatchSet pXSSMatchSetId_ pChangeToken_ =
+mkDeleteXSSMatchSet pXSSMatchSetId_ pChangeToken_ =
   DeleteXSSMatchSet'
-    { _dxmsXSSMatchSetId = pXSSMatchSetId_,
-      _dxmsChangeToken = pChangeToken_
+    { xssMatchSetId = pXSSMatchSetId_,
+      changeToken = pChangeToken_
     }
 
 -- | The @XssMatchSetId@ of the 'XssMatchSet' that you want to delete. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
-dxmsXSSMatchSetId :: Lens' DeleteXSSMatchSet Text
-dxmsXSSMatchSetId = lens _dxmsXSSMatchSetId (\s a -> s {_dxmsXSSMatchSetId = a})
+--
+-- /Note:/ Consider using 'xssMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dxmsXSSMatchSetId :: Lens.Lens' DeleteXSSMatchSet Lude.Text
+dxmsXSSMatchSetId = Lens.lens (xssMatchSetId :: DeleteXSSMatchSet -> Lude.Text) (\s a -> s {xssMatchSetId = a} :: DeleteXSSMatchSet)
+{-# DEPRECATED dxmsXSSMatchSetId "Use generic-lens or generic-optics with 'xssMatchSetId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-dxmsChangeToken :: Lens' DeleteXSSMatchSet Text
-dxmsChangeToken = lens _dxmsChangeToken (\s a -> s {_dxmsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dxmsChangeToken :: Lens.Lens' DeleteXSSMatchSet Lude.Text
+dxmsChangeToken = Lens.lens (changeToken :: DeleteXSSMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteXSSMatchSet)
+{-# DEPRECATED dxmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance AWSRequest DeleteXSSMatchSet where
+instance Lude.AWSRequest DeleteXSSMatchSet where
   type Rs DeleteXSSMatchSet = DeleteXSSMatchSetResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteXSSMatchSetResponse'
-            <$> (x .?> "ChangeToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteXSSMatchSet
-
-instance NFData DeleteXSSMatchSet
-
-instance ToHeaders DeleteXSSMatchSet where
+instance Lude.ToHeaders DeleteXSSMatchSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.DeleteXssMatchSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_Regional_20161128.DeleteXssMatchSet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteXSSMatchSet where
+instance Lude.ToJSON DeleteXSSMatchSet where
   toJSON DeleteXSSMatchSet' {..} =
-    object
-      ( catMaybes
-          [ Just ("XssMatchSetId" .= _dxmsXSSMatchSetId),
-            Just ("ChangeToken" .= _dxmsChangeToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("XssMatchSetId" Lude..= xssMatchSetId),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
-instance ToPath DeleteXSSMatchSet where
-  toPath = const "/"
+instance Lude.ToPath DeleteXSSMatchSet where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteXSSMatchSet where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteXSSMatchSet where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response to a request to delete an 'XssMatchSet' from AWS WAF.
 --
---
---
--- /See:/ 'deleteXSSMatchSetResponse' smart constructor.
+-- /See:/ 'mkDeleteXSSMatchSetResponse' smart constructor.
 data DeleteXSSMatchSetResponse = DeleteXSSMatchSetResponse'
-  { _dxmsrsChangeToken ::
-      !(Maybe Text),
-    _dxmsrsResponseStatus :: !Int
+  { changeToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteXSSMatchSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dxmsrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'dxmsrsResponseStatus' - -- | The response status code.
-deleteXSSMatchSetResponse ::
-  -- | 'dxmsrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+mkDeleteXSSMatchSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteXSSMatchSetResponse
-deleteXSSMatchSetResponse pResponseStatus_ =
+mkDeleteXSSMatchSetResponse pResponseStatus_ =
   DeleteXSSMatchSetResponse'
-    { _dxmsrsChangeToken = Nothing,
-      _dxmsrsResponseStatus = pResponseStatus_
+    { changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-dxmsrsChangeToken :: Lens' DeleteXSSMatchSetResponse (Maybe Text)
-dxmsrsChangeToken = lens _dxmsrsChangeToken (\s a -> s {_dxmsrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dxmsrsChangeToken :: Lens.Lens' DeleteXSSMatchSetResponse (Lude.Maybe Lude.Text)
+dxmsrsChangeToken = Lens.lens (changeToken :: DeleteXSSMatchSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteXSSMatchSetResponse)
+{-# DEPRECATED dxmsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-dxmsrsResponseStatus :: Lens' DeleteXSSMatchSetResponse Int
-dxmsrsResponseStatus = lens _dxmsrsResponseStatus (\s a -> s {_dxmsrsResponseStatus = a})
-
-instance NFData DeleteXSSMatchSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dxmsrsResponseStatus :: Lens.Lens' DeleteXSSMatchSetResponse Lude.Int
+dxmsrsResponseStatus = Lens.lens (responseStatus :: DeleteXSSMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteXSSMatchSetResponse)
+{-# DEPRECATED dxmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

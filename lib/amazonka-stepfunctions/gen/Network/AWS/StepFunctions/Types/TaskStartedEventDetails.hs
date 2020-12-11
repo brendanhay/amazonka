@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.TaskStartedEventDetails where
+module Network.AWS.StepFunctions.Types.TaskStartedEventDetails
+  ( TaskStartedEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTaskStartedEventDetails,
+
+    -- * Lenses
+    tsedResourceType,
+    tsedResource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about the start of a task during an execution.
 --
---
---
--- /See:/ 'taskStartedEventDetails' smart constructor.
+-- /See:/ 'mkTaskStartedEventDetails' smart constructor.
 data TaskStartedEventDetails = TaskStartedEventDetails'
-  { _tsedResourceType ::
-      !Text,
-    _tsedResource :: !Text
+  { resourceType ::
+      Lude.Text,
+    resource :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskStartedEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsedResourceType' - The action of the resource called by a task state.
---
--- * 'tsedResource' - The service name of the resource in a task state.
-taskStartedEventDetails ::
-  -- | 'tsedResourceType'
-  Text ->
-  -- | 'tsedResource'
-  Text ->
+-- * 'resource' - The service name of the resource in a task state.
+-- * 'resourceType' - The action of the resource called by a task state.
+mkTaskStartedEventDetails ::
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'resource'
+  Lude.Text ->
   TaskStartedEventDetails
-taskStartedEventDetails pResourceType_ pResource_ =
+mkTaskStartedEventDetails pResourceType_ pResource_ =
   TaskStartedEventDetails'
-    { _tsedResourceType = pResourceType_,
-      _tsedResource = pResource_
+    { resourceType = pResourceType_,
+      resource = pResource_
     }
 
 -- | The action of the resource called by a task state.
-tsedResourceType :: Lens' TaskStartedEventDetails Text
-tsedResourceType = lens _tsedResourceType (\s a -> s {_tsedResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsedResourceType :: Lens.Lens' TaskStartedEventDetails Lude.Text
+tsedResourceType = Lens.lens (resourceType :: TaskStartedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskStartedEventDetails)
+{-# DEPRECATED tsedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The service name of the resource in a task state.
-tsedResource :: Lens' TaskStartedEventDetails Text
-tsedResource = lens _tsedResource (\s a -> s {_tsedResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsedResource :: Lens.Lens' TaskStartedEventDetails Lude.Text
+tsedResource = Lens.lens (resource :: TaskStartedEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskStartedEventDetails)
+{-# DEPRECATED tsedResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance FromJSON TaskStartedEventDetails where
+instance Lude.FromJSON TaskStartedEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "TaskStartedEventDetails"
       ( \x ->
           TaskStartedEventDetails'
-            <$> (x .: "resourceType") <*> (x .: "resource")
+            Lude.<$> (x Lude..: "resourceType") Lude.<*> (x Lude..: "resource")
       )
-
-instance Hashable TaskStartedEventDetails
-
-instance NFData TaskStartedEventDetails

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.Edge where
+module Network.AWS.XRay.Types.Edge
+  ( Edge (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEdge,
+
+    -- * Lenses
+    eStartTime,
+    eAliases,
+    eResponseTimeHistogram,
+    eReferenceId,
+    eEndTime,
+    eSummaryStatistics,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.Alias
 import Network.AWS.XRay.Types.EdgeStatistics
 import Network.AWS.XRay.Types.HistogramEntry
 
 -- | Information about a connection between two services.
 --
---
---
--- /See:/ 'edge' smart constructor.
+-- /See:/ 'mkEdge' smart constructor.
 data Edge = Edge'
-  { _eStartTime :: !(Maybe POSIX),
-    _eAliases :: !(Maybe [Alias]),
-    _eResponseTimeHistogram :: !(Maybe [HistogramEntry]),
-    _eReferenceId :: !(Maybe Int),
-    _eEndTime :: !(Maybe POSIX),
-    _eSummaryStatistics :: !(Maybe EdgeStatistics)
+  { startTime :: Lude.Maybe Lude.Timestamp,
+    aliases :: Lude.Maybe [Alias],
+    responseTimeHistogram :: Lude.Maybe [HistogramEntry],
+    referenceId :: Lude.Maybe Lude.Int,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    summaryStatistics :: Lude.Maybe EdgeStatistics
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Edge' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eStartTime' - The start time of the first segment on the edge.
---
--- * 'eAliases' - Aliases for the edge.
---
--- * 'eResponseTimeHistogram' - A histogram that maps the spread of client response times on an edge.
---
--- * 'eReferenceId' - Identifier of the edge. Unique within a service map.
---
--- * 'eEndTime' - The end time of the last segment on the edge.
---
--- * 'eSummaryStatistics' - Response statistics for segments on the edge.
-edge ::
+-- * 'aliases' - Aliases for the edge.
+-- * 'endTime' - The end time of the last segment on the edge.
+-- * 'referenceId' - Identifier of the edge. Unique within a service map.
+-- * 'responseTimeHistogram' - A histogram that maps the spread of client response times on an edge.
+-- * 'startTime' - The start time of the first segment on the edge.
+-- * 'summaryStatistics' - Response statistics for segments on the edge.
+mkEdge ::
   Edge
-edge =
+mkEdge =
   Edge'
-    { _eStartTime = Nothing,
-      _eAliases = Nothing,
-      _eResponseTimeHistogram = Nothing,
-      _eReferenceId = Nothing,
-      _eEndTime = Nothing,
-      _eSummaryStatistics = Nothing
+    { startTime = Lude.Nothing,
+      aliases = Lude.Nothing,
+      responseTimeHistogram = Lude.Nothing,
+      referenceId = Lude.Nothing,
+      endTime = Lude.Nothing,
+      summaryStatistics = Lude.Nothing
     }
 
 -- | The start time of the first segment on the edge.
-eStartTime :: Lens' Edge (Maybe UTCTime)
-eStartTime = lens _eStartTime (\s a -> s {_eStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eStartTime :: Lens.Lens' Edge (Lude.Maybe Lude.Timestamp)
+eStartTime = Lens.lens (startTime :: Edge -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: Edge)
+{-# DEPRECATED eStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Aliases for the edge.
-eAliases :: Lens' Edge [Alias]
-eAliases = lens _eAliases (\s a -> s {_eAliases = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'aliases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eAliases :: Lens.Lens' Edge (Lude.Maybe [Alias])
+eAliases = Lens.lens (aliases :: Edge -> Lude.Maybe [Alias]) (\s a -> s {aliases = a} :: Edge)
+{-# DEPRECATED eAliases "Use generic-lens or generic-optics with 'aliases' instead." #-}
 
 -- | A histogram that maps the spread of client response times on an edge.
-eResponseTimeHistogram :: Lens' Edge [HistogramEntry]
-eResponseTimeHistogram = lens _eResponseTimeHistogram (\s a -> s {_eResponseTimeHistogram = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'responseTimeHistogram' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eResponseTimeHistogram :: Lens.Lens' Edge (Lude.Maybe [HistogramEntry])
+eResponseTimeHistogram = Lens.lens (responseTimeHistogram :: Edge -> Lude.Maybe [HistogramEntry]) (\s a -> s {responseTimeHistogram = a} :: Edge)
+{-# DEPRECATED eResponseTimeHistogram "Use generic-lens or generic-optics with 'responseTimeHistogram' instead." #-}
 
 -- | Identifier of the edge. Unique within a service map.
-eReferenceId :: Lens' Edge (Maybe Int)
-eReferenceId = lens _eReferenceId (\s a -> s {_eReferenceId = a})
+--
+-- /Note:/ Consider using 'referenceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eReferenceId :: Lens.Lens' Edge (Lude.Maybe Lude.Int)
+eReferenceId = Lens.lens (referenceId :: Edge -> Lude.Maybe Lude.Int) (\s a -> s {referenceId = a} :: Edge)
+{-# DEPRECATED eReferenceId "Use generic-lens or generic-optics with 'referenceId' instead." #-}
 
 -- | The end time of the last segment on the edge.
-eEndTime :: Lens' Edge (Maybe UTCTime)
-eEndTime = lens _eEndTime (\s a -> s {_eEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEndTime :: Lens.Lens' Edge (Lude.Maybe Lude.Timestamp)
+eEndTime = Lens.lens (endTime :: Edge -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: Edge)
+{-# DEPRECATED eEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | Response statistics for segments on the edge.
-eSummaryStatistics :: Lens' Edge (Maybe EdgeStatistics)
-eSummaryStatistics = lens _eSummaryStatistics (\s a -> s {_eSummaryStatistics = a})
+--
+-- /Note:/ Consider using 'summaryStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSummaryStatistics :: Lens.Lens' Edge (Lude.Maybe EdgeStatistics)
+eSummaryStatistics = Lens.lens (summaryStatistics :: Edge -> Lude.Maybe EdgeStatistics) (\s a -> s {summaryStatistics = a} :: Edge)
+{-# DEPRECATED eSummaryStatistics "Use generic-lens or generic-optics with 'summaryStatistics' instead." #-}
 
-instance FromJSON Edge where
+instance Lude.FromJSON Edge where
   parseJSON =
-    withObject
+    Lude.withObject
       "Edge"
       ( \x ->
           Edge'
-            <$> (x .:? "StartTime")
-            <*> (x .:? "Aliases" .!= mempty)
-            <*> (x .:? "ResponseTimeHistogram" .!= mempty)
-            <*> (x .:? "ReferenceId")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "SummaryStatistics")
+            Lude.<$> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "Aliases" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResponseTimeHistogram" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ReferenceId")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "SummaryStatistics")
       )
-
-instance Hashable Edge
-
-instance NFData Edge

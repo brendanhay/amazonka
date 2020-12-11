@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes one or more of your NAT gateways.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeNatGateways
-  ( -- * Creating a Request
-    describeNatGateways,
-    DescribeNatGateways,
+  ( -- * Creating a request
+    DescribeNatGateways (..),
+    mkDescribeNatGateways,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dngNatGatewayIds,
     dngNextToken,
     dngFilter,
     dngDryRun,
     dngMaxResults,
 
-    -- * Destructuring the Response
-    describeNatGatewaysResponse,
-    DescribeNatGatewaysResponse,
+    -- * Destructuring the response
+    DescribeNatGatewaysResponse (..),
+    mkDescribeNatGatewaysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dngrsNatGateways,
     dngrsNextToken,
     dngrsResponseStatus,
@@ -46,146 +39,214 @@ module Network.AWS.EC2.DescribeNatGateways
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeNatGateways' smart constructor.
+-- | /See:/ 'mkDescribeNatGateways' smart constructor.
 data DescribeNatGateways = DescribeNatGateways'
-  { _dngNatGatewayIds ::
-      !(Maybe [Text]),
-    _dngNextToken :: !(Maybe Text),
-    _dngFilter :: !(Maybe [Filter]),
-    _dngDryRun :: !(Maybe Bool),
-    _dngMaxResults :: !(Maybe Nat)
+  { natGatewayIds ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe [Filter],
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNatGateways' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filter' - One or more filters.
 --
--- * 'dngNatGatewayIds' - One or more NAT gateway IDs.
 --
--- * 'dngNextToken' - The token for the next page of results.
+--     * @nat-gateway-id@ - The ID of the NAT gateway.
 --
--- * 'dngFilter' - One or more filters.     * @nat-gateway-id@ - The ID of the NAT gateway.     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
 --
--- * 'dngDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).
 --
--- * 'dngMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-describeNatGateways ::
+--
+--     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+--     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
+--
+--
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'natGatewayIds' - One or more NAT gateway IDs.
+-- * 'nextToken' - The token for the next page of results.
+mkDescribeNatGateways ::
   DescribeNatGateways
-describeNatGateways =
+mkDescribeNatGateways =
   DescribeNatGateways'
-    { _dngNatGatewayIds = Nothing,
-      _dngNextToken = Nothing,
-      _dngFilter = Nothing,
-      _dngDryRun = Nothing,
-      _dngMaxResults = Nothing
+    { natGatewayIds = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | One or more NAT gateway IDs.
-dngNatGatewayIds :: Lens' DescribeNatGateways [Text]
-dngNatGatewayIds = lens _dngNatGatewayIds (\s a -> s {_dngNatGatewayIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'natGatewayIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngNatGatewayIds :: Lens.Lens' DescribeNatGateways (Lude.Maybe [Lude.Text])
+dngNatGatewayIds = Lens.lens (natGatewayIds :: DescribeNatGateways -> Lude.Maybe [Lude.Text]) (\s a -> s {natGatewayIds = a} :: DescribeNatGateways)
+{-# DEPRECATED dngNatGatewayIds "Use generic-lens or generic-optics with 'natGatewayIds' instead." #-}
 
 -- | The token for the next page of results.
-dngNextToken :: Lens' DescribeNatGateways (Maybe Text)
-dngNextToken = lens _dngNextToken (\s a -> s {_dngNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngNextToken :: Lens.Lens' DescribeNatGateways (Lude.Maybe Lude.Text)
+dngNextToken = Lens.lens (nextToken :: DescribeNatGateways -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNatGateways)
+{-# DEPRECATED dngNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | One or more filters.     * @nat-gateway-id@ - The ID of the NAT gateway.     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
-dngFilter :: Lens' DescribeNatGateways [Filter]
-dngFilter = lens _dngFilter (\s a -> s {_dngFilter = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+--
+--     * @nat-gateway-id@ - The ID of the NAT gateway.
+--
+--
+--     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).
+--
+--
+--     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+--     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
+--
+--
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngFilter :: Lens.Lens' DescribeNatGateways (Lude.Maybe [Filter])
+dngFilter = Lens.lens (filter :: DescribeNatGateways -> Lude.Maybe [Filter]) (\s a -> s {filter = a} :: DescribeNatGateways)
+{-# DEPRECATED dngFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dngDryRun :: Lens' DescribeNatGateways (Maybe Bool)
-dngDryRun = lens _dngDryRun (\s a -> s {_dngDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngDryRun :: Lens.Lens' DescribeNatGateways (Lude.Maybe Lude.Bool)
+dngDryRun = Lens.lens (dryRun :: DescribeNatGateways -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeNatGateways)
+{-# DEPRECATED dngDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-dngMaxResults :: Lens' DescribeNatGateways (Maybe Natural)
-dngMaxResults = lens _dngMaxResults (\s a -> s {_dngMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngMaxResults :: Lens.Lens' DescribeNatGateways (Lude.Maybe Lude.Natural)
+dngMaxResults = Lens.lens (maxResults :: DescribeNatGateways -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeNatGateways)
+{-# DEPRECATED dngMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeNatGateways where
+instance Page.AWSPager DescribeNatGateways where
   page rq rs
-    | stop (rs ^. dngrsNextToken) = Nothing
-    | stop (rs ^. dngrsNatGateways) = Nothing
-    | otherwise = Just $ rq & dngNextToken .~ rs ^. dngrsNextToken
+    | Page.stop (rs Lens.^. dngrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dngrsNatGateways) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dngNextToken Lens..~ rs Lens.^. dngrsNextToken
 
-instance AWSRequest DescribeNatGateways where
+instance Lude.AWSRequest DescribeNatGateways where
   type Rs DescribeNatGateways = DescribeNatGatewaysResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeNatGatewaysResponse'
-            <$> (x .@? "natGatewaySet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "natGatewaySet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeNatGateways
+instance Lude.ToHeaders DescribeNatGateways where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeNatGateways
+instance Lude.ToPath DescribeNatGateways where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeNatGateways where
-  toHeaders = const mempty
-
-instance ToPath DescribeNatGateways where
-  toPath = const "/"
-
-instance ToQuery DescribeNatGateways where
+instance Lude.ToQuery DescribeNatGateways where
   toQuery DescribeNatGateways' {..} =
-    mconcat
-      [ "Action" =: ("DescribeNatGateways" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "NatGatewayId" <$> _dngNatGatewayIds),
-        "NextToken" =: _dngNextToken,
-        toQuery (toQueryList "Filter" <$> _dngFilter),
-        "DryRun" =: _dngDryRun,
-        "MaxResults" =: _dngMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeNatGateways" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          (Lude.toQueryList "NatGatewayId" Lude.<$> natGatewayIds),
+        "NextToken" Lude.=: nextToken,
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filter),
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeNatGatewaysResponse' smart constructor.
+-- | /See:/ 'mkDescribeNatGatewaysResponse' smart constructor.
 data DescribeNatGatewaysResponse = DescribeNatGatewaysResponse'
-  { _dngrsNatGateways ::
-      !(Maybe [NatGateway]),
-    _dngrsNextToken :: !(Maybe Text),
-    _dngrsResponseStatus :: !Int
+  { natGateways ::
+      Lude.Maybe [NatGateway],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNatGatewaysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dngrsNatGateways' - Information about the NAT gateways.
---
--- * 'dngrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dngrsResponseStatus' - -- | The response status code.
-describeNatGatewaysResponse ::
-  -- | 'dngrsResponseStatus'
-  Int ->
+-- * 'natGateways' - Information about the NAT gateways.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeNatGatewaysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeNatGatewaysResponse
-describeNatGatewaysResponse pResponseStatus_ =
+mkDescribeNatGatewaysResponse pResponseStatus_ =
   DescribeNatGatewaysResponse'
-    { _dngrsNatGateways = Nothing,
-      _dngrsNextToken = Nothing,
-      _dngrsResponseStatus = pResponseStatus_
+    { natGateways = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the NAT gateways.
-dngrsNatGateways :: Lens' DescribeNatGatewaysResponse [NatGateway]
-dngrsNatGateways = lens _dngrsNatGateways (\s a -> s {_dngrsNatGateways = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'natGateways' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngrsNatGateways :: Lens.Lens' DescribeNatGatewaysResponse (Lude.Maybe [NatGateway])
+dngrsNatGateways = Lens.lens (natGateways :: DescribeNatGatewaysResponse -> Lude.Maybe [NatGateway]) (\s a -> s {natGateways = a} :: DescribeNatGatewaysResponse)
+{-# DEPRECATED dngrsNatGateways "Use generic-lens or generic-optics with 'natGateways' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dngrsNextToken :: Lens' DescribeNatGatewaysResponse (Maybe Text)
-dngrsNextToken = lens _dngrsNextToken (\s a -> s {_dngrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngrsNextToken :: Lens.Lens' DescribeNatGatewaysResponse (Lude.Maybe Lude.Text)
+dngrsNextToken = Lens.lens (nextToken :: DescribeNatGatewaysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNatGatewaysResponse)
+{-# DEPRECATED dngrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dngrsResponseStatus :: Lens' DescribeNatGatewaysResponse Int
-dngrsResponseStatus = lens _dngrsResponseStatus (\s a -> s {_dngrsResponseStatus = a})
-
-instance NFData DescribeNatGatewaysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dngrsResponseStatus :: Lens.Lens' DescribeNatGatewaysResponse Lude.Int
+dngrsResponseStatus = Lens.lens (responseStatus :: DescribeNatGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNatGatewaysResponse)
+{-# DEPRECATED dngrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Creates a version of a connector definition which has already been defined.
 module Network.AWS.Greengrass.CreateConnectorDefinitionVersion
-  ( -- * Creating a Request
-    createConnectorDefinitionVersion,
-    CreateConnectorDefinitionVersion,
+  ( -- * Creating a request
+    CreateConnectorDefinitionVersion (..),
+    mkCreateConnectorDefinitionVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccdvAmznClientToken,
     ccdvConnectors,
     ccdvConnectorDefinitionId,
 
-    -- * Destructuring the Response
-    createConnectorDefinitionVersionResponse,
-    CreateConnectorDefinitionVersionResponse,
+    -- * Destructuring the response
+    CreateConnectorDefinitionVersionResponse (..),
+    mkCreateConnectorDefinitionVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccdvrsARN,
     ccdvrsCreationTimestamp,
     ccdvrsVersion,
@@ -42,163 +37,183 @@ module Network.AWS.Greengrass.CreateConnectorDefinitionVersion
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createConnectorDefinitionVersion' smart constructor.
+-- | /See:/ 'mkCreateConnectorDefinitionVersion' smart constructor.
 data CreateConnectorDefinitionVersion = CreateConnectorDefinitionVersion'
-  { _ccdvAmznClientToken ::
-      !(Maybe Text),
-    _ccdvConnectors ::
-      !(Maybe [Connector]),
-    _ccdvConnectorDefinitionId ::
-      !Text
+  { amznClientToken ::
+      Lude.Maybe Lude.Text,
+    connectors ::
+      Lude.Maybe [Connector],
+    connectorDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConnectorDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccdvAmznClientToken' - A client token used to correlate requests and responses.
---
--- * 'ccdvConnectors' - A list of references to connectors in this version, with their corresponding configuration settings.
---
--- * 'ccdvConnectorDefinitionId' - The ID of the connector definition.
-createConnectorDefinitionVersion ::
-  -- | 'ccdvConnectorDefinitionId'
-  Text ->
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
+-- * 'connectorDefinitionId' - The ID of the connector definition.
+-- * 'connectors' - A list of references to connectors in this version, with their corresponding configuration settings.
+mkCreateConnectorDefinitionVersion ::
+  -- | 'connectorDefinitionId'
+  Lude.Text ->
   CreateConnectorDefinitionVersion
-createConnectorDefinitionVersion pConnectorDefinitionId_ =
+mkCreateConnectorDefinitionVersion pConnectorDefinitionId_ =
   CreateConnectorDefinitionVersion'
-    { _ccdvAmznClientToken = Nothing,
-      _ccdvConnectors = Nothing,
-      _ccdvConnectorDefinitionId = pConnectorDefinitionId_
+    { amznClientToken = Lude.Nothing,
+      connectors = Lude.Nothing,
+      connectorDefinitionId = pConnectorDefinitionId_
     }
 
 -- | A client token used to correlate requests and responses.
-ccdvAmznClientToken :: Lens' CreateConnectorDefinitionVersion (Maybe Text)
-ccdvAmznClientToken = lens _ccdvAmznClientToken (\s a -> s {_ccdvAmznClientToken = a})
+--
+-- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccdvAmznClientToken :: Lens.Lens' CreateConnectorDefinitionVersion (Lude.Maybe Lude.Text)
+ccdvAmznClientToken = Lens.lens (amznClientToken :: CreateConnectorDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateConnectorDefinitionVersion)
+{-# DEPRECATED ccdvAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | A list of references to connectors in this version, with their corresponding configuration settings.
-ccdvConnectors :: Lens' CreateConnectorDefinitionVersion [Connector]
-ccdvConnectors = lens _ccdvConnectors (\s a -> s {_ccdvConnectors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'connectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccdvConnectors :: Lens.Lens' CreateConnectorDefinitionVersion (Lude.Maybe [Connector])
+ccdvConnectors = Lens.lens (connectors :: CreateConnectorDefinitionVersion -> Lude.Maybe [Connector]) (\s a -> s {connectors = a} :: CreateConnectorDefinitionVersion)
+{-# DEPRECATED ccdvConnectors "Use generic-lens or generic-optics with 'connectors' instead." #-}
 
 -- | The ID of the connector definition.
-ccdvConnectorDefinitionId :: Lens' CreateConnectorDefinitionVersion Text
-ccdvConnectorDefinitionId = lens _ccdvConnectorDefinitionId (\s a -> s {_ccdvConnectorDefinitionId = a})
+--
+-- /Note:/ Consider using 'connectorDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccdvConnectorDefinitionId :: Lens.Lens' CreateConnectorDefinitionVersion Lude.Text
+ccdvConnectorDefinitionId = Lens.lens (connectorDefinitionId :: CreateConnectorDefinitionVersion -> Lude.Text) (\s a -> s {connectorDefinitionId = a} :: CreateConnectorDefinitionVersion)
+{-# DEPRECATED ccdvConnectorDefinitionId "Use generic-lens or generic-optics with 'connectorDefinitionId' instead." #-}
 
-instance AWSRequest CreateConnectorDefinitionVersion where
+instance Lude.AWSRequest CreateConnectorDefinitionVersion where
   type
     Rs CreateConnectorDefinitionVersion =
       CreateConnectorDefinitionVersionResponse
-  request = postJSON greengrass
+  request = Req.postJSON greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateConnectorDefinitionVersionResponse'
-            <$> (x .?> "Arn")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Version")
-            <*> (x .?> "Id")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Version")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateConnectorDefinitionVersion
-
-instance NFData CreateConnectorDefinitionVersion
-
-instance ToHeaders CreateConnectorDefinitionVersion where
+instance Lude.ToHeaders CreateConnectorDefinitionVersion where
   toHeaders CreateConnectorDefinitionVersion' {..} =
-    mconcat
-      [ "X-Amzn-Client-Token" =# _ccdvAmznClientToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON CreateConnectorDefinitionVersion where
+instance Lude.ToJSON CreateConnectorDefinitionVersion where
   toJSON CreateConnectorDefinitionVersion' {..} =
-    object (catMaybes [("Connectors" .=) <$> _ccdvConnectors])
+    Lude.object
+      (Lude.catMaybes [("Connectors" Lude..=) Lude.<$> connectors])
 
-instance ToPath CreateConnectorDefinitionVersion where
+instance Lude.ToPath CreateConnectorDefinitionVersion where
   toPath CreateConnectorDefinitionVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/connectors/",
-        toBS _ccdvConnectorDefinitionId,
+        Lude.toBS connectorDefinitionId,
         "/versions"
       ]
 
-instance ToQuery CreateConnectorDefinitionVersion where
-  toQuery = const mempty
+instance Lude.ToQuery CreateConnectorDefinitionVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createConnectorDefinitionVersionResponse' smart constructor.
+-- | /See:/ 'mkCreateConnectorDefinitionVersionResponse' smart constructor.
 data CreateConnectorDefinitionVersionResponse = CreateConnectorDefinitionVersionResponse'
-  { _ccdvrsARN ::
-      !( Maybe
-           Text
-       ),
-    _ccdvrsCreationTimestamp ::
-      !( Maybe
-           Text
-       ),
-    _ccdvrsVersion ::
-      !( Maybe
-           Text
-       ),
-    _ccdvrsId ::
-      !( Maybe
-           Text
-       ),
-    _ccdvrsResponseStatus ::
-      !Int
+  { arn ::
+      Lude.Maybe
+        Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe
+        Lude.Text,
+    version ::
+      Lude.Maybe
+        Lude.Text,
+    id ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConnectorDefinitionVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccdvrsARN' - The ARN of the version.
---
--- * 'ccdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
---
--- * 'ccdvrsVersion' - The ID of the version.
---
--- * 'ccdvrsId' - The ID of the parent definition that the version is associated with.
---
--- * 'ccdvrsResponseStatus' - -- | The response status code.
-createConnectorDefinitionVersionResponse ::
-  -- | 'ccdvrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the version.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'id' - The ID of the parent definition that the version is associated with.
+-- * 'responseStatus' - The response status code.
+-- * 'version' - The ID of the version.
+mkCreateConnectorDefinitionVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateConnectorDefinitionVersionResponse
-createConnectorDefinitionVersionResponse pResponseStatus_ =
+mkCreateConnectorDefinitionVersionResponse pResponseStatus_ =
   CreateConnectorDefinitionVersionResponse'
-    { _ccdvrsARN = Nothing,
-      _ccdvrsCreationTimestamp = Nothing,
-      _ccdvrsVersion = Nothing,
-      _ccdvrsId = Nothing,
-      _ccdvrsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      version = Lude.Nothing,
+      id = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the version.
-ccdvrsARN :: Lens' CreateConnectorDefinitionVersionResponse (Maybe Text)
-ccdvrsARN = lens _ccdvrsARN (\s a -> s {_ccdvrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccdvrsARN :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Lude.Maybe Lude.Text)
+ccdvrsARN = Lens.lens (arn :: CreateConnectorDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateConnectorDefinitionVersionResponse)
+{-# DEPRECATED ccdvrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the version was created.
-ccdvrsCreationTimestamp :: Lens' CreateConnectorDefinitionVersionResponse (Maybe Text)
-ccdvrsCreationTimestamp = lens _ccdvrsCreationTimestamp (\s a -> s {_ccdvrsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccdvrsCreationTimestamp :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Lude.Maybe Lude.Text)
+ccdvrsCreationTimestamp = Lens.lens (creationTimestamp :: CreateConnectorDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: CreateConnectorDefinitionVersionResponse)
+{-# DEPRECATED ccdvrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the version.
-ccdvrsVersion :: Lens' CreateConnectorDefinitionVersionResponse (Maybe Text)
-ccdvrsVersion = lens _ccdvrsVersion (\s a -> s {_ccdvrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccdvrsVersion :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Lude.Maybe Lude.Text)
+ccdvrsVersion = Lens.lens (version :: CreateConnectorDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: CreateConnectorDefinitionVersionResponse)
+{-# DEPRECATED ccdvrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The ID of the parent definition that the version is associated with.
-ccdvrsId :: Lens' CreateConnectorDefinitionVersionResponse (Maybe Text)
-ccdvrsId = lens _ccdvrsId (\s a -> s {_ccdvrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccdvrsId :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Lude.Maybe Lude.Text)
+ccdvrsId = Lens.lens (id :: CreateConnectorDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateConnectorDefinitionVersionResponse)
+{-# DEPRECATED ccdvrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | -- | The response status code.
-ccdvrsResponseStatus :: Lens' CreateConnectorDefinitionVersionResponse Int
-ccdvrsResponseStatus = lens _ccdvrsResponseStatus (\s a -> s {_ccdvrsResponseStatus = a})
-
-instance NFData CreateConnectorDefinitionVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccdvrsResponseStatus :: Lens.Lens' CreateConnectorDefinitionVersionResponse Lude.Int
+ccdvrsResponseStatus = Lens.lens (responseStatus :: CreateConnectorDefinitionVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateConnectorDefinitionVersionResponse)
+{-# DEPRECATED ccdvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

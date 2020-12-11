@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputUpdate where
+module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
+  ( KinesisFirehoseInputUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisFirehoseInputUpdate,
+
+    -- * Lenses
+    kfiuRoleARNUpdate,
+    kfiuResourceARNUpdate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | When updating application input configuration, provides information about an Amazon Kinesis Firehose delivery stream as the streaming source.
 --
---
---
--- /See:/ 'kinesisFirehoseInputUpdate' smart constructor.
+-- /See:/ 'mkKinesisFirehoseInputUpdate' smart constructor.
 data KinesisFirehoseInputUpdate = KinesisFirehoseInputUpdate'
-  { _kfiuRoleARNUpdate ::
-      !(Maybe Text),
-    _kfiuResourceARNUpdate ::
-      !(Maybe Text)
+  { roleARNUpdate ::
+      Lude.Maybe Lude.Text,
+    resourceARNUpdate ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisFirehoseInputUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kfiuRoleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
---
--- * 'kfiuResourceARNUpdate' - Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to read.
-kinesisFirehoseInputUpdate ::
+-- * 'resourceARNUpdate' - Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to read.
+-- * 'roleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
+mkKinesisFirehoseInputUpdate ::
   KinesisFirehoseInputUpdate
-kinesisFirehoseInputUpdate =
+mkKinesisFirehoseInputUpdate =
   KinesisFirehoseInputUpdate'
-    { _kfiuRoleARNUpdate = Nothing,
-      _kfiuResourceARNUpdate = Nothing
+    { roleARNUpdate = Lude.Nothing,
+      resourceARNUpdate = Lude.Nothing
     }
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
-kfiuRoleARNUpdate :: Lens' KinesisFirehoseInputUpdate (Maybe Text)
-kfiuRoleARNUpdate = lens _kfiuRoleARNUpdate (\s a -> s {_kfiuRoleARNUpdate = a})
+--
+-- /Note:/ Consider using 'roleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kfiuRoleARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Lude.Maybe Lude.Text)
+kfiuRoleARNUpdate = Lens.lens (roleARNUpdate :: KinesisFirehoseInputUpdate -> Lude.Maybe Lude.Text) (\s a -> s {roleARNUpdate = a} :: KinesisFirehoseInputUpdate)
+{-# DEPRECATED kfiuRoleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead." #-}
 
 -- | Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to read.
-kfiuResourceARNUpdate :: Lens' KinesisFirehoseInputUpdate (Maybe Text)
-kfiuResourceARNUpdate = lens _kfiuResourceARNUpdate (\s a -> s {_kfiuResourceARNUpdate = a})
+--
+-- /Note:/ Consider using 'resourceARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kfiuResourceARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Lude.Maybe Lude.Text)
+kfiuResourceARNUpdate = Lens.lens (resourceARNUpdate :: KinesisFirehoseInputUpdate -> Lude.Maybe Lude.Text) (\s a -> s {resourceARNUpdate = a} :: KinesisFirehoseInputUpdate)
+{-# DEPRECATED kfiuResourceARNUpdate "Use generic-lens or generic-optics with 'resourceARNUpdate' instead." #-}
 
-instance Hashable KinesisFirehoseInputUpdate
-
-instance NFData KinesisFirehoseInputUpdate
-
-instance ToJSON KinesisFirehoseInputUpdate where
+instance Lude.ToJSON KinesisFirehoseInputUpdate where
   toJSON KinesisFirehoseInputUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("RoleARNUpdate" .=) <$> _kfiuRoleARNUpdate,
-            ("ResourceARNUpdate" .=) <$> _kfiuResourceARNUpdate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RoleARNUpdate" Lude..=) Lude.<$> roleARNUpdate,
+            ("ResourceARNUpdate" Lude..=) Lude.<$> resourceARNUpdate
           ]
       )

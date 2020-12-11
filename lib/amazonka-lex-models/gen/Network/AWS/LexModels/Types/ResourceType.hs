@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.ResourceType where
+module Network.AWS.LexModels.Types.ResourceType
+  ( ResourceType
+      ( ResourceType',
+        Bot,
+        Intent,
+        SlotType
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceType
-  = Bot
-  | Intent
-  | SlotType
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceType = ResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceType where
-  parser =
-    takeLowerText >>= \case
-      "bot" -> pure Bot
-      "intent" -> pure Intent
-      "slot_type" -> pure SlotType
-      e ->
-        fromTextError $
-          "Failure parsing ResourceType from value: '" <> e
-            <> "'. Accepted values: bot, intent, slot_type"
+pattern Bot :: ResourceType
+pattern Bot = ResourceType' "BOT"
 
-instance ToText ResourceType where
-  toText = \case
-    Bot -> "BOT"
-    Intent -> "INTENT"
-    SlotType -> "SLOT_TYPE"
+pattern Intent :: ResourceType
+pattern Intent = ResourceType' "INTENT"
 
-instance Hashable ResourceType
+pattern SlotType :: ResourceType
+pattern SlotType = ResourceType' "SLOT_TYPE"
 
-instance NFData ResourceType
-
-instance ToByteString ResourceType
-
-instance ToQuery ResourceType
-
-instance ToHeader ResourceType
-
-instance ToJSON ResourceType where
-  toJSON = toJSONText
-
-instance FromJSON ResourceType where
-  parseJSON = parseJSONText "ResourceType"
+{-# COMPLETE
+  Bot,
+  Intent,
+  SlotType,
+  ResourceType'
+  #-}

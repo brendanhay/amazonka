@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,86 +14,97 @@
 --
 -- Deletes the content of the specified dataset.
 module Network.AWS.IoTAnalytics.DeleteDatasetContent
-  ( -- * Creating a Request
-    deleteDatasetContent,
-    DeleteDatasetContent,
+  ( -- * Creating a request
+    DeleteDatasetContent (..),
+    mkDeleteDatasetContent,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcVersionId,
     ddcDatasetName,
 
-    -- * Destructuring the Response
-    deleteDatasetContentResponse,
-    DeleteDatasetContentResponse,
+    -- * Destructuring the response
+    DeleteDatasetContentResponse (..),
+    mkDeleteDatasetContentResponse,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDatasetContent' smart constructor.
+-- | /See:/ 'mkDeleteDatasetContent' smart constructor.
 data DeleteDatasetContent = DeleteDatasetContent'
-  { _ddcVersionId ::
-      !(Maybe Text),
-    _ddcDatasetName :: !Text
+  { versionId ::
+      Lude.Maybe Lude.Text,
+    datasetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDatasetContent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcVersionId' - The version of the dataset whose content is deleted. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to delete the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
---
--- * 'ddcDatasetName' - The name of the dataset whose content is deleted.
-deleteDatasetContent ::
-  -- | 'ddcDatasetName'
-  Text ->
+-- * 'datasetName' - The name of the dataset whose content is deleted.
+-- * 'versionId' - The version of the dataset whose content is deleted. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to delete the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
+mkDeleteDatasetContent ::
+  -- | 'datasetName'
+  Lude.Text ->
   DeleteDatasetContent
-deleteDatasetContent pDatasetName_ =
+mkDeleteDatasetContent pDatasetName_ =
   DeleteDatasetContent'
-    { _ddcVersionId = Nothing,
-      _ddcDatasetName = pDatasetName_
+    { versionId = Lude.Nothing,
+      datasetName = pDatasetName_
     }
 
 -- | The version of the dataset whose content is deleted. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to delete the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
-ddcVersionId :: Lens' DeleteDatasetContent (Maybe Text)
-ddcVersionId = lens _ddcVersionId (\s a -> s {_ddcVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcVersionId :: Lens.Lens' DeleteDatasetContent (Lude.Maybe Lude.Text)
+ddcVersionId = Lens.lens (versionId :: DeleteDatasetContent -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: DeleteDatasetContent)
+{-# DEPRECATED ddcVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The name of the dataset whose content is deleted.
-ddcDatasetName :: Lens' DeleteDatasetContent Text
-ddcDatasetName = lens _ddcDatasetName (\s a -> s {_ddcDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcDatasetName :: Lens.Lens' DeleteDatasetContent Lude.Text
+ddcDatasetName = Lens.lens (datasetName :: DeleteDatasetContent -> Lude.Text) (\s a -> s {datasetName = a} :: DeleteDatasetContent)
+{-# DEPRECATED ddcDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance AWSRequest DeleteDatasetContent where
+instance Lude.AWSRequest DeleteDatasetContent where
   type Rs DeleteDatasetContent = DeleteDatasetContentResponse
-  request = delete ioTAnalytics
-  response = receiveNull DeleteDatasetContentResponse'
+  request = Req.delete ioTAnalyticsService
+  response = Res.receiveNull DeleteDatasetContentResponse'
 
-instance Hashable DeleteDatasetContent
+instance Lude.ToHeaders DeleteDatasetContent where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDatasetContent
-
-instance ToHeaders DeleteDatasetContent where
-  toHeaders = const mempty
-
-instance ToPath DeleteDatasetContent where
+instance Lude.ToPath DeleteDatasetContent where
   toPath DeleteDatasetContent' {..} =
-    mconcat ["/datasets/", toBS _ddcDatasetName, "/content"]
+    Lude.mconcat ["/datasets/", Lude.toBS datasetName, "/content"]
 
-instance ToQuery DeleteDatasetContent where
+instance Lude.ToQuery DeleteDatasetContent where
   toQuery DeleteDatasetContent' {..} =
-    mconcat ["versionId" =: _ddcVersionId]
+    Lude.mconcat ["versionId" Lude.=: versionId]
 
--- | /See:/ 'deleteDatasetContentResponse' smart constructor.
+-- | /See:/ 'mkDeleteDatasetContentResponse' smart constructor.
 data DeleteDatasetContentResponse = DeleteDatasetContentResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDatasetContentResponse' with the minimum fields required to make a request.
-deleteDatasetContentResponse ::
+mkDeleteDatasetContentResponse ::
   DeleteDatasetContentResponse
-deleteDatasetContentResponse = DeleteDatasetContentResponse'
-
-instance NFData DeleteDatasetContentResponse
+mkDeleteDatasetContentResponse = DeleteDatasetContentResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,128 +7,175 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.CloudWatchRegion where
+module Network.AWS.Route53.Types.CloudWatchRegion
+  ( CloudWatchRegion
+      ( CloudWatchRegion',
+        CWRAfSouth1,
+        CWRApEast1,
+        CWRApNortheast1,
+        CWRApNortheast2,
+        CWRApNortheast3,
+        CWRApSouth1,
+        CWRApSoutheast1,
+        CWRApSoutheast2,
+        CWRCaCentral1,
+        CWRCnNorth1,
+        CWRCnNorthwest1,
+        CWREuCentral1,
+        CWREuNorth1,
+        CWREuSouth1,
+        CWREuWest1,
+        CWREuWest2,
+        CWREuWest3,
+        CWRMeSouth1,
+        CWRSaEast1,
+        CWRUsEast1,
+        CWRUsEast2,
+        CWRUsGovEast1,
+        CWRUsGovWest1,
+        CWRUsIsoEast1,
+        CWRUsIsobEast1,
+        CWRUsWest1,
+        CWRUsWest2
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data CloudWatchRegion
-  = CWRAfSouth1
-  | CWRApEast1
-  | CWRApNortheast1
-  | CWRApNortheast2
-  | CWRApNortheast3
-  | CWRApSouth1
-  | CWRApSoutheast1
-  | CWRApSoutheast2
-  | CWRCaCentral1
-  | CWRCnNorth1
-  | CWRCnNorthwest1
-  | CWREuCentral1
-  | CWREuNorth1
-  | CWREuSouth1
-  | CWREuWest1
-  | CWREuWest2
-  | CWREuWest3
-  | CWRMeSouth1
-  | CWRSaEast1
-  | CWRUsEast1
-  | CWRUsEast2
-  | CWRUsGovEast1
-  | CWRUsGovWest1
-  | CWRUsIsoEast1
-  | CWRUsIsobEast1
-  | CWRUsWest1
-  | CWRUsWest2
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CloudWatchRegion = CloudWatchRegion' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CloudWatchRegion where
-  parser =
-    takeLowerText >>= \case
-      "af-south-1" -> pure CWRAfSouth1
-      "ap-east-1" -> pure CWRApEast1
-      "ap-northeast-1" -> pure CWRApNortheast1
-      "ap-northeast-2" -> pure CWRApNortheast2
-      "ap-northeast-3" -> pure CWRApNortheast3
-      "ap-south-1" -> pure CWRApSouth1
-      "ap-southeast-1" -> pure CWRApSoutheast1
-      "ap-southeast-2" -> pure CWRApSoutheast2
-      "ca-central-1" -> pure CWRCaCentral1
-      "cn-north-1" -> pure CWRCnNorth1
-      "cn-northwest-1" -> pure CWRCnNorthwest1
-      "eu-central-1" -> pure CWREuCentral1
-      "eu-north-1" -> pure CWREuNorth1
-      "eu-south-1" -> pure CWREuSouth1
-      "eu-west-1" -> pure CWREuWest1
-      "eu-west-2" -> pure CWREuWest2
-      "eu-west-3" -> pure CWREuWest3
-      "me-south-1" -> pure CWRMeSouth1
-      "sa-east-1" -> pure CWRSaEast1
-      "us-east-1" -> pure CWRUsEast1
-      "us-east-2" -> pure CWRUsEast2
-      "us-gov-east-1" -> pure CWRUsGovEast1
-      "us-gov-west-1" -> pure CWRUsGovWest1
-      "us-iso-east-1" -> pure CWRUsIsoEast1
-      "us-isob-east-1" -> pure CWRUsIsobEast1
-      "us-west-1" -> pure CWRUsWest1
-      "us-west-2" -> pure CWRUsWest2
-      e ->
-        fromTextError $
-          "Failure parsing CloudWatchRegion from value: '" <> e
-            <> "'. Accepted values: af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, ca-central-1, cn-north-1, cn-northwest-1, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, me-south-1, sa-east-1, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1, us-iso-east-1, us-isob-east-1, us-west-1, us-west-2"
+pattern CWRAfSouth1 :: CloudWatchRegion
+pattern CWRAfSouth1 = CloudWatchRegion' "af-south-1"
 
-instance ToText CloudWatchRegion where
-  toText = \case
-    CWRAfSouth1 -> "af-south-1"
-    CWRApEast1 -> "ap-east-1"
-    CWRApNortheast1 -> "ap-northeast-1"
-    CWRApNortheast2 -> "ap-northeast-2"
-    CWRApNortheast3 -> "ap-northeast-3"
-    CWRApSouth1 -> "ap-south-1"
-    CWRApSoutheast1 -> "ap-southeast-1"
-    CWRApSoutheast2 -> "ap-southeast-2"
-    CWRCaCentral1 -> "ca-central-1"
-    CWRCnNorth1 -> "cn-north-1"
-    CWRCnNorthwest1 -> "cn-northwest-1"
-    CWREuCentral1 -> "eu-central-1"
-    CWREuNorth1 -> "eu-north-1"
-    CWREuSouth1 -> "eu-south-1"
-    CWREuWest1 -> "eu-west-1"
-    CWREuWest2 -> "eu-west-2"
-    CWREuWest3 -> "eu-west-3"
-    CWRMeSouth1 -> "me-south-1"
-    CWRSaEast1 -> "sa-east-1"
-    CWRUsEast1 -> "us-east-1"
-    CWRUsEast2 -> "us-east-2"
-    CWRUsGovEast1 -> "us-gov-east-1"
-    CWRUsGovWest1 -> "us-gov-west-1"
-    CWRUsIsoEast1 -> "us-iso-east-1"
-    CWRUsIsobEast1 -> "us-isob-east-1"
-    CWRUsWest1 -> "us-west-1"
-    CWRUsWest2 -> "us-west-2"
+pattern CWRApEast1 :: CloudWatchRegion
+pattern CWRApEast1 = CloudWatchRegion' "ap-east-1"
 
-instance Hashable CloudWatchRegion
+pattern CWRApNortheast1 :: CloudWatchRegion
+pattern CWRApNortheast1 = CloudWatchRegion' "ap-northeast-1"
 
-instance NFData CloudWatchRegion
+pattern CWRApNortheast2 :: CloudWatchRegion
+pattern CWRApNortheast2 = CloudWatchRegion' "ap-northeast-2"
 
-instance ToByteString CloudWatchRegion
+pattern CWRApNortheast3 :: CloudWatchRegion
+pattern CWRApNortheast3 = CloudWatchRegion' "ap-northeast-3"
 
-instance ToQuery CloudWatchRegion
+pattern CWRApSouth1 :: CloudWatchRegion
+pattern CWRApSouth1 = CloudWatchRegion' "ap-south-1"
 
-instance ToHeader CloudWatchRegion
+pattern CWRApSoutheast1 :: CloudWatchRegion
+pattern CWRApSoutheast1 = CloudWatchRegion' "ap-southeast-1"
 
-instance FromXML CloudWatchRegion where
-  parseXML = parseXMLText "CloudWatchRegion"
+pattern CWRApSoutheast2 :: CloudWatchRegion
+pattern CWRApSoutheast2 = CloudWatchRegion' "ap-southeast-2"
 
-instance ToXML CloudWatchRegion where
-  toXML = toXMLText
+pattern CWRCaCentral1 :: CloudWatchRegion
+pattern CWRCaCentral1 = CloudWatchRegion' "ca-central-1"
+
+pattern CWRCnNorth1 :: CloudWatchRegion
+pattern CWRCnNorth1 = CloudWatchRegion' "cn-north-1"
+
+pattern CWRCnNorthwest1 :: CloudWatchRegion
+pattern CWRCnNorthwest1 = CloudWatchRegion' "cn-northwest-1"
+
+pattern CWREuCentral1 :: CloudWatchRegion
+pattern CWREuCentral1 = CloudWatchRegion' "eu-central-1"
+
+pattern CWREuNorth1 :: CloudWatchRegion
+pattern CWREuNorth1 = CloudWatchRegion' "eu-north-1"
+
+pattern CWREuSouth1 :: CloudWatchRegion
+pattern CWREuSouth1 = CloudWatchRegion' "eu-south-1"
+
+pattern CWREuWest1 :: CloudWatchRegion
+pattern CWREuWest1 = CloudWatchRegion' "eu-west-1"
+
+pattern CWREuWest2 :: CloudWatchRegion
+pattern CWREuWest2 = CloudWatchRegion' "eu-west-2"
+
+pattern CWREuWest3 :: CloudWatchRegion
+pattern CWREuWest3 = CloudWatchRegion' "eu-west-3"
+
+pattern CWRMeSouth1 :: CloudWatchRegion
+pattern CWRMeSouth1 = CloudWatchRegion' "me-south-1"
+
+pattern CWRSaEast1 :: CloudWatchRegion
+pattern CWRSaEast1 = CloudWatchRegion' "sa-east-1"
+
+pattern CWRUsEast1 :: CloudWatchRegion
+pattern CWRUsEast1 = CloudWatchRegion' "us-east-1"
+
+pattern CWRUsEast2 :: CloudWatchRegion
+pattern CWRUsEast2 = CloudWatchRegion' "us-east-2"
+
+pattern CWRUsGovEast1 :: CloudWatchRegion
+pattern CWRUsGovEast1 = CloudWatchRegion' "us-gov-east-1"
+
+pattern CWRUsGovWest1 :: CloudWatchRegion
+pattern CWRUsGovWest1 = CloudWatchRegion' "us-gov-west-1"
+
+pattern CWRUsIsoEast1 :: CloudWatchRegion
+pattern CWRUsIsoEast1 = CloudWatchRegion' "us-iso-east-1"
+
+pattern CWRUsIsobEast1 :: CloudWatchRegion
+pattern CWRUsIsobEast1 = CloudWatchRegion' "us-isob-east-1"
+
+pattern CWRUsWest1 :: CloudWatchRegion
+pattern CWRUsWest1 = CloudWatchRegion' "us-west-1"
+
+pattern CWRUsWest2 :: CloudWatchRegion
+pattern CWRUsWest2 = CloudWatchRegion' "us-west-2"
+
+{-# COMPLETE
+  CWRAfSouth1,
+  CWRApEast1,
+  CWRApNortheast1,
+  CWRApNortheast2,
+  CWRApNortheast3,
+  CWRApSouth1,
+  CWRApSoutheast1,
+  CWRApSoutheast2,
+  CWRCaCentral1,
+  CWRCnNorth1,
+  CWRCnNorthwest1,
+  CWREuCentral1,
+  CWREuNorth1,
+  CWREuSouth1,
+  CWREuWest1,
+  CWREuWest2,
+  CWREuWest3,
+  CWRMeSouth1,
+  CWRSaEast1,
+  CWRUsEast1,
+  CWRUsEast2,
+  CWRUsGovEast1,
+  CWRUsGovWest1,
+  CWRUsIsoEast1,
+  CWRUsIsobEast1,
+  CWRUsWest1,
+  CWRUsWest2,
+  CloudWatchRegion'
+  #-}

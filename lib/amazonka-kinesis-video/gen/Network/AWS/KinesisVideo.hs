@@ -11,8 +11,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideo
-  ( -- * Service Configuration
-    kinesisVideo,
+  ( -- * Service configuration
+    kinesisVideoService,
 
     -- * Errors
     -- $errors
@@ -104,8 +104,8 @@ module Network.AWS.KinesisVideo
     UpdateDataRetentionOperation (..),
 
     -- ** ChannelInfo
-    ChannelInfo,
-    channelInfo,
+    ChannelInfo (..),
+    mkChannelInfo,
     ciCreationTime,
     ciChannelStatus,
     ciChannelARN,
@@ -115,31 +115,31 @@ module Network.AWS.KinesisVideo
     ciChannelType,
 
     -- ** ChannelNameCondition
-    ChannelNameCondition,
-    channelNameCondition,
+    ChannelNameCondition (..),
+    mkChannelNameCondition,
     cncComparisonOperator,
     cncComparisonValue,
 
     -- ** ResourceEndpointListItem
-    ResourceEndpointListItem,
-    resourceEndpointListItem,
+    ResourceEndpointListItem (..),
+    mkResourceEndpointListItem,
     reliProtocol,
     reliResourceEndpoint,
 
     -- ** SingleMasterChannelEndpointConfiguration
-    SingleMasterChannelEndpointConfiguration,
-    singleMasterChannelEndpointConfiguration,
+    SingleMasterChannelEndpointConfiguration (..),
+    mkSingleMasterChannelEndpointConfiguration,
     smcecProtocols,
     smcecRole,
 
     -- ** SingleMasterConfiguration
-    SingleMasterConfiguration,
-    singleMasterConfiguration,
+    SingleMasterConfiguration (..),
+    mkSingleMasterConfiguration,
     smcMessageTtlSeconds,
 
     -- ** StreamInfo
-    StreamInfo,
-    streamInfo,
+    StreamInfo (..),
+    mkStreamInfo,
     siCreationTime,
     siStatus,
     siMediaType,
@@ -151,16 +151,27 @@ module Network.AWS.KinesisVideo
     siStreamName,
 
     -- ** StreamNameCondition
-    StreamNameCondition,
-    streamNameCondition,
+    StreamNameCondition (..),
+    mkStreamNameCondition,
     sncComparisonOperator,
     sncComparisonValue,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -185,6 +196,7 @@ import Network.AWS.KinesisVideo.UpdateDataRetention
 import Network.AWS.KinesisVideo.UpdateSignalingChannel
 import Network.AWS.KinesisVideo.UpdateStream
 import Network.AWS.KinesisVideo.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

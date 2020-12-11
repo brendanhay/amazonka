@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ModelSortKey where
+module Network.AWS.SageMaker.Types.ModelSortKey
+  ( ModelSortKey
+      ( ModelSortKey',
+        MSKCreationTime,
+        MSKName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ModelSortKey
-  = MSKCreationTime
-  | MSKName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ModelSortKey = ModelSortKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ModelSortKey where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure MSKCreationTime
-      "name" -> pure MSKName
-      e ->
-        fromTextError $
-          "Failure parsing ModelSortKey from value: '" <> e
-            <> "'. Accepted values: creationtime, name"
+pattern MSKCreationTime :: ModelSortKey
+pattern MSKCreationTime = ModelSortKey' "CreationTime"
 
-instance ToText ModelSortKey where
-  toText = \case
-    MSKCreationTime -> "CreationTime"
-    MSKName -> "Name"
+pattern MSKName :: ModelSortKey
+pattern MSKName = ModelSortKey' "Name"
 
-instance Hashable ModelSortKey
-
-instance NFData ModelSortKey
-
-instance ToByteString ModelSortKey
-
-instance ToQuery ModelSortKey
-
-instance ToHeader ModelSortKey
-
-instance ToJSON ModelSortKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  MSKCreationTime,
+  MSKName,
+  ModelSortKey'
+  #-}

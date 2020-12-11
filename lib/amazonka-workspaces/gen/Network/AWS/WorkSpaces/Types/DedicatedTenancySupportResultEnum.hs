@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum where
+module Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
+  ( DedicatedTenancySupportResultEnum
+      ( DedicatedTenancySupportResultEnum',
+        DTSREDisabled,
+        DTSREEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DedicatedTenancySupportResultEnum
-  = DTSREDisabled
-  | DTSREEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DedicatedTenancySupportResultEnum = DedicatedTenancySupportResultEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DedicatedTenancySupportResultEnum where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure DTSREDisabled
-      "enabled" -> pure DTSREEnabled
-      e ->
-        fromTextError $
-          "Failure parsing DedicatedTenancySupportResultEnum from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern DTSREDisabled :: DedicatedTenancySupportResultEnum
+pattern DTSREDisabled = DedicatedTenancySupportResultEnum' "DISABLED"
 
-instance ToText DedicatedTenancySupportResultEnum where
-  toText = \case
-    DTSREDisabled -> "DISABLED"
-    DTSREEnabled -> "ENABLED"
+pattern DTSREEnabled :: DedicatedTenancySupportResultEnum
+pattern DTSREEnabled = DedicatedTenancySupportResultEnum' "ENABLED"
 
-instance Hashable DedicatedTenancySupportResultEnum
-
-instance NFData DedicatedTenancySupportResultEnum
-
-instance ToByteString DedicatedTenancySupportResultEnum
-
-instance ToQuery DedicatedTenancySupportResultEnum
-
-instance ToHeader DedicatedTenancySupportResultEnum
-
-instance FromJSON DedicatedTenancySupportResultEnum where
-  parseJSON = parseJSONText "DedicatedTenancySupportResultEnum"
+{-# COMPLETE
+  DTSREDisabled,
+  DTSREEnabled,
+  DedicatedTenancySupportResultEnum'
+  #-}

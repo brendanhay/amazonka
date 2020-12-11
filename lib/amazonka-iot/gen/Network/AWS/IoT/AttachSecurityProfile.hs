@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,130 @@
 --
 -- Associates a Device Defender security profile with a thing group or this account. Each thing group or account can have up to five security profiles associated with it.
 module Network.AWS.IoT.AttachSecurityProfile
-  ( -- * Creating a Request
-    attachSecurityProfile,
-    AttachSecurityProfile,
+  ( -- * Creating a request
+    AttachSecurityProfile (..),
+    mkAttachSecurityProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aspSecurityProfileName,
     aspSecurityProfileTargetARN,
 
-    -- * Destructuring the Response
-    attachSecurityProfileResponse,
-    AttachSecurityProfileResponse,
+    -- * Destructuring the response
+    AttachSecurityProfileResponse (..),
+    mkAttachSecurityProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asprsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachSecurityProfile' smart constructor.
+-- | /See:/ 'mkAttachSecurityProfile' smart constructor.
 data AttachSecurityProfile = AttachSecurityProfile'
-  { _aspSecurityProfileName ::
-      !Text,
-    _aspSecurityProfileTargetARN :: !Text
+  { securityProfileName ::
+      Lude.Text,
+    securityProfileTargetARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachSecurityProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aspSecurityProfileName' - The security profile that is attached.
---
--- * 'aspSecurityProfileTargetARN' - The ARN of the target (thing group) to which the security profile is attached.
-attachSecurityProfile ::
-  -- | 'aspSecurityProfileName'
-  Text ->
-  -- | 'aspSecurityProfileTargetARN'
-  Text ->
+-- * 'securityProfileName' - The security profile that is attached.
+-- * 'securityProfileTargetARN' - The ARN of the target (thing group) to which the security profile is attached.
+mkAttachSecurityProfile ::
+  -- | 'securityProfileName'
+  Lude.Text ->
+  -- | 'securityProfileTargetARN'
+  Lude.Text ->
   AttachSecurityProfile
-attachSecurityProfile
+mkAttachSecurityProfile
   pSecurityProfileName_
   pSecurityProfileTargetARN_ =
     AttachSecurityProfile'
-      { _aspSecurityProfileName =
+      { securityProfileName =
           pSecurityProfileName_,
-        _aspSecurityProfileTargetARN = pSecurityProfileTargetARN_
+        securityProfileTargetARN = pSecurityProfileTargetARN_
       }
 
 -- | The security profile that is attached.
-aspSecurityProfileName :: Lens' AttachSecurityProfile Text
-aspSecurityProfileName = lens _aspSecurityProfileName (\s a -> s {_aspSecurityProfileName = a})
+--
+-- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aspSecurityProfileName :: Lens.Lens' AttachSecurityProfile Lude.Text
+aspSecurityProfileName = Lens.lens (securityProfileName :: AttachSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: AttachSecurityProfile)
+{-# DEPRECATED aspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 -- | The ARN of the target (thing group) to which the security profile is attached.
-aspSecurityProfileTargetARN :: Lens' AttachSecurityProfile Text
-aspSecurityProfileTargetARN = lens _aspSecurityProfileTargetARN (\s a -> s {_aspSecurityProfileTargetARN = a})
+--
+-- /Note:/ Consider using 'securityProfileTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aspSecurityProfileTargetARN :: Lens.Lens' AttachSecurityProfile Lude.Text
+aspSecurityProfileTargetARN = Lens.lens (securityProfileTargetARN :: AttachSecurityProfile -> Lude.Text) (\s a -> s {securityProfileTargetARN = a} :: AttachSecurityProfile)
+{-# DEPRECATED aspSecurityProfileTargetARN "Use generic-lens or generic-optics with 'securityProfileTargetARN' instead." #-}
 
-instance AWSRequest AttachSecurityProfile where
+instance Lude.AWSRequest AttachSecurityProfile where
   type Rs AttachSecurityProfile = AttachSecurityProfileResponse
-  request = putJSON ioT
+  request = Req.putJSON ioTService
   response =
-    receiveEmpty
-      (\s h x -> AttachSecurityProfileResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AttachSecurityProfileResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AttachSecurityProfile
+instance Lude.ToHeaders AttachSecurityProfile where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AttachSecurityProfile
+instance Lude.ToJSON AttachSecurityProfile where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders AttachSecurityProfile where
-  toHeaders = const mempty
-
-instance ToJSON AttachSecurityProfile where
-  toJSON = const (Object mempty)
-
-instance ToPath AttachSecurityProfile where
+instance Lude.ToPath AttachSecurityProfile where
   toPath AttachSecurityProfile' {..} =
-    mconcat
-      ["/security-profiles/", toBS _aspSecurityProfileName, "/targets"]
+    Lude.mconcat
+      ["/security-profiles/", Lude.toBS securityProfileName, "/targets"]
 
-instance ToQuery AttachSecurityProfile where
+instance Lude.ToQuery AttachSecurityProfile where
   toQuery AttachSecurityProfile' {..} =
-    mconcat
-      ["securityProfileTargetArn" =: _aspSecurityProfileTargetARN]
+    Lude.mconcat
+      ["securityProfileTargetArn" Lude.=: securityProfileTargetARN]
 
--- | /See:/ 'attachSecurityProfileResponse' smart constructor.
+-- | /See:/ 'mkAttachSecurityProfileResponse' smart constructor.
 newtype AttachSecurityProfileResponse = AttachSecurityProfileResponse'
-  { _asprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachSecurityProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asprsResponseStatus' - -- | The response status code.
-attachSecurityProfileResponse ::
-  -- | 'asprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAttachSecurityProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AttachSecurityProfileResponse
-attachSecurityProfileResponse pResponseStatus_ =
-  AttachSecurityProfileResponse'
-    { _asprsResponseStatus =
-        pResponseStatus_
-    }
+mkAttachSecurityProfileResponse pResponseStatus_ =
+  AttachSecurityProfileResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-asprsResponseStatus :: Lens' AttachSecurityProfileResponse Int
-asprsResponseStatus = lens _asprsResponseStatus (\s a -> s {_asprsResponseStatus = a})
-
-instance NFData AttachSecurityProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asprsResponseStatus :: Lens.Lens' AttachSecurityProfileResponse Lude.Int
+asprsResponseStatus = Lens.lens (responseStatus :: AttachSecurityProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachSecurityProfileResponse)
+{-# DEPRECATED asprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

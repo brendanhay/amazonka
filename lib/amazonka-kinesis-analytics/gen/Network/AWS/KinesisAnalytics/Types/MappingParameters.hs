@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.MappingParameters where
+module Network.AWS.KinesisAnalytics.Types.MappingParameters
+  ( MappingParameters (..),
+
+    -- * Smart constructor
+    mkMappingParameters,
+
+    -- * Lenses
+    mpCSVMappingParameters,
+    mpJSONMappingParameters,
+  )
+where
 
 import Network.AWS.KinesisAnalytics.Types.CSVMappingParameters
 import Network.AWS.KinesisAnalytics.Types.JSONMappingParameters
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 --
---
---
--- /See:/ 'mappingParameters' smart constructor.
+-- /See:/ 'mkMappingParameters' smart constructor.
 data MappingParameters = MappingParameters'
-  { _mpCSVMappingParameters ::
-      !(Maybe CSVMappingParameters),
-    _mpJSONMappingParameters ::
-      !(Maybe JSONMappingParameters)
+  { csvMappingParameters ::
+      Lude.Maybe CSVMappingParameters,
+    jsonMappingParameters ::
+      Lude.Maybe JSONMappingParameters
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MappingParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mpCSVMappingParameters' - Provides additional mapping information when the record format uses delimiters (for example, CSV).
---
--- * 'mpJSONMappingParameters' - Provides additional mapping information when JSON is the record format on the streaming source.
-mappingParameters ::
+-- * 'csvMappingParameters' - Provides additional mapping information when the record format uses delimiters (for example, CSV).
+-- * 'jsonMappingParameters' - Provides additional mapping information when JSON is the record format on the streaming source.
+mkMappingParameters ::
   MappingParameters
-mappingParameters =
+mkMappingParameters =
   MappingParameters'
-    { _mpCSVMappingParameters = Nothing,
-      _mpJSONMappingParameters = Nothing
+    { csvMappingParameters = Lude.Nothing,
+      jsonMappingParameters = Lude.Nothing
     }
 
 -- | Provides additional mapping information when the record format uses delimiters (for example, CSV).
-mpCSVMappingParameters :: Lens' MappingParameters (Maybe CSVMappingParameters)
-mpCSVMappingParameters = lens _mpCSVMappingParameters (\s a -> s {_mpCSVMappingParameters = a})
+--
+-- /Note:/ Consider using 'csvMappingParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpCSVMappingParameters :: Lens.Lens' MappingParameters (Lude.Maybe CSVMappingParameters)
+mpCSVMappingParameters = Lens.lens (csvMappingParameters :: MappingParameters -> Lude.Maybe CSVMappingParameters) (\s a -> s {csvMappingParameters = a} :: MappingParameters)
+{-# DEPRECATED mpCSVMappingParameters "Use generic-lens or generic-optics with 'csvMappingParameters' instead." #-}
 
 -- | Provides additional mapping information when JSON is the record format on the streaming source.
-mpJSONMappingParameters :: Lens' MappingParameters (Maybe JSONMappingParameters)
-mpJSONMappingParameters = lens _mpJSONMappingParameters (\s a -> s {_mpJSONMappingParameters = a})
+--
+-- /Note:/ Consider using 'jsonMappingParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpJSONMappingParameters :: Lens.Lens' MappingParameters (Lude.Maybe JSONMappingParameters)
+mpJSONMappingParameters = Lens.lens (jsonMappingParameters :: MappingParameters -> Lude.Maybe JSONMappingParameters) (\s a -> s {jsonMappingParameters = a} :: MappingParameters)
+{-# DEPRECATED mpJSONMappingParameters "Use generic-lens or generic-optics with 'jsonMappingParameters' instead." #-}
 
-instance FromJSON MappingParameters where
+instance Lude.FromJSON MappingParameters where
   parseJSON =
-    withObject
+    Lude.withObject
       "MappingParameters"
       ( \x ->
           MappingParameters'
-            <$> (x .:? "CSVMappingParameters") <*> (x .:? "JSONMappingParameters")
+            Lude.<$> (x Lude..:? "CSVMappingParameters")
+            Lude.<*> (x Lude..:? "JSONMappingParameters")
       )
 
-instance Hashable MappingParameters
-
-instance NFData MappingParameters
-
-instance ToJSON MappingParameters where
+instance Lude.ToJSON MappingParameters where
   toJSON MappingParameters' {..} =
-    object
-      ( catMaybes
-          [ ("CSVMappingParameters" .=) <$> _mpCSVMappingParameters,
-            ("JSONMappingParameters" .=) <$> _mpJSONMappingParameters
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CSVMappingParameters" Lude..=) Lude.<$> csvMappingParameters,
+            ("JSONMappingParameters" Lude..=) Lude.<$> jsonMappingParameters
           ]
       )

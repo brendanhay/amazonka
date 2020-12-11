@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.QueryFilter where
+module Network.AWS.IoTAnalytics.Types.QueryFilter
+  ( QueryFilter (..),
+
+    -- * Smart constructor
+    mkQueryFilter,
+
+    -- * Lenses
+    qfDeltaTime,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.DeltaTime
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information that is used to filter message data, to segregate it according to the timeframe in which it arrives.
 --
---
---
--- /See:/ 'queryFilter' smart constructor.
-newtype QueryFilter = QueryFilter' {_qfDeltaTime :: Maybe DeltaTime}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkQueryFilter' smart constructor.
+newtype QueryFilter = QueryFilter'
+  { deltaTime ::
+      Lude.Maybe DeltaTime
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qfDeltaTime' - Used to limit data to that which has arrived since the last execution of the action.
-queryFilter ::
+-- * 'deltaTime' - Used to limit data to that which has arrived since the last execution of the action.
+mkQueryFilter ::
   QueryFilter
-queryFilter = QueryFilter' {_qfDeltaTime = Nothing}
+mkQueryFilter = QueryFilter' {deltaTime = Lude.Nothing}
 
 -- | Used to limit data to that which has arrived since the last execution of the action.
-qfDeltaTime :: Lens' QueryFilter (Maybe DeltaTime)
-qfDeltaTime = lens _qfDeltaTime (\s a -> s {_qfDeltaTime = a})
+--
+-- /Note:/ Consider using 'deltaTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qfDeltaTime :: Lens.Lens' QueryFilter (Lude.Maybe DeltaTime)
+qfDeltaTime = Lens.lens (deltaTime :: QueryFilter -> Lude.Maybe DeltaTime) (\s a -> s {deltaTime = a} :: QueryFilter)
+{-# DEPRECATED qfDeltaTime "Use generic-lens or generic-optics with 'deltaTime' instead." #-}
 
-instance FromJSON QueryFilter where
+instance Lude.FromJSON QueryFilter where
   parseJSON =
-    withObject
+    Lude.withObject
       "QueryFilter"
-      (\x -> QueryFilter' <$> (x .:? "deltaTime"))
+      (\x -> QueryFilter' Lude.<$> (x Lude..:? "deltaTime"))
 
-instance Hashable QueryFilter
-
-instance NFData QueryFilter
-
-instance ToJSON QueryFilter where
+instance Lude.ToJSON QueryFilter where
   toJSON QueryFilter' {..} =
-    object (catMaybes [("deltaTime" .=) <$> _qfDeltaTime])
+    Lude.object
+      (Lude.catMaybes [("deltaTime" Lude..=) Lude.<$> deltaTime])

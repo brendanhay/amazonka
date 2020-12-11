@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,137 @@
 --
 -- This method takes a user pool ID, and returns the signing certificate.
 module Network.AWS.CognitoIdentityProvider.GetSigningCertificate
-  ( -- * Creating a Request
-    getSigningCertificate,
-    GetSigningCertificate,
+  ( -- * Creating a request
+    GetSigningCertificate (..),
+    mkGetSigningCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gscUserPoolId,
 
-    -- * Destructuring the Response
-    getSigningCertificateResponse,
-    GetSigningCertificateResponse,
+    -- * Destructuring the response
+    GetSigningCertificateResponse (..),
+    mkGetSigningCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gscrsCertificate,
     gscrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to get a signing certificate from Cognito.
 --
---
---
--- /See:/ 'getSigningCertificate' smart constructor.
+-- /See:/ 'mkGetSigningCertificate' smart constructor.
 newtype GetSigningCertificate = GetSigningCertificate'
-  { _gscUserPoolId ::
-      Text
+  { userPoolId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSigningCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gscUserPoolId' - The user pool ID.
-getSigningCertificate ::
-  -- | 'gscUserPoolId'
-  Text ->
+-- * 'userPoolId' - The user pool ID.
+mkGetSigningCertificate ::
+  -- | 'userPoolId'
+  Lude.Text ->
   GetSigningCertificate
-getSigningCertificate pUserPoolId_ =
-  GetSigningCertificate' {_gscUserPoolId = pUserPoolId_}
+mkGetSigningCertificate pUserPoolId_ =
+  GetSigningCertificate' {userPoolId = pUserPoolId_}
 
 -- | The user pool ID.
-gscUserPoolId :: Lens' GetSigningCertificate Text
-gscUserPoolId = lens _gscUserPoolId (\s a -> s {_gscUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscUserPoolId :: Lens.Lens' GetSigningCertificate Lude.Text
+gscUserPoolId = Lens.lens (userPoolId :: GetSigningCertificate -> Lude.Text) (\s a -> s {userPoolId = a} :: GetSigningCertificate)
+{-# DEPRECATED gscUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSRequest GetSigningCertificate where
+instance Lude.AWSRequest GetSigningCertificate where
   type Rs GetSigningCertificate = GetSigningCertificateResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSigningCertificateResponse'
-            <$> (x .?> "Certificate") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Certificate") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSigningCertificate
-
-instance NFData GetSigningCertificate
-
-instance ToHeaders GetSigningCertificate where
+instance Lude.ToHeaders GetSigningCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.GetSigningCertificate" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.GetSigningCertificate" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetSigningCertificate where
+instance Lude.ToJSON GetSigningCertificate where
   toJSON GetSigningCertificate' {..} =
-    object (catMaybes [Just ("UserPoolId" .= _gscUserPoolId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("UserPoolId" Lude..= userPoolId)])
 
-instance ToPath GetSigningCertificate where
-  toPath = const "/"
+instance Lude.ToPath GetSigningCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery GetSigningCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery GetSigningCertificate where
+  toQuery = Lude.const Lude.mempty
 
 -- | Response from Cognito for a signing certificate request.
 --
---
---
--- /See:/ 'getSigningCertificateResponse' smart constructor.
+-- /See:/ 'mkGetSigningCertificateResponse' smart constructor.
 data GetSigningCertificateResponse = GetSigningCertificateResponse'
-  { _gscrsCertificate ::
-      !(Maybe Text),
-    _gscrsResponseStatus :: !Int
+  { certificate ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSigningCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gscrsCertificate' - The signing certificate.
---
--- * 'gscrsResponseStatus' - -- | The response status code.
-getSigningCertificateResponse ::
-  -- | 'gscrsResponseStatus'
-  Int ->
+-- * 'certificate' - The signing certificate.
+-- * 'responseStatus' - The response status code.
+mkGetSigningCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSigningCertificateResponse
-getSigningCertificateResponse pResponseStatus_ =
+mkGetSigningCertificateResponse pResponseStatus_ =
   GetSigningCertificateResponse'
-    { _gscrsCertificate = Nothing,
-      _gscrsResponseStatus = pResponseStatus_
+    { certificate = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The signing certificate.
-gscrsCertificate :: Lens' GetSigningCertificateResponse (Maybe Text)
-gscrsCertificate = lens _gscrsCertificate (\s a -> s {_gscrsCertificate = a})
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscrsCertificate :: Lens.Lens' GetSigningCertificateResponse (Lude.Maybe Lude.Text)
+gscrsCertificate = Lens.lens (certificate :: GetSigningCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificate = a} :: GetSigningCertificateResponse)
+{-# DEPRECATED gscrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
--- | -- | The response status code.
-gscrsResponseStatus :: Lens' GetSigningCertificateResponse Int
-gscrsResponseStatus = lens _gscrsResponseStatus (\s a -> s {_gscrsResponseStatus = a})
-
-instance NFData GetSigningCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscrsResponseStatus :: Lens.Lens' GetSigningCertificateResponse Lude.Int
+gscrsResponseStatus = Lens.lens (responseStatus :: GetSigningCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSigningCertificateResponse)
+{-# DEPRECATED gscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

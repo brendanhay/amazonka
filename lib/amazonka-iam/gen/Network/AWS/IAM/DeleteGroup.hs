@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,74 +14,87 @@
 --
 -- Deletes the specified IAM group. The group must not contain any users or have any attached policies.
 module Network.AWS.IAM.DeleteGroup
-  ( -- * Creating a Request
-    deleteGroup,
-    DeleteGroup,
+  ( -- * Creating a request
+    DeleteGroup (..),
+    mkDeleteGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgGroupName,
 
-    -- * Destructuring the Response
-    deleteGroupResponse,
-    DeleteGroupResponse,
+    -- * Destructuring the response
+    DeleteGroupResponse (..),
+    mkDeleteGroupResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteGroup' smart constructor.
-newtype DeleteGroup = DeleteGroup' {_dgGroupName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteGroup' smart constructor.
+newtype DeleteGroup = DeleteGroup' {groupName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'groupName' - The name of the IAM group to delete.
 --
--- * 'dgGroupName' - The name of the IAM group to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-deleteGroup ::
-  -- | 'dgGroupName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkDeleteGroup ::
+  -- | 'groupName'
+  Lude.Text ->
   DeleteGroup
-deleteGroup pGroupName_ = DeleteGroup' {_dgGroupName = pGroupName_}
+mkDeleteGroup pGroupName_ = DeleteGroup' {groupName = pGroupName_}
 
--- | The name of the IAM group to delete. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dgGroupName :: Lens' DeleteGroup Text
-dgGroupName = lens _dgGroupName (\s a -> s {_dgGroupName = a})
+-- | The name of the IAM group to delete.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgGroupName :: Lens.Lens' DeleteGroup Lude.Text
+dgGroupName = Lens.lens (groupName :: DeleteGroup -> Lude.Text) (\s a -> s {groupName = a} :: DeleteGroup)
+{-# DEPRECATED dgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance AWSRequest DeleteGroup where
+instance Lude.AWSRequest DeleteGroup where
   type Rs DeleteGroup = DeleteGroupResponse
-  request = postQuery iam
-  response = receiveNull DeleteGroupResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull DeleteGroupResponse'
 
-instance Hashable DeleteGroup
+instance Lude.ToHeaders DeleteGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteGroup
+instance Lude.ToPath DeleteGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteGroup where
-  toPath = const "/"
-
-instance ToQuery DeleteGroup where
+instance Lude.ToQuery DeleteGroup where
   toQuery DeleteGroup' {..} =
-    mconcat
-      [ "Action" =: ("DeleteGroup" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "GroupName" =: _dgGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "GroupName" Lude.=: groupName
       ]
 
--- | /See:/ 'deleteGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteGroupResponse' smart constructor.
 data DeleteGroupResponse = DeleteGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
-deleteGroupResponse ::
+mkDeleteGroupResponse ::
   DeleteGroupResponse
-deleteGroupResponse = DeleteGroupResponse'
-
-instance NFData DeleteGroupResponse
+mkDeleteGroupResponse = DeleteGroupResponse'

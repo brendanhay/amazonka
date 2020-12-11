@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode where
+module Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
+  ( BatchDeleteImportDataErrorCode
+      ( BatchDeleteImportDataErrorCode',
+        InternalServerError,
+        NotFound,
+        OverLimit
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BatchDeleteImportDataErrorCode
-  = InternalServerError
-  | NotFound
-  | OverLimit
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BatchDeleteImportDataErrorCode = BatchDeleteImportDataErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BatchDeleteImportDataErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "internal_server_error" -> pure InternalServerError
-      "not_found" -> pure NotFound
-      "over_limit" -> pure OverLimit
-      e ->
-        fromTextError $
-          "Failure parsing BatchDeleteImportDataErrorCode from value: '" <> e
-            <> "'. Accepted values: internal_server_error, not_found, over_limit"
+pattern InternalServerError :: BatchDeleteImportDataErrorCode
+pattern InternalServerError = BatchDeleteImportDataErrorCode' "INTERNAL_SERVER_ERROR"
 
-instance ToText BatchDeleteImportDataErrorCode where
-  toText = \case
-    InternalServerError -> "INTERNAL_SERVER_ERROR"
-    NotFound -> "NOT_FOUND"
-    OverLimit -> "OVER_LIMIT"
+pattern NotFound :: BatchDeleteImportDataErrorCode
+pattern NotFound = BatchDeleteImportDataErrorCode' "NOT_FOUND"
 
-instance Hashable BatchDeleteImportDataErrorCode
+pattern OverLimit :: BatchDeleteImportDataErrorCode
+pattern OverLimit = BatchDeleteImportDataErrorCode' "OVER_LIMIT"
 
-instance NFData BatchDeleteImportDataErrorCode
-
-instance ToByteString BatchDeleteImportDataErrorCode
-
-instance ToQuery BatchDeleteImportDataErrorCode
-
-instance ToHeader BatchDeleteImportDataErrorCode
-
-instance FromJSON BatchDeleteImportDataErrorCode where
-  parseJSON = parseJSONText "BatchDeleteImportDataErrorCode"
+{-# COMPLETE
+  InternalServerError,
+  NotFound,
+  OverLimit,
+  BatchDeleteImportDataErrorCode'
+  #-}

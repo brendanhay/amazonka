@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,39 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TransformJob where
+module Network.AWS.SageMaker.Types.TransformJob
+  ( TransformJob (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTransformJob,
+
+    -- * Lenses
+    traCreationTime,
+    traLabelingJobARN,
+    traTransformJobName,
+    traFailureReason,
+    traModelClientConfig,
+    traBatchStrategy,
+    traMaxPayloadInMB,
+    traEnvironment,
+    traTransformResources,
+    traModelName,
+    traExperimentConfig,
+    traTransformEndTime,
+    traTransformStartTime,
+    traAutoMLJobARN,
+    traTransformJobStatus,
+    traTransformInput,
+    traMaxConcurrentTransforms,
+    traTransformOutput,
+    traDataProcessing,
+    traTransformJobARN,
+    traTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.BatchStrategy
 import Network.AWS.SageMaker.Types.DataProcessing
 import Network.AWS.SageMaker.Types.ExperimentConfig
@@ -29,220 +52,298 @@ import Network.AWS.SageMaker.Types.TransformResources
 
 -- | A batch transform job. For information about SageMaker batch transform, see <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html Use Batch Transform> .
 --
---
---
--- /See:/ 'transformJob' smart constructor.
+-- /See:/ 'mkTransformJob' smart constructor.
 data TransformJob = TransformJob'
-  { _traCreationTime ::
-      !(Maybe POSIX),
-    _traLabelingJobARN :: !(Maybe Text),
-    _traTransformJobName :: !(Maybe Text),
-    _traFailureReason :: !(Maybe Text),
-    _traModelClientConfig :: !(Maybe ModelClientConfig),
-    _traBatchStrategy :: !(Maybe BatchStrategy),
-    _traMaxPayloadInMB :: !(Maybe Nat),
-    _traEnvironment :: !(Maybe (Map Text (Text))),
-    _traTransformResources :: !(Maybe TransformResources),
-    _traModelName :: !(Maybe Text),
-    _traExperimentConfig :: !(Maybe ExperimentConfig),
-    _traTransformEndTime :: !(Maybe POSIX),
-    _traTransformStartTime :: !(Maybe POSIX),
-    _traAutoMLJobARN :: !(Maybe Text),
-    _traTransformJobStatus :: !(Maybe TransformJobStatus),
-    _traTransformInput :: !(Maybe TransformInput),
-    _traMaxConcurrentTransforms :: !(Maybe Nat),
-    _traTransformOutput :: !(Maybe TransformOutput),
-    _traDataProcessing :: !(Maybe DataProcessing),
-    _traTransformJobARN :: !(Maybe Text),
-    _traTags :: !(Maybe [Tag])
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    labelingJobARN :: Lude.Maybe Lude.Text,
+    transformJobName :: Lude.Maybe Lude.Text,
+    failureReason :: Lude.Maybe Lude.Text,
+    modelClientConfig :: Lude.Maybe ModelClientConfig,
+    batchStrategy :: Lude.Maybe BatchStrategy,
+    maxPayloadInMB :: Lude.Maybe Lude.Natural,
+    environment :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    transformResources :: Lude.Maybe TransformResources,
+    modelName :: Lude.Maybe Lude.Text,
+    experimentConfig :: Lude.Maybe ExperimentConfig,
+    transformEndTime :: Lude.Maybe Lude.Timestamp,
+    transformStartTime :: Lude.Maybe Lude.Timestamp,
+    autoMLJobARN :: Lude.Maybe Lude.Text,
+    transformJobStatus :: Lude.Maybe TransformJobStatus,
+    transformInput :: Lude.Maybe TransformInput,
+    maxConcurrentTransforms :: Lude.Maybe Lude.Natural,
+    transformOutput :: Lude.Maybe TransformOutput,
+    dataProcessing :: Lude.Maybe DataProcessing,
+    transformJobARN :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'autoMLJobARN' - The Amazon Resource Name (ARN) of the AutoML job that created the transform job.
+-- * 'batchStrategy' - Specifies the number of records to include in a mini-batch for an HTTP inference request. A record is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
+-- * 'creationTime' - A timestamp that shows when the transform Job was created.
+-- * 'dataProcessing' - Undocumented field.
+-- * 'environment' - The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
+-- * 'experimentConfig' - Undocumented field.
+-- * 'failureReason' - If the transform job failed, the reason it failed.
+-- * 'labelingJobARN' - The Amazon Resource Name (ARN) of the labeling job that created the transform job.
+-- * 'maxConcurrentTransforms' - The maximum number of parallel requests that can be sent to each instance in a transform job. If @MaxConcurrentTransforms@ is set to 0 or left unset, SageMaker checks the optional execution-parameters to determine the settings for your chosen algorithm. If the execution-parameters endpoint is not enabled, the default value is 1. For built-in algorithms, you don't need to set a value for @MaxConcurrentTransforms@ .
+-- * 'maxPayloadInMB' - The maximum allowed size of the payload, in MB. A payload is the data portion of a record (without metadata). The value in @MaxPayloadInMB@ must be greater than, or equal to, the size of a single record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The default value is 6 MB. For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the value to 0. This feature works only in supported algorithms. Currently, SageMaker built-in algorithms do not support HTTP chunked encoding.
+-- * 'modelClientConfig' - Undocumented field.
+-- * 'modelName' - The name of the model associated with the transform job.
+-- * 'tags' - A list of tags associated with the transform job.
+-- * 'transformEndTime' - Indicates when the transform job has been completed, or has stopped or failed. You are billed for the time interval between this time and the value of @TransformStartTime@ .
+-- * 'transformInput' - Undocumented field.
+-- * 'transformJobARN' - The Amazon Resource Name (ARN) of the transform job.
+-- * 'transformJobName' - The name of the transform job.
+-- * 'transformJobStatus' - The status of the transform job.
 --
--- * 'traCreationTime' - A timestamp that shows when the transform Job was created.
+-- Transform job statuses are:
 --
--- * 'traLabelingJobARN' - The Amazon Resource Name (ARN) of the labeling job that created the transform job.
+--     * @InProgress@ - The job is in progress.
 --
--- * 'traTransformJobName' - The name of the transform job.
 --
--- * 'traFailureReason' - If the transform job failed, the reason it failed.
+--     * @Completed@ - The job has completed.
 --
--- * 'traModelClientConfig' - Undocumented member.
 --
--- * 'traBatchStrategy' - Specifies the number of records to include in a mini-batch for an HTTP inference request. A record is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
+--     * @Failed@ - The transform job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTransformJob@ call.
 --
--- * 'traMaxPayloadInMB' - The maximum allowed size of the payload, in MB. A payload is the data portion of a record (without metadata). The value in @MaxPayloadInMB@ must be greater than, or equal to, the size of a single record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The default value is 6 MB. For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the value to 0. This feature works only in supported algorithms. Currently, SageMaker built-in algorithms do not support HTTP chunked encoding.
 --
--- * 'traEnvironment' - The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
+--     * @Stopping@ - The transform job is stopping.
 --
--- * 'traTransformResources' - Undocumented member.
 --
--- * 'traModelName' - The name of the model associated with the transform job.
+--     * @Stopped@ - The transform job has stopped.
 --
--- * 'traExperimentConfig' - Undocumented member.
 --
--- * 'traTransformEndTime' - Indicates when the transform job has been completed, or has stopped or failed. You are billed for the time interval between this time and the value of @TransformStartTime@ .
---
--- * 'traTransformStartTime' - Indicates when the transform job starts on ML instances. You are billed for the time interval between this time and the value of @TransformEndTime@ .
---
--- * 'traAutoMLJobARN' - The Amazon Resource Name (ARN) of the AutoML job that created the transform job.
---
--- * 'traTransformJobStatus' - The status of the transform job. Transform job statuses are:     * @InProgress@ - The job is in progress.     * @Completed@ - The job has completed.     * @Failed@ - The transform job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTransformJob@ call.     * @Stopping@ - The transform job is stopping.     * @Stopped@ - The transform job has stopped.
---
--- * 'traTransformInput' - Undocumented member.
---
--- * 'traMaxConcurrentTransforms' - The maximum number of parallel requests that can be sent to each instance in a transform job. If @MaxConcurrentTransforms@ is set to 0 or left unset, SageMaker checks the optional execution-parameters to determine the settings for your chosen algorithm. If the execution-parameters endpoint is not enabled, the default value is 1. For built-in algorithms, you don't need to set a value for @MaxConcurrentTransforms@ .
---
--- * 'traTransformOutput' - Undocumented member.
---
--- * 'traDataProcessing' - Undocumented member.
---
--- * 'traTransformJobARN' - The Amazon Resource Name (ARN) of the transform job.
---
--- * 'traTags' - A list of tags associated with the transform job.
-transformJob ::
+-- * 'transformOutput' - Undocumented field.
+-- * 'transformResources' - Undocumented field.
+-- * 'transformStartTime' - Indicates when the transform job starts on ML instances. You are billed for the time interval between this time and the value of @TransformEndTime@ .
+mkTransformJob ::
   TransformJob
-transformJob =
+mkTransformJob =
   TransformJob'
-    { _traCreationTime = Nothing,
-      _traLabelingJobARN = Nothing,
-      _traTransformJobName = Nothing,
-      _traFailureReason = Nothing,
-      _traModelClientConfig = Nothing,
-      _traBatchStrategy = Nothing,
-      _traMaxPayloadInMB = Nothing,
-      _traEnvironment = Nothing,
-      _traTransformResources = Nothing,
-      _traModelName = Nothing,
-      _traExperimentConfig = Nothing,
-      _traTransformEndTime = Nothing,
-      _traTransformStartTime = Nothing,
-      _traAutoMLJobARN = Nothing,
-      _traTransformJobStatus = Nothing,
-      _traTransformInput = Nothing,
-      _traMaxConcurrentTransforms = Nothing,
-      _traTransformOutput = Nothing,
-      _traDataProcessing = Nothing,
-      _traTransformJobARN = Nothing,
-      _traTags = Nothing
+    { creationTime = Lude.Nothing,
+      labelingJobARN = Lude.Nothing,
+      transformJobName = Lude.Nothing,
+      failureReason = Lude.Nothing,
+      modelClientConfig = Lude.Nothing,
+      batchStrategy = Lude.Nothing,
+      maxPayloadInMB = Lude.Nothing,
+      environment = Lude.Nothing,
+      transformResources = Lude.Nothing,
+      modelName = Lude.Nothing,
+      experimentConfig = Lude.Nothing,
+      transformEndTime = Lude.Nothing,
+      transformStartTime = Lude.Nothing,
+      autoMLJobARN = Lude.Nothing,
+      transformJobStatus = Lude.Nothing,
+      transformInput = Lude.Nothing,
+      maxConcurrentTransforms = Lude.Nothing,
+      transformOutput = Lude.Nothing,
+      dataProcessing = Lude.Nothing,
+      transformJobARN = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A timestamp that shows when the transform Job was created.
-traCreationTime :: Lens' TransformJob (Maybe UTCTime)
-traCreationTime = lens _traCreationTime (\s a -> s {_traCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traCreationTime :: Lens.Lens' TransformJob (Lude.Maybe Lude.Timestamp)
+traCreationTime = Lens.lens (creationTime :: TransformJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: TransformJob)
+{-# DEPRECATED traCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the labeling job that created the transform job.
-traLabelingJobARN :: Lens' TransformJob (Maybe Text)
-traLabelingJobARN = lens _traLabelingJobARN (\s a -> s {_traLabelingJobARN = a})
+--
+-- /Note:/ Consider using 'labelingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traLabelingJobARN :: Lens.Lens' TransformJob (Lude.Maybe Lude.Text)
+traLabelingJobARN = Lens.lens (labelingJobARN :: TransformJob -> Lude.Maybe Lude.Text) (\s a -> s {labelingJobARN = a} :: TransformJob)
+{-# DEPRECATED traLabelingJobARN "Use generic-lens or generic-optics with 'labelingJobARN' instead." #-}
 
 -- | The name of the transform job.
-traTransformJobName :: Lens' TransformJob (Maybe Text)
-traTransformJobName = lens _traTransformJobName (\s a -> s {_traTransformJobName = a})
+--
+-- /Note:/ Consider using 'transformJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traTransformJobName :: Lens.Lens' TransformJob (Lude.Maybe Lude.Text)
+traTransformJobName = Lens.lens (transformJobName :: TransformJob -> Lude.Maybe Lude.Text) (\s a -> s {transformJobName = a} :: TransformJob)
+{-# DEPRECATED traTransformJobName "Use generic-lens or generic-optics with 'transformJobName' instead." #-}
 
 -- | If the transform job failed, the reason it failed.
-traFailureReason :: Lens' TransformJob (Maybe Text)
-traFailureReason = lens _traFailureReason (\s a -> s {_traFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traFailureReason :: Lens.Lens' TransformJob (Lude.Maybe Lude.Text)
+traFailureReason = Lens.lens (failureReason :: TransformJob -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: TransformJob)
+{-# DEPRECATED traFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
--- | Undocumented member.
-traModelClientConfig :: Lens' TransformJob (Maybe ModelClientConfig)
-traModelClientConfig = lens _traModelClientConfig (\s a -> s {_traModelClientConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'modelClientConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traModelClientConfig :: Lens.Lens' TransformJob (Lude.Maybe ModelClientConfig)
+traModelClientConfig = Lens.lens (modelClientConfig :: TransformJob -> Lude.Maybe ModelClientConfig) (\s a -> s {modelClientConfig = a} :: TransformJob)
+{-# DEPRECATED traModelClientConfig "Use generic-lens or generic-optics with 'modelClientConfig' instead." #-}
 
 -- | Specifies the number of records to include in a mini-batch for an HTTP inference request. A record is a single unit of input data that inference can be made on. For example, a single line in a CSV file is a record.
-traBatchStrategy :: Lens' TransformJob (Maybe BatchStrategy)
-traBatchStrategy = lens _traBatchStrategy (\s a -> s {_traBatchStrategy = a})
+--
+-- /Note:/ Consider using 'batchStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traBatchStrategy :: Lens.Lens' TransformJob (Lude.Maybe BatchStrategy)
+traBatchStrategy = Lens.lens (batchStrategy :: TransformJob -> Lude.Maybe BatchStrategy) (\s a -> s {batchStrategy = a} :: TransformJob)
+{-# DEPRECATED traBatchStrategy "Use generic-lens or generic-optics with 'batchStrategy' instead." #-}
 
 -- | The maximum allowed size of the payload, in MB. A payload is the data portion of a record (without metadata). The value in @MaxPayloadInMB@ must be greater than, or equal to, the size of a single record. To estimate the size of a record in MB, divide the size of your dataset by the number of records. To ensure that the records fit within the maximum payload size, we recommend using a slightly larger value. The default value is 6 MB. For cases where the payload might be arbitrarily large and is transmitted using HTTP chunked encoding, set the value to 0. This feature works only in supported algorithms. Currently, SageMaker built-in algorithms do not support HTTP chunked encoding.
-traMaxPayloadInMB :: Lens' TransformJob (Maybe Natural)
-traMaxPayloadInMB = lens _traMaxPayloadInMB (\s a -> s {_traMaxPayloadInMB = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxPayloadInMB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traMaxPayloadInMB :: Lens.Lens' TransformJob (Lude.Maybe Lude.Natural)
+traMaxPayloadInMB = Lens.lens (maxPayloadInMB :: TransformJob -> Lude.Maybe Lude.Natural) (\s a -> s {maxPayloadInMB = a} :: TransformJob)
+{-# DEPRECATED traMaxPayloadInMB "Use generic-lens or generic-optics with 'maxPayloadInMB' instead." #-}
 
 -- | The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
-traEnvironment :: Lens' TransformJob (HashMap Text (Text))
-traEnvironment = lens _traEnvironment (\s a -> s {_traEnvironment = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traEnvironment :: Lens.Lens' TransformJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+traEnvironment = Lens.lens (environment :: TransformJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {environment = a} :: TransformJob)
+{-# DEPRECATED traEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
--- | Undocumented member.
-traTransformResources :: Lens' TransformJob (Maybe TransformResources)
-traTransformResources = lens _traTransformResources (\s a -> s {_traTransformResources = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'transformResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traTransformResources :: Lens.Lens' TransformJob (Lude.Maybe TransformResources)
+traTransformResources = Lens.lens (transformResources :: TransformJob -> Lude.Maybe TransformResources) (\s a -> s {transformResources = a} :: TransformJob)
+{-# DEPRECATED traTransformResources "Use generic-lens or generic-optics with 'transformResources' instead." #-}
 
 -- | The name of the model associated with the transform job.
-traModelName :: Lens' TransformJob (Maybe Text)
-traModelName = lens _traModelName (\s a -> s {_traModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traModelName :: Lens.Lens' TransformJob (Lude.Maybe Lude.Text)
+traModelName = Lens.lens (modelName :: TransformJob -> Lude.Maybe Lude.Text) (\s a -> s {modelName = a} :: TransformJob)
+{-# DEPRECATED traModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
--- | Undocumented member.
-traExperimentConfig :: Lens' TransformJob (Maybe ExperimentConfig)
-traExperimentConfig = lens _traExperimentConfig (\s a -> s {_traExperimentConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'experimentConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traExperimentConfig :: Lens.Lens' TransformJob (Lude.Maybe ExperimentConfig)
+traExperimentConfig = Lens.lens (experimentConfig :: TransformJob -> Lude.Maybe ExperimentConfig) (\s a -> s {experimentConfig = a} :: TransformJob)
+{-# DEPRECATED traExperimentConfig "Use generic-lens or generic-optics with 'experimentConfig' instead." #-}
 
 -- | Indicates when the transform job has been completed, or has stopped or failed. You are billed for the time interval between this time and the value of @TransformStartTime@ .
-traTransformEndTime :: Lens' TransformJob (Maybe UTCTime)
-traTransformEndTime = lens _traTransformEndTime (\s a -> s {_traTransformEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'transformEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traTransformEndTime :: Lens.Lens' TransformJob (Lude.Maybe Lude.Timestamp)
+traTransformEndTime = Lens.lens (transformEndTime :: TransformJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {transformEndTime = a} :: TransformJob)
+{-# DEPRECATED traTransformEndTime "Use generic-lens or generic-optics with 'transformEndTime' instead." #-}
 
 -- | Indicates when the transform job starts on ML instances. You are billed for the time interval between this time and the value of @TransformEndTime@ .
-traTransformStartTime :: Lens' TransformJob (Maybe UTCTime)
-traTransformStartTime = lens _traTransformStartTime (\s a -> s {_traTransformStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'transformStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traTransformStartTime :: Lens.Lens' TransformJob (Lude.Maybe Lude.Timestamp)
+traTransformStartTime = Lens.lens (transformStartTime :: TransformJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {transformStartTime = a} :: TransformJob)
+{-# DEPRECATED traTransformStartTime "Use generic-lens or generic-optics with 'transformStartTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AutoML job that created the transform job.
-traAutoMLJobARN :: Lens' TransformJob (Maybe Text)
-traAutoMLJobARN = lens _traAutoMLJobARN (\s a -> s {_traAutoMLJobARN = a})
+--
+-- /Note:/ Consider using 'autoMLJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traAutoMLJobARN :: Lens.Lens' TransformJob (Lude.Maybe Lude.Text)
+traAutoMLJobARN = Lens.lens (autoMLJobARN :: TransformJob -> Lude.Maybe Lude.Text) (\s a -> s {autoMLJobARN = a} :: TransformJob)
+{-# DEPRECATED traAutoMLJobARN "Use generic-lens or generic-optics with 'autoMLJobARN' instead." #-}
 
--- | The status of the transform job. Transform job statuses are:     * @InProgress@ - The job is in progress.     * @Completed@ - The job has completed.     * @Failed@ - The transform job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTransformJob@ call.     * @Stopping@ - The transform job is stopping.     * @Stopped@ - The transform job has stopped.
-traTransformJobStatus :: Lens' TransformJob (Maybe TransformJobStatus)
-traTransformJobStatus = lens _traTransformJobStatus (\s a -> s {_traTransformJobStatus = a})
+-- | The status of the transform job.
+--
+-- Transform job statuses are:
+--
+--     * @InProgress@ - The job is in progress.
+--
+--
+--     * @Completed@ - The job has completed.
+--
+--
+--     * @Failed@ - The transform job has failed. To see the reason for the failure, see the @FailureReason@ field in the response to a @DescribeTransformJob@ call.
+--
+--
+--     * @Stopping@ - The transform job is stopping.
+--
+--
+--     * @Stopped@ - The transform job has stopped.
+--
+--
+--
+-- /Note:/ Consider using 'transformJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traTransformJobStatus :: Lens.Lens' TransformJob (Lude.Maybe TransformJobStatus)
+traTransformJobStatus = Lens.lens (transformJobStatus :: TransformJob -> Lude.Maybe TransformJobStatus) (\s a -> s {transformJobStatus = a} :: TransformJob)
+{-# DEPRECATED traTransformJobStatus "Use generic-lens or generic-optics with 'transformJobStatus' instead." #-}
 
--- | Undocumented member.
-traTransformInput :: Lens' TransformJob (Maybe TransformInput)
-traTransformInput = lens _traTransformInput (\s a -> s {_traTransformInput = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'transformInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traTransformInput :: Lens.Lens' TransformJob (Lude.Maybe TransformInput)
+traTransformInput = Lens.lens (transformInput :: TransformJob -> Lude.Maybe TransformInput) (\s a -> s {transformInput = a} :: TransformJob)
+{-# DEPRECATED traTransformInput "Use generic-lens or generic-optics with 'transformInput' instead." #-}
 
 -- | The maximum number of parallel requests that can be sent to each instance in a transform job. If @MaxConcurrentTransforms@ is set to 0 or left unset, SageMaker checks the optional execution-parameters to determine the settings for your chosen algorithm. If the execution-parameters endpoint is not enabled, the default value is 1. For built-in algorithms, you don't need to set a value for @MaxConcurrentTransforms@ .
-traMaxConcurrentTransforms :: Lens' TransformJob (Maybe Natural)
-traMaxConcurrentTransforms = lens _traMaxConcurrentTransforms (\s a -> s {_traMaxConcurrentTransforms = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxConcurrentTransforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traMaxConcurrentTransforms :: Lens.Lens' TransformJob (Lude.Maybe Lude.Natural)
+traMaxConcurrentTransforms = Lens.lens (maxConcurrentTransforms :: TransformJob -> Lude.Maybe Lude.Natural) (\s a -> s {maxConcurrentTransforms = a} :: TransformJob)
+{-# DEPRECATED traMaxConcurrentTransforms "Use generic-lens or generic-optics with 'maxConcurrentTransforms' instead." #-}
 
--- | Undocumented member.
-traTransformOutput :: Lens' TransformJob (Maybe TransformOutput)
-traTransformOutput = lens _traTransformOutput (\s a -> s {_traTransformOutput = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'transformOutput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traTransformOutput :: Lens.Lens' TransformJob (Lude.Maybe TransformOutput)
+traTransformOutput = Lens.lens (transformOutput :: TransformJob -> Lude.Maybe TransformOutput) (\s a -> s {transformOutput = a} :: TransformJob)
+{-# DEPRECATED traTransformOutput "Use generic-lens or generic-optics with 'transformOutput' instead." #-}
 
--- | Undocumented member.
-traDataProcessing :: Lens' TransformJob (Maybe DataProcessing)
-traDataProcessing = lens _traDataProcessing (\s a -> s {_traDataProcessing = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dataProcessing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traDataProcessing :: Lens.Lens' TransformJob (Lude.Maybe DataProcessing)
+traDataProcessing = Lens.lens (dataProcessing :: TransformJob -> Lude.Maybe DataProcessing) (\s a -> s {dataProcessing = a} :: TransformJob)
+{-# DEPRECATED traDataProcessing "Use generic-lens or generic-optics with 'dataProcessing' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the transform job.
-traTransformJobARN :: Lens' TransformJob (Maybe Text)
-traTransformJobARN = lens _traTransformJobARN (\s a -> s {_traTransformJobARN = a})
+--
+-- /Note:/ Consider using 'transformJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traTransformJobARN :: Lens.Lens' TransformJob (Lude.Maybe Lude.Text)
+traTransformJobARN = Lens.lens (transformJobARN :: TransformJob -> Lude.Maybe Lude.Text) (\s a -> s {transformJobARN = a} :: TransformJob)
+{-# DEPRECATED traTransformJobARN "Use generic-lens or generic-optics with 'transformJobARN' instead." #-}
 
 -- | A list of tags associated with the transform job.
-traTags :: Lens' TransformJob [Tag]
-traTags = lens _traTags (\s a -> s {_traTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+traTags :: Lens.Lens' TransformJob (Lude.Maybe [Tag])
+traTags = Lens.lens (tags :: TransformJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TransformJob)
+{-# DEPRECATED traTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON TransformJob where
+instance Lude.FromJSON TransformJob where
   parseJSON =
-    withObject
+    Lude.withObject
       "TransformJob"
       ( \x ->
           TransformJob'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "LabelingJobArn")
-            <*> (x .:? "TransformJobName")
-            <*> (x .:? "FailureReason")
-            <*> (x .:? "ModelClientConfig")
-            <*> (x .:? "BatchStrategy")
-            <*> (x .:? "MaxPayloadInMB")
-            <*> (x .:? "Environment" .!= mempty)
-            <*> (x .:? "TransformResources")
-            <*> (x .:? "ModelName")
-            <*> (x .:? "ExperimentConfig")
-            <*> (x .:? "TransformEndTime")
-            <*> (x .:? "TransformStartTime")
-            <*> (x .:? "AutoMLJobArn")
-            <*> (x .:? "TransformJobStatus")
-            <*> (x .:? "TransformInput")
-            <*> (x .:? "MaxConcurrentTransforms")
-            <*> (x .:? "TransformOutput")
-            <*> (x .:? "DataProcessing")
-            <*> (x .:? "TransformJobArn")
-            <*> (x .:? "Tags" .!= mempty)
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "LabelingJobArn")
+            Lude.<*> (x Lude..:? "TransformJobName")
+            Lude.<*> (x Lude..:? "FailureReason")
+            Lude.<*> (x Lude..:? "ModelClientConfig")
+            Lude.<*> (x Lude..:? "BatchStrategy")
+            Lude.<*> (x Lude..:? "MaxPayloadInMB")
+            Lude.<*> (x Lude..:? "Environment" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TransformResources")
+            Lude.<*> (x Lude..:? "ModelName")
+            Lude.<*> (x Lude..:? "ExperimentConfig")
+            Lude.<*> (x Lude..:? "TransformEndTime")
+            Lude.<*> (x Lude..:? "TransformStartTime")
+            Lude.<*> (x Lude..:? "AutoMLJobArn")
+            Lude.<*> (x Lude..:? "TransformJobStatus")
+            Lude.<*> (x Lude..:? "TransformInput")
+            Lude.<*> (x Lude..:? "MaxConcurrentTransforms")
+            Lude.<*> (x Lude..:? "TransformOutput")
+            Lude.<*> (x Lude..:? "DataProcessing")
+            Lude.<*> (x Lude..:? "TransformJobArn")
+            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable TransformJob
-
-instance NFData TransformJob

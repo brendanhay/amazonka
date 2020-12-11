@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,127 @@
 --
 -- Deletes the specified trial. All trial components that make up the trial must be deleted first. Use the 'DescribeTrialComponent' API to get the list of trial components.
 module Network.AWS.SageMaker.DeleteTrial
-  ( -- * Creating a Request
-    deleteTrial,
-    DeleteTrial,
+  ( -- * Creating a request
+    DeleteTrial (..),
+    mkDeleteTrial,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dTrialName,
 
-    -- * Destructuring the Response
-    deleteTrialResponse,
-    DeleteTrialResponse,
+    -- * Destructuring the response
+    DeleteTrialResponse (..),
+    mkDeleteTrialResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsTrialARN,
     drsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteTrial' smart constructor.
-newtype DeleteTrial = DeleteTrial' {_dTrialName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteTrial' smart constructor.
+newtype DeleteTrial = DeleteTrial' {trialName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrial' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dTrialName' - The name of the trial to delete.
-deleteTrial ::
-  -- | 'dTrialName'
-  Text ->
+-- * 'trialName' - The name of the trial to delete.
+mkDeleteTrial ::
+  -- | 'trialName'
+  Lude.Text ->
   DeleteTrial
-deleteTrial pTrialName_ = DeleteTrial' {_dTrialName = pTrialName_}
+mkDeleteTrial pTrialName_ = DeleteTrial' {trialName = pTrialName_}
 
 -- | The name of the trial to delete.
-dTrialName :: Lens' DeleteTrial Text
-dTrialName = lens _dTrialName (\s a -> s {_dTrialName = a})
+--
+-- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTrialName :: Lens.Lens' DeleteTrial Lude.Text
+dTrialName = Lens.lens (trialName :: DeleteTrial -> Lude.Text) (\s a -> s {trialName = a} :: DeleteTrial)
+{-# DEPRECATED dTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
-instance AWSRequest DeleteTrial where
+instance Lude.AWSRequest DeleteTrial where
   type Rs DeleteTrial = DeleteTrialResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteTrialResponse'
-            <$> (x .?> "TrialArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TrialArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteTrial
-
-instance NFData DeleteTrial
-
-instance ToHeaders DeleteTrial where
+instance Lude.ToHeaders DeleteTrial where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DeleteTrial" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DeleteTrial" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteTrial where
+instance Lude.ToJSON DeleteTrial where
   toJSON DeleteTrial' {..} =
-    object (catMaybes [Just ("TrialName" .= _dTrialName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("TrialName" Lude..= trialName)])
 
-instance ToPath DeleteTrial where
-  toPath = const "/"
+instance Lude.ToPath DeleteTrial where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteTrial where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteTrial where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteTrialResponse' smart constructor.
+-- | /See:/ 'mkDeleteTrialResponse' smart constructor.
 data DeleteTrialResponse = DeleteTrialResponse'
-  { _drsTrialARN ::
-      !(Maybe Text),
-    _drsResponseStatus :: !Int
+  { trialARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrialResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsTrialARN' - The Amazon Resource Name (ARN) of the trial that is being deleted.
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteTrialResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'trialARN' - The Amazon Resource Name (ARN) of the trial that is being deleted.
+mkDeleteTrialResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTrialResponse
-deleteTrialResponse pResponseStatus_ =
+mkDeleteTrialResponse pResponseStatus_ =
   DeleteTrialResponse'
-    { _drsTrialARN = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { trialARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the trial that is being deleted.
-drsTrialARN :: Lens' DeleteTrialResponse (Maybe Text)
-drsTrialARN = lens _drsTrialARN (\s a -> s {_drsTrialARN = a})
+--
+-- /Note:/ Consider using 'trialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsTrialARN :: Lens.Lens' DeleteTrialResponse (Lude.Maybe Lude.Text)
+drsTrialARN = Lens.lens (trialARN :: DeleteTrialResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialARN = a} :: DeleteTrialResponse)
+{-# DEPRECATED drsTrialARN "Use generic-lens or generic-optics with 'trialARN' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteTrialResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteTrialResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteTrialResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteTrialResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTrialResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

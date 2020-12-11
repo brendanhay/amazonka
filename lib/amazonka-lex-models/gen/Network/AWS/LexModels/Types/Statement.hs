@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.Statement where
+module Network.AWS.LexModels.Types.Statement
+  ( Statement (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkStatement,
+
+    -- * Lenses
+    staResponseCard,
+    staMessages,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Message
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A collection of messages that convey information to the user. At runtime, Amazon Lex selects the message to convey.
 --
---
---
--- /See:/ 'statement' smart constructor.
+-- /See:/ 'mkStatement' smart constructor.
 data Statement = Statement'
-  { _staResponseCard :: !(Maybe Text),
-    _staMessages :: !(List1 Message)
+  { responseCard :: Lude.Maybe Lude.Text,
+    messages :: Lude.NonEmpty Message
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Statement' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'staResponseCard' - At runtime, if the client is using the <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> API, Amazon Lex includes the response card in the response. It substitutes all of the session attributes and slot values for placeholders in the response card.
---
--- * 'staMessages' - A collection of message objects.
-statement ::
-  -- | 'staMessages'
-  NonEmpty Message ->
+-- * 'messages' - A collection of message objects.
+-- * 'responseCard' - At runtime, if the client is using the <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> API, Amazon Lex includes the response card in the response. It substitutes all of the session attributes and slot values for placeholders in the response card.
+mkStatement ::
+  -- | 'messages'
+  Lude.NonEmpty Message ->
   Statement
-statement pMessages_ =
-  Statement'
-    { _staResponseCard = Nothing,
-      _staMessages = _List1 # pMessages_
-    }
+mkStatement pMessages_ =
+  Statement' {responseCard = Lude.Nothing, messages = pMessages_}
 
 -- | At runtime, if the client is using the <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText> API, Amazon Lex includes the response card in the response. It substitutes all of the session attributes and slot values for placeholders in the response card.
-staResponseCard :: Lens' Statement (Maybe Text)
-staResponseCard = lens _staResponseCard (\s a -> s {_staResponseCard = a})
+--
+-- /Note:/ Consider using 'responseCard' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+staResponseCard :: Lens.Lens' Statement (Lude.Maybe Lude.Text)
+staResponseCard = Lens.lens (responseCard :: Statement -> Lude.Maybe Lude.Text) (\s a -> s {responseCard = a} :: Statement)
+{-# DEPRECATED staResponseCard "Use generic-lens or generic-optics with 'responseCard' instead." #-}
 
 -- | A collection of message objects.
-staMessages :: Lens' Statement (NonEmpty Message)
-staMessages = lens _staMessages (\s a -> s {_staMessages = a}) . _List1
+--
+-- /Note:/ Consider using 'messages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+staMessages :: Lens.Lens' Statement (Lude.NonEmpty Message)
+staMessages = Lens.lens (messages :: Statement -> Lude.NonEmpty Message) (\s a -> s {messages = a} :: Statement)
+{-# DEPRECATED staMessages "Use generic-lens or generic-optics with 'messages' instead." #-}
 
-instance FromJSON Statement where
+instance Lude.FromJSON Statement where
   parseJSON =
-    withObject
+    Lude.withObject
       "Statement"
       ( \x ->
-          Statement' <$> (x .:? "responseCard") <*> (x .: "messages")
+          Statement'
+            Lude.<$> (x Lude..:? "responseCard") Lude.<*> (x Lude..: "messages")
       )
 
-instance Hashable Statement
-
-instance NFData Statement
-
-instance ToJSON Statement where
+instance Lude.ToJSON Statement where
   toJSON Statement' {..} =
-    object
-      ( catMaybes
-          [ ("responseCard" .=) <$> _staResponseCard,
-            Just ("messages" .= _staMessages)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("responseCard" Lude..=) Lude.<$> responseCard,
+            Lude.Just ("messages" Lude..= messages)
           ]
       )

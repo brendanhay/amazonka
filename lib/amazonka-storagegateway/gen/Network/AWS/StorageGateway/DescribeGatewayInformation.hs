@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns metadata about a gateway such as its name, network interfaces, configured time zone, and the state (whether the gateway is running or not). To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.DescribeGatewayInformation
-  ( -- * Creating a Request
-    describeGatewayInformation,
-    DescribeGatewayInformation,
+  ( -- * Creating a request
+    DescribeGatewayInformation (..),
+    mkDescribeGatewayInformation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgiGatewayARN,
 
-    -- * Destructuring the Response
-    describeGatewayInformationResponse,
-    DescribeGatewayInformationResponse,
+    -- * Destructuring the response
+    DescribeGatewayInformationResponse (..),
+    mkDescribeGatewayInformationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dgirsGatewayState,
     dgirsEC2InstanceRegion,
     dgirsGatewayARN,
@@ -53,288 +48,334 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the ID of the gateway.
 --
---
---
--- /See:/ 'describeGatewayInformation' smart constructor.
+-- /See:/ 'mkDescribeGatewayInformation' smart constructor.
 newtype DescribeGatewayInformation = DescribeGatewayInformation'
-  { _dgiGatewayARN ::
-      Text
+  { gatewayARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGatewayInformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgiGatewayARN' - Undocumented member.
-describeGatewayInformation ::
-  -- | 'dgiGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+mkDescribeGatewayInformation ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   DescribeGatewayInformation
-describeGatewayInformation pGatewayARN_ =
-  DescribeGatewayInformation' {_dgiGatewayARN = pGatewayARN_}
+mkDescribeGatewayInformation pGatewayARN_ =
+  DescribeGatewayInformation' {gatewayARN = pGatewayARN_}
 
--- | Undocumented member.
-dgiGatewayARN :: Lens' DescribeGatewayInformation Text
-dgiGatewayARN = lens _dgiGatewayARN (\s a -> s {_dgiGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiGatewayARN :: Lens.Lens' DescribeGatewayInformation Lude.Text
+dgiGatewayARN = Lens.lens (gatewayARN :: DescribeGatewayInformation -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeGatewayInformation)
+{-# DEPRECATED dgiGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest DescribeGatewayInformation where
+instance Lude.AWSRequest DescribeGatewayInformation where
   type
     Rs DescribeGatewayInformation =
       DescribeGatewayInformationResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeGatewayInformationResponse'
-            <$> (x .?> "GatewayState")
-            <*> (x .?> "Ec2InstanceRegion")
-            <*> (x .?> "GatewayARN")
-            <*> (x .?> "GatewayNetworkInterfaces" .!@ mempty)
-            <*> (x .?> "Ec2InstanceId")
-            <*> (x .?> "NextUpdateAvailabilityDate")
-            <*> (x .?> "EndpointType")
-            <*> (x .?> "DeprecationDate")
-            <*> (x .?> "LastSoftwareUpdate")
-            <*> (x .?> "GatewayName")
-            <*> (x .?> "GatewayId")
-            <*> (x .?> "HostEnvironment")
-            <*> (x .?> "GatewayType")
-            <*> (x .?> "GatewayTimezone")
-            <*> (x .?> "SoftwareUpdatesEndDate")
-            <*> (x .?> "CloudWatchLogGroupARN")
-            <*> (x .?> "VPCEndpoint")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayState")
+            Lude.<*> (x Lude..?> "Ec2InstanceRegion")
+            Lude.<*> (x Lude..?> "GatewayARN")
+            Lude.<*> (x Lude..?> "GatewayNetworkInterfaces" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Ec2InstanceId")
+            Lude.<*> (x Lude..?> "NextUpdateAvailabilityDate")
+            Lude.<*> (x Lude..?> "EndpointType")
+            Lude.<*> (x Lude..?> "DeprecationDate")
+            Lude.<*> (x Lude..?> "LastSoftwareUpdate")
+            Lude.<*> (x Lude..?> "GatewayName")
+            Lude.<*> (x Lude..?> "GatewayId")
+            Lude.<*> (x Lude..?> "HostEnvironment")
+            Lude.<*> (x Lude..?> "GatewayType")
+            Lude.<*> (x Lude..?> "GatewayTimezone")
+            Lude.<*> (x Lude..?> "SoftwareUpdatesEndDate")
+            Lude.<*> (x Lude..?> "CloudWatchLogGroupARN")
+            Lude.<*> (x Lude..?> "VPCEndpoint")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeGatewayInformation
-
-instance NFData DescribeGatewayInformation
-
-instance ToHeaders DescribeGatewayInformation where
+instance Lude.ToHeaders DescribeGatewayInformation where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StorageGateway_20130630.DescribeGatewayInformation" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.DescribeGatewayInformation" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeGatewayInformation where
+instance Lude.ToJSON DescribeGatewayInformation where
   toJSON DescribeGatewayInformation' {..} =
-    object (catMaybes [Just ("GatewayARN" .= _dgiGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
 
-instance ToPath DescribeGatewayInformation where
-  toPath = const "/"
+instance Lude.ToPath DescribeGatewayInformation where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeGatewayInformation where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeGatewayInformation where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
---
---
--- /See:/ 'describeGatewayInformationResponse' smart constructor.
+-- /See:/ 'mkDescribeGatewayInformationResponse' smart constructor.
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
-  { _dgirsGatewayState ::
-      !(Maybe Text),
-    _dgirsEC2InstanceRegion ::
-      !(Maybe Text),
-    _dgirsGatewayARN ::
-      !(Maybe Text),
-    _dgirsGatewayNetworkInterfaces ::
-      !( Maybe
-           [NetworkInterface]
-       ),
-    _dgirsEC2InstanceId ::
-      !(Maybe Text),
-    _dgirsNextUpdateAvailabilityDate ::
-      !(Maybe Text),
-    _dgirsEndpointType ::
-      !(Maybe Text),
-    _dgirsDeprecationDate ::
-      !(Maybe Text),
-    _dgirsLastSoftwareUpdate ::
-      !(Maybe Text),
-    _dgirsGatewayName ::
-      !(Maybe Text),
-    _dgirsGatewayId ::
-      !(Maybe Text),
-    _dgirsHostEnvironment ::
-      !( Maybe
-           HostEnvironment
-       ),
-    _dgirsGatewayType ::
-      !(Maybe Text),
-    _dgirsGatewayTimezone ::
-      !(Maybe Text),
-    _dgirsSoftwareUpdatesEndDate ::
-      !(Maybe Text),
-    _dgirsCloudWatchLogGroupARN ::
-      !(Maybe Text),
-    _dgirsVPCEndpoint ::
-      !(Maybe Text),
-    _dgirsTags ::
-      !(Maybe [Tag]),
-    _dgirsResponseStatus ::
-      !Int
+  { gatewayState ::
+      Lude.Maybe Lude.Text,
+    ec2InstanceRegion ::
+      Lude.Maybe Lude.Text,
+    gatewayARN ::
+      Lude.Maybe Lude.Text,
+    gatewayNetworkInterfaces ::
+      Lude.Maybe
+        [NetworkInterface],
+    ec2InstanceId ::
+      Lude.Maybe Lude.Text,
+    nextUpdateAvailabilityDate ::
+      Lude.Maybe Lude.Text,
+    endpointType ::
+      Lude.Maybe Lude.Text,
+    deprecationDate ::
+      Lude.Maybe Lude.Text,
+    lastSoftwareUpdate ::
+      Lude.Maybe Lude.Text,
+    gatewayName ::
+      Lude.Maybe Lude.Text,
+    gatewayId ::
+      Lude.Maybe Lude.Text,
+    hostEnvironment ::
+      Lude.Maybe
+        HostEnvironment,
+    gatewayType ::
+      Lude.Maybe Lude.Text,
+    gatewayTimezone ::
+      Lude.Maybe Lude.Text,
+    softwareUpdatesEndDate ::
+      Lude.Maybe Lude.Text,
+    cloudWatchLogGroupARN ::
+      Lude.Maybe Lude.Text,
+    vpcEndpoint ::
+      Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe [Tag],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGatewayInformationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor events in the gateway.
+-- * 'deprecationDate' - Date after which this gateway will not receive software updates for new features and bug fixes.
+-- * 'ec2InstanceId' - The ID of the Amazon EC2 instance that was used to launch the gateway.
+-- * 'ec2InstanceRegion' - The AWS Region where the Amazon EC2 instance is located.
+-- * 'endpointType' - The type of endpoint for your gateway.
 --
--- * 'dgirsGatewayState' - A value that indicates the operating state of the gateway.
---
--- * 'dgirsEC2InstanceRegion' - The AWS Region where the Amazon EC2 instance is located.
---
--- * 'dgirsGatewayARN' - Undocumented member.
---
--- * 'dgirsGatewayNetworkInterfaces' - A 'NetworkInterface' array that contains descriptions of the gateway network interfaces.
---
--- * 'dgirsEC2InstanceId' - The ID of the Amazon EC2 instance that was used to launch the gateway.
---
--- * 'dgirsNextUpdateAvailabilityDate' - The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
---
--- * 'dgirsEndpointType' - The type of endpoint for your gateway. Valid Values: @STANDARD@ | @FIPS@
---
--- * 'dgirsDeprecationDate' - Date after which this gateway will not receive software updates for new features and bug fixes.
---
--- * 'dgirsLastSoftwareUpdate' - The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response.
---
--- * 'dgirsGatewayName' - The name you configured for your gateway.
---
--- * 'dgirsGatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
---
--- * 'dgirsHostEnvironment' - The type of hypervisor environment used by the host.
---
--- * 'dgirsGatewayType' - The type of the gateway.
---
--- * 'dgirsGatewayTimezone' - A value that indicates the time zone configured for the gateway.
---
--- * 'dgirsSoftwareUpdatesEndDate' - Date after which this gateway will not receive software updates for new features.
---
--- * 'dgirsCloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor events in the gateway.
---
--- * 'dgirsVPCEndpoint' - The configuration settings for the virtual private cloud (VPC) endpoint for your gateway.
---
--- * 'dgirsTags' - A list of up to 50 tags assigned to the gateway, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
---
--- * 'dgirsResponseStatus' - -- | The response status code.
-describeGatewayInformationResponse ::
-  -- | 'dgirsResponseStatus'
-  Int ->
+-- Valid Values: @STANDARD@ | @FIPS@
+-- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
+-- * 'gatewayName' - The name you configured for your gateway.
+-- * 'gatewayNetworkInterfaces' - A 'NetworkInterface' array that contains descriptions of the gateway network interfaces.
+-- * 'gatewayState' - A value that indicates the operating state of the gateway.
+-- * 'gatewayTimezone' - A value that indicates the time zone configured for the gateway.
+-- * 'gatewayType' - The type of the gateway.
+-- * 'hostEnvironment' - The type of hypervisor environment used by the host.
+-- * 'lastSoftwareUpdate' - The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response.
+-- * 'nextUpdateAvailabilityDate' - The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
+-- * 'responseStatus' - The response status code.
+-- * 'softwareUpdatesEndDate' - Date after which this gateway will not receive software updates for new features.
+-- * 'tags' - A list of up to 50 tags assigned to the gateway, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
+-- * 'vpcEndpoint' - The configuration settings for the virtual private cloud (VPC) endpoint for your gateway.
+mkDescribeGatewayInformationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeGatewayInformationResponse
-describeGatewayInformationResponse pResponseStatus_ =
+mkDescribeGatewayInformationResponse pResponseStatus_ =
   DescribeGatewayInformationResponse'
-    { _dgirsGatewayState = Nothing,
-      _dgirsEC2InstanceRegion = Nothing,
-      _dgirsGatewayARN = Nothing,
-      _dgirsGatewayNetworkInterfaces = Nothing,
-      _dgirsEC2InstanceId = Nothing,
-      _dgirsNextUpdateAvailabilityDate = Nothing,
-      _dgirsEndpointType = Nothing,
-      _dgirsDeprecationDate = Nothing,
-      _dgirsLastSoftwareUpdate = Nothing,
-      _dgirsGatewayName = Nothing,
-      _dgirsGatewayId = Nothing,
-      _dgirsHostEnvironment = Nothing,
-      _dgirsGatewayType = Nothing,
-      _dgirsGatewayTimezone = Nothing,
-      _dgirsSoftwareUpdatesEndDate = Nothing,
-      _dgirsCloudWatchLogGroupARN = Nothing,
-      _dgirsVPCEndpoint = Nothing,
-      _dgirsTags = Nothing,
-      _dgirsResponseStatus = pResponseStatus_
+    { gatewayState = Lude.Nothing,
+      ec2InstanceRegion = Lude.Nothing,
+      gatewayARN = Lude.Nothing,
+      gatewayNetworkInterfaces = Lude.Nothing,
+      ec2InstanceId = Lude.Nothing,
+      nextUpdateAvailabilityDate = Lude.Nothing,
+      endpointType = Lude.Nothing,
+      deprecationDate = Lude.Nothing,
+      lastSoftwareUpdate = Lude.Nothing,
+      gatewayName = Lude.Nothing,
+      gatewayId = Lude.Nothing,
+      hostEnvironment = Lude.Nothing,
+      gatewayType = Lude.Nothing,
+      gatewayTimezone = Lude.Nothing,
+      softwareUpdatesEndDate = Lude.Nothing,
+      cloudWatchLogGroupARN = Lude.Nothing,
+      vpcEndpoint = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A value that indicates the operating state of the gateway.
-dgirsGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayState = lens _dgirsGatewayState (\s a -> s {_dgirsGatewayState = a})
+--
+-- /Note:/ Consider using 'gatewayState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsGatewayState :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsGatewayState = Lens.lens (gatewayState :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayState = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsGatewayState "Use generic-lens or generic-optics with 'gatewayState' instead." #-}
 
 -- | The AWS Region where the Amazon EC2 instance is located.
-dgirsEC2InstanceRegion :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsEC2InstanceRegion = lens _dgirsEC2InstanceRegion (\s a -> s {_dgirsEC2InstanceRegion = a})
+--
+-- /Note:/ Consider using 'ec2InstanceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsEC2InstanceRegion :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsEC2InstanceRegion = Lens.lens (ec2InstanceRegion :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {ec2InstanceRegion = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsEC2InstanceRegion "Use generic-lens or generic-optics with 'ec2InstanceRegion' instead." #-}
 
--- | Undocumented member.
-dgirsGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayARN = lens _dgirsGatewayARN (\s a -> s {_dgirsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsGatewayARN :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsGatewayARN = Lens.lens (gatewayARN :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | A 'NetworkInterface' array that contains descriptions of the gateway network interfaces.
-dgirsGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
-dgirsGatewayNetworkInterfaces = lens _dgirsGatewayNetworkInterfaces (\s a -> s {_dgirsGatewayNetworkInterfaces = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gatewayNetworkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsGatewayNetworkInterfaces :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe [NetworkInterface])
+dgirsGatewayNetworkInterfaces = Lens.lens (gatewayNetworkInterfaces :: DescribeGatewayInformationResponse -> Lude.Maybe [NetworkInterface]) (\s a -> s {gatewayNetworkInterfaces = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsGatewayNetworkInterfaces "Use generic-lens or generic-optics with 'gatewayNetworkInterfaces' instead." #-}
 
 -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
-dgirsEC2InstanceId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsEC2InstanceId = lens _dgirsEC2InstanceId (\s a -> s {_dgirsEC2InstanceId = a})
+--
+-- /Note:/ Consider using 'ec2InstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsEC2InstanceId :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsEC2InstanceId = Lens.lens (ec2InstanceId :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {ec2InstanceId = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsEC2InstanceId "Use generic-lens or generic-optics with 'ec2InstanceId' instead." #-}
 
 -- | The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
-dgirsNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsNextUpdateAvailabilityDate = lens _dgirsNextUpdateAvailabilityDate (\s a -> s {_dgirsNextUpdateAvailabilityDate = a})
+--
+-- /Note:/ Consider using 'nextUpdateAvailabilityDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsNextUpdateAvailabilityDate :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsNextUpdateAvailabilityDate = Lens.lens (nextUpdateAvailabilityDate :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextUpdateAvailabilityDate = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsNextUpdateAvailabilityDate "Use generic-lens or generic-optics with 'nextUpdateAvailabilityDate' instead." #-}
 
--- | The type of endpoint for your gateway. Valid Values: @STANDARD@ | @FIPS@
-dgirsEndpointType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsEndpointType = lens _dgirsEndpointType (\s a -> s {_dgirsEndpointType = a})
+-- | The type of endpoint for your gateway.
+--
+-- Valid Values: @STANDARD@ | @FIPS@
+--
+-- /Note:/ Consider using 'endpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsEndpointType :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsEndpointType = Lens.lens (endpointType :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {endpointType = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsEndpointType "Use generic-lens or generic-optics with 'endpointType' instead." #-}
 
 -- | Date after which this gateway will not receive software updates for new features and bug fixes.
-dgirsDeprecationDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsDeprecationDate = lens _dgirsDeprecationDate (\s a -> s {_dgirsDeprecationDate = a})
+--
+-- /Note:/ Consider using 'deprecationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsDeprecationDate :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsDeprecationDate = Lens.lens (deprecationDate :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {deprecationDate = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsDeprecationDate "Use generic-lens or generic-optics with 'deprecationDate' instead." #-}
 
 -- | The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response.
-dgirsLastSoftwareUpdate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsLastSoftwareUpdate = lens _dgirsLastSoftwareUpdate (\s a -> s {_dgirsLastSoftwareUpdate = a})
+--
+-- /Note:/ Consider using 'lastSoftwareUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsLastSoftwareUpdate :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsLastSoftwareUpdate = Lens.lens (lastSoftwareUpdate :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastSoftwareUpdate = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsLastSoftwareUpdate "Use generic-lens or generic-optics with 'lastSoftwareUpdate' instead." #-}
 
 -- | The name you configured for your gateway.
-dgirsGatewayName :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayName = lens _dgirsGatewayName (\s a -> s {_dgirsGatewayName = a})
+--
+-- /Note:/ Consider using 'gatewayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsGatewayName :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsGatewayName = Lens.lens (gatewayName :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayName = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsGatewayName "Use generic-lens or generic-optics with 'gatewayName' instead." #-}
 
 -- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
-dgirsGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayId = lens _dgirsGatewayId (\s a -> s {_dgirsGatewayId = a})
+--
+-- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsGatewayId :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsGatewayId = Lens.lens (gatewayId :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayId = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
 
 -- | The type of hypervisor environment used by the host.
-dgirsHostEnvironment :: Lens' DescribeGatewayInformationResponse (Maybe HostEnvironment)
-dgirsHostEnvironment = lens _dgirsHostEnvironment (\s a -> s {_dgirsHostEnvironment = a})
+--
+-- /Note:/ Consider using 'hostEnvironment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsHostEnvironment :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe HostEnvironment)
+dgirsHostEnvironment = Lens.lens (hostEnvironment :: DescribeGatewayInformationResponse -> Lude.Maybe HostEnvironment) (\s a -> s {hostEnvironment = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsHostEnvironment "Use generic-lens or generic-optics with 'hostEnvironment' instead." #-}
 
 -- | The type of the gateway.
-dgirsGatewayType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayType = lens _dgirsGatewayType (\s a -> s {_dgirsGatewayType = a})
+--
+-- /Note:/ Consider using 'gatewayType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsGatewayType :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsGatewayType = Lens.lens (gatewayType :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayType = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsGatewayType "Use generic-lens or generic-optics with 'gatewayType' instead." #-}
 
 -- | A value that indicates the time zone configured for the gateway.
-dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\s a -> s {_dgirsGatewayTimezone = a})
+--
+-- /Note:/ Consider using 'gatewayTimezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsGatewayTimezone :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsGatewayTimezone = Lens.lens (gatewayTimezone :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayTimezone = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsGatewayTimezone "Use generic-lens or generic-optics with 'gatewayTimezone' instead." #-}
 
 -- | Date after which this gateway will not receive software updates for new features.
-dgirsSoftwareUpdatesEndDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsSoftwareUpdatesEndDate = lens _dgirsSoftwareUpdatesEndDate (\s a -> s {_dgirsSoftwareUpdatesEndDate = a})
+--
+-- /Note:/ Consider using 'softwareUpdatesEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsSoftwareUpdatesEndDate :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsSoftwareUpdatesEndDate = Lens.lens (softwareUpdatesEndDate :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {softwareUpdatesEndDate = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsSoftwareUpdatesEndDate "Use generic-lens or generic-optics with 'softwareUpdatesEndDate' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor events in the gateway.
-dgirsCloudWatchLogGroupARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsCloudWatchLogGroupARN = lens _dgirsCloudWatchLogGroupARN (\s a -> s {_dgirsCloudWatchLogGroupARN = a})
+--
+-- /Note:/ Consider using 'cloudWatchLogGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsCloudWatchLogGroupARN :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsCloudWatchLogGroupARN = Lens.lens (cloudWatchLogGroupARN :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {cloudWatchLogGroupARN = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsCloudWatchLogGroupARN "Use generic-lens or generic-optics with 'cloudWatchLogGroupARN' instead." #-}
 
 -- | The configuration settings for the virtual private cloud (VPC) endpoint for your gateway.
-dgirsVPCEndpoint :: Lens' DescribeGatewayInformationResponse (Maybe Text)
-dgirsVPCEndpoint = lens _dgirsVPCEndpoint (\s a -> s {_dgirsVPCEndpoint = a})
+--
+-- /Note:/ Consider using 'vpcEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsVPCEndpoint :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe Lude.Text)
+dgirsVPCEndpoint = Lens.lens (vpcEndpoint :: DescribeGatewayInformationResponse -> Lude.Maybe Lude.Text) (\s a -> s {vpcEndpoint = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsVPCEndpoint "Use generic-lens or generic-optics with 'vpcEndpoint' instead." #-}
 
 -- | A list of up to 50 tags assigned to the gateway, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
-dgirsTags :: Lens' DescribeGatewayInformationResponse [Tag]
-dgirsTags = lens _dgirsTags (\s a -> s {_dgirsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsTags :: Lens.Lens' DescribeGatewayInformationResponse (Lude.Maybe [Tag])
+dgirsTags = Lens.lens (tags :: DescribeGatewayInformationResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-dgirsResponseStatus :: Lens' DescribeGatewayInformationResponse Int
-dgirsResponseStatus = lens _dgirsResponseStatus (\s a -> s {_dgirsResponseStatus = a})
-
-instance NFData DescribeGatewayInformationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgirsResponseStatus :: Lens.Lens' DescribeGatewayInformationResponse Lude.Int
+dgirsResponseStatus = Lens.lens (responseStatus :: DescribeGatewayInformationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGatewayInformationResponse)
+{-# DEPRECATED dgirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

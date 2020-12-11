@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameSessionQueueDestination where
+module Network.AWS.GameLift.Types.GameSessionQueueDestination
+  ( GameSessionQueueDestination (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGameSessionQueueDestination,
+
+    -- * Lenses
+    gsqdDestinationARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination that is configured for a queue.
 --
 --
 --     * 'CreateGameSessionQueue'
 --
+--
 --     * 'DescribeGameSessionQueues'
 --
+--
 --     * 'UpdateGameSessionQueue'
+--
 --
 --     * 'DeleteGameSessionQueue'
 --
 --
 --
---
--- /See:/ 'gameSessionQueueDestination' smart constructor.
+-- /See:/ 'mkGameSessionQueueDestination' smart constructor.
 newtype GameSessionQueueDestination = GameSessionQueueDestination'
-  { _gsqdDestinationARN ::
-      Maybe Text
+  { destinationARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameSessionQueueDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsqdDestinationARN' - The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
-gameSessionQueueDestination ::
+-- * 'destinationARN' - The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
+mkGameSessionQueueDestination ::
   GameSessionQueueDestination
-gameSessionQueueDestination =
-  GameSessionQueueDestination' {_gsqdDestinationARN = Nothing}
+mkGameSessionQueueDestination =
+  GameSessionQueueDestination' {destinationARN = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
-gsqdDestinationARN :: Lens' GameSessionQueueDestination (Maybe Text)
-gsqdDestinationARN = lens _gsqdDestinationARN (\s a -> s {_gsqdDestinationARN = a})
+--
+-- /Note:/ Consider using 'destinationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsqdDestinationARN :: Lens.Lens' GameSessionQueueDestination (Lude.Maybe Lude.Text)
+gsqdDestinationARN = Lens.lens (destinationARN :: GameSessionQueueDestination -> Lude.Maybe Lude.Text) (\s a -> s {destinationARN = a} :: GameSessionQueueDestination)
+{-# DEPRECATED gsqdDestinationARN "Use generic-lens or generic-optics with 'destinationARN' instead." #-}
 
-instance FromJSON GameSessionQueueDestination where
+instance Lude.FromJSON GameSessionQueueDestination where
   parseJSON =
-    withObject
+    Lude.withObject
       "GameSessionQueueDestination"
-      (\x -> GameSessionQueueDestination' <$> (x .:? "DestinationArn"))
+      ( \x ->
+          GameSessionQueueDestination'
+            Lude.<$> (x Lude..:? "DestinationArn")
+      )
 
-instance Hashable GameSessionQueueDestination
-
-instance NFData GameSessionQueueDestination
-
-instance ToJSON GameSessionQueueDestination where
+instance Lude.ToJSON GameSessionQueueDestination where
   toJSON GameSessionQueueDestination' {..} =
-    object
-      (catMaybes [("DestinationArn" .=) <$> _gsqdDestinationARN])
+    Lude.object
+      ( Lude.catMaybes
+          [("DestinationArn" Lude..=) Lude.<$> destinationARN]
+      )

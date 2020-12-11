@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,151 @@
 --
 -- Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
 --
---
 -- The command returns a public key, which you must store in the HSM. In addition to creating the HSM certificate, you must create an Amazon Redshift HSM configuration that provides a cluster the information needed to store and use encryption keys in the HSM. For more information, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules> in the Amazon Redshift Cluster Management Guide.
 module Network.AWS.Redshift.CreateHSMClientCertificate
-  ( -- * Creating a Request
-    createHSMClientCertificate,
-    CreateHSMClientCertificate,
+  ( -- * Creating a request
+    CreateHSMClientCertificate (..),
+    mkCreateHSMClientCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     chccTags,
     chccHSMClientCertificateIdentifier,
 
-    -- * Destructuring the Response
-    createHSMClientCertificateResponse,
-    CreateHSMClientCertificateResponse,
+    -- * Destructuring the response
+    CreateHSMClientCertificateResponse (..),
+    mkCreateHSMClientCertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     chccrsHSMClientCertificate,
     chccrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createHSMClientCertificate' smart constructor.
+-- /See:/ 'mkCreateHSMClientCertificate' smart constructor.
 data CreateHSMClientCertificate = CreateHSMClientCertificate'
-  { _chccTags ::
-      !(Maybe [Tag]),
-    _chccHSMClientCertificateIdentifier ::
-      !Text
+  { tags ::
+      Lude.Maybe [Tag],
+    hsmClientCertificateIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSMClientCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chccTags' - A list of tag instances.
---
--- * 'chccHSMClientCertificateIdentifier' - The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.
-createHSMClientCertificate ::
-  -- | 'chccHSMClientCertificateIdentifier'
-  Text ->
+-- * 'hsmClientCertificateIdentifier' - The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.
+-- * 'tags' - A list of tag instances.
+mkCreateHSMClientCertificate ::
+  -- | 'hsmClientCertificateIdentifier'
+  Lude.Text ->
   CreateHSMClientCertificate
-createHSMClientCertificate pHSMClientCertificateIdentifier_ =
+mkCreateHSMClientCertificate pHSMClientCertificateIdentifier_ =
   CreateHSMClientCertificate'
-    { _chccTags = Nothing,
-      _chccHSMClientCertificateIdentifier =
-        pHSMClientCertificateIdentifier_
+    { tags = Lude.Nothing,
+      hsmClientCertificateIdentifier = pHSMClientCertificateIdentifier_
     }
 
 -- | A list of tag instances.
-chccTags :: Lens' CreateHSMClientCertificate [Tag]
-chccTags = lens _chccTags (\s a -> s {_chccTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chccTags :: Lens.Lens' CreateHSMClientCertificate (Lude.Maybe [Tag])
+chccTags = Lens.lens (tags :: CreateHSMClientCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateHSMClientCertificate)
+{-# DEPRECATED chccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.
-chccHSMClientCertificateIdentifier :: Lens' CreateHSMClientCertificate Text
-chccHSMClientCertificateIdentifier = lens _chccHSMClientCertificateIdentifier (\s a -> s {_chccHSMClientCertificateIdentifier = a})
+--
+-- /Note:/ Consider using 'hsmClientCertificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chccHSMClientCertificateIdentifier :: Lens.Lens' CreateHSMClientCertificate Lude.Text
+chccHSMClientCertificateIdentifier = Lens.lens (hsmClientCertificateIdentifier :: CreateHSMClientCertificate -> Lude.Text) (\s a -> s {hsmClientCertificateIdentifier = a} :: CreateHSMClientCertificate)
+{-# DEPRECATED chccHSMClientCertificateIdentifier "Use generic-lens or generic-optics with 'hsmClientCertificateIdentifier' instead." #-}
 
-instance AWSRequest CreateHSMClientCertificate where
+instance Lude.AWSRequest CreateHSMClientCertificate where
   type
     Rs CreateHSMClientCertificate =
       CreateHSMClientCertificateResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateHsmClientCertificateResult"
       ( \s h x ->
           CreateHSMClientCertificateResponse'
-            <$> (x .@? "HsmClientCertificate") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "HsmClientCertificate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateHSMClientCertificate
+instance Lude.ToHeaders CreateHSMClientCertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateHSMClientCertificate
+instance Lude.ToPath CreateHSMClientCertificate where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateHSMClientCertificate where
-  toHeaders = const mempty
-
-instance ToPath CreateHSMClientCertificate where
-  toPath = const "/"
-
-instance ToQuery CreateHSMClientCertificate where
+instance Lude.ToQuery CreateHSMClientCertificate where
   toQuery CreateHSMClientCertificate' {..} =
-    mconcat
-      [ "Action" =: ("CreateHsmClientCertificate" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "Tags" =: toQuery (toQueryList "Tag" <$> _chccTags),
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("CreateHsmClientCertificate" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
         "HsmClientCertificateIdentifier"
-          =: _chccHSMClientCertificateIdentifier
+          Lude.=: hsmClientCertificateIdentifier
       ]
 
--- | /See:/ 'createHSMClientCertificateResponse' smart constructor.
+-- | /See:/ 'mkCreateHSMClientCertificateResponse' smart constructor.
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
-  { _chccrsHSMClientCertificate ::
-      !( Maybe
-           HSMClientCertificate
-       ),
-    _chccrsResponseStatus ::
-      !Int
+  { hsmClientCertificate ::
+      Lude.Maybe
+        HSMClientCertificate,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSMClientCertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chccrsHSMClientCertificate' - Undocumented member.
---
--- * 'chccrsResponseStatus' - -- | The response status code.
-createHSMClientCertificateResponse ::
-  -- | 'chccrsResponseStatus'
-  Int ->
+-- * 'hsmClientCertificate' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateHSMClientCertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateHSMClientCertificateResponse
-createHSMClientCertificateResponse pResponseStatus_ =
+mkCreateHSMClientCertificateResponse pResponseStatus_ =
   CreateHSMClientCertificateResponse'
-    { _chccrsHSMClientCertificate =
-        Nothing,
-      _chccrsResponseStatus = pResponseStatus_
+    { hsmClientCertificate =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-chccrsHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
-chccrsHSMClientCertificate = lens _chccrsHSMClientCertificate (\s a -> s {_chccrsHSMClientCertificate = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hsmClientCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chccrsHSMClientCertificate :: Lens.Lens' CreateHSMClientCertificateResponse (Lude.Maybe HSMClientCertificate)
+chccrsHSMClientCertificate = Lens.lens (hsmClientCertificate :: CreateHSMClientCertificateResponse -> Lude.Maybe HSMClientCertificate) (\s a -> s {hsmClientCertificate = a} :: CreateHSMClientCertificateResponse)
+{-# DEPRECATED chccrsHSMClientCertificate "Use generic-lens or generic-optics with 'hsmClientCertificate' instead." #-}
 
--- | -- | The response status code.
-chccrsResponseStatus :: Lens' CreateHSMClientCertificateResponse Int
-chccrsResponseStatus = lens _chccrsResponseStatus (\s a -> s {_chccrsResponseStatus = a})
-
-instance NFData CreateHSMClientCertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chccrsResponseStatus :: Lens.Lens' CreateHSMClientCertificateResponse Lude.Int
+chccrsResponseStatus = Lens.lens (responseStatus :: CreateHSMClientCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHSMClientCertificateResponse)
+{-# DEPRECATED chccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

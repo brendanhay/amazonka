@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,101 @@
 --
 -- Retrieves the current settings of the AWS IoT Analytics logging options.
 module Network.AWS.IoTAnalytics.DescribeLoggingOptions
-  ( -- * Creating a Request
-    describeLoggingOptions,
-    DescribeLoggingOptions,
+  ( -- * Creating a request
+    DescribeLoggingOptions (..),
+    mkDescribeLoggingOptions,
 
-    -- * Destructuring the Response
-    describeLoggingOptionsResponse,
-    DescribeLoggingOptionsResponse,
+    -- * Destructuring the response
+    DescribeLoggingOptionsResponse (..),
+    mkDescribeLoggingOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlorsLoggingOptions,
     dlorsResponseStatus,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeLoggingOptions' smart constructor.
+-- | /See:/ 'mkDescribeLoggingOptions' smart constructor.
 data DescribeLoggingOptions = DescribeLoggingOptions'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoggingOptions' with the minimum fields required to make a request.
-describeLoggingOptions ::
+mkDescribeLoggingOptions ::
   DescribeLoggingOptions
-describeLoggingOptions = DescribeLoggingOptions'
+mkDescribeLoggingOptions = DescribeLoggingOptions'
 
-instance AWSRequest DescribeLoggingOptions where
+instance Lude.AWSRequest DescribeLoggingOptions where
   type Rs DescribeLoggingOptions = DescribeLoggingOptionsResponse
-  request = get ioTAnalytics
+  request = Req.get ioTAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeLoggingOptionsResponse'
-            <$> (x .?> "loggingOptions") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "loggingOptions")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeLoggingOptions
+instance Lude.ToHeaders DescribeLoggingOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeLoggingOptions
+instance Lude.ToPath DescribeLoggingOptions where
+  toPath = Lude.const "/logging"
 
-instance ToHeaders DescribeLoggingOptions where
-  toHeaders = const mempty
+instance Lude.ToQuery DescribeLoggingOptions where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath DescribeLoggingOptions where
-  toPath = const "/logging"
-
-instance ToQuery DescribeLoggingOptions where
-  toQuery = const mempty
-
--- | /See:/ 'describeLoggingOptionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeLoggingOptionsResponse' smart constructor.
 data DescribeLoggingOptionsResponse = DescribeLoggingOptionsResponse'
-  { _dlorsLoggingOptions ::
-      !(Maybe LoggingOptions),
-    _dlorsResponseStatus :: !Int
+  { loggingOptions ::
+      Lude.Maybe LoggingOptions,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoggingOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlorsLoggingOptions' - The current settings of the AWS IoT Analytics logging options.
---
--- * 'dlorsResponseStatus' - -- | The response status code.
-describeLoggingOptionsResponse ::
-  -- | 'dlorsResponseStatus'
-  Int ->
+-- * 'loggingOptions' - The current settings of the AWS IoT Analytics logging options.
+-- * 'responseStatus' - The response status code.
+mkDescribeLoggingOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeLoggingOptionsResponse
-describeLoggingOptionsResponse pResponseStatus_ =
+mkDescribeLoggingOptionsResponse pResponseStatus_ =
   DescribeLoggingOptionsResponse'
-    { _dlorsLoggingOptions = Nothing,
-      _dlorsResponseStatus = pResponseStatus_
+    { loggingOptions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current settings of the AWS IoT Analytics logging options.
-dlorsLoggingOptions :: Lens' DescribeLoggingOptionsResponse (Maybe LoggingOptions)
-dlorsLoggingOptions = lens _dlorsLoggingOptions (\s a -> s {_dlorsLoggingOptions = a})
+--
+-- /Note:/ Consider using 'loggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlorsLoggingOptions :: Lens.Lens' DescribeLoggingOptionsResponse (Lude.Maybe LoggingOptions)
+dlorsLoggingOptions = Lens.lens (loggingOptions :: DescribeLoggingOptionsResponse -> Lude.Maybe LoggingOptions) (\s a -> s {loggingOptions = a} :: DescribeLoggingOptionsResponse)
+{-# DEPRECATED dlorsLoggingOptions "Use generic-lens or generic-optics with 'loggingOptions' instead." #-}
 
--- | -- | The response status code.
-dlorsResponseStatus :: Lens' DescribeLoggingOptionsResponse Int
-dlorsResponseStatus = lens _dlorsResponseStatus (\s a -> s {_dlorsResponseStatus = a})
-
-instance NFData DescribeLoggingOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlorsResponseStatus :: Lens.Lens' DescribeLoggingOptionsResponse Lude.Int
+dlorsResponseStatus = Lens.lens (responseStatus :: DescribeLoggingOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoggingOptionsResponse)
+{-# DEPRECATED dlorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

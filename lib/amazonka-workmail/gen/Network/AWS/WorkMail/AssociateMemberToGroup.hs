@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,154 @@
 --
 -- Adds a member (user or group) to the group's set.
 module Network.AWS.WorkMail.AssociateMemberToGroup
-  ( -- * Creating a Request
-    associateMemberToGroup,
-    AssociateMemberToGroup,
+  ( -- * Creating a request
+    AssociateMemberToGroup (..),
+    mkAssociateMemberToGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     amtgOrganizationId,
     amtgGroupId,
     amtgMemberId,
 
-    -- * Destructuring the Response
-    associateMemberToGroupResponse,
-    AssociateMemberToGroupResponse,
+    -- * Destructuring the response
+    AssociateMemberToGroupResponse (..),
+    mkAssociateMemberToGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     amtgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'associateMemberToGroup' smart constructor.
+-- | /See:/ 'mkAssociateMemberToGroup' smart constructor.
 data AssociateMemberToGroup = AssociateMemberToGroup'
-  { _amtgOrganizationId ::
-      !Text,
-    _amtgGroupId :: !Text,
-    _amtgMemberId :: !Text
+  { organizationId ::
+      Lude.Text,
+    groupId :: Lude.Text,
+    memberId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateMemberToGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amtgOrganizationId' - The organization under which the group exists.
---
--- * 'amtgGroupId' - The group to which the member (user or group) is associated.
---
--- * 'amtgMemberId' - The member (user or group) to associate to the group.
-associateMemberToGroup ::
-  -- | 'amtgOrganizationId'
-  Text ->
-  -- | 'amtgGroupId'
-  Text ->
-  -- | 'amtgMemberId'
-  Text ->
+-- * 'groupId' - The group to which the member (user or group) is associated.
+-- * 'memberId' - The member (user or group) to associate to the group.
+-- * 'organizationId' - The organization under which the group exists.
+mkAssociateMemberToGroup ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'groupId'
+  Lude.Text ->
+  -- | 'memberId'
+  Lude.Text ->
   AssociateMemberToGroup
-associateMemberToGroup pOrganizationId_ pGroupId_ pMemberId_ =
+mkAssociateMemberToGroup pOrganizationId_ pGroupId_ pMemberId_ =
   AssociateMemberToGroup'
-    { _amtgOrganizationId = pOrganizationId_,
-      _amtgGroupId = pGroupId_,
-      _amtgMemberId = pMemberId_
+    { organizationId = pOrganizationId_,
+      groupId = pGroupId_,
+      memberId = pMemberId_
     }
 
 -- | The organization under which the group exists.
-amtgOrganizationId :: Lens' AssociateMemberToGroup Text
-amtgOrganizationId = lens _amtgOrganizationId (\s a -> s {_amtgOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amtgOrganizationId :: Lens.Lens' AssociateMemberToGroup Lude.Text
+amtgOrganizationId = Lens.lens (organizationId :: AssociateMemberToGroup -> Lude.Text) (\s a -> s {organizationId = a} :: AssociateMemberToGroup)
+{-# DEPRECATED amtgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The group to which the member (user or group) is associated.
-amtgGroupId :: Lens' AssociateMemberToGroup Text
-amtgGroupId = lens _amtgGroupId (\s a -> s {_amtgGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amtgGroupId :: Lens.Lens' AssociateMemberToGroup Lude.Text
+amtgGroupId = Lens.lens (groupId :: AssociateMemberToGroup -> Lude.Text) (\s a -> s {groupId = a} :: AssociateMemberToGroup)
+{-# DEPRECATED amtgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The member (user or group) to associate to the group.
-amtgMemberId :: Lens' AssociateMemberToGroup Text
-amtgMemberId = lens _amtgMemberId (\s a -> s {_amtgMemberId = a})
+--
+-- /Note:/ Consider using 'memberId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amtgMemberId :: Lens.Lens' AssociateMemberToGroup Lude.Text
+amtgMemberId = Lens.lens (memberId :: AssociateMemberToGroup -> Lude.Text) (\s a -> s {memberId = a} :: AssociateMemberToGroup)
+{-# DEPRECATED amtgMemberId "Use generic-lens or generic-optics with 'memberId' instead." #-}
 
-instance AWSRequest AssociateMemberToGroup where
+instance Lude.AWSRequest AssociateMemberToGroup where
   type Rs AssociateMemberToGroup = AssociateMemberToGroupResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          AssociateMemberToGroupResponse' <$> (pure (fromEnum s))
+          AssociateMemberToGroupResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateMemberToGroup
-
-instance NFData AssociateMemberToGroup
-
-instance ToHeaders AssociateMemberToGroup where
+instance Lude.ToHeaders AssociateMemberToGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.AssociateMemberToGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.AssociateMemberToGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateMemberToGroup where
+instance Lude.ToJSON AssociateMemberToGroup where
   toJSON AssociateMemberToGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _amtgOrganizationId),
-            Just ("GroupId" .= _amtgGroupId),
-            Just ("MemberId" .= _amtgMemberId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("GroupId" Lude..= groupId),
+            Lude.Just ("MemberId" Lude..= memberId)
           ]
       )
 
-instance ToPath AssociateMemberToGroup where
-  toPath = const "/"
+instance Lude.ToPath AssociateMemberToGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateMemberToGroup where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateMemberToGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateMemberToGroupResponse' smart constructor.
+-- | /See:/ 'mkAssociateMemberToGroupResponse' smart constructor.
 newtype AssociateMemberToGroupResponse = AssociateMemberToGroupResponse'
-  { _amtgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateMemberToGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amtgrsResponseStatus' - -- | The response status code.
-associateMemberToGroupResponse ::
-  -- | 'amtgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateMemberToGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateMemberToGroupResponse
-associateMemberToGroupResponse pResponseStatus_ =
+mkAssociateMemberToGroupResponse pResponseStatus_ =
   AssociateMemberToGroupResponse'
-    { _amtgrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-amtgrsResponseStatus :: Lens' AssociateMemberToGroupResponse Int
-amtgrsResponseStatus = lens _amtgrsResponseStatus (\s a -> s {_amtgrsResponseStatus = a})
-
-instance NFData AssociateMemberToGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amtgrsResponseStatus :: Lens.Lens' AssociateMemberToGroupResponse Lude.Int
+amtgrsResponseStatus = Lens.lens (responseStatus :: AssociateMemberToGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateMemberToGroupResponse)
+{-# DEPRECATED amtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

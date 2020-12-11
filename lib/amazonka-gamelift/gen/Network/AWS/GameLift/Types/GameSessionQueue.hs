@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,19 +7,34 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameSessionQueue where
+module Network.AWS.GameLift.Types.GameSessionQueue
+  ( GameSessionQueue (..),
+
+    -- * Smart constructor
+    mkGameSessionQueue,
+
+    -- * Lenses
+    gsqGameSessionQueueARN,
+    gsqPlayerLatencyPolicies,
+    gsqTimeoutInSeconds,
+    gsqDestinations,
+    gsqName,
+  )
+where
 
 import Network.AWS.GameLift.Types.GameSessionQueueDestination
 import Network.AWS.GameLift.Types.PlayerLatencyPolicy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration of a queue that is used to process game session placement requests. The queue configuration identifies several game features:
 --
 --
 --     * The destinations where a new game session can potentially be hosted. Amazon GameLift tries these destinations in an order based on either the queue's default order or player latency information, if provided in a placement request. With latency information, Amazon GameLift can place game sessions where the majority of players are reporting the lowest possible latency.
 --
+--
 --     * The length of time that placement requests can wait in the queue before timing out.
+--
 --
 --     * A set of optional latency policies that protect individual players from high latencies, preventing game sessions from being placed where any individual player is reporting latency higher than a policy's maximum.
 --
@@ -33,85 +42,97 @@ import Network.AWS.Prelude
 --
 --     * 'CreateGameSessionQueue'
 --
+--
 --     * 'DescribeGameSessionQueues'
 --
+--
 --     * 'UpdateGameSessionQueue'
+--
 --
 --     * 'DeleteGameSessionQueue'
 --
 --
 --
---
--- /See:/ 'gameSessionQueue' smart constructor.
+-- /See:/ 'mkGameSessionQueue' smart constructor.
 data GameSessionQueue = GameSessionQueue'
-  { _gsqGameSessionQueueARN ::
-      !(Maybe Text),
-    _gsqPlayerLatencyPolicies ::
-      !(Maybe [PlayerLatencyPolicy]),
-    _gsqTimeoutInSeconds :: !(Maybe Nat),
-    _gsqDestinations ::
-      !(Maybe [GameSessionQueueDestination]),
-    _gsqName :: !(Maybe Text)
+  { gameSessionQueueARN ::
+      Lude.Maybe Lude.Text,
+    playerLatencyPolicies :: Lude.Maybe [PlayerLatencyPolicy],
+    timeoutInSeconds :: Lude.Maybe Lude.Natural,
+    destinations :: Lude.Maybe [GameSessionQueueDestination],
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameSessionQueue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsqGameSessionQueueARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift game session queue ARN, the resource ID matches the /Name/ value.
---
--- * 'gsqPlayerLatencyPolicies' - A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement.
---
--- * 'gsqTimeoutInSeconds' - The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
---
--- * 'gsqDestinations' - A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
---
--- * 'gsqName' - A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
-gameSessionQueue ::
+-- * 'destinations' - A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
+-- * 'gameSessionQueueARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift game session queue ARN, the resource ID matches the /Name/ value.
+-- * 'name' - A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+-- * 'playerLatencyPolicies' - A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement.
+-- * 'timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
+mkGameSessionQueue ::
   GameSessionQueue
-gameSessionQueue =
+mkGameSessionQueue =
   GameSessionQueue'
-    { _gsqGameSessionQueueARN = Nothing,
-      _gsqPlayerLatencyPolicies = Nothing,
-      _gsqTimeoutInSeconds = Nothing,
-      _gsqDestinations = Nothing,
-      _gsqName = Nothing
+    { gameSessionQueueARN = Lude.Nothing,
+      playerLatencyPolicies = Lude.Nothing,
+      timeoutInSeconds = Lude.Nothing,
+      destinations = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift game session queue ARN, the resource ID matches the /Name/ value.
-gsqGameSessionQueueARN :: Lens' GameSessionQueue (Maybe Text)
-gsqGameSessionQueueARN = lens _gsqGameSessionQueueARN (\s a -> s {_gsqGameSessionQueueARN = a})
+--
+-- /Note:/ Consider using 'gameSessionQueueARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsqGameSessionQueueARN :: Lens.Lens' GameSessionQueue (Lude.Maybe Lude.Text)
+gsqGameSessionQueueARN = Lens.lens (gameSessionQueueARN :: GameSessionQueue -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionQueueARN = a} :: GameSessionQueue)
+{-# DEPRECATED gsqGameSessionQueueARN "Use generic-lens or generic-optics with 'gameSessionQueueARN' instead." #-}
 
 -- | A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement.
-gsqPlayerLatencyPolicies :: Lens' GameSessionQueue [PlayerLatencyPolicy]
-gsqPlayerLatencyPolicies = lens _gsqPlayerLatencyPolicies (\s a -> s {_gsqPlayerLatencyPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'playerLatencyPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsqPlayerLatencyPolicies :: Lens.Lens' GameSessionQueue (Lude.Maybe [PlayerLatencyPolicy])
+gsqPlayerLatencyPolicies = Lens.lens (playerLatencyPolicies :: GameSessionQueue -> Lude.Maybe [PlayerLatencyPolicy]) (\s a -> s {playerLatencyPolicies = a} :: GameSessionQueue)
+{-# DEPRECATED gsqPlayerLatencyPolicies "Use generic-lens or generic-optics with 'playerLatencyPolicies' instead." #-}
 
 -- | The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
-gsqTimeoutInSeconds :: Lens' GameSessionQueue (Maybe Natural)
-gsqTimeoutInSeconds = lens _gsqTimeoutInSeconds (\s a -> s {_gsqTimeoutInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsqTimeoutInSeconds :: Lens.Lens' GameSessionQueue (Lude.Maybe Lude.Natural)
+gsqTimeoutInSeconds = Lens.lens (timeoutInSeconds :: GameSessionQueue -> Lude.Maybe Lude.Natural) (\s a -> s {timeoutInSeconds = a} :: GameSessionQueue)
+{-# DEPRECATED gsqTimeoutInSeconds "Use generic-lens or generic-optics with 'timeoutInSeconds' instead." #-}
 
 -- | A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
-gsqDestinations :: Lens' GameSessionQueue [GameSessionQueueDestination]
-gsqDestinations = lens _gsqDestinations (\s a -> s {_gsqDestinations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsqDestinations :: Lens.Lens' GameSessionQueue (Lude.Maybe [GameSessionQueueDestination])
+gsqDestinations = Lens.lens (destinations :: GameSessionQueue -> Lude.Maybe [GameSessionQueueDestination]) (\s a -> s {destinations = a} :: GameSessionQueue)
+{-# DEPRECATED gsqDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
-gsqName :: Lens' GameSessionQueue (Maybe Text)
-gsqName = lens _gsqName (\s a -> s {_gsqName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsqName :: Lens.Lens' GameSessionQueue (Lude.Maybe Lude.Text)
+gsqName = Lens.lens (name :: GameSessionQueue -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GameSessionQueue)
+{-# DEPRECATED gsqName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON GameSessionQueue where
+instance Lude.FromJSON GameSessionQueue where
   parseJSON =
-    withObject
+    Lude.withObject
       "GameSessionQueue"
       ( \x ->
           GameSessionQueue'
-            <$> (x .:? "GameSessionQueueArn")
-            <*> (x .:? "PlayerLatencyPolicies" .!= mempty)
-            <*> (x .:? "TimeoutInSeconds")
-            <*> (x .:? "Destinations" .!= mempty)
-            <*> (x .:? "Name")
+            Lude.<$> (x Lude..:? "GameSessionQueueArn")
+            Lude.<*> (x Lude..:? "PlayerLatencyPolicies" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TimeoutInSeconds")
+            Lude.<*> (x Lude..:? "Destinations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
       )
-
-instance Hashable GameSessionQueue
-
-instance NFData GameSessionQueue

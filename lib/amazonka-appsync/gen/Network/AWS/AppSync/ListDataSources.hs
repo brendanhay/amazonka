@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists the data sources for a given API.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AppSync.ListDataSources
-  ( -- * Creating a Request
-    listDataSources,
-    ListDataSources,
+  ( -- * Creating a request
+    ListDataSources (..),
+    mkListDataSources,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldsNextToken,
     ldsMaxResults,
     ldsApiId,
 
-    -- * Destructuring the Response
-    listDataSourcesResponse,
-    ListDataSourcesResponse,
+    -- * Destructuring the response
+    ListDataSourcesResponse (..),
+    mkListDataSourcesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldsrsDataSources,
     ldsrsNextToken,
     ldsrsResponseStatus,
@@ -44,130 +37,153 @@ module Network.AWS.AppSync.ListDataSources
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listDataSources' smart constructor.
+-- | /See:/ 'mkListDataSources' smart constructor.
 data ListDataSources = ListDataSources'
-  { _ldsNextToken ::
-      !(Maybe Text),
-    _ldsMaxResults :: !(Maybe Nat),
-    _ldsApiId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    apiId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDataSources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'ldsMaxResults' - The maximum number of results you want the request to return.
---
--- * 'ldsApiId' - The API ID.
-listDataSources ::
-  -- | 'ldsApiId'
-  Text ->
+-- * 'apiId' - The API ID.
+-- * 'maxResults' - The maximum number of results you want the request to return.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListDataSources ::
+  -- | 'apiId'
+  Lude.Text ->
   ListDataSources
-listDataSources pApiId_ =
+mkListDataSources pApiId_ =
   ListDataSources'
-    { _ldsNextToken = Nothing,
-      _ldsMaxResults = Nothing,
-      _ldsApiId = pApiId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      apiId = pApiId_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-ldsNextToken :: Lens' ListDataSources (Maybe Text)
-ldsNextToken = lens _ldsNextToken (\s a -> s {_ldsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsNextToken :: Lens.Lens' ListDataSources (Lude.Maybe Lude.Text)
+ldsNextToken = Lens.lens (nextToken :: ListDataSources -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDataSources)
+{-# DEPRECATED ldsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results you want the request to return.
-ldsMaxResults :: Lens' ListDataSources (Maybe Natural)
-ldsMaxResults = lens _ldsMaxResults (\s a -> s {_ldsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsMaxResults :: Lens.Lens' ListDataSources (Lude.Maybe Lude.Natural)
+ldsMaxResults = Lens.lens (maxResults :: ListDataSources -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDataSources)
+{-# DEPRECATED ldsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The API ID.
-ldsApiId :: Lens' ListDataSources Text
-ldsApiId = lens _ldsApiId (\s a -> s {_ldsApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsApiId :: Lens.Lens' ListDataSources Lude.Text
+ldsApiId = Lens.lens (apiId :: ListDataSources -> Lude.Text) (\s a -> s {apiId = a} :: ListDataSources)
+{-# DEPRECATED ldsApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSPager ListDataSources where
+instance Page.AWSPager ListDataSources where
   page rq rs
-    | stop (rs ^. ldsrsNextToken) = Nothing
-    | stop (rs ^. ldsrsDataSources) = Nothing
-    | otherwise = Just $ rq & ldsNextToken .~ rs ^. ldsrsNextToken
+    | Page.stop (rs Lens.^. ldsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldsrsDataSources) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldsNextToken Lens..~ rs Lens.^. ldsrsNextToken
 
-instance AWSRequest ListDataSources where
+instance Lude.AWSRequest ListDataSources where
   type Rs ListDataSources = ListDataSourcesResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDataSourcesResponse'
-            <$> (x .?> "dataSources" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "dataSources" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDataSources
-
-instance NFData ListDataSources
-
-instance ToHeaders ListDataSources where
+instance Lude.ToHeaders ListDataSources where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListDataSources where
+instance Lude.ToPath ListDataSources where
   toPath ListDataSources' {..} =
-    mconcat ["/v1/apis/", toBS _ldsApiId, "/datasources"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/datasources"]
 
-instance ToQuery ListDataSources where
+instance Lude.ToQuery ListDataSources where
   toQuery ListDataSources' {..} =
-    mconcat
-      ["nextToken" =: _ldsNextToken, "maxResults" =: _ldsMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listDataSourcesResponse' smart constructor.
+-- | /See:/ 'mkListDataSourcesResponse' smart constructor.
 data ListDataSourcesResponse = ListDataSourcesResponse'
-  { _ldsrsDataSources ::
-      !(Maybe [DataSource]),
-    _ldsrsNextToken :: !(Maybe Text),
-    _ldsrsResponseStatus :: !Int
+  { dataSources ::
+      Lude.Maybe [DataSource],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDataSourcesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldsrsDataSources' - The @DataSource@ objects.
---
--- * 'ldsrsNextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
---
--- * 'ldsrsResponseStatus' - -- | The response status code.
-listDataSourcesResponse ::
-  -- | 'ldsrsResponseStatus'
-  Int ->
+-- * 'dataSources' - The @DataSource@ objects.
+-- * 'nextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+mkListDataSourcesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDataSourcesResponse
-listDataSourcesResponse pResponseStatus_ =
+mkListDataSourcesResponse pResponseStatus_ =
   ListDataSourcesResponse'
-    { _ldsrsDataSources = Nothing,
-      _ldsrsNextToken = Nothing,
-      _ldsrsResponseStatus = pResponseStatus_
+    { dataSources = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @DataSource@ objects.
-ldsrsDataSources :: Lens' ListDataSourcesResponse [DataSource]
-ldsrsDataSources = lens _ldsrsDataSources (\s a -> s {_ldsrsDataSources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dataSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsrsDataSources :: Lens.Lens' ListDataSourcesResponse (Lude.Maybe [DataSource])
+ldsrsDataSources = Lens.lens (dataSources :: ListDataSourcesResponse -> Lude.Maybe [DataSource]) (\s a -> s {dataSources = a} :: ListDataSourcesResponse)
+{-# DEPRECATED ldsrsDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
 -- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
-ldsrsNextToken :: Lens' ListDataSourcesResponse (Maybe Text)
-ldsrsNextToken = lens _ldsrsNextToken (\s a -> s {_ldsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsrsNextToken :: Lens.Lens' ListDataSourcesResponse (Lude.Maybe Lude.Text)
+ldsrsNextToken = Lens.lens (nextToken :: ListDataSourcesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDataSourcesResponse)
+{-# DEPRECATED ldsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ldsrsResponseStatus :: Lens' ListDataSourcesResponse Int
-ldsrsResponseStatus = lens _ldsrsResponseStatus (\s a -> s {_ldsrsResponseStatus = a})
-
-instance NFData ListDataSourcesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsrsResponseStatus :: Lens.Lens' ListDataSourcesResponse Lude.Int
+ldsrsResponseStatus = Lens.lens (responseStatus :: ListDataSourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDataSourcesResponse)
+{-# DEPRECATED ldsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

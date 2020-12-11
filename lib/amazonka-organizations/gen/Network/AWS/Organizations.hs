@@ -13,8 +13,8 @@
 --
 -- __AWS Organizations__
 module Network.AWS.Organizations
-  ( -- * Service Configuration
-    organizations,
+  ( -- * Service configuration
+    organizationsService,
 
     -- * Errors
     -- $errors
@@ -229,8 +229,8 @@ module Network.AWS.Organizations
     TargetType (..),
 
     -- ** Account
-    Account,
-    account,
+    Account (..),
+    mkAccount,
     aStatus,
     aJoinedMethod,
     aEmail,
@@ -240,14 +240,14 @@ module Network.AWS.Organizations
     aId,
 
     -- ** Child
-    Child,
-    child,
+    Child (..),
+    mkChild,
     cId,
     cType,
 
     -- ** CreateAccountStatus
-    CreateAccountStatus,
-    createAccountStatus,
+    CreateAccountStatus (..),
+    mkCreateAccountStatus,
     casFailureReason,
     casState,
     casCompletedTimestamp,
@@ -258,8 +258,8 @@ module Network.AWS.Organizations
     casRequestedTimestamp,
 
     -- ** DelegatedAdministrator
-    DelegatedAdministrator,
-    delegatedAdministrator,
+    DelegatedAdministrator (..),
+    mkDelegatedAdministrator,
     daStatus,
     daJoinedMethod,
     daEmail,
@@ -270,28 +270,28 @@ module Network.AWS.Organizations
     daId,
 
     -- ** DelegatedService
-    DelegatedService,
-    delegatedService,
+    DelegatedService (..),
+    mkDelegatedService,
     dsServicePrincipal,
     dsDelegationEnabledDate,
 
     -- ** EffectivePolicy
-    EffectivePolicy,
-    effectivePolicy,
+    EffectivePolicy (..),
+    mkEffectivePolicy,
     epTargetId,
     epPolicyType,
     epLastUpdatedTimestamp,
     epPolicyContent,
 
     -- ** EnabledServicePrincipal
-    EnabledServicePrincipal,
-    enabledServicePrincipal,
+    EnabledServicePrincipal (..),
+    mkEnabledServicePrincipal,
     espServicePrincipal,
     espDateEnabled,
 
     -- ** Handshake
-    Handshake,
-    handshake,
+    Handshake (..),
+    mkHandshake,
     hState,
     hARN,
     hAction,
@@ -302,27 +302,27 @@ module Network.AWS.Organizations
     hRequestedTimestamp,
 
     -- ** HandshakeFilter
-    HandshakeFilter,
-    handshakeFilter,
+    HandshakeFilter (..),
+    mkHandshakeFilter,
     hfParentHandshakeId,
     hfActionType,
 
     -- ** HandshakeParty
-    HandshakeParty,
-    handshakeParty,
+    HandshakeParty (..),
+    mkHandshakeParty,
     hpId,
     hpType,
 
     -- ** HandshakeResource
-    HandshakeResource,
-    handshakeResource,
+    HandshakeResource (..),
+    mkHandshakeResource,
     hrValue,
     hrResources,
     hrType,
 
     -- ** Organization
-    Organization,
-    organization,
+    Organization (..),
+    mkOrganization,
     oARN,
     oMasterAccountId,
     oMasterAccountARN,
@@ -332,27 +332,27 @@ module Network.AWS.Organizations
     oFeatureSet,
 
     -- ** OrganizationalUnit
-    OrganizationalUnit,
-    organizationalUnit,
+    OrganizationalUnit (..),
+    mkOrganizationalUnit,
     ouARN,
     ouName,
     ouId,
 
     -- ** Parent
-    Parent,
-    parent,
+    Parent (..),
+    mkParent,
     pId,
     pType,
 
     -- ** Policy
-    Policy,
-    policy,
+    Policy (..),
+    mkPolicy,
     pContent,
     pPolicySummary,
 
     -- ** PolicySummary
-    PolicySummary,
-    policySummary,
+    PolicySummary (..),
+    mkPolicySummary,
     psARN,
     psName,
     psId,
@@ -361,32 +361,43 @@ module Network.AWS.Organizations
     psDescription,
 
     -- ** PolicyTargetSummary
-    PolicyTargetSummary,
-    policyTargetSummary,
+    PolicyTargetSummary (..),
+    mkPolicyTargetSummary,
     polTargetId,
     polARN,
     polName,
     polType,
 
     -- ** PolicyTypeSummary
-    PolicyTypeSummary,
-    policyTypeSummary,
+    PolicyTypeSummary (..),
+    mkPolicyTypeSummary,
     ptsStatus,
     ptsType,
 
     -- ** Root
-    Root,
-    root,
+    Root (..),
+    mkRoot,
     rARN,
     rName,
     rId,
     rPolicyTypes,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -443,6 +454,7 @@ import Network.AWS.Organizations.UntagResource
 import Network.AWS.Organizations.UpdateOrganizationalUnit
 import Network.AWS.Organizations.UpdatePolicy
 import Network.AWS.Organizations.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,121 @@
 --
 -- This operation adds the specified tags to a vault. Each tag is composed of a key and a value. Each vault can have up to 10 tags. If your request would cause the tag limit for the vault to be exceeded, the operation throws the @LimitExceededException@ error. If a tag already exists on the vault under a specified key, the existing key value will be overwritten. For more information about tags, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon S3 Glacier Resources> .
 module Network.AWS.Glacier.AddTagsToVault
-  ( -- * Creating a Request
-    addTagsToVault,
-    AddTagsToVault,
+  ( -- * Creating a request
+    AddTagsToVault (..),
+    mkAddTagsToVault,
 
-    -- * Request Lenses
+    -- ** Request lenses
     attvTags,
     attvAccountId,
     attvVaultName,
 
-    -- * Destructuring the Response
-    addTagsToVaultResponse,
-    AddTagsToVaultResponse,
+    -- * Destructuring the response
+    AddTagsToVaultResponse (..),
+    mkAddTagsToVaultResponse,
   )
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input values for @AddTagsToVault@ .
 --
---
---
--- /See:/ 'addTagsToVault' smart constructor.
+-- /See:/ 'mkAddTagsToVault' smart constructor.
 data AddTagsToVault = AddTagsToVault'
-  { _attvTags ::
-      !(Maybe (Map Text (Text))),
-    _attvAccountId :: !Text,
-    _attvVaultName :: !Text
+  { tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    accountId :: Lude.Text,
+    vaultName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToVault' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'attvTags' - The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
---
--- * 'attvAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- * 'attvVaultName' - The name of the vault.
-addTagsToVault ::
-  -- | 'attvAccountId'
-  Text ->
-  -- | 'attvVaultName'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'tags' - The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
+-- * 'vaultName' - The name of the vault.
+mkAddTagsToVault ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
   AddTagsToVault
-addTagsToVault pAccountId_ pVaultName_ =
+mkAddTagsToVault pAccountId_ pVaultName_ =
   AddTagsToVault'
-    { _attvTags = Nothing,
-      _attvAccountId = pAccountId_,
-      _attvVaultName = pVaultName_
+    { tags = Lude.Nothing,
+      accountId = pAccountId_,
+      vaultName = pVaultName_
     }
 
 -- | The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
-attvTags :: Lens' AddTagsToVault (HashMap Text (Text))
-attvTags = lens _attvTags (\s a -> s {_attvTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attvTags :: Lens.Lens' AddTagsToVault (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+attvTags = Lens.lens (tags :: AddTagsToVault -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: AddTagsToVault)
+{-# DEPRECATED attvTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-attvAccountId :: Lens' AddTagsToVault Text
-attvAccountId = lens _attvAccountId (\s a -> s {_attvAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attvAccountId :: Lens.Lens' AddTagsToVault Lude.Text
+attvAccountId = Lens.lens (accountId :: AddTagsToVault -> Lude.Text) (\s a -> s {accountId = a} :: AddTagsToVault)
+{-# DEPRECATED attvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-attvVaultName :: Lens' AddTagsToVault Text
-attvVaultName = lens _attvVaultName (\s a -> s {_attvVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attvVaultName :: Lens.Lens' AddTagsToVault Lude.Text
+attvVaultName = Lens.lens (vaultName :: AddTagsToVault -> Lude.Text) (\s a -> s {vaultName = a} :: AddTagsToVault)
+{-# DEPRECATED attvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance AWSRequest AddTagsToVault where
+instance Lude.AWSRequest AddTagsToVault where
   type Rs AddTagsToVault = AddTagsToVaultResponse
-  request = postJSON glacier
-  response = receiveNull AddTagsToVaultResponse'
+  request = Req.postJSON glacierService
+  response = Res.receiveNull AddTagsToVaultResponse'
 
-instance Hashable AddTagsToVault
+instance Lude.ToHeaders AddTagsToVault where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddTagsToVault
-
-instance ToHeaders AddTagsToVault where
-  toHeaders = const mempty
-
-instance ToJSON AddTagsToVault where
+instance Lude.ToJSON AddTagsToVault where
   toJSON AddTagsToVault' {..} =
-    object (catMaybes [("Tags" .=) <$> _attvTags])
+    Lude.object (Lude.catMaybes [("Tags" Lude..=) Lude.<$> tags])
 
-instance ToPath AddTagsToVault where
+instance Lude.ToPath AddTagsToVault where
   toPath AddTagsToVault' {..} =
-    mconcat
+    Lude.mconcat
       [ "/",
-        toBS _attvAccountId,
+        Lude.toBS accountId,
         "/vaults/",
-        toBS _attvVaultName,
+        Lude.toBS vaultName,
         "/tags"
       ]
 
-instance ToQuery AddTagsToVault where
-  toQuery = const (mconcat ["operation=add"])
+instance Lude.ToQuery AddTagsToVault where
+  toQuery = Lude.const (Lude.mconcat ["operation=add"])
 
--- | /See:/ 'addTagsToVaultResponse' smart constructor.
+-- | /See:/ 'mkAddTagsToVaultResponse' smart constructor.
 data AddTagsToVaultResponse = AddTagsToVaultResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToVaultResponse' with the minimum fields required to make a request.
-addTagsToVaultResponse ::
+mkAddTagsToVaultResponse ::
   AddTagsToVaultResponse
-addTagsToVaultResponse = AddTagsToVaultResponse'
-
-instance NFData AddTagsToVaultResponse
+mkAddTagsToVaultResponse = AddTagsToVaultResponse'

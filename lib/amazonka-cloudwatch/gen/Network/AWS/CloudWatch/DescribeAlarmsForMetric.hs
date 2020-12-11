@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Retrieves the alarms for the specified metric. To filter the results, specify a statistic, period, or unit.
 --
---
 -- This operation retrieves only standard alarms that are based on the specified metric. It does not return alarms based on math expressions that use the specified metric, or composite alarms that use the specified metric.
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric
-  ( -- * Creating a Request
-    describeAlarmsForMetric,
-    DescribeAlarmsForMetric,
+  ( -- * Creating a request
+    DescribeAlarmsForMetric (..),
+    mkDescribeAlarmsForMetric,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dafmPeriod,
     dafmDimensions,
     dafmUnit,
@@ -35,165 +29,191 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     dafmMetricName,
     dafmNamespace,
 
-    -- * Destructuring the Response
-    describeAlarmsForMetricResponse,
-    DescribeAlarmsForMetricResponse,
+    -- * Destructuring the response
+    DescribeAlarmsForMetricResponse (..),
+    mkDescribeAlarmsForMetricResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dafmrsMetricAlarms,
     dafmrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAlarmsForMetric' smart constructor.
+-- | /See:/ 'mkDescribeAlarmsForMetric' smart constructor.
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
-  { _dafmPeriod ::
-      !(Maybe Nat),
-    _dafmDimensions :: !(Maybe [Dimension]),
-    _dafmUnit :: !(Maybe StandardUnit),
-    _dafmStatistic :: !(Maybe Statistic),
-    _dafmExtendedStatistic :: !(Maybe Text),
-    _dafmMetricName :: !Text,
-    _dafmNamespace :: !Text
+  { period ::
+      Lude.Maybe Lude.Natural,
+    dimensions :: Lude.Maybe [Dimension],
+    unit :: Lude.Maybe StandardUnit,
+    statistic :: Lude.Maybe Statistic,
+    extendedStatistic :: Lude.Maybe Lude.Text,
+    metricName :: Lude.Text,
+    namespace :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlarmsForMetric' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dafmPeriod' - The period, in seconds, over which the statistic is applied.
---
--- * 'dafmDimensions' - The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
---
--- * 'dafmUnit' - The unit for the metric.
---
--- * 'dafmStatistic' - The statistic for the metric, other than percentiles. For percentile statistics, use @ExtendedStatistics@ .
---
--- * 'dafmExtendedStatistic' - The percentile statistic for the metric. Specify a value between p0.0 and p100.
---
--- * 'dafmMetricName' - The name of the metric.
---
--- * 'dafmNamespace' - The namespace of the metric.
-describeAlarmsForMetric ::
-  -- | 'dafmMetricName'
-  Text ->
-  -- | 'dafmNamespace'
-  Text ->
+-- * 'dimensions' - The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
+-- * 'extendedStatistic' - The percentile statistic for the metric. Specify a value between p0.0 and p100.
+-- * 'metricName' - The name of the metric.
+-- * 'namespace' - The namespace of the metric.
+-- * 'period' - The period, in seconds, over which the statistic is applied.
+-- * 'statistic' - The statistic for the metric, other than percentiles. For percentile statistics, use @ExtendedStatistics@ .
+-- * 'unit' - The unit for the metric.
+mkDescribeAlarmsForMetric ::
+  -- | 'metricName'
+  Lude.Text ->
+  -- | 'namespace'
+  Lude.Text ->
   DescribeAlarmsForMetric
-describeAlarmsForMetric pMetricName_ pNamespace_ =
+mkDescribeAlarmsForMetric pMetricName_ pNamespace_ =
   DescribeAlarmsForMetric'
-    { _dafmPeriod = Nothing,
-      _dafmDimensions = Nothing,
-      _dafmUnit = Nothing,
-      _dafmStatistic = Nothing,
-      _dafmExtendedStatistic = Nothing,
-      _dafmMetricName = pMetricName_,
-      _dafmNamespace = pNamespace_
+    { period = Lude.Nothing,
+      dimensions = Lude.Nothing,
+      unit = Lude.Nothing,
+      statistic = Lude.Nothing,
+      extendedStatistic = Lude.Nothing,
+      metricName = pMetricName_,
+      namespace = pNamespace_
     }
 
 -- | The period, in seconds, over which the statistic is applied.
-dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
-dafmPeriod = lens _dafmPeriod (\s a -> s {_dafmPeriod = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmPeriod :: Lens.Lens' DescribeAlarmsForMetric (Lude.Maybe Lude.Natural)
+dafmPeriod = Lens.lens (period :: DescribeAlarmsForMetric -> Lude.Maybe Lude.Natural) (\s a -> s {period = a} :: DescribeAlarmsForMetric)
+{-# DEPRECATED dafmPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed.
-dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
-dafmDimensions = lens _dafmDimensions (\s a -> s {_dafmDimensions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmDimensions :: Lens.Lens' DescribeAlarmsForMetric (Lude.Maybe [Dimension])
+dafmDimensions = Lens.lens (dimensions :: DescribeAlarmsForMetric -> Lude.Maybe [Dimension]) (\s a -> s {dimensions = a} :: DescribeAlarmsForMetric)
+{-# DEPRECATED dafmDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | The unit for the metric.
-dafmUnit :: Lens' DescribeAlarmsForMetric (Maybe StandardUnit)
-dafmUnit = lens _dafmUnit (\s a -> s {_dafmUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmUnit :: Lens.Lens' DescribeAlarmsForMetric (Lude.Maybe StandardUnit)
+dafmUnit = Lens.lens (unit :: DescribeAlarmsForMetric -> Lude.Maybe StandardUnit) (\s a -> s {unit = a} :: DescribeAlarmsForMetric)
+{-# DEPRECATED dafmUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | The statistic for the metric, other than percentiles. For percentile statistics, use @ExtendedStatistics@ .
-dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
-dafmStatistic = lens _dafmStatistic (\s a -> s {_dafmStatistic = a})
+--
+-- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmStatistic :: Lens.Lens' DescribeAlarmsForMetric (Lude.Maybe Statistic)
+dafmStatistic = Lens.lens (statistic :: DescribeAlarmsForMetric -> Lude.Maybe Statistic) (\s a -> s {statistic = a} :: DescribeAlarmsForMetric)
+{-# DEPRECATED dafmStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
 
 -- | The percentile statistic for the metric. Specify a value between p0.0 and p100.
-dafmExtendedStatistic :: Lens' DescribeAlarmsForMetric (Maybe Text)
-dafmExtendedStatistic = lens _dafmExtendedStatistic (\s a -> s {_dafmExtendedStatistic = a})
+--
+-- /Note:/ Consider using 'extendedStatistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmExtendedStatistic :: Lens.Lens' DescribeAlarmsForMetric (Lude.Maybe Lude.Text)
+dafmExtendedStatistic = Lens.lens (extendedStatistic :: DescribeAlarmsForMetric -> Lude.Maybe Lude.Text) (\s a -> s {extendedStatistic = a} :: DescribeAlarmsForMetric)
+{-# DEPRECATED dafmExtendedStatistic "Use generic-lens or generic-optics with 'extendedStatistic' instead." #-}
 
 -- | The name of the metric.
-dafmMetricName :: Lens' DescribeAlarmsForMetric Text
-dafmMetricName = lens _dafmMetricName (\s a -> s {_dafmMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmMetricName :: Lens.Lens' DescribeAlarmsForMetric Lude.Text
+dafmMetricName = Lens.lens (metricName :: DescribeAlarmsForMetric -> Lude.Text) (\s a -> s {metricName = a} :: DescribeAlarmsForMetric)
+{-# DEPRECATED dafmMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The namespace of the metric.
-dafmNamespace :: Lens' DescribeAlarmsForMetric Text
-dafmNamespace = lens _dafmNamespace (\s a -> s {_dafmNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmNamespace :: Lens.Lens' DescribeAlarmsForMetric Lude.Text
+dafmNamespace = Lens.lens (namespace :: DescribeAlarmsForMetric -> Lude.Text) (\s a -> s {namespace = a} :: DescribeAlarmsForMetric)
+{-# DEPRECATED dafmNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
-instance AWSRequest DescribeAlarmsForMetric where
+instance Lude.AWSRequest DescribeAlarmsForMetric where
   type Rs DescribeAlarmsForMetric = DescribeAlarmsForMetricResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeAlarmsForMetricResult"
       ( \s h x ->
           DescribeAlarmsForMetricResponse'
-            <$> (x .@? "MetricAlarms" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "MetricAlarms" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAlarmsForMetric
+instance Lude.ToHeaders DescribeAlarmsForMetric where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeAlarmsForMetric
+instance Lude.ToPath DescribeAlarmsForMetric where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeAlarmsForMetric where
-  toHeaders = const mempty
-
-instance ToPath DescribeAlarmsForMetric where
-  toPath = const "/"
-
-instance ToQuery DescribeAlarmsForMetric where
+instance Lude.ToQuery DescribeAlarmsForMetric where
   toQuery DescribeAlarmsForMetric' {..} =
-    mconcat
-      [ "Action" =: ("DescribeAlarmsForMetric" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "Period" =: _dafmPeriod,
-        "Dimensions" =: toQuery (toQueryList "member" <$> _dafmDimensions),
-        "Unit" =: _dafmUnit,
-        "Statistic" =: _dafmStatistic,
-        "ExtendedStatistic" =: _dafmExtendedStatistic,
-        "MetricName" =: _dafmMetricName,
-        "Namespace" =: _dafmNamespace
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeAlarmsForMetric" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "Period" Lude.=: period,
+        "Dimensions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions),
+        "Unit" Lude.=: unit,
+        "Statistic" Lude.=: statistic,
+        "ExtendedStatistic" Lude.=: extendedStatistic,
+        "MetricName" Lude.=: metricName,
+        "Namespace" Lude.=: namespace
       ]
 
--- | /See:/ 'describeAlarmsForMetricResponse' smart constructor.
+-- | /See:/ 'mkDescribeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
-  { _dafmrsMetricAlarms ::
-      !(Maybe [MetricAlarm]),
-    _dafmrsResponseStatus ::
-      !Int
+  { metricAlarms ::
+      Lude.Maybe [MetricAlarm],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlarmsForMetricResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dafmrsMetricAlarms' - The information for each alarm with the specified metric.
---
--- * 'dafmrsResponseStatus' - -- | The response status code.
-describeAlarmsForMetricResponse ::
-  -- | 'dafmrsResponseStatus'
-  Int ->
+-- * 'metricAlarms' - The information for each alarm with the specified metric.
+-- * 'responseStatus' - The response status code.
+mkDescribeAlarmsForMetricResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAlarmsForMetricResponse
-describeAlarmsForMetricResponse pResponseStatus_ =
+mkDescribeAlarmsForMetricResponse pResponseStatus_ =
   DescribeAlarmsForMetricResponse'
-    { _dafmrsMetricAlarms = Nothing,
-      _dafmrsResponseStatus = pResponseStatus_
+    { metricAlarms = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The information for each alarm with the specified metric.
-dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
-dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\s a -> s {_dafmrsMetricAlarms = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'metricAlarms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmrsMetricAlarms :: Lens.Lens' DescribeAlarmsForMetricResponse (Lude.Maybe [MetricAlarm])
+dafmrsMetricAlarms = Lens.lens (metricAlarms :: DescribeAlarmsForMetricResponse -> Lude.Maybe [MetricAlarm]) (\s a -> s {metricAlarms = a} :: DescribeAlarmsForMetricResponse)
+{-# DEPRECATED dafmrsMetricAlarms "Use generic-lens or generic-optics with 'metricAlarms' instead." #-}
 
--- | -- | The response status code.
-dafmrsResponseStatus :: Lens' DescribeAlarmsForMetricResponse Int
-dafmrsResponseStatus = lens _dafmrsResponseStatus (\s a -> s {_dafmrsResponseStatus = a})
-
-instance NFData DescribeAlarmsForMetricResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dafmrsResponseStatus :: Lens.Lens' DescribeAlarmsForMetricResponse Lude.Int
+dafmrsResponseStatus = Lens.lens (responseStatus :: DescribeAlarmsForMetricResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAlarmsForMetricResponse)
+{-# DEPRECATED dafmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

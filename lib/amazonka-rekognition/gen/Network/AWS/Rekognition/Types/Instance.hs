@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Instance where
+module Network.AWS.Rekognition.Types.Instance
+  ( Instance (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstance,
+
+    -- * Lenses
+    iBoundingBox,
+    iConfidence,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.BoundingBox
 
 -- | An instance of a label returned by Amazon Rekognition Image ('DetectLabels' ) or by Amazon Rekognition Video ('GetLabelDetection' ).
 --
---
---
--- /See:/ 'instance'' smart constructor.
+-- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { _iBoundingBox :: !(Maybe BoundingBox),
-    _iConfidence :: !(Maybe Double)
+  { boundingBox :: Lude.Maybe BoundingBox,
+    confidence :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iBoundingBox' - The position of the label instance on the image.
---
--- * 'iConfidence' - The confidence that Amazon Rekognition has in the accuracy of the bounding box.
-instance' ::
+-- * 'boundingBox' - The position of the label instance on the image.
+-- * 'confidence' - The confidence that Amazon Rekognition has in the accuracy of the bounding box.
+mkInstance ::
   Instance
-instance' =
-  Instance' {_iBoundingBox = Nothing, _iConfidence = Nothing}
+mkInstance =
+  Instance' {boundingBox = Lude.Nothing, confidence = Lude.Nothing}
 
 -- | The position of the label instance on the image.
-iBoundingBox :: Lens' Instance (Maybe BoundingBox)
-iBoundingBox = lens _iBoundingBox (\s a -> s {_iBoundingBox = a})
+--
+-- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iBoundingBox :: Lens.Lens' Instance (Lude.Maybe BoundingBox)
+iBoundingBox = Lens.lens (boundingBox :: Instance -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: Instance)
+{-# DEPRECATED iBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
 
 -- | The confidence that Amazon Rekognition has in the accuracy of the bounding box.
-iConfidence :: Lens' Instance (Maybe Double)
-iConfidence = lens _iConfidence (\s a -> s {_iConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iConfidence :: Lens.Lens' Instance (Lude.Maybe Lude.Double)
+iConfidence = Lens.lens (confidence :: Instance -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Instance)
+{-# DEPRECATED iConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance FromJSON Instance where
+instance Lude.FromJSON Instance where
   parseJSON =
-    withObject
+    Lude.withObject
       "Instance"
       ( \x ->
-          Instance' <$> (x .:? "BoundingBox") <*> (x .:? "Confidence")
+          Instance'
+            Lude.<$> (x Lude..:? "BoundingBox") Lude.<*> (x Lude..:? "Confidence")
       )
-
-instance Hashable Instance
-
-instance NFData Instance

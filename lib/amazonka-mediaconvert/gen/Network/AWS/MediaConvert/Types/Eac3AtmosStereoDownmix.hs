@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Eac3AtmosStereoDownmix where
+module Network.AWS.MediaConvert.Types.Eac3AtmosStereoDownmix
+  ( Eac3AtmosStereoDownmix
+      ( Eac3AtmosStereoDownmix',
+        DPL2,
+        NotIndicated,
+        Stereo,
+        Surround
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Choose how the service does stereo downmixing.
-data Eac3AtmosStereoDownmix
-  = DPL2
-  | NotIndicated
-  | Stereo
-  | Surround
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3AtmosStereoDownmix = Eac3AtmosStereoDownmix' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3AtmosStereoDownmix where
-  parser =
-    takeLowerText >>= \case
-      "dpl2" -> pure DPL2
-      "not_indicated" -> pure NotIndicated
-      "stereo" -> pure Stereo
-      "surround" -> pure Surround
-      e ->
-        fromTextError $
-          "Failure parsing Eac3AtmosStereoDownmix from value: '" <> e
-            <> "'. Accepted values: dpl2, not_indicated, stereo, surround"
+pattern DPL2 :: Eac3AtmosStereoDownmix
+pattern DPL2 = Eac3AtmosStereoDownmix' "DPL2"
 
-instance ToText Eac3AtmosStereoDownmix where
-  toText = \case
-    DPL2 -> "DPL2"
-    NotIndicated -> "NOT_INDICATED"
-    Stereo -> "STEREO"
-    Surround -> "SURROUND"
+pattern NotIndicated :: Eac3AtmosStereoDownmix
+pattern NotIndicated = Eac3AtmosStereoDownmix' "NOT_INDICATED"
 
-instance Hashable Eac3AtmosStereoDownmix
+pattern Stereo :: Eac3AtmosStereoDownmix
+pattern Stereo = Eac3AtmosStereoDownmix' "STEREO"
 
-instance NFData Eac3AtmosStereoDownmix
+pattern Surround :: Eac3AtmosStereoDownmix
+pattern Surround = Eac3AtmosStereoDownmix' "SURROUND"
 
-instance ToByteString Eac3AtmosStereoDownmix
-
-instance ToQuery Eac3AtmosStereoDownmix
-
-instance ToHeader Eac3AtmosStereoDownmix
-
-instance ToJSON Eac3AtmosStereoDownmix where
-  toJSON = toJSONText
-
-instance FromJSON Eac3AtmosStereoDownmix where
-  parseJSON = parseJSONText "Eac3AtmosStereoDownmix"
+{-# COMPLETE
+  DPL2,
+  NotIndicated,
+  Stereo,
+  Surround,
+  Eac3AtmosStereoDownmix'
+  #-}

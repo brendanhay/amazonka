@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Searches devices and lists the ones that meet a set of filter criteria.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AlexaBusiness.SearchDevices
-  ( -- * Creating a Request
-    searchDevices,
-    SearchDevices,
+  ( -- * Creating a request
+    SearchDevices (..),
+    mkSearchDevices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sdFilters,
     sdSortCriteria,
     sdNextToken,
     sdMaxResults,
 
-    -- * Destructuring the Response
-    searchDevicesResponse,
-    SearchDevicesResponse,
+    -- * Destructuring the response
+    SearchDevicesResponse (..),
+    mkSearchDevicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sdrsNextToken,
     sdrsDevices,
     sdrsTotalCount,
@@ -46,156 +39,181 @@ module Network.AWS.AlexaBusiness.SearchDevices
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'searchDevices' smart constructor.
+-- | /See:/ 'mkSearchDevices' smart constructor.
 data SearchDevices = SearchDevices'
-  { _sdFilters ::
-      !(Maybe [Filter]),
-    _sdSortCriteria :: !(Maybe [Sort]),
-    _sdNextToken :: !(Maybe Text),
-    _sdMaxResults :: !(Maybe Nat)
+  { filters :: Lude.Maybe [Filter],
+    sortCriteria :: Lude.Maybe [Sort],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchDevices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdFilters' - The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
---
--- * 'sdSortCriteria' - The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
---
--- * 'sdNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
---
--- * 'sdMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-searchDevices ::
+-- * 'filters' - The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- * 'sortCriteria' - The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
+mkSearchDevices ::
   SearchDevices
-searchDevices =
+mkSearchDevices =
   SearchDevices'
-    { _sdFilters = Nothing,
-      _sdSortCriteria = Nothing,
-      _sdNextToken = Nothing,
-      _sdMaxResults = Nothing
+    { filters = Lude.Nothing,
+      sortCriteria = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The filters to use to list a specified set of devices. Supported filter keys are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
-sdFilters :: Lens' SearchDevices [Filter]
-sdFilters = lens _sdFilters (\s a -> s {_sdFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdFilters :: Lens.Lens' SearchDevices (Lude.Maybe [Filter])
+sdFilters = Lens.lens (filters :: SearchDevices -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: SearchDevices)
+{-# DEPRECATED sdFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The sort order to use in listing the specified set of devices. Supported sort keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.
-sdSortCriteria :: Lens' SearchDevices [Sort]
-sdSortCriteria = lens _sdSortCriteria (\s a -> s {_sdSortCriteria = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdSortCriteria :: Lens.Lens' SearchDevices (Lude.Maybe [Sort])
+sdSortCriteria = Lens.lens (sortCriteria :: SearchDevices -> Lude.Maybe [Sort]) (\s a -> s {sortCriteria = a} :: SearchDevices)
+{-# DEPRECATED sdSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-sdNextToken :: Lens' SearchDevices (Maybe Text)
-sdNextToken = lens _sdNextToken (\s a -> s {_sdNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdNextToken :: Lens.Lens' SearchDevices (Lude.Maybe Lude.Text)
+sdNextToken = Lens.lens (nextToken :: SearchDevices -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchDevices)
+{-# DEPRECATED sdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-sdMaxResults :: Lens' SearchDevices (Maybe Natural)
-sdMaxResults = lens _sdMaxResults (\s a -> s {_sdMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdMaxResults :: Lens.Lens' SearchDevices (Lude.Maybe Lude.Natural)
+sdMaxResults = Lens.lens (maxResults :: SearchDevices -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchDevices)
+{-# DEPRECATED sdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager SearchDevices where
+instance Page.AWSPager SearchDevices where
   page rq rs
-    | stop (rs ^. sdrsNextToken) = Nothing
-    | stop (rs ^. sdrsDevices) = Nothing
-    | otherwise = Just $ rq & sdNextToken .~ rs ^. sdrsNextToken
+    | Page.stop (rs Lens.^. sdrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. sdrsDevices) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& sdNextToken Lens..~ rs Lens.^. sdrsNextToken
 
-instance AWSRequest SearchDevices where
+instance Lude.AWSRequest SearchDevices where
   type Rs SearchDevices = SearchDevicesResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SearchDevicesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Devices" .!@ mempty)
-            <*> (x .?> "TotalCount")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Devices" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "TotalCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchDevices
-
-instance NFData SearchDevices
-
-instance ToHeaders SearchDevices where
+instance Lude.ToHeaders SearchDevices where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.SearchDevices" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.SearchDevices" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SearchDevices where
+instance Lude.ToJSON SearchDevices where
   toJSON SearchDevices' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _sdFilters,
-            ("SortCriteria" .=) <$> _sdSortCriteria,
-            ("NextToken" .=) <$> _sdNextToken,
-            ("MaxResults" .=) <$> _sdMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("SortCriteria" Lude..=) Lude.<$> sortCriteria,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath SearchDevices where
-  toPath = const "/"
+instance Lude.ToPath SearchDevices where
+  toPath = Lude.const "/"
 
-instance ToQuery SearchDevices where
-  toQuery = const mempty
+instance Lude.ToQuery SearchDevices where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'searchDevicesResponse' smart constructor.
+-- | /See:/ 'mkSearchDevicesResponse' smart constructor.
 data SearchDevicesResponse = SearchDevicesResponse'
-  { _sdrsNextToken ::
-      !(Maybe Text),
-    _sdrsDevices :: !(Maybe [DeviceData]),
-    _sdrsTotalCount :: !(Maybe Int),
-    _sdrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    devices :: Lude.Maybe [DeviceData],
+    totalCount :: Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchDevicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdrsNextToken' - The token returned to indicate that there is more data available.
---
--- * 'sdrsDevices' - The devices that meet the specified set of filter criteria, in sort order.
---
--- * 'sdrsTotalCount' - The total number of devices returned.
---
--- * 'sdrsResponseStatus' - -- | The response status code.
-searchDevicesResponse ::
-  -- | 'sdrsResponseStatus'
-  Int ->
+-- * 'devices' - The devices that meet the specified set of filter criteria, in sort order.
+-- * 'nextToken' - The token returned to indicate that there is more data available.
+-- * 'responseStatus' - The response status code.
+-- * 'totalCount' - The total number of devices returned.
+mkSearchDevicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchDevicesResponse
-searchDevicesResponse pResponseStatus_ =
+mkSearchDevicesResponse pResponseStatus_ =
   SearchDevicesResponse'
-    { _sdrsNextToken = Nothing,
-      _sdrsDevices = Nothing,
-      _sdrsTotalCount = Nothing,
-      _sdrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      devices = Lude.Nothing,
+      totalCount = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token returned to indicate that there is more data available.
-sdrsNextToken :: Lens' SearchDevicesResponse (Maybe Text)
-sdrsNextToken = lens _sdrsNextToken (\s a -> s {_sdrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdrsNextToken :: Lens.Lens' SearchDevicesResponse (Lude.Maybe Lude.Text)
+sdrsNextToken = Lens.lens (nextToken :: SearchDevicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchDevicesResponse)
+{-# DEPRECATED sdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The devices that meet the specified set of filter criteria, in sort order.
-sdrsDevices :: Lens' SearchDevicesResponse [DeviceData]
-sdrsDevices = lens _sdrsDevices (\s a -> s {_sdrsDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'devices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdrsDevices :: Lens.Lens' SearchDevicesResponse (Lude.Maybe [DeviceData])
+sdrsDevices = Lens.lens (devices :: SearchDevicesResponse -> Lude.Maybe [DeviceData]) (\s a -> s {devices = a} :: SearchDevicesResponse)
+{-# DEPRECATED sdrsDevices "Use generic-lens or generic-optics with 'devices' instead." #-}
 
 -- | The total number of devices returned.
-sdrsTotalCount :: Lens' SearchDevicesResponse (Maybe Int)
-sdrsTotalCount = lens _sdrsTotalCount (\s a -> s {_sdrsTotalCount = a})
+--
+-- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdrsTotalCount :: Lens.Lens' SearchDevicesResponse (Lude.Maybe Lude.Int)
+sdrsTotalCount = Lens.lens (totalCount :: SearchDevicesResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalCount = a} :: SearchDevicesResponse)
+{-# DEPRECATED sdrsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
--- | -- | The response status code.
-sdrsResponseStatus :: Lens' SearchDevicesResponse Int
-sdrsResponseStatus = lens _sdrsResponseStatus (\s a -> s {_sdrsResponseStatus = a})
-
-instance NFData SearchDevicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdrsResponseStatus :: Lens.Lens' SearchDevicesResponse Lude.Int
+sdrsResponseStatus = Lens.lens (responseStatus :: SearchDevicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchDevicesResponse)
+{-# DEPRECATED sdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

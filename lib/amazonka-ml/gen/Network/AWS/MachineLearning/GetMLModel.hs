@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Returns an @MLModel@ that includes detailed metadata, data source information, and the current status of the @MLModel@ .
 --
---
 -- @GetMLModel@ provides results in normal or verbose format.
 module Network.AWS.MachineLearning.GetMLModel
-  ( -- * Creating a Request
-    getMLModel,
-    GetMLModel,
+  ( -- * Creating a request
+    GetMLModel (..),
+    mkGetMLModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmlmVerbose,
     gmlmMLModelId,
 
-    -- * Destructuring the Response
-    getMLModelResponse,
-    GetMLModelResponse,
+    -- * Destructuring the response
+    GetMLModelResponse (..),
+    mkGetMLModelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmlmrsStatus,
     gmlmrsLastUpdatedAt,
     gmlmrsTrainingParameters,
@@ -60,296 +54,441 @@ module Network.AWS.MachineLearning.GetMLModel
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getMLModel' smart constructor.
+-- | /See:/ 'mkGetMLModel' smart constructor.
 data GetMLModel = GetMLModel'
-  { _gmlmVerbose :: !(Maybe Bool),
-    _gmlmMLModelId :: !Text
+  { verbose :: Lude.Maybe Lude.Bool,
+    mLModelId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMLModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'mLModelId' - The ID assigned to the @MLModel@ at creation.
+-- * 'verbose' - Specifies whether the @GetMLModel@ operation should return @Recipe@ .
 --
--- * 'gmlmVerbose' - Specifies whether the @GetMLModel@ operation should return @Recipe@ . If true, @Recipe@ is returned. If false, @Recipe@ is not returned.
---
--- * 'gmlmMLModelId' - The ID assigned to the @MLModel@ at creation.
-getMLModel ::
-  -- | 'gmlmMLModelId'
-  Text ->
+-- If true, @Recipe@ is returned.
+-- If false, @Recipe@ is not returned.
+mkGetMLModel ::
+  -- | 'mLModelId'
+  Lude.Text ->
   GetMLModel
-getMLModel pMLModelId_ =
-  GetMLModel' {_gmlmVerbose = Nothing, _gmlmMLModelId = pMLModelId_}
+mkGetMLModel pMLModelId_ =
+  GetMLModel' {verbose = Lude.Nothing, mLModelId = pMLModelId_}
 
--- | Specifies whether the @GetMLModel@ operation should return @Recipe@ . If true, @Recipe@ is returned. If false, @Recipe@ is not returned.
-gmlmVerbose :: Lens' GetMLModel (Maybe Bool)
-gmlmVerbose = lens _gmlmVerbose (\s a -> s {_gmlmVerbose = a})
+-- | Specifies whether the @GetMLModel@ operation should return @Recipe@ .
+--
+-- If true, @Recipe@ is returned.
+-- If false, @Recipe@ is not returned.
+--
+-- /Note:/ Consider using 'verbose' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmVerbose :: Lens.Lens' GetMLModel (Lude.Maybe Lude.Bool)
+gmlmVerbose = Lens.lens (verbose :: GetMLModel -> Lude.Maybe Lude.Bool) (\s a -> s {verbose = a} :: GetMLModel)
+{-# DEPRECATED gmlmVerbose "Use generic-lens or generic-optics with 'verbose' instead." #-}
 
 -- | The ID assigned to the @MLModel@ at creation.
-gmlmMLModelId :: Lens' GetMLModel Text
-gmlmMLModelId = lens _gmlmMLModelId (\s a -> s {_gmlmMLModelId = a})
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmMLModelId :: Lens.Lens' GetMLModel Lude.Text
+gmlmMLModelId = Lens.lens (mLModelId :: GetMLModel -> Lude.Text) (\s a -> s {mLModelId = a} :: GetMLModel)
+{-# DEPRECATED gmlmMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
-instance AWSRequest GetMLModel where
+instance Lude.AWSRequest GetMLModel where
   type Rs GetMLModel = GetMLModelResponse
-  request = postJSON machineLearning
+  request = Req.postJSON machineLearningService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetMLModelResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "LastUpdatedAt")
-            <*> (x .?> "TrainingParameters" .!@ mempty)
-            <*> (x .?> "ScoreThresholdLastUpdatedAt")
-            <*> (x .?> "CreatedAt")
-            <*> (x .?> "ComputeTime")
-            <*> (x .?> "Recipe")
-            <*> (x .?> "InputDataLocationS3")
-            <*> (x .?> "MLModelId")
-            <*> (x .?> "SizeInBytes")
-            <*> (x .?> "Schema")
-            <*> (x .?> "StartedAt")
-            <*> (x .?> "ScoreThreshold")
-            <*> (x .?> "FinishedAt")
-            <*> (x .?> "CreatedByIamUser")
-            <*> (x .?> "Name")
-            <*> (x .?> "LogUri")
-            <*> (x .?> "EndpointInfo")
-            <*> (x .?> "TrainingDataSourceId")
-            <*> (x .?> "Message")
-            <*> (x .?> "MLModelType")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "LastUpdatedAt")
+            Lude.<*> (x Lude..?> "TrainingParameters" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "ScoreThresholdLastUpdatedAt")
+            Lude.<*> (x Lude..?> "CreatedAt")
+            Lude.<*> (x Lude..?> "ComputeTime")
+            Lude.<*> (x Lude..?> "Recipe")
+            Lude.<*> (x Lude..?> "InputDataLocationS3")
+            Lude.<*> (x Lude..?> "MLModelId")
+            Lude.<*> (x Lude..?> "SizeInBytes")
+            Lude.<*> (x Lude..?> "Schema")
+            Lude.<*> (x Lude..?> "StartedAt")
+            Lude.<*> (x Lude..?> "ScoreThreshold")
+            Lude.<*> (x Lude..?> "FinishedAt")
+            Lude.<*> (x Lude..?> "CreatedByIamUser")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "LogUri")
+            Lude.<*> (x Lude..?> "EndpointInfo")
+            Lude.<*> (x Lude..?> "TrainingDataSourceId")
+            Lude.<*> (x Lude..?> "Message")
+            Lude.<*> (x Lude..?> "MLModelType")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetMLModel
-
-instance NFData GetMLModel
-
-instance ToHeaders GetMLModel where
+instance Lude.ToHeaders GetMLModel where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonML_20141212.GetMLModel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonML_20141212.GetMLModel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetMLModel where
+instance Lude.ToJSON GetMLModel where
   toJSON GetMLModel' {..} =
-    object
-      ( catMaybes
-          [ ("Verbose" .=) <$> _gmlmVerbose,
-            Just ("MLModelId" .= _gmlmMLModelId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Verbose" Lude..=) Lude.<$> verbose,
+            Lude.Just ("MLModelId" Lude..= mLModelId)
           ]
       )
 
-instance ToPath GetMLModel where
-  toPath = const "/"
+instance Lude.ToPath GetMLModel where
+  toPath = Lude.const "/"
 
-instance ToQuery GetMLModel where
-  toQuery = const mempty
+instance Lude.ToQuery GetMLModel where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetMLModel@ operation, and provides detailed information about a @MLModel@ .
 --
---
---
--- /See:/ 'getMLModelResponse' smart constructor.
+-- /See:/ 'mkGetMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'
-  { _gmlmrsStatus ::
-      !(Maybe EntityStatus),
-    _gmlmrsLastUpdatedAt :: !(Maybe POSIX),
-    _gmlmrsTrainingParameters ::
-      !(Maybe (Map Text (Text))),
-    _gmlmrsScoreThresholdLastUpdatedAt :: !(Maybe POSIX),
-    _gmlmrsCreatedAt :: !(Maybe POSIX),
-    _gmlmrsComputeTime :: !(Maybe Integer),
-    _gmlmrsRecipe :: !(Maybe Text),
-    _gmlmrsInputDataLocationS3 :: !(Maybe Text),
-    _gmlmrsMLModelId :: !(Maybe Text),
-    _gmlmrsSizeInBytes :: !(Maybe Integer),
-    _gmlmrsSchema :: !(Maybe Text),
-    _gmlmrsStartedAt :: !(Maybe POSIX),
-    _gmlmrsScoreThreshold :: !(Maybe Double),
-    _gmlmrsFinishedAt :: !(Maybe POSIX),
-    _gmlmrsCreatedByIAMUser :: !(Maybe Text),
-    _gmlmrsName :: !(Maybe Text),
-    _gmlmrsLogURI :: !(Maybe Text),
-    _gmlmrsEndpointInfo :: !(Maybe RealtimeEndpointInfo),
-    _gmlmrsTrainingDataSourceId :: !(Maybe Text),
-    _gmlmrsMessage :: !(Maybe Text),
-    _gmlmrsMLModelType :: !(Maybe MLModelType),
-    _gmlmrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe EntityStatus,
+    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    trainingParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    scoreThresholdLastUpdatedAt ::
+      Lude.Maybe Lude.Timestamp,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    computeTime :: Lude.Maybe Lude.Integer,
+    recipe :: Lude.Maybe Lude.Text,
+    inputDataLocationS3 :: Lude.Maybe Lude.Text,
+    mLModelId :: Lude.Maybe Lude.Text,
+    sizeInBytes :: Lude.Maybe Lude.Integer,
+    schema :: Lude.Maybe Lude.Text,
+    startedAt :: Lude.Maybe Lude.Timestamp,
+    scoreThreshold :: Lude.Maybe Lude.Double,
+    finishedAt :: Lude.Maybe Lude.Timestamp,
+    createdByIAMUser :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    logURI :: Lude.Maybe Lude.Text,
+    endpointInfo :: Lude.Maybe RealtimeEndpointInfo,
+    trainingDataSourceId :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text,
+    mLModelType :: Lude.Maybe MLModelType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMLModelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @MLModel@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @MLModel@ is in the @COMPLETED@ state.
+-- * 'createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch time.
+-- * 'createdByIAMUser' - The AWS user account from which the @MLModel@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'endpointInfo' - The current endpoint of the @MLModel@
+-- * 'finishedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
+-- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+-- * 'lastUpdatedAt' - The time of the most recent edit to the @MLModel@ . The time is expressed in epoch time.
+-- * 'logURI' - A link to the file that contains logs of the @CreateMLModel@ operation.
+-- * 'mLModelId' - The MLModel ID, which is same as the @MLModelId@ in the request.
+-- * 'mLModelType' - Identifies the @MLModel@ category. The following are the available types:
 --
--- * 'gmlmrsStatus' - The current status of the @MLModel@ . This element can have one of the following values:     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to describe a @MLModel@ .    * @INPROGRESS@ - The request is processing.    * @FAILED@ - The request did not run to completion. The ML model isn't usable.    * @COMPLETED@ - The request completed successfully.    * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
 --
--- * 'gmlmrsLastUpdatedAt' - The time of the most recent edit to the @MLModel@ . The time is expressed in epoch time.
+--     * REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"
 --
--- * 'gmlmrsTrainingParameters' - A list of the training parameters in the @MLModel@ . The list is implemented as a map of key-value pairs. The following is the current set of training parameters:      * @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance. The value is an integer that ranges from @100000@ to @2147483648@ . The default value is @33554432@ .     * @sgd.maxPasses@ - The number of times that the training process traverses the observations to build the @MLModel@ . The value is an integer that ranges from @1@ to @10000@ . The default value is @10@ .     * @sgd.shuffleType@ - Whether Amazon ML shuffles the training data. Shuffling data improves a model's ability to find the optimal solution for a variety of data types. The valid values are @auto@ and @none@ . The default value is @none@ . We strongly recommend that you shuffle your data.     * @sgd.l1RegularizationAmount@ - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as @1.0E-08@ . The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L1 normalization. This parameter can't be used when @L2@ is specified. Use this parameter sparingly.     * @sgd.l2RegularizationAmount@ - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as @1.0E-08@ . The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L2 normalization. This parameter can't be used when @L1@ is specified. Use this parameter sparingly.
+--     * BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"
 --
--- * 'gmlmrsScoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@ . The time is expressed in epoch time.
+--     * MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"
 --
--- * 'gmlmrsCreatedAt' - The time that the @MLModel@ was created. The time is expressed in epoch time.
+-- * 'message' - A description of the most recent details about accessing the @MLModel@ .
+-- * 'name' - A user-supplied name or description of the @MLModel@ .
+-- * 'recipe' - The recipe to use when training the @MLModel@ . The @Recipe@ provides detailed information about the observation data to use during training, and manipulations to perform on the observation data during training.
+-- * 'responseStatus' - The response status code.
+-- * 'schema' - The schema used by all of the data files referenced by the @DataSource@ .
+-- * 'scoreThreshold' - The scoring threshold is used in binary classification @MLModel@ models. It marks the boundary between a positive prediction and a negative prediction.
 --
--- * 'gmlmrsComputeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @MLModel@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @MLModel@ is in the @COMPLETED@ state.
+-- Output values greater than or equal to the threshold receive a positive result from the MLModel, such as @true@ . Output values less than the threshold receive a negative response from the MLModel, such as @false@ .
+-- * 'scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@ . The time is expressed in epoch time.
+-- * 'sizeInBytes' - Undocumented field.
+-- * 'startedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as @INPROGRESS@ . @StartedAt@ isn't available if the @MLModel@ is in the @PENDING@ state.
+-- * 'status' - The current status of the @MLModel@ . This element can have one of the following values:
 --
--- * 'gmlmrsRecipe' - The recipe to use when training the @MLModel@ . The @Recipe@ provides detailed information about the observation data to use during training, and manipulations to perform on the observation data during training.
 --
--- * 'gmlmrsInputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+--     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to describe a @MLModel@ .
 --
--- * 'gmlmrsMLModelId' - The MLModel ID, which is same as the @MLModelId@ in the request.
+--     * @INPROGRESS@ - The request is processing.
 --
--- * 'gmlmrsSizeInBytes' - Undocumented member.
+--     * @FAILED@ - The request did not run to completion. The ML model isn't usable.
 --
--- * 'gmlmrsSchema' - The schema used by all of the data files referenced by the @DataSource@ .
+--     * @COMPLETED@ - The request completed successfully.
 --
--- * 'gmlmrsStartedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as @INPROGRESS@ . @StartedAt@ isn't available if the @MLModel@ is in the @PENDING@ state.
+--     * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
 --
--- * 'gmlmrsScoreThreshold' - The scoring threshold is used in binary classification @MLModel@ models. It marks the boundary between a positive prediction and a negative prediction. Output values greater than or equal to the threshold receive a positive result from the MLModel, such as @true@ . Output values less than the threshold receive a negative response from the MLModel, such as @false@ .
+-- * 'trainingDataSourceId' - The ID of the training @DataSource@ .
+-- * 'trainingParameters' - A list of the training parameters in the @MLModel@ . The list is implemented as a map of key-value pairs.
 --
--- * 'gmlmrsFinishedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
+-- The following is the current set of training parameters:
 --
--- * 'gmlmrsCreatedByIAMUser' - The AWS user account from which the @MLModel@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+--     * @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.
+-- The value is an integer that ranges from @100000@ to @2147483648@ . The default value is @33554432@ .
 --
--- * 'gmlmrsName' - A user-supplied name or description of the @MLModel@ .
 --
--- * 'gmlmrsLogURI' - A link to the file that contains logs of the @CreateMLModel@ operation.
+--     * @sgd.maxPasses@ - The number of times that the training process traverses the observations to build the @MLModel@ . The value is an integer that ranges from @1@ to @10000@ . The default value is @10@ .
 --
--- * 'gmlmrsEndpointInfo' - The current endpoint of the @MLModel@
 --
--- * 'gmlmrsTrainingDataSourceId' - The ID of the training @DataSource@ .
+--     * @sgd.shuffleType@ - Whether Amazon ML shuffles the training data. Shuffling data improves a model's ability to find the optimal solution for a variety of data types. The valid values are @auto@ and @none@ . The default value is @none@ . We strongly recommend that you shuffle your data.
 --
--- * 'gmlmrsMessage' - A description of the most recent details about accessing the @MLModel@ .
 --
--- * 'gmlmrsMLModelType' - Identifies the @MLModel@ category. The following are the available types:      * REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"    * BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"    * MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"
+--     * @sgd.l1RegularizationAmount@ - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
+-- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L1 normalization. This parameter can't be used when @L2@ is specified. Use this parameter sparingly.
 --
--- * 'gmlmrsResponseStatus' - -- | The response status code.
-getMLModelResponse ::
-  -- | 'gmlmrsResponseStatus'
-  Int ->
+--
+--     * @sgd.l2RegularizationAmount@ - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
+-- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L2 normalization. This parameter can't be used when @L1@ is specified. Use this parameter sparingly.
+mkGetMLModelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMLModelResponse
-getMLModelResponse pResponseStatus_ =
+mkGetMLModelResponse pResponseStatus_ =
   GetMLModelResponse'
-    { _gmlmrsStatus = Nothing,
-      _gmlmrsLastUpdatedAt = Nothing,
-      _gmlmrsTrainingParameters = Nothing,
-      _gmlmrsScoreThresholdLastUpdatedAt = Nothing,
-      _gmlmrsCreatedAt = Nothing,
-      _gmlmrsComputeTime = Nothing,
-      _gmlmrsRecipe = Nothing,
-      _gmlmrsInputDataLocationS3 = Nothing,
-      _gmlmrsMLModelId = Nothing,
-      _gmlmrsSizeInBytes = Nothing,
-      _gmlmrsSchema = Nothing,
-      _gmlmrsStartedAt = Nothing,
-      _gmlmrsScoreThreshold = Nothing,
-      _gmlmrsFinishedAt = Nothing,
-      _gmlmrsCreatedByIAMUser = Nothing,
-      _gmlmrsName = Nothing,
-      _gmlmrsLogURI = Nothing,
-      _gmlmrsEndpointInfo = Nothing,
-      _gmlmrsTrainingDataSourceId = Nothing,
-      _gmlmrsMessage = Nothing,
-      _gmlmrsMLModelType = Nothing,
-      _gmlmrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      lastUpdatedAt = Lude.Nothing,
+      trainingParameters = Lude.Nothing,
+      scoreThresholdLastUpdatedAt = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      computeTime = Lude.Nothing,
+      recipe = Lude.Nothing,
+      inputDataLocationS3 = Lude.Nothing,
+      mLModelId = Lude.Nothing,
+      sizeInBytes = Lude.Nothing,
+      schema = Lude.Nothing,
+      startedAt = Lude.Nothing,
+      scoreThreshold = Lude.Nothing,
+      finishedAt = Lude.Nothing,
+      createdByIAMUser = Lude.Nothing,
+      name = Lude.Nothing,
+      logURI = Lude.Nothing,
+      endpointInfo = Lude.Nothing,
+      trainingDataSourceId = Lude.Nothing,
+      message = Lude.Nothing,
+      mLModelType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The current status of the @MLModel@ . This element can have one of the following values:     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to describe a @MLModel@ .    * @INPROGRESS@ - The request is processing.    * @FAILED@ - The request did not run to completion. The ML model isn't usable.    * @COMPLETED@ - The request completed successfully.    * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
-gmlmrsStatus :: Lens' GetMLModelResponse (Maybe EntityStatus)
-gmlmrsStatus = lens _gmlmrsStatus (\s a -> s {_gmlmrsStatus = a})
+-- | The current status of the @MLModel@ . This element can have one of the following values:
+--
+--
+--     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to describe a @MLModel@ .
+--
+--     * @INPROGRESS@ - The request is processing.
+--
+--     * @FAILED@ - The request did not run to completion. The ML model isn't usable.
+--
+--     * @COMPLETED@ - The request completed successfully.
+--
+--     * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsStatus :: Lens.Lens' GetMLModelResponse (Lude.Maybe EntityStatus)
+gmlmrsStatus = Lens.lens (status :: GetMLModelResponse -> Lude.Maybe EntityStatus) (\s a -> s {status = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The time of the most recent edit to the @MLModel@ . The time is expressed in epoch time.
-gmlmrsLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
-gmlmrsLastUpdatedAt = lens _gmlmrsLastUpdatedAt (\s a -> s {_gmlmrsLastUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsLastUpdatedAt :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Timestamp)
+gmlmrsLastUpdatedAt = Lens.lens (lastUpdatedAt :: GetMLModelResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
--- | A list of the training parameters in the @MLModel@ . The list is implemented as a map of key-value pairs. The following is the current set of training parameters:      * @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance. The value is an integer that ranges from @100000@ to @2147483648@ . The default value is @33554432@ .     * @sgd.maxPasses@ - The number of times that the training process traverses the observations to build the @MLModel@ . The value is an integer that ranges from @1@ to @10000@ . The default value is @10@ .     * @sgd.shuffleType@ - Whether Amazon ML shuffles the training data. Shuffling data improves a model's ability to find the optimal solution for a variety of data types. The valid values are @auto@ and @none@ . The default value is @none@ . We strongly recommend that you shuffle your data.     * @sgd.l1RegularizationAmount@ - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as @1.0E-08@ . The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L1 normalization. This parameter can't be used when @L2@ is specified. Use this parameter sparingly.     * @sgd.l2RegularizationAmount@ - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as @1.0E-08@ . The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L2 normalization. This parameter can't be used when @L1@ is specified. Use this parameter sparingly.
-gmlmrsTrainingParameters :: Lens' GetMLModelResponse (HashMap Text (Text))
-gmlmrsTrainingParameters = lens _gmlmrsTrainingParameters (\s a -> s {_gmlmrsTrainingParameters = a}) . _Default . _Map
+-- | A list of the training parameters in the @MLModel@ . The list is implemented as a map of key-value pairs.
+--
+-- The following is the current set of training parameters:
+--
+--     * @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.
+-- The value is an integer that ranges from @100000@ to @2147483648@ . The default value is @33554432@ .
+--
+--
+--     * @sgd.maxPasses@ - The number of times that the training process traverses the observations to build the @MLModel@ . The value is an integer that ranges from @1@ to @10000@ . The default value is @10@ .
+--
+--
+--     * @sgd.shuffleType@ - Whether Amazon ML shuffles the training data. Shuffling data improves a model's ability to find the optimal solution for a variety of data types. The valid values are @auto@ and @none@ . The default value is @none@ . We strongly recommend that you shuffle your data.
+--
+--
+--     * @sgd.l1RegularizationAmount@ - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
+-- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L1 normalization. This parameter can't be used when @L2@ is specified. Use this parameter sparingly.
+--
+--
+--     * @sgd.l2RegularizationAmount@ - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
+-- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L2 normalization. This parameter can't be used when @L1@ is specified. Use this parameter sparingly.
+--
+--
+--
+-- /Note:/ Consider using 'trainingParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsTrainingParameters :: Lens.Lens' GetMLModelResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gmlmrsTrainingParameters = Lens.lens (trainingParameters :: GetMLModelResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {trainingParameters = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsTrainingParameters "Use generic-lens or generic-optics with 'trainingParameters' instead." #-}
 
 -- | The time of the most recent edit to the @ScoreThreshold@ . The time is expressed in epoch time.
-gmlmrsScoreThresholdLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
-gmlmrsScoreThresholdLastUpdatedAt = lens _gmlmrsScoreThresholdLastUpdatedAt (\s a -> s {_gmlmrsScoreThresholdLastUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'scoreThresholdLastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsScoreThresholdLastUpdatedAt :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Timestamp)
+gmlmrsScoreThresholdLastUpdatedAt = Lens.lens (scoreThresholdLastUpdatedAt :: GetMLModelResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {scoreThresholdLastUpdatedAt = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsScoreThresholdLastUpdatedAt "Use generic-lens or generic-optics with 'scoreThresholdLastUpdatedAt' instead." #-}
 
 -- | The time that the @MLModel@ was created. The time is expressed in epoch time.
-gmlmrsCreatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
-gmlmrsCreatedAt = lens _gmlmrsCreatedAt (\s a -> s {_gmlmrsCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsCreatedAt :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Timestamp)
+gmlmrsCreatedAt = Lens.lens (createdAt :: GetMLModelResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @MLModel@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @MLModel@ is in the @COMPLETED@ state.
-gmlmrsComputeTime :: Lens' GetMLModelResponse (Maybe Integer)
-gmlmrsComputeTime = lens _gmlmrsComputeTime (\s a -> s {_gmlmrsComputeTime = a})
+--
+-- /Note:/ Consider using 'computeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsComputeTime :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Integer)
+gmlmrsComputeTime = Lens.lens (computeTime :: GetMLModelResponse -> Lude.Maybe Lude.Integer) (\s a -> s {computeTime = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsComputeTime "Use generic-lens or generic-optics with 'computeTime' instead." #-}
 
 -- | The recipe to use when training the @MLModel@ . The @Recipe@ provides detailed information about the observation data to use during training, and manipulations to perform on the observation data during training.
-gmlmrsRecipe :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsRecipe = lens _gmlmrsRecipe (\s a -> s {_gmlmrsRecipe = a})
+--
+-- /Note:/ Consider using 'recipe' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsRecipe :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Text)
+gmlmrsRecipe = Lens.lens (recipe :: GetMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {recipe = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsRecipe "Use generic-lens or generic-optics with 'recipe' instead." #-}
 
 -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
-gmlmrsInputDataLocationS3 :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsInputDataLocationS3 = lens _gmlmrsInputDataLocationS3 (\s a -> s {_gmlmrsInputDataLocationS3 = a})
+--
+-- /Note:/ Consider using 'inputDataLocationS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsInputDataLocationS3 :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Text)
+gmlmrsInputDataLocationS3 = Lens.lens (inputDataLocationS3 :: GetMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {inputDataLocationS3 = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsInputDataLocationS3 "Use generic-lens or generic-optics with 'inputDataLocationS3' instead." #-}
 
 -- | The MLModel ID, which is same as the @MLModelId@ in the request.
-gmlmrsMLModelId :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsMLModelId = lens _gmlmrsMLModelId (\s a -> s {_gmlmrsMLModelId = a})
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsMLModelId :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Text)
+gmlmrsMLModelId = Lens.lens (mLModelId :: GetMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
--- | Undocumented member.
-gmlmrsSizeInBytes :: Lens' GetMLModelResponse (Maybe Integer)
-gmlmrsSizeInBytes = lens _gmlmrsSizeInBytes (\s a -> s {_gmlmrsSizeInBytes = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'sizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsSizeInBytes :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Integer)
+gmlmrsSizeInBytes = Lens.lens (sizeInBytes :: GetMLModelResponse -> Lude.Maybe Lude.Integer) (\s a -> s {sizeInBytes = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsSizeInBytes "Use generic-lens or generic-optics with 'sizeInBytes' instead." #-}
 
 -- | The schema used by all of the data files referenced by the @DataSource@ .
-gmlmrsSchema :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsSchema = lens _gmlmrsSchema (\s a -> s {_gmlmrsSchema = a})
+--
+-- /Note:/ Consider using 'schema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsSchema :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Text)
+gmlmrsSchema = Lens.lens (schema :: GetMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {schema = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsSchema "Use generic-lens or generic-optics with 'schema' instead." #-}
 
 -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as @INPROGRESS@ . @StartedAt@ isn't available if the @MLModel@ is in the @PENDING@ state.
-gmlmrsStartedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
-gmlmrsStartedAt = lens _gmlmrsStartedAt (\s a -> s {_gmlmrsStartedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsStartedAt :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Timestamp)
+gmlmrsStartedAt = Lens.lens (startedAt :: GetMLModelResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedAt = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
--- | The scoring threshold is used in binary classification @MLModel@ models. It marks the boundary between a positive prediction and a negative prediction. Output values greater than or equal to the threshold receive a positive result from the MLModel, such as @true@ . Output values less than the threshold receive a negative response from the MLModel, such as @false@ .
-gmlmrsScoreThreshold :: Lens' GetMLModelResponse (Maybe Double)
-gmlmrsScoreThreshold = lens _gmlmrsScoreThreshold (\s a -> s {_gmlmrsScoreThreshold = a})
+-- | The scoring threshold is used in binary classification @MLModel@ models. It marks the boundary between a positive prediction and a negative prediction.
+--
+-- Output values greater than or equal to the threshold receive a positive result from the MLModel, such as @true@ . Output values less than the threshold receive a negative response from the MLModel, such as @false@ .
+--
+-- /Note:/ Consider using 'scoreThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsScoreThreshold :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Double)
+gmlmrsScoreThreshold = Lens.lens (scoreThreshold :: GetMLModelResponse -> Lude.Maybe Lude.Double) (\s a -> s {scoreThreshold = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsScoreThreshold "Use generic-lens or generic-optics with 'scoreThreshold' instead." #-}
 
 -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
-gmlmrsFinishedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
-gmlmrsFinishedAt = lens _gmlmrsFinishedAt (\s a -> s {_gmlmrsFinishedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'finishedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsFinishedAt :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Timestamp)
+gmlmrsFinishedAt = Lens.lens (finishedAt :: GetMLModelResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {finishedAt = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsFinishedAt "Use generic-lens or generic-optics with 'finishedAt' instead." #-}
 
 -- | The AWS user account from which the @MLModel@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
-gmlmrsCreatedByIAMUser :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsCreatedByIAMUser = lens _gmlmrsCreatedByIAMUser (\s a -> s {_gmlmrsCreatedByIAMUser = a})
+--
+-- /Note:/ Consider using 'createdByIAMUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsCreatedByIAMUser :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Text)
+gmlmrsCreatedByIAMUser = Lens.lens (createdByIAMUser :: GetMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdByIAMUser = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsCreatedByIAMUser "Use generic-lens or generic-optics with 'createdByIAMUser' instead." #-}
 
 -- | A user-supplied name or description of the @MLModel@ .
-gmlmrsName :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsName = lens _gmlmrsName (\s a -> s {_gmlmrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsName :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Text)
+gmlmrsName = Lens.lens (name :: GetMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A link to the file that contains logs of the @CreateMLModel@ operation.
-gmlmrsLogURI :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsLogURI = lens _gmlmrsLogURI (\s a -> s {_gmlmrsLogURI = a})
+--
+-- /Note:/ Consider using 'logURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsLogURI :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Text)
+gmlmrsLogURI = Lens.lens (logURI :: GetMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {logURI = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsLogURI "Use generic-lens or generic-optics with 'logURI' instead." #-}
 
 -- | The current endpoint of the @MLModel@
-gmlmrsEndpointInfo :: Lens' GetMLModelResponse (Maybe RealtimeEndpointInfo)
-gmlmrsEndpointInfo = lens _gmlmrsEndpointInfo (\s a -> s {_gmlmrsEndpointInfo = a})
+--
+-- /Note:/ Consider using 'endpointInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsEndpointInfo :: Lens.Lens' GetMLModelResponse (Lude.Maybe RealtimeEndpointInfo)
+gmlmrsEndpointInfo = Lens.lens (endpointInfo :: GetMLModelResponse -> Lude.Maybe RealtimeEndpointInfo) (\s a -> s {endpointInfo = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsEndpointInfo "Use generic-lens or generic-optics with 'endpointInfo' instead." #-}
 
 -- | The ID of the training @DataSource@ .
-gmlmrsTrainingDataSourceId :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsTrainingDataSourceId = lens _gmlmrsTrainingDataSourceId (\s a -> s {_gmlmrsTrainingDataSourceId = a})
+--
+-- /Note:/ Consider using 'trainingDataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsTrainingDataSourceId :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Text)
+gmlmrsTrainingDataSourceId = Lens.lens (trainingDataSourceId :: GetMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {trainingDataSourceId = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsTrainingDataSourceId "Use generic-lens or generic-optics with 'trainingDataSourceId' instead." #-}
 
 -- | A description of the most recent details about accessing the @MLModel@ .
-gmlmrsMessage :: Lens' GetMLModelResponse (Maybe Text)
-gmlmrsMessage = lens _gmlmrsMessage (\s a -> s {_gmlmrsMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsMessage :: Lens.Lens' GetMLModelResponse (Lude.Maybe Lude.Text)
+gmlmrsMessage = Lens.lens (message :: GetMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
--- | Identifies the @MLModel@ category. The following are the available types:      * REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"    * BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"    * MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"
-gmlmrsMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
-gmlmrsMLModelType = lens _gmlmrsMLModelType (\s a -> s {_gmlmrsMLModelType = a})
+-- | Identifies the @MLModel@ category. The following are the available types:
+--
+--
+--     * REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"
+--
+--     * BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"
+--
+--     * MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"
+--
+--
+-- /Note:/ Consider using 'mLModelType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsMLModelType :: Lens.Lens' GetMLModelResponse (Lude.Maybe MLModelType)
+gmlmrsMLModelType = Lens.lens (mLModelType :: GetMLModelResponse -> Lude.Maybe MLModelType) (\s a -> s {mLModelType = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsMLModelType "Use generic-lens or generic-optics with 'mLModelType' instead." #-}
 
--- | -- | The response status code.
-gmlmrsResponseStatus :: Lens' GetMLModelResponse Int
-gmlmrsResponseStatus = lens _gmlmrsResponseStatus (\s a -> s {_gmlmrsResponseStatus = a})
-
-instance NFData GetMLModelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmlmrsResponseStatus :: Lens.Lens' GetMLModelResponse Lude.Int
+gmlmrsResponseStatus = Lens.lens (responseStatus :: GetMLModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMLModelResponse)
+{-# DEPRECATED gmlmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

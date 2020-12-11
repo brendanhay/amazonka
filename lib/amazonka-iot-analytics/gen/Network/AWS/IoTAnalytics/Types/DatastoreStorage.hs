@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatastoreStorage where
+module Network.AWS.IoTAnalytics.Types.DatastoreStorage
+  ( DatastoreStorage (..),
+
+    -- * Smart constructor
+    mkDatastoreStorage,
+
+    -- * Lenses
+    dsServiceManagedS3,
+    dsCustomerManagedS3,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
 import Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the data store is created.
 --
---
---
--- /See:/ 'datastoreStorage' smart constructor.
+-- /See:/ 'mkDatastoreStorage' smart constructor.
 data DatastoreStorage = DatastoreStorage'
-  { _dsServiceManagedS3 ::
-      !(Maybe ServiceManagedDatastoreS3Storage),
-    _dsCustomerManagedS3 ::
-      !(Maybe CustomerManagedDatastoreS3Storage)
+  { serviceManagedS3 ::
+      Lude.Maybe ServiceManagedDatastoreS3Storage,
+    customerManagedS3 ::
+      Lude.Maybe CustomerManagedDatastoreS3Storage
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatastoreStorage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsServiceManagedS3' - Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
---
--- * 'dsCustomerManagedS3' - Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
-datastoreStorage ::
+-- * 'customerManagedS3' - Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+-- * 'serviceManagedS3' - Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
+mkDatastoreStorage ::
   DatastoreStorage
-datastoreStorage =
+mkDatastoreStorage =
   DatastoreStorage'
-    { _dsServiceManagedS3 = Nothing,
-      _dsCustomerManagedS3 = Nothing
+    { serviceManagedS3 = Lude.Nothing,
+      customerManagedS3 = Lude.Nothing
     }
 
 -- | Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
-dsServiceManagedS3 :: Lens' DatastoreStorage (Maybe ServiceManagedDatastoreS3Storage)
-dsServiceManagedS3 = lens _dsServiceManagedS3 (\s a -> s {_dsServiceManagedS3 = a})
+--
+-- /Note:/ Consider using 'serviceManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsServiceManagedS3 :: Lens.Lens' DatastoreStorage (Lude.Maybe ServiceManagedDatastoreS3Storage)
+dsServiceManagedS3 = Lens.lens (serviceManagedS3 :: DatastoreStorage -> Lude.Maybe ServiceManagedDatastoreS3Storage) (\s a -> s {serviceManagedS3 = a} :: DatastoreStorage)
+{-# DEPRECATED dsServiceManagedS3 "Use generic-lens or generic-optics with 'serviceManagedS3' instead." #-}
 
 -- | Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
-dsCustomerManagedS3 :: Lens' DatastoreStorage (Maybe CustomerManagedDatastoreS3Storage)
-dsCustomerManagedS3 = lens _dsCustomerManagedS3 (\s a -> s {_dsCustomerManagedS3 = a})
+--
+-- /Note:/ Consider using 'customerManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsCustomerManagedS3 :: Lens.Lens' DatastoreStorage (Lude.Maybe CustomerManagedDatastoreS3Storage)
+dsCustomerManagedS3 = Lens.lens (customerManagedS3 :: DatastoreStorage -> Lude.Maybe CustomerManagedDatastoreS3Storage) (\s a -> s {customerManagedS3 = a} :: DatastoreStorage)
+{-# DEPRECATED dsCustomerManagedS3 "Use generic-lens or generic-optics with 'customerManagedS3' instead." #-}
 
-instance FromJSON DatastoreStorage where
+instance Lude.FromJSON DatastoreStorage where
   parseJSON =
-    withObject
+    Lude.withObject
       "DatastoreStorage"
       ( \x ->
           DatastoreStorage'
-            <$> (x .:? "serviceManagedS3") <*> (x .:? "customerManagedS3")
+            Lude.<$> (x Lude..:? "serviceManagedS3")
+            Lude.<*> (x Lude..:? "customerManagedS3")
       )
 
-instance Hashable DatastoreStorage
-
-instance NFData DatastoreStorage
-
-instance ToJSON DatastoreStorage where
+instance Lude.ToJSON DatastoreStorage where
   toJSON DatastoreStorage' {..} =
-    object
-      ( catMaybes
-          [ ("serviceManagedS3" .=) <$> _dsServiceManagedS3,
-            ("customerManagedS3" .=) <$> _dsCustomerManagedS3
+    Lude.object
+      ( Lude.catMaybes
+          [ ("serviceManagedS3" Lude..=) Lude.<$> serviceManagedS3,
+            ("customerManagedS3" Lude..=) Lude.<$> customerManagedS3
           ]
       )

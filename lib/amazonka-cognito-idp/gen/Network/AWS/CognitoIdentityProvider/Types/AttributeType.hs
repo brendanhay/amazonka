@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AttributeType where
+module Network.AWS.CognitoIdentityProvider.Types.AttributeType
+  ( AttributeType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttributeType,
+
+    -- * Lenses
+    atValue,
+    atName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies whether the attribute is standard or custom.
 --
---
---
--- /See:/ 'attributeType' smart constructor.
+-- /See:/ 'mkAttributeType' smart constructor.
 data AttributeType = AttributeType'
-  { _atValue ::
-      !(Maybe (Sensitive Text)),
-    _atName :: !Text
+  { value ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    name :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atValue' - The value of the attribute.
---
--- * 'atName' - The name of the attribute.
-attributeType ::
-  -- | 'atName'
-  Text ->
+-- * 'name' - The name of the attribute.
+-- * 'value' - The value of the attribute.
+mkAttributeType ::
+  -- | 'name'
+  Lude.Text ->
   AttributeType
-attributeType pName_ =
-  AttributeType' {_atValue = Nothing, _atName = pName_}
+mkAttributeType pName_ =
+  AttributeType' {value = Lude.Nothing, name = pName_}
 
 -- | The value of the attribute.
-atValue :: Lens' AttributeType (Maybe Text)
-atValue = lens _atValue (\s a -> s {_atValue = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atValue :: Lens.Lens' AttributeType (Lude.Maybe (Lude.Sensitive Lude.Text))
+atValue = Lens.lens (value :: AttributeType -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {value = a} :: AttributeType)
+{-# DEPRECATED atValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The name of the attribute.
-atName :: Lens' AttributeType Text
-atName = lens _atName (\s a -> s {_atName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atName :: Lens.Lens' AttributeType Lude.Text
+atName = Lens.lens (name :: AttributeType -> Lude.Text) (\s a -> s {name = a} :: AttributeType)
+{-# DEPRECATED atName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON AttributeType where
+instance Lude.FromJSON AttributeType where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttributeType"
-      (\x -> AttributeType' <$> (x .:? "Value") <*> (x .: "Name"))
+      ( \x ->
+          AttributeType'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..: "Name")
+      )
 
-instance Hashable AttributeType
-
-instance NFData AttributeType
-
-instance ToJSON AttributeType where
+instance Lude.ToJSON AttributeType where
   toJSON AttributeType' {..} =
-    object
-      (catMaybes [("Value" .=) <$> _atValue, Just ("Name" .= _atName)])
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Value" Lude..=) Lude.<$> value,
+            Lude.Just ("Name" Lude..= name)
+          ]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.LogLevel where
+module Network.AWS.MediaLive.Types.LogLevel
+  ( LogLevel
+      ( LogLevel',
+        LLDebug,
+        LLDisabled,
+        LLError,
+        LLInfo,
+        LLWarning
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The log level the user wants for their channel.
-data LogLevel
-  = LLDebug
-  | LLDisabled
-  | LLError'
-  | LLInfo
-  | LLWarning
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LogLevel = LogLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LogLevel where
-  parser =
-    takeLowerText >>= \case
-      "debug" -> pure LLDebug
-      "disabled" -> pure LLDisabled
-      "error" -> pure LLError'
-      "info" -> pure LLInfo
-      "warning" -> pure LLWarning
-      e ->
-        fromTextError $
-          "Failure parsing LogLevel from value: '" <> e
-            <> "'. Accepted values: debug, disabled, error, info, warning"
+pattern LLDebug :: LogLevel
+pattern LLDebug = LogLevel' "DEBUG"
 
-instance ToText LogLevel where
-  toText = \case
-    LLDebug -> "DEBUG"
-    LLDisabled -> "DISABLED"
-    LLError' -> "ERROR"
-    LLInfo -> "INFO"
-    LLWarning -> "WARNING"
+pattern LLDisabled :: LogLevel
+pattern LLDisabled = LogLevel' "DISABLED"
 
-instance Hashable LogLevel
+pattern LLError :: LogLevel
+pattern LLError = LogLevel' "ERROR"
 
-instance NFData LogLevel
+pattern LLInfo :: LogLevel
+pattern LLInfo = LogLevel' "INFO"
 
-instance ToByteString LogLevel
+pattern LLWarning :: LogLevel
+pattern LLWarning = LogLevel' "WARNING"
 
-instance ToQuery LogLevel
-
-instance ToHeader LogLevel
-
-instance ToJSON LogLevel where
-  toJSON = toJSONText
-
-instance FromJSON LogLevel where
-  parseJSON = parseJSONText "LogLevel"
+{-# COMPLETE
+  LLDebug,
+  LLDisabled,
+  LLError,
+  LLInfo,
+  LLWarning,
+  LogLevel'
+  #-}

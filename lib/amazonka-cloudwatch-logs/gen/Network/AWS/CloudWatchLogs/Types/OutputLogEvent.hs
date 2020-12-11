@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.OutputLogEvent where
+module Network.AWS.CloudWatchLogs.Types.OutputLogEvent
+  ( OutputLogEvent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOutputLogEvent,
+
+    -- * Lenses
+    oleIngestionTime,
+    oleMessage,
+    oleTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a log event.
 --
---
---
--- /See:/ 'outputLogEvent' smart constructor.
+-- /See:/ 'mkOutputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'
-  { _oleIngestionTime ::
-      !(Maybe Nat),
-    _oleMessage :: !(Maybe Text),
-    _oleTimestamp :: !(Maybe Nat)
+  { ingestionTime ::
+      Lude.Maybe Lude.Natural,
+    message :: Lude.Maybe Lude.Text,
+    timestamp :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputLogEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oleIngestionTime' - The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
---
--- * 'oleMessage' - The data contained in the log event.
---
--- * 'oleTimestamp' - The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-outputLogEvent ::
+-- * 'ingestionTime' - The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'message' - The data contained in the log event.
+-- * 'timestamp' - The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+mkOutputLogEvent ::
   OutputLogEvent
-outputLogEvent =
+mkOutputLogEvent =
   OutputLogEvent'
-    { _oleIngestionTime = Nothing,
-      _oleMessage = Nothing,
-      _oleTimestamp = Nothing
+    { ingestionTime = Lude.Nothing,
+      message = Lude.Nothing,
+      timestamp = Lude.Nothing
     }
 
 -- | The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-oleIngestionTime :: Lens' OutputLogEvent (Maybe Natural)
-oleIngestionTime = lens _oleIngestionTime (\s a -> s {_oleIngestionTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'ingestionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oleIngestionTime :: Lens.Lens' OutputLogEvent (Lude.Maybe Lude.Natural)
+oleIngestionTime = Lens.lens (ingestionTime :: OutputLogEvent -> Lude.Maybe Lude.Natural) (\s a -> s {ingestionTime = a} :: OutputLogEvent)
+{-# DEPRECATED oleIngestionTime "Use generic-lens or generic-optics with 'ingestionTime' instead." #-}
 
 -- | The data contained in the log event.
-oleMessage :: Lens' OutputLogEvent (Maybe Text)
-oleMessage = lens _oleMessage (\s a -> s {_oleMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oleMessage :: Lens.Lens' OutputLogEvent (Lude.Maybe Lude.Text)
+oleMessage = Lens.lens (message :: OutputLogEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: OutputLogEvent)
+{-# DEPRECATED oleMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-oleTimestamp :: Lens' OutputLogEvent (Maybe Natural)
-oleTimestamp = lens _oleTimestamp (\s a -> s {_oleTimestamp = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oleTimestamp :: Lens.Lens' OutputLogEvent (Lude.Maybe Lude.Natural)
+oleTimestamp = Lens.lens (timestamp :: OutputLogEvent -> Lude.Maybe Lude.Natural) (\s a -> s {timestamp = a} :: OutputLogEvent)
+{-# DEPRECATED oleTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance FromJSON OutputLogEvent where
+instance Lude.FromJSON OutputLogEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputLogEvent"
       ( \x ->
           OutputLogEvent'
-            <$> (x .:? "ingestionTime")
-            <*> (x .:? "message")
-            <*> (x .:? "timestamp")
+            Lude.<$> (x Lude..:? "ingestionTime")
+            Lude.<*> (x Lude..:? "message")
+            Lude.<*> (x Lude..:? "timestamp")
       )
-
-instance Hashable OutputLogEvent
-
-instance NFData OutputLogEvent

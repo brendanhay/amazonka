@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.LoggingConfiguration where
+module Network.AWS.StepFunctions.Types.LoggingConfiguration
+  ( LoggingConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLoggingConfiguration,
+
+    -- * Lenses
+    lcIncludeExecutionData,
+    lcDestinations,
+    lcLevel,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StepFunctions.Types.LogDestination
 import Network.AWS.StepFunctions.Types.LogLevel
 
 -- | The @LoggingConfiguration@ data type is used to set CloudWatch Logs options.
 --
---
---
--- /See:/ 'loggingConfiguration' smart constructor.
+-- /See:/ 'mkLoggingConfiguration' smart constructor.
 data LoggingConfiguration = LoggingConfiguration'
-  { _lcIncludeExecutionData ::
-      !(Maybe Bool),
-    _lcDestinations :: !(Maybe [LogDestination]),
-    _lcLevel :: !(Maybe LogLevel)
+  { includeExecutionData ::
+      Lude.Maybe Lude.Bool,
+    destinations :: Lude.Maybe [LogDestination],
+    level :: Lude.Maybe LogLevel
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoggingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcIncludeExecutionData' - Determines whether execution data is included in your log. When set to @false@ , data is excluded.
---
--- * 'lcDestinations' - An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to @OFF@ .
---
--- * 'lcLevel' - Defines which category of execution history events are logged.
-loggingConfiguration ::
+-- * 'destinations' - An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to @OFF@ .
+-- * 'includeExecutionData' - Determines whether execution data is included in your log. When set to @false@ , data is excluded.
+-- * 'level' - Defines which category of execution history events are logged.
+mkLoggingConfiguration ::
   LoggingConfiguration
-loggingConfiguration =
+mkLoggingConfiguration =
   LoggingConfiguration'
-    { _lcIncludeExecutionData = Nothing,
-      _lcDestinations = Nothing,
-      _lcLevel = Nothing
+    { includeExecutionData = Lude.Nothing,
+      destinations = Lude.Nothing,
+      level = Lude.Nothing
     }
 
 -- | Determines whether execution data is included in your log. When set to @false@ , data is excluded.
-lcIncludeExecutionData :: Lens' LoggingConfiguration (Maybe Bool)
-lcIncludeExecutionData = lens _lcIncludeExecutionData (\s a -> s {_lcIncludeExecutionData = a})
+--
+-- /Note:/ Consider using 'includeExecutionData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcIncludeExecutionData :: Lens.Lens' LoggingConfiguration (Lude.Maybe Lude.Bool)
+lcIncludeExecutionData = Lens.lens (includeExecutionData :: LoggingConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {includeExecutionData = a} :: LoggingConfiguration)
+{-# DEPRECATED lcIncludeExecutionData "Use generic-lens or generic-optics with 'includeExecutionData' instead." #-}
 
 -- | An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to @OFF@ .
-lcDestinations :: Lens' LoggingConfiguration [LogDestination]
-lcDestinations = lens _lcDestinations (\s a -> s {_lcDestinations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcDestinations :: Lens.Lens' LoggingConfiguration (Lude.Maybe [LogDestination])
+lcDestinations = Lens.lens (destinations :: LoggingConfiguration -> Lude.Maybe [LogDestination]) (\s a -> s {destinations = a} :: LoggingConfiguration)
+{-# DEPRECATED lcDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | Defines which category of execution history events are logged.
-lcLevel :: Lens' LoggingConfiguration (Maybe LogLevel)
-lcLevel = lens _lcLevel (\s a -> s {_lcLevel = a})
+--
+-- /Note:/ Consider using 'level' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcLevel :: Lens.Lens' LoggingConfiguration (Lude.Maybe LogLevel)
+lcLevel = Lens.lens (level :: LoggingConfiguration -> Lude.Maybe LogLevel) (\s a -> s {level = a} :: LoggingConfiguration)
+{-# DEPRECATED lcLevel "Use generic-lens or generic-optics with 'level' instead." #-}
 
-instance FromJSON LoggingConfiguration where
+instance Lude.FromJSON LoggingConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            <$> (x .:? "includeExecutionData")
-            <*> (x .:? "destinations" .!= mempty)
-            <*> (x .:? "level")
+            Lude.<$> (x Lude..:? "includeExecutionData")
+            Lude.<*> (x Lude..:? "destinations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "level")
       )
 
-instance Hashable LoggingConfiguration
-
-instance NFData LoggingConfiguration
-
-instance ToJSON LoggingConfiguration where
+instance Lude.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("includeExecutionData" .=) <$> _lcIncludeExecutionData,
-            ("destinations" .=) <$> _lcDestinations,
-            ("level" .=) <$> _lcLevel
+    Lude.object
+      ( Lude.catMaybes
+          [ ("includeExecutionData" Lude..=) Lude.<$> includeExecutionData,
+            ("destinations" Lude..=) Lude.<$> destinations,
+            ("level" Lude..=) Lude.<$> level
           ]
       )

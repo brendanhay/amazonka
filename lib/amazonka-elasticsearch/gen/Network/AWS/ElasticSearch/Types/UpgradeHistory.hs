@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.UpgradeHistory where
+module Network.AWS.ElasticSearch.Types.UpgradeHistory
+  ( UpgradeHistory (..),
+
+    -- * Smart constructor
+    mkUpgradeHistory,
+
+    -- * Lenses
+    uhUpgradeStatus,
+    uhStepsList,
+    uhUpgradeName,
+    uhStartTimestamp,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.UpgradeStatus
 import Network.AWS.ElasticSearch.Types.UpgradeStepItem
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | History of the last 10 Upgrades and Upgrade Eligibility Checks.
 --
---
---
--- /See:/ 'upgradeHistory' smart constructor.
+-- /See:/ 'mkUpgradeHistory' smart constructor.
 data UpgradeHistory = UpgradeHistory'
-  { _uhUpgradeStatus ::
-      !(Maybe UpgradeStatus),
-    _uhStepsList :: !(Maybe [UpgradeStepItem]),
-    _uhUpgradeName :: !(Maybe Text),
-    _uhStartTimestamp :: !(Maybe POSIX)
+  { upgradeStatus ::
+      Lude.Maybe UpgradeStatus,
+    stepsList :: Lude.Maybe [UpgradeStepItem],
+    upgradeName :: Lude.Maybe Lude.Text,
+    startTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeHistory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'startTimestamp' - UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
+-- * 'stepsList' - A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+-- * 'upgradeName' - A string that describes the update briefly
+-- * 'upgradeStatus' - The overall status of the update. The status can take one of the following values:
 --
--- * 'uhUpgradeStatus' - The overall status of the update. The status can take one of the following values:     * In Progress    * Succeeded    * Succeeded with Issues    * Failed
+--     * In Progress
 --
--- * 'uhStepsList' - A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+--     * Succeeded
 --
--- * 'uhUpgradeName' - A string that describes the update briefly
+--     * Succeeded with Issues
 --
--- * 'uhStartTimestamp' - UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
-upgradeHistory ::
+--     * Failed
+mkUpgradeHistory ::
   UpgradeHistory
-upgradeHistory =
+mkUpgradeHistory =
   UpgradeHistory'
-    { _uhUpgradeStatus = Nothing,
-      _uhStepsList = Nothing,
-      _uhUpgradeName = Nothing,
-      _uhStartTimestamp = Nothing
+    { upgradeStatus = Lude.Nothing,
+      stepsList = Lude.Nothing,
+      upgradeName = Lude.Nothing,
+      startTimestamp = Lude.Nothing
     }
 
--- | The overall status of the update. The status can take one of the following values:     * In Progress    * Succeeded    * Succeeded with Issues    * Failed
-uhUpgradeStatus :: Lens' UpgradeHistory (Maybe UpgradeStatus)
-uhUpgradeStatus = lens _uhUpgradeStatus (\s a -> s {_uhUpgradeStatus = a})
+-- | The overall status of the update. The status can take one of the following values:
+--
+--     * In Progress
+--
+--     * Succeeded
+--
+--     * Succeeded with Issues
+--
+--     * Failed
+--
+--
+--
+-- /Note:/ Consider using 'upgradeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhUpgradeStatus :: Lens.Lens' UpgradeHistory (Lude.Maybe UpgradeStatus)
+uhUpgradeStatus = Lens.lens (upgradeStatus :: UpgradeHistory -> Lude.Maybe UpgradeStatus) (\s a -> s {upgradeStatus = a} :: UpgradeHistory)
+{-# DEPRECATED uhUpgradeStatus "Use generic-lens or generic-optics with 'upgradeStatus' instead." #-}
 
 -- | A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
-uhStepsList :: Lens' UpgradeHistory [UpgradeStepItem]
-uhStepsList = lens _uhStepsList (\s a -> s {_uhStepsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stepsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhStepsList :: Lens.Lens' UpgradeHistory (Lude.Maybe [UpgradeStepItem])
+uhStepsList = Lens.lens (stepsList :: UpgradeHistory -> Lude.Maybe [UpgradeStepItem]) (\s a -> s {stepsList = a} :: UpgradeHistory)
+{-# DEPRECATED uhStepsList "Use generic-lens or generic-optics with 'stepsList' instead." #-}
 
 -- | A string that describes the update briefly
-uhUpgradeName :: Lens' UpgradeHistory (Maybe Text)
-uhUpgradeName = lens _uhUpgradeName (\s a -> s {_uhUpgradeName = a})
+--
+-- /Note:/ Consider using 'upgradeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhUpgradeName :: Lens.Lens' UpgradeHistory (Lude.Maybe Lude.Text)
+uhUpgradeName = Lens.lens (upgradeName :: UpgradeHistory -> Lude.Maybe Lude.Text) (\s a -> s {upgradeName = a} :: UpgradeHistory)
+{-# DEPRECATED uhUpgradeName "Use generic-lens or generic-optics with 'upgradeName' instead." #-}
 
 -- | UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
-uhStartTimestamp :: Lens' UpgradeHistory (Maybe UTCTime)
-uhStartTimestamp = lens _uhStartTimestamp (\s a -> s {_uhStartTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uhStartTimestamp :: Lens.Lens' UpgradeHistory (Lude.Maybe Lude.Timestamp)
+uhStartTimestamp = Lens.lens (startTimestamp :: UpgradeHistory -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTimestamp = a} :: UpgradeHistory)
+{-# DEPRECATED uhStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
 
-instance FromJSON UpgradeHistory where
+instance Lude.FromJSON UpgradeHistory where
   parseJSON =
-    withObject
+    Lude.withObject
       "UpgradeHistory"
       ( \x ->
           UpgradeHistory'
-            <$> (x .:? "UpgradeStatus")
-            <*> (x .:? "StepsList" .!= mempty)
-            <*> (x .:? "UpgradeName")
-            <*> (x .:? "StartTimestamp")
+            Lude.<$> (x Lude..:? "UpgradeStatus")
+            Lude.<*> (x Lude..:? "StepsList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "UpgradeName")
+            Lude.<*> (x Lude..:? "StartTimestamp")
       )
-
-instance Hashable UpgradeHistory
-
-instance NFData UpgradeHistory

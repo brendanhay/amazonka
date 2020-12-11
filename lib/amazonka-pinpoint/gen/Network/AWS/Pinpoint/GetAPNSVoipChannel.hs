@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,131 @@
 --
 -- Retrieves information about the status and settings of the APNs VoIP channel for an application.
 module Network.AWS.Pinpoint.GetAPNSVoipChannel
-  ( -- * Creating a Request
-    getAPNSVoipChannel,
-    GetAPNSVoipChannel,
+  ( -- * Creating a request
+    GetAPNSVoipChannel (..),
+    mkGetAPNSVoipChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gavcApplicationId,
 
-    -- * Destructuring the Response
-    getAPNSVoipChannelResponse,
-    GetAPNSVoipChannelResponse,
+    -- * Destructuring the response
+    GetAPNSVoipChannelResponse (..),
+    mkGetAPNSVoipChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gavcrsResponseStatus,
     gavcrsAPNSVoipChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAPNSVoipChannel' smart constructor.
+-- | /See:/ 'mkGetAPNSVoipChannel' smart constructor.
 newtype GetAPNSVoipChannel = GetAPNSVoipChannel'
-  { _gavcApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPNSVoipChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gavcApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getAPNSVoipChannel ::
-  -- | 'gavcApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkGetAPNSVoipChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetAPNSVoipChannel
-getAPNSVoipChannel pApplicationId_ =
-  GetAPNSVoipChannel' {_gavcApplicationId = pApplicationId_}
+mkGetAPNSVoipChannel pApplicationId_ =
+  GetAPNSVoipChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gavcApplicationId :: Lens' GetAPNSVoipChannel Text
-gavcApplicationId = lens _gavcApplicationId (\s a -> s {_gavcApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavcApplicationId :: Lens.Lens' GetAPNSVoipChannel Lude.Text
+gavcApplicationId = Lens.lens (applicationId :: GetAPNSVoipChannel -> Lude.Text) (\s a -> s {applicationId = a} :: GetAPNSVoipChannel)
+{-# DEPRECATED gavcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetAPNSVoipChannel where
+instance Lude.AWSRequest GetAPNSVoipChannel where
   type Rs GetAPNSVoipChannel = GetAPNSVoipChannelResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAPNSVoipChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetAPNSVoipChannel
-
-instance NFData GetAPNSVoipChannel
-
-instance ToHeaders GetAPNSVoipChannel where
+instance Lude.ToHeaders GetAPNSVoipChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetAPNSVoipChannel where
+instance Lude.ToPath GetAPNSVoipChannel where
   toPath GetAPNSVoipChannel' {..} =
-    mconcat
-      ["/v1/apps/", toBS _gavcApplicationId, "/channels/apns_voip"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/channels/apns_voip"]
 
-instance ToQuery GetAPNSVoipChannel where
-  toQuery = const mempty
+instance Lude.ToQuery GetAPNSVoipChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAPNSVoipChannelResponse' smart constructor.
+-- | /See:/ 'mkGetAPNSVoipChannelResponse' smart constructor.
 data GetAPNSVoipChannelResponse = GetAPNSVoipChannelResponse'
-  { _gavcrsResponseStatus ::
-      !Int,
-    _gavcrsAPNSVoipChannelResponse ::
-      !APNSVoipChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    apnsVoipChannelResponse ::
+      APNSVoipChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPNSVoipChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gavcrsResponseStatus' - -- | The response status code.
---
--- * 'gavcrsAPNSVoipChannelResponse' - Undocumented member.
-getAPNSVoipChannelResponse ::
-  -- | 'gavcrsResponseStatus'
-  Int ->
-  -- | 'gavcrsAPNSVoipChannelResponse'
+-- * 'apnsVoipChannelResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetAPNSVoipChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'apnsVoipChannelResponse'
   APNSVoipChannelResponse ->
   GetAPNSVoipChannelResponse
-getAPNSVoipChannelResponse
+mkGetAPNSVoipChannelResponse
   pResponseStatus_
   pAPNSVoipChannelResponse_ =
     GetAPNSVoipChannelResponse'
-      { _gavcrsResponseStatus =
-          pResponseStatus_,
-        _gavcrsAPNSVoipChannelResponse = pAPNSVoipChannelResponse_
+      { responseStatus = pResponseStatus_,
+        apnsVoipChannelResponse = pAPNSVoipChannelResponse_
       }
 
--- | -- | The response status code.
-gavcrsResponseStatus :: Lens' GetAPNSVoipChannelResponse Int
-gavcrsResponseStatus = lens _gavcrsResponseStatus (\s a -> s {_gavcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavcrsResponseStatus :: Lens.Lens' GetAPNSVoipChannelResponse Lude.Int
+gavcrsResponseStatus = Lens.lens (responseStatus :: GetAPNSVoipChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAPNSVoipChannelResponse)
+{-# DEPRECATED gavcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gavcrsAPNSVoipChannelResponse :: Lens' GetAPNSVoipChannelResponse APNSVoipChannelResponse
-gavcrsAPNSVoipChannelResponse = lens _gavcrsAPNSVoipChannelResponse (\s a -> s {_gavcrsAPNSVoipChannelResponse = a})
-
-instance NFData GetAPNSVoipChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'apnsVoipChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavcrsAPNSVoipChannelResponse :: Lens.Lens' GetAPNSVoipChannelResponse APNSVoipChannelResponse
+gavcrsAPNSVoipChannelResponse = Lens.lens (apnsVoipChannelResponse :: GetAPNSVoipChannelResponse -> APNSVoipChannelResponse) (\s a -> s {apnsVoipChannelResponse = a} :: GetAPNSVoipChannelResponse)
+{-# DEPRECATED gavcrsAPNSVoipChannelResponse "Use generic-lens or generic-optics with 'apnsVoipChannelResponse' instead." #-}

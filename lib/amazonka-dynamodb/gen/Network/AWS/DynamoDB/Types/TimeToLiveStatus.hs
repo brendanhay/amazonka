@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.TimeToLiveStatus where
+module Network.AWS.DynamoDB.Types.TimeToLiveStatus
+  ( TimeToLiveStatus
+      ( TimeToLiveStatus',
+        Disabled,
+        Disabling,
+        Enabled,
+        Enabling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TimeToLiveStatus
-  = Disabled
-  | Disabling
-  | Enabled
-  | Enabling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TimeToLiveStatus = TimeToLiveStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TimeToLiveStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "disabling" -> pure Disabling
-      "enabled" -> pure Enabled
-      "enabling" -> pure Enabling
-      e ->
-        fromTextError $
-          "Failure parsing TimeToLiveStatus from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, enabled, enabling"
+pattern Disabled :: TimeToLiveStatus
+pattern Disabled = TimeToLiveStatus' "DISABLED"
 
-instance ToText TimeToLiveStatus where
-  toText = \case
-    Disabled -> "DISABLED"
-    Disabling -> "DISABLING"
-    Enabled -> "ENABLED"
-    Enabling -> "ENABLING"
+pattern Disabling :: TimeToLiveStatus
+pattern Disabling = TimeToLiveStatus' "DISABLING"
 
-instance Hashable TimeToLiveStatus
+pattern Enabled :: TimeToLiveStatus
+pattern Enabled = TimeToLiveStatus' "ENABLED"
 
-instance NFData TimeToLiveStatus
+pattern Enabling :: TimeToLiveStatus
+pattern Enabling = TimeToLiveStatus' "ENABLING"
 
-instance ToByteString TimeToLiveStatus
-
-instance ToQuery TimeToLiveStatus
-
-instance ToHeader TimeToLiveStatus
-
-instance FromJSON TimeToLiveStatus where
-  parseJSON = parseJSONText "TimeToLiveStatus"
+{-# COMPLETE
+  Disabled,
+  Disabling,
+  Enabled,
+  Enabling,
+  TimeToLiveStatus'
+  #-}

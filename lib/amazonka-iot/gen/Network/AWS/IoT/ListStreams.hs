@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists all of the streams in your AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListStreams
-  ( -- * Creating a Request
-    listStreams,
-    ListStreams,
+  ( -- * Creating a request
+    ListStreams (..),
+    mkListStreams,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsNextToken,
     lsAscendingOrder,
     lsMaxResults,
 
-    -- * Destructuring the Response
-    listStreamsResponse,
-    ListStreamsResponse,
+    -- * Destructuring the response
+    ListStreamsResponse (..),
+    mkListStreamsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsrsNextToken,
     lsrsStreams,
     lsrsResponseStatus,
@@ -44,125 +37,146 @@ module Network.AWS.IoT.ListStreams
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listStreams' smart constructor.
+-- | /See:/ 'mkListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { _lsNextToken :: !(Maybe Text),
-    _lsAscendingOrder :: !(Maybe Bool),
-    _lsMaxResults :: !(Maybe Nat)
+  { nextToken :: Lude.Maybe Lude.Text,
+    ascendingOrder :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsNextToken' - A token used to get the next set of results.
---
--- * 'lsAscendingOrder' - Set to true to return the list of streams in ascending order.
---
--- * 'lsMaxResults' - The maximum number of results to return at a time.
-listStreams ::
+-- * 'ascendingOrder' - Set to true to return the list of streams in ascending order.
+-- * 'maxResults' - The maximum number of results to return at a time.
+-- * 'nextToken' - A token used to get the next set of results.
+mkListStreams ::
   ListStreams
-listStreams =
+mkListStreams =
   ListStreams'
-    { _lsNextToken = Nothing,
-      _lsAscendingOrder = Nothing,
-      _lsMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      ascendingOrder = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | A token used to get the next set of results.
-lsNextToken :: Lens' ListStreams (Maybe Text)
-lsNextToken = lens _lsNextToken (\s a -> s {_lsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsNextToken :: Lens.Lens' ListStreams (Lude.Maybe Lude.Text)
+lsNextToken = Lens.lens (nextToken :: ListStreams -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStreams)
+{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Set to true to return the list of streams in ascending order.
-lsAscendingOrder :: Lens' ListStreams (Maybe Bool)
-lsAscendingOrder = lens _lsAscendingOrder (\s a -> s {_lsAscendingOrder = a})
+--
+-- /Note:/ Consider using 'ascendingOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsAscendingOrder :: Lens.Lens' ListStreams (Lude.Maybe Lude.Bool)
+lsAscendingOrder = Lens.lens (ascendingOrder :: ListStreams -> Lude.Maybe Lude.Bool) (\s a -> s {ascendingOrder = a} :: ListStreams)
+{-# DEPRECATED lsAscendingOrder "Use generic-lens or generic-optics with 'ascendingOrder' instead." #-}
 
 -- | The maximum number of results to return at a time.
-lsMaxResults :: Lens' ListStreams (Maybe Natural)
-lsMaxResults = lens _lsMaxResults (\s a -> s {_lsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsMaxResults :: Lens.Lens' ListStreams (Lude.Maybe Lude.Natural)
+lsMaxResults = Lens.lens (maxResults :: ListStreams -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListStreams)
+{-# DEPRECATED lsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListStreams where
+instance Page.AWSPager ListStreams where
   page rq rs
-    | stop (rs ^. lsrsNextToken) = Nothing
-    | stop (rs ^. lsrsStreams) = Nothing
-    | otherwise = Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
+    | Page.stop (rs Lens.^. lsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsrsStreams) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lsNextToken Lens..~ rs Lens.^. lsrsNextToken
 
-instance AWSRequest ListStreams where
+instance Lude.AWSRequest ListStreams where
   type Rs ListStreams = ListStreamsResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "streams" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "streams" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListStreams
+instance Lude.ToHeaders ListStreams where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListStreams
+instance Lude.ToPath ListStreams where
+  toPath = Lude.const "/streams"
 
-instance ToHeaders ListStreams where
-  toHeaders = const mempty
-
-instance ToPath ListStreams where
-  toPath = const "/streams"
-
-instance ToQuery ListStreams where
+instance Lude.ToQuery ListStreams where
   toQuery ListStreams' {..} =
-    mconcat
-      [ "nextToken" =: _lsNextToken,
-        "isAscendingOrder" =: _lsAscendingOrder,
-        "maxResults" =: _lsMaxResults
+    Lude.mconcat
+      [ "nextToken" Lude.=: nextToken,
+        "isAscendingOrder" Lude.=: ascendingOrder,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listStreamsResponse' smart constructor.
+-- | /See:/ 'mkListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { _lsrsNextToken ::
-      !(Maybe Text),
-    _lsrsStreams :: !(Maybe [StreamSummary]),
-    _lsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    streams :: Lude.Maybe [StreamSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsrsNextToken' - A token used to get the next set of results.
---
--- * 'lsrsStreams' - A list of streams.
---
--- * 'lsrsResponseStatus' - -- | The response status code.
-listStreamsResponse ::
-  -- | 'lsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A token used to get the next set of results.
+-- * 'responseStatus' - The response status code.
+-- * 'streams' - A list of streams.
+mkListStreamsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListStreamsResponse
-listStreamsResponse pResponseStatus_ =
+mkListStreamsResponse pResponseStatus_ =
   ListStreamsResponse'
-    { _lsrsNextToken = Nothing,
-      _lsrsStreams = Nothing,
-      _lsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      streams = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A token used to get the next set of results.
-lsrsNextToken :: Lens' ListStreamsResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\s a -> s {_lsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsNextToken :: Lens.Lens' ListStreamsResponse (Lude.Maybe Lude.Text)
+lsrsNextToken = Lens.lens (nextToken :: ListStreamsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStreamsResponse)
+{-# DEPRECATED lsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of streams.
-lsrsStreams :: Lens' ListStreamsResponse [StreamSummary]
-lsrsStreams = lens _lsrsStreams (\s a -> s {_lsrsStreams = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'streams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsStreams :: Lens.Lens' ListStreamsResponse (Lude.Maybe [StreamSummary])
+lsrsStreams = Lens.lens (streams :: ListStreamsResponse -> Lude.Maybe [StreamSummary]) (\s a -> s {streams = a} :: ListStreamsResponse)
+{-# DEPRECATED lsrsStreams "Use generic-lens or generic-optics with 'streams' instead." #-}
 
--- | -- | The response status code.
-lsrsResponseStatus :: Lens' ListStreamsResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\s a -> s {_lsrsResponseStatus = a})
-
-instance NFData ListStreamsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsResponseStatus :: Lens.Lens' ListStreamsResponse Lude.Int
+lsrsResponseStatus = Lens.lens (responseStatus :: ListStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamsResponse)
+{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

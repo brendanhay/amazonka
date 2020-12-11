@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,100 @@
 --
 -- Launches an ML compute instance with the latest version of the libraries and attaches your ML storage volume. After configuring the notebook instance, Amazon SageMaker sets the notebook instance status to @InService@ . A notebook instance's status must be @InService@ before you can connect to your Jupyter notebook.
 module Network.AWS.SageMaker.StartNotebookInstance
-  ( -- * Creating a Request
-    startNotebookInstance,
-    StartNotebookInstance,
+  ( -- * Creating a request
+    StartNotebookInstance (..),
+    mkStartNotebookInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sNotebookInstanceName,
 
-    -- * Destructuring the Response
-    startNotebookInstanceResponse,
-    StartNotebookInstanceResponse,
+    -- * Destructuring the response
+    StartNotebookInstanceResponse (..),
+    mkStartNotebookInstanceResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'startNotebookInstance' smart constructor.
+-- | /See:/ 'mkStartNotebookInstance' smart constructor.
 newtype StartNotebookInstance = StartNotebookInstance'
-  { _sNotebookInstanceName ::
-      Text
+  { notebookInstanceName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartNotebookInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sNotebookInstanceName' - The name of the notebook instance to start.
-startNotebookInstance ::
-  -- | 'sNotebookInstanceName'
-  Text ->
+-- * 'notebookInstanceName' - The name of the notebook instance to start.
+mkStartNotebookInstance ::
+  -- | 'notebookInstanceName'
+  Lude.Text ->
   StartNotebookInstance
-startNotebookInstance pNotebookInstanceName_ =
+mkStartNotebookInstance pNotebookInstanceName_ =
   StartNotebookInstance'
-    { _sNotebookInstanceName =
+    { notebookInstanceName =
         pNotebookInstanceName_
     }
 
 -- | The name of the notebook instance to start.
-sNotebookInstanceName :: Lens' StartNotebookInstance Text
-sNotebookInstanceName = lens _sNotebookInstanceName (\s a -> s {_sNotebookInstanceName = a})
+--
+-- /Note:/ Consider using 'notebookInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sNotebookInstanceName :: Lens.Lens' StartNotebookInstance Lude.Text
+sNotebookInstanceName = Lens.lens (notebookInstanceName :: StartNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: StartNotebookInstance)
+{-# DEPRECATED sNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
 
-instance AWSRequest StartNotebookInstance where
+instance Lude.AWSRequest StartNotebookInstance where
   type Rs StartNotebookInstance = StartNotebookInstanceResponse
-  request = postJSON sageMaker
-  response = receiveNull StartNotebookInstanceResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull StartNotebookInstanceResponse'
 
-instance Hashable StartNotebookInstance
-
-instance NFData StartNotebookInstance
-
-instance ToHeaders StartNotebookInstance where
+instance Lude.ToHeaders StartNotebookInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.StartNotebookInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.StartNotebookInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartNotebookInstance where
+instance Lude.ToJSON StartNotebookInstance where
   toJSON StartNotebookInstance' {..} =
-    object
-      ( catMaybes
-          [Just ("NotebookInstanceName" .= _sNotebookInstanceName)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("NotebookInstanceName" Lude..= notebookInstanceName)]
       )
 
-instance ToPath StartNotebookInstance where
-  toPath = const "/"
+instance Lude.ToPath StartNotebookInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery StartNotebookInstance where
-  toQuery = const mempty
+instance Lude.ToQuery StartNotebookInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startNotebookInstanceResponse' smart constructor.
+-- | /See:/ 'mkStartNotebookInstanceResponse' smart constructor.
 data StartNotebookInstanceResponse = StartNotebookInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartNotebookInstanceResponse' with the minimum fields required to make a request.
-startNotebookInstanceResponse ::
+mkStartNotebookInstanceResponse ::
   StartNotebookInstanceResponse
-startNotebookInstanceResponse = StartNotebookInstanceResponse'
-
-instance NFData StartNotebookInstanceResponse
+mkStartNotebookInstanceResponse = StartNotebookInstanceResponse'

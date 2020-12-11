@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Retrieves a list of supported geographic locations.
 --
---
 -- Countries are listed first, and continents are listed last. If Amazon Route 53 supports subdivisions for a country (for example, states or provinces), the subdivisions for that country are listed in alphabetical order immediately after the corresponding country.
---
 -- For a list of supported geolocation codes, see the <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html GeoLocation> data type.
 module Network.AWS.Route53.ListGeoLocations
-  ( -- * Creating a Request
-    listGeoLocations,
-    ListGeoLocations,
+  ( -- * Creating a request
+    ListGeoLocations (..),
+    mkListGeoLocations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lglStartSubdivisionCode,
     lglMaxItems,
     lglStartCountryCode,
     lglStartContinentCode,
 
-    -- * Destructuring the Response
-    listGeoLocationsResponse,
-    ListGeoLocationsResponse,
+    -- * Destructuring the response
+    ListGeoLocationsResponse (..),
+    mkListGeoLocationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lglrsNextContinentCode,
     lglrsNextCountryCode,
     lglrsNextSubdivisionCode,
@@ -49,181 +42,216 @@ module Network.AWS.Route53.ListGeoLocations
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A request to get a list of geographic locations that Amazon Route 53 supports for geolocation resource record sets.
 --
---
---
--- /See:/ 'listGeoLocations' smart constructor.
+-- /See:/ 'mkListGeoLocations' smart constructor.
 data ListGeoLocations = ListGeoLocations'
-  { _lglStartSubdivisionCode ::
-      !(Maybe Text),
-    _lglMaxItems :: !(Maybe Text),
-    _lglStartCountryCode :: !(Maybe Text),
-    _lglStartContinentCode :: !(Maybe Text)
+  { startSubdivisionCode ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Text,
+    startCountryCode :: Lude.Maybe Lude.Text,
+    startContinentCode :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGeoLocations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maxItems' - (Optional) The maximum number of geolocations to be included in the response body for this request. If more than @maxitems@ geolocations remain to be listed, then the value of the @IsTruncated@ element in the response is @true@ .
+-- * 'startContinentCode' - The code for the continent with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is true, and if @NextContinentCode@ from the previous response has a value, enter that value in @startcontinentcode@ to return the next page of results.
 --
--- * 'lglStartSubdivisionCode' - The code for the state of the United States with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is @true@ , and if @NextSubdivisionCode@ from the previous response has a value, enter that value in @startsubdivisioncode@ to return the next page of results. To list subdivisions (U.S. states), you must include both @startcountrycode@ and @startsubdivisioncode@ .
+-- Include @startcontinentcode@ only if you want to list continents. Don't include @startcontinentcode@ when you're listing countries or countries with their subdivisions.
+-- * 'startCountryCode' - The code for the country with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is @true@ , and if @NextCountryCode@ from the previous response has a value, enter that value in @startcountrycode@ to return the next page of results.
+-- * 'startSubdivisionCode' - The code for the state of the United States with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is @true@ , and if @NextSubdivisionCode@ from the previous response has a value, enter that value in @startsubdivisioncode@ to return the next page of results.
 --
--- * 'lglMaxItems' - (Optional) The maximum number of geolocations to be included in the response body for this request. If more than @maxitems@ geolocations remain to be listed, then the value of the @IsTruncated@ element in the response is @true@ .
---
--- * 'lglStartCountryCode' - The code for the country with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is @true@ , and if @NextCountryCode@ from the previous response has a value, enter that value in @startcountrycode@ to return the next page of results.
---
--- * 'lglStartContinentCode' - The code for the continent with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is true, and if @NextContinentCode@ from the previous response has a value, enter that value in @startcontinentcode@ to return the next page of results. Include @startcontinentcode@ only if you want to list continents. Don't include @startcontinentcode@ when you're listing countries or countries with their subdivisions.
-listGeoLocations ::
+-- To list subdivisions (U.S. states), you must include both @startcountrycode@ and @startsubdivisioncode@ .
+mkListGeoLocations ::
   ListGeoLocations
-listGeoLocations =
+mkListGeoLocations =
   ListGeoLocations'
-    { _lglStartSubdivisionCode = Nothing,
-      _lglMaxItems = Nothing,
-      _lglStartCountryCode = Nothing,
-      _lglStartContinentCode = Nothing
+    { startSubdivisionCode = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      startCountryCode = Lude.Nothing,
+      startContinentCode = Lude.Nothing
     }
 
--- | The code for the state of the United States with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is @true@ , and if @NextSubdivisionCode@ from the previous response has a value, enter that value in @startsubdivisioncode@ to return the next page of results. To list subdivisions (U.S. states), you must include both @startcountrycode@ and @startsubdivisioncode@ .
-lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
-lglStartSubdivisionCode = lens _lglStartSubdivisionCode (\s a -> s {_lglStartSubdivisionCode = a})
+-- | The code for the state of the United States with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is @true@ , and if @NextSubdivisionCode@ from the previous response has a value, enter that value in @startsubdivisioncode@ to return the next page of results.
+--
+-- To list subdivisions (U.S. states), you must include both @startcountrycode@ and @startsubdivisioncode@ .
+--
+-- /Note:/ Consider using 'startSubdivisionCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglStartSubdivisionCode :: Lens.Lens' ListGeoLocations (Lude.Maybe Lude.Text)
+lglStartSubdivisionCode = Lens.lens (startSubdivisionCode :: ListGeoLocations -> Lude.Maybe Lude.Text) (\s a -> s {startSubdivisionCode = a} :: ListGeoLocations)
+{-# DEPRECATED lglStartSubdivisionCode "Use generic-lens or generic-optics with 'startSubdivisionCode' instead." #-}
 
 -- | (Optional) The maximum number of geolocations to be included in the response body for this request. If more than @maxitems@ geolocations remain to be listed, then the value of the @IsTruncated@ element in the response is @true@ .
-lglMaxItems :: Lens' ListGeoLocations (Maybe Text)
-lglMaxItems = lens _lglMaxItems (\s a -> s {_lglMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglMaxItems :: Lens.Lens' ListGeoLocations (Lude.Maybe Lude.Text)
+lglMaxItems = Lens.lens (maxItems :: ListGeoLocations -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListGeoLocations)
+{-# DEPRECATED lglMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The code for the country with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is @true@ , and if @NextCountryCode@ from the previous response has a value, enter that value in @startcountrycode@ to return the next page of results.
-lglStartCountryCode :: Lens' ListGeoLocations (Maybe Text)
-lglStartCountryCode = lens _lglStartCountryCode (\s a -> s {_lglStartCountryCode = a})
+--
+-- /Note:/ Consider using 'startCountryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglStartCountryCode :: Lens.Lens' ListGeoLocations (Lude.Maybe Lude.Text)
+lglStartCountryCode = Lens.lens (startCountryCode :: ListGeoLocations -> Lude.Maybe Lude.Text) (\s a -> s {startCountryCode = a} :: ListGeoLocations)
+{-# DEPRECATED lglStartCountryCode "Use generic-lens or generic-optics with 'startCountryCode' instead." #-}
 
--- | The code for the continent with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is true, and if @NextContinentCode@ from the previous response has a value, enter that value in @startcontinentcode@ to return the next page of results. Include @startcontinentcode@ only if you want to list continents. Don't include @startcontinentcode@ when you're listing countries or countries with their subdivisions.
-lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
-lglStartContinentCode = lens _lglStartContinentCode (\s a -> s {_lglStartContinentCode = a})
+-- | The code for the continent with which you want to start listing locations that Amazon Route 53 supports for geolocation. If Route 53 has already returned a page or more of results, if @IsTruncated@ is true, and if @NextContinentCode@ from the previous response has a value, enter that value in @startcontinentcode@ to return the next page of results.
+--
+-- Include @startcontinentcode@ only if you want to list continents. Don't include @startcontinentcode@ when you're listing countries or countries with their subdivisions.
+--
+-- /Note:/ Consider using 'startContinentCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglStartContinentCode :: Lens.Lens' ListGeoLocations (Lude.Maybe Lude.Text)
+lglStartContinentCode = Lens.lens (startContinentCode :: ListGeoLocations -> Lude.Maybe Lude.Text) (\s a -> s {startContinentCode = a} :: ListGeoLocations)
+{-# DEPRECATED lglStartContinentCode "Use generic-lens or generic-optics with 'startContinentCode' instead." #-}
 
-instance AWSRequest ListGeoLocations where
+instance Lude.AWSRequest ListGeoLocations where
   type Rs ListGeoLocations = ListGeoLocationsResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListGeoLocationsResponse'
-            <$> (x .@? "NextContinentCode")
-            <*> (x .@? "NextCountryCode")
-            <*> (x .@? "NextSubdivisionCode")
-            <*> (pure (fromEnum s))
-            <*> ( x .@? "GeoLocationDetailsList" .!@ mempty
-                    >>= parseXMLList "GeoLocationDetails"
-                )
-            <*> (x .@ "IsTruncated")
-            <*> (x .@ "MaxItems")
+            Lude.<$> (x Lude..@? "NextContinentCode")
+            Lude.<*> (x Lude..@? "NextCountryCode")
+            Lude.<*> (x Lude..@? "NextSubdivisionCode")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "GeoLocationDetailsList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "GeoLocationDetails"
+                     )
+            Lude.<*> (x Lude..@ "IsTruncated")
+            Lude.<*> (x Lude..@ "MaxItems")
       )
 
-instance Hashable ListGeoLocations
+instance Lude.ToHeaders ListGeoLocations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListGeoLocations
+instance Lude.ToPath ListGeoLocations where
+  toPath = Lude.const "/2013-04-01/geolocations"
 
-instance ToHeaders ListGeoLocations where
-  toHeaders = const mempty
-
-instance ToPath ListGeoLocations where
-  toPath = const "/2013-04-01/geolocations"
-
-instance ToQuery ListGeoLocations where
+instance Lude.ToQuery ListGeoLocations where
   toQuery ListGeoLocations' {..} =
-    mconcat
-      [ "startsubdivisioncode" =: _lglStartSubdivisionCode,
-        "maxitems" =: _lglMaxItems,
-        "startcountrycode" =: _lglStartCountryCode,
-        "startcontinentcode" =: _lglStartContinentCode
+    Lude.mconcat
+      [ "startsubdivisioncode" Lude.=: startSubdivisionCode,
+        "maxitems" Lude.=: maxItems,
+        "startcountrycode" Lude.=: startCountryCode,
+        "startcontinentcode" Lude.=: startContinentCode
       ]
 
 -- | A complex type containing the response information for the request.
 --
---
---
--- /See:/ 'listGeoLocationsResponse' smart constructor.
+-- /See:/ 'mkListGeoLocationsResponse' smart constructor.
 data ListGeoLocationsResponse = ListGeoLocationsResponse'
-  { _lglrsNextContinentCode ::
-      !(Maybe Text),
-    _lglrsNextCountryCode :: !(Maybe Text),
-    _lglrsNextSubdivisionCode ::
-      !(Maybe Text),
-    _lglrsResponseStatus :: !Int,
-    _lglrsGeoLocationDetailsList ::
-      ![GeoLocationDetails],
-    _lglrsIsTruncated :: !Bool,
-    _lglrsMaxItems :: !Text
+  { nextContinentCode ::
+      Lude.Maybe Lude.Text,
+    nextCountryCode :: Lude.Maybe Lude.Text,
+    nextSubdivisionCode ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    geoLocationDetailsList ::
+      [GeoLocationDetails],
+    isTruncated :: Lude.Bool,
+    maxItems :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGeoLocationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lglrsNextContinentCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextContinentCode@ in the @startcontinentcode@ parameter in another @ListGeoLocations@ request.
---
--- * 'lglrsNextCountryCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextCountryCode@ in the @startcountrycode@ parameter in another @ListGeoLocations@ request.
---
--- * 'lglrsNextSubdivisionCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextSubdivisionCode@ in the @startsubdivisioncode@ parameter in another @ListGeoLocations@ request.
---
--- * 'lglrsResponseStatus' - -- | The response status code.
---
--- * 'lglrsGeoLocationDetailsList' - A complex type that contains one @GeoLocationDetails@ element for each location that Amazon Route 53 supports for geolocation.
---
--- * 'lglrsIsTruncated' - A value that indicates whether more locations remain to be listed after the last location in this response. If so, the value of @IsTruncated@ is @true@ . To get more values, submit another request and include the values of @NextContinentCode@ , @NextCountryCode@ , and @NextSubdivisionCode@ in the @startcontinentcode@ , @startcountrycode@ , and @startsubdivisioncode@ , as applicable.
---
--- * 'lglrsMaxItems' - The value that you specified for @MaxItems@ in the request.
-listGeoLocationsResponse ::
-  -- | 'lglrsResponseStatus'
-  Int ->
-  -- | 'lglrsIsTruncated'
-  Bool ->
-  -- | 'lglrsMaxItems'
-  Text ->
+-- * 'geoLocationDetailsList' - A complex type that contains one @GeoLocationDetails@ element for each location that Amazon Route 53 supports for geolocation.
+-- * 'isTruncated' - A value that indicates whether more locations remain to be listed after the last location in this response. If so, the value of @IsTruncated@ is @true@ . To get more values, submit another request and include the values of @NextContinentCode@ , @NextCountryCode@ , and @NextSubdivisionCode@ in the @startcontinentcode@ , @startcountrycode@ , and @startsubdivisioncode@ , as applicable.
+-- * 'maxItems' - The value that you specified for @MaxItems@ in the request.
+-- * 'nextContinentCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextContinentCode@ in the @startcontinentcode@ parameter in another @ListGeoLocations@ request.
+-- * 'nextCountryCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextCountryCode@ in the @startcountrycode@ parameter in another @ListGeoLocations@ request.
+-- * 'nextSubdivisionCode' - If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextSubdivisionCode@ in the @startsubdivisioncode@ parameter in another @ListGeoLocations@ request.
+-- * 'responseStatus' - The response status code.
+mkListGeoLocationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'isTruncated'
+  Lude.Bool ->
+  -- | 'maxItems'
+  Lude.Text ->
   ListGeoLocationsResponse
-listGeoLocationsResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
-  ListGeoLocationsResponse'
-    { _lglrsNextContinentCode = Nothing,
-      _lglrsNextCountryCode = Nothing,
-      _lglrsNextSubdivisionCode = Nothing,
-      _lglrsResponseStatus = pResponseStatus_,
-      _lglrsGeoLocationDetailsList = mempty,
-      _lglrsIsTruncated = pIsTruncated_,
-      _lglrsMaxItems = pMaxItems_
-    }
+mkListGeoLocationsResponse
+  pResponseStatus_
+  pIsTruncated_
+  pMaxItems_ =
+    ListGeoLocationsResponse'
+      { nextContinentCode = Lude.Nothing,
+        nextCountryCode = Lude.Nothing,
+        nextSubdivisionCode = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        geoLocationDetailsList = Lude.mempty,
+        isTruncated = pIsTruncated_,
+        maxItems = pMaxItems_
+      }
 
 -- | If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextContinentCode@ in the @startcontinentcode@ parameter in another @ListGeoLocations@ request.
-lglrsNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
-lglrsNextContinentCode = lens _lglrsNextContinentCode (\s a -> s {_lglrsNextContinentCode = a})
+--
+-- /Note:/ Consider using 'nextContinentCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglrsNextContinentCode :: Lens.Lens' ListGeoLocationsResponse (Lude.Maybe Lude.Text)
+lglrsNextContinentCode = Lens.lens (nextContinentCode :: ListGeoLocationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextContinentCode = a} :: ListGeoLocationsResponse)
+{-# DEPRECATED lglrsNextContinentCode "Use generic-lens or generic-optics with 'nextContinentCode' instead." #-}
 
 -- | If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextCountryCode@ in the @startcountrycode@ parameter in another @ListGeoLocations@ request.
-lglrsNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
-lglrsNextCountryCode = lens _lglrsNextCountryCode (\s a -> s {_lglrsNextCountryCode = a})
+--
+-- /Note:/ Consider using 'nextCountryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglrsNextCountryCode :: Lens.Lens' ListGeoLocationsResponse (Lude.Maybe Lude.Text)
+lglrsNextCountryCode = Lens.lens (nextCountryCode :: ListGeoLocationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextCountryCode = a} :: ListGeoLocationsResponse)
+{-# DEPRECATED lglrsNextCountryCode "Use generic-lens or generic-optics with 'nextCountryCode' instead." #-}
 
 -- | If @IsTruncated@ is @true@ , you can make a follow-up request to display more locations. Enter the value of @NextSubdivisionCode@ in the @startsubdivisioncode@ parameter in another @ListGeoLocations@ request.
-lglrsNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
-lglrsNextSubdivisionCode = lens _lglrsNextSubdivisionCode (\s a -> s {_lglrsNextSubdivisionCode = a})
+--
+-- /Note:/ Consider using 'nextSubdivisionCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglrsNextSubdivisionCode :: Lens.Lens' ListGeoLocationsResponse (Lude.Maybe Lude.Text)
+lglrsNextSubdivisionCode = Lens.lens (nextSubdivisionCode :: ListGeoLocationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextSubdivisionCode = a} :: ListGeoLocationsResponse)
+{-# DEPRECATED lglrsNextSubdivisionCode "Use generic-lens or generic-optics with 'nextSubdivisionCode' instead." #-}
 
--- | -- | The response status code.
-lglrsResponseStatus :: Lens' ListGeoLocationsResponse Int
-lglrsResponseStatus = lens _lglrsResponseStatus (\s a -> s {_lglrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglrsResponseStatus :: Lens.Lens' ListGeoLocationsResponse Lude.Int
+lglrsResponseStatus = Lens.lens (responseStatus :: ListGeoLocationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGeoLocationsResponse)
+{-# DEPRECATED lglrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains one @GeoLocationDetails@ element for each location that Amazon Route 53 supports for geolocation.
-lglrsGeoLocationDetailsList :: Lens' ListGeoLocationsResponse [GeoLocationDetails]
-lglrsGeoLocationDetailsList = lens _lglrsGeoLocationDetailsList (\s a -> s {_lglrsGeoLocationDetailsList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'geoLocationDetailsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglrsGeoLocationDetailsList :: Lens.Lens' ListGeoLocationsResponse [GeoLocationDetails]
+lglrsGeoLocationDetailsList = Lens.lens (geoLocationDetailsList :: ListGeoLocationsResponse -> [GeoLocationDetails]) (\s a -> s {geoLocationDetailsList = a} :: ListGeoLocationsResponse)
+{-# DEPRECATED lglrsGeoLocationDetailsList "Use generic-lens or generic-optics with 'geoLocationDetailsList' instead." #-}
 
 -- | A value that indicates whether more locations remain to be listed after the last location in this response. If so, the value of @IsTruncated@ is @true@ . To get more values, submit another request and include the values of @NextContinentCode@ , @NextCountryCode@ , and @NextSubdivisionCode@ in the @startcontinentcode@ , @startcountrycode@ , and @startsubdivisioncode@ , as applicable.
-lglrsIsTruncated :: Lens' ListGeoLocationsResponse Bool
-lglrsIsTruncated = lens _lglrsIsTruncated (\s a -> s {_lglrsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglrsIsTruncated :: Lens.Lens' ListGeoLocationsResponse Lude.Bool
+lglrsIsTruncated = Lens.lens (isTruncated :: ListGeoLocationsResponse -> Lude.Bool) (\s a -> s {isTruncated = a} :: ListGeoLocationsResponse)
+{-# DEPRECATED lglrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | The value that you specified for @MaxItems@ in the request.
-lglrsMaxItems :: Lens' ListGeoLocationsResponse Text
-lglrsMaxItems = lens _lglrsMaxItems (\s a -> s {_lglrsMaxItems = a})
-
-instance NFData ListGeoLocationsResponse
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lglrsMaxItems :: Lens.Lens' ListGeoLocationsResponse Lude.Text
+lglrsMaxItems = Lens.lens (maxItems :: ListGeoLocationsResponse -> Lude.Text) (\s a -> s {maxItems = a} :: ListGeoLocationsResponse)
+{-# DEPRECATED lglrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}

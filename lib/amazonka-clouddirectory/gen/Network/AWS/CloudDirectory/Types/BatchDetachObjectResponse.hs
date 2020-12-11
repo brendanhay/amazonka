@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse where
+module Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse
+  ( BatchDetachObjectResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchDetachObjectResponse,
+
+    -- * Lenses
+    bdoDetachedObjectIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'DetachObject' response operation.
 --
---
---
--- /See:/ 'batchDetachObjectResponse' smart constructor.
+-- /See:/ 'mkBatchDetachObjectResponse' smart constructor.
 newtype BatchDetachObjectResponse = BatchDetachObjectResponse'
-  { _bdoDetachedObjectIdentifier ::
-      Maybe Text
+  { detachedObjectIdentifier ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetachObjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdoDetachedObjectIdentifier' - The @ObjectIdentifier@ of the detached object.
-batchDetachObjectResponse ::
+-- * 'detachedObjectIdentifier' - The @ObjectIdentifier@ of the detached object.
+mkBatchDetachObjectResponse ::
   BatchDetachObjectResponse
-batchDetachObjectResponse =
+mkBatchDetachObjectResponse =
   BatchDetachObjectResponse'
-    { _bdoDetachedObjectIdentifier =
-        Nothing
+    { detachedObjectIdentifier =
+        Lude.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the detached object.
-bdoDetachedObjectIdentifier :: Lens' BatchDetachObjectResponse (Maybe Text)
-bdoDetachedObjectIdentifier = lens _bdoDetachedObjectIdentifier (\s a -> s {_bdoDetachedObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'detachedObjectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdoDetachedObjectIdentifier :: Lens.Lens' BatchDetachObjectResponse (Lude.Maybe Lude.Text)
+bdoDetachedObjectIdentifier = Lens.lens (detachedObjectIdentifier :: BatchDetachObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {detachedObjectIdentifier = a} :: BatchDetachObjectResponse)
+{-# DEPRECATED bdoDetachedObjectIdentifier "Use generic-lens or generic-optics with 'detachedObjectIdentifier' instead." #-}
 
-instance FromJSON BatchDetachObjectResponse where
+instance Lude.FromJSON BatchDetachObjectResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchDetachObjectResponse"
       ( \x ->
-          BatchDetachObjectResponse' <$> (x .:? "detachedObjectIdentifier")
+          BatchDetachObjectResponse'
+            Lude.<$> (x Lude..:? "detachedObjectIdentifier")
       )
-
-instance Hashable BatchDetachObjectResponse
-
-instance NFData BatchDetachObjectResponse

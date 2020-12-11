@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.TargetHealthStateEnum where
+module Network.AWS.ELBv2.Types.TargetHealthStateEnum
+  ( TargetHealthStateEnum
+      ( TargetHealthStateEnum',
+        Draining,
+        Healthy,
+        Initial,
+        Unavailable,
+        Unhealthy,
+        Unused
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetHealthStateEnum
-  = Draining
-  | Healthy
-  | Initial
-  | Unavailable
-  | Unhealthy
-  | Unused
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetHealthStateEnum = TargetHealthStateEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetHealthStateEnum where
-  parser =
-    takeLowerText >>= \case
-      "draining" -> pure Draining
-      "healthy" -> pure Healthy
-      "initial" -> pure Initial
-      "unavailable" -> pure Unavailable
-      "unhealthy" -> pure Unhealthy
-      "unused" -> pure Unused
-      e ->
-        fromTextError $
-          "Failure parsing TargetHealthStateEnum from value: '" <> e
-            <> "'. Accepted values: draining, healthy, initial, unavailable, unhealthy, unused"
+pattern Draining :: TargetHealthStateEnum
+pattern Draining = TargetHealthStateEnum' "draining"
 
-instance ToText TargetHealthStateEnum where
-  toText = \case
-    Draining -> "draining"
-    Healthy -> "healthy"
-    Initial -> "initial"
-    Unavailable -> "unavailable"
-    Unhealthy -> "unhealthy"
-    Unused -> "unused"
+pattern Healthy :: TargetHealthStateEnum
+pattern Healthy = TargetHealthStateEnum' "healthy"
 
-instance Hashable TargetHealthStateEnum
+pattern Initial :: TargetHealthStateEnum
+pattern Initial = TargetHealthStateEnum' "initial"
 
-instance NFData TargetHealthStateEnum
+pattern Unavailable :: TargetHealthStateEnum
+pattern Unavailable = TargetHealthStateEnum' "unavailable"
 
-instance ToByteString TargetHealthStateEnum
+pattern Unhealthy :: TargetHealthStateEnum
+pattern Unhealthy = TargetHealthStateEnum' "unhealthy"
 
-instance ToQuery TargetHealthStateEnum
+pattern Unused :: TargetHealthStateEnum
+pattern Unused = TargetHealthStateEnum' "unused"
 
-instance ToHeader TargetHealthStateEnum
-
-instance FromXML TargetHealthStateEnum where
-  parseXML = parseXMLText "TargetHealthStateEnum"
+{-# COMPLETE
+  Draining,
+  Healthy,
+  Initial,
+  Unavailable,
+  Unhealthy,
+  Unused,
+  TargetHealthStateEnum'
+  #-}

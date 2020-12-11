@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,175 +14,207 @@
 --
 -- Returns a list of the source AWS Regions where the current AWS Region can create a read replica or copy a DB snapshot from. This API action supports pagination.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeSourceRegions
-  ( -- * Creating a Request
-    describeSourceRegions,
-    DescribeSourceRegions,
+  ( -- * Creating a request
+    DescribeSourceRegions (..),
+    mkDescribeSourceRegions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsrRegionName,
     dsrFilters,
     dsrMarker,
     dsrMaxRecords,
 
-    -- * Destructuring the Response
-    describeSourceRegionsResponse,
-    DescribeSourceRegionsResponse,
+    -- * Destructuring the response
+    DescribeSourceRegionsResponse (..),
+    mkDescribeSourceRegionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrrsMarker,
     dsrrsSourceRegions,
     dsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeSourceRegions' smart constructor.
+-- /See:/ 'mkDescribeSourceRegions' smart constructor.
 data DescribeSourceRegions = DescribeSourceRegions'
-  { _dsrRegionName ::
-      !(Maybe Text),
-    _dsrFilters :: !(Maybe [Filter]),
-    _dsrMarker :: !(Maybe Text),
-    _dsrMaxRecords :: !(Maybe Int)
+  { regionName ::
+      Lude.Maybe Lude.Text,
+    filters :: Lude.Maybe [Filter],
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSourceRegions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - This parameter isn't currently supported.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeSourceRegions@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
--- * 'dsrRegionName' - The source AWS Region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'regionName' - The source AWS Region name. For example, @us-east-1@ .
 --
--- * 'dsrFilters' - This parameter isn't currently supported.
+-- Constraints:
 --
--- * 'dsrMarker' - An optional pagination token provided by a previous @DescribeSourceRegions@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dsrMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-describeSourceRegions ::
+--     * Must specify a valid AWS Region name.
+mkDescribeSourceRegions ::
   DescribeSourceRegions
-describeSourceRegions =
+mkDescribeSourceRegions =
   DescribeSourceRegions'
-    { _dsrRegionName = Nothing,
-      _dsrFilters = Nothing,
-      _dsrMarker = Nothing,
-      _dsrMaxRecords = Nothing
+    { regionName = Lude.Nothing,
+      filters = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
--- | The source AWS Region name. For example, @us-east-1@ . Constraints:     * Must specify a valid AWS Region name.
-dsrRegionName :: Lens' DescribeSourceRegions (Maybe Text)
-dsrRegionName = lens _dsrRegionName (\s a -> s {_dsrRegionName = a})
+-- | The source AWS Region name. For example, @us-east-1@ .
+--
+-- Constraints:
+--
+--     * Must specify a valid AWS Region name.
+--
+--
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrRegionName :: Lens.Lens' DescribeSourceRegions (Lude.Maybe Lude.Text)
+dsrRegionName = Lens.lens (regionName :: DescribeSourceRegions -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: DescribeSourceRegions)
+{-# DEPRECATED dsrRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | This parameter isn't currently supported.
-dsrFilters :: Lens' DescribeSourceRegions [Filter]
-dsrFilters = lens _dsrFilters (\s a -> s {_dsrFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrFilters :: Lens.Lens' DescribeSourceRegions (Lude.Maybe [Filter])
+dsrFilters = Lens.lens (filters :: DescribeSourceRegions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeSourceRegions)
+{-# DEPRECATED dsrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeSourceRegions@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dsrMarker :: Lens' DescribeSourceRegions (Maybe Text)
-dsrMarker = lens _dsrMarker (\s a -> s {_dsrMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrMarker :: Lens.Lens' DescribeSourceRegions (Lude.Maybe Lude.Text)
+dsrMarker = Lens.lens (marker :: DescribeSourceRegions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSourceRegions)
+{-# DEPRECATED dsrMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-dsrMaxRecords :: Lens' DescribeSourceRegions (Maybe Int)
-dsrMaxRecords = lens _dsrMaxRecords (\s a -> s {_dsrMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrMaxRecords :: Lens.Lens' DescribeSourceRegions (Lude.Maybe Lude.Int)
+dsrMaxRecords = Lens.lens (maxRecords :: DescribeSourceRegions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeSourceRegions)
+{-# DEPRECATED dsrMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeSourceRegions where
+instance Page.AWSPager DescribeSourceRegions where
   page rq rs
-    | stop (rs ^. dsrrsMarker) = Nothing
-    | stop (rs ^. dsrrsSourceRegions) = Nothing
-    | otherwise = Just $ rq & dsrMarker .~ rs ^. dsrrsMarker
+    | Page.stop (rs Lens.^. dsrrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dsrrsSourceRegions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& dsrMarker Lens..~ rs Lens.^. dsrrsMarker
 
-instance AWSRequest DescribeSourceRegions where
+instance Lude.AWSRequest DescribeSourceRegions where
   type Rs DescribeSourceRegions = DescribeSourceRegionsResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeSourceRegionsResult"
       ( \s h x ->
           DescribeSourceRegionsResponse'
-            <$> (x .@? "Marker")
-            <*> ( x .@? "SourceRegions" .!@ mempty
-                    >>= may (parseXMLList "SourceRegion")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "SourceRegions" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "SourceRegion")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSourceRegions
+instance Lude.ToHeaders DescribeSourceRegions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeSourceRegions
+instance Lude.ToPath DescribeSourceRegions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeSourceRegions where
-  toHeaders = const mempty
-
-instance ToPath DescribeSourceRegions where
-  toPath = const "/"
-
-instance ToQuery DescribeSourceRegions where
+instance Lude.ToQuery DescribeSourceRegions where
   toQuery DescribeSourceRegions' {..} =
-    mconcat
-      [ "Action" =: ("DescribeSourceRegions" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "RegionName" =: _dsrRegionName,
-        "Filters" =: toQuery (toQueryList "Filter" <$> _dsrFilters),
-        "Marker" =: _dsrMarker,
-        "MaxRecords" =: _dsrMaxRecords
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeSourceRegions" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "RegionName" Lude.=: regionName,
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | Contains the result of a successful invocation of the @DescribeSourceRegions@ action.
 --
---
---
--- /See:/ 'describeSourceRegionsResponse' smart constructor.
+-- /See:/ 'mkDescribeSourceRegionsResponse' smart constructor.
 data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
-  { _dsrrsMarker ::
-      !(Maybe Text),
-    _dsrrsSourceRegions ::
-      !(Maybe [SourceRegion]),
-    _dsrrsResponseStatus :: !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    sourceRegions ::
+      Lude.Maybe [SourceRegion],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSourceRegionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dsrrsSourceRegions' - A list of SourceRegion instances that contains each source AWS Region that the current AWS Region can get a read replica or a DB snapshot from.
---
--- * 'dsrrsResponseStatus' - -- | The response status code.
-describeSourceRegionsResponse ::
-  -- | 'dsrrsResponseStatus'
-  Int ->
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+-- * 'sourceRegions' - A list of SourceRegion instances that contains each source AWS Region that the current AWS Region can get a read replica or a DB snapshot from.
+mkDescribeSourceRegionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSourceRegionsResponse
-describeSourceRegionsResponse pResponseStatus_ =
+mkDescribeSourceRegionsResponse pResponseStatus_ =
   DescribeSourceRegionsResponse'
-    { _dsrrsMarker = Nothing,
-      _dsrrsSourceRegions = Nothing,
-      _dsrrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      sourceRegions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dsrrsMarker :: Lens' DescribeSourceRegionsResponse (Maybe Text)
-dsrrsMarker = lens _dsrrsMarker (\s a -> s {_dsrrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrrsMarker :: Lens.Lens' DescribeSourceRegionsResponse (Lude.Maybe Lude.Text)
+dsrrsMarker = Lens.lens (marker :: DescribeSourceRegionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSourceRegionsResponse)
+{-# DEPRECATED dsrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A list of SourceRegion instances that contains each source AWS Region that the current AWS Region can get a read replica or a DB snapshot from.
-dsrrsSourceRegions :: Lens' DescribeSourceRegionsResponse [SourceRegion]
-dsrrsSourceRegions = lens _dsrrsSourceRegions (\s a -> s {_dsrrsSourceRegions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sourceRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrrsSourceRegions :: Lens.Lens' DescribeSourceRegionsResponse (Lude.Maybe [SourceRegion])
+dsrrsSourceRegions = Lens.lens (sourceRegions :: DescribeSourceRegionsResponse -> Lude.Maybe [SourceRegion]) (\s a -> s {sourceRegions = a} :: DescribeSourceRegionsResponse)
+{-# DEPRECATED dsrrsSourceRegions "Use generic-lens or generic-optics with 'sourceRegions' instead." #-}
 
--- | -- | The response status code.
-dsrrsResponseStatus :: Lens' DescribeSourceRegionsResponse Int
-dsrrsResponseStatus = lens _dsrrsResponseStatus (\s a -> s {_dsrrsResponseStatus = a})
-
-instance NFData DescribeSourceRegionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrrsResponseStatus :: Lens.Lens' DescribeSourceRegionsResponse Lude.Int
+dsrrsResponseStatus = Lens.lens (responseStatus :: DescribeSourceRegionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSourceRegionsResponse)
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

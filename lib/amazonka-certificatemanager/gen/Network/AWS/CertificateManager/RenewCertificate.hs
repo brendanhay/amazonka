@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,103 @@
 --
 -- Renews an eligable ACM certificate. At this time, only exported private certificates can be renewed with this operation. In order to renew your ACM PCA certificates with ACM, you must first <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html grant the ACM service principal permission to do so> . For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html Testing Managed Renewal> in the ACM User Guide.
 module Network.AWS.CertificateManager.RenewCertificate
-  ( -- * Creating a Request
-    renewCertificate,
-    RenewCertificate,
+  ( -- * Creating a request
+    RenewCertificate (..),
+    mkRenewCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rcCertificateARN,
 
-    -- * Destructuring the Response
-    renewCertificateResponse,
-    RenewCertificateResponse,
+    -- * Destructuring the response
+    RenewCertificateResponse (..),
+    mkRenewCertificateResponse,
   )
 where
 
 import Network.AWS.CertificateManager.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'renewCertificate' smart constructor.
+-- | /See:/ 'mkRenewCertificate' smart constructor.
 newtype RenewCertificate = RenewCertificate'
-  { _rcCertificateARN ::
-      Text
+  { certificateARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenewCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateARN' - String that contains the ARN of the ACM certificate to be renewed. This must be of the form:
 --
--- * 'rcCertificateARN' - String that contains the ARN of the ACM certificate to be renewed. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-renewCertificate ::
-  -- | 'rcCertificateARN'
-  Text ->
+-- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+mkRenewCertificate ::
+  -- | 'certificateARN'
+  Lude.Text ->
   RenewCertificate
-renewCertificate pCertificateARN_ =
-  RenewCertificate' {_rcCertificateARN = pCertificateARN_}
+mkRenewCertificate pCertificateARN_ =
+  RenewCertificate' {certificateARN = pCertificateARN_}
 
--- | String that contains the ARN of the ACM certificate to be renewed. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-rcCertificateARN :: Lens' RenewCertificate Text
-rcCertificateARN = lens _rcCertificateARN (\s a -> s {_rcCertificateARN = a})
+-- | String that contains the ARN of the ACM certificate to be renewed. This must be of the form:
+--
+-- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcCertificateARN :: Lens.Lens' RenewCertificate Lude.Text
+rcCertificateARN = Lens.lens (certificateARN :: RenewCertificate -> Lude.Text) (\s a -> s {certificateARN = a} :: RenewCertificate)
+{-# DEPRECATED rcCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
-instance AWSRequest RenewCertificate where
+instance Lude.AWSRequest RenewCertificate where
   type Rs RenewCertificate = RenewCertificateResponse
-  request = postJSON certificateManager
-  response = receiveNull RenewCertificateResponse'
+  request = Req.postJSON certificateManagerService
+  response = Res.receiveNull RenewCertificateResponse'
 
-instance Hashable RenewCertificate
-
-instance NFData RenewCertificate
-
-instance ToHeaders RenewCertificate where
+instance Lude.ToHeaders RenewCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CertificateManager.RenewCertificate" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CertificateManager.RenewCertificate" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RenewCertificate where
+instance Lude.ToJSON RenewCertificate where
   toJSON RenewCertificate' {..} =
-    object (catMaybes [Just ("CertificateArn" .= _rcCertificateARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("CertificateArn" Lude..= certificateARN)]
+      )
 
-instance ToPath RenewCertificate where
-  toPath = const "/"
+instance Lude.ToPath RenewCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery RenewCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery RenewCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'renewCertificateResponse' smart constructor.
+-- | /See:/ 'mkRenewCertificateResponse' smart constructor.
 data RenewCertificateResponse = RenewCertificateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenewCertificateResponse' with the minimum fields required to make a request.
-renewCertificateResponse ::
+mkRenewCertificateResponse ::
   RenewCertificateResponse
-renewCertificateResponse = RenewCertificateResponse'
-
-instance NFData RenewCertificateResponse
+mkRenewCertificateResponse = RenewCertificateResponse'

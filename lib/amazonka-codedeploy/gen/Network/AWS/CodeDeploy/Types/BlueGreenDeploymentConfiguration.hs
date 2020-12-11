@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,89 +7,103 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration where
+module Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration
+  ( BlueGreenDeploymentConfiguration (..),
+
+    -- * Smart constructor
+    mkBlueGreenDeploymentConfiguration,
+
+    -- * Lenses
+    bgdcDeploymentReadyOption,
+    bgdcGreenFleetProvisioningOption,
+    bgdcTerminateBlueInstancesOnDeploymentSuccess,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption
 import Network.AWS.CodeDeploy.Types.DeploymentReadyOption
 import Network.AWS.CodeDeploy.Types.GreenFleetProvisioningOption
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about blue/green deployment options for a deployment group.
 --
---
---
--- /See:/ 'blueGreenDeploymentConfiguration' smart constructor.
+-- /See:/ 'mkBlueGreenDeploymentConfiguration' smart constructor.
 data BlueGreenDeploymentConfiguration = BlueGreenDeploymentConfiguration'
-  { _bgdcDeploymentReadyOption ::
-      !( Maybe
-           DeploymentReadyOption
-       ),
-    _bgdcGreenFleetProvisioningOption ::
-      !( Maybe
-           GreenFleetProvisioningOption
-       ),
-    _bgdcTerminateBlueInstancesOnDeploymentSuccess ::
-      !( Maybe
-           BlueInstanceTerminationOption
-       )
+  { deploymentReadyOption ::
+      Lude.Maybe
+        DeploymentReadyOption,
+    greenFleetProvisioningOption ::
+      Lude.Maybe
+        GreenFleetProvisioningOption,
+    terminateBlueInstancesOnDeploymentSuccess ::
+      Lude.Maybe
+        BlueInstanceTerminationOption
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlueGreenDeploymentConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgdcDeploymentReadyOption' - Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
---
--- * 'bgdcGreenFleetProvisioningOption' - Information about how instances are provisioned for a replacement environment in a blue/green deployment.
---
--- * 'bgdcTerminateBlueInstancesOnDeploymentSuccess' - Information about whether to terminate instances in the original fleet during a blue/green deployment.
-blueGreenDeploymentConfiguration ::
+-- * 'deploymentReadyOption' - Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
+-- * 'greenFleetProvisioningOption' - Information about how instances are provisioned for a replacement environment in a blue/green deployment.
+-- * 'terminateBlueInstancesOnDeploymentSuccess' - Information about whether to terminate instances in the original fleet during a blue/green deployment.
+mkBlueGreenDeploymentConfiguration ::
   BlueGreenDeploymentConfiguration
-blueGreenDeploymentConfiguration =
+mkBlueGreenDeploymentConfiguration =
   BlueGreenDeploymentConfiguration'
-    { _bgdcDeploymentReadyOption =
-        Nothing,
-      _bgdcGreenFleetProvisioningOption = Nothing,
-      _bgdcTerminateBlueInstancesOnDeploymentSuccess = Nothing
+    { deploymentReadyOption =
+        Lude.Nothing,
+      greenFleetProvisioningOption = Lude.Nothing,
+      terminateBlueInstancesOnDeploymentSuccess = Lude.Nothing
     }
 
 -- | Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
-bgdcDeploymentReadyOption :: Lens' BlueGreenDeploymentConfiguration (Maybe DeploymentReadyOption)
-bgdcDeploymentReadyOption = lens _bgdcDeploymentReadyOption (\s a -> s {_bgdcDeploymentReadyOption = a})
+--
+-- /Note:/ Consider using 'deploymentReadyOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdcDeploymentReadyOption :: Lens.Lens' BlueGreenDeploymentConfiguration (Lude.Maybe DeploymentReadyOption)
+bgdcDeploymentReadyOption = Lens.lens (deploymentReadyOption :: BlueGreenDeploymentConfiguration -> Lude.Maybe DeploymentReadyOption) (\s a -> s {deploymentReadyOption = a} :: BlueGreenDeploymentConfiguration)
+{-# DEPRECATED bgdcDeploymentReadyOption "Use generic-lens or generic-optics with 'deploymentReadyOption' instead." #-}
 
 -- | Information about how instances are provisioned for a replacement environment in a blue/green deployment.
-bgdcGreenFleetProvisioningOption :: Lens' BlueGreenDeploymentConfiguration (Maybe GreenFleetProvisioningOption)
-bgdcGreenFleetProvisioningOption = lens _bgdcGreenFleetProvisioningOption (\s a -> s {_bgdcGreenFleetProvisioningOption = a})
+--
+-- /Note:/ Consider using 'greenFleetProvisioningOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdcGreenFleetProvisioningOption :: Lens.Lens' BlueGreenDeploymentConfiguration (Lude.Maybe GreenFleetProvisioningOption)
+bgdcGreenFleetProvisioningOption = Lens.lens (greenFleetProvisioningOption :: BlueGreenDeploymentConfiguration -> Lude.Maybe GreenFleetProvisioningOption) (\s a -> s {greenFleetProvisioningOption = a} :: BlueGreenDeploymentConfiguration)
+{-# DEPRECATED bgdcGreenFleetProvisioningOption "Use generic-lens or generic-optics with 'greenFleetProvisioningOption' instead." #-}
 
 -- | Information about whether to terminate instances in the original fleet during a blue/green deployment.
-bgdcTerminateBlueInstancesOnDeploymentSuccess :: Lens' BlueGreenDeploymentConfiguration (Maybe BlueInstanceTerminationOption)
-bgdcTerminateBlueInstancesOnDeploymentSuccess = lens _bgdcTerminateBlueInstancesOnDeploymentSuccess (\s a -> s {_bgdcTerminateBlueInstancesOnDeploymentSuccess = a})
+--
+-- /Note:/ Consider using 'terminateBlueInstancesOnDeploymentSuccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdcTerminateBlueInstancesOnDeploymentSuccess :: Lens.Lens' BlueGreenDeploymentConfiguration (Lude.Maybe BlueInstanceTerminationOption)
+bgdcTerminateBlueInstancesOnDeploymentSuccess = Lens.lens (terminateBlueInstancesOnDeploymentSuccess :: BlueGreenDeploymentConfiguration -> Lude.Maybe BlueInstanceTerminationOption) (\s a -> s {terminateBlueInstancesOnDeploymentSuccess = a} :: BlueGreenDeploymentConfiguration)
+{-# DEPRECATED bgdcTerminateBlueInstancesOnDeploymentSuccess "Use generic-lens or generic-optics with 'terminateBlueInstancesOnDeploymentSuccess' instead." #-}
 
-instance FromJSON BlueGreenDeploymentConfiguration where
+instance Lude.FromJSON BlueGreenDeploymentConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "BlueGreenDeploymentConfiguration"
       ( \x ->
           BlueGreenDeploymentConfiguration'
-            <$> (x .:? "deploymentReadyOption")
-            <*> (x .:? "greenFleetProvisioningOption")
-            <*> (x .:? "terminateBlueInstancesOnDeploymentSuccess")
+            Lude.<$> (x Lude..:? "deploymentReadyOption")
+            Lude.<*> (x Lude..:? "greenFleetProvisioningOption")
+            Lude.<*> (x Lude..:? "terminateBlueInstancesOnDeploymentSuccess")
       )
 
-instance Hashable BlueGreenDeploymentConfiguration
-
-instance NFData BlueGreenDeploymentConfiguration
-
-instance ToJSON BlueGreenDeploymentConfiguration where
+instance Lude.ToJSON BlueGreenDeploymentConfiguration where
   toJSON BlueGreenDeploymentConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("deploymentReadyOption" .=) <$> _bgdcDeploymentReadyOption,
-            ("greenFleetProvisioningOption" .=)
-              <$> _bgdcGreenFleetProvisioningOption,
-            ("terminateBlueInstancesOnDeploymentSuccess" .=)
-              <$> _bgdcTerminateBlueInstancesOnDeploymentSuccess
+    Lude.object
+      ( Lude.catMaybes
+          [ ("deploymentReadyOption" Lude..=) Lude.<$> deploymentReadyOption,
+            ("greenFleetProvisioningOption" Lude..=)
+              Lude.<$> greenFleetProvisioningOption,
+            ("terminateBlueInstancesOnDeploymentSuccess" Lude..=)
+              Lude.<$> terminateBlueInstancesOnDeploymentSuccess
           ]
       )

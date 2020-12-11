@@ -28,145 +28,145 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDeleteActivity $
---             deleteActivity
+--             mkDeleteActivity
 --
 --         , requestDescribeStateMachine $
---             describeStateMachine
+--             mkDescribeStateMachine
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestStopExecution $
---             stopExecution
+--             mkStopExecution
 --
 --         , requestDescribeActivity $
---             describeActivity
+--             mkDescribeActivity
 --
 --         , requestListStateMachines $
---             listStateMachines
+--             mkListStateMachines
 --
 --         , requestListExecutions $
---             listExecutions
+--             mkListExecutions
 --
 --         , requestDeleteStateMachine $
---             deleteStateMachine
+--             mkDeleteStateMachine
 --
 --         , requestUpdateStateMachine $
---             updateStateMachine
+--             mkUpdateStateMachine
 --
 --         , requestDescribeStateMachineForExecution $
---             describeStateMachineForExecution
+--             mkDescribeStateMachineForExecution
 --
 --         , requestGetActivityTask $
---             getActivityTask
+--             mkGetActivityTask
 --
 --         , requestCreateActivity $
---             createActivity
+--             mkCreateActivity
 --
 --         , requestListActivities $
---             listActivities
+--             mkListActivities
 --
 --         , requestSendTaskHeartbeat $
---             sendTaskHeartbeat
+--             mkSendTaskHeartbeat
 --
 --         , requestSendTaskFailure $
---             sendTaskFailure
+--             mkSendTaskFailure
 --
 --         , requestDescribeExecution $
---             describeExecution
+--             mkDescribeExecution
 --
 --         , requestSendTaskSuccess $
---             sendTaskSuccess
+--             mkSendTaskSuccess
 --
 --         , requestStartExecution $
---             startExecution
+--             mkStartExecution
 --
 --         , requestStartSyncExecution $
---             startSyncExecution
+--             mkStartSyncExecution
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestGetExecutionHistory $
---             getExecutionHistory
+--             mkGetExecutionHistory
 --
 --         , requestCreateStateMachine $
---             createStateMachine
+--             mkCreateStateMachine
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDeleteActivity $
---             deleteActivityResponse
+--             mkDeleteActivityResponse
 --
 --         , responseDescribeStateMachine $
---             describeStateMachineResponse
+--             mkDescribeStateMachineResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseStopExecution $
---             stopExecutionResponse
+--             mkStopExecutionResponse
 --
 --         , responseDescribeActivity $
---             describeActivityResponse
+--             mkDescribeActivityResponse
 --
 --         , responseListStateMachines $
---             listStateMachinesResponse
+--             mkListStateMachinesResponse
 --
 --         , responseListExecutions $
---             listExecutionsResponse
+--             mkListExecutionsResponse
 --
 --         , responseDeleteStateMachine $
---             deleteStateMachineResponse
+--             mkDeleteStateMachineResponse
 --
 --         , responseUpdateStateMachine $
---             updateStateMachineResponse
+--             mkUpdateStateMachineResponse
 --
 --         , responseDescribeStateMachineForExecution $
---             describeStateMachineForExecutionResponse
+--             mkDescribeStateMachineForExecutionResponse
 --
 --         , responseGetActivityTask $
---             getActivityTaskResponse
+--             mkGetActivityTaskResponse
 --
 --         , responseCreateActivity $
---             createActivityResponse
+--             mkCreateActivityResponse
 --
 --         , responseListActivities $
---             listActivitiesResponse
+--             mkListActivitiesResponse
 --
 --         , responseSendTaskHeartbeat $
---             sendTaskHeartbeatResponse
+--             mkSendTaskHeartbeatResponse
 --
 --         , responseSendTaskFailure $
---             sendTaskFailureResponse
+--             mkSendTaskFailureResponse
 --
 --         , responseDescribeExecution $
---             describeExecutionResponse
+--             mkDescribeExecutionResponse
 --
 --         , responseSendTaskSuccess $
---             sendTaskSuccessResponse
+--             mkSendTaskSuccessResponse
 --
 --         , responseStartExecution $
---             startExecutionResponse
+--             mkStartExecutionResponse
 --
 --         , responseStartSyncExecution $
---             startSyncExecutionResponse
+--             mkStartSyncExecutionResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseGetExecutionHistory $
---             getExecutionHistoryResponse
+--             mkGetExecutionHistoryResponse
 --
 --         , responseCreateStateMachine $
---             createStateMachineResponse
+--             mkCreateStateMachineResponse
 --
 --           ]
 --     ]
@@ -318,7 +318,7 @@ responseDeleteActivity =
   res
     "DeleteActivityResponse"
     "fixture/DeleteActivityResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy DeleteActivity)
 
 responseDescribeStateMachine :: DescribeStateMachineResponse -> TestTree
@@ -326,7 +326,7 @@ responseDescribeStateMachine =
   res
     "DescribeStateMachineResponse"
     "fixture/DescribeStateMachineResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy DescribeStateMachine)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -334,7 +334,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy ListTagsForResource)
 
 responseStopExecution :: StopExecutionResponse -> TestTree
@@ -342,7 +342,7 @@ responseStopExecution =
   res
     "StopExecutionResponse"
     "fixture/StopExecutionResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy StopExecution)
 
 responseDescribeActivity :: DescribeActivityResponse -> TestTree
@@ -350,7 +350,7 @@ responseDescribeActivity =
   res
     "DescribeActivityResponse"
     "fixture/DescribeActivityResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy DescribeActivity)
 
 responseListStateMachines :: ListStateMachinesResponse -> TestTree
@@ -358,7 +358,7 @@ responseListStateMachines =
   res
     "ListStateMachinesResponse"
     "fixture/ListStateMachinesResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy ListStateMachines)
 
 responseListExecutions :: ListExecutionsResponse -> TestTree
@@ -366,7 +366,7 @@ responseListExecutions =
   res
     "ListExecutionsResponse"
     "fixture/ListExecutionsResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy ListExecutions)
 
 responseDeleteStateMachine :: DeleteStateMachineResponse -> TestTree
@@ -374,7 +374,7 @@ responseDeleteStateMachine =
   res
     "DeleteStateMachineResponse"
     "fixture/DeleteStateMachineResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy DeleteStateMachine)
 
 responseUpdateStateMachine :: UpdateStateMachineResponse -> TestTree
@@ -382,7 +382,7 @@ responseUpdateStateMachine =
   res
     "UpdateStateMachineResponse"
     "fixture/UpdateStateMachineResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy UpdateStateMachine)
 
 responseDescribeStateMachineForExecution :: DescribeStateMachineForExecutionResponse -> TestTree
@@ -390,7 +390,7 @@ responseDescribeStateMachineForExecution =
   res
     "DescribeStateMachineForExecutionResponse"
     "fixture/DescribeStateMachineForExecutionResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy DescribeStateMachineForExecution)
 
 responseGetActivityTask :: GetActivityTaskResponse -> TestTree
@@ -398,7 +398,7 @@ responseGetActivityTask =
   res
     "GetActivityTaskResponse"
     "fixture/GetActivityTaskResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy GetActivityTask)
 
 responseCreateActivity :: CreateActivityResponse -> TestTree
@@ -406,7 +406,7 @@ responseCreateActivity =
   res
     "CreateActivityResponse"
     "fixture/CreateActivityResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy CreateActivity)
 
 responseListActivities :: ListActivitiesResponse -> TestTree
@@ -414,7 +414,7 @@ responseListActivities =
   res
     "ListActivitiesResponse"
     "fixture/ListActivitiesResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy ListActivities)
 
 responseSendTaskHeartbeat :: SendTaskHeartbeatResponse -> TestTree
@@ -422,7 +422,7 @@ responseSendTaskHeartbeat =
   res
     "SendTaskHeartbeatResponse"
     "fixture/SendTaskHeartbeatResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy SendTaskHeartbeat)
 
 responseSendTaskFailure :: SendTaskFailureResponse -> TestTree
@@ -430,7 +430,7 @@ responseSendTaskFailure =
   res
     "SendTaskFailureResponse"
     "fixture/SendTaskFailureResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy SendTaskFailure)
 
 responseDescribeExecution :: DescribeExecutionResponse -> TestTree
@@ -438,7 +438,7 @@ responseDescribeExecution =
   res
     "DescribeExecutionResponse"
     "fixture/DescribeExecutionResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy DescribeExecution)
 
 responseSendTaskSuccess :: SendTaskSuccessResponse -> TestTree
@@ -446,7 +446,7 @@ responseSendTaskSuccess =
   res
     "SendTaskSuccessResponse"
     "fixture/SendTaskSuccessResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy SendTaskSuccess)
 
 responseStartExecution :: StartExecutionResponse -> TestTree
@@ -454,7 +454,7 @@ responseStartExecution =
   res
     "StartExecutionResponse"
     "fixture/StartExecutionResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy StartExecution)
 
 responseStartSyncExecution :: StartSyncExecutionResponse -> TestTree
@@ -462,7 +462,7 @@ responseStartSyncExecution =
   res
     "StartSyncExecutionResponse"
     "fixture/StartSyncExecutionResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy StartSyncExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -470,7 +470,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -478,7 +478,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy UntagResource)
 
 responseGetExecutionHistory :: GetExecutionHistoryResponse -> TestTree
@@ -486,7 +486,7 @@ responseGetExecutionHistory =
   res
     "GetExecutionHistoryResponse"
     "fixture/GetExecutionHistoryResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy GetExecutionHistory)
 
 responseCreateStateMachine :: CreateStateMachineResponse -> TestTree
@@ -494,5 +494,5 @@ responseCreateStateMachine =
   res
     "CreateStateMachineResponse"
     "fixture/CreateStateMachineResponse.proto"
-    stepFunctions
+    stepFunctionsService
     (Proxy :: Proxy CreateStateMachine)

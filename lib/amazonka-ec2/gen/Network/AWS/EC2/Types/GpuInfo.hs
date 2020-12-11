@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.GpuInfo where
+module Network.AWS.EC2.Types.GpuInfo
+  ( GpuInfo (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkGpuInfo,
+
+    -- * Lenses
+    giTotalGpuMemoryInMiB,
+    giGpus,
+  )
+where
+
 import Network.AWS.EC2.Types.GpuDeviceInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the GPU accelerators for the instance type.
 --
---
---
--- /See:/ 'gpuInfo' smart constructor.
+-- /See:/ 'mkGpuInfo' smart constructor.
 data GpuInfo = GpuInfo'
-  { _giTotalGpuMemoryInMiB :: !(Maybe Int),
-    _giGpus :: !(Maybe [GpuDeviceInfo])
+  { totalGpuMemoryInMiB :: Lude.Maybe Lude.Int,
+    gpus :: Lude.Maybe [GpuDeviceInfo]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GpuInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giTotalGpuMemoryInMiB' - The total size of the memory for the GPU accelerators for the instance type, in MiB.
---
--- * 'giGpus' - Describes the GPU accelerators for the instance type.
-gpuInfo ::
+-- * 'gpus' - Describes the GPU accelerators for the instance type.
+-- * 'totalGpuMemoryInMiB' - The total size of the memory for the GPU accelerators for the instance type, in MiB.
+mkGpuInfo ::
   GpuInfo
-gpuInfo =
-  GpuInfo' {_giTotalGpuMemoryInMiB = Nothing, _giGpus = Nothing}
+mkGpuInfo =
+  GpuInfo' {totalGpuMemoryInMiB = Lude.Nothing, gpus = Lude.Nothing}
 
 -- | The total size of the memory for the GPU accelerators for the instance type, in MiB.
-giTotalGpuMemoryInMiB :: Lens' GpuInfo (Maybe Int)
-giTotalGpuMemoryInMiB = lens _giTotalGpuMemoryInMiB (\s a -> s {_giTotalGpuMemoryInMiB = a})
+--
+-- /Note:/ Consider using 'totalGpuMemoryInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giTotalGpuMemoryInMiB :: Lens.Lens' GpuInfo (Lude.Maybe Lude.Int)
+giTotalGpuMemoryInMiB = Lens.lens (totalGpuMemoryInMiB :: GpuInfo -> Lude.Maybe Lude.Int) (\s a -> s {totalGpuMemoryInMiB = a} :: GpuInfo)
+{-# DEPRECATED giTotalGpuMemoryInMiB "Use generic-lens or generic-optics with 'totalGpuMemoryInMiB' instead." #-}
 
 -- | Describes the GPU accelerators for the instance type.
-giGpus :: Lens' GpuInfo [GpuDeviceInfo]
-giGpus = lens _giGpus (\s a -> s {_giGpus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gpus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giGpus :: Lens.Lens' GpuInfo (Lude.Maybe [GpuDeviceInfo])
+giGpus = Lens.lens (gpus :: GpuInfo -> Lude.Maybe [GpuDeviceInfo]) (\s a -> s {gpus = a} :: GpuInfo)
+{-# DEPRECATED giGpus "Use generic-lens or generic-optics with 'gpus' instead." #-}
 
-instance FromXML GpuInfo where
+instance Lude.FromXML GpuInfo where
   parseXML x =
     GpuInfo'
-      <$> (x .@? "totalGpuMemoryInMiB")
-      <*> (x .@? "gpus" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable GpuInfo
-
-instance NFData GpuInfo
+      Lude.<$> (x Lude..@? "totalGpuMemoryInMiB")
+      Lude.<*> ( x Lude..@? "gpus" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

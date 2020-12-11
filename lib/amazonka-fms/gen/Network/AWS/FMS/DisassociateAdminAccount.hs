@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,67 +14,76 @@
 --
 -- Disassociates the account that has been set as the AWS Firewall Manager administrator account. To set a different account as the administrator account, you must submit an @AssociateAdminAccount@ request.
 module Network.AWS.FMS.DisassociateAdminAccount
-  ( -- * Creating a Request
-    disassociateAdminAccount,
-    DisassociateAdminAccount,
+  ( -- * Creating a request
+    DisassociateAdminAccount (..),
+    mkDisassociateAdminAccount,
 
-    -- * Destructuring the Response
-    disassociateAdminAccountResponse,
-    DisassociateAdminAccountResponse,
+    -- * Destructuring the response
+    DisassociateAdminAccountResponse (..),
+    mkDisassociateAdminAccountResponse,
   )
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateAdminAccount' smart constructor.
+-- | /See:/ 'mkDisassociateAdminAccount' smart constructor.
 data DisassociateAdminAccount = DisassociateAdminAccount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateAdminAccount' with the minimum fields required to make a request.
-disassociateAdminAccount ::
+mkDisassociateAdminAccount ::
   DisassociateAdminAccount
-disassociateAdminAccount = DisassociateAdminAccount'
+mkDisassociateAdminAccount = DisassociateAdminAccount'
 
-instance AWSRequest DisassociateAdminAccount where
+instance Lude.AWSRequest DisassociateAdminAccount where
   type Rs DisassociateAdminAccount = DisassociateAdminAccountResponse
-  request = postJSON fms
-  response = receiveNull DisassociateAdminAccountResponse'
+  request = Req.postJSON fmsService
+  response = Res.receiveNull DisassociateAdminAccountResponse'
 
-instance Hashable DisassociateAdminAccount
-
-instance NFData DisassociateAdminAccount
-
-instance ToHeaders DisassociateAdminAccount where
+instance Lude.ToHeaders DisassociateAdminAccount where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSFMS_20180101.DisassociateAdminAccount" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSFMS_20180101.DisassociateAdminAccount" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateAdminAccount where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DisassociateAdminAccount where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DisassociateAdminAccount where
-  toPath = const "/"
+instance Lude.ToPath DisassociateAdminAccount where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateAdminAccount where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateAdminAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateAdminAccountResponse' smart constructor.
+-- | /See:/ 'mkDisassociateAdminAccountResponse' smart constructor.
 data DisassociateAdminAccountResponse = DisassociateAdminAccountResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateAdminAccountResponse' with the minimum fields required to make a request.
-disassociateAdminAccountResponse ::
+mkDisassociateAdminAccountResponse ::
   DisassociateAdminAccountResponse
-disassociateAdminAccountResponse =
+mkDisassociateAdminAccountResponse =
   DisassociateAdminAccountResponse'
-
-instance NFData DisassociateAdminAccountResponse

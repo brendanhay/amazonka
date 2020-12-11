@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Transforms a directed acyclic graph (DAG) into code.
 module Network.AWS.Glue.CreateScript
-  ( -- * Creating a Request
-    createScript,
-    CreateScript,
+  ( -- * Creating a request
+    CreateScript (..),
+    mkCreateScript,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csDagEdges,
     csLanguage,
     csDagNodes,
 
-    -- * Destructuring the Response
-    createScriptResponse,
-    CreateScriptResponse,
+    -- * Destructuring the response
+    CreateScriptResponse (..),
+    mkCreateScriptResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crersPythonScript,
     crersScalaCode,
     crersResponseStatus,
@@ -40,130 +35,150 @@ module Network.AWS.Glue.CreateScript
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createScript' smart constructor.
+-- | /See:/ 'mkCreateScript' smart constructor.
 data CreateScript = CreateScript'
-  { _csDagEdges ::
-      !(Maybe [CodeGenEdge]),
-    _csLanguage :: !(Maybe Language),
-    _csDagNodes :: !(Maybe [CodeGenNode])
+  { dagEdges ::
+      Lude.Maybe [CodeGenEdge],
+    language :: Lude.Maybe Language,
+    dagNodes :: Lude.Maybe [CodeGenNode]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateScript' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csDagEdges' - A list of the edges in the DAG.
---
--- * 'csLanguage' - The programming language of the resulting code from the DAG.
---
--- * 'csDagNodes' - A list of the nodes in the DAG.
-createScript ::
+-- * 'dagEdges' - A list of the edges in the DAG.
+-- * 'dagNodes' - A list of the nodes in the DAG.
+-- * 'language' - The programming language of the resulting code from the DAG.
+mkCreateScript ::
   CreateScript
-createScript =
+mkCreateScript =
   CreateScript'
-    { _csDagEdges = Nothing,
-      _csLanguage = Nothing,
-      _csDagNodes = Nothing
+    { dagEdges = Lude.Nothing,
+      language = Lude.Nothing,
+      dagNodes = Lude.Nothing
     }
 
 -- | A list of the edges in the DAG.
-csDagEdges :: Lens' CreateScript [CodeGenEdge]
-csDagEdges = lens _csDagEdges (\s a -> s {_csDagEdges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dagEdges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDagEdges :: Lens.Lens' CreateScript (Lude.Maybe [CodeGenEdge])
+csDagEdges = Lens.lens (dagEdges :: CreateScript -> Lude.Maybe [CodeGenEdge]) (\s a -> s {dagEdges = a} :: CreateScript)
+{-# DEPRECATED csDagEdges "Use generic-lens or generic-optics with 'dagEdges' instead." #-}
 
 -- | The programming language of the resulting code from the DAG.
-csLanguage :: Lens' CreateScript (Maybe Language)
-csLanguage = lens _csLanguage (\s a -> s {_csLanguage = a})
+--
+-- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csLanguage :: Lens.Lens' CreateScript (Lude.Maybe Language)
+csLanguage = Lens.lens (language :: CreateScript -> Lude.Maybe Language) (\s a -> s {language = a} :: CreateScript)
+{-# DEPRECATED csLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
 -- | A list of the nodes in the DAG.
-csDagNodes :: Lens' CreateScript [CodeGenNode]
-csDagNodes = lens _csDagNodes (\s a -> s {_csDagNodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dagNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDagNodes :: Lens.Lens' CreateScript (Lude.Maybe [CodeGenNode])
+csDagNodes = Lens.lens (dagNodes :: CreateScript -> Lude.Maybe [CodeGenNode]) (\s a -> s {dagNodes = a} :: CreateScript)
+{-# DEPRECATED csDagNodes "Use generic-lens or generic-optics with 'dagNodes' instead." #-}
 
-instance AWSRequest CreateScript where
+instance Lude.AWSRequest CreateScript where
   type Rs CreateScript = CreateScriptResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateScriptResponse'
-            <$> (x .?> "PythonScript")
-            <*> (x .?> "ScalaCode")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PythonScript")
+            Lude.<*> (x Lude..?> "ScalaCode")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateScript
-
-instance NFData CreateScript
-
-instance ToHeaders CreateScript where
+instance Lude.ToHeaders CreateScript where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CreateScript" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.CreateScript" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateScript where
+instance Lude.ToJSON CreateScript where
   toJSON CreateScript' {..} =
-    object
-      ( catMaybes
-          [ ("DagEdges" .=) <$> _csDagEdges,
-            ("Language" .=) <$> _csLanguage,
-            ("DagNodes" .=) <$> _csDagNodes
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DagEdges" Lude..=) Lude.<$> dagEdges,
+            ("Language" Lude..=) Lude.<$> language,
+            ("DagNodes" Lude..=) Lude.<$> dagNodes
           ]
       )
 
-instance ToPath CreateScript where
-  toPath = const "/"
+instance Lude.ToPath CreateScript where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateScript where
-  toQuery = const mempty
+instance Lude.ToQuery CreateScript where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createScriptResponse' smart constructor.
+-- | /See:/ 'mkCreateScriptResponse' smart constructor.
 data CreateScriptResponse = CreateScriptResponse'
-  { _crersPythonScript ::
-      !(Maybe Text),
-    _crersScalaCode :: !(Maybe Text),
-    _crersResponseStatus :: !Int
+  { pythonScript ::
+      Lude.Maybe Lude.Text,
+    scalaCode :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateScriptResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crersPythonScript' - The Python script generated from the DAG.
---
--- * 'crersScalaCode' - The Scala code generated from the DAG.
---
--- * 'crersResponseStatus' - -- | The response status code.
-createScriptResponse ::
-  -- | 'crersResponseStatus'
-  Int ->
+-- * 'pythonScript' - The Python script generated from the DAG.
+-- * 'responseStatus' - The response status code.
+-- * 'scalaCode' - The Scala code generated from the DAG.
+mkCreateScriptResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateScriptResponse
-createScriptResponse pResponseStatus_ =
+mkCreateScriptResponse pResponseStatus_ =
   CreateScriptResponse'
-    { _crersPythonScript = Nothing,
-      _crersScalaCode = Nothing,
-      _crersResponseStatus = pResponseStatus_
+    { pythonScript = Lude.Nothing,
+      scalaCode = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Python script generated from the DAG.
-crersPythonScript :: Lens' CreateScriptResponse (Maybe Text)
-crersPythonScript = lens _crersPythonScript (\s a -> s {_crersPythonScript = a})
+--
+-- /Note:/ Consider using 'pythonScript' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crersPythonScript :: Lens.Lens' CreateScriptResponse (Lude.Maybe Lude.Text)
+crersPythonScript = Lens.lens (pythonScript :: CreateScriptResponse -> Lude.Maybe Lude.Text) (\s a -> s {pythonScript = a} :: CreateScriptResponse)
+{-# DEPRECATED crersPythonScript "Use generic-lens or generic-optics with 'pythonScript' instead." #-}
 
 -- | The Scala code generated from the DAG.
-crersScalaCode :: Lens' CreateScriptResponse (Maybe Text)
-crersScalaCode = lens _crersScalaCode (\s a -> s {_crersScalaCode = a})
+--
+-- /Note:/ Consider using 'scalaCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crersScalaCode :: Lens.Lens' CreateScriptResponse (Lude.Maybe Lude.Text)
+crersScalaCode = Lens.lens (scalaCode :: CreateScriptResponse -> Lude.Maybe Lude.Text) (\s a -> s {scalaCode = a} :: CreateScriptResponse)
+{-# DEPRECATED crersScalaCode "Use generic-lens or generic-optics with 'scalaCode' instead." #-}
 
--- | -- | The response status code.
-crersResponseStatus :: Lens' CreateScriptResponse Int
-crersResponseStatus = lens _crersResponseStatus (\s a -> s {_crersResponseStatus = a})
-
-instance NFData CreateScriptResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crersResponseStatus :: Lens.Lens' CreateScriptResponse Lude.Int
+crersResponseStatus = Lens.lens (responseStatus :: CreateScriptResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateScriptResponse)
+{-# DEPRECATED crersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

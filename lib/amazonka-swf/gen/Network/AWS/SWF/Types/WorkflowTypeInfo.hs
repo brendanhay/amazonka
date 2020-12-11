@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowTypeInfo where
+module Network.AWS.SWF.Types.WorkflowTypeInfo
+  ( WorkflowTypeInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkflowTypeInfo,
+
+    -- * Lenses
+    wtiDeprecationDate,
+    wtiDescription,
+    wtiWorkflowType,
+    wtiStatus,
+    wtiCreationDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SWF.Types.RegistrationStatus
 import Network.AWS.SWF.Types.WorkflowType
 
 -- | Contains information about a workflow type.
 --
---
---
--- /See:/ 'workflowTypeInfo' smart constructor.
+-- /See:/ 'mkWorkflowTypeInfo' smart constructor.
 data WorkflowTypeInfo = WorkflowTypeInfo'
-  { _wtiDeprecationDate ::
-      !(Maybe POSIX),
-    _wtiDescription :: !(Maybe Text),
-    _wtiWorkflowType :: !WorkflowType,
-    _wtiStatus :: !RegistrationStatus,
-    _wtiCreationDate :: !POSIX
+  { deprecationDate ::
+      Lude.Maybe Lude.Timestamp,
+    description :: Lude.Maybe Lude.Text,
+    workflowType :: WorkflowType,
+    status :: RegistrationStatus,
+    creationDate :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowTypeInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wtiDeprecationDate' - If the type is in deprecated state, then it is set to the date when the type was deprecated.
---
--- * 'wtiDescription' - The description of the type registered through 'RegisterWorkflowType' .
---
--- * 'wtiWorkflowType' - The workflow type this information is about.
---
--- * 'wtiStatus' - The current status of the workflow type.
---
--- * 'wtiCreationDate' - The date when this type was registered.
-workflowTypeInfo ::
-  -- | 'wtiWorkflowType'
+-- * 'creationDate' - The date when this type was registered.
+-- * 'deprecationDate' - If the type is in deprecated state, then it is set to the date when the type was deprecated.
+-- * 'description' - The description of the type registered through 'RegisterWorkflowType' .
+-- * 'status' - The current status of the workflow type.
+-- * 'workflowType' - The workflow type this information is about.
+mkWorkflowTypeInfo ::
+  -- | 'workflowType'
   WorkflowType ->
-  -- | 'wtiStatus'
+  -- | 'status'
   RegistrationStatus ->
-  -- | 'wtiCreationDate'
-  UTCTime ->
+  -- | 'creationDate'
+  Lude.Timestamp ->
   WorkflowTypeInfo
-workflowTypeInfo pWorkflowType_ pStatus_ pCreationDate_ =
+mkWorkflowTypeInfo pWorkflowType_ pStatus_ pCreationDate_ =
   WorkflowTypeInfo'
-    { _wtiDeprecationDate = Nothing,
-      _wtiDescription = Nothing,
-      _wtiWorkflowType = pWorkflowType_,
-      _wtiStatus = pStatus_,
-      _wtiCreationDate = _Time # pCreationDate_
+    { deprecationDate = Lude.Nothing,
+      description = Lude.Nothing,
+      workflowType = pWorkflowType_,
+      status = pStatus_,
+      creationDate = pCreationDate_
     }
 
 -- | If the type is in deprecated state, then it is set to the date when the type was deprecated.
-wtiDeprecationDate :: Lens' WorkflowTypeInfo (Maybe UTCTime)
-wtiDeprecationDate = lens _wtiDeprecationDate (\s a -> s {_wtiDeprecationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deprecationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtiDeprecationDate :: Lens.Lens' WorkflowTypeInfo (Lude.Maybe Lude.Timestamp)
+wtiDeprecationDate = Lens.lens (deprecationDate :: WorkflowTypeInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {deprecationDate = a} :: WorkflowTypeInfo)
+{-# DEPRECATED wtiDeprecationDate "Use generic-lens or generic-optics with 'deprecationDate' instead." #-}
 
 -- | The description of the type registered through 'RegisterWorkflowType' .
-wtiDescription :: Lens' WorkflowTypeInfo (Maybe Text)
-wtiDescription = lens _wtiDescription (\s a -> s {_wtiDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtiDescription :: Lens.Lens' WorkflowTypeInfo (Lude.Maybe Lude.Text)
+wtiDescription = Lens.lens (description :: WorkflowTypeInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: WorkflowTypeInfo)
+{-# DEPRECATED wtiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The workflow type this information is about.
-wtiWorkflowType :: Lens' WorkflowTypeInfo WorkflowType
-wtiWorkflowType = lens _wtiWorkflowType (\s a -> s {_wtiWorkflowType = a})
+--
+-- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtiWorkflowType :: Lens.Lens' WorkflowTypeInfo WorkflowType
+wtiWorkflowType = Lens.lens (workflowType :: WorkflowTypeInfo -> WorkflowType) (\s a -> s {workflowType = a} :: WorkflowTypeInfo)
+{-# DEPRECATED wtiWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
 -- | The current status of the workflow type.
-wtiStatus :: Lens' WorkflowTypeInfo RegistrationStatus
-wtiStatus = lens _wtiStatus (\s a -> s {_wtiStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtiStatus :: Lens.Lens' WorkflowTypeInfo RegistrationStatus
+wtiStatus = Lens.lens (status :: WorkflowTypeInfo -> RegistrationStatus) (\s a -> s {status = a} :: WorkflowTypeInfo)
+{-# DEPRECATED wtiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date when this type was registered.
-wtiCreationDate :: Lens' WorkflowTypeInfo UTCTime
-wtiCreationDate = lens _wtiCreationDate (\s a -> s {_wtiCreationDate = a}) . _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtiCreationDate :: Lens.Lens' WorkflowTypeInfo Lude.Timestamp
+wtiCreationDate = Lens.lens (creationDate :: WorkflowTypeInfo -> Lude.Timestamp) (\s a -> s {creationDate = a} :: WorkflowTypeInfo)
+{-# DEPRECATED wtiCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
-instance FromJSON WorkflowTypeInfo where
+instance Lude.FromJSON WorkflowTypeInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkflowTypeInfo"
       ( \x ->
           WorkflowTypeInfo'
-            <$> (x .:? "deprecationDate")
-            <*> (x .:? "description")
-            <*> (x .: "workflowType")
-            <*> (x .: "status")
-            <*> (x .: "creationDate")
+            Lude.<$> (x Lude..:? "deprecationDate")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..: "workflowType")
+            Lude.<*> (x Lude..: "status")
+            Lude.<*> (x Lude..: "creationDate")
       )
-
-instance Hashable WorkflowTypeInfo
-
-instance NFData WorkflowTypeInfo

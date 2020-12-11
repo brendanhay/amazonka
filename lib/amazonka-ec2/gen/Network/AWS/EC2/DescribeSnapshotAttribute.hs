@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,22 @@
 --
 -- Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.
 --
---
 -- For more information about EBS snapshots, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.DescribeSnapshotAttribute
-  ( -- * Creating a Request
-    describeSnapshotAttribute,
-    DescribeSnapshotAttribute,
+  ( -- * Creating a request
+    DescribeSnapshotAttribute (..),
+    mkDescribeSnapshotAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsaDryRun,
     dsaAttribute,
     dsaSnapshotId,
 
-    -- * Destructuring the Response
-    describeSnapshotAttributeResponse,
-    DescribeSnapshotAttributeResponse,
+    -- * Destructuring the response
+    DescribeSnapshotAttributeResponse (..),
+    mkDescribeSnapshotAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsarsCreateVolumePermissions,
     dsarsProductCodes,
     dsarsSnapshotId,
@@ -44,144 +38,166 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeSnapshotAttribute' smart constructor.
+-- | /See:/ 'mkDescribeSnapshotAttribute' smart constructor.
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
-  { _dsaDryRun ::
-      !(Maybe Bool),
-    _dsaAttribute :: !SnapshotAttributeName,
-    _dsaSnapshotId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    attribute :: SnapshotAttributeName,
+    snapshotId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dsaAttribute' - The snapshot attribute you would like to view.
---
--- * 'dsaSnapshotId' - The ID of the EBS snapshot.
-describeSnapshotAttribute ::
-  -- | 'dsaAttribute'
+-- * 'attribute' - The snapshot attribute you would like to view.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'snapshotId' - The ID of the EBS snapshot.
+mkDescribeSnapshotAttribute ::
+  -- | 'attribute'
   SnapshotAttributeName ->
-  -- | 'dsaSnapshotId'
-  Text ->
+  -- | 'snapshotId'
+  Lude.Text ->
   DescribeSnapshotAttribute
-describeSnapshotAttribute pAttribute_ pSnapshotId_ =
+mkDescribeSnapshotAttribute pAttribute_ pSnapshotId_ =
   DescribeSnapshotAttribute'
-    { _dsaDryRun = Nothing,
-      _dsaAttribute = pAttribute_,
-      _dsaSnapshotId = pSnapshotId_
+    { dryRun = Lude.Nothing,
+      attribute = pAttribute_,
+      snapshotId = pSnapshotId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
-dsaDryRun = lens _dsaDryRun (\s a -> s {_dsaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaDryRun :: Lens.Lens' DescribeSnapshotAttribute (Lude.Maybe Lude.Bool)
+dsaDryRun = Lens.lens (dryRun :: DescribeSnapshotAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSnapshotAttribute)
+{-# DEPRECATED dsaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The snapshot attribute you would like to view.
-dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
-dsaAttribute = lens _dsaAttribute (\s a -> s {_dsaAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaAttribute :: Lens.Lens' DescribeSnapshotAttribute SnapshotAttributeName
+dsaAttribute = Lens.lens (attribute :: DescribeSnapshotAttribute -> SnapshotAttributeName) (\s a -> s {attribute = a} :: DescribeSnapshotAttribute)
+{-# DEPRECATED dsaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The ID of the EBS snapshot.
-dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
-dsaSnapshotId = lens _dsaSnapshotId (\s a -> s {_dsaSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaSnapshotId :: Lens.Lens' DescribeSnapshotAttribute Lude.Text
+dsaSnapshotId = Lens.lens (snapshotId :: DescribeSnapshotAttribute -> Lude.Text) (\s a -> s {snapshotId = a} :: DescribeSnapshotAttribute)
+{-# DEPRECATED dsaSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance AWSRequest DescribeSnapshotAttribute where
+instance Lude.AWSRequest DescribeSnapshotAttribute where
   type
     Rs DescribeSnapshotAttribute =
       DescribeSnapshotAttributeResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeSnapshotAttributeResponse'
-            <$> ( x .@? "createVolumePermission" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (x .@? "productCodes" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "snapshotId")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "createVolumePermission" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> ( x Lude..@? "productCodes" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "snapshotId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSnapshotAttribute
+instance Lude.ToHeaders DescribeSnapshotAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeSnapshotAttribute
+instance Lude.ToPath DescribeSnapshotAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeSnapshotAttribute where
-  toHeaders = const mempty
-
-instance ToPath DescribeSnapshotAttribute where
-  toPath = const "/"
-
-instance ToQuery DescribeSnapshotAttribute where
+instance Lude.ToQuery DescribeSnapshotAttribute where
   toQuery DescribeSnapshotAttribute' {..} =
-    mconcat
-      [ "Action" =: ("DescribeSnapshotAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dsaDryRun,
-        "Attribute" =: _dsaAttribute,
-        "SnapshotId" =: _dsaSnapshotId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeSnapshotAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "Attribute" Lude.=: attribute,
+        "SnapshotId" Lude.=: snapshotId
       ]
 
--- | /See:/ 'describeSnapshotAttributeResponse' smart constructor.
+-- | /See:/ 'mkDescribeSnapshotAttributeResponse' smart constructor.
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-  { _dsarsCreateVolumePermissions ::
-      !( Maybe
-           [CreateVolumePermission]
-       ),
-    _dsarsProductCodes ::
-      !(Maybe [ProductCode]),
-    _dsarsSnapshotId ::
-      !(Maybe Text),
-    _dsarsResponseStatus ::
-      !Int
+  { createVolumePermissions ::
+      Lude.Maybe
+        [CreateVolumePermission],
+    productCodes ::
+      Lude.Maybe
+        [ProductCode],
+    snapshotId ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsarsCreateVolumePermissions' - The users and groups that have the permissions for creating volumes from the snapshot.
---
--- * 'dsarsProductCodes' - The product codes.
---
--- * 'dsarsSnapshotId' - The ID of the EBS snapshot.
---
--- * 'dsarsResponseStatus' - -- | The response status code.
-describeSnapshotAttributeResponse ::
-  -- | 'dsarsResponseStatus'
-  Int ->
+-- * 'createVolumePermissions' - The users and groups that have the permissions for creating volumes from the snapshot.
+-- * 'productCodes' - The product codes.
+-- * 'responseStatus' - The response status code.
+-- * 'snapshotId' - The ID of the EBS snapshot.
+mkDescribeSnapshotAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSnapshotAttributeResponse
-describeSnapshotAttributeResponse pResponseStatus_ =
+mkDescribeSnapshotAttributeResponse pResponseStatus_ =
   DescribeSnapshotAttributeResponse'
-    { _dsarsCreateVolumePermissions =
-        Nothing,
-      _dsarsProductCodes = Nothing,
-      _dsarsSnapshotId = Nothing,
-      _dsarsResponseStatus = pResponseStatus_
+    { createVolumePermissions =
+        Lude.Nothing,
+      productCodes = Lude.Nothing,
+      snapshotId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The users and groups that have the permissions for creating volumes from the snapshot.
-dsarsCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
-dsarsCreateVolumePermissions = lens _dsarsCreateVolumePermissions (\s a -> s {_dsarsCreateVolumePermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'createVolumePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsCreateVolumePermissions :: Lens.Lens' DescribeSnapshotAttributeResponse (Lude.Maybe [CreateVolumePermission])
+dsarsCreateVolumePermissions = Lens.lens (createVolumePermissions :: DescribeSnapshotAttributeResponse -> Lude.Maybe [CreateVolumePermission]) (\s a -> s {createVolumePermissions = a} :: DescribeSnapshotAttributeResponse)
+{-# DEPRECATED dsarsCreateVolumePermissions "Use generic-lens or generic-optics with 'createVolumePermissions' instead." #-}
 
 -- | The product codes.
-dsarsProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
-dsarsProductCodes = lens _dsarsProductCodes (\s a -> s {_dsarsProductCodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsProductCodes :: Lens.Lens' DescribeSnapshotAttributeResponse (Lude.Maybe [ProductCode])
+dsarsProductCodes = Lens.lens (productCodes :: DescribeSnapshotAttributeResponse -> Lude.Maybe [ProductCode]) (\s a -> s {productCodes = a} :: DescribeSnapshotAttributeResponse)
+{-# DEPRECATED dsarsProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
 
 -- | The ID of the EBS snapshot.
-dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
-dsarsSnapshotId = lens _dsarsSnapshotId (\s a -> s {_dsarsSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsSnapshotId :: Lens.Lens' DescribeSnapshotAttributeResponse (Lude.Maybe Lude.Text)
+dsarsSnapshotId = Lens.lens (snapshotId :: DescribeSnapshotAttributeResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: DescribeSnapshotAttributeResponse)
+{-# DEPRECATED dsarsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
--- | -- | The response status code.
-dsarsResponseStatus :: Lens' DescribeSnapshotAttributeResponse Int
-dsarsResponseStatus = lens _dsarsResponseStatus (\s a -> s {_dsarsResponseStatus = a})
-
-instance NFData DescribeSnapshotAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsResponseStatus :: Lens.Lens' DescribeSnapshotAttributeResponse Lude.Int
+dsarsResponseStatus = Lens.lens (responseStatus :: DescribeSnapshotAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSnapshotAttributeResponse)
+{-# DEPRECATED dsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

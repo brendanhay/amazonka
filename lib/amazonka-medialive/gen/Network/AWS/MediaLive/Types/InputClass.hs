@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputClass where
+module Network.AWS.MediaLive.Types.InputClass
+  ( InputClass
+      ( InputClass',
+        ICSinglePipeline,
+        ICStandard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A standard input has two sources and a single pipeline input only has one.
-data InputClass
-  = ICSinglePipeline
-  | ICStandard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputClass = InputClass' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputClass where
-  parser =
-    takeLowerText >>= \case
-      "single_pipeline" -> pure ICSinglePipeline
-      "standard" -> pure ICStandard
-      e ->
-        fromTextError $
-          "Failure parsing InputClass from value: '" <> e
-            <> "'. Accepted values: single_pipeline, standard"
+pattern ICSinglePipeline :: InputClass
+pattern ICSinglePipeline = InputClass' "SINGLE_PIPELINE"
 
-instance ToText InputClass where
-  toText = \case
-    ICSinglePipeline -> "SINGLE_PIPELINE"
-    ICStandard -> "STANDARD"
+pattern ICStandard :: InputClass
+pattern ICStandard = InputClass' "STANDARD"
 
-instance Hashable InputClass
-
-instance NFData InputClass
-
-instance ToByteString InputClass
-
-instance ToQuery InputClass
-
-instance ToHeader InputClass
-
-instance FromJSON InputClass where
-  parseJSON = parseJSONText "InputClass"
+{-# COMPLETE
+  ICSinglePipeline,
+  ICStandard,
+  InputClass'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ApplicationDescriptionMessage where
+module Network.AWS.ElasticBeanstalk.Types.ApplicationDescriptionMessage
+  ( ApplicationDescriptionMessage (..),
+
+    -- * Smart constructor
+    mkApplicationDescriptionMessage,
+
+    -- * Lenses
+    admApplication,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.ApplicationDescription
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Result message containing a single description of an application.
 --
---
---
--- /See:/ 'applicationDescriptionMessage' smart constructor.
+-- /See:/ 'mkApplicationDescriptionMessage' smart constructor.
 newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
-  { _admApplication ::
-      Maybe ApplicationDescription
+  { application ::
+      Lude.Maybe
+        ApplicationDescription
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationDescriptionMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'admApplication' - The 'ApplicationDescription' of the application.
-applicationDescriptionMessage ::
+-- * 'application' - The 'ApplicationDescription' of the application.
+mkApplicationDescriptionMessage ::
   ApplicationDescriptionMessage
-applicationDescriptionMessage =
-  ApplicationDescriptionMessage' {_admApplication = Nothing}
+mkApplicationDescriptionMessage =
+  ApplicationDescriptionMessage' {application = Lude.Nothing}
 
 -- | The 'ApplicationDescription' of the application.
-admApplication :: Lens' ApplicationDescriptionMessage (Maybe ApplicationDescription)
-admApplication = lens _admApplication (\s a -> s {_admApplication = a})
+--
+-- /Note:/ Consider using 'application' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+admApplication :: Lens.Lens' ApplicationDescriptionMessage (Lude.Maybe ApplicationDescription)
+admApplication = Lens.lens (application :: ApplicationDescriptionMessage -> Lude.Maybe ApplicationDescription) (\s a -> s {application = a} :: ApplicationDescriptionMessage)
+{-# DEPRECATED admApplication "Use generic-lens or generic-optics with 'application' instead." #-}
 
-instance FromXML ApplicationDescriptionMessage where
+instance Lude.FromXML ApplicationDescriptionMessage where
   parseXML x =
-    ApplicationDescriptionMessage' <$> (x .@? "Application")
-
-instance Hashable ApplicationDescriptionMessage
-
-instance NFData ApplicationDescriptionMessage
+    ApplicationDescriptionMessage'
+      Lude.<$> (x Lude..@? "Application")

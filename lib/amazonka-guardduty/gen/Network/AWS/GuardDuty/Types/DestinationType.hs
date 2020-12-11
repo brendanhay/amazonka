@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.DestinationType where
+module Network.AWS.GuardDuty.Types.DestinationType
+  ( DestinationType
+      ( DestinationType',
+        S3
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DestinationType = S3
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DestinationType = DestinationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DestinationType where
-  parser =
-    takeLowerText >>= \case
-      "s3" -> pure S3
-      e ->
-        fromTextError $
-          "Failure parsing DestinationType from value: '" <> e
-            <> "'. Accepted values: s3"
+pattern S3 :: DestinationType
+pattern S3 = DestinationType' "S3"
 
-instance ToText DestinationType where
-  toText = \case
-    S3 -> "S3"
-
-instance Hashable DestinationType
-
-instance NFData DestinationType
-
-instance ToByteString DestinationType
-
-instance ToQuery DestinationType
-
-instance ToHeader DestinationType
-
-instance ToJSON DestinationType where
-  toJSON = toJSONText
-
-instance FromJSON DestinationType where
-  parseJSON = parseJSONText "DestinationType"
+{-# COMPLETE
+  S3,
+  DestinationType'
+  #-}

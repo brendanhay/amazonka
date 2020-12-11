@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,110 +7,145 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.ClassifierEvaluationMetrics where
+module Network.AWS.Comprehend.Types.ClassifierEvaluationMetrics
+  ( ClassifierEvaluationMetrics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClassifierEvaluationMetrics,
+
+    -- * Lenses
+    cemMicroPrecision,
+    cemMicroF1Score,
+    cemRecall,
+    cemPrecision,
+    cemMicroRecall,
+    cemF1Score,
+    cemHammingLoss,
+    cemAccuracy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the result metrics for the test data associated with an documentation classifier.
 --
---
---
--- /See:/ 'classifierEvaluationMetrics' smart constructor.
+-- /See:/ 'mkClassifierEvaluationMetrics' smart constructor.
 data ClassifierEvaluationMetrics = ClassifierEvaluationMetrics'
-  { _cemMicroPrecision ::
-      !(Maybe Double),
-    _cemMicroF1Score :: !(Maybe Double),
-    _cemRecall :: !(Maybe Double),
-    _cemPrecision :: !(Maybe Double),
-    _cemMicroRecall :: !(Maybe Double),
-    _cemF1Score :: !(Maybe Double),
-    _cemHammingLoss :: !(Maybe Double),
-    _cemAccuracy :: !(Maybe Double)
+  { microPrecision ::
+      Lude.Maybe Lude.Double,
+    microF1Score ::
+      Lude.Maybe Lude.Double,
+    recall :: Lude.Maybe Lude.Double,
+    precision :: Lude.Maybe Lude.Double,
+    microRecall ::
+      Lude.Maybe Lude.Double,
+    f1Score :: Lude.Maybe Lude.Double,
+    hammingLoss ::
+      Lude.Maybe Lude.Double,
+    accuracy :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassifierEvaluationMetrics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cemMicroPrecision' - A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision of all available labels, this is based on the overall score of all precision scores added together.
---
--- * 'cemMicroF1Score' - A measure of how accurate the classifier results are for the test data. It is a combination of the @Micro Precision@ and @Micro Recall@ values. The @Micro F1Score@ is the harmonic mean of the two scores. The highest score is 1, and the worst score is 0.
---
--- * 'cemRecall' - A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results.
---
--- * 'cemPrecision' - A measure of the usefulness of the classifier results in the test data. High precision means that the classifier returned substantially more relevant results than irrelevant ones.
---
--- * 'cemMicroRecall' - A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.
---
--- * 'cemF1Score' - A measure of how accurate the classifier results are for the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
---
--- * 'cemHammingLoss' - Indicates the fraction of labels that are incorrectly predicted. Also seen as the fraction of wrong labels compared to the total number of labels. Scores closer to zero are better.
---
--- * 'cemAccuracy' - The fraction of the labels that were correct recognized. It is computed by dividing the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.
-classifierEvaluationMetrics ::
+-- * 'accuracy' - The fraction of the labels that were correct recognized. It is computed by dividing the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.
+-- * 'f1Score' - A measure of how accurate the classifier results are for the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
+-- * 'hammingLoss' - Indicates the fraction of labels that are incorrectly predicted. Also seen as the fraction of wrong labels compared to the total number of labels. Scores closer to zero are better.
+-- * 'microF1Score' - A measure of how accurate the classifier results are for the test data. It is a combination of the @Micro Precision@ and @Micro Recall@ values. The @Micro F1Score@ is the harmonic mean of the two scores. The highest score is 1, and the worst score is 0.
+-- * 'microPrecision' - A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision of all available labels, this is based on the overall score of all precision scores added together.
+-- * 'microRecall' - A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.
+-- * 'precision' - A measure of the usefulness of the classifier results in the test data. High precision means that the classifier returned substantially more relevant results than irrelevant ones.
+-- * 'recall' - A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results.
+mkClassifierEvaluationMetrics ::
   ClassifierEvaluationMetrics
-classifierEvaluationMetrics =
+mkClassifierEvaluationMetrics =
   ClassifierEvaluationMetrics'
-    { _cemMicroPrecision = Nothing,
-      _cemMicroF1Score = Nothing,
-      _cemRecall = Nothing,
-      _cemPrecision = Nothing,
-      _cemMicroRecall = Nothing,
-      _cemF1Score = Nothing,
-      _cemHammingLoss = Nothing,
-      _cemAccuracy = Nothing
+    { microPrecision = Lude.Nothing,
+      microF1Score = Lude.Nothing,
+      recall = Lude.Nothing,
+      precision = Lude.Nothing,
+      microRecall = Lude.Nothing,
+      f1Score = Lude.Nothing,
+      hammingLoss = Lude.Nothing,
+      accuracy = Lude.Nothing
     }
 
 -- | A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision of all available labels, this is based on the overall score of all precision scores added together.
-cemMicroPrecision :: Lens' ClassifierEvaluationMetrics (Maybe Double)
-cemMicroPrecision = lens _cemMicroPrecision (\s a -> s {_cemMicroPrecision = a})
+--
+-- /Note:/ Consider using 'microPrecision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemMicroPrecision :: Lens.Lens' ClassifierEvaluationMetrics (Lude.Maybe Lude.Double)
+cemMicroPrecision = Lens.lens (microPrecision :: ClassifierEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {microPrecision = a} :: ClassifierEvaluationMetrics)
+{-# DEPRECATED cemMicroPrecision "Use generic-lens or generic-optics with 'microPrecision' instead." #-}
 
 -- | A measure of how accurate the classifier results are for the test data. It is a combination of the @Micro Precision@ and @Micro Recall@ values. The @Micro F1Score@ is the harmonic mean of the two scores. The highest score is 1, and the worst score is 0.
-cemMicroF1Score :: Lens' ClassifierEvaluationMetrics (Maybe Double)
-cemMicroF1Score = lens _cemMicroF1Score (\s a -> s {_cemMicroF1Score = a})
+--
+-- /Note:/ Consider using 'microF1Score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemMicroF1Score :: Lens.Lens' ClassifierEvaluationMetrics (Lude.Maybe Lude.Double)
+cemMicroF1Score = Lens.lens (microF1Score :: ClassifierEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {microF1Score = a} :: ClassifierEvaluationMetrics)
+{-# DEPRECATED cemMicroF1Score "Use generic-lens or generic-optics with 'microF1Score' instead." #-}
 
 -- | A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results.
-cemRecall :: Lens' ClassifierEvaluationMetrics (Maybe Double)
-cemRecall = lens _cemRecall (\s a -> s {_cemRecall = a})
+--
+-- /Note:/ Consider using 'recall' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemRecall :: Lens.Lens' ClassifierEvaluationMetrics (Lude.Maybe Lude.Double)
+cemRecall = Lens.lens (recall :: ClassifierEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {recall = a} :: ClassifierEvaluationMetrics)
+{-# DEPRECATED cemRecall "Use generic-lens or generic-optics with 'recall' instead." #-}
 
 -- | A measure of the usefulness of the classifier results in the test data. High precision means that the classifier returned substantially more relevant results than irrelevant ones.
-cemPrecision :: Lens' ClassifierEvaluationMetrics (Maybe Double)
-cemPrecision = lens _cemPrecision (\s a -> s {_cemPrecision = a})
+--
+-- /Note:/ Consider using 'precision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemPrecision :: Lens.Lens' ClassifierEvaluationMetrics (Lude.Maybe Lude.Double)
+cemPrecision = Lens.lens (precision :: ClassifierEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {precision = a} :: ClassifierEvaluationMetrics)
+{-# DEPRECATED cemPrecision "Use generic-lens or generic-optics with 'precision' instead." #-}
 
 -- | A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.
-cemMicroRecall :: Lens' ClassifierEvaluationMetrics (Maybe Double)
-cemMicroRecall = lens _cemMicroRecall (\s a -> s {_cemMicroRecall = a})
+--
+-- /Note:/ Consider using 'microRecall' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemMicroRecall :: Lens.Lens' ClassifierEvaluationMetrics (Lude.Maybe Lude.Double)
+cemMicroRecall = Lens.lens (microRecall :: ClassifierEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {microRecall = a} :: ClassifierEvaluationMetrics)
+{-# DEPRECATED cemMicroRecall "Use generic-lens or generic-optics with 'microRecall' instead." #-}
 
 -- | A measure of how accurate the classifier results are for the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
-cemF1Score :: Lens' ClassifierEvaluationMetrics (Maybe Double)
-cemF1Score = lens _cemF1Score (\s a -> s {_cemF1Score = a})
+--
+-- /Note:/ Consider using 'f1Score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemF1Score :: Lens.Lens' ClassifierEvaluationMetrics (Lude.Maybe Lude.Double)
+cemF1Score = Lens.lens (f1Score :: ClassifierEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {f1Score = a} :: ClassifierEvaluationMetrics)
+{-# DEPRECATED cemF1Score "Use generic-lens or generic-optics with 'f1Score' instead." #-}
 
 -- | Indicates the fraction of labels that are incorrectly predicted. Also seen as the fraction of wrong labels compared to the total number of labels. Scores closer to zero are better.
-cemHammingLoss :: Lens' ClassifierEvaluationMetrics (Maybe Double)
-cemHammingLoss = lens _cemHammingLoss (\s a -> s {_cemHammingLoss = a})
+--
+-- /Note:/ Consider using 'hammingLoss' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemHammingLoss :: Lens.Lens' ClassifierEvaluationMetrics (Lude.Maybe Lude.Double)
+cemHammingLoss = Lens.lens (hammingLoss :: ClassifierEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {hammingLoss = a} :: ClassifierEvaluationMetrics)
+{-# DEPRECATED cemHammingLoss "Use generic-lens or generic-optics with 'hammingLoss' instead." #-}
 
 -- | The fraction of the labels that were correct recognized. It is computed by dividing the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.
-cemAccuracy :: Lens' ClassifierEvaluationMetrics (Maybe Double)
-cemAccuracy = lens _cemAccuracy (\s a -> s {_cemAccuracy = a})
+--
+-- /Note:/ Consider using 'accuracy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemAccuracy :: Lens.Lens' ClassifierEvaluationMetrics (Lude.Maybe Lude.Double)
+cemAccuracy = Lens.lens (accuracy :: ClassifierEvaluationMetrics -> Lude.Maybe Lude.Double) (\s a -> s {accuracy = a} :: ClassifierEvaluationMetrics)
+{-# DEPRECATED cemAccuracy "Use generic-lens or generic-optics with 'accuracy' instead." #-}
 
-instance FromJSON ClassifierEvaluationMetrics where
+instance Lude.FromJSON ClassifierEvaluationMetrics where
   parseJSON =
-    withObject
+    Lude.withObject
       "ClassifierEvaluationMetrics"
       ( \x ->
           ClassifierEvaluationMetrics'
-            <$> (x .:? "MicroPrecision")
-            <*> (x .:? "MicroF1Score")
-            <*> (x .:? "Recall")
-            <*> (x .:? "Precision")
-            <*> (x .:? "MicroRecall")
-            <*> (x .:? "F1Score")
-            <*> (x .:? "HammingLoss")
-            <*> (x .:? "Accuracy")
+            Lude.<$> (x Lude..:? "MicroPrecision")
+            Lude.<*> (x Lude..:? "MicroF1Score")
+            Lude.<*> (x Lude..:? "Recall")
+            Lude.<*> (x Lude..:? "Precision")
+            Lude.<*> (x Lude..:? "MicroRecall")
+            Lude.<*> (x Lude..:? "F1Score")
+            Lude.<*> (x Lude..:? "HammingLoss")
+            Lude.<*> (x Lude..:? "Accuracy")
       )
-
-instance Hashable ClassifierEvaluationMetrics
-
-instance NFData ClassifierEvaluationMetrics

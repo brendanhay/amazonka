@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Retrieves the repository policy for the specified repository.
 module Network.AWS.ECR.GetRepositoryPolicy
-  ( -- * Creating a Request
-    getRepositoryPolicy,
-    GetRepositoryPolicy,
+  ( -- * Creating a request
+    GetRepositoryPolicy (..),
+    mkGetRepositoryPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grpRegistryId,
     grpRepositoryName,
 
-    -- * Destructuring the Response
-    getRepositoryPolicyResponse,
-    GetRepositoryPolicyResponse,
+    -- * Destructuring the response
+    GetRepositoryPolicyResponse (..),
+    mkGetRepositoryPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grprsRegistryId,
     grprsRepositoryName,
     grprsPolicyText,
@@ -40,136 +35,155 @@ module Network.AWS.ECR.GetRepositoryPolicy
 where
 
 import Network.AWS.ECR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getRepositoryPolicy' smart constructor.
+-- | /See:/ 'mkGetRepositoryPolicy' smart constructor.
 data GetRepositoryPolicy = GetRepositoryPolicy'
-  { _grpRegistryId ::
-      !(Maybe Text),
-    _grpRepositoryName :: !Text
+  { registryId ::
+      Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepositoryPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grpRegistryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
---
--- * 'grpRepositoryName' - The name of the repository with the policy to retrieve.
-getRepositoryPolicy ::
-  -- | 'grpRepositoryName'
-  Text ->
+-- * 'registryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
+-- * 'repositoryName' - The name of the repository with the policy to retrieve.
+mkGetRepositoryPolicy ::
+  -- | 'repositoryName'
+  Lude.Text ->
   GetRepositoryPolicy
-getRepositoryPolicy pRepositoryName_ =
+mkGetRepositoryPolicy pRepositoryName_ =
   GetRepositoryPolicy'
-    { _grpRegistryId = Nothing,
-      _grpRepositoryName = pRepositoryName_
+    { registryId = Lude.Nothing,
+      repositoryName = pRepositoryName_
     }
 
 -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
-grpRegistryId :: Lens' GetRepositoryPolicy (Maybe Text)
-grpRegistryId = lens _grpRegistryId (\s a -> s {_grpRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpRegistryId :: Lens.Lens' GetRepositoryPolicy (Lude.Maybe Lude.Text)
+grpRegistryId = Lens.lens (registryId :: GetRepositoryPolicy -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: GetRepositoryPolicy)
+{-# DEPRECATED grpRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The name of the repository with the policy to retrieve.
-grpRepositoryName :: Lens' GetRepositoryPolicy Text
-grpRepositoryName = lens _grpRepositoryName (\s a -> s {_grpRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpRepositoryName :: Lens.Lens' GetRepositoryPolicy Lude.Text
+grpRepositoryName = Lens.lens (repositoryName :: GetRepositoryPolicy -> Lude.Text) (\s a -> s {repositoryName = a} :: GetRepositoryPolicy)
+{-# DEPRECATED grpRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest GetRepositoryPolicy where
+instance Lude.AWSRequest GetRepositoryPolicy where
   type Rs GetRepositoryPolicy = GetRepositoryPolicyResponse
-  request = postJSON ecr
+  request = Req.postJSON ecrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRepositoryPolicyResponse'
-            <$> (x .?> "registryId")
-            <*> (x .?> "repositoryName")
-            <*> (x .?> "policyText")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "registryId")
+            Lude.<*> (x Lude..?> "repositoryName")
+            Lude.<*> (x Lude..?> "policyText")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRepositoryPolicy
-
-instance NFData GetRepositoryPolicy
-
-instance ToHeaders GetRepositoryPolicy where
+instance Lude.ToHeaders GetRepositoryPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRepositoryPolicy where
+instance Lude.ToJSON GetRepositoryPolicy where
   toJSON GetRepositoryPolicy' {..} =
-    object
-      ( catMaybes
-          [ ("registryId" .=) <$> _grpRegistryId,
-            Just ("repositoryName" .= _grpRepositoryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("registryId" Lude..=) Lude.<$> registryId,
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
-instance ToPath GetRepositoryPolicy where
-  toPath = const "/"
+instance Lude.ToPath GetRepositoryPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRepositoryPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetRepositoryPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRepositoryPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetRepositoryPolicyResponse' smart constructor.
 data GetRepositoryPolicyResponse = GetRepositoryPolicyResponse'
-  { _grprsRegistryId ::
-      !(Maybe Text),
-    _grprsRepositoryName ::
-      !(Maybe Text),
-    _grprsPolicyText :: !(Maybe Text),
-    _grprsResponseStatus :: !Int
+  { registryId ::
+      Lude.Maybe Lude.Text,
+    repositoryName ::
+      Lude.Maybe Lude.Text,
+    policyText :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepositoryPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grprsRegistryId' - The registry ID associated with the request.
---
--- * 'grprsRepositoryName' - The repository name associated with the request.
---
--- * 'grprsPolicyText' - The JSON repository policy text associated with the repository.
---
--- * 'grprsResponseStatus' - -- | The response status code.
-getRepositoryPolicyResponse ::
-  -- | 'grprsResponseStatus'
-  Int ->
+-- * 'policyText' - The JSON repository policy text associated with the repository.
+-- * 'registryId' - The registry ID associated with the request.
+-- * 'repositoryName' - The repository name associated with the request.
+-- * 'responseStatus' - The response status code.
+mkGetRepositoryPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRepositoryPolicyResponse
-getRepositoryPolicyResponse pResponseStatus_ =
+mkGetRepositoryPolicyResponse pResponseStatus_ =
   GetRepositoryPolicyResponse'
-    { _grprsRegistryId = Nothing,
-      _grprsRepositoryName = Nothing,
-      _grprsPolicyText = Nothing,
-      _grprsResponseStatus = pResponseStatus_
+    { registryId = Lude.Nothing,
+      repositoryName = Lude.Nothing,
+      policyText = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The registry ID associated with the request.
-grprsRegistryId :: Lens' GetRepositoryPolicyResponse (Maybe Text)
-grprsRegistryId = lens _grprsRegistryId (\s a -> s {_grprsRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsRegistryId :: Lens.Lens' GetRepositoryPolicyResponse (Lude.Maybe Lude.Text)
+grprsRegistryId = Lens.lens (registryId :: GetRepositoryPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: GetRepositoryPolicyResponse)
+{-# DEPRECATED grprsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The repository name associated with the request.
-grprsRepositoryName :: Lens' GetRepositoryPolicyResponse (Maybe Text)
-grprsRepositoryName = lens _grprsRepositoryName (\s a -> s {_grprsRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsRepositoryName :: Lens.Lens' GetRepositoryPolicyResponse (Lude.Maybe Lude.Text)
+grprsRepositoryName = Lens.lens (repositoryName :: GetRepositoryPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: GetRepositoryPolicyResponse)
+{-# DEPRECATED grprsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The JSON repository policy text associated with the repository.
-grprsPolicyText :: Lens' GetRepositoryPolicyResponse (Maybe Text)
-grprsPolicyText = lens _grprsPolicyText (\s a -> s {_grprsPolicyText = a})
+--
+-- /Note:/ Consider using 'policyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsPolicyText :: Lens.Lens' GetRepositoryPolicyResponse (Lude.Maybe Lude.Text)
+grprsPolicyText = Lens.lens (policyText :: GetRepositoryPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyText = a} :: GetRepositoryPolicyResponse)
+{-# DEPRECATED grprsPolicyText "Use generic-lens or generic-optics with 'policyText' instead." #-}
 
--- | -- | The response status code.
-grprsResponseStatus :: Lens' GetRepositoryPolicyResponse Int
-grprsResponseStatus = lens _grprsResponseStatus (\s a -> s {_grprsResponseStatus = a})
-
-instance NFData GetRepositoryPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsResponseStatus :: Lens.Lens' GetRepositoryPolicyResponse Lude.Int
+grprsResponseStatus = Lens.lens (responseStatus :: GetRepositoryPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRepositoryPolicyResponse)
+{-# DEPRECATED grprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

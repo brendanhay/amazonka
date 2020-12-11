@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M2tsAudioBufferModel where
+module Network.AWS.MediaConvert.Types.M2tsAudioBufferModel
+  ( M2tsAudioBufferModel
+      ( M2tsAudioBufferModel',
+        Atsc,
+        Dvb
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Selects between the DVB and ATSC buffer models for Dolby Digital audio.
-data M2tsAudioBufferModel
-  = Atsc
-  | Dvb
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsAudioBufferModel = M2tsAudioBufferModel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsAudioBufferModel where
-  parser =
-    takeLowerText >>= \case
-      "atsc" -> pure Atsc
-      "dvb" -> pure Dvb
-      e ->
-        fromTextError $
-          "Failure parsing M2tsAudioBufferModel from value: '" <> e
-            <> "'. Accepted values: atsc, dvb"
+pattern Atsc :: M2tsAudioBufferModel
+pattern Atsc = M2tsAudioBufferModel' "ATSC"
 
-instance ToText M2tsAudioBufferModel where
-  toText = \case
-    Atsc -> "ATSC"
-    Dvb -> "DVB"
+pattern Dvb :: M2tsAudioBufferModel
+pattern Dvb = M2tsAudioBufferModel' "DVB"
 
-instance Hashable M2tsAudioBufferModel
-
-instance NFData M2tsAudioBufferModel
-
-instance ToByteString M2tsAudioBufferModel
-
-instance ToQuery M2tsAudioBufferModel
-
-instance ToHeader M2tsAudioBufferModel
-
-instance ToJSON M2tsAudioBufferModel where
-  toJSON = toJSONText
-
-instance FromJSON M2tsAudioBufferModel where
-  parseJSON = parseJSONText "M2tsAudioBufferModel"
+{-# COMPLETE
+  Atsc,
+  Dvb,
+  M2tsAudioBufferModel'
+  #-}

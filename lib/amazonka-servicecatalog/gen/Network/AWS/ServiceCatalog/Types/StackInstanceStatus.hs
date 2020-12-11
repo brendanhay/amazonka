@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.StackInstanceStatus where
+module Network.AWS.ServiceCatalog.Types.StackInstanceStatus
+  ( StackInstanceStatus
+      ( StackInstanceStatus',
+        Current,
+        Inoperable,
+        Outdated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackInstanceStatus
-  = Current
-  | Inoperable
-  | Outdated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackInstanceStatus = StackInstanceStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackInstanceStatus where
-  parser =
-    takeLowerText >>= \case
-      "current" -> pure Current
-      "inoperable" -> pure Inoperable
-      "outdated" -> pure Outdated
-      e ->
-        fromTextError $
-          "Failure parsing StackInstanceStatus from value: '" <> e
-            <> "'. Accepted values: current, inoperable, outdated"
+pattern Current :: StackInstanceStatus
+pattern Current = StackInstanceStatus' "CURRENT"
 
-instance ToText StackInstanceStatus where
-  toText = \case
-    Current -> "CURRENT"
-    Inoperable -> "INOPERABLE"
-    Outdated -> "OUTDATED"
+pattern Inoperable :: StackInstanceStatus
+pattern Inoperable = StackInstanceStatus' "INOPERABLE"
 
-instance Hashable StackInstanceStatus
+pattern Outdated :: StackInstanceStatus
+pattern Outdated = StackInstanceStatus' "OUTDATED"
 
-instance NFData StackInstanceStatus
-
-instance ToByteString StackInstanceStatus
-
-instance ToQuery StackInstanceStatus
-
-instance ToHeader StackInstanceStatus
-
-instance FromJSON StackInstanceStatus where
-  parseJSON = parseJSONText "StackInstanceStatus"
+{-# COMPLETE
+  Current,
+  Inoperable,
+  Outdated,
+  StackInstanceStatus'
+  #-}

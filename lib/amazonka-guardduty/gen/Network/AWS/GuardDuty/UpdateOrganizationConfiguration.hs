@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,153 @@
 --
 -- Updates the delegated administrator account with the values provided.
 module Network.AWS.GuardDuty.UpdateOrganizationConfiguration
-  ( -- * Creating a Request
-    updateOrganizationConfiguration,
-    UpdateOrganizationConfiguration,
+  ( -- * Creating a request
+    UpdateOrganizationConfiguration (..),
+    mkUpdateOrganizationConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uocDataSources,
     uocDetectorId,
     uocAutoEnable,
 
-    -- * Destructuring the Response
-    updateOrganizationConfigurationResponse,
-    UpdateOrganizationConfigurationResponse,
+    -- * Destructuring the response
+    UpdateOrganizationConfigurationResponse (..),
+    mkUpdateOrganizationConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uocrsResponseStatus,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateOrganizationConfiguration' smart constructor.
+-- | /See:/ 'mkUpdateOrganizationConfiguration' smart constructor.
 data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
-  { _uocDataSources ::
-      !( Maybe
-           OrganizationDataSourceConfigurations
-       ),
-    _uocDetectorId :: !Text,
-    _uocAutoEnable :: !Bool
+  { dataSources ::
+      Lude.Maybe
+        OrganizationDataSourceConfigurations,
+    detectorId :: Lude.Text,
+    autoEnable :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOrganizationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uocDataSources' - An object describes which data sources will be updated.
---
--- * 'uocDetectorId' - The ID of the detector to update the delegated administrator for.
---
--- * 'uocAutoEnable' - Indicates whether to automatically enable member accounts in the organization.
-updateOrganizationConfiguration ::
-  -- | 'uocDetectorId'
-  Text ->
-  -- | 'uocAutoEnable'
-  Bool ->
+-- * 'autoEnable' - Indicates whether to automatically enable member accounts in the organization.
+-- * 'dataSources' - An object describes which data sources will be updated.
+-- * 'detectorId' - The ID of the detector to update the delegated administrator for.
+mkUpdateOrganizationConfiguration ::
+  -- | 'detectorId'
+  Lude.Text ->
+  -- | 'autoEnable'
+  Lude.Bool ->
   UpdateOrganizationConfiguration
-updateOrganizationConfiguration pDetectorId_ pAutoEnable_ =
+mkUpdateOrganizationConfiguration pDetectorId_ pAutoEnable_ =
   UpdateOrganizationConfiguration'
-    { _uocDataSources = Nothing,
-      _uocDetectorId = pDetectorId_,
-      _uocAutoEnable = pAutoEnable_
+    { dataSources = Lude.Nothing,
+      detectorId = pDetectorId_,
+      autoEnable = pAutoEnable_
     }
 
 -- | An object describes which data sources will be updated.
-uocDataSources :: Lens' UpdateOrganizationConfiguration (Maybe OrganizationDataSourceConfigurations)
-uocDataSources = lens _uocDataSources (\s a -> s {_uocDataSources = a})
+--
+-- /Note:/ Consider using 'dataSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uocDataSources :: Lens.Lens' UpdateOrganizationConfiguration (Lude.Maybe OrganizationDataSourceConfigurations)
+uocDataSources = Lens.lens (dataSources :: UpdateOrganizationConfiguration -> Lude.Maybe OrganizationDataSourceConfigurations) (\s a -> s {dataSources = a} :: UpdateOrganizationConfiguration)
+{-# DEPRECATED uocDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
 -- | The ID of the detector to update the delegated administrator for.
-uocDetectorId :: Lens' UpdateOrganizationConfiguration Text
-uocDetectorId = lens _uocDetectorId (\s a -> s {_uocDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uocDetectorId :: Lens.Lens' UpdateOrganizationConfiguration Lude.Text
+uocDetectorId = Lens.lens (detectorId :: UpdateOrganizationConfiguration -> Lude.Text) (\s a -> s {detectorId = a} :: UpdateOrganizationConfiguration)
+{-# DEPRECATED uocDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | Indicates whether to automatically enable member accounts in the organization.
-uocAutoEnable :: Lens' UpdateOrganizationConfiguration Bool
-uocAutoEnable = lens _uocAutoEnable (\s a -> s {_uocAutoEnable = a})
+--
+-- /Note:/ Consider using 'autoEnable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uocAutoEnable :: Lens.Lens' UpdateOrganizationConfiguration Lude.Bool
+uocAutoEnable = Lens.lens (autoEnable :: UpdateOrganizationConfiguration -> Lude.Bool) (\s a -> s {autoEnable = a} :: UpdateOrganizationConfiguration)
+{-# DEPRECATED uocAutoEnable "Use generic-lens or generic-optics with 'autoEnable' instead." #-}
 
-instance AWSRequest UpdateOrganizationConfiguration where
+instance Lude.AWSRequest UpdateOrganizationConfiguration where
   type
     Rs UpdateOrganizationConfiguration =
       UpdateOrganizationConfigurationResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateOrganizationConfigurationResponse' <$> (pure (fromEnum s))
+          UpdateOrganizationConfigurationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateOrganizationConfiguration
-
-instance NFData UpdateOrganizationConfiguration
-
-instance ToHeaders UpdateOrganizationConfiguration where
+instance Lude.ToHeaders UpdateOrganizationConfiguration where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateOrganizationConfiguration where
-  toJSON UpdateOrganizationConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("dataSources" .=) <$> _uocDataSources,
-            Just ("autoEnable" .= _uocAutoEnable)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateOrganizationConfiguration where
+instance Lude.ToJSON UpdateOrganizationConfiguration where
+  toJSON UpdateOrganizationConfiguration' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("dataSources" Lude..=) Lude.<$> dataSources,
+            Lude.Just ("autoEnable" Lude..= autoEnable)
+          ]
+      )
+
+instance Lude.ToPath UpdateOrganizationConfiguration where
   toPath UpdateOrganizationConfiguration' {..} =
-    mconcat ["/detector/", toBS _uocDetectorId, "/admin"]
+    Lude.mconcat ["/detector/", Lude.toBS detectorId, "/admin"]
 
-instance ToQuery UpdateOrganizationConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateOrganizationConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateOrganizationConfigurationResponse' smart constructor.
+-- | /See:/ 'mkUpdateOrganizationConfigurationResponse' smart constructor.
 newtype UpdateOrganizationConfigurationResponse = UpdateOrganizationConfigurationResponse'
-  { _uocrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOrganizationConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uocrsResponseStatus' - -- | The response status code.
-updateOrganizationConfigurationResponse ::
-  -- | 'uocrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateOrganizationConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateOrganizationConfigurationResponse
-updateOrganizationConfigurationResponse pResponseStatus_ =
+mkUpdateOrganizationConfigurationResponse pResponseStatus_ =
   UpdateOrganizationConfigurationResponse'
-    { _uocrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uocrsResponseStatus :: Lens' UpdateOrganizationConfigurationResponse Int
-uocrsResponseStatus = lens _uocrsResponseStatus (\s a -> s {_uocrsResponseStatus = a})
-
-instance NFData UpdateOrganizationConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uocrsResponseStatus :: Lens.Lens' UpdateOrganizationConfigurationResponse Lude.Int
+uocrsResponseStatus = Lens.lens (responseStatus :: UpdateOrganizationConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateOrganizationConfigurationResponse)
+{-# DEPRECATED uocrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

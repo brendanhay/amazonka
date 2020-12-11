@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,182 +14,199 @@
 --
 -- Lists the status of one or more table restore requests made using the 'RestoreTableFromClusterSnapshot' API action. If you don't specify a value for the @TableRestoreRequestId@ parameter, then @DescribeTableRestoreStatus@ returns the status of all table restore requests ordered by the date and time of the request in ascending order. Otherwise @DescribeTableRestoreStatus@ returns the status of the table specified by @TableRestoreRequestId@ .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeTableRestoreStatus
-  ( -- * Creating a Request
-    describeTableRestoreStatus,
-    DescribeTableRestoreStatus,
+  ( -- * Creating a request
+    DescribeTableRestoreStatus (..),
+    mkDescribeTableRestoreStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtrssTableRestoreRequestId,
     dtrssClusterIdentifier,
     dtrssMarker,
     dtrssMaxRecords,
 
-    -- * Destructuring the Response
-    describeTableRestoreStatusResponse,
-    DescribeTableRestoreStatusResponse,
+    -- * Destructuring the response
+    DescribeTableRestoreStatusResponse (..),
+    mkDescribeTableRestoreStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrsrsMarker,
     dtrsrsTableRestoreStatusDetails,
     dtrsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeTableRestoreStatus' smart constructor.
+-- /See:/ 'mkDescribeTableRestoreStatus' smart constructor.
 data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
-  { _dtrssTableRestoreRequestId ::
-      !(Maybe Text),
-    _dtrssClusterIdentifier ::
-      !(Maybe Text),
-    _dtrssMarker :: !(Maybe Text),
-    _dtrssMaxRecords :: !(Maybe Int)
+  { tableRestoreRequestId ::
+      Lude.Maybe Lude.Text,
+    clusterIdentifier ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTableRestoreStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrssTableRestoreRequestId' - The identifier of the table restore request to return status for. If you don't specify a @TableRestoreRequestId@ value, then @DescribeTableRestoreStatus@ returns the status of all in-progress table restore requests.
---
--- * 'dtrssClusterIdentifier' - The Amazon Redshift cluster that the table is being restored to.
---
--- * 'dtrssMarker' - An optional pagination token provided by a previous @DescribeTableRestoreStatus@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the @MaxRecords@ parameter.
---
--- * 'dtrssMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
-describeTableRestoreStatus ::
+-- * 'clusterIdentifier' - The Amazon Redshift cluster that the table is being restored to.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeTableRestoreStatus@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the @MaxRecords@ parameter.
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+-- * 'tableRestoreRequestId' - The identifier of the table restore request to return status for. If you don't specify a @TableRestoreRequestId@ value, then @DescribeTableRestoreStatus@ returns the status of all in-progress table restore requests.
+mkDescribeTableRestoreStatus ::
   DescribeTableRestoreStatus
-describeTableRestoreStatus =
+mkDescribeTableRestoreStatus =
   DescribeTableRestoreStatus'
-    { _dtrssTableRestoreRequestId =
-        Nothing,
-      _dtrssClusterIdentifier = Nothing,
-      _dtrssMarker = Nothing,
-      _dtrssMaxRecords = Nothing
+    { tableRestoreRequestId = Lude.Nothing,
+      clusterIdentifier = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | The identifier of the table restore request to return status for. If you don't specify a @TableRestoreRequestId@ value, then @DescribeTableRestoreStatus@ returns the status of all in-progress table restore requests.
-dtrssTableRestoreRequestId :: Lens' DescribeTableRestoreStatus (Maybe Text)
-dtrssTableRestoreRequestId = lens _dtrssTableRestoreRequestId (\s a -> s {_dtrssTableRestoreRequestId = a})
+--
+-- /Note:/ Consider using 'tableRestoreRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrssTableRestoreRequestId :: Lens.Lens' DescribeTableRestoreStatus (Lude.Maybe Lude.Text)
+dtrssTableRestoreRequestId = Lens.lens (tableRestoreRequestId :: DescribeTableRestoreStatus -> Lude.Maybe Lude.Text) (\s a -> s {tableRestoreRequestId = a} :: DescribeTableRestoreStatus)
+{-# DEPRECATED dtrssTableRestoreRequestId "Use generic-lens or generic-optics with 'tableRestoreRequestId' instead." #-}
 
 -- | The Amazon Redshift cluster that the table is being restored to.
-dtrssClusterIdentifier :: Lens' DescribeTableRestoreStatus (Maybe Text)
-dtrssClusterIdentifier = lens _dtrssClusterIdentifier (\s a -> s {_dtrssClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrssClusterIdentifier :: Lens.Lens' DescribeTableRestoreStatus (Lude.Maybe Lude.Text)
+dtrssClusterIdentifier = Lens.lens (clusterIdentifier :: DescribeTableRestoreStatus -> Lude.Maybe Lude.Text) (\s a -> s {clusterIdentifier = a} :: DescribeTableRestoreStatus)
+{-# DEPRECATED dtrssClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeTableRestoreStatus@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by the @MaxRecords@ parameter.
-dtrssMarker :: Lens' DescribeTableRestoreStatus (Maybe Text)
-dtrssMarker = lens _dtrssMarker (\s a -> s {_dtrssMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrssMarker :: Lens.Lens' DescribeTableRestoreStatus (Lude.Maybe Lude.Text)
+dtrssMarker = Lens.lens (marker :: DescribeTableRestoreStatus -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTableRestoreStatus)
+{-# DEPRECATED dtrssMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
-dtrssMaxRecords :: Lens' DescribeTableRestoreStatus (Maybe Int)
-dtrssMaxRecords = lens _dtrssMaxRecords (\s a -> s {_dtrssMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrssMaxRecords :: Lens.Lens' DescribeTableRestoreStatus (Lude.Maybe Lude.Int)
+dtrssMaxRecords = Lens.lens (maxRecords :: DescribeTableRestoreStatus -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeTableRestoreStatus)
+{-# DEPRECATED dtrssMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeTableRestoreStatus where
+instance Page.AWSPager DescribeTableRestoreStatus where
   page rq rs
-    | stop (rs ^. dtrsrsMarker) = Nothing
-    | stop (rs ^. dtrsrsTableRestoreStatusDetails) = Nothing
-    | otherwise = Just $ rq & dtrssMarker .~ rs ^. dtrsrsMarker
+    | Page.stop (rs Lens.^. dtrsrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtrsrsTableRestoreStatusDetails) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dtrssMarker Lens..~ rs Lens.^. dtrsrsMarker
 
-instance AWSRequest DescribeTableRestoreStatus where
+instance Lude.AWSRequest DescribeTableRestoreStatus where
   type
     Rs DescribeTableRestoreStatus =
       DescribeTableRestoreStatusResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeTableRestoreStatusResult"
       ( \s h x ->
           DescribeTableRestoreStatusResponse'
-            <$> (x .@? "Marker")
-            <*> ( x .@? "TableRestoreStatusDetails" .!@ mempty
-                    >>= may (parseXMLList "TableRestoreStatus")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> ( x Lude..@? "TableRestoreStatusDetails" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "TableRestoreStatus")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTableRestoreStatus
+instance Lude.ToHeaders DescribeTableRestoreStatus where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeTableRestoreStatus
+instance Lude.ToPath DescribeTableRestoreStatus where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeTableRestoreStatus where
-  toHeaders = const mempty
-
-instance ToPath DescribeTableRestoreStatus where
-  toPath = const "/"
-
-instance ToQuery DescribeTableRestoreStatus where
+instance Lude.ToQuery DescribeTableRestoreStatus where
   toQuery DescribeTableRestoreStatus' {..} =
-    mconcat
-      [ "Action" =: ("DescribeTableRestoreStatus" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "TableRestoreRequestId" =: _dtrssTableRestoreRequestId,
-        "ClusterIdentifier" =: _dtrssClusterIdentifier,
-        "Marker" =: _dtrssMarker,
-        "MaxRecords" =: _dtrssMaxRecords
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeTableRestoreStatus" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "TableRestoreRequestId" Lude.=: tableRestoreRequestId,
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- |
 --
---
---
--- /See:/ 'describeTableRestoreStatusResponse' smart constructor.
+-- /See:/ 'mkDescribeTableRestoreStatusResponse' smart constructor.
 data DescribeTableRestoreStatusResponse = DescribeTableRestoreStatusResponse'
-  { _dtrsrsMarker ::
-      !(Maybe Text),
-    _dtrsrsTableRestoreStatusDetails ::
-      !( Maybe
-           [TableRestoreStatus]
-       ),
-    _dtrsrsResponseStatus ::
-      !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    tableRestoreStatusDetails ::
+      Lude.Maybe
+        [TableRestoreStatus],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTableRestoreStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrsrsMarker' - A pagination token that can be used in a subsequent 'DescribeTableRestoreStatus' request.
---
--- * 'dtrsrsTableRestoreStatusDetails' - A list of status details for one or more table restore requests.
---
--- * 'dtrsrsResponseStatus' - -- | The response status code.
-describeTableRestoreStatusResponse ::
-  -- | 'dtrsrsResponseStatus'
-  Int ->
+-- * 'marker' - A pagination token that can be used in a subsequent 'DescribeTableRestoreStatus' request.
+-- * 'responseStatus' - The response status code.
+-- * 'tableRestoreStatusDetails' - A list of status details for one or more table restore requests.
+mkDescribeTableRestoreStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTableRestoreStatusResponse
-describeTableRestoreStatusResponse pResponseStatus_ =
+mkDescribeTableRestoreStatusResponse pResponseStatus_ =
   DescribeTableRestoreStatusResponse'
-    { _dtrsrsMarker = Nothing,
-      _dtrsrsTableRestoreStatusDetails = Nothing,
-      _dtrsrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      tableRestoreStatusDetails = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A pagination token that can be used in a subsequent 'DescribeTableRestoreStatus' request.
-dtrsrsMarker :: Lens' DescribeTableRestoreStatusResponse (Maybe Text)
-dtrsrsMarker = lens _dtrsrsMarker (\s a -> s {_dtrsrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsrsMarker :: Lens.Lens' DescribeTableRestoreStatusResponse (Lude.Maybe Lude.Text)
+dtrsrsMarker = Lens.lens (marker :: DescribeTableRestoreStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTableRestoreStatusResponse)
+{-# DEPRECATED dtrsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A list of status details for one or more table restore requests.
-dtrsrsTableRestoreStatusDetails :: Lens' DescribeTableRestoreStatusResponse [TableRestoreStatus]
-dtrsrsTableRestoreStatusDetails = lens _dtrsrsTableRestoreStatusDetails (\s a -> s {_dtrsrsTableRestoreStatusDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tableRestoreStatusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsrsTableRestoreStatusDetails :: Lens.Lens' DescribeTableRestoreStatusResponse (Lude.Maybe [TableRestoreStatus])
+dtrsrsTableRestoreStatusDetails = Lens.lens (tableRestoreStatusDetails :: DescribeTableRestoreStatusResponse -> Lude.Maybe [TableRestoreStatus]) (\s a -> s {tableRestoreStatusDetails = a} :: DescribeTableRestoreStatusResponse)
+{-# DEPRECATED dtrsrsTableRestoreStatusDetails "Use generic-lens or generic-optics with 'tableRestoreStatusDetails' instead." #-}
 
--- | -- | The response status code.
-dtrsrsResponseStatus :: Lens' DescribeTableRestoreStatusResponse Int
-dtrsrsResponseStatus = lens _dtrsrsResponseStatus (\s a -> s {_dtrsrsResponseStatus = a})
-
-instance NFData DescribeTableRestoreStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsrsResponseStatus :: Lens.Lens' DescribeTableRestoreStatusResponse Lude.Int
+dtrsrsResponseStatus = Lens.lens (responseStatus :: DescribeTableRestoreStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTableRestoreStatusResponse)
+{-# DEPRECATED dtrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor where
+module Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor
+  ( DvbSubtitleOutlineColor
+      ( DvbSubtitleOutlineColor',
+        DSOCBlack,
+        DSOCBlue,
+        DSOCGreen,
+        DSOCRed,
+        DSOCWhite,
+        DSOCYellow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-data DvbSubtitleOutlineColor
-  = DSOCBlack
-  | DSOCBlue
-  | DSOCGreen
-  | DSOCRed
-  | DSOCWhite
-  | DSOCYellow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DvbSubtitleOutlineColor = DvbSubtitleOutlineColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DvbSubtitleOutlineColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure DSOCBlack
-      "blue" -> pure DSOCBlue
-      "green" -> pure DSOCGreen
-      "red" -> pure DSOCRed
-      "white" -> pure DSOCWhite
-      "yellow" -> pure DSOCYellow
-      e ->
-        fromTextError $
-          "Failure parsing DvbSubtitleOutlineColor from value: '" <> e
-            <> "'. Accepted values: black, blue, green, red, white, yellow"
+pattern DSOCBlack :: DvbSubtitleOutlineColor
+pattern DSOCBlack = DvbSubtitleOutlineColor' "BLACK"
 
-instance ToText DvbSubtitleOutlineColor where
-  toText = \case
-    DSOCBlack -> "BLACK"
-    DSOCBlue -> "BLUE"
-    DSOCGreen -> "GREEN"
-    DSOCRed -> "RED"
-    DSOCWhite -> "WHITE"
-    DSOCYellow -> "YELLOW"
+pattern DSOCBlue :: DvbSubtitleOutlineColor
+pattern DSOCBlue = DvbSubtitleOutlineColor' "BLUE"
 
-instance Hashable DvbSubtitleOutlineColor
+pattern DSOCGreen :: DvbSubtitleOutlineColor
+pattern DSOCGreen = DvbSubtitleOutlineColor' "GREEN"
 
-instance NFData DvbSubtitleOutlineColor
+pattern DSOCRed :: DvbSubtitleOutlineColor
+pattern DSOCRed = DvbSubtitleOutlineColor' "RED"
 
-instance ToByteString DvbSubtitleOutlineColor
+pattern DSOCWhite :: DvbSubtitleOutlineColor
+pattern DSOCWhite = DvbSubtitleOutlineColor' "WHITE"
 
-instance ToQuery DvbSubtitleOutlineColor
+pattern DSOCYellow :: DvbSubtitleOutlineColor
+pattern DSOCYellow = DvbSubtitleOutlineColor' "YELLOW"
 
-instance ToHeader DvbSubtitleOutlineColor
-
-instance ToJSON DvbSubtitleOutlineColor where
-  toJSON = toJSONText
-
-instance FromJSON DvbSubtitleOutlineColor where
-  parseJSON = parseJSONText "DvbSubtitleOutlineColor"
+{-# COMPLETE
+  DSOCBlack,
+  DSOCBlue,
+  DSOCGreen,
+  DSOCRed,
+  DSOCWhite,
+  DSOCYellow,
+  DvbSubtitleOutlineColor'
+  #-}

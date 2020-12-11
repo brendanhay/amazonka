@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Types.Gender where
+module Network.AWS.Polly.Types.Gender
+  ( Gender
+      ( Gender',
+        Female,
+        Male
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Gender
-  = Female
-  | Male
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Gender = Gender' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Gender where
-  parser =
-    takeLowerText >>= \case
-      "female" -> pure Female
-      "male" -> pure Male
-      e ->
-        fromTextError $
-          "Failure parsing Gender from value: '" <> e
-            <> "'. Accepted values: female, male"
+pattern Female :: Gender
+pattern Female = Gender' "Female"
 
-instance ToText Gender where
-  toText = \case
-    Female -> "Female"
-    Male -> "Male"
+pattern Male :: Gender
+pattern Male = Gender' "Male"
 
-instance Hashable Gender
-
-instance NFData Gender
-
-instance ToByteString Gender
-
-instance ToQuery Gender
-
-instance ToHeader Gender
-
-instance FromJSON Gender where
-  parseJSON = parseJSONText "Gender"
+{-# COMPLETE
+  Female,
+  Male,
+  Gender'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,43 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsGroupSettings where
+module Network.AWS.MediaConvert.Types.HlsGroupSettings
+  ( HlsGroupSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkHlsGroupSettings,
+
+    -- * Lenses
+    hgsDirectoryStructure,
+    hgsSegmentControl,
+    hgsDestination,
+    hgsTimedMetadataId3Period,
+    hgsAdditionalManifests,
+    hgsMinSegmentLength,
+    hgsProgramDateTime,
+    hgsProgramDateTimePeriod,
+    hgsCodecSpecification,
+    hgsCaptionLanguageMappings,
+    hgsBaseURL,
+    hgsDestinationSettings,
+    hgsMinFinalSegmentLength,
+    hgsAdMarkers,
+    hgsEncryption,
+    hgsSegmentLength,
+    hgsTimedMetadataId3Frame,
+    hgsOutputSelection,
+    hgsCaptionLanguageSetting,
+    hgsSegmentsPerSubdirectory,
+    hgsManifestDurationFormat,
+    hgsAudioOnlyHeader,
+    hgsClientCache,
+    hgsTimestampDeltaMilliseconds,
+    hgsStreamInfResolution,
+    hgsManifestCompression,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.DestinationSettings
 import Network.AWS.MediaConvert.Types.HlsAdMarkers
 import Network.AWS.MediaConvert.Types.HlsAdditionalManifest
@@ -33,308 +61,361 @@ import Network.AWS.MediaConvert.Types.HlsProgramDateTime
 import Network.AWS.MediaConvert.Types.HlsSegmentControl
 import Network.AWS.MediaConvert.Types.HlsStreamInfResolution
 import Network.AWS.MediaConvert.Types.HlsTimedMetadataId3Frame
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
 --
--- /See:/ 'hlsGroupSettings' smart constructor.
+-- /See:/ 'mkHlsGroupSettings' smart constructor.
 data HlsGroupSettings = HlsGroupSettings'
-  { _hgsDirectoryStructure ::
-      !(Maybe HlsDirectoryStructure),
-    _hgsSegmentControl :: !(Maybe HlsSegmentControl),
-    _hgsDestination :: !(Maybe Text),
-    _hgsTimedMetadataId3Period :: !(Maybe Int),
-    _hgsAdditionalManifests ::
-      !(Maybe [HlsAdditionalManifest]),
-    _hgsMinSegmentLength :: !(Maybe Nat),
-    _hgsProgramDateTime :: !(Maybe HlsProgramDateTime),
-    _hgsProgramDateTimePeriod :: !(Maybe Nat),
-    _hgsCodecSpecification :: !(Maybe HlsCodecSpecification),
-    _hgsCaptionLanguageMappings ::
-      !(Maybe [HlsCaptionLanguageMapping]),
-    _hgsBaseURL :: !(Maybe Text),
-    _hgsDestinationSettings :: !(Maybe DestinationSettings),
-    _hgsMinFinalSegmentLength :: !(Maybe Double),
-    _hgsAdMarkers :: !(Maybe [HlsAdMarkers]),
-    _hgsEncryption :: !(Maybe HlsEncryptionSettings),
-    _hgsSegmentLength :: !(Maybe Nat),
-    _hgsTimedMetadataId3Frame ::
-      !(Maybe HlsTimedMetadataId3Frame),
-    _hgsOutputSelection :: !(Maybe HlsOutputSelection),
-    _hgsCaptionLanguageSetting ::
-      !(Maybe HlsCaptionLanguageSetting),
-    _hgsSegmentsPerSubdirectory :: !(Maybe Nat),
-    _hgsManifestDurationFormat ::
-      !(Maybe HlsManifestDurationFormat),
-    _hgsAudioOnlyHeader :: !(Maybe HlsAudioOnlyHeader),
-    _hgsClientCache :: !(Maybe HlsClientCache),
-    _hgsTimestampDeltaMilliseconds :: !(Maybe Int),
-    _hgsStreamInfResolution ::
-      !(Maybe HlsStreamInfResolution),
-    _hgsManifestCompression ::
-      !(Maybe HlsManifestCompression)
+  { directoryStructure ::
+      Lude.Maybe HlsDirectoryStructure,
+    segmentControl :: Lude.Maybe HlsSegmentControl,
+    destination :: Lude.Maybe Lude.Text,
+    timedMetadataId3Period :: Lude.Maybe Lude.Int,
+    additionalManifests :: Lude.Maybe [HlsAdditionalManifest],
+    minSegmentLength :: Lude.Maybe Lude.Natural,
+    programDateTime :: Lude.Maybe HlsProgramDateTime,
+    programDateTimePeriod :: Lude.Maybe Lude.Natural,
+    codecSpecification :: Lude.Maybe HlsCodecSpecification,
+    captionLanguageMappings ::
+      Lude.Maybe [HlsCaptionLanguageMapping],
+    baseURL :: Lude.Maybe Lude.Text,
+    destinationSettings :: Lude.Maybe DestinationSettings,
+    minFinalSegmentLength :: Lude.Maybe Lude.Double,
+    adMarkers :: Lude.Maybe [HlsAdMarkers],
+    encryption :: Lude.Maybe HlsEncryptionSettings,
+    segmentLength :: Lude.Maybe Lude.Natural,
+    timedMetadataId3Frame ::
+      Lude.Maybe HlsTimedMetadataId3Frame,
+    outputSelection :: Lude.Maybe HlsOutputSelection,
+    captionLanguageSetting ::
+      Lude.Maybe HlsCaptionLanguageSetting,
+    segmentsPerSubdirectory :: Lude.Maybe Lude.Natural,
+    manifestDurationFormat ::
+      Lude.Maybe HlsManifestDurationFormat,
+    audioOnlyHeader :: Lude.Maybe HlsAudioOnlyHeader,
+    clientCache :: Lude.Maybe HlsClientCache,
+    timestampDeltaMilliseconds :: Lude.Maybe Lude.Int,
+    streamInfResolution :: Lude.Maybe HlsStreamInfResolution,
+    manifestCompression :: Lude.Maybe HlsManifestCompression
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsGroupSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hgsDirectoryStructure' - Indicates whether segments should be placed in subdirectories.
---
--- * 'hgsSegmentControl' - When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
---
--- * 'hgsDestination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
---
--- * 'hgsTimedMetadataId3Period' - Timed Metadata interval in seconds.
---
--- * 'hgsAdditionalManifests' - By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
---
--- * 'hgsMinSegmentLength' - When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
---
--- * 'hgsProgramDateTime' - Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
---
--- * 'hgsProgramDateTimePeriod' - Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
---
--- * 'hgsCodecSpecification' - Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
---
--- * 'hgsCaptionLanguageMappings' - Language to be used on Caption outputs
---
--- * 'hgsBaseURL' - A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
---
--- * 'hgsDestinationSettings' - Settings associated with the destination. Will vary based on the type of destination
---
--- * 'hgsMinFinalSegmentLength' - Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
---
--- * 'hgsAdMarkers' - Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
---
--- * 'hgsEncryption' - DRM settings.
---
--- * 'hgsSegmentLength' - Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
---
--- * 'hgsTimedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
---
--- * 'hgsOutputSelection' - Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
---
--- * 'hgsCaptionLanguageSetting' - Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
---
--- * 'hgsSegmentsPerSubdirectory' - Number of segments to write to a subdirectory before starting a new one. directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect.
---
--- * 'hgsManifestDurationFormat' - Indicates whether the output manifest should use floating point values for segment duration.
---
--- * 'hgsAudioOnlyHeader' - Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to remove the audio-only headers from your audio segments.
---
--- * 'hgsClientCache' - Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.
---
--- * 'hgsTimestampDeltaMilliseconds' - Provides an extra millisecond delta offset to fine tune the timestamps.
---
--- * 'hgsStreamInfResolution' - Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
---
--- * 'hgsManifestCompression' - When set to GZIP, compresses HLS playlist.
-hlsGroupSettings ::
+-- * 'adMarkers' - Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
+-- * 'additionalManifests' - By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
+-- * 'audioOnlyHeader' - Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to remove the audio-only headers from your audio segments.
+-- * 'baseURL' - A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
+-- * 'captionLanguageMappings' - Language to be used on Caption outputs
+-- * 'captionLanguageSetting' - Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
+-- * 'clientCache' - Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.
+-- * 'codecSpecification' - Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
+-- * 'destination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+-- * 'destinationSettings' - Settings associated with the destination. Will vary based on the type of destination
+-- * 'directoryStructure' - Indicates whether segments should be placed in subdirectories.
+-- * 'encryption' - DRM settings.
+-- * 'manifestCompression' - When set to GZIP, compresses HLS playlist.
+-- * 'manifestDurationFormat' - Indicates whether the output manifest should use floating point values for segment duration.
+-- * 'minFinalSegmentLength' - Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
+-- * 'minSegmentLength' - When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
+-- * 'outputSelection' - Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
+-- * 'programDateTime' - Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
+-- * 'programDateTimePeriod' - Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
+-- * 'segmentControl' - When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
+-- * 'segmentLength' - Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
+-- * 'segmentsPerSubdirectory' - Number of segments to write to a subdirectory before starting a new one. directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect.
+-- * 'streamInfResolution' - Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
+-- * 'timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
+-- * 'timedMetadataId3Period' - Timed Metadata interval in seconds.
+-- * 'timestampDeltaMilliseconds' - Provides an extra millisecond delta offset to fine tune the timestamps.
+mkHlsGroupSettings ::
   HlsGroupSettings
-hlsGroupSettings =
+mkHlsGroupSettings =
   HlsGroupSettings'
-    { _hgsDirectoryStructure = Nothing,
-      _hgsSegmentControl = Nothing,
-      _hgsDestination = Nothing,
-      _hgsTimedMetadataId3Period = Nothing,
-      _hgsAdditionalManifests = Nothing,
-      _hgsMinSegmentLength = Nothing,
-      _hgsProgramDateTime = Nothing,
-      _hgsProgramDateTimePeriod = Nothing,
-      _hgsCodecSpecification = Nothing,
-      _hgsCaptionLanguageMappings = Nothing,
-      _hgsBaseURL = Nothing,
-      _hgsDestinationSettings = Nothing,
-      _hgsMinFinalSegmentLength = Nothing,
-      _hgsAdMarkers = Nothing,
-      _hgsEncryption = Nothing,
-      _hgsSegmentLength = Nothing,
-      _hgsTimedMetadataId3Frame = Nothing,
-      _hgsOutputSelection = Nothing,
-      _hgsCaptionLanguageSetting = Nothing,
-      _hgsSegmentsPerSubdirectory = Nothing,
-      _hgsManifestDurationFormat = Nothing,
-      _hgsAudioOnlyHeader = Nothing,
-      _hgsClientCache = Nothing,
-      _hgsTimestampDeltaMilliseconds = Nothing,
-      _hgsStreamInfResolution = Nothing,
-      _hgsManifestCompression = Nothing
+    { directoryStructure = Lude.Nothing,
+      segmentControl = Lude.Nothing,
+      destination = Lude.Nothing,
+      timedMetadataId3Period = Lude.Nothing,
+      additionalManifests = Lude.Nothing,
+      minSegmentLength = Lude.Nothing,
+      programDateTime = Lude.Nothing,
+      programDateTimePeriod = Lude.Nothing,
+      codecSpecification = Lude.Nothing,
+      captionLanguageMappings = Lude.Nothing,
+      baseURL = Lude.Nothing,
+      destinationSettings = Lude.Nothing,
+      minFinalSegmentLength = Lude.Nothing,
+      adMarkers = Lude.Nothing,
+      encryption = Lude.Nothing,
+      segmentLength = Lude.Nothing,
+      timedMetadataId3Frame = Lude.Nothing,
+      outputSelection = Lude.Nothing,
+      captionLanguageSetting = Lude.Nothing,
+      segmentsPerSubdirectory = Lude.Nothing,
+      manifestDurationFormat = Lude.Nothing,
+      audioOnlyHeader = Lude.Nothing,
+      clientCache = Lude.Nothing,
+      timestampDeltaMilliseconds = Lude.Nothing,
+      streamInfResolution = Lude.Nothing,
+      manifestCompression = Lude.Nothing
     }
 
 -- | Indicates whether segments should be placed in subdirectories.
-hgsDirectoryStructure :: Lens' HlsGroupSettings (Maybe HlsDirectoryStructure)
-hgsDirectoryStructure = lens _hgsDirectoryStructure (\s a -> s {_hgsDirectoryStructure = a})
+--
+-- /Note:/ Consider using 'directoryStructure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsDirectoryStructure :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsDirectoryStructure)
+hgsDirectoryStructure = Lens.lens (directoryStructure :: HlsGroupSettings -> Lude.Maybe HlsDirectoryStructure) (\s a -> s {directoryStructure = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsDirectoryStructure "Use generic-lens or generic-optics with 'directoryStructure' instead." #-}
 
 -- | When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
-hgsSegmentControl :: Lens' HlsGroupSettings (Maybe HlsSegmentControl)
-hgsSegmentControl = lens _hgsSegmentControl (\s a -> s {_hgsSegmentControl = a})
+--
+-- /Note:/ Consider using 'segmentControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsSegmentControl :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsSegmentControl)
+hgsSegmentControl = Lens.lens (segmentControl :: HlsGroupSettings -> Lude.Maybe HlsSegmentControl) (\s a -> s {segmentControl = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsSegmentControl "Use generic-lens or generic-optics with 'segmentControl' instead." #-}
 
 -- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
-hgsDestination :: Lens' HlsGroupSettings (Maybe Text)
-hgsDestination = lens _hgsDestination (\s a -> s {_hgsDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsDestination :: Lens.Lens' HlsGroupSettings (Lude.Maybe Lude.Text)
+hgsDestination = Lens.lens (destination :: HlsGroupSettings -> Lude.Maybe Lude.Text) (\s a -> s {destination = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | Timed Metadata interval in seconds.
-hgsTimedMetadataId3Period :: Lens' HlsGroupSettings (Maybe Int)
-hgsTimedMetadataId3Period = lens _hgsTimedMetadataId3Period (\s a -> s {_hgsTimedMetadataId3Period = a})
+--
+-- /Note:/ Consider using 'timedMetadataId3Period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsTimedMetadataId3Period :: Lens.Lens' HlsGroupSettings (Lude.Maybe Lude.Int)
+hgsTimedMetadataId3Period = Lens.lens (timedMetadataId3Period :: HlsGroupSettings -> Lude.Maybe Lude.Int) (\s a -> s {timedMetadataId3Period = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsTimedMetadataId3Period "Use generic-lens or generic-optics with 'timedMetadataId3Period' instead." #-}
 
 -- | By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
-hgsAdditionalManifests :: Lens' HlsGroupSettings [HlsAdditionalManifest]
-hgsAdditionalManifests = lens _hgsAdditionalManifests (\s a -> s {_hgsAdditionalManifests = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'additionalManifests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsAdditionalManifests :: Lens.Lens' HlsGroupSettings (Lude.Maybe [HlsAdditionalManifest])
+hgsAdditionalManifests = Lens.lens (additionalManifests :: HlsGroupSettings -> Lude.Maybe [HlsAdditionalManifest]) (\s a -> s {additionalManifests = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsAdditionalManifests "Use generic-lens or generic-optics with 'additionalManifests' instead." #-}
 
 -- | When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
-hgsMinSegmentLength :: Lens' HlsGroupSettings (Maybe Natural)
-hgsMinSegmentLength = lens _hgsMinSegmentLength (\s a -> s {_hgsMinSegmentLength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'minSegmentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsMinSegmentLength :: Lens.Lens' HlsGroupSettings (Lude.Maybe Lude.Natural)
+hgsMinSegmentLength = Lens.lens (minSegmentLength :: HlsGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {minSegmentLength = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsMinSegmentLength "Use generic-lens or generic-optics with 'minSegmentLength' instead." #-}
 
 -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
-hgsProgramDateTime :: Lens' HlsGroupSettings (Maybe HlsProgramDateTime)
-hgsProgramDateTime = lens _hgsProgramDateTime (\s a -> s {_hgsProgramDateTime = a})
+--
+-- /Note:/ Consider using 'programDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsProgramDateTime :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsProgramDateTime)
+hgsProgramDateTime = Lens.lens (programDateTime :: HlsGroupSettings -> Lude.Maybe HlsProgramDateTime) (\s a -> s {programDateTime = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsProgramDateTime "Use generic-lens or generic-optics with 'programDateTime' instead." #-}
 
 -- | Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
-hgsProgramDateTimePeriod :: Lens' HlsGroupSettings (Maybe Natural)
-hgsProgramDateTimePeriod = lens _hgsProgramDateTimePeriod (\s a -> s {_hgsProgramDateTimePeriod = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'programDateTimePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsProgramDateTimePeriod :: Lens.Lens' HlsGroupSettings (Lude.Maybe Lude.Natural)
+hgsProgramDateTimePeriod = Lens.lens (programDateTimePeriod :: HlsGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {programDateTimePeriod = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsProgramDateTimePeriod "Use generic-lens or generic-optics with 'programDateTimePeriod' instead." #-}
 
 -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
-hgsCodecSpecification :: Lens' HlsGroupSettings (Maybe HlsCodecSpecification)
-hgsCodecSpecification = lens _hgsCodecSpecification (\s a -> s {_hgsCodecSpecification = a})
+--
+-- /Note:/ Consider using 'codecSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsCodecSpecification :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsCodecSpecification)
+hgsCodecSpecification = Lens.lens (codecSpecification :: HlsGroupSettings -> Lude.Maybe HlsCodecSpecification) (\s a -> s {codecSpecification = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsCodecSpecification "Use generic-lens or generic-optics with 'codecSpecification' instead." #-}
 
 -- | Language to be used on Caption outputs
-hgsCaptionLanguageMappings :: Lens' HlsGroupSettings [HlsCaptionLanguageMapping]
-hgsCaptionLanguageMappings = lens _hgsCaptionLanguageMappings (\s a -> s {_hgsCaptionLanguageMappings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'captionLanguageMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsCaptionLanguageMappings :: Lens.Lens' HlsGroupSettings (Lude.Maybe [HlsCaptionLanguageMapping])
+hgsCaptionLanguageMappings = Lens.lens (captionLanguageMappings :: HlsGroupSettings -> Lude.Maybe [HlsCaptionLanguageMapping]) (\s a -> s {captionLanguageMappings = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsCaptionLanguageMappings "Use generic-lens or generic-optics with 'captionLanguageMappings' instead." #-}
 
 -- | A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
-hgsBaseURL :: Lens' HlsGroupSettings (Maybe Text)
-hgsBaseURL = lens _hgsBaseURL (\s a -> s {_hgsBaseURL = a})
+--
+-- /Note:/ Consider using 'baseURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsBaseURL :: Lens.Lens' HlsGroupSettings (Lude.Maybe Lude.Text)
+hgsBaseURL = Lens.lens (baseURL :: HlsGroupSettings -> Lude.Maybe Lude.Text) (\s a -> s {baseURL = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsBaseURL "Use generic-lens or generic-optics with 'baseURL' instead." #-}
 
 -- | Settings associated with the destination. Will vary based on the type of destination
-hgsDestinationSettings :: Lens' HlsGroupSettings (Maybe DestinationSettings)
-hgsDestinationSettings = lens _hgsDestinationSettings (\s a -> s {_hgsDestinationSettings = a})
+--
+-- /Note:/ Consider using 'destinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsDestinationSettings :: Lens.Lens' HlsGroupSettings (Lude.Maybe DestinationSettings)
+hgsDestinationSettings = Lens.lens (destinationSettings :: HlsGroupSettings -> Lude.Maybe DestinationSettings) (\s a -> s {destinationSettings = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsDestinationSettings "Use generic-lens or generic-optics with 'destinationSettings' instead." #-}
 
 -- | Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
-hgsMinFinalSegmentLength :: Lens' HlsGroupSettings (Maybe Double)
-hgsMinFinalSegmentLength = lens _hgsMinFinalSegmentLength (\s a -> s {_hgsMinFinalSegmentLength = a})
+--
+-- /Note:/ Consider using 'minFinalSegmentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsMinFinalSegmentLength :: Lens.Lens' HlsGroupSettings (Lude.Maybe Lude.Double)
+hgsMinFinalSegmentLength = Lens.lens (minFinalSegmentLength :: HlsGroupSettings -> Lude.Maybe Lude.Double) (\s a -> s {minFinalSegmentLength = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsMinFinalSegmentLength "Use generic-lens or generic-optics with 'minFinalSegmentLength' instead." #-}
 
 -- | Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
-hgsAdMarkers :: Lens' HlsGroupSettings [HlsAdMarkers]
-hgsAdMarkers = lens _hgsAdMarkers (\s a -> s {_hgsAdMarkers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'adMarkers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsAdMarkers :: Lens.Lens' HlsGroupSettings (Lude.Maybe [HlsAdMarkers])
+hgsAdMarkers = Lens.lens (adMarkers :: HlsGroupSettings -> Lude.Maybe [HlsAdMarkers]) (\s a -> s {adMarkers = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsAdMarkers "Use generic-lens or generic-optics with 'adMarkers' instead." #-}
 
 -- | DRM settings.
-hgsEncryption :: Lens' HlsGroupSettings (Maybe HlsEncryptionSettings)
-hgsEncryption = lens _hgsEncryption (\s a -> s {_hgsEncryption = a})
+--
+-- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsEncryption :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsEncryptionSettings)
+hgsEncryption = Lens.lens (encryption :: HlsGroupSettings -> Lude.Maybe HlsEncryptionSettings) (\s a -> s {encryption = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
 -- | Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
-hgsSegmentLength :: Lens' HlsGroupSettings (Maybe Natural)
-hgsSegmentLength = lens _hgsSegmentLength (\s a -> s {_hgsSegmentLength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'segmentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsSegmentLength :: Lens.Lens' HlsGroupSettings (Lude.Maybe Lude.Natural)
+hgsSegmentLength = Lens.lens (segmentLength :: HlsGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {segmentLength = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsSegmentLength "Use generic-lens or generic-optics with 'segmentLength' instead." #-}
 
 -- | Indicates ID3 frame that has the timecode.
-hgsTimedMetadataId3Frame :: Lens' HlsGroupSettings (Maybe HlsTimedMetadataId3Frame)
-hgsTimedMetadataId3Frame = lens _hgsTimedMetadataId3Frame (\s a -> s {_hgsTimedMetadataId3Frame = a})
+--
+-- /Note:/ Consider using 'timedMetadataId3Frame' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsTimedMetadataId3Frame :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsTimedMetadataId3Frame)
+hgsTimedMetadataId3Frame = Lens.lens (timedMetadataId3Frame :: HlsGroupSettings -> Lude.Maybe HlsTimedMetadataId3Frame) (\s a -> s {timedMetadataId3Frame = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsTimedMetadataId3Frame "Use generic-lens or generic-optics with 'timedMetadataId3Frame' instead." #-}
 
 -- | Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
-hgsOutputSelection :: Lens' HlsGroupSettings (Maybe HlsOutputSelection)
-hgsOutputSelection = lens _hgsOutputSelection (\s a -> s {_hgsOutputSelection = a})
+--
+-- /Note:/ Consider using 'outputSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsOutputSelection :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsOutputSelection)
+hgsOutputSelection = Lens.lens (outputSelection :: HlsGroupSettings -> Lude.Maybe HlsOutputSelection) (\s a -> s {outputSelection = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsOutputSelection "Use generic-lens or generic-optics with 'outputSelection' instead." #-}
 
 -- | Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
-hgsCaptionLanguageSetting :: Lens' HlsGroupSettings (Maybe HlsCaptionLanguageSetting)
-hgsCaptionLanguageSetting = lens _hgsCaptionLanguageSetting (\s a -> s {_hgsCaptionLanguageSetting = a})
+--
+-- /Note:/ Consider using 'captionLanguageSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsCaptionLanguageSetting :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsCaptionLanguageSetting)
+hgsCaptionLanguageSetting = Lens.lens (captionLanguageSetting :: HlsGroupSettings -> Lude.Maybe HlsCaptionLanguageSetting) (\s a -> s {captionLanguageSetting = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsCaptionLanguageSetting "Use generic-lens or generic-optics with 'captionLanguageSetting' instead." #-}
 
 -- | Number of segments to write to a subdirectory before starting a new one. directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect.
-hgsSegmentsPerSubdirectory :: Lens' HlsGroupSettings (Maybe Natural)
-hgsSegmentsPerSubdirectory = lens _hgsSegmentsPerSubdirectory (\s a -> s {_hgsSegmentsPerSubdirectory = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'segmentsPerSubdirectory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsSegmentsPerSubdirectory :: Lens.Lens' HlsGroupSettings (Lude.Maybe Lude.Natural)
+hgsSegmentsPerSubdirectory = Lens.lens (segmentsPerSubdirectory :: HlsGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {segmentsPerSubdirectory = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsSegmentsPerSubdirectory "Use generic-lens or generic-optics with 'segmentsPerSubdirectory' instead." #-}
 
 -- | Indicates whether the output manifest should use floating point values for segment duration.
-hgsManifestDurationFormat :: Lens' HlsGroupSettings (Maybe HlsManifestDurationFormat)
-hgsManifestDurationFormat = lens _hgsManifestDurationFormat (\s a -> s {_hgsManifestDurationFormat = a})
+--
+-- /Note:/ Consider using 'manifestDurationFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsManifestDurationFormat :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsManifestDurationFormat)
+hgsManifestDurationFormat = Lens.lens (manifestDurationFormat :: HlsGroupSettings -> Lude.Maybe HlsManifestDurationFormat) (\s a -> s {manifestDurationFormat = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsManifestDurationFormat "Use generic-lens or generic-optics with 'manifestDurationFormat' instead." #-}
 
 -- | Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to remove the audio-only headers from your audio segments.
-hgsAudioOnlyHeader :: Lens' HlsGroupSettings (Maybe HlsAudioOnlyHeader)
-hgsAudioOnlyHeader = lens _hgsAudioOnlyHeader (\s a -> s {_hgsAudioOnlyHeader = a})
+--
+-- /Note:/ Consider using 'audioOnlyHeader' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsAudioOnlyHeader :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsAudioOnlyHeader)
+hgsAudioOnlyHeader = Lens.lens (audioOnlyHeader :: HlsGroupSettings -> Lude.Maybe HlsAudioOnlyHeader) (\s a -> s {audioOnlyHeader = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsAudioOnlyHeader "Use generic-lens or generic-optics with 'audioOnlyHeader' instead." #-}
 
 -- | Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.
-hgsClientCache :: Lens' HlsGroupSettings (Maybe HlsClientCache)
-hgsClientCache = lens _hgsClientCache (\s a -> s {_hgsClientCache = a})
+--
+-- /Note:/ Consider using 'clientCache' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsClientCache :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsClientCache)
+hgsClientCache = Lens.lens (clientCache :: HlsGroupSettings -> Lude.Maybe HlsClientCache) (\s a -> s {clientCache = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsClientCache "Use generic-lens or generic-optics with 'clientCache' instead." #-}
 
 -- | Provides an extra millisecond delta offset to fine tune the timestamps.
-hgsTimestampDeltaMilliseconds :: Lens' HlsGroupSettings (Maybe Int)
-hgsTimestampDeltaMilliseconds = lens _hgsTimestampDeltaMilliseconds (\s a -> s {_hgsTimestampDeltaMilliseconds = a})
+--
+-- /Note:/ Consider using 'timestampDeltaMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsTimestampDeltaMilliseconds :: Lens.Lens' HlsGroupSettings (Lude.Maybe Lude.Int)
+hgsTimestampDeltaMilliseconds = Lens.lens (timestampDeltaMilliseconds :: HlsGroupSettings -> Lude.Maybe Lude.Int) (\s a -> s {timestampDeltaMilliseconds = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsTimestampDeltaMilliseconds "Use generic-lens or generic-optics with 'timestampDeltaMilliseconds' instead." #-}
 
 -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
-hgsStreamInfResolution :: Lens' HlsGroupSettings (Maybe HlsStreamInfResolution)
-hgsStreamInfResolution = lens _hgsStreamInfResolution (\s a -> s {_hgsStreamInfResolution = a})
+--
+-- /Note:/ Consider using 'streamInfResolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsStreamInfResolution :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsStreamInfResolution)
+hgsStreamInfResolution = Lens.lens (streamInfResolution :: HlsGroupSettings -> Lude.Maybe HlsStreamInfResolution) (\s a -> s {streamInfResolution = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsStreamInfResolution "Use generic-lens or generic-optics with 'streamInfResolution' instead." #-}
 
 -- | When set to GZIP, compresses HLS playlist.
-hgsManifestCompression :: Lens' HlsGroupSettings (Maybe HlsManifestCompression)
-hgsManifestCompression = lens _hgsManifestCompression (\s a -> s {_hgsManifestCompression = a})
+--
+-- /Note:/ Consider using 'manifestCompression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hgsManifestCompression :: Lens.Lens' HlsGroupSettings (Lude.Maybe HlsManifestCompression)
+hgsManifestCompression = Lens.lens (manifestCompression :: HlsGroupSettings -> Lude.Maybe HlsManifestCompression) (\s a -> s {manifestCompression = a} :: HlsGroupSettings)
+{-# DEPRECATED hgsManifestCompression "Use generic-lens or generic-optics with 'manifestCompression' instead." #-}
 
-instance FromJSON HlsGroupSettings where
+instance Lude.FromJSON HlsGroupSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "HlsGroupSettings"
       ( \x ->
           HlsGroupSettings'
-            <$> (x .:? "directoryStructure")
-            <*> (x .:? "segmentControl")
-            <*> (x .:? "destination")
-            <*> (x .:? "timedMetadataId3Period")
-            <*> (x .:? "additionalManifests" .!= mempty)
-            <*> (x .:? "minSegmentLength")
-            <*> (x .:? "programDateTime")
-            <*> (x .:? "programDateTimePeriod")
-            <*> (x .:? "codecSpecification")
-            <*> (x .:? "captionLanguageMappings" .!= mempty)
-            <*> (x .:? "baseUrl")
-            <*> (x .:? "destinationSettings")
-            <*> (x .:? "minFinalSegmentLength")
-            <*> (x .:? "adMarkers" .!= mempty)
-            <*> (x .:? "encryption")
-            <*> (x .:? "segmentLength")
-            <*> (x .:? "timedMetadataId3Frame")
-            <*> (x .:? "outputSelection")
-            <*> (x .:? "captionLanguageSetting")
-            <*> (x .:? "segmentsPerSubdirectory")
-            <*> (x .:? "manifestDurationFormat")
-            <*> (x .:? "audioOnlyHeader")
-            <*> (x .:? "clientCache")
-            <*> (x .:? "timestampDeltaMilliseconds")
-            <*> (x .:? "streamInfResolution")
-            <*> (x .:? "manifestCompression")
+            Lude.<$> (x Lude..:? "directoryStructure")
+            Lude.<*> (x Lude..:? "segmentControl")
+            Lude.<*> (x Lude..:? "destination")
+            Lude.<*> (x Lude..:? "timedMetadataId3Period")
+            Lude.<*> (x Lude..:? "additionalManifests" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "minSegmentLength")
+            Lude.<*> (x Lude..:? "programDateTime")
+            Lude.<*> (x Lude..:? "programDateTimePeriod")
+            Lude.<*> (x Lude..:? "codecSpecification")
+            Lude.<*> (x Lude..:? "captionLanguageMappings" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "baseUrl")
+            Lude.<*> (x Lude..:? "destinationSettings")
+            Lude.<*> (x Lude..:? "minFinalSegmentLength")
+            Lude.<*> (x Lude..:? "adMarkers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "encryption")
+            Lude.<*> (x Lude..:? "segmentLength")
+            Lude.<*> (x Lude..:? "timedMetadataId3Frame")
+            Lude.<*> (x Lude..:? "outputSelection")
+            Lude.<*> (x Lude..:? "captionLanguageSetting")
+            Lude.<*> (x Lude..:? "segmentsPerSubdirectory")
+            Lude.<*> (x Lude..:? "manifestDurationFormat")
+            Lude.<*> (x Lude..:? "audioOnlyHeader")
+            Lude.<*> (x Lude..:? "clientCache")
+            Lude.<*> (x Lude..:? "timestampDeltaMilliseconds")
+            Lude.<*> (x Lude..:? "streamInfResolution")
+            Lude.<*> (x Lude..:? "manifestCompression")
       )
 
-instance Hashable HlsGroupSettings
-
-instance NFData HlsGroupSettings
-
-instance ToJSON HlsGroupSettings where
+instance Lude.ToJSON HlsGroupSettings where
   toJSON HlsGroupSettings' {..} =
-    object
-      ( catMaybes
-          [ ("directoryStructure" .=) <$> _hgsDirectoryStructure,
-            ("segmentControl" .=) <$> _hgsSegmentControl,
-            ("destination" .=) <$> _hgsDestination,
-            ("timedMetadataId3Period" .=) <$> _hgsTimedMetadataId3Period,
-            ("additionalManifests" .=) <$> _hgsAdditionalManifests,
-            ("minSegmentLength" .=) <$> _hgsMinSegmentLength,
-            ("programDateTime" .=) <$> _hgsProgramDateTime,
-            ("programDateTimePeriod" .=) <$> _hgsProgramDateTimePeriod,
-            ("codecSpecification" .=) <$> _hgsCodecSpecification,
-            ("captionLanguageMappings" .=) <$> _hgsCaptionLanguageMappings,
-            ("baseUrl" .=) <$> _hgsBaseURL,
-            ("destinationSettings" .=) <$> _hgsDestinationSettings,
-            ("minFinalSegmentLength" .=) <$> _hgsMinFinalSegmentLength,
-            ("adMarkers" .=) <$> _hgsAdMarkers,
-            ("encryption" .=) <$> _hgsEncryption,
-            ("segmentLength" .=) <$> _hgsSegmentLength,
-            ("timedMetadataId3Frame" .=) <$> _hgsTimedMetadataId3Frame,
-            ("outputSelection" .=) <$> _hgsOutputSelection,
-            ("captionLanguageSetting" .=) <$> _hgsCaptionLanguageSetting,
-            ("segmentsPerSubdirectory" .=) <$> _hgsSegmentsPerSubdirectory,
-            ("manifestDurationFormat" .=) <$> _hgsManifestDurationFormat,
-            ("audioOnlyHeader" .=) <$> _hgsAudioOnlyHeader,
-            ("clientCache" .=) <$> _hgsClientCache,
-            ("timestampDeltaMilliseconds" .=)
-              <$> _hgsTimestampDeltaMilliseconds,
-            ("streamInfResolution" .=) <$> _hgsStreamInfResolution,
-            ("manifestCompression" .=) <$> _hgsManifestCompression
+    Lude.object
+      ( Lude.catMaybes
+          [ ("directoryStructure" Lude..=) Lude.<$> directoryStructure,
+            ("segmentControl" Lude..=) Lude.<$> segmentControl,
+            ("destination" Lude..=) Lude.<$> destination,
+            ("timedMetadataId3Period" Lude..=) Lude.<$> timedMetadataId3Period,
+            ("additionalManifests" Lude..=) Lude.<$> additionalManifests,
+            ("minSegmentLength" Lude..=) Lude.<$> minSegmentLength,
+            ("programDateTime" Lude..=) Lude.<$> programDateTime,
+            ("programDateTimePeriod" Lude..=) Lude.<$> programDateTimePeriod,
+            ("codecSpecification" Lude..=) Lude.<$> codecSpecification,
+            ("captionLanguageMappings" Lude..=)
+              Lude.<$> captionLanguageMappings,
+            ("baseUrl" Lude..=) Lude.<$> baseURL,
+            ("destinationSettings" Lude..=) Lude.<$> destinationSettings,
+            ("minFinalSegmentLength" Lude..=) Lude.<$> minFinalSegmentLength,
+            ("adMarkers" Lude..=) Lude.<$> adMarkers,
+            ("encryption" Lude..=) Lude.<$> encryption,
+            ("segmentLength" Lude..=) Lude.<$> segmentLength,
+            ("timedMetadataId3Frame" Lude..=) Lude.<$> timedMetadataId3Frame,
+            ("outputSelection" Lude..=) Lude.<$> outputSelection,
+            ("captionLanguageSetting" Lude..=) Lude.<$> captionLanguageSetting,
+            ("segmentsPerSubdirectory" Lude..=)
+              Lude.<$> segmentsPerSubdirectory,
+            ("manifestDurationFormat" Lude..=) Lude.<$> manifestDurationFormat,
+            ("audioOnlyHeader" Lude..=) Lude.<$> audioOnlyHeader,
+            ("clientCache" Lude..=) Lude.<$> clientCache,
+            ("timestampDeltaMilliseconds" Lude..=)
+              Lude.<$> timestampDeltaMilliseconds,
+            ("streamInfResolution" Lude..=) Lude.<$> streamInfResolution,
+            ("manifestCompression" Lude..=) Lude.<$> manifestCompression
           ]
       )

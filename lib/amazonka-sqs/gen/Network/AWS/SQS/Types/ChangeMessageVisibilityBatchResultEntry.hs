@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry where
+module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry
+  ( ChangeMessageVisibilityBatchResultEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkChangeMessageVisibilityBatchResultEntry,
+
+    -- * Lenses
+    cmvbreId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encloses the @Id@ of an entry in @'ChangeMessageVisibilityBatch' .@
 --
---
---
--- /See:/ 'changeMessageVisibilityBatchResultEntry' smart constructor.
+-- /See:/ 'mkChangeMessageVisibilityBatchResultEntry' smart constructor.
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'
-  { _cmvbreId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeMessageVisibilityBatchResultEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmvbreId' - Represents a message whose visibility timeout has been changed successfully.
-changeMessageVisibilityBatchResultEntry ::
-  -- | 'cmvbreId'
-  Text ->
+-- * 'id' - Represents a message whose visibility timeout has been changed successfully.
+mkChangeMessageVisibilityBatchResultEntry ::
+  -- | 'id'
+  Lude.Text ->
   ChangeMessageVisibilityBatchResultEntry
-changeMessageVisibilityBatchResultEntry pId_ =
-  ChangeMessageVisibilityBatchResultEntry' {_cmvbreId = pId_}
+mkChangeMessageVisibilityBatchResultEntry pId_ =
+  ChangeMessageVisibilityBatchResultEntry' {id = pId_}
 
 -- | Represents a message whose visibility timeout has been changed successfully.
-cmvbreId :: Lens' ChangeMessageVisibilityBatchResultEntry Text
-cmvbreId = lens _cmvbreId (\s a -> s {_cmvbreId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmvbreId :: Lens.Lens' ChangeMessageVisibilityBatchResultEntry Lude.Text
+cmvbreId = Lens.lens (id :: ChangeMessageVisibilityBatchResultEntry -> Lude.Text) (\s a -> s {id = a} :: ChangeMessageVisibilityBatchResultEntry)
+{-# DEPRECATED cmvbreId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromXML ChangeMessageVisibilityBatchResultEntry where
+instance Lude.FromXML ChangeMessageVisibilityBatchResultEntry where
   parseXML x =
-    ChangeMessageVisibilityBatchResultEntry' <$> (x .@ "Id")
-
-instance Hashable ChangeMessageVisibilityBatchResultEntry
-
-instance NFData ChangeMessageVisibilityBatchResultEntry
+    ChangeMessageVisibilityBatchResultEntry'
+      Lude.<$> (x Lude..@ "Id")

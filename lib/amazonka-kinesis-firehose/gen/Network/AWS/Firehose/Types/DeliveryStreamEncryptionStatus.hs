@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.DeliveryStreamEncryptionStatus where
+module Network.AWS.Firehose.Types.DeliveryStreamEncryptionStatus
+  ( DeliveryStreamEncryptionStatus
+      ( DeliveryStreamEncryptionStatus',
+        DSESDisabled,
+        DSESDisabling,
+        DSESDisablingFailed,
+        DSESEnabled,
+        DSESEnabling,
+        DSESEnablingFailed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeliveryStreamEncryptionStatus
-  = DSESDisabled
-  | DSESDisabling
-  | DSESDisablingFailed
-  | DSESEnabled
-  | DSESEnabling
-  | DSESEnablingFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeliveryStreamEncryptionStatus = DeliveryStreamEncryptionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeliveryStreamEncryptionStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure DSESDisabled
-      "disabling" -> pure DSESDisabling
-      "disabling_failed" -> pure DSESDisablingFailed
-      "enabled" -> pure DSESEnabled
-      "enabling" -> pure DSESEnabling
-      "enabling_failed" -> pure DSESEnablingFailed
-      e ->
-        fromTextError $
-          "Failure parsing DeliveryStreamEncryptionStatus from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, disabling_failed, enabled, enabling, enabling_failed"
+pattern DSESDisabled :: DeliveryStreamEncryptionStatus
+pattern DSESDisabled = DeliveryStreamEncryptionStatus' "DISABLED"
 
-instance ToText DeliveryStreamEncryptionStatus where
-  toText = \case
-    DSESDisabled -> "DISABLED"
-    DSESDisabling -> "DISABLING"
-    DSESDisablingFailed -> "DISABLING_FAILED"
-    DSESEnabled -> "ENABLED"
-    DSESEnabling -> "ENABLING"
-    DSESEnablingFailed -> "ENABLING_FAILED"
+pattern DSESDisabling :: DeliveryStreamEncryptionStatus
+pattern DSESDisabling = DeliveryStreamEncryptionStatus' "DISABLING"
 
-instance Hashable DeliveryStreamEncryptionStatus
+pattern DSESDisablingFailed :: DeliveryStreamEncryptionStatus
+pattern DSESDisablingFailed = DeliveryStreamEncryptionStatus' "DISABLING_FAILED"
 
-instance NFData DeliveryStreamEncryptionStatus
+pattern DSESEnabled :: DeliveryStreamEncryptionStatus
+pattern DSESEnabled = DeliveryStreamEncryptionStatus' "ENABLED"
 
-instance ToByteString DeliveryStreamEncryptionStatus
+pattern DSESEnabling :: DeliveryStreamEncryptionStatus
+pattern DSESEnabling = DeliveryStreamEncryptionStatus' "ENABLING"
 
-instance ToQuery DeliveryStreamEncryptionStatus
+pattern DSESEnablingFailed :: DeliveryStreamEncryptionStatus
+pattern DSESEnablingFailed = DeliveryStreamEncryptionStatus' "ENABLING_FAILED"
 
-instance ToHeader DeliveryStreamEncryptionStatus
-
-instance FromJSON DeliveryStreamEncryptionStatus where
-  parseJSON = parseJSONText "DeliveryStreamEncryptionStatus"
+{-# COMPLETE
+  DSESDisabled,
+  DSESDisabling,
+  DSESDisablingFailed,
+  DSESEnabled,
+  DSESEnabling,
+  DSESEnablingFailed,
+  DeliveryStreamEncryptionStatus'
+  #-}

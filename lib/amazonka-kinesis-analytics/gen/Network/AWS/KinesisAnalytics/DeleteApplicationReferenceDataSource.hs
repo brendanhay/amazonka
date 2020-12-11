@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,165 +14,174 @@
 --
 -- Deletes a reference data source configuration from the specified application configuration.
 --
---
 -- If the application is running, Amazon Kinesis Analytics immediately removes the in-application table that you created using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource> operation.
---
 -- This operation requires permissions to perform the @kinesisanalytics.DeleteApplicationReferenceDataSource@ action.
 module Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
-  ( -- * Creating a Request
-    deleteApplicationReferenceDataSource,
-    DeleteApplicationReferenceDataSource,
+  ( -- * Creating a request
+    DeleteApplicationReferenceDataSource (..),
+    mkDeleteApplicationReferenceDataSource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dardsApplicationName,
     dardsCurrentApplicationVersionId,
     dardsReferenceId,
 
-    -- * Destructuring the Response
-    deleteApplicationReferenceDataSourceResponse,
-    DeleteApplicationReferenceDataSourceResponse,
+    -- * Destructuring the response
+    DeleteApplicationReferenceDataSourceResponse (..),
+    mkDeleteApplicationReferenceDataSourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dardsrsResponseStatus,
   )
 where
 
 import Network.AWS.KinesisAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteApplicationReferenceDataSource' smart constructor.
+-- | /See:/ 'mkDeleteApplicationReferenceDataSource' smart constructor.
 data DeleteApplicationReferenceDataSource = DeleteApplicationReferenceDataSource'
-  { _dardsApplicationName ::
-      !Text,
-    _dardsCurrentApplicationVersionId ::
-      !Nat,
-    _dardsReferenceId ::
-      !Text
+  { applicationName ::
+      Lude.Text,
+    currentApplicationVersionId ::
+      Lude.Natural,
+    referenceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationReferenceDataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dardsApplicationName' - Name of an existing application.
---
--- * 'dardsCurrentApplicationVersionId' - Version of the application. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
---
--- * 'dardsReferenceId' - ID of the reference data source. When you add a reference data source to your application using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource> , Amazon Kinesis Analytics assigns an ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the reference ID.
-deleteApplicationReferenceDataSource ::
-  -- | 'dardsApplicationName'
-  Text ->
-  -- | 'dardsCurrentApplicationVersionId'
-  Natural ->
-  -- | 'dardsReferenceId'
-  Text ->
+-- * 'applicationName' - Name of an existing application.
+-- * 'currentApplicationVersionId' - Version of the application. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
+-- * 'referenceId' - ID of the reference data source. When you add a reference data source to your application using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource> , Amazon Kinesis Analytics assigns an ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the reference ID.
+mkDeleteApplicationReferenceDataSource ::
+  -- | 'applicationName'
+  Lude.Text ->
+  -- | 'currentApplicationVersionId'
+  Lude.Natural ->
+  -- | 'referenceId'
+  Lude.Text ->
   DeleteApplicationReferenceDataSource
-deleteApplicationReferenceDataSource
+mkDeleteApplicationReferenceDataSource
   pApplicationName_
   pCurrentApplicationVersionId_
   pReferenceId_ =
     DeleteApplicationReferenceDataSource'
-      { _dardsApplicationName =
+      { applicationName =
           pApplicationName_,
-        _dardsCurrentApplicationVersionId =
-          _Nat # pCurrentApplicationVersionId_,
-        _dardsReferenceId = pReferenceId_
+        currentApplicationVersionId =
+          pCurrentApplicationVersionId_,
+        referenceId = pReferenceId_
       }
 
 -- | Name of an existing application.
-dardsApplicationName :: Lens' DeleteApplicationReferenceDataSource Text
-dardsApplicationName = lens _dardsApplicationName (\s a -> s {_dardsApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dardsApplicationName :: Lens.Lens' DeleteApplicationReferenceDataSource Lude.Text
+dardsApplicationName = Lens.lens (applicationName :: DeleteApplicationReferenceDataSource -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteApplicationReferenceDataSource)
+{-# DEPRECATED dardsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Version of the application. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
-dardsCurrentApplicationVersionId :: Lens' DeleteApplicationReferenceDataSource Natural
-dardsCurrentApplicationVersionId = lens _dardsCurrentApplicationVersionId (\s a -> s {_dardsCurrentApplicationVersionId = a}) . _Nat
+--
+-- /Note:/ Consider using 'currentApplicationVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dardsCurrentApplicationVersionId :: Lens.Lens' DeleteApplicationReferenceDataSource Lude.Natural
+dardsCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: DeleteApplicationReferenceDataSource -> Lude.Natural) (\s a -> s {currentApplicationVersionId = a} :: DeleteApplicationReferenceDataSource)
+{-# DEPRECATED dardsCurrentApplicationVersionId "Use generic-lens or generic-optics with 'currentApplicationVersionId' instead." #-}
 
 -- | ID of the reference data source. When you add a reference data source to your application using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource> , Amazon Kinesis Analytics assigns an ID. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the reference ID.
-dardsReferenceId :: Lens' DeleteApplicationReferenceDataSource Text
-dardsReferenceId = lens _dardsReferenceId (\s a -> s {_dardsReferenceId = a})
+--
+-- /Note:/ Consider using 'referenceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dardsReferenceId :: Lens.Lens' DeleteApplicationReferenceDataSource Lude.Text
+dardsReferenceId = Lens.lens (referenceId :: DeleteApplicationReferenceDataSource -> Lude.Text) (\s a -> s {referenceId = a} :: DeleteApplicationReferenceDataSource)
+{-# DEPRECATED dardsReferenceId "Use generic-lens or generic-optics with 'referenceId' instead." #-}
 
-instance AWSRequest DeleteApplicationReferenceDataSource where
+instance Lude.AWSRequest DeleteApplicationReferenceDataSource where
   type
     Rs DeleteApplicationReferenceDataSource =
       DeleteApplicationReferenceDataSourceResponse
-  request = postJSON kinesisAnalytics
+  request = Req.postJSON kinesisAnalyticsService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           DeleteApplicationReferenceDataSourceResponse'
-            <$> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteApplicationReferenceDataSource
-
-instance NFData DeleteApplicationReferenceDataSource
-
-instance ToHeaders DeleteApplicationReferenceDataSource where
+instance Lude.ToHeaders DeleteApplicationReferenceDataSource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "KinesisAnalytics_20150814.DeleteApplicationReferenceDataSource" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "KinesisAnalytics_20150814.DeleteApplicationReferenceDataSource" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteApplicationReferenceDataSource where
+instance Lude.ToJSON DeleteApplicationReferenceDataSource where
   toJSON DeleteApplicationReferenceDataSource' {..} =
-    object
-      ( catMaybes
-          [ Just ("ApplicationName" .= _dardsApplicationName),
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ApplicationName" Lude..= applicationName),
+            Lude.Just
               ( "CurrentApplicationVersionId"
-                  .= _dardsCurrentApplicationVersionId
+                  Lude..= currentApplicationVersionId
               ),
-            Just ("ReferenceId" .= _dardsReferenceId)
+            Lude.Just ("ReferenceId" Lude..= referenceId)
           ]
       )
 
-instance ToPath DeleteApplicationReferenceDataSource where
-  toPath = const "/"
+instance Lude.ToPath DeleteApplicationReferenceDataSource where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteApplicationReferenceDataSource where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteApplicationReferenceDataSource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteApplicationReferenceDataSourceResponse' smart constructor.
+-- | /See:/ 'mkDeleteApplicationReferenceDataSourceResponse' smart constructor.
 newtype DeleteApplicationReferenceDataSourceResponse = DeleteApplicationReferenceDataSourceResponse'
-  { _dardsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeleteApplicationReferenceDataSourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dardsrsResponseStatus' - -- | The response status code.
-deleteApplicationReferenceDataSourceResponse ::
-  -- | 'dardsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteApplicationReferenceDataSourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteApplicationReferenceDataSourceResponse
-deleteApplicationReferenceDataSourceResponse pResponseStatus_ =
+mkDeleteApplicationReferenceDataSourceResponse pResponseStatus_ =
   DeleteApplicationReferenceDataSourceResponse'
-    { _dardsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dardsrsResponseStatus :: Lens' DeleteApplicationReferenceDataSourceResponse Int
-dardsrsResponseStatus = lens _dardsrsResponseStatus (\s a -> s {_dardsrsResponseStatus = a})
-
-instance NFData DeleteApplicationReferenceDataSourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dardsrsResponseStatus :: Lens.Lens' DeleteApplicationReferenceDataSourceResponse Lude.Int
+dardsrsResponseStatus = Lens.lens (responseStatus :: DeleteApplicationReferenceDataSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteApplicationReferenceDataSourceResponse)
+{-# DEPRECATED dardsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,80 +14,87 @@
 --
 -- The @CreateDomain@ operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The @CreateDomain@ operation may take 10 or more seconds to complete.
 --
---
 -- The client can create up to 100 domains per account.
---
 -- If the client requires additional domains, go to <http://aws.amazon.com/contact-us/simpledb-limit-request/ http://aws.amazon.com/contact-us/simpledb-limit-request/> .
 module Network.AWS.SDB.CreateDomain
-  ( -- * Creating a Request
-    createDomain,
-    CreateDomain,
+  ( -- * Creating a request
+    CreateDomain (..),
+    mkCreateDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdDomainName,
 
-    -- * Destructuring the Response
-    createDomainResponse,
-    CreateDomainResponse,
+    -- * Destructuring the response
+    CreateDomainResponse (..),
+    mkCreateDomainResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SDB.Types
 
--- | /See:/ 'createDomain' smart constructor.
-newtype CreateDomain = CreateDomain' {_cdDomainName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkCreateDomain' smart constructor.
+newtype CreateDomain = CreateDomain' {domainName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdDomainName' - The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
-createDomain ::
-  -- | 'cdDomainName'
-  Text ->
+-- * 'domainName' - The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
+mkCreateDomain ::
+  -- | 'domainName'
+  Lude.Text ->
   CreateDomain
-createDomain pDomainName_ =
-  CreateDomain' {_cdDomainName = pDomainName_}
+mkCreateDomain pDomainName_ =
+  CreateDomain' {domainName = pDomainName_}
 
 -- | The name of the domain to create. The name can range between 3 and 255 characters and can contain the following characters: a-z, A-Z, 0-9, '_', '-', and '.'.
-cdDomainName :: Lens' CreateDomain Text
-cdDomainName = lens _cdDomainName (\s a -> s {_cdDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDomainName :: Lens.Lens' CreateDomain Lude.Text
+cdDomainName = Lens.lens (domainName :: CreateDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomain)
+{-# DEPRECATED cdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest CreateDomain where
+instance Lude.AWSRequest CreateDomain where
   type Rs CreateDomain = CreateDomainResponse
-  request = postQuery sdb
-  response = receiveNull CreateDomainResponse'
+  request = Req.postQuery sdbService
+  response = Res.receiveNull CreateDomainResponse'
 
-instance Hashable CreateDomain
+instance Lude.ToHeaders CreateDomain where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateDomain
+instance Lude.ToPath CreateDomain where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateDomain where
-  toHeaders = const mempty
-
-instance ToPath CreateDomain where
-  toPath = const "/"
-
-instance ToQuery CreateDomain where
+instance Lude.ToQuery CreateDomain where
   toQuery CreateDomain' {..} =
-    mconcat
-      [ "Action" =: ("CreateDomain" :: ByteString),
-        "Version" =: ("2009-04-15" :: ByteString),
-        "DomainName" =: _cdDomainName
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateDomain" :: Lude.ByteString),
+        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
+        "DomainName" Lude.=: domainName
       ]
 
--- | /See:/ 'createDomainResponse' smart constructor.
+-- | /See:/ 'mkCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
-createDomainResponse ::
+mkCreateDomainResponse ::
   CreateDomainResponse
-createDomainResponse = CreateDomainResponse'
-
-instance NFData CreateDomainResponse
+mkCreateDomainResponse = CreateDomainResponse'

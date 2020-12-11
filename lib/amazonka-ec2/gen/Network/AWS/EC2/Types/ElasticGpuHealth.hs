@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ElasticGpuHealth where
+module Network.AWS.EC2.Types.ElasticGpuHealth
+  ( ElasticGpuHealth (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkElasticGpuHealth,
+
+    -- * Lenses
+    eghStatus,
+  )
+where
+
 import Network.AWS.EC2.Types.ElasticGpuStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the status of an Elastic Graphics accelerator.
 --
---
---
--- /See:/ 'elasticGpuHealth' smart constructor.
+-- /See:/ 'mkElasticGpuHealth' smart constructor.
 newtype ElasticGpuHealth = ElasticGpuHealth'
-  { _eghStatus ::
-      Maybe ElasticGpuStatus
+  { status ::
+      Lude.Maybe ElasticGpuStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticGpuHealth' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eghStatus' - The health status.
-elasticGpuHealth ::
+-- * 'status' - The health status.
+mkElasticGpuHealth ::
   ElasticGpuHealth
-elasticGpuHealth = ElasticGpuHealth' {_eghStatus = Nothing}
+mkElasticGpuHealth = ElasticGpuHealth' {status = Lude.Nothing}
 
 -- | The health status.
-eghStatus :: Lens' ElasticGpuHealth (Maybe ElasticGpuStatus)
-eghStatus = lens _eghStatus (\s a -> s {_eghStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eghStatus :: Lens.Lens' ElasticGpuHealth (Lude.Maybe ElasticGpuStatus)
+eghStatus = Lens.lens (status :: ElasticGpuHealth -> Lude.Maybe ElasticGpuStatus) (\s a -> s {status = a} :: ElasticGpuHealth)
+{-# DEPRECATED eghStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML ElasticGpuHealth where
-  parseXML x = ElasticGpuHealth' <$> (x .@? "status")
-
-instance Hashable ElasticGpuHealth
-
-instance NFData ElasticGpuHealth
+instance Lude.FromXML ElasticGpuHealth where
+  parseXML x = ElasticGpuHealth' Lude.<$> (x Lude..@? "status")

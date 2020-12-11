@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.
 module Network.AWS.Greengrass.CreateResourceDefinition
-  ( -- * Creating a Request
-    createResourceDefinition,
-    CreateResourceDefinition,
+  ( -- * Creating a request
+    CreateResourceDefinition (..),
+    mkCreateResourceDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crdAmznClientToken,
     crdInitialVersion,
     crdName,
     crdTags,
 
-    -- * Destructuring the Response
-    createResourceDefinitionResponse,
-    CreateResourceDefinitionResponse,
+    -- * Destructuring the response
+    CreateResourceDefinitionResponse (..),
+    mkCreateResourceDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crdrsLatestVersionARN,
     crdrsARN,
     crdrsName,
@@ -46,189 +41,223 @@ module Network.AWS.Greengrass.CreateResourceDefinition
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createResourceDefinition' smart constructor.
+-- | /See:/ 'mkCreateResourceDefinition' smart constructor.
 data CreateResourceDefinition = CreateResourceDefinition'
-  { _crdAmznClientToken ::
-      !(Maybe Text),
-    _crdInitialVersion ::
-      !(Maybe ResourceDefinitionVersion),
-    _crdName :: !(Maybe Text),
-    _crdTags :: !(Maybe (Map Text (Text)))
+  { amznClientToken ::
+      Lude.Maybe Lude.Text,
+    initialVersion ::
+      Lude.Maybe ResourceDefinitionVersion,
+    name :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crdAmznClientToken' - A client token used to correlate requests and responses.
---
--- * 'crdInitialVersion' - Information about the initial version of the resource definition.
---
--- * 'crdName' - The name of the resource definition.
---
--- * 'crdTags' - Tag(s) to add to the new resource.
-createResourceDefinition ::
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
+-- * 'initialVersion' - Information about the initial version of the resource definition.
+-- * 'name' - The name of the resource definition.
+-- * 'tags' - Tag(s) to add to the new resource.
+mkCreateResourceDefinition ::
   CreateResourceDefinition
-createResourceDefinition =
+mkCreateResourceDefinition =
   CreateResourceDefinition'
-    { _crdAmznClientToken = Nothing,
-      _crdInitialVersion = Nothing,
-      _crdName = Nothing,
-      _crdTags = Nothing
+    { amznClientToken = Lude.Nothing,
+      initialVersion = Lude.Nothing,
+      name = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
-crdAmznClientToken :: Lens' CreateResourceDefinition (Maybe Text)
-crdAmznClientToken = lens _crdAmznClientToken (\s a -> s {_crdAmznClientToken = a})
+--
+-- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdAmznClientToken :: Lens.Lens' CreateResourceDefinition (Lude.Maybe Lude.Text)
+crdAmznClientToken = Lens.lens (amznClientToken :: CreateResourceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateResourceDefinition)
+{-# DEPRECATED crdAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | Information about the initial version of the resource definition.
-crdInitialVersion :: Lens' CreateResourceDefinition (Maybe ResourceDefinitionVersion)
-crdInitialVersion = lens _crdInitialVersion (\s a -> s {_crdInitialVersion = a})
+--
+-- /Note:/ Consider using 'initialVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdInitialVersion :: Lens.Lens' CreateResourceDefinition (Lude.Maybe ResourceDefinitionVersion)
+crdInitialVersion = Lens.lens (initialVersion :: CreateResourceDefinition -> Lude.Maybe ResourceDefinitionVersion) (\s a -> s {initialVersion = a} :: CreateResourceDefinition)
+{-# DEPRECATED crdInitialVersion "Use generic-lens or generic-optics with 'initialVersion' instead." #-}
 
 -- | The name of the resource definition.
-crdName :: Lens' CreateResourceDefinition (Maybe Text)
-crdName = lens _crdName (\s a -> s {_crdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdName :: Lens.Lens' CreateResourceDefinition (Lude.Maybe Lude.Text)
+crdName = Lens.lens (name :: CreateResourceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateResourceDefinition)
+{-# DEPRECATED crdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Tag(s) to add to the new resource.
-crdTags :: Lens' CreateResourceDefinition (HashMap Text (Text))
-crdTags = lens _crdTags (\s a -> s {_crdTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdTags :: Lens.Lens' CreateResourceDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+crdTags = Lens.lens (tags :: CreateResourceDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateResourceDefinition)
+{-# DEPRECATED crdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest CreateResourceDefinition where
+instance Lude.AWSRequest CreateResourceDefinition where
   type Rs CreateResourceDefinition = CreateResourceDefinitionResponse
-  request = postJSON greengrass
+  request = Req.postJSON greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateResourceDefinitionResponse'
-            <$> (x .?> "LatestVersionArn")
-            <*> (x .?> "Arn")
-            <*> (x .?> "Name")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Id")
-            <*> (x .?> "LatestVersion")
-            <*> (x .?> "LastUpdatedTimestamp")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LatestVersionArn")
+            Lude.<*> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (x Lude..?> "LatestVersion")
+            Lude.<*> (x Lude..?> "LastUpdatedTimestamp")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateResourceDefinition
-
-instance NFData CreateResourceDefinition
-
-instance ToHeaders CreateResourceDefinition where
+instance Lude.ToHeaders CreateResourceDefinition where
   toHeaders CreateResourceDefinition' {..} =
-    mconcat
-      [ "X-Amzn-Client-Token" =# _crdAmznClientToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON CreateResourceDefinition where
+instance Lude.ToJSON CreateResourceDefinition where
   toJSON CreateResourceDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("InitialVersion" .=) <$> _crdInitialVersion,
-            ("Name" .=) <$> _crdName,
-            ("tags" .=) <$> _crdTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InitialVersion" Lude..=) Lude.<$> initialVersion,
+            ("Name" Lude..=) Lude.<$> name,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath CreateResourceDefinition where
-  toPath = const "/greengrass/definition/resources"
+instance Lude.ToPath CreateResourceDefinition where
+  toPath = Lude.const "/greengrass/definition/resources"
 
-instance ToQuery CreateResourceDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery CreateResourceDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createResourceDefinitionResponse' smart constructor.
+-- | /See:/ 'mkCreateResourceDefinitionResponse' smart constructor.
 data CreateResourceDefinitionResponse = CreateResourceDefinitionResponse'
-  { _crdrsLatestVersionARN ::
-      !(Maybe Text),
-    _crdrsARN ::
-      !(Maybe Text),
-    _crdrsName ::
-      !(Maybe Text),
-    _crdrsCreationTimestamp ::
-      !(Maybe Text),
-    _crdrsId :: !(Maybe Text),
-    _crdrsLatestVersion ::
-      !(Maybe Text),
-    _crdrsLastUpdatedTimestamp ::
-      !(Maybe Text),
-    _crdrsResponseStatus ::
-      !Int
+  { latestVersionARN ::
+      Lude.Maybe Lude.Text,
+    arn ::
+      Lude.Maybe Lude.Text,
+    name ::
+      Lude.Maybe Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe Lude.Text,
+    id ::
+      Lude.Maybe Lude.Text,
+    latestVersion ::
+      Lude.Maybe Lude.Text,
+    lastUpdatedTimestamp ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crdrsLatestVersionARN' - The ARN of the latest version associated with the definition.
---
--- * 'crdrsARN' - The ARN of the definition.
---
--- * 'crdrsName' - The name of the definition.
---
--- * 'crdrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
---
--- * 'crdrsId' - The ID of the definition.
---
--- * 'crdrsLatestVersion' - The ID of the latest version associated with the definition.
---
--- * 'crdrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
---
--- * 'crdrsResponseStatus' - -- | The response status code.
-createResourceDefinitionResponse ::
-  -- | 'crdrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the definition.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
+-- * 'id' - The ID of the definition.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
+-- * 'latestVersion' - The ID of the latest version associated with the definition.
+-- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
+-- * 'name' - The name of the definition.
+-- * 'responseStatus' - The response status code.
+mkCreateResourceDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateResourceDefinitionResponse
-createResourceDefinitionResponse pResponseStatus_ =
+mkCreateResourceDefinitionResponse pResponseStatus_ =
   CreateResourceDefinitionResponse'
-    { _crdrsLatestVersionARN =
-        Nothing,
-      _crdrsARN = Nothing,
-      _crdrsName = Nothing,
-      _crdrsCreationTimestamp = Nothing,
-      _crdrsId = Nothing,
-      _crdrsLatestVersion = Nothing,
-      _crdrsLastUpdatedTimestamp = Nothing,
-      _crdrsResponseStatus = pResponseStatus_
+    { latestVersionARN =
+        Lude.Nothing,
+      arn = Lude.Nothing,
+      name = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      id = Lude.Nothing,
+      latestVersion = Lude.Nothing,
+      lastUpdatedTimestamp = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the latest version associated with the definition.
-crdrsLatestVersionARN :: Lens' CreateResourceDefinitionResponse (Maybe Text)
-crdrsLatestVersionARN = lens _crdrsLatestVersionARN (\s a -> s {_crdrsLatestVersionARN = a})
+--
+-- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdrsLatestVersionARN :: Lens.Lens' CreateResourceDefinitionResponse (Lude.Maybe Lude.Text)
+crdrsLatestVersionARN = Lens.lens (latestVersionARN :: CreateResourceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: CreateResourceDefinitionResponse)
+{-# DEPRECATED crdrsLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
-crdrsARN :: Lens' CreateResourceDefinitionResponse (Maybe Text)
-crdrsARN = lens _crdrsARN (\s a -> s {_crdrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdrsARN :: Lens.Lens' CreateResourceDefinitionResponse (Lude.Maybe Lude.Text)
+crdrsARN = Lens.lens (arn :: CreateResourceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateResourceDefinitionResponse)
+{-# DEPRECATED crdrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the definition.
-crdrsName :: Lens' CreateResourceDefinitionResponse (Maybe Text)
-crdrsName = lens _crdrsName (\s a -> s {_crdrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdrsName :: Lens.Lens' CreateResourceDefinitionResponse (Lude.Maybe Lude.Text)
+crdrsName = Lens.lens (name :: CreateResourceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateResourceDefinitionResponse)
+{-# DEPRECATED crdrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
-crdrsCreationTimestamp :: Lens' CreateResourceDefinitionResponse (Maybe Text)
-crdrsCreationTimestamp = lens _crdrsCreationTimestamp (\s a -> s {_crdrsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdrsCreationTimestamp :: Lens.Lens' CreateResourceDefinitionResponse (Lude.Maybe Lude.Text)
+crdrsCreationTimestamp = Lens.lens (creationTimestamp :: CreateResourceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: CreateResourceDefinitionResponse)
+{-# DEPRECATED crdrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
-crdrsId :: Lens' CreateResourceDefinitionResponse (Maybe Text)
-crdrsId = lens _crdrsId (\s a -> s {_crdrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdrsId :: Lens.Lens' CreateResourceDefinitionResponse (Lude.Maybe Lude.Text)
+crdrsId = Lens.lens (id :: CreateResourceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateResourceDefinitionResponse)
+{-# DEPRECATED crdrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ID of the latest version associated with the definition.
-crdrsLatestVersion :: Lens' CreateResourceDefinitionResponse (Maybe Text)
-crdrsLatestVersion = lens _crdrsLatestVersion (\s a -> s {_crdrsLatestVersion = a})
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdrsLatestVersion :: Lens.Lens' CreateResourceDefinitionResponse (Lude.Maybe Lude.Text)
+crdrsLatestVersion = Lens.lens (latestVersion :: CreateResourceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: CreateResourceDefinitionResponse)
+{-# DEPRECATED crdrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
-crdrsLastUpdatedTimestamp :: Lens' CreateResourceDefinitionResponse (Maybe Text)
-crdrsLastUpdatedTimestamp = lens _crdrsLastUpdatedTimestamp (\s a -> s {_crdrsLastUpdatedTimestamp = a})
+--
+-- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdrsLastUpdatedTimestamp :: Lens.Lens' CreateResourceDefinitionResponse (Lude.Maybe Lude.Text)
+crdrsLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: CreateResourceDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: CreateResourceDefinitionResponse)
+{-# DEPRECATED crdrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
 
--- | -- | The response status code.
-crdrsResponseStatus :: Lens' CreateResourceDefinitionResponse Int
-crdrsResponseStatus = lens _crdrsResponseStatus (\s a -> s {_crdrsResponseStatus = a})
-
-instance NFData CreateResourceDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdrsResponseStatus :: Lens.Lens' CreateResourceDefinitionResponse Lude.Int
+crdrsResponseStatus = Lens.lens (responseStatus :: CreateResourceDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateResourceDefinitionResponse)
+{-# DEPRECATED crdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSMv2.Types.ClusterState where
+module Network.AWS.CloudHSMv2.Types.ClusterState
+  ( ClusterState
+      ( ClusterState',
+        CSActive,
+        CSCreateInProgress,
+        CSDegraded,
+        CSDeleteInProgress,
+        CSDeleted,
+        CSInitializeInProgress,
+        CSInitialized,
+        CSUninitialized,
+        CSUpdateInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClusterState
-  = CSActive
-  | CSCreateInProgress
-  | CSDegraded
-  | CSDeleteInProgress
-  | CSDeleted
-  | CSInitializeInProgress
-  | CSInitialized
-  | CSUninitialized
-  | CSUpdateInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClusterState = ClusterState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClusterState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CSActive
-      "create_in_progress" -> pure CSCreateInProgress
-      "degraded" -> pure CSDegraded
-      "delete_in_progress" -> pure CSDeleteInProgress
-      "deleted" -> pure CSDeleted
-      "initialize_in_progress" -> pure CSInitializeInProgress
-      "initialized" -> pure CSInitialized
-      "uninitialized" -> pure CSUninitialized
-      "update_in_progress" -> pure CSUpdateInProgress
-      e ->
-        fromTextError $
-          "Failure parsing ClusterState from value: '" <> e
-            <> "'. Accepted values: active, create_in_progress, degraded, delete_in_progress, deleted, initialize_in_progress, initialized, uninitialized, update_in_progress"
+pattern CSActive :: ClusterState
+pattern CSActive = ClusterState' "ACTIVE"
 
-instance ToText ClusterState where
-  toText = \case
-    CSActive -> "ACTIVE"
-    CSCreateInProgress -> "CREATE_IN_PROGRESS"
-    CSDegraded -> "DEGRADED"
-    CSDeleteInProgress -> "DELETE_IN_PROGRESS"
-    CSDeleted -> "DELETED"
-    CSInitializeInProgress -> "INITIALIZE_IN_PROGRESS"
-    CSInitialized -> "INITIALIZED"
-    CSUninitialized -> "UNINITIALIZED"
-    CSUpdateInProgress -> "UPDATE_IN_PROGRESS"
+pattern CSCreateInProgress :: ClusterState
+pattern CSCreateInProgress = ClusterState' "CREATE_IN_PROGRESS"
 
-instance Hashable ClusterState
+pattern CSDegraded :: ClusterState
+pattern CSDegraded = ClusterState' "DEGRADED"
 
-instance NFData ClusterState
+pattern CSDeleteInProgress :: ClusterState
+pattern CSDeleteInProgress = ClusterState' "DELETE_IN_PROGRESS"
 
-instance ToByteString ClusterState
+pattern CSDeleted :: ClusterState
+pattern CSDeleted = ClusterState' "DELETED"
 
-instance ToQuery ClusterState
+pattern CSInitializeInProgress :: ClusterState
+pattern CSInitializeInProgress = ClusterState' "INITIALIZE_IN_PROGRESS"
 
-instance ToHeader ClusterState
+pattern CSInitialized :: ClusterState
+pattern CSInitialized = ClusterState' "INITIALIZED"
 
-instance FromJSON ClusterState where
-  parseJSON = parseJSONText "ClusterState"
+pattern CSUninitialized :: ClusterState
+pattern CSUninitialized = ClusterState' "UNINITIALIZED"
+
+pattern CSUpdateInProgress :: ClusterState
+pattern CSUpdateInProgress = ClusterState' "UPDATE_IN_PROGRESS"
+
+{-# COMPLETE
+  CSActive,
+  CSCreateInProgress,
+  CSDegraded,
+  CSDeleteInProgress,
+  CSDeleted,
+  CSInitializeInProgress,
+  CSInitialized,
+  CSUninitialized,
+  CSUpdateInProgress,
+  ClusterState'
+  #-}

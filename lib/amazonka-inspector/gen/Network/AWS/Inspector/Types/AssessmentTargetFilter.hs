@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.AssessmentTargetFilter where
+module Network.AWS.Inspector.Types.AssessmentTargetFilter
+  ( AssessmentTargetFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAssessmentTargetFilter,
+
+    -- * Lenses
+    atfAssessmentTargetNamePattern,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Used as the request parameter in the 'ListAssessmentTargets' action.
 --
---
---
--- /See:/ 'assessmentTargetFilter' smart constructor.
+-- /See:/ 'mkAssessmentTargetFilter' smart constructor.
 newtype AssessmentTargetFilter = AssessmentTargetFilter'
-  { _atfAssessmentTargetNamePattern ::
-      Maybe Text
+  { assessmentTargetNamePattern ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssessmentTargetFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atfAssessmentTargetNamePattern' - For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
-assessmentTargetFilter ::
+-- * 'assessmentTargetNamePattern' - For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
+mkAssessmentTargetFilter ::
   AssessmentTargetFilter
-assessmentTargetFilter =
+mkAssessmentTargetFilter =
   AssessmentTargetFilter'
-    { _atfAssessmentTargetNamePattern =
-        Nothing
+    { assessmentTargetNamePattern =
+        Lude.Nothing
     }
 
 -- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
-atfAssessmentTargetNamePattern :: Lens' AssessmentTargetFilter (Maybe Text)
-atfAssessmentTargetNamePattern = lens _atfAssessmentTargetNamePattern (\s a -> s {_atfAssessmentTargetNamePattern = a})
+--
+-- /Note:/ Consider using 'assessmentTargetNamePattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atfAssessmentTargetNamePattern :: Lens.Lens' AssessmentTargetFilter (Lude.Maybe Lude.Text)
+atfAssessmentTargetNamePattern = Lens.lens (assessmentTargetNamePattern :: AssessmentTargetFilter -> Lude.Maybe Lude.Text) (\s a -> s {assessmentTargetNamePattern = a} :: AssessmentTargetFilter)
+{-# DEPRECATED atfAssessmentTargetNamePattern "Use generic-lens or generic-optics with 'assessmentTargetNamePattern' instead." #-}
 
-instance Hashable AssessmentTargetFilter
-
-instance NFData AssessmentTargetFilter
-
-instance ToJSON AssessmentTargetFilter where
+instance Lude.ToJSON AssessmentTargetFilter where
   toJSON AssessmentTargetFilter' {..} =
-    object
-      ( catMaybes
-          [ ("assessmentTargetNamePattern" .=)
-              <$> _atfAssessmentTargetNamePattern
+    Lude.object
+      ( Lude.catMaybes
+          [ ("assessmentTargetNamePattern" Lude..=)
+              Lude.<$> assessmentTargetNamePattern
           ]
       )

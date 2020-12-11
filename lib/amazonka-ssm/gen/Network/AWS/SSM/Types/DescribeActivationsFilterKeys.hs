@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DescribeActivationsFilterKeys where
+module Network.AWS.SSM.Types.DescribeActivationsFilterKeys
+  ( DescribeActivationsFilterKeys
+      ( DescribeActivationsFilterKeys',
+        DAFKActivationIds,
+        DAFKDefaultInstanceName,
+        DAFKIAMRole
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DescribeActivationsFilterKeys
-  = DAFKActivationIds
-  | DAFKDefaultInstanceName
-  | DAFKIAMRole
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DescribeActivationsFilterKeys = DescribeActivationsFilterKeys' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DescribeActivationsFilterKeys where
-  parser =
-    takeLowerText >>= \case
-      "activationids" -> pure DAFKActivationIds
-      "defaultinstancename" -> pure DAFKDefaultInstanceName
-      "iamrole" -> pure DAFKIAMRole
-      e ->
-        fromTextError $
-          "Failure parsing DescribeActivationsFilterKeys from value: '" <> e
-            <> "'. Accepted values: activationids, defaultinstancename, iamrole"
+pattern DAFKActivationIds :: DescribeActivationsFilterKeys
+pattern DAFKActivationIds = DescribeActivationsFilterKeys' "ActivationIds"
 
-instance ToText DescribeActivationsFilterKeys where
-  toText = \case
-    DAFKActivationIds -> "ActivationIds"
-    DAFKDefaultInstanceName -> "DefaultInstanceName"
-    DAFKIAMRole -> "IamRole"
+pattern DAFKDefaultInstanceName :: DescribeActivationsFilterKeys
+pattern DAFKDefaultInstanceName = DescribeActivationsFilterKeys' "DefaultInstanceName"
 
-instance Hashable DescribeActivationsFilterKeys
+pattern DAFKIAMRole :: DescribeActivationsFilterKeys
+pattern DAFKIAMRole = DescribeActivationsFilterKeys' "IamRole"
 
-instance NFData DescribeActivationsFilterKeys
-
-instance ToByteString DescribeActivationsFilterKeys
-
-instance ToQuery DescribeActivationsFilterKeys
-
-instance ToHeader DescribeActivationsFilterKeys
-
-instance ToJSON DescribeActivationsFilterKeys where
-  toJSON = toJSONText
+{-# COMPLETE
+  DAFKActivationIds,
+  DAFKDefaultInstanceName,
+  DAFKIAMRole,
+  DescribeActivationsFilterKeys'
+  #-}

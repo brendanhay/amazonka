@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.VoiceChannelRequest where
+module Network.AWS.Pinpoint.Types.VoiceChannelRequest
+  ( VoiceChannelRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVoiceChannelRequest,
+
+    -- * Lenses
+    vcrEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the status and settings of the voice channel for an application.
 --
---
---
--- /See:/ 'voiceChannelRequest' smart constructor.
+-- /See:/ 'mkVoiceChannelRequest' smart constructor.
 newtype VoiceChannelRequest = VoiceChannelRequest'
-  { _vcrEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VoiceChannelRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vcrEnabled' - Specifies whether to enable the voice channel for the application.
-voiceChannelRequest ::
+-- * 'enabled' - Specifies whether to enable the voice channel for the application.
+mkVoiceChannelRequest ::
   VoiceChannelRequest
-voiceChannelRequest = VoiceChannelRequest' {_vcrEnabled = Nothing}
+mkVoiceChannelRequest =
+  VoiceChannelRequest' {enabled = Lude.Nothing}
 
 -- | Specifies whether to enable the voice channel for the application.
-vcrEnabled :: Lens' VoiceChannelRequest (Maybe Bool)
-vcrEnabled = lens _vcrEnabled (\s a -> s {_vcrEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcrEnabled :: Lens.Lens' VoiceChannelRequest (Lude.Maybe Lude.Bool)
+vcrEnabled = Lens.lens (enabled :: VoiceChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: VoiceChannelRequest)
+{-# DEPRECATED vcrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Hashable VoiceChannelRequest
-
-instance NFData VoiceChannelRequest
-
-instance ToJSON VoiceChannelRequest where
+instance Lude.ToJSON VoiceChannelRequest where
   toJSON VoiceChannelRequest' {..} =
-    object (catMaybes [("Enabled" .=) <$> _vcrEnabled])
+    Lude.object
+      (Lude.catMaybes [("Enabled" Lude..=) Lude.<$> enabled])

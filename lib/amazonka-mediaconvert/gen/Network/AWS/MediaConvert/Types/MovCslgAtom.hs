@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MovCslgAtom where
+module Network.AWS.MediaConvert.Types.MovCslgAtom
+  ( MovCslgAtom
+      ( MovCslgAtom',
+        MCAExclude,
+        MCAInclude
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-data MovCslgAtom
-  = MCAExclude
-  | MCAInclude
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MovCslgAtom = MovCslgAtom' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MovCslgAtom where
-  parser =
-    takeLowerText >>= \case
-      "exclude" -> pure MCAExclude
-      "include" -> pure MCAInclude
-      e ->
-        fromTextError $
-          "Failure parsing MovCslgAtom from value: '" <> e
-            <> "'. Accepted values: exclude, include"
+pattern MCAExclude :: MovCslgAtom
+pattern MCAExclude = MovCslgAtom' "EXCLUDE"
 
-instance ToText MovCslgAtom where
-  toText = \case
-    MCAExclude -> "EXCLUDE"
-    MCAInclude -> "INCLUDE"
+pattern MCAInclude :: MovCslgAtom
+pattern MCAInclude = MovCslgAtom' "INCLUDE"
 
-instance Hashable MovCslgAtom
-
-instance NFData MovCslgAtom
-
-instance ToByteString MovCslgAtom
-
-instance ToQuery MovCslgAtom
-
-instance ToHeader MovCslgAtom
-
-instance ToJSON MovCslgAtom where
-  toJSON = toJSONText
-
-instance FromJSON MovCslgAtom where
-  parseJSON = parseJSONText "MovCslgAtom"
+{-# COMPLETE
+  MCAExclude,
+  MCAInclude,
+  MovCslgAtom'
+  #-}

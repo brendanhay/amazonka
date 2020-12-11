@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,169 +14,198 @@
 --
 -- Creates a block storage disk that can be attached to an Amazon Lightsail instance in the same Availability Zone (e.g., @us-east-2a@ ).
 --
---
 -- The @create disk@ operation supports tag-based access control via request tags. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.CreateDisk
-  ( -- * Creating a Request
-    createDisk,
-    CreateDisk,
+  ( -- * Creating a request
+    CreateDisk (..),
+    mkCreateDisk,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cddAddOns,
     cddTags,
     cddDiskName,
     cddAvailabilityZone,
     cddSizeInGb,
 
-    -- * Destructuring the Response
-    createDiskResponse,
-    CreateDiskResponse,
+    -- * Destructuring the response
+    CreateDiskResponse (..),
+    mkCreateDiskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crsOperations,
     crsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDisk' smart constructor.
+-- | /See:/ 'mkCreateDisk' smart constructor.
 data CreateDisk = CreateDisk'
-  { _cddAddOns ::
-      !(Maybe [AddOnRequest]),
-    _cddTags :: !(Maybe [Tag]),
-    _cddDiskName :: !Text,
-    _cddAvailabilityZone :: !Text,
-    _cddSizeInGb :: !Int
+  { addOns :: Lude.Maybe [AddOnRequest],
+    tags :: Lude.Maybe [Tag],
+    diskName :: Lude.Text,
+    availabilityZone :: Lude.Text,
+    sizeInGb :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDisk' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addOns' - An array of objects that represent the add-ons to enable for the new disk.
+-- * 'availabilityZone' - The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Use the same Availability Zone as the Lightsail instance to which you want to attach the disk.
 --
--- * 'cddAddOns' - An array of objects that represent the add-ons to enable for the new disk.
+-- Use the @get regions@ operation to list the Availability Zones where Lightsail is currently available.
+-- * 'diskName' - The unique Lightsail disk name (e.g., @my-disk@ ).
+-- * 'sizeInGb' - The size of the disk in GB (e.g., @32@ ).
+-- * 'tags' - The tag keys and optional values to add to the resource during create.
 --
--- * 'cddTags' - The tag keys and optional values to add to the resource during create. Use the @TagResource@ action to tag a resource after it's created.
---
--- * 'cddDiskName' - The unique Lightsail disk name (e.g., @my-disk@ ).
---
--- * 'cddAvailabilityZone' - The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Use the same Availability Zone as the Lightsail instance to which you want to attach the disk. Use the @get regions@ operation to list the Availability Zones where Lightsail is currently available.
---
--- * 'cddSizeInGb' - The size of the disk in GB (e.g., @32@ ).
-createDisk ::
-  -- | 'cddDiskName'
-  Text ->
-  -- | 'cddAvailabilityZone'
-  Text ->
-  -- | 'cddSizeInGb'
-  Int ->
+-- Use the @TagResource@ action to tag a resource after it's created.
+mkCreateDisk ::
+  -- | 'diskName'
+  Lude.Text ->
+  -- | 'availabilityZone'
+  Lude.Text ->
+  -- | 'sizeInGb'
+  Lude.Int ->
   CreateDisk
-createDisk pDiskName_ pAvailabilityZone_ pSizeInGb_ =
+mkCreateDisk pDiskName_ pAvailabilityZone_ pSizeInGb_ =
   CreateDisk'
-    { _cddAddOns = Nothing,
-      _cddTags = Nothing,
-      _cddDiskName = pDiskName_,
-      _cddAvailabilityZone = pAvailabilityZone_,
-      _cddSizeInGb = pSizeInGb_
+    { addOns = Lude.Nothing,
+      tags = Lude.Nothing,
+      diskName = pDiskName_,
+      availabilityZone = pAvailabilityZone_,
+      sizeInGb = pSizeInGb_
     }
 
 -- | An array of objects that represent the add-ons to enable for the new disk.
-cddAddOns :: Lens' CreateDisk [AddOnRequest]
-cddAddOns = lens _cddAddOns (\s a -> s {_cddAddOns = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addOns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddAddOns :: Lens.Lens' CreateDisk (Lude.Maybe [AddOnRequest])
+cddAddOns = Lens.lens (addOns :: CreateDisk -> Lude.Maybe [AddOnRequest]) (\s a -> s {addOns = a} :: CreateDisk)
+{-# DEPRECATED cddAddOns "Use generic-lens or generic-optics with 'addOns' instead." #-}
 
--- | The tag keys and optional values to add to the resource during create. Use the @TagResource@ action to tag a resource after it's created.
-cddTags :: Lens' CreateDisk [Tag]
-cddTags = lens _cddTags (\s a -> s {_cddTags = a}) . _Default . _Coerce
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddTags :: Lens.Lens' CreateDisk (Lude.Maybe [Tag])
+cddTags = Lens.lens (tags :: CreateDisk -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDisk)
+{-# DEPRECATED cddTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The unique Lightsail disk name (e.g., @my-disk@ ).
-cddDiskName :: Lens' CreateDisk Text
-cddDiskName = lens _cddDiskName (\s a -> s {_cddDiskName = a})
+--
+-- /Note:/ Consider using 'diskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddDiskName :: Lens.Lens' CreateDisk Lude.Text
+cddDiskName = Lens.lens (diskName :: CreateDisk -> Lude.Text) (\s a -> s {diskName = a} :: CreateDisk)
+{-# DEPRECATED cddDiskName "Use generic-lens or generic-optics with 'diskName' instead." #-}
 
--- | The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Use the same Availability Zone as the Lightsail instance to which you want to attach the disk. Use the @get regions@ operation to list the Availability Zones where Lightsail is currently available.
-cddAvailabilityZone :: Lens' CreateDisk Text
-cddAvailabilityZone = lens _cddAvailabilityZone (\s a -> s {_cddAvailabilityZone = a})
+-- | The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Use the same Availability Zone as the Lightsail instance to which you want to attach the disk.
+--
+-- Use the @get regions@ operation to list the Availability Zones where Lightsail is currently available.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddAvailabilityZone :: Lens.Lens' CreateDisk Lude.Text
+cddAvailabilityZone = Lens.lens (availabilityZone :: CreateDisk -> Lude.Text) (\s a -> s {availabilityZone = a} :: CreateDisk)
+{-# DEPRECATED cddAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The size of the disk in GB (e.g., @32@ ).
-cddSizeInGb :: Lens' CreateDisk Int
-cddSizeInGb = lens _cddSizeInGb (\s a -> s {_cddSizeInGb = a})
+--
+-- /Note:/ Consider using 'sizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cddSizeInGb :: Lens.Lens' CreateDisk Lude.Int
+cddSizeInGb = Lens.lens (sizeInGb :: CreateDisk -> Lude.Int) (\s a -> s {sizeInGb = a} :: CreateDisk)
+{-# DEPRECATED cddSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
 
-instance AWSRequest CreateDisk where
+instance Lude.AWSRequest CreateDisk where
   type Rs CreateDisk = CreateDiskResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDiskResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDisk
-
-instance NFData CreateDisk
-
-instance ToHeaders CreateDisk where
+instance Lude.ToHeaders CreateDisk where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Lightsail_20161128.CreateDisk" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Lightsail_20161128.CreateDisk" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDisk where
+instance Lude.ToJSON CreateDisk where
   toJSON CreateDisk' {..} =
-    object
-      ( catMaybes
-          [ ("addOns" .=) <$> _cddAddOns,
-            ("tags" .=) <$> _cddTags,
-            Just ("diskName" .= _cddDiskName),
-            Just ("availabilityZone" .= _cddAvailabilityZone),
-            Just ("sizeInGb" .= _cddSizeInGb)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("addOns" Lude..=) Lude.<$> addOns,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("diskName" Lude..= diskName),
+            Lude.Just ("availabilityZone" Lude..= availabilityZone),
+            Lude.Just ("sizeInGb" Lude..= sizeInGb)
           ]
       )
 
-instance ToPath CreateDisk where
-  toPath = const "/"
+instance Lude.ToPath CreateDisk where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDisk where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDisk where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDiskResponse' smart constructor.
+-- | /See:/ 'mkCreateDiskResponse' smart constructor.
 data CreateDiskResponse = CreateDiskResponse'
-  { _crsOperations ::
-      !(Maybe [Operation]),
-    _crsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDiskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'crsResponseStatus' - -- | The response status code.
-createDiskResponse ::
-  -- | 'crsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkCreateDiskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDiskResponse
-createDiskResponse pResponseStatus_ =
+mkCreateDiskResponse pResponseStatus_ =
   CreateDiskResponse'
-    { _crsOperations = Nothing,
-      _crsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-crsOperations :: Lens' CreateDiskResponse [Operation]
-crsOperations = lens _crsOperations (\s a -> s {_crsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsOperations :: Lens.Lens' CreateDiskResponse (Lude.Maybe [Operation])
+crsOperations = Lens.lens (operations :: CreateDiskResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: CreateDiskResponse)
+{-# DEPRECATED crsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-crsResponseStatus :: Lens' CreateDiskResponse Int
-crsResponseStatus = lens _crsResponseStatus (\s a -> s {_crsResponseStatus = a})
-
-instance NFData CreateDiskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsResponseStatus :: Lens.Lens' CreateDiskResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CreateDiskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDiskResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

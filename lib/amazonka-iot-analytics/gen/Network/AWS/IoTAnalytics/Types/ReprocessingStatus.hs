@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.ReprocessingStatus where
+module Network.AWS.IoTAnalytics.Types.ReprocessingStatus
+  ( ReprocessingStatus
+      ( ReprocessingStatus',
+        Cancelled,
+        Failed,
+        Running,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReprocessingStatus
-  = Cancelled
-  | Failed
-  | Running
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReprocessingStatus = ReprocessingStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReprocessingStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure Cancelled
-      "failed" -> pure Failed
-      "running" -> pure Running
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing ReprocessingStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, failed, running, succeeded"
+pattern Cancelled :: ReprocessingStatus
+pattern Cancelled = ReprocessingStatus' "CANCELLED"
 
-instance ToText ReprocessingStatus where
-  toText = \case
-    Cancelled -> "CANCELLED"
-    Failed -> "FAILED"
-    Running -> "RUNNING"
-    Succeeded -> "SUCCEEDED"
+pattern Failed :: ReprocessingStatus
+pattern Failed = ReprocessingStatus' "FAILED"
 
-instance Hashable ReprocessingStatus
+pattern Running :: ReprocessingStatus
+pattern Running = ReprocessingStatus' "RUNNING"
 
-instance NFData ReprocessingStatus
+pattern Succeeded :: ReprocessingStatus
+pattern Succeeded = ReprocessingStatus' "SUCCEEDED"
 
-instance ToByteString ReprocessingStatus
-
-instance ToQuery ReprocessingStatus
-
-instance ToHeader ReprocessingStatus
-
-instance FromJSON ReprocessingStatus where
-  parseJSON = parseJSONText "ReprocessingStatus"
+{-# COMPLETE
+  Cancelled,
+  Failed,
+  Running,
+  Succeeded,
+  ReprocessingStatus'
+  #-}

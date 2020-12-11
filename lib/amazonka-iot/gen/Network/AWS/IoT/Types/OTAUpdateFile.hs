@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,107 +7,133 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.OTAUpdateFile where
+module Network.AWS.IoT.Types.OTAUpdateFile
+  ( OTAUpdateFile (..),
+
+    -- * Smart constructor
+    mkOTAUpdateFile,
+
+    -- * Lenses
+    otaufFileLocation,
+    otaufFileType,
+    otaufFileVersion,
+    otaufAttributes,
+    otaufCodeSigning,
+    otaufFileName,
+  )
+where
 
 import Network.AWS.IoT.Types.CodeSigning
 import Network.AWS.IoT.Types.FileLocation
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a file to be associated with an OTA update.
 --
---
---
--- /See:/ 'oTAUpdateFile' smart constructor.
+-- /See:/ 'mkOTAUpdateFile' smart constructor.
 data OTAUpdateFile = OTAUpdateFile'
-  { _otaufFileLocation ::
-      !(Maybe FileLocation),
-    _otaufFileType :: !(Maybe Nat),
-    _otaufFileVersion :: !(Maybe Text),
-    _otaufAttributes :: !(Maybe (Map Text (Text))),
-    _otaufCodeSigning :: !(Maybe CodeSigning),
-    _otaufFileName :: !(Maybe Text)
+  { fileLocation ::
+      Lude.Maybe FileLocation,
+    fileType :: Lude.Maybe Lude.Natural,
+    fileVersion :: Lude.Maybe Lude.Text,
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    codeSigning :: Lude.Maybe CodeSigning,
+    fileName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OTAUpdateFile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'otaufFileLocation' - The location of the updated firmware.
---
--- * 'otaufFileType' - An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
---
--- * 'otaufFileVersion' - The file version.
---
--- * 'otaufAttributes' - A list of name/attribute pairs.
---
--- * 'otaufCodeSigning' - The code signing method of the file.
---
--- * 'otaufFileName' - The name of the file.
-oTAUpdateFile ::
+-- * 'attributes' - A list of name/attribute pairs.
+-- * 'codeSigning' - The code signing method of the file.
+-- * 'fileLocation' - The location of the updated firmware.
+-- * 'fileName' - The name of the file.
+-- * 'fileType' - An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
+-- * 'fileVersion' - The file version.
+mkOTAUpdateFile ::
   OTAUpdateFile
-oTAUpdateFile =
+mkOTAUpdateFile =
   OTAUpdateFile'
-    { _otaufFileLocation = Nothing,
-      _otaufFileType = Nothing,
-      _otaufFileVersion = Nothing,
-      _otaufAttributes = Nothing,
-      _otaufCodeSigning = Nothing,
-      _otaufFileName = Nothing
+    { fileLocation = Lude.Nothing,
+      fileType = Lude.Nothing,
+      fileVersion = Lude.Nothing,
+      attributes = Lude.Nothing,
+      codeSigning = Lude.Nothing,
+      fileName = Lude.Nothing
     }
 
 -- | The location of the updated firmware.
-otaufFileLocation :: Lens' OTAUpdateFile (Maybe FileLocation)
-otaufFileLocation = lens _otaufFileLocation (\s a -> s {_otaufFileLocation = a})
+--
+-- /Note:/ Consider using 'fileLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otaufFileLocation :: Lens.Lens' OTAUpdateFile (Lude.Maybe FileLocation)
+otaufFileLocation = Lens.lens (fileLocation :: OTAUpdateFile -> Lude.Maybe FileLocation) (\s a -> s {fileLocation = a} :: OTAUpdateFile)
+{-# DEPRECATED otaufFileLocation "Use generic-lens or generic-optics with 'fileLocation' instead." #-}
 
 -- | An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
-otaufFileType :: Lens' OTAUpdateFile (Maybe Natural)
-otaufFileType = lens _otaufFileType (\s a -> s {_otaufFileType = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'fileType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otaufFileType :: Lens.Lens' OTAUpdateFile (Lude.Maybe Lude.Natural)
+otaufFileType = Lens.lens (fileType :: OTAUpdateFile -> Lude.Maybe Lude.Natural) (\s a -> s {fileType = a} :: OTAUpdateFile)
+{-# DEPRECATED otaufFileType "Use generic-lens or generic-optics with 'fileType' instead." #-}
 
 -- | The file version.
-otaufFileVersion :: Lens' OTAUpdateFile (Maybe Text)
-otaufFileVersion = lens _otaufFileVersion (\s a -> s {_otaufFileVersion = a})
+--
+-- /Note:/ Consider using 'fileVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otaufFileVersion :: Lens.Lens' OTAUpdateFile (Lude.Maybe Lude.Text)
+otaufFileVersion = Lens.lens (fileVersion :: OTAUpdateFile -> Lude.Maybe Lude.Text) (\s a -> s {fileVersion = a} :: OTAUpdateFile)
+{-# DEPRECATED otaufFileVersion "Use generic-lens or generic-optics with 'fileVersion' instead." #-}
 
 -- | A list of name/attribute pairs.
-otaufAttributes :: Lens' OTAUpdateFile (HashMap Text (Text))
-otaufAttributes = lens _otaufAttributes (\s a -> s {_otaufAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otaufAttributes :: Lens.Lens' OTAUpdateFile (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+otaufAttributes = Lens.lens (attributes :: OTAUpdateFile -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: OTAUpdateFile)
+{-# DEPRECATED otaufAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The code signing method of the file.
-otaufCodeSigning :: Lens' OTAUpdateFile (Maybe CodeSigning)
-otaufCodeSigning = lens _otaufCodeSigning (\s a -> s {_otaufCodeSigning = a})
+--
+-- /Note:/ Consider using 'codeSigning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otaufCodeSigning :: Lens.Lens' OTAUpdateFile (Lude.Maybe CodeSigning)
+otaufCodeSigning = Lens.lens (codeSigning :: OTAUpdateFile -> Lude.Maybe CodeSigning) (\s a -> s {codeSigning = a} :: OTAUpdateFile)
+{-# DEPRECATED otaufCodeSigning "Use generic-lens or generic-optics with 'codeSigning' instead." #-}
 
 -- | The name of the file.
-otaufFileName :: Lens' OTAUpdateFile (Maybe Text)
-otaufFileName = lens _otaufFileName (\s a -> s {_otaufFileName = a})
+--
+-- /Note:/ Consider using 'fileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otaufFileName :: Lens.Lens' OTAUpdateFile (Lude.Maybe Lude.Text)
+otaufFileName = Lens.lens (fileName :: OTAUpdateFile -> Lude.Maybe Lude.Text) (\s a -> s {fileName = a} :: OTAUpdateFile)
+{-# DEPRECATED otaufFileName "Use generic-lens or generic-optics with 'fileName' instead." #-}
 
-instance FromJSON OTAUpdateFile where
+instance Lude.FromJSON OTAUpdateFile where
   parseJSON =
-    withObject
+    Lude.withObject
       "OTAUpdateFile"
       ( \x ->
           OTAUpdateFile'
-            <$> (x .:? "fileLocation")
-            <*> (x .:? "fileType")
-            <*> (x .:? "fileVersion")
-            <*> (x .:? "attributes" .!= mempty)
-            <*> (x .:? "codeSigning")
-            <*> (x .:? "fileName")
+            Lude.<$> (x Lude..:? "fileLocation")
+            Lude.<*> (x Lude..:? "fileType")
+            Lude.<*> (x Lude..:? "fileVersion")
+            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "codeSigning")
+            Lude.<*> (x Lude..:? "fileName")
       )
 
-instance Hashable OTAUpdateFile
-
-instance NFData OTAUpdateFile
-
-instance ToJSON OTAUpdateFile where
+instance Lude.ToJSON OTAUpdateFile where
   toJSON OTAUpdateFile' {..} =
-    object
-      ( catMaybes
-          [ ("fileLocation" .=) <$> _otaufFileLocation,
-            ("fileType" .=) <$> _otaufFileType,
-            ("fileVersion" .=) <$> _otaufFileVersion,
-            ("attributes" .=) <$> _otaufAttributes,
-            ("codeSigning" .=) <$> _otaufCodeSigning,
-            ("fileName" .=) <$> _otaufFileName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("fileLocation" Lude..=) Lude.<$> fileLocation,
+            ("fileType" Lude..=) Lude.<$> fileType,
+            ("fileVersion" Lude..=) Lude.<$> fileVersion,
+            ("attributes" Lude..=) Lude.<$> attributes,
+            ("codeSigning" Lude..=) Lude.<$> codeSigning,
+            ("fileName" Lude..=) Lude.<$> fileName
           ]
       )

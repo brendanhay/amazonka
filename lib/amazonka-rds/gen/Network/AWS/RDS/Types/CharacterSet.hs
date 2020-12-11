@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.CharacterSet where
+module Network.AWS.RDS.Types.CharacterSet
+  ( CharacterSet (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCharacterSet,
+
+    -- * Lenses
+    csCharacterSetName,
+    csCharacterSetDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data type is used as a response element in the action @DescribeDBEngineVersions@ .
 --
---
---
--- /See:/ 'characterSet' smart constructor.
+-- /See:/ 'mkCharacterSet' smart constructor.
 data CharacterSet = CharacterSet'
-  { _csCharacterSetName ::
-      !(Maybe Text),
-    _csCharacterSetDescription :: !(Maybe Text)
+  { characterSetName ::
+      Lude.Maybe Lude.Text,
+    characterSetDescription :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CharacterSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csCharacterSetName' - The name of the character set.
---
--- * 'csCharacterSetDescription' - The description of the character set.
-characterSet ::
+-- * 'characterSetDescription' - The description of the character set.
+-- * 'characterSetName' - The name of the character set.
+mkCharacterSet ::
   CharacterSet
-characterSet =
+mkCharacterSet =
   CharacterSet'
-    { _csCharacterSetName = Nothing,
-      _csCharacterSetDescription = Nothing
+    { characterSetName = Lude.Nothing,
+      characterSetDescription = Lude.Nothing
     }
 
 -- | The name of the character set.
-csCharacterSetName :: Lens' CharacterSet (Maybe Text)
-csCharacterSetName = lens _csCharacterSetName (\s a -> s {_csCharacterSetName = a})
+--
+-- /Note:/ Consider using 'characterSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCharacterSetName :: Lens.Lens' CharacterSet (Lude.Maybe Lude.Text)
+csCharacterSetName = Lens.lens (characterSetName :: CharacterSet -> Lude.Maybe Lude.Text) (\s a -> s {characterSetName = a} :: CharacterSet)
+{-# DEPRECATED csCharacterSetName "Use generic-lens or generic-optics with 'characterSetName' instead." #-}
 
 -- | The description of the character set.
-csCharacterSetDescription :: Lens' CharacterSet (Maybe Text)
-csCharacterSetDescription = lens _csCharacterSetDescription (\s a -> s {_csCharacterSetDescription = a})
+--
+-- /Note:/ Consider using 'characterSetDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCharacterSetDescription :: Lens.Lens' CharacterSet (Lude.Maybe Lude.Text)
+csCharacterSetDescription = Lens.lens (characterSetDescription :: CharacterSet -> Lude.Maybe Lude.Text) (\s a -> s {characterSetDescription = a} :: CharacterSet)
+{-# DEPRECATED csCharacterSetDescription "Use generic-lens or generic-optics with 'characterSetDescription' instead." #-}
 
-instance FromXML CharacterSet where
+instance Lude.FromXML CharacterSet where
   parseXML x =
     CharacterSet'
-      <$> (x .@? "CharacterSetName") <*> (x .@? "CharacterSetDescription")
-
-instance Hashable CharacterSet
-
-instance NFData CharacterSet
+      Lude.<$> (x Lude..@? "CharacterSetName")
+      Lude.<*> (x Lude..@? "CharacterSetDescription")

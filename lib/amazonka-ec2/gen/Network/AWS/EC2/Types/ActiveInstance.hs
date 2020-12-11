@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ActiveInstance where
+module Network.AWS.EC2.Types.ActiveInstance
+  ( ActiveInstance (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkActiveInstance,
+
+    -- * Lenses
+    aiInstanceId,
+    aiInstanceHealth,
+    aiInstanceType,
+    aiSpotInstanceRequestId,
+  )
+where
+
 import Network.AWS.EC2.Types.InstanceHealthStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a running instance in a Spot Fleet.
 --
---
---
--- /See:/ 'activeInstance' smart constructor.
+-- /See:/ 'mkActiveInstance' smart constructor.
 data ActiveInstance = ActiveInstance'
-  { _aiInstanceId ::
-      !(Maybe Text),
-    _aiInstanceHealth :: !(Maybe InstanceHealthStatus),
-    _aiInstanceType :: !(Maybe Text),
-    _aiSpotInstanceRequestId :: !(Maybe Text)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    instanceHealth :: Lude.Maybe InstanceHealthStatus,
+    instanceType :: Lude.Maybe Lude.Text,
+    spotInstanceRequestId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActiveInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aiInstanceId' - The ID of the instance.
---
--- * 'aiInstanceHealth' - The health status of the instance. If the status of either the instance status check or the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
---
--- * 'aiInstanceType' - The instance type.
---
--- * 'aiSpotInstanceRequestId' - The ID of the Spot Instance request.
-activeInstance ::
+-- * 'instanceHealth' - The health status of the instance. If the status of either the instance status check or the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
+-- * 'instanceId' - The ID of the instance.
+-- * 'instanceType' - The instance type.
+-- * 'spotInstanceRequestId' - The ID of the Spot Instance request.
+mkActiveInstance ::
   ActiveInstance
-activeInstance =
+mkActiveInstance =
   ActiveInstance'
-    { _aiInstanceId = Nothing,
-      _aiInstanceHealth = Nothing,
-      _aiInstanceType = Nothing,
-      _aiSpotInstanceRequestId = Nothing
+    { instanceId = Lude.Nothing,
+      instanceHealth = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      spotInstanceRequestId = Lude.Nothing
     }
 
 -- | The ID of the instance.
-aiInstanceId :: Lens' ActiveInstance (Maybe Text)
-aiInstanceId = lens _aiInstanceId (\s a -> s {_aiInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiInstanceId :: Lens.Lens' ActiveInstance (Lude.Maybe Lude.Text)
+aiInstanceId = Lens.lens (instanceId :: ActiveInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: ActiveInstance)
+{-# DEPRECATED aiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The health status of the instance. If the status of either the instance status check or the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
-aiInstanceHealth :: Lens' ActiveInstance (Maybe InstanceHealthStatus)
-aiInstanceHealth = lens _aiInstanceHealth (\s a -> s {_aiInstanceHealth = a})
+--
+-- /Note:/ Consider using 'instanceHealth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiInstanceHealth :: Lens.Lens' ActiveInstance (Lude.Maybe InstanceHealthStatus)
+aiInstanceHealth = Lens.lens (instanceHealth :: ActiveInstance -> Lude.Maybe InstanceHealthStatus) (\s a -> s {instanceHealth = a} :: ActiveInstance)
+{-# DEPRECATED aiInstanceHealth "Use generic-lens or generic-optics with 'instanceHealth' instead." #-}
 
 -- | The instance type.
-aiInstanceType :: Lens' ActiveInstance (Maybe Text)
-aiInstanceType = lens _aiInstanceType (\s a -> s {_aiInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiInstanceType :: Lens.Lens' ActiveInstance (Lude.Maybe Lude.Text)
+aiInstanceType = Lens.lens (instanceType :: ActiveInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: ActiveInstance)
+{-# DEPRECATED aiInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The ID of the Spot Instance request.
-aiSpotInstanceRequestId :: Lens' ActiveInstance (Maybe Text)
-aiSpotInstanceRequestId = lens _aiSpotInstanceRequestId (\s a -> s {_aiSpotInstanceRequestId = a})
+--
+-- /Note:/ Consider using 'spotInstanceRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiSpotInstanceRequestId :: Lens.Lens' ActiveInstance (Lude.Maybe Lude.Text)
+aiSpotInstanceRequestId = Lens.lens (spotInstanceRequestId :: ActiveInstance -> Lude.Maybe Lude.Text) (\s a -> s {spotInstanceRequestId = a} :: ActiveInstance)
+{-# DEPRECATED aiSpotInstanceRequestId "Use generic-lens or generic-optics with 'spotInstanceRequestId' instead." #-}
 
-instance FromXML ActiveInstance where
+instance Lude.FromXML ActiveInstance where
   parseXML x =
     ActiveInstance'
-      <$> (x .@? "instanceId")
-      <*> (x .@? "instanceHealth")
-      <*> (x .@? "instanceType")
-      <*> (x .@? "spotInstanceRequestId")
-
-instance Hashable ActiveInstance
-
-instance NFData ActiveInstance
+      Lude.<$> (x Lude..@? "instanceId")
+      Lude.<*> (x Lude..@? "instanceHealth")
+      Lude.<*> (x Lude..@? "instanceType")
+      Lude.<*> (x Lude..@? "spotInstanceRequestId")

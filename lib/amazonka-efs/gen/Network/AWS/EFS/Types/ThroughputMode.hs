@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.ThroughputMode where
+module Network.AWS.EFS.Types.ThroughputMode
+  ( ThroughputMode
+      ( ThroughputMode',
+        Bursting,
+        Provisioned
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ThroughputMode
-  = Bursting
-  | Provisioned
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ThroughputMode = ThroughputMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ThroughputMode where
-  parser =
-    takeLowerText >>= \case
-      "bursting" -> pure Bursting
-      "provisioned" -> pure Provisioned
-      e ->
-        fromTextError $
-          "Failure parsing ThroughputMode from value: '" <> e
-            <> "'. Accepted values: bursting, provisioned"
+pattern Bursting :: ThroughputMode
+pattern Bursting = ThroughputMode' "bursting"
 
-instance ToText ThroughputMode where
-  toText = \case
-    Bursting -> "bursting"
-    Provisioned -> "provisioned"
+pattern Provisioned :: ThroughputMode
+pattern Provisioned = ThroughputMode' "provisioned"
 
-instance Hashable ThroughputMode
-
-instance NFData ThroughputMode
-
-instance ToByteString ThroughputMode
-
-instance ToQuery ThroughputMode
-
-instance ToHeader ThroughputMode
-
-instance ToJSON ThroughputMode where
-  toJSON = toJSONText
-
-instance FromJSON ThroughputMode where
-  parseJSON = parseJSONText "ThroughputMode"
+{-# COMPLETE
+  Bursting,
+  Provisioned,
+  ThroughputMode'
+  #-}

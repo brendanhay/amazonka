@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ContentModerationDetection where
+module Network.AWS.Rekognition.Types.ContentModerationDetection
+  ( ContentModerationDetection (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkContentModerationDetection,
+
+    -- * Lenses
+    cmdModerationLabel,
+    cmdTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.ModerationLabel
 
 -- | Information about an unsafe content label detection in a stored video.
 --
---
---
--- /See:/ 'contentModerationDetection' smart constructor.
+-- /See:/ 'mkContentModerationDetection' smart constructor.
 data ContentModerationDetection = ContentModerationDetection'
-  { _cmdModerationLabel ::
-      !(Maybe ModerationLabel),
-    _cmdTimestamp :: !(Maybe Integer)
+  { moderationLabel ::
+      Lude.Maybe ModerationLabel,
+    timestamp :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContentModerationDetection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmdModerationLabel' - The unsafe content label detected by in the stored video.
---
--- * 'cmdTimestamp' - Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.
-contentModerationDetection ::
+-- * 'moderationLabel' - The unsafe content label detected by in the stored video.
+-- * 'timestamp' - Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.
+mkContentModerationDetection ::
   ContentModerationDetection
-contentModerationDetection =
+mkContentModerationDetection =
   ContentModerationDetection'
-    { _cmdModerationLabel = Nothing,
-      _cmdTimestamp = Nothing
+    { moderationLabel = Lude.Nothing,
+      timestamp = Lude.Nothing
     }
 
 -- | The unsafe content label detected by in the stored video.
-cmdModerationLabel :: Lens' ContentModerationDetection (Maybe ModerationLabel)
-cmdModerationLabel = lens _cmdModerationLabel (\s a -> s {_cmdModerationLabel = a})
+--
+-- /Note:/ Consider using 'moderationLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmdModerationLabel :: Lens.Lens' ContentModerationDetection (Lude.Maybe ModerationLabel)
+cmdModerationLabel = Lens.lens (moderationLabel :: ContentModerationDetection -> Lude.Maybe ModerationLabel) (\s a -> s {moderationLabel = a} :: ContentModerationDetection)
+{-# DEPRECATED cmdModerationLabel "Use generic-lens or generic-optics with 'moderationLabel' instead." #-}
 
 -- | Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.
-cmdTimestamp :: Lens' ContentModerationDetection (Maybe Integer)
-cmdTimestamp = lens _cmdTimestamp (\s a -> s {_cmdTimestamp = a})
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmdTimestamp :: Lens.Lens' ContentModerationDetection (Lude.Maybe Lude.Integer)
+cmdTimestamp = Lens.lens (timestamp :: ContentModerationDetection -> Lude.Maybe Lude.Integer) (\s a -> s {timestamp = a} :: ContentModerationDetection)
+{-# DEPRECATED cmdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance FromJSON ContentModerationDetection where
+instance Lude.FromJSON ContentModerationDetection where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContentModerationDetection"
       ( \x ->
           ContentModerationDetection'
-            <$> (x .:? "ModerationLabel") <*> (x .:? "Timestamp")
+            Lude.<$> (x Lude..:? "ModerationLabel") Lude.<*> (x Lude..:? "Timestamp")
       )
-
-instance Hashable ContentModerationDetection
-
-instance NFData ContentModerationDetection

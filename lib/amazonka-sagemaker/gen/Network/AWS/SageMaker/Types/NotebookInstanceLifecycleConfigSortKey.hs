@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSortKey where
+module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSortKey
+  ( NotebookInstanceLifecycleConfigSortKey
+      ( NotebookInstanceLifecycleConfigSortKey',
+        NILCSKCreationTime,
+        NILCSKLastModifiedTime,
+        NILCSKName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotebookInstanceLifecycleConfigSortKey
-  = NILCSKCreationTime
-  | NILCSKLastModifiedTime
-  | NILCSKName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotebookInstanceLifecycleConfigSortKey = NotebookInstanceLifecycleConfigSortKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotebookInstanceLifecycleConfigSortKey where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure NILCSKCreationTime
-      "lastmodifiedtime" -> pure NILCSKLastModifiedTime
-      "name" -> pure NILCSKName
-      e ->
-        fromTextError $
-          "Failure parsing NotebookInstanceLifecycleConfigSortKey from value: '" <> e
-            <> "'. Accepted values: creationtime, lastmodifiedtime, name"
+pattern NILCSKCreationTime :: NotebookInstanceLifecycleConfigSortKey
+pattern NILCSKCreationTime = NotebookInstanceLifecycleConfigSortKey' "CreationTime"
 
-instance ToText NotebookInstanceLifecycleConfigSortKey where
-  toText = \case
-    NILCSKCreationTime -> "CreationTime"
-    NILCSKLastModifiedTime -> "LastModifiedTime"
-    NILCSKName -> "Name"
+pattern NILCSKLastModifiedTime :: NotebookInstanceLifecycleConfigSortKey
+pattern NILCSKLastModifiedTime = NotebookInstanceLifecycleConfigSortKey' "LastModifiedTime"
 
-instance Hashable NotebookInstanceLifecycleConfigSortKey
+pattern NILCSKName :: NotebookInstanceLifecycleConfigSortKey
+pattern NILCSKName = NotebookInstanceLifecycleConfigSortKey' "Name"
 
-instance NFData NotebookInstanceLifecycleConfigSortKey
-
-instance ToByteString NotebookInstanceLifecycleConfigSortKey
-
-instance ToQuery NotebookInstanceLifecycleConfigSortKey
-
-instance ToHeader NotebookInstanceLifecycleConfigSortKey
-
-instance ToJSON NotebookInstanceLifecycleConfigSortKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  NILCSKCreationTime,
+  NILCSKLastModifiedTime,
+  NILCSKName,
+  NotebookInstanceLifecycleConfigSortKey'
+  #-}

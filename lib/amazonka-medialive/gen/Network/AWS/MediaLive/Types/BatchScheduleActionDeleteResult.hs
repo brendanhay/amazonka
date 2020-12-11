@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BatchScheduleActionDeleteResult where
+module Network.AWS.MediaLive.Types.BatchScheduleActionDeleteResult
+  ( BatchScheduleActionDeleteResult (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkBatchScheduleActionDeleteResult,
+
+    -- * Lenses
+    bsadrScheduleActions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ScheduleAction
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | List of actions that have been deleted from the schedule.
 --
--- /See:/ 'batchScheduleActionDeleteResult' smart constructor.
+-- /See:/ 'mkBatchScheduleActionDeleteResult' smart constructor.
 newtype BatchScheduleActionDeleteResult = BatchScheduleActionDeleteResult'
-  { _bsadrScheduleActions ::
+  { scheduleActions ::
       [ScheduleAction]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchScheduleActionDeleteResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsadrScheduleActions' - List of actions that have been deleted from the schedule.
-batchScheduleActionDeleteResult ::
+-- * 'scheduleActions' - List of actions that have been deleted from the schedule.
+mkBatchScheduleActionDeleteResult ::
   BatchScheduleActionDeleteResult
-batchScheduleActionDeleteResult =
-  BatchScheduleActionDeleteResult' {_bsadrScheduleActions = mempty}
+mkBatchScheduleActionDeleteResult =
+  BatchScheduleActionDeleteResult' {scheduleActions = Lude.mempty}
 
 -- | List of actions that have been deleted from the schedule.
-bsadrScheduleActions :: Lens' BatchScheduleActionDeleteResult [ScheduleAction]
-bsadrScheduleActions = lens _bsadrScheduleActions (\s a -> s {_bsadrScheduleActions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'scheduleActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsadrScheduleActions :: Lens.Lens' BatchScheduleActionDeleteResult [ScheduleAction]
+bsadrScheduleActions = Lens.lens (scheduleActions :: BatchScheduleActionDeleteResult -> [ScheduleAction]) (\s a -> s {scheduleActions = a} :: BatchScheduleActionDeleteResult)
+{-# DEPRECATED bsadrScheduleActions "Use generic-lens or generic-optics with 'scheduleActions' instead." #-}
 
-instance FromJSON BatchScheduleActionDeleteResult where
+instance Lude.FromJSON BatchScheduleActionDeleteResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchScheduleActionDeleteResult"
       ( \x ->
           BatchScheduleActionDeleteResult'
-            <$> (x .:? "scheduleActions" .!= mempty)
+            Lude.<$> (x Lude..:? "scheduleActions" Lude..!= Lude.mempty)
       )
-
-instance Hashable BatchScheduleActionDeleteResult
-
-instance NFData BatchScheduleActionDeleteResult

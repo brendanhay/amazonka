@@ -28,25 +28,25 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDeleteConnection $
---             deleteConnection
+--             mkDeleteConnection
 --
 --         , requestGetConnection $
---             getConnection
+--             mkGetConnection
 --
 --         , requestPostToConnection $
---             postToConnection
+--             mkPostToConnection
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDeleteConnection $
---             deleteConnectionResponse
+--             mkDeleteConnectionResponse
 --
 --         , responseGetConnection $
---             getConnectionResponse
+--             mkGetConnectionResponse
 --
 --         , responsePostToConnection $
---             postToConnectionResponse
+--             mkPostToConnectionResponse
 --
 --           ]
 --     ]
@@ -78,7 +78,7 @@ responseDeleteConnection =
   res
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
-    apiGatewayManagementAPI
+    apiGatewayManagementAPIService
     (Proxy :: Proxy DeleteConnection)
 
 responseGetConnection :: GetConnectionResponse -> TestTree
@@ -86,7 +86,7 @@ responseGetConnection =
   res
     "GetConnectionResponse"
     "fixture/GetConnectionResponse.proto"
-    apiGatewayManagementAPI
+    apiGatewayManagementAPIService
     (Proxy :: Proxy GetConnection)
 
 responsePostToConnection :: PostToConnectionResponse -> TestTree
@@ -94,5 +94,5 @@ responsePostToConnection =
   res
     "PostToConnectionResponse"
     "fixture/PostToConnectionResponse.proto"
-    apiGatewayManagementAPI
+    apiGatewayManagementAPIService
     (Proxy :: Proxy PostToConnection)

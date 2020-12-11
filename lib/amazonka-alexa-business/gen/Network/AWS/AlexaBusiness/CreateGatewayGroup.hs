@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,163 @@
 --
 -- Creates a gateway group with the specified details.
 module Network.AWS.AlexaBusiness.CreateGatewayGroup
-  ( -- * Creating a Request
-    createGatewayGroup,
-    CreateGatewayGroup,
+  ( -- * Creating a request
+    CreateGatewayGroup (..),
+    mkCreateGatewayGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cggDescription,
     cggName,
     cggClientRequestToken,
 
-    -- * Destructuring the Response
-    createGatewayGroupResponse,
-    CreateGatewayGroupResponse,
+    -- * Destructuring the response
+    CreateGatewayGroupResponse (..),
+    mkCreateGatewayGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cggrsGatewayGroupARN,
     cggrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createGatewayGroup' smart constructor.
+-- | /See:/ 'mkCreateGatewayGroup' smart constructor.
 data CreateGatewayGroup = CreateGatewayGroup'
-  { _cggDescription ::
-      !(Maybe Text),
-    _cggName :: !Text,
-    _cggClientRequestToken :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text,
+    clientRequestToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGatewayGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cggDescription' - The description of the gateway group.
---
--- * 'cggName' - The name of the gateway group.
---
--- * 'cggClientRequestToken' - A unique, user-specified identifier for the request that ensures idempotency.
-createGatewayGroup ::
-  -- | 'cggName'
-  Text ->
-  -- | 'cggClientRequestToken'
-  Text ->
+-- * 'clientRequestToken' - A unique, user-specified identifier for the request that ensures idempotency.
+-- * 'description' - The description of the gateway group.
+-- * 'name' - The name of the gateway group.
+mkCreateGatewayGroup ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'clientRequestToken'
+  Lude.Text ->
   CreateGatewayGroup
-createGatewayGroup pName_ pClientRequestToken_ =
+mkCreateGatewayGroup pName_ pClientRequestToken_ =
   CreateGatewayGroup'
-    { _cggDescription = Nothing,
-      _cggName = pName_,
-      _cggClientRequestToken = pClientRequestToken_
+    { description = Lude.Nothing,
+      name = pName_,
+      clientRequestToken = pClientRequestToken_
     }
 
 -- | The description of the gateway group.
-cggDescription :: Lens' CreateGatewayGroup (Maybe Text)
-cggDescription = lens _cggDescription (\s a -> s {_cggDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cggDescription :: Lens.Lens' CreateGatewayGroup (Lude.Maybe Lude.Text)
+cggDescription = Lens.lens (description :: CreateGatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateGatewayGroup)
+{-# DEPRECATED cggDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the gateway group.
-cggName :: Lens' CreateGatewayGroup Text
-cggName = lens _cggName (\s a -> s {_cggName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cggName :: Lens.Lens' CreateGatewayGroup Lude.Text
+cggName = Lens.lens (name :: CreateGatewayGroup -> Lude.Text) (\s a -> s {name = a} :: CreateGatewayGroup)
+{-# DEPRECATED cggName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique, user-specified identifier for the request that ensures idempotency.
-cggClientRequestToken :: Lens' CreateGatewayGroup Text
-cggClientRequestToken = lens _cggClientRequestToken (\s a -> s {_cggClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cggClientRequestToken :: Lens.Lens' CreateGatewayGroup Lude.Text
+cggClientRequestToken = Lens.lens (clientRequestToken :: CreateGatewayGroup -> Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateGatewayGroup)
+{-# DEPRECATED cggClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
-instance AWSRequest CreateGatewayGroup where
+instance Lude.AWSRequest CreateGatewayGroup where
   type Rs CreateGatewayGroup = CreateGatewayGroupResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateGatewayGroupResponse'
-            <$> (x .?> "GatewayGroupArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayGroupArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateGatewayGroup
-
-instance NFData CreateGatewayGroup
-
-instance ToHeaders CreateGatewayGroup where
+instance Lude.ToHeaders CreateGatewayGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.CreateGatewayGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.CreateGatewayGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateGatewayGroup where
+instance Lude.ToJSON CreateGatewayGroup where
   toJSON CreateGatewayGroup' {..} =
-    object
-      ( catMaybes
-          [ ("Description" .=) <$> _cggDescription,
-            Just ("Name" .= _cggName),
-            Just ("ClientRequestToken" .= _cggClientRequestToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("ClientRequestToken" Lude..= clientRequestToken)
           ]
       )
 
-instance ToPath CreateGatewayGroup where
-  toPath = const "/"
+instance Lude.ToPath CreateGatewayGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateGatewayGroup where
-  toQuery = const mempty
+instance Lude.ToQuery CreateGatewayGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createGatewayGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateGatewayGroupResponse' smart constructor.
 data CreateGatewayGroupResponse = CreateGatewayGroupResponse'
-  { _cggrsGatewayGroupARN ::
-      !(Maybe Text),
-    _cggrsResponseStatus :: !Int
+  { gatewayGroupARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGatewayGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cggrsGatewayGroupARN' - The ARN of the created gateway group.
---
--- * 'cggrsResponseStatus' - -- | The response status code.
-createGatewayGroupResponse ::
-  -- | 'cggrsResponseStatus'
-  Int ->
+-- * 'gatewayGroupARN' - The ARN of the created gateway group.
+-- * 'responseStatus' - The response status code.
+mkCreateGatewayGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateGatewayGroupResponse
-createGatewayGroupResponse pResponseStatus_ =
+mkCreateGatewayGroupResponse pResponseStatus_ =
   CreateGatewayGroupResponse'
-    { _cggrsGatewayGroupARN = Nothing,
-      _cggrsResponseStatus = pResponseStatus_
+    { gatewayGroupARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the created gateway group.
-cggrsGatewayGroupARN :: Lens' CreateGatewayGroupResponse (Maybe Text)
-cggrsGatewayGroupARN = lens _cggrsGatewayGroupARN (\s a -> s {_cggrsGatewayGroupARN = a})
+--
+-- /Note:/ Consider using 'gatewayGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cggrsGatewayGroupARN :: Lens.Lens' CreateGatewayGroupResponse (Lude.Maybe Lude.Text)
+cggrsGatewayGroupARN = Lens.lens (gatewayGroupARN :: CreateGatewayGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayGroupARN = a} :: CreateGatewayGroupResponse)
+{-# DEPRECATED cggrsGatewayGroupARN "Use generic-lens or generic-optics with 'gatewayGroupARN' instead." #-}
 
--- | -- | The response status code.
-cggrsResponseStatus :: Lens' CreateGatewayGroupResponse Int
-cggrsResponseStatus = lens _cggrsResponseStatus (\s a -> s {_cggrsResponseStatus = a})
-
-instance NFData CreateGatewayGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cggrsResponseStatus :: Lens.Lens' CreateGatewayGroupResponse Lude.Int
+cggrsResponseStatus = Lens.lens (responseStatus :: CreateGatewayGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGatewayGroupResponse)
+{-# DEPRECATED cggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

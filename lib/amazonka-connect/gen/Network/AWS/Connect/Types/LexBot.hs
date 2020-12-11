@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.LexBot where
+module Network.AWS.Connect.Types.LexBot
+  ( LexBot (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLexBot,
+
+    -- * Lenses
+    lbLexRegion,
+    lbName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration information of an Amazon Lex bot.
 --
---
---
--- /See:/ 'lexBot' smart constructor.
+-- /See:/ 'mkLexBot' smart constructor.
 data LexBot = LexBot'
-  { _lbLexRegion :: !(Maybe Text),
-    _lbName :: !(Maybe Text)
+  { lexRegion :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LexBot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbLexRegion' - The Region the Amazon Lex bot was created in.
---
--- * 'lbName' - The name of the Amazon Lex bot.
-lexBot ::
+-- * 'lexRegion' - The Region the Amazon Lex bot was created in.
+-- * 'name' - The name of the Amazon Lex bot.
+mkLexBot ::
   LexBot
-lexBot = LexBot' {_lbLexRegion = Nothing, _lbName = Nothing}
+mkLexBot = LexBot' {lexRegion = Lude.Nothing, name = Lude.Nothing}
 
 -- | The Region the Amazon Lex bot was created in.
-lbLexRegion :: Lens' LexBot (Maybe Text)
-lbLexRegion = lens _lbLexRegion (\s a -> s {_lbLexRegion = a})
+--
+-- /Note:/ Consider using 'lexRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbLexRegion :: Lens.Lens' LexBot (Lude.Maybe Lude.Text)
+lbLexRegion = Lens.lens (lexRegion :: LexBot -> Lude.Maybe Lude.Text) (\s a -> s {lexRegion = a} :: LexBot)
+{-# DEPRECATED lbLexRegion "Use generic-lens or generic-optics with 'lexRegion' instead." #-}
 
 -- | The name of the Amazon Lex bot.
-lbName :: Lens' LexBot (Maybe Text)
-lbName = lens _lbName (\s a -> s {_lbName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbName :: Lens.Lens' LexBot (Lude.Maybe Lude.Text)
+lbName = Lens.lens (name :: LexBot -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LexBot)
+{-# DEPRECATED lbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON LexBot where
+instance Lude.FromJSON LexBot where
   parseJSON =
-    withObject
+    Lude.withObject
       "LexBot"
-      (\x -> LexBot' <$> (x .:? "LexRegion") <*> (x .:? "Name"))
+      ( \x ->
+          LexBot'
+            Lude.<$> (x Lude..:? "LexRegion") Lude.<*> (x Lude..:? "Name")
+      )
 
-instance Hashable LexBot
-
-instance NFData LexBot
-
-instance ToJSON LexBot where
+instance Lude.ToJSON LexBot where
   toJSON LexBot' {..} =
-    object
-      ( catMaybes
-          [("LexRegion" .=) <$> _lbLexRegion, ("Name" .=) <$> _lbName]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("LexRegion" Lude..=) Lude.<$> lexRegion,
+            ("Name" Lude..=) Lude.<$> name
+          ]
       )

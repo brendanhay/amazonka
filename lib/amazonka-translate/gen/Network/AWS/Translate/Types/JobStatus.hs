@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Types.JobStatus where
+module Network.AWS.Translate.Types.JobStatus
+  ( JobStatus
+      ( JobStatus',
+        JSCompleted,
+        JSCompletedWithError,
+        JSFailed,
+        JSInProgress,
+        JSStopRequested,
+        JSStopped,
+        JSSubmitted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobStatus
-  = JSCompleted
-  | JSCompletedWithError
-  | JSFailed
-  | JSInProgress
-  | JSStopRequested
-  | JSStopped
-  | JSSubmitted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobStatus = JobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure JSCompleted
-      "completed_with_error" -> pure JSCompletedWithError
-      "failed" -> pure JSFailed
-      "in_progress" -> pure JSInProgress
-      "stop_requested" -> pure JSStopRequested
-      "stopped" -> pure JSStopped
-      "submitted" -> pure JSSubmitted
-      e ->
-        fromTextError $
-          "Failure parsing JobStatus from value: '" <> e
-            <> "'. Accepted values: completed, completed_with_error, failed, in_progress, stop_requested, stopped, submitted"
+pattern JSCompleted :: JobStatus
+pattern JSCompleted = JobStatus' "COMPLETED"
 
-instance ToText JobStatus where
-  toText = \case
-    JSCompleted -> "COMPLETED"
-    JSCompletedWithError -> "COMPLETED_WITH_ERROR"
-    JSFailed -> "FAILED"
-    JSInProgress -> "IN_PROGRESS"
-    JSStopRequested -> "STOP_REQUESTED"
-    JSStopped -> "STOPPED"
-    JSSubmitted -> "SUBMITTED"
+pattern JSCompletedWithError :: JobStatus
+pattern JSCompletedWithError = JobStatus' "COMPLETED_WITH_ERROR"
 
-instance Hashable JobStatus
+pattern JSFailed :: JobStatus
+pattern JSFailed = JobStatus' "FAILED"
 
-instance NFData JobStatus
+pattern JSInProgress :: JobStatus
+pattern JSInProgress = JobStatus' "IN_PROGRESS"
 
-instance ToByteString JobStatus
+pattern JSStopRequested :: JobStatus
+pattern JSStopRequested = JobStatus' "STOP_REQUESTED"
 
-instance ToQuery JobStatus
+pattern JSStopped :: JobStatus
+pattern JSStopped = JobStatus' "STOPPED"
 
-instance ToHeader JobStatus
+pattern JSSubmitted :: JobStatus
+pattern JSSubmitted = JobStatus' "SUBMITTED"
 
-instance ToJSON JobStatus where
-  toJSON = toJSONText
-
-instance FromJSON JobStatus where
-  parseJSON = parseJSONText "JobStatus"
+{-# COMPLETE
+  JSCompleted,
+  JSCompletedWithError,
+  JSFailed,
+  JSInProgress,
+  JSStopRequested,
+  JSStopped,
+  JSSubmitted,
+  JobStatus'
+  #-}

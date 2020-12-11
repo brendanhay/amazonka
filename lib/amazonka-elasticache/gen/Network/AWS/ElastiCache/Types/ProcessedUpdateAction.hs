@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.ProcessedUpdateAction where
+module Network.AWS.ElastiCache.Types.ProcessedUpdateAction
+  ( ProcessedUpdateAction (..),
+
+    -- * Smart constructor
+    mkProcessedUpdateAction,
+
+    -- * Lenses
+    puaCacheClusterId,
+    puaServiceUpdateName,
+    puaUpdateActionStatus,
+    puaReplicationGroupId,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.UpdateActionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Update action that has been processed for the corresponding apply/stop request
 --
---
---
--- /See:/ 'processedUpdateAction' smart constructor.
+-- /See:/ 'mkProcessedUpdateAction' smart constructor.
 data ProcessedUpdateAction = ProcessedUpdateAction'
-  { _puaCacheClusterId ::
-      !(Maybe Text),
-    _puaServiceUpdateName :: !(Maybe Text),
-    _puaUpdateActionStatus ::
-      !(Maybe UpdateActionStatus),
-    _puaReplicationGroupId :: !(Maybe Text)
+  { cacheClusterId ::
+      Lude.Maybe Lude.Text,
+    serviceUpdateName :: Lude.Maybe Lude.Text,
+    updateActionStatus ::
+      Lude.Maybe UpdateActionStatus,
+    replicationGroupId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessedUpdateAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'puaCacheClusterId' - The ID of the cache cluster
---
--- * 'puaServiceUpdateName' - The unique ID of the service update
---
--- * 'puaUpdateActionStatus' - The status of the update action on the Redis cluster
---
--- * 'puaReplicationGroupId' - The ID of the replication group
-processedUpdateAction ::
+-- * 'cacheClusterId' - The ID of the cache cluster
+-- * 'replicationGroupId' - The ID of the replication group
+-- * 'serviceUpdateName' - The unique ID of the service update
+-- * 'updateActionStatus' - The status of the update action on the Redis cluster
+mkProcessedUpdateAction ::
   ProcessedUpdateAction
-processedUpdateAction =
+mkProcessedUpdateAction =
   ProcessedUpdateAction'
-    { _puaCacheClusterId = Nothing,
-      _puaServiceUpdateName = Nothing,
-      _puaUpdateActionStatus = Nothing,
-      _puaReplicationGroupId = Nothing
+    { cacheClusterId = Lude.Nothing,
+      serviceUpdateName = Lude.Nothing,
+      updateActionStatus = Lude.Nothing,
+      replicationGroupId = Lude.Nothing
     }
 
 -- | The ID of the cache cluster
-puaCacheClusterId :: Lens' ProcessedUpdateAction (Maybe Text)
-puaCacheClusterId = lens _puaCacheClusterId (\s a -> s {_puaCacheClusterId = a})
+--
+-- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puaCacheClusterId :: Lens.Lens' ProcessedUpdateAction (Lude.Maybe Lude.Text)
+puaCacheClusterId = Lens.lens (cacheClusterId :: ProcessedUpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: ProcessedUpdateAction)
+{-# DEPRECATED puaCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
 -- | The unique ID of the service update
-puaServiceUpdateName :: Lens' ProcessedUpdateAction (Maybe Text)
-puaServiceUpdateName = lens _puaServiceUpdateName (\s a -> s {_puaServiceUpdateName = a})
+--
+-- /Note:/ Consider using 'serviceUpdateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puaServiceUpdateName :: Lens.Lens' ProcessedUpdateAction (Lude.Maybe Lude.Text)
+puaServiceUpdateName = Lens.lens (serviceUpdateName :: ProcessedUpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {serviceUpdateName = a} :: ProcessedUpdateAction)
+{-# DEPRECATED puaServiceUpdateName "Use generic-lens or generic-optics with 'serviceUpdateName' instead." #-}
 
 -- | The status of the update action on the Redis cluster
-puaUpdateActionStatus :: Lens' ProcessedUpdateAction (Maybe UpdateActionStatus)
-puaUpdateActionStatus = lens _puaUpdateActionStatus (\s a -> s {_puaUpdateActionStatus = a})
+--
+-- /Note:/ Consider using 'updateActionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puaUpdateActionStatus :: Lens.Lens' ProcessedUpdateAction (Lude.Maybe UpdateActionStatus)
+puaUpdateActionStatus = Lens.lens (updateActionStatus :: ProcessedUpdateAction -> Lude.Maybe UpdateActionStatus) (\s a -> s {updateActionStatus = a} :: ProcessedUpdateAction)
+{-# DEPRECATED puaUpdateActionStatus "Use generic-lens or generic-optics with 'updateActionStatus' instead." #-}
 
 -- | The ID of the replication group
-puaReplicationGroupId :: Lens' ProcessedUpdateAction (Maybe Text)
-puaReplicationGroupId = lens _puaReplicationGroupId (\s a -> s {_puaReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puaReplicationGroupId :: Lens.Lens' ProcessedUpdateAction (Lude.Maybe Lude.Text)
+puaReplicationGroupId = Lens.lens (replicationGroupId :: ProcessedUpdateAction -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupId = a} :: ProcessedUpdateAction)
+{-# DEPRECATED puaReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
-instance FromXML ProcessedUpdateAction where
+instance Lude.FromXML ProcessedUpdateAction where
   parseXML x =
     ProcessedUpdateAction'
-      <$> (x .@? "CacheClusterId")
-      <*> (x .@? "ServiceUpdateName")
-      <*> (x .@? "UpdateActionStatus")
-      <*> (x .@? "ReplicationGroupId")
-
-instance Hashable ProcessedUpdateAction
-
-instance NFData ProcessedUpdateAction
+      Lude.<$> (x Lude..@? "CacheClusterId")
+      Lude.<*> (x Lude..@? "ServiceUpdateName")
+      Lude.<*> (x Lude..@? "UpdateActionStatus")
+      Lude.<*> (x Lude..@? "ReplicationGroupId")

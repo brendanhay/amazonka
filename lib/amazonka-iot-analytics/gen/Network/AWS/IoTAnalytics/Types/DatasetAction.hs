@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatasetAction where
+module Network.AWS.IoTAnalytics.Types.DatasetAction
+  ( DatasetAction (..),
+
+    -- * Smart constructor
+    mkDatasetAction,
+
+    -- * Lenses
+    daQueryAction,
+    daActionName,
+    daContainerAction,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.ContainerDatasetAction
 import Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A @DatasetAction@ object that specifies how data set contents are automatically created.
 --
---
---
--- /See:/ 'datasetAction' smart constructor.
+-- /See:/ 'mkDatasetAction' smart constructor.
 data DatasetAction = DatasetAction'
-  { _daQueryAction ::
-      !(Maybe SqlQueryDatasetAction),
-    _daActionName :: !(Maybe Text),
-    _daContainerAction :: !(Maybe ContainerDatasetAction)
+  { queryAction ::
+      Lude.Maybe SqlQueryDatasetAction,
+    actionName :: Lude.Maybe Lude.Text,
+    containerAction :: Lude.Maybe ContainerDatasetAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daQueryAction' - An @SqlQueryDatasetAction@ object that uses an SQL query to automatically create data set contents.
---
--- * 'daActionName' - The name of the data set action by which data set contents are automatically created.
---
--- * 'daContainerAction' - Information that allows the system to run a containerized application to create the dataset contents. The application must be in a Docker container along with any required support libraries.
-datasetAction ::
+-- * 'actionName' - The name of the data set action by which data set contents are automatically created.
+-- * 'containerAction' - Information that allows the system to run a containerized application to create the dataset contents. The application must be in a Docker container along with any required support libraries.
+-- * 'queryAction' - An @SqlQueryDatasetAction@ object that uses an SQL query to automatically create data set contents.
+mkDatasetAction ::
   DatasetAction
-datasetAction =
+mkDatasetAction =
   DatasetAction'
-    { _daQueryAction = Nothing,
-      _daActionName = Nothing,
-      _daContainerAction = Nothing
+    { queryAction = Lude.Nothing,
+      actionName = Lude.Nothing,
+      containerAction = Lude.Nothing
     }
 
 -- | An @SqlQueryDatasetAction@ object that uses an SQL query to automatically create data set contents.
-daQueryAction :: Lens' DatasetAction (Maybe SqlQueryDatasetAction)
-daQueryAction = lens _daQueryAction (\s a -> s {_daQueryAction = a})
+--
+-- /Note:/ Consider using 'queryAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daQueryAction :: Lens.Lens' DatasetAction (Lude.Maybe SqlQueryDatasetAction)
+daQueryAction = Lens.lens (queryAction :: DatasetAction -> Lude.Maybe SqlQueryDatasetAction) (\s a -> s {queryAction = a} :: DatasetAction)
+{-# DEPRECATED daQueryAction "Use generic-lens or generic-optics with 'queryAction' instead." #-}
 
 -- | The name of the data set action by which data set contents are automatically created.
-daActionName :: Lens' DatasetAction (Maybe Text)
-daActionName = lens _daActionName (\s a -> s {_daActionName = a})
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daActionName :: Lens.Lens' DatasetAction (Lude.Maybe Lude.Text)
+daActionName = Lens.lens (actionName :: DatasetAction -> Lude.Maybe Lude.Text) (\s a -> s {actionName = a} :: DatasetAction)
+{-# DEPRECATED daActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | Information that allows the system to run a containerized application to create the dataset contents. The application must be in a Docker container along with any required support libraries.
-daContainerAction :: Lens' DatasetAction (Maybe ContainerDatasetAction)
-daContainerAction = lens _daContainerAction (\s a -> s {_daContainerAction = a})
+--
+-- /Note:/ Consider using 'containerAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daContainerAction :: Lens.Lens' DatasetAction (Lude.Maybe ContainerDatasetAction)
+daContainerAction = Lens.lens (containerAction :: DatasetAction -> Lude.Maybe ContainerDatasetAction) (\s a -> s {containerAction = a} :: DatasetAction)
+{-# DEPRECATED daContainerAction "Use generic-lens or generic-optics with 'containerAction' instead." #-}
 
-instance FromJSON DatasetAction where
+instance Lude.FromJSON DatasetAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "DatasetAction"
       ( \x ->
           DatasetAction'
-            <$> (x .:? "queryAction")
-            <*> (x .:? "actionName")
-            <*> (x .:? "containerAction")
+            Lude.<$> (x Lude..:? "queryAction")
+            Lude.<*> (x Lude..:? "actionName")
+            Lude.<*> (x Lude..:? "containerAction")
       )
 
-instance Hashable DatasetAction
-
-instance NFData DatasetAction
-
-instance ToJSON DatasetAction where
+instance Lude.ToJSON DatasetAction where
   toJSON DatasetAction' {..} =
-    object
-      ( catMaybes
-          [ ("queryAction" .=) <$> _daQueryAction,
-            ("actionName" .=) <$> _daActionName,
-            ("containerAction" .=) <$> _daContainerAction
+    Lude.object
+      ( Lude.catMaybes
+          [ ("queryAction" Lude..=) Lude.<$> queryAction,
+            ("actionName" Lude..=) Lude.<$> actionName,
+            ("containerAction" Lude..=) Lude.<$> containerAction
           ]
       )

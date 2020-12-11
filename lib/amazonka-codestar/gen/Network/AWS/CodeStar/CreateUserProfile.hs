@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a profile for a user that includes user preferences, such as the display name and email address assocciated with the user, in AWS CodeStar. The user profile is not project-specific. Information in the user profile is displayed wherever the user's information appears to other users in AWS CodeStar.
 module Network.AWS.CodeStar.CreateUserProfile
-  ( -- * Creating a Request
-    createUserProfile,
-    CreateUserProfile,
+  ( -- * Creating a request
+    CreateUserProfile (..),
+    mkCreateUserProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cupSshPublicKey,
     cupUserARN,
     cupDisplayName,
     cupEmailAddress,
 
-    -- * Destructuring the Response
-    createUserProfileResponse,
-    CreateUserProfileResponse,
+    -- * Destructuring the response
+    CreateUserProfileResponse (..),
+    mkCreateUserProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cuprsLastModifiedTimestamp,
     cuprsSshPublicKey,
     cuprsEmailAddress,
@@ -45,187 +40,204 @@ module Network.AWS.CodeStar.CreateUserProfile
 where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createUserProfile' smart constructor.
+-- | /See:/ 'mkCreateUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
-  { _cupSshPublicKey ::
-      !(Maybe Text),
-    _cupUserARN :: !Text,
-    _cupDisplayName :: !(Sensitive Text),
-    _cupEmailAddress :: !(Sensitive Text)
+  { sshPublicKey ::
+      Lude.Maybe Lude.Text,
+    userARN :: Lude.Text,
+    displayName :: Lude.Sensitive Lude.Text,
+    emailAddress :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cupSshPublicKey' - The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
---
--- * 'cupUserARN' - The Amazon Resource Name (ARN) of the user in IAM.
---
--- * 'cupDisplayName' - The name that will be displayed as the friendly name for the user in AWS CodeStar.
---
--- * 'cupEmailAddress' - The email address that will be displayed as part of the user's profile in AWS CodeStar.
-createUserProfile ::
-  -- | 'cupUserARN'
-  Text ->
-  -- | 'cupDisplayName'
-  Text ->
-  -- | 'cupEmailAddress'
-  Text ->
+-- * 'displayName' - The name that will be displayed as the friendly name for the user in AWS CodeStar.
+-- * 'emailAddress' - The email address that will be displayed as part of the user's profile in AWS CodeStar.
+-- * 'sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
+-- * 'userARN' - The Amazon Resource Name (ARN) of the user in IAM.
+mkCreateUserProfile ::
+  -- | 'userARN'
+  Lude.Text ->
+  -- | 'displayName'
+  Lude.Sensitive Lude.Text ->
+  -- | 'emailAddress'
+  Lude.Sensitive Lude.Text ->
   CreateUserProfile
-createUserProfile pUserARN_ pDisplayName_ pEmailAddress_ =
+mkCreateUserProfile pUserARN_ pDisplayName_ pEmailAddress_ =
   CreateUserProfile'
-    { _cupSshPublicKey = Nothing,
-      _cupUserARN = pUserARN_,
-      _cupDisplayName = _Sensitive # pDisplayName_,
-      _cupEmailAddress = _Sensitive # pEmailAddress_
+    { sshPublicKey = Lude.Nothing,
+      userARN = pUserARN_,
+      displayName = pDisplayName_,
+      emailAddress = pEmailAddress_
     }
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
-cupSshPublicKey :: Lens' CreateUserProfile (Maybe Text)
-cupSshPublicKey = lens _cupSshPublicKey (\s a -> s {_cupSshPublicKey = a})
+--
+-- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupSshPublicKey :: Lens.Lens' CreateUserProfile (Lude.Maybe Lude.Text)
+cupSshPublicKey = Lens.lens (sshPublicKey :: CreateUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: CreateUserProfile)
+{-# DEPRECATED cupSshPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
-cupUserARN :: Lens' CreateUserProfile Text
-cupUserARN = lens _cupUserARN (\s a -> s {_cupUserARN = a})
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupUserARN :: Lens.Lens' CreateUserProfile Lude.Text
+cupUserARN = Lens.lens (userARN :: CreateUserProfile -> Lude.Text) (\s a -> s {userARN = a} :: CreateUserProfile)
+{-# DEPRECATED cupUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
 -- | The name that will be displayed as the friendly name for the user in AWS CodeStar.
-cupDisplayName :: Lens' CreateUserProfile Text
-cupDisplayName = lens _cupDisplayName (\s a -> s {_cupDisplayName = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupDisplayName :: Lens.Lens' CreateUserProfile (Lude.Sensitive Lude.Text)
+cupDisplayName = Lens.lens (displayName :: CreateUserProfile -> Lude.Sensitive Lude.Text) (\s a -> s {displayName = a} :: CreateUserProfile)
+{-# DEPRECATED cupDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The email address that will be displayed as part of the user's profile in AWS CodeStar.
-cupEmailAddress :: Lens' CreateUserProfile Text
-cupEmailAddress = lens _cupEmailAddress (\s a -> s {_cupEmailAddress = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupEmailAddress :: Lens.Lens' CreateUserProfile (Lude.Sensitive Lude.Text)
+cupEmailAddress = Lens.lens (emailAddress :: CreateUserProfile -> Lude.Sensitive Lude.Text) (\s a -> s {emailAddress = a} :: CreateUserProfile)
+{-# DEPRECATED cupEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
 
-instance AWSRequest CreateUserProfile where
+instance Lude.AWSRequest CreateUserProfile where
   type Rs CreateUserProfile = CreateUserProfileResponse
-  request = postJSON codeStar
+  request = Req.postJSON codeStarService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateUserProfileResponse'
-            <$> (x .?> "lastModifiedTimestamp")
-            <*> (x .?> "sshPublicKey")
-            <*> (x .?> "emailAddress")
-            <*> (x .?> "displayName")
-            <*> (x .?> "createdTimestamp")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "userArn")
+            Lude.<$> (x Lude..?> "lastModifiedTimestamp")
+            Lude.<*> (x Lude..?> "sshPublicKey")
+            Lude.<*> (x Lude..?> "emailAddress")
+            Lude.<*> (x Lude..?> "displayName")
+            Lude.<*> (x Lude..?> "createdTimestamp")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "userArn")
       )
 
-instance Hashable CreateUserProfile
-
-instance NFData CreateUserProfile
-
-instance ToHeaders CreateUserProfile where
+instance Lude.ToHeaders CreateUserProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeStar_20170419.CreateUserProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeStar_20170419.CreateUserProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateUserProfile where
+instance Lude.ToJSON CreateUserProfile where
   toJSON CreateUserProfile' {..} =
-    object
-      ( catMaybes
-          [ ("sshPublicKey" .=) <$> _cupSshPublicKey,
-            Just ("userArn" .= _cupUserARN),
-            Just ("displayName" .= _cupDisplayName),
-            Just ("emailAddress" .= _cupEmailAddress)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sshPublicKey" Lude..=) Lude.<$> sshPublicKey,
+            Lude.Just ("userArn" Lude..= userARN),
+            Lude.Just ("displayName" Lude..= displayName),
+            Lude.Just ("emailAddress" Lude..= emailAddress)
           ]
       )
 
-instance ToPath CreateUserProfile where
-  toPath = const "/"
+instance Lude.ToPath CreateUserProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateUserProfile where
-  toQuery = const mempty
+instance Lude.ToQuery CreateUserProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createUserProfileResponse' smart constructor.
+-- | /See:/ 'mkCreateUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
-  { _cuprsLastModifiedTimestamp ::
-      !(Maybe POSIX),
-    _cuprsSshPublicKey :: !(Maybe Text),
-    _cuprsEmailAddress ::
-      !(Maybe (Sensitive Text)),
-    _cuprsDisplayName ::
-      !(Maybe (Sensitive Text)),
-    _cuprsCreatedTimestamp ::
-      !(Maybe POSIX),
-    _cuprsResponseStatus :: !Int,
-    _cuprsUserARN :: !Text
+  { lastModifiedTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    sshPublicKey :: Lude.Maybe Lude.Text,
+    emailAddress ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    displayName ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    createdTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    responseStatus :: Lude.Int,
+    userARN :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cuprsLastModifiedTimestamp' - The date the user profile was last modified, in timestamp format.
---
--- * 'cuprsSshPublicKey' - The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources.
---
--- * 'cuprsEmailAddress' - The email address that is displayed as part of the user's profile in AWS CodeStar.
---
--- * 'cuprsDisplayName' - The name that is displayed as the friendly name for the user in AWS CodeStar.
---
--- * 'cuprsCreatedTimestamp' - The date the user profile was created, in timestamp format.
---
--- * 'cuprsResponseStatus' - -- | The response status code.
---
--- * 'cuprsUserARN' - The Amazon Resource Name (ARN) of the user in IAM.
-createUserProfileResponse ::
-  -- | 'cuprsResponseStatus'
-  Int ->
-  -- | 'cuprsUserARN'
-  Text ->
+-- * 'createdTimestamp' - The date the user profile was created, in timestamp format.
+-- * 'displayName' - The name that is displayed as the friendly name for the user in AWS CodeStar.
+-- * 'emailAddress' - The email address that is displayed as part of the user's profile in AWS CodeStar.
+-- * 'lastModifiedTimestamp' - The date the user profile was last modified, in timestamp format.
+-- * 'responseStatus' - The response status code.
+-- * 'sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources.
+-- * 'userARN' - The Amazon Resource Name (ARN) of the user in IAM.
+mkCreateUserProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'userARN'
+  Lude.Text ->
   CreateUserProfileResponse
-createUserProfileResponse pResponseStatus_ pUserARN_ =
+mkCreateUserProfileResponse pResponseStatus_ pUserARN_ =
   CreateUserProfileResponse'
-    { _cuprsLastModifiedTimestamp = Nothing,
-      _cuprsSshPublicKey = Nothing,
-      _cuprsEmailAddress = Nothing,
-      _cuprsDisplayName = Nothing,
-      _cuprsCreatedTimestamp = Nothing,
-      _cuprsResponseStatus = pResponseStatus_,
-      _cuprsUserARN = pUserARN_
+    { lastModifiedTimestamp = Lude.Nothing,
+      sshPublicKey = Lude.Nothing,
+      emailAddress = Lude.Nothing,
+      displayName = Lude.Nothing,
+      createdTimestamp = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      userARN = pUserARN_
     }
 
 -- | The date the user profile was last modified, in timestamp format.
-cuprsLastModifiedTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
-cuprsLastModifiedTimestamp = lens _cuprsLastModifiedTimestamp (\s a -> s {_cuprsLastModifiedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsLastModifiedTimestamp :: Lens.Lens' CreateUserProfileResponse (Lude.Maybe Lude.Timestamp)
+cuprsLastModifiedTimestamp = Lens.lens (lastModifiedTimestamp :: CreateUserProfileResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimestamp = a} :: CreateUserProfileResponse)
+{-# DEPRECATED cuprsLastModifiedTimestamp "Use generic-lens or generic-optics with 'lastModifiedTimestamp' instead." #-}
 
 -- | The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources.
-cuprsSshPublicKey :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsSshPublicKey = lens _cuprsSshPublicKey (\s a -> s {_cuprsSshPublicKey = a})
+--
+-- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsSshPublicKey :: Lens.Lens' CreateUserProfileResponse (Lude.Maybe Lude.Text)
+cuprsSshPublicKey = Lens.lens (sshPublicKey :: CreateUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: CreateUserProfileResponse)
+{-# DEPRECATED cuprsSshPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
 -- | The email address that is displayed as part of the user's profile in AWS CodeStar.
-cuprsEmailAddress :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsEmailAddress = lens _cuprsEmailAddress (\s a -> s {_cuprsEmailAddress = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsEmailAddress :: Lens.Lens' CreateUserProfileResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+cuprsEmailAddress = Lens.lens (emailAddress :: CreateUserProfileResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {emailAddress = a} :: CreateUserProfileResponse)
+{-# DEPRECATED cuprsEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
 
 -- | The name that is displayed as the friendly name for the user in AWS CodeStar.
-cuprsDisplayName :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprsDisplayName = lens _cuprsDisplayName (\s a -> s {_cuprsDisplayName = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsDisplayName :: Lens.Lens' CreateUserProfileResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+cuprsDisplayName = Lens.lens (displayName :: CreateUserProfileResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {displayName = a} :: CreateUserProfileResponse)
+{-# DEPRECATED cuprsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The date the user profile was created, in timestamp format.
-cuprsCreatedTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
-cuprsCreatedTimestamp = lens _cuprsCreatedTimestamp (\s a -> s {_cuprsCreatedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsCreatedTimestamp :: Lens.Lens' CreateUserProfileResponse (Lude.Maybe Lude.Timestamp)
+cuprsCreatedTimestamp = Lens.lens (createdTimestamp :: CreateUserProfileResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTimestamp = a} :: CreateUserProfileResponse)
+{-# DEPRECATED cuprsCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
--- | -- | The response status code.
-cuprsResponseStatus :: Lens' CreateUserProfileResponse Int
-cuprsResponseStatus = lens _cuprsResponseStatus (\s a -> s {_cuprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsResponseStatus :: Lens.Lens' CreateUserProfileResponse Lude.Int
+cuprsResponseStatus = Lens.lens (responseStatus :: CreateUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserProfileResponse)
+{-# DEPRECATED cuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
-cuprsUserARN :: Lens' CreateUserProfileResponse Text
-cuprsUserARN = lens _cuprsUserARN (\s a -> s {_cuprsUserARN = a})
-
-instance NFData CreateUserProfileResponse
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsUserARN :: Lens.Lens' CreateUserProfileResponse Lude.Text
+cuprsUserARN = Lens.lens (userARN :: CreateUserProfileResponse -> Lude.Text) (\s a -> s {userARN = a} :: CreateUserProfileResponse)
+{-# DEPRECATED cuprsUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}

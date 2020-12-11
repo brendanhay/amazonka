@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DocumentParameter where
+module Network.AWS.SSM.Types.DocumentParameter
+  ( DocumentParameter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDocumentParameter,
+
+    -- * Lenses
+    dpName,
+    dpDefaultValue,
+    dpType,
+    dpDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.DocumentParameterType
 
 -- | Parameters specified in a System Manager document that run on the server when the command is run.
 --
---
---
--- /See:/ 'documentParameter' smart constructor.
+-- /See:/ 'mkDocumentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
-  { _dpName ::
-      !(Maybe Text),
-    _dpDefaultValue :: !(Maybe Text),
-    _dpType :: !(Maybe DocumentParameterType),
-    _dpDescription :: !(Maybe Text)
+  { name ::
+      Lude.Maybe Lude.Text,
+    defaultValue :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe DocumentParameterType,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpName' - The name of the parameter.
---
--- * 'dpDefaultValue' - If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
---
--- * 'dpType' - The type of parameter. The type can be either String or StringList.
---
--- * 'dpDescription' - A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
-documentParameter ::
+-- * 'defaultValue' - If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+-- * 'description' - A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
+-- * 'name' - The name of the parameter.
+-- * 'type'' - The type of parameter. The type can be either String or StringList.
+mkDocumentParameter ::
   DocumentParameter
-documentParameter =
+mkDocumentParameter =
   DocumentParameter'
-    { _dpName = Nothing,
-      _dpDefaultValue = Nothing,
-      _dpType = Nothing,
-      _dpDescription = Nothing
+    { name = Lude.Nothing,
+      defaultValue = Lude.Nothing,
+      type' = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The name of the parameter.
-dpName :: Lens' DocumentParameter (Maybe Text)
-dpName = lens _dpName (\s a -> s {_dpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpName :: Lens.Lens' DocumentParameter (Lude.Maybe Lude.Text)
+dpName = Lens.lens (name :: DocumentParameter -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DocumentParameter)
+{-# DEPRECATED dpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
-dpDefaultValue :: Lens' DocumentParameter (Maybe Text)
-dpDefaultValue = lens _dpDefaultValue (\s a -> s {_dpDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpDefaultValue :: Lens.Lens' DocumentParameter (Lude.Maybe Lude.Text)
+dpDefaultValue = Lens.lens (defaultValue :: DocumentParameter -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: DocumentParameter)
+{-# DEPRECATED dpDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | The type of parameter. The type can be either String or StringList.
-dpType :: Lens' DocumentParameter (Maybe DocumentParameterType)
-dpType = lens _dpType (\s a -> s {_dpType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpType :: Lens.Lens' DocumentParameter (Lude.Maybe DocumentParameterType)
+dpType = Lens.lens (type' :: DocumentParameter -> Lude.Maybe DocumentParameterType) (\s a -> s {type' = a} :: DocumentParameter)
+{-# DEPRECATED dpType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
-dpDescription :: Lens' DocumentParameter (Maybe Text)
-dpDescription = lens _dpDescription (\s a -> s {_dpDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpDescription :: Lens.Lens' DocumentParameter (Lude.Maybe Lude.Text)
+dpDescription = Lens.lens (description :: DocumentParameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DocumentParameter)
+{-# DEPRECATED dpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON DocumentParameter where
+instance Lude.FromJSON DocumentParameter where
   parseJSON =
-    withObject
+    Lude.withObject
       "DocumentParameter"
       ( \x ->
           DocumentParameter'
-            <$> (x .:? "Name")
-            <*> (x .:? "DefaultValue")
-            <*> (x .:? "Type")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "DefaultValue")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable DocumentParameter
-
-instance NFData DocumentParameter

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,31 @@
 --
 -- Creates a new table from an existing backup. Any number of users can execute up to 4 concurrent restores (any type of restore) in a given account.
 --
---
 -- You can call @RestoreTableFromBackup@ at a maximum rate of 10 times per second.
---
 -- You must manually set up the following on the restored table:
 --
 --     * Auto scaling policies
 --
+--
 --     * IAM policies
+--
 --
 --     * Amazon CloudWatch metrics and alarms
 --
+--
 --     * Tags
+--
 --
 --     * Stream settings
 --
+--
 --     * Time to Live (TTL) settings
 module Network.AWS.DynamoDB.RestoreTableFromBackup
-  ( -- * Creating a Request
-    restoreTableFromBackup,
-    RestoreTableFromBackup,
+  ( -- * Creating a request
+    RestoreTableFromBackup (..),
+    mkRestoreTableFromBackup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rtfbBillingModeOverride,
     rtfbGlobalSecondaryIndexOverride,
     rtfbProvisionedThroughputOverride,
@@ -49,180 +47,206 @@ module Network.AWS.DynamoDB.RestoreTableFromBackup
     rtfbTargetTableName,
     rtfbBackupARN,
 
-    -- * Destructuring the Response
-    restoreTableFromBackupResponse,
-    RestoreTableFromBackupResponse,
+    -- * Destructuring the response
+    RestoreTableFromBackupResponse (..),
+    mkRestoreTableFromBackupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rtfbrsTableDescription,
     rtfbrsResponseStatus,
   )
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'restoreTableFromBackup' smart constructor.
+-- | /See:/ 'mkRestoreTableFromBackup' smart constructor.
 data RestoreTableFromBackup = RestoreTableFromBackup'
-  { _rtfbBillingModeOverride ::
-      !(Maybe BillingMode),
-    _rtfbGlobalSecondaryIndexOverride ::
-      !(Maybe [GlobalSecondaryIndex]),
-    _rtfbProvisionedThroughputOverride ::
-      !(Maybe ProvisionedThroughput),
-    _rtfbSSESpecificationOverride ::
-      !(Maybe SSESpecification),
-    _rtfbLocalSecondaryIndexOverride ::
-      !(Maybe [LocalSecondaryIndex]),
-    _rtfbTargetTableName :: !Text,
-    _rtfbBackupARN :: !Text
+  { billingModeOverride ::
+      Lude.Maybe BillingMode,
+    globalSecondaryIndexOverride ::
+      Lude.Maybe [GlobalSecondaryIndex],
+    provisionedThroughputOverride ::
+      Lude.Maybe ProvisionedThroughput,
+    sSESpecificationOverride ::
+      Lude.Maybe SSESpecification,
+    localSecondaryIndexOverride ::
+      Lude.Maybe [LocalSecondaryIndex],
+    targetTableName :: Lude.Text,
+    backupARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreTableFromBackup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtfbBillingModeOverride' - The billing mode of the restored table.
---
--- * 'rtfbGlobalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
---
--- * 'rtfbProvisionedThroughputOverride' - Provisioned throughput settings for the restored table.
---
--- * 'rtfbSSESpecificationOverride' - The new server-side encryption settings for the restored table.
---
--- * 'rtfbLocalSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
---
--- * 'rtfbTargetTableName' - The name of the new table to which the backup must be restored.
---
--- * 'rtfbBackupARN' - The Amazon Resource Name (ARN) associated with the backup.
-restoreTableFromBackup ::
-  -- | 'rtfbTargetTableName'
-  Text ->
-  -- | 'rtfbBackupARN'
-  Text ->
+-- * 'backupARN' - The Amazon Resource Name (ARN) associated with the backup.
+-- * 'billingModeOverride' - The billing mode of the restored table.
+-- * 'globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
+-- * 'localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
+-- * 'provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
+-- * 'sSESpecificationOverride' - The new server-side encryption settings for the restored table.
+-- * 'targetTableName' - The name of the new table to which the backup must be restored.
+mkRestoreTableFromBackup ::
+  -- | 'targetTableName'
+  Lude.Text ->
+  -- | 'backupARN'
+  Lude.Text ->
   RestoreTableFromBackup
-restoreTableFromBackup pTargetTableName_ pBackupARN_ =
+mkRestoreTableFromBackup pTargetTableName_ pBackupARN_ =
   RestoreTableFromBackup'
-    { _rtfbBillingModeOverride = Nothing,
-      _rtfbGlobalSecondaryIndexOverride = Nothing,
-      _rtfbProvisionedThroughputOverride = Nothing,
-      _rtfbSSESpecificationOverride = Nothing,
-      _rtfbLocalSecondaryIndexOverride = Nothing,
-      _rtfbTargetTableName = pTargetTableName_,
-      _rtfbBackupARN = pBackupARN_
+    { billingModeOverride = Lude.Nothing,
+      globalSecondaryIndexOverride = Lude.Nothing,
+      provisionedThroughputOverride = Lude.Nothing,
+      sSESpecificationOverride = Lude.Nothing,
+      localSecondaryIndexOverride = Lude.Nothing,
+      targetTableName = pTargetTableName_,
+      backupARN = pBackupARN_
     }
 
 -- | The billing mode of the restored table.
-rtfbBillingModeOverride :: Lens' RestoreTableFromBackup (Maybe BillingMode)
-rtfbBillingModeOverride = lens _rtfbBillingModeOverride (\s a -> s {_rtfbBillingModeOverride = a})
+--
+-- /Note:/ Consider using 'billingModeOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbBillingModeOverride :: Lens.Lens' RestoreTableFromBackup (Lude.Maybe BillingMode)
+rtfbBillingModeOverride = Lens.lens (billingModeOverride :: RestoreTableFromBackup -> Lude.Maybe BillingMode) (\s a -> s {billingModeOverride = a} :: RestoreTableFromBackup)
+{-# DEPRECATED rtfbBillingModeOverride "Use generic-lens or generic-optics with 'billingModeOverride' instead." #-}
 
 -- | List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
-rtfbGlobalSecondaryIndexOverride :: Lens' RestoreTableFromBackup [GlobalSecondaryIndex]
-rtfbGlobalSecondaryIndexOverride = lens _rtfbGlobalSecondaryIndexOverride (\s a -> s {_rtfbGlobalSecondaryIndexOverride = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'globalSecondaryIndexOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbGlobalSecondaryIndexOverride :: Lens.Lens' RestoreTableFromBackup (Lude.Maybe [GlobalSecondaryIndex])
+rtfbGlobalSecondaryIndexOverride = Lens.lens (globalSecondaryIndexOverride :: RestoreTableFromBackup -> Lude.Maybe [GlobalSecondaryIndex]) (\s a -> s {globalSecondaryIndexOverride = a} :: RestoreTableFromBackup)
+{-# DEPRECATED rtfbGlobalSecondaryIndexOverride "Use generic-lens or generic-optics with 'globalSecondaryIndexOverride' instead." #-}
 
 -- | Provisioned throughput settings for the restored table.
-rtfbProvisionedThroughputOverride :: Lens' RestoreTableFromBackup (Maybe ProvisionedThroughput)
-rtfbProvisionedThroughputOverride = lens _rtfbProvisionedThroughputOverride (\s a -> s {_rtfbProvisionedThroughputOverride = a})
+--
+-- /Note:/ Consider using 'provisionedThroughputOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbProvisionedThroughputOverride :: Lens.Lens' RestoreTableFromBackup (Lude.Maybe ProvisionedThroughput)
+rtfbProvisionedThroughputOverride = Lens.lens (provisionedThroughputOverride :: RestoreTableFromBackup -> Lude.Maybe ProvisionedThroughput) (\s a -> s {provisionedThroughputOverride = a} :: RestoreTableFromBackup)
+{-# DEPRECATED rtfbProvisionedThroughputOverride "Use generic-lens or generic-optics with 'provisionedThroughputOverride' instead." #-}
 
 -- | The new server-side encryption settings for the restored table.
-rtfbSSESpecificationOverride :: Lens' RestoreTableFromBackup (Maybe SSESpecification)
-rtfbSSESpecificationOverride = lens _rtfbSSESpecificationOverride (\s a -> s {_rtfbSSESpecificationOverride = a})
+--
+-- /Note:/ Consider using 'sSESpecificationOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbSSESpecificationOverride :: Lens.Lens' RestoreTableFromBackup (Lude.Maybe SSESpecification)
+rtfbSSESpecificationOverride = Lens.lens (sSESpecificationOverride :: RestoreTableFromBackup -> Lude.Maybe SSESpecification) (\s a -> s {sSESpecificationOverride = a} :: RestoreTableFromBackup)
+{-# DEPRECATED rtfbSSESpecificationOverride "Use generic-lens or generic-optics with 'sSESpecificationOverride' instead." #-}
 
 -- | List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.
-rtfbLocalSecondaryIndexOverride :: Lens' RestoreTableFromBackup [LocalSecondaryIndex]
-rtfbLocalSecondaryIndexOverride = lens _rtfbLocalSecondaryIndexOverride (\s a -> s {_rtfbLocalSecondaryIndexOverride = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'localSecondaryIndexOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbLocalSecondaryIndexOverride :: Lens.Lens' RestoreTableFromBackup (Lude.Maybe [LocalSecondaryIndex])
+rtfbLocalSecondaryIndexOverride = Lens.lens (localSecondaryIndexOverride :: RestoreTableFromBackup -> Lude.Maybe [LocalSecondaryIndex]) (\s a -> s {localSecondaryIndexOverride = a} :: RestoreTableFromBackup)
+{-# DEPRECATED rtfbLocalSecondaryIndexOverride "Use generic-lens or generic-optics with 'localSecondaryIndexOverride' instead." #-}
 
 -- | The name of the new table to which the backup must be restored.
-rtfbTargetTableName :: Lens' RestoreTableFromBackup Text
-rtfbTargetTableName = lens _rtfbTargetTableName (\s a -> s {_rtfbTargetTableName = a})
+--
+-- /Note:/ Consider using 'targetTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbTargetTableName :: Lens.Lens' RestoreTableFromBackup Lude.Text
+rtfbTargetTableName = Lens.lens (targetTableName :: RestoreTableFromBackup -> Lude.Text) (\s a -> s {targetTableName = a} :: RestoreTableFromBackup)
+{-# DEPRECATED rtfbTargetTableName "Use generic-lens or generic-optics with 'targetTableName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) associated with the backup.
-rtfbBackupARN :: Lens' RestoreTableFromBackup Text
-rtfbBackupARN = lens _rtfbBackupARN (\s a -> s {_rtfbBackupARN = a})
+--
+-- /Note:/ Consider using 'backupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbBackupARN :: Lens.Lens' RestoreTableFromBackup Lude.Text
+rtfbBackupARN = Lens.lens (backupARN :: RestoreTableFromBackup -> Lude.Text) (\s a -> s {backupARN = a} :: RestoreTableFromBackup)
+{-# DEPRECATED rtfbBackupARN "Use generic-lens or generic-optics with 'backupARN' instead." #-}
 
-instance AWSRequest RestoreTableFromBackup where
+instance Lude.AWSRequest RestoreTableFromBackup where
   type Rs RestoreTableFromBackup = RestoreTableFromBackupResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RestoreTableFromBackupResponse'
-            <$> (x .?> "TableDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TableDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RestoreTableFromBackup
-
-instance NFData RestoreTableFromBackup
-
-instance ToHeaders RestoreTableFromBackup where
+instance Lude.ToHeaders RestoreTableFromBackup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.RestoreTableFromBackup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.RestoreTableFromBackup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RestoreTableFromBackup where
+instance Lude.ToJSON RestoreTableFromBackup where
   toJSON RestoreTableFromBackup' {..} =
-    object
-      ( catMaybes
-          [ ("BillingModeOverride" .=) <$> _rtfbBillingModeOverride,
-            ("GlobalSecondaryIndexOverride" .=)
-              <$> _rtfbGlobalSecondaryIndexOverride,
-            ("ProvisionedThroughputOverride" .=)
-              <$> _rtfbProvisionedThroughputOverride,
-            ("SSESpecificationOverride" .=) <$> _rtfbSSESpecificationOverride,
-            ("LocalSecondaryIndexOverride" .=)
-              <$> _rtfbLocalSecondaryIndexOverride,
-            Just ("TargetTableName" .= _rtfbTargetTableName),
-            Just ("BackupArn" .= _rtfbBackupARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("BillingModeOverride" Lude..=) Lude.<$> billingModeOverride,
+            ("GlobalSecondaryIndexOverride" Lude..=)
+              Lude.<$> globalSecondaryIndexOverride,
+            ("ProvisionedThroughputOverride" Lude..=)
+              Lude.<$> provisionedThroughputOverride,
+            ("SSESpecificationOverride" Lude..=)
+              Lude.<$> sSESpecificationOverride,
+            ("LocalSecondaryIndexOverride" Lude..=)
+              Lude.<$> localSecondaryIndexOverride,
+            Lude.Just ("TargetTableName" Lude..= targetTableName),
+            Lude.Just ("BackupArn" Lude..= backupARN)
           ]
       )
 
-instance ToPath RestoreTableFromBackup where
-  toPath = const "/"
+instance Lude.ToPath RestoreTableFromBackup where
+  toPath = Lude.const "/"
 
-instance ToQuery RestoreTableFromBackup where
-  toQuery = const mempty
+instance Lude.ToQuery RestoreTableFromBackup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'restoreTableFromBackupResponse' smart constructor.
+-- | /See:/ 'mkRestoreTableFromBackupResponse' smart constructor.
 data RestoreTableFromBackupResponse = RestoreTableFromBackupResponse'
-  { _rtfbrsTableDescription ::
-      !(Maybe TableDescription),
-    _rtfbrsResponseStatus :: !Int
+  { tableDescription ::
+      Lude.Maybe TableDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreTableFromBackupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtfbrsTableDescription' - The description of the table created from an existing backup.
---
--- * 'rtfbrsResponseStatus' - -- | The response status code.
-restoreTableFromBackupResponse ::
-  -- | 'rtfbrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tableDescription' - The description of the table created from an existing backup.
+mkRestoreTableFromBackupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RestoreTableFromBackupResponse
-restoreTableFromBackupResponse pResponseStatus_ =
+mkRestoreTableFromBackupResponse pResponseStatus_ =
   RestoreTableFromBackupResponse'
-    { _rtfbrsTableDescription =
-        Nothing,
-      _rtfbrsResponseStatus = pResponseStatus_
+    { tableDescription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The description of the table created from an existing backup.
-rtfbrsTableDescription :: Lens' RestoreTableFromBackupResponse (Maybe TableDescription)
-rtfbrsTableDescription = lens _rtfbrsTableDescription (\s a -> s {_rtfbrsTableDescription = a})
+--
+-- /Note:/ Consider using 'tableDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbrsTableDescription :: Lens.Lens' RestoreTableFromBackupResponse (Lude.Maybe TableDescription)
+rtfbrsTableDescription = Lens.lens (tableDescription :: RestoreTableFromBackupResponse -> Lude.Maybe TableDescription) (\s a -> s {tableDescription = a} :: RestoreTableFromBackupResponse)
+{-# DEPRECATED rtfbrsTableDescription "Use generic-lens or generic-optics with 'tableDescription' instead." #-}
 
--- | -- | The response status code.
-rtfbrsResponseStatus :: Lens' RestoreTableFromBackupResponse Int
-rtfbrsResponseStatus = lens _rtfbrsResponseStatus (\s a -> s {_rtfbrsResponseStatus = a})
-
-instance NFData RestoreTableFromBackupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfbrsResponseStatus :: Lens.Lens' RestoreTableFromBackupResponse Lude.Int
+rtfbrsResponseStatus = Lens.lens (responseStatus :: RestoreTableFromBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RestoreTableFromBackupResponse)
+{-# DEPRECATED rtfbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

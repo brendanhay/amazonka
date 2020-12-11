@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Beard where
+module Network.AWS.Rekognition.Types.Beard
+  ( Beard (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBeard,
+
+    -- * Lenses
+    bValue,
+    bConfidence,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates whether or not the face has a beard, and the confidence level in the determination.
 --
---
---
--- /See:/ 'beard' smart constructor.
+-- /See:/ 'mkBeard' smart constructor.
 data Beard = Beard'
-  { _bValue :: !(Maybe Bool),
-    _bConfidence :: !(Maybe Double)
+  { value :: Lude.Maybe Lude.Bool,
+    confidence :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Beard' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bValue' - Boolean value that indicates whether the face has beard or not.
---
--- * 'bConfidence' - Level of confidence in the determination.
-beard ::
+-- * 'confidence' - Level of confidence in the determination.
+-- * 'value' - Boolean value that indicates whether the face has beard or not.
+mkBeard ::
   Beard
-beard = Beard' {_bValue = Nothing, _bConfidence = Nothing}
+mkBeard = Beard' {value = Lude.Nothing, confidence = Lude.Nothing}
 
 -- | Boolean value that indicates whether the face has beard or not.
-bValue :: Lens' Beard (Maybe Bool)
-bValue = lens _bValue (\s a -> s {_bValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bValue :: Lens.Lens' Beard (Lude.Maybe Lude.Bool)
+bValue = Lens.lens (value :: Beard -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: Beard)
+{-# DEPRECATED bValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Level of confidence in the determination.
-bConfidence :: Lens' Beard (Maybe Double)
-bConfidence = lens _bConfidence (\s a -> s {_bConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bConfidence :: Lens.Lens' Beard (Lude.Maybe Lude.Double)
+bConfidence = Lens.lens (confidence :: Beard -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Beard)
+{-# DEPRECATED bConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance FromJSON Beard where
+instance Lude.FromJSON Beard where
   parseJSON =
-    withObject
+    Lude.withObject
       "Beard"
-      (\x -> Beard' <$> (x .:? "Value") <*> (x .:? "Confidence"))
-
-instance Hashable Beard
-
-instance NFData Beard
+      ( \x ->
+          Beard'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
+      )

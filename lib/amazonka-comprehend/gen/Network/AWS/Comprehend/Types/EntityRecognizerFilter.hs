@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EntityRecognizerFilter where
+module Network.AWS.Comprehend.Types.EntityRecognizerFilter
+  ( EntityRecognizerFilter (..),
+
+    -- * Smart constructor
+    mkEntityRecognizerFilter,
+
+    -- * Lenses
+    erfStatus,
+    erfSubmitTimeAfter,
+    erfSubmitTimeBefore,
+  )
+where
 
 import Network.AWS.Comprehend.Types.ModelStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information for filtering a list of entity recognizers. You can only specify one filtering parameter in a request. For more information, see the operation./>
 --
---
---
--- /See:/ 'entityRecognizerFilter' smart constructor.
+-- /See:/ 'mkEntityRecognizerFilter' smart constructor.
 data EntityRecognizerFilter = EntityRecognizerFilter'
-  { _erfStatus ::
-      !(Maybe ModelStatus),
-    _erfSubmitTimeAfter :: !(Maybe POSIX),
-    _erfSubmitTimeBefore :: !(Maybe POSIX)
+  { status ::
+      Lude.Maybe ModelStatus,
+    submitTimeAfter :: Lude.Maybe Lude.Timestamp,
+    submitTimeBefore :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'erfStatus' - The status of an entity recognizer.
---
--- * 'erfSubmitTimeAfter' - Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.
---
--- * 'erfSubmitTimeBefore' - Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.
-entityRecognizerFilter ::
+-- * 'status' - The status of an entity recognizer.
+-- * 'submitTimeAfter' - Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.
+-- * 'submitTimeBefore' - Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.
+mkEntityRecognizerFilter ::
   EntityRecognizerFilter
-entityRecognizerFilter =
+mkEntityRecognizerFilter =
   EntityRecognizerFilter'
-    { _erfStatus = Nothing,
-      _erfSubmitTimeAfter = Nothing,
-      _erfSubmitTimeBefore = Nothing
+    { status = Lude.Nothing,
+      submitTimeAfter = Lude.Nothing,
+      submitTimeBefore = Lude.Nothing
     }
 
 -- | The status of an entity recognizer.
-erfStatus :: Lens' EntityRecognizerFilter (Maybe ModelStatus)
-erfStatus = lens _erfStatus (\s a -> s {_erfStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erfStatus :: Lens.Lens' EntityRecognizerFilter (Lude.Maybe ModelStatus)
+erfStatus = Lens.lens (status :: EntityRecognizerFilter -> Lude.Maybe ModelStatus) (\s a -> s {status = a} :: EntityRecognizerFilter)
+{-# DEPRECATED erfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.
-erfSubmitTimeAfter :: Lens' EntityRecognizerFilter (Maybe UTCTime)
-erfSubmitTimeAfter = lens _erfSubmitTimeAfter (\s a -> s {_erfSubmitTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'submitTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erfSubmitTimeAfter :: Lens.Lens' EntityRecognizerFilter (Lude.Maybe Lude.Timestamp)
+erfSubmitTimeAfter = Lens.lens (submitTimeAfter :: EntityRecognizerFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTimeAfter = a} :: EntityRecognizerFilter)
+{-# DEPRECATED erfSubmitTimeAfter "Use generic-lens or generic-optics with 'submitTimeAfter' instead." #-}
 
 -- | Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.
-erfSubmitTimeBefore :: Lens' EntityRecognizerFilter (Maybe UTCTime)
-erfSubmitTimeBefore = lens _erfSubmitTimeBefore (\s a -> s {_erfSubmitTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'submitTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erfSubmitTimeBefore :: Lens.Lens' EntityRecognizerFilter (Lude.Maybe Lude.Timestamp)
+erfSubmitTimeBefore = Lens.lens (submitTimeBefore :: EntityRecognizerFilter -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTimeBefore = a} :: EntityRecognizerFilter)
+{-# DEPRECATED erfSubmitTimeBefore "Use generic-lens or generic-optics with 'submitTimeBefore' instead." #-}
 
-instance Hashable EntityRecognizerFilter
-
-instance NFData EntityRecognizerFilter
-
-instance ToJSON EntityRecognizerFilter where
+instance Lude.ToJSON EntityRecognizerFilter where
   toJSON EntityRecognizerFilter' {..} =
-    object
-      ( catMaybes
-          [ ("Status" .=) <$> _erfStatus,
-            ("SubmitTimeAfter" .=) <$> _erfSubmitTimeAfter,
-            ("SubmitTimeBefore" .=) <$> _erfSubmitTimeBefore
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Status" Lude..=) Lude.<$> status,
+            ("SubmitTimeAfter" Lude..=) Lude.<$> submitTimeAfter,
+            ("SubmitTimeBefore" Lude..=) Lude.<$> submitTimeBefore
           ]
       )

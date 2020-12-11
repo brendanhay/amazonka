@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,24 @@
 --
 -- Creates an <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias> for a Lambda function version. Use aliases to provide clients with a function identifier that you can update to invoke a different version.
 --
---
 -- You can also map an alias to split invocation requests between two versions. Use the @RoutingConfig@ parameter to specify a second version and the percentage of invocation requests that it receives.
 module Network.AWS.Lambda.CreateAlias
-  ( -- * Creating a Request
-    createAlias,
-    CreateAlias,
+  ( -- * Creating a request
+    CreateAlias (..),
+    mkCreateAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caRoutingConfig,
     caDescription,
     caFunctionName,
     caName,
     caFunctionVersion,
 
-    -- * Destructuring the Response
-    aliasConfiguration,
-    AliasConfiguration,
+    -- * Destructuring the response
+    AliasConfiguration (..),
+    mkAliasConfiguration,
 
-    -- * Response Lenses
+    -- ** Response lenses
     acRoutingConfig,
     acName,
     acFunctionVersion,
@@ -48,99 +42,137 @@ module Network.AWS.Lambda.CreateAlias
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createAlias' smart constructor.
+-- | /See:/ 'mkCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { _caRoutingConfig ::
-      !(Maybe AliasRoutingConfiguration),
-    _caDescription :: !(Maybe Text),
-    _caFunctionName :: !Text,
-    _caName :: !Text,
-    _caFunctionVersion :: !Text
+  { routingConfig ::
+      Lude.Maybe AliasRoutingConfiguration,
+    description :: Lude.Maybe Lude.Text,
+    functionName :: Lude.Text,
+    name :: Lude.Text,
+    functionVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - A description of the alias.
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'caRoutingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
+-- __Name formats__
 --
--- * 'caDescription' - A description of the alias.
+--     * __Function name__ - @MyFunction@ .
 --
--- * 'caFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
--- * 'caName' - The name of the alias.
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
 --
--- * 'caFunctionVersion' - The function version that the alias invokes.
-createAlias ::
-  -- | 'caFunctionName'
-  Text ->
-  -- | 'caName'
-  Text ->
-  -- | 'caFunctionVersion'
-  Text ->
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'functionVersion' - The function version that the alias invokes.
+-- * 'name' - The name of the alias.
+-- * 'routingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
+mkCreateAlias ::
+  -- | 'functionName'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'functionVersion'
+  Lude.Text ->
   CreateAlias
-createAlias pFunctionName_ pName_ pFunctionVersion_ =
+mkCreateAlias pFunctionName_ pName_ pFunctionVersion_ =
   CreateAlias'
-    { _caRoutingConfig = Nothing,
-      _caDescription = Nothing,
-      _caFunctionName = pFunctionName_,
-      _caName = pName_,
-      _caFunctionVersion = pFunctionVersion_
+    { routingConfig = Lude.Nothing,
+      description = Lude.Nothing,
+      functionName = pFunctionName_,
+      name = pName_,
+      functionVersion = pFunctionVersion_
     }
 
 -- | The <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration> of the alias.
-caRoutingConfig :: Lens' CreateAlias (Maybe AliasRoutingConfiguration)
-caRoutingConfig = lens _caRoutingConfig (\s a -> s {_caRoutingConfig = a})
+--
+-- /Note:/ Consider using 'routingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caRoutingConfig :: Lens.Lens' CreateAlias (Lude.Maybe AliasRoutingConfiguration)
+caRoutingConfig = Lens.lens (routingConfig :: CreateAlias -> Lude.Maybe AliasRoutingConfiguration) (\s a -> s {routingConfig = a} :: CreateAlias)
+{-# DEPRECATED caRoutingConfig "Use generic-lens or generic-optics with 'routingConfig' instead." #-}
 
 -- | A description of the alias.
-caDescription :: Lens' CreateAlias (Maybe Text)
-caDescription = lens _caDescription (\s a -> s {_caDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateAlias (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreateAlias -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateAlias)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-caFunctionName :: Lens' CreateAlias Text
-caFunctionName = lens _caFunctionName (\s a -> s {_caFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caFunctionName :: Lens.Lens' CreateAlias Lude.Text
+caFunctionName = Lens.lens (functionName :: CreateAlias -> Lude.Text) (\s a -> s {functionName = a} :: CreateAlias)
+{-# DEPRECATED caFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | The name of the alias.
-caName :: Lens' CreateAlias Text
-caName = lens _caName (\s a -> s {_caName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caName :: Lens.Lens' CreateAlias Lude.Text
+caName = Lens.lens (name :: CreateAlias -> Lude.Text) (\s a -> s {name = a} :: CreateAlias)
+{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The function version that the alias invokes.
-caFunctionVersion :: Lens' CreateAlias Text
-caFunctionVersion = lens _caFunctionVersion (\s a -> s {_caFunctionVersion = a})
+--
+-- /Note:/ Consider using 'functionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caFunctionVersion :: Lens.Lens' CreateAlias Lude.Text
+caFunctionVersion = Lens.lens (functionVersion :: CreateAlias -> Lude.Text) (\s a -> s {functionVersion = a} :: CreateAlias)
+{-# DEPRECATED caFunctionVersion "Use generic-lens or generic-optics with 'functionVersion' instead." #-}
 
-instance AWSRequest CreateAlias where
+instance Lude.AWSRequest CreateAlias where
   type Rs CreateAlias = AliasConfiguration
-  request = postJSON lambda
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON lambdaService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateAlias
+instance Lude.ToHeaders CreateAlias where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateAlias
-
-instance ToHeaders CreateAlias where
-  toHeaders = const mempty
-
-instance ToJSON CreateAlias where
+instance Lude.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
-    object
-      ( catMaybes
-          [ ("RoutingConfig" .=) <$> _caRoutingConfig,
-            ("Description" .=) <$> _caDescription,
-            Just ("Name" .= _caName),
-            Just ("FunctionVersion" .= _caFunctionVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RoutingConfig" Lude..=) Lude.<$> routingConfig,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("FunctionVersion" Lude..= functionVersion)
           ]
       )
 
-instance ToPath CreateAlias where
+instance Lude.ToPath CreateAlias where
   toPath CreateAlias' {..} =
-    mconcat
-      ["/2015-03-31/functions/", toBS _caFunctionName, "/aliases"]
+    Lude.mconcat
+      ["/2015-03-31/functions/", Lude.toBS functionName, "/aliases"]
 
-instance ToQuery CreateAlias where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAlias where
+  toQuery = Lude.const Lude.mempty

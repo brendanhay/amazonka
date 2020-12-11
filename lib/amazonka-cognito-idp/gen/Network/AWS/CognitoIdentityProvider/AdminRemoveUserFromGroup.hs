@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,127 @@
 --
 -- Removes the specified user from the specified group.
 --
---
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminRemoveUserFromGroup
-  ( -- * Creating a Request
-    adminRemoveUserFromGroup,
-    AdminRemoveUserFromGroup,
+  ( -- * Creating a request
+    AdminRemoveUserFromGroup (..),
+    mkAdminRemoveUserFromGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     arufgUserPoolId,
     arufgUsername,
     arufgGroupName,
 
-    -- * Destructuring the Response
-    adminRemoveUserFromGroupResponse,
-    AdminRemoveUserFromGroupResponse,
+    -- * Destructuring the response
+    AdminRemoveUserFromGroupResponse (..),
+    mkAdminRemoveUserFromGroupResponse,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'adminRemoveUserFromGroup' smart constructor.
+-- | /See:/ 'mkAdminRemoveUserFromGroup' smart constructor.
 data AdminRemoveUserFromGroup = AdminRemoveUserFromGroup'
-  { _arufgUserPoolId ::
-      !Text,
-    _arufgUsername :: !(Sensitive Text),
-    _arufgGroupName :: !Text
+  { userPoolId ::
+      Lude.Text,
+    username :: Lude.Sensitive Lude.Text,
+    groupName :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminRemoveUserFromGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arufgUserPoolId' - The user pool ID for the user pool.
---
--- * 'arufgUsername' - The username for the user.
---
--- * 'arufgGroupName' - The group name.
-adminRemoveUserFromGroup ::
-  -- | 'arufgUserPoolId'
-  Text ->
-  -- | 'arufgUsername'
-  Text ->
-  -- | 'arufgGroupName'
-  Text ->
+-- * 'groupName' - The group name.
+-- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'username' - The username for the user.
+mkAdminRemoveUserFromGroup ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
+  -- | 'groupName'
+  Lude.Text ->
   AdminRemoveUserFromGroup
-adminRemoveUserFromGroup pUserPoolId_ pUsername_ pGroupName_ =
+mkAdminRemoveUserFromGroup pUserPoolId_ pUsername_ pGroupName_ =
   AdminRemoveUserFromGroup'
-    { _arufgUserPoolId = pUserPoolId_,
-      _arufgUsername = _Sensitive # pUsername_,
-      _arufgGroupName = pGroupName_
+    { userPoolId = pUserPoolId_,
+      username = pUsername_,
+      groupName = pGroupName_
     }
 
 -- | The user pool ID for the user pool.
-arufgUserPoolId :: Lens' AdminRemoveUserFromGroup Text
-arufgUserPoolId = lens _arufgUserPoolId (\s a -> s {_arufgUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arufgUserPoolId :: Lens.Lens' AdminRemoveUserFromGroup Lude.Text
+arufgUserPoolId = Lens.lens (userPoolId :: AdminRemoveUserFromGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminRemoveUserFromGroup)
+{-# DEPRECATED arufgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The username for the user.
-arufgUsername :: Lens' AdminRemoveUserFromGroup Text
-arufgUsername = lens _arufgUsername (\s a -> s {_arufgUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arufgUsername :: Lens.Lens' AdminRemoveUserFromGroup (Lude.Sensitive Lude.Text)
+arufgUsername = Lens.lens (username :: AdminRemoveUserFromGroup -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminRemoveUserFromGroup)
+{-# DEPRECATED arufgUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The group name.
-arufgGroupName :: Lens' AdminRemoveUserFromGroup Text
-arufgGroupName = lens _arufgGroupName (\s a -> s {_arufgGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arufgGroupName :: Lens.Lens' AdminRemoveUserFromGroup Lude.Text
+arufgGroupName = Lens.lens (groupName :: AdminRemoveUserFromGroup -> Lude.Text) (\s a -> s {groupName = a} :: AdminRemoveUserFromGroup)
+{-# DEPRECATED arufgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance AWSRequest AdminRemoveUserFromGroup where
+instance Lude.AWSRequest AdminRemoveUserFromGroup where
   type Rs AdminRemoveUserFromGroup = AdminRemoveUserFromGroupResponse
-  request = postJSON cognitoIdentityProvider
-  response = receiveNull AdminRemoveUserFromGroupResponse'
+  request = Req.postJSON cognitoIdentityProviderService
+  response = Res.receiveNull AdminRemoveUserFromGroupResponse'
 
-instance Hashable AdminRemoveUserFromGroup
-
-instance NFData AdminRemoveUserFromGroup
-
-instance ToHeaders AdminRemoveUserFromGroup where
+instance Lude.ToHeaders AdminRemoveUserFromGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AdminRemoveUserFromGroup where
+instance Lude.ToJSON AdminRemoveUserFromGroup where
   toJSON AdminRemoveUserFromGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _arufgUserPoolId),
-            Just ("Username" .= _arufgUsername),
-            Just ("GroupName" .= _arufgGroupName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("Username" Lude..= username),
+            Lude.Just ("GroupName" Lude..= groupName)
           ]
       )
 
-instance ToPath AdminRemoveUserFromGroup where
-  toPath = const "/"
+instance Lude.ToPath AdminRemoveUserFromGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery AdminRemoveUserFromGroup where
-  toQuery = const mempty
+instance Lude.ToQuery AdminRemoveUserFromGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'adminRemoveUserFromGroupResponse' smart constructor.
+-- | /See:/ 'mkAdminRemoveUserFromGroupResponse' smart constructor.
 data AdminRemoveUserFromGroupResponse = AdminRemoveUserFromGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminRemoveUserFromGroupResponse' with the minimum fields required to make a request.
-adminRemoveUserFromGroupResponse ::
+mkAdminRemoveUserFromGroupResponse ::
   AdminRemoveUserFromGroupResponse
-adminRemoveUserFromGroupResponse =
+mkAdminRemoveUserFromGroupResponse =
   AdminRemoveUserFromGroupResponse'
-
-instance NFData AdminRemoveUserFromGroupResponse

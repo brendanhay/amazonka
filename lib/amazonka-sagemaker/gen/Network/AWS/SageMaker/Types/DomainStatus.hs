@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.DomainStatus where
+module Network.AWS.SageMaker.Types.DomainStatus
+  ( DomainStatus
+      ( DomainStatus',
+        DeleteFailed,
+        Deleting,
+        Failed,
+        InService,
+        Pending,
+        UpdateFailed,
+        Updating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainStatus
-  = DeleteFailed
-  | Deleting
-  | Failed
-  | InService
-  | Pending
-  | UpdateFailed
-  | Updating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainStatus = DomainStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainStatus where
-  parser =
-    takeLowerText >>= \case
-      "delete_failed" -> pure DeleteFailed
-      "deleting" -> pure Deleting
-      "failed" -> pure Failed
-      "inservice" -> pure InService
-      "pending" -> pure Pending
-      "update_failed" -> pure UpdateFailed
-      "updating" -> pure Updating
-      e ->
-        fromTextError $
-          "Failure parsing DomainStatus from value: '" <> e
-            <> "'. Accepted values: delete_failed, deleting, failed, inservice, pending, update_failed, updating"
+pattern DeleteFailed :: DomainStatus
+pattern DeleteFailed = DomainStatus' "Delete_Failed"
 
-instance ToText DomainStatus where
-  toText = \case
-    DeleteFailed -> "Delete_Failed"
-    Deleting -> "Deleting"
-    Failed -> "Failed"
-    InService -> "InService"
-    Pending -> "Pending"
-    UpdateFailed -> "Update_Failed"
-    Updating -> "Updating"
+pattern Deleting :: DomainStatus
+pattern Deleting = DomainStatus' "Deleting"
 
-instance Hashable DomainStatus
+pattern Failed :: DomainStatus
+pattern Failed = DomainStatus' "Failed"
 
-instance NFData DomainStatus
+pattern InService :: DomainStatus
+pattern InService = DomainStatus' "InService"
 
-instance ToByteString DomainStatus
+pattern Pending :: DomainStatus
+pattern Pending = DomainStatus' "Pending"
 
-instance ToQuery DomainStatus
+pattern UpdateFailed :: DomainStatus
+pattern UpdateFailed = DomainStatus' "Update_Failed"
 
-instance ToHeader DomainStatus
+pattern Updating :: DomainStatus
+pattern Updating = DomainStatus' "Updating"
 
-instance FromJSON DomainStatus where
-  parseJSON = parseJSONText "DomainStatus"
+{-# COMPLETE
+  DeleteFailed,
+  Deleting,
+  Failed,
+  InService,
+  Pending,
+  UpdateFailed,
+  Updating,
+  DomainStatus'
+  #-}

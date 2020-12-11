@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeCommit.Types
-  ( -- * Service Configuration
-    codeCommit,
+  ( -- * Service configuration
+    codeCommitService,
 
     -- * Errors
 
@@ -61,14 +59,14 @@ module Network.AWS.CodeCommit.Types
     SortByEnum (..),
 
     -- * Approval
-    Approval,
-    approval,
+    Approval (..),
+    mkApproval,
     aApprovalState,
     aUserARN,
 
     -- * ApprovalRule
-    ApprovalRule,
-    approvalRule,
+    ApprovalRule (..),
+    mkApprovalRule,
     arRuleContentSha256,
     arLastModifiedDate,
     arApprovalRuleName,
@@ -79,21 +77,21 @@ module Network.AWS.CodeCommit.Types
     arApprovalRuleContent,
 
     -- * ApprovalRuleEventMetadata
-    ApprovalRuleEventMetadata,
-    approvalRuleEventMetadata,
+    ApprovalRuleEventMetadata (..),
+    mkApprovalRuleEventMetadata,
     aremApprovalRuleName,
     aremApprovalRuleId,
     aremApprovalRuleContent,
 
     -- * ApprovalRuleOverriddenEventMetadata
-    ApprovalRuleOverriddenEventMetadata,
-    approvalRuleOverriddenEventMetadata,
+    ApprovalRuleOverriddenEventMetadata (..),
+    mkApprovalRuleOverriddenEventMetadata,
     aroemOverrideStatus,
     aroemRevisionId,
 
     -- * ApprovalRuleTemplate
-    ApprovalRuleTemplate,
-    approvalRuleTemplate,
+    ApprovalRuleTemplate (..),
+    mkApprovalRuleTemplate,
     artRuleContentSha256,
     artApprovalRuleTemplateId,
     artLastModifiedDate,
@@ -104,55 +102,55 @@ module Network.AWS.CodeCommit.Types
     artApprovalRuleTemplateName,
 
     -- * ApprovalStateChangedEventMetadata
-    ApprovalStateChangedEventMetadata,
-    approvalStateChangedEventMetadata,
+    ApprovalStateChangedEventMetadata (..),
+    mkApprovalStateChangedEventMetadata,
     ascemApprovalStatus,
     ascemRevisionId,
 
     -- * BatchAssociateApprovalRuleTemplateWithRepositoriesError
-    BatchAssociateApprovalRuleTemplateWithRepositoriesError,
-    batchAssociateApprovalRuleTemplateWithRepositoriesError,
+    BatchAssociateApprovalRuleTemplateWithRepositoriesError (..),
+    mkBatchAssociateApprovalRuleTemplateWithRepositoriesError,
     baartwreErrorCode,
     baartwreRepositoryName,
     baartwreErrorMessage,
 
     -- * BatchDescribeMergeConflictsError
-    BatchDescribeMergeConflictsError,
-    batchDescribeMergeConflictsError,
+    BatchDescribeMergeConflictsError (..),
+    mkBatchDescribeMergeConflictsError,
     bdmceFilePath,
     bdmceExceptionName,
     bdmceMessage,
 
     -- * BatchDisassociateApprovalRuleTemplateFromRepositoriesError
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesError,
-    batchDisassociateApprovalRuleTemplateFromRepositoriesError,
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesError (..),
+    mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError,
     bdartfreErrorCode,
     bdartfreRepositoryName,
     bdartfreErrorMessage,
 
     -- * BatchGetCommitsError
-    BatchGetCommitsError,
-    batchGetCommitsError,
+    BatchGetCommitsError (..),
+    mkBatchGetCommitsError,
     bgceCommitId,
     bgceErrorCode,
     bgceErrorMessage,
 
     -- * BlobMetadata
-    BlobMetadata,
-    blobMetadata,
+    BlobMetadata (..),
+    mkBlobMetadata,
     bmPath,
     bmMode,
     bmBlobId,
 
     -- * BranchInfo
-    BranchInfo,
-    branchInfo,
+    BranchInfo (..),
+    mkBranchInfo,
     biCommitId,
     biBranchName,
 
     -- * Comment
-    Comment,
-    comment,
+    Comment (..),
+    mkComment,
     cLastModifiedDate,
     cAuthorARN,
     cContent,
@@ -165,8 +163,8 @@ module Network.AWS.CodeCommit.Types
     cReactionCounts,
 
     -- * CommentsForComparedCommit
-    CommentsForComparedCommit,
-    commentsForComparedCommit,
+    CommentsForComparedCommit (..),
+    mkCommentsForComparedCommit,
     cfccBeforeBlobId,
     cfccLocation,
     cfccAfterCommitId,
@@ -176,8 +174,8 @@ module Network.AWS.CodeCommit.Types
     cfccComments,
 
     -- * CommentsForPullRequest
-    CommentsForPullRequest,
-    commentsForPullRequest,
+    CommentsForPullRequest (..),
+    mkCommentsForPullRequest,
     cfprBeforeBlobId,
     cfprLocation,
     cfprAfterCommitId,
@@ -188,8 +186,8 @@ module Network.AWS.CodeCommit.Types
     cfprComments,
 
     -- * Commit
-    Commit,
-    commit,
+    Commit (..),
+    mkCommit,
     cCommitId,
     cCommitter,
     cTreeId,
@@ -199,14 +197,14 @@ module Network.AWS.CodeCommit.Types
     cMessage,
 
     -- * Conflict
-    Conflict,
-    conflict,
+    Conflict (..),
+    mkConflict,
     cMergeHunks,
     cConflictMetadata,
 
     -- * ConflictMetadata
-    ConflictMetadata,
-    conflictMetadata,
+    ConflictMetadata (..),
+    mkConflictMetadata,
     cmNumberOfConflicts,
     cmContentConflict,
     cmFileSizes,
@@ -219,127 +217,127 @@ module Network.AWS.CodeCommit.Types
     cmFileModes,
 
     -- * ConflictResolution
-    ConflictResolution,
-    conflictResolution,
+    ConflictResolution (..),
+    mkConflictResolution,
     crSetFileModes,
     crDeleteFiles,
     crReplaceContents,
 
     -- * DeleteFileEntry
-    DeleteFileEntry,
-    deleteFileEntry,
+    DeleteFileEntry (..),
+    mkDeleteFileEntry,
     dfeFilePath,
 
     -- * Difference
-    Difference,
-    difference,
+    Difference (..),
+    mkDifference,
     dAfterBlob,
     dBeforeBlob,
     dChangeType,
 
     -- * Evaluation
-    Evaluation,
-    evaluation,
+    Evaluation (..),
+    mkEvaluation,
     eApprovalRulesSatisfied,
     eApprovalRulesNotSatisfied,
     eApproved,
     eOverridden,
 
     -- * File
-    File,
-    file,
+    File (..),
+    mkFile,
     fAbsolutePath,
     fFileMode,
     fBlobId,
     fRelativePath,
 
     -- * FileMetadata
-    FileMetadata,
-    fileMetadata,
+    FileMetadata (..),
+    mkFileMetadata,
     fmAbsolutePath,
     fmFileMode,
     fmBlobId,
 
     -- * FileModes
-    FileModes,
-    fileModes,
+    FileModes (..),
+    mkFileModes,
     fmDestination,
     fmBase,
     fmSource,
 
     -- * FileSizes
-    FileSizes,
-    fileSizes,
+    FileSizes (..),
+    mkFileSizes,
     fsDestination,
     fsBase,
     fsSource,
 
     -- * Folder
-    Folder,
-    folder,
+    Folder (..),
+    mkFolder,
     folAbsolutePath,
     folTreeId,
     folRelativePath,
 
     -- * IsBinaryFile
-    IsBinaryFile,
-    isBinaryFile,
+    IsBinaryFile (..),
+    mkIsBinaryFile,
     ibfDestination,
     ibfBase,
     ibfSource,
 
     -- * Location
-    Location,
-    location,
+    Location (..),
+    mkLocation,
     lRelativeFileVersion,
     lFilePath,
     lFilePosition,
 
     -- * MergeHunk
-    MergeHunk,
-    mergeHunk,
+    MergeHunk (..),
+    mkMergeHunk,
     mhDestination,
     mhBase,
     mhIsConflict,
     mhSource,
 
     -- * MergeHunkDetail
-    MergeHunkDetail,
-    mergeHunkDetail,
+    MergeHunkDetail (..),
+    mkMergeHunkDetail,
     mhdStartLine,
     mhdEndLine,
     mhdHunkContent,
 
     -- * MergeMetadata
-    MergeMetadata,
-    mergeMetadata,
+    MergeMetadata (..),
+    mkMergeMetadata,
     mmMergedBy,
     mmMergeOption,
     mmIsMerged,
     mmMergeCommitId,
 
     -- * MergeOperations
-    MergeOperations,
-    mergeOperations,
+    MergeOperations (..),
+    mkMergeOperations,
     moDestination,
     moSource,
 
     -- * ObjectTypes
-    ObjectTypes,
-    objectTypes,
+    ObjectTypes (..),
+    mkObjectTypes,
     otDestination,
     otBase,
     otSource,
 
     -- * OriginApprovalRuleTemplate
-    OriginApprovalRuleTemplate,
-    originApprovalRuleTemplate,
+    OriginApprovalRuleTemplate (..),
+    mkOriginApprovalRuleTemplate,
     oartApprovalRuleTemplateId,
     oartApprovalRuleTemplateName,
 
     -- * PullRequest
-    PullRequest,
-    pullRequest,
+    PullRequest (..),
+    mkPullRequest,
     prApprovalRules,
     prAuthorARN,
     prPullRequestId,
@@ -353,16 +351,16 @@ module Network.AWS.CodeCommit.Types
     prDescription,
 
     -- * PullRequestCreatedEventMetadata
-    PullRequestCreatedEventMetadata,
-    pullRequestCreatedEventMetadata,
+    PullRequestCreatedEventMetadata (..),
+    mkPullRequestCreatedEventMetadata,
     prcemDestinationCommitId,
     prcemMergeBase,
     prcemRepositoryName,
     prcemSourceCommitId,
 
     -- * PullRequestEvent
-    PullRequestEvent,
-    pullRequestEvent,
+    PullRequestEvent (..),
+    mkPullRequestEvent,
     prePullRequestMergedStateChangedEventMetadata,
     prePullRequestCreatedEventMetadata,
     preApprovalRuleEventMetadata,
@@ -376,28 +374,28 @@ module Network.AWS.CodeCommit.Types
     preApprovalRuleOverriddenEventMetadata,
 
     -- * PullRequestMergedStateChangedEventMetadata
-    PullRequestMergedStateChangedEventMetadata,
-    pullRequestMergedStateChangedEventMetadata,
+    PullRequestMergedStateChangedEventMetadata (..),
+    mkPullRequestMergedStateChangedEventMetadata,
     prmscemDestinationReference,
     prmscemMergeMetadata,
     prmscemRepositoryName,
 
     -- * PullRequestSourceReferenceUpdatedEventMetadata
-    PullRequestSourceReferenceUpdatedEventMetadata,
-    pullRequestSourceReferenceUpdatedEventMetadata,
+    PullRequestSourceReferenceUpdatedEventMetadata (..),
+    mkPullRequestSourceReferenceUpdatedEventMetadata,
     prsruemAfterCommitId,
     prsruemBeforeCommitId,
     prsruemMergeBase,
     prsruemRepositoryName,
 
     -- * PullRequestStatusChangedEventMetadata
-    PullRequestStatusChangedEventMetadata,
-    pullRequestStatusChangedEventMetadata,
+    PullRequestStatusChangedEventMetadata (..),
+    mkPullRequestStatusChangedEventMetadata,
     prscemPullRequestStatus,
 
     -- * PullRequestTarget
-    PullRequestTarget,
-    pullRequestTarget,
+    PullRequestTarget (..),
+    mkPullRequestTarget,
     prtSourceCommit,
     prtDestinationReference,
     prtMergeMetadata,
@@ -407,38 +405,38 @@ module Network.AWS.CodeCommit.Types
     prtSourceReference,
 
     -- * PutFileEntry
-    PutFileEntry,
-    putFileEntry,
+    PutFileEntry (..),
+    mkPutFileEntry,
     pfeFileContent,
     pfeFileMode,
     pfeSourceFile,
     pfeFilePath,
 
     -- * ReactionForComment
-    ReactionForComment,
-    reactionForComment,
+    ReactionForComment (..),
+    mkReactionForComment,
     rfcReactionUsers,
     rfcReactionsFromDeletedUsersCount,
     rfcReaction,
 
     -- * ReactionValueFormats
-    ReactionValueFormats,
-    reactionValueFormats,
+    ReactionValueFormats (..),
+    mkReactionValueFormats,
     rvfEmoji,
     rvfShortCode,
     rvfUnicode,
 
     -- * ReplaceContentEntry
-    ReplaceContentEntry,
-    replaceContentEntry,
+    ReplaceContentEntry (..),
+    mkReplaceContentEntry,
     rceFileMode,
     rceContent,
     rceFilePath,
     rceReplacementType,
 
     -- * RepositoryMetadata
-    RepositoryMetadata,
-    repositoryMetadata,
+    RepositoryMetadata (..),
+    mkRepositoryMetadata,
     rmRepositoryDescription,
     rmLastModifiedDate,
     rmARN,
@@ -451,14 +449,14 @@ module Network.AWS.CodeCommit.Types
     rmCloneURLSSH,
 
     -- * RepositoryNameIdPair
-    RepositoryNameIdPair,
-    repositoryNameIdPair,
+    RepositoryNameIdPair (..),
+    mkRepositoryNameIdPair,
     rnipRepositoryId,
     rnipRepositoryName,
 
     -- * RepositoryTrigger
-    RepositoryTrigger,
-    repositoryTrigger,
+    RepositoryTrigger (..),
+    mkRepositoryTrigger,
     rtBranches,
     rtCustomData,
     rtName,
@@ -466,48 +464,48 @@ module Network.AWS.CodeCommit.Types
     rtEvents,
 
     -- * RepositoryTriggerExecutionFailure
-    RepositoryTriggerExecutionFailure,
-    repositoryTriggerExecutionFailure,
+    RepositoryTriggerExecutionFailure (..),
+    mkRepositoryTriggerExecutionFailure,
     rtefFailureMessage,
     rtefTrigger,
 
     -- * SetFileModeEntry
-    SetFileModeEntry,
-    setFileModeEntry,
+    SetFileModeEntry (..),
+    mkSetFileModeEntry,
     sfmeFilePath,
     sfmeFileMode,
 
     -- * SourceFileSpecifier
-    SourceFileSpecifier,
-    sourceFileSpecifier,
+    SourceFileSpecifier (..),
+    mkSourceFileSpecifier,
     sfsIsMove,
     sfsFilePath,
 
     -- * SubModule
-    SubModule,
-    subModule,
+    SubModule (..),
+    mkSubModule,
     smCommitId,
     smAbsolutePath,
     smRelativePath,
 
     -- * SymbolicLink
-    SymbolicLink,
-    symbolicLink,
+    SymbolicLink (..),
+    mkSymbolicLink,
     slAbsolutePath,
     slFileMode,
     slBlobId,
     slRelativePath,
 
     -- * Target
-    Target,
-    target,
+    Target (..),
+    mkTarget,
     tDestinationReference,
     tRepositoryName,
     tSourceReference,
 
     -- * UserInfo
-    UserInfo,
-    userInfo,
+    UserInfo (..),
+    mkUserInfo,
     uiEmail,
     uiDate,
     uiName,
@@ -585,48 +583,60 @@ import Network.AWS.CodeCommit.Types.SubModule
 import Network.AWS.CodeCommit.Types.SymbolicLink
 import Network.AWS.CodeCommit.Types.Target
 import Network.AWS.CodeCommit.Types.UserInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-04-13@ of the Amazon CodeCommit SDK configuration.
-codeCommit :: Service
-codeCommit =
-  Service
-    { _svcAbbrev = "CodeCommit",
-      _svcSigner = v4,
-      _svcPrefix = "codecommit",
-      _svcVersion = "2015-04-13",
-      _svcEndpoint = defaultEndpoint codeCommit,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "CodeCommit",
-      _svcRetry = retry
+codeCommitService :: Lude.Service
+codeCommitService =
+  Lude.Service
+    { Lude._svcAbbrev = "CodeCommit",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "codecommit",
+      Lude._svcVersion = "2015-04-13",
+      Lude._svcEndpoint = Lude.defaultEndpoint codeCommitService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "CodeCommit",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

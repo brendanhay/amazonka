@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionExecutionStatus where
+module Network.AWS.CodePipeline.Types.ActionExecutionStatus
+  ( ActionExecutionStatus
+      ( ActionExecutionStatus',
+        AESAbandoned,
+        AESFailed,
+        AESInProgress,
+        AESSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionExecutionStatus
-  = AESAbandoned
-  | AESFailed
-  | AESInProgress
-  | AESSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionExecutionStatus = ActionExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "abandoned" -> pure AESAbandoned
-      "failed" -> pure AESFailed
-      "inprogress" -> pure AESInProgress
-      "succeeded" -> pure AESSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing ActionExecutionStatus from value: '" <> e
-            <> "'. Accepted values: abandoned, failed, inprogress, succeeded"
+pattern AESAbandoned :: ActionExecutionStatus
+pattern AESAbandoned = ActionExecutionStatus' "Abandoned"
 
-instance ToText ActionExecutionStatus where
-  toText = \case
-    AESAbandoned -> "Abandoned"
-    AESFailed -> "Failed"
-    AESInProgress -> "InProgress"
-    AESSucceeded -> "Succeeded"
+pattern AESFailed :: ActionExecutionStatus
+pattern AESFailed = ActionExecutionStatus' "Failed"
 
-instance Hashable ActionExecutionStatus
+pattern AESInProgress :: ActionExecutionStatus
+pattern AESInProgress = ActionExecutionStatus' "InProgress"
 
-instance NFData ActionExecutionStatus
+pattern AESSucceeded :: ActionExecutionStatus
+pattern AESSucceeded = ActionExecutionStatus' "Succeeded"
 
-instance ToByteString ActionExecutionStatus
-
-instance ToQuery ActionExecutionStatus
-
-instance ToHeader ActionExecutionStatus
-
-instance FromJSON ActionExecutionStatus where
-  parseJSON = parseJSONText "ActionExecutionStatus"
+{-# COMPLETE
+  AESAbandoned,
+  AESFailed,
+  AESInProgress,
+  AESSucceeded,
+  ActionExecutionStatus'
+  #-}

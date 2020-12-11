@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.LoggerLevel where
+module Network.AWS.Greengrass.Types.LoggerLevel
+  ( LoggerLevel
+      ( LoggerLevel',
+        Debug,
+        Error,
+        Fatal,
+        Info,
+        Warn
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoggerLevel
-  = Debug
-  | Error'
-  | Fatal
-  | Info
-  | Warn
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoggerLevel = LoggerLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoggerLevel where
-  parser =
-    takeLowerText >>= \case
-      "debug" -> pure Debug
-      "error" -> pure Error'
-      "fatal" -> pure Fatal
-      "info" -> pure Info
-      "warn" -> pure Warn
-      e ->
-        fromTextError $
-          "Failure parsing LoggerLevel from value: '" <> e
-            <> "'. Accepted values: debug, error, fatal, info, warn"
+pattern Debug :: LoggerLevel
+pattern Debug = LoggerLevel' "DEBUG"
 
-instance ToText LoggerLevel where
-  toText = \case
-    Debug -> "DEBUG"
-    Error' -> "ERROR"
-    Fatal -> "FATAL"
-    Info -> "INFO"
-    Warn -> "WARN"
+pattern Error :: LoggerLevel
+pattern Error = LoggerLevel' "ERROR"
 
-instance Hashable LoggerLevel
+pattern Fatal :: LoggerLevel
+pattern Fatal = LoggerLevel' "FATAL"
 
-instance NFData LoggerLevel
+pattern Info :: LoggerLevel
+pattern Info = LoggerLevel' "INFO"
 
-instance ToByteString LoggerLevel
+pattern Warn :: LoggerLevel
+pattern Warn = LoggerLevel' "WARN"
 
-instance ToQuery LoggerLevel
-
-instance ToHeader LoggerLevel
-
-instance ToJSON LoggerLevel where
-  toJSON = toJSONText
-
-instance FromJSON LoggerLevel where
-  parseJSON = parseJSONText "LoggerLevel"
+{-# COMPLETE
+  Debug,
+  Error,
+  Fatal,
+  Info,
+  Warn,
+  LoggerLevel'
+  #-}

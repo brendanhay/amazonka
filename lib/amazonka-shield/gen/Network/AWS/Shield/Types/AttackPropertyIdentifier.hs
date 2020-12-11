@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.AttackPropertyIdentifier where
+module Network.AWS.Shield.Types.AttackPropertyIdentifier
+  ( AttackPropertyIdentifier
+      ( AttackPropertyIdentifier',
+        DestinationURL,
+        Referrer,
+        SourceASN,
+        SourceCountry,
+        SourceIPAddress,
+        SourceUserAgent,
+        WordpressPingbackReflector,
+        WordpressPingbackSource
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AttackPropertyIdentifier
-  = DestinationURL
-  | Referrer
-  | SourceASN
-  | SourceCountry
-  | SourceIPAddress
-  | SourceUserAgent
-  | WordpressPingbackReflector
-  | WordpressPingbackSource
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AttackPropertyIdentifier = AttackPropertyIdentifier' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AttackPropertyIdentifier where
-  parser =
-    takeLowerText >>= \case
-      "destination_url" -> pure DestinationURL
-      "referrer" -> pure Referrer
-      "source_asn" -> pure SourceASN
-      "source_country" -> pure SourceCountry
-      "source_ip_address" -> pure SourceIPAddress
-      "source_user_agent" -> pure SourceUserAgent
-      "wordpress_pingback_reflector" -> pure WordpressPingbackReflector
-      "wordpress_pingback_source" -> pure WordpressPingbackSource
-      e ->
-        fromTextError $
-          "Failure parsing AttackPropertyIdentifier from value: '" <> e
-            <> "'. Accepted values: destination_url, referrer, source_asn, source_country, source_ip_address, source_user_agent, wordpress_pingback_reflector, wordpress_pingback_source"
+pattern DestinationURL :: AttackPropertyIdentifier
+pattern DestinationURL = AttackPropertyIdentifier' "DESTINATION_URL"
 
-instance ToText AttackPropertyIdentifier where
-  toText = \case
-    DestinationURL -> "DESTINATION_URL"
-    Referrer -> "REFERRER"
-    SourceASN -> "SOURCE_ASN"
-    SourceCountry -> "SOURCE_COUNTRY"
-    SourceIPAddress -> "SOURCE_IP_ADDRESS"
-    SourceUserAgent -> "SOURCE_USER_AGENT"
-    WordpressPingbackReflector -> "WORDPRESS_PINGBACK_REFLECTOR"
-    WordpressPingbackSource -> "WORDPRESS_PINGBACK_SOURCE"
+pattern Referrer :: AttackPropertyIdentifier
+pattern Referrer = AttackPropertyIdentifier' "REFERRER"
 
-instance Hashable AttackPropertyIdentifier
+pattern SourceASN :: AttackPropertyIdentifier
+pattern SourceASN = AttackPropertyIdentifier' "SOURCE_ASN"
 
-instance NFData AttackPropertyIdentifier
+pattern SourceCountry :: AttackPropertyIdentifier
+pattern SourceCountry = AttackPropertyIdentifier' "SOURCE_COUNTRY"
 
-instance ToByteString AttackPropertyIdentifier
+pattern SourceIPAddress :: AttackPropertyIdentifier
+pattern SourceIPAddress = AttackPropertyIdentifier' "SOURCE_IP_ADDRESS"
 
-instance ToQuery AttackPropertyIdentifier
+pattern SourceUserAgent :: AttackPropertyIdentifier
+pattern SourceUserAgent = AttackPropertyIdentifier' "SOURCE_USER_AGENT"
 
-instance ToHeader AttackPropertyIdentifier
+pattern WordpressPingbackReflector :: AttackPropertyIdentifier
+pattern WordpressPingbackReflector = AttackPropertyIdentifier' "WORDPRESS_PINGBACK_REFLECTOR"
 
-instance FromJSON AttackPropertyIdentifier where
-  parseJSON = parseJSONText "AttackPropertyIdentifier"
+pattern WordpressPingbackSource :: AttackPropertyIdentifier
+pattern WordpressPingbackSource = AttackPropertyIdentifier' "WORDPRESS_PINGBACK_SOURCE"
+
+{-# COMPLETE
+  DestinationURL,
+  Referrer,
+  SourceASN,
+  SourceCountry,
+  SourceIPAddress,
+  SourceUserAgent,
+  WordpressPingbackReflector,
+  WordpressPingbackSource,
+  AttackPropertyIdentifier'
+  #-}

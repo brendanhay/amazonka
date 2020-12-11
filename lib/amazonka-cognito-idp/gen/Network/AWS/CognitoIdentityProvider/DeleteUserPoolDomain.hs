@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,139 @@
 --
 -- Deletes a domain for a user pool.
 module Network.AWS.CognitoIdentityProvider.DeleteUserPoolDomain
-  ( -- * Creating a Request
-    deleteUserPoolDomain,
-    DeleteUserPoolDomain,
+  ( -- * Creating a request
+    DeleteUserPoolDomain (..),
+    mkDeleteUserPoolDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dupdDomain,
     dupdUserPoolId,
 
-    -- * Destructuring the Response
-    deleteUserPoolDomainResponse,
-    DeleteUserPoolDomainResponse,
+    -- * Destructuring the response
+    DeleteUserPoolDomainResponse (..),
+    mkDeleteUserPoolDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dupdrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUserPoolDomain' smart constructor.
+-- | /See:/ 'mkDeleteUserPoolDomain' smart constructor.
 data DeleteUserPoolDomain = DeleteUserPoolDomain'
-  { _dupdDomain ::
-      !Text,
-    _dupdUserPoolId :: !Text
+  { domain ::
+      Lude.Text,
+    userPoolId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserPoolDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupdDomain' - The domain string.
---
--- * 'dupdUserPoolId' - The user pool ID.
-deleteUserPoolDomain ::
-  -- | 'dupdDomain'
-  Text ->
-  -- | 'dupdUserPoolId'
-  Text ->
+-- * 'domain' - The domain string.
+-- * 'userPoolId' - The user pool ID.
+mkDeleteUserPoolDomain ::
+  -- | 'domain'
+  Lude.Text ->
+  -- | 'userPoolId'
+  Lude.Text ->
   DeleteUserPoolDomain
-deleteUserPoolDomain pDomain_ pUserPoolId_ =
+mkDeleteUserPoolDomain pDomain_ pUserPoolId_ =
   DeleteUserPoolDomain'
-    { _dupdDomain = pDomain_,
-      _dupdUserPoolId = pUserPoolId_
+    { domain = pDomain_,
+      userPoolId = pUserPoolId_
     }
 
 -- | The domain string.
-dupdDomain :: Lens' DeleteUserPoolDomain Text
-dupdDomain = lens _dupdDomain (\s a -> s {_dupdDomain = a})
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupdDomain :: Lens.Lens' DeleteUserPoolDomain Lude.Text
+dupdDomain = Lens.lens (domain :: DeleteUserPoolDomain -> Lude.Text) (\s a -> s {domain = a} :: DeleteUserPoolDomain)
+{-# DEPRECATED dupdDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The user pool ID.
-dupdUserPoolId :: Lens' DeleteUserPoolDomain Text
-dupdUserPoolId = lens _dupdUserPoolId (\s a -> s {_dupdUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupdUserPoolId :: Lens.Lens' DeleteUserPoolDomain Lude.Text
+dupdUserPoolId = Lens.lens (userPoolId :: DeleteUserPoolDomain -> Lude.Text) (\s a -> s {userPoolId = a} :: DeleteUserPoolDomain)
+{-# DEPRECATED dupdUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSRequest DeleteUserPoolDomain where
+instance Lude.AWSRequest DeleteUserPoolDomain where
   type Rs DeleteUserPoolDomain = DeleteUserPoolDomainResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveEmpty
-      (\s h x -> DeleteUserPoolDomainResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteUserPoolDomainResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteUserPoolDomain
-
-instance NFData DeleteUserPoolDomain
-
-instance ToHeaders DeleteUserPoolDomain where
+instance Lude.ToHeaders DeleteUserPoolDomain where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.DeleteUserPoolDomain" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.DeleteUserPoolDomain" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteUserPoolDomain where
+instance Lude.ToJSON DeleteUserPoolDomain where
   toJSON DeleteUserPoolDomain' {..} =
-    object
-      ( catMaybes
-          [ Just ("Domain" .= _dupdDomain),
-            Just ("UserPoolId" .= _dupdUserPoolId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Domain" Lude..= domain),
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
-instance ToPath DeleteUserPoolDomain where
-  toPath = const "/"
+instance Lude.ToPath DeleteUserPoolDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteUserPoolDomain where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteUserPoolDomain where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteUserPoolDomainResponse' smart constructor.
+-- | /See:/ 'mkDeleteUserPoolDomainResponse' smart constructor.
 newtype DeleteUserPoolDomainResponse = DeleteUserPoolDomainResponse'
-  { _dupdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserPoolDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupdrsResponseStatus' - -- | The response status code.
-deleteUserPoolDomainResponse ::
-  -- | 'dupdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteUserPoolDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteUserPoolDomainResponse
-deleteUserPoolDomainResponse pResponseStatus_ =
-  DeleteUserPoolDomainResponse'
-    { _dupdrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteUserPoolDomainResponse pResponseStatus_ =
+  DeleteUserPoolDomainResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dupdrsResponseStatus :: Lens' DeleteUserPoolDomainResponse Int
-dupdrsResponseStatus = lens _dupdrsResponseStatus (\s a -> s {_dupdrsResponseStatus = a})
-
-instance NFData DeleteUserPoolDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupdrsResponseStatus :: Lens.Lens' DeleteUserPoolDomainResponse Lude.Int
+dupdrsResponseStatus = Lens.lens (responseStatus :: DeleteUserPoolDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUserPoolDomainResponse)
+{-# DEPRECATED dupdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

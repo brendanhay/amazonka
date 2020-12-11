@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Return the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.
 --
---
 -- Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html Tagging Application Resources> .
 module Network.AWS.ElasticBeanstalk.ListTagsForResource
-  ( -- * Creating a Request
-    listTagsForResource,
-    ListTagsForResource,
+  ( -- * Creating a request
+    ListTagsForResource (..),
+    mkListTagsForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfrResourceARN,
 
-    -- * Destructuring the Response
-    listTagsForResourceResponse,
-    ListTagsForResourceResponse,
+    -- * Destructuring the response
+    ListTagsForResourceResponse (..),
+    mkListTagsForResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltfrrsResourceTags,
     ltfrrsResourceARN,
     ltfrrsResponseStatus,
@@ -41,104 +35,124 @@ module Network.AWS.ElasticBeanstalk.ListTagsForResource
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTagsForResource' smart constructor.
+-- | /See:/ 'mkListTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-  { _ltfrResourceARN ::
-      Text
+  { resourceARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.
 --
--- * 'ltfrResourceARN' - The Amazon Resource Name (ARN) of the resouce for which a tag list is requested. Must be the ARN of an Elastic Beanstalk resource.
-listTagsForResource ::
-  -- | 'ltfrResourceARN'
-  Text ->
+-- Must be the ARN of an Elastic Beanstalk resource.
+mkListTagsForResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   ListTagsForResource
-listTagsForResource pResourceARN_ =
-  ListTagsForResource' {_ltfrResourceARN = pResourceARN_}
+mkListTagsForResource pResourceARN_ =
+  ListTagsForResource' {resourceARN = pResourceARN_}
 
--- | The Amazon Resource Name (ARN) of the resouce for which a tag list is requested. Must be the ARN of an Elastic Beanstalk resource.
-ltfrResourceARN :: Lens' ListTagsForResource Text
-ltfrResourceARN = lens _ltfrResourceARN (\s a -> s {_ltfrResourceARN = a})
+-- | The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.
+--
+-- Must be the ARN of an Elastic Beanstalk resource.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
+ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest ListTagsForResource where
+instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListTagsForResourceResult"
       ( \s h x ->
           ListTagsForResourceResponse'
-            <$> (x .@? "ResourceTags" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "ResourceArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "ResourceTags" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "ResourceArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTagsForResource
+instance Lude.ToHeaders ListTagsForResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTagsForResource
+instance Lude.ToPath ListTagsForResource where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListTagsForResource where
-  toHeaders = const mempty
-
-instance ToPath ListTagsForResource where
-  toPath = const "/"
-
-instance ToQuery ListTagsForResource where
+instance Lude.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
-    mconcat
-      [ "Action" =: ("ListTagsForResource" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "ResourceArn" =: _ltfrResourceARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListTagsForResource" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "ResourceArn" Lude.=: resourceARN
       ]
 
--- | /See:/ 'listTagsForResourceResponse' smart constructor.
+-- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { _ltfrrsResourceTags ::
-      !(Maybe [Tag]),
-    _ltfrrsResourceARN :: !(Maybe Text),
-    _ltfrrsResponseStatus :: !Int
+  { resourceTags ::
+      Lude.Maybe [Tag],
+    resourceARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfrrsResourceTags' - A list of tag key-value pairs.
---
--- * 'ltfrrsResourceARN' - The Amazon Resource Name (ARN) of the resource for which a tag list was requested.
---
--- * 'ltfrrsResponseStatus' - -- | The response status code.
-listTagsForResourceResponse ::
-  -- | 'ltfrrsResponseStatus'
-  Int ->
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource for which a tag list was requested.
+-- * 'resourceTags' - A list of tag key-value pairs.
+-- * 'responseStatus' - The response status code.
+mkListTagsForResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForResourceResponse
-listTagsForResourceResponse pResponseStatus_ =
+mkListTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-    { _ltfrrsResourceTags = Nothing,
-      _ltfrrsResourceARN = Nothing,
-      _ltfrrsResponseStatus = pResponseStatus_
+    { resourceTags = Lude.Nothing,
+      resourceARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of tag key-value pairs.
-ltfrrsResourceTags :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsResourceTags = lens _ltfrrsResourceTags (\s a -> s {_ltfrrsResourceTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resourceTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsResourceTags :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe [Tag])
+ltfrrsResourceTags = Lens.lens (resourceTags :: ListTagsForResourceResponse -> Lude.Maybe [Tag]) (\s a -> s {resourceTags = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsResourceTags "Use generic-lens or generic-optics with 'resourceTags' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the resource for which a tag list was requested.
-ltfrrsResourceARN :: Lens' ListTagsForResourceResponse (Maybe Text)
-ltfrrsResourceARN = lens _ltfrrsResourceARN (\s a -> s {_ltfrrsResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsResourceARN :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe Lude.Text)
+ltfrrsResourceARN = Lens.lens (resourceARN :: ListTagsForResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
--- | -- | The response status code.
-ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\s a -> s {_ltfrrsResponseStatus = a})
-
-instance NFData ListTagsForResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
+ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

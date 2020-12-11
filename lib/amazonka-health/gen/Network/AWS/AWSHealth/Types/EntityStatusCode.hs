@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.EntityStatusCode where
+module Network.AWS.AWSHealth.Types.EntityStatusCode
+  ( EntityStatusCode
+      ( EntityStatusCode',
+        Impaired,
+        Unimpaired,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EntityStatusCode
-  = Impaired
-  | Unimpaired
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EntityStatusCode = EntityStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EntityStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "impaired" -> pure Impaired
-      "unimpaired" -> pure Unimpaired
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing EntityStatusCode from value: '" <> e
-            <> "'. Accepted values: impaired, unimpaired, unknown"
+pattern Impaired :: EntityStatusCode
+pattern Impaired = EntityStatusCode' "IMPAIRED"
 
-instance ToText EntityStatusCode where
-  toText = \case
-    Impaired -> "IMPAIRED"
-    Unimpaired -> "UNIMPAIRED"
-    Unknown -> "UNKNOWN"
+pattern Unimpaired :: EntityStatusCode
+pattern Unimpaired = EntityStatusCode' "UNIMPAIRED"
 
-instance Hashable EntityStatusCode
+pattern Unknown :: EntityStatusCode
+pattern Unknown = EntityStatusCode' "UNKNOWN"
 
-instance NFData EntityStatusCode
-
-instance ToByteString EntityStatusCode
-
-instance ToQuery EntityStatusCode
-
-instance ToHeader EntityStatusCode
-
-instance ToJSON EntityStatusCode where
-  toJSON = toJSONText
-
-instance FromJSON EntityStatusCode where
-  parseJSON = parseJSONText "EntityStatusCode"
+{-# COMPLETE
+  Impaired,
+  Unimpaired,
+  Unknown,
+  EntityStatusCode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,111 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.ServiceSoftwareOptions where
+module Network.AWS.ElasticSearch.Types.ServiceSoftwareOptions
+  ( ServiceSoftwareOptions (..),
+
+    -- * Smart constructor
+    mkServiceSoftwareOptions,
+
+    -- * Lenses
+    ssoAutomatedUpdateDate,
+    ssoCurrentVersion,
+    ssoOptionalDeployment,
+    ssoUpdateStatus,
+    ssoCancellable,
+    ssoUpdateAvailable,
+    ssoDescription,
+    ssoNewVersion,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.DeploymentStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The current options of an Elasticsearch domain service software options.
 --
---
---
--- /See:/ 'serviceSoftwareOptions' smart constructor.
+-- /See:/ 'mkServiceSoftwareOptions' smart constructor.
 data ServiceSoftwareOptions = ServiceSoftwareOptions'
-  { _ssoAutomatedUpdateDate ::
-      !(Maybe POSIX),
-    _ssoCurrentVersion :: !(Maybe Text),
-    _ssoOptionalDeployment :: !(Maybe Bool),
-    _ssoUpdateStatus :: !(Maybe DeploymentStatus),
-    _ssoCancellable :: !(Maybe Bool),
-    _ssoUpdateAvailable :: !(Maybe Bool),
-    _ssoDescription :: !(Maybe Text),
-    _ssoNewVersion :: !(Maybe Text)
+  { automatedUpdateDate ::
+      Lude.Maybe Lude.Timestamp,
+    currentVersion :: Lude.Maybe Lude.Text,
+    optionalDeployment :: Lude.Maybe Lude.Bool,
+    updateStatus :: Lude.Maybe DeploymentStatus,
+    cancellable :: Lude.Maybe Lude.Bool,
+    updateAvailable :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text,
+    newVersion :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceSoftwareOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssoAutomatedUpdateDate' - Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
---
--- * 'ssoCurrentVersion' - The current service software version that is present on the domain.
---
--- * 'ssoOptionalDeployment' - @True@ if a service software is never automatically updated. @False@ if a service software is automatically updated after @AutomatedUpdateDate@ .
---
--- * 'ssoUpdateStatus' - The status of your service software update. This field can take the following values: @ELIGIBLE@ , @PENDING_UPDATE@ , @IN_PROGRESS@ , @COMPLETED@ , and @NOT_ELIGIBLE@ .
---
--- * 'ssoCancellable' - @True@ if you are able to cancel your service software version update. @False@ if you are not able to cancel your service software version.
---
--- * 'ssoUpdateAvailable' - @True@ if you are able to update you service software version. @False@ if you are not able to update your service software version.
---
--- * 'ssoDescription' - The description of the @UpdateStatus@ .
---
--- * 'ssoNewVersion' - The new service software version if one is available.
-serviceSoftwareOptions ::
+-- * 'automatedUpdateDate' - Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
+-- * 'cancellable' - @True@ if you are able to cancel your service software version update. @False@ if you are not able to cancel your service software version.
+-- * 'currentVersion' - The current service software version that is present on the domain.
+-- * 'description' - The description of the @UpdateStatus@ .
+-- * 'newVersion' - The new service software version if one is available.
+-- * 'optionalDeployment' - @True@ if a service software is never automatically updated. @False@ if a service software is automatically updated after @AutomatedUpdateDate@ .
+-- * 'updateAvailable' - @True@ if you are able to update you service software version. @False@ if you are not able to update your service software version.
+-- * 'updateStatus' - The status of your service software update. This field can take the following values: @ELIGIBLE@ , @PENDING_UPDATE@ , @IN_PROGRESS@ , @COMPLETED@ , and @NOT_ELIGIBLE@ .
+mkServiceSoftwareOptions ::
   ServiceSoftwareOptions
-serviceSoftwareOptions =
+mkServiceSoftwareOptions =
   ServiceSoftwareOptions'
-    { _ssoAutomatedUpdateDate = Nothing,
-      _ssoCurrentVersion = Nothing,
-      _ssoOptionalDeployment = Nothing,
-      _ssoUpdateStatus = Nothing,
-      _ssoCancellable = Nothing,
-      _ssoUpdateAvailable = Nothing,
-      _ssoDescription = Nothing,
-      _ssoNewVersion = Nothing
+    { automatedUpdateDate = Lude.Nothing,
+      currentVersion = Lude.Nothing,
+      optionalDeployment = Lude.Nothing,
+      updateStatus = Lude.Nothing,
+      cancellable = Lude.Nothing,
+      updateAvailable = Lude.Nothing,
+      description = Lude.Nothing,
+      newVersion = Lude.Nothing
     }
 
 -- | Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
-ssoAutomatedUpdateDate :: Lens' ServiceSoftwareOptions (Maybe UTCTime)
-ssoAutomatedUpdateDate = lens _ssoAutomatedUpdateDate (\s a -> s {_ssoAutomatedUpdateDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'automatedUpdateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssoAutomatedUpdateDate :: Lens.Lens' ServiceSoftwareOptions (Lude.Maybe Lude.Timestamp)
+ssoAutomatedUpdateDate = Lens.lens (automatedUpdateDate :: ServiceSoftwareOptions -> Lude.Maybe Lude.Timestamp) (\s a -> s {automatedUpdateDate = a} :: ServiceSoftwareOptions)
+{-# DEPRECATED ssoAutomatedUpdateDate "Use generic-lens or generic-optics with 'automatedUpdateDate' instead." #-}
 
 -- | The current service software version that is present on the domain.
-ssoCurrentVersion :: Lens' ServiceSoftwareOptions (Maybe Text)
-ssoCurrentVersion = lens _ssoCurrentVersion (\s a -> s {_ssoCurrentVersion = a})
+--
+-- /Note:/ Consider using 'currentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssoCurrentVersion :: Lens.Lens' ServiceSoftwareOptions (Lude.Maybe Lude.Text)
+ssoCurrentVersion = Lens.lens (currentVersion :: ServiceSoftwareOptions -> Lude.Maybe Lude.Text) (\s a -> s {currentVersion = a} :: ServiceSoftwareOptions)
+{-# DEPRECATED ssoCurrentVersion "Use generic-lens or generic-optics with 'currentVersion' instead." #-}
 
 -- | @True@ if a service software is never automatically updated. @False@ if a service software is automatically updated after @AutomatedUpdateDate@ .
-ssoOptionalDeployment :: Lens' ServiceSoftwareOptions (Maybe Bool)
-ssoOptionalDeployment = lens _ssoOptionalDeployment (\s a -> s {_ssoOptionalDeployment = a})
+--
+-- /Note:/ Consider using 'optionalDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssoOptionalDeployment :: Lens.Lens' ServiceSoftwareOptions (Lude.Maybe Lude.Bool)
+ssoOptionalDeployment = Lens.lens (optionalDeployment :: ServiceSoftwareOptions -> Lude.Maybe Lude.Bool) (\s a -> s {optionalDeployment = a} :: ServiceSoftwareOptions)
+{-# DEPRECATED ssoOptionalDeployment "Use generic-lens or generic-optics with 'optionalDeployment' instead." #-}
 
 -- | The status of your service software update. This field can take the following values: @ELIGIBLE@ , @PENDING_UPDATE@ , @IN_PROGRESS@ , @COMPLETED@ , and @NOT_ELIGIBLE@ .
-ssoUpdateStatus :: Lens' ServiceSoftwareOptions (Maybe DeploymentStatus)
-ssoUpdateStatus = lens _ssoUpdateStatus (\s a -> s {_ssoUpdateStatus = a})
+--
+-- /Note:/ Consider using 'updateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssoUpdateStatus :: Lens.Lens' ServiceSoftwareOptions (Lude.Maybe DeploymentStatus)
+ssoUpdateStatus = Lens.lens (updateStatus :: ServiceSoftwareOptions -> Lude.Maybe DeploymentStatus) (\s a -> s {updateStatus = a} :: ServiceSoftwareOptions)
+{-# DEPRECATED ssoUpdateStatus "Use generic-lens or generic-optics with 'updateStatus' instead." #-}
 
 -- | @True@ if you are able to cancel your service software version update. @False@ if you are not able to cancel your service software version.
-ssoCancellable :: Lens' ServiceSoftwareOptions (Maybe Bool)
-ssoCancellable = lens _ssoCancellable (\s a -> s {_ssoCancellable = a})
+--
+-- /Note:/ Consider using 'cancellable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssoCancellable :: Lens.Lens' ServiceSoftwareOptions (Lude.Maybe Lude.Bool)
+ssoCancellable = Lens.lens (cancellable :: ServiceSoftwareOptions -> Lude.Maybe Lude.Bool) (\s a -> s {cancellable = a} :: ServiceSoftwareOptions)
+{-# DEPRECATED ssoCancellable "Use generic-lens or generic-optics with 'cancellable' instead." #-}
 
 -- | @True@ if you are able to update you service software version. @False@ if you are not able to update your service software version.
-ssoUpdateAvailable :: Lens' ServiceSoftwareOptions (Maybe Bool)
-ssoUpdateAvailable = lens _ssoUpdateAvailable (\s a -> s {_ssoUpdateAvailable = a})
+--
+-- /Note:/ Consider using 'updateAvailable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssoUpdateAvailable :: Lens.Lens' ServiceSoftwareOptions (Lude.Maybe Lude.Bool)
+ssoUpdateAvailable = Lens.lens (updateAvailable :: ServiceSoftwareOptions -> Lude.Maybe Lude.Bool) (\s a -> s {updateAvailable = a} :: ServiceSoftwareOptions)
+{-# DEPRECATED ssoUpdateAvailable "Use generic-lens or generic-optics with 'updateAvailable' instead." #-}
 
 -- | The description of the @UpdateStatus@ .
-ssoDescription :: Lens' ServiceSoftwareOptions (Maybe Text)
-ssoDescription = lens _ssoDescription (\s a -> s {_ssoDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssoDescription :: Lens.Lens' ServiceSoftwareOptions (Lude.Maybe Lude.Text)
+ssoDescription = Lens.lens (description :: ServiceSoftwareOptions -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ServiceSoftwareOptions)
+{-# DEPRECATED ssoDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The new service software version if one is available.
-ssoNewVersion :: Lens' ServiceSoftwareOptions (Maybe Text)
-ssoNewVersion = lens _ssoNewVersion (\s a -> s {_ssoNewVersion = a})
+--
+-- /Note:/ Consider using 'newVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssoNewVersion :: Lens.Lens' ServiceSoftwareOptions (Lude.Maybe Lude.Text)
+ssoNewVersion = Lens.lens (newVersion :: ServiceSoftwareOptions -> Lude.Maybe Lude.Text) (\s a -> s {newVersion = a} :: ServiceSoftwareOptions)
+{-# DEPRECATED ssoNewVersion "Use generic-lens or generic-optics with 'newVersion' instead." #-}
 
-instance FromJSON ServiceSoftwareOptions where
+instance Lude.FromJSON ServiceSoftwareOptions where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceSoftwareOptions"
       ( \x ->
           ServiceSoftwareOptions'
-            <$> (x .:? "AutomatedUpdateDate")
-            <*> (x .:? "CurrentVersion")
-            <*> (x .:? "OptionalDeployment")
-            <*> (x .:? "UpdateStatus")
-            <*> (x .:? "Cancellable")
-            <*> (x .:? "UpdateAvailable")
-            <*> (x .:? "Description")
-            <*> (x .:? "NewVersion")
+            Lude.<$> (x Lude..:? "AutomatedUpdateDate")
+            Lude.<*> (x Lude..:? "CurrentVersion")
+            Lude.<*> (x Lude..:? "OptionalDeployment")
+            Lude.<*> (x Lude..:? "UpdateStatus")
+            Lude.<*> (x Lude..:? "Cancellable")
+            Lude.<*> (x Lude..:? "UpdateAvailable")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "NewVersion")
       )
-
-instance Hashable ServiceSoftwareOptions
-
-instance NFData ServiceSoftwareOptions

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Returns a list of users.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeUsers
-  ( -- * Creating a Request
-    describeUsers,
-    DescribeUsers,
+  ( -- * Creating a request
+    DescribeUsers (..),
+    mkDescribeUsers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     duFilters,
     duEngine,
     duUserId,
     duMarker,
     duMaxRecords,
 
-    -- * Destructuring the Response
-    describeUsersResponse,
-    DescribeUsersResponse,
+    -- * Destructuring the response
+    DescribeUsersResponse (..),
+    mkDescribeUsersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dursUsers,
     dursMarker,
     dursResponseStatus,
@@ -46,147 +39,172 @@ module Network.AWS.ElastiCache.DescribeUsers
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeUsers' smart constructor.
+-- | /See:/ 'mkDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { _duFilters ::
-      !(Maybe [Filter]),
-    _duEngine :: !(Maybe Text),
-    _duUserId :: !(Maybe Text),
-    _duMarker :: !(Maybe Text),
-    _duMaxRecords :: !(Maybe Int)
+  { filters :: Lude.Maybe [Filter],
+    engine :: Lude.Maybe Lude.Text,
+    userId :: Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'duFilters' - Filter to determine the list of User IDs to return.
---
--- * 'duEngine' - The Redis engine.
---
--- * 'duUserId' - The ID of the user.
---
--- * 'duMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
---
--- * 'duMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
-describeUsers ::
+-- * 'engine' - The Redis engine.
+-- * 'filters' - Filter to determine the list of User IDs to return.
+-- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
+-- * 'userId' - The ID of the user.
+mkDescribeUsers ::
   DescribeUsers
-describeUsers =
+mkDescribeUsers =
   DescribeUsers'
-    { _duFilters = Nothing,
-      _duEngine = Nothing,
-      _duUserId = Nothing,
-      _duMarker = Nothing,
-      _duMaxRecords = Nothing
+    { filters = Lude.Nothing,
+      engine = Lude.Nothing,
+      userId = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | Filter to determine the list of User IDs to return.
-duFilters :: Lens' DescribeUsers [Filter]
-duFilters = lens _duFilters (\s a -> s {_duFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duFilters :: Lens.Lens' DescribeUsers (Lude.Maybe [Filter])
+duFilters = Lens.lens (filters :: DescribeUsers -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeUsers)
+{-# DEPRECATED duFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The Redis engine.
-duEngine :: Lens' DescribeUsers (Maybe Text)
-duEngine = lens _duEngine (\s a -> s {_duEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duEngine :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
+duEngine = Lens.lens (engine :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: DescribeUsers)
+{-# DEPRECATED duEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The ID of the user.
-duUserId :: Lens' DescribeUsers (Maybe Text)
-duUserId = lens _duUserId (\s a -> s {_duUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duUserId :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
+duUserId = Lens.lens (userId :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: DescribeUsers)
+{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
-duMarker :: Lens' DescribeUsers (Maybe Text)
-duMarker = lens _duMarker (\s a -> s {_duMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duMarker :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
+duMarker = Lens.lens (marker :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeUsers)
+{-# DEPRECATED duMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
-duMaxRecords :: Lens' DescribeUsers (Maybe Int)
-duMaxRecords = lens _duMaxRecords (\s a -> s {_duMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duMaxRecords :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Int)
+duMaxRecords = Lens.lens (maxRecords :: DescribeUsers -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeUsers)
+{-# DEPRECATED duMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeUsers where
+instance Page.AWSPager DescribeUsers where
   page rq rs
-    | stop (rs ^. dursMarker) = Nothing
-    | stop (rs ^. dursUsers) = Nothing
-    | otherwise = Just $ rq & duMarker .~ rs ^. dursMarker
+    | Page.stop (rs Lens.^. dursMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dursUsers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& duMarker Lens..~ rs Lens.^. dursMarker
 
-instance AWSRequest DescribeUsers where
+instance Lude.AWSRequest DescribeUsers where
   type Rs DescribeUsers = DescribeUsersResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeUsersResult"
       ( \s h x ->
           DescribeUsersResponse'
-            <$> (x .@? "Users" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Users" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeUsers
+instance Lude.ToHeaders DescribeUsers where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeUsers
+instance Lude.ToPath DescribeUsers where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeUsers where
-  toHeaders = const mempty
-
-instance ToPath DescribeUsers where
-  toPath = const "/"
-
-instance ToQuery DescribeUsers where
+instance Lude.ToQuery DescribeUsers where
   toQuery DescribeUsers' {..} =
-    mconcat
-      [ "Action" =: ("DescribeUsers" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "Filters" =: toQuery (toQueryList "member" <$> _duFilters),
-        "Engine" =: _duEngine,
-        "UserId" =: _duUserId,
-        "Marker" =: _duMarker,
-        "MaxRecords" =: _duMaxRecords
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeUsers" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> filters),
+        "Engine" Lude.=: engine,
+        "UserId" Lude.=: userId,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
--- | /See:/ 'describeUsersResponse' smart constructor.
+-- | /See:/ 'mkDescribeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
-  { _dursUsers ::
-      !(Maybe [User]),
-    _dursMarker :: !(Maybe Text),
-    _dursResponseStatus :: !Int
+  { users ::
+      Lude.Maybe [User],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dursUsers' - A list of users.
---
--- * 'dursMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
---
--- * 'dursResponseStatus' - -- | The response status code.
-describeUsersResponse ::
-  -- | 'dursResponseStatus'
-  Int ->
+-- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
+-- * 'responseStatus' - The response status code.
+-- * 'users' - A list of users.
+mkDescribeUsersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeUsersResponse
-describeUsersResponse pResponseStatus_ =
+mkDescribeUsersResponse pResponseStatus_ =
   DescribeUsersResponse'
-    { _dursUsers = Nothing,
-      _dursMarker = Nothing,
-      _dursResponseStatus = pResponseStatus_
+    { users = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of users.
-dursUsers :: Lens' DescribeUsersResponse [User]
-dursUsers = lens _dursUsers (\s a -> s {_dursUsers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dursUsers :: Lens.Lens' DescribeUsersResponse (Lude.Maybe [User])
+dursUsers = Lens.lens (users :: DescribeUsersResponse -> Lude.Maybe [User]) (\s a -> s {users = a} :: DescribeUsersResponse)
+{-# DEPRECATED dursUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
-dursMarker :: Lens' DescribeUsersResponse (Maybe Text)
-dursMarker = lens _dursMarker (\s a -> s {_dursMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dursMarker :: Lens.Lens' DescribeUsersResponse (Lude.Maybe Lude.Text)
+dursMarker = Lens.lens (marker :: DescribeUsersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeUsersResponse)
+{-# DEPRECATED dursMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dursResponseStatus :: Lens' DescribeUsersResponse Int
-dursResponseStatus = lens _dursResponseStatus (\s a -> s {_dursResponseStatus = a})
-
-instance NFData DescribeUsersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dursResponseStatus :: Lens.Lens' DescribeUsersResponse Lude.Int
+dursResponseStatus = Lens.lens (responseStatus :: DescribeUsersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUsersResponse)
+{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

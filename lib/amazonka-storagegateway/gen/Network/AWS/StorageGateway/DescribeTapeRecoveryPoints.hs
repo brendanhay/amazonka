@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Returns a list of virtual tape recovery points that are available for the specified tape gateway.
 --
---
 -- A recovery point is a point-in-time view of a virtual tape at which all the data on the virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway. This operation is only supported in the tape gateway type.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
-  ( -- * Creating a Request
-    describeTapeRecoveryPoints,
-    DescribeTapeRecoveryPoints,
+  ( -- * Creating a request
+    DescribeTapeRecoveryPoints (..),
+    mkDescribeTapeRecoveryPoints,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtrpMarker,
     dtrpLimit,
     dtrpGatewayARN,
 
-    -- * Destructuring the Response
-    describeTapeRecoveryPointsResponse,
-    DescribeTapeRecoveryPointsResponse,
+    -- * Destructuring the response
+    DescribeTapeRecoveryPointsResponse (..),
+    mkDescribeTapeRecoveryPointsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrprsTapeRecoveryPointInfos,
     dtrprsGatewayARN,
     dtrprsMarker,
@@ -46,168 +39,192 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | DescribeTapeRecoveryPointsInput
 --
---
---
--- /See:/ 'describeTapeRecoveryPoints' smart constructor.
+-- /See:/ 'mkDescribeTapeRecoveryPoints' smart constructor.
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
-  { _dtrpMarker ::
-      !(Maybe Text),
-    _dtrpLimit :: !(Maybe Nat),
-    _dtrpGatewayARN :: !Text
+  { marker ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    gatewayARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTapeRecoveryPoints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrpMarker' - An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
---
--- * 'dtrpLimit' - Specifies that the number of virtual tape recovery points that are described be limited to the specified number.
---
--- * 'dtrpGatewayARN' - Undocumented member.
-describeTapeRecoveryPoints ::
-  -- | 'dtrpGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'limit' - Specifies that the number of virtual tape recovery points that are described be limited to the specified number.
+-- * 'marker' - An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
+mkDescribeTapeRecoveryPoints ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   DescribeTapeRecoveryPoints
-describeTapeRecoveryPoints pGatewayARN_ =
+mkDescribeTapeRecoveryPoints pGatewayARN_ =
   DescribeTapeRecoveryPoints'
-    { _dtrpMarker = Nothing,
-      _dtrpLimit = Nothing,
-      _dtrpGatewayARN = pGatewayARN_
+    { marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      gatewayARN = pGatewayARN_
     }
 
 -- | An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
-dtrpMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
-dtrpMarker = lens _dtrpMarker (\s a -> s {_dtrpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrpMarker :: Lens.Lens' DescribeTapeRecoveryPoints (Lude.Maybe Lude.Text)
+dtrpMarker = Lens.lens (marker :: DescribeTapeRecoveryPoints -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTapeRecoveryPoints)
+{-# DEPRECATED dtrpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies that the number of virtual tape recovery points that are described be limited to the specified number.
-dtrpLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
-dtrpLimit = lens _dtrpLimit (\s a -> s {_dtrpLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrpLimit :: Lens.Lens' DescribeTapeRecoveryPoints (Lude.Maybe Lude.Natural)
+dtrpLimit = Lens.lens (limit :: DescribeTapeRecoveryPoints -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeTapeRecoveryPoints)
+{-# DEPRECATED dtrpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | Undocumented member.
-dtrpGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
-dtrpGatewayARN = lens _dtrpGatewayARN (\s a -> s {_dtrpGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrpGatewayARN :: Lens.Lens' DescribeTapeRecoveryPoints Lude.Text
+dtrpGatewayARN = Lens.lens (gatewayARN :: DescribeTapeRecoveryPoints -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeTapeRecoveryPoints)
+{-# DEPRECATED dtrpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSPager DescribeTapeRecoveryPoints where
+instance Page.AWSPager DescribeTapeRecoveryPoints where
   page rq rs
-    | stop (rs ^. dtrprsMarker) = Nothing
-    | stop (rs ^. dtrprsTapeRecoveryPointInfos) = Nothing
-    | otherwise = Just $ rq & dtrpMarker .~ rs ^. dtrprsMarker
+    | Page.stop (rs Lens.^. dtrprsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtrprsTapeRecoveryPointInfos) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dtrpMarker Lens..~ rs Lens.^. dtrprsMarker
 
-instance AWSRequest DescribeTapeRecoveryPoints where
+instance Lude.AWSRequest DescribeTapeRecoveryPoints where
   type
     Rs DescribeTapeRecoveryPoints =
       DescribeTapeRecoveryPointsResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTapeRecoveryPointsResponse'
-            <$> (x .?> "TapeRecoveryPointInfos" .!@ mempty)
-            <*> (x .?> "GatewayARN")
-            <*> (x .?> "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TapeRecoveryPointInfos" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "GatewayARN")
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTapeRecoveryPoints
-
-instance NFData DescribeTapeRecoveryPoints
-
-instance ToHeaders DescribeTapeRecoveryPoints where
+instance Lude.ToHeaders DescribeTapeRecoveryPoints where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StorageGateway_20130630.DescribeTapeRecoveryPoints" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.DescribeTapeRecoveryPoints" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTapeRecoveryPoints where
+instance Lude.ToJSON DescribeTapeRecoveryPoints where
   toJSON DescribeTapeRecoveryPoints' {..} =
-    object
-      ( catMaybes
-          [ ("Marker" .=) <$> _dtrpMarker,
-            ("Limit" .=) <$> _dtrpLimit,
-            Just ("GatewayARN" .= _dtrpGatewayARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("GatewayARN" Lude..= gatewayARN)
           ]
       )
 
-instance ToPath DescribeTapeRecoveryPoints where
-  toPath = const "/"
+instance Lude.ToPath DescribeTapeRecoveryPoints where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTapeRecoveryPoints where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTapeRecoveryPoints where
+  toQuery = Lude.const Lude.mempty
 
 -- | DescribeTapeRecoveryPointsOutput
 --
---
---
--- /See:/ 'describeTapeRecoveryPointsResponse' smart constructor.
+-- /See:/ 'mkDescribeTapeRecoveryPointsResponse' smart constructor.
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
-  { _dtrprsTapeRecoveryPointInfos ::
-      !( Maybe
-           [TapeRecoveryPointInfo]
-       ),
-    _dtrprsGatewayARN ::
-      !(Maybe Text),
-    _dtrprsMarker ::
-      !(Maybe Text),
-    _dtrprsResponseStatus ::
-      !Int
+  { tapeRecoveryPointInfos ::
+      Lude.Maybe
+        [TapeRecoveryPointInfo],
+    gatewayARN ::
+      Lude.Maybe Lude.Text,
+    marker ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTapeRecoveryPointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'gatewayARN' - Undocumented field.
+-- * 'marker' - An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended.
 --
--- * 'dtrprsTapeRecoveryPointInfos' - An array of TapeRecoveryPointInfos that are available for the specified gateway.
---
--- * 'dtrprsGatewayARN' - Undocumented member.
---
--- * 'dtrprsMarker' - An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended. Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
---
--- * 'dtrprsResponseStatus' - -- | The response status code.
-describeTapeRecoveryPointsResponse ::
-  -- | 'dtrprsResponseStatus'
-  Int ->
+-- Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
+-- * 'responseStatus' - The response status code.
+-- * 'tapeRecoveryPointInfos' - An array of TapeRecoveryPointInfos that are available for the specified gateway.
+mkDescribeTapeRecoveryPointsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTapeRecoveryPointsResponse
-describeTapeRecoveryPointsResponse pResponseStatus_ =
+mkDescribeTapeRecoveryPointsResponse pResponseStatus_ =
   DescribeTapeRecoveryPointsResponse'
-    { _dtrprsTapeRecoveryPointInfos =
-        Nothing,
-      _dtrprsGatewayARN = Nothing,
-      _dtrprsMarker = Nothing,
-      _dtrprsResponseStatus = pResponseStatus_
+    { tapeRecoveryPointInfos =
+        Lude.Nothing,
+      gatewayARN = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified gateway.
-dtrprsTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
-dtrprsTapeRecoveryPointInfos = lens _dtrprsTapeRecoveryPointInfos (\s a -> s {_dtrprsTapeRecoveryPointInfos = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tapeRecoveryPointInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrprsTapeRecoveryPointInfos :: Lens.Lens' DescribeTapeRecoveryPointsResponse (Lude.Maybe [TapeRecoveryPointInfo])
+dtrprsTapeRecoveryPointInfos = Lens.lens (tapeRecoveryPointInfos :: DescribeTapeRecoveryPointsResponse -> Lude.Maybe [TapeRecoveryPointInfo]) (\s a -> s {tapeRecoveryPointInfos = a} :: DescribeTapeRecoveryPointsResponse)
+{-# DEPRECATED dtrprsTapeRecoveryPointInfos "Use generic-lens or generic-optics with 'tapeRecoveryPointInfos' instead." #-}
 
--- | Undocumented member.
-dtrprsGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrprsGatewayARN = lens _dtrprsGatewayARN (\s a -> s {_dtrprsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrprsGatewayARN :: Lens.Lens' DescribeTapeRecoveryPointsResponse (Lude.Maybe Lude.Text)
+dtrprsGatewayARN = Lens.lens (gatewayARN :: DescribeTapeRecoveryPointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeTapeRecoveryPointsResponse)
+{-# DEPRECATED dtrprsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended. Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
-dtrprsMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrprsMarker = lens _dtrprsMarker (\s a -> s {_dtrprsMarker = a})
+-- | An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended.
+--
+-- Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrprsMarker :: Lens.Lens' DescribeTapeRecoveryPointsResponse (Lude.Maybe Lude.Text)
+dtrprsMarker = Lens.lens (marker :: DescribeTapeRecoveryPointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeTapeRecoveryPointsResponse)
+{-# DEPRECATED dtrprsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dtrprsResponseStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
-dtrprsResponseStatus = lens _dtrprsResponseStatus (\s a -> s {_dtrprsResponseStatus = a})
-
-instance NFData DescribeTapeRecoveryPointsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrprsResponseStatus :: Lens.Lens' DescribeTapeRecoveryPointsResponse Lude.Int
+dtrprsResponseStatus = Lens.lens (responseStatus :: DescribeTapeRecoveryPointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTapeRecoveryPointsResponse)
+{-# DEPRECATED dtrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

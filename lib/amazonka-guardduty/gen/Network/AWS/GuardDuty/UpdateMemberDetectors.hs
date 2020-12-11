@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,163 @@
 --
 -- Contains information on member accounts to be updated.
 module Network.AWS.GuardDuty.UpdateMemberDetectors
-  ( -- * Creating a Request
-    updateMemberDetectors,
-    UpdateMemberDetectors,
+  ( -- * Creating a request
+    UpdateMemberDetectors (..),
+    mkUpdateMemberDetectors,
 
-    -- * Request Lenses
+    -- ** Request lenses
     umdDataSources,
     umdDetectorId,
     umdAccountIds,
 
-    -- * Destructuring the Response
-    updateMemberDetectorsResponse,
-    UpdateMemberDetectorsResponse,
+    -- * Destructuring the response
+    UpdateMemberDetectorsResponse (..),
+    mkUpdateMemberDetectorsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     umdrsResponseStatus,
     umdrsUnprocessedAccounts,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateMemberDetectors' smart constructor.
+-- | /See:/ 'mkUpdateMemberDetectors' smart constructor.
 data UpdateMemberDetectors = UpdateMemberDetectors'
-  { _umdDataSources ::
-      !(Maybe DataSourceConfigurations),
-    _umdDetectorId :: !Text,
-    _umdAccountIds :: !(List1 Text)
+  { dataSources ::
+      Lude.Maybe DataSourceConfigurations,
+    detectorId :: Lude.Text,
+    accountIds :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMemberDetectors' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umdDataSources' - An object describes which data sources will be updated.
---
--- * 'umdDetectorId' - The detector ID of the master account.
---
--- * 'umdAccountIds' - A list of member account IDs to be updated.
-updateMemberDetectors ::
-  -- | 'umdDetectorId'
-  Text ->
-  -- | 'umdAccountIds'
-  NonEmpty Text ->
+-- * 'accountIds' - A list of member account IDs to be updated.
+-- * 'dataSources' - An object describes which data sources will be updated.
+-- * 'detectorId' - The detector ID of the master account.
+mkUpdateMemberDetectors ::
+  -- | 'detectorId'
+  Lude.Text ->
+  -- | 'accountIds'
+  Lude.NonEmpty Lude.Text ->
   UpdateMemberDetectors
-updateMemberDetectors pDetectorId_ pAccountIds_ =
+mkUpdateMemberDetectors pDetectorId_ pAccountIds_ =
   UpdateMemberDetectors'
-    { _umdDataSources = Nothing,
-      _umdDetectorId = pDetectorId_,
-      _umdAccountIds = _List1 # pAccountIds_
+    { dataSources = Lude.Nothing,
+      detectorId = pDetectorId_,
+      accountIds = pAccountIds_
     }
 
 -- | An object describes which data sources will be updated.
-umdDataSources :: Lens' UpdateMemberDetectors (Maybe DataSourceConfigurations)
-umdDataSources = lens _umdDataSources (\s a -> s {_umdDataSources = a})
+--
+-- /Note:/ Consider using 'dataSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umdDataSources :: Lens.Lens' UpdateMemberDetectors (Lude.Maybe DataSourceConfigurations)
+umdDataSources = Lens.lens (dataSources :: UpdateMemberDetectors -> Lude.Maybe DataSourceConfigurations) (\s a -> s {dataSources = a} :: UpdateMemberDetectors)
+{-# DEPRECATED umdDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
 -- | The detector ID of the master account.
-umdDetectorId :: Lens' UpdateMemberDetectors Text
-umdDetectorId = lens _umdDetectorId (\s a -> s {_umdDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umdDetectorId :: Lens.Lens' UpdateMemberDetectors Lude.Text
+umdDetectorId = Lens.lens (detectorId :: UpdateMemberDetectors -> Lude.Text) (\s a -> s {detectorId = a} :: UpdateMemberDetectors)
+{-# DEPRECATED umdDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | A list of member account IDs to be updated.
-umdAccountIds :: Lens' UpdateMemberDetectors (NonEmpty Text)
-umdAccountIds = lens _umdAccountIds (\s a -> s {_umdAccountIds = a}) . _List1
+--
+-- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umdAccountIds :: Lens.Lens' UpdateMemberDetectors (Lude.NonEmpty Lude.Text)
+umdAccountIds = Lens.lens (accountIds :: UpdateMemberDetectors -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: UpdateMemberDetectors)
+{-# DEPRECATED umdAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
-instance AWSRequest UpdateMemberDetectors where
+instance Lude.AWSRequest UpdateMemberDetectors where
   type Rs UpdateMemberDetectors = UpdateMemberDetectorsResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateMemberDetectorsResponse'
-            <$> (pure (fromEnum s)) <*> (x .?> "unprocessedAccounts" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
       )
 
-instance Hashable UpdateMemberDetectors
-
-instance NFData UpdateMemberDetectors
-
-instance ToHeaders UpdateMemberDetectors where
+instance Lude.ToHeaders UpdateMemberDetectors where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateMemberDetectors where
-  toJSON UpdateMemberDetectors' {..} =
-    object
-      ( catMaybes
-          [ ("dataSources" .=) <$> _umdDataSources,
-            Just ("accountIds" .= _umdAccountIds)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateMemberDetectors where
+instance Lude.ToJSON UpdateMemberDetectors where
+  toJSON UpdateMemberDetectors' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("dataSources" Lude..=) Lude.<$> dataSources,
+            Lude.Just ("accountIds" Lude..= accountIds)
+          ]
+      )
+
+instance Lude.ToPath UpdateMemberDetectors where
   toPath UpdateMemberDetectors' {..} =
-    mconcat
-      ["/detector/", toBS _umdDetectorId, "/member/detector/update"]
+    Lude.mconcat
+      ["/detector/", Lude.toBS detectorId, "/member/detector/update"]
 
-instance ToQuery UpdateMemberDetectors where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateMemberDetectors where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateMemberDetectorsResponse' smart constructor.
+-- | /See:/ 'mkUpdateMemberDetectorsResponse' smart constructor.
 data UpdateMemberDetectorsResponse = UpdateMemberDetectorsResponse'
-  { _umdrsResponseStatus ::
-      !Int,
-    _umdrsUnprocessedAccounts ::
-      ![UnprocessedAccount]
+  { responseStatus ::
+      Lude.Int,
+    unprocessedAccounts ::
+      [UnprocessedAccount]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMemberDetectorsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umdrsResponseStatus' - -- | The response status code.
---
--- * 'umdrsUnprocessedAccounts' - A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
-updateMemberDetectorsResponse ::
-  -- | 'umdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'unprocessedAccounts' - A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
+mkUpdateMemberDetectorsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateMemberDetectorsResponse
-updateMemberDetectorsResponse pResponseStatus_ =
+mkUpdateMemberDetectorsResponse pResponseStatus_ =
   UpdateMemberDetectorsResponse'
-    { _umdrsResponseStatus =
-        pResponseStatus_,
-      _umdrsUnprocessedAccounts = mempty
+    { responseStatus = pResponseStatus_,
+      unprocessedAccounts = Lude.mempty
     }
 
--- | -- | The response status code.
-umdrsResponseStatus :: Lens' UpdateMemberDetectorsResponse Int
-umdrsResponseStatus = lens _umdrsResponseStatus (\s a -> s {_umdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umdrsResponseStatus :: Lens.Lens' UpdateMemberDetectorsResponse Lude.Int
+umdrsResponseStatus = Lens.lens (responseStatus :: UpdateMemberDetectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMemberDetectorsResponse)
+{-# DEPRECATED umdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
-umdrsUnprocessedAccounts :: Lens' UpdateMemberDetectorsResponse [UnprocessedAccount]
-umdrsUnprocessedAccounts = lens _umdrsUnprocessedAccounts (\s a -> s {_umdrsUnprocessedAccounts = a}) . _Coerce
-
-instance NFData UpdateMemberDetectorsResponse
+--
+-- /Note:/ Consider using 'unprocessedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umdrsUnprocessedAccounts :: Lens.Lens' UpdateMemberDetectorsResponse [UnprocessedAccount]
+umdrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: UpdateMemberDetectorsResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: UpdateMemberDetectorsResponse)
+{-# DEPRECATED umdrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}

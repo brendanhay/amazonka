@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,137 @@
 --
 -- Stops a running model. The operation might take a while to complete. To check the current status, call 'DescribeProjectVersions' .
 module Network.AWS.Rekognition.StopProjectVersion
-  ( -- * Creating a Request
-    stopProjectVersion,
-    StopProjectVersion,
+  ( -- * Creating a request
+    StopProjectVersion (..),
+    mkStopProjectVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sProjectVersionARN,
 
-    -- * Destructuring the Response
-    stopProjectVersionResponse,
-    StopProjectVersionResponse,
+    -- * Destructuring the response
+    StopProjectVersionResponse (..),
+    mkStopProjectVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsStatus,
     srsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopProjectVersion' smart constructor.
+-- | /See:/ 'mkStopProjectVersion' smart constructor.
 newtype StopProjectVersion = StopProjectVersion'
-  { _sProjectVersionARN ::
-      Text
+  { projectVersionARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopProjectVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'projectVersionARN' - The Amazon Resource Name (ARN) of the model version that you want to delete.
 --
--- * 'sProjectVersionARN' - The Amazon Resource Name (ARN) of the model version that you want to delete. This operation requires permissions to perform the @rekognition:StopProjectVersion@ action.
-stopProjectVersion ::
-  -- | 'sProjectVersionARN'
-  Text ->
+-- This operation requires permissions to perform the @rekognition:StopProjectVersion@ action.
+mkStopProjectVersion ::
+  -- | 'projectVersionARN'
+  Lude.Text ->
   StopProjectVersion
-stopProjectVersion pProjectVersionARN_ =
-  StopProjectVersion' {_sProjectVersionARN = pProjectVersionARN_}
+mkStopProjectVersion pProjectVersionARN_ =
+  StopProjectVersion' {projectVersionARN = pProjectVersionARN_}
 
--- | The Amazon Resource Name (ARN) of the model version that you want to delete. This operation requires permissions to perform the @rekognition:StopProjectVersion@ action.
-sProjectVersionARN :: Lens' StopProjectVersion Text
-sProjectVersionARN = lens _sProjectVersionARN (\s a -> s {_sProjectVersionARN = a})
+-- | The Amazon Resource Name (ARN) of the model version that you want to delete.
+--
+-- This operation requires permissions to perform the @rekognition:StopProjectVersion@ action.
+--
+-- /Note:/ Consider using 'projectVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sProjectVersionARN :: Lens.Lens' StopProjectVersion Lude.Text
+sProjectVersionARN = Lens.lens (projectVersionARN :: StopProjectVersion -> Lude.Text) (\s a -> s {projectVersionARN = a} :: StopProjectVersion)
+{-# DEPRECATED sProjectVersionARN "Use generic-lens or generic-optics with 'projectVersionARN' instead." #-}
 
-instance AWSRequest StopProjectVersion where
+instance Lude.AWSRequest StopProjectVersion where
   type Rs StopProjectVersion = StopProjectVersionResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StopProjectVersionResponse'
-            <$> (x .?> "Status") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopProjectVersion
-
-instance NFData StopProjectVersion
-
-instance ToHeaders StopProjectVersion where
+instance Lude.ToHeaders StopProjectVersion where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.StopProjectVersion" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.StopProjectVersion" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopProjectVersion where
+instance Lude.ToJSON StopProjectVersion where
   toJSON StopProjectVersion' {..} =
-    object
-      (catMaybes [Just ("ProjectVersionArn" .= _sProjectVersionARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ProjectVersionArn" Lude..= projectVersionARN)]
+      )
 
-instance ToPath StopProjectVersion where
-  toPath = const "/"
+instance Lude.ToPath StopProjectVersion where
+  toPath = Lude.const "/"
 
-instance ToQuery StopProjectVersion where
-  toQuery = const mempty
+instance Lude.ToQuery StopProjectVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopProjectVersionResponse' smart constructor.
+-- | /See:/ 'mkStopProjectVersionResponse' smart constructor.
 data StopProjectVersionResponse = StopProjectVersionResponse'
-  { _srsStatus ::
-      !(Maybe ProjectVersionStatus),
-    _srsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe ProjectVersionStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopProjectVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsStatus' - The current status of the stop operation.
---
--- * 'srsResponseStatus' - -- | The response status code.
-stopProjectVersionResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The current status of the stop operation.
+mkStopProjectVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopProjectVersionResponse
-stopProjectVersionResponse pResponseStatus_ =
+mkStopProjectVersionResponse pResponseStatus_ =
   StopProjectVersionResponse'
-    { _srsStatus = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current status of the stop operation.
-srsStatus :: Lens' StopProjectVersionResponse (Maybe ProjectVersionStatus)
-srsStatus = lens _srsStatus (\s a -> s {_srsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsStatus :: Lens.Lens' StopProjectVersionResponse (Lude.Maybe ProjectVersionStatus)
+srsStatus = Lens.lens (status :: StopProjectVersionResponse -> Lude.Maybe ProjectVersionStatus) (\s a -> s {status = a} :: StopProjectVersionResponse)
+{-# DEPRECATED srsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StopProjectVersionResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StopProjectVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StopProjectVersionResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopProjectVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopProjectVersionResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

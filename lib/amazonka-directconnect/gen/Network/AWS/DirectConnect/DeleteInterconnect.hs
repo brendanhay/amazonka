@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,180 @@
 --
 -- Deletes the specified interconnect.
 module Network.AWS.DirectConnect.DeleteInterconnect
-  ( -- * Creating a Request
-    deleteInterconnect,
-    DeleteInterconnect,
+  ( -- * Creating a request
+    DeleteInterconnect (..),
+    mkDeleteInterconnect,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dInterconnectId,
 
-    -- * Destructuring the Response
-    deleteInterconnectResponse,
-    DeleteInterconnectResponse,
+    -- * Destructuring the response
+    DeleteInterconnectResponse (..),
+    mkDeleteInterconnectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsInterconnectState,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteInterconnect' smart constructor.
+-- | /See:/ 'mkDeleteInterconnect' smart constructor.
 newtype DeleteInterconnect = DeleteInterconnect'
-  { _dInterconnectId ::
-      Text
+  { interconnectId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInterconnect' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dInterconnectId' - The ID of the interconnect.
-deleteInterconnect ::
-  -- | 'dInterconnectId'
-  Text ->
+-- * 'interconnectId' - The ID of the interconnect.
+mkDeleteInterconnect ::
+  -- | 'interconnectId'
+  Lude.Text ->
   DeleteInterconnect
-deleteInterconnect pInterconnectId_ =
-  DeleteInterconnect' {_dInterconnectId = pInterconnectId_}
+mkDeleteInterconnect pInterconnectId_ =
+  DeleteInterconnect' {interconnectId = pInterconnectId_}
 
 -- | The ID of the interconnect.
-dInterconnectId :: Lens' DeleteInterconnect Text
-dInterconnectId = lens _dInterconnectId (\s a -> s {_dInterconnectId = a})
+--
+-- /Note:/ Consider using 'interconnectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dInterconnectId :: Lens.Lens' DeleteInterconnect Lude.Text
+dInterconnectId = Lens.lens (interconnectId :: DeleteInterconnect -> Lude.Text) (\s a -> s {interconnectId = a} :: DeleteInterconnect)
+{-# DEPRECATED dInterconnectId "Use generic-lens or generic-optics with 'interconnectId' instead." #-}
 
-instance AWSRequest DeleteInterconnect where
+instance Lude.AWSRequest DeleteInterconnect where
   type Rs DeleteInterconnect = DeleteInterconnectResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteInterconnectResponse'
-            <$> (x .?> "interconnectState") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "interconnectState")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteInterconnect
-
-instance NFData DeleteInterconnect
-
-instance ToHeaders DeleteInterconnect where
+instance Lude.ToHeaders DeleteInterconnect where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.DeleteInterconnect" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OvertureService.DeleteInterconnect" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteInterconnect where
+instance Lude.ToJSON DeleteInterconnect where
   toJSON DeleteInterconnect' {..} =
-    object (catMaybes [Just ("interconnectId" .= _dInterconnectId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("interconnectId" Lude..= interconnectId)]
+      )
 
-instance ToPath DeleteInterconnect where
-  toPath = const "/"
+instance Lude.ToPath DeleteInterconnect where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteInterconnect where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteInterconnect where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteInterconnectResponse' smart constructor.
+-- | /See:/ 'mkDeleteInterconnectResponse' smart constructor.
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
-  { _drsInterconnectState ::
-      !(Maybe InterconnectState),
-    _drsResponseStatus :: !Int
+  { interconnectState ::
+      Lude.Maybe InterconnectState,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInterconnectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'interconnectState' - The state of the interconnect. The following are the possible values:
 --
--- * 'drsInterconnectState' - The state of the interconnect. The following are the possible values:     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.     * @pending@ : The interconnect is approved, and is being initialized.     * @available@ : The network link is up, and the interconnect is ready for use.     * @down@ : The network link is down.     * @deleting@ : The interconnect is being deleted.     * @deleted@ : The interconnect is deleted.     * @unknown@ : The state of the interconnect is not available.
 --
--- * 'drsResponseStatus' - -- | The response status code.
-deleteInterconnectResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+--     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+--
+--
+--     * @pending@ : The interconnect is approved, and is being initialized.
+--
+--
+--     * @available@ : The network link is up, and the interconnect is ready for use.
+--
+--
+--     * @down@ : The network link is down.
+--
+--
+--     * @deleting@ : The interconnect is being deleted.
+--
+--
+--     * @deleted@ : The interconnect is deleted.
+--
+--
+--     * @unknown@ : The state of the interconnect is not available.
+--
+--
+-- * 'responseStatus' - The response status code.
+mkDeleteInterconnectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteInterconnectResponse
-deleteInterconnectResponse pResponseStatus_ =
+mkDeleteInterconnectResponse pResponseStatus_ =
   DeleteInterconnectResponse'
-    { _drsInterconnectState = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { interconnectState = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | The state of the interconnect. The following are the possible values:     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.     * @pending@ : The interconnect is approved, and is being initialized.     * @available@ : The network link is up, and the interconnect is ready for use.     * @down@ : The network link is down.     * @deleting@ : The interconnect is being deleted.     * @deleted@ : The interconnect is deleted.     * @unknown@ : The state of the interconnect is not available.
-drsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
-drsInterconnectState = lens _drsInterconnectState (\s a -> s {_drsInterconnectState = a})
+-- | The state of the interconnect. The following are the possible values:
+--
+--
+--     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+--
+--
+--     * @pending@ : The interconnect is approved, and is being initialized.
+--
+--
+--     * @available@ : The network link is up, and the interconnect is ready for use.
+--
+--
+--     * @down@ : The network link is down.
+--
+--
+--     * @deleting@ : The interconnect is being deleted.
+--
+--
+--     * @deleted@ : The interconnect is deleted.
+--
+--
+--     * @unknown@ : The state of the interconnect is not available.
+--
+--
+--
+-- /Note:/ Consider using 'interconnectState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsInterconnectState :: Lens.Lens' DeleteInterconnectResponse (Lude.Maybe InterconnectState)
+drsInterconnectState = Lens.lens (interconnectState :: DeleteInterconnectResponse -> Lude.Maybe InterconnectState) (\s a -> s {interconnectState = a} :: DeleteInterconnectResponse)
+{-# DEPRECATED drsInterconnectState "Use generic-lens or generic-optics with 'interconnectState' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteInterconnectResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteInterconnectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteInterconnectResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteInterconnectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInterconnectResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

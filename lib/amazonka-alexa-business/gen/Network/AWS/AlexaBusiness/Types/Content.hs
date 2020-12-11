@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.Content where
+module Network.AWS.AlexaBusiness.Types.Content
+  ( Content (..),
+
+    -- * Smart constructor
+    mkContent,
+
+    -- * Lenses
+    cAudioList,
+    cTextList,
+    cSsmlList,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.Audio
 import Network.AWS.AlexaBusiness.Types.Ssml
 import Network.AWS.AlexaBusiness.Types.TextMessage
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The content definition. This can contain only one text, SSML, or audio list object.
 --
---
---
--- /See:/ 'content' smart constructor.
+-- /See:/ 'mkContent' smart constructor.
 data Content = Content'
-  { _cAudioList :: !(Maybe [Audio]),
-    _cTextList :: !(Maybe [TextMessage]),
-    _cSsmlList :: !(Maybe [Ssml])
+  { audioList :: Lude.Maybe [Audio],
+    textList :: Lude.Maybe [TextMessage],
+    ssmlList :: Lude.Maybe [Ssml]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Content' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cAudioList' - The list of audio messages.
---
--- * 'cTextList' - The list of text messages.
---
--- * 'cSsmlList' - The list of SSML messages.
-content ::
+-- * 'audioList' - The list of audio messages.
+-- * 'ssmlList' - The list of SSML messages.
+-- * 'textList' - The list of text messages.
+mkContent ::
   Content
-content =
+mkContent =
   Content'
-    { _cAudioList = Nothing,
-      _cTextList = Nothing,
-      _cSsmlList = Nothing
+    { audioList = Lude.Nothing,
+      textList = Lude.Nothing,
+      ssmlList = Lude.Nothing
     }
 
 -- | The list of audio messages.
-cAudioList :: Lens' Content [Audio]
-cAudioList = lens _cAudioList (\s a -> s {_cAudioList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'audioList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAudioList :: Lens.Lens' Content (Lude.Maybe [Audio])
+cAudioList = Lens.lens (audioList :: Content -> Lude.Maybe [Audio]) (\s a -> s {audioList = a} :: Content)
+{-# DEPRECATED cAudioList "Use generic-lens or generic-optics with 'audioList' instead." #-}
 
 -- | The list of text messages.
-cTextList :: Lens' Content [TextMessage]
-cTextList = lens _cTextList (\s a -> s {_cTextList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'textList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTextList :: Lens.Lens' Content (Lude.Maybe [TextMessage])
+cTextList = Lens.lens (textList :: Content -> Lude.Maybe [TextMessage]) (\s a -> s {textList = a} :: Content)
+{-# DEPRECATED cTextList "Use generic-lens or generic-optics with 'textList' instead." #-}
 
 -- | The list of SSML messages.
-cSsmlList :: Lens' Content [Ssml]
-cSsmlList = lens _cSsmlList (\s a -> s {_cSsmlList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ssmlList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSsmlList :: Lens.Lens' Content (Lude.Maybe [Ssml])
+cSsmlList = Lens.lens (ssmlList :: Content -> Lude.Maybe [Ssml]) (\s a -> s {ssmlList = a} :: Content)
+{-# DEPRECATED cSsmlList "Use generic-lens or generic-optics with 'ssmlList' instead." #-}
 
-instance Hashable Content
-
-instance NFData Content
-
-instance ToJSON Content where
+instance Lude.ToJSON Content where
   toJSON Content' {..} =
-    object
-      ( catMaybes
-          [ ("AudioList" .=) <$> _cAudioList,
-            ("TextList" .=) <$> _cTextList,
-            ("SsmlList" .=) <$> _cSsmlList
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AudioList" Lude..=) Lude.<$> audioList,
+            ("TextList" Lude..=) Lude.<$> textList,
+            ("SsmlList" Lude..=) Lude.<$> ssmlList
           ]
       )

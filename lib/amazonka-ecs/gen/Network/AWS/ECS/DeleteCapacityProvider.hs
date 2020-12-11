@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,138 @@
 --
 -- Deletes the specified capacity provider.
 --
---
 -- Prior to a capacity provider being deleted, the capacity provider must be removed from the capacity provider strategy from all services. The 'UpdateService' API can be used to remove a capacity provider from a service's capacity provider strategy. When updating a service, the @forceNewDeployment@ option can be used to ensure that any tasks using the Amazon EC2 instance capacity provided by the capacity provider are transitioned to use the capacity from the remaining capacity providers. Only capacity providers that are not associated with a cluster can be deleted. To remove a capacity provider from a cluster, you can either use 'PutClusterCapacityProviders' or delete the cluster.
 module Network.AWS.ECS.DeleteCapacityProvider
-  ( -- * Creating a Request
-    deleteCapacityProvider,
-    DeleteCapacityProvider,
+  ( -- * Creating a request
+    DeleteCapacityProvider (..),
+    mkDeleteCapacityProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcpCapacityProvider,
 
-    -- * Destructuring the Response
-    deleteCapacityProviderResponse,
-    DeleteCapacityProviderResponse,
+    -- * Destructuring the response
+    DeleteCapacityProviderResponse (..),
+    mkDeleteCapacityProviderResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsCapacityProvider,
     delrsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteCapacityProvider' smart constructor.
+-- | /See:/ 'mkDeleteCapacityProvider' smart constructor.
 newtype DeleteCapacityProvider = DeleteCapacityProvider'
-  { _dcpCapacityProvider ::
-      Text
+  { capacityProvider ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCapacityProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcpCapacityProvider' - The short name or full Amazon Resource Name (ARN) of the capacity provider to delete.
-deleteCapacityProvider ::
-  -- | 'dcpCapacityProvider'
-  Text ->
+-- * 'capacityProvider' - The short name or full Amazon Resource Name (ARN) of the capacity provider to delete.
+mkDeleteCapacityProvider ::
+  -- | 'capacityProvider'
+  Lude.Text ->
   DeleteCapacityProvider
-deleteCapacityProvider pCapacityProvider_ =
-  DeleteCapacityProvider'
-    { _dcpCapacityProvider =
-        pCapacityProvider_
-    }
+mkDeleteCapacityProvider pCapacityProvider_ =
+  DeleteCapacityProvider' {capacityProvider = pCapacityProvider_}
 
 -- | The short name or full Amazon Resource Name (ARN) of the capacity provider to delete.
-dcpCapacityProvider :: Lens' DeleteCapacityProvider Text
-dcpCapacityProvider = lens _dcpCapacityProvider (\s a -> s {_dcpCapacityProvider = a})
+--
+-- /Note:/ Consider using 'capacityProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpCapacityProvider :: Lens.Lens' DeleteCapacityProvider Lude.Text
+dcpCapacityProvider = Lens.lens (capacityProvider :: DeleteCapacityProvider -> Lude.Text) (\s a -> s {capacityProvider = a} :: DeleteCapacityProvider)
+{-# DEPRECATED dcpCapacityProvider "Use generic-lens or generic-optics with 'capacityProvider' instead." #-}
 
-instance AWSRequest DeleteCapacityProvider where
+instance Lude.AWSRequest DeleteCapacityProvider where
   type Rs DeleteCapacityProvider = DeleteCapacityProviderResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteCapacityProviderResponse'
-            <$> (x .?> "capacityProvider") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "capacityProvider")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteCapacityProvider
-
-instance NFData DeleteCapacityProvider
-
-instance ToHeaders DeleteCapacityProvider where
+instance Lude.ToHeaders DeleteCapacityProvider where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteCapacityProvider where
+instance Lude.ToJSON DeleteCapacityProvider where
   toJSON DeleteCapacityProvider' {..} =
-    object
-      (catMaybes [Just ("capacityProvider" .= _dcpCapacityProvider)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("capacityProvider" Lude..= capacityProvider)]
+      )
 
-instance ToPath DeleteCapacityProvider where
-  toPath = const "/"
+instance Lude.ToPath DeleteCapacityProvider where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteCapacityProvider where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteCapacityProvider where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteCapacityProviderResponse' smart constructor.
+-- | /See:/ 'mkDeleteCapacityProviderResponse' smart constructor.
 data DeleteCapacityProviderResponse = DeleteCapacityProviderResponse'
-  { _delrsCapacityProvider ::
-      !(Maybe CapacityProvider),
-    _delrsResponseStatus :: !Int
+  { capacityProvider ::
+      Lude.Maybe CapacityProvider,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCapacityProviderResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsCapacityProvider' - Undocumented member.
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteCapacityProviderResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'capacityProvider' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteCapacityProviderResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteCapacityProviderResponse
-deleteCapacityProviderResponse pResponseStatus_ =
+mkDeleteCapacityProviderResponse pResponseStatus_ =
   DeleteCapacityProviderResponse'
-    { _delrsCapacityProvider = Nothing,
-      _delrsResponseStatus = pResponseStatus_
+    { capacityProvider = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-delrsCapacityProvider :: Lens' DeleteCapacityProviderResponse (Maybe CapacityProvider)
-delrsCapacityProvider = lens _delrsCapacityProvider (\s a -> s {_delrsCapacityProvider = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'capacityProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsCapacityProvider :: Lens.Lens' DeleteCapacityProviderResponse (Lude.Maybe CapacityProvider)
+delrsCapacityProvider = Lens.lens (capacityProvider :: DeleteCapacityProviderResponse -> Lude.Maybe CapacityProvider) (\s a -> s {capacityProvider = a} :: DeleteCapacityProviderResponse)
+{-# DEPRECATED delrsCapacityProvider "Use generic-lens or generic-optics with 'capacityProvider' instead." #-}
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteCapacityProviderResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeleteCapacityProviderResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeleteCapacityProviderResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeleteCapacityProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCapacityProviderResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ProcessorParameterName where
+module Network.AWS.Firehose.Types.ProcessorParameterName
+  ( ProcessorParameterName
+      ( ProcessorParameterName',
+        BufferIntervalInSeconds,
+        BufferSizeInMBs,
+        LambdaARN,
+        NumberOfRetries,
+        RoleARN
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProcessorParameterName
-  = BufferIntervalInSeconds
-  | BufferSizeInMBs
-  | LambdaARN
-  | NumberOfRetries
-  | RoleARN
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProcessorParameterName = ProcessorParameterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProcessorParameterName where
-  parser =
-    takeLowerText >>= \case
-      "bufferintervalinseconds" -> pure BufferIntervalInSeconds
-      "buffersizeinmbs" -> pure BufferSizeInMBs
-      "lambdaarn" -> pure LambdaARN
-      "numberofretries" -> pure NumberOfRetries
-      "rolearn" -> pure RoleARN
-      e ->
-        fromTextError $
-          "Failure parsing ProcessorParameterName from value: '" <> e
-            <> "'. Accepted values: bufferintervalinseconds, buffersizeinmbs, lambdaarn, numberofretries, rolearn"
+pattern BufferIntervalInSeconds :: ProcessorParameterName
+pattern BufferIntervalInSeconds = ProcessorParameterName' "BufferIntervalInSeconds"
 
-instance ToText ProcessorParameterName where
-  toText = \case
-    BufferIntervalInSeconds -> "BufferIntervalInSeconds"
-    BufferSizeInMBs -> "BufferSizeInMBs"
-    LambdaARN -> "LambdaArn"
-    NumberOfRetries -> "NumberOfRetries"
-    RoleARN -> "RoleArn"
+pattern BufferSizeInMBs :: ProcessorParameterName
+pattern BufferSizeInMBs = ProcessorParameterName' "BufferSizeInMBs"
 
-instance Hashable ProcessorParameterName
+pattern LambdaARN :: ProcessorParameterName
+pattern LambdaARN = ProcessorParameterName' "LambdaArn"
 
-instance NFData ProcessorParameterName
+pattern NumberOfRetries :: ProcessorParameterName
+pattern NumberOfRetries = ProcessorParameterName' "NumberOfRetries"
 
-instance ToByteString ProcessorParameterName
+pattern RoleARN :: ProcessorParameterName
+pattern RoleARN = ProcessorParameterName' "RoleArn"
 
-instance ToQuery ProcessorParameterName
-
-instance ToHeader ProcessorParameterName
-
-instance ToJSON ProcessorParameterName where
-  toJSON = toJSONText
-
-instance FromJSON ProcessorParameterName where
-  parseJSON = parseJSONText "ProcessorParameterName"
+{-# COMPLETE
+  BufferIntervalInSeconds,
+  BufferSizeInMBs,
+  LambdaARN,
+  NumberOfRetries,
+  RoleARN,
+  ProcessorParameterName'
+  #-}

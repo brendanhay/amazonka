@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates or updates a conformance pack. A conformance pack is a collection of AWS Config rules that can be easily deployed in an account and a region and across AWS Organization.
 --
---
 -- This API creates a service linked role @AWSServiceRoleForConfigConforms@ in your account. The service linked role is created only when the role does not exist in your account.
 module Network.AWS.Config.PutConformancePack
-  ( -- * Creating a Request
-    putConformancePack,
-    PutConformancePack,
+  ( -- * Creating a request
+    PutConformancePack (..),
+    mkPutConformancePack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pcpDeliveryS3Bucket,
     pcpDeliveryS3KeyPrefix,
     pcpTemplateS3URI,
@@ -34,163 +28,187 @@ module Network.AWS.Config.PutConformancePack
     pcpTemplateBody,
     pcpConformancePackName,
 
-    -- * Destructuring the Response
-    putConformancePackResponse,
-    PutConformancePackResponse,
+    -- * Destructuring the response
+    PutConformancePackResponse (..),
+    mkPutConformancePackResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pcprsConformancePackARN,
     pcprsResponseStatus,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putConformancePack' smart constructor.
+-- | /See:/ 'mkPutConformancePack' smart constructor.
 data PutConformancePack = PutConformancePack'
-  { _pcpDeliveryS3Bucket ::
-      !(Maybe Text),
-    _pcpDeliveryS3KeyPrefix :: !(Maybe Text),
-    _pcpTemplateS3URI :: !(Maybe Text),
-    _pcpConformancePackInputParameters ::
-      !(Maybe [ConformancePackInputParameter]),
-    _pcpTemplateBody :: !(Maybe Text),
-    _pcpConformancePackName :: !Text
+  { deliveryS3Bucket ::
+      Lude.Maybe Lude.Text,
+    deliveryS3KeyPrefix :: Lude.Maybe Lude.Text,
+    templateS3URI :: Lude.Maybe Lude.Text,
+    conformancePackInputParameters ::
+      Lude.Maybe [ConformancePackInputParameter],
+    templateBody :: Lude.Maybe Lude.Text,
+    conformancePackName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConformancePack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcpDeliveryS3Bucket' - AWS Config stores intermediate files while processing conformance pack template.
---
--- * 'pcpDeliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
---
--- * 'pcpTemplateS3URI' - Location of file containing the template body (@s3://bucketname/prefix@ ). The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack.
---
--- * 'pcpConformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
---
--- * 'pcpTemplateBody' - A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
---
--- * 'pcpConformancePackName' - Name of the conformance pack you want to create.
-putConformancePack ::
-  -- | 'pcpConformancePackName'
-  Text ->
+-- * 'conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
+-- * 'conformancePackName' - Name of the conformance pack you want to create.
+-- * 'deliveryS3Bucket' - AWS Config stores intermediate files while processing conformance pack template.
+-- * 'deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
+-- * 'templateBody' - A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
+-- * 'templateS3URI' - Location of file containing the template body (@s3://bucketname/prefix@ ). The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack.
+mkPutConformancePack ::
+  -- | 'conformancePackName'
+  Lude.Text ->
   PutConformancePack
-putConformancePack pConformancePackName_ =
+mkPutConformancePack pConformancePackName_ =
   PutConformancePack'
-    { _pcpDeliveryS3Bucket = Nothing,
-      _pcpDeliveryS3KeyPrefix = Nothing,
-      _pcpTemplateS3URI = Nothing,
-      _pcpConformancePackInputParameters = Nothing,
-      _pcpTemplateBody = Nothing,
-      _pcpConformancePackName = pConformancePackName_
+    { deliveryS3Bucket = Lude.Nothing,
+      deliveryS3KeyPrefix = Lude.Nothing,
+      templateS3URI = Lude.Nothing,
+      conformancePackInputParameters = Lude.Nothing,
+      templateBody = Lude.Nothing,
+      conformancePackName = pConformancePackName_
     }
 
 -- | AWS Config stores intermediate files while processing conformance pack template.
-pcpDeliveryS3Bucket :: Lens' PutConformancePack (Maybe Text)
-pcpDeliveryS3Bucket = lens _pcpDeliveryS3Bucket (\s a -> s {_pcpDeliveryS3Bucket = a})
+--
+-- /Note:/ Consider using 'deliveryS3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpDeliveryS3Bucket :: Lens.Lens' PutConformancePack (Lude.Maybe Lude.Text)
+pcpDeliveryS3Bucket = Lens.lens (deliveryS3Bucket :: PutConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {deliveryS3Bucket = a} :: PutConformancePack)
+{-# DEPRECATED pcpDeliveryS3Bucket "Use generic-lens or generic-optics with 'deliveryS3Bucket' instead." #-}
 
 -- | The prefix for the Amazon S3 bucket.
-pcpDeliveryS3KeyPrefix :: Lens' PutConformancePack (Maybe Text)
-pcpDeliveryS3KeyPrefix = lens _pcpDeliveryS3KeyPrefix (\s a -> s {_pcpDeliveryS3KeyPrefix = a})
+--
+-- /Note:/ Consider using 'deliveryS3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpDeliveryS3KeyPrefix :: Lens.Lens' PutConformancePack (Lude.Maybe Lude.Text)
+pcpDeliveryS3KeyPrefix = Lens.lens (deliveryS3KeyPrefix :: PutConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {deliveryS3KeyPrefix = a} :: PutConformancePack)
+{-# DEPRECATED pcpDeliveryS3KeyPrefix "Use generic-lens or generic-optics with 'deliveryS3KeyPrefix' instead." #-}
 
 -- | Location of file containing the template body (@s3://bucketname/prefix@ ). The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack.
-pcpTemplateS3URI :: Lens' PutConformancePack (Maybe Text)
-pcpTemplateS3URI = lens _pcpTemplateS3URI (\s a -> s {_pcpTemplateS3URI = a})
+--
+-- /Note:/ Consider using 'templateS3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpTemplateS3URI :: Lens.Lens' PutConformancePack (Lude.Maybe Lude.Text)
+pcpTemplateS3URI = Lens.lens (templateS3URI :: PutConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {templateS3URI = a} :: PutConformancePack)
+{-# DEPRECATED pcpTemplateS3URI "Use generic-lens or generic-optics with 'templateS3URI' instead." #-}
 
 -- | A list of @ConformancePackInputParameter@ objects.
-pcpConformancePackInputParameters :: Lens' PutConformancePack [ConformancePackInputParameter]
-pcpConformancePackInputParameters = lens _pcpConformancePackInputParameters (\s a -> s {_pcpConformancePackInputParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'conformancePackInputParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpConformancePackInputParameters :: Lens.Lens' PutConformancePack (Lude.Maybe [ConformancePackInputParameter])
+pcpConformancePackInputParameters = Lens.lens (conformancePackInputParameters :: PutConformancePack -> Lude.Maybe [ConformancePackInputParameter]) (\s a -> s {conformancePackInputParameters = a} :: PutConformancePack)
+{-# DEPRECATED pcpConformancePackInputParameters "Use generic-lens or generic-optics with 'conformancePackInputParameters' instead." #-}
 
 -- | A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
-pcpTemplateBody :: Lens' PutConformancePack (Maybe Text)
-pcpTemplateBody = lens _pcpTemplateBody (\s a -> s {_pcpTemplateBody = a})
+--
+-- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpTemplateBody :: Lens.Lens' PutConformancePack (Lude.Maybe Lude.Text)
+pcpTemplateBody = Lens.lens (templateBody :: PutConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: PutConformancePack)
+{-# DEPRECATED pcpTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
 -- | Name of the conformance pack you want to create.
-pcpConformancePackName :: Lens' PutConformancePack Text
-pcpConformancePackName = lens _pcpConformancePackName (\s a -> s {_pcpConformancePackName = a})
+--
+-- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpConformancePackName :: Lens.Lens' PutConformancePack Lude.Text
+pcpConformancePackName = Lens.lens (conformancePackName :: PutConformancePack -> Lude.Text) (\s a -> s {conformancePackName = a} :: PutConformancePack)
+{-# DEPRECATED pcpConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
-instance AWSRequest PutConformancePack where
+instance Lude.AWSRequest PutConformancePack where
   type Rs PutConformancePack = PutConformancePackResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutConformancePackResponse'
-            <$> (x .?> "ConformancePackArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ConformancePackArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutConformancePack
-
-instance NFData PutConformancePack
-
-instance ToHeaders PutConformancePack where
+instance Lude.ToHeaders PutConformancePack where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.PutConformancePack" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StarlingDoveService.PutConformancePack" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutConformancePack where
+instance Lude.ToJSON PutConformancePack where
   toJSON PutConformancePack' {..} =
-    object
-      ( catMaybes
-          [ ("DeliveryS3Bucket" .=) <$> _pcpDeliveryS3Bucket,
-            ("DeliveryS3KeyPrefix" .=) <$> _pcpDeliveryS3KeyPrefix,
-            ("TemplateS3Uri" .=) <$> _pcpTemplateS3URI,
-            ("ConformancePackInputParameters" .=)
-              <$> _pcpConformancePackInputParameters,
-            ("TemplateBody" .=) <$> _pcpTemplateBody,
-            Just ("ConformancePackName" .= _pcpConformancePackName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DeliveryS3Bucket" Lude..=) Lude.<$> deliveryS3Bucket,
+            ("DeliveryS3KeyPrefix" Lude..=) Lude.<$> deliveryS3KeyPrefix,
+            ("TemplateS3Uri" Lude..=) Lude.<$> templateS3URI,
+            ("ConformancePackInputParameters" Lude..=)
+              Lude.<$> conformancePackInputParameters,
+            ("TemplateBody" Lude..=) Lude.<$> templateBody,
+            Lude.Just ("ConformancePackName" Lude..= conformancePackName)
           ]
       )
 
-instance ToPath PutConformancePack where
-  toPath = const "/"
+instance Lude.ToPath PutConformancePack where
+  toPath = Lude.const "/"
 
-instance ToQuery PutConformancePack where
-  toQuery = const mempty
+instance Lude.ToQuery PutConformancePack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putConformancePackResponse' smart constructor.
+-- | /See:/ 'mkPutConformancePackResponse' smart constructor.
 data PutConformancePackResponse = PutConformancePackResponse'
-  { _pcprsConformancePackARN ::
-      !(Maybe Text),
-    _pcprsResponseStatus :: !Int
+  { conformancePackARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConformancePackResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcprsConformancePackARN' - ARN of the conformance pack.
---
--- * 'pcprsResponseStatus' - -- | The response status code.
-putConformancePackResponse ::
-  -- | 'pcprsResponseStatus'
-  Int ->
+-- * 'conformancePackARN' - ARN of the conformance pack.
+-- * 'responseStatus' - The response status code.
+mkPutConformancePackResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutConformancePackResponse
-putConformancePackResponse pResponseStatus_ =
+mkPutConformancePackResponse pResponseStatus_ =
   PutConformancePackResponse'
-    { _pcprsConformancePackARN = Nothing,
-      _pcprsResponseStatus = pResponseStatus_
+    { conformancePackARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | ARN of the conformance pack.
-pcprsConformancePackARN :: Lens' PutConformancePackResponse (Maybe Text)
-pcprsConformancePackARN = lens _pcprsConformancePackARN (\s a -> s {_pcprsConformancePackARN = a})
+--
+-- /Note:/ Consider using 'conformancePackARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcprsConformancePackARN :: Lens.Lens' PutConformancePackResponse (Lude.Maybe Lude.Text)
+pcprsConformancePackARN = Lens.lens (conformancePackARN :: PutConformancePackResponse -> Lude.Maybe Lude.Text) (\s a -> s {conformancePackARN = a} :: PutConformancePackResponse)
+{-# DEPRECATED pcprsConformancePackARN "Use generic-lens or generic-optics with 'conformancePackARN' instead." #-}
 
--- | -- | The response status code.
-pcprsResponseStatus :: Lens' PutConformancePackResponse Int
-pcprsResponseStatus = lens _pcprsResponseStatus (\s a -> s {_pcprsResponseStatus = a})
-
-instance NFData PutConformancePackResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcprsResponseStatus :: Lens.Lens' PutConformancePackResponse Lude.Int
+pcprsResponseStatus = Lens.lens (responseStatus :: PutConformancePackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutConformancePackResponse)
+{-# DEPRECATED pcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

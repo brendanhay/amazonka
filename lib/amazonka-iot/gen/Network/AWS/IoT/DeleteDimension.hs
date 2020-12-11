@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,88 +14,101 @@
 --
 -- Removes the specified dimension from your AWS account.
 module Network.AWS.IoT.DeleteDimension
-  ( -- * Creating a Request
-    deleteDimension,
-    DeleteDimension,
+  ( -- * Creating a request
+    DeleteDimension (..),
+    mkDeleteDimension,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dName,
 
-    -- * Destructuring the Response
-    deleteDimensionResponse,
-    DeleteDimensionResponse,
+    -- * Destructuring the response
+    DeleteDimensionResponse (..),
+    mkDeleteDimensionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDimension' smart constructor.
-newtype DeleteDimension = DeleteDimension' {_dName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteDimension' smart constructor.
+newtype DeleteDimension = DeleteDimension' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDimension' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dName' - The unique identifier for the dimension that you want to delete.
-deleteDimension ::
-  -- | 'dName'
-  Text ->
+-- * 'name' - The unique identifier for the dimension that you want to delete.
+mkDeleteDimension ::
+  -- | 'name'
+  Lude.Text ->
   DeleteDimension
-deleteDimension pName_ = DeleteDimension' {_dName = pName_}
+mkDeleteDimension pName_ = DeleteDimension' {name = pName_}
 
 -- | The unique identifier for the dimension that you want to delete.
-dName :: Lens' DeleteDimension Text
-dName = lens _dName (\s a -> s {_dName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dName :: Lens.Lens' DeleteDimension Lude.Text
+dName = Lens.lens (name :: DeleteDimension -> Lude.Text) (\s a -> s {name = a} :: DeleteDimension)
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteDimension where
+instance Lude.AWSRequest DeleteDimension where
   type Rs DeleteDimension = DeleteDimensionResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteDimensionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteDimensionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteDimension
+instance Lude.ToHeaders DeleteDimension where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDimension
+instance Lude.ToPath DeleteDimension where
+  toPath DeleteDimension' {..} =
+    Lude.mconcat ["/dimensions/", Lude.toBS name]
 
-instance ToHeaders DeleteDimension where
-  toHeaders = const mempty
+instance Lude.ToQuery DeleteDimension where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath DeleteDimension where
-  toPath DeleteDimension' {..} = mconcat ["/dimensions/", toBS _dName]
-
-instance ToQuery DeleteDimension where
-  toQuery = const mempty
-
--- | /See:/ 'deleteDimensionResponse' smart constructor.
+-- | /See:/ 'mkDeleteDimensionResponse' smart constructor.
 newtype DeleteDimensionResponse = DeleteDimensionResponse'
-  { _ddrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDimensionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrsResponseStatus' - -- | The response status code.
-deleteDimensionResponse ::
-  -- | 'ddrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteDimensionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDimensionResponse
-deleteDimensionResponse pResponseStatus_ =
-  DeleteDimensionResponse' {_ddrsResponseStatus = pResponseStatus_}
+mkDeleteDimensionResponse pResponseStatus_ =
+  DeleteDimensionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DeleteDimensionResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\s a -> s {_ddrsResponseStatus = a})
-
-instance NFData DeleteDimensionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsResponseStatus :: Lens.Lens' DeleteDimensionResponse Lude.Int
+ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDimensionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDimensionResponse)
+{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

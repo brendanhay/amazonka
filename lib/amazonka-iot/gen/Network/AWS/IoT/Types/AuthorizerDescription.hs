@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,121 +7,156 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuthorizerDescription where
+module Network.AWS.IoT.Types.AuthorizerDescription
+  ( AuthorizerDescription (..),
+
+    -- * Smart constructor
+    mkAuthorizerDescription,
+
+    -- * Lenses
+    adStatus,
+    adLastModifiedDate,
+    adSigningDisabled,
+    adAuthorizerName,
+    adAuthorizerFunctionARN,
+    adAuthorizerARN,
+    adCreationDate,
+    adTokenSigningPublicKeys,
+    adTokenKeyName,
+  )
+where
 
 import Network.AWS.IoT.Types.AuthorizerStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The authorizer description.
 --
---
---
--- /See:/ 'authorizerDescription' smart constructor.
+-- /See:/ 'mkAuthorizerDescription' smart constructor.
 data AuthorizerDescription = AuthorizerDescription'
-  { _adStatus ::
-      !(Maybe AuthorizerStatus),
-    _adLastModifiedDate :: !(Maybe POSIX),
-    _adSigningDisabled :: !(Maybe Bool),
-    _adAuthorizerName :: !(Maybe Text),
-    _adAuthorizerFunctionARN :: !(Maybe Text),
-    _adAuthorizerARN :: !(Maybe Text),
-    _adCreationDate :: !(Maybe POSIX),
-    _adTokenSigningPublicKeys ::
-      !(Maybe (Map Text (Text))),
-    _adTokenKeyName :: !(Maybe Text)
+  { status ::
+      Lude.Maybe AuthorizerStatus,
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    signingDisabled :: Lude.Maybe Lude.Bool,
+    authorizerName :: Lude.Maybe Lude.Text,
+    authorizerFunctionARN :: Lude.Maybe Lude.Text,
+    authorizerARN :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    tokenSigningPublicKeys ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tokenKeyName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizerDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'adStatus' - The status of the authorizer.
---
--- * 'adLastModifiedDate' - The UNIX timestamp of when the authorizer was last updated.
---
--- * 'adSigningDisabled' - Specifies whether AWS IoT validates the token signature in an authorization request.
---
--- * 'adAuthorizerName' - The authorizer name.
---
--- * 'adAuthorizerFunctionARN' - The authorizer's Lambda function ARN.
---
--- * 'adAuthorizerARN' - The authorizer ARN.
---
--- * 'adCreationDate' - The UNIX timestamp of when the authorizer was created.
---
--- * 'adTokenSigningPublicKeys' - The public keys used to validate the token signature returned by your custom authentication service.
---
--- * 'adTokenKeyName' - The key used to extract the token from the HTTP headers.
-authorizerDescription ::
+-- * 'authorizerARN' - The authorizer ARN.
+-- * 'authorizerFunctionARN' - The authorizer's Lambda function ARN.
+-- * 'authorizerName' - The authorizer name.
+-- * 'creationDate' - The UNIX timestamp of when the authorizer was created.
+-- * 'lastModifiedDate' - The UNIX timestamp of when the authorizer was last updated.
+-- * 'signingDisabled' - Specifies whether AWS IoT validates the token signature in an authorization request.
+-- * 'status' - The status of the authorizer.
+-- * 'tokenKeyName' - The key used to extract the token from the HTTP headers.
+-- * 'tokenSigningPublicKeys' - The public keys used to validate the token signature returned by your custom authentication service.
+mkAuthorizerDescription ::
   AuthorizerDescription
-authorizerDescription =
+mkAuthorizerDescription =
   AuthorizerDescription'
-    { _adStatus = Nothing,
-      _adLastModifiedDate = Nothing,
-      _adSigningDisabled = Nothing,
-      _adAuthorizerName = Nothing,
-      _adAuthorizerFunctionARN = Nothing,
-      _adAuthorizerARN = Nothing,
-      _adCreationDate = Nothing,
-      _adTokenSigningPublicKeys = Nothing,
-      _adTokenKeyName = Nothing
+    { status = Lude.Nothing,
+      lastModifiedDate = Lude.Nothing,
+      signingDisabled = Lude.Nothing,
+      authorizerName = Lude.Nothing,
+      authorizerFunctionARN = Lude.Nothing,
+      authorizerARN = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      tokenSigningPublicKeys = Lude.Nothing,
+      tokenKeyName = Lude.Nothing
     }
 
 -- | The status of the authorizer.
-adStatus :: Lens' AuthorizerDescription (Maybe AuthorizerStatus)
-adStatus = lens _adStatus (\s a -> s {_adStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adStatus :: Lens.Lens' AuthorizerDescription (Lude.Maybe AuthorizerStatus)
+adStatus = Lens.lens (status :: AuthorizerDescription -> Lude.Maybe AuthorizerStatus) (\s a -> s {status = a} :: AuthorizerDescription)
+{-# DEPRECATED adStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The UNIX timestamp of when the authorizer was last updated.
-adLastModifiedDate :: Lens' AuthorizerDescription (Maybe UTCTime)
-adLastModifiedDate = lens _adLastModifiedDate (\s a -> s {_adLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adLastModifiedDate :: Lens.Lens' AuthorizerDescription (Lude.Maybe Lude.Timestamp)
+adLastModifiedDate = Lens.lens (lastModifiedDate :: AuthorizerDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: AuthorizerDescription)
+{-# DEPRECATED adLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | Specifies whether AWS IoT validates the token signature in an authorization request.
-adSigningDisabled :: Lens' AuthorizerDescription (Maybe Bool)
-adSigningDisabled = lens _adSigningDisabled (\s a -> s {_adSigningDisabled = a})
+--
+-- /Note:/ Consider using 'signingDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adSigningDisabled :: Lens.Lens' AuthorizerDescription (Lude.Maybe Lude.Bool)
+adSigningDisabled = Lens.lens (signingDisabled :: AuthorizerDescription -> Lude.Maybe Lude.Bool) (\s a -> s {signingDisabled = a} :: AuthorizerDescription)
+{-# DEPRECATED adSigningDisabled "Use generic-lens or generic-optics with 'signingDisabled' instead." #-}
 
 -- | The authorizer name.
-adAuthorizerName :: Lens' AuthorizerDescription (Maybe Text)
-adAuthorizerName = lens _adAuthorizerName (\s a -> s {_adAuthorizerName = a})
+--
+-- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAuthorizerName :: Lens.Lens' AuthorizerDescription (Lude.Maybe Lude.Text)
+adAuthorizerName = Lens.lens (authorizerName :: AuthorizerDescription -> Lude.Maybe Lude.Text) (\s a -> s {authorizerName = a} :: AuthorizerDescription)
+{-# DEPRECATED adAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
 -- | The authorizer's Lambda function ARN.
-adAuthorizerFunctionARN :: Lens' AuthorizerDescription (Maybe Text)
-adAuthorizerFunctionARN = lens _adAuthorizerFunctionARN (\s a -> s {_adAuthorizerFunctionARN = a})
+--
+-- /Note:/ Consider using 'authorizerFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAuthorizerFunctionARN :: Lens.Lens' AuthorizerDescription (Lude.Maybe Lude.Text)
+adAuthorizerFunctionARN = Lens.lens (authorizerFunctionARN :: AuthorizerDescription -> Lude.Maybe Lude.Text) (\s a -> s {authorizerFunctionARN = a} :: AuthorizerDescription)
+{-# DEPRECATED adAuthorizerFunctionARN "Use generic-lens or generic-optics with 'authorizerFunctionARN' instead." #-}
 
 -- | The authorizer ARN.
-adAuthorizerARN :: Lens' AuthorizerDescription (Maybe Text)
-adAuthorizerARN = lens _adAuthorizerARN (\s a -> s {_adAuthorizerARN = a})
+--
+-- /Note:/ Consider using 'authorizerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAuthorizerARN :: Lens.Lens' AuthorizerDescription (Lude.Maybe Lude.Text)
+adAuthorizerARN = Lens.lens (authorizerARN :: AuthorizerDescription -> Lude.Maybe Lude.Text) (\s a -> s {authorizerARN = a} :: AuthorizerDescription)
+{-# DEPRECATED adAuthorizerARN "Use generic-lens or generic-optics with 'authorizerARN' instead." #-}
 
 -- | The UNIX timestamp of when the authorizer was created.
-adCreationDate :: Lens' AuthorizerDescription (Maybe UTCTime)
-adCreationDate = lens _adCreationDate (\s a -> s {_adCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adCreationDate :: Lens.Lens' AuthorizerDescription (Lude.Maybe Lude.Timestamp)
+adCreationDate = Lens.lens (creationDate :: AuthorizerDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: AuthorizerDescription)
+{-# DEPRECATED adCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The public keys used to validate the token signature returned by your custom authentication service.
-adTokenSigningPublicKeys :: Lens' AuthorizerDescription (HashMap Text (Text))
-adTokenSigningPublicKeys = lens _adTokenSigningPublicKeys (\s a -> s {_adTokenSigningPublicKeys = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tokenSigningPublicKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adTokenSigningPublicKeys :: Lens.Lens' AuthorizerDescription (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+adTokenSigningPublicKeys = Lens.lens (tokenSigningPublicKeys :: AuthorizerDescription -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tokenSigningPublicKeys = a} :: AuthorizerDescription)
+{-# DEPRECATED adTokenSigningPublicKeys "Use generic-lens or generic-optics with 'tokenSigningPublicKeys' instead." #-}
 
 -- | The key used to extract the token from the HTTP headers.
-adTokenKeyName :: Lens' AuthorizerDescription (Maybe Text)
-adTokenKeyName = lens _adTokenKeyName (\s a -> s {_adTokenKeyName = a})
+--
+-- /Note:/ Consider using 'tokenKeyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adTokenKeyName :: Lens.Lens' AuthorizerDescription (Lude.Maybe Lude.Text)
+adTokenKeyName = Lens.lens (tokenKeyName :: AuthorizerDescription -> Lude.Maybe Lude.Text) (\s a -> s {tokenKeyName = a} :: AuthorizerDescription)
+{-# DEPRECATED adTokenKeyName "Use generic-lens or generic-optics with 'tokenKeyName' instead." #-}
 
-instance FromJSON AuthorizerDescription where
+instance Lude.FromJSON AuthorizerDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuthorizerDescription"
       ( \x ->
           AuthorizerDescription'
-            <$> (x .:? "status")
-            <*> (x .:? "lastModifiedDate")
-            <*> (x .:? "signingDisabled")
-            <*> (x .:? "authorizerName")
-            <*> (x .:? "authorizerFunctionArn")
-            <*> (x .:? "authorizerArn")
-            <*> (x .:? "creationDate")
-            <*> (x .:? "tokenSigningPublicKeys" .!= mempty)
-            <*> (x .:? "tokenKeyName")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "lastModifiedDate")
+            Lude.<*> (x Lude..:? "signingDisabled")
+            Lude.<*> (x Lude..:? "authorizerName")
+            Lude.<*> (x Lude..:? "authorizerFunctionArn")
+            Lude.<*> (x Lude..:? "authorizerArn")
+            Lude.<*> (x Lude..:? "creationDate")
+            Lude.<*> (x Lude..:? "tokenSigningPublicKeys" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "tokenKeyName")
       )
-
-instance Hashable AuthorizerDescription
-
-instance NFData AuthorizerDescription

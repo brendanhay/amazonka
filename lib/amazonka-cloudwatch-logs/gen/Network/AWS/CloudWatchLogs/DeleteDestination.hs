@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,85 +14,97 @@
 --
 -- Deletes the specified destination, and eventually disables all the subscription filters that publish to it. This operation does not delete the physical resource encapsulated by the destination.
 module Network.AWS.CloudWatchLogs.DeleteDestination
-  ( -- * Creating a Request
-    deleteDestination,
-    DeleteDestination,
+  ( -- * Creating a request
+    DeleteDestination (..),
+    mkDeleteDestination,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddDestinationName,
 
-    -- * Destructuring the Response
-    deleteDestinationResponse,
-    DeleteDestinationResponse,
+    -- * Destructuring the response
+    DeleteDestinationResponse (..),
+    mkDeleteDestinationResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDestination' smart constructor.
+-- | /See:/ 'mkDeleteDestination' smart constructor.
 newtype DeleteDestination = DeleteDestination'
-  { _ddDestinationName ::
-      Text
+  { destinationName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddDestinationName' - The name of the destination.
-deleteDestination ::
-  -- | 'ddDestinationName'
-  Text ->
+-- * 'destinationName' - The name of the destination.
+mkDeleteDestination ::
+  -- | 'destinationName'
+  Lude.Text ->
   DeleteDestination
-deleteDestination pDestinationName_ =
-  DeleteDestination' {_ddDestinationName = pDestinationName_}
+mkDeleteDestination pDestinationName_ =
+  DeleteDestination' {destinationName = pDestinationName_}
 
 -- | The name of the destination.
-ddDestinationName :: Lens' DeleteDestination Text
-ddDestinationName = lens _ddDestinationName (\s a -> s {_ddDestinationName = a})
+--
+-- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDestinationName :: Lens.Lens' DeleteDestination Lude.Text
+ddDestinationName = Lens.lens (destinationName :: DeleteDestination -> Lude.Text) (\s a -> s {destinationName = a} :: DeleteDestination)
+{-# DEPRECATED ddDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
-instance AWSRequest DeleteDestination where
+instance Lude.AWSRequest DeleteDestination where
   type Rs DeleteDestination = DeleteDestinationResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull DeleteDestinationResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull DeleteDestinationResponse'
 
-instance Hashable DeleteDestination
-
-instance NFData DeleteDestination
-
-instance ToHeaders DeleteDestination where
+instance Lude.ToHeaders DeleteDestination where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.DeleteDestination" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.DeleteDestination" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDestination where
+instance Lude.ToJSON DeleteDestination where
   toJSON DeleteDestination' {..} =
-    object
-      (catMaybes [Just ("destinationName" .= _ddDestinationName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("destinationName" Lude..= destinationName)]
+      )
 
-instance ToPath DeleteDestination where
-  toPath = const "/"
+instance Lude.ToPath DeleteDestination where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDestination where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDestination where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDestinationResponse' smart constructor.
+-- | /See:/ 'mkDeleteDestinationResponse' smart constructor.
 data DeleteDestinationResponse = DeleteDestinationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDestinationResponse' with the minimum fields required to make a request.
-deleteDestinationResponse ::
+mkDeleteDestinationResponse ::
   DeleteDestinationResponse
-deleteDestinationResponse = DeleteDestinationResponse'
-
-instance NFData DeleteDestinationResponse
+mkDeleteDestinationResponse = DeleteDestinationResponse'

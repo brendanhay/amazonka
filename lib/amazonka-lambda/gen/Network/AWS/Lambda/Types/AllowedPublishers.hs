@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.AllowedPublishers where
+module Network.AWS.Lambda.Types.AllowedPublishers
+  ( AllowedPublishers (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAllowedPublishers,
+
+    -- * Lenses
+    apSigningProfileVersionARNs,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | List of signing profiles that can sign a code package.
 --
---
---
--- /See:/ 'allowedPublishers' smart constructor.
+-- /See:/ 'mkAllowedPublishers' smart constructor.
 newtype AllowedPublishers = AllowedPublishers'
-  { _apSigningProfileVersionARNs ::
-      List1 Text
+  { signingProfileVersionARNs ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllowedPublishers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'apSigningProfileVersionARNs' - The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-allowedPublishers ::
-  -- | 'apSigningProfileVersionARNs'
-  NonEmpty Text ->
+-- * 'signingProfileVersionARNs' - The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+mkAllowedPublishers ::
+  -- | 'signingProfileVersionARNs'
+  Lude.NonEmpty Lude.Text ->
   AllowedPublishers
-allowedPublishers pSigningProfileVersionARNs_ =
+mkAllowedPublishers pSigningProfileVersionARNs_ =
   AllowedPublishers'
-    { _apSigningProfileVersionARNs =
-        _List1 # pSigningProfileVersionARNs_
+    { signingProfileVersionARNs =
+        pSigningProfileVersionARNs_
     }
 
 -- | The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-apSigningProfileVersionARNs :: Lens' AllowedPublishers (NonEmpty Text)
-apSigningProfileVersionARNs = lens _apSigningProfileVersionARNs (\s a -> s {_apSigningProfileVersionARNs = a}) . _List1
+--
+-- /Note:/ Consider using 'signingProfileVersionARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apSigningProfileVersionARNs :: Lens.Lens' AllowedPublishers (Lude.NonEmpty Lude.Text)
+apSigningProfileVersionARNs = Lens.lens (signingProfileVersionARNs :: AllowedPublishers -> Lude.NonEmpty Lude.Text) (\s a -> s {signingProfileVersionARNs = a} :: AllowedPublishers)
+{-# DEPRECATED apSigningProfileVersionARNs "Use generic-lens or generic-optics with 'signingProfileVersionARNs' instead." #-}
 
-instance FromJSON AllowedPublishers where
+instance Lude.FromJSON AllowedPublishers where
   parseJSON =
-    withObject
+    Lude.withObject
       "AllowedPublishers"
-      (\x -> AllowedPublishers' <$> (x .: "SigningProfileVersionArns"))
+      ( \x ->
+          AllowedPublishers'
+            Lude.<$> (x Lude..: "SigningProfileVersionArns")
+      )
 
-instance Hashable AllowedPublishers
-
-instance NFData AllowedPublishers
-
-instance ToJSON AllowedPublishers where
+instance Lude.ToJSON AllowedPublishers where
   toJSON AllowedPublishers' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("SigningProfileVersionArns" .= _apSigningProfileVersionARNs)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("SigningProfileVersionArns" Lude..= signingProfileVersionARNs)
           ]
       )

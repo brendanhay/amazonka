@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,112 @@
 --
 -- Undocumented operation.
 module Network.AWS.APIGateway.DeleteDocumentationVersion
-  ( -- * Creating a Request
-    deleteDocumentationVersion,
-    DeleteDocumentationVersion,
+  ( -- * Creating a request
+    DeleteDocumentationVersion (..),
+    mkDeleteDocumentationVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddvRestAPIId,
     ddvDocumentationVersion,
 
-    -- * Destructuring the Response
-    deleteDocumentationVersionResponse,
-    DeleteDocumentationVersionResponse,
+    -- * Destructuring the response
+    DeleteDocumentationVersionResponse (..),
+    mkDeleteDocumentationVersionResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Deletes an existing documentation version of an API.
 --
---
---
--- /See:/ 'deleteDocumentationVersion' smart constructor.
+-- /See:/ 'mkDeleteDocumentationVersion' smart constructor.
 data DeleteDocumentationVersion = DeleteDocumentationVersion'
-  { _ddvRestAPIId ::
-      !Text,
-    _ddvDocumentationVersion :: !Text
+  { restAPIId ::
+      Lude.Text,
+    documentationVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentationVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'ddvDocumentationVersion' - [Required] The version identifier of a to-be-deleted documentation snapshot.
-deleteDocumentationVersion ::
-  -- | 'ddvRestAPIId'
-  Text ->
-  -- | 'ddvDocumentationVersion'
-  Text ->
+-- * 'documentationVersion' - [Required] The version identifier of a to-be-deleted documentation snapshot.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkDeleteDocumentationVersion ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'documentationVersion'
+  Lude.Text ->
   DeleteDocumentationVersion
-deleteDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
+mkDeleteDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
   DeleteDocumentationVersion'
-    { _ddvRestAPIId = pRestAPIId_,
-      _ddvDocumentationVersion = pDocumentationVersion_
+    { restAPIId = pRestAPIId_,
+      documentationVersion = pDocumentationVersion_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-ddvRestAPIId :: Lens' DeleteDocumentationVersion Text
-ddvRestAPIId = lens _ddvRestAPIId (\s a -> s {_ddvRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvRestAPIId :: Lens.Lens' DeleteDocumentationVersion Lude.Text
+ddvRestAPIId = Lens.lens (restAPIId :: DeleteDocumentationVersion -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteDocumentationVersion)
+{-# DEPRECATED ddvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The version identifier of a to-be-deleted documentation snapshot.
-ddvDocumentationVersion :: Lens' DeleteDocumentationVersion Text
-ddvDocumentationVersion = lens _ddvDocumentationVersion (\s a -> s {_ddvDocumentationVersion = a})
+--
+-- /Note:/ Consider using 'documentationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvDocumentationVersion :: Lens.Lens' DeleteDocumentationVersion Lude.Text
+ddvDocumentationVersion = Lens.lens (documentationVersion :: DeleteDocumentationVersion -> Lude.Text) (\s a -> s {documentationVersion = a} :: DeleteDocumentationVersion)
+{-# DEPRECATED ddvDocumentationVersion "Use generic-lens or generic-optics with 'documentationVersion' instead." #-}
 
-instance AWSRequest DeleteDocumentationVersion where
+instance Lude.AWSRequest DeleteDocumentationVersion where
   type
     Rs DeleteDocumentationVersion =
       DeleteDocumentationVersionResponse
-  request = delete apiGateway
-  response = receiveNull DeleteDocumentationVersionResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteDocumentationVersionResponse'
 
-instance Hashable DeleteDocumentationVersion
-
-instance NFData DeleteDocumentationVersion
-
-instance ToHeaders DeleteDocumentationVersion where
+instance Lude.ToHeaders DeleteDocumentationVersion where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteDocumentationVersion where
+instance Lude.ToPath DeleteDocumentationVersion where
   toPath DeleteDocumentationVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _ddvRestAPIId,
+        Lude.toBS restAPIId,
         "/documentation/versions/",
-        toBS _ddvDocumentationVersion
+        Lude.toBS documentationVersion
       ]
 
-instance ToQuery DeleteDocumentationVersion where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDocumentationVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDocumentationVersionResponse' smart constructor.
+-- | /See:/ 'mkDeleteDocumentationVersionResponse' smart constructor.
 data DeleteDocumentationVersionResponse = DeleteDocumentationVersionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentationVersionResponse' with the minimum fields required to make a request.
-deleteDocumentationVersionResponse ::
+mkDeleteDocumentationVersionResponse ::
   DeleteDocumentationVersionResponse
-deleteDocumentationVersionResponse =
+mkDeleteDocumentationVersionResponse =
   DeleteDocumentationVersionResponse'
-
-instance NFData DeleteDocumentationVersionResponse

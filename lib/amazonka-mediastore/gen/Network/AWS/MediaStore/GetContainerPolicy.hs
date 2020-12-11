@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,135 @@
 --
 -- Retrieves the access policy for the specified container. For information about the data that is included in an access policy, see the <https://aws.amazon.com/documentation/iam/ AWS Identity and Access Management User Guide> .
 module Network.AWS.MediaStore.GetContainerPolicy
-  ( -- * Creating a Request
-    getContainerPolicy,
-    GetContainerPolicy,
+  ( -- * Creating a request
+    GetContainerPolicy (..),
+    mkGetContainerPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gContainerName,
 
-    -- * Destructuring the Response
-    getContainerPolicyResponse,
-    GetContainerPolicyResponse,
+    -- * Destructuring the response
+    GetContainerPolicyResponse (..),
+    mkGetContainerPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcprsResponseStatus,
     gcprsPolicy,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getContainerPolicy' smart constructor.
+-- | /See:/ 'mkGetContainerPolicy' smart constructor.
 newtype GetContainerPolicy = GetContainerPolicy'
-  { _gContainerName ::
-      Text
+  { containerName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gContainerName' - The name of the container.
-getContainerPolicy ::
-  -- | 'gContainerName'
-  Text ->
+-- * 'containerName' - The name of the container.
+mkGetContainerPolicy ::
+  -- | 'containerName'
+  Lude.Text ->
   GetContainerPolicy
-getContainerPolicy pContainerName_ =
-  GetContainerPolicy' {_gContainerName = pContainerName_}
+mkGetContainerPolicy pContainerName_ =
+  GetContainerPolicy' {containerName = pContainerName_}
 
 -- | The name of the container.
-gContainerName :: Lens' GetContainerPolicy Text
-gContainerName = lens _gContainerName (\s a -> s {_gContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gContainerName :: Lens.Lens' GetContainerPolicy Lude.Text
+gContainerName = Lens.lens (containerName :: GetContainerPolicy -> Lude.Text) (\s a -> s {containerName = a} :: GetContainerPolicy)
+{-# DEPRECATED gContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance AWSRequest GetContainerPolicy where
+instance Lude.AWSRequest GetContainerPolicy where
   type Rs GetContainerPolicy = GetContainerPolicyResponse
-  request = postJSON mediaStore
+  request = Req.postJSON mediaStoreService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetContainerPolicyResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "Policy")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Policy")
       )
 
-instance Hashable GetContainerPolicy
-
-instance NFData GetContainerPolicy
-
-instance ToHeaders GetContainerPolicy where
+instance Lude.ToHeaders GetContainerPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MediaStore_20170901.GetContainerPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MediaStore_20170901.GetContainerPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetContainerPolicy where
+instance Lude.ToJSON GetContainerPolicy where
   toJSON GetContainerPolicy' {..} =
-    object (catMaybes [Just ("ContainerName" .= _gContainerName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ContainerName" Lude..= containerName)]
+      )
 
-instance ToPath GetContainerPolicy where
-  toPath = const "/"
+instance Lude.ToPath GetContainerPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery GetContainerPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetContainerPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getContainerPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetContainerPolicyResponse' smart constructor.
 data GetContainerPolicyResponse = GetContainerPolicyResponse'
-  { _gcprsResponseStatus ::
-      !Int,
-    _gcprsPolicy :: !Text
+  { responseStatus ::
+      Lude.Int,
+    policy :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcprsResponseStatus' - -- | The response status code.
---
--- * 'gcprsPolicy' - The contents of the access policy.
-getContainerPolicyResponse ::
-  -- | 'gcprsResponseStatus'
-  Int ->
-  -- | 'gcprsPolicy'
-  Text ->
+-- * 'policy' - The contents of the access policy.
+-- * 'responseStatus' - The response status code.
+mkGetContainerPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'policy'
+  Lude.Text ->
   GetContainerPolicyResponse
-getContainerPolicyResponse pResponseStatus_ pPolicy_ =
+mkGetContainerPolicyResponse pResponseStatus_ pPolicy_ =
   GetContainerPolicyResponse'
-    { _gcprsResponseStatus =
-        pResponseStatus_,
-      _gcprsPolicy = pPolicy_
+    { responseStatus = pResponseStatus_,
+      policy = pPolicy_
     }
 
--- | -- | The response status code.
-gcprsResponseStatus :: Lens' GetContainerPolicyResponse Int
-gcprsResponseStatus = lens _gcprsResponseStatus (\s a -> s {_gcprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcprsResponseStatus :: Lens.Lens' GetContainerPolicyResponse Lude.Int
+gcprsResponseStatus = Lens.lens (responseStatus :: GetContainerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContainerPolicyResponse)
+{-# DEPRECATED gcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The contents of the access policy.
-gcprsPolicy :: Lens' GetContainerPolicyResponse Text
-gcprsPolicy = lens _gcprsPolicy (\s a -> s {_gcprsPolicy = a})
-
-instance NFData GetContainerPolicyResponse
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcprsPolicy :: Lens.Lens' GetContainerPolicyResponse Lude.Text
+gcprsPolicy = Lens.lens (policy :: GetContainerPolicyResponse -> Lude.Text) (\s a -> s {policy = a} :: GetContainerPolicyResponse)
+{-# DEPRECATED gcprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}

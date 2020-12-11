@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.JobStatus where
+module Network.AWS.Batch.Types.JobStatus
+  ( JobStatus
+      ( JobStatus',
+        Failed,
+        Pending,
+        Runnable,
+        Running,
+        Starting,
+        Submitted,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobStatus
-  = Failed
-  | Pending
-  | Runnable
-  | Running
-  | Starting
-  | Submitted
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobStatus = JobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "pending" -> pure Pending
-      "runnable" -> pure Runnable
-      "running" -> pure Running
-      "starting" -> pure Starting
-      "submitted" -> pure Submitted
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing JobStatus from value: '" <> e
-            <> "'. Accepted values: failed, pending, runnable, running, starting, submitted, succeeded"
+pattern Failed :: JobStatus
+pattern Failed = JobStatus' "FAILED"
 
-instance ToText JobStatus where
-  toText = \case
-    Failed -> "FAILED"
-    Pending -> "PENDING"
-    Runnable -> "RUNNABLE"
-    Running -> "RUNNING"
-    Starting -> "STARTING"
-    Submitted -> "SUBMITTED"
-    Succeeded -> "SUCCEEDED"
+pattern Pending :: JobStatus
+pattern Pending = JobStatus' "PENDING"
 
-instance Hashable JobStatus
+pattern Runnable :: JobStatus
+pattern Runnable = JobStatus' "RUNNABLE"
 
-instance NFData JobStatus
+pattern Running :: JobStatus
+pattern Running = JobStatus' "RUNNING"
 
-instance ToByteString JobStatus
+pattern Starting :: JobStatus
+pattern Starting = JobStatus' "STARTING"
 
-instance ToQuery JobStatus
+pattern Submitted :: JobStatus
+pattern Submitted = JobStatus' "SUBMITTED"
 
-instance ToHeader JobStatus
+pattern Succeeded :: JobStatus
+pattern Succeeded = JobStatus' "SUCCEEDED"
 
-instance ToJSON JobStatus where
-  toJSON = toJSONText
-
-instance FromJSON JobStatus where
-  parseJSON = parseJSONText "JobStatus"
+{-# COMPLETE
+  Failed,
+  Pending,
+  Runnable,
+  Running,
+  Starting,
+  Submitted,
+  Succeeded,
+  JobStatus'
+  #-}

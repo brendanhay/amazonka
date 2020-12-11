@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,100 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ApplicationResponse where
+module Network.AWS.Pinpoint.Types.ApplicationResponse
+  ( ApplicationResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkApplicationResponse,
+
+    -- * Lenses
+    appTags,
+    appId,
+    appARN,
+    appName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about an application.
 --
---
---
--- /See:/ 'applicationResponse' smart constructor.
+-- /See:/ 'mkApplicationResponse' smart constructor.
 data ApplicationResponse = ApplicationResponse'
-  { _appTags ::
-      !(Maybe (Map Text (Text))),
-    _appId :: !Text,
-    _appARN :: !Text,
-    _appName :: !Text
+  { tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    id :: Lude.Text,
+    arn :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'appTags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.
---
--- * 'appId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'appARN' - The Amazon Resource Name (ARN) of the application.
---
--- * 'appName' - The display name of the application. This name is displayed as the __Project name__ on the Amazon Pinpoint console.
-applicationResponse ::
-  -- | 'appId'
-  Text ->
-  -- | 'appARN'
-  Text ->
-  -- | 'appName'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the application.
+-- * 'id' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'name' - The display name of the application. This name is displayed as the __Project name__ on the Amazon Pinpoint console.
+-- * 'tags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.
+mkApplicationResponse ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'arn'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   ApplicationResponse
-applicationResponse pId_ pARN_ pName_ =
+mkApplicationResponse pId_ pARN_ pName_ =
   ApplicationResponse'
-    { _appTags = Nothing,
-      _appId = pId_,
-      _appARN = pARN_,
-      _appName = pName_
+    { tags = Lude.Nothing,
+      id = pId_,
+      arn = pARN_,
+      name = pName_
     }
 
 -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.
-appTags :: Lens' ApplicationResponse (HashMap Text (Text))
-appTags = lens _appTags (\s a -> s {_appTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appTags :: Lens.Lens' ApplicationResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+appTags = Lens.lens (tags :: ApplicationResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ApplicationResponse)
+{-# DEPRECATED appTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-appId :: Lens' ApplicationResponse Text
-appId = lens _appId (\s a -> s {_appId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appId :: Lens.Lens' ApplicationResponse Lude.Text
+appId = Lens.lens (id :: ApplicationResponse -> Lude.Text) (\s a -> s {id = a} :: ApplicationResponse)
+{-# DEPRECATED appId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the application.
-appARN :: Lens' ApplicationResponse Text
-appARN = lens _appARN (\s a -> s {_appARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appARN :: Lens.Lens' ApplicationResponse Lude.Text
+appARN = Lens.lens (arn :: ApplicationResponse -> Lude.Text) (\s a -> s {arn = a} :: ApplicationResponse)
+{-# DEPRECATED appARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The display name of the application. This name is displayed as the __Project name__ on the Amazon Pinpoint console.
-appName :: Lens' ApplicationResponse Text
-appName = lens _appName (\s a -> s {_appName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+appName :: Lens.Lens' ApplicationResponse Lude.Text
+appName = Lens.lens (name :: ApplicationResponse -> Lude.Text) (\s a -> s {name = a} :: ApplicationResponse)
+{-# DEPRECATED appName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON ApplicationResponse where
+instance Lude.FromJSON ApplicationResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "ApplicationResponse"
       ( \x ->
           ApplicationResponse'
-            <$> (x .:? "tags" .!= mempty)
-            <*> (x .: "Id")
-            <*> (x .: "Arn")
-            <*> (x .: "Name")
+            Lude.<$> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "Id")
+            Lude.<*> (x Lude..: "Arn")
+            Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable ApplicationResponse
-
-instance NFData ApplicationResponse

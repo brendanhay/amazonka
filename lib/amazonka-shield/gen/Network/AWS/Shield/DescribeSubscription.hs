@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,111 @@
 --
 -- Provides details about the AWS Shield Advanced subscription for an account.
 module Network.AWS.Shield.DescribeSubscription
-  ( -- * Creating a Request
-    describeSubscription,
-    DescribeSubscription,
+  ( -- * Creating a request
+    DescribeSubscription (..),
+    mkDescribeSubscription,
 
-    -- * Destructuring the Response
-    describeSubscriptionResponse,
-    DescribeSubscriptionResponse,
+    -- * Destructuring the response
+    DescribeSubscriptionResponse (..),
+    mkDescribeSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsSubscription,
     dsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'describeSubscription' smart constructor.
+-- | /See:/ 'mkDescribeSubscription' smart constructor.
 data DescribeSubscription = DescribeSubscription'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubscription' with the minimum fields required to make a request.
-describeSubscription ::
+mkDescribeSubscription ::
   DescribeSubscription
-describeSubscription = DescribeSubscription'
+mkDescribeSubscription = DescribeSubscription'
 
-instance AWSRequest DescribeSubscription where
+instance Lude.AWSRequest DescribeSubscription where
   type Rs DescribeSubscription = DescribeSubscriptionResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeSubscriptionResponse'
-            <$> (x .?> "Subscription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Subscription") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeSubscription
-
-instance NFData DescribeSubscription
-
-instance ToHeaders DescribeSubscription where
+instance Lude.ToHeaders DescribeSubscription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.DescribeSubscription" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.DescribeSubscription" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeSubscription where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeSubscription where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeSubscription where
-  toPath = const "/"
+instance Lude.ToPath DescribeSubscription where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeSubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkDescribeSubscriptionResponse' smart constructor.
 data DescribeSubscriptionResponse = DescribeSubscriptionResponse'
-  { _dsrsSubscription ::
-      !(Maybe Subscription),
-    _dsrsResponseStatus :: !Int
+  { subscription ::
+      Lude.Maybe Subscription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsSubscription' - The AWS Shield Advanced subscription details for an account.
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-describeSubscriptionResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'subscription' - The AWS Shield Advanced subscription details for an account.
+mkDescribeSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSubscriptionResponse
-describeSubscriptionResponse pResponseStatus_ =
+mkDescribeSubscriptionResponse pResponseStatus_ =
   DescribeSubscriptionResponse'
-    { _dsrsSubscription = Nothing,
-      _dsrsResponseStatus = pResponseStatus_
+    { subscription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The AWS Shield Advanced subscription details for an account.
-dsrsSubscription :: Lens' DescribeSubscriptionResponse (Maybe Subscription)
-dsrsSubscription = lens _dsrsSubscription (\s a -> s {_dsrsSubscription = a})
+--
+-- /Note:/ Consider using 'subscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsSubscription :: Lens.Lens' DescribeSubscriptionResponse (Lude.Maybe Subscription)
+dsrsSubscription = Lens.lens (subscription :: DescribeSubscriptionResponse -> Lude.Maybe Subscription) (\s a -> s {subscription = a} :: DescribeSubscriptionResponse)
+{-# DEPRECATED dsrsSubscription "Use generic-lens or generic-optics with 'subscription' instead." #-}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DescribeSubscriptionResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DescribeSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DescribeSubscriptionResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DescribeSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSubscriptionResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

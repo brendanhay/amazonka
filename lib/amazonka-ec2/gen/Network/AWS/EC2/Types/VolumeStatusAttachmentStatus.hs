@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeStatusAttachmentStatus where
+module Network.AWS.EC2.Types.VolumeStatusAttachmentStatus
+  ( VolumeStatusAttachmentStatus (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVolumeStatusAttachmentStatus,
+
+    -- * Lenses
+    vsasInstanceId,
+    vsasIOPerformance,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the instances to which the volume is attached.
 --
---
---
--- /See:/ 'volumeStatusAttachmentStatus' smart constructor.
+-- /See:/ 'mkVolumeStatusAttachmentStatus' smart constructor.
 data VolumeStatusAttachmentStatus = VolumeStatusAttachmentStatus'
-  { _vsasInstanceId ::
-      !(Maybe Text),
-    _vsasIOPerformance ::
-      !(Maybe Text)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    iOPerformance ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeStatusAttachmentStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vsasInstanceId' - The ID of the attached instance.
---
--- * 'vsasIOPerformance' - The maximum IOPS supported by the attached instance.
-volumeStatusAttachmentStatus ::
+-- * 'iOPerformance' - The maximum IOPS supported by the attached instance.
+-- * 'instanceId' - The ID of the attached instance.
+mkVolumeStatusAttachmentStatus ::
   VolumeStatusAttachmentStatus
-volumeStatusAttachmentStatus =
+mkVolumeStatusAttachmentStatus =
   VolumeStatusAttachmentStatus'
-    { _vsasInstanceId = Nothing,
-      _vsasIOPerformance = Nothing
+    { instanceId = Lude.Nothing,
+      iOPerformance = Lude.Nothing
     }
 
 -- | The ID of the attached instance.
-vsasInstanceId :: Lens' VolumeStatusAttachmentStatus (Maybe Text)
-vsasInstanceId = lens _vsasInstanceId (\s a -> s {_vsasInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsasInstanceId :: Lens.Lens' VolumeStatusAttachmentStatus (Lude.Maybe Lude.Text)
+vsasInstanceId = Lens.lens (instanceId :: VolumeStatusAttachmentStatus -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: VolumeStatusAttachmentStatus)
+{-# DEPRECATED vsasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The maximum IOPS supported by the attached instance.
-vsasIOPerformance :: Lens' VolumeStatusAttachmentStatus (Maybe Text)
-vsasIOPerformance = lens _vsasIOPerformance (\s a -> s {_vsasIOPerformance = a})
+--
+-- /Note:/ Consider using 'iOPerformance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsasIOPerformance :: Lens.Lens' VolumeStatusAttachmentStatus (Lude.Maybe Lude.Text)
+vsasIOPerformance = Lens.lens (iOPerformance :: VolumeStatusAttachmentStatus -> Lude.Maybe Lude.Text) (\s a -> s {iOPerformance = a} :: VolumeStatusAttachmentStatus)
+{-# DEPRECATED vsasIOPerformance "Use generic-lens or generic-optics with 'iOPerformance' instead." #-}
 
-instance FromXML VolumeStatusAttachmentStatus where
+instance Lude.FromXML VolumeStatusAttachmentStatus where
   parseXML x =
     VolumeStatusAttachmentStatus'
-      <$> (x .@? "instanceId") <*> (x .@? "ioPerformance")
-
-instance Hashable VolumeStatusAttachmentStatus
-
-instance NFData VolumeStatusAttachmentStatus
+      Lude.<$> (x Lude..@? "instanceId") Lude.<*> (x Lude..@? "ioPerformance")

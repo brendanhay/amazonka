@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective where
+module Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective
+  ( HyperParameterTuningJobObjective (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHyperParameterTuningJobObjective,
+
+    -- * Lenses
+    hptjoType,
+    hptjoMetricName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjectiveType
 
 -- | Defines the objective metric for a hyperparameter tuning job. Hyperparameter tuning uses the value of this metric to evaluate the training jobs it launches, and returns the training job that results in either the highest or lowest value for this metric, depending on the value you specify for the @Type@ parameter.
 --
---
---
--- /See:/ 'hyperParameterTuningJobObjective' smart constructor.
+-- /See:/ 'mkHyperParameterTuningJobObjective' smart constructor.
 data HyperParameterTuningJobObjective = HyperParameterTuningJobObjective'
-  { _hptjoType ::
-      !HyperParameterTuningJobObjectiveType,
-    _hptjoMetricName :: !Text
+  { type' ::
+      HyperParameterTuningJobObjectiveType,
+    metricName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HyperParameterTuningJobObjective' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hptjoType' - Whether to minimize or maximize the objective metric.
---
--- * 'hptjoMetricName' - The name of the metric to use for the objective metric.
-hyperParameterTuningJobObjective ::
-  -- | 'hptjoType'
+-- * 'metricName' - The name of the metric to use for the objective metric.
+-- * 'type'' - Whether to minimize or maximize the objective metric.
+mkHyperParameterTuningJobObjective ::
+  -- | 'type''
   HyperParameterTuningJobObjectiveType ->
-  -- | 'hptjoMetricName'
-  Text ->
+  -- | 'metricName'
+  Lude.Text ->
   HyperParameterTuningJobObjective
-hyperParameterTuningJobObjective pType_ pMetricName_ =
+mkHyperParameterTuningJobObjective pType_ pMetricName_ =
   HyperParameterTuningJobObjective'
-    { _hptjoType = pType_,
-      _hptjoMetricName = pMetricName_
+    { type' = pType_,
+      metricName = pMetricName_
     }
 
 -- | Whether to minimize or maximize the objective metric.
-hptjoType :: Lens' HyperParameterTuningJobObjective HyperParameterTuningJobObjectiveType
-hptjoType = lens _hptjoType (\s a -> s {_hptjoType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hptjoType :: Lens.Lens' HyperParameterTuningJobObjective HyperParameterTuningJobObjectiveType
+hptjoType = Lens.lens (type' :: HyperParameterTuningJobObjective -> HyperParameterTuningJobObjectiveType) (\s a -> s {type' = a} :: HyperParameterTuningJobObjective)
+{-# DEPRECATED hptjoType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The name of the metric to use for the objective metric.
-hptjoMetricName :: Lens' HyperParameterTuningJobObjective Text
-hptjoMetricName = lens _hptjoMetricName (\s a -> s {_hptjoMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hptjoMetricName :: Lens.Lens' HyperParameterTuningJobObjective Lude.Text
+hptjoMetricName = Lens.lens (metricName :: HyperParameterTuningJobObjective -> Lude.Text) (\s a -> s {metricName = a} :: HyperParameterTuningJobObjective)
+{-# DEPRECATED hptjoMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
-instance FromJSON HyperParameterTuningJobObjective where
+instance Lude.FromJSON HyperParameterTuningJobObjective where
   parseJSON =
-    withObject
+    Lude.withObject
       "HyperParameterTuningJobObjective"
       ( \x ->
           HyperParameterTuningJobObjective'
-            <$> (x .: "Type") <*> (x .: "MetricName")
+            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "MetricName")
       )
 
-instance Hashable HyperParameterTuningJobObjective
-
-instance NFData HyperParameterTuningJobObjective
-
-instance ToJSON HyperParameterTuningJobObjective where
+instance Lude.ToJSON HyperParameterTuningJobObjective where
   toJSON HyperParameterTuningJobObjective' {..} =
-    object
-      ( catMaybes
-          [ Just ("Type" .= _hptjoType),
-            Just ("MetricName" .= _hptjoMetricName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Type" Lude..= type'),
+            Lude.Just ("MetricName" Lude..= metricName)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.SummarizedCounter where
+module Network.AWS.Shield.Types.SummarizedCounter
+  ( SummarizedCounter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSummarizedCounter,
+
+    -- * Lenses
+    scMax,
+    scAverage,
+    scN,
+    scName,
+    scSum,
+    scUnit,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The counter that describes a DDoS attack.
 --
---
---
--- /See:/ 'summarizedCounter' smart constructor.
+-- /See:/ 'mkSummarizedCounter' smart constructor.
 data SummarizedCounter = SummarizedCounter'
-  { _scMax ::
-      !(Maybe Double),
-    _scAverage :: !(Maybe Double),
-    _scN :: !(Maybe Int),
-    _scName :: !(Maybe Text),
-    _scSum :: !(Maybe Double),
-    _scUnit :: !(Maybe Text)
+  { max ::
+      Lude.Maybe Lude.Double,
+    average :: Lude.Maybe Lude.Double,
+    n :: Lude.Maybe Lude.Int,
+    name :: Lude.Maybe Lude.Text,
+    sum :: Lude.Maybe Lude.Double,
+    unit :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SummarizedCounter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scMax' - The maximum value of the counter for a specified time period.
---
--- * 'scAverage' - The average value of the counter for a specified time period.
---
--- * 'scN' - The number of counters for a specified time period.
---
--- * 'scName' - The counter name.
---
--- * 'scSum' - The total of counter values for a specified time period.
---
--- * 'scUnit' - The unit of the counters.
-summarizedCounter ::
+-- * 'average' - The average value of the counter for a specified time period.
+-- * 'max' - The maximum value of the counter for a specified time period.
+-- * 'n' - The number of counters for a specified time period.
+-- * 'name' - The counter name.
+-- * 'sum' - The total of counter values for a specified time period.
+-- * 'unit' - The unit of the counters.
+mkSummarizedCounter ::
   SummarizedCounter
-summarizedCounter =
+mkSummarizedCounter =
   SummarizedCounter'
-    { _scMax = Nothing,
-      _scAverage = Nothing,
-      _scN = Nothing,
-      _scName = Nothing,
-      _scSum = Nothing,
-      _scUnit = Nothing
+    { max = Lude.Nothing,
+      average = Lude.Nothing,
+      n = Lude.Nothing,
+      name = Lude.Nothing,
+      sum = Lude.Nothing,
+      unit = Lude.Nothing
     }
 
 -- | The maximum value of the counter for a specified time period.
-scMax :: Lens' SummarizedCounter (Maybe Double)
-scMax = lens _scMax (\s a -> s {_scMax = a})
+--
+-- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scMax :: Lens.Lens' SummarizedCounter (Lude.Maybe Lude.Double)
+scMax = Lens.lens (max :: SummarizedCounter -> Lude.Maybe Lude.Double) (\s a -> s {max = a} :: SummarizedCounter)
+{-# DEPRECATED scMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
 -- | The average value of the counter for a specified time period.
-scAverage :: Lens' SummarizedCounter (Maybe Double)
-scAverage = lens _scAverage (\s a -> s {_scAverage = a})
+--
+-- /Note:/ Consider using 'average' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scAverage :: Lens.Lens' SummarizedCounter (Lude.Maybe Lude.Double)
+scAverage = Lens.lens (average :: SummarizedCounter -> Lude.Maybe Lude.Double) (\s a -> s {average = a} :: SummarizedCounter)
+{-# DEPRECATED scAverage "Use generic-lens or generic-optics with 'average' instead." #-}
 
 -- | The number of counters for a specified time period.
-scN :: Lens' SummarizedCounter (Maybe Int)
-scN = lens _scN (\s a -> s {_scN = a})
+--
+-- /Note:/ Consider using 'n' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scN :: Lens.Lens' SummarizedCounter (Lude.Maybe Lude.Int)
+scN = Lens.lens (n :: SummarizedCounter -> Lude.Maybe Lude.Int) (\s a -> s {n = a} :: SummarizedCounter)
+{-# DEPRECATED scN "Use generic-lens or generic-optics with 'n' instead." #-}
 
 -- | The counter name.
-scName :: Lens' SummarizedCounter (Maybe Text)
-scName = lens _scName (\s a -> s {_scName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scName :: Lens.Lens' SummarizedCounter (Lude.Maybe Lude.Text)
+scName = Lens.lens (name :: SummarizedCounter -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SummarizedCounter)
+{-# DEPRECATED scName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The total of counter values for a specified time period.
-scSum :: Lens' SummarizedCounter (Maybe Double)
-scSum = lens _scSum (\s a -> s {_scSum = a})
+--
+-- /Note:/ Consider using 'sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scSum :: Lens.Lens' SummarizedCounter (Lude.Maybe Lude.Double)
+scSum = Lens.lens (sum :: SummarizedCounter -> Lude.Maybe Lude.Double) (\s a -> s {sum = a} :: SummarizedCounter)
+{-# DEPRECATED scSum "Use generic-lens or generic-optics with 'sum' instead." #-}
 
 -- | The unit of the counters.
-scUnit :: Lens' SummarizedCounter (Maybe Text)
-scUnit = lens _scUnit (\s a -> s {_scUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scUnit :: Lens.Lens' SummarizedCounter (Lude.Maybe Lude.Text)
+scUnit = Lens.lens (unit :: SummarizedCounter -> Lude.Maybe Lude.Text) (\s a -> s {unit = a} :: SummarizedCounter)
+{-# DEPRECATED scUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance FromJSON SummarizedCounter where
+instance Lude.FromJSON SummarizedCounter where
   parseJSON =
-    withObject
+    Lude.withObject
       "SummarizedCounter"
       ( \x ->
           SummarizedCounter'
-            <$> (x .:? "Max")
-            <*> (x .:? "Average")
-            <*> (x .:? "N")
-            <*> (x .:? "Name")
-            <*> (x .:? "Sum")
-            <*> (x .:? "Unit")
+            Lude.<$> (x Lude..:? "Max")
+            Lude.<*> (x Lude..:? "Average")
+            Lude.<*> (x Lude..:? "N")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Sum")
+            Lude.<*> (x Lude..:? "Unit")
       )
-
-instance Hashable SummarizedCounter
-
-instance NFData SummarizedCounter

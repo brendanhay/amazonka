@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.Origins where
+module Network.AWS.CloudFront.Types.Origins
+  ( Origins (..),
+
+    -- * Smart constructor
+    mkOrigins,
+
+    -- * Lenses
+    oQuantity,
+    oItems,
+  )
+where
 
 import Network.AWS.CloudFront.Types.Origin
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the origins for this distribution.
 --
---
---
--- /See:/ 'origins' smart constructor.
+-- /See:/ 'mkOrigins' smart constructor.
 data Origins = Origins'
-  { _oQuantity :: !Int,
-    _oItems :: !(List1 Origin)
+  { quantity :: Lude.Int,
+    items :: Lude.NonEmpty Origin
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Origins' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oQuantity' - The number of origins for this distribution.
---
--- * 'oItems' - A list of origins.
-origins ::
-  -- | 'oQuantity'
-  Int ->
-  -- | 'oItems'
-  NonEmpty Origin ->
+-- * 'items' - A list of origins.
+-- * 'quantity' - The number of origins for this distribution.
+mkOrigins ::
+  -- | 'quantity'
+  Lude.Int ->
+  -- | 'items'
+  Lude.NonEmpty Origin ->
   Origins
-origins pQuantity_ pItems_ =
-  Origins' {_oQuantity = pQuantity_, _oItems = _List1 # pItems_}
+mkOrigins pQuantity_ pItems_ =
+  Origins' {quantity = pQuantity_, items = pItems_}
 
 -- | The number of origins for this distribution.
-oQuantity :: Lens' Origins Int
-oQuantity = lens _oQuantity (\s a -> s {_oQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oQuantity :: Lens.Lens' Origins Lude.Int
+oQuantity = Lens.lens (quantity :: Origins -> Lude.Int) (\s a -> s {quantity = a} :: Origins)
+{-# DEPRECATED oQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A list of origins.
-oItems :: Lens' Origins (NonEmpty Origin)
-oItems = lens _oItems (\s a -> s {_oItems = a}) . _List1
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oItems :: Lens.Lens' Origins (Lude.NonEmpty Origin)
+oItems = Lens.lens (items :: Origins -> Lude.NonEmpty Origin) (\s a -> s {items = a} :: Origins)
+{-# DEPRECATED oItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance FromXML Origins where
+instance Lude.FromXML Origins where
   parseXML x =
     Origins'
-      <$> (x .@ "Quantity")
-      <*> (x .@? "Items" .!@ mempty >>= parseXMLList1 "Origin")
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLNonEmpty "Origin"
+               )
 
-instance Hashable Origins
-
-instance NFData Origins
-
-instance ToXML Origins where
+instance Lude.ToXML Origins where
   toXML Origins' {..} =
-    mconcat
-      ["Quantity" @= _oQuantity, "Items" @= toXMLList "Origin" _oItems]
+    Lude.mconcat
+      [ "Quantity" Lude.@= quantity,
+        "Items" Lude.@= Lude.toXMLList "Origin" items
+      ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsNielsenId3Behavior where
+module Network.AWS.MediaLive.Types.M2tsNielsenId3Behavior
+  ( M2tsNielsenId3Behavior
+      ( M2tsNielsenId3Behavior',
+        MNIBNoPassthrough,
+        MNIBPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M2ts Nielsen Id3 Behavior
-data M2tsNielsenId3Behavior
-  = MNIBNoPassthrough
-  | MNIBPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsNielsenId3Behavior = M2tsNielsenId3Behavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsNielsenId3Behavior where
-  parser =
-    takeLowerText >>= \case
-      "no_passthrough" -> pure MNIBNoPassthrough
-      "passthrough" -> pure MNIBPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing M2tsNielsenId3Behavior from value: '" <> e
-            <> "'. Accepted values: no_passthrough, passthrough"
+pattern MNIBNoPassthrough :: M2tsNielsenId3Behavior
+pattern MNIBNoPassthrough = M2tsNielsenId3Behavior' "NO_PASSTHROUGH"
 
-instance ToText M2tsNielsenId3Behavior where
-  toText = \case
-    MNIBNoPassthrough -> "NO_PASSTHROUGH"
-    MNIBPassthrough -> "PASSTHROUGH"
+pattern MNIBPassthrough :: M2tsNielsenId3Behavior
+pattern MNIBPassthrough = M2tsNielsenId3Behavior' "PASSTHROUGH"
 
-instance Hashable M2tsNielsenId3Behavior
-
-instance NFData M2tsNielsenId3Behavior
-
-instance ToByteString M2tsNielsenId3Behavior
-
-instance ToQuery M2tsNielsenId3Behavior
-
-instance ToHeader M2tsNielsenId3Behavior
-
-instance ToJSON M2tsNielsenId3Behavior where
-  toJSON = toJSONText
-
-instance FromJSON M2tsNielsenId3Behavior where
-  parseJSON = parseJSONText "M2tsNielsenId3Behavior"
+{-# COMPLETE
+  MNIBNoPassthrough,
+  MNIBPassthrough,
+  M2tsNielsenId3Behavior'
+  #-}

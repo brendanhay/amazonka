@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Starts a new task from the specified task definition on the specified container instance or instances.
 --
---
 -- Alternatively, you can use 'RunTask' to place tasks for you. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html Scheduling Tasks> in the /Amazon Elastic Container Service Developer Guide/ .
 module Network.AWS.ECS.StartTask
-  ( -- * Creating a Request
-    startTask,
-    StartTask,
+  ( -- * Creating a request
+    StartTask (..),
+    mkStartTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sOverrides,
     sGroup,
     sCluster,
@@ -39,11 +33,11 @@ module Network.AWS.ECS.StartTask
     sContainerInstances,
     sTaskDefinition,
 
-    -- * Destructuring the Response
-    startTaskResponse,
-    StartTaskResponse,
+    -- * Destructuring the response
+    StartTaskResponse (..),
+    mkStartTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     strsFailures,
     strsTasks,
     strsResponseStatus,
@@ -51,204 +45,293 @@ module Network.AWS.ECS.StartTask
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startTask' smart constructor.
+-- | /See:/ 'mkStartTask' smart constructor.
 data StartTask = StartTask'
-  { _sOverrides :: !(Maybe TaskOverride),
-    _sGroup :: !(Maybe Text),
-    _sCluster :: !(Maybe Text),
-    _sPropagateTags :: !(Maybe PropagateTags),
-    _sEnableECSManagedTags :: !(Maybe Bool),
-    _sReferenceId :: !(Maybe Text),
-    _sStartedBy :: !(Maybe Text),
-    _sNetworkConfiguration :: !(Maybe NetworkConfiguration),
-    _sTags :: !(Maybe [Tag]),
-    _sContainerInstances :: ![Text],
-    _sTaskDefinition :: !Text
+  { overrides :: Lude.Maybe TaskOverride,
+    group :: Lude.Maybe Lude.Text,
+    cluster :: Lude.Maybe Lude.Text,
+    propagateTags :: Lude.Maybe PropagateTags,
+    enableECSManagedTags :: Lude.Maybe Lude.Bool,
+    referenceId :: Lude.Maybe Lude.Text,
+    startedBy :: Lude.Maybe Lude.Text,
+    networkConfiguration :: Lude.Maybe NetworkConfiguration,
+    tags :: Lude.Maybe [Tag],
+    containerInstances :: [Lude.Text],
+    taskDefinition :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task. If you do not specify a cluster, the default cluster is assumed.
+-- * 'containerInstances' - The container instance IDs or full ARN entries for the container instances on which you would like to place your task. You can specify up to 10 container instances.
+-- * 'enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'group' - The name of the task group to associate with the task. The default value is the family name of the task definition (for example, family:my-family-name).
+-- * 'networkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
+-- * 'overrides' - A list of container overrides in JSON format that specify the name of a container in the specified task definition and the overrides it should receive. You can override the default command for a container (that is specified in the task definition or Docker image) with a @command@ override. You can also override existing environment variables (that are specified in the task definition or Docker image) on a container or add new environment variables to it with an @environment@ override.
+-- * 'propagateTags' - Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
+-- * 'referenceId' - The reference ID to use for the task.
+-- * 'startedBy' - An optional tag specified when a task is started. For example, if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
 --
--- * 'sOverrides' - A list of container overrides in JSON format that specify the name of a container in the specified task definition and the overrides it should receive. You can override the default command for a container (that is specified in the task definition or Docker image) with a @command@ override. You can also override existing environment variables (that are specified in the task definition or Docker image) on a container or add new environment variables to it with an @environment@ override.
+-- If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
+-- * 'tags' - The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
--- * 'sGroup' - The name of the task group to associate with the task. The default value is the family name of the task definition (for example, family:my-family-name).
+-- The following basic restrictions apply to tags:
 --
--- * 'sCluster' - The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task. If you do not specify a cluster, the default cluster is assumed.
+--     * Maximum number of tags per resource - 50
 --
--- * 'sPropagateTags' - Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
 --
--- * 'sEnableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
 --
--- * 'sReferenceId' - The reference ID to use for the task.
 --
--- * 'sStartedBy' - An optional tag specified when a task is started. For example, if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
+--     * Maximum key length - 128 Unicode characters in UTF-8
 --
--- * 'sNetworkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
 --
--- * 'sTags' - The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--     * Maximum value length - 256 Unicode characters in UTF-8
 --
--- * 'sContainerInstances' - The container instance IDs or full ARN entries for the container instances on which you would like to place your task. You can specify up to 10 container instances.
 --
--- * 'sTaskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to start. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
-startTask ::
-  -- | 'sTaskDefinition'
-  Text ->
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+-- * 'taskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to start. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
+mkStartTask ::
+  -- | 'taskDefinition'
+  Lude.Text ->
   StartTask
-startTask pTaskDefinition_ =
+mkStartTask pTaskDefinition_ =
   StartTask'
-    { _sOverrides = Nothing,
-      _sGroup = Nothing,
-      _sCluster = Nothing,
-      _sPropagateTags = Nothing,
-      _sEnableECSManagedTags = Nothing,
-      _sReferenceId = Nothing,
-      _sStartedBy = Nothing,
-      _sNetworkConfiguration = Nothing,
-      _sTags = Nothing,
-      _sContainerInstances = mempty,
-      _sTaskDefinition = pTaskDefinition_
+    { overrides = Lude.Nothing,
+      group = Lude.Nothing,
+      cluster = Lude.Nothing,
+      propagateTags = Lude.Nothing,
+      enableECSManagedTags = Lude.Nothing,
+      referenceId = Lude.Nothing,
+      startedBy = Lude.Nothing,
+      networkConfiguration = Lude.Nothing,
+      tags = Lude.Nothing,
+      containerInstances = Lude.mempty,
+      taskDefinition = pTaskDefinition_
     }
 
 -- | A list of container overrides in JSON format that specify the name of a container in the specified task definition and the overrides it should receive. You can override the default command for a container (that is specified in the task definition or Docker image) with a @command@ override. You can also override existing environment variables (that are specified in the task definition or Docker image) on a container or add new environment variables to it with an @environment@ override.
-sOverrides :: Lens' StartTask (Maybe TaskOverride)
-sOverrides = lens _sOverrides (\s a -> s {_sOverrides = a})
+--
+-- /Note:/ Consider using 'overrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOverrides :: Lens.Lens' StartTask (Lude.Maybe TaskOverride)
+sOverrides = Lens.lens (overrides :: StartTask -> Lude.Maybe TaskOverride) (\s a -> s {overrides = a} :: StartTask)
+{-# DEPRECATED sOverrides "Use generic-lens or generic-optics with 'overrides' instead." #-}
 
 -- | The name of the task group to associate with the task. The default value is the family name of the task definition (for example, family:my-family-name).
-sGroup :: Lens' StartTask (Maybe Text)
-sGroup = lens _sGroup (\s a -> s {_sGroup = a})
+--
+-- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sGroup :: Lens.Lens' StartTask (Lude.Maybe Lude.Text)
+sGroup = Lens.lens (group :: StartTask -> Lude.Maybe Lude.Text) (\s a -> s {group = a} :: StartTask)
+{-# DEPRECATED sGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster on which to start your task. If you do not specify a cluster, the default cluster is assumed.
-sCluster :: Lens' StartTask (Maybe Text)
-sCluster = lens _sCluster (\s a -> s {_sCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCluster :: Lens.Lens' StartTask (Lude.Maybe Lude.Text)
+sCluster = Lens.lens (cluster :: StartTask -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: StartTask)
+{-# DEPRECATED sCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
-sPropagateTags :: Lens' StartTask (Maybe PropagateTags)
-sPropagateTags = lens _sPropagateTags (\s a -> s {_sPropagateTags = a})
+--
+-- /Note:/ Consider using 'propagateTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sPropagateTags :: Lens.Lens' StartTask (Lude.Maybe PropagateTags)
+sPropagateTags = Lens.lens (propagateTags :: StartTask -> Lude.Maybe PropagateTags) (\s a -> s {propagateTags = a} :: StartTask)
+{-# DEPRECATED sPropagateTags "Use generic-lens or generic-optics with 'propagateTags' instead." #-}
 
 -- | Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
-sEnableECSManagedTags :: Lens' StartTask (Maybe Bool)
-sEnableECSManagedTags = lens _sEnableECSManagedTags (\s a -> s {_sEnableECSManagedTags = a})
+--
+-- /Note:/ Consider using 'enableECSManagedTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEnableECSManagedTags :: Lens.Lens' StartTask (Lude.Maybe Lude.Bool)
+sEnableECSManagedTags = Lens.lens (enableECSManagedTags :: StartTask -> Lude.Maybe Lude.Bool) (\s a -> s {enableECSManagedTags = a} :: StartTask)
+{-# DEPRECATED sEnableECSManagedTags "Use generic-lens or generic-optics with 'enableECSManagedTags' instead." #-}
 
 -- | The reference ID to use for the task.
-sReferenceId :: Lens' StartTask (Maybe Text)
-sReferenceId = lens _sReferenceId (\s a -> s {_sReferenceId = a})
+--
+-- /Note:/ Consider using 'referenceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sReferenceId :: Lens.Lens' StartTask (Lude.Maybe Lude.Text)
+sReferenceId = Lens.lens (referenceId :: StartTask -> Lude.Maybe Lude.Text) (\s a -> s {referenceId = a} :: StartTask)
+{-# DEPRECATED sReferenceId "Use generic-lens or generic-optics with 'referenceId' instead." #-}
 
--- | An optional tag specified when a task is started. For example, if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed. If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
-sStartedBy :: Lens' StartTask (Maybe Text)
-sStartedBy = lens _sStartedBy (\s a -> s {_sStartedBy = a})
+-- | An optional tag specified when a task is started. For example, if you automatically trigger a task to run a batch process job, you could apply a unique identifier for that job to your task with the @startedBy@ parameter. You can then identify which tasks belong to that job by filtering the results of a 'ListTasks' call with the @startedBy@ value. Up to 36 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+--
+-- If a task is started by an Amazon ECS service, then the @startedBy@ parameter contains the deployment ID of the service that starts it.
+--
+-- /Note:/ Consider using 'startedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStartedBy :: Lens.Lens' StartTask (Lude.Maybe Lude.Text)
+sStartedBy = Lens.lens (startedBy :: StartTask -> Lude.Maybe Lude.Text) (\s a -> s {startedBy = a} :: StartTask)
+{-# DEPRECATED sStartedBy "Use generic-lens or generic-optics with 'startedBy' instead." #-}
 
 -- | The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
-sNetworkConfiguration :: Lens' StartTask (Maybe NetworkConfiguration)
-sNetworkConfiguration = lens _sNetworkConfiguration (\s a -> s {_sNetworkConfiguration = a})
+--
+-- /Note:/ Consider using 'networkConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sNetworkConfiguration :: Lens.Lens' StartTask (Lude.Maybe NetworkConfiguration)
+sNetworkConfiguration = Lens.lens (networkConfiguration :: StartTask -> Lude.Maybe NetworkConfiguration) (\s a -> s {networkConfiguration = a} :: StartTask)
+{-# DEPRECATED sNetworkConfiguration "Use generic-lens or generic-optics with 'networkConfiguration' instead." #-}
 
--- | The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-sTags :: Lens' StartTask [Tag]
-sTags = lens _sTags (\s a -> s {_sTags = a}) . _Default . _Coerce
+-- | The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+--
+-- The following basic restrictions apply to tags:
+--
+--     * Maximum number of tags per resource - 50
+--
+--
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
+--
+--
+--     * Maximum key length - 128 Unicode characters in UTF-8
+--
+--
+--     * Maximum value length - 256 Unicode characters in UTF-8
+--
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTags :: Lens.Lens' StartTask (Lude.Maybe [Tag])
+sTags = Lens.lens (tags :: StartTask -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: StartTask)
+{-# DEPRECATED sTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The container instance IDs or full ARN entries for the container instances on which you would like to place your task. You can specify up to 10 container instances.
-sContainerInstances :: Lens' StartTask [Text]
-sContainerInstances = lens _sContainerInstances (\s a -> s {_sContainerInstances = a}) . _Coerce
+--
+-- /Note:/ Consider using 'containerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sContainerInstances :: Lens.Lens' StartTask [Lude.Text]
+sContainerInstances = Lens.lens (containerInstances :: StartTask -> [Lude.Text]) (\s a -> s {containerInstances = a} :: StartTask)
+{-# DEPRECATED sContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
 
 -- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to start. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
-sTaskDefinition :: Lens' StartTask Text
-sTaskDefinition = lens _sTaskDefinition (\s a -> s {_sTaskDefinition = a})
+--
+-- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTaskDefinition :: Lens.Lens' StartTask Lude.Text
+sTaskDefinition = Lens.lens (taskDefinition :: StartTask -> Lude.Text) (\s a -> s {taskDefinition = a} :: StartTask)
+{-# DEPRECATED sTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
 
-instance AWSRequest StartTask where
+instance Lude.AWSRequest StartTask where
   type Rs StartTask = StartTaskResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartTaskResponse'
-            <$> (x .?> "failures" .!@ mempty)
-            <*> (x .?> "tasks" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "failures" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "tasks" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartTask
-
-instance NFData StartTask
-
-instance ToHeaders StartTask where
+instance Lude.ToHeaders StartTask where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonEC2ContainerServiceV20141113.StartTask" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.StartTask" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartTask where
+instance Lude.ToJSON StartTask where
   toJSON StartTask' {..} =
-    object
-      ( catMaybes
-          [ ("overrides" .=) <$> _sOverrides,
-            ("group" .=) <$> _sGroup,
-            ("cluster" .=) <$> _sCluster,
-            ("propagateTags" .=) <$> _sPropagateTags,
-            ("enableECSManagedTags" .=) <$> _sEnableECSManagedTags,
-            ("referenceId" .=) <$> _sReferenceId,
-            ("startedBy" .=) <$> _sStartedBy,
-            ("networkConfiguration" .=) <$> _sNetworkConfiguration,
-            ("tags" .=) <$> _sTags,
-            Just ("containerInstances" .= _sContainerInstances),
-            Just ("taskDefinition" .= _sTaskDefinition)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("overrides" Lude..=) Lude.<$> overrides,
+            ("group" Lude..=) Lude.<$> group,
+            ("cluster" Lude..=) Lude.<$> cluster,
+            ("propagateTags" Lude..=) Lude.<$> propagateTags,
+            ("enableECSManagedTags" Lude..=) Lude.<$> enableECSManagedTags,
+            ("referenceId" Lude..=) Lude.<$> referenceId,
+            ("startedBy" Lude..=) Lude.<$> startedBy,
+            ("networkConfiguration" Lude..=) Lude.<$> networkConfiguration,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("containerInstances" Lude..= containerInstances),
+            Lude.Just ("taskDefinition" Lude..= taskDefinition)
           ]
       )
 
-instance ToPath StartTask where
-  toPath = const "/"
+instance Lude.ToPath StartTask where
+  toPath = Lude.const "/"
 
-instance ToQuery StartTask where
-  toQuery = const mempty
+instance Lude.ToQuery StartTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startTaskResponse' smart constructor.
+-- | /See:/ 'mkStartTaskResponse' smart constructor.
 data StartTaskResponse = StartTaskResponse'
-  { _strsFailures ::
-      !(Maybe [Failure]),
-    _strsTasks :: !(Maybe [Task]),
-    _strsResponseStatus :: !Int
+  { failures ::
+      Lude.Maybe [Failure],
+    tasks :: Lude.Maybe [Task],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'strsFailures' - Any failures associated with the call.
---
--- * 'strsTasks' - A full description of the tasks that were started. Each task that was successfully placed on your container instances is described.
---
--- * 'strsResponseStatus' - -- | The response status code.
-startTaskResponse ::
-  -- | 'strsResponseStatus'
-  Int ->
+-- * 'failures' - Any failures associated with the call.
+-- * 'responseStatus' - The response status code.
+-- * 'tasks' - A full description of the tasks that were started. Each task that was successfully placed on your container instances is described.
+mkStartTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartTaskResponse
-startTaskResponse pResponseStatus_ =
+mkStartTaskResponse pResponseStatus_ =
   StartTaskResponse'
-    { _strsFailures = Nothing,
-      _strsTasks = Nothing,
-      _strsResponseStatus = pResponseStatus_
+    { failures = Lude.Nothing,
+      tasks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Any failures associated with the call.
-strsFailures :: Lens' StartTaskResponse [Failure]
-strsFailures = lens _strsFailures (\s a -> s {_strsFailures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+strsFailures :: Lens.Lens' StartTaskResponse (Lude.Maybe [Failure])
+strsFailures = Lens.lens (failures :: StartTaskResponse -> Lude.Maybe [Failure]) (\s a -> s {failures = a} :: StartTaskResponse)
+{-# DEPRECATED strsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | A full description of the tasks that were started. Each task that was successfully placed on your container instances is described.
-strsTasks :: Lens' StartTaskResponse [Task]
-strsTasks = lens _strsTasks (\s a -> s {_strsTasks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+strsTasks :: Lens.Lens' StartTaskResponse (Lude.Maybe [Task])
+strsTasks = Lens.lens (tasks :: StartTaskResponse -> Lude.Maybe [Task]) (\s a -> s {tasks = a} :: StartTaskResponse)
+{-# DEPRECATED strsTasks "Use generic-lens or generic-optics with 'tasks' instead." #-}
 
--- | -- | The response status code.
-strsResponseStatus :: Lens' StartTaskResponse Int
-strsResponseStatus = lens _strsResponseStatus (\s a -> s {_strsResponseStatus = a})
-
-instance NFData StartTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+strsResponseStatus :: Lens.Lens' StartTaskResponse Lude.Int
+strsResponseStatus = Lens.lens (responseStatus :: StartTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartTaskResponse)
+{-# DEPRECATED strsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

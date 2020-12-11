@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,144 @@
 --
 -- Deletes all the endpoints that are associated with a specific user ID.
 module Network.AWS.Pinpoint.DeleteUserEndpoints
-  ( -- * Creating a Request
-    deleteUserEndpoints,
-    DeleteUserEndpoints,
+  ( -- * Creating a request
+    DeleteUserEndpoints (..),
+    mkDeleteUserEndpoints,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dueApplicationId,
     dueUserId,
 
-    -- * Destructuring the Response
-    deleteUserEndpointsResponse,
-    DeleteUserEndpointsResponse,
+    -- * Destructuring the response
+    DeleteUserEndpointsResponse (..),
+    mkDeleteUserEndpointsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     duersResponseStatus,
     duersEndpointsResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUserEndpoints' smart constructor.
+-- | /See:/ 'mkDeleteUserEndpoints' smart constructor.
 data DeleteUserEndpoints = DeleteUserEndpoints'
-  { _dueApplicationId ::
-      !Text,
-    _dueUserId :: !Text
+  { applicationId ::
+      Lude.Text,
+    userId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserEndpoints' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dueApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'dueUserId' - The unique identifier for the user.
-deleteUserEndpoints ::
-  -- | 'dueApplicationId'
-  Text ->
-  -- | 'dueUserId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'userId' - The unique identifier for the user.
+mkDeleteUserEndpoints ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'userId'
+  Lude.Text ->
   DeleteUserEndpoints
-deleteUserEndpoints pApplicationId_ pUserId_ =
+mkDeleteUserEndpoints pApplicationId_ pUserId_ =
   DeleteUserEndpoints'
-    { _dueApplicationId = pApplicationId_,
-      _dueUserId = pUserId_
+    { applicationId = pApplicationId_,
+      userId = pUserId_
     }
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-dueApplicationId :: Lens' DeleteUserEndpoints Text
-dueApplicationId = lens _dueApplicationId (\s a -> s {_dueApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dueApplicationId :: Lens.Lens' DeleteUserEndpoints Lude.Text
+dueApplicationId = Lens.lens (applicationId :: DeleteUserEndpoints -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteUserEndpoints)
+{-# DEPRECATED dueApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The unique identifier for the user.
-dueUserId :: Lens' DeleteUserEndpoints Text
-dueUserId = lens _dueUserId (\s a -> s {_dueUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dueUserId :: Lens.Lens' DeleteUserEndpoints Lude.Text
+dueUserId = Lens.lens (userId :: DeleteUserEndpoints -> Lude.Text) (\s a -> s {userId = a} :: DeleteUserEndpoints)
+{-# DEPRECATED dueUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance AWSRequest DeleteUserEndpoints where
+instance Lude.AWSRequest DeleteUserEndpoints where
   type Rs DeleteUserEndpoints = DeleteUserEndpointsResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteUserEndpointsResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteUserEndpoints
-
-instance NFData DeleteUserEndpoints
-
-instance ToHeaders DeleteUserEndpoints where
+instance Lude.ToHeaders DeleteUserEndpoints where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteUserEndpoints where
+instance Lude.ToPath DeleteUserEndpoints where
   toPath DeleteUserEndpoints' {..} =
-    mconcat
-      ["/v1/apps/", toBS _dueApplicationId, "/users/", toBS _dueUserId]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/users/", Lude.toBS userId]
 
-instance ToQuery DeleteUserEndpoints where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteUserEndpoints where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteUserEndpointsResponse' smart constructor.
+-- | /See:/ 'mkDeleteUserEndpointsResponse' smart constructor.
 data DeleteUserEndpointsResponse = DeleteUserEndpointsResponse'
-  { _duersResponseStatus ::
-      !Int,
-    _duersEndpointsResponse ::
-      !EndpointsResponse
+  { responseStatus ::
+      Lude.Int,
+    endpointsResponse ::
+      EndpointsResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserEndpointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'duersResponseStatus' - -- | The response status code.
---
--- * 'duersEndpointsResponse' - Undocumented member.
-deleteUserEndpointsResponse ::
-  -- | 'duersResponseStatus'
-  Int ->
-  -- | 'duersEndpointsResponse'
+-- * 'endpointsResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteUserEndpointsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'endpointsResponse'
   EndpointsResponse ->
   DeleteUserEndpointsResponse
-deleteUserEndpointsResponse pResponseStatus_ pEndpointsResponse_ =
+mkDeleteUserEndpointsResponse pResponseStatus_ pEndpointsResponse_ =
   DeleteUserEndpointsResponse'
-    { _duersResponseStatus =
-        pResponseStatus_,
-      _duersEndpointsResponse = pEndpointsResponse_
+    { responseStatus = pResponseStatus_,
+      endpointsResponse = pEndpointsResponse_
     }
 
--- | -- | The response status code.
-duersResponseStatus :: Lens' DeleteUserEndpointsResponse Int
-duersResponseStatus = lens _duersResponseStatus (\s a -> s {_duersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duersResponseStatus :: Lens.Lens' DeleteUserEndpointsResponse Lude.Int
+duersResponseStatus = Lens.lens (responseStatus :: DeleteUserEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUserEndpointsResponse)
+{-# DEPRECATED duersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-duersEndpointsResponse :: Lens' DeleteUserEndpointsResponse EndpointsResponse
-duersEndpointsResponse = lens _duersEndpointsResponse (\s a -> s {_duersEndpointsResponse = a})
-
-instance NFData DeleteUserEndpointsResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'endpointsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duersEndpointsResponse :: Lens.Lens' DeleteUserEndpointsResponse EndpointsResponse
+duersEndpointsResponse = Lens.lens (endpointsResponse :: DeleteUserEndpointsResponse -> EndpointsResponse) (\s a -> s {endpointsResponse = a} :: DeleteUserEndpointsResponse)
+{-# DEPRECATED duersEndpointsResponse "Use generic-lens or generic-optics with 'endpointsResponse' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,106 @@
 --
 -- Attaches one or more EC2 instances to the specified Auto Scaling group.
 --
---
 -- When you attach instances, Amazon EC2 Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails.
---
 -- If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups.
---
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html Attach EC2 instances to your Auto Scaling group> in the /Amazon EC2 Auto Scaling User Guide/ .
 module Network.AWS.AutoScaling.AttachInstances
-  ( -- * Creating a Request
-    attachInstances,
-    AttachInstances,
+  ( -- * Creating a request
+    AttachInstances (..),
+    mkAttachInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aiInstanceIds,
     aiAutoScalingGroupName,
 
-    -- * Destructuring the Response
-    attachInstancesResponse,
-    AttachInstancesResponse,
+    -- * Destructuring the response
+    AttachInstancesResponse (..),
+    mkAttachInstancesResponse,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachInstances' smart constructor.
+-- | /See:/ 'mkAttachInstances' smart constructor.
 data AttachInstances = AttachInstances'
-  { _aiInstanceIds ::
-      !(Maybe [Text]),
-    _aiAutoScalingGroupName :: !Text
+  { instanceIds ::
+      Lude.Maybe [Lude.Text],
+    autoScalingGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aiInstanceIds' - The IDs of the instances. You can specify up to 20 instances.
---
--- * 'aiAutoScalingGroupName' - The name of the Auto Scaling group.
-attachInstances ::
-  -- | 'aiAutoScalingGroupName'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'instanceIds' - The IDs of the instances. You can specify up to 20 instances.
+mkAttachInstances ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   AttachInstances
-attachInstances pAutoScalingGroupName_ =
+mkAttachInstances pAutoScalingGroupName_ =
   AttachInstances'
-    { _aiInstanceIds = Nothing,
-      _aiAutoScalingGroupName = pAutoScalingGroupName_
+    { instanceIds = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The IDs of the instances. You can specify up to 20 instances.
-aiInstanceIds :: Lens' AttachInstances [Text]
-aiInstanceIds = lens _aiInstanceIds (\s a -> s {_aiInstanceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiInstanceIds :: Lens.Lens' AttachInstances (Lude.Maybe [Lude.Text])
+aiInstanceIds = Lens.lens (instanceIds :: AttachInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: AttachInstances)
+{-# DEPRECATED aiInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The name of the Auto Scaling group.
-aiAutoScalingGroupName :: Lens' AttachInstances Text
-aiAutoScalingGroupName = lens _aiAutoScalingGroupName (\s a -> s {_aiAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiAutoScalingGroupName :: Lens.Lens' AttachInstances Lude.Text
+aiAutoScalingGroupName = Lens.lens (autoScalingGroupName :: AttachInstances -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: AttachInstances)
+{-# DEPRECATED aiAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance AWSRequest AttachInstances where
+instance Lude.AWSRequest AttachInstances where
   type Rs AttachInstances = AttachInstancesResponse
-  request = postQuery autoScaling
-  response = receiveNull AttachInstancesResponse'
+  request = Req.postQuery autoScalingService
+  response = Res.receiveNull AttachInstancesResponse'
 
-instance Hashable AttachInstances
+instance Lude.ToHeaders AttachInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AttachInstances
+instance Lude.ToPath AttachInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders AttachInstances where
-  toHeaders = const mempty
-
-instance ToPath AttachInstances where
-  toPath = const "/"
-
-instance ToQuery AttachInstances where
+instance Lude.ToQuery AttachInstances where
   toQuery AttachInstances' {..} =
-    mconcat
-      [ "Action" =: ("AttachInstances" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "InstanceIds" =: toQuery (toQueryList "member" <$> _aiInstanceIds),
-        "AutoScalingGroupName" =: _aiAutoScalingGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("AttachInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "InstanceIds"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> instanceIds),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
--- | /See:/ 'attachInstancesResponse' smart constructor.
+-- | /See:/ 'mkAttachInstancesResponse' smart constructor.
 data AttachInstancesResponse = AttachInstancesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInstancesResponse' with the minimum fields required to make a request.
-attachInstancesResponse ::
+mkAttachInstancesResponse ::
   AttachInstancesResponse
-attachInstancesResponse = AttachInstancesResponse'
-
-instance NFData AttachInstancesResponse
+mkAttachInstancesResponse = AttachInstancesResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,143 @@
 --
 -- Restarts a build.
 module Network.AWS.CodeBuild.RetryBuild
-  ( -- * Creating a Request
-    retryBuild,
-    RetryBuild,
+  ( -- * Creating a request
+    RetryBuild (..),
+    mkRetryBuild,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rbIdempotencyToken,
     rbId,
 
-    -- * Destructuring the Response
-    retryBuildResponse,
-    RetryBuildResponse,
+    -- * Destructuring the response
+    RetryBuildResponse (..),
+    mkRetryBuildResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rbrsBuild,
     rbrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'retryBuild' smart constructor.
+-- | /See:/ 'mkRetryBuild' smart constructor.
 data RetryBuild = RetryBuild'
-  { _rbIdempotencyToken :: !(Maybe Text),
-    _rbId :: !(Maybe Text)
+  { idempotencyToken ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryBuild' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rbIdempotencyToken' - A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuild@ request. The token is included in the @RetryBuild@ request and is valid for five minutes. If you repeat the @RetryBuild@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
---
--- * 'rbId' - Specifies the identifier of the build to restart.
-retryBuild ::
+-- * 'id' - Specifies the identifier of the build to restart.
+-- * 'idempotencyToken' - A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuild@ request. The token is included in the @RetryBuild@ request and is valid for five minutes. If you repeat the @RetryBuild@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
+mkRetryBuild ::
   RetryBuild
-retryBuild =
-  RetryBuild' {_rbIdempotencyToken = Nothing, _rbId = Nothing}
+mkRetryBuild =
+  RetryBuild' {idempotencyToken = Lude.Nothing, id = Lude.Nothing}
 
 -- | A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuild@ request. The token is included in the @RetryBuild@ request and is valid for five minutes. If you repeat the @RetryBuild@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
-rbIdempotencyToken :: Lens' RetryBuild (Maybe Text)
-rbIdempotencyToken = lens _rbIdempotencyToken (\s a -> s {_rbIdempotencyToken = a})
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rbIdempotencyToken :: Lens.Lens' RetryBuild (Lude.Maybe Lude.Text)
+rbIdempotencyToken = Lens.lens (idempotencyToken :: RetryBuild -> Lude.Maybe Lude.Text) (\s a -> s {idempotencyToken = a} :: RetryBuild)
+{-# DEPRECATED rbIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | Specifies the identifier of the build to restart.
-rbId :: Lens' RetryBuild (Maybe Text)
-rbId = lens _rbId (\s a -> s {_rbId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rbId :: Lens.Lens' RetryBuild (Lude.Maybe Lude.Text)
+rbId = Lens.lens (id :: RetryBuild -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: RetryBuild)
+{-# DEPRECATED rbId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest RetryBuild where
+instance Lude.AWSRequest RetryBuild where
   type Rs RetryBuild = RetryBuildResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          RetryBuildResponse' <$> (x .?> "build") <*> (pure (fromEnum s))
+          RetryBuildResponse'
+            Lude.<$> (x Lude..?> "build") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RetryBuild
-
-instance NFData RetryBuild
-
-instance ToHeaders RetryBuild where
+instance Lude.ToHeaders RetryBuild where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("CodeBuild_20161006.RetryBuild" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("CodeBuild_20161006.RetryBuild" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RetryBuild where
+instance Lude.ToJSON RetryBuild where
   toJSON RetryBuild' {..} =
-    object
-      ( catMaybes
-          [ ("idempotencyToken" .=) <$> _rbIdempotencyToken,
-            ("id" .=) <$> _rbId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("idempotencyToken" Lude..=) Lude.<$> idempotencyToken,
+            ("id" Lude..=) Lude.<$> id
           ]
       )
 
-instance ToPath RetryBuild where
-  toPath = const "/"
+instance Lude.ToPath RetryBuild where
+  toPath = Lude.const "/"
 
-instance ToQuery RetryBuild where
-  toQuery = const mempty
+instance Lude.ToQuery RetryBuild where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'retryBuildResponse' smart constructor.
+-- | /See:/ 'mkRetryBuildResponse' smart constructor.
 data RetryBuildResponse = RetryBuildResponse'
-  { _rbrsBuild ::
-      !(Maybe Build),
-    _rbrsResponseStatus :: !Int
+  { build ::
+      Lude.Maybe Build,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryBuildResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rbrsBuild' - Undocumented member.
---
--- * 'rbrsResponseStatus' - -- | The response status code.
-retryBuildResponse ::
-  -- | 'rbrsResponseStatus'
-  Int ->
+-- * 'build' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkRetryBuildResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RetryBuildResponse
-retryBuildResponse pResponseStatus_ =
+mkRetryBuildResponse pResponseStatus_ =
   RetryBuildResponse'
-    { _rbrsBuild = Nothing,
-      _rbrsResponseStatus = pResponseStatus_
+    { build = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-rbrsBuild :: Lens' RetryBuildResponse (Maybe Build)
-rbrsBuild = lens _rbrsBuild (\s a -> s {_rbrsBuild = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rbrsBuild :: Lens.Lens' RetryBuildResponse (Lude.Maybe Build)
+rbrsBuild = Lens.lens (build :: RetryBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: RetryBuildResponse)
+{-# DEPRECATED rbrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
 
--- | -- | The response status code.
-rbrsResponseStatus :: Lens' RetryBuildResponse Int
-rbrsResponseStatus = lens _rbrsResponseStatus (\s a -> s {_rbrsResponseStatus = a})
-
-instance NFData RetryBuildResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rbrsResponseStatus :: Lens.Lens' RetryBuildResponse Lude.Int
+rbrsResponseStatus = Lens.lens (responseStatus :: RetryBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RetryBuildResponse)
+{-# DEPRECATED rbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

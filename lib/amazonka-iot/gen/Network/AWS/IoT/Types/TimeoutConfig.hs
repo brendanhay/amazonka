@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TimeoutConfig where
+module Network.AWS.IoT.Types.TimeoutConfig
+  ( TimeoutConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimeoutConfig,
+
+    -- * Lenses
+    tcInProgressTimeoutInMinutes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
 --
---
---
--- /See:/ 'timeoutConfig' smart constructor.
+-- /See:/ 'mkTimeoutConfig' smart constructor.
 newtype TimeoutConfig = TimeoutConfig'
-  { _tcInProgressTimeoutInMinutes ::
-      Maybe Integer
+  { inProgressTimeoutInMinutes ::
+      Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeoutConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcInProgressTimeoutInMinutes' - Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal @TIMED_OUT@ status.
-timeoutConfig ::
+-- * 'inProgressTimeoutInMinutes' - Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal @TIMED_OUT@ status.
+mkTimeoutConfig ::
   TimeoutConfig
-timeoutConfig =
-  TimeoutConfig' {_tcInProgressTimeoutInMinutes = Nothing}
+mkTimeoutConfig =
+  TimeoutConfig' {inProgressTimeoutInMinutes = Lude.Nothing}
 
 -- | Specifies the amount of time, in minutes, this device has to finish execution of this job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The in progress timer can't be updated and will apply to all job executions for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail and switch to the terminal @TIMED_OUT@ status.
-tcInProgressTimeoutInMinutes :: Lens' TimeoutConfig (Maybe Integer)
-tcInProgressTimeoutInMinutes = lens _tcInProgressTimeoutInMinutes (\s a -> s {_tcInProgressTimeoutInMinutes = a})
+--
+-- /Note:/ Consider using 'inProgressTimeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcInProgressTimeoutInMinutes :: Lens.Lens' TimeoutConfig (Lude.Maybe Lude.Integer)
+tcInProgressTimeoutInMinutes = Lens.lens (inProgressTimeoutInMinutes :: TimeoutConfig -> Lude.Maybe Lude.Integer) (\s a -> s {inProgressTimeoutInMinutes = a} :: TimeoutConfig)
+{-# DEPRECATED tcInProgressTimeoutInMinutes "Use generic-lens or generic-optics with 'inProgressTimeoutInMinutes' instead." #-}
 
-instance FromJSON TimeoutConfig where
+instance Lude.FromJSON TimeoutConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "TimeoutConfig"
-      (\x -> TimeoutConfig' <$> (x .:? "inProgressTimeoutInMinutes"))
+      ( \x ->
+          TimeoutConfig' Lude.<$> (x Lude..:? "inProgressTimeoutInMinutes")
+      )
 
-instance Hashable TimeoutConfig
-
-instance NFData TimeoutConfig
-
-instance ToJSON TimeoutConfig where
+instance Lude.ToJSON TimeoutConfig where
   toJSON TimeoutConfig' {..} =
-    object
-      ( catMaybes
-          [ ("inProgressTimeoutInMinutes" .=)
-              <$> _tcInProgressTimeoutInMinutes
+    Lude.object
+      ( Lude.catMaybes
+          [ ("inProgressTimeoutInMinutes" Lude..=)
+              Lude.<$> inProgressTimeoutInMinutes
           ]
       )

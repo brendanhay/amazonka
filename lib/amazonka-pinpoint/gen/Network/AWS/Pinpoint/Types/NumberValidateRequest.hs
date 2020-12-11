@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.NumberValidateRequest where
+module Network.AWS.Pinpoint.Types.NumberValidateRequest
+  ( NumberValidateRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNumberValidateRequest,
+
+    -- * Lenses
+    nvrIsoCountryCode,
+    nvrPhoneNumber,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a phone number to validate and retrieve information about.
 --
---
---
--- /See:/ 'numberValidateRequest' smart constructor.
+-- /See:/ 'mkNumberValidateRequest' smart constructor.
 data NumberValidateRequest = NumberValidateRequest'
-  { _nvrIsoCountryCode ::
-      !(Maybe Text),
-    _nvrPhoneNumber :: !(Maybe Text)
+  { isoCountryCode ::
+      Lude.Maybe Lude.Text,
+    phoneNumber :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NumberValidateRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nvrIsoCountryCode' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
---
--- * 'nvrPhoneNumber' - The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.
-numberValidateRequest ::
+-- * 'isoCountryCode' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
+-- * 'phoneNumber' - The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.
+mkNumberValidateRequest ::
   NumberValidateRequest
-numberValidateRequest =
+mkNumberValidateRequest =
   NumberValidateRequest'
-    { _nvrIsoCountryCode = Nothing,
-      _nvrPhoneNumber = Nothing
+    { isoCountryCode = Lude.Nothing,
+      phoneNumber = Lude.Nothing
     }
 
 -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
-nvrIsoCountryCode :: Lens' NumberValidateRequest (Maybe Text)
-nvrIsoCountryCode = lens _nvrIsoCountryCode (\s a -> s {_nvrIsoCountryCode = a})
+--
+-- /Note:/ Consider using 'isoCountryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nvrIsoCountryCode :: Lens.Lens' NumberValidateRequest (Lude.Maybe Lude.Text)
+nvrIsoCountryCode = Lens.lens (isoCountryCode :: NumberValidateRequest -> Lude.Maybe Lude.Text) (\s a -> s {isoCountryCode = a} :: NumberValidateRequest)
+{-# DEPRECATED nvrIsoCountryCode "Use generic-lens or generic-optics with 'isoCountryCode' instead." #-}
 
 -- | The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.
-nvrPhoneNumber :: Lens' NumberValidateRequest (Maybe Text)
-nvrPhoneNumber = lens _nvrPhoneNumber (\s a -> s {_nvrPhoneNumber = a})
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nvrPhoneNumber :: Lens.Lens' NumberValidateRequest (Lude.Maybe Lude.Text)
+nvrPhoneNumber = Lens.lens (phoneNumber :: NumberValidateRequest -> Lude.Maybe Lude.Text) (\s a -> s {phoneNumber = a} :: NumberValidateRequest)
+{-# DEPRECATED nvrPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
-instance Hashable NumberValidateRequest
-
-instance NFData NumberValidateRequest
-
-instance ToJSON NumberValidateRequest where
+instance Lude.ToJSON NumberValidateRequest where
   toJSON NumberValidateRequest' {..} =
-    object
-      ( catMaybes
-          [ ("IsoCountryCode" .=) <$> _nvrIsoCountryCode,
-            ("PhoneNumber" .=) <$> _nvrPhoneNumber
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IsoCountryCode" Lude..=) Lude.<$> isoCountryCode,
+            ("PhoneNumber" Lude..=) Lude.<$> phoneNumber
           ]
       )

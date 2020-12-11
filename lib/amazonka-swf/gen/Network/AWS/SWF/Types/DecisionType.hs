@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.DecisionType where
+module Network.AWS.SWF.Types.DecisionType
+  ( DecisionType
+      ( DecisionType',
+        CancelTimer,
+        CancelWorkflowExecution,
+        CompleteWorkflowExecution,
+        ContinueAsNewWorkflowExecution,
+        FailWorkflowExecution,
+        RecordMarker,
+        RequestCancelActivityTask,
+        RequestCancelExternalWorkflowExecution,
+        ScheduleActivityTask,
+        ScheduleLambdaFunction,
+        SignalExternalWorkflowExecution,
+        StartChildWorkflowExecution,
+        StartTimer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DecisionType
-  = CancelTimer
-  | CancelWorkflowExecution
-  | CompleteWorkflowExecution
-  | ContinueAsNewWorkflowExecution
-  | FailWorkflowExecution
-  | RecordMarker
-  | RequestCancelActivityTask
-  | RequestCancelExternalWorkflowExecution
-  | ScheduleActivityTask
-  | ScheduleLambdaFunction
-  | SignalExternalWorkflowExecution
-  | StartChildWorkflowExecution
-  | StartTimer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DecisionType = DecisionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DecisionType where
-  parser =
-    takeLowerText >>= \case
-      "canceltimer" -> pure CancelTimer
-      "cancelworkflowexecution" -> pure CancelWorkflowExecution
-      "completeworkflowexecution" -> pure CompleteWorkflowExecution
-      "continueasnewworkflowexecution" -> pure ContinueAsNewWorkflowExecution
-      "failworkflowexecution" -> pure FailWorkflowExecution
-      "recordmarker" -> pure RecordMarker
-      "requestcancelactivitytask" -> pure RequestCancelActivityTask
-      "requestcancelexternalworkflowexecution" -> pure RequestCancelExternalWorkflowExecution
-      "scheduleactivitytask" -> pure ScheduleActivityTask
-      "schedulelambdafunction" -> pure ScheduleLambdaFunction
-      "signalexternalworkflowexecution" -> pure SignalExternalWorkflowExecution
-      "startchildworkflowexecution" -> pure StartChildWorkflowExecution
-      "starttimer" -> pure StartTimer
-      e ->
-        fromTextError $
-          "Failure parsing DecisionType from value: '" <> e
-            <> "'. Accepted values: canceltimer, cancelworkflowexecution, completeworkflowexecution, continueasnewworkflowexecution, failworkflowexecution, recordmarker, requestcancelactivitytask, requestcancelexternalworkflowexecution, scheduleactivitytask, schedulelambdafunction, signalexternalworkflowexecution, startchildworkflowexecution, starttimer"
+pattern CancelTimer :: DecisionType
+pattern CancelTimer = DecisionType' "CancelTimer"
 
-instance ToText DecisionType where
-  toText = \case
-    CancelTimer -> "CancelTimer"
-    CancelWorkflowExecution -> "CancelWorkflowExecution"
-    CompleteWorkflowExecution -> "CompleteWorkflowExecution"
-    ContinueAsNewWorkflowExecution -> "ContinueAsNewWorkflowExecution"
-    FailWorkflowExecution -> "FailWorkflowExecution"
-    RecordMarker -> "RecordMarker"
-    RequestCancelActivityTask -> "RequestCancelActivityTask"
-    RequestCancelExternalWorkflowExecution -> "RequestCancelExternalWorkflowExecution"
-    ScheduleActivityTask -> "ScheduleActivityTask"
-    ScheduleLambdaFunction -> "ScheduleLambdaFunction"
-    SignalExternalWorkflowExecution -> "SignalExternalWorkflowExecution"
-    StartChildWorkflowExecution -> "StartChildWorkflowExecution"
-    StartTimer -> "StartTimer"
+pattern CancelWorkflowExecution :: DecisionType
+pattern CancelWorkflowExecution = DecisionType' "CancelWorkflowExecution"
 
-instance Hashable DecisionType
+pattern CompleteWorkflowExecution :: DecisionType
+pattern CompleteWorkflowExecution = DecisionType' "CompleteWorkflowExecution"
 
-instance NFData DecisionType
+pattern ContinueAsNewWorkflowExecution :: DecisionType
+pattern ContinueAsNewWorkflowExecution = DecisionType' "ContinueAsNewWorkflowExecution"
 
-instance ToByteString DecisionType
+pattern FailWorkflowExecution :: DecisionType
+pattern FailWorkflowExecution = DecisionType' "FailWorkflowExecution"
 
-instance ToQuery DecisionType
+pattern RecordMarker :: DecisionType
+pattern RecordMarker = DecisionType' "RecordMarker"
 
-instance ToHeader DecisionType
+pattern RequestCancelActivityTask :: DecisionType
+pattern RequestCancelActivityTask = DecisionType' "RequestCancelActivityTask"
 
-instance ToJSON DecisionType where
-  toJSON = toJSONText
+pattern RequestCancelExternalWorkflowExecution :: DecisionType
+pattern RequestCancelExternalWorkflowExecution = DecisionType' "RequestCancelExternalWorkflowExecution"
+
+pattern ScheduleActivityTask :: DecisionType
+pattern ScheduleActivityTask = DecisionType' "ScheduleActivityTask"
+
+pattern ScheduleLambdaFunction :: DecisionType
+pattern ScheduleLambdaFunction = DecisionType' "ScheduleLambdaFunction"
+
+pattern SignalExternalWorkflowExecution :: DecisionType
+pattern SignalExternalWorkflowExecution = DecisionType' "SignalExternalWorkflowExecution"
+
+pattern StartChildWorkflowExecution :: DecisionType
+pattern StartChildWorkflowExecution = DecisionType' "StartChildWorkflowExecution"
+
+pattern StartTimer :: DecisionType
+pattern StartTimer = DecisionType' "StartTimer"
+
+{-# COMPLETE
+  CancelTimer,
+  CancelWorkflowExecution,
+  CompleteWorkflowExecution,
+  ContinueAsNewWorkflowExecution,
+  FailWorkflowExecution,
+  RecordMarker,
+  RequestCancelActivityTask,
+  RequestCancelExternalWorkflowExecution,
+  ScheduleActivityTask,
+  ScheduleLambdaFunction,
+  SignalExternalWorkflowExecution,
+  StartChildWorkflowExecution,
+  StartTimer,
+  DecisionType'
+  #-}

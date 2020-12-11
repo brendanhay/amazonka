@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectLockConfiguration where
+module Network.AWS.S3.Types.ObjectLockConfiguration
+  ( ObjectLockConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkObjectLockConfiguration,
+
+    -- * Lenses
+    olcObjectLockEnabled,
+    olcRule,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ObjectLockEnabled
 import Network.AWS.S3.Types.ObjectLockRule
 
 -- | The container element for Object Lock configuration parameters.
 --
---
---
--- /See:/ 'objectLockConfiguration' smart constructor.
+-- /See:/ 'mkObjectLockConfiguration' smart constructor.
 data ObjectLockConfiguration = ObjectLockConfiguration'
-  { _olcObjectLockEnabled ::
-      !(Maybe ObjectLockEnabled),
-    _olcRule :: !(Maybe ObjectLockRule)
+  { objectLockEnabled ::
+      Lude.Maybe ObjectLockEnabled,
+    rule :: Lude.Maybe ObjectLockRule
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectLockConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'olcObjectLockEnabled' - Indicates whether this bucket has an Object Lock configuration enabled.
---
--- * 'olcRule' - The Object Lock rule in place for the specified object.
-objectLockConfiguration ::
+-- * 'objectLockEnabled' - Indicates whether this bucket has an Object Lock configuration enabled.
+-- * 'rule' - The Object Lock rule in place for the specified object.
+mkObjectLockConfiguration ::
   ObjectLockConfiguration
-objectLockConfiguration =
+mkObjectLockConfiguration =
   ObjectLockConfiguration'
-    { _olcObjectLockEnabled = Nothing,
-      _olcRule = Nothing
+    { objectLockEnabled = Lude.Nothing,
+      rule = Lude.Nothing
     }
 
 -- | Indicates whether this bucket has an Object Lock configuration enabled.
-olcObjectLockEnabled :: Lens' ObjectLockConfiguration (Maybe ObjectLockEnabled)
-olcObjectLockEnabled = lens _olcObjectLockEnabled (\s a -> s {_olcObjectLockEnabled = a})
+--
+-- /Note:/ Consider using 'objectLockEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+olcObjectLockEnabled :: Lens.Lens' ObjectLockConfiguration (Lude.Maybe ObjectLockEnabled)
+olcObjectLockEnabled = Lens.lens (objectLockEnabled :: ObjectLockConfiguration -> Lude.Maybe ObjectLockEnabled) (\s a -> s {objectLockEnabled = a} :: ObjectLockConfiguration)
+{-# DEPRECATED olcObjectLockEnabled "Use generic-lens or generic-optics with 'objectLockEnabled' instead." #-}
 
 -- | The Object Lock rule in place for the specified object.
-olcRule :: Lens' ObjectLockConfiguration (Maybe ObjectLockRule)
-olcRule = lens _olcRule (\s a -> s {_olcRule = a})
+--
+-- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+olcRule :: Lens.Lens' ObjectLockConfiguration (Lude.Maybe ObjectLockRule)
+olcRule = Lens.lens (rule :: ObjectLockConfiguration -> Lude.Maybe ObjectLockRule) (\s a -> s {rule = a} :: ObjectLockConfiguration)
+{-# DEPRECATED olcRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
-instance FromXML ObjectLockConfiguration where
+instance Lude.FromXML ObjectLockConfiguration where
   parseXML x =
     ObjectLockConfiguration'
-      <$> (x .@? "ObjectLockEnabled") <*> (x .@? "Rule")
+      Lude.<$> (x Lude..@? "ObjectLockEnabled") Lude.<*> (x Lude..@? "Rule")
 
-instance Hashable ObjectLockConfiguration
-
-instance NFData ObjectLockConfiguration
-
-instance ToXML ObjectLockConfiguration where
+instance Lude.ToXML ObjectLockConfiguration where
   toXML ObjectLockConfiguration' {..} =
-    mconcat
-      ["ObjectLockEnabled" @= _olcObjectLockEnabled, "Rule" @= _olcRule]
+    Lude.mconcat
+      [ "ObjectLockEnabled" Lude.@= objectLockEnabled,
+        "Rule" Lude.@= rule
+      ]

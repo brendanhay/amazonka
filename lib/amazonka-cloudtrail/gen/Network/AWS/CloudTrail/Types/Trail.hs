@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,181 +7,250 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.Trail where
+module Network.AWS.CloudTrail.Types.Trail
+  ( Trail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrail,
+
+    -- * Lenses
+    tLogFileValidationEnabled,
+    tTrailARN,
+    tS3KeyPrefix,
+    tHasInsightSelectors,
+    tSNSTopicARN,
+    tSNSTopicName,
+    tCloudWatchLogsLogGroupARN,
+    tKMSKeyId,
+    tHomeRegion,
+    tName,
+    tIncludeGlobalServiceEvents,
+    tHasCustomEventSelectors,
+    tIsOrganizationTrail,
+    tCloudWatchLogsRoleARN,
+    tS3BucketName,
+    tIsMultiRegionTrail,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The settings for a trail.
 --
---
---
--- /See:/ 'trail' smart constructor.
+-- /See:/ 'mkTrail' smart constructor.
 data Trail = Trail'
-  { _tLogFileValidationEnabled :: !(Maybe Bool),
-    _tTrailARN :: !(Maybe Text),
-    _tS3KeyPrefix :: !(Maybe Text),
-    _tHasInsightSelectors :: !(Maybe Bool),
-    _tSNSTopicARN :: !(Maybe Text),
-    _tSNSTopicName :: !(Maybe Text),
-    _tCloudWatchLogsLogGroupARN :: !(Maybe Text),
-    _tKMSKeyId :: !(Maybe Text),
-    _tHomeRegion :: !(Maybe Text),
-    _tName :: !(Maybe Text),
-    _tIncludeGlobalServiceEvents :: !(Maybe Bool),
-    _tHasCustomEventSelectors :: !(Maybe Bool),
-    _tIsOrganizationTrail :: !(Maybe Bool),
-    _tCloudWatchLogsRoleARN :: !(Maybe Text),
-    _tS3BucketName :: !(Maybe Text),
-    _tIsMultiRegionTrail :: !(Maybe Bool)
+  { logFileValidationEnabled ::
+      Lude.Maybe Lude.Bool,
+    trailARN :: Lude.Maybe Lude.Text,
+    s3KeyPrefix :: Lude.Maybe Lude.Text,
+    hasInsightSelectors :: Lude.Maybe Lude.Bool,
+    snsTopicARN :: Lude.Maybe Lude.Text,
+    snsTopicName :: Lude.Maybe Lude.Text,
+    cloudWatchLogsLogGroupARN :: Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    homeRegion :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    includeGlobalServiceEvents :: Lude.Maybe Lude.Bool,
+    hasCustomEventSelectors :: Lude.Maybe Lude.Bool,
+    isOrganizationTrail :: Lude.Maybe Lude.Bool,
+    cloudWatchLogsRoleARN :: Lude.Maybe Lude.Text,
+    s3BucketName :: Lude.Maybe Lude.Text,
+    isMultiRegionTrail :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Trail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cloudWatchLogsLogGroupARN' - Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.
+-- * 'cloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
+-- * 'hasCustomEventSelectors' - Specifies if the trail has custom event selectors.
+-- * 'hasInsightSelectors' - Specifies whether a trail has insight types specified in an @InsightSelector@ list.
+-- * 'homeRegion' - The region in which the trail was created.
+-- * 'includeGlobalServiceEvents' - Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
+-- * 'isMultiRegionTrail' - Specifies whether the trail exists only in one region or exists in all regions.
+-- * 'isOrganizationTrail' - Specifies whether the trail is an organization trail.
+-- * 'kmsKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:
 --
--- * 'tLogFileValidationEnabled' - Specifies whether log file validation is enabled.
+-- @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
+-- * 'logFileValidationEnabled' - Specifies whether log file validation is enabled.
+-- * 'name' - Name of the trail set by calling 'CreateTrail' . The maximum length is 128 characters.
+-- * 's3BucketName' - Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
+-- * 's3KeyPrefix' - Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .The maximum length is 200 characters.
+-- * 'snsTopicARN' - Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:
 --
--- * 'tTrailARN' - Specifies the ARN of the trail. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+-- @arn:aws:sns:us-east-2:123456789012:MyTopic@
+-- * 'snsTopicName' - This field is no longer in use. Use SnsTopicARN.
+-- * 'trailARN' - Specifies the ARN of the trail. The format of a trail ARN is:
 --
--- * 'tS3KeyPrefix' - Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .The maximum length is 200 characters.
---
--- * 'tHasInsightSelectors' - Specifies whether a trail has insight types specified in an @InsightSelector@ list.
---
--- * 'tSNSTopicARN' - Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-2:123456789012:MyTopic@
---
--- * 'tSNSTopicName' - This field is no longer in use. Use SnsTopicARN.
---
--- * 'tCloudWatchLogsLogGroupARN' - Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.
---
--- * 'tKMSKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
---
--- * 'tHomeRegion' - The region in which the trail was created.
---
--- * 'tName' - Name of the trail set by calling 'CreateTrail' . The maximum length is 128 characters.
---
--- * 'tIncludeGlobalServiceEvents' - Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
---
--- * 'tHasCustomEventSelectors' - Specifies if the trail has custom event selectors.
---
--- * 'tIsOrganizationTrail' - Specifies whether the trail is an organization trail.
---
--- * 'tCloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
---
--- * 'tS3BucketName' - Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
---
--- * 'tIsMultiRegionTrail' - Specifies whether the trail exists only in one region or exists in all regions.
-trail ::
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+mkTrail ::
   Trail
-trail =
+mkTrail =
   Trail'
-    { _tLogFileValidationEnabled = Nothing,
-      _tTrailARN = Nothing,
-      _tS3KeyPrefix = Nothing,
-      _tHasInsightSelectors = Nothing,
-      _tSNSTopicARN = Nothing,
-      _tSNSTopicName = Nothing,
-      _tCloudWatchLogsLogGroupARN = Nothing,
-      _tKMSKeyId = Nothing,
-      _tHomeRegion = Nothing,
-      _tName = Nothing,
-      _tIncludeGlobalServiceEvents = Nothing,
-      _tHasCustomEventSelectors = Nothing,
-      _tIsOrganizationTrail = Nothing,
-      _tCloudWatchLogsRoleARN = Nothing,
-      _tS3BucketName = Nothing,
-      _tIsMultiRegionTrail = Nothing
+    { logFileValidationEnabled = Lude.Nothing,
+      trailARN = Lude.Nothing,
+      s3KeyPrefix = Lude.Nothing,
+      hasInsightSelectors = Lude.Nothing,
+      snsTopicARN = Lude.Nothing,
+      snsTopicName = Lude.Nothing,
+      cloudWatchLogsLogGroupARN = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      homeRegion = Lude.Nothing,
+      name = Lude.Nothing,
+      includeGlobalServiceEvents = Lude.Nothing,
+      hasCustomEventSelectors = Lude.Nothing,
+      isOrganizationTrail = Lude.Nothing,
+      cloudWatchLogsRoleARN = Lude.Nothing,
+      s3BucketName = Lude.Nothing,
+      isMultiRegionTrail = Lude.Nothing
     }
 
 -- | Specifies whether log file validation is enabled.
-tLogFileValidationEnabled :: Lens' Trail (Maybe Bool)
-tLogFileValidationEnabled = lens _tLogFileValidationEnabled (\s a -> s {_tLogFileValidationEnabled = a})
+--
+-- /Note:/ Consider using 'logFileValidationEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tLogFileValidationEnabled :: Lens.Lens' Trail (Lude.Maybe Lude.Bool)
+tLogFileValidationEnabled = Lens.lens (logFileValidationEnabled :: Trail -> Lude.Maybe Lude.Bool) (\s a -> s {logFileValidationEnabled = a} :: Trail)
+{-# DEPRECATED tLogFileValidationEnabled "Use generic-lens or generic-optics with 'logFileValidationEnabled' instead." #-}
 
--- | Specifies the ARN of the trail. The format of a trail ARN is: @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
-tTrailARN :: Lens' Trail (Maybe Text)
-tTrailARN = lens _tTrailARN (\s a -> s {_tTrailARN = a})
+-- | Specifies the ARN of the trail. The format of a trail ARN is:
+--
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+--
+-- /Note:/ Consider using 'trailARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTrailARN :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tTrailARN = Lens.lens (trailARN :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {trailARN = a} :: Trail)
+{-# DEPRECATED tTrailARN "Use generic-lens or generic-optics with 'trailARN' instead." #-}
 
 -- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .The maximum length is 200 characters.
-tS3KeyPrefix :: Lens' Trail (Maybe Text)
-tS3KeyPrefix = lens _tS3KeyPrefix (\s a -> s {_tS3KeyPrefix = a})
+--
+-- /Note:/ Consider using 's3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tS3KeyPrefix :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tS3KeyPrefix = Lens.lens (s3KeyPrefix :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {s3KeyPrefix = a} :: Trail)
+{-# DEPRECATED tS3KeyPrefix "Use generic-lens or generic-optics with 's3KeyPrefix' instead." #-}
 
 -- | Specifies whether a trail has insight types specified in an @InsightSelector@ list.
-tHasInsightSelectors :: Lens' Trail (Maybe Bool)
-tHasInsightSelectors = lens _tHasInsightSelectors (\s a -> s {_tHasInsightSelectors = a})
+--
+-- /Note:/ Consider using 'hasInsightSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tHasInsightSelectors :: Lens.Lens' Trail (Lude.Maybe Lude.Bool)
+tHasInsightSelectors = Lens.lens (hasInsightSelectors :: Trail -> Lude.Maybe Lude.Bool) (\s a -> s {hasInsightSelectors = a} :: Trail)
+{-# DEPRECATED tHasInsightSelectors "Use generic-lens or generic-optics with 'hasInsightSelectors' instead." #-}
 
--- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is: @arn:aws:sns:us-east-2:123456789012:MyTopic@
-tSNSTopicARN :: Lens' Trail (Maybe Text)
-tSNSTopicARN = lens _tSNSTopicARN (\s a -> s {_tSNSTopicARN = a})
+-- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:
+--
+-- @arn:aws:sns:us-east-2:123456789012:MyTopic@
+--
+-- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSNSTopicARN :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tSNSTopicARN = Lens.lens (snsTopicARN :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {snsTopicARN = a} :: Trail)
+{-# DEPRECATED tSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
 
 -- | This field is no longer in use. Use SnsTopicARN.
-tSNSTopicName :: Lens' Trail (Maybe Text)
-tSNSTopicName = lens _tSNSTopicName (\s a -> s {_tSNSTopicName = a})
+--
+-- /Note:/ Consider using 'snsTopicName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSNSTopicName :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tSNSTopicName = Lens.lens (snsTopicName :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {snsTopicName = a} :: Trail)
+{-# DEPRECATED tSNSTopicName "Use generic-lens or generic-optics with 'snsTopicName' instead." #-}
 
 -- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.
-tCloudWatchLogsLogGroupARN :: Lens' Trail (Maybe Text)
-tCloudWatchLogsLogGroupARN = lens _tCloudWatchLogsLogGroupARN (\s a -> s {_tCloudWatchLogsLogGroupARN = a})
+--
+-- /Note:/ Consider using 'cloudWatchLogsLogGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCloudWatchLogsLogGroupARN :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tCloudWatchLogsLogGroupARN = Lens.lens (cloudWatchLogsLogGroupARN :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {cloudWatchLogsLogGroupARN = a} :: Trail)
+{-# DEPRECATED tCloudWatchLogsLogGroupARN "Use generic-lens or generic-optics with 'cloudWatchLogsLogGroupARN' instead." #-}
 
--- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format: @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
-tKMSKeyId :: Lens' Trail (Maybe Text)
-tKMSKeyId = lens _tKMSKeyId (\s a -> s {_tKMSKeyId = a})
+-- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:
+--
+-- @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tKMSKeyId :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tKMSKeyId = Lens.lens (kmsKeyId :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: Trail)
+{-# DEPRECATED tKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The region in which the trail was created.
-tHomeRegion :: Lens' Trail (Maybe Text)
-tHomeRegion = lens _tHomeRegion (\s a -> s {_tHomeRegion = a})
+--
+-- /Note:/ Consider using 'homeRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tHomeRegion :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tHomeRegion = Lens.lens (homeRegion :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {homeRegion = a} :: Trail)
+{-# DEPRECATED tHomeRegion "Use generic-lens or generic-optics with 'homeRegion' instead." #-}
 
 -- | Name of the trail set by calling 'CreateTrail' . The maximum length is 128 characters.
-tName :: Lens' Trail (Maybe Text)
-tName = lens _tName (\s a -> s {_tName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tName :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tName = Lens.lens (name :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Trail)
+{-# DEPRECATED tName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
-tIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
-tIncludeGlobalServiceEvents = lens _tIncludeGlobalServiceEvents (\s a -> s {_tIncludeGlobalServiceEvents = a})
+--
+-- /Note:/ Consider using 'includeGlobalServiceEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tIncludeGlobalServiceEvents :: Lens.Lens' Trail (Lude.Maybe Lude.Bool)
+tIncludeGlobalServiceEvents = Lens.lens (includeGlobalServiceEvents :: Trail -> Lude.Maybe Lude.Bool) (\s a -> s {includeGlobalServiceEvents = a} :: Trail)
+{-# DEPRECATED tIncludeGlobalServiceEvents "Use generic-lens or generic-optics with 'includeGlobalServiceEvents' instead." #-}
 
 -- | Specifies if the trail has custom event selectors.
-tHasCustomEventSelectors :: Lens' Trail (Maybe Bool)
-tHasCustomEventSelectors = lens _tHasCustomEventSelectors (\s a -> s {_tHasCustomEventSelectors = a})
+--
+-- /Note:/ Consider using 'hasCustomEventSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tHasCustomEventSelectors :: Lens.Lens' Trail (Lude.Maybe Lude.Bool)
+tHasCustomEventSelectors = Lens.lens (hasCustomEventSelectors :: Trail -> Lude.Maybe Lude.Bool) (\s a -> s {hasCustomEventSelectors = a} :: Trail)
+{-# DEPRECATED tHasCustomEventSelectors "Use generic-lens or generic-optics with 'hasCustomEventSelectors' instead." #-}
 
 -- | Specifies whether the trail is an organization trail.
-tIsOrganizationTrail :: Lens' Trail (Maybe Bool)
-tIsOrganizationTrail = lens _tIsOrganizationTrail (\s a -> s {_tIsOrganizationTrail = a})
+--
+-- /Note:/ Consider using 'isOrganizationTrail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tIsOrganizationTrail :: Lens.Lens' Trail (Lude.Maybe Lude.Bool)
+tIsOrganizationTrail = Lens.lens (isOrganizationTrail :: Trail -> Lude.Maybe Lude.Bool) (\s a -> s {isOrganizationTrail = a} :: Trail)
+{-# DEPRECATED tIsOrganizationTrail "Use generic-lens or generic-optics with 'isOrganizationTrail' instead." #-}
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
-tCloudWatchLogsRoleARN :: Lens' Trail (Maybe Text)
-tCloudWatchLogsRoleARN = lens _tCloudWatchLogsRoleARN (\s a -> s {_tCloudWatchLogsRoleARN = a})
+--
+-- /Note:/ Consider using 'cloudWatchLogsRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCloudWatchLogsRoleARN :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tCloudWatchLogsRoleARN = Lens.lens (cloudWatchLogsRoleARN :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {cloudWatchLogsRoleARN = a} :: Trail)
+{-# DEPRECATED tCloudWatchLogsRoleARN "Use generic-lens or generic-optics with 'cloudWatchLogsRoleARN' instead." #-}
 
 -- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
-tS3BucketName :: Lens' Trail (Maybe Text)
-tS3BucketName = lens _tS3BucketName (\s a -> s {_tS3BucketName = a})
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tS3BucketName :: Lens.Lens' Trail (Lude.Maybe Lude.Text)
+tS3BucketName = Lens.lens (s3BucketName :: Trail -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: Trail)
+{-# DEPRECATED tS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
 -- | Specifies whether the trail exists only in one region or exists in all regions.
-tIsMultiRegionTrail :: Lens' Trail (Maybe Bool)
-tIsMultiRegionTrail = lens _tIsMultiRegionTrail (\s a -> s {_tIsMultiRegionTrail = a})
+--
+-- /Note:/ Consider using 'isMultiRegionTrail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tIsMultiRegionTrail :: Lens.Lens' Trail (Lude.Maybe Lude.Bool)
+tIsMultiRegionTrail = Lens.lens (isMultiRegionTrail :: Trail -> Lude.Maybe Lude.Bool) (\s a -> s {isMultiRegionTrail = a} :: Trail)
+{-# DEPRECATED tIsMultiRegionTrail "Use generic-lens or generic-optics with 'isMultiRegionTrail' instead." #-}
 
-instance FromJSON Trail where
+instance Lude.FromJSON Trail where
   parseJSON =
-    withObject
+    Lude.withObject
       "Trail"
       ( \x ->
           Trail'
-            <$> (x .:? "LogFileValidationEnabled")
-            <*> (x .:? "TrailARN")
-            <*> (x .:? "S3KeyPrefix")
-            <*> (x .:? "HasInsightSelectors")
-            <*> (x .:? "SnsTopicARN")
-            <*> (x .:? "SnsTopicName")
-            <*> (x .:? "CloudWatchLogsLogGroupArn")
-            <*> (x .:? "KmsKeyId")
-            <*> (x .:? "HomeRegion")
-            <*> (x .:? "Name")
-            <*> (x .:? "IncludeGlobalServiceEvents")
-            <*> (x .:? "HasCustomEventSelectors")
-            <*> (x .:? "IsOrganizationTrail")
-            <*> (x .:? "CloudWatchLogsRoleArn")
-            <*> (x .:? "S3BucketName")
-            <*> (x .:? "IsMultiRegionTrail")
+            Lude.<$> (x Lude..:? "LogFileValidationEnabled")
+            Lude.<*> (x Lude..:? "TrailARN")
+            Lude.<*> (x Lude..:? "S3KeyPrefix")
+            Lude.<*> (x Lude..:? "HasInsightSelectors")
+            Lude.<*> (x Lude..:? "SnsTopicARN")
+            Lude.<*> (x Lude..:? "SnsTopicName")
+            Lude.<*> (x Lude..:? "CloudWatchLogsLogGroupArn")
+            Lude.<*> (x Lude..:? "KmsKeyId")
+            Lude.<*> (x Lude..:? "HomeRegion")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "IncludeGlobalServiceEvents")
+            Lude.<*> (x Lude..:? "HasCustomEventSelectors")
+            Lude.<*> (x Lude..:? "IsOrganizationTrail")
+            Lude.<*> (x Lude..:? "CloudWatchLogsRoleArn")
+            Lude.<*> (x Lude..:? "S3BucketName")
+            Lude.<*> (x Lude..:? "IsMultiRegionTrail")
       )
-
-instance Hashable Trail
-
-instance NFData Trail

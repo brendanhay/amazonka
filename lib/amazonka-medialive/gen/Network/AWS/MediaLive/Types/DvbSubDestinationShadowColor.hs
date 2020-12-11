@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.DvbSubDestinationShadowColor where
+module Network.AWS.MediaLive.Types.DvbSubDestinationShadowColor
+  ( DvbSubDestinationShadowColor
+      ( DvbSubDestinationShadowColor',
+        DSDSCBlack,
+        DSDSCNone,
+        DSDSCWhite
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Dvb Sub Destination Shadow Color
-data DvbSubDestinationShadowColor
-  = DSDSCBlack
-  | DSDSCNone
-  | DSDSCWhite
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DvbSubDestinationShadowColor = DvbSubDestinationShadowColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DvbSubDestinationShadowColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure DSDSCBlack
-      "none" -> pure DSDSCNone
-      "white" -> pure DSDSCWhite
-      e ->
-        fromTextError $
-          "Failure parsing DvbSubDestinationShadowColor from value: '" <> e
-            <> "'. Accepted values: black, none, white"
+pattern DSDSCBlack :: DvbSubDestinationShadowColor
+pattern DSDSCBlack = DvbSubDestinationShadowColor' "BLACK"
 
-instance ToText DvbSubDestinationShadowColor where
-  toText = \case
-    DSDSCBlack -> "BLACK"
-    DSDSCNone -> "NONE"
-    DSDSCWhite -> "WHITE"
+pattern DSDSCNone :: DvbSubDestinationShadowColor
+pattern DSDSCNone = DvbSubDestinationShadowColor' "NONE"
 
-instance Hashable DvbSubDestinationShadowColor
+pattern DSDSCWhite :: DvbSubDestinationShadowColor
+pattern DSDSCWhite = DvbSubDestinationShadowColor' "WHITE"
 
-instance NFData DvbSubDestinationShadowColor
-
-instance ToByteString DvbSubDestinationShadowColor
-
-instance ToQuery DvbSubDestinationShadowColor
-
-instance ToHeader DvbSubDestinationShadowColor
-
-instance ToJSON DvbSubDestinationShadowColor where
-  toJSON = toJSONText
-
-instance FromJSON DvbSubDestinationShadowColor where
-  parseJSON = parseJSONText "DvbSubDestinationShadowColor"
+{-# COMPLETE
+  DSDSCBlack,
+  DSDSCNone,
+  DSDSCWhite,
+  DvbSubDestinationShadowColor'
+  #-}

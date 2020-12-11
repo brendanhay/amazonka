@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,24 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.HTTPEndpointDestinationUpdate where
+module Network.AWS.Firehose.Types.HTTPEndpointDestinationUpdate
+  ( HTTPEndpointDestinationUpdate (..),
+
+    -- * Smart constructor
+    mkHTTPEndpointDestinationUpdate,
+
+    -- * Lenses
+    httpeduS3BackupMode,
+    httpeduCloudWatchLoggingOptions,
+    httpeduS3Update,
+    httpeduBufferingHints,
+    httpeduRetryOptions,
+    httpeduEndpointConfiguration,
+    httpeduProcessingConfiguration,
+    httpeduRequestConfiguration,
+    httpeduRoleARN,
+  )
+where
 
 import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
 import Network.AWS.Firehose.Types.HTTPEndpointBufferingHints
@@ -23,139 +34,144 @@ import Network.AWS.Firehose.Types.HTTPEndpointRetryOptions
 import Network.AWS.Firehose.Types.HTTPEndpointS3BackupMode
 import Network.AWS.Firehose.Types.ProcessingConfiguration
 import Network.AWS.Firehose.Types.S3DestinationUpdate
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Updates the specified HTTP endpoint destination.
 --
---
---
--- /See:/ 'hTTPEndpointDestinationUpdate' smart constructor.
+-- /See:/ 'mkHTTPEndpointDestinationUpdate' smart constructor.
 data HTTPEndpointDestinationUpdate = HTTPEndpointDestinationUpdate'
-  { _httpeduS3BackupMode ::
-      !( Maybe
-           HTTPEndpointS3BackupMode
-       ),
-    _httpeduCloudWatchLoggingOptions ::
-      !( Maybe
-           CloudWatchLoggingOptions
-       ),
-    _httpeduS3Update ::
-      !(Maybe S3DestinationUpdate),
-    _httpeduBufferingHints ::
-      !( Maybe
-           HTTPEndpointBufferingHints
-       ),
-    _httpeduRetryOptions ::
-      !( Maybe
-           HTTPEndpointRetryOptions
-       ),
-    _httpeduEndpointConfiguration ::
-      !( Maybe
-           HTTPEndpointConfiguration
-       ),
-    _httpeduProcessingConfiguration ::
-      !( Maybe
-           ProcessingConfiguration
-       ),
-    _httpeduRequestConfiguration ::
-      !( Maybe
-           HTTPEndpointRequestConfiguration
-       ),
-    _httpeduRoleARN ::
-      !(Maybe Text)
+  { s3BackupMode ::
+      Lude.Maybe
+        HTTPEndpointS3BackupMode,
+    cloudWatchLoggingOptions ::
+      Lude.Maybe
+        CloudWatchLoggingOptions,
+    s3Update ::
+      Lude.Maybe S3DestinationUpdate,
+    bufferingHints ::
+      Lude.Maybe
+        HTTPEndpointBufferingHints,
+    retryOptions ::
+      Lude.Maybe
+        HTTPEndpointRetryOptions,
+    endpointConfiguration ::
+      Lude.Maybe
+        HTTPEndpointConfiguration,
+    processingConfiguration ::
+      Lude.Maybe
+        ProcessingConfiguration,
+    requestConfiguration ::
+      Lude.Maybe
+        HTTPEndpointRequestConfiguration,
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPEndpointDestinationUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpeduS3BackupMode' - Describes the S3 bucket backup options for the data that Kinesis Firehose delivers to the HTTP endpoint destination. You can back up all documents (@AllData@ ) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (@FailedDataOnly@ ).
---
--- * 'httpeduCloudWatchLoggingOptions' - Undocumented member.
---
--- * 'httpeduS3Update' - Undocumented member.
---
--- * 'httpeduBufferingHints' - Describes buffering options that can be applied to the data before it is delivered to the HTTPS endpoint destination. Kinesis Data Firehose teats these options as hints, and it might choose to use more optimal values. The @SizeInMBs@ and @IntervalInSeconds@ parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.
---
--- * 'httpeduRetryOptions' - Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
---
--- * 'httpeduEndpointConfiguration' - Describes the configuration of the HTTP endpoint destination.
---
--- * 'httpeduProcessingConfiguration' - Undocumented member.
---
--- * 'httpeduRequestConfiguration' - The configuration of the request sent to the HTTP endpoint specified as the destination.
---
--- * 'httpeduRoleARN' - Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
-hTTPEndpointDestinationUpdate ::
+-- * 'bufferingHints' - Describes buffering options that can be applied to the data before it is delivered to the HTTPS endpoint destination. Kinesis Data Firehose teats these options as hints, and it might choose to use more optimal values. The @SizeInMBs@ and @IntervalInSeconds@ parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.
+-- * 'cloudWatchLoggingOptions' - Undocumented field.
+-- * 'endpointConfiguration' - Describes the configuration of the HTTP endpoint destination.
+-- * 'processingConfiguration' - Undocumented field.
+-- * 'requestConfiguration' - The configuration of the request sent to the HTTP endpoint specified as the destination.
+-- * 'retryOptions' - Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
+-- * 'roleARN' - Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
+-- * 's3BackupMode' - Describes the S3 bucket backup options for the data that Kinesis Firehose delivers to the HTTP endpoint destination. You can back up all documents (@AllData@ ) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (@FailedDataOnly@ ).
+-- * 's3Update' - Undocumented field.
+mkHTTPEndpointDestinationUpdate ::
   HTTPEndpointDestinationUpdate
-hTTPEndpointDestinationUpdate =
+mkHTTPEndpointDestinationUpdate =
   HTTPEndpointDestinationUpdate'
-    { _httpeduS3BackupMode = Nothing,
-      _httpeduCloudWatchLoggingOptions = Nothing,
-      _httpeduS3Update = Nothing,
-      _httpeduBufferingHints = Nothing,
-      _httpeduRetryOptions = Nothing,
-      _httpeduEndpointConfiguration = Nothing,
-      _httpeduProcessingConfiguration = Nothing,
-      _httpeduRequestConfiguration = Nothing,
-      _httpeduRoleARN = Nothing
+    { s3BackupMode = Lude.Nothing,
+      cloudWatchLoggingOptions = Lude.Nothing,
+      s3Update = Lude.Nothing,
+      bufferingHints = Lude.Nothing,
+      retryOptions = Lude.Nothing,
+      endpointConfiguration = Lude.Nothing,
+      processingConfiguration = Lude.Nothing,
+      requestConfiguration = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | Describes the S3 bucket backup options for the data that Kinesis Firehose delivers to the HTTP endpoint destination. You can back up all documents (@AllData@ ) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (@FailedDataOnly@ ).
-httpeduS3BackupMode :: Lens' HTTPEndpointDestinationUpdate (Maybe HTTPEndpointS3BackupMode)
-httpeduS3BackupMode = lens _httpeduS3BackupMode (\s a -> s {_httpeduS3BackupMode = a})
+--
+-- /Note:/ Consider using 's3BackupMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpeduS3BackupMode :: Lens.Lens' HTTPEndpointDestinationUpdate (Lude.Maybe HTTPEndpointS3BackupMode)
+httpeduS3BackupMode = Lens.lens (s3BackupMode :: HTTPEndpointDestinationUpdate -> Lude.Maybe HTTPEndpointS3BackupMode) (\s a -> s {s3BackupMode = a} :: HTTPEndpointDestinationUpdate)
+{-# DEPRECATED httpeduS3BackupMode "Use generic-lens or generic-optics with 's3BackupMode' instead." #-}
 
--- | Undocumented member.
-httpeduCloudWatchLoggingOptions :: Lens' HTTPEndpointDestinationUpdate (Maybe CloudWatchLoggingOptions)
-httpeduCloudWatchLoggingOptions = lens _httpeduCloudWatchLoggingOptions (\s a -> s {_httpeduCloudWatchLoggingOptions = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cloudWatchLoggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpeduCloudWatchLoggingOptions :: Lens.Lens' HTTPEndpointDestinationUpdate (Lude.Maybe CloudWatchLoggingOptions)
+httpeduCloudWatchLoggingOptions = Lens.lens (cloudWatchLoggingOptions :: HTTPEndpointDestinationUpdate -> Lude.Maybe CloudWatchLoggingOptions) (\s a -> s {cloudWatchLoggingOptions = a} :: HTTPEndpointDestinationUpdate)
+{-# DEPRECATED httpeduCloudWatchLoggingOptions "Use generic-lens or generic-optics with 'cloudWatchLoggingOptions' instead." #-}
 
--- | Undocumented member.
-httpeduS3Update :: Lens' HTTPEndpointDestinationUpdate (Maybe S3DestinationUpdate)
-httpeduS3Update = lens _httpeduS3Update (\s a -> s {_httpeduS3Update = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 's3Update' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpeduS3Update :: Lens.Lens' HTTPEndpointDestinationUpdate (Lude.Maybe S3DestinationUpdate)
+httpeduS3Update = Lens.lens (s3Update :: HTTPEndpointDestinationUpdate -> Lude.Maybe S3DestinationUpdate) (\s a -> s {s3Update = a} :: HTTPEndpointDestinationUpdate)
+{-# DEPRECATED httpeduS3Update "Use generic-lens or generic-optics with 's3Update' instead." #-}
 
 -- | Describes buffering options that can be applied to the data before it is delivered to the HTTPS endpoint destination. Kinesis Data Firehose teats these options as hints, and it might choose to use more optimal values. The @SizeInMBs@ and @IntervalInSeconds@ parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.
-httpeduBufferingHints :: Lens' HTTPEndpointDestinationUpdate (Maybe HTTPEndpointBufferingHints)
-httpeduBufferingHints = lens _httpeduBufferingHints (\s a -> s {_httpeduBufferingHints = a})
+--
+-- /Note:/ Consider using 'bufferingHints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpeduBufferingHints :: Lens.Lens' HTTPEndpointDestinationUpdate (Lude.Maybe HTTPEndpointBufferingHints)
+httpeduBufferingHints = Lens.lens (bufferingHints :: HTTPEndpointDestinationUpdate -> Lude.Maybe HTTPEndpointBufferingHints) (\s a -> s {bufferingHints = a} :: HTTPEndpointDestinationUpdate)
+{-# DEPRECATED httpeduBufferingHints "Use generic-lens or generic-optics with 'bufferingHints' instead." #-}
 
 -- | Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
-httpeduRetryOptions :: Lens' HTTPEndpointDestinationUpdate (Maybe HTTPEndpointRetryOptions)
-httpeduRetryOptions = lens _httpeduRetryOptions (\s a -> s {_httpeduRetryOptions = a})
+--
+-- /Note:/ Consider using 'retryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpeduRetryOptions :: Lens.Lens' HTTPEndpointDestinationUpdate (Lude.Maybe HTTPEndpointRetryOptions)
+httpeduRetryOptions = Lens.lens (retryOptions :: HTTPEndpointDestinationUpdate -> Lude.Maybe HTTPEndpointRetryOptions) (\s a -> s {retryOptions = a} :: HTTPEndpointDestinationUpdate)
+{-# DEPRECATED httpeduRetryOptions "Use generic-lens or generic-optics with 'retryOptions' instead." #-}
 
 -- | Describes the configuration of the HTTP endpoint destination.
-httpeduEndpointConfiguration :: Lens' HTTPEndpointDestinationUpdate (Maybe HTTPEndpointConfiguration)
-httpeduEndpointConfiguration = lens _httpeduEndpointConfiguration (\s a -> s {_httpeduEndpointConfiguration = a})
+--
+-- /Note:/ Consider using 'endpointConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpeduEndpointConfiguration :: Lens.Lens' HTTPEndpointDestinationUpdate (Lude.Maybe HTTPEndpointConfiguration)
+httpeduEndpointConfiguration = Lens.lens (endpointConfiguration :: HTTPEndpointDestinationUpdate -> Lude.Maybe HTTPEndpointConfiguration) (\s a -> s {endpointConfiguration = a} :: HTTPEndpointDestinationUpdate)
+{-# DEPRECATED httpeduEndpointConfiguration "Use generic-lens or generic-optics with 'endpointConfiguration' instead." #-}
 
--- | Undocumented member.
-httpeduProcessingConfiguration :: Lens' HTTPEndpointDestinationUpdate (Maybe ProcessingConfiguration)
-httpeduProcessingConfiguration = lens _httpeduProcessingConfiguration (\s a -> s {_httpeduProcessingConfiguration = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'processingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpeduProcessingConfiguration :: Lens.Lens' HTTPEndpointDestinationUpdate (Lude.Maybe ProcessingConfiguration)
+httpeduProcessingConfiguration = Lens.lens (processingConfiguration :: HTTPEndpointDestinationUpdate -> Lude.Maybe ProcessingConfiguration) (\s a -> s {processingConfiguration = a} :: HTTPEndpointDestinationUpdate)
+{-# DEPRECATED httpeduProcessingConfiguration "Use generic-lens or generic-optics with 'processingConfiguration' instead." #-}
 
 -- | The configuration of the request sent to the HTTP endpoint specified as the destination.
-httpeduRequestConfiguration :: Lens' HTTPEndpointDestinationUpdate (Maybe HTTPEndpointRequestConfiguration)
-httpeduRequestConfiguration = lens _httpeduRequestConfiguration (\s a -> s {_httpeduRequestConfiguration = a})
+--
+-- /Note:/ Consider using 'requestConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpeduRequestConfiguration :: Lens.Lens' HTTPEndpointDestinationUpdate (Lude.Maybe HTTPEndpointRequestConfiguration)
+httpeduRequestConfiguration = Lens.lens (requestConfiguration :: HTTPEndpointDestinationUpdate -> Lude.Maybe HTTPEndpointRequestConfiguration) (\s a -> s {requestConfiguration = a} :: HTTPEndpointDestinationUpdate)
+{-# DEPRECATED httpeduRequestConfiguration "Use generic-lens or generic-optics with 'requestConfiguration' instead." #-}
 
 -- | Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
-httpeduRoleARN :: Lens' HTTPEndpointDestinationUpdate (Maybe Text)
-httpeduRoleARN = lens _httpeduRoleARN (\s a -> s {_httpeduRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpeduRoleARN :: Lens.Lens' HTTPEndpointDestinationUpdate (Lude.Maybe Lude.Text)
+httpeduRoleARN = Lens.lens (roleARN :: HTTPEndpointDestinationUpdate -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: HTTPEndpointDestinationUpdate)
+{-# DEPRECATED httpeduRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Hashable HTTPEndpointDestinationUpdate
-
-instance NFData HTTPEndpointDestinationUpdate
-
-instance ToJSON HTTPEndpointDestinationUpdate where
+instance Lude.ToJSON HTTPEndpointDestinationUpdate where
   toJSON HTTPEndpointDestinationUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("S3BackupMode" .=) <$> _httpeduS3BackupMode,
-            ("CloudWatchLoggingOptions" .=)
-              <$> _httpeduCloudWatchLoggingOptions,
-            ("S3Update" .=) <$> _httpeduS3Update,
-            ("BufferingHints" .=) <$> _httpeduBufferingHints,
-            ("RetryOptions" .=) <$> _httpeduRetryOptions,
-            ("EndpointConfiguration" .=) <$> _httpeduEndpointConfiguration,
-            ("ProcessingConfiguration" .=) <$> _httpeduProcessingConfiguration,
-            ("RequestConfiguration" .=) <$> _httpeduRequestConfiguration,
-            ("RoleARN" .=) <$> _httpeduRoleARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3BackupMode" Lude..=) Lude.<$> s3BackupMode,
+            ("CloudWatchLoggingOptions" Lude..=)
+              Lude.<$> cloudWatchLoggingOptions,
+            ("S3Update" Lude..=) Lude.<$> s3Update,
+            ("BufferingHints" Lude..=) Lude.<$> bufferingHints,
+            ("RetryOptions" Lude..=) Lude.<$> retryOptions,
+            ("EndpointConfiguration" Lude..=) Lude.<$> endpointConfiguration,
+            ("ProcessingConfiguration" Lude..=)
+              Lude.<$> processingConfiguration,
+            ("RequestConfiguration" Lude..=) Lude.<$> requestConfiguration,
+            ("RoleARN" Lude..=) Lude.<$> roleARN
           ]
       )

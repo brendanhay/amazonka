@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Describe an existing 'Method' resource.
 module Network.AWS.APIGateway.GetMethod
-  ( -- * Creating a Request
-    getMethod,
-    GetMethod,
+  ( -- * Creating a request
+    GetMethod (..),
+    mkGetMethod,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmmRestAPIId,
     gmmResourceId,
     gmmHttpMethod,
 
-    -- * Destructuring the Response
-    method,
-    Method,
+    -- * Destructuring the response
+    Method (..),
+    mkMethod,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mMethodResponses,
     mHttpMethod,
     mAuthorizationScopes,
@@ -48,82 +43,91 @@ module Network.AWS.APIGateway.GetMethod
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to describe an existing 'Method' resource.
 --
---
---
--- /See:/ 'getMethod' smart constructor.
+-- /See:/ 'mkGetMethod' smart constructor.
 data GetMethod = GetMethod'
-  { _gmmRestAPIId :: !Text,
-    _gmmResourceId :: !Text,
-    _gmmHttpMethod :: !Text
+  { restAPIId :: Lude.Text,
+    resourceId :: Lude.Text,
+    httpMethod :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMethod' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmmRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'gmmResourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
---
--- * 'gmmHttpMethod' - [Required] Specifies the method request's HTTP method type.
-getMethod ::
-  -- | 'gmmRestAPIId'
-  Text ->
-  -- | 'gmmResourceId'
-  Text ->
-  -- | 'gmmHttpMethod'
-  Text ->
+-- * 'httpMethod' - [Required] Specifies the method request's HTTP method type.
+-- * 'resourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetMethod ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'httpMethod'
+  Lude.Text ->
   GetMethod
-getMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
+mkGetMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
   GetMethod'
-    { _gmmRestAPIId = pRestAPIId_,
-      _gmmResourceId = pResourceId_,
-      _gmmHttpMethod = pHttpMethod_
+    { restAPIId = pRestAPIId_,
+      resourceId = pResourceId_,
+      httpMethod = pHttpMethod_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gmmRestAPIId :: Lens' GetMethod Text
-gmmRestAPIId = lens _gmmRestAPIId (\s a -> s {_gmmRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmmRestAPIId :: Lens.Lens' GetMethod Lude.Text
+gmmRestAPIId = Lens.lens (restAPIId :: GetMethod -> Lude.Text) (\s a -> s {restAPIId = a} :: GetMethod)
+{-# DEPRECATED gmmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The 'Resource' identifier for the 'Method' resource.
-gmmResourceId :: Lens' GetMethod Text
-gmmResourceId = lens _gmmResourceId (\s a -> s {_gmmResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmmResourceId :: Lens.Lens' GetMethod Lude.Text
+gmmResourceId = Lens.lens (resourceId :: GetMethod -> Lude.Text) (\s a -> s {resourceId = a} :: GetMethod)
+{-# DEPRECATED gmmResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Specifies the method request's HTTP method type.
-gmmHttpMethod :: Lens' GetMethod Text
-gmmHttpMethod = lens _gmmHttpMethod (\s a -> s {_gmmHttpMethod = a})
+--
+-- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmmHttpMethod :: Lens.Lens' GetMethod Lude.Text
+gmmHttpMethod = Lens.lens (httpMethod :: GetMethod -> Lude.Text) (\s a -> s {httpMethod = a} :: GetMethod)
+{-# DEPRECATED gmmHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
 
-instance AWSRequest GetMethod where
+instance Lude.AWSRequest GetMethod where
   type Rs GetMethod = Method
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetMethod
-
-instance NFData GetMethod
-
-instance ToHeaders GetMethod where
+instance Lude.ToHeaders GetMethod where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetMethod where
+instance Lude.ToPath GetMethod where
   toPath GetMethod' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _gmmRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _gmmResourceId,
+        Lude.toBS resourceId,
         "/methods/",
-        toBS _gmmHttpMethod
+        Lude.toBS httpMethod
       ]
 
-instance ToQuery GetMethod where
-  toQuery = const mempty
+instance Lude.ToQuery GetMethod where
+  toQuery = Lude.const Lude.mempty

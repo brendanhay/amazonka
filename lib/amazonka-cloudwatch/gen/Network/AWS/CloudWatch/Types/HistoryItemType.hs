@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.HistoryItemType where
+module Network.AWS.CloudWatch.Types.HistoryItemType
+  ( HistoryItemType
+      ( HistoryItemType',
+        Action,
+        ConfigurationUpdate,
+        StateUpdate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HistoryItemType
-  = Action
-  | ConfigurationUpdate
-  | StateUpdate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HistoryItemType = HistoryItemType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HistoryItemType where
-  parser =
-    takeLowerText >>= \case
-      "action" -> pure Action
-      "configurationupdate" -> pure ConfigurationUpdate
-      "stateupdate" -> pure StateUpdate
-      e ->
-        fromTextError $
-          "Failure parsing HistoryItemType from value: '" <> e
-            <> "'. Accepted values: action, configurationupdate, stateupdate"
+pattern Action :: HistoryItemType
+pattern Action = HistoryItemType' "Action"
 
-instance ToText HistoryItemType where
-  toText = \case
-    Action -> "Action"
-    ConfigurationUpdate -> "ConfigurationUpdate"
-    StateUpdate -> "StateUpdate"
+pattern ConfigurationUpdate :: HistoryItemType
+pattern ConfigurationUpdate = HistoryItemType' "ConfigurationUpdate"
 
-instance Hashable HistoryItemType
+pattern StateUpdate :: HistoryItemType
+pattern StateUpdate = HistoryItemType' "StateUpdate"
 
-instance NFData HistoryItemType
-
-instance ToByteString HistoryItemType
-
-instance ToQuery HistoryItemType
-
-instance ToHeader HistoryItemType
-
-instance FromXML HistoryItemType where
-  parseXML = parseXMLText "HistoryItemType"
+{-# COMPLETE
+  Action,
+  ConfigurationUpdate,
+  StateUpdate,
+  HistoryItemType'
+  #-}

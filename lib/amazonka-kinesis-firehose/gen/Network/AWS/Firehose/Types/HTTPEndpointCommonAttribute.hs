@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.HTTPEndpointCommonAttribute where
+module Network.AWS.Firehose.Types.HTTPEndpointCommonAttribute
+  ( HTTPEndpointCommonAttribute (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPEndpointCommonAttribute,
+
+    -- * Lenses
+    httpecaAttributeName,
+    httpecaAttributeValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the metadata that's delivered to the specified HTTP endpoint destination.
 --
---
---
--- /See:/ 'hTTPEndpointCommonAttribute' smart constructor.
+-- /See:/ 'mkHTTPEndpointCommonAttribute' smart constructor.
 data HTTPEndpointCommonAttribute = HTTPEndpointCommonAttribute'
-  { _httpecaAttributeName ::
-      !(Sensitive Text),
-    _httpecaAttributeValue ::
-      !(Sensitive Text)
+  { attributeName ::
+      Lude.Sensitive Lude.Text,
+    attributeValue ::
+      Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPEndpointCommonAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpecaAttributeName' - The name of the HTTP endpoint common attribute.
---
--- * 'httpecaAttributeValue' - The value of the HTTP endpoint common attribute.
-hTTPEndpointCommonAttribute ::
-  -- | 'httpecaAttributeName'
-  Text ->
-  -- | 'httpecaAttributeValue'
-  Text ->
+-- * 'attributeName' - The name of the HTTP endpoint common attribute.
+-- * 'attributeValue' - The value of the HTTP endpoint common attribute.
+mkHTTPEndpointCommonAttribute ::
+  -- | 'attributeName'
+  Lude.Sensitive Lude.Text ->
+  -- | 'attributeValue'
+  Lude.Sensitive Lude.Text ->
   HTTPEndpointCommonAttribute
-hTTPEndpointCommonAttribute pAttributeName_ pAttributeValue_ =
+mkHTTPEndpointCommonAttribute pAttributeName_ pAttributeValue_ =
   HTTPEndpointCommonAttribute'
-    { _httpecaAttributeName =
-        _Sensitive # pAttributeName_,
-      _httpecaAttributeValue = _Sensitive # pAttributeValue_
+    { attributeName = pAttributeName_,
+      attributeValue = pAttributeValue_
     }
 
 -- | The name of the HTTP endpoint common attribute.
-httpecaAttributeName :: Lens' HTTPEndpointCommonAttribute Text
-httpecaAttributeName = lens _httpecaAttributeName (\s a -> s {_httpecaAttributeName = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpecaAttributeName :: Lens.Lens' HTTPEndpointCommonAttribute (Lude.Sensitive Lude.Text)
+httpecaAttributeName = Lens.lens (attributeName :: HTTPEndpointCommonAttribute -> Lude.Sensitive Lude.Text) (\s a -> s {attributeName = a} :: HTTPEndpointCommonAttribute)
+{-# DEPRECATED httpecaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The value of the HTTP endpoint common attribute.
-httpecaAttributeValue :: Lens' HTTPEndpointCommonAttribute Text
-httpecaAttributeValue = lens _httpecaAttributeValue (\s a -> s {_httpecaAttributeValue = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpecaAttributeValue :: Lens.Lens' HTTPEndpointCommonAttribute (Lude.Sensitive Lude.Text)
+httpecaAttributeValue = Lens.lens (attributeValue :: HTTPEndpointCommonAttribute -> Lude.Sensitive Lude.Text) (\s a -> s {attributeValue = a} :: HTTPEndpointCommonAttribute)
+{-# DEPRECATED httpecaAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
-instance FromJSON HTTPEndpointCommonAttribute where
+instance Lude.FromJSON HTTPEndpointCommonAttribute where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPEndpointCommonAttribute"
       ( \x ->
           HTTPEndpointCommonAttribute'
-            <$> (x .: "AttributeName") <*> (x .: "AttributeValue")
+            Lude.<$> (x Lude..: "AttributeName") Lude.<*> (x Lude..: "AttributeValue")
       )
 
-instance Hashable HTTPEndpointCommonAttribute
-
-instance NFData HTTPEndpointCommonAttribute
-
-instance ToJSON HTTPEndpointCommonAttribute where
+instance Lude.ToJSON HTTPEndpointCommonAttribute where
   toJSON HTTPEndpointCommonAttribute' {..} =
-    object
-      ( catMaybes
-          [ Just ("AttributeName" .= _httpecaAttributeName),
-            Just ("AttributeValue" .= _httpecaAttributeValue)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("AttributeName" Lude..= attributeName),
+            Lude.Just ("AttributeValue" Lude..= attributeValue)
           ]
       )

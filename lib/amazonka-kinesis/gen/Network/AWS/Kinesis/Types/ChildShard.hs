@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.ChildShard where
+module Network.AWS.Kinesis.Types.ChildShard
+  ( ChildShard (..),
+
+    -- * Smart constructor
+    mkChildShard,
+
+    -- * Lenses
+    csShardId,
+    csParentShards,
+    csHashKeyRange,
+  )
+where
 
 import Network.AWS.Kinesis.Types.HashKeyRange
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
--- | /See:/ 'childShard' smart constructor.
+-- | /See:/ 'mkChildShard' smart constructor.
 data ChildShard = ChildShard'
-  { _csShardId :: !Text,
-    _csParentShards :: ![Text],
-    _csHashKeyRange :: !HashKeyRange
+  { shardId :: Lude.Text,
+    parentShards :: [Lude.Text],
+    hashKeyRange :: HashKeyRange
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChildShard' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csShardId' - Undocumented member.
---
--- * 'csParentShards' - Undocumented member.
---
--- * 'csHashKeyRange' - Undocumented member.
-childShard ::
-  -- | 'csShardId'
-  Text ->
-  -- | 'csHashKeyRange'
+-- * 'hashKeyRange' - Undocumented field.
+-- * 'parentShards' - Undocumented field.
+-- * 'shardId' - Undocumented field.
+mkChildShard ::
+  -- | 'shardId'
+  Lude.Text ->
+  -- | 'hashKeyRange'
   HashKeyRange ->
   ChildShard
-childShard pShardId_ pHashKeyRange_ =
+mkChildShard pShardId_ pHashKeyRange_ =
   ChildShard'
-    { _csShardId = pShardId_,
-      _csParentShards = mempty,
-      _csHashKeyRange = pHashKeyRange_
+    { shardId = pShardId_,
+      parentShards = Lude.mempty,
+      hashKeyRange = pHashKeyRange_
     }
 
--- | Undocumented member.
-csShardId :: Lens' ChildShard Text
-csShardId = lens _csShardId (\s a -> s {_csShardId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csShardId :: Lens.Lens' ChildShard Lude.Text
+csShardId = Lens.lens (shardId :: ChildShard -> Lude.Text) (\s a -> s {shardId = a} :: ChildShard)
+{-# DEPRECATED csShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
 
--- | Undocumented member.
-csParentShards :: Lens' ChildShard [Text]
-csParentShards = lens _csParentShards (\s a -> s {_csParentShards = a}) . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'parentShards' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csParentShards :: Lens.Lens' ChildShard [Lude.Text]
+csParentShards = Lens.lens (parentShards :: ChildShard -> [Lude.Text]) (\s a -> s {parentShards = a} :: ChildShard)
+{-# DEPRECATED csParentShards "Use generic-lens or generic-optics with 'parentShards' instead." #-}
 
--- | Undocumented member.
-csHashKeyRange :: Lens' ChildShard HashKeyRange
-csHashKeyRange = lens _csHashKeyRange (\s a -> s {_csHashKeyRange = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hashKeyRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csHashKeyRange :: Lens.Lens' ChildShard HashKeyRange
+csHashKeyRange = Lens.lens (hashKeyRange :: ChildShard -> HashKeyRange) (\s a -> s {hashKeyRange = a} :: ChildShard)
+{-# DEPRECATED csHashKeyRange "Use generic-lens or generic-optics with 'hashKeyRange' instead." #-}
 
-instance FromJSON ChildShard where
+instance Lude.FromJSON ChildShard where
   parseJSON =
-    withObject
+    Lude.withObject
       "ChildShard"
       ( \x ->
           ChildShard'
-            <$> (x .: "ShardId")
-            <*> (x .:? "ParentShards" .!= mempty)
-            <*> (x .: "HashKeyRange")
+            Lude.<$> (x Lude..: "ShardId")
+            Lude.<*> (x Lude..:? "ParentShards" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "HashKeyRange")
       )
-
-instance Hashable ChildShard
-
-instance NFData ChildShard

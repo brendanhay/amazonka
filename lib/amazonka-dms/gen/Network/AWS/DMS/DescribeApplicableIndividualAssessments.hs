@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,15 @@
 --
 -- Provides a list of individual assessments that you can specify for a new premigration assessment run, given one or more parameters.
 --
---
 -- If you specify an existing migration task, this operation provides the default individual assessments you can specify for that task. Otherwise, the specified parameters model elements of a possible migration task on which to base a premigration assessment run.
---
 -- To use these migration task modeling parameters, you must specify an existing replication instance, a source database engine, a target database engine, and a migration type. This combination of parameters potentially limits the default individual assessments available for an assessment run created for a corresponding migration task.
---
 -- If you specify no parameters, this operation provides a list of all possible individual assessments that you can specify for an assessment run. If you specify any one of the task modeling parameters, you must specify all of them or the operation cannot provide a list of individual assessments. The only parameter that you can specify alone is for an existing migration task. The specified task definition then determines the default list of individual assessments that you can specify in an assessment run for the task.
 module Network.AWS.DMS.DescribeApplicableIndividualAssessments
-  ( -- * Creating a Request
-    describeApplicableIndividualAssessments,
-    DescribeApplicableIndividualAssessments,
+  ( -- * Creating a request
+    DescribeApplicableIndividualAssessments (..),
+    mkDescribeApplicableIndividualAssessments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daiaMigrationType,
     daiaSourceEngineName,
     daiaReplicationTaskARN,
@@ -39,11 +31,11 @@ module Network.AWS.DMS.DescribeApplicableIndividualAssessments
     daiaTargetEngineName,
     daiaReplicationInstanceARN,
 
-    -- * Destructuring the Response
-    describeApplicableIndividualAssessmentsResponse,
-    DescribeApplicableIndividualAssessmentsResponse,
+    -- * Destructuring the response
+    DescribeApplicableIndividualAssessmentsResponse (..),
+    mkDescribeApplicableIndividualAssessmentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     daiarsMarker,
     daiarsIndividualAssessmentNames,
     daiarsResponseStatus,
@@ -51,214 +43,225 @@ module Network.AWS.DMS.DescribeApplicableIndividualAssessments
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeApplicableIndividualAssessments' smart constructor.
+-- /See:/ 'mkDescribeApplicableIndividualAssessments' smart constructor.
 data DescribeApplicableIndividualAssessments = DescribeApplicableIndividualAssessments'
-  { _daiaMigrationType ::
-      !( Maybe
-           MigrationTypeValue
-       ),
-    _daiaSourceEngineName ::
-      !( Maybe
-           Text
-       ),
-    _daiaReplicationTaskARN ::
-      !( Maybe
-           Text
-       ),
-    _daiaMarker ::
-      !( Maybe
-           Text
-       ),
-    _daiaMaxRecords ::
-      !( Maybe
-           Int
-       ),
-    _daiaTargetEngineName ::
-      !( Maybe
-           Text
-       ),
-    _daiaReplicationInstanceARN ::
-      !( Maybe
-           Text
-       )
+  { migrationType ::
+      Lude.Maybe
+        MigrationTypeValue,
+    sourceEngineName ::
+      Lude.Maybe
+        Lude.Text,
+    replicationTaskARN ::
+      Lude.Maybe
+        Lude.Text,
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    maxRecords ::
+      Lude.Maybe
+        Lude.Int,
+    targetEngineName ::
+      Lude.Maybe
+        Lude.Text,
+    replicationInstanceARN ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplicableIndividualAssessments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daiaMigrationType' - Name of the migration type that each provided individual assessment must support.
---
--- * 'daiaSourceEngineName' - Name of a database engine that the specified replication instance supports as a source.
---
--- * 'daiaReplicationTaskARN' - Amazon Resource Name (ARN) of a migration task on which you want to base the default list of individual assessments.
---
--- * 'daiaMarker' - Optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'daiaMaxRecords' - Maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- * 'daiaTargetEngineName' - Name of a database engine that the specified replication instance supports as a target.
---
--- * 'daiaReplicationInstanceARN' - ARN of a replication instance on which you want to base the default list of individual assessments.
-describeApplicableIndividualAssessments ::
+-- * 'marker' - Optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - Maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+-- * 'migrationType' - Name of the migration type that each provided individual assessment must support.
+-- * 'replicationInstanceARN' - ARN of a replication instance on which you want to base the default list of individual assessments.
+-- * 'replicationTaskARN' - Amazon Resource Name (ARN) of a migration task on which you want to base the default list of individual assessments.
+-- * 'sourceEngineName' - Name of a database engine that the specified replication instance supports as a source.
+-- * 'targetEngineName' - Name of a database engine that the specified replication instance supports as a target.
+mkDescribeApplicableIndividualAssessments ::
   DescribeApplicableIndividualAssessments
-describeApplicableIndividualAssessments =
+mkDescribeApplicableIndividualAssessments =
   DescribeApplicableIndividualAssessments'
-    { _daiaMigrationType =
-        Nothing,
-      _daiaSourceEngineName = Nothing,
-      _daiaReplicationTaskARN = Nothing,
-      _daiaMarker = Nothing,
-      _daiaMaxRecords = Nothing,
-      _daiaTargetEngineName = Nothing,
-      _daiaReplicationInstanceARN = Nothing
+    { migrationType =
+        Lude.Nothing,
+      sourceEngineName = Lude.Nothing,
+      replicationTaskARN = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      targetEngineName = Lude.Nothing,
+      replicationInstanceARN = Lude.Nothing
     }
 
 -- | Name of the migration type that each provided individual assessment must support.
-daiaMigrationType :: Lens' DescribeApplicableIndividualAssessments (Maybe MigrationTypeValue)
-daiaMigrationType = lens _daiaMigrationType (\s a -> s {_daiaMigrationType = a})
+--
+-- /Note:/ Consider using 'migrationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiaMigrationType :: Lens.Lens' DescribeApplicableIndividualAssessments (Lude.Maybe MigrationTypeValue)
+daiaMigrationType = Lens.lens (migrationType :: DescribeApplicableIndividualAssessments -> Lude.Maybe MigrationTypeValue) (\s a -> s {migrationType = a} :: DescribeApplicableIndividualAssessments)
+{-# DEPRECATED daiaMigrationType "Use generic-lens or generic-optics with 'migrationType' instead." #-}
 
 -- | Name of a database engine that the specified replication instance supports as a source.
-daiaSourceEngineName :: Lens' DescribeApplicableIndividualAssessments (Maybe Text)
-daiaSourceEngineName = lens _daiaSourceEngineName (\s a -> s {_daiaSourceEngineName = a})
+--
+-- /Note:/ Consider using 'sourceEngineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiaSourceEngineName :: Lens.Lens' DescribeApplicableIndividualAssessments (Lude.Maybe Lude.Text)
+daiaSourceEngineName = Lens.lens (sourceEngineName :: DescribeApplicableIndividualAssessments -> Lude.Maybe Lude.Text) (\s a -> s {sourceEngineName = a} :: DescribeApplicableIndividualAssessments)
+{-# DEPRECATED daiaSourceEngineName "Use generic-lens or generic-optics with 'sourceEngineName' instead." #-}
 
 -- | Amazon Resource Name (ARN) of a migration task on which you want to base the default list of individual assessments.
-daiaReplicationTaskARN :: Lens' DescribeApplicableIndividualAssessments (Maybe Text)
-daiaReplicationTaskARN = lens _daiaReplicationTaskARN (\s a -> s {_daiaReplicationTaskARN = a})
+--
+-- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiaReplicationTaskARN :: Lens.Lens' DescribeApplicableIndividualAssessments (Lude.Maybe Lude.Text)
+daiaReplicationTaskARN = Lens.lens (replicationTaskARN :: DescribeApplicableIndividualAssessments -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskARN = a} :: DescribeApplicableIndividualAssessments)
+{-# DEPRECATED daiaReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 -- | Optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-daiaMarker :: Lens' DescribeApplicableIndividualAssessments (Maybe Text)
-daiaMarker = lens _daiaMarker (\s a -> s {_daiaMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiaMarker :: Lens.Lens' DescribeApplicableIndividualAssessments (Lude.Maybe Lude.Text)
+daiaMarker = Lens.lens (marker :: DescribeApplicableIndividualAssessments -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeApplicableIndividualAssessments)
+{-# DEPRECATED daiaMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
-daiaMaxRecords :: Lens' DescribeApplicableIndividualAssessments (Maybe Int)
-daiaMaxRecords = lens _daiaMaxRecords (\s a -> s {_daiaMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiaMaxRecords :: Lens.Lens' DescribeApplicableIndividualAssessments (Lude.Maybe Lude.Int)
+daiaMaxRecords = Lens.lens (maxRecords :: DescribeApplicableIndividualAssessments -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeApplicableIndividualAssessments)
+{-# DEPRECATED daiaMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | Name of a database engine that the specified replication instance supports as a target.
-daiaTargetEngineName :: Lens' DescribeApplicableIndividualAssessments (Maybe Text)
-daiaTargetEngineName = lens _daiaTargetEngineName (\s a -> s {_daiaTargetEngineName = a})
+--
+-- /Note:/ Consider using 'targetEngineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiaTargetEngineName :: Lens.Lens' DescribeApplicableIndividualAssessments (Lude.Maybe Lude.Text)
+daiaTargetEngineName = Lens.lens (targetEngineName :: DescribeApplicableIndividualAssessments -> Lude.Maybe Lude.Text) (\s a -> s {targetEngineName = a} :: DescribeApplicableIndividualAssessments)
+{-# DEPRECATED daiaTargetEngineName "Use generic-lens or generic-optics with 'targetEngineName' instead." #-}
 
 -- | ARN of a replication instance on which you want to base the default list of individual assessments.
-daiaReplicationInstanceARN :: Lens' DescribeApplicableIndividualAssessments (Maybe Text)
-daiaReplicationInstanceARN = lens _daiaReplicationInstanceARN (\s a -> s {_daiaReplicationInstanceARN = a})
+--
+-- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiaReplicationInstanceARN :: Lens.Lens' DescribeApplicableIndividualAssessments (Lude.Maybe Lude.Text)
+daiaReplicationInstanceARN = Lens.lens (replicationInstanceARN :: DescribeApplicableIndividualAssessments -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceARN = a} :: DescribeApplicableIndividualAssessments)
+{-# DEPRECATED daiaReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
-instance AWSRequest DescribeApplicableIndividualAssessments where
+instance Lude.AWSRequest DescribeApplicableIndividualAssessments where
   type
     Rs DescribeApplicableIndividualAssessments =
       DescribeApplicableIndividualAssessmentsResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeApplicableIndividualAssessmentsResponse'
-            <$> (x .?> "Marker")
-            <*> (x .?> "IndividualAssessmentNames" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Marker")
+            Lude.<*> (x Lude..?> "IndividualAssessmentNames" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeApplicableIndividualAssessments
-
-instance NFData DescribeApplicableIndividualAssessments
-
-instance ToHeaders DescribeApplicableIndividualAssessments where
+instance Lude.ToHeaders DescribeApplicableIndividualAssessments where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonDMSv20160101.DescribeApplicableIndividualAssessments" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonDMSv20160101.DescribeApplicableIndividualAssessments" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeApplicableIndividualAssessments where
+instance Lude.ToJSON DescribeApplicableIndividualAssessments where
   toJSON DescribeApplicableIndividualAssessments' {..} =
-    object
-      ( catMaybes
-          [ ("MigrationType" .=) <$> _daiaMigrationType,
-            ("SourceEngineName" .=) <$> _daiaSourceEngineName,
-            ("ReplicationTaskArn" .=) <$> _daiaReplicationTaskARN,
-            ("Marker" .=) <$> _daiaMarker,
-            ("MaxRecords" .=) <$> _daiaMaxRecords,
-            ("TargetEngineName" .=) <$> _daiaTargetEngineName,
-            ("ReplicationInstanceArn" .=) <$> _daiaReplicationInstanceARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MigrationType" Lude..=) Lude.<$> migrationType,
+            ("SourceEngineName" Lude..=) Lude.<$> sourceEngineName,
+            ("ReplicationTaskArn" Lude..=) Lude.<$> replicationTaskARN,
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("MaxRecords" Lude..=) Lude.<$> maxRecords,
+            ("TargetEngineName" Lude..=) Lude.<$> targetEngineName,
+            ("ReplicationInstanceArn" Lude..=)
+              Lude.<$> replicationInstanceARN
           ]
       )
 
-instance ToPath DescribeApplicableIndividualAssessments where
-  toPath = const "/"
+instance Lude.ToPath DescribeApplicableIndividualAssessments where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeApplicableIndividualAssessments where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeApplicableIndividualAssessments where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeApplicableIndividualAssessmentsResponse' smart constructor.
+-- /See:/ 'mkDescribeApplicableIndividualAssessmentsResponse' smart constructor.
 data DescribeApplicableIndividualAssessmentsResponse = DescribeApplicableIndividualAssessmentsResponse'
-  { _daiarsMarker ::
-      !( Maybe
-           Text
-       ),
-    _daiarsIndividualAssessmentNames ::
-      !( Maybe
-           [Text]
-       ),
-    _daiarsResponseStatus ::
-      !Int
+  { marker ::
+      Lude.Maybe
+        Lude.Text,
+    individualAssessmentNames ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeApplicableIndividualAssessmentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daiarsMarker' - Pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
---
--- * 'daiarsIndividualAssessmentNames' - List of names for the individual assessments supported by the premigration assessment run that you start based on the specified request parameters. For more information on the available individual assessments, including compatibility with different migration task configurations, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html Working with premigration assessment runs> in the /AWS Database Migration Service User Guide./
---
--- * 'daiarsResponseStatus' - -- | The response status code.
-describeApplicableIndividualAssessmentsResponse ::
-  -- | 'daiarsResponseStatus'
-  Int ->
+-- * 'individualAssessmentNames' - List of names for the individual assessments supported by the premigration assessment run that you start based on the specified request parameters. For more information on the available individual assessments, including compatibility with different migration task configurations, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html Working with premigration assessment runs> in the /AWS Database Migration Service User Guide./
+-- * 'marker' - Pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeApplicableIndividualAssessmentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeApplicableIndividualAssessmentsResponse
-describeApplicableIndividualAssessmentsResponse pResponseStatus_ =
+mkDescribeApplicableIndividualAssessmentsResponse pResponseStatus_ =
   DescribeApplicableIndividualAssessmentsResponse'
-    { _daiarsMarker =
-        Nothing,
-      _daiarsIndividualAssessmentNames = Nothing,
-      _daiarsResponseStatus = pResponseStatus_
+    { marker =
+        Lude.Nothing,
+      individualAssessmentNames = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
-daiarsMarker :: Lens' DescribeApplicableIndividualAssessmentsResponse (Maybe Text)
-daiarsMarker = lens _daiarsMarker (\s a -> s {_daiarsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiarsMarker :: Lens.Lens' DescribeApplicableIndividualAssessmentsResponse (Lude.Maybe Lude.Text)
+daiarsMarker = Lens.lens (marker :: DescribeApplicableIndividualAssessmentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeApplicableIndividualAssessmentsResponse)
+{-# DEPRECATED daiarsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | List of names for the individual assessments supported by the premigration assessment run that you start based on the specified request parameters. For more information on the available individual assessments, including compatibility with different migration task configurations, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html Working with premigration assessment runs> in the /AWS Database Migration Service User Guide./
-daiarsIndividualAssessmentNames :: Lens' DescribeApplicableIndividualAssessmentsResponse [Text]
-daiarsIndividualAssessmentNames = lens _daiarsIndividualAssessmentNames (\s a -> s {_daiarsIndividualAssessmentNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'individualAssessmentNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiarsIndividualAssessmentNames :: Lens.Lens' DescribeApplicableIndividualAssessmentsResponse (Lude.Maybe [Lude.Text])
+daiarsIndividualAssessmentNames = Lens.lens (individualAssessmentNames :: DescribeApplicableIndividualAssessmentsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {individualAssessmentNames = a} :: DescribeApplicableIndividualAssessmentsResponse)
+{-# DEPRECATED daiarsIndividualAssessmentNames "Use generic-lens or generic-optics with 'individualAssessmentNames' instead." #-}
 
--- | -- | The response status code.
-daiarsResponseStatus :: Lens' DescribeApplicableIndividualAssessmentsResponse Int
-daiarsResponseStatus = lens _daiarsResponseStatus (\s a -> s {_daiarsResponseStatus = a})
-
-instance NFData DescribeApplicableIndividualAssessmentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daiarsResponseStatus :: Lens.Lens' DescribeApplicableIndividualAssessmentsResponse Lude.Int
+daiarsResponseStatus = Lens.lens (responseStatus :: DescribeApplicableIndividualAssessmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeApplicableIndividualAssessmentsResponse)
+{-# DEPRECATED daiarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioTrack where
+module Network.AWS.MediaLive.Types.AudioTrack
+  ( AudioTrack (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAudioTrack,
+
+    -- * Lenses
+    atTrack,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Track
 --
--- /See:/ 'audioTrack' smart constructor.
-newtype AudioTrack = AudioTrack' {_atTrack :: Nat}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkAudioTrack' smart constructor.
+newtype AudioTrack = AudioTrack' {track :: Lude.Natural}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioTrack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atTrack' - 1-based integer value that maps to a specific audio track
-audioTrack ::
-  -- | 'atTrack'
-  Natural ->
+-- * 'track' - 1-based integer value that maps to a specific audio track
+mkAudioTrack ::
+  -- | 'track'
+  Lude.Natural ->
   AudioTrack
-audioTrack pTrack_ = AudioTrack' {_atTrack = _Nat # pTrack_}
+mkAudioTrack pTrack_ = AudioTrack' {track = pTrack_}
 
 -- | 1-based integer value that maps to a specific audio track
-atTrack :: Lens' AudioTrack Natural
-atTrack = lens _atTrack (\s a -> s {_atTrack = a}) . _Nat
+--
+-- /Note:/ Consider using 'track' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atTrack :: Lens.Lens' AudioTrack Lude.Natural
+atTrack = Lens.lens (track :: AudioTrack -> Lude.Natural) (\s a -> s {track = a} :: AudioTrack)
+{-# DEPRECATED atTrack "Use generic-lens or generic-optics with 'track' instead." #-}
 
-instance FromJSON AudioTrack where
+instance Lude.FromJSON AudioTrack where
   parseJSON =
-    withObject "AudioTrack" (\x -> AudioTrack' <$> (x .: "track"))
+    Lude.withObject
+      "AudioTrack"
+      (\x -> AudioTrack' Lude.<$> (x Lude..: "track"))
 
-instance Hashable AudioTrack
-
-instance NFData AudioTrack
-
-instance ToJSON AudioTrack where
+instance Lude.ToJSON AudioTrack where
   toJSON AudioTrack' {..} =
-    object (catMaybes [Just ("track" .= _atTrack)])
+    Lude.object (Lude.catMaybes [Lude.Just ("track" Lude..= track)])

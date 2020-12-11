@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,138 +17,158 @@
 --
 --     * Adds new @Attributes@ , @Rules@ , or @ObjectTypes@ .
 --
+--
 --     * Updates existing @Attributes@ , @Rules@ , or @ObjectTypes@ .
+--
 --
 --     * Deletes existing @Attributes@ , @Rules@ , or @ObjectTypes@ .
 module Network.AWS.CloudDirectory.UpdateFacet
-  ( -- * Creating a Request
-    updateFacet,
-    UpdateFacet,
+  ( -- * Creating a request
+    UpdateFacet (..),
+    mkUpdateFacet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ufObjectType,
     ufAttributeUpdates,
     ufSchemaARN,
     ufName,
 
-    -- * Destructuring the Response
-    updateFacetResponse,
-    UpdateFacetResponse,
+    -- * Destructuring the response
+    UpdateFacetResponse (..),
+    mkUpdateFacetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ufrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateFacet' smart constructor.
+-- | /See:/ 'mkUpdateFacet' smart constructor.
 data UpdateFacet = UpdateFacet'
-  { _ufObjectType ::
-      !(Maybe ObjectType),
-    _ufAttributeUpdates :: !(Maybe [FacetAttributeUpdate]),
-    _ufSchemaARN :: !Text,
-    _ufName :: !Text
+  { objectType ::
+      Lude.Maybe ObjectType,
+    attributeUpdates :: Lude.Maybe [FacetAttributeUpdate],
+    schemaARN :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFacet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufObjectType' - The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
---
--- * 'ufAttributeUpdates' - List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
---
--- * 'ufSchemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
---
--- * 'ufName' - The name of the facet.
-updateFacet ::
-  -- | 'ufSchemaARN'
-  Text ->
-  -- | 'ufName'
-  Text ->
+-- * 'attributeUpdates' - List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
+-- * 'name' - The name of the facet.
+-- * 'objectType' - The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
+mkUpdateFacet ::
+  -- | 'schemaARN'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   UpdateFacet
-updateFacet pSchemaARN_ pName_ =
+mkUpdateFacet pSchemaARN_ pName_ =
   UpdateFacet'
-    { _ufObjectType = Nothing,
-      _ufAttributeUpdates = Nothing,
-      _ufSchemaARN = pSchemaARN_,
-      _ufName = pName_
+    { objectType = Lude.Nothing,
+      attributeUpdates = Lude.Nothing,
+      schemaARN = pSchemaARN_,
+      name = pName_
     }
 
 -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
-ufObjectType :: Lens' UpdateFacet (Maybe ObjectType)
-ufObjectType = lens _ufObjectType (\s a -> s {_ufObjectType = a})
+--
+-- /Note:/ Consider using 'objectType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufObjectType :: Lens.Lens' UpdateFacet (Lude.Maybe ObjectType)
+ufObjectType = Lens.lens (objectType :: UpdateFacet -> Lude.Maybe ObjectType) (\s a -> s {objectType = a} :: UpdateFacet)
+{-# DEPRECATED ufObjectType "Use generic-lens or generic-optics with 'objectType' instead." #-}
 
 -- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
-ufAttributeUpdates :: Lens' UpdateFacet [FacetAttributeUpdate]
-ufAttributeUpdates = lens _ufAttributeUpdates (\s a -> s {_ufAttributeUpdates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufAttributeUpdates :: Lens.Lens' UpdateFacet (Lude.Maybe [FacetAttributeUpdate])
+ufAttributeUpdates = Lens.lens (attributeUpdates :: UpdateFacet -> Lude.Maybe [FacetAttributeUpdate]) (\s a -> s {attributeUpdates = a} :: UpdateFacet)
+{-# DEPRECATED ufAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
-ufSchemaARN :: Lens' UpdateFacet Text
-ufSchemaARN = lens _ufSchemaARN (\s a -> s {_ufSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufSchemaARN :: Lens.Lens' UpdateFacet Lude.Text
+ufSchemaARN = Lens.lens (schemaARN :: UpdateFacet -> Lude.Text) (\s a -> s {schemaARN = a} :: UpdateFacet)
+{-# DEPRECATED ufSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The name of the facet.
-ufName :: Lens' UpdateFacet Text
-ufName = lens _ufName (\s a -> s {_ufName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufName :: Lens.Lens' UpdateFacet Lude.Text
+ufName = Lens.lens (name :: UpdateFacet -> Lude.Text) (\s a -> s {name = a} :: UpdateFacet)
+{-# DEPRECATED ufName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest UpdateFacet where
+instance Lude.AWSRequest UpdateFacet where
   type Rs UpdateFacet = UpdateFacetResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveEmpty
-      (\s h x -> UpdateFacetResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateFacetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateFacet
-
-instance NFData UpdateFacet
-
-instance ToHeaders UpdateFacet where
+instance Lude.ToHeaders UpdateFacet where
   toHeaders UpdateFacet' {..} =
-    mconcat ["x-amz-data-partition" =# _ufSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON UpdateFacet where
+instance Lude.ToJSON UpdateFacet where
   toJSON UpdateFacet' {..} =
-    object
-      ( catMaybes
-          [ ("ObjectType" .=) <$> _ufObjectType,
-            ("AttributeUpdates" .=) <$> _ufAttributeUpdates,
-            Just ("Name" .= _ufName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ObjectType" Lude..=) Lude.<$> objectType,
+            ("AttributeUpdates" Lude..=) Lude.<$> attributeUpdates,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath UpdateFacet where
-  toPath = const "/amazonclouddirectory/2017-01-11/facet"
+instance Lude.ToPath UpdateFacet where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/facet"
 
-instance ToQuery UpdateFacet where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateFacet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateFacetResponse' smart constructor.
+-- | /See:/ 'mkUpdateFacetResponse' smart constructor.
 newtype UpdateFacetResponse = UpdateFacetResponse'
-  { _ufrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFacetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufrsResponseStatus' - -- | The response status code.
-updateFacetResponse ::
-  -- | 'ufrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateFacetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateFacetResponse
-updateFacetResponse pResponseStatus_ =
-  UpdateFacetResponse' {_ufrsResponseStatus = pResponseStatus_}
+mkUpdateFacetResponse pResponseStatus_ =
+  UpdateFacetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ufrsResponseStatus :: Lens' UpdateFacetResponse Int
-ufrsResponseStatus = lens _ufrsResponseStatus (\s a -> s {_ufrsResponseStatus = a})
-
-instance NFData UpdateFacetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufrsResponseStatus :: Lens.Lens' UpdateFacetResponse Lude.Int
+ufrsResponseStatus = Lens.lens (responseStatus :: UpdateFacetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFacetResponse)
+{-# DEPRECATED ufrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

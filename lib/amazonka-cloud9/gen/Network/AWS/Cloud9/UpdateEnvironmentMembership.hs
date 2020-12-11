@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,189 @@
 --
 -- Changes the settings of an existing environment member for an AWS Cloud9 development environment.
 module Network.AWS.Cloud9.UpdateEnvironmentMembership
-  ( -- * Creating a Request
-    updateEnvironmentMembership,
-    UpdateEnvironmentMembership,
+  ( -- * Creating a request
+    UpdateEnvironmentMembership (..),
+    mkUpdateEnvironmentMembership,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uemEnvironmentId,
     uemUserARN,
     uemPermissions,
 
-    -- * Destructuring the Response
-    updateEnvironmentMembershipResponse,
-    UpdateEnvironmentMembershipResponse,
+    -- * Destructuring the response
+    UpdateEnvironmentMembershipResponse (..),
+    mkUpdateEnvironmentMembershipResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uemrsMembership,
     uemrsResponseStatus,
   )
 where
 
 import Network.AWS.Cloud9.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateEnvironmentMembership' smart constructor.
+-- | /See:/ 'mkUpdateEnvironmentMembership' smart constructor.
 data UpdateEnvironmentMembership = UpdateEnvironmentMembership'
-  { _uemEnvironmentId ::
-      !Text,
-    _uemUserARN :: !Text,
-    _uemPermissions ::
-      !MemberPermissions
+  { environmentId ::
+      Lude.Text,
+    userARN :: Lude.Text,
+    permissions :: MemberPermissions
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEnvironmentMembership' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'environmentId' - The ID of the environment for the environment member whose settings you want to change.
+-- * 'permissions' - The replacement type of environment member permissions you want to associate with this environment member. Available values include:
 --
--- * 'uemEnvironmentId' - The ID of the environment for the environment member whose settings you want to change.
 --
--- * 'uemUserARN' - The Amazon Resource Name (ARN) of the environment member whose settings you want to change.
+--     * @read-only@ : Has read-only access to the environment.
 --
--- * 'uemPermissions' - The replacement type of environment member permissions you want to associate with this environment member. Available values include:     * @read-only@ : Has read-only access to the environment.     * @read-write@ : Has read-write access to the environment.
-updateEnvironmentMembership ::
-  -- | 'uemEnvironmentId'
-  Text ->
-  -- | 'uemUserARN'
-  Text ->
-  -- | 'uemPermissions'
+--
+--     * @read-write@ : Has read-write access to the environment.
+--
+--
+-- * 'userARN' - The Amazon Resource Name (ARN) of the environment member whose settings you want to change.
+mkUpdateEnvironmentMembership ::
+  -- | 'environmentId'
+  Lude.Text ->
+  -- | 'userARN'
+  Lude.Text ->
+  -- | 'permissions'
   MemberPermissions ->
   UpdateEnvironmentMembership
-updateEnvironmentMembership pEnvironmentId_ pUserARN_ pPermissions_ =
-  UpdateEnvironmentMembership'
-    { _uemEnvironmentId = pEnvironmentId_,
-      _uemUserARN = pUserARN_,
-      _uemPermissions = pPermissions_
-    }
+mkUpdateEnvironmentMembership
+  pEnvironmentId_
+  pUserARN_
+  pPermissions_ =
+    UpdateEnvironmentMembership'
+      { environmentId = pEnvironmentId_,
+        userARN = pUserARN_,
+        permissions = pPermissions_
+      }
 
 -- | The ID of the environment for the environment member whose settings you want to change.
-uemEnvironmentId :: Lens' UpdateEnvironmentMembership Text
-uemEnvironmentId = lens _uemEnvironmentId (\s a -> s {_uemEnvironmentId = a})
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uemEnvironmentId :: Lens.Lens' UpdateEnvironmentMembership Lude.Text
+uemEnvironmentId = Lens.lens (environmentId :: UpdateEnvironmentMembership -> Lude.Text) (\s a -> s {environmentId = a} :: UpdateEnvironmentMembership)
+{-# DEPRECATED uemEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the environment member whose settings you want to change.
-uemUserARN :: Lens' UpdateEnvironmentMembership Text
-uemUserARN = lens _uemUserARN (\s a -> s {_uemUserARN = a})
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uemUserARN :: Lens.Lens' UpdateEnvironmentMembership Lude.Text
+uemUserARN = Lens.lens (userARN :: UpdateEnvironmentMembership -> Lude.Text) (\s a -> s {userARN = a} :: UpdateEnvironmentMembership)
+{-# DEPRECATED uemUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
--- | The replacement type of environment member permissions you want to associate with this environment member. Available values include:     * @read-only@ : Has read-only access to the environment.     * @read-write@ : Has read-write access to the environment.
-uemPermissions :: Lens' UpdateEnvironmentMembership MemberPermissions
-uemPermissions = lens _uemPermissions (\s a -> s {_uemPermissions = a})
+-- | The replacement type of environment member permissions you want to associate with this environment member. Available values include:
+--
+--
+--     * @read-only@ : Has read-only access to the environment.
+--
+--
+--     * @read-write@ : Has read-write access to the environment.
+--
+--
+--
+-- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uemPermissions :: Lens.Lens' UpdateEnvironmentMembership MemberPermissions
+uemPermissions = Lens.lens (permissions :: UpdateEnvironmentMembership -> MemberPermissions) (\s a -> s {permissions = a} :: UpdateEnvironmentMembership)
+{-# DEPRECATED uemPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
-instance AWSRequest UpdateEnvironmentMembership where
+instance Lude.AWSRequest UpdateEnvironmentMembership where
   type
     Rs UpdateEnvironmentMembership =
       UpdateEnvironmentMembershipResponse
-  request = postJSON cloud9
+  request = Req.postJSON cloud9Service
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateEnvironmentMembershipResponse'
-            <$> (x .?> "membership") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "membership") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateEnvironmentMembership
-
-instance NFData UpdateEnvironmentMembership
-
-instance ToHeaders UpdateEnvironmentMembership where
+instance Lude.ToHeaders UpdateEnvironmentMembership where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateEnvironmentMembership where
+instance Lude.ToJSON UpdateEnvironmentMembership where
   toJSON UpdateEnvironmentMembership' {..} =
-    object
-      ( catMaybes
-          [ Just ("environmentId" .= _uemEnvironmentId),
-            Just ("userArn" .= _uemUserARN),
-            Just ("permissions" .= _uemPermissions)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("environmentId" Lude..= environmentId),
+            Lude.Just ("userArn" Lude..= userARN),
+            Lude.Just ("permissions" Lude..= permissions)
           ]
       )
 
-instance ToPath UpdateEnvironmentMembership where
-  toPath = const "/"
+instance Lude.ToPath UpdateEnvironmentMembership where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateEnvironmentMembership where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateEnvironmentMembership where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateEnvironmentMembershipResponse' smart constructor.
+-- | /See:/ 'mkUpdateEnvironmentMembershipResponse' smart constructor.
 data UpdateEnvironmentMembershipResponse = UpdateEnvironmentMembershipResponse'
-  { _uemrsMembership ::
-      !( Maybe
-           EnvironmentMember
-       ),
-    _uemrsResponseStatus ::
-      !Int
+  { membership ::
+      Lude.Maybe
+        EnvironmentMember,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEnvironmentMembershipResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uemrsMembership' - Information about the environment member whose settings were changed.
---
--- * 'uemrsResponseStatus' - -- | The response status code.
-updateEnvironmentMembershipResponse ::
-  -- | 'uemrsResponseStatus'
-  Int ->
+-- * 'membership' - Information about the environment member whose settings were changed.
+-- * 'responseStatus' - The response status code.
+mkUpdateEnvironmentMembershipResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateEnvironmentMembershipResponse
-updateEnvironmentMembershipResponse pResponseStatus_ =
+mkUpdateEnvironmentMembershipResponse pResponseStatus_ =
   UpdateEnvironmentMembershipResponse'
-    { _uemrsMembership = Nothing,
-      _uemrsResponseStatus = pResponseStatus_
+    { membership = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the environment member whose settings were changed.
-uemrsMembership :: Lens' UpdateEnvironmentMembershipResponse (Maybe EnvironmentMember)
-uemrsMembership = lens _uemrsMembership (\s a -> s {_uemrsMembership = a})
+--
+-- /Note:/ Consider using 'membership' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uemrsMembership :: Lens.Lens' UpdateEnvironmentMembershipResponse (Lude.Maybe EnvironmentMember)
+uemrsMembership = Lens.lens (membership :: UpdateEnvironmentMembershipResponse -> Lude.Maybe EnvironmentMember) (\s a -> s {membership = a} :: UpdateEnvironmentMembershipResponse)
+{-# DEPRECATED uemrsMembership "Use generic-lens or generic-optics with 'membership' instead." #-}
 
--- | -- | The response status code.
-uemrsResponseStatus :: Lens' UpdateEnvironmentMembershipResponse Int
-uemrsResponseStatus = lens _uemrsResponseStatus (\s a -> s {_uemrsResponseStatus = a})
-
-instance NFData UpdateEnvironmentMembershipResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uemrsResponseStatus :: Lens.Lens' UpdateEnvironmentMembershipResponse Lude.Int
+uemrsResponseStatus = Lens.lens (responseStatus :: UpdateEnvironmentMembershipResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEnvironmentMembershipResponse)
+{-# DEPRECATED uemrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

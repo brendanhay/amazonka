@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,118 @@
 --
 -- Deletes a given schema. Schemas in a development and published state can only be deleted.
 module Network.AWS.CloudDirectory.DeleteSchema
-  ( -- * Creating a Request
-    deleteSchema,
-    DeleteSchema,
+  ( -- * Creating a request
+    DeleteSchema (..),
+    mkDeleteSchema,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsSchemaARN,
 
-    -- * Destructuring the Response
-    deleteSchemaResponse,
-    DeleteSchemaResponse,
+    -- * Destructuring the response
+    DeleteSchemaResponse (..),
+    mkDeleteSchemaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsSchemaARN,
     dsrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSchema' smart constructor.
-newtype DeleteSchema = DeleteSchema' {_dsSchemaARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteSchema' smart constructor.
+newtype DeleteSchema = DeleteSchema' {schemaARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsSchemaARN' - The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
-deleteSchema ::
-  -- | 'dsSchemaARN'
-  Text ->
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
+mkDeleteSchema ::
+  -- | 'schemaARN'
+  Lude.Text ->
   DeleteSchema
-deleteSchema pSchemaARN_ =
-  DeleteSchema' {_dsSchemaARN = pSchemaARN_}
+mkDeleteSchema pSchemaARN_ = DeleteSchema' {schemaARN = pSchemaARN_}
 
 -- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
-dsSchemaARN :: Lens' DeleteSchema Text
-dsSchemaARN = lens _dsSchemaARN (\s a -> s {_dsSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsSchemaARN :: Lens.Lens' DeleteSchema Lude.Text
+dsSchemaARN = Lens.lens (schemaARN :: DeleteSchema -> Lude.Text) (\s a -> s {schemaARN = a} :: DeleteSchema)
+{-# DEPRECATED dsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
-instance AWSRequest DeleteSchema where
+instance Lude.AWSRequest DeleteSchema where
   type Rs DeleteSchema = DeleteSchemaResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteSchemaResponse'
-            <$> (x .?> "SchemaArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SchemaArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteSchema
-
-instance NFData DeleteSchema
-
-instance ToHeaders DeleteSchema where
+instance Lude.ToHeaders DeleteSchema where
   toHeaders DeleteSchema' {..} =
-    mconcat ["x-amz-data-partition" =# _dsSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON DeleteSchema where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DeleteSchema where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DeleteSchema where
-  toPath = const "/amazonclouddirectory/2017-01-11/schema"
+instance Lude.ToPath DeleteSchema where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/schema"
 
-instance ToQuery DeleteSchema where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSchema where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSchemaResponse' smart constructor.
+-- | /See:/ 'mkDeleteSchemaResponse' smart constructor.
 data DeleteSchemaResponse = DeleteSchemaResponse'
-  { _dsrsSchemaARN ::
-      !(Maybe Text),
-    _dsrsResponseStatus :: !Int
+  { schemaARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSchemaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsSchemaARN' - The input ARN that is returned as part of the response. For more information, see 'arns' .
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteSchemaResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'schemaARN' - The input ARN that is returned as part of the response. For more information, see 'arns' .
+mkDeleteSchemaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSchemaResponse
-deleteSchemaResponse pResponseStatus_ =
+mkDeleteSchemaResponse pResponseStatus_ =
   DeleteSchemaResponse'
-    { _dsrsSchemaARN = Nothing,
-      _dsrsResponseStatus = pResponseStatus_
+    { schemaARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The input ARN that is returned as part of the response. For more information, see 'arns' .
-dsrsSchemaARN :: Lens' DeleteSchemaResponse (Maybe Text)
-dsrsSchemaARN = lens _dsrsSchemaARN (\s a -> s {_dsrsSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsSchemaARN :: Lens.Lens' DeleteSchemaResponse (Lude.Maybe Lude.Text)
+dsrsSchemaARN = Lens.lens (schemaARN :: DeleteSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: DeleteSchemaResponse)
+{-# DEPRECATED dsrsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteSchemaResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DeleteSchemaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DeleteSchemaResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DeleteSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSchemaResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

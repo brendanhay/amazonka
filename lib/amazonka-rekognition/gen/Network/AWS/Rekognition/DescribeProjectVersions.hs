@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,181 +14,203 @@
 --
 -- Lists and describes the models in an Amazon Rekognition Custom Labels project. You can specify up to 10 model versions in @ProjectVersionArns@ . If you don't specify a value, descriptions for all models are returned.
 --
---
 -- This operation requires permissions to perform the @rekognition:DescribeProjectVersions@ action.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Rekognition.DescribeProjectVersions
-  ( -- * Creating a Request
-    describeProjectVersions,
-    DescribeProjectVersions,
+  ( -- * Creating a request
+    DescribeProjectVersions (..),
+    mkDescribeProjectVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpvNextToken,
     dpvVersionNames,
     dpvMaxResults,
     dpvProjectARN,
 
-    -- * Destructuring the Response
-    describeProjectVersionsResponse,
-    DescribeProjectVersionsResponse,
+    -- * Destructuring the response
+    DescribeProjectVersionsResponse (..),
+    mkDescribeProjectVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpvrsNextToken,
     dpvrsProjectVersionDescriptions,
     dpvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeProjectVersions' smart constructor.
+-- | /See:/ 'mkDescribeProjectVersions' smart constructor.
 data DescribeProjectVersions = DescribeProjectVersions'
-  { _dpvNextToken ::
-      !(Maybe Text),
-    _dpvVersionNames :: !(Maybe (List1 Text)),
-    _dpvMaxResults :: !(Maybe Nat),
-    _dpvProjectARN :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    versionNames ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    maxResults :: Lude.Maybe Lude.Natural,
+    projectARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProjectVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpvNextToken' - If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
---
--- * 'dpvVersionNames' - A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned. A version name is part of a model (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the version name in the following ARN. @arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version//my-model.2020-01-21T09.10.15/ /1234567890123@ .
---
--- * 'dpvMaxResults' - The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100.
---
--- * 'dpvProjectARN' - The Amazon Resource Name (ARN) of the project that contains the models you want to describe.
-describeProjectVersions ::
-  -- | 'dpvProjectARN'
-  Text ->
+-- * 'maxResults' - The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100.
+-- * 'nextToken' - If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
+-- * 'projectARN' - The Amazon Resource Name (ARN) of the project that contains the models you want to describe.
+-- * 'versionNames' - A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned. A version name is part of a model (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the version name in the following ARN. @arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version//my-model.2020-01-21T09.10.15/ /1234567890123@ .
+mkDescribeProjectVersions ::
+  -- | 'projectARN'
+  Lude.Text ->
   DescribeProjectVersions
-describeProjectVersions pProjectARN_ =
+mkDescribeProjectVersions pProjectARN_ =
   DescribeProjectVersions'
-    { _dpvNextToken = Nothing,
-      _dpvVersionNames = Nothing,
-      _dpvMaxResults = Nothing,
-      _dpvProjectARN = pProjectARN_
+    { nextToken = Lude.Nothing,
+      versionNames = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      projectARN = pProjectARN_
     }
 
 -- | If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
-dpvNextToken :: Lens' DescribeProjectVersions (Maybe Text)
-dpvNextToken = lens _dpvNextToken (\s a -> s {_dpvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvNextToken :: Lens.Lens' DescribeProjectVersions (Lude.Maybe Lude.Text)
+dpvNextToken = Lens.lens (nextToken :: DescribeProjectVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeProjectVersions)
+{-# DEPRECATED dpvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned. A version name is part of a model (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the version name in the following ARN. @arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version//my-model.2020-01-21T09.10.15/ /1234567890123@ .
-dpvVersionNames :: Lens' DescribeProjectVersions (Maybe (NonEmpty Text))
-dpvVersionNames = lens _dpvVersionNames (\s a -> s {_dpvVersionNames = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'versionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvVersionNames :: Lens.Lens' DescribeProjectVersions (Lude.Maybe (Lude.NonEmpty Lude.Text))
+dpvVersionNames = Lens.lens (versionNames :: DescribeProjectVersions -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {versionNames = a} :: DescribeProjectVersions)
+{-# DEPRECATED dpvVersionNames "Use generic-lens or generic-optics with 'versionNames' instead." #-}
 
 -- | The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100.
-dpvMaxResults :: Lens' DescribeProjectVersions (Maybe Natural)
-dpvMaxResults = lens _dpvMaxResults (\s a -> s {_dpvMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvMaxResults :: Lens.Lens' DescribeProjectVersions (Lude.Maybe Lude.Natural)
+dpvMaxResults = Lens.lens (maxResults :: DescribeProjectVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeProjectVersions)
+{-# DEPRECATED dpvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the project that contains the models you want to describe.
-dpvProjectARN :: Lens' DescribeProjectVersions Text
-dpvProjectARN = lens _dpvProjectARN (\s a -> s {_dpvProjectARN = a})
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvProjectARN :: Lens.Lens' DescribeProjectVersions Lude.Text
+dpvProjectARN = Lens.lens (projectARN :: DescribeProjectVersions -> Lude.Text) (\s a -> s {projectARN = a} :: DescribeProjectVersions)
+{-# DEPRECATED dpvProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
-instance AWSPager DescribeProjectVersions where
+instance Page.AWSPager DescribeProjectVersions where
   page rq rs
-    | stop (rs ^. dpvrsNextToken) = Nothing
-    | stop (rs ^. dpvrsProjectVersionDescriptions) = Nothing
-    | otherwise = Just $ rq & dpvNextToken .~ rs ^. dpvrsNextToken
+    | Page.stop (rs Lens.^. dpvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dpvrsProjectVersionDescriptions) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dpvNextToken Lens..~ rs Lens.^. dpvrsNextToken
 
-instance AWSRequest DescribeProjectVersions where
+instance Lude.AWSRequest DescribeProjectVersions where
   type Rs DescribeProjectVersions = DescribeProjectVersionsResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeProjectVersionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "ProjectVersionDescriptions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "ProjectVersionDescriptions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeProjectVersions
-
-instance NFData DescribeProjectVersions
-
-instance ToHeaders DescribeProjectVersions where
+instance Lude.ToHeaders DescribeProjectVersions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.DescribeProjectVersions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.DescribeProjectVersions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeProjectVersions where
+instance Lude.ToJSON DescribeProjectVersions where
   toJSON DescribeProjectVersions' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _dpvNextToken,
-            ("VersionNames" .=) <$> _dpvVersionNames,
-            ("MaxResults" .=) <$> _dpvMaxResults,
-            Just ("ProjectArn" .= _dpvProjectARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("VersionNames" Lude..=) Lude.<$> versionNames,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ProjectArn" Lude..= projectARN)
           ]
       )
 
-instance ToPath DescribeProjectVersions where
-  toPath = const "/"
+instance Lude.ToPath DescribeProjectVersions where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeProjectVersions where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeProjectVersions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeProjectVersionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeProjectVersionsResponse' smart constructor.
 data DescribeProjectVersionsResponse = DescribeProjectVersionsResponse'
-  { _dpvrsNextToken ::
-      !(Maybe Text),
-    _dpvrsProjectVersionDescriptions ::
-      !( Maybe
-           [ProjectVersionDescription]
-       ),
-    _dpvrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    projectVersionDescriptions ::
+      Lude.Maybe
+        [ProjectVersionDescription],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProjectVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpvrsNextToken' - If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
---
--- * 'dpvrsProjectVersionDescriptions' - A list of model descriptions. The list is sorted by the creation date and time of the model versions, latest to earliest.
---
--- * 'dpvrsResponseStatus' - -- | The response status code.
-describeProjectVersionsResponse ::
-  -- | 'dpvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
+-- * 'projectVersionDescriptions' - A list of model descriptions. The list is sorted by the creation date and time of the model versions, latest to earliest.
+-- * 'responseStatus' - The response status code.
+mkDescribeProjectVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeProjectVersionsResponse
-describeProjectVersionsResponse pResponseStatus_ =
+mkDescribeProjectVersionsResponse pResponseStatus_ =
   DescribeProjectVersionsResponse'
-    { _dpvrsNextToken = Nothing,
-      _dpvrsProjectVersionDescriptions = Nothing,
-      _dpvrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      projectVersionDescriptions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
-dpvrsNextToken :: Lens' DescribeProjectVersionsResponse (Maybe Text)
-dpvrsNextToken = lens _dpvrsNextToken (\s a -> s {_dpvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvrsNextToken :: Lens.Lens' DescribeProjectVersionsResponse (Lude.Maybe Lude.Text)
+dpvrsNextToken = Lens.lens (nextToken :: DescribeProjectVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeProjectVersionsResponse)
+{-# DEPRECATED dpvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of model descriptions. The list is sorted by the creation date and time of the model versions, latest to earliest.
-dpvrsProjectVersionDescriptions :: Lens' DescribeProjectVersionsResponse [ProjectVersionDescription]
-dpvrsProjectVersionDescriptions = lens _dpvrsProjectVersionDescriptions (\s a -> s {_dpvrsProjectVersionDescriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'projectVersionDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvrsProjectVersionDescriptions :: Lens.Lens' DescribeProjectVersionsResponse (Lude.Maybe [ProjectVersionDescription])
+dpvrsProjectVersionDescriptions = Lens.lens (projectVersionDescriptions :: DescribeProjectVersionsResponse -> Lude.Maybe [ProjectVersionDescription]) (\s a -> s {projectVersionDescriptions = a} :: DescribeProjectVersionsResponse)
+{-# DEPRECATED dpvrsProjectVersionDescriptions "Use generic-lens or generic-optics with 'projectVersionDescriptions' instead." #-}
 
--- | -- | The response status code.
-dpvrsResponseStatus :: Lens' DescribeProjectVersionsResponse Int
-dpvrsResponseStatus = lens _dpvrsResponseStatus (\s a -> s {_dpvrsResponseStatus = a})
-
-instance NFData DescribeProjectVersionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvrsResponseStatus :: Lens.Lens' DescribeProjectVersionsResponse Lude.Int
+dpvrsResponseStatus = Lens.lens (responseStatus :: DescribeProjectVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProjectVersionsResponse)
+{-# DEPRECATED dpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

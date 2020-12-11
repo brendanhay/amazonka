@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Ac3BitstreamMode where
+module Network.AWS.MediaLive.Types.Ac3BitstreamMode
+  ( Ac3BitstreamMode
+      ( Ac3BitstreamMode',
+        ABMCommentary,
+        ABMCompleteMain,
+        ABMDialogue,
+        ABMEmergency,
+        ABMHearingImpaired,
+        ABMMusicAndEffects,
+        ABMVisuallyImpaired,
+        ABMVoiceOver
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ac3 Bitstream Mode
-data Ac3BitstreamMode
-  = ABMCommentary
-  | ABMCompleteMain
-  | ABMDialogue
-  | ABMEmergency
-  | ABMHearingImpaired
-  | ABMMusicAndEffects
-  | ABMVisuallyImpaired
-  | ABMVoiceOver
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Ac3BitstreamMode = Ac3BitstreamMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Ac3BitstreamMode where
-  parser =
-    takeLowerText >>= \case
-      "commentary" -> pure ABMCommentary
-      "complete_main" -> pure ABMCompleteMain
-      "dialogue" -> pure ABMDialogue
-      "emergency" -> pure ABMEmergency
-      "hearing_impaired" -> pure ABMHearingImpaired
-      "music_and_effects" -> pure ABMMusicAndEffects
-      "visually_impaired" -> pure ABMVisuallyImpaired
-      "voice_over" -> pure ABMVoiceOver
-      e ->
-        fromTextError $
-          "Failure parsing Ac3BitstreamMode from value: '" <> e
-            <> "'. Accepted values: commentary, complete_main, dialogue, emergency, hearing_impaired, music_and_effects, visually_impaired, voice_over"
+pattern ABMCommentary :: Ac3BitstreamMode
+pattern ABMCommentary = Ac3BitstreamMode' "COMMENTARY"
 
-instance ToText Ac3BitstreamMode where
-  toText = \case
-    ABMCommentary -> "COMMENTARY"
-    ABMCompleteMain -> "COMPLETE_MAIN"
-    ABMDialogue -> "DIALOGUE"
-    ABMEmergency -> "EMERGENCY"
-    ABMHearingImpaired -> "HEARING_IMPAIRED"
-    ABMMusicAndEffects -> "MUSIC_AND_EFFECTS"
-    ABMVisuallyImpaired -> "VISUALLY_IMPAIRED"
-    ABMVoiceOver -> "VOICE_OVER"
+pattern ABMCompleteMain :: Ac3BitstreamMode
+pattern ABMCompleteMain = Ac3BitstreamMode' "COMPLETE_MAIN"
 
-instance Hashable Ac3BitstreamMode
+pattern ABMDialogue :: Ac3BitstreamMode
+pattern ABMDialogue = Ac3BitstreamMode' "DIALOGUE"
 
-instance NFData Ac3BitstreamMode
+pattern ABMEmergency :: Ac3BitstreamMode
+pattern ABMEmergency = Ac3BitstreamMode' "EMERGENCY"
 
-instance ToByteString Ac3BitstreamMode
+pattern ABMHearingImpaired :: Ac3BitstreamMode
+pattern ABMHearingImpaired = Ac3BitstreamMode' "HEARING_IMPAIRED"
 
-instance ToQuery Ac3BitstreamMode
+pattern ABMMusicAndEffects :: Ac3BitstreamMode
+pattern ABMMusicAndEffects = Ac3BitstreamMode' "MUSIC_AND_EFFECTS"
 
-instance ToHeader Ac3BitstreamMode
+pattern ABMVisuallyImpaired :: Ac3BitstreamMode
+pattern ABMVisuallyImpaired = Ac3BitstreamMode' "VISUALLY_IMPAIRED"
 
-instance ToJSON Ac3BitstreamMode where
-  toJSON = toJSONText
+pattern ABMVoiceOver :: Ac3BitstreamMode
+pattern ABMVoiceOver = Ac3BitstreamMode' "VOICE_OVER"
 
-instance FromJSON Ac3BitstreamMode where
-  parseJSON = parseJSONText "Ac3BitstreamMode"
+{-# COMPLETE
+  ABMCommentary,
+  ABMCompleteMain,
+  ABMDialogue,
+  ABMEmergency,
+  ABMHearingImpaired,
+  ABMMusicAndEffects,
+  ABMVisuallyImpaired,
+  ABMVoiceOver,
+  Ac3BitstreamMode'
+  #-}

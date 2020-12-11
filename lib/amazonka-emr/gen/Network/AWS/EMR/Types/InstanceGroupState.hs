@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceGroupState where
+module Network.AWS.EMR.Types.InstanceGroupState
+  ( InstanceGroupState
+      ( InstanceGroupState',
+        Arrested,
+        Bootstrapping,
+        Ended,
+        Provisioning,
+        Reconfiguring,
+        Resizing,
+        Running,
+        ShuttingDown,
+        Suspended,
+        Terminated,
+        Terminating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceGroupState
-  = Arrested
-  | Bootstrapping
-  | Ended
-  | Provisioning
-  | Reconfiguring
-  | Resizing
-  | Running
-  | ShuttingDown
-  | Suspended
-  | Terminated
-  | Terminating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceGroupState = InstanceGroupState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceGroupState where
-  parser =
-    takeLowerText >>= \case
-      "arrested" -> pure Arrested
-      "bootstrapping" -> pure Bootstrapping
-      "ended" -> pure Ended
-      "provisioning" -> pure Provisioning
-      "reconfiguring" -> pure Reconfiguring
-      "resizing" -> pure Resizing
-      "running" -> pure Running
-      "shutting_down" -> pure ShuttingDown
-      "suspended" -> pure Suspended
-      "terminated" -> pure Terminated
-      "terminating" -> pure Terminating
-      e ->
-        fromTextError $
-          "Failure parsing InstanceGroupState from value: '" <> e
-            <> "'. Accepted values: arrested, bootstrapping, ended, provisioning, reconfiguring, resizing, running, shutting_down, suspended, terminated, terminating"
+pattern Arrested :: InstanceGroupState
+pattern Arrested = InstanceGroupState' "ARRESTED"
 
-instance ToText InstanceGroupState where
-  toText = \case
-    Arrested -> "ARRESTED"
-    Bootstrapping -> "BOOTSTRAPPING"
-    Ended -> "ENDED"
-    Provisioning -> "PROVISIONING"
-    Reconfiguring -> "RECONFIGURING"
-    Resizing -> "RESIZING"
-    Running -> "RUNNING"
-    ShuttingDown -> "SHUTTING_DOWN"
-    Suspended -> "SUSPENDED"
-    Terminated -> "TERMINATED"
-    Terminating -> "TERMINATING"
+pattern Bootstrapping :: InstanceGroupState
+pattern Bootstrapping = InstanceGroupState' "BOOTSTRAPPING"
 
-instance Hashable InstanceGroupState
+pattern Ended :: InstanceGroupState
+pattern Ended = InstanceGroupState' "ENDED"
 
-instance NFData InstanceGroupState
+pattern Provisioning :: InstanceGroupState
+pattern Provisioning = InstanceGroupState' "PROVISIONING"
 
-instance ToByteString InstanceGroupState
+pattern Reconfiguring :: InstanceGroupState
+pattern Reconfiguring = InstanceGroupState' "RECONFIGURING"
 
-instance ToQuery InstanceGroupState
+pattern Resizing :: InstanceGroupState
+pattern Resizing = InstanceGroupState' "RESIZING"
 
-instance ToHeader InstanceGroupState
+pattern Running :: InstanceGroupState
+pattern Running = InstanceGroupState' "RUNNING"
 
-instance FromJSON InstanceGroupState where
-  parseJSON = parseJSONText "InstanceGroupState"
+pattern ShuttingDown :: InstanceGroupState
+pattern ShuttingDown = InstanceGroupState' "SHUTTING_DOWN"
+
+pattern Suspended :: InstanceGroupState
+pattern Suspended = InstanceGroupState' "SUSPENDED"
+
+pattern Terminated :: InstanceGroupState
+pattern Terminated = InstanceGroupState' "TERMINATED"
+
+pattern Terminating :: InstanceGroupState
+pattern Terminating = InstanceGroupState' "TERMINATING"
+
+{-# COMPLETE
+  Arrested,
+  Bootstrapping,
+  Ended,
+  Provisioning,
+  Reconfiguring,
+  Resizing,
+  Running,
+  ShuttingDown,
+  Suspended,
+  Terminated,
+  Terminating,
+  InstanceGroupState'
+  #-}

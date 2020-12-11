@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings where
+module Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings
+  ( FollowModeScheduleActionStartSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkFollowModeScheduleActionStartSettings,
+
+    -- * Lenses
+    fmsassReferenceActionName,
+    fmsassFollowPoint,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FollowPoint
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings to specify if an action follows another.
 --
--- /See:/ 'followModeScheduleActionStartSettings' smart constructor.
+-- /See:/ 'mkFollowModeScheduleActionStartSettings' smart constructor.
 data FollowModeScheduleActionStartSettings = FollowModeScheduleActionStartSettings'
-  { _fmsassReferenceActionName ::
-      !Text,
-    _fmsassFollowPoint ::
-      !FollowPoint
+  { referenceActionName ::
+      Lude.Text,
+    followPoint ::
+      FollowPoint
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FollowModeScheduleActionStartSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fmsassReferenceActionName' - The action name of another action that this one refers to.
---
--- * 'fmsassFollowPoint' - Identifies whether this action starts relative to the start or relative to the end of the reference action.
-followModeScheduleActionStartSettings ::
-  -- | 'fmsassReferenceActionName'
-  Text ->
-  -- | 'fmsassFollowPoint'
+-- * 'followPoint' - Identifies whether this action starts relative to the start or relative to the end of the reference action.
+-- * 'referenceActionName' - The action name of another action that this one refers to.
+mkFollowModeScheduleActionStartSettings ::
+  -- | 'referenceActionName'
+  Lude.Text ->
+  -- | 'followPoint'
   FollowPoint ->
   FollowModeScheduleActionStartSettings
-followModeScheduleActionStartSettings
+mkFollowModeScheduleActionStartSettings
   pReferenceActionName_
   pFollowPoint_ =
     FollowModeScheduleActionStartSettings'
-      { _fmsassReferenceActionName =
+      { referenceActionName =
           pReferenceActionName_,
-        _fmsassFollowPoint = pFollowPoint_
+        followPoint = pFollowPoint_
       }
 
 -- | The action name of another action that this one refers to.
-fmsassReferenceActionName :: Lens' FollowModeScheduleActionStartSettings Text
-fmsassReferenceActionName = lens _fmsassReferenceActionName (\s a -> s {_fmsassReferenceActionName = a})
+--
+-- /Note:/ Consider using 'referenceActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmsassReferenceActionName :: Lens.Lens' FollowModeScheduleActionStartSettings Lude.Text
+fmsassReferenceActionName = Lens.lens (referenceActionName :: FollowModeScheduleActionStartSettings -> Lude.Text) (\s a -> s {referenceActionName = a} :: FollowModeScheduleActionStartSettings)
+{-# DEPRECATED fmsassReferenceActionName "Use generic-lens or generic-optics with 'referenceActionName' instead." #-}
 
 -- | Identifies whether this action starts relative to the start or relative to the end of the reference action.
-fmsassFollowPoint :: Lens' FollowModeScheduleActionStartSettings FollowPoint
-fmsassFollowPoint = lens _fmsassFollowPoint (\s a -> s {_fmsassFollowPoint = a})
+--
+-- /Note:/ Consider using 'followPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmsassFollowPoint :: Lens.Lens' FollowModeScheduleActionStartSettings FollowPoint
+fmsassFollowPoint = Lens.lens (followPoint :: FollowModeScheduleActionStartSettings -> FollowPoint) (\s a -> s {followPoint = a} :: FollowModeScheduleActionStartSettings)
+{-# DEPRECATED fmsassFollowPoint "Use generic-lens or generic-optics with 'followPoint' instead." #-}
 
-instance FromJSON FollowModeScheduleActionStartSettings where
+instance Lude.FromJSON FollowModeScheduleActionStartSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "FollowModeScheduleActionStartSettings"
       ( \x ->
           FollowModeScheduleActionStartSettings'
-            <$> (x .: "referenceActionName") <*> (x .: "followPoint")
+            Lude.<$> (x Lude..: "referenceActionName")
+            Lude.<*> (x Lude..: "followPoint")
       )
 
-instance Hashable FollowModeScheduleActionStartSettings
-
-instance NFData FollowModeScheduleActionStartSettings
-
-instance ToJSON FollowModeScheduleActionStartSettings where
+instance Lude.ToJSON FollowModeScheduleActionStartSettings where
   toJSON FollowModeScheduleActionStartSettings' {..} =
-    object
-      ( catMaybes
-          [ Just ("referenceActionName" .= _fmsassReferenceActionName),
-            Just ("followPoint" .= _fmsassFollowPoint)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("referenceActionName" Lude..= referenceActionName),
+            Lude.Just ("followPoint" Lude..= followPoint)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateSummary where
+module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateSummary
+  ( LoadBalancerTLSCertificateSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLoadBalancerTLSCertificateSummary,
+
+    -- * Lenses
+    lbtcsIsAttached,
+    lbtcsName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides a summary of SSL/TLS certificate metadata.
 --
---
---
--- /See:/ 'loadBalancerTLSCertificateSummary' smart constructor.
+-- /See:/ 'mkLoadBalancerTLSCertificateSummary' smart constructor.
 data LoadBalancerTLSCertificateSummary = LoadBalancerTLSCertificateSummary'
-  { _lbtcsIsAttached ::
-      !(Maybe Bool),
-    _lbtcsName ::
-      !(Maybe Text)
+  { isAttached ::
+      Lude.Maybe Lude.Bool,
+    name ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerTLSCertificateSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbtcsIsAttached' - When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
---
--- * 'lbtcsName' - The name of the SSL/TLS certificate.
-loadBalancerTLSCertificateSummary ::
+-- * 'isAttached' - When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
+-- * 'name' - The name of the SSL/TLS certificate.
+mkLoadBalancerTLSCertificateSummary ::
   LoadBalancerTLSCertificateSummary
-loadBalancerTLSCertificateSummary =
+mkLoadBalancerTLSCertificateSummary =
   LoadBalancerTLSCertificateSummary'
-    { _lbtcsIsAttached = Nothing,
-      _lbtcsName = Nothing
+    { isAttached = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
-lbtcsIsAttached :: Lens' LoadBalancerTLSCertificateSummary (Maybe Bool)
-lbtcsIsAttached = lens _lbtcsIsAttached (\s a -> s {_lbtcsIsAttached = a})
+--
+-- /Note:/ Consider using 'isAttached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcsIsAttached :: Lens.Lens' LoadBalancerTLSCertificateSummary (Lude.Maybe Lude.Bool)
+lbtcsIsAttached = Lens.lens (isAttached :: LoadBalancerTLSCertificateSummary -> Lude.Maybe Lude.Bool) (\s a -> s {isAttached = a} :: LoadBalancerTLSCertificateSummary)
+{-# DEPRECATED lbtcsIsAttached "Use generic-lens or generic-optics with 'isAttached' instead." #-}
 
 -- | The name of the SSL/TLS certificate.
-lbtcsName :: Lens' LoadBalancerTLSCertificateSummary (Maybe Text)
-lbtcsName = lens _lbtcsName (\s a -> s {_lbtcsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcsName :: Lens.Lens' LoadBalancerTLSCertificateSummary (Lude.Maybe Lude.Text)
+lbtcsName = Lens.lens (name :: LoadBalancerTLSCertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LoadBalancerTLSCertificateSummary)
+{-# DEPRECATED lbtcsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON LoadBalancerTLSCertificateSummary where
+instance Lude.FromJSON LoadBalancerTLSCertificateSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "LoadBalancerTLSCertificateSummary"
       ( \x ->
           LoadBalancerTLSCertificateSummary'
-            <$> (x .:? "isAttached") <*> (x .:? "name")
+            Lude.<$> (x Lude..:? "isAttached") Lude.<*> (x Lude..:? "name")
       )
-
-instance Hashable LoadBalancerTLSCertificateSummary
-
-instance NFData LoadBalancerTLSCertificateSummary

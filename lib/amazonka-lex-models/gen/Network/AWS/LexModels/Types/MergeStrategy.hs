@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.MergeStrategy where
+module Network.AWS.LexModels.Types.MergeStrategy
+  ( MergeStrategy
+      ( MergeStrategy',
+        FailOnConflict,
+        OverwriteLatest
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MergeStrategy
-  = FailOnConflict
-  | OverwriteLatest
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MergeStrategy = MergeStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MergeStrategy where
-  parser =
-    takeLowerText >>= \case
-      "fail_on_conflict" -> pure FailOnConflict
-      "overwrite_latest" -> pure OverwriteLatest
-      e ->
-        fromTextError $
-          "Failure parsing MergeStrategy from value: '" <> e
-            <> "'. Accepted values: fail_on_conflict, overwrite_latest"
+pattern FailOnConflict :: MergeStrategy
+pattern FailOnConflict = MergeStrategy' "FAIL_ON_CONFLICT"
 
-instance ToText MergeStrategy where
-  toText = \case
-    FailOnConflict -> "FAIL_ON_CONFLICT"
-    OverwriteLatest -> "OVERWRITE_LATEST"
+pattern OverwriteLatest :: MergeStrategy
+pattern OverwriteLatest = MergeStrategy' "OVERWRITE_LATEST"
 
-instance Hashable MergeStrategy
-
-instance NFData MergeStrategy
-
-instance ToByteString MergeStrategy
-
-instance ToQuery MergeStrategy
-
-instance ToHeader MergeStrategy
-
-instance ToJSON MergeStrategy where
-  toJSON = toJSONText
-
-instance FromJSON MergeStrategy where
-  parseJSON = parseJSONText "MergeStrategy"
+{-# COMPLETE
+  FailOnConflict,
+  OverwriteLatest,
+  MergeStrategy'
+  #-}

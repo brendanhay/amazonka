@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Returns a list of ARNs for the reports that belong to a @ReportGroup@ .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListReportsForReportGroup
-  ( -- * Creating a Request
-    listReportsForReportGroup,
-    ListReportsForReportGroup,
+  ( -- * Creating a request
+    ListReportsForReportGroup (..),
+    mkListReportsForReportGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrfrgSortOrder,
     lrfrgNextToken,
     lrfrgFilter,
     lrfrgMaxResults,
     lrfrgReportGroupARN,
 
-    -- * Destructuring the Response
-    listReportsForReportGroupResponse,
-    ListReportsForReportGroupResponse,
+    -- * Destructuring the response
+    ListReportsForReportGroupResponse (..),
+    mkListReportsForReportGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrfrgrsReports,
     lrfrgrsNextToken,
     lrfrgrsResponseStatus,
@@ -46,160 +39,193 @@ module Network.AWS.CodeBuild.ListReportsForReportGroup
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listReportsForReportGroup' smart constructor.
+-- | /See:/ 'mkListReportsForReportGroup' smart constructor.
 data ListReportsForReportGroup = ListReportsForReportGroup'
-  { _lrfrgSortOrder ::
-      !(Maybe SortOrderType),
-    _lrfrgNextToken :: !(Maybe Text),
-    _lrfrgFilter :: !(Maybe ReportFilter),
-    _lrfrgMaxResults :: !(Maybe Nat),
-    _lrfrgReportGroupARN :: !Text
+  { sortOrder ::
+      Lude.Maybe SortOrderType,
+    nextToken :: Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe ReportFilter,
+    maxResults :: Lude.Maybe Lude.Natural,
+    reportGroupARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReportsForReportGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrfrgSortOrder' - Use to specify whether the results are returned in ascending or descending order.
---
--- * 'lrfrgNextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
---
--- * 'lrfrgFilter' - A @ReportFilter@ object used to filter the returned reports.
---
--- * 'lrfrgMaxResults' - The maximum number of paginated reports in this report group returned per response. Use @nextToken@ to iterate pages in the list of returned @Report@ objects. The default value is 100.
---
--- * 'lrfrgReportGroupARN' - The ARN of the report group for which you want to return report ARNs.
-listReportsForReportGroup ::
-  -- | 'lrfrgReportGroupARN'
-  Text ->
+-- * 'filter' - A @ReportFilter@ object used to filter the returned reports.
+-- * 'maxResults' - The maximum number of paginated reports in this report group returned per response. Use @nextToken@ to iterate pages in the list of returned @Report@ objects. The default value is 100.
+-- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'reportGroupARN' - The ARN of the report group for which you want to return report ARNs.
+-- * 'sortOrder' - Use to specify whether the results are returned in ascending or descending order.
+mkListReportsForReportGroup ::
+  -- | 'reportGroupARN'
+  Lude.Text ->
   ListReportsForReportGroup
-listReportsForReportGroup pReportGroupARN_ =
+mkListReportsForReportGroup pReportGroupARN_ =
   ListReportsForReportGroup'
-    { _lrfrgSortOrder = Nothing,
-      _lrfrgNextToken = Nothing,
-      _lrfrgFilter = Nothing,
-      _lrfrgMaxResults = Nothing,
-      _lrfrgReportGroupARN = pReportGroupARN_
+    { sortOrder = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      reportGroupARN = pReportGroupARN_
     }
 
 -- | Use to specify whether the results are returned in ascending or descending order.
-lrfrgSortOrder :: Lens' ListReportsForReportGroup (Maybe SortOrderType)
-lrfrgSortOrder = lens _lrfrgSortOrder (\s a -> s {_lrfrgSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfrgSortOrder :: Lens.Lens' ListReportsForReportGroup (Lude.Maybe SortOrderType)
+lrfrgSortOrder = Lens.lens (sortOrder :: ListReportsForReportGroup -> Lude.Maybe SortOrderType) (\s a -> s {sortOrder = a} :: ListReportsForReportGroup)
+{-# DEPRECATED lrfrgSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-lrfrgNextToken :: Lens' ListReportsForReportGroup (Maybe Text)
-lrfrgNextToken = lens _lrfrgNextToken (\s a -> s {_lrfrgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfrgNextToken :: Lens.Lens' ListReportsForReportGroup (Lude.Maybe Lude.Text)
+lrfrgNextToken = Lens.lens (nextToken :: ListReportsForReportGroup -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReportsForReportGroup)
+{-# DEPRECATED lrfrgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A @ReportFilter@ object used to filter the returned reports.
-lrfrgFilter :: Lens' ListReportsForReportGroup (Maybe ReportFilter)
-lrfrgFilter = lens _lrfrgFilter (\s a -> s {_lrfrgFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfrgFilter :: Lens.Lens' ListReportsForReportGroup (Lude.Maybe ReportFilter)
+lrfrgFilter = Lens.lens (filter :: ListReportsForReportGroup -> Lude.Maybe ReportFilter) (\s a -> s {filter = a} :: ListReportsForReportGroup)
+{-# DEPRECATED lrfrgFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of paginated reports in this report group returned per response. Use @nextToken@ to iterate pages in the list of returned @Report@ objects. The default value is 100.
-lrfrgMaxResults :: Lens' ListReportsForReportGroup (Maybe Natural)
-lrfrgMaxResults = lens _lrfrgMaxResults (\s a -> s {_lrfrgMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfrgMaxResults :: Lens.Lens' ListReportsForReportGroup (Lude.Maybe Lude.Natural)
+lrfrgMaxResults = Lens.lens (maxResults :: ListReportsForReportGroup -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListReportsForReportGroup)
+{-# DEPRECATED lrfrgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ARN of the report group for which you want to return report ARNs.
-lrfrgReportGroupARN :: Lens' ListReportsForReportGroup Text
-lrfrgReportGroupARN = lens _lrfrgReportGroupARN (\s a -> s {_lrfrgReportGroupARN = a})
+--
+-- /Note:/ Consider using 'reportGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfrgReportGroupARN :: Lens.Lens' ListReportsForReportGroup Lude.Text
+lrfrgReportGroupARN = Lens.lens (reportGroupARN :: ListReportsForReportGroup -> Lude.Text) (\s a -> s {reportGroupARN = a} :: ListReportsForReportGroup)
+{-# DEPRECATED lrfrgReportGroupARN "Use generic-lens or generic-optics with 'reportGroupARN' instead." #-}
 
-instance AWSPager ListReportsForReportGroup where
+instance Page.AWSPager ListReportsForReportGroup where
   page rq rs
-    | stop (rs ^. lrfrgrsNextToken) = Nothing
-    | stop (rs ^. lrfrgrsReports) = Nothing
-    | otherwise = Just $ rq & lrfrgNextToken .~ rs ^. lrfrgrsNextToken
+    | Page.stop (rs Lens.^. lrfrgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrfrgrsReports) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrfrgNextToken Lens..~ rs Lens.^. lrfrgrsNextToken
 
-instance AWSRequest ListReportsForReportGroup where
+instance Lude.AWSRequest ListReportsForReportGroup where
   type
     Rs ListReportsForReportGroup =
       ListReportsForReportGroupResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListReportsForReportGroupResponse'
-            <$> (x .?> "reports") <*> (x .?> "nextToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "reports")
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListReportsForReportGroup
-
-instance NFData ListReportsForReportGroup
-
-instance ToHeaders ListReportsForReportGroup where
+instance Lude.ToHeaders ListReportsForReportGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.ListReportsForReportGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeBuild_20161006.ListReportsForReportGroup" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListReportsForReportGroup where
+instance Lude.ToJSON ListReportsForReportGroup where
   toJSON ListReportsForReportGroup' {..} =
-    object
-      ( catMaybes
-          [ ("sortOrder" .=) <$> _lrfrgSortOrder,
-            ("nextToken" .=) <$> _lrfrgNextToken,
-            ("filter" .=) <$> _lrfrgFilter,
-            ("maxResults" .=) <$> _lrfrgMaxResults,
-            Just ("reportGroupArn" .= _lrfrgReportGroupARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sortOrder" Lude..=) Lude.<$> sortOrder,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("filter" Lude..=) Lude.<$> filter,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("reportGroupArn" Lude..= reportGroupARN)
           ]
       )
 
-instance ToPath ListReportsForReportGroup where
-  toPath = const "/"
+instance Lude.ToPath ListReportsForReportGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery ListReportsForReportGroup where
-  toQuery = const mempty
+instance Lude.ToQuery ListReportsForReportGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listReportsForReportGroupResponse' smart constructor.
+-- | /See:/ 'mkListReportsForReportGroupResponse' smart constructor.
 data ListReportsForReportGroupResponse = ListReportsForReportGroupResponse'
-  { _lrfrgrsReports ::
-      !(Maybe (List1 Text)),
-    _lrfrgrsNextToken ::
-      !(Maybe Text),
-    _lrfrgrsResponseStatus ::
-      !Int
+  { reports ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            Lude.Text
+        ),
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReportsForReportGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrfrgrsReports' - The list of report ARNs.
---
--- * 'lrfrgrsNextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
---
--- * 'lrfrgrsResponseStatus' - -- | The response status code.
-listReportsForReportGroupResponse ::
-  -- | 'lrfrgrsResponseStatus'
-  Int ->
+-- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'reports' - The list of report ARNs.
+-- * 'responseStatus' - The response status code.
+mkListReportsForReportGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListReportsForReportGroupResponse
-listReportsForReportGroupResponse pResponseStatus_ =
+mkListReportsForReportGroupResponse pResponseStatus_ =
   ListReportsForReportGroupResponse'
-    { _lrfrgrsReports = Nothing,
-      _lrfrgrsNextToken = Nothing,
-      _lrfrgrsResponseStatus = pResponseStatus_
+    { reports = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of report ARNs.
-lrfrgrsReports :: Lens' ListReportsForReportGroupResponse (Maybe (NonEmpty Text))
-lrfrgrsReports = lens _lrfrgrsReports (\s a -> s {_lrfrgrsReports = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'reports' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfrgrsReports :: Lens.Lens' ListReportsForReportGroupResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+lrfrgrsReports = Lens.lens (reports :: ListReportsForReportGroupResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {reports = a} :: ListReportsForReportGroupResponse)
+{-# DEPRECATED lrfrgrsReports "Use generic-lens or generic-optics with 'reports' instead." #-}
 
 -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-lrfrgrsNextToken :: Lens' ListReportsForReportGroupResponse (Maybe Text)
-lrfrgrsNextToken = lens _lrfrgrsNextToken (\s a -> s {_lrfrgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfrgrsNextToken :: Lens.Lens' ListReportsForReportGroupResponse (Lude.Maybe Lude.Text)
+lrfrgrsNextToken = Lens.lens (nextToken :: ListReportsForReportGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReportsForReportGroupResponse)
+{-# DEPRECATED lrfrgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrfrgrsResponseStatus :: Lens' ListReportsForReportGroupResponse Int
-lrfrgrsResponseStatus = lens _lrfrgrsResponseStatus (\s a -> s {_lrfrgrsResponseStatus = a})
-
-instance NFData ListReportsForReportGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfrgrsResponseStatus :: Lens.Lens' ListReportsForReportGroupResponse Lude.Int
+lrfrgrsResponseStatus = Lens.lens (responseStatus :: ListReportsForReportGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListReportsForReportGroupResponse)
+{-# DEPRECATED lrfrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

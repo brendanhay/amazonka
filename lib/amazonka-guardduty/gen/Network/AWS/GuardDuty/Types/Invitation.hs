@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.Invitation where
+module Network.AWS.GuardDuty.Types.Invitation
+  ( Invitation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInvitation,
+
+    -- * Lenses
+    iInvitedAt,
+    iRelationshipStatus,
+    iInvitationId,
+    iAccountId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the invitation to become a member account.
 --
---
---
--- /See:/ 'invitation' smart constructor.
+-- /See:/ 'mkInvitation' smart constructor.
 data Invitation = Invitation'
-  { _iInvitedAt :: !(Maybe Text),
-    _iRelationshipStatus :: !(Maybe Text),
-    _iInvitationId :: !(Maybe Text),
-    _iAccountId :: !(Maybe Text)
+  { invitedAt :: Lude.Maybe Lude.Text,
+    relationshipStatus :: Lude.Maybe Lude.Text,
+    invitationId :: Lude.Maybe Lude.Text,
+    accountId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Invitation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iInvitedAt' - The timestamp when the invitation was sent.
---
--- * 'iRelationshipStatus' - The status of the relationship between the inviter and invitee accounts.
---
--- * 'iInvitationId' - The ID of the invitation. This value is used to validate the inviter account to the member account.
---
--- * 'iAccountId' - The ID of the account that the invitation was sent from.
-invitation ::
+-- * 'accountId' - The ID of the account that the invitation was sent from.
+-- * 'invitationId' - The ID of the invitation. This value is used to validate the inviter account to the member account.
+-- * 'invitedAt' - The timestamp when the invitation was sent.
+-- * 'relationshipStatus' - The status of the relationship between the inviter and invitee accounts.
+mkInvitation ::
   Invitation
-invitation =
+mkInvitation =
   Invitation'
-    { _iInvitedAt = Nothing,
-      _iRelationshipStatus = Nothing,
-      _iInvitationId = Nothing,
-      _iAccountId = Nothing
+    { invitedAt = Lude.Nothing,
+      relationshipStatus = Lude.Nothing,
+      invitationId = Lude.Nothing,
+      accountId = Lude.Nothing
     }
 
 -- | The timestamp when the invitation was sent.
-iInvitedAt :: Lens' Invitation (Maybe Text)
-iInvitedAt = lens _iInvitedAt (\s a -> s {_iInvitedAt = a})
+--
+-- /Note:/ Consider using 'invitedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInvitedAt :: Lens.Lens' Invitation (Lude.Maybe Lude.Text)
+iInvitedAt = Lens.lens (invitedAt :: Invitation -> Lude.Maybe Lude.Text) (\s a -> s {invitedAt = a} :: Invitation)
+{-# DEPRECATED iInvitedAt "Use generic-lens or generic-optics with 'invitedAt' instead." #-}
 
 -- | The status of the relationship between the inviter and invitee accounts.
-iRelationshipStatus :: Lens' Invitation (Maybe Text)
-iRelationshipStatus = lens _iRelationshipStatus (\s a -> s {_iRelationshipStatus = a})
+--
+-- /Note:/ Consider using 'relationshipStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRelationshipStatus :: Lens.Lens' Invitation (Lude.Maybe Lude.Text)
+iRelationshipStatus = Lens.lens (relationshipStatus :: Invitation -> Lude.Maybe Lude.Text) (\s a -> s {relationshipStatus = a} :: Invitation)
+{-# DEPRECATED iRelationshipStatus "Use generic-lens or generic-optics with 'relationshipStatus' instead." #-}
 
 -- | The ID of the invitation. This value is used to validate the inviter account to the member account.
-iInvitationId :: Lens' Invitation (Maybe Text)
-iInvitationId = lens _iInvitationId (\s a -> s {_iInvitationId = a})
+--
+-- /Note:/ Consider using 'invitationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInvitationId :: Lens.Lens' Invitation (Lude.Maybe Lude.Text)
+iInvitationId = Lens.lens (invitationId :: Invitation -> Lude.Maybe Lude.Text) (\s a -> s {invitationId = a} :: Invitation)
+{-# DEPRECATED iInvitationId "Use generic-lens or generic-optics with 'invitationId' instead." #-}
 
 -- | The ID of the account that the invitation was sent from.
-iAccountId :: Lens' Invitation (Maybe Text)
-iAccountId = lens _iAccountId (\s a -> s {_iAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAccountId :: Lens.Lens' Invitation (Lude.Maybe Lude.Text)
+iAccountId = Lens.lens (accountId :: Invitation -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: Invitation)
+{-# DEPRECATED iAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance FromJSON Invitation where
+instance Lude.FromJSON Invitation where
   parseJSON =
-    withObject
+    Lude.withObject
       "Invitation"
       ( \x ->
           Invitation'
-            <$> (x .:? "invitedAt")
-            <*> (x .:? "relationshipStatus")
-            <*> (x .:? "invitationId")
-            <*> (x .:? "accountId")
+            Lude.<$> (x Lude..:? "invitedAt")
+            Lude.<*> (x Lude..:? "relationshipStatus")
+            Lude.<*> (x Lude..:? "invitationId")
+            Lude.<*> (x Lude..:? "accountId")
       )
-
-instance Hashable Invitation
-
-instance NFData Invitation

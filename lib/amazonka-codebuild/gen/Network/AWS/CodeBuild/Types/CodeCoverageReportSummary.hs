@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.CodeCoverageReportSummary where
+module Network.AWS.CodeBuild.Types.CodeCoverageReportSummary
+  ( CodeCoverageReportSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCodeCoverageReportSummary,
+
+    -- * Lenses
+    ccrsBranchesMissed,
+    ccrsLinesMissed,
+    ccrsBranchesCovered,
+    ccrsLinesCovered,
+    ccrsBranchCoveragePercentage,
+    ccrsLineCoveragePercentage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains a summary of a code coverage report.
 --
---
 -- Line coverage measures how many statements your tests cover. A statement is a single instruction, not including comments, conditionals, etc.
---
 -- Branch coverage determines if your tests cover every possible branch of a control structure, such as an @if@ or @case@ statement.
 --
---
--- /See:/ 'codeCoverageReportSummary' smart constructor.
+-- /See:/ 'mkCodeCoverageReportSummary' smart constructor.
 data CodeCoverageReportSummary = CodeCoverageReportSummary'
-  { _ccrsBranchesMissed ::
-      !(Maybe Nat),
-    _ccrsLinesMissed :: !(Maybe Nat),
-    _ccrsBranchesCovered :: !(Maybe Nat),
-    _ccrsLinesCovered :: !(Maybe Nat),
-    _ccrsBranchCoveragePercentage ::
-      !(Maybe Double),
-    _ccrsLineCoveragePercentage ::
-      !(Maybe Double)
+  { branchesMissed ::
+      Lude.Maybe Lude.Natural,
+    linesMissed :: Lude.Maybe Lude.Natural,
+    branchesCovered ::
+      Lude.Maybe Lude.Natural,
+    linesCovered :: Lude.Maybe Lude.Natural,
+    branchCoveragePercentage ::
+      Lude.Maybe Lude.Double,
+    lineCoveragePercentage ::
+      Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeCoverageReportSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsBranchesMissed' - The number of conditional branches that are not covered by your tests.
---
--- * 'ccrsLinesMissed' - The number of lines that are not covered by your tests.
---
--- * 'ccrsBranchesCovered' - The number of conditional branches that are covered by your tests.
---
--- * 'ccrsLinesCovered' - The number of lines that are covered by your tests.
---
--- * 'ccrsBranchCoveragePercentage' - The percentage of branches that are covered by your tests.
---
--- * 'ccrsLineCoveragePercentage' - The percentage of lines that are covered by your tests.
-codeCoverageReportSummary ::
+-- * 'branchCoveragePercentage' - The percentage of branches that are covered by your tests.
+-- * 'branchesCovered' - The number of conditional branches that are covered by your tests.
+-- * 'branchesMissed' - The number of conditional branches that are not covered by your tests.
+-- * 'lineCoveragePercentage' - The percentage of lines that are covered by your tests.
+-- * 'linesCovered' - The number of lines that are covered by your tests.
+-- * 'linesMissed' - The number of lines that are not covered by your tests.
+mkCodeCoverageReportSummary ::
   CodeCoverageReportSummary
-codeCoverageReportSummary =
+mkCodeCoverageReportSummary =
   CodeCoverageReportSummary'
-    { _ccrsBranchesMissed = Nothing,
-      _ccrsLinesMissed = Nothing,
-      _ccrsBranchesCovered = Nothing,
-      _ccrsLinesCovered = Nothing,
-      _ccrsBranchCoveragePercentage = Nothing,
-      _ccrsLineCoveragePercentage = Nothing
+    { branchesMissed = Lude.Nothing,
+      linesMissed = Lude.Nothing,
+      branchesCovered = Lude.Nothing,
+      linesCovered = Lude.Nothing,
+      branchCoveragePercentage = Lude.Nothing,
+      lineCoveragePercentage = Lude.Nothing
     }
 
 -- | The number of conditional branches that are not covered by your tests.
-ccrsBranchesMissed :: Lens' CodeCoverageReportSummary (Maybe Natural)
-ccrsBranchesMissed = lens _ccrsBranchesMissed (\s a -> s {_ccrsBranchesMissed = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'branchesMissed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsBranchesMissed :: Lens.Lens' CodeCoverageReportSummary (Lude.Maybe Lude.Natural)
+ccrsBranchesMissed = Lens.lens (branchesMissed :: CodeCoverageReportSummary -> Lude.Maybe Lude.Natural) (\s a -> s {branchesMissed = a} :: CodeCoverageReportSummary)
+{-# DEPRECATED ccrsBranchesMissed "Use generic-lens or generic-optics with 'branchesMissed' instead." #-}
 
 -- | The number of lines that are not covered by your tests.
-ccrsLinesMissed :: Lens' CodeCoverageReportSummary (Maybe Natural)
-ccrsLinesMissed = lens _ccrsLinesMissed (\s a -> s {_ccrsLinesMissed = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'linesMissed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsLinesMissed :: Lens.Lens' CodeCoverageReportSummary (Lude.Maybe Lude.Natural)
+ccrsLinesMissed = Lens.lens (linesMissed :: CodeCoverageReportSummary -> Lude.Maybe Lude.Natural) (\s a -> s {linesMissed = a} :: CodeCoverageReportSummary)
+{-# DEPRECATED ccrsLinesMissed "Use generic-lens or generic-optics with 'linesMissed' instead." #-}
 
 -- | The number of conditional branches that are covered by your tests.
-ccrsBranchesCovered :: Lens' CodeCoverageReportSummary (Maybe Natural)
-ccrsBranchesCovered = lens _ccrsBranchesCovered (\s a -> s {_ccrsBranchesCovered = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'branchesCovered' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsBranchesCovered :: Lens.Lens' CodeCoverageReportSummary (Lude.Maybe Lude.Natural)
+ccrsBranchesCovered = Lens.lens (branchesCovered :: CodeCoverageReportSummary -> Lude.Maybe Lude.Natural) (\s a -> s {branchesCovered = a} :: CodeCoverageReportSummary)
+{-# DEPRECATED ccrsBranchesCovered "Use generic-lens or generic-optics with 'branchesCovered' instead." #-}
 
 -- | The number of lines that are covered by your tests.
-ccrsLinesCovered :: Lens' CodeCoverageReportSummary (Maybe Natural)
-ccrsLinesCovered = lens _ccrsLinesCovered (\s a -> s {_ccrsLinesCovered = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'linesCovered' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsLinesCovered :: Lens.Lens' CodeCoverageReportSummary (Lude.Maybe Lude.Natural)
+ccrsLinesCovered = Lens.lens (linesCovered :: CodeCoverageReportSummary -> Lude.Maybe Lude.Natural) (\s a -> s {linesCovered = a} :: CodeCoverageReportSummary)
+{-# DEPRECATED ccrsLinesCovered "Use generic-lens or generic-optics with 'linesCovered' instead." #-}
 
 -- | The percentage of branches that are covered by your tests.
-ccrsBranchCoveragePercentage :: Lens' CodeCoverageReportSummary (Maybe Double)
-ccrsBranchCoveragePercentage = lens _ccrsBranchCoveragePercentage (\s a -> s {_ccrsBranchCoveragePercentage = a})
+--
+-- /Note:/ Consider using 'branchCoveragePercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsBranchCoveragePercentage :: Lens.Lens' CodeCoverageReportSummary (Lude.Maybe Lude.Double)
+ccrsBranchCoveragePercentage = Lens.lens (branchCoveragePercentage :: CodeCoverageReportSummary -> Lude.Maybe Lude.Double) (\s a -> s {branchCoveragePercentage = a} :: CodeCoverageReportSummary)
+{-# DEPRECATED ccrsBranchCoveragePercentage "Use generic-lens or generic-optics with 'branchCoveragePercentage' instead." #-}
 
 -- | The percentage of lines that are covered by your tests.
-ccrsLineCoveragePercentage :: Lens' CodeCoverageReportSummary (Maybe Double)
-ccrsLineCoveragePercentage = lens _ccrsLineCoveragePercentage (\s a -> s {_ccrsLineCoveragePercentage = a})
+--
+-- /Note:/ Consider using 'lineCoveragePercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsLineCoveragePercentage :: Lens.Lens' CodeCoverageReportSummary (Lude.Maybe Lude.Double)
+ccrsLineCoveragePercentage = Lens.lens (lineCoveragePercentage :: CodeCoverageReportSummary -> Lude.Maybe Lude.Double) (\s a -> s {lineCoveragePercentage = a} :: CodeCoverageReportSummary)
+{-# DEPRECATED ccrsLineCoveragePercentage "Use generic-lens or generic-optics with 'lineCoveragePercentage' instead." #-}
 
-instance FromJSON CodeCoverageReportSummary where
+instance Lude.FromJSON CodeCoverageReportSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "CodeCoverageReportSummary"
       ( \x ->
           CodeCoverageReportSummary'
-            <$> (x .:? "branchesMissed")
-            <*> (x .:? "linesMissed")
-            <*> (x .:? "branchesCovered")
-            <*> (x .:? "linesCovered")
-            <*> (x .:? "branchCoveragePercentage")
-            <*> (x .:? "lineCoveragePercentage")
+            Lude.<$> (x Lude..:? "branchesMissed")
+            Lude.<*> (x Lude..:? "linesMissed")
+            Lude.<*> (x Lude..:? "branchesCovered")
+            Lude.<*> (x Lude..:? "linesCovered")
+            Lude.<*> (x Lude..:? "branchCoveragePercentage")
+            Lude.<*> (x Lude..:? "lineCoveragePercentage")
       )
-
-instance Hashable CodeCoverageReportSummary
-
-instance NFData CodeCoverageReportSummary

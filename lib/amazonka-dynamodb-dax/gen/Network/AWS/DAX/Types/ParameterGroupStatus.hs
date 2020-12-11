@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.ParameterGroupStatus where
+module Network.AWS.DAX.Types.ParameterGroupStatus
+  ( ParameterGroupStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameterGroupStatus,
+
+    -- * Lenses
+    pgsNodeIdsToReboot,
+    pgsParameterApplyStatus,
+    pgsParameterGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status of a parameter group.
 --
---
---
--- /See:/ 'parameterGroupStatus' smart constructor.
+-- /See:/ 'mkParameterGroupStatus' smart constructor.
 data ParameterGroupStatus = ParameterGroupStatus'
-  { _pgsNodeIdsToReboot ::
-      !(Maybe [Text]),
-    _pgsParameterApplyStatus :: !(Maybe Text),
-    _pgsParameterGroupName :: !(Maybe Text)
+  { nodeIdsToReboot ::
+      Lude.Maybe [Lude.Text],
+    parameterApplyStatus :: Lude.Maybe Lude.Text,
+    parameterGroupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterGroupStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pgsNodeIdsToReboot' - The node IDs of one or more nodes to be rebooted.
---
--- * 'pgsParameterApplyStatus' - The status of parameter updates.
---
--- * 'pgsParameterGroupName' - The name of the parameter group.
-parameterGroupStatus ::
+-- * 'nodeIdsToReboot' - The node IDs of one or more nodes to be rebooted.
+-- * 'parameterApplyStatus' - The status of parameter updates.
+-- * 'parameterGroupName' - The name of the parameter group.
+mkParameterGroupStatus ::
   ParameterGroupStatus
-parameterGroupStatus =
+mkParameterGroupStatus =
   ParameterGroupStatus'
-    { _pgsNodeIdsToReboot = Nothing,
-      _pgsParameterApplyStatus = Nothing,
-      _pgsParameterGroupName = Nothing
+    { nodeIdsToReboot = Lude.Nothing,
+      parameterApplyStatus = Lude.Nothing,
+      parameterGroupName = Lude.Nothing
     }
 
 -- | The node IDs of one or more nodes to be rebooted.
-pgsNodeIdsToReboot :: Lens' ParameterGroupStatus [Text]
-pgsNodeIdsToReboot = lens _pgsNodeIdsToReboot (\s a -> s {_pgsNodeIdsToReboot = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodeIdsToReboot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgsNodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Lude.Maybe [Lude.Text])
+pgsNodeIdsToReboot = Lens.lens (nodeIdsToReboot :: ParameterGroupStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {nodeIdsToReboot = a} :: ParameterGroupStatus)
+{-# DEPRECATED pgsNodeIdsToReboot "Use generic-lens or generic-optics with 'nodeIdsToReboot' instead." #-}
 
 -- | The status of parameter updates.
-pgsParameterApplyStatus :: Lens' ParameterGroupStatus (Maybe Text)
-pgsParameterApplyStatus = lens _pgsParameterApplyStatus (\s a -> s {_pgsParameterApplyStatus = a})
+--
+-- /Note:/ Consider using 'parameterApplyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgsParameterApplyStatus :: Lens.Lens' ParameterGroupStatus (Lude.Maybe Lude.Text)
+pgsParameterApplyStatus = Lens.lens (parameterApplyStatus :: ParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyStatus = a} :: ParameterGroupStatus)
+{-# DEPRECATED pgsParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
 
 -- | The name of the parameter group.
-pgsParameterGroupName :: Lens' ParameterGroupStatus (Maybe Text)
-pgsParameterGroupName = lens _pgsParameterGroupName (\s a -> s {_pgsParameterGroupName = a})
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgsParameterGroupName :: Lens.Lens' ParameterGroupStatus (Lude.Maybe Lude.Text)
+pgsParameterGroupName = Lens.lens (parameterGroupName :: ParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: ParameterGroupStatus)
+{-# DEPRECATED pgsParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance FromJSON ParameterGroupStatus where
+instance Lude.FromJSON ParameterGroupStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "ParameterGroupStatus"
       ( \x ->
           ParameterGroupStatus'
-            <$> (x .:? "NodeIdsToReboot" .!= mempty)
-            <*> (x .:? "ParameterApplyStatus")
-            <*> (x .:? "ParameterGroupName")
+            Lude.<$> (x Lude..:? "NodeIdsToReboot" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ParameterApplyStatus")
+            Lude.<*> (x Lude..:? "ParameterGroupName")
       )
-
-instance Hashable ParameterGroupStatus
-
-instance NFData ParameterGroupStatus

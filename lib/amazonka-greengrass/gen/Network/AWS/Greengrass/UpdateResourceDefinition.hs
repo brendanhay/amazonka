@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,135 @@
 --
 -- Updates a resource definition.
 module Network.AWS.Greengrass.UpdateResourceDefinition
-  ( -- * Creating a Request
-    updateResourceDefinition,
-    UpdateResourceDefinition,
+  ( -- * Creating a request
+    UpdateResourceDefinition (..),
+    mkUpdateResourceDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urdName,
     urdResourceDefinitionId,
 
-    -- * Destructuring the Response
-    updateResourceDefinitionResponse,
-    UpdateResourceDefinitionResponse,
+    -- * Destructuring the response
+    UpdateResourceDefinitionResponse (..),
+    mkUpdateResourceDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urdrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateResourceDefinition' smart constructor.
+-- | /See:/ 'mkUpdateResourceDefinition' smart constructor.
 data UpdateResourceDefinition = UpdateResourceDefinition'
-  { _urdName ::
-      !(Maybe Text),
-    _urdResourceDefinitionId :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    resourceDefinitionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urdName' - The name of the definition.
---
--- * 'urdResourceDefinitionId' - The ID of the resource definition.
-updateResourceDefinition ::
-  -- | 'urdResourceDefinitionId'
-  Text ->
+-- * 'name' - The name of the definition.
+-- * 'resourceDefinitionId' - The ID of the resource definition.
+mkUpdateResourceDefinition ::
+  -- | 'resourceDefinitionId'
+  Lude.Text ->
   UpdateResourceDefinition
-updateResourceDefinition pResourceDefinitionId_ =
+mkUpdateResourceDefinition pResourceDefinitionId_ =
   UpdateResourceDefinition'
-    { _urdName = Nothing,
-      _urdResourceDefinitionId = pResourceDefinitionId_
+    { name = Lude.Nothing,
+      resourceDefinitionId = pResourceDefinitionId_
     }
 
 -- | The name of the definition.
-urdName :: Lens' UpdateResourceDefinition (Maybe Text)
-urdName = lens _urdName (\s a -> s {_urdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdName :: Lens.Lens' UpdateResourceDefinition (Lude.Maybe Lude.Text)
+urdName = Lens.lens (name :: UpdateResourceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateResourceDefinition)
+{-# DEPRECATED urdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the resource definition.
-urdResourceDefinitionId :: Lens' UpdateResourceDefinition Text
-urdResourceDefinitionId = lens _urdResourceDefinitionId (\s a -> s {_urdResourceDefinitionId = a})
+--
+-- /Note:/ Consider using 'resourceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdResourceDefinitionId :: Lens.Lens' UpdateResourceDefinition Lude.Text
+urdResourceDefinitionId = Lens.lens (resourceDefinitionId :: UpdateResourceDefinition -> Lude.Text) (\s a -> s {resourceDefinitionId = a} :: UpdateResourceDefinition)
+{-# DEPRECATED urdResourceDefinitionId "Use generic-lens or generic-optics with 'resourceDefinitionId' instead." #-}
 
-instance AWSRequest UpdateResourceDefinition where
+instance Lude.AWSRequest UpdateResourceDefinition where
   type Rs UpdateResourceDefinition = UpdateResourceDefinitionResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateResourceDefinitionResponse' <$> (pure (fromEnum s))
+          UpdateResourceDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateResourceDefinition
-
-instance NFData UpdateResourceDefinition
-
-instance ToHeaders UpdateResourceDefinition where
+instance Lude.ToHeaders UpdateResourceDefinition where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateResourceDefinition where
+instance Lude.ToJSON UpdateResourceDefinition where
   toJSON UpdateResourceDefinition' {..} =
-    object (catMaybes [("Name" .=) <$> _urdName])
+    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
 
-instance ToPath UpdateResourceDefinition where
+instance Lude.ToPath UpdateResourceDefinition where
   toPath UpdateResourceDefinition' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/definition/resources/",
-        toBS _urdResourceDefinitionId
+        Lude.toBS resourceDefinitionId
       ]
 
-instance ToQuery UpdateResourceDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateResourceDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateResourceDefinitionResponse' smart constructor.
+-- | /See:/ 'mkUpdateResourceDefinitionResponse' smart constructor.
 newtype UpdateResourceDefinitionResponse = UpdateResourceDefinitionResponse'
-  { _urdrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urdrsResponseStatus' - -- | The response status code.
-updateResourceDefinitionResponse ::
-  -- | 'urdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateResourceDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateResourceDefinitionResponse
-updateResourceDefinitionResponse pResponseStatus_ =
+mkUpdateResourceDefinitionResponse pResponseStatus_ =
   UpdateResourceDefinitionResponse'
-    { _urdrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-urdrsResponseStatus :: Lens' UpdateResourceDefinitionResponse Int
-urdrsResponseStatus = lens _urdrsResponseStatus (\s a -> s {_urdrsResponseStatus = a})
-
-instance NFData UpdateResourceDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdrsResponseStatus :: Lens.Lens' UpdateResourceDefinitionResponse Lude.Int
+urdrsResponseStatus = Lens.lens (responseStatus :: UpdateResourceDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateResourceDefinitionResponse)
+{-# DEPRECATED urdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

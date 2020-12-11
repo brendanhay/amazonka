@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.ResourceError where
+module Network.AWS.AppStream.Types.ResourceError
+  ( ResourceError (..),
+
+    -- * Smart constructor
+    mkResourceError,
+
+    -- * Lenses
+    reErrorCode,
+    reErrorMessage,
+    reErrorTimestamp,
+  )
+where
 
 import Network.AWS.AppStream.Types.FleetErrorCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a resource error.
 --
---
---
--- /See:/ 'resourceError' smart constructor.
+-- /See:/ 'mkResourceError' smart constructor.
 data ResourceError = ResourceError'
-  { _reErrorCode ::
-      !(Maybe FleetErrorCode),
-    _reErrorMessage :: !(Maybe Text),
-    _reErrorTimestamp :: !(Maybe POSIX)
+  { errorCode ::
+      Lude.Maybe FleetErrorCode,
+    errorMessage :: Lude.Maybe Lude.Text,
+    errorTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'reErrorCode' - The error code.
---
--- * 'reErrorMessage' - The error message.
---
--- * 'reErrorTimestamp' - The time the error occurred.
-resourceError ::
+-- * 'errorCode' - The error code.
+-- * 'errorMessage' - The error message.
+-- * 'errorTimestamp' - The time the error occurred.
+mkResourceError ::
   ResourceError
-resourceError =
+mkResourceError =
   ResourceError'
-    { _reErrorCode = Nothing,
-      _reErrorMessage = Nothing,
-      _reErrorTimestamp = Nothing
+    { errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing,
+      errorTimestamp = Lude.Nothing
     }
 
 -- | The error code.
-reErrorCode :: Lens' ResourceError (Maybe FleetErrorCode)
-reErrorCode = lens _reErrorCode (\s a -> s {_reErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reErrorCode :: Lens.Lens' ResourceError (Lude.Maybe FleetErrorCode)
+reErrorCode = Lens.lens (errorCode :: ResourceError -> Lude.Maybe FleetErrorCode) (\s a -> s {errorCode = a} :: ResourceError)
+{-# DEPRECATED reErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message.
-reErrorMessage :: Lens' ResourceError (Maybe Text)
-reErrorMessage = lens _reErrorMessage (\s a -> s {_reErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reErrorMessage :: Lens.Lens' ResourceError (Lude.Maybe Lude.Text)
+reErrorMessage = Lens.lens (errorMessage :: ResourceError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: ResourceError)
+{-# DEPRECATED reErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The time the error occurred.
-reErrorTimestamp :: Lens' ResourceError (Maybe UTCTime)
-reErrorTimestamp = lens _reErrorTimestamp (\s a -> s {_reErrorTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'errorTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reErrorTimestamp :: Lens.Lens' ResourceError (Lude.Maybe Lude.Timestamp)
+reErrorTimestamp = Lens.lens (errorTimestamp :: ResourceError -> Lude.Maybe Lude.Timestamp) (\s a -> s {errorTimestamp = a} :: ResourceError)
+{-# DEPRECATED reErrorTimestamp "Use generic-lens or generic-optics with 'errorTimestamp' instead." #-}
 
-instance FromJSON ResourceError where
+instance Lude.FromJSON ResourceError where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceError"
       ( \x ->
           ResourceError'
-            <$> (x .:? "ErrorCode")
-            <*> (x .:? "ErrorMessage")
-            <*> (x .:? "ErrorTimestamp")
+            Lude.<$> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "ErrorMessage")
+            Lude.<*> (x Lude..:? "ErrorTimestamp")
       )
-
-instance Hashable ResourceError
-
-instance NFData ResourceError

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,121 @@
 --
 -- Deletes a broker. Note: This API is asynchronous.
 module Network.AWS.MQ.DeleteBroker
-  ( -- * Creating a Request
-    deleteBroker,
-    DeleteBroker,
+  ( -- * Creating a request
+    DeleteBroker (..),
+    mkDeleteBroker,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbBrokerId,
 
-    -- * Destructuring the Response
-    deleteBrokerResponse,
-    DeleteBrokerResponse,
+    -- * Destructuring the response
+    DeleteBrokerResponse (..),
+    mkDeleteBrokerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsBrokerId,
     drsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBroker' smart constructor.
-newtype DeleteBroker = DeleteBroker' {_dbBrokerId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteBroker' smart constructor.
+newtype DeleteBroker = DeleteBroker' {brokerId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBroker' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbBrokerId' - The unique ID that Amazon MQ generates for the broker.
-deleteBroker ::
-  -- | 'dbBrokerId'
-  Text ->
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+mkDeleteBroker ::
+  -- | 'brokerId'
+  Lude.Text ->
   DeleteBroker
-deleteBroker pBrokerId_ = DeleteBroker' {_dbBrokerId = pBrokerId_}
+mkDeleteBroker pBrokerId_ = DeleteBroker' {brokerId = pBrokerId_}
 
 -- | The unique ID that Amazon MQ generates for the broker.
-dbBrokerId :: Lens' DeleteBroker Text
-dbBrokerId = lens _dbBrokerId (\s a -> s {_dbBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbBrokerId :: Lens.Lens' DeleteBroker Lude.Text
+dbBrokerId = Lens.lens (brokerId :: DeleteBroker -> Lude.Text) (\s a -> s {brokerId = a} :: DeleteBroker)
+{-# DEPRECATED dbBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
-instance AWSRequest DeleteBroker where
+instance Lude.AWSRequest DeleteBroker where
   type Rs DeleteBroker = DeleteBrokerResponse
-  request = delete mq
+  request = Req.delete mqService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteBrokerResponse'
-            <$> (x .?> "brokerId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "brokerId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteBroker
-
-instance NFData DeleteBroker
-
-instance ToHeaders DeleteBroker where
+instance Lude.ToHeaders DeleteBroker where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteBroker where
+instance Lude.ToPath DeleteBroker where
   toPath DeleteBroker' {..} =
-    mconcat ["/v1/brokers/", toBS _dbBrokerId]
+    Lude.mconcat ["/v1/brokers/", Lude.toBS brokerId]
 
-instance ToQuery DeleteBroker where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBroker where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBrokerResponse' smart constructor.
+-- | /See:/ 'mkDeleteBrokerResponse' smart constructor.
 data DeleteBrokerResponse = DeleteBrokerResponse'
-  { _drsBrokerId ::
-      !(Maybe Text),
-    _drsResponseStatus :: !Int
+  { brokerId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBrokerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsBrokerId' - The unique ID that Amazon MQ generates for the broker.
---
--- * 'drsResponseStatus' - -- | The response status code.
-deleteBrokerResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'responseStatus' - The response status code.
+mkDeleteBrokerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteBrokerResponse
-deleteBrokerResponse pResponseStatus_ =
+mkDeleteBrokerResponse pResponseStatus_ =
   DeleteBrokerResponse'
-    { _drsBrokerId = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { brokerId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique ID that Amazon MQ generates for the broker.
-drsBrokerId :: Lens' DeleteBrokerResponse (Maybe Text)
-drsBrokerId = lens _drsBrokerId (\s a -> s {_drsBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsBrokerId :: Lens.Lens' DeleteBrokerResponse (Lude.Maybe Lude.Text)
+drsBrokerId = Lens.lens (brokerId :: DeleteBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerId = a} :: DeleteBrokerResponse)
+{-# DEPRECATED drsBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteBrokerResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DeleteBrokerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DeleteBrokerResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteBrokerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBrokerResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

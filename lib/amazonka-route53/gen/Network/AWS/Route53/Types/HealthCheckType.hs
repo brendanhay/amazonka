@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.HealthCheckType where
+module Network.AWS.Route53.Types.HealthCheckType
+  ( HealthCheckType
+      ( HealthCheckType',
+        Calculated,
+        CloudwatchMetric,
+        HTTP,
+        HTTPS,
+        HTTPSStrMatch,
+        HTTPStrMatch,
+        TCP
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data HealthCheckType
-  = Calculated
-  | CloudwatchMetric
-  | HTTP
-  | HTTPS
-  | HTTPSStrMatch
-  | HTTPStrMatch
-  | TCP
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HealthCheckType = HealthCheckType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HealthCheckType where
-  parser =
-    takeLowerText >>= \case
-      "calculated" -> pure Calculated
-      "cloudwatch_metric" -> pure CloudwatchMetric
-      "http" -> pure HTTP
-      "https" -> pure HTTPS
-      "https_str_match" -> pure HTTPSStrMatch
-      "http_str_match" -> pure HTTPStrMatch
-      "tcp" -> pure TCP
-      e ->
-        fromTextError $
-          "Failure parsing HealthCheckType from value: '" <> e
-            <> "'. Accepted values: calculated, cloudwatch_metric, http, https, https_str_match, http_str_match, tcp"
+pattern Calculated :: HealthCheckType
+pattern Calculated = HealthCheckType' "CALCULATED"
 
-instance ToText HealthCheckType where
-  toText = \case
-    Calculated -> "CALCULATED"
-    CloudwatchMetric -> "CLOUDWATCH_METRIC"
-    HTTP -> "HTTP"
-    HTTPS -> "HTTPS"
-    HTTPSStrMatch -> "HTTPS_STR_MATCH"
-    HTTPStrMatch -> "HTTP_STR_MATCH"
-    TCP -> "TCP"
+pattern CloudwatchMetric :: HealthCheckType
+pattern CloudwatchMetric = HealthCheckType' "CLOUDWATCH_METRIC"
 
-instance Hashable HealthCheckType
+pattern HTTP :: HealthCheckType
+pattern HTTP = HealthCheckType' "HTTP"
 
-instance NFData HealthCheckType
+pattern HTTPS :: HealthCheckType
+pattern HTTPS = HealthCheckType' "HTTPS"
 
-instance ToByteString HealthCheckType
+pattern HTTPSStrMatch :: HealthCheckType
+pattern HTTPSStrMatch = HealthCheckType' "HTTPS_STR_MATCH"
 
-instance ToQuery HealthCheckType
+pattern HTTPStrMatch :: HealthCheckType
+pattern HTTPStrMatch = HealthCheckType' "HTTP_STR_MATCH"
 
-instance ToHeader HealthCheckType
+pattern TCP :: HealthCheckType
+pattern TCP = HealthCheckType' "TCP"
 
-instance FromXML HealthCheckType where
-  parseXML = parseXMLText "HealthCheckType"
-
-instance ToXML HealthCheckType where
-  toXML = toXMLText
+{-# COMPLETE
+  Calculated,
+  CloudwatchMetric,
+  HTTP,
+  HTTPS,
+  HTTPSStrMatch,
+  HTTPStrMatch,
+  TCP,
+  HealthCheckType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause where
+module Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause
+  ( CompleteWorkflowExecutionFailedCause
+      ( CompleteWorkflowExecutionFailedCause',
+        CWEFCOperationNotPermitted,
+        CWEFCUnhandledDecision
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CompleteWorkflowExecutionFailedCause
-  = CWEFCOperationNotPermitted
-  | CWEFCUnhandledDecision
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CompleteWorkflowExecutionFailedCause = CompleteWorkflowExecutionFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CompleteWorkflowExecutionFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "operation_not_permitted" -> pure CWEFCOperationNotPermitted
-      "unhandled_decision" -> pure CWEFCUnhandledDecision
-      e ->
-        fromTextError $
-          "Failure parsing CompleteWorkflowExecutionFailedCause from value: '" <> e
-            <> "'. Accepted values: operation_not_permitted, unhandled_decision"
+pattern CWEFCOperationNotPermitted :: CompleteWorkflowExecutionFailedCause
+pattern CWEFCOperationNotPermitted = CompleteWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
-instance ToText CompleteWorkflowExecutionFailedCause where
-  toText = \case
-    CWEFCOperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-    CWEFCUnhandledDecision -> "UNHANDLED_DECISION"
+pattern CWEFCUnhandledDecision :: CompleteWorkflowExecutionFailedCause
+pattern CWEFCUnhandledDecision = CompleteWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
 
-instance Hashable CompleteWorkflowExecutionFailedCause
-
-instance NFData CompleteWorkflowExecutionFailedCause
-
-instance ToByteString CompleteWorkflowExecutionFailedCause
-
-instance ToQuery CompleteWorkflowExecutionFailedCause
-
-instance ToHeader CompleteWorkflowExecutionFailedCause
-
-instance FromJSON CompleteWorkflowExecutionFailedCause where
-  parseJSON = parseJSONText "CompleteWorkflowExecutionFailedCause"
+{-# COMPLETE
+  CWEFCOperationNotPermitted,
+  CWEFCUnhandledDecision,
+  CompleteWorkflowExecutionFailedCause'
+  #-}

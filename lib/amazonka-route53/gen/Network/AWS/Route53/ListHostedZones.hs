@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Retrieves a list of the public and private hosted zones that are associated with the current AWS account. The response includes a @HostedZones@ child element for each hosted zone.
 --
---
 -- Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of hosted zones, you can use the @maxitems@ parameter to list them in groups of up to 100.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53.ListHostedZones
-  ( -- * Creating a Request
-    listHostedZones,
-    ListHostedZones,
+  ( -- * Creating a request
+    ListHostedZones (..),
+    mkListHostedZones,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lhzDelegationSetId,
     lhzMarker,
     lhzMaxItems,
 
-    -- * Destructuring the Response
-    listHostedZonesResponse,
-    ListHostedZonesResponse,
+    -- * Destructuring the response
+    ListHostedZonesResponse (..),
+    mkListHostedZonesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lhzrsMarker,
     lhzrsNextMarker,
     lhzrsResponseStatus,
@@ -48,162 +41,199 @@ module Network.AWS.Route53.ListHostedZones
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | A request to retrieve a list of the public and private hosted zones that are associated with the current AWS account.
 --
---
---
--- /See:/ 'listHostedZones' smart constructor.
+-- /See:/ 'mkListHostedZones' smart constructor.
 data ListHostedZones = ListHostedZones'
-  { _lhzDelegationSetId ::
-      !(Maybe ResourceId),
-    _lhzMarker :: !(Maybe Text),
-    _lhzMaxItems :: !(Maybe Text)
+  { delegationSetId ::
+      Lude.Maybe ResourceId,
+    marker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHostedZones' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'delegationSetId' - If you're using reusable delegation sets and you want to list all of the hosted zones that are associated with a reusable delegation set, specify the ID of that reusable delegation set.
+-- * 'marker' - If the value of @IsTruncated@ in the previous response was @true@ , you have more hosted zones. To get more hosted zones, submit another @ListHostedZones@ request.
 --
--- * 'lhzDelegationSetId' - If you're using reusable delegation sets and you want to list all of the hosted zones that are associated with a reusable delegation set, specify the ID of that reusable delegation set.
---
--- * 'lhzMarker' - If the value of @IsTruncated@ in the previous response was @true@ , you have more hosted zones. To get more hosted zones, submit another @ListHostedZones@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first hosted zone that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more hosted zones to get.
---
--- * 'lhzMaxItems' - (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If you have more than @maxitems@ hosted zones, the value of @IsTruncated@ in the response is @true@ , and the value of @NextMarker@ is the hosted zone ID of the first hosted zone that Route 53 will return if you submit another request.
-listHostedZones ::
+-- For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first hosted zone that Amazon Route 53 will return if you submit another request.
+-- If the value of @IsTruncated@ in the previous response was @false@ , there are no more hosted zones to get.
+-- * 'maxItems' - (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If you have more than @maxitems@ hosted zones, the value of @IsTruncated@ in the response is @true@ , and the value of @NextMarker@ is the hosted zone ID of the first hosted zone that Route 53 will return if you submit another request.
+mkListHostedZones ::
   ListHostedZones
-listHostedZones =
+mkListHostedZones =
   ListHostedZones'
-    { _lhzDelegationSetId = Nothing,
-      _lhzMarker = Nothing,
-      _lhzMaxItems = Nothing
+    { delegationSetId = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
 
 -- | If you're using reusable delegation sets and you want to list all of the hosted zones that are associated with a reusable delegation set, specify the ID of that reusable delegation set.
-lhzDelegationSetId :: Lens' ListHostedZones (Maybe ResourceId)
-lhzDelegationSetId = lens _lhzDelegationSetId (\s a -> s {_lhzDelegationSetId = a})
+--
+-- /Note:/ Consider using 'delegationSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzDelegationSetId :: Lens.Lens' ListHostedZones (Lude.Maybe ResourceId)
+lhzDelegationSetId = Lens.lens (delegationSetId :: ListHostedZones -> Lude.Maybe ResourceId) (\s a -> s {delegationSetId = a} :: ListHostedZones)
+{-# DEPRECATED lhzDelegationSetId "Use generic-lens or generic-optics with 'delegationSetId' instead." #-}
 
--- | If the value of @IsTruncated@ in the previous response was @true@ , you have more hosted zones. To get more hosted zones, submit another @ListHostedZones@ request.  For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first hosted zone that Amazon Route 53 will return if you submit another request. If the value of @IsTruncated@ in the previous response was @false@ , there are no more hosted zones to get.
-lhzMarker :: Lens' ListHostedZones (Maybe Text)
-lhzMarker = lens _lhzMarker (\s a -> s {_lhzMarker = a})
+-- | If the value of @IsTruncated@ in the previous response was @true@ , you have more hosted zones. To get more hosted zones, submit another @ListHostedZones@ request.
+--
+-- For the value of @marker@ , specify the value of @NextMarker@ from the previous response, which is the ID of the first hosted zone that Amazon Route 53 will return if you submit another request.
+-- If the value of @IsTruncated@ in the previous response was @false@ , there are no more hosted zones to get.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzMarker :: Lens.Lens' ListHostedZones (Lude.Maybe Lude.Text)
+lhzMarker = Lens.lens (marker :: ListHostedZones -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListHostedZones)
+{-# DEPRECATED lhzMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | (Optional) The maximum number of hosted zones that you want Amazon Route 53 to return. If you have more than @maxitems@ hosted zones, the value of @IsTruncated@ in the response is @true@ , and the value of @NextMarker@ is the hosted zone ID of the first hosted zone that Route 53 will return if you submit another request.
-lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
-lhzMaxItems = lens _lhzMaxItems (\s a -> s {_lhzMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzMaxItems :: Lens.Lens' ListHostedZones (Lude.Maybe Lude.Text)
+lhzMaxItems = Lens.lens (maxItems :: ListHostedZones -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListHostedZones)
+{-# DEPRECATED lhzMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSPager ListHostedZones where
+instance Page.AWSPager ListHostedZones where
   page rq rs
-    | stop (rs ^. lhzrsIsTruncated) = Nothing
-    | isNothing (rs ^. lhzrsNextMarker) = Nothing
-    | otherwise = Just $ rq & lhzMarker .~ rs ^. lhzrsNextMarker
+    | Page.stop (rs Lens.^. lhzrsIsTruncated) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. lhzrsNextMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lhzMarker Lens..~ rs Lens.^. lhzrsNextMarker
 
-instance AWSRequest ListHostedZones where
+instance Lude.AWSRequest ListHostedZones where
   type Rs ListHostedZones = ListHostedZonesResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListHostedZonesResponse'
-            <$> (x .@? "Marker")
-            <*> (x .@? "NextMarker")
-            <*> (pure (fromEnum s))
-            <*> (x .@? "HostedZones" .!@ mempty >>= parseXMLList "HostedZone")
-            <*> (x .@ "IsTruncated")
-            <*> (x .@ "MaxItems")
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "HostedZones" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "HostedZone"
+                     )
+            Lude.<*> (x Lude..@ "IsTruncated")
+            Lude.<*> (x Lude..@ "MaxItems")
       )
 
-instance Hashable ListHostedZones
+instance Lude.ToHeaders ListHostedZones where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListHostedZones
+instance Lude.ToPath ListHostedZones where
+  toPath = Lude.const "/2013-04-01/hostedzone"
 
-instance ToHeaders ListHostedZones where
-  toHeaders = const mempty
-
-instance ToPath ListHostedZones where
-  toPath = const "/2013-04-01/hostedzone"
-
-instance ToQuery ListHostedZones where
+instance Lude.ToQuery ListHostedZones where
   toQuery ListHostedZones' {..} =
-    mconcat
-      [ "delegationsetid" =: _lhzDelegationSetId,
-        "marker" =: _lhzMarker,
-        "maxitems" =: _lhzMaxItems
+    Lude.mconcat
+      [ "delegationsetid" Lude.=: delegationSetId,
+        "marker" Lude.=: marker,
+        "maxitems" Lude.=: maxItems
       ]
 
--- | /See:/ 'listHostedZonesResponse' smart constructor.
+-- | /See:/ 'mkListHostedZonesResponse' smart constructor.
 data ListHostedZonesResponse = ListHostedZonesResponse'
-  { _lhzrsMarker ::
-      !(Maybe Text),
-    _lhzrsNextMarker :: !(Maybe Text),
-    _lhzrsResponseStatus :: !Int,
-    _lhzrsHostedZones :: ![HostedZone],
-    _lhzrsIsTruncated :: !Bool,
-    _lhzrsMaxItems :: !Text
+  { marker ::
+      Lude.Maybe Lude.Text,
+    nextMarker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    hostedZones :: [HostedZone],
+    isTruncated :: Lude.Bool,
+    maxItems :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHostedZonesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'hostedZones' - A complex type that contains general information about the hosted zone.
+-- * 'isTruncated' - A flag indicating whether there are more hosted zones to be listed. If the response was truncated, you can get more hosted zones by submitting another @ListHostedZones@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
+-- * 'marker' - For the second and subsequent calls to @ListHostedZones@ , @Marker@ is the value that you specified for the @marker@ parameter in the request that produced the current response.
+-- * 'maxItems' - The value that you specified for the @maxitems@ parameter in the call to @ListHostedZones@ that produced the current response.
+-- * 'nextMarker' - If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first hosted zone in the next group of hosted zones. Submit another @ListHostedZones@ request, and specify the value of @NextMarker@ from the response in the @marker@ parameter.
 --
--- * 'lhzrsMarker' - For the second and subsequent calls to @ListHostedZones@ , @Marker@ is the value that you specified for the @marker@ parameter in the request that produced the current response.
---
--- * 'lhzrsNextMarker' - If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first hosted zone in the next group of hosted zones. Submit another @ListHostedZones@ request, and specify the value of @NextMarker@ from the response in the @marker@ parameter. This element is present only if @IsTruncated@ is @true@ .
---
--- * 'lhzrsResponseStatus' - -- | The response status code.
---
--- * 'lhzrsHostedZones' - A complex type that contains general information about the hosted zone.
---
--- * 'lhzrsIsTruncated' - A flag indicating whether there are more hosted zones to be listed. If the response was truncated, you can get more hosted zones by submitting another @ListHostedZones@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
---
--- * 'lhzrsMaxItems' - The value that you specified for the @maxitems@ parameter in the call to @ListHostedZones@ that produced the current response.
-listHostedZonesResponse ::
-  -- | 'lhzrsResponseStatus'
-  Int ->
-  -- | 'lhzrsIsTruncated'
-  Bool ->
-  -- | 'lhzrsMaxItems'
-  Text ->
+-- This element is present only if @IsTruncated@ is @true@ .
+-- * 'responseStatus' - The response status code.
+mkListHostedZonesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'isTruncated'
+  Lude.Bool ->
+  -- | 'maxItems'
+  Lude.Text ->
   ListHostedZonesResponse
-listHostedZonesResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
+mkListHostedZonesResponse pResponseStatus_ pIsTruncated_ pMaxItems_ =
   ListHostedZonesResponse'
-    { _lhzrsMarker = Nothing,
-      _lhzrsNextMarker = Nothing,
-      _lhzrsResponseStatus = pResponseStatus_,
-      _lhzrsHostedZones = mempty,
-      _lhzrsIsTruncated = pIsTruncated_,
-      _lhzrsMaxItems = pMaxItems_
+    { marker = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      hostedZones = Lude.mempty,
+      isTruncated = pIsTruncated_,
+      maxItems = pMaxItems_
     }
 
 -- | For the second and subsequent calls to @ListHostedZones@ , @Marker@ is the value that you specified for the @marker@ parameter in the request that produced the current response.
-lhzrsMarker :: Lens' ListHostedZonesResponse (Maybe Text)
-lhzrsMarker = lens _lhzrsMarker (\s a -> s {_lhzrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzrsMarker :: Lens.Lens' ListHostedZonesResponse (Lude.Maybe Lude.Text)
+lhzrsMarker = Lens.lens (marker :: ListHostedZonesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListHostedZonesResponse)
+{-# DEPRECATED lhzrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first hosted zone in the next group of hosted zones. Submit another @ListHostedZones@ request, and specify the value of @NextMarker@ from the response in the @marker@ parameter. This element is present only if @IsTruncated@ is @true@ .
-lhzrsNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
-lhzrsNextMarker = lens _lhzrsNextMarker (\s a -> s {_lhzrsNextMarker = a})
+-- | If @IsTruncated@ is @true@ , the value of @NextMarker@ identifies the first hosted zone in the next group of hosted zones. Submit another @ListHostedZones@ request, and specify the value of @NextMarker@ from the response in the @marker@ parameter.
+--
+-- This element is present only if @IsTruncated@ is @true@ .
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzrsNextMarker :: Lens.Lens' ListHostedZonesResponse (Lude.Maybe Lude.Text)
+lhzrsNextMarker = Lens.lens (nextMarker :: ListHostedZonesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListHostedZonesResponse)
+{-# DEPRECATED lhzrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lhzrsResponseStatus :: Lens' ListHostedZonesResponse Int
-lhzrsResponseStatus = lens _lhzrsResponseStatus (\s a -> s {_lhzrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzrsResponseStatus :: Lens.Lens' ListHostedZonesResponse Lude.Int
+lhzrsResponseStatus = Lens.lens (responseStatus :: ListHostedZonesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHostedZonesResponse)
+{-# DEPRECATED lhzrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains general information about the hosted zone.
-lhzrsHostedZones :: Lens' ListHostedZonesResponse [HostedZone]
-lhzrsHostedZones = lens _lhzrsHostedZones (\s a -> s {_lhzrsHostedZones = a}) . _Coerce
+--
+-- /Note:/ Consider using 'hostedZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzrsHostedZones :: Lens.Lens' ListHostedZonesResponse [HostedZone]
+lhzrsHostedZones = Lens.lens (hostedZones :: ListHostedZonesResponse -> [HostedZone]) (\s a -> s {hostedZones = a} :: ListHostedZonesResponse)
+{-# DEPRECATED lhzrsHostedZones "Use generic-lens or generic-optics with 'hostedZones' instead." #-}
 
 -- | A flag indicating whether there are more hosted zones to be listed. If the response was truncated, you can get more hosted zones by submitting another @ListHostedZones@ request and specifying the value of @NextMarker@ in the @marker@ parameter.
-lhzrsIsTruncated :: Lens' ListHostedZonesResponse Bool
-lhzrsIsTruncated = lens _lhzrsIsTruncated (\s a -> s {_lhzrsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzrsIsTruncated :: Lens.Lens' ListHostedZonesResponse Lude.Bool
+lhzrsIsTruncated = Lens.lens (isTruncated :: ListHostedZonesResponse -> Lude.Bool) (\s a -> s {isTruncated = a} :: ListHostedZonesResponse)
+{-# DEPRECATED lhzrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | The value that you specified for the @maxitems@ parameter in the call to @ListHostedZones@ that produced the current response.
-lhzrsMaxItems :: Lens' ListHostedZonesResponse Text
-lhzrsMaxItems = lens _lhzrsMaxItems (\s a -> s {_lhzrsMaxItems = a})
-
-instance NFData ListHostedZonesResponse
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhzrsMaxItems :: Lens.Lens' ListHostedZonesResponse Lude.Text
+lhzrsMaxItems = Lens.lens (maxItems :: ListHostedZonesResponse -> Lude.Text) (\s a -> s {maxItems = a} :: ListHostedZonesResponse)
+{-# DEPRECATED lhzrsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}

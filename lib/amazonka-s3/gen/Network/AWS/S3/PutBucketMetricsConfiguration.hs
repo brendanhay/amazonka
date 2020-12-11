@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,17 @@
 --
 -- Sets a metrics configuration (specified by the metrics configuration ID) for the bucket. You can have up to 1,000 metrics configurations per bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased.
 --
---
 -- To use this operation, you must have permissions to perform the @s3:PutMetricsConfiguration@ action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources> .
---
 -- For information about CloudWatch request metrics for Amazon S3, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html Monitoring Metrics with Amazon CloudWatch> .
---
 -- The following operations are related to @PutBucketMetricsConfiguration@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetricsConfiguration.html DeleteBucketMetricsConfiguration>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html PutBucketMetricsConfiguration>
 --
---     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html ListBucketMetricsConfigurations>
 --
+--     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html ListBucketMetricsConfigurations>
 --
 --
 -- @GetBucketLifecycle@ has the following special error:
@@ -40,123 +33,142 @@
 --
 --     * Description: You are attempting to create a new configuration but have already reached the 1,000-configuration limit.
 --
+--
 --     * HTTP Status Code: HTTP 400 Bad Request
 module Network.AWS.S3.PutBucketMetricsConfiguration
-  ( -- * Creating a Request
-    putBucketMetricsConfiguration,
-    PutBucketMetricsConfiguration,
+  ( -- * Creating a request
+    PutBucketMetricsConfiguration (..),
+    mkPutBucketMetricsConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pbmcExpectedBucketOwner,
     pbmcBucket,
     pbmcId,
     pbmcMetricsConfiguration,
 
-    -- * Destructuring the Response
-    putBucketMetricsConfigurationResponse,
-    PutBucketMetricsConfigurationResponse,
+    -- * Destructuring the response
+    PutBucketMetricsConfigurationResponse (..),
+    mkPutBucketMetricsConfigurationResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'putBucketMetricsConfiguration' smart constructor.
+-- | /See:/ 'mkPutBucketMetricsConfiguration' smart constructor.
 data PutBucketMetricsConfiguration = PutBucketMetricsConfiguration'
-  { _pbmcExpectedBucketOwner ::
-      !(Maybe Text),
-    _pbmcBucket :: !BucketName,
-    _pbmcId :: !Text,
-    _pbmcMetricsConfiguration ::
-      !MetricsConfiguration
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    id :: Lude.Text,
+    metricsConfiguration ::
+      MetricsConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketMetricsConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pbmcExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'pbmcBucket' - The name of the bucket for which the metrics configuration is set.
---
--- * 'pbmcId' - The ID used to identify the metrics configuration.
---
--- * 'pbmcMetricsConfiguration' - Specifies the metrics configuration.
-putBucketMetricsConfiguration ::
-  -- | 'pbmcBucket'
+-- * 'bucket' - The name of the bucket for which the metrics configuration is set.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'id' - The ID used to identify the metrics configuration.
+-- * 'metricsConfiguration' - Specifies the metrics configuration.
+mkPutBucketMetricsConfiguration ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'pbmcId'
-  Text ->
-  -- | 'pbmcMetricsConfiguration'
+  -- | 'id'
+  Lude.Text ->
+  -- | 'metricsConfiguration'
   MetricsConfiguration ->
   PutBucketMetricsConfiguration
-putBucketMetricsConfiguration pBucket_ pId_ pMetricsConfiguration_ =
-  PutBucketMetricsConfiguration'
-    { _pbmcExpectedBucketOwner =
-        Nothing,
-      _pbmcBucket = pBucket_,
-      _pbmcId = pId_,
-      _pbmcMetricsConfiguration = pMetricsConfiguration_
-    }
+mkPutBucketMetricsConfiguration
+  pBucket_
+  pId_
+  pMetricsConfiguration_ =
+    PutBucketMetricsConfiguration'
+      { expectedBucketOwner =
+          Lude.Nothing,
+        bucket = pBucket_,
+        id = pId_,
+        metricsConfiguration = pMetricsConfiguration_
+      }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-pbmcExpectedBucketOwner :: Lens' PutBucketMetricsConfiguration (Maybe Text)
-pbmcExpectedBucketOwner = lens _pbmcExpectedBucketOwner (\s a -> s {_pbmcExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbmcExpectedBucketOwner :: Lens.Lens' PutBucketMetricsConfiguration (Lude.Maybe Lude.Text)
+pbmcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketMetricsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketMetricsConfiguration)
+{-# DEPRECATED pbmcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket for which the metrics configuration is set.
-pbmcBucket :: Lens' PutBucketMetricsConfiguration BucketName
-pbmcBucket = lens _pbmcBucket (\s a -> s {_pbmcBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbmcBucket :: Lens.Lens' PutBucketMetricsConfiguration BucketName
+pbmcBucket = Lens.lens (bucket :: PutBucketMetricsConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketMetricsConfiguration)
+{-# DEPRECATED pbmcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID used to identify the metrics configuration.
-pbmcId :: Lens' PutBucketMetricsConfiguration Text
-pbmcId = lens _pbmcId (\s a -> s {_pbmcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbmcId :: Lens.Lens' PutBucketMetricsConfiguration Lude.Text
+pbmcId = Lens.lens (id :: PutBucketMetricsConfiguration -> Lude.Text) (\s a -> s {id = a} :: PutBucketMetricsConfiguration)
+{-# DEPRECATED pbmcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Specifies the metrics configuration.
-pbmcMetricsConfiguration :: Lens' PutBucketMetricsConfiguration MetricsConfiguration
-pbmcMetricsConfiguration = lens _pbmcMetricsConfiguration (\s a -> s {_pbmcMetricsConfiguration = a})
+--
+-- /Note:/ Consider using 'metricsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbmcMetricsConfiguration :: Lens.Lens' PutBucketMetricsConfiguration MetricsConfiguration
+pbmcMetricsConfiguration = Lens.lens (metricsConfiguration :: PutBucketMetricsConfiguration -> MetricsConfiguration) (\s a -> s {metricsConfiguration = a} :: PutBucketMetricsConfiguration)
+{-# DEPRECATED pbmcMetricsConfiguration "Use generic-lens or generic-optics with 'metricsConfiguration' instead." #-}
 
-instance AWSRequest PutBucketMetricsConfiguration where
+instance Lude.AWSRequest PutBucketMetricsConfiguration where
   type
     Rs PutBucketMetricsConfiguration =
       PutBucketMetricsConfigurationResponse
-  request = putXML s3
-  response = receiveNull PutBucketMetricsConfigurationResponse'
+  request = Req.putXML s3Service
+  response = Res.receiveNull PutBucketMetricsConfigurationResponse'
 
-instance Hashable PutBucketMetricsConfiguration
-
-instance NFData PutBucketMetricsConfiguration
-
-instance ToElement PutBucketMetricsConfiguration where
+instance Lude.ToElement PutBucketMetricsConfiguration where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}MetricsConfiguration"
-      . _pbmcMetricsConfiguration
+      Lude.. metricsConfiguration
 
-instance ToHeaders PutBucketMetricsConfiguration where
+instance Lude.ToHeaders PutBucketMetricsConfiguration where
   toHeaders PutBucketMetricsConfiguration' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _pbmcExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath PutBucketMetricsConfiguration where
+instance Lude.ToPath PutBucketMetricsConfiguration where
   toPath PutBucketMetricsConfiguration' {..} =
-    mconcat ["/", toBS _pbmcBucket]
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery PutBucketMetricsConfiguration where
+instance Lude.ToQuery PutBucketMetricsConfiguration where
   toQuery PutBucketMetricsConfiguration' {..} =
-    mconcat ["id" =: _pbmcId, "metrics"]
+    Lude.mconcat ["id" Lude.=: id, "metrics"]
 
--- | /See:/ 'putBucketMetricsConfigurationResponse' smart constructor.
+-- | /See:/ 'mkPutBucketMetricsConfigurationResponse' smart constructor.
 data PutBucketMetricsConfigurationResponse = PutBucketMetricsConfigurationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketMetricsConfigurationResponse' with the minimum fields required to make a request.
-putBucketMetricsConfigurationResponse ::
+mkPutBucketMetricsConfigurationResponse ::
   PutBucketMetricsConfigurationResponse
-putBucketMetricsConfigurationResponse =
+mkPutBucketMetricsConfigurationResponse =
   PutBucketMetricsConfigurationResponse'
-
-instance NFData PutBucketMetricsConfigurationResponse

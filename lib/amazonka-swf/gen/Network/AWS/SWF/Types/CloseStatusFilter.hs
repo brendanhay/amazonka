@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.CloseStatusFilter where
+module Network.AWS.SWF.Types.CloseStatusFilter
+  ( CloseStatusFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCloseStatusFilter,
+
+    -- * Lenses
+    csfStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SWF.Types.CloseStatus
 
 -- | Used to filter the closed workflow executions in visibility APIs by their close status.
 --
---
---
--- /See:/ 'closeStatusFilter' smart constructor.
+-- /See:/ 'mkCloseStatusFilter' smart constructor.
 newtype CloseStatusFilter = CloseStatusFilter'
-  { _csfStatus ::
+  { status ::
       CloseStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloseStatusFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csfStatus' - The close status that must match the close status of an execution for it to meet the criteria of this filter.
-closeStatusFilter ::
-  -- | 'csfStatus'
+-- * 'status' - The close status that must match the close status of an execution for it to meet the criteria of this filter.
+mkCloseStatusFilter ::
+  -- | 'status'
   CloseStatus ->
   CloseStatusFilter
-closeStatusFilter pStatus_ =
-  CloseStatusFilter' {_csfStatus = pStatus_}
+mkCloseStatusFilter pStatus_ =
+  CloseStatusFilter' {status = pStatus_}
 
 -- | The close status that must match the close status of an execution for it to meet the criteria of this filter.
-csfStatus :: Lens' CloseStatusFilter CloseStatus
-csfStatus = lens _csfStatus (\s a -> s {_csfStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfStatus :: Lens.Lens' CloseStatusFilter CloseStatus
+csfStatus = Lens.lens (status :: CloseStatusFilter -> CloseStatus) (\s a -> s {status = a} :: CloseStatusFilter)
+{-# DEPRECATED csfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Hashable CloseStatusFilter
-
-instance NFData CloseStatusFilter
-
-instance ToJSON CloseStatusFilter where
+instance Lude.ToJSON CloseStatusFilter where
   toJSON CloseStatusFilter' {..} =
-    object (catMaybes [Just ("status" .= _csfStatus)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("status" Lude..= status)])

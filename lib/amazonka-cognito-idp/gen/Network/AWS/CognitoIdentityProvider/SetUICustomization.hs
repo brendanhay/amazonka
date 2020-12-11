@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,162 +14,176 @@
 --
 -- Sets the UI customization information for a user pool's built-in app UI.
 --
---
 -- You can specify app UI customization settings for a single client (with a specific @clientId@ ) or for all clients (by setting the @clientId@ to @ALL@ ). If you specify @ALL@ , the default configuration will be used for every client that has no UI customization set previously. If you specify UI customization settings for a particular client, it will no longer fall back to the @ALL@ configuration.
 module Network.AWS.CognitoIdentityProvider.SetUICustomization
-  ( -- * Creating a Request
-    setUICustomization,
-    SetUICustomization,
+  ( -- * Creating a request
+    SetUICustomization (..),
+    mkSetUICustomization,
 
-    -- * Request Lenses
+    -- ** Request lenses
     suicClientId,
     suicCSS,
     suicImageFile,
     suicUserPoolId,
 
-    -- * Destructuring the Response
-    setUICustomizationResponse,
-    SetUICustomizationResponse,
+    -- * Destructuring the response
+    SetUICustomizationResponse (..),
+    mkSetUICustomizationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     suicrsResponseStatus,
     suicrsUICustomization,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'setUICustomization' smart constructor.
+-- | /See:/ 'mkSetUICustomization' smart constructor.
 data SetUICustomization = SetUICustomization'
-  { _suicClientId ::
-      !(Maybe (Sensitive Text)),
-    _suicCSS :: !(Maybe Text),
-    _suicImageFile :: !(Maybe Base64),
-    _suicUserPoolId :: !Text
+  { clientId ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    cSS :: Lude.Maybe Lude.Text,
+    imageFile :: Lude.Maybe Lude.Base64,
+    userPoolId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetUICustomization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'suicClientId' - The client ID for the client app.
---
--- * 'suicCSS' - The CSS values in the UI customization.
---
--- * 'suicImageFile' - The uploaded logo image for the UI customization.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'suicUserPoolId' - The user pool ID for the user pool.
-setUICustomization ::
-  -- | 'suicUserPoolId'
-  Text ->
+-- * 'cSS' - The CSS values in the UI customization.
+-- * 'clientId' - The client ID for the client app.
+-- * 'imageFile' - The uploaded logo image for the UI customization.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'userPoolId' - The user pool ID for the user pool.
+mkSetUICustomization ::
+  -- | 'userPoolId'
+  Lude.Text ->
   SetUICustomization
-setUICustomization pUserPoolId_ =
+mkSetUICustomization pUserPoolId_ =
   SetUICustomization'
-    { _suicClientId = Nothing,
-      _suicCSS = Nothing,
-      _suicImageFile = Nothing,
-      _suicUserPoolId = pUserPoolId_
+    { clientId = Lude.Nothing,
+      cSS = Lude.Nothing,
+      imageFile = Lude.Nothing,
+      userPoolId = pUserPoolId_
     }
 
 -- | The client ID for the client app.
-suicClientId :: Lens' SetUICustomization (Maybe Text)
-suicClientId = lens _suicClientId (\s a -> s {_suicClientId = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suicClientId :: Lens.Lens' SetUICustomization (Lude.Maybe (Lude.Sensitive Lude.Text))
+suicClientId = Lens.lens (clientId :: SetUICustomization -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {clientId = a} :: SetUICustomization)
+{-# DEPRECATED suicClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The CSS values in the UI customization.
-suicCSS :: Lens' SetUICustomization (Maybe Text)
-suicCSS = lens _suicCSS (\s a -> s {_suicCSS = a})
+--
+-- /Note:/ Consider using 'cSS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suicCSS :: Lens.Lens' SetUICustomization (Lude.Maybe Lude.Text)
+suicCSS = Lens.lens (cSS :: SetUICustomization -> Lude.Maybe Lude.Text) (\s a -> s {cSS = a} :: SetUICustomization)
+{-# DEPRECATED suicCSS "Use generic-lens or generic-optics with 'cSS' instead." #-}
 
--- | The uploaded logo image for the UI customization.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-suicImageFile :: Lens' SetUICustomization (Maybe ByteString)
-suicImageFile = lens _suicImageFile (\s a -> s {_suicImageFile = a}) . mapping _Base64
+-- | The uploaded logo image for the UI customization.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'imageFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suicImageFile :: Lens.Lens' SetUICustomization (Lude.Maybe Lude.Base64)
+suicImageFile = Lens.lens (imageFile :: SetUICustomization -> Lude.Maybe Lude.Base64) (\s a -> s {imageFile = a} :: SetUICustomization)
+{-# DEPRECATED suicImageFile "Use generic-lens or generic-optics with 'imageFile' instead." #-}
 
 -- | The user pool ID for the user pool.
-suicUserPoolId :: Lens' SetUICustomization Text
-suicUserPoolId = lens _suicUserPoolId (\s a -> s {_suicUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suicUserPoolId :: Lens.Lens' SetUICustomization Lude.Text
+suicUserPoolId = Lens.lens (userPoolId :: SetUICustomization -> Lude.Text) (\s a -> s {userPoolId = a} :: SetUICustomization)
+{-# DEPRECATED suicUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSRequest SetUICustomization where
+instance Lude.AWSRequest SetUICustomization where
   type Rs SetUICustomization = SetUICustomizationResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SetUICustomizationResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "UICustomization")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "UICustomization")
       )
 
-instance Hashable SetUICustomization
-
-instance NFData SetUICustomization
-
-instance ToHeaders SetUICustomization where
+instance Lude.ToHeaders SetUICustomization where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.SetUICustomization" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.SetUICustomization" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SetUICustomization where
+instance Lude.ToJSON SetUICustomization where
   toJSON SetUICustomization' {..} =
-    object
-      ( catMaybes
-          [ ("ClientId" .=) <$> _suicClientId,
-            ("CSS" .=) <$> _suicCSS,
-            ("ImageFile" .=) <$> _suicImageFile,
-            Just ("UserPoolId" .= _suicUserPoolId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientId" Lude..=) Lude.<$> clientId,
+            ("CSS" Lude..=) Lude.<$> cSS,
+            ("ImageFile" Lude..=) Lude.<$> imageFile,
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
-instance ToPath SetUICustomization where
-  toPath = const "/"
+instance Lude.ToPath SetUICustomization where
+  toPath = Lude.const "/"
 
-instance ToQuery SetUICustomization where
-  toQuery = const mempty
+instance Lude.ToQuery SetUICustomization where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'setUICustomizationResponse' smart constructor.
+-- | /See:/ 'mkSetUICustomizationResponse' smart constructor.
 data SetUICustomizationResponse = SetUICustomizationResponse'
-  { _suicrsResponseStatus ::
-      !Int,
-    _suicrsUICustomization ::
-      !UICustomizationType
+  { responseStatus ::
+      Lude.Int,
+    uICustomization ::
+      UICustomizationType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetUICustomizationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'suicrsResponseStatus' - -- | The response status code.
---
--- * 'suicrsUICustomization' - The UI customization information.
-setUICustomizationResponse ::
-  -- | 'suicrsResponseStatus'
-  Int ->
-  -- | 'suicrsUICustomization'
+-- * 'responseStatus' - The response status code.
+-- * 'uICustomization' - The UI customization information.
+mkSetUICustomizationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'uICustomization'
   UICustomizationType ->
   SetUICustomizationResponse
-setUICustomizationResponse pResponseStatus_ pUICustomization_ =
+mkSetUICustomizationResponse pResponseStatus_ pUICustomization_ =
   SetUICustomizationResponse'
-    { _suicrsResponseStatus =
-        pResponseStatus_,
-      _suicrsUICustomization = pUICustomization_
+    { responseStatus = pResponseStatus_,
+      uICustomization = pUICustomization_
     }
 
--- | -- | The response status code.
-suicrsResponseStatus :: Lens' SetUICustomizationResponse Int
-suicrsResponseStatus = lens _suicrsResponseStatus (\s a -> s {_suicrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suicrsResponseStatus :: Lens.Lens' SetUICustomizationResponse Lude.Int
+suicrsResponseStatus = Lens.lens (responseStatus :: SetUICustomizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetUICustomizationResponse)
+{-# DEPRECATED suicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The UI customization information.
-suicrsUICustomization :: Lens' SetUICustomizationResponse UICustomizationType
-suicrsUICustomization = lens _suicrsUICustomization (\s a -> s {_suicrsUICustomization = a})
-
-instance NFData SetUICustomizationResponse
+--
+-- /Note:/ Consider using 'uICustomization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+suicrsUICustomization :: Lens.Lens' SetUICustomizationResponse UICustomizationType
+suicrsUICustomization = Lens.lens (uICustomization :: SetUICustomizationResponse -> UICustomizationType) (\s a -> s {uICustomization = a} :: SetUICustomizationResponse)
+{-# DEPRECATED suicrsUICustomization "Use generic-lens or generic-optics with 'uICustomization' instead." #-}

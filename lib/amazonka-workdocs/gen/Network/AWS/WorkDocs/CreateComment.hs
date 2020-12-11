@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Adds a new comment to the specified document version.
 module Network.AWS.WorkDocs.CreateComment
-  ( -- * Creating a Request
-    createComment,
-    CreateComment,
+  ( -- * Creating a request
+    CreateComment (..),
+    mkCreateComment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccNotifyCollaborators,
     ccAuthenticationToken,
     ccVisibility,
@@ -33,184 +28,199 @@ module Network.AWS.WorkDocs.CreateComment
     ccVersionId,
     ccText,
 
-    -- * Destructuring the Response
-    createCommentResponse,
-    CreateCommentResponse,
+    -- * Destructuring the response
+    CreateCommentResponse (..),
+    mkCreateCommentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsComment,
     ccrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'createComment' smart constructor.
+-- | /See:/ 'mkCreateComment' smart constructor.
 data CreateComment = CreateComment'
-  { _ccNotifyCollaborators ::
-      !(Maybe Bool),
-    _ccAuthenticationToken :: !(Maybe (Sensitive Text)),
-    _ccVisibility :: !(Maybe CommentVisibilityType),
-    _ccThreadId :: !(Maybe Text),
-    _ccParentId :: !(Maybe Text),
-    _ccDocumentId :: !Text,
-    _ccVersionId :: !Text,
-    _ccText :: !(Sensitive Text)
+  { notifyCollaborators ::
+      Lude.Maybe Lude.Bool,
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    visibility :: Lude.Maybe CommentVisibilityType,
+    threadId :: Lude.Maybe Lude.Text,
+    parentId :: Lude.Maybe Lude.Text,
+    documentId :: Lude.Text,
+    versionId :: Lude.Text,
+    text :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateComment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccNotifyCollaborators' - Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
---
--- * 'ccAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'ccVisibility' - The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
---
--- * 'ccThreadId' - The ID of the root comment in the thread.
---
--- * 'ccParentId' - The ID of the parent comment.
---
--- * 'ccDocumentId' - The ID of the document.
---
--- * 'ccVersionId' - The ID of the document version.
---
--- * 'ccText' - The text of the comment.
-createComment ::
-  -- | 'ccDocumentId'
-  Text ->
-  -- | 'ccVersionId'
-  Text ->
-  -- | 'ccText'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'documentId' - The ID of the document.
+-- * 'notifyCollaborators' - Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
+-- * 'parentId' - The ID of the parent comment.
+-- * 'text' - The text of the comment.
+-- * 'threadId' - The ID of the root comment in the thread.
+-- * 'versionId' - The ID of the document version.
+-- * 'visibility' - The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
+mkCreateComment ::
+  -- | 'documentId'
+  Lude.Text ->
+  -- | 'versionId'
+  Lude.Text ->
+  -- | 'text'
+  Lude.Sensitive Lude.Text ->
   CreateComment
-createComment pDocumentId_ pVersionId_ pText_ =
+mkCreateComment pDocumentId_ pVersionId_ pText_ =
   CreateComment'
-    { _ccNotifyCollaborators = Nothing,
-      _ccAuthenticationToken = Nothing,
-      _ccVisibility = Nothing,
-      _ccThreadId = Nothing,
-      _ccParentId = Nothing,
-      _ccDocumentId = pDocumentId_,
-      _ccVersionId = pVersionId_,
-      _ccText = _Sensitive # pText_
+    { notifyCollaborators = Lude.Nothing,
+      authenticationToken = Lude.Nothing,
+      visibility = Lude.Nothing,
+      threadId = Lude.Nothing,
+      parentId = Lude.Nothing,
+      documentId = pDocumentId_,
+      versionId = pVersionId_,
+      text = pText_
     }
 
 -- | Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
-ccNotifyCollaborators :: Lens' CreateComment (Maybe Bool)
-ccNotifyCollaborators = lens _ccNotifyCollaborators (\s a -> s {_ccNotifyCollaborators = a})
+--
+-- /Note:/ Consider using 'notifyCollaborators' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccNotifyCollaborators :: Lens.Lens' CreateComment (Lude.Maybe Lude.Bool)
+ccNotifyCollaborators = Lens.lens (notifyCollaborators :: CreateComment -> Lude.Maybe Lude.Bool) (\s a -> s {notifyCollaborators = a} :: CreateComment)
+{-# DEPRECATED ccNotifyCollaborators "Use generic-lens or generic-optics with 'notifyCollaborators' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-ccAuthenticationToken :: Lens' CreateComment (Maybe Text)
-ccAuthenticationToken = lens _ccAuthenticationToken (\s a -> s {_ccAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAuthenticationToken :: Lens.Lens' CreateComment (Lude.Maybe (Lude.Sensitive Lude.Text))
+ccAuthenticationToken = Lens.lens (authenticationToken :: CreateComment -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateComment)
+{-# DEPRECATED ccAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
-ccVisibility :: Lens' CreateComment (Maybe CommentVisibilityType)
-ccVisibility = lens _ccVisibility (\s a -> s {_ccVisibility = a})
+--
+-- /Note:/ Consider using 'visibility' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccVisibility :: Lens.Lens' CreateComment (Lude.Maybe CommentVisibilityType)
+ccVisibility = Lens.lens (visibility :: CreateComment -> Lude.Maybe CommentVisibilityType) (\s a -> s {visibility = a} :: CreateComment)
+{-# DEPRECATED ccVisibility "Use generic-lens or generic-optics with 'visibility' instead." #-}
 
 -- | The ID of the root comment in the thread.
-ccThreadId :: Lens' CreateComment (Maybe Text)
-ccThreadId = lens _ccThreadId (\s a -> s {_ccThreadId = a})
+--
+-- /Note:/ Consider using 'threadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccThreadId :: Lens.Lens' CreateComment (Lude.Maybe Lude.Text)
+ccThreadId = Lens.lens (threadId :: CreateComment -> Lude.Maybe Lude.Text) (\s a -> s {threadId = a} :: CreateComment)
+{-# DEPRECATED ccThreadId "Use generic-lens or generic-optics with 'threadId' instead." #-}
 
 -- | The ID of the parent comment.
-ccParentId :: Lens' CreateComment (Maybe Text)
-ccParentId = lens _ccParentId (\s a -> s {_ccParentId = a})
+--
+-- /Note:/ Consider using 'parentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccParentId :: Lens.Lens' CreateComment (Lude.Maybe Lude.Text)
+ccParentId = Lens.lens (parentId :: CreateComment -> Lude.Maybe Lude.Text) (\s a -> s {parentId = a} :: CreateComment)
+{-# DEPRECATED ccParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
 -- | The ID of the document.
-ccDocumentId :: Lens' CreateComment Text
-ccDocumentId = lens _ccDocumentId (\s a -> s {_ccDocumentId = a})
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDocumentId :: Lens.Lens' CreateComment Lude.Text
+ccDocumentId = Lens.lens (documentId :: CreateComment -> Lude.Text) (\s a -> s {documentId = a} :: CreateComment)
+{-# DEPRECATED ccDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | The ID of the document version.
-ccVersionId :: Lens' CreateComment Text
-ccVersionId = lens _ccVersionId (\s a -> s {_ccVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccVersionId :: Lens.Lens' CreateComment Lude.Text
+ccVersionId = Lens.lens (versionId :: CreateComment -> Lude.Text) (\s a -> s {versionId = a} :: CreateComment)
+{-# DEPRECATED ccVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The text of the comment.
-ccText :: Lens' CreateComment Text
-ccText = lens _ccText (\s a -> s {_ccText = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccText :: Lens.Lens' CreateComment (Lude.Sensitive Lude.Text)
+ccText = Lens.lens (text :: CreateComment -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: CreateComment)
+{-# DEPRECATED ccText "Use generic-lens or generic-optics with 'text' instead." #-}
 
-instance AWSRequest CreateComment where
+instance Lude.AWSRequest CreateComment where
   type Rs CreateComment = CreateCommentResponse
-  request = postJSON workDocs
+  request = Req.postJSON workDocsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateCommentResponse'
-            <$> (x .?> "Comment") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Comment") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateComment
-
-instance NFData CreateComment
-
-instance ToHeaders CreateComment where
+instance Lude.ToHeaders CreateComment where
   toHeaders CreateComment' {..} =
-    mconcat
-      [ "Authentication" =# _ccAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON CreateComment where
+instance Lude.ToJSON CreateComment where
   toJSON CreateComment' {..} =
-    object
-      ( catMaybes
-          [ ("NotifyCollaborators" .=) <$> _ccNotifyCollaborators,
-            ("Visibility" .=) <$> _ccVisibility,
-            ("ThreadId" .=) <$> _ccThreadId,
-            ("ParentId" .=) <$> _ccParentId,
-            Just ("Text" .= _ccText)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NotifyCollaborators" Lude..=) Lude.<$> notifyCollaborators,
+            ("Visibility" Lude..=) Lude.<$> visibility,
+            ("ThreadId" Lude..=) Lude.<$> threadId,
+            ("ParentId" Lude..=) Lude.<$> parentId,
+            Lude.Just ("Text" Lude..= text)
           ]
       )
 
-instance ToPath CreateComment where
+instance Lude.ToPath CreateComment where
   toPath CreateComment' {..} =
-    mconcat
+    Lude.mconcat
       [ "/api/v1/documents/",
-        toBS _ccDocumentId,
+        Lude.toBS documentId,
         "/versions/",
-        toBS _ccVersionId,
+        Lude.toBS versionId,
         "/comment"
       ]
 
-instance ToQuery CreateComment where
-  toQuery = const mempty
+instance Lude.ToQuery CreateComment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createCommentResponse' smart constructor.
+-- | /See:/ 'mkCreateCommentResponse' smart constructor.
 data CreateCommentResponse = CreateCommentResponse'
-  { _ccrsComment ::
-      !(Maybe Comment),
-    _ccrsResponseStatus :: !Int
+  { comment ::
+      Lude.Maybe Comment,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCommentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsComment' - The comment that has been created.
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-createCommentResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'comment' - The comment that has been created.
+-- * 'responseStatus' - The response status code.
+mkCreateCommentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCommentResponse
-createCommentResponse pResponseStatus_ =
+mkCreateCommentResponse pResponseStatus_ =
   CreateCommentResponse'
-    { _ccrsComment = Nothing,
-      _ccrsResponseStatus = pResponseStatus_
+    { comment = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The comment that has been created.
-ccrsComment :: Lens' CreateCommentResponse (Maybe Comment)
-ccrsComment = lens _ccrsComment (\s a -> s {_ccrsComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsComment :: Lens.Lens' CreateCommentResponse (Lude.Maybe Comment)
+ccrsComment = Lens.lens (comment :: CreateCommentResponse -> Lude.Maybe Comment) (\s a -> s {comment = a} :: CreateCommentResponse)
+{-# DEPRECATED ccrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateCommentResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CreateCommentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateCommentResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateCommentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCommentResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Gets a list of labeling jobs assigned to a specified work team.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListLabelingJobsForWorkteam
-  ( -- * Creating a Request
-    listLabelingJobsForWorkteam,
-    ListLabelingJobsForWorkteam,
+  ( -- * Creating a request
+    ListLabelingJobsForWorkteam (..),
+    mkListLabelingJobsForWorkteam,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lljfwJobReferenceCodeContains,
     lljfwCreationTimeAfter,
     lljfwNextToken,
@@ -37,209 +30,242 @@ module Network.AWS.SageMaker.ListLabelingJobsForWorkteam
     lljfwSortBy,
     lljfwWorkteamARN,
 
-    -- * Destructuring the Response
-    listLabelingJobsForWorkteamResponse,
-    ListLabelingJobsForWorkteamResponse,
+    -- * Destructuring the response
+    ListLabelingJobsForWorkteamResponse (..),
+    mkListLabelingJobsForWorkteamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lljfwrsNextToken,
     lljfwrsResponseStatus,
     lljfwrsLabelingJobSummaryList,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listLabelingJobsForWorkteam' smart constructor.
+-- | /See:/ 'mkListLabelingJobsForWorkteam' smart constructor.
 data ListLabelingJobsForWorkteam = ListLabelingJobsForWorkteam'
-  { _lljfwJobReferenceCodeContains ::
-      !(Maybe Text),
-    _lljfwCreationTimeAfter ::
-      !(Maybe POSIX),
-    _lljfwNextToken :: !(Maybe Text),
-    _lljfwSortOrder ::
-      !(Maybe SortOrder),
-    _lljfwCreationTimeBefore ::
-      !(Maybe POSIX),
-    _lljfwMaxResults :: !(Maybe Nat),
-    _lljfwSortBy ::
-      !( Maybe
-           ListLabelingJobsForWorkteamSortByOptions
-       ),
-    _lljfwWorkteamARN :: !Text
+  { jobReferenceCodeContains ::
+      Lude.Maybe Lude.Text,
+    creationTimeAfter ::
+      Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe SortOrder,
+    creationTimeBefore ::
+      Lude.Maybe Lude.Timestamp,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    sortBy ::
+      Lude.Maybe
+        ListLabelingJobsForWorkteamSortByOptions,
+    workteamARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLabelingJobsForWorkteam' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lljfwJobReferenceCodeContains' - A filter the limits jobs to only the ones whose job reference code contains the specified string.
---
--- * 'lljfwCreationTimeAfter' - A filter that returns only labeling jobs created after the specified time (timestamp).
---
--- * 'lljfwNextToken' - If the result of the previous @ListLabelingJobsForWorkteam@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
---
--- * 'lljfwSortOrder' - The sort order for results. The default is @Ascending@ .
---
--- * 'lljfwCreationTimeBefore' - A filter that returns only labeling jobs created before the specified time (timestamp).
---
--- * 'lljfwMaxResults' - The maximum number of labeling jobs to return in each page of the response.
---
--- * 'lljfwSortBy' - The field to sort results by. The default is @CreationTime@ .
---
--- * 'lljfwWorkteamARN' - The Amazon Resource Name (ARN) of the work team for which you want to see labeling jobs for.
-listLabelingJobsForWorkteam ::
-  -- | 'lljfwWorkteamARN'
-  Text ->
+-- * 'creationTimeAfter' - A filter that returns only labeling jobs created after the specified time (timestamp).
+-- * 'creationTimeBefore' - A filter that returns only labeling jobs created before the specified time (timestamp).
+-- * 'jobReferenceCodeContains' - A filter the limits jobs to only the ones whose job reference code contains the specified string.
+-- * 'maxResults' - The maximum number of labeling jobs to return in each page of the response.
+-- * 'nextToken' - If the result of the previous @ListLabelingJobsForWorkteam@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
+-- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
+-- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'workteamARN' - The Amazon Resource Name (ARN) of the work team for which you want to see labeling jobs for.
+mkListLabelingJobsForWorkteam ::
+  -- | 'workteamARN'
+  Lude.Text ->
   ListLabelingJobsForWorkteam
-listLabelingJobsForWorkteam pWorkteamARN_ =
+mkListLabelingJobsForWorkteam pWorkteamARN_ =
   ListLabelingJobsForWorkteam'
-    { _lljfwJobReferenceCodeContains =
-        Nothing,
-      _lljfwCreationTimeAfter = Nothing,
-      _lljfwNextToken = Nothing,
-      _lljfwSortOrder = Nothing,
-      _lljfwCreationTimeBefore = Nothing,
-      _lljfwMaxResults = Nothing,
-      _lljfwSortBy = Nothing,
-      _lljfwWorkteamARN = pWorkteamARN_
+    { jobReferenceCodeContains =
+        Lude.Nothing,
+      creationTimeAfter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      creationTimeBefore = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing,
+      workteamARN = pWorkteamARN_
     }
 
 -- | A filter the limits jobs to only the ones whose job reference code contains the specified string.
-lljfwJobReferenceCodeContains :: Lens' ListLabelingJobsForWorkteam (Maybe Text)
-lljfwJobReferenceCodeContains = lens _lljfwJobReferenceCodeContains (\s a -> s {_lljfwJobReferenceCodeContains = a})
+--
+-- /Note:/ Consider using 'jobReferenceCodeContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwJobReferenceCodeContains :: Lens.Lens' ListLabelingJobsForWorkteam (Lude.Maybe Lude.Text)
+lljfwJobReferenceCodeContains = Lens.lens (jobReferenceCodeContains :: ListLabelingJobsForWorkteam -> Lude.Maybe Lude.Text) (\s a -> s {jobReferenceCodeContains = a} :: ListLabelingJobsForWorkteam)
+{-# DEPRECATED lljfwJobReferenceCodeContains "Use generic-lens or generic-optics with 'jobReferenceCodeContains' instead." #-}
 
 -- | A filter that returns only labeling jobs created after the specified time (timestamp).
-lljfwCreationTimeAfter :: Lens' ListLabelingJobsForWorkteam (Maybe UTCTime)
-lljfwCreationTimeAfter = lens _lljfwCreationTimeAfter (\s a -> s {_lljfwCreationTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwCreationTimeAfter :: Lens.Lens' ListLabelingJobsForWorkteam (Lude.Maybe Lude.Timestamp)
+lljfwCreationTimeAfter = Lens.lens (creationTimeAfter :: ListLabelingJobsForWorkteam -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListLabelingJobsForWorkteam)
+{-# DEPRECATED lljfwCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | If the result of the previous @ListLabelingJobsForWorkteam@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
-lljfwNextToken :: Lens' ListLabelingJobsForWorkteam (Maybe Text)
-lljfwNextToken = lens _lljfwNextToken (\s a -> s {_lljfwNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwNextToken :: Lens.Lens' ListLabelingJobsForWorkteam (Lude.Maybe Lude.Text)
+lljfwNextToken = Lens.lens (nextToken :: ListLabelingJobsForWorkteam -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLabelingJobsForWorkteam)
+{-# DEPRECATED lljfwNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The sort order for results. The default is @Ascending@ .
-lljfwSortOrder :: Lens' ListLabelingJobsForWorkteam (Maybe SortOrder)
-lljfwSortOrder = lens _lljfwSortOrder (\s a -> s {_lljfwSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwSortOrder :: Lens.Lens' ListLabelingJobsForWorkteam (Lude.Maybe SortOrder)
+lljfwSortOrder = Lens.lens (sortOrder :: ListLabelingJobsForWorkteam -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListLabelingJobsForWorkteam)
+{-# DEPRECATED lljfwSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only labeling jobs created before the specified time (timestamp).
-lljfwCreationTimeBefore :: Lens' ListLabelingJobsForWorkteam (Maybe UTCTime)
-lljfwCreationTimeBefore = lens _lljfwCreationTimeBefore (\s a -> s {_lljfwCreationTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwCreationTimeBefore :: Lens.Lens' ListLabelingJobsForWorkteam (Lude.Maybe Lude.Timestamp)
+lljfwCreationTimeBefore = Lens.lens (creationTimeBefore :: ListLabelingJobsForWorkteam -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListLabelingJobsForWorkteam)
+{-# DEPRECATED lljfwCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | The maximum number of labeling jobs to return in each page of the response.
-lljfwMaxResults :: Lens' ListLabelingJobsForWorkteam (Maybe Natural)
-lljfwMaxResults = lens _lljfwMaxResults (\s a -> s {_lljfwMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwMaxResults :: Lens.Lens' ListLabelingJobsForWorkteam (Lude.Maybe Lude.Natural)
+lljfwMaxResults = Lens.lens (maxResults :: ListLabelingJobsForWorkteam -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListLabelingJobsForWorkteam)
+{-# DEPRECATED lljfwMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The field to sort results by. The default is @CreationTime@ .
-lljfwSortBy :: Lens' ListLabelingJobsForWorkteam (Maybe ListLabelingJobsForWorkteamSortByOptions)
-lljfwSortBy = lens _lljfwSortBy (\s a -> s {_lljfwSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwSortBy :: Lens.Lens' ListLabelingJobsForWorkteam (Lude.Maybe ListLabelingJobsForWorkteamSortByOptions)
+lljfwSortBy = Lens.lens (sortBy :: ListLabelingJobsForWorkteam -> Lude.Maybe ListLabelingJobsForWorkteamSortByOptions) (\s a -> s {sortBy = a} :: ListLabelingJobsForWorkteam)
+{-# DEPRECATED lljfwSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the work team for which you want to see labeling jobs for.
-lljfwWorkteamARN :: Lens' ListLabelingJobsForWorkteam Text
-lljfwWorkteamARN = lens _lljfwWorkteamARN (\s a -> s {_lljfwWorkteamARN = a})
+--
+-- /Note:/ Consider using 'workteamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwWorkteamARN :: Lens.Lens' ListLabelingJobsForWorkteam Lude.Text
+lljfwWorkteamARN = Lens.lens (workteamARN :: ListLabelingJobsForWorkteam -> Lude.Text) (\s a -> s {workteamARN = a} :: ListLabelingJobsForWorkteam)
+{-# DEPRECATED lljfwWorkteamARN "Use generic-lens or generic-optics with 'workteamARN' instead." #-}
 
-instance AWSPager ListLabelingJobsForWorkteam where
+instance Page.AWSPager ListLabelingJobsForWorkteam where
   page rq rs
-    | stop (rs ^. lljfwrsNextToken) = Nothing
-    | stop (rs ^. lljfwrsLabelingJobSummaryList) = Nothing
-    | otherwise = Just $ rq & lljfwNextToken .~ rs ^. lljfwrsNextToken
+    | Page.stop (rs Lens.^. lljfwrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lljfwrsLabelingJobSummaryList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lljfwNextToken Lens..~ rs Lens.^. lljfwrsNextToken
 
-instance AWSRequest ListLabelingJobsForWorkteam where
+instance Lude.AWSRequest ListLabelingJobsForWorkteam where
   type
     Rs ListLabelingJobsForWorkteam =
       ListLabelingJobsForWorkteamResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListLabelingJobsForWorkteamResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "LabelingJobSummaryList" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "LabelingJobSummaryList" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListLabelingJobsForWorkteam
-
-instance NFData ListLabelingJobsForWorkteam
-
-instance ToHeaders ListLabelingJobsForWorkteam where
+instance Lude.ToHeaders ListLabelingJobsForWorkteam where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.ListLabelingJobsForWorkteam" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.ListLabelingJobsForWorkteam" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListLabelingJobsForWorkteam where
+instance Lude.ToJSON ListLabelingJobsForWorkteam where
   toJSON ListLabelingJobsForWorkteam' {..} =
-    object
-      ( catMaybes
-          [ ("JobReferenceCodeContains" .=)
-              <$> _lljfwJobReferenceCodeContains,
-            ("CreationTimeAfter" .=) <$> _lljfwCreationTimeAfter,
-            ("NextToken" .=) <$> _lljfwNextToken,
-            ("SortOrder" .=) <$> _lljfwSortOrder,
-            ("CreationTimeBefore" .=) <$> _lljfwCreationTimeBefore,
-            ("MaxResults" .=) <$> _lljfwMaxResults,
-            ("SortBy" .=) <$> _lljfwSortBy,
-            Just ("WorkteamArn" .= _lljfwWorkteamARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("JobReferenceCodeContains" Lude..=)
+              Lude.<$> jobReferenceCodeContains,
+            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy,
+            Lude.Just ("WorkteamArn" Lude..= workteamARN)
           ]
       )
 
-instance ToPath ListLabelingJobsForWorkteam where
-  toPath = const "/"
+instance Lude.ToPath ListLabelingJobsForWorkteam where
+  toPath = Lude.const "/"
 
-instance ToQuery ListLabelingJobsForWorkteam where
-  toQuery = const mempty
+instance Lude.ToQuery ListLabelingJobsForWorkteam where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listLabelingJobsForWorkteamResponse' smart constructor.
+-- | /See:/ 'mkListLabelingJobsForWorkteamResponse' smart constructor.
 data ListLabelingJobsForWorkteamResponse = ListLabelingJobsForWorkteamResponse'
-  { _lljfwrsNextToken ::
-      !(Maybe Text),
-    _lljfwrsResponseStatus ::
-      !Int,
-    _lljfwrsLabelingJobSummaryList ::
-      ![LabelingJobForWorkteamSummary]
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int,
+    labelingJobSummaryList ::
+      [LabelingJobForWorkteamSummary]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLabelingJobsForWorkteamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lljfwrsNextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of labeling jobs, use it in the subsequent request.
---
--- * 'lljfwrsResponseStatus' - -- | The response status code.
---
--- * 'lljfwrsLabelingJobSummaryList' - An array of @LabelingJobSummary@ objects, each describing a labeling job.
-listLabelingJobsForWorkteamResponse ::
-  -- | 'lljfwrsResponseStatus'
-  Int ->
+-- * 'labelingJobSummaryList' - An array of @LabelingJobSummary@ objects, each describing a labeling job.
+-- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of labeling jobs, use it in the subsequent request.
+-- * 'responseStatus' - The response status code.
+mkListLabelingJobsForWorkteamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListLabelingJobsForWorkteamResponse
-listLabelingJobsForWorkteamResponse pResponseStatus_ =
+mkListLabelingJobsForWorkteamResponse pResponseStatus_ =
   ListLabelingJobsForWorkteamResponse'
-    { _lljfwrsNextToken = Nothing,
-      _lljfwrsResponseStatus = pResponseStatus_,
-      _lljfwrsLabelingJobSummaryList = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      labelingJobSummaryList = Lude.mempty
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of labeling jobs, use it in the subsequent request.
-lljfwrsNextToken :: Lens' ListLabelingJobsForWorkteamResponse (Maybe Text)
-lljfwrsNextToken = lens _lljfwrsNextToken (\s a -> s {_lljfwrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwrsNextToken :: Lens.Lens' ListLabelingJobsForWorkteamResponse (Lude.Maybe Lude.Text)
+lljfwrsNextToken = Lens.lens (nextToken :: ListLabelingJobsForWorkteamResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLabelingJobsForWorkteamResponse)
+{-# DEPRECATED lljfwrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lljfwrsResponseStatus :: Lens' ListLabelingJobsForWorkteamResponse Int
-lljfwrsResponseStatus = lens _lljfwrsResponseStatus (\s a -> s {_lljfwrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwrsResponseStatus :: Lens.Lens' ListLabelingJobsForWorkteamResponse Lude.Int
+lljfwrsResponseStatus = Lens.lens (responseStatus :: ListLabelingJobsForWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLabelingJobsForWorkteamResponse)
+{-# DEPRECATED lljfwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | An array of @LabelingJobSummary@ objects, each describing a labeling job.
-lljfwrsLabelingJobSummaryList :: Lens' ListLabelingJobsForWorkteamResponse [LabelingJobForWorkteamSummary]
-lljfwrsLabelingJobSummaryList = lens _lljfwrsLabelingJobSummaryList (\s a -> s {_lljfwrsLabelingJobSummaryList = a}) . _Coerce
-
-instance NFData ListLabelingJobsForWorkteamResponse
+--
+-- /Note:/ Consider using 'labelingJobSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lljfwrsLabelingJobSummaryList :: Lens.Lens' ListLabelingJobsForWorkteamResponse [LabelingJobForWorkteamSummary]
+lljfwrsLabelingJobSummaryList = Lens.lens (labelingJobSummaryList :: ListLabelingJobsForWorkteamResponse -> [LabelingJobForWorkteamSummary]) (\s a -> s {labelingJobSummaryList = a} :: ListLabelingJobsForWorkteamResponse)
+{-# DEPRECATED lljfwrsLabelingJobSummaryList "Use generic-lens or generic-optics with 'labelingJobSummaryList' instead." #-}

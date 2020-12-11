@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription where
+module Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription
+  ( ProvisionedThroughputDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisionedThroughputDescription,
+
+    -- * Lenses
+    ptdReadCapacityUnits,
+    ptdLastDecreaseDateTime,
+    ptdWriteCapacityUnits,
+    ptdNumberOfDecreasesToday,
+    ptdLastIncreaseDateTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
 --
---
---
--- /See:/ 'provisionedThroughputDescription' smart constructor.
+-- /See:/ 'mkProvisionedThroughputDescription' smart constructor.
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
-  { _ptdReadCapacityUnits ::
-      !(Maybe Nat),
-    _ptdLastDecreaseDateTime ::
-      !(Maybe POSIX),
-    _ptdWriteCapacityUnits ::
-      !(Maybe Nat),
-    _ptdNumberOfDecreasesToday ::
-      !(Maybe Nat),
-    _ptdLastIncreaseDateTime ::
-      !(Maybe POSIX)
+  { readCapacityUnits ::
+      Lude.Maybe Lude.Natural,
+    lastDecreaseDateTime ::
+      Lude.Maybe Lude.Timestamp,
+    writeCapacityUnits ::
+      Lude.Maybe Lude.Natural,
+    numberOfDecreasesToday ::
+      Lude.Maybe Lude.Natural,
+    lastIncreaseDateTime ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedThroughputDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptdReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent @ReadCapacityUnits@ per second.
---
--- * 'ptdLastDecreaseDateTime' - The date and time of the last provisioned throughput decrease for this table.
---
--- * 'ptdWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ .
---
--- * 'ptdNumberOfDecreasesToday' - The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
---
--- * 'ptdLastIncreaseDateTime' - The date and time of the last provisioned throughput increase for this table.
-provisionedThroughputDescription ::
+-- * 'lastDecreaseDateTime' - The date and time of the last provisioned throughput decrease for this table.
+-- * 'lastIncreaseDateTime' - The date and time of the last provisioned throughput increase for this table.
+-- * 'numberOfDecreasesToday' - The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'readCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent @ReadCapacityUnits@ per second.
+-- * 'writeCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ .
+mkProvisionedThroughputDescription ::
   ProvisionedThroughputDescription
-provisionedThroughputDescription =
+mkProvisionedThroughputDescription =
   ProvisionedThroughputDescription'
-    { _ptdReadCapacityUnits =
-        Nothing,
-      _ptdLastDecreaseDateTime = Nothing,
-      _ptdWriteCapacityUnits = Nothing,
-      _ptdNumberOfDecreasesToday = Nothing,
-      _ptdLastIncreaseDateTime = Nothing
+    { readCapacityUnits =
+        Lude.Nothing,
+      lastDecreaseDateTime = Lude.Nothing,
+      writeCapacityUnits = Lude.Nothing,
+      numberOfDecreasesToday = Lude.Nothing,
+      lastIncreaseDateTime = Lude.Nothing
     }
 
 -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent @ReadCapacityUnits@ per second.
-ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
-ptdReadCapacityUnits = lens _ptdReadCapacityUnits (\s a -> s {_ptdReadCapacityUnits = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'readCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptdReadCapacityUnits :: Lens.Lens' ProvisionedThroughputDescription (Lude.Maybe Lude.Natural)
+ptdReadCapacityUnits = Lens.lens (readCapacityUnits :: ProvisionedThroughputDescription -> Lude.Maybe Lude.Natural) (\s a -> s {readCapacityUnits = a} :: ProvisionedThroughputDescription)
+{-# DEPRECATED ptdReadCapacityUnits "Use generic-lens or generic-optics with 'readCapacityUnits' instead." #-}
 
 -- | The date and time of the last provisioned throughput decrease for this table.
-ptdLastDecreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
-ptdLastDecreaseDateTime = lens _ptdLastDecreaseDateTime (\s a -> s {_ptdLastDecreaseDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastDecreaseDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptdLastDecreaseDateTime :: Lens.Lens' ProvisionedThroughputDescription (Lude.Maybe Lude.Timestamp)
+ptdLastDecreaseDateTime = Lens.lens (lastDecreaseDateTime :: ProvisionedThroughputDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastDecreaseDateTime = a} :: ProvisionedThroughputDescription)
+{-# DEPRECATED ptdLastDecreaseDateTime "Use generic-lens or generic-optics with 'lastDecreaseDateTime' instead." #-}
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ .
-ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
-ptdWriteCapacityUnits = lens _ptdWriteCapacityUnits (\s a -> s {_ptdWriteCapacityUnits = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'writeCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptdWriteCapacityUnits :: Lens.Lens' ProvisionedThroughputDescription (Lude.Maybe Lude.Natural)
+ptdWriteCapacityUnits = Lens.lens (writeCapacityUnits :: ProvisionedThroughputDescription -> Lude.Maybe Lude.Natural) (\s a -> s {writeCapacityUnits = a} :: ProvisionedThroughputDescription)
+{-# DEPRECATED ptdWriteCapacityUnits "Use generic-lens or generic-optics with 'writeCapacityUnits' instead." #-}
 
 -- | The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
-ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription (Maybe Natural)
-ptdNumberOfDecreasesToday = lens _ptdNumberOfDecreasesToday (\s a -> s {_ptdNumberOfDecreasesToday = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numberOfDecreasesToday' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptdNumberOfDecreasesToday :: Lens.Lens' ProvisionedThroughputDescription (Lude.Maybe Lude.Natural)
+ptdNumberOfDecreasesToday = Lens.lens (numberOfDecreasesToday :: ProvisionedThroughputDescription -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfDecreasesToday = a} :: ProvisionedThroughputDescription)
+{-# DEPRECATED ptdNumberOfDecreasesToday "Use generic-lens or generic-optics with 'numberOfDecreasesToday' instead." #-}
 
 -- | The date and time of the last provisioned throughput increase for this table.
-ptdLastIncreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
-ptdLastIncreaseDateTime = lens _ptdLastIncreaseDateTime (\s a -> s {_ptdLastIncreaseDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastIncreaseDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptdLastIncreaseDateTime :: Lens.Lens' ProvisionedThroughputDescription (Lude.Maybe Lude.Timestamp)
+ptdLastIncreaseDateTime = Lens.lens (lastIncreaseDateTime :: ProvisionedThroughputDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastIncreaseDateTime = a} :: ProvisionedThroughputDescription)
+{-# DEPRECATED ptdLastIncreaseDateTime "Use generic-lens or generic-optics with 'lastIncreaseDateTime' instead." #-}
 
-instance FromJSON ProvisionedThroughputDescription where
+instance Lude.FromJSON ProvisionedThroughputDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisionedThroughputDescription"
       ( \x ->
           ProvisionedThroughputDescription'
-            <$> (x .:? "ReadCapacityUnits")
-            <*> (x .:? "LastDecreaseDateTime")
-            <*> (x .:? "WriteCapacityUnits")
-            <*> (x .:? "NumberOfDecreasesToday")
-            <*> (x .:? "LastIncreaseDateTime")
+            Lude.<$> (x Lude..:? "ReadCapacityUnits")
+            Lude.<*> (x Lude..:? "LastDecreaseDateTime")
+            Lude.<*> (x Lude..:? "WriteCapacityUnits")
+            Lude.<*> (x Lude..:? "NumberOfDecreasesToday")
+            Lude.<*> (x Lude..:? "LastIncreaseDateTime")
       )
-
-instance Hashable ProvisionedThroughputDescription
-
-instance NFData ProvisionedThroughputDescription

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,150 @@
 --
 -- Cancels the scheduled deletion of a secret by removing the @DeletedDate@ time stamp. This makes the secret accessible to query once again.
 --
---
 -- __Minimum permissions__
---
 -- To run this command, you must have the following permissions:
 --
 --     * secretsmanager:RestoreSecret
---
 --
 --
 -- __Related operations__
 --
 --     * To delete a secret, use 'DeleteSecret' .
 module Network.AWS.SecretsManager.RestoreSecret
-  ( -- * Creating a Request
-    restoreSecret,
-    RestoreSecret,
+  ( -- * Creating a request
+    RestoreSecret (..),
+    mkRestoreSecret,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rSecretId,
 
-    -- * Destructuring the Response
-    restoreSecretResponse,
-    RestoreSecretResponse,
+    -- * Destructuring the response
+    RestoreSecretResponse (..),
+    mkRestoreSecretResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rrsARN,
     rrsName,
     rrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SecretsManager.Types
 
--- | /See:/ 'restoreSecret' smart constructor.
-newtype RestoreSecret = RestoreSecret' {_rSecretId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkRestoreSecret' smart constructor.
+newtype RestoreSecret = RestoreSecret' {secretId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreSecret' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rSecretId' - Specifies the secret that you want to restore from a previously scheduled deletion. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
-restoreSecret ::
-  -- | 'rSecretId'
-  Text ->
+-- * 'secretId' - Specifies the secret that you want to restore from a previously scheduled deletion. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+mkRestoreSecret ::
+  -- | 'secretId'
+  Lude.Text ->
   RestoreSecret
-restoreSecret pSecretId_ = RestoreSecret' {_rSecretId = pSecretId_}
+mkRestoreSecret pSecretId_ = RestoreSecret' {secretId = pSecretId_}
 
 -- | Specifies the secret that you want to restore from a previously scheduled deletion. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
-rSecretId :: Lens' RestoreSecret Text
-rSecretId = lens _rSecretId (\s a -> s {_rSecretId = a})
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSecretId :: Lens.Lens' RestoreSecret Lude.Text
+rSecretId = Lens.lens (secretId :: RestoreSecret -> Lude.Text) (\s a -> s {secretId = a} :: RestoreSecret)
+{-# DEPRECATED rSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
-instance AWSRequest RestoreSecret where
+instance Lude.AWSRequest RestoreSecret where
   type Rs RestoreSecret = RestoreSecretResponse
-  request = postJSON secretsManager
+  request = Req.postJSON secretsManagerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RestoreSecretResponse'
-            <$> (x .?> "ARN") <*> (x .?> "Name") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ARN")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RestoreSecret
-
-instance NFData RestoreSecret
-
-instance ToHeaders RestoreSecret where
+instance Lude.ToHeaders RestoreSecret where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("secretsmanager.RestoreSecret" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("secretsmanager.RestoreSecret" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RestoreSecret where
+instance Lude.ToJSON RestoreSecret where
   toJSON RestoreSecret' {..} =
-    object (catMaybes [Just ("SecretId" .= _rSecretId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SecretId" Lude..= secretId)])
 
-instance ToPath RestoreSecret where
-  toPath = const "/"
+instance Lude.ToPath RestoreSecret where
+  toPath = Lude.const "/"
 
-instance ToQuery RestoreSecret where
-  toQuery = const mempty
+instance Lude.ToQuery RestoreSecret where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'restoreSecretResponse' smart constructor.
+-- | /See:/ 'mkRestoreSecretResponse' smart constructor.
 data RestoreSecretResponse = RestoreSecretResponse'
-  { _rrsARN ::
-      !(Maybe Text),
-    _rrsName :: !(Maybe Text),
-    _rrsResponseStatus :: !Int
+  { arn ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreSecretResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrsARN' - The ARN of the secret that was restored.
---
--- * 'rrsName' - The friendly name of the secret that was restored.
---
--- * 'rrsResponseStatus' - -- | The response status code.
-restoreSecretResponse ::
-  -- | 'rrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the secret that was restored.
+-- * 'name' - The friendly name of the secret that was restored.
+-- * 'responseStatus' - The response status code.
+mkRestoreSecretResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RestoreSecretResponse
-restoreSecretResponse pResponseStatus_ =
+mkRestoreSecretResponse pResponseStatus_ =
   RestoreSecretResponse'
-    { _rrsARN = Nothing,
-      _rrsName = Nothing,
-      _rrsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the secret that was restored.
-rrsARN :: Lens' RestoreSecretResponse (Maybe Text)
-rrsARN = lens _rrsARN (\s a -> s {_rrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsARN :: Lens.Lens' RestoreSecretResponse (Lude.Maybe Lude.Text)
+rrsARN = Lens.lens (arn :: RestoreSecretResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: RestoreSecretResponse)
+{-# DEPRECATED rrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The friendly name of the secret that was restored.
-rrsName :: Lens' RestoreSecretResponse (Maybe Text)
-rrsName = lens _rrsName (\s a -> s {_rrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsName :: Lens.Lens' RestoreSecretResponse (Lude.Maybe Lude.Text)
+rrsName = Lens.lens (name :: RestoreSecretResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RestoreSecretResponse)
+{-# DEPRECATED rrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-rrsResponseStatus :: Lens' RestoreSecretResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\s a -> s {_rrsResponseStatus = a})
-
-instance NFData RestoreSecretResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsResponseStatus :: Lens.Lens' RestoreSecretResponse Lude.Int
+rrsResponseStatus = Lens.lens (responseStatus :: RestoreSecretResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RestoreSecretResponse)
+{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

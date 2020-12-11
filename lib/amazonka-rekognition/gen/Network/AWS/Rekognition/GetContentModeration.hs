@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,34 +14,28 @@
 --
 -- Gets the unsafe content analysis results for a Amazon Rekognition Video analysis started by 'StartContentModeration' .
 --
---
 -- Unsafe content analysis of a video is an asynchronous operation. You start analysis by calling 'StartContentModeration' which returns a job identifier (@JobId@ ). When analysis finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartContentModeration@ . To get the results of the unsafe content analysis, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call @GetContentModeration@ and pass the job identifier (@JobId@ ) from the initial call to @StartContentModeration@ .
---
 -- For more information, see Working with Stored Videos in the Amazon Rekognition Devlopers Guide.
---
 -- @GetContentModeration@ returns detected unsafe content labels, and the time they are detected, in an array, @ModerationLabels@ , of 'ContentModerationDetection' objects.
---
 -- By default, the moderated labels are returned sorted by time, in milliseconds from the start of the video. You can also sort them by moderated label by specifying @NAME@ for the @SortBy@ input parameter.
---
 -- Since video analysis can return a large number of results, use the @MaxResults@ parameter to limit the number of labels returned in a single call to @GetContentModeration@ . If there are more results than specified in @MaxResults@ , the value of @NextToken@ in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call @GetContentModeration@ and populate the @NextToken@ request parameter with the value of @NextToken@ returned from the previous call to @GetContentModeration@ .
---
 -- For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.
 module Network.AWS.Rekognition.GetContentModeration
-  ( -- * Creating a Request
-    getContentModeration,
-    GetContentModeration,
+  ( -- * Creating a request
+    GetContentModeration (..),
+    mkGetContentModeration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcmNextToken,
     gcmMaxResults,
     gcmSortBy,
     gcmJobId,
 
-    -- * Destructuring the Response
-    getContentModerationResponse,
-    GetContentModerationResponse,
+    -- * Destructuring the response
+    GetContentModerationResponse (..),
+    mkGetContentModerationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcmrsNextToken,
     gcmrsVideoMetadata,
     gcmrsStatusMessage,
@@ -57,186 +46,214 @@ module Network.AWS.Rekognition.GetContentModeration
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getContentModeration' smart constructor.
+-- | /See:/ 'mkGetContentModeration' smart constructor.
 data GetContentModeration = GetContentModeration'
-  { _gcmNextToken ::
-      !(Maybe Text),
-    _gcmMaxResults :: !(Maybe Nat),
-    _gcmSortBy :: !(Maybe ContentModerationSortBy),
-    _gcmJobId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe ContentModerationSortBy,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContentModeration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcmNextToken' - If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of unsafe content labels.
---
--- * 'gcmMaxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
---
--- * 'gcmSortBy' - Sort to use for elements in the @ModerationLabelDetections@ array. Use @TIMESTAMP@ to sort array elements by the time labels are detected. Use @NAME@ to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
---
--- * 'gcmJobId' - The identifier for the unsafe content job. Use @JobId@ to identify the job in a subsequent call to @GetContentModeration@ .
-getContentModeration ::
-  -- | 'gcmJobId'
-  Text ->
+-- * 'jobId' - The identifier for the unsafe content job. Use @JobId@ to identify the job in a subsequent call to @GetContentModeration@ .
+-- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
+-- * 'nextToken' - If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of unsafe content labels.
+-- * 'sortBy' - Sort to use for elements in the @ModerationLabelDetections@ array. Use @TIMESTAMP@ to sort array elements by the time labels are detected. Use @NAME@ to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
+mkGetContentModeration ::
+  -- | 'jobId'
+  Lude.Text ->
   GetContentModeration
-getContentModeration pJobId_ =
+mkGetContentModeration pJobId_ =
   GetContentModeration'
-    { _gcmNextToken = Nothing,
-      _gcmMaxResults = Nothing,
-      _gcmSortBy = Nothing,
-      _gcmJobId = pJobId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing,
+      jobId = pJobId_
     }
 
 -- | If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of unsafe content labels.
-gcmNextToken :: Lens' GetContentModeration (Maybe Text)
-gcmNextToken = lens _gcmNextToken (\s a -> s {_gcmNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmNextToken :: Lens.Lens' GetContentModeration (Lude.Maybe Lude.Text)
+gcmNextToken = Lens.lens (nextToken :: GetContentModeration -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetContentModeration)
+{-# DEPRECATED gcmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
-gcmMaxResults :: Lens' GetContentModeration (Maybe Natural)
-gcmMaxResults = lens _gcmMaxResults (\s a -> s {_gcmMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmMaxResults :: Lens.Lens' GetContentModeration (Lude.Maybe Lude.Natural)
+gcmMaxResults = Lens.lens (maxResults :: GetContentModeration -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetContentModeration)
+{-# DEPRECATED gcmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Sort to use for elements in the @ModerationLabelDetections@ array. Use @TIMESTAMP@ to sort array elements by the time labels are detected. Use @NAME@ to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
-gcmSortBy :: Lens' GetContentModeration (Maybe ContentModerationSortBy)
-gcmSortBy = lens _gcmSortBy (\s a -> s {_gcmSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmSortBy :: Lens.Lens' GetContentModeration (Lude.Maybe ContentModerationSortBy)
+gcmSortBy = Lens.lens (sortBy :: GetContentModeration -> Lude.Maybe ContentModerationSortBy) (\s a -> s {sortBy = a} :: GetContentModeration)
+{-# DEPRECATED gcmSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
 -- | The identifier for the unsafe content job. Use @JobId@ to identify the job in a subsequent call to @GetContentModeration@ .
-gcmJobId :: Lens' GetContentModeration Text
-gcmJobId = lens _gcmJobId (\s a -> s {_gcmJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmJobId :: Lens.Lens' GetContentModeration Lude.Text
+gcmJobId = Lens.lens (jobId :: GetContentModeration -> Lude.Text) (\s a -> s {jobId = a} :: GetContentModeration)
+{-# DEPRECATED gcmJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest GetContentModeration where
+instance Lude.AWSRequest GetContentModeration where
   type Rs GetContentModeration = GetContentModerationResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetContentModerationResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "VideoMetadata")
-            <*> (x .?> "StatusMessage")
-            <*> (x .?> "JobStatus")
-            <*> (x .?> "ModerationModelVersion")
-            <*> (x .?> "ModerationLabels" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "VideoMetadata")
+            Lude.<*> (x Lude..?> "StatusMessage")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (x Lude..?> "ModerationModelVersion")
+            Lude.<*> (x Lude..?> "ModerationLabels" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetContentModeration
-
-instance NFData GetContentModeration
-
-instance ToHeaders GetContentModeration where
+instance Lude.ToHeaders GetContentModeration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.GetContentModeration" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.GetContentModeration" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetContentModeration where
+instance Lude.ToJSON GetContentModeration where
   toJSON GetContentModeration' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gcmNextToken,
-            ("MaxResults" .=) <$> _gcmMaxResults,
-            ("SortBy" .=) <$> _gcmSortBy,
-            Just ("JobId" .= _gcmJobId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy,
+            Lude.Just ("JobId" Lude..= jobId)
           ]
       )
 
-instance ToPath GetContentModeration where
-  toPath = const "/"
+instance Lude.ToPath GetContentModeration where
+  toPath = Lude.const "/"
 
-instance ToQuery GetContentModeration where
-  toQuery = const mempty
+instance Lude.ToQuery GetContentModeration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getContentModerationResponse' smart constructor.
+-- | /See:/ 'mkGetContentModerationResponse' smart constructor.
 data GetContentModerationResponse = GetContentModerationResponse'
-  { _gcmrsNextToken ::
-      !(Maybe Text),
-    _gcmrsVideoMetadata ::
-      !(Maybe VideoMetadata),
-    _gcmrsStatusMessage ::
-      !(Maybe Text),
-    _gcmrsJobStatus ::
-      !(Maybe VideoJobStatus),
-    _gcmrsModerationModelVersion ::
-      !(Maybe Text),
-    _gcmrsModerationLabels ::
-      !( Maybe
-           [ContentModerationDetection]
-       ),
-    _gcmrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    videoMetadata ::
+      Lude.Maybe VideoMetadata,
+    statusMessage ::
+      Lude.Maybe Lude.Text,
+    jobStatus ::
+      Lude.Maybe VideoJobStatus,
+    moderationModelVersion ::
+      Lude.Maybe Lude.Text,
+    moderationLabels ::
+      Lude.Maybe
+        [ContentModerationDetection],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContentModerationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcmrsNextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of unsafe content labels.
---
--- * 'gcmrsVideoMetadata' - Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from @GetContentModeration@ .
---
--- * 'gcmrsStatusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
---
--- * 'gcmrsJobStatus' - The current status of the unsafe content analysis job.
---
--- * 'gcmrsModerationModelVersion' - Version number of the moderation detection model that was used to detect unsafe content.
---
--- * 'gcmrsModerationLabels' - The detected unsafe content labels and the time(s) they were detected.
---
--- * 'gcmrsResponseStatus' - -- | The response status code.
-getContentModerationResponse ::
-  -- | 'gcmrsResponseStatus'
-  Int ->
+-- * 'jobStatus' - The current status of the unsafe content analysis job.
+-- * 'moderationLabels' - The detected unsafe content labels and the time(s) they were detected.
+-- * 'moderationModelVersion' - Version number of the moderation detection model that was used to detect unsafe content.
+-- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of unsafe content labels.
+-- * 'responseStatus' - The response status code.
+-- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- * 'videoMetadata' - Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from @GetContentModeration@ .
+mkGetContentModerationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetContentModerationResponse
-getContentModerationResponse pResponseStatus_ =
+mkGetContentModerationResponse pResponseStatus_ =
   GetContentModerationResponse'
-    { _gcmrsNextToken = Nothing,
-      _gcmrsVideoMetadata = Nothing,
-      _gcmrsStatusMessage = Nothing,
-      _gcmrsJobStatus = Nothing,
-      _gcmrsModerationModelVersion = Nothing,
-      _gcmrsModerationLabels = Nothing,
-      _gcmrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      videoMetadata = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      moderationModelVersion = Lude.Nothing,
+      moderationLabels = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of unsafe content labels.
-gcmrsNextToken :: Lens' GetContentModerationResponse (Maybe Text)
-gcmrsNextToken = lens _gcmrsNextToken (\s a -> s {_gcmrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmrsNextToken :: Lens.Lens' GetContentModerationResponse (Lude.Maybe Lude.Text)
+gcmrsNextToken = Lens.lens (nextToken :: GetContentModerationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetContentModerationResponse)
+{-# DEPRECATED gcmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from @GetContentModeration@ .
-gcmrsVideoMetadata :: Lens' GetContentModerationResponse (Maybe VideoMetadata)
-gcmrsVideoMetadata = lens _gcmrsVideoMetadata (\s a -> s {_gcmrsVideoMetadata = a})
+--
+-- /Note:/ Consider using 'videoMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmrsVideoMetadata :: Lens.Lens' GetContentModerationResponse (Lude.Maybe VideoMetadata)
+gcmrsVideoMetadata = Lens.lens (videoMetadata :: GetContentModerationResponse -> Lude.Maybe VideoMetadata) (\s a -> s {videoMetadata = a} :: GetContentModerationResponse)
+{-# DEPRECATED gcmrsVideoMetadata "Use generic-lens or generic-optics with 'videoMetadata' instead." #-}
 
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-gcmrsStatusMessage :: Lens' GetContentModerationResponse (Maybe Text)
-gcmrsStatusMessage = lens _gcmrsStatusMessage (\s a -> s {_gcmrsStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmrsStatusMessage :: Lens.Lens' GetContentModerationResponse (Lude.Maybe Lude.Text)
+gcmrsStatusMessage = Lens.lens (statusMessage :: GetContentModerationResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: GetContentModerationResponse)
+{-# DEPRECATED gcmrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The current status of the unsafe content analysis job.
-gcmrsJobStatus :: Lens' GetContentModerationResponse (Maybe VideoJobStatus)
-gcmrsJobStatus = lens _gcmrsJobStatus (\s a -> s {_gcmrsJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmrsJobStatus :: Lens.Lens' GetContentModerationResponse (Lude.Maybe VideoJobStatus)
+gcmrsJobStatus = Lens.lens (jobStatus :: GetContentModerationResponse -> Lude.Maybe VideoJobStatus) (\s a -> s {jobStatus = a} :: GetContentModerationResponse)
+{-# DEPRECATED gcmrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | Version number of the moderation detection model that was used to detect unsafe content.
-gcmrsModerationModelVersion :: Lens' GetContentModerationResponse (Maybe Text)
-gcmrsModerationModelVersion = lens _gcmrsModerationModelVersion (\s a -> s {_gcmrsModerationModelVersion = a})
+--
+-- /Note:/ Consider using 'moderationModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmrsModerationModelVersion :: Lens.Lens' GetContentModerationResponse (Lude.Maybe Lude.Text)
+gcmrsModerationModelVersion = Lens.lens (moderationModelVersion :: GetContentModerationResponse -> Lude.Maybe Lude.Text) (\s a -> s {moderationModelVersion = a} :: GetContentModerationResponse)
+{-# DEPRECATED gcmrsModerationModelVersion "Use generic-lens or generic-optics with 'moderationModelVersion' instead." #-}
 
 -- | The detected unsafe content labels and the time(s) they were detected.
-gcmrsModerationLabels :: Lens' GetContentModerationResponse [ContentModerationDetection]
-gcmrsModerationLabels = lens _gcmrsModerationLabels (\s a -> s {_gcmrsModerationLabels = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'moderationLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmrsModerationLabels :: Lens.Lens' GetContentModerationResponse (Lude.Maybe [ContentModerationDetection])
+gcmrsModerationLabels = Lens.lens (moderationLabels :: GetContentModerationResponse -> Lude.Maybe [ContentModerationDetection]) (\s a -> s {moderationLabels = a} :: GetContentModerationResponse)
+{-# DEPRECATED gcmrsModerationLabels "Use generic-lens or generic-optics with 'moderationLabels' instead." #-}
 
--- | -- | The response status code.
-gcmrsResponseStatus :: Lens' GetContentModerationResponse Int
-gcmrsResponseStatus = lens _gcmrsResponseStatus (\s a -> s {_gcmrsResponseStatus = a})
-
-instance NFData GetContentModerationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmrsResponseStatus :: Lens.Lens' GetContentModerationResponse Lude.Int
+gcmrsResponseStatus = Lens.lens (responseStatus :: GetContentModerationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContentModerationResponse)
+{-# DEPRECATED gcmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

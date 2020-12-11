@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,147 @@
 --
 -- Returns information about a deployment target.
 module Network.AWS.CodeDeploy.GetDeploymentTarget
-  ( -- * Creating a Request
-    getDeploymentTarget,
-    GetDeploymentTarget,
+  ( -- * Creating a request
+    GetDeploymentTarget (..),
+    mkGetDeploymentTarget,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdtTargetId,
     gdtDeploymentId,
 
-    -- * Destructuring the Response
-    getDeploymentTargetResponse,
-    GetDeploymentTargetResponse,
+    -- * Destructuring the response
+    GetDeploymentTargetResponse (..),
+    mkGetDeploymentTargetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdtrsDeploymentTarget,
     gdtrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDeploymentTarget' smart constructor.
+-- | /See:/ 'mkGetDeploymentTarget' smart constructor.
 data GetDeploymentTarget = GetDeploymentTarget'
-  { _gdtTargetId ::
-      !(Maybe Text),
-    _gdtDeploymentId :: !(Maybe Text)
+  { targetId ::
+      Lude.Maybe Lude.Text,
+    deploymentId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeploymentTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdtTargetId' - The unique ID of a deployment target.
---
--- * 'gdtDeploymentId' - The unique ID of a deployment.
-getDeploymentTarget ::
+-- * 'deploymentId' - The unique ID of a deployment.
+-- * 'targetId' - The unique ID of a deployment target.
+mkGetDeploymentTarget ::
   GetDeploymentTarget
-getDeploymentTarget =
+mkGetDeploymentTarget =
   GetDeploymentTarget'
-    { _gdtTargetId = Nothing,
-      _gdtDeploymentId = Nothing
+    { targetId = Lude.Nothing,
+      deploymentId = Lude.Nothing
     }
 
 -- | The unique ID of a deployment target.
-gdtTargetId :: Lens' GetDeploymentTarget (Maybe Text)
-gdtTargetId = lens _gdtTargetId (\s a -> s {_gdtTargetId = a})
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdtTargetId :: Lens.Lens' GetDeploymentTarget (Lude.Maybe Lude.Text)
+gdtTargetId = Lens.lens (targetId :: GetDeploymentTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: GetDeploymentTarget)
+{-# DEPRECATED gdtTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
 
 -- | The unique ID of a deployment.
-gdtDeploymentId :: Lens' GetDeploymentTarget (Maybe Text)
-gdtDeploymentId = lens _gdtDeploymentId (\s a -> s {_gdtDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdtDeploymentId :: Lens.Lens' GetDeploymentTarget (Lude.Maybe Lude.Text)
+gdtDeploymentId = Lens.lens (deploymentId :: GetDeploymentTarget -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: GetDeploymentTarget)
+{-# DEPRECATED gdtDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
-instance AWSRequest GetDeploymentTarget where
+instance Lude.AWSRequest GetDeploymentTarget where
   type Rs GetDeploymentTarget = GetDeploymentTargetResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDeploymentTargetResponse'
-            <$> (x .?> "deploymentTarget") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "deploymentTarget")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDeploymentTarget
-
-instance NFData GetDeploymentTarget
-
-instance ToHeaders GetDeploymentTarget where
+instance Lude.ToHeaders GetDeploymentTarget where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.GetDeploymentTarget" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeDeploy_20141006.GetDeploymentTarget" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDeploymentTarget where
+instance Lude.ToJSON GetDeploymentTarget where
   toJSON GetDeploymentTarget' {..} =
-    object
-      ( catMaybes
-          [ ("targetId" .=) <$> _gdtTargetId,
-            ("deploymentId" .=) <$> _gdtDeploymentId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("targetId" Lude..=) Lude.<$> targetId,
+            ("deploymentId" Lude..=) Lude.<$> deploymentId
           ]
       )
 
-instance ToPath GetDeploymentTarget where
-  toPath = const "/"
+instance Lude.ToPath GetDeploymentTarget where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDeploymentTarget where
-  toQuery = const mempty
+instance Lude.ToQuery GetDeploymentTarget where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDeploymentTargetResponse' smart constructor.
+-- | /See:/ 'mkGetDeploymentTargetResponse' smart constructor.
 data GetDeploymentTargetResponse = GetDeploymentTargetResponse'
-  { _gdtrsDeploymentTarget ::
-      !(Maybe DeploymentTarget),
-    _gdtrsResponseStatus :: !Int
+  { deploymentTarget ::
+      Lude.Maybe DeploymentTarget,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeploymentTargetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdtrsDeploymentTarget' - A deployment target that contains information about a deployment such as its status, lifecycle events, and when it was last updated. It also contains metadata about the deployment target. The deployment target metadata depends on the deployment target's type (@instanceTarget@ , @lambdaTarget@ , or @ecsTarget@ ).
---
--- * 'gdtrsResponseStatus' - -- | The response status code.
-getDeploymentTargetResponse ::
-  -- | 'gdtrsResponseStatus'
-  Int ->
+-- * 'deploymentTarget' - A deployment target that contains information about a deployment such as its status, lifecycle events, and when it was last updated. It also contains metadata about the deployment target. The deployment target metadata depends on the deployment target's type (@instanceTarget@ , @lambdaTarget@ , or @ecsTarget@ ).
+-- * 'responseStatus' - The response status code.
+mkGetDeploymentTargetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDeploymentTargetResponse
-getDeploymentTargetResponse pResponseStatus_ =
+mkGetDeploymentTargetResponse pResponseStatus_ =
   GetDeploymentTargetResponse'
-    { _gdtrsDeploymentTarget = Nothing,
-      _gdtrsResponseStatus = pResponseStatus_
+    { deploymentTarget = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A deployment target that contains information about a deployment such as its status, lifecycle events, and when it was last updated. It also contains metadata about the deployment target. The deployment target metadata depends on the deployment target's type (@instanceTarget@ , @lambdaTarget@ , or @ecsTarget@ ).
-gdtrsDeploymentTarget :: Lens' GetDeploymentTargetResponse (Maybe DeploymentTarget)
-gdtrsDeploymentTarget = lens _gdtrsDeploymentTarget (\s a -> s {_gdtrsDeploymentTarget = a})
+--
+-- /Note:/ Consider using 'deploymentTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdtrsDeploymentTarget :: Lens.Lens' GetDeploymentTargetResponse (Lude.Maybe DeploymentTarget)
+gdtrsDeploymentTarget = Lens.lens (deploymentTarget :: GetDeploymentTargetResponse -> Lude.Maybe DeploymentTarget) (\s a -> s {deploymentTarget = a} :: GetDeploymentTargetResponse)
+{-# DEPRECATED gdtrsDeploymentTarget "Use generic-lens or generic-optics with 'deploymentTarget' instead." #-}
 
--- | -- | The response status code.
-gdtrsResponseStatus :: Lens' GetDeploymentTargetResponse Int
-gdtrsResponseStatus = lens _gdtrsResponseStatus (\s a -> s {_gdtrsResponseStatus = a})
-
-instance NFData GetDeploymentTargetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdtrsResponseStatus :: Lens.Lens' GetDeploymentTargetResponse Lude.Int
+gdtrsResponseStatus = Lens.lens (responseStatus :: GetDeploymentTargetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeploymentTargetResponse)
+{-# DEPRECATED gdtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

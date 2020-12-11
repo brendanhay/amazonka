@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.LambdaOutputUpdate where
+module Network.AWS.KinesisAnalytics.Types.LambdaOutputUpdate
+  ( LambdaOutputUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLambdaOutputUpdate,
+
+    -- * Lenses
+    louRoleARNUpdate,
+    louResourceARNUpdate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | When updating an output configuration using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html UpdateApplication> operation, provides information about an AWS Lambda function configured as the destination.
 --
---
---
--- /See:/ 'lambdaOutputUpdate' smart constructor.
+-- /See:/ 'mkLambdaOutputUpdate' smart constructor.
 data LambdaOutputUpdate = LambdaOutputUpdate'
-  { _louRoleARNUpdate ::
-      !(Maybe Text),
-    _louResourceARNUpdate :: !(Maybe Text)
+  { roleARNUpdate ::
+      Lude.Maybe Lude.Text,
+    resourceARNUpdate :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaOutputUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'louRoleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role.
---
--- * 'louResourceARNUpdate' - Amazon Resource Name (ARN) of the destination Lambda function.
-lambdaOutputUpdate ::
+-- * 'resourceARNUpdate' - Amazon Resource Name (ARN) of the destination Lambda function.
+-- * 'roleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role.
+mkLambdaOutputUpdate ::
   LambdaOutputUpdate
-lambdaOutputUpdate =
+mkLambdaOutputUpdate =
   LambdaOutputUpdate'
-    { _louRoleARNUpdate = Nothing,
-      _louResourceARNUpdate = Nothing
+    { roleARNUpdate = Lude.Nothing,
+      resourceARNUpdate = Lude.Nothing
     }
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role.
-louRoleARNUpdate :: Lens' LambdaOutputUpdate (Maybe Text)
-louRoleARNUpdate = lens _louRoleARNUpdate (\s a -> s {_louRoleARNUpdate = a})
+--
+-- /Note:/ Consider using 'roleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+louRoleARNUpdate :: Lens.Lens' LambdaOutputUpdate (Lude.Maybe Lude.Text)
+louRoleARNUpdate = Lens.lens (roleARNUpdate :: LambdaOutputUpdate -> Lude.Maybe Lude.Text) (\s a -> s {roleARNUpdate = a} :: LambdaOutputUpdate)
+{-# DEPRECATED louRoleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead." #-}
 
 -- | Amazon Resource Name (ARN) of the destination Lambda function.
-louResourceARNUpdate :: Lens' LambdaOutputUpdate (Maybe Text)
-louResourceARNUpdate = lens _louResourceARNUpdate (\s a -> s {_louResourceARNUpdate = a})
+--
+-- /Note:/ Consider using 'resourceARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+louResourceARNUpdate :: Lens.Lens' LambdaOutputUpdate (Lude.Maybe Lude.Text)
+louResourceARNUpdate = Lens.lens (resourceARNUpdate :: LambdaOutputUpdate -> Lude.Maybe Lude.Text) (\s a -> s {resourceARNUpdate = a} :: LambdaOutputUpdate)
+{-# DEPRECATED louResourceARNUpdate "Use generic-lens or generic-optics with 'resourceARNUpdate' instead." #-}
 
-instance Hashable LambdaOutputUpdate
-
-instance NFData LambdaOutputUpdate
-
-instance ToJSON LambdaOutputUpdate where
+instance Lude.ToJSON LambdaOutputUpdate where
   toJSON LambdaOutputUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("RoleARNUpdate" .=) <$> _louRoleARNUpdate,
-            ("ResourceARNUpdate" .=) <$> _louResourceARNUpdate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RoleARNUpdate" Lude..=) Lude.<$> roleARNUpdate,
+            ("ResourceARNUpdate" Lude..=) Lude.<$> resourceARNUpdate
           ]
       )

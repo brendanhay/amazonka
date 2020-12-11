@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationFilterOperatorType where
+module Network.AWS.SSM.Types.AssociationFilterOperatorType
+  ( AssociationFilterOperatorType
+      ( AssociationFilterOperatorType',
+        AFOTEqual,
+        AFOTGreaterThan,
+        AFOTLessThan
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssociationFilterOperatorType
-  = AFOTEqual
-  | AFOTGreaterThan
-  | AFOTLessThan
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssociationFilterOperatorType = AssociationFilterOperatorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssociationFilterOperatorType where
-  parser =
-    takeLowerText >>= \case
-      "equal" -> pure AFOTEqual
-      "greater_than" -> pure AFOTGreaterThan
-      "less_than" -> pure AFOTLessThan
-      e ->
-        fromTextError $
-          "Failure parsing AssociationFilterOperatorType from value: '" <> e
-            <> "'. Accepted values: equal, greater_than, less_than"
+pattern AFOTEqual :: AssociationFilterOperatorType
+pattern AFOTEqual = AssociationFilterOperatorType' "EQUAL"
 
-instance ToText AssociationFilterOperatorType where
-  toText = \case
-    AFOTEqual -> "EQUAL"
-    AFOTGreaterThan -> "GREATER_THAN"
-    AFOTLessThan -> "LESS_THAN"
+pattern AFOTGreaterThan :: AssociationFilterOperatorType
+pattern AFOTGreaterThan = AssociationFilterOperatorType' "GREATER_THAN"
 
-instance Hashable AssociationFilterOperatorType
+pattern AFOTLessThan :: AssociationFilterOperatorType
+pattern AFOTLessThan = AssociationFilterOperatorType' "LESS_THAN"
 
-instance NFData AssociationFilterOperatorType
-
-instance ToByteString AssociationFilterOperatorType
-
-instance ToQuery AssociationFilterOperatorType
-
-instance ToHeader AssociationFilterOperatorType
-
-instance ToJSON AssociationFilterOperatorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  AFOTEqual,
+  AFOTGreaterThan,
+  AFOTLessThan,
+  AssociationFilterOperatorType'
+  #-}

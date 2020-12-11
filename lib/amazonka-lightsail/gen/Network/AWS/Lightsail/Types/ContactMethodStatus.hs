@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContactMethodStatus where
+module Network.AWS.Lightsail.Types.ContactMethodStatus
+  ( ContactMethodStatus
+      ( ContactMethodStatus',
+        Invalid,
+        PendingVerification,
+        Valid
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContactMethodStatus
-  = Invalid
-  | PendingVerification
-  | Valid
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContactMethodStatus = ContactMethodStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContactMethodStatus where
-  parser =
-    takeLowerText >>= \case
-      "invalid" -> pure Invalid
-      "pendingverification" -> pure PendingVerification
-      "valid" -> pure Valid
-      e ->
-        fromTextError $
-          "Failure parsing ContactMethodStatus from value: '" <> e
-            <> "'. Accepted values: invalid, pendingverification, valid"
+pattern Invalid :: ContactMethodStatus
+pattern Invalid = ContactMethodStatus' "Invalid"
 
-instance ToText ContactMethodStatus where
-  toText = \case
-    Invalid -> "Invalid"
-    PendingVerification -> "PendingVerification"
-    Valid -> "Valid"
+pattern PendingVerification :: ContactMethodStatus
+pattern PendingVerification = ContactMethodStatus' "PendingVerification"
 
-instance Hashable ContactMethodStatus
+pattern Valid :: ContactMethodStatus
+pattern Valid = ContactMethodStatus' "Valid"
 
-instance NFData ContactMethodStatus
-
-instance ToByteString ContactMethodStatus
-
-instance ToQuery ContactMethodStatus
-
-instance ToHeader ContactMethodStatus
-
-instance FromJSON ContactMethodStatus where
-  parseJSON = parseJSONText "ContactMethodStatus"
+{-# COMPLETE
+  Invalid,
+  PendingVerification,
+  Valid,
+  ContactMethodStatus'
+  #-}

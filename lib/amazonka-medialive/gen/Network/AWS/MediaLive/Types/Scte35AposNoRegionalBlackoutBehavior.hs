@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior where
+module Network.AWS.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
+  ( Scte35AposNoRegionalBlackoutBehavior
+      ( Scte35AposNoRegionalBlackoutBehavior',
+        SANRBBFollow,
+        SANRBBIgnore
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Scte35 Apos No Regional Blackout Behavior
-data Scte35AposNoRegionalBlackoutBehavior
-  = SANRBBFollow
-  | SANRBBIgnore
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Scte35AposNoRegionalBlackoutBehavior = Scte35AposNoRegionalBlackoutBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Scte35AposNoRegionalBlackoutBehavior where
-  parser =
-    takeLowerText >>= \case
-      "follow" -> pure SANRBBFollow
-      "ignore" -> pure SANRBBIgnore
-      e ->
-        fromTextError $
-          "Failure parsing Scte35AposNoRegionalBlackoutBehavior from value: '" <> e
-            <> "'. Accepted values: follow, ignore"
+pattern SANRBBFollow :: Scte35AposNoRegionalBlackoutBehavior
+pattern SANRBBFollow = Scte35AposNoRegionalBlackoutBehavior' "FOLLOW"
 
-instance ToText Scte35AposNoRegionalBlackoutBehavior where
-  toText = \case
-    SANRBBFollow -> "FOLLOW"
-    SANRBBIgnore -> "IGNORE"
+pattern SANRBBIgnore :: Scte35AposNoRegionalBlackoutBehavior
+pattern SANRBBIgnore = Scte35AposNoRegionalBlackoutBehavior' "IGNORE"
 
-instance Hashable Scte35AposNoRegionalBlackoutBehavior
-
-instance NFData Scte35AposNoRegionalBlackoutBehavior
-
-instance ToByteString Scte35AposNoRegionalBlackoutBehavior
-
-instance ToQuery Scte35AposNoRegionalBlackoutBehavior
-
-instance ToHeader Scte35AposNoRegionalBlackoutBehavior
-
-instance ToJSON Scte35AposNoRegionalBlackoutBehavior where
-  toJSON = toJSONText
-
-instance FromJSON Scte35AposNoRegionalBlackoutBehavior where
-  parseJSON = parseJSONText "Scte35AposNoRegionalBlackoutBehavior"
+{-# COMPLETE
+  SANRBBFollow,
+  SANRBBIgnore,
+  Scte35AposNoRegionalBlackoutBehavior'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.Snapshot where
+module Network.AWS.DirectoryService.Types.Snapshot
+  ( Snapshot (..),
+
+    -- * Smart constructor
+    mkSnapshot,
+
+    -- * Lenses
+    sStatus,
+    sDirectoryId,
+    sStartTime,
+    sName,
+    sType,
+    sSnapshotId,
+  )
+where
 
 import Network.AWS.DirectoryService.Types.SnapshotStatus
 import Network.AWS.DirectoryService.Types.SnapshotType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a directory snapshot.
 --
---
---
--- /See:/ 'snapshot' smart constructor.
+-- /See:/ 'mkSnapshot' smart constructor.
 data Snapshot = Snapshot'
-  { _sStatus :: !(Maybe SnapshotStatus),
-    _sDirectoryId :: !(Maybe Text),
-    _sStartTime :: !(Maybe POSIX),
-    _sName :: !(Maybe Text),
-    _sType :: !(Maybe SnapshotType),
-    _sSnapshotId :: !(Maybe Text)
+  { status :: Lude.Maybe SnapshotStatus,
+    directoryId :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe SnapshotType,
+    snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sStatus' - The snapshot status.
---
--- * 'sDirectoryId' - The directory identifier.
---
--- * 'sStartTime' - The date and time that the snapshot was taken.
---
--- * 'sName' - The descriptive name of the snapshot.
---
--- * 'sType' - The snapshot type.
---
--- * 'sSnapshotId' - The snapshot identifier.
-snapshot ::
+-- * 'directoryId' - The directory identifier.
+-- * 'name' - The descriptive name of the snapshot.
+-- * 'snapshotId' - The snapshot identifier.
+-- * 'startTime' - The date and time that the snapshot was taken.
+-- * 'status' - The snapshot status.
+-- * 'type'' - The snapshot type.
+mkSnapshot ::
   Snapshot
-snapshot =
+mkSnapshot =
   Snapshot'
-    { _sStatus = Nothing,
-      _sDirectoryId = Nothing,
-      _sStartTime = Nothing,
-      _sName = Nothing,
-      _sType = Nothing,
-      _sSnapshotId = Nothing
+    { status = Lude.Nothing,
+      directoryId = Lude.Nothing,
+      startTime = Lude.Nothing,
+      name = Lude.Nothing,
+      type' = Lude.Nothing,
+      snapshotId = Lude.Nothing
     }
 
 -- | The snapshot status.
-sStatus :: Lens' Snapshot (Maybe SnapshotStatus)
-sStatus = lens _sStatus (\s a -> s {_sStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStatus :: Lens.Lens' Snapshot (Lude.Maybe SnapshotStatus)
+sStatus = Lens.lens (status :: Snapshot -> Lude.Maybe SnapshotStatus) (\s a -> s {status = a} :: Snapshot)
+{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The directory identifier.
-sDirectoryId :: Lens' Snapshot (Maybe Text)
-sDirectoryId = lens _sDirectoryId (\s a -> s {_sDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDirectoryId :: Lens.Lens' Snapshot (Lude.Maybe Lude.Text)
+sDirectoryId = Lens.lens (directoryId :: Snapshot -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: Snapshot)
+{-# DEPRECATED sDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The date and time that the snapshot was taken.
-sStartTime :: Lens' Snapshot (Maybe UTCTime)
-sStartTime = lens _sStartTime (\s a -> s {_sStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStartTime :: Lens.Lens' Snapshot (Lude.Maybe Lude.Timestamp)
+sStartTime = Lens.lens (startTime :: Snapshot -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: Snapshot)
+{-# DEPRECATED sStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The descriptive name of the snapshot.
-sName :: Lens' Snapshot (Maybe Text)
-sName = lens _sName (\s a -> s {_sName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' Snapshot (Lude.Maybe Lude.Text)
+sName = Lens.lens (name :: Snapshot -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Snapshot)
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The snapshot type.
-sType :: Lens' Snapshot (Maybe SnapshotType)
-sType = lens _sType (\s a -> s {_sType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sType :: Lens.Lens' Snapshot (Lude.Maybe SnapshotType)
+sType = Lens.lens (type' :: Snapshot -> Lude.Maybe SnapshotType) (\s a -> s {type' = a} :: Snapshot)
+{-# DEPRECATED sType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The snapshot identifier.
-sSnapshotId :: Lens' Snapshot (Maybe Text)
-sSnapshotId = lens _sSnapshotId (\s a -> s {_sSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSnapshotId :: Lens.Lens' Snapshot (Lude.Maybe Lude.Text)
+sSnapshotId = Lens.lens (snapshotId :: Snapshot -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: Snapshot)
+{-# DEPRECATED sSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance FromJSON Snapshot where
+instance Lude.FromJSON Snapshot where
   parseJSON =
-    withObject
+    Lude.withObject
       "Snapshot"
       ( \x ->
           Snapshot'
-            <$> (x .:? "Status")
-            <*> (x .:? "DirectoryId")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "Name")
-            <*> (x .:? "Type")
-            <*> (x .:? "SnapshotId")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "DirectoryId")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "SnapshotId")
       )
-
-instance Hashable Snapshot
-
-instance NFData Snapshot

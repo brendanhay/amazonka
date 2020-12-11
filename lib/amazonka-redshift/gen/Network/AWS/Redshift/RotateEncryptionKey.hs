@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,130 @@
 --
 -- Rotates the encryption keys for a cluster.
 module Network.AWS.Redshift.RotateEncryptionKey
-  ( -- * Creating a Request
-    rotateEncryptionKey,
-    RotateEncryptionKey,
+  ( -- * Creating a request
+    RotateEncryptionKey (..),
+    mkRotateEncryptionKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rekClusterIdentifier,
 
-    -- * Destructuring the Response
-    rotateEncryptionKeyResponse,
-    RotateEncryptionKeyResponse,
+    -- * Destructuring the response
+    RotateEncryptionKeyResponse (..),
+    mkRotateEncryptionKeyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rekrsCluster,
     rekrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'rotateEncryptionKey' smart constructor.
+-- /See:/ 'mkRotateEncryptionKey' smart constructor.
 newtype RotateEncryptionKey = RotateEncryptionKey'
-  { _rekClusterIdentifier ::
-      Text
+  { clusterIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RotateEncryptionKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clusterIdentifier' - The unique identifier of the cluster that you want to rotate the encryption keys for.
 --
--- * 'rekClusterIdentifier' - The unique identifier of the cluster that you want to rotate the encryption keys for. Constraints: Must be the name of valid cluster that has encryption enabled.
-rotateEncryptionKey ::
-  -- | 'rekClusterIdentifier'
-  Text ->
+-- Constraints: Must be the name of valid cluster that has encryption enabled.
+mkRotateEncryptionKey ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   RotateEncryptionKey
-rotateEncryptionKey pClusterIdentifier_ =
-  RotateEncryptionKey' {_rekClusterIdentifier = pClusterIdentifier_}
+mkRotateEncryptionKey pClusterIdentifier_ =
+  RotateEncryptionKey' {clusterIdentifier = pClusterIdentifier_}
 
--- | The unique identifier of the cluster that you want to rotate the encryption keys for. Constraints: Must be the name of valid cluster that has encryption enabled.
-rekClusterIdentifier :: Lens' RotateEncryptionKey Text
-rekClusterIdentifier = lens _rekClusterIdentifier (\s a -> s {_rekClusterIdentifier = a})
+-- | The unique identifier of the cluster that you want to rotate the encryption keys for.
+--
+-- Constraints: Must be the name of valid cluster that has encryption enabled.
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rekClusterIdentifier :: Lens.Lens' RotateEncryptionKey Lude.Text
+rekClusterIdentifier = Lens.lens (clusterIdentifier :: RotateEncryptionKey -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: RotateEncryptionKey)
+{-# DEPRECATED rekClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest RotateEncryptionKey where
+instance Lude.AWSRequest RotateEncryptionKey where
   type Rs RotateEncryptionKey = RotateEncryptionKeyResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "RotateEncryptionKeyResult"
       ( \s h x ->
           RotateEncryptionKeyResponse'
-            <$> (x .@? "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RotateEncryptionKey
+instance Lude.ToHeaders RotateEncryptionKey where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RotateEncryptionKey
+instance Lude.ToPath RotateEncryptionKey where
+  toPath = Lude.const "/"
 
-instance ToHeaders RotateEncryptionKey where
-  toHeaders = const mempty
-
-instance ToPath RotateEncryptionKey where
-  toPath = const "/"
-
-instance ToQuery RotateEncryptionKey where
+instance Lude.ToQuery RotateEncryptionKey where
   toQuery RotateEncryptionKey' {..} =
-    mconcat
-      [ "Action" =: ("RotateEncryptionKey" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterIdentifier" =: _rekClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("RotateEncryptionKey" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]
 
--- | /See:/ 'rotateEncryptionKeyResponse' smart constructor.
+-- | /See:/ 'mkRotateEncryptionKeyResponse' smart constructor.
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
-  { _rekrsCluster ::
-      !(Maybe Cluster),
-    _rekrsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RotateEncryptionKeyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rekrsCluster' - Undocumented member.
---
--- * 'rekrsResponseStatus' - -- | The response status code.
-rotateEncryptionKeyResponse ::
-  -- | 'rekrsResponseStatus'
-  Int ->
+-- * 'cluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkRotateEncryptionKeyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RotateEncryptionKeyResponse
-rotateEncryptionKeyResponse pResponseStatus_ =
+mkRotateEncryptionKeyResponse pResponseStatus_ =
   RotateEncryptionKeyResponse'
-    { _rekrsCluster = Nothing,
-      _rekrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
-rekrsCluster = lens _rekrsCluster (\s a -> s {_rekrsCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rekrsCluster :: Lens.Lens' RotateEncryptionKeyResponse (Lude.Maybe Cluster)
+rekrsCluster = Lens.lens (cluster :: RotateEncryptionKeyResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: RotateEncryptionKeyResponse)
+{-# DEPRECATED rekrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-rekrsResponseStatus :: Lens' RotateEncryptionKeyResponse Int
-rekrsResponseStatus = lens _rekrsResponseStatus (\s a -> s {_rekrsResponseStatus = a})
-
-instance NFData RotateEncryptionKeyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rekrsResponseStatus :: Lens.Lens' RotateEncryptionKeyResponse Lude.Int
+rekrsResponseStatus = Lens.lens (responseStatus :: RotateEncryptionKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RotateEncryptionKeyResponse)
+{-# DEPRECATED rekrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

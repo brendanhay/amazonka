@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,175 @@
 --
 -- Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your service naming scheme. For example, if you name your namespace @example.com@ and name your service @backend@ , the resulting DNS name for the service will be @backend.example.com@ . For the current quota on the number of namespaces that you can create using the same AWS account, see <https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html AWS Cloud Map Limits> in the /AWS Cloud Map Developer Guide/ .
 module Network.AWS.Route53AutoNaming.CreatePublicDNSNamespace
-  ( -- * Creating a Request
-    createPublicDNSNamespace,
-    CreatePublicDNSNamespace,
+  ( -- * Creating a request
+    CreatePublicDNSNamespace (..),
+    mkCreatePublicDNSNamespace,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpdnCreatorRequestId,
     cpdnDescription,
     cpdnTags,
     cpdnName,
 
-    -- * Destructuring the Response
-    createPublicDNSNamespaceResponse,
-    CreatePublicDNSNamespaceResponse,
+    -- * Destructuring the response
+    CreatePublicDNSNamespaceResponse (..),
+    mkCreatePublicDNSNamespaceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpdnrsOperationId,
     cpdnrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53AutoNaming.Types
 
--- | /See:/ 'createPublicDNSNamespace' smart constructor.
+-- | /See:/ 'mkCreatePublicDNSNamespace' smart constructor.
 data CreatePublicDNSNamespace = CreatePublicDNSNamespace'
-  { _cpdnCreatorRequestId ::
-      !(Maybe Text),
-    _cpdnDescription :: !(Maybe Text),
-    _cpdnTags :: !(Maybe [Tag]),
-    _cpdnName :: !Text
+  { creatorRequestId ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePublicDNSNamespace' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpdnCreatorRequestId' - A unique string that identifies the request and that allows failed @CreatePublicDnsNamespace@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
---
--- * 'cpdnDescription' - A description for the namespace.
---
--- * 'cpdnTags' - The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
---
--- * 'cpdnName' - The name that you want to assign to this namespace.
-createPublicDNSNamespace ::
-  -- | 'cpdnName'
-  Text ->
+-- * 'creatorRequestId' - A unique string that identifies the request and that allows failed @CreatePublicDnsNamespace@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
+-- * 'description' - A description for the namespace.
+-- * 'name' - The name that you want to assign to this namespace.
+-- * 'tags' - The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+mkCreatePublicDNSNamespace ::
+  -- | 'name'
+  Lude.Text ->
   CreatePublicDNSNamespace
-createPublicDNSNamespace pName_ =
+mkCreatePublicDNSNamespace pName_ =
   CreatePublicDNSNamespace'
-    { _cpdnCreatorRequestId = Nothing,
-      _cpdnDescription = Nothing,
-      _cpdnTags = Nothing,
-      _cpdnName = pName_
+    { creatorRequestId = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_
     }
 
 -- | A unique string that identifies the request and that allows failed @CreatePublicDnsNamespace@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
-cpdnCreatorRequestId :: Lens' CreatePublicDNSNamespace (Maybe Text)
-cpdnCreatorRequestId = lens _cpdnCreatorRequestId (\s a -> s {_cpdnCreatorRequestId = a})
+--
+-- /Note:/ Consider using 'creatorRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdnCreatorRequestId :: Lens.Lens' CreatePublicDNSNamespace (Lude.Maybe Lude.Text)
+cpdnCreatorRequestId = Lens.lens (creatorRequestId :: CreatePublicDNSNamespace -> Lude.Maybe Lude.Text) (\s a -> s {creatorRequestId = a} :: CreatePublicDNSNamespace)
+{-# DEPRECATED cpdnCreatorRequestId "Use generic-lens or generic-optics with 'creatorRequestId' instead." #-}
 
 -- | A description for the namespace.
-cpdnDescription :: Lens' CreatePublicDNSNamespace (Maybe Text)
-cpdnDescription = lens _cpdnDescription (\s a -> s {_cpdnDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdnDescription :: Lens.Lens' CreatePublicDNSNamespace (Lude.Maybe Lude.Text)
+cpdnDescription = Lens.lens (description :: CreatePublicDNSNamespace -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePublicDNSNamespace)
+{-# DEPRECATED cpdnDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-cpdnTags :: Lens' CreatePublicDNSNamespace [Tag]
-cpdnTags = lens _cpdnTags (\s a -> s {_cpdnTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdnTags :: Lens.Lens' CreatePublicDNSNamespace (Lude.Maybe [Tag])
+cpdnTags = Lens.lens (tags :: CreatePublicDNSNamespace -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePublicDNSNamespace)
+{-# DEPRECATED cpdnTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name that you want to assign to this namespace.
-cpdnName :: Lens' CreatePublicDNSNamespace Text
-cpdnName = lens _cpdnName (\s a -> s {_cpdnName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdnName :: Lens.Lens' CreatePublicDNSNamespace Lude.Text
+cpdnName = Lens.lens (name :: CreatePublicDNSNamespace -> Lude.Text) (\s a -> s {name = a} :: CreatePublicDNSNamespace)
+{-# DEPRECATED cpdnName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreatePublicDNSNamespace where
+instance Lude.AWSRequest CreatePublicDNSNamespace where
   type Rs CreatePublicDNSNamespace = CreatePublicDNSNamespaceResponse
-  request = postJSON route53AutoNaming
+  request = Req.postJSON route53AutoNamingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreatePublicDNSNamespaceResponse'
-            <$> (x .?> "OperationId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreatePublicDNSNamespace
-
-instance NFData CreatePublicDNSNamespace
-
-instance ToHeaders CreatePublicDNSNamespace where
+instance Lude.ToHeaders CreatePublicDNSNamespace where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Route53AutoNaming_v20170314.CreatePublicDnsNamespace" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53AutoNaming_v20170314.CreatePublicDnsNamespace" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreatePublicDNSNamespace where
+instance Lude.ToJSON CreatePublicDNSNamespace where
   toJSON CreatePublicDNSNamespace' {..} =
-    object
-      ( catMaybes
-          [ ("CreatorRequestId" .=) <$> _cpdnCreatorRequestId,
-            ("Description" .=) <$> _cpdnDescription,
-            ("Tags" .=) <$> _cpdnTags,
-            Just ("Name" .= _cpdnName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CreatorRequestId" Lude..=) Lude.<$> creatorRequestId,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath CreatePublicDNSNamespace where
-  toPath = const "/"
+instance Lude.ToPath CreatePublicDNSNamespace where
+  toPath = Lude.const "/"
 
-instance ToQuery CreatePublicDNSNamespace where
-  toQuery = const mempty
+instance Lude.ToQuery CreatePublicDNSNamespace where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createPublicDNSNamespaceResponse' smart constructor.
+-- | /See:/ 'mkCreatePublicDNSNamespaceResponse' smart constructor.
 data CreatePublicDNSNamespaceResponse = CreatePublicDNSNamespaceResponse'
-  { _cpdnrsOperationId ::
-      !(Maybe Text),
-    _cpdnrsResponseStatus ::
-      !Int
+  { operationId ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePublicDNSNamespaceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpdnrsOperationId' - A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
---
--- * 'cpdnrsResponseStatus' - -- | The response status code.
-createPublicDNSNamespaceResponse ::
-  -- | 'cpdnrsResponseStatus'
-  Int ->
+-- * 'operationId' - A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
+-- * 'responseStatus' - The response status code.
+mkCreatePublicDNSNamespaceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePublicDNSNamespaceResponse
-createPublicDNSNamespaceResponse pResponseStatus_ =
+mkCreatePublicDNSNamespaceResponse pResponseStatus_ =
   CreatePublicDNSNamespaceResponse'
-    { _cpdnrsOperationId = Nothing,
-      _cpdnrsResponseStatus = pResponseStatus_
+    { operationId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
-cpdnrsOperationId :: Lens' CreatePublicDNSNamespaceResponse (Maybe Text)
-cpdnrsOperationId = lens _cpdnrsOperationId (\s a -> s {_cpdnrsOperationId = a})
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdnrsOperationId :: Lens.Lens' CreatePublicDNSNamespaceResponse (Lude.Maybe Lude.Text)
+cpdnrsOperationId = Lens.lens (operationId :: CreatePublicDNSNamespaceResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: CreatePublicDNSNamespaceResponse)
+{-# DEPRECATED cpdnrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
--- | -- | The response status code.
-cpdnrsResponseStatus :: Lens' CreatePublicDNSNamespaceResponse Int
-cpdnrsResponseStatus = lens _cpdnrsResponseStatus (\s a -> s {_cpdnrsResponseStatus = a})
-
-instance NFData CreatePublicDNSNamespaceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdnrsResponseStatus :: Lens.Lens' CreatePublicDNSNamespaceResponse Lude.Int
+cpdnrsResponseStatus = Lens.lens (responseStatus :: CreatePublicDNSNamespaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePublicDNSNamespaceResponse)
+{-# DEPRECATED cpdnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

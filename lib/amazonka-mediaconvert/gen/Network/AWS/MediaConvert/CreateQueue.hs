@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Create a new transcoding queue. For information about queues, see Working With Queues in the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
 module Network.AWS.MediaConvert.CreateQueue
-  ( -- * Creating a Request
-    createQueue,
-    CreateQueue,
+  ( -- * Creating a request
+    CreateQueue (..),
+    mkCreateQueue,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cqStatus,
     cqPricingPlan,
     cqDescription,
@@ -31,156 +26,182 @@ module Network.AWS.MediaConvert.CreateQueue
     cqTags,
     cqName,
 
-    -- * Destructuring the Response
-    createQueueResponse,
-    CreateQueueResponse,
+    -- * Destructuring the response
+    CreateQueueResponse (..),
+    mkCreateQueueResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cqrsQueue,
     cqrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createQueue' smart constructor.
+-- | /See:/ 'mkCreateQueue' smart constructor.
 data CreateQueue = CreateQueue'
-  { _cqStatus :: !(Maybe QueueStatus),
-    _cqPricingPlan :: !(Maybe PricingPlan),
-    _cqDescription :: !(Maybe Text),
-    _cqReservationPlanSettings :: !(Maybe ReservationPlanSettings),
-    _cqTags :: !(Maybe (Map Text (Text))),
-    _cqName :: !Text
+  { status :: Lude.Maybe QueueStatus,
+    pricingPlan :: Lude.Maybe PricingPlan,
+    description :: Lude.Maybe Lude.Text,
+    reservationPlanSettings :: Lude.Maybe ReservationPlanSettings,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateQueue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cqStatus' - Initial state of the queue. If you create a paused queue, then jobs in that queue won't begin.
---
--- * 'cqPricingPlan' - Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the API to create a queue, the default is on-demand.
---
--- * 'cqDescription' - Optional. A description of the queue that you are creating.
---
--- * 'cqReservationPlanSettings' - Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
---
--- * 'cqTags' - The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
---
--- * 'cqName' - The name of the queue that you are creating.
-createQueue ::
-  -- | 'cqName'
-  Text ->
+-- * 'description' - Optional. A description of the queue that you are creating.
+-- * 'name' - The name of the queue that you are creating.
+-- * 'pricingPlan' - Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the API to create a queue, the default is on-demand.
+-- * 'reservationPlanSettings' - Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
+-- * 'status' - Initial state of the queue. If you create a paused queue, then jobs in that queue won't begin.
+-- * 'tags' - The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+mkCreateQueue ::
+  -- | 'name'
+  Lude.Text ->
   CreateQueue
-createQueue pName_ =
+mkCreateQueue pName_ =
   CreateQueue'
-    { _cqStatus = Nothing,
-      _cqPricingPlan = Nothing,
-      _cqDescription = Nothing,
-      _cqReservationPlanSettings = Nothing,
-      _cqTags = Nothing,
-      _cqName = pName_
+    { status = Lude.Nothing,
+      pricingPlan = Lude.Nothing,
+      description = Lude.Nothing,
+      reservationPlanSettings = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_
     }
 
 -- | Initial state of the queue. If you create a paused queue, then jobs in that queue won't begin.
-cqStatus :: Lens' CreateQueue (Maybe QueueStatus)
-cqStatus = lens _cqStatus (\s a -> s {_cqStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqStatus :: Lens.Lens' CreateQueue (Lude.Maybe QueueStatus)
+cqStatus = Lens.lens (status :: CreateQueue -> Lude.Maybe QueueStatus) (\s a -> s {status = a} :: CreateQueue)
+{-# DEPRECATED cqStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment. When you use the API to create a queue, the default is on-demand.
-cqPricingPlan :: Lens' CreateQueue (Maybe PricingPlan)
-cqPricingPlan = lens _cqPricingPlan (\s a -> s {_cqPricingPlan = a})
+--
+-- /Note:/ Consider using 'pricingPlan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqPricingPlan :: Lens.Lens' CreateQueue (Lude.Maybe PricingPlan)
+cqPricingPlan = Lens.lens (pricingPlan :: CreateQueue -> Lude.Maybe PricingPlan) (\s a -> s {pricingPlan = a} :: CreateQueue)
+{-# DEPRECATED cqPricingPlan "Use generic-lens or generic-optics with 'pricingPlan' instead." #-}
 
 -- | Optional. A description of the queue that you are creating.
-cqDescription :: Lens' CreateQueue (Maybe Text)
-cqDescription = lens _cqDescription (\s a -> s {_cqDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqDescription :: Lens.Lens' CreateQueue (Lude.Maybe Lude.Text)
+cqDescription = Lens.lens (description :: CreateQueue -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateQueue)
+{-# DEPRECATED cqDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Details about the pricing plan for your reserved queue. Required for reserved queues and not applicable to on-demand queues.
-cqReservationPlanSettings :: Lens' CreateQueue (Maybe ReservationPlanSettings)
-cqReservationPlanSettings = lens _cqReservationPlanSettings (\s a -> s {_cqReservationPlanSettings = a})
+--
+-- /Note:/ Consider using 'reservationPlanSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqReservationPlanSettings :: Lens.Lens' CreateQueue (Lude.Maybe ReservationPlanSettings)
+cqReservationPlanSettings = Lens.lens (reservationPlanSettings :: CreateQueue -> Lude.Maybe ReservationPlanSettings) (\s a -> s {reservationPlanSettings = a} :: CreateQueue)
+{-# DEPRECATED cqReservationPlanSettings "Use generic-lens or generic-optics with 'reservationPlanSettings' instead." #-}
 
 -- | The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
-cqTags :: Lens' CreateQueue (HashMap Text (Text))
-cqTags = lens _cqTags (\s a -> s {_cqTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqTags :: Lens.Lens' CreateQueue (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cqTags = Lens.lens (tags :: CreateQueue -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateQueue)
+{-# DEPRECATED cqTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the queue that you are creating.
-cqName :: Lens' CreateQueue Text
-cqName = lens _cqName (\s a -> s {_cqName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqName :: Lens.Lens' CreateQueue Lude.Text
+cqName = Lens.lens (name :: CreateQueue -> Lude.Text) (\s a -> s {name = a} :: CreateQueue)
+{-# DEPRECATED cqName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateQueue where
+instance Lude.AWSRequest CreateQueue where
   type Rs CreateQueue = CreateQueueResponse
-  request = postJSON mediaConvert
+  request = Req.postJSON mediaConvertService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateQueueResponse' <$> (x .?> "queue") <*> (pure (fromEnum s))
+          CreateQueueResponse'
+            Lude.<$> (x Lude..?> "queue") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateQueue
-
-instance NFData CreateQueue
-
-instance ToHeaders CreateQueue where
+instance Lude.ToHeaders CreateQueue where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateQueue where
-  toJSON CreateQueue' {..} =
-    object
-      ( catMaybes
-          [ ("status" .=) <$> _cqStatus,
-            ("pricingPlan" .=) <$> _cqPricingPlan,
-            ("description" .=) <$> _cqDescription,
-            ("reservationPlanSettings" .=) <$> _cqReservationPlanSettings,
-            ("tags" .=) <$> _cqTags,
-            Just ("name" .= _cqName)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateQueue where
-  toPath = const "/2017-08-29/queues"
+instance Lude.ToJSON CreateQueue where
+  toJSON CreateQueue' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("status" Lude..=) Lude.<$> status,
+            ("pricingPlan" Lude..=) Lude.<$> pricingPlan,
+            ("description" Lude..=) Lude.<$> description,
+            ("reservationPlanSettings" Lude..=)
+              Lude.<$> reservationPlanSettings,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("name" Lude..= name)
+          ]
+      )
 
-instance ToQuery CreateQueue where
-  toQuery = const mempty
+instance Lude.ToPath CreateQueue where
+  toPath = Lude.const "/2017-08-29/queues"
 
--- | /See:/ 'createQueueResponse' smart constructor.
+instance Lude.ToQuery CreateQueue where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkCreateQueueResponse' smart constructor.
 data CreateQueueResponse = CreateQueueResponse'
-  { _cqrsQueue ::
-      !(Maybe Queue),
-    _cqrsResponseStatus :: !Int
+  { queue ::
+      Lude.Maybe Queue,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateQueueResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cqrsQueue' - You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
---
--- * 'cqrsResponseStatus' - -- | The response status code.
-createQueueResponse ::
-  -- | 'cqrsResponseStatus'
-  Int ->
+-- * 'queue' - You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+-- * 'responseStatus' - The response status code.
+mkCreateQueueResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateQueueResponse
-createQueueResponse pResponseStatus_ =
+mkCreateQueueResponse pResponseStatus_ =
   CreateQueueResponse'
-    { _cqrsQueue = Nothing,
-      _cqrsResponseStatus = pResponseStatus_
+    { queue = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
-cqrsQueue :: Lens' CreateQueueResponse (Maybe Queue)
-cqrsQueue = lens _cqrsQueue (\s a -> s {_cqrsQueue = a})
+--
+-- /Note:/ Consider using 'queue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqrsQueue :: Lens.Lens' CreateQueueResponse (Lude.Maybe Queue)
+cqrsQueue = Lens.lens (queue :: CreateQueueResponse -> Lude.Maybe Queue) (\s a -> s {queue = a} :: CreateQueueResponse)
+{-# DEPRECATED cqrsQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
 
--- | -- | The response status code.
-cqrsResponseStatus :: Lens' CreateQueueResponse Int
-cqrsResponseStatus = lens _cqrsResponseStatus (\s a -> s {_cqrsResponseStatus = a})
-
-instance NFData CreateQueueResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqrsResponseStatus :: Lens.Lens' CreateQueueResponse Lude.Int
+cqrsResponseStatus = Lens.lens (responseStatus :: CreateQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateQueueResponse)
+{-# DEPRECATED cqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

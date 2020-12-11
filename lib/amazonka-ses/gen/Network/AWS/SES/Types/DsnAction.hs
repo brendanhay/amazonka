@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.DsnAction where
+module Network.AWS.SES.Types.DsnAction
+  ( DsnAction
+      ( DsnAction',
+        DADelayed,
+        DADelivered,
+        DAExpanded,
+        DAFailed,
+        DARelayed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DsnAction
-  = DADelayed
-  | DADelivered
-  | DAExpanded
-  | DAFailed
-  | DARelayed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DsnAction = DsnAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DsnAction where
-  parser =
-    takeLowerText >>= \case
-      "delayed" -> pure DADelayed
-      "delivered" -> pure DADelivered
-      "expanded" -> pure DAExpanded
-      "failed" -> pure DAFailed
-      "relayed" -> pure DARelayed
-      e ->
-        fromTextError $
-          "Failure parsing DsnAction from value: '" <> e
-            <> "'. Accepted values: delayed, delivered, expanded, failed, relayed"
+pattern DADelayed :: DsnAction
+pattern DADelayed = DsnAction' "delayed"
 
-instance ToText DsnAction where
-  toText = \case
-    DADelayed -> "delayed"
-    DADelivered -> "delivered"
-    DAExpanded -> "expanded"
-    DAFailed -> "failed"
-    DARelayed -> "relayed"
+pattern DADelivered :: DsnAction
+pattern DADelivered = DsnAction' "delivered"
 
-instance Hashable DsnAction
+pattern DAExpanded :: DsnAction
+pattern DAExpanded = DsnAction' "expanded"
 
-instance NFData DsnAction
+pattern DAFailed :: DsnAction
+pattern DAFailed = DsnAction' "failed"
 
-instance ToByteString DsnAction
+pattern DARelayed :: DsnAction
+pattern DARelayed = DsnAction' "relayed"
 
-instance ToQuery DsnAction
-
-instance ToHeader DsnAction
+{-# COMPLETE
+  DADelayed,
+  DADelivered,
+  DAExpanded,
+  DAFailed,
+  DARelayed,
+  DsnAction'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BurnInOutlineColor where
+module Network.AWS.MediaLive.Types.BurnInOutlineColor
+  ( BurnInOutlineColor
+      ( BurnInOutlineColor',
+        BIOCBlack,
+        BIOCBlue,
+        BIOCGreen,
+        BIOCRed,
+        BIOCWhite,
+        BIOCYellow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Burn In Outline Color
-data BurnInOutlineColor
-  = BIOCBlack
-  | BIOCBlue
-  | BIOCGreen
-  | BIOCRed
-  | BIOCWhite
-  | BIOCYellow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BurnInOutlineColor = BurnInOutlineColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BurnInOutlineColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure BIOCBlack
-      "blue" -> pure BIOCBlue
-      "green" -> pure BIOCGreen
-      "red" -> pure BIOCRed
-      "white" -> pure BIOCWhite
-      "yellow" -> pure BIOCYellow
-      e ->
-        fromTextError $
-          "Failure parsing BurnInOutlineColor from value: '" <> e
-            <> "'. Accepted values: black, blue, green, red, white, yellow"
+pattern BIOCBlack :: BurnInOutlineColor
+pattern BIOCBlack = BurnInOutlineColor' "BLACK"
 
-instance ToText BurnInOutlineColor where
-  toText = \case
-    BIOCBlack -> "BLACK"
-    BIOCBlue -> "BLUE"
-    BIOCGreen -> "GREEN"
-    BIOCRed -> "RED"
-    BIOCWhite -> "WHITE"
-    BIOCYellow -> "YELLOW"
+pattern BIOCBlue :: BurnInOutlineColor
+pattern BIOCBlue = BurnInOutlineColor' "BLUE"
 
-instance Hashable BurnInOutlineColor
+pattern BIOCGreen :: BurnInOutlineColor
+pattern BIOCGreen = BurnInOutlineColor' "GREEN"
 
-instance NFData BurnInOutlineColor
+pattern BIOCRed :: BurnInOutlineColor
+pattern BIOCRed = BurnInOutlineColor' "RED"
 
-instance ToByteString BurnInOutlineColor
+pattern BIOCWhite :: BurnInOutlineColor
+pattern BIOCWhite = BurnInOutlineColor' "WHITE"
 
-instance ToQuery BurnInOutlineColor
+pattern BIOCYellow :: BurnInOutlineColor
+pattern BIOCYellow = BurnInOutlineColor' "YELLOW"
 
-instance ToHeader BurnInOutlineColor
-
-instance ToJSON BurnInOutlineColor where
-  toJSON = toJSONText
-
-instance FromJSON BurnInOutlineColor where
-  parseJSON = parseJSONText "BurnInOutlineColor"
+{-# COMPLETE
+  BIOCBlack,
+  BIOCBlue,
+  BIOCGreen,
+  BIOCRed,
+  BIOCWhite,
+  BIOCYellow,
+  BurnInOutlineColor'
+  #-}

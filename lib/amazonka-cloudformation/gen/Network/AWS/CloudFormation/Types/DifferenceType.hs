@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.DifferenceType where
+module Network.AWS.CloudFormation.Types.DifferenceType
+  ( DifferenceType
+      ( DifferenceType',
+        DTAdd,
+        DTNotEqual,
+        DTRemove
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DifferenceType
-  = DTAdd
-  | DTNotEqual
-  | DTRemove
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DifferenceType = DifferenceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DifferenceType where
-  parser =
-    takeLowerText >>= \case
-      "add" -> pure DTAdd
-      "not_equal" -> pure DTNotEqual
-      "remove" -> pure DTRemove
-      e ->
-        fromTextError $
-          "Failure parsing DifferenceType from value: '" <> e
-            <> "'. Accepted values: add, not_equal, remove"
+pattern DTAdd :: DifferenceType
+pattern DTAdd = DifferenceType' "ADD"
 
-instance ToText DifferenceType where
-  toText = \case
-    DTAdd -> "ADD"
-    DTNotEqual -> "NOT_EQUAL"
-    DTRemove -> "REMOVE"
+pattern DTNotEqual :: DifferenceType
+pattern DTNotEqual = DifferenceType' "NOT_EQUAL"
 
-instance Hashable DifferenceType
+pattern DTRemove :: DifferenceType
+pattern DTRemove = DifferenceType' "REMOVE"
 
-instance NFData DifferenceType
-
-instance ToByteString DifferenceType
-
-instance ToQuery DifferenceType
-
-instance ToHeader DifferenceType
-
-instance FromXML DifferenceType where
-  parseXML = parseXMLText "DifferenceType"
+{-# COMPLETE
+  DTAdd,
+  DTNotEqual,
+  DTRemove,
+  DifferenceType'
+  #-}

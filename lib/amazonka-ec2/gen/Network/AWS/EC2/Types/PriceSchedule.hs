@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PriceSchedule where
+module Network.AWS.EC2.Types.PriceSchedule
+  ( PriceSchedule (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkPriceSchedule,
+
+    -- * Lenses
+    psCurrencyCode,
+    psTerm,
+    psActive,
+    psPrice,
+  )
+where
+
 import Network.AWS.EC2.Types.CurrencyCodeValues
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the price for a Reserved Instance.
 --
---
---
--- /See:/ 'priceSchedule' smart constructor.
+-- /See:/ 'mkPriceSchedule' smart constructor.
 data PriceSchedule = PriceSchedule'
-  { _psCurrencyCode ::
-      !(Maybe CurrencyCodeValues),
-    _psTerm :: !(Maybe Integer),
-    _psActive :: !(Maybe Bool),
-    _psPrice :: !(Maybe Double)
+  { currencyCode ::
+      Lude.Maybe CurrencyCodeValues,
+    term :: Lude.Maybe Lude.Integer,
+    active :: Lude.Maybe Lude.Bool,
+    price :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PriceSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'active' - The current price schedule, as determined by the term remaining for the Reserved Instance in the listing.
 --
--- * 'psCurrencyCode' - The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
---
--- * 'psTerm' - The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
---
--- * 'psActive' - The current price schedule, as determined by the term remaining for the Reserved Instance in the listing. A specific price schedule is always in effect, but only one price schedule can be active at any time. Take, for example, a Reserved Instance listing that has five months remaining in its term. When you specify price schedules for five months and two months, this means that schedule 1, covering the first three months of the remaining term, will be active during months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active for months 2 and 1.
---
--- * 'psPrice' - The fixed price for the term.
-priceSchedule ::
+-- A specific price schedule is always in effect, but only one price schedule can be active at any time. Take, for example, a Reserved Instance listing that has five months remaining in its term. When you specify price schedules for five months and two months, this means that schedule 1, covering the first three months of the remaining term, will be active during months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active for months 2 and 1.
+-- * 'currencyCode' - The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
+-- * 'price' - The fixed price for the term.
+-- * 'term' - The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
+mkPriceSchedule ::
   PriceSchedule
-priceSchedule =
+mkPriceSchedule =
   PriceSchedule'
-    { _psCurrencyCode = Nothing,
-      _psTerm = Nothing,
-      _psActive = Nothing,
-      _psPrice = Nothing
+    { currencyCode = Lude.Nothing,
+      term = Lude.Nothing,
+      active = Lude.Nothing,
+      price = Lude.Nothing
     }
 
 -- | The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
-psCurrencyCode :: Lens' PriceSchedule (Maybe CurrencyCodeValues)
-psCurrencyCode = lens _psCurrencyCode (\s a -> s {_psCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psCurrencyCode :: Lens.Lens' PriceSchedule (Lude.Maybe CurrencyCodeValues)
+psCurrencyCode = Lens.lens (currencyCode :: PriceSchedule -> Lude.Maybe CurrencyCodeValues) (\s a -> s {currencyCode = a} :: PriceSchedule)
+{-# DEPRECATED psCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
-psTerm :: Lens' PriceSchedule (Maybe Integer)
-psTerm = lens _psTerm (\s a -> s {_psTerm = a})
+--
+-- /Note:/ Consider using 'term' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psTerm :: Lens.Lens' PriceSchedule (Lude.Maybe Lude.Integer)
+psTerm = Lens.lens (term :: PriceSchedule -> Lude.Maybe Lude.Integer) (\s a -> s {term = a} :: PriceSchedule)
+{-# DEPRECATED psTerm "Use generic-lens or generic-optics with 'term' instead." #-}
 
--- | The current price schedule, as determined by the term remaining for the Reserved Instance in the listing. A specific price schedule is always in effect, but only one price schedule can be active at any time. Take, for example, a Reserved Instance listing that has five months remaining in its term. When you specify price schedules for five months and two months, this means that schedule 1, covering the first three months of the remaining term, will be active during months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active for months 2 and 1.
-psActive :: Lens' PriceSchedule (Maybe Bool)
-psActive = lens _psActive (\s a -> s {_psActive = a})
+-- | The current price schedule, as determined by the term remaining for the Reserved Instance in the listing.
+--
+-- A specific price schedule is always in effect, but only one price schedule can be active at any time. Take, for example, a Reserved Instance listing that has five months remaining in its term. When you specify price schedules for five months and two months, this means that schedule 1, covering the first three months of the remaining term, will be active during months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active for months 2 and 1.
+--
+-- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psActive :: Lens.Lens' PriceSchedule (Lude.Maybe Lude.Bool)
+psActive = Lens.lens (active :: PriceSchedule -> Lude.Maybe Lude.Bool) (\s a -> s {active = a} :: PriceSchedule)
+{-# DEPRECATED psActive "Use generic-lens or generic-optics with 'active' instead." #-}
 
 -- | The fixed price for the term.
-psPrice :: Lens' PriceSchedule (Maybe Double)
-psPrice = lens _psPrice (\s a -> s {_psPrice = a})
+--
+-- /Note:/ Consider using 'price' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psPrice :: Lens.Lens' PriceSchedule (Lude.Maybe Lude.Double)
+psPrice = Lens.lens (price :: PriceSchedule -> Lude.Maybe Lude.Double) (\s a -> s {price = a} :: PriceSchedule)
+{-# DEPRECATED psPrice "Use generic-lens or generic-optics with 'price' instead." #-}
 
-instance FromXML PriceSchedule where
+instance Lude.FromXML PriceSchedule where
   parseXML x =
     PriceSchedule'
-      <$> (x .@? "currencyCode")
-      <*> (x .@? "term")
-      <*> (x .@? "active")
-      <*> (x .@? "price")
-
-instance Hashable PriceSchedule
-
-instance NFData PriceSchedule
+      Lude.<$> (x Lude..@? "currencyCode")
+      Lude.<*> (x Lude..@? "term")
+      Lude.<*> (x Lude..@? "active")
+      Lude.<*> (x Lude..@? "price")

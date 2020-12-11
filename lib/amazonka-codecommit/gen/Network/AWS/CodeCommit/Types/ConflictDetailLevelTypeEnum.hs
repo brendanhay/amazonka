@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum where
+module Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum
+  ( ConflictDetailLevelTypeEnum
+      ( ConflictDetailLevelTypeEnum',
+        FileLevel,
+        LineLevel
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConflictDetailLevelTypeEnum
-  = FileLevel
-  | LineLevel
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConflictDetailLevelTypeEnum = ConflictDetailLevelTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConflictDetailLevelTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "file_level" -> pure FileLevel
-      "line_level" -> pure LineLevel
-      e ->
-        fromTextError $
-          "Failure parsing ConflictDetailLevelTypeEnum from value: '" <> e
-            <> "'. Accepted values: file_level, line_level"
+pattern FileLevel :: ConflictDetailLevelTypeEnum
+pattern FileLevel = ConflictDetailLevelTypeEnum' "FILE_LEVEL"
 
-instance ToText ConflictDetailLevelTypeEnum where
-  toText = \case
-    FileLevel -> "FILE_LEVEL"
-    LineLevel -> "LINE_LEVEL"
+pattern LineLevel :: ConflictDetailLevelTypeEnum
+pattern LineLevel = ConflictDetailLevelTypeEnum' "LINE_LEVEL"
 
-instance Hashable ConflictDetailLevelTypeEnum
-
-instance NFData ConflictDetailLevelTypeEnum
-
-instance ToByteString ConflictDetailLevelTypeEnum
-
-instance ToQuery ConflictDetailLevelTypeEnum
-
-instance ToHeader ConflictDetailLevelTypeEnum
-
-instance ToJSON ConflictDetailLevelTypeEnum where
-  toJSON = toJSONText
+{-# COMPLETE
+  FileLevel,
+  LineLevel,
+  ConflictDetailLevelTypeEnum'
+  #-}

@@ -13,11 +13,10 @@
 --
 -- Amazon SimpleDB is a web service providing the core database functions of data indexing and querying in the cloud. By offloading the time and effort associated with building and operating a web-scale database, SimpleDB provides developers the freedom to focus on application development. A traditional, clustered relational database requires a sizable upfront capital outlay, is complex to design, and often requires extensive and repetitive database administration. Amazon SimpleDB is dramatically simpler, requiring no schema, automatically indexing your data and providing a simple API for storage and access. This approach eliminates the administrative burden of data modeling, index maintenance, and performance tuning. Developers gain access to this functionality within Amazon's proven computing environment, are able to scale instantly, and pay only for what they use.
 --
---
 -- Visit <http://aws.amazon.com/simpledb/ http://aws.amazon.com/simpledb/> for more information.
 module Network.AWS.SDB
-  ( -- * Service Configuration
-    sdb,
+  ( -- * Service configuration
+    sdbService,
 
     -- * Errors
     -- $errors
@@ -61,48 +60,60 @@ module Network.AWS.SDB
     -- * Types
 
     -- ** Attribute
-    Attribute,
-    attribute,
+    Attribute (..),
+    mkAttribute,
     aAlternateValueEncoding,
     aAlternateNameEncoding,
     aName,
     aValue,
 
     -- ** DeletableItem
-    DeletableItem,
-    deletableItem,
+    DeletableItem (..),
+    mkDeletableItem,
     diAttributes,
     diName,
 
     -- ** Item
-    Item,
-    item,
+    Item (..),
+    mkItem,
     iAlternateNameEncoding,
     iName,
     iAttributes,
 
     -- ** ReplaceableAttribute
-    ReplaceableAttribute,
-    replaceableAttribute,
+    ReplaceableAttribute (..),
+    mkReplaceableAttribute,
     raReplace,
     raName,
     raValue,
 
     -- ** ReplaceableItem
-    ReplaceableItem,
-    replaceableItem,
+    ReplaceableItem (..),
+    mkReplaceableItem,
     riName,
     riAttributes,
 
     -- ** UpdateCondition
-    UpdateCondition,
-    updateCondition,
+    UpdateCondition (..),
+    mkUpdateCondition,
     ucExists,
     ucValue,
     ucName,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SDB.BatchDeleteAttributes
 import Network.AWS.SDB.BatchPutAttributes
 import Network.AWS.SDB.CreateDomain

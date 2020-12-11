@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,142 +7,177 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.AnomalyMonitor where
+module Network.AWS.CostExplorer.Types.AnomalyMonitor
+  ( AnomalyMonitor (..),
+
+    -- * Smart constructor
+    mkAnomalyMonitor,
+
+    -- * Lenses
+    amDimensionalValueCount,
+    amMonitorSpecification,
+    amMonitorDimension,
+    amCreationDate,
+    amLastUpdatedDate,
+    amLastEvaluatedDate,
+    amMonitorARN,
+    amMonitorName,
+    amMonitorType,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.Expression
 import Network.AWS.CostExplorer.Types.MonitorDimension
 import Network.AWS.CostExplorer.Types.MonitorType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This object continuously inspects your account's cost data for anomalies, based on @MonitorType@ and @MonitorSpecification@ . The content consists of detailed metadata and the current status of the monitor object.
 --
---
---
--- /See:/ 'anomalyMonitor' smart constructor.
+-- /See:/ 'mkAnomalyMonitor' smart constructor.
 data AnomalyMonitor = AnomalyMonitor'
-  { _amDimensionalValueCount ::
-      !(Maybe Nat),
-    _amMonitorSpecification :: !(Maybe Expression),
-    _amMonitorDimension :: !(Maybe MonitorDimension),
-    _amCreationDate :: !(Maybe Text),
-    _amLastUpdatedDate :: !(Maybe Text),
-    _amLastEvaluatedDate :: !(Maybe Text),
-    _amMonitorARN :: !(Maybe Text),
-    _amMonitorName :: !Text,
-    _amMonitorType :: !MonitorType
+  { dimensionalValueCount ::
+      Lude.Maybe Lude.Natural,
+    monitorSpecification :: Lude.Maybe Expression,
+    monitorDimension :: Lude.Maybe MonitorDimension,
+    creationDate :: Lude.Maybe Lude.Text,
+    lastUpdatedDate :: Lude.Maybe Lude.Text,
+    lastEvaluatedDate :: Lude.Maybe Lude.Text,
+    monitorARN :: Lude.Maybe Lude.Text,
+    monitorName :: Lude.Text,
+    monitorType :: MonitorType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnomalyMonitor' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amDimensionalValueCount' - The value for evaluated dimensions.
---
--- * 'amMonitorSpecification' - Undocumented member.
---
--- * 'amMonitorDimension' - The dimensions to evaluate.
---
--- * 'amCreationDate' - The date when the monitor was created.
---
--- * 'amLastUpdatedDate' - The date when the monitor was last updated.
---
--- * 'amLastEvaluatedDate' - The date when the monitor last evaluated for anomalies.
---
--- * 'amMonitorARN' - The Amazon Resource Name (ARN) value.
---
--- * 'amMonitorName' - The name of the monitor.
---
--- * 'amMonitorType' - The possible type values.
-anomalyMonitor ::
-  -- | 'amMonitorName'
-  Text ->
-  -- | 'amMonitorType'
+-- * 'creationDate' - The date when the monitor was created.
+-- * 'dimensionalValueCount' - The value for evaluated dimensions.
+-- * 'lastEvaluatedDate' - The date when the monitor last evaluated for anomalies.
+-- * 'lastUpdatedDate' - The date when the monitor was last updated.
+-- * 'monitorARN' - The Amazon Resource Name (ARN) value.
+-- * 'monitorDimension' - The dimensions to evaluate.
+-- * 'monitorName' - The name of the monitor.
+-- * 'monitorSpecification' - Undocumented field.
+-- * 'monitorType' - The possible type values.
+mkAnomalyMonitor ::
+  -- | 'monitorName'
+  Lude.Text ->
+  -- | 'monitorType'
   MonitorType ->
   AnomalyMonitor
-anomalyMonitor pMonitorName_ pMonitorType_ =
+mkAnomalyMonitor pMonitorName_ pMonitorType_ =
   AnomalyMonitor'
-    { _amDimensionalValueCount = Nothing,
-      _amMonitorSpecification = Nothing,
-      _amMonitorDimension = Nothing,
-      _amCreationDate = Nothing,
-      _amLastUpdatedDate = Nothing,
-      _amLastEvaluatedDate = Nothing,
-      _amMonitorARN = Nothing,
-      _amMonitorName = pMonitorName_,
-      _amMonitorType = pMonitorType_
+    { dimensionalValueCount = Lude.Nothing,
+      monitorSpecification = Lude.Nothing,
+      monitorDimension = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      lastEvaluatedDate = Lude.Nothing,
+      monitorARN = Lude.Nothing,
+      monitorName = pMonitorName_,
+      monitorType = pMonitorType_
     }
 
 -- | The value for evaluated dimensions.
-amDimensionalValueCount :: Lens' AnomalyMonitor (Maybe Natural)
-amDimensionalValueCount = lens _amDimensionalValueCount (\s a -> s {_amDimensionalValueCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'dimensionalValueCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amDimensionalValueCount :: Lens.Lens' AnomalyMonitor (Lude.Maybe Lude.Natural)
+amDimensionalValueCount = Lens.lens (dimensionalValueCount :: AnomalyMonitor -> Lude.Maybe Lude.Natural) (\s a -> s {dimensionalValueCount = a} :: AnomalyMonitor)
+{-# DEPRECATED amDimensionalValueCount "Use generic-lens or generic-optics with 'dimensionalValueCount' instead." #-}
 
--- | Undocumented member.
-amMonitorSpecification :: Lens' AnomalyMonitor (Maybe Expression)
-amMonitorSpecification = lens _amMonitorSpecification (\s a -> s {_amMonitorSpecification = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'monitorSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amMonitorSpecification :: Lens.Lens' AnomalyMonitor (Lude.Maybe Expression)
+amMonitorSpecification = Lens.lens (monitorSpecification :: AnomalyMonitor -> Lude.Maybe Expression) (\s a -> s {monitorSpecification = a} :: AnomalyMonitor)
+{-# DEPRECATED amMonitorSpecification "Use generic-lens or generic-optics with 'monitorSpecification' instead." #-}
 
 -- | The dimensions to evaluate.
-amMonitorDimension :: Lens' AnomalyMonitor (Maybe MonitorDimension)
-amMonitorDimension = lens _amMonitorDimension (\s a -> s {_amMonitorDimension = a})
+--
+-- /Note:/ Consider using 'monitorDimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amMonitorDimension :: Lens.Lens' AnomalyMonitor (Lude.Maybe MonitorDimension)
+amMonitorDimension = Lens.lens (monitorDimension :: AnomalyMonitor -> Lude.Maybe MonitorDimension) (\s a -> s {monitorDimension = a} :: AnomalyMonitor)
+{-# DEPRECATED amMonitorDimension "Use generic-lens or generic-optics with 'monitorDimension' instead." #-}
 
 -- | The date when the monitor was created.
-amCreationDate :: Lens' AnomalyMonitor (Maybe Text)
-amCreationDate = lens _amCreationDate (\s a -> s {_amCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amCreationDate :: Lens.Lens' AnomalyMonitor (Lude.Maybe Lude.Text)
+amCreationDate = Lens.lens (creationDate :: AnomalyMonitor -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: AnomalyMonitor)
+{-# DEPRECATED amCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The date when the monitor was last updated.
-amLastUpdatedDate :: Lens' AnomalyMonitor (Maybe Text)
-amLastUpdatedDate = lens _amLastUpdatedDate (\s a -> s {_amLastUpdatedDate = a})
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amLastUpdatedDate :: Lens.Lens' AnomalyMonitor (Lude.Maybe Lude.Text)
+amLastUpdatedDate = Lens.lens (lastUpdatedDate :: AnomalyMonitor -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedDate = a} :: AnomalyMonitor)
+{-# DEPRECATED amLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | The date when the monitor last evaluated for anomalies.
-amLastEvaluatedDate :: Lens' AnomalyMonitor (Maybe Text)
-amLastEvaluatedDate = lens _amLastEvaluatedDate (\s a -> s {_amLastEvaluatedDate = a})
+--
+-- /Note:/ Consider using 'lastEvaluatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amLastEvaluatedDate :: Lens.Lens' AnomalyMonitor (Lude.Maybe Lude.Text)
+amLastEvaluatedDate = Lens.lens (lastEvaluatedDate :: AnomalyMonitor -> Lude.Maybe Lude.Text) (\s a -> s {lastEvaluatedDate = a} :: AnomalyMonitor)
+{-# DEPRECATED amLastEvaluatedDate "Use generic-lens or generic-optics with 'lastEvaluatedDate' instead." #-}
 
 -- | The Amazon Resource Name (ARN) value.
-amMonitorARN :: Lens' AnomalyMonitor (Maybe Text)
-amMonitorARN = lens _amMonitorARN (\s a -> s {_amMonitorARN = a})
+--
+-- /Note:/ Consider using 'monitorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amMonitorARN :: Lens.Lens' AnomalyMonitor (Lude.Maybe Lude.Text)
+amMonitorARN = Lens.lens (monitorARN :: AnomalyMonitor -> Lude.Maybe Lude.Text) (\s a -> s {monitorARN = a} :: AnomalyMonitor)
+{-# DEPRECATED amMonitorARN "Use generic-lens or generic-optics with 'monitorARN' instead." #-}
 
 -- | The name of the monitor.
-amMonitorName :: Lens' AnomalyMonitor Text
-amMonitorName = lens _amMonitorName (\s a -> s {_amMonitorName = a})
+--
+-- /Note:/ Consider using 'monitorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amMonitorName :: Lens.Lens' AnomalyMonitor Lude.Text
+amMonitorName = Lens.lens (monitorName :: AnomalyMonitor -> Lude.Text) (\s a -> s {monitorName = a} :: AnomalyMonitor)
+{-# DEPRECATED amMonitorName "Use generic-lens or generic-optics with 'monitorName' instead." #-}
 
 -- | The possible type values.
-amMonitorType :: Lens' AnomalyMonitor MonitorType
-amMonitorType = lens _amMonitorType (\s a -> s {_amMonitorType = a})
+--
+-- /Note:/ Consider using 'monitorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amMonitorType :: Lens.Lens' AnomalyMonitor MonitorType
+amMonitorType = Lens.lens (monitorType :: AnomalyMonitor -> MonitorType) (\s a -> s {monitorType = a} :: AnomalyMonitor)
+{-# DEPRECATED amMonitorType "Use generic-lens or generic-optics with 'monitorType' instead." #-}
 
-instance FromJSON AnomalyMonitor where
+instance Lude.FromJSON AnomalyMonitor where
   parseJSON =
-    withObject
+    Lude.withObject
       "AnomalyMonitor"
       ( \x ->
           AnomalyMonitor'
-            <$> (x .:? "DimensionalValueCount")
-            <*> (x .:? "MonitorSpecification")
-            <*> (x .:? "MonitorDimension")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "LastUpdatedDate")
-            <*> (x .:? "LastEvaluatedDate")
-            <*> (x .:? "MonitorArn")
-            <*> (x .: "MonitorName")
-            <*> (x .: "MonitorType")
+            Lude.<$> (x Lude..:? "DimensionalValueCount")
+            Lude.<*> (x Lude..:? "MonitorSpecification")
+            Lude.<*> (x Lude..:? "MonitorDimension")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "LastUpdatedDate")
+            Lude.<*> (x Lude..:? "LastEvaluatedDate")
+            Lude.<*> (x Lude..:? "MonitorArn")
+            Lude.<*> (x Lude..: "MonitorName")
+            Lude.<*> (x Lude..: "MonitorType")
       )
 
-instance Hashable AnomalyMonitor
-
-instance NFData AnomalyMonitor
-
-instance ToJSON AnomalyMonitor where
+instance Lude.ToJSON AnomalyMonitor where
   toJSON AnomalyMonitor' {..} =
-    object
-      ( catMaybes
-          [ ("DimensionalValueCount" .=) <$> _amDimensionalValueCount,
-            ("MonitorSpecification" .=) <$> _amMonitorSpecification,
-            ("MonitorDimension" .=) <$> _amMonitorDimension,
-            ("CreationDate" .=) <$> _amCreationDate,
-            ("LastUpdatedDate" .=) <$> _amLastUpdatedDate,
-            ("LastEvaluatedDate" .=) <$> _amLastEvaluatedDate,
-            ("MonitorArn" .=) <$> _amMonitorARN,
-            Just ("MonitorName" .= _amMonitorName),
-            Just ("MonitorType" .= _amMonitorType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DimensionalValueCount" Lude..=) Lude.<$> dimensionalValueCount,
+            ("MonitorSpecification" Lude..=) Lude.<$> monitorSpecification,
+            ("MonitorDimension" Lude..=) Lude.<$> monitorDimension,
+            ("CreationDate" Lude..=) Lude.<$> creationDate,
+            ("LastUpdatedDate" Lude..=) Lude.<$> lastUpdatedDate,
+            ("LastEvaluatedDate" Lude..=) Lude.<$> lastEvaluatedDate,
+            ("MonitorArn" Lude..=) Lude.<$> monitorARN,
+            Lude.Just ("MonitorName" Lude..= monitorName),
+            Lude.Just ("MonitorType" Lude..= monitorType)
           ]
       )

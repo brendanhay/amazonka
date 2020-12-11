@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,24 @@
 --
 -- Returns list of collection IDs in your account. If the result is truncated, the response also provides a @NextToken@ that you can use in the subsequent request to fetch the next set of collection IDs.
 --
---
 -- For an example, see Listing Collections in the Amazon Rekognition Developer Guide.
---
 -- This operation requires permissions to perform the @rekognition:ListCollections@ action.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Rekognition.ListCollections
-  ( -- * Creating a Request
-    listCollections,
-    ListCollections,
+  ( -- * Creating a request
+    ListCollections (..),
+    mkListCollections,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcNextToken,
     lcMaxResults,
 
-    -- * Destructuring the Response
-    listCollectionsResponse,
-    ListCollectionsResponse,
+    -- * Destructuring the response
+    ListCollectionsResponse (..),
+    mkListCollectionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcrsCollectionIds,
     lcrsNextToken,
     lcrsFaceModelVersions,
@@ -47,137 +39,162 @@ module Network.AWS.Rekognition.ListCollections
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listCollections' smart constructor.
+-- | /See:/ 'mkListCollections' smart constructor.
 data ListCollections = ListCollections'
-  { _lcNextToken ::
-      !(Maybe Text),
-    _lcMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCollections' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcNextToken' - Pagination token from the previous response.
---
--- * 'lcMaxResults' - Maximum number of collection IDs to return.
-listCollections ::
+-- * 'maxResults' - Maximum number of collection IDs to return.
+-- * 'nextToken' - Pagination token from the previous response.
+mkListCollections ::
   ListCollections
-listCollections =
-  ListCollections' {_lcNextToken = Nothing, _lcMaxResults = Nothing}
+mkListCollections =
+  ListCollections'
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
+    }
 
 -- | Pagination token from the previous response.
-lcNextToken :: Lens' ListCollections (Maybe Text)
-lcNextToken = lens _lcNextToken (\s a -> s {_lcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcNextToken :: Lens.Lens' ListCollections (Lude.Maybe Lude.Text)
+lcNextToken = Lens.lens (nextToken :: ListCollections -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCollections)
+{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of collection IDs to return.
-lcMaxResults :: Lens' ListCollections (Maybe Natural)
-lcMaxResults = lens _lcMaxResults (\s a -> s {_lcMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcMaxResults :: Lens.Lens' ListCollections (Lude.Maybe Lude.Natural)
+lcMaxResults = Lens.lens (maxResults :: ListCollections -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCollections)
+{-# DEPRECATED lcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListCollections where
+instance Page.AWSPager ListCollections where
   page rq rs
-    | stop (rs ^. lcrsNextToken) = Nothing
-    | stop (rs ^. lcrsCollectionIds) = Nothing
-    | stop (rs ^. lcrsFaceModelVersions) = Nothing
-    | otherwise = Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
+    | Page.stop (rs Lens.^. lcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcrsCollectionIds) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcrsFaceModelVersions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcNextToken Lens..~ rs Lens.^. lcrsNextToken
 
-instance AWSRequest ListCollections where
+instance Lude.AWSRequest ListCollections where
   type Rs ListCollections = ListCollectionsResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCollectionsResponse'
-            <$> (x .?> "CollectionIds" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "FaceModelVersions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CollectionIds" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "FaceModelVersions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCollections
-
-instance NFData ListCollections
-
-instance ToHeaders ListCollections where
+instance Lude.ToHeaders ListCollections where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.ListCollections" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.ListCollections" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListCollections where
+instance Lude.ToJSON ListCollections where
   toJSON ListCollections' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lcNextToken,
-            ("MaxResults" .=) <$> _lcMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListCollections where
-  toPath = const "/"
+instance Lude.ToPath ListCollections where
+  toPath = Lude.const "/"
 
-instance ToQuery ListCollections where
-  toQuery = const mempty
+instance Lude.ToQuery ListCollections where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listCollectionsResponse' smart constructor.
+-- | /See:/ 'mkListCollectionsResponse' smart constructor.
 data ListCollectionsResponse = ListCollectionsResponse'
-  { _lcrsCollectionIds ::
-      !(Maybe [Text]),
-    _lcrsNextToken :: !(Maybe Text),
-    _lcrsFaceModelVersions :: !(Maybe [Text]),
-    _lcrsResponseStatus :: !Int
+  { collectionIds ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    faceModelVersions :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCollectionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcrsCollectionIds' - An array of collection IDs.
---
--- * 'lcrsNextToken' - If the result is truncated, the response provides a @NextToken@ that you can use in the subsequent request to fetch the next set of collection IDs.
---
--- * 'lcrsFaceModelVersions' - Version numbers of the face detection models associated with the collections in the array @CollectionIds@ . For example, the value of @FaceModelVersions[2]@ is the version number for the face detection model used by the collection in @CollectionId[2]@ .
---
--- * 'lcrsResponseStatus' - -- | The response status code.
-listCollectionsResponse ::
-  -- | 'lcrsResponseStatus'
-  Int ->
+-- * 'collectionIds' - An array of collection IDs.
+-- * 'faceModelVersions' - Version numbers of the face detection models associated with the collections in the array @CollectionIds@ . For example, the value of @FaceModelVersions[2]@ is the version number for the face detection model used by the collection in @CollectionId[2]@ .
+-- * 'nextToken' - If the result is truncated, the response provides a @NextToken@ that you can use in the subsequent request to fetch the next set of collection IDs.
+-- * 'responseStatus' - The response status code.
+mkListCollectionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCollectionsResponse
-listCollectionsResponse pResponseStatus_ =
+mkListCollectionsResponse pResponseStatus_ =
   ListCollectionsResponse'
-    { _lcrsCollectionIds = Nothing,
-      _lcrsNextToken = Nothing,
-      _lcrsFaceModelVersions = Nothing,
-      _lcrsResponseStatus = pResponseStatus_
+    { collectionIds = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      faceModelVersions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of collection IDs.
-lcrsCollectionIds :: Lens' ListCollectionsResponse [Text]
-lcrsCollectionIds = lens _lcrsCollectionIds (\s a -> s {_lcrsCollectionIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'collectionIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsCollectionIds :: Lens.Lens' ListCollectionsResponse (Lude.Maybe [Lude.Text])
+lcrsCollectionIds = Lens.lens (collectionIds :: ListCollectionsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {collectionIds = a} :: ListCollectionsResponse)
+{-# DEPRECATED lcrsCollectionIds "Use generic-lens or generic-optics with 'collectionIds' instead." #-}
 
 -- | If the result is truncated, the response provides a @NextToken@ that you can use in the subsequent request to fetch the next set of collection IDs.
-lcrsNextToken :: Lens' ListCollectionsResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\s a -> s {_lcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsNextToken :: Lens.Lens' ListCollectionsResponse (Lude.Maybe Lude.Text)
+lcrsNextToken = Lens.lens (nextToken :: ListCollectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCollectionsResponse)
+{-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Version numbers of the face detection models associated with the collections in the array @CollectionIds@ . For example, the value of @FaceModelVersions[2]@ is the version number for the face detection model used by the collection in @CollectionId[2]@ .
-lcrsFaceModelVersions :: Lens' ListCollectionsResponse [Text]
-lcrsFaceModelVersions = lens _lcrsFaceModelVersions (\s a -> s {_lcrsFaceModelVersions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'faceModelVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsFaceModelVersions :: Lens.Lens' ListCollectionsResponse (Lude.Maybe [Lude.Text])
+lcrsFaceModelVersions = Lens.lens (faceModelVersions :: ListCollectionsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {faceModelVersions = a} :: ListCollectionsResponse)
+{-# DEPRECATED lcrsFaceModelVersions "Use generic-lens or generic-optics with 'faceModelVersions' instead." #-}
 
--- | -- | The response status code.
-lcrsResponseStatus :: Lens' ListCollectionsResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\s a -> s {_lcrsResponseStatus = a})
-
-instance NFData ListCollectionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsResponseStatus :: Lens.Lens' ListCollectionsResponse Lude.Int
+lcrsResponseStatus = Lens.lens (responseStatus :: ListCollectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCollectionsResponse)
+{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

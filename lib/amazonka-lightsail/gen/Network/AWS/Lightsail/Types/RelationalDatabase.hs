@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,43 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.RelationalDatabase where
+module Network.AWS.Lightsail.Types.RelationalDatabase
+  ( RelationalDatabase (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkRelationalDatabase,
+
+    -- * Lenses
+    rdEngineVersion,
+    rdRelationalDatabaseBundleId,
+    rdMasterEndpoint,
+    rdState,
+    rdResourceType,
+    rdPubliclyAccessible,
+    rdMasterUsername,
+    rdArn,
+    rdCreatedAt,
+    rdLocation,
+    rdEngine,
+    rdLatestRestorableTime,
+    rdPreferredMaintenanceWindow,
+    rdRelationalDatabaseBlueprintId,
+    rdCaCertificateIdentifier,
+    rdName,
+    rdBackupRetentionEnabled,
+    rdPreferredBackupWindow,
+    rdPendingMaintenanceActions,
+    rdSupportCode,
+    rdSecondaryAvailabilityZone,
+    rdPendingModifiedValues,
+    rdMasterDatabaseName,
+    rdHardware,
+    rdParameterApplyStatus,
+    rdTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.PendingMaintenanceAction
 import Network.AWS.Lightsail.Types.PendingModifiedRelationalDatabaseValues
 import Network.AWS.Lightsail.Types.RelationalDatabaseEndpoint
@@ -23,272 +51,332 @@ import Network.AWS.Lightsail.Types.RelationalDatabaseHardware
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a database.
 --
---
---
--- /See:/ 'relationalDatabase' smart constructor.
+-- /See:/ 'mkRelationalDatabase' smart constructor.
 data RelationalDatabase = RelationalDatabase'
-  { _rdEngineVersion ::
-      !(Maybe Text),
-    _rdRelationalDatabaseBundleId :: !(Maybe Text),
-    _rdMasterEndpoint ::
-      !(Maybe RelationalDatabaseEndpoint),
-    _rdState :: !(Maybe Text),
-    _rdResourceType :: !(Maybe ResourceType),
-    _rdPubliclyAccessible :: !(Maybe Bool),
-    _rdMasterUsername :: !(Maybe Text),
-    _rdArn :: !(Maybe Text),
-    _rdCreatedAt :: !(Maybe POSIX),
-    _rdLocation :: !(Maybe ResourceLocation),
-    _rdEngine :: !(Maybe Text),
-    _rdLatestRestorableTime :: !(Maybe POSIX),
-    _rdPreferredMaintenanceWindow :: !(Maybe Text),
-    _rdRelationalDatabaseBlueprintId :: !(Maybe Text),
-    _rdCaCertificateIdentifier :: !(Maybe Text),
-    _rdName :: !(Maybe Text),
-    _rdBackupRetentionEnabled :: !(Maybe Bool),
-    _rdPreferredBackupWindow :: !(Maybe Text),
-    _rdPendingMaintenanceActions ::
-      !(Maybe [PendingMaintenanceAction]),
-    _rdSupportCode :: !(Maybe Text),
-    _rdSecondaryAvailabilityZone :: !(Maybe Text),
-    _rdPendingModifiedValues ::
-      !(Maybe PendingModifiedRelationalDatabaseValues),
-    _rdMasterDatabaseName :: !(Maybe Text),
-    _rdHardware :: !(Maybe RelationalDatabaseHardware),
-    _rdParameterApplyStatus :: !(Maybe Text),
-    _rdTags :: !(Maybe [Tag])
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    relationalDatabaseBundleId :: Lude.Maybe Lude.Text,
+    masterEndpoint ::
+      Lude.Maybe RelationalDatabaseEndpoint,
+    state :: Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe ResourceType,
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    masterUsername :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    location :: Lude.Maybe ResourceLocation,
+    engine :: Lude.Maybe Lude.Text,
+    latestRestorableTime :: Lude.Maybe Lude.Timestamp,
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    relationalDatabaseBlueprintId :: Lude.Maybe Lude.Text,
+    caCertificateIdentifier :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    backupRetentionEnabled :: Lude.Maybe Lude.Bool,
+    preferredBackupWindow :: Lude.Maybe Lude.Text,
+    pendingMaintenanceActions ::
+      Lude.Maybe [PendingMaintenanceAction],
+    supportCode :: Lude.Maybe Lude.Text,
+    secondaryAvailabilityZone :: Lude.Maybe Lude.Text,
+    pendingModifiedValues ::
+      Lude.Maybe PendingModifiedRelationalDatabaseValues,
+    masterDatabaseName :: Lude.Maybe Lude.Text,
+    hardware :: Lude.Maybe RelationalDatabaseHardware,
+    parameterApplyStatus :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabase' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the database.
+-- * 'backupRetentionEnabled' - A Boolean value indicating whether automated backup retention is enabled for the database.
+-- * 'caCertificateIdentifier' - The certificate associated with the database.
+-- * 'createdAt' - The timestamp when the database was created. Formatted in Unix time.
+-- * 'engine' - The database software (for example, @MySQL@ ).
+-- * 'engineVersion' - The database engine version (for example, @5.7.23@ ).
+-- * 'hardware' - Describes the hardware of the database.
+-- * 'latestRestorableTime' - The latest point in time to which the database can be restored. Formatted in Unix time.
+-- * 'location' - The Region name and Availability Zone where the database is located.
+-- * 'masterDatabaseName' - The name of the master database created when the Lightsail database resource is created.
+-- * 'masterEndpoint' - The master endpoint for the database.
+-- * 'masterUsername' - The master user name of the database.
+-- * 'name' - The unique name of the database resource in Lightsail.
+-- * 'parameterApplyStatus' - The status of parameter updates for the database.
+-- * 'pendingMaintenanceActions' - Describes the pending maintenance actions for the database.
+-- * 'pendingModifiedValues' - Describes pending database value modifications.
+-- * 'preferredBackupWindow' - The daily time range during which automated backups are created for the database (for example, @16:00-16:30@ ).
+-- * 'preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur on the database.
 --
--- * 'rdEngineVersion' - The database engine version (for example, @5.7.23@ ).
+-- In the format @ddd:hh24:mi-ddd:hh24:mi@ . For example, @Tue:17:00-Tue:17:30@ .
+-- * 'publiclyAccessible' - A Boolean value indicating whether the database is publicly accessible.
+-- * 'relationalDatabaseBlueprintId' - The blueprint ID for the database. A blueprint describes the major engine version of a database.
+-- * 'relationalDatabaseBundleId' - The bundle ID for the database. A bundle describes the performance specifications for your database.
+-- * 'resourceType' - The Lightsail resource type for the database (for example, @RelationalDatabase@ ).
+-- * 'secondaryAvailabilityZone' - Describes the secondary Availability Zone of a high availability database.
 --
--- * 'rdRelationalDatabaseBundleId' - The bundle ID for the database. A bundle describes the performance specifications for your database.
---
--- * 'rdMasterEndpoint' - The master endpoint for the database.
---
--- * 'rdState' - Describes the current state of the database.
---
--- * 'rdResourceType' - The Lightsail resource type for the database (for example, @RelationalDatabase@ ).
---
--- * 'rdPubliclyAccessible' - A Boolean value indicating whether the database is publicly accessible.
---
--- * 'rdMasterUsername' - The master user name of the database.
---
--- * 'rdArn' - The Amazon Resource Name (ARN) of the database.
---
--- * 'rdCreatedAt' - The timestamp when the database was created. Formatted in Unix time.
---
--- * 'rdLocation' - The Region name and Availability Zone where the database is located.
---
--- * 'rdEngine' - The database software (for example, @MySQL@ ).
---
--- * 'rdLatestRestorableTime' - The latest point in time to which the database can be restored. Formatted in Unix time.
---
--- * 'rdPreferredMaintenanceWindow' - The weekly time range during which system maintenance can occur on the database. In the format @ddd:hh24:mi-ddd:hh24:mi@ . For example, @Tue:17:00-Tue:17:30@ .
---
--- * 'rdRelationalDatabaseBlueprintId' - The blueprint ID for the database. A blueprint describes the major engine version of a database.
---
--- * 'rdCaCertificateIdentifier' - The certificate associated with the database.
---
--- * 'rdName' - The unique name of the database resource in Lightsail.
---
--- * 'rdBackupRetentionEnabled' - A Boolean value indicating whether automated backup retention is enabled for the database.
---
--- * 'rdPreferredBackupWindow' - The daily time range during which automated backups are created for the database (for example, @16:00-16:30@ ).
---
--- * 'rdPendingMaintenanceActions' - Describes the pending maintenance actions for the database.
---
--- * 'rdSupportCode' - The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
---
--- * 'rdSecondaryAvailabilityZone' - Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
---
--- * 'rdPendingModifiedValues' - Describes pending database value modifications.
---
--- * 'rdMasterDatabaseName' - The name of the master database created when the Lightsail database resource is created.
---
--- * 'rdHardware' - Describes the hardware of the database.
---
--- * 'rdParameterApplyStatus' - The status of parameter updates for the database.
---
--- * 'rdTags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
-relationalDatabase ::
+-- The secondary database is used for failover support of a high availability database.
+-- * 'state' - Describes the current state of the database.
+-- * 'supportCode' - The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+-- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+mkRelationalDatabase ::
   RelationalDatabase
-relationalDatabase =
+mkRelationalDatabase =
   RelationalDatabase'
-    { _rdEngineVersion = Nothing,
-      _rdRelationalDatabaseBundleId = Nothing,
-      _rdMasterEndpoint = Nothing,
-      _rdState = Nothing,
-      _rdResourceType = Nothing,
-      _rdPubliclyAccessible = Nothing,
-      _rdMasterUsername = Nothing,
-      _rdArn = Nothing,
-      _rdCreatedAt = Nothing,
-      _rdLocation = Nothing,
-      _rdEngine = Nothing,
-      _rdLatestRestorableTime = Nothing,
-      _rdPreferredMaintenanceWindow = Nothing,
-      _rdRelationalDatabaseBlueprintId = Nothing,
-      _rdCaCertificateIdentifier = Nothing,
-      _rdName = Nothing,
-      _rdBackupRetentionEnabled = Nothing,
-      _rdPreferredBackupWindow = Nothing,
-      _rdPendingMaintenanceActions = Nothing,
-      _rdSupportCode = Nothing,
-      _rdSecondaryAvailabilityZone = Nothing,
-      _rdPendingModifiedValues = Nothing,
-      _rdMasterDatabaseName = Nothing,
-      _rdHardware = Nothing,
-      _rdParameterApplyStatus = Nothing,
-      _rdTags = Nothing
+    { engineVersion = Lude.Nothing,
+      relationalDatabaseBundleId = Lude.Nothing,
+      masterEndpoint = Lude.Nothing,
+      state = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      publiclyAccessible = Lude.Nothing,
+      masterUsername = Lude.Nothing,
+      arn = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      location = Lude.Nothing,
+      engine = Lude.Nothing,
+      latestRestorableTime = Lude.Nothing,
+      preferredMaintenanceWindow = Lude.Nothing,
+      relationalDatabaseBlueprintId = Lude.Nothing,
+      caCertificateIdentifier = Lude.Nothing,
+      name = Lude.Nothing,
+      backupRetentionEnabled = Lude.Nothing,
+      preferredBackupWindow = Lude.Nothing,
+      pendingMaintenanceActions = Lude.Nothing,
+      supportCode = Lude.Nothing,
+      secondaryAvailabilityZone = Lude.Nothing,
+      pendingModifiedValues = Lude.Nothing,
+      masterDatabaseName = Lude.Nothing,
+      hardware = Lude.Nothing,
+      parameterApplyStatus = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The database engine version (for example, @5.7.23@ ).
-rdEngineVersion :: Lens' RelationalDatabase (Maybe Text)
-rdEngineVersion = lens _rdEngineVersion (\s a -> s {_rdEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdEngineVersion :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdEngineVersion = Lens.lens (engineVersion :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: RelationalDatabase)
+{-# DEPRECATED rdEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The bundle ID for the database. A bundle describes the performance specifications for your database.
-rdRelationalDatabaseBundleId :: Lens' RelationalDatabase (Maybe Text)
-rdRelationalDatabaseBundleId = lens _rdRelationalDatabaseBundleId (\s a -> s {_rdRelationalDatabaseBundleId = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseBundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRelationalDatabaseBundleId :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdRelationalDatabaseBundleId = Lens.lens (relationalDatabaseBundleId :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {relationalDatabaseBundleId = a} :: RelationalDatabase)
+{-# DEPRECATED rdRelationalDatabaseBundleId "Use generic-lens or generic-optics with 'relationalDatabaseBundleId' instead." #-}
 
 -- | The master endpoint for the database.
-rdMasterEndpoint :: Lens' RelationalDatabase (Maybe RelationalDatabaseEndpoint)
-rdMasterEndpoint = lens _rdMasterEndpoint (\s a -> s {_rdMasterEndpoint = a})
+--
+-- /Note:/ Consider using 'masterEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdMasterEndpoint :: Lens.Lens' RelationalDatabase (Lude.Maybe RelationalDatabaseEndpoint)
+rdMasterEndpoint = Lens.lens (masterEndpoint :: RelationalDatabase -> Lude.Maybe RelationalDatabaseEndpoint) (\s a -> s {masterEndpoint = a} :: RelationalDatabase)
+{-# DEPRECATED rdMasterEndpoint "Use generic-lens or generic-optics with 'masterEndpoint' instead." #-}
 
 -- | Describes the current state of the database.
-rdState :: Lens' RelationalDatabase (Maybe Text)
-rdState = lens _rdState (\s a -> s {_rdState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdState :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdState = Lens.lens (state :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: RelationalDatabase)
+{-# DEPRECATED rdState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The Lightsail resource type for the database (for example, @RelationalDatabase@ ).
-rdResourceType :: Lens' RelationalDatabase (Maybe ResourceType)
-rdResourceType = lens _rdResourceType (\s a -> s {_rdResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdResourceType :: Lens.Lens' RelationalDatabase (Lude.Maybe ResourceType)
+rdResourceType = Lens.lens (resourceType :: RelationalDatabase -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: RelationalDatabase)
+{-# DEPRECATED rdResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | A Boolean value indicating whether the database is publicly accessible.
-rdPubliclyAccessible :: Lens' RelationalDatabase (Maybe Bool)
-rdPubliclyAccessible = lens _rdPubliclyAccessible (\s a -> s {_rdPubliclyAccessible = a})
+--
+-- /Note:/ Consider using 'publiclyAccessible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdPubliclyAccessible :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Bool)
+rdPubliclyAccessible = Lens.lens (publiclyAccessible :: RelationalDatabase -> Lude.Maybe Lude.Bool) (\s a -> s {publiclyAccessible = a} :: RelationalDatabase)
+{-# DEPRECATED rdPubliclyAccessible "Use generic-lens or generic-optics with 'publiclyAccessible' instead." #-}
 
 -- | The master user name of the database.
-rdMasterUsername :: Lens' RelationalDatabase (Maybe Text)
-rdMasterUsername = lens _rdMasterUsername (\s a -> s {_rdMasterUsername = a})
+--
+-- /Note:/ Consider using 'masterUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdMasterUsername :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdMasterUsername = Lens.lens (masterUsername :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {masterUsername = a} :: RelationalDatabase)
+{-# DEPRECATED rdMasterUsername "Use generic-lens or generic-optics with 'masterUsername' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the database.
-rdArn :: Lens' RelationalDatabase (Maybe Text)
-rdArn = lens _rdArn (\s a -> s {_rdArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdArn :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdArn = Lens.lens (arn :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: RelationalDatabase)
+{-# DEPRECATED rdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The timestamp when the database was created. Formatted in Unix time.
-rdCreatedAt :: Lens' RelationalDatabase (Maybe UTCTime)
-rdCreatedAt = lens _rdCreatedAt (\s a -> s {_rdCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdCreatedAt :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Timestamp)
+rdCreatedAt = Lens.lens (createdAt :: RelationalDatabase -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: RelationalDatabase)
+{-# DEPRECATED rdCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The Region name and Availability Zone where the database is located.
-rdLocation :: Lens' RelationalDatabase (Maybe ResourceLocation)
-rdLocation = lens _rdLocation (\s a -> s {_rdLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdLocation :: Lens.Lens' RelationalDatabase (Lude.Maybe ResourceLocation)
+rdLocation = Lens.lens (location :: RelationalDatabase -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: RelationalDatabase)
+{-# DEPRECATED rdLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The database software (for example, @MySQL@ ).
-rdEngine :: Lens' RelationalDatabase (Maybe Text)
-rdEngine = lens _rdEngine (\s a -> s {_rdEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdEngine :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdEngine = Lens.lens (engine :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: RelationalDatabase)
+{-# DEPRECATED rdEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The latest point in time to which the database can be restored. Formatted in Unix time.
-rdLatestRestorableTime :: Lens' RelationalDatabase (Maybe UTCTime)
-rdLatestRestorableTime = lens _rdLatestRestorableTime (\s a -> s {_rdLatestRestorableTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'latestRestorableTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdLatestRestorableTime :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Timestamp)
+rdLatestRestorableTime = Lens.lens (latestRestorableTime :: RelationalDatabase -> Lude.Maybe Lude.Timestamp) (\s a -> s {latestRestorableTime = a} :: RelationalDatabase)
+{-# DEPRECATED rdLatestRestorableTime "Use generic-lens or generic-optics with 'latestRestorableTime' instead." #-}
 
--- | The weekly time range during which system maintenance can occur on the database. In the format @ddd:hh24:mi-ddd:hh24:mi@ . For example, @Tue:17:00-Tue:17:30@ .
-rdPreferredMaintenanceWindow :: Lens' RelationalDatabase (Maybe Text)
-rdPreferredMaintenanceWindow = lens _rdPreferredMaintenanceWindow (\s a -> s {_rdPreferredMaintenanceWindow = a})
+-- | The weekly time range during which system maintenance can occur on the database.
+--
+-- In the format @ddd:hh24:mi-ddd:hh24:mi@ . For example, @Tue:17:00-Tue:17:30@ .
+--
+-- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdPreferredMaintenanceWindow :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: RelationalDatabase)
+{-# DEPRECATED rdPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
 
 -- | The blueprint ID for the database. A blueprint describes the major engine version of a database.
-rdRelationalDatabaseBlueprintId :: Lens' RelationalDatabase (Maybe Text)
-rdRelationalDatabaseBlueprintId = lens _rdRelationalDatabaseBlueprintId (\s a -> s {_rdRelationalDatabaseBlueprintId = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseBlueprintId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdRelationalDatabaseBlueprintId :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdRelationalDatabaseBlueprintId = Lens.lens (relationalDatabaseBlueprintId :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {relationalDatabaseBlueprintId = a} :: RelationalDatabase)
+{-# DEPRECATED rdRelationalDatabaseBlueprintId "Use generic-lens or generic-optics with 'relationalDatabaseBlueprintId' instead." #-}
 
 -- | The certificate associated with the database.
-rdCaCertificateIdentifier :: Lens' RelationalDatabase (Maybe Text)
-rdCaCertificateIdentifier = lens _rdCaCertificateIdentifier (\s a -> s {_rdCaCertificateIdentifier = a})
+--
+-- /Note:/ Consider using 'caCertificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdCaCertificateIdentifier :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdCaCertificateIdentifier = Lens.lens (caCertificateIdentifier :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {caCertificateIdentifier = a} :: RelationalDatabase)
+{-# DEPRECATED rdCaCertificateIdentifier "Use generic-lens or generic-optics with 'caCertificateIdentifier' instead." #-}
 
 -- | The unique name of the database resource in Lightsail.
-rdName :: Lens' RelationalDatabase (Maybe Text)
-rdName = lens _rdName (\s a -> s {_rdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdName :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdName = Lens.lens (name :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RelationalDatabase)
+{-# DEPRECATED rdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A Boolean value indicating whether automated backup retention is enabled for the database.
-rdBackupRetentionEnabled :: Lens' RelationalDatabase (Maybe Bool)
-rdBackupRetentionEnabled = lens _rdBackupRetentionEnabled (\s a -> s {_rdBackupRetentionEnabled = a})
+--
+-- /Note:/ Consider using 'backupRetentionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdBackupRetentionEnabled :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Bool)
+rdBackupRetentionEnabled = Lens.lens (backupRetentionEnabled :: RelationalDatabase -> Lude.Maybe Lude.Bool) (\s a -> s {backupRetentionEnabled = a} :: RelationalDatabase)
+{-# DEPRECATED rdBackupRetentionEnabled "Use generic-lens or generic-optics with 'backupRetentionEnabled' instead." #-}
 
 -- | The daily time range during which automated backups are created for the database (for example, @16:00-16:30@ ).
-rdPreferredBackupWindow :: Lens' RelationalDatabase (Maybe Text)
-rdPreferredBackupWindow = lens _rdPreferredBackupWindow (\s a -> s {_rdPreferredBackupWindow = a})
+--
+-- /Note:/ Consider using 'preferredBackupWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdPreferredBackupWindow :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdPreferredBackupWindow = Lens.lens (preferredBackupWindow :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {preferredBackupWindow = a} :: RelationalDatabase)
+{-# DEPRECATED rdPreferredBackupWindow "Use generic-lens or generic-optics with 'preferredBackupWindow' instead." #-}
 
 -- | Describes the pending maintenance actions for the database.
-rdPendingMaintenanceActions :: Lens' RelationalDatabase [PendingMaintenanceAction]
-rdPendingMaintenanceActions = lens _rdPendingMaintenanceActions (\s a -> s {_rdPendingMaintenanceActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pendingMaintenanceActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdPendingMaintenanceActions :: Lens.Lens' RelationalDatabase (Lude.Maybe [PendingMaintenanceAction])
+rdPendingMaintenanceActions = Lens.lens (pendingMaintenanceActions :: RelationalDatabase -> Lude.Maybe [PendingMaintenanceAction]) (\s a -> s {pendingMaintenanceActions = a} :: RelationalDatabase)
+{-# DEPRECATED rdPendingMaintenanceActions "Use generic-lens or generic-optics with 'pendingMaintenanceActions' instead." #-}
 
 -- | The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-rdSupportCode :: Lens' RelationalDatabase (Maybe Text)
-rdSupportCode = lens _rdSupportCode (\s a -> s {_rdSupportCode = a})
+--
+-- /Note:/ Consider using 'supportCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdSupportCode :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdSupportCode = Lens.lens (supportCode :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {supportCode = a} :: RelationalDatabase)
+{-# DEPRECATED rdSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
 
--- | Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
-rdSecondaryAvailabilityZone :: Lens' RelationalDatabase (Maybe Text)
-rdSecondaryAvailabilityZone = lens _rdSecondaryAvailabilityZone (\s a -> s {_rdSecondaryAvailabilityZone = a})
+-- | Describes the secondary Availability Zone of a high availability database.
+--
+-- The secondary database is used for failover support of a high availability database.
+--
+-- /Note:/ Consider using 'secondaryAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdSecondaryAvailabilityZone :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdSecondaryAvailabilityZone = Lens.lens (secondaryAvailabilityZone :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {secondaryAvailabilityZone = a} :: RelationalDatabase)
+{-# DEPRECATED rdSecondaryAvailabilityZone "Use generic-lens or generic-optics with 'secondaryAvailabilityZone' instead." #-}
 
 -- | Describes pending database value modifications.
-rdPendingModifiedValues :: Lens' RelationalDatabase (Maybe PendingModifiedRelationalDatabaseValues)
-rdPendingModifiedValues = lens _rdPendingModifiedValues (\s a -> s {_rdPendingModifiedValues = a})
+--
+-- /Note:/ Consider using 'pendingModifiedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdPendingModifiedValues :: Lens.Lens' RelationalDatabase (Lude.Maybe PendingModifiedRelationalDatabaseValues)
+rdPendingModifiedValues = Lens.lens (pendingModifiedValues :: RelationalDatabase -> Lude.Maybe PendingModifiedRelationalDatabaseValues) (\s a -> s {pendingModifiedValues = a} :: RelationalDatabase)
+{-# DEPRECATED rdPendingModifiedValues "Use generic-lens or generic-optics with 'pendingModifiedValues' instead." #-}
 
 -- | The name of the master database created when the Lightsail database resource is created.
-rdMasterDatabaseName :: Lens' RelationalDatabase (Maybe Text)
-rdMasterDatabaseName = lens _rdMasterDatabaseName (\s a -> s {_rdMasterDatabaseName = a})
+--
+-- /Note:/ Consider using 'masterDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdMasterDatabaseName :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdMasterDatabaseName = Lens.lens (masterDatabaseName :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {masterDatabaseName = a} :: RelationalDatabase)
+{-# DEPRECATED rdMasterDatabaseName "Use generic-lens or generic-optics with 'masterDatabaseName' instead." #-}
 
 -- | Describes the hardware of the database.
-rdHardware :: Lens' RelationalDatabase (Maybe RelationalDatabaseHardware)
-rdHardware = lens _rdHardware (\s a -> s {_rdHardware = a})
+--
+-- /Note:/ Consider using 'hardware' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdHardware :: Lens.Lens' RelationalDatabase (Lude.Maybe RelationalDatabaseHardware)
+rdHardware = Lens.lens (hardware :: RelationalDatabase -> Lude.Maybe RelationalDatabaseHardware) (\s a -> s {hardware = a} :: RelationalDatabase)
+{-# DEPRECATED rdHardware "Use generic-lens or generic-optics with 'hardware' instead." #-}
 
 -- | The status of parameter updates for the database.
-rdParameterApplyStatus :: Lens' RelationalDatabase (Maybe Text)
-rdParameterApplyStatus = lens _rdParameterApplyStatus (\s a -> s {_rdParameterApplyStatus = a})
+--
+-- /Note:/ Consider using 'parameterApplyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdParameterApplyStatus :: Lens.Lens' RelationalDatabase (Lude.Maybe Lude.Text)
+rdParameterApplyStatus = Lens.lens (parameterApplyStatus :: RelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyStatus = a} :: RelationalDatabase)
+{-# DEPRECATED rdParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
 
 -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
-rdTags :: Lens' RelationalDatabase [Tag]
-rdTags = lens _rdTags (\s a -> s {_rdTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdTags :: Lens.Lens' RelationalDatabase (Lude.Maybe [Tag])
+rdTags = Lens.lens (tags :: RelationalDatabase -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: RelationalDatabase)
+{-# DEPRECATED rdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON RelationalDatabase where
+instance Lude.FromJSON RelationalDatabase where
   parseJSON =
-    withObject
+    Lude.withObject
       "RelationalDatabase"
       ( \x ->
           RelationalDatabase'
-            <$> (x .:? "engineVersion")
-            <*> (x .:? "relationalDatabaseBundleId")
-            <*> (x .:? "masterEndpoint")
-            <*> (x .:? "state")
-            <*> (x .:? "resourceType")
-            <*> (x .:? "publiclyAccessible")
-            <*> (x .:? "masterUsername")
-            <*> (x .:? "arn")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "location")
-            <*> (x .:? "engine")
-            <*> (x .:? "latestRestorableTime")
-            <*> (x .:? "preferredMaintenanceWindow")
-            <*> (x .:? "relationalDatabaseBlueprintId")
-            <*> (x .:? "caCertificateIdentifier")
-            <*> (x .:? "name")
-            <*> (x .:? "backupRetentionEnabled")
-            <*> (x .:? "preferredBackupWindow")
-            <*> (x .:? "pendingMaintenanceActions" .!= mempty)
-            <*> (x .:? "supportCode")
-            <*> (x .:? "secondaryAvailabilityZone")
-            <*> (x .:? "pendingModifiedValues")
-            <*> (x .:? "masterDatabaseName")
-            <*> (x .:? "hardware")
-            <*> (x .:? "parameterApplyStatus")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "engineVersion")
+            Lude.<*> (x Lude..:? "relationalDatabaseBundleId")
+            Lude.<*> (x Lude..:? "masterEndpoint")
+            Lude.<*> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "publiclyAccessible")
+            Lude.<*> (x Lude..:? "masterUsername")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "engine")
+            Lude.<*> (x Lude..:? "latestRestorableTime")
+            Lude.<*> (x Lude..:? "preferredMaintenanceWindow")
+            Lude.<*> (x Lude..:? "relationalDatabaseBlueprintId")
+            Lude.<*> (x Lude..:? "caCertificateIdentifier")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "backupRetentionEnabled")
+            Lude.<*> (x Lude..:? "preferredBackupWindow")
+            Lude.<*> (x Lude..:? "pendingMaintenanceActions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "supportCode")
+            Lude.<*> (x Lude..:? "secondaryAvailabilityZone")
+            Lude.<*> (x Lude..:? "pendingModifiedValues")
+            Lude.<*> (x Lude..:? "masterDatabaseName")
+            Lude.<*> (x Lude..:? "hardware")
+            Lude.<*> (x Lude..:? "parameterApplyStatus")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable RelationalDatabase
-
-instance NFData RelationalDatabase

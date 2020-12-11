@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.ClientCertificate where
+module Network.AWS.APIGateway.Types.ClientCertificate
+  ( ClientCertificate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClientCertificate,
+
+    -- * Lenses
+    ccPemEncodedCertificate,
+    ccClientCertificateId,
+    ccCreatedDate,
+    ccExpirationDate,
+    ccDescription,
+    ccTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.
 --
---
 -- Client certificates are used to authenticate an API by the backend server. To authenticate an API client (or user), use IAM roles and policies, a custom 'Authorizer' or an Amazon Cognito user pool.<https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate>
 --
--- /See:/ 'clientCertificate' smart constructor.
+-- /See:/ 'mkClientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
-  { _ccPemEncodedCertificate ::
-      !(Maybe Text),
-    _ccClientCertificateId :: !(Maybe Text),
-    _ccCreatedDate :: !(Maybe POSIX),
-    _ccExpirationDate :: !(Maybe POSIX),
-    _ccDescription :: !(Maybe Text),
-    _ccTags :: !(Maybe (Map Text (Text)))
+  { pemEncodedCertificate ::
+      Lude.Maybe Lude.Text,
+    clientCertificateId :: Lude.Maybe Lude.Text,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    expirationDate :: Lude.Maybe Lude.Timestamp,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccPemEncodedCertificate' - The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .
---
--- * 'ccClientCertificateId' - The identifier of the client certificate.
---
--- * 'ccCreatedDate' - The timestamp when the client certificate was created.
---
--- * 'ccExpirationDate' - The timestamp when the client certificate will expire.
---
--- * 'ccDescription' - The description of the client certificate.
---
--- * 'ccTags' - The collection of tags. Each tag element is associated with a given resource.
-clientCertificate ::
+-- * 'clientCertificateId' - The identifier of the client certificate.
+-- * 'createdDate' - The timestamp when the client certificate was created.
+-- * 'description' - The description of the client certificate.
+-- * 'expirationDate' - The timestamp when the client certificate will expire.
+-- * 'pemEncodedCertificate' - The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .
+-- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
+mkClientCertificate ::
   ClientCertificate
-clientCertificate =
+mkClientCertificate =
   ClientCertificate'
-    { _ccPemEncodedCertificate = Nothing,
-      _ccClientCertificateId = Nothing,
-      _ccCreatedDate = Nothing,
-      _ccExpirationDate = Nothing,
-      _ccDescription = Nothing,
-      _ccTags = Nothing
+    { pemEncodedCertificate = Lude.Nothing,
+      clientCertificateId = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      expirationDate = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .
-ccPemEncodedCertificate :: Lens' ClientCertificate (Maybe Text)
-ccPemEncodedCertificate = lens _ccPemEncodedCertificate (\s a -> s {_ccPemEncodedCertificate = a})
+--
+-- /Note:/ Consider using 'pemEncodedCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPemEncodedCertificate :: Lens.Lens' ClientCertificate (Lude.Maybe Lude.Text)
+ccPemEncodedCertificate = Lens.lens (pemEncodedCertificate :: ClientCertificate -> Lude.Maybe Lude.Text) (\s a -> s {pemEncodedCertificate = a} :: ClientCertificate)
+{-# DEPRECATED ccPemEncodedCertificate "Use generic-lens or generic-optics with 'pemEncodedCertificate' instead." #-}
 
 -- | The identifier of the client certificate.
-ccClientCertificateId :: Lens' ClientCertificate (Maybe Text)
-ccClientCertificateId = lens _ccClientCertificateId (\s a -> s {_ccClientCertificateId = a})
+--
+-- /Note:/ Consider using 'clientCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClientCertificateId :: Lens.Lens' ClientCertificate (Lude.Maybe Lude.Text)
+ccClientCertificateId = Lens.lens (clientCertificateId :: ClientCertificate -> Lude.Maybe Lude.Text) (\s a -> s {clientCertificateId = a} :: ClientCertificate)
+{-# DEPRECATED ccClientCertificateId "Use generic-lens or generic-optics with 'clientCertificateId' instead." #-}
 
 -- | The timestamp when the client certificate was created.
-ccCreatedDate :: Lens' ClientCertificate (Maybe UTCTime)
-ccCreatedDate = lens _ccCreatedDate (\s a -> s {_ccCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCreatedDate :: Lens.Lens' ClientCertificate (Lude.Maybe Lude.Timestamp)
+ccCreatedDate = Lens.lens (createdDate :: ClientCertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: ClientCertificate)
+{-# DEPRECATED ccCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The timestamp when the client certificate will expire.
-ccExpirationDate :: Lens' ClientCertificate (Maybe UTCTime)
-ccExpirationDate = lens _ccExpirationDate (\s a -> s {_ccExpirationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccExpirationDate :: Lens.Lens' ClientCertificate (Lude.Maybe Lude.Timestamp)
+ccExpirationDate = Lens.lens (expirationDate :: ClientCertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationDate = a} :: ClientCertificate)
+{-# DEPRECATED ccExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | The description of the client certificate.
-ccDescription :: Lens' ClientCertificate (Maybe Text)
-ccDescription = lens _ccDescription (\s a -> s {_ccDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDescription :: Lens.Lens' ClientCertificate (Lude.Maybe Lude.Text)
+ccDescription = Lens.lens (description :: ClientCertificate -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ClientCertificate)
+{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The collection of tags. Each tag element is associated with a given resource.
-ccTags :: Lens' ClientCertificate (HashMap Text (Text))
-ccTags = lens _ccTags (\s a -> s {_ccTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTags :: Lens.Lens' ClientCertificate (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ccTags = Lens.lens (tags :: ClientCertificate -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ClientCertificate)
+{-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON ClientCertificate where
+instance Lude.FromJSON ClientCertificate where
   parseJSON =
-    withObject
+    Lude.withObject
       "ClientCertificate"
       ( \x ->
           ClientCertificate'
-            <$> (x .:? "pemEncodedCertificate")
-            <*> (x .:? "clientCertificateId")
-            <*> (x .:? "createdDate")
-            <*> (x .:? "expirationDate")
-            <*> (x .:? "description")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "pemEncodedCertificate")
+            Lude.<*> (x Lude..:? "clientCertificateId")
+            Lude.<*> (x Lude..:? "createdDate")
+            Lude.<*> (x Lude..:? "expirationDate")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable ClientCertificate
-
-instance NFData ClientCertificate

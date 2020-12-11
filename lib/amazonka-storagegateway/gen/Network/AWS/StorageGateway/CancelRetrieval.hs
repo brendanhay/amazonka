@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,150 @@
 --
 -- Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated. The virtual tape is returned to the VTS. This operation is only supported in the tape gateway type.
 module Network.AWS.StorageGateway.CancelRetrieval
-  ( -- * Creating a Request
-    cancelRetrieval,
-    CancelRetrieval,
+  ( -- * Creating a request
+    CancelRetrieval (..),
+    mkCancelRetrieval,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crGatewayARN,
     crTapeARN,
 
-    -- * Destructuring the Response
-    cancelRetrievalResponse,
-    CancelRetrievalResponse,
+    -- * Destructuring the response
+    CancelRetrievalResponse (..),
+    mkCancelRetrievalResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crrsTapeARN,
     crrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | CancelRetrievalInput
 --
---
---
--- /See:/ 'cancelRetrieval' smart constructor.
+-- /See:/ 'mkCancelRetrieval' smart constructor.
 data CancelRetrieval = CancelRetrieval'
-  { _crGatewayARN :: !Text,
-    _crTapeARN :: !Text
+  { gatewayARN :: Lude.Text,
+    tapeARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelRetrieval' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crGatewayARN' - Undocumented member.
---
--- * 'crTapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval for.
-cancelRetrieval ::
-  -- | 'crGatewayARN'
-  Text ->
-  -- | 'crTapeARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval for.
+mkCancelRetrieval ::
+  -- | 'gatewayARN'
+  Lude.Text ->
+  -- | 'tapeARN'
+  Lude.Text ->
   CancelRetrieval
-cancelRetrieval pGatewayARN_ pTapeARN_ =
-  CancelRetrieval'
-    { _crGatewayARN = pGatewayARN_,
-      _crTapeARN = pTapeARN_
-    }
+mkCancelRetrieval pGatewayARN_ pTapeARN_ =
+  CancelRetrieval' {gatewayARN = pGatewayARN_, tapeARN = pTapeARN_}
 
--- | Undocumented member.
-crGatewayARN :: Lens' CancelRetrieval Text
-crGatewayARN = lens _crGatewayARN (\s a -> s {_crGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crGatewayARN :: Lens.Lens' CancelRetrieval Lude.Text
+crGatewayARN = Lens.lens (gatewayARN :: CancelRetrieval -> Lude.Text) (\s a -> s {gatewayARN = a} :: CancelRetrieval)
+{-# DEPRECATED crGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel retrieval for.
-crTapeARN :: Lens' CancelRetrieval Text
-crTapeARN = lens _crTapeARN (\s a -> s {_crTapeARN = a})
+--
+-- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crTapeARN :: Lens.Lens' CancelRetrieval Lude.Text
+crTapeARN = Lens.lens (tapeARN :: CancelRetrieval -> Lude.Text) (\s a -> s {tapeARN = a} :: CancelRetrieval)
+{-# DEPRECATED crTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
-instance AWSRequest CancelRetrieval where
+instance Lude.AWSRequest CancelRetrieval where
   type Rs CancelRetrieval = CancelRetrievalResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CancelRetrievalResponse'
-            <$> (x .?> "TapeARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TapeARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CancelRetrieval
-
-instance NFData CancelRetrieval
-
-instance ToHeaders CancelRetrieval where
+instance Lude.ToHeaders CancelRetrieval where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.CancelRetrieval" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.CancelRetrieval" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CancelRetrieval where
+instance Lude.ToJSON CancelRetrieval where
   toJSON CancelRetrieval' {..} =
-    object
-      ( catMaybes
-          [ Just ("GatewayARN" .= _crGatewayARN),
-            Just ("TapeARN" .= _crTapeARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            Lude.Just ("TapeARN" Lude..= tapeARN)
           ]
       )
 
-instance ToPath CancelRetrieval where
-  toPath = const "/"
+instance Lude.ToPath CancelRetrieval where
+  toPath = Lude.const "/"
 
-instance ToQuery CancelRetrieval where
-  toQuery = const mempty
+instance Lude.ToQuery CancelRetrieval where
+  toQuery = Lude.const Lude.mempty
 
 -- | CancelRetrievalOutput
 --
---
---
--- /See:/ 'cancelRetrievalResponse' smart constructor.
+-- /See:/ 'mkCancelRetrievalResponse' smart constructor.
 data CancelRetrievalResponse = CancelRetrievalResponse'
-  { _crrsTapeARN ::
-      !(Maybe Text),
-    _crrsResponseStatus :: !Int
+  { tapeARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelRetrievalResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrsTapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which retrieval was canceled.
---
--- * 'crrsResponseStatus' - -- | The response status code.
-cancelRetrievalResponse ::
-  -- | 'crrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which retrieval was canceled.
+mkCancelRetrievalResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelRetrievalResponse
-cancelRetrievalResponse pResponseStatus_ =
+mkCancelRetrievalResponse pResponseStatus_ =
   CancelRetrievalResponse'
-    { _crrsTapeARN = Nothing,
-      _crrsResponseStatus = pResponseStatus_
+    { tapeARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval was canceled.
-crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
-crrsTapeARN = lens _crrsTapeARN (\s a -> s {_crrsTapeARN = a})
+--
+-- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsTapeARN :: Lens.Lens' CancelRetrievalResponse (Lude.Maybe Lude.Text)
+crrsTapeARN = Lens.lens (tapeARN :: CancelRetrievalResponse -> Lude.Maybe Lude.Text) (\s a -> s {tapeARN = a} :: CancelRetrievalResponse)
+{-# DEPRECATED crrsTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
--- | -- | The response status code.
-crrsResponseStatus :: Lens' CancelRetrievalResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\s a -> s {_crrsResponseStatus = a})
-
-instance NFData CancelRetrievalResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsResponseStatus :: Lens.Lens' CancelRetrievalResponse Lude.Int
+crrsResponseStatus = Lens.lens (responseStatus :: CancelRetrievalResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelRetrievalResponse)
+{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

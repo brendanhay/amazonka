@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,116 @@
 --
 -- Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the account.
 module Network.AWS.DeviceFarm.GetAccountSettings
-  ( -- * Creating a Request
-    getAccountSettings,
-    GetAccountSettings,
+  ( -- * Creating a request
+    GetAccountSettings (..),
+    mkGetAccountSettings,
 
-    -- * Destructuring the Response
-    getAccountSettingsResponse,
-    GetAccountSettingsResponse,
+    -- * Destructuring the response
+    GetAccountSettingsResponse (..),
+    mkGetAccountSettingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gasrsAccountSettings,
     gasrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request sent to retrieve the account settings.
 --
---
---
--- /See:/ 'getAccountSettings' smart constructor.
+-- /See:/ 'mkGetAccountSettings' smart constructor.
 data GetAccountSettings = GetAccountSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountSettings' with the minimum fields required to make a request.
-getAccountSettings ::
+mkGetAccountSettings ::
   GetAccountSettings
-getAccountSettings = GetAccountSettings'
+mkGetAccountSettings = GetAccountSettings'
 
-instance AWSRequest GetAccountSettings where
+instance Lude.AWSRequest GetAccountSettings where
   type Rs GetAccountSettings = GetAccountSettingsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAccountSettingsResponse'
-            <$> (x .?> "accountSettings") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "accountSettings")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAccountSettings
-
-instance NFData GetAccountSettings
-
-instance ToHeaders GetAccountSettings where
+instance Lude.ToHeaders GetAccountSettings where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.GetAccountSettings" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.GetAccountSettings" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAccountSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetAccountSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetAccountSettings where
-  toPath = const "/"
+instance Lude.ToPath GetAccountSettings where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAccountSettings where
-  toQuery = const mempty
+instance Lude.ToQuery GetAccountSettings where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the account settings return values from the @GetAccountSettings@ request.
 --
---
---
--- /See:/ 'getAccountSettingsResponse' smart constructor.
+-- /See:/ 'mkGetAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
-  { _gasrsAccountSettings ::
-      !(Maybe AccountSettings),
-    _gasrsResponseStatus :: !Int
+  { accountSettings ::
+      Lude.Maybe AccountSettings,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountSettingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasrsAccountSettings' - The account settings.
---
--- * 'gasrsResponseStatus' - -- | The response status code.
-getAccountSettingsResponse ::
-  -- | 'gasrsResponseStatus'
-  Int ->
+-- * 'accountSettings' - The account settings.
+-- * 'responseStatus' - The response status code.
+mkGetAccountSettingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAccountSettingsResponse
-getAccountSettingsResponse pResponseStatus_ =
+mkGetAccountSettingsResponse pResponseStatus_ =
   GetAccountSettingsResponse'
-    { _gasrsAccountSettings = Nothing,
-      _gasrsResponseStatus = pResponseStatus_
+    { accountSettings = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The account settings.
-gasrsAccountSettings :: Lens' GetAccountSettingsResponse (Maybe AccountSettings)
-gasrsAccountSettings = lens _gasrsAccountSettings (\s a -> s {_gasrsAccountSettings = a})
+--
+-- /Note:/ Consider using 'accountSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsAccountSettings :: Lens.Lens' GetAccountSettingsResponse (Lude.Maybe AccountSettings)
+gasrsAccountSettings = Lens.lens (accountSettings :: GetAccountSettingsResponse -> Lude.Maybe AccountSettings) (\s a -> s {accountSettings = a} :: GetAccountSettingsResponse)
+{-# DEPRECATED gasrsAccountSettings "Use generic-lens or generic-optics with 'accountSettings' instead." #-}
 
--- | -- | The response status code.
-gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\s a -> s {_gasrsResponseStatus = a})
-
-instance NFData GetAccountSettingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsResponseStatus :: Lens.Lens' GetAccountSettingsResponse Lude.Int
+gasrsResponseStatus = Lens.lens (responseStatus :: GetAccountSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountSettingsResponse)
+{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

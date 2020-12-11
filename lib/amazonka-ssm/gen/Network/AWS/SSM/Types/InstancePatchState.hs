@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,99 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InstancePatchState where
+module Network.AWS.SSM.Types.InstancePatchState
+  ( InstancePatchState (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstancePatchState,
+
+    -- * Lenses
+    ipsUnreportedNotApplicableCount,
+    ipsRebootOption,
+    ipsInstalledPendingRebootCount,
+    ipsOwnerInformation,
+    ipsInstalledRejectedCount,
+    ipsFailedCount,
+    ipsInstalledOtherCount,
+    ipsMissingCount,
+    ipsInstallOverrideList,
+    ipsNotApplicableCount,
+    ipsInstalledCount,
+    ipsLastNoRebootInstallOperationTime,
+    ipsSnapshotId,
+    ipsInstanceId,
+    ipsPatchGroup,
+    ipsBaselineId,
+    ipsOperationStartTime,
+    ipsOperationEndTime,
+    ipsOperation,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.PatchOperationType
 import Network.AWS.SSM.Types.RebootOption
 
 -- | Defines the high-level patch compliance state for a managed instance, providing information about the number of installed, missing, not applicable, and failed patches along with metadata about the operation when this information was gathered for the instance.
 --
---
---
--- /See:/ 'instancePatchState' smart constructor.
+-- /See:/ 'mkInstancePatchState' smart constructor.
 data InstancePatchState = InstancePatchState'
-  { _ipsUnreportedNotApplicableCount ::
-      !(Maybe Int),
-    _ipsRebootOption :: !(Maybe RebootOption),
-    _ipsInstalledPendingRebootCount :: !(Maybe Int),
-    _ipsOwnerInformation :: !(Maybe (Sensitive Text)),
-    _ipsInstalledRejectedCount :: !(Maybe Int),
-    _ipsFailedCount :: !(Maybe Int),
-    _ipsInstalledOtherCount :: !(Maybe Int),
-    _ipsMissingCount :: !(Maybe Int),
-    _ipsInstallOverrideList :: !(Maybe Text),
-    _ipsNotApplicableCount :: !(Maybe Int),
-    _ipsInstalledCount :: !(Maybe Int),
-    _ipsLastNoRebootInstallOperationTime ::
-      !(Maybe POSIX),
-    _ipsSnapshotId :: !(Maybe Text),
-    _ipsInstanceId :: !Text,
-    _ipsPatchGroup :: !Text,
-    _ipsBaselineId :: !Text,
-    _ipsOperationStartTime :: !POSIX,
-    _ipsOperationEndTime :: !POSIX,
-    _ipsOperation :: !PatchOperationType
+  { unreportedNotApplicableCount ::
+      Lude.Maybe Lude.Int,
+    rebootOption :: Lude.Maybe RebootOption,
+    installedPendingRebootCount :: Lude.Maybe Lude.Int,
+    ownerInformation ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    installedRejectedCount :: Lude.Maybe Lude.Int,
+    failedCount :: Lude.Maybe Lude.Int,
+    installedOtherCount :: Lude.Maybe Lude.Int,
+    missingCount :: Lude.Maybe Lude.Int,
+    installOverrideList :: Lude.Maybe Lude.Text,
+    notApplicableCount :: Lude.Maybe Lude.Int,
+    installedCount :: Lude.Maybe Lude.Int,
+    lastNoRebootInstallOperationTime ::
+      Lude.Maybe Lude.Timestamp,
+    snapshotId :: Lude.Maybe Lude.Text,
+    instanceId :: Lude.Text,
+    patchGroup :: Lude.Text,
+    baselineId :: Lude.Text,
+    operationStartTime :: Lude.Timestamp,
+    operationEndTime :: Lude.Timestamp,
+    operation :: PatchOperationType
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstancePatchState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'baselineId' - The ID of the patch baseline used to patch the instance.
+-- * 'failedCount' - The number of patches from the patch baseline that were attempted to be installed during the last patching operation, but failed to install.
+-- * 'installOverrideList' - An https URL or an Amazon S3 path-style URL to a list of patches to be installed. This patch installation list, which you maintain in an S3 bucket in YAML format and specify in the SSM document @AWS-RunPatchBaseline@ , overrides the patches specified by the default patch baseline.
 --
--- * 'ipsUnreportedNotApplicableCount' - The number of patches beyond the supported limit of @NotApplicableCount@ that are not reported by name to Systems Manager Inventory.
+-- For more information about the @InstallOverrideList@ parameter, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html About the SSM document AWS-RunPatchBaseline> in the /AWS Systems Manager User Guide/ .
+-- * 'installedCount' - The number of patches from the patch baseline that are installed on the instance.
+-- * 'installedOtherCount' - The number of patches not specified in the patch baseline that are installed on the instance.
+-- * 'installedPendingRebootCount' - The number of patches installed by Patch Manager since the last time the instance was rebooted.
+-- * 'installedRejectedCount' - The number of patches installed on an instance that are specified in a @RejectedPatches@ list. Patches with a status of /InstalledRejected/ were typically installed before they were added to a @RejectedPatches@ list.
+-- * 'instanceId' - The ID of the managed instance the high-level patch compliance information was collected for.
+-- * 'lastNoRebootInstallOperationTime' - The time of the last attempt to patch the instance with @NoReboot@ specified as the reboot option.
+-- * 'missingCount' - The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
+-- * 'notApplicableCount' - The number of patches from the patch baseline that aren't applicable for the instance and therefore aren't installed on the instance. This number may be truncated if the list of patch names is very large. The number of patches beyond this limit are reported in @UnreportedNotApplicableCount@ .
+-- * 'operation' - The type of patching operation that was performed: @SCAN@ (assess patch compliance state) or @INSTALL@ (install missing patches).
+-- * 'operationEndTime' - The time the most recent patching operation completed on the instance.
+-- * 'operationStartTime' - The time the most recent patching operation was started on the instance.
+-- * 'ownerInformation' - Placeholder information. This field will always be empty in the current release of the service.
+-- * 'patchGroup' - The name of the patch group the managed instance belongs to.
+-- * 'rebootOption' - Indicates the reboot option specified in the patch baseline.
 --
--- * 'ipsRebootOption' - Indicates the reboot option specified in the patch baseline.     * __RebootIfNeeded__ : Patch Manager tries to reboot the instance if it installed any patches, or if any patches are detected with a status of @InstalledPendingReboot@ .     * __NoReboot__ : Patch Manager attempts to install missing packages without trying to reboot the system. Patches installed with this option are assigned a status of @InstalledPendingReboot@ . These patches might not be in effect until a reboot is performed.
 --
--- * 'ipsInstalledPendingRebootCount' - The number of patches installed by Patch Manager since the last time the instance was rebooted.
+--     * __RebootIfNeeded__ : Patch Manager tries to reboot the instance if it installed any patches, or if any patches are detected with a status of @InstalledPendingReboot@ .
 --
--- * 'ipsOwnerInformation' - Placeholder information. This field will always be empty in the current release of the service.
 --
--- * 'ipsInstalledRejectedCount' - The number of patches installed on an instance that are specified in a @RejectedPatches@ list. Patches with a status of /InstalledRejected/ were typically installed before they were added to a @RejectedPatches@ list.
+--     * __NoReboot__ : Patch Manager attempts to install missing packages without trying to reboot the system. Patches installed with this option are assigned a status of @InstalledPendingReboot@ . These patches might not be in effect until a reboot is performed.
 --
--- * 'ipsFailedCount' - The number of patches from the patch baseline that were attempted to be installed during the last patching operation, but failed to install.
 --
--- * 'ipsInstalledOtherCount' - The number of patches not specified in the patch baseline that are installed on the instance.
---
--- * 'ipsMissingCount' - The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
---
--- * 'ipsInstallOverrideList' - An https URL or an Amazon S3 path-style URL to a list of patches to be installed. This patch installation list, which you maintain in an S3 bucket in YAML format and specify in the SSM document @AWS-RunPatchBaseline@ , overrides the patches specified by the default patch baseline. For more information about the @InstallOverrideList@ parameter, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html About the SSM document AWS-RunPatchBaseline> in the /AWS Systems Manager User Guide/ .
---
--- * 'ipsNotApplicableCount' - The number of patches from the patch baseline that aren't applicable for the instance and therefore aren't installed on the instance. This number may be truncated if the list of patch names is very large. The number of patches beyond this limit are reported in @UnreportedNotApplicableCount@ .
---
--- * 'ipsInstalledCount' - The number of patches from the patch baseline that are installed on the instance.
---
--- * 'ipsLastNoRebootInstallOperationTime' - The time of the last attempt to patch the instance with @NoReboot@ specified as the reboot option.
---
--- * 'ipsSnapshotId' - The ID of the patch baseline snapshot used during the patching operation when this compliance data was collected.
---
--- * 'ipsInstanceId' - The ID of the managed instance the high-level patch compliance information was collected for.
---
--- * 'ipsPatchGroup' - The name of the patch group the managed instance belongs to.
---
--- * 'ipsBaselineId' - The ID of the patch baseline used to patch the instance.
---
--- * 'ipsOperationStartTime' - The time the most recent patching operation was started on the instance.
---
--- * 'ipsOperationEndTime' - The time the most recent patching operation completed on the instance.
---
--- * 'ipsOperation' - The type of patching operation that was performed: @SCAN@ (assess patch compliance state) or @INSTALL@ (install missing patches).
-instancePatchState ::
-  -- | 'ipsInstanceId'
-  Text ->
-  -- | 'ipsPatchGroup'
-  Text ->
-  -- | 'ipsBaselineId'
-  Text ->
-  -- | 'ipsOperationStartTime'
-  UTCTime ->
-  -- | 'ipsOperationEndTime'
-  UTCTime ->
-  -- | 'ipsOperation'
+-- * 'snapshotId' - The ID of the patch baseline snapshot used during the patching operation when this compliance data was collected.
+-- * 'unreportedNotApplicableCount' - The number of patches beyond the supported limit of @NotApplicableCount@ that are not reported by name to Systems Manager Inventory.
+mkInstancePatchState ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'patchGroup'
+  Lude.Text ->
+  -- | 'baselineId'
+  Lude.Text ->
+  -- | 'operationStartTime'
+  Lude.Timestamp ->
+  -- | 'operationEndTime'
+  Lude.Timestamp ->
+  -- | 'operation'
   PatchOperationType ->
   InstancePatchState
-instancePatchState
+mkInstancePatchState
   pInstanceId_
   pPatchGroup_
   pBaselineId_
@@ -113,130 +124,193 @@ instancePatchState
   pOperationEndTime_
   pOperation_ =
     InstancePatchState'
-      { _ipsUnreportedNotApplicableCount = Nothing,
-        _ipsRebootOption = Nothing,
-        _ipsInstalledPendingRebootCount = Nothing,
-        _ipsOwnerInformation = Nothing,
-        _ipsInstalledRejectedCount = Nothing,
-        _ipsFailedCount = Nothing,
-        _ipsInstalledOtherCount = Nothing,
-        _ipsMissingCount = Nothing,
-        _ipsInstallOverrideList = Nothing,
-        _ipsNotApplicableCount = Nothing,
-        _ipsInstalledCount = Nothing,
-        _ipsLastNoRebootInstallOperationTime = Nothing,
-        _ipsSnapshotId = Nothing,
-        _ipsInstanceId = pInstanceId_,
-        _ipsPatchGroup = pPatchGroup_,
-        _ipsBaselineId = pBaselineId_,
-        _ipsOperationStartTime = _Time # pOperationStartTime_,
-        _ipsOperationEndTime = _Time # pOperationEndTime_,
-        _ipsOperation = pOperation_
+      { unreportedNotApplicableCount = Lude.Nothing,
+        rebootOption = Lude.Nothing,
+        installedPendingRebootCount = Lude.Nothing,
+        ownerInformation = Lude.Nothing,
+        installedRejectedCount = Lude.Nothing,
+        failedCount = Lude.Nothing,
+        installedOtherCount = Lude.Nothing,
+        missingCount = Lude.Nothing,
+        installOverrideList = Lude.Nothing,
+        notApplicableCount = Lude.Nothing,
+        installedCount = Lude.Nothing,
+        lastNoRebootInstallOperationTime = Lude.Nothing,
+        snapshotId = Lude.Nothing,
+        instanceId = pInstanceId_,
+        patchGroup = pPatchGroup_,
+        baselineId = pBaselineId_,
+        operationStartTime = pOperationStartTime_,
+        operationEndTime = pOperationEndTime_,
+        operation = pOperation_
       }
 
 -- | The number of patches beyond the supported limit of @NotApplicableCount@ that are not reported by name to Systems Manager Inventory.
-ipsUnreportedNotApplicableCount :: Lens' InstancePatchState (Maybe Int)
-ipsUnreportedNotApplicableCount = lens _ipsUnreportedNotApplicableCount (\s a -> s {_ipsUnreportedNotApplicableCount = a})
+--
+-- /Note:/ Consider using 'unreportedNotApplicableCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsUnreportedNotApplicableCount :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Int)
+ipsUnreportedNotApplicableCount = Lens.lens (unreportedNotApplicableCount :: InstancePatchState -> Lude.Maybe Lude.Int) (\s a -> s {unreportedNotApplicableCount = a} :: InstancePatchState)
+{-# DEPRECATED ipsUnreportedNotApplicableCount "Use generic-lens or generic-optics with 'unreportedNotApplicableCount' instead." #-}
 
--- | Indicates the reboot option specified in the patch baseline.     * __RebootIfNeeded__ : Patch Manager tries to reboot the instance if it installed any patches, or if any patches are detected with a status of @InstalledPendingReboot@ .     * __NoReboot__ : Patch Manager attempts to install missing packages without trying to reboot the system. Patches installed with this option are assigned a status of @InstalledPendingReboot@ . These patches might not be in effect until a reboot is performed.
-ipsRebootOption :: Lens' InstancePatchState (Maybe RebootOption)
-ipsRebootOption = lens _ipsRebootOption (\s a -> s {_ipsRebootOption = a})
+-- | Indicates the reboot option specified in the patch baseline.
+--
+--
+--     * __RebootIfNeeded__ : Patch Manager tries to reboot the instance if it installed any patches, or if any patches are detected with a status of @InstalledPendingReboot@ .
+--
+--
+--     * __NoReboot__ : Patch Manager attempts to install missing packages without trying to reboot the system. Patches installed with this option are assigned a status of @InstalledPendingReboot@ . These patches might not be in effect until a reboot is performed.
+--
+--
+--
+-- /Note:/ Consider using 'rebootOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsRebootOption :: Lens.Lens' InstancePatchState (Lude.Maybe RebootOption)
+ipsRebootOption = Lens.lens (rebootOption :: InstancePatchState -> Lude.Maybe RebootOption) (\s a -> s {rebootOption = a} :: InstancePatchState)
+{-# DEPRECATED ipsRebootOption "Use generic-lens or generic-optics with 'rebootOption' instead." #-}
 
 -- | The number of patches installed by Patch Manager since the last time the instance was rebooted.
-ipsInstalledPendingRebootCount :: Lens' InstancePatchState (Maybe Int)
-ipsInstalledPendingRebootCount = lens _ipsInstalledPendingRebootCount (\s a -> s {_ipsInstalledPendingRebootCount = a})
+--
+-- /Note:/ Consider using 'installedPendingRebootCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsInstalledPendingRebootCount :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Int)
+ipsInstalledPendingRebootCount = Lens.lens (installedPendingRebootCount :: InstancePatchState -> Lude.Maybe Lude.Int) (\s a -> s {installedPendingRebootCount = a} :: InstancePatchState)
+{-# DEPRECATED ipsInstalledPendingRebootCount "Use generic-lens or generic-optics with 'installedPendingRebootCount' instead." #-}
 
 -- | Placeholder information. This field will always be empty in the current release of the service.
-ipsOwnerInformation :: Lens' InstancePatchState (Maybe Text)
-ipsOwnerInformation = lens _ipsOwnerInformation (\s a -> s {_ipsOwnerInformation = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'ownerInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsOwnerInformation :: Lens.Lens' InstancePatchState (Lude.Maybe (Lude.Sensitive Lude.Text))
+ipsOwnerInformation = Lens.lens (ownerInformation :: InstancePatchState -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {ownerInformation = a} :: InstancePatchState)
+{-# DEPRECATED ipsOwnerInformation "Use generic-lens or generic-optics with 'ownerInformation' instead." #-}
 
 -- | The number of patches installed on an instance that are specified in a @RejectedPatches@ list. Patches with a status of /InstalledRejected/ were typically installed before they were added to a @RejectedPatches@ list.
-ipsInstalledRejectedCount :: Lens' InstancePatchState (Maybe Int)
-ipsInstalledRejectedCount = lens _ipsInstalledRejectedCount (\s a -> s {_ipsInstalledRejectedCount = a})
+--
+-- /Note:/ Consider using 'installedRejectedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsInstalledRejectedCount :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Int)
+ipsInstalledRejectedCount = Lens.lens (installedRejectedCount :: InstancePatchState -> Lude.Maybe Lude.Int) (\s a -> s {installedRejectedCount = a} :: InstancePatchState)
+{-# DEPRECATED ipsInstalledRejectedCount "Use generic-lens or generic-optics with 'installedRejectedCount' instead." #-}
 
 -- | The number of patches from the patch baseline that were attempted to be installed during the last patching operation, but failed to install.
-ipsFailedCount :: Lens' InstancePatchState (Maybe Int)
-ipsFailedCount = lens _ipsFailedCount (\s a -> s {_ipsFailedCount = a})
+--
+-- /Note:/ Consider using 'failedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsFailedCount :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Int)
+ipsFailedCount = Lens.lens (failedCount :: InstancePatchState -> Lude.Maybe Lude.Int) (\s a -> s {failedCount = a} :: InstancePatchState)
+{-# DEPRECATED ipsFailedCount "Use generic-lens or generic-optics with 'failedCount' instead." #-}
 
 -- | The number of patches not specified in the patch baseline that are installed on the instance.
-ipsInstalledOtherCount :: Lens' InstancePatchState (Maybe Int)
-ipsInstalledOtherCount = lens _ipsInstalledOtherCount (\s a -> s {_ipsInstalledOtherCount = a})
+--
+-- /Note:/ Consider using 'installedOtherCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsInstalledOtherCount :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Int)
+ipsInstalledOtherCount = Lens.lens (installedOtherCount :: InstancePatchState -> Lude.Maybe Lude.Int) (\s a -> s {installedOtherCount = a} :: InstancePatchState)
+{-# DEPRECATED ipsInstalledOtherCount "Use generic-lens or generic-optics with 'installedOtherCount' instead." #-}
 
 -- | The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
-ipsMissingCount :: Lens' InstancePatchState (Maybe Int)
-ipsMissingCount = lens _ipsMissingCount (\s a -> s {_ipsMissingCount = a})
+--
+-- /Note:/ Consider using 'missingCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsMissingCount :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Int)
+ipsMissingCount = Lens.lens (missingCount :: InstancePatchState -> Lude.Maybe Lude.Int) (\s a -> s {missingCount = a} :: InstancePatchState)
+{-# DEPRECATED ipsMissingCount "Use generic-lens or generic-optics with 'missingCount' instead." #-}
 
--- | An https URL or an Amazon S3 path-style URL to a list of patches to be installed. This patch installation list, which you maintain in an S3 bucket in YAML format and specify in the SSM document @AWS-RunPatchBaseline@ , overrides the patches specified by the default patch baseline. For more information about the @InstallOverrideList@ parameter, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html About the SSM document AWS-RunPatchBaseline> in the /AWS Systems Manager User Guide/ .
-ipsInstallOverrideList :: Lens' InstancePatchState (Maybe Text)
-ipsInstallOverrideList = lens _ipsInstallOverrideList (\s a -> s {_ipsInstallOverrideList = a})
+-- | An https URL or an Amazon S3 path-style URL to a list of patches to be installed. This patch installation list, which you maintain in an S3 bucket in YAML format and specify in the SSM document @AWS-RunPatchBaseline@ , overrides the patches specified by the default patch baseline.
+--
+-- For more information about the @InstallOverrideList@ parameter, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html About the SSM document AWS-RunPatchBaseline> in the /AWS Systems Manager User Guide/ .
+--
+-- /Note:/ Consider using 'installOverrideList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsInstallOverrideList :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Text)
+ipsInstallOverrideList = Lens.lens (installOverrideList :: InstancePatchState -> Lude.Maybe Lude.Text) (\s a -> s {installOverrideList = a} :: InstancePatchState)
+{-# DEPRECATED ipsInstallOverrideList "Use generic-lens or generic-optics with 'installOverrideList' instead." #-}
 
 -- | The number of patches from the patch baseline that aren't applicable for the instance and therefore aren't installed on the instance. This number may be truncated if the list of patch names is very large. The number of patches beyond this limit are reported in @UnreportedNotApplicableCount@ .
-ipsNotApplicableCount :: Lens' InstancePatchState (Maybe Int)
-ipsNotApplicableCount = lens _ipsNotApplicableCount (\s a -> s {_ipsNotApplicableCount = a})
+--
+-- /Note:/ Consider using 'notApplicableCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsNotApplicableCount :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Int)
+ipsNotApplicableCount = Lens.lens (notApplicableCount :: InstancePatchState -> Lude.Maybe Lude.Int) (\s a -> s {notApplicableCount = a} :: InstancePatchState)
+{-# DEPRECATED ipsNotApplicableCount "Use generic-lens or generic-optics with 'notApplicableCount' instead." #-}
 
 -- | The number of patches from the patch baseline that are installed on the instance.
-ipsInstalledCount :: Lens' InstancePatchState (Maybe Int)
-ipsInstalledCount = lens _ipsInstalledCount (\s a -> s {_ipsInstalledCount = a})
+--
+-- /Note:/ Consider using 'installedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsInstalledCount :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Int)
+ipsInstalledCount = Lens.lens (installedCount :: InstancePatchState -> Lude.Maybe Lude.Int) (\s a -> s {installedCount = a} :: InstancePatchState)
+{-# DEPRECATED ipsInstalledCount "Use generic-lens or generic-optics with 'installedCount' instead." #-}
 
 -- | The time of the last attempt to patch the instance with @NoReboot@ specified as the reboot option.
-ipsLastNoRebootInstallOperationTime :: Lens' InstancePatchState (Maybe UTCTime)
-ipsLastNoRebootInstallOperationTime = lens _ipsLastNoRebootInstallOperationTime (\s a -> s {_ipsLastNoRebootInstallOperationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastNoRebootInstallOperationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsLastNoRebootInstallOperationTime :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Timestamp)
+ipsLastNoRebootInstallOperationTime = Lens.lens (lastNoRebootInstallOperationTime :: InstancePatchState -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastNoRebootInstallOperationTime = a} :: InstancePatchState)
+{-# DEPRECATED ipsLastNoRebootInstallOperationTime "Use generic-lens or generic-optics with 'lastNoRebootInstallOperationTime' instead." #-}
 
 -- | The ID of the patch baseline snapshot used during the patching operation when this compliance data was collected.
-ipsSnapshotId :: Lens' InstancePatchState (Maybe Text)
-ipsSnapshotId = lens _ipsSnapshotId (\s a -> s {_ipsSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsSnapshotId :: Lens.Lens' InstancePatchState (Lude.Maybe Lude.Text)
+ipsSnapshotId = Lens.lens (snapshotId :: InstancePatchState -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: InstancePatchState)
+{-# DEPRECATED ipsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
 -- | The ID of the managed instance the high-level patch compliance information was collected for.
-ipsInstanceId :: Lens' InstancePatchState Text
-ipsInstanceId = lens _ipsInstanceId (\s a -> s {_ipsInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsInstanceId :: Lens.Lens' InstancePatchState Lude.Text
+ipsInstanceId = Lens.lens (instanceId :: InstancePatchState -> Lude.Text) (\s a -> s {instanceId = a} :: InstancePatchState)
+{-# DEPRECATED ipsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The name of the patch group the managed instance belongs to.
-ipsPatchGroup :: Lens' InstancePatchState Text
-ipsPatchGroup = lens _ipsPatchGroup (\s a -> s {_ipsPatchGroup = a})
+--
+-- /Note:/ Consider using 'patchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsPatchGroup :: Lens.Lens' InstancePatchState Lude.Text
+ipsPatchGroup = Lens.lens (patchGroup :: InstancePatchState -> Lude.Text) (\s a -> s {patchGroup = a} :: InstancePatchState)
+{-# DEPRECATED ipsPatchGroup "Use generic-lens or generic-optics with 'patchGroup' instead." #-}
 
 -- | The ID of the patch baseline used to patch the instance.
-ipsBaselineId :: Lens' InstancePatchState Text
-ipsBaselineId = lens _ipsBaselineId (\s a -> s {_ipsBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsBaselineId :: Lens.Lens' InstancePatchState Lude.Text
+ipsBaselineId = Lens.lens (baselineId :: InstancePatchState -> Lude.Text) (\s a -> s {baselineId = a} :: InstancePatchState)
+{-# DEPRECATED ipsBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
 -- | The time the most recent patching operation was started on the instance.
-ipsOperationStartTime :: Lens' InstancePatchState UTCTime
-ipsOperationStartTime = lens _ipsOperationStartTime (\s a -> s {_ipsOperationStartTime = a}) . _Time
+--
+-- /Note:/ Consider using 'operationStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsOperationStartTime :: Lens.Lens' InstancePatchState Lude.Timestamp
+ipsOperationStartTime = Lens.lens (operationStartTime :: InstancePatchState -> Lude.Timestamp) (\s a -> s {operationStartTime = a} :: InstancePatchState)
+{-# DEPRECATED ipsOperationStartTime "Use generic-lens or generic-optics with 'operationStartTime' instead." #-}
 
 -- | The time the most recent patching operation completed on the instance.
-ipsOperationEndTime :: Lens' InstancePatchState UTCTime
-ipsOperationEndTime = lens _ipsOperationEndTime (\s a -> s {_ipsOperationEndTime = a}) . _Time
+--
+-- /Note:/ Consider using 'operationEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsOperationEndTime :: Lens.Lens' InstancePatchState Lude.Timestamp
+ipsOperationEndTime = Lens.lens (operationEndTime :: InstancePatchState -> Lude.Timestamp) (\s a -> s {operationEndTime = a} :: InstancePatchState)
+{-# DEPRECATED ipsOperationEndTime "Use generic-lens or generic-optics with 'operationEndTime' instead." #-}
 
 -- | The type of patching operation that was performed: @SCAN@ (assess patch compliance state) or @INSTALL@ (install missing patches).
-ipsOperation :: Lens' InstancePatchState PatchOperationType
-ipsOperation = lens _ipsOperation (\s a -> s {_ipsOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsOperation :: Lens.Lens' InstancePatchState PatchOperationType
+ipsOperation = Lens.lens (operation :: InstancePatchState -> PatchOperationType) (\s a -> s {operation = a} :: InstancePatchState)
+{-# DEPRECATED ipsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
-instance FromJSON InstancePatchState where
+instance Lude.FromJSON InstancePatchState where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstancePatchState"
       ( \x ->
           InstancePatchState'
-            <$> (x .:? "UnreportedNotApplicableCount")
-            <*> (x .:? "RebootOption")
-            <*> (x .:? "InstalledPendingRebootCount")
-            <*> (x .:? "OwnerInformation")
-            <*> (x .:? "InstalledRejectedCount")
-            <*> (x .:? "FailedCount")
-            <*> (x .:? "InstalledOtherCount")
-            <*> (x .:? "MissingCount")
-            <*> (x .:? "InstallOverrideList")
-            <*> (x .:? "NotApplicableCount")
-            <*> (x .:? "InstalledCount")
-            <*> (x .:? "LastNoRebootInstallOperationTime")
-            <*> (x .:? "SnapshotId")
-            <*> (x .: "InstanceId")
-            <*> (x .: "PatchGroup")
-            <*> (x .: "BaselineId")
-            <*> (x .: "OperationStartTime")
-            <*> (x .: "OperationEndTime")
-            <*> (x .: "Operation")
+            Lude.<$> (x Lude..:? "UnreportedNotApplicableCount")
+            Lude.<*> (x Lude..:? "RebootOption")
+            Lude.<*> (x Lude..:? "InstalledPendingRebootCount")
+            Lude.<*> (x Lude..:? "OwnerInformation")
+            Lude.<*> (x Lude..:? "InstalledRejectedCount")
+            Lude.<*> (x Lude..:? "FailedCount")
+            Lude.<*> (x Lude..:? "InstalledOtherCount")
+            Lude.<*> (x Lude..:? "MissingCount")
+            Lude.<*> (x Lude..:? "InstallOverrideList")
+            Lude.<*> (x Lude..:? "NotApplicableCount")
+            Lude.<*> (x Lude..:? "InstalledCount")
+            Lude.<*> (x Lude..:? "LastNoRebootInstallOperationTime")
+            Lude.<*> (x Lude..:? "SnapshotId")
+            Lude.<*> (x Lude..: "InstanceId")
+            Lude.<*> (x Lude..: "PatchGroup")
+            Lude.<*> (x Lude..: "BaselineId")
+            Lude.<*> (x Lude..: "OperationStartTime")
+            Lude.<*> (x Lude..: "OperationEndTime")
+            Lude.<*> (x Lude..: "Operation")
       )
-
-instance Hashable InstancePatchState
-
-instance NFData InstancePatchState

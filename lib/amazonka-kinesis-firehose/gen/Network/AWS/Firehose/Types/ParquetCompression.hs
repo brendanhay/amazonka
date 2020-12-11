@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ParquetCompression where
+module Network.AWS.Firehose.Types.ParquetCompression
+  ( ParquetCompression
+      ( ParquetCompression',
+        PCGzip,
+        PCSnappy,
+        PCUncompressed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ParquetCompression
-  = PCGzip
-  | PCSnappy
-  | PCUncompressed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ParquetCompression = ParquetCompression' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ParquetCompression where
-  parser =
-    takeLowerText >>= \case
-      "gzip" -> pure PCGzip
-      "snappy" -> pure PCSnappy
-      "uncompressed" -> pure PCUncompressed
-      e ->
-        fromTextError $
-          "Failure parsing ParquetCompression from value: '" <> e
-            <> "'. Accepted values: gzip, snappy, uncompressed"
+pattern PCGzip :: ParquetCompression
+pattern PCGzip = ParquetCompression' "GZIP"
 
-instance ToText ParquetCompression where
-  toText = \case
-    PCGzip -> "GZIP"
-    PCSnappy -> "SNAPPY"
-    PCUncompressed -> "UNCOMPRESSED"
+pattern PCSnappy :: ParquetCompression
+pattern PCSnappy = ParquetCompression' "SNAPPY"
 
-instance Hashable ParquetCompression
+pattern PCUncompressed :: ParquetCompression
+pattern PCUncompressed = ParquetCompression' "UNCOMPRESSED"
 
-instance NFData ParquetCompression
-
-instance ToByteString ParquetCompression
-
-instance ToQuery ParquetCompression
-
-instance ToHeader ParquetCompression
-
-instance ToJSON ParquetCompression where
-  toJSON = toJSONText
-
-instance FromJSON ParquetCompression where
-  parseJSON = parseJSONText "ParquetCompression"
+{-# COMPLETE
+  PCGzip,
+  PCSnappy,
+  PCUncompressed,
+  ParquetCompression'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.ResultByTime where
+module Network.AWS.CostExplorer.Types.ResultByTime
+  ( ResultByTime (..),
+
+    -- * Smart constructor
+    mkResultByTime,
+
+    -- * Lenses
+    rbtGroups,
+    rbtTimePeriod,
+    rbtTotal,
+    rbtEstimated,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.Group
 import Network.AWS.CostExplorer.Types.MetricValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The result that is associated with a time period.
 --
---
---
--- /See:/ 'resultByTime' smart constructor.
+-- /See:/ 'mkResultByTime' smart constructor.
 data ResultByTime = ResultByTime'
-  { _rbtGroups :: !(Maybe [Group]),
-    _rbtTimePeriod :: !(Maybe DateInterval),
-    _rbtTotal :: !(Maybe (Map Text (MetricValue))),
-    _rbtEstimated :: !(Maybe Bool)
+  { groups :: Lude.Maybe [Group],
+    timePeriod :: Lude.Maybe DateInterval,
+    total :: Lude.Maybe (Lude.HashMap Lude.Text (MetricValue)),
+    estimated :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResultByTime' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rbtGroups' - The groups that this time period includes.
---
--- * 'rbtTimePeriod' - The time period that the result covers.
---
--- * 'rbtTotal' - The total amount of cost or usage accrued during the time period.
---
--- * 'rbtEstimated' - Whether the result is estimated.
-resultByTime ::
+-- * 'estimated' - Whether the result is estimated.
+-- * 'groups' - The groups that this time period includes.
+-- * 'timePeriod' - The time period that the result covers.
+-- * 'total' - The total amount of cost or usage accrued during the time period.
+mkResultByTime ::
   ResultByTime
-resultByTime =
+mkResultByTime =
   ResultByTime'
-    { _rbtGroups = Nothing,
-      _rbtTimePeriod = Nothing,
-      _rbtTotal = Nothing,
-      _rbtEstimated = Nothing
+    { groups = Lude.Nothing,
+      timePeriod = Lude.Nothing,
+      total = Lude.Nothing,
+      estimated = Lude.Nothing
     }
 
 -- | The groups that this time period includes.
-rbtGroups :: Lens' ResultByTime [Group]
-rbtGroups = lens _rbtGroups (\s a -> s {_rbtGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rbtGroups :: Lens.Lens' ResultByTime (Lude.Maybe [Group])
+rbtGroups = Lens.lens (groups :: ResultByTime -> Lude.Maybe [Group]) (\s a -> s {groups = a} :: ResultByTime)
+{-# DEPRECATED rbtGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The time period that the result covers.
-rbtTimePeriod :: Lens' ResultByTime (Maybe DateInterval)
-rbtTimePeriod = lens _rbtTimePeriod (\s a -> s {_rbtTimePeriod = a})
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rbtTimePeriod :: Lens.Lens' ResultByTime (Lude.Maybe DateInterval)
+rbtTimePeriod = Lens.lens (timePeriod :: ResultByTime -> Lude.Maybe DateInterval) (\s a -> s {timePeriod = a} :: ResultByTime)
+{-# DEPRECATED rbtTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
 -- | The total amount of cost or usage accrued during the time period.
-rbtTotal :: Lens' ResultByTime (HashMap Text (MetricValue))
-rbtTotal = lens _rbtTotal (\s a -> s {_rbtTotal = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rbtTotal :: Lens.Lens' ResultByTime (Lude.Maybe (Lude.HashMap Lude.Text (MetricValue)))
+rbtTotal = Lens.lens (total :: ResultByTime -> Lude.Maybe (Lude.HashMap Lude.Text (MetricValue))) (\s a -> s {total = a} :: ResultByTime)
+{-# DEPRECATED rbtTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
 -- | Whether the result is estimated.
-rbtEstimated :: Lens' ResultByTime (Maybe Bool)
-rbtEstimated = lens _rbtEstimated (\s a -> s {_rbtEstimated = a})
+--
+-- /Note:/ Consider using 'estimated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rbtEstimated :: Lens.Lens' ResultByTime (Lude.Maybe Lude.Bool)
+rbtEstimated = Lens.lens (estimated :: ResultByTime -> Lude.Maybe Lude.Bool) (\s a -> s {estimated = a} :: ResultByTime)
+{-# DEPRECATED rbtEstimated "Use generic-lens or generic-optics with 'estimated' instead." #-}
 
-instance FromJSON ResultByTime where
+instance Lude.FromJSON ResultByTime where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResultByTime"
       ( \x ->
           ResultByTime'
-            <$> (x .:? "Groups" .!= mempty)
-            <*> (x .:? "TimePeriod")
-            <*> (x .:? "Total" .!= mempty)
-            <*> (x .:? "Estimated")
+            Lude.<$> (x Lude..:? "Groups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TimePeriod")
+            Lude.<*> (x Lude..:? "Total" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Estimated")
       )
-
-instance Hashable ResultByTime
-
-instance NFData ResultByTime

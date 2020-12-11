@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,152 +17,173 @@
 --
 --     * The __GlobalReplicationGroupIdSuffix__ is the name of the Global Datastore.
 --
+--
 --     * The __PrimaryReplicationGroupId__ represents the name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.
 module Network.AWS.ElastiCache.CreateGlobalReplicationGroup
-  ( -- * Creating a Request
-    createGlobalReplicationGroup,
-    CreateGlobalReplicationGroup,
+  ( -- * Creating a request
+    CreateGlobalReplicationGroup (..),
+    mkCreateGlobalReplicationGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cgrgGlobalReplicationGroupDescription,
     cgrgGlobalReplicationGroupIdSuffix,
     cgrgPrimaryReplicationGroupId,
 
-    -- * Destructuring the Response
-    createGlobalReplicationGroupResponse,
-    CreateGlobalReplicationGroupResponse,
+    -- * Destructuring the response
+    CreateGlobalReplicationGroupResponse (..),
+    mkCreateGlobalReplicationGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cgrgrsGlobalReplicationGroup,
     cgrgrsResponseStatus,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createGlobalReplicationGroup' smart constructor.
+-- | /See:/ 'mkCreateGlobalReplicationGroup' smart constructor.
 data CreateGlobalReplicationGroup = CreateGlobalReplicationGroup'
-  { _cgrgGlobalReplicationGroupDescription ::
-      !(Maybe Text),
-    _cgrgGlobalReplicationGroupIdSuffix ::
-      !Text,
-    _cgrgPrimaryReplicationGroupId ::
-      !Text
+  { globalReplicationGroupDescription ::
+      Lude.Maybe Lude.Text,
+    globalReplicationGroupIdSuffix ::
+      Lude.Text,
+    primaryReplicationGroupId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'globalReplicationGroupDescription' - Provides details of the Global Datastore
+-- * 'globalReplicationGroupIdSuffix' - The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global Datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global Datastore name across multiple regions.
 --
--- * 'cgrgGlobalReplicationGroupDescription' - Provides details of the Global Datastore
---
--- * 'cgrgGlobalReplicationGroupIdSuffix' - The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global Datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global Datastore name across multiple regions.  For a full list of AWS Regions and their respective Global Datastore iD prefixes, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters-CLI.html Using the AWS CLI with Global Datastores > .
---
--- * 'cgrgPrimaryReplicationGroupId' - The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.
-createGlobalReplicationGroup ::
-  -- | 'cgrgGlobalReplicationGroupIdSuffix'
-  Text ->
-  -- | 'cgrgPrimaryReplicationGroupId'
-  Text ->
+-- For a full list of AWS Regions and their respective Global Datastore iD prefixes, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters-CLI.html Using the AWS CLI with Global Datastores > .
+-- * 'primaryReplicationGroupId' - The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.
+mkCreateGlobalReplicationGroup ::
+  -- | 'globalReplicationGroupIdSuffix'
+  Lude.Text ->
+  -- | 'primaryReplicationGroupId'
+  Lude.Text ->
   CreateGlobalReplicationGroup
-createGlobalReplicationGroup
+mkCreateGlobalReplicationGroup
   pGlobalReplicationGroupIdSuffix_
   pPrimaryReplicationGroupId_ =
     CreateGlobalReplicationGroup'
-      { _cgrgGlobalReplicationGroupDescription =
-          Nothing,
-        _cgrgGlobalReplicationGroupIdSuffix =
-          pGlobalReplicationGroupIdSuffix_,
-        _cgrgPrimaryReplicationGroupId = pPrimaryReplicationGroupId_
+      { globalReplicationGroupDescription =
+          Lude.Nothing,
+        globalReplicationGroupIdSuffix = pGlobalReplicationGroupIdSuffix_,
+        primaryReplicationGroupId = pPrimaryReplicationGroupId_
       }
 
 -- | Provides details of the Global Datastore
-cgrgGlobalReplicationGroupDescription :: Lens' CreateGlobalReplicationGroup (Maybe Text)
-cgrgGlobalReplicationGroupDescription = lens _cgrgGlobalReplicationGroupDescription (\s a -> s {_cgrgGlobalReplicationGroupDescription = a})
+--
+-- /Note:/ Consider using 'globalReplicationGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrgGlobalReplicationGroupDescription :: Lens.Lens' CreateGlobalReplicationGroup (Lude.Maybe Lude.Text)
+cgrgGlobalReplicationGroupDescription = Lens.lens (globalReplicationGroupDescription :: CreateGlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {globalReplicationGroupDescription = a} :: CreateGlobalReplicationGroup)
+{-# DEPRECATED cgrgGlobalReplicationGroupDescription "Use generic-lens or generic-optics with 'globalReplicationGroupDescription' instead." #-}
 
--- | The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global Datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global Datastore name across multiple regions.  For a full list of AWS Regions and their respective Global Datastore iD prefixes, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters-CLI.html Using the AWS CLI with Global Datastores > .
-cgrgGlobalReplicationGroupIdSuffix :: Lens' CreateGlobalReplicationGroup Text
-cgrgGlobalReplicationGroupIdSuffix = lens _cgrgGlobalReplicationGroupIdSuffix (\s a -> s {_cgrgGlobalReplicationGroupIdSuffix = a})
+-- | The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global Datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global Datastore name across multiple regions.
+--
+-- For a full list of AWS Regions and their respective Global Datastore iD prefixes, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters-CLI.html Using the AWS CLI with Global Datastores > .
+--
+-- /Note:/ Consider using 'globalReplicationGroupIdSuffix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrgGlobalReplicationGroupIdSuffix :: Lens.Lens' CreateGlobalReplicationGroup Lude.Text
+cgrgGlobalReplicationGroupIdSuffix = Lens.lens (globalReplicationGroupIdSuffix :: CreateGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupIdSuffix = a} :: CreateGlobalReplicationGroup)
+{-# DEPRECATED cgrgGlobalReplicationGroupIdSuffix "Use generic-lens or generic-optics with 'globalReplicationGroupIdSuffix' instead." #-}
 
 -- | The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.
-cgrgPrimaryReplicationGroupId :: Lens' CreateGlobalReplicationGroup Text
-cgrgPrimaryReplicationGroupId = lens _cgrgPrimaryReplicationGroupId (\s a -> s {_cgrgPrimaryReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'primaryReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrgPrimaryReplicationGroupId :: Lens.Lens' CreateGlobalReplicationGroup Lude.Text
+cgrgPrimaryReplicationGroupId = Lens.lens (primaryReplicationGroupId :: CreateGlobalReplicationGroup -> Lude.Text) (\s a -> s {primaryReplicationGroupId = a} :: CreateGlobalReplicationGroup)
+{-# DEPRECATED cgrgPrimaryReplicationGroupId "Use generic-lens or generic-optics with 'primaryReplicationGroupId' instead." #-}
 
-instance AWSRequest CreateGlobalReplicationGroup where
+instance Lude.AWSRequest CreateGlobalReplicationGroup where
   type
     Rs CreateGlobalReplicationGroup =
       CreateGlobalReplicationGroupResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateGlobalReplicationGroupResult"
       ( \s h x ->
           CreateGlobalReplicationGroupResponse'
-            <$> (x .@? "GlobalReplicationGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "GlobalReplicationGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateGlobalReplicationGroup
+instance Lude.ToHeaders CreateGlobalReplicationGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateGlobalReplicationGroup
+instance Lude.ToPath CreateGlobalReplicationGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateGlobalReplicationGroup where
-  toHeaders = const mempty
-
-instance ToPath CreateGlobalReplicationGroup where
-  toPath = const "/"
-
-instance ToQuery CreateGlobalReplicationGroup where
+instance Lude.ToQuery CreateGlobalReplicationGroup where
   toQuery CreateGlobalReplicationGroup' {..} =
-    mconcat
-      [ "Action" =: ("CreateGlobalReplicationGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("CreateGlobalReplicationGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
         "GlobalReplicationGroupDescription"
-          =: _cgrgGlobalReplicationGroupDescription,
+          Lude.=: globalReplicationGroupDescription,
         "GlobalReplicationGroupIdSuffix"
-          =: _cgrgGlobalReplicationGroupIdSuffix,
-        "PrimaryReplicationGroupId" =: _cgrgPrimaryReplicationGroupId
+          Lude.=: globalReplicationGroupIdSuffix,
+        "PrimaryReplicationGroupId" Lude.=: primaryReplicationGroupId
       ]
 
--- | /See:/ 'createGlobalReplicationGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateGlobalReplicationGroupResponse' smart constructor.
 data CreateGlobalReplicationGroupResponse = CreateGlobalReplicationGroupResponse'
-  { _cgrgrsGlobalReplicationGroup ::
-      !( Maybe
-           GlobalReplicationGroup
-       ),
-    _cgrgrsResponseStatus ::
-      !Int
+  { globalReplicationGroup ::
+      Lude.Maybe
+        GlobalReplicationGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGlobalReplicationGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cgrgrsGlobalReplicationGroup' - Undocumented member.
---
--- * 'cgrgrsResponseStatus' - -- | The response status code.
-createGlobalReplicationGroupResponse ::
-  -- | 'cgrgrsResponseStatus'
-  Int ->
+-- * 'globalReplicationGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateGlobalReplicationGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateGlobalReplicationGroupResponse
-createGlobalReplicationGroupResponse pResponseStatus_ =
+mkCreateGlobalReplicationGroupResponse pResponseStatus_ =
   CreateGlobalReplicationGroupResponse'
-    { _cgrgrsGlobalReplicationGroup =
-        Nothing,
-      _cgrgrsResponseStatus = pResponseStatus_
+    { globalReplicationGroup =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-cgrgrsGlobalReplicationGroup :: Lens' CreateGlobalReplicationGroupResponse (Maybe GlobalReplicationGroup)
-cgrgrsGlobalReplicationGroup = lens _cgrgrsGlobalReplicationGroup (\s a -> s {_cgrgrsGlobalReplicationGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'globalReplicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrgrsGlobalReplicationGroup :: Lens.Lens' CreateGlobalReplicationGroupResponse (Lude.Maybe GlobalReplicationGroup)
+cgrgrsGlobalReplicationGroup = Lens.lens (globalReplicationGroup :: CreateGlobalReplicationGroupResponse -> Lude.Maybe GlobalReplicationGroup) (\s a -> s {globalReplicationGroup = a} :: CreateGlobalReplicationGroupResponse)
+{-# DEPRECATED cgrgrsGlobalReplicationGroup "Use generic-lens or generic-optics with 'globalReplicationGroup' instead." #-}
 
--- | -- | The response status code.
-cgrgrsResponseStatus :: Lens' CreateGlobalReplicationGroupResponse Int
-cgrgrsResponseStatus = lens _cgrgrsResponseStatus (\s a -> s {_cgrgrsResponseStatus = a})
-
-instance NFData CreateGlobalReplicationGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrgrsResponseStatus :: Lens.Lens' CreateGlobalReplicationGroupResponse Lude.Int
+cgrgrsResponseStatus = Lens.lens (responseStatus :: CreateGlobalReplicationGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGlobalReplicationGroupResponse)
+{-# DEPRECATED cgrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

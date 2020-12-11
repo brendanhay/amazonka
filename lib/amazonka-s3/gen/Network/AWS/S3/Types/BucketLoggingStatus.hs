@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.BucketLoggingStatus where
+module Network.AWS.S3.Types.BucketLoggingStatus
+  ( BucketLoggingStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBucketLoggingStatus,
+
+    -- * Lenses
+    blsLoggingEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.LoggingEnabled
 
 -- | Container for logging status information.
 --
---
---
--- /See:/ 'bucketLoggingStatus' smart constructor.
+-- /See:/ 'mkBucketLoggingStatus' smart constructor.
 newtype BucketLoggingStatus = BucketLoggingStatus'
-  { _blsLoggingEnabled ::
-      Maybe LoggingEnabled
+  { loggingEnabled ::
+      Lude.Maybe LoggingEnabled
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BucketLoggingStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'blsLoggingEnabled' - Undocumented member.
-bucketLoggingStatus ::
+-- * 'loggingEnabled' - Undocumented field.
+mkBucketLoggingStatus ::
   BucketLoggingStatus
-bucketLoggingStatus =
-  BucketLoggingStatus' {_blsLoggingEnabled = Nothing}
+mkBucketLoggingStatus =
+  BucketLoggingStatus' {loggingEnabled = Lude.Nothing}
 
--- | Undocumented member.
-blsLoggingEnabled :: Lens' BucketLoggingStatus (Maybe LoggingEnabled)
-blsLoggingEnabled = lens _blsLoggingEnabled (\s a -> s {_blsLoggingEnabled = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'loggingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blsLoggingEnabled :: Lens.Lens' BucketLoggingStatus (Lude.Maybe LoggingEnabled)
+blsLoggingEnabled = Lens.lens (loggingEnabled :: BucketLoggingStatus -> Lude.Maybe LoggingEnabled) (\s a -> s {loggingEnabled = a} :: BucketLoggingStatus)
+{-# DEPRECATED blsLoggingEnabled "Use generic-lens or generic-optics with 'loggingEnabled' instead." #-}
 
-instance Hashable BucketLoggingStatus
-
-instance NFData BucketLoggingStatus
-
-instance ToXML BucketLoggingStatus where
+instance Lude.ToXML BucketLoggingStatus where
   toXML BucketLoggingStatus' {..} =
-    mconcat ["LoggingEnabled" @= _blsLoggingEnabled]
+    Lude.mconcat ["LoggingEnabled" Lude.@= loggingEnabled]

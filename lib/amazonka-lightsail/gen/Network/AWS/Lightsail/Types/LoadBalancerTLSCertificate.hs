@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,42 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificate where
+module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificate
+  ( LoadBalancerTLSCertificate (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkLoadBalancerTLSCertificate,
+
+    -- * Lenses
+    lbtcFailureReason,
+    lbtcSubject,
+    lbtcStatus,
+    lbtcSubjectAlternativeNames,
+    lbtcResourceType,
+    lbtcArn,
+    lbtcCreatedAt,
+    lbtcLocation,
+    lbtcLoadBalancerName,
+    lbtcSerial,
+    lbtcIsAttached,
+    lbtcRevokedAt,
+    lbtcNotBefore,
+    lbtcRevocationReason,
+    lbtcDomainName,
+    lbtcName,
+    lbtcRenewalSummary,
+    lbtcSupportCode,
+    lbtcDomainValidationRecords,
+    lbtcIssuedAt,
+    lbtcKeyAlgorithm,
+    lbtcSignatureAlgorithm,
+    lbtcIssuer,
+    lbtcTags,
+    lbtcNotAfter,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainValidationRecord
 import Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateFailureReason
 import Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateRenewalSummary
@@ -24,281 +51,433 @@ import Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateStatus
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
 import Network.AWS.Lightsail.Types.Tag
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a load balancer SSL/TLS certificate.
 --
---
 -- TLS is just an updated, more secure version of Secure Socket Layer (SSL).
 --
---
--- /See:/ 'loadBalancerTLSCertificate' smart constructor.
+-- /See:/ 'mkLoadBalancerTLSCertificate' smart constructor.
 data LoadBalancerTLSCertificate = LoadBalancerTLSCertificate'
-  { _lbtcFailureReason ::
-      !( Maybe
-           LoadBalancerTLSCertificateFailureReason
-       ),
-    _lbtcSubject :: !(Maybe Text),
-    _lbtcStatus ::
-      !( Maybe
-           LoadBalancerTLSCertificateStatus
-       ),
-    _lbtcSubjectAlternativeNames ::
-      !(Maybe [Text]),
-    _lbtcResourceType ::
-      !(Maybe ResourceType),
-    _lbtcArn :: !(Maybe Text),
-    _lbtcCreatedAt :: !(Maybe POSIX),
-    _lbtcLocation ::
-      !(Maybe ResourceLocation),
-    _lbtcLoadBalancerName ::
-      !(Maybe Text),
-    _lbtcSerial :: !(Maybe Text),
-    _lbtcIsAttached :: !(Maybe Bool),
-    _lbtcRevokedAt :: !(Maybe POSIX),
-    _lbtcNotBefore :: !(Maybe POSIX),
-    _lbtcRevocationReason ::
-      !( Maybe
-           LoadBalancerTLSCertificateRevocationReason
-       ),
-    _lbtcDomainName :: !(Maybe Text),
-    _lbtcName :: !(Maybe Text),
-    _lbtcRenewalSummary ::
-      !( Maybe
-           LoadBalancerTLSCertificateRenewalSummary
-       ),
-    _lbtcSupportCode :: !(Maybe Text),
-    _lbtcDomainValidationRecords ::
-      !( Maybe
-           [LoadBalancerTLSCertificateDomainValidationRecord]
-       ),
-    _lbtcIssuedAt :: !(Maybe POSIX),
-    _lbtcKeyAlgorithm :: !(Maybe Text),
-    _lbtcSignatureAlgorithm ::
-      !(Maybe Text),
-    _lbtcIssuer :: !(Maybe Text),
-    _lbtcTags :: !(Maybe [Tag]),
-    _lbtcNotAfter :: !(Maybe POSIX)
+  { failureReason ::
+      Lude.Maybe
+        LoadBalancerTLSCertificateFailureReason,
+    subject :: Lude.Maybe Lude.Text,
+    status ::
+      Lude.Maybe
+        LoadBalancerTLSCertificateStatus,
+    subjectAlternativeNames ::
+      Lude.Maybe [Lude.Text],
+    resourceType ::
+      Lude.Maybe ResourceType,
+    arn :: Lude.Maybe Lude.Text,
+    createdAt ::
+      Lude.Maybe Lude.Timestamp,
+    location ::
+      Lude.Maybe ResourceLocation,
+    loadBalancerName ::
+      Lude.Maybe Lude.Text,
+    serial :: Lude.Maybe Lude.Text,
+    isAttached :: Lude.Maybe Lude.Bool,
+    revokedAt ::
+      Lude.Maybe Lude.Timestamp,
+    notBefore ::
+      Lude.Maybe Lude.Timestamp,
+    revocationReason ::
+      Lude.Maybe
+        LoadBalancerTLSCertificateRevocationReason,
+    domainName :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    renewalSummary ::
+      Lude.Maybe
+        LoadBalancerTLSCertificateRenewalSummary,
+    supportCode :: Lude.Maybe Lude.Text,
+    domainValidationRecords ::
+      Lude.Maybe
+        [LoadBalancerTLSCertificateDomainValidationRecord],
+    issuedAt :: Lude.Maybe Lude.Timestamp,
+    keyAlgorithm :: Lude.Maybe Lude.Text,
+    signatureAlgorithm ::
+      Lude.Maybe Lude.Text,
+    issuer :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    notAfter :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerTLSCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the SSL/TLS certificate.
+-- * 'createdAt' - The time when you created your SSL/TLS certificate.
+-- * 'domainName' - The domain name for your SSL/TLS certificate.
+-- * 'domainValidationRecords' - An array of LoadBalancerTlsCertificateDomainValidationRecord objects describing the records.
+-- * 'failureReason' - The validation failure reason, if any, of the certificate.
 --
--- * 'lbtcFailureReason' - The validation failure reason, if any, of the certificate. The following failure reasons are possible:     * __@NO_AVAILABLE_CONTACTS@ __ - This failure applies to email validation, which is not available for Lightsail certificates.     * __@ADDITIONAL_VERIFICATION_REQUIRED@ __ - Lightsail requires additional information to process this certificate request. This can happen as a fraud-protection measure, such as when the domain ranks within the Alexa top 1000 websites. To provide the required information, use the <https://console.aws.amazon.com/support/home AWS Support Center> to contact AWS Support.     * __@DOMAIN_NOT_ALLOWED@ __ - One or more of the domain names in the certificate request was reported as an unsafe domain by <https://www.virustotal.com/gui/home/url VirusTotal> . To correct the problem, search for your domain name on the <https://www.virustotal.com/gui/home/url VirusTotal> website. If your domain is reported as suspicious, see <https://www.google.com/webmasters/hacked/?hl=en Google Help for Hacked Websites> to learn what you can do. If you believe that the result is a false positive, notify the organization that is reporting the domain. VirusTotal is an aggregate of several antivirus and URL scanners and cannot remove your domain from a block list itself. After you correct the problem and the VirusTotal registry has been updated, request a new certificate. If you see this error and your domain is not included in the VirusTotal list, visit the <https://console.aws.amazon.com/support/home AWS Support Center> and create a case.     * __@INVALID_PUBLIC_DOMAIN@ __ - One or more of the domain names in the certificate request is not valid. Typically, this is because a domain name in the request is not a valid top-level domain. Try to request a certificate again, correcting any spelling errors or typos that were in the failed request, and ensure that all domain names in the request are for valid top-level domains. For example, you cannot request a certificate for @example.invalidpublicdomain@ because @invalidpublicdomain@ is not a valid top-level domain.     * __@OTHER@ __ - Typically, this failure occurs when there is a typographical error in one or more of the domain names in the certificate request. Try to request a certificate again, correcting any spelling errors or typos that were in the failed request.
+-- The following failure reasons are possible:
 --
--- * 'lbtcSubject' - The name of the entity that is associated with the public key contained in the certificate.
+--     * __@NO_AVAILABLE_CONTACTS@ __ - This failure applies to email validation, which is not available for Lightsail certificates.
 --
--- * 'lbtcStatus' - The validation status of the SSL/TLS certificate. Valid values are below.
 --
--- * 'lbtcSubjectAlternativeNames' - An array of strings that specify the alternate domains (e.g., @example2.com@ ) and subdomains (e.g., @blog.example.com@ ) for the certificate.
+--     * __@ADDITIONAL_VERIFICATION_REQUIRED@ __ - Lightsail requires additional information to process this certificate request. This can happen as a fraud-protection measure, such as when the domain ranks within the Alexa top 1000 websites. To provide the required information, use the <https://console.aws.amazon.com/support/home AWS Support Center> to contact AWS Support.
 --
--- * 'lbtcResourceType' - The resource type (e.g., @LoadBalancerTlsCertificate@ ).     * __@Instance@ __ - A Lightsail instance (a virtual private server)     * __@StaticIp@ __ - A static IP address     * __@KeyPair@ __ - The key pair used to connect to a Lightsail instance     * __@InstanceSnapshot@ __ - A Lightsail instance snapshot     * __@Domain@ __ - A DNS zone     * __@PeeredVpc@ __ - A peered VPC     * __@LoadBalancer@ __ - A Lightsail load balancer     * __@LoadBalancerTlsCertificate@ __ - An SSL/TLS certificate associated with a Lightsail load balancer     * __@Disk@ __ - A Lightsail block storage disk     * __@DiskSnapshot@ __ - A block storage disk snapshot
 --
--- * 'lbtcArn' - The Amazon Resource Name (ARN) of the SSL/TLS certificate.
+--     * __@DOMAIN_NOT_ALLOWED@ __ - One or more of the domain names in the certificate request was reported as an unsafe domain by <https://www.virustotal.com/gui/home/url VirusTotal> . To correct the problem, search for your domain name on the <https://www.virustotal.com/gui/home/url VirusTotal> website. If your domain is reported as suspicious, see <https://www.google.com/webmasters/hacked/?hl=en Google Help for Hacked Websites> to learn what you can do.
+-- If you believe that the result is a false positive, notify the organization that is reporting the domain. VirusTotal is an aggregate of several antivirus and URL scanners and cannot remove your domain from a block list itself. After you correct the problem and the VirusTotal registry has been updated, request a new certificate.
+-- If you see this error and your domain is not included in the VirusTotal list, visit the <https://console.aws.amazon.com/support/home AWS Support Center> and create a case.
 --
--- * 'lbtcCreatedAt' - The time when you created your SSL/TLS certificate.
 --
--- * 'lbtcLocation' - The AWS Region and Availability Zone where you created your certificate.
+--     * __@INVALID_PUBLIC_DOMAIN@ __ - One or more of the domain names in the certificate request is not valid. Typically, this is because a domain name in the request is not a valid top-level domain. Try to request a certificate again, correcting any spelling errors or typos that were in the failed request, and ensure that all domain names in the request are for valid top-level domains. For example, you cannot request a certificate for @example.invalidpublicdomain@ because @invalidpublicdomain@ is not a valid top-level domain.
 --
--- * 'lbtcLoadBalancerName' - The load balancer name where your SSL/TLS certificate is attached.
 --
--- * 'lbtcSerial' - The serial number of the certificate.
+--     * __@OTHER@ __ - Typically, this failure occurs when there is a typographical error in one or more of the domain names in the certificate request. Try to request a certificate again, correcting any spelling errors or typos that were in the failed request.
 --
--- * 'lbtcIsAttached' - When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
 --
--- * 'lbtcRevokedAt' - The timestamp when the certificate was revoked. This value is present only when the certificate status is @REVOKED@ .
+-- * 'isAttached' - When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
+-- * 'issuedAt' - The time when the SSL/TLS certificate was issued.
+-- * 'issuer' - The issuer of the certificate.
+-- * 'keyAlgorithm' - The algorithm used to generate the key pair (the public and private key).
+-- * 'loadBalancerName' - The load balancer name where your SSL/TLS certificate is attached.
+-- * 'location' - The AWS Region and Availability Zone where you created your certificate.
+-- * 'name' - The name of the SSL/TLS certificate (e.g., @my-certificate@ ).
+-- * 'notAfter' - The timestamp when the SSL/TLS certificate expires.
+-- * 'notBefore' - The timestamp when the SSL/TLS certificate is first valid.
+-- * 'renewalSummary' - An object that describes the status of the certificate renewal managed by Lightsail.
+-- * 'resourceType' - The resource type (e.g., @LoadBalancerTlsCertificate@ ).
 --
--- * 'lbtcNotBefore' - The timestamp when the SSL/TLS certificate is first valid.
 --
--- * 'lbtcRevocationReason' - The reason the certificate was revoked. This value is present only when the certificate status is @REVOKED@ .
+--     * __@Instance@ __ - A Lightsail instance (a virtual private server)
 --
--- * 'lbtcDomainName' - The domain name for your SSL/TLS certificate.
 --
--- * 'lbtcName' - The name of the SSL/TLS certificate (e.g., @my-certificate@ ).
+--     * __@StaticIp@ __ - A static IP address
 --
--- * 'lbtcRenewalSummary' - An object that describes the status of the certificate renewal managed by Lightsail.
 --
--- * 'lbtcSupportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail load balancer or SSL/TLS certificate. This code enables our support team to look up your Lightsail information more easily.
+--     * __@KeyPair@ __ - The key pair used to connect to a Lightsail instance
 --
--- * 'lbtcDomainValidationRecords' - An array of LoadBalancerTlsCertificateDomainValidationRecord objects describing the records.
 --
--- * 'lbtcIssuedAt' - The time when the SSL/TLS certificate was issued.
+--     * __@InstanceSnapshot@ __ - A Lightsail instance snapshot
 --
--- * 'lbtcKeyAlgorithm' - The algorithm used to generate the key pair (the public and private key).
 --
--- * 'lbtcSignatureAlgorithm' - The algorithm that was used to sign the certificate.
+--     * __@Domain@ __ - A DNS zone
 --
--- * 'lbtcIssuer' - The issuer of the certificate.
 --
--- * 'lbtcTags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+--     * __@PeeredVpc@ __ - A peered VPC
 --
--- * 'lbtcNotAfter' - The timestamp when the SSL/TLS certificate expires.
-loadBalancerTLSCertificate ::
+--
+--     * __@LoadBalancer@ __ - A Lightsail load balancer
+--
+--
+--     * __@LoadBalancerTlsCertificate@ __ - An SSL/TLS certificate associated with a Lightsail load balancer
+--
+--
+--     * __@Disk@ __ - A Lightsail block storage disk
+--
+--
+--     * __@DiskSnapshot@ __ - A block storage disk snapshot
+--
+--
+-- * 'revocationReason' - The reason the certificate was revoked. This value is present only when the certificate status is @REVOKED@ .
+-- * 'revokedAt' - The timestamp when the certificate was revoked. This value is present only when the certificate status is @REVOKED@ .
+-- * 'serial' - The serial number of the certificate.
+-- * 'signatureAlgorithm' - The algorithm that was used to sign the certificate.
+-- * 'status' - The validation status of the SSL/TLS certificate. Valid values are below.
+-- * 'subject' - The name of the entity that is associated with the public key contained in the certificate.
+-- * 'subjectAlternativeNames' - An array of strings that specify the alternate domains (e.g., @example2.com@ ) and subdomains (e.g., @blog.example.com@ ) for the certificate.
+-- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail load balancer or SSL/TLS certificate. This code enables our support team to look up your Lightsail information more easily.
+-- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+mkLoadBalancerTLSCertificate ::
   LoadBalancerTLSCertificate
-loadBalancerTLSCertificate =
+mkLoadBalancerTLSCertificate =
   LoadBalancerTLSCertificate'
-    { _lbtcFailureReason = Nothing,
-      _lbtcSubject = Nothing,
-      _lbtcStatus = Nothing,
-      _lbtcSubjectAlternativeNames = Nothing,
-      _lbtcResourceType = Nothing,
-      _lbtcArn = Nothing,
-      _lbtcCreatedAt = Nothing,
-      _lbtcLocation = Nothing,
-      _lbtcLoadBalancerName = Nothing,
-      _lbtcSerial = Nothing,
-      _lbtcIsAttached = Nothing,
-      _lbtcRevokedAt = Nothing,
-      _lbtcNotBefore = Nothing,
-      _lbtcRevocationReason = Nothing,
-      _lbtcDomainName = Nothing,
-      _lbtcName = Nothing,
-      _lbtcRenewalSummary = Nothing,
-      _lbtcSupportCode = Nothing,
-      _lbtcDomainValidationRecords = Nothing,
-      _lbtcIssuedAt = Nothing,
-      _lbtcKeyAlgorithm = Nothing,
-      _lbtcSignatureAlgorithm = Nothing,
-      _lbtcIssuer = Nothing,
-      _lbtcTags = Nothing,
-      _lbtcNotAfter = Nothing
+    { failureReason = Lude.Nothing,
+      subject = Lude.Nothing,
+      status = Lude.Nothing,
+      subjectAlternativeNames = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      arn = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      location = Lude.Nothing,
+      loadBalancerName = Lude.Nothing,
+      serial = Lude.Nothing,
+      isAttached = Lude.Nothing,
+      revokedAt = Lude.Nothing,
+      notBefore = Lude.Nothing,
+      revocationReason = Lude.Nothing,
+      domainName = Lude.Nothing,
+      name = Lude.Nothing,
+      renewalSummary = Lude.Nothing,
+      supportCode = Lude.Nothing,
+      domainValidationRecords = Lude.Nothing,
+      issuedAt = Lude.Nothing,
+      keyAlgorithm = Lude.Nothing,
+      signatureAlgorithm = Lude.Nothing,
+      issuer = Lude.Nothing,
+      tags = Lude.Nothing,
+      notAfter = Lude.Nothing
     }
 
--- | The validation failure reason, if any, of the certificate. The following failure reasons are possible:     * __@NO_AVAILABLE_CONTACTS@ __ - This failure applies to email validation, which is not available for Lightsail certificates.     * __@ADDITIONAL_VERIFICATION_REQUIRED@ __ - Lightsail requires additional information to process this certificate request. This can happen as a fraud-protection measure, such as when the domain ranks within the Alexa top 1000 websites. To provide the required information, use the <https://console.aws.amazon.com/support/home AWS Support Center> to contact AWS Support.     * __@DOMAIN_NOT_ALLOWED@ __ - One or more of the domain names in the certificate request was reported as an unsafe domain by <https://www.virustotal.com/gui/home/url VirusTotal> . To correct the problem, search for your domain name on the <https://www.virustotal.com/gui/home/url VirusTotal> website. If your domain is reported as suspicious, see <https://www.google.com/webmasters/hacked/?hl=en Google Help for Hacked Websites> to learn what you can do. If you believe that the result is a false positive, notify the organization that is reporting the domain. VirusTotal is an aggregate of several antivirus and URL scanners and cannot remove your domain from a block list itself. After you correct the problem and the VirusTotal registry has been updated, request a new certificate. If you see this error and your domain is not included in the VirusTotal list, visit the <https://console.aws.amazon.com/support/home AWS Support Center> and create a case.     * __@INVALID_PUBLIC_DOMAIN@ __ - One or more of the domain names in the certificate request is not valid. Typically, this is because a domain name in the request is not a valid top-level domain. Try to request a certificate again, correcting any spelling errors or typos that were in the failed request, and ensure that all domain names in the request are for valid top-level domains. For example, you cannot request a certificate for @example.invalidpublicdomain@ because @invalidpublicdomain@ is not a valid top-level domain.     * __@OTHER@ __ - Typically, this failure occurs when there is a typographical error in one or more of the domain names in the certificate request. Try to request a certificate again, correcting any spelling errors or typos that were in the failed request.
-lbtcFailureReason :: Lens' LoadBalancerTLSCertificate (Maybe LoadBalancerTLSCertificateFailureReason)
-lbtcFailureReason = lens _lbtcFailureReason (\s a -> s {_lbtcFailureReason = a})
+-- | The validation failure reason, if any, of the certificate.
+--
+-- The following failure reasons are possible:
+--
+--     * __@NO_AVAILABLE_CONTACTS@ __ - This failure applies to email validation, which is not available for Lightsail certificates.
+--
+--
+--     * __@ADDITIONAL_VERIFICATION_REQUIRED@ __ - Lightsail requires additional information to process this certificate request. This can happen as a fraud-protection measure, such as when the domain ranks within the Alexa top 1000 websites. To provide the required information, use the <https://console.aws.amazon.com/support/home AWS Support Center> to contact AWS Support.
+--
+--
+--     * __@DOMAIN_NOT_ALLOWED@ __ - One or more of the domain names in the certificate request was reported as an unsafe domain by <https://www.virustotal.com/gui/home/url VirusTotal> . To correct the problem, search for your domain name on the <https://www.virustotal.com/gui/home/url VirusTotal> website. If your domain is reported as suspicious, see <https://www.google.com/webmasters/hacked/?hl=en Google Help for Hacked Websites> to learn what you can do.
+-- If you believe that the result is a false positive, notify the organization that is reporting the domain. VirusTotal is an aggregate of several antivirus and URL scanners and cannot remove your domain from a block list itself. After you correct the problem and the VirusTotal registry has been updated, request a new certificate.
+-- If you see this error and your domain is not included in the VirusTotal list, visit the <https://console.aws.amazon.com/support/home AWS Support Center> and create a case.
+--
+--
+--     * __@INVALID_PUBLIC_DOMAIN@ __ - One or more of the domain names in the certificate request is not valid. Typically, this is because a domain name in the request is not a valid top-level domain. Try to request a certificate again, correcting any spelling errors or typos that were in the failed request, and ensure that all domain names in the request are for valid top-level domains. For example, you cannot request a certificate for @example.invalidpublicdomain@ because @invalidpublicdomain@ is not a valid top-level domain.
+--
+--
+--     * __@OTHER@ __ - Typically, this failure occurs when there is a typographical error in one or more of the domain names in the certificate request. Try to request a certificate again, correcting any spelling errors or typos that were in the failed request.
+--
+--
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcFailureReason :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe LoadBalancerTLSCertificateFailureReason)
+lbtcFailureReason = Lens.lens (failureReason :: LoadBalancerTLSCertificate -> Lude.Maybe LoadBalancerTLSCertificateFailureReason) (\s a -> s {failureReason = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The name of the entity that is associated with the public key contained in the certificate.
-lbtcSubject :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcSubject = lens _lbtcSubject (\s a -> s {_lbtcSubject = a})
+--
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcSubject :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcSubject = Lens.lens (subject :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {subject = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The validation status of the SSL/TLS certificate. Valid values are below.
-lbtcStatus :: Lens' LoadBalancerTLSCertificate (Maybe LoadBalancerTLSCertificateStatus)
-lbtcStatus = lens _lbtcStatus (\s a -> s {_lbtcStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcStatus :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe LoadBalancerTLSCertificateStatus)
+lbtcStatus = Lens.lens (status :: LoadBalancerTLSCertificate -> Lude.Maybe LoadBalancerTLSCertificateStatus) (\s a -> s {status = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | An array of strings that specify the alternate domains (e.g., @example2.com@ ) and subdomains (e.g., @blog.example.com@ ) for the certificate.
-lbtcSubjectAlternativeNames :: Lens' LoadBalancerTLSCertificate [Text]
-lbtcSubjectAlternativeNames = lens _lbtcSubjectAlternativeNames (\s a -> s {_lbtcSubjectAlternativeNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subjectAlternativeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcSubjectAlternativeNames :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe [Lude.Text])
+lbtcSubjectAlternativeNames = Lens.lens (subjectAlternativeNames :: LoadBalancerTLSCertificate -> Lude.Maybe [Lude.Text]) (\s a -> s {subjectAlternativeNames = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcSubjectAlternativeNames "Use generic-lens or generic-optics with 'subjectAlternativeNames' instead." #-}
 
--- | The resource type (e.g., @LoadBalancerTlsCertificate@ ).     * __@Instance@ __ - A Lightsail instance (a virtual private server)     * __@StaticIp@ __ - A static IP address     * __@KeyPair@ __ - The key pair used to connect to a Lightsail instance     * __@InstanceSnapshot@ __ - A Lightsail instance snapshot     * __@Domain@ __ - A DNS zone     * __@PeeredVpc@ __ - A peered VPC     * __@LoadBalancer@ __ - A Lightsail load balancer     * __@LoadBalancerTlsCertificate@ __ - An SSL/TLS certificate associated with a Lightsail load balancer     * __@Disk@ __ - A Lightsail block storage disk     * __@DiskSnapshot@ __ - A block storage disk snapshot
-lbtcResourceType :: Lens' LoadBalancerTLSCertificate (Maybe ResourceType)
-lbtcResourceType = lens _lbtcResourceType (\s a -> s {_lbtcResourceType = a})
+-- | The resource type (e.g., @LoadBalancerTlsCertificate@ ).
+--
+--
+--     * __@Instance@ __ - A Lightsail instance (a virtual private server)
+--
+--
+--     * __@StaticIp@ __ - A static IP address
+--
+--
+--     * __@KeyPair@ __ - The key pair used to connect to a Lightsail instance
+--
+--
+--     * __@InstanceSnapshot@ __ - A Lightsail instance snapshot
+--
+--
+--     * __@Domain@ __ - A DNS zone
+--
+--
+--     * __@PeeredVpc@ __ - A peered VPC
+--
+--
+--     * __@LoadBalancer@ __ - A Lightsail load balancer
+--
+--
+--     * __@LoadBalancerTlsCertificate@ __ - An SSL/TLS certificate associated with a Lightsail load balancer
+--
+--
+--     * __@Disk@ __ - A Lightsail block storage disk
+--
+--
+--     * __@DiskSnapshot@ __ - A block storage disk snapshot
+--
+--
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcResourceType :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe ResourceType)
+lbtcResourceType = Lens.lens (resourceType :: LoadBalancerTLSCertificate -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the SSL/TLS certificate.
-lbtcArn :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcArn = lens _lbtcArn (\s a -> s {_lbtcArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcArn :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcArn = Lens.lens (arn :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time when you created your SSL/TLS certificate.
-lbtcCreatedAt :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcCreatedAt = lens _lbtcCreatedAt (\s a -> s {_lbtcCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcCreatedAt :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Timestamp)
+lbtcCreatedAt = Lens.lens (createdAt :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The AWS Region and Availability Zone where you created your certificate.
-lbtcLocation :: Lens' LoadBalancerTLSCertificate (Maybe ResourceLocation)
-lbtcLocation = lens _lbtcLocation (\s a -> s {_lbtcLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcLocation :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe ResourceLocation)
+lbtcLocation = Lens.lens (location :: LoadBalancerTLSCertificate -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The load balancer name where your SSL/TLS certificate is attached.
-lbtcLoadBalancerName :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcLoadBalancerName = lens _lbtcLoadBalancerName (\s a -> s {_lbtcLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcLoadBalancerName :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcLoadBalancerName = Lens.lens (loadBalancerName :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerName = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The serial number of the certificate.
-lbtcSerial :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcSerial = lens _lbtcSerial (\s a -> s {_lbtcSerial = a})
+--
+-- /Note:/ Consider using 'serial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcSerial :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcSerial = Lens.lens (serial :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {serial = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcSerial "Use generic-lens or generic-optics with 'serial' instead." #-}
 
 -- | When @true@ , the SSL/TLS certificate is attached to the Lightsail load balancer.
-lbtcIsAttached :: Lens' LoadBalancerTLSCertificate (Maybe Bool)
-lbtcIsAttached = lens _lbtcIsAttached (\s a -> s {_lbtcIsAttached = a})
+--
+-- /Note:/ Consider using 'isAttached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcIsAttached :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Bool)
+lbtcIsAttached = Lens.lens (isAttached :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Bool) (\s a -> s {isAttached = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcIsAttached "Use generic-lens or generic-optics with 'isAttached' instead." #-}
 
 -- | The timestamp when the certificate was revoked. This value is present only when the certificate status is @REVOKED@ .
-lbtcRevokedAt :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcRevokedAt = lens _lbtcRevokedAt (\s a -> s {_lbtcRevokedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'revokedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcRevokedAt :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Timestamp)
+lbtcRevokedAt = Lens.lens (revokedAt :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {revokedAt = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcRevokedAt "Use generic-lens or generic-optics with 'revokedAt' instead." #-}
 
 -- | The timestamp when the SSL/TLS certificate is first valid.
-lbtcNotBefore :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcNotBefore = lens _lbtcNotBefore (\s a -> s {_lbtcNotBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcNotBefore :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Timestamp)
+lbtcNotBefore = Lens.lens (notBefore :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {notBefore = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
 
 -- | The reason the certificate was revoked. This value is present only when the certificate status is @REVOKED@ .
-lbtcRevocationReason :: Lens' LoadBalancerTLSCertificate (Maybe LoadBalancerTLSCertificateRevocationReason)
-lbtcRevocationReason = lens _lbtcRevocationReason (\s a -> s {_lbtcRevocationReason = a})
+--
+-- /Note:/ Consider using 'revocationReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcRevocationReason :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe LoadBalancerTLSCertificateRevocationReason)
+lbtcRevocationReason = Lens.lens (revocationReason :: LoadBalancerTLSCertificate -> Lude.Maybe LoadBalancerTLSCertificateRevocationReason) (\s a -> s {revocationReason = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcRevocationReason "Use generic-lens or generic-optics with 'revocationReason' instead." #-}
 
 -- | The domain name for your SSL/TLS certificate.
-lbtcDomainName :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcDomainName = lens _lbtcDomainName (\s a -> s {_lbtcDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcDomainName :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcDomainName = Lens.lens (domainName :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The name of the SSL/TLS certificate (e.g., @my-certificate@ ).
-lbtcName :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcName = lens _lbtcName (\s a -> s {_lbtcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcName :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcName = Lens.lens (name :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An object that describes the status of the certificate renewal managed by Lightsail.
-lbtcRenewalSummary :: Lens' LoadBalancerTLSCertificate (Maybe LoadBalancerTLSCertificateRenewalSummary)
-lbtcRenewalSummary = lens _lbtcRenewalSummary (\s a -> s {_lbtcRenewalSummary = a})
+--
+-- /Note:/ Consider using 'renewalSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcRenewalSummary :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe LoadBalancerTLSCertificateRenewalSummary)
+lbtcRenewalSummary = Lens.lens (renewalSummary :: LoadBalancerTLSCertificate -> Lude.Maybe LoadBalancerTLSCertificateRenewalSummary) (\s a -> s {renewalSummary = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcRenewalSummary "Use generic-lens or generic-optics with 'renewalSummary' instead." #-}
 
 -- | The support code. Include this code in your email to support when you have questions about your Lightsail load balancer or SSL/TLS certificate. This code enables our support team to look up your Lightsail information more easily.
-lbtcSupportCode :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcSupportCode = lens _lbtcSupportCode (\s a -> s {_lbtcSupportCode = a})
+--
+-- /Note:/ Consider using 'supportCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcSupportCode :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcSupportCode = Lens.lens (supportCode :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {supportCode = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
 
 -- | An array of LoadBalancerTlsCertificateDomainValidationRecord objects describing the records.
-lbtcDomainValidationRecords :: Lens' LoadBalancerTLSCertificate [LoadBalancerTLSCertificateDomainValidationRecord]
-lbtcDomainValidationRecords = lens _lbtcDomainValidationRecords (\s a -> s {_lbtcDomainValidationRecords = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domainValidationRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcDomainValidationRecords :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe [LoadBalancerTLSCertificateDomainValidationRecord])
+lbtcDomainValidationRecords = Lens.lens (domainValidationRecords :: LoadBalancerTLSCertificate -> Lude.Maybe [LoadBalancerTLSCertificateDomainValidationRecord]) (\s a -> s {domainValidationRecords = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcDomainValidationRecords "Use generic-lens or generic-optics with 'domainValidationRecords' instead." #-}
 
 -- | The time when the SSL/TLS certificate was issued.
-lbtcIssuedAt :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcIssuedAt = lens _lbtcIssuedAt (\s a -> s {_lbtcIssuedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'issuedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcIssuedAt :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Timestamp)
+lbtcIssuedAt = Lens.lens (issuedAt :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {issuedAt = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcIssuedAt "Use generic-lens or generic-optics with 'issuedAt' instead." #-}
 
 -- | The algorithm used to generate the key pair (the public and private key).
-lbtcKeyAlgorithm :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcKeyAlgorithm = lens _lbtcKeyAlgorithm (\s a -> s {_lbtcKeyAlgorithm = a})
+--
+-- /Note:/ Consider using 'keyAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcKeyAlgorithm :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcKeyAlgorithm = Lens.lens (keyAlgorithm :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {keyAlgorithm = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcKeyAlgorithm "Use generic-lens or generic-optics with 'keyAlgorithm' instead." #-}
 
 -- | The algorithm that was used to sign the certificate.
-lbtcSignatureAlgorithm :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcSignatureAlgorithm = lens _lbtcSignatureAlgorithm (\s a -> s {_lbtcSignatureAlgorithm = a})
+--
+-- /Note:/ Consider using 'signatureAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcSignatureAlgorithm :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcSignatureAlgorithm = Lens.lens (signatureAlgorithm :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {signatureAlgorithm = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcSignatureAlgorithm "Use generic-lens or generic-optics with 'signatureAlgorithm' instead." #-}
 
 -- | The issuer of the certificate.
-lbtcIssuer :: Lens' LoadBalancerTLSCertificate (Maybe Text)
-lbtcIssuer = lens _lbtcIssuer (\s a -> s {_lbtcIssuer = a})
+--
+-- /Note:/ Consider using 'issuer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcIssuer :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Text)
+lbtcIssuer = Lens.lens (issuer :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Text) (\s a -> s {issuer = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcIssuer "Use generic-lens or generic-optics with 'issuer' instead." #-}
 
 -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
-lbtcTags :: Lens' LoadBalancerTLSCertificate [Tag]
-lbtcTags = lens _lbtcTags (\s a -> s {_lbtcTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcTags :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe [Tag])
+lbtcTags = Lens.lens (tags :: LoadBalancerTLSCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The timestamp when the SSL/TLS certificate expires.
-lbtcNotAfter :: Lens' LoadBalancerTLSCertificate (Maybe UTCTime)
-lbtcNotAfter = lens _lbtcNotAfter (\s a -> s {_lbtcNotAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbtcNotAfter :: Lens.Lens' LoadBalancerTLSCertificate (Lude.Maybe Lude.Timestamp)
+lbtcNotAfter = Lens.lens (notAfter :: LoadBalancerTLSCertificate -> Lude.Maybe Lude.Timestamp) (\s a -> s {notAfter = a} :: LoadBalancerTLSCertificate)
+{-# DEPRECATED lbtcNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
 
-instance FromJSON LoadBalancerTLSCertificate where
+instance Lude.FromJSON LoadBalancerTLSCertificate where
   parseJSON =
-    withObject
+    Lude.withObject
       "LoadBalancerTLSCertificate"
       ( \x ->
           LoadBalancerTLSCertificate'
-            <$> (x .:? "failureReason")
-            <*> (x .:? "subject")
-            <*> (x .:? "status")
-            <*> (x .:? "subjectAlternativeNames" .!= mempty)
-            <*> (x .:? "resourceType")
-            <*> (x .:? "arn")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "location")
-            <*> (x .:? "loadBalancerName")
-            <*> (x .:? "serial")
-            <*> (x .:? "isAttached")
-            <*> (x .:? "revokedAt")
-            <*> (x .:? "notBefore")
-            <*> (x .:? "revocationReason")
-            <*> (x .:? "domainName")
-            <*> (x .:? "name")
-            <*> (x .:? "renewalSummary")
-            <*> (x .:? "supportCode")
-            <*> (x .:? "domainValidationRecords" .!= mempty)
-            <*> (x .:? "issuedAt")
-            <*> (x .:? "keyAlgorithm")
-            <*> (x .:? "signatureAlgorithm")
-            <*> (x .:? "issuer")
-            <*> (x .:? "tags" .!= mempty)
-            <*> (x .:? "notAfter")
+            Lude.<$> (x Lude..:? "failureReason")
+            Lude.<*> (x Lude..:? "subject")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "subjectAlternativeNames" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "loadBalancerName")
+            Lude.<*> (x Lude..:? "serial")
+            Lude.<*> (x Lude..:? "isAttached")
+            Lude.<*> (x Lude..:? "revokedAt")
+            Lude.<*> (x Lude..:? "notBefore")
+            Lude.<*> (x Lude..:? "revocationReason")
+            Lude.<*> (x Lude..:? "domainName")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "renewalSummary")
+            Lude.<*> (x Lude..:? "supportCode")
+            Lude.<*> (x Lude..:? "domainValidationRecords" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "issuedAt")
+            Lude.<*> (x Lude..:? "keyAlgorithm")
+            Lude.<*> (x Lude..:? "signatureAlgorithm")
+            Lude.<*> (x Lude..:? "issuer")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "notAfter")
       )
-
-instance Hashable LoadBalancerTLSCertificate
-
-instance NFData LoadBalancerTLSCertificate

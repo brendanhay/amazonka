@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.MembershipType where
+module Network.AWS.EC2.Types.MembershipType
+  ( MembershipType
+      ( MembershipType',
+        MTIgmp,
+        MTStatic
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MembershipType
-  = MTIgmp
-  | MTStatic
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MembershipType = MembershipType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MembershipType where
-  parser =
-    takeLowerText >>= \case
-      "igmp" -> pure MTIgmp
-      "static" -> pure MTStatic
-      e ->
-        fromTextError $
-          "Failure parsing MembershipType from value: '" <> e
-            <> "'. Accepted values: igmp, static"
+pattern MTIgmp :: MembershipType
+pattern MTIgmp = MembershipType' "igmp"
 
-instance ToText MembershipType where
-  toText = \case
-    MTIgmp -> "igmp"
-    MTStatic -> "static"
+pattern MTStatic :: MembershipType
+pattern MTStatic = MembershipType' "static"
 
-instance Hashable MembershipType
-
-instance NFData MembershipType
-
-instance ToByteString MembershipType
-
-instance ToQuery MembershipType
-
-instance ToHeader MembershipType
-
-instance FromXML MembershipType where
-  parseXML = parseXMLText "MembershipType"
+{-# COMPLETE
+  MTIgmp,
+  MTStatic,
+  MembershipType'
+  #-}

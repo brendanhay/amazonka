@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,134 @@
 --
 -- Retrieves a specified security configuration.
 module Network.AWS.Glue.GetSecurityConfiguration
-  ( -- * Creating a Request
-    getSecurityConfiguration,
-    GetSecurityConfiguration,
+  ( -- * Creating a request
+    GetSecurityConfiguration (..),
+    mkGetSecurityConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gscName,
 
-    -- * Destructuring the Response
-    getSecurityConfigurationResponse,
-    GetSecurityConfigurationResponse,
+    -- * Destructuring the response
+    GetSecurityConfigurationResponse (..),
+    mkGetSecurityConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gscrsSecurityConfiguration,
     gscrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSecurityConfiguration' smart constructor.
+-- | /See:/ 'mkGetSecurityConfiguration' smart constructor.
 newtype GetSecurityConfiguration = GetSecurityConfiguration'
-  { _gscName ::
-      Text
+  { name ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSecurityConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gscName' - The name of the security configuration to retrieve.
-getSecurityConfiguration ::
-  -- | 'gscName'
-  Text ->
+-- * 'name' - The name of the security configuration to retrieve.
+mkGetSecurityConfiguration ::
+  -- | 'name'
+  Lude.Text ->
   GetSecurityConfiguration
-getSecurityConfiguration pName_ =
-  GetSecurityConfiguration' {_gscName = pName_}
+mkGetSecurityConfiguration pName_ =
+  GetSecurityConfiguration' {name = pName_}
 
 -- | The name of the security configuration to retrieve.
-gscName :: Lens' GetSecurityConfiguration Text
-gscName = lens _gscName (\s a -> s {_gscName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscName :: Lens.Lens' GetSecurityConfiguration Lude.Text
+gscName = Lens.lens (name :: GetSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: GetSecurityConfiguration)
+{-# DEPRECATED gscName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetSecurityConfiguration where
+instance Lude.AWSRequest GetSecurityConfiguration where
   type Rs GetSecurityConfiguration = GetSecurityConfigurationResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSecurityConfigurationResponse'
-            <$> (x .?> "SecurityConfiguration") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SecurityConfiguration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSecurityConfiguration
-
-instance NFData GetSecurityConfiguration
-
-instance ToHeaders GetSecurityConfiguration where
+instance Lude.ToHeaders GetSecurityConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSGlue.GetSecurityConfiguration" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSGlue.GetSecurityConfiguration" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetSecurityConfiguration where
+instance Lude.ToJSON GetSecurityConfiguration where
   toJSON GetSecurityConfiguration' {..} =
-    object (catMaybes [Just ("Name" .= _gscName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath GetSecurityConfiguration where
-  toPath = const "/"
+instance Lude.ToPath GetSecurityConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery GetSecurityConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery GetSecurityConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSecurityConfigurationResponse' smart constructor.
+-- | /See:/ 'mkGetSecurityConfigurationResponse' smart constructor.
 data GetSecurityConfigurationResponse = GetSecurityConfigurationResponse'
-  { _gscrsSecurityConfiguration ::
-      !( Maybe
-           SecurityConfiguration
-       ),
-    _gscrsResponseStatus ::
-      !Int
+  { securityConfiguration ::
+      Lude.Maybe
+        SecurityConfiguration,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSecurityConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gscrsSecurityConfiguration' - The requested security configuration.
---
--- * 'gscrsResponseStatus' - -- | The response status code.
-getSecurityConfigurationResponse ::
-  -- | 'gscrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'securityConfiguration' - The requested security configuration.
+mkGetSecurityConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSecurityConfigurationResponse
-getSecurityConfigurationResponse pResponseStatus_ =
+mkGetSecurityConfigurationResponse pResponseStatus_ =
   GetSecurityConfigurationResponse'
-    { _gscrsSecurityConfiguration =
-        Nothing,
-      _gscrsResponseStatus = pResponseStatus_
+    { securityConfiguration =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The requested security configuration.
-gscrsSecurityConfiguration :: Lens' GetSecurityConfigurationResponse (Maybe SecurityConfiguration)
-gscrsSecurityConfiguration = lens _gscrsSecurityConfiguration (\s a -> s {_gscrsSecurityConfiguration = a})
+--
+-- /Note:/ Consider using 'securityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscrsSecurityConfiguration :: Lens.Lens' GetSecurityConfigurationResponse (Lude.Maybe SecurityConfiguration)
+gscrsSecurityConfiguration = Lens.lens (securityConfiguration :: GetSecurityConfigurationResponse -> Lude.Maybe SecurityConfiguration) (\s a -> s {securityConfiguration = a} :: GetSecurityConfigurationResponse)
+{-# DEPRECATED gscrsSecurityConfiguration "Use generic-lens or generic-optics with 'securityConfiguration' instead." #-}
 
--- | -- | The response status code.
-gscrsResponseStatus :: Lens' GetSecurityConfigurationResponse Int
-gscrsResponseStatus = lens _gscrsResponseStatus (\s a -> s {_gscrsResponseStatus = a})
-
-instance NFData GetSecurityConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscrsResponseStatus :: Lens.Lens' GetSecurityConfigurationResponse Lude.Int
+gscrsResponseStatus = Lens.lens (responseStatus :: GetSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSecurityConfigurationResponse)
+{-# DEPRECATED gscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

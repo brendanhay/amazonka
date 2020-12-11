@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Returns the metadata for one service or a list of the metadata for all services. Use this without a service code to get the service codes for all services. Use it with a service code, such as @AmazonEC2@ , to get information specific to that service, such as the attribute names available for that service. For example, some of the attribute names available for EC2 are @volumeType@ , @maxIopsVolume@ , @operation@ , @locationType@ , and @instanceCapacity10xlarge@ .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Pricing.DescribeServices
-  ( -- * Creating a Request
-    describeServices,
-    DescribeServices,
+  ( -- * Creating a request
+    DescribeServices (..),
+    mkDescribeServices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsFormatVersion,
     dsNextToken,
     dsServiceCode,
     dsMaxResults,
 
-    -- * Destructuring the Response
-    describeServicesResponse,
-    DescribeServicesResponse,
+    -- * Destructuring the response
+    DescribeServicesResponse (..),
+    mkDescribeServicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsFormatVersion,
     dsrsNextToken,
     dsrsServices,
@@ -45,158 +38,187 @@ module Network.AWS.Pricing.DescribeServices
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Pricing.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeServices' smart constructor.
+-- | /See:/ 'mkDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { _dsFormatVersion ::
-      !(Maybe Text),
-    _dsNextToken :: !(Maybe Text),
-    _dsServiceCode :: !(Maybe Text),
-    _dsMaxResults :: !(Maybe Nat)
+  { formatVersion ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    serviceCode :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'formatVersion' - The format version that you want the response to be in.
 --
--- * 'dsFormatVersion' - The format version that you want the response to be in. Valid values are: @aws_v1@
---
--- * 'dsNextToken' - The pagination token that indicates the next set of results that you want to retrieve.
---
--- * 'dsServiceCode' - The code for the service whose information you want to retrieve, such as @AmazonEC2@ . You can use the @ServiceCode@ to filter the results in a @GetProducts@ call. To retrieve a list of all services, leave this blank.
---
--- * 'dsMaxResults' - The maximum number of results that you want returned in the response.
-describeServices ::
+-- Valid values are: @aws_v1@
+-- * 'maxResults' - The maximum number of results that you want returned in the response.
+-- * 'nextToken' - The pagination token that indicates the next set of results that you want to retrieve.
+-- * 'serviceCode' - The code for the service whose information you want to retrieve, such as @AmazonEC2@ . You can use the @ServiceCode@ to filter the results in a @GetProducts@ call. To retrieve a list of all services, leave this blank.
+mkDescribeServices ::
   DescribeServices
-describeServices =
+mkDescribeServices =
   DescribeServices'
-    { _dsFormatVersion = Nothing,
-      _dsNextToken = Nothing,
-      _dsServiceCode = Nothing,
-      _dsMaxResults = Nothing
+    { formatVersion = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      serviceCode = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | The format version that you want the response to be in. Valid values are: @aws_v1@
-dsFormatVersion :: Lens' DescribeServices (Maybe Text)
-dsFormatVersion = lens _dsFormatVersion (\s a -> s {_dsFormatVersion = a})
+-- | The format version that you want the response to be in.
+--
+-- Valid values are: @aws_v1@
+--
+-- /Note:/ Consider using 'formatVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsFormatVersion :: Lens.Lens' DescribeServices (Lude.Maybe Lude.Text)
+dsFormatVersion = Lens.lens (formatVersion :: DescribeServices -> Lude.Maybe Lude.Text) (\s a -> s {formatVersion = a} :: DescribeServices)
+{-# DEPRECATED dsFormatVersion "Use generic-lens or generic-optics with 'formatVersion' instead." #-}
 
 -- | The pagination token that indicates the next set of results that you want to retrieve.
-dsNextToken :: Lens' DescribeServices (Maybe Text)
-dsNextToken = lens _dsNextToken (\s a -> s {_dsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsNextToken :: Lens.Lens' DescribeServices (Lude.Maybe Lude.Text)
+dsNextToken = Lens.lens (nextToken :: DescribeServices -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeServices)
+{-# DEPRECATED dsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The code for the service whose information you want to retrieve, such as @AmazonEC2@ . You can use the @ServiceCode@ to filter the results in a @GetProducts@ call. To retrieve a list of all services, leave this blank.
-dsServiceCode :: Lens' DescribeServices (Maybe Text)
-dsServiceCode = lens _dsServiceCode (\s a -> s {_dsServiceCode = a})
+--
+-- /Note:/ Consider using 'serviceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsServiceCode :: Lens.Lens' DescribeServices (Lude.Maybe Lude.Text)
+dsServiceCode = Lens.lens (serviceCode :: DescribeServices -> Lude.Maybe Lude.Text) (\s a -> s {serviceCode = a} :: DescribeServices)
+{-# DEPRECATED dsServiceCode "Use generic-lens or generic-optics with 'serviceCode' instead." #-}
 
 -- | The maximum number of results that you want returned in the response.
-dsMaxResults :: Lens' DescribeServices (Maybe Natural)
-dsMaxResults = lens _dsMaxResults (\s a -> s {_dsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsMaxResults :: Lens.Lens' DescribeServices (Lude.Maybe Lude.Natural)
+dsMaxResults = Lens.lens (maxResults :: DescribeServices -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeServices)
+{-# DEPRECATED dsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeServices where
+instance Page.AWSPager DescribeServices where
   page rq rs
-    | stop (rs ^. dsrsNextToken) = Nothing
-    | stop (rs ^. dsrsServices) = Nothing
-    | otherwise = Just $ rq & dsNextToken .~ rs ^. dsrsNextToken
+    | Page.stop (rs Lens.^. dsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dsrsServices) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dsNextToken Lens..~ rs Lens.^. dsrsNextToken
 
-instance AWSRequest DescribeServices where
+instance Lude.AWSRequest DescribeServices where
   type Rs DescribeServices = DescribeServicesResponse
-  request = postJSON pricing
+  request = Req.postJSON pricingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            <$> (x .?> "FormatVersion")
-            <*> (x .?> "NextToken")
-            <*> (x .?> "Services" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FormatVersion")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Services" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeServices
-
-instance NFData DescribeServices
-
-instance ToHeaders DescribeServices where
+instance Lude.ToHeaders DescribeServices where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSPriceListService.DescribeServices" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSPriceListService.DescribeServices" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeServices where
+instance Lude.ToJSON DescribeServices where
   toJSON DescribeServices' {..} =
-    object
-      ( catMaybes
-          [ ("FormatVersion" .=) <$> _dsFormatVersion,
-            ("NextToken" .=) <$> _dsNextToken,
-            ("ServiceCode" .=) <$> _dsServiceCode,
-            ("MaxResults" .=) <$> _dsMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FormatVersion" Lude..=) Lude.<$> formatVersion,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("ServiceCode" Lude..=) Lude.<$> serviceCode,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeServices where
-  toPath = const "/"
+instance Lude.ToPath DescribeServices where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeServices where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeServices where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeServicesResponse' smart constructor.
+-- | /See:/ 'mkDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { _dsrsFormatVersion ::
-      !(Maybe Text),
-    _dsrsNextToken :: !(Maybe Text),
-    _dsrsServices ::
-      !(Maybe [PricingService]),
-    _dsrsResponseStatus :: !Int
+  { formatVersion ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    services :: Lude.Maybe [PricingService],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsFormatVersion' - The format version of the response. For example, @aws_v1@ .
---
--- * 'dsrsNextToken' - The pagination token for the next set of retreivable results.
---
--- * 'dsrsServices' - The service metadata for the service or services in the response.
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-describeServicesResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'formatVersion' - The format version of the response. For example, @aws_v1@ .
+-- * 'nextToken' - The pagination token for the next set of retreivable results.
+-- * 'responseStatus' - The response status code.
+-- * 'services' - The service metadata for the service or services in the response.
+mkDescribeServicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeServicesResponse
-describeServicesResponse pResponseStatus_ =
+mkDescribeServicesResponse pResponseStatus_ =
   DescribeServicesResponse'
-    { _dsrsFormatVersion = Nothing,
-      _dsrsNextToken = Nothing,
-      _dsrsServices = Nothing,
-      _dsrsResponseStatus = pResponseStatus_
+    { formatVersion = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      services = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The format version of the response. For example, @aws_v1@ .
-dsrsFormatVersion :: Lens' DescribeServicesResponse (Maybe Text)
-dsrsFormatVersion = lens _dsrsFormatVersion (\s a -> s {_dsrsFormatVersion = a})
+--
+-- /Note:/ Consider using 'formatVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsFormatVersion :: Lens.Lens' DescribeServicesResponse (Lude.Maybe Lude.Text)
+dsrsFormatVersion = Lens.lens (formatVersion :: DescribeServicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {formatVersion = a} :: DescribeServicesResponse)
+{-# DEPRECATED dsrsFormatVersion "Use generic-lens or generic-optics with 'formatVersion' instead." #-}
 
 -- | The pagination token for the next set of retreivable results.
-dsrsNextToken :: Lens' DescribeServicesResponse (Maybe Text)
-dsrsNextToken = lens _dsrsNextToken (\s a -> s {_dsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsNextToken :: Lens.Lens' DescribeServicesResponse (Lude.Maybe Lude.Text)
+dsrsNextToken = Lens.lens (nextToken :: DescribeServicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeServicesResponse)
+{-# DEPRECATED dsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The service metadata for the service or services in the response.
-dsrsServices :: Lens' DescribeServicesResponse [PricingService]
-dsrsServices = lens _dsrsServices (\s a -> s {_dsrsServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsServices :: Lens.Lens' DescribeServicesResponse (Lude.Maybe [PricingService])
+dsrsServices = Lens.lens (services :: DescribeServicesResponse -> Lude.Maybe [PricingService]) (\s a -> s {services = a} :: DescribeServicesResponse)
+{-# DEPRECATED dsrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DescribeServicesResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DescribeServicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DescribeServicesResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DescribeServicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeServicesResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

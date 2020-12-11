@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.SanitizationWarningReason where
+module Network.AWS.MQ.Types.SanitizationWarningReason
+  ( SanitizationWarningReason
+      ( SanitizationWarningReason',
+        DisallowedAttributeRemoved,
+        DisallowedElementRemoved,
+        InvalidAttributeValueRemoved
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The reason for which the XML elements or attributes were sanitized.
-data SanitizationWarningReason
-  = DisallowedAttributeRemoved
-  | DisallowedElementRemoved
-  | InvalidAttributeValueRemoved
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SanitizationWarningReason = SanitizationWarningReason' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SanitizationWarningReason where
-  parser =
-    takeLowerText >>= \case
-      "disallowed_attribute_removed" -> pure DisallowedAttributeRemoved
-      "disallowed_element_removed" -> pure DisallowedElementRemoved
-      "invalid_attribute_value_removed" -> pure InvalidAttributeValueRemoved
-      e ->
-        fromTextError $
-          "Failure parsing SanitizationWarningReason from value: '" <> e
-            <> "'. Accepted values: disallowed_attribute_removed, disallowed_element_removed, invalid_attribute_value_removed"
+pattern DisallowedAttributeRemoved :: SanitizationWarningReason
+pattern DisallowedAttributeRemoved = SanitizationWarningReason' "DISALLOWED_ATTRIBUTE_REMOVED"
 
-instance ToText SanitizationWarningReason where
-  toText = \case
-    DisallowedAttributeRemoved -> "DISALLOWED_ATTRIBUTE_REMOVED"
-    DisallowedElementRemoved -> "DISALLOWED_ELEMENT_REMOVED"
-    InvalidAttributeValueRemoved -> "INVALID_ATTRIBUTE_VALUE_REMOVED"
+pattern DisallowedElementRemoved :: SanitizationWarningReason
+pattern DisallowedElementRemoved = SanitizationWarningReason' "DISALLOWED_ELEMENT_REMOVED"
 
-instance Hashable SanitizationWarningReason
+pattern InvalidAttributeValueRemoved :: SanitizationWarningReason
+pattern InvalidAttributeValueRemoved = SanitizationWarningReason' "INVALID_ATTRIBUTE_VALUE_REMOVED"
 
-instance NFData SanitizationWarningReason
-
-instance ToByteString SanitizationWarningReason
-
-instance ToQuery SanitizationWarningReason
-
-instance ToHeader SanitizationWarningReason
-
-instance FromJSON SanitizationWarningReason where
-  parseJSON = parseJSONText "SanitizationWarningReason"
+{-# COMPLETE
+  DisallowedAttributeRemoved,
+  DisallowedElementRemoved,
+  InvalidAttributeValueRemoved,
+  SanitizationWarningReason'
+  #-}

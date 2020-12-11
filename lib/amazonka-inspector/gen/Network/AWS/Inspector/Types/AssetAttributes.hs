@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,114 +7,146 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.AssetAttributes where
+module Network.AWS.Inspector.Types.AssetAttributes
+  ( AssetAttributes (..),
+
+    -- * Smart constructor
+    mkAssetAttributes,
+
+    -- * Lenses
+    aaHostname,
+    aaAutoScalingGroup,
+    aaNetworkInterfaces,
+    aaIpv4Addresses,
+    aaAgentId,
+    aaAmiId,
+    aaTags,
+    aaSchemaVersion,
+  )
+where
 
 import Network.AWS.Inspector.Types.NetworkInterface
 import Network.AWS.Inspector.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A collection of attributes of the host from which the finding is generated.
 --
---
---
--- /See:/ 'assetAttributes' smart constructor.
+-- /See:/ 'mkAssetAttributes' smart constructor.
 data AssetAttributes = AssetAttributes'
-  { _aaHostname ::
-      !(Maybe Text),
-    _aaAutoScalingGroup :: !(Maybe Text),
-    _aaNetworkInterfaces :: !(Maybe [NetworkInterface]),
-    _aaIpv4Addresses :: !(Maybe [Text]),
-    _aaAgentId :: !(Maybe Text),
-    _aaAmiId :: !(Maybe Text),
-    _aaTags :: !(Maybe [Tag]),
-    _aaSchemaVersion :: !Nat
+  { hostname ::
+      Lude.Maybe Lude.Text,
+    autoScalingGroup :: Lude.Maybe Lude.Text,
+    networkInterfaces :: Lude.Maybe [NetworkInterface],
+    ipv4Addresses :: Lude.Maybe [Lude.Text],
+    agentId :: Lude.Maybe Lude.Text,
+    amiId :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    schemaVersion :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssetAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aaHostname' - The hostname of the EC2 instance where the finding is generated.
---
--- * 'aaAutoScalingGroup' - The Auto Scaling group of the EC2 instance where the finding is generated.
---
--- * 'aaNetworkInterfaces' - An array of the network interfaces interacting with the EC2 instance where the finding is generated.
---
--- * 'aaIpv4Addresses' - The list of IP v4 addresses of the EC2 instance where the finding is generated.
---
--- * 'aaAgentId' - The ID of the agent that is installed on the EC2 instance where the finding is generated.
---
--- * 'aaAmiId' - The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where the finding is generated.
---
--- * 'aaTags' - The tags related to the EC2 instance where the finding is generated.
---
--- * 'aaSchemaVersion' - The schema version of this data type.
-assetAttributes ::
-  -- | 'aaSchemaVersion'
-  Natural ->
+-- * 'agentId' - The ID of the agent that is installed on the EC2 instance where the finding is generated.
+-- * 'amiId' - The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where the finding is generated.
+-- * 'autoScalingGroup' - The Auto Scaling group of the EC2 instance where the finding is generated.
+-- * 'hostname' - The hostname of the EC2 instance where the finding is generated.
+-- * 'ipv4Addresses' - The list of IP v4 addresses of the EC2 instance where the finding is generated.
+-- * 'networkInterfaces' - An array of the network interfaces interacting with the EC2 instance where the finding is generated.
+-- * 'schemaVersion' - The schema version of this data type.
+-- * 'tags' - The tags related to the EC2 instance where the finding is generated.
+mkAssetAttributes ::
+  -- | 'schemaVersion'
+  Lude.Natural ->
   AssetAttributes
-assetAttributes pSchemaVersion_ =
+mkAssetAttributes pSchemaVersion_ =
   AssetAttributes'
-    { _aaHostname = Nothing,
-      _aaAutoScalingGroup = Nothing,
-      _aaNetworkInterfaces = Nothing,
-      _aaIpv4Addresses = Nothing,
-      _aaAgentId = Nothing,
-      _aaAmiId = Nothing,
-      _aaTags = Nothing,
-      _aaSchemaVersion = _Nat # pSchemaVersion_
+    { hostname = Lude.Nothing,
+      autoScalingGroup = Lude.Nothing,
+      networkInterfaces = Lude.Nothing,
+      ipv4Addresses = Lude.Nothing,
+      agentId = Lude.Nothing,
+      amiId = Lude.Nothing,
+      tags = Lude.Nothing,
+      schemaVersion = pSchemaVersion_
     }
 
 -- | The hostname of the EC2 instance where the finding is generated.
-aaHostname :: Lens' AssetAttributes (Maybe Text)
-aaHostname = lens _aaHostname (\s a -> s {_aaHostname = a})
+--
+-- /Note:/ Consider using 'hostname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaHostname :: Lens.Lens' AssetAttributes (Lude.Maybe Lude.Text)
+aaHostname = Lens.lens (hostname :: AssetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {hostname = a} :: AssetAttributes)
+{-# DEPRECATED aaHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
 
 -- | The Auto Scaling group of the EC2 instance where the finding is generated.
-aaAutoScalingGroup :: Lens' AssetAttributes (Maybe Text)
-aaAutoScalingGroup = lens _aaAutoScalingGroup (\s a -> s {_aaAutoScalingGroup = a})
+--
+-- /Note:/ Consider using 'autoScalingGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAutoScalingGroup :: Lens.Lens' AssetAttributes (Lude.Maybe Lude.Text)
+aaAutoScalingGroup = Lens.lens (autoScalingGroup :: AssetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {autoScalingGroup = a} :: AssetAttributes)
+{-# DEPRECATED aaAutoScalingGroup "Use generic-lens or generic-optics with 'autoScalingGroup' instead." #-}
 
 -- | An array of the network interfaces interacting with the EC2 instance where the finding is generated.
-aaNetworkInterfaces :: Lens' AssetAttributes [NetworkInterface]
-aaNetworkInterfaces = lens _aaNetworkInterfaces (\s a -> s {_aaNetworkInterfaces = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'networkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaNetworkInterfaces :: Lens.Lens' AssetAttributes (Lude.Maybe [NetworkInterface])
+aaNetworkInterfaces = Lens.lens (networkInterfaces :: AssetAttributes -> Lude.Maybe [NetworkInterface]) (\s a -> s {networkInterfaces = a} :: AssetAttributes)
+{-# DEPRECATED aaNetworkInterfaces "Use generic-lens or generic-optics with 'networkInterfaces' instead." #-}
 
 -- | The list of IP v4 addresses of the EC2 instance where the finding is generated.
-aaIpv4Addresses :: Lens' AssetAttributes [Text]
-aaIpv4Addresses = lens _aaIpv4Addresses (\s a -> s {_aaIpv4Addresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipv4Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaIpv4Addresses :: Lens.Lens' AssetAttributes (Lude.Maybe [Lude.Text])
+aaIpv4Addresses = Lens.lens (ipv4Addresses :: AssetAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {ipv4Addresses = a} :: AssetAttributes)
+{-# DEPRECATED aaIpv4Addresses "Use generic-lens or generic-optics with 'ipv4Addresses' instead." #-}
 
 -- | The ID of the agent that is installed on the EC2 instance where the finding is generated.
-aaAgentId :: Lens' AssetAttributes (Maybe Text)
-aaAgentId = lens _aaAgentId (\s a -> s {_aaAgentId = a})
+--
+-- /Note:/ Consider using 'agentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAgentId :: Lens.Lens' AssetAttributes (Lude.Maybe Lude.Text)
+aaAgentId = Lens.lens (agentId :: AssetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {agentId = a} :: AssetAttributes)
+{-# DEPRECATED aaAgentId "Use generic-lens or generic-optics with 'agentId' instead." #-}
 
 -- | The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where the finding is generated.
-aaAmiId :: Lens' AssetAttributes (Maybe Text)
-aaAmiId = lens _aaAmiId (\s a -> s {_aaAmiId = a})
+--
+-- /Note:/ Consider using 'amiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAmiId :: Lens.Lens' AssetAttributes (Lude.Maybe Lude.Text)
+aaAmiId = Lens.lens (amiId :: AssetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {amiId = a} :: AssetAttributes)
+{-# DEPRECATED aaAmiId "Use generic-lens or generic-optics with 'amiId' instead." #-}
 
 -- | The tags related to the EC2 instance where the finding is generated.
-aaTags :: Lens' AssetAttributes [Tag]
-aaTags = lens _aaTags (\s a -> s {_aaTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaTags :: Lens.Lens' AssetAttributes (Lude.Maybe [Tag])
+aaTags = Lens.lens (tags :: AssetAttributes -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: AssetAttributes)
+{-# DEPRECATED aaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The schema version of this data type.
-aaSchemaVersion :: Lens' AssetAttributes Natural
-aaSchemaVersion = lens _aaSchemaVersion (\s a -> s {_aaSchemaVersion = a}) . _Nat
+--
+-- /Note:/ Consider using 'schemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaSchemaVersion :: Lens.Lens' AssetAttributes Lude.Natural
+aaSchemaVersion = Lens.lens (schemaVersion :: AssetAttributes -> Lude.Natural) (\s a -> s {schemaVersion = a} :: AssetAttributes)
+{-# DEPRECATED aaSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
 
-instance FromJSON AssetAttributes where
+instance Lude.FromJSON AssetAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "AssetAttributes"
       ( \x ->
           AssetAttributes'
-            <$> (x .:? "hostname")
-            <*> (x .:? "autoScalingGroup")
-            <*> (x .:? "networkInterfaces" .!= mempty)
-            <*> (x .:? "ipv4Addresses" .!= mempty)
-            <*> (x .:? "agentId")
-            <*> (x .:? "amiId")
-            <*> (x .:? "tags" .!= mempty)
-            <*> (x .: "schemaVersion")
+            Lude.<$> (x Lude..:? "hostname")
+            Lude.<*> (x Lude..:? "autoScalingGroup")
+            Lude.<*> (x Lude..:? "networkInterfaces" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ipv4Addresses" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "agentId")
+            Lude.<*> (x Lude..:? "amiId")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "schemaVersion")
       )
-
-instance Hashable AssetAttributes
-
-instance NFData AssetAttributes

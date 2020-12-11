@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,101 +7,130 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.JobBookmarkEntry where
+module Network.AWS.Glue.Types.JobBookmarkEntry
+  ( JobBookmarkEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJobBookmarkEntry,
+
+    -- * Lenses
+    jbeJobName,
+    jbeRun,
+    jbeRunId,
+    jbeVersion,
+    jbePreviousRunId,
+    jbeAttempt,
+    jbeJobBookmark,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines a point that a job can resume processing.
 --
---
---
--- /See:/ 'jobBookmarkEntry' smart constructor.
+-- /See:/ 'mkJobBookmarkEntry' smart constructor.
 data JobBookmarkEntry = JobBookmarkEntry'
-  { _jbeJobName ::
-      !(Maybe Text),
-    _jbeRun :: !(Maybe Int),
-    _jbeRunId :: !(Maybe Text),
-    _jbeVersion :: !(Maybe Int),
-    _jbePreviousRunId :: !(Maybe Text),
-    _jbeAttempt :: !(Maybe Int),
-    _jbeJobBookmark :: !(Maybe Text)
+  { jobName ::
+      Lude.Maybe Lude.Text,
+    run :: Lude.Maybe Lude.Int,
+    runId :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Int,
+    previousRunId :: Lude.Maybe Lude.Text,
+    attempt :: Lude.Maybe Lude.Int,
+    jobBookmark :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobBookmarkEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jbeJobName' - The name of the job in question.
---
--- * 'jbeRun' - The run ID number.
---
--- * 'jbeRunId' - The run ID number.
---
--- * 'jbeVersion' - The version of the job.
---
--- * 'jbePreviousRunId' - The unique run identifier associated with the previous job run.
---
--- * 'jbeAttempt' - The attempt ID number.
---
--- * 'jbeJobBookmark' - The bookmark itself.
-jobBookmarkEntry ::
+-- * 'attempt' - The attempt ID number.
+-- * 'jobBookmark' - The bookmark itself.
+-- * 'jobName' - The name of the job in question.
+-- * 'previousRunId' - The unique run identifier associated with the previous job run.
+-- * 'run' - The run ID number.
+-- * 'runId' - The run ID number.
+-- * 'version' - The version of the job.
+mkJobBookmarkEntry ::
   JobBookmarkEntry
-jobBookmarkEntry =
+mkJobBookmarkEntry =
   JobBookmarkEntry'
-    { _jbeJobName = Nothing,
-      _jbeRun = Nothing,
-      _jbeRunId = Nothing,
-      _jbeVersion = Nothing,
-      _jbePreviousRunId = Nothing,
-      _jbeAttempt = Nothing,
-      _jbeJobBookmark = Nothing
+    { jobName = Lude.Nothing,
+      run = Lude.Nothing,
+      runId = Lude.Nothing,
+      version = Lude.Nothing,
+      previousRunId = Lude.Nothing,
+      attempt = Lude.Nothing,
+      jobBookmark = Lude.Nothing
     }
 
 -- | The name of the job in question.
-jbeJobName :: Lens' JobBookmarkEntry (Maybe Text)
-jbeJobName = lens _jbeJobName (\s a -> s {_jbeJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jbeJobName :: Lens.Lens' JobBookmarkEntry (Lude.Maybe Lude.Text)
+jbeJobName = Lens.lens (jobName :: JobBookmarkEntry -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: JobBookmarkEntry)
+{-# DEPRECATED jbeJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The run ID number.
-jbeRun :: Lens' JobBookmarkEntry (Maybe Int)
-jbeRun = lens _jbeRun (\s a -> s {_jbeRun = a})
+--
+-- /Note:/ Consider using 'run' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jbeRun :: Lens.Lens' JobBookmarkEntry (Lude.Maybe Lude.Int)
+jbeRun = Lens.lens (run :: JobBookmarkEntry -> Lude.Maybe Lude.Int) (\s a -> s {run = a} :: JobBookmarkEntry)
+{-# DEPRECATED jbeRun "Use generic-lens or generic-optics with 'run' instead." #-}
 
 -- | The run ID number.
-jbeRunId :: Lens' JobBookmarkEntry (Maybe Text)
-jbeRunId = lens _jbeRunId (\s a -> s {_jbeRunId = a})
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jbeRunId :: Lens.Lens' JobBookmarkEntry (Lude.Maybe Lude.Text)
+jbeRunId = Lens.lens (runId :: JobBookmarkEntry -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: JobBookmarkEntry)
+{-# DEPRECATED jbeRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
 -- | The version of the job.
-jbeVersion :: Lens' JobBookmarkEntry (Maybe Int)
-jbeVersion = lens _jbeVersion (\s a -> s {_jbeVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jbeVersion :: Lens.Lens' JobBookmarkEntry (Lude.Maybe Lude.Int)
+jbeVersion = Lens.lens (version :: JobBookmarkEntry -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: JobBookmarkEntry)
+{-# DEPRECATED jbeVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The unique run identifier associated with the previous job run.
-jbePreviousRunId :: Lens' JobBookmarkEntry (Maybe Text)
-jbePreviousRunId = lens _jbePreviousRunId (\s a -> s {_jbePreviousRunId = a})
+--
+-- /Note:/ Consider using 'previousRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jbePreviousRunId :: Lens.Lens' JobBookmarkEntry (Lude.Maybe Lude.Text)
+jbePreviousRunId = Lens.lens (previousRunId :: JobBookmarkEntry -> Lude.Maybe Lude.Text) (\s a -> s {previousRunId = a} :: JobBookmarkEntry)
+{-# DEPRECATED jbePreviousRunId "Use generic-lens or generic-optics with 'previousRunId' instead." #-}
 
 -- | The attempt ID number.
-jbeAttempt :: Lens' JobBookmarkEntry (Maybe Int)
-jbeAttempt = lens _jbeAttempt (\s a -> s {_jbeAttempt = a})
+--
+-- /Note:/ Consider using 'attempt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jbeAttempt :: Lens.Lens' JobBookmarkEntry (Lude.Maybe Lude.Int)
+jbeAttempt = Lens.lens (attempt :: JobBookmarkEntry -> Lude.Maybe Lude.Int) (\s a -> s {attempt = a} :: JobBookmarkEntry)
+{-# DEPRECATED jbeAttempt "Use generic-lens or generic-optics with 'attempt' instead." #-}
 
 -- | The bookmark itself.
-jbeJobBookmark :: Lens' JobBookmarkEntry (Maybe Text)
-jbeJobBookmark = lens _jbeJobBookmark (\s a -> s {_jbeJobBookmark = a})
+--
+-- /Note:/ Consider using 'jobBookmark' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jbeJobBookmark :: Lens.Lens' JobBookmarkEntry (Lude.Maybe Lude.Text)
+jbeJobBookmark = Lens.lens (jobBookmark :: JobBookmarkEntry -> Lude.Maybe Lude.Text) (\s a -> s {jobBookmark = a} :: JobBookmarkEntry)
+{-# DEPRECATED jbeJobBookmark "Use generic-lens or generic-optics with 'jobBookmark' instead." #-}
 
-instance FromJSON JobBookmarkEntry where
+instance Lude.FromJSON JobBookmarkEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobBookmarkEntry"
       ( \x ->
           JobBookmarkEntry'
-            <$> (x .:? "JobName")
-            <*> (x .:? "Run")
-            <*> (x .:? "RunId")
-            <*> (x .:? "Version")
-            <*> (x .:? "PreviousRunId")
-            <*> (x .:? "Attempt")
-            <*> (x .:? "JobBookmark")
+            Lude.<$> (x Lude..:? "JobName")
+            Lude.<*> (x Lude..:? "Run")
+            Lude.<*> (x Lude..:? "RunId")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "PreviousRunId")
+            Lude.<*> (x Lude..:? "Attempt")
+            Lude.<*> (x Lude..:? "JobBookmark")
       )
-
-instance Hashable JobBookmarkEntry
-
-instance NFData JobBookmarkEntry

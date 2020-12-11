@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,26 @@
 --
 -- Describes available services to which you can create a VPC endpoint.
 --
---
 -- When the service provider and the consumer have different accounts multiple Availability Zones, and the consumer views the VPC endpoint service information, the response only includes the common Availability Zones. For example, when the service provider account uses @us-east-1a@ and @us-east-1c@ and the consumer uses @us-east-1a@ and us-east-1a and us-east-1b, the response includes the VPC endpoint services in the common Availability Zone, @us-east-1a@ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCEndpointServices
-  ( -- * Creating a Request
-    describeVPCEndpointServices,
-    DescribeVPCEndpointServices,
+  ( -- * Creating a request
+    DescribeVPCEndpointServices (..),
+    mkDescribeVPCEndpointServices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvesFilters,
     dvesServiceNames,
     dvesNextToken,
     dvesDryRun,
     dvesMaxResults,
 
-    -- * Destructuring the Response
-    describeVPCEndpointServicesResponse,
-    DescribeVPCEndpointServicesResponse,
+    -- * Destructuring the response
+    DescribeVPCEndpointServicesResponse (..),
+    mkDescribeVPCEndpointServicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvesrsServiceDetails,
     dvesrsServiceNames,
     dvesrsNextToken,
@@ -49,173 +42,229 @@ module Network.AWS.EC2.DescribeVPCEndpointServices
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DescribeVpcEndpointServices.
 --
---
---
--- /See:/ 'describeVPCEndpointServices' smart constructor.
+-- /See:/ 'mkDescribeVPCEndpointServices' smart constructor.
 data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
-  { _dvesFilters ::
-      !(Maybe [Filter]),
-    _dvesServiceNames ::
-      !(Maybe [Text]),
-    _dvesNextToken :: !(Maybe Text),
-    _dvesDryRun :: !(Maybe Bool),
-    _dvesMaxResults :: !(Maybe Int)
+  { filters ::
+      Lude.Maybe [Filter],
+    serviceNames ::
+      Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointServices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters.
 --
--- * 'dvesFilters' - One or more filters.     * @service-name@ - The name of the service.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
--- * 'dvesServiceNames' - One or more service names.
+--     * @service-name@ - The name of the service.
 --
--- * 'dvesNextToken' - The token for the next set of items to return. (You received this token from a prior call.)
 --
--- * 'dvesDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
 --
--- * 'dvesMaxResults' - The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value is greater than 1,000, we return only 1,000 items.
-describeVPCEndpointServices ::
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+-- * 'maxResults' - The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+--
+-- Constraint: If the value is greater than 1,000, we return only 1,000 items.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a prior call.)
+-- * 'serviceNames' - One or more service names.
+mkDescribeVPCEndpointServices ::
   DescribeVPCEndpointServices
-describeVPCEndpointServices =
+mkDescribeVPCEndpointServices =
   DescribeVPCEndpointServices'
-    { _dvesFilters = Nothing,
-      _dvesServiceNames = Nothing,
-      _dvesNextToken = Nothing,
-      _dvesDryRun = Nothing,
-      _dvesMaxResults = Nothing
+    { filters = Lude.Nothing,
+      serviceNames = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | One or more filters.     * @service-name@ - The name of the service.     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
-dvesFilters :: Lens' DescribeVPCEndpointServices [Filter]
-dvesFilters = lens _dvesFilters (\s a -> s {_dvesFilters = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+--
+--     * @service-name@ - The name of the service.
+--
+--
+--     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+--
+--     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesFilters :: Lens.Lens' DescribeVPCEndpointServices (Lude.Maybe [Filter])
+dvesFilters = Lens.lens (filters :: DescribeVPCEndpointServices -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeVPCEndpointServices)
+{-# DEPRECATED dvesFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | One or more service names.
-dvesServiceNames :: Lens' DescribeVPCEndpointServices [Text]
-dvesServiceNames = lens _dvesServiceNames (\s a -> s {_dvesServiceNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesServiceNames :: Lens.Lens' DescribeVPCEndpointServices (Lude.Maybe [Lude.Text])
+dvesServiceNames = Lens.lens (serviceNames :: DescribeVPCEndpointServices -> Lude.Maybe [Lude.Text]) (\s a -> s {serviceNames = a} :: DescribeVPCEndpointServices)
+{-# DEPRECATED dvesServiceNames "Use generic-lens or generic-optics with 'serviceNames' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a prior call.)
-dvesNextToken :: Lens' DescribeVPCEndpointServices (Maybe Text)
-dvesNextToken = lens _dvesNextToken (\s a -> s {_dvesNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesNextToken :: Lens.Lens' DescribeVPCEndpointServices (Lude.Maybe Lude.Text)
+dvesNextToken = Lens.lens (nextToken :: DescribeVPCEndpointServices -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCEndpointServices)
+{-# DEPRECATED dvesNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvesDryRun :: Lens' DescribeVPCEndpointServices (Maybe Bool)
-dvesDryRun = lens _dvesDryRun (\s a -> s {_dvesDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesDryRun :: Lens.Lens' DescribeVPCEndpointServices (Lude.Maybe Lude.Bool)
+dvesDryRun = Lens.lens (dryRun :: DescribeVPCEndpointServices -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVPCEndpointServices)
+{-# DEPRECATED dvesDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results. Constraint: If the value is greater than 1,000, we return only 1,000 items.
-dvesMaxResults :: Lens' DescribeVPCEndpointServices (Maybe Int)
-dvesMaxResults = lens _dvesMaxResults (\s a -> s {_dvesMaxResults = a})
+-- | The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.
+--
+-- Constraint: If the value is greater than 1,000, we return only 1,000 items.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesMaxResults :: Lens.Lens' DescribeVPCEndpointServices (Lude.Maybe Lude.Int)
+dvesMaxResults = Lens.lens (maxResults :: DescribeVPCEndpointServices -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeVPCEndpointServices)
+{-# DEPRECATED dvesMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeVPCEndpointServices where
+instance Page.AWSPager DescribeVPCEndpointServices where
   page rq rs
-    | stop (rs ^. dvesrsNextToken) = Nothing
-    | stop (rs ^. dvesrsServiceDetails) = Nothing
-    | stop (rs ^. dvesrsServiceNames) = Nothing
-    | otherwise = Just $ rq & dvesNextToken .~ rs ^. dvesrsNextToken
+    | Page.stop (rs Lens.^. dvesrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dvesrsServiceDetails) = Lude.Nothing
+    | Page.stop (rs Lens.^. dvesrsServiceNames) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dvesNextToken Lens..~ rs Lens.^. dvesrsNextToken
 
-instance AWSRequest DescribeVPCEndpointServices where
+instance Lude.AWSRequest DescribeVPCEndpointServices where
   type
     Rs DescribeVPCEndpointServices =
       DescribeVPCEndpointServicesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeVPCEndpointServicesResponse'
-            <$> (x .@? "serviceDetailSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "serviceNameSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "serviceDetailSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> ( x Lude..@? "serviceNameSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVPCEndpointServices
+instance Lude.ToHeaders DescribeVPCEndpointServices where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVPCEndpointServices
+instance Lude.ToPath DescribeVPCEndpointServices where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeVPCEndpointServices where
-  toHeaders = const mempty
-
-instance ToPath DescribeVPCEndpointServices where
-  toPath = const "/"
-
-instance ToQuery DescribeVPCEndpointServices where
+instance Lude.ToQuery DescribeVPCEndpointServices where
   toQuery DescribeVPCEndpointServices' {..} =
-    mconcat
-      [ "Action" =: ("DescribeVpcEndpointServices" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dvesFilters),
-        toQuery (toQueryList "ServiceName" <$> _dvesServiceNames),
-        "NextToken" =: _dvesNextToken,
-        "DryRun" =: _dvesDryRun,
-        "MaxResults" =: _dvesMaxResults
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeVpcEndpointServices" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        Lude.toQuery
+          (Lude.toQueryList "ServiceName" Lude.<$> serviceNames),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | Contains the output of DescribeVpcEndpointServices.
 --
---
---
--- /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
+-- /See:/ 'mkDescribeVPCEndpointServicesResponse' smart constructor.
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
-  { _dvesrsServiceDetails ::
-      !( Maybe
-           [ServiceDetail]
-       ),
-    _dvesrsServiceNames ::
-      !(Maybe [Text]),
-    _dvesrsNextToken ::
-      !(Maybe Text),
-    _dvesrsResponseStatus ::
-      !Int
+  { serviceDetails ::
+      Lude.Maybe
+        [ServiceDetail],
+    serviceNames ::
+      Lude.Maybe
+        [Lude.Text],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointServicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvesrsServiceDetails' - Information about the service.
---
--- * 'dvesrsServiceNames' - A list of supported services.
---
--- * 'dvesrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'dvesrsResponseStatus' - -- | The response status code.
-describeVPCEndpointServicesResponse ::
-  -- | 'dvesrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'responseStatus' - The response status code.
+-- * 'serviceDetails' - Information about the service.
+-- * 'serviceNames' - A list of supported services.
+mkDescribeVPCEndpointServicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVPCEndpointServicesResponse
-describeVPCEndpointServicesResponse pResponseStatus_ =
+mkDescribeVPCEndpointServicesResponse pResponseStatus_ =
   DescribeVPCEndpointServicesResponse'
-    { _dvesrsServiceDetails =
-        Nothing,
-      _dvesrsServiceNames = Nothing,
-      _dvesrsNextToken = Nothing,
-      _dvesrsResponseStatus = pResponseStatus_
+    { serviceDetails =
+        Lude.Nothing,
+      serviceNames = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the service.
-dvesrsServiceDetails :: Lens' DescribeVPCEndpointServicesResponse [ServiceDetail]
-dvesrsServiceDetails = lens _dvesrsServiceDetails (\s a -> s {_dvesrsServiceDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesrsServiceDetails :: Lens.Lens' DescribeVPCEndpointServicesResponse (Lude.Maybe [ServiceDetail])
+dvesrsServiceDetails = Lens.lens (serviceDetails :: DescribeVPCEndpointServicesResponse -> Lude.Maybe [ServiceDetail]) (\s a -> s {serviceDetails = a} :: DescribeVPCEndpointServicesResponse)
+{-# DEPRECATED dvesrsServiceDetails "Use generic-lens or generic-optics with 'serviceDetails' instead." #-}
 
 -- | A list of supported services.
-dvesrsServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
-dvesrsServiceNames = lens _dvesrsServiceNames (\s a -> s {_dvesrsServiceNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesrsServiceNames :: Lens.Lens' DescribeVPCEndpointServicesResponse (Lude.Maybe [Lude.Text])
+dvesrsServiceNames = Lens.lens (serviceNames :: DescribeVPCEndpointServicesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {serviceNames = a} :: DescribeVPCEndpointServicesResponse)
+{-# DEPRECATED dvesrsServiceNames "Use generic-lens or generic-optics with 'serviceNames' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-dvesrsNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
-dvesrsNextToken = lens _dvesrsNextToken (\s a -> s {_dvesrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesrsNextToken :: Lens.Lens' DescribeVPCEndpointServicesResponse (Lude.Maybe Lude.Text)
+dvesrsNextToken = Lens.lens (nextToken :: DescribeVPCEndpointServicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCEndpointServicesResponse)
+{-# DEPRECATED dvesrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dvesrsResponseStatus :: Lens' DescribeVPCEndpointServicesResponse Int
-dvesrsResponseStatus = lens _dvesrsResponseStatus (\s a -> s {_dvesrsResponseStatus = a})
-
-instance NFData DescribeVPCEndpointServicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesrsResponseStatus :: Lens.Lens' DescribeVPCEndpointServicesResponse Lude.Int
+dvesrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCEndpointServicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCEndpointServicesResponse)
+{-# DEPRECATED dvesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

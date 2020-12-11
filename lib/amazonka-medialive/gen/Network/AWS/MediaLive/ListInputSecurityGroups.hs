@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,147 +16,166 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.MediaLive.ListInputSecurityGroups
-  ( -- * Creating a Request
-    listInputSecurityGroups,
-    ListInputSecurityGroups,
+  ( -- * Creating a request
+    ListInputSecurityGroups (..),
+    mkListInputSecurityGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lisgNextToken,
     lisgMaxResults,
 
-    -- * Destructuring the Response
-    listInputSecurityGroupsResponse,
-    ListInputSecurityGroupsResponse,
+    -- * Destructuring the response
+    ListInputSecurityGroupsResponse (..),
+    mkListInputSecurityGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lisgrsNextToken,
     lisgrsInputSecurityGroups,
     lisgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for ListInputSecurityGroupsRequest
 --
--- /See:/ 'listInputSecurityGroups' smart constructor.
+-- /See:/ 'mkListInputSecurityGroups' smart constructor.
 data ListInputSecurityGroups = ListInputSecurityGroups'
-  { _lisgNextToken ::
-      !(Maybe Text),
-    _lisgMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInputSecurityGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lisgNextToken' - Undocumented member.
---
--- * 'lisgMaxResults' - Undocumented member.
-listInputSecurityGroups ::
+-- * 'maxResults' - Undocumented field.
+-- * 'nextToken' - Undocumented field.
+mkListInputSecurityGroups ::
   ListInputSecurityGroups
-listInputSecurityGroups =
+mkListInputSecurityGroups =
   ListInputSecurityGroups'
-    { _lisgNextToken = Nothing,
-      _lisgMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | Undocumented member.
-lisgNextToken :: Lens' ListInputSecurityGroups (Maybe Text)
-lisgNextToken = lens _lisgNextToken (\s a -> s {_lisgNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lisgNextToken :: Lens.Lens' ListInputSecurityGroups (Lude.Maybe Lude.Text)
+lisgNextToken = Lens.lens (nextToken :: ListInputSecurityGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInputSecurityGroups)
+{-# DEPRECATED lisgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Undocumented member.
-lisgMaxResults :: Lens' ListInputSecurityGroups (Maybe Natural)
-lisgMaxResults = lens _lisgMaxResults (\s a -> s {_lisgMaxResults = a}) . mapping _Nat
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lisgMaxResults :: Lens.Lens' ListInputSecurityGroups (Lude.Maybe Lude.Natural)
+lisgMaxResults = Lens.lens (maxResults :: ListInputSecurityGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInputSecurityGroups)
+{-# DEPRECATED lisgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListInputSecurityGroups where
+instance Page.AWSPager ListInputSecurityGroups where
   page rq rs
-    | stop (rs ^. lisgrsNextToken) = Nothing
-    | stop (rs ^. lisgrsInputSecurityGroups) = Nothing
-    | otherwise = Just $ rq & lisgNextToken .~ rs ^. lisgrsNextToken
+    | Page.stop (rs Lens.^. lisgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lisgrsInputSecurityGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lisgNextToken Lens..~ rs Lens.^. lisgrsNextToken
 
-instance AWSRequest ListInputSecurityGroups where
+instance Lude.AWSRequest ListInputSecurityGroups where
   type Rs ListInputSecurityGroups = ListInputSecurityGroupsResponse
-  request = get mediaLive
+  request = Req.get mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListInputSecurityGroupsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "inputSecurityGroups" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "inputSecurityGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListInputSecurityGroups
-
-instance NFData ListInputSecurityGroups
-
-instance ToHeaders ListInputSecurityGroups where
+instance Lude.ToHeaders ListInputSecurityGroups where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListInputSecurityGroups where
-  toPath = const "/prod/inputSecurityGroups"
+instance Lude.ToPath ListInputSecurityGroups where
+  toPath = Lude.const "/prod/inputSecurityGroups"
 
-instance ToQuery ListInputSecurityGroups where
+instance Lude.ToQuery ListInputSecurityGroups where
   toQuery ListInputSecurityGroups' {..} =
-    mconcat
-      ["nextToken" =: _lisgNextToken, "maxResults" =: _lisgMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
 -- | Placeholder documentation for ListInputSecurityGroupsResponse
 --
--- /See:/ 'listInputSecurityGroupsResponse' smart constructor.
+-- /See:/ 'mkListInputSecurityGroupsResponse' smart constructor.
 data ListInputSecurityGroupsResponse = ListInputSecurityGroupsResponse'
-  { _lisgrsNextToken ::
-      !(Maybe Text),
-    _lisgrsInputSecurityGroups ::
-      !( Maybe
-           [InputSecurityGroup]
-       ),
-    _lisgrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    inputSecurityGroups ::
+      Lude.Maybe
+        [InputSecurityGroup],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInputSecurityGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lisgrsNextToken' - Undocumented member.
---
--- * 'lisgrsInputSecurityGroups' - List of input security groups
---
--- * 'lisgrsResponseStatus' - -- | The response status code.
-listInputSecurityGroupsResponse ::
-  -- | 'lisgrsResponseStatus'
-  Int ->
+-- * 'inputSecurityGroups' - List of input security groups
+-- * 'nextToken' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkListInputSecurityGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListInputSecurityGroupsResponse
-listInputSecurityGroupsResponse pResponseStatus_ =
+mkListInputSecurityGroupsResponse pResponseStatus_ =
   ListInputSecurityGroupsResponse'
-    { _lisgrsNextToken = Nothing,
-      _lisgrsInputSecurityGroups = Nothing,
-      _lisgrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      inputSecurityGroups = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-lisgrsNextToken :: Lens' ListInputSecurityGroupsResponse (Maybe Text)
-lisgrsNextToken = lens _lisgrsNextToken (\s a -> s {_lisgrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lisgrsNextToken :: Lens.Lens' ListInputSecurityGroupsResponse (Lude.Maybe Lude.Text)
+lisgrsNextToken = Lens.lens (nextToken :: ListInputSecurityGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInputSecurityGroupsResponse)
+{-# DEPRECATED lisgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of input security groups
-lisgrsInputSecurityGroups :: Lens' ListInputSecurityGroupsResponse [InputSecurityGroup]
-lisgrsInputSecurityGroups = lens _lisgrsInputSecurityGroups (\s a -> s {_lisgrsInputSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lisgrsInputSecurityGroups :: Lens.Lens' ListInputSecurityGroupsResponse (Lude.Maybe [InputSecurityGroup])
+lisgrsInputSecurityGroups = Lens.lens (inputSecurityGroups :: ListInputSecurityGroupsResponse -> Lude.Maybe [InputSecurityGroup]) (\s a -> s {inputSecurityGroups = a} :: ListInputSecurityGroupsResponse)
+{-# DEPRECATED lisgrsInputSecurityGroups "Use generic-lens or generic-optics with 'inputSecurityGroups' instead." #-}
 
--- | -- | The response status code.
-lisgrsResponseStatus :: Lens' ListInputSecurityGroupsResponse Int
-lisgrsResponseStatus = lens _lisgrsResponseStatus (\s a -> s {_lisgrsResponseStatus = a})
-
-instance NFData ListInputSecurityGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lisgrsResponseStatus :: Lens.Lens' ListInputSecurityGroupsResponse Lude.Int
+lisgrsResponseStatus = Lens.lens (responseStatus :: ListInputSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInputSecurityGroupsResponse)
+{-# DEPRECATED lisgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

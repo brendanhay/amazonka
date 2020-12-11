@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates a @Function@ object.
 module Network.AWS.AppSync.UpdateFunction
-  ( -- * Creating a Request
-    updateFunction,
-    UpdateFunction,
+  ( -- * Creating a request
+    UpdateFunction (..),
+    mkUpdateFunction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ufRequestMappingTemplate,
     ufResponseMappingTemplate,
     ufDescription,
@@ -33,189 +28,220 @@ module Network.AWS.AppSync.UpdateFunction
     ufDataSourceName,
     ufFunctionVersion,
 
-    -- * Destructuring the Response
-    updateFunctionResponse,
-    UpdateFunctionResponse,
+    -- * Destructuring the response
+    UpdateFunctionResponse (..),
+    mkUpdateFunctionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ufrsFunctionConfiguration,
     ufrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateFunction' smart constructor.
+-- | /See:/ 'mkUpdateFunction' smart constructor.
 data UpdateFunction = UpdateFunction'
-  { _ufRequestMappingTemplate ::
-      !(Maybe Text),
-    _ufResponseMappingTemplate :: !(Maybe Text),
-    _ufDescription :: !(Maybe Text),
-    _ufApiId :: !Text,
-    _ufName :: !Text,
-    _ufFunctionId :: !Text,
-    _ufDataSourceName :: !Text,
-    _ufFunctionVersion :: !Text
+  { requestMappingTemplate ::
+      Lude.Maybe Lude.Text,
+    responseMappingTemplate :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    apiId :: Lude.Text,
+    name :: Lude.Text,
+    functionId :: Lude.Text,
+    dataSourceName :: Lude.Text,
+    functionVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFunction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufRequestMappingTemplate' - The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
---
--- * 'ufResponseMappingTemplate' - The @Function@ request mapping template.
---
--- * 'ufDescription' - The @Function@ description.
---
--- * 'ufApiId' - The GraphQL API ID.
---
--- * 'ufName' - The @Function@ name.
---
--- * 'ufFunctionId' - The function ID.
---
--- * 'ufDataSourceName' - The @Function@ @DataSource@ name.
---
--- * 'ufFunctionVersion' - The @version@ of the request mapping template. Currently the supported value is 2018-05-29.
-updateFunction ::
-  -- | 'ufApiId'
-  Text ->
-  -- | 'ufName'
-  Text ->
-  -- | 'ufFunctionId'
-  Text ->
-  -- | 'ufDataSourceName'
-  Text ->
-  -- | 'ufFunctionVersion'
-  Text ->
+-- * 'apiId' - The GraphQL API ID.
+-- * 'dataSourceName' - The @Function@ @DataSource@ name.
+-- * 'description' - The @Function@ description.
+-- * 'functionId' - The function ID.
+-- * 'functionVersion' - The @version@ of the request mapping template. Currently the supported value is 2018-05-29.
+-- * 'name' - The @Function@ name.
+-- * 'requestMappingTemplate' - The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
+-- * 'responseMappingTemplate' - The @Function@ request mapping template.
+mkUpdateFunction ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'functionId'
+  Lude.Text ->
+  -- | 'dataSourceName'
+  Lude.Text ->
+  -- | 'functionVersion'
+  Lude.Text ->
   UpdateFunction
-updateFunction
+mkUpdateFunction
   pApiId_
   pName_
   pFunctionId_
   pDataSourceName_
   pFunctionVersion_ =
     UpdateFunction'
-      { _ufRequestMappingTemplate = Nothing,
-        _ufResponseMappingTemplate = Nothing,
-        _ufDescription = Nothing,
-        _ufApiId = pApiId_,
-        _ufName = pName_,
-        _ufFunctionId = pFunctionId_,
-        _ufDataSourceName = pDataSourceName_,
-        _ufFunctionVersion = pFunctionVersion_
+      { requestMappingTemplate = Lude.Nothing,
+        responseMappingTemplate = Lude.Nothing,
+        description = Lude.Nothing,
+        apiId = pApiId_,
+        name = pName_,
+        functionId = pFunctionId_,
+        dataSourceName = pDataSourceName_,
+        functionVersion = pFunctionVersion_
       }
 
 -- | The @Function@ request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-ufRequestMappingTemplate :: Lens' UpdateFunction (Maybe Text)
-ufRequestMappingTemplate = lens _ufRequestMappingTemplate (\s a -> s {_ufRequestMappingTemplate = a})
+--
+-- /Note:/ Consider using 'requestMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufRequestMappingTemplate :: Lens.Lens' UpdateFunction (Lude.Maybe Lude.Text)
+ufRequestMappingTemplate = Lens.lens (requestMappingTemplate :: UpdateFunction -> Lude.Maybe Lude.Text) (\s a -> s {requestMappingTemplate = a} :: UpdateFunction)
+{-# DEPRECATED ufRequestMappingTemplate "Use generic-lens or generic-optics with 'requestMappingTemplate' instead." #-}
 
 -- | The @Function@ request mapping template.
-ufResponseMappingTemplate :: Lens' UpdateFunction (Maybe Text)
-ufResponseMappingTemplate = lens _ufResponseMappingTemplate (\s a -> s {_ufResponseMappingTemplate = a})
+--
+-- /Note:/ Consider using 'responseMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufResponseMappingTemplate :: Lens.Lens' UpdateFunction (Lude.Maybe Lude.Text)
+ufResponseMappingTemplate = Lens.lens (responseMappingTemplate :: UpdateFunction -> Lude.Maybe Lude.Text) (\s a -> s {responseMappingTemplate = a} :: UpdateFunction)
+{-# DEPRECATED ufResponseMappingTemplate "Use generic-lens or generic-optics with 'responseMappingTemplate' instead." #-}
 
 -- | The @Function@ description.
-ufDescription :: Lens' UpdateFunction (Maybe Text)
-ufDescription = lens _ufDescription (\s a -> s {_ufDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufDescription :: Lens.Lens' UpdateFunction (Lude.Maybe Lude.Text)
+ufDescription = Lens.lens (description :: UpdateFunction -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateFunction)
+{-# DEPRECATED ufDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The GraphQL API ID.
-ufApiId :: Lens' UpdateFunction Text
-ufApiId = lens _ufApiId (\s a -> s {_ufApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufApiId :: Lens.Lens' UpdateFunction Lude.Text
+ufApiId = Lens.lens (apiId :: UpdateFunction -> Lude.Text) (\s a -> s {apiId = a} :: UpdateFunction)
+{-# DEPRECATED ufApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The @Function@ name.
-ufName :: Lens' UpdateFunction Text
-ufName = lens _ufName (\s a -> s {_ufName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufName :: Lens.Lens' UpdateFunction Lude.Text
+ufName = Lens.lens (name :: UpdateFunction -> Lude.Text) (\s a -> s {name = a} :: UpdateFunction)
+{-# DEPRECATED ufName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The function ID.
-ufFunctionId :: Lens' UpdateFunction Text
-ufFunctionId = lens _ufFunctionId (\s a -> s {_ufFunctionId = a})
+--
+-- /Note:/ Consider using 'functionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufFunctionId :: Lens.Lens' UpdateFunction Lude.Text
+ufFunctionId = Lens.lens (functionId :: UpdateFunction -> Lude.Text) (\s a -> s {functionId = a} :: UpdateFunction)
+{-# DEPRECATED ufFunctionId "Use generic-lens or generic-optics with 'functionId' instead." #-}
 
 -- | The @Function@ @DataSource@ name.
-ufDataSourceName :: Lens' UpdateFunction Text
-ufDataSourceName = lens _ufDataSourceName (\s a -> s {_ufDataSourceName = a})
+--
+-- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufDataSourceName :: Lens.Lens' UpdateFunction Lude.Text
+ufDataSourceName = Lens.lens (dataSourceName :: UpdateFunction -> Lude.Text) (\s a -> s {dataSourceName = a} :: UpdateFunction)
+{-# DEPRECATED ufDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
 
 -- | The @version@ of the request mapping template. Currently the supported value is 2018-05-29.
-ufFunctionVersion :: Lens' UpdateFunction Text
-ufFunctionVersion = lens _ufFunctionVersion (\s a -> s {_ufFunctionVersion = a})
+--
+-- /Note:/ Consider using 'functionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufFunctionVersion :: Lens.Lens' UpdateFunction Lude.Text
+ufFunctionVersion = Lens.lens (functionVersion :: UpdateFunction -> Lude.Text) (\s a -> s {functionVersion = a} :: UpdateFunction)
+{-# DEPRECATED ufFunctionVersion "Use generic-lens or generic-optics with 'functionVersion' instead." #-}
 
-instance AWSRequest UpdateFunction where
+instance Lude.AWSRequest UpdateFunction where
   type Rs UpdateFunction = UpdateFunctionResponse
-  request = postJSON appSync
+  request = Req.postJSON appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateFunctionResponse'
-            <$> (x .?> "functionConfiguration") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "functionConfiguration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateFunction
-
-instance NFData UpdateFunction
-
-instance ToHeaders UpdateFunction where
+instance Lude.ToHeaders UpdateFunction where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateFunction where
-  toJSON UpdateFunction' {..} =
-    object
-      ( catMaybes
-          [ ("requestMappingTemplate" .=) <$> _ufRequestMappingTemplate,
-            ("responseMappingTemplate" .=) <$> _ufResponseMappingTemplate,
-            ("description" .=) <$> _ufDescription,
-            Just ("name" .= _ufName),
-            Just ("dataSourceName" .= _ufDataSourceName),
-            Just ("functionVersion" .= _ufFunctionVersion)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateFunction where
+instance Lude.ToJSON UpdateFunction where
+  toJSON UpdateFunction' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("requestMappingTemplate" Lude..=)
+              Lude.<$> requestMappingTemplate,
+            ("responseMappingTemplate" Lude..=)
+              Lude.<$> responseMappingTemplate,
+            ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just ("dataSourceName" Lude..= dataSourceName),
+            Lude.Just ("functionVersion" Lude..= functionVersion)
+          ]
+      )
+
+instance Lude.ToPath UpdateFunction where
   toPath UpdateFunction' {..} =
-    mconcat
-      ["/v1/apis/", toBS _ufApiId, "/functions/", toBS _ufFunctionId]
+    Lude.mconcat
+      ["/v1/apis/", Lude.toBS apiId, "/functions/", Lude.toBS functionId]
 
-instance ToQuery UpdateFunction where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateFunction where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateFunctionResponse' smart constructor.
+-- | /See:/ 'mkUpdateFunctionResponse' smart constructor.
 data UpdateFunctionResponse = UpdateFunctionResponse'
-  { _ufrsFunctionConfiguration ::
-      !(Maybe FunctionConfiguration),
-    _ufrsResponseStatus :: !Int
+  { functionConfiguration ::
+      Lude.Maybe FunctionConfiguration,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFunctionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ufrsFunctionConfiguration' - The @Function@ object.
---
--- * 'ufrsResponseStatus' - -- | The response status code.
-updateFunctionResponse ::
-  -- | 'ufrsResponseStatus'
-  Int ->
+-- * 'functionConfiguration' - The @Function@ object.
+-- * 'responseStatus' - The response status code.
+mkUpdateFunctionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateFunctionResponse
-updateFunctionResponse pResponseStatus_ =
+mkUpdateFunctionResponse pResponseStatus_ =
   UpdateFunctionResponse'
-    { _ufrsFunctionConfiguration = Nothing,
-      _ufrsResponseStatus = pResponseStatus_
+    { functionConfiguration = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @Function@ object.
-ufrsFunctionConfiguration :: Lens' UpdateFunctionResponse (Maybe FunctionConfiguration)
-ufrsFunctionConfiguration = lens _ufrsFunctionConfiguration (\s a -> s {_ufrsFunctionConfiguration = a})
+--
+-- /Note:/ Consider using 'functionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufrsFunctionConfiguration :: Lens.Lens' UpdateFunctionResponse (Lude.Maybe FunctionConfiguration)
+ufrsFunctionConfiguration = Lens.lens (functionConfiguration :: UpdateFunctionResponse -> Lude.Maybe FunctionConfiguration) (\s a -> s {functionConfiguration = a} :: UpdateFunctionResponse)
+{-# DEPRECATED ufrsFunctionConfiguration "Use generic-lens or generic-optics with 'functionConfiguration' instead." #-}
 
--- | -- | The response status code.
-ufrsResponseStatus :: Lens' UpdateFunctionResponse Int
-ufrsResponseStatus = lens _ufrsResponseStatus (\s a -> s {_ufrsResponseStatus = a})
-
-instance NFData UpdateFunctionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufrsResponseStatus :: Lens.Lens' UpdateFunctionResponse Lude.Int
+ufrsResponseStatus = Lens.lens (responseStatus :: UpdateFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateFunctionResponse)
+{-# DEPRECATED ufrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

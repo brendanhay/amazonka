@@ -14,11 +14,10 @@
 -- __Amazon CloudSearch Configuration Service__
 --
 -- You use the Amazon CloudSearch configuration service to create, configure, and manage search domains. Configuration service requests are submitted using the AWS Query protocol. AWS Query requests are HTTP or HTTPS requests submitted via HTTP GET or POST with a query parameter named Action.
---
 -- The endpoint for configuration service requests is region-specific: cloudsearch./region/ .amazonaws.com. For example, cloudsearch.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints> .
 module Network.AWS.CloudSearch
-  ( -- * Service Configuration
-    cloudSearch,
+  ( -- * Service configuration
+    cloudSearchService,
 
     -- * Errors
     -- $errors
@@ -131,14 +130,14 @@ module Network.AWS.CloudSearch
     TLSSecurityPolicy (..),
 
     -- ** AccessPoliciesStatus
-    AccessPoliciesStatus,
-    accessPoliciesStatus,
+    AccessPoliciesStatus (..),
+    mkAccessPoliciesStatus,
     apsOptions,
     apsStatus,
 
     -- ** AnalysisOptions
-    AnalysisOptions,
-    analysisOptions,
+    AnalysisOptions (..),
+    mkAnalysisOptions,
     aoAlgorithmicStemming,
     aoStopwords,
     aoJapaneseTokenizationDictionary,
@@ -146,27 +145,27 @@ module Network.AWS.CloudSearch
     aoStemmingDictionary,
 
     -- ** AnalysisScheme
-    AnalysisScheme,
-    analysisScheme,
+    AnalysisScheme (..),
+    mkAnalysisScheme,
     asAnalysisOptions,
     asAnalysisSchemeName,
     asAnalysisSchemeLanguage,
 
     -- ** AnalysisSchemeStatus
-    AnalysisSchemeStatus,
-    analysisSchemeStatus,
+    AnalysisSchemeStatus (..),
+    mkAnalysisSchemeStatus,
     assOptions,
     assStatus,
 
     -- ** AvailabilityOptionsStatus
-    AvailabilityOptionsStatus,
-    availabilityOptionsStatus,
+    AvailabilityOptionsStatus (..),
+    mkAvailabilityOptionsStatus,
     aosOptions,
     aosStatus,
 
     -- ** DateArrayOptions
-    DateArrayOptions,
-    dateArrayOptions,
+    DateArrayOptions (..),
+    mkDateArrayOptions,
     daosSourceFields,
     daosReturnEnabled,
     daosFacetEnabled,
@@ -174,8 +173,8 @@ module Network.AWS.CloudSearch
     daosDefaultValue,
 
     -- ** DateOptions
-    DateOptions,
-    dateOptions,
+    DateOptions (..),
+    mkDateOptions,
     doSourceField,
     doReturnEnabled,
     doFacetEnabled,
@@ -184,27 +183,27 @@ module Network.AWS.CloudSearch
     doDefaultValue,
 
     -- ** DocumentSuggesterOptions
-    DocumentSuggesterOptions,
-    documentSuggesterOptions,
+    DocumentSuggesterOptions (..),
+    mkDocumentSuggesterOptions,
     dsoSortExpression,
     dsoFuzzyMatching,
     dsoSourceField,
 
     -- ** DomainEndpointOptions
-    DomainEndpointOptions,
-    domainEndpointOptions,
+    DomainEndpointOptions (..),
+    mkDomainEndpointOptions,
     deoEnforceHTTPS,
     deoTLSSecurityPolicy,
 
     -- ** DomainEndpointOptionsStatus
-    DomainEndpointOptionsStatus,
-    domainEndpointOptionsStatus,
+    DomainEndpointOptionsStatus (..),
+    mkDomainEndpointOptionsStatus,
     deosOptions,
     deosStatus,
 
     -- ** DomainStatus
-    DomainStatus,
-    domainStatus,
+    DomainStatus (..),
+    mkDomainStatus,
     dsSearchInstanceCount,
     dsSearchInstanceType,
     dsDocService,
@@ -220,8 +219,8 @@ module Network.AWS.CloudSearch
     dsRequiresIndexDocuments,
 
     -- ** DoubleArrayOptions
-    DoubleArrayOptions,
-    doubleArrayOptions,
+    DoubleArrayOptions (..),
+    mkDoubleArrayOptions,
     daoSourceFields,
     daoReturnEnabled,
     daoFacetEnabled,
@@ -229,8 +228,8 @@ module Network.AWS.CloudSearch
     daoDefaultValue,
 
     -- ** DoubleOptions
-    DoubleOptions,
-    doubleOptions,
+    DoubleOptions (..),
+    mkDoubleOptions,
     dSourceField,
     dReturnEnabled,
     dFacetEnabled,
@@ -239,20 +238,20 @@ module Network.AWS.CloudSearch
     dDefaultValue,
 
     -- ** Expression
-    Expression,
-    expression,
+    Expression (..),
+    mkExpression,
     eExpressionName,
     eExpressionValue,
 
     -- ** ExpressionStatus
-    ExpressionStatus,
-    expressionStatus,
+    ExpressionStatus (..),
+    mkExpressionStatus,
     esOptions,
     esStatus,
 
     -- ** IndexField
-    IndexField,
-    indexField,
+    IndexField (..),
+    mkIndexField,
     ifDoubleArrayOptions,
     ifDateOptions,
     ifTextArrayOptions,
@@ -268,14 +267,14 @@ module Network.AWS.CloudSearch
     ifIndexFieldType,
 
     -- ** IndexFieldStatus
-    IndexFieldStatus,
-    indexFieldStatus,
+    IndexFieldStatus (..),
+    mkIndexFieldStatus,
     ifsOptions,
     ifsStatus,
 
     -- ** IntArrayOptions
-    IntArrayOptions,
-    intArrayOptions,
+    IntArrayOptions (..),
+    mkIntArrayOptions,
     iaoSourceFields,
     iaoReturnEnabled,
     iaoFacetEnabled,
@@ -283,8 +282,8 @@ module Network.AWS.CloudSearch
     iaoDefaultValue,
 
     -- ** IntOptions
-    IntOptions,
-    intOptions,
+    IntOptions (..),
+    mkIntOptions,
     ioSourceField,
     ioReturnEnabled,
     ioFacetEnabled,
@@ -293,8 +292,8 @@ module Network.AWS.CloudSearch
     ioDefaultValue,
 
     -- ** LatLonOptions
-    LatLonOptions,
-    latLonOptions,
+    LatLonOptions (..),
+    mkLatLonOptions,
     lloSourceField,
     lloReturnEnabled,
     lloFacetEnabled,
@@ -303,14 +302,14 @@ module Network.AWS.CloudSearch
     lloDefaultValue,
 
     -- ** Limits
-    Limits,
-    limits,
+    Limits (..),
+    mkLimits,
     lMaximumReplicationCount,
     lMaximumPartitionCount,
 
     -- ** LiteralArrayOptions
-    LiteralArrayOptions,
-    literalArrayOptions,
+    LiteralArrayOptions (..),
+    mkLiteralArrayOptions,
     laoSourceFields,
     laoReturnEnabled,
     laoFacetEnabled,
@@ -318,8 +317,8 @@ module Network.AWS.CloudSearch
     laoDefaultValue,
 
     -- ** LiteralOptions
-    LiteralOptions,
-    literalOptions,
+    LiteralOptions (..),
+    mkLiteralOptions,
     loSourceField,
     loReturnEnabled,
     loFacetEnabled,
@@ -328,8 +327,8 @@ module Network.AWS.CloudSearch
     loDefaultValue,
 
     -- ** OptionStatus
-    OptionStatus,
-    optionStatus,
+    OptionStatus (..),
+    mkOptionStatus,
     osPendingDeletion,
     osUpdateVersion,
     osCreationDate,
@@ -337,38 +336,38 @@ module Network.AWS.CloudSearch
     osState,
 
     -- ** ScalingParameters
-    ScalingParameters,
-    scalingParameters,
+    ScalingParameters (..),
+    mkScalingParameters,
     spDesiredInstanceType,
     spDesiredReplicationCount,
     spDesiredPartitionCount,
 
     -- ** ScalingParametersStatus
-    ScalingParametersStatus,
-    scalingParametersStatus,
+    ScalingParametersStatus (..),
+    mkScalingParametersStatus,
     spsOptions,
     spsStatus,
 
     -- ** ServiceEndpoint
-    ServiceEndpoint,
-    serviceEndpoint,
+    ServiceEndpoint (..),
+    mkServiceEndpoint,
     seEndpoint,
 
     -- ** Suggester
-    Suggester,
-    suggester,
+    Suggester (..),
+    mkSuggester,
     sSuggesterName,
     sDocumentSuggesterOptions,
 
     -- ** SuggesterStatus
-    SuggesterStatus,
-    suggesterStatus,
+    SuggesterStatus (..),
+    mkSuggesterStatus,
     ssOptions,
     ssStatus,
 
     -- ** TextArrayOptions
-    TextArrayOptions,
-    textArrayOptions,
+    TextArrayOptions (..),
+    mkTextArrayOptions,
     taoSourceFields,
     taoReturnEnabled,
     taoAnalysisScheme,
@@ -376,14 +375,25 @@ module Network.AWS.CloudSearch
     taoDefaultValue,
 
     -- ** TextOptions
-    TextOptions,
-    textOptions,
+    TextOptions (..),
+    mkTextOptions,
     toSourceField,
     toReturnEnabled,
     toAnalysisScheme,
     toHighlightEnabled,
     toSortEnabled,
     toDefaultValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -415,6 +425,7 @@ import Network.AWS.CloudSearch.UpdateDomainEndpointOptions
 import Network.AWS.CloudSearch.UpdateScalingParameters
 import Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 import Network.AWS.CloudSearch.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

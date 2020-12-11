@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.ChangeStatus where
+module Network.AWS.Route53.Types.ChangeStatus
+  ( ChangeStatus
+      ( ChangeStatus',
+        Insync,
+        Pending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data ChangeStatus
-  = Insync
-  | Pending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeStatus = ChangeStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeStatus where
-  parser =
-    takeLowerText >>= \case
-      "insync" -> pure Insync
-      "pending" -> pure Pending
-      e ->
-        fromTextError $
-          "Failure parsing ChangeStatus from value: '" <> e
-            <> "'. Accepted values: insync, pending"
+pattern Insync :: ChangeStatus
+pattern Insync = ChangeStatus' "INSYNC"
 
-instance ToText ChangeStatus where
-  toText = \case
-    Insync -> "INSYNC"
-    Pending -> "PENDING"
+pattern Pending :: ChangeStatus
+pattern Pending = ChangeStatus' "PENDING"
 
-instance Hashable ChangeStatus
-
-instance NFData ChangeStatus
-
-instance ToByteString ChangeStatus
-
-instance ToQuery ChangeStatus
-
-instance ToHeader ChangeStatus
-
-instance FromXML ChangeStatus where
-  parseXML = parseXMLText "ChangeStatus"
+{-# COMPLETE
+  Insync,
+  Pending,
+  ChangeStatus'
+  #-}

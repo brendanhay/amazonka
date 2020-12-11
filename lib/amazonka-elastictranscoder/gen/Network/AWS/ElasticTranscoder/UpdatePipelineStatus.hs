@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,155 @@
 --
 -- The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline stops or restarts the processing of jobs.
 --
---
 -- Changing the pipeline status is useful if you want to cancel one or more jobs. You can't cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which you submitted the jobs, you have more time to get the job IDs for the jobs that you want to cancel, and to send a 'CancelJob' request.
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
-  ( -- * Creating a Request
-    updatePipelineStatus,
-    UpdatePipelineStatus,
+  ( -- * Creating a request
+    UpdatePipelineStatus (..),
+    mkUpdatePipelineStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upsId,
     upsStatus,
 
-    -- * Destructuring the Response
-    updatePipelineStatusResponse,
-    UpdatePipelineStatusResponse,
+    -- * Destructuring the response
+    UpdatePipelineStatusResponse (..),
+    mkUpdatePipelineStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     upsrsPipeline,
     upsrsResponseStatus,
   )
 where
 
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The @UpdatePipelineStatusRequest@ structure.
 --
---
---
--- /See:/ 'updatePipelineStatus' smart constructor.
+-- /See:/ 'mkUpdatePipelineStatus' smart constructor.
 data UpdatePipelineStatus = UpdatePipelineStatus'
-  { _upsId :: !Text,
-    _upsStatus :: !Text
+  { id :: Lude.Text,
+    status :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipelineStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'id' - The identifier of the pipeline to update.
+-- * 'status' - The desired status of the pipeline:
 --
--- * 'upsId' - The identifier of the pipeline to update.
 --
--- * 'upsStatus' - The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.     * @Paused@ : The pipeline is not currently processing jobs.
-updatePipelineStatus ::
-  -- | 'upsId'
-  Text ->
-  -- | 'upsStatus'
-  Text ->
+--     * @Active@ : The pipeline is processing jobs.
+--
+--
+--     * @Paused@ : The pipeline is not currently processing jobs.
+mkUpdatePipelineStatus ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'status'
+  Lude.Text ->
   UpdatePipelineStatus
-updatePipelineStatus pId_ pStatus_ =
-  UpdatePipelineStatus' {_upsId = pId_, _upsStatus = pStatus_}
+mkUpdatePipelineStatus pId_ pStatus_ =
+  UpdatePipelineStatus' {id = pId_, status = pStatus_}
 
 -- | The identifier of the pipeline to update.
-upsId :: Lens' UpdatePipelineStatus Text
-upsId = lens _upsId (\s a -> s {_upsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upsId :: Lens.Lens' UpdatePipelineStatus Lude.Text
+upsId = Lens.lens (id :: UpdatePipelineStatus -> Lude.Text) (\s a -> s {id = a} :: UpdatePipelineStatus)
+{-# DEPRECATED upsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | The desired status of the pipeline:     * @Active@ : The pipeline is processing jobs.     * @Paused@ : The pipeline is not currently processing jobs.
-upsStatus :: Lens' UpdatePipelineStatus Text
-upsStatus = lens _upsStatus (\s a -> s {_upsStatus = a})
+-- | The desired status of the pipeline:
+--
+--
+--     * @Active@ : The pipeline is processing jobs.
+--
+--
+--     * @Paused@ : The pipeline is not currently processing jobs.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upsStatus :: Lens.Lens' UpdatePipelineStatus Lude.Text
+upsStatus = Lens.lens (status :: UpdatePipelineStatus -> Lude.Text) (\s a -> s {status = a} :: UpdatePipelineStatus)
+{-# DEPRECATED upsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance AWSRequest UpdatePipelineStatus where
+instance Lude.AWSRequest UpdatePipelineStatus where
   type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse
-  request = postJSON elasticTranscoder
+  request = Req.postJSON elasticTranscoderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdatePipelineStatusResponse'
-            <$> (x .?> "Pipeline") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Pipeline") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdatePipelineStatus
+instance Lude.ToHeaders UpdatePipelineStatus where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdatePipelineStatus
-
-instance ToHeaders UpdatePipelineStatus where
-  toHeaders = const mempty
-
-instance ToJSON UpdatePipelineStatus where
+instance Lude.ToJSON UpdatePipelineStatus where
   toJSON UpdatePipelineStatus' {..} =
-    object (catMaybes [Just ("Status" .= _upsStatus)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Status" Lude..= status)])
 
-instance ToPath UpdatePipelineStatus where
+instance Lude.ToPath UpdatePipelineStatus where
   toPath UpdatePipelineStatus' {..} =
-    mconcat ["/2012-09-25/pipelines/", toBS _upsId, "/status"]
+    Lude.mconcat ["/2012-09-25/pipelines/", Lude.toBS id, "/status"]
 
-instance ToQuery UpdatePipelineStatus where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePipelineStatus where
+  toQuery = Lude.const Lude.mempty
 
 -- | When you update status for a pipeline, Elastic Transcoder returns the values that you specified in the request.
 --
---
---
--- /See:/ 'updatePipelineStatusResponse' smart constructor.
+-- /See:/ 'mkUpdatePipelineStatusResponse' smart constructor.
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
-  { _upsrsPipeline ::
-      !(Maybe Pipeline),
-    _upsrsResponseStatus :: !Int
+  { pipeline ::
+      Lude.Maybe Pipeline,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipelineStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upsrsPipeline' - A section of the response body that provides information about the pipeline.
---
--- * 'upsrsResponseStatus' - -- | The response status code.
-updatePipelineStatusResponse ::
-  -- | 'upsrsResponseStatus'
-  Int ->
+-- * 'pipeline' - A section of the response body that provides information about the pipeline.
+-- * 'responseStatus' - The response status code.
+mkUpdatePipelineStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdatePipelineStatusResponse
-updatePipelineStatusResponse pResponseStatus_ =
+mkUpdatePipelineStatusResponse pResponseStatus_ =
   UpdatePipelineStatusResponse'
-    { _upsrsPipeline = Nothing,
-      _upsrsResponseStatus = pResponseStatus_
+    { pipeline = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A section of the response body that provides information about the pipeline.
-upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
-upsrsPipeline = lens _upsrsPipeline (\s a -> s {_upsrsPipeline = a})
+--
+-- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upsrsPipeline :: Lens.Lens' UpdatePipelineStatusResponse (Lude.Maybe Pipeline)
+upsrsPipeline = Lens.lens (pipeline :: UpdatePipelineStatusResponse -> Lude.Maybe Pipeline) (\s a -> s {pipeline = a} :: UpdatePipelineStatusResponse)
+{-# DEPRECATED upsrsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
--- | -- | The response status code.
-upsrsResponseStatus :: Lens' UpdatePipelineStatusResponse Int
-upsrsResponseStatus = lens _upsrsResponseStatus (\s a -> s {_upsrsResponseStatus = a})
-
-instance NFData UpdatePipelineStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upsrsResponseStatus :: Lens.Lens' UpdatePipelineStatusResponse Lude.Int
+upsrsResponseStatus = Lens.lens (responseStatus :: UpdatePipelineStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePipelineStatusResponse)
+{-# DEPRECATED upsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

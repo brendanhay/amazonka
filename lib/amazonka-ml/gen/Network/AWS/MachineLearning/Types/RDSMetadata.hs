@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.RDSMetadata where
+module Network.AWS.MachineLearning.Types.RDSMetadata
+  ( RDSMetadata (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkRDSMetadata,
+
+    -- * Lenses
+    rmSelectSqlQuery,
+    rmDataPipelineId,
+    rmDatabase,
+    rmDatabaseUserName,
+    rmResourceRole,
+    rmServiceRole,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types.RDSDatabase
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The datasource details that are specific to Amazon RDS.
 --
---
---
--- /See:/ 'rdsMetadata' smart constructor.
+-- /See:/ 'mkRDSMetadata' smart constructor.
 data RDSMetadata = RDSMetadata'
-  { _rmSelectSqlQuery :: !(Maybe Text),
-    _rmDataPipelineId :: !(Maybe Text),
-    _rmDatabase :: !(Maybe RDSDatabase),
-    _rmDatabaseUserName :: !(Maybe Text),
-    _rmResourceRole :: !(Maybe Text),
-    _rmServiceRole :: !(Maybe Text)
+  { selectSqlQuery ::
+      Lude.Maybe Lude.Text,
+    dataPipelineId :: Lude.Maybe Lude.Text,
+    database :: Lude.Maybe RDSDatabase,
+    databaseUserName :: Lude.Maybe Lude.Text,
+    resourceRole :: Lude.Maybe Lude.Text,
+    serviceRole :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RDSMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rmSelectSqlQuery' - The SQL query that is supplied during 'CreateDataSourceFromRDS' . Returns only if @Verbose@ is true in @GetDataSourceInput@ .
---
--- * 'rmDataPipelineId' - The ID of the Data Pipeline instance that is used to carry to copy data from Amazon RDS to Amazon S3. You can use the ID to find details about the instance in the Data Pipeline console.
---
--- * 'rmDatabase' - The database details required to connect to an Amazon RDS.
---
--- * 'rmDatabaseUserName' - Undocumented member.
---
--- * 'rmResourceRole' - The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance to carry out the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
---
--- * 'rmServiceRole' - The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
-rdsMetadata ::
+-- * 'dataPipelineId' - The ID of the Data Pipeline instance that is used to carry to copy data from Amazon RDS to Amazon S3. You can use the ID to find details about the instance in the Data Pipeline console.
+-- * 'database' - The database details required to connect to an Amazon RDS.
+-- * 'databaseUserName' - Undocumented field.
+-- * 'resourceRole' - The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance to carry out the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
+-- * 'selectSqlQuery' - The SQL query that is supplied during 'CreateDataSourceFromRDS' . Returns only if @Verbose@ is true in @GetDataSourceInput@ .
+-- * 'serviceRole' - The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
+mkRDSMetadata ::
   RDSMetadata
-rdsMetadata =
+mkRDSMetadata =
   RDSMetadata'
-    { _rmSelectSqlQuery = Nothing,
-      _rmDataPipelineId = Nothing,
-      _rmDatabase = Nothing,
-      _rmDatabaseUserName = Nothing,
-      _rmResourceRole = Nothing,
-      _rmServiceRole = Nothing
+    { selectSqlQuery = Lude.Nothing,
+      dataPipelineId = Lude.Nothing,
+      database = Lude.Nothing,
+      databaseUserName = Lude.Nothing,
+      resourceRole = Lude.Nothing,
+      serviceRole = Lude.Nothing
     }
 
 -- | The SQL query that is supplied during 'CreateDataSourceFromRDS' . Returns only if @Verbose@ is true in @GetDataSourceInput@ .
-rmSelectSqlQuery :: Lens' RDSMetadata (Maybe Text)
-rmSelectSqlQuery = lens _rmSelectSqlQuery (\s a -> s {_rmSelectSqlQuery = a})
+--
+-- /Note:/ Consider using 'selectSqlQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmSelectSqlQuery :: Lens.Lens' RDSMetadata (Lude.Maybe Lude.Text)
+rmSelectSqlQuery = Lens.lens (selectSqlQuery :: RDSMetadata -> Lude.Maybe Lude.Text) (\s a -> s {selectSqlQuery = a} :: RDSMetadata)
+{-# DEPRECATED rmSelectSqlQuery "Use generic-lens or generic-optics with 'selectSqlQuery' instead." #-}
 
 -- | The ID of the Data Pipeline instance that is used to carry to copy data from Amazon RDS to Amazon S3. You can use the ID to find details about the instance in the Data Pipeline console.
-rmDataPipelineId :: Lens' RDSMetadata (Maybe Text)
-rmDataPipelineId = lens _rmDataPipelineId (\s a -> s {_rmDataPipelineId = a})
+--
+-- /Note:/ Consider using 'dataPipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmDataPipelineId :: Lens.Lens' RDSMetadata (Lude.Maybe Lude.Text)
+rmDataPipelineId = Lens.lens (dataPipelineId :: RDSMetadata -> Lude.Maybe Lude.Text) (\s a -> s {dataPipelineId = a} :: RDSMetadata)
+{-# DEPRECATED rmDataPipelineId "Use generic-lens or generic-optics with 'dataPipelineId' instead." #-}
 
 -- | The database details required to connect to an Amazon RDS.
-rmDatabase :: Lens' RDSMetadata (Maybe RDSDatabase)
-rmDatabase = lens _rmDatabase (\s a -> s {_rmDatabase = a})
+--
+-- /Note:/ Consider using 'database' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmDatabase :: Lens.Lens' RDSMetadata (Lude.Maybe RDSDatabase)
+rmDatabase = Lens.lens (database :: RDSMetadata -> Lude.Maybe RDSDatabase) (\s a -> s {database = a} :: RDSMetadata)
+{-# DEPRECATED rmDatabase "Use generic-lens or generic-optics with 'database' instead." #-}
 
--- | Undocumented member.
-rmDatabaseUserName :: Lens' RDSMetadata (Maybe Text)
-rmDatabaseUserName = lens _rmDatabaseUserName (\s a -> s {_rmDatabaseUserName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'databaseUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmDatabaseUserName :: Lens.Lens' RDSMetadata (Lude.Maybe Lude.Text)
+rmDatabaseUserName = Lens.lens (databaseUserName :: RDSMetadata -> Lude.Maybe Lude.Text) (\s a -> s {databaseUserName = a} :: RDSMetadata)
+{-# DEPRECATED rmDatabaseUserName "Use generic-lens or generic-optics with 'databaseUserName' instead." #-}
 
 -- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance to carry out the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
-rmResourceRole :: Lens' RDSMetadata (Maybe Text)
-rmResourceRole = lens _rmResourceRole (\s a -> s {_rmResourceRole = a})
+--
+-- /Note:/ Consider using 'resourceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmResourceRole :: Lens.Lens' RDSMetadata (Lude.Maybe Lude.Text)
+rmResourceRole = Lens.lens (resourceRole :: RDSMetadata -> Lude.Maybe Lude.Text) (\s a -> s {resourceRole = a} :: RDSMetadata)
+{-# DEPRECATED rmResourceRole "Use generic-lens or generic-optics with 'resourceRole' instead." #-}
 
 -- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
-rmServiceRole :: Lens' RDSMetadata (Maybe Text)
-rmServiceRole = lens _rmServiceRole (\s a -> s {_rmServiceRole = a})
+--
+-- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmServiceRole :: Lens.Lens' RDSMetadata (Lude.Maybe Lude.Text)
+rmServiceRole = Lens.lens (serviceRole :: RDSMetadata -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: RDSMetadata)
+{-# DEPRECATED rmServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
-instance FromJSON RDSMetadata where
+instance Lude.FromJSON RDSMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "RDSMetadata"
       ( \x ->
           RDSMetadata'
-            <$> (x .:? "SelectSqlQuery")
-            <*> (x .:? "DataPipelineId")
-            <*> (x .:? "Database")
-            <*> (x .:? "DatabaseUserName")
-            <*> (x .:? "ResourceRole")
-            <*> (x .:? "ServiceRole")
+            Lude.<$> (x Lude..:? "SelectSqlQuery")
+            Lude.<*> (x Lude..:? "DataPipelineId")
+            Lude.<*> (x Lude..:? "Database")
+            Lude.<*> (x Lude..:? "DatabaseUserName")
+            Lude.<*> (x Lude..:? "ResourceRole")
+            Lude.<*> (x Lude..:? "ServiceRole")
       )
-
-instance Hashable RDSMetadata
-
-instance NFData RDSMetadata

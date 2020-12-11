@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,167 @@
 --
 -- Updates room details by room ARN.
 module Network.AWS.AlexaBusiness.UpdateRoom
-  ( -- * Creating a Request
-    updateRoom,
-    UpdateRoom,
+  ( -- * Creating a request
+    UpdateRoom (..),
+    mkUpdateRoom,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urProfileARN,
     urProviderCalendarId,
     urRoomARN,
     urRoomName,
     urDescription,
 
-    -- * Destructuring the Response
-    updateRoomResponse,
-    UpdateRoomResponse,
+    -- * Destructuring the response
+    UpdateRoomResponse (..),
+    mkUpdateRoomResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateRoom' smart constructor.
+-- | /See:/ 'mkUpdateRoom' smart constructor.
 data UpdateRoom = UpdateRoom'
-  { _urProfileARN :: !(Maybe Text),
-    _urProviderCalendarId :: !(Maybe Text),
-    _urRoomARN :: !(Maybe Text),
-    _urRoomName :: !(Maybe Text),
-    _urDescription :: !(Maybe Text)
+  { profileARN :: Lude.Maybe Lude.Text,
+    providerCalendarId :: Lude.Maybe Lude.Text,
+    roomARN :: Lude.Maybe Lude.Text,
+    roomName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoom' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urProfileARN' - The updated profile ARN for the room.
---
--- * 'urProviderCalendarId' - The updated provider calendar ARN for the room.
---
--- * 'urRoomARN' - The ARN of the room to update.
---
--- * 'urRoomName' - The updated name for the room.
---
--- * 'urDescription' - The updated description for the room.
-updateRoom ::
+-- * 'description' - The updated description for the room.
+-- * 'profileARN' - The updated profile ARN for the room.
+-- * 'providerCalendarId' - The updated provider calendar ARN for the room.
+-- * 'roomARN' - The ARN of the room to update.
+-- * 'roomName' - The updated name for the room.
+mkUpdateRoom ::
   UpdateRoom
-updateRoom =
+mkUpdateRoom =
   UpdateRoom'
-    { _urProfileARN = Nothing,
-      _urProviderCalendarId = Nothing,
-      _urRoomARN = Nothing,
-      _urRoomName = Nothing,
-      _urDescription = Nothing
+    { profileARN = Lude.Nothing,
+      providerCalendarId = Lude.Nothing,
+      roomARN = Lude.Nothing,
+      roomName = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The updated profile ARN for the room.
-urProfileARN :: Lens' UpdateRoom (Maybe Text)
-urProfileARN = lens _urProfileARN (\s a -> s {_urProfileARN = a})
+--
+-- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urProfileARN :: Lens.Lens' UpdateRoom (Lude.Maybe Lude.Text)
+urProfileARN = Lens.lens (profileARN :: UpdateRoom -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: UpdateRoom)
+{-# DEPRECATED urProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
 
 -- | The updated provider calendar ARN for the room.
-urProviderCalendarId :: Lens' UpdateRoom (Maybe Text)
-urProviderCalendarId = lens _urProviderCalendarId (\s a -> s {_urProviderCalendarId = a})
+--
+-- /Note:/ Consider using 'providerCalendarId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urProviderCalendarId :: Lens.Lens' UpdateRoom (Lude.Maybe Lude.Text)
+urProviderCalendarId = Lens.lens (providerCalendarId :: UpdateRoom -> Lude.Maybe Lude.Text) (\s a -> s {providerCalendarId = a} :: UpdateRoom)
+{-# DEPRECATED urProviderCalendarId "Use generic-lens or generic-optics with 'providerCalendarId' instead." #-}
 
 -- | The ARN of the room to update.
-urRoomARN :: Lens' UpdateRoom (Maybe Text)
-urRoomARN = lens _urRoomARN (\s a -> s {_urRoomARN = a})
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urRoomARN :: Lens.Lens' UpdateRoom (Lude.Maybe Lude.Text)
+urRoomARN = Lens.lens (roomARN :: UpdateRoom -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: UpdateRoom)
+{-# DEPRECATED urRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 -- | The updated name for the room.
-urRoomName :: Lens' UpdateRoom (Maybe Text)
-urRoomName = lens _urRoomName (\s a -> s {_urRoomName = a})
+--
+-- /Note:/ Consider using 'roomName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urRoomName :: Lens.Lens' UpdateRoom (Lude.Maybe Lude.Text)
+urRoomName = Lens.lens (roomName :: UpdateRoom -> Lude.Maybe Lude.Text) (\s a -> s {roomName = a} :: UpdateRoom)
+{-# DEPRECATED urRoomName "Use generic-lens or generic-optics with 'roomName' instead." #-}
 
 -- | The updated description for the room.
-urDescription :: Lens' UpdateRoom (Maybe Text)
-urDescription = lens _urDescription (\s a -> s {_urDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urDescription :: Lens.Lens' UpdateRoom (Lude.Maybe Lude.Text)
+urDescription = Lens.lens (description :: UpdateRoom -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateRoom)
+{-# DEPRECATED urDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance AWSRequest UpdateRoom where
+instance Lude.AWSRequest UpdateRoom where
   type Rs UpdateRoom = UpdateRoomResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> UpdateRoomResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateRoomResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateRoom
-
-instance NFData UpdateRoom
-
-instance ToHeaders UpdateRoom where
+instance Lude.ToHeaders UpdateRoom where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.UpdateRoom" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.UpdateRoom" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateRoom where
+instance Lude.ToJSON UpdateRoom where
   toJSON UpdateRoom' {..} =
-    object
-      ( catMaybes
-          [ ("ProfileArn" .=) <$> _urProfileARN,
-            ("ProviderCalendarId" .=) <$> _urProviderCalendarId,
-            ("RoomArn" .=) <$> _urRoomARN,
-            ("RoomName" .=) <$> _urRoomName,
-            ("Description" .=) <$> _urDescription
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ProfileArn" Lude..=) Lude.<$> profileARN,
+            ("ProviderCalendarId" Lude..=) Lude.<$> providerCalendarId,
+            ("RoomArn" Lude..=) Lude.<$> roomARN,
+            ("RoomName" Lude..=) Lude.<$> roomName,
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
-instance ToPath UpdateRoom where
-  toPath = const "/"
+instance Lude.ToPath UpdateRoom where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateRoom where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRoom where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateRoomResponse' smart constructor.
+-- | /See:/ 'mkUpdateRoomResponse' smart constructor.
 newtype UpdateRoomResponse = UpdateRoomResponse'
-  { _urrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoomResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrsResponseStatus' - -- | The response status code.
-updateRoomResponse ::
-  -- | 'urrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateRoomResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateRoomResponse
-updateRoomResponse pResponseStatus_ =
-  UpdateRoomResponse' {_urrsResponseStatus = pResponseStatus_}
+mkUpdateRoomResponse pResponseStatus_ =
+  UpdateRoomResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateRoomResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\s a -> s {_urrsResponseStatus = a})
-
-instance NFData UpdateRoomResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsResponseStatus :: Lens.Lens' UpdateRoomResponse Lude.Int
+urrsResponseStatus = Lens.lens (responseStatus :: UpdateRoomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRoomResponse)
+{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

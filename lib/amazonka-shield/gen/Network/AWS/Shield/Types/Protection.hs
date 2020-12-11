@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.Protection where
+module Network.AWS.Shield.Types.Protection
+  ( Protection (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProtection,
+
+    -- * Lenses
+    pHealthCheckIds,
+    pResourceARN,
+    pName,
+    pId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object that represents a resource that is under DDoS protection.
 --
---
---
--- /See:/ 'protection' smart constructor.
+-- /See:/ 'mkProtection' smart constructor.
 data Protection = Protection'
-  { _pHealthCheckIds :: !(Maybe [Text]),
-    _pResourceARN :: !(Maybe Text),
-    _pName :: !(Maybe Text),
-    _pId :: !(Maybe Text)
+  { healthCheckIds ::
+      Lude.Maybe [Lude.Text],
+    resourceARN :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Protection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pHealthCheckIds' - The unique identifier (ID) for the Route 53 health check that's associated with the protection.
---
--- * 'pResourceARN' - The ARN (Amazon Resource Name) of the AWS resource that is protected.
---
--- * 'pName' - The name of the protection. For example, @My CloudFront distributions@ .
---
--- * 'pId' - The unique identifier (ID) of the protection.
-protection ::
+-- * 'healthCheckIds' - The unique identifier (ID) for the Route 53 health check that's associated with the protection.
+-- * 'id' - The unique identifier (ID) of the protection.
+-- * 'name' - The name of the protection. For example, @My CloudFront distributions@ .
+-- * 'resourceARN' - The ARN (Amazon Resource Name) of the AWS resource that is protected.
+mkProtection ::
   Protection
-protection =
+mkProtection =
   Protection'
-    { _pHealthCheckIds = Nothing,
-      _pResourceARN = Nothing,
-      _pName = Nothing,
-      _pId = Nothing
+    { healthCheckIds = Lude.Nothing,
+      resourceARN = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The unique identifier (ID) for the Route 53 health check that's associated with the protection.
-pHealthCheckIds :: Lens' Protection [Text]
-pHealthCheckIds = lens _pHealthCheckIds (\s a -> s {_pHealthCheckIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'healthCheckIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pHealthCheckIds :: Lens.Lens' Protection (Lude.Maybe [Lude.Text])
+pHealthCheckIds = Lens.lens (healthCheckIds :: Protection -> Lude.Maybe [Lude.Text]) (\s a -> s {healthCheckIds = a} :: Protection)
+{-# DEPRECATED pHealthCheckIds "Use generic-lens or generic-optics with 'healthCheckIds' instead." #-}
 
 -- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
-pResourceARN :: Lens' Protection (Maybe Text)
-pResourceARN = lens _pResourceARN (\s a -> s {_pResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pResourceARN :: Lens.Lens' Protection (Lude.Maybe Lude.Text)
+pResourceARN = Lens.lens (resourceARN :: Protection -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: Protection)
+{-# DEPRECATED pResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The name of the protection. For example, @My CloudFront distributions@ .
-pName :: Lens' Protection (Maybe Text)
-pName = lens _pName (\s a -> s {_pName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pName :: Lens.Lens' Protection (Lude.Maybe Lude.Text)
+pName = Lens.lens (name :: Protection -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Protection)
+{-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique identifier (ID) of the protection.
-pId :: Lens' Protection (Maybe Text)
-pId = lens _pId (\s a -> s {_pId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pId :: Lens.Lens' Protection (Lude.Maybe Lude.Text)
+pId = Lens.lens (id :: Protection -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Protection)
+{-# DEPRECATED pId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON Protection where
+instance Lude.FromJSON Protection where
   parseJSON =
-    withObject
+    Lude.withObject
       "Protection"
       ( \x ->
           Protection'
-            <$> (x .:? "HealthCheckIds" .!= mempty)
-            <*> (x .:? "ResourceArn")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
+            Lude.<$> (x Lude..:? "HealthCheckIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResourceArn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
       )
-
-instance Hashable Protection
-
-instance NFData Protection

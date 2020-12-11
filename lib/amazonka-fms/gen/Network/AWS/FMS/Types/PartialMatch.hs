@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.PartialMatch where
+module Network.AWS.FMS.Types.PartialMatch
+  ( PartialMatch (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPartialMatch,
+
+    -- * Lenses
+    pmTargetViolationReasons,
+    pmReference,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The reference rule that partially matches the @ViolationTarget@ rule and violation reason.
 --
---
---
--- /See:/ 'partialMatch' smart constructor.
+-- /See:/ 'mkPartialMatch' smart constructor.
 data PartialMatch = PartialMatch'
-  { _pmTargetViolationReasons ::
-      !(Maybe [Text]),
-    _pmReference :: !(Maybe Text)
+  { targetViolationReasons ::
+      Lude.Maybe [Lude.Text],
+    reference :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartialMatch' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pmTargetViolationReasons' - The violation reason.
---
--- * 'pmReference' - The reference rule from the master security group of the AWS Firewall Manager policy.
-partialMatch ::
+-- * 'reference' - The reference rule from the master security group of the AWS Firewall Manager policy.
+-- * 'targetViolationReasons' - The violation reason.
+mkPartialMatch ::
   PartialMatch
-partialMatch =
+mkPartialMatch =
   PartialMatch'
-    { _pmTargetViolationReasons = Nothing,
-      _pmReference = Nothing
+    { targetViolationReasons = Lude.Nothing,
+      reference = Lude.Nothing
     }
 
 -- | The violation reason.
-pmTargetViolationReasons :: Lens' PartialMatch [Text]
-pmTargetViolationReasons = lens _pmTargetViolationReasons (\s a -> s {_pmTargetViolationReasons = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetViolationReasons' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmTargetViolationReasons :: Lens.Lens' PartialMatch (Lude.Maybe [Lude.Text])
+pmTargetViolationReasons = Lens.lens (targetViolationReasons :: PartialMatch -> Lude.Maybe [Lude.Text]) (\s a -> s {targetViolationReasons = a} :: PartialMatch)
+{-# DEPRECATED pmTargetViolationReasons "Use generic-lens or generic-optics with 'targetViolationReasons' instead." #-}
 
 -- | The reference rule from the master security group of the AWS Firewall Manager policy.
-pmReference :: Lens' PartialMatch (Maybe Text)
-pmReference = lens _pmReference (\s a -> s {_pmReference = a})
+--
+-- /Note:/ Consider using 'reference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmReference :: Lens.Lens' PartialMatch (Lude.Maybe Lude.Text)
+pmReference = Lens.lens (reference :: PartialMatch -> Lude.Maybe Lude.Text) (\s a -> s {reference = a} :: PartialMatch)
+{-# DEPRECATED pmReference "Use generic-lens or generic-optics with 'reference' instead." #-}
 
-instance FromJSON PartialMatch where
+instance Lude.FromJSON PartialMatch where
   parseJSON =
-    withObject
+    Lude.withObject
       "PartialMatch"
       ( \x ->
           PartialMatch'
-            <$> (x .:? "TargetViolationReasons" .!= mempty)
-            <*> (x .:? "Reference")
+            Lude.<$> (x Lude..:? "TargetViolationReasons" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Reference")
       )
-
-instance Hashable PartialMatch
-
-instance NFData PartialMatch

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactParameter where
+module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactParameter
+  ( ProvisioningArtifactParameter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisioningArtifactParameter,
+
+    -- * Lenses
+    pIsNoEcho,
+    pParameterKey,
+    pParameterType,
+    pParameterConstraints,
+    pDefaultValue,
+    pDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ParameterConstraints
 
 -- | Information about a parameter used to provision a product.
 --
---
---
--- /See:/ 'provisioningArtifactParameter' smart constructor.
+-- /See:/ 'mkProvisioningArtifactParameter' smart constructor.
 data ProvisioningArtifactParameter = ProvisioningArtifactParameter'
-  { _pIsNoEcho ::
-      !(Maybe Bool),
-    _pParameterKey :: !(Maybe Text),
-    _pParameterType ::
-      !(Maybe Text),
-    _pParameterConstraints ::
-      !(Maybe ParameterConstraints),
-    _pDefaultValue :: !(Maybe Text),
-    _pDescription :: !(Maybe Text)
+  { isNoEcho ::
+      Lude.Maybe Lude.Bool,
+    parameterKey ::
+      Lude.Maybe Lude.Text,
+    parameterType ::
+      Lude.Maybe Lude.Text,
+    parameterConstraints ::
+      Lude.Maybe ParameterConstraints,
+    defaultValue ::
+      Lude.Maybe Lude.Text,
+    description ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifactParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pIsNoEcho' - If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.
---
--- * 'pParameterKey' - The parameter key.
---
--- * 'pParameterType' - The parameter type.
---
--- * 'pParameterConstraints' - Constraints that the administrator has put on a parameter.
---
--- * 'pDefaultValue' - The default value.
---
--- * 'pDescription' - The description of the parameter.
-provisioningArtifactParameter ::
+-- * 'defaultValue' - The default value.
+-- * 'description' - The description of the parameter.
+-- * 'isNoEcho' - If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.
+-- * 'parameterConstraints' - Constraints that the administrator has put on a parameter.
+-- * 'parameterKey' - The parameter key.
+-- * 'parameterType' - The parameter type.
+mkProvisioningArtifactParameter ::
   ProvisioningArtifactParameter
-provisioningArtifactParameter =
+mkProvisioningArtifactParameter =
   ProvisioningArtifactParameter'
-    { _pIsNoEcho = Nothing,
-      _pParameterKey = Nothing,
-      _pParameterType = Nothing,
-      _pParameterConstraints = Nothing,
-      _pDefaultValue = Nothing,
-      _pDescription = Nothing
+    { isNoEcho = Lude.Nothing,
+      parameterKey = Lude.Nothing,
+      parameterType = Lude.Nothing,
+      parameterConstraints = Lude.Nothing,
+      defaultValue = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.
-pIsNoEcho :: Lens' ProvisioningArtifactParameter (Maybe Bool)
-pIsNoEcho = lens _pIsNoEcho (\s a -> s {_pIsNoEcho = a})
+--
+-- /Note:/ Consider using 'isNoEcho' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pIsNoEcho :: Lens.Lens' ProvisioningArtifactParameter (Lude.Maybe Lude.Bool)
+pIsNoEcho = Lens.lens (isNoEcho :: ProvisioningArtifactParameter -> Lude.Maybe Lude.Bool) (\s a -> s {isNoEcho = a} :: ProvisioningArtifactParameter)
+{-# DEPRECATED pIsNoEcho "Use generic-lens or generic-optics with 'isNoEcho' instead." #-}
 
 -- | The parameter key.
-pParameterKey :: Lens' ProvisioningArtifactParameter (Maybe Text)
-pParameterKey = lens _pParameterKey (\s a -> s {_pParameterKey = a})
+--
+-- /Note:/ Consider using 'parameterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterKey :: Lens.Lens' ProvisioningArtifactParameter (Lude.Maybe Lude.Text)
+pParameterKey = Lens.lens (parameterKey :: ProvisioningArtifactParameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterKey = a} :: ProvisioningArtifactParameter)
+{-# DEPRECATED pParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
 
 -- | The parameter type.
-pParameterType :: Lens' ProvisioningArtifactParameter (Maybe Text)
-pParameterType = lens _pParameterType (\s a -> s {_pParameterType = a})
+--
+-- /Note:/ Consider using 'parameterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterType :: Lens.Lens' ProvisioningArtifactParameter (Lude.Maybe Lude.Text)
+pParameterType = Lens.lens (parameterType :: ProvisioningArtifactParameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterType = a} :: ProvisioningArtifactParameter)
+{-# DEPRECATED pParameterType "Use generic-lens or generic-optics with 'parameterType' instead." #-}
 
 -- | Constraints that the administrator has put on a parameter.
-pParameterConstraints :: Lens' ProvisioningArtifactParameter (Maybe ParameterConstraints)
-pParameterConstraints = lens _pParameterConstraints (\s a -> s {_pParameterConstraints = a})
+--
+-- /Note:/ Consider using 'parameterConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterConstraints :: Lens.Lens' ProvisioningArtifactParameter (Lude.Maybe ParameterConstraints)
+pParameterConstraints = Lens.lens (parameterConstraints :: ProvisioningArtifactParameter -> Lude.Maybe ParameterConstraints) (\s a -> s {parameterConstraints = a} :: ProvisioningArtifactParameter)
+{-# DEPRECATED pParameterConstraints "Use generic-lens or generic-optics with 'parameterConstraints' instead." #-}
 
 -- | The default value.
-pDefaultValue :: Lens' ProvisioningArtifactParameter (Maybe Text)
-pDefaultValue = lens _pDefaultValue (\s a -> s {_pDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDefaultValue :: Lens.Lens' ProvisioningArtifactParameter (Lude.Maybe Lude.Text)
+pDefaultValue = Lens.lens (defaultValue :: ProvisioningArtifactParameter -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: ProvisioningArtifactParameter)
+{-# DEPRECATED pDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | The description of the parameter.
-pDescription :: Lens' ProvisioningArtifactParameter (Maybe Text)
-pDescription = lens _pDescription (\s a -> s {_pDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDescription :: Lens.Lens' ProvisioningArtifactParameter (Lude.Maybe Lude.Text)
+pDescription = Lens.lens (description :: ProvisioningArtifactParameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ProvisioningArtifactParameter)
+{-# DEPRECATED pDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ProvisioningArtifactParameter where
+instance Lude.FromJSON ProvisioningArtifactParameter where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisioningArtifactParameter"
       ( \x ->
           ProvisioningArtifactParameter'
-            <$> (x .:? "IsNoEcho")
-            <*> (x .:? "ParameterKey")
-            <*> (x .:? "ParameterType")
-            <*> (x .:? "ParameterConstraints")
-            <*> (x .:? "DefaultValue")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "IsNoEcho")
+            Lude.<*> (x Lude..:? "ParameterKey")
+            Lude.<*> (x Lude..:? "ParameterType")
+            Lude.<*> (x Lude..:? "ParameterConstraints")
+            Lude.<*> (x Lude..:? "DefaultValue")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable ProvisioningArtifactParameter
-
-instance NFData ProvisioningArtifactParameter

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.LogTargetConfiguration where
+module Network.AWS.IoT.Types.LogTargetConfiguration
+  ( LogTargetConfiguration (..),
+
+    -- * Smart constructor
+    mkLogTargetConfiguration,
+
+    -- * Lenses
+    ltcLogLevel,
+    ltcLogTarget,
+  )
+where
 
 import Network.AWS.IoT.Types.LogLevel
 import Network.AWS.IoT.Types.LogTarget
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The target configuration.
 --
---
---
--- /See:/ 'logTargetConfiguration' smart constructor.
+-- /See:/ 'mkLogTargetConfiguration' smart constructor.
 data LogTargetConfiguration = LogTargetConfiguration'
-  { _ltcLogLevel ::
-      !(Maybe LogLevel),
-    _ltcLogTarget :: !(Maybe LogTarget)
+  { logLevel ::
+      Lude.Maybe LogLevel,
+    logTarget :: Lude.Maybe LogTarget
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogTargetConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltcLogLevel' - The logging level.
---
--- * 'ltcLogTarget' - A log target
-logTargetConfiguration ::
+-- * 'logLevel' - The logging level.
+-- * 'logTarget' - A log target
+mkLogTargetConfiguration ::
   LogTargetConfiguration
-logTargetConfiguration =
+mkLogTargetConfiguration =
   LogTargetConfiguration'
-    { _ltcLogLevel = Nothing,
-      _ltcLogTarget = Nothing
+    { logLevel = Lude.Nothing,
+      logTarget = Lude.Nothing
     }
 
 -- | The logging level.
-ltcLogLevel :: Lens' LogTargetConfiguration (Maybe LogLevel)
-ltcLogLevel = lens _ltcLogLevel (\s a -> s {_ltcLogLevel = a})
+--
+-- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltcLogLevel :: Lens.Lens' LogTargetConfiguration (Lude.Maybe LogLevel)
+ltcLogLevel = Lens.lens (logLevel :: LogTargetConfiguration -> Lude.Maybe LogLevel) (\s a -> s {logLevel = a} :: LogTargetConfiguration)
+{-# DEPRECATED ltcLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
 -- | A log target
-ltcLogTarget :: Lens' LogTargetConfiguration (Maybe LogTarget)
-ltcLogTarget = lens _ltcLogTarget (\s a -> s {_ltcLogTarget = a})
+--
+-- /Note:/ Consider using 'logTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltcLogTarget :: Lens.Lens' LogTargetConfiguration (Lude.Maybe LogTarget)
+ltcLogTarget = Lens.lens (logTarget :: LogTargetConfiguration -> Lude.Maybe LogTarget) (\s a -> s {logTarget = a} :: LogTargetConfiguration)
+{-# DEPRECATED ltcLogTarget "Use generic-lens or generic-optics with 'logTarget' instead." #-}
 
-instance FromJSON LogTargetConfiguration where
+instance Lude.FromJSON LogTargetConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "LogTargetConfiguration"
       ( \x ->
           LogTargetConfiguration'
-            <$> (x .:? "logLevel") <*> (x .:? "logTarget")
+            Lude.<$> (x Lude..:? "logLevel") Lude.<*> (x Lude..:? "logTarget")
       )
-
-instance Hashable LogTargetConfiguration
-
-instance NFData LogTargetConfiguration

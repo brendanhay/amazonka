@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.UdpOutputSettings where
+module Network.AWS.MediaLive.Types.UdpOutputSettings
+  ( UdpOutputSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkUdpOutputSettings,
+
+    -- * Lenses
+    uosFecOutputSettings,
+    uosBufferMsec,
+    uosDestination,
+    uosContainerSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FecOutputSettings
 import Network.AWS.MediaLive.Types.OutputLocationRef
 import Network.AWS.MediaLive.Types.UdpContainerSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Udp Output Settings
 --
--- /See:/ 'udpOutputSettings' smart constructor.
+-- /See:/ 'mkUdpOutputSettings' smart constructor.
 data UdpOutputSettings = UdpOutputSettings'
-  { _uosFecOutputSettings ::
-      !(Maybe FecOutputSettings),
-    _uosBufferMsec :: !(Maybe Nat),
-    _uosDestination :: !OutputLocationRef,
-    _uosContainerSettings :: !UdpContainerSettings
+  { fecOutputSettings ::
+      Lude.Maybe FecOutputSettings,
+    bufferMsec :: Lude.Maybe Lude.Natural,
+    destination :: OutputLocationRef,
+    containerSettings :: UdpContainerSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UdpOutputSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uosFecOutputSettings' - Settings for enabling and adjusting Forward Error Correction on UDP outputs.
---
--- * 'uosBufferMsec' - UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
---
--- * 'uosDestination' - Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
---
--- * 'uosContainerSettings' - Undocumented member.
-udpOutputSettings ::
-  -- | 'uosDestination'
+-- * 'bufferMsec' - UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
+-- * 'containerSettings' - Undocumented field.
+-- * 'destination' - Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
+-- * 'fecOutputSettings' - Settings for enabling and adjusting Forward Error Correction on UDP outputs.
+mkUdpOutputSettings ::
+  -- | 'destination'
   OutputLocationRef ->
-  -- | 'uosContainerSettings'
+  -- | 'containerSettings'
   UdpContainerSettings ->
   UdpOutputSettings
-udpOutputSettings pDestination_ pContainerSettings_ =
+mkUdpOutputSettings pDestination_ pContainerSettings_ =
   UdpOutputSettings'
-    { _uosFecOutputSettings = Nothing,
-      _uosBufferMsec = Nothing,
-      _uosDestination = pDestination_,
-      _uosContainerSettings = pContainerSettings_
+    { fecOutputSettings = Lude.Nothing,
+      bufferMsec = Lude.Nothing,
+      destination = pDestination_,
+      containerSettings = pContainerSettings_
     }
 
 -- | Settings for enabling and adjusting Forward Error Correction on UDP outputs.
-uosFecOutputSettings :: Lens' UdpOutputSettings (Maybe FecOutputSettings)
-uosFecOutputSettings = lens _uosFecOutputSettings (\s a -> s {_uosFecOutputSettings = a})
+--
+-- /Note:/ Consider using 'fecOutputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uosFecOutputSettings :: Lens.Lens' UdpOutputSettings (Lude.Maybe FecOutputSettings)
+uosFecOutputSettings = Lens.lens (fecOutputSettings :: UdpOutputSettings -> Lude.Maybe FecOutputSettings) (\s a -> s {fecOutputSettings = a} :: UdpOutputSettings)
+{-# DEPRECATED uosFecOutputSettings "Use generic-lens or generic-optics with 'fecOutputSettings' instead." #-}
 
 -- | UDP output buffering in milliseconds. Larger values increase latency through the transcoder but simultaneously assist the transcoder in maintaining a constant, low-jitter UDP/RTP output while accommodating clock recovery, input switching, input disruptions, picture reordering, etc.
-uosBufferMsec :: Lens' UdpOutputSettings (Maybe Natural)
-uosBufferMsec = lens _uosBufferMsec (\s a -> s {_uosBufferMsec = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'bufferMsec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uosBufferMsec :: Lens.Lens' UdpOutputSettings (Lude.Maybe Lude.Natural)
+uosBufferMsec = Lens.lens (bufferMsec :: UdpOutputSettings -> Lude.Maybe Lude.Natural) (\s a -> s {bufferMsec = a} :: UdpOutputSettings)
+{-# DEPRECATED uosBufferMsec "Use generic-lens or generic-optics with 'bufferMsec' instead." #-}
 
 -- | Destination address and port number for RTP or UDP packets. Can be unicast or multicast RTP or UDP (eg. rtp://239.10.10.10:5001 or udp://10.100.100.100:5002).
-uosDestination :: Lens' UdpOutputSettings OutputLocationRef
-uosDestination = lens _uosDestination (\s a -> s {_uosDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uosDestination :: Lens.Lens' UdpOutputSettings OutputLocationRef
+uosDestination = Lens.lens (destination :: UdpOutputSettings -> OutputLocationRef) (\s a -> s {destination = a} :: UdpOutputSettings)
+{-# DEPRECATED uosDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
--- | Undocumented member.
-uosContainerSettings :: Lens' UdpOutputSettings UdpContainerSettings
-uosContainerSettings = lens _uosContainerSettings (\s a -> s {_uosContainerSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'containerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uosContainerSettings :: Lens.Lens' UdpOutputSettings UdpContainerSettings
+uosContainerSettings = Lens.lens (containerSettings :: UdpOutputSettings -> UdpContainerSettings) (\s a -> s {containerSettings = a} :: UdpOutputSettings)
+{-# DEPRECATED uosContainerSettings "Use generic-lens or generic-optics with 'containerSettings' instead." #-}
 
-instance FromJSON UdpOutputSettings where
+instance Lude.FromJSON UdpOutputSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "UdpOutputSettings"
       ( \x ->
           UdpOutputSettings'
-            <$> (x .:? "fecOutputSettings")
-            <*> (x .:? "bufferMsec")
-            <*> (x .: "destination")
-            <*> (x .: "containerSettings")
+            Lude.<$> (x Lude..:? "fecOutputSettings")
+            Lude.<*> (x Lude..:? "bufferMsec")
+            Lude.<*> (x Lude..: "destination")
+            Lude.<*> (x Lude..: "containerSettings")
       )
 
-instance Hashable UdpOutputSettings
-
-instance NFData UdpOutputSettings
-
-instance ToJSON UdpOutputSettings where
+instance Lude.ToJSON UdpOutputSettings where
   toJSON UdpOutputSettings' {..} =
-    object
-      ( catMaybes
-          [ ("fecOutputSettings" .=) <$> _uosFecOutputSettings,
-            ("bufferMsec" .=) <$> _uosBufferMsec,
-            Just ("destination" .= _uosDestination),
-            Just ("containerSettings" .= _uosContainerSettings)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("fecOutputSettings" Lude..=) Lude.<$> fecOutputSettings,
+            ("bufferMsec" Lude..=) Lude.<$> bufferMsec,
+            Lude.Just ("destination" Lude..= destination),
+            Lude.Just ("containerSettings" Lude..= containerSettings)
           ]
       )

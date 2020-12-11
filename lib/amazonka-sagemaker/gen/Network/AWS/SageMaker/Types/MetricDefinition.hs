@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MetricDefinition where
+module Network.AWS.SageMaker.Types.MetricDefinition
+  ( MetricDefinition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetricDefinition,
+
+    -- * Lenses
+    mdName,
+    mdRegex,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a metric that the training algorithm writes to @stderr@ or @stdout@ . Amazon SageMakerhyperparameter tuning captures all defined metrics. You specify one metric that a hyperparameter tuning job uses as its objective metric to choose the best training job.
 --
---
---
--- /See:/ 'metricDefinition' smart constructor.
+-- /See:/ 'mkMetricDefinition' smart constructor.
 data MetricDefinition = MetricDefinition'
-  { _mdName :: !Text,
-    _mdRegex :: !Text
+  { name :: Lude.Text,
+    regex :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdName' - The name of the metric.
---
--- * 'mdRegex' - A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html Defining Objective Metrics> .
-metricDefinition ::
-  -- | 'mdName'
-  Text ->
-  -- | 'mdRegex'
-  Text ->
+-- * 'name' - The name of the metric.
+-- * 'regex' - A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html Defining Objective Metrics> .
+mkMetricDefinition ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'regex'
+  Lude.Text ->
   MetricDefinition
-metricDefinition pName_ pRegex_ =
-  MetricDefinition' {_mdName = pName_, _mdRegex = pRegex_}
+mkMetricDefinition pName_ pRegex_ =
+  MetricDefinition' {name = pName_, regex = pRegex_}
 
 -- | The name of the metric.
-mdName :: Lens' MetricDefinition Text
-mdName = lens _mdName (\s a -> s {_mdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdName :: Lens.Lens' MetricDefinition Lude.Text
+mdName = Lens.lens (name :: MetricDefinition -> Lude.Text) (\s a -> s {name = a} :: MetricDefinition)
+{-# DEPRECATED mdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A regular expression that searches the output of a training job and gets the value of the metric. For more information about using regular expressions to define metrics, see <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html Defining Objective Metrics> .
-mdRegex :: Lens' MetricDefinition Text
-mdRegex = lens _mdRegex (\s a -> s {_mdRegex = a})
+--
+-- /Note:/ Consider using 'regex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdRegex :: Lens.Lens' MetricDefinition Lude.Text
+mdRegex = Lens.lens (regex :: MetricDefinition -> Lude.Text) (\s a -> s {regex = a} :: MetricDefinition)
+{-# DEPRECATED mdRegex "Use generic-lens or generic-optics with 'regex' instead." #-}
 
-instance FromJSON MetricDefinition where
+instance Lude.FromJSON MetricDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricDefinition"
-      (\x -> MetricDefinition' <$> (x .: "Name") <*> (x .: "Regex"))
+      ( \x ->
+          MetricDefinition'
+            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "Regex")
+      )
 
-instance Hashable MetricDefinition
-
-instance NFData MetricDefinition
-
-instance ToJSON MetricDefinition where
+instance Lude.ToJSON MetricDefinition where
   toJSON MetricDefinition' {..} =
-    object
-      (catMaybes [Just ("Name" .= _mdName), Just ("Regex" .= _mdRegex)])
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Regex" Lude..= regex)
+          ]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.Evaluation where
+module Network.AWS.CodeCommit.Types.Evaluation
+  ( Evaluation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEvaluation,
+
+    -- * Lenses
+    eApprovalRulesSatisfied,
+    eApprovalRulesNotSatisfied,
+    eApproved,
+    eOverridden,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about the approval rules applied to a pull request and whether conditions have been met.
 --
---
---
--- /See:/ 'evaluation' smart constructor.
+-- /See:/ 'mkEvaluation' smart constructor.
 data Evaluation = Evaluation'
-  { _eApprovalRulesSatisfied ::
-      !(Maybe [Text]),
-    _eApprovalRulesNotSatisfied :: !(Maybe [Text]),
-    _eApproved :: !(Maybe Bool),
-    _eOverridden :: !(Maybe Bool)
+  { approvalRulesSatisfied ::
+      Lude.Maybe [Lude.Text],
+    approvalRulesNotSatisfied :: Lude.Maybe [Lude.Text],
+    approved :: Lude.Maybe Lude.Bool,
+    overridden :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Evaluation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eApprovalRulesSatisfied' - The names of the approval rules that have had their conditions met.
---
--- * 'eApprovalRulesNotSatisfied' - The names of the approval rules that have not had their conditions met.
---
--- * 'eApproved' - Whether the state of the pull request is approved.
---
--- * 'eOverridden' - Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.
-evaluation ::
+-- * 'approvalRulesNotSatisfied' - The names of the approval rules that have not had their conditions met.
+-- * 'approvalRulesSatisfied' - The names of the approval rules that have had their conditions met.
+-- * 'approved' - Whether the state of the pull request is approved.
+-- * 'overridden' - Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.
+mkEvaluation ::
   Evaluation
-evaluation =
+mkEvaluation =
   Evaluation'
-    { _eApprovalRulesSatisfied = Nothing,
-      _eApprovalRulesNotSatisfied = Nothing,
-      _eApproved = Nothing,
-      _eOverridden = Nothing
+    { approvalRulesSatisfied = Lude.Nothing,
+      approvalRulesNotSatisfied = Lude.Nothing,
+      approved = Lude.Nothing,
+      overridden = Lude.Nothing
     }
 
 -- | The names of the approval rules that have had their conditions met.
-eApprovalRulesSatisfied :: Lens' Evaluation [Text]
-eApprovalRulesSatisfied = lens _eApprovalRulesSatisfied (\s a -> s {_eApprovalRulesSatisfied = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'approvalRulesSatisfied' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eApprovalRulesSatisfied :: Lens.Lens' Evaluation (Lude.Maybe [Lude.Text])
+eApprovalRulesSatisfied = Lens.lens (approvalRulesSatisfied :: Evaluation -> Lude.Maybe [Lude.Text]) (\s a -> s {approvalRulesSatisfied = a} :: Evaluation)
+{-# DEPRECATED eApprovalRulesSatisfied "Use generic-lens or generic-optics with 'approvalRulesSatisfied' instead." #-}
 
 -- | The names of the approval rules that have not had their conditions met.
-eApprovalRulesNotSatisfied :: Lens' Evaluation [Text]
-eApprovalRulesNotSatisfied = lens _eApprovalRulesNotSatisfied (\s a -> s {_eApprovalRulesNotSatisfied = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'approvalRulesNotSatisfied' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eApprovalRulesNotSatisfied :: Lens.Lens' Evaluation (Lude.Maybe [Lude.Text])
+eApprovalRulesNotSatisfied = Lens.lens (approvalRulesNotSatisfied :: Evaluation -> Lude.Maybe [Lude.Text]) (\s a -> s {approvalRulesNotSatisfied = a} :: Evaluation)
+{-# DEPRECATED eApprovalRulesNotSatisfied "Use generic-lens or generic-optics with 'approvalRulesNotSatisfied' instead." #-}
 
 -- | Whether the state of the pull request is approved.
-eApproved :: Lens' Evaluation (Maybe Bool)
-eApproved = lens _eApproved (\s a -> s {_eApproved = a})
+--
+-- /Note:/ Consider using 'approved' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eApproved :: Lens.Lens' Evaluation (Lude.Maybe Lude.Bool)
+eApproved = Lens.lens (approved :: Evaluation -> Lude.Maybe Lude.Bool) (\s a -> s {approved = a} :: Evaluation)
+{-# DEPRECATED eApproved "Use generic-lens or generic-optics with 'approved' instead." #-}
 
 -- | Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.
-eOverridden :: Lens' Evaluation (Maybe Bool)
-eOverridden = lens _eOverridden (\s a -> s {_eOverridden = a})
+--
+-- /Note:/ Consider using 'overridden' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eOverridden :: Lens.Lens' Evaluation (Lude.Maybe Lude.Bool)
+eOverridden = Lens.lens (overridden :: Evaluation -> Lude.Maybe Lude.Bool) (\s a -> s {overridden = a} :: Evaluation)
+{-# DEPRECATED eOverridden "Use generic-lens or generic-optics with 'overridden' instead." #-}
 
-instance FromJSON Evaluation where
+instance Lude.FromJSON Evaluation where
   parseJSON =
-    withObject
+    Lude.withObject
       "Evaluation"
       ( \x ->
           Evaluation'
-            <$> (x .:? "approvalRulesSatisfied" .!= mempty)
-            <*> (x .:? "approvalRulesNotSatisfied" .!= mempty)
-            <*> (x .:? "approved")
-            <*> (x .:? "overridden")
+            Lude.<$> (x Lude..:? "approvalRulesSatisfied" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "approvalRulesNotSatisfied" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "approved")
+            Lude.<*> (x Lude..:? "overridden")
       )
-
-instance Hashable Evaluation
-
-instance NFData Evaluation

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceLifecycle where
+module Network.AWS.EC2.Types.InstanceLifecycle
+  ( InstanceLifecycle
+      ( InstanceLifecycle',
+        ILOnDemand,
+        ILSpot
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceLifecycle
-  = ILOnDemand
-  | ILSpot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceLifecycle = InstanceLifecycle' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceLifecycle where
-  parser =
-    takeLowerText >>= \case
-      "on-demand" -> pure ILOnDemand
-      "spot" -> pure ILSpot
-      e ->
-        fromTextError $
-          "Failure parsing InstanceLifecycle from value: '" <> e
-            <> "'. Accepted values: on-demand, spot"
+pattern ILOnDemand :: InstanceLifecycle
+pattern ILOnDemand = InstanceLifecycle' "on-demand"
 
-instance ToText InstanceLifecycle where
-  toText = \case
-    ILOnDemand -> "on-demand"
-    ILSpot -> "spot"
+pattern ILSpot :: InstanceLifecycle
+pattern ILSpot = InstanceLifecycle' "spot"
 
-instance Hashable InstanceLifecycle
-
-instance NFData InstanceLifecycle
-
-instance ToByteString InstanceLifecycle
-
-instance ToQuery InstanceLifecycle
-
-instance ToHeader InstanceLifecycle
-
-instance FromXML InstanceLifecycle where
-  parseXML = parseXMLText "InstanceLifecycle"
+{-# COMPLETE
+  ILOnDemand,
+  ILSpot,
+  InstanceLifecycle'
+  #-}

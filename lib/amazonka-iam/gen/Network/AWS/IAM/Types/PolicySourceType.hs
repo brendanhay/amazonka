@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.PolicySourceType where
+module Network.AWS.IAM.Types.PolicySourceType
+  ( PolicySourceType
+      ( PolicySourceType',
+        AWSManaged,
+        Group,
+        None,
+        Resource,
+        Role,
+        User,
+        UserManaged
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PolicySourceType
-  = AWSManaged
-  | Group
-  | None
-  | Resource
-  | Role
-  | User
-  | UserManaged
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PolicySourceType = PolicySourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PolicySourceType where
-  parser =
-    takeLowerText >>= \case
-      "aws-managed" -> pure AWSManaged
-      "group" -> pure Group
-      "none" -> pure None
-      "resource" -> pure Resource
-      "role" -> pure Role
-      "user" -> pure User
-      "user-managed" -> pure UserManaged
-      e ->
-        fromTextError $
-          "Failure parsing PolicySourceType from value: '" <> e
-            <> "'. Accepted values: aws-managed, group, none, resource, role, user, user-managed"
+pattern AWSManaged :: PolicySourceType
+pattern AWSManaged = PolicySourceType' "aws-managed"
 
-instance ToText PolicySourceType where
-  toText = \case
-    AWSManaged -> "aws-managed"
-    Group -> "group"
-    None -> "none"
-    Resource -> "resource"
-    Role -> "role"
-    User -> "user"
-    UserManaged -> "user-managed"
+pattern Group :: PolicySourceType
+pattern Group = PolicySourceType' "group"
 
-instance Hashable PolicySourceType
+pattern None :: PolicySourceType
+pattern None = PolicySourceType' "none"
 
-instance NFData PolicySourceType
+pattern Resource :: PolicySourceType
+pattern Resource = PolicySourceType' "resource"
 
-instance ToByteString PolicySourceType
+pattern Role :: PolicySourceType
+pattern Role = PolicySourceType' "role"
 
-instance ToQuery PolicySourceType
+pattern User :: PolicySourceType
+pattern User = PolicySourceType' "user"
 
-instance ToHeader PolicySourceType
+pattern UserManaged :: PolicySourceType
+pattern UserManaged = PolicySourceType' "user-managed"
 
-instance FromXML PolicySourceType where
-  parseXML = parseXMLText "PolicySourceType"
+{-# COMPLETE
+  AWSManaged,
+  Group,
+  None,
+  Resource,
+  Role,
+  User,
+  UserManaged,
+  PolicySourceType'
+  #-}

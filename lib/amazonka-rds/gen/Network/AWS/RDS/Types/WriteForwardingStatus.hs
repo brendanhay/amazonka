@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.WriteForwardingStatus where
+module Network.AWS.RDS.Types.WriteForwardingStatus
+  ( WriteForwardingStatus
+      ( WriteForwardingStatus',
+        Disabled,
+        Disabling,
+        Enabled,
+        Enabling,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WriteForwardingStatus
-  = Disabled
-  | Disabling
-  | Enabled
-  | Enabling
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WriteForwardingStatus = WriteForwardingStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WriteForwardingStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "disabling" -> pure Disabling
-      "enabled" -> pure Enabled
-      "enabling" -> pure Enabling
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing WriteForwardingStatus from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, enabled, enabling, unknown"
+pattern Disabled :: WriteForwardingStatus
+pattern Disabled = WriteForwardingStatus' "disabled"
 
-instance ToText WriteForwardingStatus where
-  toText = \case
-    Disabled -> "disabled"
-    Disabling -> "disabling"
-    Enabled -> "enabled"
-    Enabling -> "enabling"
-    Unknown -> "unknown"
+pattern Disabling :: WriteForwardingStatus
+pattern Disabling = WriteForwardingStatus' "disabling"
 
-instance Hashable WriteForwardingStatus
+pattern Enabled :: WriteForwardingStatus
+pattern Enabled = WriteForwardingStatus' "enabled"
 
-instance NFData WriteForwardingStatus
+pattern Enabling :: WriteForwardingStatus
+pattern Enabling = WriteForwardingStatus' "enabling"
 
-instance ToByteString WriteForwardingStatus
+pattern Unknown :: WriteForwardingStatus
+pattern Unknown = WriteForwardingStatus' "unknown"
 
-instance ToQuery WriteForwardingStatus
-
-instance ToHeader WriteForwardingStatus
-
-instance FromXML WriteForwardingStatus where
-  parseXML = parseXMLText "WriteForwardingStatus"
+{-# COMPLETE
+  Disabled,
+  Disabling,
+  Enabled,
+  Enabling,
+  Unknown,
+  WriteForwardingStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Updates the Certificate expiry time for a group.
 module Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
-  ( -- * Creating a Request
-    updateGroupCertificateConfiguration,
-    UpdateGroupCertificateConfiguration,
+  ( -- * Creating a request
+    UpdateGroupCertificateConfiguration (..),
+    mkUpdateGroupCertificateConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugccCertificateExpiryInMilliseconds,
     ugccGroupId,
 
-    -- * Destructuring the Response
-    updateGroupCertificateConfigurationResponse,
-    UpdateGroupCertificateConfigurationResponse,
+    -- * Destructuring the response
+    UpdateGroupCertificateConfigurationResponse (..),
+    mkUpdateGroupCertificateConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugccrsCertificateAuthorityExpiryInMilliseconds,
     ugccrsGroupId,
     ugccrsCertificateExpiryInMilliseconds,
@@ -40,156 +35,167 @@ module Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateGroupCertificateConfiguration' smart constructor.
+-- | /See:/ 'mkUpdateGroupCertificateConfiguration' smart constructor.
 data UpdateGroupCertificateConfiguration = UpdateGroupCertificateConfiguration'
-  { _ugccCertificateExpiryInMilliseconds ::
-      !(Maybe Text),
-    _ugccGroupId ::
-      !Text
+  { certificateExpiryInMilliseconds ::
+      Lude.Maybe
+        Lude.Text,
+    groupId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupCertificateConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugccCertificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
---
--- * 'ugccGroupId' - The ID of the Greengrass group.
-updateGroupCertificateConfiguration ::
-  -- | 'ugccGroupId'
-  Text ->
+-- * 'certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
+-- * 'groupId' - The ID of the Greengrass group.
+mkUpdateGroupCertificateConfiguration ::
+  -- | 'groupId'
+  Lude.Text ->
   UpdateGroupCertificateConfiguration
-updateGroupCertificateConfiguration pGroupId_ =
+mkUpdateGroupCertificateConfiguration pGroupId_ =
   UpdateGroupCertificateConfiguration'
-    { _ugccCertificateExpiryInMilliseconds =
-        Nothing,
-      _ugccGroupId = pGroupId_
+    { certificateExpiryInMilliseconds =
+        Lude.Nothing,
+      groupId = pGroupId_
     }
 
 -- | The amount of time remaining before the certificate expires, in milliseconds.
-ugccCertificateExpiryInMilliseconds :: Lens' UpdateGroupCertificateConfiguration (Maybe Text)
-ugccCertificateExpiryInMilliseconds = lens _ugccCertificateExpiryInMilliseconds (\s a -> s {_ugccCertificateExpiryInMilliseconds = a})
+--
+-- /Note:/ Consider using 'certificateExpiryInMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugccCertificateExpiryInMilliseconds :: Lens.Lens' UpdateGroupCertificateConfiguration (Lude.Maybe Lude.Text)
+ugccCertificateExpiryInMilliseconds = Lens.lens (certificateExpiryInMilliseconds :: UpdateGroupCertificateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {certificateExpiryInMilliseconds = a} :: UpdateGroupCertificateConfiguration)
+{-# DEPRECATED ugccCertificateExpiryInMilliseconds "Use generic-lens or generic-optics with 'certificateExpiryInMilliseconds' instead." #-}
 
 -- | The ID of the Greengrass group.
-ugccGroupId :: Lens' UpdateGroupCertificateConfiguration Text
-ugccGroupId = lens _ugccGroupId (\s a -> s {_ugccGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugccGroupId :: Lens.Lens' UpdateGroupCertificateConfiguration Lude.Text
+ugccGroupId = Lens.lens (groupId :: UpdateGroupCertificateConfiguration -> Lude.Text) (\s a -> s {groupId = a} :: UpdateGroupCertificateConfiguration)
+{-# DEPRECATED ugccGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest UpdateGroupCertificateConfiguration where
+instance Lude.AWSRequest UpdateGroupCertificateConfiguration where
   type
     Rs UpdateGroupCertificateConfiguration =
       UpdateGroupCertificateConfigurationResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateGroupCertificateConfigurationResponse'
-            <$> (x .?> "CertificateAuthorityExpiryInMilliseconds")
-            <*> (x .?> "GroupId")
-            <*> (x .?> "CertificateExpiryInMilliseconds")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CertificateAuthorityExpiryInMilliseconds")
+            Lude.<*> (x Lude..?> "GroupId")
+            Lude.<*> (x Lude..?> "CertificateExpiryInMilliseconds")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateGroupCertificateConfiguration
-
-instance NFData UpdateGroupCertificateConfiguration
-
-instance ToHeaders UpdateGroupCertificateConfiguration where
+instance Lude.ToHeaders UpdateGroupCertificateConfiguration where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateGroupCertificateConfiguration where
-  toJSON UpdateGroupCertificateConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("CertificateExpiryInMilliseconds" .=)
-              <$> _ugccCertificateExpiryInMilliseconds
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateGroupCertificateConfiguration where
+instance Lude.ToJSON UpdateGroupCertificateConfiguration where
+  toJSON UpdateGroupCertificateConfiguration' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CertificateExpiryInMilliseconds" Lude..=)
+              Lude.<$> certificateExpiryInMilliseconds
+          ]
+      )
+
+instance Lude.ToPath UpdateGroupCertificateConfiguration where
   toPath UpdateGroupCertificateConfiguration' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/groups/",
-        toBS _ugccGroupId,
+        Lude.toBS groupId,
         "/certificateauthorities/configuration/expiry"
       ]
 
-instance ToQuery UpdateGroupCertificateConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGroupCertificateConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateGroupCertificateConfigurationResponse' smart constructor.
+-- | /See:/ 'mkUpdateGroupCertificateConfigurationResponse' smart constructor.
 data UpdateGroupCertificateConfigurationResponse = UpdateGroupCertificateConfigurationResponse'
-  { _ugccrsCertificateAuthorityExpiryInMilliseconds ::
-      !( Maybe
-           Text
-       ),
-    _ugccrsGroupId ::
-      !( Maybe
-           Text
-       ),
-    _ugccrsCertificateExpiryInMilliseconds ::
-      !( Maybe
-           Text
-       ),
-    _ugccrsResponseStatus ::
-      !Int
+  { certificateAuthorityExpiryInMilliseconds ::
+      Lude.Maybe
+        Lude.Text,
+    groupId ::
+      Lude.Maybe
+        Lude.Text,
+    certificateExpiryInMilliseconds ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupCertificateConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugccrsCertificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires, in milliseconds.
---
--- * 'ugccrsGroupId' - The ID of the group certificate configuration.
---
--- * 'ugccrsCertificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
---
--- * 'ugccrsResponseStatus' - -- | The response status code.
-updateGroupCertificateConfigurationResponse ::
-  -- | 'ugccrsResponseStatus'
-  Int ->
+-- * 'certificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires, in milliseconds.
+-- * 'certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
+-- * 'groupId' - The ID of the group certificate configuration.
+-- * 'responseStatus' - The response status code.
+mkUpdateGroupCertificateConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGroupCertificateConfigurationResponse
-updateGroupCertificateConfigurationResponse pResponseStatus_ =
+mkUpdateGroupCertificateConfigurationResponse pResponseStatus_ =
   UpdateGroupCertificateConfigurationResponse'
-    { _ugccrsCertificateAuthorityExpiryInMilliseconds =
-        Nothing,
-      _ugccrsGroupId = Nothing,
-      _ugccrsCertificateExpiryInMilliseconds = Nothing,
-      _ugccrsResponseStatus = pResponseStatus_
+    { certificateAuthorityExpiryInMilliseconds =
+        Lude.Nothing,
+      groupId = Lude.Nothing,
+      certificateExpiryInMilliseconds = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The amount of time remaining before the certificate authority expires, in milliseconds.
-ugccrsCertificateAuthorityExpiryInMilliseconds :: Lens' UpdateGroupCertificateConfigurationResponse (Maybe Text)
-ugccrsCertificateAuthorityExpiryInMilliseconds = lens _ugccrsCertificateAuthorityExpiryInMilliseconds (\s a -> s {_ugccrsCertificateAuthorityExpiryInMilliseconds = a})
+--
+-- /Note:/ Consider using 'certificateAuthorityExpiryInMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugccrsCertificateAuthorityExpiryInMilliseconds :: Lens.Lens' UpdateGroupCertificateConfigurationResponse (Lude.Maybe Lude.Text)
+ugccrsCertificateAuthorityExpiryInMilliseconds = Lens.lens (certificateAuthorityExpiryInMilliseconds :: UpdateGroupCertificateConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateAuthorityExpiryInMilliseconds = a} :: UpdateGroupCertificateConfigurationResponse)
+{-# DEPRECATED ugccrsCertificateAuthorityExpiryInMilliseconds "Use generic-lens or generic-optics with 'certificateAuthorityExpiryInMilliseconds' instead." #-}
 
 -- | The ID of the group certificate configuration.
-ugccrsGroupId :: Lens' UpdateGroupCertificateConfigurationResponse (Maybe Text)
-ugccrsGroupId = lens _ugccrsGroupId (\s a -> s {_ugccrsGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugccrsGroupId :: Lens.Lens' UpdateGroupCertificateConfigurationResponse (Lude.Maybe Lude.Text)
+ugccrsGroupId = Lens.lens (groupId :: UpdateGroupCertificateConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: UpdateGroupCertificateConfigurationResponse)
+{-# DEPRECATED ugccrsGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The amount of time remaining before the certificate expires, in milliseconds.
-ugccrsCertificateExpiryInMilliseconds :: Lens' UpdateGroupCertificateConfigurationResponse (Maybe Text)
-ugccrsCertificateExpiryInMilliseconds = lens _ugccrsCertificateExpiryInMilliseconds (\s a -> s {_ugccrsCertificateExpiryInMilliseconds = a})
+--
+-- /Note:/ Consider using 'certificateExpiryInMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugccrsCertificateExpiryInMilliseconds :: Lens.Lens' UpdateGroupCertificateConfigurationResponse (Lude.Maybe Lude.Text)
+ugccrsCertificateExpiryInMilliseconds = Lens.lens (certificateExpiryInMilliseconds :: UpdateGroupCertificateConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateExpiryInMilliseconds = a} :: UpdateGroupCertificateConfigurationResponse)
+{-# DEPRECATED ugccrsCertificateExpiryInMilliseconds "Use generic-lens or generic-optics with 'certificateExpiryInMilliseconds' instead." #-}
 
--- | -- | The response status code.
-ugccrsResponseStatus :: Lens' UpdateGroupCertificateConfigurationResponse Int
-ugccrsResponseStatus = lens _ugccrsResponseStatus (\s a -> s {_ugccrsResponseStatus = a})
-
-instance NFData UpdateGroupCertificateConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugccrsResponseStatus :: Lens.Lens' UpdateGroupCertificateConfigurationResponse Lude.Int
+ugccrsResponseStatus = Lens.lens (responseStatus :: UpdateGroupCertificateConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGroupCertificateConfigurationResponse)
+{-# DEPRECATED ugccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

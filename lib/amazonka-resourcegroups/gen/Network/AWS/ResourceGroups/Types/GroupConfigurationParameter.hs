@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,129 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types.GroupConfigurationParameter where
+module Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
+  ( GroupConfigurationParameter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroupConfigurationParameter,
+
+    -- * Lenses
+    gcpValues,
+    gcpName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A parameter for a group configuration item.
 --
---
---
--- /See:/ 'groupConfigurationParameter' smart constructor.
+-- /See:/ 'mkGroupConfigurationParameter' smart constructor.
 data GroupConfigurationParameter = GroupConfigurationParameter'
-  { _gcpValues ::
-      !(Maybe [Text]),
-    _gcpName :: !Text
+  { values ::
+      Lude.Maybe [Lude.Text],
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupConfigurationParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The name of the group configuration parameter.
 --
--- * 'gcpValues' - The values of for this parameter. You can specify the following string value:     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
+-- You can specify the following string values:
 --
--- * 'gcpName' - The name of the group configuration parameter. You can specify the following string values:     * For configuration item type @AWS::ResourceGroups::Generic@ :     * @allowed-resource-types@  Specifies the types of resources that you can add to this group by using the 'GroupResources' operation.     * For configuration item type @AWS::EC2::CapacityReservationPool@ :     * None - This configuration item type doesn't support any parameters. For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
-groupConfigurationParameter ::
-  -- | 'gcpName'
-  Text ->
+--     * For configuration item type @AWS::ResourceGroups::Generic@ :
+--
+--     * @allowed-resource-types@
+-- Specifies the types of resources that you can add to this group by using the 'GroupResources' operation.
+--
+--
+--
+--
+--     * For configuration item type @AWS::EC2::CapacityReservationPool@ :
+--
+--     * None - This configuration item type doesn't support any parameters.
+--
+--
+-- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
+--
+--
+-- * 'values' - The values of for this parameter.
+--
+-- You can specify the following string value:
+--
+--     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
+mkGroupConfigurationParameter ::
+  -- | 'name'
+  Lude.Text ->
   GroupConfigurationParameter
-groupConfigurationParameter pName_ =
+mkGroupConfigurationParameter pName_ =
   GroupConfigurationParameter'
-    { _gcpValues = Nothing,
-      _gcpName = pName_
+    { values = Lude.Nothing,
+      name = pName_
     }
 
--- | The values of for this parameter. You can specify the following string value:     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
-gcpValues :: Lens' GroupConfigurationParameter [Text]
-gcpValues = lens _gcpValues (\s a -> s {_gcpValues = a}) . _Default . _Coerce
+-- | The values of for this parameter.
+--
+-- You can specify the following string value:
+--
+--     * For item type @allowed-resource-types@ : the only supported parameter value is @AWS::EC2::CapacityReservation@ .
+--
+--
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpValues :: Lens.Lens' GroupConfigurationParameter (Lude.Maybe [Lude.Text])
+gcpValues = Lens.lens (values :: GroupConfigurationParameter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: GroupConfigurationParameter)
+{-# DEPRECATED gcpValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
--- | The name of the group configuration parameter. You can specify the following string values:     * For configuration item type @AWS::ResourceGroups::Generic@ :     * @allowed-resource-types@  Specifies the types of resources that you can add to this group by using the 'GroupResources' operation.     * For configuration item type @AWS::EC2::CapacityReservationPool@ :     * None - This configuration item type doesn't support any parameters. For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
-gcpName :: Lens' GroupConfigurationParameter Text
-gcpName = lens _gcpName (\s a -> s {_gcpName = a})
+-- | The name of the group configuration parameter.
+--
+-- You can specify the following string values:
+--
+--     * For configuration item type @AWS::ResourceGroups::Generic@ :
+--
+--     * @allowed-resource-types@
+-- Specifies the types of resources that you can add to this group by using the 'GroupResources' operation.
+--
+--
+--
+--
+--     * For configuration item type @AWS::EC2::CapacityReservationPool@ :
+--
+--     * None - This configuration item type doesn't support any parameters.
+--
+--
+-- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
+--
+--
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpName :: Lens.Lens' GroupConfigurationParameter Lude.Text
+gcpName = Lens.lens (name :: GroupConfigurationParameter -> Lude.Text) (\s a -> s {name = a} :: GroupConfigurationParameter)
+{-# DEPRECATED gcpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON GroupConfigurationParameter where
+instance Lude.FromJSON GroupConfigurationParameter where
   parseJSON =
-    withObject
+    Lude.withObject
       "GroupConfigurationParameter"
       ( \x ->
           GroupConfigurationParameter'
-            <$> (x .:? "Values" .!= mempty) <*> (x .: "Name")
+            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "Name")
       )
 
-instance Hashable GroupConfigurationParameter
-
-instance NFData GroupConfigurationParameter
-
-instance ToJSON GroupConfigurationParameter where
+instance Lude.ToJSON GroupConfigurationParameter where
   toJSON GroupConfigurationParameter' {..} =
-    object
-      ( catMaybes
-          [("Values" .=) <$> _gcpValues, Just ("Name" .= _gcpName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Values" Lude..=) Lude.<$> values,
+            Lude.Just ("Name" Lude..= name)
+          ]
       )

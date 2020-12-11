@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeStar.Types.Toolchain where
+module Network.AWS.CodeStar.Types.Toolchain
+  ( Toolchain (..),
+
+    -- * Smart constructor
+    mkToolchain,
+
+    -- * Lenses
+    tStackParameters,
+    tRoleARN,
+    tSource,
+  )
+where
 
 import Network.AWS.CodeStar.Types.ToolchainSource
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The toolchain template file provided with the project request. AWS CodeStar uses the template to provision the toolchain stack in AWS CloudFormation.
 --
---
---
--- /See:/ 'toolchain' smart constructor.
+-- /See:/ 'mkToolchain' smart constructor.
 data Toolchain = Toolchain'
-  { _tStackParameters ::
-      !(Maybe (Map Text (Sensitive Text))),
-    _tRoleARN :: !(Maybe Text),
-    _tSource :: !ToolchainSource
+  { stackParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)),
+    roleARN :: Lude.Maybe Lude.Text,
+    source :: ToolchainSource
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Toolchain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tStackParameters' - The list of parameter overrides to be passed into the toolchain template during stack provisioning, if any.
---
--- * 'tRoleARN' - The service role ARN for AWS CodeStar to use for the toolchain template during stack provisioning.
---
--- * 'tSource' - The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
-toolchain ::
-  -- | 'tSource'
+-- * 'roleARN' - The service role ARN for AWS CodeStar to use for the toolchain template during stack provisioning.
+-- * 'source' - The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
+-- * 'stackParameters' - The list of parameter overrides to be passed into the toolchain template during stack provisioning, if any.
+mkToolchain ::
+  -- | 'source'
   ToolchainSource ->
   Toolchain
-toolchain pSource_ =
+mkToolchain pSource_ =
   Toolchain'
-    { _tStackParameters = Nothing,
-      _tRoleARN = Nothing,
-      _tSource = pSource_
+    { stackParameters = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      source = pSource_
     }
 
 -- | The list of parameter overrides to be passed into the toolchain template during stack provisioning, if any.
-tStackParameters :: Lens' Toolchain (HashMap Text (Text))
-tStackParameters = lens _tStackParameters (\s a -> s {_tStackParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'stackParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStackParameters :: Lens.Lens' Toolchain (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text)))
+tStackParameters = Lens.lens (stackParameters :: Toolchain -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Sensitive Lude.Text))) (\s a -> s {stackParameters = a} :: Toolchain)
+{-# DEPRECATED tStackParameters "Use generic-lens or generic-optics with 'stackParameters' instead." #-}
 
 -- | The service role ARN for AWS CodeStar to use for the toolchain template during stack provisioning.
-tRoleARN :: Lens' Toolchain (Maybe Text)
-tRoleARN = lens _tRoleARN (\s a -> s {_tRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tRoleARN :: Lens.Lens' Toolchain (Lude.Maybe Lude.Text)
+tRoleARN = Lens.lens (roleARN :: Toolchain -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: Toolchain)
+{-# DEPRECATED tRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
-tSource :: Lens' Toolchain ToolchainSource
-tSource = lens _tSource (\s a -> s {_tSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSource :: Lens.Lens' Toolchain ToolchainSource
+tSource = Lens.lens (source :: Toolchain -> ToolchainSource) (\s a -> s {source = a} :: Toolchain)
+{-# DEPRECATED tSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance Hashable Toolchain
-
-instance NFData Toolchain
-
-instance ToJSON Toolchain where
+instance Lude.ToJSON Toolchain where
   toJSON Toolchain' {..} =
-    object
-      ( catMaybes
-          [ ("stackParameters" .=) <$> _tStackParameters,
-            ("roleArn" .=) <$> _tRoleARN,
-            Just ("source" .= _tSource)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("stackParameters" Lude..=) Lude.<$> stackParameters,
+            ("roleArn" Lude..=) Lude.<$> roleARN,
+            Lude.Just ("source" Lude..= source)
           ]
       )

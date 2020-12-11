@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioTypeControl where
+module Network.AWS.MediaConvert.Types.AudioTypeControl
+  ( AudioTypeControl
+      ( AudioTypeControl',
+        ATCFollowInput,
+        ATCUseConfigured
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | When set to FOLLOW_INPUT, if the input contains an ISO 639 audio_type, then that value is passed through to the output. If the input contains no ISO 639 audio_type, the value in Audio Type is included in the output. Otherwise the value in Audio Type is included in the output. Note that this field and audioType are both ignored if audioDescriptionBroadcasterMix is set to BROADCASTER_MIXED_AD.
-data AudioTypeControl
-  = ATCFollowInput
-  | ATCUseConfigured
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioTypeControl = AudioTypeControl' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioTypeControl where
-  parser =
-    takeLowerText >>= \case
-      "follow_input" -> pure ATCFollowInput
-      "use_configured" -> pure ATCUseConfigured
-      e ->
-        fromTextError $
-          "Failure parsing AudioTypeControl from value: '" <> e
-            <> "'. Accepted values: follow_input, use_configured"
+pattern ATCFollowInput :: AudioTypeControl
+pattern ATCFollowInput = AudioTypeControl' "FOLLOW_INPUT"
 
-instance ToText AudioTypeControl where
-  toText = \case
-    ATCFollowInput -> "FOLLOW_INPUT"
-    ATCUseConfigured -> "USE_CONFIGURED"
+pattern ATCUseConfigured :: AudioTypeControl
+pattern ATCUseConfigured = AudioTypeControl' "USE_CONFIGURED"
 
-instance Hashable AudioTypeControl
-
-instance NFData AudioTypeControl
-
-instance ToByteString AudioTypeControl
-
-instance ToQuery AudioTypeControl
-
-instance ToHeader AudioTypeControl
-
-instance ToJSON AudioTypeControl where
-  toJSON = toJSONText
-
-instance FromJSON AudioTypeControl where
-  parseJSON = parseJSONText "AudioTypeControl"
+{-# COMPLETE
+  ATCFollowInput,
+  ATCUseConfigured,
+  AudioTypeControl'
+  #-}

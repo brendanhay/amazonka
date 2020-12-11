@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.HTTPEndpointDescription where
+module Network.AWS.Firehose.Types.HTTPEndpointDescription
+  ( HTTPEndpointDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTPEndpointDescription,
+
+    -- * Lenses
+    httpedURL,
+    httpedName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the HTTP endpoint selected as the destination.
 --
---
---
--- /See:/ 'hTTPEndpointDescription' smart constructor.
+-- /See:/ 'mkHTTPEndpointDescription' smart constructor.
 data HTTPEndpointDescription = HTTPEndpointDescription'
-  { _httpedURL ::
-      !(Maybe (Sensitive Text)),
-    _httpedName :: !(Maybe Text)
+  { url ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPEndpointDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpedURL' - The URL of the HTTP endpoint selected as the destination.
---
--- * 'httpedName' - The name of the HTTP endpoint selected as the destination.
-hTTPEndpointDescription ::
+-- * 'name' - The name of the HTTP endpoint selected as the destination.
+-- * 'url' - The URL of the HTTP endpoint selected as the destination.
+mkHTTPEndpointDescription ::
   HTTPEndpointDescription
-hTTPEndpointDescription =
-  HTTPEndpointDescription'
-    { _httpedURL = Nothing,
-      _httpedName = Nothing
-    }
+mkHTTPEndpointDescription =
+  HTTPEndpointDescription' {url = Lude.Nothing, name = Lude.Nothing}
 
 -- | The URL of the HTTP endpoint selected as the destination.
-httpedURL :: Lens' HTTPEndpointDescription (Maybe Text)
-httpedURL = lens _httpedURL (\s a -> s {_httpedURL = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpedURL :: Lens.Lens' HTTPEndpointDescription (Lude.Maybe (Lude.Sensitive Lude.Text))
+httpedURL = Lens.lens (url :: HTTPEndpointDescription -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {url = a} :: HTTPEndpointDescription)
+{-# DEPRECATED httpedURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The name of the HTTP endpoint selected as the destination.
-httpedName :: Lens' HTTPEndpointDescription (Maybe Text)
-httpedName = lens _httpedName (\s a -> s {_httpedName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpedName :: Lens.Lens' HTTPEndpointDescription (Lude.Maybe Lude.Text)
+httpedName = Lens.lens (name :: HTTPEndpointDescription -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: HTTPEndpointDescription)
+{-# DEPRECATED httpedName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON HTTPEndpointDescription where
+instance Lude.FromJSON HTTPEndpointDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPEndpointDescription"
       ( \x ->
-          HTTPEndpointDescription' <$> (x .:? "Url") <*> (x .:? "Name")
+          HTTPEndpointDescription'
+            Lude.<$> (x Lude..:? "Url") Lude.<*> (x Lude..:? "Name")
       )
-
-instance Hashable HTTPEndpointDescription
-
-instance NFData HTTPEndpointDescription

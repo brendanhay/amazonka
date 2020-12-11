@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CancelSpotInstanceRequestState where
+module Network.AWS.EC2.Types.CancelSpotInstanceRequestState
+  ( CancelSpotInstanceRequestState
+      ( CancelSpotInstanceRequestState',
+        CSIRSActive,
+        CSIRSCancelled,
+        CSIRSClosed,
+        CSIRSCompleted,
+        CSIRSOpen
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CancelSpotInstanceRequestState
-  = CSIRSActive
-  | CSIRSCancelled
-  | CSIRSClosed
-  | CSIRSCompleted
-  | CSIRSOpen
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CancelSpotInstanceRequestState = CancelSpotInstanceRequestState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CancelSpotInstanceRequestState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CSIRSActive
-      "cancelled" -> pure CSIRSCancelled
-      "closed" -> pure CSIRSClosed
-      "completed" -> pure CSIRSCompleted
-      "open" -> pure CSIRSOpen
-      e ->
-        fromTextError $
-          "Failure parsing CancelSpotInstanceRequestState from value: '" <> e
-            <> "'. Accepted values: active, cancelled, closed, completed, open"
+pattern CSIRSActive :: CancelSpotInstanceRequestState
+pattern CSIRSActive = CancelSpotInstanceRequestState' "active"
 
-instance ToText CancelSpotInstanceRequestState where
-  toText = \case
-    CSIRSActive -> "active"
-    CSIRSCancelled -> "cancelled"
-    CSIRSClosed -> "closed"
-    CSIRSCompleted -> "completed"
-    CSIRSOpen -> "open"
+pattern CSIRSCancelled :: CancelSpotInstanceRequestState
+pattern CSIRSCancelled = CancelSpotInstanceRequestState' "cancelled"
 
-instance Hashable CancelSpotInstanceRequestState
+pattern CSIRSClosed :: CancelSpotInstanceRequestState
+pattern CSIRSClosed = CancelSpotInstanceRequestState' "closed"
 
-instance NFData CancelSpotInstanceRequestState
+pattern CSIRSCompleted :: CancelSpotInstanceRequestState
+pattern CSIRSCompleted = CancelSpotInstanceRequestState' "completed"
 
-instance ToByteString CancelSpotInstanceRequestState
+pattern CSIRSOpen :: CancelSpotInstanceRequestState
+pattern CSIRSOpen = CancelSpotInstanceRequestState' "open"
 
-instance ToQuery CancelSpotInstanceRequestState
-
-instance ToHeader CancelSpotInstanceRequestState
-
-instance FromXML CancelSpotInstanceRequestState where
-  parseXML = parseXMLText "CancelSpotInstanceRequestState"
+{-# COMPLETE
+  CSIRSActive,
+  CSIRSCancelled,
+  CSIRSClosed,
+  CSIRSCompleted,
+  CSIRSOpen,
+  CancelSpotInstanceRequestState'
+  #-}

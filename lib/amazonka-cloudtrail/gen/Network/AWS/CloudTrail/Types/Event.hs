@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,154 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.Event where
+module Network.AWS.CloudTrail.Types.Event
+  ( Event (..),
+
+    -- * Smart constructor
+    mkEvent,
+
+    -- * Lenses
+    eUsername,
+    eResources,
+    eEventTime,
+    eCloudTrailEvent,
+    eEventName,
+    eReadOnly,
+    eAccessKeyId,
+    eEventSource,
+    eEventId,
+  )
+where
 
 import Network.AWS.CloudTrail.Types.Resource
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about an event that was returned by a lookup request. The result includes a representation of a CloudTrail event.
 --
---
---
--- /See:/ 'event' smart constructor.
+-- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { _eUsername :: !(Maybe Text),
-    _eResources :: !(Maybe [Resource]),
-    _eEventTime :: !(Maybe POSIX),
-    _eCloudTrailEvent :: !(Maybe Text),
-    _eEventName :: !(Maybe Text),
-    _eReadOnly :: !(Maybe Text),
-    _eAccessKeyId :: !(Maybe Text),
-    _eEventSource :: !(Maybe Text),
-    _eEventId :: !(Maybe Text)
+  { username :: Lude.Maybe Lude.Text,
+    resources :: Lude.Maybe [Resource],
+    eventTime :: Lude.Maybe Lude.Timestamp,
+    cloudTrailEvent :: Lude.Maybe Lude.Text,
+    eventName :: Lude.Maybe Lude.Text,
+    readOnly :: Lude.Maybe Lude.Text,
+    accessKeyId :: Lude.Maybe Lude.Text,
+    eventSource :: Lude.Maybe Lude.Text,
+    eventId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eUsername' - A user name or role name of the requester that called the API in the event returned.
---
--- * 'eResources' - A list of resources referenced by the event returned.
---
--- * 'eEventTime' - The date and time of the event returned.
---
--- * 'eCloudTrailEvent' - A JSON string that contains a representation of the event returned.
---
--- * 'eEventName' - The name of the event returned.
---
--- * 'eReadOnly' - Information about whether the event is a write event or a read event.
---
--- * 'eAccessKeyId' - The AWS access key ID that was used to sign the request. If the request was made with temporary security credentials, this is the access key ID of the temporary credentials.
---
--- * 'eEventSource' - The AWS service that the request was made to.
---
--- * 'eEventId' - The CloudTrail ID of the event returned.
-event ::
+-- * 'accessKeyId' - The AWS access key ID that was used to sign the request. If the request was made with temporary security credentials, this is the access key ID of the temporary credentials.
+-- * 'cloudTrailEvent' - A JSON string that contains a representation of the event returned.
+-- * 'eventId' - The CloudTrail ID of the event returned.
+-- * 'eventName' - The name of the event returned.
+-- * 'eventSource' - The AWS service that the request was made to.
+-- * 'eventTime' - The date and time of the event returned.
+-- * 'readOnly' - Information about whether the event is a write event or a read event.
+-- * 'resources' - A list of resources referenced by the event returned.
+-- * 'username' - A user name or role name of the requester that called the API in the event returned.
+mkEvent ::
   Event
-event =
+mkEvent =
   Event'
-    { _eUsername = Nothing,
-      _eResources = Nothing,
-      _eEventTime = Nothing,
-      _eCloudTrailEvent = Nothing,
-      _eEventName = Nothing,
-      _eReadOnly = Nothing,
-      _eAccessKeyId = Nothing,
-      _eEventSource = Nothing,
-      _eEventId = Nothing
+    { username = Lude.Nothing,
+      resources = Lude.Nothing,
+      eventTime = Lude.Nothing,
+      cloudTrailEvent = Lude.Nothing,
+      eventName = Lude.Nothing,
+      readOnly = Lude.Nothing,
+      accessKeyId = Lude.Nothing,
+      eventSource = Lude.Nothing,
+      eventId = Lude.Nothing
     }
 
 -- | A user name or role name of the requester that called the API in the event returned.
-eUsername :: Lens' Event (Maybe Text)
-eUsername = lens _eUsername (\s a -> s {_eUsername = a})
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eUsername :: Lens.Lens' Event (Lude.Maybe Lude.Text)
+eUsername = Lens.lens (username :: Event -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: Event)
+{-# DEPRECATED eUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | A list of resources referenced by the event returned.
-eResources :: Lens' Event [Resource]
-eResources = lens _eResources (\s a -> s {_eResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eResources :: Lens.Lens' Event (Lude.Maybe [Resource])
+eResources = Lens.lens (resources :: Event -> Lude.Maybe [Resource]) (\s a -> s {resources = a} :: Event)
+{-# DEPRECATED eResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The date and time of the event returned.
-eEventTime :: Lens' Event (Maybe UTCTime)
-eEventTime = lens _eEventTime (\s a -> s {_eEventTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'eventTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEventTime :: Lens.Lens' Event (Lude.Maybe Lude.Timestamp)
+eEventTime = Lens.lens (eventTime :: Event -> Lude.Maybe Lude.Timestamp) (\s a -> s {eventTime = a} :: Event)
+{-# DEPRECATED eEventTime "Use generic-lens or generic-optics with 'eventTime' instead." #-}
 
 -- | A JSON string that contains a representation of the event returned.
-eCloudTrailEvent :: Lens' Event (Maybe Text)
-eCloudTrailEvent = lens _eCloudTrailEvent (\s a -> s {_eCloudTrailEvent = a})
+--
+-- /Note:/ Consider using 'cloudTrailEvent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eCloudTrailEvent :: Lens.Lens' Event (Lude.Maybe Lude.Text)
+eCloudTrailEvent = Lens.lens (cloudTrailEvent :: Event -> Lude.Maybe Lude.Text) (\s a -> s {cloudTrailEvent = a} :: Event)
+{-# DEPRECATED eCloudTrailEvent "Use generic-lens or generic-optics with 'cloudTrailEvent' instead." #-}
 
 -- | The name of the event returned.
-eEventName :: Lens' Event (Maybe Text)
-eEventName = lens _eEventName (\s a -> s {_eEventName = a})
+--
+-- /Note:/ Consider using 'eventName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEventName :: Lens.Lens' Event (Lude.Maybe Lude.Text)
+eEventName = Lens.lens (eventName :: Event -> Lude.Maybe Lude.Text) (\s a -> s {eventName = a} :: Event)
+{-# DEPRECATED eEventName "Use generic-lens or generic-optics with 'eventName' instead." #-}
 
 -- | Information about whether the event is a write event or a read event.
-eReadOnly :: Lens' Event (Maybe Text)
-eReadOnly = lens _eReadOnly (\s a -> s {_eReadOnly = a})
+--
+-- /Note:/ Consider using 'readOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eReadOnly :: Lens.Lens' Event (Lude.Maybe Lude.Text)
+eReadOnly = Lens.lens (readOnly :: Event -> Lude.Maybe Lude.Text) (\s a -> s {readOnly = a} :: Event)
+{-# DEPRECATED eReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
 
 -- | The AWS access key ID that was used to sign the request. If the request was made with temporary security credentials, this is the access key ID of the temporary credentials.
-eAccessKeyId :: Lens' Event (Maybe Text)
-eAccessKeyId = lens _eAccessKeyId (\s a -> s {_eAccessKeyId = a})
+--
+-- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eAccessKeyId :: Lens.Lens' Event (Lude.Maybe Lude.Text)
+eAccessKeyId = Lens.lens (accessKeyId :: Event -> Lude.Maybe Lude.Text) (\s a -> s {accessKeyId = a} :: Event)
+{-# DEPRECATED eAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
 -- | The AWS service that the request was made to.
-eEventSource :: Lens' Event (Maybe Text)
-eEventSource = lens _eEventSource (\s a -> s {_eEventSource = a})
+--
+-- /Note:/ Consider using 'eventSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEventSource :: Lens.Lens' Event (Lude.Maybe Lude.Text)
+eEventSource = Lens.lens (eventSource :: Event -> Lude.Maybe Lude.Text) (\s a -> s {eventSource = a} :: Event)
+{-# DEPRECATED eEventSource "Use generic-lens or generic-optics with 'eventSource' instead." #-}
 
 -- | The CloudTrail ID of the event returned.
-eEventId :: Lens' Event (Maybe Text)
-eEventId = lens _eEventId (\s a -> s {_eEventId = a})
+--
+-- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEventId :: Lens.Lens' Event (Lude.Maybe Lude.Text)
+eEventId = Lens.lens (eventId :: Event -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: Event)
+{-# DEPRECATED eEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
-instance FromJSON Event where
+instance Lude.FromJSON Event where
   parseJSON =
-    withObject
+    Lude.withObject
       "Event"
       ( \x ->
           Event'
-            <$> (x .:? "Username")
-            <*> (x .:? "Resources" .!= mempty)
-            <*> (x .:? "EventTime")
-            <*> (x .:? "CloudTrailEvent")
-            <*> (x .:? "EventName")
-            <*> (x .:? "ReadOnly")
-            <*> (x .:? "AccessKeyId")
-            <*> (x .:? "EventSource")
-            <*> (x .:? "EventId")
+            Lude.<$> (x Lude..:? "Username")
+            Lude.<*> (x Lude..:? "Resources" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "EventTime")
+            Lude.<*> (x Lude..:? "CloudTrailEvent")
+            Lude.<*> (x Lude..:? "EventName")
+            Lude.<*> (x Lude..:? "ReadOnly")
+            Lude.<*> (x Lude..:? "AccessKeyId")
+            Lude.<*> (x Lude..:? "EventSource")
+            Lude.<*> (x Lude..:? "EventId")
       )
-
-instance Hashable Event
-
-instance NFData Event

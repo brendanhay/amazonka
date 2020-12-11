@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceState where
+module Network.AWS.EMR.Types.InstanceState
+  ( InstanceState
+      ( InstanceState',
+        ISAwaitingFulfillment,
+        ISBootstrapping,
+        ISProvisioning,
+        ISRunning,
+        ISTerminated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceState
-  = ISAwaitingFulfillment
-  | ISBootstrapping
-  | ISProvisioning
-  | ISRunning
-  | ISTerminated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceState = InstanceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceState where
-  parser =
-    takeLowerText >>= \case
-      "awaiting_fulfillment" -> pure ISAwaitingFulfillment
-      "bootstrapping" -> pure ISBootstrapping
-      "provisioning" -> pure ISProvisioning
-      "running" -> pure ISRunning
-      "terminated" -> pure ISTerminated
-      e ->
-        fromTextError $
-          "Failure parsing InstanceState from value: '" <> e
-            <> "'. Accepted values: awaiting_fulfillment, bootstrapping, provisioning, running, terminated"
+pattern ISAwaitingFulfillment :: InstanceState
+pattern ISAwaitingFulfillment = InstanceState' "AWAITING_FULFILLMENT"
 
-instance ToText InstanceState where
-  toText = \case
-    ISAwaitingFulfillment -> "AWAITING_FULFILLMENT"
-    ISBootstrapping -> "BOOTSTRAPPING"
-    ISProvisioning -> "PROVISIONING"
-    ISRunning -> "RUNNING"
-    ISTerminated -> "TERMINATED"
+pattern ISBootstrapping :: InstanceState
+pattern ISBootstrapping = InstanceState' "BOOTSTRAPPING"
 
-instance Hashable InstanceState
+pattern ISProvisioning :: InstanceState
+pattern ISProvisioning = InstanceState' "PROVISIONING"
 
-instance NFData InstanceState
+pattern ISRunning :: InstanceState
+pattern ISRunning = InstanceState' "RUNNING"
 
-instance ToByteString InstanceState
+pattern ISTerminated :: InstanceState
+pattern ISTerminated = InstanceState' "TERMINATED"
 
-instance ToQuery InstanceState
-
-instance ToHeader InstanceState
-
-instance ToJSON InstanceState where
-  toJSON = toJSONText
-
-instance FromJSON InstanceState where
-  parseJSON = parseJSONText "InstanceState"
+{-# COMPLETE
+  ISAwaitingFulfillment,
+  ISBootstrapping,
+  ISProvisioning,
+  ISRunning,
+  ISTerminated,
+  InstanceState'
+  #-}

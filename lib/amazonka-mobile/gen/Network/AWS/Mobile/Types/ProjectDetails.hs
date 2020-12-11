@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,112 +7,144 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Mobile.Types.ProjectDetails where
+module Network.AWS.Mobile.Types.ProjectDetails
+  ( ProjectDetails (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkProjectDetails,
+
+    -- * Lenses
+    pdState,
+    pdResources,
+    pdCreatedDate,
+    pdConsoleURL,
+    pdName,
+    pdRegion,
+    pdProjectId,
+    pdLastUpdatedDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types.ProjectState
 import Network.AWS.Mobile.Types.Resource
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Detailed information about an AWS Mobile Hub project.
 --
---
---
--- /See:/ 'projectDetails' smart constructor.
+-- /See:/ 'mkProjectDetails' smart constructor.
 data ProjectDetails = ProjectDetails'
-  { _pdState ::
-      !(Maybe ProjectState),
-    _pdResources :: !(Maybe [Resource]),
-    _pdCreatedDate :: !(Maybe POSIX),
-    _pdConsoleURL :: !(Maybe Text),
-    _pdName :: !(Maybe Text),
-    _pdRegion :: !(Maybe Text),
-    _pdProjectId :: !(Maybe Text),
-    _pdLastUpdatedDate :: !(Maybe POSIX)
+  { state ::
+      Lude.Maybe ProjectState,
+    resources :: Lude.Maybe [Resource],
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    consoleURL :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    projectId :: Lude.Maybe Lude.Text,
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdState' - Undocumented member.
---
--- * 'pdResources' - Undocumented member.
---
--- * 'pdCreatedDate' - Date the project was created.
---
--- * 'pdConsoleURL' - Website URL for this project in the AWS Mobile Hub console.
---
--- * 'pdName' - Undocumented member.
---
--- * 'pdRegion' - Undocumented member.
---
--- * 'pdProjectId' - Undocumented member.
---
--- * 'pdLastUpdatedDate' - Date of the last modification of the project.
-projectDetails ::
+-- * 'consoleURL' - Website URL for this project in the AWS Mobile Hub console.
+-- * 'createdDate' - Date the project was created.
+-- * 'lastUpdatedDate' - Date of the last modification of the project.
+-- * 'name' - Undocumented field.
+-- * 'projectId' - Undocumented field.
+-- * 'region' - Undocumented field.
+-- * 'resources' - Undocumented field.
+-- * 'state' - Undocumented field.
+mkProjectDetails ::
   ProjectDetails
-projectDetails =
+mkProjectDetails =
   ProjectDetails'
-    { _pdState = Nothing,
-      _pdResources = Nothing,
-      _pdCreatedDate = Nothing,
-      _pdConsoleURL = Nothing,
-      _pdName = Nothing,
-      _pdRegion = Nothing,
-      _pdProjectId = Nothing,
-      _pdLastUpdatedDate = Nothing
+    { state = Lude.Nothing,
+      resources = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      consoleURL = Lude.Nothing,
+      name = Lude.Nothing,
+      region = Lude.Nothing,
+      projectId = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing
     }
 
--- | Undocumented member.
-pdState :: Lens' ProjectDetails (Maybe ProjectState)
-pdState = lens _pdState (\s a -> s {_pdState = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdState :: Lens.Lens' ProjectDetails (Lude.Maybe ProjectState)
+pdState = Lens.lens (state :: ProjectDetails -> Lude.Maybe ProjectState) (\s a -> s {state = a} :: ProjectDetails)
+{-# DEPRECATED pdState "Use generic-lens or generic-optics with 'state' instead." #-}
 
--- | Undocumented member.
-pdResources :: Lens' ProjectDetails [Resource]
-pdResources = lens _pdResources (\s a -> s {_pdResources = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdResources :: Lens.Lens' ProjectDetails (Lude.Maybe [Resource])
+pdResources = Lens.lens (resources :: ProjectDetails -> Lude.Maybe [Resource]) (\s a -> s {resources = a} :: ProjectDetails)
+{-# DEPRECATED pdResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | Date the project was created.
-pdCreatedDate :: Lens' ProjectDetails (Maybe UTCTime)
-pdCreatedDate = lens _pdCreatedDate (\s a -> s {_pdCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdCreatedDate :: Lens.Lens' ProjectDetails (Lude.Maybe Lude.Timestamp)
+pdCreatedDate = Lens.lens (createdDate :: ProjectDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: ProjectDetails)
+{-# DEPRECATED pdCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | Website URL for this project in the AWS Mobile Hub console.
-pdConsoleURL :: Lens' ProjectDetails (Maybe Text)
-pdConsoleURL = lens _pdConsoleURL (\s a -> s {_pdConsoleURL = a})
+--
+-- /Note:/ Consider using 'consoleURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdConsoleURL :: Lens.Lens' ProjectDetails (Lude.Maybe Lude.Text)
+pdConsoleURL = Lens.lens (consoleURL :: ProjectDetails -> Lude.Maybe Lude.Text) (\s a -> s {consoleURL = a} :: ProjectDetails)
+{-# DEPRECATED pdConsoleURL "Use generic-lens or generic-optics with 'consoleURL' instead." #-}
 
--- | Undocumented member.
-pdName :: Lens' ProjectDetails (Maybe Text)
-pdName = lens _pdName (\s a -> s {_pdName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdName :: Lens.Lens' ProjectDetails (Lude.Maybe Lude.Text)
+pdName = Lens.lens (name :: ProjectDetails -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProjectDetails)
+{-# DEPRECATED pdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Undocumented member.
-pdRegion :: Lens' ProjectDetails (Maybe Text)
-pdRegion = lens _pdRegion (\s a -> s {_pdRegion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdRegion :: Lens.Lens' ProjectDetails (Lude.Maybe Lude.Text)
+pdRegion = Lens.lens (region :: ProjectDetails -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: ProjectDetails)
+{-# DEPRECATED pdRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
--- | Undocumented member.
-pdProjectId :: Lens' ProjectDetails (Maybe Text)
-pdProjectId = lens _pdProjectId (\s a -> s {_pdProjectId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdProjectId :: Lens.Lens' ProjectDetails (Lude.Maybe Lude.Text)
+pdProjectId = Lens.lens (projectId :: ProjectDetails -> Lude.Maybe Lude.Text) (\s a -> s {projectId = a} :: ProjectDetails)
+{-# DEPRECATED pdProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
 -- | Date of the last modification of the project.
-pdLastUpdatedDate :: Lens' ProjectDetails (Maybe UTCTime)
-pdLastUpdatedDate = lens _pdLastUpdatedDate (\s a -> s {_pdLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdLastUpdatedDate :: Lens.Lens' ProjectDetails (Lude.Maybe Lude.Timestamp)
+pdLastUpdatedDate = Lens.lens (lastUpdatedDate :: ProjectDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: ProjectDetails)
+{-# DEPRECATED pdLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
-instance FromJSON ProjectDetails where
+instance Lude.FromJSON ProjectDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProjectDetails"
       ( \x ->
           ProjectDetails'
-            <$> (x .:? "state")
-            <*> (x .:? "resources" .!= mempty)
-            <*> (x .:? "createdDate")
-            <*> (x .:? "consoleUrl")
-            <*> (x .:? "name")
-            <*> (x .:? "region")
-            <*> (x .:? "projectId")
-            <*> (x .:? "lastUpdatedDate")
+            Lude.<$> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "resources" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "createdDate")
+            Lude.<*> (x Lude..:? "consoleUrl")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "region")
+            Lude.<*> (x Lude..:? "projectId")
+            Lude.<*> (x Lude..:? "lastUpdatedDate")
       )
-
-instance Hashable ProjectDetails
-
-instance NFData ProjectDetails

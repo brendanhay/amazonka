@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,139 @@
 --
 -- Represents the failure of a third party job as returned to the pipeline by a job worker. Used for partner actions only.
 module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
-  ( -- * Creating a Request
-    putThirdPartyJobFailureResult,
-    PutThirdPartyJobFailureResult,
+  ( -- * Creating a request
+    PutThirdPartyJobFailureResult (..),
+    mkPutThirdPartyJobFailureResult,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ptpjfrJobId,
     ptpjfrClientToken,
     ptpjfrFailureDetails,
 
-    -- * Destructuring the Response
-    putThirdPartyJobFailureResultResponse,
-    PutThirdPartyJobFailureResultResponse,
+    -- * Destructuring the response
+    PutThirdPartyJobFailureResultResponse (..),
+    mkPutThirdPartyJobFailureResultResponse,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @PutThirdPartyJobFailureResult@ action.
 --
---
---
--- /See:/ 'putThirdPartyJobFailureResult' smart constructor.
+-- /See:/ 'mkPutThirdPartyJobFailureResult' smart constructor.
 data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
-  { _ptpjfrJobId ::
-      !Text,
-    _ptpjfrClientToken :: !Text,
-    _ptpjfrFailureDetails ::
-      !FailureDetails
+  { jobId ::
+      Lude.Text,
+    clientToken :: Lude.Text,
+    failureDetails ::
+      FailureDetails
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutThirdPartyJobFailureResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptpjfrJobId' - The ID of the job that failed. This is the same ID returned from @PollForThirdPartyJobs@ .
---
--- * 'ptpjfrClientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
---
--- * 'ptpjfrFailureDetails' - Represents information about failure details.
-putThirdPartyJobFailureResult ::
-  -- | 'ptpjfrJobId'
-  Text ->
-  -- | 'ptpjfrClientToken'
-  Text ->
-  -- | 'ptpjfrFailureDetails'
+-- * 'clientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
+-- * 'failureDetails' - Represents information about failure details.
+-- * 'jobId' - The ID of the job that failed. This is the same ID returned from @PollForThirdPartyJobs@ .
+mkPutThirdPartyJobFailureResult ::
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'clientToken'
+  Lude.Text ->
+  -- | 'failureDetails'
   FailureDetails ->
   PutThirdPartyJobFailureResult
-putThirdPartyJobFailureResult
+mkPutThirdPartyJobFailureResult
   pJobId_
   pClientToken_
   pFailureDetails_ =
     PutThirdPartyJobFailureResult'
-      { _ptpjfrJobId = pJobId_,
-        _ptpjfrClientToken = pClientToken_,
-        _ptpjfrFailureDetails = pFailureDetails_
+      { jobId = pJobId_,
+        clientToken = pClientToken_,
+        failureDetails = pFailureDetails_
       }
 
 -- | The ID of the job that failed. This is the same ID returned from @PollForThirdPartyJobs@ .
-ptpjfrJobId :: Lens' PutThirdPartyJobFailureResult Text
-ptpjfrJobId = lens _ptpjfrJobId (\s a -> s {_ptpjfrJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptpjfrJobId :: Lens.Lens' PutThirdPartyJobFailureResult Lude.Text
+ptpjfrJobId = Lens.lens (jobId :: PutThirdPartyJobFailureResult -> Lude.Text) (\s a -> s {jobId = a} :: PutThirdPartyJobFailureResult)
+{-# DEPRECATED ptpjfrJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
-ptpjfrClientToken :: Lens' PutThirdPartyJobFailureResult Text
-ptpjfrClientToken = lens _ptpjfrClientToken (\s a -> s {_ptpjfrClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptpjfrClientToken :: Lens.Lens' PutThirdPartyJobFailureResult Lude.Text
+ptpjfrClientToken = Lens.lens (clientToken :: PutThirdPartyJobFailureResult -> Lude.Text) (\s a -> s {clientToken = a} :: PutThirdPartyJobFailureResult)
+{-# DEPRECATED ptpjfrClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Represents information about failure details.
-ptpjfrFailureDetails :: Lens' PutThirdPartyJobFailureResult FailureDetails
-ptpjfrFailureDetails = lens _ptpjfrFailureDetails (\s a -> s {_ptpjfrFailureDetails = a})
+--
+-- /Note:/ Consider using 'failureDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptpjfrFailureDetails :: Lens.Lens' PutThirdPartyJobFailureResult FailureDetails
+ptpjfrFailureDetails = Lens.lens (failureDetails :: PutThirdPartyJobFailureResult -> FailureDetails) (\s a -> s {failureDetails = a} :: PutThirdPartyJobFailureResult)
+{-# DEPRECATED ptpjfrFailureDetails "Use generic-lens or generic-optics with 'failureDetails' instead." #-}
 
-instance AWSRequest PutThirdPartyJobFailureResult where
+instance Lude.AWSRequest PutThirdPartyJobFailureResult where
   type
     Rs PutThirdPartyJobFailureResult =
       PutThirdPartyJobFailureResultResponse
-  request = postJSON codePipeline
-  response = receiveNull PutThirdPartyJobFailureResultResponse'
+  request = Req.postJSON codePipelineService
+  response = Res.receiveNull PutThirdPartyJobFailureResultResponse'
 
-instance Hashable PutThirdPartyJobFailureResult
-
-instance NFData PutThirdPartyJobFailureResult
-
-instance ToHeaders PutThirdPartyJobFailureResult where
+instance Lude.ToHeaders PutThirdPartyJobFailureResult where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "CodePipeline_20150709.PutThirdPartyJobFailureResult" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodePipeline_20150709.PutThirdPartyJobFailureResult" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutThirdPartyJobFailureResult where
+instance Lude.ToJSON PutThirdPartyJobFailureResult where
   toJSON PutThirdPartyJobFailureResult' {..} =
-    object
-      ( catMaybes
-          [ Just ("jobId" .= _ptpjfrJobId),
-            Just ("clientToken" .= _ptpjfrClientToken),
-            Just ("failureDetails" .= _ptpjfrFailureDetails)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("jobId" Lude..= jobId),
+            Lude.Just ("clientToken" Lude..= clientToken),
+            Lude.Just ("failureDetails" Lude..= failureDetails)
           ]
       )
 
-instance ToPath PutThirdPartyJobFailureResult where
-  toPath = const "/"
+instance Lude.ToPath PutThirdPartyJobFailureResult where
+  toPath = Lude.const "/"
 
-instance ToQuery PutThirdPartyJobFailureResult where
-  toQuery = const mempty
+instance Lude.ToQuery PutThirdPartyJobFailureResult where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putThirdPartyJobFailureResultResponse' smart constructor.
+-- | /See:/ 'mkPutThirdPartyJobFailureResultResponse' smart constructor.
 data PutThirdPartyJobFailureResultResponse = PutThirdPartyJobFailureResultResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutThirdPartyJobFailureResultResponse' with the minimum fields required to make a request.
-putThirdPartyJobFailureResultResponse ::
+mkPutThirdPartyJobFailureResultResponse ::
   PutThirdPartyJobFailureResultResponse
-putThirdPartyJobFailureResultResponse =
+mkPutThirdPartyJobFailureResultResponse =
   PutThirdPartyJobFailureResultResponse'
-
-instance NFData PutThirdPartyJobFailureResultResponse

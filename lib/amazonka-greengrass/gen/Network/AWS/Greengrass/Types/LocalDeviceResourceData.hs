@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.LocalDeviceResourceData where
+module Network.AWS.Greengrass.Types.LocalDeviceResourceData
+  ( LocalDeviceResourceData (..),
+
+    -- * Smart constructor
+    mkLocalDeviceResourceData,
+
+    -- * Lenses
+    ldrdGroupOwnerSetting,
+    ldrdSourcePath,
+  )
+where
 
 import Network.AWS.Greengrass.Types.GroupOwnerSetting
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Attributes that define a local device resource.
 --
--- /See:/ 'localDeviceResourceData' smart constructor.
+-- /See:/ 'mkLocalDeviceResourceData' smart constructor.
 data LocalDeviceResourceData = LocalDeviceResourceData'
-  { _ldrdGroupOwnerSetting ::
-      !(Maybe GroupOwnerSetting),
-    _ldrdSourcePath :: !(Maybe Text)
+  { groupOwnerSetting ::
+      Lude.Maybe GroupOwnerSetting,
+    sourcePath :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalDeviceResourceData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrdGroupOwnerSetting' - Group/owner related settings for local resources.
---
--- * 'ldrdSourcePath' - The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
-localDeviceResourceData ::
+-- * 'groupOwnerSetting' - Group/owner related settings for local resources.
+-- * 'sourcePath' - The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
+mkLocalDeviceResourceData ::
   LocalDeviceResourceData
-localDeviceResourceData =
+mkLocalDeviceResourceData =
   LocalDeviceResourceData'
-    { _ldrdGroupOwnerSetting = Nothing,
-      _ldrdSourcePath = Nothing
+    { groupOwnerSetting = Lude.Nothing,
+      sourcePath = Lude.Nothing
     }
 
 -- | Group/owner related settings for local resources.
-ldrdGroupOwnerSetting :: Lens' LocalDeviceResourceData (Maybe GroupOwnerSetting)
-ldrdGroupOwnerSetting = lens _ldrdGroupOwnerSetting (\s a -> s {_ldrdGroupOwnerSetting = a})
+--
+-- /Note:/ Consider using 'groupOwnerSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrdGroupOwnerSetting :: Lens.Lens' LocalDeviceResourceData (Lude.Maybe GroupOwnerSetting)
+ldrdGroupOwnerSetting = Lens.lens (groupOwnerSetting :: LocalDeviceResourceData -> Lude.Maybe GroupOwnerSetting) (\s a -> s {groupOwnerSetting = a} :: LocalDeviceResourceData)
+{-# DEPRECATED ldrdGroupOwnerSetting "Use generic-lens or generic-optics with 'groupOwnerSetting' instead." #-}
 
 -- | The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
-ldrdSourcePath :: Lens' LocalDeviceResourceData (Maybe Text)
-ldrdSourcePath = lens _ldrdSourcePath (\s a -> s {_ldrdSourcePath = a})
+--
+-- /Note:/ Consider using 'sourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrdSourcePath :: Lens.Lens' LocalDeviceResourceData (Lude.Maybe Lude.Text)
+ldrdSourcePath = Lens.lens (sourcePath :: LocalDeviceResourceData -> Lude.Maybe Lude.Text) (\s a -> s {sourcePath = a} :: LocalDeviceResourceData)
+{-# DEPRECATED ldrdSourcePath "Use generic-lens or generic-optics with 'sourcePath' instead." #-}
 
-instance FromJSON LocalDeviceResourceData where
+instance Lude.FromJSON LocalDeviceResourceData where
   parseJSON =
-    withObject
+    Lude.withObject
       "LocalDeviceResourceData"
       ( \x ->
           LocalDeviceResourceData'
-            <$> (x .:? "GroupOwnerSetting") <*> (x .:? "SourcePath")
+            Lude.<$> (x Lude..:? "GroupOwnerSetting")
+            Lude.<*> (x Lude..:? "SourcePath")
       )
 
-instance Hashable LocalDeviceResourceData
-
-instance NFData LocalDeviceResourceData
-
-instance ToJSON LocalDeviceResourceData where
+instance Lude.ToJSON LocalDeviceResourceData where
   toJSON LocalDeviceResourceData' {..} =
-    object
-      ( catMaybes
-          [ ("GroupOwnerSetting" .=) <$> _ldrdGroupOwnerSetting,
-            ("SourcePath" .=) <$> _ldrdSourcePath
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GroupOwnerSetting" Lude..=) Lude.<$> groupOwnerSetting,
+            ("SourcePath" Lude..=) Lude.<$> sourcePath
           ]
       )

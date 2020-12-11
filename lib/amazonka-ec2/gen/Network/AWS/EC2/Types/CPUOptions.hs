@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CPUOptions where
+module Network.AWS.EC2.Types.CPUOptions
+  ( CPUOptions (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCPUOptions,
+
+    -- * Lenses
+    coCoreCount,
+    coThreadsPerCore,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The CPU options for the instance.
 --
---
---
--- /See:/ 'cpuOptions' smart constructor.
+-- /See:/ 'mkCPUOptions' smart constructor.
 data CPUOptions = CPUOptions'
-  { _coCoreCount :: !(Maybe Int),
-    _coThreadsPerCore :: !(Maybe Int)
+  { coreCount :: Lude.Maybe Lude.Int,
+    threadsPerCore :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CPUOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'coCoreCount' - The number of CPU cores for the instance.
---
--- * 'coThreadsPerCore' - The number of threads per CPU core.
-cpuOptions ::
+-- * 'coreCount' - The number of CPU cores for the instance.
+-- * 'threadsPerCore' - The number of threads per CPU core.
+mkCPUOptions ::
   CPUOptions
-cpuOptions =
-  CPUOptions' {_coCoreCount = Nothing, _coThreadsPerCore = Nothing}
+mkCPUOptions =
+  CPUOptions'
+    { coreCount = Lude.Nothing,
+      threadsPerCore = Lude.Nothing
+    }
 
 -- | The number of CPU cores for the instance.
-coCoreCount :: Lens' CPUOptions (Maybe Int)
-coCoreCount = lens _coCoreCount (\s a -> s {_coCoreCount = a})
+--
+-- /Note:/ Consider using 'coreCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCoreCount :: Lens.Lens' CPUOptions (Lude.Maybe Lude.Int)
+coCoreCount = Lens.lens (coreCount :: CPUOptions -> Lude.Maybe Lude.Int) (\s a -> s {coreCount = a} :: CPUOptions)
+{-# DEPRECATED coCoreCount "Use generic-lens or generic-optics with 'coreCount' instead." #-}
 
 -- | The number of threads per CPU core.
-coThreadsPerCore :: Lens' CPUOptions (Maybe Int)
-coThreadsPerCore = lens _coThreadsPerCore (\s a -> s {_coThreadsPerCore = a})
+--
+-- /Note:/ Consider using 'threadsPerCore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coThreadsPerCore :: Lens.Lens' CPUOptions (Lude.Maybe Lude.Int)
+coThreadsPerCore = Lens.lens (threadsPerCore :: CPUOptions -> Lude.Maybe Lude.Int) (\s a -> s {threadsPerCore = a} :: CPUOptions)
+{-# DEPRECATED coThreadsPerCore "Use generic-lens or generic-optics with 'threadsPerCore' instead." #-}
 
-instance FromXML CPUOptions where
+instance Lude.FromXML CPUOptions where
   parseXML x =
-    CPUOptions' <$> (x .@? "coreCount") <*> (x .@? "threadsPerCore")
-
-instance Hashable CPUOptions
-
-instance NFData CPUOptions
+    CPUOptions'
+      Lude.<$> (x Lude..@? "coreCount") Lude.<*> (x Lude..@? "threadsPerCore")

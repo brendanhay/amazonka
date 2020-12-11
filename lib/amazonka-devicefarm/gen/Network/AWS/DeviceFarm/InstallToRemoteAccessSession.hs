@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,161 @@
 --
 -- Installs an application to the device in a remote access session. For Android applications, the file must be in .apk format. For iOS applications, the file must be in .ipa format.
 module Network.AWS.DeviceFarm.InstallToRemoteAccessSession
-  ( -- * Creating a Request
-    installToRemoteAccessSession,
-    InstallToRemoteAccessSession,
+  ( -- * Creating a request
+    InstallToRemoteAccessSession (..),
+    mkInstallToRemoteAccessSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     itrasRemoteAccessSessionARN,
     itrasAppARN,
 
-    -- * Destructuring the Response
-    installToRemoteAccessSessionResponse,
-    InstallToRemoteAccessSessionResponse,
+    -- * Destructuring the response
+    InstallToRemoteAccessSessionResponse (..),
+    mkInstallToRemoteAccessSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     itrasrsAppUpload,
     itrasrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to install an Android application (in .apk format) or an iOS application (in .ipa format) as part of a remote access session.
 --
---
---
--- /See:/ 'installToRemoteAccessSession' smart constructor.
+-- /See:/ 'mkInstallToRemoteAccessSession' smart constructor.
 data InstallToRemoteAccessSession = InstallToRemoteAccessSession'
-  { _itrasRemoteAccessSessionARN ::
-      !Text,
-    _itrasAppARN :: !Text
+  { remoteAccessSessionARN ::
+      Lude.Text,
+    appARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstallToRemoteAccessSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'itrasRemoteAccessSessionARN' - The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
---
--- * 'itrasAppARN' - The ARN of the app about which you are requesting information.
-installToRemoteAccessSession ::
-  -- | 'itrasRemoteAccessSessionARN'
-  Text ->
-  -- | 'itrasAppARN'
-  Text ->
+-- * 'appARN' - The ARN of the app about which you are requesting information.
+-- * 'remoteAccessSessionARN' - The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
+mkInstallToRemoteAccessSession ::
+  -- | 'remoteAccessSessionARN'
+  Lude.Text ->
+  -- | 'appARN'
+  Lude.Text ->
   InstallToRemoteAccessSession
-installToRemoteAccessSession pRemoteAccessSessionARN_ pAppARN_ =
+mkInstallToRemoteAccessSession pRemoteAccessSessionARN_ pAppARN_ =
   InstallToRemoteAccessSession'
-    { _itrasRemoteAccessSessionARN =
+    { remoteAccessSessionARN =
         pRemoteAccessSessionARN_,
-      _itrasAppARN = pAppARN_
+      appARN = pAppARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
-itrasRemoteAccessSessionARN :: Lens' InstallToRemoteAccessSession Text
-itrasRemoteAccessSessionARN = lens _itrasRemoteAccessSessionARN (\s a -> s {_itrasRemoteAccessSessionARN = a})
+--
+-- /Note:/ Consider using 'remoteAccessSessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itrasRemoteAccessSessionARN :: Lens.Lens' InstallToRemoteAccessSession Lude.Text
+itrasRemoteAccessSessionARN = Lens.lens (remoteAccessSessionARN :: InstallToRemoteAccessSession -> Lude.Text) (\s a -> s {remoteAccessSessionARN = a} :: InstallToRemoteAccessSession)
+{-# DEPRECATED itrasRemoteAccessSessionARN "Use generic-lens or generic-optics with 'remoteAccessSessionARN' instead." #-}
 
 -- | The ARN of the app about which you are requesting information.
-itrasAppARN :: Lens' InstallToRemoteAccessSession Text
-itrasAppARN = lens _itrasAppARN (\s a -> s {_itrasAppARN = a})
+--
+-- /Note:/ Consider using 'appARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itrasAppARN :: Lens.Lens' InstallToRemoteAccessSession Lude.Text
+itrasAppARN = Lens.lens (appARN :: InstallToRemoteAccessSession -> Lude.Text) (\s a -> s {appARN = a} :: InstallToRemoteAccessSession)
+{-# DEPRECATED itrasAppARN "Use generic-lens or generic-optics with 'appARN' instead." #-}
 
-instance AWSRequest InstallToRemoteAccessSession where
+instance Lude.AWSRequest InstallToRemoteAccessSession where
   type
     Rs InstallToRemoteAccessSession =
       InstallToRemoteAccessSessionResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           InstallToRemoteAccessSessionResponse'
-            <$> (x .?> "appUpload") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "appUpload") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable InstallToRemoteAccessSession
-
-instance NFData InstallToRemoteAccessSession
-
-instance ToHeaders InstallToRemoteAccessSession where
+instance Lude.ToHeaders InstallToRemoteAccessSession where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.InstallToRemoteAccessSession" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DeviceFarm_20150623.InstallToRemoteAccessSession" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON InstallToRemoteAccessSession where
+instance Lude.ToJSON InstallToRemoteAccessSession where
   toJSON InstallToRemoteAccessSession' {..} =
-    object
-      ( catMaybes
-          [ Just ("remoteAccessSessionArn" .= _itrasRemoteAccessSessionARN),
-            Just ("appArn" .= _itrasAppARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("remoteAccessSessionArn" Lude..= remoteAccessSessionARN),
+            Lude.Just ("appArn" Lude..= appARN)
           ]
       )
 
-instance ToPath InstallToRemoteAccessSession where
-  toPath = const "/"
+instance Lude.ToPath InstallToRemoteAccessSession where
+  toPath = Lude.const "/"
 
-instance ToQuery InstallToRemoteAccessSession where
-  toQuery = const mempty
+instance Lude.ToQuery InstallToRemoteAccessSession where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server after AWS Device Farm makes a request to install to a remote access session.
 --
---
---
--- /See:/ 'installToRemoteAccessSessionResponse' smart constructor.
+-- /See:/ 'mkInstallToRemoteAccessSessionResponse' smart constructor.
 data InstallToRemoteAccessSessionResponse = InstallToRemoteAccessSessionResponse'
-  { _itrasrsAppUpload ::
-      !(Maybe Upload),
-    _itrasrsResponseStatus ::
-      !Int
+  { appUpload ::
+      Lude.Maybe Upload,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstallToRemoteAccessSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'itrasrsAppUpload' - An app to upload or that has been uploaded.
---
--- * 'itrasrsResponseStatus' - -- | The response status code.
-installToRemoteAccessSessionResponse ::
-  -- | 'itrasrsResponseStatus'
-  Int ->
+-- * 'appUpload' - An app to upload or that has been uploaded.
+-- * 'responseStatus' - The response status code.
+mkInstallToRemoteAccessSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   InstallToRemoteAccessSessionResponse
-installToRemoteAccessSessionResponse pResponseStatus_ =
+mkInstallToRemoteAccessSessionResponse pResponseStatus_ =
   InstallToRemoteAccessSessionResponse'
-    { _itrasrsAppUpload =
-        Nothing,
-      _itrasrsResponseStatus = pResponseStatus_
+    { appUpload = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An app to upload or that has been uploaded.
-itrasrsAppUpload :: Lens' InstallToRemoteAccessSessionResponse (Maybe Upload)
-itrasrsAppUpload = lens _itrasrsAppUpload (\s a -> s {_itrasrsAppUpload = a})
+--
+-- /Note:/ Consider using 'appUpload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itrasrsAppUpload :: Lens.Lens' InstallToRemoteAccessSessionResponse (Lude.Maybe Upload)
+itrasrsAppUpload = Lens.lens (appUpload :: InstallToRemoteAccessSessionResponse -> Lude.Maybe Upload) (\s a -> s {appUpload = a} :: InstallToRemoteAccessSessionResponse)
+{-# DEPRECATED itrasrsAppUpload "Use generic-lens or generic-optics with 'appUpload' instead." #-}
 
--- | -- | The response status code.
-itrasrsResponseStatus :: Lens' InstallToRemoteAccessSessionResponse Int
-itrasrsResponseStatus = lens _itrasrsResponseStatus (\s a -> s {_itrasrsResponseStatus = a})
-
-instance NFData InstallToRemoteAccessSessionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itrasrsResponseStatus :: Lens.Lens' InstallToRemoteAccessSessionResponse Lude.Int
+itrasrsResponseStatus = Lens.lens (responseStatus :: InstallToRemoteAccessSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InstallToRemoteAccessSessionResponse)
+{-# DEPRECATED itrasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

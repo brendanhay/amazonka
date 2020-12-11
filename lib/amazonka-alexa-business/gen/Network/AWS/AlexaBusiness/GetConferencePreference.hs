@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,112 @@
 --
 -- Retrieves the existing conference preferences.
 module Network.AWS.AlexaBusiness.GetConferencePreference
-  ( -- * Creating a Request
-    getConferencePreference,
-    GetConferencePreference,
+  ( -- * Creating a request
+    GetConferencePreference (..),
+    mkGetConferencePreference,
 
-    -- * Destructuring the Response
-    getConferencePreferenceResponse,
-    GetConferencePreferenceResponse,
+    -- * Destructuring the response
+    GetConferencePreferenceResponse (..),
+    mkGetConferencePreferenceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcprsPreference,
     gcprsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getConferencePreference' smart constructor.
+-- | /See:/ 'mkGetConferencePreference' smart constructor.
 data GetConferencePreference = GetConferencePreference'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConferencePreference' with the minimum fields required to make a request.
-getConferencePreference ::
+mkGetConferencePreference ::
   GetConferencePreference
-getConferencePreference = GetConferencePreference'
+mkGetConferencePreference = GetConferencePreference'
 
-instance AWSRequest GetConferencePreference where
+instance Lude.AWSRequest GetConferencePreference where
   type Rs GetConferencePreference = GetConferencePreferenceResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetConferencePreferenceResponse'
-            <$> (x .?> "Preference") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Preference") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetConferencePreference
-
-instance NFData GetConferencePreference
-
-instance ToHeaders GetConferencePreference where
+instance Lude.ToHeaders GetConferencePreference where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.GetConferencePreference" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.GetConferencePreference" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetConferencePreference where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetConferencePreference where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetConferencePreference where
-  toPath = const "/"
+instance Lude.ToPath GetConferencePreference where
+  toPath = Lude.const "/"
 
-instance ToQuery GetConferencePreference where
-  toQuery = const mempty
+instance Lude.ToQuery GetConferencePreference where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getConferencePreferenceResponse' smart constructor.
+-- | /See:/ 'mkGetConferencePreferenceResponse' smart constructor.
 data GetConferencePreferenceResponse = GetConferencePreferenceResponse'
-  { _gcprsPreference ::
-      !( Maybe
-           ConferencePreference
-       ),
-    _gcprsResponseStatus ::
-      !Int
+  { preference ::
+      Lude.Maybe
+        ConferencePreference,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConferencePreferenceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcprsPreference' - The conference preference.
---
--- * 'gcprsResponseStatus' - -- | The response status code.
-getConferencePreferenceResponse ::
-  -- | 'gcprsResponseStatus'
-  Int ->
+-- * 'preference' - The conference preference.
+-- * 'responseStatus' - The response status code.
+mkGetConferencePreferenceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetConferencePreferenceResponse
-getConferencePreferenceResponse pResponseStatus_ =
+mkGetConferencePreferenceResponse pResponseStatus_ =
   GetConferencePreferenceResponse'
-    { _gcprsPreference = Nothing,
-      _gcprsResponseStatus = pResponseStatus_
+    { preference = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The conference preference.
-gcprsPreference :: Lens' GetConferencePreferenceResponse (Maybe ConferencePreference)
-gcprsPreference = lens _gcprsPreference (\s a -> s {_gcprsPreference = a})
+--
+-- /Note:/ Consider using 'preference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcprsPreference :: Lens.Lens' GetConferencePreferenceResponse (Lude.Maybe ConferencePreference)
+gcprsPreference = Lens.lens (preference :: GetConferencePreferenceResponse -> Lude.Maybe ConferencePreference) (\s a -> s {preference = a} :: GetConferencePreferenceResponse)
+{-# DEPRECATED gcprsPreference "Use generic-lens or generic-optics with 'preference' instead." #-}
 
--- | -- | The response status code.
-gcprsResponseStatus :: Lens' GetConferencePreferenceResponse Int
-gcprsResponseStatus = lens _gcprsResponseStatus (\s a -> s {_gcprsResponseStatus = a})
-
-instance NFData GetConferencePreferenceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcprsResponseStatus :: Lens.Lens' GetConferencePreferenceResponse Lude.Int
+gcprsResponseStatus = Lens.lens (responseStatus :: GetConferencePreferenceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConferencePreferenceResponse)
+{-# DEPRECATED gcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

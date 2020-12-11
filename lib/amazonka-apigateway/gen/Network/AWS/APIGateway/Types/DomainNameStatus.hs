@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.DomainNameStatus where
+module Network.AWS.APIGateway.Types.DomainNameStatus
+  ( DomainNameStatus
+      ( DomainNameStatus',
+        DNSAvailable,
+        DNSPending,
+        DNSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainNameStatus
-  = DNSAvailable
-  | DNSPending
-  | DNSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainNameStatus = DomainNameStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainNameStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure DNSAvailable
-      "pending" -> pure DNSPending
-      "updating" -> pure DNSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing DomainNameStatus from value: '" <> e
-            <> "'. Accepted values: available, pending, updating"
+pattern DNSAvailable :: DomainNameStatus
+pattern DNSAvailable = DomainNameStatus' "AVAILABLE"
 
-instance ToText DomainNameStatus where
-  toText = \case
-    DNSAvailable -> "AVAILABLE"
-    DNSPending -> "PENDING"
-    DNSUpdating -> "UPDATING"
+pattern DNSPending :: DomainNameStatus
+pattern DNSPending = DomainNameStatus' "PENDING"
 
-instance Hashable DomainNameStatus
+pattern DNSUpdating :: DomainNameStatus
+pattern DNSUpdating = DomainNameStatus' "UPDATING"
 
-instance NFData DomainNameStatus
-
-instance ToByteString DomainNameStatus
-
-instance ToQuery DomainNameStatus
-
-instance ToHeader DomainNameStatus
-
-instance FromJSON DomainNameStatus where
-  parseJSON = parseJSONText "DomainNameStatus"
+{-# COMPLETE
+  DNSAvailable,
+  DNSPending,
+  DNSUpdating,
+  DomainNameStatus'
+  #-}

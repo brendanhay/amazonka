@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,112 @@
 --
 -- Used to delete a domain. If you onboarded with IAM mode, you will need to delete your domain to onboard again using SSO. Use with caution. All of the members of the domain will lose access to their EFS volume, including data, notebooks, and other artifacts.
 module Network.AWS.SageMaker.DeleteDomain
-  ( -- * Creating a Request
-    deleteDomain,
-    DeleteDomain,
+  ( -- * Creating a request
+    DeleteDomain (..),
+    mkDeleteDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dddRetentionPolicy,
     dddDomainId,
 
-    -- * Destructuring the Response
-    deleteDomainResponse,
-    DeleteDomainResponse,
+    -- * Destructuring the response
+    DeleteDomainResponse (..),
+    mkDeleteDomainResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteDomain' smart constructor.
+-- | /See:/ 'mkDeleteDomain' smart constructor.
 data DeleteDomain = DeleteDomain'
-  { _dddRetentionPolicy ::
-      !(Maybe RetentionPolicy),
-    _dddDomainId :: !Text
+  { retentionPolicy ::
+      Lude.Maybe RetentionPolicy,
+    domainId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dddRetentionPolicy' - The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained (not automatically deleted).
---
--- * 'dddDomainId' - The domain ID.
-deleteDomain ::
-  -- | 'dddDomainId'
-  Text ->
+-- * 'domainId' - The domain ID.
+-- * 'retentionPolicy' - The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained (not automatically deleted).
+mkDeleteDomain ::
+  -- | 'domainId'
+  Lude.Text ->
   DeleteDomain
-deleteDomain pDomainId_ =
+mkDeleteDomain pDomainId_ =
   DeleteDomain'
-    { _dddRetentionPolicy = Nothing,
-      _dddDomainId = pDomainId_
+    { retentionPolicy = Lude.Nothing,
+      domainId = pDomainId_
     }
 
 -- | The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained (not automatically deleted).
-dddRetentionPolicy :: Lens' DeleteDomain (Maybe RetentionPolicy)
-dddRetentionPolicy = lens _dddRetentionPolicy (\s a -> s {_dddRetentionPolicy = a})
+--
+-- /Note:/ Consider using 'retentionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dddRetentionPolicy :: Lens.Lens' DeleteDomain (Lude.Maybe RetentionPolicy)
+dddRetentionPolicy = Lens.lens (retentionPolicy :: DeleteDomain -> Lude.Maybe RetentionPolicy) (\s a -> s {retentionPolicy = a} :: DeleteDomain)
+{-# DEPRECATED dddRetentionPolicy "Use generic-lens or generic-optics with 'retentionPolicy' instead." #-}
 
 -- | The domain ID.
-dddDomainId :: Lens' DeleteDomain Text
-dddDomainId = lens _dddDomainId (\s a -> s {_dddDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dddDomainId :: Lens.Lens' DeleteDomain Lude.Text
+dddDomainId = Lens.lens (domainId :: DeleteDomain -> Lude.Text) (\s a -> s {domainId = a} :: DeleteDomain)
+{-# DEPRECATED dddDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
-instance AWSRequest DeleteDomain where
+instance Lude.AWSRequest DeleteDomain where
   type Rs DeleteDomain = DeleteDomainResponse
-  request = postJSON sageMaker
-  response = receiveNull DeleteDomainResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull DeleteDomainResponse'
 
-instance Hashable DeleteDomain
-
-instance NFData DeleteDomain
-
-instance ToHeaders DeleteDomain where
+instance Lude.ToHeaders DeleteDomain where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DeleteDomain" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DeleteDomain" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDomain where
+instance Lude.ToJSON DeleteDomain where
   toJSON DeleteDomain' {..} =
-    object
-      ( catMaybes
-          [ ("RetentionPolicy" .=) <$> _dddRetentionPolicy,
-            Just ("DomainId" .= _dddDomainId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RetentionPolicy" Lude..=) Lude.<$> retentionPolicy,
+            Lude.Just ("DomainId" Lude..= domainId)
           ]
       )
 
-instance ToPath DeleteDomain where
-  toPath = const "/"
+instance Lude.ToPath DeleteDomain where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDomain where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDomain where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDomainResponse' smart constructor.
+-- | /See:/ 'mkDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
-deleteDomainResponse ::
+mkDeleteDomainResponse ::
   DeleteDomainResponse
-deleteDomainResponse = DeleteDomainResponse'
-
-instance NFData DeleteDomainResponse
+mkDeleteDomainResponse = DeleteDomainResponse'

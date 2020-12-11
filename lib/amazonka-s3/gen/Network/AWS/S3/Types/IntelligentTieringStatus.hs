@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.IntelligentTieringStatus where
+module Network.AWS.S3.Types.IntelligentTieringStatus
+  ( IntelligentTieringStatus
+      ( IntelligentTieringStatus',
+        ITSDisabled,
+        ITSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data IntelligentTieringStatus
-  = ITSDisabled
-  | ITSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IntelligentTieringStatus = IntelligentTieringStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IntelligentTieringStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure ITSDisabled
-      "enabled" -> pure ITSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing IntelligentTieringStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern ITSDisabled :: IntelligentTieringStatus
+pattern ITSDisabled = IntelligentTieringStatus' "Disabled"
 
-instance ToText IntelligentTieringStatus where
-  toText = \case
-    ITSDisabled -> "Disabled"
-    ITSEnabled -> "Enabled"
+pattern ITSEnabled :: IntelligentTieringStatus
+pattern ITSEnabled = IntelligentTieringStatus' "Enabled"
 
-instance Hashable IntelligentTieringStatus
-
-instance NFData IntelligentTieringStatus
-
-instance ToByteString IntelligentTieringStatus
-
-instance ToQuery IntelligentTieringStatus
-
-instance ToHeader IntelligentTieringStatus
-
-instance FromXML IntelligentTieringStatus where
-  parseXML = parseXMLText "IntelligentTieringStatus"
-
-instance ToXML IntelligentTieringStatus where
-  toXML = toXMLText
+{-# COMPLETE
+  ITSDisabled,
+  ITSEnabled,
+  IntelligentTieringStatus'
+  #-}

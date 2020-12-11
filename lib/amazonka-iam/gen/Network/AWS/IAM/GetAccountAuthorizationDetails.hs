@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Retrieves information about all IAM users, groups, roles, and policies in your AWS account, including their relationships to one another. Use this API to obtain a snapshot of the configuration of IAM permissions (users, groups, roles, and policies) in your account.
 --
---
 -- You can optionally filter the results using the @Filter@ parameter. You can paginate the results using the @MaxItems@ and @Marker@ parameters.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.GetAccountAuthorizationDetails
-  ( -- * Creating a Request
-    getAccountAuthorizationDetails,
-    GetAccountAuthorizationDetails,
+  ( -- * Creating a request
+    GetAccountAuthorizationDetails (..),
+    mkGetAccountAuthorizationDetails,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaadMarker,
     gaadMaxItems,
     gaadFilter,
 
-    -- * Destructuring the Response
-    getAccountAuthorizationDetailsResponse,
-    GetAccountAuthorizationDetailsResponse,
+    -- * Destructuring the response
+    GetAccountAuthorizationDetailsResponse (..),
+    mkGetAccountAuthorizationDetailsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gaadrsRoleDetailList,
     gaadrsGroupDetailList,
     gaadrsUserDetailList,
@@ -50,189 +43,231 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAccountAuthorizationDetails' smart constructor.
+-- | /See:/ 'mkGetAccountAuthorizationDetails' smart constructor.
 data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
-  { _gaadMarker ::
-      !(Maybe Text),
-    _gaadMaxItems :: !(Maybe Nat),
-    _gaadFilter ::
-      !(Maybe [EntityType])
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems ::
+      Lude.Maybe Lude.Natural,
+    filter ::
+      Lude.Maybe [EntityType]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountAuthorizationDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filter' - A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value @LocalManagedPolicy@ to include customer managed policies.
 --
--- * 'gaadMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
+-- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
--- * 'gaadMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
---
--- * 'gaadFilter' - A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value @LocalManagedPolicy@ to include customer managed policies. The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
-getAccountAuthorizationDetails ::
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+mkGetAccountAuthorizationDetails ::
   GetAccountAuthorizationDetails
-getAccountAuthorizationDetails =
+mkGetAccountAuthorizationDetails =
   GetAccountAuthorizationDetails'
-    { _gaadMarker = Nothing,
-      _gaadMaxItems = Nothing,
-      _gaadFilter = Nothing
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      filter = Lude.Nothing
     }
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
-gaadMarker = lens _gaadMarker (\s a -> s {_gaadMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadMarker :: Lens.Lens' GetAccountAuthorizationDetails (Lude.Maybe Lude.Text)
+gaadMarker = Lens.lens (marker :: GetAccountAuthorizationDetails -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: GetAccountAuthorizationDetails)
+{-# DEPRECATED gaadMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-gaadMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
-gaadMaxItems = lens _gaadMaxItems (\s a -> s {_gaadMaxItems = a}) . mapping _Nat
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+--
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadMaxItems :: Lens.Lens' GetAccountAuthorizationDetails (Lude.Maybe Lude.Natural)
+gaadMaxItems = Lens.lens (maxItems :: GetAccountAuthorizationDetails -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: GetAccountAuthorizationDetails)
+{-# DEPRECATED gaadMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value @LocalManagedPolicy@ to include customer managed policies. The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
-gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
-gaadFilter = lens _gaadFilter (\s a -> s {_gaadFilter = a}) . _Default . _Coerce
+-- | A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value @LocalManagedPolicy@ to include customer managed policies.
+--
+-- The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadFilter :: Lens.Lens' GetAccountAuthorizationDetails (Lude.Maybe [EntityType])
+gaadFilter = Lens.lens (filter :: GetAccountAuthorizationDetails -> Lude.Maybe [EntityType]) (\s a -> s {filter = a} :: GetAccountAuthorizationDetails)
+{-# DEPRECATED gaadFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
-instance AWSPager GetAccountAuthorizationDetails where
+instance Page.AWSPager GetAccountAuthorizationDetails where
   page rq rs
-    | stop (rs ^. gaadrsIsTruncated) = Nothing
-    | isNothing (rs ^. gaadrsMarker) = Nothing
-    | otherwise = Just $ rq & gaadMarker .~ rs ^. gaadrsMarker
+    | Page.stop (rs Lens.^. gaadrsIsTruncated) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. gaadrsMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gaadMarker Lens..~ rs Lens.^. gaadrsMarker
 
-instance AWSRequest GetAccountAuthorizationDetails where
+instance Lude.AWSRequest GetAccountAuthorizationDetails where
   type
     Rs GetAccountAuthorizationDetails =
       GetAccountAuthorizationDetailsResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetAccountAuthorizationDetailsResult"
       ( \s h x ->
           GetAccountAuthorizationDetailsResponse'
-            <$> (x .@? "RoleDetailList" .!@ mempty >>= may (parseXMLList "member"))
-            <*> ( x .@? "GroupDetailList" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (x .@? "UserDetailList" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "Marker")
-            <*> (x .@? "IsTruncated")
-            <*> (x .@? "Policies" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "RoleDetailList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> ( x Lude..@? "GroupDetailList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> ( x Lude..@? "UserDetailList" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> ( x Lude..@? "Policies" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAccountAuthorizationDetails
+instance Lude.ToHeaders GetAccountAuthorizationDetails where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetAccountAuthorizationDetails
+instance Lude.ToPath GetAccountAuthorizationDetails where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetAccountAuthorizationDetails where
-  toHeaders = const mempty
-
-instance ToPath GetAccountAuthorizationDetails where
-  toPath = const "/"
-
-instance ToQuery GetAccountAuthorizationDetails where
+instance Lude.ToQuery GetAccountAuthorizationDetails where
   toQuery GetAccountAuthorizationDetails' {..} =
-    mconcat
-      [ "Action" =: ("GetAccountAuthorizationDetails" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "Marker" =: _gaadMarker,
-        "MaxItems" =: _gaadMaxItems,
-        "Filter" =: toQuery (toQueryList "member" <$> _gaadFilter)
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("GetAccountAuthorizationDetails" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "Marker" Lude.=: marker,
+        "MaxItems" Lude.=: maxItems,
+        "Filter"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> filter)
       ]
 
 -- | Contains the response to a successful 'GetAccountAuthorizationDetails' request.
 --
---
---
--- /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
+-- /See:/ 'mkGetAccountAuthorizationDetailsResponse' smart constructor.
 data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
-  { _gaadrsRoleDetailList ::
-      !( Maybe
-           [RoleDetail]
-       ),
-    _gaadrsGroupDetailList ::
-      !( Maybe
-           [GroupDetail]
-       ),
-    _gaadrsUserDetailList ::
-      !( Maybe
-           [UserDetail]
-       ),
-    _gaadrsMarker ::
-      !(Maybe Text),
-    _gaadrsIsTruncated ::
-      !(Maybe Bool),
-    _gaadrsPolicies ::
-      !( Maybe
-           [ManagedPolicyDetail]
-       ),
-    _gaadrsResponseStatus ::
-      !Int
+  { roleDetailList ::
+      Lude.Maybe
+        [RoleDetail],
+    groupDetailList ::
+      Lude.Maybe
+        [GroupDetail],
+    userDetailList ::
+      Lude.Maybe
+        [UserDetail],
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    isTruncated ::
+      Lude.Maybe
+        Lude.Bool,
+    policies ::
+      Lude.Maybe
+        [ManagedPolicyDetail],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountAuthorizationDetailsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaadrsRoleDetailList' - A list containing information about IAM roles.
---
--- * 'gaadrsGroupDetailList' - A list containing information about IAM groups.
---
--- * 'gaadrsUserDetailList' - A list containing information about IAM users.
---
--- * 'gaadrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'gaadrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
---
--- * 'gaadrsPolicies' - A list containing information about managed policies.
---
--- * 'gaadrsResponseStatus' - -- | The response status code.
-getAccountAuthorizationDetailsResponse ::
-  -- | 'gaadrsResponseStatus'
-  Int ->
+-- * 'groupDetailList' - A list containing information about IAM groups.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'policies' - A list containing information about managed policies.
+-- * 'responseStatus' - The response status code.
+-- * 'roleDetailList' - A list containing information about IAM roles.
+-- * 'userDetailList' - A list containing information about IAM users.
+mkGetAccountAuthorizationDetailsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAccountAuthorizationDetailsResponse
-getAccountAuthorizationDetailsResponse pResponseStatus_ =
+mkGetAccountAuthorizationDetailsResponse pResponseStatus_ =
   GetAccountAuthorizationDetailsResponse'
-    { _gaadrsRoleDetailList =
-        Nothing,
-      _gaadrsGroupDetailList = Nothing,
-      _gaadrsUserDetailList = Nothing,
-      _gaadrsMarker = Nothing,
-      _gaadrsIsTruncated = Nothing,
-      _gaadrsPolicies = Nothing,
-      _gaadrsResponseStatus = pResponseStatus_
+    { roleDetailList =
+        Lude.Nothing,
+      groupDetailList = Lude.Nothing,
+      userDetailList = Lude.Nothing,
+      marker = Lude.Nothing,
+      isTruncated = Lude.Nothing,
+      policies = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list containing information about IAM roles.
-gaadrsRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
-gaadrsRoleDetailList = lens _gaadrsRoleDetailList (\s a -> s {_gaadrsRoleDetailList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'roleDetailList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadrsRoleDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Lude.Maybe [RoleDetail])
+gaadrsRoleDetailList = Lens.lens (roleDetailList :: GetAccountAuthorizationDetailsResponse -> Lude.Maybe [RoleDetail]) (\s a -> s {roleDetailList = a} :: GetAccountAuthorizationDetailsResponse)
+{-# DEPRECATED gaadrsRoleDetailList "Use generic-lens or generic-optics with 'roleDetailList' instead." #-}
 
 -- | A list containing information about IAM groups.
-gaadrsGroupDetailList :: Lens' GetAccountAuthorizationDetailsResponse [GroupDetail]
-gaadrsGroupDetailList = lens _gaadrsGroupDetailList (\s a -> s {_gaadrsGroupDetailList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groupDetailList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadrsGroupDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Lude.Maybe [GroupDetail])
+gaadrsGroupDetailList = Lens.lens (groupDetailList :: GetAccountAuthorizationDetailsResponse -> Lude.Maybe [GroupDetail]) (\s a -> s {groupDetailList = a} :: GetAccountAuthorizationDetailsResponse)
+{-# DEPRECATED gaadrsGroupDetailList "Use generic-lens or generic-optics with 'groupDetailList' instead." #-}
 
 -- | A list containing information about IAM users.
-gaadrsUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse [UserDetail]
-gaadrsUserDetailList = lens _gaadrsUserDetailList (\s a -> s {_gaadrsUserDetailList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userDetailList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadrsUserDetailList :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Lude.Maybe [UserDetail])
+gaadrsUserDetailList = Lens.lens (userDetailList :: GetAccountAuthorizationDetailsResponse -> Lude.Maybe [UserDetail]) (\s a -> s {userDetailList = a} :: GetAccountAuthorizationDetailsResponse)
+{-# DEPRECATED gaadrsUserDetailList "Use generic-lens or generic-optics with 'userDetailList' instead." #-}
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-gaadrsMarker :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Text)
-gaadrsMarker = lens _gaadrsMarker (\s a -> s {_gaadrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadrsMarker :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Lude.Maybe Lude.Text)
+gaadrsMarker = Lens.lens (marker :: GetAccountAuthorizationDetailsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: GetAccountAuthorizationDetailsResponse)
+{-# DEPRECATED gaadrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
-gaadrsIsTruncated :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Bool)
-gaadrsIsTruncated = lens _gaadrsIsTruncated (\s a -> s {_gaadrsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadrsIsTruncated :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Lude.Maybe Lude.Bool)
+gaadrsIsTruncated = Lens.lens (isTruncated :: GetAccountAuthorizationDetailsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: GetAccountAuthorizationDetailsResponse)
+{-# DEPRECATED gaadrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | A list containing information about managed policies.
-gaadrsPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
-gaadrsPolicies = lens _gaadrsPolicies (\s a -> s {_gaadrsPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadrsPolicies :: Lens.Lens' GetAccountAuthorizationDetailsResponse (Lude.Maybe [ManagedPolicyDetail])
+gaadrsPolicies = Lens.lens (policies :: GetAccountAuthorizationDetailsResponse -> Lude.Maybe [ManagedPolicyDetail]) (\s a -> s {policies = a} :: GetAccountAuthorizationDetailsResponse)
+{-# DEPRECATED gaadrsPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
--- | -- | The response status code.
-gaadrsResponseStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
-gaadrsResponseStatus = lens _gaadrsResponseStatus (\s a -> s {_gaadrsResponseStatus = a})
-
-instance NFData GetAccountAuthorizationDetailsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaadrsResponseStatus :: Lens.Lens' GetAccountAuthorizationDetailsResponse Lude.Int
+gaadrsResponseStatus = Lens.lens (responseStatus :: GetAccountAuthorizationDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountAuthorizationDetailsResponse)
+{-# DEPRECATED gaadrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,147 +14,163 @@
 --
 -- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
 --
---
 -- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
---
 -- Modifies an existing high-availability partition group.
 module Network.AWS.CloudHSM.ModifyHAPG
-  ( -- * Creating a Request
-    modifyHAPG,
-    ModifyHAPG,
+  ( -- * Creating a request
+    ModifyHAPG (..),
+    mkModifyHAPG,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mhPartitionSerialList,
     mhLabel,
     mhHAPGARN,
 
-    -- * Destructuring the Response
-    modifyHAPGResponse,
-    ModifyHAPGResponse,
+    -- * Destructuring the response
+    ModifyHAPGResponse (..),
+    mkModifyHAPGResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mhrsHAPGARN,
     mhrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudHSM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyHAPG' smart constructor.
+-- | /See:/ 'mkModifyHAPG' smart constructor.
 data ModifyHAPG = ModifyHAPG'
-  { _mhPartitionSerialList ::
-      !(Maybe [Text]),
-    _mhLabel :: !(Maybe Text),
-    _mhHAPGARN :: !Text
+  { partitionSerialList ::
+      Lude.Maybe [Lude.Text],
+    label :: Lude.Maybe Lude.Text,
+    hapgARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyHAPG' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mhPartitionSerialList' - The list of partition serial numbers to make members of the high-availability partition group.
---
--- * 'mhLabel' - The new label for the high-availability partition group.
---
--- * 'mhHAPGARN' - The ARN of the high-availability partition group to modify.
-modifyHAPG ::
-  -- | 'mhHAPGARN'
-  Text ->
+-- * 'hapgARN' - The ARN of the high-availability partition group to modify.
+-- * 'label' - The new label for the high-availability partition group.
+-- * 'partitionSerialList' - The list of partition serial numbers to make members of the high-availability partition group.
+mkModifyHAPG ::
+  -- | 'hapgARN'
+  Lude.Text ->
   ModifyHAPG
-modifyHAPG pHAPGARN_ =
+mkModifyHAPG pHAPGARN_ =
   ModifyHAPG'
-    { _mhPartitionSerialList = Nothing,
-      _mhLabel = Nothing,
-      _mhHAPGARN = pHAPGARN_
+    { partitionSerialList = Lude.Nothing,
+      label = Lude.Nothing,
+      hapgARN = pHAPGARN_
     }
 
 -- | The list of partition serial numbers to make members of the high-availability partition group.
-mhPartitionSerialList :: Lens' ModifyHAPG [Text]
-mhPartitionSerialList = lens _mhPartitionSerialList (\s a -> s {_mhPartitionSerialList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partitionSerialList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhPartitionSerialList :: Lens.Lens' ModifyHAPG (Lude.Maybe [Lude.Text])
+mhPartitionSerialList = Lens.lens (partitionSerialList :: ModifyHAPG -> Lude.Maybe [Lude.Text]) (\s a -> s {partitionSerialList = a} :: ModifyHAPG)
+{-# DEPRECATED mhPartitionSerialList "Use generic-lens or generic-optics with 'partitionSerialList' instead." #-}
 
 -- | The new label for the high-availability partition group.
-mhLabel :: Lens' ModifyHAPG (Maybe Text)
-mhLabel = lens _mhLabel (\s a -> s {_mhLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhLabel :: Lens.Lens' ModifyHAPG (Lude.Maybe Lude.Text)
+mhLabel = Lens.lens (label :: ModifyHAPG -> Lude.Maybe Lude.Text) (\s a -> s {label = a} :: ModifyHAPG)
+{-# DEPRECATED mhLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
 -- | The ARN of the high-availability partition group to modify.
-mhHAPGARN :: Lens' ModifyHAPG Text
-mhHAPGARN = lens _mhHAPGARN (\s a -> s {_mhHAPGARN = a})
+--
+-- /Note:/ Consider using 'hapgARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhHAPGARN :: Lens.Lens' ModifyHAPG Lude.Text
+mhHAPGARN = Lens.lens (hapgARN :: ModifyHAPG -> Lude.Text) (\s a -> s {hapgARN = a} :: ModifyHAPG)
+{-# DEPRECATED mhHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
 
-instance AWSRequest ModifyHAPG where
+instance Lude.AWSRequest ModifyHAPG where
   type Rs ModifyHAPG = ModifyHAPGResponse
-  request = postJSON cloudHSM
+  request = Req.postJSON cloudHSMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          ModifyHAPGResponse' <$> (x .?> "HapgArn") <*> (pure (fromEnum s))
+          ModifyHAPGResponse'
+            Lude.<$> (x Lude..?> "HapgArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyHAPG
-
-instance NFData ModifyHAPG
-
-instance ToHeaders ModifyHAPG where
+instance Lude.ToHeaders ModifyHAPG where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CloudHsmFrontendService.ModifyHapg" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CloudHsmFrontendService.ModifyHapg" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyHAPG where
+instance Lude.ToJSON ModifyHAPG where
   toJSON ModifyHAPG' {..} =
-    object
-      ( catMaybes
-          [ ("PartitionSerialList" .=) <$> _mhPartitionSerialList,
-            ("Label" .=) <$> _mhLabel,
-            Just ("HapgArn" .= _mhHAPGARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PartitionSerialList" Lude..=) Lude.<$> partitionSerialList,
+            ("Label" Lude..=) Lude.<$> label,
+            Lude.Just ("HapgArn" Lude..= hapgARN)
           ]
       )
 
-instance ToPath ModifyHAPG where
-  toPath = const "/"
+instance Lude.ToPath ModifyHAPG where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyHAPG where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyHAPG where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyHAPGResponse' smart constructor.
+-- | /See:/ 'mkModifyHAPGResponse' smart constructor.
 data ModifyHAPGResponse = ModifyHAPGResponse'
-  { _mhrsHAPGARN ::
-      !(Maybe Text),
-    _mhrsResponseStatus :: !Int
+  { hapgARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyHAPGResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mhrsHAPGARN' - The ARN of the high-availability partition group.
---
--- * 'mhrsResponseStatus' - -- | The response status code.
-modifyHAPGResponse ::
-  -- | 'mhrsResponseStatus'
-  Int ->
+-- * 'hapgARN' - The ARN of the high-availability partition group.
+-- * 'responseStatus' - The response status code.
+mkModifyHAPGResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyHAPGResponse
-modifyHAPGResponse pResponseStatus_ =
+mkModifyHAPGResponse pResponseStatus_ =
   ModifyHAPGResponse'
-    { _mhrsHAPGARN = Nothing,
-      _mhrsResponseStatus = pResponseStatus_
+    { hapgARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the high-availability partition group.
-mhrsHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
-mhrsHAPGARN = lens _mhrsHAPGARN (\s a -> s {_mhrsHAPGARN = a})
+--
+-- /Note:/ Consider using 'hapgARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhrsHAPGARN :: Lens.Lens' ModifyHAPGResponse (Lude.Maybe Lude.Text)
+mhrsHAPGARN = Lens.lens (hapgARN :: ModifyHAPGResponse -> Lude.Maybe Lude.Text) (\s a -> s {hapgARN = a} :: ModifyHAPGResponse)
+{-# DEPRECATED mhrsHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
 
--- | -- | The response status code.
-mhrsResponseStatus :: Lens' ModifyHAPGResponse Int
-mhrsResponseStatus = lens _mhrsResponseStatus (\s a -> s {_mhrsResponseStatus = a})
-
-instance NFData ModifyHAPGResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhrsResponseStatus :: Lens.Lens' ModifyHAPGResponse Lude.Int
+mhrsResponseStatus = Lens.lens (responseStatus :: ModifyHAPGResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyHAPGResponse)
+{-# DEPRECATED mhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

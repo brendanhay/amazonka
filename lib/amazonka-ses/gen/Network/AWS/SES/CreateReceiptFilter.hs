@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,118 @@
 --
 -- Creates a new IP address filter.
 --
---
 -- For information about setting up IP address filters, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.CreateReceiptFilter
-  ( -- * Creating a Request
-    createReceiptFilter,
-    CreateReceiptFilter,
+  ( -- * Creating a request
+    CreateReceiptFilter (..),
+    mkCreateReceiptFilter,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crfFilter,
 
-    -- * Destructuring the Response
-    createReceiptFilterResponse,
-    CreateReceiptFilterResponse,
+    -- * Destructuring the response
+    CreateReceiptFilterResponse (..),
+    mkCreateReceiptFilterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crfrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'createReceiptFilter' smart constructor.
+-- /See:/ 'mkCreateReceiptFilter' smart constructor.
 newtype CreateReceiptFilter = CreateReceiptFilter'
-  { _crfFilter ::
+  { filter ::
       ReceiptFilter
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crfFilter' - A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
-createReceiptFilter ::
-  -- | 'crfFilter'
+-- * 'filter' - A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+mkCreateReceiptFilter ::
+  -- | 'filter'
   ReceiptFilter ->
   CreateReceiptFilter
-createReceiptFilter pFilter_ =
-  CreateReceiptFilter' {_crfFilter = pFilter_}
+mkCreateReceiptFilter pFilter_ =
+  CreateReceiptFilter' {filter = pFilter_}
 
 -- | A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
-crfFilter :: Lens' CreateReceiptFilter ReceiptFilter
-crfFilter = lens _crfFilter (\s a -> s {_crfFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crfFilter :: Lens.Lens' CreateReceiptFilter ReceiptFilter
+crfFilter = Lens.lens (filter :: CreateReceiptFilter -> ReceiptFilter) (\s a -> s {filter = a} :: CreateReceiptFilter)
+{-# DEPRECATED crfFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
-instance AWSRequest CreateReceiptFilter where
+instance Lude.AWSRequest CreateReceiptFilter where
   type Rs CreateReceiptFilter = CreateReceiptFilterResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateReceiptFilterResult"
-      (\s h x -> CreateReceiptFilterResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          CreateReceiptFilterResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateReceiptFilter
+instance Lude.ToHeaders CreateReceiptFilter where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateReceiptFilter
+instance Lude.ToPath CreateReceiptFilter where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateReceiptFilter where
-  toHeaders = const mempty
-
-instance ToPath CreateReceiptFilter where
-  toPath = const "/"
-
-instance ToQuery CreateReceiptFilter where
+instance Lude.ToQuery CreateReceiptFilter where
   toQuery CreateReceiptFilter' {..} =
-    mconcat
-      [ "Action" =: ("CreateReceiptFilter" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "Filter" =: _crfFilter
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateReceiptFilter" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "Filter" Lude.=: filter
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'createReceiptFilterResponse' smart constructor.
+-- /See:/ 'mkCreateReceiptFilterResponse' smart constructor.
 newtype CreateReceiptFilterResponse = CreateReceiptFilterResponse'
-  { _crfrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptFilterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crfrsResponseStatus' - -- | The response status code.
-createReceiptFilterResponse ::
-  -- | 'crfrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateReceiptFilterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateReceiptFilterResponse
-createReceiptFilterResponse pResponseStatus_ =
-  CreateReceiptFilterResponse'
-    { _crfrsResponseStatus =
-        pResponseStatus_
-    }
+mkCreateReceiptFilterResponse pResponseStatus_ =
+  CreateReceiptFilterResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-crfrsResponseStatus :: Lens' CreateReceiptFilterResponse Int
-crfrsResponseStatus = lens _crfrsResponseStatus (\s a -> s {_crfrsResponseStatus = a})
-
-instance NFData CreateReceiptFilterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crfrsResponseStatus :: Lens.Lens' CreateReceiptFilterResponse Lude.Int
+crfrsResponseStatus = Lens.lens (responseStatus :: CreateReceiptFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReceiptFilterResponse)
+{-# DEPRECATED crfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,19 @@
 --
 -- This implementation of the @PUT@ operation adds an inventory configuration (identified by the inventory ID) to the bucket. You can have up to 1,000 inventory configurations per bucket.
 --
---
 -- Amazon S3 inventory generates inventories of the objects in the bucket on a daily or weekly basis, and the results are published to a flat file. The bucket that is inventoried is called the /source/ bucket, and the bucket where the inventory flat file is stored is called the /destination/ bucket. The /destination/ bucket must be in the same AWS Region as the /source/ bucket.
---
 -- When you configure an inventory for a /source/ bucket, you specify the /destination/ bucket where you want the inventory to be stored, and whether to generate the inventory daily or weekly. You can also configure what object metadata to include and whether to inventory all object versions or only current versions. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html Amazon S3 Inventory> in the Amazon Simple Storage Service Developer Guide.
---
 -- /Important:/ You must create a bucket policy on the /destination/ bucket to grant permissions to Amazon S3 to write objects to the bucket in the defined location. For an example policy, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-9 Granting Permissions for Amazon S3 Inventory and Storage Class Analysis> .
---
 -- To use this operation, you must have permissions to perform the @s3:PutInventoryConfiguration@ action. The bucket owner has this permission by default and can grant this permission to others. For more information about permissions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources> in the Amazon Simple Storage Service Developer Guide.
---
 -- __Special Errors__
 --
 --     * __HTTP 400 Bad Request Error__
 --
 --     * /Code:/ InvalidArgument
 --
+--
 --     * /Cause:/ Invalid Argument
+--
 --
 --
 --
@@ -42,7 +34,9 @@
 --
 --     * /Code:/ TooManyConfigurations
 --
+--
 --     * /Cause:/ You are attempting to create a new configuration but have already reached the 1,000-configuration limit.
+--
 --
 --
 --
@@ -50,8 +44,8 @@
 --
 --     * /Code:/ AccessDenied
 --
---     * /Cause:/ You are not the owner of the specified bucket, or you do not have the @s3:PutInventoryConfiguration@ bucket permission to set the configuration on the bucket.
 --
+--     * /Cause:/ You are not the owner of the specified bucket, or you do not have the @s3:PutInventoryConfiguration@ bucket permission to set the configuration on the bucket.
 --
 --
 --
@@ -60,128 +54,139 @@
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html GetBucketInventoryConfiguration>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html DeleteBucketInventoryConfiguration>
+--
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketInventoryConfigurations.html ListBucketInventoryConfigurations>
 module Network.AWS.S3.PutBucketInventoryConfiguration
-  ( -- * Creating a Request
-    putBucketInventoryConfiguration,
-    PutBucketInventoryConfiguration,
+  ( -- * Creating a request
+    PutBucketInventoryConfiguration (..),
+    mkPutBucketInventoryConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pbicExpectedBucketOwner,
     pbicBucket,
     pbicId,
     pbicInventoryConfiguration,
 
-    -- * Destructuring the Response
-    putBucketInventoryConfigurationResponse,
-    PutBucketInventoryConfigurationResponse,
+    -- * Destructuring the response
+    PutBucketInventoryConfigurationResponse (..),
+    mkPutBucketInventoryConfigurationResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'putBucketInventoryConfiguration' smart constructor.
+-- | /See:/ 'mkPutBucketInventoryConfiguration' smart constructor.
 data PutBucketInventoryConfiguration = PutBucketInventoryConfiguration'
-  { _pbicExpectedBucketOwner ::
-      !(Maybe Text),
-    _pbicBucket :: !BucketName,
-    _pbicId :: !Text,
-    _pbicInventoryConfiguration ::
-      !InventoryConfiguration
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    id :: Lude.Text,
+    inventoryConfiguration ::
+      InventoryConfiguration
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketInventoryConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pbicExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'pbicBucket' - The name of the bucket where the inventory configuration will be stored.
---
--- * 'pbicId' - The ID used to identify the inventory configuration.
---
--- * 'pbicInventoryConfiguration' - Specifies the inventory configuration.
-putBucketInventoryConfiguration ::
-  -- | 'pbicBucket'
+-- * 'bucket' - The name of the bucket where the inventory configuration will be stored.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'id' - The ID used to identify the inventory configuration.
+-- * 'inventoryConfiguration' - Specifies the inventory configuration.
+mkPutBucketInventoryConfiguration ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'pbicId'
-  Text ->
-  -- | 'pbicInventoryConfiguration'
+  -- | 'id'
+  Lude.Text ->
+  -- | 'inventoryConfiguration'
   InventoryConfiguration ->
   PutBucketInventoryConfiguration
-putBucketInventoryConfiguration
+mkPutBucketInventoryConfiguration
   pBucket_
   pId_
   pInventoryConfiguration_ =
     PutBucketInventoryConfiguration'
-      { _pbicExpectedBucketOwner =
-          Nothing,
-        _pbicBucket = pBucket_,
-        _pbicId = pId_,
-        _pbicInventoryConfiguration = pInventoryConfiguration_
+      { expectedBucketOwner =
+          Lude.Nothing,
+        bucket = pBucket_,
+        id = pId_,
+        inventoryConfiguration = pInventoryConfiguration_
       }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-pbicExpectedBucketOwner :: Lens' PutBucketInventoryConfiguration (Maybe Text)
-pbicExpectedBucketOwner = lens _pbicExpectedBucketOwner (\s a -> s {_pbicExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbicExpectedBucketOwner :: Lens.Lens' PutBucketInventoryConfiguration (Lude.Maybe Lude.Text)
+pbicExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketInventoryConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketInventoryConfiguration)
+{-# DEPRECATED pbicExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket where the inventory configuration will be stored.
-pbicBucket :: Lens' PutBucketInventoryConfiguration BucketName
-pbicBucket = lens _pbicBucket (\s a -> s {_pbicBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbicBucket :: Lens.Lens' PutBucketInventoryConfiguration BucketName
+pbicBucket = Lens.lens (bucket :: PutBucketInventoryConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketInventoryConfiguration)
+{-# DEPRECATED pbicBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID used to identify the inventory configuration.
-pbicId :: Lens' PutBucketInventoryConfiguration Text
-pbicId = lens _pbicId (\s a -> s {_pbicId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbicId :: Lens.Lens' PutBucketInventoryConfiguration Lude.Text
+pbicId = Lens.lens (id :: PutBucketInventoryConfiguration -> Lude.Text) (\s a -> s {id = a} :: PutBucketInventoryConfiguration)
+{-# DEPRECATED pbicId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Specifies the inventory configuration.
-pbicInventoryConfiguration :: Lens' PutBucketInventoryConfiguration InventoryConfiguration
-pbicInventoryConfiguration = lens _pbicInventoryConfiguration (\s a -> s {_pbicInventoryConfiguration = a})
+--
+-- /Note:/ Consider using 'inventoryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbicInventoryConfiguration :: Lens.Lens' PutBucketInventoryConfiguration InventoryConfiguration
+pbicInventoryConfiguration = Lens.lens (inventoryConfiguration :: PutBucketInventoryConfiguration -> InventoryConfiguration) (\s a -> s {inventoryConfiguration = a} :: PutBucketInventoryConfiguration)
+{-# DEPRECATED pbicInventoryConfiguration "Use generic-lens or generic-optics with 'inventoryConfiguration' instead." #-}
 
-instance AWSRequest PutBucketInventoryConfiguration where
+instance Lude.AWSRequest PutBucketInventoryConfiguration where
   type
     Rs PutBucketInventoryConfiguration =
       PutBucketInventoryConfigurationResponse
-  request = putXML s3
-  response = receiveNull PutBucketInventoryConfigurationResponse'
+  request = Req.putXML s3Service
+  response = Res.receiveNull PutBucketInventoryConfigurationResponse'
 
-instance Hashable PutBucketInventoryConfiguration
-
-instance NFData PutBucketInventoryConfiguration
-
-instance ToElement PutBucketInventoryConfiguration where
+instance Lude.ToElement PutBucketInventoryConfiguration where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}InventoryConfiguration"
-      . _pbicInventoryConfiguration
+      Lude.. inventoryConfiguration
 
-instance ToHeaders PutBucketInventoryConfiguration where
+instance Lude.ToHeaders PutBucketInventoryConfiguration where
   toHeaders PutBucketInventoryConfiguration' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _pbicExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath PutBucketInventoryConfiguration where
+instance Lude.ToPath PutBucketInventoryConfiguration where
   toPath PutBucketInventoryConfiguration' {..} =
-    mconcat ["/", toBS _pbicBucket]
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery PutBucketInventoryConfiguration where
+instance Lude.ToQuery PutBucketInventoryConfiguration where
   toQuery PutBucketInventoryConfiguration' {..} =
-    mconcat ["id" =: _pbicId, "inventory"]
+    Lude.mconcat ["id" Lude.=: id, "inventory"]
 
--- | /See:/ 'putBucketInventoryConfigurationResponse' smart constructor.
+-- | /See:/ 'mkPutBucketInventoryConfigurationResponse' smart constructor.
 data PutBucketInventoryConfigurationResponse = PutBucketInventoryConfigurationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketInventoryConfigurationResponse' with the minimum fields required to make a request.
-putBucketInventoryConfigurationResponse ::
+mkPutBucketInventoryConfigurationResponse ::
   PutBucketInventoryConfigurationResponse
-putBucketInventoryConfigurationResponse =
+mkPutBucketInventoryConfigurationResponse =
   PutBucketInventoryConfigurationResponse'
-
-instance NFData PutBucketInventoryConfigurationResponse

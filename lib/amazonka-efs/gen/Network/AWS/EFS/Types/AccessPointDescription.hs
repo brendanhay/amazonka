@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,132 +7,170 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.AccessPointDescription where
+module Network.AWS.EFS.Types.AccessPointDescription
+  ( AccessPointDescription (..),
+
+    -- * Smart constructor
+    mkAccessPointDescription,
+
+    -- * Lenses
+    apdPosixUser,
+    apdRootDirectory,
+    apdClientToken,
+    apdAccessPointId,
+    apdFileSystemId,
+    apdOwnerId,
+    apdName,
+    apdAccessPointARN,
+    apdLifeCycleState,
+    apdTags,
+  )
+where
 
 import Network.AWS.EFS.Types.LifeCycleState
 import Network.AWS.EFS.Types.PosixUser
 import Network.AWS.EFS.Types.RootDirectory
 import Network.AWS.EFS.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides a description of an EFS file system access point.
 --
---
---
--- /See:/ 'accessPointDescription' smart constructor.
+-- /See:/ 'mkAccessPointDescription' smart constructor.
 data AccessPointDescription = AccessPointDescription'
-  { _apdPosixUser ::
-      !(Maybe PosixUser),
-    _apdRootDirectory :: !(Maybe RootDirectory),
-    _apdClientToken :: !(Maybe Text),
-    _apdAccessPointId :: !(Maybe Text),
-    _apdFileSystemId :: !(Maybe Text),
-    _apdOwnerId :: !(Maybe Text),
-    _apdName :: !(Maybe Text),
-    _apdAccessPointARN :: !(Maybe Text),
-    _apdLifeCycleState :: !(Maybe LifeCycleState),
-    _apdTags :: !(Maybe [Tag])
+  { posixUser ::
+      Lude.Maybe PosixUser,
+    rootDirectory :: Lude.Maybe RootDirectory,
+    clientToken :: Lude.Maybe Lude.Text,
+    accessPointId :: Lude.Maybe Lude.Text,
+    fileSystemId :: Lude.Maybe Lude.Text,
+    ownerId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    accessPointARN :: Lude.Maybe Lude.Text,
+    lifeCycleState :: Lude.Maybe LifeCycleState,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessPointDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'apdPosixUser' - The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
---
--- * 'apdRootDirectory' - The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.
---
--- * 'apdClientToken' - The opaque string specified in the request to ensure idempotent creation.
---
--- * 'apdAccessPointId' - The ID of the access point, assigned by Amazon EFS.
---
--- * 'apdFileSystemId' - The ID of the EFS file system that the access point applies to.
---
--- * 'apdOwnerId' - Identified the AWS account that owns the access point resource.
---
--- * 'apdName' - The name of the access point. This is the value of the @Name@ tag.
---
--- * 'apdAccessPointARN' - The unique Amazon Resource Name (ARN) associated with the access point.
---
--- * 'apdLifeCycleState' - Identifies the lifecycle phase of the access point.
---
--- * 'apdTags' - The tags associated with the access point, presented as an array of Tag objects.
-accessPointDescription ::
+-- * 'accessPointARN' - The unique Amazon Resource Name (ARN) associated with the access point.
+-- * 'accessPointId' - The ID of the access point, assigned by Amazon EFS.
+-- * 'clientToken' - The opaque string specified in the request to ensure idempotent creation.
+-- * 'fileSystemId' - The ID of the EFS file system that the access point applies to.
+-- * 'lifeCycleState' - Identifies the lifecycle phase of the access point.
+-- * 'name' - The name of the access point. This is the value of the @Name@ tag.
+-- * 'ownerId' - Identified the AWS account that owns the access point resource.
+-- * 'posixUser' - The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
+-- * 'rootDirectory' - The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.
+-- * 'tags' - The tags associated with the access point, presented as an array of Tag objects.
+mkAccessPointDescription ::
   AccessPointDescription
-accessPointDescription =
+mkAccessPointDescription =
   AccessPointDescription'
-    { _apdPosixUser = Nothing,
-      _apdRootDirectory = Nothing,
-      _apdClientToken = Nothing,
-      _apdAccessPointId = Nothing,
-      _apdFileSystemId = Nothing,
-      _apdOwnerId = Nothing,
-      _apdName = Nothing,
-      _apdAccessPointARN = Nothing,
-      _apdLifeCycleState = Nothing,
-      _apdTags = Nothing
+    { posixUser = Lude.Nothing,
+      rootDirectory = Lude.Nothing,
+      clientToken = Lude.Nothing,
+      accessPointId = Lude.Nothing,
+      fileSystemId = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      name = Lude.Nothing,
+      accessPointARN = Lude.Nothing,
+      lifeCycleState = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by NFS clients using the access point.
-apdPosixUser :: Lens' AccessPointDescription (Maybe PosixUser)
-apdPosixUser = lens _apdPosixUser (\s a -> s {_apdPosixUser = a})
+--
+-- /Note:/ Consider using 'posixUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdPosixUser :: Lens.Lens' AccessPointDescription (Lude.Maybe PosixUser)
+apdPosixUser = Lens.lens (posixUser :: AccessPointDescription -> Lude.Maybe PosixUser) (\s a -> s {posixUser = a} :: AccessPointDescription)
+{-# DEPRECATED apdPosixUser "Use generic-lens or generic-optics with 'posixUser' instead." #-}
 
 -- | The directory on the Amazon EFS file system that the access point exposes as the root directory to NFS clients using the access point.
-apdRootDirectory :: Lens' AccessPointDescription (Maybe RootDirectory)
-apdRootDirectory = lens _apdRootDirectory (\s a -> s {_apdRootDirectory = a})
+--
+-- /Note:/ Consider using 'rootDirectory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdRootDirectory :: Lens.Lens' AccessPointDescription (Lude.Maybe RootDirectory)
+apdRootDirectory = Lens.lens (rootDirectory :: AccessPointDescription -> Lude.Maybe RootDirectory) (\s a -> s {rootDirectory = a} :: AccessPointDescription)
+{-# DEPRECATED apdRootDirectory "Use generic-lens or generic-optics with 'rootDirectory' instead." #-}
 
 -- | The opaque string specified in the request to ensure idempotent creation.
-apdClientToken :: Lens' AccessPointDescription (Maybe Text)
-apdClientToken = lens _apdClientToken (\s a -> s {_apdClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdClientToken :: Lens.Lens' AccessPointDescription (Lude.Maybe Lude.Text)
+apdClientToken = Lens.lens (clientToken :: AccessPointDescription -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: AccessPointDescription)
+{-# DEPRECATED apdClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The ID of the access point, assigned by Amazon EFS.
-apdAccessPointId :: Lens' AccessPointDescription (Maybe Text)
-apdAccessPointId = lens _apdAccessPointId (\s a -> s {_apdAccessPointId = a})
+--
+-- /Note:/ Consider using 'accessPointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdAccessPointId :: Lens.Lens' AccessPointDescription (Lude.Maybe Lude.Text)
+apdAccessPointId = Lens.lens (accessPointId :: AccessPointDescription -> Lude.Maybe Lude.Text) (\s a -> s {accessPointId = a} :: AccessPointDescription)
+{-# DEPRECATED apdAccessPointId "Use generic-lens or generic-optics with 'accessPointId' instead." #-}
 
 -- | The ID of the EFS file system that the access point applies to.
-apdFileSystemId :: Lens' AccessPointDescription (Maybe Text)
-apdFileSystemId = lens _apdFileSystemId (\s a -> s {_apdFileSystemId = a})
+--
+-- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdFileSystemId :: Lens.Lens' AccessPointDescription (Lude.Maybe Lude.Text)
+apdFileSystemId = Lens.lens (fileSystemId :: AccessPointDescription -> Lude.Maybe Lude.Text) (\s a -> s {fileSystemId = a} :: AccessPointDescription)
+{-# DEPRECATED apdFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | Identified the AWS account that owns the access point resource.
-apdOwnerId :: Lens' AccessPointDescription (Maybe Text)
-apdOwnerId = lens _apdOwnerId (\s a -> s {_apdOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdOwnerId :: Lens.Lens' AccessPointDescription (Lude.Maybe Lude.Text)
+apdOwnerId = Lens.lens (ownerId :: AccessPointDescription -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: AccessPointDescription)
+{-# DEPRECATED apdOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The name of the access point. This is the value of the @Name@ tag.
-apdName :: Lens' AccessPointDescription (Maybe Text)
-apdName = lens _apdName (\s a -> s {_apdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdName :: Lens.Lens' AccessPointDescription (Lude.Maybe Lude.Text)
+apdName = Lens.lens (name :: AccessPointDescription -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AccessPointDescription)
+{-# DEPRECATED apdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique Amazon Resource Name (ARN) associated with the access point.
-apdAccessPointARN :: Lens' AccessPointDescription (Maybe Text)
-apdAccessPointARN = lens _apdAccessPointARN (\s a -> s {_apdAccessPointARN = a})
+--
+-- /Note:/ Consider using 'accessPointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdAccessPointARN :: Lens.Lens' AccessPointDescription (Lude.Maybe Lude.Text)
+apdAccessPointARN = Lens.lens (accessPointARN :: AccessPointDescription -> Lude.Maybe Lude.Text) (\s a -> s {accessPointARN = a} :: AccessPointDescription)
+{-# DEPRECATED apdAccessPointARN "Use generic-lens or generic-optics with 'accessPointARN' instead." #-}
 
 -- | Identifies the lifecycle phase of the access point.
-apdLifeCycleState :: Lens' AccessPointDescription (Maybe LifeCycleState)
-apdLifeCycleState = lens _apdLifeCycleState (\s a -> s {_apdLifeCycleState = a})
+--
+-- /Note:/ Consider using 'lifeCycleState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdLifeCycleState :: Lens.Lens' AccessPointDescription (Lude.Maybe LifeCycleState)
+apdLifeCycleState = Lens.lens (lifeCycleState :: AccessPointDescription -> Lude.Maybe LifeCycleState) (\s a -> s {lifeCycleState = a} :: AccessPointDescription)
+{-# DEPRECATED apdLifeCycleState "Use generic-lens or generic-optics with 'lifeCycleState' instead." #-}
 
 -- | The tags associated with the access point, presented as an array of Tag objects.
-apdTags :: Lens' AccessPointDescription [Tag]
-apdTags = lens _apdTags (\s a -> s {_apdTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apdTags :: Lens.Lens' AccessPointDescription (Lude.Maybe [Tag])
+apdTags = Lens.lens (tags :: AccessPointDescription -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: AccessPointDescription)
+{-# DEPRECATED apdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON AccessPointDescription where
+instance Lude.FromJSON AccessPointDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccessPointDescription"
       ( \x ->
           AccessPointDescription'
-            <$> (x .:? "PosixUser")
-            <*> (x .:? "RootDirectory")
-            <*> (x .:? "ClientToken")
-            <*> (x .:? "AccessPointId")
-            <*> (x .:? "FileSystemId")
-            <*> (x .:? "OwnerId")
-            <*> (x .:? "Name")
-            <*> (x .:? "AccessPointArn")
-            <*> (x .:? "LifeCycleState")
-            <*> (x .:? "Tags" .!= mempty)
+            Lude.<$> (x Lude..:? "PosixUser")
+            Lude.<*> (x Lude..:? "RootDirectory")
+            Lude.<*> (x Lude..:? "ClientToken")
+            Lude.<*> (x Lude..:? "AccessPointId")
+            Lude.<*> (x Lude..:? "FileSystemId")
+            Lude.<*> (x Lude..:? "OwnerId")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "AccessPointArn")
+            Lude.<*> (x Lude..:? "LifeCycleState")
+            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable AccessPointDescription
-
-instance NFData AccessPointDescription

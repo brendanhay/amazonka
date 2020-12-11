@@ -28,25 +28,25 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetAttributeValues $
---             getAttributeValues
+--             mkGetAttributeValues
 --
 --         , requestDescribeServices $
---             describeServices
+--             mkDescribeServices
 --
 --         , requestGetProducts $
---             getProducts
+--             mkGetProducts
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetAttributeValues $
---             getAttributeValuesResponse
+--             mkGetAttributeValuesResponse
 --
 --         , responseDescribeServices $
---             describeServicesResponse
+--             mkDescribeServicesResponse
 --
 --         , responseGetProducts $
---             getProductsResponse
+--             mkGetProductsResponse
 --
 --           ]
 --     ]
@@ -78,7 +78,7 @@ responseGetAttributeValues =
   res
     "GetAttributeValuesResponse"
     "fixture/GetAttributeValuesResponse.proto"
-    pricing
+    pricingService
     (Proxy :: Proxy GetAttributeValues)
 
 responseDescribeServices :: DescribeServicesResponse -> TestTree
@@ -86,7 +86,7 @@ responseDescribeServices =
   res
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse.proto"
-    pricing
+    pricingService
     (Proxy :: Proxy DescribeServices)
 
 responseGetProducts :: GetProductsResponse -> TestTree
@@ -94,5 +94,5 @@ responseGetProducts =
   res
     "GetProductsResponse"
     "fixture/GetProductsResponse.proto"
-    pricing
+    pricingService
     (Proxy :: Proxy GetProducts)

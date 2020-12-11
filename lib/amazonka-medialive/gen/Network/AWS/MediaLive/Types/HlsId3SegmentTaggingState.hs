@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState where
+module Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState
+  ( HlsId3SegmentTaggingState
+      ( HlsId3SegmentTaggingState',
+        HISTSDisabled,
+        HISTSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | State of HLS ID3 Segment Tagging
-data HlsId3SegmentTaggingState
-  = HISTSDisabled
-  | HISTSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HlsId3SegmentTaggingState = HlsId3SegmentTaggingState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HlsId3SegmentTaggingState where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure HISTSDisabled
-      "enabled" -> pure HISTSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing HlsId3SegmentTaggingState from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern HISTSDisabled :: HlsId3SegmentTaggingState
+pattern HISTSDisabled = HlsId3SegmentTaggingState' "DISABLED"
 
-instance ToText HlsId3SegmentTaggingState where
-  toText = \case
-    HISTSDisabled -> "DISABLED"
-    HISTSEnabled -> "ENABLED"
+pattern HISTSEnabled :: HlsId3SegmentTaggingState
+pattern HISTSEnabled = HlsId3SegmentTaggingState' "ENABLED"
 
-instance Hashable HlsId3SegmentTaggingState
-
-instance NFData HlsId3SegmentTaggingState
-
-instance ToByteString HlsId3SegmentTaggingState
-
-instance ToQuery HlsId3SegmentTaggingState
-
-instance ToHeader HlsId3SegmentTaggingState
-
-instance ToJSON HlsId3SegmentTaggingState where
-  toJSON = toJSONText
-
-instance FromJSON HlsId3SegmentTaggingState where
-  parseJSON = parseJSONText "HlsId3SegmentTaggingState"
+{-# COMPLETE
+  HISTSDisabled,
+  HISTSEnabled,
+  HlsId3SegmentTaggingState'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeStatusInfoStatus where
+module Network.AWS.EC2.Types.VolumeStatusInfoStatus
+  ( VolumeStatusInfoStatus
+      ( VolumeStatusInfoStatus',
+        Impaired,
+        InsufficientData,
+        OK
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VolumeStatusInfoStatus
-  = Impaired
-  | InsufficientData
-  | OK
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VolumeStatusInfoStatus = VolumeStatusInfoStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VolumeStatusInfoStatus where
-  parser =
-    takeLowerText >>= \case
-      "impaired" -> pure Impaired
-      "insufficient-data" -> pure InsufficientData
-      "ok" -> pure OK
-      e ->
-        fromTextError $
-          "Failure parsing VolumeStatusInfoStatus from value: '" <> e
-            <> "'. Accepted values: impaired, insufficient-data, ok"
+pattern Impaired :: VolumeStatusInfoStatus
+pattern Impaired = VolumeStatusInfoStatus' "impaired"
 
-instance ToText VolumeStatusInfoStatus where
-  toText = \case
-    Impaired -> "impaired"
-    InsufficientData -> "insufficient-data"
-    OK -> "ok"
+pattern InsufficientData :: VolumeStatusInfoStatus
+pattern InsufficientData = VolumeStatusInfoStatus' "insufficient-data"
 
-instance Hashable VolumeStatusInfoStatus
+pattern OK :: VolumeStatusInfoStatus
+pattern OK = VolumeStatusInfoStatus' "ok"
 
-instance NFData VolumeStatusInfoStatus
-
-instance ToByteString VolumeStatusInfoStatus
-
-instance ToQuery VolumeStatusInfoStatus
-
-instance ToHeader VolumeStatusInfoStatus
-
-instance FromXML VolumeStatusInfoStatus where
-  parseXML = parseXMLText "VolumeStatusInfoStatus"
+{-# COMPLETE
+  Impaired,
+  InsufficientData,
+  OK,
+  VolumeStatusInfoStatus'
+  #-}

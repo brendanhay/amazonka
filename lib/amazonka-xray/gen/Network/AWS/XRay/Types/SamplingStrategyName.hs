@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.SamplingStrategyName where
+module Network.AWS.XRay.Types.SamplingStrategyName
+  ( SamplingStrategyName
+      ( SamplingStrategyName',
+        FixedRate,
+        PartialScan
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SamplingStrategyName
-  = FixedRate
-  | PartialScan
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SamplingStrategyName = SamplingStrategyName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SamplingStrategyName where
-  parser =
-    takeLowerText >>= \case
-      "fixedrate" -> pure FixedRate
-      "partialscan" -> pure PartialScan
-      e ->
-        fromTextError $
-          "Failure parsing SamplingStrategyName from value: '" <> e
-            <> "'. Accepted values: fixedrate, partialscan"
+pattern FixedRate :: SamplingStrategyName
+pattern FixedRate = SamplingStrategyName' "FixedRate"
 
-instance ToText SamplingStrategyName where
-  toText = \case
-    FixedRate -> "FixedRate"
-    PartialScan -> "PartialScan"
+pattern PartialScan :: SamplingStrategyName
+pattern PartialScan = SamplingStrategyName' "PartialScan"
 
-instance Hashable SamplingStrategyName
-
-instance NFData SamplingStrategyName
-
-instance ToByteString SamplingStrategyName
-
-instance ToQuery SamplingStrategyName
-
-instance ToHeader SamplingStrategyName
-
-instance ToJSON SamplingStrategyName where
-  toJSON = toJSONText
+{-# COMPLETE
+  FixedRate,
+  PartialScan,
+  SamplingStrategyName'
+  #-}

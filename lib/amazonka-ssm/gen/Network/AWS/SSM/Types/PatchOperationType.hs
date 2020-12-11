@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchOperationType where
+module Network.AWS.SSM.Types.PatchOperationType
+  ( PatchOperationType
+      ( PatchOperationType',
+        Install,
+        Scan
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PatchOperationType
-  = Install
-  | Scan
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PatchOperationType = PatchOperationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PatchOperationType where
-  parser =
-    takeLowerText >>= \case
-      "install" -> pure Install
-      "scan" -> pure Scan
-      e ->
-        fromTextError $
-          "Failure parsing PatchOperationType from value: '" <> e
-            <> "'. Accepted values: install, scan"
+pattern Install :: PatchOperationType
+pattern Install = PatchOperationType' "Install"
 
-instance ToText PatchOperationType where
-  toText = \case
-    Install -> "Install"
-    Scan -> "Scan"
+pattern Scan :: PatchOperationType
+pattern Scan = PatchOperationType' "Scan"
 
-instance Hashable PatchOperationType
-
-instance NFData PatchOperationType
-
-instance ToByteString PatchOperationType
-
-instance ToQuery PatchOperationType
-
-instance ToHeader PatchOperationType
-
-instance FromJSON PatchOperationType where
-  parseJSON = parseJSONText "PatchOperationType"
+{-# COMPLETE
+  Install,
+  Scan,
+  PatchOperationType'
+  #-}

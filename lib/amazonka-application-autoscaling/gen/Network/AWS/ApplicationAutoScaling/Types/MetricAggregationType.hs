@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType where
+module Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType
+  ( MetricAggregationType
+      ( MetricAggregationType',
+        MATAverage,
+        MATMaximum,
+        MATMinimum
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MetricAggregationType
-  = MATAverage
-  | MATMaximum
-  | MATMinimum
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MetricAggregationType = MetricAggregationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MetricAggregationType where
-  parser =
-    takeLowerText >>= \case
-      "average" -> pure MATAverage
-      "maximum" -> pure MATMaximum
-      "minimum" -> pure MATMinimum
-      e ->
-        fromTextError $
-          "Failure parsing MetricAggregationType from value: '" <> e
-            <> "'. Accepted values: average, maximum, minimum"
+pattern MATAverage :: MetricAggregationType
+pattern MATAverage = MetricAggregationType' "Average"
 
-instance ToText MetricAggregationType where
-  toText = \case
-    MATAverage -> "Average"
-    MATMaximum -> "Maximum"
-    MATMinimum -> "Minimum"
+pattern MATMaximum :: MetricAggregationType
+pattern MATMaximum = MetricAggregationType' "Maximum"
 
-instance Hashable MetricAggregationType
+pattern MATMinimum :: MetricAggregationType
+pattern MATMinimum = MetricAggregationType' "Minimum"
 
-instance NFData MetricAggregationType
-
-instance ToByteString MetricAggregationType
-
-instance ToQuery MetricAggregationType
-
-instance ToHeader MetricAggregationType
-
-instance ToJSON MetricAggregationType where
-  toJSON = toJSONText
-
-instance FromJSON MetricAggregationType where
-  parseJSON = parseJSONText "MetricAggregationType"
+{-# COMPLETE
+  MATAverage,
+  MATMaximum,
+  MATMinimum,
+  MetricAggregationType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TimestreamTimestamp where
+module Network.AWS.IoT.Types.TimestreamTimestamp
+  ( TimestreamTimestamp (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimestreamTimestamp,
+
+    -- * Lenses
+    ttValue,
+    ttUnit,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
 --
---
---
--- /See:/ 'timestreamTimestamp' smart constructor.
+-- /See:/ 'mkTimestreamTimestamp' smart constructor.
 data TimestreamTimestamp = TimestreamTimestamp'
-  { _ttValue :: !Text,
-    _ttUnit :: !Text
+  { value :: Lude.Text,
+    unit :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimestreamTimestamp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'unit' - The precision of the timestamp value that results from the expression described in @value@ .
 --
--- * 'ttValue' - An expression that returns a long epoch time value.
---
--- * 'ttUnit' - The precision of the timestamp value that results from the expression described in @value@ . Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ | @NANOSECONDS@ . The default is @MILLISECONDS@ .
-timestreamTimestamp ::
-  -- | 'ttValue'
-  Text ->
-  -- | 'ttUnit'
-  Text ->
+-- Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ | @NANOSECONDS@ . The default is @MILLISECONDS@ .
+-- * 'value' - An expression that returns a long epoch time value.
+mkTimestreamTimestamp ::
+  -- | 'value'
+  Lude.Text ->
+  -- | 'unit'
+  Lude.Text ->
   TimestreamTimestamp
-timestreamTimestamp pValue_ pUnit_ =
-  TimestreamTimestamp' {_ttValue = pValue_, _ttUnit = pUnit_}
+mkTimestreamTimestamp pValue_ pUnit_ =
+  TimestreamTimestamp' {value = pValue_, unit = pUnit_}
 
 -- | An expression that returns a long epoch time value.
-ttValue :: Lens' TimestreamTimestamp Text
-ttValue = lens _ttValue (\s a -> s {_ttValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttValue :: Lens.Lens' TimestreamTimestamp Lude.Text
+ttValue = Lens.lens (value :: TimestreamTimestamp -> Lude.Text) (\s a -> s {value = a} :: TimestreamTimestamp)
+{-# DEPRECATED ttValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | The precision of the timestamp value that results from the expression described in @value@ . Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ | @NANOSECONDS@ . The default is @MILLISECONDS@ .
-ttUnit :: Lens' TimestreamTimestamp Text
-ttUnit = lens _ttUnit (\s a -> s {_ttUnit = a})
+-- | The precision of the timestamp value that results from the expression described in @value@ .
+--
+-- Valid values: @SECONDS@ | @MILLISECONDS@ | @MICROSECONDS@ | @NANOSECONDS@ . The default is @MILLISECONDS@ .
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttUnit :: Lens.Lens' TimestreamTimestamp Lude.Text
+ttUnit = Lens.lens (unit :: TimestreamTimestamp -> Lude.Text) (\s a -> s {unit = a} :: TimestreamTimestamp)
+{-# DEPRECATED ttUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance FromJSON TimestreamTimestamp where
+instance Lude.FromJSON TimestreamTimestamp where
   parseJSON =
-    withObject
+    Lude.withObject
       "TimestreamTimestamp"
-      (\x -> TimestreamTimestamp' <$> (x .: "value") <*> (x .: "unit"))
+      ( \x ->
+          TimestreamTimestamp'
+            Lude.<$> (x Lude..: "value") Lude.<*> (x Lude..: "unit")
+      )
 
-instance Hashable TimestreamTimestamp
-
-instance NFData TimestreamTimestamp
-
-instance ToJSON TimestreamTimestamp where
+instance Lude.ToJSON TimestreamTimestamp where
   toJSON TimestreamTimestamp' {..} =
-    object
-      (catMaybes [Just ("value" .= _ttValue), Just ("unit" .= _ttUnit)])
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("value" Lude..= value),
+            Lude.Just ("unit" Lude..= unit)
+          ]
+      )

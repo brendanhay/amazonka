@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.InventoryFormat where
+module Network.AWS.S3.Types.InventoryFormat
+  ( InventoryFormat
+      ( InventoryFormat',
+        IFCSV,
+        IFOrc,
+        IFParquet
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data InventoryFormat
-  = IFCSV
-  | IFOrc
-  | IFParquet
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InventoryFormat = InventoryFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InventoryFormat where
-  parser =
-    takeLowerText >>= \case
-      "csv" -> pure IFCSV
-      "orc" -> pure IFOrc
-      "parquet" -> pure IFParquet
-      e ->
-        fromTextError $
-          "Failure parsing InventoryFormat from value: '" <> e
-            <> "'. Accepted values: csv, orc, parquet"
+pattern IFCSV :: InventoryFormat
+pattern IFCSV = InventoryFormat' "CSV"
 
-instance ToText InventoryFormat where
-  toText = \case
-    IFCSV -> "CSV"
-    IFOrc -> "ORC"
-    IFParquet -> "Parquet"
+pattern IFOrc :: InventoryFormat
+pattern IFOrc = InventoryFormat' "ORC"
 
-instance Hashable InventoryFormat
+pattern IFParquet :: InventoryFormat
+pattern IFParquet = InventoryFormat' "Parquet"
 
-instance NFData InventoryFormat
-
-instance ToByteString InventoryFormat
-
-instance ToQuery InventoryFormat
-
-instance ToHeader InventoryFormat
-
-instance FromXML InventoryFormat where
-  parseXML = parseXMLText "InventoryFormat"
-
-instance ToXML InventoryFormat where
-  toXML = toXMLText
+{-# COMPLETE
+  IFCSV,
+  IFOrc,
+  IFParquet,
+  InventoryFormat'
+  #-}

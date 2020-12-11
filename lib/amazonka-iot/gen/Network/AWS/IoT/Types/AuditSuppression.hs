@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditSuppression where
+module Network.AWS.IoT.Types.AuditSuppression
+  ( AuditSuppression (..),
+
+    -- * Smart constructor
+    mkAuditSuppression,
+
+    -- * Lenses
+    asExpirationDate,
+    asSuppressIndefinitely,
+    asDescription,
+    asCheckName,
+    asResourceIdentifier,
+  )
+where
 
 import Network.AWS.IoT.Types.ResourceIdentifier
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Filters out specific findings of a Device Defender audit.
 --
---
---
--- /See:/ 'auditSuppression' smart constructor.
+-- /See:/ 'mkAuditSuppression' smart constructor.
 data AuditSuppression = AuditSuppression'
-  { _asExpirationDate ::
-      !(Maybe POSIX),
-    _asSuppressIndefinitely :: !(Maybe Bool),
-    _asDescription :: !(Maybe Text),
-    _asCheckName :: !Text,
-    _asResourceIdentifier :: !ResourceIdentifier
+  { expirationDate ::
+      Lude.Maybe Lude.Timestamp,
+    suppressIndefinitely :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text,
+    checkName :: Lude.Text,
+    resourceIdentifier :: ResourceIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditSuppression' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asExpirationDate' - The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
---
--- * 'asSuppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
---
--- * 'asDescription' - The description of the audit suppression.
---
--- * 'asCheckName' - Undocumented member.
---
--- * 'asResourceIdentifier' - Undocumented member.
-auditSuppression ::
-  -- | 'asCheckName'
-  Text ->
-  -- | 'asResourceIdentifier'
+-- * 'checkName' - Undocumented field.
+-- * 'description' - The description of the audit suppression.
+-- * 'expirationDate' - The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
+-- * 'resourceIdentifier' - Undocumented field.
+-- * 'suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
+mkAuditSuppression ::
+  -- | 'checkName'
+  Lude.Text ->
+  -- | 'resourceIdentifier'
   ResourceIdentifier ->
   AuditSuppression
-auditSuppression pCheckName_ pResourceIdentifier_ =
+mkAuditSuppression pCheckName_ pResourceIdentifier_ =
   AuditSuppression'
-    { _asExpirationDate = Nothing,
-      _asSuppressIndefinitely = Nothing,
-      _asDescription = Nothing,
-      _asCheckName = pCheckName_,
-      _asResourceIdentifier = pResourceIdentifier_
+    { expirationDate = Lude.Nothing,
+      suppressIndefinitely = Lude.Nothing,
+      description = Lude.Nothing,
+      checkName = pCheckName_,
+      resourceIdentifier = pResourceIdentifier_
     }
 
 -- | The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
-asExpirationDate :: Lens' AuditSuppression (Maybe UTCTime)
-asExpirationDate = lens _asExpirationDate (\s a -> s {_asExpirationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asExpirationDate :: Lens.Lens' AuditSuppression (Lude.Maybe Lude.Timestamp)
+asExpirationDate = Lens.lens (expirationDate :: AuditSuppression -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationDate = a} :: AuditSuppression)
+{-# DEPRECATED asExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | Indicates whether a suppression should exist indefinitely or not.
-asSuppressIndefinitely :: Lens' AuditSuppression (Maybe Bool)
-asSuppressIndefinitely = lens _asSuppressIndefinitely (\s a -> s {_asSuppressIndefinitely = a})
+--
+-- /Note:/ Consider using 'suppressIndefinitely' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asSuppressIndefinitely :: Lens.Lens' AuditSuppression (Lude.Maybe Lude.Bool)
+asSuppressIndefinitely = Lens.lens (suppressIndefinitely :: AuditSuppression -> Lude.Maybe Lude.Bool) (\s a -> s {suppressIndefinitely = a} :: AuditSuppression)
+{-# DEPRECATED asSuppressIndefinitely "Use generic-lens or generic-optics with 'suppressIndefinitely' instead." #-}
 
 -- | The description of the audit suppression.
-asDescription :: Lens' AuditSuppression (Maybe Text)
-asDescription = lens _asDescription (\s a -> s {_asDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asDescription :: Lens.Lens' AuditSuppression (Lude.Maybe Lude.Text)
+asDescription = Lens.lens (description :: AuditSuppression -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AuditSuppression)
+{-# DEPRECATED asDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-asCheckName :: Lens' AuditSuppression Text
-asCheckName = lens _asCheckName (\s a -> s {_asCheckName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asCheckName :: Lens.Lens' AuditSuppression Lude.Text
+asCheckName = Lens.lens (checkName :: AuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: AuditSuppression)
+{-# DEPRECATED asCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
--- | Undocumented member.
-asResourceIdentifier :: Lens' AuditSuppression ResourceIdentifier
-asResourceIdentifier = lens _asResourceIdentifier (\s a -> s {_asResourceIdentifier = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asResourceIdentifier :: Lens.Lens' AuditSuppression ResourceIdentifier
+asResourceIdentifier = Lens.lens (resourceIdentifier :: AuditSuppression -> ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: AuditSuppression)
+{-# DEPRECATED asResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance FromJSON AuditSuppression where
+instance Lude.FromJSON AuditSuppression where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuditSuppression"
       ( \x ->
           AuditSuppression'
-            <$> (x .:? "expirationDate")
-            <*> (x .:? "suppressIndefinitely")
-            <*> (x .:? "description")
-            <*> (x .: "checkName")
-            <*> (x .: "resourceIdentifier")
+            Lude.<$> (x Lude..:? "expirationDate")
+            Lude.<*> (x Lude..:? "suppressIndefinitely")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..: "checkName")
+            Lude.<*> (x Lude..: "resourceIdentifier")
       )
-
-instance Hashable AuditSuppression
-
-instance NFData AuditSuppression

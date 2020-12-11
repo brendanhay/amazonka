@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,144 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayRequestOptions where
+module Network.AWS.EC2.Types.TransitGatewayRequestOptions
+  ( TransitGatewayRequestOptions (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkTransitGatewayRequestOptions,
+
+    -- * Lenses
+    tgroVPNEcmpSupport,
+    tgroAutoAcceptSharedAttachments,
+    tgroDefaultRouteTableAssociation,
+    tgroAmazonSideASN,
+    tgroDefaultRouteTablePropagation,
+    tgroMulticastSupport,
+    tgroDNSSupport,
+  )
+where
+
 import Network.AWS.EC2.Types.AutoAcceptSharedAttachmentsValue
 import Network.AWS.EC2.Types.DNSSupportValue
 import Network.AWS.EC2.Types.DefaultRouteTableAssociationValue
 import Network.AWS.EC2.Types.DefaultRouteTablePropagationValue
 import Network.AWS.EC2.Types.MulticastSupportValue
 import Network.AWS.EC2.Types.VPNEcmpSupportValue
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the options for a transit gateway.
 --
---
---
--- /See:/ 'transitGatewayRequestOptions' smart constructor.
+-- /See:/ 'mkTransitGatewayRequestOptions' smart constructor.
 data TransitGatewayRequestOptions = TransitGatewayRequestOptions'
-  { _tgroVPNEcmpSupport ::
-      !(Maybe VPNEcmpSupportValue),
-    _tgroAutoAcceptSharedAttachments ::
-      !( Maybe
-           AutoAcceptSharedAttachmentsValue
-       ),
-    _tgroDefaultRouteTableAssociation ::
-      !( Maybe
-           DefaultRouteTableAssociationValue
-       ),
-    _tgroAmazonSideASN ::
-      !(Maybe Integer),
-    _tgroDefaultRouteTablePropagation ::
-      !( Maybe
-           DefaultRouteTablePropagationValue
-       ),
-    _tgroMulticastSupport ::
-      !(Maybe MulticastSupportValue),
-    _tgroDNSSupport ::
-      !(Maybe DNSSupportValue)
+  { vpnEcmpSupport ::
+      Lude.Maybe VPNEcmpSupportValue,
+    autoAcceptSharedAttachments ::
+      Lude.Maybe
+        AutoAcceptSharedAttachmentsValue,
+    defaultRouteTableAssociation ::
+      Lude.Maybe
+        DefaultRouteTableAssociationValue,
+    amazonSideASN ::
+      Lude.Maybe Lude.Integer,
+    defaultRouteTablePropagation ::
+      Lude.Maybe
+        DefaultRouteTablePropagationValue,
+    multicastSupport ::
+      Lude.Maybe MulticastSupportValue,
+    dnsSupport ::
+      Lude.Maybe DNSSupportValue
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayRequestOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgroVPNEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
---
--- * 'tgroAutoAcceptSharedAttachments' - Enable or disable automatic acceptance of attachment requests. Disabled by default.
---
--- * 'tgroDefaultRouteTableAssociation' - Enable or disable automatic association with the default association route table. Enabled by default.
---
--- * 'tgroAmazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is @64512@ .
---
--- * 'tgroDefaultRouteTablePropagation' - Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
---
--- * 'tgroMulticastSupport' - Indicates whether multicast is enabled on the transit gateway
---
--- * 'tgroDNSSupport' - Enable or disable DNS support. Enabled by default.
-transitGatewayRequestOptions ::
+-- * 'amazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is @64512@ .
+-- * 'autoAcceptSharedAttachments' - Enable or disable automatic acceptance of attachment requests. Disabled by default.
+-- * 'defaultRouteTableAssociation' - Enable or disable automatic association with the default association route table. Enabled by default.
+-- * 'defaultRouteTablePropagation' - Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+-- * 'dnsSupport' - Enable or disable DNS support. Enabled by default.
+-- * 'multicastSupport' - Indicates whether multicast is enabled on the transit gateway
+-- * 'vpnEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+mkTransitGatewayRequestOptions ::
   TransitGatewayRequestOptions
-transitGatewayRequestOptions =
+mkTransitGatewayRequestOptions =
   TransitGatewayRequestOptions'
-    { _tgroVPNEcmpSupport = Nothing,
-      _tgroAutoAcceptSharedAttachments = Nothing,
-      _tgroDefaultRouteTableAssociation = Nothing,
-      _tgroAmazonSideASN = Nothing,
-      _tgroDefaultRouteTablePropagation = Nothing,
-      _tgroMulticastSupport = Nothing,
-      _tgroDNSSupport = Nothing
+    { vpnEcmpSupport = Lude.Nothing,
+      autoAcceptSharedAttachments = Lude.Nothing,
+      defaultRouteTableAssociation = Lude.Nothing,
+      amazonSideASN = Lude.Nothing,
+      defaultRouteTablePropagation = Lude.Nothing,
+      multicastSupport = Lude.Nothing,
+      dnsSupport = Lude.Nothing
     }
 
 -- | Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
-tgroVPNEcmpSupport :: Lens' TransitGatewayRequestOptions (Maybe VPNEcmpSupportValue)
-tgroVPNEcmpSupport = lens _tgroVPNEcmpSupport (\s a -> s {_tgroVPNEcmpSupport = a})
+--
+-- /Note:/ Consider using 'vpnEcmpSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgroVPNEcmpSupport :: Lens.Lens' TransitGatewayRequestOptions (Lude.Maybe VPNEcmpSupportValue)
+tgroVPNEcmpSupport = Lens.lens (vpnEcmpSupport :: TransitGatewayRequestOptions -> Lude.Maybe VPNEcmpSupportValue) (\s a -> s {vpnEcmpSupport = a} :: TransitGatewayRequestOptions)
+{-# DEPRECATED tgroVPNEcmpSupport "Use generic-lens or generic-optics with 'vpnEcmpSupport' instead." #-}
 
 -- | Enable or disable automatic acceptance of attachment requests. Disabled by default.
-tgroAutoAcceptSharedAttachments :: Lens' TransitGatewayRequestOptions (Maybe AutoAcceptSharedAttachmentsValue)
-tgroAutoAcceptSharedAttachments = lens _tgroAutoAcceptSharedAttachments (\s a -> s {_tgroAutoAcceptSharedAttachments = a})
+--
+-- /Note:/ Consider using 'autoAcceptSharedAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgroAutoAcceptSharedAttachments :: Lens.Lens' TransitGatewayRequestOptions (Lude.Maybe AutoAcceptSharedAttachmentsValue)
+tgroAutoAcceptSharedAttachments = Lens.lens (autoAcceptSharedAttachments :: TransitGatewayRequestOptions -> Lude.Maybe AutoAcceptSharedAttachmentsValue) (\s a -> s {autoAcceptSharedAttachments = a} :: TransitGatewayRequestOptions)
+{-# DEPRECATED tgroAutoAcceptSharedAttachments "Use generic-lens or generic-optics with 'autoAcceptSharedAttachments' instead." #-}
 
 -- | Enable or disable automatic association with the default association route table. Enabled by default.
-tgroDefaultRouteTableAssociation :: Lens' TransitGatewayRequestOptions (Maybe DefaultRouteTableAssociationValue)
-tgroDefaultRouteTableAssociation = lens _tgroDefaultRouteTableAssociation (\s a -> s {_tgroDefaultRouteTableAssociation = a})
+--
+-- /Note:/ Consider using 'defaultRouteTableAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgroDefaultRouteTableAssociation :: Lens.Lens' TransitGatewayRequestOptions (Lude.Maybe DefaultRouteTableAssociationValue)
+tgroDefaultRouteTableAssociation = Lens.lens (defaultRouteTableAssociation :: TransitGatewayRequestOptions -> Lude.Maybe DefaultRouteTableAssociationValue) (\s a -> s {defaultRouteTableAssociation = a} :: TransitGatewayRequestOptions)
+{-# DEPRECATED tgroDefaultRouteTableAssociation "Use generic-lens or generic-optics with 'defaultRouteTableAssociation' instead." #-}
 
 -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is @64512@ .
-tgroAmazonSideASN :: Lens' TransitGatewayRequestOptions (Maybe Integer)
-tgroAmazonSideASN = lens _tgroAmazonSideASN (\s a -> s {_tgroAmazonSideASN = a})
+--
+-- /Note:/ Consider using 'amazonSideASN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgroAmazonSideASN :: Lens.Lens' TransitGatewayRequestOptions (Lude.Maybe Lude.Integer)
+tgroAmazonSideASN = Lens.lens (amazonSideASN :: TransitGatewayRequestOptions -> Lude.Maybe Lude.Integer) (\s a -> s {amazonSideASN = a} :: TransitGatewayRequestOptions)
+{-# DEPRECATED tgroAmazonSideASN "Use generic-lens or generic-optics with 'amazonSideASN' instead." #-}
 
 -- | Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
-tgroDefaultRouteTablePropagation :: Lens' TransitGatewayRequestOptions (Maybe DefaultRouteTablePropagationValue)
-tgroDefaultRouteTablePropagation = lens _tgroDefaultRouteTablePropagation (\s a -> s {_tgroDefaultRouteTablePropagation = a})
+--
+-- /Note:/ Consider using 'defaultRouteTablePropagation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgroDefaultRouteTablePropagation :: Lens.Lens' TransitGatewayRequestOptions (Lude.Maybe DefaultRouteTablePropagationValue)
+tgroDefaultRouteTablePropagation = Lens.lens (defaultRouteTablePropagation :: TransitGatewayRequestOptions -> Lude.Maybe DefaultRouteTablePropagationValue) (\s a -> s {defaultRouteTablePropagation = a} :: TransitGatewayRequestOptions)
+{-# DEPRECATED tgroDefaultRouteTablePropagation "Use generic-lens or generic-optics with 'defaultRouteTablePropagation' instead." #-}
 
 -- | Indicates whether multicast is enabled on the transit gateway
-tgroMulticastSupport :: Lens' TransitGatewayRequestOptions (Maybe MulticastSupportValue)
-tgroMulticastSupport = lens _tgroMulticastSupport (\s a -> s {_tgroMulticastSupport = a})
+--
+-- /Note:/ Consider using 'multicastSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgroMulticastSupport :: Lens.Lens' TransitGatewayRequestOptions (Lude.Maybe MulticastSupportValue)
+tgroMulticastSupport = Lens.lens (multicastSupport :: TransitGatewayRequestOptions -> Lude.Maybe MulticastSupportValue) (\s a -> s {multicastSupport = a} :: TransitGatewayRequestOptions)
+{-# DEPRECATED tgroMulticastSupport "Use generic-lens or generic-optics with 'multicastSupport' instead." #-}
 
 -- | Enable or disable DNS support. Enabled by default.
-tgroDNSSupport :: Lens' TransitGatewayRequestOptions (Maybe DNSSupportValue)
-tgroDNSSupport = lens _tgroDNSSupport (\s a -> s {_tgroDNSSupport = a})
+--
+-- /Note:/ Consider using 'dnsSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgroDNSSupport :: Lens.Lens' TransitGatewayRequestOptions (Lude.Maybe DNSSupportValue)
+tgroDNSSupport = Lens.lens (dnsSupport :: TransitGatewayRequestOptions -> Lude.Maybe DNSSupportValue) (\s a -> s {dnsSupport = a} :: TransitGatewayRequestOptions)
+{-# DEPRECATED tgroDNSSupport "Use generic-lens or generic-optics with 'dnsSupport' instead." #-}
 
-instance Hashable TransitGatewayRequestOptions
-
-instance NFData TransitGatewayRequestOptions
-
-instance ToQuery TransitGatewayRequestOptions where
+instance Lude.ToQuery TransitGatewayRequestOptions where
   toQuery TransitGatewayRequestOptions' {..} =
-    mconcat
-      [ "VpnEcmpSupport" =: _tgroVPNEcmpSupport,
-        "AutoAcceptSharedAttachments" =: _tgroAutoAcceptSharedAttachments,
+    Lude.mconcat
+      [ "VpnEcmpSupport" Lude.=: vpnEcmpSupport,
+        "AutoAcceptSharedAttachments" Lude.=: autoAcceptSharedAttachments,
         "DefaultRouteTableAssociation"
-          =: _tgroDefaultRouteTableAssociation,
-        "AmazonSideAsn" =: _tgroAmazonSideASN,
+          Lude.=: defaultRouteTableAssociation,
+        "AmazonSideAsn" Lude.=: amazonSideASN,
         "DefaultRouteTablePropagation"
-          =: _tgroDefaultRouteTablePropagation,
-        "MulticastSupport" =: _tgroMulticastSupport,
-        "DnsSupport" =: _tgroDNSSupport
+          Lude.=: defaultRouteTablePropagation,
+        "MulticastSupport" Lude.=: multicastSupport,
+        "DnsSupport" Lude.=: dnsSupport
       ]

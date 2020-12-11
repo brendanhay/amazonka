@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,141 +7,402 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.Test where
+module Network.AWS.DeviceFarm.Types.Test
+  ( Test (..),
+
+    -- * Smart constructor
+    mkTest,
+
+    -- * Lenses
+    tStatus,
+    tCounters,
+    tArn,
+    tCreated,
+    tStopped,
+    tResult,
+    tName,
+    tDeviceMinutes,
+    tType,
+    tMessage,
+    tStarted,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.Counters
 import Network.AWS.DeviceFarm.Types.DeviceMinutes
 import Network.AWS.DeviceFarm.Types.ExecutionResult
 import Network.AWS.DeviceFarm.Types.ExecutionStatus
 import Network.AWS.DeviceFarm.Types.TestType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a condition that is evaluated.
 --
---
---
--- /See:/ 'test' smart constructor.
+-- /See:/ 'mkTest' smart constructor.
 data Test = Test'
-  { _tStatus :: !(Maybe ExecutionStatus),
-    _tCounters :: !(Maybe Counters),
-    _tArn :: !(Maybe Text),
-    _tCreated :: !(Maybe POSIX),
-    _tStopped :: !(Maybe POSIX),
-    _tResult :: !(Maybe ExecutionResult),
-    _tName :: !(Maybe Text),
-    _tDeviceMinutes :: !(Maybe DeviceMinutes),
-    _tType :: !(Maybe TestType),
-    _tMessage :: !(Maybe Text),
-    _tStarted :: !(Maybe POSIX)
+  { status :: Lude.Maybe ExecutionStatus,
+    counters :: Lude.Maybe Counters,
+    arn :: Lude.Maybe Lude.Text,
+    created :: Lude.Maybe Lude.Timestamp,
+    stopped :: Lude.Maybe Lude.Timestamp,
+    result :: Lude.Maybe ExecutionResult,
+    name :: Lude.Maybe Lude.Text,
+    deviceMinutes :: Lude.Maybe DeviceMinutes,
+    type' :: Lude.Maybe TestType,
+    message :: Lude.Maybe Lude.Text,
+    started :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Test' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The test's ARN.
+-- * 'counters' - The test's result counters.
+-- * 'created' - When the test was created.
+-- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test.
+-- * 'message' - A message about the test's result.
+-- * 'name' - The test's name.
+-- * 'result' - The test's result.
 --
--- * 'tStatus' - The test's status. Allowed values include:     * PENDING     * PENDING_CONCURRENCY     * PENDING_DEVICE     * PROCESSING     * SCHEDULING     * PREPARING     * RUNNING     * COMPLETED     * STOPPING
+-- Allowed values include:
 --
--- * 'tCounters' - The test's result counters.
+--     * PENDING
 --
--- * 'tArn' - The test's ARN.
 --
--- * 'tCreated' - When the test was created.
+--     * PASSED
 --
--- * 'tStopped' - The test's stop time.
 --
--- * 'tResult' - The test's result. Allowed values include:     * PENDING     * PASSED     * WARNED     * FAILED     * SKIPPED     * ERRORED     * STOPPED
+--     * WARNED
 --
--- * 'tName' - The test's name.
 --
--- * 'tDeviceMinutes' - Represents the total (metered or unmetered) minutes used by the test.
+--     * FAILED
 --
--- * 'tType' - The test's type. Must be one of the following values:     * BUILTIN_FUZZ     * BUILTIN_EXPLORER     * APPIUM_JAVA_JUNIT     * APPIUM_JAVA_TESTNG     * APPIUM_PYTHON     * APPIUM_NODE     * APPIUM_RUBY     * APPIUM_WEB_JAVA_JUNIT     * APPIUM_WEB_JAVA_TESTNG     * APPIUM_WEB_PYTHON     * APPIUM_WEB_NODE     * APPIUM_WEB_RUBY     * CALABASH     * INSTRUMENTATION     * UIAUTOMATION     * UIAUTOMATOR     * XCTEST     * XCTEST_UI
 --
--- * 'tMessage' - A message about the test's result.
+--     * SKIPPED
 --
--- * 'tStarted' - The test's start time.
-test ::
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+-- * 'started' - The test's start time.
+-- * 'status' - The test's status.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PENDING_CONCURRENCY
+--
+--
+--     * PENDING_DEVICE
+--
+--
+--     * PROCESSING
+--
+--
+--     * SCHEDULING
+--
+--
+--     * PREPARING
+--
+--
+--     * RUNNING
+--
+--
+--     * COMPLETED
+--
+--
+--     * STOPPING
+--
+--
+-- * 'stopped' - The test's stop time.
+-- * 'type'' - The test's type.
+--
+-- Must be one of the following values:
+--
+--     * BUILTIN_FUZZ
+--
+--
+--     * BUILTIN_EXPLORER
+--
+--
+--     * APPIUM_JAVA_JUNIT
+--
+--
+--     * APPIUM_JAVA_TESTNG
+--
+--
+--     * APPIUM_PYTHON
+--
+--
+--     * APPIUM_NODE
+--
+--
+--     * APPIUM_RUBY
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG
+--
+--
+--     * APPIUM_WEB_PYTHON
+--
+--
+--     * APPIUM_WEB_NODE
+--
+--
+--     * APPIUM_WEB_RUBY
+--
+--
+--     * CALABASH
+--
+--
+--     * INSTRUMENTATION
+--
+--
+--     * UIAUTOMATION
+--
+--
+--     * UIAUTOMATOR
+--
+--
+--     * XCTEST
+--
+--
+--     * XCTEST_UI
+mkTest ::
   Test
-test =
+mkTest =
   Test'
-    { _tStatus = Nothing,
-      _tCounters = Nothing,
-      _tArn = Nothing,
-      _tCreated = Nothing,
-      _tStopped = Nothing,
-      _tResult = Nothing,
-      _tName = Nothing,
-      _tDeviceMinutes = Nothing,
-      _tType = Nothing,
-      _tMessage = Nothing,
-      _tStarted = Nothing
+    { status = Lude.Nothing,
+      counters = Lude.Nothing,
+      arn = Lude.Nothing,
+      created = Lude.Nothing,
+      stopped = Lude.Nothing,
+      result = Lude.Nothing,
+      name = Lude.Nothing,
+      deviceMinutes = Lude.Nothing,
+      type' = Lude.Nothing,
+      message = Lude.Nothing,
+      started = Lude.Nothing
     }
 
--- | The test's status. Allowed values include:     * PENDING     * PENDING_CONCURRENCY     * PENDING_DEVICE     * PROCESSING     * SCHEDULING     * PREPARING     * RUNNING     * COMPLETED     * STOPPING
-tStatus :: Lens' Test (Maybe ExecutionStatus)
-tStatus = lens _tStatus (\s a -> s {_tStatus = a})
+-- | The test's status.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PENDING_CONCURRENCY
+--
+--
+--     * PENDING_DEVICE
+--
+--
+--     * PROCESSING
+--
+--
+--     * SCHEDULING
+--
+--
+--     * PREPARING
+--
+--
+--     * RUNNING
+--
+--
+--     * COMPLETED
+--
+--
+--     * STOPPING
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStatus :: Lens.Lens' Test (Lude.Maybe ExecutionStatus)
+tStatus = Lens.lens (status :: Test -> Lude.Maybe ExecutionStatus) (\s a -> s {status = a} :: Test)
+{-# DEPRECATED tStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The test's result counters.
-tCounters :: Lens' Test (Maybe Counters)
-tCounters = lens _tCounters (\s a -> s {_tCounters = a})
+--
+-- /Note:/ Consider using 'counters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCounters :: Lens.Lens' Test (Lude.Maybe Counters)
+tCounters = Lens.lens (counters :: Test -> Lude.Maybe Counters) (\s a -> s {counters = a} :: Test)
+{-# DEPRECATED tCounters "Use generic-lens or generic-optics with 'counters' instead." #-}
 
 -- | The test's ARN.
-tArn :: Lens' Test (Maybe Text)
-tArn = lens _tArn (\s a -> s {_tArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tArn :: Lens.Lens' Test (Lude.Maybe Lude.Text)
+tArn = Lens.lens (arn :: Test -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Test)
+{-# DEPRECATED tArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | When the test was created.
-tCreated :: Lens' Test (Maybe UTCTime)
-tCreated = lens _tCreated (\s a -> s {_tCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCreated :: Lens.Lens' Test (Lude.Maybe Lude.Timestamp)
+tCreated = Lens.lens (created :: Test -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: Test)
+{-# DEPRECATED tCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
 -- | The test's stop time.
-tStopped :: Lens' Test (Maybe UTCTime)
-tStopped = lens _tStopped (\s a -> s {_tStopped = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'stopped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStopped :: Lens.Lens' Test (Lude.Maybe Lude.Timestamp)
+tStopped = Lens.lens (stopped :: Test -> Lude.Maybe Lude.Timestamp) (\s a -> s {stopped = a} :: Test)
+{-# DEPRECATED tStopped "Use generic-lens or generic-optics with 'stopped' instead." #-}
 
--- | The test's result. Allowed values include:     * PENDING     * PASSED     * WARNED     * FAILED     * SKIPPED     * ERRORED     * STOPPED
-tResult :: Lens' Test (Maybe ExecutionResult)
-tResult = lens _tResult (\s a -> s {_tResult = a})
+-- | The test's result.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PASSED
+--
+--
+--     * WARNED
+--
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tResult :: Lens.Lens' Test (Lude.Maybe ExecutionResult)
+tResult = Lens.lens (result :: Test -> Lude.Maybe ExecutionResult) (\s a -> s {result = a} :: Test)
+{-# DEPRECATED tResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The test's name.
-tName :: Lens' Test (Maybe Text)
-tName = lens _tName (\s a -> s {_tName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tName :: Lens.Lens' Test (Lude.Maybe Lude.Text)
+tName = Lens.lens (name :: Test -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Test)
+{-# DEPRECATED tName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Represents the total (metered or unmetered) minutes used by the test.
-tDeviceMinutes :: Lens' Test (Maybe DeviceMinutes)
-tDeviceMinutes = lens _tDeviceMinutes (\s a -> s {_tDeviceMinutes = a})
+--
+-- /Note:/ Consider using 'deviceMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tDeviceMinutes :: Lens.Lens' Test (Lude.Maybe DeviceMinutes)
+tDeviceMinutes = Lens.lens (deviceMinutes :: Test -> Lude.Maybe DeviceMinutes) (\s a -> s {deviceMinutes = a} :: Test)
+{-# DEPRECATED tDeviceMinutes "Use generic-lens or generic-optics with 'deviceMinutes' instead." #-}
 
--- | The test's type. Must be one of the following values:     * BUILTIN_FUZZ     * BUILTIN_EXPLORER     * APPIUM_JAVA_JUNIT     * APPIUM_JAVA_TESTNG     * APPIUM_PYTHON     * APPIUM_NODE     * APPIUM_RUBY     * APPIUM_WEB_JAVA_JUNIT     * APPIUM_WEB_JAVA_TESTNG     * APPIUM_WEB_PYTHON     * APPIUM_WEB_NODE     * APPIUM_WEB_RUBY     * CALABASH     * INSTRUMENTATION     * UIAUTOMATION     * UIAUTOMATOR     * XCTEST     * XCTEST_UI
-tType :: Lens' Test (Maybe TestType)
-tType = lens _tType (\s a -> s {_tType = a})
+-- | The test's type.
+--
+-- Must be one of the following values:
+--
+--     * BUILTIN_FUZZ
+--
+--
+--     * BUILTIN_EXPLORER
+--
+--
+--     * APPIUM_JAVA_JUNIT
+--
+--
+--     * APPIUM_JAVA_TESTNG
+--
+--
+--     * APPIUM_PYTHON
+--
+--
+--     * APPIUM_NODE
+--
+--
+--     * APPIUM_RUBY
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG
+--
+--
+--     * APPIUM_WEB_PYTHON
+--
+--
+--     * APPIUM_WEB_NODE
+--
+--
+--     * APPIUM_WEB_RUBY
+--
+--
+--     * CALABASH
+--
+--
+--     * INSTRUMENTATION
+--
+--
+--     * UIAUTOMATION
+--
+--
+--     * UIAUTOMATOR
+--
+--
+--     * XCTEST
+--
+--
+--     * XCTEST_UI
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tType :: Lens.Lens' Test (Lude.Maybe TestType)
+tType = Lens.lens (type' :: Test -> Lude.Maybe TestType) (\s a -> s {type' = a} :: Test)
+{-# DEPRECATED tType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A message about the test's result.
-tMessage :: Lens' Test (Maybe Text)
-tMessage = lens _tMessage (\s a -> s {_tMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tMessage :: Lens.Lens' Test (Lude.Maybe Lude.Text)
+tMessage = Lens.lens (message :: Test -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Test)
+{-# DEPRECATED tMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The test's start time.
-tStarted :: Lens' Test (Maybe UTCTime)
-tStarted = lens _tStarted (\s a -> s {_tStarted = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'started' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStarted :: Lens.Lens' Test (Lude.Maybe Lude.Timestamp)
+tStarted = Lens.lens (started :: Test -> Lude.Maybe Lude.Timestamp) (\s a -> s {started = a} :: Test)
+{-# DEPRECATED tStarted "Use generic-lens or generic-optics with 'started' instead." #-}
 
-instance FromJSON Test where
+instance Lude.FromJSON Test where
   parseJSON =
-    withObject
+    Lude.withObject
       "Test"
       ( \x ->
           Test'
-            <$> (x .:? "status")
-            <*> (x .:? "counters")
-            <*> (x .:? "arn")
-            <*> (x .:? "created")
-            <*> (x .:? "stopped")
-            <*> (x .:? "result")
-            <*> (x .:? "name")
-            <*> (x .:? "deviceMinutes")
-            <*> (x .:? "type")
-            <*> (x .:? "message")
-            <*> (x .:? "started")
+            Lude.<$> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "counters")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "created")
+            Lude.<*> (x Lude..:? "stopped")
+            Lude.<*> (x Lude..:? "result")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "deviceMinutes")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "message")
+            Lude.<*> (x Lude..:? "started")
       )
-
-instance Hashable Test
-
-instance NFData Test

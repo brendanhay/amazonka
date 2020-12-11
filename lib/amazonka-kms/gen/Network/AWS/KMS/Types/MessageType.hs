@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.MessageType where
+module Network.AWS.KMS.Types.MessageType
+  ( MessageType
+      ( MessageType',
+        Digest,
+        Raw
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MessageType
-  = Digest
-  | Raw
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MessageType = MessageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MessageType where
-  parser =
-    takeLowerText >>= \case
-      "digest" -> pure Digest
-      "raw" -> pure Raw
-      e ->
-        fromTextError $
-          "Failure parsing MessageType from value: '" <> e
-            <> "'. Accepted values: digest, raw"
+pattern Digest :: MessageType
+pattern Digest = MessageType' "DIGEST"
 
-instance ToText MessageType where
-  toText = \case
-    Digest -> "DIGEST"
-    Raw -> "RAW"
+pattern Raw :: MessageType
+pattern Raw = MessageType' "RAW"
 
-instance Hashable MessageType
-
-instance NFData MessageType
-
-instance ToByteString MessageType
-
-instance ToQuery MessageType
-
-instance ToHeader MessageType
-
-instance ToJSON MessageType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Digest,
+  Raw,
+  MessageType'
+  #-}

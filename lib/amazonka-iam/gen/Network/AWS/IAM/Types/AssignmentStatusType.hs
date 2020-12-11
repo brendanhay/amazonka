@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.AssignmentStatusType where
+module Network.AWS.IAM.Types.AssignmentStatusType
+  ( AssignmentStatusType
+      ( AssignmentStatusType',
+        Any,
+        Assigned,
+        Unassigned
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssignmentStatusType
-  = Any
-  | Assigned
-  | Unassigned
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssignmentStatusType = AssignmentStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssignmentStatusType where
-  parser =
-    takeLowerText >>= \case
-      "any" -> pure Any
-      "assigned" -> pure Assigned
-      "unassigned" -> pure Unassigned
-      e ->
-        fromTextError $
-          "Failure parsing AssignmentStatusType from value: '" <> e
-            <> "'. Accepted values: any, assigned, unassigned"
+pattern Any :: AssignmentStatusType
+pattern Any = AssignmentStatusType' "Any"
 
-instance ToText AssignmentStatusType where
-  toText = \case
-    Any -> "Any"
-    Assigned -> "Assigned"
-    Unassigned -> "Unassigned"
+pattern Assigned :: AssignmentStatusType
+pattern Assigned = AssignmentStatusType' "Assigned"
 
-instance Hashable AssignmentStatusType
+pattern Unassigned :: AssignmentStatusType
+pattern Unassigned = AssignmentStatusType' "Unassigned"
 
-instance NFData AssignmentStatusType
-
-instance ToByteString AssignmentStatusType
-
-instance ToQuery AssignmentStatusType
-
-instance ToHeader AssignmentStatusType
+{-# COMPLETE
+  Any,
+  Assigned,
+  Unassigned,
+  AssignmentStatusType'
+  #-}

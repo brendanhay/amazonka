@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConfigRuleState where
+module Network.AWS.Config.Types.ConfigRuleState
+  ( ConfigRuleState
+      ( ConfigRuleState',
+        Active,
+        Deleting,
+        DeletingResults,
+        Evaluating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConfigRuleState
-  = Active
-  | Deleting
-  | DeletingResults
-  | Evaluating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConfigRuleState = ConfigRuleState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConfigRuleState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "deleting" -> pure Deleting
-      "deleting_results" -> pure DeletingResults
-      "evaluating" -> pure Evaluating
-      e ->
-        fromTextError $
-          "Failure parsing ConfigRuleState from value: '" <> e
-            <> "'. Accepted values: active, deleting, deleting_results, evaluating"
+pattern Active :: ConfigRuleState
+pattern Active = ConfigRuleState' "ACTIVE"
 
-instance ToText ConfigRuleState where
-  toText = \case
-    Active -> "ACTIVE"
-    Deleting -> "DELETING"
-    DeletingResults -> "DELETING_RESULTS"
-    Evaluating -> "EVALUATING"
+pattern Deleting :: ConfigRuleState
+pattern Deleting = ConfigRuleState' "DELETING"
 
-instance Hashable ConfigRuleState
+pattern DeletingResults :: ConfigRuleState
+pattern DeletingResults = ConfigRuleState' "DELETING_RESULTS"
 
-instance NFData ConfigRuleState
+pattern Evaluating :: ConfigRuleState
+pattern Evaluating = ConfigRuleState' "EVALUATING"
 
-instance ToByteString ConfigRuleState
-
-instance ToQuery ConfigRuleState
-
-instance ToHeader ConfigRuleState
-
-instance ToJSON ConfigRuleState where
-  toJSON = toJSONText
-
-instance FromJSON ConfigRuleState where
-  parseJSON = parseJSONText "ConfigRuleState"
+{-# COMPLETE
+  Active,
+  Deleting,
+  DeletingResults,
+  Evaluating,
+  ConfigRuleState'
+  #-}

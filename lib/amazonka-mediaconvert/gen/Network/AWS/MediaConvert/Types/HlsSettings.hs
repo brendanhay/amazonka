@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,106 +7,134 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.HlsSettings where
+module Network.AWS.MediaConvert.Types.HlsSettings
+  ( HlsSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkHlsSettings,
+
+    -- * Lenses
+    hsAudioRenditionSets,
+    hsIFrameOnlyManifest,
+    hsAudioGroupId,
+    hsSegmentModifier,
+    hsAudioOnlyContainer,
+    hsAudioTrackType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer
 import Network.AWS.MediaConvert.Types.HlsAudioTrackType
 import Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for HLS output groups
 --
--- /See:/ 'hlsSettings' smart constructor.
+-- /See:/ 'mkHlsSettings' smart constructor.
 data HlsSettings = HlsSettings'
-  { _hsAudioRenditionSets ::
-      !(Maybe Text),
-    _hsIFrameOnlyManifest :: !(Maybe HlsIFrameOnlyManifest),
-    _hsAudioGroupId :: !(Maybe Text),
-    _hsSegmentModifier :: !(Maybe Text),
-    _hsAudioOnlyContainer :: !(Maybe HlsAudioOnlyContainer),
-    _hsAudioTrackType :: !(Maybe HlsAudioTrackType)
+  { audioRenditionSets ::
+      Lude.Maybe Lude.Text,
+    iFrameOnlyManifest :: Lude.Maybe HlsIFrameOnlyManifest,
+    audioGroupId :: Lude.Maybe Lude.Text,
+    segmentModifier :: Lude.Maybe Lude.Text,
+    audioOnlyContainer :: Lude.Maybe HlsAudioOnlyContainer,
+    audioTrackType :: Lude.Maybe HlsAudioTrackType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hsAudioRenditionSets' - List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
---
--- * 'hsIFrameOnlyManifest' - When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
---
--- * 'hsAudioGroupId' - Specifies the group to which the audio Rendition belongs.
---
--- * 'hsSegmentModifier' - Use this setting to add an identifying string to the filename of each segment. The service adds this string between the name modifier and segment index number. You can use format identifiers in the string. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html
---
--- * 'hsAudioOnlyContainer' - Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream (M2TS) to create a file in an MPEG2-TS container. Keep the default value Automatic (AUTOMATIC) to create an audio-only file in a raw container. Regardless of the value that you specify here, if this output has video, the service will place the output into an MPEG2-TS container.
---
--- * 'hsAudioTrackType' - Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-hlsSettings ::
+-- * 'audioGroupId' - Specifies the group to which the audio Rendition belongs.
+-- * 'audioOnlyContainer' - Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream (M2TS) to create a file in an MPEG2-TS container. Keep the default value Automatic (AUTOMATIC) to create an audio-only file in a raw container. Regardless of the value that you specify here, if this output has video, the service will place the output into an MPEG2-TS container.
+-- * 'audioRenditionSets' - List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+-- * 'audioTrackType' - Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
+-- * 'iFrameOnlyManifest' - When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
+-- * 'segmentModifier' - Use this setting to add an identifying string to the filename of each segment. The service adds this string between the name modifier and segment index number. You can use format identifiers in the string. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html
+mkHlsSettings ::
   HlsSettings
-hlsSettings =
+mkHlsSettings =
   HlsSettings'
-    { _hsAudioRenditionSets = Nothing,
-      _hsIFrameOnlyManifest = Nothing,
-      _hsAudioGroupId = Nothing,
-      _hsSegmentModifier = Nothing,
-      _hsAudioOnlyContainer = Nothing,
-      _hsAudioTrackType = Nothing
+    { audioRenditionSets = Lude.Nothing,
+      iFrameOnlyManifest = Lude.Nothing,
+      audioGroupId = Lude.Nothing,
+      segmentModifier = Lude.Nothing,
+      audioOnlyContainer = Lude.Nothing,
+      audioTrackType = Lude.Nothing
     }
 
 -- | List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
-hsAudioRenditionSets :: Lens' HlsSettings (Maybe Text)
-hsAudioRenditionSets = lens _hsAudioRenditionSets (\s a -> s {_hsAudioRenditionSets = a})
+--
+-- /Note:/ Consider using 'audioRenditionSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsAudioRenditionSets :: Lens.Lens' HlsSettings (Lude.Maybe Lude.Text)
+hsAudioRenditionSets = Lens.lens (audioRenditionSets :: HlsSettings -> Lude.Maybe Lude.Text) (\s a -> s {audioRenditionSets = a} :: HlsSettings)
+{-# DEPRECATED hsAudioRenditionSets "Use generic-lens or generic-optics with 'audioRenditionSets' instead." #-}
 
 -- | When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
-hsIFrameOnlyManifest :: Lens' HlsSettings (Maybe HlsIFrameOnlyManifest)
-hsIFrameOnlyManifest = lens _hsIFrameOnlyManifest (\s a -> s {_hsIFrameOnlyManifest = a})
+--
+-- /Note:/ Consider using 'iFrameOnlyManifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsIFrameOnlyManifest :: Lens.Lens' HlsSettings (Lude.Maybe HlsIFrameOnlyManifest)
+hsIFrameOnlyManifest = Lens.lens (iFrameOnlyManifest :: HlsSettings -> Lude.Maybe HlsIFrameOnlyManifest) (\s a -> s {iFrameOnlyManifest = a} :: HlsSettings)
+{-# DEPRECATED hsIFrameOnlyManifest "Use generic-lens or generic-optics with 'iFrameOnlyManifest' instead." #-}
 
 -- | Specifies the group to which the audio Rendition belongs.
-hsAudioGroupId :: Lens' HlsSettings (Maybe Text)
-hsAudioGroupId = lens _hsAudioGroupId (\s a -> s {_hsAudioGroupId = a})
+--
+-- /Note:/ Consider using 'audioGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsAudioGroupId :: Lens.Lens' HlsSettings (Lude.Maybe Lude.Text)
+hsAudioGroupId = Lens.lens (audioGroupId :: HlsSettings -> Lude.Maybe Lude.Text) (\s a -> s {audioGroupId = a} :: HlsSettings)
+{-# DEPRECATED hsAudioGroupId "Use generic-lens or generic-optics with 'audioGroupId' instead." #-}
 
 -- | Use this setting to add an identifying string to the filename of each segment. The service adds this string between the name modifier and segment index number. You can use format identifiers in the string. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html
-hsSegmentModifier :: Lens' HlsSettings (Maybe Text)
-hsSegmentModifier = lens _hsSegmentModifier (\s a -> s {_hsSegmentModifier = a})
+--
+-- /Note:/ Consider using 'segmentModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsSegmentModifier :: Lens.Lens' HlsSettings (Lude.Maybe Lude.Text)
+hsSegmentModifier = Lens.lens (segmentModifier :: HlsSettings -> Lude.Maybe Lude.Text) (\s a -> s {segmentModifier = a} :: HlsSettings)
+{-# DEPRECATED hsSegmentModifier "Use generic-lens or generic-optics with 'segmentModifier' instead." #-}
 
 -- | Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream (M2TS) to create a file in an MPEG2-TS container. Keep the default value Automatic (AUTOMATIC) to create an audio-only file in a raw container. Regardless of the value that you specify here, if this output has video, the service will place the output into an MPEG2-TS container.
-hsAudioOnlyContainer :: Lens' HlsSettings (Maybe HlsAudioOnlyContainer)
-hsAudioOnlyContainer = lens _hsAudioOnlyContainer (\s a -> s {_hsAudioOnlyContainer = a})
+--
+-- /Note:/ Consider using 'audioOnlyContainer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsAudioOnlyContainer :: Lens.Lens' HlsSettings (Lude.Maybe HlsAudioOnlyContainer)
+hsAudioOnlyContainer = Lens.lens (audioOnlyContainer :: HlsSettings -> Lude.Maybe HlsAudioOnlyContainer) (\s a -> s {audioOnlyContainer = a} :: HlsSettings)
+{-# DEPRECATED hsAudioOnlyContainer "Use generic-lens or generic-optics with 'audioOnlyContainer' instead." #-}
 
 -- | Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-hsAudioTrackType :: Lens' HlsSettings (Maybe HlsAudioTrackType)
-hsAudioTrackType = lens _hsAudioTrackType (\s a -> s {_hsAudioTrackType = a})
+--
+-- /Note:/ Consider using 'audioTrackType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsAudioTrackType :: Lens.Lens' HlsSettings (Lude.Maybe HlsAudioTrackType)
+hsAudioTrackType = Lens.lens (audioTrackType :: HlsSettings -> Lude.Maybe HlsAudioTrackType) (\s a -> s {audioTrackType = a} :: HlsSettings)
+{-# DEPRECATED hsAudioTrackType "Use generic-lens or generic-optics with 'audioTrackType' instead." #-}
 
-instance FromJSON HlsSettings where
+instance Lude.FromJSON HlsSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "HlsSettings"
       ( \x ->
           HlsSettings'
-            <$> (x .:? "audioRenditionSets")
-            <*> (x .:? "iFrameOnlyManifest")
-            <*> (x .:? "audioGroupId")
-            <*> (x .:? "segmentModifier")
-            <*> (x .:? "audioOnlyContainer")
-            <*> (x .:? "audioTrackType")
+            Lude.<$> (x Lude..:? "audioRenditionSets")
+            Lude.<*> (x Lude..:? "iFrameOnlyManifest")
+            Lude.<*> (x Lude..:? "audioGroupId")
+            Lude.<*> (x Lude..:? "segmentModifier")
+            Lude.<*> (x Lude..:? "audioOnlyContainer")
+            Lude.<*> (x Lude..:? "audioTrackType")
       )
 
-instance Hashable HlsSettings
-
-instance NFData HlsSettings
-
-instance ToJSON HlsSettings where
+instance Lude.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =
-    object
-      ( catMaybes
-          [ ("audioRenditionSets" .=) <$> _hsAudioRenditionSets,
-            ("iFrameOnlyManifest" .=) <$> _hsIFrameOnlyManifest,
-            ("audioGroupId" .=) <$> _hsAudioGroupId,
-            ("segmentModifier" .=) <$> _hsSegmentModifier,
-            ("audioOnlyContainer" .=) <$> _hsAudioOnlyContainer,
-            ("audioTrackType" .=) <$> _hsAudioTrackType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("audioRenditionSets" Lude..=) Lude.<$> audioRenditionSets,
+            ("iFrameOnlyManifest" Lude..=) Lude.<$> iFrameOnlyManifest,
+            ("audioGroupId" Lude..=) Lude.<$> audioGroupId,
+            ("segmentModifier" Lude..=) Lude.<$> segmentModifier,
+            ("audioOnlyContainer" Lude..=) Lude.<$> audioOnlyContainer,
+            ("audioTrackType" Lude..=) Lude.<$> audioTrackType
           ]
       )

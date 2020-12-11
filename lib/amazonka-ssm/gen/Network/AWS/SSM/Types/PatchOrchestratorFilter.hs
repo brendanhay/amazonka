@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchOrchestratorFilter where
+module Network.AWS.SSM.Types.PatchOrchestratorFilter
+  ( PatchOrchestratorFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPatchOrchestratorFilter,
+
+    -- * Lenses
+    pofValues,
+    pofKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines a filter used in Patch Manager APIs.
 --
---
---
--- /See:/ 'patchOrchestratorFilter' smart constructor.
+-- /See:/ 'mkPatchOrchestratorFilter' smart constructor.
 data PatchOrchestratorFilter = PatchOrchestratorFilter'
-  { _pofValues ::
-      !(Maybe [Text]),
-    _pofKey :: !(Maybe Text)
+  { values ::
+      Lude.Maybe [Lude.Text],
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchOrchestratorFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pofValues' - The value for the filter.
---
--- * 'pofKey' - The key for the filter.
-patchOrchestratorFilter ::
+-- * 'key' - The key for the filter.
+-- * 'values' - The value for the filter.
+mkPatchOrchestratorFilter ::
   PatchOrchestratorFilter
-patchOrchestratorFilter =
-  PatchOrchestratorFilter' {_pofValues = Nothing, _pofKey = Nothing}
+mkPatchOrchestratorFilter =
+  PatchOrchestratorFilter'
+    { values = Lude.Nothing,
+      key = Lude.Nothing
+    }
 
 -- | The value for the filter.
-pofValues :: Lens' PatchOrchestratorFilter [Text]
-pofValues = lens _pofValues (\s a -> s {_pofValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pofValues :: Lens.Lens' PatchOrchestratorFilter (Lude.Maybe [Lude.Text])
+pofValues = Lens.lens (values :: PatchOrchestratorFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: PatchOrchestratorFilter)
+{-# DEPRECATED pofValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The key for the filter.
-pofKey :: Lens' PatchOrchestratorFilter (Maybe Text)
-pofKey = lens _pofKey (\s a -> s {_pofKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pofKey :: Lens.Lens' PatchOrchestratorFilter (Lude.Maybe Lude.Text)
+pofKey = Lens.lens (key :: PatchOrchestratorFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: PatchOrchestratorFilter)
+{-# DEPRECATED pofKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable PatchOrchestratorFilter
-
-instance NFData PatchOrchestratorFilter
-
-instance ToJSON PatchOrchestratorFilter where
+instance Lude.ToJSON PatchOrchestratorFilter where
   toJSON PatchOrchestratorFilter' {..} =
-    object
-      (catMaybes [("Values" .=) <$> _pofValues, ("Key" .=) <$> _pofKey])
+    Lude.object
+      ( Lude.catMaybes
+          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
+      )

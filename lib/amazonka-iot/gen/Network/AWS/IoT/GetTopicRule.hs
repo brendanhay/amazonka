@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about the rule.
 module Network.AWS.IoT.GetTopicRule
-  ( -- * Creating a Request
-    getTopicRule,
-    GetTopicRule,
+  ( -- * Creating a request
+    GetTopicRule (..),
+    mkGetTopicRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtrRuleName,
 
-    -- * Destructuring the Response
-    getTopicRuleResponse,
-    GetTopicRuleResponse,
+    -- * Destructuring the response
+    GetTopicRuleResponse (..),
+    mkGetTopicRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtrrsRule,
     gtrrsRuleARN,
     gtrrsResponseStatus,
@@ -38,100 +33,113 @@ module Network.AWS.IoT.GetTopicRule
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the GetTopicRule operation.
 --
---
---
--- /See:/ 'getTopicRule' smart constructor.
-newtype GetTopicRule = GetTopicRule' {_gtrRuleName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetTopicRule' smart constructor.
+newtype GetTopicRule = GetTopicRule' {ruleName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTopicRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtrRuleName' - The name of the rule.
-getTopicRule ::
-  -- | 'gtrRuleName'
-  Text ->
+-- * 'ruleName' - The name of the rule.
+mkGetTopicRule ::
+  -- | 'ruleName'
+  Lude.Text ->
   GetTopicRule
-getTopicRule pRuleName_ = GetTopicRule' {_gtrRuleName = pRuleName_}
+mkGetTopicRule pRuleName_ = GetTopicRule' {ruleName = pRuleName_}
 
 -- | The name of the rule.
-gtrRuleName :: Lens' GetTopicRule Text
-gtrRuleName = lens _gtrRuleName (\s a -> s {_gtrRuleName = a})
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrRuleName :: Lens.Lens' GetTopicRule Lude.Text
+gtrRuleName = Lens.lens (ruleName :: GetTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: GetTopicRule)
+{-# DEPRECATED gtrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
-instance AWSRequest GetTopicRule where
+instance Lude.AWSRequest GetTopicRule where
   type Rs GetTopicRule = GetTopicRuleResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetTopicRuleResponse'
-            <$> (x .?> "rule") <*> (x .?> "ruleArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "rule")
+            Lude.<*> (x Lude..?> "ruleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTopicRule
+instance Lude.ToHeaders GetTopicRule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetTopicRule
+instance Lude.ToPath GetTopicRule where
+  toPath GetTopicRule' {..} =
+    Lude.mconcat ["/rules/", Lude.toBS ruleName]
 
-instance ToHeaders GetTopicRule where
-  toHeaders = const mempty
-
-instance ToPath GetTopicRule where
-  toPath GetTopicRule' {..} = mconcat ["/rules/", toBS _gtrRuleName]
-
-instance ToQuery GetTopicRule where
-  toQuery = const mempty
+instance Lude.ToQuery GetTopicRule where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output from the GetTopicRule operation.
 --
---
---
--- /See:/ 'getTopicRuleResponse' smart constructor.
+-- /See:/ 'mkGetTopicRuleResponse' smart constructor.
 data GetTopicRuleResponse = GetTopicRuleResponse'
-  { _gtrrsRule ::
-      !(Maybe TopicRule),
-    _gtrrsRuleARN :: !(Maybe Text),
-    _gtrrsResponseStatus :: !Int
+  { rule ::
+      Lude.Maybe TopicRule,
+    ruleARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTopicRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtrrsRule' - The rule.
---
--- * 'gtrrsRuleARN' - The rule ARN.
---
--- * 'gtrrsResponseStatus' - -- | The response status code.
-getTopicRuleResponse ::
-  -- | 'gtrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'rule' - The rule.
+-- * 'ruleARN' - The rule ARN.
+mkGetTopicRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTopicRuleResponse
-getTopicRuleResponse pResponseStatus_ =
+mkGetTopicRuleResponse pResponseStatus_ =
   GetTopicRuleResponse'
-    { _gtrrsRule = Nothing,
-      _gtrrsRuleARN = Nothing,
-      _gtrrsResponseStatus = pResponseStatus_
+    { rule = Lude.Nothing,
+      ruleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The rule.
-gtrrsRule :: Lens' GetTopicRuleResponse (Maybe TopicRule)
-gtrrsRule = lens _gtrrsRule (\s a -> s {_gtrrsRule = a})
+--
+-- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrrsRule :: Lens.Lens' GetTopicRuleResponse (Lude.Maybe TopicRule)
+gtrrsRule = Lens.lens (rule :: GetTopicRuleResponse -> Lude.Maybe TopicRule) (\s a -> s {rule = a} :: GetTopicRuleResponse)
+{-# DEPRECATED gtrrsRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
 -- | The rule ARN.
-gtrrsRuleARN :: Lens' GetTopicRuleResponse (Maybe Text)
-gtrrsRuleARN = lens _gtrrsRuleARN (\s a -> s {_gtrrsRuleARN = a})
+--
+-- /Note:/ Consider using 'ruleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrrsRuleARN :: Lens.Lens' GetTopicRuleResponse (Lude.Maybe Lude.Text)
+gtrrsRuleARN = Lens.lens (ruleARN :: GetTopicRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {ruleARN = a} :: GetTopicRuleResponse)
+{-# DEPRECATED gtrrsRuleARN "Use generic-lens or generic-optics with 'ruleARN' instead." #-}
 
--- | -- | The response status code.
-gtrrsResponseStatus :: Lens' GetTopicRuleResponse Int
-gtrrsResponseStatus = lens _gtrrsResponseStatus (\s a -> s {_gtrrsResponseStatus = a})
-
-instance NFData GetTopicRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrrsResponseStatus :: Lens.Lens' GetTopicRuleResponse Lude.Int
+gtrrsResponseStatus = Lens.lens (responseStatus :: GetTopicRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTopicRuleResponse)
+{-# DEPRECATED gtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

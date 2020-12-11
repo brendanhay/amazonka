@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeStacks
-  ( -- * Creating a Request
-    describeStacks,
-    DescribeStacks,
+  ( -- * Creating a request
+    DescribeStacks (..),
+    mkDescribeStacks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dNextToken,
     dNames,
 
-    -- * Destructuring the Response
-    describeStacksResponse,
-    DescribeStacksResponse,
+    -- * Destructuring the response
+    DescribeStacksResponse (..),
+    mkDescribeStacksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsNextToken,
     desrsStacks,
     desrsResponseStatus,
@@ -43,123 +36,146 @@ module Network.AWS.AppStream.DescribeStacks
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStacks' smart constructor.
+-- | /See:/ 'mkDescribeStacks' smart constructor.
 data DescribeStacks = DescribeStacks'
-  { _dNextToken :: !(Maybe Text),
-    _dNames :: !(Maybe [Text])
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    names :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStacks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
---
--- * 'dNames' - The names of the stacks to describe.
-describeStacks ::
+-- * 'names' - The names of the stacks to describe.
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+mkDescribeStacks ::
   DescribeStacks
-describeStacks =
-  DescribeStacks' {_dNextToken = Nothing, _dNames = Nothing}
+mkDescribeStacks =
+  DescribeStacks' {nextToken = Lude.Nothing, names = Lude.Nothing}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-dNextToken :: Lens' DescribeStacks (Maybe Text)
-dNextToken = lens _dNextToken (\s a -> s {_dNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNextToken :: Lens.Lens' DescribeStacks (Lude.Maybe Lude.Text)
+dNextToken = Lens.lens (nextToken :: DescribeStacks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeStacks)
+{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The names of the stacks to describe.
-dNames :: Lens' DescribeStacks [Text]
-dNames = lens _dNames (\s a -> s {_dNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNames :: Lens.Lens' DescribeStacks (Lude.Maybe [Lude.Text])
+dNames = Lens.lens (names :: DescribeStacks -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: DescribeStacks)
+{-# DEPRECATED dNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
-instance AWSPager DescribeStacks where
+instance Page.AWSPager DescribeStacks where
   page rq rs
-    | stop (rs ^. desrsNextToken) = Nothing
-    | stop (rs ^. desrsStacks) = Nothing
-    | otherwise = Just $ rq & dNextToken .~ rs ^. desrsNextToken
+    | Page.stop (rs Lens.^. desrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. desrsStacks) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dNextToken Lens..~ rs Lens.^. desrsNextToken
 
-instance AWSRequest DescribeStacks where
+instance Lude.AWSRequest DescribeStacks where
   type Rs DescribeStacks = DescribeStacksResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeStacksResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Stacks" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Stacks" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStacks
-
-instance NFData DescribeStacks
-
-instance ToHeaders DescribeStacks where
+instance Lude.ToHeaders DescribeStacks where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.DescribeStacks" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("PhotonAdminProxyService.DescribeStacks" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeStacks where
+instance Lude.ToJSON DescribeStacks where
   toJSON DescribeStacks' {..} =
-    object
-      ( catMaybes
-          [("NextToken" .=) <$> _dNextToken, ("Names" .=) <$> _dNames]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Names" Lude..=) Lude.<$> names
+          ]
       )
 
-instance ToPath DescribeStacks where
-  toPath = const "/"
+instance Lude.ToPath DescribeStacks where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeStacks where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeStacks where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeStacksResponse' smart constructor.
+-- | /See:/ 'mkDescribeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-  { _desrsNextToken ::
-      !(Maybe Text),
-    _desrsStacks :: !(Maybe [Stack]),
-    _desrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    stacks :: Lude.Maybe [Stack],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStacksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
---
--- * 'desrsStacks' - Information about the stacks.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeStacksResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- * 'responseStatus' - The response status code.
+-- * 'stacks' - Information about the stacks.
+mkDescribeStacksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStacksResponse
-describeStacksResponse pResponseStatus_ =
+mkDescribeStacksResponse pResponseStatus_ =
   DescribeStacksResponse'
-    { _desrsNextToken = Nothing,
-      _desrsStacks = Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      stacks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-desrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
-desrsNextToken = lens _desrsNextToken (\s a -> s {_desrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsNextToken :: Lens.Lens' DescribeStacksResponse (Lude.Maybe Lude.Text)
+desrsNextToken = Lens.lens (nextToken :: DescribeStacksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeStacksResponse)
+{-# DEPRECATED desrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the stacks.
-desrsStacks :: Lens' DescribeStacksResponse [Stack]
-desrsStacks = lens _desrsStacks (\s a -> s {_desrsStacks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stacks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsStacks :: Lens.Lens' DescribeStacksResponse (Lude.Maybe [Stack])
+desrsStacks = Lens.lens (stacks :: DescribeStacksResponse -> Lude.Maybe [Stack]) (\s a -> s {stacks = a} :: DescribeStacksResponse)
+{-# DEPRECATED desrsStacks "Use generic-lens or generic-optics with 'stacks' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeStacksResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeStacksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeStacksResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeStacksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStacksResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,134 @@
 --
 -- Deletes a subnet group.
 module Network.AWS.DAX.DeleteSubnetGroup
-  ( -- * Creating a Request
-    deleteSubnetGroup,
-    DeleteSubnetGroup,
+  ( -- * Creating a request
+    DeleteSubnetGroup (..),
+    mkDeleteSubnetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsgSubnetGroupName,
 
-    -- * Destructuring the Response
-    deleteSubnetGroupResponse,
-    DeleteSubnetGroupResponse,
+    -- * Destructuring the response
+    DeleteSubnetGroupResponse (..),
+    mkDeleteSubnetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsgrsDeletionMessage,
     dsgrsResponseStatus,
   )
 where
 
 import Network.AWS.DAX.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSubnetGroup' smart constructor.
+-- | /See:/ 'mkDeleteSubnetGroup' smart constructor.
 newtype DeleteSubnetGroup = DeleteSubnetGroup'
-  { _dsgSubnetGroupName ::
-      Text
+  { subnetGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSubnetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsgSubnetGroupName' - The name of the subnet group to delete.
-deleteSubnetGroup ::
-  -- | 'dsgSubnetGroupName'
-  Text ->
+-- * 'subnetGroupName' - The name of the subnet group to delete.
+mkDeleteSubnetGroup ::
+  -- | 'subnetGroupName'
+  Lude.Text ->
   DeleteSubnetGroup
-deleteSubnetGroup pSubnetGroupName_ =
-  DeleteSubnetGroup' {_dsgSubnetGroupName = pSubnetGroupName_}
+mkDeleteSubnetGroup pSubnetGroupName_ =
+  DeleteSubnetGroup' {subnetGroupName = pSubnetGroupName_}
 
 -- | The name of the subnet group to delete.
-dsgSubnetGroupName :: Lens' DeleteSubnetGroup Text
-dsgSubnetGroupName = lens _dsgSubnetGroupName (\s a -> s {_dsgSubnetGroupName = a})
+--
+-- /Note:/ Consider using 'subnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgSubnetGroupName :: Lens.Lens' DeleteSubnetGroup Lude.Text
+dsgSubnetGroupName = Lens.lens (subnetGroupName :: DeleteSubnetGroup -> Lude.Text) (\s a -> s {subnetGroupName = a} :: DeleteSubnetGroup)
+{-# DEPRECATED dsgSubnetGroupName "Use generic-lens or generic-optics with 'subnetGroupName' instead." #-}
 
-instance AWSRequest DeleteSubnetGroup where
+instance Lude.AWSRequest DeleteSubnetGroup where
   type Rs DeleteSubnetGroup = DeleteSubnetGroupResponse
-  request = postJSON dax
+  request = Req.postJSON daxService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteSubnetGroupResponse'
-            <$> (x .?> "DeletionMessage") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DeletionMessage")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteSubnetGroup
-
-instance NFData DeleteSubnetGroup
-
-instance ToHeaders DeleteSubnetGroup where
+instance Lude.ToHeaders DeleteSubnetGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonDAXV3.DeleteSubnetGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonDAXV3.DeleteSubnetGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteSubnetGroup where
+instance Lude.ToJSON DeleteSubnetGroup where
   toJSON DeleteSubnetGroup' {..} =
-    object
-      (catMaybes [Just ("SubnetGroupName" .= _dsgSubnetGroupName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("SubnetGroupName" Lude..= subnetGroupName)]
+      )
 
-instance ToPath DeleteSubnetGroup where
-  toPath = const "/"
+instance Lude.ToPath DeleteSubnetGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteSubnetGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSubnetGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSubnetGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteSubnetGroupResponse' smart constructor.
 data DeleteSubnetGroupResponse = DeleteSubnetGroupResponse'
-  { _dsgrsDeletionMessage ::
-      !(Maybe Text),
-    _dsgrsResponseStatus :: !Int
+  { deletionMessage ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsgrsDeletionMessage' - A user-specified message for this action (i.e., a reason for deleting the subnet group).
---
--- * 'dsgrsResponseStatus' - -- | The response status code.
-deleteSubnetGroupResponse ::
-  -- | 'dsgrsResponseStatus'
-  Int ->
+-- * 'deletionMessage' - A user-specified message for this action (i.e., a reason for deleting the subnet group).
+-- * 'responseStatus' - The response status code.
+mkDeleteSubnetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSubnetGroupResponse
-deleteSubnetGroupResponse pResponseStatus_ =
+mkDeleteSubnetGroupResponse pResponseStatus_ =
   DeleteSubnetGroupResponse'
-    { _dsgrsDeletionMessage = Nothing,
-      _dsgrsResponseStatus = pResponseStatus_
+    { deletionMessage = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A user-specified message for this action (i.e., a reason for deleting the subnet group).
-dsgrsDeletionMessage :: Lens' DeleteSubnetGroupResponse (Maybe Text)
-dsgrsDeletionMessage = lens _dsgrsDeletionMessage (\s a -> s {_dsgrsDeletionMessage = a})
+--
+-- /Note:/ Consider using 'deletionMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgrsDeletionMessage :: Lens.Lens' DeleteSubnetGroupResponse (Lude.Maybe Lude.Text)
+dsgrsDeletionMessage = Lens.lens (deletionMessage :: DeleteSubnetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {deletionMessage = a} :: DeleteSubnetGroupResponse)
+{-# DEPRECATED dsgrsDeletionMessage "Use generic-lens or generic-optics with 'deletionMessage' instead." #-}
 
--- | -- | The response status code.
-dsgrsResponseStatus :: Lens' DeleteSubnetGroupResponse Int
-dsgrsResponseStatus = lens _dsgrsResponseStatus (\s a -> s {_dsgrsResponseStatus = a})
-
-instance NFData DeleteSubnetGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgrsResponseStatus :: Lens.Lens' DeleteSubnetGroupResponse Lude.Int
+dsgrsResponseStatus = Lens.lens (responseStatus :: DeleteSubnetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSubnetGroupResponse)
+{-# DEPRECATED dsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

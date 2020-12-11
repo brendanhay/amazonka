@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.KGKeyPairIds where
+module Network.AWS.CloudFront.Types.KGKeyPairIds
+  ( KGKeyPairIds (..),
+
+    -- * Smart constructor
+    mkKGKeyPairIds,
+
+    -- * Lenses
+    kgkpiKeyPairIds,
+    kgkpiKeyGroupId,
+  )
+where
 
 import Network.AWS.CloudFront.Types.KeyPairIds
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of identifiers for the public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
---
---
--- /See:/ 'kGKeyPairIds' smart constructor.
+-- /See:/ 'mkKGKeyPairIds' smart constructor.
 data KGKeyPairIds = KGKeyPairIds'
-  { _kgkpiKeyPairIds ::
-      !(Maybe KeyPairIds),
-    _kgkpiKeyGroupId :: !(Maybe Text)
+  { keyPairIds ::
+      Lude.Maybe KeyPairIds,
+    keyGroupId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KGKeyPairIds' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kgkpiKeyPairIds' - Undocumented member.
---
--- * 'kgkpiKeyGroupId' - The identifier of the key group that contains the public keys.
-kGKeyPairIds ::
+-- * 'keyGroupId' - The identifier of the key group that contains the public keys.
+-- * 'keyPairIds' - Undocumented field.
+mkKGKeyPairIds ::
   KGKeyPairIds
-kGKeyPairIds =
+mkKGKeyPairIds =
   KGKeyPairIds'
-    { _kgkpiKeyPairIds = Nothing,
-      _kgkpiKeyGroupId = Nothing
+    { keyPairIds = Lude.Nothing,
+      keyGroupId = Lude.Nothing
     }
 
--- | Undocumented member.
-kgkpiKeyPairIds :: Lens' KGKeyPairIds (Maybe KeyPairIds)
-kgkpiKeyPairIds = lens _kgkpiKeyPairIds (\s a -> s {_kgkpiKeyPairIds = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'keyPairIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgkpiKeyPairIds :: Lens.Lens' KGKeyPairIds (Lude.Maybe KeyPairIds)
+kgkpiKeyPairIds = Lens.lens (keyPairIds :: KGKeyPairIds -> Lude.Maybe KeyPairIds) (\s a -> s {keyPairIds = a} :: KGKeyPairIds)
+{-# DEPRECATED kgkpiKeyPairIds "Use generic-lens or generic-optics with 'keyPairIds' instead." #-}
 
 -- | The identifier of the key group that contains the public keys.
-kgkpiKeyGroupId :: Lens' KGKeyPairIds (Maybe Text)
-kgkpiKeyGroupId = lens _kgkpiKeyGroupId (\s a -> s {_kgkpiKeyGroupId = a})
+--
+-- /Note:/ Consider using 'keyGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgkpiKeyGroupId :: Lens.Lens' KGKeyPairIds (Lude.Maybe Lude.Text)
+kgkpiKeyGroupId = Lens.lens (keyGroupId :: KGKeyPairIds -> Lude.Maybe Lude.Text) (\s a -> s {keyGroupId = a} :: KGKeyPairIds)
+{-# DEPRECATED kgkpiKeyGroupId "Use generic-lens or generic-optics with 'keyGroupId' instead." #-}
 
-instance FromXML KGKeyPairIds where
+instance Lude.FromXML KGKeyPairIds where
   parseXML x =
-    KGKeyPairIds' <$> (x .@? "KeyPairIds") <*> (x .@? "KeyGroupId")
-
-instance Hashable KGKeyPairIds
-
-instance NFData KGKeyPairIds
+    KGKeyPairIds'
+      Lude.<$> (x Lude..@? "KeyPairIds") Lude.<*> (x Lude..@? "KeyGroupId")

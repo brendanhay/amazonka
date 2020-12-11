@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Types.ParallelDataStatus where
+module Network.AWS.Translate.Types.ParallelDataStatus
+  ( ParallelDataStatus
+      ( ParallelDataStatus',
+        Active,
+        Creating,
+        Deleting,
+        Failed,
+        Updating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ParallelDataStatus
-  = Active
-  | Creating
-  | Deleting
-  | Failed
-  | Updating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ParallelDataStatus = ParallelDataStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ParallelDataStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "creating" -> pure Creating
-      "deleting" -> pure Deleting
-      "failed" -> pure Failed
-      "updating" -> pure Updating
-      e ->
-        fromTextError $
-          "Failure parsing ParallelDataStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, deleting, failed, updating"
+pattern Active :: ParallelDataStatus
+pattern Active = ParallelDataStatus' "ACTIVE"
 
-instance ToText ParallelDataStatus where
-  toText = \case
-    Active -> "ACTIVE"
-    Creating -> "CREATING"
-    Deleting -> "DELETING"
-    Failed -> "FAILED"
-    Updating -> "UPDATING"
+pattern Creating :: ParallelDataStatus
+pattern Creating = ParallelDataStatus' "CREATING"
 
-instance Hashable ParallelDataStatus
+pattern Deleting :: ParallelDataStatus
+pattern Deleting = ParallelDataStatus' "DELETING"
 
-instance NFData ParallelDataStatus
+pattern Failed :: ParallelDataStatus
+pattern Failed = ParallelDataStatus' "FAILED"
 
-instance ToByteString ParallelDataStatus
+pattern Updating :: ParallelDataStatus
+pattern Updating = ParallelDataStatus' "UPDATING"
 
-instance ToQuery ParallelDataStatus
-
-instance ToHeader ParallelDataStatus
-
-instance FromJSON ParallelDataStatus where
-  parseJSON = parseJSONText "ParallelDataStatus"
+{-# COMPLETE
+  Active,
+  Creating,
+  Deleting,
+  Failed,
+  Updating,
+  ParallelDataStatus'
+  #-}

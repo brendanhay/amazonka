@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NetworkInterfaceCreationType where
+module Network.AWS.EC2.Types.NetworkInterfaceCreationType
+  ( NetworkInterfaceCreationType
+      ( NetworkInterfaceCreationType',
+        Efa
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NetworkInterfaceCreationType = Efa
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NetworkInterfaceCreationType = NetworkInterfaceCreationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NetworkInterfaceCreationType where
-  parser =
-    takeLowerText >>= \case
-      "efa" -> pure Efa
-      e ->
-        fromTextError $
-          "Failure parsing NetworkInterfaceCreationType from value: '" <> e
-            <> "'. Accepted values: efa"
+pattern Efa :: NetworkInterfaceCreationType
+pattern Efa = NetworkInterfaceCreationType' "efa"
 
-instance ToText NetworkInterfaceCreationType where
-  toText = \case
-    Efa -> "efa"
-
-instance Hashable NetworkInterfaceCreationType
-
-instance NFData NetworkInterfaceCreationType
-
-instance ToByteString NetworkInterfaceCreationType
-
-instance ToQuery NetworkInterfaceCreationType
-
-instance ToHeader NetworkInterfaceCreationType
+{-# COMPLETE
+  Efa,
+  NetworkInterfaceCreationType'
+  #-}

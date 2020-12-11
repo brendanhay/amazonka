@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,119 @@
 --
 -- The ReadPreset operation gets detailed information about a preset.
 module Network.AWS.ElasticTranscoder.ReadPreset
-  ( -- * Creating a Request
-    readPreset,
-    ReadPreset,
+  ( -- * Creating a request
+    ReadPreset (..),
+    mkReadPreset,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rpId,
 
-    -- * Destructuring the Response
-    readPresetResponse,
-    ReadPresetResponse,
+    -- * Destructuring the response
+    ReadPresetResponse (..),
+    mkReadPresetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rprsPreset,
     rprsResponseStatus,
   )
 where
 
 import Network.AWS.ElasticTranscoder.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The @ReadPresetRequest@ structure.
 --
---
---
--- /See:/ 'readPreset' smart constructor.
-newtype ReadPreset = ReadPreset' {_rpId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkReadPreset' smart constructor.
+newtype ReadPreset = ReadPreset' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadPreset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpId' - The identifier of the preset for which you want to get detailed information.
-readPreset ::
-  -- | 'rpId'
-  Text ->
+-- * 'id' - The identifier of the preset for which you want to get detailed information.
+mkReadPreset ::
+  -- | 'id'
+  Lude.Text ->
   ReadPreset
-readPreset pId_ = ReadPreset' {_rpId = pId_}
+mkReadPreset pId_ = ReadPreset' {id = pId_}
 
 -- | The identifier of the preset for which you want to get detailed information.
-rpId :: Lens' ReadPreset Text
-rpId = lens _rpId (\s a -> s {_rpId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpId :: Lens.Lens' ReadPreset Lude.Text
+rpId = Lens.lens (id :: ReadPreset -> Lude.Text) (\s a -> s {id = a} :: ReadPreset)
+{-# DEPRECATED rpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest ReadPreset where
+instance Lude.AWSRequest ReadPreset where
   type Rs ReadPreset = ReadPresetResponse
-  request = get elasticTranscoder
+  request = Req.get elasticTranscoderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          ReadPresetResponse' <$> (x .?> "Preset") <*> (pure (fromEnum s))
+          ReadPresetResponse'
+            Lude.<$> (x Lude..?> "Preset") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ReadPreset
+instance Lude.ToHeaders ReadPreset where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ReadPreset
-
-instance ToHeaders ReadPreset where
-  toHeaders = const mempty
-
-instance ToPath ReadPreset where
+instance Lude.ToPath ReadPreset where
   toPath ReadPreset' {..} =
-    mconcat ["/2012-09-25/presets/", toBS _rpId]
+    Lude.mconcat ["/2012-09-25/presets/", Lude.toBS id]
 
-instance ToQuery ReadPreset where
-  toQuery = const mempty
+instance Lude.ToQuery ReadPreset where
+  toQuery = Lude.const Lude.mempty
 
 -- | The @ReadPresetResponse@ structure.
 --
---
---
--- /See:/ 'readPresetResponse' smart constructor.
+-- /See:/ 'mkReadPresetResponse' smart constructor.
 data ReadPresetResponse = ReadPresetResponse'
-  { _rprsPreset ::
-      !(Maybe Preset),
-    _rprsResponseStatus :: !Int
+  { preset ::
+      Lude.Maybe Preset,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadPresetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rprsPreset' - A section of the response body that provides information about the preset.
---
--- * 'rprsResponseStatus' - -- | The response status code.
-readPresetResponse ::
-  -- | 'rprsResponseStatus'
-  Int ->
+-- * 'preset' - A section of the response body that provides information about the preset.
+-- * 'responseStatus' - The response status code.
+mkReadPresetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ReadPresetResponse
-readPresetResponse pResponseStatus_ =
+mkReadPresetResponse pResponseStatus_ =
   ReadPresetResponse'
-    { _rprsPreset = Nothing,
-      _rprsResponseStatus = pResponseStatus_
+    { preset = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A section of the response body that provides information about the preset.
-rprsPreset :: Lens' ReadPresetResponse (Maybe Preset)
-rprsPreset = lens _rprsPreset (\s a -> s {_rprsPreset = a})
+--
+-- /Note:/ Consider using 'preset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rprsPreset :: Lens.Lens' ReadPresetResponse (Lude.Maybe Preset)
+rprsPreset = Lens.lens (preset :: ReadPresetResponse -> Lude.Maybe Preset) (\s a -> s {preset = a} :: ReadPresetResponse)
+{-# DEPRECATED rprsPreset "Use generic-lens or generic-optics with 'preset' instead." #-}
 
--- | -- | The response status code.
-rprsResponseStatus :: Lens' ReadPresetResponse Int
-rprsResponseStatus = lens _rprsResponseStatus (\s a -> s {_rprsResponseStatus = a})
-
-instance NFData ReadPresetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rprsResponseStatus :: Lens.Lens' ReadPresetResponse Lude.Int
+rprsResponseStatus = Lens.lens (responseStatus :: ReadPresetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReadPresetResponse)
+{-# DEPRECATED rprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

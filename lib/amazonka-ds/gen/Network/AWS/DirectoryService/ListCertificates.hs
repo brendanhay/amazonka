@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- For the specified directory, lists all the certificates registered for a secured LDAP connection.
 module Network.AWS.DirectoryService.ListCertificates
-  ( -- * Creating a Request
-    listCertificates,
-    ListCertificates,
+  ( -- * Creating a request
+    ListCertificates (..),
+    mkListCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcNextToken,
     lcLimit,
     lcDirectoryId,
 
-    -- * Destructuring the Response
-    listCertificatesResponse,
-    ListCertificatesResponse,
+    -- * Destructuring the response
+    ListCertificatesResponse (..),
+    mkListCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcrsNextToken,
     lcrsCertificatesInfo,
     lcrsResponseStatus,
@@ -40,134 +35,153 @@ module Network.AWS.DirectoryService.ListCertificates
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listCertificates' smart constructor.
+-- | /See:/ 'mkListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { _lcNextToken ::
-      !(Maybe Text),
-    _lcLimit :: !(Maybe Nat),
-    _lcDirectoryId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    directoryId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcNextToken' - A token for requesting another page of certificates if the @NextToken@ response element indicates that more certificates are available. Use the value of the returned @NextToken@ element in your request until the token comes back as @null@ . Pass @null@ if this is the first call.
---
--- * 'lcLimit' - The number of items that should show up on one page
---
--- * 'lcDirectoryId' - The identifier of the directory.
-listCertificates ::
-  -- | 'lcDirectoryId'
-  Text ->
+-- * 'directoryId' - The identifier of the directory.
+-- * 'limit' - The number of items that should show up on one page
+-- * 'nextToken' - A token for requesting another page of certificates if the @NextToken@ response element indicates that more certificates are available. Use the value of the returned @NextToken@ element in your request until the token comes back as @null@ . Pass @null@ if this is the first call.
+mkListCertificates ::
+  -- | 'directoryId'
+  Lude.Text ->
   ListCertificates
-listCertificates pDirectoryId_ =
+mkListCertificates pDirectoryId_ =
   ListCertificates'
-    { _lcNextToken = Nothing,
-      _lcLimit = Nothing,
-      _lcDirectoryId = pDirectoryId_
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      directoryId = pDirectoryId_
     }
 
 -- | A token for requesting another page of certificates if the @NextToken@ response element indicates that more certificates are available. Use the value of the returned @NextToken@ element in your request until the token comes back as @null@ . Pass @null@ if this is the first call.
-lcNextToken :: Lens' ListCertificates (Maybe Text)
-lcNextToken = lens _lcNextToken (\s a -> s {_lcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcNextToken :: Lens.Lens' ListCertificates (Lude.Maybe Lude.Text)
+lcNextToken = Lens.lens (nextToken :: ListCertificates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCertificates)
+{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of items that should show up on one page
-lcLimit :: Lens' ListCertificates (Maybe Natural)
-lcLimit = lens _lcLimit (\s a -> s {_lcLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcLimit :: Lens.Lens' ListCertificates (Lude.Maybe Lude.Natural)
+lcLimit = Lens.lens (limit :: ListCertificates -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListCertificates)
+{-# DEPRECATED lcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The identifier of the directory.
-lcDirectoryId :: Lens' ListCertificates Text
-lcDirectoryId = lens _lcDirectoryId (\s a -> s {_lcDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcDirectoryId :: Lens.Lens' ListCertificates Lude.Text
+lcDirectoryId = Lens.lens (directoryId :: ListCertificates -> Lude.Text) (\s a -> s {directoryId = a} :: ListCertificates)
+{-# DEPRECATED lcDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance AWSRequest ListCertificates where
+instance Lude.AWSRequest ListCertificates where
   type Rs ListCertificates = ListCertificatesResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCertificatesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "CertificatesInfo" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "CertificatesInfo" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCertificates
-
-instance NFData ListCertificates
-
-instance ToHeaders ListCertificates where
+instance Lude.ToHeaders ListCertificates where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.ListCertificates" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.ListCertificates" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListCertificates where
+instance Lude.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lcNextToken,
-            ("Limit" .=) <$> _lcLimit,
-            Just ("DirectoryId" .= _lcDirectoryId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("DirectoryId" Lude..= directoryId)
           ]
       )
 
-instance ToPath ListCertificates where
-  toPath = const "/"
+instance Lude.ToPath ListCertificates where
+  toPath = Lude.const "/"
 
-instance ToQuery ListCertificates where
-  toQuery = const mempty
+instance Lude.ToQuery ListCertificates where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listCertificatesResponse' smart constructor.
+-- | /See:/ 'mkListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-  { _lcrsNextToken ::
-      !(Maybe Text),
-    _lcrsCertificatesInfo ::
-      !(Maybe [CertificateInfo]),
-    _lcrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    certificatesInfo ::
+      Lude.Maybe [CertificateInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcrsNextToken' - Indicates whether another page of certificates is available when the number of available certificates exceeds the page limit.
---
--- * 'lcrsCertificatesInfo' - A list of certificates with basic details including certificate ID, certificate common name, certificate state.
---
--- * 'lcrsResponseStatus' - -- | The response status code.
-listCertificatesResponse ::
-  -- | 'lcrsResponseStatus'
-  Int ->
+-- * 'certificatesInfo' - A list of certificates with basic details including certificate ID, certificate common name, certificate state.
+-- * 'nextToken' - Indicates whether another page of certificates is available when the number of available certificates exceeds the page limit.
+-- * 'responseStatus' - The response status code.
+mkListCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCertificatesResponse
-listCertificatesResponse pResponseStatus_ =
+mkListCertificatesResponse pResponseStatus_ =
   ListCertificatesResponse'
-    { _lcrsNextToken = Nothing,
-      _lcrsCertificatesInfo = Nothing,
-      _lcrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      certificatesInfo = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates whether another page of certificates is available when the number of available certificates exceeds the page limit.
-lcrsNextToken :: Lens' ListCertificatesResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\s a -> s {_lcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsNextToken :: Lens.Lens' ListCertificatesResponse (Lude.Maybe Lude.Text)
+lcrsNextToken = Lens.lens (nextToken :: ListCertificatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCertificatesResponse)
+{-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of certificates with basic details including certificate ID, certificate common name, certificate state.
-lcrsCertificatesInfo :: Lens' ListCertificatesResponse [CertificateInfo]
-lcrsCertificatesInfo = lens _lcrsCertificatesInfo (\s a -> s {_lcrsCertificatesInfo = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'certificatesInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsCertificatesInfo :: Lens.Lens' ListCertificatesResponse (Lude.Maybe [CertificateInfo])
+lcrsCertificatesInfo = Lens.lens (certificatesInfo :: ListCertificatesResponse -> Lude.Maybe [CertificateInfo]) (\s a -> s {certificatesInfo = a} :: ListCertificatesResponse)
+{-# DEPRECATED lcrsCertificatesInfo "Use generic-lens or generic-optics with 'certificatesInfo' instead." #-}
 
--- | -- | The response status code.
-lcrsResponseStatus :: Lens' ListCertificatesResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\s a -> s {_lcrsResponseStatus = a})
-
-instance NFData ListCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsResponseStatus :: Lens.Lens' ListCertificatesResponse Lude.Int
+lcrsResponseStatus = Lens.lens (responseStatus :: ListCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCertificatesResponse)
+{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,95 @@
 --
 -- Permanently deletes the specified folder and its contents.
 module Network.AWS.WorkDocs.DeleteFolder
-  ( -- * Creating a Request
-    deleteFolder,
-    DeleteFolder,
+  ( -- * Creating a request
+    DeleteFolder (..),
+    mkDeleteFolder,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfAuthenticationToken,
     dfFolderId,
 
-    -- * Destructuring the Response
-    deleteFolderResponse,
-    DeleteFolderResponse,
+    -- * Destructuring the response
+    DeleteFolderResponse (..),
+    mkDeleteFolderResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'deleteFolder' smart constructor.
+-- | /See:/ 'mkDeleteFolder' smart constructor.
 data DeleteFolder = DeleteFolder'
-  { _dfAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _dfFolderId :: !Text
+  { authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    folderId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFolder' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'dfFolderId' - The ID of the folder.
-deleteFolder ::
-  -- | 'dfFolderId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'folderId' - The ID of the folder.
+mkDeleteFolder ::
+  -- | 'folderId'
+  Lude.Text ->
   DeleteFolder
-deleteFolder pFolderId_ =
+mkDeleteFolder pFolderId_ =
   DeleteFolder'
-    { _dfAuthenticationToken = Nothing,
-      _dfFolderId = pFolderId_
+    { authenticationToken = Lude.Nothing,
+      folderId = pFolderId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-dfAuthenticationToken :: Lens' DeleteFolder (Maybe Text)
-dfAuthenticationToken = lens _dfAuthenticationToken (\s a -> s {_dfAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfAuthenticationToken :: Lens.Lens' DeleteFolder (Lude.Maybe (Lude.Sensitive Lude.Text))
+dfAuthenticationToken = Lens.lens (authenticationToken :: DeleteFolder -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteFolder)
+{-# DEPRECATED dfAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the folder.
-dfFolderId :: Lens' DeleteFolder Text
-dfFolderId = lens _dfFolderId (\s a -> s {_dfFolderId = a})
+--
+-- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfFolderId :: Lens.Lens' DeleteFolder Lude.Text
+dfFolderId = Lens.lens (folderId :: DeleteFolder -> Lude.Text) (\s a -> s {folderId = a} :: DeleteFolder)
+{-# DEPRECATED dfFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
 
-instance AWSRequest DeleteFolder where
+instance Lude.AWSRequest DeleteFolder where
   type Rs DeleteFolder = DeleteFolderResponse
-  request = delete workDocs
-  response = receiveNull DeleteFolderResponse'
+  request = Req.delete workDocsService
+  response = Res.receiveNull DeleteFolderResponse'
 
-instance Hashable DeleteFolder
-
-instance NFData DeleteFolder
-
-instance ToHeaders DeleteFolder where
+instance Lude.ToHeaders DeleteFolder where
   toHeaders DeleteFolder' {..} =
-    mconcat
-      [ "Authentication" =# _dfAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath DeleteFolder where
+instance Lude.ToPath DeleteFolder where
   toPath DeleteFolder' {..} =
-    mconcat ["/api/v1/folders/", toBS _dfFolderId]
+    Lude.mconcat ["/api/v1/folders/", Lude.toBS folderId]
 
-instance ToQuery DeleteFolder where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteFolder where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteFolderResponse' smart constructor.
+-- | /See:/ 'mkDeleteFolderResponse' smart constructor.
 data DeleteFolderResponse = DeleteFolderResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFolderResponse' with the minimum fields required to make a request.
-deleteFolderResponse ::
+mkDeleteFolderResponse ::
   DeleteFolderResponse
-deleteFolderResponse = DeleteFolderResponse'
-
-instance NFData DeleteFolderResponse
+mkDeleteFolderResponse = DeleteFolderResponse'

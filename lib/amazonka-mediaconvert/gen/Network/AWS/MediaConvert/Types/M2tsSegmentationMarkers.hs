@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M2tsSegmentationMarkers where
+module Network.AWS.MediaConvert.Types.M2tsSegmentationMarkers
+  ( M2tsSegmentationMarkers
+      ( M2tsSegmentationMarkers',
+        MSMEbp,
+        MSMEbpLegacy,
+        MSMNone,
+        MSMPsiSegstart,
+        MSMRaiAdapt,
+        MSMRaiSegstart
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
-data M2tsSegmentationMarkers
-  = MSMEbp
-  | MSMEbpLegacy
-  | MSMNone
-  | MSMPsiSegstart
-  | MSMRaiAdapt
-  | MSMRaiSegstart
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsSegmentationMarkers = M2tsSegmentationMarkers' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsSegmentationMarkers where
-  parser =
-    takeLowerText >>= \case
-      "ebp" -> pure MSMEbp
-      "ebp_legacy" -> pure MSMEbpLegacy
-      "none" -> pure MSMNone
-      "psi_segstart" -> pure MSMPsiSegstart
-      "rai_adapt" -> pure MSMRaiAdapt
-      "rai_segstart" -> pure MSMRaiSegstart
-      e ->
-        fromTextError $
-          "Failure parsing M2tsSegmentationMarkers from value: '" <> e
-            <> "'. Accepted values: ebp, ebp_legacy, none, psi_segstart, rai_adapt, rai_segstart"
+pattern MSMEbp :: M2tsSegmentationMarkers
+pattern MSMEbp = M2tsSegmentationMarkers' "EBP"
 
-instance ToText M2tsSegmentationMarkers where
-  toText = \case
-    MSMEbp -> "EBP"
-    MSMEbpLegacy -> "EBP_LEGACY"
-    MSMNone -> "NONE"
-    MSMPsiSegstart -> "PSI_SEGSTART"
-    MSMRaiAdapt -> "RAI_ADAPT"
-    MSMRaiSegstart -> "RAI_SEGSTART"
+pattern MSMEbpLegacy :: M2tsSegmentationMarkers
+pattern MSMEbpLegacy = M2tsSegmentationMarkers' "EBP_LEGACY"
 
-instance Hashable M2tsSegmentationMarkers
+pattern MSMNone :: M2tsSegmentationMarkers
+pattern MSMNone = M2tsSegmentationMarkers' "NONE"
 
-instance NFData M2tsSegmentationMarkers
+pattern MSMPsiSegstart :: M2tsSegmentationMarkers
+pattern MSMPsiSegstart = M2tsSegmentationMarkers' "PSI_SEGSTART"
 
-instance ToByteString M2tsSegmentationMarkers
+pattern MSMRaiAdapt :: M2tsSegmentationMarkers
+pattern MSMRaiAdapt = M2tsSegmentationMarkers' "RAI_ADAPT"
 
-instance ToQuery M2tsSegmentationMarkers
+pattern MSMRaiSegstart :: M2tsSegmentationMarkers
+pattern MSMRaiSegstart = M2tsSegmentationMarkers' "RAI_SEGSTART"
 
-instance ToHeader M2tsSegmentationMarkers
-
-instance ToJSON M2tsSegmentationMarkers where
-  toJSON = toJSONText
-
-instance FromJSON M2tsSegmentationMarkers where
-  parseJSON = parseJSONText "M2tsSegmentationMarkers"
+{-# COMPLETE
+  MSMEbp,
+  MSMEbpLegacy,
+  MSMNone,
+  MSMPsiSegstart,
+  MSMRaiAdapt,
+  MSMRaiSegstart,
+  M2tsSegmentationMarkers'
+  #-}

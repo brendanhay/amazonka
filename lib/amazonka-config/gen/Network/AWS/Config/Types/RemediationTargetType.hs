@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.RemediationTargetType where
+module Network.AWS.Config.Types.RemediationTargetType
+  ( RemediationTargetType
+      ( RemediationTargetType',
+        SsmDocument
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RemediationTargetType = SsmDocument
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RemediationTargetType = RemediationTargetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RemediationTargetType where
-  parser =
-    takeLowerText >>= \case
-      "ssm_document" -> pure SsmDocument
-      e ->
-        fromTextError $
-          "Failure parsing RemediationTargetType from value: '" <> e
-            <> "'. Accepted values: ssm_document"
+pattern SsmDocument :: RemediationTargetType
+pattern SsmDocument = RemediationTargetType' "SSM_DOCUMENT"
 
-instance ToText RemediationTargetType where
-  toText = \case
-    SsmDocument -> "SSM_DOCUMENT"
-
-instance Hashable RemediationTargetType
-
-instance NFData RemediationTargetType
-
-instance ToByteString RemediationTargetType
-
-instance ToQuery RemediationTargetType
-
-instance ToHeader RemediationTargetType
-
-instance ToJSON RemediationTargetType where
-  toJSON = toJSONText
-
-instance FromJSON RemediationTargetType where
-  parseJSON = parseJSONText "RemediationTargetType"
+{-# COMPLETE
+  SsmDocument,
+  RemediationTargetType'
+  #-}

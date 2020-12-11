@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.RecommendationTarget where
+module Network.AWS.CostExplorer.Types.RecommendationTarget
+  ( RecommendationTarget
+      ( RecommendationTarget',
+        CrossInstanceFamily,
+        SameInstanceFamily
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RecommendationTarget
-  = CrossInstanceFamily
-  | SameInstanceFamily
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RecommendationTarget = RecommendationTarget' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RecommendationTarget where
-  parser =
-    takeLowerText >>= \case
-      "cross_instance_family" -> pure CrossInstanceFamily
-      "same_instance_family" -> pure SameInstanceFamily
-      e ->
-        fromTextError $
-          "Failure parsing RecommendationTarget from value: '" <> e
-            <> "'. Accepted values: cross_instance_family, same_instance_family"
+pattern CrossInstanceFamily :: RecommendationTarget
+pattern CrossInstanceFamily = RecommendationTarget' "CROSS_INSTANCE_FAMILY"
 
-instance ToText RecommendationTarget where
-  toText = \case
-    CrossInstanceFamily -> "CROSS_INSTANCE_FAMILY"
-    SameInstanceFamily -> "SAME_INSTANCE_FAMILY"
+pattern SameInstanceFamily :: RecommendationTarget
+pattern SameInstanceFamily = RecommendationTarget' "SAME_INSTANCE_FAMILY"
 
-instance Hashable RecommendationTarget
-
-instance NFData RecommendationTarget
-
-instance ToByteString RecommendationTarget
-
-instance ToQuery RecommendationTarget
-
-instance ToHeader RecommendationTarget
-
-instance ToJSON RecommendationTarget where
-  toJSON = toJSONText
-
-instance FromJSON RecommendationTarget where
-  parseJSON = parseJSONText "RecommendationTarget"
+{-# COMPLETE
+  CrossInstanceFamily,
+  SameInstanceFamily,
+  RecommendationTarget'
+  #-}

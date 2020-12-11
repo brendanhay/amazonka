@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,123 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.RelationalDatabaseBlueprint where
+module Network.AWS.Lightsail.Types.RelationalDatabaseBlueprint
+  ( RelationalDatabaseBlueprint (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkRelationalDatabaseBlueprint,
+
+    -- * Lenses
+    rdbEngineVersion,
+    rdbIsEngineDefault,
+    rdbEngineVersionDescription,
+    rdbEngine,
+    rdbBlueprintId,
+    rdbEngineDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.RelationalDatabaseEngine
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a database image, or blueprint. A blueprint describes the major engine version of a database.
 --
---
---
--- /See:/ 'relationalDatabaseBlueprint' smart constructor.
+-- /See:/ 'mkRelationalDatabaseBlueprint' smart constructor.
 data RelationalDatabaseBlueprint = RelationalDatabaseBlueprint'
-  { _rdbEngineVersion ::
-      !(Maybe Text),
-    _rdbIsEngineDefault ::
-      !(Maybe Bool),
-    _rdbEngineVersionDescription ::
-      !(Maybe Text),
-    _rdbEngine ::
-      !(Maybe RelationalDatabaseEngine),
-    _rdbBlueprintId :: !(Maybe Text),
-    _rdbEngineDescription ::
-      !(Maybe Text)
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    isEngineDefault ::
+      Lude.Maybe Lude.Bool,
+    engineVersionDescription ::
+      Lude.Maybe Lude.Text,
+    engine ::
+      Lude.Maybe RelationalDatabaseEngine,
+    blueprintId :: Lude.Maybe Lude.Text,
+    engineDescription ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseBlueprint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdbEngineVersion' - The database engine version for the database blueprint (for example, @5.7.23@ ).
---
--- * 'rdbIsEngineDefault' - A Boolean value indicating whether the engine version is the default for the database blueprint.
---
--- * 'rdbEngineVersionDescription' - The description of the database engine version for the database blueprint.
---
--- * 'rdbEngine' - The database software of the database blueprint (for example, @MySQL@ ).
---
--- * 'rdbBlueprintId' - The ID for the database blueprint.
---
--- * 'rdbEngineDescription' - The description of the database engine for the database blueprint.
-relationalDatabaseBlueprint ::
+-- * 'blueprintId' - The ID for the database blueprint.
+-- * 'engine' - The database software of the database blueprint (for example, @MySQL@ ).
+-- * 'engineDescription' - The description of the database engine for the database blueprint.
+-- * 'engineVersion' - The database engine version for the database blueprint (for example, @5.7.23@ ).
+-- * 'engineVersionDescription' - The description of the database engine version for the database blueprint.
+-- * 'isEngineDefault' - A Boolean value indicating whether the engine version is the default for the database blueprint.
+mkRelationalDatabaseBlueprint ::
   RelationalDatabaseBlueprint
-relationalDatabaseBlueprint =
+mkRelationalDatabaseBlueprint =
   RelationalDatabaseBlueprint'
-    { _rdbEngineVersion = Nothing,
-      _rdbIsEngineDefault = Nothing,
-      _rdbEngineVersionDescription = Nothing,
-      _rdbEngine = Nothing,
-      _rdbBlueprintId = Nothing,
-      _rdbEngineDescription = Nothing
+    { engineVersion = Lude.Nothing,
+      isEngineDefault = Lude.Nothing,
+      engineVersionDescription = Lude.Nothing,
+      engine = Lude.Nothing,
+      blueprintId = Lude.Nothing,
+      engineDescription = Lude.Nothing
     }
 
 -- | The database engine version for the database blueprint (for example, @5.7.23@ ).
-rdbEngineVersion :: Lens' RelationalDatabaseBlueprint (Maybe Text)
-rdbEngineVersion = lens _rdbEngineVersion (\s a -> s {_rdbEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbEngineVersion :: Lens.Lens' RelationalDatabaseBlueprint (Lude.Maybe Lude.Text)
+rdbEngineVersion = Lens.lens (engineVersion :: RelationalDatabaseBlueprint -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: RelationalDatabaseBlueprint)
+{-# DEPRECATED rdbEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | A Boolean value indicating whether the engine version is the default for the database blueprint.
-rdbIsEngineDefault :: Lens' RelationalDatabaseBlueprint (Maybe Bool)
-rdbIsEngineDefault = lens _rdbIsEngineDefault (\s a -> s {_rdbIsEngineDefault = a})
+--
+-- /Note:/ Consider using 'isEngineDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbIsEngineDefault :: Lens.Lens' RelationalDatabaseBlueprint (Lude.Maybe Lude.Bool)
+rdbIsEngineDefault = Lens.lens (isEngineDefault :: RelationalDatabaseBlueprint -> Lude.Maybe Lude.Bool) (\s a -> s {isEngineDefault = a} :: RelationalDatabaseBlueprint)
+{-# DEPRECATED rdbIsEngineDefault "Use generic-lens or generic-optics with 'isEngineDefault' instead." #-}
 
 -- | The description of the database engine version for the database blueprint.
-rdbEngineVersionDescription :: Lens' RelationalDatabaseBlueprint (Maybe Text)
-rdbEngineVersionDescription = lens _rdbEngineVersionDescription (\s a -> s {_rdbEngineVersionDescription = a})
+--
+-- /Note:/ Consider using 'engineVersionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbEngineVersionDescription :: Lens.Lens' RelationalDatabaseBlueprint (Lude.Maybe Lude.Text)
+rdbEngineVersionDescription = Lens.lens (engineVersionDescription :: RelationalDatabaseBlueprint -> Lude.Maybe Lude.Text) (\s a -> s {engineVersionDescription = a} :: RelationalDatabaseBlueprint)
+{-# DEPRECATED rdbEngineVersionDescription "Use generic-lens or generic-optics with 'engineVersionDescription' instead." #-}
 
 -- | The database software of the database blueprint (for example, @MySQL@ ).
-rdbEngine :: Lens' RelationalDatabaseBlueprint (Maybe RelationalDatabaseEngine)
-rdbEngine = lens _rdbEngine (\s a -> s {_rdbEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbEngine :: Lens.Lens' RelationalDatabaseBlueprint (Lude.Maybe RelationalDatabaseEngine)
+rdbEngine = Lens.lens (engine :: RelationalDatabaseBlueprint -> Lude.Maybe RelationalDatabaseEngine) (\s a -> s {engine = a} :: RelationalDatabaseBlueprint)
+{-# DEPRECATED rdbEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The ID for the database blueprint.
-rdbBlueprintId :: Lens' RelationalDatabaseBlueprint (Maybe Text)
-rdbBlueprintId = lens _rdbBlueprintId (\s a -> s {_rdbBlueprintId = a})
+--
+-- /Note:/ Consider using 'blueprintId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbBlueprintId :: Lens.Lens' RelationalDatabaseBlueprint (Lude.Maybe Lude.Text)
+rdbBlueprintId = Lens.lens (blueprintId :: RelationalDatabaseBlueprint -> Lude.Maybe Lude.Text) (\s a -> s {blueprintId = a} :: RelationalDatabaseBlueprint)
+{-# DEPRECATED rdbBlueprintId "Use generic-lens or generic-optics with 'blueprintId' instead." #-}
 
 -- | The description of the database engine for the database blueprint.
-rdbEngineDescription :: Lens' RelationalDatabaseBlueprint (Maybe Text)
-rdbEngineDescription = lens _rdbEngineDescription (\s a -> s {_rdbEngineDescription = a})
+--
+-- /Note:/ Consider using 'engineDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbEngineDescription :: Lens.Lens' RelationalDatabaseBlueprint (Lude.Maybe Lude.Text)
+rdbEngineDescription = Lens.lens (engineDescription :: RelationalDatabaseBlueprint -> Lude.Maybe Lude.Text) (\s a -> s {engineDescription = a} :: RelationalDatabaseBlueprint)
+{-# DEPRECATED rdbEngineDescription "Use generic-lens or generic-optics with 'engineDescription' instead." #-}
 
-instance FromJSON RelationalDatabaseBlueprint where
+instance Lude.FromJSON RelationalDatabaseBlueprint where
   parseJSON =
-    withObject
+    Lude.withObject
       "RelationalDatabaseBlueprint"
       ( \x ->
           RelationalDatabaseBlueprint'
-            <$> (x .:? "engineVersion")
-            <*> (x .:? "isEngineDefault")
-            <*> (x .:? "engineVersionDescription")
-            <*> (x .:? "engine")
-            <*> (x .:? "blueprintId")
-            <*> (x .:? "engineDescription")
+            Lude.<$> (x Lude..:? "engineVersion")
+            Lude.<*> (x Lude..:? "isEngineDefault")
+            Lude.<*> (x Lude..:? "engineVersionDescription")
+            Lude.<*> (x Lude..:? "engine")
+            Lude.<*> (x Lude..:? "blueprintId")
+            Lude.<*> (x Lude..:? "engineDescription")
       )
-
-instance Hashable RelationalDatabaseBlueprint
-
-instance NFData RelationalDatabaseBlueprint

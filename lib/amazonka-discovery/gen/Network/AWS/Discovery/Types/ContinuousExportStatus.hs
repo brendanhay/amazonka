@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ContinuousExportStatus where
+module Network.AWS.Discovery.Types.ContinuousExportStatus
+  ( ContinuousExportStatus
+      ( ContinuousExportStatus',
+        Active,
+        Error,
+        Inactive,
+        StartFailed,
+        StartInProgress,
+        StopFailed,
+        StopInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContinuousExportStatus
-  = Active
-  | Error'
-  | Inactive
-  | StartFailed
-  | StartInProgress
-  | StopFailed
-  | StopInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContinuousExportStatus = ContinuousExportStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContinuousExportStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "error" -> pure Error'
-      "inactive" -> pure Inactive
-      "start_failed" -> pure StartFailed
-      "start_in_progress" -> pure StartInProgress
-      "stop_failed" -> pure StopFailed
-      "stop_in_progress" -> pure StopInProgress
-      e ->
-        fromTextError $
-          "Failure parsing ContinuousExportStatus from value: '" <> e
-            <> "'. Accepted values: active, error, inactive, start_failed, start_in_progress, stop_failed, stop_in_progress"
+pattern Active :: ContinuousExportStatus
+pattern Active = ContinuousExportStatus' "ACTIVE"
 
-instance ToText ContinuousExportStatus where
-  toText = \case
-    Active -> "ACTIVE"
-    Error' -> "ERROR"
-    Inactive -> "INACTIVE"
-    StartFailed -> "START_FAILED"
-    StartInProgress -> "START_IN_PROGRESS"
-    StopFailed -> "STOP_FAILED"
-    StopInProgress -> "STOP_IN_PROGRESS"
+pattern Error :: ContinuousExportStatus
+pattern Error = ContinuousExportStatus' "ERROR"
 
-instance Hashable ContinuousExportStatus
+pattern Inactive :: ContinuousExportStatus
+pattern Inactive = ContinuousExportStatus' "INACTIVE"
 
-instance NFData ContinuousExportStatus
+pattern StartFailed :: ContinuousExportStatus
+pattern StartFailed = ContinuousExportStatus' "START_FAILED"
 
-instance ToByteString ContinuousExportStatus
+pattern StartInProgress :: ContinuousExportStatus
+pattern StartInProgress = ContinuousExportStatus' "START_IN_PROGRESS"
 
-instance ToQuery ContinuousExportStatus
+pattern StopFailed :: ContinuousExportStatus
+pattern StopFailed = ContinuousExportStatus' "STOP_FAILED"
 
-instance ToHeader ContinuousExportStatus
+pattern StopInProgress :: ContinuousExportStatus
+pattern StopInProgress = ContinuousExportStatus' "STOP_IN_PROGRESS"
 
-instance FromJSON ContinuousExportStatus where
-  parseJSON = parseJSONText "ContinuousExportStatus"
+{-# COMPLETE
+  Active,
+  Error,
+  Inactive,
+  StartFailed,
+  StartInProgress,
+  StopFailed,
+  StopInProgress,
+  ContinuousExportStatus'
+  #-}

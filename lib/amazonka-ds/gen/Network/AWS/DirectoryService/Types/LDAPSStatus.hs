@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.LDAPSStatus where
+module Network.AWS.DirectoryService.Types.LDAPSStatus
+  ( LDAPSStatus
+      ( LDAPSStatus',
+        LDAPSSDisabled,
+        LDAPSSEnableFailed,
+        LDAPSSEnabled,
+        LDAPSSEnabling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LDAPSStatus
-  = LDAPSSDisabled
-  | LDAPSSEnableFailed
-  | LDAPSSEnabled
-  | LDAPSSEnabling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LDAPSStatus = LDAPSStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LDAPSStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure LDAPSSDisabled
-      "enablefailed" -> pure LDAPSSEnableFailed
-      "enabled" -> pure LDAPSSEnabled
-      "enabling" -> pure LDAPSSEnabling
-      e ->
-        fromTextError $
-          "Failure parsing LDAPSStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enablefailed, enabled, enabling"
+pattern LDAPSSDisabled :: LDAPSStatus
+pattern LDAPSSDisabled = LDAPSStatus' "Disabled"
 
-instance ToText LDAPSStatus where
-  toText = \case
-    LDAPSSDisabled -> "Disabled"
-    LDAPSSEnableFailed -> "EnableFailed"
-    LDAPSSEnabled -> "Enabled"
-    LDAPSSEnabling -> "Enabling"
+pattern LDAPSSEnableFailed :: LDAPSStatus
+pattern LDAPSSEnableFailed = LDAPSStatus' "EnableFailed"
 
-instance Hashable LDAPSStatus
+pattern LDAPSSEnabled :: LDAPSStatus
+pattern LDAPSSEnabled = LDAPSStatus' "Enabled"
 
-instance NFData LDAPSStatus
+pattern LDAPSSEnabling :: LDAPSStatus
+pattern LDAPSSEnabling = LDAPSStatus' "Enabling"
 
-instance ToByteString LDAPSStatus
-
-instance ToQuery LDAPSStatus
-
-instance ToHeader LDAPSStatus
-
-instance FromJSON LDAPSStatus where
-  parseJSON = parseJSONText "LDAPSStatus"
+{-# COMPLETE
+  LDAPSSDisabled,
+  LDAPSSEnableFailed,
+  LDAPSSEnabled,
+  LDAPSSEnabling,
+  LDAPSStatus'
+  #-}

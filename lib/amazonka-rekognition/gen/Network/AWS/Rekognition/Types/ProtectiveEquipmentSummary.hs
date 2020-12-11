@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ProtectiveEquipmentSummary where
+module Network.AWS.Rekognition.Types.ProtectiveEquipmentSummary
+  ( ProtectiveEquipmentSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProtectiveEquipmentSummary,
+
+    -- * Lenses
+    pesPersonsWithRequiredEquipment,
+    pesPersonsWithoutRequiredEquipment,
+    pesPersonsIndeterminate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summary information for required items of personal protective equipment (PPE) detected on persons by a call to 'DetectProtectiveEquipment' . You specify the required type of PPE in the @SummarizationAttributes@ ('ProtectiveEquipmentSummarizationAttributes' ) input parameter. The summary includes which persons were detected wearing the required personal protective equipment (@PersonsWithRequiredEquipment@ ), which persons were detected as not wearing the required PPE (@PersonsWithoutRequiredEquipment@ ), and the persons in which a determination could not be made (@PersonsIndeterminate@ ).
 --
---
 -- To get a total for each category, use the size of the field array. For example, to find out how many people were detected as wearing the specified PPE, use the size of the @PersonsWithRequiredEquipment@ array. If you want to find out more about a person, such as the location ('BoundingBox' ) of the person on the image, use the person ID in each array element. Each person ID matches the ID field of a 'ProtectiveEquipmentPerson' object returned in the @Persons@ array by @DetectProtectiveEquipment@ .
 --
---
--- /See:/ 'protectiveEquipmentSummary' smart constructor.
+-- /See:/ 'mkProtectiveEquipmentSummary' smart constructor.
 data ProtectiveEquipmentSummary = ProtectiveEquipmentSummary'
-  { _pesPersonsWithRequiredEquipment ::
-      !(Maybe [Nat]),
-    _pesPersonsWithoutRequiredEquipment ::
-      !(Maybe [Nat]),
-    _pesPersonsIndeterminate ::
-      !(Maybe [Nat])
+  { personsWithRequiredEquipment ::
+      Lude.Maybe [Lude.Natural],
+    personsWithoutRequiredEquipment ::
+      Lude.Maybe [Lude.Natural],
+    personsIndeterminate ::
+      Lude.Maybe [Lude.Natural]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectiveEquipmentSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pesPersonsWithRequiredEquipment' - An array of IDs for persons who are wearing detected personal protective equipment.
---
--- * 'pesPersonsWithoutRequiredEquipment' - An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment.
---
--- * 'pesPersonsIndeterminate' - An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
-protectiveEquipmentSummary ::
+-- * 'personsIndeterminate' - An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
+-- * 'personsWithRequiredEquipment' - An array of IDs for persons who are wearing detected personal protective equipment.
+-- * 'personsWithoutRequiredEquipment' - An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment.
+mkProtectiveEquipmentSummary ::
   ProtectiveEquipmentSummary
-protectiveEquipmentSummary =
+mkProtectiveEquipmentSummary =
   ProtectiveEquipmentSummary'
-    { _pesPersonsWithRequiredEquipment =
-        Nothing,
-      _pesPersonsWithoutRequiredEquipment = Nothing,
-      _pesPersonsIndeterminate = Nothing
+    { personsWithRequiredEquipment =
+        Lude.Nothing,
+      personsWithoutRequiredEquipment = Lude.Nothing,
+      personsIndeterminate = Lude.Nothing
     }
 
 -- | An array of IDs for persons who are wearing detected personal protective equipment.
-pesPersonsWithRequiredEquipment :: Lens' ProtectiveEquipmentSummary [Natural]
-pesPersonsWithRequiredEquipment = lens _pesPersonsWithRequiredEquipment (\s a -> s {_pesPersonsWithRequiredEquipment = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'personsWithRequiredEquipment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesPersonsWithRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Lude.Maybe [Lude.Natural])
+pesPersonsWithRequiredEquipment = Lens.lens (personsWithRequiredEquipment :: ProtectiveEquipmentSummary -> Lude.Maybe [Lude.Natural]) (\s a -> s {personsWithRequiredEquipment = a} :: ProtectiveEquipmentSummary)
+{-# DEPRECATED pesPersonsWithRequiredEquipment "Use generic-lens or generic-optics with 'personsWithRequiredEquipment' instead." #-}
 
 -- | An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment.
-pesPersonsWithoutRequiredEquipment :: Lens' ProtectiveEquipmentSummary [Natural]
-pesPersonsWithoutRequiredEquipment = lens _pesPersonsWithoutRequiredEquipment (\s a -> s {_pesPersonsWithoutRequiredEquipment = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'personsWithoutRequiredEquipment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesPersonsWithoutRequiredEquipment :: Lens.Lens' ProtectiveEquipmentSummary (Lude.Maybe [Lude.Natural])
+pesPersonsWithoutRequiredEquipment = Lens.lens (personsWithoutRequiredEquipment :: ProtectiveEquipmentSummary -> Lude.Maybe [Lude.Natural]) (\s a -> s {personsWithoutRequiredEquipment = a} :: ProtectiveEquipmentSummary)
+{-# DEPRECATED pesPersonsWithoutRequiredEquipment "Use generic-lens or generic-optics with 'personsWithoutRequiredEquipment' instead." #-}
 
 -- | An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
-pesPersonsIndeterminate :: Lens' ProtectiveEquipmentSummary [Natural]
-pesPersonsIndeterminate = lens _pesPersonsIndeterminate (\s a -> s {_pesPersonsIndeterminate = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'personsIndeterminate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesPersonsIndeterminate :: Lens.Lens' ProtectiveEquipmentSummary (Lude.Maybe [Lude.Natural])
+pesPersonsIndeterminate = Lens.lens (personsIndeterminate :: ProtectiveEquipmentSummary -> Lude.Maybe [Lude.Natural]) (\s a -> s {personsIndeterminate = a} :: ProtectiveEquipmentSummary)
+{-# DEPRECATED pesPersonsIndeterminate "Use generic-lens or generic-optics with 'personsIndeterminate' instead." #-}
 
-instance FromJSON ProtectiveEquipmentSummary where
+instance Lude.FromJSON ProtectiveEquipmentSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProtectiveEquipmentSummary"
       ( \x ->
           ProtectiveEquipmentSummary'
-            <$> (x .:? "PersonsWithRequiredEquipment" .!= mempty)
-            <*> (x .:? "PersonsWithoutRequiredEquipment" .!= mempty)
-            <*> (x .:? "PersonsIndeterminate" .!= mempty)
+            Lude.<$> (x Lude..:? "PersonsWithRequiredEquipment" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "PersonsWithoutRequiredEquipment" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "PersonsIndeterminate" Lude..!= Lude.mempty)
       )
-
-instance Hashable ProtectiveEquipmentSummary
-
-instance NFData ProtectiveEquipmentSummary

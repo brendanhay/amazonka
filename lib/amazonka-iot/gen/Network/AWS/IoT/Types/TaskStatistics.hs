@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,101 +7,130 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TaskStatistics where
+module Network.AWS.IoT.Types.TaskStatistics
+  ( TaskStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTaskStatistics,
+
+    -- * Lenses
+    tsNonCompliantChecks,
+    tsWaitingForDataCollectionChecks,
+    tsFailedChecks,
+    tsTotalChecks,
+    tsInProgressChecks,
+    tsCompliantChecks,
+    tsCanceledChecks,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Statistics for the checks performed during the audit.
 --
---
---
--- /See:/ 'taskStatistics' smart constructor.
+-- /See:/ 'mkTaskStatistics' smart constructor.
 data TaskStatistics = TaskStatistics'
-  { _tsNonCompliantChecks ::
-      !(Maybe Int),
-    _tsWaitingForDataCollectionChecks :: !(Maybe Int),
-    _tsFailedChecks :: !(Maybe Int),
-    _tsTotalChecks :: !(Maybe Int),
-    _tsInProgressChecks :: !(Maybe Int),
-    _tsCompliantChecks :: !(Maybe Int),
-    _tsCanceledChecks :: !(Maybe Int)
+  { nonCompliantChecks ::
+      Lude.Maybe Lude.Int,
+    waitingForDataCollectionChecks :: Lude.Maybe Lude.Int,
+    failedChecks :: Lude.Maybe Lude.Int,
+    totalChecks :: Lude.Maybe Lude.Int,
+    inProgressChecks :: Lude.Maybe Lude.Int,
+    compliantChecks :: Lude.Maybe Lude.Int,
+    canceledChecks :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsNonCompliantChecks' - The number of checks that found noncompliant resources.
---
--- * 'tsWaitingForDataCollectionChecks' - The number of checks waiting for data collection.
---
--- * 'tsFailedChecks' - The number of checks.
---
--- * 'tsTotalChecks' - The number of checks in this audit.
---
--- * 'tsInProgressChecks' - The number of checks in progress.
---
--- * 'tsCompliantChecks' - The number of checks that found compliant resources.
---
--- * 'tsCanceledChecks' - The number of checks that did not run because the audit was canceled.
-taskStatistics ::
+-- * 'canceledChecks' - The number of checks that did not run because the audit was canceled.
+-- * 'compliantChecks' - The number of checks that found compliant resources.
+-- * 'failedChecks' - The number of checks.
+-- * 'inProgressChecks' - The number of checks in progress.
+-- * 'nonCompliantChecks' - The number of checks that found noncompliant resources.
+-- * 'totalChecks' - The number of checks in this audit.
+-- * 'waitingForDataCollectionChecks' - The number of checks waiting for data collection.
+mkTaskStatistics ::
   TaskStatistics
-taskStatistics =
+mkTaskStatistics =
   TaskStatistics'
-    { _tsNonCompliantChecks = Nothing,
-      _tsWaitingForDataCollectionChecks = Nothing,
-      _tsFailedChecks = Nothing,
-      _tsTotalChecks = Nothing,
-      _tsInProgressChecks = Nothing,
-      _tsCompliantChecks = Nothing,
-      _tsCanceledChecks = Nothing
+    { nonCompliantChecks = Lude.Nothing,
+      waitingForDataCollectionChecks = Lude.Nothing,
+      failedChecks = Lude.Nothing,
+      totalChecks = Lude.Nothing,
+      inProgressChecks = Lude.Nothing,
+      compliantChecks = Lude.Nothing,
+      canceledChecks = Lude.Nothing
     }
 
 -- | The number of checks that found noncompliant resources.
-tsNonCompliantChecks :: Lens' TaskStatistics (Maybe Int)
-tsNonCompliantChecks = lens _tsNonCompliantChecks (\s a -> s {_tsNonCompliantChecks = a})
+--
+-- /Note:/ Consider using 'nonCompliantChecks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsNonCompliantChecks :: Lens.Lens' TaskStatistics (Lude.Maybe Lude.Int)
+tsNonCompliantChecks = Lens.lens (nonCompliantChecks :: TaskStatistics -> Lude.Maybe Lude.Int) (\s a -> s {nonCompliantChecks = a} :: TaskStatistics)
+{-# DEPRECATED tsNonCompliantChecks "Use generic-lens or generic-optics with 'nonCompliantChecks' instead." #-}
 
 -- | The number of checks waiting for data collection.
-tsWaitingForDataCollectionChecks :: Lens' TaskStatistics (Maybe Int)
-tsWaitingForDataCollectionChecks = lens _tsWaitingForDataCollectionChecks (\s a -> s {_tsWaitingForDataCollectionChecks = a})
+--
+-- /Note:/ Consider using 'waitingForDataCollectionChecks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsWaitingForDataCollectionChecks :: Lens.Lens' TaskStatistics (Lude.Maybe Lude.Int)
+tsWaitingForDataCollectionChecks = Lens.lens (waitingForDataCollectionChecks :: TaskStatistics -> Lude.Maybe Lude.Int) (\s a -> s {waitingForDataCollectionChecks = a} :: TaskStatistics)
+{-# DEPRECATED tsWaitingForDataCollectionChecks "Use generic-lens or generic-optics with 'waitingForDataCollectionChecks' instead." #-}
 
 -- | The number of checks.
-tsFailedChecks :: Lens' TaskStatistics (Maybe Int)
-tsFailedChecks = lens _tsFailedChecks (\s a -> s {_tsFailedChecks = a})
+--
+-- /Note:/ Consider using 'failedChecks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsFailedChecks :: Lens.Lens' TaskStatistics (Lude.Maybe Lude.Int)
+tsFailedChecks = Lens.lens (failedChecks :: TaskStatistics -> Lude.Maybe Lude.Int) (\s a -> s {failedChecks = a} :: TaskStatistics)
+{-# DEPRECATED tsFailedChecks "Use generic-lens or generic-optics with 'failedChecks' instead." #-}
 
 -- | The number of checks in this audit.
-tsTotalChecks :: Lens' TaskStatistics (Maybe Int)
-tsTotalChecks = lens _tsTotalChecks (\s a -> s {_tsTotalChecks = a})
+--
+-- /Note:/ Consider using 'totalChecks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTotalChecks :: Lens.Lens' TaskStatistics (Lude.Maybe Lude.Int)
+tsTotalChecks = Lens.lens (totalChecks :: TaskStatistics -> Lude.Maybe Lude.Int) (\s a -> s {totalChecks = a} :: TaskStatistics)
+{-# DEPRECATED tsTotalChecks "Use generic-lens or generic-optics with 'totalChecks' instead." #-}
 
 -- | The number of checks in progress.
-tsInProgressChecks :: Lens' TaskStatistics (Maybe Int)
-tsInProgressChecks = lens _tsInProgressChecks (\s a -> s {_tsInProgressChecks = a})
+--
+-- /Note:/ Consider using 'inProgressChecks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsInProgressChecks :: Lens.Lens' TaskStatistics (Lude.Maybe Lude.Int)
+tsInProgressChecks = Lens.lens (inProgressChecks :: TaskStatistics -> Lude.Maybe Lude.Int) (\s a -> s {inProgressChecks = a} :: TaskStatistics)
+{-# DEPRECATED tsInProgressChecks "Use generic-lens or generic-optics with 'inProgressChecks' instead." #-}
 
 -- | The number of checks that found compliant resources.
-tsCompliantChecks :: Lens' TaskStatistics (Maybe Int)
-tsCompliantChecks = lens _tsCompliantChecks (\s a -> s {_tsCompliantChecks = a})
+--
+-- /Note:/ Consider using 'compliantChecks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsCompliantChecks :: Lens.Lens' TaskStatistics (Lude.Maybe Lude.Int)
+tsCompliantChecks = Lens.lens (compliantChecks :: TaskStatistics -> Lude.Maybe Lude.Int) (\s a -> s {compliantChecks = a} :: TaskStatistics)
+{-# DEPRECATED tsCompliantChecks "Use generic-lens or generic-optics with 'compliantChecks' instead." #-}
 
 -- | The number of checks that did not run because the audit was canceled.
-tsCanceledChecks :: Lens' TaskStatistics (Maybe Int)
-tsCanceledChecks = lens _tsCanceledChecks (\s a -> s {_tsCanceledChecks = a})
+--
+-- /Note:/ Consider using 'canceledChecks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsCanceledChecks :: Lens.Lens' TaskStatistics (Lude.Maybe Lude.Int)
+tsCanceledChecks = Lens.lens (canceledChecks :: TaskStatistics -> Lude.Maybe Lude.Int) (\s a -> s {canceledChecks = a} :: TaskStatistics)
+{-# DEPRECATED tsCanceledChecks "Use generic-lens or generic-optics with 'canceledChecks' instead." #-}
 
-instance FromJSON TaskStatistics where
+instance Lude.FromJSON TaskStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "TaskStatistics"
       ( \x ->
           TaskStatistics'
-            <$> (x .:? "nonCompliantChecks")
-            <*> (x .:? "waitingForDataCollectionChecks")
-            <*> (x .:? "failedChecks")
-            <*> (x .:? "totalChecks")
-            <*> (x .:? "inProgressChecks")
-            <*> (x .:? "compliantChecks")
-            <*> (x .:? "canceledChecks")
+            Lude.<$> (x Lude..:? "nonCompliantChecks")
+            Lude.<*> (x Lude..:? "waitingForDataCollectionChecks")
+            Lude.<*> (x Lude..:? "failedChecks")
+            Lude.<*> (x Lude..:? "totalChecks")
+            Lude.<*> (x Lude..:? "inProgressChecks")
+            Lude.<*> (x Lude..:? "compliantChecks")
+            Lude.<*> (x Lude..:? "canceledChecks")
       )
-
-instance Hashable TaskStatistics
-
-instance NFData TaskStatistics

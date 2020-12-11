@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.BatchRestrictions where
+module Network.AWS.CodeBuild.Types.BatchRestrictions
+  ( BatchRestrictions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchRestrictions,
+
+    -- * Lenses
+    brMaximumBuildsAllowed,
+    brComputeTypesAllowed,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies restrictions for the batch build.
 --
---
---
--- /See:/ 'batchRestrictions' smart constructor.
+-- /See:/ 'mkBatchRestrictions' smart constructor.
 data BatchRestrictions = BatchRestrictions'
-  { _brMaximumBuildsAllowed ::
-      !(Maybe Int),
-    _brComputeTypesAllowed :: !(Maybe [Text])
+  { maximumBuildsAllowed ::
+      Lude.Maybe Lude.Int,
+    computeTypesAllowed :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchRestrictions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'brMaximumBuildsAllowed' - Specifies the maximum number of builds allowed.
---
--- * 'brComputeTypesAllowed' - An array of strings that specify the compute types that are allowed for the batch build. See <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types> in the /AWS CodeBuild User Guide/ for these values.
-batchRestrictions ::
+-- * 'computeTypesAllowed' - An array of strings that specify the compute types that are allowed for the batch build. See <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types> in the /AWS CodeBuild User Guide/ for these values.
+-- * 'maximumBuildsAllowed' - Specifies the maximum number of builds allowed.
+mkBatchRestrictions ::
   BatchRestrictions
-batchRestrictions =
+mkBatchRestrictions =
   BatchRestrictions'
-    { _brMaximumBuildsAllowed = Nothing,
-      _brComputeTypesAllowed = Nothing
+    { maximumBuildsAllowed = Lude.Nothing,
+      computeTypesAllowed = Lude.Nothing
     }
 
 -- | Specifies the maximum number of builds allowed.
-brMaximumBuildsAllowed :: Lens' BatchRestrictions (Maybe Int)
-brMaximumBuildsAllowed = lens _brMaximumBuildsAllowed (\s a -> s {_brMaximumBuildsAllowed = a})
+--
+-- /Note:/ Consider using 'maximumBuildsAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brMaximumBuildsAllowed :: Lens.Lens' BatchRestrictions (Lude.Maybe Lude.Int)
+brMaximumBuildsAllowed = Lens.lens (maximumBuildsAllowed :: BatchRestrictions -> Lude.Maybe Lude.Int) (\s a -> s {maximumBuildsAllowed = a} :: BatchRestrictions)
+{-# DEPRECATED brMaximumBuildsAllowed "Use generic-lens or generic-optics with 'maximumBuildsAllowed' instead." #-}
 
 -- | An array of strings that specify the compute types that are allowed for the batch build. See <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types> in the /AWS CodeBuild User Guide/ for these values.
-brComputeTypesAllowed :: Lens' BatchRestrictions [Text]
-brComputeTypesAllowed = lens _brComputeTypesAllowed (\s a -> s {_brComputeTypesAllowed = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'computeTypesAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brComputeTypesAllowed :: Lens.Lens' BatchRestrictions (Lude.Maybe [Lude.Text])
+brComputeTypesAllowed = Lens.lens (computeTypesAllowed :: BatchRestrictions -> Lude.Maybe [Lude.Text]) (\s a -> s {computeTypesAllowed = a} :: BatchRestrictions)
+{-# DEPRECATED brComputeTypesAllowed "Use generic-lens or generic-optics with 'computeTypesAllowed' instead." #-}
 
-instance FromJSON BatchRestrictions where
+instance Lude.FromJSON BatchRestrictions where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchRestrictions"
       ( \x ->
           BatchRestrictions'
-            <$> (x .:? "maximumBuildsAllowed")
-            <*> (x .:? "computeTypesAllowed" .!= mempty)
+            Lude.<$> (x Lude..:? "maximumBuildsAllowed")
+            Lude.<*> (x Lude..:? "computeTypesAllowed" Lude..!= Lude.mempty)
       )
 
-instance Hashable BatchRestrictions
-
-instance NFData BatchRestrictions
-
-instance ToJSON BatchRestrictions where
+instance Lude.ToJSON BatchRestrictions where
   toJSON BatchRestrictions' {..} =
-    object
-      ( catMaybes
-          [ ("maximumBuildsAllowed" .=) <$> _brMaximumBuildsAllowed,
-            ("computeTypesAllowed" .=) <$> _brComputeTypesAllowed
+    Lude.object
+      ( Lude.catMaybes
+          [ ("maximumBuildsAllowed" Lude..=) Lude.<$> maximumBuildsAllowed,
+            ("computeTypesAllowed" Lude..=) Lude.<$> computeTypesAllowed
           ]
       )

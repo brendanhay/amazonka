@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,187 @@
 --
 -- Disables group metrics for the specified Auto Scaling group.
 module Network.AWS.AutoScaling.DisableMetricsCollection
-  ( -- * Creating a Request
-    disableMetricsCollection,
-    DisableMetricsCollection,
+  ( -- * Creating a request
+    DisableMetricsCollection (..),
+    mkDisableMetricsCollection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmcMetrics,
     dmcAutoScalingGroupName,
 
-    -- * Destructuring the Response
-    disableMetricsCollectionResponse,
-    DisableMetricsCollectionResponse,
+    -- * Destructuring the response
+    DisableMetricsCollectionResponse (..),
+    mkDisableMetricsCollectionResponse,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disableMetricsCollection' smart constructor.
+-- | /See:/ 'mkDisableMetricsCollection' smart constructor.
 data DisableMetricsCollection = DisableMetricsCollection'
-  { _dmcMetrics ::
-      !(Maybe [Text]),
-    _dmcAutoScalingGroupName :: !Text
+  { metrics ::
+      Lude.Maybe [Lude.Text],
+    autoScalingGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableMetricsCollection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'metrics' - Specifies one or more of the following metrics:
 --
--- * 'dmcMetrics' - Specifies one or more of the following metrics:     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@      * @GroupInServiceCapacity@      * @GroupPendingCapacity@      * @GroupStandbyCapacity@      * @GroupTerminatingCapacity@      * @GroupTotalCapacity@  If you omit this parameter, all metrics are disabled.
 --
--- * 'dmcAutoScalingGroupName' - The name of the Auto Scaling group.
-disableMetricsCollection ::
-  -- | 'dmcAutoScalingGroupName'
-  Text ->
+--     * @GroupMinSize@
+--
+--
+--     * @GroupMaxSize@
+--
+--
+--     * @GroupDesiredCapacity@
+--
+--
+--     * @GroupInServiceInstances@
+--
+--
+--     * @GroupPendingInstances@
+--
+--
+--     * @GroupStandbyInstances@
+--
+--
+--     * @GroupTerminatingInstances@
+--
+--
+--     * @GroupTotalInstances@
+--
+--
+--     * @GroupInServiceCapacity@
+--
+--
+--     * @GroupPendingCapacity@
+--
+--
+--     * @GroupStandbyCapacity@
+--
+--
+--     * @GroupTerminatingCapacity@
+--
+--
+--     * @GroupTotalCapacity@
+--
+--
+-- If you omit this parameter, all metrics are disabled.
+mkDisableMetricsCollection ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   DisableMetricsCollection
-disableMetricsCollection pAutoScalingGroupName_ =
+mkDisableMetricsCollection pAutoScalingGroupName_ =
   DisableMetricsCollection'
-    { _dmcMetrics = Nothing,
-      _dmcAutoScalingGroupName = pAutoScalingGroupName_
+    { metrics = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | Specifies one or more of the following metrics:     * @GroupMinSize@      * @GroupMaxSize@      * @GroupDesiredCapacity@      * @GroupInServiceInstances@      * @GroupPendingInstances@      * @GroupStandbyInstances@      * @GroupTerminatingInstances@      * @GroupTotalInstances@      * @GroupInServiceCapacity@      * @GroupPendingCapacity@      * @GroupStandbyCapacity@      * @GroupTerminatingCapacity@      * @GroupTotalCapacity@  If you omit this parameter, all metrics are disabled.
-dmcMetrics :: Lens' DisableMetricsCollection [Text]
-dmcMetrics = lens _dmcMetrics (\s a -> s {_dmcMetrics = a}) . _Default . _Coerce
+-- | Specifies one or more of the following metrics:
+--
+--
+--     * @GroupMinSize@
+--
+--
+--     * @GroupMaxSize@
+--
+--
+--     * @GroupDesiredCapacity@
+--
+--
+--     * @GroupInServiceInstances@
+--
+--
+--     * @GroupPendingInstances@
+--
+--
+--     * @GroupStandbyInstances@
+--
+--
+--     * @GroupTerminatingInstances@
+--
+--
+--     * @GroupTotalInstances@
+--
+--
+--     * @GroupInServiceCapacity@
+--
+--
+--     * @GroupPendingCapacity@
+--
+--
+--     * @GroupStandbyCapacity@
+--
+--
+--     * @GroupTerminatingCapacity@
+--
+--
+--     * @GroupTotalCapacity@
+--
+--
+-- If you omit this parameter, all metrics are disabled.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcMetrics :: Lens.Lens' DisableMetricsCollection (Lude.Maybe [Lude.Text])
+dmcMetrics = Lens.lens (metrics :: DisableMetricsCollection -> Lude.Maybe [Lude.Text]) (\s a -> s {metrics = a} :: DisableMetricsCollection)
+{-# DEPRECATED dmcMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | The name of the Auto Scaling group.
-dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
-dmcAutoScalingGroupName = lens _dmcAutoScalingGroupName (\s a -> s {_dmcAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcAutoScalingGroupName :: Lens.Lens' DisableMetricsCollection Lude.Text
+dmcAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DisableMetricsCollection -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DisableMetricsCollection)
+{-# DEPRECATED dmcAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance AWSRequest DisableMetricsCollection where
+instance Lude.AWSRequest DisableMetricsCollection where
   type Rs DisableMetricsCollection = DisableMetricsCollectionResponse
-  request = postQuery autoScaling
-  response = receiveNull DisableMetricsCollectionResponse'
+  request = Req.postQuery autoScalingService
+  response = Res.receiveNull DisableMetricsCollectionResponse'
 
-instance Hashable DisableMetricsCollection
+instance Lude.ToHeaders DisableMetricsCollection where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisableMetricsCollection
+instance Lude.ToPath DisableMetricsCollection where
+  toPath = Lude.const "/"
 
-instance ToHeaders DisableMetricsCollection where
-  toHeaders = const mempty
-
-instance ToPath DisableMetricsCollection where
-  toPath = const "/"
-
-instance ToQuery DisableMetricsCollection where
+instance Lude.ToQuery DisableMetricsCollection where
   toQuery DisableMetricsCollection' {..} =
-    mconcat
-      [ "Action" =: ("DisableMetricsCollection" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "Metrics" =: toQuery (toQueryList "member" <$> _dmcMetrics),
-        "AutoScalingGroupName" =: _dmcAutoScalingGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DisableMetricsCollection" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "Metrics"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> metrics),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
--- | /See:/ 'disableMetricsCollectionResponse' smart constructor.
+-- | /See:/ 'mkDisableMetricsCollectionResponse' smart constructor.
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableMetricsCollectionResponse' with the minimum fields required to make a request.
-disableMetricsCollectionResponse ::
+mkDisableMetricsCollectionResponse ::
   DisableMetricsCollectionResponse
-disableMetricsCollectionResponse =
+mkDisableMetricsCollectionResponse =
   DisableMetricsCollectionResponse'
-
-instance NFData DisableMetricsCollectionResponse

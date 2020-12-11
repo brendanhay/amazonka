@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,113 @@
 --
 -- Disassociates the service role from your account. Without a service role, deployments will not work.
 module Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
-  ( -- * Creating a Request
-    disassociateServiceRoleFromAccount,
-    DisassociateServiceRoleFromAccount,
+  ( -- * Creating a request
+    DisassociateServiceRoleFromAccount (..),
+    mkDisassociateServiceRoleFromAccount,
 
-    -- * Destructuring the Response
-    disassociateServiceRoleFromAccountResponse,
-    DisassociateServiceRoleFromAccountResponse,
+    -- * Destructuring the response
+    DisassociateServiceRoleFromAccountResponse (..),
+    mkDisassociateServiceRoleFromAccountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrfarsDisassociatedAt,
     dsrfarsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateServiceRoleFromAccount' smart constructor.
+-- | /See:/ 'mkDisassociateServiceRoleFromAccount' smart constructor.
 data DisassociateServiceRoleFromAccount = DisassociateServiceRoleFromAccount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateServiceRoleFromAccount' with the minimum fields required to make a request.
-disassociateServiceRoleFromAccount ::
+mkDisassociateServiceRoleFromAccount ::
   DisassociateServiceRoleFromAccount
-disassociateServiceRoleFromAccount =
+mkDisassociateServiceRoleFromAccount =
   DisassociateServiceRoleFromAccount'
 
-instance AWSRequest DisassociateServiceRoleFromAccount where
+instance Lude.AWSRequest DisassociateServiceRoleFromAccount where
   type
     Rs DisassociateServiceRoleFromAccount =
       DisassociateServiceRoleFromAccountResponse
-  request = delete greengrass
+  request = Req.delete greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DisassociateServiceRoleFromAccountResponse'
-            <$> (x .?> "DisassociatedAt") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DisassociatedAt")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateServiceRoleFromAccount
-
-instance NFData DisassociateServiceRoleFromAccount
-
-instance ToHeaders DisassociateServiceRoleFromAccount where
+instance Lude.ToHeaders DisassociateServiceRoleFromAccount where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DisassociateServiceRoleFromAccount where
-  toPath = const "/greengrass/servicerole"
+instance Lude.ToPath DisassociateServiceRoleFromAccount where
+  toPath = Lude.const "/greengrass/servicerole"
 
-instance ToQuery DisassociateServiceRoleFromAccount where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateServiceRoleFromAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateServiceRoleFromAccountResponse' smart constructor.
+-- | /See:/ 'mkDisassociateServiceRoleFromAccountResponse' smart constructor.
 data DisassociateServiceRoleFromAccountResponse = DisassociateServiceRoleFromAccountResponse'
-  { _dsrfarsDisassociatedAt ::
-      !( Maybe
-           Text
-       ),
-    _dsrfarsResponseStatus ::
-      !Int
+  { disassociatedAt ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateServiceRoleFromAccountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrfarsDisassociatedAt' - The time when the service role was disassociated from the account.
---
--- * 'dsrfarsResponseStatus' - -- | The response status code.
-disassociateServiceRoleFromAccountResponse ::
-  -- | 'dsrfarsResponseStatus'
-  Int ->
+-- * 'disassociatedAt' - The time when the service role was disassociated from the account.
+-- * 'responseStatus' - The response status code.
+mkDisassociateServiceRoleFromAccountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateServiceRoleFromAccountResponse
-disassociateServiceRoleFromAccountResponse pResponseStatus_ =
+mkDisassociateServiceRoleFromAccountResponse pResponseStatus_ =
   DisassociateServiceRoleFromAccountResponse'
-    { _dsrfarsDisassociatedAt =
-        Nothing,
-      _dsrfarsResponseStatus = pResponseStatus_
+    { disassociatedAt =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The time when the service role was disassociated from the account.
-dsrfarsDisassociatedAt :: Lens' DisassociateServiceRoleFromAccountResponse (Maybe Text)
-dsrfarsDisassociatedAt = lens _dsrfarsDisassociatedAt (\s a -> s {_dsrfarsDisassociatedAt = a})
+--
+-- /Note:/ Consider using 'disassociatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrfarsDisassociatedAt :: Lens.Lens' DisassociateServiceRoleFromAccountResponse (Lude.Maybe Lude.Text)
+dsrfarsDisassociatedAt = Lens.lens (disassociatedAt :: DisassociateServiceRoleFromAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {disassociatedAt = a} :: DisassociateServiceRoleFromAccountResponse)
+{-# DEPRECATED dsrfarsDisassociatedAt "Use generic-lens or generic-optics with 'disassociatedAt' instead." #-}
 
--- | -- | The response status code.
-dsrfarsResponseStatus :: Lens' DisassociateServiceRoleFromAccountResponse Int
-dsrfarsResponseStatus = lens _dsrfarsResponseStatus (\s a -> s {_dsrfarsResponseStatus = a})
-
-instance NFData DisassociateServiceRoleFromAccountResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrfarsResponseStatus :: Lens.Lens' DisassociateServiceRoleFromAccountResponse Lude.Int
+dsrfarsResponseStatus = Lens.lens (responseStatus :: DisassociateServiceRoleFromAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateServiceRoleFromAccountResponse)
+{-# DEPRECATED dsrfarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

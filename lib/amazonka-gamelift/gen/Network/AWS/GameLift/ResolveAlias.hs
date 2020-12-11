@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,28 +17,33 @@
 --
 --     * 'CreateAlias'
 --
+--
 --     * 'ListAliases'
+--
 --
 --     * 'DescribeAlias'
 --
+--
 --     * 'UpdateAlias'
+--
 --
 --     * 'DeleteAlias'
 --
+--
 --     * 'ResolveAlias'
 module Network.AWS.GameLift.ResolveAlias
-  ( -- * Creating a Request
-    resolveAlias,
-    ResolveAlias,
+  ( -- * Creating a request
+    ResolveAlias (..),
+    mkResolveAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     raAliasId,
 
-    -- * Destructuring the Response
-    resolveAliasResponse,
-    ResolveAliasResponse,
+    -- * Destructuring the response
+    ResolveAliasResponse (..),
+    mkResolveAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rarsFleetARN,
     rarsFleetId,
     rarsResponseStatus,
@@ -51,110 +51,125 @@ module Network.AWS.GameLift.ResolveAlias
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'resolveAlias' smart constructor.
-newtype ResolveAlias = ResolveAlias' {_raAliasId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkResolveAlias' smart constructor.
+newtype ResolveAlias = ResolveAlias' {aliasId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolveAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'raAliasId' - The unique identifier of the alias that you want to retrieve a fleet ID for. You can use either the alias ID or ARN value.
-resolveAlias ::
-  -- | 'raAliasId'
-  Text ->
+-- * 'aliasId' - The unique identifier of the alias that you want to retrieve a fleet ID for. You can use either the alias ID or ARN value.
+mkResolveAlias ::
+  -- | 'aliasId'
+  Lude.Text ->
   ResolveAlias
-resolveAlias pAliasId_ = ResolveAlias' {_raAliasId = pAliasId_}
+mkResolveAlias pAliasId_ = ResolveAlias' {aliasId = pAliasId_}
 
 -- | The unique identifier of the alias that you want to retrieve a fleet ID for. You can use either the alias ID or ARN value.
-raAliasId :: Lens' ResolveAlias Text
-raAliasId = lens _raAliasId (\s a -> s {_raAliasId = a})
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raAliasId :: Lens.Lens' ResolveAlias Lude.Text
+raAliasId = Lens.lens (aliasId :: ResolveAlias -> Lude.Text) (\s a -> s {aliasId = a} :: ResolveAlias)
+{-# DEPRECATED raAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance AWSRequest ResolveAlias where
+instance Lude.AWSRequest ResolveAlias where
   type Rs ResolveAlias = ResolveAliasResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ResolveAliasResponse'
-            <$> (x .?> "FleetArn") <*> (x .?> "FleetId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FleetArn")
+            Lude.<*> (x Lude..?> "FleetId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResolveAlias
-
-instance NFData ResolveAlias
-
-instance ToHeaders ResolveAlias where
+instance Lude.ToHeaders ResolveAlias where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.ResolveAlias" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.ResolveAlias" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ResolveAlias where
+instance Lude.ToJSON ResolveAlias where
   toJSON ResolveAlias' {..} =
-    object (catMaybes [Just ("AliasId" .= _raAliasId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("AliasId" Lude..= aliasId)])
 
-instance ToPath ResolveAlias where
-  toPath = const "/"
+instance Lude.ToPath ResolveAlias where
+  toPath = Lude.const "/"
 
-instance ToQuery ResolveAlias where
-  toQuery = const mempty
+instance Lude.ToQuery ResolveAlias where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'resolveAliasResponse' smart constructor.
+-- /See:/ 'mkResolveAliasResponse' smart constructor.
 data ResolveAliasResponse = ResolveAliasResponse'
-  { _rarsFleetARN ::
-      !(Maybe Text),
-    _rarsFleetId :: !(Maybe Text),
-    _rarsResponseStatus :: !Int
+  { fleetARN ::
+      Lude.Maybe Lude.Text,
+    fleetId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolveAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rarsFleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet resource that this alias points to.
---
--- * 'rarsFleetId' - The fleet identifier that the alias is pointing to.
---
--- * 'rarsResponseStatus' - -- | The response status code.
-resolveAliasResponse ::
-  -- | 'rarsResponseStatus'
-  Int ->
+-- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet resource that this alias points to.
+-- * 'fleetId' - The fleet identifier that the alias is pointing to.
+-- * 'responseStatus' - The response status code.
+mkResolveAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResolveAliasResponse
-resolveAliasResponse pResponseStatus_ =
+mkResolveAliasResponse pResponseStatus_ =
   ResolveAliasResponse'
-    { _rarsFleetARN = Nothing,
-      _rarsFleetId = Nothing,
-      _rarsResponseStatus = pResponseStatus_
+    { fleetARN = Lude.Nothing,
+      fleetId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet resource that this alias points to.
-rarsFleetARN :: Lens' ResolveAliasResponse (Maybe Text)
-rarsFleetARN = lens _rarsFleetARN (\s a -> s {_rarsFleetARN = a})
+--
+-- /Note:/ Consider using 'fleetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarsFleetARN :: Lens.Lens' ResolveAliasResponse (Lude.Maybe Lude.Text)
+rarsFleetARN = Lens.lens (fleetARN :: ResolveAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {fleetARN = a} :: ResolveAliasResponse)
+{-# DEPRECATED rarsFleetARN "Use generic-lens or generic-optics with 'fleetARN' instead." #-}
 
 -- | The fleet identifier that the alias is pointing to.
-rarsFleetId :: Lens' ResolveAliasResponse (Maybe Text)
-rarsFleetId = lens _rarsFleetId (\s a -> s {_rarsFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarsFleetId :: Lens.Lens' ResolveAliasResponse (Lude.Maybe Lude.Text)
+rarsFleetId = Lens.lens (fleetId :: ResolveAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: ResolveAliasResponse)
+{-# DEPRECATED rarsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
--- | -- | The response status code.
-rarsResponseStatus :: Lens' ResolveAliasResponse Int
-rarsResponseStatus = lens _rarsResponseStatus (\s a -> s {_rarsResponseStatus = a})
-
-instance NFData ResolveAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarsResponseStatus :: Lens.Lens' ResolveAliasResponse Lude.Int
+rarsResponseStatus = Lens.lens (responseStatus :: ResolveAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResolveAliasResponse)
+{-# DEPRECATED rarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

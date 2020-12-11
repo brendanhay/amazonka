@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates a @Resolver@ object.
 module Network.AWS.AppSync.UpdateResolver
-  ( -- * Creating a Request
-    updateResolver,
-    UpdateResolver,
+  ( -- * Creating a request
+    UpdateResolver (..),
+    mkUpdateResolver,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urDataSourceName,
     urRequestMappingTemplate,
     urKind,
@@ -35,203 +30,258 @@ module Network.AWS.AppSync.UpdateResolver
     urTypeName,
     urFieldName,
 
-    -- * Destructuring the Response
-    updateResolverResponse,
-    UpdateResolverResponse,
+    -- * Destructuring the response
+    UpdateResolverResponse (..),
+    mkUpdateResolverResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urrsResolver,
     urrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateResolver' smart constructor.
+-- | /See:/ 'mkUpdateResolver' smart constructor.
 data UpdateResolver = UpdateResolver'
-  { _urDataSourceName ::
-      !(Maybe Text),
-    _urRequestMappingTemplate :: !(Maybe Text),
-    _urKind :: !(Maybe ResolverKind),
-    _urCachingConfig :: !(Maybe CachingConfig),
-    _urResponseMappingTemplate :: !(Maybe Text),
-    _urSyncConfig :: !(Maybe SyncConfig),
-    _urPipelineConfig :: !(Maybe PipelineConfig),
-    _urApiId :: !Text,
-    _urTypeName :: !Text,
-    _urFieldName :: !Text
+  { dataSourceName ::
+      Lude.Maybe Lude.Text,
+    requestMappingTemplate :: Lude.Maybe Lude.Text,
+    kind :: Lude.Maybe ResolverKind,
+    cachingConfig :: Lude.Maybe CachingConfig,
+    responseMappingTemplate :: Lude.Maybe Lude.Text,
+    syncConfig :: Lude.Maybe SyncConfig,
+    pipelineConfig :: Lude.Maybe PipelineConfig,
+    apiId :: Lude.Text,
+    typeName :: Lude.Text,
+    fieldName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResolver' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'apiId' - The API ID.
+-- * 'cachingConfig' - The caching configuration for the resolver.
+-- * 'dataSourceName' - The new data source name.
+-- * 'fieldName' - The new field name.
+-- * 'kind' - The resolver type.
 --
--- * 'urDataSourceName' - The new data source name.
 --
--- * 'urRequestMappingTemplate' - The new request mapping template. A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL). VTL request mapping templates are optional when using a Lambda data source. For all other data sources, VTL request and response mapping templates are required.
+--     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.
 --
--- * 'urKind' - The resolver type.     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
 --
--- * 'urCachingConfig' - The caching configuration for the resolver.
+--     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
 --
--- * 'urResponseMappingTemplate' - The new response mapping template.
 --
--- * 'urSyncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
+-- * 'pipelineConfig' - The @PipelineConfig@ .
+-- * 'requestMappingTemplate' - The new request mapping template.
 --
--- * 'urPipelineConfig' - The @PipelineConfig@ .
---
--- * 'urApiId' - The API ID.
---
--- * 'urTypeName' - The new type name.
---
--- * 'urFieldName' - The new field name.
-updateResolver ::
-  -- | 'urApiId'
-  Text ->
-  -- | 'urTypeName'
-  Text ->
-  -- | 'urFieldName'
-  Text ->
+-- A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).
+-- VTL request mapping templates are optional when using a Lambda data source. For all other data sources, VTL request and response mapping templates are required.
+-- * 'responseMappingTemplate' - The new response mapping template.
+-- * 'syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
+-- * 'typeName' - The new type name.
+mkUpdateResolver ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'typeName'
+  Lude.Text ->
+  -- | 'fieldName'
+  Lude.Text ->
   UpdateResolver
-updateResolver pApiId_ pTypeName_ pFieldName_ =
+mkUpdateResolver pApiId_ pTypeName_ pFieldName_ =
   UpdateResolver'
-    { _urDataSourceName = Nothing,
-      _urRequestMappingTemplate = Nothing,
-      _urKind = Nothing,
-      _urCachingConfig = Nothing,
-      _urResponseMappingTemplate = Nothing,
-      _urSyncConfig = Nothing,
-      _urPipelineConfig = Nothing,
-      _urApiId = pApiId_,
-      _urTypeName = pTypeName_,
-      _urFieldName = pFieldName_
+    { dataSourceName = Lude.Nothing,
+      requestMappingTemplate = Lude.Nothing,
+      kind = Lude.Nothing,
+      cachingConfig = Lude.Nothing,
+      responseMappingTemplate = Lude.Nothing,
+      syncConfig = Lude.Nothing,
+      pipelineConfig = Lude.Nothing,
+      apiId = pApiId_,
+      typeName = pTypeName_,
+      fieldName = pFieldName_
     }
 
 -- | The new data source name.
-urDataSourceName :: Lens' UpdateResolver (Maybe Text)
-urDataSourceName = lens _urDataSourceName (\s a -> s {_urDataSourceName = a})
+--
+-- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urDataSourceName :: Lens.Lens' UpdateResolver (Lude.Maybe Lude.Text)
+urDataSourceName = Lens.lens (dataSourceName :: UpdateResolver -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceName = a} :: UpdateResolver)
+{-# DEPRECATED urDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
 
--- | The new request mapping template. A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL). VTL request mapping templates are optional when using a Lambda data source. For all other data sources, VTL request and response mapping templates are required.
-urRequestMappingTemplate :: Lens' UpdateResolver (Maybe Text)
-urRequestMappingTemplate = lens _urRequestMappingTemplate (\s a -> s {_urRequestMappingTemplate = a})
+-- | The new request mapping template.
+--
+-- A resolver uses a request mapping template to convert a GraphQL expression into a format that a data source can understand. Mapping templates are written in Apache Velocity Template Language (VTL).
+-- VTL request mapping templates are optional when using a Lambda data source. For all other data sources, VTL request and response mapping templates are required.
+--
+-- /Note:/ Consider using 'requestMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urRequestMappingTemplate :: Lens.Lens' UpdateResolver (Lude.Maybe Lude.Text)
+urRequestMappingTemplate = Lens.lens (requestMappingTemplate :: UpdateResolver -> Lude.Maybe Lude.Text) (\s a -> s {requestMappingTemplate = a} :: UpdateResolver)
+{-# DEPRECATED urRequestMappingTemplate "Use generic-lens or generic-optics with 'requestMappingTemplate' instead." #-}
 
--- | The resolver type.     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
-urKind :: Lens' UpdateResolver (Maybe ResolverKind)
-urKind = lens _urKind (\s a -> s {_urKind = a})
+-- | The resolver type.
+--
+--
+--     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.
+--
+--
+--     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
+--
+--
+--
+-- /Note:/ Consider using 'kind' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urKind :: Lens.Lens' UpdateResolver (Lude.Maybe ResolverKind)
+urKind = Lens.lens (kind :: UpdateResolver -> Lude.Maybe ResolverKind) (\s a -> s {kind = a} :: UpdateResolver)
+{-# DEPRECATED urKind "Use generic-lens or generic-optics with 'kind' instead." #-}
 
 -- | The caching configuration for the resolver.
-urCachingConfig :: Lens' UpdateResolver (Maybe CachingConfig)
-urCachingConfig = lens _urCachingConfig (\s a -> s {_urCachingConfig = a})
+--
+-- /Note:/ Consider using 'cachingConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urCachingConfig :: Lens.Lens' UpdateResolver (Lude.Maybe CachingConfig)
+urCachingConfig = Lens.lens (cachingConfig :: UpdateResolver -> Lude.Maybe CachingConfig) (\s a -> s {cachingConfig = a} :: UpdateResolver)
+{-# DEPRECATED urCachingConfig "Use generic-lens or generic-optics with 'cachingConfig' instead." #-}
 
 -- | The new response mapping template.
-urResponseMappingTemplate :: Lens' UpdateResolver (Maybe Text)
-urResponseMappingTemplate = lens _urResponseMappingTemplate (\s a -> s {_urResponseMappingTemplate = a})
+--
+-- /Note:/ Consider using 'responseMappingTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResponseMappingTemplate :: Lens.Lens' UpdateResolver (Lude.Maybe Lude.Text)
+urResponseMappingTemplate = Lens.lens (responseMappingTemplate :: UpdateResolver -> Lude.Maybe Lude.Text) (\s a -> s {responseMappingTemplate = a} :: UpdateResolver)
+{-# DEPRECATED urResponseMappingTemplate "Use generic-lens or generic-optics with 'responseMappingTemplate' instead." #-}
 
 -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
-urSyncConfig :: Lens' UpdateResolver (Maybe SyncConfig)
-urSyncConfig = lens _urSyncConfig (\s a -> s {_urSyncConfig = a})
+--
+-- /Note:/ Consider using 'syncConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urSyncConfig :: Lens.Lens' UpdateResolver (Lude.Maybe SyncConfig)
+urSyncConfig = Lens.lens (syncConfig :: UpdateResolver -> Lude.Maybe SyncConfig) (\s a -> s {syncConfig = a} :: UpdateResolver)
+{-# DEPRECATED urSyncConfig "Use generic-lens or generic-optics with 'syncConfig' instead." #-}
 
 -- | The @PipelineConfig@ .
-urPipelineConfig :: Lens' UpdateResolver (Maybe PipelineConfig)
-urPipelineConfig = lens _urPipelineConfig (\s a -> s {_urPipelineConfig = a})
+--
+-- /Note:/ Consider using 'pipelineConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urPipelineConfig :: Lens.Lens' UpdateResolver (Lude.Maybe PipelineConfig)
+urPipelineConfig = Lens.lens (pipelineConfig :: UpdateResolver -> Lude.Maybe PipelineConfig) (\s a -> s {pipelineConfig = a} :: UpdateResolver)
+{-# DEPRECATED urPipelineConfig "Use generic-lens or generic-optics with 'pipelineConfig' instead." #-}
 
 -- | The API ID.
-urApiId :: Lens' UpdateResolver Text
-urApiId = lens _urApiId (\s a -> s {_urApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urApiId :: Lens.Lens' UpdateResolver Lude.Text
+urApiId = Lens.lens (apiId :: UpdateResolver -> Lude.Text) (\s a -> s {apiId = a} :: UpdateResolver)
+{-# DEPRECATED urApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The new type name.
-urTypeName :: Lens' UpdateResolver Text
-urTypeName = lens _urTypeName (\s a -> s {_urTypeName = a})
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urTypeName :: Lens.Lens' UpdateResolver Lude.Text
+urTypeName = Lens.lens (typeName :: UpdateResolver -> Lude.Text) (\s a -> s {typeName = a} :: UpdateResolver)
+{-# DEPRECATED urTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The new field name.
-urFieldName :: Lens' UpdateResolver Text
-urFieldName = lens _urFieldName (\s a -> s {_urFieldName = a})
+--
+-- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urFieldName :: Lens.Lens' UpdateResolver Lude.Text
+urFieldName = Lens.lens (fieldName :: UpdateResolver -> Lude.Text) (\s a -> s {fieldName = a} :: UpdateResolver)
+{-# DEPRECATED urFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
 
-instance AWSRequest UpdateResolver where
+instance Lude.AWSRequest UpdateResolver where
   type Rs UpdateResolver = UpdateResolverResponse
-  request = postJSON appSync
+  request = Req.postJSON appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateResolverResponse'
-            <$> (x .?> "resolver") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "resolver") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateResolver
-
-instance NFData UpdateResolver
-
-instance ToHeaders UpdateResolver where
+instance Lude.ToHeaders UpdateResolver where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateResolver where
-  toJSON UpdateResolver' {..} =
-    object
-      ( catMaybes
-          [ ("dataSourceName" .=) <$> _urDataSourceName,
-            ("requestMappingTemplate" .=) <$> _urRequestMappingTemplate,
-            ("kind" .=) <$> _urKind,
-            ("cachingConfig" .=) <$> _urCachingConfig,
-            ("responseMappingTemplate" .=) <$> _urResponseMappingTemplate,
-            ("syncConfig" .=) <$> _urSyncConfig,
-            ("pipelineConfig" .=) <$> _urPipelineConfig
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateResolver where
+instance Lude.ToJSON UpdateResolver where
+  toJSON UpdateResolver' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("dataSourceName" Lude..=) Lude.<$> dataSourceName,
+            ("requestMappingTemplate" Lude..=) Lude.<$> requestMappingTemplate,
+            ("kind" Lude..=) Lude.<$> kind,
+            ("cachingConfig" Lude..=) Lude.<$> cachingConfig,
+            ("responseMappingTemplate" Lude..=)
+              Lude.<$> responseMappingTemplate,
+            ("syncConfig" Lude..=) Lude.<$> syncConfig,
+            ("pipelineConfig" Lude..=) Lude.<$> pipelineConfig
+          ]
+      )
+
+instance Lude.ToPath UpdateResolver where
   toPath UpdateResolver' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apis/",
-        toBS _urApiId,
+        Lude.toBS apiId,
         "/types/",
-        toBS _urTypeName,
+        Lude.toBS typeName,
         "/resolvers/",
-        toBS _urFieldName
+        Lude.toBS fieldName
       ]
 
-instance ToQuery UpdateResolver where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateResolver where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateResolverResponse' smart constructor.
+-- | /See:/ 'mkUpdateResolverResponse' smart constructor.
 data UpdateResolverResponse = UpdateResolverResponse'
-  { _urrsResolver ::
-      !(Maybe Resolver),
-    _urrsResponseStatus :: !Int
+  { resolver ::
+      Lude.Maybe Resolver,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResolverResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrsResolver' - The updated @Resolver@ object.
---
--- * 'urrsResponseStatus' - -- | The response status code.
-updateResolverResponse ::
-  -- | 'urrsResponseStatus'
-  Int ->
+-- * 'resolver' - The updated @Resolver@ object.
+-- * 'responseStatus' - The response status code.
+mkUpdateResolverResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateResolverResponse
-updateResolverResponse pResponseStatus_ =
+mkUpdateResolverResponse pResponseStatus_ =
   UpdateResolverResponse'
-    { _urrsResolver = Nothing,
-      _urrsResponseStatus = pResponseStatus_
+    { resolver = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The updated @Resolver@ object.
-urrsResolver :: Lens' UpdateResolverResponse (Maybe Resolver)
-urrsResolver = lens _urrsResolver (\s a -> s {_urrsResolver = a})
+--
+-- /Note:/ Consider using 'resolver' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsResolver :: Lens.Lens' UpdateResolverResponse (Lude.Maybe Resolver)
+urrsResolver = Lens.lens (resolver :: UpdateResolverResponse -> Lude.Maybe Resolver) (\s a -> s {resolver = a} :: UpdateResolverResponse)
+{-# DEPRECATED urrsResolver "Use generic-lens or generic-optics with 'resolver' instead." #-}
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateResolverResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\s a -> s {_urrsResponseStatus = a})
-
-instance NFData UpdateResolverResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsResponseStatus :: Lens.Lens' UpdateResolverResponse Lude.Int
+urrsResponseStatus = Lens.lens (responseStatus :: UpdateResolverResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateResolverResponse)
+{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

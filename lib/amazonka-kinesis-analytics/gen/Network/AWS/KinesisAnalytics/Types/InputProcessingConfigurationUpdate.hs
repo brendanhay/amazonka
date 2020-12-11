@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationUpdate where
+module Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationUpdate
+  ( InputProcessingConfigurationUpdate (..),
+
+    -- * Smart constructor
+    mkInputProcessingConfigurationUpdate,
+
+    -- * Lenses
+    ipcuInputLambdaProcessorUpdate,
+  )
+where
 
 import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes updates to an <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> .
 --
---
---
--- /See:/ 'inputProcessingConfigurationUpdate' smart constructor.
+-- /See:/ 'mkInputProcessingConfigurationUpdate' smart constructor.
 newtype InputProcessingConfigurationUpdate = InputProcessingConfigurationUpdate'
-  { _ipcuInputLambdaProcessorUpdate ::
+  { inputLambdaProcessorUpdate ::
       InputLambdaProcessorUpdate
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputProcessingConfigurationUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipcuInputLambdaProcessorUpdate' - Provides update information for an <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> .
-inputProcessingConfigurationUpdate ::
-  -- | 'ipcuInputLambdaProcessorUpdate'
+-- * 'inputLambdaProcessorUpdate' - Provides update information for an <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> .
+mkInputProcessingConfigurationUpdate ::
+  -- | 'inputLambdaProcessorUpdate'
   InputLambdaProcessorUpdate ->
   InputProcessingConfigurationUpdate
-inputProcessingConfigurationUpdate pInputLambdaProcessorUpdate_ =
+mkInputProcessingConfigurationUpdate pInputLambdaProcessorUpdate_ =
   InputProcessingConfigurationUpdate'
-    { _ipcuInputLambdaProcessorUpdate =
+    { inputLambdaProcessorUpdate =
         pInputLambdaProcessorUpdate_
     }
 
 -- | Provides update information for an <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> .
-ipcuInputLambdaProcessorUpdate :: Lens' InputProcessingConfigurationUpdate InputLambdaProcessorUpdate
-ipcuInputLambdaProcessorUpdate = lens _ipcuInputLambdaProcessorUpdate (\s a -> s {_ipcuInputLambdaProcessorUpdate = a})
+--
+-- /Note:/ Consider using 'inputLambdaProcessorUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipcuInputLambdaProcessorUpdate :: Lens.Lens' InputProcessingConfigurationUpdate InputLambdaProcessorUpdate
+ipcuInputLambdaProcessorUpdate = Lens.lens (inputLambdaProcessorUpdate :: InputProcessingConfigurationUpdate -> InputLambdaProcessorUpdate) (\s a -> s {inputLambdaProcessorUpdate = a} :: InputProcessingConfigurationUpdate)
+{-# DEPRECATED ipcuInputLambdaProcessorUpdate "Use generic-lens or generic-optics with 'inputLambdaProcessorUpdate' instead." #-}
 
-instance Hashable InputProcessingConfigurationUpdate
-
-instance NFData InputProcessingConfigurationUpdate
-
-instance ToJSON InputProcessingConfigurationUpdate where
+instance Lude.ToJSON InputProcessingConfigurationUpdate where
   toJSON InputProcessingConfigurationUpdate' {..} =
-    object
-      ( catMaybes
-          [ Just
-              ("InputLambdaProcessorUpdate" .= _ipcuInputLambdaProcessorUpdate)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("InputLambdaProcessorUpdate" Lude..= inputLambdaProcessorUpdate)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,143 @@
 --
 -- Describes the lifecycle hooks for the specified Auto Scaling group.
 module Network.AWS.AutoScaling.DescribeLifecycleHooks
-  ( -- * Creating a Request
-    describeLifecycleHooks,
-    DescribeLifecycleHooks,
+  ( -- * Creating a request
+    DescribeLifecycleHooks (..),
+    mkDescribeLifecycleHooks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlhLifecycleHookNames,
     dlhAutoScalingGroupName,
 
-    -- * Destructuring the Response
-    describeLifecycleHooksResponse,
-    DescribeLifecycleHooksResponse,
+    -- * Destructuring the response
+    DescribeLifecycleHooksResponse (..),
+    mkDescribeLifecycleHooksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlhrsLifecycleHooks,
     dlhrsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeLifecycleHooks' smart constructor.
+-- | /See:/ 'mkDescribeLifecycleHooks' smart constructor.
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
-  { _dlhLifecycleHookNames ::
-      !(Maybe [Text]),
-    _dlhAutoScalingGroupName :: !Text
+  { lifecycleHookNames ::
+      Lude.Maybe [Lude.Text],
+    autoScalingGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLifecycleHooks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlhLifecycleHookNames' - The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle hooks are described.
---
--- * 'dlhAutoScalingGroupName' - The name of the Auto Scaling group.
-describeLifecycleHooks ::
-  -- | 'dlhAutoScalingGroupName'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'lifecycleHookNames' - The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle hooks are described.
+mkDescribeLifecycleHooks ::
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   DescribeLifecycleHooks
-describeLifecycleHooks pAutoScalingGroupName_ =
+mkDescribeLifecycleHooks pAutoScalingGroupName_ =
   DescribeLifecycleHooks'
-    { _dlhLifecycleHookNames = Nothing,
-      _dlhAutoScalingGroupName = pAutoScalingGroupName_
+    { lifecycleHookNames = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle hooks are described.
-dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
-dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\s a -> s {_dlhLifecycleHookNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'lifecycleHookNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlhLifecycleHookNames :: Lens.Lens' DescribeLifecycleHooks (Lude.Maybe [Lude.Text])
+dlhLifecycleHookNames = Lens.lens (lifecycleHookNames :: DescribeLifecycleHooks -> Lude.Maybe [Lude.Text]) (\s a -> s {lifecycleHookNames = a} :: DescribeLifecycleHooks)
+{-# DEPRECATED dlhLifecycleHookNames "Use generic-lens or generic-optics with 'lifecycleHookNames' instead." #-}
 
 -- | The name of the Auto Scaling group.
-dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
-dlhAutoScalingGroupName = lens _dlhAutoScalingGroupName (\s a -> s {_dlhAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlhAutoScalingGroupName :: Lens.Lens' DescribeLifecycleHooks Lude.Text
+dlhAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribeLifecycleHooks -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribeLifecycleHooks)
+{-# DEPRECATED dlhAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance AWSRequest DescribeLifecycleHooks where
+instance Lude.AWSRequest DescribeLifecycleHooks where
   type Rs DescribeLifecycleHooks = DescribeLifecycleHooksResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeLifecycleHooksResult"
       ( \s h x ->
           DescribeLifecycleHooksResponse'
-            <$> (x .@? "LifecycleHooks" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "LifecycleHooks" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeLifecycleHooks
+instance Lude.ToHeaders DescribeLifecycleHooks where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeLifecycleHooks
+instance Lude.ToPath DescribeLifecycleHooks where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeLifecycleHooks where
-  toHeaders = const mempty
-
-instance ToPath DescribeLifecycleHooks where
-  toPath = const "/"
-
-instance ToQuery DescribeLifecycleHooks where
+instance Lude.ToQuery DescribeLifecycleHooks where
   toQuery DescribeLifecycleHooks' {..} =
-    mconcat
-      [ "Action" =: ("DescribeLifecycleHooks" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeLifecycleHooks" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "LifecycleHookNames"
-          =: toQuery (toQueryList "member" <$> _dlhLifecycleHookNames),
-        "AutoScalingGroupName" =: _dlhAutoScalingGroupName
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> lifecycleHookNames),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
--- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
+-- | /See:/ 'mkDescribeLifecycleHooksResponse' smart constructor.
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
-  { _dlhrsLifecycleHooks ::
-      !(Maybe [LifecycleHook]),
-    _dlhrsResponseStatus :: !Int
+  { lifecycleHooks ::
+      Lude.Maybe [LifecycleHook],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLifecycleHooksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlhrsLifecycleHooks' - The lifecycle hooks for the specified group.
---
--- * 'dlhrsResponseStatus' - -- | The response status code.
-describeLifecycleHooksResponse ::
-  -- | 'dlhrsResponseStatus'
-  Int ->
+-- * 'lifecycleHooks' - The lifecycle hooks for the specified group.
+-- * 'responseStatus' - The response status code.
+mkDescribeLifecycleHooksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeLifecycleHooksResponse
-describeLifecycleHooksResponse pResponseStatus_ =
+mkDescribeLifecycleHooksResponse pResponseStatus_ =
   DescribeLifecycleHooksResponse'
-    { _dlhrsLifecycleHooks = Nothing,
-      _dlhrsResponseStatus = pResponseStatus_
+    { lifecycleHooks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The lifecycle hooks for the specified group.
-dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
-dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\s a -> s {_dlhrsLifecycleHooks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'lifecycleHooks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlhrsLifecycleHooks :: Lens.Lens' DescribeLifecycleHooksResponse (Lude.Maybe [LifecycleHook])
+dlhrsLifecycleHooks = Lens.lens (lifecycleHooks :: DescribeLifecycleHooksResponse -> Lude.Maybe [LifecycleHook]) (\s a -> s {lifecycleHooks = a} :: DescribeLifecycleHooksResponse)
+{-# DEPRECATED dlhrsLifecycleHooks "Use generic-lens or generic-optics with 'lifecycleHooks' instead." #-}
 
--- | -- | The response status code.
-dlhrsResponseStatus :: Lens' DescribeLifecycleHooksResponse Int
-dlhrsResponseStatus = lens _dlhrsResponseStatus (\s a -> s {_dlhrsResponseStatus = a})
-
-instance NFData DescribeLifecycleHooksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlhrsResponseStatus :: Lens.Lens' DescribeLifecycleHooksResponse Lude.Int
+dlhrsResponseStatus = Lens.lens (responseStatus :: DescribeLifecycleHooksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLifecycleHooksResponse)
+{-# DEPRECATED dlhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

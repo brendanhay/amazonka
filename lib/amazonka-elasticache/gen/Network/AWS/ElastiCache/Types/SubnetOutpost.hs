@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.SubnetOutpost where
+module Network.AWS.ElastiCache.Types.SubnetOutpost
+  ( SubnetOutpost (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSubnetOutpost,
+
+    -- * Lenses
+    soSubnetOutpostARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The ID of the outpost subnet.
 --
---
---
--- /See:/ 'subnetOutpost' smart constructor.
+-- /See:/ 'mkSubnetOutpost' smart constructor.
 newtype SubnetOutpost = SubnetOutpost'
-  { _soSubnetOutpostARN ::
-      Maybe Text
+  { subnetOutpostARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetOutpost' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'soSubnetOutpostARN' - The outpost ARN of the subnet.
-subnetOutpost ::
+-- * 'subnetOutpostARN' - The outpost ARN of the subnet.
+mkSubnetOutpost ::
   SubnetOutpost
-subnetOutpost = SubnetOutpost' {_soSubnetOutpostARN = Nothing}
+mkSubnetOutpost = SubnetOutpost' {subnetOutpostARN = Lude.Nothing}
 
 -- | The outpost ARN of the subnet.
-soSubnetOutpostARN :: Lens' SubnetOutpost (Maybe Text)
-soSubnetOutpostARN = lens _soSubnetOutpostARN (\s a -> s {_soSubnetOutpostARN = a})
+--
+-- /Note:/ Consider using 'subnetOutpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+soSubnetOutpostARN :: Lens.Lens' SubnetOutpost (Lude.Maybe Lude.Text)
+soSubnetOutpostARN = Lens.lens (subnetOutpostARN :: SubnetOutpost -> Lude.Maybe Lude.Text) (\s a -> s {subnetOutpostARN = a} :: SubnetOutpost)
+{-# DEPRECATED soSubnetOutpostARN "Use generic-lens or generic-optics with 'subnetOutpostARN' instead." #-}
 
-instance FromXML SubnetOutpost where
-  parseXML x = SubnetOutpost' <$> (x .@? "SubnetOutpostArn")
-
-instance Hashable SubnetOutpost
-
-instance NFData SubnetOutpost
+instance Lude.FromXML SubnetOutpost where
+  parseXML x =
+    SubnetOutpost' Lude.<$> (x Lude..@? "SubnetOutpostArn")

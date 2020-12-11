@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.StackSummary where
+module Network.AWS.OpsWorks.Types.StackSummary
+  ( StackSummary (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkStackSummary,
+
+    -- * Lenses
+    ssARN,
+    ssAppsCount,
+    ssName,
+    ssStackId,
+    ssLayersCount,
+    ssInstancesCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.InstancesCount
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summarizes the number of layers, instances, and apps in a stack.
 --
---
---
--- /See:/ 'stackSummary' smart constructor.
+-- /See:/ 'mkStackSummary' smart constructor.
 data StackSummary = StackSummary'
-  { _ssARN :: !(Maybe Text),
-    _ssAppsCount :: !(Maybe Int),
-    _ssName :: !(Maybe Text),
-    _ssStackId :: !(Maybe Text),
-    _ssLayersCount :: !(Maybe Int),
-    _ssInstancesCount :: !(Maybe InstancesCount)
+  { arn :: Lude.Maybe Lude.Text,
+    appsCount :: Lude.Maybe Lude.Int,
+    name :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Maybe Lude.Text,
+    layersCount :: Lude.Maybe Lude.Int,
+    instancesCount :: Lude.Maybe InstancesCount
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssARN' - The stack's ARN.
---
--- * 'ssAppsCount' - The number of apps.
---
--- * 'ssName' - The stack name.
---
--- * 'ssStackId' - The stack ID.
---
--- * 'ssLayersCount' - The number of layers.
---
--- * 'ssInstancesCount' - An @InstancesCount@ object with the number of instances in each status.
-stackSummary ::
+-- * 'appsCount' - The number of apps.
+-- * 'arn' - The stack's ARN.
+-- * 'instancesCount' - An @InstancesCount@ object with the number of instances in each status.
+-- * 'layersCount' - The number of layers.
+-- * 'name' - The stack name.
+-- * 'stackId' - The stack ID.
+mkStackSummary ::
   StackSummary
-stackSummary =
+mkStackSummary =
   StackSummary'
-    { _ssARN = Nothing,
-      _ssAppsCount = Nothing,
-      _ssName = Nothing,
-      _ssStackId = Nothing,
-      _ssLayersCount = Nothing,
-      _ssInstancesCount = Nothing
+    { arn = Lude.Nothing,
+      appsCount = Lude.Nothing,
+      name = Lude.Nothing,
+      stackId = Lude.Nothing,
+      layersCount = Lude.Nothing,
+      instancesCount = Lude.Nothing
     }
 
 -- | The stack's ARN.
-ssARN :: Lens' StackSummary (Maybe Text)
-ssARN = lens _ssARN (\s a -> s {_ssARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssARN :: Lens.Lens' StackSummary (Lude.Maybe Lude.Text)
+ssARN = Lens.lens (arn :: StackSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: StackSummary)
+{-# DEPRECATED ssARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The number of apps.
-ssAppsCount :: Lens' StackSummary (Maybe Int)
-ssAppsCount = lens _ssAppsCount (\s a -> s {_ssAppsCount = a})
+--
+-- /Note:/ Consider using 'appsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssAppsCount :: Lens.Lens' StackSummary (Lude.Maybe Lude.Int)
+ssAppsCount = Lens.lens (appsCount :: StackSummary -> Lude.Maybe Lude.Int) (\s a -> s {appsCount = a} :: StackSummary)
+{-# DEPRECATED ssAppsCount "Use generic-lens or generic-optics with 'appsCount' instead." #-}
 
 -- | The stack name.
-ssName :: Lens' StackSummary (Maybe Text)
-ssName = lens _ssName (\s a -> s {_ssName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssName :: Lens.Lens' StackSummary (Lude.Maybe Lude.Text)
+ssName = Lens.lens (name :: StackSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StackSummary)
+{-# DEPRECATED ssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The stack ID.
-ssStackId :: Lens' StackSummary (Maybe Text)
-ssStackId = lens _ssStackId (\s a -> s {_ssStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStackId :: Lens.Lens' StackSummary (Lude.Maybe Lude.Text)
+ssStackId = Lens.lens (stackId :: StackSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: StackSummary)
+{-# DEPRECATED ssStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The number of layers.
-ssLayersCount :: Lens' StackSummary (Maybe Int)
-ssLayersCount = lens _ssLayersCount (\s a -> s {_ssLayersCount = a})
+--
+-- /Note:/ Consider using 'layersCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssLayersCount :: Lens.Lens' StackSummary (Lude.Maybe Lude.Int)
+ssLayersCount = Lens.lens (layersCount :: StackSummary -> Lude.Maybe Lude.Int) (\s a -> s {layersCount = a} :: StackSummary)
+{-# DEPRECATED ssLayersCount "Use generic-lens or generic-optics with 'layersCount' instead." #-}
 
 -- | An @InstancesCount@ object with the number of instances in each status.
-ssInstancesCount :: Lens' StackSummary (Maybe InstancesCount)
-ssInstancesCount = lens _ssInstancesCount (\s a -> s {_ssInstancesCount = a})
+--
+-- /Note:/ Consider using 'instancesCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssInstancesCount :: Lens.Lens' StackSummary (Lude.Maybe InstancesCount)
+ssInstancesCount = Lens.lens (instancesCount :: StackSummary -> Lude.Maybe InstancesCount) (\s a -> s {instancesCount = a} :: StackSummary)
+{-# DEPRECATED ssInstancesCount "Use generic-lens or generic-optics with 'instancesCount' instead." #-}
 
-instance FromJSON StackSummary where
+instance Lude.FromJSON StackSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "StackSummary"
       ( \x ->
           StackSummary'
-            <$> (x .:? "Arn")
-            <*> (x .:? "AppsCount")
-            <*> (x .:? "Name")
-            <*> (x .:? "StackId")
-            <*> (x .:? "LayersCount")
-            <*> (x .:? "InstancesCount")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "AppsCount")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "StackId")
+            Lude.<*> (x Lude..:? "LayersCount")
+            Lude.<*> (x Lude..:? "InstancesCount")
       )
-
-instance Hashable StackSummary
-
-instance NFData StackSummary

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ProjectDescription where
+module Network.AWS.Rekognition.Types.ProjectDescription
+  ( ProjectDescription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProjectDescription,
+
+    -- * Lenses
+    pdStatus,
+    pdCreationTimestamp,
+    pdProjectARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.ProjectStatus
 
 -- | A description of a Amazon Rekognition Custom Labels project.
 --
---
---
--- /See:/ 'projectDescription' smart constructor.
+-- /See:/ 'mkProjectDescription' smart constructor.
 data ProjectDescription = ProjectDescription'
-  { _pdStatus ::
-      !(Maybe ProjectStatus),
-    _pdCreationTimestamp :: !(Maybe POSIX),
-    _pdProjectARN :: !(Maybe Text)
+  { status ::
+      Lude.Maybe ProjectStatus,
+    creationTimestamp :: Lude.Maybe Lude.Timestamp,
+    projectARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdStatus' - The current status of the project.
---
--- * 'pdCreationTimestamp' - The Unix timestamp for the date and time that the project was created.
---
--- * 'pdProjectARN' - The Amazon Resource Name (ARN) of the project.
-projectDescription ::
+-- * 'creationTimestamp' - The Unix timestamp for the date and time that the project was created.
+-- * 'projectARN' - The Amazon Resource Name (ARN) of the project.
+-- * 'status' - The current status of the project.
+mkProjectDescription ::
   ProjectDescription
-projectDescription =
+mkProjectDescription =
   ProjectDescription'
-    { _pdStatus = Nothing,
-      _pdCreationTimestamp = Nothing,
-      _pdProjectARN = Nothing
+    { status = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      projectARN = Lude.Nothing
     }
 
 -- | The current status of the project.
-pdStatus :: Lens' ProjectDescription (Maybe ProjectStatus)
-pdStatus = lens _pdStatus (\s a -> s {_pdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdStatus :: Lens.Lens' ProjectDescription (Lude.Maybe ProjectStatus)
+pdStatus = Lens.lens (status :: ProjectDescription -> Lude.Maybe ProjectStatus) (\s a -> s {status = a} :: ProjectDescription)
+{-# DEPRECATED pdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The Unix timestamp for the date and time that the project was created.
-pdCreationTimestamp :: Lens' ProjectDescription (Maybe UTCTime)
-pdCreationTimestamp = lens _pdCreationTimestamp (\s a -> s {_pdCreationTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdCreationTimestamp :: Lens.Lens' ProjectDescription (Lude.Maybe Lude.Timestamp)
+pdCreationTimestamp = Lens.lens (creationTimestamp :: ProjectDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimestamp = a} :: ProjectDescription)
+{-# DEPRECATED pdCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the project.
-pdProjectARN :: Lens' ProjectDescription (Maybe Text)
-pdProjectARN = lens _pdProjectARN (\s a -> s {_pdProjectARN = a})
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdProjectARN :: Lens.Lens' ProjectDescription (Lude.Maybe Lude.Text)
+pdProjectARN = Lens.lens (projectARN :: ProjectDescription -> Lude.Maybe Lude.Text) (\s a -> s {projectARN = a} :: ProjectDescription)
+{-# DEPRECATED pdProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
-instance FromJSON ProjectDescription where
+instance Lude.FromJSON ProjectDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProjectDescription"
       ( \x ->
           ProjectDescription'
-            <$> (x .:? "Status")
-            <*> (x .:? "CreationTimestamp")
-            <*> (x .:? "ProjectArn")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "CreationTimestamp")
+            Lude.<*> (x Lude..:? "ProjectArn")
       )
-
-instance Hashable ProjectDescription
-
-instance NFData ProjectDescription

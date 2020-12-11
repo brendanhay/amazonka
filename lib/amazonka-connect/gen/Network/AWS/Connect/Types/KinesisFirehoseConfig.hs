@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.KinesisFirehoseConfig where
+module Network.AWS.Connect.Types.KinesisFirehoseConfig
+  ( KinesisFirehoseConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisFirehoseConfig,
+
+    -- * Lenses
+    kfcFirehoseARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration information of a Kinesis Firehose delivery stream.
 --
---
---
--- /See:/ 'kinesisFirehoseConfig' smart constructor.
+-- /See:/ 'mkKinesisFirehoseConfig' smart constructor.
 newtype KinesisFirehoseConfig = KinesisFirehoseConfig'
-  { _kfcFirehoseARN ::
-      Text
+  { firehoseARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisFirehoseConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kfcFirehoseARN' - The Amazon Resource Name (ARN) of the delivery stream.
-kinesisFirehoseConfig ::
-  -- | 'kfcFirehoseARN'
-  Text ->
+-- * 'firehoseARN' - The Amazon Resource Name (ARN) of the delivery stream.
+mkKinesisFirehoseConfig ::
+  -- | 'firehoseARN'
+  Lude.Text ->
   KinesisFirehoseConfig
-kinesisFirehoseConfig pFirehoseARN_ =
-  KinesisFirehoseConfig' {_kfcFirehoseARN = pFirehoseARN_}
+mkKinesisFirehoseConfig pFirehoseARN_ =
+  KinesisFirehoseConfig' {firehoseARN = pFirehoseARN_}
 
 -- | The Amazon Resource Name (ARN) of the delivery stream.
-kfcFirehoseARN :: Lens' KinesisFirehoseConfig Text
-kfcFirehoseARN = lens _kfcFirehoseARN (\s a -> s {_kfcFirehoseARN = a})
+--
+-- /Note:/ Consider using 'firehoseARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kfcFirehoseARN :: Lens.Lens' KinesisFirehoseConfig Lude.Text
+kfcFirehoseARN = Lens.lens (firehoseARN :: KinesisFirehoseConfig -> Lude.Text) (\s a -> s {firehoseARN = a} :: KinesisFirehoseConfig)
+{-# DEPRECATED kfcFirehoseARN "Use generic-lens or generic-optics with 'firehoseARN' instead." #-}
 
-instance FromJSON KinesisFirehoseConfig where
+instance Lude.FromJSON KinesisFirehoseConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "KinesisFirehoseConfig"
-      (\x -> KinesisFirehoseConfig' <$> (x .: "FirehoseArn"))
+      (\x -> KinesisFirehoseConfig' Lude.<$> (x Lude..: "FirehoseArn"))
 
-instance Hashable KinesisFirehoseConfig
-
-instance NFData KinesisFirehoseConfig
-
-instance ToJSON KinesisFirehoseConfig where
+instance Lude.ToJSON KinesisFirehoseConfig where
   toJSON KinesisFirehoseConfig' {..} =
-    object (catMaybes [Just ("FirehoseArn" .= _kfcFirehoseARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("FirehoseArn" Lude..= firehoseARN)])

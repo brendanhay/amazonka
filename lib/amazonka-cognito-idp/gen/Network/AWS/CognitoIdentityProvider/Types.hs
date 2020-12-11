@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types
-  ( -- * Service Configuration
-    cognitoIdentityProvider,
+  ( -- * Service configuration
+    cognitoIdentityProviderService,
 
     -- * Errors
 
@@ -124,39 +122,39 @@ module Network.AWS.CognitoIdentityProvider.Types
     VerifySoftwareTokenResponseType (..),
 
     -- * AccountRecoverySettingType
-    AccountRecoverySettingType,
-    accountRecoverySettingType,
+    AccountRecoverySettingType (..),
+    mkAccountRecoverySettingType,
     arstRecoveryMechanisms,
 
     -- * AccountTakeoverActionType
-    AccountTakeoverActionType,
-    accountTakeoverActionType,
+    AccountTakeoverActionType (..),
+    mkAccountTakeoverActionType,
     atatNotify,
     atatEventAction,
 
     -- * AccountTakeoverActionsType
-    AccountTakeoverActionsType,
-    accountTakeoverActionsType,
+    AccountTakeoverActionsType (..),
+    mkAccountTakeoverActionsType,
     atatLowAction,
     atatHighAction,
     atatMediumAction,
 
     -- * AccountTakeoverRiskConfigurationType
-    AccountTakeoverRiskConfigurationType,
-    accountTakeoverRiskConfigurationType,
+    AccountTakeoverRiskConfigurationType (..),
+    mkAccountTakeoverRiskConfigurationType,
     atrctNotifyConfiguration,
     atrctActions,
 
     -- * AdminCreateUserConfigType
-    AdminCreateUserConfigType,
-    adminCreateUserConfigType,
+    AdminCreateUserConfigType (..),
+    mkAdminCreateUserConfigType,
     acuctAllowAdminCreateUserOnly,
     acuctUnusedAccountValidityDays,
     acuctInviteMessageTemplate,
 
     -- * AnalyticsConfigurationType
-    AnalyticsConfigurationType,
-    analyticsConfigurationType,
+    AnalyticsConfigurationType (..),
+    mkAnalyticsConfigurationType,
     actApplicationARN,
     actUserDataShared,
     actApplicationId,
@@ -164,19 +162,19 @@ module Network.AWS.CognitoIdentityProvider.Types
     actRoleARN,
 
     -- * AnalyticsMetadataType
-    AnalyticsMetadataType,
-    analyticsMetadataType,
+    AnalyticsMetadataType (..),
+    mkAnalyticsMetadataType,
     amtAnalyticsEndpointId,
 
     -- * AttributeType
-    AttributeType,
-    attributeType,
+    AttributeType (..),
+    mkAttributeType,
     atValue,
     atName,
 
     -- * AuthEventType
-    AuthEventType,
-    authEventType,
+    AuthEventType (..),
+    mkAuthEventType,
     aetEventRisk,
     aetEventResponse,
     aetEventContextData,
@@ -187,8 +185,8 @@ module Network.AWS.CognitoIdentityProvider.Types
     aetEventId,
 
     -- * AuthenticationResultType
-    AuthenticationResultType,
-    authenticationResultType,
+    AuthenticationResultType (..),
+    mkAuthenticationResultType,
     artAccessToken,
     artRefreshToken,
     artNewDeviceMetadata,
@@ -197,32 +195,32 @@ module Network.AWS.CognitoIdentityProvider.Types
     artIdToken,
 
     -- * ChallengeResponseType
-    ChallengeResponseType,
-    challengeResponseType,
+    ChallengeResponseType (..),
+    mkChallengeResponseType,
     crtChallengeName,
     crtChallengeResponse,
 
     -- * CodeDeliveryDetailsType
-    CodeDeliveryDetailsType,
-    codeDeliveryDetailsType,
+    CodeDeliveryDetailsType (..),
+    mkCodeDeliveryDetailsType,
     cddtDestination,
     cddtDeliveryMedium,
     cddtAttributeName,
 
     -- * CompromisedCredentialsActionsType
-    CompromisedCredentialsActionsType,
-    compromisedCredentialsActionsType,
+    CompromisedCredentialsActionsType (..),
+    mkCompromisedCredentialsActionsType,
     ccatEventAction,
 
     -- * CompromisedCredentialsRiskConfigurationType
-    CompromisedCredentialsRiskConfigurationType,
-    compromisedCredentialsRiskConfigurationType,
+    CompromisedCredentialsRiskConfigurationType (..),
+    mkCompromisedCredentialsRiskConfigurationType,
     ccrctEventFilter,
     ccrctActions,
 
     -- * ContextDataType
-    ContextDataType,
-    contextDataType,
+    ContextDataType (..),
+    mkContextDataType,
     cdtEncodedData,
     cdtIPAddress,
     cdtServerName,
@@ -230,37 +228,37 @@ module Network.AWS.CognitoIdentityProvider.Types
     cdtHTTPHeaders,
 
     -- * CustomDomainConfigType
-    CustomDomainConfigType,
-    customDomainConfigType,
+    CustomDomainConfigType (..),
+    mkCustomDomainConfigType,
     cdctCertificateARN,
 
     -- * CustomEmailLambdaVersionConfigType
-    CustomEmailLambdaVersionConfigType,
-    customEmailLambdaVersionConfigType,
+    CustomEmailLambdaVersionConfigType (..),
+    mkCustomEmailLambdaVersionConfigType,
     celvctLambdaVersion,
     celvctLambdaARN,
 
     -- * CustomSMSLambdaVersionConfigType
-    CustomSMSLambdaVersionConfigType,
-    customSMSLambdaVersionConfigType,
+    CustomSMSLambdaVersionConfigType (..),
+    mkCustomSMSLambdaVersionConfigType,
     csmslvctLambdaVersion,
     csmslvctLambdaARN,
 
     -- * DeviceConfigurationType
-    DeviceConfigurationType,
-    deviceConfigurationType,
+    DeviceConfigurationType (..),
+    mkDeviceConfigurationType,
     dctChallengeRequiredOnNewDevice,
     dctDeviceOnlyRememberedOnUserPrompt,
 
     -- * DeviceSecretVerifierConfigType
-    DeviceSecretVerifierConfigType,
-    deviceSecretVerifierConfigType,
+    DeviceSecretVerifierConfigType (..),
+    mkDeviceSecretVerifierConfigType,
     dsvctPasswordVerifier,
     dsvctSalt,
 
     -- * DeviceType
-    DeviceType,
-    deviceType,
+    DeviceType (..),
+    mkDeviceType,
     dtDeviceLastModifiedDate,
     dtDeviceCreateDate,
     dtDeviceAttributes,
@@ -268,8 +266,8 @@ module Network.AWS.CognitoIdentityProvider.Types
     dtDeviceLastAuthenticatedDate,
 
     -- * DomainDescriptionType
-    DomainDescriptionType,
-    domainDescriptionType,
+    DomainDescriptionType (..),
+    mkDomainDescriptionType,
     ddtStatus,
     ddtCloudFrontDistribution,
     ddtUserPoolId,
@@ -280,8 +278,8 @@ module Network.AWS.CognitoIdentityProvider.Types
     ddtS3Bucket,
 
     -- * EmailConfigurationType
-    EmailConfigurationType,
-    emailConfigurationType,
+    EmailConfigurationType (..),
+    mkEmailConfigurationType,
     ectSourceARN,
     ectFrom,
     ectConfigurationSet,
@@ -289,8 +287,8 @@ module Network.AWS.CognitoIdentityProvider.Types
     ectEmailSendingAccount,
 
     -- * EventContextDataType
-    EventContextDataType,
-    eventContextDataType,
+    EventContextDataType (..),
+    mkEventContextDataType,
     ecdtIPAddress,
     ecdtCountry,
     ecdtCity,
@@ -298,22 +296,22 @@ module Network.AWS.CognitoIdentityProvider.Types
     ecdtTimezone,
 
     -- * EventFeedbackType
-    EventFeedbackType,
-    eventFeedbackType,
+    EventFeedbackType (..),
+    mkEventFeedbackType,
     eftFeedbackDate,
     eftFeedbackValue,
     eftProvider,
 
     -- * EventRiskType
-    EventRiskType,
-    eventRiskType,
+    EventRiskType (..),
+    mkEventRiskType,
     ertCompromisedCredentialsDetected,
     ertRiskLevel,
     ertRiskDecision,
 
     -- * GroupType
-    GroupType,
-    groupType,
+    GroupType (..),
+    mkGroupType,
     gtLastModifiedDate,
     gtUserPoolId,
     gtCreationDate,
@@ -323,14 +321,14 @@ module Network.AWS.CognitoIdentityProvider.Types
     gtRoleARN,
 
     -- * HTTPHeader
-    HTTPHeader,
-    hTTPHeader,
+    HTTPHeader (..),
+    mkHTTPHeader,
     httphHeaderValue,
     httphHeaderName,
 
     -- * IdentityProviderType
-    IdentityProviderType,
-    identityProviderType,
+    IdentityProviderType (..),
+    mkIdentityProviderType,
     iptLastModifiedDate,
     iptUserPoolId,
     iptProviderType,
@@ -341,8 +339,8 @@ module Network.AWS.CognitoIdentityProvider.Types
     iptProviderName,
 
     -- * LambdaConfigType
-    LambdaConfigType,
-    lambdaConfigType,
+    LambdaConfigType (..),
+    mkLambdaConfigType,
     lctPreAuthentication,
     lctCreateAuthChallenge,
     lctVerifyAuthChallengeResponse,
@@ -358,27 +356,27 @@ module Network.AWS.CognitoIdentityProvider.Types
     lctPreSignUp,
 
     -- * MFAOptionType
-    MFAOptionType,
-    mfaOptionType,
+    MFAOptionType (..),
+    mkMFAOptionType,
     motDeliveryMedium,
     motAttributeName,
 
     -- * MessageTemplateType
-    MessageTemplateType,
-    messageTemplateType,
+    MessageTemplateType (..),
+    mkMessageTemplateType,
     mttEmailSubject,
     mttSMSMessage,
     mttEmailMessage,
 
     -- * NewDeviceMetadataType
-    NewDeviceMetadataType,
-    newDeviceMetadataType,
+    NewDeviceMetadataType (..),
+    mkNewDeviceMetadataType,
     ndmtDeviceGroupKey,
     ndmtDeviceKey,
 
     -- * NotifyConfigurationType
-    NotifyConfigurationType,
-    notifyConfigurationType,
+    NotifyConfigurationType (..),
+    mkNotifyConfigurationType,
     nctNoActionEmail,
     nctFrom,
     nctReplyTo,
@@ -387,21 +385,21 @@ module Network.AWS.CognitoIdentityProvider.Types
     nctSourceARN,
 
     -- * NotifyEmailType
-    NotifyEmailType,
-    notifyEmailType,
+    NotifyEmailType (..),
+    mkNotifyEmailType,
     netTextBody,
     netHTMLBody,
     netSubject,
 
     -- * NumberAttributeConstraintsType
-    NumberAttributeConstraintsType,
-    numberAttributeConstraintsType,
+    NumberAttributeConstraintsType (..),
+    mkNumberAttributeConstraintsType,
     nactMaxValue,
     nactMinValue,
 
     -- * PasswordPolicyType
-    PasswordPolicyType,
-    passwordPolicyType,
+    PasswordPolicyType (..),
+    mkPasswordPolicyType,
     pptRequireNumbers,
     pptRequireUppercase,
     pptRequireLowercase,
@@ -410,43 +408,43 @@ module Network.AWS.CognitoIdentityProvider.Types
     pptTemporaryPasswordValidityDays,
 
     -- * ProviderDescription
-    ProviderDescription,
-    providerDescription,
+    ProviderDescription (..),
+    mkProviderDescription,
     pdLastModifiedDate,
     pdProviderType,
     pdCreationDate,
     pdProviderName,
 
     -- * ProviderUserIdentifierType
-    ProviderUserIdentifierType,
-    providerUserIdentifierType,
+    ProviderUserIdentifierType (..),
+    mkProviderUserIdentifierType,
     puitProviderAttributeValue,
     puitProviderAttributeName,
     puitProviderName,
 
     -- * RecoveryOptionType
-    RecoveryOptionType,
-    recoveryOptionType,
+    RecoveryOptionType (..),
+    mkRecoveryOptionType,
     rotPriority,
     rotName,
 
     -- * ResourceServerScopeType
-    ResourceServerScopeType,
-    resourceServerScopeType,
+    ResourceServerScopeType (..),
+    mkResourceServerScopeType,
     rsstScopeName,
     rsstScopeDescription,
 
     -- * ResourceServerType
-    ResourceServerType,
-    resourceServerType,
+    ResourceServerType (..),
+    mkResourceServerType,
     rstUserPoolId,
     rstIdentifier,
     rstScopes,
     rstName,
 
     -- * RiskConfigurationType
-    RiskConfigurationType,
-    riskConfigurationType,
+    RiskConfigurationType (..),
+    mkRiskConfigurationType,
     rctRiskExceptionConfiguration,
     rctClientId,
     rctAccountTakeoverRiskConfiguration,
@@ -455,20 +453,20 @@ module Network.AWS.CognitoIdentityProvider.Types
     rctCompromisedCredentialsRiskConfiguration,
 
     -- * RiskExceptionConfigurationType
-    RiskExceptionConfigurationType,
-    riskExceptionConfigurationType,
+    RiskExceptionConfigurationType (..),
+    mkRiskExceptionConfigurationType,
     rectSkippedIPRangeList,
     rectBlockedIPRangeList,
 
     -- * SMSMFASettingsType
-    SMSMFASettingsType,
-    sMSMFASettingsType,
+    SMSMFASettingsType (..),
+    mkSMSMFASettingsType,
     smsmstEnabled,
     smsmstPreferredMFA,
 
     -- * SchemaAttributeType
-    SchemaAttributeType,
-    schemaAttributeType,
+    SchemaAttributeType (..),
+    mkSchemaAttributeType,
     satNumberAttributeConstraints,
     satRequired,
     satAttributeDataType,
@@ -478,44 +476,44 @@ module Network.AWS.CognitoIdentityProvider.Types
     satMutable,
 
     -- * SmsConfigurationType
-    SmsConfigurationType,
-    smsConfigurationType,
+    SmsConfigurationType (..),
+    mkSmsConfigurationType,
     sctExternalId,
     sctSNSCallerARN,
 
     -- * SmsMFAConfigType
-    SmsMFAConfigType,
-    smsMFAConfigType,
+    SmsMFAConfigType (..),
+    mkSmsMFAConfigType,
     smctSmsAuthenticationMessage,
     smctSmsConfiguration,
 
     -- * SoftwareTokenMFAConfigType
-    SoftwareTokenMFAConfigType,
-    softwareTokenMFAConfigType,
+    SoftwareTokenMFAConfigType (..),
+    mkSoftwareTokenMFAConfigType,
     stmctEnabled,
 
     -- * SoftwareTokenMFASettingsType
-    SoftwareTokenMFASettingsType,
-    softwareTokenMFASettingsType,
+    SoftwareTokenMFASettingsType (..),
+    mkSoftwareTokenMFASettingsType,
     stmstEnabled,
     stmstPreferredMFA,
 
     -- * StringAttributeConstraintsType
-    StringAttributeConstraintsType,
-    stringAttributeConstraintsType,
+    StringAttributeConstraintsType (..),
+    mkStringAttributeConstraintsType,
     sactMaxLength,
     sactMinLength,
 
     -- * TokenValidityUnitsType
-    TokenValidityUnitsType,
-    tokenValidityUnitsType,
+    TokenValidityUnitsType (..),
+    mkTokenValidityUnitsType,
     tvutAccessToken,
     tvutRefreshToken,
     tvutIdToken,
 
     -- * UICustomizationType
-    UICustomizationType,
-    uICustomizationType,
+    UICustomizationType (..),
+    mkUICustomizationType,
     uictClientId,
     uictLastModifiedDate,
     uictUserPoolId,
@@ -525,13 +523,13 @@ module Network.AWS.CognitoIdentityProvider.Types
     uictCreationDate,
 
     -- * UserContextDataType
-    UserContextDataType,
-    userContextDataType,
+    UserContextDataType (..),
+    mkUserContextDataType,
     ucdtEncodedData,
 
     -- * UserImportJobType
-    UserImportJobType,
-    userImportJobType,
+    UserImportJobType (..),
+    mkUserImportJobType,
     uijtStatus,
     uijtSkippedUsers,
     uijtJobId,
@@ -547,20 +545,20 @@ module Network.AWS.CognitoIdentityProvider.Types
     uijtImportedUsers,
 
     -- * UserPoolAddOnsType
-    UserPoolAddOnsType,
-    userPoolAddOnsType,
+    UserPoolAddOnsType (..),
+    mkUserPoolAddOnsType,
     upaotAdvancedSecurityMode,
 
     -- * UserPoolClientDescription
-    UserPoolClientDescription,
-    userPoolClientDescription,
+    UserPoolClientDescription (..),
+    mkUserPoolClientDescription,
     upcdClientId,
     upcdUserPoolId,
     upcdClientName,
 
     -- * UserPoolClientType
-    UserPoolClientType,
-    userPoolClientType,
+    UserPoolClientType (..),
+    mkUserPoolClientType,
     upctRefreshTokenValidity,
     upctClientId,
     upctExplicitAuthFlows,
@@ -585,8 +583,8 @@ module Network.AWS.CognitoIdentityProvider.Types
     upctCallbackURLs,
 
     -- * UserPoolDescriptionType
-    UserPoolDescriptionType,
-    userPoolDescriptionType,
+    UserPoolDescriptionType (..),
+    mkUserPoolDescriptionType,
     updtStatus,
     updtLastModifiedDate,
     updtName,
@@ -595,13 +593,13 @@ module Network.AWS.CognitoIdentityProvider.Types
     updtLambdaConfig,
 
     -- * UserPoolPolicyType
-    UserPoolPolicyType,
-    userPoolPolicyType,
+    UserPoolPolicyType (..),
+    mkUserPoolPolicyType,
     upptPasswordPolicy,
 
     -- * UserPoolType
-    UserPoolType,
-    userPoolType,
+    UserPoolType (..),
+    mkUserPoolType,
     uptStatus,
     uptUserPoolTags,
     uptEmailConfigurationFailure,
@@ -635,8 +633,8 @@ module Network.AWS.CognitoIdentityProvider.Types
     uptUsernameConfiguration,
 
     -- * UserType
-    UserType,
-    userType,
+    UserType (..),
+    mkUserType,
     utEnabled,
     utUserStatus,
     utUsername,
@@ -646,13 +644,13 @@ module Network.AWS.CognitoIdentityProvider.Types
     utUserLastModifiedDate,
 
     -- * UsernameConfigurationType
-    UsernameConfigurationType,
-    usernameConfigurationType,
+    UsernameConfigurationType (..),
+    mkUsernameConfigurationType,
     uctCaseSensitive,
 
     -- * VerificationMessageTemplateType
-    VerificationMessageTemplateType,
-    verificationMessageTemplateType,
+    VerificationMessageTemplateType (..),
+    mkVerificationMessageTemplateType,
     vmttDefaultEmailOption,
     vmttEmailSubject,
     vmttEmailSubjectByLink,
@@ -762,48 +760,61 @@ import Network.AWS.CognitoIdentityProvider.Types.UsernameConfigurationType
 import Network.AWS.CognitoIdentityProvider.Types.VerificationMessageTemplateType
 import Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType
 import Network.AWS.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-04-18@ of the Amazon Cognito Identity Provider SDK configuration.
-cognitoIdentityProvider :: Service
-cognitoIdentityProvider =
-  Service
-    { _svcAbbrev = "CognitoIdentityProvider",
-      _svcSigner = v4,
-      _svcPrefix = "cognito-idp",
-      _svcVersion = "2016-04-18",
-      _svcEndpoint = defaultEndpoint cognitoIdentityProvider,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "CognitoIdentityProvider",
-      _svcRetry = retry
+cognitoIdentityProviderService :: Lude.Service
+cognitoIdentityProviderService =
+  Lude.Service
+    { Lude._svcAbbrev = "CognitoIdentityProvider",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "cognito-idp",
+      Lude._svcVersion = "2016-04-18",
+      Lude._svcEndpoint =
+        Lude.defaultEndpoint cognitoIdentityProviderService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "CognitoIdentityProvider",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

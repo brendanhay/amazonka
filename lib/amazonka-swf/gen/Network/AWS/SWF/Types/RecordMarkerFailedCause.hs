@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.RecordMarkerFailedCause where
+module Network.AWS.SWF.Types.RecordMarkerFailedCause
+  ( RecordMarkerFailedCause
+      ( RecordMarkerFailedCause',
+        OperationNotPermitted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RecordMarkerFailedCause = OperationNotPermitted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RecordMarkerFailedCause = RecordMarkerFailedCause' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RecordMarkerFailedCause where
-  parser =
-    takeLowerText >>= \case
-      "operation_not_permitted" -> pure OperationNotPermitted
-      e ->
-        fromTextError $
-          "Failure parsing RecordMarkerFailedCause from value: '" <> e
-            <> "'. Accepted values: operation_not_permitted"
+pattern OperationNotPermitted :: RecordMarkerFailedCause
+pattern OperationNotPermitted = RecordMarkerFailedCause' "OPERATION_NOT_PERMITTED"
 
-instance ToText RecordMarkerFailedCause where
-  toText = \case
-    OperationNotPermitted -> "OPERATION_NOT_PERMITTED"
-
-instance Hashable RecordMarkerFailedCause
-
-instance NFData RecordMarkerFailedCause
-
-instance ToByteString RecordMarkerFailedCause
-
-instance ToQuery RecordMarkerFailedCause
-
-instance ToHeader RecordMarkerFailedCause
-
-instance FromJSON RecordMarkerFailedCause where
-  parseJSON = parseJSONText "RecordMarkerFailedCause"
+{-# COMPLETE
+  OperationNotPermitted,
+  RecordMarkerFailedCause'
+  #-}

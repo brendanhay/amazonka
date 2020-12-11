@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,173 @@
 --
 -- Returns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a @NextToken@ is also returned. Use the @NextToken@ parameter in a new @ListSubscriptionsByTopic@ call to get further results.
 --
---
 -- This action is throttled at 30 transactions per second (TPS).
---
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptionsByTopic
-  ( -- * Creating a Request
-    listSubscriptionsByTopic,
-    ListSubscriptionsByTopic,
+  ( -- * Creating a request
+    ListSubscriptionsByTopic (..),
+    mkListSubscriptionsByTopic,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsbtNextToken,
     lsbtTopicARN,
 
-    -- * Destructuring the Response
-    listSubscriptionsByTopicResponse,
-    ListSubscriptionsByTopicResponse,
+    -- * Destructuring the response
+    ListSubscriptionsByTopicResponse (..),
+    mkListSubscriptionsByTopicResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsbtrsNextToken,
     lsbtrsSubscriptions,
     lsbtrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
 -- | Input for ListSubscriptionsByTopic action.
 --
---
---
--- /See:/ 'listSubscriptionsByTopic' smart constructor.
+-- /See:/ 'mkListSubscriptionsByTopic' smart constructor.
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
-  { _lsbtNextToken ::
-      !(Maybe Text),
-    _lsbtTopicARN :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    topicARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionsByTopic' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsbtNextToken' - Token returned by the previous @ListSubscriptionsByTopic@ request.
---
--- * 'lsbtTopicARN' - The ARN of the topic for which you wish to find subscriptions.
-listSubscriptionsByTopic ::
-  -- | 'lsbtTopicARN'
-  Text ->
+-- * 'nextToken' - Token returned by the previous @ListSubscriptionsByTopic@ request.
+-- * 'topicARN' - The ARN of the topic for which you wish to find subscriptions.
+mkListSubscriptionsByTopic ::
+  -- | 'topicARN'
+  Lude.Text ->
   ListSubscriptionsByTopic
-listSubscriptionsByTopic pTopicARN_ =
+mkListSubscriptionsByTopic pTopicARN_ =
   ListSubscriptionsByTopic'
-    { _lsbtNextToken = Nothing,
-      _lsbtTopicARN = pTopicARN_
+    { nextToken = Lude.Nothing,
+      topicARN = pTopicARN_
     }
 
 -- | Token returned by the previous @ListSubscriptionsByTopic@ request.
-lsbtNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
-lsbtNextToken = lens _lsbtNextToken (\s a -> s {_lsbtNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsbtNextToken :: Lens.Lens' ListSubscriptionsByTopic (Lude.Maybe Lude.Text)
+lsbtNextToken = Lens.lens (nextToken :: ListSubscriptionsByTopic -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSubscriptionsByTopic)
+{-# DEPRECATED lsbtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ARN of the topic for which you wish to find subscriptions.
-lsbtTopicARN :: Lens' ListSubscriptionsByTopic Text
-lsbtTopicARN = lens _lsbtTopicARN (\s a -> s {_lsbtTopicARN = a})
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsbtTopicARN :: Lens.Lens' ListSubscriptionsByTopic Lude.Text
+lsbtTopicARN = Lens.lens (topicARN :: ListSubscriptionsByTopic -> Lude.Text) (\s a -> s {topicARN = a} :: ListSubscriptionsByTopic)
+{-# DEPRECATED lsbtTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
-instance AWSPager ListSubscriptionsByTopic where
+instance Page.AWSPager ListSubscriptionsByTopic where
   page rq rs
-    | stop (rs ^. lsbtrsNextToken) = Nothing
-    | stop (rs ^. lsbtrsSubscriptions) = Nothing
-    | otherwise = Just $ rq & lsbtNextToken .~ rs ^. lsbtrsNextToken
+    | Page.stop (rs Lens.^. lsbtrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsbtrsSubscriptions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lsbtNextToken Lens..~ rs Lens.^. lsbtrsNextToken
 
-instance AWSRequest ListSubscriptionsByTopic where
+instance Lude.AWSRequest ListSubscriptionsByTopic where
   type Rs ListSubscriptionsByTopic = ListSubscriptionsByTopicResponse
-  request = postQuery sns
+  request = Req.postQuery snsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListSubscriptionsByTopicResult"
       ( \s h x ->
           ListSubscriptionsByTopicResponse'
-            <$> (x .@? "NextToken")
-            <*> (x .@? "Subscriptions" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<*> ( x Lude..@? "Subscriptions" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListSubscriptionsByTopic
+instance Lude.ToHeaders ListSubscriptionsByTopic where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListSubscriptionsByTopic
+instance Lude.ToPath ListSubscriptionsByTopic where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListSubscriptionsByTopic where
-  toHeaders = const mempty
-
-instance ToPath ListSubscriptionsByTopic where
-  toPath = const "/"
-
-instance ToQuery ListSubscriptionsByTopic where
+instance Lude.ToQuery ListSubscriptionsByTopic where
   toQuery ListSubscriptionsByTopic' {..} =
-    mconcat
-      [ "Action" =: ("ListSubscriptionsByTopic" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "NextToken" =: _lsbtNextToken,
-        "TopicArn" =: _lsbtTopicARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListSubscriptionsByTopic" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
+        "TopicArn" Lude.=: topicARN
       ]
 
 -- | Response for ListSubscriptionsByTopic action.
 --
---
---
--- /See:/ 'listSubscriptionsByTopicResponse' smart constructor.
+-- /See:/ 'mkListSubscriptionsByTopicResponse' smart constructor.
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
-  { _lsbtrsNextToken ::
-      !(Maybe Text),
-    _lsbtrsSubscriptions ::
-      !(Maybe [Subscription]),
-    _lsbtrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    subscriptions ::
+      Lude.Maybe [Subscription],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionsByTopicResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsbtrsNextToken' - Token to pass along to the next @ListSubscriptionsByTopic@ request. This element is returned if there are more subscriptions to retrieve.
---
--- * 'lsbtrsSubscriptions' - A list of subscriptions.
---
--- * 'lsbtrsResponseStatus' - -- | The response status code.
-listSubscriptionsByTopicResponse ::
-  -- | 'lsbtrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Token to pass along to the next @ListSubscriptionsByTopic@ request. This element is returned if there are more subscriptions to retrieve.
+-- * 'responseStatus' - The response status code.
+-- * 'subscriptions' - A list of subscriptions.
+mkListSubscriptionsByTopicResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSubscriptionsByTopicResponse
-listSubscriptionsByTopicResponse pResponseStatus_ =
+mkListSubscriptionsByTopicResponse pResponseStatus_ =
   ListSubscriptionsByTopicResponse'
-    { _lsbtrsNextToken = Nothing,
-      _lsbtrsSubscriptions = Nothing,
-      _lsbtrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      subscriptions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This element is returned if there are more subscriptions to retrieve.
-lsbtrsNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
-lsbtrsNextToken = lens _lsbtrsNextToken (\s a -> s {_lsbtrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsbtrsNextToken :: Lens.Lens' ListSubscriptionsByTopicResponse (Lude.Maybe Lude.Text)
+lsbtrsNextToken = Lens.lens (nextToken :: ListSubscriptionsByTopicResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSubscriptionsByTopicResponse)
+{-# DEPRECATED lsbtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of subscriptions.
-lsbtrsSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
-lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\s a -> s {_lsbtrsSubscriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsbtrsSubscriptions :: Lens.Lens' ListSubscriptionsByTopicResponse (Lude.Maybe [Subscription])
+lsbtrsSubscriptions = Lens.lens (subscriptions :: ListSubscriptionsByTopicResponse -> Lude.Maybe [Subscription]) (\s a -> s {subscriptions = a} :: ListSubscriptionsByTopicResponse)
+{-# DEPRECATED lsbtrsSubscriptions "Use generic-lens or generic-optics with 'subscriptions' instead." #-}
 
--- | -- | The response status code.
-lsbtrsResponseStatus :: Lens' ListSubscriptionsByTopicResponse Int
-lsbtrsResponseStatus = lens _lsbtrsResponseStatus (\s a -> s {_lsbtrsResponseStatus = a})
-
-instance NFData ListSubscriptionsByTopicResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsbtrsResponseStatus :: Lens.Lens' ListSubscriptionsByTopicResponse Lude.Int
+lsbtrsResponseStatus = Lens.lens (responseStatus :: ListSubscriptionsByTopicResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSubscriptionsByTopicResponse)
+{-# DEPRECATED lsbtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

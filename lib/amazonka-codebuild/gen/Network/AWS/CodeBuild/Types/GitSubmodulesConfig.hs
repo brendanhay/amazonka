@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.GitSubmodulesConfig where
+module Network.AWS.CodeBuild.Types.GitSubmodulesConfig
+  ( GitSubmodulesConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGitSubmodulesConfig,
+
+    -- * Lenses
+    gscFetchSubmodules,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the Git submodules configuration for an AWS CodeBuild build project.
 --
---
---
--- /See:/ 'gitSubmodulesConfig' smart constructor.
+-- /See:/ 'mkGitSubmodulesConfig' smart constructor.
 newtype GitSubmodulesConfig = GitSubmodulesConfig'
-  { _gscFetchSubmodules ::
-      Bool
+  { fetchSubmodules ::
+      Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GitSubmodulesConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gscFetchSubmodules' - Set to true to fetch Git submodules for your AWS CodeBuild build project.
-gitSubmodulesConfig ::
-  -- | 'gscFetchSubmodules'
-  Bool ->
+-- * 'fetchSubmodules' - Set to true to fetch Git submodules for your AWS CodeBuild build project.
+mkGitSubmodulesConfig ::
+  -- | 'fetchSubmodules'
+  Lude.Bool ->
   GitSubmodulesConfig
-gitSubmodulesConfig pFetchSubmodules_ =
-  GitSubmodulesConfig' {_gscFetchSubmodules = pFetchSubmodules_}
+mkGitSubmodulesConfig pFetchSubmodules_ =
+  GitSubmodulesConfig' {fetchSubmodules = pFetchSubmodules_}
 
 -- | Set to true to fetch Git submodules for your AWS CodeBuild build project.
-gscFetchSubmodules :: Lens' GitSubmodulesConfig Bool
-gscFetchSubmodules = lens _gscFetchSubmodules (\s a -> s {_gscFetchSubmodules = a})
+--
+-- /Note:/ Consider using 'fetchSubmodules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscFetchSubmodules :: Lens.Lens' GitSubmodulesConfig Lude.Bool
+gscFetchSubmodules = Lens.lens (fetchSubmodules :: GitSubmodulesConfig -> Lude.Bool) (\s a -> s {fetchSubmodules = a} :: GitSubmodulesConfig)
+{-# DEPRECATED gscFetchSubmodules "Use generic-lens or generic-optics with 'fetchSubmodules' instead." #-}
 
-instance FromJSON GitSubmodulesConfig where
+instance Lude.FromJSON GitSubmodulesConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "GitSubmodulesConfig"
-      (\x -> GitSubmodulesConfig' <$> (x .: "fetchSubmodules"))
+      ( \x ->
+          GitSubmodulesConfig' Lude.<$> (x Lude..: "fetchSubmodules")
+      )
 
-instance Hashable GitSubmodulesConfig
-
-instance NFData GitSubmodulesConfig
-
-instance ToJSON GitSubmodulesConfig where
+instance Lude.ToJSON GitSubmodulesConfig where
   toJSON GitSubmodulesConfig' {..} =
-    object
-      (catMaybes [Just ("fetchSubmodules" .= _gscFetchSubmodules)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("fetchSubmodules" Lude..= fetchSubmodules)]
+      )

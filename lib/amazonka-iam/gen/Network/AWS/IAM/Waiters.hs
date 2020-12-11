@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -11,63 +10,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Waiters where
+module Network.AWS.IAM.Waiters
+  ( -- * InstanceProfileExists
+    mkInstanceProfileExists,
+
+    -- * UserExists
+    mkUserExists,
+
+    -- * RoleExists
+    mkRoleExists,
+
+    -- * PolicyExists
+    mkPolicyExists,
+  )
+where
 
 import Network.AWS.IAM.GetInstanceProfile
 import Network.AWS.IAM.GetPolicy
 import Network.AWS.IAM.GetRole
 import Network.AWS.IAM.GetUser
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Waiter as Wait
 
 -- | Polls 'Network.AWS.IAM.GetInstanceProfile' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
-instanceProfileExists :: Wait GetInstanceProfile
-instanceProfileExists =
-  Wait
-    { _waitName = "InstanceProfileExists",
-      _waitAttempts = 40,
-      _waitDelay = 1,
-      _waitAcceptors =
-        [matchStatus 200 AcceptSuccess, matchStatus 404 AcceptRetry]
+mkInstanceProfileExists :: Wait.Wait GetInstanceProfile
+mkInstanceProfileExists =
+  Wait.Wait
+    { Wait._waitName = "InstanceProfileExists",
+      Wait._waitAttempts = 40,
+      Wait._waitDelay = 1,
+      Wait._waitAcceptors =
+        [ Wait.matchStatus 200 Wait.AcceptSuccess,
+          Wait.matchStatus 404 Wait.AcceptRetry
+        ]
     }
 
 -- | Polls 'Network.AWS.IAM.GetUser' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
-userExists :: Wait GetUser
-userExists =
-  Wait
-    { _waitName = "UserExists",
-      _waitAttempts = 20,
-      _waitDelay = 1,
-      _waitAcceptors =
-        [ matchStatus 200 AcceptSuccess,
-          matchError "NoSuchEntity" AcceptRetry
+mkUserExists :: Wait.Wait GetUser
+mkUserExists =
+  Wait.Wait
+    { Wait._waitName = "UserExists",
+      Wait._waitAttempts = 20,
+      Wait._waitDelay = 1,
+      Wait._waitAcceptors =
+        [ Wait.matchStatus 200 Wait.AcceptSuccess,
+          Wait.matchError "NoSuchEntity" Wait.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.IAM.GetRole' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
-roleExists :: Wait GetRole
-roleExists =
-  Wait
-    { _waitName = "RoleExists",
-      _waitAttempts = 20,
-      _waitDelay = 1,
-      _waitAcceptors =
-        [ matchStatus 200 AcceptSuccess,
-          matchError "NoSuchEntity" AcceptRetry
+mkRoleExists :: Wait.Wait GetRole
+mkRoleExists =
+  Wait.Wait
+    { Wait._waitName = "RoleExists",
+      Wait._waitAttempts = 20,
+      Wait._waitDelay = 1,
+      Wait._waitAcceptors =
+        [ Wait.matchStatus 200 Wait.AcceptSuccess,
+          Wait.matchError "NoSuchEntity" Wait.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.IAM.GetPolicy' every 1 seconds until a successful state is reached. An error is returned after 20 failed checks.
-policyExists :: Wait GetPolicy
-policyExists =
-  Wait
-    { _waitName = "PolicyExists",
-      _waitAttempts = 20,
-      _waitDelay = 1,
-      _waitAcceptors =
-        [ matchStatus 200 AcceptSuccess,
-          matchError "NoSuchEntity" AcceptRetry
+mkPolicyExists :: Wait.Wait GetPolicy
+mkPolicyExists =
+  Wait.Wait
+    { Wait._waitName = "PolicyExists",
+      Wait._waitAttempts = 20,
+      Wait._waitDelay = 1,
+      Wait._waitAcceptors =
+        [ Wait.matchStatus 200 Wait.AcceptSuccess,
+          Wait.matchError "NoSuchEntity" Wait.AcceptRetry
         ]
     }

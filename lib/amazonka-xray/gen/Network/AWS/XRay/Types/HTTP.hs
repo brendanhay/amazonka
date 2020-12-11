@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.HTTP where
+module Network.AWS.XRay.Types.HTTP
+  ( HTTP (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHTTP,
+
+    -- * Lenses
+    httpHTTPMethod,
+    httpHTTPStatus,
+    httpClientIP,
+    httpUserAgent,
+    httpHTTPURL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an HTTP request.
 --
---
---
--- /See:/ 'hTTP' smart constructor.
+-- /See:/ 'mkHTTP' smart constructor.
 data HTTP = HTTP'
-  { _httpHTTPMethod :: !(Maybe Text),
-    _httpHTTPStatus :: !(Maybe Int),
-    _httpClientIP :: !(Maybe Text),
-    _httpUserAgent :: !(Maybe Text),
-    _httpHTTPURL :: !(Maybe Text)
+  { hTTPMethod :: Lude.Maybe Lude.Text,
+    httpstatus :: Lude.Maybe Lude.Int,
+    clientIP :: Lude.Maybe Lude.Text,
+    userAgent :: Lude.Maybe Lude.Text,
+    hTTPURL :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpHTTPMethod' - The request method.
---
--- * 'httpHTTPStatus' - The response status.
---
--- * 'httpClientIP' - The IP address of the requestor.
---
--- * 'httpUserAgent' - The request's user agent string.
---
--- * 'httpHTTPURL' - The request URL.
-hTTP ::
+-- * 'clientIP' - The IP address of the requestor.
+-- * 'hTTPMethod' - The request method.
+-- * 'hTTPURL' - The request URL.
+-- * 'httpstatus' - The response status.
+-- * 'userAgent' - The request's user agent string.
+mkHTTP ::
   HTTP
-hTTP =
+mkHTTP =
   HTTP'
-    { _httpHTTPMethod = Nothing,
-      _httpHTTPStatus = Nothing,
-      _httpClientIP = Nothing,
-      _httpUserAgent = Nothing,
-      _httpHTTPURL = Nothing
+    { hTTPMethod = Lude.Nothing,
+      httpstatus = Lude.Nothing,
+      clientIP = Lude.Nothing,
+      userAgent = Lude.Nothing,
+      hTTPURL = Lude.Nothing
     }
 
 -- | The request method.
-httpHTTPMethod :: Lens' HTTP (Maybe Text)
-httpHTTPMethod = lens _httpHTTPMethod (\s a -> s {_httpHTTPMethod = a})
+--
+-- /Note:/ Consider using 'hTTPMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpHTTPMethod :: Lens.Lens' HTTP (Lude.Maybe Lude.Text)
+httpHTTPMethod = Lens.lens (hTTPMethod :: HTTP -> Lude.Maybe Lude.Text) (\s a -> s {hTTPMethod = a} :: HTTP)
+{-# DEPRECATED httpHTTPMethod "Use generic-lens or generic-optics with 'hTTPMethod' instead." #-}
 
 -- | The response status.
-httpHTTPStatus :: Lens' HTTP (Maybe Int)
-httpHTTPStatus = lens _httpHTTPStatus (\s a -> s {_httpHTTPStatus = a})
+--
+-- /Note:/ Consider using 'httpstatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpHTTPStatus :: Lens.Lens' HTTP (Lude.Maybe Lude.Int)
+httpHTTPStatus = Lens.lens (httpstatus :: HTTP -> Lude.Maybe Lude.Int) (\s a -> s {httpstatus = a} :: HTTP)
+{-# DEPRECATED httpHTTPStatus "Use generic-lens or generic-optics with 'httpstatus' instead." #-}
 
 -- | The IP address of the requestor.
-httpClientIP :: Lens' HTTP (Maybe Text)
-httpClientIP = lens _httpClientIP (\s a -> s {_httpClientIP = a})
+--
+-- /Note:/ Consider using 'clientIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpClientIP :: Lens.Lens' HTTP (Lude.Maybe Lude.Text)
+httpClientIP = Lens.lens (clientIP :: HTTP -> Lude.Maybe Lude.Text) (\s a -> s {clientIP = a} :: HTTP)
+{-# DEPRECATED httpClientIP "Use generic-lens or generic-optics with 'clientIP' instead." #-}
 
 -- | The request's user agent string.
-httpUserAgent :: Lens' HTTP (Maybe Text)
-httpUserAgent = lens _httpUserAgent (\s a -> s {_httpUserAgent = a})
+--
+-- /Note:/ Consider using 'userAgent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpUserAgent :: Lens.Lens' HTTP (Lude.Maybe Lude.Text)
+httpUserAgent = Lens.lens (userAgent :: HTTP -> Lude.Maybe Lude.Text) (\s a -> s {userAgent = a} :: HTTP)
+{-# DEPRECATED httpUserAgent "Use generic-lens or generic-optics with 'userAgent' instead." #-}
 
 -- | The request URL.
-httpHTTPURL :: Lens' HTTP (Maybe Text)
-httpHTTPURL = lens _httpHTTPURL (\s a -> s {_httpHTTPURL = a})
+--
+-- /Note:/ Consider using 'hTTPURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpHTTPURL :: Lens.Lens' HTTP (Lude.Maybe Lude.Text)
+httpHTTPURL = Lens.lens (hTTPURL :: HTTP -> Lude.Maybe Lude.Text) (\s a -> s {hTTPURL = a} :: HTTP)
+{-# DEPRECATED httpHTTPURL "Use generic-lens or generic-optics with 'hTTPURL' instead." #-}
 
-instance FromJSON HTTP where
+instance Lude.FromJSON HTTP where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTP"
       ( \x ->
           HTTP'
-            <$> (x .:? "HttpMethod")
-            <*> (x .:? "HttpStatus")
-            <*> (x .:? "ClientIp")
-            <*> (x .:? "UserAgent")
-            <*> (x .:? "HttpURL")
+            Lude.<$> (x Lude..:? "HttpMethod")
+            Lude.<*> (x Lude..:? "HttpStatus")
+            Lude.<*> (x Lude..:? "ClientIp")
+            Lude.<*> (x Lude..:? "UserAgent")
+            Lude.<*> (x Lude..:? "HttpURL")
       )
-
-instance Hashable HTTP
-
-instance NFData HTTP

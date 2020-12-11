@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,175 @@
 --
 -- Retrieves information about all the versions of a specific message template.
 module Network.AWS.Pinpoint.ListTemplateVersions
-  ( -- * Creating a Request
-    listTemplateVersions,
-    ListTemplateVersions,
+  ( -- * Creating a request
+    ListTemplateVersions (..),
+    mkListTemplateVersions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltvNextToken,
     ltvPageSize,
     ltvTemplateName,
     ltvTemplateType,
 
-    -- * Destructuring the Response
-    listTemplateVersionsResponse,
-    ListTemplateVersionsResponse,
+    -- * Destructuring the response
+    ListTemplateVersionsResponse (..),
+    mkListTemplateVersionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltvrsResponseStatus,
     ltvrsTemplateVersionsResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTemplateVersions' smart constructor.
+-- | /See:/ 'mkListTemplateVersions' smart constructor.
 data ListTemplateVersions = ListTemplateVersions'
-  { _ltvNextToken ::
-      !(Maybe Text),
-    _ltvPageSize :: !(Maybe Text),
-    _ltvTemplateName :: !Text,
-    _ltvTemplateType :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Text,
+    templateName :: Lude.Text,
+    templateType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTemplateVersions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltvNextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- * 'ltvPageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- * 'ltvTemplateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
---
--- * 'ltvTemplateType' - The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
-listTemplateVersions ::
-  -- | 'ltvTemplateName'
-  Text ->
-  -- | 'ltvTemplateType'
-  Text ->
+-- * 'nextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+-- * 'templateType' - The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
+mkListTemplateVersions ::
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'templateType'
+  Lude.Text ->
   ListTemplateVersions
-listTemplateVersions pTemplateName_ pTemplateType_ =
+mkListTemplateVersions pTemplateName_ pTemplateType_ =
   ListTemplateVersions'
-    { _ltvNextToken = Nothing,
-      _ltvPageSize = Nothing,
-      _ltvTemplateName = pTemplateName_,
-      _ltvTemplateType = pTemplateType_
+    { nextToken = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      templateName = pTemplateName_,
+      templateType = pTemplateType_
     }
 
 -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-ltvNextToken :: Lens' ListTemplateVersions (Maybe Text)
-ltvNextToken = lens _ltvNextToken (\s a -> s {_ltvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvNextToken :: Lens.Lens' ListTemplateVersions (Lude.Maybe Lude.Text)
+ltvNextToken = Lens.lens (nextToken :: ListTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTemplateVersions)
+{-# DEPRECATED ltvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-ltvPageSize :: Lens' ListTemplateVersions (Maybe Text)
-ltvPageSize = lens _ltvPageSize (\s a -> s {_ltvPageSize = a})
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvPageSize :: Lens.Lens' ListTemplateVersions (Lude.Maybe Lude.Text)
+ltvPageSize = Lens.lens (pageSize :: ListTemplateVersions -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: ListTemplateVersions)
+{-# DEPRECATED ltvPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-ltvTemplateName :: Lens' ListTemplateVersions Text
-ltvTemplateName = lens _ltvTemplateName (\s a -> s {_ltvTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvTemplateName :: Lens.Lens' ListTemplateVersions Lude.Text
+ltvTemplateName = Lens.lens (templateName :: ListTemplateVersions -> Lude.Text) (\s a -> s {templateName = a} :: ListTemplateVersions)
+{-# DEPRECATED ltvTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.
-ltvTemplateType :: Lens' ListTemplateVersions Text
-ltvTemplateType = lens _ltvTemplateType (\s a -> s {_ltvTemplateType = a})
+--
+-- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvTemplateType :: Lens.Lens' ListTemplateVersions Lude.Text
+ltvTemplateType = Lens.lens (templateType :: ListTemplateVersions -> Lude.Text) (\s a -> s {templateType = a} :: ListTemplateVersions)
+{-# DEPRECATED ltvTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
 
-instance AWSRequest ListTemplateVersions where
+instance Lude.AWSRequest ListTemplateVersions where
   type Rs ListTemplateVersions = ListTemplateVersionsResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTemplateVersionsResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable ListTemplateVersions
-
-instance NFData ListTemplateVersions
-
-instance ToHeaders ListTemplateVersions where
+instance Lude.ToHeaders ListTemplateVersions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListTemplateVersions where
+instance Lude.ToPath ListTemplateVersions where
   toPath ListTemplateVersions' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/templates/",
-        toBS _ltvTemplateName,
+        Lude.toBS templateName,
         "/",
-        toBS _ltvTemplateType,
+        Lude.toBS templateType,
         "/versions"
       ]
 
-instance ToQuery ListTemplateVersions where
+instance Lude.ToQuery ListTemplateVersions where
   toQuery ListTemplateVersions' {..} =
-    mconcat
-      ["next-token" =: _ltvNextToken, "page-size" =: _ltvPageSize]
+    Lude.mconcat
+      ["next-token" Lude.=: nextToken, "page-size" Lude.=: pageSize]
 
--- | /See:/ 'listTemplateVersionsResponse' smart constructor.
+-- | /See:/ 'mkListTemplateVersionsResponse' smart constructor.
 data ListTemplateVersionsResponse = ListTemplateVersionsResponse'
-  { _ltvrsResponseStatus ::
-      !Int,
-    _ltvrsTemplateVersionsResponse ::
-      !TemplateVersionsResponse
+  { responseStatus ::
+      Lude.Int,
+    templateVersionsResponse ::
+      TemplateVersionsResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTemplateVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltvrsResponseStatus' - -- | The response status code.
---
--- * 'ltvrsTemplateVersionsResponse' - Undocumented member.
-listTemplateVersionsResponse ::
-  -- | 'ltvrsResponseStatus'
-  Int ->
-  -- | 'ltvrsTemplateVersionsResponse'
+-- * 'responseStatus' - The response status code.
+-- * 'templateVersionsResponse' - Undocumented field.
+mkListTemplateVersionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'templateVersionsResponse'
   TemplateVersionsResponse ->
   ListTemplateVersionsResponse
-listTemplateVersionsResponse
+mkListTemplateVersionsResponse
   pResponseStatus_
   pTemplateVersionsResponse_ =
     ListTemplateVersionsResponse'
-      { _ltvrsResponseStatus =
-          pResponseStatus_,
-        _ltvrsTemplateVersionsResponse = pTemplateVersionsResponse_
+      { responseStatus = pResponseStatus_,
+        templateVersionsResponse = pTemplateVersionsResponse_
       }
 
--- | -- | The response status code.
-ltvrsResponseStatus :: Lens' ListTemplateVersionsResponse Int
-ltvrsResponseStatus = lens _ltvrsResponseStatus (\s a -> s {_ltvrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvrsResponseStatus :: Lens.Lens' ListTemplateVersionsResponse Lude.Int
+ltvrsResponseStatus = Lens.lens (responseStatus :: ListTemplateVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTemplateVersionsResponse)
+{-# DEPRECATED ltvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-ltvrsTemplateVersionsResponse :: Lens' ListTemplateVersionsResponse TemplateVersionsResponse
-ltvrsTemplateVersionsResponse = lens _ltvrsTemplateVersionsResponse (\s a -> s {_ltvrsTemplateVersionsResponse = a})
-
-instance NFData ListTemplateVersionsResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'templateVersionsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltvrsTemplateVersionsResponse :: Lens.Lens' ListTemplateVersionsResponse TemplateVersionsResponse
+ltvrsTemplateVersionsResponse = Lens.lens (templateVersionsResponse :: ListTemplateVersionsResponse -> TemplateVersionsResponse) (\s a -> s {templateVersionsResponse = a} :: ListTemplateVersionsResponse)
+{-# DEPRECATED ltvrsTemplateVersionsResponse "Use generic-lens or generic-optics with 'templateVersionsResponse' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.RecordMarkerDecisionAttributes where
+module Network.AWS.SWF.Types.RecordMarkerDecisionAttributes
+  ( RecordMarkerDecisionAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRecordMarkerDecisionAttributes,
+
+    -- * Lenses
+    rmdaDetails,
+    rmdaMarkerName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides the details of the @RecordMarker@ decision.
 --
---
 -- __Access Control__
---
 -- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
 --
+--
 --     * Use an @Action@ element to allow or deny permission to call this action.
+--
 --
 --     * You cannot use an IAM policy to constrain this action's parameters.
 --
 --
---
 -- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 --
---
--- /See:/ 'recordMarkerDecisionAttributes' smart constructor.
+-- /See:/ 'mkRecordMarkerDecisionAttributes' smart constructor.
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes'
-  { _rmdaDetails ::
-      !(Maybe Text),
-    _rmdaMarkerName :: !Text
+  { details ::
+      Lude.Maybe Lude.Text,
+    markerName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordMarkerDecisionAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rmdaDetails' - The details of the marker.
---
--- * 'rmdaMarkerName' - The name of the marker.
-recordMarkerDecisionAttributes ::
-  -- | 'rmdaMarkerName'
-  Text ->
+-- * 'details' - The details of the marker.
+-- * 'markerName' - The name of the marker.
+mkRecordMarkerDecisionAttributes ::
+  -- | 'markerName'
+  Lude.Text ->
   RecordMarkerDecisionAttributes
-recordMarkerDecisionAttributes pMarkerName_ =
+mkRecordMarkerDecisionAttributes pMarkerName_ =
   RecordMarkerDecisionAttributes'
-    { _rmdaDetails = Nothing,
-      _rmdaMarkerName = pMarkerName_
+    { details = Lude.Nothing,
+      markerName = pMarkerName_
     }
 
 -- | The details of the marker.
-rmdaDetails :: Lens' RecordMarkerDecisionAttributes (Maybe Text)
-rmdaDetails = lens _rmdaDetails (\s a -> s {_rmdaDetails = a})
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmdaDetails :: Lens.Lens' RecordMarkerDecisionAttributes (Lude.Maybe Lude.Text)
+rmdaDetails = Lens.lens (details :: RecordMarkerDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: RecordMarkerDecisionAttributes)
+{-# DEPRECATED rmdaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The name of the marker.
-rmdaMarkerName :: Lens' RecordMarkerDecisionAttributes Text
-rmdaMarkerName = lens _rmdaMarkerName (\s a -> s {_rmdaMarkerName = a})
+--
+-- /Note:/ Consider using 'markerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmdaMarkerName :: Lens.Lens' RecordMarkerDecisionAttributes Lude.Text
+rmdaMarkerName = Lens.lens (markerName :: RecordMarkerDecisionAttributes -> Lude.Text) (\s a -> s {markerName = a} :: RecordMarkerDecisionAttributes)
+{-# DEPRECATED rmdaMarkerName "Use generic-lens or generic-optics with 'markerName' instead." #-}
 
-instance Hashable RecordMarkerDecisionAttributes
-
-instance NFData RecordMarkerDecisionAttributes
-
-instance ToJSON RecordMarkerDecisionAttributes where
+instance Lude.ToJSON RecordMarkerDecisionAttributes where
   toJSON RecordMarkerDecisionAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("details" .=) <$> _rmdaDetails,
-            Just ("markerName" .= _rmdaMarkerName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("details" Lude..=) Lude.<$> details,
+            Lude.Just ("markerName" Lude..= markerName)
           ]
       )

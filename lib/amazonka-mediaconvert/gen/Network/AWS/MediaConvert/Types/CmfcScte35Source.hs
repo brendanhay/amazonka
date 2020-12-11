@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmfcScte35Source where
+module Network.AWS.MediaConvert.Types.CmfcScte35Source
+  ( CmfcScte35Source
+      ( CmfcScte35Source',
+        CSSNone,
+        CSSPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
-data CmfcScte35Source
-  = CSSNone
-  | CSSPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CmfcScte35Source = CmfcScte35Source' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CmfcScte35Source where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure CSSNone
-      "passthrough" -> pure CSSPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing CmfcScte35Source from value: '" <> e
-            <> "'. Accepted values: none, passthrough"
+pattern CSSNone :: CmfcScte35Source
+pattern CSSNone = CmfcScte35Source' "NONE"
 
-instance ToText CmfcScte35Source where
-  toText = \case
-    CSSNone -> "NONE"
-    CSSPassthrough -> "PASSTHROUGH"
+pattern CSSPassthrough :: CmfcScte35Source
+pattern CSSPassthrough = CmfcScte35Source' "PASSTHROUGH"
 
-instance Hashable CmfcScte35Source
-
-instance NFData CmfcScte35Source
-
-instance ToByteString CmfcScte35Source
-
-instance ToQuery CmfcScte35Source
-
-instance ToHeader CmfcScte35Source
-
-instance ToJSON CmfcScte35Source where
-  toJSON = toJSONText
-
-instance FromJSON CmfcScte35Source where
-  parseJSON = parseJSONText "CmfcScte35Source"
+{-# COMPLETE
+  CSSNone,
+  CSSPassthrough,
+  CmfcScte35Source'
+  #-}

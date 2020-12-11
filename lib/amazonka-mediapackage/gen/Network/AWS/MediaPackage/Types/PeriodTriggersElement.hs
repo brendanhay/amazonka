@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaPackage.Types.PeriodTriggersElement where
+module Network.AWS.MediaPackage.Types.PeriodTriggersElement
+  ( PeriodTriggersElement
+      ( PeriodTriggersElement',
+        Ads
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PeriodTriggersElement = Ads
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PeriodTriggersElement = PeriodTriggersElement' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PeriodTriggersElement where
-  parser =
-    takeLowerText >>= \case
-      "ads" -> pure Ads
-      e ->
-        fromTextError $
-          "Failure parsing PeriodTriggersElement from value: '" <> e
-            <> "'. Accepted values: ads"
+pattern Ads :: PeriodTriggersElement
+pattern Ads = PeriodTriggersElement' "ADS"
 
-instance ToText PeriodTriggersElement where
-  toText = \case
-    Ads -> "ADS"
-
-instance Hashable PeriodTriggersElement
-
-instance NFData PeriodTriggersElement
-
-instance ToByteString PeriodTriggersElement
-
-instance ToQuery PeriodTriggersElement
-
-instance ToHeader PeriodTriggersElement
-
-instance ToJSON PeriodTriggersElement where
-  toJSON = toJSONText
-
-instance FromJSON PeriodTriggersElement where
-  parseJSON = parseJSONText "PeriodTriggersElement"
+{-# COMPLETE
+  Ads,
+  PeriodTriggersElement'
+  #-}

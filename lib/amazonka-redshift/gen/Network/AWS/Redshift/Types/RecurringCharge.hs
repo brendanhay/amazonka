@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.RecurringCharge where
+module Network.AWS.Redshift.Types.RecurringCharge
+  ( RecurringCharge (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRecurringCharge,
+
+    -- * Lenses
+    rcRecurringChargeFrequency,
+    rcRecurringChargeAmount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a recurring charge.
 --
---
---
--- /See:/ 'recurringCharge' smart constructor.
+-- /See:/ 'mkRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-  { _rcRecurringChargeFrequency ::
-      !(Maybe Text),
-    _rcRecurringChargeAmount :: !(Maybe Double)
+  { recurringChargeFrequency ::
+      Lude.Maybe Lude.Text,
+    recurringChargeAmount :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcRecurringChargeFrequency' - The frequency at which the recurring charge amount is applied.
---
--- * 'rcRecurringChargeAmount' - The amount charged per the period of time specified by the recurring charge frequency.
-recurringCharge ::
+-- * 'recurringChargeAmount' - The amount charged per the period of time specified by the recurring charge frequency.
+-- * 'recurringChargeFrequency' - The frequency at which the recurring charge amount is applied.
+mkRecurringCharge ::
   RecurringCharge
-recurringCharge =
+mkRecurringCharge =
   RecurringCharge'
-    { _rcRecurringChargeFrequency = Nothing,
-      _rcRecurringChargeAmount = Nothing
+    { recurringChargeFrequency = Lude.Nothing,
+      recurringChargeAmount = Lude.Nothing
     }
 
 -- | The frequency at which the recurring charge amount is applied.
-rcRecurringChargeFrequency :: Lens' RecurringCharge (Maybe Text)
-rcRecurringChargeFrequency = lens _rcRecurringChargeFrequency (\s a -> s {_rcRecurringChargeFrequency = a})
+--
+-- /Note:/ Consider using 'recurringChargeFrequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcRecurringChargeFrequency :: Lens.Lens' RecurringCharge (Lude.Maybe Lude.Text)
+rcRecurringChargeFrequency = Lens.lens (recurringChargeFrequency :: RecurringCharge -> Lude.Maybe Lude.Text) (\s a -> s {recurringChargeFrequency = a} :: RecurringCharge)
+{-# DEPRECATED rcRecurringChargeFrequency "Use generic-lens or generic-optics with 'recurringChargeFrequency' instead." #-}
 
 -- | The amount charged per the period of time specified by the recurring charge frequency.
-rcRecurringChargeAmount :: Lens' RecurringCharge (Maybe Double)
-rcRecurringChargeAmount = lens _rcRecurringChargeAmount (\s a -> s {_rcRecurringChargeAmount = a})
+--
+-- /Note:/ Consider using 'recurringChargeAmount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcRecurringChargeAmount :: Lens.Lens' RecurringCharge (Lude.Maybe Lude.Double)
+rcRecurringChargeAmount = Lens.lens (recurringChargeAmount :: RecurringCharge -> Lude.Maybe Lude.Double) (\s a -> s {recurringChargeAmount = a} :: RecurringCharge)
+{-# DEPRECATED rcRecurringChargeAmount "Use generic-lens or generic-optics with 'recurringChargeAmount' instead." #-}
 
-instance FromXML RecurringCharge where
+instance Lude.FromXML RecurringCharge where
   parseXML x =
     RecurringCharge'
-      <$> (x .@? "RecurringChargeFrequency")
-      <*> (x .@? "RecurringChargeAmount")
-
-instance Hashable RecurringCharge
-
-instance NFData RecurringCharge
+      Lude.<$> (x Lude..@? "RecurringChargeFrequency")
+      Lude.<*> (x Lude..@? "RecurringChargeAmount")

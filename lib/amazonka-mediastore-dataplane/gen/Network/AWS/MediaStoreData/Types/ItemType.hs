@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaStoreData.Types.ItemType where
+module Network.AWS.MediaStoreData.Types.ItemType
+  ( ItemType
+      ( ItemType',
+        TypeFolder,
+        TypeObject
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ItemType
-  = TypeFolder
-  | TypeObject
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ItemType = ItemType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ItemType where
-  parser =
-    takeLowerText >>= \case
-      "folder" -> pure TypeFolder
-      "object" -> pure TypeObject
-      e ->
-        fromTextError $
-          "Failure parsing ItemType from value: '" <> e
-            <> "'. Accepted values: folder, object"
+pattern TypeFolder :: ItemType
+pattern TypeFolder = ItemType' "FOLDER"
 
-instance ToText ItemType where
-  toText = \case
-    TypeFolder -> "FOLDER"
-    TypeObject -> "OBJECT"
+pattern TypeObject :: ItemType
+pattern TypeObject = ItemType' "OBJECT"
 
-instance Hashable ItemType
-
-instance NFData ItemType
-
-instance ToByteString ItemType
-
-instance ToQuery ItemType
-
-instance ToHeader ItemType
-
-instance FromJSON ItemType where
-  parseJSON = parseJSONText "ItemType"
+{-# COMPLETE
+  TypeFolder,
+  TypeObject,
+  ItemType'
+  #-}

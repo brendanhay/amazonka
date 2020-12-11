@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,134 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexUpdate where
+module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexUpdate
+  ( GlobalSecondaryIndexUpdate (..),
+
+    -- * Smart constructor
+    mkGlobalSecondaryIndexUpdate,
+
+    -- * Lenses
+    gsiuCreate,
+    gsiuDelete,
+    gsiuUpdate,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction
 import Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
 import Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents one of the following:
 --
 --
 --     * A new global secondary index to be added to an existing table.
 --
+--
 --     * New provisioned throughput parameters for an existing global secondary index.
+--
 --
 --     * An existing global secondary index to be removed from an existing table.
 --
 --
 --
---
--- /See:/ 'globalSecondaryIndexUpdate' smart constructor.
+-- /See:/ 'mkGlobalSecondaryIndexUpdate' smart constructor.
 data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
-  { _gsiuCreate ::
-      !( Maybe
-           CreateGlobalSecondaryIndexAction
-       ),
-    _gsiuDelete ::
-      !( Maybe
-           DeleteGlobalSecondaryIndexAction
-       ),
-    _gsiuUpdate ::
-      !( Maybe
-           UpdateGlobalSecondaryIndexAction
-       )
+  { create ::
+      Lude.Maybe
+        CreateGlobalSecondaryIndexAction,
+    delete ::
+      Lude.Maybe
+        DeleteGlobalSecondaryIndexAction,
+    update ::
+      Lude.Maybe
+        UpdateGlobalSecondaryIndexAction
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalSecondaryIndexUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'create' - The parameters required for creating a global secondary index on an existing table:
 --
--- * 'gsiuCreate' - The parameters required for creating a global secondary index on an existing table:     * @IndexName @      * @KeySchema @      * @AttributeDefinitions @      * @Projection @      * @ProvisionedThroughput @
 --
--- * 'gsiuDelete' - The name of an existing global secondary index to be removed.
+--     * @IndexName @
 --
--- * 'gsiuUpdate' - The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.
-globalSecondaryIndexUpdate ::
+--
+--     * @KeySchema @
+--
+--
+--     * @AttributeDefinitions @
+--
+--
+--     * @Projection @
+--
+--
+--     * @ProvisionedThroughput @
+--
+--
+-- * 'delete' - The name of an existing global secondary index to be removed.
+-- * 'update' - The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.
+mkGlobalSecondaryIndexUpdate ::
   GlobalSecondaryIndexUpdate
-globalSecondaryIndexUpdate =
+mkGlobalSecondaryIndexUpdate =
   GlobalSecondaryIndexUpdate'
-    { _gsiuCreate = Nothing,
-      _gsiuDelete = Nothing,
-      _gsiuUpdate = Nothing
+    { create = Lude.Nothing,
+      delete = Lude.Nothing,
+      update = Lude.Nothing
     }
 
--- | The parameters required for creating a global secondary index on an existing table:     * @IndexName @      * @KeySchema @      * @AttributeDefinitions @      * @Projection @      * @ProvisionedThroughput @
-gsiuCreate :: Lens' GlobalSecondaryIndexUpdate (Maybe CreateGlobalSecondaryIndexAction)
-gsiuCreate = lens _gsiuCreate (\s a -> s {_gsiuCreate = a})
+-- | The parameters required for creating a global secondary index on an existing table:
+--
+--
+--     * @IndexName @
+--
+--
+--     * @KeySchema @
+--
+--
+--     * @AttributeDefinitions @
+--
+--
+--     * @Projection @
+--
+--
+--     * @ProvisionedThroughput @
+--
+--
+--
+-- /Note:/ Consider using 'create' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiuCreate :: Lens.Lens' GlobalSecondaryIndexUpdate (Lude.Maybe CreateGlobalSecondaryIndexAction)
+gsiuCreate = Lens.lens (create :: GlobalSecondaryIndexUpdate -> Lude.Maybe CreateGlobalSecondaryIndexAction) (\s a -> s {create = a} :: GlobalSecondaryIndexUpdate)
+{-# DEPRECATED gsiuCreate "Use generic-lens or generic-optics with 'create' instead." #-}
 
 -- | The name of an existing global secondary index to be removed.
-gsiuDelete :: Lens' GlobalSecondaryIndexUpdate (Maybe DeleteGlobalSecondaryIndexAction)
-gsiuDelete = lens _gsiuDelete (\s a -> s {_gsiuDelete = a})
+--
+-- /Note:/ Consider using 'delete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiuDelete :: Lens.Lens' GlobalSecondaryIndexUpdate (Lude.Maybe DeleteGlobalSecondaryIndexAction)
+gsiuDelete = Lens.lens (delete :: GlobalSecondaryIndexUpdate -> Lude.Maybe DeleteGlobalSecondaryIndexAction) (\s a -> s {delete = a} :: GlobalSecondaryIndexUpdate)
+{-# DEPRECATED gsiuDelete "Use generic-lens or generic-optics with 'delete' instead." #-}
 
 -- | The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.
-gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
-gsiuUpdate = lens _gsiuUpdate (\s a -> s {_gsiuUpdate = a})
+--
+-- /Note:/ Consider using 'update' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiuUpdate :: Lens.Lens' GlobalSecondaryIndexUpdate (Lude.Maybe UpdateGlobalSecondaryIndexAction)
+gsiuUpdate = Lens.lens (update :: GlobalSecondaryIndexUpdate -> Lude.Maybe UpdateGlobalSecondaryIndexAction) (\s a -> s {update = a} :: GlobalSecondaryIndexUpdate)
+{-# DEPRECATED gsiuUpdate "Use generic-lens or generic-optics with 'update' instead." #-}
 
-instance Hashable GlobalSecondaryIndexUpdate
-
-instance NFData GlobalSecondaryIndexUpdate
-
-instance ToJSON GlobalSecondaryIndexUpdate where
+instance Lude.ToJSON GlobalSecondaryIndexUpdate where
   toJSON GlobalSecondaryIndexUpdate' {..} =
-    object
-      ( catMaybes
-          [ ("Create" .=) <$> _gsiuCreate,
-            ("Delete" .=) <$> _gsiuDelete,
-            ("Update" .=) <$> _gsiuUpdate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Create" Lude..=) Lude.<$> create,
+            ("Delete" Lude..=) Lude.<$> delete,
+            ("Update" Lude..=) Lude.<$> update
           ]
       )

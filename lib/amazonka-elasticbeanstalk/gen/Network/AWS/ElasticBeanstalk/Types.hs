@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types
-  ( -- * Service Configuration
-    elasticBeanstalk,
+  ( -- * Service configuration
+    elasticBeanstalkService,
 
     -- * Errors
 
@@ -73,8 +71,8 @@ module Network.AWS.ElasticBeanstalk.Types
     ValidationSeverity (..),
 
     -- * ApplicationDescription
-    ApplicationDescription,
-    applicationDescription,
+    ApplicationDescription (..),
+    mkApplicationDescription,
     adApplicationARN,
     adVersions,
     adDateUpdated,
@@ -85,27 +83,27 @@ module Network.AWS.ElasticBeanstalk.Types
     adDescription,
 
     -- * ApplicationDescriptionMessage
-    ApplicationDescriptionMessage,
-    applicationDescriptionMessage,
+    ApplicationDescriptionMessage (..),
+    mkApplicationDescriptionMessage,
     admApplication,
 
     -- * ApplicationMetrics
-    ApplicationMetrics,
-    applicationMetrics,
+    ApplicationMetrics (..),
+    mkApplicationMetrics,
     amRequestCount,
     amLatency,
     amStatusCodes,
     amDuration,
 
     -- * ApplicationResourceLifecycleConfig
-    ApplicationResourceLifecycleConfig,
-    applicationResourceLifecycleConfig,
+    ApplicationResourceLifecycleConfig (..),
+    mkApplicationResourceLifecycleConfig,
     arlcVersionLifecycleConfig,
     arlcServiceRole,
 
     -- * ApplicationVersionDescription
-    ApplicationVersionDescription,
-    applicationVersionDescription,
+    ApplicationVersionDescription (..),
+    mkApplicationVersionDescription,
     avdStatus,
     avdSourceBundle,
     avdDateUpdated,
@@ -118,24 +116,24 @@ module Network.AWS.ElasticBeanstalk.Types
     avdDescription,
 
     -- * ApplicationVersionDescriptionMessage
-    ApplicationVersionDescriptionMessage,
-    applicationVersionDescriptionMessage,
+    ApplicationVersionDescriptionMessage (..),
+    mkApplicationVersionDescriptionMessage,
     avdmApplicationVersion,
 
     -- * ApplicationVersionLifecycleConfig
-    ApplicationVersionLifecycleConfig,
-    applicationVersionLifecycleConfig,
+    ApplicationVersionLifecycleConfig (..),
+    mkApplicationVersionLifecycleConfig,
     avlcMaxAgeRule,
     avlcMaxCountRule,
 
     -- * AutoScalingGroup
-    AutoScalingGroup,
-    autoScalingGroup,
+    AutoScalingGroup (..),
+    mkAutoScalingGroup,
     asgName,
 
     -- * BuildConfiguration
-    BuildConfiguration,
-    buildConfiguration,
+    BuildConfiguration (..),
+    mkBuildConfiguration,
     bcArtifactName,
     bcComputeType,
     bcTimeoutInMinutes,
@@ -143,13 +141,13 @@ module Network.AWS.ElasticBeanstalk.Types
     bcImage,
 
     -- * Builder
-    Builder,
-    builder,
+    Builder (..),
+    mkBuilder,
     bARN,
 
     -- * CPUUtilization
-    CPUUtilization,
-    cpuUtilization,
+    CPUUtilization (..),
+    mkCPUUtilization,
     cuSoftIRQ,
     cuIdle,
     cuIRQ,
@@ -160,8 +158,8 @@ module Network.AWS.ElasticBeanstalk.Types
     cuNice,
 
     -- * ConfigurationOptionDescription
-    ConfigurationOptionDescription,
-    configurationOptionDescription,
+    ConfigurationOptionDescription (..),
+    mkConfigurationOptionDescription,
     codMaxValue,
     codRegex,
     codMaxLength,
@@ -175,16 +173,16 @@ module Network.AWS.ElasticBeanstalk.Types
     codMinValue,
 
     -- * ConfigurationOptionSetting
-    ConfigurationOptionSetting,
-    configurationOptionSetting,
+    ConfigurationOptionSetting (..),
+    mkConfigurationOptionSetting,
     cosOptionName,
     cosResourceName,
     cosNamespace,
     cosValue,
 
     -- * ConfigurationSettingsDescription
-    ConfigurationSettingsDescription,
-    configurationSettingsDescription,
+    ConfigurationSettingsDescription (..),
+    mkConfigurationSettingsDescription,
     csdTemplateName,
     csdOptionSettings,
     csdDateUpdated,
@@ -197,22 +195,22 @@ module Network.AWS.ElasticBeanstalk.Types
     csdDescription,
 
     -- * CustomAMI
-    CustomAMI,
-    customAMI,
+    CustomAMI (..),
+    mkCustomAMI,
     caVirtualizationType,
     caImageId,
 
     -- * Deployment
-    Deployment,
-    deployment,
+    Deployment (..),
+    mkDeployment,
     dDeploymentId,
     dStatus,
     dDeploymentTime,
     dVersionLabel,
 
     -- * EnvironmentDescription
-    EnvironmentDescription,
-    environmentDescription,
+    EnvironmentDescription (..),
+    mkEnvironmentDescription,
     eStatus,
     eCNAME,
     eTemplateName,
@@ -236,28 +234,28 @@ module Network.AWS.ElasticBeanstalk.Types
     eDescription,
 
     -- * EnvironmentDescriptionsMessage
-    EnvironmentDescriptionsMessage,
-    environmentDescriptionsMessage,
+    EnvironmentDescriptionsMessage (..),
+    mkEnvironmentDescriptionsMessage,
     edmNextToken,
     edmEnvironments,
 
     -- * EnvironmentInfoDescription
-    EnvironmentInfoDescription,
-    environmentInfoDescription,
+    EnvironmentInfoDescription (..),
+    mkEnvironmentInfoDescription,
     eidSampleTimestamp,
     eidEC2InstanceId,
     eidInfoType,
     eidMessage,
 
     -- * EnvironmentLink
-    EnvironmentLink,
-    environmentLink,
+    EnvironmentLink (..),
+    mkEnvironmentLink,
     elLinkName,
     elEnvironmentName,
 
     -- * EnvironmentResourceDescription
-    EnvironmentResourceDescription,
-    environmentResourceDescription,
+    EnvironmentResourceDescription (..),
+    mkEnvironmentResourceDescription,
     erdQueues,
     erdTriggers,
     erdLaunchTemplates,
@@ -268,20 +266,20 @@ module Network.AWS.ElasticBeanstalk.Types
     erdAutoScalingGroups,
 
     -- * EnvironmentResourcesDescription
-    EnvironmentResourcesDescription,
-    environmentResourcesDescription,
+    EnvironmentResourcesDescription (..),
+    mkEnvironmentResourcesDescription,
     erdLoadBalancer,
 
     -- * EnvironmentTier
-    EnvironmentTier,
-    environmentTier,
+    EnvironmentTier (..),
+    mkEnvironmentTier,
     etName,
     etVersion,
     etType,
 
     -- * EventDescription
-    EventDescription,
-    eventDescription,
+    EventDescription (..),
+    mkEventDescription,
     edRequestId,
     edTemplateName,
     edSeverity,
@@ -293,13 +291,13 @@ module Network.AWS.ElasticBeanstalk.Types
     edMessage,
 
     -- * Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iId,
 
     -- * InstanceHealthSummary
-    InstanceHealthSummary,
-    instanceHealthSummary,
+    InstanceHealthSummary (..),
+    mkInstanceHealthSummary,
     ihsOK,
     ihsPending,
     ihsSevere,
@@ -310,8 +308,8 @@ module Network.AWS.ElasticBeanstalk.Types
     ihsInfo,
 
     -- * Latency
-    Latency,
-    latency,
+    Latency (..),
+    mkLatency,
     lP75,
     lP50,
     lP85,
@@ -322,36 +320,36 @@ module Network.AWS.ElasticBeanstalk.Types
     lP10,
 
     -- * LaunchConfiguration
-    LaunchConfiguration,
-    launchConfiguration,
+    LaunchConfiguration (..),
+    mkLaunchConfiguration,
     lcName,
 
     -- * LaunchTemplate
-    LaunchTemplate,
-    launchTemplate,
+    LaunchTemplate (..),
+    mkLaunchTemplate,
     ltId,
 
     -- * Listener
-    Listener,
-    listener,
+    Listener (..),
+    mkListener,
     lProtocol,
     lPort,
 
     -- * LoadBalancer
-    LoadBalancer,
-    loadBalancer,
+    LoadBalancer (..),
+    mkLoadBalancer,
     lbName,
 
     -- * LoadBalancerDescription
-    LoadBalancerDescription,
-    loadBalancerDescription,
+    LoadBalancerDescription (..),
+    mkLoadBalancerDescription,
     lbdLoadBalancerName,
     lbdDomain,
     lbdListeners,
 
     -- * ManagedAction
-    ManagedAction,
-    managedAction,
+    ManagedAction (..),
+    mkManagedAction,
     maStatus,
     maActionId,
     maWindowStartTime,
@@ -359,8 +357,8 @@ module Network.AWS.ElasticBeanstalk.Types
     maActionType,
 
     -- * ManagedActionHistoryItem
-    ManagedActionHistoryItem,
-    managedActionHistoryItem,
+    ManagedActionHistoryItem (..),
+    mkManagedActionHistoryItem,
     mahiStatus,
     mahiFailureType,
     mahiActionId,
@@ -371,35 +369,35 @@ module Network.AWS.ElasticBeanstalk.Types
     mahiActionType,
 
     -- * MaxAgeRule
-    MaxAgeRule,
-    maxAgeRule,
+    MaxAgeRule (..),
+    mkMaxAgeRule,
     marDeleteSourceFromS3,
     marMaxAgeInDays,
     marEnabled,
 
     -- * MaxCountRule
-    MaxCountRule,
-    maxCountRule,
+    MaxCountRule (..),
+    mkMaxCountRule,
     mcrMaxCount,
     mcrDeleteSourceFromS3,
     mcrEnabled,
 
     -- * OptionRestrictionRegex
-    OptionRestrictionRegex,
-    optionRestrictionRegex,
+    OptionRestrictionRegex (..),
+    mkOptionRestrictionRegex,
     orrPattern,
     orrLabel,
 
     -- * OptionSpecification
-    OptionSpecification,
-    optionSpecification,
+    OptionSpecification (..),
+    mkOptionSpecification,
     osOptionName,
     osResourceName,
     osNamespace,
 
     -- * PlatformBranchSummary
-    PlatformBranchSummary,
-    platformBranchSummary,
+    PlatformBranchSummary (..),
+    mkPlatformBranchSummary,
     pbsBranchName,
     pbsBranchOrder,
     pbsPlatformName,
@@ -407,8 +405,8 @@ module Network.AWS.ElasticBeanstalk.Types
     pbsLifecycleState,
 
     -- * PlatformDescription
-    PlatformDescription,
-    platformDescription,
+    PlatformDescription (..),
+    mkPlatformDescription,
     pdPlatformBranchName,
     pdSupportedAddonList,
     pdPlatformCategory,
@@ -432,27 +430,27 @@ module Network.AWS.ElasticBeanstalk.Types
     pdSupportedTierList,
 
     -- * PlatformFilter
-    PlatformFilter,
-    platformFilter,
+    PlatformFilter (..),
+    mkPlatformFilter,
     pfValues,
     pfOperator,
     pfType,
 
     -- * PlatformFramework
-    PlatformFramework,
-    platformFramework,
+    PlatformFramework (..),
+    mkPlatformFramework,
     pfName,
     pfVersion,
 
     -- * PlatformProgrammingLanguage
-    PlatformProgrammingLanguage,
-    platformProgrammingLanguage,
+    PlatformProgrammingLanguage (..),
+    mkPlatformProgrammingLanguage,
     pplName,
     pplVersion,
 
     -- * PlatformSummary
-    PlatformSummary,
-    platformSummary,
+    PlatformSummary (..),
+    mkPlatformSummary,
     psPlatformBranchName,
     psSupportedAddonList,
     psPlatformCategory,
@@ -467,19 +465,19 @@ module Network.AWS.ElasticBeanstalk.Types
     psSupportedTierList,
 
     -- * Queue
-    Queue,
-    queue,
+    Queue (..),
+    mkQueue,
     qURL,
     qName,
 
     -- * ResourceQuota
-    ResourceQuota,
-    resourceQuota,
+    ResourceQuota (..),
+    mkResourceQuota,
     rqMaximum,
 
     -- * ResourceQuotas
-    ResourceQuotas,
-    resourceQuotas,
+    ResourceQuotas (..),
+    mkResourceQuotas,
     rqApplicationQuota,
     rqCustomPlatformQuota,
     rqApplicationVersionQuota,
@@ -487,21 +485,21 @@ module Network.AWS.ElasticBeanstalk.Types
     rqConfigurationTemplateQuota,
 
     -- * S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slS3Key,
     slS3Bucket,
 
     -- * SearchFilter
-    SearchFilter,
-    searchFilter,
+    SearchFilter (..),
+    mkSearchFilter,
     sfAttribute,
     sfValues,
     sfOperator,
 
     -- * SingleInstanceHealth
-    SingleInstanceHealth,
-    singleInstanceHealth,
+    SingleInstanceHealth (..),
+    mkSingleInstanceHealth,
     sihInstanceId,
     sihCauses,
     sihSystem,
@@ -514,52 +512,52 @@ module Network.AWS.ElasticBeanstalk.Types
     sihLaunchedAt,
 
     -- * SolutionStackDescription
-    SolutionStackDescription,
-    solutionStackDescription,
+    SolutionStackDescription (..),
+    mkSolutionStackDescription,
     ssdPermittedFileTypes,
     ssdSolutionStackName,
 
     -- * SourceBuildInformation
-    SourceBuildInformation,
-    sourceBuildInformation,
+    SourceBuildInformation (..),
+    mkSourceBuildInformation,
     sbiSourceType,
     sbiSourceRepository,
     sbiSourceLocation,
 
     -- * SourceConfiguration
-    SourceConfiguration,
-    sourceConfiguration,
+    SourceConfiguration (..),
+    mkSourceConfiguration,
     scTemplateName,
     scApplicationName,
 
     -- * StatusCodes
-    StatusCodes,
-    statusCodes,
+    StatusCodes (..),
+    mkStatusCodes,
     scStatus2xx,
     scStatus3xx,
     scStatus4xx,
     scStatus5xx,
 
     -- * SystemStatus
-    SystemStatus,
-    systemStatus,
+    SystemStatus (..),
+    mkSystemStatus,
     ssCPUUtilization,
     ssLoadAverage,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * Trigger
-    Trigger,
-    trigger,
+    Trigger (..),
+    mkTrigger,
     tName,
 
     -- * ValidationMessage
-    ValidationMessage,
-    validationMessage,
+    ValidationMessage (..),
+    mkValidationMessage,
     vmOptionName,
     vmSeverity,
     vmNamespace,
@@ -644,48 +642,60 @@ import Network.AWS.ElasticBeanstalk.Types.Tag
 import Network.AWS.ElasticBeanstalk.Types.Trigger
 import Network.AWS.ElasticBeanstalk.Types.ValidationMessage
 import Network.AWS.ElasticBeanstalk.Types.ValidationSeverity
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2010-12-01@ of the Amazon Elastic Beanstalk SDK configuration.
-elasticBeanstalk :: Service
-elasticBeanstalk =
-  Service
-    { _svcAbbrev = "ElasticBeanstalk",
-      _svcSigner = v4,
-      _svcPrefix = "elasticbeanstalk",
-      _svcVersion = "2010-12-01",
-      _svcEndpoint = defaultEndpoint elasticBeanstalk,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "ElasticBeanstalk",
-      _svcRetry = retry
+elasticBeanstalkService :: Lude.Service
+elasticBeanstalkService =
+  Lude.Service
+    { Lude._svcAbbrev = "ElasticBeanstalk",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "elasticbeanstalk",
+      Lude._svcVersion = "2010-12-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint elasticBeanstalkService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "ElasticBeanstalk",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

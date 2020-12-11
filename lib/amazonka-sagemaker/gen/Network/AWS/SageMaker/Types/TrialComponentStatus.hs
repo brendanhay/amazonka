@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrialComponentStatus where
+module Network.AWS.SageMaker.Types.TrialComponentStatus
+  ( TrialComponentStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrialComponentStatus,
+
+    -- * Lenses
+    tcsPrimaryStatus,
+    tcsMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.TrialComponentPrimaryStatus
 
 -- | The status of the trial component.
 --
---
---
--- /See:/ 'trialComponentStatus' smart constructor.
+-- /See:/ 'mkTrialComponentStatus' smart constructor.
 data TrialComponentStatus = TrialComponentStatus'
-  { _tcsPrimaryStatus ::
-      !(Maybe TrialComponentPrimaryStatus),
-    _tcsMessage :: !(Maybe Text)
+  { primaryStatus ::
+      Lude.Maybe TrialComponentPrimaryStatus,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tcsPrimaryStatus' - The status of the trial component.
---
--- * 'tcsMessage' - If the component failed, a message describing why.
-trialComponentStatus ::
+-- * 'message' - If the component failed, a message describing why.
+-- * 'primaryStatus' - The status of the trial component.
+mkTrialComponentStatus ::
   TrialComponentStatus
-trialComponentStatus =
+mkTrialComponentStatus =
   TrialComponentStatus'
-    { _tcsPrimaryStatus = Nothing,
-      _tcsMessage = Nothing
+    { primaryStatus = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The status of the trial component.
-tcsPrimaryStatus :: Lens' TrialComponentStatus (Maybe TrialComponentPrimaryStatus)
-tcsPrimaryStatus = lens _tcsPrimaryStatus (\s a -> s {_tcsPrimaryStatus = a})
+--
+-- /Note:/ Consider using 'primaryStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsPrimaryStatus :: Lens.Lens' TrialComponentStatus (Lude.Maybe TrialComponentPrimaryStatus)
+tcsPrimaryStatus = Lens.lens (primaryStatus :: TrialComponentStatus -> Lude.Maybe TrialComponentPrimaryStatus) (\s a -> s {primaryStatus = a} :: TrialComponentStatus)
+{-# DEPRECATED tcsPrimaryStatus "Use generic-lens or generic-optics with 'primaryStatus' instead." #-}
 
 -- | If the component failed, a message describing why.
-tcsMessage :: Lens' TrialComponentStatus (Maybe Text)
-tcsMessage = lens _tcsMessage (\s a -> s {_tcsMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsMessage :: Lens.Lens' TrialComponentStatus (Lude.Maybe Lude.Text)
+tcsMessage = Lens.lens (message :: TrialComponentStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: TrialComponentStatus)
+{-# DEPRECATED tcsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON TrialComponentStatus where
+instance Lude.FromJSON TrialComponentStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrialComponentStatus"
       ( \x ->
           TrialComponentStatus'
-            <$> (x .:? "PrimaryStatus") <*> (x .:? "Message")
+            Lude.<$> (x Lude..:? "PrimaryStatus") Lude.<*> (x Lude..:? "Message")
       )
 
-instance Hashable TrialComponentStatus
-
-instance NFData TrialComponentStatus
-
-instance ToJSON TrialComponentStatus where
+instance Lude.ToJSON TrialComponentStatus where
   toJSON TrialComponentStatus' {..} =
-    object
-      ( catMaybes
-          [ ("PrimaryStatus" .=) <$> _tcsPrimaryStatus,
-            ("Message" .=) <$> _tcsMessage
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PrimaryStatus" Lude..=) Lude.<$> primaryStatus,
+            ("Message" Lude..=) Lude.<$> message
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateErrorCode where
+module Network.AWS.EC2.Types.LaunchTemplateErrorCode
+  ( LaunchTemplateErrorCode
+      ( LaunchTemplateErrorCode',
+        LaunchTemplateIdDoesNotExist,
+        LaunchTemplateIdMalformed,
+        LaunchTemplateNameDoesNotExist,
+        LaunchTemplateNameMalformed,
+        LaunchTemplateVersionDoesNotExist,
+        UnexpectedError
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LaunchTemplateErrorCode
-  = LaunchTemplateIdDoesNotExist
-  | LaunchTemplateIdMalformed
-  | LaunchTemplateNameDoesNotExist
-  | LaunchTemplateNameMalformed
-  | LaunchTemplateVersionDoesNotExist
-  | UnexpectedError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LaunchTemplateErrorCode = LaunchTemplateErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LaunchTemplateErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "launchtemplateiddoesnotexist" -> pure LaunchTemplateIdDoesNotExist
-      "launchtemplateidmalformed" -> pure LaunchTemplateIdMalformed
-      "launchtemplatenamedoesnotexist" -> pure LaunchTemplateNameDoesNotExist
-      "launchtemplatenamemalformed" -> pure LaunchTemplateNameMalformed
-      "launchtemplateversiondoesnotexist" -> pure LaunchTemplateVersionDoesNotExist
-      "unexpectederror" -> pure UnexpectedError
-      e ->
-        fromTextError $
-          "Failure parsing LaunchTemplateErrorCode from value: '" <> e
-            <> "'. Accepted values: launchtemplateiddoesnotexist, launchtemplateidmalformed, launchtemplatenamedoesnotexist, launchtemplatenamemalformed, launchtemplateversiondoesnotexist, unexpectederror"
+pattern LaunchTemplateIdDoesNotExist :: LaunchTemplateErrorCode
+pattern LaunchTemplateIdDoesNotExist = LaunchTemplateErrorCode' "launchTemplateIdDoesNotExist"
 
-instance ToText LaunchTemplateErrorCode where
-  toText = \case
-    LaunchTemplateIdDoesNotExist -> "launchTemplateIdDoesNotExist"
-    LaunchTemplateIdMalformed -> "launchTemplateIdMalformed"
-    LaunchTemplateNameDoesNotExist -> "launchTemplateNameDoesNotExist"
-    LaunchTemplateNameMalformed -> "launchTemplateNameMalformed"
-    LaunchTemplateVersionDoesNotExist -> "launchTemplateVersionDoesNotExist"
-    UnexpectedError -> "unexpectedError"
+pattern LaunchTemplateIdMalformed :: LaunchTemplateErrorCode
+pattern LaunchTemplateIdMalformed = LaunchTemplateErrorCode' "launchTemplateIdMalformed"
 
-instance Hashable LaunchTemplateErrorCode
+pattern LaunchTemplateNameDoesNotExist :: LaunchTemplateErrorCode
+pattern LaunchTemplateNameDoesNotExist = LaunchTemplateErrorCode' "launchTemplateNameDoesNotExist"
 
-instance NFData LaunchTemplateErrorCode
+pattern LaunchTemplateNameMalformed :: LaunchTemplateErrorCode
+pattern LaunchTemplateNameMalformed = LaunchTemplateErrorCode' "launchTemplateNameMalformed"
 
-instance ToByteString LaunchTemplateErrorCode
+pattern LaunchTemplateVersionDoesNotExist :: LaunchTemplateErrorCode
+pattern LaunchTemplateVersionDoesNotExist = LaunchTemplateErrorCode' "launchTemplateVersionDoesNotExist"
 
-instance ToQuery LaunchTemplateErrorCode
+pattern UnexpectedError :: LaunchTemplateErrorCode
+pattern UnexpectedError = LaunchTemplateErrorCode' "unexpectedError"
 
-instance ToHeader LaunchTemplateErrorCode
-
-instance FromXML LaunchTemplateErrorCode where
-  parseXML = parseXMLText "LaunchTemplateErrorCode"
+{-# COMPLETE
+  LaunchTemplateIdDoesNotExist,
+  LaunchTemplateIdMalformed,
+  LaunchTemplateNameDoesNotExist,
+  LaunchTemplateNameMalformed,
+  LaunchTemplateVersionDoesNotExist,
+  UnexpectedError,
+  LaunchTemplateErrorCode'
+  #-}

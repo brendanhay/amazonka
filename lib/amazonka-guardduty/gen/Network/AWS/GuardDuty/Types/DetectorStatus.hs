@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.DetectorStatus where
+module Network.AWS.GuardDuty.Types.DetectorStatus
+  ( DetectorStatus
+      ( DetectorStatus',
+        DSDisabled,
+        DSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DetectorStatus
-  = DSDisabled
-  | DSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DetectorStatus = DetectorStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DetectorStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure DSDisabled
-      "enabled" -> pure DSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing DetectorStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern DSDisabled :: DetectorStatus
+pattern DSDisabled = DetectorStatus' "DISABLED"
 
-instance ToText DetectorStatus where
-  toText = \case
-    DSDisabled -> "DISABLED"
-    DSEnabled -> "ENABLED"
+pattern DSEnabled :: DetectorStatus
+pattern DSEnabled = DetectorStatus' "ENABLED"
 
-instance Hashable DetectorStatus
-
-instance NFData DetectorStatus
-
-instance ToByteString DetectorStatus
-
-instance ToQuery DetectorStatus
-
-instance ToHeader DetectorStatus
-
-instance FromJSON DetectorStatus where
-  parseJSON = parseJSONText "DetectorStatus"
+{-# COMPLETE
+  DSDisabled,
+  DSEnabled,
+  DetectorStatus'
+  #-}

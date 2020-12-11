@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.NamespaceProperties where
+module Network.AWS.Route53AutoNaming.Types.NamespaceProperties
+  ( NamespaceProperties (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNamespaceProperties,
+
+    -- * Lenses
+    npDNSProperties,
+    npHTTPProperties,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53AutoNaming.Types.DNSProperties
 import Network.AWS.Route53AutoNaming.Types.HTTPProperties
 
 -- | A complex type that contains information that is specific to the namespace type.
 --
---
---
--- /See:/ 'namespaceProperties' smart constructor.
+-- /See:/ 'mkNamespaceProperties' smart constructor.
 data NamespaceProperties = NamespaceProperties'
-  { _npDNSProperties ::
-      !(Maybe DNSProperties),
-    _npHTTPProperties :: !(Maybe HTTPProperties)
+  { dnsProperties ::
+      Lude.Maybe DNSProperties,
+    hTTPProperties :: Lude.Maybe HTTPProperties
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NamespaceProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'npDNSProperties' - A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
---
--- * 'npHTTPProperties' - A complex type that contains the name of an HTTP namespace.
-namespaceProperties ::
+-- * 'dnsProperties' - A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
+-- * 'hTTPProperties' - A complex type that contains the name of an HTTP namespace.
+mkNamespaceProperties ::
   NamespaceProperties
-namespaceProperties =
+mkNamespaceProperties =
   NamespaceProperties'
-    { _npDNSProperties = Nothing,
-      _npHTTPProperties = Nothing
+    { dnsProperties = Lude.Nothing,
+      hTTPProperties = Lude.Nothing
     }
 
 -- | A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
-npDNSProperties :: Lens' NamespaceProperties (Maybe DNSProperties)
-npDNSProperties = lens _npDNSProperties (\s a -> s {_npDNSProperties = a})
+--
+-- /Note:/ Consider using 'dnsProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npDNSProperties :: Lens.Lens' NamespaceProperties (Lude.Maybe DNSProperties)
+npDNSProperties = Lens.lens (dnsProperties :: NamespaceProperties -> Lude.Maybe DNSProperties) (\s a -> s {dnsProperties = a} :: NamespaceProperties)
+{-# DEPRECATED npDNSProperties "Use generic-lens or generic-optics with 'dnsProperties' instead." #-}
 
 -- | A complex type that contains the name of an HTTP namespace.
-npHTTPProperties :: Lens' NamespaceProperties (Maybe HTTPProperties)
-npHTTPProperties = lens _npHTTPProperties (\s a -> s {_npHTTPProperties = a})
+--
+-- /Note:/ Consider using 'hTTPProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npHTTPProperties :: Lens.Lens' NamespaceProperties (Lude.Maybe HTTPProperties)
+npHTTPProperties = Lens.lens (hTTPProperties :: NamespaceProperties -> Lude.Maybe HTTPProperties) (\s a -> s {hTTPProperties = a} :: NamespaceProperties)
+{-# DEPRECATED npHTTPProperties "Use generic-lens or generic-optics with 'hTTPProperties' instead." #-}
 
-instance FromJSON NamespaceProperties where
+instance Lude.FromJSON NamespaceProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "NamespaceProperties"
       ( \x ->
           NamespaceProperties'
-            <$> (x .:? "DnsProperties") <*> (x .:? "HttpProperties")
+            Lude.<$> (x Lude..:? "DnsProperties")
+            Lude.<*> (x Lude..:? "HttpProperties")
       )
-
-instance Hashable NamespaceProperties
-
-instance NFData NamespaceProperties

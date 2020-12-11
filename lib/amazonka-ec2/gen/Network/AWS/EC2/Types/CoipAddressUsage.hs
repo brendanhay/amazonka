@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CoipAddressUsage where
+module Network.AWS.EC2.Types.CoipAddressUsage
+  ( CoipAddressUsage (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCoipAddressUsage,
+
+    -- * Lenses
+    cauAllocationId,
+    cauAWSAccountId,
+    cauCoIP,
+    cauAWSService,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes address usage for a customer-owned address pool.
 --
---
---
--- /See:/ 'coipAddressUsage' smart constructor.
+-- /See:/ 'mkCoipAddressUsage' smart constructor.
 data CoipAddressUsage = CoipAddressUsage'
-  { _cauAllocationId ::
-      !(Maybe Text),
-    _cauAWSAccountId :: !(Maybe Text),
-    _cauCoIP :: !(Maybe Text),
-    _cauAWSService :: !(Maybe Text)
+  { allocationId ::
+      Lude.Maybe Lude.Text,
+    awsAccountId :: Lude.Maybe Lude.Text,
+    coIP :: Lude.Maybe Lude.Text,
+    awsService :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoipAddressUsage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cauAllocationId' - The allocation ID of the address.
---
--- * 'cauAWSAccountId' - The AWS account ID.
---
--- * 'cauCoIP' - The customer-owned IP address.
---
--- * 'cauAWSService' - The AWS service.
-coipAddressUsage ::
+-- * 'allocationId' - The allocation ID of the address.
+-- * 'awsAccountId' - The AWS account ID.
+-- * 'awsService' - The AWS service.
+-- * 'coIP' - The customer-owned IP address.
+mkCoipAddressUsage ::
   CoipAddressUsage
-coipAddressUsage =
+mkCoipAddressUsage =
   CoipAddressUsage'
-    { _cauAllocationId = Nothing,
-      _cauAWSAccountId = Nothing,
-      _cauCoIP = Nothing,
-      _cauAWSService = Nothing
+    { allocationId = Lude.Nothing,
+      awsAccountId = Lude.Nothing,
+      coIP = Lude.Nothing,
+      awsService = Lude.Nothing
     }
 
 -- | The allocation ID of the address.
-cauAllocationId :: Lens' CoipAddressUsage (Maybe Text)
-cauAllocationId = lens _cauAllocationId (\s a -> s {_cauAllocationId = a})
+--
+-- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cauAllocationId :: Lens.Lens' CoipAddressUsage (Lude.Maybe Lude.Text)
+cauAllocationId = Lens.lens (allocationId :: CoipAddressUsage -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: CoipAddressUsage)
+{-# DEPRECATED cauAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
 
 -- | The AWS account ID.
-cauAWSAccountId :: Lens' CoipAddressUsage (Maybe Text)
-cauAWSAccountId = lens _cauAWSAccountId (\s a -> s {_cauAWSAccountId = a})
+--
+-- /Note:/ Consider using 'awsAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cauAWSAccountId :: Lens.Lens' CoipAddressUsage (Lude.Maybe Lude.Text)
+cauAWSAccountId = Lens.lens (awsAccountId :: CoipAddressUsage -> Lude.Maybe Lude.Text) (\s a -> s {awsAccountId = a} :: CoipAddressUsage)
+{-# DEPRECATED cauAWSAccountId "Use generic-lens or generic-optics with 'awsAccountId' instead." #-}
 
 -- | The customer-owned IP address.
-cauCoIP :: Lens' CoipAddressUsage (Maybe Text)
-cauCoIP = lens _cauCoIP (\s a -> s {_cauCoIP = a})
+--
+-- /Note:/ Consider using 'coIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cauCoIP :: Lens.Lens' CoipAddressUsage (Lude.Maybe Lude.Text)
+cauCoIP = Lens.lens (coIP :: CoipAddressUsage -> Lude.Maybe Lude.Text) (\s a -> s {coIP = a} :: CoipAddressUsage)
+{-# DEPRECATED cauCoIP "Use generic-lens or generic-optics with 'coIP' instead." #-}
 
 -- | The AWS service.
-cauAWSService :: Lens' CoipAddressUsage (Maybe Text)
-cauAWSService = lens _cauAWSService (\s a -> s {_cauAWSService = a})
+--
+-- /Note:/ Consider using 'awsService' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cauAWSService :: Lens.Lens' CoipAddressUsage (Lude.Maybe Lude.Text)
+cauAWSService = Lens.lens (awsService :: CoipAddressUsage -> Lude.Maybe Lude.Text) (\s a -> s {awsService = a} :: CoipAddressUsage)
+{-# DEPRECATED cauAWSService "Use generic-lens or generic-optics with 'awsService' instead." #-}
 
-instance FromXML CoipAddressUsage where
+instance Lude.FromXML CoipAddressUsage where
   parseXML x =
     CoipAddressUsage'
-      <$> (x .@? "allocationId")
-      <*> (x .@? "awsAccountId")
-      <*> (x .@? "coIp")
-      <*> (x .@? "awsService")
-
-instance Hashable CoipAddressUsage
-
-instance NFData CoipAddressUsage
+      Lude.<$> (x Lude..@? "allocationId")
+      Lude.<*> (x Lude..@? "awsAccountId")
+      Lude.<*> (x Lude..@? "coIp")
+      Lude.<*> (x Lude..@? "awsService")

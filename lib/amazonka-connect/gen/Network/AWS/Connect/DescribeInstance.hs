@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,121 @@
 --
 -- Returns the current state of the specified instance identifier. It tracks the instance while it is being created and returns an error status if applicable.
 --
---
 -- If an instance is not created successfully, the instance status reason field returns details relevant to the reason. The instance in a failed state is returned only for 24 hours after the CreateInstance API was invoked.
 module Network.AWS.Connect.DescribeInstance
-  ( -- * Creating a Request
-    describeInstance,
-    DescribeInstance,
+  ( -- * Creating a request
+    DescribeInstance (..),
+    mkDescribeInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diInstanceId,
 
-    -- * Destructuring the Response
-    describeInstanceResponse,
-    DescribeInstanceResponse,
+    -- * Destructuring the response
+    DescribeInstanceResponse (..),
+    mkDescribeInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dirsInstance,
     dirsResponseStatus,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeInstance' smart constructor.
-newtype DescribeInstance = DescribeInstance' {_diInstanceId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeInstance' smart constructor.
+newtype DescribeInstance = DescribeInstance'
+  { instanceId ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diInstanceId' - The identifier of the Amazon Connect instance.
-describeInstance ::
-  -- | 'diInstanceId'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+mkDescribeInstance ::
+  -- | 'instanceId'
+  Lude.Text ->
   DescribeInstance
-describeInstance pInstanceId_ =
-  DescribeInstance' {_diInstanceId = pInstanceId_}
+mkDescribeInstance pInstanceId_ =
+  DescribeInstance' {instanceId = pInstanceId_}
 
 -- | The identifier of the Amazon Connect instance.
-diInstanceId :: Lens' DescribeInstance Text
-diInstanceId = lens _diInstanceId (\s a -> s {_diInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diInstanceId :: Lens.Lens' DescribeInstance Lude.Text
+diInstanceId = Lens.lens (instanceId :: DescribeInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstance)
+{-# DEPRECATED diInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest DescribeInstance where
+instance Lude.AWSRequest DescribeInstance where
   type Rs DescribeInstance = DescribeInstanceResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeInstanceResponse'
-            <$> (x .?> "Instance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Instance") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInstance
-
-instance NFData DescribeInstance
-
-instance ToHeaders DescribeInstance where
+instance Lude.ToHeaders DescribeInstance where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeInstance where
+instance Lude.ToPath DescribeInstance where
   toPath DescribeInstance' {..} =
-    mconcat ["/instance/", toBS _diInstanceId]
+    Lude.mconcat ["/instance/", Lude.toBS instanceId]
 
-instance ToQuery DescribeInstance where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeInstanceResponse' smart constructor.
+-- | /See:/ 'mkDescribeInstanceResponse' smart constructor.
 data DescribeInstanceResponse = DescribeInstanceResponse'
-  { _dirsInstance ::
-      !(Maybe Instance),
-    _dirsResponseStatus :: !Int
+  { instance' ::
+      Lude.Maybe Instance,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirsInstance' - The name of the instance.
---
--- * 'dirsResponseStatus' - -- | The response status code.
-describeInstanceResponse ::
-  -- | 'dirsResponseStatus'
-  Int ->
+-- * 'instance'' - The name of the instance.
+-- * 'responseStatus' - The response status code.
+mkDescribeInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInstanceResponse
-describeInstanceResponse pResponseStatus_ =
+mkDescribeInstanceResponse pResponseStatus_ =
   DescribeInstanceResponse'
-    { _dirsInstance = Nothing,
-      _dirsResponseStatus = pResponseStatus_
+    { instance' = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the instance.
-dirsInstance :: Lens' DescribeInstanceResponse (Maybe Instance)
-dirsInstance = lens _dirsInstance (\s a -> s {_dirsInstance = a})
+--
+-- /Note:/ Consider using 'instance'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsInstance :: Lens.Lens' DescribeInstanceResponse (Lude.Maybe Instance)
+dirsInstance = Lens.lens (instance' :: DescribeInstanceResponse -> Lude.Maybe Instance) (\s a -> s {instance' = a} :: DescribeInstanceResponse)
+{-# DEPRECATED dirsInstance "Use generic-lens or generic-optics with 'instance'' instead." #-}
 
--- | -- | The response status code.
-dirsResponseStatus :: Lens' DescribeInstanceResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\s a -> s {_dirsResponseStatus = a})
-
-instance NFData DescribeInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsResponseStatus :: Lens.Lens' DescribeInstanceResponse Lude.Int
+dirsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceResponse)
+{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Returns information about the upload buffer of a gateway. This operation is supported for the stored volume, cached volume, and tape gateway types.
 --
---
 -- The response includes disk IDs that are configured as upload buffer space, and it includes the amount of upload buffer space allocated and used.
 module Network.AWS.StorageGateway.DescribeUploadBuffer
-  ( -- * Creating a Request
-    describeUploadBuffer,
-    DescribeUploadBuffer,
+  ( -- * Creating a request
+    DescribeUploadBuffer (..),
+    mkDescribeUploadBuffer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dubGatewayARN,
 
-    -- * Destructuring the Response
-    describeUploadBufferResponse,
-    DescribeUploadBufferResponse,
+    -- * Destructuring the response
+    DescribeUploadBufferResponse (..),
+    mkDescribeUploadBufferResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dubrsUploadBufferAllocatedInBytes,
     dubrsGatewayARN,
     dubrsDiskIds,
@@ -42,130 +36,153 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeUploadBuffer' smart constructor.
+-- | /See:/ 'mkDescribeUploadBuffer' smart constructor.
 newtype DescribeUploadBuffer = DescribeUploadBuffer'
-  { _dubGatewayARN ::
-      Text
+  { gatewayARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUploadBuffer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dubGatewayARN' - Undocumented member.
-describeUploadBuffer ::
-  -- | 'dubGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+mkDescribeUploadBuffer ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   DescribeUploadBuffer
-describeUploadBuffer pGatewayARN_ =
-  DescribeUploadBuffer' {_dubGatewayARN = pGatewayARN_}
+mkDescribeUploadBuffer pGatewayARN_ =
+  DescribeUploadBuffer' {gatewayARN = pGatewayARN_}
 
--- | Undocumented member.
-dubGatewayARN :: Lens' DescribeUploadBuffer Text
-dubGatewayARN = lens _dubGatewayARN (\s a -> s {_dubGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dubGatewayARN :: Lens.Lens' DescribeUploadBuffer Lude.Text
+dubGatewayARN = Lens.lens (gatewayARN :: DescribeUploadBuffer -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeUploadBuffer)
+{-# DEPRECATED dubGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest DescribeUploadBuffer where
+instance Lude.AWSRequest DescribeUploadBuffer where
   type Rs DescribeUploadBuffer = DescribeUploadBufferResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeUploadBufferResponse'
-            <$> (x .?> "UploadBufferAllocatedInBytes")
-            <*> (x .?> "GatewayARN")
-            <*> (x .?> "DiskIds" .!@ mempty)
-            <*> (x .?> "UploadBufferUsedInBytes")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UploadBufferAllocatedInBytes")
+            Lude.<*> (x Lude..?> "GatewayARN")
+            Lude.<*> (x Lude..?> "DiskIds" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "UploadBufferUsedInBytes")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeUploadBuffer
-
-instance NFData DescribeUploadBuffer
-
-instance ToHeaders DescribeUploadBuffer where
+instance Lude.ToHeaders DescribeUploadBuffer where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.DescribeUploadBuffer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.DescribeUploadBuffer" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeUploadBuffer where
+instance Lude.ToJSON DescribeUploadBuffer where
   toJSON DescribeUploadBuffer' {..} =
-    object (catMaybes [Just ("GatewayARN" .= _dubGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
 
-instance ToPath DescribeUploadBuffer where
-  toPath = const "/"
+instance Lude.ToPath DescribeUploadBuffer where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeUploadBuffer where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeUploadBuffer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeUploadBufferResponse' smart constructor.
+-- | /See:/ 'mkDescribeUploadBufferResponse' smart constructor.
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
-  { _dubrsUploadBufferAllocatedInBytes ::
-      !(Maybe Integer),
-    _dubrsGatewayARN :: !(Maybe Text),
-    _dubrsDiskIds :: !(Maybe [Text]),
-    _dubrsUploadBufferUsedInBytes ::
-      !(Maybe Integer),
-    _dubrsResponseStatus :: !Int
+  { uploadBufferAllocatedInBytes ::
+      Lude.Maybe Lude.Integer,
+    gatewayARN ::
+      Lude.Maybe Lude.Text,
+    diskIds :: Lude.Maybe [Lude.Text],
+    uploadBufferUsedInBytes ::
+      Lude.Maybe Lude.Integer,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUploadBufferResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dubrsUploadBufferAllocatedInBytes' - The total number of bytes allocated in the gateway's as upload buffer.
---
--- * 'dubrsGatewayARN' - Undocumented member.
---
--- * 'dubrsDiskIds' - An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
---
--- * 'dubrsUploadBufferUsedInBytes' - The total number of bytes being used in the gateway's upload buffer.
---
--- * 'dubrsResponseStatus' - -- | The response status code.
-describeUploadBufferResponse ::
-  -- | 'dubrsResponseStatus'
-  Int ->
+-- * 'diskIds' - An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'uploadBufferAllocatedInBytes' - The total number of bytes allocated in the gateway's as upload buffer.
+-- * 'uploadBufferUsedInBytes' - The total number of bytes being used in the gateway's upload buffer.
+mkDescribeUploadBufferResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeUploadBufferResponse
-describeUploadBufferResponse pResponseStatus_ =
+mkDescribeUploadBufferResponse pResponseStatus_ =
   DescribeUploadBufferResponse'
-    { _dubrsUploadBufferAllocatedInBytes =
-        Nothing,
-      _dubrsGatewayARN = Nothing,
-      _dubrsDiskIds = Nothing,
-      _dubrsUploadBufferUsedInBytes = Nothing,
-      _dubrsResponseStatus = pResponseStatus_
+    { uploadBufferAllocatedInBytes =
+        Lude.Nothing,
+      gatewayARN = Lude.Nothing,
+      diskIds = Lude.Nothing,
+      uploadBufferUsedInBytes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The total number of bytes allocated in the gateway's as upload buffer.
-dubrsUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-dubrsUploadBufferAllocatedInBytes = lens _dubrsUploadBufferAllocatedInBytes (\s a -> s {_dubrsUploadBufferAllocatedInBytes = a})
+--
+-- /Note:/ Consider using 'uploadBufferAllocatedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dubrsUploadBufferAllocatedInBytes :: Lens.Lens' DescribeUploadBufferResponse (Lude.Maybe Lude.Integer)
+dubrsUploadBufferAllocatedInBytes = Lens.lens (uploadBufferAllocatedInBytes :: DescribeUploadBufferResponse -> Lude.Maybe Lude.Integer) (\s a -> s {uploadBufferAllocatedInBytes = a} :: DescribeUploadBufferResponse)
+{-# DEPRECATED dubrsUploadBufferAllocatedInBytes "Use generic-lens or generic-optics with 'uploadBufferAllocatedInBytes' instead." #-}
 
--- | Undocumented member.
-dubrsGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
-dubrsGatewayARN = lens _dubrsGatewayARN (\s a -> s {_dubrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dubrsGatewayARN :: Lens.Lens' DescribeUploadBufferResponse (Lude.Maybe Lude.Text)
+dubrsGatewayARN = Lens.lens (gatewayARN :: DescribeUploadBufferResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeUploadBufferResponse)
+{-# DEPRECATED dubrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
-dubrsDiskIds :: Lens' DescribeUploadBufferResponse [Text]
-dubrsDiskIds = lens _dubrsDiskIds (\s a -> s {_dubrsDiskIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'diskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dubrsDiskIds :: Lens.Lens' DescribeUploadBufferResponse (Lude.Maybe [Lude.Text])
+dubrsDiskIds = Lens.lens (diskIds :: DescribeUploadBufferResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {diskIds = a} :: DescribeUploadBufferResponse)
+{-# DEPRECATED dubrsDiskIds "Use generic-lens or generic-optics with 'diskIds' instead." #-}
 
 -- | The total number of bytes being used in the gateway's upload buffer.
-dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\s a -> s {_dubrsUploadBufferUsedInBytes = a})
+--
+-- /Note:/ Consider using 'uploadBufferUsedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dubrsUploadBufferUsedInBytes :: Lens.Lens' DescribeUploadBufferResponse (Lude.Maybe Lude.Integer)
+dubrsUploadBufferUsedInBytes = Lens.lens (uploadBufferUsedInBytes :: DescribeUploadBufferResponse -> Lude.Maybe Lude.Integer) (\s a -> s {uploadBufferUsedInBytes = a} :: DescribeUploadBufferResponse)
+{-# DEPRECATED dubrsUploadBufferUsedInBytes "Use generic-lens or generic-optics with 'uploadBufferUsedInBytes' instead." #-}
 
--- | -- | The response status code.
-dubrsResponseStatus :: Lens' DescribeUploadBufferResponse Int
-dubrsResponseStatus = lens _dubrsResponseStatus (\s a -> s {_dubrsResponseStatus = a})
-
-instance NFData DescribeUploadBufferResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dubrsResponseStatus :: Lens.Lens' DescribeUploadBufferResponse Lude.Int
+dubrsResponseStatus = Lens.lens (responseStatus :: DescribeUploadBufferResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUploadBufferResponse)
+{-# DEPRECATED dubrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

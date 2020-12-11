@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.LabelingJobSNSDataSource where
+module Network.AWS.SageMaker.Types.LabelingJobSNSDataSource
+  ( LabelingJobSNSDataSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLabelingJobSNSDataSource,
+
+    -- * Lenses
+    ljsdsSNSTopicARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An Amazon SNS data source used for streaming labeling jobs.
 --
---
---
--- /See:/ 'labelingJobSNSDataSource' smart constructor.
+-- /See:/ 'mkLabelingJobSNSDataSource' smart constructor.
 newtype LabelingJobSNSDataSource = LabelingJobSNSDataSource'
-  { _ljsdsSNSTopicARN ::
-      Text
+  { snsTopicARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobSNSDataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'snsTopicARN' - The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input topic you will use to send new data objects to a streaming labeling job.
 --
--- * 'ljsdsSNSTopicARN' - The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input topic you will use to send new data objects to a streaming labeling job. If you specify an input topic for @SnsTopicArn@ in @InputConfig@ , you must specify a value for @SnsTopicArn@ in @OutputConfig@ .
-labelingJobSNSDataSource ::
-  -- | 'ljsdsSNSTopicARN'
-  Text ->
+-- If you specify an input topic for @SnsTopicArn@ in @InputConfig@ , you must specify a value for @SnsTopicArn@ in @OutputConfig@ .
+mkLabelingJobSNSDataSource ::
+  -- | 'snsTopicARN'
+  Lude.Text ->
   LabelingJobSNSDataSource
-labelingJobSNSDataSource pSNSTopicARN_ =
-  LabelingJobSNSDataSource' {_ljsdsSNSTopicARN = pSNSTopicARN_}
+mkLabelingJobSNSDataSource pSNSTopicARN_ =
+  LabelingJobSNSDataSource' {snsTopicARN = pSNSTopicARN_}
 
--- | The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input topic you will use to send new data objects to a streaming labeling job. If you specify an input topic for @SnsTopicArn@ in @InputConfig@ , you must specify a value for @SnsTopicArn@ in @OutputConfig@ .
-ljsdsSNSTopicARN :: Lens' LabelingJobSNSDataSource Text
-ljsdsSNSTopicARN = lens _ljsdsSNSTopicARN (\s a -> s {_ljsdsSNSTopicARN = a})
+-- | The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input topic you will use to send new data objects to a streaming labeling job.
+--
+-- If you specify an input topic for @SnsTopicArn@ in @InputConfig@ , you must specify a value for @SnsTopicArn@ in @OutputConfig@ .
+--
+-- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljsdsSNSTopicARN :: Lens.Lens' LabelingJobSNSDataSource Lude.Text
+ljsdsSNSTopicARN = Lens.lens (snsTopicARN :: LabelingJobSNSDataSource -> Lude.Text) (\s a -> s {snsTopicARN = a} :: LabelingJobSNSDataSource)
+{-# DEPRECATED ljsdsSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
 
-instance FromJSON LabelingJobSNSDataSource where
+instance Lude.FromJSON LabelingJobSNSDataSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "LabelingJobSNSDataSource"
-      (\x -> LabelingJobSNSDataSource' <$> (x .: "SnsTopicArn"))
+      ( \x ->
+          LabelingJobSNSDataSource' Lude.<$> (x Lude..: "SnsTopicArn")
+      )
 
-instance Hashable LabelingJobSNSDataSource
-
-instance NFData LabelingJobSNSDataSource
-
-instance ToJSON LabelingJobSNSDataSource where
+instance Lude.ToJSON LabelingJobSNSDataSource where
   toJSON LabelingJobSNSDataSource' {..} =
-    object (catMaybes [Just ("SnsTopicArn" .= _ljsdsSNSTopicARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SnsTopicArn" Lude..= snsTopicARN)])

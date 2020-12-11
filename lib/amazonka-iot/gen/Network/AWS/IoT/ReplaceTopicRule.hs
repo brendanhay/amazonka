@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,106 @@
 --
 -- Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
 module Network.AWS.IoT.ReplaceTopicRule
-  ( -- * Creating a Request
-    replaceTopicRule,
-    ReplaceTopicRule,
+  ( -- * Creating a request
+    ReplaceTopicRule (..),
+    mkReplaceTopicRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rtrRuleName,
     rtrTopicRulePayload,
 
-    -- * Destructuring the Response
-    replaceTopicRuleResponse,
-    ReplaceTopicRuleResponse,
+    -- * Destructuring the response
+    ReplaceTopicRuleResponse (..),
+    mkReplaceTopicRuleResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the ReplaceTopicRule operation.
 --
---
---
--- /See:/ 'replaceTopicRule' smart constructor.
+-- /See:/ 'mkReplaceTopicRule' smart constructor.
 data ReplaceTopicRule = ReplaceTopicRule'
-  { _rtrRuleName :: !Text,
-    _rtrTopicRulePayload :: !TopicRulePayload
+  { ruleName :: Lude.Text,
+    topicRulePayload :: TopicRulePayload
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceTopicRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtrRuleName' - The name of the rule.
---
--- * 'rtrTopicRulePayload' - The rule payload.
-replaceTopicRule ::
-  -- | 'rtrRuleName'
-  Text ->
-  -- | 'rtrTopicRulePayload'
+-- * 'ruleName' - The name of the rule.
+-- * 'topicRulePayload' - The rule payload.
+mkReplaceTopicRule ::
+  -- | 'ruleName'
+  Lude.Text ->
+  -- | 'topicRulePayload'
   TopicRulePayload ->
   ReplaceTopicRule
-replaceTopicRule pRuleName_ pTopicRulePayload_ =
+mkReplaceTopicRule pRuleName_ pTopicRulePayload_ =
   ReplaceTopicRule'
-    { _rtrRuleName = pRuleName_,
-      _rtrTopicRulePayload = pTopicRulePayload_
+    { ruleName = pRuleName_,
+      topicRulePayload = pTopicRulePayload_
     }
 
 -- | The name of the rule.
-rtrRuleName :: Lens' ReplaceTopicRule Text
-rtrRuleName = lens _rtrRuleName (\s a -> s {_rtrRuleName = a})
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrRuleName :: Lens.Lens' ReplaceTopicRule Lude.Text
+rtrRuleName = Lens.lens (ruleName :: ReplaceTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: ReplaceTopicRule)
+{-# DEPRECATED rtrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The rule payload.
-rtrTopicRulePayload :: Lens' ReplaceTopicRule TopicRulePayload
-rtrTopicRulePayload = lens _rtrTopicRulePayload (\s a -> s {_rtrTopicRulePayload = a})
+--
+-- /Note:/ Consider using 'topicRulePayload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrTopicRulePayload :: Lens.Lens' ReplaceTopicRule TopicRulePayload
+rtrTopicRulePayload = Lens.lens (topicRulePayload :: ReplaceTopicRule -> TopicRulePayload) (\s a -> s {topicRulePayload = a} :: ReplaceTopicRule)
+{-# DEPRECATED rtrTopicRulePayload "Use generic-lens or generic-optics with 'topicRulePayload' instead." #-}
 
-instance AWSRequest ReplaceTopicRule where
+instance Lude.AWSRequest ReplaceTopicRule where
   type Rs ReplaceTopicRule = ReplaceTopicRuleResponse
-  request = patchJSON ioT
-  response = receiveNull ReplaceTopicRuleResponse'
+  request = Req.patchJSON ioTService
+  response = Res.receiveNull ReplaceTopicRuleResponse'
 
-instance Hashable ReplaceTopicRule
+instance Lude.ToHeaders ReplaceTopicRule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ReplaceTopicRule
-
-instance ToHeaders ReplaceTopicRule where
-  toHeaders = const mempty
-
-instance ToJSON ReplaceTopicRule where
+instance Lude.ToJSON ReplaceTopicRule where
   toJSON ReplaceTopicRule' {..} =
-    object
-      (catMaybes [Just ("topicRulePayload" .= _rtrTopicRulePayload)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("topicRulePayload" Lude..= topicRulePayload)]
+      )
 
-instance ToPath ReplaceTopicRule where
+instance Lude.ToPath ReplaceTopicRule where
   toPath ReplaceTopicRule' {..} =
-    mconcat ["/rules/", toBS _rtrRuleName]
+    Lude.mconcat ["/rules/", Lude.toBS ruleName]
 
-instance ToQuery ReplaceTopicRule where
-  toQuery = const mempty
+instance Lude.ToQuery ReplaceTopicRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'replaceTopicRuleResponse' smart constructor.
+-- | /See:/ 'mkReplaceTopicRuleResponse' smart constructor.
 data ReplaceTopicRuleResponse = ReplaceTopicRuleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceTopicRuleResponse' with the minimum fields required to make a request.
-replaceTopicRuleResponse ::
+mkReplaceTopicRuleResponse ::
   ReplaceTopicRuleResponse
-replaceTopicRuleResponse = ReplaceTopicRuleResponse'
-
-instance NFData ReplaceTopicRuleResponse
+mkReplaceTopicRuleResponse = ReplaceTopicRuleResponse'

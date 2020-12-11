@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction where
+module Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
+  ( SqlQueryDatasetAction (..),
+
+    -- * Smart constructor
+    mkSqlQueryDatasetAction,
+
+    -- * Lenses
+    sqdaFilters,
+    sqdaSqlQuery,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.QueryFilter
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The SQL query to modify the message.
 --
---
---
--- /See:/ 'sqlQueryDatasetAction' smart constructor.
+-- /See:/ 'mkSqlQueryDatasetAction' smart constructor.
 data SqlQueryDatasetAction = SqlQueryDatasetAction'
-  { _sqdaFilters ::
-      !(Maybe [QueryFilter]),
-    _sqdaSqlQuery :: !Text
+  { filters ::
+      Lude.Maybe [QueryFilter],
+    sqlQuery :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SqlQueryDatasetAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sqdaFilters' - Prefilters applied to message data.
---
--- * 'sqdaSqlQuery' - A SQL query string.
-sqlQueryDatasetAction ::
-  -- | 'sqdaSqlQuery'
-  Text ->
+-- * 'filters' - Prefilters applied to message data.
+-- * 'sqlQuery' - A SQL query string.
+mkSqlQueryDatasetAction ::
+  -- | 'sqlQuery'
+  Lude.Text ->
   SqlQueryDatasetAction
-sqlQueryDatasetAction pSqlQuery_ =
+mkSqlQueryDatasetAction pSqlQuery_ =
   SqlQueryDatasetAction'
-    { _sqdaFilters = Nothing,
-      _sqdaSqlQuery = pSqlQuery_
+    { filters = Lude.Nothing,
+      sqlQuery = pSqlQuery_
     }
 
 -- | Prefilters applied to message data.
-sqdaFilters :: Lens' SqlQueryDatasetAction [QueryFilter]
-sqdaFilters = lens _sqdaFilters (\s a -> s {_sqdaFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sqdaFilters :: Lens.Lens' SqlQueryDatasetAction (Lude.Maybe [QueryFilter])
+sqdaFilters = Lens.lens (filters :: SqlQueryDatasetAction -> Lude.Maybe [QueryFilter]) (\s a -> s {filters = a} :: SqlQueryDatasetAction)
+{-# DEPRECATED sqdaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | A SQL query string.
-sqdaSqlQuery :: Lens' SqlQueryDatasetAction Text
-sqdaSqlQuery = lens _sqdaSqlQuery (\s a -> s {_sqdaSqlQuery = a})
+--
+-- /Note:/ Consider using 'sqlQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sqdaSqlQuery :: Lens.Lens' SqlQueryDatasetAction Lude.Text
+sqdaSqlQuery = Lens.lens (sqlQuery :: SqlQueryDatasetAction -> Lude.Text) (\s a -> s {sqlQuery = a} :: SqlQueryDatasetAction)
+{-# DEPRECATED sqdaSqlQuery "Use generic-lens or generic-optics with 'sqlQuery' instead." #-}
 
-instance FromJSON SqlQueryDatasetAction where
+instance Lude.FromJSON SqlQueryDatasetAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "SqlQueryDatasetAction"
       ( \x ->
           SqlQueryDatasetAction'
-            <$> (x .:? "filters" .!= mempty) <*> (x .: "sqlQuery")
+            Lude.<$> (x Lude..:? "filters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "sqlQuery")
       )
 
-instance Hashable SqlQueryDatasetAction
-
-instance NFData SqlQueryDatasetAction
-
-instance ToJSON SqlQueryDatasetAction where
+instance Lude.ToJSON SqlQueryDatasetAction where
   toJSON SqlQueryDatasetAction' {..} =
-    object
-      ( catMaybes
-          [ ("filters" .=) <$> _sqdaFilters,
-            Just ("sqlQuery" .= _sqdaSqlQuery)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("filters" Lude..=) Lude.<$> filters,
+            Lude.Just ("sqlQuery" Lude..= sqlQuery)
           ]
       )

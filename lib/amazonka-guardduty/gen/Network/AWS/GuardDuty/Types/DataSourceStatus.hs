@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.DataSourceStatus where
+module Network.AWS.GuardDuty.Types.DataSourceStatus
+  ( DataSourceStatus
+      ( DataSourceStatus',
+        DSSDisabled,
+        DSSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DataSourceStatus
-  = DSSDisabled
-  | DSSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DataSourceStatus = DataSourceStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DataSourceStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure DSSDisabled
-      "enabled" -> pure DSSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing DataSourceStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern DSSDisabled :: DataSourceStatus
+pattern DSSDisabled = DataSourceStatus' "DISABLED"
 
-instance ToText DataSourceStatus where
-  toText = \case
-    DSSDisabled -> "DISABLED"
-    DSSEnabled -> "ENABLED"
+pattern DSSEnabled :: DataSourceStatus
+pattern DSSEnabled = DataSourceStatus' "ENABLED"
 
-instance Hashable DataSourceStatus
-
-instance NFData DataSourceStatus
-
-instance ToByteString DataSourceStatus
-
-instance ToQuery DataSourceStatus
-
-instance ToHeader DataSourceStatus
-
-instance FromJSON DataSourceStatus where
-  parseJSON = parseJSONText "DataSourceStatus"
+{-# COMPLETE
+  DSSDisabled,
+  DSSEnabled,
+  DataSourceStatus'
+  #-}

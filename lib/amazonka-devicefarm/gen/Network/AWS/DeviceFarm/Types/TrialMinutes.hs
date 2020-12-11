@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.TrialMinutes where
+module Network.AWS.DeviceFarm.Types.TrialMinutes
+  ( TrialMinutes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrialMinutes,
+
+    -- * Lenses
+    tmRemaining,
+    tmTotal,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents information about free trial device minutes for an AWS account.
 --
---
---
--- /See:/ 'trialMinutes' smart constructor.
+-- /See:/ 'mkTrialMinutes' smart constructor.
 data TrialMinutes = TrialMinutes'
-  { _tmRemaining :: !(Maybe Double),
-    _tmTotal :: !(Maybe Double)
+  { remaining ::
+      Lude.Maybe Lude.Double,
+    total :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialMinutes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tmRemaining' - The number of free trial minutes remaining in the account.
---
--- * 'tmTotal' - The total number of free trial minutes that the account started with.
-trialMinutes ::
+-- * 'remaining' - The number of free trial minutes remaining in the account.
+-- * 'total' - The total number of free trial minutes that the account started with.
+mkTrialMinutes ::
   TrialMinutes
-trialMinutes =
-  TrialMinutes' {_tmRemaining = Nothing, _tmTotal = Nothing}
+mkTrialMinutes =
+  TrialMinutes' {remaining = Lude.Nothing, total = Lude.Nothing}
 
 -- | The number of free trial minutes remaining in the account.
-tmRemaining :: Lens' TrialMinutes (Maybe Double)
-tmRemaining = lens _tmRemaining (\s a -> s {_tmRemaining = a})
+--
+-- /Note:/ Consider using 'remaining' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmRemaining :: Lens.Lens' TrialMinutes (Lude.Maybe Lude.Double)
+tmRemaining = Lens.lens (remaining :: TrialMinutes -> Lude.Maybe Lude.Double) (\s a -> s {remaining = a} :: TrialMinutes)
+{-# DEPRECATED tmRemaining "Use generic-lens or generic-optics with 'remaining' instead." #-}
 
 -- | The total number of free trial minutes that the account started with.
-tmTotal :: Lens' TrialMinutes (Maybe Double)
-tmTotal = lens _tmTotal (\s a -> s {_tmTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmTotal :: Lens.Lens' TrialMinutes (Lude.Maybe Lude.Double)
+tmTotal = Lens.lens (total :: TrialMinutes -> Lude.Maybe Lude.Double) (\s a -> s {total = a} :: TrialMinutes)
+{-# DEPRECATED tmTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
-instance FromJSON TrialMinutes where
+instance Lude.FromJSON TrialMinutes where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrialMinutes"
-      (\x -> TrialMinutes' <$> (x .:? "remaining") <*> (x .:? "total"))
-
-instance Hashable TrialMinutes
-
-instance NFData TrialMinutes
+      ( \x ->
+          TrialMinutes'
+            Lude.<$> (x Lude..:? "remaining") Lude.<*> (x Lude..:? "total")
+      )

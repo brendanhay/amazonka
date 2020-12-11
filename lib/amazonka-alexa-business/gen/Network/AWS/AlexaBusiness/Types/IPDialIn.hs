@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.IPDialIn where
+module Network.AWS.AlexaBusiness.Types.IPDialIn
+  ( IPDialIn (..),
+
+    -- * Smart constructor
+    mkIPDialIn,
+
+    -- * Lenses
+    idiEndpoint,
+    idiCommsProtocol,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.CommsProtocol
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The IP endpoint and protocol for calling.
 --
---
---
--- /See:/ 'ipDialIn' smart constructor.
+-- /See:/ 'mkIPDialIn' smart constructor.
 data IPDialIn = IPDialIn'
-  { _idiEndpoint :: !Text,
-    _idiCommsProtocol :: !CommsProtocol
+  { endpoint :: Lude.Text,
+    commsProtocol :: CommsProtocol
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPDialIn' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idiEndpoint' - The IP address.
---
--- * 'idiCommsProtocol' - The protocol, including SIP, SIPS, and H323.
-ipDialIn ::
-  -- | 'idiEndpoint'
-  Text ->
-  -- | 'idiCommsProtocol'
+-- * 'commsProtocol' - The protocol, including SIP, SIPS, and H323.
+-- * 'endpoint' - The IP address.
+mkIPDialIn ::
+  -- | 'endpoint'
+  Lude.Text ->
+  -- | 'commsProtocol'
   CommsProtocol ->
   IPDialIn
-ipDialIn pEndpoint_ pCommsProtocol_ =
-  IPDialIn'
-    { _idiEndpoint = pEndpoint_,
-      _idiCommsProtocol = pCommsProtocol_
-    }
+mkIPDialIn pEndpoint_ pCommsProtocol_ =
+  IPDialIn' {endpoint = pEndpoint_, commsProtocol = pCommsProtocol_}
 
 -- | The IP address.
-idiEndpoint :: Lens' IPDialIn Text
-idiEndpoint = lens _idiEndpoint (\s a -> s {_idiEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idiEndpoint :: Lens.Lens' IPDialIn Lude.Text
+idiEndpoint = Lens.lens (endpoint :: IPDialIn -> Lude.Text) (\s a -> s {endpoint = a} :: IPDialIn)
+{-# DEPRECATED idiEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | The protocol, including SIP, SIPS, and H323.
-idiCommsProtocol :: Lens' IPDialIn CommsProtocol
-idiCommsProtocol = lens _idiCommsProtocol (\s a -> s {_idiCommsProtocol = a})
+--
+-- /Note:/ Consider using 'commsProtocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idiCommsProtocol :: Lens.Lens' IPDialIn CommsProtocol
+idiCommsProtocol = Lens.lens (commsProtocol :: IPDialIn -> CommsProtocol) (\s a -> s {commsProtocol = a} :: IPDialIn)
+{-# DEPRECATED idiCommsProtocol "Use generic-lens or generic-optics with 'commsProtocol' instead." #-}
 
-instance FromJSON IPDialIn where
+instance Lude.FromJSON IPDialIn where
   parseJSON =
-    withObject
+    Lude.withObject
       "IPDialIn"
-      (\x -> IPDialIn' <$> (x .: "Endpoint") <*> (x .: "CommsProtocol"))
+      ( \x ->
+          IPDialIn'
+            Lude.<$> (x Lude..: "Endpoint") Lude.<*> (x Lude..: "CommsProtocol")
+      )
 
-instance Hashable IPDialIn
-
-instance NFData IPDialIn
-
-instance ToJSON IPDialIn where
+instance Lude.ToJSON IPDialIn where
   toJSON IPDialIn' {..} =
-    object
-      ( catMaybes
-          [ Just ("Endpoint" .= _idiEndpoint),
-            Just ("CommsProtocol" .= _idiCommsProtocol)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Endpoint" Lude..= endpoint),
+            Lude.Just ("CommsProtocol" Lude..= commsProtocol)
           ]
       )

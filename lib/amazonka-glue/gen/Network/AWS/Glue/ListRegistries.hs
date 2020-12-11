@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns a list of registries that you have created, with minimal registry information. Registries in the @Deleting@ status will not be included in the results. Empty results will be returned if there are no registries available.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.ListRegistries
-  ( -- * Creating a Request
-    listRegistries,
-    ListRegistries,
+  ( -- * Creating a request
+    ListRegistries (..),
+    mkListRegistries,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrNextToken,
     lrMaxResults,
 
-    -- * Destructuring the Response
-    listRegistriesResponse,
-    ListRegistriesResponse,
+    -- * Destructuring the response
+    ListRegistriesResponse (..),
+    mkListRegistriesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrrsRegistries,
     lrrsNextToken,
     lrrsResponseStatus,
@@ -43,125 +36,149 @@ module Network.AWS.Glue.ListRegistries
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listRegistries' smart constructor.
+-- | /See:/ 'mkListRegistries' smart constructor.
 data ListRegistries = ListRegistries'
-  { _lrNextToken ::
-      !(Maybe Text),
-    _lrMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRegistries' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrNextToken' - A continuation token, if this is a continuation call.
---
--- * 'lrMaxResults' - Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
-listRegistries ::
+-- * 'maxResults' - Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
+-- * 'nextToken' - A continuation token, if this is a continuation call.
+mkListRegistries ::
   ListRegistries
-listRegistries =
-  ListRegistries' {_lrNextToken = Nothing, _lrMaxResults = Nothing}
+mkListRegistries =
+  ListRegistries'
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
+    }
 
 -- | A continuation token, if this is a continuation call.
-lrNextToken :: Lens' ListRegistries (Maybe Text)
-lrNextToken = lens _lrNextToken (\s a -> s {_lrNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNextToken :: Lens.Lens' ListRegistries (Lude.Maybe Lude.Text)
+lrNextToken = Lens.lens (nextToken :: ListRegistries -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRegistries)
+{-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
-lrMaxResults :: Lens' ListRegistries (Maybe Natural)
-lrMaxResults = lens _lrMaxResults (\s a -> s {_lrMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrMaxResults :: Lens.Lens' ListRegistries (Lude.Maybe Lude.Natural)
+lrMaxResults = Lens.lens (maxResults :: ListRegistries -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListRegistries)
+{-# DEPRECATED lrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListRegistries where
+instance Page.AWSPager ListRegistries where
   page rq rs
-    | stop (rs ^. lrrsNextToken) = Nothing
-    | stop (rs ^. lrrsRegistries) = Nothing
-    | otherwise = Just $ rq & lrNextToken .~ rs ^. lrrsNextToken
+    | Page.stop (rs Lens.^. lrrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrrsRegistries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrNextToken Lens..~ rs Lens.^. lrrsNextToken
 
-instance AWSRequest ListRegistries where
+instance Lude.AWSRequest ListRegistries where
   type Rs ListRegistries = ListRegistriesResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListRegistriesResponse'
-            <$> (x .?> "Registries" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Registries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListRegistries
-
-instance NFData ListRegistries
-
-instance ToHeaders ListRegistries where
+instance Lude.ToHeaders ListRegistries where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.ListRegistries" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.ListRegistries" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListRegistries where
+instance Lude.ToJSON ListRegistries where
   toJSON ListRegistries' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lrNextToken,
-            ("MaxResults" .=) <$> _lrMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListRegistries where
-  toPath = const "/"
+instance Lude.ToPath ListRegistries where
+  toPath = Lude.const "/"
 
-instance ToQuery ListRegistries where
-  toQuery = const mempty
+instance Lude.ToQuery ListRegistries where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listRegistriesResponse' smart constructor.
+-- | /See:/ 'mkListRegistriesResponse' smart constructor.
 data ListRegistriesResponse = ListRegistriesResponse'
-  { _lrrsRegistries ::
-      !(Maybe [RegistryListItem]),
-    _lrrsNextToken :: !(Maybe Text),
-    _lrrsResponseStatus :: !Int
+  { registries ::
+      Lude.Maybe [RegistryListItem],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRegistriesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrrsRegistries' - An array of @RegistryDetailedListItem@ objects containing minimal details of each registry.
---
--- * 'lrrsNextToken' - A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
---
--- * 'lrrsResponseStatus' - -- | The response status code.
-listRegistriesResponse ::
-  -- | 'lrrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+-- * 'registries' - An array of @RegistryDetailedListItem@ objects containing minimal details of each registry.
+-- * 'responseStatus' - The response status code.
+mkListRegistriesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRegistriesResponse
-listRegistriesResponse pResponseStatus_ =
+mkListRegistriesResponse pResponseStatus_ =
   ListRegistriesResponse'
-    { _lrrsRegistries = Nothing,
-      _lrrsNextToken = Nothing,
-      _lrrsResponseStatus = pResponseStatus_
+    { registries = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of @RegistryDetailedListItem@ objects containing minimal details of each registry.
-lrrsRegistries :: Lens' ListRegistriesResponse [RegistryListItem]
-lrrsRegistries = lens _lrrsRegistries (\s a -> s {_lrrsRegistries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'registries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsRegistries :: Lens.Lens' ListRegistriesResponse (Lude.Maybe [RegistryListItem])
+lrrsRegistries = Lens.lens (registries :: ListRegistriesResponse -> Lude.Maybe [RegistryListItem]) (\s a -> s {registries = a} :: ListRegistriesResponse)
+{-# DEPRECATED lrrsRegistries "Use generic-lens or generic-optics with 'registries' instead." #-}
 
 -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
-lrrsNextToken :: Lens' ListRegistriesResponse (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\s a -> s {_lrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsNextToken :: Lens.Lens' ListRegistriesResponse (Lude.Maybe Lude.Text)
+lrrsNextToken = Lens.lens (nextToken :: ListRegistriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRegistriesResponse)
+{-# DEPRECATED lrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrrsResponseStatus :: Lens' ListRegistriesResponse Int
-lrrsResponseStatus = lens _lrrsResponseStatus (\s a -> s {_lrrsResponseStatus = a})
-
-instance NFData ListRegistriesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsResponseStatus :: Lens.Lens' ListRegistriesResponse Lude.Int
+lrrsResponseStatus = Lens.lens (responseStatus :: ListRegistriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRegistriesResponse)
+{-# DEPRECATED lrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

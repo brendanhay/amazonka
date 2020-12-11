@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NatGatewayAddress where
+module Network.AWS.EC2.Types.NatGatewayAddress
+  ( NatGatewayAddress (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNatGatewayAddress,
+
+    -- * Lenses
+    ngaPrivateIP,
+    ngaAllocationId,
+    ngaNetworkInterfaceId,
+    ngaPublicIP,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the IP addresses and network interface associated with a NAT gateway.
 --
---
---
--- /See:/ 'natGatewayAddress' smart constructor.
+-- /See:/ 'mkNatGatewayAddress' smart constructor.
 data NatGatewayAddress = NatGatewayAddress'
-  { _ngaPrivateIP ::
-      !(Maybe Text),
-    _ngaAllocationId :: !(Maybe Text),
-    _ngaNetworkInterfaceId :: !(Maybe Text),
-    _ngaPublicIP :: !(Maybe Text)
+  { privateIP ::
+      Lude.Maybe Lude.Text,
+    allocationId :: Lude.Maybe Lude.Text,
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    publicIP :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NatGatewayAddress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ngaPrivateIP' - The private IP address associated with the Elastic IP address.
---
--- * 'ngaAllocationId' - The allocation ID of the Elastic IP address that's associated with the NAT gateway.
---
--- * 'ngaNetworkInterfaceId' - The ID of the network interface associated with the NAT gateway.
---
--- * 'ngaPublicIP' - The Elastic IP address associated with the NAT gateway.
-natGatewayAddress ::
+-- * 'allocationId' - The allocation ID of the Elastic IP address that's associated with the NAT gateway.
+-- * 'networkInterfaceId' - The ID of the network interface associated with the NAT gateway.
+-- * 'privateIP' - The private IP address associated with the Elastic IP address.
+-- * 'publicIP' - The Elastic IP address associated with the NAT gateway.
+mkNatGatewayAddress ::
   NatGatewayAddress
-natGatewayAddress =
+mkNatGatewayAddress =
   NatGatewayAddress'
-    { _ngaPrivateIP = Nothing,
-      _ngaAllocationId = Nothing,
-      _ngaNetworkInterfaceId = Nothing,
-      _ngaPublicIP = Nothing
+    { privateIP = Lude.Nothing,
+      allocationId = Lude.Nothing,
+      networkInterfaceId = Lude.Nothing,
+      publicIP = Lude.Nothing
     }
 
 -- | The private IP address associated with the Elastic IP address.
-ngaPrivateIP :: Lens' NatGatewayAddress (Maybe Text)
-ngaPrivateIP = lens _ngaPrivateIP (\s a -> s {_ngaPrivateIP = a})
+--
+-- /Note:/ Consider using 'privateIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngaPrivateIP :: Lens.Lens' NatGatewayAddress (Lude.Maybe Lude.Text)
+ngaPrivateIP = Lens.lens (privateIP :: NatGatewayAddress -> Lude.Maybe Lude.Text) (\s a -> s {privateIP = a} :: NatGatewayAddress)
+{-# DEPRECATED ngaPrivateIP "Use generic-lens or generic-optics with 'privateIP' instead." #-}
 
 -- | The allocation ID of the Elastic IP address that's associated with the NAT gateway.
-ngaAllocationId :: Lens' NatGatewayAddress (Maybe Text)
-ngaAllocationId = lens _ngaAllocationId (\s a -> s {_ngaAllocationId = a})
+--
+-- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngaAllocationId :: Lens.Lens' NatGatewayAddress (Lude.Maybe Lude.Text)
+ngaAllocationId = Lens.lens (allocationId :: NatGatewayAddress -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: NatGatewayAddress)
+{-# DEPRECATED ngaAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
 
 -- | The ID of the network interface associated with the NAT gateway.
-ngaNetworkInterfaceId :: Lens' NatGatewayAddress (Maybe Text)
-ngaNetworkInterfaceId = lens _ngaNetworkInterfaceId (\s a -> s {_ngaNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngaNetworkInterfaceId :: Lens.Lens' NatGatewayAddress (Lude.Maybe Lude.Text)
+ngaNetworkInterfaceId = Lens.lens (networkInterfaceId :: NatGatewayAddress -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: NatGatewayAddress)
+{-# DEPRECATED ngaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The Elastic IP address associated with the NAT gateway.
-ngaPublicIP :: Lens' NatGatewayAddress (Maybe Text)
-ngaPublicIP = lens _ngaPublicIP (\s a -> s {_ngaPublicIP = a})
+--
+-- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngaPublicIP :: Lens.Lens' NatGatewayAddress (Lude.Maybe Lude.Text)
+ngaPublicIP = Lens.lens (publicIP :: NatGatewayAddress -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: NatGatewayAddress)
+{-# DEPRECATED ngaPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
 
-instance FromXML NatGatewayAddress where
+instance Lude.FromXML NatGatewayAddress where
   parseXML x =
     NatGatewayAddress'
-      <$> (x .@? "privateIp")
-      <*> (x .@? "allocationId")
-      <*> (x .@? "networkInterfaceId")
-      <*> (x .@? "publicIp")
-
-instance Hashable NatGatewayAddress
-
-instance NFData NatGatewayAddress
+      Lude.<$> (x Lude..@? "privateIp")
+      Lude.<*> (x Lude..@? "allocationId")
+      Lude.<*> (x Lude..@? "networkInterfaceId")
+      Lude.<*> (x Lude..@? "publicIp")

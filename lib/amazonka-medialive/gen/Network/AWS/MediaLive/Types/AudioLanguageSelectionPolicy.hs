@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioLanguageSelectionPolicy where
+module Network.AWS.MediaLive.Types.AudioLanguageSelectionPolicy
+  ( AudioLanguageSelectionPolicy
+      ( AudioLanguageSelectionPolicy',
+        Loose,
+        Strict
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Language Selection Policy
-data AudioLanguageSelectionPolicy
-  = Loose
-  | Strict
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioLanguageSelectionPolicy = AudioLanguageSelectionPolicy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioLanguageSelectionPolicy where
-  parser =
-    takeLowerText >>= \case
-      "loose" -> pure Loose
-      "strict" -> pure Strict
-      e ->
-        fromTextError $
-          "Failure parsing AudioLanguageSelectionPolicy from value: '" <> e
-            <> "'. Accepted values: loose, strict"
+pattern Loose :: AudioLanguageSelectionPolicy
+pattern Loose = AudioLanguageSelectionPolicy' "LOOSE"
 
-instance ToText AudioLanguageSelectionPolicy where
-  toText = \case
-    Loose -> "LOOSE"
-    Strict -> "STRICT"
+pattern Strict :: AudioLanguageSelectionPolicy
+pattern Strict = AudioLanguageSelectionPolicy' "STRICT"
 
-instance Hashable AudioLanguageSelectionPolicy
-
-instance NFData AudioLanguageSelectionPolicy
-
-instance ToByteString AudioLanguageSelectionPolicy
-
-instance ToQuery AudioLanguageSelectionPolicy
-
-instance ToHeader AudioLanguageSelectionPolicy
-
-instance ToJSON AudioLanguageSelectionPolicy where
-  toJSON = toJSONText
-
-instance FromJSON AudioLanguageSelectionPolicy where
-  parseJSON = parseJSONText "AudioLanguageSelectionPolicy"
+{-# COMPLETE
+  Loose,
+  Strict,
+  AudioLanguageSelectionPolicy'
+  #-}

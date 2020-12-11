@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DomainType where
+module Network.AWS.EC2.Types.DomainType
+  ( DomainType
+      ( DomainType',
+        DTStandard,
+        DTVPC
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainType
-  = DTStandard
-  | DTVPC
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainType = DomainType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainType where
-  parser =
-    takeLowerText >>= \case
-      "standard" -> pure DTStandard
-      "vpc" -> pure DTVPC
-      e ->
-        fromTextError $
-          "Failure parsing DomainType from value: '" <> e
-            <> "'. Accepted values: standard, vpc"
+pattern DTStandard :: DomainType
+pattern DTStandard = DomainType' "standard"
 
-instance ToText DomainType where
-  toText = \case
-    DTStandard -> "standard"
-    DTVPC -> "vpc"
+pattern DTVPC :: DomainType
+pattern DTVPC = DomainType' "vpc"
 
-instance Hashable DomainType
-
-instance NFData DomainType
-
-instance ToByteString DomainType
-
-instance ToQuery DomainType
-
-instance ToHeader DomainType
-
-instance FromXML DomainType where
-  parseXML = parseXMLText "DomainType"
+{-# COMPLETE
+  DTStandard,
+  DTVPC,
+  DomainType'
+  #-}

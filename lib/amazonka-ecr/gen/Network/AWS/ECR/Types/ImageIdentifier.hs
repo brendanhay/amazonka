@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ImageIdentifier where
+module Network.AWS.ECR.Types.ImageIdentifier
+  ( ImageIdentifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkImageIdentifier,
+
+    -- * Lenses
+    iiImageDigest,
+    iiImageTag,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object with identifying information for an Amazon ECR image.
 --
---
---
--- /See:/ 'imageIdentifier' smart constructor.
+-- /See:/ 'mkImageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
-  { _iiImageDigest ::
-      !(Maybe Text),
-    _iiImageTag :: !(Maybe Text)
+  { imageDigest ::
+      Lude.Maybe Lude.Text,
+    imageTag :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iiImageDigest' - The @sha256@ digest of the image manifest.
---
--- * 'iiImageTag' - The tag used for the image.
-imageIdentifier ::
+-- * 'imageDigest' - The @sha256@ digest of the image manifest.
+-- * 'imageTag' - The tag used for the image.
+mkImageIdentifier ::
   ImageIdentifier
-imageIdentifier =
-  ImageIdentifier' {_iiImageDigest = Nothing, _iiImageTag = Nothing}
+mkImageIdentifier =
+  ImageIdentifier'
+    { imageDigest = Lude.Nothing,
+      imageTag = Lude.Nothing
+    }
 
 -- | The @sha256@ digest of the image manifest.
-iiImageDigest :: Lens' ImageIdentifier (Maybe Text)
-iiImageDigest = lens _iiImageDigest (\s a -> s {_iiImageDigest = a})
+--
+-- /Note:/ Consider using 'imageDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiImageDigest :: Lens.Lens' ImageIdentifier (Lude.Maybe Lude.Text)
+iiImageDigest = Lens.lens (imageDigest :: ImageIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {imageDigest = a} :: ImageIdentifier)
+{-# DEPRECATED iiImageDigest "Use generic-lens or generic-optics with 'imageDigest' instead." #-}
 
 -- | The tag used for the image.
-iiImageTag :: Lens' ImageIdentifier (Maybe Text)
-iiImageTag = lens _iiImageTag (\s a -> s {_iiImageTag = a})
+--
+-- /Note:/ Consider using 'imageTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiImageTag :: Lens.Lens' ImageIdentifier (Lude.Maybe Lude.Text)
+iiImageTag = Lens.lens (imageTag :: ImageIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {imageTag = a} :: ImageIdentifier)
+{-# DEPRECATED iiImageTag "Use generic-lens or generic-optics with 'imageTag' instead." #-}
 
-instance FromJSON ImageIdentifier where
+instance Lude.FromJSON ImageIdentifier where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImageIdentifier"
       ( \x ->
-          ImageIdentifier' <$> (x .:? "imageDigest") <*> (x .:? "imageTag")
+          ImageIdentifier'
+            Lude.<$> (x Lude..:? "imageDigest") Lude.<*> (x Lude..:? "imageTag")
       )
 
-instance Hashable ImageIdentifier
-
-instance NFData ImageIdentifier
-
-instance ToJSON ImageIdentifier where
+instance Lude.ToJSON ImageIdentifier where
   toJSON ImageIdentifier' {..} =
-    object
-      ( catMaybes
-          [ ("imageDigest" .=) <$> _iiImageDigest,
-            ("imageTag" .=) <$> _iiImageTag
+    Lude.object
+      ( Lude.catMaybes
+          [ ("imageDigest" Lude..=) Lude.<$> imageDigest,
+            ("imageTag" Lude..=) Lude.<$> imageTag
           ]
       )

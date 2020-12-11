@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,86 @@
 --
 -- Lists all cost allocation tags currently on the named resource. A @cost allocation tag@ is a key-value pair where the key is case-sensitive and the value is optional. You can use cost allocation tags to categorize and track your AWS costs.
 --
---
 -- If the cluster is not in the /available/ state, @ListTagsForResource@ returns an error.
---
 -- You can have a maximum of 50 cost allocation tags on an ElastiCache resource. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html Monitoring Costs with Tags> .
 module Network.AWS.ElastiCache.ListTagsForResource
-  ( -- * Creating a Request
-    listTagsForResource,
-    ListTagsForResource,
+  ( -- * Creating a request
+    ListTagsForResource (..),
+    mkListTagsForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfrResourceName,
 
-    -- * Destructuring the Response
-    tagListMessage,
-    TagListMessage,
+    -- * Destructuring the response
+    TagListMessage (..),
+    mkTagListMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     tlmTagList,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input parameters for the @ListTagsForResource@ operation.
 --
---
---
--- /See:/ 'listTagsForResource' smart constructor.
+-- /See:/ 'mkListTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-  { _ltfrResourceName ::
-      Text
+  { resourceName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'resourceName' - The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ .
 --
--- * 'ltfrResourceName' - The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-listTagsForResource ::
-  -- | 'ltfrResourceName'
-  Text ->
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+mkListTagsForResource ::
+  -- | 'resourceName'
+  Lude.Text ->
   ListTagsForResource
-listTagsForResource pResourceName_ =
-  ListTagsForResource' {_ltfrResourceName = pResourceName_}
+mkListTagsForResource pResourceName_ =
+  ListTagsForResource' {resourceName = pResourceName_}
 
--- | The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ . For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-ltfrResourceName :: Lens' ListTagsForResource Text
-ltfrResourceName = lens _ltfrResourceName (\s a -> s {_ltfrResourceName = a})
+-- | The Amazon Resource Name (ARN) of the resource for which you want the list of tags, for example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@ or @arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot@ .
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceName :: Lens.Lens' ListTagsForResource Lude.Text
+ltfrResourceName = Lens.lens (resourceName :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceName = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
-instance AWSRequest ListTagsForResource where
+instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = TagListMessage
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListTagsForResourceResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable ListTagsForResource
+instance Lude.ToHeaders ListTagsForResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTagsForResource
+instance Lude.ToPath ListTagsForResource where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListTagsForResource where
-  toHeaders = const mempty
-
-instance ToPath ListTagsForResource where
-  toPath = const "/"
-
-instance ToQuery ListTagsForResource where
+instance Lude.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
-    mconcat
-      [ "Action" =: ("ListTagsForResource" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "ResourceName" =: _ltfrResourceName
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListTagsForResource" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "ResourceName" Lude.=: resourceName
       ]

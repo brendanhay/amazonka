@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,138 @@
 --
 -- Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests. For example, you might want to enable a request whose origin is http://www.example.com to access your AWS Elemental MediaStore container at my.example.container.com by using the browser's XMLHttpRequest capability.
 --
---
 -- To enable CORS on a container, you attach a CORS policy to the container. In the CORS policy, you configure rules that identify origins and the HTTP methods that can be executed on your container. The policy can contain up to 398,000 characters. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.
---
 -- To learn more about CORS, see <https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore> .
 module Network.AWS.MediaStore.PutCORSPolicy
-  ( -- * Creating a Request
-    putCORSPolicy,
-    PutCORSPolicy,
+  ( -- * Creating a request
+    PutCORSPolicy (..),
+    mkPutCORSPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pcpContainerName,
     pcpCORSPolicy,
 
-    -- * Destructuring the Response
-    putCORSPolicyResponse,
-    PutCORSPolicyResponse,
+    -- * Destructuring the response
+    PutCORSPolicyResponse (..),
+    mkPutCORSPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pcorsprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putCORSPolicy' smart constructor.
+-- | /See:/ 'mkPutCORSPolicy' smart constructor.
 data PutCORSPolicy = PutCORSPolicy'
-  { _pcpContainerName :: !Text,
-    _pcpCORSPolicy :: !(List1 CORSRule)
+  { containerName :: Lude.Text,
+    corsPolicy :: Lude.NonEmpty CORSRule
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutCORSPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcpContainerName' - The name of the container that you want to assign the CORS policy to.
---
--- * 'pcpCORSPolicy' - The CORS policy to apply to the container.
-putCORSPolicy ::
-  -- | 'pcpContainerName'
-  Text ->
-  -- | 'pcpCORSPolicy'
-  NonEmpty CORSRule ->
+-- * 'containerName' - The name of the container that you want to assign the CORS policy to.
+-- * 'corsPolicy' - The CORS policy to apply to the container.
+mkPutCORSPolicy ::
+  -- | 'containerName'
+  Lude.Text ->
+  -- | 'corsPolicy'
+  Lude.NonEmpty CORSRule ->
   PutCORSPolicy
-putCORSPolicy pContainerName_ pCORSPolicy_ =
+mkPutCORSPolicy pContainerName_ pCORSPolicy_ =
   PutCORSPolicy'
-    { _pcpContainerName = pContainerName_,
-      _pcpCORSPolicy = _List1 # pCORSPolicy_
+    { containerName = pContainerName_,
+      corsPolicy = pCORSPolicy_
     }
 
 -- | The name of the container that you want to assign the CORS policy to.
-pcpContainerName :: Lens' PutCORSPolicy Text
-pcpContainerName = lens _pcpContainerName (\s a -> s {_pcpContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpContainerName :: Lens.Lens' PutCORSPolicy Lude.Text
+pcpContainerName = Lens.lens (containerName :: PutCORSPolicy -> Lude.Text) (\s a -> s {containerName = a} :: PutCORSPolicy)
+{-# DEPRECATED pcpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 -- | The CORS policy to apply to the container.
-pcpCORSPolicy :: Lens' PutCORSPolicy (NonEmpty CORSRule)
-pcpCORSPolicy = lens _pcpCORSPolicy (\s a -> s {_pcpCORSPolicy = a}) . _List1
+--
+-- /Note:/ Consider using 'corsPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpCORSPolicy :: Lens.Lens' PutCORSPolicy (Lude.NonEmpty CORSRule)
+pcpCORSPolicy = Lens.lens (corsPolicy :: PutCORSPolicy -> Lude.NonEmpty CORSRule) (\s a -> s {corsPolicy = a} :: PutCORSPolicy)
+{-# DEPRECATED pcpCORSPolicy "Use generic-lens or generic-optics with 'corsPolicy' instead." #-}
 
-instance AWSRequest PutCORSPolicy where
+instance Lude.AWSRequest PutCORSPolicy where
   type Rs PutCORSPolicy = PutCORSPolicyResponse
-  request = postJSON mediaStore
+  request = Req.postJSON mediaStoreService
   response =
-    receiveEmpty
-      (\s h x -> PutCORSPolicyResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          PutCORSPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutCORSPolicy
-
-instance NFData PutCORSPolicy
-
-instance ToHeaders PutCORSPolicy where
+instance Lude.ToHeaders PutCORSPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MediaStore_20170901.PutCorsPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MediaStore_20170901.PutCorsPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutCORSPolicy where
+instance Lude.ToJSON PutCORSPolicy where
   toJSON PutCORSPolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("ContainerName" .= _pcpContainerName),
-            Just ("CorsPolicy" .= _pcpCORSPolicy)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ContainerName" Lude..= containerName),
+            Lude.Just ("CorsPolicy" Lude..= corsPolicy)
           ]
       )
 
-instance ToPath PutCORSPolicy where
-  toPath = const "/"
+instance Lude.ToPath PutCORSPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery PutCORSPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutCORSPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putCORSPolicyResponse' smart constructor.
+-- | /See:/ 'mkPutCORSPolicyResponse' smart constructor.
 newtype PutCORSPolicyResponse = PutCORSPolicyResponse'
-  { _pcorsprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutCORSPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcorsprsResponseStatus' - -- | The response status code.
-putCORSPolicyResponse ::
-  -- | 'pcorsprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutCORSPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutCORSPolicyResponse
-putCORSPolicyResponse pResponseStatus_ =
-  PutCORSPolicyResponse'
-    { _pcorsprsResponseStatus =
-        pResponseStatus_
-    }
+mkPutCORSPolicyResponse pResponseStatus_ =
+  PutCORSPolicyResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-pcorsprsResponseStatus :: Lens' PutCORSPolicyResponse Int
-pcorsprsResponseStatus = lens _pcorsprsResponseStatus (\s a -> s {_pcorsprsResponseStatus = a})
-
-instance NFData PutCORSPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcorsprsResponseStatus :: Lens.Lens' PutCORSPolicyResponse Lude.Int
+pcorsprsResponseStatus = Lens.lens (responseStatus :: PutCORSPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutCORSPolicyResponse)
+{-# DEPRECATED pcorsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

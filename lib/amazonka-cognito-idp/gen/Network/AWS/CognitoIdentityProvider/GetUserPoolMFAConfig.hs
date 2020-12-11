@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets the user pool multi-factor authentication (MFA) configuration.
 module Network.AWS.CognitoIdentityProvider.GetUserPoolMFAConfig
-  ( -- * Creating a Request
-    getUserPoolMFAConfig,
-    GetUserPoolMFAConfig,
+  ( -- * Creating a request
+    GetUserPoolMFAConfig (..),
+    mkGetUserPoolMFAConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gupmcUserPoolId,
 
-    -- * Destructuring the Response
-    getUserPoolMFAConfigResponse,
-    GetUserPoolMFAConfigResponse,
+    -- * Destructuring the response
+    GetUserPoolMFAConfigResponse (..),
+    mkGetUserPoolMFAConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gupmcrsSmsMFAConfiguration,
     gupmcrsSoftwareTokenMFAConfiguration,
     gupmcrsMFAConfiguration,
@@ -39,125 +34,163 @@ module Network.AWS.CognitoIdentityProvider.GetUserPoolMFAConfig
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getUserPoolMFAConfig' smart constructor.
+-- | /See:/ 'mkGetUserPoolMFAConfig' smart constructor.
 newtype GetUserPoolMFAConfig = GetUserPoolMFAConfig'
-  { _gupmcUserPoolId ::
-      Text
+  { userPoolId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserPoolMFAConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gupmcUserPoolId' - The user pool ID.
-getUserPoolMFAConfig ::
-  -- | 'gupmcUserPoolId'
-  Text ->
+-- * 'userPoolId' - The user pool ID.
+mkGetUserPoolMFAConfig ::
+  -- | 'userPoolId'
+  Lude.Text ->
   GetUserPoolMFAConfig
-getUserPoolMFAConfig pUserPoolId_ =
-  GetUserPoolMFAConfig' {_gupmcUserPoolId = pUserPoolId_}
+mkGetUserPoolMFAConfig pUserPoolId_ =
+  GetUserPoolMFAConfig' {userPoolId = pUserPoolId_}
 
 -- | The user pool ID.
-gupmcUserPoolId :: Lens' GetUserPoolMFAConfig Text
-gupmcUserPoolId = lens _gupmcUserPoolId (\s a -> s {_gupmcUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupmcUserPoolId :: Lens.Lens' GetUserPoolMFAConfig Lude.Text
+gupmcUserPoolId = Lens.lens (userPoolId :: GetUserPoolMFAConfig -> Lude.Text) (\s a -> s {userPoolId = a} :: GetUserPoolMFAConfig)
+{-# DEPRECATED gupmcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSRequest GetUserPoolMFAConfig where
+instance Lude.AWSRequest GetUserPoolMFAConfig where
   type Rs GetUserPoolMFAConfig = GetUserPoolMFAConfigResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetUserPoolMFAConfigResponse'
-            <$> (x .?> "SmsMfaConfiguration")
-            <*> (x .?> "SoftwareTokenMfaConfiguration")
-            <*> (x .?> "MfaConfiguration")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SmsMfaConfiguration")
+            Lude.<*> (x Lude..?> "SoftwareTokenMfaConfiguration")
+            Lude.<*> (x Lude..?> "MfaConfiguration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetUserPoolMFAConfig
-
-instance NFData GetUserPoolMFAConfig
-
-instance ToHeaders GetUserPoolMFAConfig where
+instance Lude.ToHeaders GetUserPoolMFAConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetUserPoolMFAConfig where
+instance Lude.ToJSON GetUserPoolMFAConfig where
   toJSON GetUserPoolMFAConfig' {..} =
-    object (catMaybes [Just ("UserPoolId" .= _gupmcUserPoolId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("UserPoolId" Lude..= userPoolId)])
 
-instance ToPath GetUserPoolMFAConfig where
-  toPath = const "/"
+instance Lude.ToPath GetUserPoolMFAConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery GetUserPoolMFAConfig where
-  toQuery = const mempty
+instance Lude.ToQuery GetUserPoolMFAConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getUserPoolMFAConfigResponse' smart constructor.
+-- | /See:/ 'mkGetUserPoolMFAConfigResponse' smart constructor.
 data GetUserPoolMFAConfigResponse = GetUserPoolMFAConfigResponse'
-  { _gupmcrsSmsMFAConfiguration ::
-      !(Maybe SmsMFAConfigType),
-    _gupmcrsSoftwareTokenMFAConfiguration ::
-      !( Maybe
-           SoftwareTokenMFAConfigType
-       ),
-    _gupmcrsMFAConfiguration ::
-      !(Maybe UserPoolMFAType),
-    _gupmcrsResponseStatus :: !Int
+  { smsMFAConfiguration ::
+      Lude.Maybe SmsMFAConfigType,
+    softwareTokenMFAConfiguration ::
+      Lude.Maybe
+        SoftwareTokenMFAConfigType,
+    mfaConfiguration ::
+      Lude.Maybe UserPoolMFAType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserPoolMFAConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'mfaConfiguration' - The multi-factor (MFA) configuration. Valid values include:
 --
--- * 'gupmcrsSmsMFAConfiguration' - The SMS text message multi-factor (MFA) configuration.
 --
--- * 'gupmcrsSoftwareTokenMFAConfiguration' - The software token multi-factor (MFA) configuration.
+--     * @OFF@ MFA will not be used for any users.
 --
--- * 'gupmcrsMFAConfiguration' - The multi-factor (MFA) configuration. Valid values include:     * @OFF@ MFA will not be used for any users.     * @ON@ MFA is required for all users to sign in.     * @OPTIONAL@ MFA will be required only for individual users who have an MFA factor enabled.
 --
--- * 'gupmcrsResponseStatus' - -- | The response status code.
-getUserPoolMFAConfigResponse ::
-  -- | 'gupmcrsResponseStatus'
-  Int ->
+--     * @ON@ MFA is required for all users to sign in.
+--
+--
+--     * @OPTIONAL@ MFA will be required only for individual users who have an MFA factor enabled.
+--
+--
+-- * 'responseStatus' - The response status code.
+-- * 'smsMFAConfiguration' - The SMS text message multi-factor (MFA) configuration.
+-- * 'softwareTokenMFAConfiguration' - The software token multi-factor (MFA) configuration.
+mkGetUserPoolMFAConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetUserPoolMFAConfigResponse
-getUserPoolMFAConfigResponse pResponseStatus_ =
+mkGetUserPoolMFAConfigResponse pResponseStatus_ =
   GetUserPoolMFAConfigResponse'
-    { _gupmcrsSmsMFAConfiguration =
-        Nothing,
-      _gupmcrsSoftwareTokenMFAConfiguration = Nothing,
-      _gupmcrsMFAConfiguration = Nothing,
-      _gupmcrsResponseStatus = pResponseStatus_
+    { smsMFAConfiguration = Lude.Nothing,
+      softwareTokenMFAConfiguration = Lude.Nothing,
+      mfaConfiguration = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The SMS text message multi-factor (MFA) configuration.
-gupmcrsSmsMFAConfiguration :: Lens' GetUserPoolMFAConfigResponse (Maybe SmsMFAConfigType)
-gupmcrsSmsMFAConfiguration = lens _gupmcrsSmsMFAConfiguration (\s a -> s {_gupmcrsSmsMFAConfiguration = a})
+--
+-- /Note:/ Consider using 'smsMFAConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupmcrsSmsMFAConfiguration :: Lens.Lens' GetUserPoolMFAConfigResponse (Lude.Maybe SmsMFAConfigType)
+gupmcrsSmsMFAConfiguration = Lens.lens (smsMFAConfiguration :: GetUserPoolMFAConfigResponse -> Lude.Maybe SmsMFAConfigType) (\s a -> s {smsMFAConfiguration = a} :: GetUserPoolMFAConfigResponse)
+{-# DEPRECATED gupmcrsSmsMFAConfiguration "Use generic-lens or generic-optics with 'smsMFAConfiguration' instead." #-}
 
 -- | The software token multi-factor (MFA) configuration.
-gupmcrsSoftwareTokenMFAConfiguration :: Lens' GetUserPoolMFAConfigResponse (Maybe SoftwareTokenMFAConfigType)
-gupmcrsSoftwareTokenMFAConfiguration = lens _gupmcrsSoftwareTokenMFAConfiguration (\s a -> s {_gupmcrsSoftwareTokenMFAConfiguration = a})
+--
+-- /Note:/ Consider using 'softwareTokenMFAConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupmcrsSoftwareTokenMFAConfiguration :: Lens.Lens' GetUserPoolMFAConfigResponse (Lude.Maybe SoftwareTokenMFAConfigType)
+gupmcrsSoftwareTokenMFAConfiguration = Lens.lens (softwareTokenMFAConfiguration :: GetUserPoolMFAConfigResponse -> Lude.Maybe SoftwareTokenMFAConfigType) (\s a -> s {softwareTokenMFAConfiguration = a} :: GetUserPoolMFAConfigResponse)
+{-# DEPRECATED gupmcrsSoftwareTokenMFAConfiguration "Use generic-lens or generic-optics with 'softwareTokenMFAConfiguration' instead." #-}
 
--- | The multi-factor (MFA) configuration. Valid values include:     * @OFF@ MFA will not be used for any users.     * @ON@ MFA is required for all users to sign in.     * @OPTIONAL@ MFA will be required only for individual users who have an MFA factor enabled.
-gupmcrsMFAConfiguration :: Lens' GetUserPoolMFAConfigResponse (Maybe UserPoolMFAType)
-gupmcrsMFAConfiguration = lens _gupmcrsMFAConfiguration (\s a -> s {_gupmcrsMFAConfiguration = a})
+-- | The multi-factor (MFA) configuration. Valid values include:
+--
+--
+--     * @OFF@ MFA will not be used for any users.
+--
+--
+--     * @ON@ MFA is required for all users to sign in.
+--
+--
+--     * @OPTIONAL@ MFA will be required only for individual users who have an MFA factor enabled.
+--
+--
+--
+-- /Note:/ Consider using 'mfaConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupmcrsMFAConfiguration :: Lens.Lens' GetUserPoolMFAConfigResponse (Lude.Maybe UserPoolMFAType)
+gupmcrsMFAConfiguration = Lens.lens (mfaConfiguration :: GetUserPoolMFAConfigResponse -> Lude.Maybe UserPoolMFAType) (\s a -> s {mfaConfiguration = a} :: GetUserPoolMFAConfigResponse)
+{-# DEPRECATED gupmcrsMFAConfiguration "Use generic-lens or generic-optics with 'mfaConfiguration' instead." #-}
 
--- | -- | The response status code.
-gupmcrsResponseStatus :: Lens' GetUserPoolMFAConfigResponse Int
-gupmcrsResponseStatus = lens _gupmcrsResponseStatus (\s a -> s {_gupmcrsResponseStatus = a})
-
-instance NFData GetUserPoolMFAConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupmcrsResponseStatus :: Lens.Lens' GetUserPoolMFAConfigResponse Lude.Int
+gupmcrsResponseStatus = Lens.lens (responseStatus :: GetUserPoolMFAConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUserPoolMFAConfigResponse)
+{-# DEPRECATED gupmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

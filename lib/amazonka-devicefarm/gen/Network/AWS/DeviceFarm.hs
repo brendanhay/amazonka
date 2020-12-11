@@ -15,15 +15,14 @@
 --
 --
 --     * Testing on desktop browsers
---
 -- Device Farm makes it possible for you to test your web applications on desktop browsers using Selenium. The APIs for desktop browser testing contain @TestGrid@ in their names. For more information, see <https://docs.aws.amazon.com/devicefarm/latest/testgrid/ Testing Web Applications on Selenium with Device Farm> .
 --
---     * Testing on real mobile devices
 --
+--     * Testing on real mobile devices
 -- Device Farm makes it possible for you to test apps on physical phones, tablets, and other devices in the cloud. For more information, see the <https://docs.aws.amazon.com/devicefarm/latest/developerguide/ Device Farm Developer Guide> .
 module Network.AWS.DeviceFarm
-  ( -- * Service Configuration
-    deviceFarm,
+  ( -- * Service configuration
+    deviceFarmService,
 
     -- * Errors
     -- $errors
@@ -352,8 +351,8 @@ module Network.AWS.DeviceFarm
     UploadType (..),
 
     -- ** AccountSettings
-    AccountSettings,
-    accountSettings,
+    AccountSettings (..),
+    mkAccountSettings,
     asSkipAppResign,
     asAwsAccountNumber,
     asMaxJobTimeoutMinutes,
@@ -364,8 +363,8 @@ module Network.AWS.DeviceFarm
     asDefaultJobTimeoutMinutes,
 
     -- ** Artifact
-    Artifact,
-    artifact,
+    Artifact (..),
+    mkArtifact,
     aArn,
     aUrl,
     aExtension,
@@ -373,15 +372,15 @@ module Network.AWS.DeviceFarm
     aType,
 
     -- ** CPU
-    CPU,
-    cpu,
+    CPU (..),
+    mkCPU,
     cpuFrequency,
     cpuClock,
     cpuArchitecture,
 
     -- ** Counters
-    Counters,
-    counters,
+    Counters (..),
+    mkCounters,
     cPassed,
     cSkipped,
     cWarned,
@@ -391,21 +390,21 @@ module Network.AWS.DeviceFarm
     cErrored,
 
     -- ** CreateRemoteAccessSessionConfiguration
-    CreateRemoteAccessSessionConfiguration,
-    createRemoteAccessSessionConfiguration,
+    CreateRemoteAccessSessionConfiguration (..),
+    mkCreateRemoteAccessSessionConfiguration,
     crascBillingMethod,
     crascVpceConfigurationARNs,
 
     -- ** CustomerArtifactPaths
-    CustomerArtifactPaths,
-    customerArtifactPaths,
+    CustomerArtifactPaths (..),
+    mkCustomerArtifactPaths,
     capAndroidPaths,
     capDeviceHostPaths,
     capIosPaths,
 
     -- ** Device
-    Device,
-    device,
+    Device (..),
+    mkDevice,
     dCarrier,
     dImage,
     dManufacturer,
@@ -429,15 +428,15 @@ module Network.AWS.DeviceFarm
     dFleetName,
 
     -- ** DeviceFilter
-    DeviceFilter,
-    deviceFilter,
+    DeviceFilter (..),
+    mkDeviceFilter,
     dfAttribute,
     dfOperator,
     dfValues,
 
     -- ** DeviceInstance
-    DeviceInstance,
-    deviceInstance,
+    DeviceInstance (..),
+    mkDeviceInstance,
     diStatus,
     diUdid,
     diInstanceProfile,
@@ -446,15 +445,15 @@ module Network.AWS.DeviceFarm
     diLabels,
 
     -- ** DeviceMinutes
-    DeviceMinutes,
-    deviceMinutes,
+    DeviceMinutes (..),
+    mkDeviceMinutes,
     dmMetered,
     dmTotal,
     dmUnmetered,
 
     -- ** DevicePool
-    DevicePool,
-    devicePool,
+    DevicePool (..),
+    mkDevicePool,
     devArn,
     devRules,
     devName,
@@ -463,28 +462,28 @@ module Network.AWS.DeviceFarm
     devDescription,
 
     -- ** DevicePoolCompatibilityResult
-    DevicePoolCompatibilityResult,
-    devicePoolCompatibilityResult,
+    DevicePoolCompatibilityResult (..),
+    mkDevicePoolCompatibilityResult,
     dpcrDevice,
     dpcrCompatible,
     dpcrIncompatibilityMessages,
 
     -- ** DeviceSelectionConfiguration
-    DeviceSelectionConfiguration,
-    deviceSelectionConfiguration,
+    DeviceSelectionConfiguration (..),
+    mkDeviceSelectionConfiguration,
     dscFilters,
     dscMaxDevices,
 
     -- ** DeviceSelectionResult
-    DeviceSelectionResult,
-    deviceSelectionResult,
+    DeviceSelectionResult (..),
+    mkDeviceSelectionResult,
     dsrMatchedDevicesCount,
     dsrFilters,
     dsrMaxDevices,
 
     -- ** ExecutionConfiguration
-    ExecutionConfiguration,
-    executionConfiguration,
+    ExecutionConfiguration (..),
+    mkExecutionConfiguration,
     ecSkipAppResign,
     ecAccountsCleanup,
     ecAppPackagesCleanup,
@@ -492,14 +491,14 @@ module Network.AWS.DeviceFarm
     ecVideoCapture,
 
     -- ** IncompatibilityMessage
-    IncompatibilityMessage,
-    incompatibilityMessage,
+    IncompatibilityMessage (..),
+    mkIncompatibilityMessage,
     imType,
     imMessage,
 
     -- ** InstanceProfile
-    InstanceProfile,
-    instanceProfile,
+    InstanceProfile (..),
+    mkInstanceProfile,
     ipArn,
     ipRebootAfterUse,
     ipName,
@@ -508,39 +507,39 @@ module Network.AWS.DeviceFarm
     ipDescription,
 
     -- ** Job
-    Job,
-    job,
-    jobInstanceARN,
-    jobStatus,
-    jobCounters,
-    jobArn,
-    jobCreated,
-    jobDevice,
-    jobStopped,
-    jobResult,
-    jobName,
-    jobVideoEndpoint,
-    jobDeviceMinutes,
-    jobVideoCapture,
-    jobType,
-    jobMessage,
-    jobStarted,
+    Job (..),
+    mkJob,
+    jInstanceARN,
+    jStatus,
+    jCounters,
+    jArn,
+    jCreated,
+    jDevice,
+    jStopped,
+    jResult,
+    jName,
+    jVideoEndpoint,
+    jDeviceMinutes,
+    jVideoCapture,
+    jType,
+    jMessage,
+    jStarted,
 
     -- ** Location
-    Location,
-    location,
+    Location (..),
+    mkLocation,
     lLatitude,
     lLongitude,
 
     -- ** MonetaryAmount
-    MonetaryAmount,
-    monetaryAmount,
+    MonetaryAmount (..),
+    mkMonetaryAmount,
     maAmount,
     maCurrencyCode,
 
     -- ** NetworkProfile
-    NetworkProfile,
-    networkProfile,
+    NetworkProfile (..),
+    mkNetworkProfile,
     npUplinkJitterMs,
     npArn,
     npUplinkLossPercent,
@@ -555,8 +554,8 @@ module Network.AWS.DeviceFarm
     npDownlinkBandwidthBits,
 
     -- ** Offering
-    Offering,
-    offering,
+    Offering (..),
+    mkOffering,
     oPlatform,
     oId,
     oRecurringCharges,
@@ -564,22 +563,22 @@ module Network.AWS.DeviceFarm
     oDescription,
 
     -- ** OfferingPromotion
-    OfferingPromotion,
-    offeringPromotion,
+    OfferingPromotion (..),
+    mkOfferingPromotion,
     opId,
     opDescription,
 
     -- ** OfferingStatus
-    OfferingStatus,
-    offeringStatus,
+    OfferingStatus (..),
+    mkOfferingStatus,
     osEffectiveOn,
     osOffering,
     osQuantity,
     osType,
 
     -- ** OfferingTransaction
-    OfferingTransaction,
-    offeringTransaction,
+    OfferingTransaction (..),
+    mkOfferingTransaction,
     otOfferingStatus,
     otCost,
     otTransactionId,
@@ -587,8 +586,8 @@ module Network.AWS.DeviceFarm
     otCreatedOn,
 
     -- ** Problem
-    Problem,
-    problem,
+    Problem (..),
+    mkProblem,
     pDevice,
     pTest,
     pResult,
@@ -598,36 +597,36 @@ module Network.AWS.DeviceFarm
     pSuite,
 
     -- ** ProblemDetail
-    ProblemDetail,
-    problemDetail,
+    ProblemDetail (..),
+    mkProblemDetail,
     pdArn,
     pdName,
 
     -- ** Project
-    Project,
-    project,
+    Project (..),
+    mkProject,
     pArn,
     pCreated,
     pName,
     pDefaultJobTimeoutMinutes,
 
     -- ** Radios
-    Radios,
-    radios,
+    Radios (..),
+    mkRadios,
     rNfc,
     rGps,
     rBluetooth,
     rWifi,
 
     -- ** RecurringCharge
-    RecurringCharge,
-    recurringCharge,
+    RecurringCharge (..),
+    mkRecurringCharge,
     rcFrequency,
     rcCost,
 
     -- ** RemoteAccessSession
-    RemoteAccessSession,
-    remoteAccessSession,
+    RemoteAccessSession (..),
+    mkRemoteAccessSession,
     rasBillingMethod,
     rasClientId,
     rasDeviceUdid,
@@ -651,63 +650,63 @@ module Network.AWS.DeviceFarm
     rasStarted,
 
     -- ** Resolution
-    Resolution,
-    resolution,
+    Resolution (..),
+    mkResolution,
     rHeight,
     rWidth,
 
     -- ** Rule
-    Rule,
-    rule,
+    Rule (..),
+    mkRule,
     rAttribute,
     rOperator,
     rValue,
 
     -- ** Run
-    Run,
-    run,
-    runBillingMethod,
-    runSkipAppResign,
-    runStatus,
-    runCustomerArtifactPaths,
-    runEventCount,
-    runCounters,
-    runPlatform,
-    runSeed,
-    runRadios,
-    runArn,
-    runLocation,
-    runCreated,
-    runLocale,
-    runTestSpecARN,
-    runStopped,
-    runResult,
-    runJobTimeoutMinutes,
-    runCompletedJobs,
-    runResultCode,
-    runName,
-    runAppUpload,
-    runParsingResultURL,
-    runNetworkProfile,
-    runDeviceMinutes,
-    runType,
-    runMessage,
-    runWebURL,
-    runTotalJobs,
-    runDevicePoolARN,
-    runStarted,
-    runDeviceSelectionResult,
+    Run (..),
+    mkRun,
+    rBillingMethod,
+    rSkipAppResign,
+    rStatus,
+    rCustomerArtifactPaths,
+    rEventCount,
+    rCounters,
+    rPlatform,
+    rSeed,
+    rRadios,
+    rArn,
+    rLocation,
+    rCreated,
+    rLocale,
+    rTestSpecARN,
+    rStopped,
+    rResult,
+    rJobTimeoutMinutes,
+    rCompletedJobs,
+    rResultCode,
+    rName,
+    rAppUpload,
+    rParsingResultURL,
+    rNetworkProfile,
+    rDeviceMinutes,
+    rType,
+    rMessage,
+    rWebURL,
+    rTotalJobs,
+    rDevicePoolARN,
+    rStarted,
+    rDeviceSelectionResult,
 
     -- ** Sample
-    Sample,
-    sample,
+    Sample (..),
+    mkSample,
     samArn,
     samUrl,
     samType,
 
     -- ** ScheduleRunConfiguration
-    ScheduleRunConfiguration,
-    scheduleRunConfiguration,
+    ScheduleRunConfiguration (..),
+    mkScheduleRunConfiguration,
     srcBillingMethod,
     srcCustomerArtifactPaths,
     srcRadios,
@@ -719,8 +718,8 @@ module Network.AWS.DeviceFarm
     srcVpceConfigurationARNs,
 
     -- ** ScheduleRunTest
-    ScheduleRunTest,
-    scheduleRunTest,
+    ScheduleRunTest (..),
+    mkScheduleRunTest,
     srtTestSpecARN,
     srtTestPackageARN,
     srtParameters,
@@ -728,8 +727,8 @@ module Network.AWS.DeviceFarm
     srtType,
 
     -- ** Suite
-    Suite,
-    suite,
+    Suite (..),
+    mkSuite,
     sStatus,
     sCounters,
     sArn,
@@ -743,14 +742,14 @@ module Network.AWS.DeviceFarm
     sStarted,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** Test
-    Test,
-    test,
+    Test (..),
+    mkTest,
     tStatus,
     tCounters,
     tArn,
@@ -764,16 +763,16 @@ module Network.AWS.DeviceFarm
     tStarted,
 
     -- ** TestGridProject
-    TestGridProject,
-    testGridProject,
+    TestGridProject (..),
+    mkTestGridProject,
     tgpArn,
     tgpCreated,
     tgpName,
     tgpDescription,
 
     -- ** TestGridSession
-    TestGridSession,
-    testGridSession,
+    TestGridSession (..),
+    mkTestGridSession,
     tgsStatus,
     tgsArn,
     tgsCreated,
@@ -782,8 +781,8 @@ module Network.AWS.DeviceFarm
     tgsSeleniumProperties,
 
     -- ** TestGridSessionAction
-    TestGridSessionAction,
-    testGridSessionAction,
+    TestGridSessionAction (..),
+    mkTestGridSessionAction,
     tgsaAction,
     tgsaDuration,
     tgsaRequestMethod,
@@ -791,27 +790,27 @@ module Network.AWS.DeviceFarm
     tgsaStatusCode,
 
     -- ** TestGridSessionArtifact
-    TestGridSessionArtifact,
-    testGridSessionArtifact,
+    TestGridSessionArtifact (..),
+    mkTestGridSessionArtifact,
     tgsaUrl,
     tgsaType,
     tgsaFilename,
 
     -- ** TrialMinutes
-    TrialMinutes,
-    trialMinutes,
+    TrialMinutes (..),
+    mkTrialMinutes,
     tmRemaining,
     tmTotal,
 
     -- ** UniqueProblem
-    UniqueProblem,
-    uniqueProblem,
+    UniqueProblem (..),
+    mkUniqueProblem,
     upProblems,
     upMessage,
 
     -- ** Upload
-    Upload,
-    upload,
+    Upload (..),
+    mkUpload,
     uStatus,
     uArn,
     uCreated,
@@ -824,13 +823,24 @@ module Network.AWS.DeviceFarm
     uContentType,
 
     -- ** VPCEConfiguration
-    VPCEConfiguration,
-    vpcEConfiguration,
+    VPCEConfiguration (..),
+    mkVPCEConfiguration,
     vecVpceServiceName,
     vecArn,
     vecVpceConfigurationName,
     vecServiceDNSName,
     vecVpceConfigurationDescription,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -913,6 +923,7 @@ import Network.AWS.DeviceFarm.UpdateTestGridProject
 import Network.AWS.DeviceFarm.UpdateUpload
 import Network.AWS.DeviceFarm.UpdateVPCEConfiguration
 import Network.AWS.DeviceFarm.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

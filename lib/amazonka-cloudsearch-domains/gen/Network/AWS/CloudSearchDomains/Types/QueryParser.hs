@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearchDomains.Types.QueryParser where
+module Network.AWS.CloudSearchDomains.Types.QueryParser
+  ( QueryParser
+      ( QueryParser',
+        Dismax,
+        Lucene,
+        Simple,
+        Structured
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QueryParser
-  = Dismax
-  | Lucene
-  | Simple
-  | Structured
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QueryParser = QueryParser' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QueryParser where
-  parser =
-    takeLowerText >>= \case
-      "dismax" -> pure Dismax
-      "lucene" -> pure Lucene
-      "simple" -> pure Simple
-      "structured" -> pure Structured
-      e ->
-        fromTextError $
-          "Failure parsing QueryParser from value: '" <> e
-            <> "'. Accepted values: dismax, lucene, simple, structured"
+pattern Dismax :: QueryParser
+pattern Dismax = QueryParser' "dismax"
 
-instance ToText QueryParser where
-  toText = \case
-    Dismax -> "dismax"
-    Lucene -> "lucene"
-    Simple -> "simple"
-    Structured -> "structured"
+pattern Lucene :: QueryParser
+pattern Lucene = QueryParser' "lucene"
 
-instance Hashable QueryParser
+pattern Simple :: QueryParser
+pattern Simple = QueryParser' "simple"
 
-instance NFData QueryParser
+pattern Structured :: QueryParser
+pattern Structured = QueryParser' "structured"
 
-instance ToByteString QueryParser
-
-instance ToQuery QueryParser
-
-instance ToHeader QueryParser
-
-instance ToJSON QueryParser where
-  toJSON = toJSONText
+{-# COMPLETE
+  Dismax,
+  Lucene,
+  Simple,
+  Structured,
+  QueryParser'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists exports as specified by ID. All continuous exports associated with your user account can be listed if you call @DescribeContinuousExports@ as is without passing any parameters.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Discovery.DescribeContinuousExports
-  ( -- * Creating a Request
-    describeContinuousExports,
-    DescribeContinuousExports,
+  ( -- * Creating a request
+    DescribeContinuousExports (..),
+    mkDescribeContinuousExports,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dceNextToken,
     dceExportIds,
     dceMaxResults,
 
-    -- * Destructuring the Response
-    describeContinuousExportsResponse,
-    DescribeContinuousExportsResponse,
+    -- * Destructuring the response
+    DescribeContinuousExportsResponse (..),
+    mkDescribeContinuousExportsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcersNextToken,
     dcersDescriptions,
     dcersResponseStatus,
@@ -44,146 +37,167 @@ module Network.AWS.Discovery.DescribeContinuousExports
 where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeContinuousExports' smart constructor.
+-- | /See:/ 'mkDescribeContinuousExports' smart constructor.
 data DescribeContinuousExports = DescribeContinuousExports'
-  { _dceNextToken ::
-      !(Maybe Text),
-    _dceExportIds :: !(Maybe [Text]),
-    _dceMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    exportIds :: Lude.Maybe [Lude.Text],
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContinuousExports' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dceNextToken' - The token from the previous call to @DescribeExportTasks@ .
---
--- * 'dceExportIds' - The unique IDs assigned to the exports.
---
--- * 'dceMaxResults' - A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
-describeContinuousExports ::
+-- * 'exportIds' - The unique IDs assigned to the exports.
+-- * 'maxResults' - A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
+-- * 'nextToken' - The token from the previous call to @DescribeExportTasks@ .
+mkDescribeContinuousExports ::
   DescribeContinuousExports
-describeContinuousExports =
+mkDescribeContinuousExports =
   DescribeContinuousExports'
-    { _dceNextToken = Nothing,
-      _dceExportIds = Nothing,
-      _dceMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      exportIds = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token from the previous call to @DescribeExportTasks@ .
-dceNextToken :: Lens' DescribeContinuousExports (Maybe Text)
-dceNextToken = lens _dceNextToken (\s a -> s {_dceNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceNextToken :: Lens.Lens' DescribeContinuousExports (Lude.Maybe Lude.Text)
+dceNextToken = Lens.lens (nextToken :: DescribeContinuousExports -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeContinuousExports)
+{-# DEPRECATED dceNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The unique IDs assigned to the exports.
-dceExportIds :: Lens' DescribeContinuousExports [Text]
-dceExportIds = lens _dceExportIds (\s a -> s {_dceExportIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'exportIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceExportIds :: Lens.Lens' DescribeContinuousExports (Lude.Maybe [Lude.Text])
+dceExportIds = Lens.lens (exportIds :: DescribeContinuousExports -> Lude.Maybe [Lude.Text]) (\s a -> s {exportIds = a} :: DescribeContinuousExports)
+{-# DEPRECATED dceExportIds "Use generic-lens or generic-optics with 'exportIds' instead." #-}
 
 -- | A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
-dceMaxResults :: Lens' DescribeContinuousExports (Maybe Natural)
-dceMaxResults = lens _dceMaxResults (\s a -> s {_dceMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceMaxResults :: Lens.Lens' DescribeContinuousExports (Lude.Maybe Lude.Natural)
+dceMaxResults = Lens.lens (maxResults :: DescribeContinuousExports -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeContinuousExports)
+{-# DEPRECATED dceMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeContinuousExports where
+instance Page.AWSPager DescribeContinuousExports where
   page rq rs
-    | stop (rs ^. dcersNextToken) = Nothing
-    | stop (rs ^. dcersDescriptions) = Nothing
-    | otherwise = Just $ rq & dceNextToken .~ rs ^. dcersNextToken
+    | Page.stop (rs Lens.^. dcersNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcersDescriptions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dceNextToken Lens..~ rs Lens.^. dcersNextToken
 
-instance AWSRequest DescribeContinuousExports where
+instance Lude.AWSRequest DescribeContinuousExports where
   type
     Rs DescribeContinuousExports =
       DescribeContinuousExportsResponse
-  request = postJSON discovery
+  request = Req.postJSON discoveryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeContinuousExportsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "descriptions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "descriptions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeContinuousExports
-
-instance NFData DescribeContinuousExports
-
-instance ToHeaders DescribeContinuousExports where
+instance Lude.ToHeaders DescribeContinuousExports where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSPoseidonService_V2015_11_01.DescribeContinuousExports" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSPoseidonService_V2015_11_01.DescribeContinuousExports" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeContinuousExports where
+instance Lude.ToJSON DescribeContinuousExports where
   toJSON DescribeContinuousExports' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _dceNextToken,
-            ("exportIds" .=) <$> _dceExportIds,
-            ("maxResults" .=) <$> _dceMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("exportIds" Lude..=) Lude.<$> exportIds,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeContinuousExports where
-  toPath = const "/"
+instance Lude.ToPath DescribeContinuousExports where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeContinuousExports where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeContinuousExports where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeContinuousExportsResponse' smart constructor.
+-- | /See:/ 'mkDescribeContinuousExportsResponse' smart constructor.
 data DescribeContinuousExportsResponse = DescribeContinuousExportsResponse'
-  { _dcersNextToken ::
-      !(Maybe Text),
-    _dcersDescriptions ::
-      !( Maybe
-           [ContinuousExportDescription]
-       ),
-    _dcersResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    descriptions ::
+      Lude.Maybe
+        [ContinuousExportDescription],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContinuousExportsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcersNextToken' - The token from the previous call to @DescribeExportTasks@ .
---
--- * 'dcersDescriptions' - A list of continuous export descriptions.
---
--- * 'dcersResponseStatus' - -- | The response status code.
-describeContinuousExportsResponse ::
-  -- | 'dcersResponseStatus'
-  Int ->
+-- * 'descriptions' - A list of continuous export descriptions.
+-- * 'nextToken' - The token from the previous call to @DescribeExportTasks@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeContinuousExportsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeContinuousExportsResponse
-describeContinuousExportsResponse pResponseStatus_ =
+mkDescribeContinuousExportsResponse pResponseStatus_ =
   DescribeContinuousExportsResponse'
-    { _dcersNextToken = Nothing,
-      _dcersDescriptions = Nothing,
-      _dcersResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      descriptions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token from the previous call to @DescribeExportTasks@ .
-dcersNextToken :: Lens' DescribeContinuousExportsResponse (Maybe Text)
-dcersNextToken = lens _dcersNextToken (\s a -> s {_dcersNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcersNextToken :: Lens.Lens' DescribeContinuousExportsResponse (Lude.Maybe Lude.Text)
+dcersNextToken = Lens.lens (nextToken :: DescribeContinuousExportsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeContinuousExportsResponse)
+{-# DEPRECATED dcersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of continuous export descriptions.
-dcersDescriptions :: Lens' DescribeContinuousExportsResponse [ContinuousExportDescription]
-dcersDescriptions = lens _dcersDescriptions (\s a -> s {_dcersDescriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'descriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcersDescriptions :: Lens.Lens' DescribeContinuousExportsResponse (Lude.Maybe [ContinuousExportDescription])
+dcersDescriptions = Lens.lens (descriptions :: DescribeContinuousExportsResponse -> Lude.Maybe [ContinuousExportDescription]) (\s a -> s {descriptions = a} :: DescribeContinuousExportsResponse)
+{-# DEPRECATED dcersDescriptions "Use generic-lens or generic-optics with 'descriptions' instead." #-}
 
--- | -- | The response status code.
-dcersResponseStatus :: Lens' DescribeContinuousExportsResponse Int
-dcersResponseStatus = lens _dcersResponseStatus (\s a -> s {_dcersResponseStatus = a})
-
-instance NFData DescribeContinuousExportsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcersResponseStatus :: Lens.Lens' DescribeContinuousExportsResponse Lude.Int
+dcersResponseStatus = Lens.lens (responseStatus :: DescribeContinuousExportsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContinuousExportsResponse)
+{-# DEPRECATED dcersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

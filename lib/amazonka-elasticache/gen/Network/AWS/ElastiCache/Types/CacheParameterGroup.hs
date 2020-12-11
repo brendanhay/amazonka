@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.CacheParameterGroup where
+module Network.AWS.ElastiCache.Types.CacheParameterGroup
+  ( CacheParameterGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCacheParameterGroup,
+
+    -- * Lenses
+    cpgCacheParameterGroupFamily,
+    cpgARN,
+    cpgCacheParameterGroupName,
+    cpgIsGlobal,
+    cpgDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a @CreateCacheParameterGroup@ operation.
 --
---
---
--- /See:/ 'cacheParameterGroup' smart constructor.
+-- /See:/ 'mkCacheParameterGroup' smart constructor.
 data CacheParameterGroup = CacheParameterGroup'
-  { _cpgCacheParameterGroupFamily ::
-      !(Maybe Text),
-    _cpgARN :: !(Maybe Text),
-    _cpgCacheParameterGroupName :: !(Maybe Text),
-    _cpgIsGlobal :: !(Maybe Bool),
-    _cpgDescription :: !(Maybe Text)
+  { cacheParameterGroupFamily ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    cacheParameterGroupName :: Lude.Maybe Lude.Text,
+    isGlobal :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The ARN (Amazon Resource Name) of the cache parameter group.
+-- * 'cacheParameterGroupFamily' - The name of the cache parameter group family that this cache parameter group is compatible with.
 --
--- * 'cpgCacheParameterGroupFamily' - The name of the cache parameter group family that this cache parameter group is compatible with. Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
---
--- * 'cpgARN' - The ARN (Amazon Resource Name) of the cache parameter group.
---
--- * 'cpgCacheParameterGroupName' - The name of the cache parameter group.
---
--- * 'cpgIsGlobal' - Indicates whether the parameter group is associated with a Global Datastore
---
--- * 'cpgDescription' - The description for this cache parameter group.
-cacheParameterGroup ::
+-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
+-- * 'cacheParameterGroupName' - The name of the cache parameter group.
+-- * 'description' - The description for this cache parameter group.
+-- * 'isGlobal' - Indicates whether the parameter group is associated with a Global Datastore
+mkCacheParameterGroup ::
   CacheParameterGroup
-cacheParameterGroup =
+mkCacheParameterGroup =
   CacheParameterGroup'
-    { _cpgCacheParameterGroupFamily = Nothing,
-      _cpgARN = Nothing,
-      _cpgCacheParameterGroupName = Nothing,
-      _cpgIsGlobal = Nothing,
-      _cpgDescription = Nothing
+    { cacheParameterGroupFamily = Lude.Nothing,
+      arn = Lude.Nothing,
+      cacheParameterGroupName = Lude.Nothing,
+      isGlobal = Lude.Nothing,
+      description = Lude.Nothing
     }
 
--- | The name of the cache parameter group family that this cache parameter group is compatible with. Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
-cpgCacheParameterGroupFamily :: Lens' CacheParameterGroup (Maybe Text)
-cpgCacheParameterGroupFamily = lens _cpgCacheParameterGroupFamily (\s a -> s {_cpgCacheParameterGroupFamily = a})
+-- | The name of the cache parameter group family that this cache parameter group is compatible with.
+--
+-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
+--
+-- /Note:/ Consider using 'cacheParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgCacheParameterGroupFamily :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Text)
+cpgCacheParameterGroupFamily = Lens.lens (cacheParameterGroupFamily :: CacheParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheParameterGroupFamily = a} :: CacheParameterGroup)
+{-# DEPRECATED cpgCacheParameterGroupFamily "Use generic-lens or generic-optics with 'cacheParameterGroupFamily' instead." #-}
 
 -- | The ARN (Amazon Resource Name) of the cache parameter group.
-cpgARN :: Lens' CacheParameterGroup (Maybe Text)
-cpgARN = lens _cpgARN (\s a -> s {_cpgARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgARN :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Text)
+cpgARN = Lens.lens (arn :: CacheParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CacheParameterGroup)
+{-# DEPRECATED cpgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the cache parameter group.
-cpgCacheParameterGroupName :: Lens' CacheParameterGroup (Maybe Text)
-cpgCacheParameterGroupName = lens _cpgCacheParameterGroupName (\s a -> s {_cpgCacheParameterGroupName = a})
+--
+-- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgCacheParameterGroupName :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Text)
+cpgCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: CacheParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: CacheParameterGroup)
+{-# DEPRECATED cpgCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
 -- | Indicates whether the parameter group is associated with a Global Datastore
-cpgIsGlobal :: Lens' CacheParameterGroup (Maybe Bool)
-cpgIsGlobal = lens _cpgIsGlobal (\s a -> s {_cpgIsGlobal = a})
+--
+-- /Note:/ Consider using 'isGlobal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgIsGlobal :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Bool)
+cpgIsGlobal = Lens.lens (isGlobal :: CacheParameterGroup -> Lude.Maybe Lude.Bool) (\s a -> s {isGlobal = a} :: CacheParameterGroup)
+{-# DEPRECATED cpgIsGlobal "Use generic-lens or generic-optics with 'isGlobal' instead." #-}
 
 -- | The description for this cache parameter group.
-cpgDescription :: Lens' CacheParameterGroup (Maybe Text)
-cpgDescription = lens _cpgDescription (\s a -> s {_cpgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgDescription :: Lens.Lens' CacheParameterGroup (Lude.Maybe Lude.Text)
+cpgDescription = Lens.lens (description :: CacheParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CacheParameterGroup)
+{-# DEPRECATED cpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML CacheParameterGroup where
+instance Lude.FromXML CacheParameterGroup where
   parseXML x =
     CacheParameterGroup'
-      <$> (x .@? "CacheParameterGroupFamily")
-      <*> (x .@? "ARN")
-      <*> (x .@? "CacheParameterGroupName")
-      <*> (x .@? "IsGlobal")
-      <*> (x .@? "Description")
-
-instance Hashable CacheParameterGroup
-
-instance NFData CacheParameterGroup
+      Lude.<$> (x Lude..@? "CacheParameterGroupFamily")
+      Lude.<*> (x Lude..@? "ARN")
+      Lude.<*> (x Lude..@? "CacheParameterGroupName")
+      Lude.<*> (x Lude..@? "IsGlobal")
+      Lude.<*> (x Lude..@? "Description")

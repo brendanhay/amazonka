@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PrincipalType where
+module Network.AWS.EC2.Types.PrincipalType
+  ( PrincipalType
+      ( PrincipalType',
+        PTAccount,
+        PTAll,
+        PTOrganizationUnit,
+        PTRole,
+        PTService,
+        PTUser
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PrincipalType
-  = PTAccount
-  | PTAll
-  | PTOrganizationUnit
-  | PTRole
-  | PTService
-  | PTUser
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PrincipalType = PrincipalType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PrincipalType where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure PTAccount
-      "all" -> pure PTAll
-      "organizationunit" -> pure PTOrganizationUnit
-      "role" -> pure PTRole
-      "service" -> pure PTService
-      "user" -> pure PTUser
-      e ->
-        fromTextError $
-          "Failure parsing PrincipalType from value: '" <> e
-            <> "'. Accepted values: account, all, organizationunit, role, service, user"
+pattern PTAccount :: PrincipalType
+pattern PTAccount = PrincipalType' "Account"
 
-instance ToText PrincipalType where
-  toText = \case
-    PTAccount -> "Account"
-    PTAll -> "All"
-    PTOrganizationUnit -> "OrganizationUnit"
-    PTRole -> "Role"
-    PTService -> "Service"
-    PTUser -> "User"
+pattern PTAll :: PrincipalType
+pattern PTAll = PrincipalType' "All"
 
-instance Hashable PrincipalType
+pattern PTOrganizationUnit :: PrincipalType
+pattern PTOrganizationUnit = PrincipalType' "OrganizationUnit"
 
-instance NFData PrincipalType
+pattern PTRole :: PrincipalType
+pattern PTRole = PrincipalType' "Role"
 
-instance ToByteString PrincipalType
+pattern PTService :: PrincipalType
+pattern PTService = PrincipalType' "Service"
 
-instance ToQuery PrincipalType
+pattern PTUser :: PrincipalType
+pattern PTUser = PrincipalType' "User"
 
-instance ToHeader PrincipalType
-
-instance FromXML PrincipalType where
-  parseXML = parseXMLText "PrincipalType"
+{-# COMPLETE
+  PTAccount,
+  PTAll,
+  PTOrganizationUnit,
+  PTRole,
+  PTService,
+  PTUser,
+  PrincipalType'
+  #-}

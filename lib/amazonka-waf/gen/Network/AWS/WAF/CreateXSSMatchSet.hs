@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,168 +14,179 @@
 --
 -- Creates an 'XssMatchSet' , which you use to allow, block, or count requests that contain cross-site scripting attacks in the specified part of web requests. AWS WAF searches for character sequences that are likely to be malicious strings.
 --
---
 -- To create and configure an @XssMatchSet@ , perform the following steps:
 --
 --     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @CreateXssMatchSet@ request.
 --
+--
 --     * Submit a @CreateXssMatchSet@ request.
 --
+--
 --     * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateXssMatchSet' request.
+--
 --
 --     * Submit an 'UpdateXssMatchSet' request to specify the parts of web requests in which you want to allow, block, or count cross-site scripting attacks.
 --
 --
---
 -- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 module Network.AWS.WAF.CreateXSSMatchSet
-  ( -- * Creating a Request
-    createXSSMatchSet,
-    CreateXSSMatchSet,
+  ( -- * Creating a request
+    CreateXSSMatchSet (..),
+    mkCreateXSSMatchSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cxmsName,
     cxmsChangeToken,
 
-    -- * Destructuring the Response
-    createXSSMatchSetResponse,
-    CreateXSSMatchSetResponse,
+    -- * Destructuring the response
+    CreateXSSMatchSetResponse (..),
+    mkCreateXSSMatchSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cxmsrsXSSMatchSet,
     cxmsrsChangeToken,
     cxmsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
 -- | A request to create an 'XssMatchSet' .
 --
---
---
--- /See:/ 'createXSSMatchSet' smart constructor.
+-- /See:/ 'mkCreateXSSMatchSet' smart constructor.
 data CreateXSSMatchSet = CreateXSSMatchSet'
-  { _cxmsName :: !Text,
-    _cxmsChangeToken :: !Text
+  { name :: Lude.Text,
+    changeToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateXSSMatchSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cxmsName' - A friendly name or description for the 'XssMatchSet' that you're creating. You can't change @Name@ after you create the @XssMatchSet@ .
---
--- * 'cxmsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-createXSSMatchSet ::
-  -- | 'cxmsName'
-  Text ->
-  -- | 'cxmsChangeToken'
-  Text ->
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'name' - A friendly name or description for the 'XssMatchSet' that you're creating. You can't change @Name@ after you create the @XssMatchSet@ .
+mkCreateXSSMatchSet ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'changeToken'
+  Lude.Text ->
   CreateXSSMatchSet
-createXSSMatchSet pName_ pChangeToken_ =
-  CreateXSSMatchSet'
-    { _cxmsName = pName_,
-      _cxmsChangeToken = pChangeToken_
-    }
+mkCreateXSSMatchSet pName_ pChangeToken_ =
+  CreateXSSMatchSet' {name = pName_, changeToken = pChangeToken_}
 
 -- | A friendly name or description for the 'XssMatchSet' that you're creating. You can't change @Name@ after you create the @XssMatchSet@ .
-cxmsName :: Lens' CreateXSSMatchSet Text
-cxmsName = lens _cxmsName (\s a -> s {_cxmsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cxmsName :: Lens.Lens' CreateXSSMatchSet Lude.Text
+cxmsName = Lens.lens (name :: CreateXSSMatchSet -> Lude.Text) (\s a -> s {name = a} :: CreateXSSMatchSet)
+{-# DEPRECATED cxmsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-cxmsChangeToken :: Lens' CreateXSSMatchSet Text
-cxmsChangeToken = lens _cxmsChangeToken (\s a -> s {_cxmsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cxmsChangeToken :: Lens.Lens' CreateXSSMatchSet Lude.Text
+cxmsChangeToken = Lens.lens (changeToken :: CreateXSSMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: CreateXSSMatchSet)
+{-# DEPRECATED cxmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance AWSRequest CreateXSSMatchSet where
+instance Lude.AWSRequest CreateXSSMatchSet where
   type Rs CreateXSSMatchSet = CreateXSSMatchSetResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateXSSMatchSetResponse'
-            <$> (x .?> "XssMatchSet")
-            <*> (x .?> "ChangeToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "XssMatchSet")
+            Lude.<*> (x Lude..?> "ChangeToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateXSSMatchSet
-
-instance NFData CreateXSSMatchSet
-
-instance ToHeaders CreateXSSMatchSet where
+instance Lude.ToHeaders CreateXSSMatchSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_20150824.CreateXssMatchSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_20150824.CreateXssMatchSet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateXSSMatchSet where
+instance Lude.ToJSON CreateXSSMatchSet where
   toJSON CreateXSSMatchSet' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _cxmsName),
-            Just ("ChangeToken" .= _cxmsChangeToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
-instance ToPath CreateXSSMatchSet where
-  toPath = const "/"
+instance Lude.ToPath CreateXSSMatchSet where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateXSSMatchSet where
-  toQuery = const mempty
+instance Lude.ToQuery CreateXSSMatchSet where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response to a @CreateXssMatchSet@ request.
 --
---
---
--- /See:/ 'createXSSMatchSetResponse' smart constructor.
+-- /See:/ 'mkCreateXSSMatchSetResponse' smart constructor.
 data CreateXSSMatchSetResponse = CreateXSSMatchSetResponse'
-  { _cxmsrsXSSMatchSet ::
-      !(Maybe XSSMatchSet),
-    _cxmsrsChangeToken :: !(Maybe Text),
-    _cxmsrsResponseStatus :: !Int
+  { xssMatchSet ::
+      Lude.Maybe XSSMatchSet,
+    changeToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateXSSMatchSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cxmsrsXSSMatchSet' - An 'XssMatchSet' .
---
--- * 'cxmsrsChangeToken' - The @ChangeToken@ that you used to submit the @CreateXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'cxmsrsResponseStatus' - -- | The response status code.
-createXSSMatchSetResponse ::
-  -- | 'cxmsrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+-- * 'xssMatchSet' - An 'XssMatchSet' .
+mkCreateXSSMatchSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateXSSMatchSetResponse
-createXSSMatchSetResponse pResponseStatus_ =
+mkCreateXSSMatchSetResponse pResponseStatus_ =
   CreateXSSMatchSetResponse'
-    { _cxmsrsXSSMatchSet = Nothing,
-      _cxmsrsChangeToken = Nothing,
-      _cxmsrsResponseStatus = pResponseStatus_
+    { xssMatchSet = Lude.Nothing,
+      changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An 'XssMatchSet' .
-cxmsrsXSSMatchSet :: Lens' CreateXSSMatchSetResponse (Maybe XSSMatchSet)
-cxmsrsXSSMatchSet = lens _cxmsrsXSSMatchSet (\s a -> s {_cxmsrsXSSMatchSet = a})
+--
+-- /Note:/ Consider using 'xssMatchSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cxmsrsXSSMatchSet :: Lens.Lens' CreateXSSMatchSetResponse (Lude.Maybe XSSMatchSet)
+cxmsrsXSSMatchSet = Lens.lens (xssMatchSet :: CreateXSSMatchSetResponse -> Lude.Maybe XSSMatchSet) (\s a -> s {xssMatchSet = a} :: CreateXSSMatchSetResponse)
+{-# DEPRECATED cxmsrsXSSMatchSet "Use generic-lens or generic-optics with 'xssMatchSet' instead." #-}
 
 -- | The @ChangeToken@ that you used to submit the @CreateXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-cxmsrsChangeToken :: Lens' CreateXSSMatchSetResponse (Maybe Text)
-cxmsrsChangeToken = lens _cxmsrsChangeToken (\s a -> s {_cxmsrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cxmsrsChangeToken :: Lens.Lens' CreateXSSMatchSetResponse (Lude.Maybe Lude.Text)
+cxmsrsChangeToken = Lens.lens (changeToken :: CreateXSSMatchSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: CreateXSSMatchSetResponse)
+{-# DEPRECATED cxmsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-cxmsrsResponseStatus :: Lens' CreateXSSMatchSetResponse Int
-cxmsrsResponseStatus = lens _cxmsrsResponseStatus (\s a -> s {_cxmsrsResponseStatus = a})
-
-instance NFData CreateXSSMatchSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cxmsrsResponseStatus :: Lens.Lens' CreateXSSMatchSetResponse Lude.Int
+cxmsrsResponseStatus = Lens.lens (responseStatus :: CreateXSSMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateXSSMatchSetResponse)
+{-# DEPRECATED cxmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

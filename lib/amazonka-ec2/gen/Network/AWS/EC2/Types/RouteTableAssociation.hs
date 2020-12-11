@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,116 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.RouteTableAssociation where
+module Network.AWS.EC2.Types.RouteTableAssociation
+  ( RouteTableAssociation (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkRouteTableAssociation,
+
+    -- * Lenses
+    rtaRouteTableId,
+    rtaRouteTableAssociationId,
+    rtaMain,
+    rtaSubnetId,
+    rtaGatewayId,
+    rtaAssociationState,
+  )
+where
+
 import Network.AWS.EC2.Types.RouteTableAssociationState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an association between a route table and a subnet or gateway.
 --
---
---
--- /See:/ 'routeTableAssociation' smart constructor.
+-- /See:/ 'mkRouteTableAssociation' smart constructor.
 data RouteTableAssociation = RouteTableAssociation'
-  { _rtaRouteTableId ::
-      !(Maybe Text),
-    _rtaRouteTableAssociationId :: !(Maybe Text),
-    _rtaMain :: !(Maybe Bool),
-    _rtaSubnetId :: !(Maybe Text),
-    _rtaGatewayId :: !(Maybe Text),
-    _rtaAssociationState ::
-      !(Maybe RouteTableAssociationState)
+  { routeTableId ::
+      Lude.Maybe Lude.Text,
+    routeTableAssociationId :: Lude.Maybe Lude.Text,
+    main :: Lude.Maybe Lude.Bool,
+    subnetId :: Lude.Maybe Lude.Text,
+    gatewayId :: Lude.Maybe Lude.Text,
+    associationState ::
+      Lude.Maybe RouteTableAssociationState
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RouteTableAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtaRouteTableId' - The ID of the route table.
---
--- * 'rtaRouteTableAssociationId' - The ID of the association.
---
--- * 'rtaMain' - Indicates whether this is the main route table.
---
--- * 'rtaSubnetId' - The ID of the subnet. A subnet ID is not returned for an implicit association.
---
--- * 'rtaGatewayId' - The ID of the internet gateway or virtual private gateway.
---
--- * 'rtaAssociationState' - The state of the association.
-routeTableAssociation ::
+-- * 'associationState' - The state of the association.
+-- * 'gatewayId' - The ID of the internet gateway or virtual private gateway.
+-- * 'main' - Indicates whether this is the main route table.
+-- * 'routeTableAssociationId' - The ID of the association.
+-- * 'routeTableId' - The ID of the route table.
+-- * 'subnetId' - The ID of the subnet. A subnet ID is not returned for an implicit association.
+mkRouteTableAssociation ::
   RouteTableAssociation
-routeTableAssociation =
+mkRouteTableAssociation =
   RouteTableAssociation'
-    { _rtaRouteTableId = Nothing,
-      _rtaRouteTableAssociationId = Nothing,
-      _rtaMain = Nothing,
-      _rtaSubnetId = Nothing,
-      _rtaGatewayId = Nothing,
-      _rtaAssociationState = Nothing
+    { routeTableId = Lude.Nothing,
+      routeTableAssociationId = Lude.Nothing,
+      main = Lude.Nothing,
+      subnetId = Lude.Nothing,
+      gatewayId = Lude.Nothing,
+      associationState = Lude.Nothing
     }
 
 -- | The ID of the route table.
-rtaRouteTableId :: Lens' RouteTableAssociation (Maybe Text)
-rtaRouteTableId = lens _rtaRouteTableId (\s a -> s {_rtaRouteTableId = a})
+--
+-- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaRouteTableId :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Text)
+rtaRouteTableId = Lens.lens (routeTableId :: RouteTableAssociation -> Lude.Maybe Lude.Text) (\s a -> s {routeTableId = a} :: RouteTableAssociation)
+{-# DEPRECATED rtaRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
 
 -- | The ID of the association.
-rtaRouteTableAssociationId :: Lens' RouteTableAssociation (Maybe Text)
-rtaRouteTableAssociationId = lens _rtaRouteTableAssociationId (\s a -> s {_rtaRouteTableAssociationId = a})
+--
+-- /Note:/ Consider using 'routeTableAssociationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaRouteTableAssociationId :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Text)
+rtaRouteTableAssociationId = Lens.lens (routeTableAssociationId :: RouteTableAssociation -> Lude.Maybe Lude.Text) (\s a -> s {routeTableAssociationId = a} :: RouteTableAssociation)
+{-# DEPRECATED rtaRouteTableAssociationId "Use generic-lens or generic-optics with 'routeTableAssociationId' instead." #-}
 
 -- | Indicates whether this is the main route table.
-rtaMain :: Lens' RouteTableAssociation (Maybe Bool)
-rtaMain = lens _rtaMain (\s a -> s {_rtaMain = a})
+--
+-- /Note:/ Consider using 'main' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaMain :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Bool)
+rtaMain = Lens.lens (main :: RouteTableAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {main = a} :: RouteTableAssociation)
+{-# DEPRECATED rtaMain "Use generic-lens or generic-optics with 'main' instead." #-}
 
 -- | The ID of the subnet. A subnet ID is not returned for an implicit association.
-rtaSubnetId :: Lens' RouteTableAssociation (Maybe Text)
-rtaSubnetId = lens _rtaSubnetId (\s a -> s {_rtaSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaSubnetId :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Text)
+rtaSubnetId = Lens.lens (subnetId :: RouteTableAssociation -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: RouteTableAssociation)
+{-# DEPRECATED rtaSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The ID of the internet gateway or virtual private gateway.
-rtaGatewayId :: Lens' RouteTableAssociation (Maybe Text)
-rtaGatewayId = lens _rtaGatewayId (\s a -> s {_rtaGatewayId = a})
+--
+-- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaGatewayId :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Text)
+rtaGatewayId = Lens.lens (gatewayId :: RouteTableAssociation -> Lude.Maybe Lude.Text) (\s a -> s {gatewayId = a} :: RouteTableAssociation)
+{-# DEPRECATED rtaGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
 
 -- | The state of the association.
-rtaAssociationState :: Lens' RouteTableAssociation (Maybe RouteTableAssociationState)
-rtaAssociationState = lens _rtaAssociationState (\s a -> s {_rtaAssociationState = a})
+--
+-- /Note:/ Consider using 'associationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaAssociationState :: Lens.Lens' RouteTableAssociation (Lude.Maybe RouteTableAssociationState)
+rtaAssociationState = Lens.lens (associationState :: RouteTableAssociation -> Lude.Maybe RouteTableAssociationState) (\s a -> s {associationState = a} :: RouteTableAssociation)
+{-# DEPRECATED rtaAssociationState "Use generic-lens or generic-optics with 'associationState' instead." #-}
 
-instance FromXML RouteTableAssociation where
+instance Lude.FromXML RouteTableAssociation where
   parseXML x =
     RouteTableAssociation'
-      <$> (x .@? "routeTableId")
-      <*> (x .@? "routeTableAssociationId")
-      <*> (x .@? "main")
-      <*> (x .@? "subnetId")
-      <*> (x .@? "gatewayId")
-      <*> (x .@? "associationState")
-
-instance Hashable RouteTableAssociation
-
-instance NFData RouteTableAssociation
+      Lude.<$> (x Lude..@? "routeTableId")
+      Lude.<*> (x Lude..@? "routeTableAssociationId")
+      Lude.<*> (x Lude..@? "main")
+      Lude.<*> (x Lude..@? "subnetId")
+      Lude.<*> (x Lude..@? "gatewayId")
+      Lude.<*> (x Lude..@? "associationState")

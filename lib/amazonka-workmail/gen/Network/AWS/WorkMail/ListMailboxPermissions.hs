@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,178 +14,200 @@
 --
 -- Lists the mailbox permissions associated with a user, group, or resource mailbox.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WorkMail.ListMailboxPermissions
-  ( -- * Creating a Request
-    listMailboxPermissions,
-    ListMailboxPermissions,
+  ( -- * Creating a request
+    ListMailboxPermissions (..),
+    mkListMailboxPermissions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lmpNextToken,
     lmpMaxResults,
     lmpOrganizationId,
     lmpEntityId,
 
-    -- * Destructuring the Response
-    listMailboxPermissionsResponse,
-    ListMailboxPermissionsResponse,
+    -- * Destructuring the response
+    ListMailboxPermissionsResponse (..),
+    mkListMailboxPermissionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lmprsNextToken,
     lmprsPermissions,
     lmprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'listMailboxPermissions' smart constructor.
+-- | /See:/ 'mkListMailboxPermissions' smart constructor.
 data ListMailboxPermissions = ListMailboxPermissions'
-  { _lmpNextToken ::
-      !(Maybe Text),
-    _lmpMaxResults :: !(Maybe Nat),
-    _lmpOrganizationId :: !Text,
-    _lmpEntityId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    organizationId :: Lude.Text,
+    entityId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMailboxPermissions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmpNextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
---
--- * 'lmpMaxResults' - The maximum number of results to return in a single call.
---
--- * 'lmpOrganizationId' - The identifier of the organization under which the user, group, or resource exists.
---
--- * 'lmpEntityId' - The identifier of the user, group, or resource for which to list mailbox permissions.
-listMailboxPermissions ::
-  -- | 'lmpOrganizationId'
-  Text ->
-  -- | 'lmpEntityId'
-  Text ->
+-- * 'entityId' - The identifier of the user, group, or resource for which to list mailbox permissions.
+-- * 'maxResults' - The maximum number of results to return in a single call.
+-- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
+-- * 'organizationId' - The identifier of the organization under which the user, group, or resource exists.
+mkListMailboxPermissions ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'entityId'
+  Lude.Text ->
   ListMailboxPermissions
-listMailboxPermissions pOrganizationId_ pEntityId_ =
+mkListMailboxPermissions pOrganizationId_ pEntityId_ =
   ListMailboxPermissions'
-    { _lmpNextToken = Nothing,
-      _lmpMaxResults = Nothing,
-      _lmpOrganizationId = pOrganizationId_,
-      _lmpEntityId = pEntityId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      organizationId = pOrganizationId_,
+      entityId = pEntityId_
     }
 
 -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
-lmpNextToken :: Lens' ListMailboxPermissions (Maybe Text)
-lmpNextToken = lens _lmpNextToken (\s a -> s {_lmpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmpNextToken :: Lens.Lens' ListMailboxPermissions (Lude.Maybe Lude.Text)
+lmpNextToken = Lens.lens (nextToken :: ListMailboxPermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMailboxPermissions)
+{-# DEPRECATED lmpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return in a single call.
-lmpMaxResults :: Lens' ListMailboxPermissions (Maybe Natural)
-lmpMaxResults = lens _lmpMaxResults (\s a -> s {_lmpMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmpMaxResults :: Lens.Lens' ListMailboxPermissions (Lude.Maybe Lude.Natural)
+lmpMaxResults = Lens.lens (maxResults :: ListMailboxPermissions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMailboxPermissions)
+{-# DEPRECATED lmpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier of the organization under which the user, group, or resource exists.
-lmpOrganizationId :: Lens' ListMailboxPermissions Text
-lmpOrganizationId = lens _lmpOrganizationId (\s a -> s {_lmpOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmpOrganizationId :: Lens.Lens' ListMailboxPermissions Lude.Text
+lmpOrganizationId = Lens.lens (organizationId :: ListMailboxPermissions -> Lude.Text) (\s a -> s {organizationId = a} :: ListMailboxPermissions)
+{-# DEPRECATED lmpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier of the user, group, or resource for which to list mailbox permissions.
-lmpEntityId :: Lens' ListMailboxPermissions Text
-lmpEntityId = lens _lmpEntityId (\s a -> s {_lmpEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmpEntityId :: Lens.Lens' ListMailboxPermissions Lude.Text
+lmpEntityId = Lens.lens (entityId :: ListMailboxPermissions -> Lude.Text) (\s a -> s {entityId = a} :: ListMailboxPermissions)
+{-# DEPRECATED lmpEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
-instance AWSPager ListMailboxPermissions where
+instance Page.AWSPager ListMailboxPermissions where
   page rq rs
-    | stop (rs ^. lmprsNextToken) = Nothing
-    | stop (rs ^. lmprsPermissions) = Nothing
-    | otherwise = Just $ rq & lmpNextToken .~ rs ^. lmprsNextToken
+    | Page.stop (rs Lens.^. lmprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lmprsPermissions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lmpNextToken Lens..~ rs Lens.^. lmprsNextToken
 
-instance AWSRequest ListMailboxPermissions where
+instance Lude.AWSRequest ListMailboxPermissions where
   type Rs ListMailboxPermissions = ListMailboxPermissionsResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListMailboxPermissionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Permissions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Permissions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListMailboxPermissions
-
-instance NFData ListMailboxPermissions
-
-instance ToHeaders ListMailboxPermissions where
+instance Lude.ToHeaders ListMailboxPermissions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.ListMailboxPermissions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.ListMailboxPermissions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListMailboxPermissions where
+instance Lude.ToJSON ListMailboxPermissions where
   toJSON ListMailboxPermissions' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lmpNextToken,
-            ("MaxResults" .=) <$> _lmpMaxResults,
-            Just ("OrganizationId" .= _lmpOrganizationId),
-            Just ("EntityId" .= _lmpEntityId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("EntityId" Lude..= entityId)
           ]
       )
 
-instance ToPath ListMailboxPermissions where
-  toPath = const "/"
+instance Lude.ToPath ListMailboxPermissions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListMailboxPermissions where
-  toQuery = const mempty
+instance Lude.ToQuery ListMailboxPermissions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listMailboxPermissionsResponse' smart constructor.
+-- | /See:/ 'mkListMailboxPermissionsResponse' smart constructor.
 data ListMailboxPermissionsResponse = ListMailboxPermissionsResponse'
-  { _lmprsNextToken ::
-      !(Maybe Text),
-    _lmprsPermissions ::
-      !(Maybe [Permission]),
-    _lmprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    permissions ::
+      Lude.Maybe [Permission],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMailboxPermissionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmprsNextToken' - The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
---
--- * 'lmprsPermissions' - One page of the user, group, or resource mailbox permissions.
---
--- * 'lmprsResponseStatus' - -- | The response status code.
-listMailboxPermissionsResponse ::
-  -- | 'lmprsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+-- * 'permissions' - One page of the user, group, or resource mailbox permissions.
+-- * 'responseStatus' - The response status code.
+mkListMailboxPermissionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListMailboxPermissionsResponse
-listMailboxPermissionsResponse pResponseStatus_ =
+mkListMailboxPermissionsResponse pResponseStatus_ =
   ListMailboxPermissionsResponse'
-    { _lmprsNextToken = Nothing,
-      _lmprsPermissions = Nothing,
-      _lmprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      permissions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
-lmprsNextToken :: Lens' ListMailboxPermissionsResponse (Maybe Text)
-lmprsNextToken = lens _lmprsNextToken (\s a -> s {_lmprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmprsNextToken :: Lens.Lens' ListMailboxPermissionsResponse (Lude.Maybe Lude.Text)
+lmprsNextToken = Lens.lens (nextToken :: ListMailboxPermissionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMailboxPermissionsResponse)
+{-# DEPRECATED lmprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | One page of the user, group, or resource mailbox permissions.
-lmprsPermissions :: Lens' ListMailboxPermissionsResponse [Permission]
-lmprsPermissions = lens _lmprsPermissions (\s a -> s {_lmprsPermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmprsPermissions :: Lens.Lens' ListMailboxPermissionsResponse (Lude.Maybe [Permission])
+lmprsPermissions = Lens.lens (permissions :: ListMailboxPermissionsResponse -> Lude.Maybe [Permission]) (\s a -> s {permissions = a} :: ListMailboxPermissionsResponse)
+{-# DEPRECATED lmprsPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
--- | -- | The response status code.
-lmprsResponseStatus :: Lens' ListMailboxPermissionsResponse Int
-lmprsResponseStatus = lens _lmprsResponseStatus (\s a -> s {_lmprsResponseStatus = a})
-
-instance NFData ListMailboxPermissionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmprsResponseStatus :: Lens.Lens' ListMailboxPermissionsResponse Lude.Int
+lmprsResponseStatus = Lens.lens (responseStatus :: ListMailboxPermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMailboxPermissionsResponse)
+{-# DEPRECATED lmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

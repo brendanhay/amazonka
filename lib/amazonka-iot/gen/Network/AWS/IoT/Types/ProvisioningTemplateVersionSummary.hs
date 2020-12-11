@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ProvisioningTemplateVersionSummary where
+module Network.AWS.IoT.Types.ProvisioningTemplateVersionSummary
+  ( ProvisioningTemplateVersionSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisioningTemplateVersionSummary,
+
+    -- * Lenses
+    ptvsVersionId,
+    ptvsCreationDate,
+    ptvsIsDefaultVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A summary of information about a fleet provision template version.
 --
---
---
--- /See:/ 'provisioningTemplateVersionSummary' smart constructor.
+-- /See:/ 'mkProvisioningTemplateVersionSummary' smart constructor.
 data ProvisioningTemplateVersionSummary = ProvisioningTemplateVersionSummary'
-  { _ptvsVersionId ::
-      !(Maybe Int),
-    _ptvsCreationDate ::
-      !(Maybe POSIX),
-    _ptvsIsDefaultVersion ::
-      !(Maybe Bool)
+  { versionId ::
+      Lude.Maybe Lude.Int,
+    creationDate ::
+      Lude.Maybe
+        Lude.Timestamp,
+    isDefaultVersion ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningTemplateVersionSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptvsVersionId' - The ID of the fleet privisioning template version.
---
--- * 'ptvsCreationDate' - The date when the fleet provisioning template version was created
---
--- * 'ptvsIsDefaultVersion' - True if the fleet provisioning template version is the default version, otherwise false.
-provisioningTemplateVersionSummary ::
+-- * 'creationDate' - The date when the fleet provisioning template version was created
+-- * 'isDefaultVersion' - True if the fleet provisioning template version is the default version, otherwise false.
+-- * 'versionId' - The ID of the fleet privisioning template version.
+mkProvisioningTemplateVersionSummary ::
   ProvisioningTemplateVersionSummary
-provisioningTemplateVersionSummary =
+mkProvisioningTemplateVersionSummary =
   ProvisioningTemplateVersionSummary'
-    { _ptvsVersionId = Nothing,
-      _ptvsCreationDate = Nothing,
-      _ptvsIsDefaultVersion = Nothing
+    { versionId = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      isDefaultVersion = Lude.Nothing
     }
 
 -- | The ID of the fleet privisioning template version.
-ptvsVersionId :: Lens' ProvisioningTemplateVersionSummary (Maybe Int)
-ptvsVersionId = lens _ptvsVersionId (\s a -> s {_ptvsVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptvsVersionId :: Lens.Lens' ProvisioningTemplateVersionSummary (Lude.Maybe Lude.Int)
+ptvsVersionId = Lens.lens (versionId :: ProvisioningTemplateVersionSummary -> Lude.Maybe Lude.Int) (\s a -> s {versionId = a} :: ProvisioningTemplateVersionSummary)
+{-# DEPRECATED ptvsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The date when the fleet provisioning template version was created
-ptvsCreationDate :: Lens' ProvisioningTemplateVersionSummary (Maybe UTCTime)
-ptvsCreationDate = lens _ptvsCreationDate (\s a -> s {_ptvsCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptvsCreationDate :: Lens.Lens' ProvisioningTemplateVersionSummary (Lude.Maybe Lude.Timestamp)
+ptvsCreationDate = Lens.lens (creationDate :: ProvisioningTemplateVersionSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: ProvisioningTemplateVersionSummary)
+{-# DEPRECATED ptvsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | True if the fleet provisioning template version is the default version, otherwise false.
-ptvsIsDefaultVersion :: Lens' ProvisioningTemplateVersionSummary (Maybe Bool)
-ptvsIsDefaultVersion = lens _ptvsIsDefaultVersion (\s a -> s {_ptvsIsDefaultVersion = a})
+--
+-- /Note:/ Consider using 'isDefaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptvsIsDefaultVersion :: Lens.Lens' ProvisioningTemplateVersionSummary (Lude.Maybe Lude.Bool)
+ptvsIsDefaultVersion = Lens.lens (isDefaultVersion :: ProvisioningTemplateVersionSummary -> Lude.Maybe Lude.Bool) (\s a -> s {isDefaultVersion = a} :: ProvisioningTemplateVersionSummary)
+{-# DEPRECATED ptvsIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
 
-instance FromJSON ProvisioningTemplateVersionSummary where
+instance Lude.FromJSON ProvisioningTemplateVersionSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisioningTemplateVersionSummary"
       ( \x ->
           ProvisioningTemplateVersionSummary'
-            <$> (x .:? "versionId")
-            <*> (x .:? "creationDate")
-            <*> (x .:? "isDefaultVersion")
+            Lude.<$> (x Lude..:? "versionId")
+            Lude.<*> (x Lude..:? "creationDate")
+            Lude.<*> (x Lude..:? "isDefaultVersion")
       )
-
-instance Hashable ProvisioningTemplateVersionSummary
-
-instance NFData ProvisioningTemplateVersionSummary

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.KinesisDataStream where
+module Network.AWS.Rekognition.Types.KinesisDataStream
+  ( KinesisDataStream (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisDataStream,
+
+    -- * Lenses
+    kdsARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Kinesis data stream Amazon Rekognition to which the analysis results of a Amazon Rekognition stream processor are streamed. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.
 --
---
---
--- /See:/ 'kinesisDataStream' smart constructor.
+-- /See:/ 'mkKinesisDataStream' smart constructor.
 newtype KinesisDataStream = KinesisDataStream'
-  { _kdsARN ::
-      Maybe Text
+  { arn ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisDataStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kdsARN' - ARN of the output Amazon Kinesis Data Streams stream.
-kinesisDataStream ::
+-- * 'arn' - ARN of the output Amazon Kinesis Data Streams stream.
+mkKinesisDataStream ::
   KinesisDataStream
-kinesisDataStream = KinesisDataStream' {_kdsARN = Nothing}
+mkKinesisDataStream = KinesisDataStream' {arn = Lude.Nothing}
 
 -- | ARN of the output Amazon Kinesis Data Streams stream.
-kdsARN :: Lens' KinesisDataStream (Maybe Text)
-kdsARN = lens _kdsARN (\s a -> s {_kdsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kdsARN :: Lens.Lens' KinesisDataStream (Lude.Maybe Lude.Text)
+kdsARN = Lens.lens (arn :: KinesisDataStream -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: KinesisDataStream)
+{-# DEPRECATED kdsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance FromJSON KinesisDataStream where
+instance Lude.FromJSON KinesisDataStream where
   parseJSON =
-    withObject
+    Lude.withObject
       "KinesisDataStream"
-      (\x -> KinesisDataStream' <$> (x .:? "Arn"))
+      (\x -> KinesisDataStream' Lude.<$> (x Lude..:? "Arn"))
 
-instance Hashable KinesisDataStream
-
-instance NFData KinesisDataStream
-
-instance ToJSON KinesisDataStream where
+instance Lude.ToJSON KinesisDataStream where
   toJSON KinesisDataStream' {..} =
-    object (catMaybes [("Arn" .=) <$> _kdsARN])
+    Lude.object (Lude.catMaybes [("Arn" Lude..=) Lude.<$> arn])

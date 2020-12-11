@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,94 @@
 --
 -- Reboots a specified instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping, and Rebooting Instances> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.RebootInstance
-  ( -- * Creating a Request
-    rebootInstance,
-    RebootInstance,
+  ( -- * Creating a request
+    RebootInstance (..),
+    mkRebootInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     riInstanceId,
 
-    -- * Destructuring the Response
-    rebootInstanceResponse,
-    RebootInstanceResponse,
+    -- * Destructuring the response
+    RebootInstanceResponse (..),
+    mkRebootInstanceResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rebootInstance' smart constructor.
-newtype RebootInstance = RebootInstance' {_riInstanceId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkRebootInstance' smart constructor.
+newtype RebootInstance = RebootInstance' {instanceId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riInstanceId' - The instance ID.
-rebootInstance ::
-  -- | 'riInstanceId'
-  Text ->
+-- * 'instanceId' - The instance ID.
+mkRebootInstance ::
+  -- | 'instanceId'
+  Lude.Text ->
   RebootInstance
-rebootInstance pInstanceId_ =
-  RebootInstance' {_riInstanceId = pInstanceId_}
+mkRebootInstance pInstanceId_ =
+  RebootInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-riInstanceId :: Lens' RebootInstance Text
-riInstanceId = lens _riInstanceId (\s a -> s {_riInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riInstanceId :: Lens.Lens' RebootInstance Lude.Text
+riInstanceId = Lens.lens (instanceId :: RebootInstance -> Lude.Text) (\s a -> s {instanceId = a} :: RebootInstance)
+{-# DEPRECATED riInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest RebootInstance where
+instance Lude.AWSRequest RebootInstance where
   type Rs RebootInstance = RebootInstanceResponse
-  request = postJSON opsWorks
-  response = receiveNull RebootInstanceResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull RebootInstanceResponse'
 
-instance Hashable RebootInstance
-
-instance NFData RebootInstance
-
-instance ToHeaders RebootInstance where
+instance Lude.ToHeaders RebootInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.RebootInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.RebootInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RebootInstance where
+instance Lude.ToJSON RebootInstance where
   toJSON RebootInstance' {..} =
-    object (catMaybes [Just ("InstanceId" .= _riInstanceId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("InstanceId" Lude..= instanceId)])
 
-instance ToPath RebootInstance where
-  toPath = const "/"
+instance Lude.ToPath RebootInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery RebootInstance where
-  toQuery = const mempty
+instance Lude.ToQuery RebootInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'rebootInstanceResponse' smart constructor.
+-- | /See:/ 'mkRebootInstanceResponse' smart constructor.
 data RebootInstanceResponse = RebootInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootInstanceResponse' with the minimum fields required to make a request.
-rebootInstanceResponse ::
+mkRebootInstanceResponse ::
   RebootInstanceResponse
-rebootInstanceResponse = RebootInstanceResponse'
-
-instance NFData RebootInstanceResponse
+mkRebootInstanceResponse = RebootInstanceResponse'

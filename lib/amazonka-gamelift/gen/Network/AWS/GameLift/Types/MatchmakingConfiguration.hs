@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,198 +7,276 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.MatchmakingConfiguration where
+module Network.AWS.GameLift.Types.MatchmakingConfiguration
+  ( MatchmakingConfiguration (..),
+
+    -- * Smart constructor
+    mkMatchmakingConfiguration,
+
+    -- * Lenses
+    mcCreationTime,
+    mcBackfillMode,
+    mcGameProperties,
+    mcRuleSetName,
+    mcAcceptanceTimeoutSeconds,
+    mcRequestTimeoutSeconds,
+    mcNotificationTarget,
+    mcFlexMatchMode,
+    mcGameSessionQueueARNs,
+    mcName,
+    mcCustomEventData,
+    mcConfigurationARN,
+    mcAcceptanceRequired,
+    mcGameSessionData,
+    mcDescription,
+    mcAdditionalPlayerCount,
+    mcRuleSetARN,
+  )
+where
 
 import Network.AWS.GameLift.Types.BackfillMode
 import Network.AWS.GameLift.Types.FlexMatchMode
 import Network.AWS.GameLift.Types.GameProperty
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Guidelines for use with FlexMatch to match players into games. All matchmaking requests must specify a matchmaking configuration.
 --
---
---
--- /See:/ 'matchmakingConfiguration' smart constructor.
+-- /See:/ 'mkMatchmakingConfiguration' smart constructor.
 data MatchmakingConfiguration = MatchmakingConfiguration'
-  { _mcCreationTime ::
-      !(Maybe POSIX),
-    _mcBackfillMode :: !(Maybe BackfillMode),
-    _mcGameProperties ::
-      !(Maybe [GameProperty]),
-    _mcRuleSetName :: !(Maybe Text),
-    _mcAcceptanceTimeoutSeconds ::
-      !(Maybe Nat),
-    _mcRequestTimeoutSeconds :: !(Maybe Nat),
-    _mcNotificationTarget :: !(Maybe Text),
-    _mcFlexMatchMode ::
-      !(Maybe FlexMatchMode),
-    _mcGameSessionQueueARNs ::
-      !(Maybe [Text]),
-    _mcName :: !(Maybe Text),
-    _mcCustomEventData :: !(Maybe Text),
-    _mcConfigurationARN :: !(Maybe Text),
-    _mcAcceptanceRequired :: !(Maybe Bool),
-    _mcGameSessionData :: !(Maybe Text),
-    _mcDescription :: !(Maybe Text),
-    _mcAdditionalPlayerCount :: !(Maybe Nat),
-    _mcRuleSetARN :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    backfillMode :: Lude.Maybe BackfillMode,
+    gameProperties ::
+      Lude.Maybe [GameProperty],
+    ruleSetName :: Lude.Maybe Lude.Text,
+    acceptanceTimeoutSeconds ::
+      Lude.Maybe Lude.Natural,
+    requestTimeoutSeconds ::
+      Lude.Maybe Lude.Natural,
+    notificationTarget ::
+      Lude.Maybe Lude.Text,
+    flexMatchMode :: Lude.Maybe FlexMatchMode,
+    gameSessionQueueARNs ::
+      Lude.Maybe [Lude.Text],
+    name :: Lude.Maybe Lude.Text,
+    customEventData :: Lude.Maybe Lude.Text,
+    configurationARN :: Lude.Maybe Lude.Text,
+    acceptanceRequired ::
+      Lude.Maybe Lude.Bool,
+    gameSessionData :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    additionalPlayerCount ::
+      Lude.Maybe Lude.Natural,
+    ruleSetARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MatchmakingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptanceRequired' - A flag that indicates whether a match that was created with this configuration must be accepted by the matched players. To require acceptance, set to TRUE. When this option is enabled, matchmaking tickets use the status @REQUIRES_ACCEPTANCE@ to indicate when a completed potential match is waiting for player acceptance.
+-- * 'acceptanceTimeoutSeconds' - The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required. If any player rejects the match or fails to accept before the timeout, the tickets are returned to the ticket pool and continue to be evaluated for an acceptable match.
+-- * 'additionalPlayerCount' - The number of player slots in a match to keep open for future players. For example, assume that the configuration's rule set specifies a match for a single 12-person team. If the additional player count is set to 2, only 10 players are initially selected for the match. This parameter is not used when @FlexMatchMode@ is set to @STANDALONE@ .
+-- * 'backfillMode' - The method used to backfill game sessions created with this matchmaking configuration. MANUAL indicates that the game makes backfill requests or does not use the match backfill feature. AUTOMATIC indicates that GameLift creates 'StartMatchBackfill' requests whenever a game session has one or more open slots. Learn more about manual and automatic backfill in <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill Existing Games with FlexMatch> . Automatic backfill is not available when @FlexMatchMode@ is set to @STANDALONE@ .
+-- * 'configurationARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking configuration resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift configuration ARN, the resource ID matches the /Name/ value.
+-- * 'creationTime' - The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'customEventData' - Information to attach to all events related to the matchmaking configuration.
+-- * 'description' - A descriptive label that is associated with matchmaking configuration.
+-- * 'flexMatchMode' - Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
 --
--- * 'mcCreationTime' - The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'mcBackfillMode' - The method used to backfill game sessions created with this matchmaking configuration. MANUAL indicates that the game makes backfill requests or does not use the match backfill feature. AUTOMATIC indicates that GameLift creates 'StartMatchBackfill' requests whenever a game session has one or more open slots. Learn more about manual and automatic backfill in <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill Existing Games with FlexMatch> . Automatic backfill is not available when @FlexMatchMode@ is set to @STANDALONE@ .
+--     * __STANDALONE__ - FlexMatch forms matches and returns match information, including players and team assignments, in a <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded MatchmakingSucceeded> event.
 --
--- * 'mcGameProperties' - A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match. This parameter is not used when @FlexMatchMode@ is set to @STANDALONE@ .
 --
--- * 'mcRuleSetName' - A unique identifier for a matchmaking rule set to use with this configuration. A matchmaking configuration can only use rule sets that are defined in the same Region.
+--     * __WITH_QUEUE__ - FlexMatch forms matches and uses the specified GameLift queue to start a game session for the match.
 --
--- * 'mcAcceptanceTimeoutSeconds' - The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required. If any player rejects the match or fails to accept before the timeout, the tickets are returned to the ticket pool and continue to be evaluated for an acceptable match.
 --
--- * 'mcRequestTimeoutSeconds' - The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out. Requests that fail due to timing out can be resubmitted as needed.
---
--- * 'mcNotificationTarget' - An SNS topic ARN that is set up to receive matchmaking notifications.
---
--- * 'mcFlexMatchMode' - Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.      * __STANDALONE__ - FlexMatch forms matches and returns match information, including players and team assignments, in a <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded MatchmakingSucceeded> event.     * __WITH_QUEUE__ - FlexMatch forms matches and uses the specified GameLift queue to start a game session for the match.
---
--- * 'mcGameSessionQueueARNs' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Queues can be located in any Region. Queues are used to start new GameLift-hosted game sessions for matches that are created with this matchmaking configuration. Thais property is not set when @FlexMatchMode@ is set to @STANDALONE@ .
---
--- * 'mcName' - A unique identifier for a matchmaking configuration. This name is used to identify the configuration associated with a matchmaking request or ticket.
---
--- * 'mcCustomEventData' - Information to attach to all events related to the matchmaking configuration.
---
--- * 'mcConfigurationARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking configuration resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift configuration ARN, the resource ID matches the /Name/ value.
---
--- * 'mcAcceptanceRequired' - A flag that indicates whether a match that was created with this configuration must be accepted by the matched players. To require acceptance, set to TRUE. When this option is enabled, matchmaking tickets use the status @REQUIRES_ACCEPTANCE@ to indicate when a completed potential match is waiting for player acceptance.
---
--- * 'mcGameSessionData' - A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match. This parameter is not used when @FlexMatchMode@ is set to @STANDALONE@ .
---
--- * 'mcDescription' - A descriptive label that is associated with matchmaking configuration.
---
--- * 'mcAdditionalPlayerCount' - The number of player slots in a match to keep open for future players. For example, assume that the configuration's rule set specifies a match for a single 12-person team. If the additional player count is set to 2, only 10 players are initially selected for the match. This parameter is not used when @FlexMatchMode@ is set to @STANDALONE@ .
---
--- * 'mcRuleSetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift matchmaking rule set resource that this configuration uses.
-matchmakingConfiguration ::
+-- * 'gameProperties' - A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match. This parameter is not used when @FlexMatchMode@ is set to @STANDALONE@ .
+-- * 'gameSessionData' - A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match. This parameter is not used when @FlexMatchMode@ is set to @STANDALONE@ .
+-- * 'gameSessionQueueARNs' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Queues can be located in any Region. Queues are used to start new GameLift-hosted game sessions for matches that are created with this matchmaking configuration. Thais property is not set when @FlexMatchMode@ is set to @STANDALONE@ .
+-- * 'name' - A unique identifier for a matchmaking configuration. This name is used to identify the configuration associated with a matchmaking request or ticket.
+-- * 'notificationTarget' - An SNS topic ARN that is set up to receive matchmaking notifications.
+-- * 'requestTimeoutSeconds' - The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out. Requests that fail due to timing out can be resubmitted as needed.
+-- * 'ruleSetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift matchmaking rule set resource that this configuration uses.
+-- * 'ruleSetName' - A unique identifier for a matchmaking rule set to use with this configuration. A matchmaking configuration can only use rule sets that are defined in the same Region.
+mkMatchmakingConfiguration ::
   MatchmakingConfiguration
-matchmakingConfiguration =
+mkMatchmakingConfiguration =
   MatchmakingConfiguration'
-    { _mcCreationTime = Nothing,
-      _mcBackfillMode = Nothing,
-      _mcGameProperties = Nothing,
-      _mcRuleSetName = Nothing,
-      _mcAcceptanceTimeoutSeconds = Nothing,
-      _mcRequestTimeoutSeconds = Nothing,
-      _mcNotificationTarget = Nothing,
-      _mcFlexMatchMode = Nothing,
-      _mcGameSessionQueueARNs = Nothing,
-      _mcName = Nothing,
-      _mcCustomEventData = Nothing,
-      _mcConfigurationARN = Nothing,
-      _mcAcceptanceRequired = Nothing,
-      _mcGameSessionData = Nothing,
-      _mcDescription = Nothing,
-      _mcAdditionalPlayerCount = Nothing,
-      _mcRuleSetARN = Nothing
+    { creationTime = Lude.Nothing,
+      backfillMode = Lude.Nothing,
+      gameProperties = Lude.Nothing,
+      ruleSetName = Lude.Nothing,
+      acceptanceTimeoutSeconds = Lude.Nothing,
+      requestTimeoutSeconds = Lude.Nothing,
+      notificationTarget = Lude.Nothing,
+      flexMatchMode = Lude.Nothing,
+      gameSessionQueueARNs = Lude.Nothing,
+      name = Lude.Nothing,
+      customEventData = Lude.Nothing,
+      configurationARN = Lude.Nothing,
+      acceptanceRequired = Lude.Nothing,
+      gameSessionData = Lude.Nothing,
+      description = Lude.Nothing,
+      additionalPlayerCount = Lude.Nothing,
+      ruleSetARN = Lude.Nothing
     }
 
 -- | The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-mcCreationTime :: Lens' MatchmakingConfiguration (Maybe UTCTime)
-mcCreationTime = lens _mcCreationTime (\s a -> s {_mcCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcCreationTime :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Timestamp)
+mcCreationTime = Lens.lens (creationTime :: MatchmakingConfiguration -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The method used to backfill game sessions created with this matchmaking configuration. MANUAL indicates that the game makes backfill requests or does not use the match backfill feature. AUTOMATIC indicates that GameLift creates 'StartMatchBackfill' requests whenever a game session has one or more open slots. Learn more about manual and automatic backfill in <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill Existing Games with FlexMatch> . Automatic backfill is not available when @FlexMatchMode@ is set to @STANDALONE@ .
-mcBackfillMode :: Lens' MatchmakingConfiguration (Maybe BackfillMode)
-mcBackfillMode = lens _mcBackfillMode (\s a -> s {_mcBackfillMode = a})
+--
+-- /Note:/ Consider using 'backfillMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcBackfillMode :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe BackfillMode)
+mcBackfillMode = Lens.lens (backfillMode :: MatchmakingConfiguration -> Lude.Maybe BackfillMode) (\s a -> s {backfillMode = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcBackfillMode "Use generic-lens or generic-optics with 'backfillMode' instead." #-}
 
 -- | A set of custom properties for a game session, formatted as key-value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match. This parameter is not used when @FlexMatchMode@ is set to @STANDALONE@ .
-mcGameProperties :: Lens' MatchmakingConfiguration [GameProperty]
-mcGameProperties = lens _mcGameProperties (\s a -> s {_mcGameProperties = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gameProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcGameProperties :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe [GameProperty])
+mcGameProperties = Lens.lens (gameProperties :: MatchmakingConfiguration -> Lude.Maybe [GameProperty]) (\s a -> s {gameProperties = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcGameProperties "Use generic-lens or generic-optics with 'gameProperties' instead." #-}
 
 -- | A unique identifier for a matchmaking rule set to use with this configuration. A matchmaking configuration can only use rule sets that are defined in the same Region.
-mcRuleSetName :: Lens' MatchmakingConfiguration (Maybe Text)
-mcRuleSetName = lens _mcRuleSetName (\s a -> s {_mcRuleSetName = a})
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcRuleSetName :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Text)
+mcRuleSetName = Lens.lens (ruleSetName :: MatchmakingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {ruleSetName = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 -- | The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required. If any player rejects the match or fails to accept before the timeout, the tickets are returned to the ticket pool and continue to be evaluated for an acceptable match.
-mcAcceptanceTimeoutSeconds :: Lens' MatchmakingConfiguration (Maybe Natural)
-mcAcceptanceTimeoutSeconds = lens _mcAcceptanceTimeoutSeconds (\s a -> s {_mcAcceptanceTimeoutSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'acceptanceTimeoutSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcAcceptanceTimeoutSeconds :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Natural)
+mcAcceptanceTimeoutSeconds = Lens.lens (acceptanceTimeoutSeconds :: MatchmakingConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {acceptanceTimeoutSeconds = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcAcceptanceTimeoutSeconds "Use generic-lens or generic-optics with 'acceptanceTimeoutSeconds' instead." #-}
 
 -- | The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out. Requests that fail due to timing out can be resubmitted as needed.
-mcRequestTimeoutSeconds :: Lens' MatchmakingConfiguration (Maybe Natural)
-mcRequestTimeoutSeconds = lens _mcRequestTimeoutSeconds (\s a -> s {_mcRequestTimeoutSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'requestTimeoutSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcRequestTimeoutSeconds :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Natural)
+mcRequestTimeoutSeconds = Lens.lens (requestTimeoutSeconds :: MatchmakingConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {requestTimeoutSeconds = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcRequestTimeoutSeconds "Use generic-lens or generic-optics with 'requestTimeoutSeconds' instead." #-}
 
 -- | An SNS topic ARN that is set up to receive matchmaking notifications.
-mcNotificationTarget :: Lens' MatchmakingConfiguration (Maybe Text)
-mcNotificationTarget = lens _mcNotificationTarget (\s a -> s {_mcNotificationTarget = a})
+--
+-- /Note:/ Consider using 'notificationTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcNotificationTarget :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Text)
+mcNotificationTarget = Lens.lens (notificationTarget :: MatchmakingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {notificationTarget = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcNotificationTarget "Use generic-lens or generic-optics with 'notificationTarget' instead." #-}
 
--- | Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.      * __STANDALONE__ - FlexMatch forms matches and returns match information, including players and team assignments, in a <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded MatchmakingSucceeded> event.     * __WITH_QUEUE__ - FlexMatch forms matches and uses the specified GameLift queue to start a game session for the match.
-mcFlexMatchMode :: Lens' MatchmakingConfiguration (Maybe FlexMatchMode)
-mcFlexMatchMode = lens _mcFlexMatchMode (\s a -> s {_mcFlexMatchMode = a})
+-- | Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
+--
+--
+--     * __STANDALONE__ - FlexMatch forms matches and returns match information, including players and team assignments, in a <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded MatchmakingSucceeded> event.
+--
+--
+--     * __WITH_QUEUE__ - FlexMatch forms matches and uses the specified GameLift queue to start a game session for the match.
+--
+--
+--
+-- /Note:/ Consider using 'flexMatchMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcFlexMatchMode :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe FlexMatchMode)
+mcFlexMatchMode = Lens.lens (flexMatchMode :: MatchmakingConfiguration -> Lude.Maybe FlexMatchMode) (\s a -> s {flexMatchMode = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcFlexMatchMode "Use generic-lens or generic-optics with 'flexMatchMode' instead." #-}
 
 -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. Queues can be located in any Region. Queues are used to start new GameLift-hosted game sessions for matches that are created with this matchmaking configuration. Thais property is not set when @FlexMatchMode@ is set to @STANDALONE@ .
-mcGameSessionQueueARNs :: Lens' MatchmakingConfiguration [Text]
-mcGameSessionQueueARNs = lens _mcGameSessionQueueARNs (\s a -> s {_mcGameSessionQueueARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gameSessionQueueARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcGameSessionQueueARNs :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe [Lude.Text])
+mcGameSessionQueueARNs = Lens.lens (gameSessionQueueARNs :: MatchmakingConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {gameSessionQueueARNs = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcGameSessionQueueARNs "Use generic-lens or generic-optics with 'gameSessionQueueARNs' instead." #-}
 
 -- | A unique identifier for a matchmaking configuration. This name is used to identify the configuration associated with a matchmaking request or ticket.
-mcName :: Lens' MatchmakingConfiguration (Maybe Text)
-mcName = lens _mcName (\s a -> s {_mcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcName :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Text)
+mcName = Lens.lens (name :: MatchmakingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Information to attach to all events related to the matchmaking configuration.
-mcCustomEventData :: Lens' MatchmakingConfiguration (Maybe Text)
-mcCustomEventData = lens _mcCustomEventData (\s a -> s {_mcCustomEventData = a})
+--
+-- /Note:/ Consider using 'customEventData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcCustomEventData :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Text)
+mcCustomEventData = Lens.lens (customEventData :: MatchmakingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {customEventData = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcCustomEventData "Use generic-lens or generic-optics with 'customEventData' instead." #-}
 
 -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking configuration resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift configuration ARN, the resource ID matches the /Name/ value.
-mcConfigurationARN :: Lens' MatchmakingConfiguration (Maybe Text)
-mcConfigurationARN = lens _mcConfigurationARN (\s a -> s {_mcConfigurationARN = a})
+--
+-- /Note:/ Consider using 'configurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcConfigurationARN :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Text)
+mcConfigurationARN = Lens.lens (configurationARN :: MatchmakingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {configurationARN = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcConfigurationARN "Use generic-lens or generic-optics with 'configurationARN' instead." #-}
 
 -- | A flag that indicates whether a match that was created with this configuration must be accepted by the matched players. To require acceptance, set to TRUE. When this option is enabled, matchmaking tickets use the status @REQUIRES_ACCEPTANCE@ to indicate when a completed potential match is waiting for player acceptance.
-mcAcceptanceRequired :: Lens' MatchmakingConfiguration (Maybe Bool)
-mcAcceptanceRequired = lens _mcAcceptanceRequired (\s a -> s {_mcAcceptanceRequired = a})
+--
+-- /Note:/ Consider using 'acceptanceRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcAcceptanceRequired :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Bool)
+mcAcceptanceRequired = Lens.lens (acceptanceRequired :: MatchmakingConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {acceptanceRequired = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcAcceptanceRequired "Use generic-lens or generic-optics with 'acceptanceRequired' instead." #-}
 
 -- | A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). This information is added to the new 'GameSession' object that is created for a successful match. This parameter is not used when @FlexMatchMode@ is set to @STANDALONE@ .
-mcGameSessionData :: Lens' MatchmakingConfiguration (Maybe Text)
-mcGameSessionData = lens _mcGameSessionData (\s a -> s {_mcGameSessionData = a})
+--
+-- /Note:/ Consider using 'gameSessionData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcGameSessionData :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Text)
+mcGameSessionData = Lens.lens (gameSessionData :: MatchmakingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionData = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcGameSessionData "Use generic-lens or generic-optics with 'gameSessionData' instead." #-}
 
 -- | A descriptive label that is associated with matchmaking configuration.
-mcDescription :: Lens' MatchmakingConfiguration (Maybe Text)
-mcDescription = lens _mcDescription (\s a -> s {_mcDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcDescription :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Text)
+mcDescription = Lens.lens (description :: MatchmakingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The number of player slots in a match to keep open for future players. For example, assume that the configuration's rule set specifies a match for a single 12-person team. If the additional player count is set to 2, only 10 players are initially selected for the match. This parameter is not used when @FlexMatchMode@ is set to @STANDALONE@ .
-mcAdditionalPlayerCount :: Lens' MatchmakingConfiguration (Maybe Natural)
-mcAdditionalPlayerCount = lens _mcAdditionalPlayerCount (\s a -> s {_mcAdditionalPlayerCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'additionalPlayerCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcAdditionalPlayerCount :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Natural)
+mcAdditionalPlayerCount = Lens.lens (additionalPlayerCount :: MatchmakingConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {additionalPlayerCount = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcAdditionalPlayerCount "Use generic-lens or generic-optics with 'additionalPlayerCount' instead." #-}
 
 -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift matchmaking rule set resource that this configuration uses.
-mcRuleSetARN :: Lens' MatchmakingConfiguration (Maybe Text)
-mcRuleSetARN = lens _mcRuleSetARN (\s a -> s {_mcRuleSetARN = a})
+--
+-- /Note:/ Consider using 'ruleSetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcRuleSetARN :: Lens.Lens' MatchmakingConfiguration (Lude.Maybe Lude.Text)
+mcRuleSetARN = Lens.lens (ruleSetARN :: MatchmakingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {ruleSetARN = a} :: MatchmakingConfiguration)
+{-# DEPRECATED mcRuleSetARN "Use generic-lens or generic-optics with 'ruleSetARN' instead." #-}
 
-instance FromJSON MatchmakingConfiguration where
+instance Lude.FromJSON MatchmakingConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "MatchmakingConfiguration"
       ( \x ->
           MatchmakingConfiguration'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "BackfillMode")
-            <*> (x .:? "GameProperties" .!= mempty)
-            <*> (x .:? "RuleSetName")
-            <*> (x .:? "AcceptanceTimeoutSeconds")
-            <*> (x .:? "RequestTimeoutSeconds")
-            <*> (x .:? "NotificationTarget")
-            <*> (x .:? "FlexMatchMode")
-            <*> (x .:? "GameSessionQueueArns" .!= mempty)
-            <*> (x .:? "Name")
-            <*> (x .:? "CustomEventData")
-            <*> (x .:? "ConfigurationArn")
-            <*> (x .:? "AcceptanceRequired")
-            <*> (x .:? "GameSessionData")
-            <*> (x .:? "Description")
-            <*> (x .:? "AdditionalPlayerCount")
-            <*> (x .:? "RuleSetArn")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "BackfillMode")
+            Lude.<*> (x Lude..:? "GameProperties" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "RuleSetName")
+            Lude.<*> (x Lude..:? "AcceptanceTimeoutSeconds")
+            Lude.<*> (x Lude..:? "RequestTimeoutSeconds")
+            Lude.<*> (x Lude..:? "NotificationTarget")
+            Lude.<*> (x Lude..:? "FlexMatchMode")
+            Lude.<*> (x Lude..:? "GameSessionQueueArns" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "CustomEventData")
+            Lude.<*> (x Lude..:? "ConfigurationArn")
+            Lude.<*> (x Lude..:? "AcceptanceRequired")
+            Lude.<*> (x Lude..:? "GameSessionData")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "AdditionalPlayerCount")
+            Lude.<*> (x Lude..:? "RuleSetArn")
       )
-
-instance Hashable MatchmakingConfiguration
-
-instance NFData MatchmakingConfiguration

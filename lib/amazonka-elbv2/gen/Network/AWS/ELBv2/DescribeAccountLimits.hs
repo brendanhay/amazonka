@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,33 +14,33 @@
 --
 -- Describes the current Elastic Load Balancing resource limits for your AWS account.
 --
---
 -- For more information, see the following:
 --
 --     * <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html Quotas for your Application Load Balancers>
 --
+--
 --     * <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html Quotas for your Network Load Balancers>
+--
 --
 --     * <https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html Quotas for your Gateway Load Balancers>
 --
 --
 --
---
 -- This operation returns paginated results.
 module Network.AWS.ELBv2.DescribeAccountLimits
-  ( -- * Creating a Request
-    describeAccountLimits,
-    DescribeAccountLimits,
+  ( -- * Creating a request
+    DescribeAccountLimits (..),
+    mkDescribeAccountLimits,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dalMarker,
     dalPageSize,
 
-    -- * Destructuring the Response
-    describeAccountLimitsResponse,
-    DescribeAccountLimitsResponse,
+    -- * Destructuring the response
+    DescribeAccountLimitsResponse (..),
+    mkDescribeAccountLimitsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dalrsLimits,
     dalrsNextMarker,
     dalrsResponseStatus,
@@ -53,121 +48,142 @@ module Network.AWS.ELBv2.DescribeAccountLimits
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAccountLimits' smart constructor.
+-- | /See:/ 'mkDescribeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
-  { _dalMarker ::
-      !(Maybe Text),
-    _dalPageSize :: !(Maybe Nat)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimits' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dalMarker' - The marker for the next set of results. (You received this marker from a previous call.)
---
--- * 'dalPageSize' - The maximum number of results to return with this call.
-describeAccountLimits ::
+-- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
+-- * 'pageSize' - The maximum number of results to return with this call.
+mkDescribeAccountLimits ::
   DescribeAccountLimits
-describeAccountLimits =
+mkDescribeAccountLimits =
   DescribeAccountLimits'
-    { _dalMarker = Nothing,
-      _dalPageSize = Nothing
+    { marker = Lude.Nothing,
+      pageSize = Lude.Nothing
     }
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
-dalMarker :: Lens' DescribeAccountLimits (Maybe Text)
-dalMarker = lens _dalMarker (\s a -> s {_dalMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalMarker :: Lens.Lens' DescribeAccountLimits (Lude.Maybe Lude.Text)
+dalMarker = Lens.lens (marker :: DescribeAccountLimits -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeAccountLimits)
+{-# DEPRECATED dalMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of results to return with this call.
-dalPageSize :: Lens' DescribeAccountLimits (Maybe Natural)
-dalPageSize = lens _dalPageSize (\s a -> s {_dalPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalPageSize :: Lens.Lens' DescribeAccountLimits (Lude.Maybe Lude.Natural)
+dalPageSize = Lens.lens (pageSize :: DescribeAccountLimits -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: DescribeAccountLimits)
+{-# DEPRECATED dalPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance AWSPager DescribeAccountLimits where
+instance Page.AWSPager DescribeAccountLimits where
   page rq rs
-    | stop (rs ^. dalrsNextMarker) = Nothing
-    | stop (rs ^. dalrsLimits) = Nothing
-    | otherwise = Just $ rq & dalMarker .~ rs ^. dalrsNextMarker
+    | Page.stop (rs Lens.^. dalrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dalrsLimits) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dalMarker Lens..~ rs Lens.^. dalrsNextMarker
 
-instance AWSRequest DescribeAccountLimits where
+instance Lude.AWSRequest DescribeAccountLimits where
   type Rs DescribeAccountLimits = DescribeAccountLimitsResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            <$> (x .@? "Limits" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "NextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Limits" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAccountLimits
+instance Lude.ToHeaders DescribeAccountLimits where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeAccountLimits
+instance Lude.ToPath DescribeAccountLimits where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeAccountLimits where
-  toHeaders = const mempty
-
-instance ToPath DescribeAccountLimits where
-  toPath = const "/"
-
-instance ToQuery DescribeAccountLimits where
+instance Lude.ToQuery DescribeAccountLimits where
   toQuery DescribeAccountLimits' {..} =
-    mconcat
-      [ "Action" =: ("DescribeAccountLimits" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "Marker" =: _dalMarker,
-        "PageSize" =: _dalPageSize
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeAccountLimits" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "Marker" Lude.=: marker,
+        "PageSize" Lude.=: pageSize
       ]
 
--- | /See:/ 'describeAccountLimitsResponse' smart constructor.
+-- | /See:/ 'mkDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { _dalrsLimits ::
-      !(Maybe [Limit]),
-    _dalrsNextMarker ::
-      !(Maybe Text),
-    _dalrsResponseStatus :: !Int
+  { limits ::
+      Lude.Maybe [Limit],
+    nextMarker ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dalrsLimits' - Information about the limits.
---
--- * 'dalrsNextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
---
--- * 'dalrsResponseStatus' - -- | The response status code.
-describeAccountLimitsResponse ::
-  -- | 'dalrsResponseStatus'
-  Int ->
+-- * 'limits' - Information about the limits.
+-- * 'nextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+-- * 'responseStatus' - The response status code.
+mkDescribeAccountLimitsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAccountLimitsResponse
-describeAccountLimitsResponse pResponseStatus_ =
+mkDescribeAccountLimitsResponse pResponseStatus_ =
   DescribeAccountLimitsResponse'
-    { _dalrsLimits = Nothing,
-      _dalrsNextMarker = Nothing,
-      _dalrsResponseStatus = pResponseStatus_
+    { limits = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the limits.
-dalrsLimits :: Lens' DescribeAccountLimitsResponse [Limit]
-dalrsLimits = lens _dalrsLimits (\s a -> s {_dalrsLimits = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'limits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalrsLimits :: Lens.Lens' DescribeAccountLimitsResponse (Lude.Maybe [Limit])
+dalrsLimits = Lens.lens (limits :: DescribeAccountLimitsResponse -> Lude.Maybe [Limit]) (\s a -> s {limits = a} :: DescribeAccountLimitsResponse)
+{-# DEPRECATED dalrsLimits "Use generic-lens or generic-optics with 'limits' instead." #-}
 
 -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
-dalrsNextMarker :: Lens' DescribeAccountLimitsResponse (Maybe Text)
-dalrsNextMarker = lens _dalrsNextMarker (\s a -> s {_dalrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalrsNextMarker :: Lens.Lens' DescribeAccountLimitsResponse (Lude.Maybe Lude.Text)
+dalrsNextMarker = Lens.lens (nextMarker :: DescribeAccountLimitsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeAccountLimitsResponse)
+{-# DEPRECATED dalrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-dalrsResponseStatus :: Lens' DescribeAccountLimitsResponse Int
-dalrsResponseStatus = lens _dalrsResponseStatus (\s a -> s {_dalrsResponseStatus = a})
-
-instance NFData DescribeAccountLimitsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dalrsResponseStatus :: Lens.Lens' DescribeAccountLimitsResponse Lude.Int
+dalrsResponseStatus = Lens.lens (responseStatus :: DescribeAccountLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountLimitsResponse)
+{-# DEPRECATED dalrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

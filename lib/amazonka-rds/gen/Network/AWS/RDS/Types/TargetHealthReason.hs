@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.TargetHealthReason where
+module Network.AWS.RDS.Types.TargetHealthReason
+  ( TargetHealthReason
+      ( TargetHealthReason',
+        AuthFailure,
+        ConnectionFailed,
+        PendingProxyCapacity,
+        Unreachable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetHealthReason
-  = AuthFailure
-  | ConnectionFailed
-  | PendingProxyCapacity
-  | Unreachable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetHealthReason = TargetHealthReason' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetHealthReason where
-  parser =
-    takeLowerText >>= \case
-      "auth_failure" -> pure AuthFailure
-      "connection_failed" -> pure ConnectionFailed
-      "pending_proxy_capacity" -> pure PendingProxyCapacity
-      "unreachable" -> pure Unreachable
-      e ->
-        fromTextError $
-          "Failure parsing TargetHealthReason from value: '" <> e
-            <> "'. Accepted values: auth_failure, connection_failed, pending_proxy_capacity, unreachable"
+pattern AuthFailure :: TargetHealthReason
+pattern AuthFailure = TargetHealthReason' "AUTH_FAILURE"
 
-instance ToText TargetHealthReason where
-  toText = \case
-    AuthFailure -> "AUTH_FAILURE"
-    ConnectionFailed -> "CONNECTION_FAILED"
-    PendingProxyCapacity -> "PENDING_PROXY_CAPACITY"
-    Unreachable -> "UNREACHABLE"
+pattern ConnectionFailed :: TargetHealthReason
+pattern ConnectionFailed = TargetHealthReason' "CONNECTION_FAILED"
 
-instance Hashable TargetHealthReason
+pattern PendingProxyCapacity :: TargetHealthReason
+pattern PendingProxyCapacity = TargetHealthReason' "PENDING_PROXY_CAPACITY"
 
-instance NFData TargetHealthReason
+pattern Unreachable :: TargetHealthReason
+pattern Unreachable = TargetHealthReason' "UNREACHABLE"
 
-instance ToByteString TargetHealthReason
-
-instance ToQuery TargetHealthReason
-
-instance ToHeader TargetHealthReason
-
-instance FromXML TargetHealthReason where
-  parseXML = parseXMLText "TargetHealthReason"
+{-# COMPLETE
+  AuthFailure,
+  ConnectionFailed,
+  PendingProxyCapacity,
+  Unreachable,
+  TargetHealthReason'
+  #-}

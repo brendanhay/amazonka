@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.Type where
+module Network.AWS.AppSync.Types.Type
+  ( Type (..),
+
+    -- * Smart constructor
+    mkType,
+
+    -- * Lenses
+    tArn,
+    tDefinition,
+    tFormat,
+    tName,
+    tDescription,
+  )
+where
 
 import Network.AWS.AppSync.Types.TypeDefinitionFormat
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a type.
 --
---
---
--- /See:/ 'type'' smart constructor.
+-- /See:/ 'mkType' smart constructor.
 data Type = Type'
-  { _tArn :: !(Maybe Text),
-    _tDefinition :: !(Maybe Text),
-    _tFormat :: !(Maybe TypeDefinitionFormat),
-    _tName :: !(Maybe Text),
-    _tDescription :: !(Maybe Text)
+  { arn :: Lude.Maybe Lude.Text,
+    definition :: Lude.Maybe Lude.Text,
+    format :: Lude.Maybe TypeDefinitionFormat,
+    name :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Type' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tArn' - The type ARN.
---
--- * 'tDefinition' - The type definition.
---
--- * 'tFormat' - The type format: SDL or JSON.
---
--- * 'tName' - The type name.
---
--- * 'tDescription' - The type description.
-type' ::
+-- * 'arn' - The type ARN.
+-- * 'definition' - The type definition.
+-- * 'description' - The type description.
+-- * 'format' - The type format: SDL or JSON.
+-- * 'name' - The type name.
+mkType ::
   Type
-type' =
+mkType =
   Type'
-    { _tArn = Nothing,
-      _tDefinition = Nothing,
-      _tFormat = Nothing,
-      _tName = Nothing,
-      _tDescription = Nothing
+    { arn = Lude.Nothing,
+      definition = Lude.Nothing,
+      format = Lude.Nothing,
+      name = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The type ARN.
-tArn :: Lens' Type (Maybe Text)
-tArn = lens _tArn (\s a -> s {_tArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tArn :: Lens.Lens' Type (Lude.Maybe Lude.Text)
+tArn = Lens.lens (arn :: Type -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Type)
+{-# DEPRECATED tArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The type definition.
-tDefinition :: Lens' Type (Maybe Text)
-tDefinition = lens _tDefinition (\s a -> s {_tDefinition = a})
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tDefinition :: Lens.Lens' Type (Lude.Maybe Lude.Text)
+tDefinition = Lens.lens (definition :: Type -> Lude.Maybe Lude.Text) (\s a -> s {definition = a} :: Type)
+{-# DEPRECATED tDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The type format: SDL or JSON.
-tFormat :: Lens' Type (Maybe TypeDefinitionFormat)
-tFormat = lens _tFormat (\s a -> s {_tFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tFormat :: Lens.Lens' Type (Lude.Maybe TypeDefinitionFormat)
+tFormat = Lens.lens (format :: Type -> Lude.Maybe TypeDefinitionFormat) (\s a -> s {format = a} :: Type)
+{-# DEPRECATED tFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The type name.
-tName :: Lens' Type (Maybe Text)
-tName = lens _tName (\s a -> s {_tName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tName :: Lens.Lens' Type (Lude.Maybe Lude.Text)
+tName = Lens.lens (name :: Type -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Type)
+{-# DEPRECATED tName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type description.
-tDescription :: Lens' Type (Maybe Text)
-tDescription = lens _tDescription (\s a -> s {_tDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tDescription :: Lens.Lens' Type (Lude.Maybe Lude.Text)
+tDescription = Lens.lens (description :: Type -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Type)
+{-# DEPRECATED tDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON Type where
+instance Lude.FromJSON Type where
   parseJSON =
-    withObject
+    Lude.withObject
       "Type"
       ( \x ->
           Type'
-            <$> (x .:? "arn")
-            <*> (x .:? "definition")
-            <*> (x .:? "format")
-            <*> (x .:? "name")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "definition")
+            Lude.<*> (x Lude..:? "format")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable Type
-
-instance NFData Type

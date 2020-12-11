@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Lists the anomaly detection models that you have created in your account. You can list all models in your account or filter the results to only the models that are related to a certain namespace, metric name, or metric dimension.
 module Network.AWS.CloudWatch.DescribeAnomalyDetectors
-  ( -- * Creating a Request
-    describeAnomalyDetectors,
-    DescribeAnomalyDetectors,
+  ( -- * Creating a request
+    DescribeAnomalyDetectors (..),
+    mkDescribeAnomalyDetectors,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dMetricName,
     dNamespace,
     dNextToken,
     dDimensions,
     dMaxResults,
 
-    -- * Destructuring the Response
-    describeAnomalyDetectorsResponse,
-    DescribeAnomalyDetectorsResponse,
+    -- * Destructuring the response
+    DescribeAnomalyDetectorsResponse (..),
+    mkDescribeAnomalyDetectorsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dadrsAnomalyDetectors,
     dadrsNextToken,
     dadrsResponseStatus,
@@ -42,147 +37,173 @@ module Network.AWS.CloudWatch.DescribeAnomalyDetectors
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeAnomalyDetectors' smart constructor.
+-- | /See:/ 'mkDescribeAnomalyDetectors' smart constructor.
 data DescribeAnomalyDetectors = DescribeAnomalyDetectors'
-  { _dMetricName ::
-      !(Maybe Text),
-    _dNamespace :: !(Maybe Text),
-    _dNextToken :: !(Maybe Text),
-    _dDimensions :: !(Maybe [Dimension]),
-    _dMaxResults :: !(Maybe Nat)
+  { metricName ::
+      Lude.Maybe Lude.Text,
+    namespace :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    dimensions :: Lude.Maybe [Dimension],
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAnomalyDetectors' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dimensions' - Limits the results to only the anomaly detection models that are associated with the specified metric dimensions. If there are multiple metrics that have these dimensions and have anomaly detection models associated, they're all returned.
+-- * 'maxResults' - The maximum number of results to return in one operation. The maximum value that you can specify is 100.
 --
--- * 'dMetricName' - Limits the results to only the anomaly detection models that are associated with the specified metric name. If there are multiple metrics with this name in different namespaces that have anomaly detection models, they're all returned.
---
--- * 'dNamespace' - Limits the results to only the anomaly detection models that are associated with the specified namespace.
---
--- * 'dNextToken' - Use the token returned by the previous operation to request the next page of results.
---
--- * 'dDimensions' - Limits the results to only the anomaly detection models that are associated with the specified metric dimensions. If there are multiple metrics that have these dimensions and have anomaly detection models associated, they're all returned.
---
--- * 'dMaxResults' - The maximum number of results to return in one operation. The maximum value that you can specify is 100. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-describeAnomalyDetectors ::
+-- To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- * 'metricName' - Limits the results to only the anomaly detection models that are associated with the specified metric name. If there are multiple metrics with this name in different namespaces that have anomaly detection models, they're all returned.
+-- * 'namespace' - Limits the results to only the anomaly detection models that are associated with the specified namespace.
+-- * 'nextToken' - Use the token returned by the previous operation to request the next page of results.
+mkDescribeAnomalyDetectors ::
   DescribeAnomalyDetectors
-describeAnomalyDetectors =
+mkDescribeAnomalyDetectors =
   DescribeAnomalyDetectors'
-    { _dMetricName = Nothing,
-      _dNamespace = Nothing,
-      _dNextToken = Nothing,
-      _dDimensions = Nothing,
-      _dMaxResults = Nothing
+    { metricName = Lude.Nothing,
+      namespace = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dimensions = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Limits the results to only the anomaly detection models that are associated with the specified metric name. If there are multiple metrics with this name in different namespaces that have anomaly detection models, they're all returned.
-dMetricName :: Lens' DescribeAnomalyDetectors (Maybe Text)
-dMetricName = lens _dMetricName (\s a -> s {_dMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMetricName :: Lens.Lens' DescribeAnomalyDetectors (Lude.Maybe Lude.Text)
+dMetricName = Lens.lens (metricName :: DescribeAnomalyDetectors -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: DescribeAnomalyDetectors)
+{-# DEPRECATED dMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | Limits the results to only the anomaly detection models that are associated with the specified namespace.
-dNamespace :: Lens' DescribeAnomalyDetectors (Maybe Text)
-dNamespace = lens _dNamespace (\s a -> s {_dNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNamespace :: Lens.Lens' DescribeAnomalyDetectors (Lude.Maybe Lude.Text)
+dNamespace = Lens.lens (namespace :: DescribeAnomalyDetectors -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: DescribeAnomalyDetectors)
+{-# DEPRECATED dNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | Use the token returned by the previous operation to request the next page of results.
-dNextToken :: Lens' DescribeAnomalyDetectors (Maybe Text)
-dNextToken = lens _dNextToken (\s a -> s {_dNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNextToken :: Lens.Lens' DescribeAnomalyDetectors (Lude.Maybe Lude.Text)
+dNextToken = Lens.lens (nextToken :: DescribeAnomalyDetectors -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAnomalyDetectors)
+{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Limits the results to only the anomaly detection models that are associated with the specified metric dimensions. If there are multiple metrics that have these dimensions and have anomaly detection models associated, they're all returned.
-dDimensions :: Lens' DescribeAnomalyDetectors [Dimension]
-dDimensions = lens _dDimensions (\s a -> s {_dDimensions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDimensions :: Lens.Lens' DescribeAnomalyDetectors (Lude.Maybe [Dimension])
+dDimensions = Lens.lens (dimensions :: DescribeAnomalyDetectors -> Lude.Maybe [Dimension]) (\s a -> s {dimensions = a} :: DescribeAnomalyDetectors)
+{-# DEPRECATED dDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
--- | The maximum number of results to return in one operation. The maximum value that you can specify is 100. To retrieve the remaining results, make another call with the returned @NextToken@ value.
-dMaxResults :: Lens' DescribeAnomalyDetectors (Maybe Natural)
-dMaxResults = lens _dMaxResults (\s a -> s {_dMaxResults = a}) . mapping _Nat
+-- | The maximum number of results to return in one operation. The maximum value that you can specify is 100.
+--
+-- To retrieve the remaining results, make another call with the returned @NextToken@ value.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMaxResults :: Lens.Lens' DescribeAnomalyDetectors (Lude.Maybe Lude.Natural)
+dMaxResults = Lens.lens (maxResults :: DescribeAnomalyDetectors -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAnomalyDetectors)
+{-# DEPRECATED dMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest DescribeAnomalyDetectors where
+instance Lude.AWSRequest DescribeAnomalyDetectors where
   type Rs DescribeAnomalyDetectors = DescribeAnomalyDetectorsResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeAnomalyDetectorsResult"
       ( \s h x ->
           DescribeAnomalyDetectorsResponse'
-            <$> ( x .@? "AnomalyDetectors" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "AnomalyDetectors" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAnomalyDetectors
+instance Lude.ToHeaders DescribeAnomalyDetectors where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeAnomalyDetectors
+instance Lude.ToPath DescribeAnomalyDetectors where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeAnomalyDetectors where
-  toHeaders = const mempty
-
-instance ToPath DescribeAnomalyDetectors where
-  toPath = const "/"
-
-instance ToQuery DescribeAnomalyDetectors where
+instance Lude.ToQuery DescribeAnomalyDetectors where
   toQuery DescribeAnomalyDetectors' {..} =
-    mconcat
-      [ "Action" =: ("DescribeAnomalyDetectors" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "MetricName" =: _dMetricName,
-        "Namespace" =: _dNamespace,
-        "NextToken" =: _dNextToken,
-        "Dimensions" =: toQuery (toQueryList "member" <$> _dDimensions),
-        "MaxResults" =: _dMaxResults
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeAnomalyDetectors" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "MetricName" Lude.=: metricName,
+        "Namespace" Lude.=: namespace,
+        "NextToken" Lude.=: nextToken,
+        "Dimensions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions),
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeAnomalyDetectorsResponse' smart constructor.
+-- | /See:/ 'mkDescribeAnomalyDetectorsResponse' smart constructor.
 data DescribeAnomalyDetectorsResponse = DescribeAnomalyDetectorsResponse'
-  { _dadrsAnomalyDetectors ::
-      !( Maybe
-           [AnomalyDetector]
-       ),
-    _dadrsNextToken ::
-      !(Maybe Text),
-    _dadrsResponseStatus ::
-      !Int
+  { anomalyDetectors ::
+      Lude.Maybe
+        [AnomalyDetector],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAnomalyDetectorsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dadrsAnomalyDetectors' - The list of anomaly detection models returned by the operation.
---
--- * 'dadrsNextToken' - A token that you can use in a subsequent operation to retrieve the next set of results.
---
--- * 'dadrsResponseStatus' - -- | The response status code.
-describeAnomalyDetectorsResponse ::
-  -- | 'dadrsResponseStatus'
-  Int ->
+-- * 'anomalyDetectors' - The list of anomaly detection models returned by the operation.
+-- * 'nextToken' - A token that you can use in a subsequent operation to retrieve the next set of results.
+-- * 'responseStatus' - The response status code.
+mkDescribeAnomalyDetectorsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAnomalyDetectorsResponse
-describeAnomalyDetectorsResponse pResponseStatus_ =
+mkDescribeAnomalyDetectorsResponse pResponseStatus_ =
   DescribeAnomalyDetectorsResponse'
-    { _dadrsAnomalyDetectors =
-        Nothing,
-      _dadrsNextToken = Nothing,
-      _dadrsResponseStatus = pResponseStatus_
+    { anomalyDetectors =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of anomaly detection models returned by the operation.
-dadrsAnomalyDetectors :: Lens' DescribeAnomalyDetectorsResponse [AnomalyDetector]
-dadrsAnomalyDetectors = lens _dadrsAnomalyDetectors (\s a -> s {_dadrsAnomalyDetectors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'anomalyDetectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadrsAnomalyDetectors :: Lens.Lens' DescribeAnomalyDetectorsResponse (Lude.Maybe [AnomalyDetector])
+dadrsAnomalyDetectors = Lens.lens (anomalyDetectors :: DescribeAnomalyDetectorsResponse -> Lude.Maybe [AnomalyDetector]) (\s a -> s {anomalyDetectors = a} :: DescribeAnomalyDetectorsResponse)
+{-# DEPRECATED dadrsAnomalyDetectors "Use generic-lens or generic-optics with 'anomalyDetectors' instead." #-}
 
 -- | A token that you can use in a subsequent operation to retrieve the next set of results.
-dadrsNextToken :: Lens' DescribeAnomalyDetectorsResponse (Maybe Text)
-dadrsNextToken = lens _dadrsNextToken (\s a -> s {_dadrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadrsNextToken :: Lens.Lens' DescribeAnomalyDetectorsResponse (Lude.Maybe Lude.Text)
+dadrsNextToken = Lens.lens (nextToken :: DescribeAnomalyDetectorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAnomalyDetectorsResponse)
+{-# DEPRECATED dadrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dadrsResponseStatus :: Lens' DescribeAnomalyDetectorsResponse Int
-dadrsResponseStatus = lens _dadrsResponseStatus (\s a -> s {_dadrsResponseStatus = a})
-
-instance NFData DescribeAnomalyDetectorsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadrsResponseStatus :: Lens.Lens' DescribeAnomalyDetectorsResponse Lude.Int
+dadrsResponseStatus = Lens.lens (responseStatus :: DescribeAnomalyDetectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAnomalyDetectorsResponse)
+{-# DEPRECATED dadrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

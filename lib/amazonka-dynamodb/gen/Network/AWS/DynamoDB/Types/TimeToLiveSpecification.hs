@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.TimeToLiveSpecification where
+module Network.AWS.DynamoDB.Types.TimeToLiveSpecification
+  ( TimeToLiveSpecification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimeToLiveSpecification,
+
+    -- * Lenses
+    ttlsEnabled,
+    ttlsAttributeName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
 --
---
---
--- /See:/ 'timeToLiveSpecification' smart constructor.
+-- /See:/ 'mkTimeToLiveSpecification' smart constructor.
 data TimeToLiveSpecification = TimeToLiveSpecification'
-  { _ttlsEnabled ::
-      !Bool,
-    _ttlsAttributeName :: !Text
+  { enabled ::
+      Lude.Bool,
+    attributeName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeToLiveSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ttlsEnabled' - Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
---
--- * 'ttlsAttributeName' - The name of the TTL attribute used to store the expiration time for items in the table.
-timeToLiveSpecification ::
-  -- | 'ttlsEnabled'
-  Bool ->
-  -- | 'ttlsAttributeName'
-  Text ->
+-- * 'attributeName' - The name of the TTL attribute used to store the expiration time for items in the table.
+-- * 'enabled' - Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+mkTimeToLiveSpecification ::
+  -- | 'enabled'
+  Lude.Bool ->
+  -- | 'attributeName'
+  Lude.Text ->
   TimeToLiveSpecification
-timeToLiveSpecification pEnabled_ pAttributeName_ =
+mkTimeToLiveSpecification pEnabled_ pAttributeName_ =
   TimeToLiveSpecification'
-    { _ttlsEnabled = pEnabled_,
-      _ttlsAttributeName = pAttributeName_
+    { enabled = pEnabled_,
+      attributeName = pAttributeName_
     }
 
 -- | Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
-ttlsEnabled :: Lens' TimeToLiveSpecification Bool
-ttlsEnabled = lens _ttlsEnabled (\s a -> s {_ttlsEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttlsEnabled :: Lens.Lens' TimeToLiveSpecification Lude.Bool
+ttlsEnabled = Lens.lens (enabled :: TimeToLiveSpecification -> Lude.Bool) (\s a -> s {enabled = a} :: TimeToLiveSpecification)
+{-# DEPRECATED ttlsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The name of the TTL attribute used to store the expiration time for items in the table.
-ttlsAttributeName :: Lens' TimeToLiveSpecification Text
-ttlsAttributeName = lens _ttlsAttributeName (\s a -> s {_ttlsAttributeName = a})
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttlsAttributeName :: Lens.Lens' TimeToLiveSpecification Lude.Text
+ttlsAttributeName = Lens.lens (attributeName :: TimeToLiveSpecification -> Lude.Text) (\s a -> s {attributeName = a} :: TimeToLiveSpecification)
+{-# DEPRECATED ttlsAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance FromJSON TimeToLiveSpecification where
+instance Lude.FromJSON TimeToLiveSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "TimeToLiveSpecification"
       ( \x ->
           TimeToLiveSpecification'
-            <$> (x .: "Enabled") <*> (x .: "AttributeName")
+            Lude.<$> (x Lude..: "Enabled") Lude.<*> (x Lude..: "AttributeName")
       )
 
-instance Hashable TimeToLiveSpecification
-
-instance NFData TimeToLiveSpecification
-
-instance ToJSON TimeToLiveSpecification where
+instance Lude.ToJSON TimeToLiveSpecification where
   toJSON TimeToLiveSpecification' {..} =
-    object
-      ( catMaybes
-          [ Just ("Enabled" .= _ttlsEnabled),
-            Just ("AttributeName" .= _ttlsAttributeName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Enabled" Lude..= enabled),
+            Lude.Just ("AttributeName" Lude..= attributeName)
           ]
       )

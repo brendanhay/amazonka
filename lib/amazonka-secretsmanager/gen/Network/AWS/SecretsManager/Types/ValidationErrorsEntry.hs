@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecretsManager.Types.ValidationErrorsEntry where
+module Network.AWS.SecretsManager.Types.ValidationErrorsEntry
+  ( ValidationErrorsEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkValidationErrorsEntry,
+
+    -- * Lenses
+    veeCheckName,
+    veeErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Displays errors that occurred during validation of the resource policy.
 --
---
---
--- /See:/ 'validationErrorsEntry' smart constructor.
+-- /See:/ 'mkValidationErrorsEntry' smart constructor.
 data ValidationErrorsEntry = ValidationErrorsEntry'
-  { _veeCheckName ::
-      !(Maybe Text),
-    _veeErrorMessage :: !(Maybe Text)
+  { checkName ::
+      Lude.Maybe Lude.Text,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationErrorsEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'veeCheckName' - Checks the name of the policy.
---
--- * 'veeErrorMessage' - Displays error messages if validation encounters problems during validation of the resource policy.
-validationErrorsEntry ::
+-- * 'checkName' - Checks the name of the policy.
+-- * 'errorMessage' - Displays error messages if validation encounters problems during validation of the resource policy.
+mkValidationErrorsEntry ::
   ValidationErrorsEntry
-validationErrorsEntry =
+mkValidationErrorsEntry =
   ValidationErrorsEntry'
-    { _veeCheckName = Nothing,
-      _veeErrorMessage = Nothing
+    { checkName = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | Checks the name of the policy.
-veeCheckName :: Lens' ValidationErrorsEntry (Maybe Text)
-veeCheckName = lens _veeCheckName (\s a -> s {_veeCheckName = a})
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veeCheckName :: Lens.Lens' ValidationErrorsEntry (Lude.Maybe Lude.Text)
+veeCheckName = Lens.lens (checkName :: ValidationErrorsEntry -> Lude.Maybe Lude.Text) (\s a -> s {checkName = a} :: ValidationErrorsEntry)
+{-# DEPRECATED veeCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
 -- | Displays error messages if validation encounters problems during validation of the resource policy.
-veeErrorMessage :: Lens' ValidationErrorsEntry (Maybe Text)
-veeErrorMessage = lens _veeErrorMessage (\s a -> s {_veeErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veeErrorMessage :: Lens.Lens' ValidationErrorsEntry (Lude.Maybe Lude.Text)
+veeErrorMessage = Lens.lens (errorMessage :: ValidationErrorsEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: ValidationErrorsEntry)
+{-# DEPRECATED veeErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON ValidationErrorsEntry where
+instance Lude.FromJSON ValidationErrorsEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "ValidationErrorsEntry"
       ( \x ->
           ValidationErrorsEntry'
-            <$> (x .:? "CheckName") <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "CheckName") Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable ValidationErrorsEntry
-
-instance NFData ValidationErrorsEntry

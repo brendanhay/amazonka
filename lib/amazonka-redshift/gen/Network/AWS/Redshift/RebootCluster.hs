@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,126 @@
 --
 -- Reboots a cluster. This action is taken as soon as possible. It results in a momentary outage to the cluster, during which the cluster status is set to @rebooting@ . A cluster event is created when the reboot is completed. Any pending cluster modifications (see 'ModifyCluster' ) are applied at this reboot. For more information about managing clusters, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.RebootCluster
-  ( -- * Creating a Request
-    rebootCluster,
-    RebootCluster,
+  ( -- * Creating a request
+    RebootCluster (..),
+    mkRebootCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rebClusterIdentifier,
 
-    -- * Destructuring the Response
-    rebootClusterResponse,
-    RebootClusterResponse,
+    -- * Destructuring the response
+    RebootClusterResponse (..),
+    mkRebootClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rrsCluster,
     rrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'rebootCluster' smart constructor.
+-- /See:/ 'mkRebootCluster' smart constructor.
 newtype RebootCluster = RebootCluster'
-  { _rebClusterIdentifier ::
-      Text
+  { clusterIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rebClusterIdentifier' - The cluster identifier.
-rebootCluster ::
-  -- | 'rebClusterIdentifier'
-  Text ->
+-- * 'clusterIdentifier' - The cluster identifier.
+mkRebootCluster ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   RebootCluster
-rebootCluster pClusterIdentifier_ =
-  RebootCluster' {_rebClusterIdentifier = pClusterIdentifier_}
+mkRebootCluster pClusterIdentifier_ =
+  RebootCluster' {clusterIdentifier = pClusterIdentifier_}
 
 -- | The cluster identifier.
-rebClusterIdentifier :: Lens' RebootCluster Text
-rebClusterIdentifier = lens _rebClusterIdentifier (\s a -> s {_rebClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rebClusterIdentifier :: Lens.Lens' RebootCluster Lude.Text
+rebClusterIdentifier = Lens.lens (clusterIdentifier :: RebootCluster -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: RebootCluster)
+{-# DEPRECATED rebClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest RebootCluster where
+instance Lude.AWSRequest RebootCluster where
   type Rs RebootCluster = RebootClusterResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "RebootClusterResult"
       ( \s h x ->
           RebootClusterResponse'
-            <$> (x .@? "Cluster") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RebootCluster
+instance Lude.ToHeaders RebootCluster where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RebootCluster
+instance Lude.ToPath RebootCluster where
+  toPath = Lude.const "/"
 
-instance ToHeaders RebootCluster where
-  toHeaders = const mempty
-
-instance ToPath RebootCluster where
-  toPath = const "/"
-
-instance ToQuery RebootCluster where
+instance Lude.ToQuery RebootCluster where
   toQuery RebootCluster' {..} =
-    mconcat
-      [ "Action" =: ("RebootCluster" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterIdentifier" =: _rebClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("RebootCluster" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]
 
--- | /See:/ 'rebootClusterResponse' smart constructor.
+-- | /See:/ 'mkRebootClusterResponse' smart constructor.
 data RebootClusterResponse = RebootClusterResponse'
-  { _rrsCluster ::
-      !(Maybe Cluster),
-    _rrsResponseStatus :: !Int
+  { cluster ::
+      Lude.Maybe Cluster,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrsCluster' - Undocumented member.
---
--- * 'rrsResponseStatus' - -- | The response status code.
-rebootClusterResponse ::
-  -- | 'rrsResponseStatus'
-  Int ->
+-- * 'cluster' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkRebootClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RebootClusterResponse
-rebootClusterResponse pResponseStatus_ =
+mkRebootClusterResponse pResponseStatus_ =
   RebootClusterResponse'
-    { _rrsCluster = Nothing,
-      _rrsResponseStatus = pResponseStatus_
+    { cluster = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-rrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
-rrsCluster = lens _rrsCluster (\s a -> s {_rrsCluster = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsCluster :: Lens.Lens' RebootClusterResponse (Lude.Maybe Cluster)
+rrsCluster = Lens.lens (cluster :: RebootClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: RebootClusterResponse)
+{-# DEPRECATED rrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
--- | -- | The response status code.
-rrsResponseStatus :: Lens' RebootClusterResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\s a -> s {_rrsResponseStatus = a})
-
-instance NFData RebootClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsResponseStatus :: Lens.Lens' RebootClusterResponse Lude.Int
+rrsResponseStatus = Lens.lens (responseStatus :: RebootClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebootClusterResponse)
+{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

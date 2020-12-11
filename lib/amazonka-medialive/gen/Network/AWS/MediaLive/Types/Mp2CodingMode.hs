@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Mp2CodingMode where
+module Network.AWS.MediaLive.Types.Mp2CodingMode
+  ( Mp2CodingMode
+      ( Mp2CodingMode',
+        MCMCodingMode10,
+        MCMCodingMode20
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Mp2 Coding Mode
-data Mp2CodingMode
-  = MCMCodingMode10
-  | MCMCodingMode20
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mp2CodingMode = Mp2CodingMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mp2CodingMode where
-  parser =
-    takeLowerText >>= \case
-      "coding_mode_1_0" -> pure MCMCodingMode10
-      "coding_mode_2_0" -> pure MCMCodingMode20
-      e ->
-        fromTextError $
-          "Failure parsing Mp2CodingMode from value: '" <> e
-            <> "'. Accepted values: coding_mode_1_0, coding_mode_2_0"
+pattern MCMCodingMode10 :: Mp2CodingMode
+pattern MCMCodingMode10 = Mp2CodingMode' "CODING_MODE_1_0"
 
-instance ToText Mp2CodingMode where
-  toText = \case
-    MCMCodingMode10 -> "CODING_MODE_1_0"
-    MCMCodingMode20 -> "CODING_MODE_2_0"
+pattern MCMCodingMode20 :: Mp2CodingMode
+pattern MCMCodingMode20 = Mp2CodingMode' "CODING_MODE_2_0"
 
-instance Hashable Mp2CodingMode
-
-instance NFData Mp2CodingMode
-
-instance ToByteString Mp2CodingMode
-
-instance ToQuery Mp2CodingMode
-
-instance ToHeader Mp2CodingMode
-
-instance ToJSON Mp2CodingMode where
-  toJSON = toJSONText
-
-instance FromJSON Mp2CodingMode where
-  parseJSON = parseJSONText "Mp2CodingMode"
+{-# COMPLETE
+  MCMCodingMode10,
+  MCMCodingMode20,
+  Mp2CodingMode'
+  #-}

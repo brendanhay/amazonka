@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.GlobalReplicationGroupMember where
+module Network.AWS.ElastiCache.Types.GlobalReplicationGroupMember
+  ( GlobalReplicationGroupMember (..),
+
+    -- * Smart constructor
+    mkGlobalReplicationGroupMember,
+
+    -- * Lenses
+    grgmStatus,
+    grgmReplicationGroupRegion,
+    grgmRole,
+    grgmReplicationGroupId,
+    grgmAutomaticFailover,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A member of a Global Datastore. It contains the Replication Group Id, the AWS region and the role of the replication group.
 --
---
---
--- /See:/ 'globalReplicationGroupMember' smart constructor.
+-- /See:/ 'mkGlobalReplicationGroupMember' smart constructor.
 data GlobalReplicationGroupMember = GlobalReplicationGroupMember'
-  { _grgmStatus ::
-      !(Maybe Text),
-    _grgmReplicationGroupRegion ::
-      !(Maybe Text),
-    _grgmRole :: !(Maybe Text),
-    _grgmReplicationGroupId ::
-      !(Maybe Text),
-    _grgmAutomaticFailover ::
-      !(Maybe AutomaticFailoverStatus)
+  { status ::
+      Lude.Maybe Lude.Text,
+    replicationGroupRegion ::
+      Lude.Maybe Lude.Text,
+    role' :: Lude.Maybe Lude.Text,
+    replicationGroupId ::
+      Lude.Maybe Lude.Text,
+    automaticFailover ::
+      Lude.Maybe
+        AutomaticFailoverStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalReplicationGroupMember' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grgmStatus' - The status of the membership of the replication group.
---
--- * 'grgmReplicationGroupRegion' - The AWS region of the Global Datastore member.
---
--- * 'grgmRole' - Indicates the role of the replication group, primary or secondary.
---
--- * 'grgmReplicationGroupId' - The replication group id of the Global Datastore member.
---
--- * 'grgmAutomaticFailover' - Indicates whether automatic failover is enabled for the replication group.
-globalReplicationGroupMember ::
+-- * 'automaticFailover' - Indicates whether automatic failover is enabled for the replication group.
+-- * 'replicationGroupId' - The replication group id of the Global Datastore member.
+-- * 'replicationGroupRegion' - The AWS region of the Global Datastore member.
+-- * 'role'' - Indicates the role of the replication group, primary or secondary.
+-- * 'status' - The status of the membership of the replication group.
+mkGlobalReplicationGroupMember ::
   GlobalReplicationGroupMember
-globalReplicationGroupMember =
+mkGlobalReplicationGroupMember =
   GlobalReplicationGroupMember'
-    { _grgmStatus = Nothing,
-      _grgmReplicationGroupRegion = Nothing,
-      _grgmRole = Nothing,
-      _grgmReplicationGroupId = Nothing,
-      _grgmAutomaticFailover = Nothing
+    { status = Lude.Nothing,
+      replicationGroupRegion = Lude.Nothing,
+      role' = Lude.Nothing,
+      replicationGroupId = Lude.Nothing,
+      automaticFailover = Lude.Nothing
     }
 
 -- | The status of the membership of the replication group.
-grgmStatus :: Lens' GlobalReplicationGroupMember (Maybe Text)
-grgmStatus = lens _grgmStatus (\s a -> s {_grgmStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgmStatus :: Lens.Lens' GlobalReplicationGroupMember (Lude.Maybe Lude.Text)
+grgmStatus = Lens.lens (status :: GlobalReplicationGroupMember -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: GlobalReplicationGroupMember)
+{-# DEPRECATED grgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The AWS region of the Global Datastore member.
-grgmReplicationGroupRegion :: Lens' GlobalReplicationGroupMember (Maybe Text)
-grgmReplicationGroupRegion = lens _grgmReplicationGroupRegion (\s a -> s {_grgmReplicationGroupRegion = a})
+--
+-- /Note:/ Consider using 'replicationGroupRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgmReplicationGroupRegion :: Lens.Lens' GlobalReplicationGroupMember (Lude.Maybe Lude.Text)
+grgmReplicationGroupRegion = Lens.lens (replicationGroupRegion :: GlobalReplicationGroupMember -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupRegion = a} :: GlobalReplicationGroupMember)
+{-# DEPRECATED grgmReplicationGroupRegion "Use generic-lens or generic-optics with 'replicationGroupRegion' instead." #-}
 
 -- | Indicates the role of the replication group, primary or secondary.
-grgmRole :: Lens' GlobalReplicationGroupMember (Maybe Text)
-grgmRole = lens _grgmRole (\s a -> s {_grgmRole = a})
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgmRole :: Lens.Lens' GlobalReplicationGroupMember (Lude.Maybe Lude.Text)
+grgmRole = Lens.lens (role' :: GlobalReplicationGroupMember -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: GlobalReplicationGroupMember)
+{-# DEPRECATED grgmRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The replication group id of the Global Datastore member.
-grgmReplicationGroupId :: Lens' GlobalReplicationGroupMember (Maybe Text)
-grgmReplicationGroupId = lens _grgmReplicationGroupId (\s a -> s {_grgmReplicationGroupId = a})
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgmReplicationGroupId :: Lens.Lens' GlobalReplicationGroupMember (Lude.Maybe Lude.Text)
+grgmReplicationGroupId = Lens.lens (replicationGroupId :: GlobalReplicationGroupMember -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupId = a} :: GlobalReplicationGroupMember)
+{-# DEPRECATED grgmReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
 -- | Indicates whether automatic failover is enabled for the replication group.
-grgmAutomaticFailover :: Lens' GlobalReplicationGroupMember (Maybe AutomaticFailoverStatus)
-grgmAutomaticFailover = lens _grgmAutomaticFailover (\s a -> s {_grgmAutomaticFailover = a})
+--
+-- /Note:/ Consider using 'automaticFailover' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grgmAutomaticFailover :: Lens.Lens' GlobalReplicationGroupMember (Lude.Maybe AutomaticFailoverStatus)
+grgmAutomaticFailover = Lens.lens (automaticFailover :: GlobalReplicationGroupMember -> Lude.Maybe AutomaticFailoverStatus) (\s a -> s {automaticFailover = a} :: GlobalReplicationGroupMember)
+{-# DEPRECATED grgmAutomaticFailover "Use generic-lens or generic-optics with 'automaticFailover' instead." #-}
 
-instance FromXML GlobalReplicationGroupMember where
+instance Lude.FromXML GlobalReplicationGroupMember where
   parseXML x =
     GlobalReplicationGroupMember'
-      <$> (x .@? "Status")
-      <*> (x .@? "ReplicationGroupRegion")
-      <*> (x .@? "Role")
-      <*> (x .@? "ReplicationGroupId")
-      <*> (x .@? "AutomaticFailover")
-
-instance Hashable GlobalReplicationGroupMember
-
-instance NFData GlobalReplicationGroupMember
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "ReplicationGroupRegion")
+      Lude.<*> (x Lude..@? "Role")
+      Lude.<*> (x Lude..@? "ReplicationGroupId")
+      Lude.<*> (x Lude..@? "AutomaticFailover")

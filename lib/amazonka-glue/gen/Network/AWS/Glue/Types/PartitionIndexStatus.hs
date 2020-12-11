@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.PartitionIndexStatus where
+module Network.AWS.Glue.Types.PartitionIndexStatus
+  ( PartitionIndexStatus
+      ( PartitionIndexStatus',
+        PISActive,
+        PISCreating,
+        PISDeleting,
+        PISFailed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PartitionIndexStatus
-  = PISActive
-  | PISCreating
-  | PISDeleting
-  | PISFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PartitionIndexStatus = PartitionIndexStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PartitionIndexStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure PISActive
-      "creating" -> pure PISCreating
-      "deleting" -> pure PISDeleting
-      "failed" -> pure PISFailed
-      e ->
-        fromTextError $
-          "Failure parsing PartitionIndexStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, deleting, failed"
+pattern PISActive :: PartitionIndexStatus
+pattern PISActive = PartitionIndexStatus' "ACTIVE"
 
-instance ToText PartitionIndexStatus where
-  toText = \case
-    PISActive -> "ACTIVE"
-    PISCreating -> "CREATING"
-    PISDeleting -> "DELETING"
-    PISFailed -> "FAILED"
+pattern PISCreating :: PartitionIndexStatus
+pattern PISCreating = PartitionIndexStatus' "CREATING"
 
-instance Hashable PartitionIndexStatus
+pattern PISDeleting :: PartitionIndexStatus
+pattern PISDeleting = PartitionIndexStatus' "DELETING"
 
-instance NFData PartitionIndexStatus
+pattern PISFailed :: PartitionIndexStatus
+pattern PISFailed = PartitionIndexStatus' "FAILED"
 
-instance ToByteString PartitionIndexStatus
-
-instance ToQuery PartitionIndexStatus
-
-instance ToHeader PartitionIndexStatus
-
-instance FromJSON PartitionIndexStatus where
-  parseJSON = parseJSONText "PartitionIndexStatus"
+{-# COMPLETE
+  PISActive,
+  PISCreating,
+  PISDeleting,
+  PISFailed,
+  PartitionIndexStatus'
+  #-}

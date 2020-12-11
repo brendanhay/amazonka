@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafCodecSpecification where
+module Network.AWS.MediaConvert.Types.CmafCodecSpecification
+  ( CmafCodecSpecification
+      ( CmafCodecSpecification',
+        Rfc4281,
+        Rfc6381
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
-data CmafCodecSpecification
-  = Rfc4281
-  | Rfc6381
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CmafCodecSpecification = CmafCodecSpecification' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CmafCodecSpecification where
-  parser =
-    takeLowerText >>= \case
-      "rfc_4281" -> pure Rfc4281
-      "rfc_6381" -> pure Rfc6381
-      e ->
-        fromTextError $
-          "Failure parsing CmafCodecSpecification from value: '" <> e
-            <> "'. Accepted values: rfc_4281, rfc_6381"
+pattern Rfc4281 :: CmafCodecSpecification
+pattern Rfc4281 = CmafCodecSpecification' "RFC_4281"
 
-instance ToText CmafCodecSpecification where
-  toText = \case
-    Rfc4281 -> "RFC_4281"
-    Rfc6381 -> "RFC_6381"
+pattern Rfc6381 :: CmafCodecSpecification
+pattern Rfc6381 = CmafCodecSpecification' "RFC_6381"
 
-instance Hashable CmafCodecSpecification
-
-instance NFData CmafCodecSpecification
-
-instance ToByteString CmafCodecSpecification
-
-instance ToQuery CmafCodecSpecification
-
-instance ToHeader CmafCodecSpecification
-
-instance ToJSON CmafCodecSpecification where
-  toJSON = toJSONText
-
-instance FromJSON CmafCodecSpecification where
-  parseJSON = parseJSONText "CmafCodecSpecification"
+{-# COMPLETE
+  Rfc4281,
+  Rfc6381,
+  CmafCodecSpecification'
+  #-}

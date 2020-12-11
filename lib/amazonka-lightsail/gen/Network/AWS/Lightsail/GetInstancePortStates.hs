@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,132 @@
 --
 -- Returns the firewall port states for a specific Amazon Lightsail instance, the IP addresses allowed to connect to the instance through the ports, and the protocol.
 module Network.AWS.Lightsail.GetInstancePortStates
-  ( -- * Creating a Request
-    getInstancePortStates,
-    GetInstancePortStates,
+  ( -- * Creating a request
+    GetInstancePortStates (..),
+    mkGetInstancePortStates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gipsInstanceName,
 
-    -- * Destructuring the Response
-    getInstancePortStatesResponse,
-    GetInstancePortStatesResponse,
+    -- * Destructuring the response
+    GetInstancePortStatesResponse (..),
+    mkGetInstancePortStatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gipsrsPortStates,
     gipsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getInstancePortStates' smart constructor.
+-- | /See:/ 'mkGetInstancePortStates' smart constructor.
 newtype GetInstancePortStates = GetInstancePortStates'
-  { _gipsInstanceName ::
-      Text
+  { instanceName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstancePortStates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gipsInstanceName' - The name of the instance for which to return firewall port states.
-getInstancePortStates ::
-  -- | 'gipsInstanceName'
-  Text ->
+-- * 'instanceName' - The name of the instance for which to return firewall port states.
+mkGetInstancePortStates ::
+  -- | 'instanceName'
+  Lude.Text ->
   GetInstancePortStates
-getInstancePortStates pInstanceName_ =
-  GetInstancePortStates' {_gipsInstanceName = pInstanceName_}
+mkGetInstancePortStates pInstanceName_ =
+  GetInstancePortStates' {instanceName = pInstanceName_}
 
 -- | The name of the instance for which to return firewall port states.
-gipsInstanceName :: Lens' GetInstancePortStates Text
-gipsInstanceName = lens _gipsInstanceName (\s a -> s {_gipsInstanceName = a})
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipsInstanceName :: Lens.Lens' GetInstancePortStates Lude.Text
+gipsInstanceName = Lens.lens (instanceName :: GetInstancePortStates -> Lude.Text) (\s a -> s {instanceName = a} :: GetInstancePortStates)
+{-# DEPRECATED gipsInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance AWSRequest GetInstancePortStates where
+instance Lude.AWSRequest GetInstancePortStates where
   type Rs GetInstancePortStates = GetInstancePortStatesResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetInstancePortStatesResponse'
-            <$> (x .?> "portStates" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "portStates" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetInstancePortStates
-
-instance NFData GetInstancePortStates
-
-instance ToHeaders GetInstancePortStates where
+instance Lude.ToHeaders GetInstancePortStates where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetInstancePortStates" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetInstancePortStates" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetInstancePortStates where
+instance Lude.ToJSON GetInstancePortStates where
   toJSON GetInstancePortStates' {..} =
-    object (catMaybes [Just ("instanceName" .= _gipsInstanceName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("instanceName" Lude..= instanceName)])
 
-instance ToPath GetInstancePortStates where
-  toPath = const "/"
+instance Lude.ToPath GetInstancePortStates where
+  toPath = Lude.const "/"
 
-instance ToQuery GetInstancePortStates where
-  toQuery = const mempty
+instance Lude.ToQuery GetInstancePortStates where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getInstancePortStatesResponse' smart constructor.
+-- | /See:/ 'mkGetInstancePortStatesResponse' smart constructor.
 data GetInstancePortStatesResponse = GetInstancePortStatesResponse'
-  { _gipsrsPortStates ::
-      !(Maybe [InstancePortState]),
-    _gipsrsResponseStatus :: !Int
+  { portStates ::
+      Lude.Maybe [InstancePortState],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstancePortStatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gipsrsPortStates' - An array of objects that describe the firewall port states for the specified instance.
---
--- * 'gipsrsResponseStatus' - -- | The response status code.
-getInstancePortStatesResponse ::
-  -- | 'gipsrsResponseStatus'
-  Int ->
+-- * 'portStates' - An array of objects that describe the firewall port states for the specified instance.
+-- * 'responseStatus' - The response status code.
+mkGetInstancePortStatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetInstancePortStatesResponse
-getInstancePortStatesResponse pResponseStatus_ =
+mkGetInstancePortStatesResponse pResponseStatus_ =
   GetInstancePortStatesResponse'
-    { _gipsrsPortStates = Nothing,
-      _gipsrsResponseStatus = pResponseStatus_
+    { portStates = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the firewall port states for the specified instance.
-gipsrsPortStates :: Lens' GetInstancePortStatesResponse [InstancePortState]
-gipsrsPortStates = lens _gipsrsPortStates (\s a -> s {_gipsrsPortStates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'portStates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipsrsPortStates :: Lens.Lens' GetInstancePortStatesResponse (Lude.Maybe [InstancePortState])
+gipsrsPortStates = Lens.lens (portStates :: GetInstancePortStatesResponse -> Lude.Maybe [InstancePortState]) (\s a -> s {portStates = a} :: GetInstancePortStatesResponse)
+{-# DEPRECATED gipsrsPortStates "Use generic-lens or generic-optics with 'portStates' instead." #-}
 
--- | -- | The response status code.
-gipsrsResponseStatus :: Lens' GetInstancePortStatesResponse Int
-gipsrsResponseStatus = lens _gipsrsResponseStatus (\s a -> s {_gipsrsResponseStatus = a})
-
-instance NFData GetInstancePortStatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipsrsResponseStatus :: Lens.Lens' GetInstancePortStatesResponse Lude.Int
+gipsrsResponseStatus = Lens.lens (responseStatus :: GetInstancePortStatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstancePortStatesResponse)
+{-# DEPRECATED gipsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

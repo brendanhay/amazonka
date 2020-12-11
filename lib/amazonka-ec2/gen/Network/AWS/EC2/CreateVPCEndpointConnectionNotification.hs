@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates a connection notification for a specified VPC endpoint or VPC endpoint service. A connection notification notifies you of specific endpoint events. You must create an SNS topic to receive notifications. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Create a Topic> in the /Amazon Simple Notification Service Developer Guide/ .
 --
---
 -- You can create a connection notification for interface endpoints only.
 module Network.AWS.EC2.CreateVPCEndpointConnectionNotification
-  ( -- * Creating a Request
-    createVPCEndpointConnectionNotification,
-    CreateVPCEndpointConnectionNotification,
+  ( -- * Creating a request
+    CreateVPCEndpointConnectionNotification (..),
+    mkCreateVPCEndpointConnectionNotification,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cvecnClientToken,
     cvecnServiceId,
     cvecnVPCEndpointId,
@@ -34,11 +28,11 @@ module Network.AWS.EC2.CreateVPCEndpointConnectionNotification
     cvecnConnectionNotificationARN,
     cvecnConnectionEvents,
 
-    -- * Destructuring the Response
-    createVPCEndpointConnectionNotificationResponse,
-    CreateVPCEndpointConnectionNotificationResponse,
+    -- * Destructuring the response
+    CreateVPCEndpointConnectionNotificationResponse (..),
+    mkCreateVPCEndpointConnectionNotificationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cvecnrsClientToken,
     cvecnrsConnectionNotification,
     cvecnrsResponseStatus,
@@ -46,182 +40,197 @@ module Network.AWS.EC2.CreateVPCEndpointConnectionNotification
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createVPCEndpointConnectionNotification' smart constructor.
+-- | /See:/ 'mkCreateVPCEndpointConnectionNotification' smart constructor.
 data CreateVPCEndpointConnectionNotification = CreateVPCEndpointConnectionNotification'
-  { _cvecnClientToken ::
-      !( Maybe
-           Text
-       ),
-    _cvecnServiceId ::
-      !( Maybe
-           Text
-       ),
-    _cvecnVPCEndpointId ::
-      !( Maybe
-           Text
-       ),
-    _cvecnDryRun ::
-      !( Maybe
-           Bool
-       ),
-    _cvecnConnectionNotificationARN ::
-      !Text,
-    _cvecnConnectionEvents ::
-      ![Text]
+  { clientToken ::
+      Lude.Maybe
+        Lude.Text,
+    serviceId ::
+      Lude.Maybe
+        Lude.Text,
+    vpcEndpointId ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    connectionNotificationARN ::
+      Lude.Text,
+    connectionEvents ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCEndpointConnectionNotification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvecnClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- * 'cvecnServiceId' - The ID of the endpoint service.
---
--- * 'cvecnVPCEndpointId' - The ID of the endpoint.
---
--- * 'cvecnDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'cvecnConnectionNotificationARN' - The ARN of the SNS topic for the notifications.
---
--- * 'cvecnConnectionEvents' - One or more endpoint events for which to receive notifications. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
-createVPCEndpointConnectionNotification ::
-  -- | 'cvecnConnectionNotificationARN'
-  Text ->
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'connectionEvents' - One or more endpoint events for which to receive notifications. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
+-- * 'connectionNotificationARN' - The ARN of the SNS topic for the notifications.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'serviceId' - The ID of the endpoint service.
+-- * 'vpcEndpointId' - The ID of the endpoint.
+mkCreateVPCEndpointConnectionNotification ::
+  -- | 'connectionNotificationARN'
+  Lude.Text ->
   CreateVPCEndpointConnectionNotification
-createVPCEndpointConnectionNotification pConnectionNotificationARN_ =
-  CreateVPCEndpointConnectionNotification'
-    { _cvecnClientToken =
-        Nothing,
-      _cvecnServiceId = Nothing,
-      _cvecnVPCEndpointId = Nothing,
-      _cvecnDryRun = Nothing,
-      _cvecnConnectionNotificationARN =
-        pConnectionNotificationARN_,
-      _cvecnConnectionEvents = mempty
-    }
+mkCreateVPCEndpointConnectionNotification
+  pConnectionNotificationARN_ =
+    CreateVPCEndpointConnectionNotification'
+      { clientToken =
+          Lude.Nothing,
+        serviceId = Lude.Nothing,
+        vpcEndpointId = Lude.Nothing,
+        dryRun = Lude.Nothing,
+        connectionNotificationARN =
+          pConnectionNotificationARN_,
+        connectionEvents = Lude.mempty
+      }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-cvecnClientToken :: Lens' CreateVPCEndpointConnectionNotification (Maybe Text)
-cvecnClientToken = lens _cvecnClientToken (\s a -> s {_cvecnClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecnClientToken :: Lens.Lens' CreateVPCEndpointConnectionNotification (Lude.Maybe Lude.Text)
+cvecnClientToken = Lens.lens (clientToken :: CreateVPCEndpointConnectionNotification -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateVPCEndpointConnectionNotification)
+{-# DEPRECATED cvecnClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The ID of the endpoint service.
-cvecnServiceId :: Lens' CreateVPCEndpointConnectionNotification (Maybe Text)
-cvecnServiceId = lens _cvecnServiceId (\s a -> s {_cvecnServiceId = a})
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecnServiceId :: Lens.Lens' CreateVPCEndpointConnectionNotification (Lude.Maybe Lude.Text)
+cvecnServiceId = Lens.lens (serviceId :: CreateVPCEndpointConnectionNotification -> Lude.Maybe Lude.Text) (\s a -> s {serviceId = a} :: CreateVPCEndpointConnectionNotification)
+{-# DEPRECATED cvecnServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 -- | The ID of the endpoint.
-cvecnVPCEndpointId :: Lens' CreateVPCEndpointConnectionNotification (Maybe Text)
-cvecnVPCEndpointId = lens _cvecnVPCEndpointId (\s a -> s {_cvecnVPCEndpointId = a})
+--
+-- /Note:/ Consider using 'vpcEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecnVPCEndpointId :: Lens.Lens' CreateVPCEndpointConnectionNotification (Lude.Maybe Lude.Text)
+cvecnVPCEndpointId = Lens.lens (vpcEndpointId :: CreateVPCEndpointConnectionNotification -> Lude.Maybe Lude.Text) (\s a -> s {vpcEndpointId = a} :: CreateVPCEndpointConnectionNotification)
+{-# DEPRECATED cvecnVPCEndpointId "Use generic-lens or generic-optics with 'vpcEndpointId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cvecnDryRun :: Lens' CreateVPCEndpointConnectionNotification (Maybe Bool)
-cvecnDryRun = lens _cvecnDryRun (\s a -> s {_cvecnDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecnDryRun :: Lens.Lens' CreateVPCEndpointConnectionNotification (Lude.Maybe Lude.Bool)
+cvecnDryRun = Lens.lens (dryRun :: CreateVPCEndpointConnectionNotification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateVPCEndpointConnectionNotification)
+{-# DEPRECATED cvecnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ARN of the SNS topic for the notifications.
-cvecnConnectionNotificationARN :: Lens' CreateVPCEndpointConnectionNotification Text
-cvecnConnectionNotificationARN = lens _cvecnConnectionNotificationARN (\s a -> s {_cvecnConnectionNotificationARN = a})
+--
+-- /Note:/ Consider using 'connectionNotificationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecnConnectionNotificationARN :: Lens.Lens' CreateVPCEndpointConnectionNotification Lude.Text
+cvecnConnectionNotificationARN = Lens.lens (connectionNotificationARN :: CreateVPCEndpointConnectionNotification -> Lude.Text) (\s a -> s {connectionNotificationARN = a} :: CreateVPCEndpointConnectionNotification)
+{-# DEPRECATED cvecnConnectionNotificationARN "Use generic-lens or generic-optics with 'connectionNotificationARN' instead." #-}
 
 -- | One or more endpoint events for which to receive notifications. Valid values are @Accept@ , @Connect@ , @Delete@ , and @Reject@ .
-cvecnConnectionEvents :: Lens' CreateVPCEndpointConnectionNotification [Text]
-cvecnConnectionEvents = lens _cvecnConnectionEvents (\s a -> s {_cvecnConnectionEvents = a}) . _Coerce
+--
+-- /Note:/ Consider using 'connectionEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecnConnectionEvents :: Lens.Lens' CreateVPCEndpointConnectionNotification [Lude.Text]
+cvecnConnectionEvents = Lens.lens (connectionEvents :: CreateVPCEndpointConnectionNotification -> [Lude.Text]) (\s a -> s {connectionEvents = a} :: CreateVPCEndpointConnectionNotification)
+{-# DEPRECATED cvecnConnectionEvents "Use generic-lens or generic-optics with 'connectionEvents' instead." #-}
 
-instance AWSRequest CreateVPCEndpointConnectionNotification where
+instance Lude.AWSRequest CreateVPCEndpointConnectionNotification where
   type
     Rs CreateVPCEndpointConnectionNotification =
       CreateVPCEndpointConnectionNotificationResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateVPCEndpointConnectionNotificationResponse'
-            <$> (x .@? "clientToken")
-            <*> (x .@? "connectionNotification")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "clientToken")
+            Lude.<*> (x Lude..@? "connectionNotification")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateVPCEndpointConnectionNotification
+instance Lude.ToHeaders CreateVPCEndpointConnectionNotification where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateVPCEndpointConnectionNotification
+instance Lude.ToPath CreateVPCEndpointConnectionNotification where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateVPCEndpointConnectionNotification where
-  toHeaders = const mempty
-
-instance ToPath CreateVPCEndpointConnectionNotification where
-  toPath = const "/"
-
-instance ToQuery CreateVPCEndpointConnectionNotification where
+instance Lude.ToQuery CreateVPCEndpointConnectionNotification where
   toQuery CreateVPCEndpointConnectionNotification' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("CreateVpcEndpointConnectionNotification" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ClientToken" =: _cvecnClientToken,
-        "ServiceId" =: _cvecnServiceId,
-        "VpcEndpointId" =: _cvecnVPCEndpointId,
-        "DryRun" =: _cvecnDryRun,
-        "ConnectionNotificationArn" =: _cvecnConnectionNotificationARN,
-        toQueryList "ConnectionEvents" _cvecnConnectionEvents
+          Lude.=: ("CreateVpcEndpointConnectionNotification" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ClientToken" Lude.=: clientToken,
+        "ServiceId" Lude.=: serviceId,
+        "VpcEndpointId" Lude.=: vpcEndpointId,
+        "DryRun" Lude.=: dryRun,
+        "ConnectionNotificationArn" Lude.=: connectionNotificationARN,
+        Lude.toQueryList "ConnectionEvents" connectionEvents
       ]
 
--- | /See:/ 'createVPCEndpointConnectionNotificationResponse' smart constructor.
+-- | /See:/ 'mkCreateVPCEndpointConnectionNotificationResponse' smart constructor.
 data CreateVPCEndpointConnectionNotificationResponse = CreateVPCEndpointConnectionNotificationResponse'
-  { _cvecnrsClientToken ::
-      !( Maybe
-           Text
-       ),
-    _cvecnrsConnectionNotification ::
-      !( Maybe
-           ConnectionNotification
-       ),
-    _cvecnrsResponseStatus ::
-      !Int
+  { clientToken ::
+      Lude.Maybe
+        Lude.Text,
+    connectionNotification ::
+      Lude.Maybe
+        ConnectionNotification,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'CreateVPCEndpointConnectionNotificationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvecnrsClientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
---
--- * 'cvecnrsConnectionNotification' - Information about the notification.
---
--- * 'cvecnrsResponseStatus' - -- | The response status code.
-createVPCEndpointConnectionNotificationResponse ::
-  -- | 'cvecnrsResponseStatus'
-  Int ->
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+-- * 'connectionNotification' - Information about the notification.
+-- * 'responseStatus' - The response status code.
+mkCreateVPCEndpointConnectionNotificationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateVPCEndpointConnectionNotificationResponse
-createVPCEndpointConnectionNotificationResponse pResponseStatus_ =
+mkCreateVPCEndpointConnectionNotificationResponse pResponseStatus_ =
   CreateVPCEndpointConnectionNotificationResponse'
-    { _cvecnrsClientToken =
-        Nothing,
-      _cvecnrsConnectionNotification = Nothing,
-      _cvecnrsResponseStatus = pResponseStatus_
+    { clientToken =
+        Lude.Nothing,
+      connectionNotification = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-cvecnrsClientToken :: Lens' CreateVPCEndpointConnectionNotificationResponse (Maybe Text)
-cvecnrsClientToken = lens _cvecnrsClientToken (\s a -> s {_cvecnrsClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecnrsClientToken :: Lens.Lens' CreateVPCEndpointConnectionNotificationResponse (Lude.Maybe Lude.Text)
+cvecnrsClientToken = Lens.lens (clientToken :: CreateVPCEndpointConnectionNotificationResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateVPCEndpointConnectionNotificationResponse)
+{-# DEPRECATED cvecnrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Information about the notification.
-cvecnrsConnectionNotification :: Lens' CreateVPCEndpointConnectionNotificationResponse (Maybe ConnectionNotification)
-cvecnrsConnectionNotification = lens _cvecnrsConnectionNotification (\s a -> s {_cvecnrsConnectionNotification = a})
+--
+-- /Note:/ Consider using 'connectionNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecnrsConnectionNotification :: Lens.Lens' CreateVPCEndpointConnectionNotificationResponse (Lude.Maybe ConnectionNotification)
+cvecnrsConnectionNotification = Lens.lens (connectionNotification :: CreateVPCEndpointConnectionNotificationResponse -> Lude.Maybe ConnectionNotification) (\s a -> s {connectionNotification = a} :: CreateVPCEndpointConnectionNotificationResponse)
+{-# DEPRECATED cvecnrsConnectionNotification "Use generic-lens or generic-optics with 'connectionNotification' instead." #-}
 
--- | -- | The response status code.
-cvecnrsResponseStatus :: Lens' CreateVPCEndpointConnectionNotificationResponse Int
-cvecnrsResponseStatus = lens _cvecnrsResponseStatus (\s a -> s {_cvecnrsResponseStatus = a})
-
-instance NFData CreateVPCEndpointConnectionNotificationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecnrsResponseStatus :: Lens.Lens' CreateVPCEndpointConnectionNotificationResponse Lude.Int
+cvecnrsResponseStatus = Lens.lens (responseStatus :: CreateVPCEndpointConnectionNotificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVPCEndpointConnectionNotificationResponse)
+{-# DEPRECATED cvecnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

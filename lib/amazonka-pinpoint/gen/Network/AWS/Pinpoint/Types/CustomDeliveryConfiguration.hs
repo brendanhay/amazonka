@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration where
+module Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration
+  ( CustomDeliveryConfiguration (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkCustomDeliveryConfiguration,
+
+    -- * Lenses
+    cdcEndpointTypes,
+    cdcDeliveryURI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointTypesElement
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the delivery configuration settings for sending a campaign or campaign treatment through a custom channel. This object is required if you use the CampaignCustomMessage object to define the message to send for the campaign or campaign treatment.
 --
---
---
--- /See:/ 'customDeliveryConfiguration' smart constructor.
+-- /See:/ 'mkCustomDeliveryConfiguration' smart constructor.
 data CustomDeliveryConfiguration = CustomDeliveryConfiguration'
-  { _cdcEndpointTypes ::
-      !(Maybe [EndpointTypesElement]),
-    _cdcDeliveryURI :: !Text
+  { endpointTypes ::
+      Lude.Maybe [EndpointTypesElement],
+    deliveryURI :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomDeliveryConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deliveryURI' - The destination to send the campaign or treatment to. This value can be one of the following:
 --
--- * 'cdcEndpointTypes' - The types of endpoints to send the campaign or treatment to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.
 --
--- * 'cdcDeliveryURI' - The destination to send the campaign or treatment to. This value can be one of the following:     * The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.     * The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.
-customDeliveryConfiguration ::
-  -- | 'cdcDeliveryURI'
-  Text ->
+--     * The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.
+--
+--
+--     * The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.
+--
+--
+-- * 'endpointTypes' - The types of endpoints to send the campaign or treatment to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.
+mkCustomDeliveryConfiguration ::
+  -- | 'deliveryURI'
+  Lude.Text ->
   CustomDeliveryConfiguration
-customDeliveryConfiguration pDeliveryURI_ =
+mkCustomDeliveryConfiguration pDeliveryURI_ =
   CustomDeliveryConfiguration'
-    { _cdcEndpointTypes = Nothing,
-      _cdcDeliveryURI = pDeliveryURI_
+    { endpointTypes = Lude.Nothing,
+      deliveryURI = pDeliveryURI_
     }
 
 -- | The types of endpoints to send the campaign or treatment to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.
-cdcEndpointTypes :: Lens' CustomDeliveryConfiguration [EndpointTypesElement]
-cdcEndpointTypes = lens _cdcEndpointTypes (\s a -> s {_cdcEndpointTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'endpointTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcEndpointTypes :: Lens.Lens' CustomDeliveryConfiguration (Lude.Maybe [EndpointTypesElement])
+cdcEndpointTypes = Lens.lens (endpointTypes :: CustomDeliveryConfiguration -> Lude.Maybe [EndpointTypesElement]) (\s a -> s {endpointTypes = a} :: CustomDeliveryConfiguration)
+{-# DEPRECATED cdcEndpointTypes "Use generic-lens or generic-optics with 'endpointTypes' instead." #-}
 
--- | The destination to send the campaign or treatment to. This value can be one of the following:     * The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.     * The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.
-cdcDeliveryURI :: Lens' CustomDeliveryConfiguration Text
-cdcDeliveryURI = lens _cdcDeliveryURI (\s a -> s {_cdcDeliveryURI = a})
+-- | The destination to send the campaign or treatment to. This value can be one of the following:
+--
+--
+--     * The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.
+--
+--
+--     * The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.
+--
+--
+--
+-- /Note:/ Consider using 'deliveryURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDeliveryURI :: Lens.Lens' CustomDeliveryConfiguration Lude.Text
+cdcDeliveryURI = Lens.lens (deliveryURI :: CustomDeliveryConfiguration -> Lude.Text) (\s a -> s {deliveryURI = a} :: CustomDeliveryConfiguration)
+{-# DEPRECATED cdcDeliveryURI "Use generic-lens or generic-optics with 'deliveryURI' instead." #-}
 
-instance FromJSON CustomDeliveryConfiguration where
+instance Lude.FromJSON CustomDeliveryConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "CustomDeliveryConfiguration"
       ( \x ->
           CustomDeliveryConfiguration'
-            <$> (x .:? "EndpointTypes" .!= mempty) <*> (x .: "DeliveryUri")
+            Lude.<$> (x Lude..:? "EndpointTypes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "DeliveryUri")
       )
 
-instance Hashable CustomDeliveryConfiguration
-
-instance NFData CustomDeliveryConfiguration
-
-instance ToJSON CustomDeliveryConfiguration where
+instance Lude.ToJSON CustomDeliveryConfiguration where
   toJSON CustomDeliveryConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("EndpointTypes" .=) <$> _cdcEndpointTypes,
-            Just ("DeliveryUri" .= _cdcDeliveryURI)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EndpointTypes" Lude..=) Lude.<$> endpointTypes,
+            Lude.Just ("DeliveryUri" Lude..= deliveryURI)
           ]
       )

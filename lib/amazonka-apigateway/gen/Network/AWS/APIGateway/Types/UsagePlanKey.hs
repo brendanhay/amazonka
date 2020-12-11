@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.UsagePlanKey where
+module Network.AWS.APIGateway.Types.UsagePlanKey
+  ( UsagePlanKey (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUsagePlanKey,
+
+    -- * Lenses
+    upkValue,
+    upkName,
+    upkId,
+    upkType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a usage plan key to identify a plan customer.
 --
---
 -- To associate an API stage with a selected API key in a usage plan, you must create a UsagePlanKey resource to represent the selected 'ApiKey' .
---
 -- " <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
--- /See:/ 'usagePlanKey' smart constructor.
+-- /See:/ 'mkUsagePlanKey' smart constructor.
 data UsagePlanKey = UsagePlanKey'
-  { _upkValue :: !(Maybe Text),
-    _upkName :: !(Maybe Text),
-    _upkId :: !(Maybe Text),
-    _upkType :: !(Maybe Text)
+  { value :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsagePlanKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upkValue' - The value of a usage plan key.
---
--- * 'upkName' - The name of a usage plan key.
---
--- * 'upkId' - The Id of a usage plan key.
---
--- * 'upkType' - The type of a usage plan key. Currently, the valid key type is @API_KEY@ .
-usagePlanKey ::
+-- * 'id' - The Id of a usage plan key.
+-- * 'name' - The name of a usage plan key.
+-- * 'type'' - The type of a usage plan key. Currently, the valid key type is @API_KEY@ .
+-- * 'value' - The value of a usage plan key.
+mkUsagePlanKey ::
   UsagePlanKey
-usagePlanKey =
+mkUsagePlanKey =
   UsagePlanKey'
-    { _upkValue = Nothing,
-      _upkName = Nothing,
-      _upkId = Nothing,
-      _upkType = Nothing
+    { value = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The value of a usage plan key.
-upkValue :: Lens' UsagePlanKey (Maybe Text)
-upkValue = lens _upkValue (\s a -> s {_upkValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkValue :: Lens.Lens' UsagePlanKey (Lude.Maybe Lude.Text)
+upkValue = Lens.lens (value :: UsagePlanKey -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: UsagePlanKey)
+{-# DEPRECATED upkValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The name of a usage plan key.
-upkName :: Lens' UsagePlanKey (Maybe Text)
-upkName = lens _upkName (\s a -> s {_upkName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkName :: Lens.Lens' UsagePlanKey (Lude.Maybe Lude.Text)
+upkName = Lens.lens (name :: UsagePlanKey -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UsagePlanKey)
+{-# DEPRECATED upkName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The Id of a usage plan key.
-upkId :: Lens' UsagePlanKey (Maybe Text)
-upkId = lens _upkId (\s a -> s {_upkId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkId :: Lens.Lens' UsagePlanKey (Lude.Maybe Lude.Text)
+upkId = Lens.lens (id :: UsagePlanKey -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: UsagePlanKey)
+{-# DEPRECATED upkId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of a usage plan key. Currently, the valid key type is @API_KEY@ .
-upkType :: Lens' UsagePlanKey (Maybe Text)
-upkType = lens _upkType (\s a -> s {_upkType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upkType :: Lens.Lens' UsagePlanKey (Lude.Maybe Lude.Text)
+upkType = Lens.lens (type' :: UsagePlanKey -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: UsagePlanKey)
+{-# DEPRECATED upkType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON UsagePlanKey where
+instance Lude.FromJSON UsagePlanKey where
   parseJSON =
-    withObject
+    Lude.withObject
       "UsagePlanKey"
       ( \x ->
           UsagePlanKey'
-            <$> (x .:? "value")
-            <*> (x .:? "name")
-            <*> (x .:? "id")
-            <*> (x .:? "type")
+            Lude.<$> (x Lude..:? "value")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "type")
       )
-
-instance Hashable UsagePlanKey
-
-instance NFData UsagePlanKey

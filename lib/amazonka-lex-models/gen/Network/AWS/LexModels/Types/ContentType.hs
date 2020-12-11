@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.ContentType where
+module Network.AWS.LexModels.Types.ContentType
+  ( ContentType
+      ( ContentType',
+        CustomPayload,
+        PlainText,
+        Ssml
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContentType
-  = CustomPayload
-  | PlainText
-  | Ssml
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContentType = ContentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContentType where
-  parser =
-    takeLowerText >>= \case
-      "custompayload" -> pure CustomPayload
-      "plaintext" -> pure PlainText
-      "ssml" -> pure Ssml
-      e ->
-        fromTextError $
-          "Failure parsing ContentType from value: '" <> e
-            <> "'. Accepted values: custompayload, plaintext, ssml"
+pattern CustomPayload :: ContentType
+pattern CustomPayload = ContentType' "CustomPayload"
 
-instance ToText ContentType where
-  toText = \case
-    CustomPayload -> "CustomPayload"
-    PlainText -> "PlainText"
-    Ssml -> "SSML"
+pattern PlainText :: ContentType
+pattern PlainText = ContentType' "PlainText"
 
-instance Hashable ContentType
+pattern Ssml :: ContentType
+pattern Ssml = ContentType' "SSML"
 
-instance NFData ContentType
-
-instance ToByteString ContentType
-
-instance ToQuery ContentType
-
-instance ToHeader ContentType
-
-instance ToJSON ContentType where
-  toJSON = toJSONText
-
-instance FromJSON ContentType where
-  parseJSON = parseJSONText "ContentType"
+{-# COMPLETE
+  CustomPayload,
+  PlainText,
+  Ssml,
+  ContentType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy where
+module Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy
+  ( FleetCapacityReservationUsageStrategy
+      ( FleetCapacityReservationUsageStrategy',
+        UseCapacityReservationsFirst
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FleetCapacityReservationUsageStrategy = UseCapacityReservationsFirst
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetCapacityReservationUsageStrategy = FleetCapacityReservationUsageStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetCapacityReservationUsageStrategy where
-  parser =
-    takeLowerText >>= \case
-      "use-capacity-reservations-first" -> pure UseCapacityReservationsFirst
-      e ->
-        fromTextError $
-          "Failure parsing FleetCapacityReservationUsageStrategy from value: '" <> e
-            <> "'. Accepted values: use-capacity-reservations-first"
+pattern UseCapacityReservationsFirst :: FleetCapacityReservationUsageStrategy
+pattern UseCapacityReservationsFirst = FleetCapacityReservationUsageStrategy' "use-capacity-reservations-first"
 
-instance ToText FleetCapacityReservationUsageStrategy where
-  toText = \case
-    UseCapacityReservationsFirst -> "use-capacity-reservations-first"
-
-instance Hashable FleetCapacityReservationUsageStrategy
-
-instance NFData FleetCapacityReservationUsageStrategy
-
-instance ToByteString FleetCapacityReservationUsageStrategy
-
-instance ToQuery FleetCapacityReservationUsageStrategy
-
-instance ToHeader FleetCapacityReservationUsageStrategy
-
-instance FromXML FleetCapacityReservationUsageStrategy where
-  parseXML = parseXMLText "FleetCapacityReservationUsageStrategy"
+{-# COMPLETE
+  UseCapacityReservationsFirst,
+  FleetCapacityReservationUsageStrategy'
+  #-}

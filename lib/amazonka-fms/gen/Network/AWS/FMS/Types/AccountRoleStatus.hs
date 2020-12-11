@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.AccountRoleStatus where
+module Network.AWS.FMS.Types.AccountRoleStatus
+  ( AccountRoleStatus
+      ( AccountRoleStatus',
+        Creating,
+        Deleted,
+        Deleting,
+        PendingDeletion,
+        Ready
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AccountRoleStatus
-  = Creating
-  | Deleted
-  | Deleting
-  | PendingDeletion
-  | Ready
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AccountRoleStatus = AccountRoleStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AccountRoleStatus where
-  parser =
-    takeLowerText >>= \case
-      "creating" -> pure Creating
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "pending_deletion" -> pure PendingDeletion
-      "ready" -> pure Ready
-      e ->
-        fromTextError $
-          "Failure parsing AccountRoleStatus from value: '" <> e
-            <> "'. Accepted values: creating, deleted, deleting, pending_deletion, ready"
+pattern Creating :: AccountRoleStatus
+pattern Creating = AccountRoleStatus' "CREATING"
 
-instance ToText AccountRoleStatus where
-  toText = \case
-    Creating -> "CREATING"
-    Deleted -> "DELETED"
-    Deleting -> "DELETING"
-    PendingDeletion -> "PENDING_DELETION"
-    Ready -> "READY"
+pattern Deleted :: AccountRoleStatus
+pattern Deleted = AccountRoleStatus' "DELETED"
 
-instance Hashable AccountRoleStatus
+pattern Deleting :: AccountRoleStatus
+pattern Deleting = AccountRoleStatus' "DELETING"
 
-instance NFData AccountRoleStatus
+pattern PendingDeletion :: AccountRoleStatus
+pattern PendingDeletion = AccountRoleStatus' "PENDING_DELETION"
 
-instance ToByteString AccountRoleStatus
+pattern Ready :: AccountRoleStatus
+pattern Ready = AccountRoleStatus' "READY"
 
-instance ToQuery AccountRoleStatus
-
-instance ToHeader AccountRoleStatus
-
-instance FromJSON AccountRoleStatus where
-  parseJSON = parseJSONText "AccountRoleStatus"
+{-# COMPLETE
+  Creating,
+  Deleted,
+  Deleting,
+  PendingDeletion,
+  Ready,
+  AccountRoleStatus'
+  #-}

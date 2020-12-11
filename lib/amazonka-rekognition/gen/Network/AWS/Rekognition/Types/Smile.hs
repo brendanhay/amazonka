@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Smile where
+module Network.AWS.Rekognition.Types.Smile
+  ( Smile (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSmile,
+
+    -- * Lenses
+    smiValue,
+    smiConfidence,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates whether or not the face is smiling, and the confidence level in the determination.
 --
---
---
--- /See:/ 'smile' smart constructor.
+-- /See:/ 'mkSmile' smart constructor.
 data Smile = Smile'
-  { _smiValue :: !(Maybe Bool),
-    _smiConfidence :: !(Maybe Double)
+  { value :: Lude.Maybe Lude.Bool,
+    confidence :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Smile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'smiValue' - Boolean value that indicates whether the face is smiling or not.
---
--- * 'smiConfidence' - Level of confidence in the determination.
-smile ::
+-- * 'confidence' - Level of confidence in the determination.
+-- * 'value' - Boolean value that indicates whether the face is smiling or not.
+mkSmile ::
   Smile
-smile = Smile' {_smiValue = Nothing, _smiConfidence = Nothing}
+mkSmile = Smile' {value = Lude.Nothing, confidence = Lude.Nothing}
 
 -- | Boolean value that indicates whether the face is smiling or not.
-smiValue :: Lens' Smile (Maybe Bool)
-smiValue = lens _smiValue (\s a -> s {_smiValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smiValue :: Lens.Lens' Smile (Lude.Maybe Lude.Bool)
+smiValue = Lens.lens (value :: Smile -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: Smile)
+{-# DEPRECATED smiValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Level of confidence in the determination.
-smiConfidence :: Lens' Smile (Maybe Double)
-smiConfidence = lens _smiConfidence (\s a -> s {_smiConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smiConfidence :: Lens.Lens' Smile (Lude.Maybe Lude.Double)
+smiConfidence = Lens.lens (confidence :: Smile -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Smile)
+{-# DEPRECATED smiConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance FromJSON Smile where
+instance Lude.FromJSON Smile where
   parseJSON =
-    withObject
+    Lude.withObject
       "Smile"
-      (\x -> Smile' <$> (x .:? "Value") <*> (x .:? "Confidence"))
-
-instance Hashable Smile
-
-instance NFData Smile
+      ( \x ->
+          Smile'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
+      )

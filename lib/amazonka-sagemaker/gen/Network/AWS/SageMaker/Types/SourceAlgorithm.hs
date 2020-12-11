@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.SourceAlgorithm where
+module Network.AWS.SageMaker.Types.SourceAlgorithm
+  ( SourceAlgorithm (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSourceAlgorithm,
+
+    -- * Lenses
+    saModelDataURL,
+    saAlgorithmName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
 --
---
---
--- /See:/ 'sourceAlgorithm' smart constructor.
+-- /See:/ 'mkSourceAlgorithm' smart constructor.
 data SourceAlgorithm = SourceAlgorithm'
-  { _saModelDataURL ::
-      !(Maybe Text),
-    _saAlgorithmName :: !Text
+  { modelDataURL ::
+      Lude.Maybe Lude.Text,
+    algorithmName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceAlgorithm' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'saModelDataURL' - The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single @gzip@ compressed tar archive (@.tar.gz@ suffix).
---
--- * 'saAlgorithmName' - The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
-sourceAlgorithm ::
-  -- | 'saAlgorithmName'
-  Text ->
+-- * 'algorithmName' - The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
+-- * 'modelDataURL' - The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single @gzip@ compressed tar archive (@.tar.gz@ suffix).
+mkSourceAlgorithm ::
+  -- | 'algorithmName'
+  Lude.Text ->
   SourceAlgorithm
-sourceAlgorithm pAlgorithmName_ =
+mkSourceAlgorithm pAlgorithmName_ =
   SourceAlgorithm'
-    { _saModelDataURL = Nothing,
-      _saAlgorithmName = pAlgorithmName_
+    { modelDataURL = Lude.Nothing,
+      algorithmName = pAlgorithmName_
     }
 
 -- | The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single @gzip@ compressed tar archive (@.tar.gz@ suffix).
-saModelDataURL :: Lens' SourceAlgorithm (Maybe Text)
-saModelDataURL = lens _saModelDataURL (\s a -> s {_saModelDataURL = a})
+--
+-- /Note:/ Consider using 'modelDataURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saModelDataURL :: Lens.Lens' SourceAlgorithm (Lude.Maybe Lude.Text)
+saModelDataURL = Lens.lens (modelDataURL :: SourceAlgorithm -> Lude.Maybe Lude.Text) (\s a -> s {modelDataURL = a} :: SourceAlgorithm)
+{-# DEPRECATED saModelDataURL "Use generic-lens or generic-optics with 'modelDataURL' instead." #-}
 
 -- | The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your Amazon SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.
-saAlgorithmName :: Lens' SourceAlgorithm Text
-saAlgorithmName = lens _saAlgorithmName (\s a -> s {_saAlgorithmName = a})
+--
+-- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saAlgorithmName :: Lens.Lens' SourceAlgorithm Lude.Text
+saAlgorithmName = Lens.lens (algorithmName :: SourceAlgorithm -> Lude.Text) (\s a -> s {algorithmName = a} :: SourceAlgorithm)
+{-# DEPRECATED saAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
 
-instance FromJSON SourceAlgorithm where
+instance Lude.FromJSON SourceAlgorithm where
   parseJSON =
-    withObject
+    Lude.withObject
       "SourceAlgorithm"
       ( \x ->
           SourceAlgorithm'
-            <$> (x .:? "ModelDataUrl") <*> (x .: "AlgorithmName")
+            Lude.<$> (x Lude..:? "ModelDataUrl") Lude.<*> (x Lude..: "AlgorithmName")
       )
 
-instance Hashable SourceAlgorithm
-
-instance NFData SourceAlgorithm
-
-instance ToJSON SourceAlgorithm where
+instance Lude.ToJSON SourceAlgorithm where
   toJSON SourceAlgorithm' {..} =
-    object
-      ( catMaybes
-          [ ("ModelDataUrl" .=) <$> _saModelDataURL,
-            Just ("AlgorithmName" .= _saAlgorithmName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ModelDataUrl" Lude..=) Lude.<$> modelDataURL,
+            Lude.Just ("AlgorithmName" Lude..= algorithmName)
           ]
       )

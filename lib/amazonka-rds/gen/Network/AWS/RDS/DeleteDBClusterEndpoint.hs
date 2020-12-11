@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.
 module Network.AWS.RDS.DeleteDBClusterEndpoint
-  ( -- * Creating a Request
-    deleteDBClusterEndpoint,
-    DeleteDBClusterEndpoint,
+  ( -- * Creating a request
+    DeleteDBClusterEndpoint (..),
+    mkDeleteDBClusterEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddceDBClusterEndpointIdentifier,
 
-    -- * Destructuring the Response
-    dbClusterEndpoint,
-    DBClusterEndpoint,
+    -- * Destructuring the response
+    DBClusterEndpoint (..),
+    mkDBClusterEndpoint,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dceStatus,
     dceDBClusterIdentifier,
     dceDBClusterEndpointARN,
@@ -44,60 +39,64 @@ module Network.AWS.RDS.DeleteDBClusterEndpoint
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDBClusterEndpoint' smart constructor.
+-- | /See:/ 'mkDeleteDBClusterEndpoint' smart constructor.
 newtype DeleteDBClusterEndpoint = DeleteDBClusterEndpoint'
-  { _ddceDBClusterEndpointIdentifier ::
-      Text
+  { dbClusterEndpointIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBClusterEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddceDBClusterEndpointIdentifier' - The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.
-deleteDBClusterEndpoint ::
-  -- | 'ddceDBClusterEndpointIdentifier'
-  Text ->
+-- * 'dbClusterEndpointIdentifier' - The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.
+mkDeleteDBClusterEndpoint ::
+  -- | 'dbClusterEndpointIdentifier'
+  Lude.Text ->
   DeleteDBClusterEndpoint
-deleteDBClusterEndpoint pDBClusterEndpointIdentifier_ =
+mkDeleteDBClusterEndpoint pDBClusterEndpointIdentifier_ =
   DeleteDBClusterEndpoint'
-    { _ddceDBClusterEndpointIdentifier =
+    { dbClusterEndpointIdentifier =
         pDBClusterEndpointIdentifier_
     }
 
 -- | The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.
-ddceDBClusterEndpointIdentifier :: Lens' DeleteDBClusterEndpoint Text
-ddceDBClusterEndpointIdentifier = lens _ddceDBClusterEndpointIdentifier (\s a -> s {_ddceDBClusterEndpointIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterEndpointIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddceDBClusterEndpointIdentifier :: Lens.Lens' DeleteDBClusterEndpoint Lude.Text
+ddceDBClusterEndpointIdentifier = Lens.lens (dbClusterEndpointIdentifier :: DeleteDBClusterEndpoint -> Lude.Text) (\s a -> s {dbClusterEndpointIdentifier = a} :: DeleteDBClusterEndpoint)
+{-# DEPRECATED ddceDBClusterEndpointIdentifier "Use generic-lens or generic-optics with 'dbClusterEndpointIdentifier' instead." #-}
 
-instance AWSRequest DeleteDBClusterEndpoint where
+instance Lude.AWSRequest DeleteDBClusterEndpoint where
   type Rs DeleteDBClusterEndpoint = DBClusterEndpoint
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteDBClusterEndpointResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable DeleteDBClusterEndpoint
+instance Lude.ToHeaders DeleteDBClusterEndpoint where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDBClusterEndpoint
+instance Lude.ToPath DeleteDBClusterEndpoint where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteDBClusterEndpoint where
-  toHeaders = const mempty
-
-instance ToPath DeleteDBClusterEndpoint where
-  toPath = const "/"
-
-instance ToQuery DeleteDBClusterEndpoint where
+instance Lude.ToQuery DeleteDBClusterEndpoint where
   toQuery DeleteDBClusterEndpoint' {..} =
-    mconcat
-      [ "Action" =: ("DeleteDBClusterEndpoint" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DBClusterEndpointIdentifier" =: _ddceDBClusterEndpointIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteDBClusterEndpoint" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBClusterEndpointIdentifier" Lude.=: dbClusterEndpointIdentifier
       ]

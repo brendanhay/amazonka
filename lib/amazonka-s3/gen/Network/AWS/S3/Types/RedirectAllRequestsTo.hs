@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.RedirectAllRequestsTo where
+module Network.AWS.S3.Types.RedirectAllRequestsTo
+  ( RedirectAllRequestsTo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRedirectAllRequestsTo,
+
+    -- * Lenses
+    rartProtocol,
+    rartHostName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Protocol
 
 -- | Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
 --
---
---
--- /See:/ 'redirectAllRequestsTo' smart constructor.
+-- /See:/ 'mkRedirectAllRequestsTo' smart constructor.
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
-  { _rartProtocol ::
-      !(Maybe Protocol),
-    _rartHostName :: !Text
+  { protocol ::
+      Lude.Maybe Protocol,
+    hostName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RedirectAllRequestsTo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rartProtocol' - Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
---
--- * 'rartHostName' - Name of the host where requests are redirected.
-redirectAllRequestsTo ::
-  -- | 'rartHostName'
-  Text ->
+-- * 'hostName' - Name of the host where requests are redirected.
+-- * 'protocol' - Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+mkRedirectAllRequestsTo ::
+  -- | 'hostName'
+  Lude.Text ->
   RedirectAllRequestsTo
-redirectAllRequestsTo pHostName_ =
+mkRedirectAllRequestsTo pHostName_ =
   RedirectAllRequestsTo'
-    { _rartProtocol = Nothing,
-      _rartHostName = pHostName_
+    { protocol = Lude.Nothing,
+      hostName = pHostName_
     }
 
 -- | Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
-rartProtocol :: Lens' RedirectAllRequestsTo (Maybe Protocol)
-rartProtocol = lens _rartProtocol (\s a -> s {_rartProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rartProtocol :: Lens.Lens' RedirectAllRequestsTo (Lude.Maybe Protocol)
+rartProtocol = Lens.lens (protocol :: RedirectAllRequestsTo -> Lude.Maybe Protocol) (\s a -> s {protocol = a} :: RedirectAllRequestsTo)
+{-# DEPRECATED rartProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | Name of the host where requests are redirected.
-rartHostName :: Lens' RedirectAllRequestsTo Text
-rartHostName = lens _rartHostName (\s a -> s {_rartHostName = a})
+--
+-- /Note:/ Consider using 'hostName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rartHostName :: Lens.Lens' RedirectAllRequestsTo Lude.Text
+rartHostName = Lens.lens (hostName :: RedirectAllRequestsTo -> Lude.Text) (\s a -> s {hostName = a} :: RedirectAllRequestsTo)
+{-# DEPRECATED rartHostName "Use generic-lens or generic-optics with 'hostName' instead." #-}
 
-instance FromXML RedirectAllRequestsTo where
+instance Lude.FromXML RedirectAllRequestsTo where
   parseXML x =
     RedirectAllRequestsTo'
-      <$> (x .@? "Protocol") <*> (x .@ "HostName")
+      Lude.<$> (x Lude..@? "Protocol") Lude.<*> (x Lude..@ "HostName")
 
-instance Hashable RedirectAllRequestsTo
-
-instance NFData RedirectAllRequestsTo
-
-instance ToXML RedirectAllRequestsTo where
+instance Lude.ToXML RedirectAllRequestsTo where
   toXML RedirectAllRequestsTo' {..} =
-    mconcat
-      ["Protocol" @= _rartProtocol, "HostName" @= _rartHostName]
+    Lude.mconcat
+      ["Protocol" Lude.@= protocol, "HostName" Lude.@= hostName]

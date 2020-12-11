@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.TaskSucceededEventDetails where
+module Network.AWS.StepFunctions.Types.TaskSucceededEventDetails
+  ( TaskSucceededEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTaskSucceededEventDetails,
+
+    -- * Lenses
+    tsedsOutput,
+    tsedsOutputDetails,
+    tsedsResourceType,
+    tsedsResource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about the successful completion of a task state.
 --
---
---
--- /See:/ 'taskSucceededEventDetails' smart constructor.
+-- /See:/ 'mkTaskSucceededEventDetails' smart constructor.
 data TaskSucceededEventDetails = TaskSucceededEventDetails'
-  { _tsedsOutput ::
-      !(Maybe (Sensitive Text)),
-    _tsedsOutputDetails ::
-      !( Maybe
-           HistoryEventExecutionDataDetails
-       ),
-    _tsedsResourceType :: !Text,
-    _tsedsResource :: !Text
+  { output ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    outputDetails ::
+      Lude.Maybe
+        HistoryEventExecutionDataDetails,
+    resourceType :: Lude.Text,
+    resource :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskSucceededEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsedsOutput' - The full JSON response from a resource when a task has succeeded. This response becomes the output of the related task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
---
--- * 'tsedsOutputDetails' - Contains details about the output of an execution history event.
---
--- * 'tsedsResourceType' - The action of the resource called by a task state.
---
--- * 'tsedsResource' - The service name of the resource in a task state.
-taskSucceededEventDetails ::
-  -- | 'tsedsResourceType'
-  Text ->
-  -- | 'tsedsResource'
-  Text ->
+-- * 'output' - The full JSON response from a resource when a task has succeeded. This response becomes the output of the related task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+-- * 'outputDetails' - Contains details about the output of an execution history event.
+-- * 'resource' - The service name of the resource in a task state.
+-- * 'resourceType' - The action of the resource called by a task state.
+mkTaskSucceededEventDetails ::
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'resource'
+  Lude.Text ->
   TaskSucceededEventDetails
-taskSucceededEventDetails pResourceType_ pResource_ =
+mkTaskSucceededEventDetails pResourceType_ pResource_ =
   TaskSucceededEventDetails'
-    { _tsedsOutput = Nothing,
-      _tsedsOutputDetails = Nothing,
-      _tsedsResourceType = pResourceType_,
-      _tsedsResource = pResource_
+    { output = Lude.Nothing,
+      outputDetails = Lude.Nothing,
+      resourceType = pResourceType_,
+      resource = pResource_
     }
 
 -- | The full JSON response from a resource when a task has succeeded. This response becomes the output of the related task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-tsedsOutput :: Lens' TaskSucceededEventDetails (Maybe Text)
-tsedsOutput = lens _tsedsOutput (\s a -> s {_tsedsOutput = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsedsOutput :: Lens.Lens' TaskSucceededEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+tsedsOutput = Lens.lens (output :: TaskSucceededEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {output = a} :: TaskSucceededEventDetails)
+{-# DEPRECATED tsedsOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | Contains details about the output of an execution history event.
-tsedsOutputDetails :: Lens' TaskSucceededEventDetails (Maybe HistoryEventExecutionDataDetails)
-tsedsOutputDetails = lens _tsedsOutputDetails (\s a -> s {_tsedsOutputDetails = a})
+--
+-- /Note:/ Consider using 'outputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsedsOutputDetails :: Lens.Lens' TaskSucceededEventDetails (Lude.Maybe HistoryEventExecutionDataDetails)
+tsedsOutputDetails = Lens.lens (outputDetails :: TaskSucceededEventDetails -> Lude.Maybe HistoryEventExecutionDataDetails) (\s a -> s {outputDetails = a} :: TaskSucceededEventDetails)
+{-# DEPRECATED tsedsOutputDetails "Use generic-lens or generic-optics with 'outputDetails' instead." #-}
 
 -- | The action of the resource called by a task state.
-tsedsResourceType :: Lens' TaskSucceededEventDetails Text
-tsedsResourceType = lens _tsedsResourceType (\s a -> s {_tsedsResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsedsResourceType :: Lens.Lens' TaskSucceededEventDetails Lude.Text
+tsedsResourceType = Lens.lens (resourceType :: TaskSucceededEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskSucceededEventDetails)
+{-# DEPRECATED tsedsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The service name of the resource in a task state.
-tsedsResource :: Lens' TaskSucceededEventDetails Text
-tsedsResource = lens _tsedsResource (\s a -> s {_tsedsResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsedsResource :: Lens.Lens' TaskSucceededEventDetails Lude.Text
+tsedsResource = Lens.lens (resource :: TaskSucceededEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskSucceededEventDetails)
+{-# DEPRECATED tsedsResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance FromJSON TaskSucceededEventDetails where
+instance Lude.FromJSON TaskSucceededEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "TaskSucceededEventDetails"
       ( \x ->
           TaskSucceededEventDetails'
-            <$> (x .:? "output")
-            <*> (x .:? "outputDetails")
-            <*> (x .: "resourceType")
-            <*> (x .: "resource")
+            Lude.<$> (x Lude..:? "output")
+            Lude.<*> (x Lude..:? "outputDetails")
+            Lude.<*> (x Lude..: "resourceType")
+            Lude.<*> (x Lude..: "resource")
       )
-
-instance Hashable TaskSucceededEventDetails
-
-instance NFData TaskSucceededEventDetails

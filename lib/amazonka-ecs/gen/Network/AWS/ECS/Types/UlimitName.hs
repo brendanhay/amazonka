@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.UlimitName where
+module Network.AWS.ECS.Types.UlimitName
+  ( UlimitName
+      ( UlimitName',
+        CPU,
+        Core,
+        Data,
+        Fsize,
+        Locks,
+        Memlock,
+        Msgqueue,
+        Nice,
+        Nofile,
+        Nproc,
+        Rss,
+        Rtprio,
+        Rttime,
+        Sigpending,
+        Stack
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UlimitName
-  = CPU
-  | Core
-  | Data
-  | Fsize
-  | Locks
-  | Memlock
-  | Msgqueue
-  | Nice
-  | Nofile
-  | Nproc
-  | Rss
-  | Rtprio
-  | Rttime
-  | Sigpending
-  | Stack
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UlimitName = UlimitName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UlimitName where
-  parser =
-    takeLowerText >>= \case
-      "cpu" -> pure CPU
-      "core" -> pure Core
-      "data" -> pure Data
-      "fsize" -> pure Fsize
-      "locks" -> pure Locks
-      "memlock" -> pure Memlock
-      "msgqueue" -> pure Msgqueue
-      "nice" -> pure Nice
-      "nofile" -> pure Nofile
-      "nproc" -> pure Nproc
-      "rss" -> pure Rss
-      "rtprio" -> pure Rtprio
-      "rttime" -> pure Rttime
-      "sigpending" -> pure Sigpending
-      "stack" -> pure Stack
-      e ->
-        fromTextError $
-          "Failure parsing UlimitName from value: '" <> e
-            <> "'. Accepted values: cpu, core, data, fsize, locks, memlock, msgqueue, nice, nofile, nproc, rss, rtprio, rttime, sigpending, stack"
+pattern CPU :: UlimitName
+pattern CPU = UlimitName' "cpu"
 
-instance ToText UlimitName where
-  toText = \case
-    CPU -> "cpu"
-    Core -> "core"
-    Data -> "data"
-    Fsize -> "fsize"
-    Locks -> "locks"
-    Memlock -> "memlock"
-    Msgqueue -> "msgqueue"
-    Nice -> "nice"
-    Nofile -> "nofile"
-    Nproc -> "nproc"
-    Rss -> "rss"
-    Rtprio -> "rtprio"
-    Rttime -> "rttime"
-    Sigpending -> "sigpending"
-    Stack -> "stack"
+pattern Core :: UlimitName
+pattern Core = UlimitName' "core"
 
-instance Hashable UlimitName
+pattern Data :: UlimitName
+pattern Data = UlimitName' "data"
 
-instance NFData UlimitName
+pattern Fsize :: UlimitName
+pattern Fsize = UlimitName' "fsize"
 
-instance ToByteString UlimitName
+pattern Locks :: UlimitName
+pattern Locks = UlimitName' "locks"
 
-instance ToQuery UlimitName
+pattern Memlock :: UlimitName
+pattern Memlock = UlimitName' "memlock"
 
-instance ToHeader UlimitName
+pattern Msgqueue :: UlimitName
+pattern Msgqueue = UlimitName' "msgqueue"
 
-instance ToJSON UlimitName where
-  toJSON = toJSONText
+pattern Nice :: UlimitName
+pattern Nice = UlimitName' "nice"
 
-instance FromJSON UlimitName where
-  parseJSON = parseJSONText "UlimitName"
+pattern Nofile :: UlimitName
+pattern Nofile = UlimitName' "nofile"
+
+pattern Nproc :: UlimitName
+pattern Nproc = UlimitName' "nproc"
+
+pattern Rss :: UlimitName
+pattern Rss = UlimitName' "rss"
+
+pattern Rtprio :: UlimitName
+pattern Rtprio = UlimitName' "rtprio"
+
+pattern Rttime :: UlimitName
+pattern Rttime = UlimitName' "rttime"
+
+pattern Sigpending :: UlimitName
+pattern Sigpending = UlimitName' "sigpending"
+
+pattern Stack :: UlimitName
+pattern Stack = UlimitName' "stack"
+
+{-# COMPLETE
+  CPU,
+  Core,
+  Data,
+  Fsize,
+  Locks,
+  Memlock,
+  Msgqueue,
+  Nice,
+  Nofile,
+  Nproc,
+  Rss,
+  Rtprio,
+  Rttime,
+  Sigpending,
+  Stack,
+  UlimitName'
+  #-}

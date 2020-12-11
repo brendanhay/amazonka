@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.ContentType where
+module Network.AWS.LexRuntime.Types.ContentType
+  ( ContentType
+      ( ContentType',
+        ApplicationVnd_Amazonaws_Card_Generic
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContentType = ApplicationVnd_Amazonaws_Card_Generic
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContentType = ContentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContentType where
-  parser =
-    takeLowerText >>= \case
-      "application/vnd.amazonaws.card.generic" -> pure ApplicationVnd_Amazonaws_Card_Generic
-      e ->
-        fromTextError $
-          "Failure parsing ContentType from value: '" <> e
-            <> "'. Accepted values: application/vnd.amazonaws.card.generic"
+pattern ApplicationVnd_Amazonaws_Card_Generic :: ContentType
+pattern ApplicationVnd_Amazonaws_Card_Generic = ContentType' "application/vnd.amazonaws.card.generic"
 
-instance ToText ContentType where
-  toText = \case
-    ApplicationVnd_Amazonaws_Card_Generic -> "application/vnd.amazonaws.card.generic"
-
-instance Hashable ContentType
-
-instance NFData ContentType
-
-instance ToByteString ContentType
-
-instance ToQuery ContentType
-
-instance ToHeader ContentType
-
-instance FromJSON ContentType where
-  parseJSON = parseJSONText "ContentType"
+{-# COMPLETE
+  ApplicationVnd_Amazonaws_Card_Generic,
+  ContentType'
+  #-}

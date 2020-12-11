@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.SortExperimentsBy where
+module Network.AWS.SageMaker.Types.SortExperimentsBy
+  ( SortExperimentsBy
+      ( SortExperimentsBy',
+        SEBCreationTime,
+        SEBName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SortExperimentsBy
-  = SEBCreationTime
-  | SEBName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SortExperimentsBy = SortExperimentsBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SortExperimentsBy where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure SEBCreationTime
-      "name" -> pure SEBName
-      e ->
-        fromTextError $
-          "Failure parsing SortExperimentsBy from value: '" <> e
-            <> "'. Accepted values: creationtime, name"
+pattern SEBCreationTime :: SortExperimentsBy
+pattern SEBCreationTime = SortExperimentsBy' "CreationTime"
 
-instance ToText SortExperimentsBy where
-  toText = \case
-    SEBCreationTime -> "CreationTime"
-    SEBName -> "Name"
+pattern SEBName :: SortExperimentsBy
+pattern SEBName = SortExperimentsBy' "Name"
 
-instance Hashable SortExperimentsBy
-
-instance NFData SortExperimentsBy
-
-instance ToByteString SortExperimentsBy
-
-instance ToQuery SortExperimentsBy
-
-instance ToHeader SortExperimentsBy
-
-instance ToJSON SortExperimentsBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  SEBCreationTime,
+  SEBName,
+  SortExperimentsBy'
+  #-}

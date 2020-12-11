@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.RelatedOpsItem where
+module Network.AWS.SSM.Types.RelatedOpsItem
+  ( RelatedOpsItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRelatedOpsItem,
+
+    -- * Lenses
+    roiOpsItemId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An OpsItems that shares something in common with the current OpsItem. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
 --
---
---
--- /See:/ 'relatedOpsItem' smart constructor.
-newtype RelatedOpsItem = RelatedOpsItem' {_roiOpsItemId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkRelatedOpsItem' smart constructor.
+newtype RelatedOpsItem = RelatedOpsItem' {opsItemId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelatedOpsItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'roiOpsItemId' - The ID of an OpsItem related to the current OpsItem.
-relatedOpsItem ::
-  -- | 'roiOpsItemId'
-  Text ->
+-- * 'opsItemId' - The ID of an OpsItem related to the current OpsItem.
+mkRelatedOpsItem ::
+  -- | 'opsItemId'
+  Lude.Text ->
   RelatedOpsItem
-relatedOpsItem pOpsItemId_ =
-  RelatedOpsItem' {_roiOpsItemId = pOpsItemId_}
+mkRelatedOpsItem pOpsItemId_ =
+  RelatedOpsItem' {opsItemId = pOpsItemId_}
 
 -- | The ID of an OpsItem related to the current OpsItem.
-roiOpsItemId :: Lens' RelatedOpsItem Text
-roiOpsItemId = lens _roiOpsItemId (\s a -> s {_roiOpsItemId = a})
+--
+-- /Note:/ Consider using 'opsItemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roiOpsItemId :: Lens.Lens' RelatedOpsItem Lude.Text
+roiOpsItemId = Lens.lens (opsItemId :: RelatedOpsItem -> Lude.Text) (\s a -> s {opsItemId = a} :: RelatedOpsItem)
+{-# DEPRECATED roiOpsItemId "Use generic-lens or generic-optics with 'opsItemId' instead." #-}
 
-instance FromJSON RelatedOpsItem where
+instance Lude.FromJSON RelatedOpsItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "RelatedOpsItem"
-      (\x -> RelatedOpsItem' <$> (x .: "OpsItemId"))
+      (\x -> RelatedOpsItem' Lude.<$> (x Lude..: "OpsItemId"))
 
-instance Hashable RelatedOpsItem
-
-instance NFData RelatedOpsItem
-
-instance ToJSON RelatedOpsItem where
+instance Lude.ToJSON RelatedOpsItem where
   toJSON RelatedOpsItem' {..} =
-    object (catMaybes [Just ("OpsItemId" .= _roiOpsItemId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("OpsItemId" Lude..= opsItemId)])

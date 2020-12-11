@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Celebrity where
+module Network.AWS.Rekognition.Types.Celebrity
+  ( Celebrity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCelebrity,
+
+    -- * Lenses
+    cMatchConfidence,
+    cURLs,
+    cName,
+    cId,
+    cFace,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.ComparedFace
 
 -- | Provides information about a celebrity recognized by the 'RecognizeCelebrities' operation.
 --
---
---
--- /See:/ 'celebrity' smart constructor.
+-- /See:/ 'mkCelebrity' smart constructor.
 data Celebrity = Celebrity'
-  { _cMatchConfidence :: !(Maybe Double),
-    _cURLs :: !(Maybe [Text]),
-    _cName :: !(Maybe Text),
-    _cId :: !(Maybe Text),
-    _cFace :: !(Maybe ComparedFace)
+  { matchConfidence ::
+      Lude.Maybe Lude.Double,
+    urls :: Lude.Maybe [Lude.Text],
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    face :: Lude.Maybe ComparedFace
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Celebrity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cMatchConfidence' - The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
---
--- * 'cURLs' - An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.
---
--- * 'cName' - The name of the celebrity.
---
--- * 'cId' - A unique identifier for the celebrity.
---
--- * 'cFace' - Provides information about the celebrity's face, such as its location on the image.
-celebrity ::
+-- * 'face' - Provides information about the celebrity's face, such as its location on the image.
+-- * 'id' - A unique identifier for the celebrity.
+-- * 'matchConfidence' - The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
+-- * 'name' - The name of the celebrity.
+-- * 'urls' - An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.
+mkCelebrity ::
   Celebrity
-celebrity =
+mkCelebrity =
   Celebrity'
-    { _cMatchConfidence = Nothing,
-      _cURLs = Nothing,
-      _cName = Nothing,
-      _cId = Nothing,
-      _cFace = Nothing
+    { matchConfidence = Lude.Nothing,
+      urls = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      face = Lude.Nothing
     }
 
 -- | The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
-cMatchConfidence :: Lens' Celebrity (Maybe Double)
-cMatchConfidence = lens _cMatchConfidence (\s a -> s {_cMatchConfidence = a})
+--
+-- /Note:/ Consider using 'matchConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cMatchConfidence :: Lens.Lens' Celebrity (Lude.Maybe Lude.Double)
+cMatchConfidence = Lens.lens (matchConfidence :: Celebrity -> Lude.Maybe Lude.Double) (\s a -> s {matchConfidence = a} :: Celebrity)
+{-# DEPRECATED cMatchConfidence "Use generic-lens or generic-optics with 'matchConfidence' instead." #-}
 
 -- | An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.
-cURLs :: Lens' Celebrity [Text]
-cURLs = lens _cURLs (\s a -> s {_cURLs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'urls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cURLs :: Lens.Lens' Celebrity (Lude.Maybe [Lude.Text])
+cURLs = Lens.lens (urls :: Celebrity -> Lude.Maybe [Lude.Text]) (\s a -> s {urls = a} :: Celebrity)
+{-# DEPRECATED cURLs "Use generic-lens or generic-optics with 'urls' instead." #-}
 
 -- | The name of the celebrity.
-cName :: Lens' Celebrity (Maybe Text)
-cName = lens _cName (\s a -> s {_cName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cName :: Lens.Lens' Celebrity (Lude.Maybe Lude.Text)
+cName = Lens.lens (name :: Celebrity -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Celebrity)
+{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier for the celebrity.
-cId :: Lens' Celebrity (Maybe Text)
-cId = lens _cId (\s a -> s {_cId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cId :: Lens.Lens' Celebrity (Lude.Maybe Lude.Text)
+cId = Lens.lens (id :: Celebrity -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Celebrity)
+{-# DEPRECATED cId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Provides information about the celebrity's face, such as its location on the image.
-cFace :: Lens' Celebrity (Maybe ComparedFace)
-cFace = lens _cFace (\s a -> s {_cFace = a})
+--
+-- /Note:/ Consider using 'face' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cFace :: Lens.Lens' Celebrity (Lude.Maybe ComparedFace)
+cFace = Lens.lens (face :: Celebrity -> Lude.Maybe ComparedFace) (\s a -> s {face = a} :: Celebrity)
+{-# DEPRECATED cFace "Use generic-lens or generic-optics with 'face' instead." #-}
 
-instance FromJSON Celebrity where
+instance Lude.FromJSON Celebrity where
   parseJSON =
-    withObject
+    Lude.withObject
       "Celebrity"
       ( \x ->
           Celebrity'
-            <$> (x .:? "MatchConfidence")
-            <*> (x .:? "Urls" .!= mempty)
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "Face")
+            Lude.<$> (x Lude..:? "MatchConfidence")
+            Lude.<*> (x Lude..:? "Urls" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Face")
       )
-
-instance Hashable Celebrity
-
-instance NFData Celebrity

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,131 @@
 --
 -- Adds or overwrites one or more tags for the specified directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.
 module Network.AWS.DirectoryService.AddTagsToResource
-  ( -- * Creating a Request
-    addTagsToResource,
-    AddTagsToResource,
+  ( -- * Creating a request
+    AddTagsToResource (..),
+    mkAddTagsToResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     attrResourceId,
     attrTags,
 
-    -- * Destructuring the Response
-    addTagsToResourceResponse,
-    AddTagsToResourceResponse,
+    -- * Destructuring the response
+    AddTagsToResourceResponse (..),
+    mkAddTagsToResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     attrrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addTagsToResource' smart constructor.
+-- | /See:/ 'mkAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { _attrResourceId ::
-      !Text,
-    _attrTags :: ![Tag]
+  { resourceId ::
+      Lude.Text,
+    tags :: [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'attrResourceId' - Identifier (ID) for the directory to which to add the tag.
---
--- * 'attrTags' - The tags to be assigned to the directory.
-addTagsToResource ::
-  -- | 'attrResourceId'
-  Text ->
+-- * 'resourceId' - Identifier (ID) for the directory to which to add the tag.
+-- * 'tags' - The tags to be assigned to the directory.
+mkAddTagsToResource ::
+  -- | 'resourceId'
+  Lude.Text ->
   AddTagsToResource
-addTagsToResource pResourceId_ =
-  AddTagsToResource'
-    { _attrResourceId = pResourceId_,
-      _attrTags = mempty
-    }
+mkAddTagsToResource pResourceId_ =
+  AddTagsToResource' {resourceId = pResourceId_, tags = Lude.mempty}
 
 -- | Identifier (ID) for the directory to which to add the tag.
-attrResourceId :: Lens' AddTagsToResource Text
-attrResourceId = lens _attrResourceId (\s a -> s {_attrResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrResourceId :: Lens.Lens' AddTagsToResource Lude.Text
+attrResourceId = Lens.lens (resourceId :: AddTagsToResource -> Lude.Text) (\s a -> s {resourceId = a} :: AddTagsToResource)
+{-# DEPRECATED attrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The tags to be assigned to the directory.
-attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\s a -> s {_attrTags = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrTags :: Lens.Lens' AddTagsToResource [Tag]
+attrTags = Lens.lens (tags :: AddTagsToResource -> [Tag]) (\s a -> s {tags = a} :: AddTagsToResource)
+{-# DEPRECATED attrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest AddTagsToResource where
+instance Lude.AWSRequest AddTagsToResource where
   type Rs AddTagsToResource = AddTagsToResourceResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> AddTagsToResourceResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AddTagsToResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AddTagsToResource
-
-instance NFData AddTagsToResource
-
-instance ToHeaders AddTagsToResource where
+instance Lude.ToHeaders AddTagsToResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.AddTagsToResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.AddTagsToResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddTagsToResource where
+instance Lude.ToJSON AddTagsToResource where
   toJSON AddTagsToResource' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceId" .= _attrResourceId),
-            Just ("Tags" .= _attrTags)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("Tags" Lude..= tags)
           ]
       )
 
-instance ToPath AddTagsToResource where
-  toPath = const "/"
+instance Lude.ToPath AddTagsToResource where
+  toPath = Lude.const "/"
 
-instance ToQuery AddTagsToResource where
-  toQuery = const mempty
+instance Lude.ToQuery AddTagsToResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'addTagsToResourceResponse' smart constructor.
+-- | /See:/ 'mkAddTagsToResourceResponse' smart constructor.
 newtype AddTagsToResourceResponse = AddTagsToResourceResponse'
-  { _attrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'attrrsResponseStatus' - -- | The response status code.
-addTagsToResourceResponse ::
-  -- | 'attrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAddTagsToResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddTagsToResourceResponse
-addTagsToResourceResponse pResponseStatus_ =
-  AddTagsToResourceResponse'
-    { _attrrsResponseStatus =
-        pResponseStatus_
-    }
+mkAddTagsToResourceResponse pResponseStatus_ =
+  AddTagsToResourceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
-attrrsResponseStatus = lens _attrrsResponseStatus (\s a -> s {_attrrsResponseStatus = a})
-
-instance NFData AddTagsToResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrrsResponseStatus :: Lens.Lens' AddTagsToResourceResponse Lude.Int
+attrrsResponseStatus = Lens.lens (responseStatus :: AddTagsToResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsToResourceResponse)
+{-# DEPRECATED attrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

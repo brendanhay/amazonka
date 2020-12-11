@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,160 +14,183 @@
 --
 -- Create a new preset. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
 module Network.AWS.MediaConvert.CreatePreset
-  ( -- * Creating a Request
-    createPreset,
-    CreatePreset,
+  ( -- * Creating a request
+    CreatePreset (..),
+    mkCreatePreset,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpCategory,
     cpDescription,
     cpTags,
     cpSettings,
     cpName,
 
-    -- * Destructuring the Response
-    createPresetResponse,
-    CreatePresetResponse,
+    -- * Destructuring the response
+    CreatePresetResponse (..),
+    mkCreatePresetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprsPreset,
     cprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createPreset' smart constructor.
+-- | /See:/ 'mkCreatePreset' smart constructor.
 data CreatePreset = CreatePreset'
-  { _cpCategory :: !(Maybe Text),
-    _cpDescription :: !(Maybe Text),
-    _cpTags :: !(Maybe (Map Text (Text))),
-    _cpSettings :: !PresetSettings,
-    _cpName :: !Text
+  { category :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    settings :: PresetSettings,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePreset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpCategory' - Optional. A category for the preset you are creating.
---
--- * 'cpDescription' - Optional. A description of the preset you are creating.
---
--- * 'cpTags' - The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
---
--- * 'cpSettings' - Settings for preset
---
--- * 'cpName' - The name of the preset you are creating.
-createPreset ::
-  -- | 'cpSettings'
+-- * 'category' - Optional. A category for the preset you are creating.
+-- * 'description' - Optional. A description of the preset you are creating.
+-- * 'name' - The name of the preset you are creating.
+-- * 'settings' - Settings for preset
+-- * 'tags' - The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+mkCreatePreset ::
+  -- | 'settings'
   PresetSettings ->
-  -- | 'cpName'
-  Text ->
+  -- | 'name'
+  Lude.Text ->
   CreatePreset
-createPreset pSettings_ pName_ =
+mkCreatePreset pSettings_ pName_ =
   CreatePreset'
-    { _cpCategory = Nothing,
-      _cpDescription = Nothing,
-      _cpTags = Nothing,
-      _cpSettings = pSettings_,
-      _cpName = pName_
+    { category = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      settings = pSettings_,
+      name = pName_
     }
 
 -- | Optional. A category for the preset you are creating.
-cpCategory :: Lens' CreatePreset (Maybe Text)
-cpCategory = lens _cpCategory (\s a -> s {_cpCategory = a})
+--
+-- /Note:/ Consider using 'category' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpCategory :: Lens.Lens' CreatePreset (Lude.Maybe Lude.Text)
+cpCategory = Lens.lens (category :: CreatePreset -> Lude.Maybe Lude.Text) (\s a -> s {category = a} :: CreatePreset)
+{-# DEPRECATED cpCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
 -- | Optional. A description of the preset you are creating.
-cpDescription :: Lens' CreatePreset (Maybe Text)
-cpDescription = lens _cpDescription (\s a -> s {_cpDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDescription :: Lens.Lens' CreatePreset (Lude.Maybe Lude.Text)
+cpDescription = Lens.lens (description :: CreatePreset -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePreset)
+{-# DEPRECATED cpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
-cpTags :: Lens' CreatePreset (HashMap Text (Text))
-cpTags = lens _cpTags (\s a -> s {_cpTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTags :: Lens.Lens' CreatePreset (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cpTags = Lens.lens (tags :: CreatePreset -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreatePreset)
+{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Settings for preset
-cpSettings :: Lens' CreatePreset PresetSettings
-cpSettings = lens _cpSettings (\s a -> s {_cpSettings = a})
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpSettings :: Lens.Lens' CreatePreset PresetSettings
+cpSettings = Lens.lens (settings :: CreatePreset -> PresetSettings) (\s a -> s {settings = a} :: CreatePreset)
+{-# DEPRECATED cpSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 -- | The name of the preset you are creating.
-cpName :: Lens' CreatePreset Text
-cpName = lens _cpName (\s a -> s {_cpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CreatePreset Lude.Text
+cpName = Lens.lens (name :: CreatePreset -> Lude.Text) (\s a -> s {name = a} :: CreatePreset)
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreatePreset where
+instance Lude.AWSRequest CreatePreset where
   type Rs CreatePreset = CreatePresetResponse
-  request = postJSON mediaConvert
+  request = Req.postJSON mediaConvertService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreatePresetResponse' <$> (x .?> "preset") <*> (pure (fromEnum s))
+          CreatePresetResponse'
+            Lude.<$> (x Lude..?> "preset") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreatePreset
-
-instance NFData CreatePreset
-
-instance ToHeaders CreatePreset where
+instance Lude.ToHeaders CreatePreset where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreatePreset where
-  toJSON CreatePreset' {..} =
-    object
-      ( catMaybes
-          [ ("category" .=) <$> _cpCategory,
-            ("description" .=) <$> _cpDescription,
-            ("tags" .=) <$> _cpTags,
-            Just ("settings" .= _cpSettings),
-            Just ("name" .= _cpName)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreatePreset where
-  toPath = const "/2017-08-29/presets"
+instance Lude.ToJSON CreatePreset where
+  toJSON CreatePreset' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("category" Lude..=) Lude.<$> category,
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("settings" Lude..= settings),
+            Lude.Just ("name" Lude..= name)
+          ]
+      )
 
-instance ToQuery CreatePreset where
-  toQuery = const mempty
+instance Lude.ToPath CreatePreset where
+  toPath = Lude.const "/2017-08-29/presets"
 
--- | /See:/ 'createPresetResponse' smart constructor.
+instance Lude.ToQuery CreatePreset where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkCreatePresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
-  { _cprsPreset ::
-      !(Maybe Preset),
-    _cprsResponseStatus :: !Int
+  { preset ::
+      Lude.Maybe Preset,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePresetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprsPreset' - A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
---
--- * 'cprsResponseStatus' - -- | The response status code.
-createPresetResponse ::
-  -- | 'cprsResponseStatus'
-  Int ->
+-- * 'preset' - A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+-- * 'responseStatus' - The response status code.
+mkCreatePresetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePresetResponse
-createPresetResponse pResponseStatus_ =
+mkCreatePresetResponse pResponseStatus_ =
   CreatePresetResponse'
-    { _cprsPreset = Nothing,
-      _cprsResponseStatus = pResponseStatus_
+    { preset = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
-cprsPreset :: Lens' CreatePresetResponse (Maybe Preset)
-cprsPreset = lens _cprsPreset (\s a -> s {_cprsPreset = a})
+--
+-- /Note:/ Consider using 'preset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsPreset :: Lens.Lens' CreatePresetResponse (Lude.Maybe Preset)
+cprsPreset = Lens.lens (preset :: CreatePresetResponse -> Lude.Maybe Preset) (\s a -> s {preset = a} :: CreatePresetResponse)
+{-# DEPRECATED cprsPreset "Use generic-lens or generic-optics with 'preset' instead." #-}
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreatePresetResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\s a -> s {_cprsResponseStatus = a})
-
-instance NFData CreatePresetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsResponseStatus :: Lens.Lens' CreatePresetResponse Lude.Int
+cprsResponseStatus = Lens.lens (responseStatus :: CreatePresetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePresetResponse)
+{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

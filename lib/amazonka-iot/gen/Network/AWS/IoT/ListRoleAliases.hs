@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists the role aliases registered in your account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListRoleAliases
-  ( -- * Creating a Request
-    listRoleAliases,
-    ListRoleAliases,
+  ( -- * Creating a request
+    ListRoleAliases (..),
+    mkListRoleAliases,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lraMarker,
     lraAscendingOrder,
     lraPageSize,
 
-    -- * Destructuring the Response
-    listRoleAliasesResponse,
-    ListRoleAliasesResponse,
+    -- * Destructuring the response
+    ListRoleAliasesResponse (..),
+    mkListRoleAliasesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrarsRoleAliases,
     lrarsNextMarker,
     lrarsResponseStatus,
@@ -44,126 +37,147 @@ module Network.AWS.IoT.ListRoleAliases
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listRoleAliases' smart constructor.
+-- | /See:/ 'mkListRoleAliases' smart constructor.
 data ListRoleAliases = ListRoleAliases'
-  { _lraMarker ::
-      !(Maybe Text),
-    _lraAscendingOrder :: !(Maybe Bool),
-    _lraPageSize :: !(Maybe Nat)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    ascendingOrder :: Lude.Maybe Lude.Bool,
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRoleAliases' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lraMarker' - A marker used to get the next set of results.
---
--- * 'lraAscendingOrder' - Return the list of role aliases in ascending alphabetical order.
---
--- * 'lraPageSize' - The maximum number of results to return at one time.
-listRoleAliases ::
+-- * 'ascendingOrder' - Return the list of role aliases in ascending alphabetical order.
+-- * 'marker' - A marker used to get the next set of results.
+-- * 'pageSize' - The maximum number of results to return at one time.
+mkListRoleAliases ::
   ListRoleAliases
-listRoleAliases =
+mkListRoleAliases =
   ListRoleAliases'
-    { _lraMarker = Nothing,
-      _lraAscendingOrder = Nothing,
-      _lraPageSize = Nothing
+    { marker = Lude.Nothing,
+      ascendingOrder = Lude.Nothing,
+      pageSize = Lude.Nothing
     }
 
 -- | A marker used to get the next set of results.
-lraMarker :: Lens' ListRoleAliases (Maybe Text)
-lraMarker = lens _lraMarker (\s a -> s {_lraMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lraMarker :: Lens.Lens' ListRoleAliases (Lude.Maybe Lude.Text)
+lraMarker = Lens.lens (marker :: ListRoleAliases -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListRoleAliases)
+{-# DEPRECATED lraMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Return the list of role aliases in ascending alphabetical order.
-lraAscendingOrder :: Lens' ListRoleAliases (Maybe Bool)
-lraAscendingOrder = lens _lraAscendingOrder (\s a -> s {_lraAscendingOrder = a})
+--
+-- /Note:/ Consider using 'ascendingOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lraAscendingOrder :: Lens.Lens' ListRoleAliases (Lude.Maybe Lude.Bool)
+lraAscendingOrder = Lens.lens (ascendingOrder :: ListRoleAliases -> Lude.Maybe Lude.Bool) (\s a -> s {ascendingOrder = a} :: ListRoleAliases)
+{-# DEPRECATED lraAscendingOrder "Use generic-lens or generic-optics with 'ascendingOrder' instead." #-}
 
 -- | The maximum number of results to return at one time.
-lraPageSize :: Lens' ListRoleAliases (Maybe Natural)
-lraPageSize = lens _lraPageSize (\s a -> s {_lraPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lraPageSize :: Lens.Lens' ListRoleAliases (Lude.Maybe Lude.Natural)
+lraPageSize = Lens.lens (pageSize :: ListRoleAliases -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListRoleAliases)
+{-# DEPRECATED lraPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance AWSPager ListRoleAliases where
+instance Page.AWSPager ListRoleAliases where
   page rq rs
-    | stop (rs ^. lrarsNextMarker) = Nothing
-    | stop (rs ^. lrarsRoleAliases) = Nothing
-    | otherwise = Just $ rq & lraMarker .~ rs ^. lrarsNextMarker
+    | Page.stop (rs Lens.^. lrarsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrarsRoleAliases) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lraMarker Lens..~ rs Lens.^. lrarsNextMarker
 
-instance AWSRequest ListRoleAliases where
+instance Lude.AWSRequest ListRoleAliases where
   type Rs ListRoleAliases = ListRoleAliasesResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListRoleAliasesResponse'
-            <$> (x .?> "roleAliases" .!@ mempty)
-            <*> (x .?> "nextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "roleAliases" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListRoleAliases
+instance Lude.ToHeaders ListRoleAliases where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListRoleAliases
+instance Lude.ToPath ListRoleAliases where
+  toPath = Lude.const "/role-aliases"
 
-instance ToHeaders ListRoleAliases where
-  toHeaders = const mempty
-
-instance ToPath ListRoleAliases where
-  toPath = const "/role-aliases"
-
-instance ToQuery ListRoleAliases where
+instance Lude.ToQuery ListRoleAliases where
   toQuery ListRoleAliases' {..} =
-    mconcat
-      [ "marker" =: _lraMarker,
-        "isAscendingOrder" =: _lraAscendingOrder,
-        "pageSize" =: _lraPageSize
+    Lude.mconcat
+      [ "marker" Lude.=: marker,
+        "isAscendingOrder" Lude.=: ascendingOrder,
+        "pageSize" Lude.=: pageSize
       ]
 
--- | /See:/ 'listRoleAliasesResponse' smart constructor.
+-- | /See:/ 'mkListRoleAliasesResponse' smart constructor.
 data ListRoleAliasesResponse = ListRoleAliasesResponse'
-  { _lrarsRoleAliases ::
-      !(Maybe [Text]),
-    _lrarsNextMarker :: !(Maybe Text),
-    _lrarsResponseStatus :: !Int
+  { roleAliases ::
+      Lude.Maybe [Lude.Text],
+    nextMarker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRoleAliasesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrarsRoleAliases' - The role aliases.
---
--- * 'lrarsNextMarker' - A marker used to get the next set of results.
---
--- * 'lrarsResponseStatus' - -- | The response status code.
-listRoleAliasesResponse ::
-  -- | 'lrarsResponseStatus'
-  Int ->
+-- * 'nextMarker' - A marker used to get the next set of results.
+-- * 'responseStatus' - The response status code.
+-- * 'roleAliases' - The role aliases.
+mkListRoleAliasesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRoleAliasesResponse
-listRoleAliasesResponse pResponseStatus_ =
+mkListRoleAliasesResponse pResponseStatus_ =
   ListRoleAliasesResponse'
-    { _lrarsRoleAliases = Nothing,
-      _lrarsNextMarker = Nothing,
-      _lrarsResponseStatus = pResponseStatus_
+    { roleAliases = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The role aliases.
-lrarsRoleAliases :: Lens' ListRoleAliasesResponse [Text]
-lrarsRoleAliases = lens _lrarsRoleAliases (\s a -> s {_lrarsRoleAliases = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'roleAliases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrarsRoleAliases :: Lens.Lens' ListRoleAliasesResponse (Lude.Maybe [Lude.Text])
+lrarsRoleAliases = Lens.lens (roleAliases :: ListRoleAliasesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {roleAliases = a} :: ListRoleAliasesResponse)
+{-# DEPRECATED lrarsRoleAliases "Use generic-lens or generic-optics with 'roleAliases' instead." #-}
 
 -- | A marker used to get the next set of results.
-lrarsNextMarker :: Lens' ListRoleAliasesResponse (Maybe Text)
-lrarsNextMarker = lens _lrarsNextMarker (\s a -> s {_lrarsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrarsNextMarker :: Lens.Lens' ListRoleAliasesResponse (Lude.Maybe Lude.Text)
+lrarsNextMarker = Lens.lens (nextMarker :: ListRoleAliasesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListRoleAliasesResponse)
+{-# DEPRECATED lrarsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lrarsResponseStatus :: Lens' ListRoleAliasesResponse Int
-lrarsResponseStatus = lens _lrarsResponseStatus (\s a -> s {_lrarsResponseStatus = a})
-
-instance NFData ListRoleAliasesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrarsResponseStatus :: Lens.Lens' ListRoleAliasesResponse Lude.Int
+lrarsResponseStatus = Lens.lens (responseStatus :: ListRoleAliasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRoleAliasesResponse)
+{-# DEPRECATED lrarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

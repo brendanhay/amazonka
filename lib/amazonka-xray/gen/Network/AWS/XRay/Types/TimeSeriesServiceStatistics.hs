@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,23 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.TimeSeriesServiceStatistics where
+module Network.AWS.XRay.Types.TimeSeriesServiceStatistics
+  ( TimeSeriesServiceStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimeSeriesServiceStatistics,
+
+    -- * Lenses
+    tsssServiceSummaryStatistics,
+    tsssResponseTimeHistogram,
+    tsssEdgeSummaryStatistics,
+    tsssServiceForecastStatistics,
+    tsssTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.EdgeStatistics
 import Network.AWS.XRay.Types.ForecastStatistics
 import Network.AWS.XRay.Types.HistogramEntry
@@ -24,80 +31,91 @@ import Network.AWS.XRay.Types.ServiceStatistics
 
 -- | A list of TimeSeriesStatistic structures.
 --
---
---
--- /See:/ 'timeSeriesServiceStatistics' smart constructor.
+-- /See:/ 'mkTimeSeriesServiceStatistics' smart constructor.
 data TimeSeriesServiceStatistics = TimeSeriesServiceStatistics'
-  { _tsssServiceSummaryStatistics ::
-      !(Maybe ServiceStatistics),
-    _tsssResponseTimeHistogram ::
-      !(Maybe [HistogramEntry]),
-    _tsssEdgeSummaryStatistics ::
-      !(Maybe EdgeStatistics),
-    _tsssServiceForecastStatistics ::
-      !(Maybe ForecastStatistics),
-    _tsssTimestamp :: !(Maybe POSIX)
+  { serviceSummaryStatistics ::
+      Lude.Maybe ServiceStatistics,
+    responseTimeHistogram ::
+      Lude.Maybe [HistogramEntry],
+    edgeSummaryStatistics ::
+      Lude.Maybe EdgeStatistics,
+    serviceForecastStatistics ::
+      Lude.Maybe ForecastStatistics,
+    timestamp ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeSeriesServiceStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tsssServiceSummaryStatistics' - Undocumented member.
---
--- * 'tsssResponseTimeHistogram' - The response time histogram for the selected entities.
---
--- * 'tsssEdgeSummaryStatistics' - Undocumented member.
---
--- * 'tsssServiceForecastStatistics' - The forecasted high and low fault count values.
---
--- * 'tsssTimestamp' - Timestamp of the window for which statistics are aggregated.
-timeSeriesServiceStatistics ::
+-- * 'edgeSummaryStatistics' - Undocumented field.
+-- * 'responseTimeHistogram' - The response time histogram for the selected entities.
+-- * 'serviceForecastStatistics' - The forecasted high and low fault count values.
+-- * 'serviceSummaryStatistics' - Undocumented field.
+-- * 'timestamp' - Timestamp of the window for which statistics are aggregated.
+mkTimeSeriesServiceStatistics ::
   TimeSeriesServiceStatistics
-timeSeriesServiceStatistics =
+mkTimeSeriesServiceStatistics =
   TimeSeriesServiceStatistics'
-    { _tsssServiceSummaryStatistics =
-        Nothing,
-      _tsssResponseTimeHistogram = Nothing,
-      _tsssEdgeSummaryStatistics = Nothing,
-      _tsssServiceForecastStatistics = Nothing,
-      _tsssTimestamp = Nothing
+    { serviceSummaryStatistics =
+        Lude.Nothing,
+      responseTimeHistogram = Lude.Nothing,
+      edgeSummaryStatistics = Lude.Nothing,
+      serviceForecastStatistics = Lude.Nothing,
+      timestamp = Lude.Nothing
     }
 
--- | Undocumented member.
-tsssServiceSummaryStatistics :: Lens' TimeSeriesServiceStatistics (Maybe ServiceStatistics)
-tsssServiceSummaryStatistics = lens _tsssServiceSummaryStatistics (\s a -> s {_tsssServiceSummaryStatistics = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'serviceSummaryStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsssServiceSummaryStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Lude.Maybe ServiceStatistics)
+tsssServiceSummaryStatistics = Lens.lens (serviceSummaryStatistics :: TimeSeriesServiceStatistics -> Lude.Maybe ServiceStatistics) (\s a -> s {serviceSummaryStatistics = a} :: TimeSeriesServiceStatistics)
+{-# DEPRECATED tsssServiceSummaryStatistics "Use generic-lens or generic-optics with 'serviceSummaryStatistics' instead." #-}
 
 -- | The response time histogram for the selected entities.
-tsssResponseTimeHistogram :: Lens' TimeSeriesServiceStatistics [HistogramEntry]
-tsssResponseTimeHistogram = lens _tsssResponseTimeHistogram (\s a -> s {_tsssResponseTimeHistogram = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'responseTimeHistogram' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsssResponseTimeHistogram :: Lens.Lens' TimeSeriesServiceStatistics (Lude.Maybe [HistogramEntry])
+tsssResponseTimeHistogram = Lens.lens (responseTimeHistogram :: TimeSeriesServiceStatistics -> Lude.Maybe [HistogramEntry]) (\s a -> s {responseTimeHistogram = a} :: TimeSeriesServiceStatistics)
+{-# DEPRECATED tsssResponseTimeHistogram "Use generic-lens or generic-optics with 'responseTimeHistogram' instead." #-}
 
--- | Undocumented member.
-tsssEdgeSummaryStatistics :: Lens' TimeSeriesServiceStatistics (Maybe EdgeStatistics)
-tsssEdgeSummaryStatistics = lens _tsssEdgeSummaryStatistics (\s a -> s {_tsssEdgeSummaryStatistics = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'edgeSummaryStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsssEdgeSummaryStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Lude.Maybe EdgeStatistics)
+tsssEdgeSummaryStatistics = Lens.lens (edgeSummaryStatistics :: TimeSeriesServiceStatistics -> Lude.Maybe EdgeStatistics) (\s a -> s {edgeSummaryStatistics = a} :: TimeSeriesServiceStatistics)
+{-# DEPRECATED tsssEdgeSummaryStatistics "Use generic-lens or generic-optics with 'edgeSummaryStatistics' instead." #-}
 
 -- | The forecasted high and low fault count values.
-tsssServiceForecastStatistics :: Lens' TimeSeriesServiceStatistics (Maybe ForecastStatistics)
-tsssServiceForecastStatistics = lens _tsssServiceForecastStatistics (\s a -> s {_tsssServiceForecastStatistics = a})
+--
+-- /Note:/ Consider using 'serviceForecastStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsssServiceForecastStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Lude.Maybe ForecastStatistics)
+tsssServiceForecastStatistics = Lens.lens (serviceForecastStatistics :: TimeSeriesServiceStatistics -> Lude.Maybe ForecastStatistics) (\s a -> s {serviceForecastStatistics = a} :: TimeSeriesServiceStatistics)
+{-# DEPRECATED tsssServiceForecastStatistics "Use generic-lens or generic-optics with 'serviceForecastStatistics' instead." #-}
 
 -- | Timestamp of the window for which statistics are aggregated.
-tsssTimestamp :: Lens' TimeSeriesServiceStatistics (Maybe UTCTime)
-tsssTimestamp = lens _tsssTimestamp (\s a -> s {_tsssTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsssTimestamp :: Lens.Lens' TimeSeriesServiceStatistics (Lude.Maybe Lude.Timestamp)
+tsssTimestamp = Lens.lens (timestamp :: TimeSeriesServiceStatistics -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: TimeSeriesServiceStatistics)
+{-# DEPRECATED tsssTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance FromJSON TimeSeriesServiceStatistics where
+instance Lude.FromJSON TimeSeriesServiceStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "TimeSeriesServiceStatistics"
       ( \x ->
           TimeSeriesServiceStatistics'
-            <$> (x .:? "ServiceSummaryStatistics")
-            <*> (x .:? "ResponseTimeHistogram" .!= mempty)
-            <*> (x .:? "EdgeSummaryStatistics")
-            <*> (x .:? "ServiceForecastStatistics")
-            <*> (x .:? "Timestamp")
+            Lude.<$> (x Lude..:? "ServiceSummaryStatistics")
+            Lude.<*> (x Lude..:? "ResponseTimeHistogram" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "EdgeSummaryStatistics")
+            Lude.<*> (x Lude..:? "ServiceForecastStatistics")
+            Lude.<*> (x Lude..:? "Timestamp")
       )
-
-instance Hashable TimeSeriesServiceStatistics
-
-instance NFData TimeSeriesServiceStatistics

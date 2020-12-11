@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.StorageClassAnalysisDataExport where
+module Network.AWS.S3.Types.StorageClassAnalysisDataExport
+  ( StorageClassAnalysisDataExport (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStorageClassAnalysisDataExport,
+
+    -- * Lenses
+    scadeOutputSchemaVersion,
+    scadeDestination,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsExportDestination
 import Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion
 
 -- | Container for data related to the storage class analysis for an Amazon S3 bucket for export.
 --
---
---
--- /See:/ 'storageClassAnalysisDataExport' smart constructor.
+-- /See:/ 'mkStorageClassAnalysisDataExport' smart constructor.
 data StorageClassAnalysisDataExport = StorageClassAnalysisDataExport'
-  { _scadeOutputSchemaVersion ::
-      !StorageClassAnalysisSchemaVersion,
-    _scadeDestination ::
-      !AnalyticsExportDestination
+  { outputSchemaVersion ::
+      StorageClassAnalysisSchemaVersion,
+    destination ::
+      AnalyticsExportDestination
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageClassAnalysisDataExport' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scadeOutputSchemaVersion' - The version of the output schema to use when exporting data. Must be @V_1@ .
---
--- * 'scadeDestination' - The place to store the data for an analysis.
-storageClassAnalysisDataExport ::
-  -- | 'scadeOutputSchemaVersion'
+-- * 'destination' - The place to store the data for an analysis.
+-- * 'outputSchemaVersion' - The version of the output schema to use when exporting data. Must be @V_1@ .
+mkStorageClassAnalysisDataExport ::
+  -- | 'outputSchemaVersion'
   StorageClassAnalysisSchemaVersion ->
-  -- | 'scadeDestination'
+  -- | 'destination'
   AnalyticsExportDestination ->
   StorageClassAnalysisDataExport
-storageClassAnalysisDataExport pOutputSchemaVersion_ pDestination_ =
-  StorageClassAnalysisDataExport'
-    { _scadeOutputSchemaVersion =
-        pOutputSchemaVersion_,
-      _scadeDestination = pDestination_
-    }
+mkStorageClassAnalysisDataExport
+  pOutputSchemaVersion_
+  pDestination_ =
+    StorageClassAnalysisDataExport'
+      { outputSchemaVersion =
+          pOutputSchemaVersion_,
+        destination = pDestination_
+      }
 
 -- | The version of the output schema to use when exporting data. Must be @V_1@ .
-scadeOutputSchemaVersion :: Lens' StorageClassAnalysisDataExport StorageClassAnalysisSchemaVersion
-scadeOutputSchemaVersion = lens _scadeOutputSchemaVersion (\s a -> s {_scadeOutputSchemaVersion = a})
+--
+-- /Note:/ Consider using 'outputSchemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scadeOutputSchemaVersion :: Lens.Lens' StorageClassAnalysisDataExport StorageClassAnalysisSchemaVersion
+scadeOutputSchemaVersion = Lens.lens (outputSchemaVersion :: StorageClassAnalysisDataExport -> StorageClassAnalysisSchemaVersion) (\s a -> s {outputSchemaVersion = a} :: StorageClassAnalysisDataExport)
+{-# DEPRECATED scadeOutputSchemaVersion "Use generic-lens or generic-optics with 'outputSchemaVersion' instead." #-}
 
 -- | The place to store the data for an analysis.
-scadeDestination :: Lens' StorageClassAnalysisDataExport AnalyticsExportDestination
-scadeDestination = lens _scadeDestination (\s a -> s {_scadeDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scadeDestination :: Lens.Lens' StorageClassAnalysisDataExport AnalyticsExportDestination
+scadeDestination = Lens.lens (destination :: StorageClassAnalysisDataExport -> AnalyticsExportDestination) (\s a -> s {destination = a} :: StorageClassAnalysisDataExport)
+{-# DEPRECATED scadeDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance FromXML StorageClassAnalysisDataExport where
+instance Lude.FromXML StorageClassAnalysisDataExport where
   parseXML x =
     StorageClassAnalysisDataExport'
-      <$> (x .@ "OutputSchemaVersion") <*> (x .@ "Destination")
+      Lude.<$> (x Lude..@ "OutputSchemaVersion")
+      Lude.<*> (x Lude..@ "Destination")
 
-instance Hashable StorageClassAnalysisDataExport
-
-instance NFData StorageClassAnalysisDataExport
-
-instance ToXML StorageClassAnalysisDataExport where
+instance Lude.ToXML StorageClassAnalysisDataExport where
   toXML StorageClassAnalysisDataExport' {..} =
-    mconcat
-      [ "OutputSchemaVersion" @= _scadeOutputSchemaVersion,
-        "Destination" @= _scadeDestination
+    Lude.mconcat
+      [ "OutputSchemaVersion" Lude.@= outputSchemaVersion,
+        "Destination" Lude.@= destination
       ]

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,113 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.TemplateVersionResponse where
+module Network.AWS.Pinpoint.Types.TemplateVersionResponse
+  ( TemplateVersionResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTemplateVersionResponse,
+
+    -- * Lenses
+    tvTemplateDescription,
+    tvDefaultSubstitutions,
+    tvVersion,
+    tvLastModifiedDate,
+    tvCreationDate,
+    tvTemplateName,
+    tvTemplateType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about a specific version of a message template.
 --
---
---
--- /See:/ 'templateVersionResponse' smart constructor.
+-- /See:/ 'mkTemplateVersionResponse' smart constructor.
 data TemplateVersionResponse = TemplateVersionResponse'
-  { _tvTemplateDescription ::
-      !(Maybe Text),
-    _tvDefaultSubstitutions :: !(Maybe Text),
-    _tvVersion :: !(Maybe Text),
-    _tvLastModifiedDate :: !Text,
-    _tvCreationDate :: !Text,
-    _tvTemplateName :: !Text,
-    _tvTemplateType :: !Text
+  { templateDescription ::
+      Lude.Maybe Lude.Text,
+    defaultSubstitutions ::
+      Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    lastModifiedDate :: Lude.Text,
+    creationDate :: Lude.Text,
+    templateName :: Lude.Text,
+    templateType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemplateVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tvTemplateDescription' - The custom description of the version of the message template.
---
--- * 'tvDefaultSubstitutions' - A JSON object that specifies the default values that are used for message variables in the version of the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
---
--- * 'tvVersion' - The unique identifier for the version of the message template. This value is an integer that Amazon Pinpoint automatically increments and assigns to each new version of a template.
---
--- * 'tvLastModifiedDate' - The date, in ISO 8601 format, when the version of the message template was last modified.
---
--- * 'tvCreationDate' - The date, in ISO 8601 format, when the version of the message template was created.
---
--- * 'tvTemplateName' - The name of the message template.
---
--- * 'tvTemplateType' - The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, and VOICE.
-templateVersionResponse ::
-  -- | 'tvLastModifiedDate'
-  Text ->
-  -- | 'tvCreationDate'
-  Text ->
-  -- | 'tvTemplateName'
-  Text ->
-  -- | 'tvTemplateType'
-  Text ->
+-- * 'creationDate' - The date, in ISO 8601 format, when the version of the message template was created.
+-- * 'defaultSubstitutions' - A JSON object that specifies the default values that are used for message variables in the version of the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
+-- * 'lastModifiedDate' - The date, in ISO 8601 format, when the version of the message template was last modified.
+-- * 'templateDescription' - The custom description of the version of the message template.
+-- * 'templateName' - The name of the message template.
+-- * 'templateType' - The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, and VOICE.
+-- * 'version' - The unique identifier for the version of the message template. This value is an integer that Amazon Pinpoint automatically increments and assigns to each new version of a template.
+mkTemplateVersionResponse ::
+  -- | 'lastModifiedDate'
+  Lude.Text ->
+  -- | 'creationDate'
+  Lude.Text ->
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'templateType'
+  Lude.Text ->
   TemplateVersionResponse
-templateVersionResponse
+mkTemplateVersionResponse
   pLastModifiedDate_
   pCreationDate_
   pTemplateName_
   pTemplateType_ =
     TemplateVersionResponse'
-      { _tvTemplateDescription = Nothing,
-        _tvDefaultSubstitutions = Nothing,
-        _tvVersion = Nothing,
-        _tvLastModifiedDate = pLastModifiedDate_,
-        _tvCreationDate = pCreationDate_,
-        _tvTemplateName = pTemplateName_,
-        _tvTemplateType = pTemplateType_
+      { templateDescription = Lude.Nothing,
+        defaultSubstitutions = Lude.Nothing,
+        version = Lude.Nothing,
+        lastModifiedDate = pLastModifiedDate_,
+        creationDate = pCreationDate_,
+        templateName = pTemplateName_,
+        templateType = pTemplateType_
       }
 
 -- | The custom description of the version of the message template.
-tvTemplateDescription :: Lens' TemplateVersionResponse (Maybe Text)
-tvTemplateDescription = lens _tvTemplateDescription (\s a -> s {_tvTemplateDescription = a})
+--
+-- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvTemplateDescription :: Lens.Lens' TemplateVersionResponse (Lude.Maybe Lude.Text)
+tvTemplateDescription = Lens.lens (templateDescription :: TemplateVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateDescription = a} :: TemplateVersionResponse)
+{-# DEPRECATED tvTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
 
 -- | A JSON object that specifies the default values that are used for message variables in the version of the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
-tvDefaultSubstitutions :: Lens' TemplateVersionResponse (Maybe Text)
-tvDefaultSubstitutions = lens _tvDefaultSubstitutions (\s a -> s {_tvDefaultSubstitutions = a})
+--
+-- /Note:/ Consider using 'defaultSubstitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvDefaultSubstitutions :: Lens.Lens' TemplateVersionResponse (Lude.Maybe Lude.Text)
+tvDefaultSubstitutions = Lens.lens (defaultSubstitutions :: TemplateVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultSubstitutions = a} :: TemplateVersionResponse)
+{-# DEPRECATED tvDefaultSubstitutions "Use generic-lens or generic-optics with 'defaultSubstitutions' instead." #-}
 
 -- | The unique identifier for the version of the message template. This value is an integer that Amazon Pinpoint automatically increments and assigns to each new version of a template.
-tvVersion :: Lens' TemplateVersionResponse (Maybe Text)
-tvVersion = lens _tvVersion (\s a -> s {_tvVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvVersion :: Lens.Lens' TemplateVersionResponse (Lude.Maybe Lude.Text)
+tvVersion = Lens.lens (version :: TemplateVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: TemplateVersionResponse)
+{-# DEPRECATED tvVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The date, in ISO 8601 format, when the version of the message template was last modified.
-tvLastModifiedDate :: Lens' TemplateVersionResponse Text
-tvLastModifiedDate = lens _tvLastModifiedDate (\s a -> s {_tvLastModifiedDate = a})
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvLastModifiedDate :: Lens.Lens' TemplateVersionResponse Lude.Text
+tvLastModifiedDate = Lens.lens (lastModifiedDate :: TemplateVersionResponse -> Lude.Text) (\s a -> s {lastModifiedDate = a} :: TemplateVersionResponse)
+{-# DEPRECATED tvLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The date, in ISO 8601 format, when the version of the message template was created.
-tvCreationDate :: Lens' TemplateVersionResponse Text
-tvCreationDate = lens _tvCreationDate (\s a -> s {_tvCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvCreationDate :: Lens.Lens' TemplateVersionResponse Lude.Text
+tvCreationDate = Lens.lens (creationDate :: TemplateVersionResponse -> Lude.Text) (\s a -> s {creationDate = a} :: TemplateVersionResponse)
+{-# DEPRECATED tvCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The name of the message template.
-tvTemplateName :: Lens' TemplateVersionResponse Text
-tvTemplateName = lens _tvTemplateName (\s a -> s {_tvTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvTemplateName :: Lens.Lens' TemplateVersionResponse Lude.Text
+tvTemplateName = Lens.lens (templateName :: TemplateVersionResponse -> Lude.Text) (\s a -> s {templateName = a} :: TemplateVersionResponse)
+{-# DEPRECATED tvTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, and VOICE.
-tvTemplateType :: Lens' TemplateVersionResponse Text
-tvTemplateType = lens _tvTemplateType (\s a -> s {_tvTemplateType = a})
+--
+-- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvTemplateType :: Lens.Lens' TemplateVersionResponse Lude.Text
+tvTemplateType = Lens.lens (templateType :: TemplateVersionResponse -> Lude.Text) (\s a -> s {templateType = a} :: TemplateVersionResponse)
+{-# DEPRECATED tvTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
 
-instance FromJSON TemplateVersionResponse where
+instance Lude.FromJSON TemplateVersionResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "TemplateVersionResponse"
       ( \x ->
           TemplateVersionResponse'
-            <$> (x .:? "TemplateDescription")
-            <*> (x .:? "DefaultSubstitutions")
-            <*> (x .:? "Version")
-            <*> (x .: "LastModifiedDate")
-            <*> (x .: "CreationDate")
-            <*> (x .: "TemplateName")
-            <*> (x .: "TemplateType")
+            Lude.<$> (x Lude..:? "TemplateDescription")
+            Lude.<*> (x Lude..:? "DefaultSubstitutions")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..: "LastModifiedDate")
+            Lude.<*> (x Lude..: "CreationDate")
+            Lude.<*> (x Lude..: "TemplateName")
+            Lude.<*> (x Lude..: "TemplateType")
       )
-
-instance Hashable TemplateVersionResponse
-
-instance NFData TemplateVersionResponse

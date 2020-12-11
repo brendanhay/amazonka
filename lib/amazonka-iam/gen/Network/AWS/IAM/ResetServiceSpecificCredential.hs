@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,157 @@
 --
 -- Resets the password for a service-specific credential. The new password is AWS generated and cryptographically strong. It cannot be configured by the user. Resetting the password immediately invalidates the previous password associated with this user.
 module Network.AWS.IAM.ResetServiceSpecificCredential
-  ( -- * Creating a Request
-    resetServiceSpecificCredential,
-    ResetServiceSpecificCredential,
+  ( -- * Creating a request
+    ResetServiceSpecificCredential (..),
+    mkResetServiceSpecificCredential,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rsscUserName,
     rsscServiceSpecificCredentialId,
 
-    -- * Destructuring the Response
-    resetServiceSpecificCredentialResponse,
-    ResetServiceSpecificCredentialResponse,
+    -- * Destructuring the response
+    ResetServiceSpecificCredentialResponse (..),
+    mkResetServiceSpecificCredentialResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rsscrsServiceSpecificCredential,
     rsscrsResponseStatus,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'resetServiceSpecificCredential' smart constructor.
+-- | /See:/ 'mkResetServiceSpecificCredential' smart constructor.
 data ResetServiceSpecificCredential = ResetServiceSpecificCredential'
-  { _rsscUserName ::
-      !(Maybe Text),
-    _rsscServiceSpecificCredentialId ::
-      !Text
+  { userName ::
+      Lude.Maybe Lude.Text,
+    serviceSpecificCredentialId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetServiceSpecificCredential' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'serviceSpecificCredentialId' - The unique identifier of the service-specific credential.
 --
--- * 'rsscUserName' - The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+-- * 'userName' - The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
 --
--- * 'rsscServiceSpecificCredentialId' - The unique identifier of the service-specific credential. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-resetServiceSpecificCredential ::
-  -- | 'rsscServiceSpecificCredentialId'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkResetServiceSpecificCredential ::
+  -- | 'serviceSpecificCredentialId'
+  Lude.Text ->
   ResetServiceSpecificCredential
-resetServiceSpecificCredential pServiceSpecificCredentialId_ =
+mkResetServiceSpecificCredential pServiceSpecificCredentialId_ =
   ResetServiceSpecificCredential'
-    { _rsscUserName = Nothing,
-      _rsscServiceSpecificCredentialId =
-        pServiceSpecificCredentialId_
+    { userName = Lude.Nothing,
+      serviceSpecificCredentialId = pServiceSpecificCredentialId_
     }
 
--- | The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-rsscUserName :: Lens' ResetServiceSpecificCredential (Maybe Text)
-rsscUserName = lens _rsscUserName (\s a -> s {_rsscUserName = a})
+-- | The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsscUserName :: Lens.Lens' ResetServiceSpecificCredential (Lude.Maybe Lude.Text)
+rsscUserName = Lens.lens (userName :: ResetServiceSpecificCredential -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: ResetServiceSpecificCredential)
+{-# DEPRECATED rsscUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | The unique identifier of the service-specific credential. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
-rsscServiceSpecificCredentialId :: Lens' ResetServiceSpecificCredential Text
-rsscServiceSpecificCredentialId = lens _rsscServiceSpecificCredentialId (\s a -> s {_rsscServiceSpecificCredentialId = a})
+-- | The unique identifier of the service-specific credential.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+--
+-- /Note:/ Consider using 'serviceSpecificCredentialId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsscServiceSpecificCredentialId :: Lens.Lens' ResetServiceSpecificCredential Lude.Text
+rsscServiceSpecificCredentialId = Lens.lens (serviceSpecificCredentialId :: ResetServiceSpecificCredential -> Lude.Text) (\s a -> s {serviceSpecificCredentialId = a} :: ResetServiceSpecificCredential)
+{-# DEPRECATED rsscServiceSpecificCredentialId "Use generic-lens or generic-optics with 'serviceSpecificCredentialId' instead." #-}
 
-instance AWSRequest ResetServiceSpecificCredential where
+instance Lude.AWSRequest ResetServiceSpecificCredential where
   type
     Rs ResetServiceSpecificCredential =
       ResetServiceSpecificCredentialResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ResetServiceSpecificCredentialResult"
       ( \s h x ->
           ResetServiceSpecificCredentialResponse'
-            <$> (x .@? "ServiceSpecificCredential") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "ServiceSpecificCredential")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResetServiceSpecificCredential
+instance Lude.ToHeaders ResetServiceSpecificCredential where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ResetServiceSpecificCredential
+instance Lude.ToPath ResetServiceSpecificCredential where
+  toPath = Lude.const "/"
 
-instance ToHeaders ResetServiceSpecificCredential where
-  toHeaders = const mempty
-
-instance ToPath ResetServiceSpecificCredential where
-  toPath = const "/"
-
-instance ToQuery ResetServiceSpecificCredential where
+instance Lude.ToQuery ResetServiceSpecificCredential where
   toQuery ResetServiceSpecificCredential' {..} =
-    mconcat
-      [ "Action" =: ("ResetServiceSpecificCredential" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _rsscUserName,
-        "ServiceSpecificCredentialId" =: _rsscServiceSpecificCredentialId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("ResetServiceSpecificCredential" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "ServiceSpecificCredentialId" Lude.=: serviceSpecificCredentialId
       ]
 
--- | /See:/ 'resetServiceSpecificCredentialResponse' smart constructor.
+-- | /See:/ 'mkResetServiceSpecificCredentialResponse' smart constructor.
 data ResetServiceSpecificCredentialResponse = ResetServiceSpecificCredentialResponse'
-  { _rsscrsServiceSpecificCredential ::
-      !( Maybe
-           ServiceSpecificCredential
-       ),
-    _rsscrsResponseStatus ::
-      !Int
+  { serviceSpecificCredential ::
+      Lude.Maybe
+        ServiceSpecificCredential,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetServiceSpecificCredentialResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'responseStatus' - The response status code.
+-- * 'serviceSpecificCredential' - A structure with details about the updated service-specific credential, including the new password.
 --
--- * 'rsscrsServiceSpecificCredential' - A structure with details about the updated service-specific credential, including the new password. /Important:/ This is the __only__ time that you can access the password. You cannot recover the password later, but you can reset it again.
---
--- * 'rsscrsResponseStatus' - -- | The response status code.
-resetServiceSpecificCredentialResponse ::
-  -- | 'rsscrsResponseStatus'
-  Int ->
+-- /Important:/ This is the __only__ time that you can access the password. You cannot recover the password later, but you can reset it again.
+mkResetServiceSpecificCredentialResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResetServiceSpecificCredentialResponse
-resetServiceSpecificCredentialResponse pResponseStatus_ =
+mkResetServiceSpecificCredentialResponse pResponseStatus_ =
   ResetServiceSpecificCredentialResponse'
-    { _rsscrsServiceSpecificCredential =
-        Nothing,
-      _rsscrsResponseStatus = pResponseStatus_
+    { serviceSpecificCredential =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | A structure with details about the updated service-specific credential, including the new password. /Important:/ This is the __only__ time that you can access the password. You cannot recover the password later, but you can reset it again.
-rsscrsServiceSpecificCredential :: Lens' ResetServiceSpecificCredentialResponse (Maybe ServiceSpecificCredential)
-rsscrsServiceSpecificCredential = lens _rsscrsServiceSpecificCredential (\s a -> s {_rsscrsServiceSpecificCredential = a})
+-- | A structure with details about the updated service-specific credential, including the new password.
+--
+-- /Important:/ This is the __only__ time that you can access the password. You cannot recover the password later, but you can reset it again.
+--
+-- /Note:/ Consider using 'serviceSpecificCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsscrsServiceSpecificCredential :: Lens.Lens' ResetServiceSpecificCredentialResponse (Lude.Maybe ServiceSpecificCredential)
+rsscrsServiceSpecificCredential = Lens.lens (serviceSpecificCredential :: ResetServiceSpecificCredentialResponse -> Lude.Maybe ServiceSpecificCredential) (\s a -> s {serviceSpecificCredential = a} :: ResetServiceSpecificCredentialResponse)
+{-# DEPRECATED rsscrsServiceSpecificCredential "Use generic-lens or generic-optics with 'serviceSpecificCredential' instead." #-}
 
--- | -- | The response status code.
-rsscrsResponseStatus :: Lens' ResetServiceSpecificCredentialResponse Int
-rsscrsResponseStatus = lens _rsscrsResponseStatus (\s a -> s {_rsscrsResponseStatus = a})
-
-instance NFData ResetServiceSpecificCredentialResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsscrsResponseStatus :: Lens.Lens' ResetServiceSpecificCredentialResponse Lude.Int
+rsscrsResponseStatus = Lens.lens (responseStatus :: ResetServiceSpecificCredentialResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetServiceSpecificCredentialResponse)
+{-# DEPRECATED rsscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

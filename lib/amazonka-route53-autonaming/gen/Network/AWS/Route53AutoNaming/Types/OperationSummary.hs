@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.OperationSummary where
+module Network.AWS.Route53AutoNaming.Types.OperationSummary
+  ( OperationSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOperationSummary,
+
+    -- * Lenses
+    osStatus,
+    osId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53AutoNaming.Types.OperationStatus
 
 -- | A complex type that contains information about an operation that matches the criteria that you specified in a <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html ListOperations> request.
 --
---
---
--- /See:/ 'operationSummary' smart constructor.
+-- /See:/ 'mkOperationSummary' smart constructor.
 data OperationSummary = OperationSummary'
-  { _osStatus ::
-      !(Maybe OperationStatus),
-    _osId :: !(Maybe Text)
+  { status ::
+      Lude.Maybe OperationStatus,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OperationSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'id' - The ID for an operation.
+-- * 'status' - The status of the operation. Values include the following:
 --
--- * 'osStatus' - The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : AWS Cloud Map is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
 --
--- * 'osId' - The ID for an operation.
-operationSummary ::
+--     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
+--
+--
+--     * __PENDING__ : AWS Cloud Map is performing the operation.
+--
+--
+--     * __SUCCESS__ : The operation succeeded.
+--
+--
+--     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+mkOperationSummary ::
   OperationSummary
-operationSummary =
-  OperationSummary' {_osStatus = Nothing, _osId = Nothing}
+mkOperationSummary =
+  OperationSummary' {status = Lude.Nothing, id = Lude.Nothing}
 
--- | The status of the operation. Values include the following:     * __SUBMITTED__ : This is the initial state immediately after you submit a request.     * __PENDING__ : AWS Cloud Map is performing the operation.     * __SUCCESS__ : The operation succeeded.     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
-osStatus :: Lens' OperationSummary (Maybe OperationStatus)
-osStatus = lens _osStatus (\s a -> s {_osStatus = a})
+-- | The status of the operation. Values include the following:
+--
+--
+--     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
+--
+--
+--     * __PENDING__ : AWS Cloud Map is performing the operation.
+--
+--
+--     * __SUCCESS__ : The operation succeeded.
+--
+--
+--     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osStatus :: Lens.Lens' OperationSummary (Lude.Maybe OperationStatus)
+osStatus = Lens.lens (status :: OperationSummary -> Lude.Maybe OperationStatus) (\s a -> s {status = a} :: OperationSummary)
+{-# DEPRECATED osStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID for an operation.
-osId :: Lens' OperationSummary (Maybe Text)
-osId = lens _osId (\s a -> s {_osId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osId :: Lens.Lens' OperationSummary (Lude.Maybe Lude.Text)
+osId = Lens.lens (id :: OperationSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: OperationSummary)
+{-# DEPRECATED osId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON OperationSummary where
+instance Lude.FromJSON OperationSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "OperationSummary"
-      (\x -> OperationSummary' <$> (x .:? "Status") <*> (x .:? "Id"))
-
-instance Hashable OperationSummary
-
-instance NFData OperationSummary
+      ( \x ->
+          OperationSummary'
+            Lude.<$> (x Lude..:? "Status") Lude.<*> (x Lude..:? "Id")
+      )

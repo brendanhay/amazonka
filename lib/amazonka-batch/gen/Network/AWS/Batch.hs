@@ -13,11 +13,10 @@
 --
 -- AWS Batch enables you to run batch computing workloads on the AWS Cloud. Batch computing is a common way for developers, scientists, and engineers to access large amounts of compute resources, and AWS Batch removes the undifferentiated heavy lifting of configuring and managing the required infrastructure. AWS Batch will be familiar to users of traditional batch computing software. This service can efficiently provision resources in response to jobs submitted in order to eliminate capacity constraints, reduce compute costs, and deliver results quickly.
 --
---
 -- As a fully managed service, AWS Batch enables developers, scientists, and engineers to run batch computing workloads of any scale. AWS Batch automatically provisions compute resources and optimizes the workload distribution based on the quantity and scale of the workloads. With AWS Batch, there is no need to install or manage batch computing software, which allows you to focus on analyzing results and solving problems. AWS Batch reduces operational complexities, saves time, and reduces costs, which makes it easy for developers, scientists, and engineers to run their batch jobs in the AWS Cloud.
 module Network.AWS.Batch
-  ( -- * Service Configuration
-    batch,
+  ( -- * Service configuration
+    batchService,
 
     -- * Errors
     -- $errors
@@ -130,26 +129,26 @@ module Network.AWS.Batch
     RetryAction (..),
 
     -- ** ArrayProperties
-    ArrayProperties,
-    arrayProperties,
+    ArrayProperties (..),
+    mkArrayProperties,
     apSize,
 
     -- ** ArrayPropertiesDetail
-    ArrayPropertiesDetail,
-    arrayPropertiesDetail,
+    ArrayPropertiesDetail (..),
+    mkArrayPropertiesDetail,
     apdSize,
     apdStatusSummary,
     apdIndex,
 
     -- ** ArrayPropertiesSummary
-    ArrayPropertiesSummary,
-    arrayPropertiesSummary,
+    ArrayPropertiesSummary (..),
+    mkArrayPropertiesSummary,
     apsSize,
     apsIndex,
 
     -- ** AttemptContainerDetail
-    AttemptContainerDetail,
-    attemptContainerDetail,
+    AttemptContainerDetail (..),
+    mkAttemptContainerDetail,
     acdNetworkInterfaces,
     acdTaskARN,
     acdContainerInstanceARN,
@@ -158,16 +157,16 @@ module Network.AWS.Batch
     acdExitCode,
 
     -- ** AttemptDetail
-    AttemptDetail,
-    attemptDetail,
+    AttemptDetail (..),
+    mkAttemptDetail,
     adStoppedAt,
     adStartedAt,
     adContainer,
     adStatusReason,
 
     -- ** ComputeEnvironmentDetail
-    ComputeEnvironmentDetail,
-    computeEnvironmentDetail,
+    ComputeEnvironmentDetail (..),
+    mkComputeEnvironmentDetail,
     cedStatus,
     cedState,
     cedComputeResources,
@@ -180,14 +179,14 @@ module Network.AWS.Batch
     cedEcsClusterARN,
 
     -- ** ComputeEnvironmentOrder
-    ComputeEnvironmentOrder,
-    computeEnvironmentOrder,
+    ComputeEnvironmentOrder (..),
+    mkComputeEnvironmentOrder,
     ceoOrder,
     ceoComputeEnvironment,
 
     -- ** ComputeResource
-    ComputeResource,
-    computeResource,
+    ComputeResource (..),
+    mkComputeResource,
     crSecurityGroupIds,
     crEc2KeyPair,
     crEc2Configuration,
@@ -207,15 +206,15 @@ module Network.AWS.Batch
     crInstanceRole,
 
     -- ** ComputeResourceUpdate
-    ComputeResourceUpdate,
-    computeResourceUpdate,
+    ComputeResourceUpdate (..),
+    mkComputeResourceUpdate,
     cruMinvCPUs,
     cruMaxvCPUs,
     cruDesiredvCPUs,
 
     -- ** ContainerDetail
-    ContainerDetail,
-    containerDetail,
+    ContainerDetail (..),
+    mkContainerDetail,
     cdImage,
     cdCommand,
     cdSecrets,
@@ -242,8 +241,8 @@ module Network.AWS.Batch
     cdVolumes,
 
     -- ** ContainerOverrides
-    ContainerOverrides,
-    containerOverrides,
+    ContainerOverrides (..),
+    mkContainerOverrides,
     coCommand,
     coEnvironment,
     coResourceRequirements,
@@ -252,8 +251,8 @@ module Network.AWS.Batch
     coVcpus,
 
     -- ** ContainerProperties
-    ContainerProperties,
-    containerProperties,
+    ContainerProperties (..),
+    mkContainerProperties,
     cpImage,
     cpCommand,
     cpSecrets,
@@ -274,61 +273,61 @@ module Network.AWS.Batch
     cpVolumes,
 
     -- ** ContainerSummary
-    ContainerSummary,
-    containerSummary,
+    ContainerSummary (..),
+    mkContainerSummary,
     csReason,
     csExitCode,
 
     -- ** Device
-    Device,
-    device,
+    Device (..),
+    mkDevice,
     dContainerPath,
     dPermissions,
     dHostPath,
 
     -- ** EC2Configuration
-    EC2Configuration,
-    ec2Configuration,
+    EC2Configuration (..),
+    mkEC2Configuration,
     ecImageIdOverride,
     ecImageType,
 
     -- ** EvaluateOnExit
-    EvaluateOnExit,
-    evaluateOnExit,
+    EvaluateOnExit (..),
+    mkEvaluateOnExit,
     eoeOnExitCode,
     eoeOnReason,
     eoeOnStatusReason,
     eoeAction,
 
     -- ** Host
-    Host,
-    host,
+    Host (..),
+    mkHost,
     hSourcePath,
 
     -- ** JobDefinition
-    JobDefinition,
-    jobDefinition,
-    jddStatus,
-    jddRetryStrategy,
-    jddParameters,
-    jddTimeout,
-    jddContainerProperties,
-    jddNodeProperties,
-    jddTags,
-    jddJobDefinitionName,
-    jddJobDefinitionARN,
-    jddRevision,
-    jddType,
+    JobDefinition (..),
+    mkJobDefinition,
+    jobStatus,
+    jobRetryStrategy,
+    jobParameters,
+    jobTimeout,
+    jobContainerProperties,
+    jobNodeProperties,
+    jobTags,
+    jobJobDefinitionName,
+    jobJobDefinitionARN,
+    jobRevision,
+    jobType,
 
     -- ** JobDependency
-    JobDependency,
-    jobDependency,
+    JobDependency (..),
+    mkJobDependency,
     jJobId,
     jType,
 
     -- ** JobDetail
-    JobDetail,
-    jobDetail,
+    JobDetail (..),
+    mkJobDetail,
     jdStoppedAt,
     jdJobARN,
     jdCreatedAt,
@@ -351,8 +350,8 @@ module Network.AWS.Batch
     jdJobDefinition,
 
     -- ** JobQueueDetail
-    JobQueueDetail,
-    jobQueueDetail,
+    JobQueueDetail (..),
+    mkJobQueueDetail,
     jqdStatus,
     jqdStatusReason,
     jqdTags,
@@ -363,8 +362,8 @@ module Network.AWS.Batch
     jqdComputeEnvironmentOrder,
 
     -- ** JobSummary
-    JobSummary,
-    jobSummary,
+    JobSummary (..),
+    mkJobSummary,
     jsStoppedAt,
     jsStatus,
     jsJobARN,
@@ -378,26 +377,26 @@ module Network.AWS.Batch
     jsJobName,
 
     -- ** JobTimeout
-    JobTimeout,
-    jobTimeout,
+    JobTimeout (..),
+    mkJobTimeout,
     jtAttemptDurationSeconds,
 
     -- ** KeyValuePair
-    KeyValuePair,
-    keyValuePair,
+    KeyValuePair (..),
+    mkKeyValuePair,
     kvpValue,
     kvpName,
 
     -- ** LaunchTemplateSpecification
-    LaunchTemplateSpecification,
-    launchTemplateSpecification,
+    LaunchTemplateSpecification (..),
+    mkLaunchTemplateSpecification,
     ltsLaunchTemplateName,
     ltsLaunchTemplateId,
     ltsVersion,
 
     -- ** LinuxParameters
-    LinuxParameters,
-    linuxParameters,
+    LinuxParameters (..),
+    mkLinuxParameters,
     lpSharedMemorySize,
     lpInitProcessEnabled,
     lpTmpfs,
@@ -406,101 +405,112 @@ module Network.AWS.Batch
     lpMaxSwap,
 
     -- ** LogConfiguration
-    LogConfiguration,
-    logConfiguration,
+    LogConfiguration (..),
+    mkLogConfiguration,
     lcOptions,
     lcSecretOptions,
     lcLogDriver,
 
     -- ** MountPoint
-    MountPoint,
-    mountPoint,
+    MountPoint (..),
+    mkMountPoint,
     mpContainerPath,
     mpSourceVolume,
     mpReadOnly,
 
     -- ** NetworkInterface
-    NetworkInterface,
-    networkInterface,
+    NetworkInterface (..),
+    mkNetworkInterface,
     niIpv6Address,
     niPrivateIPv4Address,
     niAttachmentId,
 
     -- ** NodeDetails
-    NodeDetails,
-    nodeDetails,
+    NodeDetails (..),
+    mkNodeDetails,
     ndNodeIndex,
     ndIsMainNode,
 
     -- ** NodeOverrides
-    NodeOverrides,
-    nodeOverrides,
+    NodeOverrides (..),
+    mkNodeOverrides,
     noNumNodes,
     noNodePropertyOverrides,
 
     -- ** NodeProperties
-    NodeProperties,
-    nodeProperties,
+    NodeProperties (..),
+    mkNodeProperties,
     npNumNodes,
     npMainNode,
     npNodeRangeProperties,
 
     -- ** NodePropertiesSummary
-    NodePropertiesSummary,
-    nodePropertiesSummary,
+    NodePropertiesSummary (..),
+    mkNodePropertiesSummary,
     npsNumNodes,
     npsNodeIndex,
     npsIsMainNode,
 
     -- ** NodePropertyOverride
-    NodePropertyOverride,
-    nodePropertyOverride,
+    NodePropertyOverride (..),
+    mkNodePropertyOverride,
     npoContainerOverrides,
     npoTargetNodes,
 
     -- ** NodeRangeProperty
-    NodeRangeProperty,
-    nodeRangeProperty,
+    NodeRangeProperty (..),
+    mkNodeRangeProperty,
     nrpContainer,
     nrpTargetNodes,
 
     -- ** ResourceRequirement
-    ResourceRequirement,
-    resourceRequirement,
+    ResourceRequirement (..),
+    mkResourceRequirement,
     rrValue,
     rrType,
 
     -- ** RetryStrategy
-    RetryStrategy,
-    retryStrategy,
+    RetryStrategy (..),
+    mkRetryStrategy,
     rsEvaluateOnExit,
     rsAttempts,
 
     -- ** Secret
-    Secret,
-    secret,
+    Secret (..),
+    mkSecret,
     sName,
     sValueFrom,
 
     -- ** Tmpfs
-    Tmpfs,
-    tmpfs,
+    Tmpfs (..),
+    mkTmpfs,
     tMountOptions,
     tContainerPath,
     tSize,
 
     -- ** Ulimit
-    Ulimit,
-    ulimit,
+    Ulimit (..),
+    mkUlimit,
     uHardLimit,
     uName,
     uSoftLimit,
 
     -- ** Volume
-    Volume,
-    volume,
+    Volume (..),
+    mkVolume,
     vName,
     vHost,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -525,6 +535,7 @@ import Network.AWS.Batch.UntagResource
 import Network.AWS.Batch.UpdateComputeEnvironment
 import Network.AWS.Batch.UpdateJobQueue
 import Network.AWS.Batch.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

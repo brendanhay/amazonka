@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.ConferenceProviderType where
+module Network.AWS.AlexaBusiness.Types.ConferenceProviderType
+  ( ConferenceProviderType
+      ( ConferenceProviderType',
+        Bluejeans,
+        Chime,
+        Custom,
+        Fuze,
+        GoogleHangouts,
+        Polycom,
+        Ringcentral,
+        SkypeForBusiness,
+        Webex,
+        Zoom
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConferenceProviderType
-  = Bluejeans
-  | Chime
-  | Custom
-  | Fuze
-  | GoogleHangouts
-  | Polycom
-  | Ringcentral
-  | SkypeForBusiness
-  | Webex
-  | Zoom
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConferenceProviderType = ConferenceProviderType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConferenceProviderType where
-  parser =
-    takeLowerText >>= \case
-      "bluejeans" -> pure Bluejeans
-      "chime" -> pure Chime
-      "custom" -> pure Custom
-      "fuze" -> pure Fuze
-      "google_hangouts" -> pure GoogleHangouts
-      "polycom" -> pure Polycom
-      "ringcentral" -> pure Ringcentral
-      "skype_for_business" -> pure SkypeForBusiness
-      "webex" -> pure Webex
-      "zoom" -> pure Zoom
-      e ->
-        fromTextError $
-          "Failure parsing ConferenceProviderType from value: '" <> e
-            <> "'. Accepted values: bluejeans, chime, custom, fuze, google_hangouts, polycom, ringcentral, skype_for_business, webex, zoom"
+pattern Bluejeans :: ConferenceProviderType
+pattern Bluejeans = ConferenceProviderType' "BLUEJEANS"
 
-instance ToText ConferenceProviderType where
-  toText = \case
-    Bluejeans -> "BLUEJEANS"
-    Chime -> "CHIME"
-    Custom -> "CUSTOM"
-    Fuze -> "FUZE"
-    GoogleHangouts -> "GOOGLE_HANGOUTS"
-    Polycom -> "POLYCOM"
-    Ringcentral -> "RINGCENTRAL"
-    SkypeForBusiness -> "SKYPE_FOR_BUSINESS"
-    Webex -> "WEBEX"
-    Zoom -> "ZOOM"
+pattern Chime :: ConferenceProviderType
+pattern Chime = ConferenceProviderType' "CHIME"
 
-instance Hashable ConferenceProviderType
+pattern Custom :: ConferenceProviderType
+pattern Custom = ConferenceProviderType' "CUSTOM"
 
-instance NFData ConferenceProviderType
+pattern Fuze :: ConferenceProviderType
+pattern Fuze = ConferenceProviderType' "FUZE"
 
-instance ToByteString ConferenceProviderType
+pattern GoogleHangouts :: ConferenceProviderType
+pattern GoogleHangouts = ConferenceProviderType' "GOOGLE_HANGOUTS"
 
-instance ToQuery ConferenceProviderType
+pattern Polycom :: ConferenceProviderType
+pattern Polycom = ConferenceProviderType' "POLYCOM"
 
-instance ToHeader ConferenceProviderType
+pattern Ringcentral :: ConferenceProviderType
+pattern Ringcentral = ConferenceProviderType' "RINGCENTRAL"
 
-instance ToJSON ConferenceProviderType where
-  toJSON = toJSONText
+pattern SkypeForBusiness :: ConferenceProviderType
+pattern SkypeForBusiness = ConferenceProviderType' "SKYPE_FOR_BUSINESS"
 
-instance FromJSON ConferenceProviderType where
-  parseJSON = parseJSONText "ConferenceProviderType"
+pattern Webex :: ConferenceProviderType
+pattern Webex = ConferenceProviderType' "WEBEX"
+
+pattern Zoom :: ConferenceProviderType
+pattern Zoom = ConferenceProviderType' "ZOOM"
+
+{-# COMPLETE
+  Bluejeans,
+  Chime,
+  Custom,
+  Fuze,
+  GoogleHangouts,
+  Polycom,
+  Ringcentral,
+  SkypeForBusiness,
+  Webex,
+  Zoom,
+  ConferenceProviderType'
+  #-}

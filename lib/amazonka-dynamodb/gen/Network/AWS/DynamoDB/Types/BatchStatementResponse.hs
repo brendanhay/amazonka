@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.BatchStatementResponse where
+module Network.AWS.DynamoDB.Types.BatchStatementResponse
+  ( BatchStatementResponse (..),
+
+    -- * Smart constructor
+    mkBatchStatementResponse,
+
+    -- * Lenses
+    bError,
+    bItem,
+    bTableName,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.AttributeValue
 import Network.AWS.DynamoDB.Types.BatchStatementError
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A PartiQL batch statement response..
 --
---
---
--- /See:/ 'batchStatementResponse' smart constructor.
+-- /See:/ 'mkBatchStatementResponse' smart constructor.
 data BatchStatementResponse = BatchStatementResponse'
-  { _bError ::
-      !(Maybe BatchStatementError),
-    _bItem ::
-      !(Maybe (Map Text (AttributeValue))),
-    _bTableName :: !(Maybe Text)
+  { error ::
+      Lude.Maybe BatchStatementError,
+    item ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (AttributeValue)),
+    tableName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStatementResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bError' - The error associated with a failed PartiQL batch statement.
---
--- * 'bItem' - A DynamoDB item associated with a BatchStatementResponse
---
--- * 'bTableName' - The table name associated with a failed PartiQL batch statement.
-batchStatementResponse ::
+-- * 'error' - The error associated with a failed PartiQL batch statement.
+-- * 'item' - A DynamoDB item associated with a BatchStatementResponse
+-- * 'tableName' - The table name associated with a failed PartiQL batch statement.
+mkBatchStatementResponse ::
   BatchStatementResponse
-batchStatementResponse =
+mkBatchStatementResponse =
   BatchStatementResponse'
-    { _bError = Nothing,
-      _bItem = Nothing,
-      _bTableName = Nothing
+    { error = Lude.Nothing,
+      item = Lude.Nothing,
+      tableName = Lude.Nothing
     }
 
 -- | The error associated with a failed PartiQL batch statement.
-bError :: Lens' BatchStatementResponse (Maybe BatchStatementError)
-bError = lens _bError (\s a -> s {_bError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bError :: Lens.Lens' BatchStatementResponse (Lude.Maybe BatchStatementError)
+bError = Lens.lens (error :: BatchStatementResponse -> Lude.Maybe BatchStatementError) (\s a -> s {error = a} :: BatchStatementResponse)
+{-# DEPRECATED bError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A DynamoDB item associated with a BatchStatementResponse
-bItem :: Lens' BatchStatementResponse (HashMap Text (AttributeValue))
-bItem = lens _bItem (\s a -> s {_bItem = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bItem :: Lens.Lens' BatchStatementResponse (Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)))
+bItem = Lens.lens (item :: BatchStatementResponse -> Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {item = a} :: BatchStatementResponse)
+{-# DEPRECATED bItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
 -- | The table name associated with a failed PartiQL batch statement.
-bTableName :: Lens' BatchStatementResponse (Maybe Text)
-bTableName = lens _bTableName (\s a -> s {_bTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bTableName :: Lens.Lens' BatchStatementResponse (Lude.Maybe Lude.Text)
+bTableName = Lens.lens (tableName :: BatchStatementResponse -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: BatchStatementResponse)
+{-# DEPRECATED bTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance FromJSON BatchStatementResponse where
+instance Lude.FromJSON BatchStatementResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchStatementResponse"
       ( \x ->
           BatchStatementResponse'
-            <$> (x .:? "Error")
-            <*> (x .:? "Item" .!= mempty)
-            <*> (x .:? "TableName")
+            Lude.<$> (x Lude..:? "Error")
+            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TableName")
       )
-
-instance Hashable BatchStatementResponse
-
-instance NFData BatchStatementResponse

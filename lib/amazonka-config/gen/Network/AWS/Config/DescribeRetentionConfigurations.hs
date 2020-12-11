@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Returns the details of one or more retention configurations. If the retention configuration name is not specified, this action returns the details for all the retention configurations for that account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeRetentionConfigurations
-  ( -- * Creating a Request
-    describeRetentionConfigurations,
-    DescribeRetentionConfigurations,
+  ( -- * Creating a request
+    DescribeRetentionConfigurations (..),
+    mkDescribeRetentionConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drcRetentionConfigurationNames,
     drcNextToken,
 
-    -- * Destructuring the Response
-    describeRetentionConfigurationsResponse,
-    DescribeRetentionConfigurationsResponse,
+    -- * Destructuring the response
+    DescribeRetentionConfigurationsResponse (..),
+    mkDescribeRetentionConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsRetentionConfigurations,
     drsNextToken,
     drsResponseStatus,
@@ -43,143 +36,161 @@ module Network.AWS.Config.DescribeRetentionConfigurations
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeRetentionConfigurations' smart constructor.
+-- | /See:/ 'mkDescribeRetentionConfigurations' smart constructor.
 data DescribeRetentionConfigurations = DescribeRetentionConfigurations'
-  { _drcRetentionConfigurationNames ::
-      !(Maybe [Text]),
-    _drcNextToken ::
-      !(Maybe Text)
+  { retentionConfigurationNames ::
+      Lude.Maybe [Lude.Text],
+    nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRetentionConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drcRetentionConfigurationNames' - A list of names of retention configurations for which you want details. If you do not specify a name, AWS Config returns details for all the retention configurations for that account.
---
--- * 'drcNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-describeRetentionConfigurations ::
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'retentionConfigurationNames' - A list of names of retention configurations for which you want details. If you do not specify a name, AWS Config returns details for all the retention configurations for that account.
+mkDescribeRetentionConfigurations ::
   DescribeRetentionConfigurations
-describeRetentionConfigurations =
+mkDescribeRetentionConfigurations =
   DescribeRetentionConfigurations'
-    { _drcRetentionConfigurationNames =
-        Nothing,
-      _drcNextToken = Nothing
+    { retentionConfigurationNames =
+        Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | A list of names of retention configurations for which you want details. If you do not specify a name, AWS Config returns details for all the retention configurations for that account.
-drcRetentionConfigurationNames :: Lens' DescribeRetentionConfigurations [Text]
-drcRetentionConfigurationNames = lens _drcRetentionConfigurationNames (\s a -> s {_drcRetentionConfigurationNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'retentionConfigurationNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcRetentionConfigurationNames :: Lens.Lens' DescribeRetentionConfigurations (Lude.Maybe [Lude.Text])
+drcRetentionConfigurationNames = Lens.lens (retentionConfigurationNames :: DescribeRetentionConfigurations -> Lude.Maybe [Lude.Text]) (\s a -> s {retentionConfigurationNames = a} :: DescribeRetentionConfigurations)
+{-# DEPRECATED drcRetentionConfigurationNames "Use generic-lens or generic-optics with 'retentionConfigurationNames' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-drcNextToken :: Lens' DescribeRetentionConfigurations (Maybe Text)
-drcNextToken = lens _drcNextToken (\s a -> s {_drcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcNextToken :: Lens.Lens' DescribeRetentionConfigurations (Lude.Maybe Lude.Text)
+drcNextToken = Lens.lens (nextToken :: DescribeRetentionConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeRetentionConfigurations)
+{-# DEPRECATED drcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager DescribeRetentionConfigurations where
+instance Page.AWSPager DescribeRetentionConfigurations where
   page rq rs
-    | stop (rs ^. drsNextToken) = Nothing
-    | stop (rs ^. drsRetentionConfigurations) = Nothing
-    | otherwise = Just $ rq & drcNextToken .~ rs ^. drsNextToken
+    | Page.stop (rs Lens.^. drsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. drsRetentionConfigurations) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& drcNextToken Lens..~ rs Lens.^. drsNextToken
 
-instance AWSRequest DescribeRetentionConfigurations where
+instance Lude.AWSRequest DescribeRetentionConfigurations where
   type
     Rs DescribeRetentionConfigurations =
       DescribeRetentionConfigurationsResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRetentionConfigurationsResponse'
-            <$> (x .?> "RetentionConfigurations" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RetentionConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRetentionConfigurations
-
-instance NFData DescribeRetentionConfigurations
-
-instance ToHeaders DescribeRetentionConfigurations where
+instance Lude.ToHeaders DescribeRetentionConfigurations where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribeRetentionConfigurations" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeRetentionConfigurations" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeRetentionConfigurations where
+instance Lude.ToJSON DescribeRetentionConfigurations where
   toJSON DescribeRetentionConfigurations' {..} =
-    object
-      ( catMaybes
-          [ ("RetentionConfigurationNames" .=)
-              <$> _drcRetentionConfigurationNames,
-            ("NextToken" .=) <$> _drcNextToken
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RetentionConfigurationNames" Lude..=)
+              Lude.<$> retentionConfigurationNames,
+            ("NextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
-instance ToPath DescribeRetentionConfigurations where
-  toPath = const "/"
+instance Lude.ToPath DescribeRetentionConfigurations where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeRetentionConfigurations where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeRetentionConfigurations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeRetentionConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeRetentionConfigurationsResponse' smart constructor.
 data DescribeRetentionConfigurationsResponse = DescribeRetentionConfigurationsResponse'
-  { _drsRetentionConfigurations ::
-      !( Maybe
-           [RetentionConfiguration]
-       ),
-    _drsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _drsResponseStatus ::
-      !Int
+  { retentionConfigurations ::
+      Lude.Maybe
+        [RetentionConfiguration],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRetentionConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsRetentionConfigurations' - Returns a retention configuration object.
---
--- * 'drsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeRetentionConfigurationsResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+-- * 'retentionConfigurations' - Returns a retention configuration object.
+mkDescribeRetentionConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRetentionConfigurationsResponse
-describeRetentionConfigurationsResponse pResponseStatus_ =
+mkDescribeRetentionConfigurationsResponse pResponseStatus_ =
   DescribeRetentionConfigurationsResponse'
-    { _drsRetentionConfigurations =
-        Nothing,
-      _drsNextToken = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { retentionConfigurations =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a retention configuration object.
-drsRetentionConfigurations :: Lens' DescribeRetentionConfigurationsResponse [RetentionConfiguration]
-drsRetentionConfigurations = lens _drsRetentionConfigurations (\s a -> s {_drsRetentionConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'retentionConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsRetentionConfigurations :: Lens.Lens' DescribeRetentionConfigurationsResponse (Lude.Maybe [RetentionConfiguration])
+drsRetentionConfigurations = Lens.lens (retentionConfigurations :: DescribeRetentionConfigurationsResponse -> Lude.Maybe [RetentionConfiguration]) (\s a -> s {retentionConfigurations = a} :: DescribeRetentionConfigurationsResponse)
+{-# DEPRECATED drsRetentionConfigurations "Use generic-lens or generic-optics with 'retentionConfigurations' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-drsNextToken :: Lens' DescribeRetentionConfigurationsResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\s a -> s {_drsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsNextToken :: Lens.Lens' DescribeRetentionConfigurationsResponse (Lude.Maybe Lude.Text)
+drsNextToken = Lens.lens (nextToken :: DescribeRetentionConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeRetentionConfigurationsResponse)
+{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeRetentionConfigurationsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeRetentionConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeRetentionConfigurationsResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeRetentionConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRetentionConfigurationsResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

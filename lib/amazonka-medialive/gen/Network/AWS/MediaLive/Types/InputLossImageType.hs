@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputLossImageType where
+module Network.AWS.MediaLive.Types.InputLossImageType
+  ( InputLossImageType
+      ( InputLossImageType',
+        Color,
+        Slate
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Input Loss Image Type
-data InputLossImageType
-  = Color
-  | Slate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputLossImageType = InputLossImageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputLossImageType where
-  parser =
-    takeLowerText >>= \case
-      "color" -> pure Color
-      "slate" -> pure Slate
-      e ->
-        fromTextError $
-          "Failure parsing InputLossImageType from value: '" <> e
-            <> "'. Accepted values: color, slate"
+pattern Color :: InputLossImageType
+pattern Color = InputLossImageType' "COLOR"
 
-instance ToText InputLossImageType where
-  toText = \case
-    Color -> "COLOR"
-    Slate -> "SLATE"
+pattern Slate :: InputLossImageType
+pattern Slate = InputLossImageType' "SLATE"
 
-instance Hashable InputLossImageType
-
-instance NFData InputLossImageType
-
-instance ToByteString InputLossImageType
-
-instance ToQuery InputLossImageType
-
-instance ToHeader InputLossImageType
-
-instance ToJSON InputLossImageType where
-  toJSON = toJSONText
-
-instance FromJSON InputLossImageType where
-  parseJSON = parseJSONText "InputLossImageType"
+{-# COMPLETE
+  Color,
+  Slate,
+  InputLossImageType'
+  #-}

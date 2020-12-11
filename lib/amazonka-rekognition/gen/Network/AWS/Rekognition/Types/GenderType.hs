@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.GenderType where
+module Network.AWS.Rekognition.Types.GenderType
+  ( GenderType
+      ( GenderType',
+        Female,
+        Male
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GenderType
-  = Female
-  | Male
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GenderType = GenderType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GenderType where
-  parser =
-    takeLowerText >>= \case
-      "female" -> pure Female
-      "male" -> pure Male
-      e ->
-        fromTextError $
-          "Failure parsing GenderType from value: '" <> e
-            <> "'. Accepted values: female, male"
+pattern Female :: GenderType
+pattern Female = GenderType' "Female"
 
-instance ToText GenderType where
-  toText = \case
-    Female -> "Female"
-    Male -> "Male"
+pattern Male :: GenderType
+pattern Male = GenderType' "Male"
 
-instance Hashable GenderType
-
-instance NFData GenderType
-
-instance ToByteString GenderType
-
-instance ToQuery GenderType
-
-instance ToHeader GenderType
-
-instance FromJSON GenderType where
-  parseJSON = parseJSONText "GenderType"
+{-# COMPLETE
+  Female,
+  Male,
+  GenderType'
+  #-}

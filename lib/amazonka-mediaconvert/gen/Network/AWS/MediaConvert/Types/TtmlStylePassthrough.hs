@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.TtmlStylePassthrough where
+module Network.AWS.MediaConvert.Types.TtmlStylePassthrough
+  ( TtmlStylePassthrough
+      ( TtmlStylePassthrough',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Pass through style and position information from a TTML-like input source (TTML, SMPTE-TT) to the TTML output.
-data TtmlStylePassthrough
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TtmlStylePassthrough = TtmlStylePassthrough' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TtmlStylePassthrough where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing TtmlStylePassthrough from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: TtmlStylePassthrough
+pattern Disabled = TtmlStylePassthrough' "DISABLED"
 
-instance ToText TtmlStylePassthrough where
-  toText = \case
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
+pattern Enabled :: TtmlStylePassthrough
+pattern Enabled = TtmlStylePassthrough' "ENABLED"
 
-instance Hashable TtmlStylePassthrough
-
-instance NFData TtmlStylePassthrough
-
-instance ToByteString TtmlStylePassthrough
-
-instance ToQuery TtmlStylePassthrough
-
-instance ToHeader TtmlStylePassthrough
-
-instance ToJSON TtmlStylePassthrough where
-  toJSON = toJSONText
-
-instance FromJSON TtmlStylePassthrough where
-  parseJSON = parseJSONText "TtmlStylePassthrough"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  TtmlStylePassthrough'
+  #-}

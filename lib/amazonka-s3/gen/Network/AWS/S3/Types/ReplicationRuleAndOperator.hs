@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ReplicationRuleAndOperator where
+module Network.AWS.S3.Types.ReplicationRuleAndOperator
+  ( ReplicationRuleAndOperator (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReplicationRuleAndOperator,
+
+    -- * Lenses
+    rraoPrefix,
+    rraoTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
 -- | A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter.
 --
---
 -- For example:
 --
 --     * If you specify both a @Prefix@ and a @Tag@ filter, wrap these filters in an @And@ tag.
+--
 --
 --     * If you specify a filter based on multiple tags, wrap the @Tag@ elements in an @And@ tag
 --
 --
 --
---
--- /See:/ 'replicationRuleAndOperator' smart constructor.
+-- /See:/ 'mkReplicationRuleAndOperator' smart constructor.
 data ReplicationRuleAndOperator = ReplicationRuleAndOperator'
-  { _rraoPrefix ::
-      !(Maybe Text),
-    _rraoTags :: !(Maybe [Tag])
+  { prefix ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationRuleAndOperator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rraoPrefix' - An object key name prefix that identifies the subset of objects to which the rule applies.
---
--- * 'rraoTags' - An array of tags containing key and value pairs.
-replicationRuleAndOperator ::
+-- * 'prefix' - An object key name prefix that identifies the subset of objects to which the rule applies.
+-- * 'tags' - An array of tags containing key and value pairs.
+mkReplicationRuleAndOperator ::
   ReplicationRuleAndOperator
-replicationRuleAndOperator =
+mkReplicationRuleAndOperator =
   ReplicationRuleAndOperator'
-    { _rraoPrefix = Nothing,
-      _rraoTags = Nothing
+    { prefix = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | An object key name prefix that identifies the subset of objects to which the rule applies.
-rraoPrefix :: Lens' ReplicationRuleAndOperator (Maybe Text)
-rraoPrefix = lens _rraoPrefix (\s a -> s {_rraoPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rraoPrefix :: Lens.Lens' ReplicationRuleAndOperator (Lude.Maybe Lude.Text)
+rraoPrefix = Lens.lens (prefix :: ReplicationRuleAndOperator -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ReplicationRuleAndOperator)
+{-# DEPRECATED rraoPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | An array of tags containing key and value pairs.
-rraoTags :: Lens' ReplicationRuleAndOperator [Tag]
-rraoTags = lens _rraoTags (\s a -> s {_rraoTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rraoTags :: Lens.Lens' ReplicationRuleAndOperator (Lude.Maybe [Tag])
+rraoTags = Lens.lens (tags :: ReplicationRuleAndOperator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ReplicationRuleAndOperator)
+{-# DEPRECATED rraoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML ReplicationRuleAndOperator where
+instance Lude.FromXML ReplicationRuleAndOperator where
   parseXML x =
     ReplicationRuleAndOperator'
-      <$> (x .@? "Prefix")
-      <*> (x .@? "Tag" .!@ mempty >>= may (parseXMLList "Tag"))
+      Lude.<$> (x Lude..@? "Prefix")
+      Lude.<*> ( x Lude..@? "Tag" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
+               )
 
-instance Hashable ReplicationRuleAndOperator
-
-instance NFData ReplicationRuleAndOperator
-
-instance ToXML ReplicationRuleAndOperator where
+instance Lude.ToXML ReplicationRuleAndOperator where
   toXML ReplicationRuleAndOperator' {..} =
-    mconcat
-      [ "Prefix" @= _rraoPrefix,
-        "Tag" @= toXML (toXMLList "Tag" <$> _rraoTags)
+    Lude.mconcat
+      [ "Prefix" Lude.@= prefix,
+        "Tag" Lude.@= Lude.toXML (Lude.toXMLList "Tag" Lude.<$> tags)
       ]

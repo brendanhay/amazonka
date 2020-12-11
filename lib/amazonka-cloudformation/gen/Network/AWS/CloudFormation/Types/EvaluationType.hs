@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.EvaluationType where
+module Network.AWS.CloudFormation.Types.EvaluationType
+  ( EvaluationType
+      ( EvaluationType',
+        ETDynamic,
+        ETStatic
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EvaluationType
-  = ETDynamic
-  | ETStatic
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EvaluationType = EvaluationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EvaluationType where
-  parser =
-    takeLowerText >>= \case
-      "dynamic" -> pure ETDynamic
-      "static" -> pure ETStatic
-      e ->
-        fromTextError $
-          "Failure parsing EvaluationType from value: '" <> e
-            <> "'. Accepted values: dynamic, static"
+pattern ETDynamic :: EvaluationType
+pattern ETDynamic = EvaluationType' "Dynamic"
 
-instance ToText EvaluationType where
-  toText = \case
-    ETDynamic -> "Dynamic"
-    ETStatic -> "Static"
+pattern ETStatic :: EvaluationType
+pattern ETStatic = EvaluationType' "Static"
 
-instance Hashable EvaluationType
-
-instance NFData EvaluationType
-
-instance ToByteString EvaluationType
-
-instance ToQuery EvaluationType
-
-instance ToHeader EvaluationType
-
-instance FromXML EvaluationType where
-  parseXML = parseXMLText "EvaluationType"
+{-# COMPLETE
+  ETDynamic,
+  ETStatic,
+  EvaluationType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Removes session information for a specified bot, alias, and user ID.
 module Network.AWS.LexRuntime.DeleteSession
-  ( -- * Creating a Request
-    deleteSession,
-    DeleteSession,
+  ( -- * Creating a request
+    DeleteSession (..),
+    mkDeleteSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsBotName,
     dsBotAlias,
     dsUserId,
 
-    -- * Destructuring the Response
-    deleteSessionResponse,
-    DeleteSessionResponse,
+    -- * Destructuring the response
+    DeleteSessionResponse (..),
+    mkDeleteSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsBotAlias,
     dsrsBotName,
     dsrsUserId,
@@ -41,151 +36,175 @@ module Network.AWS.LexRuntime.DeleteSession
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSession' smart constructor.
+-- | /See:/ 'mkDeleteSession' smart constructor.
 data DeleteSession = DeleteSession'
-  { _dsBotName :: !Text,
-    _dsBotAlias :: !Text,
-    _dsUserId :: !Text
+  { botName :: Lude.Text,
+    botAlias :: Lude.Text,
+    userId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsBotName' - The name of the bot that contains the session data.
---
--- * 'dsBotAlias' - The alias in use for the bot that contains the session data.
---
--- * 'dsUserId' - The identifier of the user associated with the session data.
-deleteSession ::
-  -- | 'dsBotName'
-  Text ->
-  -- | 'dsBotAlias'
-  Text ->
-  -- | 'dsUserId'
-  Text ->
+-- * 'botAlias' - The alias in use for the bot that contains the session data.
+-- * 'botName' - The name of the bot that contains the session data.
+-- * 'userId' - The identifier of the user associated with the session data.
+mkDeleteSession ::
+  -- | 'botName'
+  Lude.Text ->
+  -- | 'botAlias'
+  Lude.Text ->
+  -- | 'userId'
+  Lude.Text ->
   DeleteSession
-deleteSession pBotName_ pBotAlias_ pUserId_ =
+mkDeleteSession pBotName_ pBotAlias_ pUserId_ =
   DeleteSession'
-    { _dsBotName = pBotName_,
-      _dsBotAlias = pBotAlias_,
-      _dsUserId = pUserId_
+    { botName = pBotName_,
+      botAlias = pBotAlias_,
+      userId = pUserId_
     }
 
 -- | The name of the bot that contains the session data.
-dsBotName :: Lens' DeleteSession Text
-dsBotName = lens _dsBotName (\s a -> s {_dsBotName = a})
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsBotName :: Lens.Lens' DeleteSession Lude.Text
+dsBotName = Lens.lens (botName :: DeleteSession -> Lude.Text) (\s a -> s {botName = a} :: DeleteSession)
+{-# DEPRECATED dsBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The alias in use for the bot that contains the session data.
-dsBotAlias :: Lens' DeleteSession Text
-dsBotAlias = lens _dsBotAlias (\s a -> s {_dsBotAlias = a})
+--
+-- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsBotAlias :: Lens.Lens' DeleteSession Lude.Text
+dsBotAlias = Lens.lens (botAlias :: DeleteSession -> Lude.Text) (\s a -> s {botAlias = a} :: DeleteSession)
+{-# DEPRECATED dsBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
 
 -- | The identifier of the user associated with the session data.
-dsUserId :: Lens' DeleteSession Text
-dsUserId = lens _dsUserId (\s a -> s {_dsUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsUserId :: Lens.Lens' DeleteSession Lude.Text
+dsUserId = Lens.lens (userId :: DeleteSession -> Lude.Text) (\s a -> s {userId = a} :: DeleteSession)
+{-# DEPRECATED dsUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance AWSRequest DeleteSession where
+instance Lude.AWSRequest DeleteSession where
   type Rs DeleteSession = DeleteSessionResponse
-  request = delete lexRuntime
+  request = Req.delete lexRuntimeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteSessionResponse'
-            <$> (x .?> "botAlias")
-            <*> (x .?> "botName")
-            <*> (x .?> "userId")
-            <*> (x .?> "sessionId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "botAlias")
+            Lude.<*> (x Lude..?> "botName")
+            Lude.<*> (x Lude..?> "userId")
+            Lude.<*> (x Lude..?> "sessionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteSession
-
-instance NFData DeleteSession
-
-instance ToHeaders DeleteSession where
+instance Lude.ToHeaders DeleteSession where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteSession where
+instance Lude.ToPath DeleteSession where
   toPath DeleteSession' {..} =
-    mconcat
+    Lude.mconcat
       [ "/bot/",
-        toBS _dsBotName,
+        Lude.toBS botName,
         "/alias/",
-        toBS _dsBotAlias,
+        Lude.toBS botAlias,
         "/user/",
-        toBS _dsUserId,
+        Lude.toBS userId,
         "/session"
       ]
 
-instance ToQuery DeleteSession where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSession where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSessionResponse' smart constructor.
+-- | /See:/ 'mkDeleteSessionResponse' smart constructor.
 data DeleteSessionResponse = DeleteSessionResponse'
-  { _dsrsBotAlias ::
-      !(Maybe Text),
-    _dsrsBotName :: !(Maybe Text),
-    _dsrsUserId :: !(Maybe Text),
-    _dsrsSessionId :: !(Maybe Text),
-    _dsrsResponseStatus :: !Int
+  { botAlias ::
+      Lude.Maybe Lude.Text,
+    botName :: Lude.Maybe Lude.Text,
+    userId :: Lude.Maybe Lude.Text,
+    sessionId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsBotAlias' - The alias in use for the bot associated with the session data.
---
--- * 'dsrsBotName' - The name of the bot associated with the session data.
---
--- * 'dsrsUserId' - The ID of the client application user.
---
--- * 'dsrsSessionId' - The unique identifier for the session.
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteSessionResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'botAlias' - The alias in use for the bot associated with the session data.
+-- * 'botName' - The name of the bot associated with the session data.
+-- * 'responseStatus' - The response status code.
+-- * 'sessionId' - The unique identifier for the session.
+-- * 'userId' - The ID of the client application user.
+mkDeleteSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSessionResponse
-deleteSessionResponse pResponseStatus_ =
+mkDeleteSessionResponse pResponseStatus_ =
   DeleteSessionResponse'
-    { _dsrsBotAlias = Nothing,
-      _dsrsBotName = Nothing,
-      _dsrsUserId = Nothing,
-      _dsrsSessionId = Nothing,
-      _dsrsResponseStatus = pResponseStatus_
+    { botAlias = Lude.Nothing,
+      botName = Lude.Nothing,
+      userId = Lude.Nothing,
+      sessionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The alias in use for the bot associated with the session data.
-dsrsBotAlias :: Lens' DeleteSessionResponse (Maybe Text)
-dsrsBotAlias = lens _dsrsBotAlias (\s a -> s {_dsrsBotAlias = a})
+--
+-- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsBotAlias :: Lens.Lens' DeleteSessionResponse (Lude.Maybe Lude.Text)
+dsrsBotAlias = Lens.lens (botAlias :: DeleteSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {botAlias = a} :: DeleteSessionResponse)
+{-# DEPRECATED dsrsBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
 
 -- | The name of the bot associated with the session data.
-dsrsBotName :: Lens' DeleteSessionResponse (Maybe Text)
-dsrsBotName = lens _dsrsBotName (\s a -> s {_dsrsBotName = a})
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsBotName :: Lens.Lens' DeleteSessionResponse (Lude.Maybe Lude.Text)
+dsrsBotName = Lens.lens (botName :: DeleteSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {botName = a} :: DeleteSessionResponse)
+{-# DEPRECATED dsrsBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The ID of the client application user.
-dsrsUserId :: Lens' DeleteSessionResponse (Maybe Text)
-dsrsUserId = lens _dsrsUserId (\s a -> s {_dsrsUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsUserId :: Lens.Lens' DeleteSessionResponse (Lude.Maybe Lude.Text)
+dsrsUserId = Lens.lens (userId :: DeleteSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: DeleteSessionResponse)
+{-# DEPRECATED dsrsUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 -- | The unique identifier for the session.
-dsrsSessionId :: Lens' DeleteSessionResponse (Maybe Text)
-dsrsSessionId = lens _dsrsSessionId (\s a -> s {_dsrsSessionId = a})
+--
+-- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsSessionId :: Lens.Lens' DeleteSessionResponse (Lude.Maybe Lude.Text)
+dsrsSessionId = Lens.lens (sessionId :: DeleteSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {sessionId = a} :: DeleteSessionResponse)
+{-# DEPRECATED dsrsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteSessionResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DeleteSessionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DeleteSessionResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DeleteSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSessionResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

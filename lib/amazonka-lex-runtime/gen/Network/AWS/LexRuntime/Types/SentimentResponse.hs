@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.SentimentResponse where
+module Network.AWS.LexRuntime.Types.SentimentResponse
+  ( SentimentResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSentimentResponse,
+
+    -- * Lenses
+    sSentimentScore,
+    sSentimentLabel,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The sentiment expressed in an utterance.
 --
---
 -- When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field structure contains the result of the analysis.
 --
---
--- /See:/ 'sentimentResponse' smart constructor.
+-- /See:/ 'mkSentimentResponse' smart constructor.
 data SentimentResponse = SentimentResponse'
-  { _sSentimentScore ::
-      !(Maybe Text),
-    _sSentimentLabel :: !(Maybe Text)
+  { sentimentScore ::
+      Lude.Maybe Lude.Text,
+    sentimentLabel :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SentimentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sSentimentScore' - The likelihood that the sentiment was correctly inferred.
---
--- * 'sSentimentLabel' - The inferred sentiment that Amazon Comprehend has the highest confidence in.
-sentimentResponse ::
+-- * 'sentimentLabel' - The inferred sentiment that Amazon Comprehend has the highest confidence in.
+-- * 'sentimentScore' - The likelihood that the sentiment was correctly inferred.
+mkSentimentResponse ::
   SentimentResponse
-sentimentResponse =
+mkSentimentResponse =
   SentimentResponse'
-    { _sSentimentScore = Nothing,
-      _sSentimentLabel = Nothing
+    { sentimentScore = Lude.Nothing,
+      sentimentLabel = Lude.Nothing
     }
 
 -- | The likelihood that the sentiment was correctly inferred.
-sSentimentScore :: Lens' SentimentResponse (Maybe Text)
-sSentimentScore = lens _sSentimentScore (\s a -> s {_sSentimentScore = a})
+--
+-- /Note:/ Consider using 'sentimentScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSentimentScore :: Lens.Lens' SentimentResponse (Lude.Maybe Lude.Text)
+sSentimentScore = Lens.lens (sentimentScore :: SentimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {sentimentScore = a} :: SentimentResponse)
+{-# DEPRECATED sSentimentScore "Use generic-lens or generic-optics with 'sentimentScore' instead." #-}
 
 -- | The inferred sentiment that Amazon Comprehend has the highest confidence in.
-sSentimentLabel :: Lens' SentimentResponse (Maybe Text)
-sSentimentLabel = lens _sSentimentLabel (\s a -> s {_sSentimentLabel = a})
+--
+-- /Note:/ Consider using 'sentimentLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSentimentLabel :: Lens.Lens' SentimentResponse (Lude.Maybe Lude.Text)
+sSentimentLabel = Lens.lens (sentimentLabel :: SentimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {sentimentLabel = a} :: SentimentResponse)
+{-# DEPRECATED sSentimentLabel "Use generic-lens or generic-optics with 'sentimentLabel' instead." #-}
 
-instance FromJSON SentimentResponse where
+instance Lude.FromJSON SentimentResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "SentimentResponse"
       ( \x ->
           SentimentResponse'
-            <$> (x .:? "sentimentScore") <*> (x .:? "sentimentLabel")
+            Lude.<$> (x Lude..:? "sentimentScore")
+            Lude.<*> (x Lude..:? "sentimentLabel")
       )
-
-instance Hashable SentimentResponse
-
-instance NFData SentimentResponse

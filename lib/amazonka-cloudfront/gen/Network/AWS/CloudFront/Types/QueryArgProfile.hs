@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.QueryArgProfile where
+module Network.AWS.CloudFront.Types.QueryArgProfile
+  ( QueryArgProfile (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkQueryArgProfile,
+
+    -- * Lenses
+    qapQueryArg,
+    qapProfileId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Query argument-profile mapping for field-level encryption.
 --
---
---
--- /See:/ 'queryArgProfile' smart constructor.
+-- /See:/ 'mkQueryArgProfile' smart constructor.
 data QueryArgProfile = QueryArgProfile'
-  { _qapQueryArg :: !Text,
-    _qapProfileId :: !Text
+  { queryArg :: Lude.Text,
+    profileId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryArgProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qapQueryArg' - Query argument for field-level encryption query argument-profile mapping.
---
--- * 'qapProfileId' - ID of profile to use for field-level encryption query argument-profile mapping
-queryArgProfile ::
-  -- | 'qapQueryArg'
-  Text ->
-  -- | 'qapProfileId'
-  Text ->
+-- * 'profileId' - ID of profile to use for field-level encryption query argument-profile mapping
+-- * 'queryArg' - Query argument for field-level encryption query argument-profile mapping.
+mkQueryArgProfile ::
+  -- | 'queryArg'
+  Lude.Text ->
+  -- | 'profileId'
+  Lude.Text ->
   QueryArgProfile
-queryArgProfile pQueryArg_ pProfileId_ =
-  QueryArgProfile'
-    { _qapQueryArg = pQueryArg_,
-      _qapProfileId = pProfileId_
-    }
+mkQueryArgProfile pQueryArg_ pProfileId_ =
+  QueryArgProfile' {queryArg = pQueryArg_, profileId = pProfileId_}
 
 -- | Query argument for field-level encryption query argument-profile mapping.
-qapQueryArg :: Lens' QueryArgProfile Text
-qapQueryArg = lens _qapQueryArg (\s a -> s {_qapQueryArg = a})
+--
+-- /Note:/ Consider using 'queryArg' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qapQueryArg :: Lens.Lens' QueryArgProfile Lude.Text
+qapQueryArg = Lens.lens (queryArg :: QueryArgProfile -> Lude.Text) (\s a -> s {queryArg = a} :: QueryArgProfile)
+{-# DEPRECATED qapQueryArg "Use generic-lens or generic-optics with 'queryArg' instead." #-}
 
 -- | ID of profile to use for field-level encryption query argument-profile mapping
-qapProfileId :: Lens' QueryArgProfile Text
-qapProfileId = lens _qapProfileId (\s a -> s {_qapProfileId = a})
+--
+-- /Note:/ Consider using 'profileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qapProfileId :: Lens.Lens' QueryArgProfile Lude.Text
+qapProfileId = Lens.lens (profileId :: QueryArgProfile -> Lude.Text) (\s a -> s {profileId = a} :: QueryArgProfile)
+{-# DEPRECATED qapProfileId "Use generic-lens or generic-optics with 'profileId' instead." #-}
 
-instance FromXML QueryArgProfile where
+instance Lude.FromXML QueryArgProfile where
   parseXML x =
-    QueryArgProfile' <$> (x .@ "QueryArg") <*> (x .@ "ProfileId")
+    QueryArgProfile'
+      Lude.<$> (x Lude..@ "QueryArg") Lude.<*> (x Lude..@ "ProfileId")
 
-instance Hashable QueryArgProfile
-
-instance NFData QueryArgProfile
-
-instance ToXML QueryArgProfile where
+instance Lude.ToXML QueryArgProfile where
   toXML QueryArgProfile' {..} =
-    mconcat
-      ["QueryArg" @= _qapQueryArg, "ProfileId" @= _qapProfileId]
+    Lude.mconcat
+      ["QueryArg" Lude.@= queryArg, "ProfileId" Lude.@= profileId]

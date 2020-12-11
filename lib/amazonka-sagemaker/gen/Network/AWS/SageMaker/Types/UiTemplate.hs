@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.UiTemplate where
+module Network.AWS.SageMaker.Types.UiTemplate
+  ( UiTemplate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUiTemplate,
+
+    -- * Lenses
+    utContent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Liquid template for the worker user interface.
 --
---
---
--- /See:/ 'uiTemplate' smart constructor.
-newtype UiTemplate = UiTemplate' {_utContent :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkUiTemplate' smart constructor.
+newtype UiTemplate = UiTemplate' {content :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UiTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utContent' - The content of the Liquid template for the worker user interface.
-uiTemplate ::
-  -- | 'utContent'
-  Text ->
+-- * 'content' - The content of the Liquid template for the worker user interface.
+mkUiTemplate ::
+  -- | 'content'
+  Lude.Text ->
   UiTemplate
-uiTemplate pContent_ = UiTemplate' {_utContent = pContent_}
+mkUiTemplate pContent_ = UiTemplate' {content = pContent_}
 
 -- | The content of the Liquid template for the worker user interface.
-utContent :: Lens' UiTemplate Text
-utContent = lens _utContent (\s a -> s {_utContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utContent :: Lens.Lens' UiTemplate Lude.Text
+utContent = Lens.lens (content :: UiTemplate -> Lude.Text) (\s a -> s {content = a} :: UiTemplate)
+{-# DEPRECATED utContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance Hashable UiTemplate
-
-instance NFData UiTemplate
-
-instance ToJSON UiTemplate where
+instance Lude.ToJSON UiTemplate where
   toJSON UiTemplate' {..} =
-    object (catMaybes [Just ("Content" .= _utContent)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Content" Lude..= content)])

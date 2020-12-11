@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,136 @@
 --
 -- Updates the search configuration.
 module Network.AWS.IoT.UpdateIndexingConfiguration
-  ( -- * Creating a Request
-    updateIndexingConfiguration,
-    UpdateIndexingConfiguration,
+  ( -- * Creating a request
+    UpdateIndexingConfiguration (..),
+    mkUpdateIndexingConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uicThingGroupIndexingConfiguration,
     uicThingIndexingConfiguration,
 
-    -- * Destructuring the Response
-    updateIndexingConfigurationResponse,
-    UpdateIndexingConfigurationResponse,
+    -- * Destructuring the response
+    UpdateIndexingConfigurationResponse (..),
+    mkUpdateIndexingConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uicrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateIndexingConfiguration' smart constructor.
+-- | /See:/ 'mkUpdateIndexingConfiguration' smart constructor.
 data UpdateIndexingConfiguration = UpdateIndexingConfiguration'
-  { _uicThingGroupIndexingConfiguration ::
-      !( Maybe
-           ThingGroupIndexingConfiguration
-       ),
-    _uicThingIndexingConfiguration ::
-      !(Maybe ThingIndexingConfiguration)
+  { thingGroupIndexingConfiguration ::
+      Lude.Maybe
+        ThingGroupIndexingConfiguration,
+    thingIndexingConfiguration ::
+      Lude.Maybe
+        ThingIndexingConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateIndexingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uicThingGroupIndexingConfiguration' - Thing group indexing configuration.
---
--- * 'uicThingIndexingConfiguration' - Thing indexing configuration.
-updateIndexingConfiguration ::
+-- * 'thingGroupIndexingConfiguration' - Thing group indexing configuration.
+-- * 'thingIndexingConfiguration' - Thing indexing configuration.
+mkUpdateIndexingConfiguration ::
   UpdateIndexingConfiguration
-updateIndexingConfiguration =
+mkUpdateIndexingConfiguration =
   UpdateIndexingConfiguration'
-    { _uicThingGroupIndexingConfiguration =
-        Nothing,
-      _uicThingIndexingConfiguration = Nothing
+    { thingGroupIndexingConfiguration =
+        Lude.Nothing,
+      thingIndexingConfiguration = Lude.Nothing
     }
 
 -- | Thing group indexing configuration.
-uicThingGroupIndexingConfiguration :: Lens' UpdateIndexingConfiguration (Maybe ThingGroupIndexingConfiguration)
-uicThingGroupIndexingConfiguration = lens _uicThingGroupIndexingConfiguration (\s a -> s {_uicThingGroupIndexingConfiguration = a})
+--
+-- /Note:/ Consider using 'thingGroupIndexingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uicThingGroupIndexingConfiguration :: Lens.Lens' UpdateIndexingConfiguration (Lude.Maybe ThingGroupIndexingConfiguration)
+uicThingGroupIndexingConfiguration = Lens.lens (thingGroupIndexingConfiguration :: UpdateIndexingConfiguration -> Lude.Maybe ThingGroupIndexingConfiguration) (\s a -> s {thingGroupIndexingConfiguration = a} :: UpdateIndexingConfiguration)
+{-# DEPRECATED uicThingGroupIndexingConfiguration "Use generic-lens or generic-optics with 'thingGroupIndexingConfiguration' instead." #-}
 
 -- | Thing indexing configuration.
-uicThingIndexingConfiguration :: Lens' UpdateIndexingConfiguration (Maybe ThingIndexingConfiguration)
-uicThingIndexingConfiguration = lens _uicThingIndexingConfiguration (\s a -> s {_uicThingIndexingConfiguration = a})
+--
+-- /Note:/ Consider using 'thingIndexingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uicThingIndexingConfiguration :: Lens.Lens' UpdateIndexingConfiguration (Lude.Maybe ThingIndexingConfiguration)
+uicThingIndexingConfiguration = Lens.lens (thingIndexingConfiguration :: UpdateIndexingConfiguration -> Lude.Maybe ThingIndexingConfiguration) (\s a -> s {thingIndexingConfiguration = a} :: UpdateIndexingConfiguration)
+{-# DEPRECATED uicThingIndexingConfiguration "Use generic-lens or generic-optics with 'thingIndexingConfiguration' instead." #-}
 
-instance AWSRequest UpdateIndexingConfiguration where
+instance Lude.AWSRequest UpdateIndexingConfiguration where
   type
     Rs UpdateIndexingConfiguration =
       UpdateIndexingConfigurationResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateIndexingConfigurationResponse' <$> (pure (fromEnum s))
+          UpdateIndexingConfigurationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateIndexingConfiguration
+instance Lude.ToHeaders UpdateIndexingConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateIndexingConfiguration
-
-instance ToHeaders UpdateIndexingConfiguration where
-  toHeaders = const mempty
-
-instance ToJSON UpdateIndexingConfiguration where
+instance Lude.ToJSON UpdateIndexingConfiguration where
   toJSON UpdateIndexingConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("thingGroupIndexingConfiguration" .=)
-              <$> _uicThingGroupIndexingConfiguration,
-            ("thingIndexingConfiguration" .=)
-              <$> _uicThingIndexingConfiguration
+    Lude.object
+      ( Lude.catMaybes
+          [ ("thingGroupIndexingConfiguration" Lude..=)
+              Lude.<$> thingGroupIndexingConfiguration,
+            ("thingIndexingConfiguration" Lude..=)
+              Lude.<$> thingIndexingConfiguration
           ]
       )
 
-instance ToPath UpdateIndexingConfiguration where
-  toPath = const "/indexing/config"
+instance Lude.ToPath UpdateIndexingConfiguration where
+  toPath = Lude.const "/indexing/config"
 
-instance ToQuery UpdateIndexingConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateIndexingConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateIndexingConfigurationResponse' smart constructor.
+-- | /See:/ 'mkUpdateIndexingConfigurationResponse' smart constructor.
 newtype UpdateIndexingConfigurationResponse = UpdateIndexingConfigurationResponse'
-  { _uicrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateIndexingConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uicrsResponseStatus' - -- | The response status code.
-updateIndexingConfigurationResponse ::
-  -- | 'uicrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateIndexingConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateIndexingConfigurationResponse
-updateIndexingConfigurationResponse pResponseStatus_ =
+mkUpdateIndexingConfigurationResponse pResponseStatus_ =
   UpdateIndexingConfigurationResponse'
-    { _uicrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uicrsResponseStatus :: Lens' UpdateIndexingConfigurationResponse Int
-uicrsResponseStatus = lens _uicrsResponseStatus (\s a -> s {_uicrsResponseStatus = a})
-
-instance NFData UpdateIndexingConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uicrsResponseStatus :: Lens.Lens' UpdateIndexingConfigurationResponse Lude.Int
+uicrsResponseStatus = Lens.lens (responseStatus :: UpdateIndexingConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateIndexingConfigurationResponse)
+{-# DEPRECATED uicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

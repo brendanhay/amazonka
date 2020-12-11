@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,107 @@
 --
 -- Deletes a scheduled audit.
 module Network.AWS.IoT.DeleteScheduledAudit
-  ( -- * Creating a Request
-    deleteScheduledAudit,
-    DeleteScheduledAudit,
+  ( -- * Creating a request
+    DeleteScheduledAudit (..),
+    mkDeleteScheduledAudit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsaScheduledAuditName,
 
-    -- * Destructuring the Response
-    deleteScheduledAuditResponse,
-    DeleteScheduledAuditResponse,
+    -- * Destructuring the response
+    DeleteScheduledAuditResponse (..),
+    mkDeleteScheduledAuditResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsasrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteScheduledAudit' smart constructor.
+-- | /See:/ 'mkDeleteScheduledAudit' smart constructor.
 newtype DeleteScheduledAudit = DeleteScheduledAudit'
-  { _dsaScheduledAuditName ::
-      Text
+  { scheduledAuditName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduledAudit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsaScheduledAuditName' - The name of the scheduled audit you want to delete.
-deleteScheduledAudit ::
-  -- | 'dsaScheduledAuditName'
-  Text ->
+-- * 'scheduledAuditName' - The name of the scheduled audit you want to delete.
+mkDeleteScheduledAudit ::
+  -- | 'scheduledAuditName'
+  Lude.Text ->
   DeleteScheduledAudit
-deleteScheduledAudit pScheduledAuditName_ =
-  DeleteScheduledAudit'
-    { _dsaScheduledAuditName =
-        pScheduledAuditName_
-    }
+mkDeleteScheduledAudit pScheduledAuditName_ =
+  DeleteScheduledAudit' {scheduledAuditName = pScheduledAuditName_}
 
 -- | The name of the scheduled audit you want to delete.
-dsaScheduledAuditName :: Lens' DeleteScheduledAudit Text
-dsaScheduledAuditName = lens _dsaScheduledAuditName (\s a -> s {_dsaScheduledAuditName = a})
+--
+-- /Note:/ Consider using 'scheduledAuditName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaScheduledAuditName :: Lens.Lens' DeleteScheduledAudit Lude.Text
+dsaScheduledAuditName = Lens.lens (scheduledAuditName :: DeleteScheduledAudit -> Lude.Text) (\s a -> s {scheduledAuditName = a} :: DeleteScheduledAudit)
+{-# DEPRECATED dsaScheduledAuditName "Use generic-lens or generic-optics with 'scheduledAuditName' instead." #-}
 
-instance AWSRequest DeleteScheduledAudit where
+instance Lude.AWSRequest DeleteScheduledAudit where
   type Rs DeleteScheduledAudit = DeleteScheduledAuditResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteScheduledAuditResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteScheduledAuditResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteScheduledAudit
+instance Lude.ToHeaders DeleteScheduledAudit where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteScheduledAudit
-
-instance ToHeaders DeleteScheduledAudit where
-  toHeaders = const mempty
-
-instance ToPath DeleteScheduledAudit where
+instance Lude.ToPath DeleteScheduledAudit where
   toPath DeleteScheduledAudit' {..} =
-    mconcat ["/audit/scheduledaudits/", toBS _dsaScheduledAuditName]
+    Lude.mconcat
+      ["/audit/scheduledaudits/", Lude.toBS scheduledAuditName]
 
-instance ToQuery DeleteScheduledAudit where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteScheduledAudit where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteScheduledAuditResponse' smart constructor.
+-- | /See:/ 'mkDeleteScheduledAuditResponse' smart constructor.
 newtype DeleteScheduledAuditResponse = DeleteScheduledAuditResponse'
-  { _dsasrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduledAuditResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsasrsResponseStatus' - -- | The response status code.
-deleteScheduledAuditResponse ::
-  -- | 'dsasrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteScheduledAuditResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteScheduledAuditResponse
-deleteScheduledAuditResponse pResponseStatus_ =
-  DeleteScheduledAuditResponse'
-    { _dsasrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteScheduledAuditResponse pResponseStatus_ =
+  DeleteScheduledAuditResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsasrsResponseStatus :: Lens' DeleteScheduledAuditResponse Int
-dsasrsResponseStatus = lens _dsasrsResponseStatus (\s a -> s {_dsasrsResponseStatus = a})
-
-instance NFData DeleteScheduledAuditResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasrsResponseStatus :: Lens.Lens' DeleteScheduledAuditResponse Lude.Int
+dsasrsResponseStatus = Lens.lens (responseStatus :: DeleteScheduledAuditResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteScheduledAuditResponse)
+{-# DEPRECATED dsasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

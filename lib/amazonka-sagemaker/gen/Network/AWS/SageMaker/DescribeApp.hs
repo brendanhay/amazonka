@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Describes the app.
 module Network.AWS.SageMaker.DescribeApp
-  ( -- * Creating a Request
-    describeApp,
-    DescribeApp,
+  ( -- * Creating a request
+    DescribeApp (..),
+    mkDescribeApp,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daDomainId,
     daUserProfileName,
     daAppType,
     daAppName,
 
-    -- * Destructuring the Response
-    describeAppResponse,
-    DescribeAppResponse,
+    -- * Destructuring the response
+    DescribeAppResponse (..),
+    mkDescribeAppResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     darsCreationTime,
     darsStatus,
     darsFailureReason,
@@ -49,228 +44,270 @@ module Network.AWS.SageMaker.DescribeApp
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeApp' smart constructor.
+-- | /See:/ 'mkDescribeApp' smart constructor.
 data DescribeApp = DescribeApp'
-  { _daDomainId :: !Text,
-    _daUserProfileName :: !Text,
-    _daAppType :: !AppType,
-    _daAppName :: !Text
+  { domainId :: Lude.Text,
+    userProfileName :: Lude.Text,
+    appType :: AppType,
+    appName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApp' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daDomainId' - The domain ID.
---
--- * 'daUserProfileName' - The user profile name.
---
--- * 'daAppType' - The type of app.
---
--- * 'daAppName' - The name of the app.
-describeApp ::
-  -- | 'daDomainId'
-  Text ->
-  -- | 'daUserProfileName'
-  Text ->
-  -- | 'daAppType'
+-- * 'appName' - The name of the app.
+-- * 'appType' - The type of app.
+-- * 'domainId' - The domain ID.
+-- * 'userProfileName' - The user profile name.
+mkDescribeApp ::
+  -- | 'domainId'
+  Lude.Text ->
+  -- | 'userProfileName'
+  Lude.Text ->
+  -- | 'appType'
   AppType ->
-  -- | 'daAppName'
-  Text ->
+  -- | 'appName'
+  Lude.Text ->
   DescribeApp
-describeApp pDomainId_ pUserProfileName_ pAppType_ pAppName_ =
+mkDescribeApp pDomainId_ pUserProfileName_ pAppType_ pAppName_ =
   DescribeApp'
-    { _daDomainId = pDomainId_,
-      _daUserProfileName = pUserProfileName_,
-      _daAppType = pAppType_,
-      _daAppName = pAppName_
+    { domainId = pDomainId_,
+      userProfileName = pUserProfileName_,
+      appType = pAppType_,
+      appName = pAppName_
     }
 
 -- | The domain ID.
-daDomainId :: Lens' DescribeApp Text
-daDomainId = lens _daDomainId (\s a -> s {_daDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daDomainId :: Lens.Lens' DescribeApp Lude.Text
+daDomainId = Lens.lens (domainId :: DescribeApp -> Lude.Text) (\s a -> s {domainId = a} :: DescribeApp)
+{-# DEPRECATED daDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The user profile name.
-daUserProfileName :: Lens' DescribeApp Text
-daUserProfileName = lens _daUserProfileName (\s a -> s {_daUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daUserProfileName :: Lens.Lens' DescribeApp Lude.Text
+daUserProfileName = Lens.lens (userProfileName :: DescribeApp -> Lude.Text) (\s a -> s {userProfileName = a} :: DescribeApp)
+{-# DEPRECATED daUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
 -- | The type of app.
-daAppType :: Lens' DescribeApp AppType
-daAppType = lens _daAppType (\s a -> s {_daAppType = a})
+--
+-- /Note:/ Consider using 'appType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAppType :: Lens.Lens' DescribeApp AppType
+daAppType = Lens.lens (appType :: DescribeApp -> AppType) (\s a -> s {appType = a} :: DescribeApp)
+{-# DEPRECATED daAppType "Use generic-lens or generic-optics with 'appType' instead." #-}
 
 -- | The name of the app.
-daAppName :: Lens' DescribeApp Text
-daAppName = lens _daAppName (\s a -> s {_daAppName = a})
+--
+-- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAppName :: Lens.Lens' DescribeApp Lude.Text
+daAppName = Lens.lens (appName :: DescribeApp -> Lude.Text) (\s a -> s {appName = a} :: DescribeApp)
+{-# DEPRECATED daAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
 
-instance AWSRequest DescribeApp where
+instance Lude.AWSRequest DescribeApp where
   type Rs DescribeApp = DescribeAppResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAppResponse'
-            <$> (x .?> "CreationTime")
-            <*> (x .?> "Status")
-            <*> (x .?> "FailureReason")
-            <*> (x .?> "ResourceSpec")
-            <*> (x .?> "UserProfileName")
-            <*> (x .?> "LastUserActivityTimestamp")
-            <*> (x .?> "LastHealthCheckTimestamp")
-            <*> (x .?> "AppName")
-            <*> (x .?> "AppArn")
-            <*> (x .?> "DomainId")
-            <*> (x .?> "AppType")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CreationTime")
+            Lude.<*> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "ResourceSpec")
+            Lude.<*> (x Lude..?> "UserProfileName")
+            Lude.<*> (x Lude..?> "LastUserActivityTimestamp")
+            Lude.<*> (x Lude..?> "LastHealthCheckTimestamp")
+            Lude.<*> (x Lude..?> "AppName")
+            Lude.<*> (x Lude..?> "AppArn")
+            Lude.<*> (x Lude..?> "DomainId")
+            Lude.<*> (x Lude..?> "AppType")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeApp
-
-instance NFData DescribeApp
-
-instance ToHeaders DescribeApp where
+instance Lude.ToHeaders DescribeApp where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DescribeApp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DescribeApp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeApp where
+instance Lude.ToJSON DescribeApp where
   toJSON DescribeApp' {..} =
-    object
-      ( catMaybes
-          [ Just ("DomainId" .= _daDomainId),
-            Just ("UserProfileName" .= _daUserProfileName),
-            Just ("AppType" .= _daAppType),
-            Just ("AppName" .= _daAppName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DomainId" Lude..= domainId),
+            Lude.Just ("UserProfileName" Lude..= userProfileName),
+            Lude.Just ("AppType" Lude..= appType),
+            Lude.Just ("AppName" Lude..= appName)
           ]
       )
 
-instance ToPath DescribeApp where
-  toPath = const "/"
+instance Lude.ToPath DescribeApp where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeApp where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeApp where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAppResponse' smart constructor.
+-- | /See:/ 'mkDescribeAppResponse' smart constructor.
 data DescribeAppResponse = DescribeAppResponse'
-  { _darsCreationTime ::
-      !(Maybe POSIX),
-    _darsStatus :: !(Maybe AppStatus),
-    _darsFailureReason :: !(Maybe Text),
-    _darsResourceSpec :: !(Maybe ResourceSpec),
-    _darsUserProfileName :: !(Maybe Text),
-    _darsLastUserActivityTimestamp :: !(Maybe POSIX),
-    _darsLastHealthCheckTimestamp :: !(Maybe POSIX),
-    _darsAppName :: !(Maybe Text),
-    _darsAppARN :: !(Maybe Text),
-    _darsDomainId :: !(Maybe Text),
-    _darsAppType :: !(Maybe AppType),
-    _darsResponseStatus :: !Int
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe AppStatus,
+    failureReason :: Lude.Maybe Lude.Text,
+    resourceSpec :: Lude.Maybe ResourceSpec,
+    userProfileName :: Lude.Maybe Lude.Text,
+    lastUserActivityTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    lastHealthCheckTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    appName :: Lude.Maybe Lude.Text,
+    appARN :: Lude.Maybe Lude.Text,
+    domainId :: Lude.Maybe Lude.Text,
+    appType :: Lude.Maybe AppType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAppResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darsCreationTime' - The creation time.
---
--- * 'darsStatus' - The status.
---
--- * 'darsFailureReason' - The failure reason.
---
--- * 'darsResourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
---
--- * 'darsUserProfileName' - The user profile name.
---
--- * 'darsLastUserActivityTimestamp' - The timestamp of the last user's activity.
---
--- * 'darsLastHealthCheckTimestamp' - The timestamp of the last health check.
---
--- * 'darsAppName' - The name of the app.
---
--- * 'darsAppARN' - The Amazon Resource Name (ARN) of the app.
---
--- * 'darsDomainId' - The domain ID.
---
--- * 'darsAppType' - The type of app.
---
--- * 'darsResponseStatus' - -- | The response status code.
-describeAppResponse ::
-  -- | 'darsResponseStatus'
-  Int ->
+-- * 'appARN' - The Amazon Resource Name (ARN) of the app.
+-- * 'appName' - The name of the app.
+-- * 'appType' - The type of app.
+-- * 'creationTime' - The creation time.
+-- * 'domainId' - The domain ID.
+-- * 'failureReason' - The failure reason.
+-- * 'lastHealthCheckTimestamp' - The timestamp of the last health check.
+-- * 'lastUserActivityTimestamp' - The timestamp of the last user's activity.
+-- * 'resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status.
+-- * 'userProfileName' - The user profile name.
+mkDescribeAppResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAppResponse
-describeAppResponse pResponseStatus_ =
+mkDescribeAppResponse pResponseStatus_ =
   DescribeAppResponse'
-    { _darsCreationTime = Nothing,
-      _darsStatus = Nothing,
-      _darsFailureReason = Nothing,
-      _darsResourceSpec = Nothing,
-      _darsUserProfileName = Nothing,
-      _darsLastUserActivityTimestamp = Nothing,
-      _darsLastHealthCheckTimestamp = Nothing,
-      _darsAppName = Nothing,
-      _darsAppARN = Nothing,
-      _darsDomainId = Nothing,
-      _darsAppType = Nothing,
-      _darsResponseStatus = pResponseStatus_
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      failureReason = Lude.Nothing,
+      resourceSpec = Lude.Nothing,
+      userProfileName = Lude.Nothing,
+      lastUserActivityTimestamp = Lude.Nothing,
+      lastHealthCheckTimestamp = Lude.Nothing,
+      appName = Lude.Nothing,
+      appARN = Lude.Nothing,
+      domainId = Lude.Nothing,
+      appType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The creation time.
-darsCreationTime :: Lens' DescribeAppResponse (Maybe UTCTime)
-darsCreationTime = lens _darsCreationTime (\s a -> s {_darsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsCreationTime :: Lens.Lens' DescribeAppResponse (Lude.Maybe Lude.Timestamp)
+darsCreationTime = Lens.lens (creationTime :: DescribeAppResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeAppResponse)
+{-# DEPRECATED darsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status.
-darsStatus :: Lens' DescribeAppResponse (Maybe AppStatus)
-darsStatus = lens _darsStatus (\s a -> s {_darsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsStatus :: Lens.Lens' DescribeAppResponse (Lude.Maybe AppStatus)
+darsStatus = Lens.lens (status :: DescribeAppResponse -> Lude.Maybe AppStatus) (\s a -> s {status = a} :: DescribeAppResponse)
+{-# DEPRECATED darsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The failure reason.
-darsFailureReason :: Lens' DescribeAppResponse (Maybe Text)
-darsFailureReason = lens _darsFailureReason (\s a -> s {_darsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsFailureReason :: Lens.Lens' DescribeAppResponse (Lude.Maybe Lude.Text)
+darsFailureReason = Lens.lens (failureReason :: DescribeAppResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeAppResponse)
+{-# DEPRECATED darsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-darsResourceSpec :: Lens' DescribeAppResponse (Maybe ResourceSpec)
-darsResourceSpec = lens _darsResourceSpec (\s a -> s {_darsResourceSpec = a})
+--
+-- /Note:/ Consider using 'resourceSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResourceSpec :: Lens.Lens' DescribeAppResponse (Lude.Maybe ResourceSpec)
+darsResourceSpec = Lens.lens (resourceSpec :: DescribeAppResponse -> Lude.Maybe ResourceSpec) (\s a -> s {resourceSpec = a} :: DescribeAppResponse)
+{-# DEPRECATED darsResourceSpec "Use generic-lens or generic-optics with 'resourceSpec' instead." #-}
 
 -- | The user profile name.
-darsUserProfileName :: Lens' DescribeAppResponse (Maybe Text)
-darsUserProfileName = lens _darsUserProfileName (\s a -> s {_darsUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsUserProfileName :: Lens.Lens' DescribeAppResponse (Lude.Maybe Lude.Text)
+darsUserProfileName = Lens.lens (userProfileName :: DescribeAppResponse -> Lude.Maybe Lude.Text) (\s a -> s {userProfileName = a} :: DescribeAppResponse)
+{-# DEPRECATED darsUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
 -- | The timestamp of the last user's activity.
-darsLastUserActivityTimestamp :: Lens' DescribeAppResponse (Maybe UTCTime)
-darsLastUserActivityTimestamp = lens _darsLastUserActivityTimestamp (\s a -> s {_darsLastUserActivityTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUserActivityTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsLastUserActivityTimestamp :: Lens.Lens' DescribeAppResponse (Lude.Maybe Lude.Timestamp)
+darsLastUserActivityTimestamp = Lens.lens (lastUserActivityTimestamp :: DescribeAppResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUserActivityTimestamp = a} :: DescribeAppResponse)
+{-# DEPRECATED darsLastUserActivityTimestamp "Use generic-lens or generic-optics with 'lastUserActivityTimestamp' instead." #-}
 
 -- | The timestamp of the last health check.
-darsLastHealthCheckTimestamp :: Lens' DescribeAppResponse (Maybe UTCTime)
-darsLastHealthCheckTimestamp = lens _darsLastHealthCheckTimestamp (\s a -> s {_darsLastHealthCheckTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastHealthCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsLastHealthCheckTimestamp :: Lens.Lens' DescribeAppResponse (Lude.Maybe Lude.Timestamp)
+darsLastHealthCheckTimestamp = Lens.lens (lastHealthCheckTimestamp :: DescribeAppResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastHealthCheckTimestamp = a} :: DescribeAppResponse)
+{-# DEPRECATED darsLastHealthCheckTimestamp "Use generic-lens or generic-optics with 'lastHealthCheckTimestamp' instead." #-}
 
 -- | The name of the app.
-darsAppName :: Lens' DescribeAppResponse (Maybe Text)
-darsAppName = lens _darsAppName (\s a -> s {_darsAppName = a})
+--
+-- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsAppName :: Lens.Lens' DescribeAppResponse (Lude.Maybe Lude.Text)
+darsAppName = Lens.lens (appName :: DescribeAppResponse -> Lude.Maybe Lude.Text) (\s a -> s {appName = a} :: DescribeAppResponse)
+{-# DEPRECATED darsAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the app.
-darsAppARN :: Lens' DescribeAppResponse (Maybe Text)
-darsAppARN = lens _darsAppARN (\s a -> s {_darsAppARN = a})
+--
+-- /Note:/ Consider using 'appARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsAppARN :: Lens.Lens' DescribeAppResponse (Lude.Maybe Lude.Text)
+darsAppARN = Lens.lens (appARN :: DescribeAppResponse -> Lude.Maybe Lude.Text) (\s a -> s {appARN = a} :: DescribeAppResponse)
+{-# DEPRECATED darsAppARN "Use generic-lens or generic-optics with 'appARN' instead." #-}
 
 -- | The domain ID.
-darsDomainId :: Lens' DescribeAppResponse (Maybe Text)
-darsDomainId = lens _darsDomainId (\s a -> s {_darsDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsDomainId :: Lens.Lens' DescribeAppResponse (Lude.Maybe Lude.Text)
+darsDomainId = Lens.lens (domainId :: DescribeAppResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainId = a} :: DescribeAppResponse)
+{-# DEPRECATED darsDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The type of app.
-darsAppType :: Lens' DescribeAppResponse (Maybe AppType)
-darsAppType = lens _darsAppType (\s a -> s {_darsAppType = a})
+--
+-- /Note:/ Consider using 'appType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsAppType :: Lens.Lens' DescribeAppResponse (Lude.Maybe AppType)
+darsAppType = Lens.lens (appType :: DescribeAppResponse -> Lude.Maybe AppType) (\s a -> s {appType = a} :: DescribeAppResponse)
+{-# DEPRECATED darsAppType "Use generic-lens or generic-optics with 'appType' instead." #-}
 
--- | -- | The response status code.
-darsResponseStatus :: Lens' DescribeAppResponse Int
-darsResponseStatus = lens _darsResponseStatus (\s a -> s {_darsResponseStatus = a})
-
-instance NFData DescribeAppResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DescribeAppResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DescribeAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAppResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

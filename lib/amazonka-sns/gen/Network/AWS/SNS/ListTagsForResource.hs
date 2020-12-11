@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,127 @@
 --
 -- List all tags added to the specified Amazon SNS topic. For an overview, see <https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html Amazon SNS Tags> in the /Amazon Simple Notification Service Developer Guide/ .
 module Network.AWS.SNS.ListTagsForResource
-  ( -- * Creating a Request
-    listTagsForResource,
-    ListTagsForResource,
+  ( -- * Creating a request
+    ListTagsForResource (..),
+    mkListTagsForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfrResourceARN,
 
-    -- * Destructuring the Response
-    listTagsForResourceResponse,
-    ListTagsForResourceResponse,
+    -- * Destructuring the response
+    ListTagsForResourceResponse (..),
+    mkListTagsForResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltfrrsTags,
     ltfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
--- | /See:/ 'listTagsForResource' smart constructor.
+-- | /See:/ 'mkListTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-  { _ltfrResourceARN ::
-      Text
+  { resourceARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfrResourceARN' - The ARN of the topic for which to list tags.
-listTagsForResource ::
-  -- | 'ltfrResourceARN'
-  Text ->
+-- * 'resourceARN' - The ARN of the topic for which to list tags.
+mkListTagsForResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   ListTagsForResource
-listTagsForResource pResourceARN_ =
-  ListTagsForResource' {_ltfrResourceARN = pResourceARN_}
+mkListTagsForResource pResourceARN_ =
+  ListTagsForResource' {resourceARN = pResourceARN_}
 
 -- | The ARN of the topic for which to list tags.
-ltfrResourceARN :: Lens' ListTagsForResource Text
-ltfrResourceARN = lens _ltfrResourceARN (\s a -> s {_ltfrResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
+ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest ListTagsForResource where
+instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
-  request = postQuery sns
+  request = Req.postQuery snsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListTagsForResourceResult"
       ( \s h x ->
           ListTagsForResourceResponse'
-            <$> (x .@? "Tags" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTagsForResource
+instance Lude.ToHeaders ListTagsForResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListTagsForResource
+instance Lude.ToPath ListTagsForResource where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListTagsForResource where
-  toHeaders = const mempty
-
-instance ToPath ListTagsForResource where
-  toPath = const "/"
-
-instance ToQuery ListTagsForResource where
+instance Lude.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
-    mconcat
-      [ "Action" =: ("ListTagsForResource" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "ResourceArn" =: _ltfrResourceARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListTagsForResource" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "ResourceArn" Lude.=: resourceARN
       ]
 
--- | /See:/ 'listTagsForResourceResponse' smart constructor.
+-- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { _ltfrrsTags ::
-      !(Maybe [Tag]),
-    _ltfrrsResponseStatus :: !Int
+  { tags ::
+      Lude.Maybe [Tag],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfrrsTags' - The tags associated with the specified topic.
---
--- * 'ltfrrsResponseStatus' - -- | The response status code.
-listTagsForResourceResponse ::
-  -- | 'ltfrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The tags associated with the specified topic.
+mkListTagsForResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForResourceResponse
-listTagsForResourceResponse pResponseStatus_ =
+mkListTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-    { _ltfrrsTags = Nothing,
-      _ltfrrsResponseStatus = pResponseStatus_
+    { tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The tags associated with the specified topic.
-ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTags = lens _ltfrrsTags (\s a -> s {_ltfrrsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsTags :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe [Tag])
+ltfrrsTags = Lens.lens (tags :: ListTagsForResourceResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\s a -> s {_ltfrrsResponseStatus = a})
-
-instance NFData ListTagsForResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
+ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

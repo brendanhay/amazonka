@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DatafeedSubscriptionState where
+module Network.AWS.EC2.Types.DatafeedSubscriptionState
+  ( DatafeedSubscriptionState
+      ( DatafeedSubscriptionState',
+        DSSActive,
+        DSSInactive
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DatafeedSubscriptionState
-  = DSSActive
-  | DSSInactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DatafeedSubscriptionState = DatafeedSubscriptionState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DatafeedSubscriptionState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure DSSActive
-      "inactive" -> pure DSSInactive
-      e ->
-        fromTextError $
-          "Failure parsing DatafeedSubscriptionState from value: '" <> e
-            <> "'. Accepted values: active, inactive"
+pattern DSSActive :: DatafeedSubscriptionState
+pattern DSSActive = DatafeedSubscriptionState' "Active"
 
-instance ToText DatafeedSubscriptionState where
-  toText = \case
-    DSSActive -> "Active"
-    DSSInactive -> "Inactive"
+pattern DSSInactive :: DatafeedSubscriptionState
+pattern DSSInactive = DatafeedSubscriptionState' "Inactive"
 
-instance Hashable DatafeedSubscriptionState
-
-instance NFData DatafeedSubscriptionState
-
-instance ToByteString DatafeedSubscriptionState
-
-instance ToQuery DatafeedSubscriptionState
-
-instance ToHeader DatafeedSubscriptionState
-
-instance FromXML DatafeedSubscriptionState where
-  parseXML = parseXMLText "DatafeedSubscriptionState"
+{-# COMPLETE
+  DSSActive,
+  DSSInactive,
+  DatafeedSubscriptionState'
+  #-}

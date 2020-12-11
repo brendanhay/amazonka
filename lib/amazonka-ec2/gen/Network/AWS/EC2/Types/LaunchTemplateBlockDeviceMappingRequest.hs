@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,100 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest where
+module Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest
+  ( LaunchTemplateBlockDeviceMappingRequest (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchTemplateBlockDeviceMappingRequest,
+
+    -- * Lenses
+    ltbdmrVirtualName,
+    ltbdmrNoDevice,
+    ltbdmrEBS,
+    ltbdmrDeviceName,
+  )
+where
+
 import Network.AWS.EC2.Types.LaunchTemplateEBSBlockDeviceRequest
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a block device mapping.
 --
---
---
--- /See:/ 'launchTemplateBlockDeviceMappingRequest' smart constructor.
+-- /See:/ 'mkLaunchTemplateBlockDeviceMappingRequest' smart constructor.
 data LaunchTemplateBlockDeviceMappingRequest = LaunchTemplateBlockDeviceMappingRequest'
-  { _ltbdmrVirtualName ::
-      !( Maybe
-           Text
-       ),
-    _ltbdmrNoDevice ::
-      !( Maybe
-           Text
-       ),
-    _ltbdmrEBS ::
-      !( Maybe
-           LaunchTemplateEBSBlockDeviceRequest
-       ),
-    _ltbdmrDeviceName ::
-      !( Maybe
-           Text
-       )
+  { virtualName ::
+      Lude.Maybe
+        Lude.Text,
+    noDevice ::
+      Lude.Maybe
+        Lude.Text,
+    ebs ::
+      Lude.Maybe
+        LaunchTemplateEBSBlockDeviceRequest,
+    deviceName ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateBlockDeviceMappingRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltbdmrVirtualName' - The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
---
--- * 'ltbdmrNoDevice' - Suppresses the specified device included in the block device mapping of the AMI.
---
--- * 'ltbdmrEBS' - Parameters used to automatically set up EBS volumes when the instance is launched.
---
--- * 'ltbdmrDeviceName' - The device name (for example, /dev/sdh or xvdh).
-launchTemplateBlockDeviceMappingRequest ::
+-- * 'deviceName' - The device name (for example, /dev/sdh or xvdh).
+-- * 'ebs' - Parameters used to automatically set up EBS volumes when the instance is launched.
+-- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
+-- * 'virtualName' - The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+mkLaunchTemplateBlockDeviceMappingRequest ::
   LaunchTemplateBlockDeviceMappingRequest
-launchTemplateBlockDeviceMappingRequest =
+mkLaunchTemplateBlockDeviceMappingRequest =
   LaunchTemplateBlockDeviceMappingRequest'
-    { _ltbdmrVirtualName =
-        Nothing,
-      _ltbdmrNoDevice = Nothing,
-      _ltbdmrEBS = Nothing,
-      _ltbdmrDeviceName = Nothing
+    { virtualName =
+        Lude.Nothing,
+      noDevice = Lude.Nothing,
+      ebs = Lude.Nothing,
+      deviceName = Lude.Nothing
     }
 
 -- | The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
-ltbdmrVirtualName :: Lens' LaunchTemplateBlockDeviceMappingRequest (Maybe Text)
-ltbdmrVirtualName = lens _ltbdmrVirtualName (\s a -> s {_ltbdmrVirtualName = a})
+--
+-- /Note:/ Consider using 'virtualName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbdmrVirtualName :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Lude.Maybe Lude.Text)
+ltbdmrVirtualName = Lens.lens (virtualName :: LaunchTemplateBlockDeviceMappingRequest -> Lude.Maybe Lude.Text) (\s a -> s {virtualName = a} :: LaunchTemplateBlockDeviceMappingRequest)
+{-# DEPRECATED ltbdmrVirtualName "Use generic-lens or generic-optics with 'virtualName' instead." #-}
 
 -- | Suppresses the specified device included in the block device mapping of the AMI.
-ltbdmrNoDevice :: Lens' LaunchTemplateBlockDeviceMappingRequest (Maybe Text)
-ltbdmrNoDevice = lens _ltbdmrNoDevice (\s a -> s {_ltbdmrNoDevice = a})
+--
+-- /Note:/ Consider using 'noDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbdmrNoDevice :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Lude.Maybe Lude.Text)
+ltbdmrNoDevice = Lens.lens (noDevice :: LaunchTemplateBlockDeviceMappingRequest -> Lude.Maybe Lude.Text) (\s a -> s {noDevice = a} :: LaunchTemplateBlockDeviceMappingRequest)
+{-# DEPRECATED ltbdmrNoDevice "Use generic-lens or generic-optics with 'noDevice' instead." #-}
 
 -- | Parameters used to automatically set up EBS volumes when the instance is launched.
-ltbdmrEBS :: Lens' LaunchTemplateBlockDeviceMappingRequest (Maybe LaunchTemplateEBSBlockDeviceRequest)
-ltbdmrEBS = lens _ltbdmrEBS (\s a -> s {_ltbdmrEBS = a})
+--
+-- /Note:/ Consider using 'ebs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbdmrEBS :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Lude.Maybe LaunchTemplateEBSBlockDeviceRequest)
+ltbdmrEBS = Lens.lens (ebs :: LaunchTemplateBlockDeviceMappingRequest -> Lude.Maybe LaunchTemplateEBSBlockDeviceRequest) (\s a -> s {ebs = a} :: LaunchTemplateBlockDeviceMappingRequest)
+{-# DEPRECATED ltbdmrEBS "Use generic-lens or generic-optics with 'ebs' instead." #-}
 
 -- | The device name (for example, /dev/sdh or xvdh).
-ltbdmrDeviceName :: Lens' LaunchTemplateBlockDeviceMappingRequest (Maybe Text)
-ltbdmrDeviceName = lens _ltbdmrDeviceName (\s a -> s {_ltbdmrDeviceName = a})
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbdmrDeviceName :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Lude.Maybe Lude.Text)
+ltbdmrDeviceName = Lens.lens (deviceName :: LaunchTemplateBlockDeviceMappingRequest -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: LaunchTemplateBlockDeviceMappingRequest)
+{-# DEPRECATED ltbdmrDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
-instance Hashable LaunchTemplateBlockDeviceMappingRequest
-
-instance NFData LaunchTemplateBlockDeviceMappingRequest
-
-instance ToQuery LaunchTemplateBlockDeviceMappingRequest where
+instance Lude.ToQuery LaunchTemplateBlockDeviceMappingRequest where
   toQuery LaunchTemplateBlockDeviceMappingRequest' {..} =
-    mconcat
-      [ "VirtualName" =: _ltbdmrVirtualName,
-        "NoDevice" =: _ltbdmrNoDevice,
-        "Ebs" =: _ltbdmrEBS,
-        "DeviceName" =: _ltbdmrDeviceName
+    Lude.mconcat
+      [ "VirtualName" Lude.=: virtualName,
+        "NoDevice" Lude.=: noDevice,
+        "Ebs" Lude.=: ebs,
+        "DeviceName" Lude.=: deviceName
       ]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- The @GetItem@ operation returns a set of attributes for the item with the given primary key. If there is no matching item, @GetItem@ does not return any data and there will be no @Item@ element in the response.
 --
---
 -- @GetItem@ provides an eventually consistent read by default. If your application requires a strongly consistent read, set @ConsistentRead@ to @true@ . Although a strongly consistent read might take more time than an eventually consistent read, it always returns the last updated value.
 module Network.AWS.DynamoDB.GetItem
-  ( -- * Creating a Request
-    getItem,
-    GetItem,
+  ( -- * Creating a request
+    GetItem (..),
+    mkGetItem,
 
-    -- * Request Lenses
+    -- ** Request lenses
     giProjectionExpression,
     giAttributesToGet,
     giExpressionAttributeNames,
@@ -35,11 +29,11 @@ module Network.AWS.DynamoDB.GetItem
     giTableName,
     giKey,
 
-    -- * Destructuring the Response
-    getItemResponse,
-    GetItemResponse,
+    -- * Destructuring the response
+    GetItemResponse (..),
+    mkGetItemResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     girsConsumedCapacity,
     girsItem,
     girsResponseStatus,
@@ -47,175 +41,267 @@ module Network.AWS.DynamoDB.GetItem
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @GetItem@ operation.
 --
---
---
--- /See:/ 'getItem' smart constructor.
+-- /See:/ 'mkGetItem' smart constructor.
 data GetItem = GetItem'
-  { _giProjectionExpression :: !(Maybe Text),
-    _giAttributesToGet :: !(Maybe (List1 Text)),
-    _giExpressionAttributeNames :: !(Maybe (Map Text (Text))),
-    _giConsistentRead :: !(Maybe Bool),
-    _giReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity),
-    _giTableName :: !Text,
-    _giKey :: !(Map Text (AttributeValue))
+  { projectionExpression ::
+      Lude.Maybe Lude.Text,
+    attributesToGet :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    expressionAttributeNames ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    consistentRead :: Lude.Maybe Lude.Bool,
+    returnConsumedCapacity :: Lude.Maybe ReturnConsumedCapacity,
+    tableName :: Lude.Text,
+    key :: Lude.HashMap Lude.Text (AttributeValue)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'consistentRead' - Determines the read consistency model: If set to @true@ , then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.
+-- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
 --
--- * 'giProjectionExpression' - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 --
--- * 'giAttributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet> in the /Amazon DynamoDB Developer Guide/ .
+--     * To access an attribute whose name conflicts with a DynamoDB reserved word.
 --
--- * 'giExpressionAttributeNames' - One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :     * To access an attribute whose name conflicts with a DynamoDB reserved word.     * To create a placeholder for repeating occurrences of an attribute name in an expression.     * To prevent special characters in an attribute name from being misinterpreted in an expression. Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:     * @Percentile@  The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :     * @{"#P":"Percentile"}@  You could then use this substitution in an expression, as in this example:     * @#P = :val@  For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 --
--- * 'giConsistentRead' - Determines the read consistency model: If set to @true@ , then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.
+--     * To create a placeholder for repeating occurrences of an attribute name in an expression.
 --
--- * 'giReturnConsumedCapacity' - Undocumented member.
 --
--- * 'giTableName' - The name of the table containing the requested item.
+--     * To prevent special characters in an attribute name from being misinterpreted in an expression.
 --
--- * 'giKey' - A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to retrieve. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-getItem ::
-  -- | 'giTableName'
-  Text ->
+--
+-- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
+--
+--     * @Percentile@
+--
+--
+-- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :
+--
+--     * @{"#P":"Percentile"}@
+--
+--
+-- You could then use this substitution in an expression, as in this example:
+--
+--     * @#P = :val@
+--
+--
+-- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'key' - A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to retrieve.
+--
+-- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+-- * 'projectionExpression' - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
+--
+-- If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+-- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'returnConsumedCapacity' - Undocumented field.
+-- * 'tableName' - The name of the table containing the requested item.
+mkGetItem ::
+  -- | 'tableName'
+  Lude.Text ->
   GetItem
-getItem pTableName_ =
+mkGetItem pTableName_ =
   GetItem'
-    { _giProjectionExpression = Nothing,
-      _giAttributesToGet = Nothing,
-      _giExpressionAttributeNames = Nothing,
-      _giConsistentRead = Nothing,
-      _giReturnConsumedCapacity = Nothing,
-      _giTableName = pTableName_,
-      _giKey = mempty
+    { projectionExpression = Lude.Nothing,
+      attributesToGet = Lude.Nothing,
+      expressionAttributeNames = Lude.Nothing,
+      consistentRead = Lude.Nothing,
+      returnConsumedCapacity = Lude.Nothing,
+      tableName = pTableName_,
+      key = Lude.mempty
     }
 
--- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
-giProjectionExpression :: Lens' GetItem (Maybe Text)
-giProjectionExpression = lens _giProjectionExpression (\s a -> s {_giProjectionExpression = a})
+-- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
+--
+-- If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+-- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+--
+-- /Note:/ Consider using 'projectionExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giProjectionExpression :: Lens.Lens' GetItem (Lude.Maybe Lude.Text)
+giProjectionExpression = Lens.lens (projectionExpression :: GetItem -> Lude.Maybe Lude.Text) (\s a -> s {projectionExpression = a} :: GetItem)
+{-# DEPRECATED giProjectionExpression "Use generic-lens or generic-optics with 'projectionExpression' instead." #-}
 
 -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet> in the /Amazon DynamoDB Developer Guide/ .
-giAttributesToGet :: Lens' GetItem (Maybe (NonEmpty Text))
-giAttributesToGet = lens _giAttributesToGet (\s a -> s {_giAttributesToGet = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'attributesToGet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giAttributesToGet :: Lens.Lens' GetItem (Lude.Maybe (Lude.NonEmpty Lude.Text))
+giAttributesToGet = Lens.lens (attributesToGet :: GetItem -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {attributesToGet = a} :: GetItem)
+{-# DEPRECATED giAttributesToGet "Use generic-lens or generic-optics with 'attributesToGet' instead." #-}
 
--- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :     * To access an attribute whose name conflicts with a DynamoDB reserved word.     * To create a placeholder for repeating occurrences of an attribute name in an expression.     * To prevent special characters in an attribute name from being misinterpreted in an expression. Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:     * @Percentile@  The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :     * @{"#P":"Percentile"}@  You could then use this substitution in an expression, as in this example:     * @#P = :val@  For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
-giExpressionAttributeNames :: Lens' GetItem (HashMap Text (Text))
-giExpressionAttributeNames = lens _giExpressionAttributeNames (\s a -> s {_giExpressionAttributeNames = a}) . _Default . _Map
+-- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
+--
+--
+--     * To access an attribute whose name conflicts with a DynamoDB reserved word.
+--
+--
+--     * To create a placeholder for repeating occurrences of an attribute name in an expression.
+--
+--
+--     * To prevent special characters in an attribute name from being misinterpreted in an expression.
+--
+--
+-- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
+--
+--     * @Percentile@
+--
+--
+-- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :
+--
+--     * @{"#P":"Percentile"}@
+--
+--
+-- You could then use this substitution in an expression, as in this example:
+--
+--     * @#P = :val@
+--
+--
+-- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+--
+-- /Note:/ Consider using 'expressionAttributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giExpressionAttributeNames :: Lens.Lens' GetItem (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+giExpressionAttributeNames = Lens.lens (expressionAttributeNames :: GetItem -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {expressionAttributeNames = a} :: GetItem)
+{-# DEPRECATED giExpressionAttributeNames "Use generic-lens or generic-optics with 'expressionAttributeNames' instead." #-}
 
 -- | Determines the read consistency model: If set to @true@ , then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.
-giConsistentRead :: Lens' GetItem (Maybe Bool)
-giConsistentRead = lens _giConsistentRead (\s a -> s {_giConsistentRead = a})
+--
+-- /Note:/ Consider using 'consistentRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giConsistentRead :: Lens.Lens' GetItem (Lude.Maybe Lude.Bool)
+giConsistentRead = Lens.lens (consistentRead :: GetItem -> Lude.Maybe Lude.Bool) (\s a -> s {consistentRead = a} :: GetItem)
+{-# DEPRECATED giConsistentRead "Use generic-lens or generic-optics with 'consistentRead' instead." #-}
 
--- | Undocumented member.
-giReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
-giReturnConsumedCapacity = lens _giReturnConsumedCapacity (\s a -> s {_giReturnConsumedCapacity = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'returnConsumedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giReturnConsumedCapacity :: Lens.Lens' GetItem (Lude.Maybe ReturnConsumedCapacity)
+giReturnConsumedCapacity = Lens.lens (returnConsumedCapacity :: GetItem -> Lude.Maybe ReturnConsumedCapacity) (\s a -> s {returnConsumedCapacity = a} :: GetItem)
+{-# DEPRECATED giReturnConsumedCapacity "Use generic-lens or generic-optics with 'returnConsumedCapacity' instead." #-}
 
 -- | The name of the table containing the requested item.
-giTableName :: Lens' GetItem Text
-giTableName = lens _giTableName (\s a -> s {_giTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giTableName :: Lens.Lens' GetItem Lude.Text
+giTableName = Lens.lens (tableName :: GetItem -> Lude.Text) (\s a -> s {tableName = a} :: GetItem)
+{-# DEPRECATED giTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
--- | A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to retrieve. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-giKey :: Lens' GetItem (HashMap Text (AttributeValue))
-giKey = lens _giKey (\s a -> s {_giKey = a}) . _Map
+-- | A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to retrieve.
+--
+-- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giKey :: Lens.Lens' GetItem (Lude.HashMap Lude.Text (AttributeValue))
+giKey = Lens.lens (key :: GetItem -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: GetItem)
+{-# DEPRECATED giKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance AWSRequest GetItem where
+instance Lude.AWSRequest GetItem where
   type Rs GetItem = GetItemResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetItemResponse'
-            <$> (x .?> "ConsumedCapacity")
-            <*> (x .?> "Item" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ConsumedCapacity")
+            Lude.<*> (x Lude..?> "Item" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetItem
-
-instance NFData GetItem
-
-instance ToHeaders GetItem where
+instance Lude.ToHeaders GetItem where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DynamoDB_20120810.GetItem" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DynamoDB_20120810.GetItem" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetItem where
+instance Lude.ToJSON GetItem where
   toJSON GetItem' {..} =
-    object
-      ( catMaybes
-          [ ("ProjectionExpression" .=) <$> _giProjectionExpression,
-            ("AttributesToGet" .=) <$> _giAttributesToGet,
-            ("ExpressionAttributeNames" .=) <$> _giExpressionAttributeNames,
-            ("ConsistentRead" .=) <$> _giConsistentRead,
-            ("ReturnConsumedCapacity" .=) <$> _giReturnConsumedCapacity,
-            Just ("TableName" .= _giTableName),
-            Just ("Key" .= _giKey)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ProjectionExpression" Lude..=) Lude.<$> projectionExpression,
+            ("AttributesToGet" Lude..=) Lude.<$> attributesToGet,
+            ("ExpressionAttributeNames" Lude..=)
+              Lude.<$> expressionAttributeNames,
+            ("ConsistentRead" Lude..=) Lude.<$> consistentRead,
+            ("ReturnConsumedCapacity" Lude..=) Lude.<$> returnConsumedCapacity,
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("Key" Lude..= key)
           ]
       )
 
-instance ToPath GetItem where
-  toPath = const "/"
+instance Lude.ToPath GetItem where
+  toPath = Lude.const "/"
 
-instance ToQuery GetItem where
-  toQuery = const mempty
+instance Lude.ToQuery GetItem where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetItem@ operation.
 --
---
---
--- /See:/ 'getItemResponse' smart constructor.
+-- /See:/ 'mkGetItemResponse' smart constructor.
 data GetItemResponse = GetItemResponse'
-  { _girsConsumedCapacity ::
-      !(Maybe ConsumedCapacity),
-    _girsItem :: !(Maybe (Map Text (AttributeValue))),
-    _girsResponseStatus :: !Int
+  { consumedCapacity ::
+      Lude.Maybe ConsumedCapacity,
+    item ::
+      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetItemResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'girsConsumedCapacity' - The capacity units consumed by the @GetItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read/Write Capacity Mode> in the /Amazon DynamoDB Developer Guide/ .
---
--- * 'girsItem' - A map of attribute names to @AttributeValue@ objects, as specified by @ProjectionExpression@ .
---
--- * 'girsResponseStatus' - -- | The response status code.
-getItemResponse ::
-  -- | 'girsResponseStatus'
-  Int ->
+-- * 'consumedCapacity' - The capacity units consumed by the @GetItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read/Write Capacity Mode> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'item' - A map of attribute names to @AttributeValue@ objects, as specified by @ProjectionExpression@ .
+-- * 'responseStatus' - The response status code.
+mkGetItemResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetItemResponse
-getItemResponse pResponseStatus_ =
+mkGetItemResponse pResponseStatus_ =
   GetItemResponse'
-    { _girsConsumedCapacity = Nothing,
-      _girsItem = Nothing,
-      _girsResponseStatus = pResponseStatus_
+    { consumedCapacity = Lude.Nothing,
+      item = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The capacity units consumed by the @GetItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read/Write Capacity Mode> in the /Amazon DynamoDB Developer Guide/ .
-girsConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
-girsConsumedCapacity = lens _girsConsumedCapacity (\s a -> s {_girsConsumedCapacity = a})
+--
+-- /Note:/ Consider using 'consumedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsConsumedCapacity :: Lens.Lens' GetItemResponse (Lude.Maybe ConsumedCapacity)
+girsConsumedCapacity = Lens.lens (consumedCapacity :: GetItemResponse -> Lude.Maybe ConsumedCapacity) (\s a -> s {consumedCapacity = a} :: GetItemResponse)
+{-# DEPRECATED girsConsumedCapacity "Use generic-lens or generic-optics with 'consumedCapacity' instead." #-}
 
 -- | A map of attribute names to @AttributeValue@ objects, as specified by @ProjectionExpression@ .
-girsItem :: Lens' GetItemResponse (HashMap Text (AttributeValue))
-girsItem = lens _girsItem (\s a -> s {_girsItem = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsItem :: Lens.Lens' GetItemResponse (Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)))
+girsItem = Lens.lens (item :: GetItemResponse -> Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {item = a} :: GetItemResponse)
+{-# DEPRECATED girsItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
--- | -- | The response status code.
-girsResponseStatus :: Lens' GetItemResponse Int
-girsResponseStatus = lens _girsResponseStatus (\s a -> s {_girsResponseStatus = a})
-
-instance NFData GetItemResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsResponseStatus :: Lens.Lens' GetItemResponse Lude.Int
+girsResponseStatus = Lens.lens (responseStatus :: GetItemResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetItemResponse)
+{-# DEPRECATED girsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

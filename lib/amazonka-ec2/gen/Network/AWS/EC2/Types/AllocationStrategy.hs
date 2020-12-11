@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AllocationStrategy where
+module Network.AWS.EC2.Types.AllocationStrategy
+  ( AllocationStrategy
+      ( AllocationStrategy',
+        ASCapacityOptimized,
+        ASDiversified,
+        ASLowestPrice
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AllocationStrategy
-  = ASCapacityOptimized
-  | ASDiversified
-  | ASLowestPrice
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AllocationStrategy = AllocationStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AllocationStrategy where
-  parser =
-    takeLowerText >>= \case
-      "capacityoptimized" -> pure ASCapacityOptimized
-      "diversified" -> pure ASDiversified
-      "lowestprice" -> pure ASLowestPrice
-      e ->
-        fromTextError $
-          "Failure parsing AllocationStrategy from value: '" <> e
-            <> "'. Accepted values: capacityoptimized, diversified, lowestprice"
+pattern ASCapacityOptimized :: AllocationStrategy
+pattern ASCapacityOptimized = AllocationStrategy' "capacityOptimized"
 
-instance ToText AllocationStrategy where
-  toText = \case
-    ASCapacityOptimized -> "capacityOptimized"
-    ASDiversified -> "diversified"
-    ASLowestPrice -> "lowestPrice"
+pattern ASDiversified :: AllocationStrategy
+pattern ASDiversified = AllocationStrategy' "diversified"
 
-instance Hashable AllocationStrategy
+pattern ASLowestPrice :: AllocationStrategy
+pattern ASLowestPrice = AllocationStrategy' "lowestPrice"
 
-instance NFData AllocationStrategy
-
-instance ToByteString AllocationStrategy
-
-instance ToQuery AllocationStrategy
-
-instance ToHeader AllocationStrategy
-
-instance FromXML AllocationStrategy where
-  parseXML = parseXMLText "AllocationStrategy"
+{-# COMPLETE
+  ASCapacityOptimized,
+  ASDiversified,
+  ASLowestPrice,
+  AllocationStrategy'
+  #-}

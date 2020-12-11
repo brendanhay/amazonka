@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,126 @@
 --
 -- Deletes a namespace from the current account. If the namespace still contains one or more services, the request fails.
 module Network.AWS.Route53AutoNaming.DeleteNamespace
-  ( -- * Creating a Request
-    deleteNamespace,
-    DeleteNamespace,
+  ( -- * Creating a request
+    DeleteNamespace (..),
+    mkDeleteNamespace,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dnId,
 
-    -- * Destructuring the Response
-    deleteNamespaceResponse,
-    DeleteNamespaceResponse,
+    -- * Destructuring the response
+    DeleteNamespaceResponse (..),
+    mkDeleteNamespaceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dnrsOperationId,
     dnrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53AutoNaming.Types
 
--- | /See:/ 'deleteNamespace' smart constructor.
-newtype DeleteNamespace = DeleteNamespace' {_dnId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteNamespace' smart constructor.
+newtype DeleteNamespace = DeleteNamespace' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNamespace' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnId' - The ID of the namespace that you want to delete.
-deleteNamespace ::
-  -- | 'dnId'
-  Text ->
+-- * 'id' - The ID of the namespace that you want to delete.
+mkDeleteNamespace ::
+  -- | 'id'
+  Lude.Text ->
   DeleteNamespace
-deleteNamespace pId_ = DeleteNamespace' {_dnId = pId_}
+mkDeleteNamespace pId_ = DeleteNamespace' {id = pId_}
 
 -- | The ID of the namespace that you want to delete.
-dnId :: Lens' DeleteNamespace Text
-dnId = lens _dnId (\s a -> s {_dnId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnId :: Lens.Lens' DeleteNamespace Lude.Text
+dnId = Lens.lens (id :: DeleteNamespace -> Lude.Text) (\s a -> s {id = a} :: DeleteNamespace)
+{-# DEPRECATED dnId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteNamespace where
+instance Lude.AWSRequest DeleteNamespace where
   type Rs DeleteNamespace = DeleteNamespaceResponse
-  request = postJSON route53AutoNaming
+  request = Req.postJSON route53AutoNamingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteNamespaceResponse'
-            <$> (x .?> "OperationId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteNamespace
-
-instance NFData DeleteNamespace
-
-instance ToHeaders DeleteNamespace where
+instance Lude.ToHeaders DeleteNamespace where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53AutoNaming_v20170314.DeleteNamespace" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Route53AutoNaming_v20170314.DeleteNamespace" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteNamespace where
+instance Lude.ToJSON DeleteNamespace where
   toJSON DeleteNamespace' {..} =
-    object (catMaybes [Just ("Id" .= _dnId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Id" Lude..= id)])
 
-instance ToPath DeleteNamespace where
-  toPath = const "/"
+instance Lude.ToPath DeleteNamespace where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteNamespace where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteNamespace where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteNamespaceResponse' smart constructor.
+-- | /See:/ 'mkDeleteNamespaceResponse' smart constructor.
 data DeleteNamespaceResponse = DeleteNamespaceResponse'
-  { _dnrsOperationId ::
-      !(Maybe Text),
-    _dnrsResponseStatus :: !Int
+  { operationId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNamespaceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnrsOperationId' - A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
---
--- * 'dnrsResponseStatus' - -- | The response status code.
-deleteNamespaceResponse ::
-  -- | 'dnrsResponseStatus'
-  Int ->
+-- * 'operationId' - A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
+-- * 'responseStatus' - The response status code.
+mkDeleteNamespaceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteNamespaceResponse
-deleteNamespaceResponse pResponseStatus_ =
+mkDeleteNamespaceResponse pResponseStatus_ =
   DeleteNamespaceResponse'
-    { _dnrsOperationId = Nothing,
-      _dnrsResponseStatus = pResponseStatus_
+    { operationId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
-dnrsOperationId :: Lens' DeleteNamespaceResponse (Maybe Text)
-dnrsOperationId = lens _dnrsOperationId (\s a -> s {_dnrsOperationId = a})
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnrsOperationId :: Lens.Lens' DeleteNamespaceResponse (Lude.Maybe Lude.Text)
+dnrsOperationId = Lens.lens (operationId :: DeleteNamespaceResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: DeleteNamespaceResponse)
+{-# DEPRECATED dnrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
--- | -- | The response status code.
-dnrsResponseStatus :: Lens' DeleteNamespaceResponse Int
-dnrsResponseStatus = lens _dnrsResponseStatus (\s a -> s {_dnrsResponseStatus = a})
-
-instance NFData DeleteNamespaceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnrsResponseStatus :: Lens.Lens' DeleteNamespaceResponse Lude.Int
+dnrsResponseStatus = Lens.lens (responseStatus :: DeleteNamespaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteNamespaceResponse)
+{-# DEPRECATED dnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

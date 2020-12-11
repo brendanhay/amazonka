@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264QualityLevel where
+module Network.AWS.MediaLive.Types.H264QualityLevel
+  ( H264QualityLevel
+      ( H264QualityLevel',
+        EnhancedQuality,
+        StandardQuality
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H264 Quality Level
-data H264QualityLevel
-  = EnhancedQuality
-  | StandardQuality
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264QualityLevel = H264QualityLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264QualityLevel where
-  parser =
-    takeLowerText >>= \case
-      "enhanced_quality" -> pure EnhancedQuality
-      "standard_quality" -> pure StandardQuality
-      e ->
-        fromTextError $
-          "Failure parsing H264QualityLevel from value: '" <> e
-            <> "'. Accepted values: enhanced_quality, standard_quality"
+pattern EnhancedQuality :: H264QualityLevel
+pattern EnhancedQuality = H264QualityLevel' "ENHANCED_QUALITY"
 
-instance ToText H264QualityLevel where
-  toText = \case
-    EnhancedQuality -> "ENHANCED_QUALITY"
-    StandardQuality -> "STANDARD_QUALITY"
+pattern StandardQuality :: H264QualityLevel
+pattern StandardQuality = H264QualityLevel' "STANDARD_QUALITY"
 
-instance Hashable H264QualityLevel
-
-instance NFData H264QualityLevel
-
-instance ToByteString H264QualityLevel
-
-instance ToQuery H264QualityLevel
-
-instance ToHeader H264QualityLevel
-
-instance ToJSON H264QualityLevel where
-  toJSON = toJSONText
-
-instance FromJSON H264QualityLevel where
-  parseJSON = parseJSONText "H264QualityLevel"
+{-# COMPLETE
+  EnhancedQuality,
+  StandardQuality,
+  H264QualityLevel'
+  #-}

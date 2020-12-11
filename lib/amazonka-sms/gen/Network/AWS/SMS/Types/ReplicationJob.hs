@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,36 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ReplicationJob where
+module Network.AWS.SMS.Types.ReplicationJob
+  ( ReplicationJob (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReplicationJob,
+
+    -- * Lenses
+    rjFrequency,
+    rjNumberOfRecentAMIsToKeep,
+    rjState,
+    rjServerType,
+    rjServerId,
+    rjLicenseType,
+    rjRoleName,
+    rjVmServer,
+    rjEncrypted,
+    rjReplicationJobId,
+    rjReplicationRunList,
+    rjNextReplicationRunStartTime,
+    rjStatusMessage,
+    rjKmsKeyId,
+    rjLatestAMIId,
+    rjSeedReplicationTime,
+    rjRunOnce,
+    rjDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.LicenseType
 import Network.AWS.SMS.Types.ReplicationJobState
 import Network.AWS.SMS.Types.ReplicationRun
@@ -25,192 +45,259 @@ import Network.AWS.SMS.Types.VMServer
 
 -- | Represents a replication job.
 --
---
---
--- /See:/ 'replicationJob' smart constructor.
+-- /See:/ 'mkReplicationJob' smart constructor.
 data ReplicationJob = ReplicationJob'
-  { _rjFrequency :: !(Maybe Int),
-    _rjNumberOfRecentAMIsToKeep :: !(Maybe Int),
-    _rjState :: !(Maybe ReplicationJobState),
-    _rjServerType :: !(Maybe ServerType),
-    _rjServerId :: !(Maybe Text),
-    _rjLicenseType :: !(Maybe LicenseType),
-    _rjRoleName :: !(Maybe Text),
-    _rjVmServer :: !(Maybe VMServer),
-    _rjEncrypted :: !(Maybe Bool),
-    _rjReplicationJobId :: !(Maybe Text),
-    _rjReplicationRunList :: !(Maybe [ReplicationRun]),
-    _rjNextReplicationRunStartTime :: !(Maybe POSIX),
-    _rjStatusMessage :: !(Maybe Text),
-    _rjKmsKeyId :: !(Maybe Text),
-    _rjLatestAMIId :: !(Maybe Text),
-    _rjSeedReplicationTime :: !(Maybe POSIX),
-    _rjRunOnce :: !(Maybe Bool),
-    _rjDescription :: !(Maybe Text)
+  { frequency ::
+      Lude.Maybe Lude.Int,
+    numberOfRecentAMIsToKeep :: Lude.Maybe Lude.Int,
+    state :: Lude.Maybe ReplicationJobState,
+    serverType :: Lude.Maybe ServerType,
+    serverId :: Lude.Maybe Lude.Text,
+    licenseType :: Lude.Maybe LicenseType,
+    roleName :: Lude.Maybe Lude.Text,
+    vmServer :: Lude.Maybe VMServer,
+    encrypted :: Lude.Maybe Lude.Bool,
+    replicationJobId :: Lude.Maybe Lude.Text,
+    replicationRunList :: Lude.Maybe [ReplicationRun],
+    nextReplicationRunStartTime :: Lude.Maybe Lude.Timestamp,
+    statusMessage :: Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    latestAMIId :: Lude.Maybe Lude.Text,
+    seedReplicationTime :: Lude.Maybe Lude.Timestamp,
+    runOnce :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - The description of the replication job.
+-- * 'encrypted' - Indicates whether the replication job should produce encrypted AMIs.
+-- * 'frequency' - The time between consecutive replication runs, in hours.
+-- * 'kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
 --
--- * 'rjFrequency' - The time between consecutive replication runs, in hours.
 --
--- * 'rjNumberOfRecentAMIsToKeep' - The number of recent AMIs to keep in the customer's account for a replication job. By default, the value is set to zero, meaning that all AMIs are kept.
+--     * KMS key ID
 --
--- * 'rjState' - The state of the replication job.
 --
--- * 'rjServerType' - The type of server.
+--     * KMS key alias
 --
--- * 'rjServerId' - The ID of the server.
 --
--- * 'rjLicenseType' - The license type to be used for the AMI created by a successful replication run.
+--     * ARN referring to the KMS key ID
 --
--- * 'rjRoleName' - The name of the IAM role to be used by AWS SMS.
 --
--- * 'rjVmServer' - Information about the VM server.
+--     * ARN referring to the KMS key alias
 --
--- * 'rjEncrypted' - Indicates whether the replication job should produce encrypted AMIs.
 --
--- * 'rjReplicationJobId' - The ID of the replication job.
---
--- * 'rjReplicationRunList' - Information about the replication runs.
---
--- * 'rjNextReplicationRunStartTime' - The start time of the next replication run.
---
--- * 'rjStatusMessage' - The description of the current status of the replication job.
---
--- * 'rjKmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:      * KMS key ID     * KMS key alias     * ARN referring to the KMS key ID     * ARN referring to the KMS key alias If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
---
--- * 'rjLatestAMIId' - The ID of the latest Amazon Machine Image (AMI).
---
--- * 'rjSeedReplicationTime' - The seed replication time.
---
--- * 'rjRunOnce' - Indicates whether to run the replication job one time.
---
--- * 'rjDescription' - The description of the replication job.
-replicationJob ::
+-- If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
+-- * 'latestAMIId' - The ID of the latest Amazon Machine Image (AMI).
+-- * 'licenseType' - The license type to be used for the AMI created by a successful replication run.
+-- * 'nextReplicationRunStartTime' - The start time of the next replication run.
+-- * 'numberOfRecentAMIsToKeep' - The number of recent AMIs to keep in the customer's account for a replication job. By default, the value is set to zero, meaning that all AMIs are kept.
+-- * 'replicationJobId' - The ID of the replication job.
+-- * 'replicationRunList' - Information about the replication runs.
+-- * 'roleName' - The name of the IAM role to be used by AWS SMS.
+-- * 'runOnce' - Indicates whether to run the replication job one time.
+-- * 'seedReplicationTime' - The seed replication time.
+-- * 'serverId' - The ID of the server.
+-- * 'serverType' - The type of server.
+-- * 'state' - The state of the replication job.
+-- * 'statusMessage' - The description of the current status of the replication job.
+-- * 'vmServer' - Information about the VM server.
+mkReplicationJob ::
   ReplicationJob
-replicationJob =
+mkReplicationJob =
   ReplicationJob'
-    { _rjFrequency = Nothing,
-      _rjNumberOfRecentAMIsToKeep = Nothing,
-      _rjState = Nothing,
-      _rjServerType = Nothing,
-      _rjServerId = Nothing,
-      _rjLicenseType = Nothing,
-      _rjRoleName = Nothing,
-      _rjVmServer = Nothing,
-      _rjEncrypted = Nothing,
-      _rjReplicationJobId = Nothing,
-      _rjReplicationRunList = Nothing,
-      _rjNextReplicationRunStartTime = Nothing,
-      _rjStatusMessage = Nothing,
-      _rjKmsKeyId = Nothing,
-      _rjLatestAMIId = Nothing,
-      _rjSeedReplicationTime = Nothing,
-      _rjRunOnce = Nothing,
-      _rjDescription = Nothing
+    { frequency = Lude.Nothing,
+      numberOfRecentAMIsToKeep = Lude.Nothing,
+      state = Lude.Nothing,
+      serverType = Lude.Nothing,
+      serverId = Lude.Nothing,
+      licenseType = Lude.Nothing,
+      roleName = Lude.Nothing,
+      vmServer = Lude.Nothing,
+      encrypted = Lude.Nothing,
+      replicationJobId = Lude.Nothing,
+      replicationRunList = Lude.Nothing,
+      nextReplicationRunStartTime = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      latestAMIId = Lude.Nothing,
+      seedReplicationTime = Lude.Nothing,
+      runOnce = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The time between consecutive replication runs, in hours.
-rjFrequency :: Lens' ReplicationJob (Maybe Int)
-rjFrequency = lens _rjFrequency (\s a -> s {_rjFrequency = a})
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjFrequency :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Int)
+rjFrequency = Lens.lens (frequency :: ReplicationJob -> Lude.Maybe Lude.Int) (\s a -> s {frequency = a} :: ReplicationJob)
+{-# DEPRECATED rjFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
 -- | The number of recent AMIs to keep in the customer's account for a replication job. By default, the value is set to zero, meaning that all AMIs are kept.
-rjNumberOfRecentAMIsToKeep :: Lens' ReplicationJob (Maybe Int)
-rjNumberOfRecentAMIsToKeep = lens _rjNumberOfRecentAMIsToKeep (\s a -> s {_rjNumberOfRecentAMIsToKeep = a})
+--
+-- /Note:/ Consider using 'numberOfRecentAMIsToKeep' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjNumberOfRecentAMIsToKeep :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Int)
+rjNumberOfRecentAMIsToKeep = Lens.lens (numberOfRecentAMIsToKeep :: ReplicationJob -> Lude.Maybe Lude.Int) (\s a -> s {numberOfRecentAMIsToKeep = a} :: ReplicationJob)
+{-# DEPRECATED rjNumberOfRecentAMIsToKeep "Use generic-lens or generic-optics with 'numberOfRecentAMIsToKeep' instead." #-}
 
 -- | The state of the replication job.
-rjState :: Lens' ReplicationJob (Maybe ReplicationJobState)
-rjState = lens _rjState (\s a -> s {_rjState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjState :: Lens.Lens' ReplicationJob (Lude.Maybe ReplicationJobState)
+rjState = Lens.lens (state :: ReplicationJob -> Lude.Maybe ReplicationJobState) (\s a -> s {state = a} :: ReplicationJob)
+{-# DEPRECATED rjState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The type of server.
-rjServerType :: Lens' ReplicationJob (Maybe ServerType)
-rjServerType = lens _rjServerType (\s a -> s {_rjServerType = a})
+--
+-- /Note:/ Consider using 'serverType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjServerType :: Lens.Lens' ReplicationJob (Lude.Maybe ServerType)
+rjServerType = Lens.lens (serverType :: ReplicationJob -> Lude.Maybe ServerType) (\s a -> s {serverType = a} :: ReplicationJob)
+{-# DEPRECATED rjServerType "Use generic-lens or generic-optics with 'serverType' instead." #-}
 
 -- | The ID of the server.
-rjServerId :: Lens' ReplicationJob (Maybe Text)
-rjServerId = lens _rjServerId (\s a -> s {_rjServerId = a})
+--
+-- /Note:/ Consider using 'serverId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjServerId :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Text)
+rjServerId = Lens.lens (serverId :: ReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {serverId = a} :: ReplicationJob)
+{-# DEPRECATED rjServerId "Use generic-lens or generic-optics with 'serverId' instead." #-}
 
 -- | The license type to be used for the AMI created by a successful replication run.
-rjLicenseType :: Lens' ReplicationJob (Maybe LicenseType)
-rjLicenseType = lens _rjLicenseType (\s a -> s {_rjLicenseType = a})
+--
+-- /Note:/ Consider using 'licenseType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjLicenseType :: Lens.Lens' ReplicationJob (Lude.Maybe LicenseType)
+rjLicenseType = Lens.lens (licenseType :: ReplicationJob -> Lude.Maybe LicenseType) (\s a -> s {licenseType = a} :: ReplicationJob)
+{-# DEPRECATED rjLicenseType "Use generic-lens or generic-optics with 'licenseType' instead." #-}
 
 -- | The name of the IAM role to be used by AWS SMS.
-rjRoleName :: Lens' ReplicationJob (Maybe Text)
-rjRoleName = lens _rjRoleName (\s a -> s {_rjRoleName = a})
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjRoleName :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Text)
+rjRoleName = Lens.lens (roleName :: ReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: ReplicationJob)
+{-# DEPRECATED rjRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | Information about the VM server.
-rjVmServer :: Lens' ReplicationJob (Maybe VMServer)
-rjVmServer = lens _rjVmServer (\s a -> s {_rjVmServer = a})
+--
+-- /Note:/ Consider using 'vmServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjVmServer :: Lens.Lens' ReplicationJob (Lude.Maybe VMServer)
+rjVmServer = Lens.lens (vmServer :: ReplicationJob -> Lude.Maybe VMServer) (\s a -> s {vmServer = a} :: ReplicationJob)
+{-# DEPRECATED rjVmServer "Use generic-lens or generic-optics with 'vmServer' instead." #-}
 
 -- | Indicates whether the replication job should produce encrypted AMIs.
-rjEncrypted :: Lens' ReplicationJob (Maybe Bool)
-rjEncrypted = lens _rjEncrypted (\s a -> s {_rjEncrypted = a})
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjEncrypted :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Bool)
+rjEncrypted = Lens.lens (encrypted :: ReplicationJob -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: ReplicationJob)
+{-# DEPRECATED rjEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
 -- | The ID of the replication job.
-rjReplicationJobId :: Lens' ReplicationJob (Maybe Text)
-rjReplicationJobId = lens _rjReplicationJobId (\s a -> s {_rjReplicationJobId = a})
+--
+-- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjReplicationJobId :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Text)
+rjReplicationJobId = Lens.lens (replicationJobId :: ReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {replicationJobId = a} :: ReplicationJob)
+{-# DEPRECATED rjReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
 
 -- | Information about the replication runs.
-rjReplicationRunList :: Lens' ReplicationJob [ReplicationRun]
-rjReplicationRunList = lens _rjReplicationRunList (\s a -> s {_rjReplicationRunList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicationRunList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjReplicationRunList :: Lens.Lens' ReplicationJob (Lude.Maybe [ReplicationRun])
+rjReplicationRunList = Lens.lens (replicationRunList :: ReplicationJob -> Lude.Maybe [ReplicationRun]) (\s a -> s {replicationRunList = a} :: ReplicationJob)
+{-# DEPRECATED rjReplicationRunList "Use generic-lens or generic-optics with 'replicationRunList' instead." #-}
 
 -- | The start time of the next replication run.
-rjNextReplicationRunStartTime :: Lens' ReplicationJob (Maybe UTCTime)
-rjNextReplicationRunStartTime = lens _rjNextReplicationRunStartTime (\s a -> s {_rjNextReplicationRunStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'nextReplicationRunStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjNextReplicationRunStartTime :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Timestamp)
+rjNextReplicationRunStartTime = Lens.lens (nextReplicationRunStartTime :: ReplicationJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {nextReplicationRunStartTime = a} :: ReplicationJob)
+{-# DEPRECATED rjNextReplicationRunStartTime "Use generic-lens or generic-optics with 'nextReplicationRunStartTime' instead." #-}
 
 -- | The description of the current status of the replication job.
-rjStatusMessage :: Lens' ReplicationJob (Maybe Text)
-rjStatusMessage = lens _rjStatusMessage (\s a -> s {_rjStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjStatusMessage :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Text)
+rjStatusMessage = Lens.lens (statusMessage :: ReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ReplicationJob)
+{-# DEPRECATED rjStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
--- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:      * KMS key ID     * KMS key alias     * ARN referring to the KMS key ID     * ARN referring to the KMS key alias If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
-rjKmsKeyId :: Lens' ReplicationJob (Maybe Text)
-rjKmsKeyId = lens _rjKmsKeyId (\s a -> s {_rjKmsKeyId = a})
+-- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
+--
+--
+--     * KMS key ID
+--
+--
+--     * KMS key alias
+--
+--
+--     * ARN referring to the KMS key ID
+--
+--
+--     * ARN referring to the KMS key alias
+--
+--
+-- If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjKmsKeyId :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Text)
+rjKmsKeyId = Lens.lens (kmsKeyId :: ReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: ReplicationJob)
+{-# DEPRECATED rjKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The ID of the latest Amazon Machine Image (AMI).
-rjLatestAMIId :: Lens' ReplicationJob (Maybe Text)
-rjLatestAMIId = lens _rjLatestAMIId (\s a -> s {_rjLatestAMIId = a})
+--
+-- /Note:/ Consider using 'latestAMIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjLatestAMIId :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Text)
+rjLatestAMIId = Lens.lens (latestAMIId :: ReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {latestAMIId = a} :: ReplicationJob)
+{-# DEPRECATED rjLatestAMIId "Use generic-lens or generic-optics with 'latestAMIId' instead." #-}
 
 -- | The seed replication time.
-rjSeedReplicationTime :: Lens' ReplicationJob (Maybe UTCTime)
-rjSeedReplicationTime = lens _rjSeedReplicationTime (\s a -> s {_rjSeedReplicationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'seedReplicationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjSeedReplicationTime :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Timestamp)
+rjSeedReplicationTime = Lens.lens (seedReplicationTime :: ReplicationJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {seedReplicationTime = a} :: ReplicationJob)
+{-# DEPRECATED rjSeedReplicationTime "Use generic-lens or generic-optics with 'seedReplicationTime' instead." #-}
 
 -- | Indicates whether to run the replication job one time.
-rjRunOnce :: Lens' ReplicationJob (Maybe Bool)
-rjRunOnce = lens _rjRunOnce (\s a -> s {_rjRunOnce = a})
+--
+-- /Note:/ Consider using 'runOnce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjRunOnce :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Bool)
+rjRunOnce = Lens.lens (runOnce :: ReplicationJob -> Lude.Maybe Lude.Bool) (\s a -> s {runOnce = a} :: ReplicationJob)
+{-# DEPRECATED rjRunOnce "Use generic-lens or generic-optics with 'runOnce' instead." #-}
 
 -- | The description of the replication job.
-rjDescription :: Lens' ReplicationJob (Maybe Text)
-rjDescription = lens _rjDescription (\s a -> s {_rjDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjDescription :: Lens.Lens' ReplicationJob (Lude.Maybe Lude.Text)
+rjDescription = Lens.lens (description :: ReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ReplicationJob)
+{-# DEPRECATED rjDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ReplicationJob where
+instance Lude.FromJSON ReplicationJob where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReplicationJob"
       ( \x ->
           ReplicationJob'
-            <$> (x .:? "frequency")
-            <*> (x .:? "numberOfRecentAmisToKeep")
-            <*> (x .:? "state")
-            <*> (x .:? "serverType")
-            <*> (x .:? "serverId")
-            <*> (x .:? "licenseType")
-            <*> (x .:? "roleName")
-            <*> (x .:? "vmServer")
-            <*> (x .:? "encrypted")
-            <*> (x .:? "replicationJobId")
-            <*> (x .:? "replicationRunList" .!= mempty)
-            <*> (x .:? "nextReplicationRunStartTime")
-            <*> (x .:? "statusMessage")
-            <*> (x .:? "kmsKeyId")
-            <*> (x .:? "latestAmiId")
-            <*> (x .:? "seedReplicationTime")
-            <*> (x .:? "runOnce")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "frequency")
+            Lude.<*> (x Lude..:? "numberOfRecentAmisToKeep")
+            Lude.<*> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "serverType")
+            Lude.<*> (x Lude..:? "serverId")
+            Lude.<*> (x Lude..:? "licenseType")
+            Lude.<*> (x Lude..:? "roleName")
+            Lude.<*> (x Lude..:? "vmServer")
+            Lude.<*> (x Lude..:? "encrypted")
+            Lude.<*> (x Lude..:? "replicationJobId")
+            Lude.<*> (x Lude..:? "replicationRunList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "nextReplicationRunStartTime")
+            Lude.<*> (x Lude..:? "statusMessage")
+            Lude.<*> (x Lude..:? "kmsKeyId")
+            Lude.<*> (x Lude..:? "latestAmiId")
+            Lude.<*> (x Lude..:? "seedReplicationTime")
+            Lude.<*> (x Lude..:? "runOnce")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable ReplicationJob
-
-instance NFData ReplicationJob

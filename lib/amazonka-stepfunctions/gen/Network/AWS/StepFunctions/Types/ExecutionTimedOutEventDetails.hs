@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails where
+module Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails
+  ( ExecutionTimedOutEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExecutionTimedOutEventDetails,
+
+    -- * Lenses
+    etoedError,
+    etoedCause,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about the execution timeout that occurred during the execution.
 --
---
---
--- /See:/ 'executionTimedOutEventDetails' smart constructor.
+-- /See:/ 'mkExecutionTimedOutEventDetails' smart constructor.
 data ExecutionTimedOutEventDetails = ExecutionTimedOutEventDetails'
-  { _etoedError ::
-      !(Maybe (Sensitive Text)),
-    _etoedCause ::
-      !(Maybe (Sensitive Text))
+  { error ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    cause ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text)
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionTimedOutEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etoedError' - The error code of the failure.
---
--- * 'etoedCause' - A more detailed explanation of the cause of the timeout.
-executionTimedOutEventDetails ::
+-- * 'cause' - A more detailed explanation of the cause of the timeout.
+-- * 'error' - The error code of the failure.
+mkExecutionTimedOutEventDetails ::
   ExecutionTimedOutEventDetails
-executionTimedOutEventDetails =
+mkExecutionTimedOutEventDetails =
   ExecutionTimedOutEventDetails'
-    { _etoedError = Nothing,
-      _etoedCause = Nothing
+    { error = Lude.Nothing,
+      cause = Lude.Nothing
     }
 
 -- | The error code of the failure.
-etoedError :: Lens' ExecutionTimedOutEventDetails (Maybe Text)
-etoedError = lens _etoedError (\s a -> s {_etoedError = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etoedError :: Lens.Lens' ExecutionTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+etoedError = Lens.lens (error :: ExecutionTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: ExecutionTimedOutEventDetails)
+{-# DEPRECATED etoedError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the timeout.
-etoedCause :: Lens' ExecutionTimedOutEventDetails (Maybe Text)
-etoedCause = lens _etoedCause (\s a -> s {_etoedCause = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etoedCause :: Lens.Lens' ExecutionTimedOutEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+etoedCause = Lens.lens (cause :: ExecutionTimedOutEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: ExecutionTimedOutEventDetails)
+{-# DEPRECATED etoedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
-instance FromJSON ExecutionTimedOutEventDetails where
+instance Lude.FromJSON ExecutionTimedOutEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExecutionTimedOutEventDetails"
       ( \x ->
           ExecutionTimedOutEventDetails'
-            <$> (x .:? "error") <*> (x .:? "cause")
+            Lude.<$> (x Lude..:? "error") Lude.<*> (x Lude..:? "cause")
       )
-
-instance Hashable ExecutionTimedOutEventDetails
-
-instance NFData ExecutionTimedOutEventDetails

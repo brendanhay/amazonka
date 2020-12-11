@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,109 +7,137 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AudioCodecSettings where
+module Network.AWS.MediaLive.Types.AudioCodecSettings
+  ( AudioCodecSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkAudioCodecSettings,
+
+    -- * Lenses
+    acsPassThroughSettings,
+    acsAc3Settings,
+    acsMp2Settings,
+    acsWavSettings,
+    acsAacSettings,
+    acsEac3Settings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AacSettings
 import Network.AWS.MediaLive.Types.Ac3Settings
 import Network.AWS.MediaLive.Types.Eac3Settings
 import Network.AWS.MediaLive.Types.Mp2Settings
 import Network.AWS.MediaLive.Types.PassThroughSettings
 import Network.AWS.MediaLive.Types.WavSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Audio Codec Settings
 --
--- /See:/ 'audioCodecSettings' smart constructor.
+-- /See:/ 'mkAudioCodecSettings' smart constructor.
 data AudioCodecSettings = AudioCodecSettings'
-  { _acsPassThroughSettings ::
-      !(Maybe PassThroughSettings),
-    _acsAc3Settings :: !(Maybe Ac3Settings),
-    _acsMp2Settings :: !(Maybe Mp2Settings),
-    _acsWavSettings :: !(Maybe WavSettings),
-    _acsAacSettings :: !(Maybe AacSettings),
-    _acsEac3Settings :: !(Maybe Eac3Settings)
+  { passThroughSettings ::
+      Lude.Maybe PassThroughSettings,
+    ac3Settings :: Lude.Maybe Ac3Settings,
+    mp2Settings :: Lude.Maybe Mp2Settings,
+    wavSettings :: Lude.Maybe WavSettings,
+    aacSettings :: Lude.Maybe AacSettings,
+    eac3Settings :: Lude.Maybe Eac3Settings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioCodecSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acsPassThroughSettings' - Undocumented member.
---
--- * 'acsAc3Settings' - Undocumented member.
---
--- * 'acsMp2Settings' - Undocumented member.
---
--- * 'acsWavSettings' - Undocumented member.
---
--- * 'acsAacSettings' - Undocumented member.
---
--- * 'acsEac3Settings' - Undocumented member.
-audioCodecSettings ::
+-- * 'aacSettings' - Undocumented field.
+-- * 'ac3Settings' - Undocumented field.
+-- * 'eac3Settings' - Undocumented field.
+-- * 'mp2Settings' - Undocumented field.
+-- * 'passThroughSettings' - Undocumented field.
+-- * 'wavSettings' - Undocumented field.
+mkAudioCodecSettings ::
   AudioCodecSettings
-audioCodecSettings =
+mkAudioCodecSettings =
   AudioCodecSettings'
-    { _acsPassThroughSettings = Nothing,
-      _acsAc3Settings = Nothing,
-      _acsMp2Settings = Nothing,
-      _acsWavSettings = Nothing,
-      _acsAacSettings = Nothing,
-      _acsEac3Settings = Nothing
+    { passThroughSettings = Lude.Nothing,
+      ac3Settings = Lude.Nothing,
+      mp2Settings = Lude.Nothing,
+      wavSettings = Lude.Nothing,
+      aacSettings = Lude.Nothing,
+      eac3Settings = Lude.Nothing
     }
 
--- | Undocumented member.
-acsPassThroughSettings :: Lens' AudioCodecSettings (Maybe PassThroughSettings)
-acsPassThroughSettings = lens _acsPassThroughSettings (\s a -> s {_acsPassThroughSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'passThroughSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsPassThroughSettings :: Lens.Lens' AudioCodecSettings (Lude.Maybe PassThroughSettings)
+acsPassThroughSettings = Lens.lens (passThroughSettings :: AudioCodecSettings -> Lude.Maybe PassThroughSettings) (\s a -> s {passThroughSettings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsPassThroughSettings "Use generic-lens or generic-optics with 'passThroughSettings' instead." #-}
 
--- | Undocumented member.
-acsAc3Settings :: Lens' AudioCodecSettings (Maybe Ac3Settings)
-acsAc3Settings = lens _acsAc3Settings (\s a -> s {_acsAc3Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ac3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsAc3Settings :: Lens.Lens' AudioCodecSettings (Lude.Maybe Ac3Settings)
+acsAc3Settings = Lens.lens (ac3Settings :: AudioCodecSettings -> Lude.Maybe Ac3Settings) (\s a -> s {ac3Settings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsAc3Settings "Use generic-lens or generic-optics with 'ac3Settings' instead." #-}
 
--- | Undocumented member.
-acsMp2Settings :: Lens' AudioCodecSettings (Maybe Mp2Settings)
-acsMp2Settings = lens _acsMp2Settings (\s a -> s {_acsMp2Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'mp2Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsMp2Settings :: Lens.Lens' AudioCodecSettings (Lude.Maybe Mp2Settings)
+acsMp2Settings = Lens.lens (mp2Settings :: AudioCodecSettings -> Lude.Maybe Mp2Settings) (\s a -> s {mp2Settings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsMp2Settings "Use generic-lens or generic-optics with 'mp2Settings' instead." #-}
 
--- | Undocumented member.
-acsWavSettings :: Lens' AudioCodecSettings (Maybe WavSettings)
-acsWavSettings = lens _acsWavSettings (\s a -> s {_acsWavSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'wavSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsWavSettings :: Lens.Lens' AudioCodecSettings (Lude.Maybe WavSettings)
+acsWavSettings = Lens.lens (wavSettings :: AudioCodecSettings -> Lude.Maybe WavSettings) (\s a -> s {wavSettings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsWavSettings "Use generic-lens or generic-optics with 'wavSettings' instead." #-}
 
--- | Undocumented member.
-acsAacSettings :: Lens' AudioCodecSettings (Maybe AacSettings)
-acsAacSettings = lens _acsAacSettings (\s a -> s {_acsAacSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'aacSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsAacSettings :: Lens.Lens' AudioCodecSettings (Lude.Maybe AacSettings)
+acsAacSettings = Lens.lens (aacSettings :: AudioCodecSettings -> Lude.Maybe AacSettings) (\s a -> s {aacSettings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsAacSettings "Use generic-lens or generic-optics with 'aacSettings' instead." #-}
 
--- | Undocumented member.
-acsEac3Settings :: Lens' AudioCodecSettings (Maybe Eac3Settings)
-acsEac3Settings = lens _acsEac3Settings (\s a -> s {_acsEac3Settings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'eac3Settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsEac3Settings :: Lens.Lens' AudioCodecSettings (Lude.Maybe Eac3Settings)
+acsEac3Settings = Lens.lens (eac3Settings :: AudioCodecSettings -> Lude.Maybe Eac3Settings) (\s a -> s {eac3Settings = a} :: AudioCodecSettings)
+{-# DEPRECATED acsEac3Settings "Use generic-lens or generic-optics with 'eac3Settings' instead." #-}
 
-instance FromJSON AudioCodecSettings where
+instance Lude.FromJSON AudioCodecSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "AudioCodecSettings"
       ( \x ->
           AudioCodecSettings'
-            <$> (x .:? "passThroughSettings")
-            <*> (x .:? "ac3Settings")
-            <*> (x .:? "mp2Settings")
-            <*> (x .:? "wavSettings")
-            <*> (x .:? "aacSettings")
-            <*> (x .:? "eac3Settings")
+            Lude.<$> (x Lude..:? "passThroughSettings")
+            Lude.<*> (x Lude..:? "ac3Settings")
+            Lude.<*> (x Lude..:? "mp2Settings")
+            Lude.<*> (x Lude..:? "wavSettings")
+            Lude.<*> (x Lude..:? "aacSettings")
+            Lude.<*> (x Lude..:? "eac3Settings")
       )
 
-instance Hashable AudioCodecSettings
-
-instance NFData AudioCodecSettings
-
-instance ToJSON AudioCodecSettings where
+instance Lude.ToJSON AudioCodecSettings where
   toJSON AudioCodecSettings' {..} =
-    object
-      ( catMaybes
-          [ ("passThroughSettings" .=) <$> _acsPassThroughSettings,
-            ("ac3Settings" .=) <$> _acsAc3Settings,
-            ("mp2Settings" .=) <$> _acsMp2Settings,
-            ("wavSettings" .=) <$> _acsWavSettings,
-            ("aacSettings" .=) <$> _acsAacSettings,
-            ("eac3Settings" .=) <$> _acsEac3Settings
+    Lude.object
+      ( Lude.catMaybes
+          [ ("passThroughSettings" Lude..=) Lude.<$> passThroughSettings,
+            ("ac3Settings" Lude..=) Lude.<$> ac3Settings,
+            ("mp2Settings" Lude..=) Lude.<$> mp2Settings,
+            ("wavSettings" Lude..=) Lude.<$> wavSettings,
+            ("aacSettings" Lude..=) Lude.<$> aacSettings,
+            ("eac3Settings" Lude..=) Lude.<$> eac3Settings
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,134 @@
 --
 -- Deletes a contact method.
 --
---
 -- A contact method is used to send you notifications about your Amazon Lightsail resources. You can add one email address and one mobile phone number contact method in each AWS Region. However, SMS text messaging is not supported in some AWS Regions, and SMS text messages cannot be sent to some countries/regions. For more information, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications Notifications in Amazon Lightsail> .
 module Network.AWS.Lightsail.DeleteContactMethod
-  ( -- * Creating a Request
-    deleteContactMethod,
-    DeleteContactMethod,
+  ( -- * Creating a request
+    DeleteContactMethod (..),
+    mkDeleteContactMethod,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcmProtocol,
 
-    -- * Destructuring the Response
-    deleteContactMethodResponse,
-    DeleteContactMethodResponse,
+    -- * Destructuring the response
+    DeleteContactMethodResponse (..),
+    mkDeleteContactMethodResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcmrsOperations,
     dcmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteContactMethod' smart constructor.
+-- | /See:/ 'mkDeleteContactMethod' smart constructor.
 newtype DeleteContactMethod = DeleteContactMethod'
-  { _dcmProtocol ::
+  { protocol ::
       ContactProtocol
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteContactMethod' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcmProtocol' - The protocol that will be deleted, such as @Email@ or @SMS@ (text messaging).
-deleteContactMethod ::
-  -- | 'dcmProtocol'
+-- * 'protocol' - The protocol that will be deleted, such as @Email@ or @SMS@ (text messaging).
+mkDeleteContactMethod ::
+  -- | 'protocol'
   ContactProtocol ->
   DeleteContactMethod
-deleteContactMethod pProtocol_ =
-  DeleteContactMethod' {_dcmProtocol = pProtocol_}
+mkDeleteContactMethod pProtocol_ =
+  DeleteContactMethod' {protocol = pProtocol_}
 
 -- | The protocol that will be deleted, such as @Email@ or @SMS@ (text messaging).
-dcmProtocol :: Lens' DeleteContactMethod ContactProtocol
-dcmProtocol = lens _dcmProtocol (\s a -> s {_dcmProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcmProtocol :: Lens.Lens' DeleteContactMethod ContactProtocol
+dcmProtocol = Lens.lens (protocol :: DeleteContactMethod -> ContactProtocol) (\s a -> s {protocol = a} :: DeleteContactMethod)
+{-# DEPRECATED dcmProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
-instance AWSRequest DeleteContactMethod where
+instance Lude.AWSRequest DeleteContactMethod where
   type Rs DeleteContactMethod = DeleteContactMethodResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteContactMethodResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteContactMethod
-
-instance NFData DeleteContactMethod
-
-instance ToHeaders DeleteContactMethod where
+instance Lude.ToHeaders DeleteContactMethod where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.DeleteContactMethod" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.DeleteContactMethod" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteContactMethod where
+instance Lude.ToJSON DeleteContactMethod where
   toJSON DeleteContactMethod' {..} =
-    object (catMaybes [Just ("protocol" .= _dcmProtocol)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("protocol" Lude..= protocol)])
 
-instance ToPath DeleteContactMethod where
-  toPath = const "/"
+instance Lude.ToPath DeleteContactMethod where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteContactMethod where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteContactMethod where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteContactMethodResponse' smart constructor.
+-- | /See:/ 'mkDeleteContactMethodResponse' smart constructor.
 data DeleteContactMethodResponse = DeleteContactMethodResponse'
-  { _dcmrsOperations ::
-      !(Maybe [Operation]),
-    _dcmrsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteContactMethodResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcmrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'dcmrsResponseStatus' - -- | The response status code.
-deleteContactMethodResponse ::
-  -- | 'dcmrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteContactMethodResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteContactMethodResponse
-deleteContactMethodResponse pResponseStatus_ =
+mkDeleteContactMethodResponse pResponseStatus_ =
   DeleteContactMethodResponse'
-    { _dcmrsOperations = Nothing,
-      _dcmrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-dcmrsOperations :: Lens' DeleteContactMethodResponse [Operation]
-dcmrsOperations = lens _dcmrsOperations (\s a -> s {_dcmrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcmrsOperations :: Lens.Lens' DeleteContactMethodResponse (Lude.Maybe [Operation])
+dcmrsOperations = Lens.lens (operations :: DeleteContactMethodResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteContactMethodResponse)
+{-# DEPRECATED dcmrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-dcmrsResponseStatus :: Lens' DeleteContactMethodResponse Int
-dcmrsResponseStatus = lens _dcmrsResponseStatus (\s a -> s {_dcmrsResponseStatus = a})
-
-instance NFData DeleteContactMethodResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcmrsResponseStatus :: Lens.Lens' DeleteContactMethodResponse Lude.Int
+dcmrsResponseStatus = Lens.lens (responseStatus :: DeleteContactMethodResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteContactMethodResponse)
+{-# DEPRECATED dcmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

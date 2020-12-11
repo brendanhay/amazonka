@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.Shipment where
+module Network.AWS.Snowball.Types.Shipment
+  ( Shipment (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkShipment,
+
+    -- * Lenses
+    sStatus,
+    sTrackingNumber,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The @Status@ and @TrackingNumber@ information for an inbound or outbound shipment.
 --
---
---
--- /See:/ 'shipment' smart constructor.
+-- /See:/ 'mkShipment' smart constructor.
 data Shipment = Shipment'
-  { _sStatus :: !(Maybe Text),
-    _sTrackingNumber :: !(Maybe Text)
+  { status :: Lude.Maybe Lude.Text,
+    trackingNumber :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Shipment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'status' - Status information for a shipment.
+-- * 'trackingNumber' - The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snow device as the carrier transports it.
 --
--- * 'sStatus' - Status information for a shipment.
---
--- * 'sTrackingNumber' - The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snow device as the carrier transports it. For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
-shipment ::
+-- For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
+mkShipment ::
   Shipment
-shipment =
-  Shipment' {_sStatus = Nothing, _sTrackingNumber = Nothing}
+mkShipment =
+  Shipment' {status = Lude.Nothing, trackingNumber = Lude.Nothing}
 
 -- | Status information for a shipment.
-sStatus :: Lens' Shipment (Maybe Text)
-sStatus = lens _sStatus (\s a -> s {_sStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStatus :: Lens.Lens' Shipment (Lude.Maybe Lude.Text)
+sStatus = Lens.lens (status :: Shipment -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Shipment)
+{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snow device as the carrier transports it. For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
-sTrackingNumber :: Lens' Shipment (Maybe Text)
-sTrackingNumber = lens _sTrackingNumber (\s a -> s {_sTrackingNumber = a})
+-- | The tracking number for this job. Using this tracking number with your region's carrier's website, you can track a Snow device as the carrier transports it.
+--
+-- For India, the carrier is Amazon Logistics. For all other regions, UPS is the carrier.
+--
+-- /Note:/ Consider using 'trackingNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTrackingNumber :: Lens.Lens' Shipment (Lude.Maybe Lude.Text)
+sTrackingNumber = Lens.lens (trackingNumber :: Shipment -> Lude.Maybe Lude.Text) (\s a -> s {trackingNumber = a} :: Shipment)
+{-# DEPRECATED sTrackingNumber "Use generic-lens or generic-optics with 'trackingNumber' instead." #-}
 
-instance FromJSON Shipment where
+instance Lude.FromJSON Shipment where
   parseJSON =
-    withObject
+    Lude.withObject
       "Shipment"
       ( \x ->
-          Shipment' <$> (x .:? "Status") <*> (x .:? "TrackingNumber")
+          Shipment'
+            Lude.<$> (x Lude..:? "Status") Lude.<*> (x Lude..:? "TrackingNumber")
       )
-
-instance Hashable Shipment
-
-instance NFData Shipment

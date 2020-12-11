@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ServerType where
+module Network.AWS.CodeBuild.Types.ServerType
+  ( ServerType
+      ( ServerType',
+        Bitbucket,
+        Github,
+        GithubEnterprise
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServerType
-  = Bitbucket
-  | Github
-  | GithubEnterprise
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServerType = ServerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServerType where
-  parser =
-    takeLowerText >>= \case
-      "bitbucket" -> pure Bitbucket
-      "github" -> pure Github
-      "github_enterprise" -> pure GithubEnterprise
-      e ->
-        fromTextError $
-          "Failure parsing ServerType from value: '" <> e
-            <> "'. Accepted values: bitbucket, github, github_enterprise"
+pattern Bitbucket :: ServerType
+pattern Bitbucket = ServerType' "BITBUCKET"
 
-instance ToText ServerType where
-  toText = \case
-    Bitbucket -> "BITBUCKET"
-    Github -> "GITHUB"
-    GithubEnterprise -> "GITHUB_ENTERPRISE"
+pattern Github :: ServerType
+pattern Github = ServerType' "GITHUB"
 
-instance Hashable ServerType
+pattern GithubEnterprise :: ServerType
+pattern GithubEnterprise = ServerType' "GITHUB_ENTERPRISE"
 
-instance NFData ServerType
-
-instance ToByteString ServerType
-
-instance ToQuery ServerType
-
-instance ToHeader ServerType
-
-instance ToJSON ServerType where
-  toJSON = toJSONText
-
-instance FromJSON ServerType where
-  parseJSON = parseJSONText "ServerType"
+{-# COMPLETE
+  Bitbucket,
+  Github,
+  GithubEnterprise,
+  ServerType'
+  #-}

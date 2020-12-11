@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.OutputChannelMapping where
+module Network.AWS.MediaConvert.Types.OutputChannelMapping
+  ( OutputChannelMapping (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOutputChannelMapping,
+
+    -- * Lenses
+    ocmInputChannels,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | OutputChannel mapping settings.
 --
--- /See:/ 'outputChannelMapping' smart constructor.
+-- /See:/ 'mkOutputChannelMapping' smart constructor.
 newtype OutputChannelMapping = OutputChannelMapping'
-  { _ocmInputChannels ::
-      Maybe [Int]
+  { inputChannels ::
+      Lude.Maybe [Lude.Int]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputChannelMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ocmInputChannels' - List of input channels
-outputChannelMapping ::
+-- * 'inputChannels' - List of input channels
+mkOutputChannelMapping ::
   OutputChannelMapping
-outputChannelMapping =
-  OutputChannelMapping' {_ocmInputChannels = Nothing}
+mkOutputChannelMapping =
+  OutputChannelMapping' {inputChannels = Lude.Nothing}
 
 -- | List of input channels
-ocmInputChannels :: Lens' OutputChannelMapping [Int]
-ocmInputChannels = lens _ocmInputChannels (\s a -> s {_ocmInputChannels = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputChannels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocmInputChannels :: Lens.Lens' OutputChannelMapping (Lude.Maybe [Lude.Int])
+ocmInputChannels = Lens.lens (inputChannels :: OutputChannelMapping -> Lude.Maybe [Lude.Int]) (\s a -> s {inputChannels = a} :: OutputChannelMapping)
+{-# DEPRECATED ocmInputChannels "Use generic-lens or generic-optics with 'inputChannels' instead." #-}
 
-instance FromJSON OutputChannelMapping where
+instance Lude.FromJSON OutputChannelMapping where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputChannelMapping"
       ( \x ->
-          OutputChannelMapping' <$> (x .:? "inputChannels" .!= mempty)
+          OutputChannelMapping'
+            Lude.<$> (x Lude..:? "inputChannels" Lude..!= Lude.mempty)
       )
 
-instance Hashable OutputChannelMapping
-
-instance NFData OutputChannelMapping
-
-instance ToJSON OutputChannelMapping where
+instance Lude.ToJSON OutputChannelMapping where
   toJSON OutputChannelMapping' {..} =
-    object (catMaybes [("inputChannels" .=) <$> _ocmInputChannels])
+    Lude.object
+      (Lude.catMaybes [("inputChannels" Lude..=) Lude.<$> inputChannels])

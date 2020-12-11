@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.AdminAccount where
+module Network.AWS.GuardDuty.Types.AdminAccount
+  ( AdminAccount (..),
+
+    -- * Smart constructor
+    mkAdminAccount,
+
+    -- * Lenses
+    aaAdminAccountId,
+    aaAdminStatus,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.AdminStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The account within the organization specified as the GuardDuty delegated administrator.
 --
---
---
--- /See:/ 'adminAccount' smart constructor.
+-- /See:/ 'mkAdminAccount' smart constructor.
 data AdminAccount = AdminAccount'
-  { _aaAdminAccountId ::
-      !(Maybe Text),
-    _aaAdminStatus :: !(Maybe AdminStatus)
+  { adminAccountId ::
+      Lude.Maybe Lude.Text,
+    adminStatus :: Lude.Maybe AdminStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aaAdminAccountId' - The AWS account ID for the account.
---
--- * 'aaAdminStatus' - Indicates whether the account is enabled as the delegated administrator.
-adminAccount ::
+-- * 'adminAccountId' - The AWS account ID for the account.
+-- * 'adminStatus' - Indicates whether the account is enabled as the delegated administrator.
+mkAdminAccount ::
   AdminAccount
-adminAccount =
+mkAdminAccount =
   AdminAccount'
-    { _aaAdminAccountId = Nothing,
-      _aaAdminStatus = Nothing
+    { adminAccountId = Lude.Nothing,
+      adminStatus = Lude.Nothing
     }
 
 -- | The AWS account ID for the account.
-aaAdminAccountId :: Lens' AdminAccount (Maybe Text)
-aaAdminAccountId = lens _aaAdminAccountId (\s a -> s {_aaAdminAccountId = a})
+--
+-- /Note:/ Consider using 'adminAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAdminAccountId :: Lens.Lens' AdminAccount (Lude.Maybe Lude.Text)
+aaAdminAccountId = Lens.lens (adminAccountId :: AdminAccount -> Lude.Maybe Lude.Text) (\s a -> s {adminAccountId = a} :: AdminAccount)
+{-# DEPRECATED aaAdminAccountId "Use generic-lens or generic-optics with 'adminAccountId' instead." #-}
 
 -- | Indicates whether the account is enabled as the delegated administrator.
-aaAdminStatus :: Lens' AdminAccount (Maybe AdminStatus)
-aaAdminStatus = lens _aaAdminStatus (\s a -> s {_aaAdminStatus = a})
+--
+-- /Note:/ Consider using 'adminStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAdminStatus :: Lens.Lens' AdminAccount (Lude.Maybe AdminStatus)
+aaAdminStatus = Lens.lens (adminStatus :: AdminAccount -> Lude.Maybe AdminStatus) (\s a -> s {adminStatus = a} :: AdminAccount)
+{-# DEPRECATED aaAdminStatus "Use generic-lens or generic-optics with 'adminStatus' instead." #-}
 
-instance FromJSON AdminAccount where
+instance Lude.FromJSON AdminAccount where
   parseJSON =
-    withObject
+    Lude.withObject
       "AdminAccount"
       ( \x ->
           AdminAccount'
-            <$> (x .:? "adminAccountId") <*> (x .:? "adminStatus")
+            Lude.<$> (x Lude..:? "adminAccountId") Lude.<*> (x Lude..:? "adminStatus")
       )
-
-instance Hashable AdminAccount
-
-instance NFData AdminAccount

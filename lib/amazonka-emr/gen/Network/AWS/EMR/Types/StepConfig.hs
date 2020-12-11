@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.StepConfig where
+module Network.AWS.EMR.Types.StepConfig
+  ( StepConfig (..),
+
+    -- * Smart constructor
+    mkStepConfig,
+
+    -- * Lenses
+    scActionOnFailure,
+    scName,
+    scHadoopJARStep,
+  )
+where
 
 import Network.AWS.EMR.Types.ActionOnFailure
 import Network.AWS.EMR.Types.HadoopJARStepConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specification of a cluster (job flow) step.
 --
---
---
--- /See:/ 'stepConfig' smart constructor.
+-- /See:/ 'mkStepConfig' smart constructor.
 data StepConfig = StepConfig'
-  { _scActionOnFailure ::
-      !(Maybe ActionOnFailure),
-    _scName :: !Text,
-    _scHadoopJARStep :: !HadoopJARStepConfig
+  { actionOnFailure ::
+      Lude.Maybe ActionOnFailure,
+    name :: Lude.Text,
+    hadoopJARStep :: HadoopJARStepConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scActionOnFailure' - The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
---
--- * 'scName' - The name of the step.
---
--- * 'scHadoopJARStep' - The JAR file used for the step.
-stepConfig ::
-  -- | 'scName'
-  Text ->
-  -- | 'scHadoopJARStep'
+-- * 'actionOnFailure' - The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+-- * 'hadoopJARStep' - The JAR file used for the step.
+-- * 'name' - The name of the step.
+mkStepConfig ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'hadoopJARStep'
   HadoopJARStepConfig ->
   StepConfig
-stepConfig pName_ pHadoopJARStep_ =
+mkStepConfig pName_ pHadoopJARStep_ =
   StepConfig'
-    { _scActionOnFailure = Nothing,
-      _scName = pName_,
-      _scHadoopJARStep = pHadoopJARStep_
+    { actionOnFailure = Lude.Nothing,
+      name = pName_,
+      hadoopJARStep = pHadoopJARStep_
     }
 
 -- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
-scActionOnFailure :: Lens' StepConfig (Maybe ActionOnFailure)
-scActionOnFailure = lens _scActionOnFailure (\s a -> s {_scActionOnFailure = a})
+--
+-- /Note:/ Consider using 'actionOnFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scActionOnFailure :: Lens.Lens' StepConfig (Lude.Maybe ActionOnFailure)
+scActionOnFailure = Lens.lens (actionOnFailure :: StepConfig -> Lude.Maybe ActionOnFailure) (\s a -> s {actionOnFailure = a} :: StepConfig)
+{-# DEPRECATED scActionOnFailure "Use generic-lens or generic-optics with 'actionOnFailure' instead." #-}
 
 -- | The name of the step.
-scName :: Lens' StepConfig Text
-scName = lens _scName (\s a -> s {_scName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scName :: Lens.Lens' StepConfig Lude.Text
+scName = Lens.lens (name :: StepConfig -> Lude.Text) (\s a -> s {name = a} :: StepConfig)
+{-# DEPRECATED scName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The JAR file used for the step.
-scHadoopJARStep :: Lens' StepConfig HadoopJARStepConfig
-scHadoopJARStep = lens _scHadoopJARStep (\s a -> s {_scHadoopJARStep = a})
+--
+-- /Note:/ Consider using 'hadoopJARStep' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scHadoopJARStep :: Lens.Lens' StepConfig HadoopJARStepConfig
+scHadoopJARStep = Lens.lens (hadoopJARStep :: StepConfig -> HadoopJARStepConfig) (\s a -> s {hadoopJARStep = a} :: StepConfig)
+{-# DEPRECATED scHadoopJARStep "Use generic-lens or generic-optics with 'hadoopJARStep' instead." #-}
 
-instance Hashable StepConfig
-
-instance NFData StepConfig
-
-instance ToJSON StepConfig where
+instance Lude.ToJSON StepConfig where
   toJSON StepConfig' {..} =
-    object
-      ( catMaybes
-          [ ("ActionOnFailure" .=) <$> _scActionOnFailure,
-            Just ("Name" .= _scName),
-            Just ("HadoopJarStep" .= _scHadoopJARStep)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ActionOnFailure" Lude..=) Lude.<$> actionOnFailure,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("HadoopJarStep" Lude..= hadoopJARStep)
           ]
       )

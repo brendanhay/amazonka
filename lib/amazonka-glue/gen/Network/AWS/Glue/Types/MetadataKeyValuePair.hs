@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.MetadataKeyValuePair where
+module Network.AWS.Glue.Types.MetadataKeyValuePair
+  ( MetadataKeyValuePair (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetadataKeyValuePair,
+
+    -- * Lenses
+    mkvpMetadataKey,
+    mkvpMetadataValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A structure containing a key value pair for metadata.
 --
---
---
--- /See:/ 'metadataKeyValuePair' smart constructor.
+-- /See:/ 'mkMetadataKeyValuePair' smart constructor.
 data MetadataKeyValuePair = MetadataKeyValuePair'
-  { _mkvpMetadataKey ::
-      !(Maybe Text),
-    _mkvpMetadataValue :: !(Maybe Text)
+  { metadataKey ::
+      Lude.Maybe Lude.Text,
+    metadataValue :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetadataKeyValuePair' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mkvpMetadataKey' - A metadata key.
---
--- * 'mkvpMetadataValue' - A metadata key’s corresponding value.
-metadataKeyValuePair ::
+-- * 'metadataKey' - A metadata key.
+-- * 'metadataValue' - A metadata key’s corresponding value.
+mkMetadataKeyValuePair ::
   MetadataKeyValuePair
-metadataKeyValuePair =
+mkMetadataKeyValuePair =
   MetadataKeyValuePair'
-    { _mkvpMetadataKey = Nothing,
-      _mkvpMetadataValue = Nothing
+    { metadataKey = Lude.Nothing,
+      metadataValue = Lude.Nothing
     }
 
 -- | A metadata key.
-mkvpMetadataKey :: Lens' MetadataKeyValuePair (Maybe Text)
-mkvpMetadataKey = lens _mkvpMetadataKey (\s a -> s {_mkvpMetadataKey = a})
+--
+-- /Note:/ Consider using 'metadataKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mkvpMetadataKey :: Lens.Lens' MetadataKeyValuePair (Lude.Maybe Lude.Text)
+mkvpMetadataKey = Lens.lens (metadataKey :: MetadataKeyValuePair -> Lude.Maybe Lude.Text) (\s a -> s {metadataKey = a} :: MetadataKeyValuePair)
+{-# DEPRECATED mkvpMetadataKey "Use generic-lens or generic-optics with 'metadataKey' instead." #-}
 
 -- | A metadata key’s corresponding value.
-mkvpMetadataValue :: Lens' MetadataKeyValuePair (Maybe Text)
-mkvpMetadataValue = lens _mkvpMetadataValue (\s a -> s {_mkvpMetadataValue = a})
+--
+-- /Note:/ Consider using 'metadataValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mkvpMetadataValue :: Lens.Lens' MetadataKeyValuePair (Lude.Maybe Lude.Text)
+mkvpMetadataValue = Lens.lens (metadataValue :: MetadataKeyValuePair -> Lude.Maybe Lude.Text) (\s a -> s {metadataValue = a} :: MetadataKeyValuePair)
+{-# DEPRECATED mkvpMetadataValue "Use generic-lens or generic-optics with 'metadataValue' instead." #-}
 
-instance Hashable MetadataKeyValuePair
-
-instance NFData MetadataKeyValuePair
-
-instance ToJSON MetadataKeyValuePair where
+instance Lude.ToJSON MetadataKeyValuePair where
   toJSON MetadataKeyValuePair' {..} =
-    object
-      ( catMaybes
-          [ ("MetadataKey" .=) <$> _mkvpMetadataKey,
-            ("MetadataValue" .=) <$> _mkvpMetadataValue
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MetadataKey" Lude..=) Lude.<$> metadataKey,
+            ("MetadataValue" Lude..=) Lude.<$> metadataValue
           ]
       )

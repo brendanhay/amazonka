@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.AuthenticationType where
+module Network.AWS.AppSync.Types.AuthenticationType
+  ( AuthenticationType
+      ( AuthenticationType',
+        ATAPIKey,
+        ATAWSIAM,
+        ATAmazonCognitoUserPools,
+        ATOpenidConnect
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthenticationType
-  = ATAPIKey
-  | ATAWSIAM
-  | ATAmazonCognitoUserPools
-  | ATOpenidConnect
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthenticationType = AuthenticationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthenticationType where
-  parser =
-    takeLowerText >>= \case
-      "api_key" -> pure ATAPIKey
-      "aws_iam" -> pure ATAWSIAM
-      "amazon_cognito_user_pools" -> pure ATAmazonCognitoUserPools
-      "openid_connect" -> pure ATOpenidConnect
-      e ->
-        fromTextError $
-          "Failure parsing AuthenticationType from value: '" <> e
-            <> "'. Accepted values: api_key, aws_iam, amazon_cognito_user_pools, openid_connect"
+pattern ATAPIKey :: AuthenticationType
+pattern ATAPIKey = AuthenticationType' "API_KEY"
 
-instance ToText AuthenticationType where
-  toText = \case
-    ATAPIKey -> "API_KEY"
-    ATAWSIAM -> "AWS_IAM"
-    ATAmazonCognitoUserPools -> "AMAZON_COGNITO_USER_POOLS"
-    ATOpenidConnect -> "OPENID_CONNECT"
+pattern ATAWSIAM :: AuthenticationType
+pattern ATAWSIAM = AuthenticationType' "AWS_IAM"
 
-instance Hashable AuthenticationType
+pattern ATAmazonCognitoUserPools :: AuthenticationType
+pattern ATAmazonCognitoUserPools = AuthenticationType' "AMAZON_COGNITO_USER_POOLS"
 
-instance NFData AuthenticationType
+pattern ATOpenidConnect :: AuthenticationType
+pattern ATOpenidConnect = AuthenticationType' "OPENID_CONNECT"
 
-instance ToByteString AuthenticationType
-
-instance ToQuery AuthenticationType
-
-instance ToHeader AuthenticationType
-
-instance ToJSON AuthenticationType where
-  toJSON = toJSONText
-
-instance FromJSON AuthenticationType where
-  parseJSON = parseJSONText "AuthenticationType"
+{-# COMPLETE
+  ATAPIKey,
+  ATAWSIAM,
+  ATAmazonCognitoUserPools,
+  ATOpenidConnect,
+  AuthenticationType'
+  #-}

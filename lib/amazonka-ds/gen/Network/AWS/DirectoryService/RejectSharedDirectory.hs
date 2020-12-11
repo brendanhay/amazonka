@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,136 @@
 --
 -- Rejects a directory sharing request that was sent from the directory owner account.
 module Network.AWS.DirectoryService.RejectSharedDirectory
-  ( -- * Creating a Request
-    rejectSharedDirectory,
-    RejectSharedDirectory,
+  ( -- * Creating a request
+    RejectSharedDirectory (..),
+    mkRejectSharedDirectory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rsdSharedDirectoryId,
 
-    -- * Destructuring the Response
-    rejectSharedDirectoryResponse,
-    RejectSharedDirectoryResponse,
+    -- * Destructuring the response
+    RejectSharedDirectoryResponse (..),
+    mkRejectSharedDirectoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rsdrsSharedDirectoryId,
     rsdrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rejectSharedDirectory' smart constructor.
+-- | /See:/ 'mkRejectSharedDirectory' smart constructor.
 newtype RejectSharedDirectory = RejectSharedDirectory'
-  { _rsdSharedDirectoryId ::
-      Text
+  { sharedDirectoryId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectSharedDirectory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsdSharedDirectoryId' - Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.
-rejectSharedDirectory ::
-  -- | 'rsdSharedDirectoryId'
-  Text ->
+-- * 'sharedDirectoryId' - Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.
+mkRejectSharedDirectory ::
+  -- | 'sharedDirectoryId'
+  Lude.Text ->
   RejectSharedDirectory
-rejectSharedDirectory pSharedDirectoryId_ =
-  RejectSharedDirectory'
-    { _rsdSharedDirectoryId =
-        pSharedDirectoryId_
-    }
+mkRejectSharedDirectory pSharedDirectoryId_ =
+  RejectSharedDirectory' {sharedDirectoryId = pSharedDirectoryId_}
 
 -- | Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.
-rsdSharedDirectoryId :: Lens' RejectSharedDirectory Text
-rsdSharedDirectoryId = lens _rsdSharedDirectoryId (\s a -> s {_rsdSharedDirectoryId = a})
+--
+-- /Note:/ Consider using 'sharedDirectoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsdSharedDirectoryId :: Lens.Lens' RejectSharedDirectory Lude.Text
+rsdSharedDirectoryId = Lens.lens (sharedDirectoryId :: RejectSharedDirectory -> Lude.Text) (\s a -> s {sharedDirectoryId = a} :: RejectSharedDirectory)
+{-# DEPRECATED rsdSharedDirectoryId "Use generic-lens or generic-optics with 'sharedDirectoryId' instead." #-}
 
-instance AWSRequest RejectSharedDirectory where
+instance Lude.AWSRequest RejectSharedDirectory where
   type Rs RejectSharedDirectory = RejectSharedDirectoryResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RejectSharedDirectoryResponse'
-            <$> (x .?> "SharedDirectoryId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SharedDirectoryId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RejectSharedDirectory
-
-instance NFData RejectSharedDirectory
-
-instance ToHeaders RejectSharedDirectory where
+instance Lude.ToHeaders RejectSharedDirectory where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.RejectSharedDirectory" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.RejectSharedDirectory" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RejectSharedDirectory where
+instance Lude.ToJSON RejectSharedDirectory where
   toJSON RejectSharedDirectory' {..} =
-    object
-      (catMaybes [Just ("SharedDirectoryId" .= _rsdSharedDirectoryId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("SharedDirectoryId" Lude..= sharedDirectoryId)]
+      )
 
-instance ToPath RejectSharedDirectory where
-  toPath = const "/"
+instance Lude.ToPath RejectSharedDirectory where
+  toPath = Lude.const "/"
 
-instance ToQuery RejectSharedDirectory where
-  toQuery = const mempty
+instance Lude.ToQuery RejectSharedDirectory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'rejectSharedDirectoryResponse' smart constructor.
+-- | /See:/ 'mkRejectSharedDirectoryResponse' smart constructor.
 data RejectSharedDirectoryResponse = RejectSharedDirectoryResponse'
-  { _rsdrsSharedDirectoryId ::
-      !(Maybe Text),
-    _rsdrsResponseStatus :: !Int
+  { sharedDirectoryId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectSharedDirectoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsdrsSharedDirectoryId' - Identifier of the shared directory in the directory consumer account.
---
--- * 'rsdrsResponseStatus' - -- | The response status code.
-rejectSharedDirectoryResponse ::
-  -- | 'rsdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sharedDirectoryId' - Identifier of the shared directory in the directory consumer account.
+mkRejectSharedDirectoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RejectSharedDirectoryResponse
-rejectSharedDirectoryResponse pResponseStatus_ =
+mkRejectSharedDirectoryResponse pResponseStatus_ =
   RejectSharedDirectoryResponse'
-    { _rsdrsSharedDirectoryId = Nothing,
-      _rsdrsResponseStatus = pResponseStatus_
+    { sharedDirectoryId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Identifier of the shared directory in the directory consumer account.
-rsdrsSharedDirectoryId :: Lens' RejectSharedDirectoryResponse (Maybe Text)
-rsdrsSharedDirectoryId = lens _rsdrsSharedDirectoryId (\s a -> s {_rsdrsSharedDirectoryId = a})
+--
+-- /Note:/ Consider using 'sharedDirectoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsdrsSharedDirectoryId :: Lens.Lens' RejectSharedDirectoryResponse (Lude.Maybe Lude.Text)
+rsdrsSharedDirectoryId = Lens.lens (sharedDirectoryId :: RejectSharedDirectoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {sharedDirectoryId = a} :: RejectSharedDirectoryResponse)
+{-# DEPRECATED rsdrsSharedDirectoryId "Use generic-lens or generic-optics with 'sharedDirectoryId' instead." #-}
 
--- | -- | The response status code.
-rsdrsResponseStatus :: Lens' RejectSharedDirectoryResponse Int
-rsdrsResponseStatus = lens _rsdrsResponseStatus (\s a -> s {_rsdrsResponseStatus = a})
-
-instance NFData RejectSharedDirectoryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsdrsResponseStatus :: Lens.Lens' RejectSharedDirectoryResponse Lude.Int
+rsdrsResponseStatus = Lens.lens (responseStatus :: RejectSharedDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RejectSharedDirectoryResponse)
+{-# DEPRECATED rsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SchemaChangePolicy where
+module Network.AWS.Glue.Types.SchemaChangePolicy
+  ( SchemaChangePolicy (..),
+
+    -- * Smart constructor
+    mkSchemaChangePolicy,
+
+    -- * Lenses
+    scpDeleteBehavior,
+    scpUpdateBehavior,
+  )
+where
 
 import Network.AWS.Glue.Types.DeleteBehavior
 import Network.AWS.Glue.Types.UpdateBehavior
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A policy that specifies update and deletion behaviors for the crawler.
 --
---
---
--- /See:/ 'schemaChangePolicy' smart constructor.
+-- /See:/ 'mkSchemaChangePolicy' smart constructor.
 data SchemaChangePolicy = SchemaChangePolicy'
-  { _scpDeleteBehavior ::
-      !(Maybe DeleteBehavior),
-    _scpUpdateBehavior :: !(Maybe UpdateBehavior)
+  { deleteBehavior ::
+      Lude.Maybe DeleteBehavior,
+    updateBehavior :: Lude.Maybe UpdateBehavior
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaChangePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scpDeleteBehavior' - The deletion behavior when the crawler finds a deleted object.
---
--- * 'scpUpdateBehavior' - The update behavior when the crawler finds a changed schema.
-schemaChangePolicy ::
+-- * 'deleteBehavior' - The deletion behavior when the crawler finds a deleted object.
+-- * 'updateBehavior' - The update behavior when the crawler finds a changed schema.
+mkSchemaChangePolicy ::
   SchemaChangePolicy
-schemaChangePolicy =
+mkSchemaChangePolicy =
   SchemaChangePolicy'
-    { _scpDeleteBehavior = Nothing,
-      _scpUpdateBehavior = Nothing
+    { deleteBehavior = Lude.Nothing,
+      updateBehavior = Lude.Nothing
     }
 
 -- | The deletion behavior when the crawler finds a deleted object.
-scpDeleteBehavior :: Lens' SchemaChangePolicy (Maybe DeleteBehavior)
-scpDeleteBehavior = lens _scpDeleteBehavior (\s a -> s {_scpDeleteBehavior = a})
+--
+-- /Note:/ Consider using 'deleteBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scpDeleteBehavior :: Lens.Lens' SchemaChangePolicy (Lude.Maybe DeleteBehavior)
+scpDeleteBehavior = Lens.lens (deleteBehavior :: SchemaChangePolicy -> Lude.Maybe DeleteBehavior) (\s a -> s {deleteBehavior = a} :: SchemaChangePolicy)
+{-# DEPRECATED scpDeleteBehavior "Use generic-lens or generic-optics with 'deleteBehavior' instead." #-}
 
 -- | The update behavior when the crawler finds a changed schema.
-scpUpdateBehavior :: Lens' SchemaChangePolicy (Maybe UpdateBehavior)
-scpUpdateBehavior = lens _scpUpdateBehavior (\s a -> s {_scpUpdateBehavior = a})
+--
+-- /Note:/ Consider using 'updateBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scpUpdateBehavior :: Lens.Lens' SchemaChangePolicy (Lude.Maybe UpdateBehavior)
+scpUpdateBehavior = Lens.lens (updateBehavior :: SchemaChangePolicy -> Lude.Maybe UpdateBehavior) (\s a -> s {updateBehavior = a} :: SchemaChangePolicy)
+{-# DEPRECATED scpUpdateBehavior "Use generic-lens or generic-optics with 'updateBehavior' instead." #-}
 
-instance FromJSON SchemaChangePolicy where
+instance Lude.FromJSON SchemaChangePolicy where
   parseJSON =
-    withObject
+    Lude.withObject
       "SchemaChangePolicy"
       ( \x ->
           SchemaChangePolicy'
-            <$> (x .:? "DeleteBehavior") <*> (x .:? "UpdateBehavior")
+            Lude.<$> (x Lude..:? "DeleteBehavior")
+            Lude.<*> (x Lude..:? "UpdateBehavior")
       )
 
-instance Hashable SchemaChangePolicy
-
-instance NFData SchemaChangePolicy
-
-instance ToJSON SchemaChangePolicy where
+instance Lude.ToJSON SchemaChangePolicy where
   toJSON SchemaChangePolicy' {..} =
-    object
-      ( catMaybes
-          [ ("DeleteBehavior" .=) <$> _scpDeleteBehavior,
-            ("UpdateBehavior" .=) <$> _scpUpdateBehavior
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DeleteBehavior" Lude..=) Lude.<$> deleteBehavior,
+            ("UpdateBehavior" Lude..=) Lude.<$> updateBehavior
           ]
       )

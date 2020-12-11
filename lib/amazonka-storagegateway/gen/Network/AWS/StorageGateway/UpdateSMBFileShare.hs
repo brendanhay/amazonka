@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Updates a Server Message Block (SMB) file share. This operation is only supported for file gateways.
 --
---
 -- /Important:/ File gateways require AWS Security Token Service (AWS STS) to be activated to enable you to create a file share. Make sure that AWS STS is activated in the AWS Region you are creating your file gateway in. If AWS STS is not activated in this AWS Region, activate it. For information about how to activate AWS STS, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating AWS STS in an AWS Region> in the /AWS Identity and Access Management User Guide/ .
---
 -- File gateways don't support creating hard or symbolic links on a file share.
 module Network.AWS.StorageGateway.UpdateSMBFileShare
-  ( -- * Creating a Request
-    updateSMBFileShare,
-    UpdateSMBFileShare,
+  ( -- * Creating a request
+    UpdateSMBFileShare (..),
+    mkUpdateSMBFileShare,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usmbfsAccessBasedEnumeration,
     usmbfsAdminUserList,
     usmbfsAuditDestinationARN,
@@ -48,277 +41,347 @@ module Network.AWS.StorageGateway.UpdateSMBFileShare
     usmbfsCaseSensitivity,
     usmbfsFileShareARN,
 
-    -- * Destructuring the Response
-    updateSMBFileShareResponse,
-    UpdateSMBFileShareResponse,
+    -- * Destructuring the response
+    UpdateSMBFileShareResponse (..),
+    mkUpdateSMBFileShareResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     usmbfsrsFileShareARN,
     usmbfsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | UpdateSMBFileShareInput
 --
---
---
--- /See:/ 'updateSMBFileShare' smart constructor.
+-- /See:/ 'mkUpdateSMBFileShare' smart constructor.
 data UpdateSMBFileShare = UpdateSMBFileShare'
-  { _usmbfsAccessBasedEnumeration ::
-      !(Maybe Bool),
-    _usmbfsAdminUserList :: !(Maybe [Text]),
-    _usmbfsAuditDestinationARN :: !(Maybe Text),
-    _usmbfsInvalidUserList :: !(Maybe [Text]),
-    _usmbfsKMSKey :: !(Maybe Text),
-    _usmbfsValidUserList :: !(Maybe [Text]),
-    _usmbfsCacheAttributes :: !(Maybe CacheAttributes),
-    _usmbfsObjectACL :: !(Maybe ObjectACL),
-    _usmbfsKMSEncrypted :: !(Maybe Bool),
-    _usmbfsDefaultStorageClass :: !(Maybe Text),
-    _usmbfsFileShareName :: !(Maybe Text),
-    _usmbfsSMBACLEnabled :: !(Maybe Bool),
-    _usmbfsNotificationPolicy :: !(Maybe Text),
-    _usmbfsRequesterPays :: !(Maybe Bool),
-    _usmbfsGuessMIMETypeEnabled :: !(Maybe Bool),
-    _usmbfsReadOnly :: !(Maybe Bool),
-    _usmbfsCaseSensitivity :: !(Maybe CaseSensitivity),
-    _usmbfsFileShareARN :: !Text
+  { accessBasedEnumeration ::
+      Lude.Maybe Lude.Bool,
+    adminUserList :: Lude.Maybe [Lude.Text],
+    auditDestinationARN :: Lude.Maybe Lude.Text,
+    invalidUserList :: Lude.Maybe [Lude.Text],
+    kmsKey :: Lude.Maybe Lude.Text,
+    validUserList :: Lude.Maybe [Lude.Text],
+    cacheAttributes :: Lude.Maybe CacheAttributes,
+    objectACL :: Lude.Maybe ObjectACL,
+    kmsEncrypted :: Lude.Maybe Lude.Bool,
+    defaultStorageClass :: Lude.Maybe Lude.Text,
+    fileShareName :: Lude.Maybe Lude.Text,
+    sMBACLEnabled :: Lude.Maybe Lude.Bool,
+    notificationPolicy :: Lude.Maybe Lude.Text,
+    requesterPays :: Lude.Maybe Lude.Bool,
+    guessMIMETypeEnabled :: Lude.Maybe Lude.Bool,
+    readOnly :: Lude.Maybe Lude.Bool,
+    caseSensitivity :: Lude.Maybe CaseSensitivity,
+    fileShareARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSMBFileShare' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accessBasedEnumeration' - The files and folders on this share will only be visible to users with read access.
+-- * 'adminUserList' - A list of users or groups in the Active Directory that have administrator rights to the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+-- * 'auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.
+-- * 'cacheAttributes' - Refresh cache information.
+-- * 'caseSensitivity' - The case of an object name in an Amazon S3 bucket. For @ClientSpecified@ , the client determines the case sensitivity. For @CaseSensitive@ , the gateway determines the case sensitivity. The default value is @ClientSpecified@ .
+-- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
 --
--- * 'usmbfsAccessBasedEnumeration' - The files and folders on this share will only be visible to users with read access.
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+-- * 'fileShareARN' - The Amazon Resource Name (ARN) of the SMB file share that you want to update.
+-- * 'fileShareName' - The name of the file share. Optional.
+-- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
 --
--- * 'usmbfsAdminUserList' - A list of users or groups in the Active Directory that have administrator rights to the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+-- Valid Values: @true@ | @false@
+-- * 'invalidUserList' - A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+-- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
--- * 'usmbfsAuditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.
+-- Valid Values: @true@ | @false@
+-- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+-- * 'notificationPolicy' - The notification policy of the file share.
+-- * 'objectACL' - A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
+-- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set write status to read-only, otherwise set to @false@ .
 --
--- * 'usmbfsInvalidUserList' - A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+-- Valid Values: @true@ | @false@
+-- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
 --
--- * 'usmbfsKMSKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+-- Valid Values: @true@ | @false@
+-- * 'sMBACLEnabled' - Set this value to @true@ to enable access control list (ACL) on the SMB file share. Set it to @false@ to map file and directory permissions to the POSIX permissions.
 --
--- * 'usmbfsValidUserList' - A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
---
--- * 'usmbfsCacheAttributes' - Refresh cache information.
---
--- * 'usmbfsObjectACL' - A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
---
--- * 'usmbfsKMSEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional. Valid Values: @true@ | @false@
---
--- * 'usmbfsDefaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional. Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
---
--- * 'usmbfsFileShareName' - The name of the file share. Optional.
---
--- * 'usmbfsSMBACLEnabled' - Set this value to @true@ to enable access control list (ACL) on the SMB file share. Set it to @false@ to map file and directory permissions to the POSIX permissions. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html Using Microsoft Windows ACLs to control access to an SMB file share> in the /AWS Storage Gateway User Guide/ . Valid Values: @true@ | @false@
---
--- * 'usmbfsNotificationPolicy' - The notification policy of the file share.
---
--- * 'usmbfsRequesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data. Valid Values: @true@ | @false@
---
--- * 'usmbfsGuessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ . Valid Values: @true@ | @false@
---
--- * 'usmbfsReadOnly' - A value that sets the write status of a file share. Set this value to @true@ to set write status to read-only, otherwise set to @false@ . Valid Values: @true@ | @false@
---
--- * 'usmbfsCaseSensitivity' - The case of an object name in an Amazon S3 bucket. For @ClientSpecified@ , the client determines the case sensitivity. For @CaseSensitive@ , the gateway determines the case sensitivity. The default value is @ClientSpecified@ .
---
--- * 'usmbfsFileShareARN' - The Amazon Resource Name (ARN) of the SMB file share that you want to update.
-updateSMBFileShare ::
-  -- | 'usmbfsFileShareARN'
-  Text ->
+-- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html Using Microsoft Windows ACLs to control access to an SMB file share> in the /AWS Storage Gateway User Guide/ .
+-- Valid Values: @true@ | @false@
+-- * 'validUserList' - A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+mkUpdateSMBFileShare ::
+  -- | 'fileShareARN'
+  Lude.Text ->
   UpdateSMBFileShare
-updateSMBFileShare pFileShareARN_ =
+mkUpdateSMBFileShare pFileShareARN_ =
   UpdateSMBFileShare'
-    { _usmbfsAccessBasedEnumeration = Nothing,
-      _usmbfsAdminUserList = Nothing,
-      _usmbfsAuditDestinationARN = Nothing,
-      _usmbfsInvalidUserList = Nothing,
-      _usmbfsKMSKey = Nothing,
-      _usmbfsValidUserList = Nothing,
-      _usmbfsCacheAttributes = Nothing,
-      _usmbfsObjectACL = Nothing,
-      _usmbfsKMSEncrypted = Nothing,
-      _usmbfsDefaultStorageClass = Nothing,
-      _usmbfsFileShareName = Nothing,
-      _usmbfsSMBACLEnabled = Nothing,
-      _usmbfsNotificationPolicy = Nothing,
-      _usmbfsRequesterPays = Nothing,
-      _usmbfsGuessMIMETypeEnabled = Nothing,
-      _usmbfsReadOnly = Nothing,
-      _usmbfsCaseSensitivity = Nothing,
-      _usmbfsFileShareARN = pFileShareARN_
+    { accessBasedEnumeration = Lude.Nothing,
+      adminUserList = Lude.Nothing,
+      auditDestinationARN = Lude.Nothing,
+      invalidUserList = Lude.Nothing,
+      kmsKey = Lude.Nothing,
+      validUserList = Lude.Nothing,
+      cacheAttributes = Lude.Nothing,
+      objectACL = Lude.Nothing,
+      kmsEncrypted = Lude.Nothing,
+      defaultStorageClass = Lude.Nothing,
+      fileShareName = Lude.Nothing,
+      sMBACLEnabled = Lude.Nothing,
+      notificationPolicy = Lude.Nothing,
+      requesterPays = Lude.Nothing,
+      guessMIMETypeEnabled = Lude.Nothing,
+      readOnly = Lude.Nothing,
+      caseSensitivity = Lude.Nothing,
+      fileShareARN = pFileShareARN_
     }
 
 -- | The files and folders on this share will only be visible to users with read access.
-usmbfsAccessBasedEnumeration :: Lens' UpdateSMBFileShare (Maybe Bool)
-usmbfsAccessBasedEnumeration = lens _usmbfsAccessBasedEnumeration (\s a -> s {_usmbfsAccessBasedEnumeration = a})
+--
+-- /Note:/ Consider using 'accessBasedEnumeration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsAccessBasedEnumeration :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Bool)
+usmbfsAccessBasedEnumeration = Lens.lens (accessBasedEnumeration :: UpdateSMBFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {accessBasedEnumeration = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsAccessBasedEnumeration "Use generic-lens or generic-optics with 'accessBasedEnumeration' instead." #-}
 
 -- | A list of users or groups in the Active Directory that have administrator rights to the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
-usmbfsAdminUserList :: Lens' UpdateSMBFileShare [Text]
-usmbfsAdminUserList = lens _usmbfsAdminUserList (\s a -> s {_usmbfsAdminUserList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'adminUserList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsAdminUserList :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe [Lude.Text])
+usmbfsAdminUserList = Lens.lens (adminUserList :: UpdateSMBFileShare -> Lude.Maybe [Lude.Text]) (\s a -> s {adminUserList = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsAdminUserList "Use generic-lens or generic-optics with 'adminUserList' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
-usmbfsAuditDestinationARN :: Lens' UpdateSMBFileShare (Maybe Text)
-usmbfsAuditDestinationARN = lens _usmbfsAuditDestinationARN (\s a -> s {_usmbfsAuditDestinationARN = a})
+--
+-- /Note:/ Consider using 'auditDestinationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsAuditDestinationARN :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Text)
+usmbfsAuditDestinationARN = Lens.lens (auditDestinationARN :: UpdateSMBFileShare -> Lude.Maybe Lude.Text) (\s a -> s {auditDestinationARN = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsAuditDestinationARN "Use generic-lens or generic-optics with 'auditDestinationARN' instead." #-}
 
 -- | A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
-usmbfsInvalidUserList :: Lens' UpdateSMBFileShare [Text]
-usmbfsInvalidUserList = lens _usmbfsInvalidUserList (\s a -> s {_usmbfsInvalidUserList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'invalidUserList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsInvalidUserList :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe [Lude.Text])
+usmbfsInvalidUserList = Lens.lens (invalidUserList :: UpdateSMBFileShare -> Lude.Maybe [Lude.Text]) (\s a -> s {invalidUserList = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsInvalidUserList "Use generic-lens or generic-optics with 'invalidUserList' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
-usmbfsKMSKey :: Lens' UpdateSMBFileShare (Maybe Text)
-usmbfsKMSKey = lens _usmbfsKMSKey (\s a -> s {_usmbfsKMSKey = a})
+--
+-- /Note:/ Consider using 'kmsKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsKMSKey :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Text)
+usmbfsKMSKey = Lens.lens (kmsKey :: UpdateSMBFileShare -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
 
 -- | A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
-usmbfsValidUserList :: Lens' UpdateSMBFileShare [Text]
-usmbfsValidUserList = lens _usmbfsValidUserList (\s a -> s {_usmbfsValidUserList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'validUserList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsValidUserList :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe [Lude.Text])
+usmbfsValidUserList = Lens.lens (validUserList :: UpdateSMBFileShare -> Lude.Maybe [Lude.Text]) (\s a -> s {validUserList = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsValidUserList "Use generic-lens or generic-optics with 'validUserList' instead." #-}
 
 -- | Refresh cache information.
-usmbfsCacheAttributes :: Lens' UpdateSMBFileShare (Maybe CacheAttributes)
-usmbfsCacheAttributes = lens _usmbfsCacheAttributes (\s a -> s {_usmbfsCacheAttributes = a})
+--
+-- /Note:/ Consider using 'cacheAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsCacheAttributes :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe CacheAttributes)
+usmbfsCacheAttributes = Lens.lens (cacheAttributes :: UpdateSMBFileShare -> Lude.Maybe CacheAttributes) (\s a -> s {cacheAttributes = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsCacheAttributes "Use generic-lens or generic-optics with 'cacheAttributes' instead." #-}
 
 -- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
-usmbfsObjectACL :: Lens' UpdateSMBFileShare (Maybe ObjectACL)
-usmbfsObjectACL = lens _usmbfsObjectACL (\s a -> s {_usmbfsObjectACL = a})
+--
+-- /Note:/ Consider using 'objectACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsObjectACL :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe ObjectACL)
+usmbfsObjectACL = Lens.lens (objectACL :: UpdateSMBFileShare -> Lude.Maybe ObjectACL) (\s a -> s {objectACL = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsObjectACL "Use generic-lens or generic-optics with 'objectACL' instead." #-}
 
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional. Valid Values: @true@ | @false@
-usmbfsKMSEncrypted :: Lens' UpdateSMBFileShare (Maybe Bool)
-usmbfsKMSEncrypted = lens _usmbfsKMSEncrypted (\s a -> s {_usmbfsKMSEncrypted = a})
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'kmsEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsKMSEncrypted :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Bool)
+usmbfsKMSEncrypted = Lens.lens (kmsEncrypted :: UpdateSMBFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
 
--- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional. Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
-usmbfsDefaultStorageClass :: Lens' UpdateSMBFileShare (Maybe Text)
-usmbfsDefaultStorageClass = lens _usmbfsDefaultStorageClass (\s a -> s {_usmbfsDefaultStorageClass = a})
+-- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
+--
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+--
+-- /Note:/ Consider using 'defaultStorageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsDefaultStorageClass :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Text)
+usmbfsDefaultStorageClass = Lens.lens (defaultStorageClass :: UpdateSMBFileShare -> Lude.Maybe Lude.Text) (\s a -> s {defaultStorageClass = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsDefaultStorageClass "Use generic-lens or generic-optics with 'defaultStorageClass' instead." #-}
 
 -- | The name of the file share. Optional.
-usmbfsFileShareName :: Lens' UpdateSMBFileShare (Maybe Text)
-usmbfsFileShareName = lens _usmbfsFileShareName (\s a -> s {_usmbfsFileShareName = a})
+--
+-- /Note:/ Consider using 'fileShareName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsFileShareName :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Text)
+usmbfsFileShareName = Lens.lens (fileShareName :: UpdateSMBFileShare -> Lude.Maybe Lude.Text) (\s a -> s {fileShareName = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsFileShareName "Use generic-lens or generic-optics with 'fileShareName' instead." #-}
 
--- | Set this value to @true@ to enable access control list (ACL) on the SMB file share. Set it to @false@ to map file and directory permissions to the POSIX permissions. For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html Using Microsoft Windows ACLs to control access to an SMB file share> in the /AWS Storage Gateway User Guide/ . Valid Values: @true@ | @false@
-usmbfsSMBACLEnabled :: Lens' UpdateSMBFileShare (Maybe Bool)
-usmbfsSMBACLEnabled = lens _usmbfsSMBACLEnabled (\s a -> s {_usmbfsSMBACLEnabled = a})
+-- | Set this value to @true@ to enable access control list (ACL) on the SMB file share. Set it to @false@ to map file and directory permissions to the POSIX permissions.
+--
+-- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html Using Microsoft Windows ACLs to control access to an SMB file share> in the /AWS Storage Gateway User Guide/ .
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'sMBACLEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsSMBACLEnabled :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Bool)
+usmbfsSMBACLEnabled = Lens.lens (sMBACLEnabled :: UpdateSMBFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {sMBACLEnabled = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsSMBACLEnabled "Use generic-lens or generic-optics with 'sMBACLEnabled' instead." #-}
 
 -- | The notification policy of the file share.
-usmbfsNotificationPolicy :: Lens' UpdateSMBFileShare (Maybe Text)
-usmbfsNotificationPolicy = lens _usmbfsNotificationPolicy (\s a -> s {_usmbfsNotificationPolicy = a})
+--
+-- /Note:/ Consider using 'notificationPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsNotificationPolicy :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Text)
+usmbfsNotificationPolicy = Lens.lens (notificationPolicy :: UpdateSMBFileShare -> Lude.Maybe Lude.Text) (\s a -> s {notificationPolicy = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsNotificationPolicy "Use generic-lens or generic-optics with 'notificationPolicy' instead." #-}
 
--- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data. Valid Values: @true@ | @false@
-usmbfsRequesterPays :: Lens' UpdateSMBFileShare (Maybe Bool)
-usmbfsRequesterPays = lens _usmbfsRequesterPays (\s a -> s {_usmbfsRequesterPays = a})
+-- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'requesterPays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsRequesterPays :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Bool)
+usmbfsRequesterPays = Lens.lens (requesterPays :: UpdateSMBFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {requesterPays = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsRequesterPays "Use generic-lens or generic-optics with 'requesterPays' instead." #-}
 
--- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ . Valid Values: @true@ | @false@
-usmbfsGuessMIMETypeEnabled :: Lens' UpdateSMBFileShare (Maybe Bool)
-usmbfsGuessMIMETypeEnabled = lens _usmbfsGuessMIMETypeEnabled (\s a -> s {_usmbfsGuessMIMETypeEnabled = a})
+-- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'guessMIMETypeEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsGuessMIMETypeEnabled :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Bool)
+usmbfsGuessMIMETypeEnabled = Lens.lens (guessMIMETypeEnabled :: UpdateSMBFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {guessMIMETypeEnabled = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsGuessMIMETypeEnabled "Use generic-lens or generic-optics with 'guessMIMETypeEnabled' instead." #-}
 
--- | A value that sets the write status of a file share. Set this value to @true@ to set write status to read-only, otherwise set to @false@ . Valid Values: @true@ | @false@
-usmbfsReadOnly :: Lens' UpdateSMBFileShare (Maybe Bool)
-usmbfsReadOnly = lens _usmbfsReadOnly (\s a -> s {_usmbfsReadOnly = a})
+-- | A value that sets the write status of a file share. Set this value to @true@ to set write status to read-only, otherwise set to @false@ .
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'readOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsReadOnly :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Bool)
+usmbfsReadOnly = Lens.lens (readOnly :: UpdateSMBFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {readOnly = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
 
 -- | The case of an object name in an Amazon S3 bucket. For @ClientSpecified@ , the client determines the case sensitivity. For @CaseSensitive@ , the gateway determines the case sensitivity. The default value is @ClientSpecified@ .
-usmbfsCaseSensitivity :: Lens' UpdateSMBFileShare (Maybe CaseSensitivity)
-usmbfsCaseSensitivity = lens _usmbfsCaseSensitivity (\s a -> s {_usmbfsCaseSensitivity = a})
+--
+-- /Note:/ Consider using 'caseSensitivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsCaseSensitivity :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe CaseSensitivity)
+usmbfsCaseSensitivity = Lens.lens (caseSensitivity :: UpdateSMBFileShare -> Lude.Maybe CaseSensitivity) (\s a -> s {caseSensitivity = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsCaseSensitivity "Use generic-lens or generic-optics with 'caseSensitivity' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the SMB file share that you want to update.
-usmbfsFileShareARN :: Lens' UpdateSMBFileShare Text
-usmbfsFileShareARN = lens _usmbfsFileShareARN (\s a -> s {_usmbfsFileShareARN = a})
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsFileShareARN :: Lens.Lens' UpdateSMBFileShare Lude.Text
+usmbfsFileShareARN = Lens.lens (fileShareARN :: UpdateSMBFileShare -> Lude.Text) (\s a -> s {fileShareARN = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
-instance AWSRequest UpdateSMBFileShare where
+instance Lude.AWSRequest UpdateSMBFileShare where
   type Rs UpdateSMBFileShare = UpdateSMBFileShareResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateSMBFileShareResponse'
-            <$> (x .?> "FileShareARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FileShareARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateSMBFileShare
-
-instance NFData UpdateSMBFileShare
-
-instance ToHeaders UpdateSMBFileShare where
+instance Lude.ToHeaders UpdateSMBFileShare where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.UpdateSMBFileShare" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.UpdateSMBFileShare" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateSMBFileShare where
+instance Lude.ToJSON UpdateSMBFileShare where
   toJSON UpdateSMBFileShare' {..} =
-    object
-      ( catMaybes
-          [ ("AccessBasedEnumeration" .=) <$> _usmbfsAccessBasedEnumeration,
-            ("AdminUserList" .=) <$> _usmbfsAdminUserList,
-            ("AuditDestinationARN" .=) <$> _usmbfsAuditDestinationARN,
-            ("InvalidUserList" .=) <$> _usmbfsInvalidUserList,
-            ("KMSKey" .=) <$> _usmbfsKMSKey,
-            ("ValidUserList" .=) <$> _usmbfsValidUserList,
-            ("CacheAttributes" .=) <$> _usmbfsCacheAttributes,
-            ("ObjectACL" .=) <$> _usmbfsObjectACL,
-            ("KMSEncrypted" .=) <$> _usmbfsKMSEncrypted,
-            ("DefaultStorageClass" .=) <$> _usmbfsDefaultStorageClass,
-            ("FileShareName" .=) <$> _usmbfsFileShareName,
-            ("SMBACLEnabled" .=) <$> _usmbfsSMBACLEnabled,
-            ("NotificationPolicy" .=) <$> _usmbfsNotificationPolicy,
-            ("RequesterPays" .=) <$> _usmbfsRequesterPays,
-            ("GuessMIMETypeEnabled" .=) <$> _usmbfsGuessMIMETypeEnabled,
-            ("ReadOnly" .=) <$> _usmbfsReadOnly,
-            ("CaseSensitivity" .=) <$> _usmbfsCaseSensitivity,
-            Just ("FileShareARN" .= _usmbfsFileShareARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AccessBasedEnumeration" Lude..=)
+              Lude.<$> accessBasedEnumeration,
+            ("AdminUserList" Lude..=) Lude.<$> adminUserList,
+            ("AuditDestinationARN" Lude..=) Lude.<$> auditDestinationARN,
+            ("InvalidUserList" Lude..=) Lude.<$> invalidUserList,
+            ("KMSKey" Lude..=) Lude.<$> kmsKey,
+            ("ValidUserList" Lude..=) Lude.<$> validUserList,
+            ("CacheAttributes" Lude..=) Lude.<$> cacheAttributes,
+            ("ObjectACL" Lude..=) Lude.<$> objectACL,
+            ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
+            ("DefaultStorageClass" Lude..=) Lude.<$> defaultStorageClass,
+            ("FileShareName" Lude..=) Lude.<$> fileShareName,
+            ("SMBACLEnabled" Lude..=) Lude.<$> sMBACLEnabled,
+            ("NotificationPolicy" Lude..=) Lude.<$> notificationPolicy,
+            ("RequesterPays" Lude..=) Lude.<$> requesterPays,
+            ("GuessMIMETypeEnabled" Lude..=) Lude.<$> guessMIMETypeEnabled,
+            ("ReadOnly" Lude..=) Lude.<$> readOnly,
+            ("CaseSensitivity" Lude..=) Lude.<$> caseSensitivity,
+            Lude.Just ("FileShareARN" Lude..= fileShareARN)
           ]
       )
 
-instance ToPath UpdateSMBFileShare where
-  toPath = const "/"
+instance Lude.ToPath UpdateSMBFileShare where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateSMBFileShare where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateSMBFileShare where
+  toQuery = Lude.const Lude.mempty
 
 -- | UpdateSMBFileShareOutput
 --
---
---
--- /See:/ 'updateSMBFileShareResponse' smart constructor.
+-- /See:/ 'mkUpdateSMBFileShareResponse' smart constructor.
 data UpdateSMBFileShareResponse = UpdateSMBFileShareResponse'
-  { _usmbfsrsFileShareARN ::
-      !(Maybe Text),
-    _usmbfsrsResponseStatus :: !Int
+  { fileShareARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSMBFileShareResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usmbfsrsFileShareARN' - The Amazon Resource Name (ARN) of the updated SMB file share.
---
--- * 'usmbfsrsResponseStatus' - -- | The response status code.
-updateSMBFileShareResponse ::
-  -- | 'usmbfsrsResponseStatus'
-  Int ->
+-- * 'fileShareARN' - The Amazon Resource Name (ARN) of the updated SMB file share.
+-- * 'responseStatus' - The response status code.
+mkUpdateSMBFileShareResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateSMBFileShareResponse
-updateSMBFileShareResponse pResponseStatus_ =
+mkUpdateSMBFileShareResponse pResponseStatus_ =
   UpdateSMBFileShareResponse'
-    { _usmbfsrsFileShareARN = Nothing,
-      _usmbfsrsResponseStatus = pResponseStatus_
+    { fileShareARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the updated SMB file share.
-usmbfsrsFileShareARN :: Lens' UpdateSMBFileShareResponse (Maybe Text)
-usmbfsrsFileShareARN = lens _usmbfsrsFileShareARN (\s a -> s {_usmbfsrsFileShareARN = a})
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsrsFileShareARN :: Lens.Lens' UpdateSMBFileShareResponse (Lude.Maybe Lude.Text)
+usmbfsrsFileShareARN = Lens.lens (fileShareARN :: UpdateSMBFileShareResponse -> Lude.Maybe Lude.Text) (\s a -> s {fileShareARN = a} :: UpdateSMBFileShareResponse)
+{-# DEPRECATED usmbfsrsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
--- | -- | The response status code.
-usmbfsrsResponseStatus :: Lens' UpdateSMBFileShareResponse Int
-usmbfsrsResponseStatus = lens _usmbfsrsResponseStatus (\s a -> s {_usmbfsrsResponseStatus = a})
-
-instance NFData UpdateSMBFileShareResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsrsResponseStatus :: Lens.Lens' UpdateSMBFileShareResponse Lude.Int
+usmbfsrsResponseStatus = Lens.lens (responseStatus :: UpdateSMBFileShareResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSMBFileShareResponse)
+{-# DEPRECATED usmbfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

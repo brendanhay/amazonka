@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,139 +7,181 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditFinding where
+module Network.AWS.IoT.Types.AuditFinding
+  ( AuditFinding (..),
+
+    -- * Smart constructor
+    mkAuditFinding,
+
+    -- * Lenses
+    afIsSuppressed,
+    afTaskId,
+    afFindingTime,
+    afTaskStartTime,
+    afReasonForNonComplianceCode,
+    afSeverity,
+    afRelatedResources,
+    afCheckName,
+    afNonCompliantResource,
+    afReasonForNonCompliance,
+    afFindingId,
+  )
+where
 
 import Network.AWS.IoT.Types.AuditFindingSeverity
 import Network.AWS.IoT.Types.NonCompliantResource
 import Network.AWS.IoT.Types.RelatedResource
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The findings (results) of the audit.
 --
---
---
--- /See:/ 'auditFinding' smart constructor.
+-- /See:/ 'mkAuditFinding' smart constructor.
 data AuditFinding = AuditFinding'
-  { _afIsSuppressed :: !(Maybe Bool),
-    _afTaskId :: !(Maybe Text),
-    _afFindingTime :: !(Maybe POSIX),
-    _afTaskStartTime :: !(Maybe POSIX),
-    _afReasonForNonComplianceCode :: !(Maybe Text),
-    _afSeverity :: !(Maybe AuditFindingSeverity),
-    _afRelatedResources :: !(Maybe [RelatedResource]),
-    _afCheckName :: !(Maybe Text),
-    _afNonCompliantResource :: !(Maybe NonCompliantResource),
-    _afReasonForNonCompliance :: !(Maybe Text),
-    _afFindingId :: !(Maybe Text)
+  { isSuppressed ::
+      Lude.Maybe Lude.Bool,
+    taskId :: Lude.Maybe Lude.Text,
+    findingTime :: Lude.Maybe Lude.Timestamp,
+    taskStartTime :: Lude.Maybe Lude.Timestamp,
+    reasonForNonComplianceCode :: Lude.Maybe Lude.Text,
+    severity :: Lude.Maybe AuditFindingSeverity,
+    relatedResources :: Lude.Maybe [RelatedResource],
+    checkName :: Lude.Maybe Lude.Text,
+    nonCompliantResource :: Lude.Maybe NonCompliantResource,
+    reasonForNonCompliance :: Lude.Maybe Lude.Text,
+    findingId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditFinding' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'afIsSuppressed' - Indicates whether the audit finding was suppressed or not during reporting.
---
--- * 'afTaskId' - The ID of the audit that generated this result (finding).
---
--- * 'afFindingTime' - The time the result (finding) was discovered.
---
--- * 'afTaskStartTime' - The time the audit started.
---
--- * 'afReasonForNonComplianceCode' - A code that indicates the reason that the resource was noncompliant.
---
--- * 'afSeverity' - The severity of the result (finding).
---
--- * 'afRelatedResources' - The list of related resources.
---
--- * 'afCheckName' - The audit check that generated this result.
---
--- * 'afNonCompliantResource' - The resource that was found to be noncompliant with the audit check.
---
--- * 'afReasonForNonCompliance' - The reason the resource was noncompliant.
---
--- * 'afFindingId' - A unique identifier for this set of audit findings. This identifier is used to apply mitigation tasks to one or more sets of findings.
-auditFinding ::
+-- * 'checkName' - The audit check that generated this result.
+-- * 'findingId' - A unique identifier for this set of audit findings. This identifier is used to apply mitigation tasks to one or more sets of findings.
+-- * 'findingTime' - The time the result (finding) was discovered.
+-- * 'isSuppressed' - Indicates whether the audit finding was suppressed or not during reporting.
+-- * 'nonCompliantResource' - The resource that was found to be noncompliant with the audit check.
+-- * 'reasonForNonCompliance' - The reason the resource was noncompliant.
+-- * 'reasonForNonComplianceCode' - A code that indicates the reason that the resource was noncompliant.
+-- * 'relatedResources' - The list of related resources.
+-- * 'severity' - The severity of the result (finding).
+-- * 'taskId' - The ID of the audit that generated this result (finding).
+-- * 'taskStartTime' - The time the audit started.
+mkAuditFinding ::
   AuditFinding
-auditFinding =
+mkAuditFinding =
   AuditFinding'
-    { _afIsSuppressed = Nothing,
-      _afTaskId = Nothing,
-      _afFindingTime = Nothing,
-      _afTaskStartTime = Nothing,
-      _afReasonForNonComplianceCode = Nothing,
-      _afSeverity = Nothing,
-      _afRelatedResources = Nothing,
-      _afCheckName = Nothing,
-      _afNonCompliantResource = Nothing,
-      _afReasonForNonCompliance = Nothing,
-      _afFindingId = Nothing
+    { isSuppressed = Lude.Nothing,
+      taskId = Lude.Nothing,
+      findingTime = Lude.Nothing,
+      taskStartTime = Lude.Nothing,
+      reasonForNonComplianceCode = Lude.Nothing,
+      severity = Lude.Nothing,
+      relatedResources = Lude.Nothing,
+      checkName = Lude.Nothing,
+      nonCompliantResource = Lude.Nothing,
+      reasonForNonCompliance = Lude.Nothing,
+      findingId = Lude.Nothing
     }
 
 -- | Indicates whether the audit finding was suppressed or not during reporting.
-afIsSuppressed :: Lens' AuditFinding (Maybe Bool)
-afIsSuppressed = lens _afIsSuppressed (\s a -> s {_afIsSuppressed = a})
+--
+-- /Note:/ Consider using 'isSuppressed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afIsSuppressed :: Lens.Lens' AuditFinding (Lude.Maybe Lude.Bool)
+afIsSuppressed = Lens.lens (isSuppressed :: AuditFinding -> Lude.Maybe Lude.Bool) (\s a -> s {isSuppressed = a} :: AuditFinding)
+{-# DEPRECATED afIsSuppressed "Use generic-lens or generic-optics with 'isSuppressed' instead." #-}
 
 -- | The ID of the audit that generated this result (finding).
-afTaskId :: Lens' AuditFinding (Maybe Text)
-afTaskId = lens _afTaskId (\s a -> s {_afTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afTaskId :: Lens.Lens' AuditFinding (Lude.Maybe Lude.Text)
+afTaskId = Lens.lens (taskId :: AuditFinding -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: AuditFinding)
+{-# DEPRECATED afTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | The time the result (finding) was discovered.
-afFindingTime :: Lens' AuditFinding (Maybe UTCTime)
-afFindingTime = lens _afFindingTime (\s a -> s {_afFindingTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'findingTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afFindingTime :: Lens.Lens' AuditFinding (Lude.Maybe Lude.Timestamp)
+afFindingTime = Lens.lens (findingTime :: AuditFinding -> Lude.Maybe Lude.Timestamp) (\s a -> s {findingTime = a} :: AuditFinding)
+{-# DEPRECATED afFindingTime "Use generic-lens or generic-optics with 'findingTime' instead." #-}
 
 -- | The time the audit started.
-afTaskStartTime :: Lens' AuditFinding (Maybe UTCTime)
-afTaskStartTime = lens _afTaskStartTime (\s a -> s {_afTaskStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'taskStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afTaskStartTime :: Lens.Lens' AuditFinding (Lude.Maybe Lude.Timestamp)
+afTaskStartTime = Lens.lens (taskStartTime :: AuditFinding -> Lude.Maybe Lude.Timestamp) (\s a -> s {taskStartTime = a} :: AuditFinding)
+{-# DEPRECATED afTaskStartTime "Use generic-lens or generic-optics with 'taskStartTime' instead." #-}
 
 -- | A code that indicates the reason that the resource was noncompliant.
-afReasonForNonComplianceCode :: Lens' AuditFinding (Maybe Text)
-afReasonForNonComplianceCode = lens _afReasonForNonComplianceCode (\s a -> s {_afReasonForNonComplianceCode = a})
+--
+-- /Note:/ Consider using 'reasonForNonComplianceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afReasonForNonComplianceCode :: Lens.Lens' AuditFinding (Lude.Maybe Lude.Text)
+afReasonForNonComplianceCode = Lens.lens (reasonForNonComplianceCode :: AuditFinding -> Lude.Maybe Lude.Text) (\s a -> s {reasonForNonComplianceCode = a} :: AuditFinding)
+{-# DEPRECATED afReasonForNonComplianceCode "Use generic-lens or generic-optics with 'reasonForNonComplianceCode' instead." #-}
 
 -- | The severity of the result (finding).
-afSeverity :: Lens' AuditFinding (Maybe AuditFindingSeverity)
-afSeverity = lens _afSeverity (\s a -> s {_afSeverity = a})
+--
+-- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afSeverity :: Lens.Lens' AuditFinding (Lude.Maybe AuditFindingSeverity)
+afSeverity = Lens.lens (severity :: AuditFinding -> Lude.Maybe AuditFindingSeverity) (\s a -> s {severity = a} :: AuditFinding)
+{-# DEPRECATED afSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
 -- | The list of related resources.
-afRelatedResources :: Lens' AuditFinding [RelatedResource]
-afRelatedResources = lens _afRelatedResources (\s a -> s {_afRelatedResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'relatedResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afRelatedResources :: Lens.Lens' AuditFinding (Lude.Maybe [RelatedResource])
+afRelatedResources = Lens.lens (relatedResources :: AuditFinding -> Lude.Maybe [RelatedResource]) (\s a -> s {relatedResources = a} :: AuditFinding)
+{-# DEPRECATED afRelatedResources "Use generic-lens or generic-optics with 'relatedResources' instead." #-}
 
 -- | The audit check that generated this result.
-afCheckName :: Lens' AuditFinding (Maybe Text)
-afCheckName = lens _afCheckName (\s a -> s {_afCheckName = a})
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afCheckName :: Lens.Lens' AuditFinding (Lude.Maybe Lude.Text)
+afCheckName = Lens.lens (checkName :: AuditFinding -> Lude.Maybe Lude.Text) (\s a -> s {checkName = a} :: AuditFinding)
+{-# DEPRECATED afCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
 -- | The resource that was found to be noncompliant with the audit check.
-afNonCompliantResource :: Lens' AuditFinding (Maybe NonCompliantResource)
-afNonCompliantResource = lens _afNonCompliantResource (\s a -> s {_afNonCompliantResource = a})
+--
+-- /Note:/ Consider using 'nonCompliantResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afNonCompliantResource :: Lens.Lens' AuditFinding (Lude.Maybe NonCompliantResource)
+afNonCompliantResource = Lens.lens (nonCompliantResource :: AuditFinding -> Lude.Maybe NonCompliantResource) (\s a -> s {nonCompliantResource = a} :: AuditFinding)
+{-# DEPRECATED afNonCompliantResource "Use generic-lens or generic-optics with 'nonCompliantResource' instead." #-}
 
 -- | The reason the resource was noncompliant.
-afReasonForNonCompliance :: Lens' AuditFinding (Maybe Text)
-afReasonForNonCompliance = lens _afReasonForNonCompliance (\s a -> s {_afReasonForNonCompliance = a})
+--
+-- /Note:/ Consider using 'reasonForNonCompliance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afReasonForNonCompliance :: Lens.Lens' AuditFinding (Lude.Maybe Lude.Text)
+afReasonForNonCompliance = Lens.lens (reasonForNonCompliance :: AuditFinding -> Lude.Maybe Lude.Text) (\s a -> s {reasonForNonCompliance = a} :: AuditFinding)
+{-# DEPRECATED afReasonForNonCompliance "Use generic-lens or generic-optics with 'reasonForNonCompliance' instead." #-}
 
 -- | A unique identifier for this set of audit findings. This identifier is used to apply mitigation tasks to one or more sets of findings.
-afFindingId :: Lens' AuditFinding (Maybe Text)
-afFindingId = lens _afFindingId (\s a -> s {_afFindingId = a})
+--
+-- /Note:/ Consider using 'findingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afFindingId :: Lens.Lens' AuditFinding (Lude.Maybe Lude.Text)
+afFindingId = Lens.lens (findingId :: AuditFinding -> Lude.Maybe Lude.Text) (\s a -> s {findingId = a} :: AuditFinding)
+{-# DEPRECATED afFindingId "Use generic-lens or generic-optics with 'findingId' instead." #-}
 
-instance FromJSON AuditFinding where
+instance Lude.FromJSON AuditFinding where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuditFinding"
       ( \x ->
           AuditFinding'
-            <$> (x .:? "isSuppressed")
-            <*> (x .:? "taskId")
-            <*> (x .:? "findingTime")
-            <*> (x .:? "taskStartTime")
-            <*> (x .:? "reasonForNonComplianceCode")
-            <*> (x .:? "severity")
-            <*> (x .:? "relatedResources" .!= mempty)
-            <*> (x .:? "checkName")
-            <*> (x .:? "nonCompliantResource")
-            <*> (x .:? "reasonForNonCompliance")
-            <*> (x .:? "findingId")
+            Lude.<$> (x Lude..:? "isSuppressed")
+            Lude.<*> (x Lude..:? "taskId")
+            Lude.<*> (x Lude..:? "findingTime")
+            Lude.<*> (x Lude..:? "taskStartTime")
+            Lude.<*> (x Lude..:? "reasonForNonComplianceCode")
+            Lude.<*> (x Lude..:? "severity")
+            Lude.<*> (x Lude..:? "relatedResources" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "checkName")
+            Lude.<*> (x Lude..:? "nonCompliantResource")
+            Lude.<*> (x Lude..:? "reasonForNonCompliance")
+            Lude.<*> (x Lude..:? "findingId")
       )
-
-instance Hashable AuditFinding
-
-instance NFData AuditFinding

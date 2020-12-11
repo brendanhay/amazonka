@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InstancePatchStateOperatorType where
+module Network.AWS.SSM.Types.InstancePatchStateOperatorType
+  ( InstancePatchStateOperatorType
+      ( InstancePatchStateOperatorType',
+        IPSOTEqual,
+        IPSOTGreaterThan,
+        IPSOTLessThan,
+        IPSOTNotEqual
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstancePatchStateOperatorType
-  = IPSOTEqual
-  | IPSOTGreaterThan
-  | IPSOTLessThan
-  | IPSOTNotEqual
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstancePatchStateOperatorType = InstancePatchStateOperatorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstancePatchStateOperatorType where
-  parser =
-    takeLowerText >>= \case
-      "equal" -> pure IPSOTEqual
-      "greaterthan" -> pure IPSOTGreaterThan
-      "lessthan" -> pure IPSOTLessThan
-      "notequal" -> pure IPSOTNotEqual
-      e ->
-        fromTextError $
-          "Failure parsing InstancePatchStateOperatorType from value: '" <> e
-            <> "'. Accepted values: equal, greaterthan, lessthan, notequal"
+pattern IPSOTEqual :: InstancePatchStateOperatorType
+pattern IPSOTEqual = InstancePatchStateOperatorType' "Equal"
 
-instance ToText InstancePatchStateOperatorType where
-  toText = \case
-    IPSOTEqual -> "Equal"
-    IPSOTGreaterThan -> "GreaterThan"
-    IPSOTLessThan -> "LessThan"
-    IPSOTNotEqual -> "NotEqual"
+pattern IPSOTGreaterThan :: InstancePatchStateOperatorType
+pattern IPSOTGreaterThan = InstancePatchStateOperatorType' "GreaterThan"
 
-instance Hashable InstancePatchStateOperatorType
+pattern IPSOTLessThan :: InstancePatchStateOperatorType
+pattern IPSOTLessThan = InstancePatchStateOperatorType' "LessThan"
 
-instance NFData InstancePatchStateOperatorType
+pattern IPSOTNotEqual :: InstancePatchStateOperatorType
+pattern IPSOTNotEqual = InstancePatchStateOperatorType' "NotEqual"
 
-instance ToByteString InstancePatchStateOperatorType
-
-instance ToQuery InstancePatchStateOperatorType
-
-instance ToHeader InstancePatchStateOperatorType
-
-instance ToJSON InstancePatchStateOperatorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  IPSOTEqual,
+  IPSOTGreaterThan,
+  IPSOTLessThan,
+  IPSOTNotEqual,
+  InstancePatchStateOperatorType'
+  #-}

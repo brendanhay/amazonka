@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,109 +7,153 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearchDomains.Types.FieldStats where
+module Network.AWS.CloudSearchDomains.Types.FieldStats
+  ( FieldStats (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFieldStats,
+
+    -- * Lenses
+    fsMax,
+    fsMean,
+    fsCount,
+    fsMissing,
+    fsStddev,
+    fsMin,
+    fsSumOfSquares,
+    fsSum,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The statistics for a field calculated in the request.
 --
---
---
--- /See:/ 'fieldStats' smart constructor.
+-- /See:/ 'mkFieldStats' smart constructor.
 data FieldStats = FieldStats'
-  { _fsMax :: !(Maybe Text),
-    _fsMean :: !(Maybe Text),
-    _fsCount :: !(Maybe Integer),
-    _fsMissing :: !(Maybe Integer),
-    _fsStddev :: !(Maybe Double),
-    _fsMin :: !(Maybe Text),
-    _fsSumOfSquares :: !(Maybe Double),
-    _fsSum :: !(Maybe Double)
+  { max :: Lude.Maybe Lude.Text,
+    mean :: Lude.Maybe Lude.Text,
+    count :: Lude.Maybe Lude.Integer,
+    missing :: Lude.Maybe Lude.Integer,
+    stddev :: Lude.Maybe Lude.Double,
+    min :: Lude.Maybe Lude.Text,
+    sumOfSquares :: Lude.Maybe Lude.Double,
+    sum :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FieldStats' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'count' - The number of documents that contain a value in the specified field in the result set.
+-- * 'max' - The maximum value found in the specified field in the result set.
 --
--- * 'fsMax' - The maximum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- * 'mean' - The average of the values found in the specified field in the result set.
 --
--- * 'fsMean' - The average of the values found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- * 'min' - The minimum value found in the specified field in the result set.
 --
--- * 'fsCount' - The number of documents that contain a value in the specified field in the result set.
---
--- * 'fsMissing' - The number of documents that do not contain a value in the specified field in the result set.
---
--- * 'fsStddev' - The standard deviation of the values in the specified field in the result set.
---
--- * 'fsMin' - The minimum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
---
--- * 'fsSumOfSquares' - The sum of all field values in the result set squared.
---
--- * 'fsSum' - The sum of the field values across the documents in the result set. @null@ for date fields.
-fieldStats ::
+-- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- * 'missing' - The number of documents that do not contain a value in the specified field in the result set.
+-- * 'stddev' - The standard deviation of the values in the specified field in the result set.
+-- * 'sum' - The sum of the field values across the documents in the result set. @null@ for date fields.
+-- * 'sumOfSquares' - The sum of all field values in the result set squared.
+mkFieldStats ::
   FieldStats
-fieldStats =
+mkFieldStats =
   FieldStats'
-    { _fsMax = Nothing,
-      _fsMean = Nothing,
-      _fsCount = Nothing,
-      _fsMissing = Nothing,
-      _fsStddev = Nothing,
-      _fsMin = Nothing,
-      _fsSumOfSquares = Nothing,
-      _fsSum = Nothing
+    { max = Lude.Nothing,
+      mean = Lude.Nothing,
+      count = Lude.Nothing,
+      missing = Lude.Nothing,
+      stddev = Lude.Nothing,
+      min = Lude.Nothing,
+      sumOfSquares = Lude.Nothing,
+      sum = Lude.Nothing
     }
 
--- | The maximum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
-fsMax :: Lens' FieldStats (Maybe Text)
-fsMax = lens _fsMax (\s a -> s {_fsMax = a})
+-- | The maximum value found in the specified field in the result set.
+--
+-- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+--
+-- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsMax :: Lens.Lens' FieldStats (Lude.Maybe Lude.Text)
+fsMax = Lens.lens (max :: FieldStats -> Lude.Maybe Lude.Text) (\s a -> s {max = a} :: FieldStats)
+{-# DEPRECATED fsMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
--- | The average of the values found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
-fsMean :: Lens' FieldStats (Maybe Text)
-fsMean = lens _fsMean (\s a -> s {_fsMean = a})
+-- | The average of the values found in the specified field in the result set.
+--
+-- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+--
+-- /Note:/ Consider using 'mean' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsMean :: Lens.Lens' FieldStats (Lude.Maybe Lude.Text)
+fsMean = Lens.lens (mean :: FieldStats -> Lude.Maybe Lude.Text) (\s a -> s {mean = a} :: FieldStats)
+{-# DEPRECATED fsMean "Use generic-lens or generic-optics with 'mean' instead." #-}
 
 -- | The number of documents that contain a value in the specified field in the result set.
-fsCount :: Lens' FieldStats (Maybe Integer)
-fsCount = lens _fsCount (\s a -> s {_fsCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsCount :: Lens.Lens' FieldStats (Lude.Maybe Lude.Integer)
+fsCount = Lens.lens (count :: FieldStats -> Lude.Maybe Lude.Integer) (\s a -> s {count = a} :: FieldStats)
+{-# DEPRECATED fsCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The number of documents that do not contain a value in the specified field in the result set.
-fsMissing :: Lens' FieldStats (Maybe Integer)
-fsMissing = lens _fsMissing (\s a -> s {_fsMissing = a})
+--
+-- /Note:/ Consider using 'missing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsMissing :: Lens.Lens' FieldStats (Lude.Maybe Lude.Integer)
+fsMissing = Lens.lens (missing :: FieldStats -> Lude.Maybe Lude.Integer) (\s a -> s {missing = a} :: FieldStats)
+{-# DEPRECATED fsMissing "Use generic-lens or generic-optics with 'missing' instead." #-}
 
 -- | The standard deviation of the values in the specified field in the result set.
-fsStddev :: Lens' FieldStats (Maybe Double)
-fsStddev = lens _fsStddev (\s a -> s {_fsStddev = a})
+--
+-- /Note:/ Consider using 'stddev' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsStddev :: Lens.Lens' FieldStats (Lude.Maybe Lude.Double)
+fsStddev = Lens.lens (stddev :: FieldStats -> Lude.Maybe Lude.Double) (\s a -> s {stddev = a} :: FieldStats)
+{-# DEPRECATED fsStddev "Use generic-lens or generic-optics with 'stddev' instead." #-}
 
--- | The minimum value found in the specified field in the result set. If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
-fsMin :: Lens' FieldStats (Maybe Text)
-fsMin = lens _fsMin (\s a -> s {_fsMin = a})
+-- | The minimum value found in the specified field in the result set.
+--
+-- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+--
+-- /Note:/ Consider using 'min' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsMin :: Lens.Lens' FieldStats (Lude.Maybe Lude.Text)
+fsMin = Lens.lens (min :: FieldStats -> Lude.Maybe Lude.Text) (\s a -> s {min = a} :: FieldStats)
+{-# DEPRECATED fsMin "Use generic-lens or generic-optics with 'min' instead." #-}
 
 -- | The sum of all field values in the result set squared.
-fsSumOfSquares :: Lens' FieldStats (Maybe Double)
-fsSumOfSquares = lens _fsSumOfSquares (\s a -> s {_fsSumOfSquares = a})
+--
+-- /Note:/ Consider using 'sumOfSquares' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsSumOfSquares :: Lens.Lens' FieldStats (Lude.Maybe Lude.Double)
+fsSumOfSquares = Lens.lens (sumOfSquares :: FieldStats -> Lude.Maybe Lude.Double) (\s a -> s {sumOfSquares = a} :: FieldStats)
+{-# DEPRECATED fsSumOfSquares "Use generic-lens or generic-optics with 'sumOfSquares' instead." #-}
 
 -- | The sum of the field values across the documents in the result set. @null@ for date fields.
-fsSum :: Lens' FieldStats (Maybe Double)
-fsSum = lens _fsSum (\s a -> s {_fsSum = a})
+--
+-- /Note:/ Consider using 'sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsSum :: Lens.Lens' FieldStats (Lude.Maybe Lude.Double)
+fsSum = Lens.lens (sum :: FieldStats -> Lude.Maybe Lude.Double) (\s a -> s {sum = a} :: FieldStats)
+{-# DEPRECATED fsSum "Use generic-lens or generic-optics with 'sum' instead." #-}
 
-instance FromJSON FieldStats where
+instance Lude.FromJSON FieldStats where
   parseJSON =
-    withObject
+    Lude.withObject
       "FieldStats"
       ( \x ->
           FieldStats'
-            <$> (x .:? "max")
-            <*> (x .:? "mean")
-            <*> (x .:? "count")
-            <*> (x .:? "missing")
-            <*> (x .:? "stddev")
-            <*> (x .:? "min")
-            <*> (x .:? "sumOfSquares")
-            <*> (x .:? "sum")
+            Lude.<$> (x Lude..:? "max")
+            Lude.<*> (x Lude..:? "mean")
+            Lude.<*> (x Lude..:? "count")
+            Lude.<*> (x Lude..:? "missing")
+            Lude.<*> (x Lude..:? "stddev")
+            Lude.<*> (x Lude..:? "min")
+            Lude.<*> (x Lude..:? "sumOfSquares")
+            Lude.<*> (x Lude..:? "sum")
       )
-
-instance Hashable FieldStats
-
-instance NFData FieldStats

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand billing is stopped and the host goes into @released@ state. The host ID of Dedicated Hosts that have been released can no longer be specified in another request, for example, to modify the host. You must stop or terminate all instances on a host before it can be released.
 --
---
 -- When Dedicated Hosts are released, it may take some time for them to stop counting toward your limit and you may receive capacity errors when trying to allocate new Dedicated Hosts. Wait a few minutes and then try again.
---
 -- Released hosts still appear in a 'DescribeHosts' response.
 module Network.AWS.EC2.ReleaseHosts
-  ( -- * Creating a Request
-    releaseHosts,
-    ReleaseHosts,
+  ( -- * Creating a request
+    ReleaseHosts (..),
+    mkReleaseHosts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rhHostIds,
 
-    -- * Destructuring the Response
-    releaseHostsResponse,
-    ReleaseHostsResponse,
+    -- * Destructuring the response
+    ReleaseHostsResponse (..),
+    mkReleaseHostsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rhrsUnsuccessful,
     rhrsSuccessful,
     rhrsResponseStatus,
@@ -43,97 +36,115 @@ module Network.AWS.EC2.ReleaseHosts
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'releaseHosts' smart constructor.
-newtype ReleaseHosts = ReleaseHosts' {_rhHostIds :: [Text]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkReleaseHosts' smart constructor.
+newtype ReleaseHosts = ReleaseHosts' {hostIds :: [Lude.Text]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReleaseHosts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rhHostIds' - The IDs of the Dedicated Hosts to release.
-releaseHosts ::
+-- * 'hostIds' - The IDs of the Dedicated Hosts to release.
+mkReleaseHosts ::
   ReleaseHosts
-releaseHosts = ReleaseHosts' {_rhHostIds = mempty}
+mkReleaseHosts = ReleaseHosts' {hostIds = Lude.mempty}
 
 -- | The IDs of the Dedicated Hosts to release.
-rhHostIds :: Lens' ReleaseHosts [Text]
-rhHostIds = lens _rhHostIds (\s a -> s {_rhHostIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'hostIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rhHostIds :: Lens.Lens' ReleaseHosts [Lude.Text]
+rhHostIds = Lens.lens (hostIds :: ReleaseHosts -> [Lude.Text]) (\s a -> s {hostIds = a} :: ReleaseHosts)
+{-# DEPRECATED rhHostIds "Use generic-lens or generic-optics with 'hostIds' instead." #-}
 
-instance AWSRequest ReleaseHosts where
+instance Lude.AWSRequest ReleaseHosts where
   type Rs ReleaseHosts = ReleaseHostsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ReleaseHostsResponse'
-            <$> (x .@? "unsuccessful" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "successful" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "unsuccessful" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> ( x Lude..@? "successful" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ReleaseHosts
+instance Lude.ToHeaders ReleaseHosts where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ReleaseHosts
+instance Lude.ToPath ReleaseHosts where
+  toPath = Lude.const "/"
 
-instance ToHeaders ReleaseHosts where
-  toHeaders = const mempty
-
-instance ToPath ReleaseHosts where
-  toPath = const "/"
-
-instance ToQuery ReleaseHosts where
+instance Lude.ToQuery ReleaseHosts where
   toQuery ReleaseHosts' {..} =
-    mconcat
-      [ "Action" =: ("ReleaseHosts" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQueryList "HostId" _rhHostIds
+    Lude.mconcat
+      [ "Action" Lude.=: ("ReleaseHosts" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQueryList "HostId" hostIds
       ]
 
--- | /See:/ 'releaseHostsResponse' smart constructor.
+-- | /See:/ 'mkReleaseHostsResponse' smart constructor.
 data ReleaseHostsResponse = ReleaseHostsResponse'
-  { _rhrsUnsuccessful ::
-      !(Maybe [UnsuccessfulItem]),
-    _rhrsSuccessful :: !(Maybe [Text]),
-    _rhrsResponseStatus :: !Int
+  { unsuccessful ::
+      Lude.Maybe [UnsuccessfulItem],
+    successful :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReleaseHostsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rhrsUnsuccessful' - The IDs of the Dedicated Hosts that could not be released, including an error message.
---
--- * 'rhrsSuccessful' - The IDs of the Dedicated Hosts that were successfully released.
---
--- * 'rhrsResponseStatus' - -- | The response status code.
-releaseHostsResponse ::
-  -- | 'rhrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'successful' - The IDs of the Dedicated Hosts that were successfully released.
+-- * 'unsuccessful' - The IDs of the Dedicated Hosts that could not be released, including an error message.
+mkReleaseHostsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ReleaseHostsResponse
-releaseHostsResponse pResponseStatus_ =
+mkReleaseHostsResponse pResponseStatus_ =
   ReleaseHostsResponse'
-    { _rhrsUnsuccessful = Nothing,
-      _rhrsSuccessful = Nothing,
-      _rhrsResponseStatus = pResponseStatus_
+    { unsuccessful = Lude.Nothing,
+      successful = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The IDs of the Dedicated Hosts that could not be released, including an error message.
-rhrsUnsuccessful :: Lens' ReleaseHostsResponse [UnsuccessfulItem]
-rhrsUnsuccessful = lens _rhrsUnsuccessful (\s a -> s {_rhrsUnsuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unsuccessful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rhrsUnsuccessful :: Lens.Lens' ReleaseHostsResponse (Lude.Maybe [UnsuccessfulItem])
+rhrsUnsuccessful = Lens.lens (unsuccessful :: ReleaseHostsResponse -> Lude.Maybe [UnsuccessfulItem]) (\s a -> s {unsuccessful = a} :: ReleaseHostsResponse)
+{-# DEPRECATED rhrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
 
 -- | The IDs of the Dedicated Hosts that were successfully released.
-rhrsSuccessful :: Lens' ReleaseHostsResponse [Text]
-rhrsSuccessful = lens _rhrsSuccessful (\s a -> s {_rhrsSuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'successful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rhrsSuccessful :: Lens.Lens' ReleaseHostsResponse (Lude.Maybe [Lude.Text])
+rhrsSuccessful = Lens.lens (successful :: ReleaseHostsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {successful = a} :: ReleaseHostsResponse)
+{-# DEPRECATED rhrsSuccessful "Use generic-lens or generic-optics with 'successful' instead." #-}
 
--- | -- | The response status code.
-rhrsResponseStatus :: Lens' ReleaseHostsResponse Int
-rhrsResponseStatus = lens _rhrsResponseStatus (\s a -> s {_rhrsResponseStatus = a})
-
-instance NFData ReleaseHostsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rhrsResponseStatus :: Lens.Lens' ReleaseHostsResponse Lude.Int
+rhrsResponseStatus = Lens.lens (responseStatus :: ReleaseHostsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReleaseHostsResponse)
+{-# DEPRECATED rhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputWhitelistRuleCidr where
+module Network.AWS.MediaLive.Types.InputWhitelistRuleCidr
+  ( InputWhitelistRuleCidr (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInputWhitelistRuleCidr,
+
+    -- * Lenses
+    iwrcCidr,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An IPv4 CIDR to whitelist.
 --
--- /See:/ 'inputWhitelistRuleCidr' smart constructor.
+-- /See:/ 'mkInputWhitelistRuleCidr' smart constructor.
 newtype InputWhitelistRuleCidr = InputWhitelistRuleCidr'
-  { _iwrcCidr ::
-      Maybe Text
+  { cidr ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputWhitelistRuleCidr' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iwrcCidr' - The IPv4 CIDR to whitelist.
-inputWhitelistRuleCidr ::
+-- * 'cidr' - The IPv4 CIDR to whitelist.
+mkInputWhitelistRuleCidr ::
   InputWhitelistRuleCidr
-inputWhitelistRuleCidr =
-  InputWhitelistRuleCidr' {_iwrcCidr = Nothing}
+mkInputWhitelistRuleCidr =
+  InputWhitelistRuleCidr' {cidr = Lude.Nothing}
 
 -- | The IPv4 CIDR to whitelist.
-iwrcCidr :: Lens' InputWhitelistRuleCidr (Maybe Text)
-iwrcCidr = lens _iwrcCidr (\s a -> s {_iwrcCidr = a})
+--
+-- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iwrcCidr :: Lens.Lens' InputWhitelistRuleCidr (Lude.Maybe Lude.Text)
+iwrcCidr = Lens.lens (cidr :: InputWhitelistRuleCidr -> Lude.Maybe Lude.Text) (\s a -> s {cidr = a} :: InputWhitelistRuleCidr)
+{-# DEPRECATED iwrcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
-instance Hashable InputWhitelistRuleCidr
-
-instance NFData InputWhitelistRuleCidr
-
-instance ToJSON InputWhitelistRuleCidr where
+instance Lude.ToJSON InputWhitelistRuleCidr where
   toJSON InputWhitelistRuleCidr' {..} =
-    object (catMaybes [("cidr" .=) <$> _iwrcCidr])
+    Lude.object (Lude.catMaybes [("cidr" Lude..=) Lude.<$> cidr])

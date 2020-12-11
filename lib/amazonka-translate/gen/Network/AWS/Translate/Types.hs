@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Translate.Types
-  ( -- * Service Configuration
-    translate,
+  ( -- * Service configuration
+    translateService,
 
     -- * Errors
 
@@ -34,50 +32,50 @@ module Network.AWS.Translate.Types
     TerminologyDataFormat (..),
 
     -- * AppliedTerminology
-    AppliedTerminology,
-    appliedTerminology,
+    AppliedTerminology (..),
+    mkAppliedTerminology,
     atTerms,
     atName,
 
     -- * EncryptionKey
-    EncryptionKey,
-    encryptionKey,
+    EncryptionKey (..),
+    mkEncryptionKey,
     ekType,
     ekId,
 
     -- * InputDataConfig
-    InputDataConfig,
-    inputDataConfig,
+    InputDataConfig (..),
+    mkInputDataConfig,
     idcS3URI,
     idcContentType,
 
     -- * JobDetails
-    JobDetails,
-    jobDetails,
+    JobDetails (..),
+    mkJobDetails,
     jdTranslatedDocumentsCount,
     jdDocumentsWithErrorsCount,
     jdInputDocumentsCount,
 
     -- * OutputDataConfig
-    OutputDataConfig,
-    outputDataConfig,
+    OutputDataConfig (..),
+    mkOutputDataConfig,
     odcS3URI,
 
     -- * ParallelDataConfig
-    ParallelDataConfig,
-    parallelDataConfig,
+    ParallelDataConfig (..),
+    mkParallelDataConfig,
     pdcS3URI,
     pdcFormat,
 
     -- * ParallelDataDataLocation
-    ParallelDataDataLocation,
-    parallelDataDataLocation,
+    ParallelDataDataLocation (..),
+    mkParallelDataDataLocation,
     pddlRepositoryType,
     pddlLocation,
 
     -- * ParallelDataProperties
-    ParallelDataProperties,
-    parallelDataProperties,
+    ParallelDataProperties (..),
+    mkParallelDataProperties,
     pdpStatus,
     pdpLastUpdatedAt,
     pdpImportedRecordCount,
@@ -97,26 +95,26 @@ module Network.AWS.Translate.Types
     pdpParallelDataConfig,
 
     -- * Term
-    Term,
-    term,
+    Term (..),
+    mkTerm,
     tTargetText,
     tSourceText,
 
     -- * TerminologyData
-    TerminologyData,
-    terminologyData,
+    TerminologyData (..),
+    mkTerminologyData,
     tdFile,
     tdFormat,
 
     -- * TerminologyDataLocation
-    TerminologyDataLocation,
-    terminologyDataLocation,
+    TerminologyDataLocation (..),
+    mkTerminologyDataLocation,
     tdlRepositoryType,
     tdlLocation,
 
     -- * TerminologyProperties
-    TerminologyProperties,
-    terminologyProperties,
+    TerminologyProperties (..),
+    mkTerminologyProperties,
     tpSizeBytes,
     tpLastUpdatedAt,
     tpARN,
@@ -129,16 +127,16 @@ module Network.AWS.Translate.Types
     tpDescription,
 
     -- * TextTranslationJobFilter
-    TextTranslationJobFilter,
-    textTranslationJobFilter,
+    TextTranslationJobFilter (..),
+    mkTextTranslationJobFilter,
     ttjfSubmittedBeforeTime,
     ttjfSubmittedAfterTime,
     ttjfJobName,
     ttjfJobStatus,
 
     -- * TextTranslationJobProperties
-    TextTranslationJobProperties,
-    textTranslationJobProperties,
+    TextTranslationJobProperties (..),
+    mkTextTranslationJobProperties,
     ttjpJobId,
     ttjpTargetLanguageCodes,
     ttjpJobName,
@@ -156,9 +154,9 @@ module Network.AWS.Translate.Types
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.Translate.Types.AppliedTerminology
 import Network.AWS.Translate.Types.EncryptionKey
 import Network.AWS.Translate.Types.EncryptionKeyType
@@ -181,43 +179,55 @@ import Network.AWS.Translate.Types.TextTranslationJobFilter
 import Network.AWS.Translate.Types.TextTranslationJobProperties
 
 -- | API version @2017-07-01@ of the Amazon Translate SDK configuration.
-translate :: Service
-translate =
-  Service
-    { _svcAbbrev = "Translate",
-      _svcSigner = v4,
-      _svcPrefix = "translate",
-      _svcVersion = "2017-07-01",
-      _svcEndpoint = defaultEndpoint translate,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Translate",
-      _svcRetry = retry
+translateService :: Lude.Service
+translateService =
+  Lude.Service
+    { Lude._svcAbbrev = "Translate",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "translate",
+      Lude._svcVersion = "2017-07-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint translateService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Translate",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

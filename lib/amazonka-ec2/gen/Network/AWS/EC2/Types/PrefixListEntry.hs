@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PrefixListEntry where
+module Network.AWS.EC2.Types.PrefixListEntry
+  ( PrefixListEntry (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPrefixListEntry,
+
+    -- * Lenses
+    pleCidr,
+    pleDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a prefix list entry.
 --
---
---
--- /See:/ 'prefixListEntry' smart constructor.
+-- /See:/ 'mkPrefixListEntry' smart constructor.
 data PrefixListEntry = PrefixListEntry'
-  { _pleCidr :: !(Maybe Text),
-    _pleDescription :: !(Maybe Text)
+  { cidr ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrefixListEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pleCidr' - The CIDR block.
---
--- * 'pleDescription' - The description.
-prefixListEntry ::
+-- * 'cidr' - The CIDR block.
+-- * 'description' - The description.
+mkPrefixListEntry ::
   PrefixListEntry
-prefixListEntry =
-  PrefixListEntry' {_pleCidr = Nothing, _pleDescription = Nothing}
+mkPrefixListEntry =
+  PrefixListEntry' {cidr = Lude.Nothing, description = Lude.Nothing}
 
 -- | The CIDR block.
-pleCidr :: Lens' PrefixListEntry (Maybe Text)
-pleCidr = lens _pleCidr (\s a -> s {_pleCidr = a})
+--
+-- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pleCidr :: Lens.Lens' PrefixListEntry (Lude.Maybe Lude.Text)
+pleCidr = Lens.lens (cidr :: PrefixListEntry -> Lude.Maybe Lude.Text) (\s a -> s {cidr = a} :: PrefixListEntry)
+{-# DEPRECATED pleCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
 -- | The description.
-pleDescription :: Lens' PrefixListEntry (Maybe Text)
-pleDescription = lens _pleDescription (\s a -> s {_pleDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pleDescription :: Lens.Lens' PrefixListEntry (Lude.Maybe Lude.Text)
+pleDescription = Lens.lens (description :: PrefixListEntry -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PrefixListEntry)
+{-# DEPRECATED pleDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML PrefixListEntry where
+instance Lude.FromXML PrefixListEntry where
   parseXML x =
-    PrefixListEntry' <$> (x .@? "cidr") <*> (x .@? "description")
-
-instance Hashable PrefixListEntry
-
-instance NFData PrefixListEntry
+    PrefixListEntry'
+      Lude.<$> (x Lude..@? "cidr") Lude.<*> (x Lude..@? "description")

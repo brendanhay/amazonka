@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,153 @@
 --
 -- Describes the specified policies.
 --
---
 -- If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer. If you specify a policy name associated with your load balancer, the action returns the description of that policy. If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies. The names of the sample policies have the @ELBSample-@ prefix.
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
-  ( -- * Creating a Request
-    describeLoadBalancerPolicies,
-    DescribeLoadBalancerPolicies,
+  ( -- * Creating a request
+    DescribeLoadBalancerPolicies (..),
+    mkDescribeLoadBalancerPolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlbpPolicyNames,
     dlbpLoadBalancerName,
 
-    -- * Destructuring the Response
-    describeLoadBalancerPoliciesResponse,
-    DescribeLoadBalancerPoliciesResponse,
+    -- * Destructuring the response
+    DescribeLoadBalancerPoliciesResponse (..),
+    mkDescribeLoadBalancerPoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dlbprsPolicyDescriptions,
     dlbprsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for DescribeLoadBalancerPolicies.
 --
---
---
--- /See:/ 'describeLoadBalancerPolicies' smart constructor.
+-- /See:/ 'mkDescribeLoadBalancerPolicies' smart constructor.
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
-  { _dlbpPolicyNames ::
-      !(Maybe [Text]),
-    _dlbpLoadBalancerName ::
-      !(Maybe Text)
+  { policyNames ::
+      Lude.Maybe [Lude.Text],
+    loadBalancerName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancerPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlbpPolicyNames' - The names of the policies.
---
--- * 'dlbpLoadBalancerName' - The name of the load balancer.
-describeLoadBalancerPolicies ::
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'policyNames' - The names of the policies.
+mkDescribeLoadBalancerPolicies ::
   DescribeLoadBalancerPolicies
-describeLoadBalancerPolicies =
+mkDescribeLoadBalancerPolicies =
   DescribeLoadBalancerPolicies'
-    { _dlbpPolicyNames = Nothing,
-      _dlbpLoadBalancerName = Nothing
+    { policyNames = Lude.Nothing,
+      loadBalancerName = Lude.Nothing
     }
 
 -- | The names of the policies.
-dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
-dlbpPolicyNames = lens _dlbpPolicyNames (\s a -> s {_dlbpPolicyNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbpPolicyNames :: Lens.Lens' DescribeLoadBalancerPolicies (Lude.Maybe [Lude.Text])
+dlbpPolicyNames = Lens.lens (policyNames :: DescribeLoadBalancerPolicies -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNames = a} :: DescribeLoadBalancerPolicies)
+{-# DEPRECATED dlbpPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | The name of the load balancer.
-dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
-dlbpLoadBalancerName = lens _dlbpLoadBalancerName (\s a -> s {_dlbpLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbpLoadBalancerName :: Lens.Lens' DescribeLoadBalancerPolicies (Lude.Maybe Lude.Text)
+dlbpLoadBalancerName = Lens.lens (loadBalancerName :: DescribeLoadBalancerPolicies -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerName = a} :: DescribeLoadBalancerPolicies)
+{-# DEPRECATED dlbpLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
-instance AWSRequest DescribeLoadBalancerPolicies where
+instance Lude.AWSRequest DescribeLoadBalancerPolicies where
   type
     Rs DescribeLoadBalancerPolicies =
       DescribeLoadBalancerPoliciesResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeLoadBalancerPoliciesResult"
       ( \s h x ->
           DescribeLoadBalancerPoliciesResponse'
-            <$> ( x .@? "PolicyDescriptions" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "PolicyDescriptions" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeLoadBalancerPolicies
+instance Lude.ToHeaders DescribeLoadBalancerPolicies where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeLoadBalancerPolicies
+instance Lude.ToPath DescribeLoadBalancerPolicies where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeLoadBalancerPolicies where
-  toHeaders = const mempty
-
-instance ToPath DescribeLoadBalancerPolicies where
-  toPath = const "/"
-
-instance ToQuery DescribeLoadBalancerPolicies where
+instance Lude.ToQuery DescribeLoadBalancerPolicies where
   toQuery DescribeLoadBalancerPolicies' {..} =
-    mconcat
-      [ "Action" =: ("DescribeLoadBalancerPolicies" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeLoadBalancerPolicies" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
         "PolicyNames"
-          =: toQuery (toQueryList "member" <$> _dlbpPolicyNames),
-        "LoadBalancerName" =: _dlbpLoadBalancerName
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> policyNames),
+        "LoadBalancerName" Lude.=: loadBalancerName
       ]
 
 -- | Contains the output of DescribeLoadBalancerPolicies.
 --
---
---
--- /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
+-- /See:/ 'mkDescribeLoadBalancerPoliciesResponse' smart constructor.
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
-  { _dlbprsPolicyDescriptions ::
-      !( Maybe
-           [PolicyDescription]
-       ),
-    _dlbprsResponseStatus ::
-      !Int
+  { policyDescriptions ::
+      Lude.Maybe
+        [PolicyDescription],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancerPoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlbprsPolicyDescriptions' - Information about the policies.
---
--- * 'dlbprsResponseStatus' - -- | The response status code.
-describeLoadBalancerPoliciesResponse ::
-  -- | 'dlbprsResponseStatus'
-  Int ->
+-- * 'policyDescriptions' - Information about the policies.
+-- * 'responseStatus' - The response status code.
+mkDescribeLoadBalancerPoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeLoadBalancerPoliciesResponse
-describeLoadBalancerPoliciesResponse pResponseStatus_ =
+mkDescribeLoadBalancerPoliciesResponse pResponseStatus_ =
   DescribeLoadBalancerPoliciesResponse'
-    { _dlbprsPolicyDescriptions =
-        Nothing,
-      _dlbprsResponseStatus = pResponseStatus_
+    { policyDescriptions =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the policies.
-dlbprsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
-dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\s a -> s {_dlbprsPolicyDescriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policyDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbprsPolicyDescriptions :: Lens.Lens' DescribeLoadBalancerPoliciesResponse (Lude.Maybe [PolicyDescription])
+dlbprsPolicyDescriptions = Lens.lens (policyDescriptions :: DescribeLoadBalancerPoliciesResponse -> Lude.Maybe [PolicyDescription]) (\s a -> s {policyDescriptions = a} :: DescribeLoadBalancerPoliciesResponse)
+{-# DEPRECATED dlbprsPolicyDescriptions "Use generic-lens or generic-optics with 'policyDescriptions' instead." #-}
 
--- | -- | The response status code.
-dlbprsResponseStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
-dlbprsResponseStatus = lens _dlbprsResponseStatus (\s a -> s {_dlbprsResponseStatus = a})
-
-instance NFData DescribeLoadBalancerPoliciesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbprsResponseStatus :: Lens.Lens' DescribeLoadBalancerPoliciesResponse Lude.Int
+dlbprsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancerPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancerPoliciesResponse)
+{-# DEPRECATED dlbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

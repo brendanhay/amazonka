@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,116 @@
 --
 -- Imports an existing Amazon Athena Data Catalog to AWS Glue
 module Network.AWS.Glue.ImportCatalogToGlue
-  ( -- * Creating a Request
-    importCatalogToGlue,
-    ImportCatalogToGlue,
+  ( -- * Creating a request
+    ImportCatalogToGlue (..),
+    mkImportCatalogToGlue,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ictgCatalogId,
 
-    -- * Destructuring the Response
-    importCatalogToGlueResponse,
-    ImportCatalogToGlueResponse,
+    -- * Destructuring the response
+    ImportCatalogToGlueResponse (..),
+    mkImportCatalogToGlueResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ictgrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'importCatalogToGlue' smart constructor.
+-- | /See:/ 'mkImportCatalogToGlue' smart constructor.
 newtype ImportCatalogToGlue = ImportCatalogToGlue'
-  { _ictgCatalogId ::
-      Maybe Text
+  { catalogId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportCatalogToGlue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ictgCatalogId' - The ID of the catalog to import. Currently, this should be the AWS account ID.
-importCatalogToGlue ::
+-- * 'catalogId' - The ID of the catalog to import. Currently, this should be the AWS account ID.
+mkImportCatalogToGlue ::
   ImportCatalogToGlue
-importCatalogToGlue =
-  ImportCatalogToGlue' {_ictgCatalogId = Nothing}
+mkImportCatalogToGlue =
+  ImportCatalogToGlue' {catalogId = Lude.Nothing}
 
 -- | The ID of the catalog to import. Currently, this should be the AWS account ID.
-ictgCatalogId :: Lens' ImportCatalogToGlue (Maybe Text)
-ictgCatalogId = lens _ictgCatalogId (\s a -> s {_ictgCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ictgCatalogId :: Lens.Lens' ImportCatalogToGlue (Lude.Maybe Lude.Text)
+ictgCatalogId = Lens.lens (catalogId :: ImportCatalogToGlue -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: ImportCatalogToGlue)
+{-# DEPRECATED ictgCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
-instance AWSRequest ImportCatalogToGlue where
+instance Lude.AWSRequest ImportCatalogToGlue where
   type Rs ImportCatalogToGlue = ImportCatalogToGlueResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> ImportCatalogToGlueResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ImportCatalogToGlueResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ImportCatalogToGlue
-
-instance NFData ImportCatalogToGlue
-
-instance ToHeaders ImportCatalogToGlue where
+instance Lude.ToHeaders ImportCatalogToGlue where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.ImportCatalogToGlue" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.ImportCatalogToGlue" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ImportCatalogToGlue where
+instance Lude.ToJSON ImportCatalogToGlue where
   toJSON ImportCatalogToGlue' {..} =
-    object (catMaybes [("CatalogId" .=) <$> _ictgCatalogId])
+    Lude.object
+      (Lude.catMaybes [("CatalogId" Lude..=) Lude.<$> catalogId])
 
-instance ToPath ImportCatalogToGlue where
-  toPath = const "/"
+instance Lude.ToPath ImportCatalogToGlue where
+  toPath = Lude.const "/"
 
-instance ToQuery ImportCatalogToGlue where
-  toQuery = const mempty
+instance Lude.ToQuery ImportCatalogToGlue where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'importCatalogToGlueResponse' smart constructor.
+-- | /See:/ 'mkImportCatalogToGlueResponse' smart constructor.
 newtype ImportCatalogToGlueResponse = ImportCatalogToGlueResponse'
-  { _ictgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportCatalogToGlueResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ictgrsResponseStatus' - -- | The response status code.
-importCatalogToGlueResponse ::
-  -- | 'ictgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkImportCatalogToGlueResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ImportCatalogToGlueResponse
-importCatalogToGlueResponse pResponseStatus_ =
-  ImportCatalogToGlueResponse'
-    { _ictgrsResponseStatus =
-        pResponseStatus_
-    }
+mkImportCatalogToGlueResponse pResponseStatus_ =
+  ImportCatalogToGlueResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ictgrsResponseStatus :: Lens' ImportCatalogToGlueResponse Int
-ictgrsResponseStatus = lens _ictgrsResponseStatus (\s a -> s {_ictgrsResponseStatus = a})
-
-instance NFData ImportCatalogToGlueResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ictgrsResponseStatus :: Lens.Lens' ImportCatalogToGlueResponse Lude.Int
+ictgrsResponseStatus = Lens.lens (responseStatus :: ImportCatalogToGlueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportCatalogToGlueResponse)
+{-# DEPRECATED ictgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

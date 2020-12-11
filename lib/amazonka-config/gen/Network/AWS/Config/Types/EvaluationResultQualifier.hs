@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.EvaluationResultQualifier where
+module Network.AWS.Config.Types.EvaluationResultQualifier
+  ( EvaluationResultQualifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEvaluationResultQualifier,
+
+    -- * Lenses
+    erqResourceId,
+    erqResourceType,
+    erqConfigRuleName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Identifies an AWS Config rule that evaluated an AWS resource, and provides the type and ID of the resource that the rule evaluated.
 --
---
---
--- /See:/ 'evaluationResultQualifier' smart constructor.
+-- /See:/ 'mkEvaluationResultQualifier' smart constructor.
 data EvaluationResultQualifier = EvaluationResultQualifier'
-  { _erqResourceId ::
-      !(Maybe Text),
-    _erqResourceType :: !(Maybe Text),
-    _erqConfigRuleName :: !(Maybe Text)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe Lude.Text,
+    configRuleName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluationResultQualifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'erqResourceId' - The ID of the evaluated AWS resource.
---
--- * 'erqResourceType' - The type of AWS resource that was evaluated.
---
--- * 'erqConfigRuleName' - The name of the AWS Config rule that was used in the evaluation.
-evaluationResultQualifier ::
+-- * 'configRuleName' - The name of the AWS Config rule that was used in the evaluation.
+-- * 'resourceId' - The ID of the evaluated AWS resource.
+-- * 'resourceType' - The type of AWS resource that was evaluated.
+mkEvaluationResultQualifier ::
   EvaluationResultQualifier
-evaluationResultQualifier =
+mkEvaluationResultQualifier =
   EvaluationResultQualifier'
-    { _erqResourceId = Nothing,
-      _erqResourceType = Nothing,
-      _erqConfigRuleName = Nothing
+    { resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      configRuleName = Lude.Nothing
     }
 
 -- | The ID of the evaluated AWS resource.
-erqResourceId :: Lens' EvaluationResultQualifier (Maybe Text)
-erqResourceId = lens _erqResourceId (\s a -> s {_erqResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erqResourceId :: Lens.Lens' EvaluationResultQualifier (Lude.Maybe Lude.Text)
+erqResourceId = Lens.lens (resourceId :: EvaluationResultQualifier -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: EvaluationResultQualifier)
+{-# DEPRECATED erqResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of AWS resource that was evaluated.
-erqResourceType :: Lens' EvaluationResultQualifier (Maybe Text)
-erqResourceType = lens _erqResourceType (\s a -> s {_erqResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erqResourceType :: Lens.Lens' EvaluationResultQualifier (Lude.Maybe Lude.Text)
+erqResourceType = Lens.lens (resourceType :: EvaluationResultQualifier -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: EvaluationResultQualifier)
+{-# DEPRECATED erqResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The name of the AWS Config rule that was used in the evaluation.
-erqConfigRuleName :: Lens' EvaluationResultQualifier (Maybe Text)
-erqConfigRuleName = lens _erqConfigRuleName (\s a -> s {_erqConfigRuleName = a})
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erqConfigRuleName :: Lens.Lens' EvaluationResultQualifier (Lude.Maybe Lude.Text)
+erqConfigRuleName = Lens.lens (configRuleName :: EvaluationResultQualifier -> Lude.Maybe Lude.Text) (\s a -> s {configRuleName = a} :: EvaluationResultQualifier)
+{-# DEPRECATED erqConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
-instance FromJSON EvaluationResultQualifier where
+instance Lude.FromJSON EvaluationResultQualifier where
   parseJSON =
-    withObject
+    Lude.withObject
       "EvaluationResultQualifier"
       ( \x ->
           EvaluationResultQualifier'
-            <$> (x .:? "ResourceId")
-            <*> (x .:? "ResourceType")
-            <*> (x .:? "ConfigRuleName")
+            Lude.<$> (x Lude..:? "ResourceId")
+            Lude.<*> (x Lude..:? "ResourceType")
+            Lude.<*> (x Lude..:? "ConfigRuleName")
       )
-
-instance Hashable EvaluationResultQualifier
-
-instance NFData EvaluationResultQualifier

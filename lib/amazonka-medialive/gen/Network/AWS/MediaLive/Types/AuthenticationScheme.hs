@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AuthenticationScheme where
+module Network.AWS.MediaLive.Types.AuthenticationScheme
+  ( AuthenticationScheme
+      ( AuthenticationScheme',
+        Akamai,
+        Common
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Authentication Scheme
-data AuthenticationScheme
-  = Akamai
-  | Common
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthenticationScheme = AuthenticationScheme' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthenticationScheme where
-  parser =
-    takeLowerText >>= \case
-      "akamai" -> pure Akamai
-      "common" -> pure Common
-      e ->
-        fromTextError $
-          "Failure parsing AuthenticationScheme from value: '" <> e
-            <> "'. Accepted values: akamai, common"
+pattern Akamai :: AuthenticationScheme
+pattern Akamai = AuthenticationScheme' "AKAMAI"
 
-instance ToText AuthenticationScheme where
-  toText = \case
-    Akamai -> "AKAMAI"
-    Common -> "COMMON"
+pattern Common :: AuthenticationScheme
+pattern Common = AuthenticationScheme' "COMMON"
 
-instance Hashable AuthenticationScheme
-
-instance NFData AuthenticationScheme
-
-instance ToByteString AuthenticationScheme
-
-instance ToQuery AuthenticationScheme
-
-instance ToHeader AuthenticationScheme
-
-instance ToJSON AuthenticationScheme where
-  toJSON = toJSONText
-
-instance FromJSON AuthenticationScheme where
-  parseJSON = parseJSONText "AuthenticationScheme"
+{-# COMPLETE
+  Akamai,
+  Common,
+  AuthenticationScheme'
+  #-}

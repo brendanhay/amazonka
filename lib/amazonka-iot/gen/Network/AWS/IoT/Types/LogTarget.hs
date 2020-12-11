@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.LogTarget where
+module Network.AWS.IoT.Types.LogTarget
+  ( LogTarget (..),
+
+    -- * Smart constructor
+    mkLogTarget,
+
+    -- * Lenses
+    ltTargetName,
+    ltTargetType,
+  )
+where
 
 import Network.AWS.IoT.Types.LogTargetType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A log target.
 --
---
---
--- /See:/ 'logTarget' smart constructor.
+-- /See:/ 'mkLogTarget' smart constructor.
 data LogTarget = LogTarget'
-  { _ltTargetName :: !(Maybe Text),
-    _ltTargetType :: !LogTargetType
+  { targetName :: Lude.Maybe Lude.Text,
+    targetType :: LogTargetType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltTargetName' - The target name.
---
--- * 'ltTargetType' - The target type.
-logTarget ::
-  -- | 'ltTargetType'
+-- * 'targetName' - The target name.
+-- * 'targetType' - The target type.
+mkLogTarget ::
+  -- | 'targetType'
   LogTargetType ->
   LogTarget
-logTarget pTargetType_ =
-  LogTarget' {_ltTargetName = Nothing, _ltTargetType = pTargetType_}
+mkLogTarget pTargetType_ =
+  LogTarget' {targetName = Lude.Nothing, targetType = pTargetType_}
 
 -- | The target name.
-ltTargetName :: Lens' LogTarget (Maybe Text)
-ltTargetName = lens _ltTargetName (\s a -> s {_ltTargetName = a})
+--
+-- /Note:/ Consider using 'targetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltTargetName :: Lens.Lens' LogTarget (Lude.Maybe Lude.Text)
+ltTargetName = Lens.lens (targetName :: LogTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetName = a} :: LogTarget)
+{-# DEPRECATED ltTargetName "Use generic-lens or generic-optics with 'targetName' instead." #-}
 
 -- | The target type.
-ltTargetType :: Lens' LogTarget LogTargetType
-ltTargetType = lens _ltTargetType (\s a -> s {_ltTargetType = a})
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltTargetType :: Lens.Lens' LogTarget LogTargetType
+ltTargetType = Lens.lens (targetType :: LogTarget -> LogTargetType) (\s a -> s {targetType = a} :: LogTarget)
+{-# DEPRECATED ltTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
-instance FromJSON LogTarget where
+instance Lude.FromJSON LogTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "LogTarget"
       ( \x ->
-          LogTarget' <$> (x .:? "targetName") <*> (x .: "targetType")
+          LogTarget'
+            Lude.<$> (x Lude..:? "targetName") Lude.<*> (x Lude..: "targetType")
       )
 
-instance Hashable LogTarget
-
-instance NFData LogTarget
-
-instance ToJSON LogTarget where
+instance Lude.ToJSON LogTarget where
   toJSON LogTarget' {..} =
-    object
-      ( catMaybes
-          [ ("targetName" .=) <$> _ltTargetName,
-            Just ("targetType" .= _ltTargetType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("targetName" Lude..=) Lude.<$> targetName,
+            Lude.Just ("targetType" Lude..= targetType)
           ]
       )

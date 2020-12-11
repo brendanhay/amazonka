@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.LifecycleState where
+module Network.AWS.AutoScaling.Types.LifecycleState
+  ( LifecycleState
+      ( LifecycleState',
+        Detached,
+        Detaching,
+        EnteringStandby,
+        InService,
+        Pending,
+        PendingProceed,
+        PendingWait,
+        Quarantined,
+        Standby,
+        Terminated,
+        Terminating,
+        TerminatingProceed,
+        TerminatingWait
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LifecycleState
-  = Detached
-  | Detaching
-  | EnteringStandby
-  | InService
-  | Pending
-  | PendingProceed
-  | PendingWait
-  | Quarantined
-  | Standby
-  | Terminated
-  | Terminating
-  | TerminatingProceed
-  | TerminatingWait
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LifecycleState = LifecycleState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LifecycleState where
-  parser =
-    takeLowerText >>= \case
-      "detached" -> pure Detached
-      "detaching" -> pure Detaching
-      "enteringstandby" -> pure EnteringStandby
-      "inservice" -> pure InService
-      "pending" -> pure Pending
-      "pending:proceed" -> pure PendingProceed
-      "pending:wait" -> pure PendingWait
-      "quarantined" -> pure Quarantined
-      "standby" -> pure Standby
-      "terminated" -> pure Terminated
-      "terminating" -> pure Terminating
-      "terminating:proceed" -> pure TerminatingProceed
-      "terminating:wait" -> pure TerminatingWait
-      e ->
-        fromTextError $
-          "Failure parsing LifecycleState from value: '" <> e
-            <> "'. Accepted values: detached, detaching, enteringstandby, inservice, pending, pending:proceed, pending:wait, quarantined, standby, terminated, terminating, terminating:proceed, terminating:wait"
+pattern Detached :: LifecycleState
+pattern Detached = LifecycleState' "Detached"
 
-instance ToText LifecycleState where
-  toText = \case
-    Detached -> "Detached"
-    Detaching -> "Detaching"
-    EnteringStandby -> "EnteringStandby"
-    InService -> "InService"
-    Pending -> "Pending"
-    PendingProceed -> "Pending:Proceed"
-    PendingWait -> "Pending:Wait"
-    Quarantined -> "Quarantined"
-    Standby -> "Standby"
-    Terminated -> "Terminated"
-    Terminating -> "Terminating"
-    TerminatingProceed -> "Terminating:Proceed"
-    TerminatingWait -> "Terminating:Wait"
+pattern Detaching :: LifecycleState
+pattern Detaching = LifecycleState' "Detaching"
 
-instance Hashable LifecycleState
+pattern EnteringStandby :: LifecycleState
+pattern EnteringStandby = LifecycleState' "EnteringStandby"
 
-instance NFData LifecycleState
+pattern InService :: LifecycleState
+pattern InService = LifecycleState' "InService"
 
-instance ToByteString LifecycleState
+pattern Pending :: LifecycleState
+pattern Pending = LifecycleState' "Pending"
 
-instance ToQuery LifecycleState
+pattern PendingProceed :: LifecycleState
+pattern PendingProceed = LifecycleState' "Pending:Proceed"
 
-instance ToHeader LifecycleState
+pattern PendingWait :: LifecycleState
+pattern PendingWait = LifecycleState' "Pending:Wait"
 
-instance FromXML LifecycleState where
-  parseXML = parseXMLText "LifecycleState"
+pattern Quarantined :: LifecycleState
+pattern Quarantined = LifecycleState' "Quarantined"
+
+pattern Standby :: LifecycleState
+pattern Standby = LifecycleState' "Standby"
+
+pattern Terminated :: LifecycleState
+pattern Terminated = LifecycleState' "Terminated"
+
+pattern Terminating :: LifecycleState
+pattern Terminating = LifecycleState' "Terminating"
+
+pattern TerminatingProceed :: LifecycleState
+pattern TerminatingProceed = LifecycleState' "Terminating:Proceed"
+
+pattern TerminatingWait :: LifecycleState
+pattern TerminatingWait = LifecycleState' "Terminating:Wait"
+
+{-# COMPLETE
+  Detached,
+  Detaching,
+  EnteringStandby,
+  InService,
+  Pending,
+  PendingProceed,
+  PendingWait,
+  Quarantined,
+  Standby,
+  Terminated,
+  Terminating,
+  TerminatingProceed,
+  TerminatingWait,
+  LifecycleState'
+  #-}

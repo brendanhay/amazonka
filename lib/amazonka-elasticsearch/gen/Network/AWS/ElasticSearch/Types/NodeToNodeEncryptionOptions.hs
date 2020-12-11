@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions where
+module Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
+  ( NodeToNodeEncryptionOptions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNodeToNodeEncryptionOptions,
+
+    -- * Lenses
+    ntneoEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the node-to-node encryption options.
 --
---
---
--- /See:/ 'nodeToNodeEncryptionOptions' smart constructor.
+-- /See:/ 'mkNodeToNodeEncryptionOptions' smart constructor.
 newtype NodeToNodeEncryptionOptions = NodeToNodeEncryptionOptions'
-  { _ntneoEnabled ::
-      Maybe Bool
+  { enabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeToNodeEncryptionOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ntneoEnabled' - Specify true to enable node-to-node encryption.
-nodeToNodeEncryptionOptions ::
+-- * 'enabled' - Specify true to enable node-to-node encryption.
+mkNodeToNodeEncryptionOptions ::
   NodeToNodeEncryptionOptions
-nodeToNodeEncryptionOptions =
-  NodeToNodeEncryptionOptions' {_ntneoEnabled = Nothing}
+mkNodeToNodeEncryptionOptions =
+  NodeToNodeEncryptionOptions' {enabled = Lude.Nothing}
 
 -- | Specify true to enable node-to-node encryption.
-ntneoEnabled :: Lens' NodeToNodeEncryptionOptions (Maybe Bool)
-ntneoEnabled = lens _ntneoEnabled (\s a -> s {_ntneoEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ntneoEnabled :: Lens.Lens' NodeToNodeEncryptionOptions (Lude.Maybe Lude.Bool)
+ntneoEnabled = Lens.lens (enabled :: NodeToNodeEncryptionOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: NodeToNodeEncryptionOptions)
+{-# DEPRECATED ntneoEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance FromJSON NodeToNodeEncryptionOptions where
+instance Lude.FromJSON NodeToNodeEncryptionOptions where
   parseJSON =
-    withObject
+    Lude.withObject
       "NodeToNodeEncryptionOptions"
-      (\x -> NodeToNodeEncryptionOptions' <$> (x .:? "Enabled"))
+      ( \x ->
+          NodeToNodeEncryptionOptions' Lude.<$> (x Lude..:? "Enabled")
+      )
 
-instance Hashable NodeToNodeEncryptionOptions
-
-instance NFData NodeToNodeEncryptionOptions
-
-instance ToJSON NodeToNodeEncryptionOptions where
+instance Lude.ToJSON NodeToNodeEncryptionOptions where
   toJSON NodeToNodeEncryptionOptions' {..} =
-    object (catMaybes [("Enabled" .=) <$> _ntneoEnabled])
+    Lude.object
+      (Lude.catMaybes [("Enabled" Lude..=) Lude.<$> enabled])

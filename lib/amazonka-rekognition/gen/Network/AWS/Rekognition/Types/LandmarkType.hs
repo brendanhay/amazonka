@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,133 +7,189 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.LandmarkType where
+module Network.AWS.Rekognition.Types.LandmarkType
+  ( LandmarkType
+      ( LandmarkType',
+        ChinBottom,
+        EyeLeft,
+        EyeRight,
+        LeftEyeBrowLeft,
+        LeftEyeBrowRight,
+        LeftEyeBrowUp,
+        LeftEyeDown,
+        LeftEyeLeft,
+        LeftEyeRight,
+        LeftEyeUp,
+        LeftPupil,
+        MidJawlineLeft,
+        MidJawlineRight,
+        MouthDown,
+        MouthLeft,
+        MouthRight,
+        MouthUp,
+        Nose,
+        NoseLeft,
+        NoseRight,
+        RightEyeBrowLeft,
+        RightEyeBrowRight,
+        RightEyeBrowUp,
+        RightEyeDown,
+        RightEyeLeft,
+        RightEyeRight,
+        RightEyeUp,
+        RightPupil,
+        UpperJawlineLeft,
+        UpperJawlineRight
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LandmarkType
-  = ChinBottom
-  | EyeLeft
-  | EyeRight
-  | LeftEyeBrowLeft
-  | LeftEyeBrowRight
-  | LeftEyeBrowUp
-  | LeftEyeDown
-  | LeftEyeLeft
-  | LeftEyeRight
-  | LeftEyeUp
-  | LeftPupil
-  | MidJawlineLeft
-  | MidJawlineRight
-  | MouthDown
-  | MouthLeft
-  | MouthRight
-  | MouthUp
-  | Nose
-  | NoseLeft
-  | NoseRight
-  | RightEyeBrowLeft
-  | RightEyeBrowRight
-  | RightEyeBrowUp
-  | RightEyeDown
-  | RightEyeLeft
-  | RightEyeRight
-  | RightEyeUp
-  | RightPupil
-  | UpperJawlineLeft
-  | UpperJawlineRight
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LandmarkType = LandmarkType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LandmarkType where
-  parser =
-    takeLowerText >>= \case
-      "chinbottom" -> pure ChinBottom
-      "eyeleft" -> pure EyeLeft
-      "eyeright" -> pure EyeRight
-      "lefteyebrowleft" -> pure LeftEyeBrowLeft
-      "lefteyebrowright" -> pure LeftEyeBrowRight
-      "lefteyebrowup" -> pure LeftEyeBrowUp
-      "lefteyedown" -> pure LeftEyeDown
-      "lefteyeleft" -> pure LeftEyeLeft
-      "lefteyeright" -> pure LeftEyeRight
-      "lefteyeup" -> pure LeftEyeUp
-      "leftpupil" -> pure LeftPupil
-      "midjawlineleft" -> pure MidJawlineLeft
-      "midjawlineright" -> pure MidJawlineRight
-      "mouthdown" -> pure MouthDown
-      "mouthleft" -> pure MouthLeft
-      "mouthright" -> pure MouthRight
-      "mouthup" -> pure MouthUp
-      "nose" -> pure Nose
-      "noseleft" -> pure NoseLeft
-      "noseright" -> pure NoseRight
-      "righteyebrowleft" -> pure RightEyeBrowLeft
-      "righteyebrowright" -> pure RightEyeBrowRight
-      "righteyebrowup" -> pure RightEyeBrowUp
-      "righteyedown" -> pure RightEyeDown
-      "righteyeleft" -> pure RightEyeLeft
-      "righteyeright" -> pure RightEyeRight
-      "righteyeup" -> pure RightEyeUp
-      "rightpupil" -> pure RightPupil
-      "upperjawlineleft" -> pure UpperJawlineLeft
-      "upperjawlineright" -> pure UpperJawlineRight
-      e ->
-        fromTextError $
-          "Failure parsing LandmarkType from value: '" <> e
-            <> "'. Accepted values: chinbottom, eyeleft, eyeright, lefteyebrowleft, lefteyebrowright, lefteyebrowup, lefteyedown, lefteyeleft, lefteyeright, lefteyeup, leftpupil, midjawlineleft, midjawlineright, mouthdown, mouthleft, mouthright, mouthup, nose, noseleft, noseright, righteyebrowleft, righteyebrowright, righteyebrowup, righteyedown, righteyeleft, righteyeright, righteyeup, rightpupil, upperjawlineleft, upperjawlineright"
+pattern ChinBottom :: LandmarkType
+pattern ChinBottom = LandmarkType' "chinBottom"
 
-instance ToText LandmarkType where
-  toText = \case
-    ChinBottom -> "chinBottom"
-    EyeLeft -> "eyeLeft"
-    EyeRight -> "eyeRight"
-    LeftEyeBrowLeft -> "leftEyeBrowLeft"
-    LeftEyeBrowRight -> "leftEyeBrowRight"
-    LeftEyeBrowUp -> "leftEyeBrowUp"
-    LeftEyeDown -> "leftEyeDown"
-    LeftEyeLeft -> "leftEyeLeft"
-    LeftEyeRight -> "leftEyeRight"
-    LeftEyeUp -> "leftEyeUp"
-    LeftPupil -> "leftPupil"
-    MidJawlineLeft -> "midJawlineLeft"
-    MidJawlineRight -> "midJawlineRight"
-    MouthDown -> "mouthDown"
-    MouthLeft -> "mouthLeft"
-    MouthRight -> "mouthRight"
-    MouthUp -> "mouthUp"
-    Nose -> "nose"
-    NoseLeft -> "noseLeft"
-    NoseRight -> "noseRight"
-    RightEyeBrowLeft -> "rightEyeBrowLeft"
-    RightEyeBrowRight -> "rightEyeBrowRight"
-    RightEyeBrowUp -> "rightEyeBrowUp"
-    RightEyeDown -> "rightEyeDown"
-    RightEyeLeft -> "rightEyeLeft"
-    RightEyeRight -> "rightEyeRight"
-    RightEyeUp -> "rightEyeUp"
-    RightPupil -> "rightPupil"
-    UpperJawlineLeft -> "upperJawlineLeft"
-    UpperJawlineRight -> "upperJawlineRight"
+pattern EyeLeft :: LandmarkType
+pattern EyeLeft = LandmarkType' "eyeLeft"
 
-instance Hashable LandmarkType
+pattern EyeRight :: LandmarkType
+pattern EyeRight = LandmarkType' "eyeRight"
 
-instance NFData LandmarkType
+pattern LeftEyeBrowLeft :: LandmarkType
+pattern LeftEyeBrowLeft = LandmarkType' "leftEyeBrowLeft"
 
-instance ToByteString LandmarkType
+pattern LeftEyeBrowRight :: LandmarkType
+pattern LeftEyeBrowRight = LandmarkType' "leftEyeBrowRight"
 
-instance ToQuery LandmarkType
+pattern LeftEyeBrowUp :: LandmarkType
+pattern LeftEyeBrowUp = LandmarkType' "leftEyeBrowUp"
 
-instance ToHeader LandmarkType
+pattern LeftEyeDown :: LandmarkType
+pattern LeftEyeDown = LandmarkType' "leftEyeDown"
 
-instance FromJSON LandmarkType where
-  parseJSON = parseJSONText "LandmarkType"
+pattern LeftEyeLeft :: LandmarkType
+pattern LeftEyeLeft = LandmarkType' "leftEyeLeft"
+
+pattern LeftEyeRight :: LandmarkType
+pattern LeftEyeRight = LandmarkType' "leftEyeRight"
+
+pattern LeftEyeUp :: LandmarkType
+pattern LeftEyeUp = LandmarkType' "leftEyeUp"
+
+pattern LeftPupil :: LandmarkType
+pattern LeftPupil = LandmarkType' "leftPupil"
+
+pattern MidJawlineLeft :: LandmarkType
+pattern MidJawlineLeft = LandmarkType' "midJawlineLeft"
+
+pattern MidJawlineRight :: LandmarkType
+pattern MidJawlineRight = LandmarkType' "midJawlineRight"
+
+pattern MouthDown :: LandmarkType
+pattern MouthDown = LandmarkType' "mouthDown"
+
+pattern MouthLeft :: LandmarkType
+pattern MouthLeft = LandmarkType' "mouthLeft"
+
+pattern MouthRight :: LandmarkType
+pattern MouthRight = LandmarkType' "mouthRight"
+
+pattern MouthUp :: LandmarkType
+pattern MouthUp = LandmarkType' "mouthUp"
+
+pattern Nose :: LandmarkType
+pattern Nose = LandmarkType' "nose"
+
+pattern NoseLeft :: LandmarkType
+pattern NoseLeft = LandmarkType' "noseLeft"
+
+pattern NoseRight :: LandmarkType
+pattern NoseRight = LandmarkType' "noseRight"
+
+pattern RightEyeBrowLeft :: LandmarkType
+pattern RightEyeBrowLeft = LandmarkType' "rightEyeBrowLeft"
+
+pattern RightEyeBrowRight :: LandmarkType
+pattern RightEyeBrowRight = LandmarkType' "rightEyeBrowRight"
+
+pattern RightEyeBrowUp :: LandmarkType
+pattern RightEyeBrowUp = LandmarkType' "rightEyeBrowUp"
+
+pattern RightEyeDown :: LandmarkType
+pattern RightEyeDown = LandmarkType' "rightEyeDown"
+
+pattern RightEyeLeft :: LandmarkType
+pattern RightEyeLeft = LandmarkType' "rightEyeLeft"
+
+pattern RightEyeRight :: LandmarkType
+pattern RightEyeRight = LandmarkType' "rightEyeRight"
+
+pattern RightEyeUp :: LandmarkType
+pattern RightEyeUp = LandmarkType' "rightEyeUp"
+
+pattern RightPupil :: LandmarkType
+pattern RightPupil = LandmarkType' "rightPupil"
+
+pattern UpperJawlineLeft :: LandmarkType
+pattern UpperJawlineLeft = LandmarkType' "upperJawlineLeft"
+
+pattern UpperJawlineRight :: LandmarkType
+pattern UpperJawlineRight = LandmarkType' "upperJawlineRight"
+
+{-# COMPLETE
+  ChinBottom,
+  EyeLeft,
+  EyeRight,
+  LeftEyeBrowLeft,
+  LeftEyeBrowRight,
+  LeftEyeBrowUp,
+  LeftEyeDown,
+  LeftEyeLeft,
+  LeftEyeRight,
+  LeftEyeUp,
+  LeftPupil,
+  MidJawlineLeft,
+  MidJawlineRight,
+  MouthDown,
+  MouthLeft,
+  MouthRight,
+  MouthUp,
+  Nose,
+  NoseLeft,
+  NoseRight,
+  RightEyeBrowLeft,
+  RightEyeBrowRight,
+  RightEyeBrowUp,
+  RightEyeDown,
+  RightEyeLeft,
+  RightEyeRight,
+  RightEyeUp,
+  RightPupil,
+  UpperJawlineLeft,
+  UpperJawlineRight,
+  LandmarkType'
+  #-}

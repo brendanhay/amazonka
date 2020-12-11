@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.SamplingRuleRecord where
+module Network.AWS.XRay.Types.SamplingRuleRecord
+  ( SamplingRuleRecord (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSamplingRuleRecord,
+
+    -- * Lenses
+    srrModifiedAt,
+    srrSamplingRule,
+    srrCreatedAt,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.SamplingRule
 
 -- | A 'SamplingRule' and its metadata.
 --
---
---
--- /See:/ 'samplingRuleRecord' smart constructor.
+-- /See:/ 'mkSamplingRuleRecord' smart constructor.
 data SamplingRuleRecord = SamplingRuleRecord'
-  { _srrModifiedAt ::
-      !(Maybe POSIX),
-    _srrSamplingRule :: !(Maybe SamplingRule),
-    _srrCreatedAt :: !(Maybe POSIX)
+  { modifiedAt ::
+      Lude.Maybe Lude.Timestamp,
+    samplingRule :: Lude.Maybe SamplingRule,
+    createdAt :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SamplingRuleRecord' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srrModifiedAt' - When the rule was last modified.
---
--- * 'srrSamplingRule' - The sampling rule.
---
--- * 'srrCreatedAt' - When the rule was created.
-samplingRuleRecord ::
+-- * 'createdAt' - When the rule was created.
+-- * 'modifiedAt' - When the rule was last modified.
+-- * 'samplingRule' - The sampling rule.
+mkSamplingRuleRecord ::
   SamplingRuleRecord
-samplingRuleRecord =
+mkSamplingRuleRecord =
   SamplingRuleRecord'
-    { _srrModifiedAt = Nothing,
-      _srrSamplingRule = Nothing,
-      _srrCreatedAt = Nothing
+    { modifiedAt = Lude.Nothing,
+      samplingRule = Lude.Nothing,
+      createdAt = Lude.Nothing
     }
 
 -- | When the rule was last modified.
-srrModifiedAt :: Lens' SamplingRuleRecord (Maybe UTCTime)
-srrModifiedAt = lens _srrModifiedAt (\s a -> s {_srrModifiedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'modifiedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrModifiedAt :: Lens.Lens' SamplingRuleRecord (Lude.Maybe Lude.Timestamp)
+srrModifiedAt = Lens.lens (modifiedAt :: SamplingRuleRecord -> Lude.Maybe Lude.Timestamp) (\s a -> s {modifiedAt = a} :: SamplingRuleRecord)
+{-# DEPRECATED srrModifiedAt "Use generic-lens or generic-optics with 'modifiedAt' instead." #-}
 
 -- | The sampling rule.
-srrSamplingRule :: Lens' SamplingRuleRecord (Maybe SamplingRule)
-srrSamplingRule = lens _srrSamplingRule (\s a -> s {_srrSamplingRule = a})
+--
+-- /Note:/ Consider using 'samplingRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrSamplingRule :: Lens.Lens' SamplingRuleRecord (Lude.Maybe SamplingRule)
+srrSamplingRule = Lens.lens (samplingRule :: SamplingRuleRecord -> Lude.Maybe SamplingRule) (\s a -> s {samplingRule = a} :: SamplingRuleRecord)
+{-# DEPRECATED srrSamplingRule "Use generic-lens or generic-optics with 'samplingRule' instead." #-}
 
 -- | When the rule was created.
-srrCreatedAt :: Lens' SamplingRuleRecord (Maybe UTCTime)
-srrCreatedAt = lens _srrCreatedAt (\s a -> s {_srrCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrCreatedAt :: Lens.Lens' SamplingRuleRecord (Lude.Maybe Lude.Timestamp)
+srrCreatedAt = Lens.lens (createdAt :: SamplingRuleRecord -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: SamplingRuleRecord)
+{-# DEPRECATED srrCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
-instance FromJSON SamplingRuleRecord where
+instance Lude.FromJSON SamplingRuleRecord where
   parseJSON =
-    withObject
+    Lude.withObject
       "SamplingRuleRecord"
       ( \x ->
           SamplingRuleRecord'
-            <$> (x .:? "ModifiedAt")
-            <*> (x .:? "SamplingRule")
-            <*> (x .:? "CreatedAt")
+            Lude.<$> (x Lude..:? "ModifiedAt")
+            Lude.<*> (x Lude..:? "SamplingRule")
+            Lude.<*> (x Lude..:? "CreatedAt")
       )
-
-instance Hashable SamplingRuleRecord
-
-instance NFData SamplingRuleRecord

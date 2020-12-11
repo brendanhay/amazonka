@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceCollectionType where
+module Network.AWS.EMR.Types.InstanceCollectionType
+  ( InstanceCollectionType
+      ( InstanceCollectionType',
+        InstanceFleet,
+        InstanceGroup
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceCollectionType
-  = InstanceFleet
-  | InstanceGroup
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceCollectionType = InstanceCollectionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceCollectionType where
-  parser =
-    takeLowerText >>= \case
-      "instance_fleet" -> pure InstanceFleet
-      "instance_group" -> pure InstanceGroup
-      e ->
-        fromTextError $
-          "Failure parsing InstanceCollectionType from value: '" <> e
-            <> "'. Accepted values: instance_fleet, instance_group"
+pattern InstanceFleet :: InstanceCollectionType
+pattern InstanceFleet = InstanceCollectionType' "INSTANCE_FLEET"
 
-instance ToText InstanceCollectionType where
-  toText = \case
-    InstanceFleet -> "INSTANCE_FLEET"
-    InstanceGroup -> "INSTANCE_GROUP"
+pattern InstanceGroup :: InstanceCollectionType
+pattern InstanceGroup = InstanceCollectionType' "INSTANCE_GROUP"
 
-instance Hashable InstanceCollectionType
-
-instance NFData InstanceCollectionType
-
-instance ToByteString InstanceCollectionType
-
-instance ToQuery InstanceCollectionType
-
-instance ToHeader InstanceCollectionType
-
-instance FromJSON InstanceCollectionType where
-  parseJSON = parseJSONText "InstanceCollectionType"
+{-# COMPLETE
+  InstanceFleet,
+  InstanceGroup,
+  InstanceCollectionType'
+  #-}

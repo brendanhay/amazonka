@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,101 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.CaptionLanguageMapping where
+module Network.AWS.MediaLive.Types.CaptionLanguageMapping
+  ( CaptionLanguageMapping (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCaptionLanguageMapping,
+
+    -- * Lenses
+    clmLanguageCode,
+    clmLanguageDescription,
+    clmCaptionChannel,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Maps a caption channel to an ISO 693-2 language code (http://www.loc.gov/standards/iso639-2), with an optional description.
 --
--- /See:/ 'captionLanguageMapping' smart constructor.
+-- /See:/ 'mkCaptionLanguageMapping' smart constructor.
 data CaptionLanguageMapping = CaptionLanguageMapping'
-  { _clmLanguageCode ::
-      !Text,
-    _clmLanguageDescription :: !Text,
-    _clmCaptionChannel :: !Nat
+  { languageCode ::
+      Lude.Text,
+    languageDescription :: Lude.Text,
+    captionChannel :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionLanguageMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clmLanguageCode' - Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
---
--- * 'clmLanguageDescription' - Textual description of language
---
--- * 'clmCaptionChannel' - The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
-captionLanguageMapping ::
-  -- | 'clmLanguageCode'
-  Text ->
-  -- | 'clmLanguageDescription'
-  Text ->
-  -- | 'clmCaptionChannel'
-  Natural ->
+-- * 'captionChannel' - The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
+-- * 'languageCode' - Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
+-- * 'languageDescription' - Textual description of language
+mkCaptionLanguageMapping ::
+  -- | 'languageCode'
+  Lude.Text ->
+  -- | 'languageDescription'
+  Lude.Text ->
+  -- | 'captionChannel'
+  Lude.Natural ->
   CaptionLanguageMapping
-captionLanguageMapping
+mkCaptionLanguageMapping
   pLanguageCode_
   pLanguageDescription_
   pCaptionChannel_ =
     CaptionLanguageMapping'
-      { _clmLanguageCode = pLanguageCode_,
-        _clmLanguageDescription = pLanguageDescription_,
-        _clmCaptionChannel = _Nat # pCaptionChannel_
+      { languageCode = pLanguageCode_,
+        languageDescription = pLanguageDescription_,
+        captionChannel = pCaptionChannel_
       }
 
 -- | Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
-clmLanguageCode :: Lens' CaptionLanguageMapping Text
-clmLanguageCode = lens _clmLanguageCode (\s a -> s {_clmLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmLanguageCode :: Lens.Lens' CaptionLanguageMapping Lude.Text
+clmLanguageCode = Lens.lens (languageCode :: CaptionLanguageMapping -> Lude.Text) (\s a -> s {languageCode = a} :: CaptionLanguageMapping)
+{-# DEPRECATED clmLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | Textual description of language
-clmLanguageDescription :: Lens' CaptionLanguageMapping Text
-clmLanguageDescription = lens _clmLanguageDescription (\s a -> s {_clmLanguageDescription = a})
+--
+-- /Note:/ Consider using 'languageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmLanguageDescription :: Lens.Lens' CaptionLanguageMapping Lude.Text
+clmLanguageDescription = Lens.lens (languageDescription :: CaptionLanguageMapping -> Lude.Text) (\s a -> s {languageDescription = a} :: CaptionLanguageMapping)
+{-# DEPRECATED clmLanguageDescription "Use generic-lens or generic-optics with 'languageDescription' instead." #-}
 
 -- | The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
-clmCaptionChannel :: Lens' CaptionLanguageMapping Natural
-clmCaptionChannel = lens _clmCaptionChannel (\s a -> s {_clmCaptionChannel = a}) . _Nat
+--
+-- /Note:/ Consider using 'captionChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmCaptionChannel :: Lens.Lens' CaptionLanguageMapping Lude.Natural
+clmCaptionChannel = Lens.lens (captionChannel :: CaptionLanguageMapping -> Lude.Natural) (\s a -> s {captionChannel = a} :: CaptionLanguageMapping)
+{-# DEPRECATED clmCaptionChannel "Use generic-lens or generic-optics with 'captionChannel' instead." #-}
 
-instance FromJSON CaptionLanguageMapping where
+instance Lude.FromJSON CaptionLanguageMapping where
   parseJSON =
-    withObject
+    Lude.withObject
       "CaptionLanguageMapping"
       ( \x ->
           CaptionLanguageMapping'
-            <$> (x .: "languageCode")
-            <*> (x .: "languageDescription")
-            <*> (x .: "captionChannel")
+            Lude.<$> (x Lude..: "languageCode")
+            Lude.<*> (x Lude..: "languageDescription")
+            Lude.<*> (x Lude..: "captionChannel")
       )
 
-instance Hashable CaptionLanguageMapping
-
-instance NFData CaptionLanguageMapping
-
-instance ToJSON CaptionLanguageMapping where
+instance Lude.ToJSON CaptionLanguageMapping where
   toJSON CaptionLanguageMapping' {..} =
-    object
-      ( catMaybes
-          [ Just ("languageCode" .= _clmLanguageCode),
-            Just ("languageDescription" .= _clmLanguageDescription),
-            Just ("captionChannel" .= _clmCaptionChannel)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("languageCode" Lude..= languageCode),
+            Lude.Just ("languageDescription" Lude..= languageDescription),
+            Lude.Just ("captionChannel" Lude..= captionChannel)
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.BucketLevelPermissions where
+module Network.AWS.GuardDuty.Types.BucketLevelPermissions
+  ( BucketLevelPermissions (..),
+
+    -- * Smart constructor
+    mkBucketLevelPermissions,
+
+    -- * Lenses
+    blpAccessControlList,
+    blpBlockPublicAccess,
+    blpBucketPolicy,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.AccessControlList
 import Network.AWS.GuardDuty.Types.BlockPublicAccess
 import Network.AWS.GuardDuty.Types.BucketPolicy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the bucket level permissions for the S3 bucket.
 --
---
---
--- /See:/ 'bucketLevelPermissions' smart constructor.
+-- /See:/ 'mkBucketLevelPermissions' smart constructor.
 data BucketLevelPermissions = BucketLevelPermissions'
-  { _blpAccessControlList ::
-      !(Maybe AccessControlList),
-    _blpBlockPublicAccess ::
-      !(Maybe BlockPublicAccess),
-    _blpBucketPolicy :: !(Maybe BucketPolicy)
+  { accessControlList ::
+      Lude.Maybe AccessControlList,
+    blockPublicAccess ::
+      Lude.Maybe BlockPublicAccess,
+    bucketPolicy :: Lude.Maybe BucketPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BucketLevelPermissions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'blpAccessControlList' - Contains information on how Access Control Policies are applied to the bucket.
---
--- * 'blpBlockPublicAccess' - Contains information on which account level S3 Block Public Access settings are applied to the S3 bucket.
---
--- * 'blpBucketPolicy' - Contains information on the bucket policies for the S3 bucket.
-bucketLevelPermissions ::
+-- * 'accessControlList' - Contains information on how Access Control Policies are applied to the bucket.
+-- * 'blockPublicAccess' - Contains information on which account level S3 Block Public Access settings are applied to the S3 bucket.
+-- * 'bucketPolicy' - Contains information on the bucket policies for the S3 bucket.
+mkBucketLevelPermissions ::
   BucketLevelPermissions
-bucketLevelPermissions =
+mkBucketLevelPermissions =
   BucketLevelPermissions'
-    { _blpAccessControlList = Nothing,
-      _blpBlockPublicAccess = Nothing,
-      _blpBucketPolicy = Nothing
+    { accessControlList = Lude.Nothing,
+      blockPublicAccess = Lude.Nothing,
+      bucketPolicy = Lude.Nothing
     }
 
 -- | Contains information on how Access Control Policies are applied to the bucket.
-blpAccessControlList :: Lens' BucketLevelPermissions (Maybe AccessControlList)
-blpAccessControlList = lens _blpAccessControlList (\s a -> s {_blpAccessControlList = a})
+--
+-- /Note:/ Consider using 'accessControlList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpAccessControlList :: Lens.Lens' BucketLevelPermissions (Lude.Maybe AccessControlList)
+blpAccessControlList = Lens.lens (accessControlList :: BucketLevelPermissions -> Lude.Maybe AccessControlList) (\s a -> s {accessControlList = a} :: BucketLevelPermissions)
+{-# DEPRECATED blpAccessControlList "Use generic-lens or generic-optics with 'accessControlList' instead." #-}
 
 -- | Contains information on which account level S3 Block Public Access settings are applied to the S3 bucket.
-blpBlockPublicAccess :: Lens' BucketLevelPermissions (Maybe BlockPublicAccess)
-blpBlockPublicAccess = lens _blpBlockPublicAccess (\s a -> s {_blpBlockPublicAccess = a})
+--
+-- /Note:/ Consider using 'blockPublicAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpBlockPublicAccess :: Lens.Lens' BucketLevelPermissions (Lude.Maybe BlockPublicAccess)
+blpBlockPublicAccess = Lens.lens (blockPublicAccess :: BucketLevelPermissions -> Lude.Maybe BlockPublicAccess) (\s a -> s {blockPublicAccess = a} :: BucketLevelPermissions)
+{-# DEPRECATED blpBlockPublicAccess "Use generic-lens or generic-optics with 'blockPublicAccess' instead." #-}
 
 -- | Contains information on the bucket policies for the S3 bucket.
-blpBucketPolicy :: Lens' BucketLevelPermissions (Maybe BucketPolicy)
-blpBucketPolicy = lens _blpBucketPolicy (\s a -> s {_blpBucketPolicy = a})
+--
+-- /Note:/ Consider using 'bucketPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpBucketPolicy :: Lens.Lens' BucketLevelPermissions (Lude.Maybe BucketPolicy)
+blpBucketPolicy = Lens.lens (bucketPolicy :: BucketLevelPermissions -> Lude.Maybe BucketPolicy) (\s a -> s {bucketPolicy = a} :: BucketLevelPermissions)
+{-# DEPRECATED blpBucketPolicy "Use generic-lens or generic-optics with 'bucketPolicy' instead." #-}
 
-instance FromJSON BucketLevelPermissions where
+instance Lude.FromJSON BucketLevelPermissions where
   parseJSON =
-    withObject
+    Lude.withObject
       "BucketLevelPermissions"
       ( \x ->
           BucketLevelPermissions'
-            <$> (x .:? "accessControlList")
-            <*> (x .:? "blockPublicAccess")
-            <*> (x .:? "bucketPolicy")
+            Lude.<$> (x Lude..:? "accessControlList")
+            Lude.<*> (x Lude..:? "blockPublicAccess")
+            Lude.<*> (x Lude..:? "bucketPolicy")
       )
-
-instance Hashable BucketLevelPermissions
-
-instance NFData BucketLevelPermissions

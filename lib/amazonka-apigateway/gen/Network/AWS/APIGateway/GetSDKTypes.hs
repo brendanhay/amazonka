@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,19 +16,19 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetSDKTypes
-  ( -- * Creating a Request
-    getSDKTypes,
-    GetSDKTypes,
+  ( -- * Creating a request
+    GetSDKTypes (..),
+    mkGetSDKTypes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gstLimit,
     gstPosition,
 
-    -- * Destructuring the Response
-    getSDKTypesResponse,
-    GetSDKTypesResponse,
+    -- * Destructuring the response
+    GetSDKTypesResponse (..),
+    mkGetSDKTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gstrsItems,
     gstrsPosition,
     gstrsResponseStatus,
@@ -41,119 +36,137 @@ module Network.AWS.APIGateway.GetSDKTypes
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Get the 'SdkTypes' collection.
 --
---
---
--- /See:/ 'getSDKTypes' smart constructor.
+-- /See:/ 'mkGetSDKTypes' smart constructor.
 data GetSDKTypes = GetSDKTypes'
-  { _gstLimit :: !(Maybe Int),
-    _gstPosition :: !(Maybe Text)
+  { limit :: Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSDKTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gstPosition' - The current pagination position in the paged result set.
-getSDKTypes ::
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'position' - The current pagination position in the paged result set.
+mkGetSDKTypes ::
   GetSDKTypes
-getSDKTypes =
-  GetSDKTypes' {_gstLimit = Nothing, _gstPosition = Nothing}
+mkGetSDKTypes =
+  GetSDKTypes' {limit = Lude.Nothing, position = Lude.Nothing}
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gstLimit :: Lens' GetSDKTypes (Maybe Int)
-gstLimit = lens _gstLimit (\s a -> s {_gstLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstLimit :: Lens.Lens' GetSDKTypes (Lude.Maybe Lude.Int)
+gstLimit = Lens.lens (limit :: GetSDKTypes -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetSDKTypes)
+{-# DEPRECATED gstLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gstPosition :: Lens' GetSDKTypes (Maybe Text)
-gstPosition = lens _gstPosition (\s a -> s {_gstPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstPosition :: Lens.Lens' GetSDKTypes (Lude.Maybe Lude.Text)
+gstPosition = Lens.lens (position :: GetSDKTypes -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetSDKTypes)
+{-# DEPRECATED gstPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
-instance AWSPager GetSDKTypes where
+instance Page.AWSPager GetSDKTypes where
   page rq rs
-    | stop (rs ^. gstrsPosition) = Nothing
-    | stop (rs ^. gstrsItems) = Nothing
-    | otherwise = Just $ rq & gstPosition .~ rs ^. gstrsPosition
+    | Page.stop (rs Lens.^. gstrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. gstrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gstPosition Lens..~ rs Lens.^. gstrsPosition
 
-instance AWSRequest GetSDKTypes where
+instance Lude.AWSRequest GetSDKTypes where
   type Rs GetSDKTypes = GetSDKTypesResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSDKTypesResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSDKTypes
-
-instance NFData GetSDKTypes
-
-instance ToHeaders GetSDKTypes where
+instance Lude.ToHeaders GetSDKTypes where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetSDKTypes where
-  toPath = const "/sdktypes"
+instance Lude.ToPath GetSDKTypes where
+  toPath = Lude.const "/sdktypes"
 
-instance ToQuery GetSDKTypes where
+instance Lude.ToQuery GetSDKTypes where
   toQuery GetSDKTypes' {..} =
-    mconcat ["limit" =: _gstLimit, "position" =: _gstPosition]
+    Lude.mconcat ["limit" Lude.=: limit, "position" Lude.=: position]
 
 -- | The collection of 'SdkType' instances.
 --
---
---
--- /See:/ 'getSDKTypesResponse' smart constructor.
+-- /See:/ 'mkGetSDKTypesResponse' smart constructor.
 data GetSDKTypesResponse = GetSDKTypesResponse'
-  { _gstrsItems ::
-      !(Maybe [SDKType]),
-    _gstrsPosition :: !(Maybe Text),
-    _gstrsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [SDKType],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSDKTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gstrsItems' - The current page of elements from this collection.
---
--- * 'gstrsPosition' - Undocumented member.
---
--- * 'gstrsResponseStatus' - -- | The response status code.
-getSDKTypesResponse ::
-  -- | 'gstrsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetSDKTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSDKTypesResponse
-getSDKTypesResponse pResponseStatus_ =
+mkGetSDKTypesResponse pResponseStatus_ =
   GetSDKTypesResponse'
-    { _gstrsItems = Nothing,
-      _gstrsPosition = Nothing,
-      _gstrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-gstrsItems :: Lens' GetSDKTypesResponse [SDKType]
-gstrsItems = lens _gstrsItems (\s a -> s {_gstrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsItems :: Lens.Lens' GetSDKTypesResponse (Lude.Maybe [SDKType])
+gstrsItems = Lens.lens (items :: GetSDKTypesResponse -> Lude.Maybe [SDKType]) (\s a -> s {items = a} :: GetSDKTypesResponse)
+{-# DEPRECATED gstrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-gstrsPosition :: Lens' GetSDKTypesResponse (Maybe Text)
-gstrsPosition = lens _gstrsPosition (\s a -> s {_gstrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsPosition :: Lens.Lens' GetSDKTypesResponse (Lude.Maybe Lude.Text)
+gstrsPosition = Lens.lens (position :: GetSDKTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetSDKTypesResponse)
+{-# DEPRECATED gstrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-gstrsResponseStatus :: Lens' GetSDKTypesResponse Int
-gstrsResponseStatus = lens _gstrsResponseStatus (\s a -> s {_gstrsResponseStatus = a})
-
-instance NFData GetSDKTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrsResponseStatus :: Lens.Lens' GetSDKTypesResponse Lude.Int
+gstrsResponseStatus = Lens.lens (responseStatus :: GetSDKTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSDKTypesResponse)
+{-# DEPRECATED gstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

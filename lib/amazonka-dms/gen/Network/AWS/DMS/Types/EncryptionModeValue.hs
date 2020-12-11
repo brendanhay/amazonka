@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.EncryptionModeValue where
+module Network.AWS.DMS.Types.EncryptionModeValue
+  ( EncryptionModeValue
+      ( EncryptionModeValue',
+        SseKMS,
+        SseS3
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EncryptionModeValue
-  = SseKMS
-  | SseS3
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EncryptionModeValue = EncryptionModeValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EncryptionModeValue where
-  parser =
-    takeLowerText >>= \case
-      "sse-kms" -> pure SseKMS
-      "sse-s3" -> pure SseS3
-      e ->
-        fromTextError $
-          "Failure parsing EncryptionModeValue from value: '" <> e
-            <> "'. Accepted values: sse-kms, sse-s3"
+pattern SseKMS :: EncryptionModeValue
+pattern SseKMS = EncryptionModeValue' "sse-kms"
 
-instance ToText EncryptionModeValue where
-  toText = \case
-    SseKMS -> "sse-kms"
-    SseS3 -> "sse-s3"
+pattern SseS3 :: EncryptionModeValue
+pattern SseS3 = EncryptionModeValue' "sse-s3"
 
-instance Hashable EncryptionModeValue
-
-instance NFData EncryptionModeValue
-
-instance ToByteString EncryptionModeValue
-
-instance ToQuery EncryptionModeValue
-
-instance ToHeader EncryptionModeValue
-
-instance ToJSON EncryptionModeValue where
-  toJSON = toJSONText
-
-instance FromJSON EncryptionModeValue where
-  parseJSON = parseJSONText "EncryptionModeValue"
+{-# COMPLETE
+  SseKMS,
+  SseS3,
+  EncryptionModeValue'
+  #-}

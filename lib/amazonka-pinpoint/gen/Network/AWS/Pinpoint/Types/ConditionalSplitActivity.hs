@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ConditionalSplitActivity where
+module Network.AWS.Pinpoint.Types.ConditionalSplitActivity
+  ( ConditionalSplitActivity (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkConditionalSplitActivity,
+
+    -- * Lenses
+    csaEvaluationWaitTime,
+    csaTrueActivity,
+    csaFalseActivity,
+    csaCondition,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Condition
 import Network.AWS.Pinpoint.Types.WaitTime
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.
 --
---
---
--- /See:/ 'conditionalSplitActivity' smart constructor.
+-- /See:/ 'mkConditionalSplitActivity' smart constructor.
 data ConditionalSplitActivity = ConditionalSplitActivity'
-  { _csaEvaluationWaitTime ::
-      !(Maybe WaitTime),
-    _csaTrueActivity :: !(Maybe Text),
-    _csaFalseActivity :: !(Maybe Text),
-    _csaCondition :: !(Maybe Condition)
+  { evaluationWaitTime ::
+      Lude.Maybe WaitTime,
+    trueActivity :: Lude.Maybe Lude.Text,
+    falseActivity :: Lude.Maybe Lude.Text,
+    condition :: Lude.Maybe Condition
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConditionalSplitActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csaEvaluationWaitTime' - The amount of time to wait before determining whether the conditions are met, or the date and time when Amazon Pinpoint determines whether the conditions are met.
---
--- * 'csaTrueActivity' - The unique identifier for the activity to perform if the conditions are met.
---
--- * 'csaFalseActivity' - The unique identifier for the activity to perform if the conditions aren't met.
---
--- * 'csaCondition' - The conditions that define the paths for the activity, and the relationship between the conditions.
-conditionalSplitActivity ::
+-- * 'condition' - The conditions that define the paths for the activity, and the relationship between the conditions.
+-- * 'evaluationWaitTime' - The amount of time to wait before determining whether the conditions are met, or the date and time when Amazon Pinpoint determines whether the conditions are met.
+-- * 'falseActivity' - The unique identifier for the activity to perform if the conditions aren't met.
+-- * 'trueActivity' - The unique identifier for the activity to perform if the conditions are met.
+mkConditionalSplitActivity ::
   ConditionalSplitActivity
-conditionalSplitActivity =
+mkConditionalSplitActivity =
   ConditionalSplitActivity'
-    { _csaEvaluationWaitTime = Nothing,
-      _csaTrueActivity = Nothing,
-      _csaFalseActivity = Nothing,
-      _csaCondition = Nothing
+    { evaluationWaitTime = Lude.Nothing,
+      trueActivity = Lude.Nothing,
+      falseActivity = Lude.Nothing,
+      condition = Lude.Nothing
     }
 
 -- | The amount of time to wait before determining whether the conditions are met, or the date and time when Amazon Pinpoint determines whether the conditions are met.
-csaEvaluationWaitTime :: Lens' ConditionalSplitActivity (Maybe WaitTime)
-csaEvaluationWaitTime = lens _csaEvaluationWaitTime (\s a -> s {_csaEvaluationWaitTime = a})
+--
+-- /Note:/ Consider using 'evaluationWaitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaEvaluationWaitTime :: Lens.Lens' ConditionalSplitActivity (Lude.Maybe WaitTime)
+csaEvaluationWaitTime = Lens.lens (evaluationWaitTime :: ConditionalSplitActivity -> Lude.Maybe WaitTime) (\s a -> s {evaluationWaitTime = a} :: ConditionalSplitActivity)
+{-# DEPRECATED csaEvaluationWaitTime "Use generic-lens or generic-optics with 'evaluationWaitTime' instead." #-}
 
 -- | The unique identifier for the activity to perform if the conditions are met.
-csaTrueActivity :: Lens' ConditionalSplitActivity (Maybe Text)
-csaTrueActivity = lens _csaTrueActivity (\s a -> s {_csaTrueActivity = a})
+--
+-- /Note:/ Consider using 'trueActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaTrueActivity :: Lens.Lens' ConditionalSplitActivity (Lude.Maybe Lude.Text)
+csaTrueActivity = Lens.lens (trueActivity :: ConditionalSplitActivity -> Lude.Maybe Lude.Text) (\s a -> s {trueActivity = a} :: ConditionalSplitActivity)
+{-# DEPRECATED csaTrueActivity "Use generic-lens or generic-optics with 'trueActivity' instead." #-}
 
 -- | The unique identifier for the activity to perform if the conditions aren't met.
-csaFalseActivity :: Lens' ConditionalSplitActivity (Maybe Text)
-csaFalseActivity = lens _csaFalseActivity (\s a -> s {_csaFalseActivity = a})
+--
+-- /Note:/ Consider using 'falseActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaFalseActivity :: Lens.Lens' ConditionalSplitActivity (Lude.Maybe Lude.Text)
+csaFalseActivity = Lens.lens (falseActivity :: ConditionalSplitActivity -> Lude.Maybe Lude.Text) (\s a -> s {falseActivity = a} :: ConditionalSplitActivity)
+{-# DEPRECATED csaFalseActivity "Use generic-lens or generic-optics with 'falseActivity' instead." #-}
 
 -- | The conditions that define the paths for the activity, and the relationship between the conditions.
-csaCondition :: Lens' ConditionalSplitActivity (Maybe Condition)
-csaCondition = lens _csaCondition (\s a -> s {_csaCondition = a})
+--
+-- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csaCondition :: Lens.Lens' ConditionalSplitActivity (Lude.Maybe Condition)
+csaCondition = Lens.lens (condition :: ConditionalSplitActivity -> Lude.Maybe Condition) (\s a -> s {condition = a} :: ConditionalSplitActivity)
+{-# DEPRECATED csaCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
-instance FromJSON ConditionalSplitActivity where
+instance Lude.FromJSON ConditionalSplitActivity where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConditionalSplitActivity"
       ( \x ->
           ConditionalSplitActivity'
-            <$> (x .:? "EvaluationWaitTime")
-            <*> (x .:? "TrueActivity")
-            <*> (x .:? "FalseActivity")
-            <*> (x .:? "Condition")
+            Lude.<$> (x Lude..:? "EvaluationWaitTime")
+            Lude.<*> (x Lude..:? "TrueActivity")
+            Lude.<*> (x Lude..:? "FalseActivity")
+            Lude.<*> (x Lude..:? "Condition")
       )
 
-instance Hashable ConditionalSplitActivity
-
-instance NFData ConditionalSplitActivity
-
-instance ToJSON ConditionalSplitActivity where
+instance Lude.ToJSON ConditionalSplitActivity where
   toJSON ConditionalSplitActivity' {..} =
-    object
-      ( catMaybes
-          [ ("EvaluationWaitTime" .=) <$> _csaEvaluationWaitTime,
-            ("TrueActivity" .=) <$> _csaTrueActivity,
-            ("FalseActivity" .=) <$> _csaFalseActivity,
-            ("Condition" .=) <$> _csaCondition
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EvaluationWaitTime" Lude..=) Lude.<$> evaluationWaitTime,
+            ("TrueActivity" Lude..=) Lude.<$> trueActivity,
+            ("FalseActivity" Lude..=) Lude.<$> falseActivity,
+            ("Condition" Lude..=) Lude.<$> condition
           ]
       )

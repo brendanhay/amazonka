@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.StepState where
+module Network.AWS.EMR.Types.StepState
+  ( StepState
+      ( StepState',
+        SSCancelPending,
+        SSCancelled,
+        SSCompleted,
+        SSFailed,
+        SSInterrupted,
+        SSPending,
+        SSRunning
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StepState
-  = SSCancelPending
-  | SSCancelled
-  | SSCompleted
-  | SSFailed
-  | SSInterrupted
-  | SSPending
-  | SSRunning
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StepState = StepState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StepState where
-  parser =
-    takeLowerText >>= \case
-      "cancel_pending" -> pure SSCancelPending
-      "cancelled" -> pure SSCancelled
-      "completed" -> pure SSCompleted
-      "failed" -> pure SSFailed
-      "interrupted" -> pure SSInterrupted
-      "pending" -> pure SSPending
-      "running" -> pure SSRunning
-      e ->
-        fromTextError $
-          "Failure parsing StepState from value: '" <> e
-            <> "'. Accepted values: cancel_pending, cancelled, completed, failed, interrupted, pending, running"
+pattern SSCancelPending :: StepState
+pattern SSCancelPending = StepState' "CANCEL_PENDING"
 
-instance ToText StepState where
-  toText = \case
-    SSCancelPending -> "CANCEL_PENDING"
-    SSCancelled -> "CANCELLED"
-    SSCompleted -> "COMPLETED"
-    SSFailed -> "FAILED"
-    SSInterrupted -> "INTERRUPTED"
-    SSPending -> "PENDING"
-    SSRunning -> "RUNNING"
+pattern SSCancelled :: StepState
+pattern SSCancelled = StepState' "CANCELLED"
 
-instance Hashable StepState
+pattern SSCompleted :: StepState
+pattern SSCompleted = StepState' "COMPLETED"
 
-instance NFData StepState
+pattern SSFailed :: StepState
+pattern SSFailed = StepState' "FAILED"
 
-instance ToByteString StepState
+pattern SSInterrupted :: StepState
+pattern SSInterrupted = StepState' "INTERRUPTED"
 
-instance ToQuery StepState
+pattern SSPending :: StepState
+pattern SSPending = StepState' "PENDING"
 
-instance ToHeader StepState
+pattern SSRunning :: StepState
+pattern SSRunning = StepState' "RUNNING"
 
-instance ToJSON StepState where
-  toJSON = toJSONText
-
-instance FromJSON StepState where
-  parseJSON = parseJSONText "StepState"
+{-# COMPLETE
+  SSCancelPending,
+  SSCancelled,
+  SSCompleted,
+  SSFailed,
+  SSInterrupted,
+  SSPending,
+  SSRunning,
+  StepState'
+  #-}

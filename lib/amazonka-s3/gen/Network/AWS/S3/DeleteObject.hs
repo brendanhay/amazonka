@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,19 @@
 --
 -- Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
 --
---
 -- To remove a specific version, you must be the bucket owner and you must use the version Id subresource. Using this subresource permanently deletes the version. If the object deleted is a delete marker, Amazon S3 sets the response header, @x-amz-delete-marker@ , to true.
---
 -- If the object you want to delete is in a bucket where the bucket versioning configuration is MFA Delete enabled, you must include the @x-amz-mfa@ request header in the DELETE @versionId@ request. Requests that include @x-amz-mfa@ must use HTTPS.
---
 -- For more information about MFA Delete, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMFADelete.html Using MFA Delete> . To see sample requests that use versioning, see <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html#ExampleVersionObjectDelete Sample Request> .
---
 -- You can delete objects by explicitly calling the DELETE Object API or configure its lifecycle (<https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html PutBucketLifecycle> ) to enable Amazon S3 to remove them for you. If you want to block users or accounts from removing or deleting objects from your bucket, you must deny them the @s3:DeleteObject@ , @s3:DeleteObjectVersion@ , and @s3:PutLifeCycleConfiguration@ actions.
---
 -- The following operation is related to @DeleteObject@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html PutObject>
 module Network.AWS.S3.DeleteObject
-  ( -- * Creating a Request
-    deleteObject,
-    DeleteObject,
+  ( -- * Creating a request
+    DeleteObject (..),
+    mkDeleteObject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     doVersionId,
     doMFA,
     doRequestPayer,
@@ -45,11 +35,11 @@ module Network.AWS.S3.DeleteObject
     doBucket,
     doKey,
 
-    -- * Destructuring the Response
-    deleteObjectResponse,
-    DeleteObjectResponse,
+    -- * Destructuring the response
+    DeleteObjectResponse (..),
+    mkDeleteObjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dorsRequestCharged,
     dorsVersionId,
     dorsDeleteMarker,
@@ -57,168 +47,203 @@ module Network.AWS.S3.DeleteObject
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'deleteObject' smart constructor.
+-- | /See:/ 'mkDeleteObject' smart constructor.
 data DeleteObject = DeleteObject'
-  { _doVersionId ::
-      !(Maybe ObjectVersionId),
-    _doMFA :: !(Maybe Text),
-    _doRequestPayer :: !(Maybe RequestPayer),
-    _doBypassGovernanceRetention :: !(Maybe Bool),
-    _doExpectedBucketOwner :: !(Maybe Text),
-    _doBucket :: !BucketName,
-    _doKey :: !ObjectKey
+  { versionId ::
+      Lude.Maybe ObjectVersionId,
+    mfa :: Lude.Maybe Lude.Text,
+    requestPayer :: Lude.Maybe RequestPayer,
+    bypassGovernanceRetention :: Lude.Maybe Lude.Bool,
+    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    key :: ObjectKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'bucket' - The bucket name of the bucket containing the object.
 --
--- * 'doVersionId' - VersionId used to reference a specific version of the object.
---
--- * 'doMFA' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device. Required to permanently delete a versioned object if versioning is configured with MFA delete enabled.
---
--- * 'doRequestPayer' - Undocumented member.
---
--- * 'doBypassGovernanceRetention' - Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.
---
--- * 'doExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'doBucket' - The bucket name of the bucket containing the object.  When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ . When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- * 'doKey' - Key name of the object to delete.
-deleteObject ::
-  -- | 'doBucket'
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'bypassGovernanceRetention' - Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'key' - Key name of the object to delete.
+-- * 'mfa' - The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device. Required to permanently delete a versioned object if versioning is configured with MFA delete enabled.
+-- * 'requestPayer' - Undocumented field.
+-- * 'versionId' - VersionId used to reference a specific version of the object.
+mkDeleteObject ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'doKey'
+  -- | 'key'
   ObjectKey ->
   DeleteObject
-deleteObject pBucket_ pKey_ =
+mkDeleteObject pBucket_ pKey_ =
   DeleteObject'
-    { _doVersionId = Nothing,
-      _doMFA = Nothing,
-      _doRequestPayer = Nothing,
-      _doBypassGovernanceRetention = Nothing,
-      _doExpectedBucketOwner = Nothing,
-      _doBucket = pBucket_,
-      _doKey = pKey_
+    { versionId = Lude.Nothing,
+      mfa = Lude.Nothing,
+      requestPayer = Lude.Nothing,
+      bypassGovernanceRetention = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_,
+      key = pKey_
     }
 
 -- | VersionId used to reference a specific version of the object.
-doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
-doVersionId = lens _doVersionId (\s a -> s {_doVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doVersionId :: Lens.Lens' DeleteObject (Lude.Maybe ObjectVersionId)
+doVersionId = Lens.lens (versionId :: DeleteObject -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: DeleteObject)
+{-# DEPRECATED doVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device. Required to permanently delete a versioned object if versioning is configured with MFA delete enabled.
-doMFA :: Lens' DeleteObject (Maybe Text)
-doMFA = lens _doMFA (\s a -> s {_doMFA = a})
+--
+-- /Note:/ Consider using 'mfa' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doMFA :: Lens.Lens' DeleteObject (Lude.Maybe Lude.Text)
+doMFA = Lens.lens (mfa :: DeleteObject -> Lude.Maybe Lude.Text) (\s a -> s {mfa = a} :: DeleteObject)
+{-# DEPRECATED doMFA "Use generic-lens or generic-optics with 'mfa' instead." #-}
 
--- | Undocumented member.
-doRequestPayer :: Lens' DeleteObject (Maybe RequestPayer)
-doRequestPayer = lens _doRequestPayer (\s a -> s {_doRequestPayer = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doRequestPayer :: Lens.Lens' DeleteObject (Lude.Maybe RequestPayer)
+doRequestPayer = Lens.lens (requestPayer :: DeleteObject -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: DeleteObject)
+{-# DEPRECATED doRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.
-doBypassGovernanceRetention :: Lens' DeleteObject (Maybe Bool)
-doBypassGovernanceRetention = lens _doBypassGovernanceRetention (\s a -> s {_doBypassGovernanceRetention = a})
+--
+-- /Note:/ Consider using 'bypassGovernanceRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doBypassGovernanceRetention :: Lens.Lens' DeleteObject (Lude.Maybe Lude.Bool)
+doBypassGovernanceRetention = Lens.lens (bypassGovernanceRetention :: DeleteObject -> Lude.Maybe Lude.Bool) (\s a -> s {bypassGovernanceRetention = a} :: DeleteObject)
+{-# DEPRECATED doBypassGovernanceRetention "Use generic-lens or generic-optics with 'bypassGovernanceRetention' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-doExpectedBucketOwner :: Lens' DeleteObject (Maybe Text)
-doExpectedBucketOwner = lens _doExpectedBucketOwner (\s a -> s {_doExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doExpectedBucketOwner :: Lens.Lens' DeleteObject (Lude.Maybe Lude.Text)
+doExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteObject -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteObject)
+{-# DEPRECATED doExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
--- | The bucket name of the bucket containing the object.  When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ . When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-doBucket :: Lens' DeleteObject BucketName
-doBucket = lens _doBucket (\s a -> s {_doBucket = a})
+-- | The bucket name of the bucket containing the object.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doBucket :: Lens.Lens' DeleteObject BucketName
+doBucket = Lens.lens (bucket :: DeleteObject -> BucketName) (\s a -> s {bucket = a} :: DeleteObject)
+{-# DEPRECATED doBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Key name of the object to delete.
-doKey :: Lens' DeleteObject ObjectKey
-doKey = lens _doKey (\s a -> s {_doKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doKey :: Lens.Lens' DeleteObject ObjectKey
+doKey = Lens.lens (key :: DeleteObject -> ObjectKey) (\s a -> s {key = a} :: DeleteObject)
+{-# DEPRECATED doKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance AWSRequest DeleteObject where
+instance Lude.AWSRequest DeleteObject where
   type Rs DeleteObject = DeleteObjectResponse
-  request = delete s3
+  request = Req.delete s3Service
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           DeleteObjectResponse'
-            <$> (h .#? "x-amz-request-charged")
-            <*> (h .#? "x-amz-version-id")
-            <*> (h .#? "x-amz-delete-marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "x-amz-request-charged")
+            Lude.<*> (h Lude..#? "x-amz-version-id")
+            Lude.<*> (h Lude..#? "x-amz-delete-marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteObject
-
-instance NFData DeleteObject
-
-instance ToHeaders DeleteObject where
+instance Lude.ToHeaders DeleteObject where
   toHeaders DeleteObject' {..} =
-    mconcat
-      [ "x-amz-mfa" =# _doMFA,
-        "x-amz-request-payer" =# _doRequestPayer,
+    Lude.mconcat
+      [ "x-amz-mfa" Lude.=# mfa,
+        "x-amz-request-payer" Lude.=# requestPayer,
         "x-amz-bypass-governance-retention"
-          =# _doBypassGovernanceRetention,
-        "x-amz-expected-bucket-owner" =# _doExpectedBucketOwner
+          Lude.=# bypassGovernanceRetention,
+        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
       ]
 
-instance ToPath DeleteObject where
+instance Lude.ToPath DeleteObject where
   toPath DeleteObject' {..} =
-    mconcat ["/", toBS _doBucket, "/", toBS _doKey]
+    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
 
-instance ToQuery DeleteObject where
-  toQuery DeleteObject' {..} = mconcat ["versionId" =: _doVersionId]
+instance Lude.ToQuery DeleteObject where
+  toQuery DeleteObject' {..} =
+    Lude.mconcat ["versionId" Lude.=: versionId]
 
--- | /See:/ 'deleteObjectResponse' smart constructor.
+-- | /See:/ 'mkDeleteObjectResponse' smart constructor.
 data DeleteObjectResponse = DeleteObjectResponse'
-  { _dorsRequestCharged ::
-      !(Maybe RequestCharged),
-    _dorsVersionId :: !(Maybe ObjectVersionId),
-    _dorsDeleteMarker :: !(Maybe Bool),
-    _dorsResponseStatus :: !Int
+  { requestCharged ::
+      Lude.Maybe RequestCharged,
+    versionId :: Lude.Maybe ObjectVersionId,
+    deleteMarker :: Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dorsRequestCharged' - Undocumented member.
---
--- * 'dorsVersionId' - Returns the version ID of the delete marker created as a result of the DELETE operation.
---
--- * 'dorsDeleteMarker' - Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
---
--- * 'dorsResponseStatus' - -- | The response status code.
-deleteObjectResponse ::
-  -- | 'dorsResponseStatus'
-  Int ->
+-- * 'deleteMarker' - Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
+-- * 'requestCharged' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'versionId' - Returns the version ID of the delete marker created as a result of the DELETE operation.
+mkDeleteObjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteObjectResponse
-deleteObjectResponse pResponseStatus_ =
+mkDeleteObjectResponse pResponseStatus_ =
   DeleteObjectResponse'
-    { _dorsRequestCharged = Nothing,
-      _dorsVersionId = Nothing,
-      _dorsDeleteMarker = Nothing,
-      _dorsResponseStatus = pResponseStatus_
+    { requestCharged = Lude.Nothing,
+      versionId = Lude.Nothing,
+      deleteMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-dorsRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
-dorsRequestCharged = lens _dorsRequestCharged (\s a -> s {_dorsRequestCharged = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsRequestCharged :: Lens.Lens' DeleteObjectResponse (Lude.Maybe RequestCharged)
+dorsRequestCharged = Lens.lens (requestCharged :: DeleteObjectResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: DeleteObjectResponse)
+{-# DEPRECATED dorsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | Returns the version ID of the delete marker created as a result of the DELETE operation.
-dorsVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
-dorsVersionId = lens _dorsVersionId (\s a -> s {_dorsVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsVersionId :: Lens.Lens' DeleteObjectResponse (Lude.Maybe ObjectVersionId)
+dorsVersionId = Lens.lens (versionId :: DeleteObjectResponse -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: DeleteObjectResponse)
+{-# DEPRECATED dorsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.
-dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
-dorsDeleteMarker = lens _dorsDeleteMarker (\s a -> s {_dorsDeleteMarker = a})
+--
+-- /Note:/ Consider using 'deleteMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsDeleteMarker :: Lens.Lens' DeleteObjectResponse (Lude.Maybe Lude.Bool)
+dorsDeleteMarker = Lens.lens (deleteMarker :: DeleteObjectResponse -> Lude.Maybe Lude.Bool) (\s a -> s {deleteMarker = a} :: DeleteObjectResponse)
+{-# DEPRECATED dorsDeleteMarker "Use generic-lens or generic-optics with 'deleteMarker' instead." #-}
 
--- | -- | The response status code.
-dorsResponseStatus :: Lens' DeleteObjectResponse Int
-dorsResponseStatus = lens _dorsResponseStatus (\s a -> s {_dorsResponseStatus = a})
-
-instance NFData DeleteObjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsResponseStatus :: Lens.Lens' DeleteObjectResponse Lude.Int
+dorsResponseStatus = Lens.lens (responseStatus :: DeleteObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteObjectResponse)
+{-# DEPRECATED dorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

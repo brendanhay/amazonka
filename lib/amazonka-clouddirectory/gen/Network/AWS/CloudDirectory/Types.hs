@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types
-  ( -- * Service Configuration
-    cloudDirectory,
+  ( -- * Service configuration
+    cloudDirectoryService,
 
     -- * Errors
 
@@ -46,84 +44,84 @@ module Network.AWS.CloudDirectory.Types
     UpdateActionType (..),
 
     -- * AttributeKey
-    AttributeKey,
-    attributeKey,
+    AttributeKey (..),
+    mkAttributeKey,
     akSchemaARN,
     akFacetName,
     akName,
 
     -- * AttributeKeyAndValue
-    AttributeKeyAndValue,
-    attributeKeyAndValue,
+    AttributeKeyAndValue (..),
+    mkAttributeKeyAndValue,
     akavKey,
     akavValue,
 
     -- * AttributeNameAndValue
-    AttributeNameAndValue,
-    attributeNameAndValue,
+    AttributeNameAndValue (..),
+    mkAttributeNameAndValue,
     anavAttributeName,
     anavValue,
 
     -- * BatchAddFacetToObject
-    BatchAddFacetToObject,
-    batchAddFacetToObject,
+    BatchAddFacetToObject (..),
+    mkBatchAddFacetToObject,
     baftoSchemaFacet,
     baftoObjectAttributeList,
     baftoObjectReference,
 
     -- * BatchAddFacetToObjectResponse
-    BatchAddFacetToObjectResponse,
-    batchAddFacetToObjectResponse,
+    BatchAddFacetToObjectResponse (..),
+    mkBatchAddFacetToObjectResponse,
 
     -- * BatchAttachObject
-    BatchAttachObject,
-    batchAttachObject,
+    BatchAttachObject (..),
+    mkBatchAttachObject,
     baoParentReference,
     baoChildReference,
     baoLinkName,
 
     -- * BatchAttachObjectResponse
-    BatchAttachObjectResponse,
-    batchAttachObjectResponse,
+    BatchAttachObjectResponse (..),
+    mkBatchAttachObjectResponse,
     baoAttachedObjectIdentifier,
 
     -- * BatchAttachPolicy
-    BatchAttachPolicy,
-    batchAttachPolicy,
+    BatchAttachPolicy (..),
+    mkBatchAttachPolicy,
     bapPolicyReference,
     bapObjectReference,
 
     -- * BatchAttachPolicyResponse
-    BatchAttachPolicyResponse,
-    batchAttachPolicyResponse,
+    BatchAttachPolicyResponse (..),
+    mkBatchAttachPolicyResponse,
 
     -- * BatchAttachToIndex
-    BatchAttachToIndex,
-    batchAttachToIndex,
+    BatchAttachToIndex (..),
+    mkBatchAttachToIndex,
     batiIndexReference,
     batiTargetReference,
 
     -- * BatchAttachToIndexResponse
-    BatchAttachToIndexResponse,
-    batchAttachToIndexResponse,
+    BatchAttachToIndexResponse (..),
+    mkBatchAttachToIndexResponse,
     batiAttachedObjectIdentifier,
 
     -- * BatchAttachTypedLink
-    BatchAttachTypedLink,
-    batchAttachTypedLink,
+    BatchAttachTypedLink (..),
+    mkBatchAttachTypedLink,
     batlSourceObjectReference,
     batlTargetObjectReference,
     batlTypedLinkFacet,
     batlAttributes,
 
     -- * BatchAttachTypedLinkResponse
-    BatchAttachTypedLinkResponse,
-    batchAttachTypedLinkResponse,
+    BatchAttachTypedLinkResponse (..),
+    mkBatchAttachTypedLinkResponse,
     batlTypedLinkSpecifier,
 
     -- * BatchCreateIndex
-    BatchCreateIndex,
-    batchCreateIndex,
+    BatchCreateIndex (..),
+    mkBatchCreateIndex,
     bciParentReference,
     bciLinkName,
     bciBatchReferenceName,
@@ -131,13 +129,13 @@ module Network.AWS.CloudDirectory.Types
     bciIsUnique,
 
     -- * BatchCreateIndexResponse
-    BatchCreateIndexResponse,
-    batchCreateIndexResponse,
+    BatchCreateIndexResponse (..),
+    mkBatchCreateIndexResponse,
     bciObjectIdentifier,
 
     -- * BatchCreateObject
-    BatchCreateObject,
-    batchCreateObject,
+    BatchCreateObject (..),
+    mkBatchCreateObject,
     bcoParentReference,
     bcoLinkName,
     bcoBatchReferenceName,
@@ -145,111 +143,111 @@ module Network.AWS.CloudDirectory.Types
     bcoObjectAttributeList,
 
     -- * BatchCreateObjectResponse
-    BatchCreateObjectResponse,
-    batchCreateObjectResponse,
+    BatchCreateObjectResponse (..),
+    mkBatchCreateObjectResponse,
     bcoObjectIdentifier,
 
     -- * BatchDeleteObject
-    BatchDeleteObject,
-    batchDeleteObject,
+    BatchDeleteObject (..),
+    mkBatchDeleteObject,
     bdoObjectReference,
 
     -- * BatchDeleteObjectResponse
-    BatchDeleteObjectResponse,
-    batchDeleteObjectResponse,
+    BatchDeleteObjectResponse (..),
+    mkBatchDeleteObjectResponse,
 
     -- * BatchDetachFromIndex
-    BatchDetachFromIndex,
-    batchDetachFromIndex,
+    BatchDetachFromIndex (..),
+    mkBatchDetachFromIndex,
     bdfiIndexReference,
     bdfiTargetReference,
 
     -- * BatchDetachFromIndexResponse
-    BatchDetachFromIndexResponse,
-    batchDetachFromIndexResponse,
+    BatchDetachFromIndexResponse (..),
+    mkBatchDetachFromIndexResponse,
     bdfiDetachedObjectIdentifier,
 
     -- * BatchDetachObject
-    BatchDetachObject,
-    batchDetachObject,
+    BatchDetachObject (..),
+    mkBatchDetachObject,
     bdoBatchReferenceName,
     bdoParentReference,
     bdoLinkName,
 
     -- * BatchDetachObjectResponse
-    BatchDetachObjectResponse,
-    batchDetachObjectResponse,
+    BatchDetachObjectResponse (..),
+    mkBatchDetachObjectResponse,
     bdoDetachedObjectIdentifier,
 
     -- * BatchDetachPolicy
-    BatchDetachPolicy,
-    batchDetachPolicy,
+    BatchDetachPolicy (..),
+    mkBatchDetachPolicy,
     bdpPolicyReference,
     bdpObjectReference,
 
     -- * BatchDetachPolicyResponse
-    BatchDetachPolicyResponse,
-    batchDetachPolicyResponse,
+    BatchDetachPolicyResponse (..),
+    mkBatchDetachPolicyResponse,
 
     -- * BatchDetachTypedLink
-    BatchDetachTypedLink,
-    batchDetachTypedLink,
+    BatchDetachTypedLink (..),
+    mkBatchDetachTypedLink,
     bdtlTypedLinkSpecifier,
 
     -- * BatchDetachTypedLinkResponse
-    BatchDetachTypedLinkResponse,
-    batchDetachTypedLinkResponse,
+    BatchDetachTypedLinkResponse (..),
+    mkBatchDetachTypedLinkResponse,
 
     -- * BatchGetLinkAttributes
-    BatchGetLinkAttributes,
-    batchGetLinkAttributes,
+    BatchGetLinkAttributes (..),
+    mkBatchGetLinkAttributes,
     bglaTypedLinkSpecifier,
     bglaAttributeNames,
 
     -- * BatchGetLinkAttributesResponse
-    BatchGetLinkAttributesResponse,
-    batchGetLinkAttributesResponse,
+    BatchGetLinkAttributesResponse (..),
+    mkBatchGetLinkAttributesResponse,
     bglaAttributes,
 
     -- * BatchGetObjectAttributes
-    BatchGetObjectAttributes,
-    batchGetObjectAttributes,
+    BatchGetObjectAttributes (..),
+    mkBatchGetObjectAttributes,
     bgoaObjectReference,
     bgoaSchemaFacet,
     bgoaAttributeNames,
 
     -- * BatchGetObjectAttributesResponse
-    BatchGetObjectAttributesResponse,
-    batchGetObjectAttributesResponse,
+    BatchGetObjectAttributesResponse (..),
+    mkBatchGetObjectAttributesResponse,
     bgoaAttributes,
 
     -- * BatchGetObjectInformation
-    BatchGetObjectInformation,
-    batchGetObjectInformation,
+    BatchGetObjectInformation (..),
+    mkBatchGetObjectInformation,
     bgoiObjectReference,
 
     -- * BatchGetObjectInformationResponse
-    BatchGetObjectInformationResponse,
-    batchGetObjectInformationResponse,
+    BatchGetObjectInformationResponse (..),
+    mkBatchGetObjectInformationResponse,
     bgoiObjectIdentifier,
     bgoiSchemaFacets,
 
     -- * BatchListAttachedIndices
-    BatchListAttachedIndices,
-    batchListAttachedIndices,
+    BatchListAttachedIndices (..),
+    mkBatchListAttachedIndices,
     blaisNextToken,
     blaisMaxResults,
     blaisTargetReference,
 
     -- * BatchListAttachedIndicesResponse
-    BatchListAttachedIndicesResponse,
-    batchListAttachedIndicesResponse,
+    BatchListAttachedIndicesResponse (..),
+    mkBatchListAttachedIndicesResponse,
     blaiIndexAttachments,
     blaiNextToken,
 
     -- * BatchListIncomingTypedLinks
-    BatchListIncomingTypedLinks,
-    batchListIncomingTypedLinks,
+    BatchListIncomingTypedLinks (..),
+    mkBatchListIncomingTypedLinks,
     blitlsFilterAttributeRanges,
     blitlsNextToken,
     blitlsFilterTypedLink,
@@ -257,94 +255,94 @@ module Network.AWS.CloudDirectory.Types
     blitlsObjectReference,
 
     -- * BatchListIncomingTypedLinksResponse
-    BatchListIncomingTypedLinksResponse,
-    batchListIncomingTypedLinksResponse,
+    BatchListIncomingTypedLinksResponse (..),
+    mkBatchListIncomingTypedLinksResponse,
     blitlLinkSpecifiers,
     blitlNextToken,
 
     -- * BatchListIndex
-    BatchListIndex,
-    batchListIndex,
+    BatchListIndex (..),
+    mkBatchListIndex,
     batRangesOnIndexedValues,
     batNextToken,
     batMaxResults,
     batIndexReference,
 
     -- * BatchListIndexResponse
-    BatchListIndexResponse,
-    batchListIndexResponse,
+    BatchListIndexResponse (..),
+    mkBatchListIndexResponse,
     bliIndexAttachments,
     bliNextToken,
 
     -- * BatchListObjectAttributes
-    BatchListObjectAttributes,
-    batchListObjectAttributes,
+    BatchListObjectAttributes (..),
+    mkBatchListObjectAttributes,
     bloaFacetFilter,
     bloaNextToken,
     bloaMaxResults,
     bloaObjectReference,
 
     -- * BatchListObjectAttributesResponse
-    BatchListObjectAttributesResponse,
-    batchListObjectAttributesResponse,
+    BatchListObjectAttributesResponse (..),
+    mkBatchListObjectAttributesResponse,
     bNextToken,
     bAttributes,
 
     -- * BatchListObjectChildren
-    BatchListObjectChildren,
-    batchListObjectChildren,
+    BatchListObjectChildren (..),
+    mkBatchListObjectChildren,
     bloclNextToken,
     bloclMaxResults,
     bloclObjectReference,
 
     -- * BatchListObjectChildrenResponse
-    BatchListObjectChildrenResponse,
-    batchListObjectChildrenResponse,
+    BatchListObjectChildrenResponse (..),
+    mkBatchListObjectChildrenResponse,
     blocChildren,
     blocNextToken,
 
     -- * BatchListObjectParentPaths
-    BatchListObjectParentPaths,
-    batchListObjectParentPaths,
+    BatchListObjectParentPaths (..),
+    mkBatchListObjectParentPaths,
     bloppsNextToken,
     bloppsMaxResults,
     bloppsObjectReference,
 
     -- * BatchListObjectParentPathsResponse
-    BatchListObjectParentPathsResponse,
-    batchListObjectParentPathsResponse,
+    BatchListObjectParentPathsResponse (..),
+    mkBatchListObjectParentPathsResponse,
     bloppPathToObjectIdentifiersList,
     bloppNextToken,
 
     -- * BatchListObjectParents
-    BatchListObjectParents,
-    batchListObjectParents,
+    BatchListObjectParents (..),
+    mkBatchListObjectParents,
     bloplNextToken,
     bloplMaxResults,
     bloplObjectReference,
 
     -- * BatchListObjectParentsResponse
-    BatchListObjectParentsResponse,
-    batchListObjectParentsResponse,
+    BatchListObjectParentsResponse (..),
+    mkBatchListObjectParentsResponse,
     blopNextToken,
     blopParentLinks,
 
     -- * BatchListObjectPolicies
-    BatchListObjectPolicies,
-    batchListObjectPolicies,
+    BatchListObjectPolicies (..),
+    mkBatchListObjectPolicies,
     bbNextToken,
     bbMaxResults,
     bbObjectReference,
 
     -- * BatchListObjectPoliciesResponse
-    BatchListObjectPoliciesResponse,
-    batchListObjectPoliciesResponse,
+    BatchListObjectPoliciesResponse (..),
+    mkBatchListObjectPoliciesResponse,
     blopsNextToken,
     blopsAttachedPolicyIds,
 
     -- * BatchListOutgoingTypedLinks
-    BatchListOutgoingTypedLinks,
-    batchListOutgoingTypedLinks,
+    BatchListOutgoingTypedLinks (..),
+    mkBatchListOutgoingTypedLinks,
     blotlsFilterAttributeRanges,
     blotlsNextToken,
     blotlsFilterTypedLink,
@@ -352,46 +350,46 @@ module Network.AWS.CloudDirectory.Types
     blotlsObjectReference,
 
     -- * BatchListOutgoingTypedLinksResponse
-    BatchListOutgoingTypedLinksResponse,
-    batchListOutgoingTypedLinksResponse,
+    BatchListOutgoingTypedLinksResponse (..),
+    mkBatchListOutgoingTypedLinksResponse,
     blotlTypedLinkSpecifiers,
     blotlNextToken,
 
     -- * BatchListPolicyAttachments
-    BatchListPolicyAttachments,
-    batchListPolicyAttachments,
+    BatchListPolicyAttachments (..),
+    mkBatchListPolicyAttachments,
     blpasNextToken,
     blpasMaxResults,
     blpasPolicyReference,
 
     -- * BatchListPolicyAttachmentsResponse
-    BatchListPolicyAttachmentsResponse,
-    batchListPolicyAttachmentsResponse,
+    BatchListPolicyAttachmentsResponse (..),
+    mkBatchListPolicyAttachmentsResponse,
     blpaObjectIdentifiers,
     blpaNextToken,
 
     -- * BatchLookupPolicy
-    BatchLookupPolicy,
-    batchLookupPolicy,
+    BatchLookupPolicy (..),
+    mkBatchLookupPolicy,
     blplNextToken,
     blplMaxResults,
     blplObjectReference,
 
     -- * BatchLookupPolicyResponse
-    BatchLookupPolicyResponse,
-    batchLookupPolicyResponse,
+    BatchLookupPolicyResponse (..),
+    mkBatchLookupPolicyResponse,
     blpNextToken,
     blpPolicyToPathList,
 
     -- * BatchReadException
-    BatchReadException,
-    batchReadException,
+    BatchReadException (..),
+    mkBatchReadException,
     breType,
     breMessage,
 
     -- * BatchReadOperation
-    BatchReadOperation,
-    batchReadOperation,
+    BatchReadOperation (..),
+    mkBatchReadOperation,
     broListIndex,
     broGetObjectInformation,
     broListAttachedIndices,
@@ -408,14 +406,14 @@ module Network.AWS.CloudDirectory.Types
     broListObjectPolicies,
 
     -- * BatchReadOperationResponse
-    BatchReadOperationResponse,
-    batchReadOperationResponse,
+    BatchReadOperationResponse (..),
+    mkBatchReadOperationResponse,
     broExceptionResponse,
     broSuccessfulResponse,
 
     -- * BatchReadSuccessfulResponse
-    BatchReadSuccessfulResponse,
-    batchReadSuccessfulResponse,
+    BatchReadSuccessfulResponse (..),
+    mkBatchReadSuccessfulResponse,
     brsListIndex,
     brsGetObjectInformation,
     brsListAttachedIndices,
@@ -432,39 +430,39 @@ module Network.AWS.CloudDirectory.Types
     brsListObjectPolicies,
 
     -- * BatchRemoveFacetFromObject
-    BatchRemoveFacetFromObject,
-    batchRemoveFacetFromObject,
+    BatchRemoveFacetFromObject (..),
+    mkBatchRemoveFacetFromObject,
     brffoSchemaFacet,
     brffoObjectReference,
 
     -- * BatchRemoveFacetFromObjectResponse
-    BatchRemoveFacetFromObjectResponse,
-    batchRemoveFacetFromObjectResponse,
+    BatchRemoveFacetFromObjectResponse (..),
+    mkBatchRemoveFacetFromObjectResponse,
 
     -- * BatchUpdateLinkAttributes
-    BatchUpdateLinkAttributes,
-    batchUpdateLinkAttributes,
+    BatchUpdateLinkAttributes (..),
+    mkBatchUpdateLinkAttributes,
     bulaTypedLinkSpecifier,
     bulaAttributeUpdates,
 
     -- * BatchUpdateLinkAttributesResponse
-    BatchUpdateLinkAttributesResponse,
-    batchUpdateLinkAttributesResponse,
+    BatchUpdateLinkAttributesResponse (..),
+    mkBatchUpdateLinkAttributesResponse,
 
     -- * BatchUpdateObjectAttributes
-    BatchUpdateObjectAttributes,
-    batchUpdateObjectAttributes,
+    BatchUpdateObjectAttributes (..),
+    mkBatchUpdateObjectAttributes,
     buoaObjectReference,
     buoaAttributeUpdates,
 
     -- * BatchUpdateObjectAttributesResponse
-    BatchUpdateObjectAttributesResponse,
-    batchUpdateObjectAttributesResponse,
+    BatchUpdateObjectAttributesResponse (..),
+    mkBatchUpdateObjectAttributesResponse,
     buoaObjectIdentifier,
 
     -- * BatchWriteOperation
-    BatchWriteOperation,
-    batchWriteOperation,
+    BatchWriteOperation (..),
+    mkBatchWriteOperation,
     bDeleteObject,
     bDetachFromIndex,
     bRemoveFacetFromObject,
@@ -482,8 +480,8 @@ module Network.AWS.CloudDirectory.Types
     bAttachToIndex,
 
     -- * BatchWriteOperationResponse
-    BatchWriteOperationResponse,
-    batchWriteOperationResponse,
+    BatchWriteOperationResponse (..),
+    mkBatchWriteOperationResponse,
     bwoDeleteObject,
     bwoDetachFromIndex,
     bwoRemoveFacetFromObject,
@@ -501,135 +499,135 @@ module Network.AWS.CloudDirectory.Types
     bwoAttachToIndex,
 
     -- * Directory
-    Directory,
-    directory,
+    Directory (..),
+    mkDirectory,
     dDirectoryARN,
     dState,
     dName,
     dCreationDateTime,
 
     -- * Facet
-    Facet,
-    facet,
+    Facet (..),
+    mkFacet,
     fFacetStyle,
     fObjectType,
     fName,
 
     -- * FacetAttribute
-    FacetAttribute,
-    facetAttribute,
+    FacetAttribute (..),
+    mkFacetAttribute,
     faAttributeReference,
     faAttributeDefinition,
     faRequiredBehavior,
     faName,
 
     -- * FacetAttributeDefinition
-    FacetAttributeDefinition,
-    facetAttributeDefinition,
+    FacetAttributeDefinition (..),
+    mkFacetAttributeDefinition,
     fadRules,
     fadDefaultValue,
     fadIsImmutable,
     fadType,
 
     -- * FacetAttributeReference
-    FacetAttributeReference,
-    facetAttributeReference,
+    FacetAttributeReference (..),
+    mkFacetAttributeReference,
     farTargetFacetName,
     farTargetAttributeName,
 
     -- * FacetAttributeUpdate
-    FacetAttributeUpdate,
-    facetAttributeUpdate,
+    FacetAttributeUpdate (..),
+    mkFacetAttributeUpdate,
     fauAttribute,
     fauAction,
 
     -- * IndexAttachment
-    IndexAttachment,
-    indexAttachment,
+    IndexAttachment (..),
+    mkIndexAttachment,
     iaIndexedAttributes,
     iaObjectIdentifier,
 
     -- * LinkAttributeAction
-    LinkAttributeAction,
-    linkAttributeAction,
+    LinkAttributeAction (..),
+    mkLinkAttributeAction,
     laaAttributeActionType,
     laaAttributeUpdateValue,
 
     -- * LinkAttributeUpdate
-    LinkAttributeUpdate,
-    linkAttributeUpdate,
+    LinkAttributeUpdate (..),
+    mkLinkAttributeUpdate,
     lauAttributeAction,
     lauAttributeKey,
 
     -- * ObjectAttributeAction
-    ObjectAttributeAction,
-    objectAttributeAction,
+    ObjectAttributeAction (..),
+    mkObjectAttributeAction,
     oaaObjectAttributeActionType,
     oaaObjectAttributeUpdateValue,
 
     -- * ObjectAttributeRange
-    ObjectAttributeRange,
-    objectAttributeRange,
+    ObjectAttributeRange (..),
+    mkObjectAttributeRange,
     oarRange,
     oarAttributeKey,
 
     -- * ObjectAttributeUpdate
-    ObjectAttributeUpdate,
-    objectAttributeUpdate,
+    ObjectAttributeUpdate (..),
+    mkObjectAttributeUpdate,
     oauObjectAttributeAction,
     oauObjectAttributeKey,
 
     -- * ObjectIdentifierAndLinkNameTuple
-    ObjectIdentifierAndLinkNameTuple,
-    objectIdentifierAndLinkNameTuple,
+    ObjectIdentifierAndLinkNameTuple (..),
+    mkObjectIdentifierAndLinkNameTuple,
     oialntObjectIdentifier,
     oialntLinkName,
 
     -- * ObjectReference
-    ObjectReference,
-    objectReference,
+    ObjectReference (..),
+    mkObjectReference,
     orSelector,
 
     -- * PathToObjectIdentifiers
-    PathToObjectIdentifiers,
-    pathToObjectIdentifiers,
+    PathToObjectIdentifiers (..),
+    mkPathToObjectIdentifiers,
     ptoiObjectIdentifiers,
     ptoiPath,
 
     -- * PolicyAttachment
-    PolicyAttachment,
-    policyAttachment,
+    PolicyAttachment (..),
+    mkPolicyAttachment,
     paPolicyId,
     paPolicyType,
     paObjectIdentifier,
 
     -- * PolicyToPath
-    PolicyToPath,
-    policyToPath,
+    PolicyToPath (..),
+    mkPolicyToPath,
     ptpPath,
     ptpPolicies,
 
     -- * Rule
-    Rule,
-    rule,
+    Rule (..),
+    mkRule,
     rParameters,
     rType,
 
     -- * SchemaFacet
-    SchemaFacet,
-    schemaFacet,
+    SchemaFacet (..),
+    mkSchemaFacet,
     sfFacetName,
     sfSchemaARN,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * TypedAttributeValue
-    TypedAttributeValue,
-    typedAttributeValue,
+    TypedAttributeValue (..),
+    mkTypedAttributeValue,
     tavBinaryValue,
     tavDatetimeValue,
     tavNumberValue,
@@ -637,16 +635,16 @@ module Network.AWS.CloudDirectory.Types
     tavBooleanValue,
 
     -- * TypedAttributeValueRange
-    TypedAttributeValueRange,
-    typedAttributeValueRange,
+    TypedAttributeValueRange (..),
+    mkTypedAttributeValueRange,
     tavrEndValue,
     tavrStartValue,
     tavrStartMode,
     tavrEndMode,
 
     -- * TypedLinkAttributeDefinition
-    TypedLinkAttributeDefinition,
-    typedLinkAttributeDefinition,
+    TypedLinkAttributeDefinition (..),
+    mkTypedLinkAttributeDefinition,
     tladRules,
     tladDefaultValue,
     tladIsImmutable,
@@ -655,33 +653,33 @@ module Network.AWS.CloudDirectory.Types
     tladRequiredBehavior,
 
     -- * TypedLinkAttributeRange
-    TypedLinkAttributeRange,
-    typedLinkAttributeRange,
+    TypedLinkAttributeRange (..),
+    mkTypedLinkAttributeRange,
     tlarAttributeName,
     tlarRange,
 
     -- * TypedLinkFacet
-    TypedLinkFacet,
-    typedLinkFacet,
+    TypedLinkFacet (..),
+    mkTypedLinkFacet,
     tlfName,
     tlfAttributes,
     tlfIdentityAttributeOrder,
 
     -- * TypedLinkFacetAttributeUpdate
-    TypedLinkFacetAttributeUpdate,
-    typedLinkFacetAttributeUpdate,
+    TypedLinkFacetAttributeUpdate (..),
+    mkTypedLinkFacetAttributeUpdate,
     tlfauAttribute,
     tlfauAction,
 
     -- * TypedLinkSchemaAndFacetName
-    TypedLinkSchemaAndFacetName,
-    typedLinkSchemaAndFacetName,
+    TypedLinkSchemaAndFacetName (..),
+    mkTypedLinkSchemaAndFacetName,
     tlsafnSchemaARN,
     tlsafnTypedLinkName,
 
     -- * TypedLinkSpecifier
-    TypedLinkSpecifier,
-    typedLinkSpecifier,
+    TypedLinkSpecifier (..),
+    mkTypedLinkSpecifier,
     tlsTypedLinkFacet,
     tlsSourceObjectReference,
     tlsTargetObjectReference,
@@ -794,48 +792,60 @@ import Network.AWS.CloudDirectory.Types.TypedLinkFacetAttributeUpdate
 import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
 import Network.AWS.CloudDirectory.Types.UpdateActionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-01-11@ of the Amazon CloudDirectory SDK configuration.
-cloudDirectory :: Service
-cloudDirectory =
-  Service
-    { _svcAbbrev = "CloudDirectory",
-      _svcSigner = v4,
-      _svcPrefix = "clouddirectory",
-      _svcVersion = "2017-01-11",
-      _svcEndpoint = defaultEndpoint cloudDirectory,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "CloudDirectory",
-      _svcRetry = retry
+cloudDirectoryService :: Lude.Service
+cloudDirectoryService =
+  Lude.Service
+    { Lude._svcAbbrev = "CloudDirectory",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "clouddirectory",
+      Lude._svcVersion = "2017-01-11",
+      Lude._svcEndpoint = Lude.defaultEndpoint cloudDirectoryService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "CloudDirectory",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

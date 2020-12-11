@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType where
+module Network.AWS.MarketplaceAnalytics.Types.SupportDataSetType
+  ( SupportDataSetType
+      ( SupportDataSetType',
+        CustomerSupportContactsData,
+        TestCustomerSupportContactsData
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SupportDataSetType
-  = CustomerSupportContactsData
-  | TestCustomerSupportContactsData
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SupportDataSetType = SupportDataSetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SupportDataSetType where
-  parser =
-    takeLowerText >>= \case
-      "customer_support_contacts_data" -> pure CustomerSupportContactsData
-      "test_customer_support_contacts_data" -> pure TestCustomerSupportContactsData
-      e ->
-        fromTextError $
-          "Failure parsing SupportDataSetType from value: '" <> e
-            <> "'. Accepted values: customer_support_contacts_data, test_customer_support_contacts_data"
+pattern CustomerSupportContactsData :: SupportDataSetType
+pattern CustomerSupportContactsData = SupportDataSetType' "customer_support_contacts_data"
 
-instance ToText SupportDataSetType where
-  toText = \case
-    CustomerSupportContactsData -> "customer_support_contacts_data"
-    TestCustomerSupportContactsData -> "test_customer_support_contacts_data"
+pattern TestCustomerSupportContactsData :: SupportDataSetType
+pattern TestCustomerSupportContactsData = SupportDataSetType' "test_customer_support_contacts_data"
 
-instance Hashable SupportDataSetType
-
-instance NFData SupportDataSetType
-
-instance ToByteString SupportDataSetType
-
-instance ToQuery SupportDataSetType
-
-instance ToHeader SupportDataSetType
-
-instance ToJSON SupportDataSetType where
-  toJSON = toJSONText
+{-# COMPLETE
+  CustomerSupportContactsData,
+  TestCustomerSupportContactsData,
+  SupportDataSetType'
+  #-}

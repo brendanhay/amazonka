@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,150 @@
 --
 -- Modifies an account setting for all IAM users on an account for whom no individual account setting has been specified. Account settings are set on a per-Region basis.
 module Network.AWS.ECS.PutAccountSettingDefault
-  ( -- * Creating a Request
-    putAccountSettingDefault,
-    PutAccountSettingDefault,
+  ( -- * Creating a request
+    PutAccountSettingDefault (..),
+    mkPutAccountSettingDefault,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pasdName,
     pasdValue,
 
-    -- * Destructuring the Response
-    putAccountSettingDefaultResponse,
-    PutAccountSettingDefaultResponse,
+    -- * Destructuring the response
+    PutAccountSettingDefaultResponse (..),
+    mkPutAccountSettingDefaultResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pasdrsSetting,
     pasdrsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putAccountSettingDefault' smart constructor.
+-- | /See:/ 'mkPutAccountSettingDefault' smart constructor.
 data PutAccountSettingDefault = PutAccountSettingDefault'
-  { _pasdName ::
-      !SettingName,
-    _pasdValue :: !Text
+  { name ::
+      SettingName,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccountSettingDefault' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pasdName' - The resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
---
--- * 'pasdValue' - The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
-putAccountSettingDefault ::
-  -- | 'pasdName'
+-- * 'name' - The resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
+-- * 'value' - The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
+mkPutAccountSettingDefault ::
+  -- | 'name'
   SettingName ->
-  -- | 'pasdValue'
-  Text ->
+  -- | 'value'
+  Lude.Text ->
   PutAccountSettingDefault
-putAccountSettingDefault pName_ pValue_ =
-  PutAccountSettingDefault'
-    { _pasdName = pName_,
-      _pasdValue = pValue_
-    }
+mkPutAccountSettingDefault pName_ pValue_ =
+  PutAccountSettingDefault' {name = pName_, value = pValue_}
 
 -- | The resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
-pasdName :: Lens' PutAccountSettingDefault SettingName
-pasdName = lens _pasdName (\s a -> s {_pasdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasdName :: Lens.Lens' PutAccountSettingDefault SettingName
+pasdName = Lens.lens (name :: PutAccountSettingDefault -> SettingName) (\s a -> s {name = a} :: PutAccountSettingDefault)
+{-# DEPRECATED pasdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
-pasdValue :: Lens' PutAccountSettingDefault Text
-pasdValue = lens _pasdValue (\s a -> s {_pasdValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasdValue :: Lens.Lens' PutAccountSettingDefault Lude.Text
+pasdValue = Lens.lens (value :: PutAccountSettingDefault -> Lude.Text) (\s a -> s {value = a} :: PutAccountSettingDefault)
+{-# DEPRECATED pasdValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance AWSRequest PutAccountSettingDefault where
+instance Lude.AWSRequest PutAccountSettingDefault where
   type Rs PutAccountSettingDefault = PutAccountSettingDefaultResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutAccountSettingDefaultResponse'
-            <$> (x .?> "setting") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "setting") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutAccountSettingDefault
-
-instance NFData PutAccountSettingDefault
-
-instance ToHeaders PutAccountSettingDefault where
+instance Lude.ToHeaders PutAccountSettingDefault where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutAccountSettingDefault where
+instance Lude.ToJSON PutAccountSettingDefault where
   toJSON PutAccountSettingDefault' {..} =
-    object
-      ( catMaybes
-          [Just ("name" .= _pasdName), Just ("value" .= _pasdValue)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just ("value" Lude..= value)
+          ]
       )
 
-instance ToPath PutAccountSettingDefault where
-  toPath = const "/"
+instance Lude.ToPath PutAccountSettingDefault where
+  toPath = Lude.const "/"
 
-instance ToQuery PutAccountSettingDefault where
-  toQuery = const mempty
+instance Lude.ToQuery PutAccountSettingDefault where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putAccountSettingDefaultResponse' smart constructor.
+-- | /See:/ 'mkPutAccountSettingDefaultResponse' smart constructor.
 data PutAccountSettingDefaultResponse = PutAccountSettingDefaultResponse'
-  { _pasdrsSetting ::
-      !(Maybe Setting),
-    _pasdrsResponseStatus ::
-      !Int
+  { setting ::
+      Lude.Maybe Setting,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccountSettingDefaultResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pasdrsSetting' - Undocumented member.
---
--- * 'pasdrsResponseStatus' - -- | The response status code.
-putAccountSettingDefaultResponse ::
-  -- | 'pasdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'setting' - Undocumented field.
+mkPutAccountSettingDefaultResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutAccountSettingDefaultResponse
-putAccountSettingDefaultResponse pResponseStatus_ =
+mkPutAccountSettingDefaultResponse pResponseStatus_ =
   PutAccountSettingDefaultResponse'
-    { _pasdrsSetting = Nothing,
-      _pasdrsResponseStatus = pResponseStatus_
+    { setting = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-pasdrsSetting :: Lens' PutAccountSettingDefaultResponse (Maybe Setting)
-pasdrsSetting = lens _pasdrsSetting (\s a -> s {_pasdrsSetting = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'setting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasdrsSetting :: Lens.Lens' PutAccountSettingDefaultResponse (Lude.Maybe Setting)
+pasdrsSetting = Lens.lens (setting :: PutAccountSettingDefaultResponse -> Lude.Maybe Setting) (\s a -> s {setting = a} :: PutAccountSettingDefaultResponse)
+{-# DEPRECATED pasdrsSetting "Use generic-lens or generic-optics with 'setting' instead." #-}
 
--- | -- | The response status code.
-pasdrsResponseStatus :: Lens' PutAccountSettingDefaultResponse Int
-pasdrsResponseStatus = lens _pasdrsResponseStatus (\s a -> s {_pasdrsResponseStatus = a})
-
-instance NFData PutAccountSettingDefaultResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasdrsResponseStatus :: Lens.Lens' PutAccountSettingDefaultResponse Lude.Int
+pasdrsResponseStatus = Lens.lens (responseStatus :: PutAccountSettingDefaultResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAccountSettingDefaultResponse)
+{-# DEPRECATED pasdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

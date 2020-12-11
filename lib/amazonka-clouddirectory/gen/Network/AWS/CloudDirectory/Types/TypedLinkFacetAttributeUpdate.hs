@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.TypedLinkFacetAttributeUpdate where
+module Network.AWS.CloudDirectory.Types.TypedLinkFacetAttributeUpdate
+  ( TypedLinkFacetAttributeUpdate (..),
+
+    -- * Smart constructor
+    mkTypedLinkFacetAttributeUpdate,
+
+    -- * Lenses
+    tlfauAttribute,
+    tlfauAction,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
 import Network.AWS.CloudDirectory.Types.UpdateActionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A typed link facet attribute update.
 --
---
---
--- /See:/ 'typedLinkFacetAttributeUpdate' smart constructor.
+-- /See:/ 'mkTypedLinkFacetAttributeUpdate' smart constructor.
 data TypedLinkFacetAttributeUpdate = TypedLinkFacetAttributeUpdate'
-  { _tlfauAttribute ::
-      !TypedLinkAttributeDefinition,
-    _tlfauAction ::
-      !UpdateActionType
+  { attribute ::
+      TypedLinkAttributeDefinition,
+    action :: UpdateActionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypedLinkFacetAttributeUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tlfauAttribute' - The attribute to update.
---
--- * 'tlfauAction' - The action to perform when updating the attribute.
-typedLinkFacetAttributeUpdate ::
-  -- | 'tlfauAttribute'
+-- * 'action' - The action to perform when updating the attribute.
+-- * 'attribute' - The attribute to update.
+mkTypedLinkFacetAttributeUpdate ::
+  -- | 'attribute'
   TypedLinkAttributeDefinition ->
-  -- | 'tlfauAction'
+  -- | 'action'
   UpdateActionType ->
   TypedLinkFacetAttributeUpdate
-typedLinkFacetAttributeUpdate pAttribute_ pAction_ =
+mkTypedLinkFacetAttributeUpdate pAttribute_ pAction_ =
   TypedLinkFacetAttributeUpdate'
-    { _tlfauAttribute = pAttribute_,
-      _tlfauAction = pAction_
+    { attribute = pAttribute_,
+      action = pAction_
     }
 
 -- | The attribute to update.
-tlfauAttribute :: Lens' TypedLinkFacetAttributeUpdate TypedLinkAttributeDefinition
-tlfauAttribute = lens _tlfauAttribute (\s a -> s {_tlfauAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlfauAttribute :: Lens.Lens' TypedLinkFacetAttributeUpdate TypedLinkAttributeDefinition
+tlfauAttribute = Lens.lens (attribute :: TypedLinkFacetAttributeUpdate -> TypedLinkAttributeDefinition) (\s a -> s {attribute = a} :: TypedLinkFacetAttributeUpdate)
+{-# DEPRECATED tlfauAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The action to perform when updating the attribute.
-tlfauAction :: Lens' TypedLinkFacetAttributeUpdate UpdateActionType
-tlfauAction = lens _tlfauAction (\s a -> s {_tlfauAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlfauAction :: Lens.Lens' TypedLinkFacetAttributeUpdate UpdateActionType
+tlfauAction = Lens.lens (action :: TypedLinkFacetAttributeUpdate -> UpdateActionType) (\s a -> s {action = a} :: TypedLinkFacetAttributeUpdate)
+{-# DEPRECATED tlfauAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance Hashable TypedLinkFacetAttributeUpdate
-
-instance NFData TypedLinkFacetAttributeUpdate
-
-instance ToJSON TypedLinkFacetAttributeUpdate where
+instance Lude.ToJSON TypedLinkFacetAttributeUpdate where
   toJSON TypedLinkFacetAttributeUpdate' {..} =
-    object
-      ( catMaybes
-          [ Just ("Attribute" .= _tlfauAttribute),
-            Just ("Action" .= _tlfauAction)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Attribute" Lude..= attribute),
+            Lude.Just ("Action" Lude..= action)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,143 @@
 --
 -- Allows the administrator to reset the password for a user.
 module Network.AWS.WorkMail.ResetPassword
-  ( -- * Creating a Request
-    resetPassword,
-    ResetPassword,
+  ( -- * Creating a request
+    ResetPassword (..),
+    mkResetPassword,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rpOrganizationId,
     rpUserId,
     rpPassword,
 
-    -- * Destructuring the Response
-    resetPasswordResponse,
-    ResetPasswordResponse,
+    -- * Destructuring the response
+    ResetPasswordResponse (..),
+    mkResetPasswordResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'resetPassword' smart constructor.
+-- | /See:/ 'mkResetPassword' smart constructor.
 data ResetPassword = ResetPassword'
-  { _rpOrganizationId :: !Text,
-    _rpUserId :: !Text,
-    _rpPassword :: !(Sensitive Text)
+  { organizationId :: Lude.Text,
+    userId :: Lude.Text,
+    password :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetPassword' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rpOrganizationId' - The identifier of the organization that contains the user for which the password is reset.
---
--- * 'rpUserId' - The identifier of the user for whom the password is reset.
---
--- * 'rpPassword' - The new password for the user.
-resetPassword ::
-  -- | 'rpOrganizationId'
-  Text ->
-  -- | 'rpUserId'
-  Text ->
-  -- | 'rpPassword'
-  Text ->
+-- * 'organizationId' - The identifier of the organization that contains the user for which the password is reset.
+-- * 'password' - The new password for the user.
+-- * 'userId' - The identifier of the user for whom the password is reset.
+mkResetPassword ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'userId'
+  Lude.Text ->
+  -- | 'password'
+  Lude.Sensitive Lude.Text ->
   ResetPassword
-resetPassword pOrganizationId_ pUserId_ pPassword_ =
+mkResetPassword pOrganizationId_ pUserId_ pPassword_ =
   ResetPassword'
-    { _rpOrganizationId = pOrganizationId_,
-      _rpUserId = pUserId_,
-      _rpPassword = _Sensitive # pPassword_
+    { organizationId = pOrganizationId_,
+      userId = pUserId_,
+      password = pPassword_
     }
 
 -- | The identifier of the organization that contains the user for which the password is reset.
-rpOrganizationId :: Lens' ResetPassword Text
-rpOrganizationId = lens _rpOrganizationId (\s a -> s {_rpOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpOrganizationId :: Lens.Lens' ResetPassword Lude.Text
+rpOrganizationId = Lens.lens (organizationId :: ResetPassword -> Lude.Text) (\s a -> s {organizationId = a} :: ResetPassword)
+{-# DEPRECATED rpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier of the user for whom the password is reset.
-rpUserId :: Lens' ResetPassword Text
-rpUserId = lens _rpUserId (\s a -> s {_rpUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpUserId :: Lens.Lens' ResetPassword Lude.Text
+rpUserId = Lens.lens (userId :: ResetPassword -> Lude.Text) (\s a -> s {userId = a} :: ResetPassword)
+{-# DEPRECATED rpUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 -- | The new password for the user.
-rpPassword :: Lens' ResetPassword Text
-rpPassword = lens _rpPassword (\s a -> s {_rpPassword = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpPassword :: Lens.Lens' ResetPassword (Lude.Sensitive Lude.Text)
+rpPassword = Lens.lens (password :: ResetPassword -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: ResetPassword)
+{-# DEPRECATED rpPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance AWSRequest ResetPassword where
+instance Lude.AWSRequest ResetPassword where
   type Rs ResetPassword = ResetPasswordResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
-      (\s h x -> ResetPasswordResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ResetPasswordResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ResetPassword
-
-instance NFData ResetPassword
-
-instance ToHeaders ResetPassword where
+instance Lude.ToHeaders ResetPassword where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("WorkMailService.ResetPassword" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("WorkMailService.ResetPassword" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ResetPassword where
+instance Lude.ToJSON ResetPassword where
   toJSON ResetPassword' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _rpOrganizationId),
-            Just ("UserId" .= _rpUserId),
-            Just ("Password" .= _rpPassword)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("UserId" Lude..= userId),
+            Lude.Just ("Password" Lude..= password)
           ]
       )
 
-instance ToPath ResetPassword where
-  toPath = const "/"
+instance Lude.ToPath ResetPassword where
+  toPath = Lude.const "/"
 
-instance ToQuery ResetPassword where
-  toQuery = const mempty
+instance Lude.ToQuery ResetPassword where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'resetPasswordResponse' smart constructor.
+-- | /See:/ 'mkResetPasswordResponse' smart constructor.
 newtype ResetPasswordResponse = ResetPasswordResponse'
-  { _rprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetPasswordResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rprsResponseStatus' - -- | The response status code.
-resetPasswordResponse ::
-  -- | 'rprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkResetPasswordResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResetPasswordResponse
-resetPasswordResponse pResponseStatus_ =
-  ResetPasswordResponse' {_rprsResponseStatus = pResponseStatus_}
+mkResetPasswordResponse pResponseStatus_ =
+  ResetPasswordResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-rprsResponseStatus :: Lens' ResetPasswordResponse Int
-rprsResponseStatus = lens _rprsResponseStatus (\s a -> s {_rprsResponseStatus = a})
-
-instance NFData ResetPasswordResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rprsResponseStatus :: Lens.Lens' ResetPasswordResponse Lude.Int
+rprsResponseStatus = Lens.lens (responseStatus :: ResetPasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetPasswordResponse)
+{-# DEPRECATED rprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

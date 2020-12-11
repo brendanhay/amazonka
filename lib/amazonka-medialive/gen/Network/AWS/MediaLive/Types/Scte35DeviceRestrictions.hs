@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Scte35DeviceRestrictions where
+module Network.AWS.MediaLive.Types.Scte35DeviceRestrictions
+  ( Scte35DeviceRestrictions
+      ( Scte35DeviceRestrictions',
+        SDRNone,
+        SDRRestrictGROUP0,
+        SDRRestrictGROUP1,
+        SDRRestrictGROUP2
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Corresponds to the device_restrictions parameter in a segmentation_descriptor. If you include one of the "restriction" flags then you must include all four of them.
-data Scte35DeviceRestrictions
-  = SDRNone
-  | SDRRestrictGROUP0
-  | SDRRestrictGROUP1
-  | SDRRestrictGROUP2
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Scte35DeviceRestrictions = Scte35DeviceRestrictions' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Scte35DeviceRestrictions where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure SDRNone
-      "restrict_group0" -> pure SDRRestrictGROUP0
-      "restrict_group1" -> pure SDRRestrictGROUP1
-      "restrict_group2" -> pure SDRRestrictGROUP2
-      e ->
-        fromTextError $
-          "Failure parsing Scte35DeviceRestrictions from value: '" <> e
-            <> "'. Accepted values: none, restrict_group0, restrict_group1, restrict_group2"
+pattern SDRNone :: Scte35DeviceRestrictions
+pattern SDRNone = Scte35DeviceRestrictions' "NONE"
 
-instance ToText Scte35DeviceRestrictions where
-  toText = \case
-    SDRNone -> "NONE"
-    SDRRestrictGROUP0 -> "RESTRICT_GROUP0"
-    SDRRestrictGROUP1 -> "RESTRICT_GROUP1"
-    SDRRestrictGROUP2 -> "RESTRICT_GROUP2"
+pattern SDRRestrictGROUP0 :: Scte35DeviceRestrictions
+pattern SDRRestrictGROUP0 = Scte35DeviceRestrictions' "RESTRICT_GROUP0"
 
-instance Hashable Scte35DeviceRestrictions
+pattern SDRRestrictGROUP1 :: Scte35DeviceRestrictions
+pattern SDRRestrictGROUP1 = Scte35DeviceRestrictions' "RESTRICT_GROUP1"
 
-instance NFData Scte35DeviceRestrictions
+pattern SDRRestrictGROUP2 :: Scte35DeviceRestrictions
+pattern SDRRestrictGROUP2 = Scte35DeviceRestrictions' "RESTRICT_GROUP2"
 
-instance ToByteString Scte35DeviceRestrictions
-
-instance ToQuery Scte35DeviceRestrictions
-
-instance ToHeader Scte35DeviceRestrictions
-
-instance ToJSON Scte35DeviceRestrictions where
-  toJSON = toJSONText
-
-instance FromJSON Scte35DeviceRestrictions where
-  parseJSON = parseJSONText "Scte35DeviceRestrictions"
+{-# COMPLETE
+  SDRNone,
+  SDRRestrictGROUP0,
+  SDRRestrictGROUP1,
+  SDRRestrictGROUP2,
+  Scte35DeviceRestrictions'
+  #-}

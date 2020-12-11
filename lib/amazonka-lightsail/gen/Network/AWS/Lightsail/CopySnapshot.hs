@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an automatic snapshot of an instance or disk as a manual snapshot. This operation can also be used to copy a manual or automatic snapshot of an instance or a disk from one AWS Region to another in Amazon Lightsail.
 --
---
 -- When copying a /manual snapshot/ , be sure to define the @source region@ , @source snapshot name@ , and @target snapshot name@ parameters.
---
 -- When copying an /automatic snapshot/ , be sure to define the @source region@ , @source resource name@ , @target snapshot name@ , and either the @restore date@ or the @use latest restorable auto snapshot@ parameters.
 module Network.AWS.Lightsail.CopySnapshot
-  ( -- * Creating a Request
-    copySnapshot,
-    CopySnapshot,
+  ( -- * Creating a request
+    CopySnapshot (..),
+    mkCopySnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csUseLatestRestorableAutoSnapshot,
     csRestoreDate,
     csSourceResourceName,
@@ -36,164 +29,252 @@ module Network.AWS.Lightsail.CopySnapshot
     csTargetSnapshotName,
     csSourceRegion,
 
-    -- * Destructuring the Response
-    copySnapshotResponse,
-    CopySnapshotResponse,
+    -- * Destructuring the response
+    CopySnapshotResponse (..),
+    mkCopySnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csrsOperations,
     csrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'copySnapshot' smart constructor.
+-- | /See:/ 'mkCopySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-  { _csUseLatestRestorableAutoSnapshot ::
-      !(Maybe Bool),
-    _csRestoreDate :: !(Maybe Text),
-    _csSourceResourceName :: !(Maybe Text),
-    _csSourceSnapshotName :: !(Maybe Text),
-    _csTargetSnapshotName :: !Text,
-    _csSourceRegion :: !RegionName
+  { useLatestRestorableAutoSnapshot ::
+      Lude.Maybe Lude.Bool,
+    restoreDate :: Lude.Maybe Lude.Text,
+    sourceResourceName :: Lude.Maybe Lude.Text,
+    sourceSnapshotName :: Lude.Maybe Lude.Text,
+    targetSnapshotName :: Lude.Text,
+    sourceRegion :: RegionName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopySnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'restoreDate' - The date of the source automatic snapshot to copy. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots.
 --
--- * 'csUseLatestRestorableAutoSnapshot' - A Boolean value to indicate whether to use the latest available automatic snapshot of the specified source instance or disk. Constraints:     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
+-- Constraints:
 --
--- * 'csRestoreDate' - The date of the source automatic snapshot to copy. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots. Constraints:     * Must be specified in @YYYY-MM-DD@ format.     * This parameter cannot be defined together with the @use latest restorable auto snapshot@ parameter. The @restore date@ and @use latest restorable auto snapshot@ parameters are mutually exclusive.     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
+--     * Must be specified in @YYYY-MM-DD@ format.
 --
--- * 'csSourceResourceName' - The name of the source instance or disk from which the source automatic snapshot was created. Constraint:     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
 --
--- * 'csSourceSnapshotName' - The name of the source manual snapshot to copy. Constraint:     * Define this parameter only when copying a manual snapshot as another manual snapshot.
+--     * This parameter cannot be defined together with the @use latest restorable auto snapshot@ parameter. The @restore date@ and @use latest restorable auto snapshot@ parameters are mutually exclusive.
 --
--- * 'csTargetSnapshotName' - The name of the new manual snapshot to be created as a copy.
 --
--- * 'csSourceRegion' - The AWS Region where the source manual or automatic snapshot is located.
-copySnapshot ::
-  -- | 'csTargetSnapshotName'
-  Text ->
-  -- | 'csSourceRegion'
+--     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+-- * 'sourceRegion' - The AWS Region where the source manual or automatic snapshot is located.
+-- * 'sourceResourceName' - The name of the source instance or disk from which the source automatic snapshot was created.
+--
+-- Constraint:
+--
+--     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+-- * 'sourceSnapshotName' - The name of the source manual snapshot to copy.
+--
+-- Constraint:
+--
+--     * Define this parameter only when copying a manual snapshot as another manual snapshot.
+--
+--
+-- * 'targetSnapshotName' - The name of the new manual snapshot to be created as a copy.
+-- * 'useLatestRestorableAutoSnapshot' - A Boolean value to indicate whether to use the latest available automatic snapshot of the specified source instance or disk.
+--
+-- Constraints:
+--
+--     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
+mkCopySnapshot ::
+  -- | 'targetSnapshotName'
+  Lude.Text ->
+  -- | 'sourceRegion'
   RegionName ->
   CopySnapshot
-copySnapshot pTargetSnapshotName_ pSourceRegion_ =
+mkCopySnapshot pTargetSnapshotName_ pSourceRegion_ =
   CopySnapshot'
-    { _csUseLatestRestorableAutoSnapshot = Nothing,
-      _csRestoreDate = Nothing,
-      _csSourceResourceName = Nothing,
-      _csSourceSnapshotName = Nothing,
-      _csTargetSnapshotName = pTargetSnapshotName_,
-      _csSourceRegion = pSourceRegion_
+    { useLatestRestorableAutoSnapshot = Lude.Nothing,
+      restoreDate = Lude.Nothing,
+      sourceResourceName = Lude.Nothing,
+      sourceSnapshotName = Lude.Nothing,
+      targetSnapshotName = pTargetSnapshotName_,
+      sourceRegion = pSourceRegion_
     }
 
--- | A Boolean value to indicate whether to use the latest available automatic snapshot of the specified source instance or disk. Constraints:     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
-csUseLatestRestorableAutoSnapshot :: Lens' CopySnapshot (Maybe Bool)
-csUseLatestRestorableAutoSnapshot = lens _csUseLatestRestorableAutoSnapshot (\s a -> s {_csUseLatestRestorableAutoSnapshot = a})
+-- | A Boolean value to indicate whether to use the latest available automatic snapshot of the specified source instance or disk.
+--
+-- Constraints:
+--
+--     * This parameter cannot be defined together with the @restore date@ parameter. The @use latest restorable auto snapshot@ and @restore date@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+--
+-- /Note:/ Consider using 'useLatestRestorableAutoSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csUseLatestRestorableAutoSnapshot :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Bool)
+csUseLatestRestorableAutoSnapshot = Lens.lens (useLatestRestorableAutoSnapshot :: CopySnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {useLatestRestorableAutoSnapshot = a} :: CopySnapshot)
+{-# DEPRECATED csUseLatestRestorableAutoSnapshot "Use generic-lens or generic-optics with 'useLatestRestorableAutoSnapshot' instead." #-}
 
--- | The date of the source automatic snapshot to copy. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots. Constraints:     * Must be specified in @YYYY-MM-DD@ format.     * This parameter cannot be defined together with the @use latest restorable auto snapshot@ parameter. The @restore date@ and @use latest restorable auto snapshot@ parameters are mutually exclusive.     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
-csRestoreDate :: Lens' CopySnapshot (Maybe Text)
-csRestoreDate = lens _csRestoreDate (\s a -> s {_csRestoreDate = a})
+-- | The date of the source automatic snapshot to copy. Use the @get auto snapshots@ operation to identify the dates of the available automatic snapshots.
+--
+-- Constraints:
+--
+--     * Must be specified in @YYYY-MM-DD@ format.
+--
+--
+--     * This parameter cannot be defined together with the @use latest restorable auto snapshot@ parameter. The @restore date@ and @use latest restorable auto snapshot@ parameters are mutually exclusive.
+--
+--
+--     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+--
+-- /Note:/ Consider using 'restoreDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csRestoreDate :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
+csRestoreDate = Lens.lens (restoreDate :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {restoreDate = a} :: CopySnapshot)
+{-# DEPRECATED csRestoreDate "Use generic-lens or generic-optics with 'restoreDate' instead." #-}
 
--- | The name of the source instance or disk from which the source automatic snapshot was created. Constraint:     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
-csSourceResourceName :: Lens' CopySnapshot (Maybe Text)
-csSourceResourceName = lens _csSourceResourceName (\s a -> s {_csSourceResourceName = a})
+-- | The name of the source instance or disk from which the source automatic snapshot was created.
+--
+-- Constraint:
+--
+--     * Define this parameter only when copying an automatic snapshot as a manual snapshot. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots Lightsail Dev Guide> .
+--
+--
+--
+-- /Note:/ Consider using 'sourceResourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSourceResourceName :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
+csSourceResourceName = Lens.lens (sourceResourceName :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {sourceResourceName = a} :: CopySnapshot)
+{-# DEPRECATED csSourceResourceName "Use generic-lens or generic-optics with 'sourceResourceName' instead." #-}
 
--- | The name of the source manual snapshot to copy. Constraint:     * Define this parameter only when copying a manual snapshot as another manual snapshot.
-csSourceSnapshotName :: Lens' CopySnapshot (Maybe Text)
-csSourceSnapshotName = lens _csSourceSnapshotName (\s a -> s {_csSourceSnapshotName = a})
+-- | The name of the source manual snapshot to copy.
+--
+-- Constraint:
+--
+--     * Define this parameter only when copying a manual snapshot as another manual snapshot.
+--
+--
+--
+-- /Note:/ Consider using 'sourceSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSourceSnapshotName :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
+csSourceSnapshotName = Lens.lens (sourceSnapshotName :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {sourceSnapshotName = a} :: CopySnapshot)
+{-# DEPRECATED csSourceSnapshotName "Use generic-lens or generic-optics with 'sourceSnapshotName' instead." #-}
 
 -- | The name of the new manual snapshot to be created as a copy.
-csTargetSnapshotName :: Lens' CopySnapshot Text
-csTargetSnapshotName = lens _csTargetSnapshotName (\s a -> s {_csTargetSnapshotName = a})
+--
+-- /Note:/ Consider using 'targetSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTargetSnapshotName :: Lens.Lens' CopySnapshot Lude.Text
+csTargetSnapshotName = Lens.lens (targetSnapshotName :: CopySnapshot -> Lude.Text) (\s a -> s {targetSnapshotName = a} :: CopySnapshot)
+{-# DEPRECATED csTargetSnapshotName "Use generic-lens or generic-optics with 'targetSnapshotName' instead." #-}
 
 -- | The AWS Region where the source manual or automatic snapshot is located.
-csSourceRegion :: Lens' CopySnapshot RegionName
-csSourceRegion = lens _csSourceRegion (\s a -> s {_csSourceRegion = a})
+--
+-- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSourceRegion :: Lens.Lens' CopySnapshot RegionName
+csSourceRegion = Lens.lens (sourceRegion :: CopySnapshot -> RegionName) (\s a -> s {sourceRegion = a} :: CopySnapshot)
+{-# DEPRECATED csSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
 
-instance AWSRequest CopySnapshot where
+instance Lude.AWSRequest CopySnapshot where
   type Rs CopySnapshot = CopySnapshotResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CopySnapshotResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CopySnapshot
-
-instance NFData CopySnapshot
-
-instance ToHeaders CopySnapshot where
+instance Lude.ToHeaders CopySnapshot where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.CopySnapshot" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.CopySnapshot" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CopySnapshot where
+instance Lude.ToJSON CopySnapshot where
   toJSON CopySnapshot' {..} =
-    object
-      ( catMaybes
-          [ ("useLatestRestorableAutoSnapshot" .=)
-              <$> _csUseLatestRestorableAutoSnapshot,
-            ("restoreDate" .=) <$> _csRestoreDate,
-            ("sourceResourceName" .=) <$> _csSourceResourceName,
-            ("sourceSnapshotName" .=) <$> _csSourceSnapshotName,
-            Just ("targetSnapshotName" .= _csTargetSnapshotName),
-            Just ("sourceRegion" .= _csSourceRegion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("useLatestRestorableAutoSnapshot" Lude..=)
+              Lude.<$> useLatestRestorableAutoSnapshot,
+            ("restoreDate" Lude..=) Lude.<$> restoreDate,
+            ("sourceResourceName" Lude..=) Lude.<$> sourceResourceName,
+            ("sourceSnapshotName" Lude..=) Lude.<$> sourceSnapshotName,
+            Lude.Just ("targetSnapshotName" Lude..= targetSnapshotName),
+            Lude.Just ("sourceRegion" Lude..= sourceRegion)
           ]
       )
 
-instance ToPath CopySnapshot where
-  toPath = const "/"
+instance Lude.ToPath CopySnapshot where
+  toPath = Lude.const "/"
 
-instance ToQuery CopySnapshot where
-  toQuery = const mempty
+instance Lude.ToQuery CopySnapshot where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'copySnapshotResponse' smart constructor.
+-- | /See:/ 'mkCopySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-  { _csrsOperations ::
-      !(Maybe [Operation]),
-    _csrsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopySnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'csrsResponseStatus' - -- | The response status code.
-copySnapshotResponse ::
-  -- | 'csrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkCopySnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CopySnapshotResponse
-copySnapshotResponse pResponseStatus_ =
+mkCopySnapshotResponse pResponseStatus_ =
   CopySnapshotResponse'
-    { _csrsOperations = Nothing,
-      _csrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-csrsOperations :: Lens' CopySnapshotResponse [Operation]
-csrsOperations = lens _csrsOperations (\s a -> s {_csrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsOperations :: Lens.Lens' CopySnapshotResponse (Lude.Maybe [Operation])
+csrsOperations = Lens.lens (operations :: CopySnapshotResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: CopySnapshotResponse)
+{-# DEPRECATED csrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CopySnapshotResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\s a -> s {_csrsResponseStatus = a})
-
-instance NFData CopySnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' CopySnapshotResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CopySnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopySnapshotResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

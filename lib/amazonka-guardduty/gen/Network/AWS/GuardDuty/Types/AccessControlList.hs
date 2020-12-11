@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.AccessControlList where
+module Network.AWS.GuardDuty.Types.AccessControlList
+  ( AccessControlList (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAccessControlList,
+
+    -- * Lenses
+    aclAllowsPublicWriteAccess,
+    aclAllowsPublicReadAccess,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information on the current access control policies for the bucket.
 --
---
---
--- /See:/ 'accessControlList' smart constructor.
+-- /See:/ 'mkAccessControlList' smart constructor.
 data AccessControlList = AccessControlList'
-  { _aclAllowsPublicWriteAccess ::
-      !(Maybe Bool),
-    _aclAllowsPublicReadAccess :: !(Maybe Bool)
+  { allowsPublicWriteAccess ::
+      Lude.Maybe Lude.Bool,
+    allowsPublicReadAccess :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessControlList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aclAllowsPublicWriteAccess' - A value that indicates whether public write access for the bucket is enabled through an Access Control List (ACL).
---
--- * 'aclAllowsPublicReadAccess' - A value that indicates whether public read access for the bucket is enabled through an Access Control List (ACL).
-accessControlList ::
+-- * 'allowsPublicReadAccess' - A value that indicates whether public read access for the bucket is enabled through an Access Control List (ACL).
+-- * 'allowsPublicWriteAccess' - A value that indicates whether public write access for the bucket is enabled through an Access Control List (ACL).
+mkAccessControlList ::
   AccessControlList
-accessControlList =
+mkAccessControlList =
   AccessControlList'
-    { _aclAllowsPublicWriteAccess = Nothing,
-      _aclAllowsPublicReadAccess = Nothing
+    { allowsPublicWriteAccess = Lude.Nothing,
+      allowsPublicReadAccess = Lude.Nothing
     }
 
 -- | A value that indicates whether public write access for the bucket is enabled through an Access Control List (ACL).
-aclAllowsPublicWriteAccess :: Lens' AccessControlList (Maybe Bool)
-aclAllowsPublicWriteAccess = lens _aclAllowsPublicWriteAccess (\s a -> s {_aclAllowsPublicWriteAccess = a})
+--
+-- /Note:/ Consider using 'allowsPublicWriteAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclAllowsPublicWriteAccess :: Lens.Lens' AccessControlList (Lude.Maybe Lude.Bool)
+aclAllowsPublicWriteAccess = Lens.lens (allowsPublicWriteAccess :: AccessControlList -> Lude.Maybe Lude.Bool) (\s a -> s {allowsPublicWriteAccess = a} :: AccessControlList)
+{-# DEPRECATED aclAllowsPublicWriteAccess "Use generic-lens or generic-optics with 'allowsPublicWriteAccess' instead." #-}
 
 -- | A value that indicates whether public read access for the bucket is enabled through an Access Control List (ACL).
-aclAllowsPublicReadAccess :: Lens' AccessControlList (Maybe Bool)
-aclAllowsPublicReadAccess = lens _aclAllowsPublicReadAccess (\s a -> s {_aclAllowsPublicReadAccess = a})
+--
+-- /Note:/ Consider using 'allowsPublicReadAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclAllowsPublicReadAccess :: Lens.Lens' AccessControlList (Lude.Maybe Lude.Bool)
+aclAllowsPublicReadAccess = Lens.lens (allowsPublicReadAccess :: AccessControlList -> Lude.Maybe Lude.Bool) (\s a -> s {allowsPublicReadAccess = a} :: AccessControlList)
+{-# DEPRECATED aclAllowsPublicReadAccess "Use generic-lens or generic-optics with 'allowsPublicReadAccess' instead." #-}
 
-instance FromJSON AccessControlList where
+instance Lude.FromJSON AccessControlList where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccessControlList"
       ( \x ->
           AccessControlList'
-            <$> (x .:? "allowsPublicWriteAccess")
-            <*> (x .:? "allowsPublicReadAccess")
+            Lude.<$> (x Lude..:? "allowsPublicWriteAccess")
+            Lude.<*> (x Lude..:? "allowsPublicReadAccess")
       )
-
-instance Hashable AccessControlList
-
-instance NFData AccessControlList

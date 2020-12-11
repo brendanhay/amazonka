@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Mobile.Types.Platform where
+module Network.AWS.Mobile.Types.Platform
+  ( Platform
+      ( Platform',
+        Android,
+        Javascript,
+        Linux,
+        OSx,
+        Objc,
+        Swift,
+        Windows
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Developer desktop or target mobile app or website platform.
-data Platform
-  = Android
-  | Javascript
-  | Linux
-  | OSx
-  | Objc
-  | Swift
-  | Windows
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Platform = Platform' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Platform where
-  parser =
-    takeLowerText >>= \case
-      "android" -> pure Android
-      "javascript" -> pure Javascript
-      "linux" -> pure Linux
-      "osx" -> pure OSx
-      "objc" -> pure Objc
-      "swift" -> pure Swift
-      "windows" -> pure Windows
-      e ->
-        fromTextError $
-          "Failure parsing Platform from value: '" <> e
-            <> "'. Accepted values: android, javascript, linux, osx, objc, swift, windows"
+pattern Android :: Platform
+pattern Android = Platform' "ANDROID"
 
-instance ToText Platform where
-  toText = \case
-    Android -> "ANDROID"
-    Javascript -> "JAVASCRIPT"
-    Linux -> "LINUX"
-    OSx -> "OSX"
-    Objc -> "OBJC"
-    Swift -> "SWIFT"
-    Windows -> "WINDOWS"
+pattern Javascript :: Platform
+pattern Javascript = Platform' "JAVASCRIPT"
 
-instance Hashable Platform
+pattern Linux :: Platform
+pattern Linux = Platform' "LINUX"
 
-instance NFData Platform
+pattern OSx :: Platform
+pattern OSx = Platform' "OSX"
 
-instance ToByteString Platform
+pattern Objc :: Platform
+pattern Objc = Platform' "OBJC"
 
-instance ToQuery Platform
+pattern Swift :: Platform
+pattern Swift = Platform' "SWIFT"
 
-instance ToHeader Platform
+pattern Windows :: Platform
+pattern Windows = Platform' "WINDOWS"
 
-instance ToJSON Platform where
-  toJSON = toJSONText
-
-instance FromJSON Platform where
-  parseJSON = parseJSONText "Platform"
+{-# COMPLETE
+  Android,
+  Javascript,
+  Linux,
+  OSx,
+  Objc,
+  Swift,
+  Windows,
+  Platform'
+  #-}

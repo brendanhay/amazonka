@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.SSLConfiguration where
+module Network.AWS.OpsWorks.Types.SSLConfiguration
+  ( SSLConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSSLConfiguration,
+
+    -- * Lenses
+    scPrivateKey,
+    scCertificate,
+    scChain,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an app's SSL configuration.
 --
---
---
--- /See:/ 'sslConfiguration' smart constructor.
+-- /See:/ 'mkSSLConfiguration' smart constructor.
 data SSLConfiguration = SSLConfiguration'
-  { _scPrivateKey ::
-      !(Maybe Text),
-    _scCertificate :: !(Maybe Text),
-    _scChain :: !(Maybe Text)
+  { privateKey ::
+      Lude.Maybe Lude.Text,
+    certificate :: Lude.Maybe Lude.Text,
+    chain :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSLConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scPrivateKey' - The private key; the contents of the certificate's domain.kex file.
---
--- * 'scCertificate' - The contents of the certificate's domain.crt file.
---
--- * 'scChain' - Optional. Can be used to specify an intermediate certificate authority key or client authentication.
-sslConfiguration ::
+-- * 'certificate' - The contents of the certificate's domain.crt file.
+-- * 'chain' - Optional. Can be used to specify an intermediate certificate authority key or client authentication.
+-- * 'privateKey' - The private key; the contents of the certificate's domain.kex file.
+mkSSLConfiguration ::
   SSLConfiguration
-sslConfiguration =
+mkSSLConfiguration =
   SSLConfiguration'
-    { _scPrivateKey = Nothing,
-      _scCertificate = Nothing,
-      _scChain = Nothing
+    { privateKey = Lude.Nothing,
+      certificate = Lude.Nothing,
+      chain = Lude.Nothing
     }
 
 -- | The private key; the contents of the certificate's domain.kex file.
-scPrivateKey :: Lens' SSLConfiguration (Maybe Text)
-scPrivateKey = lens _scPrivateKey (\s a -> s {_scPrivateKey = a})
+--
+-- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scPrivateKey :: Lens.Lens' SSLConfiguration (Lude.Maybe Lude.Text)
+scPrivateKey = Lens.lens (privateKey :: SSLConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {privateKey = a} :: SSLConfiguration)
+{-# DEPRECATED scPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 -- | The contents of the certificate's domain.crt file.
-scCertificate :: Lens' SSLConfiguration (Maybe Text)
-scCertificate = lens _scCertificate (\s a -> s {_scCertificate = a})
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scCertificate :: Lens.Lens' SSLConfiguration (Lude.Maybe Lude.Text)
+scCertificate = Lens.lens (certificate :: SSLConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {certificate = a} :: SSLConfiguration)
+{-# DEPRECATED scCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | Optional. Can be used to specify an intermediate certificate authority key or client authentication.
-scChain :: Lens' SSLConfiguration (Maybe Text)
-scChain = lens _scChain (\s a -> s {_scChain = a})
+--
+-- /Note:/ Consider using 'chain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scChain :: Lens.Lens' SSLConfiguration (Lude.Maybe Lude.Text)
+scChain = Lens.lens (chain :: SSLConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {chain = a} :: SSLConfiguration)
+{-# DEPRECATED scChain "Use generic-lens or generic-optics with 'chain' instead." #-}
 
-instance FromJSON SSLConfiguration where
+instance Lude.FromJSON SSLConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "SSLConfiguration"
       ( \x ->
           SSLConfiguration'
-            <$> (x .:? "PrivateKey") <*> (x .:? "Certificate") <*> (x .:? "Chain")
+            Lude.<$> (x Lude..:? "PrivateKey")
+            Lude.<*> (x Lude..:? "Certificate")
+            Lude.<*> (x Lude..:? "Chain")
       )
 
-instance Hashable SSLConfiguration
-
-instance NFData SSLConfiguration
-
-instance ToJSON SSLConfiguration where
+instance Lude.ToJSON SSLConfiguration where
   toJSON SSLConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("PrivateKey" .=) <$> _scPrivateKey,
-            ("Certificate" .=) <$> _scCertificate,
-            ("Chain" .=) <$> _scChain
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PrivateKey" Lude..=) Lude.<$> privateKey,
+            ("Certificate" Lude..=) Lude.<$> certificate,
+            ("Chain" Lude..=) Lude.<$> chain
           ]
       )

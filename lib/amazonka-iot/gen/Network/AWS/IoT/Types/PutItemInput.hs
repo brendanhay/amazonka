@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.PutItemInput where
+module Network.AWS.IoT.Types.PutItemInput
+  ( PutItemInput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPutItemInput,
+
+    -- * Lenses
+    piiTableName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
 --
---
---
--- /See:/ 'putItemInput' smart constructor.
-newtype PutItemInput = PutItemInput' {_piiTableName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkPutItemInput' smart constructor.
+newtype PutItemInput = PutItemInput' {tableName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutItemInput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piiTableName' - The table where the message data will be written.
-putItemInput ::
-  -- | 'piiTableName'
-  Text ->
+-- * 'tableName' - The table where the message data will be written.
+mkPutItemInput ::
+  -- | 'tableName'
+  Lude.Text ->
   PutItemInput
-putItemInput pTableName_ =
-  PutItemInput' {_piiTableName = pTableName_}
+mkPutItemInput pTableName_ = PutItemInput' {tableName = pTableName_}
 
 -- | The table where the message data will be written.
-piiTableName :: Lens' PutItemInput Text
-piiTableName = lens _piiTableName (\s a -> s {_piiTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piiTableName :: Lens.Lens' PutItemInput Lude.Text
+piiTableName = Lens.lens (tableName :: PutItemInput -> Lude.Text) (\s a -> s {tableName = a} :: PutItemInput)
+{-# DEPRECATED piiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance FromJSON PutItemInput where
+instance Lude.FromJSON PutItemInput where
   parseJSON =
-    withObject
+    Lude.withObject
       "PutItemInput"
-      (\x -> PutItemInput' <$> (x .: "tableName"))
+      (\x -> PutItemInput' Lude.<$> (x Lude..: "tableName"))
 
-instance Hashable PutItemInput
-
-instance NFData PutItemInput
-
-instance ToJSON PutItemInput where
+instance Lude.ToJSON PutItemInput where
   toJSON PutItemInput' {..} =
-    object (catMaybes [Just ("tableName" .= _piiTableName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("tableName" Lude..= tableName)])

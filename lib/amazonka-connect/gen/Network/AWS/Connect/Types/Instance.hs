@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,130 +7,162 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.Instance where
+module Network.AWS.Connect.Types.Instance
+  ( Instance (..),
+
+    -- * Smart constructor
+    mkInstance,
+
+    -- * Lenses
+    iARN,
+    iCreatedTime,
+    iOutboundCallsEnabled,
+    iInboundCallsEnabled,
+    iInstanceAlias,
+    iId,
+    iInstanceStatus,
+    iIdentityManagementType,
+    iStatusReason,
+    iServiceRole,
+  )
+where
 
 import Network.AWS.Connect.Types.DirectoryType
 import Network.AWS.Connect.Types.InstanceStatus
 import Network.AWS.Connect.Types.InstanceStatusReason
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Amazon Connect instance.
 --
---
---
--- /See:/ 'instance'' smart constructor.
+-- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { _iARN :: !(Maybe Text),
-    _iCreatedTime :: !(Maybe POSIX),
-    _iOutboundCallsEnabled :: !(Maybe Bool),
-    _iInboundCallsEnabled :: !(Maybe Bool),
-    _iInstanceAlias :: !(Maybe (Sensitive Text)),
-    _iId :: !(Maybe Text),
-    _iInstanceStatus :: !(Maybe InstanceStatus),
-    _iIdentityManagementType :: !(Maybe DirectoryType),
-    _iStatusReason :: !(Maybe InstanceStatusReason),
-    _iServiceRole :: !(Maybe Text)
+  { arn :: Lude.Maybe Lude.Text,
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    outboundCallsEnabled :: Lude.Maybe Lude.Bool,
+    inboundCallsEnabled :: Lude.Maybe Lude.Bool,
+    instanceAlias :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    id :: Lude.Maybe Lude.Text,
+    instanceStatus :: Lude.Maybe InstanceStatus,
+    identityManagementType :: Lude.Maybe DirectoryType,
+    statusReason :: Lude.Maybe InstanceStatusReason,
+    serviceRole :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iARN' - The Amazon Resource Name (ARN) of the instance.
---
--- * 'iCreatedTime' - When the instance was created.
---
--- * 'iOutboundCallsEnabled' - Whether outbound calls are enabled.
---
--- * 'iInboundCallsEnabled' - Whether inbound calls are enabled.
---
--- * 'iInstanceAlias' - The alias of instance.
---
--- * 'iId' - The identifier of the Amazon Connect instance.
---
--- * 'iInstanceStatus' - The state of the instance.
---
--- * 'iIdentityManagementType' - The identity management type.
---
--- * 'iStatusReason' - Relevant details why the instance was not successfully created.
---
--- * 'iServiceRole' - The service role of the instance.
-instance' ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the instance.
+-- * 'createdTime' - When the instance was created.
+-- * 'id' - The identifier of the Amazon Connect instance.
+-- * 'identityManagementType' - The identity management type.
+-- * 'inboundCallsEnabled' - Whether inbound calls are enabled.
+-- * 'instanceAlias' - The alias of instance.
+-- * 'instanceStatus' - The state of the instance.
+-- * 'outboundCallsEnabled' - Whether outbound calls are enabled.
+-- * 'serviceRole' - The service role of the instance.
+-- * 'statusReason' - Relevant details why the instance was not successfully created.
+mkInstance ::
   Instance
-instance' =
+mkInstance =
   Instance'
-    { _iARN = Nothing,
-      _iCreatedTime = Nothing,
-      _iOutboundCallsEnabled = Nothing,
-      _iInboundCallsEnabled = Nothing,
-      _iInstanceAlias = Nothing,
-      _iId = Nothing,
-      _iInstanceStatus = Nothing,
-      _iIdentityManagementType = Nothing,
-      _iStatusReason = Nothing,
-      _iServiceRole = Nothing
+    { arn = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      outboundCallsEnabled = Lude.Nothing,
+      inboundCallsEnabled = Lude.Nothing,
+      instanceAlias = Lude.Nothing,
+      id = Lude.Nothing,
+      instanceStatus = Lude.Nothing,
+      identityManagementType = Lude.Nothing,
+      statusReason = Lude.Nothing,
+      serviceRole = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance.
-iARN :: Lens' Instance (Maybe Text)
-iARN = lens _iARN (\s a -> s {_iARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iARN :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
+iARN = Lens.lens (arn :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Instance)
+{-# DEPRECATED iARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | When the instance was created.
-iCreatedTime :: Lens' Instance (Maybe UTCTime)
-iCreatedTime = lens _iCreatedTime (\s a -> s {_iCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iCreatedTime :: Lens.Lens' Instance (Lude.Maybe Lude.Timestamp)
+iCreatedTime = Lens.lens (createdTime :: Instance -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: Instance)
+{-# DEPRECATED iCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | Whether outbound calls are enabled.
-iOutboundCallsEnabled :: Lens' Instance (Maybe Bool)
-iOutboundCallsEnabled = lens _iOutboundCallsEnabled (\s a -> s {_iOutboundCallsEnabled = a})
+--
+-- /Note:/ Consider using 'outboundCallsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iOutboundCallsEnabled :: Lens.Lens' Instance (Lude.Maybe Lude.Bool)
+iOutboundCallsEnabled = Lens.lens (outboundCallsEnabled :: Instance -> Lude.Maybe Lude.Bool) (\s a -> s {outboundCallsEnabled = a} :: Instance)
+{-# DEPRECATED iOutboundCallsEnabled "Use generic-lens or generic-optics with 'outboundCallsEnabled' instead." #-}
 
 -- | Whether inbound calls are enabled.
-iInboundCallsEnabled :: Lens' Instance (Maybe Bool)
-iInboundCallsEnabled = lens _iInboundCallsEnabled (\s a -> s {_iInboundCallsEnabled = a})
+--
+-- /Note:/ Consider using 'inboundCallsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInboundCallsEnabled :: Lens.Lens' Instance (Lude.Maybe Lude.Bool)
+iInboundCallsEnabled = Lens.lens (inboundCallsEnabled :: Instance -> Lude.Maybe Lude.Bool) (\s a -> s {inboundCallsEnabled = a} :: Instance)
+{-# DEPRECATED iInboundCallsEnabled "Use generic-lens or generic-optics with 'inboundCallsEnabled' instead." #-}
 
 -- | The alias of instance.
-iInstanceAlias :: Lens' Instance (Maybe Text)
-iInstanceAlias = lens _iInstanceAlias (\s a -> s {_iInstanceAlias = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'instanceAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceAlias :: Lens.Lens' Instance (Lude.Maybe (Lude.Sensitive Lude.Text))
+iInstanceAlias = Lens.lens (instanceAlias :: Instance -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {instanceAlias = a} :: Instance)
+{-# DEPRECATED iInstanceAlias "Use generic-lens or generic-optics with 'instanceAlias' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-iId :: Lens' Instance (Maybe Text)
-iId = lens _iId (\s a -> s {_iId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
+iId = Lens.lens (id :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Instance)
+{-# DEPRECATED iId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The state of the instance.
-iInstanceStatus :: Lens' Instance (Maybe InstanceStatus)
-iInstanceStatus = lens _iInstanceStatus (\s a -> s {_iInstanceStatus = a})
+--
+-- /Note:/ Consider using 'instanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceStatus :: Lens.Lens' Instance (Lude.Maybe InstanceStatus)
+iInstanceStatus = Lens.lens (instanceStatus :: Instance -> Lude.Maybe InstanceStatus) (\s a -> s {instanceStatus = a} :: Instance)
+{-# DEPRECATED iInstanceStatus "Use generic-lens or generic-optics with 'instanceStatus' instead." #-}
 
 -- | The identity management type.
-iIdentityManagementType :: Lens' Instance (Maybe DirectoryType)
-iIdentityManagementType = lens _iIdentityManagementType (\s a -> s {_iIdentityManagementType = a})
+--
+-- /Note:/ Consider using 'identityManagementType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iIdentityManagementType :: Lens.Lens' Instance (Lude.Maybe DirectoryType)
+iIdentityManagementType = Lens.lens (identityManagementType :: Instance -> Lude.Maybe DirectoryType) (\s a -> s {identityManagementType = a} :: Instance)
+{-# DEPRECATED iIdentityManagementType "Use generic-lens or generic-optics with 'identityManagementType' instead." #-}
 
 -- | Relevant details why the instance was not successfully created.
-iStatusReason :: Lens' Instance (Maybe InstanceStatusReason)
-iStatusReason = lens _iStatusReason (\s a -> s {_iStatusReason = a})
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iStatusReason :: Lens.Lens' Instance (Lude.Maybe InstanceStatusReason)
+iStatusReason = Lens.lens (statusReason :: Instance -> Lude.Maybe InstanceStatusReason) (\s a -> s {statusReason = a} :: Instance)
+{-# DEPRECATED iStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
 -- | The service role of the instance.
-iServiceRole :: Lens' Instance (Maybe Text)
-iServiceRole = lens _iServiceRole (\s a -> s {_iServiceRole = a})
+--
+-- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iServiceRole :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
+iServiceRole = Lens.lens (serviceRole :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: Instance)
+{-# DEPRECATED iServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
-instance FromJSON Instance where
+instance Lude.FromJSON Instance where
   parseJSON =
-    withObject
+    Lude.withObject
       "Instance"
       ( \x ->
           Instance'
-            <$> (x .:? "Arn")
-            <*> (x .:? "CreatedTime")
-            <*> (x .:? "OutboundCallsEnabled")
-            <*> (x .:? "InboundCallsEnabled")
-            <*> (x .:? "InstanceAlias")
-            <*> (x .:? "Id")
-            <*> (x .:? "InstanceStatus")
-            <*> (x .:? "IdentityManagementType")
-            <*> (x .:? "StatusReason")
-            <*> (x .:? "ServiceRole")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "OutboundCallsEnabled")
+            Lude.<*> (x Lude..:? "InboundCallsEnabled")
+            Lude.<*> (x Lude..:? "InstanceAlias")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "InstanceStatus")
+            Lude.<*> (x Lude..:? "IdentityManagementType")
+            Lude.<*> (x Lude..:? "StatusReason")
+            Lude.<*> (x Lude..:? "ServiceRole")
       )
-
-instance Hashable Instance
-
-instance NFData Instance

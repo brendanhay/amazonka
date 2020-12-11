@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ScanStatus where
+module Network.AWS.ECR.Types.ScanStatus
+  ( ScanStatus
+      ( ScanStatus',
+        Complete,
+        Failed,
+        InProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScanStatus
-  = Complete
-  | Failed
-  | InProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScanStatus = ScanStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScanStatus where
-  parser =
-    takeLowerText >>= \case
-      "complete" -> pure Complete
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      e ->
-        fromTextError $
-          "Failure parsing ScanStatus from value: '" <> e
-            <> "'. Accepted values: complete, failed, in_progress"
+pattern Complete :: ScanStatus
+pattern Complete = ScanStatus' "COMPLETE"
 
-instance ToText ScanStatus where
-  toText = \case
-    Complete -> "COMPLETE"
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
+pattern Failed :: ScanStatus
+pattern Failed = ScanStatus' "FAILED"
 
-instance Hashable ScanStatus
+pattern InProgress :: ScanStatus
+pattern InProgress = ScanStatus' "IN_PROGRESS"
 
-instance NFData ScanStatus
-
-instance ToByteString ScanStatus
-
-instance ToQuery ScanStatus
-
-instance ToHeader ScanStatus
-
-instance FromJSON ScanStatus where
-  parseJSON = parseJSONText "ScanStatus"
+{-# COMPLETE
+  Complete,
+  Failed,
+  InProgress,
+  ScanStatus'
+  #-}

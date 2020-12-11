@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTuningJobSortByOptions where
+module Network.AWS.SageMaker.Types.HyperParameterTuningJobSortByOptions
+  ( HyperParameterTuningJobSortByOptions
+      ( HyperParameterTuningJobSortByOptions',
+        HPTJSBOCreationTime,
+        HPTJSBOName,
+        HPTJSBOStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HyperParameterTuningJobSortByOptions
-  = HPTJSBOCreationTime
-  | HPTJSBOName
-  | HPTJSBOStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HyperParameterTuningJobSortByOptions = HyperParameterTuningJobSortByOptions' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HyperParameterTuningJobSortByOptions where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure HPTJSBOCreationTime
-      "name" -> pure HPTJSBOName
-      "status" -> pure HPTJSBOStatus
-      e ->
-        fromTextError $
-          "Failure parsing HyperParameterTuningJobSortByOptions from value: '" <> e
-            <> "'. Accepted values: creationtime, name, status"
+pattern HPTJSBOCreationTime :: HyperParameterTuningJobSortByOptions
+pattern HPTJSBOCreationTime = HyperParameterTuningJobSortByOptions' "CreationTime"
 
-instance ToText HyperParameterTuningJobSortByOptions where
-  toText = \case
-    HPTJSBOCreationTime -> "CreationTime"
-    HPTJSBOName -> "Name"
-    HPTJSBOStatus -> "Status"
+pattern HPTJSBOName :: HyperParameterTuningJobSortByOptions
+pattern HPTJSBOName = HyperParameterTuningJobSortByOptions' "Name"
 
-instance Hashable HyperParameterTuningJobSortByOptions
+pattern HPTJSBOStatus :: HyperParameterTuningJobSortByOptions
+pattern HPTJSBOStatus = HyperParameterTuningJobSortByOptions' "Status"
 
-instance NFData HyperParameterTuningJobSortByOptions
-
-instance ToByteString HyperParameterTuningJobSortByOptions
-
-instance ToQuery HyperParameterTuningJobSortByOptions
-
-instance ToHeader HyperParameterTuningJobSortByOptions
-
-instance ToJSON HyperParameterTuningJobSortByOptions where
-  toJSON = toJSONText
+{-# COMPLETE
+  HPTJSBOCreationTime,
+  HPTJSBOName,
+  HPTJSBOStatus,
+  HyperParameterTuningJobSortByOptions'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.TypedLinkFacet where
+module Network.AWS.CloudDirectory.Types.TypedLinkFacet
+  ( TypedLinkFacet (..),
+
+    -- * Smart constructor
+    mkTypedLinkFacet,
+
+    -- * Lenses
+    tlfName,
+    tlfAttributes,
+    tlfIdentityAttributeOrder,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines the typed links structure and its attributes. To create a typed link facet, use the 'CreateTypedLinkFacet' API.
 --
---
---
--- /See:/ 'typedLinkFacet' smart constructor.
+-- /See:/ 'mkTypedLinkFacet' smart constructor.
 data TypedLinkFacet = TypedLinkFacet'
-  { _tlfName :: !Text,
-    _tlfAttributes :: ![TypedLinkAttributeDefinition],
-    _tlfIdentityAttributeOrder :: ![Text]
+  { name :: Lude.Text,
+    attributes :: [TypedLinkAttributeDefinition],
+    identityAttributeOrder :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypedLinkFacet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tlfName' - The unique name of the typed link facet.
---
--- * 'tlfAttributes' - A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.
---
--- * 'tlfIdentityAttributeOrder' - The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See 'ListOutgoingTypedLinks' and 'ListIncomingTypedLinks' for details.
-typedLinkFacet ::
-  -- | 'tlfName'
-  Text ->
+-- * 'attributes' - A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.
+-- * 'identityAttributeOrder' - The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See 'ListOutgoingTypedLinks' and 'ListIncomingTypedLinks' for details.
+-- * 'name' - The unique name of the typed link facet.
+mkTypedLinkFacet ::
+  -- | 'name'
+  Lude.Text ->
   TypedLinkFacet
-typedLinkFacet pName_ =
+mkTypedLinkFacet pName_ =
   TypedLinkFacet'
-    { _tlfName = pName_,
-      _tlfAttributes = mempty,
-      _tlfIdentityAttributeOrder = mempty
+    { name = pName_,
+      attributes = Lude.mempty,
+      identityAttributeOrder = Lude.mempty
     }
 
 -- | The unique name of the typed link facet.
-tlfName :: Lens' TypedLinkFacet Text
-tlfName = lens _tlfName (\s a -> s {_tlfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlfName :: Lens.Lens' TypedLinkFacet Lude.Text
+tlfName = Lens.lens (name :: TypedLinkFacet -> Lude.Text) (\s a -> s {name = a} :: TypedLinkFacet)
+{-# DEPRECATED tlfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A set of key-value pairs associated with the typed link. Typed link attributes are used when you have data values that are related to the link itself, and not to one of the two objects being linked. Identity attributes also serve to distinguish the link from others of the same type between the same objects.
-tlfAttributes :: Lens' TypedLinkFacet [TypedLinkAttributeDefinition]
-tlfAttributes = lens _tlfAttributes (\s a -> s {_tlfAttributes = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlfAttributes :: Lens.Lens' TypedLinkFacet [TypedLinkAttributeDefinition]
+tlfAttributes = Lens.lens (attributes :: TypedLinkFacet -> [TypedLinkAttributeDefinition]) (\s a -> s {attributes = a} :: TypedLinkFacet)
+{-# DEPRECATED tlfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The set of attributes that distinguish links made from this facet from each other, in the order of significance. Listing typed links can filter on the values of these attributes. See 'ListOutgoingTypedLinks' and 'ListIncomingTypedLinks' for details.
-tlfIdentityAttributeOrder :: Lens' TypedLinkFacet [Text]
-tlfIdentityAttributeOrder = lens _tlfIdentityAttributeOrder (\s a -> s {_tlfIdentityAttributeOrder = a}) . _Coerce
+--
+-- /Note:/ Consider using 'identityAttributeOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlfIdentityAttributeOrder :: Lens.Lens' TypedLinkFacet [Lude.Text]
+tlfIdentityAttributeOrder = Lens.lens (identityAttributeOrder :: TypedLinkFacet -> [Lude.Text]) (\s a -> s {identityAttributeOrder = a} :: TypedLinkFacet)
+{-# DEPRECATED tlfIdentityAttributeOrder "Use generic-lens or generic-optics with 'identityAttributeOrder' instead." #-}
 
-instance Hashable TypedLinkFacet
-
-instance NFData TypedLinkFacet
-
-instance ToJSON TypedLinkFacet where
+instance Lude.ToJSON TypedLinkFacet where
   toJSON TypedLinkFacet' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _tlfName),
-            Just ("Attributes" .= _tlfAttributes),
-            Just ("IdentityAttributeOrder" .= _tlfIdentityAttributeOrder)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Attributes" Lude..= attributes),
+            Lude.Just
+              ("IdentityAttributeOrder" Lude..= identityAttributeOrder)
           ]
       )

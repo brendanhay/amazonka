@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,88 +14,95 @@
 --
 -- Deletes the specified cache parameter group. You cannot delete a cache parameter group if it is associated with any cache clusters.
 module Network.AWS.ElastiCache.DeleteCacheParameterGroup
-  ( -- * Creating a Request
-    deleteCacheParameterGroup,
-    DeleteCacheParameterGroup,
+  ( -- * Creating a request
+    DeleteCacheParameterGroup (..),
+    mkDeleteCacheParameterGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dCacheParameterGroupName,
 
-    -- * Destructuring the Response
-    deleteCacheParameterGroupResponse,
-    DeleteCacheParameterGroupResponse,
+    -- * Destructuring the response
+    DeleteCacheParameterGroupResponse (..),
+    mkDeleteCacheParameterGroupResponse,
   )
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @DeleteCacheParameterGroup@ operation.
 --
---
---
--- /See:/ 'deleteCacheParameterGroup' smart constructor.
+-- /See:/ 'mkDeleteCacheParameterGroup' smart constructor.
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
-  { _dCacheParameterGroupName ::
-      Text
+  { cacheParameterGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCacheParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dCacheParameterGroupName' - The name of the cache parameter group to delete.
-deleteCacheParameterGroup ::
-  -- | 'dCacheParameterGroupName'
-  Text ->
+-- * 'cacheParameterGroupName' - The name of the cache parameter group to delete.
+mkDeleteCacheParameterGroup ::
+  -- | 'cacheParameterGroupName'
+  Lude.Text ->
   DeleteCacheParameterGroup
-deleteCacheParameterGroup pCacheParameterGroupName_ =
+mkDeleteCacheParameterGroup pCacheParameterGroupName_ =
   DeleteCacheParameterGroup'
-    { _dCacheParameterGroupName =
+    { cacheParameterGroupName =
         pCacheParameterGroupName_
     }
 
 -- | The name of the cache parameter group to delete.
-dCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
-dCacheParameterGroupName = lens _dCacheParameterGroupName (\s a -> s {_dCacheParameterGroupName = a})
+--
+-- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCacheParameterGroupName :: Lens.Lens' DeleteCacheParameterGroup Lude.Text
+dCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: DeleteCacheParameterGroup -> Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: DeleteCacheParameterGroup)
+{-# DEPRECATED dCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
-instance AWSRequest DeleteCacheParameterGroup where
+instance Lude.AWSRequest DeleteCacheParameterGroup where
   type
     Rs DeleteCacheParameterGroup =
       DeleteCacheParameterGroupResponse
-  request = postQuery elastiCache
-  response = receiveNull DeleteCacheParameterGroupResponse'
+  request = Req.postQuery elastiCacheService
+  response = Res.receiveNull DeleteCacheParameterGroupResponse'
 
-instance Hashable DeleteCacheParameterGroup
+instance Lude.ToHeaders DeleteCacheParameterGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteCacheParameterGroup
+instance Lude.ToPath DeleteCacheParameterGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteCacheParameterGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteCacheParameterGroup where
-  toPath = const "/"
-
-instance ToQuery DeleteCacheParameterGroup where
+instance Lude.ToQuery DeleteCacheParameterGroup where
   toQuery DeleteCacheParameterGroup' {..} =
-    mconcat
-      [ "Action" =: ("DeleteCacheParameterGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "CacheParameterGroupName" =: _dCacheParameterGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteCacheParameterGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "CacheParameterGroupName" Lude.=: cacheParameterGroupName
       ]
 
--- | /See:/ 'deleteCacheParameterGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteCacheParameterGroupResponse' smart constructor.
 data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCacheParameterGroupResponse' with the minimum fields required to make a request.
-deleteCacheParameterGroupResponse ::
+mkDeleteCacheParameterGroupResponse ::
   DeleteCacheParameterGroupResponse
-deleteCacheParameterGroupResponse =
+mkDeleteCacheParameterGroupResponse =
   DeleteCacheParameterGroupResponse'
-
-instance NFData DeleteCacheParameterGroupResponse

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CertificateAuthenticationRequest where
+module Network.AWS.EC2.Types.CertificateAuthenticationRequest
+  ( CertificateAuthenticationRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCertificateAuthenticationRequest,
+
+    -- * Lenses
+    carClientRootCertificateChainARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the client certificate to be used for authentication.
 --
---
---
--- /See:/ 'certificateAuthenticationRequest' smart constructor.
+-- /See:/ 'mkCertificateAuthenticationRequest' smart constructor.
 newtype CertificateAuthenticationRequest = CertificateAuthenticationRequest'
-  { _carClientRootCertificateChainARN ::
-      Maybe Text
+  { clientRootCertificateChainARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateAuthenticationRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carClientRootCertificateChainARN' - The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
-certificateAuthenticationRequest ::
+-- * 'clientRootCertificateChainARN' - The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
+mkCertificateAuthenticationRequest ::
   CertificateAuthenticationRequest
-certificateAuthenticationRequest =
+mkCertificateAuthenticationRequest =
   CertificateAuthenticationRequest'
-    { _carClientRootCertificateChainARN =
-        Nothing
+    { clientRootCertificateChainARN =
+        Lude.Nothing
     }
 
 -- | The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).
-carClientRootCertificateChainARN :: Lens' CertificateAuthenticationRequest (Maybe Text)
-carClientRootCertificateChainARN = lens _carClientRootCertificateChainARN (\s a -> s {_carClientRootCertificateChainARN = a})
+--
+-- /Note:/ Consider using 'clientRootCertificateChainARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carClientRootCertificateChainARN :: Lens.Lens' CertificateAuthenticationRequest (Lude.Maybe Lude.Text)
+carClientRootCertificateChainARN = Lens.lens (clientRootCertificateChainARN :: CertificateAuthenticationRequest -> Lude.Maybe Lude.Text) (\s a -> s {clientRootCertificateChainARN = a} :: CertificateAuthenticationRequest)
+{-# DEPRECATED carClientRootCertificateChainARN "Use generic-lens or generic-optics with 'clientRootCertificateChainARN' instead." #-}
 
-instance Hashable CertificateAuthenticationRequest
-
-instance NFData CertificateAuthenticationRequest
-
-instance ToQuery CertificateAuthenticationRequest where
+instance Lude.ToQuery CertificateAuthenticationRequest where
   toQuery CertificateAuthenticationRequest' {..} =
-    mconcat
+    Lude.mconcat
       [ "ClientRootCertificateChainArn"
-          =: _carClientRootCertificateChainARN
+          Lude.=: clientRootCertificateChainARN
       ]

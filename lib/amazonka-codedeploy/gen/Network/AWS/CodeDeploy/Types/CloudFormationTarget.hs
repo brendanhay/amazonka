@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,103 +7,132 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.CloudFormationTarget where
+module Network.AWS.CodeDeploy.Types.CloudFormationTarget
+  ( CloudFormationTarget (..),
+
+    -- * Smart constructor
+    mkCloudFormationTarget,
+
+    -- * Lenses
+    cftTargetId,
+    cftStatus,
+    cftDeploymentId,
+    cftResourceType,
+    cftLastUpdatedAt,
+    cftLifecycleEvents,
+    cftTargetVersionWeight,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.LifecycleEvent
 import Network.AWS.CodeDeploy.Types.TargetStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the target to be updated by an AWS CloudFormation blue/green deployment. This target type is used for all deployments initiated by a CloudFormation stack update.
 --
---
---
--- /See:/ 'cloudFormationTarget' smart constructor.
+-- /See:/ 'mkCloudFormationTarget' smart constructor.
 data CloudFormationTarget = CloudFormationTarget'
-  { _cftTargetId ::
-      !(Maybe Text),
-    _cftStatus :: !(Maybe TargetStatus),
-    _cftDeploymentId :: !(Maybe Text),
-    _cftResourceType :: !(Maybe Text),
-    _cftLastUpdatedAt :: !(Maybe POSIX),
-    _cftLifecycleEvents :: !(Maybe [LifecycleEvent]),
-    _cftTargetVersionWeight :: !(Maybe Double)
+  { targetId ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe TargetStatus,
+    deploymentId :: Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe Lude.Text,
+    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    lifecycleEvents :: Lude.Maybe [LifecycleEvent],
+    targetVersionWeight :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudFormationTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cftTargetId' - The unique ID of a deployment target that has a type of @CloudFormationTarget@ .
---
--- * 'cftStatus' - The status of an AWS CloudFormation blue/green deployment's target application.
---
--- * 'cftDeploymentId' - The unique ID of an AWS CloudFormation blue/green deployment.
---
--- * 'cftResourceType' - The resource type for the AWS CloudFormation blue/green deployment.
---
--- * 'cftLastUpdatedAt' - The date and time when the target application was updated by an AWS CloudFormation blue/green deployment.
---
--- * 'cftLifecycleEvents' - The lifecycle events of the AWS CloudFormation blue/green deployment to this target application.
---
--- * 'cftTargetVersionWeight' - The percentage of production traffic that the target version of an AWS CloudFormation blue/green deployment receives.
-cloudFormationTarget ::
+-- * 'deploymentId' - The unique ID of an AWS CloudFormation blue/green deployment.
+-- * 'lastUpdatedAt' - The date and time when the target application was updated by an AWS CloudFormation blue/green deployment.
+-- * 'lifecycleEvents' - The lifecycle events of the AWS CloudFormation blue/green deployment to this target application.
+-- * 'resourceType' - The resource type for the AWS CloudFormation blue/green deployment.
+-- * 'status' - The status of an AWS CloudFormation blue/green deployment's target application.
+-- * 'targetId' - The unique ID of a deployment target that has a type of @CloudFormationTarget@ .
+-- * 'targetVersionWeight' - The percentage of production traffic that the target version of an AWS CloudFormation blue/green deployment receives.
+mkCloudFormationTarget ::
   CloudFormationTarget
-cloudFormationTarget =
+mkCloudFormationTarget =
   CloudFormationTarget'
-    { _cftTargetId = Nothing,
-      _cftStatus = Nothing,
-      _cftDeploymentId = Nothing,
-      _cftResourceType = Nothing,
-      _cftLastUpdatedAt = Nothing,
-      _cftLifecycleEvents = Nothing,
-      _cftTargetVersionWeight = Nothing
+    { targetId = Lude.Nothing,
+      status = Lude.Nothing,
+      deploymentId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      lastUpdatedAt = Lude.Nothing,
+      lifecycleEvents = Lude.Nothing,
+      targetVersionWeight = Lude.Nothing
     }
 
 -- | The unique ID of a deployment target that has a type of @CloudFormationTarget@ .
-cftTargetId :: Lens' CloudFormationTarget (Maybe Text)
-cftTargetId = lens _cftTargetId (\s a -> s {_cftTargetId = a})
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cftTargetId :: Lens.Lens' CloudFormationTarget (Lude.Maybe Lude.Text)
+cftTargetId = Lens.lens (targetId :: CloudFormationTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: CloudFormationTarget)
+{-# DEPRECATED cftTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
 
 -- | The status of an AWS CloudFormation blue/green deployment's target application.
-cftStatus :: Lens' CloudFormationTarget (Maybe TargetStatus)
-cftStatus = lens _cftStatus (\s a -> s {_cftStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cftStatus :: Lens.Lens' CloudFormationTarget (Lude.Maybe TargetStatus)
+cftStatus = Lens.lens (status :: CloudFormationTarget -> Lude.Maybe TargetStatus) (\s a -> s {status = a} :: CloudFormationTarget)
+{-# DEPRECATED cftStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID of an AWS CloudFormation blue/green deployment.
-cftDeploymentId :: Lens' CloudFormationTarget (Maybe Text)
-cftDeploymentId = lens _cftDeploymentId (\s a -> s {_cftDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cftDeploymentId :: Lens.Lens' CloudFormationTarget (Lude.Maybe Lude.Text)
+cftDeploymentId = Lens.lens (deploymentId :: CloudFormationTarget -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: CloudFormationTarget)
+{-# DEPRECATED cftDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | The resource type for the AWS CloudFormation blue/green deployment.
-cftResourceType :: Lens' CloudFormationTarget (Maybe Text)
-cftResourceType = lens _cftResourceType (\s a -> s {_cftResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cftResourceType :: Lens.Lens' CloudFormationTarget (Lude.Maybe Lude.Text)
+cftResourceType = Lens.lens (resourceType :: CloudFormationTarget -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: CloudFormationTarget)
+{-# DEPRECATED cftResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The date and time when the target application was updated by an AWS CloudFormation blue/green deployment.
-cftLastUpdatedAt :: Lens' CloudFormationTarget (Maybe UTCTime)
-cftLastUpdatedAt = lens _cftLastUpdatedAt (\s a -> s {_cftLastUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cftLastUpdatedAt :: Lens.Lens' CloudFormationTarget (Lude.Maybe Lude.Timestamp)
+cftLastUpdatedAt = Lens.lens (lastUpdatedAt :: CloudFormationTarget -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: CloudFormationTarget)
+{-# DEPRECATED cftLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The lifecycle events of the AWS CloudFormation blue/green deployment to this target application.
-cftLifecycleEvents :: Lens' CloudFormationTarget [LifecycleEvent]
-cftLifecycleEvents = lens _cftLifecycleEvents (\s a -> s {_cftLifecycleEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'lifecycleEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cftLifecycleEvents :: Lens.Lens' CloudFormationTarget (Lude.Maybe [LifecycleEvent])
+cftLifecycleEvents = Lens.lens (lifecycleEvents :: CloudFormationTarget -> Lude.Maybe [LifecycleEvent]) (\s a -> s {lifecycleEvents = a} :: CloudFormationTarget)
+{-# DEPRECATED cftLifecycleEvents "Use generic-lens or generic-optics with 'lifecycleEvents' instead." #-}
 
 -- | The percentage of production traffic that the target version of an AWS CloudFormation blue/green deployment receives.
-cftTargetVersionWeight :: Lens' CloudFormationTarget (Maybe Double)
-cftTargetVersionWeight = lens _cftTargetVersionWeight (\s a -> s {_cftTargetVersionWeight = a})
+--
+-- /Note:/ Consider using 'targetVersionWeight' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cftTargetVersionWeight :: Lens.Lens' CloudFormationTarget (Lude.Maybe Lude.Double)
+cftTargetVersionWeight = Lens.lens (targetVersionWeight :: CloudFormationTarget -> Lude.Maybe Lude.Double) (\s a -> s {targetVersionWeight = a} :: CloudFormationTarget)
+{-# DEPRECATED cftTargetVersionWeight "Use generic-lens or generic-optics with 'targetVersionWeight' instead." #-}
 
-instance FromJSON CloudFormationTarget where
+instance Lude.FromJSON CloudFormationTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudFormationTarget"
       ( \x ->
           CloudFormationTarget'
-            <$> (x .:? "targetId")
-            <*> (x .:? "status")
-            <*> (x .:? "deploymentId")
-            <*> (x .:? "resourceType")
-            <*> (x .:? "lastUpdatedAt")
-            <*> (x .:? "lifecycleEvents" .!= mempty)
-            <*> (x .:? "targetVersionWeight")
+            Lude.<$> (x Lude..:? "targetId")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "deploymentId")
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "lastUpdatedAt")
+            Lude.<*> (x Lude..:? "lifecycleEvents" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "targetVersionWeight")
       )
-
-instance Hashable CloudFormationTarget
-
-instance NFData CloudFormationTarget

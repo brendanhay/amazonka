@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264RepeatPps where
+module Network.AWS.MediaConvert.Types.H264RepeatPps
+  ( H264RepeatPps
+      ( H264RepeatPps',
+        HRPDisabled,
+        HRPEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Places a PPS header on each encoded picture, even if repeated.
-data H264RepeatPps
-  = HRPDisabled
-  | HRPEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264RepeatPps = H264RepeatPps' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264RepeatPps where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure HRPDisabled
-      "enabled" -> pure HRPEnabled
-      e ->
-        fromTextError $
-          "Failure parsing H264RepeatPps from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern HRPDisabled :: H264RepeatPps
+pattern HRPDisabled = H264RepeatPps' "DISABLED"
 
-instance ToText H264RepeatPps where
-  toText = \case
-    HRPDisabled -> "DISABLED"
-    HRPEnabled -> "ENABLED"
+pattern HRPEnabled :: H264RepeatPps
+pattern HRPEnabled = H264RepeatPps' "ENABLED"
 
-instance Hashable H264RepeatPps
-
-instance NFData H264RepeatPps
-
-instance ToByteString H264RepeatPps
-
-instance ToQuery H264RepeatPps
-
-instance ToHeader H264RepeatPps
-
-instance ToJSON H264RepeatPps where
-  toJSON = toJSONText
-
-instance FromJSON H264RepeatPps where
-  parseJSON = parseJSONText "H264RepeatPps"
+{-# COMPLETE
+  HRPDisabled,
+  HRPEnabled,
+  H264RepeatPps'
+  #-}

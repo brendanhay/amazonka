@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,166 @@
 --
 -- Creates a new event bus within your account. This can be a custom event bus which you can use to receive events from your custom applications and services, or it can be a partner event bus which can be matched to a partner event source.
 module Network.AWS.CloudWatchEvents.CreateEventBus
-  ( -- * Creating a Request
-    createEventBus,
-    CreateEventBus,
+  ( -- * Creating a request
+    CreateEventBus (..),
+    mkCreateEventBus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cebEventSourceName,
     cebTags,
     cebName,
 
-    -- * Destructuring the Response
-    createEventBusResponse,
-    CreateEventBusResponse,
+    -- * Destructuring the response
+    CreateEventBusResponse (..),
+    mkCreateEventBusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cebrsEventBusARN,
     cebrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createEventBus' smart constructor.
+-- | /See:/ 'mkCreateEventBus' smart constructor.
 data CreateEventBus = CreateEventBus'
-  { _cebEventSourceName ::
-      !(Maybe Text),
-    _cebTags :: !(Maybe [Tag]),
-    _cebName :: !Text
+  { eventSourceName ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEventBus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'eventSourceName' - If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+-- * 'name' - The name of the new event bus.
 --
--- * 'cebEventSourceName' - If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
---
--- * 'cebTags' - Tags to associate with the event bus.
---
--- * 'cebName' - The name of the new event bus.  Event bus names cannot contain the / character. You can't use the name @default@ for a custom event bus, as this name is already used for your account's default event bus. If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
-createEventBus ::
-  -- | 'cebName'
-  Text ->
+-- Event bus names cannot contain the / character. You can't use the name @default@ for a custom event bus, as this name is already used for your account's default event bus.
+-- If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
+-- * 'tags' - Tags to associate with the event bus.
+mkCreateEventBus ::
+  -- | 'name'
+  Lude.Text ->
   CreateEventBus
-createEventBus pName_ =
+mkCreateEventBus pName_ =
   CreateEventBus'
-    { _cebEventSourceName = Nothing,
-      _cebTags = Nothing,
-      _cebName = pName_
+    { eventSourceName = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_
     }
 
 -- | If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
-cebEventSourceName :: Lens' CreateEventBus (Maybe Text)
-cebEventSourceName = lens _cebEventSourceName (\s a -> s {_cebEventSourceName = a})
+--
+-- /Note:/ Consider using 'eventSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cebEventSourceName :: Lens.Lens' CreateEventBus (Lude.Maybe Lude.Text)
+cebEventSourceName = Lens.lens (eventSourceName :: CreateEventBus -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceName = a} :: CreateEventBus)
+{-# DEPRECATED cebEventSourceName "Use generic-lens or generic-optics with 'eventSourceName' instead." #-}
 
 -- | Tags to associate with the event bus.
-cebTags :: Lens' CreateEventBus [Tag]
-cebTags = lens _cebTags (\s a -> s {_cebTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cebTags :: Lens.Lens' CreateEventBus (Lude.Maybe [Tag])
+cebTags = Lens.lens (tags :: CreateEventBus -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEventBus)
+{-# DEPRECATED cebTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the new event bus.  Event bus names cannot contain the / character. You can't use the name @default@ for a custom event bus, as this name is already used for your account's default event bus. If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
-cebName :: Lens' CreateEventBus Text
-cebName = lens _cebName (\s a -> s {_cebName = a})
+-- | The name of the new event bus.
+--
+-- Event bus names cannot contain the / character. You can't use the name @default@ for a custom event bus, as this name is already used for your account's default event bus.
+-- If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cebName :: Lens.Lens' CreateEventBus Lude.Text
+cebName = Lens.lens (name :: CreateEventBus -> Lude.Text) (\s a -> s {name = a} :: CreateEventBus)
+{-# DEPRECATED cebName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateEventBus where
+instance Lude.AWSRequest CreateEventBus where
   type Rs CreateEventBus = CreateEventBusResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateEventBusResponse'
-            <$> (x .?> "EventBusArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EventBusArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateEventBus
-
-instance NFData CreateEventBus
-
-instance ToHeaders CreateEventBus where
+instance Lude.ToHeaders CreateEventBus where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.CreateEventBus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.CreateEventBus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateEventBus where
+instance Lude.ToJSON CreateEventBus where
   toJSON CreateEventBus' {..} =
-    object
-      ( catMaybes
-          [ ("EventSourceName" .=) <$> _cebEventSourceName,
-            ("Tags" .=) <$> _cebTags,
-            Just ("Name" .= _cebName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EventSourceName" Lude..=) Lude.<$> eventSourceName,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath CreateEventBus where
-  toPath = const "/"
+instance Lude.ToPath CreateEventBus where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateEventBus where
-  toQuery = const mempty
+instance Lude.ToQuery CreateEventBus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createEventBusResponse' smart constructor.
+-- | /See:/ 'mkCreateEventBusResponse' smart constructor.
 data CreateEventBusResponse = CreateEventBusResponse'
-  { _cebrsEventBusARN ::
-      !(Maybe Text),
-    _cebrsResponseStatus :: !Int
+  { eventBusARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEventBusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cebrsEventBusARN' - The ARN of the new event bus.
---
--- * 'cebrsResponseStatus' - -- | The response status code.
-createEventBusResponse ::
-  -- | 'cebrsResponseStatus'
-  Int ->
+-- * 'eventBusARN' - The ARN of the new event bus.
+-- * 'responseStatus' - The response status code.
+mkCreateEventBusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateEventBusResponse
-createEventBusResponse pResponseStatus_ =
+mkCreateEventBusResponse pResponseStatus_ =
   CreateEventBusResponse'
-    { _cebrsEventBusARN = Nothing,
-      _cebrsResponseStatus = pResponseStatus_
+    { eventBusARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the new event bus.
-cebrsEventBusARN :: Lens' CreateEventBusResponse (Maybe Text)
-cebrsEventBusARN = lens _cebrsEventBusARN (\s a -> s {_cebrsEventBusARN = a})
+--
+-- /Note:/ Consider using 'eventBusARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cebrsEventBusARN :: Lens.Lens' CreateEventBusResponse (Lude.Maybe Lude.Text)
+cebrsEventBusARN = Lens.lens (eventBusARN :: CreateEventBusResponse -> Lude.Maybe Lude.Text) (\s a -> s {eventBusARN = a} :: CreateEventBusResponse)
+{-# DEPRECATED cebrsEventBusARN "Use generic-lens or generic-optics with 'eventBusARN' instead." #-}
 
--- | -- | The response status code.
-cebrsResponseStatus :: Lens' CreateEventBusResponse Int
-cebrsResponseStatus = lens _cebrsResponseStatus (\s a -> s {_cebrsResponseStatus = a})
-
-instance NFData CreateEventBusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cebrsResponseStatus :: Lens.Lens' CreateEventBusResponse Lude.Int
+cebrsResponseStatus = Lens.lens (responseStatus :: CreateEventBusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEventBusResponse)
+{-# DEPRECATED cebrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

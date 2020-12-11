@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.GitConfig where
+module Network.AWS.SageMaker.Types.GitConfig
+  ( GitConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGitConfig,
+
+    -- * Lenses
+    gcBranch,
+    gcSecretARN,
+    gcRepositoryURL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies configuration details for a Git repository in your AWS account.
 --
---
---
--- /See:/ 'gitConfig' smart constructor.
+-- /See:/ 'mkGitConfig' smart constructor.
 data GitConfig = GitConfig'
-  { _gcBranch :: !(Maybe Text),
-    _gcSecretARN :: !(Maybe Text),
-    _gcRepositoryURL :: !Text
+  { branch :: Lude.Maybe Lude.Text,
+    secretARN :: Lude.Maybe Lude.Text,
+    repositoryURL :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GitConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'branch' - The default branch for the Git repository.
+-- * 'repositoryURL' - The URL where the Git repository is located.
+-- * 'secretARN' - The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
 --
--- * 'gcBranch' - The default branch for the Git repository.
---
--- * 'gcSecretARN' - The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format: @{"username": /UserName/ , "password": /Password/ }@
---
--- * 'gcRepositoryURL' - The URL where the Git repository is located.
-gitConfig ::
-  -- | 'gcRepositoryURL'
-  Text ->
+-- @{"username": /UserName/ , "password": /Password/ }@
+mkGitConfig ::
+  -- | 'repositoryURL'
+  Lude.Text ->
   GitConfig
-gitConfig pRepositoryURL_ =
+mkGitConfig pRepositoryURL_ =
   GitConfig'
-    { _gcBranch = Nothing,
-      _gcSecretARN = Nothing,
-      _gcRepositoryURL = pRepositoryURL_
+    { branch = Lude.Nothing,
+      secretARN = Lude.Nothing,
+      repositoryURL = pRepositoryURL_
     }
 
 -- | The default branch for the Git repository.
-gcBranch :: Lens' GitConfig (Maybe Text)
-gcBranch = lens _gcBranch (\s a -> s {_gcBranch = a})
+--
+-- /Note:/ Consider using 'branch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcBranch :: Lens.Lens' GitConfig (Lude.Maybe Lude.Text)
+gcBranch = Lens.lens (branch :: GitConfig -> Lude.Maybe Lude.Text) (\s a -> s {branch = a} :: GitConfig)
+{-# DEPRECATED gcBranch "Use generic-lens or generic-optics with 'branch' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format: @{"username": /UserName/ , "password": /Password/ }@
-gcSecretARN :: Lens' GitConfig (Maybe Text)
-gcSecretARN = lens _gcSecretARN (\s a -> s {_gcSecretARN = a})
+-- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
+--
+-- @{"username": /UserName/ , "password": /Password/ }@
+--
+-- /Note:/ Consider using 'secretARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcSecretARN :: Lens.Lens' GitConfig (Lude.Maybe Lude.Text)
+gcSecretARN = Lens.lens (secretARN :: GitConfig -> Lude.Maybe Lude.Text) (\s a -> s {secretARN = a} :: GitConfig)
+{-# DEPRECATED gcSecretARN "Use generic-lens or generic-optics with 'secretARN' instead." #-}
 
 -- | The URL where the Git repository is located.
-gcRepositoryURL :: Lens' GitConfig Text
-gcRepositoryURL = lens _gcRepositoryURL (\s a -> s {_gcRepositoryURL = a})
+--
+-- /Note:/ Consider using 'repositoryURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcRepositoryURL :: Lens.Lens' GitConfig Lude.Text
+gcRepositoryURL = Lens.lens (repositoryURL :: GitConfig -> Lude.Text) (\s a -> s {repositoryURL = a} :: GitConfig)
+{-# DEPRECATED gcRepositoryURL "Use generic-lens or generic-optics with 'repositoryURL' instead." #-}
 
-instance FromJSON GitConfig where
+instance Lude.FromJSON GitConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "GitConfig"
       ( \x ->
           GitConfig'
-            <$> (x .:? "Branch")
-            <*> (x .:? "SecretArn")
-            <*> (x .: "RepositoryUrl")
+            Lude.<$> (x Lude..:? "Branch")
+            Lude.<*> (x Lude..:? "SecretArn")
+            Lude.<*> (x Lude..: "RepositoryUrl")
       )
 
-instance Hashable GitConfig
-
-instance NFData GitConfig
-
-instance ToJSON GitConfig where
+instance Lude.ToJSON GitConfig where
   toJSON GitConfig' {..} =
-    object
-      ( catMaybes
-          [ ("Branch" .=) <$> _gcBranch,
-            ("SecretArn" .=) <$> _gcSecretARN,
-            Just ("RepositoryUrl" .= _gcRepositoryURL)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Branch" Lude..=) Lude.<$> branch,
+            ("SecretArn" Lude..=) Lude.<$> secretARN,
+            Lude.Just ("RepositoryUrl" Lude..= repositoryURL)
           ]
       )

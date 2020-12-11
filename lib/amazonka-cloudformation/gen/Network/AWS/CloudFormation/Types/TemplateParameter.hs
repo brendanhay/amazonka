@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.TemplateParameter where
+module Network.AWS.CloudFormation.Types.TemplateParameter
+  ( TemplateParameter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTemplateParameter,
+
+    -- * Lenses
+    tpParameterKey,
+    tpDefaultValue,
+    tpNoEcho,
+    tpDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The TemplateParameter data type.
 --
---
---
--- /See:/ 'templateParameter' smart constructor.
+-- /See:/ 'mkTemplateParameter' smart constructor.
 data TemplateParameter = TemplateParameter'
-  { _tpParameterKey ::
-      !(Maybe Text),
-    _tpDefaultValue :: !(Maybe Text),
-    _tpNoEcho :: !(Maybe Bool),
-    _tpDescription :: !(Maybe Text)
+  { parameterKey ::
+      Lude.Maybe Lude.Text,
+    defaultValue :: Lude.Maybe Lude.Text,
+    noEcho :: Lude.Maybe Lude.Bool,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemplateParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tpParameterKey' - The name associated with the parameter.
---
--- * 'tpDefaultValue' - The default value associated with the parameter.
---
--- * 'tpNoEcho' - Flag indicating whether the parameter should be displayed as plain text in logs and UIs.
---
--- * 'tpDescription' - User defined description associated with the parameter.
-templateParameter ::
+-- * 'defaultValue' - The default value associated with the parameter.
+-- * 'description' - User defined description associated with the parameter.
+-- * 'noEcho' - Flag indicating whether the parameter should be displayed as plain text in logs and UIs.
+-- * 'parameterKey' - The name associated with the parameter.
+mkTemplateParameter ::
   TemplateParameter
-templateParameter =
+mkTemplateParameter =
   TemplateParameter'
-    { _tpParameterKey = Nothing,
-      _tpDefaultValue = Nothing,
-      _tpNoEcho = Nothing,
-      _tpDescription = Nothing
+    { parameterKey = Lude.Nothing,
+      defaultValue = Lude.Nothing,
+      noEcho = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The name associated with the parameter.
-tpParameterKey :: Lens' TemplateParameter (Maybe Text)
-tpParameterKey = lens _tpParameterKey (\s a -> s {_tpParameterKey = a})
+--
+-- /Note:/ Consider using 'parameterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpParameterKey :: Lens.Lens' TemplateParameter (Lude.Maybe Lude.Text)
+tpParameterKey = Lens.lens (parameterKey :: TemplateParameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterKey = a} :: TemplateParameter)
+{-# DEPRECATED tpParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
 
 -- | The default value associated with the parameter.
-tpDefaultValue :: Lens' TemplateParameter (Maybe Text)
-tpDefaultValue = lens _tpDefaultValue (\s a -> s {_tpDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpDefaultValue :: Lens.Lens' TemplateParameter (Lude.Maybe Lude.Text)
+tpDefaultValue = Lens.lens (defaultValue :: TemplateParameter -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: TemplateParameter)
+{-# DEPRECATED tpDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | Flag indicating whether the parameter should be displayed as plain text in logs and UIs.
-tpNoEcho :: Lens' TemplateParameter (Maybe Bool)
-tpNoEcho = lens _tpNoEcho (\s a -> s {_tpNoEcho = a})
+--
+-- /Note:/ Consider using 'noEcho' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpNoEcho :: Lens.Lens' TemplateParameter (Lude.Maybe Lude.Bool)
+tpNoEcho = Lens.lens (noEcho :: TemplateParameter -> Lude.Maybe Lude.Bool) (\s a -> s {noEcho = a} :: TemplateParameter)
+{-# DEPRECATED tpNoEcho "Use generic-lens or generic-optics with 'noEcho' instead." #-}
 
 -- | User defined description associated with the parameter.
-tpDescription :: Lens' TemplateParameter (Maybe Text)
-tpDescription = lens _tpDescription (\s a -> s {_tpDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpDescription :: Lens.Lens' TemplateParameter (Lude.Maybe Lude.Text)
+tpDescription = Lens.lens (description :: TemplateParameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TemplateParameter)
+{-# DEPRECATED tpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML TemplateParameter where
+instance Lude.FromXML TemplateParameter where
   parseXML x =
     TemplateParameter'
-      <$> (x .@? "ParameterKey")
-      <*> (x .@? "DefaultValue")
-      <*> (x .@? "NoEcho")
-      <*> (x .@? "Description")
-
-instance Hashable TemplateParameter
-
-instance NFData TemplateParameter
+      Lude.<$> (x Lude..@? "ParameterKey")
+      Lude.<*> (x Lude..@? "DefaultValue")
+      Lude.<*> (x Lude..@? "NoEcho")
+      Lude.<*> (x Lude..@? "Description")

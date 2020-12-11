@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.WirelessConnection where
+module Network.AWS.Snowball.Types.WirelessConnection
+  ( WirelessConnection (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWirelessConnection,
+
+    -- * Lenses
+    wcIsWifiEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configures the wireless connection on an AWS Snowcone device.
 --
---
---
--- /See:/ 'wirelessConnection' smart constructor.
+-- /See:/ 'mkWirelessConnection' smart constructor.
 newtype WirelessConnection = WirelessConnection'
-  { _wcIsWifiEnabled ::
-      Maybe Bool
+  { isWifiEnabled ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WirelessConnection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wcIsWifiEnabled' - Enables the Wi-Fi adapter on an AWS Snowcone device.
-wirelessConnection ::
+-- * 'isWifiEnabled' - Enables the Wi-Fi adapter on an AWS Snowcone device.
+mkWirelessConnection ::
   WirelessConnection
-wirelessConnection =
-  WirelessConnection' {_wcIsWifiEnabled = Nothing}
+mkWirelessConnection =
+  WirelessConnection' {isWifiEnabled = Lude.Nothing}
 
 -- | Enables the Wi-Fi adapter on an AWS Snowcone device.
-wcIsWifiEnabled :: Lens' WirelessConnection (Maybe Bool)
-wcIsWifiEnabled = lens _wcIsWifiEnabled (\s a -> s {_wcIsWifiEnabled = a})
+--
+-- /Note:/ Consider using 'isWifiEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wcIsWifiEnabled :: Lens.Lens' WirelessConnection (Lude.Maybe Lude.Bool)
+wcIsWifiEnabled = Lens.lens (isWifiEnabled :: WirelessConnection -> Lude.Maybe Lude.Bool) (\s a -> s {isWifiEnabled = a} :: WirelessConnection)
+{-# DEPRECATED wcIsWifiEnabled "Use generic-lens or generic-optics with 'isWifiEnabled' instead." #-}
 
-instance FromJSON WirelessConnection where
+instance Lude.FromJSON WirelessConnection where
   parseJSON =
-    withObject
+    Lude.withObject
       "WirelessConnection"
-      (\x -> WirelessConnection' <$> (x .:? "IsWifiEnabled"))
+      (\x -> WirelessConnection' Lude.<$> (x Lude..:? "IsWifiEnabled"))
 
-instance Hashable WirelessConnection
-
-instance NFData WirelessConnection
-
-instance ToJSON WirelessConnection where
+instance Lude.ToJSON WirelessConnection where
   toJSON WirelessConnection' {..} =
-    object (catMaybes [("IsWifiEnabled" .=) <$> _wcIsWifiEnabled])
+    Lude.object
+      (Lude.catMaybes [("IsWifiEnabled" Lude..=) Lude.<$> isWifiEnabled])

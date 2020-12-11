@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,161 @@
 --
 -- Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies. At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.
 --
---
 -- Each time you use @SetLoadBalancerPoliciesForBackendServer@ to enable the policies, use the @PolicyNames@ parameter to list the policies that you want to enable.
---
 -- You can use 'DescribeLoadBalancers' or 'DescribeLoadBalancerPolicies' to verify that the policy is associated with the EC2 instance.
---
 -- For more information about enabling back-end instance authentication, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-create-https-ssl-load-balancer.html#configure_backendauth_clt Configure Back-end Instance Authentication> in the /Classic Load Balancers Guide/ . For more information about Proxy Protocol, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html Configure Proxy Protocol Support> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-  ( -- * Creating a Request
-    setLoadBalancerPoliciesForBackendServer,
-    SetLoadBalancerPoliciesForBackendServer,
+  ( -- * Creating a request
+    SetLoadBalancerPoliciesForBackendServer (..),
+    mkSetLoadBalancerPoliciesForBackendServer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     slbpfbsLoadBalancerName,
     slbpfbsInstancePort,
     slbpfbsPolicyNames,
 
-    -- * Destructuring the Response
-    setLoadBalancerPoliciesForBackendServerResponse,
-    SetLoadBalancerPoliciesForBackendServerResponse,
+    -- * Destructuring the response
+    SetLoadBalancerPoliciesForBackendServerResponse (..),
+    mkSetLoadBalancerPoliciesForBackendServerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     slbpfbsrsResponseStatus,
   )
 where
 
 import Network.AWS.ELB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for SetLoadBalancerPoliciesForBackendServer.
 --
---
---
--- /See:/ 'setLoadBalancerPoliciesForBackendServer' smart constructor.
+-- /See:/ 'mkSetLoadBalancerPoliciesForBackendServer' smart constructor.
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
-  { _slbpfbsLoadBalancerName ::
-      !Text,
-    _slbpfbsInstancePort ::
-      !Int,
-    _slbpfbsPolicyNames ::
-      ![Text]
+  { loadBalancerName ::
+      Lude.Text,
+    instancePort ::
+      Lude.Int,
+    policyNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBalancerPoliciesForBackendServer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slbpfbsLoadBalancerName' - The name of the load balancer.
---
--- * 'slbpfbsInstancePort' - The port number associated with the EC2 instance.
---
--- * 'slbpfbsPolicyNames' - The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
-setLoadBalancerPoliciesForBackendServer ::
-  -- | 'slbpfbsLoadBalancerName'
-  Text ->
-  -- | 'slbpfbsInstancePort'
-  Int ->
+-- * 'instancePort' - The port number associated with the EC2 instance.
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'policyNames' - The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
+mkSetLoadBalancerPoliciesForBackendServer ::
+  -- | 'loadBalancerName'
+  Lude.Text ->
+  -- | 'instancePort'
+  Lude.Int ->
   SetLoadBalancerPoliciesForBackendServer
-setLoadBalancerPoliciesForBackendServer
+mkSetLoadBalancerPoliciesForBackendServer
   pLoadBalancerName_
   pInstancePort_ =
     SetLoadBalancerPoliciesForBackendServer'
-      { _slbpfbsLoadBalancerName =
+      { loadBalancerName =
           pLoadBalancerName_,
-        _slbpfbsInstancePort = pInstancePort_,
-        _slbpfbsPolicyNames = mempty
+        instancePort = pInstancePort_,
+        policyNames = Lude.mempty
       }
 
 -- | The name of the load balancer.
-slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
-slbpfbsLoadBalancerName = lens _slbpfbsLoadBalancerName (\s a -> s {_slbpfbsLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpfbsLoadBalancerName :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer Lude.Text
+slbpfbsLoadBalancerName = Lens.lens (loadBalancerName :: SetLoadBalancerPoliciesForBackendServer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: SetLoadBalancerPoliciesForBackendServer)
+{-# DEPRECATED slbpfbsLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The port number associated with the EC2 instance.
-slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
-slbpfbsInstancePort = lens _slbpfbsInstancePort (\s a -> s {_slbpfbsInstancePort = a})
+--
+-- /Note:/ Consider using 'instancePort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpfbsInstancePort :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer Lude.Int
+slbpfbsInstancePort = Lens.lens (instancePort :: SetLoadBalancerPoliciesForBackendServer -> Lude.Int) (\s a -> s {instancePort = a} :: SetLoadBalancerPoliciesForBackendServer)
+{-# DEPRECATED slbpfbsInstancePort "Use generic-lens or generic-optics with 'instancePort' instead." #-}
 
 -- | The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
-slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
-slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\s a -> s {_slbpfbsPolicyNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpfbsPolicyNames :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer [Lude.Text]
+slbpfbsPolicyNames = Lens.lens (policyNames :: SetLoadBalancerPoliciesForBackendServer -> [Lude.Text]) (\s a -> s {policyNames = a} :: SetLoadBalancerPoliciesForBackendServer)
+{-# DEPRECATED slbpfbsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
-instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
+instance Lude.AWSRequest SetLoadBalancerPoliciesForBackendServer where
   type
     Rs SetLoadBalancerPoliciesForBackendServer =
       SetLoadBalancerPoliciesForBackendServerResponse
-  request = postQuery elb
+  request = Req.postQuery elbService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "SetLoadBalancerPoliciesForBackendServerResult"
       ( \s h x ->
           SetLoadBalancerPoliciesForBackendServerResponse'
-            <$> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SetLoadBalancerPoliciesForBackendServer
+instance Lude.ToHeaders SetLoadBalancerPoliciesForBackendServer where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetLoadBalancerPoliciesForBackendServer
+instance Lude.ToPath SetLoadBalancerPoliciesForBackendServer where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetLoadBalancerPoliciesForBackendServer where
-  toHeaders = const mempty
-
-instance ToPath SetLoadBalancerPoliciesForBackendServer where
-  toPath = const "/"
-
-instance ToQuery SetLoadBalancerPoliciesForBackendServer where
+instance Lude.ToQuery SetLoadBalancerPoliciesForBackendServer where
   toQuery SetLoadBalancerPoliciesForBackendServer' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("SetLoadBalancerPoliciesForBackendServer" :: ByteString),
-        "Version" =: ("2012-06-01" :: ByteString),
-        "LoadBalancerName" =: _slbpfbsLoadBalancerName,
-        "InstancePort" =: _slbpfbsInstancePort,
-        "PolicyNames" =: toQueryList "member" _slbpfbsPolicyNames
+          Lude.=: ("SetLoadBalancerPoliciesForBackendServer" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "LoadBalancerName" Lude.=: loadBalancerName,
+        "InstancePort" Lude.=: instancePort,
+        "PolicyNames" Lude.=: Lude.toQueryList "member" policyNames
       ]
 
 -- | Contains the output of SetLoadBalancerPoliciesForBackendServer.
 --
---
---
--- /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
+-- /See:/ 'mkSetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
-  { _slbpfbsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'SetLoadBalancerPoliciesForBackendServerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slbpfbsrsResponseStatus' - -- | The response status code.
-setLoadBalancerPoliciesForBackendServerResponse ::
-  -- | 'slbpfbsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkSetLoadBalancerPoliciesForBackendServerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SetLoadBalancerPoliciesForBackendServerResponse
-setLoadBalancerPoliciesForBackendServerResponse pResponseStatus_ =
+mkSetLoadBalancerPoliciesForBackendServerResponse pResponseStatus_ =
   SetLoadBalancerPoliciesForBackendServerResponse'
-    { _slbpfbsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-slbpfbsrsResponseStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
-slbpfbsrsResponseStatus = lens _slbpfbsrsResponseStatus (\s a -> s {_slbpfbsrsResponseStatus = a})
-
-instance NFData SetLoadBalancerPoliciesForBackendServerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpfbsrsResponseStatus :: Lens.Lens' SetLoadBalancerPoliciesForBackendServerResponse Lude.Int
+slbpfbsrsResponseStatus = Lens.lens (responseStatus :: SetLoadBalancerPoliciesForBackendServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetLoadBalancerPoliciesForBackendServerResponse)
+{-# DEPRECATED slbpfbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

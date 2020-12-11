@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TrafficType where
+module Network.AWS.EC2.Types.TrafficType
+  ( TrafficType
+      ( TrafficType',
+        TTAccept,
+        TTAll,
+        TTReject
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrafficType
-  = TTAccept
-  | TTAll
-  | TTReject
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrafficType = TrafficType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrafficType where
-  parser =
-    takeLowerText >>= \case
-      "accept" -> pure TTAccept
-      "all" -> pure TTAll
-      "reject" -> pure TTReject
-      e ->
-        fromTextError $
-          "Failure parsing TrafficType from value: '" <> e
-            <> "'. Accepted values: accept, all, reject"
+pattern TTAccept :: TrafficType
+pattern TTAccept = TrafficType' "ACCEPT"
 
-instance ToText TrafficType where
-  toText = \case
-    TTAccept -> "ACCEPT"
-    TTAll -> "ALL"
-    TTReject -> "REJECT"
+pattern TTAll :: TrafficType
+pattern TTAll = TrafficType' "ALL"
 
-instance Hashable TrafficType
+pattern TTReject :: TrafficType
+pattern TTReject = TrafficType' "REJECT"
 
-instance NFData TrafficType
-
-instance ToByteString TrafficType
-
-instance ToQuery TrafficType
-
-instance ToHeader TrafficType
-
-instance FromXML TrafficType where
-  parseXML = parseXMLText "TrafficType"
+{-# COMPLETE
+  TTAccept,
+  TTAll,
+  TTReject,
+  TrafficType'
+  #-}

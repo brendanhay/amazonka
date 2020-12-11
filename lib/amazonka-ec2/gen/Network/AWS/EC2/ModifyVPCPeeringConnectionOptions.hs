@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,29 +17,30 @@
 --
 --     * Enable/disable communication over the peering connection between an EC2-Classic instance that's linked to your VPC (using ClassicLink) and instances in the peer VPC.
 --
+--
 --     * Enable/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that's linked to the peer VPC.
+--
 --
 --     * Enable/disable the ability to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 --
 --
---
 -- If the peered VPCs are in the same AWS account, you can enable DNS resolution for queries from the local VPC. This ensures that queries from the local VPC resolve to private IP addresses in the peer VPC. This option is not available if the peered VPCs are in different AWS accounts or different Regions. For peered VPCs in different AWS accounts, each AWS account owner must initiate a separate request to modify the peering connection options. For inter-region peering connections, you must use the Region for the requester VPC to modify the requester VPC peering options and the Region for the accepter VPC to modify the accepter VPC peering options. To verify which VPCs are the accepter and the requester for a VPC peering connection, use the 'DescribeVpcPeeringConnections' command.
 module Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
-  ( -- * Creating a Request
-    modifyVPCPeeringConnectionOptions,
-    ModifyVPCPeeringConnectionOptions,
+  ( -- * Creating a request
+    ModifyVPCPeeringConnectionOptions (..),
+    mkModifyVPCPeeringConnectionOptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mvpcoRequesterPeeringConnectionOptions,
     mvpcoAccepterPeeringConnectionOptions,
     mvpcoDryRun,
     mvpcoVPCPeeringConnectionId,
 
-    -- * Destructuring the Response
-    modifyVPCPeeringConnectionOptionsResponse,
-    ModifyVPCPeeringConnectionOptionsResponse,
+    -- * Destructuring the response
+    ModifyVPCPeeringConnectionOptionsResponse (..),
+    mkModifyVPCPeeringConnectionOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mvpcorsRequesterPeeringConnectionOptions,
     mvpcorsAccepterPeeringConnectionOptions,
     mvpcorsResponseStatus,
@@ -52,158 +48,168 @@ module Network.AWS.EC2.ModifyVPCPeeringConnectionOptions
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyVPCPeeringConnectionOptions' smart constructor.
+-- | /See:/ 'mkModifyVPCPeeringConnectionOptions' smart constructor.
 data ModifyVPCPeeringConnectionOptions = ModifyVPCPeeringConnectionOptions'
-  { _mvpcoRequesterPeeringConnectionOptions ::
-      !( Maybe
-           PeeringConnectionOptionsRequest
-       ),
-    _mvpcoAccepterPeeringConnectionOptions ::
-      !( Maybe
-           PeeringConnectionOptionsRequest
-       ),
-    _mvpcoDryRun ::
-      !(Maybe Bool),
-    _mvpcoVPCPeeringConnectionId ::
-      !Text
+  { requesterPeeringConnectionOptions ::
+      Lude.Maybe
+        PeeringConnectionOptionsRequest,
+    accepterPeeringConnectionOptions ::
+      Lude.Maybe
+        PeeringConnectionOptionsRequest,
+    dryRun ::
+      Lude.Maybe Lude.Bool,
+    vpcPeeringConnectionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCPeeringConnectionOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvpcoRequesterPeeringConnectionOptions' - The VPC peering connection options for the requester VPC.
---
--- * 'mvpcoAccepterPeeringConnectionOptions' - The VPC peering connection options for the accepter VPC.
---
--- * 'mvpcoDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'mvpcoVPCPeeringConnectionId' - The ID of the VPC peering connection.
-modifyVPCPeeringConnectionOptions ::
-  -- | 'mvpcoVPCPeeringConnectionId'
-  Text ->
+-- * 'accepterPeeringConnectionOptions' - The VPC peering connection options for the accepter VPC.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'requesterPeeringConnectionOptions' - The VPC peering connection options for the requester VPC.
+-- * 'vpcPeeringConnectionId' - The ID of the VPC peering connection.
+mkModifyVPCPeeringConnectionOptions ::
+  -- | 'vpcPeeringConnectionId'
+  Lude.Text ->
   ModifyVPCPeeringConnectionOptions
-modifyVPCPeeringConnectionOptions pVPCPeeringConnectionId_ =
+mkModifyVPCPeeringConnectionOptions pVPCPeeringConnectionId_ =
   ModifyVPCPeeringConnectionOptions'
-    { _mvpcoRequesterPeeringConnectionOptions =
-        Nothing,
-      _mvpcoAccepterPeeringConnectionOptions = Nothing,
-      _mvpcoDryRun = Nothing,
-      _mvpcoVPCPeeringConnectionId = pVPCPeeringConnectionId_
+    { requesterPeeringConnectionOptions =
+        Lude.Nothing,
+      accepterPeeringConnectionOptions = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      vpcPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
 -- | The VPC peering connection options for the requester VPC.
-mvpcoRequesterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptions (Maybe PeeringConnectionOptionsRequest)
-mvpcoRequesterPeeringConnectionOptions = lens _mvpcoRequesterPeeringConnectionOptions (\s a -> s {_mvpcoRequesterPeeringConnectionOptions = a})
+--
+-- /Note:/ Consider using 'requesterPeeringConnectionOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvpcoRequesterPeeringConnectionOptions :: Lens.Lens' ModifyVPCPeeringConnectionOptions (Lude.Maybe PeeringConnectionOptionsRequest)
+mvpcoRequesterPeeringConnectionOptions = Lens.lens (requesterPeeringConnectionOptions :: ModifyVPCPeeringConnectionOptions -> Lude.Maybe PeeringConnectionOptionsRequest) (\s a -> s {requesterPeeringConnectionOptions = a} :: ModifyVPCPeeringConnectionOptions)
+{-# DEPRECATED mvpcoRequesterPeeringConnectionOptions "Use generic-lens or generic-optics with 'requesterPeeringConnectionOptions' instead." #-}
 
 -- | The VPC peering connection options for the accepter VPC.
-mvpcoAccepterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptions (Maybe PeeringConnectionOptionsRequest)
-mvpcoAccepterPeeringConnectionOptions = lens _mvpcoAccepterPeeringConnectionOptions (\s a -> s {_mvpcoAccepterPeeringConnectionOptions = a})
+--
+-- /Note:/ Consider using 'accepterPeeringConnectionOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvpcoAccepterPeeringConnectionOptions :: Lens.Lens' ModifyVPCPeeringConnectionOptions (Lude.Maybe PeeringConnectionOptionsRequest)
+mvpcoAccepterPeeringConnectionOptions = Lens.lens (accepterPeeringConnectionOptions :: ModifyVPCPeeringConnectionOptions -> Lude.Maybe PeeringConnectionOptionsRequest) (\s a -> s {accepterPeeringConnectionOptions = a} :: ModifyVPCPeeringConnectionOptions)
+{-# DEPRECATED mvpcoAccepterPeeringConnectionOptions "Use generic-lens or generic-optics with 'accepterPeeringConnectionOptions' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mvpcoDryRun :: Lens' ModifyVPCPeeringConnectionOptions (Maybe Bool)
-mvpcoDryRun = lens _mvpcoDryRun (\s a -> s {_mvpcoDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvpcoDryRun :: Lens.Lens' ModifyVPCPeeringConnectionOptions (Lude.Maybe Lude.Bool)
+mvpcoDryRun = Lens.lens (dryRun :: ModifyVPCPeeringConnectionOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPCPeeringConnectionOptions)
+{-# DEPRECATED mvpcoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the VPC peering connection.
-mvpcoVPCPeeringConnectionId :: Lens' ModifyVPCPeeringConnectionOptions Text
-mvpcoVPCPeeringConnectionId = lens _mvpcoVPCPeeringConnectionId (\s a -> s {_mvpcoVPCPeeringConnectionId = a})
+--
+-- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvpcoVPCPeeringConnectionId :: Lens.Lens' ModifyVPCPeeringConnectionOptions Lude.Text
+mvpcoVPCPeeringConnectionId = Lens.lens (vpcPeeringConnectionId :: ModifyVPCPeeringConnectionOptions -> Lude.Text) (\s a -> s {vpcPeeringConnectionId = a} :: ModifyVPCPeeringConnectionOptions)
+{-# DEPRECATED mvpcoVPCPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
 
-instance AWSRequest ModifyVPCPeeringConnectionOptions where
+instance Lude.AWSRequest ModifyVPCPeeringConnectionOptions where
   type
     Rs ModifyVPCPeeringConnectionOptions =
       ModifyVPCPeeringConnectionOptionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyVPCPeeringConnectionOptionsResponse'
-            <$> (x .@? "requesterPeeringConnectionOptions")
-            <*> (x .@? "accepterPeeringConnectionOptions")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "requesterPeeringConnectionOptions")
+            Lude.<*> (x Lude..@? "accepterPeeringConnectionOptions")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyVPCPeeringConnectionOptions
+instance Lude.ToHeaders ModifyVPCPeeringConnectionOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyVPCPeeringConnectionOptions
+instance Lude.ToPath ModifyVPCPeeringConnectionOptions where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyVPCPeeringConnectionOptions where
-  toHeaders = const mempty
-
-instance ToPath ModifyVPCPeeringConnectionOptions where
-  toPath = const "/"
-
-instance ToQuery ModifyVPCPeeringConnectionOptions where
+instance Lude.ToQuery ModifyVPCPeeringConnectionOptions where
   toQuery ModifyVPCPeeringConnectionOptions' {..} =
-    mconcat
-      [ "Action" =: ("ModifyVpcPeeringConnectionOptions" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("ModifyVpcPeeringConnectionOptions" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "RequesterPeeringConnectionOptions"
-          =: _mvpcoRequesterPeeringConnectionOptions,
+          Lude.=: requesterPeeringConnectionOptions,
         "AccepterPeeringConnectionOptions"
-          =: _mvpcoAccepterPeeringConnectionOptions,
-        "DryRun" =: _mvpcoDryRun,
-        "VpcPeeringConnectionId" =: _mvpcoVPCPeeringConnectionId
+          Lude.=: accepterPeeringConnectionOptions,
+        "DryRun" Lude.=: dryRun,
+        "VpcPeeringConnectionId" Lude.=: vpcPeeringConnectionId
       ]
 
--- | /See:/ 'modifyVPCPeeringConnectionOptionsResponse' smart constructor.
+-- | /See:/ 'mkModifyVPCPeeringConnectionOptionsResponse' smart constructor.
 data ModifyVPCPeeringConnectionOptionsResponse = ModifyVPCPeeringConnectionOptionsResponse'
-  { _mvpcorsRequesterPeeringConnectionOptions ::
-      !( Maybe
-           PeeringConnectionOptions
-       ),
-    _mvpcorsAccepterPeeringConnectionOptions ::
-      !( Maybe
-           PeeringConnectionOptions
-       ),
-    _mvpcorsResponseStatus ::
-      !Int
+  { requesterPeeringConnectionOptions ::
+      Lude.Maybe
+        PeeringConnectionOptions,
+    accepterPeeringConnectionOptions ::
+      Lude.Maybe
+        PeeringConnectionOptions,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCPeeringConnectionOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvpcorsRequesterPeeringConnectionOptions' - Information about the VPC peering connection options for the requester VPC.
---
--- * 'mvpcorsAccepterPeeringConnectionOptions' - Information about the VPC peering connection options for the accepter VPC.
---
--- * 'mvpcorsResponseStatus' - -- | The response status code.
-modifyVPCPeeringConnectionOptionsResponse ::
-  -- | 'mvpcorsResponseStatus'
-  Int ->
+-- * 'accepterPeeringConnectionOptions' - Information about the VPC peering connection options for the accepter VPC.
+-- * 'requesterPeeringConnectionOptions' - Information about the VPC peering connection options for the requester VPC.
+-- * 'responseStatus' - The response status code.
+mkModifyVPCPeeringConnectionOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyVPCPeeringConnectionOptionsResponse
-modifyVPCPeeringConnectionOptionsResponse pResponseStatus_ =
+mkModifyVPCPeeringConnectionOptionsResponse pResponseStatus_ =
   ModifyVPCPeeringConnectionOptionsResponse'
-    { _mvpcorsRequesterPeeringConnectionOptions =
-        Nothing,
-      _mvpcorsAccepterPeeringConnectionOptions = Nothing,
-      _mvpcorsResponseStatus = pResponseStatus_
+    { requesterPeeringConnectionOptions =
+        Lude.Nothing,
+      accepterPeeringConnectionOptions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the VPC peering connection options for the requester VPC.
-mvpcorsRequesterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptionsResponse (Maybe PeeringConnectionOptions)
-mvpcorsRequesterPeeringConnectionOptions = lens _mvpcorsRequesterPeeringConnectionOptions (\s a -> s {_mvpcorsRequesterPeeringConnectionOptions = a})
+--
+-- /Note:/ Consider using 'requesterPeeringConnectionOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvpcorsRequesterPeeringConnectionOptions :: Lens.Lens' ModifyVPCPeeringConnectionOptionsResponse (Lude.Maybe PeeringConnectionOptions)
+mvpcorsRequesterPeeringConnectionOptions = Lens.lens (requesterPeeringConnectionOptions :: ModifyVPCPeeringConnectionOptionsResponse -> Lude.Maybe PeeringConnectionOptions) (\s a -> s {requesterPeeringConnectionOptions = a} :: ModifyVPCPeeringConnectionOptionsResponse)
+{-# DEPRECATED mvpcorsRequesterPeeringConnectionOptions "Use generic-lens or generic-optics with 'requesterPeeringConnectionOptions' instead." #-}
 
 -- | Information about the VPC peering connection options for the accepter VPC.
-mvpcorsAccepterPeeringConnectionOptions :: Lens' ModifyVPCPeeringConnectionOptionsResponse (Maybe PeeringConnectionOptions)
-mvpcorsAccepterPeeringConnectionOptions = lens _mvpcorsAccepterPeeringConnectionOptions (\s a -> s {_mvpcorsAccepterPeeringConnectionOptions = a})
+--
+-- /Note:/ Consider using 'accepterPeeringConnectionOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvpcorsAccepterPeeringConnectionOptions :: Lens.Lens' ModifyVPCPeeringConnectionOptionsResponse (Lude.Maybe PeeringConnectionOptions)
+mvpcorsAccepterPeeringConnectionOptions = Lens.lens (accepterPeeringConnectionOptions :: ModifyVPCPeeringConnectionOptionsResponse -> Lude.Maybe PeeringConnectionOptions) (\s a -> s {accepterPeeringConnectionOptions = a} :: ModifyVPCPeeringConnectionOptionsResponse)
+{-# DEPRECATED mvpcorsAccepterPeeringConnectionOptions "Use generic-lens or generic-optics with 'accepterPeeringConnectionOptions' instead." #-}
 
--- | -- | The response status code.
-mvpcorsResponseStatus :: Lens' ModifyVPCPeeringConnectionOptionsResponse Int
-mvpcorsResponseStatus = lens _mvpcorsResponseStatus (\s a -> s {_mvpcorsResponseStatus = a})
-
-instance NFData ModifyVPCPeeringConnectionOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvpcorsResponseStatus :: Lens.Lens' ModifyVPCPeeringConnectionOptionsResponse Lude.Int
+mvpcorsResponseStatus = Lens.lens (responseStatus :: ModifyVPCPeeringConnectionOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyVPCPeeringConnectionOptionsResponse)
+{-# DEPRECATED mvpcorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

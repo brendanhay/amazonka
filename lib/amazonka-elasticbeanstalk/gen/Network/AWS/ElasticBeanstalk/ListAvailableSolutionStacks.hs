@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Returns a list of the available solution stack names, with the public version first and then in reverse chronological order.
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-  ( -- * Creating a Request
-    listAvailableSolutionStacks,
-    ListAvailableSolutionStacks,
+  ( -- * Creating a request
+    ListAvailableSolutionStacks (..),
+    mkListAvailableSolutionStacks,
 
-    -- * Destructuring the Response
-    listAvailableSolutionStacksResponse,
-    ListAvailableSolutionStacksResponse,
+    -- * Destructuring the response
+    ListAvailableSolutionStacksResponse (..),
+    mkListAvailableSolutionStacksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lassrsSolutionStacks,
     lassrsSolutionStackDetails,
     lassrsResponseStatus,
@@ -35,104 +30,118 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAvailableSolutionStacks' smart constructor.
+-- | /See:/ 'mkListAvailableSolutionStacks' smart constructor.
 data ListAvailableSolutionStacks = ListAvailableSolutionStacks'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableSolutionStacks' with the minimum fields required to make a request.
-listAvailableSolutionStacks ::
+mkListAvailableSolutionStacks ::
   ListAvailableSolutionStacks
-listAvailableSolutionStacks = ListAvailableSolutionStacks'
+mkListAvailableSolutionStacks = ListAvailableSolutionStacks'
 
-instance AWSRequest ListAvailableSolutionStacks where
+instance Lude.AWSRequest ListAvailableSolutionStacks where
   type
     Rs ListAvailableSolutionStacks =
       ListAvailableSolutionStacksResponse
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListAvailableSolutionStacksResult"
       ( \s h x ->
           ListAvailableSolutionStacksResponse'
-            <$> (x .@? "SolutionStacks" .!@ mempty >>= may (parseXMLList "member"))
-            <*> ( x .@? "SolutionStackDetails" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "SolutionStacks" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> ( x Lude..@? "SolutionStackDetails" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAvailableSolutionStacks
+instance Lude.ToHeaders ListAvailableSolutionStacks where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListAvailableSolutionStacks
+instance Lude.ToPath ListAvailableSolutionStacks where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListAvailableSolutionStacks where
-  toHeaders = const mempty
-
-instance ToPath ListAvailableSolutionStacks where
-  toPath = const "/"
-
-instance ToQuery ListAvailableSolutionStacks where
+instance Lude.ToQuery ListAvailableSolutionStacks where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("ListAvailableSolutionStacks" :: ByteString),
-            "Version" =: ("2010-12-01" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action"
+              Lude.=: ("ListAvailableSolutionStacks" :: Lude.ByteString),
+            "Version" Lude.=: ("2010-12-01" :: Lude.ByteString)
           ]
       )
 
 -- | A list of available AWS Elastic Beanstalk solution stacks.
 --
---
---
--- /See:/ 'listAvailableSolutionStacksResponse' smart constructor.
+-- /See:/ 'mkListAvailableSolutionStacksResponse' smart constructor.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-  { _lassrsSolutionStacks ::
-      !(Maybe [Text]),
-    _lassrsSolutionStackDetails ::
-      !( Maybe
-           [SolutionStackDescription]
-       ),
-    _lassrsResponseStatus ::
-      !Int
+  { solutionStacks ::
+      Lude.Maybe
+        [Lude.Text],
+    solutionStackDetails ::
+      Lude.Maybe
+        [SolutionStackDescription],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableSolutionStacksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lassrsSolutionStacks' - A list of available solution stacks.
---
--- * 'lassrsSolutionStackDetails' - A list of available solution stacks and their 'SolutionStackDescription' .
---
--- * 'lassrsResponseStatus' - -- | The response status code.
-listAvailableSolutionStacksResponse ::
-  -- | 'lassrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'solutionStackDetails' - A list of available solution stacks and their 'SolutionStackDescription' .
+-- * 'solutionStacks' - A list of available solution stacks.
+mkListAvailableSolutionStacksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAvailableSolutionStacksResponse
-listAvailableSolutionStacksResponse pResponseStatus_ =
+mkListAvailableSolutionStacksResponse pResponseStatus_ =
   ListAvailableSolutionStacksResponse'
-    { _lassrsSolutionStacks =
-        Nothing,
-      _lassrsSolutionStackDetails = Nothing,
-      _lassrsResponseStatus = pResponseStatus_
+    { solutionStacks =
+        Lude.Nothing,
+      solutionStackDetails = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of available solution stacks.
-lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
-lassrsSolutionStacks = lens _lassrsSolutionStacks (\s a -> s {_lassrsSolutionStacks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'solutionStacks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lassrsSolutionStacks :: Lens.Lens' ListAvailableSolutionStacksResponse (Lude.Maybe [Lude.Text])
+lassrsSolutionStacks = Lens.lens (solutionStacks :: ListAvailableSolutionStacksResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {solutionStacks = a} :: ListAvailableSolutionStacksResponse)
+{-# DEPRECATED lassrsSolutionStacks "Use generic-lens or generic-optics with 'solutionStacks' instead." #-}
 
 -- | A list of available solution stacks and their 'SolutionStackDescription' .
-lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
-lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\s a -> s {_lassrsSolutionStackDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'solutionStackDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lassrsSolutionStackDetails :: Lens.Lens' ListAvailableSolutionStacksResponse (Lude.Maybe [SolutionStackDescription])
+lassrsSolutionStackDetails = Lens.lens (solutionStackDetails :: ListAvailableSolutionStacksResponse -> Lude.Maybe [SolutionStackDescription]) (\s a -> s {solutionStackDetails = a} :: ListAvailableSolutionStacksResponse)
+{-# DEPRECATED lassrsSolutionStackDetails "Use generic-lens or generic-optics with 'solutionStackDetails' instead." #-}
 
--- | -- | The response status code.
-lassrsResponseStatus :: Lens' ListAvailableSolutionStacksResponse Int
-lassrsResponseStatus = lens _lassrsResponseStatus (\s a -> s {_lassrsResponseStatus = a})
-
-instance NFData ListAvailableSolutionStacksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lassrsResponseStatus :: Lens.Lens' ListAvailableSolutionStacksResponse Lude.Int
+lassrsResponseStatus = Lens.lens (responseStatus :: ListAvailableSolutionStacksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAvailableSolutionStacksResponse)
+{-# DEPRECATED lassrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,101 +14,111 @@
 --
 -- Flushes an @ApiCache@ object.
 module Network.AWS.AppSync.FlushAPICache
-  ( -- * Creating a Request
-    flushAPICache,
-    FlushAPICache,
+  ( -- * Creating a request
+    FlushAPICache (..),
+    mkFlushAPICache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     facApiId,
 
-    -- * Destructuring the Response
-    flushAPICacheResponse,
-    FlushAPICacheResponse,
+    -- * Destructuring the response
+    FlushAPICacheResponse (..),
+    mkFlushAPICacheResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     facrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @FlushApiCache@ operation.
 --
---
---
--- /See:/ 'flushAPICache' smart constructor.
-newtype FlushAPICache = FlushAPICache' {_facApiId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkFlushAPICache' smart constructor.
+newtype FlushAPICache = FlushAPICache' {apiId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlushAPICache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'facApiId' - The API ID.
-flushAPICache ::
-  -- | 'facApiId'
-  Text ->
+-- * 'apiId' - The API ID.
+mkFlushAPICache ::
+  -- | 'apiId'
+  Lude.Text ->
   FlushAPICache
-flushAPICache pApiId_ = FlushAPICache' {_facApiId = pApiId_}
+mkFlushAPICache pApiId_ = FlushAPICache' {apiId = pApiId_}
 
 -- | The API ID.
-facApiId :: Lens' FlushAPICache Text
-facApiId = lens _facApiId (\s a -> s {_facApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+facApiId :: Lens.Lens' FlushAPICache Lude.Text
+facApiId = Lens.lens (apiId :: FlushAPICache -> Lude.Text) (\s a -> s {apiId = a} :: FlushAPICache)
+{-# DEPRECATED facApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSRequest FlushAPICache where
+instance Lude.AWSRequest FlushAPICache where
   type Rs FlushAPICache = FlushAPICacheResponse
-  request = delete appSync
+  request = Req.delete appSyncService
   response =
-    receiveEmpty
-      (\s h x -> FlushAPICacheResponse' <$> (pure (fromEnum s)))
-
-instance Hashable FlushAPICache
-
-instance NFData FlushAPICache
-
-instance ToHeaders FlushAPICache where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          FlushAPICacheResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath FlushAPICache where
-  toPath FlushAPICache' {..} =
-    mconcat ["/v1/apis/", toBS _facApiId, "/FlushCache"]
+instance Lude.ToHeaders FlushAPICache where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
 
-instance ToQuery FlushAPICache where
-  toQuery = const mempty
+instance Lude.ToPath FlushAPICache where
+  toPath FlushAPICache' {..} =
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/FlushCache"]
+
+instance Lude.ToQuery FlushAPICache where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @FlushApiCache@ operation.
 --
---
---
--- /See:/ 'flushAPICacheResponse' smart constructor.
+-- /See:/ 'mkFlushAPICacheResponse' smart constructor.
 newtype FlushAPICacheResponse = FlushAPICacheResponse'
-  { _facrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlushAPICacheResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'facrsResponseStatus' - -- | The response status code.
-flushAPICacheResponse ::
-  -- | 'facrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkFlushAPICacheResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   FlushAPICacheResponse
-flushAPICacheResponse pResponseStatus_ =
-  FlushAPICacheResponse' {_facrsResponseStatus = pResponseStatus_}
+mkFlushAPICacheResponse pResponseStatus_ =
+  FlushAPICacheResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-facrsResponseStatus :: Lens' FlushAPICacheResponse Int
-facrsResponseStatus = lens _facrsResponseStatus (\s a -> s {_facrsResponseStatus = a})
-
-instance NFData FlushAPICacheResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+facrsResponseStatus :: Lens.Lens' FlushAPICacheResponse Lude.Int
+facrsResponseStatus = Lens.lens (responseStatus :: FlushAPICacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: FlushAPICacheResponse)
+{-# DEPRECATED facrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

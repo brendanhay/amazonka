@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PlatformType where
+module Network.AWS.SSM.Types.PlatformType
+  ( PlatformType
+      ( PlatformType',
+        PTLinux,
+        PTWindows
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PlatformType
-  = PTLinux
-  | PTWindows
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PlatformType = PlatformType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PlatformType where
-  parser =
-    takeLowerText >>= \case
-      "linux" -> pure PTLinux
-      "windows" -> pure PTWindows
-      e ->
-        fromTextError $
-          "Failure parsing PlatformType from value: '" <> e
-            <> "'. Accepted values: linux, windows"
+pattern PTLinux :: PlatformType
+pattern PTLinux = PlatformType' "Linux"
 
-instance ToText PlatformType where
-  toText = \case
-    PTLinux -> "Linux"
-    PTWindows -> "Windows"
+pattern PTWindows :: PlatformType
+pattern PTWindows = PlatformType' "Windows"
 
-instance Hashable PlatformType
-
-instance NFData PlatformType
-
-instance ToByteString PlatformType
-
-instance ToQuery PlatformType
-
-instance ToHeader PlatformType
-
-instance FromJSON PlatformType where
-  parseJSON = parseJSONText "PlatformType"
+{-# COMPLETE
+  PTLinux,
+  PTWindows,
+  PlatformType'
+  #-}

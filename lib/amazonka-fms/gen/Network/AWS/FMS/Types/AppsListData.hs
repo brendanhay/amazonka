@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,118 +7,147 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.AppsListData where
+module Network.AWS.FMS.Types.AppsListData
+  ( AppsListData (..),
+
+    -- * Smart constructor
+    mkAppsListData,
+
+    -- * Lenses
+    aldListUpdateToken,
+    aldListId,
+    aldLastUpdateTime,
+    aldPreviousAppsList,
+    aldCreateTime,
+    aldListName,
+    aldAppsList,
+  )
+where
 
 import Network.AWS.FMS.Types.App
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An AWS Firewall Manager applications list.
 --
---
---
--- /See:/ 'appsListData' smart constructor.
+-- /See:/ 'mkAppsListData' smart constructor.
 data AppsListData = AppsListData'
-  { _aldListUpdateToken ::
-      !(Maybe Text),
-    _aldListId :: !(Maybe Text),
-    _aldLastUpdateTime :: !(Maybe POSIX),
-    _aldPreviousAppsList :: !(Maybe (Map Text ([App]))),
-    _aldCreateTime :: !(Maybe POSIX),
-    _aldListName :: !Text,
-    _aldAppsList :: ![App]
+  { listUpdateToken ::
+      Lude.Maybe Lude.Text,
+    listId :: Lude.Maybe Lude.Text,
+    lastUpdateTime :: Lude.Maybe Lude.Timestamp,
+    previousAppsList :: Lude.Maybe (Lude.HashMap Lude.Text ([App])),
+    createTime :: Lude.Maybe Lude.Timestamp,
+    listName :: Lude.Text,
+    appsList :: [App]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppsListData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aldListUpdateToken' - A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list.
---
--- * 'aldListId' - The ID of the AWS Firewall Manager applications list.
---
--- * 'aldLastUpdateTime' - The time that the AWS Firewall Manager applications list was last updated.
---
--- * 'aldPreviousAppsList' - A map of previous version numbers to their corresponding @App@ object arrays.
---
--- * 'aldCreateTime' - The time that the AWS Firewall Manager applications list was created.
---
--- * 'aldListName' - The name of the AWS Firewall Manager applications list.
---
--- * 'aldAppsList' - An array of applications in the AWS Firewall Manager applications list.
-appsListData ::
-  -- | 'aldListName'
-  Text ->
+-- * 'appsList' - An array of applications in the AWS Firewall Manager applications list.
+-- * 'createTime' - The time that the AWS Firewall Manager applications list was created.
+-- * 'lastUpdateTime' - The time that the AWS Firewall Manager applications list was last updated.
+-- * 'listId' - The ID of the AWS Firewall Manager applications list.
+-- * 'listName' - The name of the AWS Firewall Manager applications list.
+-- * 'listUpdateToken' - A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list.
+-- * 'previousAppsList' - A map of previous version numbers to their corresponding @App@ object arrays.
+mkAppsListData ::
+  -- | 'listName'
+  Lude.Text ->
   AppsListData
-appsListData pListName_ =
+mkAppsListData pListName_ =
   AppsListData'
-    { _aldListUpdateToken = Nothing,
-      _aldListId = Nothing,
-      _aldLastUpdateTime = Nothing,
-      _aldPreviousAppsList = Nothing,
-      _aldCreateTime = Nothing,
-      _aldListName = pListName_,
-      _aldAppsList = mempty
+    { listUpdateToken = Lude.Nothing,
+      listId = Lude.Nothing,
+      lastUpdateTime = Lude.Nothing,
+      previousAppsList = Lude.Nothing,
+      createTime = Lude.Nothing,
+      listName = pListName_,
+      appsList = Lude.mempty
     }
 
 -- | A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list.
-aldListUpdateToken :: Lens' AppsListData (Maybe Text)
-aldListUpdateToken = lens _aldListUpdateToken (\s a -> s {_aldListUpdateToken = a})
+--
+-- /Note:/ Consider using 'listUpdateToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldListUpdateToken :: Lens.Lens' AppsListData (Lude.Maybe Lude.Text)
+aldListUpdateToken = Lens.lens (listUpdateToken :: AppsListData -> Lude.Maybe Lude.Text) (\s a -> s {listUpdateToken = a} :: AppsListData)
+{-# DEPRECATED aldListUpdateToken "Use generic-lens or generic-optics with 'listUpdateToken' instead." #-}
 
 -- | The ID of the AWS Firewall Manager applications list.
-aldListId :: Lens' AppsListData (Maybe Text)
-aldListId = lens _aldListId (\s a -> s {_aldListId = a})
+--
+-- /Note:/ Consider using 'listId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldListId :: Lens.Lens' AppsListData (Lude.Maybe Lude.Text)
+aldListId = Lens.lens (listId :: AppsListData -> Lude.Maybe Lude.Text) (\s a -> s {listId = a} :: AppsListData)
+{-# DEPRECATED aldListId "Use generic-lens or generic-optics with 'listId' instead." #-}
 
 -- | The time that the AWS Firewall Manager applications list was last updated.
-aldLastUpdateTime :: Lens' AppsListData (Maybe UTCTime)
-aldLastUpdateTime = lens _aldLastUpdateTime (\s a -> s {_aldLastUpdateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldLastUpdateTime :: Lens.Lens' AppsListData (Lude.Maybe Lude.Timestamp)
+aldLastUpdateTime = Lens.lens (lastUpdateTime :: AppsListData -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: AppsListData)
+{-# DEPRECATED aldLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
 -- | A map of previous version numbers to their corresponding @App@ object arrays.
-aldPreviousAppsList :: Lens' AppsListData (HashMap Text ([App]))
-aldPreviousAppsList = lens _aldPreviousAppsList (\s a -> s {_aldPreviousAppsList = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'previousAppsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldPreviousAppsList :: Lens.Lens' AppsListData (Lude.Maybe (Lude.HashMap Lude.Text ([App])))
+aldPreviousAppsList = Lens.lens (previousAppsList :: AppsListData -> Lude.Maybe (Lude.HashMap Lude.Text ([App]))) (\s a -> s {previousAppsList = a} :: AppsListData)
+{-# DEPRECATED aldPreviousAppsList "Use generic-lens or generic-optics with 'previousAppsList' instead." #-}
 
 -- | The time that the AWS Firewall Manager applications list was created.
-aldCreateTime :: Lens' AppsListData (Maybe UTCTime)
-aldCreateTime = lens _aldCreateTime (\s a -> s {_aldCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldCreateTime :: Lens.Lens' AppsListData (Lude.Maybe Lude.Timestamp)
+aldCreateTime = Lens.lens (createTime :: AppsListData -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: AppsListData)
+{-# DEPRECATED aldCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The name of the AWS Firewall Manager applications list.
-aldListName :: Lens' AppsListData Text
-aldListName = lens _aldListName (\s a -> s {_aldListName = a})
+--
+-- /Note:/ Consider using 'listName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldListName :: Lens.Lens' AppsListData Lude.Text
+aldListName = Lens.lens (listName :: AppsListData -> Lude.Text) (\s a -> s {listName = a} :: AppsListData)
+{-# DEPRECATED aldListName "Use generic-lens or generic-optics with 'listName' instead." #-}
 
 -- | An array of applications in the AWS Firewall Manager applications list.
-aldAppsList :: Lens' AppsListData [App]
-aldAppsList = lens _aldAppsList (\s a -> s {_aldAppsList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'appsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aldAppsList :: Lens.Lens' AppsListData [App]
+aldAppsList = Lens.lens (appsList :: AppsListData -> [App]) (\s a -> s {appsList = a} :: AppsListData)
+{-# DEPRECATED aldAppsList "Use generic-lens or generic-optics with 'appsList' instead." #-}
 
-instance FromJSON AppsListData where
+instance Lude.FromJSON AppsListData where
   parseJSON =
-    withObject
+    Lude.withObject
       "AppsListData"
       ( \x ->
           AppsListData'
-            <$> (x .:? "ListUpdateToken")
-            <*> (x .:? "ListId")
-            <*> (x .:? "LastUpdateTime")
-            <*> (x .:? "PreviousAppsList" .!= mempty)
-            <*> (x .:? "CreateTime")
-            <*> (x .: "ListName")
-            <*> (x .:? "AppsList" .!= mempty)
+            Lude.<$> (x Lude..:? "ListUpdateToken")
+            Lude.<*> (x Lude..:? "ListId")
+            Lude.<*> (x Lude..:? "LastUpdateTime")
+            Lude.<*> (x Lude..:? "PreviousAppsList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CreateTime")
+            Lude.<*> (x Lude..: "ListName")
+            Lude.<*> (x Lude..:? "AppsList" Lude..!= Lude.mempty)
       )
 
-instance Hashable AppsListData
-
-instance NFData AppsListData
-
-instance ToJSON AppsListData where
+instance Lude.ToJSON AppsListData where
   toJSON AppsListData' {..} =
-    object
-      ( catMaybes
-          [ ("ListUpdateToken" .=) <$> _aldListUpdateToken,
-            ("ListId" .=) <$> _aldListId,
-            ("LastUpdateTime" .=) <$> _aldLastUpdateTime,
-            ("PreviousAppsList" .=) <$> _aldPreviousAppsList,
-            ("CreateTime" .=) <$> _aldCreateTime,
-            Just ("ListName" .= _aldListName),
-            Just ("AppsList" .= _aldAppsList)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ListUpdateToken" Lude..=) Lude.<$> listUpdateToken,
+            ("ListId" Lude..=) Lude.<$> listId,
+            ("LastUpdateTime" Lude..=) Lude.<$> lastUpdateTime,
+            ("PreviousAppsList" Lude..=) Lude.<$> previousAppsList,
+            ("CreateTime" Lude..=) Lude.<$> createTime,
+            Lude.Just ("ListName" Lude..= listName),
+            Lude.Just ("AppsList" Lude..= appsList)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,123 @@
 --
 -- Starts an on-demand Device Defender audit.
 module Network.AWS.IoT.StartOnDemandAuditTask
-  ( -- * Creating a Request
-    startOnDemandAuditTask,
-    StartOnDemandAuditTask,
+  ( -- * Creating a request
+    StartOnDemandAuditTask (..),
+    mkStartOnDemandAuditTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sodatTargetCheckNames,
 
-    -- * Destructuring the Response
-    startOnDemandAuditTaskResponse,
-    StartOnDemandAuditTaskResponse,
+    -- * Destructuring the response
+    StartOnDemandAuditTaskResponse (..),
+    mkStartOnDemandAuditTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sodatrsTaskId,
     sodatrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startOnDemandAuditTask' smart constructor.
+-- | /See:/ 'mkStartOnDemandAuditTask' smart constructor.
 newtype StartOnDemandAuditTask = StartOnDemandAuditTask'
-  { _sodatTargetCheckNames ::
-      [Text]
+  { targetCheckNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandAuditTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sodatTargetCheckNames' - Which checks are performed during the audit. The checks you specify must be enabled for your account or an exception occurs. Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or @UpdateAccountAuditConfiguration@ to select which checks are enabled.
-startOnDemandAuditTask ::
+-- * 'targetCheckNames' - Which checks are performed during the audit. The checks you specify must be enabled for your account or an exception occurs. Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or @UpdateAccountAuditConfiguration@ to select which checks are enabled.
+mkStartOnDemandAuditTask ::
   StartOnDemandAuditTask
-startOnDemandAuditTask =
-  StartOnDemandAuditTask' {_sodatTargetCheckNames = mempty}
+mkStartOnDemandAuditTask =
+  StartOnDemandAuditTask' {targetCheckNames = Lude.mempty}
 
 -- | Which checks are performed during the audit. The checks you specify must be enabled for your account or an exception occurs. Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or @UpdateAccountAuditConfiguration@ to select which checks are enabled.
-sodatTargetCheckNames :: Lens' StartOnDemandAuditTask [Text]
-sodatTargetCheckNames = lens _sodatTargetCheckNames (\s a -> s {_sodatTargetCheckNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'targetCheckNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodatTargetCheckNames :: Lens.Lens' StartOnDemandAuditTask [Lude.Text]
+sodatTargetCheckNames = Lens.lens (targetCheckNames :: StartOnDemandAuditTask -> [Lude.Text]) (\s a -> s {targetCheckNames = a} :: StartOnDemandAuditTask)
+{-# DEPRECATED sodatTargetCheckNames "Use generic-lens or generic-optics with 'targetCheckNames' instead." #-}
 
-instance AWSRequest StartOnDemandAuditTask where
+instance Lude.AWSRequest StartOnDemandAuditTask where
   type Rs StartOnDemandAuditTask = StartOnDemandAuditTaskResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartOnDemandAuditTaskResponse'
-            <$> (x .?> "taskId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "taskId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartOnDemandAuditTask
+instance Lude.ToHeaders StartOnDemandAuditTask where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData StartOnDemandAuditTask
-
-instance ToHeaders StartOnDemandAuditTask where
-  toHeaders = const mempty
-
-instance ToJSON StartOnDemandAuditTask where
+instance Lude.ToJSON StartOnDemandAuditTask where
   toJSON StartOnDemandAuditTask' {..} =
-    object
-      (catMaybes [Just ("targetCheckNames" .= _sodatTargetCheckNames)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("targetCheckNames" Lude..= targetCheckNames)]
+      )
 
-instance ToPath StartOnDemandAuditTask where
-  toPath = const "/audit/tasks"
+instance Lude.ToPath StartOnDemandAuditTask where
+  toPath = Lude.const "/audit/tasks"
 
-instance ToQuery StartOnDemandAuditTask where
-  toQuery = const mempty
+instance Lude.ToQuery StartOnDemandAuditTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startOnDemandAuditTaskResponse' smart constructor.
+-- | /See:/ 'mkStartOnDemandAuditTaskResponse' smart constructor.
 data StartOnDemandAuditTaskResponse = StartOnDemandAuditTaskResponse'
-  { _sodatrsTaskId ::
-      !(Maybe Text),
-    _sodatrsResponseStatus ::
-      !Int
+  { taskId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandAuditTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sodatrsTaskId' - The ID of the on-demand audit you started.
---
--- * 'sodatrsResponseStatus' - -- | The response status code.
-startOnDemandAuditTaskResponse ::
-  -- | 'sodatrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'taskId' - The ID of the on-demand audit you started.
+mkStartOnDemandAuditTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartOnDemandAuditTaskResponse
-startOnDemandAuditTaskResponse pResponseStatus_ =
+mkStartOnDemandAuditTaskResponse pResponseStatus_ =
   StartOnDemandAuditTaskResponse'
-    { _sodatrsTaskId = Nothing,
-      _sodatrsResponseStatus = pResponseStatus_
+    { taskId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the on-demand audit you started.
-sodatrsTaskId :: Lens' StartOnDemandAuditTaskResponse (Maybe Text)
-sodatrsTaskId = lens _sodatrsTaskId (\s a -> s {_sodatrsTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodatrsTaskId :: Lens.Lens' StartOnDemandAuditTaskResponse (Lude.Maybe Lude.Text)
+sodatrsTaskId = Lens.lens (taskId :: StartOnDemandAuditTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: StartOnDemandAuditTaskResponse)
+{-# DEPRECATED sodatrsTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
--- | -- | The response status code.
-sodatrsResponseStatus :: Lens' StartOnDemandAuditTaskResponse Int
-sodatrsResponseStatus = lens _sodatrsResponseStatus (\s a -> s {_sodatrsResponseStatus = a})
-
-instance NFData StartOnDemandAuditTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodatrsResponseStatus :: Lens.Lens' StartOnDemandAuditTaskResponse Lude.Int
+sodatrsResponseStatus = Lens.lens (responseStatus :: StartOnDemandAuditTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartOnDemandAuditTaskResponse)
+{-# DEPRECATED sodatrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

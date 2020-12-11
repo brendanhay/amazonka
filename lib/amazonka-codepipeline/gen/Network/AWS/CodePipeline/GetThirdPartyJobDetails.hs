@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,159 @@
 --
 -- Requests the details of a job for a third party action. Used for partner actions only.
 --
---
 -- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the S3 bucket used to store artifacts for the pipeline, if the action requires access to that S3 bucket for input or output artifacts. This API also returns any secret values defined for the action.
 module Network.AWS.CodePipeline.GetThirdPartyJobDetails
-  ( -- * Creating a Request
-    getThirdPartyJobDetails,
-    GetThirdPartyJobDetails,
+  ( -- * Creating a request
+    GetThirdPartyJobDetails (..),
+    mkGetThirdPartyJobDetails,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtpjdJobId,
     gtpjdClientToken,
 
-    -- * Destructuring the Response
-    getThirdPartyJobDetailsResponse,
-    GetThirdPartyJobDetailsResponse,
+    -- * Destructuring the response
+    GetThirdPartyJobDetailsResponse (..),
+    mkGetThirdPartyJobDetailsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtpjdrsJobDetails,
     gtpjdrsResponseStatus,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @GetThirdPartyJobDetails@ action.
 --
---
---
--- /See:/ 'getThirdPartyJobDetails' smart constructor.
+-- /See:/ 'mkGetThirdPartyJobDetails' smart constructor.
 data GetThirdPartyJobDetails = GetThirdPartyJobDetails'
-  { _gtpjdJobId ::
-      !Text,
-    _gtpjdClientToken :: !Text
+  { jobId ::
+      Lude.Text,
+    clientToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetThirdPartyJobDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtpjdJobId' - The unique system-generated ID used for identifying the job.
---
--- * 'gtpjdClientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
-getThirdPartyJobDetails ::
-  -- | 'gtpjdJobId'
-  Text ->
-  -- | 'gtpjdClientToken'
-  Text ->
+-- * 'clientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
+-- * 'jobId' - The unique system-generated ID used for identifying the job.
+mkGetThirdPartyJobDetails ::
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'clientToken'
+  Lude.Text ->
   GetThirdPartyJobDetails
-getThirdPartyJobDetails pJobId_ pClientToken_ =
+mkGetThirdPartyJobDetails pJobId_ pClientToken_ =
   GetThirdPartyJobDetails'
-    { _gtpjdJobId = pJobId_,
-      _gtpjdClientToken = pClientToken_
+    { jobId = pJobId_,
+      clientToken = pClientToken_
     }
 
 -- | The unique system-generated ID used for identifying the job.
-gtpjdJobId :: Lens' GetThirdPartyJobDetails Text
-gtpjdJobId = lens _gtpjdJobId (\s a -> s {_gtpjdJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpjdJobId :: Lens.Lens' GetThirdPartyJobDetails Lude.Text
+gtpjdJobId = Lens.lens (jobId :: GetThirdPartyJobDetails -> Lude.Text) (\s a -> s {jobId = a} :: GetThirdPartyJobDetails)
+{-# DEPRECATED gtpjdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
-gtpjdClientToken :: Lens' GetThirdPartyJobDetails Text
-gtpjdClientToken = lens _gtpjdClientToken (\s a -> s {_gtpjdClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpjdClientToken :: Lens.Lens' GetThirdPartyJobDetails Lude.Text
+gtpjdClientToken = Lens.lens (clientToken :: GetThirdPartyJobDetails -> Lude.Text) (\s a -> s {clientToken = a} :: GetThirdPartyJobDetails)
+{-# DEPRECATED gtpjdClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
-instance AWSRequest GetThirdPartyJobDetails where
+instance Lude.AWSRequest GetThirdPartyJobDetails where
   type Rs GetThirdPartyJobDetails = GetThirdPartyJobDetailsResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetThirdPartyJobDetailsResponse'
-            <$> (x .?> "jobDetails") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobDetails") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetThirdPartyJobDetails
-
-instance NFData GetThirdPartyJobDetails
-
-instance ToHeaders GetThirdPartyJobDetails where
+instance Lude.ToHeaders GetThirdPartyJobDetails where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.GetThirdPartyJobDetails" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodePipeline_20150709.GetThirdPartyJobDetails" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetThirdPartyJobDetails where
+instance Lude.ToJSON GetThirdPartyJobDetails where
   toJSON GetThirdPartyJobDetails' {..} =
-    object
-      ( catMaybes
-          [ Just ("jobId" .= _gtpjdJobId),
-            Just ("clientToken" .= _gtpjdClientToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("jobId" Lude..= jobId),
+            Lude.Just ("clientToken" Lude..= clientToken)
           ]
       )
 
-instance ToPath GetThirdPartyJobDetails where
-  toPath = const "/"
+instance Lude.ToPath GetThirdPartyJobDetails where
+  toPath = Lude.const "/"
 
-instance ToQuery GetThirdPartyJobDetails where
-  toQuery = const mempty
+instance Lude.ToQuery GetThirdPartyJobDetails where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetThirdPartyJobDetails@ action.
 --
---
---
--- /See:/ 'getThirdPartyJobDetailsResponse' smart constructor.
+-- /See:/ 'mkGetThirdPartyJobDetailsResponse' smart constructor.
 data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
-  { _gtpjdrsJobDetails ::
-      !( Maybe
-           ThirdPartyJobDetails
-       ),
-    _gtpjdrsResponseStatus ::
-      !Int
+  { jobDetails ::
+      Lude.Maybe
+        ThirdPartyJobDetails,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetThirdPartyJobDetailsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtpjdrsJobDetails' - The details of the job, including any protected values defined for the job.
---
--- * 'gtpjdrsResponseStatus' - -- | The response status code.
-getThirdPartyJobDetailsResponse ::
-  -- | 'gtpjdrsResponseStatus'
-  Int ->
+-- * 'jobDetails' - The details of the job, including any protected values defined for the job.
+-- * 'responseStatus' - The response status code.
+mkGetThirdPartyJobDetailsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetThirdPartyJobDetailsResponse
-getThirdPartyJobDetailsResponse pResponseStatus_ =
+mkGetThirdPartyJobDetailsResponse pResponseStatus_ =
   GetThirdPartyJobDetailsResponse'
-    { _gtpjdrsJobDetails = Nothing,
-      _gtpjdrsResponseStatus = pResponseStatus_
+    { jobDetails = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The details of the job, including any protected values defined for the job.
-gtpjdrsJobDetails :: Lens' GetThirdPartyJobDetailsResponse (Maybe ThirdPartyJobDetails)
-gtpjdrsJobDetails = lens _gtpjdrsJobDetails (\s a -> s {_gtpjdrsJobDetails = a})
+--
+-- /Note:/ Consider using 'jobDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpjdrsJobDetails :: Lens.Lens' GetThirdPartyJobDetailsResponse (Lude.Maybe ThirdPartyJobDetails)
+gtpjdrsJobDetails = Lens.lens (jobDetails :: GetThirdPartyJobDetailsResponse -> Lude.Maybe ThirdPartyJobDetails) (\s a -> s {jobDetails = a} :: GetThirdPartyJobDetailsResponse)
+{-# DEPRECATED gtpjdrsJobDetails "Use generic-lens or generic-optics with 'jobDetails' instead." #-}
 
--- | -- | The response status code.
-gtpjdrsResponseStatus :: Lens' GetThirdPartyJobDetailsResponse Int
-gtpjdrsResponseStatus = lens _gtpjdrsResponseStatus (\s a -> s {_gtpjdrsResponseStatus = a})
-
-instance NFData GetThirdPartyJobDetailsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpjdrsResponseStatus :: Lens.Lens' GetThirdPartyJobDetailsResponse Lude.Int
+gtpjdrsResponseStatus = Lens.lens (responseStatus :: GetThirdPartyJobDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetThirdPartyJobDetailsResponse)
+{-# DEPRECATED gtpjdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Provides more information regarding a given organization based on its identifier.
 module Network.AWS.WorkMail.DescribeOrganization
-  ( -- * Creating a Request
-    describeOrganization,
-    DescribeOrganization,
+  ( -- * Creating a request
+    DescribeOrganization (..),
+    mkDescribeOrganization,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desOrganizationId,
 
-    -- * Destructuring the Response
-    describeOrganizationResponse,
-    DescribeOrganizationResponse,
+    -- * Destructuring the response
+    DescribeOrganizationResponse (..),
+    mkDescribeOrganizationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dorsDirectoryId,
     dorsState,
     dorsARN,
@@ -44,179 +39,210 @@ module Network.AWS.WorkMail.DescribeOrganization
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'describeOrganization' smart constructor.
+-- | /See:/ 'mkDescribeOrganization' smart constructor.
 newtype DescribeOrganization = DescribeOrganization'
-  { _desOrganizationId ::
-      Text
+  { organizationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desOrganizationId' - The identifier for the organization to be described.
-describeOrganization ::
-  -- | 'desOrganizationId'
-  Text ->
+-- * 'organizationId' - The identifier for the organization to be described.
+mkDescribeOrganization ::
+  -- | 'organizationId'
+  Lude.Text ->
   DescribeOrganization
-describeOrganization pOrganizationId_ =
-  DescribeOrganization' {_desOrganizationId = pOrganizationId_}
+mkDescribeOrganization pOrganizationId_ =
+  DescribeOrganization' {organizationId = pOrganizationId_}
 
 -- | The identifier for the organization to be described.
-desOrganizationId :: Lens' DescribeOrganization Text
-desOrganizationId = lens _desOrganizationId (\s a -> s {_desOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desOrganizationId :: Lens.Lens' DescribeOrganization Lude.Text
+desOrganizationId = Lens.lens (organizationId :: DescribeOrganization -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeOrganization)
+{-# DEPRECATED desOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance AWSRequest DescribeOrganization where
+instance Lude.AWSRequest DescribeOrganization where
   type Rs DescribeOrganization = DescribeOrganizationResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeOrganizationResponse'
-            <$> (x .?> "DirectoryId")
-            <*> (x .?> "State")
-            <*> (x .?> "ARN")
-            <*> (x .?> "Alias")
-            <*> (x .?> "CompletedDate")
-            <*> (x .?> "DirectoryType")
-            <*> (x .?> "DefaultMailDomain")
-            <*> (x .?> "ErrorMessage")
-            <*> (x .?> "OrganizationId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DirectoryId")
+            Lude.<*> (x Lude..?> "State")
+            Lude.<*> (x Lude..?> "ARN")
+            Lude.<*> (x Lude..?> "Alias")
+            Lude.<*> (x Lude..?> "CompletedDate")
+            Lude.<*> (x Lude..?> "DirectoryType")
+            Lude.<*> (x Lude..?> "DefaultMailDomain")
+            Lude.<*> (x Lude..?> "ErrorMessage")
+            Lude.<*> (x Lude..?> "OrganizationId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeOrganization
-
-instance NFData DescribeOrganization
-
-instance ToHeaders DescribeOrganization where
+instance Lude.ToHeaders DescribeOrganization where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.DescribeOrganization" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.DescribeOrganization" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeOrganization where
+instance Lude.ToJSON DescribeOrganization where
   toJSON DescribeOrganization' {..} =
-    object
-      (catMaybes [Just ("OrganizationId" .= _desOrganizationId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("OrganizationId" Lude..= organizationId)]
+      )
 
-instance ToPath DescribeOrganization where
-  toPath = const "/"
+instance Lude.ToPath DescribeOrganization where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeOrganization where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeOrganization where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeOrganizationResponse' smart constructor.
+-- | /See:/ 'mkDescribeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
-  { _dorsDirectoryId ::
-      !(Maybe Text),
-    _dorsState :: !(Maybe Text),
-    _dorsARN :: !(Maybe Text),
-    _dorsAlias :: !(Maybe Text),
-    _dorsCompletedDate ::
-      !(Maybe POSIX),
-    _dorsDirectoryType ::
-      !(Maybe Text),
-    _dorsDefaultMailDomain ::
-      !(Maybe Text),
-    _dorsErrorMessage ::
-      !(Maybe Text),
-    _dorsOrganizationId ::
-      !(Maybe Text),
-    _dorsResponseStatus :: !Int
+  { directoryId ::
+      Lude.Maybe Lude.Text,
+    state :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    alias :: Lude.Maybe Lude.Text,
+    completedDate ::
+      Lude.Maybe Lude.Timestamp,
+    directoryType ::
+      Lude.Maybe Lude.Text,
+    defaultMailDomain ::
+      Lude.Maybe Lude.Text,
+    errorMessage ::
+      Lude.Maybe Lude.Text,
+    organizationId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dorsDirectoryId' - The identifier for the directory associated with an Amazon WorkMail organization.
---
--- * 'dorsState' - The state of an organization.
---
--- * 'dorsARN' - The Amazon Resource Name (ARN) of the organization.
---
--- * 'dorsAlias' - The alias for an organization.
---
--- * 'dorsCompletedDate' - The date at which the organization became usable in the WorkMail context, in UNIX epoch time format.
---
--- * 'dorsDirectoryType' - The type of directory associated with the WorkMail organization.
---
--- * 'dorsDefaultMailDomain' - The default mail domain associated with the organization.
---
--- * 'dorsErrorMessage' - (Optional) The error message indicating if unexpected behavior was encountered with regards to the organization.
---
--- * 'dorsOrganizationId' - The identifier of an organization.
---
--- * 'dorsResponseStatus' - -- | The response status code.
-describeOrganizationResponse ::
-  -- | 'dorsResponseStatus'
-  Int ->
+-- * 'alias' - The alias for an organization.
+-- * 'arn' - The Amazon Resource Name (ARN) of the organization.
+-- * 'completedDate' - The date at which the organization became usable in the WorkMail context, in UNIX epoch time format.
+-- * 'defaultMailDomain' - The default mail domain associated with the organization.
+-- * 'directoryId' - The identifier for the directory associated with an Amazon WorkMail organization.
+-- * 'directoryType' - The type of directory associated with the WorkMail organization.
+-- * 'errorMessage' - (Optional) The error message indicating if unexpected behavior was encountered with regards to the organization.
+-- * 'organizationId' - The identifier of an organization.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The state of an organization.
+mkDescribeOrganizationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeOrganizationResponse
-describeOrganizationResponse pResponseStatus_ =
+mkDescribeOrganizationResponse pResponseStatus_ =
   DescribeOrganizationResponse'
-    { _dorsDirectoryId = Nothing,
-      _dorsState = Nothing,
-      _dorsARN = Nothing,
-      _dorsAlias = Nothing,
-      _dorsCompletedDate = Nothing,
-      _dorsDirectoryType = Nothing,
-      _dorsDefaultMailDomain = Nothing,
-      _dorsErrorMessage = Nothing,
-      _dorsOrganizationId = Nothing,
-      _dorsResponseStatus = pResponseStatus_
+    { directoryId = Lude.Nothing,
+      state = Lude.Nothing,
+      arn = Lude.Nothing,
+      alias = Lude.Nothing,
+      completedDate = Lude.Nothing,
+      directoryType = Lude.Nothing,
+      defaultMailDomain = Lude.Nothing,
+      errorMessage = Lude.Nothing,
+      organizationId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier for the directory associated with an Amazon WorkMail organization.
-dorsDirectoryId :: Lens' DescribeOrganizationResponse (Maybe Text)
-dorsDirectoryId = lens _dorsDirectoryId (\s a -> s {_dorsDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsDirectoryId :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Lude.Text)
+dorsDirectoryId = Lens.lens (directoryId :: DescribeOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The state of an organization.
-dorsState :: Lens' DescribeOrganizationResponse (Maybe Text)
-dorsState = lens _dorsState (\s a -> s {_dorsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsState :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Lude.Text)
+dorsState = Lens.lens (state :: DescribeOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the organization.
-dorsARN :: Lens' DescribeOrganizationResponse (Maybe Text)
-dorsARN = lens _dorsARN (\s a -> s {_dorsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsARN :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Lude.Text)
+dorsARN = Lens.lens (arn :: DescribeOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The alias for an organization.
-dorsAlias :: Lens' DescribeOrganizationResponse (Maybe Text)
-dorsAlias = lens _dorsAlias (\s a -> s {_dorsAlias = a})
+--
+-- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsAlias :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Lude.Text)
+dorsAlias = Lens.lens (alias :: DescribeOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {alias = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
 -- | The date at which the organization became usable in the WorkMail context, in UNIX epoch time format.
-dorsCompletedDate :: Lens' DescribeOrganizationResponse (Maybe UTCTime)
-dorsCompletedDate = lens _dorsCompletedDate (\s a -> s {_dorsCompletedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'completedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsCompletedDate :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Lude.Timestamp)
+dorsCompletedDate = Lens.lens (completedDate :: DescribeOrganizationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedDate = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsCompletedDate "Use generic-lens or generic-optics with 'completedDate' instead." #-}
 
 -- | The type of directory associated with the WorkMail organization.
-dorsDirectoryType :: Lens' DescribeOrganizationResponse (Maybe Text)
-dorsDirectoryType = lens _dorsDirectoryType (\s a -> s {_dorsDirectoryType = a})
+--
+-- /Note:/ Consider using 'directoryType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsDirectoryType :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Lude.Text)
+dorsDirectoryType = Lens.lens (directoryType :: DescribeOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryType = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsDirectoryType "Use generic-lens or generic-optics with 'directoryType' instead." #-}
 
 -- | The default mail domain associated with the organization.
-dorsDefaultMailDomain :: Lens' DescribeOrganizationResponse (Maybe Text)
-dorsDefaultMailDomain = lens _dorsDefaultMailDomain (\s a -> s {_dorsDefaultMailDomain = a})
+--
+-- /Note:/ Consider using 'defaultMailDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsDefaultMailDomain :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Lude.Text)
+dorsDefaultMailDomain = Lens.lens (defaultMailDomain :: DescribeOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultMailDomain = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsDefaultMailDomain "Use generic-lens or generic-optics with 'defaultMailDomain' instead." #-}
 
 -- | (Optional) The error message indicating if unexpected behavior was encountered with regards to the organization.
-dorsErrorMessage :: Lens' DescribeOrganizationResponse (Maybe Text)
-dorsErrorMessage = lens _dorsErrorMessage (\s a -> s {_dorsErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsErrorMessage :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Lude.Text)
+dorsErrorMessage = Lens.lens (errorMessage :: DescribeOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The identifier of an organization.
-dorsOrganizationId :: Lens' DescribeOrganizationResponse (Maybe Text)
-dorsOrganizationId = lens _dorsOrganizationId (\s a -> s {_dorsOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsOrganizationId :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Lude.Text)
+dorsOrganizationId = Lens.lens (organizationId :: DescribeOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
--- | -- | The response status code.
-dorsResponseStatus :: Lens' DescribeOrganizationResponse Int
-dorsResponseStatus = lens _dorsResponseStatus (\s a -> s {_dorsResponseStatus = a})
-
-instance NFData DescribeOrganizationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsResponseStatus :: Lens.Lens' DescribeOrganizationResponse Lude.Int
+dorsResponseStatus = Lens.lens (responseStatus :: DescribeOrganizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

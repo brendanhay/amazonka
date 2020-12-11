@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.SnapshotStatus where
+module Network.AWS.DirectoryService.Types.SnapshotStatus
+  ( SnapshotStatus
+      ( SnapshotStatus',
+        SSCompleted,
+        SSCreating,
+        SSFailed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SnapshotStatus
-  = SSCompleted
-  | SSCreating
-  | SSFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SnapshotStatus = SnapshotStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SnapshotStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure SSCompleted
-      "creating" -> pure SSCreating
-      "failed" -> pure SSFailed
-      e ->
-        fromTextError $
-          "Failure parsing SnapshotStatus from value: '" <> e
-            <> "'. Accepted values: completed, creating, failed"
+pattern SSCompleted :: SnapshotStatus
+pattern SSCompleted = SnapshotStatus' "Completed"
 
-instance ToText SnapshotStatus where
-  toText = \case
-    SSCompleted -> "Completed"
-    SSCreating -> "Creating"
-    SSFailed -> "Failed"
+pattern SSCreating :: SnapshotStatus
+pattern SSCreating = SnapshotStatus' "Creating"
 
-instance Hashable SnapshotStatus
+pattern SSFailed :: SnapshotStatus
+pattern SSFailed = SnapshotStatus' "Failed"
 
-instance NFData SnapshotStatus
-
-instance ToByteString SnapshotStatus
-
-instance ToQuery SnapshotStatus
-
-instance ToHeader SnapshotStatus
-
-instance FromJSON SnapshotStatus where
-  parseJSON = parseJSONText "SnapshotStatus"
+{-# COMPLETE
+  SSCompleted,
+  SSCreating,
+  SSFailed,
+  SnapshotStatus'
+  #-}

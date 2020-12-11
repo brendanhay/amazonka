@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see 'how-document-classification' .
 module Network.AWS.Comprehend.CreateDocumentClassifier
-  ( -- * Creating a Request
-    createDocumentClassifier,
-    CreateDocumentClassifier,
+  ( -- * Creating a request
+    CreateDocumentClassifier (..),
+    mkCreateDocumentClassifier,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdcMode,
     cdcVPCConfig,
     cdcVolumeKMSKeyId,
@@ -35,213 +30,264 @@ module Network.AWS.Comprehend.CreateDocumentClassifier
     cdcInputDataConfig,
     cdcLanguageCode,
 
-    -- * Destructuring the Response
-    createDocumentClassifierResponse,
-    CreateDocumentClassifierResponse,
+    -- * Destructuring the response
+    CreateDocumentClassifierResponse (..),
+    mkCreateDocumentClassifierResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdcrsDocumentClassifierARN,
     cdcrsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDocumentClassifier' smart constructor.
+-- | /See:/ 'mkCreateDocumentClassifier' smart constructor.
 data CreateDocumentClassifier = CreateDocumentClassifier'
-  { _cdcMode ::
-      !(Maybe DocumentClassifierMode),
-    _cdcVPCConfig :: !(Maybe VPCConfig),
-    _cdcVolumeKMSKeyId :: !(Maybe Text),
-    _cdcOutputDataConfig ::
-      !( Maybe
-           DocumentClassifierOutputDataConfig
-       ),
-    _cdcClientRequestToken :: !(Maybe Text),
-    _cdcTags :: !(Maybe [Tag]),
-    _cdcDocumentClassifierName :: !Text,
-    _cdcDataAccessRoleARN :: !Text,
-    _cdcInputDataConfig ::
-      !DocumentClassifierInputDataConfig,
-    _cdcLanguageCode :: !LanguageCode
+  { mode ::
+      Lude.Maybe DocumentClassifierMode,
+    vpcConfig :: Lude.Maybe VPCConfig,
+    volumeKMSKeyId :: Lude.Maybe Lude.Text,
+    outputDataConfig ::
+      Lude.Maybe
+        DocumentClassifierOutputDataConfig,
+    clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    documentClassifierName :: Lude.Text,
+    dataAccessRoleARN :: Lude.Text,
+    inputDataConfig ::
+      DocumentClassifierInputDataConfig,
+    languageCode :: LanguageCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDocumentClassifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientRequestToken' - A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
+-- * 'documentClassifierName' - The name of the document classifier.
+-- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
+-- * 'languageCode' - The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.
+-- * 'mode' - Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class mode, which identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
+-- * 'outputDataConfig' - Enables the addition of output results configuration parameters for custom classifier jobs.
+-- * 'tags' - Tags to be associated with the document classifier being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
+-- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
--- * 'cdcMode' - Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class mode, which identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
 --
--- * 'cdcVPCConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'cdcVolumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'cdcOutputDataConfig' - Enables the addition of output results configuration parameters for custom classifier jobs.
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'cdcClientRequestToken' - A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
 --
--- * 'cdcTags' - Tags to be associated with the document classifier being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
---
--- * 'cdcDocumentClassifierName' - The name of the document classifier.
---
--- * 'cdcDataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
---
--- * 'cdcInputDataConfig' - Specifies the format and location of the input data for the job.
---
--- * 'cdcLanguageCode' - The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.
-createDocumentClassifier ::
-  -- | 'cdcDocumentClassifierName'
-  Text ->
-  -- | 'cdcDataAccessRoleARN'
-  Text ->
-  -- | 'cdcInputDataConfig'
+-- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+mkCreateDocumentClassifier ::
+  -- | 'documentClassifierName'
+  Lude.Text ->
+  -- | 'dataAccessRoleARN'
+  Lude.Text ->
+  -- | 'inputDataConfig'
   DocumentClassifierInputDataConfig ->
-  -- | 'cdcLanguageCode'
+  -- | 'languageCode'
   LanguageCode ->
   CreateDocumentClassifier
-createDocumentClassifier
+mkCreateDocumentClassifier
   pDocumentClassifierName_
   pDataAccessRoleARN_
   pInputDataConfig_
   pLanguageCode_ =
     CreateDocumentClassifier'
-      { _cdcMode = Nothing,
-        _cdcVPCConfig = Nothing,
-        _cdcVolumeKMSKeyId = Nothing,
-        _cdcOutputDataConfig = Nothing,
-        _cdcClientRequestToken = Nothing,
-        _cdcTags = Nothing,
-        _cdcDocumentClassifierName = pDocumentClassifierName_,
-        _cdcDataAccessRoleARN = pDataAccessRoleARN_,
-        _cdcInputDataConfig = pInputDataConfig_,
-        _cdcLanguageCode = pLanguageCode_
+      { mode = Lude.Nothing,
+        vpcConfig = Lude.Nothing,
+        volumeKMSKeyId = Lude.Nothing,
+        outputDataConfig = Lude.Nothing,
+        clientRequestToken = Lude.Nothing,
+        tags = Lude.Nothing,
+        documentClassifierName = pDocumentClassifierName_,
+        dataAccessRoleARN = pDataAccessRoleARN_,
+        inputDataConfig = pInputDataConfig_,
+        languageCode = pLanguageCode_
       }
 
 -- | Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class mode, which identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
-cdcMode :: Lens' CreateDocumentClassifier (Maybe DocumentClassifierMode)
-cdcMode = lens _cdcMode (\s a -> s {_cdcMode = a})
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcMode :: Lens.Lens' CreateDocumentClassifier (Lude.Maybe DocumentClassifierMode)
+cdcMode = Lens.lens (mode :: CreateDocumentClassifier -> Lude.Maybe DocumentClassifierMode) (\s a -> s {mode = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
 -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
-cdcVPCConfig :: Lens' CreateDocumentClassifier (Maybe VPCConfig)
-cdcVPCConfig = lens _cdcVPCConfig (\s a -> s {_cdcVPCConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcVPCConfig :: Lens.Lens' CreateDocumentClassifier (Lude.Maybe VPCConfig)
+cdcVPCConfig = Lens.lens (vpcConfig :: CreateDocumentClassifier -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-cdcVolumeKMSKeyId :: Lens' CreateDocumentClassifier (Maybe Text)
-cdcVolumeKMSKeyId = lens _cdcVolumeKMSKeyId (\s a -> s {_cdcVolumeKMSKeyId = a})
+-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+--
+--
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--
+-- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcVolumeKMSKeyId :: Lens.Lens' CreateDocumentClassifier (Lude.Maybe Lude.Text)
+cdcVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: CreateDocumentClassifier -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
 -- | Enables the addition of output results configuration parameters for custom classifier jobs.
-cdcOutputDataConfig :: Lens' CreateDocumentClassifier (Maybe DocumentClassifierOutputDataConfig)
-cdcOutputDataConfig = lens _cdcOutputDataConfig (\s a -> s {_cdcOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcOutputDataConfig :: Lens.Lens' CreateDocumentClassifier (Lude.Maybe DocumentClassifierOutputDataConfig)
+cdcOutputDataConfig = Lens.lens (outputDataConfig :: CreateDocumentClassifier -> Lude.Maybe DocumentClassifierOutputDataConfig) (\s a -> s {outputDataConfig = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
-cdcClientRequestToken :: Lens' CreateDocumentClassifier (Maybe Text)
-cdcClientRequestToken = lens _cdcClientRequestToken (\s a -> s {_cdcClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcClientRequestToken :: Lens.Lens' CreateDocumentClassifier (Lude.Maybe Lude.Text)
+cdcClientRequestToken = Lens.lens (clientRequestToken :: CreateDocumentClassifier -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | Tags to be associated with the document classifier being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
-cdcTags :: Lens' CreateDocumentClassifier [Tag]
-cdcTags = lens _cdcTags (\s a -> s {_cdcTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcTags :: Lens.Lens' CreateDocumentClassifier (Lude.Maybe [Tag])
+cdcTags = Lens.lens (tags :: CreateDocumentClassifier -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the document classifier.
-cdcDocumentClassifierName :: Lens' CreateDocumentClassifier Text
-cdcDocumentClassifierName = lens _cdcDocumentClassifierName (\s a -> s {_cdcDocumentClassifierName = a})
+--
+-- /Note:/ Consider using 'documentClassifierName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDocumentClassifierName :: Lens.Lens' CreateDocumentClassifier Lude.Text
+cdcDocumentClassifierName = Lens.lens (documentClassifierName :: CreateDocumentClassifier -> Lude.Text) (\s a -> s {documentClassifierName = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcDocumentClassifierName "Use generic-lens or generic-optics with 'documentClassifierName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
-cdcDataAccessRoleARN :: Lens' CreateDocumentClassifier Text
-cdcDataAccessRoleARN = lens _cdcDataAccessRoleARN (\s a -> s {_cdcDataAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDataAccessRoleARN :: Lens.Lens' CreateDocumentClassifier Lude.Text
+cdcDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: CreateDocumentClassifier -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
 -- | Specifies the format and location of the input data for the job.
-cdcInputDataConfig :: Lens' CreateDocumentClassifier DocumentClassifierInputDataConfig
-cdcInputDataConfig = lens _cdcInputDataConfig (\s a -> s {_cdcInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcInputDataConfig :: Lens.Lens' CreateDocumentClassifier DocumentClassifierInputDataConfig
+cdcInputDataConfig = Lens.lens (inputDataConfig :: CreateDocumentClassifier -> DocumentClassifierInputDataConfig) (\s a -> s {inputDataConfig = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.
-cdcLanguageCode :: Lens' CreateDocumentClassifier LanguageCode
-cdcLanguageCode = lens _cdcLanguageCode (\s a -> s {_cdcLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcLanguageCode :: Lens.Lens' CreateDocumentClassifier LanguageCode
+cdcLanguageCode = Lens.lens (languageCode :: CreateDocumentClassifier -> LanguageCode) (\s a -> s {languageCode = a} :: CreateDocumentClassifier)
+{-# DEPRECATED cdcLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
-instance AWSRequest CreateDocumentClassifier where
+instance Lude.AWSRequest CreateDocumentClassifier where
   type Rs CreateDocumentClassifier = CreateDocumentClassifierResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDocumentClassifierResponse'
-            <$> (x .?> "DocumentClassifierArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DocumentClassifierArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDocumentClassifier
-
-instance NFData CreateDocumentClassifier
-
-instance ToHeaders CreateDocumentClassifier where
+instance Lude.ToHeaders CreateDocumentClassifier where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.CreateDocumentClassifier" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.CreateDocumentClassifier" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateDocumentClassifier where
+instance Lude.ToJSON CreateDocumentClassifier where
   toJSON CreateDocumentClassifier' {..} =
-    object
-      ( catMaybes
-          [ ("Mode" .=) <$> _cdcMode,
-            ("VpcConfig" .=) <$> _cdcVPCConfig,
-            ("VolumeKmsKeyId" .=) <$> _cdcVolumeKMSKeyId,
-            ("OutputDataConfig" .=) <$> _cdcOutputDataConfig,
-            ("ClientRequestToken" .=) <$> _cdcClientRequestToken,
-            ("Tags" .=) <$> _cdcTags,
-            Just ("DocumentClassifierName" .= _cdcDocumentClassifierName),
-            Just ("DataAccessRoleArn" .= _cdcDataAccessRoleARN),
-            Just ("InputDataConfig" .= _cdcInputDataConfig),
-            Just ("LanguageCode" .= _cdcLanguageCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Mode" Lude..=) Lude.<$> mode,
+            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
+            ("OutputDataConfig" Lude..=) Lude.<$> outputDataConfig,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just
+              ("DocumentClassifierName" Lude..= documentClassifierName),
+            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN),
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
+            Lude.Just ("LanguageCode" Lude..= languageCode)
           ]
       )
 
-instance ToPath CreateDocumentClassifier where
-  toPath = const "/"
+instance Lude.ToPath CreateDocumentClassifier where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateDocumentClassifier where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDocumentClassifier where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDocumentClassifierResponse' smart constructor.
+-- | /See:/ 'mkCreateDocumentClassifierResponse' smart constructor.
 data CreateDocumentClassifierResponse = CreateDocumentClassifierResponse'
-  { _cdcrsDocumentClassifierARN ::
-      !(Maybe Text),
-    _cdcrsResponseStatus ::
-      !Int
+  { documentClassifierARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDocumentClassifierResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcrsDocumentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier.
---
--- * 'cdcrsResponseStatus' - -- | The response status code.
-createDocumentClassifierResponse ::
-  -- | 'cdcrsResponseStatus'
-  Int ->
+-- * 'documentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier.
+-- * 'responseStatus' - The response status code.
+mkCreateDocumentClassifierResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDocumentClassifierResponse
-createDocumentClassifierResponse pResponseStatus_ =
+mkCreateDocumentClassifierResponse pResponseStatus_ =
   CreateDocumentClassifierResponse'
-    { _cdcrsDocumentClassifierARN =
-        Nothing,
-      _cdcrsResponseStatus = pResponseStatus_
+    { documentClassifierARN =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-cdcrsDocumentClassifierARN :: Lens' CreateDocumentClassifierResponse (Maybe Text)
-cdcrsDocumentClassifierARN = lens _cdcrsDocumentClassifierARN (\s a -> s {_cdcrsDocumentClassifierARN = a})
+--
+-- /Note:/ Consider using 'documentClassifierARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsDocumentClassifierARN :: Lens.Lens' CreateDocumentClassifierResponse (Lude.Maybe Lude.Text)
+cdcrsDocumentClassifierARN = Lens.lens (documentClassifierARN :: CreateDocumentClassifierResponse -> Lude.Maybe Lude.Text) (\s a -> s {documentClassifierARN = a} :: CreateDocumentClassifierResponse)
+{-# DEPRECATED cdcrsDocumentClassifierARN "Use generic-lens or generic-optics with 'documentClassifierARN' instead." #-}
 
--- | -- | The response status code.
-cdcrsResponseStatus :: Lens' CreateDocumentClassifierResponse Int
-cdcrsResponseStatus = lens _cdcrsResponseStatus (\s a -> s {_cdcrsResponseStatus = a})
-
-instance NFData CreateDocumentClassifierResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsResponseStatus :: Lens.Lens' CreateDocumentClassifierResponse Lude.Int
+cdcrsResponseStatus = Lens.lens (responseStatus :: CreateDocumentClassifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDocumentClassifierResponse)
+{-# DEPRECATED cdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

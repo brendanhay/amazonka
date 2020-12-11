@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,153 @@
 --
 -- Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of reserved node offerings. You can purchase one or more of the offerings. You can call the 'DescribeReservedNodeOfferings' API to obtain the available reserved node offerings. You can call this API by providing a specific reserved node offering and the number of nodes you want to reserve.
 --
---
 -- For more information about reserved node offerings, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
-  ( -- * Creating a Request
-    purchaseReservedNodeOffering,
-    PurchaseReservedNodeOffering,
+  ( -- * Creating a request
+    PurchaseReservedNodeOffering (..),
+    mkPurchaseReservedNodeOffering,
 
-    -- * Request Lenses
+    -- ** Request lenses
     prnoNodeCount,
     prnoReservedNodeOfferingId,
 
-    -- * Destructuring the Response
-    purchaseReservedNodeOfferingResponse,
-    PurchaseReservedNodeOfferingResponse,
+    -- * Destructuring the response
+    PurchaseReservedNodeOfferingResponse (..),
+    mkPurchaseReservedNodeOfferingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     prnorsReservedNode,
     prnorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'purchaseReservedNodeOffering' smart constructor.
+-- /See:/ 'mkPurchaseReservedNodeOffering' smart constructor.
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
-  { _prnoNodeCount ::
-      !(Maybe Int),
-    _prnoReservedNodeOfferingId ::
-      !Text
+  { nodeCount ::
+      Lude.Maybe Lude.Int,
+    reservedNodeOfferingId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseReservedNodeOffering' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nodeCount' - The number of reserved nodes that you want to purchase.
 --
--- * 'prnoNodeCount' - The number of reserved nodes that you want to purchase. Default: @1@
---
--- * 'prnoReservedNodeOfferingId' - The unique identifier of the reserved node offering you want to purchase.
-purchaseReservedNodeOffering ::
-  -- | 'prnoReservedNodeOfferingId'
-  Text ->
+-- Default: @1@
+-- * 'reservedNodeOfferingId' - The unique identifier of the reserved node offering you want to purchase.
+mkPurchaseReservedNodeOffering ::
+  -- | 'reservedNodeOfferingId'
+  Lude.Text ->
   PurchaseReservedNodeOffering
-purchaseReservedNodeOffering pReservedNodeOfferingId_ =
+mkPurchaseReservedNodeOffering pReservedNodeOfferingId_ =
   PurchaseReservedNodeOffering'
-    { _prnoNodeCount = Nothing,
-      _prnoReservedNodeOfferingId = pReservedNodeOfferingId_
+    { nodeCount = Lude.Nothing,
+      reservedNodeOfferingId = pReservedNodeOfferingId_
     }
 
--- | The number of reserved nodes that you want to purchase. Default: @1@
-prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
-prnoNodeCount = lens _prnoNodeCount (\s a -> s {_prnoNodeCount = a})
+-- | The number of reserved nodes that you want to purchase.
+--
+-- Default: @1@
+--
+-- /Note:/ Consider using 'nodeCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prnoNodeCount :: Lens.Lens' PurchaseReservedNodeOffering (Lude.Maybe Lude.Int)
+prnoNodeCount = Lens.lens (nodeCount :: PurchaseReservedNodeOffering -> Lude.Maybe Lude.Int) (\s a -> s {nodeCount = a} :: PurchaseReservedNodeOffering)
+{-# DEPRECATED prnoNodeCount "Use generic-lens or generic-optics with 'nodeCount' instead." #-}
 
 -- | The unique identifier of the reserved node offering you want to purchase.
-prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
-prnoReservedNodeOfferingId = lens _prnoReservedNodeOfferingId (\s a -> s {_prnoReservedNodeOfferingId = a})
+--
+-- /Note:/ Consider using 'reservedNodeOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prnoReservedNodeOfferingId :: Lens.Lens' PurchaseReservedNodeOffering Lude.Text
+prnoReservedNodeOfferingId = Lens.lens (reservedNodeOfferingId :: PurchaseReservedNodeOffering -> Lude.Text) (\s a -> s {reservedNodeOfferingId = a} :: PurchaseReservedNodeOffering)
+{-# DEPRECATED prnoReservedNodeOfferingId "Use generic-lens or generic-optics with 'reservedNodeOfferingId' instead." #-}
 
-instance AWSRequest PurchaseReservedNodeOffering where
+instance Lude.AWSRequest PurchaseReservedNodeOffering where
   type
     Rs PurchaseReservedNodeOffering =
       PurchaseReservedNodeOfferingResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "PurchaseReservedNodeOfferingResult"
       ( \s h x ->
           PurchaseReservedNodeOfferingResponse'
-            <$> (x .@? "ReservedNode") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "ReservedNode") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PurchaseReservedNodeOffering
+instance Lude.ToHeaders PurchaseReservedNodeOffering where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PurchaseReservedNodeOffering
+instance Lude.ToPath PurchaseReservedNodeOffering where
+  toPath = Lude.const "/"
 
-instance ToHeaders PurchaseReservedNodeOffering where
-  toHeaders = const mempty
-
-instance ToPath PurchaseReservedNodeOffering where
-  toPath = const "/"
-
-instance ToQuery PurchaseReservedNodeOffering where
+instance Lude.ToQuery PurchaseReservedNodeOffering where
   toQuery PurchaseReservedNodeOffering' {..} =
-    mconcat
-      [ "Action" =: ("PurchaseReservedNodeOffering" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "NodeCount" =: _prnoNodeCount,
-        "ReservedNodeOfferingId" =: _prnoReservedNodeOfferingId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("PurchaseReservedNodeOffering" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "NodeCount" Lude.=: nodeCount,
+        "ReservedNodeOfferingId" Lude.=: reservedNodeOfferingId
       ]
 
--- | /See:/ 'purchaseReservedNodeOfferingResponse' smart constructor.
+-- | /See:/ 'mkPurchaseReservedNodeOfferingResponse' smart constructor.
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
-  { _prnorsReservedNode ::
-      !( Maybe
-           ReservedNode
-       ),
-    _prnorsResponseStatus ::
-      !Int
+  { reservedNode ::
+      Lude.Maybe
+        ReservedNode,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseReservedNodeOfferingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prnorsReservedNode' - Undocumented member.
---
--- * 'prnorsResponseStatus' - -- | The response status code.
-purchaseReservedNodeOfferingResponse ::
-  -- | 'prnorsResponseStatus'
-  Int ->
+-- * 'reservedNode' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkPurchaseReservedNodeOfferingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PurchaseReservedNodeOfferingResponse
-purchaseReservedNodeOfferingResponse pResponseStatus_ =
+mkPurchaseReservedNodeOfferingResponse pResponseStatus_ =
   PurchaseReservedNodeOfferingResponse'
-    { _prnorsReservedNode =
-        Nothing,
-      _prnorsResponseStatus = pResponseStatus_
+    { reservedNode =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
-prnorsReservedNode = lens _prnorsReservedNode (\s a -> s {_prnorsReservedNode = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'reservedNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prnorsReservedNode :: Lens.Lens' PurchaseReservedNodeOfferingResponse (Lude.Maybe ReservedNode)
+prnorsReservedNode = Lens.lens (reservedNode :: PurchaseReservedNodeOfferingResponse -> Lude.Maybe ReservedNode) (\s a -> s {reservedNode = a} :: PurchaseReservedNodeOfferingResponse)
+{-# DEPRECATED prnorsReservedNode "Use generic-lens or generic-optics with 'reservedNode' instead." #-}
 
--- | -- | The response status code.
-prnorsResponseStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
-prnorsResponseStatus = lens _prnorsResponseStatus (\s a -> s {_prnorsResponseStatus = a})
-
-instance NFData PurchaseReservedNodeOfferingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prnorsResponseStatus :: Lens.Lens' PurchaseReservedNodeOfferingResponse Lude.Int
+prnorsResponseStatus = Lens.lens (responseStatus :: PurchaseReservedNodeOfferingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PurchaseReservedNodeOfferingResponse)
+{-# DEPRECATED prnorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

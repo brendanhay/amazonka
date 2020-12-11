@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,109 +7,149 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackStatus where
+module Network.AWS.CloudFormation.Types.StackStatus
+  ( StackStatus
+      ( StackStatus',
+        SSCreateComplete,
+        SSCreateFailed,
+        SSCreateInProgress,
+        SSDeleteComplete,
+        SSDeleteFailed,
+        SSDeleteInProgress,
+        SSImportComplete,
+        SSImportInProgress,
+        SSImportRollbackComplete,
+        SSImportRollbackFailed,
+        SSImportRollbackInProgress,
+        SSReviewInProgress,
+        SSRollbackComplete,
+        SSRollbackFailed,
+        SSRollbackInProgress,
+        SSUpdateComplete,
+        SSUpdateCompleteCleanupInProgress,
+        SSUpdateInProgress,
+        SSUpdateRollbackComplete,
+        SSUpdateRollbackCompleteCleanupInProgress,
+        SSUpdateRollbackFailed,
+        SSUpdateRollbackInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackStatus
-  = SSCreateComplete
-  | SSCreateFailed
-  | SSCreateInProgress
-  | SSDeleteComplete
-  | SSDeleteFailed
-  | SSDeleteInProgress
-  | SSImportComplete
-  | SSImportInProgress
-  | SSImportRollbackComplete
-  | SSImportRollbackFailed
-  | SSImportRollbackInProgress
-  | SSReviewInProgress
-  | SSRollbackComplete
-  | SSRollbackFailed
-  | SSRollbackInProgress
-  | SSUpdateComplete
-  | SSUpdateCompleteCleanupInProgress
-  | SSUpdateInProgress
-  | SSUpdateRollbackComplete
-  | SSUpdateRollbackCompleteCleanupInProgress
-  | SSUpdateRollbackFailed
-  | SSUpdateRollbackInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackStatus = StackStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_complete" -> pure SSCreateComplete
-      "create_failed" -> pure SSCreateFailed
-      "create_in_progress" -> pure SSCreateInProgress
-      "delete_complete" -> pure SSDeleteComplete
-      "delete_failed" -> pure SSDeleteFailed
-      "delete_in_progress" -> pure SSDeleteInProgress
-      "import_complete" -> pure SSImportComplete
-      "import_in_progress" -> pure SSImportInProgress
-      "import_rollback_complete" -> pure SSImportRollbackComplete
-      "import_rollback_failed" -> pure SSImportRollbackFailed
-      "import_rollback_in_progress" -> pure SSImportRollbackInProgress
-      "review_in_progress" -> pure SSReviewInProgress
-      "rollback_complete" -> pure SSRollbackComplete
-      "rollback_failed" -> pure SSRollbackFailed
-      "rollback_in_progress" -> pure SSRollbackInProgress
-      "update_complete" -> pure SSUpdateComplete
-      "update_complete_cleanup_in_progress" -> pure SSUpdateCompleteCleanupInProgress
-      "update_in_progress" -> pure SSUpdateInProgress
-      "update_rollback_complete" -> pure SSUpdateRollbackComplete
-      "update_rollback_complete_cleanup_in_progress" -> pure SSUpdateRollbackCompleteCleanupInProgress
-      "update_rollback_failed" -> pure SSUpdateRollbackFailed
-      "update_rollback_in_progress" -> pure SSUpdateRollbackInProgress
-      e ->
-        fromTextError $
-          "Failure parsing StackStatus from value: '" <> e
-            <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, import_complete, import_in_progress, import_rollback_complete, import_rollback_failed, import_rollback_in_progress, review_in_progress, rollback_complete, rollback_failed, rollback_in_progress, update_complete, update_complete_cleanup_in_progress, update_in_progress, update_rollback_complete, update_rollback_complete_cleanup_in_progress, update_rollback_failed, update_rollback_in_progress"
+pattern SSCreateComplete :: StackStatus
+pattern SSCreateComplete = StackStatus' "CREATE_COMPLETE"
 
-instance ToText StackStatus where
-  toText = \case
-    SSCreateComplete -> "CREATE_COMPLETE"
-    SSCreateFailed -> "CREATE_FAILED"
-    SSCreateInProgress -> "CREATE_IN_PROGRESS"
-    SSDeleteComplete -> "DELETE_COMPLETE"
-    SSDeleteFailed -> "DELETE_FAILED"
-    SSDeleteInProgress -> "DELETE_IN_PROGRESS"
-    SSImportComplete -> "IMPORT_COMPLETE"
-    SSImportInProgress -> "IMPORT_IN_PROGRESS"
-    SSImportRollbackComplete -> "IMPORT_ROLLBACK_COMPLETE"
-    SSImportRollbackFailed -> "IMPORT_ROLLBACK_FAILED"
-    SSImportRollbackInProgress -> "IMPORT_ROLLBACK_IN_PROGRESS"
-    SSReviewInProgress -> "REVIEW_IN_PROGRESS"
-    SSRollbackComplete -> "ROLLBACK_COMPLETE"
-    SSRollbackFailed -> "ROLLBACK_FAILED"
-    SSRollbackInProgress -> "ROLLBACK_IN_PROGRESS"
-    SSUpdateComplete -> "UPDATE_COMPLETE"
-    SSUpdateCompleteCleanupInProgress -> "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
-    SSUpdateInProgress -> "UPDATE_IN_PROGRESS"
-    SSUpdateRollbackComplete -> "UPDATE_ROLLBACK_COMPLETE"
-    SSUpdateRollbackCompleteCleanupInProgress -> "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
-    SSUpdateRollbackFailed -> "UPDATE_ROLLBACK_FAILED"
-    SSUpdateRollbackInProgress -> "UPDATE_ROLLBACK_IN_PROGRESS"
+pattern SSCreateFailed :: StackStatus
+pattern SSCreateFailed = StackStatus' "CREATE_FAILED"
 
-instance Hashable StackStatus
+pattern SSCreateInProgress :: StackStatus
+pattern SSCreateInProgress = StackStatus' "CREATE_IN_PROGRESS"
 
-instance NFData StackStatus
+pattern SSDeleteComplete :: StackStatus
+pattern SSDeleteComplete = StackStatus' "DELETE_COMPLETE"
 
-instance ToByteString StackStatus
+pattern SSDeleteFailed :: StackStatus
+pattern SSDeleteFailed = StackStatus' "DELETE_FAILED"
 
-instance ToQuery StackStatus
+pattern SSDeleteInProgress :: StackStatus
+pattern SSDeleteInProgress = StackStatus' "DELETE_IN_PROGRESS"
 
-instance ToHeader StackStatus
+pattern SSImportComplete :: StackStatus
+pattern SSImportComplete = StackStatus' "IMPORT_COMPLETE"
 
-instance FromXML StackStatus where
-  parseXML = parseXMLText "StackStatus"
+pattern SSImportInProgress :: StackStatus
+pattern SSImportInProgress = StackStatus' "IMPORT_IN_PROGRESS"
+
+pattern SSImportRollbackComplete :: StackStatus
+pattern SSImportRollbackComplete = StackStatus' "IMPORT_ROLLBACK_COMPLETE"
+
+pattern SSImportRollbackFailed :: StackStatus
+pattern SSImportRollbackFailed = StackStatus' "IMPORT_ROLLBACK_FAILED"
+
+pattern SSImportRollbackInProgress :: StackStatus
+pattern SSImportRollbackInProgress = StackStatus' "IMPORT_ROLLBACK_IN_PROGRESS"
+
+pattern SSReviewInProgress :: StackStatus
+pattern SSReviewInProgress = StackStatus' "REVIEW_IN_PROGRESS"
+
+pattern SSRollbackComplete :: StackStatus
+pattern SSRollbackComplete = StackStatus' "ROLLBACK_COMPLETE"
+
+pattern SSRollbackFailed :: StackStatus
+pattern SSRollbackFailed = StackStatus' "ROLLBACK_FAILED"
+
+pattern SSRollbackInProgress :: StackStatus
+pattern SSRollbackInProgress = StackStatus' "ROLLBACK_IN_PROGRESS"
+
+pattern SSUpdateComplete :: StackStatus
+pattern SSUpdateComplete = StackStatus' "UPDATE_COMPLETE"
+
+pattern SSUpdateCompleteCleanupInProgress :: StackStatus
+pattern SSUpdateCompleteCleanupInProgress = StackStatus' "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
+
+pattern SSUpdateInProgress :: StackStatus
+pattern SSUpdateInProgress = StackStatus' "UPDATE_IN_PROGRESS"
+
+pattern SSUpdateRollbackComplete :: StackStatus
+pattern SSUpdateRollbackComplete = StackStatus' "UPDATE_ROLLBACK_COMPLETE"
+
+pattern SSUpdateRollbackCompleteCleanupInProgress :: StackStatus
+pattern SSUpdateRollbackCompleteCleanupInProgress = StackStatus' "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
+
+pattern SSUpdateRollbackFailed :: StackStatus
+pattern SSUpdateRollbackFailed = StackStatus' "UPDATE_ROLLBACK_FAILED"
+
+pattern SSUpdateRollbackInProgress :: StackStatus
+pattern SSUpdateRollbackInProgress = StackStatus' "UPDATE_ROLLBACK_IN_PROGRESS"
+
+{-# COMPLETE
+  SSCreateComplete,
+  SSCreateFailed,
+  SSCreateInProgress,
+  SSDeleteComplete,
+  SSDeleteFailed,
+  SSDeleteInProgress,
+  SSImportComplete,
+  SSImportInProgress,
+  SSImportRollbackComplete,
+  SSImportRollbackFailed,
+  SSImportRollbackInProgress,
+  SSReviewInProgress,
+  SSRollbackComplete,
+  SSRollbackFailed,
+  SSRollbackInProgress,
+  SSUpdateComplete,
+  SSUpdateCompleteCleanupInProgress,
+  SSUpdateInProgress,
+  SSUpdateRollbackComplete,
+  SSUpdateRollbackCompleteCleanupInProgress,
+  SSUpdateRollbackFailed,
+  SSUpdateRollbackInProgress,
+  StackStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,101 +14,109 @@
 --
 -- Deletes the specified thing type. You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling 'DeprecateThingType' , then remove any associated things by calling 'UpdateThing' to change the thing type on any associated thing, and finally use 'DeleteThingType' to delete the thing type.
 module Network.AWS.IoT.DeleteThingType
-  ( -- * Creating a Request
-    deleteThingType,
-    DeleteThingType,
+  ( -- * Creating a request
+    DeleteThingType (..),
+    mkDeleteThingType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dttThingTypeName,
 
-    -- * Destructuring the Response
-    deleteThingTypeResponse,
-    DeleteThingTypeResponse,
+    -- * Destructuring the response
+    DeleteThingTypeResponse (..),
+    mkDeleteThingTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dttrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the DeleteThingType operation.
 --
---
---
--- /See:/ 'deleteThingType' smart constructor.
+-- /See:/ 'mkDeleteThingType' smart constructor.
 newtype DeleteThingType = DeleteThingType'
-  { _dttThingTypeName ::
-      Text
+  { thingTypeName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteThingType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dttThingTypeName' - The name of the thing type.
-deleteThingType ::
-  -- | 'dttThingTypeName'
-  Text ->
+-- * 'thingTypeName' - The name of the thing type.
+mkDeleteThingType ::
+  -- | 'thingTypeName'
+  Lude.Text ->
   DeleteThingType
-deleteThingType pThingTypeName_ =
-  DeleteThingType' {_dttThingTypeName = pThingTypeName_}
+mkDeleteThingType pThingTypeName_ =
+  DeleteThingType' {thingTypeName = pThingTypeName_}
 
 -- | The name of the thing type.
-dttThingTypeName :: Lens' DeleteThingType Text
-dttThingTypeName = lens _dttThingTypeName (\s a -> s {_dttThingTypeName = a})
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttThingTypeName :: Lens.Lens' DeleteThingType Lude.Text
+dttThingTypeName = Lens.lens (thingTypeName :: DeleteThingType -> Lude.Text) (\s a -> s {thingTypeName = a} :: DeleteThingType)
+{-# DEPRECATED dttThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
-instance AWSRequest DeleteThingType where
+instance Lude.AWSRequest DeleteThingType where
   type Rs DeleteThingType = DeleteThingTypeResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteThingTypeResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteThingTypeResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteThingType
+instance Lude.ToHeaders DeleteThingType where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteThingType
-
-instance ToHeaders DeleteThingType where
-  toHeaders = const mempty
-
-instance ToPath DeleteThingType where
+instance Lude.ToPath DeleteThingType where
   toPath DeleteThingType' {..} =
-    mconcat ["/thing-types/", toBS _dttThingTypeName]
+    Lude.mconcat ["/thing-types/", Lude.toBS thingTypeName]
 
-instance ToQuery DeleteThingType where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteThingType where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output for the DeleteThingType operation.
 --
---
---
--- /See:/ 'deleteThingTypeResponse' smart constructor.
+-- /See:/ 'mkDeleteThingTypeResponse' smart constructor.
 newtype DeleteThingTypeResponse = DeleteThingTypeResponse'
-  { _dttrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteThingTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dttrsResponseStatus' - -- | The response status code.
-deleteThingTypeResponse ::
-  -- | 'dttrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteThingTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteThingTypeResponse
-deleteThingTypeResponse pResponseStatus_ =
-  DeleteThingTypeResponse' {_dttrsResponseStatus = pResponseStatus_}
+mkDeleteThingTypeResponse pResponseStatus_ =
+  DeleteThingTypeResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dttrsResponseStatus :: Lens' DeleteThingTypeResponse Int
-dttrsResponseStatus = lens _dttrsResponseStatus (\s a -> s {_dttrsResponseStatus = a})
-
-instance NFData DeleteThingTypeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttrsResponseStatus :: Lens.Lens' DeleteThingTypeResponse Lude.Int
+dttrsResponseStatus = Lens.lens (responseStatus :: DeleteThingTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteThingTypeResponse)
+{-# DEPRECATED dttrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

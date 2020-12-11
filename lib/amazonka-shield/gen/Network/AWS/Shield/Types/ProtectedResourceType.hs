@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.ProtectedResourceType where
+module Network.AWS.Shield.Types.ProtectedResourceType
+  ( ProtectedResourceType
+      ( ProtectedResourceType',
+        ApplicationLoadBalancer,
+        ClassicLoadBalancer,
+        CloudfrontDistribution,
+        ElasticIPAllocation,
+        GlobalAccelerator,
+        Route53HostedZone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProtectedResourceType
-  = ApplicationLoadBalancer
-  | ClassicLoadBalancer
-  | CloudfrontDistribution
-  | ElasticIPAllocation
-  | GlobalAccelerator
-  | Route53HostedZone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProtectedResourceType = ProtectedResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProtectedResourceType where
-  parser =
-    takeLowerText >>= \case
-      "application_load_balancer" -> pure ApplicationLoadBalancer
-      "classic_load_balancer" -> pure ClassicLoadBalancer
-      "cloudfront_distribution" -> pure CloudfrontDistribution
-      "elastic_ip_allocation" -> pure ElasticIPAllocation
-      "global_accelerator" -> pure GlobalAccelerator
-      "route_53_hosted_zone" -> pure Route53HostedZone
-      e ->
-        fromTextError $
-          "Failure parsing ProtectedResourceType from value: '" <> e
-            <> "'. Accepted values: application_load_balancer, classic_load_balancer, cloudfront_distribution, elastic_ip_allocation, global_accelerator, route_53_hosted_zone"
+pattern ApplicationLoadBalancer :: ProtectedResourceType
+pattern ApplicationLoadBalancer = ProtectedResourceType' "APPLICATION_LOAD_BALANCER"
 
-instance ToText ProtectedResourceType where
-  toText = \case
-    ApplicationLoadBalancer -> "APPLICATION_LOAD_BALANCER"
-    ClassicLoadBalancer -> "CLASSIC_LOAD_BALANCER"
-    CloudfrontDistribution -> "CLOUDFRONT_DISTRIBUTION"
-    ElasticIPAllocation -> "ELASTIC_IP_ALLOCATION"
-    GlobalAccelerator -> "GLOBAL_ACCELERATOR"
-    Route53HostedZone -> "ROUTE_53_HOSTED_ZONE"
+pattern ClassicLoadBalancer :: ProtectedResourceType
+pattern ClassicLoadBalancer = ProtectedResourceType' "CLASSIC_LOAD_BALANCER"
 
-instance Hashable ProtectedResourceType
+pattern CloudfrontDistribution :: ProtectedResourceType
+pattern CloudfrontDistribution = ProtectedResourceType' "CLOUDFRONT_DISTRIBUTION"
 
-instance NFData ProtectedResourceType
+pattern ElasticIPAllocation :: ProtectedResourceType
+pattern ElasticIPAllocation = ProtectedResourceType' "ELASTIC_IP_ALLOCATION"
 
-instance ToByteString ProtectedResourceType
+pattern GlobalAccelerator :: ProtectedResourceType
+pattern GlobalAccelerator = ProtectedResourceType' "GLOBAL_ACCELERATOR"
 
-instance ToQuery ProtectedResourceType
+pattern Route53HostedZone :: ProtectedResourceType
+pattern Route53HostedZone = ProtectedResourceType' "ROUTE_53_HOSTED_ZONE"
 
-instance ToHeader ProtectedResourceType
-
-instance ToJSON ProtectedResourceType where
-  toJSON = toJSONText
-
-instance FromJSON ProtectedResourceType where
-  parseJSON = parseJSONText "ProtectedResourceType"
+{-# COMPLETE
+  ApplicationLoadBalancer,
+  ClassicLoadBalancer,
+  CloudfrontDistribution,
+  ElasticIPAllocation,
+  GlobalAccelerator,
+  Route53HostedZone,
+  ProtectedResourceType'
+  #-}

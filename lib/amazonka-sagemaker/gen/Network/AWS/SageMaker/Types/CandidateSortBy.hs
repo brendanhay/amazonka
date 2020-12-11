@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.CandidateSortBy where
+module Network.AWS.SageMaker.Types.CandidateSortBy
+  ( CandidateSortBy
+      ( CandidateSortBy',
+        CSBCreationTime,
+        CSBFinalObjectiveMetricValue,
+        CSBStatus
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CandidateSortBy
-  = CSBCreationTime
-  | CSBFinalObjectiveMetricValue
-  | CSBStatus
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CandidateSortBy = CandidateSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CandidateSortBy where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure CSBCreationTime
-      "finalobjectivemetricvalue" -> pure CSBFinalObjectiveMetricValue
-      "status" -> pure CSBStatus
-      e ->
-        fromTextError $
-          "Failure parsing CandidateSortBy from value: '" <> e
-            <> "'. Accepted values: creationtime, finalobjectivemetricvalue, status"
+pattern CSBCreationTime :: CandidateSortBy
+pattern CSBCreationTime = CandidateSortBy' "CreationTime"
 
-instance ToText CandidateSortBy where
-  toText = \case
-    CSBCreationTime -> "CreationTime"
-    CSBFinalObjectiveMetricValue -> "FinalObjectiveMetricValue"
-    CSBStatus -> "Status"
+pattern CSBFinalObjectiveMetricValue :: CandidateSortBy
+pattern CSBFinalObjectiveMetricValue = CandidateSortBy' "FinalObjectiveMetricValue"
 
-instance Hashable CandidateSortBy
+pattern CSBStatus :: CandidateSortBy
+pattern CSBStatus = CandidateSortBy' "Status"
 
-instance NFData CandidateSortBy
-
-instance ToByteString CandidateSortBy
-
-instance ToQuery CandidateSortBy
-
-instance ToHeader CandidateSortBy
-
-instance ToJSON CandidateSortBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  CSBCreationTime,
+  CSBFinalObjectiveMetricValue,
+  CSBStatus,
+  CandidateSortBy'
+  #-}

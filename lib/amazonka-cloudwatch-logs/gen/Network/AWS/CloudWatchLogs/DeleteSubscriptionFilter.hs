@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,115 @@
 --
 -- Deletes the specified subscription filter.
 module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
-  ( -- * Creating a Request
-    deleteSubscriptionFilter,
-    DeleteSubscriptionFilter,
+  ( -- * Creating a request
+    DeleteSubscriptionFilter (..),
+    mkDeleteSubscriptionFilter,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dLogGroupName,
     dFilterName,
 
-    -- * Destructuring the Response
-    deleteSubscriptionFilterResponse,
-    DeleteSubscriptionFilterResponse,
+    -- * Destructuring the response
+    DeleteSubscriptionFilterResponse (..),
+    mkDeleteSubscriptionFilterResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSubscriptionFilter' smart constructor.
+-- | /See:/ 'mkDeleteSubscriptionFilter' smart constructor.
 data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
-  { _dLogGroupName ::
-      !Text,
-    _dFilterName :: !Text
+  { logGroupName ::
+      Lude.Text,
+    filterName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSubscriptionFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dLogGroupName' - The name of the log group.
---
--- * 'dFilterName' - The name of the subscription filter.
-deleteSubscriptionFilter ::
-  -- | 'dLogGroupName'
-  Text ->
-  -- | 'dFilterName'
-  Text ->
+-- * 'filterName' - The name of the subscription filter.
+-- * 'logGroupName' - The name of the log group.
+mkDeleteSubscriptionFilter ::
+  -- | 'logGroupName'
+  Lude.Text ->
+  -- | 'filterName'
+  Lude.Text ->
   DeleteSubscriptionFilter
-deleteSubscriptionFilter pLogGroupName_ pFilterName_ =
+mkDeleteSubscriptionFilter pLogGroupName_ pFilterName_ =
   DeleteSubscriptionFilter'
-    { _dLogGroupName = pLogGroupName_,
-      _dFilterName = pFilterName_
+    { logGroupName = pLogGroupName_,
+      filterName = pFilterName_
     }
 
 -- | The name of the log group.
-dLogGroupName :: Lens' DeleteSubscriptionFilter Text
-dLogGroupName = lens _dLogGroupName (\s a -> s {_dLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLogGroupName :: Lens.Lens' DeleteSubscriptionFilter Lude.Text
+dLogGroupName = Lens.lens (logGroupName :: DeleteSubscriptionFilter -> Lude.Text) (\s a -> s {logGroupName = a} :: DeleteSubscriptionFilter)
+{-# DEPRECATED dLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The name of the subscription filter.
-dFilterName :: Lens' DeleteSubscriptionFilter Text
-dFilterName = lens _dFilterName (\s a -> s {_dFilterName = a})
+--
+-- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dFilterName :: Lens.Lens' DeleteSubscriptionFilter Lude.Text
+dFilterName = Lens.lens (filterName :: DeleteSubscriptionFilter -> Lude.Text) (\s a -> s {filterName = a} :: DeleteSubscriptionFilter)
+{-# DEPRECATED dFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
 
-instance AWSRequest DeleteSubscriptionFilter where
+instance Lude.AWSRequest DeleteSubscriptionFilter where
   type Rs DeleteSubscriptionFilter = DeleteSubscriptionFilterResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull DeleteSubscriptionFilterResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull DeleteSubscriptionFilterResponse'
 
-instance Hashable DeleteSubscriptionFilter
-
-instance NFData DeleteSubscriptionFilter
-
-instance ToHeaders DeleteSubscriptionFilter where
+instance Lude.ToHeaders DeleteSubscriptionFilter where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.DeleteSubscriptionFilter" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.DeleteSubscriptionFilter" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteSubscriptionFilter where
+instance Lude.ToJSON DeleteSubscriptionFilter where
   toJSON DeleteSubscriptionFilter' {..} =
-    object
-      ( catMaybes
-          [ Just ("logGroupName" .= _dLogGroupName),
-            Just ("filterName" .= _dFilterName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("logGroupName" Lude..= logGroupName),
+            Lude.Just ("filterName" Lude..= filterName)
           ]
       )
 
-instance ToPath DeleteSubscriptionFilter where
-  toPath = const "/"
+instance Lude.ToPath DeleteSubscriptionFilter where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteSubscriptionFilter where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSubscriptionFilter where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSubscriptionFilterResponse' smart constructor.
+-- | /See:/ 'mkDeleteSubscriptionFilterResponse' smart constructor.
 data DeleteSubscriptionFilterResponse = DeleteSubscriptionFilterResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSubscriptionFilterResponse' with the minimum fields required to make a request.
-deleteSubscriptionFilterResponse ::
+mkDeleteSubscriptionFilterResponse ::
   DeleteSubscriptionFilterResponse
-deleteSubscriptionFilterResponse =
+mkDeleteSubscriptionFilterResponse =
   DeleteSubscriptionFilterResponse'
-
-instance NFData DeleteSubscriptionFilterResponse

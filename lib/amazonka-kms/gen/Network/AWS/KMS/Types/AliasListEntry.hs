@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.AliasListEntry where
+module Network.AWS.KMS.Types.AliasListEntry
+  ( AliasListEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAliasListEntry,
+
+    -- * Lenses
+    aleTargetKeyId,
+    aleAliasName,
+    aleAliasARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about an alias.
 --
---
---
--- /See:/ 'aliasListEntry' smart constructor.
+-- /See:/ 'mkAliasListEntry' smart constructor.
 data AliasListEntry = AliasListEntry'
-  { _aleTargetKeyId ::
-      !(Maybe Text),
-    _aleAliasName :: !(Maybe Text),
-    _aleAliasARN :: !(Maybe Text)
+  { targetKeyId ::
+      Lude.Maybe Lude.Text,
+    aliasName :: Lude.Maybe Lude.Text,
+    aliasARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AliasListEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aleTargetKeyId' - String that contains the key identifier referred to by the alias.
---
--- * 'aleAliasName' - String that contains the alias. This value begins with @alias/@ .
---
--- * 'aleAliasARN' - String that contains the key ARN.
-aliasListEntry ::
+-- * 'aliasARN' - String that contains the key ARN.
+-- * 'aliasName' - String that contains the alias. This value begins with @alias/@ .
+-- * 'targetKeyId' - String that contains the key identifier referred to by the alias.
+mkAliasListEntry ::
   AliasListEntry
-aliasListEntry =
+mkAliasListEntry =
   AliasListEntry'
-    { _aleTargetKeyId = Nothing,
-      _aleAliasName = Nothing,
-      _aleAliasARN = Nothing
+    { targetKeyId = Lude.Nothing,
+      aliasName = Lude.Nothing,
+      aliasARN = Lude.Nothing
     }
 
 -- | String that contains the key identifier referred to by the alias.
-aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
-aleTargetKeyId = lens _aleTargetKeyId (\s a -> s {_aleTargetKeyId = a})
+--
+-- /Note:/ Consider using 'targetKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aleTargetKeyId :: Lens.Lens' AliasListEntry (Lude.Maybe Lude.Text)
+aleTargetKeyId = Lens.lens (targetKeyId :: AliasListEntry -> Lude.Maybe Lude.Text) (\s a -> s {targetKeyId = a} :: AliasListEntry)
+{-# DEPRECATED aleTargetKeyId "Use generic-lens or generic-optics with 'targetKeyId' instead." #-}
 
 -- | String that contains the alias. This value begins with @alias/@ .
-aleAliasName :: Lens' AliasListEntry (Maybe Text)
-aleAliasName = lens _aleAliasName (\s a -> s {_aleAliasName = a})
+--
+-- /Note:/ Consider using 'aliasName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aleAliasName :: Lens.Lens' AliasListEntry (Lude.Maybe Lude.Text)
+aleAliasName = Lens.lens (aliasName :: AliasListEntry -> Lude.Maybe Lude.Text) (\s a -> s {aliasName = a} :: AliasListEntry)
+{-# DEPRECATED aleAliasName "Use generic-lens or generic-optics with 'aliasName' instead." #-}
 
 -- | String that contains the key ARN.
-aleAliasARN :: Lens' AliasListEntry (Maybe Text)
-aleAliasARN = lens _aleAliasARN (\s a -> s {_aleAliasARN = a})
+--
+-- /Note:/ Consider using 'aliasARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aleAliasARN :: Lens.Lens' AliasListEntry (Lude.Maybe Lude.Text)
+aleAliasARN = Lens.lens (aliasARN :: AliasListEntry -> Lude.Maybe Lude.Text) (\s a -> s {aliasARN = a} :: AliasListEntry)
+{-# DEPRECATED aleAliasARN "Use generic-lens or generic-optics with 'aliasARN' instead." #-}
 
-instance FromJSON AliasListEntry where
+instance Lude.FromJSON AliasListEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "AliasListEntry"
       ( \x ->
           AliasListEntry'
-            <$> (x .:? "TargetKeyId")
-            <*> (x .:? "AliasName")
-            <*> (x .:? "AliasArn")
+            Lude.<$> (x Lude..:? "TargetKeyId")
+            Lude.<*> (x Lude..:? "AliasName")
+            Lude.<*> (x Lude..:? "AliasArn")
       )
-
-instance Hashable AliasListEntry
-
-instance NFData AliasListEntry

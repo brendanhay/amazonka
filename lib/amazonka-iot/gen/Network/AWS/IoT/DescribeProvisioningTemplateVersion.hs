@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns information about a fleet provisioning template version.
 module Network.AWS.IoT.DescribeProvisioningTemplateVersion
-  ( -- * Creating a Request
-    describeProvisioningTemplateVersion,
-    DescribeProvisioningTemplateVersion,
+  ( -- * Creating a request
+    DescribeProvisioningTemplateVersion (..),
+    mkDescribeProvisioningTemplateVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dptvTemplateName,
     dptvVersionId,
 
-    -- * Destructuring the Response
-    describeProvisioningTemplateVersionResponse,
-    DescribeProvisioningTemplateVersionResponse,
+    -- * Destructuring the response
+    DescribeProvisioningTemplateVersionResponse (..),
+    mkDescribeProvisioningTemplateVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dptvrsVersionId,
     dptvrsCreationDate,
     dptvrsTemplateBody,
@@ -41,158 +36,167 @@ module Network.AWS.IoT.DescribeProvisioningTemplateVersion
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeProvisioningTemplateVersion' smart constructor.
+-- | /See:/ 'mkDescribeProvisioningTemplateVersion' smart constructor.
 data DescribeProvisioningTemplateVersion = DescribeProvisioningTemplateVersion'
-  { _dptvTemplateName ::
-      !Text,
-    _dptvVersionId ::
-      !Int
+  { templateName ::
+      Lude.Text,
+    versionId ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningTemplateVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dptvTemplateName' - The template name.
---
--- * 'dptvVersionId' - The fleet provisioning template version ID.
-describeProvisioningTemplateVersion ::
-  -- | 'dptvTemplateName'
-  Text ->
-  -- | 'dptvVersionId'
-  Int ->
+-- * 'templateName' - The template name.
+-- * 'versionId' - The fleet provisioning template version ID.
+mkDescribeProvisioningTemplateVersion ::
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'versionId'
+  Lude.Int ->
   DescribeProvisioningTemplateVersion
-describeProvisioningTemplateVersion pTemplateName_ pVersionId_ =
+mkDescribeProvisioningTemplateVersion pTemplateName_ pVersionId_ =
   DescribeProvisioningTemplateVersion'
-    { _dptvTemplateName =
+    { templateName =
         pTemplateName_,
-      _dptvVersionId = pVersionId_
+      versionId = pVersionId_
     }
 
 -- | The template name.
-dptvTemplateName :: Lens' DescribeProvisioningTemplateVersion Text
-dptvTemplateName = lens _dptvTemplateName (\s a -> s {_dptvTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptvTemplateName :: Lens.Lens' DescribeProvisioningTemplateVersion Lude.Text
+dptvTemplateName = Lens.lens (templateName :: DescribeProvisioningTemplateVersion -> Lude.Text) (\s a -> s {templateName = a} :: DescribeProvisioningTemplateVersion)
+{-# DEPRECATED dptvTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The fleet provisioning template version ID.
-dptvVersionId :: Lens' DescribeProvisioningTemplateVersion Int
-dptvVersionId = lens _dptvVersionId (\s a -> s {_dptvVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptvVersionId :: Lens.Lens' DescribeProvisioningTemplateVersion Lude.Int
+dptvVersionId = Lens.lens (versionId :: DescribeProvisioningTemplateVersion -> Lude.Int) (\s a -> s {versionId = a} :: DescribeProvisioningTemplateVersion)
+{-# DEPRECATED dptvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
-instance AWSRequest DescribeProvisioningTemplateVersion where
+instance Lude.AWSRequest DescribeProvisioningTemplateVersion where
   type
     Rs DescribeProvisioningTemplateVersion =
       DescribeProvisioningTemplateVersionResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeProvisioningTemplateVersionResponse'
-            <$> (x .?> "versionId")
-            <*> (x .?> "creationDate")
-            <*> (x .?> "templateBody")
-            <*> (x .?> "isDefaultVersion")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "versionId")
+            Lude.<*> (x Lude..?> "creationDate")
+            Lude.<*> (x Lude..?> "templateBody")
+            Lude.<*> (x Lude..?> "isDefaultVersion")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeProvisioningTemplateVersion
+instance Lude.ToHeaders DescribeProvisioningTemplateVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeProvisioningTemplateVersion
-
-instance ToHeaders DescribeProvisioningTemplateVersion where
-  toHeaders = const mempty
-
-instance ToPath DescribeProvisioningTemplateVersion where
+instance Lude.ToPath DescribeProvisioningTemplateVersion where
   toPath DescribeProvisioningTemplateVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/provisioning-templates/",
-        toBS _dptvTemplateName,
+        Lude.toBS templateName,
         "/versions/",
-        toBS _dptvVersionId
+        Lude.toBS versionId
       ]
 
-instance ToQuery DescribeProvisioningTemplateVersion where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeProvisioningTemplateVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeProvisioningTemplateVersionResponse' smart constructor.
+-- | /See:/ 'mkDescribeProvisioningTemplateVersionResponse' smart constructor.
 data DescribeProvisioningTemplateVersionResponse = DescribeProvisioningTemplateVersionResponse'
-  { _dptvrsVersionId ::
-      !( Maybe
-           Int
-       ),
-    _dptvrsCreationDate ::
-      !( Maybe
-           POSIX
-       ),
-    _dptvrsTemplateBody ::
-      !( Maybe
-           Text
-       ),
-    _dptvrsIsDefaultVersion ::
-      !( Maybe
-           Bool
-       ),
-    _dptvrsResponseStatus ::
-      !Int
+  { versionId ::
+      Lude.Maybe
+        Lude.Int,
+    creationDate ::
+      Lude.Maybe
+        Lude.Timestamp,
+    templateBody ::
+      Lude.Maybe
+        Lude.Text,
+    isDefaultVersion ::
+      Lude.Maybe
+        Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningTemplateVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dptvrsVersionId' - The fleet provisioning template version ID.
---
--- * 'dptvrsCreationDate' - The date when the fleet provisioning template version was created.
---
--- * 'dptvrsTemplateBody' - The JSON formatted contents of the fleet provisioning template version.
---
--- * 'dptvrsIsDefaultVersion' - True if the fleet provisioning template version is the default version.
---
--- * 'dptvrsResponseStatus' - -- | The response status code.
-describeProvisioningTemplateVersionResponse ::
-  -- | 'dptvrsResponseStatus'
-  Int ->
+-- * 'creationDate' - The date when the fleet provisioning template version was created.
+-- * 'isDefaultVersion' - True if the fleet provisioning template version is the default version.
+-- * 'responseStatus' - The response status code.
+-- * 'templateBody' - The JSON formatted contents of the fleet provisioning template version.
+-- * 'versionId' - The fleet provisioning template version ID.
+mkDescribeProvisioningTemplateVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeProvisioningTemplateVersionResponse
-describeProvisioningTemplateVersionResponse pResponseStatus_ =
+mkDescribeProvisioningTemplateVersionResponse pResponseStatus_ =
   DescribeProvisioningTemplateVersionResponse'
-    { _dptvrsVersionId =
-        Nothing,
-      _dptvrsCreationDate = Nothing,
-      _dptvrsTemplateBody = Nothing,
-      _dptvrsIsDefaultVersion = Nothing,
-      _dptvrsResponseStatus = pResponseStatus_
+    { versionId =
+        Lude.Nothing,
+      creationDate = Lude.Nothing,
+      templateBody = Lude.Nothing,
+      isDefaultVersion = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The fleet provisioning template version ID.
-dptvrsVersionId :: Lens' DescribeProvisioningTemplateVersionResponse (Maybe Int)
-dptvrsVersionId = lens _dptvrsVersionId (\s a -> s {_dptvrsVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptvrsVersionId :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Lude.Maybe Lude.Int)
+dptvrsVersionId = Lens.lens (versionId :: DescribeProvisioningTemplateVersionResponse -> Lude.Maybe Lude.Int) (\s a -> s {versionId = a} :: DescribeProvisioningTemplateVersionResponse)
+{-# DEPRECATED dptvrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The date when the fleet provisioning template version was created.
-dptvrsCreationDate :: Lens' DescribeProvisioningTemplateVersionResponse (Maybe UTCTime)
-dptvrsCreationDate = lens _dptvrsCreationDate (\s a -> s {_dptvrsCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptvrsCreationDate :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Lude.Maybe Lude.Timestamp)
+dptvrsCreationDate = Lens.lens (creationDate :: DescribeProvisioningTemplateVersionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeProvisioningTemplateVersionResponse)
+{-# DEPRECATED dptvrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The JSON formatted contents of the fleet provisioning template version.
-dptvrsTemplateBody :: Lens' DescribeProvisioningTemplateVersionResponse (Maybe Text)
-dptvrsTemplateBody = lens _dptvrsTemplateBody (\s a -> s {_dptvrsTemplateBody = a})
+--
+-- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptvrsTemplateBody :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Lude.Maybe Lude.Text)
+dptvrsTemplateBody = Lens.lens (templateBody :: DescribeProvisioningTemplateVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: DescribeProvisioningTemplateVersionResponse)
+{-# DEPRECATED dptvrsTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
 -- | True if the fleet provisioning template version is the default version.
-dptvrsIsDefaultVersion :: Lens' DescribeProvisioningTemplateVersionResponse (Maybe Bool)
-dptvrsIsDefaultVersion = lens _dptvrsIsDefaultVersion (\s a -> s {_dptvrsIsDefaultVersion = a})
+--
+-- /Note:/ Consider using 'isDefaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptvrsIsDefaultVersion :: Lens.Lens' DescribeProvisioningTemplateVersionResponse (Lude.Maybe Lude.Bool)
+dptvrsIsDefaultVersion = Lens.lens (isDefaultVersion :: DescribeProvisioningTemplateVersionResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isDefaultVersion = a} :: DescribeProvisioningTemplateVersionResponse)
+{-# DEPRECATED dptvrsIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
 
--- | -- | The response status code.
-dptvrsResponseStatus :: Lens' DescribeProvisioningTemplateVersionResponse Int
-dptvrsResponseStatus = lens _dptvrsResponseStatus (\s a -> s {_dptvrsResponseStatus = a})
-
-instance NFData DescribeProvisioningTemplateVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptvrsResponseStatus :: Lens.Lens' DescribeProvisioningTemplateVersionResponse Lude.Int
+dptvrsResponseStatus = Lens.lens (responseStatus :: DescribeProvisioningTemplateVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProvisioningTemplateVersionResponse)
+{-# DEPRECATED dptvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

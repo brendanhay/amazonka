@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Posts a batch of documents to a search domain for indexing. A document batch is a collection of add and delete operations that represent the documents you want to add, update, or delete from your domain. Batches can be described in either JSON or XML. Each item that you want Amazon CloudSearch to return as a search result (such as a product) is represented as a document. Every document has a unique ID and one or more fields that contain the data that you want to search and return in results. Individual documents cannot contain more than 1 MB of data. The entire batch cannot exceed 5 MB. To get the best possible upload performance, group add and delete operations in batches that are close the 5 MB limit. Submitting a large volume of single-document batches can overload a domain's document service.
 --
---
 -- The endpoint for submitting @UploadDocuments@ requests is domain-specific. To get the document endpoint for your domain, use the Amazon CloudSearch configuration service @DescribeDomains@ action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console.
---
 -- For more information about formatting your data for Amazon CloudSearch, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/preparing-data.html Preparing Your Data> in the /Amazon CloudSearch Developer Guide/ . For more information about uploading data for indexing, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html Uploading Data> in the /Amazon CloudSearch Developer Guide/ .
 module Network.AWS.CloudSearchDomains.UploadDocuments
-  ( -- * Creating a Request
-    uploadDocuments,
-    UploadDocuments,
+  ( -- * Creating a request
+    UploadDocuments (..),
+    mkUploadDocuments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udContentType,
     udDocuments,
 
-    -- * Destructuring the Response
-    uploadDocumentsResponse,
-    UploadDocumentsResponse,
+    -- * Destructuring the response
+    UploadDocumentsResponse (..),
+    mkUploadDocumentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udrsStatus,
     udrsAdds,
     udrsWarnings,
@@ -46,137 +39,161 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
 where
 
 import Network.AWS.CloudSearchDomains.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @UploadDocuments@ request.
 --
---
---
--- /See:/ 'uploadDocuments' smart constructor.
+-- /See:/ 'mkUploadDocuments' smart constructor.
 data UploadDocuments = UploadDocuments'
-  { _udContentType ::
-      !ContentType,
-    _udDocuments :: !HashedBody
+  { contentType :: ContentType,
+    documents :: Lude.HashedBody
   }
-  deriving (Show, Generic)
+  deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'UploadDocuments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'contentType' - The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:
 --
--- * 'udContentType' - The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:     * application/json    * application/xml
 --
--- * 'udDocuments' - A batch of documents formatted in JSON or HTML.
-uploadDocuments ::
-  -- | 'udContentType'
+--     * application/json
+--
+--     * application/xml
+--
+-- * 'documents' - A batch of documents formatted in JSON or HTML.
+mkUploadDocuments ::
+  -- | 'contentType'
   ContentType ->
-  -- | 'udDocuments'
-  HashedBody ->
+  -- | 'documents'
+  Lude.HashedBody ->
   UploadDocuments
-uploadDocuments pContentType_ pDocuments_ =
+mkUploadDocuments pContentType_ pDocuments_ =
   UploadDocuments'
-    { _udContentType = pContentType_,
-      _udDocuments = pDocuments_
+    { contentType = pContentType_,
+      documents = pDocuments_
     }
 
--- | The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:     * application/json    * application/xml
-udContentType :: Lens' UploadDocuments ContentType
-udContentType = lens _udContentType (\s a -> s {_udContentType = a})
+-- | The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:
+--
+--
+--     * application/json
+--
+--     * application/xml
+--
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udContentType :: Lens.Lens' UploadDocuments ContentType
+udContentType = Lens.lens (contentType :: UploadDocuments -> ContentType) (\s a -> s {contentType = a} :: UploadDocuments)
+{-# DEPRECATED udContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
 -- | A batch of documents formatted in JSON or HTML.
-udDocuments :: Lens' UploadDocuments HashedBody
-udDocuments = lens _udDocuments (\s a -> s {_udDocuments = a})
+--
+-- /Note:/ Consider using 'documents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDocuments :: Lens.Lens' UploadDocuments Lude.HashedBody
+udDocuments = Lens.lens (documents :: UploadDocuments -> Lude.HashedBody) (\s a -> s {documents = a} :: UploadDocuments)
+{-# DEPRECATED udDocuments "Use generic-lens or generic-optics with 'documents' instead." #-}
 
-instance AWSRequest UploadDocuments where
+instance Lude.AWSRequest UploadDocuments where
   type Rs UploadDocuments = UploadDocumentsResponse
-  request = postBody cloudSearchDomains
+  request = Req.postBody cloudSearchDomainsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UploadDocumentsResponse'
-            <$> (x .?> "status")
-            <*> (x .?> "adds")
-            <*> (x .?> "warnings" .!@ mempty)
-            <*> (x .?> "deletes")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "status")
+            Lude.<*> (x Lude..?> "adds")
+            Lude.<*> (x Lude..?> "warnings" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "deletes")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToBody UploadDocuments where
-  toBody = toBody . _udDocuments
+instance Lude.ToBody UploadDocuments where
+  toBody = Lude.toBody Lude.. documents
 
-instance ToHeaders UploadDocuments where
+instance Lude.ToHeaders UploadDocuments where
   toHeaders UploadDocuments' {..} =
-    mconcat ["Content-Type" =# _udContentType]
+    Lude.mconcat ["Content-Type" Lude.=# contentType]
 
-instance ToPath UploadDocuments where
-  toPath = const "/2013-01-01/documents/batch"
+instance Lude.ToPath UploadDocuments where
+  toPath = Lude.const "/2013-01-01/documents/batch"
 
-instance ToQuery UploadDocuments where
-  toQuery = const (mconcat ["format=sdk"])
+instance Lude.ToQuery UploadDocuments where
+  toQuery = Lude.const (Lude.mconcat ["format=sdk"])
 
 -- | Contains the response to an @UploadDocuments@ request.
 --
---
---
--- /See:/ 'uploadDocumentsResponse' smart constructor.
+-- /See:/ 'mkUploadDocumentsResponse' smart constructor.
 data UploadDocumentsResponse = UploadDocumentsResponse'
-  { _udrsStatus ::
-      !(Maybe Text),
-    _udrsAdds :: !(Maybe Integer),
-    _udrsWarnings ::
-      !(Maybe [DocumentServiceWarning]),
-    _udrsDeletes :: !(Maybe Integer),
-    _udrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe Lude.Text,
+    adds :: Lude.Maybe Lude.Integer,
+    warnings ::
+      Lude.Maybe [DocumentServiceWarning],
+    deletes :: Lude.Maybe Lude.Integer,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadDocumentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udrsStatus' - The status of an @UploadDocumentsRequest@ .
---
--- * 'udrsAdds' - The number of documents that were added to the search domain.
---
--- * 'udrsWarnings' - Any warnings returned by the document service about the documents being uploaded.
---
--- * 'udrsDeletes' - The number of documents that were deleted from the search domain.
---
--- * 'udrsResponseStatus' - -- | The response status code.
-uploadDocumentsResponse ::
-  -- | 'udrsResponseStatus'
-  Int ->
+-- * 'adds' - The number of documents that were added to the search domain.
+-- * 'deletes' - The number of documents that were deleted from the search domain.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of an @UploadDocumentsRequest@ .
+-- * 'warnings' - Any warnings returned by the document service about the documents being uploaded.
+mkUploadDocumentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UploadDocumentsResponse
-uploadDocumentsResponse pResponseStatus_ =
+mkUploadDocumentsResponse pResponseStatus_ =
   UploadDocumentsResponse'
-    { _udrsStatus = Nothing,
-      _udrsAdds = Nothing,
-      _udrsWarnings = Nothing,
-      _udrsDeletes = Nothing,
-      _udrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      adds = Lude.Nothing,
+      warnings = Lude.Nothing,
+      deletes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of an @UploadDocumentsRequest@ .
-udrsStatus :: Lens' UploadDocumentsResponse (Maybe Text)
-udrsStatus = lens _udrsStatus (\s a -> s {_udrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsStatus :: Lens.Lens' UploadDocumentsResponse (Lude.Maybe Lude.Text)
+udrsStatus = Lens.lens (status :: UploadDocumentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: UploadDocumentsResponse)
+{-# DEPRECATED udrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The number of documents that were added to the search domain.
-udrsAdds :: Lens' UploadDocumentsResponse (Maybe Integer)
-udrsAdds = lens _udrsAdds (\s a -> s {_udrsAdds = a})
+--
+-- /Note:/ Consider using 'adds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsAdds :: Lens.Lens' UploadDocumentsResponse (Lude.Maybe Lude.Integer)
+udrsAdds = Lens.lens (adds :: UploadDocumentsResponse -> Lude.Maybe Lude.Integer) (\s a -> s {adds = a} :: UploadDocumentsResponse)
+{-# DEPRECATED udrsAdds "Use generic-lens or generic-optics with 'adds' instead." #-}
 
 -- | Any warnings returned by the document service about the documents being uploaded.
-udrsWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
-udrsWarnings = lens _udrsWarnings (\s a -> s {_udrsWarnings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'warnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsWarnings :: Lens.Lens' UploadDocumentsResponse (Lude.Maybe [DocumentServiceWarning])
+udrsWarnings = Lens.lens (warnings :: UploadDocumentsResponse -> Lude.Maybe [DocumentServiceWarning]) (\s a -> s {warnings = a} :: UploadDocumentsResponse)
+{-# DEPRECATED udrsWarnings "Use generic-lens or generic-optics with 'warnings' instead." #-}
 
 -- | The number of documents that were deleted from the search domain.
-udrsDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
-udrsDeletes = lens _udrsDeletes (\s a -> s {_udrsDeletes = a})
+--
+-- /Note:/ Consider using 'deletes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsDeletes :: Lens.Lens' UploadDocumentsResponse (Lude.Maybe Lude.Integer)
+udrsDeletes = Lens.lens (deletes :: UploadDocumentsResponse -> Lude.Maybe Lude.Integer) (\s a -> s {deletes = a} :: UploadDocumentsResponse)
+{-# DEPRECATED udrsDeletes "Use generic-lens or generic-optics with 'deletes' instead." #-}
 
--- | -- | The response status code.
-udrsResponseStatus :: Lens' UploadDocumentsResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\s a -> s {_udrsResponseStatus = a})
-
-instance NFData UploadDocumentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsResponseStatus :: Lens.Lens' UploadDocumentsResponse Lude.Int
+udrsResponseStatus = Lens.lens (responseStatus :: UploadDocumentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UploadDocumentsResponse)
+{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

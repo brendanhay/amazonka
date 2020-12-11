@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConformancePackComplianceType where
+module Network.AWS.Config.Types.ConformancePackComplianceType
+  ( ConformancePackComplianceType
+      ( ConformancePackComplianceType',
+        CPCTCompliant,
+        CPCTNonCompliant
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConformancePackComplianceType
-  = CPCTCompliant
-  | CPCTNonCompliant
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConformancePackComplianceType = ConformancePackComplianceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConformancePackComplianceType where
-  parser =
-    takeLowerText >>= \case
-      "compliant" -> pure CPCTCompliant
-      "non_compliant" -> pure CPCTNonCompliant
-      e ->
-        fromTextError $
-          "Failure parsing ConformancePackComplianceType from value: '" <> e
-            <> "'. Accepted values: compliant, non_compliant"
+pattern CPCTCompliant :: ConformancePackComplianceType
+pattern CPCTCompliant = ConformancePackComplianceType' "COMPLIANT"
 
-instance ToText ConformancePackComplianceType where
-  toText = \case
-    CPCTCompliant -> "COMPLIANT"
-    CPCTNonCompliant -> "NON_COMPLIANT"
+pattern CPCTNonCompliant :: ConformancePackComplianceType
+pattern CPCTNonCompliant = ConformancePackComplianceType' "NON_COMPLIANT"
 
-instance Hashable ConformancePackComplianceType
-
-instance NFData ConformancePackComplianceType
-
-instance ToByteString ConformancePackComplianceType
-
-instance ToQuery ConformancePackComplianceType
-
-instance ToHeader ConformancePackComplianceType
-
-instance ToJSON ConformancePackComplianceType where
-  toJSON = toJSONText
-
-instance FromJSON ConformancePackComplianceType where
-  parseJSON = parseJSONText "ConformancePackComplianceType"
+{-# COMPLETE
+  CPCTCompliant,
+  CPCTNonCompliant,
+  ConformancePackComplianceType'
+  #-}

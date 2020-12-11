@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Changes information about a 'Stage' resource.
 module Network.AWS.APIGateway.UpdateStage
-  ( -- * Creating a Request
-    updateStage,
-    UpdateStage,
+  ( -- * Creating a request
+    UpdateStage (..),
+    mkUpdateStage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usPatchOperations,
     usRestAPIId,
     usStageName,
 
-    -- * Destructuring the Response
-    stage,
-    Stage,
+    -- * Destructuring the response
+    Stage (..),
+    mkStage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sDeploymentId,
     sVariables,
     sAccessLogSettings,
@@ -54,80 +49,95 @@ module Network.AWS.APIGateway.UpdateStage
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests API Gateway to change information about a 'Stage' resource.
 --
---
---
--- /See:/ 'updateStage' smart constructor.
+-- /See:/ 'mkUpdateStage' smart constructor.
 data UpdateStage = UpdateStage'
-  { _usPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _usRestAPIId :: !Text,
-    _usStageName :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text,
+    stageName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateStage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'usRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'usStageName' - [Required] The name of the 'Stage' resource to change information about.
-updateStage ::
-  -- | 'usRestAPIId'
-  Text ->
-  -- | 'usStageName'
-  Text ->
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'stageName' - [Required] The name of the 'Stage' resource to change information about.
+mkUpdateStage ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
   UpdateStage
-updateStage pRestAPIId_ pStageName_ =
+mkUpdateStage pRestAPIId_ pStageName_ =
   UpdateStage'
-    { _usPatchOperations = Nothing,
-      _usRestAPIId = pRestAPIId_,
-      _usStageName = pStageName_
+    { patchOperations = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      stageName = pStageName_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-usPatchOperations :: Lens' UpdateStage [PatchOperation]
-usPatchOperations = lens _usPatchOperations (\s a -> s {_usPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usPatchOperations :: Lens.Lens' UpdateStage (Lude.Maybe [PatchOperation])
+usPatchOperations = Lens.lens (patchOperations :: UpdateStage -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateStage)
+{-# DEPRECATED usPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-usRestAPIId :: Lens' UpdateStage Text
-usRestAPIId = lens _usRestAPIId (\s a -> s {_usRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usRestAPIId :: Lens.Lens' UpdateStage Lude.Text
+usRestAPIId = Lens.lens (restAPIId :: UpdateStage -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateStage)
+{-# DEPRECATED usRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the 'Stage' resource to change information about.
-usStageName :: Lens' UpdateStage Text
-usStageName = lens _usStageName (\s a -> s {_usStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usStageName :: Lens.Lens' UpdateStage Lude.Text
+usStageName = Lens.lens (stageName :: UpdateStage -> Lude.Text) (\s a -> s {stageName = a} :: UpdateStage)
+{-# DEPRECATED usStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
-instance AWSRequest UpdateStage where
+instance Lude.AWSRequest UpdateStage where
   type Rs UpdateStage = Stage
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateStage
-
-instance NFData UpdateStage
-
-instance ToHeaders UpdateStage where
+instance Lude.ToHeaders UpdateStage where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateStage where
+instance Lude.ToJSON UpdateStage where
   toJSON UpdateStage' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _usPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateStage where
+instance Lude.ToPath UpdateStage where
   toPath UpdateStage' {..} =
-    mconcat
-      ["/restapis/", toBS _usRestAPIId, "/stages/", toBS _usStageName]
+    Lude.mconcat
+      [ "/restapis/",
+        Lude.toBS restAPIId,
+        "/stages/",
+        Lude.toBS stageName
+      ]
 
-instance ToQuery UpdateStage where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateStage where
+  toQuery = Lude.const Lude.mempty

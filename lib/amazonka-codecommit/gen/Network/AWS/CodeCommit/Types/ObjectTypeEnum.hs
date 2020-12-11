@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ObjectTypeEnum where
+module Network.AWS.CodeCommit.Types.ObjectTypeEnum
+  ( ObjectTypeEnum
+      ( ObjectTypeEnum',
+        Directory,
+        File,
+        GitLink,
+        SymbolicLink
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ObjectTypeEnum
-  = Directory
-  | File
-  | GitLink
-  | SymbolicLink
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ObjectTypeEnum = ObjectTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ObjectTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "directory" -> pure Directory
-      "file" -> pure File
-      "git_link" -> pure GitLink
-      "symbolic_link" -> pure SymbolicLink
-      e ->
-        fromTextError $
-          "Failure parsing ObjectTypeEnum from value: '" <> e
-            <> "'. Accepted values: directory, file, git_link, symbolic_link"
+pattern Directory :: ObjectTypeEnum
+pattern Directory = ObjectTypeEnum' "DIRECTORY"
 
-instance ToText ObjectTypeEnum where
-  toText = \case
-    Directory -> "DIRECTORY"
-    File -> "FILE"
-    GitLink -> "GIT_LINK"
-    SymbolicLink -> "SYMBOLIC_LINK"
+pattern File :: ObjectTypeEnum
+pattern File = ObjectTypeEnum' "FILE"
 
-instance Hashable ObjectTypeEnum
+pattern GitLink :: ObjectTypeEnum
+pattern GitLink = ObjectTypeEnum' "GIT_LINK"
 
-instance NFData ObjectTypeEnum
+pattern SymbolicLink :: ObjectTypeEnum
+pattern SymbolicLink = ObjectTypeEnum' "SYMBOLIC_LINK"
 
-instance ToByteString ObjectTypeEnum
-
-instance ToQuery ObjectTypeEnum
-
-instance ToHeader ObjectTypeEnum
-
-instance FromJSON ObjectTypeEnum where
-  parseJSON = parseJSONText "ObjectTypeEnum"
+{-# COMPLETE
+  Directory,
+  File,
+  GitLink,
+  SymbolicLink,
+  ObjectTypeEnum'
+  #-}

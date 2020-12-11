@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264ForceFieldPictures where
+module Network.AWS.MediaLive.Types.H264ForceFieldPictures
+  ( H264ForceFieldPictures
+      ( H264ForceFieldPictures',
+        HFFPDisabled,
+        HFFPEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H264 Force Field Pictures
-data H264ForceFieldPictures
-  = HFFPDisabled
-  | HFFPEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264ForceFieldPictures = H264ForceFieldPictures' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264ForceFieldPictures where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure HFFPDisabled
-      "enabled" -> pure HFFPEnabled
-      e ->
-        fromTextError $
-          "Failure parsing H264ForceFieldPictures from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern HFFPDisabled :: H264ForceFieldPictures
+pattern HFFPDisabled = H264ForceFieldPictures' "DISABLED"
 
-instance ToText H264ForceFieldPictures where
-  toText = \case
-    HFFPDisabled -> "DISABLED"
-    HFFPEnabled -> "ENABLED"
+pattern HFFPEnabled :: H264ForceFieldPictures
+pattern HFFPEnabled = H264ForceFieldPictures' "ENABLED"
 
-instance Hashable H264ForceFieldPictures
-
-instance NFData H264ForceFieldPictures
-
-instance ToByteString H264ForceFieldPictures
-
-instance ToQuery H264ForceFieldPictures
-
-instance ToHeader H264ForceFieldPictures
-
-instance ToJSON H264ForceFieldPictures where
-  toJSON = toJSONText
-
-instance FromJSON H264ForceFieldPictures where
-  parseJSON = parseJSONText "H264ForceFieldPictures"
+{-# COMPLETE
+  HFFPDisabled,
+  HFFPEnabled,
+  H264ForceFieldPictures'
+  #-}

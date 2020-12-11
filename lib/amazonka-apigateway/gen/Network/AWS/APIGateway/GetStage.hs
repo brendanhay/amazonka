@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Gets information about a 'Stage' resource.
 module Network.AWS.APIGateway.GetStage
-  ( -- * Creating a Request
-    getStage,
-    GetStage,
+  ( -- * Creating a request
+    GetStage (..),
+    mkGetStage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gssRestAPIId,
     gssStageName,
 
-    -- * Destructuring the Response
-    stage,
-    Stage,
+    -- * Destructuring the response
+    Stage (..),
+    mkStage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sDeploymentId,
     sVariables,
     sAccessLogSettings,
@@ -53,66 +48,74 @@ module Network.AWS.APIGateway.GetStage
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Requests API Gateway to get information about a 'Stage' resource.
 --
---
---
--- /See:/ 'getStage' smart constructor.
+-- /See:/ 'mkGetStage' smart constructor.
 data GetStage = GetStage'
-  { _gssRestAPIId :: !Text,
-    _gssStageName :: !Text
+  { restAPIId :: Lude.Text,
+    stageName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gssRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'gssStageName' - [Required] The name of the 'Stage' resource to get information about.
-getStage ::
-  -- | 'gssRestAPIId'
-  Text ->
-  -- | 'gssStageName'
-  Text ->
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'stageName' - [Required] The name of the 'Stage' resource to get information about.
+mkGetStage ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
   GetStage
-getStage pRestAPIId_ pStageName_ =
-  GetStage'
-    { _gssRestAPIId = pRestAPIId_,
-      _gssStageName = pStageName_
-    }
+mkGetStage pRestAPIId_ pStageName_ =
+  GetStage' {restAPIId = pRestAPIId_, stageName = pStageName_}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gssRestAPIId :: Lens' GetStage Text
-gssRestAPIId = lens _gssRestAPIId (\s a -> s {_gssRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssRestAPIId :: Lens.Lens' GetStage Lude.Text
+gssRestAPIId = Lens.lens (restAPIId :: GetStage -> Lude.Text) (\s a -> s {restAPIId = a} :: GetStage)
+{-# DEPRECATED gssRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the 'Stage' resource to get information about.
-gssStageName :: Lens' GetStage Text
-gssStageName = lens _gssStageName (\s a -> s {_gssStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssStageName :: Lens.Lens' GetStage Lude.Text
+gssStageName = Lens.lens (stageName :: GetStage -> Lude.Text) (\s a -> s {stageName = a} :: GetStage)
+{-# DEPRECATED gssStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
-instance AWSRequest GetStage where
+instance Lude.AWSRequest GetStage where
   type Rs GetStage = Stage
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetStage
-
-instance NFData GetStage
-
-instance ToHeaders GetStage where
+instance Lude.ToHeaders GetStage where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetStage where
+instance Lude.ToPath GetStage where
   toPath GetStage' {..} =
-    mconcat
-      ["/restapis/", toBS _gssRestAPIId, "/stages/", toBS _gssStageName]
+    Lude.mconcat
+      [ "/restapis/",
+        Lude.toBS restAPIId,
+        "/stages/",
+        Lude.toBS stageName
+      ]
 
-instance ToQuery GetStage where
-  toQuery = const mempty
+instance Lude.ToQuery GetStage where
+  toQuery = Lude.const Lude.mempty

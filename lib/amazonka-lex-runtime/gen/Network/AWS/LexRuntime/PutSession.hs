@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates a new session or modifies an existing session with an Amazon Lex bot. Use this operation to enable your application to set the state of the bot.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html Managing Sessions> .
 module Network.AWS.LexRuntime.PutSession
-  ( -- * Creating a Request
-    putSession,
-    PutSession,
+  ( -- * Creating a request
+    PutSession (..),
+    mkPutSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     psAccept,
     psActiveContexts,
     psRecentIntentSummaryView,
@@ -36,11 +30,11 @@ module Network.AWS.LexRuntime.PutSession
     psBotAlias,
     psUserId,
 
-    -- * Destructuring the Response
-    putSessionResponse,
-    PutSessionResponse,
+    -- * Destructuring the response
+    PutSessionResponse (..),
+    mkPutSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     psrsSlots,
     psrsIntentName,
     psrsDialogState,
@@ -56,265 +50,466 @@ module Network.AWS.LexRuntime.PutSession
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putSession' smart constructor.
+-- | /See:/ 'mkPutSession' smart constructor.
 data PutSession = PutSession'
-  { _psAccept :: !(Maybe Text),
-    _psActiveContexts :: !(Maybe (Sensitive [ActiveContext])),
-    _psRecentIntentSummaryView :: !(Maybe [IntentSummary]),
-    _psDialogAction :: !(Maybe DialogAction),
-    _psSessionAttributes :: !(Maybe (Sensitive (Map Text (Text)))),
-    _psBotName :: !Text,
-    _psBotAlias :: !Text,
-    _psUserId :: !Text
+  { accept :: Lude.Maybe Lude.Text,
+    activeContexts :: Lude.Maybe [ActiveContext],
+    recentIntentSummaryView :: Lude.Maybe [IntentSummary],
+    dialogAction :: Lude.Maybe DialogAction,
+    sessionAttributes ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    botName :: Lude.Text,
+    botAlias :: Lude.Text,
+    userId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accept' - The message that Amazon Lex returns in the response can be either text or speech based depending on the value of this field.
 --
--- * 'psAccept' - The message that Amazon Lex returns in the response can be either text or speech based depending on the value of this field.     * If the value is @text/plain; charset=utf-8@ , Amazon Lex returns text in the response.     * If the value begins with @audio/@ , Amazon Lex returns speech in the response. Amazon Lex uses Amazon Polly to generate the speech in the configuration that you specify. For example, if you specify @audio/mpeg@ as the value, Amazon Lex returns speech in the MPEG format.     * If the value is @audio/pcm@ , the speech is returned as @audio/pcm@ in 16-bit, little endian format.     * The following are the accepted values:     * @audio/mpeg@      * @audio/ogg@      * @audio/pcm@      * @audio/*@ (defaults to mpeg)     * @text/plain; charset=utf-8@
 --
--- * 'psActiveContexts' - A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request, If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.
+--     * If the value is @text/plain; charset=utf-8@ , Amazon Lex returns text in the response.
 --
--- * 'psRecentIntentSummaryView' - A summary of the recent intents for the bot. You can use the intent summary view to set a checkpoint label on an intent and modify attributes of intents. You can also use it to remove or add intent summary objects to the list. An intent that you modify or add to the list must make sense for the bot. For example, the intent name must be valid for the bot. You must provide valid values for:     * @intentName@      * slot names     * @slotToElict@  If you send the @recentIntentSummaryView@ parameter in a @PutSession@ request, the contents of the new summary view replaces the old summary view. For example, if a @GetSession@ request returns three intents in the summary view and you call @PutSession@ with one intent in the summary view, the next call to @GetSession@ will only return one intent.
 --
--- * 'psDialogAction' - Sets the next action that the bot should take to fulfill the conversation.
+--     * If the value begins with @audio/@ , Amazon Lex returns speech in the response. Amazon Lex uses Amazon Polly to generate the speech in the configuration that you specify. For example, if you specify @audio/mpeg@ as the value, Amazon Lex returns speech in the MPEG format.
 --
--- * 'psSessionAttributes' - Map of key/value pairs representing the session-specific context information. It contains application information passed between Amazon Lex and a client application.
 --
--- * 'psBotName' - The name of the bot that contains the session data.
+--     * If the value is @audio/pcm@ , the speech is returned as @audio/pcm@ in 16-bit, little endian format.
 --
--- * 'psBotAlias' - The alias in use for the bot that contains the session data.
 --
--- * 'psUserId' - The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot.
-putSession ::
-  -- | 'psBotName'
-  Text ->
-  -- | 'psBotAlias'
-  Text ->
-  -- | 'psUserId'
-  Text ->
+--     * The following are the accepted values:
+--
+--     * @audio/mpeg@
+--
+--
+--     * @audio/ogg@
+--
+--
+--     * @audio/pcm@
+--
+--
+--     * @audio/*@ (defaults to mpeg)
+--
+--
+--     * @text/plain; charset=utf-8@
+--
+--
+--
+--
+-- * 'activeContexts' - A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,
+--
+-- If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.
+-- * 'botAlias' - The alias in use for the bot that contains the session data.
+-- * 'botName' - The name of the bot that contains the session data.
+-- * 'dialogAction' - Sets the next action that the bot should take to fulfill the conversation.
+-- * 'recentIntentSummaryView' - A summary of the recent intents for the bot. You can use the intent summary view to set a checkpoint label on an intent and modify attributes of intents. You can also use it to remove or add intent summary objects to the list.
+--
+-- An intent that you modify or add to the list must make sense for the bot. For example, the intent name must be valid for the bot. You must provide valid values for:
+--
+--     * @intentName@
+--
+--
+--     * slot names
+--
+--
+--     * @slotToElict@
+--
+--
+-- If you send the @recentIntentSummaryView@ parameter in a @PutSession@ request, the contents of the new summary view replaces the old summary view. For example, if a @GetSession@ request returns three intents in the summary view and you call @PutSession@ with one intent in the summary view, the next call to @GetSession@ will only return one intent.
+-- * 'sessionAttributes' - Map of key/value pairs representing the session-specific context information. It contains application information passed between Amazon Lex and a client application.
+-- * 'userId' - The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot.
+mkPutSession ::
+  -- | 'botName'
+  Lude.Text ->
+  -- | 'botAlias'
+  Lude.Text ->
+  -- | 'userId'
+  Lude.Text ->
   PutSession
-putSession pBotName_ pBotAlias_ pUserId_ =
+mkPutSession pBotName_ pBotAlias_ pUserId_ =
   PutSession'
-    { _psAccept = Nothing,
-      _psActiveContexts = Nothing,
-      _psRecentIntentSummaryView = Nothing,
-      _psDialogAction = Nothing,
-      _psSessionAttributes = Nothing,
-      _psBotName = pBotName_,
-      _psBotAlias = pBotAlias_,
-      _psUserId = pUserId_
+    { accept = Lude.Nothing,
+      activeContexts = Lude.Nothing,
+      recentIntentSummaryView = Lude.Nothing,
+      dialogAction = Lude.Nothing,
+      sessionAttributes = Lude.Nothing,
+      botName = pBotName_,
+      botAlias = pBotAlias_,
+      userId = pUserId_
     }
 
--- | The message that Amazon Lex returns in the response can be either text or speech based depending on the value of this field.     * If the value is @text/plain; charset=utf-8@ , Amazon Lex returns text in the response.     * If the value begins with @audio/@ , Amazon Lex returns speech in the response. Amazon Lex uses Amazon Polly to generate the speech in the configuration that you specify. For example, if you specify @audio/mpeg@ as the value, Amazon Lex returns speech in the MPEG format.     * If the value is @audio/pcm@ , the speech is returned as @audio/pcm@ in 16-bit, little endian format.     * The following are the accepted values:     * @audio/mpeg@      * @audio/ogg@      * @audio/pcm@      * @audio/*@ (defaults to mpeg)     * @text/plain; charset=utf-8@
-psAccept :: Lens' PutSession (Maybe Text)
-psAccept = lens _psAccept (\s a -> s {_psAccept = a})
+-- | The message that Amazon Lex returns in the response can be either text or speech based depending on the value of this field.
+--
+--
+--     * If the value is @text/plain; charset=utf-8@ , Amazon Lex returns text in the response.
+--
+--
+--     * If the value begins with @audio/@ , Amazon Lex returns speech in the response. Amazon Lex uses Amazon Polly to generate the speech in the configuration that you specify. For example, if you specify @audio/mpeg@ as the value, Amazon Lex returns speech in the MPEG format.
+--
+--
+--     * If the value is @audio/pcm@ , the speech is returned as @audio/pcm@ in 16-bit, little endian format.
+--
+--
+--     * The following are the accepted values:
+--
+--     * @audio/mpeg@
+--
+--
+--     * @audio/ogg@
+--
+--
+--     * @audio/pcm@
+--
+--
+--     * @audio/*@ (defaults to mpeg)
+--
+--
+--     * @text/plain; charset=utf-8@
+--
+--
+--
+--
+--
+-- /Note:/ Consider using 'accept' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psAccept :: Lens.Lens' PutSession (Lude.Maybe Lude.Text)
+psAccept = Lens.lens (accept :: PutSession -> Lude.Maybe Lude.Text) (\s a -> s {accept = a} :: PutSession)
+{-# DEPRECATED psAccept "Use generic-lens or generic-optics with 'accept' instead." #-}
 
--- | A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request, If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.
-psActiveContexts :: Lens' PutSession (Maybe [ActiveContext])
-psActiveContexts = lens _psActiveContexts (\s a -> s {_psActiveContexts = a}) . mapping (_Sensitive . _Coerce)
+-- | A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,
+--
+-- If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.
+--
+-- /Note:/ Consider using 'activeContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psActiveContexts :: Lens.Lens' PutSession (Lude.Maybe [ActiveContext])
+psActiveContexts = Lens.lens (activeContexts :: PutSession -> Lude.Maybe [ActiveContext]) (\s a -> s {activeContexts = a} :: PutSession)
+{-# DEPRECATED psActiveContexts "Use generic-lens or generic-optics with 'activeContexts' instead." #-}
 
--- | A summary of the recent intents for the bot. You can use the intent summary view to set a checkpoint label on an intent and modify attributes of intents. You can also use it to remove or add intent summary objects to the list. An intent that you modify or add to the list must make sense for the bot. For example, the intent name must be valid for the bot. You must provide valid values for:     * @intentName@      * slot names     * @slotToElict@  If you send the @recentIntentSummaryView@ parameter in a @PutSession@ request, the contents of the new summary view replaces the old summary view. For example, if a @GetSession@ request returns three intents in the summary view and you call @PutSession@ with one intent in the summary view, the next call to @GetSession@ will only return one intent.
-psRecentIntentSummaryView :: Lens' PutSession [IntentSummary]
-psRecentIntentSummaryView = lens _psRecentIntentSummaryView (\s a -> s {_psRecentIntentSummaryView = a}) . _Default . _Coerce
+-- | A summary of the recent intents for the bot. You can use the intent summary view to set a checkpoint label on an intent and modify attributes of intents. You can also use it to remove or add intent summary objects to the list.
+--
+-- An intent that you modify or add to the list must make sense for the bot. For example, the intent name must be valid for the bot. You must provide valid values for:
+--
+--     * @intentName@
+--
+--
+--     * slot names
+--
+--
+--     * @slotToElict@
+--
+--
+-- If you send the @recentIntentSummaryView@ parameter in a @PutSession@ request, the contents of the new summary view replaces the old summary view. For example, if a @GetSession@ request returns three intents in the summary view and you call @PutSession@ with one intent in the summary view, the next call to @GetSession@ will only return one intent.
+--
+-- /Note:/ Consider using 'recentIntentSummaryView' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psRecentIntentSummaryView :: Lens.Lens' PutSession (Lude.Maybe [IntentSummary])
+psRecentIntentSummaryView = Lens.lens (recentIntentSummaryView :: PutSession -> Lude.Maybe [IntentSummary]) (\s a -> s {recentIntentSummaryView = a} :: PutSession)
+{-# DEPRECATED psRecentIntentSummaryView "Use generic-lens or generic-optics with 'recentIntentSummaryView' instead." #-}
 
 -- | Sets the next action that the bot should take to fulfill the conversation.
-psDialogAction :: Lens' PutSession (Maybe DialogAction)
-psDialogAction = lens _psDialogAction (\s a -> s {_psDialogAction = a})
+--
+-- /Note:/ Consider using 'dialogAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psDialogAction :: Lens.Lens' PutSession (Lude.Maybe DialogAction)
+psDialogAction = Lens.lens (dialogAction :: PutSession -> Lude.Maybe DialogAction) (\s a -> s {dialogAction = a} :: PutSession)
+{-# DEPRECATED psDialogAction "Use generic-lens or generic-optics with 'dialogAction' instead." #-}
 
 -- | Map of key/value pairs representing the session-specific context information. It contains application information passed between Amazon Lex and a client application.
-psSessionAttributes :: Lens' PutSession (Maybe (HashMap Text (Text)))
-psSessionAttributes = lens _psSessionAttributes (\s a -> s {_psSessionAttributes = a}) . mapping (_Sensitive . _Map)
+--
+-- /Note:/ Consider using 'sessionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psSessionAttributes :: Lens.Lens' PutSession (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+psSessionAttributes = Lens.lens (sessionAttributes :: PutSession -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {sessionAttributes = a} :: PutSession)
+{-# DEPRECATED psSessionAttributes "Use generic-lens or generic-optics with 'sessionAttributes' instead." #-}
 
 -- | The name of the bot that contains the session data.
-psBotName :: Lens' PutSession Text
-psBotName = lens _psBotName (\s a -> s {_psBotName = a})
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psBotName :: Lens.Lens' PutSession Lude.Text
+psBotName = Lens.lens (botName :: PutSession -> Lude.Text) (\s a -> s {botName = a} :: PutSession)
+{-# DEPRECATED psBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The alias in use for the bot that contains the session data.
-psBotAlias :: Lens' PutSession Text
-psBotAlias = lens _psBotAlias (\s a -> s {_psBotAlias = a})
+--
+-- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psBotAlias :: Lens.Lens' PutSession Lude.Text
+psBotAlias = Lens.lens (botAlias :: PutSession -> Lude.Text) (\s a -> s {botAlias = a} :: PutSession)
+{-# DEPRECATED psBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
 
 -- | The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot.
-psUserId :: Lens' PutSession Text
-psUserId = lens _psUserId (\s a -> s {_psUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psUserId :: Lens.Lens' PutSession Lude.Text
+psUserId = Lens.lens (userId :: PutSession -> Lude.Text) (\s a -> s {userId = a} :: PutSession)
+{-# DEPRECATED psUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance AWSRequest PutSession where
+instance Lude.AWSRequest PutSession where
   type Rs PutSession = PutSessionResponse
-  request = postJSON lexRuntime
+  request = Req.postJSON lexRuntimeService
   response =
-    receiveBody
+    Res.receiveBody
       ( \s h x ->
           PutSessionResponse'
-            <$> (h .#? "x-amz-lex-slots")
-            <*> (h .#? "x-amz-lex-intent-name")
-            <*> (h .#? "x-amz-lex-dialog-state")
-            <*> (h .#? "x-amz-lex-active-contexts")
-            <*> (h .#? "x-amz-lex-message-format")
-            <*> (h .#? "x-amz-lex-message")
-            <*> (h .#? "x-amz-lex-session-id")
-            <*> (h .#? "x-amz-lex-slot-to-elicit")
-            <*> (h .#? "Content-Type")
-            <*> (h .#? "x-amz-lex-session-attributes")
-            <*> (pure (fromEnum s))
-            <*> (pure x)
+            Lude.<$> (h Lude..#? "x-amz-lex-slots")
+            Lude.<*> (h Lude..#? "x-amz-lex-intent-name")
+            Lude.<*> (h Lude..#? "x-amz-lex-dialog-state")
+            Lude.<*> (h Lude..#? "x-amz-lex-active-contexts")
+            Lude.<*> (h Lude..#? "x-amz-lex-message-format")
+            Lude.<*> (h Lude..#? "x-amz-lex-message")
+            Lude.<*> (h Lude..#? "x-amz-lex-session-id")
+            Lude.<*> (h Lude..#? "x-amz-lex-slot-to-elicit")
+            Lude.<*> (h Lude..#? "Content-Type")
+            Lude.<*> (h Lude..#? "x-amz-lex-session-attributes")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (Lude.pure x)
       )
 
-instance Hashable PutSession
-
-instance NFData PutSession
-
-instance ToHeaders PutSession where
+instance Lude.ToHeaders PutSession where
   toHeaders PutSession' {..} =
-    mconcat
-      [ "Accept" =# _psAccept,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Accept" Lude.=# accept,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON PutSession where
+instance Lude.ToJSON PutSession where
   toJSON PutSession' {..} =
-    object
-      ( catMaybes
-          [ ("activeContexts" .=) <$> _psActiveContexts,
-            ("recentIntentSummaryView" .=) <$> _psRecentIntentSummaryView,
-            ("dialogAction" .=) <$> _psDialogAction,
-            ("sessionAttributes" .=) <$> _psSessionAttributes
+    Lude.object
+      ( Lude.catMaybes
+          [ ("activeContexts" Lude..=) Lude.<$> activeContexts,
+            ("recentIntentSummaryView" Lude..=)
+              Lude.<$> recentIntentSummaryView,
+            ("dialogAction" Lude..=) Lude.<$> dialogAction,
+            ("sessionAttributes" Lude..=) Lude.<$> sessionAttributes
           ]
       )
 
-instance ToPath PutSession where
+instance Lude.ToPath PutSession where
   toPath PutSession' {..} =
-    mconcat
+    Lude.mconcat
       [ "/bot/",
-        toBS _psBotName,
+        Lude.toBS botName,
         "/alias/",
-        toBS _psBotAlias,
+        Lude.toBS botAlias,
         "/user/",
-        toBS _psUserId,
+        Lude.toBS userId,
         "/session"
       ]
 
-instance ToQuery PutSession where
-  toQuery = const mempty
+instance Lude.ToQuery PutSession where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putSessionResponse' smart constructor.
+-- | /See:/ 'mkPutSessionResponse' smart constructor.
 data PutSessionResponse = PutSessionResponse'
-  { _psrsSlots ::
-      !(Maybe Text),
-    _psrsIntentName :: !(Maybe Text),
-    _psrsDialogState :: !(Maybe DialogState),
-    _psrsActiveContexts :: !(Maybe (Sensitive Text)),
-    _psrsMessageFormat :: !(Maybe MessageFormatType),
-    _psrsMessage :: !(Maybe (Sensitive Text)),
-    _psrsSessionId :: !(Maybe Text),
-    _psrsSlotToElicit :: !(Maybe Text),
-    _psrsContentType :: !(Maybe Text),
-    _psrsSessionAttributes :: !(Maybe Text),
-    _psrsResponseStatus :: !Int,
-    _psrsAudioStream :: !RsBody
+  { slots ::
+      Lude.Maybe Lude.Text,
+    intentName :: Lude.Maybe Lude.Text,
+    dialogState :: Lude.Maybe DialogState,
+    activeContexts ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    messageFormat :: Lude.Maybe MessageFormatType,
+    message :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    sessionId :: Lude.Maybe Lude.Text,
+    slotToElicit :: Lude.Maybe Lude.Text,
+    contentType :: Lude.Maybe Lude.Text,
+    sessionAttributes :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    audioStream :: Lude.RsBody
   }
-  deriving (Show, Generic)
+  deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'PutSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'activeContexts' - A list of active contexts for the session.
+-- * 'audioStream' - The audio version of the message to convey to the user.
+-- * 'contentType' - Content type as specified in the @Accept@ HTTP header in the request.
+-- * 'dialogState' -
 --
--- * 'psrsSlots' - Map of zero or more intent slots Amazon Lex detected from the user input during the conversation. Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the @valueSelectionStrategy@ selected when the slot type was created or updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@ , the value provided by the user is returned, if the user value is similar to the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@ Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@ .
 --
--- * 'psrsIntentName' - The name of the current intent.
+--     * @ConfirmIntent@ - Amazon Lex is expecting a "yes" or "no" response to confirm the intent before fulfilling an intent.
 --
--- * 'psrsDialogState' -      * @ConfirmIntent@ - Amazon Lex is expecting a "yes" or "no" response to confirm the intent before fulfilling an intent.     * @ElicitIntent@ - Amazon Lex wants to elicit the user's intent.     * @ElicitSlot@ - Amazon Lex is expecting the value of a slot for the current intent.     * @Failed@ - Conveys that the conversation with the user has failed. This can happen for various reasons, including the user does not provide an appropriate response to prompts from the service, or if the Lambda function fails to fulfill the intent.     * @Fulfilled@ - Conveys that the Lambda function has sucessfully fulfilled the intent.     * @ReadyForFulfillment@ - Conveys that the client has to fulfill the intent.
 --
--- * 'psrsActiveContexts' - A list of active contexts for the session.
+--     * @ElicitIntent@ - Amazon Lex wants to elicit the user's intent.
 --
--- * 'psrsMessageFormat' - The format of the response message. One of the following values:     * @PlainText@ - The message contains plain UTF-8 text.     * @CustomPayload@ - The message is a custom format for the client.     * @SSML@ - The message contains text formatted for voice output.     * @Composite@ - The message contains an escaped JSON object containing one or more messages from the groups that messages were assigned to when the intent was created.
 --
--- * 'psrsMessage' - The next message that should be presented to the user.
+--     * @ElicitSlot@ - Amazon Lex is expecting the value of a slot for the current intent.
 --
--- * 'psrsSessionId' - A unique identifier for the session.
 --
--- * 'psrsSlotToElicit' - If the @dialogState@ is @ElicitSlot@ , returns the name of the slot for which Amazon Lex is eliciting a value.
+--     * @Failed@ - Conveys that the conversation with the user has failed. This can happen for various reasons, including the user does not provide an appropriate response to prompts from the service, or if the Lambda function fails to fulfill the intent.
 --
--- * 'psrsContentType' - Content type as specified in the @Accept@ HTTP header in the request.
 --
--- * 'psrsSessionAttributes' - Map of key/value pairs representing session-specific context information.
+--     * @Fulfilled@ - Conveys that the Lambda function has sucessfully fulfilled the intent.
 --
--- * 'psrsResponseStatus' - -- | The response status code.
 --
--- * 'psrsAudioStream' - The audio version of the message to convey to the user.
-putSessionResponse ::
-  -- | 'psrsResponseStatus'
-  Int ->
-  -- | 'psrsAudioStream'
-  RsBody ->
+--     * @ReadyForFulfillment@ - Conveys that the client has to fulfill the intent.
+--
+--
+-- * 'intentName' - The name of the current intent.
+-- * 'message' - The next message that should be presented to the user.
+-- * 'messageFormat' - The format of the response message. One of the following values:
+--
+--
+--     * @PlainText@ - The message contains plain UTF-8 text.
+--
+--
+--     * @CustomPayload@ - The message is a custom format for the client.
+--
+--
+--     * @SSML@ - The message contains text formatted for voice output.
+--
+--
+--     * @Composite@ - The message contains an escaped JSON object containing one or more messages from the groups that messages were assigned to when the intent was created.
+--
+--
+-- * 'responseStatus' - The response status code.
+-- * 'sessionAttributes' - Map of key/value pairs representing session-specific context information.
+-- * 'sessionId' - A unique identifier for the session.
+-- * 'slotToElicit' - If the @dialogState@ is @ElicitSlot@ , returns the name of the slot for which Amazon Lex is eliciting a value.
+-- * 'slots' - Map of zero or more intent slots Amazon Lex detected from the user input during the conversation.
+--
+-- Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the @valueSelectionStrategy@ selected when the slot type was created or updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@ , the value provided by the user is returned, if the user value is similar to the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@ Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@ .
+mkPutSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'audioStream'
+  Lude.RsBody ->
   PutSessionResponse
-putSessionResponse pResponseStatus_ pAudioStream_ =
+mkPutSessionResponse pResponseStatus_ pAudioStream_ =
   PutSessionResponse'
-    { _psrsSlots = Nothing,
-      _psrsIntentName = Nothing,
-      _psrsDialogState = Nothing,
-      _psrsActiveContexts = Nothing,
-      _psrsMessageFormat = Nothing,
-      _psrsMessage = Nothing,
-      _psrsSessionId = Nothing,
-      _psrsSlotToElicit = Nothing,
-      _psrsContentType = Nothing,
-      _psrsSessionAttributes = Nothing,
-      _psrsResponseStatus = pResponseStatus_,
-      _psrsAudioStream = pAudioStream_
+    { slots = Lude.Nothing,
+      intentName = Lude.Nothing,
+      dialogState = Lude.Nothing,
+      activeContexts = Lude.Nothing,
+      messageFormat = Lude.Nothing,
+      message = Lude.Nothing,
+      sessionId = Lude.Nothing,
+      slotToElicit = Lude.Nothing,
+      contentType = Lude.Nothing,
+      sessionAttributes = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      audioStream = pAudioStream_
     }
 
--- | Map of zero or more intent slots Amazon Lex detected from the user input during the conversation. Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the @valueSelectionStrategy@ selected when the slot type was created or updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@ , the value provided by the user is returned, if the user value is similar to the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@ Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@ .
-psrsSlots :: Lens' PutSessionResponse (Maybe Text)
-psrsSlots = lens _psrsSlots (\s a -> s {_psrsSlots = a})
+-- | Map of zero or more intent slots Amazon Lex detected from the user input during the conversation.
+--
+-- Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the @valueSelectionStrategy@ selected when the slot type was created or updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@ , the value provided by the user is returned, if the user value is similar to the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@ Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a @valueSelectionStrategy@ the default is @ORIGINAL_VALUE@ .
+--
+-- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsSlots :: Lens.Lens' PutSessionResponse (Lude.Maybe Lude.Text)
+psrsSlots = Lens.lens (slots :: PutSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {slots = a} :: PutSessionResponse)
+{-# DEPRECATED psrsSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
 -- | The name of the current intent.
-psrsIntentName :: Lens' PutSessionResponse (Maybe Text)
-psrsIntentName = lens _psrsIntentName (\s a -> s {_psrsIntentName = a})
+--
+-- /Note:/ Consider using 'intentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsIntentName :: Lens.Lens' PutSessionResponse (Lude.Maybe Lude.Text)
+psrsIntentName = Lens.lens (intentName :: PutSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {intentName = a} :: PutSessionResponse)
+{-# DEPRECATED psrsIntentName "Use generic-lens or generic-optics with 'intentName' instead." #-}
 
--- |      * @ConfirmIntent@ - Amazon Lex is expecting a "yes" or "no" response to confirm the intent before fulfilling an intent.     * @ElicitIntent@ - Amazon Lex wants to elicit the user's intent.     * @ElicitSlot@ - Amazon Lex is expecting the value of a slot for the current intent.     * @Failed@ - Conveys that the conversation with the user has failed. This can happen for various reasons, including the user does not provide an appropriate response to prompts from the service, or if the Lambda function fails to fulfill the intent.     * @Fulfilled@ - Conveys that the Lambda function has sucessfully fulfilled the intent.     * @ReadyForFulfillment@ - Conveys that the client has to fulfill the intent.
-psrsDialogState :: Lens' PutSessionResponse (Maybe DialogState)
-psrsDialogState = lens _psrsDialogState (\s a -> s {_psrsDialogState = a})
+-- |
+--
+--
+--     * @ConfirmIntent@ - Amazon Lex is expecting a "yes" or "no" response to confirm the intent before fulfilling an intent.
+--
+--
+--     * @ElicitIntent@ - Amazon Lex wants to elicit the user's intent.
+--
+--
+--     * @ElicitSlot@ - Amazon Lex is expecting the value of a slot for the current intent.
+--
+--
+--     * @Failed@ - Conveys that the conversation with the user has failed. This can happen for various reasons, including the user does not provide an appropriate response to prompts from the service, or if the Lambda function fails to fulfill the intent.
+--
+--
+--     * @Fulfilled@ - Conveys that the Lambda function has sucessfully fulfilled the intent.
+--
+--
+--     * @ReadyForFulfillment@ - Conveys that the client has to fulfill the intent.
+--
+--
+--
+-- /Note:/ Consider using 'dialogState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsDialogState :: Lens.Lens' PutSessionResponse (Lude.Maybe DialogState)
+psrsDialogState = Lens.lens (dialogState :: PutSessionResponse -> Lude.Maybe DialogState) (\s a -> s {dialogState = a} :: PutSessionResponse)
+{-# DEPRECATED psrsDialogState "Use generic-lens or generic-optics with 'dialogState' instead." #-}
 
 -- | A list of active contexts for the session.
-psrsActiveContexts :: Lens' PutSessionResponse (Maybe Text)
-psrsActiveContexts = lens _psrsActiveContexts (\s a -> s {_psrsActiveContexts = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'activeContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsActiveContexts :: Lens.Lens' PutSessionResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+psrsActiveContexts = Lens.lens (activeContexts :: PutSessionResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {activeContexts = a} :: PutSessionResponse)
+{-# DEPRECATED psrsActiveContexts "Use generic-lens or generic-optics with 'activeContexts' instead." #-}
 
--- | The format of the response message. One of the following values:     * @PlainText@ - The message contains plain UTF-8 text.     * @CustomPayload@ - The message is a custom format for the client.     * @SSML@ - The message contains text formatted for voice output.     * @Composite@ - The message contains an escaped JSON object containing one or more messages from the groups that messages were assigned to when the intent was created.
-psrsMessageFormat :: Lens' PutSessionResponse (Maybe MessageFormatType)
-psrsMessageFormat = lens _psrsMessageFormat (\s a -> s {_psrsMessageFormat = a})
+-- | The format of the response message. One of the following values:
+--
+--
+--     * @PlainText@ - The message contains plain UTF-8 text.
+--
+--
+--     * @CustomPayload@ - The message is a custom format for the client.
+--
+--
+--     * @SSML@ - The message contains text formatted for voice output.
+--
+--
+--     * @Composite@ - The message contains an escaped JSON object containing one or more messages from the groups that messages were assigned to when the intent was created.
+--
+--
+--
+-- /Note:/ Consider using 'messageFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsMessageFormat :: Lens.Lens' PutSessionResponse (Lude.Maybe MessageFormatType)
+psrsMessageFormat = Lens.lens (messageFormat :: PutSessionResponse -> Lude.Maybe MessageFormatType) (\s a -> s {messageFormat = a} :: PutSessionResponse)
+{-# DEPRECATED psrsMessageFormat "Use generic-lens or generic-optics with 'messageFormat' instead." #-}
 
 -- | The next message that should be presented to the user.
-psrsMessage :: Lens' PutSessionResponse (Maybe Text)
-psrsMessage = lens _psrsMessage (\s a -> s {_psrsMessage = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsMessage :: Lens.Lens' PutSessionResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+psrsMessage = Lens.lens (message :: PutSessionResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {message = a} :: PutSessionResponse)
+{-# DEPRECATED psrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | A unique identifier for the session.
-psrsSessionId :: Lens' PutSessionResponse (Maybe Text)
-psrsSessionId = lens _psrsSessionId (\s a -> s {_psrsSessionId = a})
+--
+-- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsSessionId :: Lens.Lens' PutSessionResponse (Lude.Maybe Lude.Text)
+psrsSessionId = Lens.lens (sessionId :: PutSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {sessionId = a} :: PutSessionResponse)
+{-# DEPRECATED psrsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
 
 -- | If the @dialogState@ is @ElicitSlot@ , returns the name of the slot for which Amazon Lex is eliciting a value.
-psrsSlotToElicit :: Lens' PutSessionResponse (Maybe Text)
-psrsSlotToElicit = lens _psrsSlotToElicit (\s a -> s {_psrsSlotToElicit = a})
+--
+-- /Note:/ Consider using 'slotToElicit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsSlotToElicit :: Lens.Lens' PutSessionResponse (Lude.Maybe Lude.Text)
+psrsSlotToElicit = Lens.lens (slotToElicit :: PutSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {slotToElicit = a} :: PutSessionResponse)
+{-# DEPRECATED psrsSlotToElicit "Use generic-lens or generic-optics with 'slotToElicit' instead." #-}
 
 -- | Content type as specified in the @Accept@ HTTP header in the request.
-psrsContentType :: Lens' PutSessionResponse (Maybe Text)
-psrsContentType = lens _psrsContentType (\s a -> s {_psrsContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsContentType :: Lens.Lens' PutSessionResponse (Lude.Maybe Lude.Text)
+psrsContentType = Lens.lens (contentType :: PutSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: PutSessionResponse)
+{-# DEPRECATED psrsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
 -- | Map of key/value pairs representing session-specific context information.
-psrsSessionAttributes :: Lens' PutSessionResponse (Maybe Text)
-psrsSessionAttributes = lens _psrsSessionAttributes (\s a -> s {_psrsSessionAttributes = a})
+--
+-- /Note:/ Consider using 'sessionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsSessionAttributes :: Lens.Lens' PutSessionResponse (Lude.Maybe Lude.Text)
+psrsSessionAttributes = Lens.lens (sessionAttributes :: PutSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {sessionAttributes = a} :: PutSessionResponse)
+{-# DEPRECATED psrsSessionAttributes "Use generic-lens or generic-optics with 'sessionAttributes' instead." #-}
 
--- | -- | The response status code.
-psrsResponseStatus :: Lens' PutSessionResponse Int
-psrsResponseStatus = lens _psrsResponseStatus (\s a -> s {_psrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsResponseStatus :: Lens.Lens' PutSessionResponse Lude.Int
+psrsResponseStatus = Lens.lens (responseStatus :: PutSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutSessionResponse)
+{-# DEPRECATED psrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The audio version of the message to convey to the user.
-psrsAudioStream :: Lens' PutSessionResponse RsBody
-psrsAudioStream = lens _psrsAudioStream (\s a -> s {_psrsAudioStream = a})
+--
+-- /Note:/ Consider using 'audioStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psrsAudioStream :: Lens.Lens' PutSessionResponse Lude.RsBody
+psrsAudioStream = Lens.lens (audioStream :: PutSessionResponse -> Lude.RsBody) (\s a -> s {audioStream = a} :: PutSessionResponse)
+{-# DEPRECATED psrsAudioStream "Use generic-lens or generic-optics with 'audioStream' instead." #-}

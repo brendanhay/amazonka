@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Describes all of the budget actions for a budget.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Budgets.DescribeBudgetActionsForBudget
-  ( -- * Creating a Request
-    describeBudgetActionsForBudget,
-    DescribeBudgetActionsForBudget,
+  ( -- * Creating a request
+    DescribeBudgetActionsForBudget (..),
+    mkDescribeBudgetActionsForBudget,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbafbNextToken,
     dbafbMaxResults,
     dbafbAccountId,
     dbafbBudgetName,
 
-    -- * Destructuring the Response
-    describeBudgetActionsForBudgetResponse,
-    DescribeBudgetActionsForBudgetResponse,
+    -- * Destructuring the response
+    DescribeBudgetActionsForBudgetResponse (..),
+    mkDescribeBudgetActionsForBudgetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbafbrsNextToken,
     dbafbrsResponseStatus,
     dbafbrsActions,
@@ -45,159 +38,182 @@ module Network.AWS.Budgets.DescribeBudgetActionsForBudget
 where
 
 import Network.AWS.Budgets.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeBudgetActionsForBudget' smart constructor.
+-- | /See:/ 'mkDescribeBudgetActionsForBudget' smart constructor.
 data DescribeBudgetActionsForBudget = DescribeBudgetActionsForBudget'
-  { _dbafbNextToken ::
-      !(Maybe Text),
-    _dbafbMaxResults ::
-      !(Maybe Nat),
-    _dbafbAccountId :: !Text,
-    _dbafbBudgetName :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    accountId :: Lude.Text,
+    budgetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetActionsForBudget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbafbNextToken' - Undocumented member.
---
--- * 'dbafbMaxResults' - Undocumented member.
---
--- * 'dbafbAccountId' - Undocumented member.
---
--- * 'dbafbBudgetName' - Undocumented member.
-describeBudgetActionsForBudget ::
-  -- | 'dbafbAccountId'
-  Text ->
-  -- | 'dbafbBudgetName'
-  Text ->
+-- * 'accountId' - Undocumented field.
+-- * 'budgetName' - Undocumented field.
+-- * 'maxResults' - Undocumented field.
+-- * 'nextToken' - Undocumented field.
+mkDescribeBudgetActionsForBudget ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'budgetName'
+  Lude.Text ->
   DescribeBudgetActionsForBudget
-describeBudgetActionsForBudget pAccountId_ pBudgetName_ =
+mkDescribeBudgetActionsForBudget pAccountId_ pBudgetName_ =
   DescribeBudgetActionsForBudget'
-    { _dbafbNextToken = Nothing,
-      _dbafbMaxResults = Nothing,
-      _dbafbAccountId = pAccountId_,
-      _dbafbBudgetName = pBudgetName_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      accountId = pAccountId_,
+      budgetName = pBudgetName_
     }
 
--- | Undocumented member.
-dbafbNextToken :: Lens' DescribeBudgetActionsForBudget (Maybe Text)
-dbafbNextToken = lens _dbafbNextToken (\s a -> s {_dbafbNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafbNextToken :: Lens.Lens' DescribeBudgetActionsForBudget (Lude.Maybe Lude.Text)
+dbafbNextToken = Lens.lens (nextToken :: DescribeBudgetActionsForBudget -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetActionsForBudget)
+{-# DEPRECATED dbafbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Undocumented member.
-dbafbMaxResults :: Lens' DescribeBudgetActionsForBudget (Maybe Natural)
-dbafbMaxResults = lens _dbafbMaxResults (\s a -> s {_dbafbMaxResults = a}) . mapping _Nat
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafbMaxResults :: Lens.Lens' DescribeBudgetActionsForBudget (Lude.Maybe Lude.Natural)
+dbafbMaxResults = Lens.lens (maxResults :: DescribeBudgetActionsForBudget -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBudgetActionsForBudget)
+{-# DEPRECATED dbafbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | Undocumented member.
-dbafbAccountId :: Lens' DescribeBudgetActionsForBudget Text
-dbafbAccountId = lens _dbafbAccountId (\s a -> s {_dbafbAccountId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafbAccountId :: Lens.Lens' DescribeBudgetActionsForBudget Lude.Text
+dbafbAccountId = Lens.lens (accountId :: DescribeBudgetActionsForBudget -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudgetActionsForBudget)
+{-# DEPRECATED dbafbAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | Undocumented member.
-dbafbBudgetName :: Lens' DescribeBudgetActionsForBudget Text
-dbafbBudgetName = lens _dbafbBudgetName (\s a -> s {_dbafbBudgetName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafbBudgetName :: Lens.Lens' DescribeBudgetActionsForBudget Lude.Text
+dbafbBudgetName = Lens.lens (budgetName :: DescribeBudgetActionsForBudget -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeBudgetActionsForBudget)
+{-# DEPRECATED dbafbBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
-instance AWSPager DescribeBudgetActionsForBudget where
+instance Page.AWSPager DescribeBudgetActionsForBudget where
   page rq rs
-    | stop (rs ^. dbafbrsNextToken) = Nothing
-    | stop (rs ^. dbafbrsActions) = Nothing
-    | otherwise = Just $ rq & dbafbNextToken .~ rs ^. dbafbrsNextToken
+    | Page.stop (rs Lens.^. dbafbrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dbafbrsActions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dbafbNextToken Lens..~ rs Lens.^. dbafbrsNextToken
 
-instance AWSRequest DescribeBudgetActionsForBudget where
+instance Lude.AWSRequest DescribeBudgetActionsForBudget where
   type
     Rs DescribeBudgetActionsForBudget =
       DescribeBudgetActionsForBudgetResponse
-  request = postJSON budgets
+  request = Req.postJSON budgetsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeBudgetActionsForBudgetResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "Actions" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "Actions" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeBudgetActionsForBudget
-
-instance NFData DescribeBudgetActionsForBudget
-
-instance ToHeaders DescribeBudgetActionsForBudget where
+instance Lude.ToHeaders DescribeBudgetActionsForBudget where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeBudgetActionsForBudget where
+instance Lude.ToJSON DescribeBudgetActionsForBudget where
   toJSON DescribeBudgetActionsForBudget' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _dbafbNextToken,
-            ("MaxResults" .=) <$> _dbafbMaxResults,
-            Just ("AccountId" .= _dbafbAccountId),
-            Just ("BudgetName" .= _dbafbBudgetName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("BudgetName" Lude..= budgetName)
           ]
       )
 
-instance ToPath DescribeBudgetActionsForBudget where
-  toPath = const "/"
+instance Lude.ToPath DescribeBudgetActionsForBudget where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeBudgetActionsForBudget where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeBudgetActionsForBudget where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeBudgetActionsForBudgetResponse' smart constructor.
+-- | /See:/ 'mkDescribeBudgetActionsForBudgetResponse' smart constructor.
 data DescribeBudgetActionsForBudgetResponse = DescribeBudgetActionsForBudgetResponse'
-  { _dbafbrsNextToken ::
-      !(Maybe Text),
-    _dbafbrsResponseStatus ::
-      !Int,
-    _dbafbrsActions ::
-      ![Action]
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int,
+    actions ::
+      [Action]
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetActionsForBudgetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbafbrsNextToken' - Undocumented member.
---
--- * 'dbafbrsResponseStatus' - -- | The response status code.
---
--- * 'dbafbrsActions' - A list of the budget action resources information.
-describeBudgetActionsForBudgetResponse ::
-  -- | 'dbafbrsResponseStatus'
-  Int ->
+-- * 'actions' - A list of the budget action resources information.
+-- * 'nextToken' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDescribeBudgetActionsForBudgetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBudgetActionsForBudgetResponse
-describeBudgetActionsForBudgetResponse pResponseStatus_ =
+mkDescribeBudgetActionsForBudgetResponse pResponseStatus_ =
   DescribeBudgetActionsForBudgetResponse'
-    { _dbafbrsNextToken =
-        Nothing,
-      _dbafbrsResponseStatus = pResponseStatus_,
-      _dbafbrsActions = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      actions = Lude.mempty
     }
 
--- | Undocumented member.
-dbafbrsNextToken :: Lens' DescribeBudgetActionsForBudgetResponse (Maybe Text)
-dbafbrsNextToken = lens _dbafbrsNextToken (\s a -> s {_dbafbrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafbrsNextToken :: Lens.Lens' DescribeBudgetActionsForBudgetResponse (Lude.Maybe Lude.Text)
+dbafbrsNextToken = Lens.lens (nextToken :: DescribeBudgetActionsForBudgetResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetActionsForBudgetResponse)
+{-# DEPRECATED dbafbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dbafbrsResponseStatus :: Lens' DescribeBudgetActionsForBudgetResponse Int
-dbafbrsResponseStatus = lens _dbafbrsResponseStatus (\s a -> s {_dbafbrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafbrsResponseStatus :: Lens.Lens' DescribeBudgetActionsForBudgetResponse Lude.Int
+dbafbrsResponseStatus = Lens.lens (responseStatus :: DescribeBudgetActionsForBudgetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBudgetActionsForBudgetResponse)
+{-# DEPRECATED dbafbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of the budget action resources information.
-dbafbrsActions :: Lens' DescribeBudgetActionsForBudgetResponse [Action]
-dbafbrsActions = lens _dbafbrsActions (\s a -> s {_dbafbrsActions = a}) . _Coerce
-
-instance NFData DescribeBudgetActionsForBudgetResponse
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafbrsActions :: Lens.Lens' DescribeBudgetActionsForBudgetResponse [Action]
+dbafbrsActions = Lens.lens (actions :: DescribeBudgetActionsForBudgetResponse -> [Action]) (\s a -> s {actions = a} :: DescribeBudgetActionsForBudgetResponse)
+{-# DEPRECATED dbafbrsActions "Use generic-lens or generic-optics with 'actions' instead." #-}

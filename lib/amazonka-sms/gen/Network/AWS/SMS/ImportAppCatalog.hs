@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,116 @@
 --
 -- Allows application import from AWS Migration Hub.
 module Network.AWS.SMS.ImportAppCatalog
-  ( -- * Creating a Request
-    importAppCatalog,
-    ImportAppCatalog,
+  ( -- * Creating a request
+    ImportAppCatalog (..),
+    mkImportAppCatalog,
 
-    -- * Request Lenses
+    -- ** Request lenses
     iacRoleName,
 
-    -- * Destructuring the Response
-    importAppCatalogResponse,
-    ImportAppCatalogResponse,
+    -- * Destructuring the response
+    ImportAppCatalogResponse (..),
+    mkImportAppCatalogResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     iacrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'importAppCatalog' smart constructor.
+-- | /See:/ 'mkImportAppCatalog' smart constructor.
 newtype ImportAppCatalog = ImportAppCatalog'
-  { _iacRoleName ::
-      Maybe Text
+  { roleName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportAppCatalog' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iacRoleName' - The name of the service role. If you omit this parameter, we create a service-linked role for AWS Migration Hub in your account. Otherwise, the role that you provide must have the <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy> described in the /AWS Migration Hub User Guide/ .
-importAppCatalog ::
+-- * 'roleName' - The name of the service role. If you omit this parameter, we create a service-linked role for AWS Migration Hub in your account. Otherwise, the role that you provide must have the <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy> described in the /AWS Migration Hub User Guide/ .
+mkImportAppCatalog ::
   ImportAppCatalog
-importAppCatalog = ImportAppCatalog' {_iacRoleName = Nothing}
+mkImportAppCatalog = ImportAppCatalog' {roleName = Lude.Nothing}
 
 -- | The name of the service role. If you omit this parameter, we create a service-linked role for AWS Migration Hub in your account. Otherwise, the role that you provide must have the <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy> described in the /AWS Migration Hub User Guide/ .
-iacRoleName :: Lens' ImportAppCatalog (Maybe Text)
-iacRoleName = lens _iacRoleName (\s a -> s {_iacRoleName = a})
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iacRoleName :: Lens.Lens' ImportAppCatalog (Lude.Maybe Lude.Text)
+iacRoleName = Lens.lens (roleName :: ImportAppCatalog -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: ImportAppCatalog)
+{-# DEPRECATED iacRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance AWSRequest ImportAppCatalog where
+instance Lude.AWSRequest ImportAppCatalog where
   type Rs ImportAppCatalog = ImportAppCatalogResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveEmpty
-      (\s h x -> ImportAppCatalogResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ImportAppCatalogResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ImportAppCatalog
-
-instance NFData ImportAppCatalog
-
-instance ToHeaders ImportAppCatalog where
+instance Lude.ToHeaders ImportAppCatalog where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.ImportAppCatalog" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.ImportAppCatalog" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ImportAppCatalog where
+instance Lude.ToJSON ImportAppCatalog where
   toJSON ImportAppCatalog' {..} =
-    object (catMaybes [("roleName" .=) <$> _iacRoleName])
+    Lude.object
+      (Lude.catMaybes [("roleName" Lude..=) Lude.<$> roleName])
 
-instance ToPath ImportAppCatalog where
-  toPath = const "/"
+instance Lude.ToPath ImportAppCatalog where
+  toPath = Lude.const "/"
 
-instance ToQuery ImportAppCatalog where
-  toQuery = const mempty
+instance Lude.ToQuery ImportAppCatalog where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'importAppCatalogResponse' smart constructor.
+-- | /See:/ 'mkImportAppCatalogResponse' smart constructor.
 newtype ImportAppCatalogResponse = ImportAppCatalogResponse'
-  { _iacrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportAppCatalogResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iacrsResponseStatus' - -- | The response status code.
-importAppCatalogResponse ::
-  -- | 'iacrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkImportAppCatalogResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ImportAppCatalogResponse
-importAppCatalogResponse pResponseStatus_ =
-  ImportAppCatalogResponse'
-    { _iacrsResponseStatus =
-        pResponseStatus_
-    }
+mkImportAppCatalogResponse pResponseStatus_ =
+  ImportAppCatalogResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-iacrsResponseStatus :: Lens' ImportAppCatalogResponse Int
-iacrsResponseStatus = lens _iacrsResponseStatus (\s a -> s {_iacrsResponseStatus = a})
-
-instance NFData ImportAppCatalogResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iacrsResponseStatus :: Lens.Lens' ImportAppCatalogResponse Lude.Int
+iacrsResponseStatus = Lens.lens (responseStatus :: ImportAppCatalogResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportAppCatalogResponse)
+{-# DEPRECATED iacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

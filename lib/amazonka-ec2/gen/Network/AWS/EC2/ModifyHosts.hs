@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,24 @@
 --
 -- Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled, any instances that you launch with a tenancy of @host@ but without a specific host ID are placed onto any available Dedicated Host in your account that has auto-placement enabled. When auto-placement is disabled, you need to provide a host ID to have the instance launch onto a specific host. If no host ID is provided, the instance is launched onto a suitable host with auto-placement enabled.
 --
---
 -- You can also use this API action to modify a Dedicated Host to support either multiple instance types in an instance family, or to support a specific instance type only.
 module Network.AWS.EC2.ModifyHosts
-  ( -- * Creating a Request
-    modifyHosts,
-    ModifyHosts,
+  ( -- * Creating a request
+    ModifyHosts (..),
+    mkModifyHosts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mhInstanceFamily,
     mhInstanceType,
     mhHostRecovery,
     mhAutoPlacement,
     mhHostIds,
 
-    -- * Destructuring the Response
-    modifyHostsResponse,
-    ModifyHostsResponse,
+    -- * Destructuring the response
+    ModifyHostsResponse (..),
+    mkModifyHostsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mhrsUnsuccessful,
     mhrsSuccessful,
     mhrsResponseStatus,
@@ -45,138 +39,173 @@ module Network.AWS.EC2.ModifyHosts
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyHosts' smart constructor.
+-- | /See:/ 'mkModifyHosts' smart constructor.
 data ModifyHosts = ModifyHosts'
-  { _mhInstanceFamily :: !(Maybe Text),
-    _mhInstanceType :: !(Maybe Text),
-    _mhHostRecovery :: !(Maybe HostRecovery),
-    _mhAutoPlacement :: !(Maybe AutoPlacement),
-    _mhHostIds :: ![Text]
+  { instanceFamily ::
+      Lude.Maybe Lude.Text,
+    instanceType :: Lude.Maybe Lude.Text,
+    hostRecovery :: Lude.Maybe HostRecovery,
+    autoPlacement :: Lude.Maybe AutoPlacement,
+    hostIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyHosts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'autoPlacement' - Specify whether to enable or disable auto-placement.
+-- * 'hostIds' - The IDs of the Dedicated Hosts to modify.
+-- * 'hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated Host. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'instanceFamily' - Specifies the instance family to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support multiple instance types within its current instance family.
 --
--- * 'mhInstanceFamily' - Specifies the instance family to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support multiple instance types within its current instance family. If you want to modify a Dedicated Host to support a specific instance type only, omit this parameter and specify __InstanceType__ instead. You cannot specify __InstanceFamily__ and __InstanceType__ in the same request.
+-- If you want to modify a Dedicated Host to support a specific instance type only, omit this parameter and specify __InstanceType__ instead. You cannot specify __InstanceFamily__ and __InstanceType__ in the same request.
+-- * 'instanceType' - Specifies the instance type to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support only a specific instance type.
 --
--- * 'mhInstanceType' - Specifies the instance type to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support only a specific instance type. If you want to modify a Dedicated Host to support multiple instance types in its current instance family, omit this parameter and specify __InstanceFamily__ instead. You cannot specify __InstanceType__ and __InstanceFamily__ in the same request.
---
--- * 'mhHostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated Host. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- * 'mhAutoPlacement' - Specify whether to enable or disable auto-placement.
---
--- * 'mhHostIds' - The IDs of the Dedicated Hosts to modify.
-modifyHosts ::
+-- If you want to modify a Dedicated Host to support multiple instance types in its current instance family, omit this parameter and specify __InstanceFamily__ instead. You cannot specify __InstanceType__ and __InstanceFamily__ in the same request.
+mkModifyHosts ::
   ModifyHosts
-modifyHosts =
+mkModifyHosts =
   ModifyHosts'
-    { _mhInstanceFamily = Nothing,
-      _mhInstanceType = Nothing,
-      _mhHostRecovery = Nothing,
-      _mhAutoPlacement = Nothing,
-      _mhHostIds = mempty
+    { instanceFamily = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      hostRecovery = Lude.Nothing,
+      autoPlacement = Lude.Nothing,
+      hostIds = Lude.mempty
     }
 
--- | Specifies the instance family to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support multiple instance types within its current instance family. If you want to modify a Dedicated Host to support a specific instance type only, omit this parameter and specify __InstanceType__ instead. You cannot specify __InstanceFamily__ and __InstanceType__ in the same request.
-mhInstanceFamily :: Lens' ModifyHosts (Maybe Text)
-mhInstanceFamily = lens _mhInstanceFamily (\s a -> s {_mhInstanceFamily = a})
+-- | Specifies the instance family to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support multiple instance types within its current instance family.
+--
+-- If you want to modify a Dedicated Host to support a specific instance type only, omit this parameter and specify __InstanceType__ instead. You cannot specify __InstanceFamily__ and __InstanceType__ in the same request.
+--
+-- /Note:/ Consider using 'instanceFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhInstanceFamily :: Lens.Lens' ModifyHosts (Lude.Maybe Lude.Text)
+mhInstanceFamily = Lens.lens (instanceFamily :: ModifyHosts -> Lude.Maybe Lude.Text) (\s a -> s {instanceFamily = a} :: ModifyHosts)
+{-# DEPRECATED mhInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
 
--- | Specifies the instance type to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support only a specific instance type. If you want to modify a Dedicated Host to support multiple instance types in its current instance family, omit this parameter and specify __InstanceFamily__ instead. You cannot specify __InstanceType__ and __InstanceFamily__ in the same request.
-mhInstanceType :: Lens' ModifyHosts (Maybe Text)
-mhInstanceType = lens _mhInstanceType (\s a -> s {_mhInstanceType = a})
+-- | Specifies the instance type to be supported by the Dedicated Host. Specify this parameter to modify a Dedicated Host to support only a specific instance type.
+--
+-- If you want to modify a Dedicated Host to support multiple instance types in its current instance family, omit this parameter and specify __InstanceFamily__ instead. You cannot specify __InstanceType__ and __InstanceFamily__ in the same request.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhInstanceType :: Lens.Lens' ModifyHosts (Lude.Maybe Lude.Text)
+mhInstanceType = Lens.lens (instanceType :: ModifyHosts -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: ModifyHosts)
+{-# DEPRECATED mhInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | Indicates whether to enable or disable host recovery for the Dedicated Host. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
-mhHostRecovery :: Lens' ModifyHosts (Maybe HostRecovery)
-mhHostRecovery = lens _mhHostRecovery (\s a -> s {_mhHostRecovery = a})
+--
+-- /Note:/ Consider using 'hostRecovery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhHostRecovery :: Lens.Lens' ModifyHosts (Lude.Maybe HostRecovery)
+mhHostRecovery = Lens.lens (hostRecovery :: ModifyHosts -> Lude.Maybe HostRecovery) (\s a -> s {hostRecovery = a} :: ModifyHosts)
+{-# DEPRECATED mhHostRecovery "Use generic-lens or generic-optics with 'hostRecovery' instead." #-}
 
 -- | Specify whether to enable or disable auto-placement.
-mhAutoPlacement :: Lens' ModifyHosts (Maybe AutoPlacement)
-mhAutoPlacement = lens _mhAutoPlacement (\s a -> s {_mhAutoPlacement = a})
+--
+-- /Note:/ Consider using 'autoPlacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhAutoPlacement :: Lens.Lens' ModifyHosts (Lude.Maybe AutoPlacement)
+mhAutoPlacement = Lens.lens (autoPlacement :: ModifyHosts -> Lude.Maybe AutoPlacement) (\s a -> s {autoPlacement = a} :: ModifyHosts)
+{-# DEPRECATED mhAutoPlacement "Use generic-lens or generic-optics with 'autoPlacement' instead." #-}
 
 -- | The IDs of the Dedicated Hosts to modify.
-mhHostIds :: Lens' ModifyHosts [Text]
-mhHostIds = lens _mhHostIds (\s a -> s {_mhHostIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'hostIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhHostIds :: Lens.Lens' ModifyHosts [Lude.Text]
+mhHostIds = Lens.lens (hostIds :: ModifyHosts -> [Lude.Text]) (\s a -> s {hostIds = a} :: ModifyHosts)
+{-# DEPRECATED mhHostIds "Use generic-lens or generic-optics with 'hostIds' instead." #-}
 
-instance AWSRequest ModifyHosts where
+instance Lude.AWSRequest ModifyHosts where
   type Rs ModifyHosts = ModifyHostsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyHostsResponse'
-            <$> (x .@? "unsuccessful" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "successful" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "unsuccessful" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> ( x Lude..@? "successful" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyHosts
+instance Lude.ToHeaders ModifyHosts where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyHosts
+instance Lude.ToPath ModifyHosts where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyHosts where
-  toHeaders = const mempty
-
-instance ToPath ModifyHosts where
-  toPath = const "/"
-
-instance ToQuery ModifyHosts where
+instance Lude.ToQuery ModifyHosts where
   toQuery ModifyHosts' {..} =
-    mconcat
-      [ "Action" =: ("ModifyHosts" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "InstanceFamily" =: _mhInstanceFamily,
-        "InstanceType" =: _mhInstanceType,
-        "HostRecovery" =: _mhHostRecovery,
-        "AutoPlacement" =: _mhAutoPlacement,
-        toQueryList "HostId" _mhHostIds
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyHosts" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "InstanceFamily" Lude.=: instanceFamily,
+        "InstanceType" Lude.=: instanceType,
+        "HostRecovery" Lude.=: hostRecovery,
+        "AutoPlacement" Lude.=: autoPlacement,
+        Lude.toQueryList "HostId" hostIds
       ]
 
--- | /See:/ 'modifyHostsResponse' smart constructor.
+-- | /See:/ 'mkModifyHostsResponse' smart constructor.
 data ModifyHostsResponse = ModifyHostsResponse'
-  { _mhrsUnsuccessful ::
-      !(Maybe [UnsuccessfulItem]),
-    _mhrsSuccessful :: !(Maybe [Text]),
-    _mhrsResponseStatus :: !Int
+  { unsuccessful ::
+      Lude.Maybe [UnsuccessfulItem],
+    successful :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyHostsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mhrsUnsuccessful' - The IDs of the Dedicated Hosts that could not be modified. Check whether the setting you requested can be used.
---
--- * 'mhrsSuccessful' - The IDs of the Dedicated Hosts that were successfully modified.
---
--- * 'mhrsResponseStatus' - -- | The response status code.
-modifyHostsResponse ::
-  -- | 'mhrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'successful' - The IDs of the Dedicated Hosts that were successfully modified.
+-- * 'unsuccessful' - The IDs of the Dedicated Hosts that could not be modified. Check whether the setting you requested can be used.
+mkModifyHostsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyHostsResponse
-modifyHostsResponse pResponseStatus_ =
+mkModifyHostsResponse pResponseStatus_ =
   ModifyHostsResponse'
-    { _mhrsUnsuccessful = Nothing,
-      _mhrsSuccessful = Nothing,
-      _mhrsResponseStatus = pResponseStatus_
+    { unsuccessful = Lude.Nothing,
+      successful = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The IDs of the Dedicated Hosts that could not be modified. Check whether the setting you requested can be used.
-mhrsUnsuccessful :: Lens' ModifyHostsResponse [UnsuccessfulItem]
-mhrsUnsuccessful = lens _mhrsUnsuccessful (\s a -> s {_mhrsUnsuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unsuccessful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhrsUnsuccessful :: Lens.Lens' ModifyHostsResponse (Lude.Maybe [UnsuccessfulItem])
+mhrsUnsuccessful = Lens.lens (unsuccessful :: ModifyHostsResponse -> Lude.Maybe [UnsuccessfulItem]) (\s a -> s {unsuccessful = a} :: ModifyHostsResponse)
+{-# DEPRECATED mhrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
 
 -- | The IDs of the Dedicated Hosts that were successfully modified.
-mhrsSuccessful :: Lens' ModifyHostsResponse [Text]
-mhrsSuccessful = lens _mhrsSuccessful (\s a -> s {_mhrsSuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'successful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhrsSuccessful :: Lens.Lens' ModifyHostsResponse (Lude.Maybe [Lude.Text])
+mhrsSuccessful = Lens.lens (successful :: ModifyHostsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {successful = a} :: ModifyHostsResponse)
+{-# DEPRECATED mhrsSuccessful "Use generic-lens or generic-optics with 'successful' instead." #-}
 
--- | -- | The response status code.
-mhrsResponseStatus :: Lens' ModifyHostsResponse Int
-mhrsResponseStatus = lens _mhrsResponseStatus (\s a -> s {_mhrsResponseStatus = a})
-
-instance NFData ModifyHostsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhrsResponseStatus :: Lens.Lens' ModifyHostsResponse Lude.Int
+mhrsResponseStatus = Lens.lens (responseStatus :: ModifyHostsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyHostsResponse)
+{-# DEPRECATED mhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

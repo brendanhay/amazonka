@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.DeliveryStatus where
+module Network.AWS.Config.Types.DeliveryStatus
+  ( DeliveryStatus
+      ( DeliveryStatus',
+        DSFailure,
+        DSNotApplicable,
+        DSSuccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeliveryStatus
-  = DSFailure
-  | DSNotApplicable
-  | DSSuccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeliveryStatus = DeliveryStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeliveryStatus where
-  parser =
-    takeLowerText >>= \case
-      "failure" -> pure DSFailure
-      "not_applicable" -> pure DSNotApplicable
-      "success" -> pure DSSuccess
-      e ->
-        fromTextError $
-          "Failure parsing DeliveryStatus from value: '" <> e
-            <> "'. Accepted values: failure, not_applicable, success"
+pattern DSFailure :: DeliveryStatus
+pattern DSFailure = DeliveryStatus' "Failure"
 
-instance ToText DeliveryStatus where
-  toText = \case
-    DSFailure -> "Failure"
-    DSNotApplicable -> "Not_Applicable"
-    DSSuccess -> "Success"
+pattern DSNotApplicable :: DeliveryStatus
+pattern DSNotApplicable = DeliveryStatus' "Not_Applicable"
 
-instance Hashable DeliveryStatus
+pattern DSSuccess :: DeliveryStatus
+pattern DSSuccess = DeliveryStatus' "Success"
 
-instance NFData DeliveryStatus
-
-instance ToByteString DeliveryStatus
-
-instance ToQuery DeliveryStatus
-
-instance ToHeader DeliveryStatus
-
-instance FromJSON DeliveryStatus where
-  parseJSON = parseJSONText "DeliveryStatus"
+{-# COMPLETE
+  DSFailure,
+  DSNotApplicable,
+  DSSuccess,
+  DeliveryStatus'
+  #-}

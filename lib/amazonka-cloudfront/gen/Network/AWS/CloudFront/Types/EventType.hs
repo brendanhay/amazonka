@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.EventType where
+module Network.AWS.CloudFront.Types.EventType
+  ( EventType
+      ( EventType',
+        OriginRequest,
+        OriginResponse,
+        ViewerRequest,
+        ViewerResponse
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventType
-  = OriginRequest
-  | OriginResponse
-  | ViewerRequest
-  | ViewerResponse
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventType = EventType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventType where
-  parser =
-    takeLowerText >>= \case
-      "origin-request" -> pure OriginRequest
-      "origin-response" -> pure OriginResponse
-      "viewer-request" -> pure ViewerRequest
-      "viewer-response" -> pure ViewerResponse
-      e ->
-        fromTextError $
-          "Failure parsing EventType from value: '" <> e
-            <> "'. Accepted values: origin-request, origin-response, viewer-request, viewer-response"
+pattern OriginRequest :: EventType
+pattern OriginRequest = EventType' "origin-request"
 
-instance ToText EventType where
-  toText = \case
-    OriginRequest -> "origin-request"
-    OriginResponse -> "origin-response"
-    ViewerRequest -> "viewer-request"
-    ViewerResponse -> "viewer-response"
+pattern OriginResponse :: EventType
+pattern OriginResponse = EventType' "origin-response"
 
-instance Hashable EventType
+pattern ViewerRequest :: EventType
+pattern ViewerRequest = EventType' "viewer-request"
 
-instance NFData EventType
+pattern ViewerResponse :: EventType
+pattern ViewerResponse = EventType' "viewer-response"
 
-instance ToByteString EventType
-
-instance ToQuery EventType
-
-instance ToHeader EventType
-
-instance FromXML EventType where
-  parseXML = parseXMLText "EventType"
-
-instance ToXML EventType where
-  toXML = toXMLText
+{-# COMPLETE
+  OriginRequest,
+  OriginResponse,
+  ViewerRequest,
+  ViewerResponse,
+  EventType'
+  #-}

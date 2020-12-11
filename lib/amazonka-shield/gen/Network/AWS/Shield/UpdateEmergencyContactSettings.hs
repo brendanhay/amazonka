@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,133 @@
 --
 -- Updates the details of the list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.
 module Network.AWS.Shield.UpdateEmergencyContactSettings
-  ( -- * Creating a Request
-    updateEmergencyContactSettings,
-    UpdateEmergencyContactSettings,
+  ( -- * Creating a request
+    UpdateEmergencyContactSettings (..),
+    mkUpdateEmergencyContactSettings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uecsEmergencyContactList,
 
-    -- * Destructuring the Response
-    updateEmergencyContactSettingsResponse,
-    UpdateEmergencyContactSettingsResponse,
+    -- * Destructuring the response
+    UpdateEmergencyContactSettingsResponse (..),
+    mkUpdateEmergencyContactSettingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uecsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'updateEmergencyContactSettings' smart constructor.
+-- | /See:/ 'mkUpdateEmergencyContactSettings' smart constructor.
 newtype UpdateEmergencyContactSettings = UpdateEmergencyContactSettings'
-  { _uecsEmergencyContactList ::
-      Maybe [EmergencyContact]
+  { emergencyContactList ::
+      Lude.Maybe
+        [EmergencyContact]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEmergencyContactSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'emergencyContactList' - A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.
 --
--- * 'uecsEmergencyContactList' - A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support. If you have proactive engagement enabled, the contact list must include at least one phone number.
-updateEmergencyContactSettings ::
+-- If you have proactive engagement enabled, the contact list must include at least one phone number.
+mkUpdateEmergencyContactSettings ::
   UpdateEmergencyContactSettings
-updateEmergencyContactSettings =
+mkUpdateEmergencyContactSettings =
   UpdateEmergencyContactSettings'
-    { _uecsEmergencyContactList =
-        Nothing
+    { emergencyContactList =
+        Lude.Nothing
     }
 
--- | A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support. If you have proactive engagement enabled, the contact list must include at least one phone number.
-uecsEmergencyContactList :: Lens' UpdateEmergencyContactSettings [EmergencyContact]
-uecsEmergencyContactList = lens _uecsEmergencyContactList (\s a -> s {_uecsEmergencyContactList = a}) . _Default . _Coerce
+-- | A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.
+--
+-- If you have proactive engagement enabled, the contact list must include at least one phone number.
+--
+-- /Note:/ Consider using 'emergencyContactList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uecsEmergencyContactList :: Lens.Lens' UpdateEmergencyContactSettings (Lude.Maybe [EmergencyContact])
+uecsEmergencyContactList = Lens.lens (emergencyContactList :: UpdateEmergencyContactSettings -> Lude.Maybe [EmergencyContact]) (\s a -> s {emergencyContactList = a} :: UpdateEmergencyContactSettings)
+{-# DEPRECATED uecsEmergencyContactList "Use generic-lens or generic-optics with 'emergencyContactList' instead." #-}
 
-instance AWSRequest UpdateEmergencyContactSettings where
+instance Lude.AWSRequest UpdateEmergencyContactSettings where
   type
     Rs UpdateEmergencyContactSettings =
       UpdateEmergencyContactSettingsResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateEmergencyContactSettingsResponse' <$> (pure (fromEnum s))
+          UpdateEmergencyContactSettingsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateEmergencyContactSettings
-
-instance NFData UpdateEmergencyContactSettings
-
-instance ToHeaders UpdateEmergencyContactSettings where
+instance Lude.ToHeaders UpdateEmergencyContactSettings where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSShield_20160616.UpdateEmergencyContactSettings" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSShield_20160616.UpdateEmergencyContactSettings" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateEmergencyContactSettings where
+instance Lude.ToJSON UpdateEmergencyContactSettings where
   toJSON UpdateEmergencyContactSettings' {..} =
-    object
-      ( catMaybes
-          [("EmergencyContactList" .=) <$> _uecsEmergencyContactList]
+    Lude.object
+      ( Lude.catMaybes
+          [("EmergencyContactList" Lude..=) Lude.<$> emergencyContactList]
       )
 
-instance ToPath UpdateEmergencyContactSettings where
-  toPath = const "/"
+instance Lude.ToPath UpdateEmergencyContactSettings where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateEmergencyContactSettings where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateEmergencyContactSettings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateEmergencyContactSettingsResponse' smart constructor.
+-- | /See:/ 'mkUpdateEmergencyContactSettingsResponse' smart constructor.
 newtype UpdateEmergencyContactSettingsResponse = UpdateEmergencyContactSettingsResponse'
-  { _uecsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEmergencyContactSettingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uecsrsResponseStatus' - -- | The response status code.
-updateEmergencyContactSettingsResponse ::
-  -- | 'uecsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateEmergencyContactSettingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateEmergencyContactSettingsResponse
-updateEmergencyContactSettingsResponse pResponseStatus_ =
+mkUpdateEmergencyContactSettingsResponse pResponseStatus_ =
   UpdateEmergencyContactSettingsResponse'
-    { _uecsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uecsrsResponseStatus :: Lens' UpdateEmergencyContactSettingsResponse Int
-uecsrsResponseStatus = lens _uecsrsResponseStatus (\s a -> s {_uecsrsResponseStatus = a})
-
-instance NFData UpdateEmergencyContactSettingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uecsrsResponseStatus :: Lens.Lens' UpdateEmergencyContactSettingsResponse Lude.Int
+uecsrsResponseStatus = Lens.lens (responseStatus :: UpdateEmergencyContactSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEmergencyContactSettingsResponse)
+{-# DEPRECATED uecsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

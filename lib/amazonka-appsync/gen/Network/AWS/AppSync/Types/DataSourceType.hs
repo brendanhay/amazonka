@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.DataSourceType where
+module Network.AWS.AppSync.Types.DataSourceType
+  ( DataSourceType
+      ( DataSourceType',
+        AWSLambda,
+        AmazonDynamodb,
+        AmazonElasticsearch,
+        HTTP,
+        None,
+        RelationalDatabase
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DataSourceType
-  = AWSLambda
-  | AmazonDynamodb
-  | AmazonElasticsearch
-  | HTTP
-  | None
-  | RelationalDatabase
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DataSourceType = DataSourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DataSourceType where
-  parser =
-    takeLowerText >>= \case
-      "aws_lambda" -> pure AWSLambda
-      "amazon_dynamodb" -> pure AmazonDynamodb
-      "amazon_elasticsearch" -> pure AmazonElasticsearch
-      "http" -> pure HTTP
-      "none" -> pure None
-      "relational_database" -> pure RelationalDatabase
-      e ->
-        fromTextError $
-          "Failure parsing DataSourceType from value: '" <> e
-            <> "'. Accepted values: aws_lambda, amazon_dynamodb, amazon_elasticsearch, http, none, relational_database"
+pattern AWSLambda :: DataSourceType
+pattern AWSLambda = DataSourceType' "AWS_LAMBDA"
 
-instance ToText DataSourceType where
-  toText = \case
-    AWSLambda -> "AWS_LAMBDA"
-    AmazonDynamodb -> "AMAZON_DYNAMODB"
-    AmazonElasticsearch -> "AMAZON_ELASTICSEARCH"
-    HTTP -> "HTTP"
-    None -> "NONE"
-    RelationalDatabase -> "RELATIONAL_DATABASE"
+pattern AmazonDynamodb :: DataSourceType
+pattern AmazonDynamodb = DataSourceType' "AMAZON_DYNAMODB"
 
-instance Hashable DataSourceType
+pattern AmazonElasticsearch :: DataSourceType
+pattern AmazonElasticsearch = DataSourceType' "AMAZON_ELASTICSEARCH"
 
-instance NFData DataSourceType
+pattern HTTP :: DataSourceType
+pattern HTTP = DataSourceType' "HTTP"
 
-instance ToByteString DataSourceType
+pattern None :: DataSourceType
+pattern None = DataSourceType' "NONE"
 
-instance ToQuery DataSourceType
+pattern RelationalDatabase :: DataSourceType
+pattern RelationalDatabase = DataSourceType' "RELATIONAL_DATABASE"
 
-instance ToHeader DataSourceType
-
-instance ToJSON DataSourceType where
-  toJSON = toJSONText
-
-instance FromJSON DataSourceType where
-  parseJSON = parseJSONText "DataSourceType"
+{-# COMPLETE
+  AWSLambda,
+  AmazonDynamodb,
+  AmazonElasticsearch,
+  HTTP,
+  None,
+  RelationalDatabase,
+  DataSourceType'
+  #-}

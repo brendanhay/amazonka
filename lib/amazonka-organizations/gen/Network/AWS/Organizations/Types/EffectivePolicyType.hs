@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.EffectivePolicyType where
+module Network.AWS.Organizations.Types.EffectivePolicyType
+  ( EffectivePolicyType
+      ( EffectivePolicyType',
+        EPTAiservicesOptOutPolicy,
+        EPTBackupPolicy,
+        EPTTagPolicy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EffectivePolicyType
-  = EPTAiservicesOptOutPolicy
-  | EPTBackupPolicy
-  | EPTTagPolicy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EffectivePolicyType = EffectivePolicyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EffectivePolicyType where
-  parser =
-    takeLowerText >>= \case
-      "aiservices_opt_out_policy" -> pure EPTAiservicesOptOutPolicy
-      "backup_policy" -> pure EPTBackupPolicy
-      "tag_policy" -> pure EPTTagPolicy
-      e ->
-        fromTextError $
-          "Failure parsing EffectivePolicyType from value: '" <> e
-            <> "'. Accepted values: aiservices_opt_out_policy, backup_policy, tag_policy"
+pattern EPTAiservicesOptOutPolicy :: EffectivePolicyType
+pattern EPTAiservicesOptOutPolicy = EffectivePolicyType' "AISERVICES_OPT_OUT_POLICY"
 
-instance ToText EffectivePolicyType where
-  toText = \case
-    EPTAiservicesOptOutPolicy -> "AISERVICES_OPT_OUT_POLICY"
-    EPTBackupPolicy -> "BACKUP_POLICY"
-    EPTTagPolicy -> "TAG_POLICY"
+pattern EPTBackupPolicy :: EffectivePolicyType
+pattern EPTBackupPolicy = EffectivePolicyType' "BACKUP_POLICY"
 
-instance Hashable EffectivePolicyType
+pattern EPTTagPolicy :: EffectivePolicyType
+pattern EPTTagPolicy = EffectivePolicyType' "TAG_POLICY"
 
-instance NFData EffectivePolicyType
-
-instance ToByteString EffectivePolicyType
-
-instance ToQuery EffectivePolicyType
-
-instance ToHeader EffectivePolicyType
-
-instance ToJSON EffectivePolicyType where
-  toJSON = toJSONText
-
-instance FromJSON EffectivePolicyType where
-  parseJSON = parseJSONText "EffectivePolicyType"
+{-# COMPLETE
+  EPTAiservicesOptOutPolicy,
+  EPTBackupPolicy,
+  EPTTagPolicy,
+  EffectivePolicyType'
+  #-}

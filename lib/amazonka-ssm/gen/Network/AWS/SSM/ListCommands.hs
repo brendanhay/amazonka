@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,181 +14,207 @@
 --
 -- Lists the commands requested by users of the AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListCommands
-  ( -- * Creating a Request
-    listCommands,
-    ListCommands,
+  ( -- * Creating a request
+    ListCommands (..),
+    mkListCommands,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcInstanceId,
     lcFilters,
     lcNextToken,
     lcCommandId,
     lcMaxResults,
 
-    -- * Destructuring the Response
-    listCommandsResponse,
-    ListCommandsResponse,
+    -- * Destructuring the response
+    ListCommandsResponse (..),
+    mkListCommandsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcrsCommands,
     lcrsNextToken,
     lcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'listCommands' smart constructor.
+-- | /See:/ 'mkListCommands' smart constructor.
 data ListCommands = ListCommands'
-  { _lcInstanceId :: !(Maybe Text),
-    _lcFilters :: !(Maybe (List1 CommandFilter)),
-    _lcNextToken :: !(Maybe Text),
-    _lcCommandId :: !(Maybe Text),
-    _lcMaxResults :: !(Maybe Nat)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    filters :: Lude.Maybe (Lude.NonEmpty CommandFilter),
+    nextToken :: Lude.Maybe Lude.Text,
+    commandId :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCommands' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcInstanceId' - (Optional) Lists commands issued against this instance ID.
---
--- * 'lcFilters' - (Optional) One or more filters. Use a filter to return a more specific list of results.
---
--- * 'lcNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'lcCommandId' - (Optional) If provided, lists only the specified command.
---
--- * 'lcMaxResults' - (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-listCommands ::
+-- * 'commandId' - (Optional) If provided, lists only the specified command.
+-- * 'filters' - (Optional) One or more filters. Use a filter to return a more specific list of results.
+-- * 'instanceId' - (Optional) Lists commands issued against this instance ID.
+-- * 'maxResults' - (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'nextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
+mkListCommands ::
   ListCommands
-listCommands =
+mkListCommands =
   ListCommands'
-    { _lcInstanceId = Nothing,
-      _lcFilters = Nothing,
-      _lcNextToken = Nothing,
-      _lcCommandId = Nothing,
-      _lcMaxResults = Nothing
+    { instanceId = Lude.Nothing,
+      filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      commandId = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | (Optional) Lists commands issued against this instance ID.
-lcInstanceId :: Lens' ListCommands (Maybe Text)
-lcInstanceId = lens _lcInstanceId (\s a -> s {_lcInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcInstanceId :: Lens.Lens' ListCommands (Lude.Maybe Lude.Text)
+lcInstanceId = Lens.lens (instanceId :: ListCommands -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: ListCommands)
+{-# DEPRECATED lcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | (Optional) One or more filters. Use a filter to return a more specific list of results.
-lcFilters :: Lens' ListCommands (Maybe (NonEmpty CommandFilter))
-lcFilters = lens _lcFilters (\s a -> s {_lcFilters = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcFilters :: Lens.Lens' ListCommands (Lude.Maybe (Lude.NonEmpty CommandFilter))
+lcFilters = Lens.lens (filters :: ListCommands -> Lude.Maybe (Lude.NonEmpty CommandFilter)) (\s a -> s {filters = a} :: ListCommands)
+{-# DEPRECATED lcFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
-lcNextToken :: Lens' ListCommands (Maybe Text)
-lcNextToken = lens _lcNextToken (\s a -> s {_lcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcNextToken :: Lens.Lens' ListCommands (Lude.Maybe Lude.Text)
+lcNextToken = Lens.lens (nextToken :: ListCommands -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCommands)
+{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | (Optional) If provided, lists only the specified command.
-lcCommandId :: Lens' ListCommands (Maybe Text)
-lcCommandId = lens _lcCommandId (\s a -> s {_lcCommandId = a})
+--
+-- /Note:/ Consider using 'commandId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcCommandId :: Lens.Lens' ListCommands (Lude.Maybe Lude.Text)
+lcCommandId = Lens.lens (commandId :: ListCommands -> Lude.Maybe Lude.Text) (\s a -> s {commandId = a} :: ListCommands)
+{-# DEPRECATED lcCommandId "Use generic-lens or generic-optics with 'commandId' instead." #-}
 
 -- | (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-lcMaxResults :: Lens' ListCommands (Maybe Natural)
-lcMaxResults = lens _lcMaxResults (\s a -> s {_lcMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcMaxResults :: Lens.Lens' ListCommands (Lude.Maybe Lude.Natural)
+lcMaxResults = Lens.lens (maxResults :: ListCommands -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCommands)
+{-# DEPRECATED lcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListCommands where
+instance Page.AWSPager ListCommands where
   page rq rs
-    | stop (rs ^. lcrsNextToken) = Nothing
-    | stop (rs ^. lcrsCommands) = Nothing
-    | otherwise = Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
+    | Page.stop (rs Lens.^. lcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcrsCommands) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcNextToken Lens..~ rs Lens.^. lcrsNextToken
 
-instance AWSRequest ListCommands where
+instance Lude.AWSRequest ListCommands where
   type Rs ListCommands = ListCommandsResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListCommandsResponse'
-            <$> (x .?> "Commands" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Commands" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListCommands
-
-instance NFData ListCommands
-
-instance ToHeaders ListCommands where
+instance Lude.ToHeaders ListCommands where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.ListCommands" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.ListCommands" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListCommands where
+instance Lude.ToJSON ListCommands where
   toJSON ListCommands' {..} =
-    object
-      ( catMaybes
-          [ ("InstanceId" .=) <$> _lcInstanceId,
-            ("Filters" .=) <$> _lcFilters,
-            ("NextToken" .=) <$> _lcNextToken,
-            ("CommandId" .=) <$> _lcCommandId,
-            ("MaxResults" .=) <$> _lcMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InstanceId" Lude..=) Lude.<$> instanceId,
+            ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("CommandId" Lude..=) Lude.<$> commandId,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListCommands where
-  toPath = const "/"
+instance Lude.ToPath ListCommands where
+  toPath = Lude.const "/"
 
-instance ToQuery ListCommands where
-  toQuery = const mempty
+instance Lude.ToQuery ListCommands where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listCommandsResponse' smart constructor.
+-- | /See:/ 'mkListCommandsResponse' smart constructor.
 data ListCommandsResponse = ListCommandsResponse'
-  { _lcrsCommands ::
-      !(Maybe [Command]),
-    _lcrsNextToken :: !(Maybe Text),
-    _lcrsResponseStatus :: !Int
+  { commands ::
+      Lude.Maybe [Command],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCommandsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcrsCommands' - (Optional) The list of commands requested by the user.
---
--- * 'lcrsNextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'lcrsResponseStatus' - -- | The response status code.
-listCommandsResponse ::
-  -- | 'lcrsResponseStatus'
-  Int ->
+-- * 'commands' - (Optional) The list of commands requested by the user.
+-- * 'nextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'responseStatus' - The response status code.
+mkListCommandsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListCommandsResponse
-listCommandsResponse pResponseStatus_ =
+mkListCommandsResponse pResponseStatus_ =
   ListCommandsResponse'
-    { _lcrsCommands = Nothing,
-      _lcrsNextToken = Nothing,
-      _lcrsResponseStatus = pResponseStatus_
+    { commands = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | (Optional) The list of commands requested by the user.
-lcrsCommands :: Lens' ListCommandsResponse [Command]
-lcrsCommands = lens _lcrsCommands (\s a -> s {_lcrsCommands = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'commands' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsCommands :: Lens.Lens' ListCommandsResponse (Lude.Maybe [Command])
+lcrsCommands = Lens.lens (commands :: ListCommandsResponse -> Lude.Maybe [Command]) (\s a -> s {commands = a} :: ListCommandsResponse)
+{-# DEPRECATED lcrsCommands "Use generic-lens or generic-optics with 'commands' instead." #-}
 
 -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
-lcrsNextToken :: Lens' ListCommandsResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\s a -> s {_lcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsNextToken :: Lens.Lens' ListCommandsResponse (Lude.Maybe Lude.Text)
+lcrsNextToken = Lens.lens (nextToken :: ListCommandsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCommandsResponse)
+{-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lcrsResponseStatus :: Lens' ListCommandsResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\s a -> s {_lcrsResponseStatus = a})
-
-instance NFData ListCommandsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrsResponseStatus :: Lens.Lens' ListCommandsResponse Lude.Int
+lcrsResponseStatus = Lens.lens (responseStatus :: ListCommandsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCommandsResponse)
+{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

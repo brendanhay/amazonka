@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.FMS.Types
-  ( -- * Service Configuration
-    fms,
+  ( -- * Service configuration
+    fmsService,
 
     -- * Errors
 
@@ -37,35 +35,35 @@ module Network.AWS.FMS.Types
     ViolationReason (..),
 
     -- * AWSEC2InstanceViolation
-    AWSEC2InstanceViolation,
-    awsEC2InstanceViolation,
+    AWSEC2InstanceViolation (..),
+    mkAWSEC2InstanceViolation,
     aeivViolationTarget,
     aeivAWSEC2NetworkInterfaceViolations,
 
     -- * AWSEC2NetworkInterfaceViolation
-    AWSEC2NetworkInterfaceViolation,
-    awsEC2NetworkInterfaceViolation,
+    AWSEC2NetworkInterfaceViolation (..),
+    mkAWSEC2NetworkInterfaceViolation,
     aenivViolatingSecurityGroups,
     aenivViolationTarget,
 
     -- * AWSVPCSecurityGroupViolation
-    AWSVPCSecurityGroupViolation,
-    awsVPCSecurityGroupViolation,
+    AWSVPCSecurityGroupViolation (..),
+    mkAWSVPCSecurityGroupViolation,
     avsgvViolationTargetDescription,
     avsgvPossibleSecurityGroupRemediationActions,
     avsgvViolationTarget,
     avsgvPartialMatches,
 
     -- * App
-    App,
-    app,
-    appAppName,
-    appProtocol,
-    appPort,
+    App (..),
+    mkApp,
+    aAppName,
+    aProtocol,
+    aPort,
 
     -- * AppsListData
-    AppsListData,
-    appsListData,
+    AppsListData (..),
+    mkAppsListData,
     aldListUpdateToken,
     aldListId,
     aldLastUpdateTime,
@@ -75,30 +73,30 @@ module Network.AWS.FMS.Types
     aldAppsList,
 
     -- * AppsListDataSummary
-    AppsListDataSummary,
-    appsListDataSummary,
+    AppsListDataSummary (..),
+    mkAppsListDataSummary,
     aldsListARN,
     aldsAppsList,
     aldsListId,
     aldsListName,
 
     -- * ComplianceViolator
-    ComplianceViolator,
-    complianceViolator,
+    ComplianceViolator (..),
+    mkComplianceViolator,
     cvResourceId,
     cvResourceType,
     cvViolationReason,
 
     -- * EvaluationResult
-    EvaluationResult,
-    evaluationResult,
+    EvaluationResult (..),
+    mkEvaluationResult,
     erViolatorCount,
     erComplianceStatus,
     erEvaluationLimitExceeded,
 
     -- * NetworkFirewallMissingExpectedRTViolation
-    NetworkFirewallMissingExpectedRTViolation,
-    networkFirewallMissingExpectedRTViolation,
+    NetworkFirewallMissingExpectedRTViolation (..),
+    mkNetworkFirewallMissingExpectedRTViolation,
     nfmertvCurrentRouteTable,
     nfmertvAvailabilityZone,
     nfmertvVPC,
@@ -106,24 +104,24 @@ module Network.AWS.FMS.Types
     nfmertvExpectedRouteTable,
 
     -- * NetworkFirewallMissingFirewallViolation
-    NetworkFirewallMissingFirewallViolation,
-    networkFirewallMissingFirewallViolation,
+    NetworkFirewallMissingFirewallViolation (..),
+    mkNetworkFirewallMissingFirewallViolation,
     nfmfvTargetViolationReason,
     nfmfvAvailabilityZone,
     nfmfvVPC,
     nfmfvViolationTarget,
 
     -- * NetworkFirewallMissingSubnetViolation
-    NetworkFirewallMissingSubnetViolation,
-    networkFirewallMissingSubnetViolation,
+    NetworkFirewallMissingSubnetViolation (..),
+    mkNetworkFirewallMissingSubnetViolation,
     nfmsvTargetViolationReason,
     nfmsvAvailabilityZone,
     nfmsvVPC,
     nfmsvViolationTarget,
 
     -- * NetworkFirewallPolicyDescription
-    NetworkFirewallPolicyDescription,
-    networkFirewallPolicyDescription,
+    NetworkFirewallPolicyDescription (..),
+    mkNetworkFirewallPolicyDescription,
     nfpdStatefulRuleGroups,
     nfpdStatelessRuleGroups,
     nfpdStatelessFragmentDefaultActions,
@@ -131,21 +129,21 @@ module Network.AWS.FMS.Types
     nfpdStatelessDefaultActions,
 
     -- * NetworkFirewallPolicyModifiedViolation
-    NetworkFirewallPolicyModifiedViolation,
-    networkFirewallPolicyModifiedViolation,
+    NetworkFirewallPolicyModifiedViolation (..),
+    mkNetworkFirewallPolicyModifiedViolation,
     nfpmvCurrentPolicyDescription,
     nfpmvViolationTarget,
     nfpmvExpectedPolicyDescription,
 
     -- * PartialMatch
-    PartialMatch,
-    partialMatch,
+    PartialMatch (..),
+    mkPartialMatch,
     pmTargetViolationReasons,
     pmReference,
 
     -- * Policy
-    Policy,
-    policy,
+    Policy (..),
+    mkPolicy,
     pPolicyId,
     pResourceTypeList,
     pResourceTags,
@@ -159,8 +157,8 @@ module Network.AWS.FMS.Types
     pRemediationEnabled,
 
     -- * PolicyComplianceDetail
-    PolicyComplianceDetail,
-    policyComplianceDetail,
+    PolicyComplianceDetail (..),
+    mkPolicyComplianceDetail,
     pcdExpiredAt,
     pcdPolicyId,
     pcdViolators,
@@ -170,8 +168,8 @@ module Network.AWS.FMS.Types
     pcdMemberAccount,
 
     -- * PolicyComplianceStatus
-    PolicyComplianceStatus,
-    policyComplianceStatus,
+    PolicyComplianceStatus (..),
+    mkPolicyComplianceStatus,
     pcsEvaluationResults,
     pcsLastUpdated,
     pcsPolicyName,
@@ -181,8 +179,8 @@ module Network.AWS.FMS.Types
     pcsMemberAccount,
 
     -- * PolicySummary
-    PolicySummary,
-    policySummary,
+    PolicySummary (..),
+    mkPolicySummary,
     psPolicyName,
     psRemediationEnabled,
     psResourceType,
@@ -191,8 +189,8 @@ module Network.AWS.FMS.Types
     psSecurityServiceType,
 
     -- * ProtocolsListData
-    ProtocolsListData,
-    protocolsListData,
+    ProtocolsListData (..),
+    mkProtocolsListData,
     pldListUpdateToken,
     pldListId,
     pldLastUpdateTime,
@@ -202,22 +200,22 @@ module Network.AWS.FMS.Types
     pldProtocolsList,
 
     -- * ProtocolsListDataSummary
-    ProtocolsListDataSummary,
-    protocolsListDataSummary,
+    ProtocolsListDataSummary (..),
+    mkProtocolsListDataSummary,
     pldsProtocolsList,
     pldsListARN,
     pldsListId,
     pldsListName,
 
     -- * ResourceTag
-    ResourceTag,
-    resourceTag,
+    ResourceTag (..),
+    mkResourceTag,
     rtValue,
     rtKey,
 
     -- * ResourceViolation
-    ResourceViolation,
-    resourceViolation,
+    ResourceViolation (..),
+    mkResourceViolation,
     rvNetworkFirewallMissingExpectedRTViolation,
     rvNetworkFirewallMissingFirewallViolation,
     rvNetworkFirewallMissingSubnetViolation,
@@ -227,16 +225,16 @@ module Network.AWS.FMS.Types
     rvAWSEC2NetworkInterfaceViolation,
 
     -- * SecurityGroupRemediationAction
-    SecurityGroupRemediationAction,
-    securityGroupRemediationAction,
+    SecurityGroupRemediationAction (..),
+    mkSecurityGroupRemediationAction,
     sgraIsDefaultAction,
     sgraRemediationResult,
     sgraDescription,
     sgraRemediationActionType,
 
     -- * SecurityGroupRuleDescription
-    SecurityGroupRuleDescription,
-    securityGroupRuleDescription,
+    SecurityGroupRuleDescription (..),
+    mkSecurityGroupRuleDescription,
     sgrdFromPort,
     sgrdProtocol,
     sgrdIPV4Range,
@@ -245,33 +243,33 @@ module Network.AWS.FMS.Types
     sgrdIPV6Range,
 
     -- * SecurityServicePolicyData
-    SecurityServicePolicyData,
-    securityServicePolicyData,
+    SecurityServicePolicyData (..),
+    mkSecurityServicePolicyData,
     sspdManagedServiceData,
     sspdType,
 
     -- * StatefulRuleGroup
-    StatefulRuleGroup,
-    statefulRuleGroup,
+    StatefulRuleGroup (..),
+    mkStatefulRuleGroup,
     srgResourceId,
     srgRuleGroupName,
 
     -- * StatelessRuleGroup
-    StatelessRuleGroup,
-    statelessRuleGroup,
+    StatelessRuleGroup (..),
+    mkStatelessRuleGroup,
     sResourceId,
     sPriority,
     sRuleGroupName,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * ViolationDetail
-    ViolationDetail,
-    violationDetail,
+    ViolationDetail (..),
+    mkViolationDetail,
     vdResourceTags,
     vdResourceDescription,
     vdPolicyId,
@@ -318,48 +316,60 @@ import Network.AWS.FMS.Types.StatelessRuleGroup
 import Network.AWS.FMS.Types.Tag
 import Network.AWS.FMS.Types.ViolationDetail
 import Network.AWS.FMS.Types.ViolationReason
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2018-01-01@ of the Amazon Firewall Management Service SDK configuration.
-fms :: Service
-fms =
-  Service
-    { _svcAbbrev = "FMS",
-      _svcSigner = v4,
-      _svcPrefix = "fms",
-      _svcVersion = "2018-01-01",
-      _svcEndpoint = defaultEndpoint fms,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "FMS",
-      _svcRetry = retry
+fmsService :: Lude.Service
+fmsService =
+  Lude.Service
+    { Lude._svcAbbrev = "FMS",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "fms",
+      Lude._svcVersion = "2018-01-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint fmsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "FMS",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

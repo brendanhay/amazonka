@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,131 @@
 --
 -- Retrieves information about the settings for an application.
 module Network.AWS.Pinpoint.GetApplicationSettings
-  ( -- * Creating a Request
-    getApplicationSettings,
-    GetApplicationSettings,
+  ( -- * Creating a request
+    GetApplicationSettings (..),
+    mkGetApplicationSettings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gasApplicationId,
 
-    -- * Destructuring the Response
-    getApplicationSettingsResponse,
-    GetApplicationSettingsResponse,
+    -- * Destructuring the response
+    GetApplicationSettingsResponse (..),
+    mkGetApplicationSettingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gassrsResponseStatus,
     gassrsApplicationSettingsResource,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getApplicationSettings' smart constructor.
+-- | /See:/ 'mkGetApplicationSettings' smart constructor.
 newtype GetApplicationSettings = GetApplicationSettings'
-  { _gasApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplicationSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getApplicationSettings ::
-  -- | 'gasApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkGetApplicationSettings ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetApplicationSettings
-getApplicationSettings pApplicationId_ =
-  GetApplicationSettings' {_gasApplicationId = pApplicationId_}
+mkGetApplicationSettings pApplicationId_ =
+  GetApplicationSettings' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gasApplicationId :: Lens' GetApplicationSettings Text
-gasApplicationId = lens _gasApplicationId (\s a -> s {_gasApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasApplicationId :: Lens.Lens' GetApplicationSettings Lude.Text
+gasApplicationId = Lens.lens (applicationId :: GetApplicationSettings -> Lude.Text) (\s a -> s {applicationId = a} :: GetApplicationSettings)
+{-# DEPRECATED gasApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetApplicationSettings where
+instance Lude.AWSRequest GetApplicationSettings where
   type Rs GetApplicationSettings = GetApplicationSettingsResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetApplicationSettingsResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetApplicationSettings
-
-instance NFData GetApplicationSettings
-
-instance ToHeaders GetApplicationSettings where
+instance Lude.ToHeaders GetApplicationSettings where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetApplicationSettings where
+instance Lude.ToPath GetApplicationSettings where
   toPath GetApplicationSettings' {..} =
-    mconcat ["/v1/apps/", toBS _gasApplicationId, "/settings"]
+    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId, "/settings"]
 
-instance ToQuery GetApplicationSettings where
-  toQuery = const mempty
+instance Lude.ToQuery GetApplicationSettings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getApplicationSettingsResponse' smart constructor.
+-- | /See:/ 'mkGetApplicationSettingsResponse' smart constructor.
 data GetApplicationSettingsResponse = GetApplicationSettingsResponse'
-  { _gassrsResponseStatus ::
-      !Int,
-    _gassrsApplicationSettingsResource ::
-      !ApplicationSettingsResource
+  { responseStatus ::
+      Lude.Int,
+    applicationSettingsResource ::
+      ApplicationSettingsResource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplicationSettingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gassrsResponseStatus' - -- | The response status code.
---
--- * 'gassrsApplicationSettingsResource' - Undocumented member.
-getApplicationSettingsResponse ::
-  -- | 'gassrsResponseStatus'
-  Int ->
-  -- | 'gassrsApplicationSettingsResource'
+-- * 'applicationSettingsResource' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetApplicationSettingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'applicationSettingsResource'
   ApplicationSettingsResource ->
   GetApplicationSettingsResponse
-getApplicationSettingsResponse
+mkGetApplicationSettingsResponse
   pResponseStatus_
   pApplicationSettingsResource_ =
     GetApplicationSettingsResponse'
-      { _gassrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _gassrsApplicationSettingsResource =
-          pApplicationSettingsResource_
+        applicationSettingsResource = pApplicationSettingsResource_
       }
 
--- | -- | The response status code.
-gassrsResponseStatus :: Lens' GetApplicationSettingsResponse Int
-gassrsResponseStatus = lens _gassrsResponseStatus (\s a -> s {_gassrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gassrsResponseStatus :: Lens.Lens' GetApplicationSettingsResponse Lude.Int
+gassrsResponseStatus = Lens.lens (responseStatus :: GetApplicationSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetApplicationSettingsResponse)
+{-# DEPRECATED gassrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gassrsApplicationSettingsResource :: Lens' GetApplicationSettingsResponse ApplicationSettingsResource
-gassrsApplicationSettingsResource = lens _gassrsApplicationSettingsResource (\s a -> s {_gassrsApplicationSettingsResource = a})
-
-instance NFData GetApplicationSettingsResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'applicationSettingsResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gassrsApplicationSettingsResource :: Lens.Lens' GetApplicationSettingsResponse ApplicationSettingsResource
+gassrsApplicationSettingsResource = Lens.lens (applicationSettingsResource :: GetApplicationSettingsResponse -> ApplicationSettingsResource) (\s a -> s {applicationSettingsResource = a} :: GetApplicationSettingsResponse)
+{-# DEPRECATED gassrsApplicationSettingsResource "Use generic-lens or generic-optics with 'applicationSettingsResource' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.SourceType where
+module Network.AWS.CodeBuild.Types.SourceType
+  ( SourceType
+      ( SourceType',
+        STBitbucket,
+        STCodecommit,
+        STCodepipeline,
+        STGithub,
+        STGithubEnterprise,
+        STNoSource,
+        STS3
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SourceType
-  = STBitbucket
-  | STCodecommit
-  | STCodepipeline
-  | STGithub
-  | STGithubEnterprise
-  | STNoSource
-  | STS3
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SourceType = SourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SourceType where
-  parser =
-    takeLowerText >>= \case
-      "bitbucket" -> pure STBitbucket
-      "codecommit" -> pure STCodecommit
-      "codepipeline" -> pure STCodepipeline
-      "github" -> pure STGithub
-      "github_enterprise" -> pure STGithubEnterprise
-      "no_source" -> pure STNoSource
-      "s3" -> pure STS3
-      e ->
-        fromTextError $
-          "Failure parsing SourceType from value: '" <> e
-            <> "'. Accepted values: bitbucket, codecommit, codepipeline, github, github_enterprise, no_source, s3"
+pattern STBitbucket :: SourceType
+pattern STBitbucket = SourceType' "BITBUCKET"
 
-instance ToText SourceType where
-  toText = \case
-    STBitbucket -> "BITBUCKET"
-    STCodecommit -> "CODECOMMIT"
-    STCodepipeline -> "CODEPIPELINE"
-    STGithub -> "GITHUB"
-    STGithubEnterprise -> "GITHUB_ENTERPRISE"
-    STNoSource -> "NO_SOURCE"
-    STS3 -> "S3"
+pattern STCodecommit :: SourceType
+pattern STCodecommit = SourceType' "CODECOMMIT"
 
-instance Hashable SourceType
+pattern STCodepipeline :: SourceType
+pattern STCodepipeline = SourceType' "CODEPIPELINE"
 
-instance NFData SourceType
+pattern STGithub :: SourceType
+pattern STGithub = SourceType' "GITHUB"
 
-instance ToByteString SourceType
+pattern STGithubEnterprise :: SourceType
+pattern STGithubEnterprise = SourceType' "GITHUB_ENTERPRISE"
 
-instance ToQuery SourceType
+pattern STNoSource :: SourceType
+pattern STNoSource = SourceType' "NO_SOURCE"
 
-instance ToHeader SourceType
+pattern STS3 :: SourceType
+pattern STS3 = SourceType' "S3"
 
-instance ToJSON SourceType where
-  toJSON = toJSONText
-
-instance FromJSON SourceType where
-  parseJSON = parseJSONText "SourceType"
+{-# COMPLETE
+  STBitbucket,
+  STCodecommit,
+  STCodepipeline,
+  STGithub,
+  STGithubEnterprise,
+  STNoSource,
+  STS3,
+  SourceType'
+  #-}

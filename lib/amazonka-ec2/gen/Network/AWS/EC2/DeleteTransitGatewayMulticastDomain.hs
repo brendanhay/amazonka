@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,149 @@
 --
 -- Deletes the specified transit gateway multicast domain.
 module Network.AWS.EC2.DeleteTransitGatewayMulticastDomain
-  ( -- * Creating a Request
-    deleteTransitGatewayMulticastDomain,
-    DeleteTransitGatewayMulticastDomain,
+  ( -- * Creating a request
+    DeleteTransitGatewayMulticastDomain (..),
+    mkDeleteTransitGatewayMulticastDomain,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtgmdDryRun,
     dtgmdTransitGatewayMulticastDomainId,
 
-    -- * Destructuring the Response
-    deleteTransitGatewayMulticastDomainResponse,
-    DeleteTransitGatewayMulticastDomainResponse,
+    -- * Destructuring the response
+    DeleteTransitGatewayMulticastDomainResponse (..),
+    mkDeleteTransitGatewayMulticastDomainResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsTransitGatewayMulticastDomain,
     delrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteTransitGatewayMulticastDomain' smart constructor.
+-- | /See:/ 'mkDeleteTransitGatewayMulticastDomain' smart constructor.
 data DeleteTransitGatewayMulticastDomain = DeleteTransitGatewayMulticastDomain'
-  { _dtgmdDryRun ::
-      !(Maybe Bool),
-    _dtgmdTransitGatewayMulticastDomainId ::
-      !Text
+  { dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    transitGatewayMulticastDomainId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGatewayMulticastDomain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgmdDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dtgmdTransitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
-deleteTransitGatewayMulticastDomain ::
-  -- | 'dtgmdTransitGatewayMulticastDomainId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+mkDeleteTransitGatewayMulticastDomain ::
+  -- | 'transitGatewayMulticastDomainId'
+  Lude.Text ->
   DeleteTransitGatewayMulticastDomain
-deleteTransitGatewayMulticastDomain
+mkDeleteTransitGatewayMulticastDomain
   pTransitGatewayMulticastDomainId_ =
     DeleteTransitGatewayMulticastDomain'
-      { _dtgmdDryRun = Nothing,
-        _dtgmdTransitGatewayMulticastDomainId =
+      { dryRun = Lude.Nothing,
+        transitGatewayMulticastDomainId =
           pTransitGatewayMulticastDomainId_
       }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dtgmdDryRun :: Lens' DeleteTransitGatewayMulticastDomain (Maybe Bool)
-dtgmdDryRun = lens _dtgmdDryRun (\s a -> s {_dtgmdDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdDryRun :: Lens.Lens' DeleteTransitGatewayMulticastDomain (Lude.Maybe Lude.Bool)
+dtgmdDryRun = Lens.lens (dryRun :: DeleteTransitGatewayMulticastDomain -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGatewayMulticastDomain)
+{-# DEPRECATED dtgmdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the transit gateway multicast domain.
-dtgmdTransitGatewayMulticastDomainId :: Lens' DeleteTransitGatewayMulticastDomain Text
-dtgmdTransitGatewayMulticastDomainId = lens _dtgmdTransitGatewayMulticastDomainId (\s a -> s {_dtgmdTransitGatewayMulticastDomainId = a})
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmdTransitGatewayMulticastDomainId :: Lens.Lens' DeleteTransitGatewayMulticastDomain Lude.Text
+dtgmdTransitGatewayMulticastDomainId = Lens.lens (transitGatewayMulticastDomainId :: DeleteTransitGatewayMulticastDomain -> Lude.Text) (\s a -> s {transitGatewayMulticastDomainId = a} :: DeleteTransitGatewayMulticastDomain)
+{-# DEPRECATED dtgmdTransitGatewayMulticastDomainId "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainId' instead." #-}
 
-instance AWSRequest DeleteTransitGatewayMulticastDomain where
+instance Lude.AWSRequest DeleteTransitGatewayMulticastDomain where
   type
     Rs DeleteTransitGatewayMulticastDomain =
       DeleteTransitGatewayMulticastDomainResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteTransitGatewayMulticastDomainResponse'
-            <$> (x .@? "transitGatewayMulticastDomain") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "transitGatewayMulticastDomain")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteTransitGatewayMulticastDomain
+instance Lude.ToHeaders DeleteTransitGatewayMulticastDomain where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteTransitGatewayMulticastDomain
+instance Lude.ToPath DeleteTransitGatewayMulticastDomain where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteTransitGatewayMulticastDomain where
-  toHeaders = const mempty
-
-instance ToPath DeleteTransitGatewayMulticastDomain where
-  toPath = const "/"
-
-instance ToQuery DeleteTransitGatewayMulticastDomain where
+instance Lude.ToQuery DeleteTransitGatewayMulticastDomain where
   toQuery DeleteTransitGatewayMulticastDomain' {..} =
-    mconcat
-      [ "Action" =: ("DeleteTransitGatewayMulticastDomain" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dtgmdDryRun,
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteTransitGatewayMulticastDomain" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
         "TransitGatewayMulticastDomainId"
-          =: _dtgmdTransitGatewayMulticastDomainId
+          Lude.=: transitGatewayMulticastDomainId
       ]
 
--- | /See:/ 'deleteTransitGatewayMulticastDomainResponse' smart constructor.
+-- | /See:/ 'mkDeleteTransitGatewayMulticastDomainResponse' smart constructor.
 data DeleteTransitGatewayMulticastDomainResponse = DeleteTransitGatewayMulticastDomainResponse'
-  { _delrsTransitGatewayMulticastDomain ::
-      !( Maybe
-           TransitGatewayMulticastDomain
-       ),
-    _delrsResponseStatus ::
-      !Int
+  { transitGatewayMulticastDomain ::
+      Lude.Maybe
+        TransitGatewayMulticastDomain,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGatewayMulticastDomainResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsTransitGatewayMulticastDomain' - Information about the deleted transit gateway multicast domain.
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteTransitGatewayMulticastDomainResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'transitGatewayMulticastDomain' - Information about the deleted transit gateway multicast domain.
+mkDeleteTransitGatewayMulticastDomainResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteTransitGatewayMulticastDomainResponse
-deleteTransitGatewayMulticastDomainResponse pResponseStatus_ =
+mkDeleteTransitGatewayMulticastDomainResponse pResponseStatus_ =
   DeleteTransitGatewayMulticastDomainResponse'
-    { _delrsTransitGatewayMulticastDomain =
-        Nothing,
-      _delrsResponseStatus = pResponseStatus_
+    { transitGatewayMulticastDomain =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the deleted transit gateway multicast domain.
-delrsTransitGatewayMulticastDomain :: Lens' DeleteTransitGatewayMulticastDomainResponse (Maybe TransitGatewayMulticastDomain)
-delrsTransitGatewayMulticastDomain = lens _delrsTransitGatewayMulticastDomain (\s a -> s {_delrsTransitGatewayMulticastDomain = a})
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsTransitGatewayMulticastDomain :: Lens.Lens' DeleteTransitGatewayMulticastDomainResponse (Lude.Maybe TransitGatewayMulticastDomain)
+delrsTransitGatewayMulticastDomain = Lens.lens (transitGatewayMulticastDomain :: DeleteTransitGatewayMulticastDomainResponse -> Lude.Maybe TransitGatewayMulticastDomain) (\s a -> s {transitGatewayMulticastDomain = a} :: DeleteTransitGatewayMulticastDomainResponse)
+{-# DEPRECATED delrsTransitGatewayMulticastDomain "Use generic-lens or generic-optics with 'transitGatewayMulticastDomain' instead." #-}
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteTransitGatewayMulticastDomainResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeleteTransitGatewayMulticastDomainResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeleteTransitGatewayMulticastDomainResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeleteTransitGatewayMulticastDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTransitGatewayMulticastDomainResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

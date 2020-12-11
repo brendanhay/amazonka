@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.TemplatesResponse where
+module Network.AWS.Pinpoint.Types.TemplatesResponse
+  ( TemplatesResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkTemplatesResponse,
+
+    -- * Lenses
+    tNextToken,
+    tItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.TemplateResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about all the message templates that are associated with your Amazon Pinpoint account.
 --
---
---
--- /See:/ 'templatesResponse' smart constructor.
+-- /See:/ 'mkTemplatesResponse' smart constructor.
 data TemplatesResponse = TemplatesResponse'
-  { _tNextToken ::
-      !(Maybe Text),
-    _tItem :: ![TemplateResponse]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    item :: [TemplateResponse]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemplatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tNextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- * 'tItem' - An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
-templatesResponse ::
+-- * 'item' - An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+mkTemplatesResponse ::
   TemplatesResponse
-templatesResponse =
-  TemplatesResponse' {_tNextToken = Nothing, _tItem = mempty}
+mkTemplatesResponse =
+  TemplatesResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-tNextToken :: Lens' TemplatesResponse (Maybe Text)
-tNextToken = lens _tNextToken (\s a -> s {_tNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tNextToken :: Lens.Lens' TemplatesResponse (Lude.Maybe Lude.Text)
+tNextToken = Lens.lens (nextToken :: TemplatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: TemplatesResponse)
+{-# DEPRECATED tNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of responses, one for each message template that's associated with your Amazon Pinpoint account and meets any filter criteria that you specified in the request.
-tItem :: Lens' TemplatesResponse [TemplateResponse]
-tItem = lens _tItem (\s a -> s {_tItem = a}) . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tItem :: Lens.Lens' TemplatesResponse [TemplateResponse]
+tItem = Lens.lens (item :: TemplatesResponse -> [TemplateResponse]) (\s a -> s {item = a} :: TemplatesResponse)
+{-# DEPRECATED tItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON TemplatesResponse where
+instance Lude.FromJSON TemplatesResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "TemplatesResponse"
       ( \x ->
           TemplatesResponse'
-            <$> (x .:? "NextToken") <*> (x .:? "Item" .!= mempty)
+            Lude.<$> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
       )
-
-instance Hashable TemplatesResponse
-
-instance NFData TemplatesResponse

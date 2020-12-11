@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,113 @@
 --
 -- Adds or updates tags for the specified Kinesis data stream. Each time you invoke this operation, you can specify up to 10 tags. If you want to add more than 10 tags to your stream, you can invoke this operation multiple times. In total, each stream can have up to 50 tags.
 --
---
 -- If tags have already been assigned to the stream, @AddTagsToStream@ overwrites any existing tags that correspond to the specified tag keys.
---
 -- 'AddTagsToStream' has a limit of five transactions per second per account.
 module Network.AWS.Kinesis.AddTagsToStream
-  ( -- * Creating a Request
-    addTagsToStream,
-    AddTagsToStream,
+  ( -- * Creating a request
+    AddTagsToStream (..),
+    mkAddTagsToStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     attsStreamName,
     attsTags,
 
-    -- * Destructuring the Response
-    addTagsToStreamResponse,
-    AddTagsToStreamResponse,
+    -- * Destructuring the response
+    AddTagsToStreamResponse (..),
+    mkAddTagsToStreamResponse,
   )
 where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for @AddTagsToStream@ .
 --
---
---
--- /See:/ 'addTagsToStream' smart constructor.
+-- /See:/ 'mkAddTagsToStream' smart constructor.
 data AddTagsToStream = AddTagsToStream'
-  { _attsStreamName :: !Text,
-    _attsTags :: !(Map Text (Text))
+  { streamName :: Lude.Text,
+    tags :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'attsStreamName' - The name of the stream.
---
--- * 'attsTags' - A set of up to 10 key-value pairs to use to create the tags.
-addTagsToStream ::
-  -- | 'attsStreamName'
-  Text ->
+-- * 'streamName' - The name of the stream.
+-- * 'tags' - A set of up to 10 key-value pairs to use to create the tags.
+mkAddTagsToStream ::
+  -- | 'streamName'
+  Lude.Text ->
   AddTagsToStream
-addTagsToStream pStreamName_ =
-  AddTagsToStream'
-    { _attsStreamName = pStreamName_,
-      _attsTags = mempty
-    }
+mkAddTagsToStream pStreamName_ =
+  AddTagsToStream' {streamName = pStreamName_, tags = Lude.mempty}
 
 -- | The name of the stream.
-attsStreamName :: Lens' AddTagsToStream Text
-attsStreamName = lens _attsStreamName (\s a -> s {_attsStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attsStreamName :: Lens.Lens' AddTagsToStream Lude.Text
+attsStreamName = Lens.lens (streamName :: AddTagsToStream -> Lude.Text) (\s a -> s {streamName = a} :: AddTagsToStream)
+{-# DEPRECATED attsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | A set of up to 10 key-value pairs to use to create the tags.
-attsTags :: Lens' AddTagsToStream (HashMap Text (Text))
-attsTags = lens _attsTags (\s a -> s {_attsTags = a}) . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attsTags :: Lens.Lens' AddTagsToStream (Lude.HashMap Lude.Text (Lude.Text))
+attsTags = Lens.lens (tags :: AddTagsToStream -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: AddTagsToStream)
+{-# DEPRECATED attsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest AddTagsToStream where
+instance Lude.AWSRequest AddTagsToStream where
   type Rs AddTagsToStream = AddTagsToStreamResponse
-  request = postJSON kinesis
-  response = receiveNull AddTagsToStreamResponse'
+  request = Req.postJSON kinesisService
+  response = Res.receiveNull AddTagsToStreamResponse'
 
-instance Hashable AddTagsToStream
-
-instance NFData AddTagsToStream
-
-instance ToHeaders AddTagsToStream where
+instance Lude.ToHeaders AddTagsToStream where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Kinesis_20131202.AddTagsToStream" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Kinesis_20131202.AddTagsToStream" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddTagsToStream where
+instance Lude.ToJSON AddTagsToStream where
   toJSON AddTagsToStream' {..} =
-    object
-      ( catMaybes
-          [ Just ("StreamName" .= _attsStreamName),
-            Just ("Tags" .= _attsTags)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("StreamName" Lude..= streamName),
+            Lude.Just ("Tags" Lude..= tags)
           ]
       )
 
-instance ToPath AddTagsToStream where
-  toPath = const "/"
+instance Lude.ToPath AddTagsToStream where
+  toPath = Lude.const "/"
 
-instance ToQuery AddTagsToStream where
-  toQuery = const mempty
+instance Lude.ToQuery AddTagsToStream where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'addTagsToStreamResponse' smart constructor.
+-- | /See:/ 'mkAddTagsToStreamResponse' smart constructor.
 data AddTagsToStreamResponse = AddTagsToStreamResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToStreamResponse' with the minimum fields required to make a request.
-addTagsToStreamResponse ::
+mkAddTagsToStreamResponse ::
   AddTagsToStreamResponse
-addTagsToStreamResponse = AddTagsToStreamResponse'
-
-instance NFData AddTagsToStreamResponse
+mkAddTagsToStreamResponse = AddTagsToStreamResponse'

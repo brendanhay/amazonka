@@ -28,37 +28,37 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetThingShadow $
---             getThingShadow
+--             mkGetThingShadow
 --
 --         , requestListNamedShadowsForThing $
---             listNamedShadowsForThing
+--             mkListNamedShadowsForThing
 --
 --         , requestDeleteThingShadow $
---             deleteThingShadow
+--             mkDeleteThingShadow
 --
 --         , requestUpdateThingShadow $
---             updateThingShadow
+--             mkUpdateThingShadow
 --
 --         , requestPublish $
---             publish
+--             mkPublish
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetThingShadow $
---             getThingShadowResponse
+--             mkGetThingShadowResponse
 --
 --         , responseListNamedShadowsForThing $
---             listNamedShadowsForThingResponse
+--             mkListNamedShadowsForThingResponse
 --
 --         , responseDeleteThingShadow $
---             deleteThingShadowResponse
+--             mkDeleteThingShadowResponse
 --
 --         , responseUpdateThingShadow $
---             updateThingShadowResponse
+--             mkUpdateThingShadowResponse
 --
 --         , responsePublish $
---             publishResponse
+--             mkPublishResponse
 --
 --           ]
 --     ]
@@ -102,7 +102,7 @@ responseGetThingShadow =
   res
     "GetThingShadowResponse"
     "fixture/GetThingShadowResponse.proto"
-    ioTData
+    ioTDataService
     (Proxy :: Proxy GetThingShadow)
 
 responseListNamedShadowsForThing :: ListNamedShadowsForThingResponse -> TestTree
@@ -110,7 +110,7 @@ responseListNamedShadowsForThing =
   res
     "ListNamedShadowsForThingResponse"
     "fixture/ListNamedShadowsForThingResponse.proto"
-    ioTData
+    ioTDataService
     (Proxy :: Proxy ListNamedShadowsForThing)
 
 responseDeleteThingShadow :: DeleteThingShadowResponse -> TestTree
@@ -118,7 +118,7 @@ responseDeleteThingShadow =
   res
     "DeleteThingShadowResponse"
     "fixture/DeleteThingShadowResponse.proto"
-    ioTData
+    ioTDataService
     (Proxy :: Proxy DeleteThingShadow)
 
 responseUpdateThingShadow :: UpdateThingShadowResponse -> TestTree
@@ -126,7 +126,7 @@ responseUpdateThingShadow =
   res
     "UpdateThingShadowResponse"
     "fixture/UpdateThingShadowResponse.proto"
-    ioTData
+    ioTDataService
     (Proxy :: Proxy UpdateThingShadow)
 
 responsePublish :: PublishResponse -> TestTree
@@ -134,5 +134,5 @@ responsePublish =
   res
     "PublishResponse"
     "fixture/PublishResponse.proto"
-    ioTData
+    ioTDataService
     (Proxy :: Proxy Publish)

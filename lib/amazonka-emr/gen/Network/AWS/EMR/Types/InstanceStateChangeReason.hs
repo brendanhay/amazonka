@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceStateChangeReason where
+module Network.AWS.EMR.Types.InstanceStateChangeReason
+  ( InstanceStateChangeReason (..),
+
+    -- * Smart constructor
+    mkInstanceStateChangeReason,
+
+    -- * Lenses
+    iscrCode,
+    iscrMessage,
+  )
+where
 
 import Network.AWS.EMR.Types.InstanceStateChangeReasonCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of the status change reason for the instance.
 --
---
---
--- /See:/ 'instanceStateChangeReason' smart constructor.
+-- /See:/ 'mkInstanceStateChangeReason' smart constructor.
 data InstanceStateChangeReason = InstanceStateChangeReason'
-  { _iscrCode ::
-      !(Maybe InstanceStateChangeReasonCode),
-    _iscrMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe
+        InstanceStateChangeReasonCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStateChangeReason' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iscrCode' - The programmable code for the state change reason.
---
--- * 'iscrMessage' - The status change reason description.
-instanceStateChangeReason ::
+-- * 'code' - The programmable code for the state change reason.
+-- * 'message' - The status change reason description.
+mkInstanceStateChangeReason ::
   InstanceStateChangeReason
-instanceStateChangeReason =
+mkInstanceStateChangeReason =
   InstanceStateChangeReason'
-    { _iscrCode = Nothing,
-      _iscrMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The programmable code for the state change reason.
-iscrCode :: Lens' InstanceStateChangeReason (Maybe InstanceStateChangeReasonCode)
-iscrCode = lens _iscrCode (\s a -> s {_iscrCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscrCode :: Lens.Lens' InstanceStateChangeReason (Lude.Maybe InstanceStateChangeReasonCode)
+iscrCode = Lens.lens (code :: InstanceStateChangeReason -> Lude.Maybe InstanceStateChangeReasonCode) (\s a -> s {code = a} :: InstanceStateChangeReason)
+{-# DEPRECATED iscrCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The status change reason description.
-iscrMessage :: Lens' InstanceStateChangeReason (Maybe Text)
-iscrMessage = lens _iscrMessage (\s a -> s {_iscrMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscrMessage :: Lens.Lens' InstanceStateChangeReason (Lude.Maybe Lude.Text)
+iscrMessage = Lens.lens (message :: InstanceStateChangeReason -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: InstanceStateChangeReason)
+{-# DEPRECATED iscrMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON InstanceStateChangeReason where
+instance Lude.FromJSON InstanceStateChangeReason where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceStateChangeReason"
       ( \x ->
           InstanceStateChangeReason'
-            <$> (x .:? "Code") <*> (x .:? "Message")
+            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable InstanceStateChangeReason
-
-instance NFData InstanceStateChangeReason

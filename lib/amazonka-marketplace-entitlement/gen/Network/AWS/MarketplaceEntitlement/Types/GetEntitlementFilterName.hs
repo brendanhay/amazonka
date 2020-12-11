@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName where
+module Network.AWS.MarketplaceEntitlement.Types.GetEntitlementFilterName
+  ( GetEntitlementFilterName
+      ( GetEntitlementFilterName',
+        CustomerIdentifier,
+        Dimension
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GetEntitlementFilterName
-  = CustomerIdentifier
-  | Dimension
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GetEntitlementFilterName = GetEntitlementFilterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GetEntitlementFilterName where
-  parser =
-    takeLowerText >>= \case
-      "customer_identifier" -> pure CustomerIdentifier
-      "dimension" -> pure Dimension
-      e ->
-        fromTextError $
-          "Failure parsing GetEntitlementFilterName from value: '" <> e
-            <> "'. Accepted values: customer_identifier, dimension"
+pattern CustomerIdentifier :: GetEntitlementFilterName
+pattern CustomerIdentifier = GetEntitlementFilterName' "CUSTOMER_IDENTIFIER"
 
-instance ToText GetEntitlementFilterName where
-  toText = \case
-    CustomerIdentifier -> "CUSTOMER_IDENTIFIER"
-    Dimension -> "DIMENSION"
+pattern Dimension :: GetEntitlementFilterName
+pattern Dimension = GetEntitlementFilterName' "DIMENSION"
 
-instance Hashable GetEntitlementFilterName
-
-instance NFData GetEntitlementFilterName
-
-instance ToByteString GetEntitlementFilterName
-
-instance ToQuery GetEntitlementFilterName
-
-instance ToHeader GetEntitlementFilterName
-
-instance ToJSON GetEntitlementFilterName where
-  toJSON = toJSONText
+{-# COMPLETE
+  CustomerIdentifier,
+  Dimension,
+  GetEntitlementFilterName'
+  #-}

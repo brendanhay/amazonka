@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,171 @@
 --
 -- Returns an array of 'RuleSummary' objects.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WAF.ListRateBasedRules
-  ( -- * Creating a Request
-    listRateBasedRules,
-    ListRateBasedRules,
+  ( -- * Creating a request
+    ListRateBasedRules (..),
+    mkListRateBasedRules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrbrNextMarker,
     lrbrLimit,
 
-    -- * Destructuring the Response
-    listRateBasedRulesResponse,
-    ListRateBasedRulesResponse,
+    -- * Destructuring the response
+    ListRateBasedRulesResponse (..),
+    mkListRateBasedRulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrbrrsRules,
     lrbrrsNextMarker,
     lrbrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
--- | /See:/ 'listRateBasedRules' smart constructor.
+-- | /See:/ 'mkListRateBasedRules' smart constructor.
 data ListRateBasedRules = ListRateBasedRules'
-  { _lrbrNextMarker ::
-      !(Maybe Text),
-    _lrbrLimit :: !(Maybe Nat)
+  { nextMarker ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRateBasedRules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrbrNextMarker' - If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRateBasedRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
---
--- * 'lrbrLimit' - Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
-listRateBasedRules ::
+-- * 'limit' - Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
+-- * 'nextMarker' - If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRateBasedRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
+mkListRateBasedRules ::
   ListRateBasedRules
-listRateBasedRules =
+mkListRateBasedRules =
   ListRateBasedRules'
-    { _lrbrNextMarker = Nothing,
-      _lrbrLimit = Nothing
+    { nextMarker = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRateBasedRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
-lrbrNextMarker :: Lens' ListRateBasedRules (Maybe Text)
-lrbrNextMarker = lens _lrbrNextMarker (\s a -> s {_lrbrNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbrNextMarker :: Lens.Lens' ListRateBasedRules (Lude.Maybe Lude.Text)
+lrbrNextMarker = Lens.lens (nextMarker :: ListRateBasedRules -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListRateBasedRules)
+{-# DEPRECATED lrbrNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
-lrbrLimit :: Lens' ListRateBasedRules (Maybe Natural)
-lrbrLimit = lens _lrbrLimit (\s a -> s {_lrbrLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbrLimit :: Lens.Lens' ListRateBasedRules (Lude.Maybe Lude.Natural)
+lrbrLimit = Lens.lens (limit :: ListRateBasedRules -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListRateBasedRules)
+{-# DEPRECATED lrbrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager ListRateBasedRules where
+instance Page.AWSPager ListRateBasedRules where
   page rq rs
-    | stop (rs ^. lrbrrsNextMarker) = Nothing
-    | stop (rs ^. lrbrrsRules) = Nothing
-    | otherwise = Just $ rq & lrbrNextMarker .~ rs ^. lrbrrsNextMarker
+    | Page.stop (rs Lens.^. lrbrrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrbrrsRules) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrbrNextMarker Lens..~ rs Lens.^. lrbrrsNextMarker
 
-instance AWSRequest ListRateBasedRules where
+instance Lude.AWSRequest ListRateBasedRules where
   type Rs ListRateBasedRules = ListRateBasedRulesResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListRateBasedRulesResponse'
-            <$> (x .?> "Rules" .!@ mempty)
-            <*> (x .?> "NextMarker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Rules" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextMarker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListRateBasedRules
-
-instance NFData ListRateBasedRules
-
-instance ToHeaders ListRateBasedRules where
+instance Lude.ToHeaders ListRateBasedRules where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_20150824.ListRateBasedRules" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_20150824.ListRateBasedRules" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListRateBasedRules where
+instance Lude.ToJSON ListRateBasedRules where
   toJSON ListRateBasedRules' {..} =
-    object
-      ( catMaybes
-          [ ("NextMarker" .=) <$> _lrbrNextMarker,
-            ("Limit" .=) <$> _lrbrLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath ListRateBasedRules where
-  toPath = const "/"
+instance Lude.ToPath ListRateBasedRules where
+  toPath = Lude.const "/"
 
-instance ToQuery ListRateBasedRules where
-  toQuery = const mempty
+instance Lude.ToQuery ListRateBasedRules where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listRateBasedRulesResponse' smart constructor.
+-- | /See:/ 'mkListRateBasedRulesResponse' smart constructor.
 data ListRateBasedRulesResponse = ListRateBasedRulesResponse'
-  { _lrbrrsRules ::
-      !(Maybe [RuleSummary]),
-    _lrbrrsNextMarker :: !(Maybe Text),
-    _lrbrrsResponseStatus :: !Int
+  { rules ::
+      Lude.Maybe [RuleSummary],
+    nextMarker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRateBasedRulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrbrrsRules' - An array of 'RuleSummary' objects.
---
--- * 'lrbrrsNextMarker' - If you have more @Rules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @Rules@ , submit another @ListRateBasedRules@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
---
--- * 'lrbrrsResponseStatus' - -- | The response status code.
-listRateBasedRulesResponse ::
-  -- | 'lrbrrsResponseStatus'
-  Int ->
+-- * 'nextMarker' - If you have more @Rules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @Rules@ , submit another @ListRateBasedRules@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+-- * 'responseStatus' - The response status code.
+-- * 'rules' - An array of 'RuleSummary' objects.
+mkListRateBasedRulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListRateBasedRulesResponse
-listRateBasedRulesResponse pResponseStatus_ =
+mkListRateBasedRulesResponse pResponseStatus_ =
   ListRateBasedRulesResponse'
-    { _lrbrrsRules = Nothing,
-      _lrbrrsNextMarker = Nothing,
-      _lrbrrsResponseStatus = pResponseStatus_
+    { rules = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of 'RuleSummary' objects.
-lrbrrsRules :: Lens' ListRateBasedRulesResponse [RuleSummary]
-lrbrrsRules = lens _lrbrrsRules (\s a -> s {_lrbrrsRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbrrsRules :: Lens.Lens' ListRateBasedRulesResponse (Lude.Maybe [RuleSummary])
+lrbrrsRules = Lens.lens (rules :: ListRateBasedRulesResponse -> Lude.Maybe [RuleSummary]) (\s a -> s {rules = a} :: ListRateBasedRulesResponse)
+{-# DEPRECATED lrbrrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | If you have more @Rules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @Rules@ , submit another @ListRateBasedRules@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-lrbrrsNextMarker :: Lens' ListRateBasedRulesResponse (Maybe Text)
-lrbrrsNextMarker = lens _lrbrrsNextMarker (\s a -> s {_lrbrrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbrrsNextMarker :: Lens.Lens' ListRateBasedRulesResponse (Lude.Maybe Lude.Text)
+lrbrrsNextMarker = Lens.lens (nextMarker :: ListRateBasedRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListRateBasedRulesResponse)
+{-# DEPRECATED lrbrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
--- | -- | The response status code.
-lrbrrsResponseStatus :: Lens' ListRateBasedRulesResponse Int
-lrbrrsResponseStatus = lens _lrbrrsResponseStatus (\s a -> s {_lrbrrsResponseStatus = a})
-
-instance NFData ListRateBasedRulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbrrsResponseStatus :: Lens.Lens' ListRateBasedRulesResponse Lude.Int
+lrbrrsResponseStatus = Lens.lens (responseStatus :: ListRateBasedRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRateBasedRulesResponse)
+{-# DEPRECATED lrbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

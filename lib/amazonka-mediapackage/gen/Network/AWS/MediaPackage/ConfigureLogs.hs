@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Changes the Channel's properities to configure log subscription
 module Network.AWS.MediaPackage.ConfigureLogs
-  ( -- * Creating a Request
-    configureLogs,
-    ConfigureLogs,
+  ( -- * Creating a request
+    ConfigureLogs (..),
+    mkConfigureLogs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     clIngressAccessLogs,
     clEgressAccessLogs,
     clId,
 
-    -- * Destructuring the Response
-    configureLogsResponse,
-    ConfigureLogsResponse,
+    -- * Destructuring the response
+    ConfigureLogsResponse (..),
+    mkConfigureLogsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     clrsIngressAccessLogs,
     clrsHlsIngest,
     clrsARN,
@@ -44,179 +39,209 @@ module Network.AWS.MediaPackage.ConfigureLogs
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | the option to configure log subscription.
 --
--- /See:/ 'configureLogs' smart constructor.
+-- /See:/ 'mkConfigureLogs' smart constructor.
 data ConfigureLogs = ConfigureLogs'
-  { _clIngressAccessLogs ::
-      !(Maybe IngressAccessLogs),
-    _clEgressAccessLogs :: !(Maybe EgressAccessLogs),
-    _clId :: !Text
+  { ingressAccessLogs ::
+      Lude.Maybe IngressAccessLogs,
+    egressAccessLogs :: Lude.Maybe EgressAccessLogs,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigureLogs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clIngressAccessLogs' - Undocumented member.
---
--- * 'clEgressAccessLogs' - Undocumented member.
---
--- * 'clId' - The ID of the channel to log subscription.
-configureLogs ::
-  -- | 'clId'
-  Text ->
+-- * 'egressAccessLogs' - Undocumented field.
+-- * 'id' - The ID of the channel to log subscription.
+-- * 'ingressAccessLogs' - Undocumented field.
+mkConfigureLogs ::
+  -- | 'id'
+  Lude.Text ->
   ConfigureLogs
-configureLogs pId_ =
+mkConfigureLogs pId_ =
   ConfigureLogs'
-    { _clIngressAccessLogs = Nothing,
-      _clEgressAccessLogs = Nothing,
-      _clId = pId_
+    { ingressAccessLogs = Lude.Nothing,
+      egressAccessLogs = Lude.Nothing,
+      id = pId_
     }
 
--- | Undocumented member.
-clIngressAccessLogs :: Lens' ConfigureLogs (Maybe IngressAccessLogs)
-clIngressAccessLogs = lens _clIngressAccessLogs (\s a -> s {_clIngressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ingressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clIngressAccessLogs :: Lens.Lens' ConfigureLogs (Lude.Maybe IngressAccessLogs)
+clIngressAccessLogs = Lens.lens (ingressAccessLogs :: ConfigureLogs -> Lude.Maybe IngressAccessLogs) (\s a -> s {ingressAccessLogs = a} :: ConfigureLogs)
+{-# DEPRECATED clIngressAccessLogs "Use generic-lens or generic-optics with 'ingressAccessLogs' instead." #-}
 
--- | Undocumented member.
-clEgressAccessLogs :: Lens' ConfigureLogs (Maybe EgressAccessLogs)
-clEgressAccessLogs = lens _clEgressAccessLogs (\s a -> s {_clEgressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'egressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clEgressAccessLogs :: Lens.Lens' ConfigureLogs (Lude.Maybe EgressAccessLogs)
+clEgressAccessLogs = Lens.lens (egressAccessLogs :: ConfigureLogs -> Lude.Maybe EgressAccessLogs) (\s a -> s {egressAccessLogs = a} :: ConfigureLogs)
+{-# DEPRECATED clEgressAccessLogs "Use generic-lens or generic-optics with 'egressAccessLogs' instead." #-}
 
 -- | The ID of the channel to log subscription.
-clId :: Lens' ConfigureLogs Text
-clId = lens _clId (\s a -> s {_clId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clId :: Lens.Lens' ConfigureLogs Lude.Text
+clId = Lens.lens (id :: ConfigureLogs -> Lude.Text) (\s a -> s {id = a} :: ConfigureLogs)
+{-# DEPRECATED clId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest ConfigureLogs where
+instance Lude.AWSRequest ConfigureLogs where
   type Rs ConfigureLogs = ConfigureLogsResponse
-  request = putJSON mediaPackage
+  request = Req.putJSON mediaPackageService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ConfigureLogsResponse'
-            <$> (x .?> "ingressAccessLogs")
-            <*> (x .?> "hlsIngest")
-            <*> (x .?> "arn")
-            <*> (x .?> "id")
-            <*> (x .?> "description")
-            <*> (x .?> "egressAccessLogs")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ingressAccessLogs")
+            Lude.<*> (x Lude..?> "hlsIngest")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (x Lude..?> "egressAccessLogs")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ConfigureLogs
-
-instance NFData ConfigureLogs
-
-instance ToHeaders ConfigureLogs where
+instance Lude.ToHeaders ConfigureLogs where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON ConfigureLogs where
-  toJSON ConfigureLogs' {..} =
-    object
-      ( catMaybes
-          [ ("ingressAccessLogs" .=) <$> _clIngressAccessLogs,
-            ("egressAccessLogs" .=) <$> _clEgressAccessLogs
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath ConfigureLogs where
+instance Lude.ToJSON ConfigureLogs where
+  toJSON ConfigureLogs' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ingressAccessLogs" Lude..=) Lude.<$> ingressAccessLogs,
+            ("egressAccessLogs" Lude..=) Lude.<$> egressAccessLogs
+          ]
+      )
+
+instance Lude.ToPath ConfigureLogs where
   toPath ConfigureLogs' {..} =
-    mconcat ["/channels/", toBS _clId, "/configure_logs"]
+    Lude.mconcat ["/channels/", Lude.toBS id, "/configure_logs"]
 
-instance ToQuery ConfigureLogs where
-  toQuery = const mempty
+instance Lude.ToQuery ConfigureLogs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'configureLogsResponse' smart constructor.
+-- | /See:/ 'mkConfigureLogsResponse' smart constructor.
 data ConfigureLogsResponse = ConfigureLogsResponse'
-  { _clrsIngressAccessLogs ::
-      !(Maybe IngressAccessLogs),
-    _clrsHlsIngest :: !(Maybe HlsIngest),
-    _clrsARN :: !(Maybe Text),
-    _clrsId :: !(Maybe Text),
-    _clrsDescription :: !(Maybe Text),
-    _clrsEgressAccessLogs ::
-      !(Maybe EgressAccessLogs),
-    _clrsTags :: !(Maybe (Map Text (Text))),
-    _clrsResponseStatus :: !Int
+  { ingressAccessLogs ::
+      Lude.Maybe IngressAccessLogs,
+    hlsIngest :: Lude.Maybe HlsIngest,
+    arn :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    egressAccessLogs :: Lude.Maybe EgressAccessLogs,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigureLogsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clrsIngressAccessLogs' - Undocumented member.
---
--- * 'clrsHlsIngest' - Undocumented member.
---
--- * 'clrsARN' - The Amazon Resource Name (ARN) assigned to the Channel.
---
--- * 'clrsId' - The ID of the Channel.
---
--- * 'clrsDescription' - A short text description of the Channel.
---
--- * 'clrsEgressAccessLogs' - Undocumented member.
---
--- * 'clrsTags' - Undocumented member.
---
--- * 'clrsResponseStatus' - -- | The response status code.
-configureLogsResponse ::
-  -- | 'clrsResponseStatus'
-  Int ->
+-- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' - Undocumented field.
+-- * 'hlsIngest' - Undocumented field.
+-- * 'id' - The ID of the Channel.
+-- * 'ingressAccessLogs' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Undocumented field.
+mkConfigureLogsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ConfigureLogsResponse
-configureLogsResponse pResponseStatus_ =
+mkConfigureLogsResponse pResponseStatus_ =
   ConfigureLogsResponse'
-    { _clrsIngressAccessLogs = Nothing,
-      _clrsHlsIngest = Nothing,
-      _clrsARN = Nothing,
-      _clrsId = Nothing,
-      _clrsDescription = Nothing,
-      _clrsEgressAccessLogs = Nothing,
-      _clrsTags = Nothing,
-      _clrsResponseStatus = pResponseStatus_
+    { ingressAccessLogs = Lude.Nothing,
+      hlsIngest = Lude.Nothing,
+      arn = Lude.Nothing,
+      id = Lude.Nothing,
+      description = Lude.Nothing,
+      egressAccessLogs = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-clrsIngressAccessLogs :: Lens' ConfigureLogsResponse (Maybe IngressAccessLogs)
-clrsIngressAccessLogs = lens _clrsIngressAccessLogs (\s a -> s {_clrsIngressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ingressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsIngressAccessLogs :: Lens.Lens' ConfigureLogsResponse (Lude.Maybe IngressAccessLogs)
+clrsIngressAccessLogs = Lens.lens (ingressAccessLogs :: ConfigureLogsResponse -> Lude.Maybe IngressAccessLogs) (\s a -> s {ingressAccessLogs = a} :: ConfigureLogsResponse)
+{-# DEPRECATED clrsIngressAccessLogs "Use generic-lens or generic-optics with 'ingressAccessLogs' instead." #-}
 
--- | Undocumented member.
-clrsHlsIngest :: Lens' ConfigureLogsResponse (Maybe HlsIngest)
-clrsHlsIngest = lens _clrsHlsIngest (\s a -> s {_clrsHlsIngest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hlsIngest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsHlsIngest :: Lens.Lens' ConfigureLogsResponse (Lude.Maybe HlsIngest)
+clrsHlsIngest = Lens.lens (hlsIngest :: ConfigureLogsResponse -> Lude.Maybe HlsIngest) (\s a -> s {hlsIngest = a} :: ConfigureLogsResponse)
+{-# DEPRECATED clrsHlsIngest "Use generic-lens or generic-optics with 'hlsIngest' instead." #-}
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
-clrsARN :: Lens' ConfigureLogsResponse (Maybe Text)
-clrsARN = lens _clrsARN (\s a -> s {_clrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsARN :: Lens.Lens' ConfigureLogsResponse (Lude.Maybe Lude.Text)
+clrsARN = Lens.lens (arn :: ConfigureLogsResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ConfigureLogsResponse)
+{-# DEPRECATED clrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The ID of the Channel.
-clrsId :: Lens' ConfigureLogsResponse (Maybe Text)
-clrsId = lens _clrsId (\s a -> s {_clrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsId :: Lens.Lens' ConfigureLogsResponse (Lude.Maybe Lude.Text)
+clrsId = Lens.lens (id :: ConfigureLogsResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ConfigureLogsResponse)
+{-# DEPRECATED clrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A short text description of the Channel.
-clrsDescription :: Lens' ConfigureLogsResponse (Maybe Text)
-clrsDescription = lens _clrsDescription (\s a -> s {_clrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsDescription :: Lens.Lens' ConfigureLogsResponse (Lude.Maybe Lude.Text)
+clrsDescription = Lens.lens (description :: ConfigureLogsResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ConfigureLogsResponse)
+{-# DEPRECATED clrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-clrsEgressAccessLogs :: Lens' ConfigureLogsResponse (Maybe EgressAccessLogs)
-clrsEgressAccessLogs = lens _clrsEgressAccessLogs (\s a -> s {_clrsEgressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'egressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsEgressAccessLogs :: Lens.Lens' ConfigureLogsResponse (Lude.Maybe EgressAccessLogs)
+clrsEgressAccessLogs = Lens.lens (egressAccessLogs :: ConfigureLogsResponse -> Lude.Maybe EgressAccessLogs) (\s a -> s {egressAccessLogs = a} :: ConfigureLogsResponse)
+{-# DEPRECATED clrsEgressAccessLogs "Use generic-lens or generic-optics with 'egressAccessLogs' instead." #-}
 
--- | Undocumented member.
-clrsTags :: Lens' ConfigureLogsResponse (HashMap Text (Text))
-clrsTags = lens _clrsTags (\s a -> s {_clrsTags = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsTags :: Lens.Lens' ConfigureLogsResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+clrsTags = Lens.lens (tags :: ConfigureLogsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ConfigureLogsResponse)
+{-# DEPRECATED clrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-clrsResponseStatus :: Lens' ConfigureLogsResponse Int
-clrsResponseStatus = lens _clrsResponseStatus (\s a -> s {_clrsResponseStatus = a})
-
-instance NFData ConfigureLogsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clrsResponseStatus :: Lens.Lens' ConfigureLogsResponse Lude.Int
+clrsResponseStatus = Lens.lens (responseStatus :: ConfigureLogsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfigureLogsResponse)
+{-# DEPRECATED clrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

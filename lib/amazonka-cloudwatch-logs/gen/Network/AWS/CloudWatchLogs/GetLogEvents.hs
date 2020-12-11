@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Lists log events from the specified log stream. You can list all of the log events or filter using a time range.
 --
---
 -- By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). You can get additional log events by specifying one of the tokens in a subsequent call. This operation can return empty results while there are more log events available through the token.
 module Network.AWS.CloudWatchLogs.GetLogEvents
-  ( -- * Creating a Request
-    getLogEvents,
-    GetLogEvents,
+  ( -- * Creating a request
+    GetLogEvents (..),
+    mkGetLogEvents,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gleStartTime,
     gleStartFromHead,
     gleNextToken,
@@ -35,11 +29,11 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     gleLogGroupName,
     gleLogStreamName,
 
-    -- * Destructuring the Response
-    getLogEventsResponse,
-    GetLogEventsResponse,
+    -- * Destructuring the response
+    GetLogEventsResponse (..),
+    mkGetLogEventsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     glersNextBackwardToken,
     glersNextForwardToken,
     glersEvents,
@@ -48,178 +42,217 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getLogEvents' smart constructor.
+-- | /See:/ 'mkGetLogEvents' smart constructor.
 data GetLogEvents = GetLogEvents'
-  { _gleStartTime :: !(Maybe Nat),
-    _gleStartFromHead :: !(Maybe Bool),
-    _gleNextToken :: !(Maybe Text),
-    _gleEndTime :: !(Maybe Nat),
-    _gleLimit :: !(Maybe Nat),
-    _gleLogGroupName :: !Text,
-    _gleLogStreamName :: !Text
+  { startTime ::
+      Lude.Maybe Lude.Natural,
+    startFromHead :: Lude.Maybe Lude.Bool,
+    nextToken :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Natural,
+    limit :: Lude.Maybe Lude.Natural,
+    logGroupName :: Lude.Text,
+    logStreamName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLogEvents' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'endTime' - The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
+-- * 'limit' - The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
+-- * 'logGroupName' - The name of the log group.
+-- * 'logStreamName' - The name of the log stream.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 --
--- * 'gleStartTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
+-- Using this token works only when you specify @true@ for @startFromHead@ .
+-- * 'startFromHead' - If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.
 --
--- * 'gleStartFromHead' - If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false. If you are using @nextToken@ in this operation, you must specify @true@ for @startFromHead@ .
---
--- * 'gleNextToken' - The token for the next set of items to return. (You received this token from a previous call.) Using this token works only when you specify @true@ for @startFromHead@ .
---
--- * 'gleEndTime' - The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
---
--- * 'gleLimit' - The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
---
--- * 'gleLogGroupName' - The name of the log group.
---
--- * 'gleLogStreamName' - The name of the log stream.
-getLogEvents ::
-  -- | 'gleLogGroupName'
-  Text ->
-  -- | 'gleLogStreamName'
-  Text ->
+-- If you are using @nextToken@ in this operation, you must specify @true@ for @startFromHead@ .
+-- * 'startTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
+mkGetLogEvents ::
+  -- | 'logGroupName'
+  Lude.Text ->
+  -- | 'logStreamName'
+  Lude.Text ->
   GetLogEvents
-getLogEvents pLogGroupName_ pLogStreamName_ =
+mkGetLogEvents pLogGroupName_ pLogStreamName_ =
   GetLogEvents'
-    { _gleStartTime = Nothing,
-      _gleStartFromHead = Nothing,
-      _gleNextToken = Nothing,
-      _gleEndTime = Nothing,
-      _gleLimit = Nothing,
-      _gleLogGroupName = pLogGroupName_,
-      _gleLogStreamName = pLogStreamName_
+    { startTime = Lude.Nothing,
+      startFromHead = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      endTime = Lude.Nothing,
+      limit = Lude.Nothing,
+      logGroupName = pLogGroupName_,
+      logStreamName = pLogStreamName_
     }
 
 -- | The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
-gleStartTime :: Lens' GetLogEvents (Maybe Natural)
-gleStartTime = lens _gleStartTime (\s a -> s {_gleStartTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleStartTime :: Lens.Lens' GetLogEvents (Lude.Maybe Lude.Natural)
+gleStartTime = Lens.lens (startTime :: GetLogEvents -> Lude.Maybe Lude.Natural) (\s a -> s {startTime = a} :: GetLogEvents)
+{-# DEPRECATED gleStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
--- | If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false. If you are using @nextToken@ in this operation, you must specify @true@ for @startFromHead@ .
-gleStartFromHead :: Lens' GetLogEvents (Maybe Bool)
-gleStartFromHead = lens _gleStartFromHead (\s a -> s {_gleStartFromHead = a})
+-- | If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.
+--
+-- If you are using @nextToken@ in this operation, you must specify @true@ for @startFromHead@ .
+--
+-- /Note:/ Consider using 'startFromHead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleStartFromHead :: Lens.Lens' GetLogEvents (Lude.Maybe Lude.Bool)
+gleStartFromHead = Lens.lens (startFromHead :: GetLogEvents -> Lude.Maybe Lude.Bool) (\s a -> s {startFromHead = a} :: GetLogEvents)
+{-# DEPRECATED gleStartFromHead "Use generic-lens or generic-optics with 'startFromHead' instead." #-}
 
--- | The token for the next set of items to return. (You received this token from a previous call.) Using this token works only when you specify @true@ for @startFromHead@ .
-gleNextToken :: Lens' GetLogEvents (Maybe Text)
-gleNextToken = lens _gleNextToken (\s a -> s {_gleNextToken = a})
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- Using this token works only when you specify @true@ for @startFromHead@ .
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleNextToken :: Lens.Lens' GetLogEvents (Lude.Maybe Lude.Text)
+gleNextToken = Lens.lens (nextToken :: GetLogEvents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetLogEvents)
+{-# DEPRECATED gleNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
-gleEndTime :: Lens' GetLogEvents (Maybe Natural)
-gleEndTime = lens _gleEndTime (\s a -> s {_gleEndTime = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleEndTime :: Lens.Lens' GetLogEvents (Lude.Maybe Lude.Natural)
+gleEndTime = Lens.lens (endTime :: GetLogEvents -> Lude.Maybe Lude.Natural) (\s a -> s {endTime = a} :: GetLogEvents)
+{-# DEPRECATED gleEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
-gleLimit :: Lens' GetLogEvents (Maybe Natural)
-gleLimit = lens _gleLimit (\s a -> s {_gleLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleLimit :: Lens.Lens' GetLogEvents (Lude.Maybe Lude.Natural)
+gleLimit = Lens.lens (limit :: GetLogEvents -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetLogEvents)
+{-# DEPRECATED gleLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the log group.
-gleLogGroupName :: Lens' GetLogEvents Text
-gleLogGroupName = lens _gleLogGroupName (\s a -> s {_gleLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleLogGroupName :: Lens.Lens' GetLogEvents Lude.Text
+gleLogGroupName = Lens.lens (logGroupName :: GetLogEvents -> Lude.Text) (\s a -> s {logGroupName = a} :: GetLogEvents)
+{-# DEPRECATED gleLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The name of the log stream.
-gleLogStreamName :: Lens' GetLogEvents Text
-gleLogStreamName = lens _gleLogStreamName (\s a -> s {_gleLogStreamName = a})
+--
+-- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleLogStreamName :: Lens.Lens' GetLogEvents Lude.Text
+gleLogStreamName = Lens.lens (logStreamName :: GetLogEvents -> Lude.Text) (\s a -> s {logStreamName = a} :: GetLogEvents)
+{-# DEPRECATED gleLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
-instance AWSRequest GetLogEvents where
+instance Lude.AWSRequest GetLogEvents where
   type Rs GetLogEvents = GetLogEventsResponse
-  request = postJSON cloudWatchLogs
+  request = Req.postJSON cloudWatchLogsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetLogEventsResponse'
-            <$> (x .?> "nextBackwardToken")
-            <*> (x .?> "nextForwardToken")
-            <*> (x .?> "events" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextBackwardToken")
+            Lude.<*> (x Lude..?> "nextForwardToken")
+            Lude.<*> (x Lude..?> "events" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetLogEvents
-
-instance NFData GetLogEvents
-
-instance ToHeaders GetLogEvents where
+instance Lude.ToHeaders GetLogEvents where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Logs_20140328.GetLogEvents" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Logs_20140328.GetLogEvents" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetLogEvents where
+instance Lude.ToJSON GetLogEvents where
   toJSON GetLogEvents' {..} =
-    object
-      ( catMaybes
-          [ ("startTime" .=) <$> _gleStartTime,
-            ("startFromHead" .=) <$> _gleStartFromHead,
-            ("nextToken" .=) <$> _gleNextToken,
-            ("endTime" .=) <$> _gleEndTime,
-            ("limit" .=) <$> _gleLimit,
-            Just ("logGroupName" .= _gleLogGroupName),
-            Just ("logStreamName" .= _gleLogStreamName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("startTime" Lude..=) Lude.<$> startTime,
+            ("startFromHead" Lude..=) Lude.<$> startFromHead,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("endTime" Lude..=) Lude.<$> endTime,
+            ("limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("logGroupName" Lude..= logGroupName),
+            Lude.Just ("logStreamName" Lude..= logStreamName)
           ]
       )
 
-instance ToPath GetLogEvents where
-  toPath = const "/"
+instance Lude.ToPath GetLogEvents where
+  toPath = Lude.const "/"
 
-instance ToQuery GetLogEvents where
-  toQuery = const mempty
+instance Lude.ToQuery GetLogEvents where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getLogEventsResponse' smart constructor.
+-- | /See:/ 'mkGetLogEventsResponse' smart constructor.
 data GetLogEventsResponse = GetLogEventsResponse'
-  { _glersNextBackwardToken ::
-      !(Maybe Text),
-    _glersNextForwardToken :: !(Maybe Text),
-    _glersEvents :: !(Maybe [OutputLogEvent]),
-    _glersResponseStatus :: !Int
+  { nextBackwardToken ::
+      Lude.Maybe Lude.Text,
+    nextForwardToken :: Lude.Maybe Lude.Text,
+    events :: Lude.Maybe [OutputLogEvent],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLogEventsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'glersNextBackwardToken' - The token for the next set of items in the backward direction. The token expires after 24 hours. This token is never null. If you have reached the end of the stream, it returns the same token you passed in.
---
--- * 'glersNextForwardToken' - The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.
---
--- * 'glersEvents' - The events.
---
--- * 'glersResponseStatus' - -- | The response status code.
-getLogEventsResponse ::
-  -- | 'glersResponseStatus'
-  Int ->
+-- * 'events' - The events.
+-- * 'nextBackwardToken' - The token for the next set of items in the backward direction. The token expires after 24 hours. This token is never null. If you have reached the end of the stream, it returns the same token you passed in.
+-- * 'nextForwardToken' - The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.
+-- * 'responseStatus' - The response status code.
+mkGetLogEventsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetLogEventsResponse
-getLogEventsResponse pResponseStatus_ =
+mkGetLogEventsResponse pResponseStatus_ =
   GetLogEventsResponse'
-    { _glersNextBackwardToken = Nothing,
-      _glersNextForwardToken = Nothing,
-      _glersEvents = Nothing,
-      _glersResponseStatus = pResponseStatus_
+    { nextBackwardToken = Lude.Nothing,
+      nextForwardToken = Lude.Nothing,
+      events = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token for the next set of items in the backward direction. The token expires after 24 hours. This token is never null. If you have reached the end of the stream, it returns the same token you passed in.
-glersNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
-glersNextBackwardToken = lens _glersNextBackwardToken (\s a -> s {_glersNextBackwardToken = a})
+--
+-- /Note:/ Consider using 'nextBackwardToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glersNextBackwardToken :: Lens.Lens' GetLogEventsResponse (Lude.Maybe Lude.Text)
+glersNextBackwardToken = Lens.lens (nextBackwardToken :: GetLogEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextBackwardToken = a} :: GetLogEventsResponse)
+{-# DEPRECATED glersNextBackwardToken "Use generic-lens or generic-optics with 'nextBackwardToken' instead." #-}
 
 -- | The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.
-glersNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
-glersNextForwardToken = lens _glersNextForwardToken (\s a -> s {_glersNextForwardToken = a})
+--
+-- /Note:/ Consider using 'nextForwardToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glersNextForwardToken :: Lens.Lens' GetLogEventsResponse (Lude.Maybe Lude.Text)
+glersNextForwardToken = Lens.lens (nextForwardToken :: GetLogEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextForwardToken = a} :: GetLogEventsResponse)
+{-# DEPRECATED glersNextForwardToken "Use generic-lens or generic-optics with 'nextForwardToken' instead." #-}
 
 -- | The events.
-glersEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
-glersEvents = lens _glersEvents (\s a -> s {_glersEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glersEvents :: Lens.Lens' GetLogEventsResponse (Lude.Maybe [OutputLogEvent])
+glersEvents = Lens.lens (events :: GetLogEventsResponse -> Lude.Maybe [OutputLogEvent]) (\s a -> s {events = a} :: GetLogEventsResponse)
+{-# DEPRECATED glersEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
--- | -- | The response status code.
-glersResponseStatus :: Lens' GetLogEventsResponse Int
-glersResponseStatus = lens _glersResponseStatus (\s a -> s {_glersResponseStatus = a})
-
-instance NFData GetLogEventsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glersResponseStatus :: Lens.Lens' GetLogEventsResponse Lude.Int
+glersResponseStatus = Lens.lens (responseStatus :: GetLogEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLogEventsResponse)
+{-# DEPRECATED glersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

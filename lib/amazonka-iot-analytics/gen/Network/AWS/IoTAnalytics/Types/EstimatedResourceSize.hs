@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.EstimatedResourceSize where
+module Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
+  ( EstimatedResourceSize (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEstimatedResourceSize,
+
+    -- * Lenses
+    ersEstimatedOn,
+    ersEstimatedSizeInBytes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The estimated size of the resource.
 --
---
---
--- /See:/ 'estimatedResourceSize' smart constructor.
+-- /See:/ 'mkEstimatedResourceSize' smart constructor.
 data EstimatedResourceSize = EstimatedResourceSize'
-  { _ersEstimatedOn ::
-      !(Maybe POSIX),
-    _ersEstimatedSizeInBytes :: !(Maybe Double)
+  { estimatedOn ::
+      Lude.Maybe Lude.Timestamp,
+    estimatedSizeInBytes :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EstimatedResourceSize' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ersEstimatedOn' - The time when the estimate of the size of the resource was made.
---
--- * 'ersEstimatedSizeInBytes' - The estimated size of the resource, in bytes.
-estimatedResourceSize ::
+-- * 'estimatedOn' - The time when the estimate of the size of the resource was made.
+-- * 'estimatedSizeInBytes' - The estimated size of the resource, in bytes.
+mkEstimatedResourceSize ::
   EstimatedResourceSize
-estimatedResourceSize =
+mkEstimatedResourceSize =
   EstimatedResourceSize'
-    { _ersEstimatedOn = Nothing,
-      _ersEstimatedSizeInBytes = Nothing
+    { estimatedOn = Lude.Nothing,
+      estimatedSizeInBytes = Lude.Nothing
     }
 
 -- | The time when the estimate of the size of the resource was made.
-ersEstimatedOn :: Lens' EstimatedResourceSize (Maybe UTCTime)
-ersEstimatedOn = lens _ersEstimatedOn (\s a -> s {_ersEstimatedOn = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'estimatedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ersEstimatedOn :: Lens.Lens' EstimatedResourceSize (Lude.Maybe Lude.Timestamp)
+ersEstimatedOn = Lens.lens (estimatedOn :: EstimatedResourceSize -> Lude.Maybe Lude.Timestamp) (\s a -> s {estimatedOn = a} :: EstimatedResourceSize)
+{-# DEPRECATED ersEstimatedOn "Use generic-lens or generic-optics with 'estimatedOn' instead." #-}
 
 -- | The estimated size of the resource, in bytes.
-ersEstimatedSizeInBytes :: Lens' EstimatedResourceSize (Maybe Double)
-ersEstimatedSizeInBytes = lens _ersEstimatedSizeInBytes (\s a -> s {_ersEstimatedSizeInBytes = a})
+--
+-- /Note:/ Consider using 'estimatedSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ersEstimatedSizeInBytes :: Lens.Lens' EstimatedResourceSize (Lude.Maybe Lude.Double)
+ersEstimatedSizeInBytes = Lens.lens (estimatedSizeInBytes :: EstimatedResourceSize -> Lude.Maybe Lude.Double) (\s a -> s {estimatedSizeInBytes = a} :: EstimatedResourceSize)
+{-# DEPRECATED ersEstimatedSizeInBytes "Use generic-lens or generic-optics with 'estimatedSizeInBytes' instead." #-}
 
-instance FromJSON EstimatedResourceSize where
+instance Lude.FromJSON EstimatedResourceSize where
   parseJSON =
-    withObject
+    Lude.withObject
       "EstimatedResourceSize"
       ( \x ->
           EstimatedResourceSize'
-            <$> (x .:? "estimatedOn") <*> (x .:? "estimatedSizeInBytes")
+            Lude.<$> (x Lude..:? "estimatedOn")
+            Lude.<*> (x Lude..:? "estimatedSizeInBytes")
       )
-
-instance Hashable EstimatedResourceSize
-
-instance NFData EstimatedResourceSize

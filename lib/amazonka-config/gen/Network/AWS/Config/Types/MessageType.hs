@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.MessageType where
+module Network.AWS.Config.Types.MessageType
+  ( MessageType
+      ( MessageType',
+        ConfigurationItemChangeNotification,
+        ConfigurationSnapshotDeliveryCompleted,
+        OversizedConfigurationItemChangeNotification,
+        ScheduledNotification
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MessageType
-  = ConfigurationItemChangeNotification
-  | ConfigurationSnapshotDeliveryCompleted
-  | OversizedConfigurationItemChangeNotification
-  | ScheduledNotification
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MessageType = MessageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MessageType where
-  parser =
-    takeLowerText >>= \case
-      "configurationitemchangenotification" -> pure ConfigurationItemChangeNotification
-      "configurationsnapshotdeliverycompleted" -> pure ConfigurationSnapshotDeliveryCompleted
-      "oversizedconfigurationitemchangenotification" -> pure OversizedConfigurationItemChangeNotification
-      "schedulednotification" -> pure ScheduledNotification
-      e ->
-        fromTextError $
-          "Failure parsing MessageType from value: '" <> e
-            <> "'. Accepted values: configurationitemchangenotification, configurationsnapshotdeliverycompleted, oversizedconfigurationitemchangenotification, schedulednotification"
+pattern ConfigurationItemChangeNotification :: MessageType
+pattern ConfigurationItemChangeNotification = MessageType' "ConfigurationItemChangeNotification"
 
-instance ToText MessageType where
-  toText = \case
-    ConfigurationItemChangeNotification -> "ConfigurationItemChangeNotification"
-    ConfigurationSnapshotDeliveryCompleted -> "ConfigurationSnapshotDeliveryCompleted"
-    OversizedConfigurationItemChangeNotification -> "OversizedConfigurationItemChangeNotification"
-    ScheduledNotification -> "ScheduledNotification"
+pattern ConfigurationSnapshotDeliveryCompleted :: MessageType
+pattern ConfigurationSnapshotDeliveryCompleted = MessageType' "ConfigurationSnapshotDeliveryCompleted"
 
-instance Hashable MessageType
+pattern OversizedConfigurationItemChangeNotification :: MessageType
+pattern OversizedConfigurationItemChangeNotification = MessageType' "OversizedConfigurationItemChangeNotification"
 
-instance NFData MessageType
+pattern ScheduledNotification :: MessageType
+pattern ScheduledNotification = MessageType' "ScheduledNotification"
 
-instance ToByteString MessageType
-
-instance ToQuery MessageType
-
-instance ToHeader MessageType
-
-instance ToJSON MessageType where
-  toJSON = toJSONText
-
-instance FromJSON MessageType where
-  parseJSON = parseJSONText "MessageType"
+{-# COMPLETE
+  ConfigurationItemChangeNotification,
+  ConfigurationSnapshotDeliveryCompleted,
+  OversizedConfigurationItemChangeNotification,
+  ScheduledNotification,
+  MessageType'
+  #-}

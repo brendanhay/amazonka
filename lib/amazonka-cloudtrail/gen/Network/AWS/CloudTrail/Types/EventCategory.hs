@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.EventCategory where
+module Network.AWS.CloudTrail.Types.EventCategory
+  ( EventCategory
+      ( EventCategory',
+        Insight
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventCategory = Insight
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventCategory = EventCategory' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventCategory where
-  parser =
-    takeLowerText >>= \case
-      "insight" -> pure Insight
-      e ->
-        fromTextError $
-          "Failure parsing EventCategory from value: '" <> e
-            <> "'. Accepted values: insight"
+pattern Insight :: EventCategory
+pattern Insight = EventCategory' "insight"
 
-instance ToText EventCategory where
-  toText = \case
-    Insight -> "insight"
-
-instance Hashable EventCategory
-
-instance NFData EventCategory
-
-instance ToByteString EventCategory
-
-instance ToQuery EventCategory
-
-instance ToHeader EventCategory
-
-instance ToJSON EventCategory where
-  toJSON = toJSONText
+{-# COMPLETE
+  Insight,
+  EventCategory'
+  #-}

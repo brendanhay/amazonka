@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat where
+module Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat
+  ( ContainerFormat
+      ( ContainerFormat',
+        FragmentedMP4,
+        MpegTs
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContainerFormat
-  = FragmentedMP4
-  | MpegTs
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContainerFormat = ContainerFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContainerFormat where
-  parser =
-    takeLowerText >>= \case
-      "fragmented_mp4" -> pure FragmentedMP4
-      "mpeg_ts" -> pure MpegTs
-      e ->
-        fromTextError $
-          "Failure parsing ContainerFormat from value: '" <> e
-            <> "'. Accepted values: fragmented_mp4, mpeg_ts"
+pattern FragmentedMP4 :: ContainerFormat
+pattern FragmentedMP4 = ContainerFormat' "FRAGMENTED_MP4"
 
-instance ToText ContainerFormat where
-  toText = \case
-    FragmentedMP4 -> "FRAGMENTED_MP4"
-    MpegTs -> "MPEG_TS"
+pattern MpegTs :: ContainerFormat
+pattern MpegTs = ContainerFormat' "MPEG_TS"
 
-instance Hashable ContainerFormat
-
-instance NFData ContainerFormat
-
-instance ToByteString ContainerFormat
-
-instance ToQuery ContainerFormat
-
-instance ToHeader ContainerFormat
-
-instance ToJSON ContainerFormat where
-  toJSON = toJSONText
+{-# COMPLETE
+  FragmentedMP4,
+  MpegTs,
+  ContainerFormat'
+  #-}

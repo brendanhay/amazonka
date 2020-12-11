@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,175 +14,192 @@
 --
 -- __This operation is used with the Amazon GameLift FleetIQ solution and game server groups.__
 --
---
 -- Locates an available game server and temporarily reserves it to host gameplay and players. This operation is called from a game client or client service (such as a matchmaker) to request hosting resources for a new game session. In response, GameLift FleetIQ locates an available game server, places it in @CLAIMED@ status for 60 seconds, and returns connection information that players can use to connect to the game server.
---
 -- To claim a game server, identify a game server group. You can also specify a game server ID, although this approach bypasses GameLift FleetIQ placement optimization. Optionally, include game data to pass to the game server at the start of a game session, such as a game map or player information.
---
 -- When a game server is successfully claimed, connection information is returned. A claimed game server's utilization status remains @AVAILABLE@ while the claim status is set to @CLAIMED@ for up to 60 seconds. This time period gives the game server time to update its status to @UTILIZED@ (using 'UpdateGameServer' ) once players join. If the game server's status is not updated within 60 seconds, the game server reverts to unclaimed status and is available to be claimed by another request. The claim time period is a fixed value and is not configurable.
---
 -- If you try to claim a specific game server, this request will fail in the following cases:
 --
 --     * If the game server utilization status is @UTILIZED@ .
 --
+--
 --     * If the game server claim status is @CLAIMED@ .
 --
 --
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
 -- __Related operations__
 --
 --     * 'RegisterGameServer'
 --
+--
 --     * 'ListGameServers'
+--
 --
 --     * 'ClaimGameServer'
 --
+--
 --     * 'DescribeGameServer'
+--
 --
 --     * 'UpdateGameServer'
 --
+--
 --     * 'DeregisterGameServer'
 module Network.AWS.GameLift.ClaimGameServer
-  ( -- * Creating a Request
-    claimGameServer,
-    ClaimGameServer,
+  ( -- * Creating a request
+    ClaimGameServer (..),
+    mkClaimGameServer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cgsGameServerData,
     cgsGameServerId,
     cgsGameServerGroupName,
 
-    -- * Destructuring the Response
-    claimGameServerResponse,
-    ClaimGameServerResponse,
+    -- * Destructuring the response
+    ClaimGameServerResponse (..),
+    mkClaimGameServerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crsGameServer,
     crsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'claimGameServer' smart constructor.
+-- | /See:/ 'mkClaimGameServer' smart constructor.
 data ClaimGameServer = ClaimGameServer'
-  { _cgsGameServerData ::
-      !(Maybe Text),
-    _cgsGameServerId :: !(Maybe Text),
-    _cgsGameServerGroupName :: !Text
+  { gameServerData ::
+      Lude.Maybe Lude.Text,
+    gameServerId :: Lude.Maybe Lude.Text,
+    gameServerGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClaimGameServer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cgsGameServerData' - A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
---
--- * 'cgsGameServerId' - A custom string that uniquely identifies the game server to claim. If this parameter is left empty, GameLift FleetIQ searches for an available game server in the specified game server group.
---
--- * 'cgsGameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.. If you are not specifying a game server to claim, this value identifies where you want GameLift FleetIQ to look for an available game server to claim.
-claimGameServer ::
-  -- | 'cgsGameServerGroupName'
-  Text ->
+-- * 'gameServerData' - A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
+-- * 'gameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.. If you are not specifying a game server to claim, this value identifies where you want GameLift FleetIQ to look for an available game server to claim.
+-- * 'gameServerId' - A custom string that uniquely identifies the game server to claim. If this parameter is left empty, GameLift FleetIQ searches for an available game server in the specified game server group.
+mkClaimGameServer ::
+  -- | 'gameServerGroupName'
+  Lude.Text ->
   ClaimGameServer
-claimGameServer pGameServerGroupName_ =
+mkClaimGameServer pGameServerGroupName_ =
   ClaimGameServer'
-    { _cgsGameServerData = Nothing,
-      _cgsGameServerId = Nothing,
-      _cgsGameServerGroupName = pGameServerGroupName_
+    { gameServerData = Lude.Nothing,
+      gameServerId = Lude.Nothing,
+      gameServerGroupName = pGameServerGroupName_
     }
 
 -- | A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
-cgsGameServerData :: Lens' ClaimGameServer (Maybe Text)
-cgsGameServerData = lens _cgsGameServerData (\s a -> s {_cgsGameServerData = a})
+--
+-- /Note:/ Consider using 'gameServerData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsGameServerData :: Lens.Lens' ClaimGameServer (Lude.Maybe Lude.Text)
+cgsGameServerData = Lens.lens (gameServerData :: ClaimGameServer -> Lude.Maybe Lude.Text) (\s a -> s {gameServerData = a} :: ClaimGameServer)
+{-# DEPRECATED cgsGameServerData "Use generic-lens or generic-optics with 'gameServerData' instead." #-}
 
 -- | A custom string that uniquely identifies the game server to claim. If this parameter is left empty, GameLift FleetIQ searches for an available game server in the specified game server group.
-cgsGameServerId :: Lens' ClaimGameServer (Maybe Text)
-cgsGameServerId = lens _cgsGameServerId (\s a -> s {_cgsGameServerId = a})
+--
+-- /Note:/ Consider using 'gameServerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsGameServerId :: Lens.Lens' ClaimGameServer (Lude.Maybe Lude.Text)
+cgsGameServerId = Lens.lens (gameServerId :: ClaimGameServer -> Lude.Maybe Lude.Text) (\s a -> s {gameServerId = a} :: ClaimGameServer)
+{-# DEPRECATED cgsGameServerId "Use generic-lens or generic-optics with 'gameServerId' instead." #-}
 
 -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.. If you are not specifying a game server to claim, this value identifies where you want GameLift FleetIQ to look for an available game server to claim.
-cgsGameServerGroupName :: Lens' ClaimGameServer Text
-cgsGameServerGroupName = lens _cgsGameServerGroupName (\s a -> s {_cgsGameServerGroupName = a})
+--
+-- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsGameServerGroupName :: Lens.Lens' ClaimGameServer Lude.Text
+cgsGameServerGroupName = Lens.lens (gameServerGroupName :: ClaimGameServer -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: ClaimGameServer)
+{-# DEPRECATED cgsGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
-instance AWSRequest ClaimGameServer where
+instance Lude.AWSRequest ClaimGameServer where
   type Rs ClaimGameServer = ClaimGameServerResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ClaimGameServerResponse'
-            <$> (x .?> "GameServer") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GameServer") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ClaimGameServer
-
-instance NFData ClaimGameServer
-
-instance ToHeaders ClaimGameServer where
+instance Lude.ToHeaders ClaimGameServer where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.ClaimGameServer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.ClaimGameServer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ClaimGameServer where
+instance Lude.ToJSON ClaimGameServer where
   toJSON ClaimGameServer' {..} =
-    object
-      ( catMaybes
-          [ ("GameServerData" .=) <$> _cgsGameServerData,
-            ("GameServerId" .=) <$> _cgsGameServerId,
-            Just ("GameServerGroupName" .= _cgsGameServerGroupName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GameServerData" Lude..=) Lude.<$> gameServerData,
+            ("GameServerId" Lude..=) Lude.<$> gameServerId,
+            Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName)
           ]
       )
 
-instance ToPath ClaimGameServer where
-  toPath = const "/"
+instance Lude.ToPath ClaimGameServer where
+  toPath = Lude.const "/"
 
-instance ToQuery ClaimGameServer where
-  toQuery = const mempty
+instance Lude.ToQuery ClaimGameServer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'claimGameServerResponse' smart constructor.
+-- | /See:/ 'mkClaimGameServerResponse' smart constructor.
 data ClaimGameServerResponse = ClaimGameServerResponse'
-  { _crsGameServer ::
-      !(Maybe GameServer),
-    _crsResponseStatus :: !Int
+  { gameServer ::
+      Lude.Maybe GameServer,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClaimGameServerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crsGameServer' - Object that describes the newly claimed game server.
---
--- * 'crsResponseStatus' - -- | The response status code.
-claimGameServerResponse ::
-  -- | 'crsResponseStatus'
-  Int ->
+-- * 'gameServer' - Object that describes the newly claimed game server.
+-- * 'responseStatus' - The response status code.
+mkClaimGameServerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ClaimGameServerResponse
-claimGameServerResponse pResponseStatus_ =
+mkClaimGameServerResponse pResponseStatus_ =
   ClaimGameServerResponse'
-    { _crsGameServer = Nothing,
-      _crsResponseStatus = pResponseStatus_
+    { gameServer = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Object that describes the newly claimed game server.
-crsGameServer :: Lens' ClaimGameServerResponse (Maybe GameServer)
-crsGameServer = lens _crsGameServer (\s a -> s {_crsGameServer = a})
+--
+-- /Note:/ Consider using 'gameServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsGameServer :: Lens.Lens' ClaimGameServerResponse (Lude.Maybe GameServer)
+crsGameServer = Lens.lens (gameServer :: ClaimGameServerResponse -> Lude.Maybe GameServer) (\s a -> s {gameServer = a} :: ClaimGameServerResponse)
+{-# DEPRECATED crsGameServer "Use generic-lens or generic-optics with 'gameServer' instead." #-}
 
--- | -- | The response status code.
-crsResponseStatus :: Lens' ClaimGameServerResponse Int
-crsResponseStatus = lens _crsResponseStatus (\s a -> s {_crsResponseStatus = a})
-
-instance NFData ClaimGameServerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsResponseStatus :: Lens.Lens' ClaimGameServerResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: ClaimGameServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ClaimGameServerResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationErrorCode where
+module Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationErrorCode
+  ( UnsuccessfulInstanceCreditSpecificationErrorCode
+      ( UnsuccessfulInstanceCreditSpecificationErrorCode',
+        IncorrectInstanceState,
+        InstanceCreditSpecification_NotSupported,
+        InvalidInstanceId_Malformed,
+        InvalidInstanceId_NotFound
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UnsuccessfulInstanceCreditSpecificationErrorCode
-  = IncorrectInstanceState
-  | InstanceCreditSpecification_NotSupported
-  | InvalidInstanceId_Malformed
-  | InvalidInstanceId_NotFound
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UnsuccessfulInstanceCreditSpecificationErrorCode = UnsuccessfulInstanceCreditSpecificationErrorCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UnsuccessfulInstanceCreditSpecificationErrorCode where
-  parser =
-    takeLowerText >>= \case
-      "incorrectinstancestate" -> pure IncorrectInstanceState
-      "instancecreditspecification.notsupported" -> pure InstanceCreditSpecification_NotSupported
-      "invalidinstanceid.malformed" -> pure InvalidInstanceId_Malformed
-      "invalidinstanceid.notfound" -> pure InvalidInstanceId_NotFound
-      e ->
-        fromTextError $
-          "Failure parsing UnsuccessfulInstanceCreditSpecificationErrorCode from value: '" <> e
-            <> "'. Accepted values: incorrectinstancestate, instancecreditspecification.notsupported, invalidinstanceid.malformed, invalidinstanceid.notfound"
+pattern IncorrectInstanceState :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern IncorrectInstanceState = UnsuccessfulInstanceCreditSpecificationErrorCode' "IncorrectInstanceState"
 
-instance ToText UnsuccessfulInstanceCreditSpecificationErrorCode where
-  toText = \case
-    IncorrectInstanceState -> "IncorrectInstanceState"
-    InstanceCreditSpecification_NotSupported -> "InstanceCreditSpecification.NotSupported"
-    InvalidInstanceId_Malformed -> "InvalidInstanceID.Malformed"
-    InvalidInstanceId_NotFound -> "InvalidInstanceID.NotFound"
+pattern InstanceCreditSpecification_NotSupported :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern InstanceCreditSpecification_NotSupported = UnsuccessfulInstanceCreditSpecificationErrorCode' "InstanceCreditSpecification.NotSupported"
 
-instance Hashable UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern InvalidInstanceId_Malformed :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern InvalidInstanceId_Malformed = UnsuccessfulInstanceCreditSpecificationErrorCode' "InvalidInstanceID.Malformed"
 
-instance NFData UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern InvalidInstanceId_NotFound :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern InvalidInstanceId_NotFound = UnsuccessfulInstanceCreditSpecificationErrorCode' "InvalidInstanceID.NotFound"
 
-instance ToByteString UnsuccessfulInstanceCreditSpecificationErrorCode
-
-instance ToQuery UnsuccessfulInstanceCreditSpecificationErrorCode
-
-instance ToHeader UnsuccessfulInstanceCreditSpecificationErrorCode
-
-instance FromXML UnsuccessfulInstanceCreditSpecificationErrorCode where
-  parseXML = parseXMLText "UnsuccessfulInstanceCreditSpecificationErrorCode"
+{-# COMPLETE
+  IncorrectInstanceState,
+  InstanceCreditSpecification_NotSupported,
+  InvalidInstanceId_Malformed,
+  InvalidInstanceId_NotFound,
+  UnsuccessfulInstanceCreditSpecificationErrorCode'
+  #-}

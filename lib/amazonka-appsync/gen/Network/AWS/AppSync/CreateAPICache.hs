@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a cache for the GraphQL API.
 module Network.AWS.AppSync.CreateAPICache
-  ( -- * Creating a Request
-    createAPICache,
-    CreateAPICache,
+  ( -- * Creating a request
+    CreateAPICache (..),
+    mkCreateAPICache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cacAtRestEncryptionEnabled,
     cacTransitEncryptionEnabled,
     cacApiId,
@@ -31,172 +26,312 @@ module Network.AWS.AppSync.CreateAPICache
     cacApiCachingBehavior,
     cacType,
 
-    -- * Destructuring the Response
-    createAPICacheResponse,
-    CreateAPICacheResponse,
+    -- * Destructuring the response
+    CreateAPICacheResponse (..),
+    mkCreateAPICacheResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cacrsApiCache,
     cacrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @CreateApiCache@ operation.
 --
---
---
--- /See:/ 'createAPICache' smart constructor.
+-- /See:/ 'mkCreateAPICache' smart constructor.
 data CreateAPICache = CreateAPICache'
-  { _cacAtRestEncryptionEnabled ::
-      !(Maybe Bool),
-    _cacTransitEncryptionEnabled :: !(Maybe Bool),
-    _cacApiId :: !Text,
-    _cacTtl :: !Integer,
-    _cacApiCachingBehavior :: !APICachingBehavior,
-    _cacType :: !APICacheType
+  { atRestEncryptionEnabled ::
+      Lude.Maybe Lude.Bool,
+    transitEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    apiId :: Lude.Text,
+    ttl :: Lude.Integer,
+    apiCachingBehavior :: APICachingBehavior,
+    type' :: APICacheType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAPICache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'apiCachingBehavior' - Caching behavior.
 --
--- * 'cacAtRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after creation.
 --
--- * 'cacTransitEncryptionEnabled' - Transit encryption flag when connecting to cache. This setting cannot be updated after creation.
+--     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
 --
--- * 'cacApiId' - The GraphQL API Id.
 --
--- * 'cacTtl' - TTL in seconds for cache entries. Valid values are between 1 and 3600 seconds.
+--     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
 --
--- * 'cacApiCachingBehavior' - Caching behavior.     * __FULL_REQUEST_CACHING__ : All requests are fully cached.     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
 --
--- * 'cacType' - The cache instance type. Valid values are      * @SMALL@      * @MEDIUM@      * @LARGE@      * @XLARGE@      * @LARGE_2X@      * @LARGE_4X@      * @LARGE_8X@ (not available in all regions)     * @LARGE_12X@  Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used. The following legacy instance types are available, but their use is discouraged:     * __T2_SMALL__ : A t2.small instance type.     * __T2_MEDIUM__ : A t2.medium instance type.     * __R4_LARGE__ : A r4.large instance type.     * __R4_XLARGE__ : A r4.xlarge instance type.     * __R4_2XLARGE__ : A r4.2xlarge instance type.     * __R4_4XLARGE__ : A r4.4xlarge instance type.     * __R4_8XLARGE__ : A r4.8xlarge instance type.
-createAPICache ::
-  -- | 'cacApiId'
-  Text ->
-  -- | 'cacTtl'
-  Integer ->
-  -- | 'cacApiCachingBehavior'
+-- * 'apiId' - The GraphQL API Id.
+-- * 'atRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after creation.
+-- * 'transitEncryptionEnabled' - Transit encryption flag when connecting to cache. This setting cannot be updated after creation.
+-- * 'ttl' - TTL in seconds for cache entries.
+--
+-- Valid values are between 1 and 3600 seconds.
+-- * 'type'' - The cache instance type. Valid values are
+--
+--
+--     * @SMALL@
+--
+--
+--     * @MEDIUM@
+--
+--
+--     * @LARGE@
+--
+--
+--     * @XLARGE@
+--
+--
+--     * @LARGE_2X@
+--
+--
+--     * @LARGE_4X@
+--
+--
+--     * @LARGE_8X@ (not available in all regions)
+--
+--
+--     * @LARGE_12X@
+--
+--
+-- Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+-- The following legacy instance types are available, but their use is discouraged:
+--
+--     * __T2_SMALL__ : A t2.small instance type.
+--
+--
+--     * __T2_MEDIUM__ : A t2.medium instance type.
+--
+--
+--     * __R4_LARGE__ : A r4.large instance type.
+--
+--
+--     * __R4_XLARGE__ : A r4.xlarge instance type.
+--
+--
+--     * __R4_2XLARGE__ : A r4.2xlarge instance type.
+--
+--
+--     * __R4_4XLARGE__ : A r4.4xlarge instance type.
+--
+--
+--     * __R4_8XLARGE__ : A r4.8xlarge instance type.
+mkCreateAPICache ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'ttl'
+  Lude.Integer ->
+  -- | 'apiCachingBehavior'
   APICachingBehavior ->
-  -- | 'cacType'
+  -- | 'type''
   APICacheType ->
   CreateAPICache
-createAPICache pApiId_ pTtl_ pApiCachingBehavior_ pType_ =
+mkCreateAPICache pApiId_ pTtl_ pApiCachingBehavior_ pType_ =
   CreateAPICache'
-    { _cacAtRestEncryptionEnabled = Nothing,
-      _cacTransitEncryptionEnabled = Nothing,
-      _cacApiId = pApiId_,
-      _cacTtl = pTtl_,
-      _cacApiCachingBehavior = pApiCachingBehavior_,
-      _cacType = pType_
+    { atRestEncryptionEnabled = Lude.Nothing,
+      transitEncryptionEnabled = Lude.Nothing,
+      apiId = pApiId_,
+      ttl = pTtl_,
+      apiCachingBehavior = pApiCachingBehavior_,
+      type' = pType_
     }
 
 -- | At rest encryption flag for cache. This setting cannot be updated after creation.
-cacAtRestEncryptionEnabled :: Lens' CreateAPICache (Maybe Bool)
-cacAtRestEncryptionEnabled = lens _cacAtRestEncryptionEnabled (\s a -> s {_cacAtRestEncryptionEnabled = a})
+--
+-- /Note:/ Consider using 'atRestEncryptionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacAtRestEncryptionEnabled :: Lens.Lens' CreateAPICache (Lude.Maybe Lude.Bool)
+cacAtRestEncryptionEnabled = Lens.lens (atRestEncryptionEnabled :: CreateAPICache -> Lude.Maybe Lude.Bool) (\s a -> s {atRestEncryptionEnabled = a} :: CreateAPICache)
+{-# DEPRECATED cacAtRestEncryptionEnabled "Use generic-lens or generic-optics with 'atRestEncryptionEnabled' instead." #-}
 
 -- | Transit encryption flag when connecting to cache. This setting cannot be updated after creation.
-cacTransitEncryptionEnabled :: Lens' CreateAPICache (Maybe Bool)
-cacTransitEncryptionEnabled = lens _cacTransitEncryptionEnabled (\s a -> s {_cacTransitEncryptionEnabled = a})
+--
+-- /Note:/ Consider using 'transitEncryptionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacTransitEncryptionEnabled :: Lens.Lens' CreateAPICache (Lude.Maybe Lude.Bool)
+cacTransitEncryptionEnabled = Lens.lens (transitEncryptionEnabled :: CreateAPICache -> Lude.Maybe Lude.Bool) (\s a -> s {transitEncryptionEnabled = a} :: CreateAPICache)
+{-# DEPRECATED cacTransitEncryptionEnabled "Use generic-lens or generic-optics with 'transitEncryptionEnabled' instead." #-}
 
 -- | The GraphQL API Id.
-cacApiId :: Lens' CreateAPICache Text
-cacApiId = lens _cacApiId (\s a -> s {_cacApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacApiId :: Lens.Lens' CreateAPICache Lude.Text
+cacApiId = Lens.lens (apiId :: CreateAPICache -> Lude.Text) (\s a -> s {apiId = a} :: CreateAPICache)
+{-# DEPRECATED cacApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
--- | TTL in seconds for cache entries. Valid values are between 1 and 3600 seconds.
-cacTtl :: Lens' CreateAPICache Integer
-cacTtl = lens _cacTtl (\s a -> s {_cacTtl = a})
+-- | TTL in seconds for cache entries.
+--
+-- Valid values are between 1 and 3600 seconds.
+--
+-- /Note:/ Consider using 'ttl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacTtl :: Lens.Lens' CreateAPICache Lude.Integer
+cacTtl = Lens.lens (ttl :: CreateAPICache -> Lude.Integer) (\s a -> s {ttl = a} :: CreateAPICache)
+{-# DEPRECATED cacTtl "Use generic-lens or generic-optics with 'ttl' instead." #-}
 
--- | Caching behavior.     * __FULL_REQUEST_CACHING__ : All requests are fully cached.     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
-cacApiCachingBehavior :: Lens' CreateAPICache APICachingBehavior
-cacApiCachingBehavior = lens _cacApiCachingBehavior (\s a -> s {_cacApiCachingBehavior = a})
+-- | Caching behavior.
+--
+--
+--     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
+--
+--
+--     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
+--
+--
+--
+-- /Note:/ Consider using 'apiCachingBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacApiCachingBehavior :: Lens.Lens' CreateAPICache APICachingBehavior
+cacApiCachingBehavior = Lens.lens (apiCachingBehavior :: CreateAPICache -> APICachingBehavior) (\s a -> s {apiCachingBehavior = a} :: CreateAPICache)
+{-# DEPRECATED cacApiCachingBehavior "Use generic-lens or generic-optics with 'apiCachingBehavior' instead." #-}
 
--- | The cache instance type. Valid values are      * @SMALL@      * @MEDIUM@      * @LARGE@      * @XLARGE@      * @LARGE_2X@      * @LARGE_4X@      * @LARGE_8X@ (not available in all regions)     * @LARGE_12X@  Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used. The following legacy instance types are available, but their use is discouraged:     * __T2_SMALL__ : A t2.small instance type.     * __T2_MEDIUM__ : A t2.medium instance type.     * __R4_LARGE__ : A r4.large instance type.     * __R4_XLARGE__ : A r4.xlarge instance type.     * __R4_2XLARGE__ : A r4.2xlarge instance type.     * __R4_4XLARGE__ : A r4.4xlarge instance type.     * __R4_8XLARGE__ : A r4.8xlarge instance type.
-cacType :: Lens' CreateAPICache APICacheType
-cacType = lens _cacType (\s a -> s {_cacType = a})
+-- | The cache instance type. Valid values are
+--
+--
+--     * @SMALL@
+--
+--
+--     * @MEDIUM@
+--
+--
+--     * @LARGE@
+--
+--
+--     * @XLARGE@
+--
+--
+--     * @LARGE_2X@
+--
+--
+--     * @LARGE_4X@
+--
+--
+--     * @LARGE_8X@ (not available in all regions)
+--
+--
+--     * @LARGE_12X@
+--
+--
+-- Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+-- The following legacy instance types are available, but their use is discouraged:
+--
+--     * __T2_SMALL__ : A t2.small instance type.
+--
+--
+--     * __T2_MEDIUM__ : A t2.medium instance type.
+--
+--
+--     * __R4_LARGE__ : A r4.large instance type.
+--
+--
+--     * __R4_XLARGE__ : A r4.xlarge instance type.
+--
+--
+--     * __R4_2XLARGE__ : A r4.2xlarge instance type.
+--
+--
+--     * __R4_4XLARGE__ : A r4.4xlarge instance type.
+--
+--
+--     * __R4_8XLARGE__ : A r4.8xlarge instance type.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacType :: Lens.Lens' CreateAPICache APICacheType
+cacType = Lens.lens (type' :: CreateAPICache -> APICacheType) (\s a -> s {type' = a} :: CreateAPICache)
+{-# DEPRECATED cacType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance AWSRequest CreateAPICache where
+instance Lude.AWSRequest CreateAPICache where
   type Rs CreateAPICache = CreateAPICacheResponse
-  request = postJSON appSync
+  request = Req.postJSON appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateAPICacheResponse'
-            <$> (x .?> "apiCache") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "apiCache") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateAPICache
-
-instance NFData CreateAPICache
-
-instance ToHeaders CreateAPICache where
+instance Lude.ToHeaders CreateAPICache where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateAPICache where
-  toJSON CreateAPICache' {..} =
-    object
-      ( catMaybes
-          [ ("atRestEncryptionEnabled" .=) <$> _cacAtRestEncryptionEnabled,
-            ("transitEncryptionEnabled" .=) <$> _cacTransitEncryptionEnabled,
-            Just ("ttl" .= _cacTtl),
-            Just ("apiCachingBehavior" .= _cacApiCachingBehavior),
-            Just ("type" .= _cacType)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateAPICache where
-  toPath CreateAPICache' {..} =
-    mconcat ["/v1/apis/", toBS _cacApiId, "/ApiCaches"]
+instance Lude.ToJSON CreateAPICache where
+  toJSON CreateAPICache' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("atRestEncryptionEnabled" Lude..=)
+              Lude.<$> atRestEncryptionEnabled,
+            ("transitEncryptionEnabled" Lude..=)
+              Lude.<$> transitEncryptionEnabled,
+            Lude.Just ("ttl" Lude..= ttl),
+            Lude.Just ("apiCachingBehavior" Lude..= apiCachingBehavior),
+            Lude.Just ("type" Lude..= type')
+          ]
+      )
 
-instance ToQuery CreateAPICache where
-  toQuery = const mempty
+instance Lude.ToPath CreateAPICache where
+  toPath CreateAPICache' {..} =
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/ApiCaches"]
+
+instance Lude.ToQuery CreateAPICache where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @CreateApiCache@ operation.
 --
---
---
--- /See:/ 'createAPICacheResponse' smart constructor.
+-- /See:/ 'mkCreateAPICacheResponse' smart constructor.
 data CreateAPICacheResponse = CreateAPICacheResponse'
-  { _cacrsApiCache ::
-      !(Maybe APICache),
-    _cacrsResponseStatus :: !Int
+  { apiCache ::
+      Lude.Maybe APICache,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAPICacheResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cacrsApiCache' - The @ApiCache@ object.
---
--- * 'cacrsResponseStatus' - -- | The response status code.
-createAPICacheResponse ::
-  -- | 'cacrsResponseStatus'
-  Int ->
+-- * 'apiCache' - The @ApiCache@ object.
+-- * 'responseStatus' - The response status code.
+mkCreateAPICacheResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAPICacheResponse
-createAPICacheResponse pResponseStatus_ =
+mkCreateAPICacheResponse pResponseStatus_ =
   CreateAPICacheResponse'
-    { _cacrsApiCache = Nothing,
-      _cacrsResponseStatus = pResponseStatus_
+    { apiCache = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ApiCache@ object.
-cacrsApiCache :: Lens' CreateAPICacheResponse (Maybe APICache)
-cacrsApiCache = lens _cacrsApiCache (\s a -> s {_cacrsApiCache = a})
+--
+-- /Note:/ Consider using 'apiCache' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacrsApiCache :: Lens.Lens' CreateAPICacheResponse (Lude.Maybe APICache)
+cacrsApiCache = Lens.lens (apiCache :: CreateAPICacheResponse -> Lude.Maybe APICache) (\s a -> s {apiCache = a} :: CreateAPICacheResponse)
+{-# DEPRECATED cacrsApiCache "Use generic-lens or generic-optics with 'apiCache' instead." #-}
 
--- | -- | The response status code.
-cacrsResponseStatus :: Lens' CreateAPICacheResponse Int
-cacrsResponseStatus = lens _cacrsResponseStatus (\s a -> s {_cacrsResponseStatus = a})
-
-instance NFData CreateAPICacheResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacrsResponseStatus :: Lens.Lens' CreateAPICacheResponse Lude.Int
+cacrsResponseStatus = Lens.lens (responseStatus :: CreateAPICacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAPICacheResponse)
+{-# DEPRECATED cacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

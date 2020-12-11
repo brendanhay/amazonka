@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a launch template. A launch template contains the parameters to launch an instance. When you launch an instance using 'RunInstances' , you can specify a launch template instead of providing the launch parameters in the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launching an instance from a launch template> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.CreateLaunchTemplate
-  ( -- * Creating a Request
-    createLaunchTemplate,
-    CreateLaunchTemplate,
+  ( -- * Creating a request
+    CreateLaunchTemplate (..),
+    mkCreateLaunchTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cltClientToken,
     cltVersionDescription,
     cltTagSpecifications,
@@ -31,11 +26,11 @@ module Network.AWS.EC2.CreateLaunchTemplate
     cltLaunchTemplateName,
     cltLaunchTemplateData,
 
-    -- * Destructuring the Response
-    createLaunchTemplateResponse,
-    CreateLaunchTemplateResponse,
+    -- * Destructuring the response
+    CreateLaunchTemplateResponse (..),
+    mkCreateLaunchTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cltrsWarning,
     cltrsLaunchTemplate,
     cltrsResponseStatus,
@@ -43,155 +38,183 @@ module Network.AWS.EC2.CreateLaunchTemplate
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createLaunchTemplate' smart constructor.
+-- | /See:/ 'mkCreateLaunchTemplate' smart constructor.
 data CreateLaunchTemplate = CreateLaunchTemplate'
-  { _cltClientToken ::
-      !(Maybe Text),
-    _cltVersionDescription :: !(Maybe Text),
-    _cltTagSpecifications ::
-      !(Maybe [TagSpecification]),
-    _cltDryRun :: !(Maybe Bool),
-    _cltLaunchTemplateName :: !Text,
-    _cltLaunchTemplateData ::
-      !RequestLaunchTemplateData
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    versionDescription :: Lude.Maybe Lude.Text,
+    tagSpecifications ::
+      Lude.Maybe [TagSpecification],
+    dryRun :: Lude.Maybe Lude.Bool,
+    launchTemplateName :: Lude.Text,
+    launchTemplateData :: RequestLaunchTemplateData
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLaunchTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
--- * 'cltClientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraint: Maximum 128 ASCII characters.
---
--- * 'cltVersionDescription' - A description for the first version of the launch template.
---
--- * 'cltTagSpecifications' - The tags to apply to the launch template during creation.
---
--- * 'cltDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'cltLaunchTemplateName' - A name for the launch template.
---
--- * 'cltLaunchTemplateData' - The information for the launch template.
-createLaunchTemplate ::
-  -- | 'cltLaunchTemplateName'
-  Text ->
-  -- | 'cltLaunchTemplateData'
+-- Constraint: Maximum 128 ASCII characters.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'launchTemplateData' - The information for the launch template.
+-- * 'launchTemplateName' - A name for the launch template.
+-- * 'tagSpecifications' - The tags to apply to the launch template during creation.
+-- * 'versionDescription' - A description for the first version of the launch template.
+mkCreateLaunchTemplate ::
+  -- | 'launchTemplateName'
+  Lude.Text ->
+  -- | 'launchTemplateData'
   RequestLaunchTemplateData ->
   CreateLaunchTemplate
-createLaunchTemplate pLaunchTemplateName_ pLaunchTemplateData_ =
+mkCreateLaunchTemplate pLaunchTemplateName_ pLaunchTemplateData_ =
   CreateLaunchTemplate'
-    { _cltClientToken = Nothing,
-      _cltVersionDescription = Nothing,
-      _cltTagSpecifications = Nothing,
-      _cltDryRun = Nothing,
-      _cltLaunchTemplateName = pLaunchTemplateName_,
-      _cltLaunchTemplateData = pLaunchTemplateData_
+    { clientToken = Lude.Nothing,
+      versionDescription = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      launchTemplateName = pLaunchTemplateName_,
+      launchTemplateData = pLaunchTemplateData_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> . Constraint: Maximum 128 ASCII characters.
-cltClientToken :: Lens' CreateLaunchTemplate (Maybe Text)
-cltClientToken = lens _cltClientToken (\s a -> s {_cltClientToken = a})
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+--
+-- Constraint: Maximum 128 ASCII characters.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltClientToken :: Lens.Lens' CreateLaunchTemplate (Lude.Maybe Lude.Text)
+cltClientToken = Lens.lens (clientToken :: CreateLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateLaunchTemplate)
+{-# DEPRECATED cltClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | A description for the first version of the launch template.
-cltVersionDescription :: Lens' CreateLaunchTemplate (Maybe Text)
-cltVersionDescription = lens _cltVersionDescription (\s a -> s {_cltVersionDescription = a})
+--
+-- /Note:/ Consider using 'versionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltVersionDescription :: Lens.Lens' CreateLaunchTemplate (Lude.Maybe Lude.Text)
+cltVersionDescription = Lens.lens (versionDescription :: CreateLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {versionDescription = a} :: CreateLaunchTemplate)
+{-# DEPRECATED cltVersionDescription "Use generic-lens or generic-optics with 'versionDescription' instead." #-}
 
 -- | The tags to apply to the launch template during creation.
-cltTagSpecifications :: Lens' CreateLaunchTemplate [TagSpecification]
-cltTagSpecifications = lens _cltTagSpecifications (\s a -> s {_cltTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltTagSpecifications :: Lens.Lens' CreateLaunchTemplate (Lude.Maybe [TagSpecification])
+cltTagSpecifications = Lens.lens (tagSpecifications :: CreateLaunchTemplate -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateLaunchTemplate)
+{-# DEPRECATED cltTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cltDryRun :: Lens' CreateLaunchTemplate (Maybe Bool)
-cltDryRun = lens _cltDryRun (\s a -> s {_cltDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltDryRun :: Lens.Lens' CreateLaunchTemplate (Lude.Maybe Lude.Bool)
+cltDryRun = Lens.lens (dryRun :: CreateLaunchTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateLaunchTemplate)
+{-# DEPRECATED cltDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | A name for the launch template.
-cltLaunchTemplateName :: Lens' CreateLaunchTemplate Text
-cltLaunchTemplateName = lens _cltLaunchTemplateName (\s a -> s {_cltLaunchTemplateName = a})
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltLaunchTemplateName :: Lens.Lens' CreateLaunchTemplate Lude.Text
+cltLaunchTemplateName = Lens.lens (launchTemplateName :: CreateLaunchTemplate -> Lude.Text) (\s a -> s {launchTemplateName = a} :: CreateLaunchTemplate)
+{-# DEPRECATED cltLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The information for the launch template.
-cltLaunchTemplateData :: Lens' CreateLaunchTemplate RequestLaunchTemplateData
-cltLaunchTemplateData = lens _cltLaunchTemplateData (\s a -> s {_cltLaunchTemplateData = a})
+--
+-- /Note:/ Consider using 'launchTemplateData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltLaunchTemplateData :: Lens.Lens' CreateLaunchTemplate RequestLaunchTemplateData
+cltLaunchTemplateData = Lens.lens (launchTemplateData :: CreateLaunchTemplate -> RequestLaunchTemplateData) (\s a -> s {launchTemplateData = a} :: CreateLaunchTemplate)
+{-# DEPRECATED cltLaunchTemplateData "Use generic-lens or generic-optics with 'launchTemplateData' instead." #-}
 
-instance AWSRequest CreateLaunchTemplate where
+instance Lude.AWSRequest CreateLaunchTemplate where
   type Rs CreateLaunchTemplate = CreateLaunchTemplateResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateLaunchTemplateResponse'
-            <$> (x .@? "warning")
-            <*> (x .@? "launchTemplate")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "warning")
+            Lude.<*> (x Lude..@? "launchTemplate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateLaunchTemplate
+instance Lude.ToHeaders CreateLaunchTemplate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateLaunchTemplate
+instance Lude.ToPath CreateLaunchTemplate where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateLaunchTemplate where
-  toHeaders = const mempty
-
-instance ToPath CreateLaunchTemplate where
-  toPath = const "/"
-
-instance ToQuery CreateLaunchTemplate where
+instance Lude.ToQuery CreateLaunchTemplate where
   toQuery CreateLaunchTemplate' {..} =
-    mconcat
-      [ "Action" =: ("CreateLaunchTemplate" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "ClientToken" =: _cltClientToken,
-        "VersionDescription" =: _cltVersionDescription,
-        toQuery (toQueryList "TagSpecification" <$> _cltTagSpecifications),
-        "DryRun" =: _cltDryRun,
-        "LaunchTemplateName" =: _cltLaunchTemplateName,
-        "LaunchTemplateData" =: _cltLaunchTemplateData
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateLaunchTemplate" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "ClientToken" Lude.=: clientToken,
+        "VersionDescription" Lude.=: versionDescription,
+        Lude.toQuery
+          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "DryRun" Lude.=: dryRun,
+        "LaunchTemplateName" Lude.=: launchTemplateName,
+        "LaunchTemplateData" Lude.=: launchTemplateData
       ]
 
--- | /See:/ 'createLaunchTemplateResponse' smart constructor.
+-- | /See:/ 'mkCreateLaunchTemplateResponse' smart constructor.
 data CreateLaunchTemplateResponse = CreateLaunchTemplateResponse'
-  { _cltrsWarning ::
-      !(Maybe ValidationWarning),
-    _cltrsLaunchTemplate ::
-      !(Maybe LaunchTemplate),
-    _cltrsResponseStatus :: !Int
+  { warning ::
+      Lude.Maybe ValidationWarning,
+    launchTemplate ::
+      Lude.Maybe LaunchTemplate,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLaunchTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cltrsWarning' - If the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.
---
--- * 'cltrsLaunchTemplate' - Information about the launch template.
---
--- * 'cltrsResponseStatus' - -- | The response status code.
-createLaunchTemplateResponse ::
-  -- | 'cltrsResponseStatus'
-  Int ->
+-- * 'launchTemplate' - Information about the launch template.
+-- * 'responseStatus' - The response status code.
+-- * 'warning' - If the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.
+mkCreateLaunchTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateLaunchTemplateResponse
-createLaunchTemplateResponse pResponseStatus_ =
+mkCreateLaunchTemplateResponse pResponseStatus_ =
   CreateLaunchTemplateResponse'
-    { _cltrsWarning = Nothing,
-      _cltrsLaunchTemplate = Nothing,
-      _cltrsResponseStatus = pResponseStatus_
+    { warning = Lude.Nothing,
+      launchTemplate = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.
-cltrsWarning :: Lens' CreateLaunchTemplateResponse (Maybe ValidationWarning)
-cltrsWarning = lens _cltrsWarning (\s a -> s {_cltrsWarning = a})
+--
+-- /Note:/ Consider using 'warning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltrsWarning :: Lens.Lens' CreateLaunchTemplateResponse (Lude.Maybe ValidationWarning)
+cltrsWarning = Lens.lens (warning :: CreateLaunchTemplateResponse -> Lude.Maybe ValidationWarning) (\s a -> s {warning = a} :: CreateLaunchTemplateResponse)
+{-# DEPRECATED cltrsWarning "Use generic-lens or generic-optics with 'warning' instead." #-}
 
 -- | Information about the launch template.
-cltrsLaunchTemplate :: Lens' CreateLaunchTemplateResponse (Maybe LaunchTemplate)
-cltrsLaunchTemplate = lens _cltrsLaunchTemplate (\s a -> s {_cltrsLaunchTemplate = a})
+--
+-- /Note:/ Consider using 'launchTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltrsLaunchTemplate :: Lens.Lens' CreateLaunchTemplateResponse (Lude.Maybe LaunchTemplate)
+cltrsLaunchTemplate = Lens.lens (launchTemplate :: CreateLaunchTemplateResponse -> Lude.Maybe LaunchTemplate) (\s a -> s {launchTemplate = a} :: CreateLaunchTemplateResponse)
+{-# DEPRECATED cltrsLaunchTemplate "Use generic-lens or generic-optics with 'launchTemplate' instead." #-}
 
--- | -- | The response status code.
-cltrsResponseStatus :: Lens' CreateLaunchTemplateResponse Int
-cltrsResponseStatus = lens _cltrsResponseStatus (\s a -> s {_cltrsResponseStatus = a})
-
-instance NFData CreateLaunchTemplateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltrsResponseStatus :: Lens.Lens' CreateLaunchTemplateResponse Lude.Int
+cltrsResponseStatus = Lens.lens (responseStatus :: CreateLaunchTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLaunchTemplateResponse)
+{-# DEPRECATED cltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

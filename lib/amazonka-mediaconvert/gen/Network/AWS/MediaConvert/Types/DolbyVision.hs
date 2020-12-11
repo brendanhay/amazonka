@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DolbyVision where
+module Network.AWS.MediaConvert.Types.DolbyVision
+  ( DolbyVision (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkDolbyVision,
+
+    -- * Lenses
+    dvProfile,
+    dvL6Mode,
+    dvL6Metadata,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.DolbyVisionLevel6Metadata
 import Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode
 import Network.AWS.MediaConvert.Types.DolbyVisionProfile
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for Dolby Vision
 --
--- /See:/ 'dolbyVision' smart constructor.
+-- /See:/ 'mkDolbyVision' smart constructor.
 data DolbyVision = DolbyVision'
-  { _dvProfile ::
-      !(Maybe DolbyVisionProfile),
-    _dvL6Mode :: !(Maybe DolbyVisionLevel6Mode),
-    _dvL6Metadata :: !(Maybe DolbyVisionLevel6Metadata)
+  { profile ::
+      Lude.Maybe DolbyVisionProfile,
+    l6Mode :: Lude.Maybe DolbyVisionLevel6Mode,
+    l6Metadata :: Lude.Maybe DolbyVisionLevel6Metadata
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DolbyVision' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvProfile' - In the current MediaConvert implementation, the Dolby Vision profile is always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby Vision frame interleaved data.
---
--- * 'dvL6Mode' - Use Dolby Vision Mode to choose how the service will handle Dolby Vision MaxCLL and MaxFALL properies.
---
--- * 'dvL6Metadata' - Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
-dolbyVision ::
+-- * 'l6Metadata' - Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
+-- * 'l6Mode' - Use Dolby Vision Mode to choose how the service will handle Dolby Vision MaxCLL and MaxFALL properies.
+-- * 'profile' - In the current MediaConvert implementation, the Dolby Vision profile is always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby Vision frame interleaved data.
+mkDolbyVision ::
   DolbyVision
-dolbyVision =
+mkDolbyVision =
   DolbyVision'
-    { _dvProfile = Nothing,
-      _dvL6Mode = Nothing,
-      _dvL6Metadata = Nothing
+    { profile = Lude.Nothing,
+      l6Mode = Lude.Nothing,
+      l6Metadata = Lude.Nothing
     }
 
 -- | In the current MediaConvert implementation, the Dolby Vision profile is always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby Vision frame interleaved data.
-dvProfile :: Lens' DolbyVision (Maybe DolbyVisionProfile)
-dvProfile = lens _dvProfile (\s a -> s {_dvProfile = a})
+--
+-- /Note:/ Consider using 'profile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvProfile :: Lens.Lens' DolbyVision (Lude.Maybe DolbyVisionProfile)
+dvProfile = Lens.lens (profile :: DolbyVision -> Lude.Maybe DolbyVisionProfile) (\s a -> s {profile = a} :: DolbyVision)
+{-# DEPRECATED dvProfile "Use generic-lens or generic-optics with 'profile' instead." #-}
 
 -- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision MaxCLL and MaxFALL properies.
-dvL6Mode :: Lens' DolbyVision (Maybe DolbyVisionLevel6Mode)
-dvL6Mode = lens _dvL6Mode (\s a -> s {_dvL6Mode = a})
+--
+-- /Note:/ Consider using 'l6Mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvL6Mode :: Lens.Lens' DolbyVision (Lude.Maybe DolbyVisionLevel6Mode)
+dvL6Mode = Lens.lens (l6Mode :: DolbyVision -> Lude.Maybe DolbyVisionLevel6Mode) (\s a -> s {l6Mode = a} :: DolbyVision)
+{-# DEPRECATED dvL6Mode "Use generic-lens or generic-optics with 'l6Mode' instead." #-}
 
 -- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
-dvL6Metadata :: Lens' DolbyVision (Maybe DolbyVisionLevel6Metadata)
-dvL6Metadata = lens _dvL6Metadata (\s a -> s {_dvL6Metadata = a})
+--
+-- /Note:/ Consider using 'l6Metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvL6Metadata :: Lens.Lens' DolbyVision (Lude.Maybe DolbyVisionLevel6Metadata)
+dvL6Metadata = Lens.lens (l6Metadata :: DolbyVision -> Lude.Maybe DolbyVisionLevel6Metadata) (\s a -> s {l6Metadata = a} :: DolbyVision)
+{-# DEPRECATED dvL6Metadata "Use generic-lens or generic-optics with 'l6Metadata' instead." #-}
 
-instance FromJSON DolbyVision where
+instance Lude.FromJSON DolbyVision where
   parseJSON =
-    withObject
+    Lude.withObject
       "DolbyVision"
       ( \x ->
           DolbyVision'
-            <$> (x .:? "profile") <*> (x .:? "l6Mode") <*> (x .:? "l6Metadata")
+            Lude.<$> (x Lude..:? "profile")
+            Lude.<*> (x Lude..:? "l6Mode")
+            Lude.<*> (x Lude..:? "l6Metadata")
       )
 
-instance Hashable DolbyVision
-
-instance NFData DolbyVision
-
-instance ToJSON DolbyVision where
+instance Lude.ToJSON DolbyVision where
   toJSON DolbyVision' {..} =
-    object
-      ( catMaybes
-          [ ("profile" .=) <$> _dvProfile,
-            ("l6Mode" .=) <$> _dvL6Mode,
-            ("l6Metadata" .=) <$> _dvL6Metadata
+    Lude.object
+      ( Lude.catMaybes
+          [ ("profile" Lude..=) Lude.<$> profile,
+            ("l6Mode" Lude..=) Lude.<$> l6Mode,
+            ("l6Metadata" Lude..=) Lude.<$> l6Metadata
           ]
       )

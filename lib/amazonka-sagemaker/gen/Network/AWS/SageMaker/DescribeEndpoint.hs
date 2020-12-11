@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns the description of an endpoint.
 module Network.AWS.SageMaker.DescribeEndpoint
-  ( -- * Creating a Request
-    describeEndpoint,
-    DescribeEndpoint,
+  ( -- * Creating a request
+    DescribeEndpoint (..),
+    mkDescribeEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dEndpointName,
 
-    -- * Destructuring the Response
-    describeEndpointResponse,
-    DescribeEndpointResponse,
+    -- * Destructuring the response
+    DescribeEndpointResponse (..),
+    mkDescribeEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dersFailureReason,
     dersProductionVariants,
     dersDataCaptureConfig,
@@ -44,135 +39,167 @@ module Network.AWS.SageMaker.DescribeEndpoint
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeEndpoint' smart constructor.
+-- | /See:/ 'mkDescribeEndpoint' smart constructor.
 newtype DescribeEndpoint = DescribeEndpoint'
-  { _dEndpointName ::
-      Text
+  { endpointName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dEndpointName' - The name of the endpoint.
-describeEndpoint ::
-  -- | 'dEndpointName'
-  Text ->
+-- * 'endpointName' - The name of the endpoint.
+mkDescribeEndpoint ::
+  -- | 'endpointName'
+  Lude.Text ->
   DescribeEndpoint
-describeEndpoint pEndpointName_ =
-  DescribeEndpoint' {_dEndpointName = pEndpointName_}
+mkDescribeEndpoint pEndpointName_ =
+  DescribeEndpoint' {endpointName = pEndpointName_}
 
 -- | The name of the endpoint.
-dEndpointName :: Lens' DescribeEndpoint Text
-dEndpointName = lens _dEndpointName (\s a -> s {_dEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dEndpointName :: Lens.Lens' DescribeEndpoint Lude.Text
+dEndpointName = Lens.lens (endpointName :: DescribeEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: DescribeEndpoint)
+{-# DEPRECATED dEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
-instance AWSRequest DescribeEndpoint where
+instance Lude.AWSRequest DescribeEndpoint where
   type Rs DescribeEndpoint = DescribeEndpointResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEndpointResponse'
-            <$> (x .?> "FailureReason")
-            <*> (x .?> "ProductionVariants")
-            <*> (x .?> "DataCaptureConfig")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "EndpointName")
-            <*> (x .:> "EndpointArn")
-            <*> (x .:> "EndpointConfigName")
-            <*> (x .:> "EndpointStatus")
-            <*> (x .:> "CreationTime")
-            <*> (x .:> "LastModifiedTime")
+            Lude.<$> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "ProductionVariants")
+            Lude.<*> (x Lude..?> "DataCaptureConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "EndpointName")
+            Lude.<*> (x Lude..:> "EndpointArn")
+            Lude.<*> (x Lude..:> "EndpointConfigName")
+            Lude.<*> (x Lude..:> "EndpointStatus")
+            Lude.<*> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "LastModifiedTime")
       )
 
-instance Hashable DescribeEndpoint
-
-instance NFData DescribeEndpoint
-
-instance ToHeaders DescribeEndpoint where
+instance Lude.ToHeaders DescribeEndpoint where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DescribeEndpoint" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DescribeEndpoint" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEndpoint where
+instance Lude.ToJSON DescribeEndpoint where
   toJSON DescribeEndpoint' {..} =
-    object (catMaybes [Just ("EndpointName" .= _dEndpointName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("EndpointName" Lude..= endpointName)])
 
-instance ToPath DescribeEndpoint where
-  toPath = const "/"
+instance Lude.ToPath DescribeEndpoint where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEndpoint where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEndpoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEndpointResponse' smart constructor.
+-- | /See:/ 'mkDescribeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
-  { _dersFailureReason ::
-      !(Maybe Text),
-    _dersProductionVariants ::
-      !(Maybe (List1 ProductionVariantSummary)),
-    _dersDataCaptureConfig ::
-      !(Maybe DataCaptureConfigSummary),
-    _dersResponseStatus :: !Int,
-    _dersEndpointName :: !Text,
-    _dersEndpointARN :: !Text,
-    _dersEndpointConfigName :: !Text,
-    _dersEndpointStatus :: !EndpointStatus,
-    _dersCreationTime :: !POSIX,
-    _dersLastModifiedTime :: !POSIX
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    productionVariants ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            ProductionVariantSummary
+        ),
+    dataCaptureConfig ::
+      Lude.Maybe DataCaptureConfigSummary,
+    responseStatus :: Lude.Int,
+    endpointName :: Lude.Text,
+    endpointARN :: Lude.Text,
+    endpointConfigName :: Lude.Text,
+    endpointStatus :: EndpointStatus,
+    creationTime :: Lude.Timestamp,
+    lastModifiedTime :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'creationTime' - A timestamp that shows when the endpoint was created.
+-- * 'dataCaptureConfig' - Undocumented field.
+-- * 'endpointARN' - The Amazon Resource Name (ARN) of the endpoint.
+-- * 'endpointConfigName' - The name of the endpoint configuration associated with this endpoint.
+-- * 'endpointName' - Name of the endpoint.
+-- * 'endpointStatus' - The status of the endpoint.
 --
--- * 'dersFailureReason' - If the status of the endpoint is @Failed@ , the reason why it failed.
 --
--- * 'dersProductionVariants' - An array of 'ProductionVariantSummary' objects, one for each model hosted behind this endpoint.
+--     * @OutOfService@ : Endpoint is not available to take incoming requests.
 --
--- * 'dersDataCaptureConfig' - Undocumented member.
 --
--- * 'dersResponseStatus' - -- | The response status code.
+--     * @Creating@ : 'CreateEndpoint' is executing.
 --
--- * 'dersEndpointName' - Name of the endpoint.
 --
--- * 'dersEndpointARN' - The Amazon Resource Name (ARN) of the endpoint.
+--     * @Updating@ : 'UpdateEndpoint' or 'UpdateEndpointWeightsAndCapacities' is executing.
 --
--- * 'dersEndpointConfigName' - The name of the endpoint configuration associated with this endpoint.
 --
--- * 'dersEndpointStatus' - The status of the endpoint.     * @OutOfService@ : Endpoint is not available to take incoming requests.     * @Creating@ : 'CreateEndpoint' is executing.     * @Updating@ : 'UpdateEndpoint' or 'UpdateEndpointWeightsAndCapacities' is executing.     * @SystemUpdating@ : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.     * @RollingBack@ : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an @InService@ status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an 'UpdateEndpointWeightsAndCapacities' call or when the 'UpdateEndpointWeightsAndCapacities' operation is called explicitly.     * @InService@ : Endpoint is available to process incoming requests.     * @Deleting@ : 'DeleteEndpoint' is executing.     * @Failed@ : Endpoint could not be created, updated, or re-scaled. Use 'DescribeEndpointOutput$FailureReason' for information about the failure. 'DeleteEndpoint' is the only operation that can be performed on a failed endpoint.
+--     * @SystemUpdating@ : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.
 --
--- * 'dersCreationTime' - A timestamp that shows when the endpoint was created.
 --
--- * 'dersLastModifiedTime' - A timestamp that shows when the endpoint was last modified.
-describeEndpointResponse ::
-  -- | 'dersResponseStatus'
-  Int ->
-  -- | 'dersEndpointName'
-  Text ->
-  -- | 'dersEndpointARN'
-  Text ->
-  -- | 'dersEndpointConfigName'
-  Text ->
-  -- | 'dersEndpointStatus'
+--     * @RollingBack@ : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an @InService@ status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an 'UpdateEndpointWeightsAndCapacities' call or when the 'UpdateEndpointWeightsAndCapacities' operation is called explicitly.
+--
+--
+--     * @InService@ : Endpoint is available to process incoming requests.
+--
+--
+--     * @Deleting@ : 'DeleteEndpoint' is executing.
+--
+--
+--     * @Failed@ : Endpoint could not be created, updated, or re-scaled. Use 'DescribeEndpointOutput$FailureReason' for information about the failure. 'DeleteEndpoint' is the only operation that can be performed on a failed endpoint.
+--
+--
+-- * 'failureReason' - If the status of the endpoint is @Failed@ , the reason why it failed.
+-- * 'lastModifiedTime' - A timestamp that shows when the endpoint was last modified.
+-- * 'productionVariants' - An array of 'ProductionVariantSummary' objects, one for each model hosted behind this endpoint.
+-- * 'responseStatus' - The response status code.
+mkDescribeEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'endpointName'
+  Lude.Text ->
+  -- | 'endpointARN'
+  Lude.Text ->
+  -- | 'endpointConfigName'
+  Lude.Text ->
+  -- | 'endpointStatus'
   EndpointStatus ->
-  -- | 'dersCreationTime'
-  UTCTime ->
-  -- | 'dersLastModifiedTime'
-  UTCTime ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'lastModifiedTime'
+  Lude.Timestamp ->
   DescribeEndpointResponse
-describeEndpointResponse
+mkDescribeEndpointResponse
   pResponseStatus_
   pEndpointName_
   pEndpointARN_
@@ -181,56 +208,110 @@ describeEndpointResponse
   pCreationTime_
   pLastModifiedTime_ =
     DescribeEndpointResponse'
-      { _dersFailureReason = Nothing,
-        _dersProductionVariants = Nothing,
-        _dersDataCaptureConfig = Nothing,
-        _dersResponseStatus = pResponseStatus_,
-        _dersEndpointName = pEndpointName_,
-        _dersEndpointARN = pEndpointARN_,
-        _dersEndpointConfigName = pEndpointConfigName_,
-        _dersEndpointStatus = pEndpointStatus_,
-        _dersCreationTime = _Time # pCreationTime_,
-        _dersLastModifiedTime = _Time # pLastModifiedTime_
+      { failureReason = Lude.Nothing,
+        productionVariants = Lude.Nothing,
+        dataCaptureConfig = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        endpointName = pEndpointName_,
+        endpointARN = pEndpointARN_,
+        endpointConfigName = pEndpointConfigName_,
+        endpointStatus = pEndpointStatus_,
+        creationTime = pCreationTime_,
+        lastModifiedTime = pLastModifiedTime_
       }
 
 -- | If the status of the endpoint is @Failed@ , the reason why it failed.
-dersFailureReason :: Lens' DescribeEndpointResponse (Maybe Text)
-dersFailureReason = lens _dersFailureReason (\s a -> s {_dersFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersFailureReason :: Lens.Lens' DescribeEndpointResponse (Lude.Maybe Lude.Text)
+dersFailureReason = Lens.lens (failureReason :: DescribeEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | An array of 'ProductionVariantSummary' objects, one for each model hosted behind this endpoint.
-dersProductionVariants :: Lens' DescribeEndpointResponse (Maybe (NonEmpty ProductionVariantSummary))
-dersProductionVariants = lens _dersProductionVariants (\s a -> s {_dersProductionVariants = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'productionVariants' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersProductionVariants :: Lens.Lens' DescribeEndpointResponse (Lude.Maybe (Lude.NonEmpty ProductionVariantSummary))
+dersProductionVariants = Lens.lens (productionVariants :: DescribeEndpointResponse -> Lude.Maybe (Lude.NonEmpty ProductionVariantSummary)) (\s a -> s {productionVariants = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersProductionVariants "Use generic-lens or generic-optics with 'productionVariants' instead." #-}
 
--- | Undocumented member.
-dersDataCaptureConfig :: Lens' DescribeEndpointResponse (Maybe DataCaptureConfigSummary)
-dersDataCaptureConfig = lens _dersDataCaptureConfig (\s a -> s {_dersDataCaptureConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dataCaptureConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersDataCaptureConfig :: Lens.Lens' DescribeEndpointResponse (Lude.Maybe DataCaptureConfigSummary)
+dersDataCaptureConfig = Lens.lens (dataCaptureConfig :: DescribeEndpointResponse -> Lude.Maybe DataCaptureConfigSummary) (\s a -> s {dataCaptureConfig = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersDataCaptureConfig "Use generic-lens or generic-optics with 'dataCaptureConfig' instead." #-}
 
--- | -- | The response status code.
-dersResponseStatus :: Lens' DescribeEndpointResponse Int
-dersResponseStatus = lens _dersResponseStatus (\s a -> s {_dersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersResponseStatus :: Lens.Lens' DescribeEndpointResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DescribeEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Name of the endpoint.
-dersEndpointName :: Lens' DescribeEndpointResponse Text
-dersEndpointName = lens _dersEndpointName (\s a -> s {_dersEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersEndpointName :: Lens.Lens' DescribeEndpointResponse Lude.Text
+dersEndpointName = Lens.lens (endpointName :: DescribeEndpointResponse -> Lude.Text) (\s a -> s {endpointName = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the endpoint.
-dersEndpointARN :: Lens' DescribeEndpointResponse Text
-dersEndpointARN = lens _dersEndpointARN (\s a -> s {_dersEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersEndpointARN :: Lens.Lens' DescribeEndpointResponse Lude.Text
+dersEndpointARN = Lens.lens (endpointARN :: DescribeEndpointResponse -> Lude.Text) (\s a -> s {endpointARN = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 -- | The name of the endpoint configuration associated with this endpoint.
-dersEndpointConfigName :: Lens' DescribeEndpointResponse Text
-dersEndpointConfigName = lens _dersEndpointConfigName (\s a -> s {_dersEndpointConfigName = a})
+--
+-- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersEndpointConfigName :: Lens.Lens' DescribeEndpointResponse Lude.Text
+dersEndpointConfigName = Lens.lens (endpointConfigName :: DescribeEndpointResponse -> Lude.Text) (\s a -> s {endpointConfigName = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
--- | The status of the endpoint.     * @OutOfService@ : Endpoint is not available to take incoming requests.     * @Creating@ : 'CreateEndpoint' is executing.     * @Updating@ : 'UpdateEndpoint' or 'UpdateEndpointWeightsAndCapacities' is executing.     * @SystemUpdating@ : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.     * @RollingBack@ : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an @InService@ status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an 'UpdateEndpointWeightsAndCapacities' call or when the 'UpdateEndpointWeightsAndCapacities' operation is called explicitly.     * @InService@ : Endpoint is available to process incoming requests.     * @Deleting@ : 'DeleteEndpoint' is executing.     * @Failed@ : Endpoint could not be created, updated, or re-scaled. Use 'DescribeEndpointOutput$FailureReason' for information about the failure. 'DeleteEndpoint' is the only operation that can be performed on a failed endpoint.
-dersEndpointStatus :: Lens' DescribeEndpointResponse EndpointStatus
-dersEndpointStatus = lens _dersEndpointStatus (\s a -> s {_dersEndpointStatus = a})
+-- | The status of the endpoint.
+--
+--
+--     * @OutOfService@ : Endpoint is not available to take incoming requests.
+--
+--
+--     * @Creating@ : 'CreateEndpoint' is executing.
+--
+--
+--     * @Updating@ : 'UpdateEndpoint' or 'UpdateEndpointWeightsAndCapacities' is executing.
+--
+--
+--     * @SystemUpdating@ : Endpoint is undergoing maintenance and cannot be updated or deleted or re-scaled until it has completed. This maintenance operation does not change any customer-specified values such as VPC config, KMS encryption, model, instance type, or instance count.
+--
+--
+--     * @RollingBack@ : Endpoint fails to scale up or down or change its variant weight and is in the process of rolling back to its previous configuration. Once the rollback completes, endpoint returns to an @InService@ status. This transitional status only applies to an endpoint that has autoscaling enabled and is undergoing variant weight or capacity changes as part of an 'UpdateEndpointWeightsAndCapacities' call or when the 'UpdateEndpointWeightsAndCapacities' operation is called explicitly.
+--
+--
+--     * @InService@ : Endpoint is available to process incoming requests.
+--
+--
+--     * @Deleting@ : 'DeleteEndpoint' is executing.
+--
+--
+--     * @Failed@ : Endpoint could not be created, updated, or re-scaled. Use 'DescribeEndpointOutput$FailureReason' for information about the failure. 'DeleteEndpoint' is the only operation that can be performed on a failed endpoint.
+--
+--
+--
+-- /Note:/ Consider using 'endpointStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersEndpointStatus :: Lens.Lens' DescribeEndpointResponse EndpointStatus
+dersEndpointStatus = Lens.lens (endpointStatus :: DescribeEndpointResponse -> EndpointStatus) (\s a -> s {endpointStatus = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersEndpointStatus "Use generic-lens or generic-optics with 'endpointStatus' instead." #-}
 
 -- | A timestamp that shows when the endpoint was created.
-dersCreationTime :: Lens' DescribeEndpointResponse UTCTime
-dersCreationTime = lens _dersCreationTime (\s a -> s {_dersCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersCreationTime :: Lens.Lens' DescribeEndpointResponse Lude.Timestamp
+dersCreationTime = Lens.lens (creationTime :: DescribeEndpointResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | A timestamp that shows when the endpoint was last modified.
-dersLastModifiedTime :: Lens' DescribeEndpointResponse UTCTime
-dersLastModifiedTime = lens _dersLastModifiedTime (\s a -> s {_dersLastModifiedTime = a}) . _Time
-
-instance NFData DescribeEndpointResponse
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersLastModifiedTime :: Lens.Lens' DescribeEndpointResponse Lude.Timestamp
+dersLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeEndpointResponse -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeEndpointResponse)
+{-# DEPRECATED dersLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}

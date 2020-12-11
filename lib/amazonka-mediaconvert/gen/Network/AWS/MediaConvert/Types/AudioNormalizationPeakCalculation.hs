@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation where
+module Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
+  ( AudioNormalizationPeakCalculation
+      ( AudioNormalizationPeakCalculation',
+        ANPCNone,
+        ANPCTruePeak
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
-data AudioNormalizationPeakCalculation
-  = ANPCNone
-  | ANPCTruePeak
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AudioNormalizationPeakCalculation = AudioNormalizationPeakCalculation' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AudioNormalizationPeakCalculation where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure ANPCNone
-      "true_peak" -> pure ANPCTruePeak
-      e ->
-        fromTextError $
-          "Failure parsing AudioNormalizationPeakCalculation from value: '" <> e
-            <> "'. Accepted values: none, true_peak"
+pattern ANPCNone :: AudioNormalizationPeakCalculation
+pattern ANPCNone = AudioNormalizationPeakCalculation' "NONE"
 
-instance ToText AudioNormalizationPeakCalculation where
-  toText = \case
-    ANPCNone -> "NONE"
-    ANPCTruePeak -> "TRUE_PEAK"
+pattern ANPCTruePeak :: AudioNormalizationPeakCalculation
+pattern ANPCTruePeak = AudioNormalizationPeakCalculation' "TRUE_PEAK"
 
-instance Hashable AudioNormalizationPeakCalculation
-
-instance NFData AudioNormalizationPeakCalculation
-
-instance ToByteString AudioNormalizationPeakCalculation
-
-instance ToQuery AudioNormalizationPeakCalculation
-
-instance ToHeader AudioNormalizationPeakCalculation
-
-instance ToJSON AudioNormalizationPeakCalculation where
-  toJSON = toJSONText
-
-instance FromJSON AudioNormalizationPeakCalculation where
-  parseJSON = parseJSONText "AudioNormalizationPeakCalculation"
+{-# COMPLETE
+  ANPCNone,
+  ANPCTruePeak,
+  AudioNormalizationPeakCalculation'
+  #-}

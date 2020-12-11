@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,25 +17,27 @@
 --
 --     * The job must have been created with the @targetSelection@ field set to "CONTINUOUS".
 --
+--
 --     * The job status must currently be "IN_PROGRESS".
+--
 --
 --     * The total number of targets associated with a job must not exceed 100.
 module Network.AWS.IoT.AssociateTargetsWithJob
-  ( -- * Creating a Request
-    associateTargetsWithJob,
-    AssociateTargetsWithJob,
+  ( -- * Creating a request
+    AssociateTargetsWithJob (..),
+    mkAssociateTargetsWithJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     atwjNamespaceId,
     atwjComment,
     atwjTargets,
     atwjJobId,
 
-    -- * Destructuring the Response
-    associateTargetsWithJobResponse,
-    AssociateTargetsWithJobResponse,
+    -- * Destructuring the response
+    AssociateTargetsWithJobResponse (..),
+    mkAssociateTargetsWithJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     atwjrsJobId,
     atwjrsJobARN,
     atwjrsDescription,
@@ -49,149 +46,176 @@ module Network.AWS.IoT.AssociateTargetsWithJob
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateTargetsWithJob' smart constructor.
+-- | /See:/ 'mkAssociateTargetsWithJob' smart constructor.
 data AssociateTargetsWithJob = AssociateTargetsWithJob'
-  { _atwjNamespaceId ::
-      !(Maybe Text),
-    _atwjComment :: !(Maybe Text),
-    _atwjTargets :: !(List1 Text),
-    _atwjJobId :: !Text
+  { namespaceId ::
+      Lude.Maybe Lude.Text,
+    comment :: Lude.Maybe Lude.Text,
+    targets :: Lude.NonEmpty Lude.Text,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTargetsWithJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'comment' - An optional comment string describing why the job was associated with the targets.
+-- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- * 'atwjNamespaceId' - The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
---
--- * 'atwjComment' - An optional comment string describing why the job was associated with the targets.
---
--- * 'atwjTargets' - A list of thing group ARNs that define the targets of the job.
---
--- * 'atwjJobId' - The unique identifier you assigned to this job when it was created.
-associateTargetsWithJob ::
-  -- | 'atwjTargets'
-  NonEmpty Text ->
-  -- | 'atwjJobId'
-  Text ->
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+-- * 'targets' - A list of thing group ARNs that define the targets of the job.
+mkAssociateTargetsWithJob ::
+  -- | 'targets'
+  Lude.NonEmpty Lude.Text ->
+  -- | 'jobId'
+  Lude.Text ->
   AssociateTargetsWithJob
-associateTargetsWithJob pTargets_ pJobId_ =
+mkAssociateTargetsWithJob pTargets_ pJobId_ =
   AssociateTargetsWithJob'
-    { _atwjNamespaceId = Nothing,
-      _atwjComment = Nothing,
-      _atwjTargets = _List1 # pTargets_,
-      _atwjJobId = pJobId_
+    { namespaceId = Lude.Nothing,
+      comment = Lude.Nothing,
+      targets = pTargets_,
+      jobId = pJobId_
     }
 
--- | The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
-atwjNamespaceId :: Lens' AssociateTargetsWithJob (Maybe Text)
-atwjNamespaceId = lens _atwjNamespaceId (\s a -> s {_atwjNamespaceId = a})
+-- | The namespace used to indicate that a job is a customer-managed job.
+--
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+--
+-- /Note:/ Consider using 'namespaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atwjNamespaceId :: Lens.Lens' AssociateTargetsWithJob (Lude.Maybe Lude.Text)
+atwjNamespaceId = Lens.lens (namespaceId :: AssociateTargetsWithJob -> Lude.Maybe Lude.Text) (\s a -> s {namespaceId = a} :: AssociateTargetsWithJob)
+{-# DEPRECATED atwjNamespaceId "Use generic-lens or generic-optics with 'namespaceId' instead." #-}
 
 -- | An optional comment string describing why the job was associated with the targets.
-atwjComment :: Lens' AssociateTargetsWithJob (Maybe Text)
-atwjComment = lens _atwjComment (\s a -> s {_atwjComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atwjComment :: Lens.Lens' AssociateTargetsWithJob (Lude.Maybe Lude.Text)
+atwjComment = Lens.lens (comment :: AssociateTargetsWithJob -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: AssociateTargetsWithJob)
+{-# DEPRECATED atwjComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | A list of thing group ARNs that define the targets of the job.
-atwjTargets :: Lens' AssociateTargetsWithJob (NonEmpty Text)
-atwjTargets = lens _atwjTargets (\s a -> s {_atwjTargets = a}) . _List1
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atwjTargets :: Lens.Lens' AssociateTargetsWithJob (Lude.NonEmpty Lude.Text)
+atwjTargets = Lens.lens (targets :: AssociateTargetsWithJob -> Lude.NonEmpty Lude.Text) (\s a -> s {targets = a} :: AssociateTargetsWithJob)
+{-# DEPRECATED atwjTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The unique identifier you assigned to this job when it was created.
-atwjJobId :: Lens' AssociateTargetsWithJob Text
-atwjJobId = lens _atwjJobId (\s a -> s {_atwjJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atwjJobId :: Lens.Lens' AssociateTargetsWithJob Lude.Text
+atwjJobId = Lens.lens (jobId :: AssociateTargetsWithJob -> Lude.Text) (\s a -> s {jobId = a} :: AssociateTargetsWithJob)
+{-# DEPRECATED atwjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest AssociateTargetsWithJob where
+instance Lude.AWSRequest AssociateTargetsWithJob where
   type Rs AssociateTargetsWithJob = AssociateTargetsWithJobResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AssociateTargetsWithJobResponse'
-            <$> (x .?> "jobId")
-            <*> (x .?> "jobArn")
-            <*> (x .?> "description")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobId")
+            Lude.<*> (x Lude..?> "jobArn")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AssociateTargetsWithJob
+instance Lude.ToHeaders AssociateTargetsWithJob where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AssociateTargetsWithJob
-
-instance ToHeaders AssociateTargetsWithJob where
-  toHeaders = const mempty
-
-instance ToJSON AssociateTargetsWithJob where
+instance Lude.ToJSON AssociateTargetsWithJob where
   toJSON AssociateTargetsWithJob' {..} =
-    object
-      ( catMaybes
-          [ ("comment" .=) <$> _atwjComment,
-            Just ("targets" .= _atwjTargets)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("comment" Lude..=) Lude.<$> comment,
+            Lude.Just ("targets" Lude..= targets)
           ]
       )
 
-instance ToPath AssociateTargetsWithJob where
+instance Lude.ToPath AssociateTargetsWithJob where
   toPath AssociateTargetsWithJob' {..} =
-    mconcat ["/jobs/", toBS _atwjJobId, "/targets"]
+    Lude.mconcat ["/jobs/", Lude.toBS jobId, "/targets"]
 
-instance ToQuery AssociateTargetsWithJob where
+instance Lude.ToQuery AssociateTargetsWithJob where
   toQuery AssociateTargetsWithJob' {..} =
-    mconcat ["namespaceId" =: _atwjNamespaceId]
+    Lude.mconcat ["namespaceId" Lude.=: namespaceId]
 
--- | /See:/ 'associateTargetsWithJobResponse' smart constructor.
+-- | /See:/ 'mkAssociateTargetsWithJobResponse' smart constructor.
 data AssociateTargetsWithJobResponse = AssociateTargetsWithJobResponse'
-  { _atwjrsJobId ::
-      !(Maybe Text),
-    _atwjrsJobARN ::
-      !(Maybe Text),
-    _atwjrsDescription ::
-      !(Maybe Text),
-    _atwjrsResponseStatus ::
-      !Int
+  { jobId ::
+      Lude.Maybe Lude.Text,
+    jobARN ::
+      Lude.Maybe Lude.Text,
+    description ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTargetsWithJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atwjrsJobId' - The unique identifier you assigned to this job when it was created.
---
--- * 'atwjrsJobARN' - An ARN identifying the job.
---
--- * 'atwjrsDescription' - A short text description of the job.
---
--- * 'atwjrsResponseStatus' - -- | The response status code.
-associateTargetsWithJobResponse ::
-  -- | 'atwjrsResponseStatus'
-  Int ->
+-- * 'description' - A short text description of the job.
+-- * 'jobARN' - An ARN identifying the job.
+-- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'responseStatus' - The response status code.
+mkAssociateTargetsWithJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateTargetsWithJobResponse
-associateTargetsWithJobResponse pResponseStatus_ =
+mkAssociateTargetsWithJobResponse pResponseStatus_ =
   AssociateTargetsWithJobResponse'
-    { _atwjrsJobId = Nothing,
-      _atwjrsJobARN = Nothing,
-      _atwjrsDescription = Nothing,
-      _atwjrsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobARN = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique identifier you assigned to this job when it was created.
-atwjrsJobId :: Lens' AssociateTargetsWithJobResponse (Maybe Text)
-atwjrsJobId = lens _atwjrsJobId (\s a -> s {_atwjrsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atwjrsJobId :: Lens.Lens' AssociateTargetsWithJobResponse (Lude.Maybe Lude.Text)
+atwjrsJobId = Lens.lens (jobId :: AssociateTargetsWithJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: AssociateTargetsWithJobResponse)
+{-# DEPRECATED atwjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | An ARN identifying the job.
-atwjrsJobARN :: Lens' AssociateTargetsWithJobResponse (Maybe Text)
-atwjrsJobARN = lens _atwjrsJobARN (\s a -> s {_atwjrsJobARN = a})
+--
+-- /Note:/ Consider using 'jobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atwjrsJobARN :: Lens.Lens' AssociateTargetsWithJobResponse (Lude.Maybe Lude.Text)
+atwjrsJobARN = Lens.lens (jobARN :: AssociateTargetsWithJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobARN = a} :: AssociateTargetsWithJobResponse)
+{-# DEPRECATED atwjrsJobARN "Use generic-lens or generic-optics with 'jobARN' instead." #-}
 
 -- | A short text description of the job.
-atwjrsDescription :: Lens' AssociateTargetsWithJobResponse (Maybe Text)
-atwjrsDescription = lens _atwjrsDescription (\s a -> s {_atwjrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atwjrsDescription :: Lens.Lens' AssociateTargetsWithJobResponse (Lude.Maybe Lude.Text)
+atwjrsDescription = Lens.lens (description :: AssociateTargetsWithJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AssociateTargetsWithJobResponse)
+{-# DEPRECATED atwjrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-atwjrsResponseStatus :: Lens' AssociateTargetsWithJobResponse Int
-atwjrsResponseStatus = lens _atwjrsResponseStatus (\s a -> s {_atwjrsResponseStatus = a})
-
-instance NFData AssociateTargetsWithJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atwjrsResponseStatus :: Lens.Lens' AssociateTargetsWithJobResponse Lude.Int
+atwjrsResponseStatus = Lens.lens (responseStatus :: AssociateTargetsWithJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateTargetsWithJobResponse)
+{-# DEPRECATED atwjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

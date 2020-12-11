@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.FileMetadata where
+module Network.AWS.CodeCommit.Types.FileMetadata
+  ( FileMetadata (..),
+
+    -- * Smart constructor
+    mkFileMetadata,
+
+    -- * Lenses
+    fmAbsolutePath,
+    fmFileMode,
+    fmBlobId,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A file to be added, updated, or deleted as part of a commit.
 --
---
---
--- /See:/ 'fileMetadata' smart constructor.
+-- /See:/ 'mkFileMetadata' smart constructor.
 data FileMetadata = FileMetadata'
-  { _fmAbsolutePath :: !(Maybe Text),
-    _fmFileMode :: !(Maybe FileModeTypeEnum),
-    _fmBlobId :: !(Maybe Text)
+  { absolutePath ::
+      Lude.Maybe Lude.Text,
+    fileMode :: Lude.Maybe FileModeTypeEnum,
+    blobId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fmAbsolutePath' - The full path to the file to be added or updated, including the name of the file.
---
--- * 'fmFileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
---
--- * 'fmBlobId' - The blob ID that contains the file information.
-fileMetadata ::
+-- * 'absolutePath' - The full path to the file to be added or updated, including the name of the file.
+-- * 'blobId' - The blob ID that contains the file information.
+-- * 'fileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+mkFileMetadata ::
   FileMetadata
-fileMetadata =
+mkFileMetadata =
   FileMetadata'
-    { _fmAbsolutePath = Nothing,
-      _fmFileMode = Nothing,
-      _fmBlobId = Nothing
+    { absolutePath = Lude.Nothing,
+      fileMode = Lude.Nothing,
+      blobId = Lude.Nothing
     }
 
 -- | The full path to the file to be added or updated, including the name of the file.
-fmAbsolutePath :: Lens' FileMetadata (Maybe Text)
-fmAbsolutePath = lens _fmAbsolutePath (\s a -> s {_fmAbsolutePath = a})
+--
+-- /Note:/ Consider using 'absolutePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmAbsolutePath :: Lens.Lens' FileMetadata (Lude.Maybe Lude.Text)
+fmAbsolutePath = Lens.lens (absolutePath :: FileMetadata -> Lude.Maybe Lude.Text) (\s a -> s {absolutePath = a} :: FileMetadata)
+{-# DEPRECATED fmAbsolutePath "Use generic-lens or generic-optics with 'absolutePath' instead." #-}
 
 -- | The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
-fmFileMode :: Lens' FileMetadata (Maybe FileModeTypeEnum)
-fmFileMode = lens _fmFileMode (\s a -> s {_fmFileMode = a})
+--
+-- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmFileMode :: Lens.Lens' FileMetadata (Lude.Maybe FileModeTypeEnum)
+fmFileMode = Lens.lens (fileMode :: FileMetadata -> Lude.Maybe FileModeTypeEnum) (\s a -> s {fileMode = a} :: FileMetadata)
+{-# DEPRECATED fmFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
 
 -- | The blob ID that contains the file information.
-fmBlobId :: Lens' FileMetadata (Maybe Text)
-fmBlobId = lens _fmBlobId (\s a -> s {_fmBlobId = a})
+--
+-- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmBlobId :: Lens.Lens' FileMetadata (Lude.Maybe Lude.Text)
+fmBlobId = Lens.lens (blobId :: FileMetadata -> Lude.Maybe Lude.Text) (\s a -> s {blobId = a} :: FileMetadata)
+{-# DEPRECATED fmBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
 
-instance FromJSON FileMetadata where
+instance Lude.FromJSON FileMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "FileMetadata"
       ( \x ->
           FileMetadata'
-            <$> (x .:? "absolutePath") <*> (x .:? "fileMode") <*> (x .:? "blobId")
+            Lude.<$> (x Lude..:? "absolutePath")
+            Lude.<*> (x Lude..:? "fileMode")
+            Lude.<*> (x Lude..:? "blobId")
       )
-
-instance Hashable FileMetadata
-
-instance NFData FileMetadata

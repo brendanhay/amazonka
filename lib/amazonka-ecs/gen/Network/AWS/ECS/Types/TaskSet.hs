@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,38 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TaskSet where
+module Network.AWS.ECS.Types.TaskSet
+  ( TaskSet (..),
+
+    -- * Smart constructor
+    mkTaskSet,
+
+    -- * Lenses
+    tsRunningCount,
+    tsStatus,
+    tsClusterARN,
+    tsComputedDesiredCount,
+    tsCreatedAt,
+    tsPlatformVersion,
+    tsScale,
+    tsLoadBalancers,
+    tsStabilityStatusAt,
+    tsPendingCount,
+    tsTaskSetARN,
+    tsStartedBy,
+    tsId,
+    tsLaunchType,
+    tsUpdatedAt,
+    tsServiceARN,
+    tsTaskDefinition,
+    tsExternalId,
+    tsNetworkConfiguration,
+    tsServiceRegistries,
+    tsCapacityProviderStrategy,
+    tsStabilityStatus,
+    tsTags,
+  )
+where
 
 import Network.AWS.ECS.Types.CapacityProviderStrategyItem
 import Network.AWS.ECS.Types.LaunchType
@@ -23,243 +48,407 @@ import Network.AWS.ECS.Types.Scale
 import Network.AWS.ECS.Types.ServiceRegistry
 import Network.AWS.ECS.Types.StabilityStatus
 import Network.AWS.ECS.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an @EXTERNAL@ deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
 --
---
---
--- /See:/ 'taskSet' smart constructor.
+-- /See:/ 'mkTaskSet' smart constructor.
 data TaskSet = TaskSet'
-  { _tsRunningCount :: !(Maybe Int),
-    _tsStatus :: !(Maybe Text),
-    _tsClusterARN :: !(Maybe Text),
-    _tsComputedDesiredCount :: !(Maybe Int),
-    _tsCreatedAt :: !(Maybe POSIX),
-    _tsPlatformVersion :: !(Maybe Text),
-    _tsScale :: !(Maybe Scale),
-    _tsLoadBalancers :: !(Maybe [LoadBalancer]),
-    _tsStabilityStatusAt :: !(Maybe POSIX),
-    _tsPendingCount :: !(Maybe Int),
-    _tsTaskSetARN :: !(Maybe Text),
-    _tsStartedBy :: !(Maybe Text),
-    _tsId :: !(Maybe Text),
-    _tsLaunchType :: !(Maybe LaunchType),
-    _tsUpdatedAt :: !(Maybe POSIX),
-    _tsServiceARN :: !(Maybe Text),
-    _tsTaskDefinition :: !(Maybe Text),
-    _tsExternalId :: !(Maybe Text),
-    _tsNetworkConfiguration :: !(Maybe NetworkConfiguration),
-    _tsServiceRegistries :: !(Maybe [ServiceRegistry]),
-    _tsCapacityProviderStrategy ::
-      !(Maybe [CapacityProviderStrategyItem]),
-    _tsStabilityStatus :: !(Maybe StabilityStatus),
-    _tsTags :: !(Maybe [Tag])
+  { runningCount :: Lude.Maybe Lude.Int,
+    status :: Lude.Maybe Lude.Text,
+    clusterARN :: Lude.Maybe Lude.Text,
+    computedDesiredCount :: Lude.Maybe Lude.Int,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    platformVersion :: Lude.Maybe Lude.Text,
+    scale :: Lude.Maybe Scale,
+    loadBalancers :: Lude.Maybe [LoadBalancer],
+    stabilityStatusAt :: Lude.Maybe Lude.Timestamp,
+    pendingCount :: Lude.Maybe Lude.Int,
+    taskSetARN :: Lude.Maybe Lude.Text,
+    startedBy :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    launchType :: Lude.Maybe LaunchType,
+    updatedAt :: Lude.Maybe Lude.Timestamp,
+    serviceARN :: Lude.Maybe Lude.Text,
+    taskDefinition :: Lude.Maybe Lude.Text,
+    externalId :: Lude.Maybe Lude.Text,
+    networkConfiguration :: Lude.Maybe NetworkConfiguration,
+    serviceRegistries :: Lude.Maybe [ServiceRegistry],
+    capacityProviderStrategy ::
+      Lude.Maybe [CapacityProviderStrategyItem],
+    stabilityStatus :: Lude.Maybe StabilityStatus,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'capacityProviderStrategy' - The capacity provider strategy associated with the task set.
+-- * 'clusterARN' - The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
+-- * 'computedDesiredCount' - The computed desired count for the task set. This is calculated by multiplying the service's @desiredCount@ by the task set's @scale@ percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
+-- * 'createdAt' - The Unix timestamp for when the task set was created.
+-- * 'externalId' - The external ID associated with the task set.
 --
--- * 'tsRunningCount' - The number of tasks in the task set that are in the @RUNNING@ status during a deployment. A task in the @RUNNING@ state is running and ready for use.
+-- If a task set is created by an AWS CodeDeploy deployment, the @externalId@ parameter contains the AWS CodeDeploy deployment ID.
+-- If a task set is created for an external deployment and is associated with a service discovery registry, the @externalId@ parameter contains the @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute.
+-- * 'id' - The ID of the task set.
+-- * 'launchType' - The launch type the tasks in the task set are using. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'loadBalancers' - Details on a load balancer that is used with a task set.
+-- * 'networkConfiguration' - The network configuration for the task set.
+-- * 'pendingCount' - The number of tasks in the task set that are in the @PENDING@ status during a deployment. A task in the @PENDING@ state is preparing to enter the @RUNNING@ state. A task set enters the @PENDING@ status when it launches for the first time or when it is restarted after being in the @STOPPED@ state.
+-- * 'platformVersion' - The platform version on which the tasks in the task set are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'runningCount' - The number of tasks in the task set that are in the @RUNNING@ status during a deployment. A task in the @RUNNING@ state is running and ready for use.
+-- * 'scale' - A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+-- * 'serviceARN' - The Amazon Resource Name (ARN) of the service the task set exists in.
+-- * 'serviceRegistries' - The details of the service discovery registries to assign to this task set. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
+-- * 'stabilityStatus' - The stability status, which indicates whether the task set has reached a steady state. If the following conditions are met, the task set will be in @STEADY_STATE@ :
 --
--- * 'tsStatus' - The status of the task set. The following describes each state:     * PRIMARY    * The task set is serving production traffic.     * ACTIVE    * The task set is not serving production traffic.     * DRAINING    * The tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group.
 --
--- * 'tsClusterARN' - The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
+--     * The task @runningCount@ is equal to the @computedDesiredCount@ .
 --
--- * 'tsComputedDesiredCount' - The computed desired count for the task set. This is calculated by multiplying the service's @desiredCount@ by the task set's @scale@ percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
 --
--- * 'tsCreatedAt' - The Unix timestamp for when the task set was created.
+--     * The @pendingCount@ is @0@ .
 --
--- * 'tsPlatformVersion' - The platform version on which the tasks in the task set are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
 --
--- * 'tsScale' - A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+--     * There are no tasks running on container instances in the @DRAINING@ status.
 --
--- * 'tsLoadBalancers' - Details on a load balancer that is used with a task set.
 --
--- * 'tsStabilityStatusAt' - The Unix timestamp for when the task set stability status was retrieved.
+--     * All tasks are reporting a healthy status from the load balancers, service discovery, and container health checks.
 --
--- * 'tsPendingCount' - The number of tasks in the task set that are in the @PENDING@ status during a deployment. A task in the @PENDING@ state is preparing to enter the @RUNNING@ state. A task set enters the @PENDING@ status when it launches for the first time or when it is restarted after being in the @STOPPED@ state.
 --
--- * 'tsTaskSetARN' - The Amazon Resource Name (ARN) of the task set.
+-- If any of those conditions are not met, the stability status returns @STABILIZING@ .
+-- * 'stabilityStatusAt' - The Unix timestamp for when the task set stability status was retrieved.
+-- * 'startedBy' - The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the @startedBy@ parameter is @CODE_DEPLOY@ . For a task set created for an external deployment, the startedBy field isn't used.
+-- * 'status' - The status of the task set. The following describes each state:
 --
--- * 'tsStartedBy' - The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the @startedBy@ parameter is @CODE_DEPLOY@ . For a task set created for an external deployment, the startedBy field isn't used.
 --
--- * 'tsId' - The ID of the task set.
+--     * PRIMARY
 --
--- * 'tsLaunchType' - The launch type the tasks in the task set are using. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+--     * The task set is serving production traffic.
 --
--- * 'tsUpdatedAt' - The Unix timestamp for when the task set was last updated.
 --
--- * 'tsServiceARN' - The Amazon Resource Name (ARN) of the service the task set exists in.
+--     * ACTIVE
 --
--- * 'tsTaskDefinition' - The task definition the task set is using.
+--     * The task set is not serving production traffic.
 --
--- * 'tsExternalId' - The external ID associated with the task set. If a task set is created by an AWS CodeDeploy deployment, the @externalId@ parameter contains the AWS CodeDeploy deployment ID. If a task set is created for an external deployment and is associated with a service discovery registry, the @externalId@ parameter contains the @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute.
 --
--- * 'tsNetworkConfiguration' - The network configuration for the task set.
+--     * DRAINING
 --
--- * 'tsServiceRegistries' - The details of the service discovery registries to assign to this task set. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
+--     * The tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group.
 --
--- * 'tsCapacityProviderStrategy' - The capacity provider strategy associated with the task set.
 --
--- * 'tsStabilityStatus' - The stability status, which indicates whether the task set has reached a steady state. If the following conditions are met, the task set will be in @STEADY_STATE@ :     * The task @runningCount@ is equal to the @computedDesiredCount@ .     * The @pendingCount@ is @0@ .     * There are no tasks running on container instances in the @DRAINING@ status.     * All tasks are reporting a healthy status from the load balancers, service discovery, and container health checks. If any of those conditions are not met, the stability status returns @STABILIZING@ .
+-- * 'tags' - The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
--- * 'tsTags' - The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-taskSet ::
+-- The following basic restrictions apply to tags:
+--
+--     * Maximum number of tags per resource - 50
+--
+--
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
+--
+--
+--     * Maximum key length - 128 Unicode characters in UTF-8
+--
+--
+--     * Maximum value length - 256 Unicode characters in UTF-8
+--
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+-- * 'taskDefinition' - The task definition the task set is using.
+-- * 'taskSetARN' - The Amazon Resource Name (ARN) of the task set.
+-- * 'updatedAt' - The Unix timestamp for when the task set was last updated.
+mkTaskSet ::
   TaskSet
-taskSet =
+mkTaskSet =
   TaskSet'
-    { _tsRunningCount = Nothing,
-      _tsStatus = Nothing,
-      _tsClusterARN = Nothing,
-      _tsComputedDesiredCount = Nothing,
-      _tsCreatedAt = Nothing,
-      _tsPlatformVersion = Nothing,
-      _tsScale = Nothing,
-      _tsLoadBalancers = Nothing,
-      _tsStabilityStatusAt = Nothing,
-      _tsPendingCount = Nothing,
-      _tsTaskSetARN = Nothing,
-      _tsStartedBy = Nothing,
-      _tsId = Nothing,
-      _tsLaunchType = Nothing,
-      _tsUpdatedAt = Nothing,
-      _tsServiceARN = Nothing,
-      _tsTaskDefinition = Nothing,
-      _tsExternalId = Nothing,
-      _tsNetworkConfiguration = Nothing,
-      _tsServiceRegistries = Nothing,
-      _tsCapacityProviderStrategy = Nothing,
-      _tsStabilityStatus = Nothing,
-      _tsTags = Nothing
+    { runningCount = Lude.Nothing,
+      status = Lude.Nothing,
+      clusterARN = Lude.Nothing,
+      computedDesiredCount = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      platformVersion = Lude.Nothing,
+      scale = Lude.Nothing,
+      loadBalancers = Lude.Nothing,
+      stabilityStatusAt = Lude.Nothing,
+      pendingCount = Lude.Nothing,
+      taskSetARN = Lude.Nothing,
+      startedBy = Lude.Nothing,
+      id = Lude.Nothing,
+      launchType = Lude.Nothing,
+      updatedAt = Lude.Nothing,
+      serviceARN = Lude.Nothing,
+      taskDefinition = Lude.Nothing,
+      externalId = Lude.Nothing,
+      networkConfiguration = Lude.Nothing,
+      serviceRegistries = Lude.Nothing,
+      capacityProviderStrategy = Lude.Nothing,
+      stabilityStatus = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The number of tasks in the task set that are in the @RUNNING@ status during a deployment. A task in the @RUNNING@ state is running and ready for use.
-tsRunningCount :: Lens' TaskSet (Maybe Int)
-tsRunningCount = lens _tsRunningCount (\s a -> s {_tsRunningCount = a})
+--
+-- /Note:/ Consider using 'runningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsRunningCount :: Lens.Lens' TaskSet (Lude.Maybe Lude.Int)
+tsRunningCount = Lens.lens (runningCount :: TaskSet -> Lude.Maybe Lude.Int) (\s a -> s {runningCount = a} :: TaskSet)
+{-# DEPRECATED tsRunningCount "Use generic-lens or generic-optics with 'runningCount' instead." #-}
 
--- | The status of the task set. The following describes each state:     * PRIMARY    * The task set is serving production traffic.     * ACTIVE    * The task set is not serving production traffic.     * DRAINING    * The tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group.
-tsStatus :: Lens' TaskSet (Maybe Text)
-tsStatus = lens _tsStatus (\s a -> s {_tsStatus = a})
+-- | The status of the task set. The following describes each state:
+--
+--
+--     * PRIMARY
+--
+--     * The task set is serving production traffic.
+--
+--
+--     * ACTIVE
+--
+--     * The task set is not serving production traffic.
+--
+--
+--     * DRAINING
+--
+--     * The tasks in the task set are being stopped and their corresponding targets are being deregistered from their target group.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsStatus :: Lens.Lens' TaskSet (Lude.Maybe Lude.Text)
+tsStatus = Lens.lens (status :: TaskSet -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: TaskSet)
+{-# DEPRECATED tsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the cluster that the service that hosts the task set exists in.
-tsClusterARN :: Lens' TaskSet (Maybe Text)
-tsClusterARN = lens _tsClusterARN (\s a -> s {_tsClusterARN = a})
+--
+-- /Note:/ Consider using 'clusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsClusterARN :: Lens.Lens' TaskSet (Lude.Maybe Lude.Text)
+tsClusterARN = Lens.lens (clusterARN :: TaskSet -> Lude.Maybe Lude.Text) (\s a -> s {clusterARN = a} :: TaskSet)
+{-# DEPRECATED tsClusterARN "Use generic-lens or generic-optics with 'clusterARN' instead." #-}
 
 -- | The computed desired count for the task set. This is calculated by multiplying the service's @desiredCount@ by the task set's @scale@ percentage. The result is always rounded up. For example, if the computed desired count is 1.2, it rounds up to 2 tasks.
-tsComputedDesiredCount :: Lens' TaskSet (Maybe Int)
-tsComputedDesiredCount = lens _tsComputedDesiredCount (\s a -> s {_tsComputedDesiredCount = a})
+--
+-- /Note:/ Consider using 'computedDesiredCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsComputedDesiredCount :: Lens.Lens' TaskSet (Lude.Maybe Lude.Int)
+tsComputedDesiredCount = Lens.lens (computedDesiredCount :: TaskSet -> Lude.Maybe Lude.Int) (\s a -> s {computedDesiredCount = a} :: TaskSet)
+{-# DEPRECATED tsComputedDesiredCount "Use generic-lens or generic-optics with 'computedDesiredCount' instead." #-}
 
 -- | The Unix timestamp for when the task set was created.
-tsCreatedAt :: Lens' TaskSet (Maybe UTCTime)
-tsCreatedAt = lens _tsCreatedAt (\s a -> s {_tsCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsCreatedAt :: Lens.Lens' TaskSet (Lude.Maybe Lude.Timestamp)
+tsCreatedAt = Lens.lens (createdAt :: TaskSet -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: TaskSet)
+{-# DEPRECATED tsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The platform version on which the tasks in the task set are running. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
-tsPlatformVersion :: Lens' TaskSet (Maybe Text)
-tsPlatformVersion = lens _tsPlatformVersion (\s a -> s {_tsPlatformVersion = a})
+--
+-- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsPlatformVersion :: Lens.Lens' TaskSet (Lude.Maybe Lude.Text)
+tsPlatformVersion = Lens.lens (platformVersion :: TaskSet -> Lude.Maybe Lude.Text) (\s a -> s {platformVersion = a} :: TaskSet)
+{-# DEPRECATED tsPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
 
 -- | A floating-point percentage of the desired number of tasks to place and keep running in the task set.
-tsScale :: Lens' TaskSet (Maybe Scale)
-tsScale = lens _tsScale (\s a -> s {_tsScale = a})
+--
+-- /Note:/ Consider using 'scale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsScale :: Lens.Lens' TaskSet (Lude.Maybe Scale)
+tsScale = Lens.lens (scale :: TaskSet -> Lude.Maybe Scale) (\s a -> s {scale = a} :: TaskSet)
+{-# DEPRECATED tsScale "Use generic-lens or generic-optics with 'scale' instead." #-}
 
 -- | Details on a load balancer that is used with a task set.
-tsLoadBalancers :: Lens' TaskSet [LoadBalancer]
-tsLoadBalancers = lens _tsLoadBalancers (\s a -> s {_tsLoadBalancers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'loadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsLoadBalancers :: Lens.Lens' TaskSet (Lude.Maybe [LoadBalancer])
+tsLoadBalancers = Lens.lens (loadBalancers :: TaskSet -> Lude.Maybe [LoadBalancer]) (\s a -> s {loadBalancers = a} :: TaskSet)
+{-# DEPRECATED tsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
 
 -- | The Unix timestamp for when the task set stability status was retrieved.
-tsStabilityStatusAt :: Lens' TaskSet (Maybe UTCTime)
-tsStabilityStatusAt = lens _tsStabilityStatusAt (\s a -> s {_tsStabilityStatusAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'stabilityStatusAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsStabilityStatusAt :: Lens.Lens' TaskSet (Lude.Maybe Lude.Timestamp)
+tsStabilityStatusAt = Lens.lens (stabilityStatusAt :: TaskSet -> Lude.Maybe Lude.Timestamp) (\s a -> s {stabilityStatusAt = a} :: TaskSet)
+{-# DEPRECATED tsStabilityStatusAt "Use generic-lens or generic-optics with 'stabilityStatusAt' instead." #-}
 
 -- | The number of tasks in the task set that are in the @PENDING@ status during a deployment. A task in the @PENDING@ state is preparing to enter the @RUNNING@ state. A task set enters the @PENDING@ status when it launches for the first time or when it is restarted after being in the @STOPPED@ state.
-tsPendingCount :: Lens' TaskSet (Maybe Int)
-tsPendingCount = lens _tsPendingCount (\s a -> s {_tsPendingCount = a})
+--
+-- /Note:/ Consider using 'pendingCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsPendingCount :: Lens.Lens' TaskSet (Lude.Maybe Lude.Int)
+tsPendingCount = Lens.lens (pendingCount :: TaskSet -> Lude.Maybe Lude.Int) (\s a -> s {pendingCount = a} :: TaskSet)
+{-# DEPRECATED tsPendingCount "Use generic-lens or generic-optics with 'pendingCount' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the task set.
-tsTaskSetARN :: Lens' TaskSet (Maybe Text)
-tsTaskSetARN = lens _tsTaskSetARN (\s a -> s {_tsTaskSetARN = a})
+--
+-- /Note:/ Consider using 'taskSetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTaskSetARN :: Lens.Lens' TaskSet (Lude.Maybe Lude.Text)
+tsTaskSetARN = Lens.lens (taskSetARN :: TaskSet -> Lude.Maybe Lude.Text) (\s a -> s {taskSetARN = a} :: TaskSet)
+{-# DEPRECATED tsTaskSetARN "Use generic-lens or generic-optics with 'taskSetARN' instead." #-}
 
 -- | The tag specified when a task set is started. If the task set is created by an AWS CodeDeploy deployment, the @startedBy@ parameter is @CODE_DEPLOY@ . For a task set created for an external deployment, the startedBy field isn't used.
-tsStartedBy :: Lens' TaskSet (Maybe Text)
-tsStartedBy = lens _tsStartedBy (\s a -> s {_tsStartedBy = a})
+--
+-- /Note:/ Consider using 'startedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsStartedBy :: Lens.Lens' TaskSet (Lude.Maybe Lude.Text)
+tsStartedBy = Lens.lens (startedBy :: TaskSet -> Lude.Maybe Lude.Text) (\s a -> s {startedBy = a} :: TaskSet)
+{-# DEPRECATED tsStartedBy "Use generic-lens or generic-optics with 'startedBy' instead." #-}
 
 -- | The ID of the task set.
-tsId :: Lens' TaskSet (Maybe Text)
-tsId = lens _tsId (\s a -> s {_tsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsId :: Lens.Lens' TaskSet (Lude.Maybe Lude.Text)
+tsId = Lens.lens (id :: TaskSet -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: TaskSet)
+{-# DEPRECATED tsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The launch type the tasks in the task set are using. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
-tsLaunchType :: Lens' TaskSet (Maybe LaunchType)
-tsLaunchType = lens _tsLaunchType (\s a -> s {_tsLaunchType = a})
+--
+-- /Note:/ Consider using 'launchType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsLaunchType :: Lens.Lens' TaskSet (Lude.Maybe LaunchType)
+tsLaunchType = Lens.lens (launchType :: TaskSet -> Lude.Maybe LaunchType) (\s a -> s {launchType = a} :: TaskSet)
+{-# DEPRECATED tsLaunchType "Use generic-lens or generic-optics with 'launchType' instead." #-}
 
 -- | The Unix timestamp for when the task set was last updated.
-tsUpdatedAt :: Lens' TaskSet (Maybe UTCTime)
-tsUpdatedAt = lens _tsUpdatedAt (\s a -> s {_tsUpdatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsUpdatedAt :: Lens.Lens' TaskSet (Lude.Maybe Lude.Timestamp)
+tsUpdatedAt = Lens.lens (updatedAt :: TaskSet -> Lude.Maybe Lude.Timestamp) (\s a -> s {updatedAt = a} :: TaskSet)
+{-# DEPRECATED tsUpdatedAt "Use generic-lens or generic-optics with 'updatedAt' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the service the task set exists in.
-tsServiceARN :: Lens' TaskSet (Maybe Text)
-tsServiceARN = lens _tsServiceARN (\s a -> s {_tsServiceARN = a})
+--
+-- /Note:/ Consider using 'serviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsServiceARN :: Lens.Lens' TaskSet (Lude.Maybe Lude.Text)
+tsServiceARN = Lens.lens (serviceARN :: TaskSet -> Lude.Maybe Lude.Text) (\s a -> s {serviceARN = a} :: TaskSet)
+{-# DEPRECATED tsServiceARN "Use generic-lens or generic-optics with 'serviceARN' instead." #-}
 
 -- | The task definition the task set is using.
-tsTaskDefinition :: Lens' TaskSet (Maybe Text)
-tsTaskDefinition = lens _tsTaskDefinition (\s a -> s {_tsTaskDefinition = a})
+--
+-- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTaskDefinition :: Lens.Lens' TaskSet (Lude.Maybe Lude.Text)
+tsTaskDefinition = Lens.lens (taskDefinition :: TaskSet -> Lude.Maybe Lude.Text) (\s a -> s {taskDefinition = a} :: TaskSet)
+{-# DEPRECATED tsTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
 
--- | The external ID associated with the task set. If a task set is created by an AWS CodeDeploy deployment, the @externalId@ parameter contains the AWS CodeDeploy deployment ID. If a task set is created for an external deployment and is associated with a service discovery registry, the @externalId@ parameter contains the @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute.
-tsExternalId :: Lens' TaskSet (Maybe Text)
-tsExternalId = lens _tsExternalId (\s a -> s {_tsExternalId = a})
+-- | The external ID associated with the task set.
+--
+-- If a task set is created by an AWS CodeDeploy deployment, the @externalId@ parameter contains the AWS CodeDeploy deployment ID.
+-- If a task set is created for an external deployment and is associated with a service discovery registry, the @externalId@ parameter contains the @ECS_TASK_SET_EXTERNAL_ID@ AWS Cloud Map attribute.
+--
+-- /Note:/ Consider using 'externalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsExternalId :: Lens.Lens' TaskSet (Lude.Maybe Lude.Text)
+tsExternalId = Lens.lens (externalId :: TaskSet -> Lude.Maybe Lude.Text) (\s a -> s {externalId = a} :: TaskSet)
+{-# DEPRECATED tsExternalId "Use generic-lens or generic-optics with 'externalId' instead." #-}
 
 -- | The network configuration for the task set.
-tsNetworkConfiguration :: Lens' TaskSet (Maybe NetworkConfiguration)
-tsNetworkConfiguration = lens _tsNetworkConfiguration (\s a -> s {_tsNetworkConfiguration = a})
+--
+-- /Note:/ Consider using 'networkConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsNetworkConfiguration :: Lens.Lens' TaskSet (Lude.Maybe NetworkConfiguration)
+tsNetworkConfiguration = Lens.lens (networkConfiguration :: TaskSet -> Lude.Maybe NetworkConfiguration) (\s a -> s {networkConfiguration = a} :: TaskSet)
+{-# DEPRECATED tsNetworkConfiguration "Use generic-lens or generic-optics with 'networkConfiguration' instead." #-}
 
 -- | The details of the service discovery registries to assign to this task set. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
-tsServiceRegistries :: Lens' TaskSet [ServiceRegistry]
-tsServiceRegistries = lens _tsServiceRegistries (\s a -> s {_tsServiceRegistries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceRegistries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsServiceRegistries :: Lens.Lens' TaskSet (Lude.Maybe [ServiceRegistry])
+tsServiceRegistries = Lens.lens (serviceRegistries :: TaskSet -> Lude.Maybe [ServiceRegistry]) (\s a -> s {serviceRegistries = a} :: TaskSet)
+{-# DEPRECATED tsServiceRegistries "Use generic-lens or generic-optics with 'serviceRegistries' instead." #-}
 
 -- | The capacity provider strategy associated with the task set.
-tsCapacityProviderStrategy :: Lens' TaskSet [CapacityProviderStrategyItem]
-tsCapacityProviderStrategy = lens _tsCapacityProviderStrategy (\s a -> s {_tsCapacityProviderStrategy = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'capacityProviderStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsCapacityProviderStrategy :: Lens.Lens' TaskSet (Lude.Maybe [CapacityProviderStrategyItem])
+tsCapacityProviderStrategy = Lens.lens (capacityProviderStrategy :: TaskSet -> Lude.Maybe [CapacityProviderStrategyItem]) (\s a -> s {capacityProviderStrategy = a} :: TaskSet)
+{-# DEPRECATED tsCapacityProviderStrategy "Use generic-lens or generic-optics with 'capacityProviderStrategy' instead." #-}
 
--- | The stability status, which indicates whether the task set has reached a steady state. If the following conditions are met, the task set will be in @STEADY_STATE@ :     * The task @runningCount@ is equal to the @computedDesiredCount@ .     * The @pendingCount@ is @0@ .     * There are no tasks running on container instances in the @DRAINING@ status.     * All tasks are reporting a healthy status from the load balancers, service discovery, and container health checks. If any of those conditions are not met, the stability status returns @STABILIZING@ .
-tsStabilityStatus :: Lens' TaskSet (Maybe StabilityStatus)
-tsStabilityStatus = lens _tsStabilityStatus (\s a -> s {_tsStabilityStatus = a})
+-- | The stability status, which indicates whether the task set has reached a steady state. If the following conditions are met, the task set will be in @STEADY_STATE@ :
+--
+--
+--     * The task @runningCount@ is equal to the @computedDesiredCount@ .
+--
+--
+--     * The @pendingCount@ is @0@ .
+--
+--
+--     * There are no tasks running on container instances in the @DRAINING@ status.
+--
+--
+--     * All tasks are reporting a healthy status from the load balancers, service discovery, and container health checks.
+--
+--
+-- If any of those conditions are not met, the stability status returns @STABILIZING@ .
+--
+-- /Note:/ Consider using 'stabilityStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsStabilityStatus :: Lens.Lens' TaskSet (Lude.Maybe StabilityStatus)
+tsStabilityStatus = Lens.lens (stabilityStatus :: TaskSet -> Lude.Maybe StabilityStatus) (\s a -> s {stabilityStatus = a} :: TaskSet)
+{-# DEPRECATED tsStabilityStatus "Use generic-lens or generic-optics with 'stabilityStatus' instead." #-}
 
--- | The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-tsTags :: Lens' TaskSet [Tag]
-tsTags = lens _tsTags (\s a -> s {_tsTags = a}) . _Default . _Coerce
+-- | The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+--
+-- The following basic restrictions apply to tags:
+--
+--     * Maximum number of tags per resource - 50
+--
+--
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
+--
+--
+--     * Maximum key length - 128 Unicode characters in UTF-8
+--
+--
+--     * Maximum value length - 256 Unicode characters in UTF-8
+--
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsTags :: Lens.Lens' TaskSet (Lude.Maybe [Tag])
+tsTags = Lens.lens (tags :: TaskSet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: TaskSet)
+{-# DEPRECATED tsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON TaskSet where
+instance Lude.FromJSON TaskSet where
   parseJSON =
-    withObject
+    Lude.withObject
       "TaskSet"
       ( \x ->
           TaskSet'
-            <$> (x .:? "runningCount")
-            <*> (x .:? "status")
-            <*> (x .:? "clusterArn")
-            <*> (x .:? "computedDesiredCount")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "platformVersion")
-            <*> (x .:? "scale")
-            <*> (x .:? "loadBalancers" .!= mempty)
-            <*> (x .:? "stabilityStatusAt")
-            <*> (x .:? "pendingCount")
-            <*> (x .:? "taskSetArn")
-            <*> (x .:? "startedBy")
-            <*> (x .:? "id")
-            <*> (x .:? "launchType")
-            <*> (x .:? "updatedAt")
-            <*> (x .:? "serviceArn")
-            <*> (x .:? "taskDefinition")
-            <*> (x .:? "externalId")
-            <*> (x .:? "networkConfiguration")
-            <*> (x .:? "serviceRegistries" .!= mempty)
-            <*> (x .:? "capacityProviderStrategy" .!= mempty)
-            <*> (x .:? "stabilityStatus")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "runningCount")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "clusterArn")
+            Lude.<*> (x Lude..:? "computedDesiredCount")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "platformVersion")
+            Lude.<*> (x Lude..:? "scale")
+            Lude.<*> (x Lude..:? "loadBalancers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "stabilityStatusAt")
+            Lude.<*> (x Lude..:? "pendingCount")
+            Lude.<*> (x Lude..:? "taskSetArn")
+            Lude.<*> (x Lude..:? "startedBy")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "launchType")
+            Lude.<*> (x Lude..:? "updatedAt")
+            Lude.<*> (x Lude..:? "serviceArn")
+            Lude.<*> (x Lude..:? "taskDefinition")
+            Lude.<*> (x Lude..:? "externalId")
+            Lude.<*> (x Lude..:? "networkConfiguration")
+            Lude.<*> (x Lude..:? "serviceRegistries" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "capacityProviderStrategy" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "stabilityStatus")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable TaskSet
-
-instance NFData TaskSet

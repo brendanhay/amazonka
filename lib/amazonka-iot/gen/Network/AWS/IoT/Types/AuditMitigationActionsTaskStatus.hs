@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus where
+module Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus
+  ( AuditMitigationActionsTaskStatus
+      ( AuditMitigationActionsTaskStatus',
+        Canceled,
+        Completed,
+        Failed,
+        InProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuditMitigationActionsTaskStatus
-  = Canceled
-  | Completed
-  | Failed
-  | InProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuditMitigationActionsTaskStatus = AuditMitigationActionsTaskStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuditMitigationActionsTaskStatus where
-  parser =
-    takeLowerText >>= \case
-      "canceled" -> pure Canceled
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      e ->
-        fromTextError $
-          "Failure parsing AuditMitigationActionsTaskStatus from value: '" <> e
-            <> "'. Accepted values: canceled, completed, failed, in_progress"
+pattern Canceled :: AuditMitigationActionsTaskStatus
+pattern Canceled = AuditMitigationActionsTaskStatus' "CANCELED"
 
-instance ToText AuditMitigationActionsTaskStatus where
-  toText = \case
-    Canceled -> "CANCELED"
-    Completed -> "COMPLETED"
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
+pattern Completed :: AuditMitigationActionsTaskStatus
+pattern Completed = AuditMitigationActionsTaskStatus' "COMPLETED"
 
-instance Hashable AuditMitigationActionsTaskStatus
+pattern Failed :: AuditMitigationActionsTaskStatus
+pattern Failed = AuditMitigationActionsTaskStatus' "FAILED"
 
-instance NFData AuditMitigationActionsTaskStatus
+pattern InProgress :: AuditMitigationActionsTaskStatus
+pattern InProgress = AuditMitigationActionsTaskStatus' "IN_PROGRESS"
 
-instance ToByteString AuditMitigationActionsTaskStatus
-
-instance ToQuery AuditMitigationActionsTaskStatus
-
-instance ToHeader AuditMitigationActionsTaskStatus
-
-instance ToJSON AuditMitigationActionsTaskStatus where
-  toJSON = toJSONText
-
-instance FromJSON AuditMitigationActionsTaskStatus where
-  parseJSON = parseJSONText "AuditMitigationActionsTaskStatus"
+{-# COMPLETE
+  Canceled,
+  Completed,
+  Failed,
+  InProgress,
+  AuditMitigationActionsTaskStatus'
+  #-}

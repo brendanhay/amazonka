@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.JobStatusType where
+module Network.AWS.IAM.Types.JobStatusType
+  ( JobStatusType
+      ( JobStatusType',
+        Completed,
+        Failed,
+        InProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobStatusType
-  = Completed
-  | Failed
-  | InProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobStatusType = JobStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobStatusType where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      e ->
-        fromTextError $
-          "Failure parsing JobStatusType from value: '" <> e
-            <> "'. Accepted values: completed, failed, in_progress"
+pattern Completed :: JobStatusType
+pattern Completed = JobStatusType' "COMPLETED"
 
-instance ToText JobStatusType where
-  toText = \case
-    Completed -> "COMPLETED"
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
+pattern Failed :: JobStatusType
+pattern Failed = JobStatusType' "FAILED"
 
-instance Hashable JobStatusType
+pattern InProgress :: JobStatusType
+pattern InProgress = JobStatusType' "IN_PROGRESS"
 
-instance NFData JobStatusType
-
-instance ToByteString JobStatusType
-
-instance ToQuery JobStatusType
-
-instance ToHeader JobStatusType
-
-instance FromXML JobStatusType where
-  parseXML = parseXMLText "JobStatusType"
+{-# COMPLETE
+  Completed,
+  Failed,
+  InProgress,
+  JobStatusType'
+  #-}

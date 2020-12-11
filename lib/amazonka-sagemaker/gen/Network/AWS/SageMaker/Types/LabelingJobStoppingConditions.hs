@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.LabelingJobStoppingConditions where
+module Network.AWS.SageMaker.Types.LabelingJobStoppingConditions
+  ( LabelingJobStoppingConditions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLabelingJobStoppingConditions,
+
+    -- * Lenses
+    ljscMaxHumanLabeledObjectCount,
+    ljscMaxPercentageOfInputDatasetLabeled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A set of conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. You can use these conditions to control the cost of data labeling.
 --
---
---
--- /See:/ 'labelingJobStoppingConditions' smart constructor.
+-- /See:/ 'mkLabelingJobStoppingConditions' smart constructor.
 data LabelingJobStoppingConditions = LabelingJobStoppingConditions'
-  { _ljscMaxHumanLabeledObjectCount ::
-      !(Maybe Nat),
-    _ljscMaxPercentageOfInputDatasetLabeled ::
-      !(Maybe Nat)
+  { maxHumanLabeledObjectCount ::
+      Lude.Maybe Lude.Natural,
+    maxPercentageOfInputDatasetLabeled ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobStoppingConditions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljscMaxHumanLabeledObjectCount' - The maximum number of objects that can be labeled by human workers.
---
--- * 'ljscMaxPercentageOfInputDatasetLabeled' - The maximum number of input data objects that should be labeled.
-labelingJobStoppingConditions ::
+-- * 'maxHumanLabeledObjectCount' - The maximum number of objects that can be labeled by human workers.
+-- * 'maxPercentageOfInputDatasetLabeled' - The maximum number of input data objects that should be labeled.
+mkLabelingJobStoppingConditions ::
   LabelingJobStoppingConditions
-labelingJobStoppingConditions =
+mkLabelingJobStoppingConditions =
   LabelingJobStoppingConditions'
-    { _ljscMaxHumanLabeledObjectCount =
-        Nothing,
-      _ljscMaxPercentageOfInputDatasetLabeled = Nothing
+    { maxHumanLabeledObjectCount =
+        Lude.Nothing,
+      maxPercentageOfInputDatasetLabeled = Lude.Nothing
     }
 
 -- | The maximum number of objects that can be labeled by human workers.
-ljscMaxHumanLabeledObjectCount :: Lens' LabelingJobStoppingConditions (Maybe Natural)
-ljscMaxHumanLabeledObjectCount = lens _ljscMaxHumanLabeledObjectCount (\s a -> s {_ljscMaxHumanLabeledObjectCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxHumanLabeledObjectCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljscMaxHumanLabeledObjectCount :: Lens.Lens' LabelingJobStoppingConditions (Lude.Maybe Lude.Natural)
+ljscMaxHumanLabeledObjectCount = Lens.lens (maxHumanLabeledObjectCount :: LabelingJobStoppingConditions -> Lude.Maybe Lude.Natural) (\s a -> s {maxHumanLabeledObjectCount = a} :: LabelingJobStoppingConditions)
+{-# DEPRECATED ljscMaxHumanLabeledObjectCount "Use generic-lens or generic-optics with 'maxHumanLabeledObjectCount' instead." #-}
 
 -- | The maximum number of input data objects that should be labeled.
-ljscMaxPercentageOfInputDatasetLabeled :: Lens' LabelingJobStoppingConditions (Maybe Natural)
-ljscMaxPercentageOfInputDatasetLabeled = lens _ljscMaxPercentageOfInputDatasetLabeled (\s a -> s {_ljscMaxPercentageOfInputDatasetLabeled = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxPercentageOfInputDatasetLabeled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljscMaxPercentageOfInputDatasetLabeled :: Lens.Lens' LabelingJobStoppingConditions (Lude.Maybe Lude.Natural)
+ljscMaxPercentageOfInputDatasetLabeled = Lens.lens (maxPercentageOfInputDatasetLabeled :: LabelingJobStoppingConditions -> Lude.Maybe Lude.Natural) (\s a -> s {maxPercentageOfInputDatasetLabeled = a} :: LabelingJobStoppingConditions)
+{-# DEPRECATED ljscMaxPercentageOfInputDatasetLabeled "Use generic-lens or generic-optics with 'maxPercentageOfInputDatasetLabeled' instead." #-}
 
-instance FromJSON LabelingJobStoppingConditions where
+instance Lude.FromJSON LabelingJobStoppingConditions where
   parseJSON =
-    withObject
+    Lude.withObject
       "LabelingJobStoppingConditions"
       ( \x ->
           LabelingJobStoppingConditions'
-            <$> (x .:? "MaxHumanLabeledObjectCount")
-            <*> (x .:? "MaxPercentageOfInputDatasetLabeled")
+            Lude.<$> (x Lude..:? "MaxHumanLabeledObjectCount")
+            Lude.<*> (x Lude..:? "MaxPercentageOfInputDatasetLabeled")
       )
 
-instance Hashable LabelingJobStoppingConditions
-
-instance NFData LabelingJobStoppingConditions
-
-instance ToJSON LabelingJobStoppingConditions where
+instance Lude.ToJSON LabelingJobStoppingConditions where
   toJSON LabelingJobStoppingConditions' {..} =
-    object
-      ( catMaybes
-          [ ("MaxHumanLabeledObjectCount" .=)
-              <$> _ljscMaxHumanLabeledObjectCount,
-            ("MaxPercentageOfInputDatasetLabeled" .=)
-              <$> _ljscMaxPercentageOfInputDatasetLabeled
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MaxHumanLabeledObjectCount" Lude..=)
+              Lude.<$> maxHumanLabeledObjectCount,
+            ("MaxPercentageOfInputDatasetLabeled" Lude..=)
+              Lude.<$> maxPercentageOfInputDatasetLabeled
           ]
       )

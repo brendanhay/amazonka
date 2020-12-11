@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,200 +17,257 @@
 --
 --     * In ACM Private CA, call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action to create the private CA that that you plan to back with the imported certificate.
 --
+--
 --     * Call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificateAuthorityCsr.html GetCertificateAuthorityCsr> action to generate a certificate signing request (CSR).
+--
 --
 --     * Sign the CSR using a root or intermediate CA hosted by either an on-premises PKI hierarchy or by a commercial CA.
 --
---     * Create a certificate chain and copy the signed certificate and the certificate chain to your working directory.
 --
+--     * Create a certificate chain and copy the signed certificate and the certificate chain to your working directory.
 --
 --
 -- The following requirements apply when you import a CA certificate.
 --
 --     * You cannot import a non-self-signed certificate for use as a root CA.
 --
+--
 --     * You cannot import a self-signed certificate for use as a subordinate CA.
+--
 --
 --     * Your certificate chain must not include the private CA certificate that you are importing.
 --
+--
 --     * Your ACM Private CA-hosted or on-premises CA certificate must be the last certificate in your chain. The subordinate certificate, if any, that your root CA signed must be next to last. The subordinate certificate signed by the preceding subordinate CA must come next, and so on until your chain is built.
+--
 --
 --     * The chain must be PEM-encoded.
 --
+--
 --     * The maximum allowed size of a certificate is 32 KB.
+--
 --
 --     * The maximum allowed size of a certificate chain is 2 MB.
 --
 --
---
 -- /Enforcement of Critical Constraints/
---
 -- ACM Private CA allows the following extensions to be marked critical in the imported CA certificate or chain.
 --
 --     * Basic constraints (/must/ be marked critical)
 --
+--
 --     * Subject alternative names
+--
 --
 --     * Key usage
 --
+--
 --     * Extended key usage
+--
 --
 --     * Authority key identifier
 --
+--
 --     * Subject key identifier
+--
 --
 --     * Issuer alternative name
 --
+--
 --     * Subject directory attributes
+--
 --
 --     * Subject information access
 --
+--
 --     * Certificate policies
+--
 --
 --     * Policy mappings
 --
---     * Inhibit anyPolicy
 --
+--     * Inhibit anyPolicy
 --
 --
 -- ACM Private CA rejects the following extensions when they are marked critical in an imported CA certificate or chain.
 --
 --     * Name constraints
 --
+--
 --     * Policy constraints
+--
 --
 --     * CRL distribution points
 --
+--
 --     * Authority information access
+--
 --
 --     * Freshest CRL
 --
+--
 --     * Any other extension
 module Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
-  ( -- * Creating a Request
-    importCertificateAuthorityCertificate,
-    ImportCertificateAuthorityCertificate,
+  ( -- * Creating a request
+    ImportCertificateAuthorityCertificate (..),
+    mkImportCertificateAuthorityCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     icacCertificateChain,
     icacCertificateAuthorityARN,
     icacCertificate,
 
-    -- * Destructuring the Response
-    importCertificateAuthorityCertificateResponse,
-    ImportCertificateAuthorityCertificateResponse,
+    -- * Destructuring the response
+    ImportCertificateAuthorityCertificateResponse (..),
+    mkImportCertificateAuthorityCertificateResponse,
   )
 where
 
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'importCertificateAuthorityCertificate' smart constructor.
+-- | /See:/ 'mkImportCertificateAuthorityCertificate' smart constructor.
 data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertificate'
-  { _icacCertificateChain ::
-      !(Maybe Base64),
-    _icacCertificateAuthorityARN ::
-      !Text,
-    _icacCertificate ::
-      !Base64
+  { certificateChain ::
+      Lude.Maybe
+        Lude.Base64,
+    certificateAuthorityARN ::
+      Lude.Text,
+    certificate ::
+      Lude.Base64
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportCertificateAuthorityCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificate' - The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
 --
--- * 'icacCertificateChain' - A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding.  This parameter must be supplied when you import a subordinate CA. When you import a root CA, there is no chain.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- * 'certificateChain' - A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding.
 --
--- * 'icacCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
---
--- * 'icacCertificate' - The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-importCertificateAuthorityCertificate ::
-  -- | 'icacCertificateAuthorityARN'
-  Text ->
-  -- | 'icacCertificate'
-  ByteString ->
+-- This parameter must be supplied when you import a subordinate CA. When you import a root CA, there is no chain.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+mkImportCertificateAuthorityCertificate ::
+  -- | 'certificateAuthorityARN'
+  Lude.Text ->
+  -- | 'certificate'
+  Lude.Base64 ->
   ImportCertificateAuthorityCertificate
-importCertificateAuthorityCertificate
+mkImportCertificateAuthorityCertificate
   pCertificateAuthorityARN_
   pCertificate_ =
     ImportCertificateAuthorityCertificate'
-      { _icacCertificateChain =
-          Nothing,
-        _icacCertificateAuthorityARN = pCertificateAuthorityARN_,
-        _icacCertificate = _Base64 # pCertificate_
+      { certificateChain =
+          Lude.Nothing,
+        certificateAuthorityARN = pCertificateAuthorityARN_,
+        certificate = pCertificate_
       }
 
--- | A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding.  This parameter must be supplied when you import a subordinate CA. When you import a root CA, there is no chain.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-icacCertificateChain :: Lens' ImportCertificateAuthorityCertificate (Maybe ByteString)
-icacCertificateChain = lens _icacCertificateChain (\s a -> s {_icacCertificateChain = a}) . mapping _Base64
+-- | A PEM-encoded file that contains all of your certificates, other than the certificate you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises root certificate is the last in the chain, and each certificate in the chain signs the one preceding.
+--
+-- This parameter must be supplied when you import a subordinate CA. When you import a root CA, there is no chain.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'certificateChain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icacCertificateChain :: Lens.Lens' ImportCertificateAuthorityCertificate (Lude.Maybe Lude.Base64)
+icacCertificateChain = Lens.lens (certificateChain :: ImportCertificateAuthorityCertificate -> Lude.Maybe Lude.Base64) (\s a -> s {certificateChain = a} :: ImportCertificateAuthorityCertificate)
+{-# DEPRECATED icacCertificateChain "Use generic-lens or generic-optics with 'certificateChain' instead." #-}
 
--- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
-icacCertificateAuthorityARN :: Lens' ImportCertificateAuthorityCertificate Text
-icacCertificateAuthorityARN = lens _icacCertificateAuthorityARN (\s a -> s {_icacCertificateAuthorityARN = a})
+-- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
+--
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+--
+-- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icacCertificateAuthorityARN :: Lens.Lens' ImportCertificateAuthorityCertificate Lude.Text
+icacCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: ImportCertificateAuthorityCertificate -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: ImportCertificateAuthorityCertificate)
+{-# DEPRECATED icacCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
 
--- | The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-icacCertificate :: Lens' ImportCertificateAuthorityCertificate ByteString
-icacCertificate = lens _icacCertificate (\s a -> s {_icacCertificate = a}) . _Base64
+-- | The PEM-encoded certificate for a private CA. This may be a self-signed certificate in the case of a root CA, or it may be signed by another CA that you control.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icacCertificate :: Lens.Lens' ImportCertificateAuthorityCertificate Lude.Base64
+icacCertificate = Lens.lens (certificate :: ImportCertificateAuthorityCertificate -> Lude.Base64) (\s a -> s {certificate = a} :: ImportCertificateAuthorityCertificate)
+{-# DEPRECATED icacCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
-instance AWSRequest ImportCertificateAuthorityCertificate where
+instance Lude.AWSRequest ImportCertificateAuthorityCertificate where
   type
     Rs ImportCertificateAuthorityCertificate =
       ImportCertificateAuthorityCertificateResponse
-  request = postJSON certificateManagerPCA
+  request = Req.postJSON certificateManagerPCAService
   response =
-    receiveNull ImportCertificateAuthorityCertificateResponse'
+    Res.receiveNull ImportCertificateAuthorityCertificateResponse'
 
-instance Hashable ImportCertificateAuthorityCertificate
-
-instance NFData ImportCertificateAuthorityCertificate
-
-instance ToHeaders ImportCertificateAuthorityCertificate where
+instance Lude.ToHeaders ImportCertificateAuthorityCertificate where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "ACMPrivateCA.ImportCertificateAuthorityCertificate" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ACMPrivateCA.ImportCertificateAuthorityCertificate" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ImportCertificateAuthorityCertificate where
+instance Lude.ToJSON ImportCertificateAuthorityCertificate where
   toJSON ImportCertificateAuthorityCertificate' {..} =
-    object
-      ( catMaybes
-          [ ("CertificateChain" .=) <$> _icacCertificateChain,
-            Just ("CertificateAuthorityArn" .= _icacCertificateAuthorityARN),
-            Just ("Certificate" .= _icacCertificate)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CertificateChain" Lude..=) Lude.<$> certificateChain,
+            Lude.Just
+              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN),
+            Lude.Just ("Certificate" Lude..= certificate)
           ]
       )
 
-instance ToPath ImportCertificateAuthorityCertificate where
-  toPath = const "/"
+instance Lude.ToPath ImportCertificateAuthorityCertificate where
+  toPath = Lude.const "/"
 
-instance ToQuery ImportCertificateAuthorityCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery ImportCertificateAuthorityCertificate where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'importCertificateAuthorityCertificateResponse' smart constructor.
+-- | /See:/ 'mkImportCertificateAuthorityCertificateResponse' smart constructor.
 data ImportCertificateAuthorityCertificateResponse = ImportCertificateAuthorityCertificateResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'ImportCertificateAuthorityCertificateResponse' with the minimum fields required to make a request.
-importCertificateAuthorityCertificateResponse ::
+mkImportCertificateAuthorityCertificateResponse ::
   ImportCertificateAuthorityCertificateResponse
-importCertificateAuthorityCertificateResponse =
+mkImportCertificateAuthorityCertificateResponse =
   ImportCertificateAuthorityCertificateResponse'
-
-instance NFData ImportCertificateAuthorityCertificateResponse

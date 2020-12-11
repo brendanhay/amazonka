@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns the data available for the resource.
 module Network.AWS.WorkMail.DescribeResource
-  ( -- * Creating a Request
-    describeResource,
-    DescribeResource,
+  ( -- * Creating a request
+    DescribeResource (..),
+    mkDescribeResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drOrganizationId,
     drResourceId,
 
-    -- * Destructuring the Response
-    describeResourceResponse,
-    DescribeResourceResponse,
+    -- * Destructuring the response
+    DescribeResourceResponse (..),
+    mkDescribeResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drrsEmail,
     drrsState,
     drrsResourceId,
@@ -44,182 +39,211 @@ module Network.AWS.WorkMail.DescribeResource
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'describeResource' smart constructor.
+-- | /See:/ 'mkDescribeResource' smart constructor.
 data DescribeResource = DescribeResource'
-  { _drOrganizationId ::
-      !Text,
-    _drResourceId :: !Text
+  { organizationId ::
+      Lude.Text,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drOrganizationId' - The identifier associated with the organization for which the resource is described.
---
--- * 'drResourceId' - The identifier of the resource to be described.
-describeResource ::
-  -- | 'drOrganizationId'
-  Text ->
-  -- | 'drResourceId'
-  Text ->
+-- * 'organizationId' - The identifier associated with the organization for which the resource is described.
+-- * 'resourceId' - The identifier of the resource to be described.
+mkDescribeResource ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   DescribeResource
-describeResource pOrganizationId_ pResourceId_ =
+mkDescribeResource pOrganizationId_ pResourceId_ =
   DescribeResource'
-    { _drOrganizationId = pOrganizationId_,
-      _drResourceId = pResourceId_
+    { organizationId = pOrganizationId_,
+      resourceId = pResourceId_
     }
 
 -- | The identifier associated with the organization for which the resource is described.
-drOrganizationId :: Lens' DescribeResource Text
-drOrganizationId = lens _drOrganizationId (\s a -> s {_drOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drOrganizationId :: Lens.Lens' DescribeResource Lude.Text
+drOrganizationId = Lens.lens (organizationId :: DescribeResource -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeResource)
+{-# DEPRECATED drOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier of the resource to be described.
-drResourceId :: Lens' DescribeResource Text
-drResourceId = lens _drResourceId (\s a -> s {_drResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drResourceId :: Lens.Lens' DescribeResource Lude.Text
+drResourceId = Lens.lens (resourceId :: DescribeResource -> Lude.Text) (\s a -> s {resourceId = a} :: DescribeResource)
+{-# DEPRECATED drResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSRequest DescribeResource where
+instance Lude.AWSRequest DescribeResource where
   type Rs DescribeResource = DescribeResourceResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeResourceResponse'
-            <$> (x .?> "Email")
-            <*> (x .?> "State")
-            <*> (x .?> "ResourceId")
-            <*> (x .?> "DisabledDate")
-            <*> (x .?> "Name")
-            <*> (x .?> "Type")
-            <*> (x .?> "EnabledDate")
-            <*> (x .?> "BookingOptions")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Email")
+            Lude.<*> (x Lude..?> "State")
+            Lude.<*> (x Lude..?> "ResourceId")
+            Lude.<*> (x Lude..?> "DisabledDate")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "Type")
+            Lude.<*> (x Lude..?> "EnabledDate")
+            Lude.<*> (x Lude..?> "BookingOptions")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeResource
-
-instance NFData DescribeResource
-
-instance ToHeaders DescribeResource where
+instance Lude.ToHeaders DescribeResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.DescribeResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.DescribeResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeResource where
+instance Lude.ToJSON DescribeResource where
   toJSON DescribeResource' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _drOrganizationId),
-            Just ("ResourceId" .= _drResourceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("ResourceId" Lude..= resourceId)
           ]
       )
 
-instance ToPath DescribeResource where
-  toPath = const "/"
+instance Lude.ToPath DescribeResource where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeResource where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeResourceResponse' smart constructor.
+-- | /See:/ 'mkDescribeResourceResponse' smart constructor.
 data DescribeResourceResponse = DescribeResourceResponse'
-  { _drrsEmail ::
-      !(Maybe Text),
-    _drrsState :: !(Maybe EntityState),
-    _drrsResourceId :: !(Maybe Text),
-    _drrsDisabledDate :: !(Maybe POSIX),
-    _drrsName :: !(Maybe Text),
-    _drrsType :: !(Maybe ResourceType),
-    _drrsEnabledDate :: !(Maybe POSIX),
-    _drrsBookingOptions ::
-      !(Maybe BookingOptions),
-    _drrsResponseStatus :: !Int
+  { email ::
+      Lude.Maybe Lude.Text,
+    state :: Lude.Maybe EntityState,
+    resourceId :: Lude.Maybe Lude.Text,
+    disabledDate :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe ResourceType,
+    enabledDate :: Lude.Maybe Lude.Timestamp,
+    bookingOptions ::
+      Lude.Maybe BookingOptions,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsEmail' - The email of the described resource.
---
--- * 'drrsState' - The state of the resource: enabled (registered to Amazon WorkMail), disabled (deregistered or never registered to WorkMail), or deleted.
---
--- * 'drrsResourceId' - The identifier of the described resource.
---
--- * 'drrsDisabledDate' - The date and time when a resource was disabled from WorkMail, in UNIX epoch time format.
---
--- * 'drrsName' - The name of the described resource.
---
--- * 'drrsType' - The type of the described resource.
---
--- * 'drrsEnabledDate' - The date and time when a resource was enabled for WorkMail, in UNIX epoch time format.
---
--- * 'drrsBookingOptions' - The booking options for the described resource.
---
--- * 'drrsResponseStatus' - -- | The response status code.
-describeResourceResponse ::
-  -- | 'drrsResponseStatus'
-  Int ->
+-- * 'bookingOptions' - The booking options for the described resource.
+-- * 'disabledDate' - The date and time when a resource was disabled from WorkMail, in UNIX epoch time format.
+-- * 'email' - The email of the described resource.
+-- * 'enabledDate' - The date and time when a resource was enabled for WorkMail, in UNIX epoch time format.
+-- * 'name' - The name of the described resource.
+-- * 'resourceId' - The identifier of the described resource.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The state of the resource: enabled (registered to Amazon WorkMail), disabled (deregistered or never registered to WorkMail), or deleted.
+-- * 'type'' - The type of the described resource.
+mkDescribeResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeResourceResponse
-describeResourceResponse pResponseStatus_ =
+mkDescribeResourceResponse pResponseStatus_ =
   DescribeResourceResponse'
-    { _drrsEmail = Nothing,
-      _drrsState = Nothing,
-      _drrsResourceId = Nothing,
-      _drrsDisabledDate = Nothing,
-      _drrsName = Nothing,
-      _drrsType = Nothing,
-      _drrsEnabledDate = Nothing,
-      _drrsBookingOptions = Nothing,
-      _drrsResponseStatus = pResponseStatus_
+    { email = Lude.Nothing,
+      state = Lude.Nothing,
+      resourceId = Lude.Nothing,
+      disabledDate = Lude.Nothing,
+      name = Lude.Nothing,
+      type' = Lude.Nothing,
+      enabledDate = Lude.Nothing,
+      bookingOptions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The email of the described resource.
-drrsEmail :: Lens' DescribeResourceResponse (Maybe Text)
-drrsEmail = lens _drrsEmail (\s a -> s {_drrsEmail = a})
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsEmail :: Lens.Lens' DescribeResourceResponse (Lude.Maybe Lude.Text)
+drrsEmail = Lens.lens (email :: DescribeResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: DescribeResourceResponse)
+{-# DEPRECATED drrsEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The state of the resource: enabled (registered to Amazon WorkMail), disabled (deregistered or never registered to WorkMail), or deleted.
-drrsState :: Lens' DescribeResourceResponse (Maybe EntityState)
-drrsState = lens _drrsState (\s a -> s {_drrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsState :: Lens.Lens' DescribeResourceResponse (Lude.Maybe EntityState)
+drrsState = Lens.lens (state :: DescribeResourceResponse -> Lude.Maybe EntityState) (\s a -> s {state = a} :: DescribeResourceResponse)
+{-# DEPRECATED drrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The identifier of the described resource.
-drrsResourceId :: Lens' DescribeResourceResponse (Maybe Text)
-drrsResourceId = lens _drrsResourceId (\s a -> s {_drrsResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResourceId :: Lens.Lens' DescribeResourceResponse (Lude.Maybe Lude.Text)
+drrsResourceId = Lens.lens (resourceId :: DescribeResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: DescribeResourceResponse)
+{-# DEPRECATED drrsResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The date and time when a resource was disabled from WorkMail, in UNIX epoch time format.
-drrsDisabledDate :: Lens' DescribeResourceResponse (Maybe UTCTime)
-drrsDisabledDate = lens _drrsDisabledDate (\s a -> s {_drrsDisabledDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'disabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsDisabledDate :: Lens.Lens' DescribeResourceResponse (Lude.Maybe Lude.Timestamp)
+drrsDisabledDate = Lens.lens (disabledDate :: DescribeResourceResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {disabledDate = a} :: DescribeResourceResponse)
+{-# DEPRECATED drrsDisabledDate "Use generic-lens or generic-optics with 'disabledDate' instead." #-}
 
 -- | The name of the described resource.
-drrsName :: Lens' DescribeResourceResponse (Maybe Text)
-drrsName = lens _drrsName (\s a -> s {_drrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsName :: Lens.Lens' DescribeResourceResponse (Lude.Maybe Lude.Text)
+drrsName = Lens.lens (name :: DescribeResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeResourceResponse)
+{-# DEPRECATED drrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of the described resource.
-drrsType :: Lens' DescribeResourceResponse (Maybe ResourceType)
-drrsType = lens _drrsType (\s a -> s {_drrsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsType :: Lens.Lens' DescribeResourceResponse (Lude.Maybe ResourceType)
+drrsType = Lens.lens (type' :: DescribeResourceResponse -> Lude.Maybe ResourceType) (\s a -> s {type' = a} :: DescribeResourceResponse)
+{-# DEPRECATED drrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The date and time when a resource was enabled for WorkMail, in UNIX epoch time format.
-drrsEnabledDate :: Lens' DescribeResourceResponse (Maybe UTCTime)
-drrsEnabledDate = lens _drrsEnabledDate (\s a -> s {_drrsEnabledDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'enabledDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsEnabledDate :: Lens.Lens' DescribeResourceResponse (Lude.Maybe Lude.Timestamp)
+drrsEnabledDate = Lens.lens (enabledDate :: DescribeResourceResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {enabledDate = a} :: DescribeResourceResponse)
+{-# DEPRECATED drrsEnabledDate "Use generic-lens or generic-optics with 'enabledDate' instead." #-}
 
 -- | The booking options for the described resource.
-drrsBookingOptions :: Lens' DescribeResourceResponse (Maybe BookingOptions)
-drrsBookingOptions = lens _drrsBookingOptions (\s a -> s {_drrsBookingOptions = a})
+--
+-- /Note:/ Consider using 'bookingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsBookingOptions :: Lens.Lens' DescribeResourceResponse (Lude.Maybe BookingOptions)
+drrsBookingOptions = Lens.lens (bookingOptions :: DescribeResourceResponse -> Lude.Maybe BookingOptions) (\s a -> s {bookingOptions = a} :: DescribeResourceResponse)
+{-# DEPRECATED drrsBookingOptions "Use generic-lens or generic-optics with 'bookingOptions' instead." #-}
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DescribeResourceResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\s a -> s {_drrsResponseStatus = a})
-
-instance NFData DescribeResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResponseStatus :: Lens.Lens' DescribeResourceResponse Lude.Int
+drrsResponseStatus = Lens.lens (responseStatus :: DescribeResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeResourceResponse)
+{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

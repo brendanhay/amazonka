@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,206 @@
 --
 -- Creates an activity. An activity is a task that you write in any programming language and host on any machine that has access to AWS Step Functions. Activities must poll Step Functions using the @GetActivityTask@ API action and respond using @SendTask*@ API actions. This function lets Step Functions know the existence of your activity and returns an identifier for use in a state machine and when polling from the activity.
 module Network.AWS.StepFunctions.CreateActivity
-  ( -- * Creating a Request
-    createActivity,
-    CreateActivity,
+  ( -- * Creating a request
+    CreateActivity (..),
+    mkCreateActivity,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caTags,
     caName,
 
-    -- * Destructuring the Response
-    createActivityResponse,
-    CreateActivityResponse,
+    -- * Destructuring the response
+    CreateActivityResponse (..),
+    mkCreateActivityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsResponseStatus,
     carsActivityARN,
     carsCreationDate,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StepFunctions.Types
 
--- | /See:/ 'createActivity' smart constructor.
+-- | /See:/ 'mkCreateActivity' smart constructor.
 data CreateActivity = CreateActivity'
-  { _caTags :: !(Maybe [Tag]),
-    _caName :: !Text
+  { tags :: Lude.Maybe [Tag],
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateActivity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ .
 --
--- * 'caTags' - The list of tags to add to a resource. An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ , and <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> . Tags may only contain Unicode letters, digits, white space, or these symbols: @_ . : / = + - @@ .
+-- A name must /not/ contain:
 --
--- * 'caName' - The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * white space     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ ) To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-createActivity ::
-  -- | 'caName'
-  Text ->
+--     * white space
+--
+--
+--     * brackets @< > { } [ ]@
+--
+--
+--     * wildcard characters @? *@
+--
+--
+--     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+--
+--
+--     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+--
+--
+-- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+-- * 'tags' - The list of tags to add to a resource.
+--
+-- An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ , and <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
+-- Tags may only contain Unicode letters, digits, white space, or these symbols: @_ . : / = + - @@ .
+mkCreateActivity ::
+  -- | 'name'
+  Lude.Text ->
   CreateActivity
-createActivity pName_ =
-  CreateActivity' {_caTags = Nothing, _caName = pName_}
+mkCreateActivity pName_ =
+  CreateActivity' {tags = Lude.Nothing, name = pName_}
 
--- | The list of tags to add to a resource. An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ , and <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> . Tags may only contain Unicode letters, digits, white space, or these symbols: @_ . : / = + - @@ .
-caTags :: Lens' CreateActivity [Tag]
-caTags = lens _caTags (\s a -> s {_caTags = a}) . _Default . _Coerce
+-- | The list of tags to add to a resource.
+--
+-- An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ , and <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
+-- Tags may only contain Unicode letters, digits, white space, or these symbols: @_ . : / = + - @@ .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateActivity (Lude.Maybe [Tag])
+caTags = Lens.lens (tags :: CreateActivity -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateActivity)
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ . A name must /not/ contain:     * white space     * brackets @< > { } [ ]@      * wildcard characters @? *@      * special characters @" # % \ ^ | ~ ` $ & , ; : /@      * control characters (@U+0000-001F@ , @U+007F-009F@ ) To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-caName :: Lens' CreateActivity Text
-caName = lens _caName (\s a -> s {_caName = a})
+-- | The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information, see <https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions Limits Related to State Machine Executions> in the /AWS Step Functions Developer Guide/ .
+--
+-- A name must /not/ contain:
+--
+--     * white space
+--
+--
+--     * brackets @< > { } [ ]@
+--
+--
+--     * wildcard characters @? *@
+--
+--
+--     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+--
+--
+--     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+--
+--
+-- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caName :: Lens.Lens' CreateActivity Lude.Text
+caName = Lens.lens (name :: CreateActivity -> Lude.Text) (\s a -> s {name = a} :: CreateActivity)
+{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateActivity where
+instance Lude.AWSRequest CreateActivity where
   type Rs CreateActivity = CreateActivityResponse
-  request = postJSON stepFunctions
+  request = Req.postJSON stepFunctionsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateActivityResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .:> "activityArn")
-            <*> (x .:> "creationDate")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "activityArn")
+            Lude.<*> (x Lude..:> "creationDate")
       )
 
-instance Hashable CreateActivity
-
-instance NFData CreateActivity
-
-instance ToHeaders CreateActivity where
+instance Lude.ToHeaders CreateActivity where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSStepFunctions.CreateActivity" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("AWSStepFunctions.CreateActivity" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateActivity where
+instance Lude.ToJSON CreateActivity where
   toJSON CreateActivity' {..} =
-    object
-      (catMaybes [("tags" .=) <$> _caTags, Just ("name" .= _caName)])
+    Lude.object
+      ( Lude.catMaybes
+          [("tags" Lude..=) Lude.<$> tags, Lude.Just ("name" Lude..= name)]
+      )
 
-instance ToPath CreateActivity where
-  toPath = const "/"
+instance Lude.ToPath CreateActivity where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateActivity where
-  toQuery = const mempty
+instance Lude.ToQuery CreateActivity where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createActivityResponse' smart constructor.
+-- | /See:/ 'mkCreateActivityResponse' smart constructor.
 data CreateActivityResponse = CreateActivityResponse'
-  { _carsResponseStatus ::
-      !Int,
-    _carsActivityARN :: !Text,
-    _carsCreationDate :: !POSIX
+  { responseStatus ::
+      Lude.Int,
+    activityARN :: Lude.Text,
+    creationDate :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateActivityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsResponseStatus' - -- | The response status code.
---
--- * 'carsActivityARN' - The Amazon Resource Name (ARN) that identifies the created activity.
---
--- * 'carsCreationDate' - The date the activity is created.
-createActivityResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
-  -- | 'carsActivityARN'
-  Text ->
-  -- | 'carsCreationDate'
-  UTCTime ->
+-- * 'activityARN' - The Amazon Resource Name (ARN) that identifies the created activity.
+-- * 'creationDate' - The date the activity is created.
+-- * 'responseStatus' - The response status code.
+mkCreateActivityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'activityARN'
+  Lude.Text ->
+  -- | 'creationDate'
+  Lude.Timestamp ->
   CreateActivityResponse
-createActivityResponse
+mkCreateActivityResponse
   pResponseStatus_
   pActivityARN_
   pCreationDate_ =
     CreateActivityResponse'
-      { _carsResponseStatus = pResponseStatus_,
-        _carsActivityARN = pActivityARN_,
-        _carsCreationDate = _Time # pCreationDate_
+      { responseStatus = pResponseStatus_,
+        activityARN = pActivityARN_,
+        creationDate = pCreationDate_
       }
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateActivityResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateActivityResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateActivityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateActivityResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that identifies the created activity.
-carsActivityARN :: Lens' CreateActivityResponse Text
-carsActivityARN = lens _carsActivityARN (\s a -> s {_carsActivityARN = a})
+--
+-- /Note:/ Consider using 'activityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsActivityARN :: Lens.Lens' CreateActivityResponse Lude.Text
+carsActivityARN = Lens.lens (activityARN :: CreateActivityResponse -> Lude.Text) (\s a -> s {activityARN = a} :: CreateActivityResponse)
+{-# DEPRECATED carsActivityARN "Use generic-lens or generic-optics with 'activityARN' instead." #-}
 
 -- | The date the activity is created.
-carsCreationDate :: Lens' CreateActivityResponse UTCTime
-carsCreationDate = lens _carsCreationDate (\s a -> s {_carsCreationDate = a}) . _Time
-
-instance NFData CreateActivityResponse
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsCreationDate :: Lens.Lens' CreateActivityResponse Lude.Timestamp
+carsCreationDate = Lens.lens (creationDate :: CreateActivityResponse -> Lude.Timestamp) (\s a -> s {creationDate = a} :: CreateActivityResponse)
+{-# DEPRECATED carsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}

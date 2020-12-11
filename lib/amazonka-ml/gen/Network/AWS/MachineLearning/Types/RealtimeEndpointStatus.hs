@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.RealtimeEndpointStatus where
+module Network.AWS.MachineLearning.Types.RealtimeEndpointStatus
+  ( RealtimeEndpointStatus
+      ( RealtimeEndpointStatus',
+        Failed,
+        None,
+        Ready,
+        Updating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RealtimeEndpointStatus
-  = Failed
-  | None
-  | Ready
-  | Updating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RealtimeEndpointStatus = RealtimeEndpointStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RealtimeEndpointStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "none" -> pure None
-      "ready" -> pure Ready
-      "updating" -> pure Updating
-      e ->
-        fromTextError $
-          "Failure parsing RealtimeEndpointStatus from value: '" <> e
-            <> "'. Accepted values: failed, none, ready, updating"
+pattern Failed :: RealtimeEndpointStatus
+pattern Failed = RealtimeEndpointStatus' "FAILED"
 
-instance ToText RealtimeEndpointStatus where
-  toText = \case
-    Failed -> "FAILED"
-    None -> "NONE"
-    Ready -> "READY"
-    Updating -> "UPDATING"
+pattern None :: RealtimeEndpointStatus
+pattern None = RealtimeEndpointStatus' "NONE"
 
-instance Hashable RealtimeEndpointStatus
+pattern Ready :: RealtimeEndpointStatus
+pattern Ready = RealtimeEndpointStatus' "READY"
 
-instance NFData RealtimeEndpointStatus
+pattern Updating :: RealtimeEndpointStatus
+pattern Updating = RealtimeEndpointStatus' "UPDATING"
 
-instance ToByteString RealtimeEndpointStatus
-
-instance ToQuery RealtimeEndpointStatus
-
-instance ToHeader RealtimeEndpointStatus
-
-instance FromJSON RealtimeEndpointStatus where
-  parseJSON = parseJSONText "RealtimeEndpointStatus"
+{-# COMPLETE
+  Failed,
+  None,
+  Ready,
+  Updating,
+  RealtimeEndpointStatus'
+  #-}

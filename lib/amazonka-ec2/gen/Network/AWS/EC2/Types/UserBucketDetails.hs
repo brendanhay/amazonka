@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.UserBucketDetails where
+module Network.AWS.EC2.Types.UserBucketDetails
+  ( UserBucketDetails (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserBucketDetails,
+
+    -- * Lenses
+    ubdS3Key,
+    ubdS3Bucket,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the Amazon S3 bucket for the disk image.
 --
---
---
--- /See:/ 'userBucketDetails' smart constructor.
+-- /See:/ 'mkUserBucketDetails' smart constructor.
 data UserBucketDetails = UserBucketDetails'
-  { _ubdS3Key ::
-      !(Maybe Text),
-    _ubdS3Bucket :: !(Maybe Text)
+  { s3Key ::
+      Lude.Maybe Lude.Text,
+    s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserBucketDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubdS3Key' - The file name of the disk image.
---
--- * 'ubdS3Bucket' - The Amazon S3 bucket from which the disk image was created.
-userBucketDetails ::
+-- * 's3Bucket' - The Amazon S3 bucket from which the disk image was created.
+-- * 's3Key' - The file name of the disk image.
+mkUserBucketDetails ::
   UserBucketDetails
-userBucketDetails =
-  UserBucketDetails' {_ubdS3Key = Nothing, _ubdS3Bucket = Nothing}
+mkUserBucketDetails =
+  UserBucketDetails' {s3Key = Lude.Nothing, s3Bucket = Lude.Nothing}
 
 -- | The file name of the disk image.
-ubdS3Key :: Lens' UserBucketDetails (Maybe Text)
-ubdS3Key = lens _ubdS3Key (\s a -> s {_ubdS3Key = a})
+--
+-- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubdS3Key :: Lens.Lens' UserBucketDetails (Lude.Maybe Lude.Text)
+ubdS3Key = Lens.lens (s3Key :: UserBucketDetails -> Lude.Maybe Lude.Text) (\s a -> s {s3Key = a} :: UserBucketDetails)
+{-# DEPRECATED ubdS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
 
 -- | The Amazon S3 bucket from which the disk image was created.
-ubdS3Bucket :: Lens' UserBucketDetails (Maybe Text)
-ubdS3Bucket = lens _ubdS3Bucket (\s a -> s {_ubdS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubdS3Bucket :: Lens.Lens' UserBucketDetails (Lude.Maybe Lude.Text)
+ubdS3Bucket = Lens.lens (s3Bucket :: UserBucketDetails -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: UserBucketDetails)
+{-# DEPRECATED ubdS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance FromXML UserBucketDetails where
+instance Lude.FromXML UserBucketDetails where
   parseXML x =
-    UserBucketDetails' <$> (x .@? "s3Key") <*> (x .@? "s3Bucket")
-
-instance Hashable UserBucketDetails
-
-instance NFData UserBucketDetails
+    UserBucketDetails'
+      Lude.<$> (x Lude..@? "s3Key") Lude.<*> (x Lude..@? "s3Bucket")

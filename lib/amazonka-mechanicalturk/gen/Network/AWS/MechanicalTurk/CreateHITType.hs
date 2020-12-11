@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- The @CreateHITType@ operation creates a new HIT type. This operation allows you to define a standard set of HIT properties to use when creating HITs. If you register a HIT type with values that match an existing HIT type, the HIT type ID of the existing type will be returned.
 module Network.AWS.MechanicalTurk.CreateHITType
-  ( -- * Creating a Request
-    createHITType,
-    CreateHITType,
+  ( -- * Creating a request
+    CreateHITType (..),
+    mkCreateHITType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     chittAutoApprovalDelayInSeconds,
     chittKeywords,
     chittQualificationRequirements,
@@ -32,186 +27,213 @@ module Network.AWS.MechanicalTurk.CreateHITType
     chittTitle,
     chittDescription,
 
-    -- * Destructuring the Response
-    createHITTypeResponse,
-    CreateHITTypeResponse,
+    -- * Destructuring the response
+    CreateHITTypeResponse (..),
+    mkCreateHITTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     chittrsHITTypeId,
     chittrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createHITType' smart constructor.
+-- | /See:/ 'mkCreateHITType' smart constructor.
 data CreateHITType = CreateHITType'
-  { _chittAutoApprovalDelayInSeconds ::
-      !(Maybe Integer),
-    _chittKeywords :: !(Maybe Text),
-    _chittQualificationRequirements ::
-      !(Maybe [QualificationRequirement]),
-    _chittAssignmentDurationInSeconds :: !Integer,
-    _chittReward :: !Text,
-    _chittTitle :: !Text,
-    _chittDescription :: !Text
+  { autoApprovalDelayInSeconds ::
+      Lude.Maybe Lude.Integer,
+    keywords :: Lude.Maybe Lude.Text,
+    qualificationRequirements ::
+      Lude.Maybe [QualificationRequirement],
+    assignmentDurationInSeconds :: Lude.Integer,
+    reward :: Lude.Text,
+    title :: Lude.Text,
+    description :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHITType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chittAutoApprovalDelayInSeconds' - The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it.
---
--- * 'chittKeywords' - One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs.
---
--- * 'chittQualificationRequirements' - Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
---
--- * 'chittAssignmentDurationInSeconds' - The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
---
--- * 'chittReward' - The amount of money the Requester will pay a Worker for successfully completing the HIT.
---
--- * 'chittTitle' - The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned.
---
--- * 'chittDescription' - A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it.
-createHITType ::
-  -- | 'chittAssignmentDurationInSeconds'
-  Integer ->
-  -- | 'chittReward'
-  Text ->
-  -- | 'chittTitle'
-  Text ->
-  -- | 'chittDescription'
-  Text ->
+-- * 'assignmentDurationInSeconds' - The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
+-- * 'autoApprovalDelayInSeconds' - The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it.
+-- * 'description' - A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it.
+-- * 'keywords' - One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs.
+-- * 'qualificationRequirements' - Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
+-- * 'reward' - The amount of money the Requester will pay a Worker for successfully completing the HIT.
+-- * 'title' - The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned.
+mkCreateHITType ::
+  -- | 'assignmentDurationInSeconds'
+  Lude.Integer ->
+  -- | 'reward'
+  Lude.Text ->
+  -- | 'title'
+  Lude.Text ->
+  -- | 'description'
+  Lude.Text ->
   CreateHITType
-createHITType
+mkCreateHITType
   pAssignmentDurationInSeconds_
   pReward_
   pTitle_
   pDescription_ =
     CreateHITType'
-      { _chittAutoApprovalDelayInSeconds = Nothing,
-        _chittKeywords = Nothing,
-        _chittQualificationRequirements = Nothing,
-        _chittAssignmentDurationInSeconds = pAssignmentDurationInSeconds_,
-        _chittReward = pReward_,
-        _chittTitle = pTitle_,
-        _chittDescription = pDescription_
+      { autoApprovalDelayInSeconds = Lude.Nothing,
+        keywords = Lude.Nothing,
+        qualificationRequirements = Lude.Nothing,
+        assignmentDurationInSeconds = pAssignmentDurationInSeconds_,
+        reward = pReward_,
+        title = pTitle_,
+        description = pDescription_
       }
 
 -- | The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it.
-chittAutoApprovalDelayInSeconds :: Lens' CreateHITType (Maybe Integer)
-chittAutoApprovalDelayInSeconds = lens _chittAutoApprovalDelayInSeconds (\s a -> s {_chittAutoApprovalDelayInSeconds = a})
+--
+-- /Note:/ Consider using 'autoApprovalDelayInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittAutoApprovalDelayInSeconds :: Lens.Lens' CreateHITType (Lude.Maybe Lude.Integer)
+chittAutoApprovalDelayInSeconds = Lens.lens (autoApprovalDelayInSeconds :: CreateHITType -> Lude.Maybe Lude.Integer) (\s a -> s {autoApprovalDelayInSeconds = a} :: CreateHITType)
+{-# DEPRECATED chittAutoApprovalDelayInSeconds "Use generic-lens or generic-optics with 'autoApprovalDelayInSeconds' instead." #-}
 
 -- | One or more words or phrases that describe the HIT, separated by commas. These words are used in searches to find HITs.
-chittKeywords :: Lens' CreateHITType (Maybe Text)
-chittKeywords = lens _chittKeywords (\s a -> s {_chittKeywords = a})
+--
+-- /Note:/ Consider using 'keywords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittKeywords :: Lens.Lens' CreateHITType (Lude.Maybe Lude.Text)
+chittKeywords = Lens.lens (keywords :: CreateHITType -> Lude.Maybe Lude.Text) (\s a -> s {keywords = a} :: CreateHITType)
+{-# DEPRECATED chittKeywords "Use generic-lens or generic-optics with 'keywords' instead." #-}
 
 -- | Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
-chittQualificationRequirements :: Lens' CreateHITType [QualificationRequirement]
-chittQualificationRequirements = lens _chittQualificationRequirements (\s a -> s {_chittQualificationRequirements = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'qualificationRequirements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittQualificationRequirements :: Lens.Lens' CreateHITType (Lude.Maybe [QualificationRequirement])
+chittQualificationRequirements = Lens.lens (qualificationRequirements :: CreateHITType -> Lude.Maybe [QualificationRequirement]) (\s a -> s {qualificationRequirements = a} :: CreateHITType)
+{-# DEPRECATED chittQualificationRequirements "Use generic-lens or generic-optics with 'qualificationRequirements' instead." #-}
 
 -- | The amount of time, in seconds, that a Worker has to complete the HIT after accepting it. If a Worker does not complete the assignment within the specified duration, the assignment is considered abandoned. If the HIT is still active (that is, its lifetime has not elapsed), the assignment becomes available for other users to find and accept.
-chittAssignmentDurationInSeconds :: Lens' CreateHITType Integer
-chittAssignmentDurationInSeconds = lens _chittAssignmentDurationInSeconds (\s a -> s {_chittAssignmentDurationInSeconds = a})
+--
+-- /Note:/ Consider using 'assignmentDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittAssignmentDurationInSeconds :: Lens.Lens' CreateHITType Lude.Integer
+chittAssignmentDurationInSeconds = Lens.lens (assignmentDurationInSeconds :: CreateHITType -> Lude.Integer) (\s a -> s {assignmentDurationInSeconds = a} :: CreateHITType)
+{-# DEPRECATED chittAssignmentDurationInSeconds "Use generic-lens or generic-optics with 'assignmentDurationInSeconds' instead." #-}
 
 -- | The amount of money the Requester will pay a Worker for successfully completing the HIT.
-chittReward :: Lens' CreateHITType Text
-chittReward = lens _chittReward (\s a -> s {_chittReward = a})
+--
+-- /Note:/ Consider using 'reward' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittReward :: Lens.Lens' CreateHITType Lude.Text
+chittReward = Lens.lens (reward :: CreateHITType -> Lude.Text) (\s a -> s {reward = a} :: CreateHITType)
+{-# DEPRECATED chittReward "Use generic-lens or generic-optics with 'reward' instead." #-}
 
 -- | The title of the HIT. A title should be short and descriptive about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT title appears in search results, and everywhere the HIT is mentioned.
-chittTitle :: Lens' CreateHITType Text
-chittTitle = lens _chittTitle (\s a -> s {_chittTitle = a})
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittTitle :: Lens.Lens' CreateHITType Lude.Text
+chittTitle = Lens.lens (title :: CreateHITType -> Lude.Text) (\s a -> s {title = a} :: CreateHITType)
+{-# DEPRECATED chittTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 -- | A general description of the HIT. A description includes detailed information about the kind of task the HIT contains. On the Amazon Mechanical Turk web site, the HIT description appears in the expanded view of search results, and in the HIT and assignment screens. A good description gives the user enough information to evaluate the HIT before accepting it.
-chittDescription :: Lens' CreateHITType Text
-chittDescription = lens _chittDescription (\s a -> s {_chittDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittDescription :: Lens.Lens' CreateHITType Lude.Text
+chittDescription = Lens.lens (description :: CreateHITType -> Lude.Text) (\s a -> s {description = a} :: CreateHITType)
+{-# DEPRECATED chittDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance AWSRequest CreateHITType where
+instance Lude.AWSRequest CreateHITType where
   type Rs CreateHITType = CreateHITTypeResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateHITTypeResponse'
-            <$> (x .?> "HITTypeId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "HITTypeId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateHITType
-
-instance NFData CreateHITType
-
-instance ToHeaders CreateHITType where
+instance Lude.ToHeaders CreateHITType where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.CreateHITType" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.CreateHITType" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateHITType where
+instance Lude.ToJSON CreateHITType where
   toJSON CreateHITType' {..} =
-    object
-      ( catMaybes
-          [ ("AutoApprovalDelayInSeconds" .=)
-              <$> _chittAutoApprovalDelayInSeconds,
-            ("Keywords" .=) <$> _chittKeywords,
-            ("QualificationRequirements" .=)
-              <$> _chittQualificationRequirements,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AutoApprovalDelayInSeconds" Lude..=)
+              Lude.<$> autoApprovalDelayInSeconds,
+            ("Keywords" Lude..=) Lude.<$> keywords,
+            ("QualificationRequirements" Lude..=)
+              Lude.<$> qualificationRequirements,
+            Lude.Just
               ( "AssignmentDurationInSeconds"
-                  .= _chittAssignmentDurationInSeconds
+                  Lude..= assignmentDurationInSeconds
               ),
-            Just ("Reward" .= _chittReward),
-            Just ("Title" .= _chittTitle),
-            Just ("Description" .= _chittDescription)
+            Lude.Just ("Reward" Lude..= reward),
+            Lude.Just ("Title" Lude..= title),
+            Lude.Just ("Description" Lude..= description)
           ]
       )
 
-instance ToPath CreateHITType where
-  toPath = const "/"
+instance Lude.ToPath CreateHITType where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateHITType where
-  toQuery = const mempty
+instance Lude.ToQuery CreateHITType where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createHITTypeResponse' smart constructor.
+-- | /See:/ 'mkCreateHITTypeResponse' smart constructor.
 data CreateHITTypeResponse = CreateHITTypeResponse'
-  { _chittrsHITTypeId ::
-      !(Maybe Text),
-    _chittrsResponseStatus :: !Int
+  { hITTypeId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHITTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chittrsHITTypeId' - The ID of the newly registered HIT type.
---
--- * 'chittrsResponseStatus' - -- | The response status code.
-createHITTypeResponse ::
-  -- | 'chittrsResponseStatus'
-  Int ->
+-- * 'hITTypeId' - The ID of the newly registered HIT type.
+-- * 'responseStatus' - The response status code.
+mkCreateHITTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateHITTypeResponse
-createHITTypeResponse pResponseStatus_ =
+mkCreateHITTypeResponse pResponseStatus_ =
   CreateHITTypeResponse'
-    { _chittrsHITTypeId = Nothing,
-      _chittrsResponseStatus = pResponseStatus_
+    { hITTypeId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the newly registered HIT type.
-chittrsHITTypeId :: Lens' CreateHITTypeResponse (Maybe Text)
-chittrsHITTypeId = lens _chittrsHITTypeId (\s a -> s {_chittrsHITTypeId = a})
+--
+-- /Note:/ Consider using 'hITTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittrsHITTypeId :: Lens.Lens' CreateHITTypeResponse (Lude.Maybe Lude.Text)
+chittrsHITTypeId = Lens.lens (hITTypeId :: CreateHITTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {hITTypeId = a} :: CreateHITTypeResponse)
+{-# DEPRECATED chittrsHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
 
--- | -- | The response status code.
-chittrsResponseStatus :: Lens' CreateHITTypeResponse Int
-chittrsResponseStatus = lens _chittrsResponseStatus (\s a -> s {_chittrsResponseStatus = a})
-
-instance NFData CreateHITTypeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chittrsResponseStatus :: Lens.Lens' CreateHITTypeResponse Lude.Int
+chittrsResponseStatus = Lens.lens (responseStatus :: CreateHITTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHITTypeResponse)
+{-# DEPRECATED chittrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

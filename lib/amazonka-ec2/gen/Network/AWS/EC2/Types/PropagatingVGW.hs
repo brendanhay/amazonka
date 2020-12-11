@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PropagatingVGW where
+module Network.AWS.EC2.Types.PropagatingVGW
+  ( PropagatingVGW (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPropagatingVGW,
+
+    -- * Lenses
+    pvGatewayId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a virtual private gateway propagating route.
 --
---
---
--- /See:/ 'propagatingVGW' smart constructor.
+-- /See:/ 'mkPropagatingVGW' smart constructor.
 newtype PropagatingVGW = PropagatingVGW'
-  { _pvGatewayId ::
-      Maybe Text
+  { gatewayId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PropagatingVGW' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pvGatewayId' - The ID of the virtual private gateway.
-propagatingVGW ::
+-- * 'gatewayId' - The ID of the virtual private gateway.
+mkPropagatingVGW ::
   PropagatingVGW
-propagatingVGW = PropagatingVGW' {_pvGatewayId = Nothing}
+mkPropagatingVGW = PropagatingVGW' {gatewayId = Lude.Nothing}
 
 -- | The ID of the virtual private gateway.
-pvGatewayId :: Lens' PropagatingVGW (Maybe Text)
-pvGatewayId = lens _pvGatewayId (\s a -> s {_pvGatewayId = a})
+--
+-- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvGatewayId :: Lens.Lens' PropagatingVGW (Lude.Maybe Lude.Text)
+pvGatewayId = Lens.lens (gatewayId :: PropagatingVGW -> Lude.Maybe Lude.Text) (\s a -> s {gatewayId = a} :: PropagatingVGW)
+{-# DEPRECATED pvGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
 
-instance FromXML PropagatingVGW where
-  parseXML x = PropagatingVGW' <$> (x .@? "gatewayId")
-
-instance Hashable PropagatingVGW
-
-instance NFData PropagatingVGW
+instance Lude.FromXML PropagatingVGW where
+  parseXML x = PropagatingVGW' Lude.<$> (x Lude..@? "gatewayId")

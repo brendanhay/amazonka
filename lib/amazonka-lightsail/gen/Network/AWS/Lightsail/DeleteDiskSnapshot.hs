@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,137 @@
 --
 -- Deletes the specified disk snapshot.
 --
---
 -- When you make periodic snapshots of a disk, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the disk.
---
 -- The @delete disk snapshot@ operation supports tag-based access control via resource tags applied to the resource identified by @disk snapshot name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.DeleteDiskSnapshot
-  ( -- * Creating a Request
-    deleteDiskSnapshot,
-    DeleteDiskSnapshot,
+  ( -- * Creating a request
+    DeleteDiskSnapshot (..),
+    mkDeleteDiskSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddsDiskSnapshotName,
 
-    -- * Destructuring the Response
-    deleteDiskSnapshotResponse,
-    DeleteDiskSnapshotResponse,
+    -- * Destructuring the response
+    DeleteDiskSnapshotResponse (..),
+    mkDeleteDiskSnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddsrsOperations,
     ddsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDiskSnapshot' smart constructor.
+-- | /See:/ 'mkDeleteDiskSnapshot' smart constructor.
 newtype DeleteDiskSnapshot = DeleteDiskSnapshot'
-  { _ddsDiskSnapshotName ::
-      Text
+  { diskSnapshotName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDiskSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddsDiskSnapshotName' - The name of the disk snapshot you want to delete (e.g., @my-disk-snapshot@ ).
-deleteDiskSnapshot ::
-  -- | 'ddsDiskSnapshotName'
-  Text ->
+-- * 'diskSnapshotName' - The name of the disk snapshot you want to delete (e.g., @my-disk-snapshot@ ).
+mkDeleteDiskSnapshot ::
+  -- | 'diskSnapshotName'
+  Lude.Text ->
   DeleteDiskSnapshot
-deleteDiskSnapshot pDiskSnapshotName_ =
-  DeleteDiskSnapshot' {_ddsDiskSnapshotName = pDiskSnapshotName_}
+mkDeleteDiskSnapshot pDiskSnapshotName_ =
+  DeleteDiskSnapshot' {diskSnapshotName = pDiskSnapshotName_}
 
 -- | The name of the disk snapshot you want to delete (e.g., @my-disk-snapshot@ ).
-ddsDiskSnapshotName :: Lens' DeleteDiskSnapshot Text
-ddsDiskSnapshotName = lens _ddsDiskSnapshotName (\s a -> s {_ddsDiskSnapshotName = a})
+--
+-- /Note:/ Consider using 'diskSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsDiskSnapshotName :: Lens.Lens' DeleteDiskSnapshot Lude.Text
+ddsDiskSnapshotName = Lens.lens (diskSnapshotName :: DeleteDiskSnapshot -> Lude.Text) (\s a -> s {diskSnapshotName = a} :: DeleteDiskSnapshot)
+{-# DEPRECATED ddsDiskSnapshotName "Use generic-lens or generic-optics with 'diskSnapshotName' instead." #-}
 
-instance AWSRequest DeleteDiskSnapshot where
+instance Lude.AWSRequest DeleteDiskSnapshot where
   type Rs DeleteDiskSnapshot = DeleteDiskSnapshotResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteDiskSnapshotResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteDiskSnapshot
-
-instance NFData DeleteDiskSnapshot
-
-instance ToHeaders DeleteDiskSnapshot where
+instance Lude.ToHeaders DeleteDiskSnapshot where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.DeleteDiskSnapshot" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.DeleteDiskSnapshot" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDiskSnapshot where
+instance Lude.ToJSON DeleteDiskSnapshot where
   toJSON DeleteDiskSnapshot' {..} =
-    object
-      (catMaybes [Just ("diskSnapshotName" .= _ddsDiskSnapshotName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("diskSnapshotName" Lude..= diskSnapshotName)]
+      )
 
-instance ToPath DeleteDiskSnapshot where
-  toPath = const "/"
+instance Lude.ToPath DeleteDiskSnapshot where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDiskSnapshot where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDiskSnapshot where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDiskSnapshotResponse' smart constructor.
+-- | /See:/ 'mkDeleteDiskSnapshotResponse' smart constructor.
 data DeleteDiskSnapshotResponse = DeleteDiskSnapshotResponse'
-  { _ddsrsOperations ::
-      !(Maybe [Operation]),
-    _ddsrsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDiskSnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddsrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'ddsrsResponseStatus' - -- | The response status code.
-deleteDiskSnapshotResponse ::
-  -- | 'ddsrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteDiskSnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDiskSnapshotResponse
-deleteDiskSnapshotResponse pResponseStatus_ =
+mkDeleteDiskSnapshotResponse pResponseStatus_ =
   DeleteDiskSnapshotResponse'
-    { _ddsrsOperations = Nothing,
-      _ddsrsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-ddsrsOperations :: Lens' DeleteDiskSnapshotResponse [Operation]
-ddsrsOperations = lens _ddsrsOperations (\s a -> s {_ddsrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsrsOperations :: Lens.Lens' DeleteDiskSnapshotResponse (Lude.Maybe [Operation])
+ddsrsOperations = Lens.lens (operations :: DeleteDiskSnapshotResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteDiskSnapshotResponse)
+{-# DEPRECATED ddsrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-ddsrsResponseStatus :: Lens' DeleteDiskSnapshotResponse Int
-ddsrsResponseStatus = lens _ddsrsResponseStatus (\s a -> s {_ddsrsResponseStatus = a})
-
-instance NFData DeleteDiskSnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsrsResponseStatus :: Lens.Lens' DeleteDiskSnapshotResponse Lude.Int
+ddsrsResponseStatus = Lens.lens (responseStatus :: DeleteDiskSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDiskSnapshotResponse)
+{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

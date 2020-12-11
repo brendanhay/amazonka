@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.FilterRuleName where
+module Network.AWS.S3.Types.FilterRuleName
+  ( FilterRuleName
+      ( FilterRuleName',
+        Prefix,
+        Suffix
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data FilterRuleName
-  = Prefix
-  | Suffix
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FilterRuleName = FilterRuleName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FilterRuleName where
-  parser =
-    takeLowerText >>= \case
-      "prefix" -> pure Prefix
-      "suffix" -> pure Suffix
-      e ->
-        fromTextError $
-          "Failure parsing FilterRuleName from value: '" <> e
-            <> "'. Accepted values: prefix, suffix"
+pattern Prefix :: FilterRuleName
+pattern Prefix = FilterRuleName' "prefix"
 
-instance ToText FilterRuleName where
-  toText = \case
-    Prefix -> "prefix"
-    Suffix -> "suffix"
+pattern Suffix :: FilterRuleName
+pattern Suffix = FilterRuleName' "suffix"
 
-instance Hashable FilterRuleName
-
-instance NFData FilterRuleName
-
-instance ToByteString FilterRuleName
-
-instance ToQuery FilterRuleName
-
-instance ToHeader FilterRuleName
-
-instance FromXML FilterRuleName where
-  parseXML = parseXMLText "FilterRuleName"
-
-instance ToXML FilterRuleName where
-  toXML = toXMLText
+{-# COMPLETE
+  Prefix,
+  Suffix,
+  FilterRuleName'
+  #-}

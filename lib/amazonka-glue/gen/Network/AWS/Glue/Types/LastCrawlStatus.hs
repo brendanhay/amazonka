@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.LastCrawlStatus where
+module Network.AWS.Glue.Types.LastCrawlStatus
+  ( LastCrawlStatus
+      ( LastCrawlStatus',
+        LCSCancelled,
+        LCSFailed,
+        LCSSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LastCrawlStatus
-  = LCSCancelled
-  | LCSFailed
-  | LCSSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LastCrawlStatus = LastCrawlStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LastCrawlStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure LCSCancelled
-      "failed" -> pure LCSFailed
-      "succeeded" -> pure LCSSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing LastCrawlStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, failed, succeeded"
+pattern LCSCancelled :: LastCrawlStatus
+pattern LCSCancelled = LastCrawlStatus' "CANCELLED"
 
-instance ToText LastCrawlStatus where
-  toText = \case
-    LCSCancelled -> "CANCELLED"
-    LCSFailed -> "FAILED"
-    LCSSucceeded -> "SUCCEEDED"
+pattern LCSFailed :: LastCrawlStatus
+pattern LCSFailed = LastCrawlStatus' "FAILED"
 
-instance Hashable LastCrawlStatus
+pattern LCSSucceeded :: LastCrawlStatus
+pattern LCSSucceeded = LastCrawlStatus' "SUCCEEDED"
 
-instance NFData LastCrawlStatus
-
-instance ToByteString LastCrawlStatus
-
-instance ToQuery LastCrawlStatus
-
-instance ToHeader LastCrawlStatus
-
-instance FromJSON LastCrawlStatus where
-  parseJSON = parseJSONText "LastCrawlStatus"
+{-# COMPLETE
+  LCSCancelled,
+  LCSFailed,
+  LCSSucceeded,
+  LastCrawlStatus'
+  #-}

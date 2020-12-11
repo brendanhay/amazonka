@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates settings for a global table.
 module Network.AWS.DynamoDB.UpdateGlobalTableSettings
-  ( -- * Creating a Request
-    updateGlobalTableSettings,
-    UpdateGlobalTableSettings,
+  ( -- * Creating a request
+    UpdateGlobalTableSettings (..),
+    mkUpdateGlobalTableSettings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
     ugtsGlobalTableBillingMode,
     ugtsGlobalTableProvisionedWriteCapacityUnits,
@@ -31,11 +26,11 @@ module Network.AWS.DynamoDB.UpdateGlobalTableSettings
     ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate,
     ugtsGlobalTableName,
 
-    -- * Destructuring the Response
-    updateGlobalTableSettingsResponse,
-    UpdateGlobalTableSettingsResponse,
+    -- * Destructuring the response
+    UpdateGlobalTableSettingsResponse (..),
+    mkUpdateGlobalTableSettingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugtsrsReplicaSettings,
     ugtsrsGlobalTableName,
     ugtsrsResponseStatus,
@@ -43,181 +38,221 @@ module Network.AWS.DynamoDB.UpdateGlobalTableSettings
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateGlobalTableSettings' smart constructor.
+-- | /See:/ 'mkUpdateGlobalTableSettings' smart constructor.
 data UpdateGlobalTableSettings = UpdateGlobalTableSettings'
-  { _ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate ::
-      !(Maybe AutoScalingSettingsUpdate),
-    _ugtsGlobalTableBillingMode ::
-      !(Maybe BillingMode),
-    _ugtsGlobalTableProvisionedWriteCapacityUnits ::
-      !(Maybe Nat),
-    _ugtsReplicaSettingsUpdate ::
-      !(Maybe (List1 ReplicaSettingsUpdate)),
-    _ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate ::
-      !( Maybe
-           ( List1
-               GlobalTableGlobalSecondaryIndexSettingsUpdate
-           )
-       ),
-    _ugtsGlobalTableName :: !Text
+  { globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate ::
+      Lude.Maybe AutoScalingSettingsUpdate,
+    globalTableBillingMode ::
+      Lude.Maybe BillingMode,
+    globalTableProvisionedWriteCapacityUnits ::
+      Lude.Maybe Lude.Natural,
+    replicaSettingsUpdate ::
+      Lude.Maybe
+        (Lude.NonEmpty ReplicaSettingsUpdate),
+    globalTableGlobalSecondaryIndexSettingsUpdate ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            GlobalTableGlobalSecondaryIndexSettingsUpdate
+        ),
+    globalTableName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGlobalTableSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'globalTableBillingMode' - The billing mode of the global table. If @GlobalTableBillingMode@ is not specified, the global table defaults to @PROVISIONED@ capacity billing mode.
 --
--- * 'ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing provisioned write capacity for the global table.
 --
--- * 'ugtsGlobalTableBillingMode' - The billing mode of the global table. If @GlobalTableBillingMode@ is not specified, the global table defaults to @PROVISIONED@ capacity billing mode.     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
+--     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .
 --
--- * 'ugtsGlobalTableProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
 --
--- * 'ugtsReplicaSettingsUpdate' - Represents the settings for a global table in a Region that will be modified.
+--     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
 --
--- * 'ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate' - Represents the settings of a global secondary index for a global table that will be modified.
 --
--- * 'ugtsGlobalTableName' - The name of the global table
-updateGlobalTableSettings ::
-  -- | 'ugtsGlobalTableName'
-  Text ->
+-- * 'globalTableGlobalSecondaryIndexSettingsUpdate' - Represents the settings of a global secondary index for a global table that will be modified.
+-- * 'globalTableName' - The name of the global table
+-- * 'globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing provisioned write capacity for the global table.
+-- * 'globalTableProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
+-- * 'replicaSettingsUpdate' - Represents the settings for a global table in a Region that will be modified.
+mkUpdateGlobalTableSettings ::
+  -- | 'globalTableName'
+  Lude.Text ->
   UpdateGlobalTableSettings
-updateGlobalTableSettings pGlobalTableName_ =
+mkUpdateGlobalTableSettings pGlobalTableName_ =
   UpdateGlobalTableSettings'
-    { _ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate =
-        Nothing,
-      _ugtsGlobalTableBillingMode = Nothing,
-      _ugtsGlobalTableProvisionedWriteCapacityUnits = Nothing,
-      _ugtsReplicaSettingsUpdate = Nothing,
-      _ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate = Nothing,
-      _ugtsGlobalTableName = pGlobalTableName_
+    { globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate =
+        Lude.Nothing,
+      globalTableBillingMode = Lude.Nothing,
+      globalTableProvisionedWriteCapacityUnits = Lude.Nothing,
+      replicaSettingsUpdate = Lude.Nothing,
+      globalTableGlobalSecondaryIndexSettingsUpdate = Lude.Nothing,
+      globalTableName = pGlobalTableName_
     }
 
 -- | Auto scaling settings for managing provisioned write capacity for the global table.
-ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate :: Lens' UpdateGlobalTableSettings (Maybe AutoScalingSettingsUpdate)
-ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = lens _ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate (\s a -> s {_ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = a})
+--
+-- /Note:/ Consider using 'globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate :: Lens.Lens' UpdateGlobalTableSettings (Lude.Maybe AutoScalingSettingsUpdate)
+ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = Lens.lens (globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate :: UpdateGlobalTableSettings -> Lude.Maybe AutoScalingSettingsUpdate) (\s a -> s {globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate = a} :: UpdateGlobalTableSettings)
+{-# DEPRECATED ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate "Use generic-lens or generic-optics with 'globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate' instead." #-}
 
--- | The billing mode of the global table. If @GlobalTableBillingMode@ is not specified, the global table defaults to @PROVISIONED@ capacity billing mode.     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
-ugtsGlobalTableBillingMode :: Lens' UpdateGlobalTableSettings (Maybe BillingMode)
-ugtsGlobalTableBillingMode = lens _ugtsGlobalTableBillingMode (\s a -> s {_ugtsGlobalTableBillingMode = a})
+-- | The billing mode of the global table. If @GlobalTableBillingMode@ is not specified, the global table defaults to @PROVISIONED@ capacity billing mode.
+--
+--
+--     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .
+--
+--
+--     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
+--
+--
+--
+-- /Note:/ Consider using 'globalTableBillingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtsGlobalTableBillingMode :: Lens.Lens' UpdateGlobalTableSettings (Lude.Maybe BillingMode)
+ugtsGlobalTableBillingMode = Lens.lens (globalTableBillingMode :: UpdateGlobalTableSettings -> Lude.Maybe BillingMode) (\s a -> s {globalTableBillingMode = a} :: UpdateGlobalTableSettings)
+{-# DEPRECATED ugtsGlobalTableBillingMode "Use generic-lens or generic-optics with 'globalTableBillingMode' instead." #-}
 
 -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
-ugtsGlobalTableProvisionedWriteCapacityUnits :: Lens' UpdateGlobalTableSettings (Maybe Natural)
-ugtsGlobalTableProvisionedWriteCapacityUnits = lens _ugtsGlobalTableProvisionedWriteCapacityUnits (\s a -> s {_ugtsGlobalTableProvisionedWriteCapacityUnits = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'globalTableProvisionedWriteCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtsGlobalTableProvisionedWriteCapacityUnits :: Lens.Lens' UpdateGlobalTableSettings (Lude.Maybe Lude.Natural)
+ugtsGlobalTableProvisionedWriteCapacityUnits = Lens.lens (globalTableProvisionedWriteCapacityUnits :: UpdateGlobalTableSettings -> Lude.Maybe Lude.Natural) (\s a -> s {globalTableProvisionedWriteCapacityUnits = a} :: UpdateGlobalTableSettings)
+{-# DEPRECATED ugtsGlobalTableProvisionedWriteCapacityUnits "Use generic-lens or generic-optics with 'globalTableProvisionedWriteCapacityUnits' instead." #-}
 
 -- | Represents the settings for a global table in a Region that will be modified.
-ugtsReplicaSettingsUpdate :: Lens' UpdateGlobalTableSettings (Maybe (NonEmpty ReplicaSettingsUpdate))
-ugtsReplicaSettingsUpdate = lens _ugtsReplicaSettingsUpdate (\s a -> s {_ugtsReplicaSettingsUpdate = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'replicaSettingsUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtsReplicaSettingsUpdate :: Lens.Lens' UpdateGlobalTableSettings (Lude.Maybe (Lude.NonEmpty ReplicaSettingsUpdate))
+ugtsReplicaSettingsUpdate = Lens.lens (replicaSettingsUpdate :: UpdateGlobalTableSettings -> Lude.Maybe (Lude.NonEmpty ReplicaSettingsUpdate)) (\s a -> s {replicaSettingsUpdate = a} :: UpdateGlobalTableSettings)
+{-# DEPRECATED ugtsReplicaSettingsUpdate "Use generic-lens or generic-optics with 'replicaSettingsUpdate' instead." #-}
 
 -- | Represents the settings of a global secondary index for a global table that will be modified.
-ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate :: Lens' UpdateGlobalTableSettings (Maybe (NonEmpty GlobalTableGlobalSecondaryIndexSettingsUpdate))
-ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate = lens _ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate (\s a -> s {_ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'globalTableGlobalSecondaryIndexSettingsUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate :: Lens.Lens' UpdateGlobalTableSettings (Lude.Maybe (Lude.NonEmpty GlobalTableGlobalSecondaryIndexSettingsUpdate))
+ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate = Lens.lens (globalTableGlobalSecondaryIndexSettingsUpdate :: UpdateGlobalTableSettings -> Lude.Maybe (Lude.NonEmpty GlobalTableGlobalSecondaryIndexSettingsUpdate)) (\s a -> s {globalTableGlobalSecondaryIndexSettingsUpdate = a} :: UpdateGlobalTableSettings)
+{-# DEPRECATED ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate "Use generic-lens or generic-optics with 'globalTableGlobalSecondaryIndexSettingsUpdate' instead." #-}
 
 -- | The name of the global table
-ugtsGlobalTableName :: Lens' UpdateGlobalTableSettings Text
-ugtsGlobalTableName = lens _ugtsGlobalTableName (\s a -> s {_ugtsGlobalTableName = a})
+--
+-- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtsGlobalTableName :: Lens.Lens' UpdateGlobalTableSettings Lude.Text
+ugtsGlobalTableName = Lens.lens (globalTableName :: UpdateGlobalTableSettings -> Lude.Text) (\s a -> s {globalTableName = a} :: UpdateGlobalTableSettings)
+{-# DEPRECATED ugtsGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
 
-instance AWSRequest UpdateGlobalTableSettings where
+instance Lude.AWSRequest UpdateGlobalTableSettings where
   type
     Rs UpdateGlobalTableSettings =
       UpdateGlobalTableSettingsResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateGlobalTableSettingsResponse'
-            <$> (x .?> "ReplicaSettings" .!@ mempty)
-            <*> (x .?> "GlobalTableName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ReplicaSettings" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "GlobalTableName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateGlobalTableSettings
-
-instance NFData UpdateGlobalTableSettings
-
-instance ToHeaders UpdateGlobalTableSettings where
+instance Lude.ToHeaders UpdateGlobalTableSettings where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.UpdateGlobalTableSettings" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.UpdateGlobalTableSettings" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateGlobalTableSettings where
+instance Lude.ToJSON UpdateGlobalTableSettings where
   toJSON UpdateGlobalTableSettings' {..} =
-    object
-      ( catMaybes
+    Lude.object
+      ( Lude.catMaybes
           [ ( "GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"
-                .=
+                Lude..=
             )
-              <$> _ugtsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
-            ("GlobalTableBillingMode" .=) <$> _ugtsGlobalTableBillingMode,
-            ("GlobalTableProvisionedWriteCapacityUnits" .=)
-              <$> _ugtsGlobalTableProvisionedWriteCapacityUnits,
-            ("ReplicaSettingsUpdate" .=) <$> _ugtsReplicaSettingsUpdate,
-            ("GlobalTableGlobalSecondaryIndexSettingsUpdate" .=)
-              <$> _ugtsGlobalTableGlobalSecondaryIndexSettingsUpdate,
-            Just ("GlobalTableName" .= _ugtsGlobalTableName)
+              Lude.<$> globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
+            ("GlobalTableBillingMode" Lude..=) Lude.<$> globalTableBillingMode,
+            ("GlobalTableProvisionedWriteCapacityUnits" Lude..=)
+              Lude.<$> globalTableProvisionedWriteCapacityUnits,
+            ("ReplicaSettingsUpdate" Lude..=) Lude.<$> replicaSettingsUpdate,
+            ("GlobalTableGlobalSecondaryIndexSettingsUpdate" Lude..=)
+              Lude.<$> globalTableGlobalSecondaryIndexSettingsUpdate,
+            Lude.Just ("GlobalTableName" Lude..= globalTableName)
           ]
       )
 
-instance ToPath UpdateGlobalTableSettings where
-  toPath = const "/"
+instance Lude.ToPath UpdateGlobalTableSettings where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateGlobalTableSettings where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGlobalTableSettings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateGlobalTableSettingsResponse' smart constructor.
+-- | /See:/ 'mkUpdateGlobalTableSettingsResponse' smart constructor.
 data UpdateGlobalTableSettingsResponse = UpdateGlobalTableSettingsResponse'
-  { _ugtsrsReplicaSettings ::
-      !( Maybe
-           [ReplicaSettingsDescription]
-       ),
-    _ugtsrsGlobalTableName ::
-      !(Maybe Text),
-    _ugtsrsResponseStatus ::
-      !Int
+  { replicaSettings ::
+      Lude.Maybe
+        [ReplicaSettingsDescription],
+    globalTableName ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGlobalTableSettingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugtsrsReplicaSettings' - The Region-specific settings for the global table.
---
--- * 'ugtsrsGlobalTableName' - The name of the global table.
---
--- * 'ugtsrsResponseStatus' - -- | The response status code.
-updateGlobalTableSettingsResponse ::
-  -- | 'ugtsrsResponseStatus'
-  Int ->
+-- * 'globalTableName' - The name of the global table.
+-- * 'replicaSettings' - The Region-specific settings for the global table.
+-- * 'responseStatus' - The response status code.
+mkUpdateGlobalTableSettingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGlobalTableSettingsResponse
-updateGlobalTableSettingsResponse pResponseStatus_ =
+mkUpdateGlobalTableSettingsResponse pResponseStatus_ =
   UpdateGlobalTableSettingsResponse'
-    { _ugtsrsReplicaSettings =
-        Nothing,
-      _ugtsrsGlobalTableName = Nothing,
-      _ugtsrsResponseStatus = pResponseStatus_
+    { replicaSettings =
+        Lude.Nothing,
+      globalTableName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Region-specific settings for the global table.
-ugtsrsReplicaSettings :: Lens' UpdateGlobalTableSettingsResponse [ReplicaSettingsDescription]
-ugtsrsReplicaSettings = lens _ugtsrsReplicaSettings (\s a -> s {_ugtsrsReplicaSettings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicaSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtsrsReplicaSettings :: Lens.Lens' UpdateGlobalTableSettingsResponse (Lude.Maybe [ReplicaSettingsDescription])
+ugtsrsReplicaSettings = Lens.lens (replicaSettings :: UpdateGlobalTableSettingsResponse -> Lude.Maybe [ReplicaSettingsDescription]) (\s a -> s {replicaSettings = a} :: UpdateGlobalTableSettingsResponse)
+{-# DEPRECATED ugtsrsReplicaSettings "Use generic-lens or generic-optics with 'replicaSettings' instead." #-}
 
 -- | The name of the global table.
-ugtsrsGlobalTableName :: Lens' UpdateGlobalTableSettingsResponse (Maybe Text)
-ugtsrsGlobalTableName = lens _ugtsrsGlobalTableName (\s a -> s {_ugtsrsGlobalTableName = a})
+--
+-- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtsrsGlobalTableName :: Lens.Lens' UpdateGlobalTableSettingsResponse (Lude.Maybe Lude.Text)
+ugtsrsGlobalTableName = Lens.lens (globalTableName :: UpdateGlobalTableSettingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {globalTableName = a} :: UpdateGlobalTableSettingsResponse)
+{-# DEPRECATED ugtsrsGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
 
--- | -- | The response status code.
-ugtsrsResponseStatus :: Lens' UpdateGlobalTableSettingsResponse Int
-ugtsrsResponseStatus = lens _ugtsrsResponseStatus (\s a -> s {_ugtsrsResponseStatus = a})
-
-instance NFData UpdateGlobalTableSettingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtsrsResponseStatus :: Lens.Lens' UpdateGlobalTableSettingsResponse Lude.Int
+ugtsrsResponseStatus = Lens.lens (responseStatus :: UpdateGlobalTableSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGlobalTableSettingsResponse)
+{-# DEPRECATED ugtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

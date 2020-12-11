@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LocationType where
+module Network.AWS.EC2.Types.LocationType
+  ( LocationType
+      ( LocationType',
+        AvailabilityZone,
+        AvailabilityZoneId,
+        Region
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LocationType
-  = AvailabilityZone
-  | AvailabilityZoneId
-  | Region
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LocationType = LocationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LocationType where
-  parser =
-    takeLowerText >>= \case
-      "availability-zone" -> pure AvailabilityZone
-      "availability-zone-id" -> pure AvailabilityZoneId
-      "region" -> pure Region
-      e ->
-        fromTextError $
-          "Failure parsing LocationType from value: '" <> e
-            <> "'. Accepted values: availability-zone, availability-zone-id, region"
+pattern AvailabilityZone :: LocationType
+pattern AvailabilityZone = LocationType' "availability-zone"
 
-instance ToText LocationType where
-  toText = \case
-    AvailabilityZone -> "availability-zone"
-    AvailabilityZoneId -> "availability-zone-id"
-    Region -> "region"
+pattern AvailabilityZoneId :: LocationType
+pattern AvailabilityZoneId = LocationType' "availability-zone-id"
 
-instance Hashable LocationType
+pattern Region :: LocationType
+pattern Region = LocationType' "region"
 
-instance NFData LocationType
-
-instance ToByteString LocationType
-
-instance ToQuery LocationType
-
-instance ToHeader LocationType
-
-instance FromXML LocationType where
-  parseXML = parseXMLText "LocationType"
+{-# COMPLETE
+  AvailabilityZone,
+  AvailabilityZoneId,
+  Region,
+  LocationType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrainingJobStatus where
+module Network.AWS.SageMaker.Types.TrainingJobStatus
+  ( TrainingJobStatus
+      ( TrainingJobStatus',
+        TJSCompleted,
+        TJSFailed,
+        TJSInProgress,
+        TJSStopped,
+        TJSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrainingJobStatus
-  = TJSCompleted
-  | TJSFailed
-  | TJSInProgress
-  | TJSStopped
-  | TJSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrainingJobStatus = TrainingJobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrainingJobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure TJSCompleted
-      "failed" -> pure TJSFailed
-      "inprogress" -> pure TJSInProgress
-      "stopped" -> pure TJSStopped
-      "stopping" -> pure TJSStopping
-      e ->
-        fromTextError $
-          "Failure parsing TrainingJobStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, stopped, stopping"
+pattern TJSCompleted :: TrainingJobStatus
+pattern TJSCompleted = TrainingJobStatus' "Completed"
 
-instance ToText TrainingJobStatus where
-  toText = \case
-    TJSCompleted -> "Completed"
-    TJSFailed -> "Failed"
-    TJSInProgress -> "InProgress"
-    TJSStopped -> "Stopped"
-    TJSStopping -> "Stopping"
+pattern TJSFailed :: TrainingJobStatus
+pattern TJSFailed = TrainingJobStatus' "Failed"
 
-instance Hashable TrainingJobStatus
+pattern TJSInProgress :: TrainingJobStatus
+pattern TJSInProgress = TrainingJobStatus' "InProgress"
 
-instance NFData TrainingJobStatus
+pattern TJSStopped :: TrainingJobStatus
+pattern TJSStopped = TrainingJobStatus' "Stopped"
 
-instance ToByteString TrainingJobStatus
+pattern TJSStopping :: TrainingJobStatus
+pattern TJSStopping = TrainingJobStatus' "Stopping"
 
-instance ToQuery TrainingJobStatus
-
-instance ToHeader TrainingJobStatus
-
-instance ToJSON TrainingJobStatus where
-  toJSON = toJSONText
-
-instance FromJSON TrainingJobStatus where
-  parseJSON = parseJSONText "TrainingJobStatus"
+{-# COMPLETE
+  TJSCompleted,
+  TJSFailed,
+  TJSInProgress,
+  TJSStopped,
+  TJSStopping,
+  TrainingJobStatus'
+  #-}

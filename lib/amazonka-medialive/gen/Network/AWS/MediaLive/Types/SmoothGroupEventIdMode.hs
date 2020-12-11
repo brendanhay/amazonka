@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.SmoothGroupEventIdMode where
+module Network.AWS.MediaLive.Types.SmoothGroupEventIdMode
+  ( SmoothGroupEventIdMode
+      ( SmoothGroupEventIdMode',
+        NoEventId,
+        UseConfigured,
+        UseTimestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Smooth Group Event Id Mode
-data SmoothGroupEventIdMode
-  = NoEventId
-  | UseConfigured
-  | UseTimestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SmoothGroupEventIdMode = SmoothGroupEventIdMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SmoothGroupEventIdMode where
-  parser =
-    takeLowerText >>= \case
-      "no_event_id" -> pure NoEventId
-      "use_configured" -> pure UseConfigured
-      "use_timestamp" -> pure UseTimestamp
-      e ->
-        fromTextError $
-          "Failure parsing SmoothGroupEventIdMode from value: '" <> e
-            <> "'. Accepted values: no_event_id, use_configured, use_timestamp"
+pattern NoEventId :: SmoothGroupEventIdMode
+pattern NoEventId = SmoothGroupEventIdMode' "NO_EVENT_ID"
 
-instance ToText SmoothGroupEventIdMode where
-  toText = \case
-    NoEventId -> "NO_EVENT_ID"
-    UseConfigured -> "USE_CONFIGURED"
-    UseTimestamp -> "USE_TIMESTAMP"
+pattern UseConfigured :: SmoothGroupEventIdMode
+pattern UseConfigured = SmoothGroupEventIdMode' "USE_CONFIGURED"
 
-instance Hashable SmoothGroupEventIdMode
+pattern UseTimestamp :: SmoothGroupEventIdMode
+pattern UseTimestamp = SmoothGroupEventIdMode' "USE_TIMESTAMP"
 
-instance NFData SmoothGroupEventIdMode
-
-instance ToByteString SmoothGroupEventIdMode
-
-instance ToQuery SmoothGroupEventIdMode
-
-instance ToHeader SmoothGroupEventIdMode
-
-instance ToJSON SmoothGroupEventIdMode where
-  toJSON = toJSONText
-
-instance FromJSON SmoothGroupEventIdMode where
-  parseJSON = parseJSONText "SmoothGroupEventIdMode"
+{-# COMPLETE
+  NoEventId,
+  UseConfigured,
+  UseTimestamp,
+  SmoothGroupEventIdMode'
+  #-}

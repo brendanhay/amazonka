@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.ActivityStartedEventDetails where
+module Network.AWS.StepFunctions.Types.ActivityStartedEventDetails
+  ( ActivityStartedEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActivityStartedEventDetails,
+
+    -- * Lenses
+    asedWorkerName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about the start of an activity during an execution.
 --
---
---
--- /See:/ 'activityStartedEventDetails' smart constructor.
+-- /See:/ 'mkActivityStartedEventDetails' smart constructor.
 newtype ActivityStartedEventDetails = ActivityStartedEventDetails'
-  { _asedWorkerName ::
-      Maybe Text
+  { workerName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivityStartedEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asedWorkerName' - The name of the worker that the task is assigned to. These names are provided by the workers when calling 'GetActivityTask' .
-activityStartedEventDetails ::
+-- * 'workerName' - The name of the worker that the task is assigned to. These names are provided by the workers when calling 'GetActivityTask' .
+mkActivityStartedEventDetails ::
   ActivityStartedEventDetails
-activityStartedEventDetails =
-  ActivityStartedEventDetails' {_asedWorkerName = Nothing}
+mkActivityStartedEventDetails =
+  ActivityStartedEventDetails' {workerName = Lude.Nothing}
 
 -- | The name of the worker that the task is assigned to. These names are provided by the workers when calling 'GetActivityTask' .
-asedWorkerName :: Lens' ActivityStartedEventDetails (Maybe Text)
-asedWorkerName = lens _asedWorkerName (\s a -> s {_asedWorkerName = a})
+--
+-- /Note:/ Consider using 'workerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asedWorkerName :: Lens.Lens' ActivityStartedEventDetails (Lude.Maybe Lude.Text)
+asedWorkerName = Lens.lens (workerName :: ActivityStartedEventDetails -> Lude.Maybe Lude.Text) (\s a -> s {workerName = a} :: ActivityStartedEventDetails)
+{-# DEPRECATED asedWorkerName "Use generic-lens or generic-optics with 'workerName' instead." #-}
 
-instance FromJSON ActivityStartedEventDetails where
+instance Lude.FromJSON ActivityStartedEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActivityStartedEventDetails"
-      (\x -> ActivityStartedEventDetails' <$> (x .:? "workerName"))
-
-instance Hashable ActivityStartedEventDetails
-
-instance NFData ActivityStartedEventDetails
+      ( \x ->
+          ActivityStartedEventDetails' Lude.<$> (x Lude..:? "workerName")
+      )

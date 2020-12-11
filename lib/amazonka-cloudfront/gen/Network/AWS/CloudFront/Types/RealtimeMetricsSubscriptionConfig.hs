@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig where
+module Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig
+  ( RealtimeMetricsSubscriptionConfig (..),
+
+    -- * Smart constructor
+    mkRealtimeMetricsSubscriptionConfig,
+
+    -- * Lenses
+    rmscRealtimeMetricsSubscriptionStatus,
+  )
+where
 
 import Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A subscription configuration for additional CloudWatch metrics.
 --
---
---
--- /See:/ 'realtimeMetricsSubscriptionConfig' smart constructor.
+-- /See:/ 'mkRealtimeMetricsSubscriptionConfig' smart constructor.
 newtype RealtimeMetricsSubscriptionConfig = RealtimeMetricsSubscriptionConfig'
-  { _rmscRealtimeMetricsSubscriptionStatus ::
+  { realtimeMetricsSubscriptionStatus ::
       RealtimeMetricsSubscriptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RealtimeMetricsSubscriptionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rmscRealtimeMetricsSubscriptionStatus' - A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-realtimeMetricsSubscriptionConfig ::
-  -- | 'rmscRealtimeMetricsSubscriptionStatus'
+-- * 'realtimeMetricsSubscriptionStatus' - A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+mkRealtimeMetricsSubscriptionConfig ::
+  -- | 'realtimeMetricsSubscriptionStatus'
   RealtimeMetricsSubscriptionStatus ->
   RealtimeMetricsSubscriptionConfig
-realtimeMetricsSubscriptionConfig
+mkRealtimeMetricsSubscriptionConfig
   pRealtimeMetricsSubscriptionStatus_ =
     RealtimeMetricsSubscriptionConfig'
-      { _rmscRealtimeMetricsSubscriptionStatus =
+      { realtimeMetricsSubscriptionStatus =
           pRealtimeMetricsSubscriptionStatus_
       }
 
 -- | A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-rmscRealtimeMetricsSubscriptionStatus :: Lens' RealtimeMetricsSubscriptionConfig RealtimeMetricsSubscriptionStatus
-rmscRealtimeMetricsSubscriptionStatus = lens _rmscRealtimeMetricsSubscriptionStatus (\s a -> s {_rmscRealtimeMetricsSubscriptionStatus = a})
+--
+-- /Note:/ Consider using 'realtimeMetricsSubscriptionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmscRealtimeMetricsSubscriptionStatus :: Lens.Lens' RealtimeMetricsSubscriptionConfig RealtimeMetricsSubscriptionStatus
+rmscRealtimeMetricsSubscriptionStatus = Lens.lens (realtimeMetricsSubscriptionStatus :: RealtimeMetricsSubscriptionConfig -> RealtimeMetricsSubscriptionStatus) (\s a -> s {realtimeMetricsSubscriptionStatus = a} :: RealtimeMetricsSubscriptionConfig)
+{-# DEPRECATED rmscRealtimeMetricsSubscriptionStatus "Use generic-lens or generic-optics with 'realtimeMetricsSubscriptionStatus' instead." #-}
 
-instance FromXML RealtimeMetricsSubscriptionConfig where
+instance Lude.FromXML RealtimeMetricsSubscriptionConfig where
   parseXML x =
     RealtimeMetricsSubscriptionConfig'
-      <$> (x .@ "RealtimeMetricsSubscriptionStatus")
+      Lude.<$> (x Lude..@ "RealtimeMetricsSubscriptionStatus")
 
-instance Hashable RealtimeMetricsSubscriptionConfig
-
-instance NFData RealtimeMetricsSubscriptionConfig
-
-instance ToXML RealtimeMetricsSubscriptionConfig where
+instance Lude.ToXML RealtimeMetricsSubscriptionConfig where
   toXML RealtimeMetricsSubscriptionConfig' {..} =
-    mconcat
+    Lude.mconcat
       [ "RealtimeMetricsSubscriptionStatus"
-          @= _rmscRealtimeMetricsSubscriptionStatus
+          Lude.@= realtimeMetricsSubscriptionStatus
       ]

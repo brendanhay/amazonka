@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SerDeInfo where
+module Network.AWS.Glue.Types.SerDeInfo
+  ( SerDeInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSerDeInfo,
+
+    -- * Lenses
+    sdiSerializationLibrary,
+    sdiName,
+    sdiParameters,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a serialization/deserialization program (SerDe) that serves as an extractor and loader.
 --
---
---
--- /See:/ 'serDeInfo' smart constructor.
+-- /See:/ 'mkSerDeInfo' smart constructor.
 data SerDeInfo = SerDeInfo'
-  { _sdiSerializationLibrary ::
-      !(Maybe Text),
-    _sdiName :: !(Maybe Text),
-    _sdiParameters :: !(Maybe (Map Text (Text)))
+  { serializationLibrary ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SerDeInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdiSerializationLibrary' - Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
---
--- * 'sdiName' - Name of the SerDe.
---
--- * 'sdiParameters' - These key-value pairs define initialization parameters for the SerDe.
-serDeInfo ::
+-- * 'name' - Name of the SerDe.
+-- * 'parameters' - These key-value pairs define initialization parameters for the SerDe.
+-- * 'serializationLibrary' - Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
+mkSerDeInfo ::
   SerDeInfo
-serDeInfo =
+mkSerDeInfo =
   SerDeInfo'
-    { _sdiSerializationLibrary = Nothing,
-      _sdiName = Nothing,
-      _sdiParameters = Nothing
+    { serializationLibrary = Lude.Nothing,
+      name = Lude.Nothing,
+      parameters = Lude.Nothing
     }
 
 -- | Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
-sdiSerializationLibrary :: Lens' SerDeInfo (Maybe Text)
-sdiSerializationLibrary = lens _sdiSerializationLibrary (\s a -> s {_sdiSerializationLibrary = a})
+--
+-- /Note:/ Consider using 'serializationLibrary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdiSerializationLibrary :: Lens.Lens' SerDeInfo (Lude.Maybe Lude.Text)
+sdiSerializationLibrary = Lens.lens (serializationLibrary :: SerDeInfo -> Lude.Maybe Lude.Text) (\s a -> s {serializationLibrary = a} :: SerDeInfo)
+{-# DEPRECATED sdiSerializationLibrary "Use generic-lens or generic-optics with 'serializationLibrary' instead." #-}
 
 -- | Name of the SerDe.
-sdiName :: Lens' SerDeInfo (Maybe Text)
-sdiName = lens _sdiName (\s a -> s {_sdiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdiName :: Lens.Lens' SerDeInfo (Lude.Maybe Lude.Text)
+sdiName = Lens.lens (name :: SerDeInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SerDeInfo)
+{-# DEPRECATED sdiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | These key-value pairs define initialization parameters for the SerDe.
-sdiParameters :: Lens' SerDeInfo (HashMap Text (Text))
-sdiParameters = lens _sdiParameters (\s a -> s {_sdiParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdiParameters :: Lens.Lens' SerDeInfo (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+sdiParameters = Lens.lens (parameters :: SerDeInfo -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: SerDeInfo)
+{-# DEPRECATED sdiParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance FromJSON SerDeInfo where
+instance Lude.FromJSON SerDeInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "SerDeInfo"
       ( \x ->
           SerDeInfo'
-            <$> (x .:? "SerializationLibrary")
-            <*> (x .:? "Name")
-            <*> (x .:? "Parameters" .!= mempty)
+            Lude.<$> (x Lude..:? "SerializationLibrary")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
       )
 
-instance Hashable SerDeInfo
-
-instance NFData SerDeInfo
-
-instance ToJSON SerDeInfo where
+instance Lude.ToJSON SerDeInfo where
   toJSON SerDeInfo' {..} =
-    object
-      ( catMaybes
-          [ ("SerializationLibrary" .=) <$> _sdiSerializationLibrary,
-            ("Name" .=) <$> _sdiName,
-            ("Parameters" .=) <$> _sdiParameters
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SerializationLibrary" Lude..=) Lude.<$> serializationLibrary,
+            ("Name" Lude..=) Lude.<$> name,
+            ("Parameters" Lude..=) Lude.<$> parameters
           ]
       )

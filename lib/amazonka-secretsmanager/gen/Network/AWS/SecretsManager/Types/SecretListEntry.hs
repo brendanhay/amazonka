@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,176 +7,234 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SecretsManager.Types.SecretListEntry where
+module Network.AWS.SecretsManager.Types.SecretListEntry
+  ( SecretListEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSecretListEntry,
+
+    -- * Lenses
+    sleLastChangedDate,
+    sleARN,
+    sleSecretVersionsToStages,
+    sleRotationRules,
+    sleDeletedDate,
+    sleRotationEnabled,
+    sleCreatedDate,
+    sleKMSKeyId,
+    sleName,
+    sleOwningService,
+    sleLastRotatedDate,
+    sleLastAccessedDate,
+    sleDescription,
+    sleRotationLambdaARN,
+    sleTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SecretsManager.Types.RotationRulesType
 import Network.AWS.SecretsManager.Types.Tag
 
 -- | A structure that contains the details about a secret. It does not include the encrypted @SecretString@ and @SecretBinary@ values. To get those values, use the 'GetSecretValue' operation.
 --
---
---
--- /See:/ 'secretListEntry' smart constructor.
+-- /See:/ 'mkSecretListEntry' smart constructor.
 data SecretListEntry = SecretListEntry'
-  { _sleLastChangedDate ::
-      !(Maybe POSIX),
-    _sleARN :: !(Maybe Text),
-    _sleSecretVersionsToStages ::
-      !(Maybe (Map Text (List1 Text))),
-    _sleRotationRules :: !(Maybe RotationRulesType),
-    _sleDeletedDate :: !(Maybe POSIX),
-    _sleRotationEnabled :: !(Maybe Bool),
-    _sleCreatedDate :: !(Maybe POSIX),
-    _sleKMSKeyId :: !(Maybe Text),
-    _sleName :: !(Maybe Text),
-    _sleOwningService :: !(Maybe Text),
-    _sleLastRotatedDate :: !(Maybe POSIX),
-    _sleLastAccessedDate :: !(Maybe POSIX),
-    _sleDescription :: !(Maybe Text),
-    _sleRotationLambdaARN :: !(Maybe Text),
-    _sleTags :: !(Maybe [Tag])
+  { lastChangedDate ::
+      Lude.Maybe Lude.Timestamp,
+    arn :: Lude.Maybe Lude.Text,
+    secretVersionsToStages ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text)),
+    rotationRules :: Lude.Maybe RotationRulesType,
+    deletedDate :: Lude.Maybe Lude.Timestamp,
+    rotationEnabled :: Lude.Maybe Lude.Bool,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    owningService :: Lude.Maybe Lude.Text,
+    lastRotatedDate :: Lude.Maybe Lude.Timestamp,
+    lastAccessedDate :: Lude.Maybe Lude.Timestamp,
+    description :: Lude.Maybe Lude.Text,
+    rotationLambdaARN :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecretListEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the secret.
 --
--- * 'sleLastChangedDate' - The last date and time that this secret was modified in any way.
---
--- * 'sleARN' - The Amazon Resource Name (ARN) of the secret. For more information about ARNs in Secrets Manager, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
---
--- * 'sleSecretVersionsToStages' - A list of all of the currently assigned @SecretVersionStage@ staging labels and the @SecretVersionId@ attached to each one. Staging labels are used to keep track of the different versions during the rotation process.
---
--- * 'sleRotationRules' - A structure that defines the rotation configuration for the secret.
---
--- * 'sleDeletedDate' - The date and time the deletion of the secret occurred. Not present on active secrets. The secret can be recovered until the number of days in the recovery window has passed, as specified in the @RecoveryWindowInDays@ parameter of the 'DeleteSecret' operation.
---
--- * 'sleRotationEnabled' - Indicates whether automatic, scheduled rotation is enabled for this secret.
---
--- * 'sleCreatedDate' - The date and time when a secret was created.
---
--- * 'sleKMSKeyId' - The ARN or alias of the AWS KMS customer master key (CMK) used to encrypt the @SecretString@ and @SecretBinary@ fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default KMS CMK, the key named @awssecretsmanager@ , for this account.
---
--- * 'sleName' - The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy. For example, @/prod/databases/dbserver1@ could represent the secret for a server named @dbserver1@ in the folder @databases@ in the folder @prod@ .
---
--- * 'sleOwningService' - Returns the name of the service that created the secret.
---
--- * 'sleLastRotatedDate' - The last date and time that the rotation process for this secret was invoked.
---
--- * 'sleLastAccessedDate' - The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.
---
--- * 'sleDescription' - The user-provided description of the secret.
---
--- * 'sleRotationLambdaARN' - The ARN of an AWS Lambda function invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to 'RotateSecret' .
---
--- * 'sleTags' - The list of user-defined tags associated with the secret. To add tags to a secret, use 'TagResource' . To remove tags, use 'UntagResource' .
-secretListEntry ::
+-- For more information about ARNs in Secrets Manager, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
+-- * 'createdDate' - The date and time when a secret was created.
+-- * 'deletedDate' - The date and time the deletion of the secret occurred. Not present on active secrets. The secret can be recovered until the number of days in the recovery window has passed, as specified in the @RecoveryWindowInDays@ parameter of the 'DeleteSecret' operation.
+-- * 'description' - The user-provided description of the secret.
+-- * 'kmsKeyId' - The ARN or alias of the AWS KMS customer master key (CMK) used to encrypt the @SecretString@ and @SecretBinary@ fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default KMS CMK, the key named @awssecretsmanager@ , for this account.
+-- * 'lastAccessedDate' - The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.
+-- * 'lastChangedDate' - The last date and time that this secret was modified in any way.
+-- * 'lastRotatedDate' - The last date and time that the rotation process for this secret was invoked.
+-- * 'name' - The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy. For example, @/prod/databases/dbserver1@ could represent the secret for a server named @dbserver1@ in the folder @databases@ in the folder @prod@ .
+-- * 'owningService' - Returns the name of the service that created the secret.
+-- * 'rotationEnabled' - Indicates whether automatic, scheduled rotation is enabled for this secret.
+-- * 'rotationLambdaARN' - The ARN of an AWS Lambda function invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to 'RotateSecret' .
+-- * 'rotationRules' - A structure that defines the rotation configuration for the secret.
+-- * 'secretVersionsToStages' - A list of all of the currently assigned @SecretVersionStage@ staging labels and the @SecretVersionId@ attached to each one. Staging labels are used to keep track of the different versions during the rotation process.
+-- * 'tags' - The list of user-defined tags associated with the secret. To add tags to a secret, use 'TagResource' . To remove tags, use 'UntagResource' .
+mkSecretListEntry ::
   SecretListEntry
-secretListEntry =
+mkSecretListEntry =
   SecretListEntry'
-    { _sleLastChangedDate = Nothing,
-      _sleARN = Nothing,
-      _sleSecretVersionsToStages = Nothing,
-      _sleRotationRules = Nothing,
-      _sleDeletedDate = Nothing,
-      _sleRotationEnabled = Nothing,
-      _sleCreatedDate = Nothing,
-      _sleKMSKeyId = Nothing,
-      _sleName = Nothing,
-      _sleOwningService = Nothing,
-      _sleLastRotatedDate = Nothing,
-      _sleLastAccessedDate = Nothing,
-      _sleDescription = Nothing,
-      _sleRotationLambdaARN = Nothing,
-      _sleTags = Nothing
+    { lastChangedDate = Lude.Nothing,
+      arn = Lude.Nothing,
+      secretVersionsToStages = Lude.Nothing,
+      rotationRules = Lude.Nothing,
+      deletedDate = Lude.Nothing,
+      rotationEnabled = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      name = Lude.Nothing,
+      owningService = Lude.Nothing,
+      lastRotatedDate = Lude.Nothing,
+      lastAccessedDate = Lude.Nothing,
+      description = Lude.Nothing,
+      rotationLambdaARN = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The last date and time that this secret was modified in any way.
-sleLastChangedDate :: Lens' SecretListEntry (Maybe UTCTime)
-sleLastChangedDate = lens _sleLastChangedDate (\s a -> s {_sleLastChangedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastChangedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleLastChangedDate :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Timestamp)
+sleLastChangedDate = Lens.lens (lastChangedDate :: SecretListEntry -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastChangedDate = a} :: SecretListEntry)
+{-# DEPRECATED sleLastChangedDate "Use generic-lens or generic-optics with 'lastChangedDate' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the secret. For more information about ARNs in Secrets Manager, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
-sleARN :: Lens' SecretListEntry (Maybe Text)
-sleARN = lens _sleARN (\s a -> s {_sleARN = a})
+-- | The Amazon Resource Name (ARN) of the secret.
+--
+-- For more information about ARNs in Secrets Manager, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleARN :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Text)
+sleARN = Lens.lens (arn :: SecretListEntry -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: SecretListEntry)
+{-# DEPRECATED sleARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A list of all of the currently assigned @SecretVersionStage@ staging labels and the @SecretVersionId@ attached to each one. Staging labels are used to keep track of the different versions during the rotation process.
-sleSecretVersionsToStages :: Lens' SecretListEntry (HashMap Text (NonEmpty Text))
-sleSecretVersionsToStages = lens _sleSecretVersionsToStages (\s a -> s {_sleSecretVersionsToStages = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'secretVersionsToStages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleSecretVersionsToStages :: Lens.Lens' SecretListEntry (Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text)))
+sleSecretVersionsToStages = Lens.lens (secretVersionsToStages :: SecretListEntry -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text))) (\s a -> s {secretVersionsToStages = a} :: SecretListEntry)
+{-# DEPRECATED sleSecretVersionsToStages "Use generic-lens or generic-optics with 'secretVersionsToStages' instead." #-}
 
 -- | A structure that defines the rotation configuration for the secret.
-sleRotationRules :: Lens' SecretListEntry (Maybe RotationRulesType)
-sleRotationRules = lens _sleRotationRules (\s a -> s {_sleRotationRules = a})
+--
+-- /Note:/ Consider using 'rotationRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleRotationRules :: Lens.Lens' SecretListEntry (Lude.Maybe RotationRulesType)
+sleRotationRules = Lens.lens (rotationRules :: SecretListEntry -> Lude.Maybe RotationRulesType) (\s a -> s {rotationRules = a} :: SecretListEntry)
+{-# DEPRECATED sleRotationRules "Use generic-lens or generic-optics with 'rotationRules' instead." #-}
 
 -- | The date and time the deletion of the secret occurred. Not present on active secrets. The secret can be recovered until the number of days in the recovery window has passed, as specified in the @RecoveryWindowInDays@ parameter of the 'DeleteSecret' operation.
-sleDeletedDate :: Lens' SecretListEntry (Maybe UTCTime)
-sleDeletedDate = lens _sleDeletedDate (\s a -> s {_sleDeletedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deletedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleDeletedDate :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Timestamp)
+sleDeletedDate = Lens.lens (deletedDate :: SecretListEntry -> Lude.Maybe Lude.Timestamp) (\s a -> s {deletedDate = a} :: SecretListEntry)
+{-# DEPRECATED sleDeletedDate "Use generic-lens or generic-optics with 'deletedDate' instead." #-}
 
 -- | Indicates whether automatic, scheduled rotation is enabled for this secret.
-sleRotationEnabled :: Lens' SecretListEntry (Maybe Bool)
-sleRotationEnabled = lens _sleRotationEnabled (\s a -> s {_sleRotationEnabled = a})
+--
+-- /Note:/ Consider using 'rotationEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleRotationEnabled :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Bool)
+sleRotationEnabled = Lens.lens (rotationEnabled :: SecretListEntry -> Lude.Maybe Lude.Bool) (\s a -> s {rotationEnabled = a} :: SecretListEntry)
+{-# DEPRECATED sleRotationEnabled "Use generic-lens or generic-optics with 'rotationEnabled' instead." #-}
 
 -- | The date and time when a secret was created.
-sleCreatedDate :: Lens' SecretListEntry (Maybe UTCTime)
-sleCreatedDate = lens _sleCreatedDate (\s a -> s {_sleCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleCreatedDate :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Timestamp)
+sleCreatedDate = Lens.lens (createdDate :: SecretListEntry -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: SecretListEntry)
+{-# DEPRECATED sleCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The ARN or alias of the AWS KMS customer master key (CMK) used to encrypt the @SecretString@ and @SecretBinary@ fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default KMS CMK, the key named @awssecretsmanager@ , for this account.
-sleKMSKeyId :: Lens' SecretListEntry (Maybe Text)
-sleKMSKeyId = lens _sleKMSKeyId (\s a -> s {_sleKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleKMSKeyId :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Text)
+sleKMSKeyId = Lens.lens (kmsKeyId :: SecretListEntry -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: SecretListEntry)
+{-# DEPRECATED sleKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy. For example, @/prod/databases/dbserver1@ could represent the secret for a server named @dbserver1@ in the folder @databases@ in the folder @prod@ .
-sleName :: Lens' SecretListEntry (Maybe Text)
-sleName = lens _sleName (\s a -> s {_sleName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleName :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Text)
+sleName = Lens.lens (name :: SecretListEntry -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SecretListEntry)
+{-# DEPRECATED sleName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Returns the name of the service that created the secret.
-sleOwningService :: Lens' SecretListEntry (Maybe Text)
-sleOwningService = lens _sleOwningService (\s a -> s {_sleOwningService = a})
+--
+-- /Note:/ Consider using 'owningService' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleOwningService :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Text)
+sleOwningService = Lens.lens (owningService :: SecretListEntry -> Lude.Maybe Lude.Text) (\s a -> s {owningService = a} :: SecretListEntry)
+{-# DEPRECATED sleOwningService "Use generic-lens or generic-optics with 'owningService' instead." #-}
 
 -- | The last date and time that the rotation process for this secret was invoked.
-sleLastRotatedDate :: Lens' SecretListEntry (Maybe UTCTime)
-sleLastRotatedDate = lens _sleLastRotatedDate (\s a -> s {_sleLastRotatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastRotatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleLastRotatedDate :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Timestamp)
+sleLastRotatedDate = Lens.lens (lastRotatedDate :: SecretListEntry -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastRotatedDate = a} :: SecretListEntry)
+{-# DEPRECATED sleLastRotatedDate "Use generic-lens or generic-optics with 'lastRotatedDate' instead." #-}
 
 -- | The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.
-sleLastAccessedDate :: Lens' SecretListEntry (Maybe UTCTime)
-sleLastAccessedDate = lens _sleLastAccessedDate (\s a -> s {_sleLastAccessedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastAccessedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleLastAccessedDate :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Timestamp)
+sleLastAccessedDate = Lens.lens (lastAccessedDate :: SecretListEntry -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastAccessedDate = a} :: SecretListEntry)
+{-# DEPRECATED sleLastAccessedDate "Use generic-lens or generic-optics with 'lastAccessedDate' instead." #-}
 
 -- | The user-provided description of the secret.
-sleDescription :: Lens' SecretListEntry (Maybe Text)
-sleDescription = lens _sleDescription (\s a -> s {_sleDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleDescription :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Text)
+sleDescription = Lens.lens (description :: SecretListEntry -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SecretListEntry)
+{-# DEPRECATED sleDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ARN of an AWS Lambda function invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to 'RotateSecret' .
-sleRotationLambdaARN :: Lens' SecretListEntry (Maybe Text)
-sleRotationLambdaARN = lens _sleRotationLambdaARN (\s a -> s {_sleRotationLambdaARN = a})
+--
+-- /Note:/ Consider using 'rotationLambdaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleRotationLambdaARN :: Lens.Lens' SecretListEntry (Lude.Maybe Lude.Text)
+sleRotationLambdaARN = Lens.lens (rotationLambdaARN :: SecretListEntry -> Lude.Maybe Lude.Text) (\s a -> s {rotationLambdaARN = a} :: SecretListEntry)
+{-# DEPRECATED sleRotationLambdaARN "Use generic-lens or generic-optics with 'rotationLambdaARN' instead." #-}
 
 -- | The list of user-defined tags associated with the secret. To add tags to a secret, use 'TagResource' . To remove tags, use 'UntagResource' .
-sleTags :: Lens' SecretListEntry [Tag]
-sleTags = lens _sleTags (\s a -> s {_sleTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sleTags :: Lens.Lens' SecretListEntry (Lude.Maybe [Tag])
+sleTags = Lens.lens (tags :: SecretListEntry -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SecretListEntry)
+{-# DEPRECATED sleTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON SecretListEntry where
+instance Lude.FromJSON SecretListEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "SecretListEntry"
       ( \x ->
           SecretListEntry'
-            <$> (x .:? "LastChangedDate")
-            <*> (x .:? "ARN")
-            <*> (x .:? "SecretVersionsToStages" .!= mempty)
-            <*> (x .:? "RotationRules")
-            <*> (x .:? "DeletedDate")
-            <*> (x .:? "RotationEnabled")
-            <*> (x .:? "CreatedDate")
-            <*> (x .:? "KmsKeyId")
-            <*> (x .:? "Name")
-            <*> (x .:? "OwningService")
-            <*> (x .:? "LastRotatedDate")
-            <*> (x .:? "LastAccessedDate")
-            <*> (x .:? "Description")
-            <*> (x .:? "RotationLambdaARN")
-            <*> (x .:? "Tags" .!= mempty)
+            Lude.<$> (x Lude..:? "LastChangedDate")
+            Lude.<*> (x Lude..:? "ARN")
+            Lude.<*> (x Lude..:? "SecretVersionsToStages" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "RotationRules")
+            Lude.<*> (x Lude..:? "DeletedDate")
+            Lude.<*> (x Lude..:? "RotationEnabled")
+            Lude.<*> (x Lude..:? "CreatedDate")
+            Lude.<*> (x Lude..:? "KmsKeyId")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "OwningService")
+            Lude.<*> (x Lude..:? "LastRotatedDate")
+            Lude.<*> (x Lude..:? "LastAccessedDate")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "RotationLambdaARN")
+            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable SecretListEntry
-
-instance NFData SecretListEntry

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.WaitTime where
+module Network.AWS.Pinpoint.Types.WaitTime
+  ( WaitTime (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWaitTime,
+
+    -- * Lenses
+    wtWaitFor,
+    wtWaitUntil,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a duration or a date and time that indicates when Amazon Pinpoint determines whether an activity's conditions have been met or an activity moves participants to the next activity in a journey.
 --
---
---
--- /See:/ 'waitTime' smart constructor.
+-- /See:/ 'mkWaitTime' smart constructor.
 data WaitTime = WaitTime'
-  { _wtWaitFor :: !(Maybe Text),
-    _wtWaitUntil :: !(Maybe Text)
+  { waitFor :: Lude.Maybe Lude.Text,
+    waitUntil :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WaitTime' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wtWaitFor' - The amount of time to wait, as a duration in ISO 8601 format, before determining whether the activity's conditions have been met or moving participants to the next activity in the journey.
---
--- * 'wtWaitUntil' - The date and time, in ISO 8601 format, when Amazon Pinpoint determines whether the activity's conditions have been met or the activity moves participants to the next activity in the journey.
-waitTime ::
+-- * 'waitFor' - The amount of time to wait, as a duration in ISO 8601 format, before determining whether the activity's conditions have been met or moving participants to the next activity in the journey.
+-- * 'waitUntil' - The date and time, in ISO 8601 format, when Amazon Pinpoint determines whether the activity's conditions have been met or the activity moves participants to the next activity in the journey.
+mkWaitTime ::
   WaitTime
-waitTime = WaitTime' {_wtWaitFor = Nothing, _wtWaitUntil = Nothing}
+mkWaitTime =
+  WaitTime' {waitFor = Lude.Nothing, waitUntil = Lude.Nothing}
 
 -- | The amount of time to wait, as a duration in ISO 8601 format, before determining whether the activity's conditions have been met or moving participants to the next activity in the journey.
-wtWaitFor :: Lens' WaitTime (Maybe Text)
-wtWaitFor = lens _wtWaitFor (\s a -> s {_wtWaitFor = a})
+--
+-- /Note:/ Consider using 'waitFor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtWaitFor :: Lens.Lens' WaitTime (Lude.Maybe Lude.Text)
+wtWaitFor = Lens.lens (waitFor :: WaitTime -> Lude.Maybe Lude.Text) (\s a -> s {waitFor = a} :: WaitTime)
+{-# DEPRECATED wtWaitFor "Use generic-lens or generic-optics with 'waitFor' instead." #-}
 
 -- | The date and time, in ISO 8601 format, when Amazon Pinpoint determines whether the activity's conditions have been met or the activity moves participants to the next activity in the journey.
-wtWaitUntil :: Lens' WaitTime (Maybe Text)
-wtWaitUntil = lens _wtWaitUntil (\s a -> s {_wtWaitUntil = a})
+--
+-- /Note:/ Consider using 'waitUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtWaitUntil :: Lens.Lens' WaitTime (Lude.Maybe Lude.Text)
+wtWaitUntil = Lens.lens (waitUntil :: WaitTime -> Lude.Maybe Lude.Text) (\s a -> s {waitUntil = a} :: WaitTime)
+{-# DEPRECATED wtWaitUntil "Use generic-lens or generic-optics with 'waitUntil' instead." #-}
 
-instance FromJSON WaitTime where
+instance Lude.FromJSON WaitTime where
   parseJSON =
-    withObject
+    Lude.withObject
       "WaitTime"
-      (\x -> WaitTime' <$> (x .:? "WaitFor") <*> (x .:? "WaitUntil"))
+      ( \x ->
+          WaitTime'
+            Lude.<$> (x Lude..:? "WaitFor") Lude.<*> (x Lude..:? "WaitUntil")
+      )
 
-instance Hashable WaitTime
-
-instance NFData WaitTime
-
-instance ToJSON WaitTime where
+instance Lude.ToJSON WaitTime where
   toJSON WaitTime' {..} =
-    object
-      ( catMaybes
-          [("WaitFor" .=) <$> _wtWaitFor, ("WaitUntil" .=) <$> _wtWaitUntil]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("WaitFor" Lude..=) Lude.<$> waitFor,
+            ("WaitUntil" Lude..=) Lude.<$> waitUntil
+          ]
       )

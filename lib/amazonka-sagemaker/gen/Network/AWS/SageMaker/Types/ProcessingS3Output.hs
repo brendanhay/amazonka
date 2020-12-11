@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingS3Output where
+module Network.AWS.SageMaker.Types.ProcessingS3Output
+  ( ProcessingS3Output (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProcessingS3Output,
+
+    -- * Lenses
+    psoS3URI,
+    psoLocalPath,
+    psoS3UploadMode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ProcessingS3UploadMode
 
 -- | Information about where and how you want to store the results of an processing job.
 --
---
---
--- /See:/ 'processingS3Output' smart constructor.
+-- /See:/ 'mkProcessingS3Output' smart constructor.
 data ProcessingS3Output = ProcessingS3Output'
-  { _psoS3URI :: !Text,
-    _psoLocalPath :: !Text,
-    _psoS3UploadMode :: !ProcessingS3UploadMode
+  { s3URI :: Lude.Text,
+    localPath :: Lude.Text,
+    s3UploadMode :: ProcessingS3UploadMode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingS3Output' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psoS3URI' - A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
---
--- * 'psoLocalPath' - The local path to the Amazon S3 bucket where you want Amazon SageMaker to save the results of an processing job. @LocalPath@ is an absolute path to the input data.
---
--- * 'psoS3UploadMode' - Whether to upload the results of the processing job continuously or after the job completes.
-processingS3Output ::
-  -- | 'psoS3URI'
-  Text ->
-  -- | 'psoLocalPath'
-  Text ->
-  -- | 'psoS3UploadMode'
+-- * 'localPath' - The local path to the Amazon S3 bucket where you want Amazon SageMaker to save the results of an processing job. @LocalPath@ is an absolute path to the input data.
+-- * 's3URI' - A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
+-- * 's3UploadMode' - Whether to upload the results of the processing job continuously or after the job completes.
+mkProcessingS3Output ::
+  -- | 's3URI'
+  Lude.Text ->
+  -- | 'localPath'
+  Lude.Text ->
+  -- | 's3UploadMode'
   ProcessingS3UploadMode ->
   ProcessingS3Output
-processingS3Output pS3URI_ pLocalPath_ pS3UploadMode_ =
+mkProcessingS3Output pS3URI_ pLocalPath_ pS3UploadMode_ =
   ProcessingS3Output'
-    { _psoS3URI = pS3URI_,
-      _psoLocalPath = pLocalPath_,
-      _psoS3UploadMode = pS3UploadMode_
+    { s3URI = pS3URI_,
+      localPath = pLocalPath_,
+      s3UploadMode = pS3UploadMode_
     }
 
 -- | A URI that identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of a processing job.
-psoS3URI :: Lens' ProcessingS3Output Text
-psoS3URI = lens _psoS3URI (\s a -> s {_psoS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psoS3URI :: Lens.Lens' ProcessingS3Output Lude.Text
+psoS3URI = Lens.lens (s3URI :: ProcessingS3Output -> Lude.Text) (\s a -> s {s3URI = a} :: ProcessingS3Output)
+{-# DEPRECATED psoS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
 -- | The local path to the Amazon S3 bucket where you want Amazon SageMaker to save the results of an processing job. @LocalPath@ is an absolute path to the input data.
-psoLocalPath :: Lens' ProcessingS3Output Text
-psoLocalPath = lens _psoLocalPath (\s a -> s {_psoLocalPath = a})
+--
+-- /Note:/ Consider using 'localPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psoLocalPath :: Lens.Lens' ProcessingS3Output Lude.Text
+psoLocalPath = Lens.lens (localPath :: ProcessingS3Output -> Lude.Text) (\s a -> s {localPath = a} :: ProcessingS3Output)
+{-# DEPRECATED psoLocalPath "Use generic-lens or generic-optics with 'localPath' instead." #-}
 
 -- | Whether to upload the results of the processing job continuously or after the job completes.
-psoS3UploadMode :: Lens' ProcessingS3Output ProcessingS3UploadMode
-psoS3UploadMode = lens _psoS3UploadMode (\s a -> s {_psoS3UploadMode = a})
+--
+-- /Note:/ Consider using 's3UploadMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psoS3UploadMode :: Lens.Lens' ProcessingS3Output ProcessingS3UploadMode
+psoS3UploadMode = Lens.lens (s3UploadMode :: ProcessingS3Output -> ProcessingS3UploadMode) (\s a -> s {s3UploadMode = a} :: ProcessingS3Output)
+{-# DEPRECATED psoS3UploadMode "Use generic-lens or generic-optics with 's3UploadMode' instead." #-}
 
-instance FromJSON ProcessingS3Output where
+instance Lude.FromJSON ProcessingS3Output where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProcessingS3Output"
       ( \x ->
           ProcessingS3Output'
-            <$> (x .: "S3Uri") <*> (x .: "LocalPath") <*> (x .: "S3UploadMode")
+            Lude.<$> (x Lude..: "S3Uri")
+            Lude.<*> (x Lude..: "LocalPath")
+            Lude.<*> (x Lude..: "S3UploadMode")
       )
 
-instance Hashable ProcessingS3Output
-
-instance NFData ProcessingS3Output
-
-instance ToJSON ProcessingS3Output where
+instance Lude.ToJSON ProcessingS3Output where
   toJSON ProcessingS3Output' {..} =
-    object
-      ( catMaybes
-          [ Just ("S3Uri" .= _psoS3URI),
-            Just ("LocalPath" .= _psoLocalPath),
-            Just ("S3UploadMode" .= _psoS3UploadMode)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("S3Uri" Lude..= s3URI),
+            Lude.Just ("LocalPath" Lude..= localPath),
+            Lude.Just ("S3UploadMode" Lude..= s3UploadMode)
           ]
       )

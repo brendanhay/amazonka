@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Puts the metadata key value pair for a specified schema version ID. A maximum of 10 key value pairs will be allowed per schema version. They can be added over one or more calls.
 module Network.AWS.Glue.PutSchemaVersionMetadata
-  ( -- * Creating a Request
-    putSchemaVersionMetadata,
-    PutSchemaVersionMetadata,
+  ( -- * Creating a request
+    PutSchemaVersionMetadata (..),
+    mkPutSchemaVersionMetadata,
 
-    -- * Request Lenses
+    -- ** Request lenses
     psvmSchemaVersionId,
     psvmSchemaId,
     psvmSchemaVersionNumber,
     psvmMetadataKeyValue,
 
-    -- * Destructuring the Response
-    putSchemaVersionMetadataResponse,
-    PutSchemaVersionMetadataResponse,
+    -- * Destructuring the response
+    PutSchemaVersionMetadataResponse (..),
+    mkPutSchemaVersionMetadataResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     psvmrsRegistryName,
     psvmrsSchemaName,
     psvmrsSchemaVersionId,
@@ -47,206 +42,238 @@ module Network.AWS.Glue.PutSchemaVersionMetadata
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putSchemaVersionMetadata' smart constructor.
+-- | /See:/ 'mkPutSchemaVersionMetadata' smart constructor.
 data PutSchemaVersionMetadata = PutSchemaVersionMetadata'
-  { _psvmSchemaVersionId ::
-      !(Maybe Text),
-    _psvmSchemaId :: !(Maybe SchemaId),
-    _psvmSchemaVersionNumber ::
-      !(Maybe SchemaVersionNumber),
-    _psvmMetadataKeyValue ::
-      !MetadataKeyValuePair
+  { schemaVersionId ::
+      Lude.Maybe Lude.Text,
+    schemaId :: Lude.Maybe SchemaId,
+    schemaVersionNumber ::
+      Lude.Maybe SchemaVersionNumber,
+    metadataKeyValue :: MetadataKeyValuePair
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSchemaVersionMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psvmSchemaVersionId' - The unique version ID of the schema version.
---
--- * 'psvmSchemaId' - The unique ID for the schema.
---
--- * 'psvmSchemaVersionNumber' - The version number of the schema.
---
--- * 'psvmMetadataKeyValue' - The metadata key's corresponding value.
-putSchemaVersionMetadata ::
-  -- | 'psvmMetadataKeyValue'
+-- * 'metadataKeyValue' - The metadata key's corresponding value.
+-- * 'schemaId' - The unique ID for the schema.
+-- * 'schemaVersionId' - The unique version ID of the schema version.
+-- * 'schemaVersionNumber' - The version number of the schema.
+mkPutSchemaVersionMetadata ::
+  -- | 'metadataKeyValue'
   MetadataKeyValuePair ->
   PutSchemaVersionMetadata
-putSchemaVersionMetadata pMetadataKeyValue_ =
+mkPutSchemaVersionMetadata pMetadataKeyValue_ =
   PutSchemaVersionMetadata'
-    { _psvmSchemaVersionId = Nothing,
-      _psvmSchemaId = Nothing,
-      _psvmSchemaVersionNumber = Nothing,
-      _psvmMetadataKeyValue = pMetadataKeyValue_
+    { schemaVersionId = Lude.Nothing,
+      schemaId = Lude.Nothing,
+      schemaVersionNumber = Lude.Nothing,
+      metadataKeyValue = pMetadataKeyValue_
     }
 
 -- | The unique version ID of the schema version.
-psvmSchemaVersionId :: Lens' PutSchemaVersionMetadata (Maybe Text)
-psvmSchemaVersionId = lens _psvmSchemaVersionId (\s a -> s {_psvmSchemaVersionId = a})
+--
+-- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmSchemaVersionId :: Lens.Lens' PutSchemaVersionMetadata (Lude.Maybe Lude.Text)
+psvmSchemaVersionId = Lens.lens (schemaVersionId :: PutSchemaVersionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: PutSchemaVersionMetadata)
+{-# DEPRECATED psvmSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | The unique ID for the schema.
-psvmSchemaId :: Lens' PutSchemaVersionMetadata (Maybe SchemaId)
-psvmSchemaId = lens _psvmSchemaId (\s a -> s {_psvmSchemaId = a})
+--
+-- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmSchemaId :: Lens.Lens' PutSchemaVersionMetadata (Lude.Maybe SchemaId)
+psvmSchemaId = Lens.lens (schemaId :: PutSchemaVersionMetadata -> Lude.Maybe SchemaId) (\s a -> s {schemaId = a} :: PutSchemaVersionMetadata)
+{-# DEPRECATED psvmSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
 -- | The version number of the schema.
-psvmSchemaVersionNumber :: Lens' PutSchemaVersionMetadata (Maybe SchemaVersionNumber)
-psvmSchemaVersionNumber = lens _psvmSchemaVersionNumber (\s a -> s {_psvmSchemaVersionNumber = a})
+--
+-- /Note:/ Consider using 'schemaVersionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmSchemaVersionNumber :: Lens.Lens' PutSchemaVersionMetadata (Lude.Maybe SchemaVersionNumber)
+psvmSchemaVersionNumber = Lens.lens (schemaVersionNumber :: PutSchemaVersionMetadata -> Lude.Maybe SchemaVersionNumber) (\s a -> s {schemaVersionNumber = a} :: PutSchemaVersionMetadata)
+{-# DEPRECATED psvmSchemaVersionNumber "Use generic-lens or generic-optics with 'schemaVersionNumber' instead." #-}
 
 -- | The metadata key's corresponding value.
-psvmMetadataKeyValue :: Lens' PutSchemaVersionMetadata MetadataKeyValuePair
-psvmMetadataKeyValue = lens _psvmMetadataKeyValue (\s a -> s {_psvmMetadataKeyValue = a})
+--
+-- /Note:/ Consider using 'metadataKeyValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmMetadataKeyValue :: Lens.Lens' PutSchemaVersionMetadata MetadataKeyValuePair
+psvmMetadataKeyValue = Lens.lens (metadataKeyValue :: PutSchemaVersionMetadata -> MetadataKeyValuePair) (\s a -> s {metadataKeyValue = a} :: PutSchemaVersionMetadata)
+{-# DEPRECATED psvmMetadataKeyValue "Use generic-lens or generic-optics with 'metadataKeyValue' instead." #-}
 
-instance AWSRequest PutSchemaVersionMetadata where
+instance Lude.AWSRequest PutSchemaVersionMetadata where
   type Rs PutSchemaVersionMetadata = PutSchemaVersionMetadataResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutSchemaVersionMetadataResponse'
-            <$> (x .?> "RegistryName")
-            <*> (x .?> "SchemaName")
-            <*> (x .?> "SchemaVersionId")
-            <*> (x .?> "VersionNumber")
-            <*> (x .?> "SchemaArn")
-            <*> (x .?> "MetadataKey")
-            <*> (x .?> "MetadataValue")
-            <*> (x .?> "LatestVersion")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RegistryName")
+            Lude.<*> (x Lude..?> "SchemaName")
+            Lude.<*> (x Lude..?> "SchemaVersionId")
+            Lude.<*> (x Lude..?> "VersionNumber")
+            Lude.<*> (x Lude..?> "SchemaArn")
+            Lude.<*> (x Lude..?> "MetadataKey")
+            Lude.<*> (x Lude..?> "MetadataValue")
+            Lude.<*> (x Lude..?> "LatestVersion")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutSchemaVersionMetadata
-
-instance NFData PutSchemaVersionMetadata
-
-instance ToHeaders PutSchemaVersionMetadata where
+instance Lude.ToHeaders PutSchemaVersionMetadata where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSGlue.PutSchemaVersionMetadata" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSGlue.PutSchemaVersionMetadata" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutSchemaVersionMetadata where
+instance Lude.ToJSON PutSchemaVersionMetadata where
   toJSON PutSchemaVersionMetadata' {..} =
-    object
-      ( catMaybes
-          [ ("SchemaVersionId" .=) <$> _psvmSchemaVersionId,
-            ("SchemaId" .=) <$> _psvmSchemaId,
-            ("SchemaVersionNumber" .=) <$> _psvmSchemaVersionNumber,
-            Just ("MetadataKeyValue" .= _psvmMetadataKeyValue)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SchemaVersionId" Lude..=) Lude.<$> schemaVersionId,
+            ("SchemaId" Lude..=) Lude.<$> schemaId,
+            ("SchemaVersionNumber" Lude..=) Lude.<$> schemaVersionNumber,
+            Lude.Just ("MetadataKeyValue" Lude..= metadataKeyValue)
           ]
       )
 
-instance ToPath PutSchemaVersionMetadata where
-  toPath = const "/"
+instance Lude.ToPath PutSchemaVersionMetadata where
+  toPath = Lude.const "/"
 
-instance ToQuery PutSchemaVersionMetadata where
-  toQuery = const mempty
+instance Lude.ToQuery PutSchemaVersionMetadata where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putSchemaVersionMetadataResponse' smart constructor.
+-- | /See:/ 'mkPutSchemaVersionMetadataResponse' smart constructor.
 data PutSchemaVersionMetadataResponse = PutSchemaVersionMetadataResponse'
-  { _psvmrsRegistryName ::
-      !(Maybe Text),
-    _psvmrsSchemaName ::
-      !(Maybe Text),
-    _psvmrsSchemaVersionId ::
-      !(Maybe Text),
-    _psvmrsVersionNumber ::
-      !(Maybe Nat),
-    _psvmrsSchemaARN ::
-      !(Maybe Text),
-    _psvmrsMetadataKey ::
-      !(Maybe Text),
-    _psvmrsMetadataValue ::
-      !(Maybe Text),
-    _psvmrsLatestVersion ::
-      !(Maybe Bool),
-    _psvmrsResponseStatus ::
-      !Int
+  { registryName ::
+      Lude.Maybe Lude.Text,
+    schemaName ::
+      Lude.Maybe Lude.Text,
+    schemaVersionId ::
+      Lude.Maybe Lude.Text,
+    versionNumber ::
+      Lude.Maybe Lude.Natural,
+    schemaARN ::
+      Lude.Maybe Lude.Text,
+    metadataKey ::
+      Lude.Maybe Lude.Text,
+    metadataValue ::
+      Lude.Maybe Lude.Text,
+    latestVersion ::
+      Lude.Maybe Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSchemaVersionMetadataResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psvmrsRegistryName' - The name for the registry.
---
--- * 'psvmrsSchemaName' - The name for the schema.
---
--- * 'psvmrsSchemaVersionId' - The unique version ID of the schema version.
---
--- * 'psvmrsVersionNumber' - The version number of the schema.
---
--- * 'psvmrsSchemaARN' - The Amazon Resource Name (ARN) for the schema.
---
--- * 'psvmrsMetadataKey' - The metadata key.
---
--- * 'psvmrsMetadataValue' - The value of the metadata key.
---
--- * 'psvmrsLatestVersion' - The latest version of the schema.
---
--- * 'psvmrsResponseStatus' - -- | The response status code.
-putSchemaVersionMetadataResponse ::
-  -- | 'psvmrsResponseStatus'
-  Int ->
+-- * 'latestVersion' - The latest version of the schema.
+-- * 'metadataKey' - The metadata key.
+-- * 'metadataValue' - The value of the metadata key.
+-- * 'registryName' - The name for the registry.
+-- * 'responseStatus' - The response status code.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) for the schema.
+-- * 'schemaName' - The name for the schema.
+-- * 'schemaVersionId' - The unique version ID of the schema version.
+-- * 'versionNumber' - The version number of the schema.
+mkPutSchemaVersionMetadataResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutSchemaVersionMetadataResponse
-putSchemaVersionMetadataResponse pResponseStatus_ =
+mkPutSchemaVersionMetadataResponse pResponseStatus_ =
   PutSchemaVersionMetadataResponse'
-    { _psvmrsRegistryName = Nothing,
-      _psvmrsSchemaName = Nothing,
-      _psvmrsSchemaVersionId = Nothing,
-      _psvmrsVersionNumber = Nothing,
-      _psvmrsSchemaARN = Nothing,
-      _psvmrsMetadataKey = Nothing,
-      _psvmrsMetadataValue = Nothing,
-      _psvmrsLatestVersion = Nothing,
-      _psvmrsResponseStatus = pResponseStatus_
+    { registryName = Lude.Nothing,
+      schemaName = Lude.Nothing,
+      schemaVersionId = Lude.Nothing,
+      versionNumber = Lude.Nothing,
+      schemaARN = Lude.Nothing,
+      metadataKey = Lude.Nothing,
+      metadataValue = Lude.Nothing,
+      latestVersion = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name for the registry.
-psvmrsRegistryName :: Lens' PutSchemaVersionMetadataResponse (Maybe Text)
-psvmrsRegistryName = lens _psvmrsRegistryName (\s a -> s {_psvmrsRegistryName = a})
+--
+-- /Note:/ Consider using 'registryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmrsRegistryName :: Lens.Lens' PutSchemaVersionMetadataResponse (Lude.Maybe Lude.Text)
+psvmrsRegistryName = Lens.lens (registryName :: PutSchemaVersionMetadataResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryName = a} :: PutSchemaVersionMetadataResponse)
+{-# DEPRECATED psvmrsRegistryName "Use generic-lens or generic-optics with 'registryName' instead." #-}
 
 -- | The name for the schema.
-psvmrsSchemaName :: Lens' PutSchemaVersionMetadataResponse (Maybe Text)
-psvmrsSchemaName = lens _psvmrsSchemaName (\s a -> s {_psvmrsSchemaName = a})
+--
+-- /Note:/ Consider using 'schemaName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmrsSchemaName :: Lens.Lens' PutSchemaVersionMetadataResponse (Lude.Maybe Lude.Text)
+psvmrsSchemaName = Lens.lens (schemaName :: PutSchemaVersionMetadataResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaName = a} :: PutSchemaVersionMetadataResponse)
+{-# DEPRECATED psvmrsSchemaName "Use generic-lens or generic-optics with 'schemaName' instead." #-}
 
 -- | The unique version ID of the schema version.
-psvmrsSchemaVersionId :: Lens' PutSchemaVersionMetadataResponse (Maybe Text)
-psvmrsSchemaVersionId = lens _psvmrsSchemaVersionId (\s a -> s {_psvmrsSchemaVersionId = a})
+--
+-- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmrsSchemaVersionId :: Lens.Lens' PutSchemaVersionMetadataResponse (Lude.Maybe Lude.Text)
+psvmrsSchemaVersionId = Lens.lens (schemaVersionId :: PutSchemaVersionMetadataResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: PutSchemaVersionMetadataResponse)
+{-# DEPRECATED psvmrsSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | The version number of the schema.
-psvmrsVersionNumber :: Lens' PutSchemaVersionMetadataResponse (Maybe Natural)
-psvmrsVersionNumber = lens _psvmrsVersionNumber (\s a -> s {_psvmrsVersionNumber = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmrsVersionNumber :: Lens.Lens' PutSchemaVersionMetadataResponse (Lude.Maybe Lude.Natural)
+psvmrsVersionNumber = Lens.lens (versionNumber :: PutSchemaVersionMetadataResponse -> Lude.Maybe Lude.Natural) (\s a -> s {versionNumber = a} :: PutSchemaVersionMetadataResponse)
+{-# DEPRECATED psvmrsVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the schema.
-psvmrsSchemaARN :: Lens' PutSchemaVersionMetadataResponse (Maybe Text)
-psvmrsSchemaARN = lens _psvmrsSchemaARN (\s a -> s {_psvmrsSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmrsSchemaARN :: Lens.Lens' PutSchemaVersionMetadataResponse (Lude.Maybe Lude.Text)
+psvmrsSchemaARN = Lens.lens (schemaARN :: PutSchemaVersionMetadataResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: PutSchemaVersionMetadataResponse)
+{-# DEPRECATED psvmrsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The metadata key.
-psvmrsMetadataKey :: Lens' PutSchemaVersionMetadataResponse (Maybe Text)
-psvmrsMetadataKey = lens _psvmrsMetadataKey (\s a -> s {_psvmrsMetadataKey = a})
+--
+-- /Note:/ Consider using 'metadataKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmrsMetadataKey :: Lens.Lens' PutSchemaVersionMetadataResponse (Lude.Maybe Lude.Text)
+psvmrsMetadataKey = Lens.lens (metadataKey :: PutSchemaVersionMetadataResponse -> Lude.Maybe Lude.Text) (\s a -> s {metadataKey = a} :: PutSchemaVersionMetadataResponse)
+{-# DEPRECATED psvmrsMetadataKey "Use generic-lens or generic-optics with 'metadataKey' instead." #-}
 
 -- | The value of the metadata key.
-psvmrsMetadataValue :: Lens' PutSchemaVersionMetadataResponse (Maybe Text)
-psvmrsMetadataValue = lens _psvmrsMetadataValue (\s a -> s {_psvmrsMetadataValue = a})
+--
+-- /Note:/ Consider using 'metadataValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmrsMetadataValue :: Lens.Lens' PutSchemaVersionMetadataResponse (Lude.Maybe Lude.Text)
+psvmrsMetadataValue = Lens.lens (metadataValue :: PutSchemaVersionMetadataResponse -> Lude.Maybe Lude.Text) (\s a -> s {metadataValue = a} :: PutSchemaVersionMetadataResponse)
+{-# DEPRECATED psvmrsMetadataValue "Use generic-lens or generic-optics with 'metadataValue' instead." #-}
 
 -- | The latest version of the schema.
-psvmrsLatestVersion :: Lens' PutSchemaVersionMetadataResponse (Maybe Bool)
-psvmrsLatestVersion = lens _psvmrsLatestVersion (\s a -> s {_psvmrsLatestVersion = a})
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmrsLatestVersion :: Lens.Lens' PutSchemaVersionMetadataResponse (Lude.Maybe Lude.Bool)
+psvmrsLatestVersion = Lens.lens (latestVersion :: PutSchemaVersionMetadataResponse -> Lude.Maybe Lude.Bool) (\s a -> s {latestVersion = a} :: PutSchemaVersionMetadataResponse)
+{-# DEPRECATED psvmrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
--- | -- | The response status code.
-psvmrsResponseStatus :: Lens' PutSchemaVersionMetadataResponse Int
-psvmrsResponseStatus = lens _psvmrsResponseStatus (\s a -> s {_psvmrsResponseStatus = a})
-
-instance NFData PutSchemaVersionMetadataResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvmrsResponseStatus :: Lens.Lens' PutSchemaVersionMetadataResponse Lude.Int
+psvmrsResponseStatus = Lens.lens (responseStatus :: PutSchemaVersionMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutSchemaVersionMetadataResponse)
+{-# DEPRECATED psvmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

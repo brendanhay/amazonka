@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.DatabaseIdentifier where
+module Network.AWS.Glue.Types.DatabaseIdentifier
+  ( DatabaseIdentifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDatabaseIdentifier,
+
+    -- * Lenses
+    diCatalogId,
+    diDatabaseName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A structure that describes a target database for resource linking.
 --
---
---
--- /See:/ 'databaseIdentifier' smart constructor.
+-- /See:/ 'mkDatabaseIdentifier' smart constructor.
 data DatabaseIdentifier = DatabaseIdentifier'
-  { _diCatalogId ::
-      !(Maybe Text),
-    _diDatabaseName :: !(Maybe Text)
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatabaseIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diCatalogId' - The ID of the Data Catalog in which the database resides.
---
--- * 'diDatabaseName' - The name of the catalog database.
-databaseIdentifier ::
+-- * 'catalogId' - The ID of the Data Catalog in which the database resides.
+-- * 'databaseName' - The name of the catalog database.
+mkDatabaseIdentifier ::
   DatabaseIdentifier
-databaseIdentifier =
+mkDatabaseIdentifier =
   DatabaseIdentifier'
-    { _diCatalogId = Nothing,
-      _diDatabaseName = Nothing
+    { catalogId = Lude.Nothing,
+      databaseName = Lude.Nothing
     }
 
 -- | The ID of the Data Catalog in which the database resides.
-diCatalogId :: Lens' DatabaseIdentifier (Maybe Text)
-diCatalogId = lens _diCatalogId (\s a -> s {_diCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diCatalogId :: Lens.Lens' DatabaseIdentifier (Lude.Maybe Lude.Text)
+diCatalogId = Lens.lens (catalogId :: DatabaseIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DatabaseIdentifier)
+{-# DEPRECATED diCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database.
-diDatabaseName :: Lens' DatabaseIdentifier (Maybe Text)
-diDatabaseName = lens _diDatabaseName (\s a -> s {_diDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDatabaseName :: Lens.Lens' DatabaseIdentifier (Lude.Maybe Lude.Text)
+diDatabaseName = Lens.lens (databaseName :: DatabaseIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: DatabaseIdentifier)
+{-# DEPRECATED diDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
-instance FromJSON DatabaseIdentifier where
+instance Lude.FromJSON DatabaseIdentifier where
   parseJSON =
-    withObject
+    Lude.withObject
       "DatabaseIdentifier"
       ( \x ->
           DatabaseIdentifier'
-            <$> (x .:? "CatalogId") <*> (x .:? "DatabaseName")
+            Lude.<$> (x Lude..:? "CatalogId") Lude.<*> (x Lude..:? "DatabaseName")
       )
 
-instance Hashable DatabaseIdentifier
-
-instance NFData DatabaseIdentifier
-
-instance ToJSON DatabaseIdentifier where
+instance Lude.ToJSON DatabaseIdentifier where
   toJSON DatabaseIdentifier' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _diCatalogId,
-            ("DatabaseName" .=) <$> _diDatabaseName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            ("DatabaseName" Lude..=) Lude.<$> databaseName
           ]
       )

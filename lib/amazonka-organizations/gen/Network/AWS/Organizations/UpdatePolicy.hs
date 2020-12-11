@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,154 +14,181 @@
 --
 -- Updates an existing policy with a new name, description, or content. If you don't supply any parameter, that value remains unchanged. You can't change a policy's type.
 --
---
 -- This operation can be called only from the organization's management account.
 module Network.AWS.Organizations.UpdatePolicy
-  ( -- * Creating a Request
-    updatePolicy,
-    UpdatePolicy,
+  ( -- * Creating a request
+    UpdatePolicy (..),
+    mkUpdatePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upContent,
     upName,
     upDescription,
     upPolicyId,
 
-    -- * Destructuring the Response
-    updatePolicyResponse,
-    UpdatePolicyResponse,
+    -- * Destructuring the response
+    UpdatePolicyResponse (..),
+    mkUpdatePolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uprsPolicy,
     uprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updatePolicy' smart constructor.
+-- | /See:/ 'mkUpdatePolicy' smart constructor.
 data UpdatePolicy = UpdatePolicy'
-  { _upContent :: !(Maybe Text),
-    _upName :: !(Maybe Text),
-    _upDescription :: !(Maybe Text),
-    _upPolicyId :: !Text
+  { content :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    policyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'content' - If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
+-- * 'description' - If provided, the new description for the policy.
+-- * 'name' - If provided, the new name for the policy.
 --
--- * 'upContent' - If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- * 'policyId' - The unique identifier (ID) of the policy that you want to update.
 --
--- * 'upName' - If provided, the new name for the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
---
--- * 'upDescription' - If provided, the new description for the policy.
---
--- * 'upPolicyId' - The unique identifier (ID) of the policy that you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
-updatePolicy ::
-  -- | 'upPolicyId'
-  Text ->
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+mkUpdatePolicy ::
+  -- | 'policyId'
+  Lude.Text ->
   UpdatePolicy
-updatePolicy pPolicyId_ =
+mkUpdatePolicy pPolicyId_ =
   UpdatePolicy'
-    { _upContent = Nothing,
-      _upName = Nothing,
-      _upDescription = Nothing,
-      _upPolicyId = pPolicyId_
+    { content = Lude.Nothing,
+      name = Lude.Nothing,
+      description = Lude.Nothing,
+      policyId = pPolicyId_
     }
 
 -- | If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide./
-upContent :: Lens' UpdatePolicy (Maybe Text)
-upContent = lens _upContent (\s a -> s {_upContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upContent :: Lens.Lens' UpdatePolicy (Lude.Maybe Lude.Text)
+upContent = Lens.lens (content :: UpdatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: UpdatePolicy)
+{-# DEPRECATED upContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
--- | If provided, the new name for the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
-upName :: Lens' UpdatePolicy (Maybe Text)
-upName = lens _upName (\s a -> s {_upName = a})
+-- | If provided, the new name for the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upName :: Lens.Lens' UpdatePolicy (Lude.Maybe Lude.Text)
+upName = Lens.lens (name :: UpdatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdatePolicy)
+{-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | If provided, the new description for the policy.
-upDescription :: Lens' UpdatePolicy (Maybe Text)
-upDescription = lens _upDescription (\s a -> s {_upDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDescription :: Lens.Lens' UpdatePolicy (Lude.Maybe Lude.Text)
+upDescription = Lens.lens (description :: UpdatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdatePolicy)
+{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The unique identifier (ID) of the policy that you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
-upPolicyId :: Lens' UpdatePolicy Text
-upPolicyId = lens _upPolicyId (\s a -> s {_upPolicyId = a})
+-- | The unique identifier (ID) of the policy that you want to update.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPolicyId :: Lens.Lens' UpdatePolicy Lude.Text
+upPolicyId = Lens.lens (policyId :: UpdatePolicy -> Lude.Text) (\s a -> s {policyId = a} :: UpdatePolicy)
+{-# DEPRECATED upPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
-instance AWSRequest UpdatePolicy where
+instance Lude.AWSRequest UpdatePolicy where
   type Rs UpdatePolicy = UpdatePolicyResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdatePolicyResponse' <$> (x .?> "Policy") <*> (pure (fromEnum s))
+          UpdatePolicyResponse'
+            Lude.<$> (x Lude..?> "Policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdatePolicy
-
-instance NFData UpdatePolicy
-
-instance ToHeaders UpdatePolicy where
+instance Lude.ToHeaders UpdatePolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.UpdatePolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSOrganizationsV20161128.UpdatePolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdatePolicy where
+instance Lude.ToJSON UpdatePolicy where
   toJSON UpdatePolicy' {..} =
-    object
-      ( catMaybes
-          [ ("Content" .=) <$> _upContent,
-            ("Name" .=) <$> _upName,
-            ("Description" .=) <$> _upDescription,
-            Just ("PolicyId" .= _upPolicyId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Content" Lude..=) Lude.<$> content,
+            ("Name" Lude..=) Lude.<$> name,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("PolicyId" Lude..= policyId)
           ]
       )
 
-instance ToPath UpdatePolicy where
-  toPath = const "/"
+instance Lude.ToPath UpdatePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdatePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updatePolicyResponse' smart constructor.
+-- | /See:/ 'mkUpdatePolicyResponse' smart constructor.
 data UpdatePolicyResponse = UpdatePolicyResponse'
-  { _uprsPolicy ::
-      !(Maybe Policy),
-    _uprsResponseStatus :: !Int
+  { policy ::
+      Lude.Maybe Policy,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uprsPolicy' - A structure that contains details about the updated policy, showing the requested changes.
---
--- * 'uprsResponseStatus' - -- | The response status code.
-updatePolicyResponse ::
-  -- | 'uprsResponseStatus'
-  Int ->
+-- * 'policy' - A structure that contains details about the updated policy, showing the requested changes.
+-- * 'responseStatus' - The response status code.
+mkUpdatePolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdatePolicyResponse
-updatePolicyResponse pResponseStatus_ =
+mkUpdatePolicyResponse pResponseStatus_ =
   UpdatePolicyResponse'
-    { _uprsPolicy = Nothing,
-      _uprsResponseStatus = pResponseStatus_
+    { policy = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure that contains details about the updated policy, showing the requested changes.
-uprsPolicy :: Lens' UpdatePolicyResponse (Maybe Policy)
-uprsPolicy = lens _uprsPolicy (\s a -> s {_uprsPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsPolicy :: Lens.Lens' UpdatePolicyResponse (Lude.Maybe Policy)
+uprsPolicy = Lens.lens (policy :: UpdatePolicyResponse -> Lude.Maybe Policy) (\s a -> s {policy = a} :: UpdatePolicyResponse)
+{-# DEPRECATED uprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | -- | The response status code.
-uprsResponseStatus :: Lens' UpdatePolicyResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\s a -> s {_uprsResponseStatus = a})
-
-instance NFData UpdatePolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsResponseStatus :: Lens.Lens' UpdatePolicyResponse Lude.Int
+uprsResponseStatus = Lens.lens (responseStatus :: UpdatePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePolicyResponse)
+{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

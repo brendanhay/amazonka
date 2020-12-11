@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.StatusType where
+module Network.AWS.EC2.Types.StatusType
+  ( StatusType
+      ( StatusType',
+        STFailed,
+        STInitializing,
+        STInsufficientData,
+        STPassed
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StatusType
-  = STFailed
-  | STInitializing
-  | STInsufficientData
-  | STPassed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StatusType = StatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StatusType where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure STFailed
-      "initializing" -> pure STInitializing
-      "insufficient-data" -> pure STInsufficientData
-      "passed" -> pure STPassed
-      e ->
-        fromTextError $
-          "Failure parsing StatusType from value: '" <> e
-            <> "'. Accepted values: failed, initializing, insufficient-data, passed"
+pattern STFailed :: StatusType
+pattern STFailed = StatusType' "failed"
 
-instance ToText StatusType where
-  toText = \case
-    STFailed -> "failed"
-    STInitializing -> "initializing"
-    STInsufficientData -> "insufficient-data"
-    STPassed -> "passed"
+pattern STInitializing :: StatusType
+pattern STInitializing = StatusType' "initializing"
 
-instance Hashable StatusType
+pattern STInsufficientData :: StatusType
+pattern STInsufficientData = StatusType' "insufficient-data"
 
-instance NFData StatusType
+pattern STPassed :: StatusType
+pattern STPassed = StatusType' "passed"
 
-instance ToByteString StatusType
-
-instance ToQuery StatusType
-
-instance ToHeader StatusType
-
-instance FromXML StatusType where
-  parseXML = parseXMLText "StatusType"
+{-# COMPLETE
+  STFailed,
+  STInitializing,
+  STInsufficientData,
+  STPassed,
+  StatusType'
+  #-}

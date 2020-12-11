@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,138 +7,179 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProductViewSummary where
+module Network.AWS.ServiceCatalog.Types.ProductViewSummary
+  ( ProductViewSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProductViewSummary,
+
+    -- * Lenses
+    pvsOwner,
+    pvsSupportURL,
+    pvsShortDescription,
+    pvsHasDefaultPath,
+    pvsDistributor,
+    pvsName,
+    pvsId,
+    pvsType,
+    pvsSupportEmail,
+    pvsProductId,
+    pvsSupportDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ProductType
 
 -- | Summary information about a product view.
 --
---
---
--- /See:/ 'productViewSummary' smart constructor.
+-- /See:/ 'mkProductViewSummary' smart constructor.
 data ProductViewSummary = ProductViewSummary'
-  { _pvsOwner ::
-      !(Maybe Text),
-    _pvsSupportURL :: !(Maybe Text),
-    _pvsShortDescription :: !(Maybe Text),
-    _pvsHasDefaultPath :: !(Maybe Bool),
-    _pvsDistributor :: !(Maybe Text),
-    _pvsName :: !(Maybe Text),
-    _pvsId :: !(Maybe Text),
-    _pvsType :: !(Maybe ProductType),
-    _pvsSupportEmail :: !(Maybe Text),
-    _pvsProductId :: !(Maybe Text),
-    _pvsSupportDescription :: !(Maybe Text)
+  { owner ::
+      Lude.Maybe Lude.Text,
+    supportURL :: Lude.Maybe Lude.Text,
+    shortDescription :: Lude.Maybe Lude.Text,
+    hasDefaultPath :: Lude.Maybe Lude.Bool,
+    distributor :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe ProductType,
+    supportEmail :: Lude.Maybe Lude.Text,
+    productId :: Lude.Maybe Lude.Text,
+    supportDescription :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProductViewSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pvsOwner' - The owner of the product. Contact the product administrator for the significance of this value.
---
--- * 'pvsSupportURL' - The URL information to obtain support for this Product.
---
--- * 'pvsShortDescription' - Short description of the product.
---
--- * 'pvsHasDefaultPath' - Indicates whether the product has a default path. If the product does not have a default path, call 'ListLaunchPaths' to disambiguate between paths. Otherwise, 'ListLaunchPaths' is not required, and the output of 'ProductViewSummary' can be used directly with 'DescribeProvisioningParameters' .
---
--- * 'pvsDistributor' - The distributor of the product. Contact the product administrator for the significance of this value.
---
--- * 'pvsName' - The name of the product.
---
--- * 'pvsId' - The product view identifier.
---
--- * 'pvsType' - The product type. Contact the product administrator for the significance of this value. If this value is @MARKETPLACE@ , the product was created by AWS Marketplace.
---
--- * 'pvsSupportEmail' - The email contact information to obtain support for this Product.
---
--- * 'pvsProductId' - The product identifier.
---
--- * 'pvsSupportDescription' - The description of the support for this Product.
-productViewSummary ::
+-- * 'distributor' - The distributor of the product. Contact the product administrator for the significance of this value.
+-- * 'hasDefaultPath' - Indicates whether the product has a default path. If the product does not have a default path, call 'ListLaunchPaths' to disambiguate between paths. Otherwise, 'ListLaunchPaths' is not required, and the output of 'ProductViewSummary' can be used directly with 'DescribeProvisioningParameters' .
+-- * 'id' - The product view identifier.
+-- * 'name' - The name of the product.
+-- * 'owner' - The owner of the product. Contact the product administrator for the significance of this value.
+-- * 'productId' - The product identifier.
+-- * 'shortDescription' - Short description of the product.
+-- * 'supportDescription' - The description of the support for this Product.
+-- * 'supportEmail' - The email contact information to obtain support for this Product.
+-- * 'supportURL' - The URL information to obtain support for this Product.
+-- * 'type'' - The product type. Contact the product administrator for the significance of this value. If this value is @MARKETPLACE@ , the product was created by AWS Marketplace.
+mkProductViewSummary ::
   ProductViewSummary
-productViewSummary =
+mkProductViewSummary =
   ProductViewSummary'
-    { _pvsOwner = Nothing,
-      _pvsSupportURL = Nothing,
-      _pvsShortDescription = Nothing,
-      _pvsHasDefaultPath = Nothing,
-      _pvsDistributor = Nothing,
-      _pvsName = Nothing,
-      _pvsId = Nothing,
-      _pvsType = Nothing,
-      _pvsSupportEmail = Nothing,
-      _pvsProductId = Nothing,
-      _pvsSupportDescription = Nothing
+    { owner = Lude.Nothing,
+      supportURL = Lude.Nothing,
+      shortDescription = Lude.Nothing,
+      hasDefaultPath = Lude.Nothing,
+      distributor = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      type' = Lude.Nothing,
+      supportEmail = Lude.Nothing,
+      productId = Lude.Nothing,
+      supportDescription = Lude.Nothing
     }
 
 -- | The owner of the product. Contact the product administrator for the significance of this value.
-pvsOwner :: Lens' ProductViewSummary (Maybe Text)
-pvsOwner = lens _pvsOwner (\s a -> s {_pvsOwner = a})
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsOwner :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Text)
+pvsOwner = Lens.lens (owner :: ProductViewSummary -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: ProductViewSummary)
+{-# DEPRECATED pvsOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | The URL information to obtain support for this Product.
-pvsSupportURL :: Lens' ProductViewSummary (Maybe Text)
-pvsSupportURL = lens _pvsSupportURL (\s a -> s {_pvsSupportURL = a})
+--
+-- /Note:/ Consider using 'supportURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsSupportURL :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Text)
+pvsSupportURL = Lens.lens (supportURL :: ProductViewSummary -> Lude.Maybe Lude.Text) (\s a -> s {supportURL = a} :: ProductViewSummary)
+{-# DEPRECATED pvsSupportURL "Use generic-lens or generic-optics with 'supportURL' instead." #-}
 
 -- | Short description of the product.
-pvsShortDescription :: Lens' ProductViewSummary (Maybe Text)
-pvsShortDescription = lens _pvsShortDescription (\s a -> s {_pvsShortDescription = a})
+--
+-- /Note:/ Consider using 'shortDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsShortDescription :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Text)
+pvsShortDescription = Lens.lens (shortDescription :: ProductViewSummary -> Lude.Maybe Lude.Text) (\s a -> s {shortDescription = a} :: ProductViewSummary)
+{-# DEPRECATED pvsShortDescription "Use generic-lens or generic-optics with 'shortDescription' instead." #-}
 
 -- | Indicates whether the product has a default path. If the product does not have a default path, call 'ListLaunchPaths' to disambiguate between paths. Otherwise, 'ListLaunchPaths' is not required, and the output of 'ProductViewSummary' can be used directly with 'DescribeProvisioningParameters' .
-pvsHasDefaultPath :: Lens' ProductViewSummary (Maybe Bool)
-pvsHasDefaultPath = lens _pvsHasDefaultPath (\s a -> s {_pvsHasDefaultPath = a})
+--
+-- /Note:/ Consider using 'hasDefaultPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsHasDefaultPath :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Bool)
+pvsHasDefaultPath = Lens.lens (hasDefaultPath :: ProductViewSummary -> Lude.Maybe Lude.Bool) (\s a -> s {hasDefaultPath = a} :: ProductViewSummary)
+{-# DEPRECATED pvsHasDefaultPath "Use generic-lens or generic-optics with 'hasDefaultPath' instead." #-}
 
 -- | The distributor of the product. Contact the product administrator for the significance of this value.
-pvsDistributor :: Lens' ProductViewSummary (Maybe Text)
-pvsDistributor = lens _pvsDistributor (\s a -> s {_pvsDistributor = a})
+--
+-- /Note:/ Consider using 'distributor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsDistributor :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Text)
+pvsDistributor = Lens.lens (distributor :: ProductViewSummary -> Lude.Maybe Lude.Text) (\s a -> s {distributor = a} :: ProductViewSummary)
+{-# DEPRECATED pvsDistributor "Use generic-lens or generic-optics with 'distributor' instead." #-}
 
 -- | The name of the product.
-pvsName :: Lens' ProductViewSummary (Maybe Text)
-pvsName = lens _pvsName (\s a -> s {_pvsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsName :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Text)
+pvsName = Lens.lens (name :: ProductViewSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProductViewSummary)
+{-# DEPRECATED pvsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The product view identifier.
-pvsId :: Lens' ProductViewSummary (Maybe Text)
-pvsId = lens _pvsId (\s a -> s {_pvsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsId :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Text)
+pvsId = Lens.lens (id :: ProductViewSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ProductViewSummary)
+{-# DEPRECATED pvsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The product type. Contact the product administrator for the significance of this value. If this value is @MARKETPLACE@ , the product was created by AWS Marketplace.
-pvsType :: Lens' ProductViewSummary (Maybe ProductType)
-pvsType = lens _pvsType (\s a -> s {_pvsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsType :: Lens.Lens' ProductViewSummary (Lude.Maybe ProductType)
+pvsType = Lens.lens (type' :: ProductViewSummary -> Lude.Maybe ProductType) (\s a -> s {type' = a} :: ProductViewSummary)
+{-# DEPRECATED pvsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The email contact information to obtain support for this Product.
-pvsSupportEmail :: Lens' ProductViewSummary (Maybe Text)
-pvsSupportEmail = lens _pvsSupportEmail (\s a -> s {_pvsSupportEmail = a})
+--
+-- /Note:/ Consider using 'supportEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsSupportEmail :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Text)
+pvsSupportEmail = Lens.lens (supportEmail :: ProductViewSummary -> Lude.Maybe Lude.Text) (\s a -> s {supportEmail = a} :: ProductViewSummary)
+{-# DEPRECATED pvsSupportEmail "Use generic-lens or generic-optics with 'supportEmail' instead." #-}
 
 -- | The product identifier.
-pvsProductId :: Lens' ProductViewSummary (Maybe Text)
-pvsProductId = lens _pvsProductId (\s a -> s {_pvsProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsProductId :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Text)
+pvsProductId = Lens.lens (productId :: ProductViewSummary -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: ProductViewSummary)
+{-# DEPRECATED pvsProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | The description of the support for this Product.
-pvsSupportDescription :: Lens' ProductViewSummary (Maybe Text)
-pvsSupportDescription = lens _pvsSupportDescription (\s a -> s {_pvsSupportDescription = a})
+--
+-- /Note:/ Consider using 'supportDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsSupportDescription :: Lens.Lens' ProductViewSummary (Lude.Maybe Lude.Text)
+pvsSupportDescription = Lens.lens (supportDescription :: ProductViewSummary -> Lude.Maybe Lude.Text) (\s a -> s {supportDescription = a} :: ProductViewSummary)
+{-# DEPRECATED pvsSupportDescription "Use generic-lens or generic-optics with 'supportDescription' instead." #-}
 
-instance FromJSON ProductViewSummary where
+instance Lude.FromJSON ProductViewSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProductViewSummary"
       ( \x ->
           ProductViewSummary'
-            <$> (x .:? "Owner")
-            <*> (x .:? "SupportUrl")
-            <*> (x .:? "ShortDescription")
-            <*> (x .:? "HasDefaultPath")
-            <*> (x .:? "Distributor")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "Type")
-            <*> (x .:? "SupportEmail")
-            <*> (x .:? "ProductId")
-            <*> (x .:? "SupportDescription")
+            Lude.<$> (x Lude..:? "Owner")
+            Lude.<*> (x Lude..:? "SupportUrl")
+            Lude.<*> (x Lude..:? "ShortDescription")
+            Lude.<*> (x Lude..:? "HasDefaultPath")
+            Lude.<*> (x Lude..:? "Distributor")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "SupportEmail")
+            Lude.<*> (x Lude..:? "ProductId")
+            Lude.<*> (x Lude..:? "SupportDescription")
       )
-
-instance Hashable ProductViewSummary
-
-instance NFData ProductViewSummary

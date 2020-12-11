@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Types.SpeechMarkType where
+module Network.AWS.Polly.Types.SpeechMarkType
+  ( SpeechMarkType
+      ( SpeechMarkType',
+        Sentence,
+        Ssml,
+        Viseme,
+        Word
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SpeechMarkType
-  = Sentence
-  | Ssml
-  | Viseme
-  | Word
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SpeechMarkType = SpeechMarkType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SpeechMarkType where
-  parser =
-    takeLowerText >>= \case
-      "sentence" -> pure Sentence
-      "ssml" -> pure Ssml
-      "viseme" -> pure Viseme
-      "word" -> pure Word
-      e ->
-        fromTextError $
-          "Failure parsing SpeechMarkType from value: '" <> e
-            <> "'. Accepted values: sentence, ssml, viseme, word"
+pattern Sentence :: SpeechMarkType
+pattern Sentence = SpeechMarkType' "sentence"
 
-instance ToText SpeechMarkType where
-  toText = \case
-    Sentence -> "sentence"
-    Ssml -> "ssml"
-    Viseme -> "viseme"
-    Word -> "word"
+pattern Ssml :: SpeechMarkType
+pattern Ssml = SpeechMarkType' "ssml"
 
-instance Hashable SpeechMarkType
+pattern Viseme :: SpeechMarkType
+pattern Viseme = SpeechMarkType' "viseme"
 
-instance NFData SpeechMarkType
+pattern Word :: SpeechMarkType
+pattern Word = SpeechMarkType' "word"
 
-instance ToByteString SpeechMarkType
-
-instance ToQuery SpeechMarkType
-
-instance ToHeader SpeechMarkType
-
-instance ToJSON SpeechMarkType where
-  toJSON = toJSONText
-
-instance FromJSON SpeechMarkType where
-  parseJSON = parseJSONText "SpeechMarkType"
+{-# COMPLETE
+  Sentence,
+  Ssml,
+  Viseme,
+  Word,
+  SpeechMarkType'
+  #-}

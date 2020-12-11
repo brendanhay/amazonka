@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Gets information about the provisioned products that meet the specified criteria.
 module Network.AWS.ServiceCatalog.SearchProvisionedProducts
-  ( -- * Creating a Request
-    searchProvisionedProducts,
-    SearchProvisionedProducts,
+  ( -- * Creating a request
+    SearchProvisionedProducts (..),
+    mkSearchProvisionedProducts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sppFilters,
     sppSortOrder,
     sppAcceptLanguage,
@@ -32,11 +27,11 @@ module Network.AWS.ServiceCatalog.SearchProvisionedProducts
     sppPageSize,
     sppSortBy,
 
-    -- * Destructuring the Response
-    searchProvisionedProductsResponse,
-    SearchProvisionedProductsResponse,
+    -- * Destructuring the response
+    SearchProvisionedProductsResponse (..),
+    mkSearchProvisionedProductsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsNextPageToken,
     srsProvisionedProducts,
     srsTotalResultsCount,
@@ -44,192 +39,247 @@ module Network.AWS.ServiceCatalog.SearchProvisionedProducts
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'searchProvisionedProducts' smart constructor.
+-- | /See:/ 'mkSearchProvisionedProducts' smart constructor.
 data SearchProvisionedProducts = SearchProvisionedProducts'
-  { _sppFilters ::
-      !( Maybe
-           ( Map
-               ProvisionedProductViewFilterBy
-               ([Text])
-           )
-       ),
-    _sppSortOrder :: !(Maybe SortOrder),
-    _sppAcceptLanguage :: !(Maybe Text),
-    _sppAccessLevelFilter ::
-      !(Maybe AccessLevelFilter),
-    _sppPageToken :: !(Maybe Text),
-    _sppPageSize :: !(Maybe Nat),
-    _sppSortBy :: !(Maybe Text)
+  { filters ::
+      Lude.Maybe
+        ( Lude.HashMap
+            ProvisionedProductViewFilterBy
+            ([Lude.Text])
+        ),
+    sortOrder :: Lude.Maybe SortOrder,
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    accessLevelFilter ::
+      Lude.Maybe AccessLevelFilter,
+    pageToken :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchProvisionedProducts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'sppFilters' - The search filters. When the key is @SearchQuery@ , the searchable fields are @arn@ , @createdTime@ , @id@ , @lastRecordId@ , @idempotencyToken@ , @name@ , @physicalId@ , @productId@ , @provisioningArtifact@ , @type@ , @status@ , @tags@ , @userArn@ , @userArnSession@ , @lastProvisioningRecordId@ , @lastSuccessfulProvisioningRecordId@ , @productName@ , and @provisioningArtifactName@ . Example: @"SearchQuery":["status:AVAILABLE"]@
 --
--- * 'sppSortOrder' - The sort order. If no value is specified, the results are not sorted.
+--     * @en@ - English (default)
 --
--- * 'sppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'sppAccessLevelFilter' - The access level to use to obtain results. The default is @User@ .
+--     * @jp@ - Japanese
 --
--- * 'sppPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- * 'sppPageSize' - The maximum number of items to return with this call.
+--     * @zh@ - Chinese
 --
--- * 'sppSortBy' - The sort field. If no value is specified, the results are not sorted. The valid values are @arn@ , @id@ , @name@ , and @lastRecordId@ .
-searchProvisionedProducts ::
+--
+-- * 'accessLevelFilter' - The access level to use to obtain results. The default is @User@ .
+-- * 'filters' - The search filters.
+--
+-- When the key is @SearchQuery@ , the searchable fields are @arn@ , @createdTime@ , @id@ , @lastRecordId@ , @idempotencyToken@ , @name@ , @physicalId@ , @productId@ , @provisioningArtifact@ , @type@ , @status@ , @tags@ , @userArn@ , @userArnSession@ , @lastProvisioningRecordId@ , @lastSuccessfulProvisioningRecordId@ , @productName@ , and @provisioningArtifactName@ .
+-- Example: @"SearchQuery":["status:AVAILABLE"]@
+-- * 'pageSize' - The maximum number of items to return with this call.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'sortBy' - The sort field. If no value is specified, the results are not sorted. The valid values are @arn@ , @id@ , @name@ , and @lastRecordId@ .
+-- * 'sortOrder' - The sort order. If no value is specified, the results are not sorted.
+mkSearchProvisionedProducts ::
   SearchProvisionedProducts
-searchProvisionedProducts =
+mkSearchProvisionedProducts =
   SearchProvisionedProducts'
-    { _sppFilters = Nothing,
-      _sppSortOrder = Nothing,
-      _sppAcceptLanguage = Nothing,
-      _sppAccessLevelFilter = Nothing,
-      _sppPageToken = Nothing,
-      _sppPageSize = Nothing,
-      _sppSortBy = Nothing
+    { filters = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      acceptLanguage = Lude.Nothing,
+      accessLevelFilter = Lude.Nothing,
+      pageToken = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
--- | The search filters. When the key is @SearchQuery@ , the searchable fields are @arn@ , @createdTime@ , @id@ , @lastRecordId@ , @idempotencyToken@ , @name@ , @physicalId@ , @productId@ , @provisioningArtifact@ , @type@ , @status@ , @tags@ , @userArn@ , @userArnSession@ , @lastProvisioningRecordId@ , @lastSuccessfulProvisioningRecordId@ , @productName@ , and @provisioningArtifactName@ . Example: @"SearchQuery":["status:AVAILABLE"]@
-sppFilters :: Lens' SearchProvisionedProducts (HashMap ProvisionedProductViewFilterBy ([Text]))
-sppFilters = lens _sppFilters (\s a -> s {_sppFilters = a}) . _Default . _Map
+-- | The search filters.
+--
+-- When the key is @SearchQuery@ , the searchable fields are @arn@ , @createdTime@ , @id@ , @lastRecordId@ , @idempotencyToken@ , @name@ , @physicalId@ , @productId@ , @provisioningArtifact@ , @type@ , @status@ , @tags@ , @userArn@ , @userArnSession@ , @lastProvisioningRecordId@ , @lastSuccessfulProvisioningRecordId@ , @productName@ , and @provisioningArtifactName@ .
+-- Example: @"SearchQuery":["status:AVAILABLE"]@
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppFilters :: Lens.Lens' SearchProvisionedProducts (Lude.Maybe (Lude.HashMap ProvisionedProductViewFilterBy ([Lude.Text])))
+sppFilters = Lens.lens (filters :: SearchProvisionedProducts -> Lude.Maybe (Lude.HashMap ProvisionedProductViewFilterBy ([Lude.Text]))) (\s a -> s {filters = a} :: SearchProvisionedProducts)
+{-# DEPRECATED sppFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The sort order. If no value is specified, the results are not sorted.
-sppSortOrder :: Lens' SearchProvisionedProducts (Maybe SortOrder)
-sppSortOrder = lens _sppSortOrder (\s a -> s {_sppSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppSortOrder :: Lens.Lens' SearchProvisionedProducts (Lude.Maybe SortOrder)
+sppSortOrder = Lens.lens (sortOrder :: SearchProvisionedProducts -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: SearchProvisionedProducts)
+{-# DEPRECATED sppSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-sppAcceptLanguage :: Lens' SearchProvisionedProducts (Maybe Text)
-sppAcceptLanguage = lens _sppAcceptLanguage (\s a -> s {_sppAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppAcceptLanguage :: Lens.Lens' SearchProvisionedProducts (Lude.Maybe Lude.Text)
+sppAcceptLanguage = Lens.lens (acceptLanguage :: SearchProvisionedProducts -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: SearchProvisionedProducts)
+{-# DEPRECATED sppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The access level to use to obtain results. The default is @User@ .
-sppAccessLevelFilter :: Lens' SearchProvisionedProducts (Maybe AccessLevelFilter)
-sppAccessLevelFilter = lens _sppAccessLevelFilter (\s a -> s {_sppAccessLevelFilter = a})
+--
+-- /Note:/ Consider using 'accessLevelFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppAccessLevelFilter :: Lens.Lens' SearchProvisionedProducts (Lude.Maybe AccessLevelFilter)
+sppAccessLevelFilter = Lens.lens (accessLevelFilter :: SearchProvisionedProducts -> Lude.Maybe AccessLevelFilter) (\s a -> s {accessLevelFilter = a} :: SearchProvisionedProducts)
+{-# DEPRECATED sppAccessLevelFilter "Use generic-lens or generic-optics with 'accessLevelFilter' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-sppPageToken :: Lens' SearchProvisionedProducts (Maybe Text)
-sppPageToken = lens _sppPageToken (\s a -> s {_sppPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppPageToken :: Lens.Lens' SearchProvisionedProducts (Lude.Maybe Lude.Text)
+sppPageToken = Lens.lens (pageToken :: SearchProvisionedProducts -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: SearchProvisionedProducts)
+{-# DEPRECATED sppPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
-sppPageSize :: Lens' SearchProvisionedProducts (Maybe Natural)
-sppPageSize = lens _sppPageSize (\s a -> s {_sppPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppPageSize :: Lens.Lens' SearchProvisionedProducts (Lude.Maybe Lude.Natural)
+sppPageSize = Lens.lens (pageSize :: SearchProvisionedProducts -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: SearchProvisionedProducts)
+{-# DEPRECATED sppPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The sort field. If no value is specified, the results are not sorted. The valid values are @arn@ , @id@ , @name@ , and @lastRecordId@ .
-sppSortBy :: Lens' SearchProvisionedProducts (Maybe Text)
-sppSortBy = lens _sppSortBy (\s a -> s {_sppSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sppSortBy :: Lens.Lens' SearchProvisionedProducts (Lude.Maybe Lude.Text)
+sppSortBy = Lens.lens (sortBy :: SearchProvisionedProducts -> Lude.Maybe Lude.Text) (\s a -> s {sortBy = a} :: SearchProvisionedProducts)
+{-# DEPRECATED sppSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSRequest SearchProvisionedProducts where
+instance Lude.AWSRequest SearchProvisionedProducts where
   type
     Rs SearchProvisionedProducts =
       SearchProvisionedProductsResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SearchProvisionedProductsResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (x .?> "ProvisionedProducts" .!@ mempty)
-            <*> (x .?> "TotalResultsCount")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "ProvisionedProducts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "TotalResultsCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchProvisionedProducts
-
-instance NFData SearchProvisionedProducts
-
-instance ToHeaders SearchProvisionedProducts where
+instance Lude.ToHeaders SearchProvisionedProducts where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.SearchProvisionedProducts" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.SearchProvisionedProducts" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SearchProvisionedProducts where
+instance Lude.ToJSON SearchProvisionedProducts where
   toJSON SearchProvisionedProducts' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _sppFilters,
-            ("SortOrder" .=) <$> _sppSortOrder,
-            ("AcceptLanguage" .=) <$> _sppAcceptLanguage,
-            ("AccessLevelFilter" .=) <$> _sppAccessLevelFilter,
-            ("PageToken" .=) <$> _sppPageToken,
-            ("PageSize" .=) <$> _sppPageSize,
-            ("SortBy" .=) <$> _sppSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("AccessLevelFilter" Lude..=) Lude.<$> accessLevelFilter,
+            ("PageToken" Lude..=) Lude.<$> pageToken,
+            ("PageSize" Lude..=) Lude.<$> pageSize,
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath SearchProvisionedProducts where
-  toPath = const "/"
+instance Lude.ToPath SearchProvisionedProducts where
+  toPath = Lude.const "/"
 
-instance ToQuery SearchProvisionedProducts where
-  toQuery = const mempty
+instance Lude.ToQuery SearchProvisionedProducts where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'searchProvisionedProductsResponse' smart constructor.
+-- | /See:/ 'mkSearchProvisionedProductsResponse' smart constructor.
 data SearchProvisionedProductsResponse = SearchProvisionedProductsResponse'
-  { _srsNextPageToken ::
-      !(Maybe Text),
-    _srsProvisionedProducts ::
-      !( Maybe
-           [ProvisionedProductAttribute]
-       ),
-    _srsTotalResultsCount ::
-      !(Maybe Int),
-    _srsResponseStatus ::
-      !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    provisionedProducts ::
+      Lude.Maybe
+        [ProvisionedProductAttribute],
+    totalResultsCount ::
+      Lude.Maybe Lude.Int,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchProvisionedProductsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
---
--- * 'srsProvisionedProducts' - Information about the provisioned products.
---
--- * 'srsTotalResultsCount' - The number of provisioned products found.
---
--- * 'srsResponseStatus' - -- | The response status code.
-searchProvisionedProductsResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'provisionedProducts' - Information about the provisioned products.
+-- * 'responseStatus' - The response status code.
+-- * 'totalResultsCount' - The number of provisioned products found.
+mkSearchProvisionedProductsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchProvisionedProductsResponse
-searchProvisionedProductsResponse pResponseStatus_ =
+mkSearchProvisionedProductsResponse pResponseStatus_ =
   SearchProvisionedProductsResponse'
-    { _srsNextPageToken = Nothing,
-      _srsProvisionedProducts = Nothing,
-      _srsTotalResultsCount = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      provisionedProducts = Lude.Nothing,
+      totalResultsCount = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-srsNextPageToken :: Lens' SearchProvisionedProductsResponse (Maybe Text)
-srsNextPageToken = lens _srsNextPageToken (\s a -> s {_srsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsNextPageToken :: Lens.Lens' SearchProvisionedProductsResponse (Lude.Maybe Lude.Text)
+srsNextPageToken = Lens.lens (nextPageToken :: SearchProvisionedProductsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: SearchProvisionedProductsResponse)
+{-# DEPRECATED srsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the provisioned products.
-srsProvisionedProducts :: Lens' SearchProvisionedProductsResponse [ProvisionedProductAttribute]
-srsProvisionedProducts = lens _srsProvisionedProducts (\s a -> s {_srsProvisionedProducts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'provisionedProducts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsProvisionedProducts :: Lens.Lens' SearchProvisionedProductsResponse (Lude.Maybe [ProvisionedProductAttribute])
+srsProvisionedProducts = Lens.lens (provisionedProducts :: SearchProvisionedProductsResponse -> Lude.Maybe [ProvisionedProductAttribute]) (\s a -> s {provisionedProducts = a} :: SearchProvisionedProductsResponse)
+{-# DEPRECATED srsProvisionedProducts "Use generic-lens or generic-optics with 'provisionedProducts' instead." #-}
 
 -- | The number of provisioned products found.
-srsTotalResultsCount :: Lens' SearchProvisionedProductsResponse (Maybe Int)
-srsTotalResultsCount = lens _srsTotalResultsCount (\s a -> s {_srsTotalResultsCount = a})
+--
+-- /Note:/ Consider using 'totalResultsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsTotalResultsCount :: Lens.Lens' SearchProvisionedProductsResponse (Lude.Maybe Lude.Int)
+srsTotalResultsCount = Lens.lens (totalResultsCount :: SearchProvisionedProductsResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalResultsCount = a} :: SearchProvisionedProductsResponse)
+{-# DEPRECATED srsTotalResultsCount "Use generic-lens or generic-optics with 'totalResultsCount' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' SearchProvisionedProductsResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData SearchProvisionedProductsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' SearchProvisionedProductsResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: SearchProvisionedProductsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchProvisionedProductsResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

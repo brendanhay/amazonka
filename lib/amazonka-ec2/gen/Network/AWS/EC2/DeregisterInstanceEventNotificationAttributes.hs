@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,152 +14,161 @@
 --
 -- Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.
 module Network.AWS.EC2.DeregisterInstanceEventNotificationAttributes
-  ( -- * Creating a Request
-    deregisterInstanceEventNotificationAttributes,
-    DeregisterInstanceEventNotificationAttributes,
+  ( -- * Creating a request
+    DeregisterInstanceEventNotificationAttributes (..),
+    mkDeregisterInstanceEventNotificationAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dienaInstanceTagAttribute,
     dienaDryRun,
 
-    -- * Destructuring the Response
-    deregisterInstanceEventNotificationAttributesResponse,
-    DeregisterInstanceEventNotificationAttributesResponse,
+    -- * Destructuring the response
+    DeregisterInstanceEventNotificationAttributesResponse (..),
+    mkDeregisterInstanceEventNotificationAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dienarsInstanceTagAttribute,
     dienarsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterInstanceEventNotificationAttributes' smart constructor.
+-- | /See:/ 'mkDeregisterInstanceEventNotificationAttributes' smart constructor.
 data DeregisterInstanceEventNotificationAttributes = DeregisterInstanceEventNotificationAttributes'
-  { _dienaInstanceTagAttribute ::
-      !( Maybe
-           DeregisterInstanceTagAttributeRequest
-       ),
-    _dienaDryRun ::
-      !( Maybe
-           Bool
-       )
+  { instanceTagAttribute ::
+      Lude.Maybe
+        DeregisterInstanceTagAttributeRequest,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeregisterInstanceEventNotificationAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dienaInstanceTagAttribute' - Information about the tag keys to deregister.
---
--- * 'dienaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-deregisterInstanceEventNotificationAttributes ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'instanceTagAttribute' - Information about the tag keys to deregister.
+mkDeregisterInstanceEventNotificationAttributes ::
   DeregisterInstanceEventNotificationAttributes
-deregisterInstanceEventNotificationAttributes =
+mkDeregisterInstanceEventNotificationAttributes =
   DeregisterInstanceEventNotificationAttributes'
-    { _dienaInstanceTagAttribute =
-        Nothing,
-      _dienaDryRun = Nothing
+    { instanceTagAttribute =
+        Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | Information about the tag keys to deregister.
-dienaInstanceTagAttribute :: Lens' DeregisterInstanceEventNotificationAttributes (Maybe DeregisterInstanceTagAttributeRequest)
-dienaInstanceTagAttribute = lens _dienaInstanceTagAttribute (\s a -> s {_dienaInstanceTagAttribute = a})
+--
+-- /Note:/ Consider using 'instanceTagAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dienaInstanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Lude.Maybe DeregisterInstanceTagAttributeRequest)
+dienaInstanceTagAttribute = Lens.lens (instanceTagAttribute :: DeregisterInstanceEventNotificationAttributes -> Lude.Maybe DeregisterInstanceTagAttributeRequest) (\s a -> s {instanceTagAttribute = a} :: DeregisterInstanceEventNotificationAttributes)
+{-# DEPRECATED dienaInstanceTagAttribute "Use generic-lens or generic-optics with 'instanceTagAttribute' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dienaDryRun :: Lens' DeregisterInstanceEventNotificationAttributes (Maybe Bool)
-dienaDryRun = lens _dienaDryRun (\s a -> s {_dienaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dienaDryRun :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Lude.Maybe Lude.Bool)
+dienaDryRun = Lens.lens (dryRun :: DeregisterInstanceEventNotificationAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeregisterInstanceEventNotificationAttributes)
+{-# DEPRECATED dienaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DeregisterInstanceEventNotificationAttributes where
+instance
+  Lude.AWSRequest
+    DeregisterInstanceEventNotificationAttributes
+  where
   type
     Rs DeregisterInstanceEventNotificationAttributes =
       DeregisterInstanceEventNotificationAttributesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeregisterInstanceEventNotificationAttributesResponse'
-            <$> (x .@? "instanceTagAttribute") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "instanceTagAttribute")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterInstanceEventNotificationAttributes
+instance
+  Lude.ToHeaders
+    DeregisterInstanceEventNotificationAttributes
+  where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeregisterInstanceEventNotificationAttributes
+instance Lude.ToPath DeregisterInstanceEventNotificationAttributes where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeregisterInstanceEventNotificationAttributes where
-  toHeaders = const mempty
-
-instance ToPath DeregisterInstanceEventNotificationAttributes where
-  toPath = const "/"
-
-instance ToQuery DeregisterInstanceEventNotificationAttributes where
+instance Lude.ToQuery DeregisterInstanceEventNotificationAttributes where
   toQuery DeregisterInstanceEventNotificationAttributes' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DeregisterInstanceEventNotificationAttributes" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "InstanceTagAttribute" =: _dienaInstanceTagAttribute,
-        "DryRun" =: _dienaDryRun
+          Lude.=: ( "DeregisterInstanceEventNotificationAttributes" ::
+                      Lude.ByteString
+                  ),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "InstanceTagAttribute" Lude.=: instanceTagAttribute,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'deregisterInstanceEventNotificationAttributesResponse' smart constructor.
+-- | /See:/ 'mkDeregisterInstanceEventNotificationAttributesResponse' smart constructor.
 data DeregisterInstanceEventNotificationAttributesResponse = DeregisterInstanceEventNotificationAttributesResponse'
-  { _dienarsInstanceTagAttribute ::
-      !( Maybe
-           InstanceTagNotificationAttribute
-       ),
-    _dienarsResponseStatus ::
-      !Int
+  { instanceTagAttribute ::
+      Lude.Maybe
+        InstanceTagNotificationAttribute,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeregisterInstanceEventNotificationAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dienarsInstanceTagAttribute' - The resulting set of tag keys.
---
--- * 'dienarsResponseStatus' - -- | The response status code.
-deregisterInstanceEventNotificationAttributesResponse ::
-  -- | 'dienarsResponseStatus'
-  Int ->
+-- * 'instanceTagAttribute' - The resulting set of tag keys.
+-- * 'responseStatus' - The response status code.
+mkDeregisterInstanceEventNotificationAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterInstanceEventNotificationAttributesResponse
-deregisterInstanceEventNotificationAttributesResponse
+mkDeregisterInstanceEventNotificationAttributesResponse
   pResponseStatus_ =
     DeregisterInstanceEventNotificationAttributesResponse'
-      { _dienarsInstanceTagAttribute =
-          Nothing,
-        _dienarsResponseStatus =
-          pResponseStatus_
+      { instanceTagAttribute =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | The resulting set of tag keys.
-dienarsInstanceTagAttribute :: Lens' DeregisterInstanceEventNotificationAttributesResponse (Maybe InstanceTagNotificationAttribute)
-dienarsInstanceTagAttribute = lens _dienarsInstanceTagAttribute (\s a -> s {_dienarsInstanceTagAttribute = a})
+--
+-- /Note:/ Consider using 'instanceTagAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dienarsInstanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributesResponse (Lude.Maybe InstanceTagNotificationAttribute)
+dienarsInstanceTagAttribute = Lens.lens (instanceTagAttribute :: DeregisterInstanceEventNotificationAttributesResponse -> Lude.Maybe InstanceTagNotificationAttribute) (\s a -> s {instanceTagAttribute = a} :: DeregisterInstanceEventNotificationAttributesResponse)
+{-# DEPRECATED dienarsInstanceTagAttribute "Use generic-lens or generic-optics with 'instanceTagAttribute' instead." #-}
 
--- | -- | The response status code.
-dienarsResponseStatus :: Lens' DeregisterInstanceEventNotificationAttributesResponse Int
-dienarsResponseStatus = lens _dienarsResponseStatus (\s a -> s {_dienarsResponseStatus = a})
-
-instance
-  NFData
-    DeregisterInstanceEventNotificationAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dienarsResponseStatus :: Lens.Lens' DeregisterInstanceEventNotificationAttributesResponse Lude.Int
+dienarsResponseStatus = Lens.lens (responseStatus :: DeregisterInstanceEventNotificationAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterInstanceEventNotificationAttributesResponse)
+{-# DEPRECATED dienarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

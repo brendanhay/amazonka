@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,118 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ResourceDataSyncS3Destination where
+module Network.AWS.SSM.Types.ResourceDataSyncS3Destination
+  ( ResourceDataSyncS3Destination (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceDataSyncS3Destination,
+
+    -- * Lenses
+    rdssdPrefix,
+    rdssdDestinationDataSharing,
+    rdssdAWSKMSKeyARN,
+    rdssdBucketName,
+    rdssdSyncFormat,
+    rdssdRegion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.ResourceDataSyncDestinationDataSharing
 import Network.AWS.SSM.Types.ResourceDataSyncS3Format
 
 -- | Information about the target S3 bucket for the Resource Data Sync.
 --
---
---
--- /See:/ 'resourceDataSyncS3Destination' smart constructor.
+-- /See:/ 'mkResourceDataSyncS3Destination' smart constructor.
 data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
-  { _rdssdPrefix ::
-      !(Maybe Text),
-    _rdssdDestinationDataSharing ::
-      !( Maybe
-           ResourceDataSyncDestinationDataSharing
-       ),
-    _rdssdAWSKMSKeyARN ::
-      !(Maybe Text),
-    _rdssdBucketName :: !Text,
-    _rdssdSyncFormat ::
-      !ResourceDataSyncS3Format,
-    _rdssdRegion :: !Text
+  { prefix ::
+      Lude.Maybe Lude.Text,
+    destinationDataSharing ::
+      Lude.Maybe
+        ResourceDataSyncDestinationDataSharing,
+    awsKMSKeyARN ::
+      Lude.Maybe Lude.Text,
+    bucketName :: Lude.Text,
+    syncFormat ::
+      ResourceDataSyncS3Format,
+    region :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDataSyncS3Destination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdssdPrefix' - An Amazon S3 prefix for the bucket.
---
--- * 'rdssdDestinationDataSharing' - Enables destination data sharing. By default, this field is @null@ .
---
--- * 'rdssdAWSKMSKeyARN' - The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
---
--- * 'rdssdBucketName' - The name of the S3 bucket where the aggregated data is stored.
---
--- * 'rdssdSyncFormat' - A supported sync format. The following format is currently supported: JsonSerDe
---
--- * 'rdssdRegion' - The AWS Region with the S3 bucket targeted by the Resource Data Sync.
-resourceDataSyncS3Destination ::
-  -- | 'rdssdBucketName'
-  Text ->
-  -- | 'rdssdSyncFormat'
+-- * 'awsKMSKeyARN' - The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
+-- * 'bucketName' - The name of the S3 bucket where the aggregated data is stored.
+-- * 'destinationDataSharing' - Enables destination data sharing. By default, this field is @null@ .
+-- * 'prefix' - An Amazon S3 prefix for the bucket.
+-- * 'region' - The AWS Region with the S3 bucket targeted by the Resource Data Sync.
+-- * 'syncFormat' - A supported sync format. The following format is currently supported: JsonSerDe
+mkResourceDataSyncS3Destination ::
+  -- | 'bucketName'
+  Lude.Text ->
+  -- | 'syncFormat'
   ResourceDataSyncS3Format ->
-  -- | 'rdssdRegion'
-  Text ->
+  -- | 'region'
+  Lude.Text ->
   ResourceDataSyncS3Destination
-resourceDataSyncS3Destination pBucketName_ pSyncFormat_ pRegion_ =
+mkResourceDataSyncS3Destination pBucketName_ pSyncFormat_ pRegion_ =
   ResourceDataSyncS3Destination'
-    { _rdssdPrefix = Nothing,
-      _rdssdDestinationDataSharing = Nothing,
-      _rdssdAWSKMSKeyARN = Nothing,
-      _rdssdBucketName = pBucketName_,
-      _rdssdSyncFormat = pSyncFormat_,
-      _rdssdRegion = pRegion_
+    { prefix = Lude.Nothing,
+      destinationDataSharing = Lude.Nothing,
+      awsKMSKeyARN = Lude.Nothing,
+      bucketName = pBucketName_,
+      syncFormat = pSyncFormat_,
+      region = pRegion_
     }
 
 -- | An Amazon S3 prefix for the bucket.
-rdssdPrefix :: Lens' ResourceDataSyncS3Destination (Maybe Text)
-rdssdPrefix = lens _rdssdPrefix (\s a -> s {_rdssdPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssdPrefix :: Lens.Lens' ResourceDataSyncS3Destination (Lude.Maybe Lude.Text)
+rdssdPrefix = Lens.lens (prefix :: ResourceDataSyncS3Destination -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ResourceDataSyncS3Destination)
+{-# DEPRECATED rdssdPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | Enables destination data sharing. By default, this field is @null@ .
-rdssdDestinationDataSharing :: Lens' ResourceDataSyncS3Destination (Maybe ResourceDataSyncDestinationDataSharing)
-rdssdDestinationDataSharing = lens _rdssdDestinationDataSharing (\s a -> s {_rdssdDestinationDataSharing = a})
+--
+-- /Note:/ Consider using 'destinationDataSharing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssdDestinationDataSharing :: Lens.Lens' ResourceDataSyncS3Destination (Lude.Maybe ResourceDataSyncDestinationDataSharing)
+rdssdDestinationDataSharing = Lens.lens (destinationDataSharing :: ResourceDataSyncS3Destination -> Lude.Maybe ResourceDataSyncDestinationDataSharing) (\s a -> s {destinationDataSharing = a} :: ResourceDataSyncS3Destination)
+{-# DEPRECATED rdssdDestinationDataSharing "Use generic-lens or generic-optics with 'destinationDataSharing' instead." #-}
 
 -- | The ARN of an encryption key for a destination in Amazon S3. Must belong to the same Region as the destination S3 bucket.
-rdssdAWSKMSKeyARN :: Lens' ResourceDataSyncS3Destination (Maybe Text)
-rdssdAWSKMSKeyARN = lens _rdssdAWSKMSKeyARN (\s a -> s {_rdssdAWSKMSKeyARN = a})
+--
+-- /Note:/ Consider using 'awsKMSKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssdAWSKMSKeyARN :: Lens.Lens' ResourceDataSyncS3Destination (Lude.Maybe Lude.Text)
+rdssdAWSKMSKeyARN = Lens.lens (awsKMSKeyARN :: ResourceDataSyncS3Destination -> Lude.Maybe Lude.Text) (\s a -> s {awsKMSKeyARN = a} :: ResourceDataSyncS3Destination)
+{-# DEPRECATED rdssdAWSKMSKeyARN "Use generic-lens or generic-optics with 'awsKMSKeyARN' instead." #-}
 
 -- | The name of the S3 bucket where the aggregated data is stored.
-rdssdBucketName :: Lens' ResourceDataSyncS3Destination Text
-rdssdBucketName = lens _rdssdBucketName (\s a -> s {_rdssdBucketName = a})
+--
+-- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssdBucketName :: Lens.Lens' ResourceDataSyncS3Destination Lude.Text
+rdssdBucketName = Lens.lens (bucketName :: ResourceDataSyncS3Destination -> Lude.Text) (\s a -> s {bucketName = a} :: ResourceDataSyncS3Destination)
+{-# DEPRECATED rdssdBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
 -- | A supported sync format. The following format is currently supported: JsonSerDe
-rdssdSyncFormat :: Lens' ResourceDataSyncS3Destination ResourceDataSyncS3Format
-rdssdSyncFormat = lens _rdssdSyncFormat (\s a -> s {_rdssdSyncFormat = a})
+--
+-- /Note:/ Consider using 'syncFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssdSyncFormat :: Lens.Lens' ResourceDataSyncS3Destination ResourceDataSyncS3Format
+rdssdSyncFormat = Lens.lens (syncFormat :: ResourceDataSyncS3Destination -> ResourceDataSyncS3Format) (\s a -> s {syncFormat = a} :: ResourceDataSyncS3Destination)
+{-# DEPRECATED rdssdSyncFormat "Use generic-lens or generic-optics with 'syncFormat' instead." #-}
 
 -- | The AWS Region with the S3 bucket targeted by the Resource Data Sync.
-rdssdRegion :: Lens' ResourceDataSyncS3Destination Text
-rdssdRegion = lens _rdssdRegion (\s a -> s {_rdssdRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssdRegion :: Lens.Lens' ResourceDataSyncS3Destination Lude.Text
+rdssdRegion = Lens.lens (region :: ResourceDataSyncS3Destination -> Lude.Text) (\s a -> s {region = a} :: ResourceDataSyncS3Destination)
+{-# DEPRECATED rdssdRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance FromJSON ResourceDataSyncS3Destination where
+instance Lude.FromJSON ResourceDataSyncS3Destination where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceDataSyncS3Destination"
       ( \x ->
           ResourceDataSyncS3Destination'
-            <$> (x .:? "Prefix")
-            <*> (x .:? "DestinationDataSharing")
-            <*> (x .:? "AWSKMSKeyARN")
-            <*> (x .: "BucketName")
-            <*> (x .: "SyncFormat")
-            <*> (x .: "Region")
+            Lude.<$> (x Lude..:? "Prefix")
+            Lude.<*> (x Lude..:? "DestinationDataSharing")
+            Lude.<*> (x Lude..:? "AWSKMSKeyARN")
+            Lude.<*> (x Lude..: "BucketName")
+            Lude.<*> (x Lude..: "SyncFormat")
+            Lude.<*> (x Lude..: "Region")
       )
 
-instance Hashable ResourceDataSyncS3Destination
-
-instance NFData ResourceDataSyncS3Destination
-
-instance ToJSON ResourceDataSyncS3Destination where
+instance Lude.ToJSON ResourceDataSyncS3Destination where
   toJSON ResourceDataSyncS3Destination' {..} =
-    object
-      ( catMaybes
-          [ ("Prefix" .=) <$> _rdssdPrefix,
-            ("DestinationDataSharing" .=) <$> _rdssdDestinationDataSharing,
-            ("AWSKMSKeyARN" .=) <$> _rdssdAWSKMSKeyARN,
-            Just ("BucketName" .= _rdssdBucketName),
-            Just ("SyncFormat" .= _rdssdSyncFormat),
-            Just ("Region" .= _rdssdRegion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Prefix" Lude..=) Lude.<$> prefix,
+            ("DestinationDataSharing" Lude..=) Lude.<$> destinationDataSharing,
+            ("AWSKMSKeyARN" Lude..=) Lude.<$> awsKMSKeyARN,
+            Lude.Just ("BucketName" Lude..= bucketName),
+            Lude.Just ("SyncFormat" Lude..= syncFormat),
+            Lude.Just ("Region" Lude..= region)
           ]
       )

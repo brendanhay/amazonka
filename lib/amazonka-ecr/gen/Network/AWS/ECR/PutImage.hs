@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates or updates the image manifest and tags associated with an image.
 --
---
 -- When an image is pushed and all new image layers have been uploaded, the PutImage API is called once to create or update the image manifest and the tags associated with the image.
 module Network.AWS.ECR.PutImage
-  ( -- * Creating a Request
-    putImage,
-    PutImage,
+  ( -- * Creating a request
+    PutImage (..),
+    mkPutImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     piRegistryId,
     piImageManifestMediaType,
     piImageDigest,
@@ -34,161 +28,187 @@ module Network.AWS.ECR.PutImage
     piRepositoryName,
     piImageManifest,
 
-    -- * Destructuring the Response
-    putImageResponse,
-    PutImageResponse,
+    -- * Destructuring the response
+    PutImageResponse (..),
+    mkPutImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pirsImage,
     pirsResponseStatus,
   )
 where
 
 import Network.AWS.ECR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putImage' smart constructor.
+-- | /See:/ 'mkPutImage' smart constructor.
 data PutImage = PutImage'
-  { _piRegistryId :: !(Maybe Text),
-    _piImageManifestMediaType :: !(Maybe Text),
-    _piImageDigest :: !(Maybe Text),
-    _piImageTag :: !(Maybe Text),
-    _piRepositoryName :: !Text,
-    _piImageManifest :: !Text
+  { registryId :: Lude.Maybe Lude.Text,
+    imageManifestMediaType :: Lude.Maybe Lude.Text,
+    imageDigest :: Lude.Maybe Lude.Text,
+    imageTag :: Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Text,
+    imageManifest :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piRegistryId' - The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
---
--- * 'piImageManifestMediaType' - The media type of the image manifest. If you push an image manifest that does not contain the @mediaType@ field, you must specify the @imageManifestMediaType@ in the request.
---
--- * 'piImageDigest' - The image digest of the image manifest corresponding to the image.
---
--- * 'piImageTag' - The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.
---
--- * 'piRepositoryName' - The name of the repository in which to put the image.
---
--- * 'piImageManifest' - The image manifest corresponding to the image to be uploaded.
-putImage ::
-  -- | 'piRepositoryName'
-  Text ->
-  -- | 'piImageManifest'
-  Text ->
+-- * 'imageDigest' - The image digest of the image manifest corresponding to the image.
+-- * 'imageManifest' - The image manifest corresponding to the image to be uploaded.
+-- * 'imageManifestMediaType' - The media type of the image manifest. If you push an image manifest that does not contain the @mediaType@ field, you must specify the @imageManifestMediaType@ in the request.
+-- * 'imageTag' - The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.
+-- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
+-- * 'repositoryName' - The name of the repository in which to put the image.
+mkPutImage ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'imageManifest'
+  Lude.Text ->
   PutImage
-putImage pRepositoryName_ pImageManifest_ =
+mkPutImage pRepositoryName_ pImageManifest_ =
   PutImage'
-    { _piRegistryId = Nothing,
-      _piImageManifestMediaType = Nothing,
-      _piImageDigest = Nothing,
-      _piImageTag = Nothing,
-      _piRepositoryName = pRepositoryName_,
-      _piImageManifest = pImageManifest_
+    { registryId = Lude.Nothing,
+      imageManifestMediaType = Lude.Nothing,
+      imageDigest = Lude.Nothing,
+      imageTag = Lude.Nothing,
+      repositoryName = pRepositoryName_,
+      imageManifest = pImageManifest_
     }
 
 -- | The AWS account ID associated with the registry that contains the repository in which to put the image. If you do not specify a registry, the default registry is assumed.
-piRegistryId :: Lens' PutImage (Maybe Text)
-piRegistryId = lens _piRegistryId (\s a -> s {_piRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piRegistryId :: Lens.Lens' PutImage (Lude.Maybe Lude.Text)
+piRegistryId = Lens.lens (registryId :: PutImage -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: PutImage)
+{-# DEPRECATED piRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The media type of the image manifest. If you push an image manifest that does not contain the @mediaType@ field, you must specify the @imageManifestMediaType@ in the request.
-piImageManifestMediaType :: Lens' PutImage (Maybe Text)
-piImageManifestMediaType = lens _piImageManifestMediaType (\s a -> s {_piImageManifestMediaType = a})
+--
+-- /Note:/ Consider using 'imageManifestMediaType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piImageManifestMediaType :: Lens.Lens' PutImage (Lude.Maybe Lude.Text)
+piImageManifestMediaType = Lens.lens (imageManifestMediaType :: PutImage -> Lude.Maybe Lude.Text) (\s a -> s {imageManifestMediaType = a} :: PutImage)
+{-# DEPRECATED piImageManifestMediaType "Use generic-lens or generic-optics with 'imageManifestMediaType' instead." #-}
 
 -- | The image digest of the image manifest corresponding to the image.
-piImageDigest :: Lens' PutImage (Maybe Text)
-piImageDigest = lens _piImageDigest (\s a -> s {_piImageDigest = a})
+--
+-- /Note:/ Consider using 'imageDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piImageDigest :: Lens.Lens' PutImage (Lude.Maybe Lude.Text)
+piImageDigest = Lens.lens (imageDigest :: PutImage -> Lude.Maybe Lude.Text) (\s a -> s {imageDigest = a} :: PutImage)
+{-# DEPRECATED piImageDigest "Use generic-lens or generic-optics with 'imageDigest' instead." #-}
 
 -- | The tag to associate with the image. This parameter is required for images that use the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.
-piImageTag :: Lens' PutImage (Maybe Text)
-piImageTag = lens _piImageTag (\s a -> s {_piImageTag = a})
+--
+-- /Note:/ Consider using 'imageTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piImageTag :: Lens.Lens' PutImage (Lude.Maybe Lude.Text)
+piImageTag = Lens.lens (imageTag :: PutImage -> Lude.Maybe Lude.Text) (\s a -> s {imageTag = a} :: PutImage)
+{-# DEPRECATED piImageTag "Use generic-lens or generic-optics with 'imageTag' instead." #-}
 
 -- | The name of the repository in which to put the image.
-piRepositoryName :: Lens' PutImage Text
-piRepositoryName = lens _piRepositoryName (\s a -> s {_piRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piRepositoryName :: Lens.Lens' PutImage Lude.Text
+piRepositoryName = Lens.lens (repositoryName :: PutImage -> Lude.Text) (\s a -> s {repositoryName = a} :: PutImage)
+{-# DEPRECATED piRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The image manifest corresponding to the image to be uploaded.
-piImageManifest :: Lens' PutImage Text
-piImageManifest = lens _piImageManifest (\s a -> s {_piImageManifest = a})
+--
+-- /Note:/ Consider using 'imageManifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piImageManifest :: Lens.Lens' PutImage Lude.Text
+piImageManifest = Lens.lens (imageManifest :: PutImage -> Lude.Text) (\s a -> s {imageManifest = a} :: PutImage)
+{-# DEPRECATED piImageManifest "Use generic-lens or generic-optics with 'imageManifest' instead." #-}
 
-instance AWSRequest PutImage where
+instance Lude.AWSRequest PutImage where
   type Rs PutImage = PutImageResponse
-  request = postJSON ecr
+  request = Req.postJSON ecrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          PutImageResponse' <$> (x .?> "image") <*> (pure (fromEnum s))
+          PutImageResponse'
+            Lude.<$> (x Lude..?> "image") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutImage
-
-instance NFData PutImage
-
-instance ToHeaders PutImage where
+instance Lude.ToHeaders PutImage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonEC2ContainerRegistry_V20150921.PutImage" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.PutImage" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutImage where
+instance Lude.ToJSON PutImage where
   toJSON PutImage' {..} =
-    object
-      ( catMaybes
-          [ ("registryId" .=) <$> _piRegistryId,
-            ("imageManifestMediaType" .=) <$> _piImageManifestMediaType,
-            ("imageDigest" .=) <$> _piImageDigest,
-            ("imageTag" .=) <$> _piImageTag,
-            Just ("repositoryName" .= _piRepositoryName),
-            Just ("imageManifest" .= _piImageManifest)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("registryId" Lude..=) Lude.<$> registryId,
+            ("imageManifestMediaType" Lude..=) Lude.<$> imageManifestMediaType,
+            ("imageDigest" Lude..=) Lude.<$> imageDigest,
+            ("imageTag" Lude..=) Lude.<$> imageTag,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("imageManifest" Lude..= imageManifest)
           ]
       )
 
-instance ToPath PutImage where
-  toPath = const "/"
+instance Lude.ToPath PutImage where
+  toPath = Lude.const "/"
 
-instance ToQuery PutImage where
-  toQuery = const mempty
+instance Lude.ToQuery PutImage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putImageResponse' smart constructor.
+-- | /See:/ 'mkPutImageResponse' smart constructor.
 data PutImageResponse = PutImageResponse'
-  { _pirsImage ::
-      !(Maybe Image),
-    _pirsResponseStatus :: !Int
+  { image ::
+      Lude.Maybe Image,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pirsImage' - Details of the image uploaded.
---
--- * 'pirsResponseStatus' - -- | The response status code.
-putImageResponse ::
-  -- | 'pirsResponseStatus'
-  Int ->
+-- * 'image' - Details of the image uploaded.
+-- * 'responseStatus' - The response status code.
+mkPutImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutImageResponse
-putImageResponse pResponseStatus_ =
+mkPutImageResponse pResponseStatus_ =
   PutImageResponse'
-    { _pirsImage = Nothing,
-      _pirsResponseStatus = pResponseStatus_
+    { image = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Details of the image uploaded.
-pirsImage :: Lens' PutImageResponse (Maybe Image)
-pirsImage = lens _pirsImage (\s a -> s {_pirsImage = a})
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsImage :: Lens.Lens' PutImageResponse (Lude.Maybe Image)
+pirsImage = Lens.lens (image :: PutImageResponse -> Lude.Maybe Image) (\s a -> s {image = a} :: PutImageResponse)
+{-# DEPRECATED pirsImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
--- | -- | The response status code.
-pirsResponseStatus :: Lens' PutImageResponse Int
-pirsResponseStatus = lens _pirsResponseStatus (\s a -> s {_pirsResponseStatus = a})
-
-instance NFData PutImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsResponseStatus :: Lens.Lens' PutImageResponse Lude.Int
+pirsResponseStatus = Lens.lens (responseStatus :: PutImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutImageResponse)
+{-# DEPRECATED pirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

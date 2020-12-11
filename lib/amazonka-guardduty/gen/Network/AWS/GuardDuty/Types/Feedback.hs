@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.Feedback where
+module Network.AWS.GuardDuty.Types.Feedback
+  ( Feedback
+      ( Feedback',
+        NotUseful,
+        Useful
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Feedback
-  = NotUseful
-  | Useful
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Feedback = Feedback' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Feedback where
-  parser =
-    takeLowerText >>= \case
-      "not_useful" -> pure NotUseful
-      "useful" -> pure Useful
-      e ->
-        fromTextError $
-          "Failure parsing Feedback from value: '" <> e
-            <> "'. Accepted values: not_useful, useful"
+pattern NotUseful :: Feedback
+pattern NotUseful = Feedback' "NOT_USEFUL"
 
-instance ToText Feedback where
-  toText = \case
-    NotUseful -> "NOT_USEFUL"
-    Useful -> "USEFUL"
+pattern Useful :: Feedback
+pattern Useful = Feedback' "USEFUL"
 
-instance Hashable Feedback
-
-instance NFData Feedback
-
-instance ToByteString Feedback
-
-instance ToQuery Feedback
-
-instance ToHeader Feedback
-
-instance ToJSON Feedback where
-  toJSON = toJSONText
+{-# COMPLETE
+  NotUseful,
+  Useful,
+  Feedback'
+  #-}

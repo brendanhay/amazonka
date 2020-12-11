@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,122 @@
 --
 -- Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups, listeners, and rules.
 --
---
 -- Each tag consists of a key and an optional value. If a resource already has a tag with the same key, @AddTags@ updates its value.
 module Network.AWS.ELBv2.AddTags
-  ( -- * Creating a Request
-    addTags,
-    AddTags,
+  ( -- * Creating a request
+    AddTags (..),
+    mkAddTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     atResourceARNs,
     atTags,
 
-    -- * Destructuring the Response
-    addTagsResponse,
-    AddTagsResponse,
+    -- * Destructuring the response
+    AddTagsResponse (..),
+    mkAddTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     atrsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addTags' smart constructor.
+-- | /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
-  { _atResourceARNs :: ![Text],
-    _atTags :: !(List1 Tag)
+  { resourceARNs :: [Lude.Text],
+    tags :: Lude.NonEmpty Tag
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atResourceARNs' - The Amazon Resource Name (ARN) of the resource.
---
--- * 'atTags' - The tags.
-addTags ::
-  -- | 'atTags'
-  NonEmpty Tag ->
+-- * 'resourceARNs' - The Amazon Resource Name (ARN) of the resource.
+-- * 'tags' - The tags.
+mkAddTags ::
+  -- | 'tags'
+  Lude.NonEmpty Tag ->
   AddTags
-addTags pTags_ =
-  AddTags' {_atResourceARNs = mempty, _atTags = _List1 # pTags_}
+mkAddTags pTags_ =
+  AddTags' {resourceARNs = Lude.mempty, tags = pTags_}
 
 -- | The Amazon Resource Name (ARN) of the resource.
-atResourceARNs :: Lens' AddTags [Text]
-atResourceARNs = lens _atResourceARNs (\s a -> s {_atResourceARNs = a}) . _Coerce
+--
+-- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atResourceARNs :: Lens.Lens' AddTags [Lude.Text]
+atResourceARNs = Lens.lens (resourceARNs :: AddTags -> [Lude.Text]) (\s a -> s {resourceARNs = a} :: AddTags)
+{-# DEPRECATED atResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
 
 -- | The tags.
-atTags :: Lens' AddTags (NonEmpty Tag)
-atTags = lens _atTags (\s a -> s {_atTags = a}) . _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atTags :: Lens.Lens' AddTags (Lude.NonEmpty Tag)
+atTags = Lens.lens (tags :: AddTags -> Lude.NonEmpty Tag) (\s a -> s {tags = a} :: AddTags)
+{-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest AddTags where
+instance Lude.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "AddTagsResult"
-      (\s h x -> AddTagsResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          AddTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AddTags
+instance Lude.ToHeaders AddTags where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddTags
+instance Lude.ToPath AddTags where
+  toPath = Lude.const "/"
 
-instance ToHeaders AddTags where
-  toHeaders = const mempty
-
-instance ToPath AddTags where
-  toPath = const "/"
-
-instance ToQuery AddTags where
+instance Lude.ToQuery AddTags where
   toQuery AddTags' {..} =
-    mconcat
-      [ "Action" =: ("AddTags" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "ResourceArns" =: toQueryList "member" _atResourceARNs,
-        "Tags" =: toQueryList "member" _atTags
+    Lude.mconcat
+      [ "Action" Lude.=: ("AddTags" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "ResourceArns" Lude.=: Lude.toQueryList "member" resourceARNs,
+        "Tags" Lude.=: Lude.toQueryList "member" tags
       ]
 
--- | /See:/ 'addTagsResponse' smart constructor.
+-- | /See:/ 'mkAddTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
-  { _atrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atrsResponseStatus' - -- | The response status code.
-addTagsResponse ::
-  -- | 'atrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAddTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddTagsResponse
-addTagsResponse pResponseStatus_ =
-  AddTagsResponse' {_atrsResponseStatus = pResponseStatus_}
+mkAddTagsResponse pResponseStatus_ =
+  AddTagsResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-atrsResponseStatus :: Lens' AddTagsResponse Int
-atrsResponseStatus = lens _atrsResponseStatus (\s a -> s {_atrsResponseStatus = a})
-
-instance NFData AddTagsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atrsResponseStatus :: Lens.Lens' AddTagsResponse Lude.Int
+atrsResponseStatus = Lens.lens (responseStatus :: AddTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsResponse)
+{-# DEPRECATED atrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

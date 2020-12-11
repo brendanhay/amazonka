@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.NodeDetails where
+module Network.AWS.Batch.Types.NodeDetails
+  ( NodeDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNodeDetails,
+
+    -- * Lenses
+    ndNodeIndex,
+    ndIsMainNode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing the details of a multi-node parallel job node.
 --
---
---
--- /See:/ 'nodeDetails' smart constructor.
+-- /See:/ 'mkNodeDetails' smart constructor.
 data NodeDetails = NodeDetails'
-  { _ndNodeIndex :: !(Maybe Int),
-    _ndIsMainNode :: !(Maybe Bool)
+  { nodeIndex :: Lude.Maybe Lude.Int,
+    isMainNode :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ndNodeIndex' - The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
---
--- * 'ndIsMainNode' - Specifies whether the current node is the main node for a multi-node parallel job.
-nodeDetails ::
+-- * 'isMainNode' - Specifies whether the current node is the main node for a multi-node parallel job.
+-- * 'nodeIndex' - The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
+mkNodeDetails ::
   NodeDetails
-nodeDetails =
-  NodeDetails' {_ndNodeIndex = Nothing, _ndIsMainNode = Nothing}
+mkNodeDetails =
+  NodeDetails' {nodeIndex = Lude.Nothing, isMainNode = Lude.Nothing}
 
 -- | The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
-ndNodeIndex :: Lens' NodeDetails (Maybe Int)
-ndNodeIndex = lens _ndNodeIndex (\s a -> s {_ndNodeIndex = a})
+--
+-- /Note:/ Consider using 'nodeIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ndNodeIndex :: Lens.Lens' NodeDetails (Lude.Maybe Lude.Int)
+ndNodeIndex = Lens.lens (nodeIndex :: NodeDetails -> Lude.Maybe Lude.Int) (\s a -> s {nodeIndex = a} :: NodeDetails)
+{-# DEPRECATED ndNodeIndex "Use generic-lens or generic-optics with 'nodeIndex' instead." #-}
 
 -- | Specifies whether the current node is the main node for a multi-node parallel job.
-ndIsMainNode :: Lens' NodeDetails (Maybe Bool)
-ndIsMainNode = lens _ndIsMainNode (\s a -> s {_ndIsMainNode = a})
+--
+-- /Note:/ Consider using 'isMainNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ndIsMainNode :: Lens.Lens' NodeDetails (Lude.Maybe Lude.Bool)
+ndIsMainNode = Lens.lens (isMainNode :: NodeDetails -> Lude.Maybe Lude.Bool) (\s a -> s {isMainNode = a} :: NodeDetails)
+{-# DEPRECATED ndIsMainNode "Use generic-lens or generic-optics with 'isMainNode' instead." #-}
 
-instance FromJSON NodeDetails where
+instance Lude.FromJSON NodeDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "NodeDetails"
       ( \x ->
-          NodeDetails' <$> (x .:? "nodeIndex") <*> (x .:? "isMainNode")
+          NodeDetails'
+            Lude.<$> (x Lude..:? "nodeIndex") Lude.<*> (x Lude..:? "isMainNode")
       )
-
-instance Hashable NodeDetails
-
-instance NFData NodeDetails

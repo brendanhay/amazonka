@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- For Redis engine version 6.x onwards: Deletes a ser group. The user group must first be disassociated from the replcation group before it can be deleted. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html Using Role Based Access Control (RBAC)> .
 module Network.AWS.ElastiCache.DeleteUserGroup
-  ( -- * Creating a Request
-    deleteUserGroup,
-    DeleteUserGroup,
+  ( -- * Creating a request
+    DeleteUserGroup (..),
+    mkDeleteUserGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dugUserGroupId,
 
-    -- * Destructuring the Response
-    userGroup,
-    UserGroup,
+    -- * Destructuring the response
+    UserGroup (..),
+    mkUserGroup,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugStatus,
     ugUserIds,
     ugARN,
@@ -42,51 +37,60 @@ module Network.AWS.ElastiCache.DeleteUserGroup
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUserGroup' smart constructor.
-newtype DeleteUserGroup = DeleteUserGroup' {_dugUserGroupId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteUserGroup' smart constructor.
+newtype DeleteUserGroup = DeleteUserGroup'
+  { userGroupId ::
+      Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dugUserGroupId' - The ID of the user group.
-deleteUserGroup ::
-  -- | 'dugUserGroupId'
-  Text ->
+-- * 'userGroupId' - The ID of the user group.
+mkDeleteUserGroup ::
+  -- | 'userGroupId'
+  Lude.Text ->
   DeleteUserGroup
-deleteUserGroup pUserGroupId_ =
-  DeleteUserGroup' {_dugUserGroupId = pUserGroupId_}
+mkDeleteUserGroup pUserGroupId_ =
+  DeleteUserGroup' {userGroupId = pUserGroupId_}
 
 -- | The ID of the user group.
-dugUserGroupId :: Lens' DeleteUserGroup Text
-dugUserGroupId = lens _dugUserGroupId (\s a -> s {_dugUserGroupId = a})
+--
+-- /Note:/ Consider using 'userGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dugUserGroupId :: Lens.Lens' DeleteUserGroup Lude.Text
+dugUserGroupId = Lens.lens (userGroupId :: DeleteUserGroup -> Lude.Text) (\s a -> s {userGroupId = a} :: DeleteUserGroup)
+{-# DEPRECATED dugUserGroupId "Use generic-lens or generic-optics with 'userGroupId' instead." #-}
 
-instance AWSRequest DeleteUserGroup where
+instance Lude.AWSRequest DeleteUserGroup where
   type Rs DeleteUserGroup = UserGroup
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper "DeleteUserGroupResult" (\s h x -> parseXML x)
+    Res.receiveXMLWrapper
+      "DeleteUserGroupResult"
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable DeleteUserGroup
+instance Lude.ToHeaders DeleteUserGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteUserGroup
+instance Lude.ToPath DeleteUserGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteUserGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteUserGroup where
-  toPath = const "/"
-
-instance ToQuery DeleteUserGroup where
+instance Lude.ToQuery DeleteUserGroup where
   toQuery DeleteUserGroup' {..} =
-    mconcat
-      [ "Action" =: ("DeleteUserGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "UserGroupId" =: _dugUserGroupId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteUserGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "UserGroupId" Lude.=: userGroupId
       ]

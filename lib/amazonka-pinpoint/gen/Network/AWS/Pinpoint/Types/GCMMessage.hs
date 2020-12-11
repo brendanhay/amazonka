@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,191 +7,292 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.GCMMessage where
+module Network.AWS.Pinpoint.Types.GCMMessage
+  ( GCMMessage (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkGCMMessage,
+
+    -- * Lenses
+    gmSubstitutions,
+    gmSilentPush,
+    gmImageIconURL,
+    gmPriority,
+    gmRawContent,
+    gmData,
+    gmRestrictedPackageName,
+    gmSmallImageIconURL,
+    gmBody,
+    gmTimeToLive,
+    gmURL,
+    gmSound,
+    gmAction,
+    gmCollapseKey,
+    gmImageURL,
+    gmTitle,
+    gmIconReference,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Action
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the settings for a one-time message that's sent directly to an endpoint through the GCM channel. The GCM channel enables Amazon Pinpoint to send messages to the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
 --
---
---
--- /See:/ 'gcmMessage' smart constructor.
+-- /See:/ 'mkGCMMessage' smart constructor.
 data GCMMessage = GCMMessage'
-  { _gmSubstitutions ::
-      !(Maybe (Map Text ([Text]))),
-    _gmSilentPush :: !(Maybe Bool),
-    _gmImageIconURL :: !(Maybe Text),
-    _gmPriority :: !(Maybe Text),
-    _gmRawContent :: !(Maybe Text),
-    _gmData :: !(Maybe (Map Text (Text))),
-    _gmRestrictedPackageName :: !(Maybe Text),
-    _gmSmallImageIconURL :: !(Maybe Text),
-    _gmBody :: !(Maybe Text),
-    _gmTimeToLive :: !(Maybe Int),
-    _gmURL :: !(Maybe Text),
-    _gmSound :: !(Maybe Text),
-    _gmAction :: !(Maybe Action),
-    _gmCollapseKey :: !(Maybe Text),
-    _gmImageURL :: !(Maybe Text),
-    _gmTitle :: !(Maybe Text),
-    _gmIconReference :: !(Maybe Text)
+  { substitutions ::
+      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    silentPush :: Lude.Maybe Lude.Bool,
+    imageIconURL :: Lude.Maybe Lude.Text,
+    priority :: Lude.Maybe Lude.Text,
+    rawContent :: Lude.Maybe Lude.Text,
+    data' :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    restrictedPackageName :: Lude.Maybe Lude.Text,
+    smallImageIconURL :: Lude.Maybe Lude.Text,
+    body :: Lude.Maybe Lude.Text,
+    timeToLive :: Lude.Maybe Lude.Int,
+    url :: Lude.Maybe Lude.Text,
+    sound :: Lude.Maybe Lude.Text,
+    action :: Lude.Maybe Action,
+    collapseKey :: Lude.Maybe Lude.Text,
+    imageURL :: Lude.Maybe Lude.Text,
+    title :: Lude.Maybe Lude.Text,
+    iconReference :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GCMMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'action' - The action to occur if the recipient taps the push notification. Valid values are:
 --
--- * 'gmSubstitutions' - The default message variables to use in the notification message. You can override the default variables with individual address variables.
 --
--- * 'gmSilentPush' - Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
+--     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
 --
--- * 'gmImageIconURL' - The URL of the large icon image to display in the content view of the push notification.
 --
--- * 'gmPriority' - para>normal - The notification might be delayed. Delivery is optimized for battery usage on the recipient's device. Use this value unless immediate delivery is required. /listitem>     * high - The notification is sent immediately and might wake a sleeping device. /para> Amazon Pinpoint specifies this value in the FCM priority parameter when it sends the notification message to FCM. The equivalent values for Apple Push Notification service (APNs) are 5, for normal, and 10, for high. If you specify an APNs value for this property, Amazon Pinpoint accepts and converts the value to the corresponding FCM value.
+--     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.
 --
--- * 'gmRawContent' - The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
 --
--- * 'gmData' - The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
+--     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
 --
--- * 'gmRestrictedPackageName' - The package name of the application where registration tokens must match in order for the recipient to receive the message.
 --
--- * 'gmSmallImageIconURL' - The URL of the small icon image to display in the status bar and the content view of the push notification.
+-- * 'body' - The body of the notification message.
+-- * 'collapseKey' - An arbitrary string that identifies a group of messages that can be collapsed to ensure that only the last message is sent when delivery can resume. This helps avoid sending too many instances of the same messages when the recipient's device comes online again or becomes active.
 --
--- * 'gmBody' - The body of the notification message.
+-- Amazon Pinpoint specifies this value in the Firebase Cloud Messaging (FCM) collapse_key parameter when it sends the notification message to FCM.
+-- * 'data'' - The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
+-- * 'iconReference' - The icon image name of the asset saved in your app.
+-- * 'imageIconURL' - The URL of the large icon image to display in the content view of the push notification.
+-- * 'imageURL' - The URL of an image to display in the push notification.
+-- * 'priority' - para>normal - The notification might be delayed. Delivery is optimized for battery usage on the recipient's device. Use this value unless immediate delivery is required.
 --
--- * 'gmTimeToLive' - The amount of time, in seconds, that FCM should store and attempt to deliver the push notification, if the service is unable to deliver the notification the first time. If you don't specify this value, FCM defaults to the maximum value, which is 2,419,200 seconds (28 days). Amazon Pinpoint specifies this value in the FCM time_to_live parameter when it sends the notification message to FCM.
+-- /listitem>
+--     * high - The notification is sent immediately and might wake a sleeping device.
 --
--- * 'gmURL' - The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
+-- /para> Amazon Pinpoint specifies this value in the FCM priority parameter when it sends the notification message to FCM.
+-- The equivalent values for Apple Push Notification service (APNs) are 5, for normal, and 10, for high. If you specify an APNs value for this property, Amazon Pinpoint accepts and converts the value to the corresponding FCM value.
+-- * 'rawContent' - The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
+-- * 'restrictedPackageName' - The package name of the application where registration tokens must match in order for the recipient to receive the message.
+-- * 'silentPush' - Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
+-- * 'smallImageIconURL' - The URL of the small icon image to display in the status bar and the content view of the push notification.
+-- * 'sound' - The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
+-- * 'substitutions' - The default message variables to use in the notification message. You can override the default variables with individual address variables.
+-- * 'timeToLive' - The amount of time, in seconds, that FCM should store and attempt to deliver the push notification, if the service is unable to deliver the notification the first time. If you don't specify this value, FCM defaults to the maximum value, which is 2,419,200 seconds (28 days).
 --
--- * 'gmSound' - The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
---
--- * 'gmAction' - The action to occur if the recipient taps the push notification. Valid values are:     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
---
--- * 'gmCollapseKey' - An arbitrary string that identifies a group of messages that can be collapsed to ensure that only the last message is sent when delivery can resume. This helps avoid sending too many instances of the same messages when the recipient's device comes online again or becomes active. Amazon Pinpoint specifies this value in the Firebase Cloud Messaging (FCM) collapse_key parameter when it sends the notification message to FCM.
---
--- * 'gmImageURL' - The URL of an image to display in the push notification.
---
--- * 'gmTitle' - The title to display above the notification message on the recipient's device.
---
--- * 'gmIconReference' - The icon image name of the asset saved in your app.
-gcmMessage ::
+-- Amazon Pinpoint specifies this value in the FCM time_to_live parameter when it sends the notification message to FCM.
+-- * 'title' - The title to display above the notification message on the recipient's device.
+-- * 'url' - The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
+mkGCMMessage ::
   GCMMessage
-gcmMessage =
+mkGCMMessage =
   GCMMessage'
-    { _gmSubstitutions = Nothing,
-      _gmSilentPush = Nothing,
-      _gmImageIconURL = Nothing,
-      _gmPriority = Nothing,
-      _gmRawContent = Nothing,
-      _gmData = Nothing,
-      _gmRestrictedPackageName = Nothing,
-      _gmSmallImageIconURL = Nothing,
-      _gmBody = Nothing,
-      _gmTimeToLive = Nothing,
-      _gmURL = Nothing,
-      _gmSound = Nothing,
-      _gmAction = Nothing,
-      _gmCollapseKey = Nothing,
-      _gmImageURL = Nothing,
-      _gmTitle = Nothing,
-      _gmIconReference = Nothing
+    { substitutions = Lude.Nothing,
+      silentPush = Lude.Nothing,
+      imageIconURL = Lude.Nothing,
+      priority = Lude.Nothing,
+      rawContent = Lude.Nothing,
+      data' = Lude.Nothing,
+      restrictedPackageName = Lude.Nothing,
+      smallImageIconURL = Lude.Nothing,
+      body = Lude.Nothing,
+      timeToLive = Lude.Nothing,
+      url = Lude.Nothing,
+      sound = Lude.Nothing,
+      action = Lude.Nothing,
+      collapseKey = Lude.Nothing,
+      imageURL = Lude.Nothing,
+      title = Lude.Nothing,
+      iconReference = Lude.Nothing
     }
 
 -- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
-gmSubstitutions :: Lens' GCMMessage (HashMap Text ([Text]))
-gmSubstitutions = lens _gmSubstitutions (\s a -> s {_gmSubstitutions = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmSubstitutions :: Lens.Lens' GCMMessage (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+gmSubstitutions = Lens.lens (substitutions :: GCMMessage -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {substitutions = a} :: GCMMessage)
+{-# DEPRECATED gmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
 
 -- | Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
-gmSilentPush :: Lens' GCMMessage (Maybe Bool)
-gmSilentPush = lens _gmSilentPush (\s a -> s {_gmSilentPush = a})
+--
+-- /Note:/ Consider using 'silentPush' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmSilentPush :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Bool)
+gmSilentPush = Lens.lens (silentPush :: GCMMessage -> Lude.Maybe Lude.Bool) (\s a -> s {silentPush = a} :: GCMMessage)
+{-# DEPRECATED gmSilentPush "Use generic-lens or generic-optics with 'silentPush' instead." #-}
 
 -- | The URL of the large icon image to display in the content view of the push notification.
-gmImageIconURL :: Lens' GCMMessage (Maybe Text)
-gmImageIconURL = lens _gmImageIconURL (\s a -> s {_gmImageIconURL = a})
+--
+-- /Note:/ Consider using 'imageIconURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmImageIconURL :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmImageIconURL = Lens.lens (imageIconURL :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {imageIconURL = a} :: GCMMessage)
+{-# DEPRECATED gmImageIconURL "Use generic-lens or generic-optics with 'imageIconURL' instead." #-}
 
--- | para>normal - The notification might be delayed. Delivery is optimized for battery usage on the recipient's device. Use this value unless immediate delivery is required. /listitem>     * high - The notification is sent immediately and might wake a sleeping device. /para> Amazon Pinpoint specifies this value in the FCM priority parameter when it sends the notification message to FCM. The equivalent values for Apple Push Notification service (APNs) are 5, for normal, and 10, for high. If you specify an APNs value for this property, Amazon Pinpoint accepts and converts the value to the corresponding FCM value.
-gmPriority :: Lens' GCMMessage (Maybe Text)
-gmPriority = lens _gmPriority (\s a -> s {_gmPriority = a})
+-- | para>normal - The notification might be delayed. Delivery is optimized for battery usage on the recipient's device. Use this value unless immediate delivery is required.
+--
+-- /listitem>
+--     * high - The notification is sent immediately and might wake a sleeping device.
+--
+-- /para> Amazon Pinpoint specifies this value in the FCM priority parameter when it sends the notification message to FCM.
+-- The equivalent values for Apple Push Notification service (APNs) are 5, for normal, and 10, for high. If you specify an APNs value for this property, Amazon Pinpoint accepts and converts the value to the corresponding FCM value.
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmPriority :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmPriority = Lens.lens (priority :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {priority = a} :: GCMMessage)
+{-# DEPRECATED gmPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
-gmRawContent :: Lens' GCMMessage (Maybe Text)
-gmRawContent = lens _gmRawContent (\s a -> s {_gmRawContent = a})
+--
+-- /Note:/ Consider using 'rawContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmRawContent :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmRawContent = Lens.lens (rawContent :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {rawContent = a} :: GCMMessage)
+{-# DEPRECATED gmRawContent "Use generic-lens or generic-optics with 'rawContent' instead." #-}
 
 -- | The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
-gmData :: Lens' GCMMessage (HashMap Text (Text))
-gmData = lens _gmData (\s a -> s {_gmData = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmData :: Lens.Lens' GCMMessage (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gmData = Lens.lens (data' :: GCMMessage -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {data' = a} :: GCMMessage)
+{-# DEPRECATED gmData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The package name of the application where registration tokens must match in order for the recipient to receive the message.
-gmRestrictedPackageName :: Lens' GCMMessage (Maybe Text)
-gmRestrictedPackageName = lens _gmRestrictedPackageName (\s a -> s {_gmRestrictedPackageName = a})
+--
+-- /Note:/ Consider using 'restrictedPackageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmRestrictedPackageName :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmRestrictedPackageName = Lens.lens (restrictedPackageName :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {restrictedPackageName = a} :: GCMMessage)
+{-# DEPRECATED gmRestrictedPackageName "Use generic-lens or generic-optics with 'restrictedPackageName' instead." #-}
 
 -- | The URL of the small icon image to display in the status bar and the content view of the push notification.
-gmSmallImageIconURL :: Lens' GCMMessage (Maybe Text)
-gmSmallImageIconURL = lens _gmSmallImageIconURL (\s a -> s {_gmSmallImageIconURL = a})
+--
+-- /Note:/ Consider using 'smallImageIconURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmSmallImageIconURL :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmSmallImageIconURL = Lens.lens (smallImageIconURL :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {smallImageIconURL = a} :: GCMMessage)
+{-# DEPRECATED gmSmallImageIconURL "Use generic-lens or generic-optics with 'smallImageIconURL' instead." #-}
 
 -- | The body of the notification message.
-gmBody :: Lens' GCMMessage (Maybe Text)
-gmBody = lens _gmBody (\s a -> s {_gmBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmBody :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmBody = Lens.lens (body :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: GCMMessage)
+{-# DEPRECATED gmBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
--- | The amount of time, in seconds, that FCM should store and attempt to deliver the push notification, if the service is unable to deliver the notification the first time. If you don't specify this value, FCM defaults to the maximum value, which is 2,419,200 seconds (28 days). Amazon Pinpoint specifies this value in the FCM time_to_live parameter when it sends the notification message to FCM.
-gmTimeToLive :: Lens' GCMMessage (Maybe Int)
-gmTimeToLive = lens _gmTimeToLive (\s a -> s {_gmTimeToLive = a})
+-- | The amount of time, in seconds, that FCM should store and attempt to deliver the push notification, if the service is unable to deliver the notification the first time. If you don't specify this value, FCM defaults to the maximum value, which is 2,419,200 seconds (28 days).
+--
+-- Amazon Pinpoint specifies this value in the FCM time_to_live parameter when it sends the notification message to FCM.
+--
+-- /Note:/ Consider using 'timeToLive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmTimeToLive :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Int)
+gmTimeToLive = Lens.lens (timeToLive :: GCMMessage -> Lude.Maybe Lude.Int) (\s a -> s {timeToLive = a} :: GCMMessage)
+{-# DEPRECATED gmTimeToLive "Use generic-lens or generic-optics with 'timeToLive' instead." #-}
 
 -- | The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
-gmURL :: Lens' GCMMessage (Maybe Text)
-gmURL = lens _gmURL (\s a -> s {_gmURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmURL :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmURL = Lens.lens (url :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: GCMMessage)
+{-# DEPRECATED gmURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
-gmSound :: Lens' GCMMessage (Maybe Text)
-gmSound = lens _gmSound (\s a -> s {_gmSound = a})
+--
+-- /Note:/ Consider using 'sound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmSound :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmSound = Lens.lens (sound :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {sound = a} :: GCMMessage)
+{-# DEPRECATED gmSound "Use generic-lens or generic-optics with 'sound' instead." #-}
 
--- | The action to occur if the recipient taps the push notification. Valid values are:     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
-gmAction :: Lens' GCMMessage (Maybe Action)
-gmAction = lens _gmAction (\s a -> s {_gmAction = a})
+-- | The action to occur if the recipient taps the push notification. Valid values are:
+--
+--
+--     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
+--
+--
+--     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.
+--
+--
+--     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
+--
+--
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmAction :: Lens.Lens' GCMMessage (Lude.Maybe Action)
+gmAction = Lens.lens (action :: GCMMessage -> Lude.Maybe Action) (\s a -> s {action = a} :: GCMMessage)
+{-# DEPRECATED gmAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
--- | An arbitrary string that identifies a group of messages that can be collapsed to ensure that only the last message is sent when delivery can resume. This helps avoid sending too many instances of the same messages when the recipient's device comes online again or becomes active. Amazon Pinpoint specifies this value in the Firebase Cloud Messaging (FCM) collapse_key parameter when it sends the notification message to FCM.
-gmCollapseKey :: Lens' GCMMessage (Maybe Text)
-gmCollapseKey = lens _gmCollapseKey (\s a -> s {_gmCollapseKey = a})
+-- | An arbitrary string that identifies a group of messages that can be collapsed to ensure that only the last message is sent when delivery can resume. This helps avoid sending too many instances of the same messages when the recipient's device comes online again or becomes active.
+--
+-- Amazon Pinpoint specifies this value in the Firebase Cloud Messaging (FCM) collapse_key parameter when it sends the notification message to FCM.
+--
+-- /Note:/ Consider using 'collapseKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmCollapseKey :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmCollapseKey = Lens.lens (collapseKey :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {collapseKey = a} :: GCMMessage)
+{-# DEPRECATED gmCollapseKey "Use generic-lens or generic-optics with 'collapseKey' instead." #-}
 
 -- | The URL of an image to display in the push notification.
-gmImageURL :: Lens' GCMMessage (Maybe Text)
-gmImageURL = lens _gmImageURL (\s a -> s {_gmImageURL = a})
+--
+-- /Note:/ Consider using 'imageURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmImageURL :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmImageURL = Lens.lens (imageURL :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {imageURL = a} :: GCMMessage)
+{-# DEPRECATED gmImageURL "Use generic-lens or generic-optics with 'imageURL' instead." #-}
 
 -- | The title to display above the notification message on the recipient's device.
-gmTitle :: Lens' GCMMessage (Maybe Text)
-gmTitle = lens _gmTitle (\s a -> s {_gmTitle = a})
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmTitle :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmTitle = Lens.lens (title :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: GCMMessage)
+{-# DEPRECATED gmTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 -- | The icon image name of the asset saved in your app.
-gmIconReference :: Lens' GCMMessage (Maybe Text)
-gmIconReference = lens _gmIconReference (\s a -> s {_gmIconReference = a})
+--
+-- /Note:/ Consider using 'iconReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmIconReference :: Lens.Lens' GCMMessage (Lude.Maybe Lude.Text)
+gmIconReference = Lens.lens (iconReference :: GCMMessage -> Lude.Maybe Lude.Text) (\s a -> s {iconReference = a} :: GCMMessage)
+{-# DEPRECATED gmIconReference "Use generic-lens or generic-optics with 'iconReference' instead." #-}
 
-instance Hashable GCMMessage
-
-instance NFData GCMMessage
-
-instance ToJSON GCMMessage where
+instance Lude.ToJSON GCMMessage where
   toJSON GCMMessage' {..} =
-    object
-      ( catMaybes
-          [ ("Substitutions" .=) <$> _gmSubstitutions,
-            ("SilentPush" .=) <$> _gmSilentPush,
-            ("ImageIconUrl" .=) <$> _gmImageIconURL,
-            ("Priority" .=) <$> _gmPriority,
-            ("RawContent" .=) <$> _gmRawContent,
-            ("Data" .=) <$> _gmData,
-            ("RestrictedPackageName" .=) <$> _gmRestrictedPackageName,
-            ("SmallImageIconUrl" .=) <$> _gmSmallImageIconURL,
-            ("Body" .=) <$> _gmBody,
-            ("TimeToLive" .=) <$> _gmTimeToLive,
-            ("Url" .=) <$> _gmURL,
-            ("Sound" .=) <$> _gmSound,
-            ("Action" .=) <$> _gmAction,
-            ("CollapseKey" .=) <$> _gmCollapseKey,
-            ("ImageUrl" .=) <$> _gmImageURL,
-            ("Title" .=) <$> _gmTitle,
-            ("IconReference" .=) <$> _gmIconReference
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Substitutions" Lude..=) Lude.<$> substitutions,
+            ("SilentPush" Lude..=) Lude.<$> silentPush,
+            ("ImageIconUrl" Lude..=) Lude.<$> imageIconURL,
+            ("Priority" Lude..=) Lude.<$> priority,
+            ("RawContent" Lude..=) Lude.<$> rawContent,
+            ("Data" Lude..=) Lude.<$> data',
+            ("RestrictedPackageName" Lude..=) Lude.<$> restrictedPackageName,
+            ("SmallImageIconUrl" Lude..=) Lude.<$> smallImageIconURL,
+            ("Body" Lude..=) Lude.<$> body,
+            ("TimeToLive" Lude..=) Lude.<$> timeToLive,
+            ("Url" Lude..=) Lude.<$> url,
+            ("Sound" Lude..=) Lude.<$> sound,
+            ("Action" Lude..=) Lude.<$> action,
+            ("CollapseKey" Lude..=) Lude.<$> collapseKey,
+            ("ImageUrl" Lude..=) Lude.<$> imageURL,
+            ("Title" Lude..=) Lude.<$> title,
+            ("IconReference" Lude..=) Lude.<$> iconReference
           ]
       )

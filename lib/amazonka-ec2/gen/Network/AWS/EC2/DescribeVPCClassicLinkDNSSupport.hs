@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
-  ( -- * Creating a Request
-    describeVPCClassicLinkDNSSupport,
-    DescribeVPCClassicLinkDNSSupport,
+  ( -- * Creating a request
+    DescribeVPCClassicLinkDNSSupport (..),
+    mkDescribeVPCClassicLinkDNSSupport,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvcldsNextToken,
     dvcldsVPCIds,
     dvcldsMaxResults,
 
-    -- * Destructuring the Response
-    describeVPCClassicLinkDNSSupportResponse,
-    DescribeVPCClassicLinkDNSSupportResponse,
+    -- * Destructuring the response
+    DescribeVPCClassicLinkDNSSupportResponse (..),
+    mkDescribeVPCClassicLinkDNSSupportResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvpccldnssrsVPCs,
     dvpccldnssrsNextToken,
     dvpccldnssrsResponseStatus,
@@ -44,140 +37,160 @@ module Network.AWS.EC2.DescribeVPCClassicLinkDNSSupport
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVPCClassicLinkDNSSupport' smart constructor.
+-- | /See:/ 'mkDescribeVPCClassicLinkDNSSupport' smart constructor.
 data DescribeVPCClassicLinkDNSSupport = DescribeVPCClassicLinkDNSSupport'
-  { _dvcldsNextToken ::
-      !(Maybe Text),
-    _dvcldsVPCIds ::
-      !(Maybe [Text]),
-    _dvcldsMaxResults ::
-      !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    vpcIds ::
+      Lude.Maybe [Lude.Text],
+    maxResults ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCClassicLinkDNSSupport' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvcldsNextToken' - The token for the next page of results.
---
--- * 'dvcldsVPCIds' - One or more VPC IDs.
---
--- * 'dvcldsMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-describeVPCClassicLinkDNSSupport ::
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'vpcIds' - One or more VPC IDs.
+mkDescribeVPCClassicLinkDNSSupport ::
   DescribeVPCClassicLinkDNSSupport
-describeVPCClassicLinkDNSSupport =
+mkDescribeVPCClassicLinkDNSSupport =
   DescribeVPCClassicLinkDNSSupport'
-    { _dvcldsNextToken = Nothing,
-      _dvcldsVPCIds = Nothing,
-      _dvcldsMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      vpcIds = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next page of results.
-dvcldsNextToken :: Lens' DescribeVPCClassicLinkDNSSupport (Maybe Text)
-dvcldsNextToken = lens _dvcldsNextToken (\s a -> s {_dvcldsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcldsNextToken :: Lens.Lens' DescribeVPCClassicLinkDNSSupport (Lude.Maybe Lude.Text)
+dvcldsNextToken = Lens.lens (nextToken :: DescribeVPCClassicLinkDNSSupport -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCClassicLinkDNSSupport)
+{-# DEPRECATED dvcldsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | One or more VPC IDs.
-dvcldsVPCIds :: Lens' DescribeVPCClassicLinkDNSSupport [Text]
-dvcldsVPCIds = lens _dvcldsVPCIds (\s a -> s {_dvcldsVPCIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcldsVPCIds :: Lens.Lens' DescribeVPCClassicLinkDNSSupport (Lude.Maybe [Lude.Text])
+dvcldsVPCIds = Lens.lens (vpcIds :: DescribeVPCClassicLinkDNSSupport -> Lude.Maybe [Lude.Text]) (\s a -> s {vpcIds = a} :: DescribeVPCClassicLinkDNSSupport)
+{-# DEPRECATED dvcldsVPCIds "Use generic-lens or generic-optics with 'vpcIds' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-dvcldsMaxResults :: Lens' DescribeVPCClassicLinkDNSSupport (Maybe Natural)
-dvcldsMaxResults = lens _dvcldsMaxResults (\s a -> s {_dvcldsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcldsMaxResults :: Lens.Lens' DescribeVPCClassicLinkDNSSupport (Lude.Maybe Lude.Natural)
+dvcldsMaxResults = Lens.lens (maxResults :: DescribeVPCClassicLinkDNSSupport -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeVPCClassicLinkDNSSupport)
+{-# DEPRECATED dvcldsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeVPCClassicLinkDNSSupport where
+instance Page.AWSPager DescribeVPCClassicLinkDNSSupport where
   page rq rs
-    | stop (rs ^. dvpccldnssrsNextToken) = Nothing
-    | stop (rs ^. dvpccldnssrsVPCs) = Nothing
-    | otherwise =
-      Just $ rq & dvcldsNextToken .~ rs ^. dvpccldnssrsNextToken
+    | Page.stop (rs Lens.^. dvpccldnssrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dvpccldnssrsVPCs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dvcldsNextToken Lens..~ rs Lens.^. dvpccldnssrsNextToken
 
-instance AWSRequest DescribeVPCClassicLinkDNSSupport where
+instance Lude.AWSRequest DescribeVPCClassicLinkDNSSupport where
   type
     Rs DescribeVPCClassicLinkDNSSupport =
       DescribeVPCClassicLinkDNSSupportResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeVPCClassicLinkDNSSupportResponse'
-            <$> (x .@? "vpcs" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "vpcs" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVPCClassicLinkDNSSupport
+instance Lude.ToHeaders DescribeVPCClassicLinkDNSSupport where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVPCClassicLinkDNSSupport
+instance Lude.ToPath DescribeVPCClassicLinkDNSSupport where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeVPCClassicLinkDNSSupport where
-  toHeaders = const mempty
-
-instance ToPath DescribeVPCClassicLinkDNSSupport where
-  toPath = const "/"
-
-instance ToQuery DescribeVPCClassicLinkDNSSupport where
+instance Lude.ToQuery DescribeVPCClassicLinkDNSSupport where
   toQuery DescribeVPCClassicLinkDNSSupport' {..} =
-    mconcat
-      [ "Action" =: ("DescribeVpcClassicLinkDnsSupport" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "NextToken" =: _dvcldsNextToken,
-        toQuery (toQueryList "VpcIds" <$> _dvcldsVPCIds),
-        "MaxResults" =: _dvcldsMaxResults
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeVpcClassicLinkDnsSupport" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken,
+        Lude.toQuery (Lude.toQueryList "VpcIds" Lude.<$> vpcIds),
+        "MaxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'describeVPCClassicLinkDNSSupportResponse' smart constructor.
+-- | /See:/ 'mkDescribeVPCClassicLinkDNSSupportResponse' smart constructor.
 data DescribeVPCClassicLinkDNSSupportResponse = DescribeVPCClassicLinkDNSSupportResponse'
-  { _dvpccldnssrsVPCs ::
-      !( Maybe
-           [ClassicLinkDNSSupport]
-       ),
-    _dvpccldnssrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dvpccldnssrsResponseStatus ::
-      !Int
+  { vpcs ::
+      Lude.Maybe
+        [ClassicLinkDNSSupport],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCClassicLinkDNSSupportResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpccldnssrsVPCs' - Information about the ClassicLink DNS support status of the VPCs.
---
--- * 'dvpccldnssrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dvpccldnssrsResponseStatus' - -- | The response status code.
-describeVPCClassicLinkDNSSupportResponse ::
-  -- | 'dvpccldnssrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'vpcs' - Information about the ClassicLink DNS support status of the VPCs.
+mkDescribeVPCClassicLinkDNSSupportResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVPCClassicLinkDNSSupportResponse
-describeVPCClassicLinkDNSSupportResponse pResponseStatus_ =
+mkDescribeVPCClassicLinkDNSSupportResponse pResponseStatus_ =
   DescribeVPCClassicLinkDNSSupportResponse'
-    { _dvpccldnssrsVPCs =
-        Nothing,
-      _dvpccldnssrsNextToken = Nothing,
-      _dvpccldnssrsResponseStatus = pResponseStatus_
+    { vpcs = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the ClassicLink DNS support status of the VPCs.
-dvpccldnssrsVPCs :: Lens' DescribeVPCClassicLinkDNSSupportResponse [ClassicLinkDNSSupport]
-dvpccldnssrsVPCs = lens _dvpccldnssrsVPCs (\s a -> s {_dvpccldnssrsVPCs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpccldnssrsVPCs :: Lens.Lens' DescribeVPCClassicLinkDNSSupportResponse (Lude.Maybe [ClassicLinkDNSSupport])
+dvpccldnssrsVPCs = Lens.lens (vpcs :: DescribeVPCClassicLinkDNSSupportResponse -> Lude.Maybe [ClassicLinkDNSSupport]) (\s a -> s {vpcs = a} :: DescribeVPCClassicLinkDNSSupportResponse)
+{-# DEPRECATED dvpccldnssrsVPCs "Use generic-lens or generic-optics with 'vpcs' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dvpccldnssrsNextToken :: Lens' DescribeVPCClassicLinkDNSSupportResponse (Maybe Text)
-dvpccldnssrsNextToken = lens _dvpccldnssrsNextToken (\s a -> s {_dvpccldnssrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpccldnssrsNextToken :: Lens.Lens' DescribeVPCClassicLinkDNSSupportResponse (Lude.Maybe Lude.Text)
+dvpccldnssrsNextToken = Lens.lens (nextToken :: DescribeVPCClassicLinkDNSSupportResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCClassicLinkDNSSupportResponse)
+{-# DEPRECATED dvpccldnssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dvpccldnssrsResponseStatus :: Lens' DescribeVPCClassicLinkDNSSupportResponse Int
-dvpccldnssrsResponseStatus = lens _dvpccldnssrsResponseStatus (\s a -> s {_dvpccldnssrsResponseStatus = a})
-
-instance NFData DescribeVPCClassicLinkDNSSupportResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpccldnssrsResponseStatus :: Lens.Lens' DescribeVPCClassicLinkDNSSupportResponse Lude.Int
+dvpccldnssrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCClassicLinkDNSSupportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCClassicLinkDNSSupportResponse)
+{-# DEPRECATED dvpccldnssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

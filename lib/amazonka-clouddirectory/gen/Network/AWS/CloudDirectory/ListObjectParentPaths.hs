@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,25 @@
 --
 -- Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure> .
 --
---
 -- Use this API to evaluate all parents for an object. The call returns all objects from the root of the directory up to the requested object. The API returns the number of paths based on user-defined @MaxResults@ , in case there are multiple paths to the parent. The order of the paths and nodes returned is consistent among multiple API calls unless the objects are deleted or moved. Paths not leading to the directory root are ignored from the target object.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListObjectParentPaths
-  ( -- * Creating a Request
-    listObjectParentPaths,
-    ListObjectParentPaths,
+  ( -- * Creating a request
+    ListObjectParentPaths (..),
+    mkListObjectParentPaths,
 
-    -- * Request Lenses
+    -- ** Request lenses
     loppNextToken,
     loppMaxResults,
     loppDirectoryARN,
     loppObjectReference,
 
-    -- * Destructuring the Response
-    listObjectParentPathsResponse,
-    ListObjectParentPathsResponse,
+    -- * Destructuring the response
+    ListObjectParentPathsResponse (..),
+    mkListObjectParentPathsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lopprsPathToObjectIdentifiersList,
     lopprsNextToken,
     lopprsResponseStatus,
@@ -47,149 +40,172 @@ module Network.AWS.CloudDirectory.ListObjectParentPaths
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listObjectParentPaths' smart constructor.
+-- | /See:/ 'mkListObjectParentPaths' smart constructor.
 data ListObjectParentPaths = ListObjectParentPaths'
-  { _loppNextToken ::
-      !(Maybe Text),
-    _loppMaxResults :: !(Maybe Nat),
-    _loppDirectoryARN :: !Text,
-    _loppObjectReference :: !ObjectReference
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    directoryARN :: Lude.Text,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectParentPaths' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loppNextToken' - The pagination token.
---
--- * 'loppMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
---
--- * 'loppDirectoryARN' - The ARN of the directory to which the parent path applies.
---
--- * 'loppObjectReference' - The reference that identifies the object whose parent paths are listed.
-listObjectParentPaths ::
-  -- | 'loppDirectoryARN'
-  Text ->
-  -- | 'loppObjectReference'
+-- * 'directoryARN' - The ARN of the directory to which the parent path applies.
+-- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'nextToken' - The pagination token.
+-- * 'objectReference' - The reference that identifies the object whose parent paths are listed.
+mkListObjectParentPaths ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'objectReference'
   ObjectReference ->
   ListObjectParentPaths
-listObjectParentPaths pDirectoryARN_ pObjectReference_ =
+mkListObjectParentPaths pDirectoryARN_ pObjectReference_ =
   ListObjectParentPaths'
-    { _loppNextToken = Nothing,
-      _loppMaxResults = Nothing,
-      _loppDirectoryARN = pDirectoryARN_,
-      _loppObjectReference = pObjectReference_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      directoryARN = pDirectoryARN_,
+      objectReference = pObjectReference_
     }
 
 -- | The pagination token.
-loppNextToken :: Lens' ListObjectParentPaths (Maybe Text)
-loppNextToken = lens _loppNextToken (\s a -> s {_loppNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loppNextToken :: Lens.Lens' ListObjectParentPaths (Lude.Maybe Lude.Text)
+loppNextToken = Lens.lens (nextToken :: ListObjectParentPaths -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectParentPaths)
+{-# DEPRECATED loppNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
-loppMaxResults :: Lens' ListObjectParentPaths (Maybe Natural)
-loppMaxResults = lens _loppMaxResults (\s a -> s {_loppMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loppMaxResults :: Lens.Lens' ListObjectParentPaths (Lude.Maybe Lude.Natural)
+loppMaxResults = Lens.lens (maxResults :: ListObjectParentPaths -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListObjectParentPaths)
+{-# DEPRECATED loppMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ARN of the directory to which the parent path applies.
-loppDirectoryARN :: Lens' ListObjectParentPaths Text
-loppDirectoryARN = lens _loppDirectoryARN (\s a -> s {_loppDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loppDirectoryARN :: Lens.Lens' ListObjectParentPaths Lude.Text
+loppDirectoryARN = Lens.lens (directoryARN :: ListObjectParentPaths -> Lude.Text) (\s a -> s {directoryARN = a} :: ListObjectParentPaths)
+{-# DEPRECATED loppDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | The reference that identifies the object whose parent paths are listed.
-loppObjectReference :: Lens' ListObjectParentPaths ObjectReference
-loppObjectReference = lens _loppObjectReference (\s a -> s {_loppObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loppObjectReference :: Lens.Lens' ListObjectParentPaths ObjectReference
+loppObjectReference = Lens.lens (objectReference :: ListObjectParentPaths -> ObjectReference) (\s a -> s {objectReference = a} :: ListObjectParentPaths)
+{-# DEPRECATED loppObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance AWSPager ListObjectParentPaths where
+instance Page.AWSPager ListObjectParentPaths where
   page rq rs
-    | stop (rs ^. lopprsNextToken) = Nothing
-    | stop (rs ^. lopprsPathToObjectIdentifiersList) = Nothing
-    | otherwise = Just $ rq & loppNextToken .~ rs ^. lopprsNextToken
+    | Page.stop (rs Lens.^. lopprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lopprsPathToObjectIdentifiersList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& loppNextToken Lens..~ rs Lens.^. lopprsNextToken
 
-instance AWSRequest ListObjectParentPaths where
+instance Lude.AWSRequest ListObjectParentPaths where
   type Rs ListObjectParentPaths = ListObjectParentPathsResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListObjectParentPathsResponse'
-            <$> (x .?> "PathToObjectIdentifiersList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PathToObjectIdentifiersList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListObjectParentPaths
-
-instance NFData ListObjectParentPaths
-
-instance ToHeaders ListObjectParentPaths where
+instance Lude.ToHeaders ListObjectParentPaths where
   toHeaders ListObjectParentPaths' {..} =
-    mconcat ["x-amz-data-partition" =# _loppDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON ListObjectParentPaths where
+instance Lude.ToJSON ListObjectParentPaths where
   toJSON ListObjectParentPaths' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _loppNextToken,
-            ("MaxResults" .=) <$> _loppMaxResults,
-            Just ("ObjectReference" .= _loppObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )
 
-instance ToPath ListObjectParentPaths where
+instance Lude.ToPath ListObjectParentPaths where
   toPath =
-    const "/amazonclouddirectory/2017-01-11/object/parentpaths"
+    Lude.const "/amazonclouddirectory/2017-01-11/object/parentpaths"
 
-instance ToQuery ListObjectParentPaths where
-  toQuery = const mempty
+instance Lude.ToQuery ListObjectParentPaths where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listObjectParentPathsResponse' smart constructor.
+-- | /See:/ 'mkListObjectParentPathsResponse' smart constructor.
 data ListObjectParentPathsResponse = ListObjectParentPathsResponse'
-  { _lopprsPathToObjectIdentifiersList ::
-      !( Maybe
-           [PathToObjectIdentifiers]
-       ),
-    _lopprsNextToken ::
-      !(Maybe Text),
-    _lopprsResponseStatus :: !Int
+  { pathToObjectIdentifiersList ::
+      Lude.Maybe
+        [PathToObjectIdentifiers],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectParentPathsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lopprsPathToObjectIdentifiersList' - Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
---
--- * 'lopprsNextToken' - The pagination token.
---
--- * 'lopprsResponseStatus' - -- | The response status code.
-listObjectParentPathsResponse ::
-  -- | 'lopprsResponseStatus'
-  Int ->
+-- * 'nextToken' - The pagination token.
+-- * 'pathToObjectIdentifiersList' - Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
+-- * 'responseStatus' - The response status code.
+mkListObjectParentPathsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListObjectParentPathsResponse
-listObjectParentPathsResponse pResponseStatus_ =
+mkListObjectParentPathsResponse pResponseStatus_ =
   ListObjectParentPathsResponse'
-    { _lopprsPathToObjectIdentifiersList =
-        Nothing,
-      _lopprsNextToken = Nothing,
-      _lopprsResponseStatus = pResponseStatus_
+    { pathToObjectIdentifiersList =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
-lopprsPathToObjectIdentifiersList :: Lens' ListObjectParentPathsResponse [PathToObjectIdentifiers]
-lopprsPathToObjectIdentifiersList = lens _lopprsPathToObjectIdentifiersList (\s a -> s {_lopprsPathToObjectIdentifiersList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pathToObjectIdentifiersList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopprsPathToObjectIdentifiersList :: Lens.Lens' ListObjectParentPathsResponse (Lude.Maybe [PathToObjectIdentifiers])
+lopprsPathToObjectIdentifiersList = Lens.lens (pathToObjectIdentifiersList :: ListObjectParentPathsResponse -> Lude.Maybe [PathToObjectIdentifiers]) (\s a -> s {pathToObjectIdentifiersList = a} :: ListObjectParentPathsResponse)
+{-# DEPRECATED lopprsPathToObjectIdentifiersList "Use generic-lens or generic-optics with 'pathToObjectIdentifiersList' instead." #-}
 
 -- | The pagination token.
-lopprsNextToken :: Lens' ListObjectParentPathsResponse (Maybe Text)
-lopprsNextToken = lens _lopprsNextToken (\s a -> s {_lopprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopprsNextToken :: Lens.Lens' ListObjectParentPathsResponse (Lude.Maybe Lude.Text)
+lopprsNextToken = Lens.lens (nextToken :: ListObjectParentPathsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectParentPathsResponse)
+{-# DEPRECATED lopprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lopprsResponseStatus :: Lens' ListObjectParentPathsResponse Int
-lopprsResponseStatus = lens _lopprsResponseStatus (\s a -> s {_lopprsResponseStatus = a})
-
-instance NFData ListObjectParentPathsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopprsResponseStatus :: Lens.Lens' ListObjectParentPathsResponse Lude.Int
+lopprsResponseStatus = Lens.lens (responseStatus :: ListObjectParentPathsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListObjectParentPathsResponse)
+{-# DEPRECATED lopprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

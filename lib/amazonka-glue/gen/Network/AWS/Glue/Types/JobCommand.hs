@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.JobCommand where
+module Network.AWS.Glue.Types.JobCommand
+  ( JobCommand (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJobCommand,
+
+    -- * Lenses
+    jobScriptLocation,
+    jobPythonVersion,
+    jobName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies code executed when a job is run.
 --
---
---
--- /See:/ 'jobCommand' smart constructor.
+-- /See:/ 'mkJobCommand' smart constructor.
 data JobCommand = JobCommand'
-  { _jobScriptLocation :: !(Maybe Text),
-    _jobPythonVersion :: !(Maybe Text),
-    _jobName :: !(Maybe Text)
+  { scriptLocation ::
+      Lude.Maybe Lude.Text,
+    pythonVersion :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobCommand' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jobScriptLocation' - Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job.
---
--- * 'jobPythonVersion' - The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
---
--- * 'jobName' - The name of the job command. For an Apache Spark ETL job, this must be @glueetl@ . For a Python shell job, it must be @pythonshell@ . For an Apache Spark streaming ETL job, this must be @gluestreaming@ .
-jobCommand ::
+-- * 'name' - The name of the job command. For an Apache Spark ETL job, this must be @glueetl@ . For a Python shell job, it must be @pythonshell@ . For an Apache Spark streaming ETL job, this must be @gluestreaming@ .
+-- * 'pythonVersion' - The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+-- * 'scriptLocation' - Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job.
+mkJobCommand ::
   JobCommand
-jobCommand =
+mkJobCommand =
   JobCommand'
-    { _jobScriptLocation = Nothing,
-      _jobPythonVersion = Nothing,
-      _jobName = Nothing
+    { scriptLocation = Lude.Nothing,
+      pythonVersion = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job.
-jobScriptLocation :: Lens' JobCommand (Maybe Text)
-jobScriptLocation = lens _jobScriptLocation (\s a -> s {_jobScriptLocation = a})
+--
+-- /Note:/ Consider using 'scriptLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobScriptLocation :: Lens.Lens' JobCommand (Lude.Maybe Lude.Text)
+jobScriptLocation = Lens.lens (scriptLocation :: JobCommand -> Lude.Maybe Lude.Text) (\s a -> s {scriptLocation = a} :: JobCommand)
+{-# DEPRECATED jobScriptLocation "Use generic-lens or generic-optics with 'scriptLocation' instead." #-}
 
 -- | The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
-jobPythonVersion :: Lens' JobCommand (Maybe Text)
-jobPythonVersion = lens _jobPythonVersion (\s a -> s {_jobPythonVersion = a})
+--
+-- /Note:/ Consider using 'pythonVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobPythonVersion :: Lens.Lens' JobCommand (Lude.Maybe Lude.Text)
+jobPythonVersion = Lens.lens (pythonVersion :: JobCommand -> Lude.Maybe Lude.Text) (\s a -> s {pythonVersion = a} :: JobCommand)
+{-# DEPRECATED jobPythonVersion "Use generic-lens or generic-optics with 'pythonVersion' instead." #-}
 
 -- | The name of the job command. For an Apache Spark ETL job, this must be @glueetl@ . For a Python shell job, it must be @pythonshell@ . For an Apache Spark streaming ETL job, this must be @gluestreaming@ .
-jobName :: Lens' JobCommand (Maybe Text)
-jobName = lens _jobName (\s a -> s {_jobName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jobName :: Lens.Lens' JobCommand (Lude.Maybe Lude.Text)
+jobName = Lens.lens (name :: JobCommand -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: JobCommand)
+{-# DEPRECATED jobName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON JobCommand where
+instance Lude.FromJSON JobCommand where
   parseJSON =
-    withObject
+    Lude.withObject
       "JobCommand"
       ( \x ->
           JobCommand'
-            <$> (x .:? "ScriptLocation")
-            <*> (x .:? "PythonVersion")
-            <*> (x .:? "Name")
+            Lude.<$> (x Lude..:? "ScriptLocation")
+            Lude.<*> (x Lude..:? "PythonVersion")
+            Lude.<*> (x Lude..:? "Name")
       )
 
-instance Hashable JobCommand
-
-instance NFData JobCommand
-
-instance ToJSON JobCommand where
+instance Lude.ToJSON JobCommand where
   toJSON JobCommand' {..} =
-    object
-      ( catMaybes
-          [ ("ScriptLocation" .=) <$> _jobScriptLocation,
-            ("PythonVersion" .=) <$> _jobPythonVersion,
-            ("Name" .=) <$> _jobName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ScriptLocation" Lude..=) Lude.<$> scriptLocation,
+            ("PythonVersion" Lude..=) Lude.<$> pythonVersion,
+            ("Name" Lude..=) Lude.<$> name
           ]
       )

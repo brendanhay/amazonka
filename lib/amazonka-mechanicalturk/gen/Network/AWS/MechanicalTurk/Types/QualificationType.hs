@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,157 +7,204 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.QualificationType where
+module Network.AWS.MechanicalTurk.Types.QualificationType
+  ( QualificationType (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkQualificationType,
+
+    -- * Lenses
+    qtCreationTime,
+    qtTestDurationInSeconds,
+    qtQualificationTypeStatus,
+    qtAnswerKey,
+    qtTest,
+    qtQualificationTypeId,
+    qtName,
+    qtKeywords,
+    qtAutoGranted,
+    qtAutoGrantedValue,
+    qtDescription,
+    qtIsRequestable,
+    qtRetryDelayInSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.QualificationTypeStatus
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test.
 --
---
---
--- /See:/ 'qualificationType' smart constructor.
+-- /See:/ 'mkQualificationType' smart constructor.
 data QualificationType = QualificationType'
-  { _qtCreationTime ::
-      !(Maybe POSIX),
-    _qtTestDurationInSeconds :: !(Maybe Integer),
-    _qtQualificationTypeStatus ::
-      !(Maybe QualificationTypeStatus),
-    _qtAnswerKey :: !(Maybe Text),
-    _qtTest :: !(Maybe Text),
-    _qtQualificationTypeId :: !(Maybe Text),
-    _qtName :: !(Maybe Text),
-    _qtKeywords :: !(Maybe Text),
-    _qtAutoGranted :: !(Maybe Bool),
-    _qtAutoGrantedValue :: !(Maybe Int),
-    _qtDescription :: !(Maybe Text),
-    _qtIsRequestable :: !(Maybe Bool),
-    _qtRetryDelayInSeconds :: !(Maybe Integer)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    testDurationInSeconds :: Lude.Maybe Lude.Integer,
+    qualificationTypeStatus ::
+      Lude.Maybe QualificationTypeStatus,
+    answerKey :: Lude.Maybe Lude.Text,
+    test :: Lude.Maybe Lude.Text,
+    qualificationTypeId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    keywords :: Lude.Maybe Lude.Text,
+    autoGranted :: Lude.Maybe Lude.Bool,
+    autoGrantedValue :: Lude.Maybe Lude.Int,
+    description :: Lude.Maybe Lude.Text,
+    isRequestable :: Lude.Maybe Lude.Bool,
+    retryDelayInSeconds :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QualificationType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qtCreationTime' - The date and time the Qualification type was created.
---
--- * 'qtTestDurationInSeconds' - The amount of time, in seconds, given to a Worker to complete the Qualification test, beginning from the time the Worker requests the Qualification.
---
--- * 'qtQualificationTypeStatus' - The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive.
---
--- * 'qtAnswerKey' - The answers to the Qualification test specified in the Test parameter.
---
--- * 'qtTest' - The questions for a Qualification test associated with this Qualification type that a user can take to obtain a Qualification of this type. This parameter must be specified if AnswerKey is present. A Qualification type cannot have both a specified Test parameter and an AutoGranted value of true.
---
--- * 'qtQualificationTypeId' - A unique identifier for the Qualification type. A Qualification type is given a Qualification type ID when you call the CreateQualificationType operation.
---
--- * 'qtName' - The name of the Qualification type. The type name is used to identify the type, and to find the type using a Qualification type search.
---
--- * 'qtKeywords' - One or more words or phrases that describe theQualification type, separated by commas. The Keywords make the type easier to find using a search.
---
--- * 'qtAutoGranted' - Specifies that requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test. Valid values are True | False.
---
--- * 'qtAutoGrantedValue' - The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default.
---
--- * 'qtDescription' - A long description for the Qualification type.
---
--- * 'qtIsRequestable' - Specifies whether the Qualification type is one that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test. This value is False for Qualifications assigned automatically by the system. Valid values are True | False.
---
--- * 'qtRetryDelayInSeconds' - The amount of time, in seconds, Workers must wait after taking the Qualification test before they can take it again. Workers can take a Qualification test multiple times if they were not granted the Qualification from a previous attempt, or if the test offers a gradient score and they want a better score. If not specified, retries are disabled and Workers can request a Qualification only once.
-qualificationType ::
+-- * 'answerKey' - The answers to the Qualification test specified in the Test parameter.
+-- * 'autoGranted' - Specifies that requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test. Valid values are True | False.
+-- * 'autoGrantedValue' - The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default.
+-- * 'creationTime' - The date and time the Qualification type was created.
+-- * 'description' - A long description for the Qualification type.
+-- * 'isRequestable' - Specifies whether the Qualification type is one that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test. This value is False for Qualifications assigned automatically by the system. Valid values are True | False.
+-- * 'keywords' - One or more words or phrases that describe theQualification type, separated by commas. The Keywords make the type easier to find using a search.
+-- * 'name' - The name of the Qualification type. The type name is used to identify the type, and to find the type using a Qualification type search.
+-- * 'qualificationTypeId' - A unique identifier for the Qualification type. A Qualification type is given a Qualification type ID when you call the CreateQualificationType operation.
+-- * 'qualificationTypeStatus' - The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive.
+-- * 'retryDelayInSeconds' - The amount of time, in seconds, Workers must wait after taking the Qualification test before they can take it again. Workers can take a Qualification test multiple times if they were not granted the Qualification from a previous attempt, or if the test offers a gradient score and they want a better score. If not specified, retries are disabled and Workers can request a Qualification only once.
+-- * 'test' - The questions for a Qualification test associated with this Qualification type that a user can take to obtain a Qualification of this type. This parameter must be specified if AnswerKey is present. A Qualification type cannot have both a specified Test parameter and an AutoGranted value of true.
+-- * 'testDurationInSeconds' - The amount of time, in seconds, given to a Worker to complete the Qualification test, beginning from the time the Worker requests the Qualification.
+mkQualificationType ::
   QualificationType
-qualificationType =
+mkQualificationType =
   QualificationType'
-    { _qtCreationTime = Nothing,
-      _qtTestDurationInSeconds = Nothing,
-      _qtQualificationTypeStatus = Nothing,
-      _qtAnswerKey = Nothing,
-      _qtTest = Nothing,
-      _qtQualificationTypeId = Nothing,
-      _qtName = Nothing,
-      _qtKeywords = Nothing,
-      _qtAutoGranted = Nothing,
-      _qtAutoGrantedValue = Nothing,
-      _qtDescription = Nothing,
-      _qtIsRequestable = Nothing,
-      _qtRetryDelayInSeconds = Nothing
+    { creationTime = Lude.Nothing,
+      testDurationInSeconds = Lude.Nothing,
+      qualificationTypeStatus = Lude.Nothing,
+      answerKey = Lude.Nothing,
+      test = Lude.Nothing,
+      qualificationTypeId = Lude.Nothing,
+      name = Lude.Nothing,
+      keywords = Lude.Nothing,
+      autoGranted = Lude.Nothing,
+      autoGrantedValue = Lude.Nothing,
+      description = Lude.Nothing,
+      isRequestable = Lude.Nothing,
+      retryDelayInSeconds = Lude.Nothing
     }
 
 -- | The date and time the Qualification type was created.
-qtCreationTime :: Lens' QualificationType (Maybe UTCTime)
-qtCreationTime = lens _qtCreationTime (\s a -> s {_qtCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtCreationTime :: Lens.Lens' QualificationType (Lude.Maybe Lude.Timestamp)
+qtCreationTime = Lens.lens (creationTime :: QualificationType -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: QualificationType)
+{-# DEPRECATED qtCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The amount of time, in seconds, given to a Worker to complete the Qualification test, beginning from the time the Worker requests the Qualification.
-qtTestDurationInSeconds :: Lens' QualificationType (Maybe Integer)
-qtTestDurationInSeconds = lens _qtTestDurationInSeconds (\s a -> s {_qtTestDurationInSeconds = a})
+--
+-- /Note:/ Consider using 'testDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtTestDurationInSeconds :: Lens.Lens' QualificationType (Lude.Maybe Lude.Integer)
+qtTestDurationInSeconds = Lens.lens (testDurationInSeconds :: QualificationType -> Lude.Maybe Lude.Integer) (\s a -> s {testDurationInSeconds = a} :: QualificationType)
+{-# DEPRECATED qtTestDurationInSeconds "Use generic-lens or generic-optics with 'testDurationInSeconds' instead." #-}
 
 -- | The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive.
-qtQualificationTypeStatus :: Lens' QualificationType (Maybe QualificationTypeStatus)
-qtQualificationTypeStatus = lens _qtQualificationTypeStatus (\s a -> s {_qtQualificationTypeStatus = a})
+--
+-- /Note:/ Consider using 'qualificationTypeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtQualificationTypeStatus :: Lens.Lens' QualificationType (Lude.Maybe QualificationTypeStatus)
+qtQualificationTypeStatus = Lens.lens (qualificationTypeStatus :: QualificationType -> Lude.Maybe QualificationTypeStatus) (\s a -> s {qualificationTypeStatus = a} :: QualificationType)
+{-# DEPRECATED qtQualificationTypeStatus "Use generic-lens or generic-optics with 'qualificationTypeStatus' instead." #-}
 
 -- | The answers to the Qualification test specified in the Test parameter.
-qtAnswerKey :: Lens' QualificationType (Maybe Text)
-qtAnswerKey = lens _qtAnswerKey (\s a -> s {_qtAnswerKey = a})
+--
+-- /Note:/ Consider using 'answerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtAnswerKey :: Lens.Lens' QualificationType (Lude.Maybe Lude.Text)
+qtAnswerKey = Lens.lens (answerKey :: QualificationType -> Lude.Maybe Lude.Text) (\s a -> s {answerKey = a} :: QualificationType)
+{-# DEPRECATED qtAnswerKey "Use generic-lens or generic-optics with 'answerKey' instead." #-}
 
 -- | The questions for a Qualification test associated with this Qualification type that a user can take to obtain a Qualification of this type. This parameter must be specified if AnswerKey is present. A Qualification type cannot have both a specified Test parameter and an AutoGranted value of true.
-qtTest :: Lens' QualificationType (Maybe Text)
-qtTest = lens _qtTest (\s a -> s {_qtTest = a})
+--
+-- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtTest :: Lens.Lens' QualificationType (Lude.Maybe Lude.Text)
+qtTest = Lens.lens (test :: QualificationType -> Lude.Maybe Lude.Text) (\s a -> s {test = a} :: QualificationType)
+{-# DEPRECATED qtTest "Use generic-lens or generic-optics with 'test' instead." #-}
 
 -- | A unique identifier for the Qualification type. A Qualification type is given a Qualification type ID when you call the CreateQualificationType operation.
-qtQualificationTypeId :: Lens' QualificationType (Maybe Text)
-qtQualificationTypeId = lens _qtQualificationTypeId (\s a -> s {_qtQualificationTypeId = a})
+--
+-- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtQualificationTypeId :: Lens.Lens' QualificationType (Lude.Maybe Lude.Text)
+qtQualificationTypeId = Lens.lens (qualificationTypeId :: QualificationType -> Lude.Maybe Lude.Text) (\s a -> s {qualificationTypeId = a} :: QualificationType)
+{-# DEPRECATED qtQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
 
 -- | The name of the Qualification type. The type name is used to identify the type, and to find the type using a Qualification type search.
-qtName :: Lens' QualificationType (Maybe Text)
-qtName = lens _qtName (\s a -> s {_qtName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtName :: Lens.Lens' QualificationType (Lude.Maybe Lude.Text)
+qtName = Lens.lens (name :: QualificationType -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: QualificationType)
+{-# DEPRECATED qtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | One or more words or phrases that describe theQualification type, separated by commas. The Keywords make the type easier to find using a search.
-qtKeywords :: Lens' QualificationType (Maybe Text)
-qtKeywords = lens _qtKeywords (\s a -> s {_qtKeywords = a})
+--
+-- /Note:/ Consider using 'keywords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtKeywords :: Lens.Lens' QualificationType (Lude.Maybe Lude.Text)
+qtKeywords = Lens.lens (keywords :: QualificationType -> Lude.Maybe Lude.Text) (\s a -> s {keywords = a} :: QualificationType)
+{-# DEPRECATED qtKeywords "Use generic-lens or generic-optics with 'keywords' instead." #-}
 
 -- | Specifies that requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test. Valid values are True | False.
-qtAutoGranted :: Lens' QualificationType (Maybe Bool)
-qtAutoGranted = lens _qtAutoGranted (\s a -> s {_qtAutoGranted = a})
+--
+-- /Note:/ Consider using 'autoGranted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtAutoGranted :: Lens.Lens' QualificationType (Lude.Maybe Lude.Bool)
+qtAutoGranted = Lens.lens (autoGranted :: QualificationType -> Lude.Maybe Lude.Bool) (\s a -> s {autoGranted = a} :: QualificationType)
+{-# DEPRECATED qtAutoGranted "Use generic-lens or generic-optics with 'autoGranted' instead." #-}
 
 -- | The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default.
-qtAutoGrantedValue :: Lens' QualificationType (Maybe Int)
-qtAutoGrantedValue = lens _qtAutoGrantedValue (\s a -> s {_qtAutoGrantedValue = a})
+--
+-- /Note:/ Consider using 'autoGrantedValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtAutoGrantedValue :: Lens.Lens' QualificationType (Lude.Maybe Lude.Int)
+qtAutoGrantedValue = Lens.lens (autoGrantedValue :: QualificationType -> Lude.Maybe Lude.Int) (\s a -> s {autoGrantedValue = a} :: QualificationType)
+{-# DEPRECATED qtAutoGrantedValue "Use generic-lens or generic-optics with 'autoGrantedValue' instead." #-}
 
 -- | A long description for the Qualification type.
-qtDescription :: Lens' QualificationType (Maybe Text)
-qtDescription = lens _qtDescription (\s a -> s {_qtDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtDescription :: Lens.Lens' QualificationType (Lude.Maybe Lude.Text)
+qtDescription = Lens.lens (description :: QualificationType -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: QualificationType)
+{-# DEPRECATED qtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Specifies whether the Qualification type is one that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test. This value is False for Qualifications assigned automatically by the system. Valid values are True | False.
-qtIsRequestable :: Lens' QualificationType (Maybe Bool)
-qtIsRequestable = lens _qtIsRequestable (\s a -> s {_qtIsRequestable = a})
+--
+-- /Note:/ Consider using 'isRequestable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtIsRequestable :: Lens.Lens' QualificationType (Lude.Maybe Lude.Bool)
+qtIsRequestable = Lens.lens (isRequestable :: QualificationType -> Lude.Maybe Lude.Bool) (\s a -> s {isRequestable = a} :: QualificationType)
+{-# DEPRECATED qtIsRequestable "Use generic-lens or generic-optics with 'isRequestable' instead." #-}
 
 -- | The amount of time, in seconds, Workers must wait after taking the Qualification test before they can take it again. Workers can take a Qualification test multiple times if they were not granted the Qualification from a previous attempt, or if the test offers a gradient score and they want a better score. If not specified, retries are disabled and Workers can request a Qualification only once.
-qtRetryDelayInSeconds :: Lens' QualificationType (Maybe Integer)
-qtRetryDelayInSeconds = lens _qtRetryDelayInSeconds (\s a -> s {_qtRetryDelayInSeconds = a})
+--
+-- /Note:/ Consider using 'retryDelayInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtRetryDelayInSeconds :: Lens.Lens' QualificationType (Lude.Maybe Lude.Integer)
+qtRetryDelayInSeconds = Lens.lens (retryDelayInSeconds :: QualificationType -> Lude.Maybe Lude.Integer) (\s a -> s {retryDelayInSeconds = a} :: QualificationType)
+{-# DEPRECATED qtRetryDelayInSeconds "Use generic-lens or generic-optics with 'retryDelayInSeconds' instead." #-}
 
-instance FromJSON QualificationType where
+instance Lude.FromJSON QualificationType where
   parseJSON =
-    withObject
+    Lude.withObject
       "QualificationType"
       ( \x ->
           QualificationType'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "TestDurationInSeconds")
-            <*> (x .:? "QualificationTypeStatus")
-            <*> (x .:? "AnswerKey")
-            <*> (x .:? "Test")
-            <*> (x .:? "QualificationTypeId")
-            <*> (x .:? "Name")
-            <*> (x .:? "Keywords")
-            <*> (x .:? "AutoGranted")
-            <*> (x .:? "AutoGrantedValue")
-            <*> (x .:? "Description")
-            <*> (x .:? "IsRequestable")
-            <*> (x .:? "RetryDelayInSeconds")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "TestDurationInSeconds")
+            Lude.<*> (x Lude..:? "QualificationTypeStatus")
+            Lude.<*> (x Lude..:? "AnswerKey")
+            Lude.<*> (x Lude..:? "Test")
+            Lude.<*> (x Lude..:? "QualificationTypeId")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Keywords")
+            Lude.<*> (x Lude..:? "AutoGranted")
+            Lude.<*> (x Lude..:? "AutoGrantedValue")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "IsRequestable")
+            Lude.<*> (x Lude..:? "RetryDelayInSeconds")
       )
-
-instance Hashable QualificationType
-
-instance NFData QualificationType

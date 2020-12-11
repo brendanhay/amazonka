@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,109 @@
 --
 -- Stops a running hyperparameter tuning job and all running training jobs that the tuning job launched.
 --
---
 -- All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the tuning job moves to the @Stopped@ state, it releases all reserved resources for the tuning job.
 module Network.AWS.SageMaker.StopHyperParameterTuningJob
-  ( -- * Creating a Request
-    stopHyperParameterTuningJob,
-    StopHyperParameterTuningJob,
+  ( -- * Creating a request
+    StopHyperParameterTuningJob (..),
+    mkStopHyperParameterTuningJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     shptjHyperParameterTuningJobName,
 
-    -- * Destructuring the Response
-    stopHyperParameterTuningJobResponse,
-    StopHyperParameterTuningJobResponse,
+    -- * Destructuring the response
+    StopHyperParameterTuningJobResponse (..),
+    mkStopHyperParameterTuningJobResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'stopHyperParameterTuningJob' smart constructor.
+-- | /See:/ 'mkStopHyperParameterTuningJob' smart constructor.
 newtype StopHyperParameterTuningJob = StopHyperParameterTuningJob'
-  { _shptjHyperParameterTuningJobName ::
-      Text
+  { hyperParameterTuningJobName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopHyperParameterTuningJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'shptjHyperParameterTuningJobName' - The name of the tuning job to stop.
-stopHyperParameterTuningJob ::
-  -- | 'shptjHyperParameterTuningJobName'
-  Text ->
+-- * 'hyperParameterTuningJobName' - The name of the tuning job to stop.
+mkStopHyperParameterTuningJob ::
+  -- | 'hyperParameterTuningJobName'
+  Lude.Text ->
   StopHyperParameterTuningJob
-stopHyperParameterTuningJob pHyperParameterTuningJobName_ =
+mkStopHyperParameterTuningJob pHyperParameterTuningJobName_ =
   StopHyperParameterTuningJob'
-    { _shptjHyperParameterTuningJobName =
+    { hyperParameterTuningJobName =
         pHyperParameterTuningJobName_
     }
 
 -- | The name of the tuning job to stop.
-shptjHyperParameterTuningJobName :: Lens' StopHyperParameterTuningJob Text
-shptjHyperParameterTuningJobName = lens _shptjHyperParameterTuningJobName (\s a -> s {_shptjHyperParameterTuningJobName = a})
+--
+-- /Note:/ Consider using 'hyperParameterTuningJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+shptjHyperParameterTuningJobName :: Lens.Lens' StopHyperParameterTuningJob Lude.Text
+shptjHyperParameterTuningJobName = Lens.lens (hyperParameterTuningJobName :: StopHyperParameterTuningJob -> Lude.Text) (\s a -> s {hyperParameterTuningJobName = a} :: StopHyperParameterTuningJob)
+{-# DEPRECATED shptjHyperParameterTuningJobName "Use generic-lens or generic-optics with 'hyperParameterTuningJobName' instead." #-}
 
-instance AWSRequest StopHyperParameterTuningJob where
+instance Lude.AWSRequest StopHyperParameterTuningJob where
   type
     Rs StopHyperParameterTuningJob =
       StopHyperParameterTuningJobResponse
-  request = postJSON sageMaker
-  response = receiveNull StopHyperParameterTuningJobResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull StopHyperParameterTuningJobResponse'
 
-instance Hashable StopHyperParameterTuningJob
-
-instance NFData StopHyperParameterTuningJob
-
-instance ToHeaders StopHyperParameterTuningJob where
+instance Lude.ToHeaders StopHyperParameterTuningJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.StopHyperParameterTuningJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.StopHyperParameterTuningJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopHyperParameterTuningJob where
+instance Lude.ToJSON StopHyperParameterTuningJob where
   toJSON StopHyperParameterTuningJob' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "HyperParameterTuningJobName"
-                  .= _shptjHyperParameterTuningJobName
+                  Lude..= hyperParameterTuningJobName
               )
           ]
       )
 
-instance ToPath StopHyperParameterTuningJob where
-  toPath = const "/"
+instance Lude.ToPath StopHyperParameterTuningJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StopHyperParameterTuningJob where
-  toQuery = const mempty
+instance Lude.ToQuery StopHyperParameterTuningJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopHyperParameterTuningJobResponse' smart constructor.
+-- | /See:/ 'mkStopHyperParameterTuningJobResponse' smart constructor.
 data StopHyperParameterTuningJobResponse = StopHyperParameterTuningJobResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopHyperParameterTuningJobResponse' with the minimum fields required to make a request.
-stopHyperParameterTuningJobResponse ::
+mkStopHyperParameterTuningJobResponse ::
   StopHyperParameterTuningJobResponse
-stopHyperParameterTuningJobResponse =
+mkStopHyperParameterTuningJobResponse =
   StopHyperParameterTuningJobResponse'
-
-instance NFData StopHyperParameterTuningJobResponse

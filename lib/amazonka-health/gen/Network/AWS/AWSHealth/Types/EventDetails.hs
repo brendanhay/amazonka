@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.EventDetails where
+module Network.AWS.AWSHealth.Types.EventDetails
+  ( EventDetails (..),
+
+    -- * Smart constructor
+    mkEventDetails,
+
+    -- * Lenses
+    edEvent,
+    edEventDescription,
+    edEventMetadata,
+  )
+where
 
 import Network.AWS.AWSHealth.Types.Event
 import Network.AWS.AWSHealth.Types.EventDescription
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Detailed information about an event. A combination of an <https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html Event> object, an <https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html EventDescription> object, and additional metadata about the event. Returned by the <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html DescribeEventDetails> operation.
 --
---
---
--- /See:/ 'eventDetails' smart constructor.
+-- /See:/ 'mkEventDetails' smart constructor.
 data EventDetails = EventDetails'
-  { _edEvent :: !(Maybe Event),
-    _edEventDescription :: !(Maybe EventDescription),
-    _edEventMetadata :: !(Maybe (Map Text (Text)))
+  { event :: Lude.Maybe Event,
+    eventDescription :: Lude.Maybe EventDescription,
+    eventMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edEvent' - Summary information about the event.
---
--- * 'edEventDescription' - The most recent description of the event.
---
--- * 'edEventMetadata' - Additional metadata about the event.
-eventDetails ::
+-- * 'event' - Summary information about the event.
+-- * 'eventDescription' - The most recent description of the event.
+-- * 'eventMetadata' - Additional metadata about the event.
+mkEventDetails ::
   EventDetails
-eventDetails =
+mkEventDetails =
   EventDetails'
-    { _edEvent = Nothing,
-      _edEventDescription = Nothing,
-      _edEventMetadata = Nothing
+    { event = Lude.Nothing,
+      eventDescription = Lude.Nothing,
+      eventMetadata = Lude.Nothing
     }
 
 -- | Summary information about the event.
-edEvent :: Lens' EventDetails (Maybe Event)
-edEvent = lens _edEvent (\s a -> s {_edEvent = a})
+--
+-- /Note:/ Consider using 'event' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edEvent :: Lens.Lens' EventDetails (Lude.Maybe Event)
+edEvent = Lens.lens (event :: EventDetails -> Lude.Maybe Event) (\s a -> s {event = a} :: EventDetails)
+{-# DEPRECATED edEvent "Use generic-lens or generic-optics with 'event' instead." #-}
 
 -- | The most recent description of the event.
-edEventDescription :: Lens' EventDetails (Maybe EventDescription)
-edEventDescription = lens _edEventDescription (\s a -> s {_edEventDescription = a})
+--
+-- /Note:/ Consider using 'eventDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edEventDescription :: Lens.Lens' EventDetails (Lude.Maybe EventDescription)
+edEventDescription = Lens.lens (eventDescription :: EventDetails -> Lude.Maybe EventDescription) (\s a -> s {eventDescription = a} :: EventDetails)
+{-# DEPRECATED edEventDescription "Use generic-lens or generic-optics with 'eventDescription' instead." #-}
 
 -- | Additional metadata about the event.
-edEventMetadata :: Lens' EventDetails (HashMap Text (Text))
-edEventMetadata = lens _edEventMetadata (\s a -> s {_edEventMetadata = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'eventMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edEventMetadata :: Lens.Lens' EventDetails (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+edEventMetadata = Lens.lens (eventMetadata :: EventDetails -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {eventMetadata = a} :: EventDetails)
+{-# DEPRECATED edEventMetadata "Use generic-lens or generic-optics with 'eventMetadata' instead." #-}
 
-instance FromJSON EventDetails where
+instance Lude.FromJSON EventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventDetails"
       ( \x ->
           EventDetails'
-            <$> (x .:? "event")
-            <*> (x .:? "eventDescription")
-            <*> (x .:? "eventMetadata" .!= mempty)
+            Lude.<$> (x Lude..:? "event")
+            Lude.<*> (x Lude..:? "eventDescription")
+            Lude.<*> (x Lude..:? "eventMetadata" Lude..!= Lude.mempty)
       )
-
-instance Hashable EventDetails
-
-instance NFData EventDetails

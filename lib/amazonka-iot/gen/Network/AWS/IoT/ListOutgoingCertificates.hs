@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists certificates that are being transferred but not yet accepted.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListOutgoingCertificates
-  ( -- * Creating a Request
-    listOutgoingCertificates,
-    ListOutgoingCertificates,
+  ( -- * Creating a request
+    ListOutgoingCertificates (..),
+    mkListOutgoingCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     locMarker,
     locAscendingOrder,
     locPageSize,
 
-    -- * Destructuring the Response
-    listOutgoingCertificatesResponse,
-    ListOutgoingCertificatesResponse,
+    -- * Destructuring the response
+    ListOutgoingCertificatesResponse (..),
+    mkListOutgoingCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     locrsNextMarker,
     locrsOutgoingCertificates,
     locrsResponseStatus,
@@ -44,138 +37,154 @@ module Network.AWS.IoT.ListOutgoingCertificates
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input to the ListOutgoingCertificates operation.
 --
---
---
--- /See:/ 'listOutgoingCertificates' smart constructor.
+-- /See:/ 'mkListOutgoingCertificates' smart constructor.
 data ListOutgoingCertificates = ListOutgoingCertificates'
-  { _locMarker ::
-      !(Maybe Text),
-    _locAscendingOrder :: !(Maybe Bool),
-    _locPageSize :: !(Maybe Nat)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    ascendingOrder :: Lude.Maybe Lude.Bool,
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOutgoingCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'locMarker' - The marker for the next set of results.
---
--- * 'locAscendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
---
--- * 'locPageSize' - The result page size.
-listOutgoingCertificates ::
+-- * 'ascendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
+-- * 'marker' - The marker for the next set of results.
+-- * 'pageSize' - The result page size.
+mkListOutgoingCertificates ::
   ListOutgoingCertificates
-listOutgoingCertificates =
+mkListOutgoingCertificates =
   ListOutgoingCertificates'
-    { _locMarker = Nothing,
-      _locAscendingOrder = Nothing,
-      _locPageSize = Nothing
+    { marker = Lude.Nothing,
+      ascendingOrder = Lude.Nothing,
+      pageSize = Lude.Nothing
     }
 
 -- | The marker for the next set of results.
-locMarker :: Lens' ListOutgoingCertificates (Maybe Text)
-locMarker = lens _locMarker (\s a -> s {_locMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+locMarker :: Lens.Lens' ListOutgoingCertificates (Lude.Maybe Lude.Text)
+locMarker = Lens.lens (marker :: ListOutgoingCertificates -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListOutgoingCertificates)
+{-# DEPRECATED locMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
-locAscendingOrder :: Lens' ListOutgoingCertificates (Maybe Bool)
-locAscendingOrder = lens _locAscendingOrder (\s a -> s {_locAscendingOrder = a})
+--
+-- /Note:/ Consider using 'ascendingOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+locAscendingOrder :: Lens.Lens' ListOutgoingCertificates (Lude.Maybe Lude.Bool)
+locAscendingOrder = Lens.lens (ascendingOrder :: ListOutgoingCertificates -> Lude.Maybe Lude.Bool) (\s a -> s {ascendingOrder = a} :: ListOutgoingCertificates)
+{-# DEPRECATED locAscendingOrder "Use generic-lens or generic-optics with 'ascendingOrder' instead." #-}
 
 -- | The result page size.
-locPageSize :: Lens' ListOutgoingCertificates (Maybe Natural)
-locPageSize = lens _locPageSize (\s a -> s {_locPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+locPageSize :: Lens.Lens' ListOutgoingCertificates (Lude.Maybe Lude.Natural)
+locPageSize = Lens.lens (pageSize :: ListOutgoingCertificates -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListOutgoingCertificates)
+{-# DEPRECATED locPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance AWSPager ListOutgoingCertificates where
+instance Page.AWSPager ListOutgoingCertificates where
   page rq rs
-    | stop (rs ^. locrsNextMarker) = Nothing
-    | stop (rs ^. locrsOutgoingCertificates) = Nothing
-    | otherwise = Just $ rq & locMarker .~ rs ^. locrsNextMarker
+    | Page.stop (rs Lens.^. locrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. locrsOutgoingCertificates) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& locMarker Lens..~ rs Lens.^. locrsNextMarker
 
-instance AWSRequest ListOutgoingCertificates where
+instance Lude.AWSRequest ListOutgoingCertificates where
   type Rs ListOutgoingCertificates = ListOutgoingCertificatesResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListOutgoingCertificatesResponse'
-            <$> (x .?> "nextMarker")
-            <*> (x .?> "outgoingCertificates" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextMarker")
+            Lude.<*> (x Lude..?> "outgoingCertificates" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListOutgoingCertificates
+instance Lude.ToHeaders ListOutgoingCertificates where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListOutgoingCertificates
+instance Lude.ToPath ListOutgoingCertificates where
+  toPath = Lude.const "/certificates-out-going"
 
-instance ToHeaders ListOutgoingCertificates where
-  toHeaders = const mempty
-
-instance ToPath ListOutgoingCertificates where
-  toPath = const "/certificates-out-going"
-
-instance ToQuery ListOutgoingCertificates where
+instance Lude.ToQuery ListOutgoingCertificates where
   toQuery ListOutgoingCertificates' {..} =
-    mconcat
-      [ "marker" =: _locMarker,
-        "isAscendingOrder" =: _locAscendingOrder,
-        "pageSize" =: _locPageSize
+    Lude.mconcat
+      [ "marker" Lude.=: marker,
+        "isAscendingOrder" Lude.=: ascendingOrder,
+        "pageSize" Lude.=: pageSize
       ]
 
 -- | The output from the ListOutgoingCertificates operation.
 --
---
---
--- /See:/ 'listOutgoingCertificatesResponse' smart constructor.
+-- /See:/ 'mkListOutgoingCertificatesResponse' smart constructor.
 data ListOutgoingCertificatesResponse = ListOutgoingCertificatesResponse'
-  { _locrsNextMarker ::
-      !(Maybe Text),
-    _locrsOutgoingCertificates ::
-      !( Maybe
-           [OutgoingCertificate]
-       ),
-    _locrsResponseStatus ::
-      !Int
+  { nextMarker ::
+      Lude.Maybe Lude.Text,
+    outgoingCertificates ::
+      Lude.Maybe
+        [OutgoingCertificate],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOutgoingCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'locrsNextMarker' - The marker for the next set of results.
---
--- * 'locrsOutgoingCertificates' - The certificates that are being transferred but not yet accepted.
---
--- * 'locrsResponseStatus' - -- | The response status code.
-listOutgoingCertificatesResponse ::
-  -- | 'locrsResponseStatus'
-  Int ->
+-- * 'nextMarker' - The marker for the next set of results.
+-- * 'outgoingCertificates' - The certificates that are being transferred but not yet accepted.
+-- * 'responseStatus' - The response status code.
+mkListOutgoingCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListOutgoingCertificatesResponse
-listOutgoingCertificatesResponse pResponseStatus_ =
+mkListOutgoingCertificatesResponse pResponseStatus_ =
   ListOutgoingCertificatesResponse'
-    { _locrsNextMarker = Nothing,
-      _locrsOutgoingCertificates = Nothing,
-      _locrsResponseStatus = pResponseStatus_
+    { nextMarker = Lude.Nothing,
+      outgoingCertificates = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The marker for the next set of results.
-locrsNextMarker :: Lens' ListOutgoingCertificatesResponse (Maybe Text)
-locrsNextMarker = lens _locrsNextMarker (\s a -> s {_locrsNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+locrsNextMarker :: Lens.Lens' ListOutgoingCertificatesResponse (Lude.Maybe Lude.Text)
+locrsNextMarker = Lens.lens (nextMarker :: ListOutgoingCertificatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListOutgoingCertificatesResponse)
+{-# DEPRECATED locrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The certificates that are being transferred but not yet accepted.
-locrsOutgoingCertificates :: Lens' ListOutgoingCertificatesResponse [OutgoingCertificate]
-locrsOutgoingCertificates = lens _locrsOutgoingCertificates (\s a -> s {_locrsOutgoingCertificates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'outgoingCertificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+locrsOutgoingCertificates :: Lens.Lens' ListOutgoingCertificatesResponse (Lude.Maybe [OutgoingCertificate])
+locrsOutgoingCertificates = Lens.lens (outgoingCertificates :: ListOutgoingCertificatesResponse -> Lude.Maybe [OutgoingCertificate]) (\s a -> s {outgoingCertificates = a} :: ListOutgoingCertificatesResponse)
+{-# DEPRECATED locrsOutgoingCertificates "Use generic-lens or generic-optics with 'outgoingCertificates' instead." #-}
 
--- | -- | The response status code.
-locrsResponseStatus :: Lens' ListOutgoingCertificatesResponse Int
-locrsResponseStatus = lens _locrsResponseStatus (\s a -> s {_locrsResponseStatus = a})
-
-instance NFData ListOutgoingCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+locrsResponseStatus :: Lens.Lens' ListOutgoingCertificatesResponse Lude.Int
+locrsResponseStatus = Lens.lens (responseStatus :: ListOutgoingCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOutgoingCertificatesResponse)
+{-# DEPRECATED locrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

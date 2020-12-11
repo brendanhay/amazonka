@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoMedia.Types.StartSelectorType where
+module Network.AWS.KinesisVideoMedia.Types.StartSelectorType
+  ( StartSelectorType
+      ( StartSelectorType',
+        ContinuationToken,
+        Earliest,
+        FragmentNumber,
+        Now,
+        ProducerTimestamp,
+        ServerTimestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StartSelectorType
-  = ContinuationToken
-  | Earliest
-  | FragmentNumber
-  | Now
-  | ProducerTimestamp
-  | ServerTimestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StartSelectorType = StartSelectorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StartSelectorType where
-  parser =
-    takeLowerText >>= \case
-      "continuation_token" -> pure ContinuationToken
-      "earliest" -> pure Earliest
-      "fragment_number" -> pure FragmentNumber
-      "now" -> pure Now
-      "producer_timestamp" -> pure ProducerTimestamp
-      "server_timestamp" -> pure ServerTimestamp
-      e ->
-        fromTextError $
-          "Failure parsing StartSelectorType from value: '" <> e
-            <> "'. Accepted values: continuation_token, earliest, fragment_number, now, producer_timestamp, server_timestamp"
+pattern ContinuationToken :: StartSelectorType
+pattern ContinuationToken = StartSelectorType' "CONTINUATION_TOKEN"
 
-instance ToText StartSelectorType where
-  toText = \case
-    ContinuationToken -> "CONTINUATION_TOKEN"
-    Earliest -> "EARLIEST"
-    FragmentNumber -> "FRAGMENT_NUMBER"
-    Now -> "NOW"
-    ProducerTimestamp -> "PRODUCER_TIMESTAMP"
-    ServerTimestamp -> "SERVER_TIMESTAMP"
+pattern Earliest :: StartSelectorType
+pattern Earliest = StartSelectorType' "EARLIEST"
 
-instance Hashable StartSelectorType
+pattern FragmentNumber :: StartSelectorType
+pattern FragmentNumber = StartSelectorType' "FRAGMENT_NUMBER"
 
-instance NFData StartSelectorType
+pattern Now :: StartSelectorType
+pattern Now = StartSelectorType' "NOW"
 
-instance ToByteString StartSelectorType
+pattern ProducerTimestamp :: StartSelectorType
+pattern ProducerTimestamp = StartSelectorType' "PRODUCER_TIMESTAMP"
 
-instance ToQuery StartSelectorType
+pattern ServerTimestamp :: StartSelectorType
+pattern ServerTimestamp = StartSelectorType' "SERVER_TIMESTAMP"
 
-instance ToHeader StartSelectorType
-
-instance ToJSON StartSelectorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  ContinuationToken,
+  Earliest,
+  FragmentNumber,
+  Now,
+  ProducerTimestamp,
+  ServerTimestamp,
+  StartSelectorType'
+  #-}

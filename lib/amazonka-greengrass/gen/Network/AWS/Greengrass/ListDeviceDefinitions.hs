@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,19 +16,19 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListDeviceDefinitions
-  ( -- * Creating a Request
-    listDeviceDefinitions,
-    ListDeviceDefinitions,
+  ( -- * Creating a request
+    ListDeviceDefinitions (..),
+    mkListDeviceDefinitions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lddNextToken,
     lddMaxResults,
 
-    -- * Destructuring the Response
-    listDeviceDefinitionsResponse,
-    ListDeviceDefinitionsResponse,
+    -- * Destructuring the response
+    ListDeviceDefinitionsResponse (..),
+    mkListDeviceDefinitionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lddrsNextToken,
     lddrsDefinitions,
     lddrsResponseStatus,
@@ -41,122 +36,142 @@ module Network.AWS.Greengrass.ListDeviceDefinitions
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listDeviceDefinitions' smart constructor.
+-- | /See:/ 'mkListDeviceDefinitions' smart constructor.
 data ListDeviceDefinitions = ListDeviceDefinitions'
-  { _lddNextToken ::
-      !(Maybe Text),
-    _lddMaxResults :: !(Maybe Text)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeviceDefinitions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lddNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lddMaxResults' - The maximum number of results to be returned per request.
-listDeviceDefinitions ::
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkListDeviceDefinitions ::
   ListDeviceDefinitions
-listDeviceDefinitions =
+mkListDeviceDefinitions =
   ListDeviceDefinitions'
-    { _lddNextToken = Nothing,
-      _lddMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lddNextToken :: Lens' ListDeviceDefinitions (Maybe Text)
-lddNextToken = lens _lddNextToken (\s a -> s {_lddNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lddNextToken :: Lens.Lens' ListDeviceDefinitions (Lude.Maybe Lude.Text)
+lddNextToken = Lens.lens (nextToken :: ListDeviceDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeviceDefinitions)
+{-# DEPRECATED lddNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-lddMaxResults :: Lens' ListDeviceDefinitions (Maybe Text)
-lddMaxResults = lens _lddMaxResults (\s a -> s {_lddMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lddMaxResults :: Lens.Lens' ListDeviceDefinitions (Lude.Maybe Lude.Text)
+lddMaxResults = Lens.lens (maxResults :: ListDeviceDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListDeviceDefinitions)
+{-# DEPRECATED lddMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListDeviceDefinitions where
+instance Page.AWSPager ListDeviceDefinitions where
   page rq rs
-    | stop (rs ^. lddrsNextToken) = Nothing
-    | stop (rs ^. lddrsDefinitions) = Nothing
-    | otherwise = Just $ rq & lddNextToken .~ rs ^. lddrsNextToken
+    | Page.stop (rs Lens.^. lddrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lddrsDefinitions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lddNextToken Lens..~ rs Lens.^. lddrsNextToken
 
-instance AWSRequest ListDeviceDefinitions where
+instance Lude.AWSRequest ListDeviceDefinitions where
   type Rs ListDeviceDefinitions = ListDeviceDefinitionsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDeviceDefinitionsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Definitions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Definitions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDeviceDefinitions
-
-instance NFData ListDeviceDefinitions
-
-instance ToHeaders ListDeviceDefinitions where
+instance Lude.ToHeaders ListDeviceDefinitions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListDeviceDefinitions where
-  toPath = const "/greengrass/definition/devices"
+instance Lude.ToPath ListDeviceDefinitions where
+  toPath = Lude.const "/greengrass/definition/devices"
 
-instance ToQuery ListDeviceDefinitions where
+instance Lude.ToQuery ListDeviceDefinitions where
   toQuery ListDeviceDefinitions' {..} =
-    mconcat
-      ["NextToken" =: _lddNextToken, "MaxResults" =: _lddMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listDeviceDefinitionsResponse' smart constructor.
+-- | /See:/ 'mkListDeviceDefinitionsResponse' smart constructor.
 data ListDeviceDefinitionsResponse = ListDeviceDefinitionsResponse'
-  { _lddrsNextToken ::
-      !(Maybe Text),
-    _lddrsDefinitions ::
-      !( Maybe
-           [DefinitionInformation]
-       ),
-    _lddrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    definitions ::
+      Lude.Maybe
+        [DefinitionInformation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeviceDefinitionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lddrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'lddrsDefinitions' - Information about a definition.
---
--- * 'lddrsResponseStatus' - -- | The response status code.
-listDeviceDefinitionsResponse ::
-  -- | 'lddrsResponseStatus'
-  Int ->
+-- * 'definitions' - Information about a definition.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListDeviceDefinitionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDeviceDefinitionsResponse
-listDeviceDefinitionsResponse pResponseStatus_ =
+mkListDeviceDefinitionsResponse pResponseStatus_ =
   ListDeviceDefinitionsResponse'
-    { _lddrsNextToken = Nothing,
-      _lddrsDefinitions = Nothing,
-      _lddrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      definitions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-lddrsNextToken :: Lens' ListDeviceDefinitionsResponse (Maybe Text)
-lddrsNextToken = lens _lddrsNextToken (\s a -> s {_lddrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lddrsNextToken :: Lens.Lens' ListDeviceDefinitionsResponse (Lude.Maybe Lude.Text)
+lddrsNextToken = Lens.lens (nextToken :: ListDeviceDefinitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeviceDefinitionsResponse)
+{-# DEPRECATED lddrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about a definition.
-lddrsDefinitions :: Lens' ListDeviceDefinitionsResponse [DefinitionInformation]
-lddrsDefinitions = lens _lddrsDefinitions (\s a -> s {_lddrsDefinitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'definitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lddrsDefinitions :: Lens.Lens' ListDeviceDefinitionsResponse (Lude.Maybe [DefinitionInformation])
+lddrsDefinitions = Lens.lens (definitions :: ListDeviceDefinitionsResponse -> Lude.Maybe [DefinitionInformation]) (\s a -> s {definitions = a} :: ListDeviceDefinitionsResponse)
+{-# DEPRECATED lddrsDefinitions "Use generic-lens or generic-optics with 'definitions' instead." #-}
 
--- | -- | The response status code.
-lddrsResponseStatus :: Lens' ListDeviceDefinitionsResponse Int
-lddrsResponseStatus = lens _lddrsResponseStatus (\s a -> s {_lddrsResponseStatus = a})
-
-instance NFData ListDeviceDefinitionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lddrsResponseStatus :: Lens.Lens' ListDeviceDefinitionsResponse Lude.Int
+lddrsResponseStatus = Lens.lens (responseStatus :: ListDeviceDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeviceDefinitionsResponse)
+{-# DEPRECATED lddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

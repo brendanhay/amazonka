@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,100 @@
 --
 -- Removes all the permissions from the specified resource.
 module Network.AWS.WorkDocs.RemoveAllResourcePermissions
-  ( -- * Creating a Request
-    removeAllResourcePermissions,
-    RemoveAllResourcePermissions,
+  ( -- * Creating a request
+    RemoveAllResourcePermissions (..),
+    mkRemoveAllResourcePermissions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rarpAuthenticationToken,
     rarpResourceId,
 
-    -- * Destructuring the Response
-    removeAllResourcePermissionsResponse,
-    RemoveAllResourcePermissionsResponse,
+    -- * Destructuring the response
+    RemoveAllResourcePermissionsResponse (..),
+    mkRemoveAllResourcePermissionsResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'removeAllResourcePermissions' smart constructor.
+-- | /See:/ 'mkRemoveAllResourcePermissions' smart constructor.
 data RemoveAllResourcePermissions = RemoveAllResourcePermissions'
-  { _rarpAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _rarpResourceId :: !Text
+  { authenticationToken ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAllResourcePermissions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rarpAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'rarpResourceId' - The ID of the resource.
-removeAllResourcePermissions ::
-  -- | 'rarpResourceId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'resourceId' - The ID of the resource.
+mkRemoveAllResourcePermissions ::
+  -- | 'resourceId'
+  Lude.Text ->
   RemoveAllResourcePermissions
-removeAllResourcePermissions pResourceId_ =
+mkRemoveAllResourcePermissions pResourceId_ =
   RemoveAllResourcePermissions'
-    { _rarpAuthenticationToken = Nothing,
-      _rarpResourceId = pResourceId_
+    { authenticationToken = Lude.Nothing,
+      resourceId = pResourceId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-rarpAuthenticationToken :: Lens' RemoveAllResourcePermissions (Maybe Text)
-rarpAuthenticationToken = lens _rarpAuthenticationToken (\s a -> s {_rarpAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarpAuthenticationToken :: Lens.Lens' RemoveAllResourcePermissions (Lude.Maybe (Lude.Sensitive Lude.Text))
+rarpAuthenticationToken = Lens.lens (authenticationToken :: RemoveAllResourcePermissions -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: RemoveAllResourcePermissions)
+{-# DEPRECATED rarpAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the resource.
-rarpResourceId :: Lens' RemoveAllResourcePermissions Text
-rarpResourceId = lens _rarpResourceId (\s a -> s {_rarpResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarpResourceId :: Lens.Lens' RemoveAllResourcePermissions Lude.Text
+rarpResourceId = Lens.lens (resourceId :: RemoveAllResourcePermissions -> Lude.Text) (\s a -> s {resourceId = a} :: RemoveAllResourcePermissions)
+{-# DEPRECATED rarpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance AWSRequest RemoveAllResourcePermissions where
+instance Lude.AWSRequest RemoveAllResourcePermissions where
   type
     Rs RemoveAllResourcePermissions =
       RemoveAllResourcePermissionsResponse
-  request = delete workDocs
-  response = receiveNull RemoveAllResourcePermissionsResponse'
+  request = Req.delete workDocsService
+  response = Res.receiveNull RemoveAllResourcePermissionsResponse'
 
-instance Hashable RemoveAllResourcePermissions
-
-instance NFData RemoveAllResourcePermissions
-
-instance ToHeaders RemoveAllResourcePermissions where
+instance Lude.ToHeaders RemoveAllResourcePermissions where
   toHeaders RemoveAllResourcePermissions' {..} =
-    mconcat
-      [ "Authentication" =# _rarpAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath RemoveAllResourcePermissions where
+instance Lude.ToPath RemoveAllResourcePermissions where
   toPath RemoveAllResourcePermissions' {..} =
-    mconcat
-      ["/api/v1/resources/", toBS _rarpResourceId, "/permissions"]
+    Lude.mconcat
+      ["/api/v1/resources/", Lude.toBS resourceId, "/permissions"]
 
-instance ToQuery RemoveAllResourcePermissions where
-  toQuery = const mempty
+instance Lude.ToQuery RemoveAllResourcePermissions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'removeAllResourcePermissionsResponse' smart constructor.
+-- | /See:/ 'mkRemoveAllResourcePermissionsResponse' smart constructor.
 data RemoveAllResourcePermissionsResponse = RemoveAllResourcePermissionsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAllResourcePermissionsResponse' with the minimum fields required to make a request.
-removeAllResourcePermissionsResponse ::
+mkRemoveAllResourcePermissionsResponse ::
   RemoveAllResourcePermissionsResponse
-removeAllResourcePermissionsResponse =
+mkRemoveAllResourcePermissionsResponse =
   RemoveAllResourcePermissionsResponse'
-
-instance NFData RemoveAllResourcePermissionsResponse

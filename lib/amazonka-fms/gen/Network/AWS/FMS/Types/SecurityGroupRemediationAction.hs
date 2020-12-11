@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,101 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.SecurityGroupRemediationAction where
+module Network.AWS.FMS.Types.SecurityGroupRemediationAction
+  ( SecurityGroupRemediationAction (..),
+
+    -- * Smart constructor
+    mkSecurityGroupRemediationAction,
+
+    -- * Lenses
+    sgraIsDefaultAction,
+    sgraRemediationResult,
+    sgraDescription,
+    sgraRemediationActionType,
+  )
+where
 
 import Network.AWS.FMS.Types.RemediationActionType
 import Network.AWS.FMS.Types.SecurityGroupRuleDescription
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Remediation option for the rule specified in the @ViolationTarget@ .
 --
---
---
--- /See:/ 'securityGroupRemediationAction' smart constructor.
+-- /See:/ 'mkSecurityGroupRemediationAction' smart constructor.
 data SecurityGroupRemediationAction = SecurityGroupRemediationAction'
-  { _sgraIsDefaultAction ::
-      !(Maybe Bool),
-    _sgraRemediationResult ::
-      !( Maybe
-           SecurityGroupRuleDescription
-       ),
-    _sgraDescription ::
-      !(Maybe Text),
-    _sgraRemediationActionType ::
-      !( Maybe
-           RemediationActionType
-       )
+  { isDefaultAction ::
+      Lude.Maybe Lude.Bool,
+    remediationResult ::
+      Lude.Maybe
+        SecurityGroupRuleDescription,
+    description ::
+      Lude.Maybe Lude.Text,
+    remediationActionType ::
+      Lude.Maybe
+        RemediationActionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroupRemediationAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgraIsDefaultAction' - Indicates if the current action is the default action.
---
--- * 'sgraRemediationResult' - The final state of the rule specified in the @ViolationTarget@ after it is remediated.
---
--- * 'sgraDescription' - Brief description of the action that will be performed.
---
--- * 'sgraRemediationActionType' - The remediation action that will be performed.
-securityGroupRemediationAction ::
+-- * 'description' - Brief description of the action that will be performed.
+-- * 'isDefaultAction' - Indicates if the current action is the default action.
+-- * 'remediationActionType' - The remediation action that will be performed.
+-- * 'remediationResult' - The final state of the rule specified in the @ViolationTarget@ after it is remediated.
+mkSecurityGroupRemediationAction ::
   SecurityGroupRemediationAction
-securityGroupRemediationAction =
+mkSecurityGroupRemediationAction =
   SecurityGroupRemediationAction'
-    { _sgraIsDefaultAction = Nothing,
-      _sgraRemediationResult = Nothing,
-      _sgraDescription = Nothing,
-      _sgraRemediationActionType = Nothing
+    { isDefaultAction = Lude.Nothing,
+      remediationResult = Lude.Nothing,
+      description = Lude.Nothing,
+      remediationActionType = Lude.Nothing
     }
 
 -- | Indicates if the current action is the default action.
-sgraIsDefaultAction :: Lens' SecurityGroupRemediationAction (Maybe Bool)
-sgraIsDefaultAction = lens _sgraIsDefaultAction (\s a -> s {_sgraIsDefaultAction = a})
+--
+-- /Note:/ Consider using 'isDefaultAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgraIsDefaultAction :: Lens.Lens' SecurityGroupRemediationAction (Lude.Maybe Lude.Bool)
+sgraIsDefaultAction = Lens.lens (isDefaultAction :: SecurityGroupRemediationAction -> Lude.Maybe Lude.Bool) (\s a -> s {isDefaultAction = a} :: SecurityGroupRemediationAction)
+{-# DEPRECATED sgraIsDefaultAction "Use generic-lens or generic-optics with 'isDefaultAction' instead." #-}
 
 -- | The final state of the rule specified in the @ViolationTarget@ after it is remediated.
-sgraRemediationResult :: Lens' SecurityGroupRemediationAction (Maybe SecurityGroupRuleDescription)
-sgraRemediationResult = lens _sgraRemediationResult (\s a -> s {_sgraRemediationResult = a})
+--
+-- /Note:/ Consider using 'remediationResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgraRemediationResult :: Lens.Lens' SecurityGroupRemediationAction (Lude.Maybe SecurityGroupRuleDescription)
+sgraRemediationResult = Lens.lens (remediationResult :: SecurityGroupRemediationAction -> Lude.Maybe SecurityGroupRuleDescription) (\s a -> s {remediationResult = a} :: SecurityGroupRemediationAction)
+{-# DEPRECATED sgraRemediationResult "Use generic-lens or generic-optics with 'remediationResult' instead." #-}
 
 -- | Brief description of the action that will be performed.
-sgraDescription :: Lens' SecurityGroupRemediationAction (Maybe Text)
-sgraDescription = lens _sgraDescription (\s a -> s {_sgraDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgraDescription :: Lens.Lens' SecurityGroupRemediationAction (Lude.Maybe Lude.Text)
+sgraDescription = Lens.lens (description :: SecurityGroupRemediationAction -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SecurityGroupRemediationAction)
+{-# DEPRECATED sgraDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The remediation action that will be performed.
-sgraRemediationActionType :: Lens' SecurityGroupRemediationAction (Maybe RemediationActionType)
-sgraRemediationActionType = lens _sgraRemediationActionType (\s a -> s {_sgraRemediationActionType = a})
+--
+-- /Note:/ Consider using 'remediationActionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgraRemediationActionType :: Lens.Lens' SecurityGroupRemediationAction (Lude.Maybe RemediationActionType)
+sgraRemediationActionType = Lens.lens (remediationActionType :: SecurityGroupRemediationAction -> Lude.Maybe RemediationActionType) (\s a -> s {remediationActionType = a} :: SecurityGroupRemediationAction)
+{-# DEPRECATED sgraRemediationActionType "Use generic-lens or generic-optics with 'remediationActionType' instead." #-}
 
-instance FromJSON SecurityGroupRemediationAction where
+instance Lude.FromJSON SecurityGroupRemediationAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "SecurityGroupRemediationAction"
       ( \x ->
           SecurityGroupRemediationAction'
-            <$> (x .:? "IsDefaultAction")
-            <*> (x .:? "RemediationResult")
-            <*> (x .:? "Description")
-            <*> (x .:? "RemediationActionType")
+            Lude.<$> (x Lude..:? "IsDefaultAction")
+            Lude.<*> (x Lude..:? "RemediationResult")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "RemediationActionType")
       )
-
-instance Hashable SecurityGroupRemediationAction
-
-instance NFData SecurityGroupRemediationAction

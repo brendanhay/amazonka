@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowIdentityForTarget where
+module Network.AWS.SSM.Types.MaintenanceWindowIdentityForTarget
+  ( MaintenanceWindowIdentityForTarget (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMaintenanceWindowIdentityForTarget,
+
+    -- * Lenses
+    mwiftName,
+    mwiftWindowId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The maintenance window to which the specified target belongs.
 --
---
---
--- /See:/ 'maintenanceWindowIdentityForTarget' smart constructor.
+-- /See:/ 'mkMaintenanceWindowIdentityForTarget' smart constructor.
 data MaintenanceWindowIdentityForTarget = MaintenanceWindowIdentityForTarget'
-  { _mwiftName ::
-      !(Maybe Text),
-    _mwiftWindowId ::
-      !(Maybe Text)
+  { name ::
+      Lude.Maybe Lude.Text,
+    windowId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowIdentityForTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwiftName' - The name of the maintenance window.
---
--- * 'mwiftWindowId' - The ID of the maintenance window.
-maintenanceWindowIdentityForTarget ::
+-- * 'name' - The name of the maintenance window.
+-- * 'windowId' - The ID of the maintenance window.
+mkMaintenanceWindowIdentityForTarget ::
   MaintenanceWindowIdentityForTarget
-maintenanceWindowIdentityForTarget =
+mkMaintenanceWindowIdentityForTarget =
   MaintenanceWindowIdentityForTarget'
-    { _mwiftName = Nothing,
-      _mwiftWindowId = Nothing
+    { name = Lude.Nothing,
+      windowId = Lude.Nothing
     }
 
 -- | The name of the maintenance window.
-mwiftName :: Lens' MaintenanceWindowIdentityForTarget (Maybe Text)
-mwiftName = lens _mwiftName (\s a -> s {_mwiftName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwiftName :: Lens.Lens' MaintenanceWindowIdentityForTarget (Lude.Maybe Lude.Text)
+mwiftName = Lens.lens (name :: MaintenanceWindowIdentityForTarget -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MaintenanceWindowIdentityForTarget)
+{-# DEPRECATED mwiftName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the maintenance window.
-mwiftWindowId :: Lens' MaintenanceWindowIdentityForTarget (Maybe Text)
-mwiftWindowId = lens _mwiftWindowId (\s a -> s {_mwiftWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwiftWindowId :: Lens.Lens' MaintenanceWindowIdentityForTarget (Lude.Maybe Lude.Text)
+mwiftWindowId = Lens.lens (windowId :: MaintenanceWindowIdentityForTarget -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: MaintenanceWindowIdentityForTarget)
+{-# DEPRECATED mwiftWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance FromJSON MaintenanceWindowIdentityForTarget where
+instance Lude.FromJSON MaintenanceWindowIdentityForTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "MaintenanceWindowIdentityForTarget"
       ( \x ->
           MaintenanceWindowIdentityForTarget'
-            <$> (x .:? "Name") <*> (x .:? "WindowId")
+            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "WindowId")
       )
-
-instance Hashable MaintenanceWindowIdentityForTarget
-
-instance NFData MaintenanceWindowIdentityForTarget

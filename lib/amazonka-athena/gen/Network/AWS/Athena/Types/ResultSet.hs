@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.ResultSet where
+module Network.AWS.Athena.Types.ResultSet
+  ( ResultSet (..),
+
+    -- * Smart constructor
+    mkResultSet,
+
+    -- * Lenses
+    rsRows,
+    rsResultSetMetadata,
+  )
+where
 
 import Network.AWS.Athena.Types.ResultSetMetadata
 import Network.AWS.Athena.Types.Row
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The metadata and rows that comprise a query result set. The metadata describes the column structure and data types. To return a @ResultSet@ object, use 'GetQueryResults' .
 --
---
---
--- /See:/ 'resultSet' smart constructor.
+-- /See:/ 'mkResultSet' smart constructor.
 data ResultSet = ResultSet'
-  { _rsRows :: !(Maybe [Row]),
-    _rsResultSetMetadata :: !(Maybe ResultSetMetadata)
+  { rows :: Lude.Maybe [Row],
+    resultSetMetadata :: Lude.Maybe ResultSetMetadata
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResultSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsRows' - The rows in the table.
---
--- * 'rsResultSetMetadata' - The metadata that describes the column structure and data types of a table of query results.
-resultSet ::
+-- * 'resultSetMetadata' - The metadata that describes the column structure and data types of a table of query results.
+-- * 'rows' - The rows in the table.
+mkResultSet ::
   ResultSet
-resultSet =
-  ResultSet' {_rsRows = Nothing, _rsResultSetMetadata = Nothing}
+mkResultSet =
+  ResultSet' {rows = Lude.Nothing, resultSetMetadata = Lude.Nothing}
 
 -- | The rows in the table.
-rsRows :: Lens' ResultSet [Row]
-rsRows = lens _rsRows (\s a -> s {_rsRows = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rows' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsRows :: Lens.Lens' ResultSet (Lude.Maybe [Row])
+rsRows = Lens.lens (rows :: ResultSet -> Lude.Maybe [Row]) (\s a -> s {rows = a} :: ResultSet)
+{-# DEPRECATED rsRows "Use generic-lens or generic-optics with 'rows' instead." #-}
 
 -- | The metadata that describes the column structure and data types of a table of query results.
-rsResultSetMetadata :: Lens' ResultSet (Maybe ResultSetMetadata)
-rsResultSetMetadata = lens _rsResultSetMetadata (\s a -> s {_rsResultSetMetadata = a})
+--
+-- /Note:/ Consider using 'resultSetMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsResultSetMetadata :: Lens.Lens' ResultSet (Lude.Maybe ResultSetMetadata)
+rsResultSetMetadata = Lens.lens (resultSetMetadata :: ResultSet -> Lude.Maybe ResultSetMetadata) (\s a -> s {resultSetMetadata = a} :: ResultSet)
+{-# DEPRECATED rsResultSetMetadata "Use generic-lens or generic-optics with 'resultSetMetadata' instead." #-}
 
-instance FromJSON ResultSet where
+instance Lude.FromJSON ResultSet where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResultSet"
       ( \x ->
           ResultSet'
-            <$> (x .:? "Rows" .!= mempty) <*> (x .:? "ResultSetMetadata")
+            Lude.<$> (x Lude..:? "Rows" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ResultSetMetadata")
       )
-
-instance Hashable ResultSet
-
-instance NFData ResultSet

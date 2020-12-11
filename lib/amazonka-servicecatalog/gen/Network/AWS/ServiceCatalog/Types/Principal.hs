@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.Principal where
+module Network.AWS.ServiceCatalog.Types.Principal
+  ( Principal (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPrincipal,
+
+    -- * Lenses
+    pPrincipalType,
+    pPrincipalARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.PrincipalType
 
 -- | Information about a principal.
 --
---
---
--- /See:/ 'principal' smart constructor.
+-- /See:/ 'mkPrincipal' smart constructor.
 data Principal = Principal'
-  { _pPrincipalType ::
-      !(Maybe PrincipalType),
-    _pPrincipalARN :: !(Maybe Text)
+  { principalType ::
+      Lude.Maybe PrincipalType,
+    principalARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Principal' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pPrincipalType' - The principal type. The supported value is @IAM@ .
---
--- * 'pPrincipalARN' - The ARN of the principal (IAM user, role, or group).
-principal ::
+-- * 'principalARN' - The ARN of the principal (IAM user, role, or group).
+-- * 'principalType' - The principal type. The supported value is @IAM@ .
+mkPrincipal ::
   Principal
-principal =
-  Principal' {_pPrincipalType = Nothing, _pPrincipalARN = Nothing}
+mkPrincipal =
+  Principal'
+    { principalType = Lude.Nothing,
+      principalARN = Lude.Nothing
+    }
 
 -- | The principal type. The supported value is @IAM@ .
-pPrincipalType :: Lens' Principal (Maybe PrincipalType)
-pPrincipalType = lens _pPrincipalType (\s a -> s {_pPrincipalType = a})
+--
+-- /Note:/ Consider using 'principalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPrincipalType :: Lens.Lens' Principal (Lude.Maybe PrincipalType)
+pPrincipalType = Lens.lens (principalType :: Principal -> Lude.Maybe PrincipalType) (\s a -> s {principalType = a} :: Principal)
+{-# DEPRECATED pPrincipalType "Use generic-lens or generic-optics with 'principalType' instead." #-}
 
 -- | The ARN of the principal (IAM user, role, or group).
-pPrincipalARN :: Lens' Principal (Maybe Text)
-pPrincipalARN = lens _pPrincipalARN (\s a -> s {_pPrincipalARN = a})
+--
+-- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPrincipalARN :: Lens.Lens' Principal (Lude.Maybe Lude.Text)
+pPrincipalARN = Lens.lens (principalARN :: Principal -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: Principal)
+{-# DEPRECATED pPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
 
-instance FromJSON Principal where
+instance Lude.FromJSON Principal where
   parseJSON =
-    withObject
+    Lude.withObject
       "Principal"
       ( \x ->
-          Principal' <$> (x .:? "PrincipalType") <*> (x .:? "PrincipalARN")
+          Principal'
+            Lude.<$> (x Lude..:? "PrincipalType") Lude.<*> (x Lude..:? "PrincipalARN")
       )
-
-instance Hashable Principal
-
-instance NFData Principal

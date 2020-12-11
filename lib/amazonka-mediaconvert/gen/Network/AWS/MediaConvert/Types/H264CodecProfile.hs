@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.H264CodecProfile where
+module Network.AWS.MediaConvert.Types.H264CodecProfile
+  ( H264CodecProfile
+      ( H264CodecProfile',
+        HCPBaseline,
+        HCPHigh,
+        HCPHigh10BIT,
+        HCPHigh422,
+        HCPHigh42210BIT,
+        HCPMain
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H.264 Profile. High 4:2:2 and 10-bit profiles are only available with the AVC-I License.
-data H264CodecProfile
-  = HCPBaseline
-  | HCPHigh
-  | HCPHigh10BIT
-  | HCPHigh422
-  | HCPHigh42210BIT
-  | HCPMain
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264CodecProfile = H264CodecProfile' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264CodecProfile where
-  parser =
-    takeLowerText >>= \case
-      "baseline" -> pure HCPBaseline
-      "high" -> pure HCPHigh
-      "high_10bit" -> pure HCPHigh10BIT
-      "high_422" -> pure HCPHigh422
-      "high_422_10bit" -> pure HCPHigh42210BIT
-      "main" -> pure HCPMain
-      e ->
-        fromTextError $
-          "Failure parsing H264CodecProfile from value: '" <> e
-            <> "'. Accepted values: baseline, high, high_10bit, high_422, high_422_10bit, main"
+pattern HCPBaseline :: H264CodecProfile
+pattern HCPBaseline = H264CodecProfile' "BASELINE"
 
-instance ToText H264CodecProfile where
-  toText = \case
-    HCPBaseline -> "BASELINE"
-    HCPHigh -> "HIGH"
-    HCPHigh10BIT -> "HIGH_10BIT"
-    HCPHigh422 -> "HIGH_422"
-    HCPHigh42210BIT -> "HIGH_422_10BIT"
-    HCPMain -> "MAIN"
+pattern HCPHigh :: H264CodecProfile
+pattern HCPHigh = H264CodecProfile' "HIGH"
 
-instance Hashable H264CodecProfile
+pattern HCPHigh10BIT :: H264CodecProfile
+pattern HCPHigh10BIT = H264CodecProfile' "HIGH_10BIT"
 
-instance NFData H264CodecProfile
+pattern HCPHigh422 :: H264CodecProfile
+pattern HCPHigh422 = H264CodecProfile' "HIGH_422"
 
-instance ToByteString H264CodecProfile
+pattern HCPHigh42210BIT :: H264CodecProfile
+pattern HCPHigh42210BIT = H264CodecProfile' "HIGH_422_10BIT"
 
-instance ToQuery H264CodecProfile
+pattern HCPMain :: H264CodecProfile
+pattern HCPMain = H264CodecProfile' "MAIN"
 
-instance ToHeader H264CodecProfile
-
-instance ToJSON H264CodecProfile where
-  toJSON = toJSONText
-
-instance FromJSON H264CodecProfile where
-  parseJSON = parseJSONText "H264CodecProfile"
+{-# COMPLETE
+  HCPBaseline,
+  HCPHigh,
+  HCPHigh10BIT,
+  HCPHigh422,
+  HCPHigh42210BIT,
+  HCPMain,
+  H264CodecProfile'
+  #-}

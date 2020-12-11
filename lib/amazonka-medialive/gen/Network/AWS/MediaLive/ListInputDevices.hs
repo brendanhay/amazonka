@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,143 +16,164 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.MediaLive.ListInputDevices
-  ( -- * Creating a Request
-    listInputDevices,
-    ListInputDevices,
+  ( -- * Creating a request
+    ListInputDevices (..),
+    mkListInputDevices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lidNextToken,
     lidMaxResults,
 
-    -- * Destructuring the Response
-    listInputDevicesResponse,
-    ListInputDevicesResponse,
+    -- * Destructuring the response
+    ListInputDevicesResponse (..),
+    mkListInputDevicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lidrsInputDevices,
     lidrsNextToken,
     lidrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for ListInputDevicesRequest
 --
--- /See:/ 'listInputDevices' smart constructor.
+-- /See:/ 'mkListInputDevices' smart constructor.
 data ListInputDevices = ListInputDevices'
-  { _lidNextToken ::
-      !(Maybe Text),
-    _lidMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInputDevices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lidNextToken' - Undocumented member.
---
--- * 'lidMaxResults' - Undocumented member.
-listInputDevices ::
+-- * 'maxResults' - Undocumented field.
+-- * 'nextToken' - Undocumented field.
+mkListInputDevices ::
   ListInputDevices
-listInputDevices =
+mkListInputDevices =
   ListInputDevices'
-    { _lidNextToken = Nothing,
-      _lidMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | Undocumented member.
-lidNextToken :: Lens' ListInputDevices (Maybe Text)
-lidNextToken = lens _lidNextToken (\s a -> s {_lidNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lidNextToken :: Lens.Lens' ListInputDevices (Lude.Maybe Lude.Text)
+lidNextToken = Lens.lens (nextToken :: ListInputDevices -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInputDevices)
+{-# DEPRECATED lidNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Undocumented member.
-lidMaxResults :: Lens' ListInputDevices (Maybe Natural)
-lidMaxResults = lens _lidMaxResults (\s a -> s {_lidMaxResults = a}) . mapping _Nat
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lidMaxResults :: Lens.Lens' ListInputDevices (Lude.Maybe Lude.Natural)
+lidMaxResults = Lens.lens (maxResults :: ListInputDevices -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInputDevices)
+{-# DEPRECATED lidMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListInputDevices where
+instance Page.AWSPager ListInputDevices where
   page rq rs
-    | stop (rs ^. lidrsNextToken) = Nothing
-    | stop (rs ^. lidrsInputDevices) = Nothing
-    | otherwise = Just $ rq & lidNextToken .~ rs ^. lidrsNextToken
+    | Page.stop (rs Lens.^. lidrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lidrsInputDevices) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lidNextToken Lens..~ rs Lens.^. lidrsNextToken
 
-instance AWSRequest ListInputDevices where
+instance Lude.AWSRequest ListInputDevices where
   type Rs ListInputDevices = ListInputDevicesResponse
-  request = get mediaLive
+  request = Req.get mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListInputDevicesResponse'
-            <$> (x .?> "inputDevices" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "inputDevices" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListInputDevices
-
-instance NFData ListInputDevices
-
-instance ToHeaders ListInputDevices where
+instance Lude.ToHeaders ListInputDevices where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListInputDevices where
-  toPath = const "/prod/inputDevices"
+instance Lude.ToPath ListInputDevices where
+  toPath = Lude.const "/prod/inputDevices"
 
-instance ToQuery ListInputDevices where
+instance Lude.ToQuery ListInputDevices where
   toQuery ListInputDevices' {..} =
-    mconcat
-      ["nextToken" =: _lidNextToken, "maxResults" =: _lidMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
 -- | Placeholder documentation for ListInputDevicesResponse
 --
--- /See:/ 'listInputDevicesResponse' smart constructor.
+-- /See:/ 'mkListInputDevicesResponse' smart constructor.
 data ListInputDevicesResponse = ListInputDevicesResponse'
-  { _lidrsInputDevices ::
-      !(Maybe [InputDeviceSummary]),
-    _lidrsNextToken :: !(Maybe Text),
-    _lidrsResponseStatus :: !Int
+  { inputDevices ::
+      Lude.Maybe [InputDeviceSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInputDevicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lidrsInputDevices' - The list of input devices.
---
--- * 'lidrsNextToken' - A token to get additional list results.
---
--- * 'lidrsResponseStatus' - -- | The response status code.
-listInputDevicesResponse ::
-  -- | 'lidrsResponseStatus'
-  Int ->
+-- * 'inputDevices' - The list of input devices.
+-- * 'nextToken' - A token to get additional list results.
+-- * 'responseStatus' - The response status code.
+mkListInputDevicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListInputDevicesResponse
-listInputDevicesResponse pResponseStatus_ =
+mkListInputDevicesResponse pResponseStatus_ =
   ListInputDevicesResponse'
-    { _lidrsInputDevices = Nothing,
-      _lidrsNextToken = Nothing,
-      _lidrsResponseStatus = pResponseStatus_
+    { inputDevices = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of input devices.
-lidrsInputDevices :: Lens' ListInputDevicesResponse [InputDeviceSummary]
-lidrsInputDevices = lens _lidrsInputDevices (\s a -> s {_lidrsInputDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lidrsInputDevices :: Lens.Lens' ListInputDevicesResponse (Lude.Maybe [InputDeviceSummary])
+lidrsInputDevices = Lens.lens (inputDevices :: ListInputDevicesResponse -> Lude.Maybe [InputDeviceSummary]) (\s a -> s {inputDevices = a} :: ListInputDevicesResponse)
+{-# DEPRECATED lidrsInputDevices "Use generic-lens or generic-optics with 'inputDevices' instead." #-}
 
 -- | A token to get additional list results.
-lidrsNextToken :: Lens' ListInputDevicesResponse (Maybe Text)
-lidrsNextToken = lens _lidrsNextToken (\s a -> s {_lidrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lidrsNextToken :: Lens.Lens' ListInputDevicesResponse (Lude.Maybe Lude.Text)
+lidrsNextToken = Lens.lens (nextToken :: ListInputDevicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInputDevicesResponse)
+{-# DEPRECATED lidrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lidrsResponseStatus :: Lens' ListInputDevicesResponse Int
-lidrsResponseStatus = lens _lidrsResponseStatus (\s a -> s {_lidrsResponseStatus = a})
-
-instance NFData ListInputDevicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lidrsResponseStatus :: Lens.Lens' ListInputDevicesResponse Lude.Int
+lidrsResponseStatus = Lens.lens (responseStatus :: ListInputDevicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInputDevicesResponse)
+{-# DEPRECATED lidrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

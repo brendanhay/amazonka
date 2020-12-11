@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDestinationVPC where
+module Network.AWS.MediaLive.Types.InputDestinationVPC
+  ( InputDestinationVPC (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInputDestinationVPC,
+
+    -- * Lenses
+    idvNetworkInterfaceId,
+    idvAvailabilityZone,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The properties for a VPC type input destination.
 --
--- /See:/ 'inputDestinationVPC' smart constructor.
+-- /See:/ 'mkInputDestinationVPC' smart constructor.
 data InputDestinationVPC = InputDestinationVPC'
-  { _idvNetworkInterfaceId ::
-      !(Maybe Text),
-    _idvAvailabilityZone :: !(Maybe Text)
+  { networkInterfaceId ::
+      Lude.Maybe Lude.Text,
+    availabilityZone :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDestinationVPC' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idvNetworkInterfaceId' - The network interface ID of the Input destination in the VPC.
---
--- * 'idvAvailabilityZone' - The availability zone of the Input destination.
-inputDestinationVPC ::
+-- * 'availabilityZone' - The availability zone of the Input destination.
+-- * 'networkInterfaceId' - The network interface ID of the Input destination in the VPC.
+mkInputDestinationVPC ::
   InputDestinationVPC
-inputDestinationVPC =
+mkInputDestinationVPC =
   InputDestinationVPC'
-    { _idvNetworkInterfaceId = Nothing,
-      _idvAvailabilityZone = Nothing
+    { networkInterfaceId = Lude.Nothing,
+      availabilityZone = Lude.Nothing
     }
 
 -- | The network interface ID of the Input destination in the VPC.
-idvNetworkInterfaceId :: Lens' InputDestinationVPC (Maybe Text)
-idvNetworkInterfaceId = lens _idvNetworkInterfaceId (\s a -> s {_idvNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idvNetworkInterfaceId :: Lens.Lens' InputDestinationVPC (Lude.Maybe Lude.Text)
+idvNetworkInterfaceId = Lens.lens (networkInterfaceId :: InputDestinationVPC -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: InputDestinationVPC)
+{-# DEPRECATED idvNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The availability zone of the Input destination.
-idvAvailabilityZone :: Lens' InputDestinationVPC (Maybe Text)
-idvAvailabilityZone = lens _idvAvailabilityZone (\s a -> s {_idvAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idvAvailabilityZone :: Lens.Lens' InputDestinationVPC (Lude.Maybe Lude.Text)
+idvAvailabilityZone = Lens.lens (availabilityZone :: InputDestinationVPC -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: InputDestinationVPC)
+{-# DEPRECATED idvAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
-instance FromJSON InputDestinationVPC where
+instance Lude.FromJSON InputDestinationVPC where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputDestinationVPC"
       ( \x ->
           InputDestinationVPC'
-            <$> (x .:? "networkInterfaceId") <*> (x .:? "availabilityZone")
+            Lude.<$> (x Lude..:? "networkInterfaceId")
+            Lude.<*> (x Lude..:? "availabilityZone")
       )
-
-instance Hashable InputDestinationVPC
-
-instance NFData InputDestinationVPC

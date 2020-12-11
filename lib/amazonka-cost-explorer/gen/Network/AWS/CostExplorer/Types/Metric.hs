@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.Metric where
+module Network.AWS.CostExplorer.Types.Metric
+  ( Metric
+      ( Metric',
+        AmortizedCost,
+        BlendedCost,
+        NetAmortizedCost,
+        NetUnblendedCost,
+        NormalizedUsageAmount,
+        UnblendedCost,
+        UsageQuantity
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Metric
-  = AmortizedCost
-  | BlendedCost
-  | NetAmortizedCost
-  | NetUnblendedCost
-  | NormalizedUsageAmount
-  | UnblendedCost
-  | UsageQuantity
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Metric = Metric' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Metric where
-  parser =
-    takeLowerText >>= \case
-      "amortized_cost" -> pure AmortizedCost
-      "blended_cost" -> pure BlendedCost
-      "net_amortized_cost" -> pure NetAmortizedCost
-      "net_unblended_cost" -> pure NetUnblendedCost
-      "normalized_usage_amount" -> pure NormalizedUsageAmount
-      "unblended_cost" -> pure UnblendedCost
-      "usage_quantity" -> pure UsageQuantity
-      e ->
-        fromTextError $
-          "Failure parsing Metric from value: '" <> e
-            <> "'. Accepted values: amortized_cost, blended_cost, net_amortized_cost, net_unblended_cost, normalized_usage_amount, unblended_cost, usage_quantity"
+pattern AmortizedCost :: Metric
+pattern AmortizedCost = Metric' "AMORTIZED_COST"
 
-instance ToText Metric where
-  toText = \case
-    AmortizedCost -> "AMORTIZED_COST"
-    BlendedCost -> "BLENDED_COST"
-    NetAmortizedCost -> "NET_AMORTIZED_COST"
-    NetUnblendedCost -> "NET_UNBLENDED_COST"
-    NormalizedUsageAmount -> "NORMALIZED_USAGE_AMOUNT"
-    UnblendedCost -> "UNBLENDED_COST"
-    UsageQuantity -> "USAGE_QUANTITY"
+pattern BlendedCost :: Metric
+pattern BlendedCost = Metric' "BLENDED_COST"
 
-instance Hashable Metric
+pattern NetAmortizedCost :: Metric
+pattern NetAmortizedCost = Metric' "NET_AMORTIZED_COST"
 
-instance NFData Metric
+pattern NetUnblendedCost :: Metric
+pattern NetUnblendedCost = Metric' "NET_UNBLENDED_COST"
 
-instance ToByteString Metric
+pattern NormalizedUsageAmount :: Metric
+pattern NormalizedUsageAmount = Metric' "NORMALIZED_USAGE_AMOUNT"
 
-instance ToQuery Metric
+pattern UnblendedCost :: Metric
+pattern UnblendedCost = Metric' "UNBLENDED_COST"
 
-instance ToHeader Metric
+pattern UsageQuantity :: Metric
+pattern UsageQuantity = Metric' "USAGE_QUANTITY"
 
-instance ToJSON Metric where
-  toJSON = toJSONText
+{-# COMPLETE
+  AmortizedCost,
+  BlendedCost,
+  NetAmortizedCost,
+  NetUnblendedCost,
+  NormalizedUsageAmount,
+  UnblendedCost,
+  UsageQuantity,
+  Metric'
+  #-}

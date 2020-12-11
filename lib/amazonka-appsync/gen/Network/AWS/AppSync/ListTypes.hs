@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Lists the types for a given API.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AppSync.ListTypes
-  ( -- * Creating a Request
-    listTypes,
-    ListTypes,
+  ( -- * Creating a request
+    ListTypes (..),
+    mkListTypes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltNextToken,
     ltMaxResults,
     ltApiId,
     ltFormat,
 
-    -- * Destructuring the Response
-    listTypesResponse,
-    ListTypesResponse,
+    -- * Destructuring the response
+    ListTypesResponse (..),
+    mkListTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsTypes,
     ltrsNextToken,
     ltrsResponseStatus,
@@ -45,142 +38,167 @@ module Network.AWS.AppSync.ListTypes
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTypes' smart constructor.
+-- | /See:/ 'mkListTypes' smart constructor.
 data ListTypes = ListTypes'
-  { _ltNextToken :: !(Maybe Text),
-    _ltMaxResults :: !(Maybe Nat),
-    _ltApiId :: !Text,
-    _ltFormat :: !TypeDefinitionFormat
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    apiId :: Lude.Text,
+    format :: TypeDefinitionFormat
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'ltMaxResults' - The maximum number of results you want the request to return.
---
--- * 'ltApiId' - The API ID.
---
--- * 'ltFormat' - The type format: SDL or JSON.
-listTypes ::
-  -- | 'ltApiId'
-  Text ->
-  -- | 'ltFormat'
+-- * 'apiId' - The API ID.
+-- * 'format' - The type format: SDL or JSON.
+-- * 'maxResults' - The maximum number of results you want the request to return.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListTypes ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'format'
   TypeDefinitionFormat ->
   ListTypes
-listTypes pApiId_ pFormat_ =
+mkListTypes pApiId_ pFormat_ =
   ListTypes'
-    { _ltNextToken = Nothing,
-      _ltMaxResults = Nothing,
-      _ltApiId = pApiId_,
-      _ltFormat = pFormat_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      apiId = pApiId_,
+      format = pFormat_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-ltNextToken :: Lens' ListTypes (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s {_ltNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTypes (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypes)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results you want the request to return.
-ltMaxResults :: Lens' ListTypes (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\s a -> s {_ltMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListTypes (Lude.Maybe Lude.Natural)
+ltMaxResults = Lens.lens (maxResults :: ListTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypes)
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The API ID.
-ltApiId :: Lens' ListTypes Text
-ltApiId = lens _ltApiId (\s a -> s {_ltApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltApiId :: Lens.Lens' ListTypes Lude.Text
+ltApiId = Lens.lens (apiId :: ListTypes -> Lude.Text) (\s a -> s {apiId = a} :: ListTypes)
+{-# DEPRECATED ltApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The type format: SDL or JSON.
-ltFormat :: Lens' ListTypes TypeDefinitionFormat
-ltFormat = lens _ltFormat (\s a -> s {_ltFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltFormat :: Lens.Lens' ListTypes TypeDefinitionFormat
+ltFormat = Lens.lens (format :: ListTypes -> TypeDefinitionFormat) (\s a -> s {format = a} :: ListTypes)
+{-# DEPRECATED ltFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
-instance AWSPager ListTypes where
+instance Page.AWSPager ListTypes where
   page rq rs
-    | stop (rs ^. ltrsNextToken) = Nothing
-    | stop (rs ^. ltrsTypes) = Nothing
-    | otherwise = Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
+    | Page.stop (rs Lens.^. ltrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrsTypes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
 
-instance AWSRequest ListTypes where
+instance Lude.AWSRequest ListTypes where
   type Rs ListTypes = ListTypesResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTypesResponse'
-            <$> (x .?> "types" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "types" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTypes
-
-instance NFData ListTypes
-
-instance ToHeaders ListTypes where
+instance Lude.ToHeaders ListTypes where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListTypes where
+instance Lude.ToPath ListTypes where
   toPath ListTypes' {..} =
-    mconcat ["/v1/apis/", toBS _ltApiId, "/types"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/types"]
 
-instance ToQuery ListTypes where
+instance Lude.ToQuery ListTypes where
   toQuery ListTypes' {..} =
-    mconcat
-      [ "nextToken" =: _ltNextToken,
-        "maxResults" =: _ltMaxResults,
-        "format" =: _ltFormat
+    Lude.mconcat
+      [ "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults,
+        "format" Lude.=: format
       ]
 
--- | /See:/ 'listTypesResponse' smart constructor.
+-- | /See:/ 'mkListTypesResponse' smart constructor.
 data ListTypesResponse = ListTypesResponse'
-  { _ltrsTypes ::
-      !(Maybe [Type]),
-    _ltrsNextToken :: !(Maybe Text),
-    _ltrsResponseStatus :: !Int
+  { types ::
+      Lude.Maybe [Type],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsTypes' - The @Type@ objects.
---
--- * 'ltrsNextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTypesResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'nextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+-- * 'types' - The @Type@ objects.
+mkListTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTypesResponse
-listTypesResponse pResponseStatus_ =
+mkListTypesResponse pResponseStatus_ =
   ListTypesResponse'
-    { _ltrsTypes = Nothing,
-      _ltrsNextToken = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { types = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @Type@ objects.
-ltrsTypes :: Lens' ListTypesResponse [Type]
-ltrsTypes = lens _ltrsTypes (\s a -> s {_ltrsTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'types' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTypes :: Lens.Lens' ListTypesResponse (Lude.Maybe [Type])
+ltrsTypes = Lens.lens (types :: ListTypesResponse -> Lude.Maybe [Type]) (\s a -> s {types = a} :: ListTypesResponse)
+{-# DEPRECATED ltrsTypes "Use generic-lens or generic-optics with 'types' instead." #-}
 
 -- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
-ltrsNextToken :: Lens' ListTypesResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\s a -> s {_ltrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsNextToken :: Lens.Lens' ListTypesResponse (Lude.Maybe Lude.Text)
+ltrsNextToken = Lens.lens (nextToken :: ListTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypesResponse)
+{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTypesResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTypesResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTypesResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

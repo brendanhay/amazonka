@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.DvbSubDestinationAlignment where
+module Network.AWS.MediaLive.Types.DvbSubDestinationAlignment
+  ( DvbSubDestinationAlignment
+      ( DvbSubDestinationAlignment',
+        Centered,
+        Left,
+        Smart
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Dvb Sub Destination Alignment
-data DvbSubDestinationAlignment
-  = Centered
-  | Left'
-  | Smart
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DvbSubDestinationAlignment = DvbSubDestinationAlignment' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DvbSubDestinationAlignment where
-  parser =
-    takeLowerText >>= \case
-      "centered" -> pure Centered
-      "left" -> pure Left'
-      "smart" -> pure Smart
-      e ->
-        fromTextError $
-          "Failure parsing DvbSubDestinationAlignment from value: '" <> e
-            <> "'. Accepted values: centered, left, smart"
+pattern Centered :: DvbSubDestinationAlignment
+pattern Centered = DvbSubDestinationAlignment' "CENTERED"
 
-instance ToText DvbSubDestinationAlignment where
-  toText = \case
-    Centered -> "CENTERED"
-    Left' -> "LEFT"
-    Smart -> "SMART"
+pattern Left :: DvbSubDestinationAlignment
+pattern Left = DvbSubDestinationAlignment' "LEFT"
 
-instance Hashable DvbSubDestinationAlignment
+pattern Smart :: DvbSubDestinationAlignment
+pattern Smart = DvbSubDestinationAlignment' "SMART"
 
-instance NFData DvbSubDestinationAlignment
-
-instance ToByteString DvbSubDestinationAlignment
-
-instance ToQuery DvbSubDestinationAlignment
-
-instance ToHeader DvbSubDestinationAlignment
-
-instance ToJSON DvbSubDestinationAlignment where
-  toJSON = toJSONText
-
-instance FromJSON DvbSubDestinationAlignment where
-  parseJSON = parseJSONText "DvbSubDestinationAlignment"
+{-# COMPLETE
+  Centered,
+  Left,
+  Smart,
+  DvbSubDestinationAlignment'
+  #-}

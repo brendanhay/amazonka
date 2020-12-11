@@ -13,8 +13,8 @@
 --
 -- AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud (for example, to Amazon EC2 and Amazon S3) and to Amazon VPC, bypassing Internet service providers in your network path. A connection provides access to all AWS Regions except the China (Beijing) and (China) Ningxia Regions. AWS resources in the China Regions can only be accessed through locations associated with those Regions.
 module Network.AWS.DirectConnect
-  ( -- * Service Configuration
-    directConnect,
+  ( -- * Service configuration
+    directConnectService,
 
     -- * Errors
     -- $errors
@@ -229,16 +229,16 @@ module Network.AWS.DirectConnect
     VirtualInterfaceState (..),
 
     -- ** AssociatedGateway
-    AssociatedGateway,
-    associatedGateway,
+    AssociatedGateway (..),
+    mkAssociatedGateway,
     agId,
     agOwnerAccount,
     agRegion,
     agType,
 
     -- ** BGPPeer
-    BGPPeer,
-    bgpPeer,
+    BGPPeer (..),
+    mkBGPPeer,
     bpCustomerAddress,
     bpAmazonAddress,
     bpAddressFamily,
@@ -250,8 +250,8 @@ module Network.AWS.DirectConnect
     bpAwsDeviceV2,
 
     -- ** Connection
-    Connection,
-    connection,
+    Connection (..),
+    mkConnection,
     cLagId,
     cVlan,
     cLocation,
@@ -271,13 +271,13 @@ module Network.AWS.DirectConnect
     cTags,
 
     -- ** Connections
-    Connections,
-    connections,
+    Connections (..),
+    mkConnections,
     cConnections,
 
     -- ** DirectConnectGateway
-    DirectConnectGateway,
-    directConnectGateway,
+    DirectConnectGateway (..),
+    mkDirectConnectGateway,
     dcgDirectConnectGatewayId,
     dcgStateChangeError,
     dcgAmazonSideASN,
@@ -286,8 +286,8 @@ module Network.AWS.DirectConnect
     dcgOwnerAccount,
 
     -- ** DirectConnectGatewayAssociation
-    DirectConnectGatewayAssociation,
-    directConnectGatewayAssociation,
+    DirectConnectGatewayAssociation (..),
+    mkDirectConnectGatewayAssociation,
     dcgaVirtualGatewayId,
     dcgaAssociationId,
     dcgaDirectConnectGatewayId,
@@ -300,8 +300,8 @@ module Network.AWS.DirectConnect
     dcgaAssociationState,
 
     -- ** DirectConnectGatewayAssociationProposal
-    DirectConnectGatewayAssociationProposal,
-    directConnectGatewayAssociationProposal,
+    DirectConnectGatewayAssociationProposal (..),
+    mkDirectConnectGatewayAssociationProposal,
     dcgapExistingAllowedPrefixesToDirectConnectGateway,
     dcgapDirectConnectGatewayId,
     dcgapProposalId,
@@ -311,8 +311,8 @@ module Network.AWS.DirectConnect
     dcgapRequestedAllowedPrefixesToDirectConnectGateway,
 
     -- ** DirectConnectGatewayAttachment
-    DirectConnectGatewayAttachment,
-    directConnectGatewayAttachment,
+    DirectConnectGatewayAttachment (..),
+    mkDirectConnectGatewayAttachment,
     dDirectConnectGatewayId,
     dAttachmentState,
     dStateChangeError,
@@ -322,8 +322,8 @@ module Network.AWS.DirectConnect
     dAttachmentType,
 
     -- ** Interconnect
-    Interconnect,
-    interconnect,
+    Interconnect (..),
+    mkInterconnect,
     iLagId,
     iInterconnectId,
     iLocation,
@@ -340,8 +340,8 @@ module Network.AWS.DirectConnect
     iTags,
 
     -- ** Lag
-    Lag,
-    lag,
+    Lag (..),
+    mkLag,
     lagLagId,
     lagConnectionsBandwidth,
     lagMinimumLinks,
@@ -361,8 +361,8 @@ module Network.AWS.DirectConnect
     lagTags,
 
     -- ** Location
-    Location,
-    location,
+    Location (..),
+    mkLocation,
     lAvailablePortSpeeds,
     lLocationName,
     lLocationCode,
@@ -370,8 +370,8 @@ module Network.AWS.DirectConnect
     lAvailableProviders,
 
     -- ** NewBGPPeer
-    NewBGPPeer,
-    newBGPPeer,
+    NewBGPPeer (..),
+    mkNewBGPPeer,
     nbpCustomerAddress,
     nbpAmazonAddress,
     nbpAddressFamily,
@@ -379,8 +379,8 @@ module Network.AWS.DirectConnect
     nbpAuthKey,
 
     -- ** NewPrivateVirtualInterface
-    NewPrivateVirtualInterface,
-    newPrivateVirtualInterface,
+    NewPrivateVirtualInterface (..),
+    mkNewPrivateVirtualInterface,
     nVirtualGatewayId,
     nMtu,
     nCustomerAddress,
@@ -394,8 +394,8 @@ module Network.AWS.DirectConnect
     nAsn,
 
     -- ** NewPrivateVirtualInterfaceAllocation
-    NewPrivateVirtualInterfaceAllocation,
-    newPrivateVirtualInterfaceAllocation,
+    NewPrivateVirtualInterfaceAllocation (..),
+    mkNewPrivateVirtualInterfaceAllocation,
     npviaMtu,
     npviaCustomerAddress,
     npviaAmazonAddress,
@@ -407,8 +407,8 @@ module Network.AWS.DirectConnect
     npviaAsn,
 
     -- ** NewPublicVirtualInterface
-    NewPublicVirtualInterface,
-    newPublicVirtualInterface,
+    NewPublicVirtualInterface (..),
+    mkNewPublicVirtualInterface,
     npviRouteFilterPrefixes,
     npviCustomerAddress,
     npviAmazonAddress,
@@ -420,8 +420,8 @@ module Network.AWS.DirectConnect
     npviAsn,
 
     -- ** NewPublicVirtualInterfaceAllocation
-    NewPublicVirtualInterfaceAllocation,
-    newPublicVirtualInterfaceAllocation,
+    NewPublicVirtualInterfaceAllocation (..),
+    mkNewPublicVirtualInterfaceAllocation,
     newRouteFilterPrefixes,
     newCustomerAddress,
     newAmazonAddress,
@@ -433,8 +433,8 @@ module Network.AWS.DirectConnect
     newAsn,
 
     -- ** NewTransitVirtualInterface
-    NewTransitVirtualInterface,
-    newTransitVirtualInterface,
+    NewTransitVirtualInterface (..),
+    mkNewTransitVirtualInterface,
     ntviMtu,
     ntviCustomerAddress,
     ntviVlan,
@@ -447,8 +447,8 @@ module Network.AWS.DirectConnect
     ntviTags,
 
     -- ** NewTransitVirtualInterfaceAllocation
-    NewTransitVirtualInterfaceAllocation,
-    newTransitVirtualInterfaceAllocation,
+    NewTransitVirtualInterfaceAllocation (..),
+    mkNewTransitVirtualInterfaceAllocation,
     ntviaMtu,
     ntviaCustomerAddress,
     ntviaVlan,
@@ -460,31 +460,31 @@ module Network.AWS.DirectConnect
     ntviaTags,
 
     -- ** ResourceTag
-    ResourceTag,
-    resourceTag,
+    ResourceTag (..),
+    mkResourceTag,
     rtResourceARN,
     rtTags,
 
     -- ** RouteFilterPrefix
-    RouteFilterPrefix,
-    routeFilterPrefix,
+    RouteFilterPrefix (..),
+    mkRouteFilterPrefix,
     rfpCidr,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** VirtualGateway
-    VirtualGateway,
-    virtualGateway,
+    VirtualGateway (..),
+    mkVirtualGateway,
     vgVirtualGatewayId,
     vgVirtualGatewayState,
 
     -- ** VirtualInterface
-    VirtualInterface,
-    virtualInterface,
+    VirtualInterface (..),
+    mkVirtualInterface,
     viBgpPeers,
     viVirtualGatewayId,
     viMtu,
@@ -511,8 +511,8 @@ module Network.AWS.DirectConnect
     viTags,
 
     -- ** VirtualInterfaceTestHistory
-    VirtualInterfaceTestHistory,
-    virtualInterfaceTestHistory,
+    VirtualInterfaceTestHistory (..),
+    mkVirtualInterfaceTestHistory,
     vithBgpPeers,
     vithStatus,
     vithTestDurationInMinutes,
@@ -521,6 +521,17 @@ module Network.AWS.DirectConnect
     vithEndTime,
     vithOwnerAccount,
     vithVirtualInterfaceId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -578,6 +589,7 @@ import Network.AWS.DirectConnect.UpdateDirectConnectGatewayAssociation
 import Network.AWS.DirectConnect.UpdateLag
 import Network.AWS.DirectConnect.UpdateVirtualInterfaceAttributes
 import Network.AWS.DirectConnect.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.QueryDefinition where
+module Network.AWS.CloudWatchLogs.Types.QueryDefinition
+  ( QueryDefinition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkQueryDefinition,
+
+    -- * Lenses
+    qdLogGroupNames,
+    qdQueryDefinitionId,
+    qdName,
+    qdQueryString,
+    qdLastModified,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This structure contains details about a saved CloudWatch Logs Insights query definition.
 --
---
---
--- /See:/ 'queryDefinition' smart constructor.
+-- /See:/ 'mkQueryDefinition' smart constructor.
 data QueryDefinition = QueryDefinition'
-  { _qdLogGroupNames ::
-      !(Maybe [Text]),
-    _qdQueryDefinitionId :: !(Maybe Text),
-    _qdName :: !(Maybe Text),
-    _qdQueryString :: !(Maybe Text),
-    _qdLastModified :: !(Maybe Nat)
+  { logGroupNames ::
+      Lude.Maybe [Lude.Text],
+    queryDefinitionId :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    queryString :: Lude.Maybe Lude.Text,
+    lastModified :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qdLogGroupNames' - If this query definition contains a list of log groups that it is limited to, that list appears here.
---
--- * 'qdQueryDefinitionId' - The unique ID of the query definition.
---
--- * 'qdName' - The name of the query definition.
---
--- * 'qdQueryString' - The query string to use for this definition. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
---
--- * 'qdLastModified' - The date that the query definition was most recently modified.
-queryDefinition ::
+-- * 'lastModified' - The date that the query definition was most recently modified.
+-- * 'logGroupNames' - If this query definition contains a list of log groups that it is limited to, that list appears here.
+-- * 'name' - The name of the query definition.
+-- * 'queryDefinitionId' - The unique ID of the query definition.
+-- * 'queryString' - The query string to use for this definition. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
+mkQueryDefinition ::
   QueryDefinition
-queryDefinition =
+mkQueryDefinition =
   QueryDefinition'
-    { _qdLogGroupNames = Nothing,
-      _qdQueryDefinitionId = Nothing,
-      _qdName = Nothing,
-      _qdQueryString = Nothing,
-      _qdLastModified = Nothing
+    { logGroupNames = Lude.Nothing,
+      queryDefinitionId = Lude.Nothing,
+      name = Lude.Nothing,
+      queryString = Lude.Nothing,
+      lastModified = Lude.Nothing
     }
 
 -- | If this query definition contains a list of log groups that it is limited to, that list appears here.
-qdLogGroupNames :: Lens' QueryDefinition [Text]
-qdLogGroupNames = lens _qdLogGroupNames (\s a -> s {_qdLogGroupNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'logGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qdLogGroupNames :: Lens.Lens' QueryDefinition (Lude.Maybe [Lude.Text])
+qdLogGroupNames = Lens.lens (logGroupNames :: QueryDefinition -> Lude.Maybe [Lude.Text]) (\s a -> s {logGroupNames = a} :: QueryDefinition)
+{-# DEPRECATED qdLogGroupNames "Use generic-lens or generic-optics with 'logGroupNames' instead." #-}
 
 -- | The unique ID of the query definition.
-qdQueryDefinitionId :: Lens' QueryDefinition (Maybe Text)
-qdQueryDefinitionId = lens _qdQueryDefinitionId (\s a -> s {_qdQueryDefinitionId = a})
+--
+-- /Note:/ Consider using 'queryDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qdQueryDefinitionId :: Lens.Lens' QueryDefinition (Lude.Maybe Lude.Text)
+qdQueryDefinitionId = Lens.lens (queryDefinitionId :: QueryDefinition -> Lude.Maybe Lude.Text) (\s a -> s {queryDefinitionId = a} :: QueryDefinition)
+{-# DEPRECATED qdQueryDefinitionId "Use generic-lens or generic-optics with 'queryDefinitionId' instead." #-}
 
 -- | The name of the query definition.
-qdName :: Lens' QueryDefinition (Maybe Text)
-qdName = lens _qdName (\s a -> s {_qdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qdName :: Lens.Lens' QueryDefinition (Lude.Maybe Lude.Text)
+qdName = Lens.lens (name :: QueryDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: QueryDefinition)
+{-# DEPRECATED qdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The query string to use for this definition. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
-qdQueryString :: Lens' QueryDefinition (Maybe Text)
-qdQueryString = lens _qdQueryString (\s a -> s {_qdQueryString = a})
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qdQueryString :: Lens.Lens' QueryDefinition (Lude.Maybe Lude.Text)
+qdQueryString = Lens.lens (queryString :: QueryDefinition -> Lude.Maybe Lude.Text) (\s a -> s {queryString = a} :: QueryDefinition)
+{-# DEPRECATED qdQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
 -- | The date that the query definition was most recently modified.
-qdLastModified :: Lens' QueryDefinition (Maybe Natural)
-qdLastModified = lens _qdLastModified (\s a -> s {_qdLastModified = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qdLastModified :: Lens.Lens' QueryDefinition (Lude.Maybe Lude.Natural)
+qdLastModified = Lens.lens (lastModified :: QueryDefinition -> Lude.Maybe Lude.Natural) (\s a -> s {lastModified = a} :: QueryDefinition)
+{-# DEPRECATED qdLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
-instance FromJSON QueryDefinition where
+instance Lude.FromJSON QueryDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "QueryDefinition"
       ( \x ->
           QueryDefinition'
-            <$> (x .:? "logGroupNames" .!= mempty)
-            <*> (x .:? "queryDefinitionId")
-            <*> (x .:? "name")
-            <*> (x .:? "queryString")
-            <*> (x .:? "lastModified")
+            Lude.<$> (x Lude..:? "logGroupNames" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "queryDefinitionId")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "queryString")
+            Lude.<*> (x Lude..:? "lastModified")
       )
-
-instance Hashable QueryDefinition
-
-instance NFData QueryDefinition

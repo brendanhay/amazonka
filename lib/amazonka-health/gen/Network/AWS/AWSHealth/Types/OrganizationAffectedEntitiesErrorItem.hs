@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,102 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem where
+module Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
+  ( OrganizationAffectedEntitiesErrorItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOrganizationAffectedEntitiesErrorItem,
+
+    -- * Lenses
+    oaeeiAwsAccountId,
+    oaeeiEventARN,
+    oaeeiErrorName,
+    oaeeiErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Error information returned when a <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html DescribeAffectedEntitiesForOrganization> operation cannot find or process a specific entity.
 --
---
---
--- /See:/ 'organizationAffectedEntitiesErrorItem' smart constructor.
+-- /See:/ 'mkOrganizationAffectedEntitiesErrorItem' smart constructor.
 data OrganizationAffectedEntitiesErrorItem = OrganizationAffectedEntitiesErrorItem'
-  { _oaeeiAwsAccountId ::
-      !(Maybe Text),
-    _oaeeiEventARN ::
-      !(Maybe Text),
-    _oaeeiErrorName ::
-      !(Maybe Text),
-    _oaeeiErrorMessage ::
-      !(Maybe Text)
+  { awsAccountId ::
+      Lude.Maybe
+        Lude.Text,
+    eventARN ::
+      Lude.Maybe
+        Lude.Text,
+    errorName ::
+      Lude.Maybe
+        Lude.Text,
+    errorMessage ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationAffectedEntitiesErrorItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oaeeiAwsAccountId' - The 12-digit AWS account numbers that contains the affected entities.
---
--- * 'oaeeiEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
---
--- * 'oaeeiErrorName' - The name of the error.
---
--- * 'oaeeiErrorMessage' - The unique identifier for the event type. The format is @AWS_SERVICE_DESCRIPTION@ . For example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
-organizationAffectedEntitiesErrorItem ::
+-- * 'awsAccountId' - The 12-digit AWS account numbers that contains the affected entities.
+-- * 'errorMessage' - The unique identifier for the event type. The format is @AWS_SERVICE_DESCRIPTION@ . For example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
+-- * 'errorName' - The name of the error.
+-- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+mkOrganizationAffectedEntitiesErrorItem ::
   OrganizationAffectedEntitiesErrorItem
-organizationAffectedEntitiesErrorItem =
+mkOrganizationAffectedEntitiesErrorItem =
   OrganizationAffectedEntitiesErrorItem'
-    { _oaeeiAwsAccountId =
-        Nothing,
-      _oaeeiEventARN = Nothing,
-      _oaeeiErrorName = Nothing,
-      _oaeeiErrorMessage = Nothing
+    { awsAccountId =
+        Lude.Nothing,
+      eventARN = Lude.Nothing,
+      errorName = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | The 12-digit AWS account numbers that contains the affected entities.
-oaeeiAwsAccountId :: Lens' OrganizationAffectedEntitiesErrorItem (Maybe Text)
-oaeeiAwsAccountId = lens _oaeeiAwsAccountId (\s a -> s {_oaeeiAwsAccountId = a})
+--
+-- /Note:/ Consider using 'awsAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oaeeiAwsAccountId :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Lude.Maybe Lude.Text)
+oaeeiAwsAccountId = Lens.lens (awsAccountId :: OrganizationAffectedEntitiesErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {awsAccountId = a} :: OrganizationAffectedEntitiesErrorItem)
+{-# DEPRECATED oaeeiAwsAccountId "Use generic-lens or generic-optics with 'awsAccountId' instead." #-}
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-oaeeiEventARN :: Lens' OrganizationAffectedEntitiesErrorItem (Maybe Text)
-oaeeiEventARN = lens _oaeeiEventARN (\s a -> s {_oaeeiEventARN = a})
+--
+-- /Note:/ Consider using 'eventARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oaeeiEventARN :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Lude.Maybe Lude.Text)
+oaeeiEventARN = Lens.lens (eventARN :: OrganizationAffectedEntitiesErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {eventARN = a} :: OrganizationAffectedEntitiesErrorItem)
+{-# DEPRECATED oaeeiEventARN "Use generic-lens or generic-optics with 'eventARN' instead." #-}
 
 -- | The name of the error.
-oaeeiErrorName :: Lens' OrganizationAffectedEntitiesErrorItem (Maybe Text)
-oaeeiErrorName = lens _oaeeiErrorName (\s a -> s {_oaeeiErrorName = a})
+--
+-- /Note:/ Consider using 'errorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oaeeiErrorName :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Lude.Maybe Lude.Text)
+oaeeiErrorName = Lens.lens (errorName :: OrganizationAffectedEntitiesErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {errorName = a} :: OrganizationAffectedEntitiesErrorItem)
+{-# DEPRECATED oaeeiErrorName "Use generic-lens or generic-optics with 'errorName' instead." #-}
 
 -- | The unique identifier for the event type. The format is @AWS_SERVICE_DESCRIPTION@ . For example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
-oaeeiErrorMessage :: Lens' OrganizationAffectedEntitiesErrorItem (Maybe Text)
-oaeeiErrorMessage = lens _oaeeiErrorMessage (\s a -> s {_oaeeiErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oaeeiErrorMessage :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Lude.Maybe Lude.Text)
+oaeeiErrorMessage = Lens.lens (errorMessage :: OrganizationAffectedEntitiesErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: OrganizationAffectedEntitiesErrorItem)
+{-# DEPRECATED oaeeiErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON OrganizationAffectedEntitiesErrorItem where
+instance Lude.FromJSON OrganizationAffectedEntitiesErrorItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "OrganizationAffectedEntitiesErrorItem"
       ( \x ->
           OrganizationAffectedEntitiesErrorItem'
-            <$> (x .:? "awsAccountId")
-            <*> (x .:? "eventArn")
-            <*> (x .:? "errorName")
-            <*> (x .:? "errorMessage")
+            Lude.<$> (x Lude..:? "awsAccountId")
+            Lude.<*> (x Lude..:? "eventArn")
+            Lude.<*> (x Lude..:? "errorName")
+            Lude.<*> (x Lude..:? "errorMessage")
       )
-
-instance Hashable OrganizationAffectedEntitiesErrorItem
-
-instance NFData OrganizationAffectedEntitiesErrorItem

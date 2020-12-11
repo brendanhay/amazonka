@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a filter using the specified finding criteria.
 module Network.AWS.GuardDuty.CreateFilter
-  ( -- * Creating a Request
-    createFilter,
-    CreateFilter,
+  ( -- * Creating a request
+    CreateFilter (..),
+    mkCreateFilter,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cfClientToken,
     cfAction,
     cfDescription,
@@ -33,180 +28,520 @@ module Network.AWS.GuardDuty.CreateFilter
     cfName,
     cfFindingCriteria,
 
-    -- * Destructuring the Response
-    createFilterResponse,
-    CreateFilterResponse,
+    -- * Destructuring the response
+    CreateFilterResponse (..),
+    mkCreateFilterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cfrsResponseStatus,
     cfrsName,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createFilter' smart constructor.
+-- | /See:/ 'mkCreateFilter' smart constructor.
 data CreateFilter = CreateFilter'
-  { _cfClientToken :: !(Maybe Text),
-    _cfAction :: !(Maybe FilterAction),
-    _cfDescription :: !(Maybe Text),
-    _cfRank :: !(Maybe Nat),
-    _cfTags :: !(Maybe (Map Text (Text))),
-    _cfDetectorId :: !Text,
-    _cfName :: !Text,
-    _cfFindingCriteria :: !FindingCriteria
+  { clientToken ::
+      Lude.Maybe Lude.Text,
+    action :: Lude.Maybe FilterAction,
+    description :: Lude.Maybe Lude.Text,
+    rank :: Lude.Maybe Lude.Natural,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    detectorId :: Lude.Text,
+    name :: Lude.Text,
+    findingCriteria :: FindingCriteria
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'action' - Specifies the action that is to be applied to the findings that match the filter.
+-- * 'clientToken' - The idempotency token for the create request.
+-- * 'description' - The description of the filter.
+-- * 'detectorId' - The unique ID of the detector of the GuardDuty account that you want to create a filter for.
+-- * 'findingCriteria' - Represents the criteria to be used in the filter for querying findings.
 --
--- * 'cfClientToken' - The idempotency token for the create request.
+-- You can only use the following attributes to query findings:
 --
--- * 'cfAction' - Specifies the action that is to be applied to the findings that match the filter.
+--     * accountId
 --
--- * 'cfDescription' - The description of the filter.
 --
--- * 'cfRank' - Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+--     * region
 --
--- * 'cfTags' - The tags to be added to a new filter resource.
 --
--- * 'cfDetectorId' - The unique ID of the detector of the GuardDuty account that you want to create a filter for.
+--     * confidence
 --
--- * 'cfName' - The name of the filter.
 --
--- * 'cfFindingCriteria' - Represents the criteria to be used in the filter for querying findings. You can only use the following attributes to query findings:     * accountId     * region     * confidence     * id     * resource.accessKeyDetails.accessKeyId     * resource.accessKeyDetails.principalId     * resource.accessKeyDetails.userName     * resource.accessKeyDetails.userType     * resource.instanceDetails.iamInstanceProfile.id     * resource.instanceDetails.imageId     * resource.instanceDetails.instanceId     * resource.instanceDetails.outpostArn     * resource.instanceDetails.networkInterfaces.ipv6Addresses     * resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress     * resource.instanceDetails.networkInterfaces.publicDnsName     * resource.instanceDetails.networkInterfaces.publicIp     * resource.instanceDetails.networkInterfaces.securityGroups.groupId     * resource.instanceDetails.networkInterfaces.securityGroups.groupName     * resource.instanceDetails.networkInterfaces.subnetId     * resource.instanceDetails.networkInterfaces.vpcId     * resource.instanceDetails.tags.key     * resource.instanceDetails.tags.value     * resource.resourceType     * service.action.actionType     * service.action.awsApiCallAction.api     * service.action.awsApiCallAction.callerType     * service.action.awsApiCallAction.remoteIpDetails.city.cityName     * service.action.awsApiCallAction.remoteIpDetails.country.countryName     * service.action.awsApiCallAction.remoteIpDetails.ipAddressV4     * service.action.awsApiCallAction.remoteIpDetails.organization.asn     * service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg     * service.action.awsApiCallAction.serviceName     * service.action.dnsRequestAction.domain     * service.action.networkConnectionAction.blocked     * service.action.networkConnectionAction.connectionDirection     * service.action.networkConnectionAction.localPortDetails.port     * service.action.networkConnectionAction.protocol     * service.action.networkConnectionAction.localIpDetails.ipAddressV4     * service.action.networkConnectionAction.remoteIpDetails.city.cityName     * service.action.networkConnectionAction.remoteIpDetails.country.countryName     * service.action.networkConnectionAction.remoteIpDetails.ipAddressV4     * service.action.networkConnectionAction.remoteIpDetails.organization.asn     * service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg     * service.action.networkConnectionAction.remotePortDetails.port     * service.additionalInfo.threatListName     * service.archived When this attribute is set to TRUE, only archived findings are listed. When it's set to FALSE, only unarchived findings are listed. When this attribute is not set, all existing findings are listed.     * service.resourceRole     * severity     * type     * updatedAt Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
-createFilter ::
-  -- | 'cfDetectorId'
-  Text ->
-  -- | 'cfName'
-  Text ->
-  -- | 'cfFindingCriteria'
+--     * id
+--
+--
+--     * resource.accessKeyDetails.accessKeyId
+--
+--
+--     * resource.accessKeyDetails.principalId
+--
+--
+--     * resource.accessKeyDetails.userName
+--
+--
+--     * resource.accessKeyDetails.userType
+--
+--
+--     * resource.instanceDetails.iamInstanceProfile.id
+--
+--
+--     * resource.instanceDetails.imageId
+--
+--
+--     * resource.instanceDetails.instanceId
+--
+--
+--     * resource.instanceDetails.outpostArn
+--
+--
+--     * resource.instanceDetails.networkInterfaces.ipv6Addresses
+--
+--
+--     * resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
+--
+--
+--     * resource.instanceDetails.networkInterfaces.publicDnsName
+--
+--
+--     * resource.instanceDetails.networkInterfaces.publicIp
+--
+--
+--     * resource.instanceDetails.networkInterfaces.securityGroups.groupId
+--
+--
+--     * resource.instanceDetails.networkInterfaces.securityGroups.groupName
+--
+--
+--     * resource.instanceDetails.networkInterfaces.subnetId
+--
+--
+--     * resource.instanceDetails.networkInterfaces.vpcId
+--
+--
+--     * resource.instanceDetails.tags.key
+--
+--
+--     * resource.instanceDetails.tags.value
+--
+--
+--     * resource.resourceType
+--
+--
+--     * service.action.actionType
+--
+--
+--     * service.action.awsApiCallAction.api
+--
+--
+--     * service.action.awsApiCallAction.callerType
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.city.cityName
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.country.countryName
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.organization.asn
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
+--
+--
+--     * service.action.awsApiCallAction.serviceName
+--
+--
+--     * service.action.dnsRequestAction.domain
+--
+--
+--     * service.action.networkConnectionAction.blocked
+--
+--
+--     * service.action.networkConnectionAction.connectionDirection
+--
+--
+--     * service.action.networkConnectionAction.localPortDetails.port
+--
+--
+--     * service.action.networkConnectionAction.protocol
+--
+--
+--     * service.action.networkConnectionAction.localIpDetails.ipAddressV4
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.city.cityName
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.country.countryName
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.organization.asn
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
+--
+--
+--     * service.action.networkConnectionAction.remotePortDetails.port
+--
+--
+--     * service.additionalInfo.threatListName
+--
+--
+--     * service.archived
+-- When this attribute is set to TRUE, only archived findings are listed. When it's set to FALSE, only unarchived findings are listed. When this attribute is not set, all existing findings are listed.
+--
+--
+--     * service.resourceRole
+--
+--
+--     * severity
+--
+--
+--     * type
+--
+--
+--     * updatedAt
+-- Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+--
+--
+-- * 'name' - The name of the filter.
+-- * 'rank' - Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+-- * 'tags' - The tags to be added to a new filter resource.
+mkCreateFilter ::
+  -- | 'detectorId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'findingCriteria'
   FindingCriteria ->
   CreateFilter
-createFilter pDetectorId_ pName_ pFindingCriteria_ =
+mkCreateFilter pDetectorId_ pName_ pFindingCriteria_ =
   CreateFilter'
-    { _cfClientToken = Nothing,
-      _cfAction = Nothing,
-      _cfDescription = Nothing,
-      _cfRank = Nothing,
-      _cfTags = Nothing,
-      _cfDetectorId = pDetectorId_,
-      _cfName = pName_,
-      _cfFindingCriteria = pFindingCriteria_
+    { clientToken = Lude.Nothing,
+      action = Lude.Nothing,
+      description = Lude.Nothing,
+      rank = Lude.Nothing,
+      tags = Lude.Nothing,
+      detectorId = pDetectorId_,
+      name = pName_,
+      findingCriteria = pFindingCriteria_
     }
 
 -- | The idempotency token for the create request.
-cfClientToken :: Lens' CreateFilter (Maybe Text)
-cfClientToken = lens _cfClientToken (\s a -> s {_cfClientToken = a})
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfClientToken :: Lens.Lens' CreateFilter (Lude.Maybe Lude.Text)
+cfClientToken = Lens.lens (clientToken :: CreateFilter -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateFilter)
+{-# DEPRECATED cfClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Specifies the action that is to be applied to the findings that match the filter.
-cfAction :: Lens' CreateFilter (Maybe FilterAction)
-cfAction = lens _cfAction (\s a -> s {_cfAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfAction :: Lens.Lens' CreateFilter (Lude.Maybe FilterAction)
+cfAction = Lens.lens (action :: CreateFilter -> Lude.Maybe FilterAction) (\s a -> s {action = a} :: CreateFilter)
+{-# DEPRECATED cfAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The description of the filter.
-cfDescription :: Lens' CreateFilter (Maybe Text)
-cfDescription = lens _cfDescription (\s a -> s {_cfDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfDescription :: Lens.Lens' CreateFilter (Lude.Maybe Lude.Text)
+cfDescription = Lens.lens (description :: CreateFilter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateFilter)
+{-# DEPRECATED cfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-cfRank :: Lens' CreateFilter (Maybe Natural)
-cfRank = lens _cfRank (\s a -> s {_cfRank = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'rank' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfRank :: Lens.Lens' CreateFilter (Lude.Maybe Lude.Natural)
+cfRank = Lens.lens (rank :: CreateFilter -> Lude.Maybe Lude.Natural) (\s a -> s {rank = a} :: CreateFilter)
+{-# DEPRECATED cfRank "Use generic-lens or generic-optics with 'rank' instead." #-}
 
 -- | The tags to be added to a new filter resource.
-cfTags :: Lens' CreateFilter (HashMap Text (Text))
-cfTags = lens _cfTags (\s a -> s {_cfTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfTags :: Lens.Lens' CreateFilter (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cfTags = Lens.lens (tags :: CreateFilter -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateFilter)
+{-# DEPRECATED cfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The unique ID of the detector of the GuardDuty account that you want to create a filter for.
-cfDetectorId :: Lens' CreateFilter Text
-cfDetectorId = lens _cfDetectorId (\s a -> s {_cfDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfDetectorId :: Lens.Lens' CreateFilter Lude.Text
+cfDetectorId = Lens.lens (detectorId :: CreateFilter -> Lude.Text) (\s a -> s {detectorId = a} :: CreateFilter)
+{-# DEPRECATED cfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The name of the filter.
-cfName :: Lens' CreateFilter Text
-cfName = lens _cfName (\s a -> s {_cfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfName :: Lens.Lens' CreateFilter Lude.Text
+cfName = Lens.lens (name :: CreateFilter -> Lude.Text) (\s a -> s {name = a} :: CreateFilter)
+{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Represents the criteria to be used in the filter for querying findings. You can only use the following attributes to query findings:     * accountId     * region     * confidence     * id     * resource.accessKeyDetails.accessKeyId     * resource.accessKeyDetails.principalId     * resource.accessKeyDetails.userName     * resource.accessKeyDetails.userType     * resource.instanceDetails.iamInstanceProfile.id     * resource.instanceDetails.imageId     * resource.instanceDetails.instanceId     * resource.instanceDetails.outpostArn     * resource.instanceDetails.networkInterfaces.ipv6Addresses     * resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress     * resource.instanceDetails.networkInterfaces.publicDnsName     * resource.instanceDetails.networkInterfaces.publicIp     * resource.instanceDetails.networkInterfaces.securityGroups.groupId     * resource.instanceDetails.networkInterfaces.securityGroups.groupName     * resource.instanceDetails.networkInterfaces.subnetId     * resource.instanceDetails.networkInterfaces.vpcId     * resource.instanceDetails.tags.key     * resource.instanceDetails.tags.value     * resource.resourceType     * service.action.actionType     * service.action.awsApiCallAction.api     * service.action.awsApiCallAction.callerType     * service.action.awsApiCallAction.remoteIpDetails.city.cityName     * service.action.awsApiCallAction.remoteIpDetails.country.countryName     * service.action.awsApiCallAction.remoteIpDetails.ipAddressV4     * service.action.awsApiCallAction.remoteIpDetails.organization.asn     * service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg     * service.action.awsApiCallAction.serviceName     * service.action.dnsRequestAction.domain     * service.action.networkConnectionAction.blocked     * service.action.networkConnectionAction.connectionDirection     * service.action.networkConnectionAction.localPortDetails.port     * service.action.networkConnectionAction.protocol     * service.action.networkConnectionAction.localIpDetails.ipAddressV4     * service.action.networkConnectionAction.remoteIpDetails.city.cityName     * service.action.networkConnectionAction.remoteIpDetails.country.countryName     * service.action.networkConnectionAction.remoteIpDetails.ipAddressV4     * service.action.networkConnectionAction.remoteIpDetails.organization.asn     * service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg     * service.action.networkConnectionAction.remotePortDetails.port     * service.additionalInfo.threatListName     * service.archived When this attribute is set to TRUE, only archived findings are listed. When it's set to FALSE, only unarchived findings are listed. When this attribute is not set, all existing findings are listed.     * service.resourceRole     * severity     * type     * updatedAt Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
-cfFindingCriteria :: Lens' CreateFilter FindingCriteria
-cfFindingCriteria = lens _cfFindingCriteria (\s a -> s {_cfFindingCriteria = a})
+-- | Represents the criteria to be used in the filter for querying findings.
+--
+-- You can only use the following attributes to query findings:
+--
+--     * accountId
+--
+--
+--     * region
+--
+--
+--     * confidence
+--
+--
+--     * id
+--
+--
+--     * resource.accessKeyDetails.accessKeyId
+--
+--
+--     * resource.accessKeyDetails.principalId
+--
+--
+--     * resource.accessKeyDetails.userName
+--
+--
+--     * resource.accessKeyDetails.userType
+--
+--
+--     * resource.instanceDetails.iamInstanceProfile.id
+--
+--
+--     * resource.instanceDetails.imageId
+--
+--
+--     * resource.instanceDetails.instanceId
+--
+--
+--     * resource.instanceDetails.outpostArn
+--
+--
+--     * resource.instanceDetails.networkInterfaces.ipv6Addresses
+--
+--
+--     * resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress
+--
+--
+--     * resource.instanceDetails.networkInterfaces.publicDnsName
+--
+--
+--     * resource.instanceDetails.networkInterfaces.publicIp
+--
+--
+--     * resource.instanceDetails.networkInterfaces.securityGroups.groupId
+--
+--
+--     * resource.instanceDetails.networkInterfaces.securityGroups.groupName
+--
+--
+--     * resource.instanceDetails.networkInterfaces.subnetId
+--
+--
+--     * resource.instanceDetails.networkInterfaces.vpcId
+--
+--
+--     * resource.instanceDetails.tags.key
+--
+--
+--     * resource.instanceDetails.tags.value
+--
+--
+--     * resource.resourceType
+--
+--
+--     * service.action.actionType
+--
+--
+--     * service.action.awsApiCallAction.api
+--
+--
+--     * service.action.awsApiCallAction.callerType
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.city.cityName
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.country.countryName
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.ipAddressV4
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.organization.asn
+--
+--
+--     * service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg
+--
+--
+--     * service.action.awsApiCallAction.serviceName
+--
+--
+--     * service.action.dnsRequestAction.domain
+--
+--
+--     * service.action.networkConnectionAction.blocked
+--
+--
+--     * service.action.networkConnectionAction.connectionDirection
+--
+--
+--     * service.action.networkConnectionAction.localPortDetails.port
+--
+--
+--     * service.action.networkConnectionAction.protocol
+--
+--
+--     * service.action.networkConnectionAction.localIpDetails.ipAddressV4
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.city.cityName
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.country.countryName
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.ipAddressV4
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.organization.asn
+--
+--
+--     * service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg
+--
+--
+--     * service.action.networkConnectionAction.remotePortDetails.port
+--
+--
+--     * service.additionalInfo.threatListName
+--
+--
+--     * service.archived
+-- When this attribute is set to TRUE, only archived findings are listed. When it's set to FALSE, only unarchived findings are listed. When this attribute is not set, all existing findings are listed.
+--
+--
+--     * service.resourceRole
+--
+--
+--     * severity
+--
+--
+--     * type
+--
+--
+--     * updatedAt
+-- Type: ISO 8601 string format: YYYY-MM-DDTHH:MM:SS.SSSZ or YYYY-MM-DDTHH:MM:SSZ depending on whether the value contains milliseconds.
+--
+--
+--
+-- /Note:/ Consider using 'findingCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfFindingCriteria :: Lens.Lens' CreateFilter FindingCriteria
+cfFindingCriteria = Lens.lens (findingCriteria :: CreateFilter -> FindingCriteria) (\s a -> s {findingCriteria = a} :: CreateFilter)
+{-# DEPRECATED cfFindingCriteria "Use generic-lens or generic-optics with 'findingCriteria' instead." #-}
 
-instance AWSRequest CreateFilter where
+instance Lude.AWSRequest CreateFilter where
   type Rs CreateFilter = CreateFilterResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateFilterResponse' <$> (pure (fromEnum s)) <*> (x .:> "name")
+          CreateFilterResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "name")
       )
 
-instance Hashable CreateFilter
-
-instance NFData CreateFilter
-
-instance ToHeaders CreateFilter where
+instance Lude.ToHeaders CreateFilter where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateFilter where
-  toJSON CreateFilter' {..} =
-    object
-      ( catMaybes
-          [ ("clientToken" .=) <$> _cfClientToken,
-            ("action" .=) <$> _cfAction,
-            ("description" .=) <$> _cfDescription,
-            ("rank" .=) <$> _cfRank,
-            ("tags" .=) <$> _cfTags,
-            Just ("name" .= _cfName),
-            Just ("findingCriteria" .= _cfFindingCriteria)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateFilter where
+instance Lude.ToJSON CreateFilter where
+  toJSON CreateFilter' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("clientToken" Lude..=) Lude.<$> clientToken,
+            ("action" Lude..=) Lude.<$> action,
+            ("description" Lude..=) Lude.<$> description,
+            ("rank" Lude..=) Lude.<$> rank,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just ("findingCriteria" Lude..= findingCriteria)
+          ]
+      )
+
+instance Lude.ToPath CreateFilter where
   toPath CreateFilter' {..} =
-    mconcat ["/detector/", toBS _cfDetectorId, "/filter"]
+    Lude.mconcat ["/detector/", Lude.toBS detectorId, "/filter"]
 
-instance ToQuery CreateFilter where
-  toQuery = const mempty
+instance Lude.ToQuery CreateFilter where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createFilterResponse' smart constructor.
+-- | /See:/ 'mkCreateFilterResponse' smart constructor.
 data CreateFilterResponse = CreateFilterResponse'
-  { _cfrsResponseStatus ::
-      !Int,
-    _cfrsName :: !Text
+  { responseStatus ::
+      Lude.Int,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFilterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfrsResponseStatus' - -- | The response status code.
---
--- * 'cfrsName' - The name of the successfully created filter.
-createFilterResponse ::
-  -- | 'cfrsResponseStatus'
-  Int ->
-  -- | 'cfrsName'
-  Text ->
+-- * 'name' - The name of the successfully created filter.
+-- * 'responseStatus' - The response status code.
+mkCreateFilterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'name'
+  Lude.Text ->
   CreateFilterResponse
-createFilterResponse pResponseStatus_ pName_ =
+mkCreateFilterResponse pResponseStatus_ pName_ =
   CreateFilterResponse'
-    { _cfrsResponseStatus = pResponseStatus_,
-      _cfrsName = pName_
+    { responseStatus = pResponseStatus_,
+      name = pName_
     }
 
--- | -- | The response status code.
-cfrsResponseStatus :: Lens' CreateFilterResponse Int
-cfrsResponseStatus = lens _cfrsResponseStatus (\s a -> s {_cfrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfrsResponseStatus :: Lens.Lens' CreateFilterResponse Lude.Int
+cfrsResponseStatus = Lens.lens (responseStatus :: CreateFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateFilterResponse)
+{-# DEPRECATED cfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The name of the successfully created filter.
-cfrsName :: Lens' CreateFilterResponse Text
-cfrsName = lens _cfrsName (\s a -> s {_cfrsName = a})
-
-instance NFData CreateFilterResponse
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfrsName :: Lens.Lens' CreateFilterResponse Lude.Text
+cfrsName = Lens.lens (name :: CreateFilterResponse -> Lude.Text) (\s a -> s {name = a} :: CreateFilterResponse)
+{-# DEPRECATED cfrsName "Use generic-lens or generic-optics with 'name' instead." #-}

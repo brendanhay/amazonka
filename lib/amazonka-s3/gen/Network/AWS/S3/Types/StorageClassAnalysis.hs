@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.StorageClassAnalysis where
+module Network.AWS.S3.Types.StorageClassAnalysis
+  ( StorageClassAnalysis (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStorageClassAnalysis,
+
+    -- * Lenses
+    scaDataExport,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.StorageClassAnalysisDataExport
 
 -- | Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
 --
---
---
--- /See:/ 'storageClassAnalysis' smart constructor.
+-- /See:/ 'mkStorageClassAnalysis' smart constructor.
 newtype StorageClassAnalysis = StorageClassAnalysis'
-  { _scaDataExport ::
-      Maybe StorageClassAnalysisDataExport
+  { dataExport ::
+      Lude.Maybe StorageClassAnalysisDataExport
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageClassAnalysis' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scaDataExport' - Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
-storageClassAnalysis ::
+-- * 'dataExport' - Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+mkStorageClassAnalysis ::
   StorageClassAnalysis
-storageClassAnalysis =
-  StorageClassAnalysis' {_scaDataExport = Nothing}
+mkStorageClassAnalysis =
+  StorageClassAnalysis' {dataExport = Lude.Nothing}
 
 -- | Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
-scaDataExport :: Lens' StorageClassAnalysis (Maybe StorageClassAnalysisDataExport)
-scaDataExport = lens _scaDataExport (\s a -> s {_scaDataExport = a})
+--
+-- /Note:/ Consider using 'dataExport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scaDataExport :: Lens.Lens' StorageClassAnalysis (Lude.Maybe StorageClassAnalysisDataExport)
+scaDataExport = Lens.lens (dataExport :: StorageClassAnalysis -> Lude.Maybe StorageClassAnalysisDataExport) (\s a -> s {dataExport = a} :: StorageClassAnalysis)
+{-# DEPRECATED scaDataExport "Use generic-lens or generic-optics with 'dataExport' instead." #-}
 
-instance FromXML StorageClassAnalysis where
-  parseXML x = StorageClassAnalysis' <$> (x .@? "DataExport")
+instance Lude.FromXML StorageClassAnalysis where
+  parseXML x =
+    StorageClassAnalysis' Lude.<$> (x Lude..@? "DataExport")
 
-instance Hashable StorageClassAnalysis
-
-instance NFData StorageClassAnalysis
-
-instance ToXML StorageClassAnalysis where
+instance Lude.ToXML StorageClassAnalysis where
   toXML StorageClassAnalysis' {..} =
-    mconcat ["DataExport" @= _scaDataExport]
+    Lude.mconcat ["DataExport" Lude.@= dataExport]

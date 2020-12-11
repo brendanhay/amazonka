@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ShareError where
+module Network.AWS.ServiceCatalog.Types.ShareError
+  ( ShareError (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkShareError,
+
+    -- * Lenses
+    seAccounts,
+    seError,
+    seMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Errors that occurred during the portfolio share operation.
 --
---
---
--- /See:/ 'shareError' smart constructor.
+-- /See:/ 'mkShareError' smart constructor.
 data ShareError = ShareError'
-  { _seAccounts :: !(Maybe [Text]),
-    _seError :: !(Maybe Text),
-    _seMessage :: !(Maybe Text)
+  { accounts :: Lude.Maybe [Lude.Text],
+    error :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShareError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'seAccounts' - List of accounts impacted by the error.
---
--- * 'seError' - Error type that happened when processing the operation.
---
--- * 'seMessage' - Information about the error.
-shareError ::
+-- * 'accounts' - List of accounts impacted by the error.
+-- * 'error' - Error type that happened when processing the operation.
+-- * 'message' - Information about the error.
+mkShareError ::
   ShareError
-shareError =
+mkShareError =
   ShareError'
-    { _seAccounts = Nothing,
-      _seError = Nothing,
-      _seMessage = Nothing
+    { accounts = Lude.Nothing,
+      error = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | List of accounts impacted by the error.
-seAccounts :: Lens' ShareError [Text]
-seAccounts = lens _seAccounts (\s a -> s {_seAccounts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'accounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seAccounts :: Lens.Lens' ShareError (Lude.Maybe [Lude.Text])
+seAccounts = Lens.lens (accounts :: ShareError -> Lude.Maybe [Lude.Text]) (\s a -> s {accounts = a} :: ShareError)
+{-# DEPRECATED seAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
 
 -- | Error type that happened when processing the operation.
-seError :: Lens' ShareError (Maybe Text)
-seError = lens _seError (\s a -> s {_seError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seError :: Lens.Lens' ShareError (Lude.Maybe Lude.Text)
+seError = Lens.lens (error :: ShareError -> Lude.Maybe Lude.Text) (\s a -> s {error = a} :: ShareError)
+{-# DEPRECATED seError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | Information about the error.
-seMessage :: Lens' ShareError (Maybe Text)
-seMessage = lens _seMessage (\s a -> s {_seMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seMessage :: Lens.Lens' ShareError (Lude.Maybe Lude.Text)
+seMessage = Lens.lens (message :: ShareError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ShareError)
+{-# DEPRECATED seMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON ShareError where
+instance Lude.FromJSON ShareError where
   parseJSON =
-    withObject
+    Lude.withObject
       "ShareError"
       ( \x ->
           ShareError'
-            <$> (x .:? "Accounts" .!= mempty)
-            <*> (x .:? "Error")
-            <*> (x .:? "Message")
+            Lude.<$> (x Lude..:? "Accounts" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Error")
+            Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable ShareError
-
-instance NFData ShareError

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.ServiceChange where
+module Network.AWS.Route53AutoNaming.Types.ServiceChange
+  ( ServiceChange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceChange,
+
+    -- * Lenses
+    scHealthCheckConfig,
+    scDNSConfig,
+    scDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53AutoNaming.Types.DNSConfigChange
 import Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
 
 -- | A complex type that contains changes to an existing service.
 --
---
---
--- /See:/ 'serviceChange' smart constructor.
+-- /See:/ 'mkServiceChange' smart constructor.
 data ServiceChange = ServiceChange'
-  { _scHealthCheckConfig ::
-      !(Maybe HealthCheckConfig),
-    _scDNSConfig :: !(Maybe DNSConfigChange),
-    _scDescription :: !(Maybe Text)
+  { healthCheckConfig ::
+      Lude.Maybe HealthCheckConfig,
+    dnsConfig :: Lude.Maybe DNSConfigChange,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceChange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scHealthCheckConfig' - Undocumented member.
---
--- * 'scDNSConfig' - A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
---
--- * 'scDescription' - A description for the service.
-serviceChange ::
+-- * 'description' - A description for the service.
+-- * 'dnsConfig' - A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+-- * 'healthCheckConfig' - Undocumented field.
+mkServiceChange ::
   ServiceChange
-serviceChange =
+mkServiceChange =
   ServiceChange'
-    { _scHealthCheckConfig = Nothing,
-      _scDNSConfig = Nothing,
-      _scDescription = Nothing
+    { healthCheckConfig = Lude.Nothing,
+      dnsConfig = Lude.Nothing,
+      description = Lude.Nothing
     }
 
--- | Undocumented member.
-scHealthCheckConfig :: Lens' ServiceChange (Maybe HealthCheckConfig)
-scHealthCheckConfig = lens _scHealthCheckConfig (\s a -> s {_scHealthCheckConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'healthCheckConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scHealthCheckConfig :: Lens.Lens' ServiceChange (Lude.Maybe HealthCheckConfig)
+scHealthCheckConfig = Lens.lens (healthCheckConfig :: ServiceChange -> Lude.Maybe HealthCheckConfig) (\s a -> s {healthCheckConfig = a} :: ServiceChange)
+{-# DEPRECATED scHealthCheckConfig "Use generic-lens or generic-optics with 'healthCheckConfig' instead." #-}
 
 -- | A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
-scDNSConfig :: Lens' ServiceChange (Maybe DNSConfigChange)
-scDNSConfig = lens _scDNSConfig (\s a -> s {_scDNSConfig = a})
+--
+-- /Note:/ Consider using 'dnsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scDNSConfig :: Lens.Lens' ServiceChange (Lude.Maybe DNSConfigChange)
+scDNSConfig = Lens.lens (dnsConfig :: ServiceChange -> Lude.Maybe DNSConfigChange) (\s a -> s {dnsConfig = a} :: ServiceChange)
+{-# DEPRECATED scDNSConfig "Use generic-lens or generic-optics with 'dnsConfig' instead." #-}
 
 -- | A description for the service.
-scDescription :: Lens' ServiceChange (Maybe Text)
-scDescription = lens _scDescription (\s a -> s {_scDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scDescription :: Lens.Lens' ServiceChange (Lude.Maybe Lude.Text)
+scDescription = Lens.lens (description :: ServiceChange -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ServiceChange)
+{-# DEPRECATED scDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Hashable ServiceChange
-
-instance NFData ServiceChange
-
-instance ToJSON ServiceChange where
+instance Lude.ToJSON ServiceChange where
   toJSON ServiceChange' {..} =
-    object
-      ( catMaybes
-          [ ("HealthCheckConfig" .=) <$> _scHealthCheckConfig,
-            ("DnsConfig" .=) <$> _scDNSConfig,
-            ("Description" .=) <$> _scDescription
+    Lude.object
+      ( Lude.catMaybes
+          [ ("HealthCheckConfig" Lude..=) Lude.<$> healthCheckConfig,
+            ("DnsConfig" Lude..=) Lude.<$> dnsConfig,
+            ("Description" Lude..=) Lude.<$> description
           ]
       )

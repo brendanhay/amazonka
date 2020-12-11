@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Initiator where
+module Network.AWS.S3.Types.Initiator
+  ( Initiator (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInitiator,
+
+    -- * Lenses
+    iDisplayName,
+    iId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Container element that identifies who initiated the multipart upload.
 --
---
---
--- /See:/ 'initiator' smart constructor.
+-- /See:/ 'mkInitiator' smart constructor.
 data Initiator = Initiator'
-  { _iDisplayName :: !(Maybe Text),
-    _iId :: !(Maybe Text)
+  { displayName :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Initiator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iDisplayName' - Name of the Principal.
---
--- * 'iId' - If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
-initiator ::
+-- * 'displayName' - Name of the Principal.
+-- * 'id' - If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
+mkInitiator ::
   Initiator
-initiator = Initiator' {_iDisplayName = Nothing, _iId = Nothing}
+mkInitiator =
+  Initiator' {displayName = Lude.Nothing, id = Lude.Nothing}
 
 -- | Name of the Principal.
-iDisplayName :: Lens' Initiator (Maybe Text)
-iDisplayName = lens _iDisplayName (\s a -> s {_iDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iDisplayName :: Lens.Lens' Initiator (Lude.Maybe Lude.Text)
+iDisplayName = Lens.lens (displayName :: Initiator -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: Initiator)
+{-# DEPRECATED iDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.
-iId :: Lens' Initiator (Maybe Text)
-iId = lens _iId (\s a -> s {_iId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iId :: Lens.Lens' Initiator (Lude.Maybe Lude.Text)
+iId = Lens.lens (id :: Initiator -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Initiator)
+{-# DEPRECATED iId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromXML Initiator where
-  parseXML x = Initiator' <$> (x .@? "DisplayName") <*> (x .@? "ID")
-
-instance Hashable Initiator
-
-instance NFData Initiator
+instance Lude.FromXML Initiator where
+  parseXML x =
+    Initiator'
+      Lude.<$> (x Lude..@? "DisplayName") Lude.<*> (x Lude..@? "ID")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.PackageType where
+module Network.AWS.ElasticSearch.Types.PackageType
+  ( PackageType
+      ( PackageType',
+        TxtDictionary
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PackageType = TxtDictionary
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PackageType = PackageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PackageType where
-  parser =
-    takeLowerText >>= \case
-      "txt-dictionary" -> pure TxtDictionary
-      e ->
-        fromTextError $
-          "Failure parsing PackageType from value: '" <> e
-            <> "'. Accepted values: txt-dictionary"
+pattern TxtDictionary :: PackageType
+pattern TxtDictionary = PackageType' "TXT-DICTIONARY"
 
-instance ToText PackageType where
-  toText = \case
-    TxtDictionary -> "TXT-DICTIONARY"
-
-instance Hashable PackageType
-
-instance NFData PackageType
-
-instance ToByteString PackageType
-
-instance ToQuery PackageType
-
-instance ToHeader PackageType
-
-instance ToJSON PackageType where
-  toJSON = toJSONText
-
-instance FromJSON PackageType where
-  parseJSON = parseJSONText "PackageType"
+{-# COMPLETE
+  TxtDictionary,
+  PackageType'
+  #-}

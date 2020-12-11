@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,163 @@
 --
 -- Updates a user profile.
 module Network.AWS.SageMaker.UpdateUserProfile
-  ( -- * Creating a Request
-    updateUserProfile,
-    UpdateUserProfile,
+  ( -- * Creating a request
+    UpdateUserProfile (..),
+    mkUpdateUserProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uupUserSettings,
     uupDomainId,
     uupUserProfileName,
 
-    -- * Destructuring the Response
-    updateUserProfileResponse,
-    UpdateUserProfileResponse,
+    -- * Destructuring the response
+    UpdateUserProfileResponse (..),
+    mkUpdateUserProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uuprsUserProfileARN,
     uuprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'updateUserProfile' smart constructor.
+-- | /See:/ 'mkUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { _uupUserSettings ::
-      !(Maybe UserSettings),
-    _uupDomainId :: !Text,
-    _uupUserProfileName :: !Text
+  { userSettings ::
+      Lude.Maybe UserSettings,
+    domainId :: Lude.Text,
+    userProfileName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uupUserSettings' - A collection of settings.
---
--- * 'uupDomainId' - The domain ID.
---
--- * 'uupUserProfileName' - The user profile name.
-updateUserProfile ::
-  -- | 'uupDomainId'
-  Text ->
-  -- | 'uupUserProfileName'
-  Text ->
+-- * 'domainId' - The domain ID.
+-- * 'userProfileName' - The user profile name.
+-- * 'userSettings' - A collection of settings.
+mkUpdateUserProfile ::
+  -- | 'domainId'
+  Lude.Text ->
+  -- | 'userProfileName'
+  Lude.Text ->
   UpdateUserProfile
-updateUserProfile pDomainId_ pUserProfileName_ =
+mkUpdateUserProfile pDomainId_ pUserProfileName_ =
   UpdateUserProfile'
-    { _uupUserSettings = Nothing,
-      _uupDomainId = pDomainId_,
-      _uupUserProfileName = pUserProfileName_
+    { userSettings = Lude.Nothing,
+      domainId = pDomainId_,
+      userProfileName = pUserProfileName_
     }
 
 -- | A collection of settings.
-uupUserSettings :: Lens' UpdateUserProfile (Maybe UserSettings)
-uupUserSettings = lens _uupUserSettings (\s a -> s {_uupUserSettings = a})
+--
+-- /Note:/ Consider using 'userSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupUserSettings :: Lens.Lens' UpdateUserProfile (Lude.Maybe UserSettings)
+uupUserSettings = Lens.lens (userSettings :: UpdateUserProfile -> Lude.Maybe UserSettings) (\s a -> s {userSettings = a} :: UpdateUserProfile)
+{-# DEPRECATED uupUserSettings "Use generic-lens or generic-optics with 'userSettings' instead." #-}
 
 -- | The domain ID.
-uupDomainId :: Lens' UpdateUserProfile Text
-uupDomainId = lens _uupDomainId (\s a -> s {_uupDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupDomainId :: Lens.Lens' UpdateUserProfile Lude.Text
+uupDomainId = Lens.lens (domainId :: UpdateUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: UpdateUserProfile)
+{-# DEPRECATED uupDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The user profile name.
-uupUserProfileName :: Lens' UpdateUserProfile Text
-uupUserProfileName = lens _uupUserProfileName (\s a -> s {_uupUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupUserProfileName :: Lens.Lens' UpdateUserProfile Lude.Text
+uupUserProfileName = Lens.lens (userProfileName :: UpdateUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: UpdateUserProfile)
+{-# DEPRECATED uupUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
-instance AWSRequest UpdateUserProfile where
+instance Lude.AWSRequest UpdateUserProfile where
   type Rs UpdateUserProfile = UpdateUserProfileResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateUserProfileResponse'
-            <$> (x .?> "UserProfileArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UserProfileArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateUserProfile
-
-instance NFData UpdateUserProfile
-
-instance ToHeaders UpdateUserProfile where
+instance Lude.ToHeaders UpdateUserProfile where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.UpdateUserProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.UpdateUserProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateUserProfile where
+instance Lude.ToJSON UpdateUserProfile where
   toJSON UpdateUserProfile' {..} =
-    object
-      ( catMaybes
-          [ ("UserSettings" .=) <$> _uupUserSettings,
-            Just ("DomainId" .= _uupDomainId),
-            Just ("UserProfileName" .= _uupUserProfileName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UserSettings" Lude..=) Lude.<$> userSettings,
+            Lude.Just ("DomainId" Lude..= domainId),
+            Lude.Just ("UserProfileName" Lude..= userProfileName)
           ]
       )
 
-instance ToPath UpdateUserProfile where
-  toPath = const "/"
+instance Lude.ToPath UpdateUserProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateUserProfile where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUserProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateUserProfileResponse' smart constructor.
+-- | /See:/ 'mkUpdateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
-  { _uuprsUserProfileARN ::
-      !(Maybe Text),
-    _uuprsResponseStatus :: !Int
+  { userProfileARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uuprsUserProfileARN' - The user profile Amazon Resource Name (ARN).
---
--- * 'uuprsResponseStatus' - -- | The response status code.
-updateUserProfileResponse ::
-  -- | 'uuprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'userProfileARN' - The user profile Amazon Resource Name (ARN).
+mkUpdateUserProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateUserProfileResponse
-updateUserProfileResponse pResponseStatus_ =
+mkUpdateUserProfileResponse pResponseStatus_ =
   UpdateUserProfileResponse'
-    { _uuprsUserProfileARN = Nothing,
-      _uuprsResponseStatus = pResponseStatus_
+    { userProfileARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The user profile Amazon Resource Name (ARN).
-uuprsUserProfileARN :: Lens' UpdateUserProfileResponse (Maybe Text)
-uuprsUserProfileARN = lens _uuprsUserProfileARN (\s a -> s {_uuprsUserProfileARN = a})
+--
+-- /Note:/ Consider using 'userProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuprsUserProfileARN :: Lens.Lens' UpdateUserProfileResponse (Lude.Maybe Lude.Text)
+uuprsUserProfileARN = Lens.lens (userProfileARN :: UpdateUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {userProfileARN = a} :: UpdateUserProfileResponse)
+{-# DEPRECATED uuprsUserProfileARN "Use generic-lens or generic-optics with 'userProfileARN' instead." #-}
 
--- | -- | The response status code.
-uuprsResponseStatus :: Lens' UpdateUserProfileResponse Int
-uuprsResponseStatus = lens _uuprsResponseStatus (\s a -> s {_uuprsResponseStatus = a})
-
-instance NFData UpdateUserProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuprsResponseStatus :: Lens.Lens' UpdateUserProfileResponse Lude.Int
+uuprsResponseStatus = Lens.lens (responseStatus :: UpdateUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateUserProfileResponse)
+{-# DEPRECATED uuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

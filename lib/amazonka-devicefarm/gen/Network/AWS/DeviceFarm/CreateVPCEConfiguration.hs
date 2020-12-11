@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,164 +14,184 @@
 --
 -- Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud (VPC) endpoint.
 module Network.AWS.DeviceFarm.CreateVPCEConfiguration
-  ( -- * Creating a Request
-    createVPCEConfiguration,
-    CreateVPCEConfiguration,
+  ( -- * Creating a request
+    CreateVPCEConfiguration (..),
+    mkCreateVPCEConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cvecVpceConfigurationDescription,
     cvecVpceConfigurationName,
     cvecVpceServiceName,
     cvecServiceDNSName,
 
-    -- * Destructuring the Response
-    createVPCEConfigurationResponse,
-    CreateVPCEConfigurationResponse,
+    -- * Destructuring the response
+    CreateVPCEConfigurationResponse (..),
+    mkCreateVPCEConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cvecrsVpceConfiguration,
     cvecrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createVPCEConfiguration' smart constructor.
+-- | /See:/ 'mkCreateVPCEConfiguration' smart constructor.
 data CreateVPCEConfiguration = CreateVPCEConfiguration'
-  { _cvecVpceConfigurationDescription ::
-      !(Maybe Text),
-    _cvecVpceConfigurationName :: !Text,
-    _cvecVpceServiceName :: !Text,
-    _cvecServiceDNSName :: !Text
+  { vpceConfigurationDescription ::
+      Lude.Maybe Lude.Text,
+    vpceConfigurationName :: Lude.Text,
+    vpceServiceName :: Lude.Text,
+    serviceDNSName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCEConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvecVpceConfigurationDescription' - An optional description that provides details about your VPC endpoint configuration.
---
--- * 'cvecVpceConfigurationName' - The friendly name you give to your VPC endpoint configuration, to manage your configurations more easily.
---
--- * 'cvecVpceServiceName' - The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
---
--- * 'cvecServiceDNSName' - The DNS name of the service running in your VPC that you want Device Farm to test.
-createVPCEConfiguration ::
-  -- | 'cvecVpceConfigurationName'
-  Text ->
-  -- | 'cvecVpceServiceName'
-  Text ->
-  -- | 'cvecServiceDNSName'
-  Text ->
+-- * 'serviceDNSName' - The DNS name of the service running in your VPC that you want Device Farm to test.
+-- * 'vpceConfigurationDescription' - An optional description that provides details about your VPC endpoint configuration.
+-- * 'vpceConfigurationName' - The friendly name you give to your VPC endpoint configuration, to manage your configurations more easily.
+-- * 'vpceServiceName' - The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
+mkCreateVPCEConfiguration ::
+  -- | 'vpceConfigurationName'
+  Lude.Text ->
+  -- | 'vpceServiceName'
+  Lude.Text ->
+  -- | 'serviceDNSName'
+  Lude.Text ->
   CreateVPCEConfiguration
-createVPCEConfiguration
+mkCreateVPCEConfiguration
   pVpceConfigurationName_
   pVpceServiceName_
   pServiceDNSName_ =
     CreateVPCEConfiguration'
-      { _cvecVpceConfigurationDescription =
-          Nothing,
-        _cvecVpceConfigurationName = pVpceConfigurationName_,
-        _cvecVpceServiceName = pVpceServiceName_,
-        _cvecServiceDNSName = pServiceDNSName_
+      { vpceConfigurationDescription =
+          Lude.Nothing,
+        vpceConfigurationName = pVpceConfigurationName_,
+        vpceServiceName = pVpceServiceName_,
+        serviceDNSName = pServiceDNSName_
       }
 
 -- | An optional description that provides details about your VPC endpoint configuration.
-cvecVpceConfigurationDescription :: Lens' CreateVPCEConfiguration (Maybe Text)
-cvecVpceConfigurationDescription = lens _cvecVpceConfigurationDescription (\s a -> s {_cvecVpceConfigurationDescription = a})
+--
+-- /Note:/ Consider using 'vpceConfigurationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecVpceConfigurationDescription :: Lens.Lens' CreateVPCEConfiguration (Lude.Maybe Lude.Text)
+cvecVpceConfigurationDescription = Lens.lens (vpceConfigurationDescription :: CreateVPCEConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {vpceConfigurationDescription = a} :: CreateVPCEConfiguration)
+{-# DEPRECATED cvecVpceConfigurationDescription "Use generic-lens or generic-optics with 'vpceConfigurationDescription' instead." #-}
 
 -- | The friendly name you give to your VPC endpoint configuration, to manage your configurations more easily.
-cvecVpceConfigurationName :: Lens' CreateVPCEConfiguration Text
-cvecVpceConfigurationName = lens _cvecVpceConfigurationName (\s a -> s {_cvecVpceConfigurationName = a})
+--
+-- /Note:/ Consider using 'vpceConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecVpceConfigurationName :: Lens.Lens' CreateVPCEConfiguration Lude.Text
+cvecVpceConfigurationName = Lens.lens (vpceConfigurationName :: CreateVPCEConfiguration -> Lude.Text) (\s a -> s {vpceConfigurationName = a} :: CreateVPCEConfiguration)
+{-# DEPRECATED cvecVpceConfigurationName "Use generic-lens or generic-optics with 'vpceConfigurationName' instead." #-}
 
 -- | The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
-cvecVpceServiceName :: Lens' CreateVPCEConfiguration Text
-cvecVpceServiceName = lens _cvecVpceServiceName (\s a -> s {_cvecVpceServiceName = a})
+--
+-- /Note:/ Consider using 'vpceServiceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecVpceServiceName :: Lens.Lens' CreateVPCEConfiguration Lude.Text
+cvecVpceServiceName = Lens.lens (vpceServiceName :: CreateVPCEConfiguration -> Lude.Text) (\s a -> s {vpceServiceName = a} :: CreateVPCEConfiguration)
+{-# DEPRECATED cvecVpceServiceName "Use generic-lens or generic-optics with 'vpceServiceName' instead." #-}
 
 -- | The DNS name of the service running in your VPC that you want Device Farm to test.
-cvecServiceDNSName :: Lens' CreateVPCEConfiguration Text
-cvecServiceDNSName = lens _cvecServiceDNSName (\s a -> s {_cvecServiceDNSName = a})
+--
+-- /Note:/ Consider using 'serviceDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecServiceDNSName :: Lens.Lens' CreateVPCEConfiguration Lude.Text
+cvecServiceDNSName = Lens.lens (serviceDNSName :: CreateVPCEConfiguration -> Lude.Text) (\s a -> s {serviceDNSName = a} :: CreateVPCEConfiguration)
+{-# DEPRECATED cvecServiceDNSName "Use generic-lens or generic-optics with 'serviceDNSName' instead." #-}
 
-instance AWSRequest CreateVPCEConfiguration where
+instance Lude.AWSRequest CreateVPCEConfiguration where
   type Rs CreateVPCEConfiguration = CreateVPCEConfigurationResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateVPCEConfigurationResponse'
-            <$> (x .?> "vpceConfiguration") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "vpceConfiguration")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateVPCEConfiguration
-
-instance NFData CreateVPCEConfiguration
-
-instance ToHeaders CreateVPCEConfiguration where
+instance Lude.ToHeaders CreateVPCEConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.CreateVPCEConfiguration" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.CreateVPCEConfiguration" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateVPCEConfiguration where
+instance Lude.ToJSON CreateVPCEConfiguration where
   toJSON CreateVPCEConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("vpceConfigurationDescription" .=)
-              <$> _cvecVpceConfigurationDescription,
-            Just ("vpceConfigurationName" .= _cvecVpceConfigurationName),
-            Just ("vpceServiceName" .= _cvecVpceServiceName),
-            Just ("serviceDnsName" .= _cvecServiceDNSName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("vpceConfigurationDescription" Lude..=)
+              Lude.<$> vpceConfigurationDescription,
+            Lude.Just ("vpceConfigurationName" Lude..= vpceConfigurationName),
+            Lude.Just ("vpceServiceName" Lude..= vpceServiceName),
+            Lude.Just ("serviceDnsName" Lude..= serviceDNSName)
           ]
       )
 
-instance ToPath CreateVPCEConfiguration where
-  toPath = const "/"
+instance Lude.ToPath CreateVPCEConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateVPCEConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery CreateVPCEConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createVPCEConfigurationResponse' smart constructor.
+-- | /See:/ 'mkCreateVPCEConfigurationResponse' smart constructor.
 data CreateVPCEConfigurationResponse = CreateVPCEConfigurationResponse'
-  { _cvecrsVpceConfiguration ::
-      !(Maybe VPCEConfiguration),
-    _cvecrsResponseStatus ::
-      !Int
+  { vpceConfiguration ::
+      Lude.Maybe
+        VPCEConfiguration,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCEConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvecrsVpceConfiguration' - An object that contains information about your VPC endpoint configuration.
---
--- * 'cvecrsResponseStatus' - -- | The response status code.
-createVPCEConfigurationResponse ::
-  -- | 'cvecrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'vpceConfiguration' - An object that contains information about your VPC endpoint configuration.
+mkCreateVPCEConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateVPCEConfigurationResponse
-createVPCEConfigurationResponse pResponseStatus_ =
+mkCreateVPCEConfigurationResponse pResponseStatus_ =
   CreateVPCEConfigurationResponse'
-    { _cvecrsVpceConfiguration =
-        Nothing,
-      _cvecrsResponseStatus = pResponseStatus_
+    { vpceConfiguration =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that contains information about your VPC endpoint configuration.
-cvecrsVpceConfiguration :: Lens' CreateVPCEConfigurationResponse (Maybe VPCEConfiguration)
-cvecrsVpceConfiguration = lens _cvecrsVpceConfiguration (\s a -> s {_cvecrsVpceConfiguration = a})
+--
+-- /Note:/ Consider using 'vpceConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecrsVpceConfiguration :: Lens.Lens' CreateVPCEConfigurationResponse (Lude.Maybe VPCEConfiguration)
+cvecrsVpceConfiguration = Lens.lens (vpceConfiguration :: CreateVPCEConfigurationResponse -> Lude.Maybe VPCEConfiguration) (\s a -> s {vpceConfiguration = a} :: CreateVPCEConfigurationResponse)
+{-# DEPRECATED cvecrsVpceConfiguration "Use generic-lens or generic-optics with 'vpceConfiguration' instead." #-}
 
--- | -- | The response status code.
-cvecrsResponseStatus :: Lens' CreateVPCEConfigurationResponse Int
-cvecrsResponseStatus = lens _cvecrsResponseStatus (\s a -> s {_cvecrsResponseStatus = a})
-
-instance NFData CreateVPCEConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvecrsResponseStatus :: Lens.Lens' CreateVPCEConfigurationResponse Lude.Int
+cvecrsResponseStatus = Lens.lens (responseStatus :: CreateVPCEConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVPCEConfigurationResponse)
+{-# DEPRECATED cvecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

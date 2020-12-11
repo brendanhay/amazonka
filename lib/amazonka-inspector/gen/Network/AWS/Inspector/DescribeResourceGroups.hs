@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes the resource groups that are specified by the ARNs of the resource groups.
 module Network.AWS.Inspector.DescribeResourceGroups
-  ( -- * Creating a Request
-    describeResourceGroups,
-    DescribeResourceGroups,
+  ( -- * Creating a request
+    DescribeResourceGroups (..),
+    mkDescribeResourceGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drgResourceGroupARNs,
 
-    -- * Destructuring the Response
-    describeResourceGroupsResponse,
-    DescribeResourceGroupsResponse,
+    -- * Destructuring the response
+    DescribeResourceGroupsResponse (..),
+    mkDescribeResourceGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drgrsResponseStatus,
     drgrsResourceGroups,
     drgrsFailedItems,
@@ -38,119 +33,132 @@ module Network.AWS.Inspector.DescribeResourceGroups
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeResourceGroups' smart constructor.
+-- | /See:/ 'mkDescribeResourceGroups' smart constructor.
 newtype DescribeResourceGroups = DescribeResourceGroups'
-  { _drgResourceGroupARNs ::
-      List1 Text
+  { resourceGroupARNs ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeResourceGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drgResourceGroupARNs' - The ARN that specifies the resource group that you want to describe.
-describeResourceGroups ::
-  -- | 'drgResourceGroupARNs'
-  NonEmpty Text ->
+-- * 'resourceGroupARNs' - The ARN that specifies the resource group that you want to describe.
+mkDescribeResourceGroups ::
+  -- | 'resourceGroupARNs'
+  Lude.NonEmpty Lude.Text ->
   DescribeResourceGroups
-describeResourceGroups pResourceGroupARNs_ =
-  DescribeResourceGroups'
-    { _drgResourceGroupARNs =
-        _List1 # pResourceGroupARNs_
-    }
+mkDescribeResourceGroups pResourceGroupARNs_ =
+  DescribeResourceGroups' {resourceGroupARNs = pResourceGroupARNs_}
 
 -- | The ARN that specifies the resource group that you want to describe.
-drgResourceGroupARNs :: Lens' DescribeResourceGroups (NonEmpty Text)
-drgResourceGroupARNs = lens _drgResourceGroupARNs (\s a -> s {_drgResourceGroupARNs = a}) . _List1
+--
+-- /Note:/ Consider using 'resourceGroupARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgResourceGroupARNs :: Lens.Lens' DescribeResourceGroups (Lude.NonEmpty Lude.Text)
+drgResourceGroupARNs = Lens.lens (resourceGroupARNs :: DescribeResourceGroups -> Lude.NonEmpty Lude.Text) (\s a -> s {resourceGroupARNs = a} :: DescribeResourceGroups)
+{-# DEPRECATED drgResourceGroupARNs "Use generic-lens or generic-optics with 'resourceGroupARNs' instead." #-}
 
-instance AWSRequest DescribeResourceGroups where
+instance Lude.AWSRequest DescribeResourceGroups where
   type Rs DescribeResourceGroups = DescribeResourceGroupsResponse
-  request = postJSON inspector
+  request = Req.postJSON inspectorService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeResourceGroupsResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .?> "resourceGroups" .!@ mempty)
-            <*> (x .?> "failedItems" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "resourceGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeResourceGroups
-
-instance NFData DescribeResourceGroups
-
-instance ToHeaders DescribeResourceGroups where
+instance Lude.ToHeaders DescribeResourceGroups where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.DescribeResourceGroups" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.DescribeResourceGroups" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeResourceGroups where
+instance Lude.ToJSON DescribeResourceGroups where
   toJSON DescribeResourceGroups' {..} =
-    object
-      (catMaybes [Just ("resourceGroupArns" .= _drgResourceGroupARNs)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("resourceGroupArns" Lude..= resourceGroupARNs)]
+      )
 
-instance ToPath DescribeResourceGroups where
-  toPath = const "/"
+instance Lude.ToPath DescribeResourceGroups where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeResourceGroups where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeResourceGroups where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeResourceGroupsResponse' smart constructor.
+-- | /See:/ 'mkDescribeResourceGroupsResponse' smart constructor.
 data DescribeResourceGroupsResponse = DescribeResourceGroupsResponse'
-  { _drgrsResponseStatus ::
-      !Int,
-    _drgrsResourceGroups ::
-      ![ResourceGroup],
-    _drgrsFailedItems ::
-      !( Map
-           Text
-           (FailedItemDetails)
-       )
+  { responseStatus ::
+      Lude.Int,
+    resourceGroups ::
+      [ResourceGroup],
+    failedItems ::
+      Lude.HashMap
+        Lude.Text
+        (FailedItemDetails)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeResourceGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drgrsResponseStatus' - -- | The response status code.
---
--- * 'drgrsResourceGroups' - Information about a resource group.
---
--- * 'drgrsFailedItems' - Resource group details that cannot be described. An error code is provided for each failed item.
-describeResourceGroupsResponse ::
-  -- | 'drgrsResponseStatus'
-  Int ->
+-- * 'failedItems' - Resource group details that cannot be described. An error code is provided for each failed item.
+-- * 'resourceGroups' - Information about a resource group.
+-- * 'responseStatus' - The response status code.
+mkDescribeResourceGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeResourceGroupsResponse
-describeResourceGroupsResponse pResponseStatus_ =
+mkDescribeResourceGroupsResponse pResponseStatus_ =
   DescribeResourceGroupsResponse'
-    { _drgrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _drgrsResourceGroups = mempty,
-      _drgrsFailedItems = mempty
+      resourceGroups = Lude.mempty,
+      failedItems = Lude.mempty
     }
 
--- | -- | The response status code.
-drgrsResponseStatus :: Lens' DescribeResourceGroupsResponse Int
-drgrsResponseStatus = lens _drgrsResponseStatus (\s a -> s {_drgrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgrsResponseStatus :: Lens.Lens' DescribeResourceGroupsResponse Lude.Int
+drgrsResponseStatus = Lens.lens (responseStatus :: DescribeResourceGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeResourceGroupsResponse)
+{-# DEPRECATED drgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about a resource group.
-drgrsResourceGroups :: Lens' DescribeResourceGroupsResponse [ResourceGroup]
-drgrsResourceGroups = lens _drgrsResourceGroups (\s a -> s {_drgrsResourceGroups = a}) . _Coerce
+--
+-- /Note:/ Consider using 'resourceGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgrsResourceGroups :: Lens.Lens' DescribeResourceGroupsResponse [ResourceGroup]
+drgrsResourceGroups = Lens.lens (resourceGroups :: DescribeResourceGroupsResponse -> [ResourceGroup]) (\s a -> s {resourceGroups = a} :: DescribeResourceGroupsResponse)
+{-# DEPRECATED drgrsResourceGroups "Use generic-lens or generic-optics with 'resourceGroups' instead." #-}
 
 -- | Resource group details that cannot be described. An error code is provided for each failed item.
-drgrsFailedItems :: Lens' DescribeResourceGroupsResponse (HashMap Text (FailedItemDetails))
-drgrsFailedItems = lens _drgrsFailedItems (\s a -> s {_drgrsFailedItems = a}) . _Map
-
-instance NFData DescribeResourceGroupsResponse
+--
+-- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drgrsFailedItems :: Lens.Lens' DescribeResourceGroupsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
+drgrsFailedItems = Lens.lens (failedItems :: DescribeResourceGroupsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeResourceGroupsResponse)
+{-# DEPRECATED drgrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}

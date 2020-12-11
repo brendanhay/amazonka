@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.WorkflowRunStatistics where
+module Network.AWS.Glue.Types.WorkflowRunStatistics
+  ( WorkflowRunStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkflowRunStatistics,
+
+    -- * Lenses
+    wrsRunningActions,
+    wrsStoppedActions,
+    wrsTotalActions,
+    wrsFailedActions,
+    wrsTimeoutActions,
+    wrsSucceededActions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Workflow run statistics provides statistics about the workflow run.
 --
---
---
--- /See:/ 'workflowRunStatistics' smart constructor.
+-- /See:/ 'mkWorkflowRunStatistics' smart constructor.
 data WorkflowRunStatistics = WorkflowRunStatistics'
-  { _wrsRunningActions ::
-      !(Maybe Int),
-    _wrsStoppedActions :: !(Maybe Int),
-    _wrsTotalActions :: !(Maybe Int),
-    _wrsFailedActions :: !(Maybe Int),
-    _wrsTimeoutActions :: !(Maybe Int),
-    _wrsSucceededActions :: !(Maybe Int)
+  { runningActions ::
+      Lude.Maybe Lude.Int,
+    stoppedActions :: Lude.Maybe Lude.Int,
+    totalActions :: Lude.Maybe Lude.Int,
+    failedActions :: Lude.Maybe Lude.Int,
+    timeoutActions :: Lude.Maybe Lude.Int,
+    succeededActions :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowRunStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wrsRunningActions' - Total number Actions in running state.
---
--- * 'wrsStoppedActions' - Total number of Actions that have stopped.
---
--- * 'wrsTotalActions' - Total number of Actions in the workflow run.
---
--- * 'wrsFailedActions' - Total number of Actions that have failed.
---
--- * 'wrsTimeoutActions' - Total number of Actions that timed out.
---
--- * 'wrsSucceededActions' - Total number of Actions that have succeeded.
-workflowRunStatistics ::
+-- * 'failedActions' - Total number of Actions that have failed.
+-- * 'runningActions' - Total number Actions in running state.
+-- * 'stoppedActions' - Total number of Actions that have stopped.
+-- * 'succeededActions' - Total number of Actions that have succeeded.
+-- * 'timeoutActions' - Total number of Actions that timed out.
+-- * 'totalActions' - Total number of Actions in the workflow run.
+mkWorkflowRunStatistics ::
   WorkflowRunStatistics
-workflowRunStatistics =
+mkWorkflowRunStatistics =
   WorkflowRunStatistics'
-    { _wrsRunningActions = Nothing,
-      _wrsStoppedActions = Nothing,
-      _wrsTotalActions = Nothing,
-      _wrsFailedActions = Nothing,
-      _wrsTimeoutActions = Nothing,
-      _wrsSucceededActions = Nothing
+    { runningActions = Lude.Nothing,
+      stoppedActions = Lude.Nothing,
+      totalActions = Lude.Nothing,
+      failedActions = Lude.Nothing,
+      timeoutActions = Lude.Nothing,
+      succeededActions = Lude.Nothing
     }
 
 -- | Total number Actions in running state.
-wrsRunningActions :: Lens' WorkflowRunStatistics (Maybe Int)
-wrsRunningActions = lens _wrsRunningActions (\s a -> s {_wrsRunningActions = a})
+--
+-- /Note:/ Consider using 'runningActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrsRunningActions :: Lens.Lens' WorkflowRunStatistics (Lude.Maybe Lude.Int)
+wrsRunningActions = Lens.lens (runningActions :: WorkflowRunStatistics -> Lude.Maybe Lude.Int) (\s a -> s {runningActions = a} :: WorkflowRunStatistics)
+{-# DEPRECATED wrsRunningActions "Use generic-lens or generic-optics with 'runningActions' instead." #-}
 
 -- | Total number of Actions that have stopped.
-wrsStoppedActions :: Lens' WorkflowRunStatistics (Maybe Int)
-wrsStoppedActions = lens _wrsStoppedActions (\s a -> s {_wrsStoppedActions = a})
+--
+-- /Note:/ Consider using 'stoppedActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrsStoppedActions :: Lens.Lens' WorkflowRunStatistics (Lude.Maybe Lude.Int)
+wrsStoppedActions = Lens.lens (stoppedActions :: WorkflowRunStatistics -> Lude.Maybe Lude.Int) (\s a -> s {stoppedActions = a} :: WorkflowRunStatistics)
+{-# DEPRECATED wrsStoppedActions "Use generic-lens or generic-optics with 'stoppedActions' instead." #-}
 
 -- | Total number of Actions in the workflow run.
-wrsTotalActions :: Lens' WorkflowRunStatistics (Maybe Int)
-wrsTotalActions = lens _wrsTotalActions (\s a -> s {_wrsTotalActions = a})
+--
+-- /Note:/ Consider using 'totalActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrsTotalActions :: Lens.Lens' WorkflowRunStatistics (Lude.Maybe Lude.Int)
+wrsTotalActions = Lens.lens (totalActions :: WorkflowRunStatistics -> Lude.Maybe Lude.Int) (\s a -> s {totalActions = a} :: WorkflowRunStatistics)
+{-# DEPRECATED wrsTotalActions "Use generic-lens or generic-optics with 'totalActions' instead." #-}
 
 -- | Total number of Actions that have failed.
-wrsFailedActions :: Lens' WorkflowRunStatistics (Maybe Int)
-wrsFailedActions = lens _wrsFailedActions (\s a -> s {_wrsFailedActions = a})
+--
+-- /Note:/ Consider using 'failedActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrsFailedActions :: Lens.Lens' WorkflowRunStatistics (Lude.Maybe Lude.Int)
+wrsFailedActions = Lens.lens (failedActions :: WorkflowRunStatistics -> Lude.Maybe Lude.Int) (\s a -> s {failedActions = a} :: WorkflowRunStatistics)
+{-# DEPRECATED wrsFailedActions "Use generic-lens or generic-optics with 'failedActions' instead." #-}
 
 -- | Total number of Actions that timed out.
-wrsTimeoutActions :: Lens' WorkflowRunStatistics (Maybe Int)
-wrsTimeoutActions = lens _wrsTimeoutActions (\s a -> s {_wrsTimeoutActions = a})
+--
+-- /Note:/ Consider using 'timeoutActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrsTimeoutActions :: Lens.Lens' WorkflowRunStatistics (Lude.Maybe Lude.Int)
+wrsTimeoutActions = Lens.lens (timeoutActions :: WorkflowRunStatistics -> Lude.Maybe Lude.Int) (\s a -> s {timeoutActions = a} :: WorkflowRunStatistics)
+{-# DEPRECATED wrsTimeoutActions "Use generic-lens or generic-optics with 'timeoutActions' instead." #-}
 
 -- | Total number of Actions that have succeeded.
-wrsSucceededActions :: Lens' WorkflowRunStatistics (Maybe Int)
-wrsSucceededActions = lens _wrsSucceededActions (\s a -> s {_wrsSucceededActions = a})
+--
+-- /Note:/ Consider using 'succeededActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrsSucceededActions :: Lens.Lens' WorkflowRunStatistics (Lude.Maybe Lude.Int)
+wrsSucceededActions = Lens.lens (succeededActions :: WorkflowRunStatistics -> Lude.Maybe Lude.Int) (\s a -> s {succeededActions = a} :: WorkflowRunStatistics)
+{-# DEPRECATED wrsSucceededActions "Use generic-lens or generic-optics with 'succeededActions' instead." #-}
 
-instance FromJSON WorkflowRunStatistics where
+instance Lude.FromJSON WorkflowRunStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkflowRunStatistics"
       ( \x ->
           WorkflowRunStatistics'
-            <$> (x .:? "RunningActions")
-            <*> (x .:? "StoppedActions")
-            <*> (x .:? "TotalActions")
-            <*> (x .:? "FailedActions")
-            <*> (x .:? "TimeoutActions")
-            <*> (x .:? "SucceededActions")
+            Lude.<$> (x Lude..:? "RunningActions")
+            Lude.<*> (x Lude..:? "StoppedActions")
+            Lude.<*> (x Lude..:? "TotalActions")
+            Lude.<*> (x Lude..:? "FailedActions")
+            Lude.<*> (x Lude..:? "TimeoutActions")
+            Lude.<*> (x Lude..:? "SucceededActions")
       )
-
-instance Hashable WorkflowRunStatistics
-
-instance NFData WorkflowRunStatistics

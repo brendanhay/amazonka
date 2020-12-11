@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,103 @@
 --
 -- Deletes a real-time log configuration.
 --
---
 -- You cannot delete a real-time log configuration if it’s attached to a cache behavior. First update your distributions to remove the real-time log configuration from all cache behaviors, then delete the real-time log configuration.
---
 -- To delete a real-time log configuration, you can provide the configuration’s name or its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to identify the real-time log configuration to delete.
 module Network.AWS.CloudFront.DeleteRealtimeLogConfig
-  ( -- * Creating a Request
-    deleteRealtimeLogConfig,
-    DeleteRealtimeLogConfig,
+  ( -- * Creating a request
+    DeleteRealtimeLogConfig (..),
+    mkDeleteRealtimeLogConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drlcARN,
     drlcName,
 
-    -- * Destructuring the Response
-    deleteRealtimeLogConfigResponse,
-    DeleteRealtimeLogConfigResponse,
+    -- * Destructuring the response
+    DeleteRealtimeLogConfigResponse (..),
+    mkDeleteRealtimeLogConfigResponse,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRealtimeLogConfig' smart constructor.
+-- | /See:/ 'mkDeleteRealtimeLogConfig' smart constructor.
 data DeleteRealtimeLogConfig = DeleteRealtimeLogConfig'
-  { _drlcARN ::
-      !(Maybe Text),
-    _drlcName :: !(Maybe Text)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRealtimeLogConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drlcARN' - The Amazon Resource Name (ARN) of the real-time log configuration to delete.
---
--- * 'drlcName' - The name of the real-time log configuration to delete.
-deleteRealtimeLogConfig ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the real-time log configuration to delete.
+-- * 'name' - The name of the real-time log configuration to delete.
+mkDeleteRealtimeLogConfig ::
   DeleteRealtimeLogConfig
-deleteRealtimeLogConfig =
-  DeleteRealtimeLogConfig' {_drlcARN = Nothing, _drlcName = Nothing}
+mkDeleteRealtimeLogConfig =
+  DeleteRealtimeLogConfig' {arn = Lude.Nothing, name = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the real-time log configuration to delete.
-drlcARN :: Lens' DeleteRealtimeLogConfig (Maybe Text)
-drlcARN = lens _drlcARN (\s a -> s {_drlcARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drlcARN :: Lens.Lens' DeleteRealtimeLogConfig (Lude.Maybe Lude.Text)
+drlcARN = Lens.lens (arn :: DeleteRealtimeLogConfig -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DeleteRealtimeLogConfig)
+{-# DEPRECATED drlcARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the real-time log configuration to delete.
-drlcName :: Lens' DeleteRealtimeLogConfig (Maybe Text)
-drlcName = lens _drlcName (\s a -> s {_drlcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drlcName :: Lens.Lens' DeleteRealtimeLogConfig (Lude.Maybe Lude.Text)
+drlcName = Lens.lens (name :: DeleteRealtimeLogConfig -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeleteRealtimeLogConfig)
+{-# DEPRECATED drlcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteRealtimeLogConfig where
+instance Lude.AWSRequest DeleteRealtimeLogConfig where
   type Rs DeleteRealtimeLogConfig = DeleteRealtimeLogConfigResponse
-  request = postXML cloudFront
-  response = receiveNull DeleteRealtimeLogConfigResponse'
+  request = Req.postXML cloudFrontService
+  response = Res.receiveNull DeleteRealtimeLogConfigResponse'
 
-instance Hashable DeleteRealtimeLogConfig
-
-instance NFData DeleteRealtimeLogConfig
-
-instance ToElement DeleteRealtimeLogConfig where
+instance Lude.ToElement DeleteRealtimeLogConfig where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DeleteRealtimeLogConfigRequest"
 
-instance ToHeaders DeleteRealtimeLogConfig where
-  toHeaders = const mempty
+instance Lude.ToHeaders DeleteRealtimeLogConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance ToPath DeleteRealtimeLogConfig where
-  toPath = const "/2020-05-31/delete-realtime-log-config/"
+instance Lude.ToPath DeleteRealtimeLogConfig where
+  toPath = Lude.const "/2020-05-31/delete-realtime-log-config/"
 
-instance ToQuery DeleteRealtimeLogConfig where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRealtimeLogConfig where
+  toQuery = Lude.const Lude.mempty
 
-instance ToXML DeleteRealtimeLogConfig where
+instance Lude.ToXML DeleteRealtimeLogConfig where
   toXML DeleteRealtimeLogConfig' {..} =
-    mconcat ["ARN" @= _drlcARN, "Name" @= _drlcName]
+    Lude.mconcat ["ARN" Lude.@= arn, "Name" Lude.@= name]
 
--- | /See:/ 'deleteRealtimeLogConfigResponse' smart constructor.
+-- | /See:/ 'mkDeleteRealtimeLogConfigResponse' smart constructor.
 data DeleteRealtimeLogConfigResponse = DeleteRealtimeLogConfigResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRealtimeLogConfigResponse' with the minimum fields required to make a request.
-deleteRealtimeLogConfigResponse ::
+mkDeleteRealtimeLogConfigResponse ::
   DeleteRealtimeLogConfigResponse
-deleteRealtimeLogConfigResponse = DeleteRealtimeLogConfigResponse'
-
-instance NFData DeleteRealtimeLogConfigResponse
+mkDeleteRealtimeLogConfigResponse =
+  DeleteRealtimeLogConfigResponse'

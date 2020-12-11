@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.APIKeysFormat where
+module Network.AWS.APIGateway.Types.APIKeysFormat
+  ( APIKeysFormat
+      ( APIKeysFormat',
+        CSV
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data APIKeysFormat = CSV
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype APIKeysFormat = APIKeysFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText APIKeysFormat where
-  parser =
-    takeLowerText >>= \case
-      "csv" -> pure CSV
-      e ->
-        fromTextError $
-          "Failure parsing APIKeysFormat from value: '" <> e
-            <> "'. Accepted values: csv"
+pattern CSV :: APIKeysFormat
+pattern CSV = APIKeysFormat' "csv"
 
-instance ToText APIKeysFormat where
-  toText = \case
-    CSV -> "csv"
-
-instance Hashable APIKeysFormat
-
-instance NFData APIKeysFormat
-
-instance ToByteString APIKeysFormat
-
-instance ToQuery APIKeysFormat
-
-instance ToHeader APIKeysFormat
-
-instance ToJSON APIKeysFormat where
-  toJSON = toJSONText
+{-# COMPLETE
+  CSV,
+  APIKeysFormat'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Creates a 'Directory' by copying the published schema into the directory. A directory cannot be created without a schema.
 --
---
 -- You can also quickly create a directory using a managed schema, called the @QuickStartSchema@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html Managed Schema> in the /Amazon Cloud Directory Developer Guide/ .
 module Network.AWS.CloudDirectory.CreateDirectory
-  ( -- * Creating a Request
-    createDirectory,
-    CreateDirectory,
+  ( -- * Creating a request
+    CreateDirectory (..),
+    mkCreateDirectory,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdName,
     cdSchemaARN,
 
-    -- * Destructuring the Response
-    createDirectoryResponse,
-    CreateDirectoryResponse,
+    -- * Destructuring the response
+    CreateDirectoryResponse (..),
+    mkCreateDirectoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdrsResponseStatus,
     cdrsDirectoryARN,
     cdrsName,
@@ -44,142 +38,163 @@ module Network.AWS.CloudDirectory.CreateDirectory
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDirectory' smart constructor.
+-- | /See:/ 'mkCreateDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
-  { _cdName :: !Text,
-    _cdSchemaARN :: !Text
+  { name :: Lude.Text,
+    schemaARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectory' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdName' - The name of the 'Directory' . Should be unique per account, per region.
---
--- * 'cdSchemaARN' - The Amazon Resource Name (ARN) of the published schema that will be copied into the data 'Directory' . For more information, see 'arns' .
-createDirectory ::
-  -- | 'cdName'
-  Text ->
-  -- | 'cdSchemaARN'
-  Text ->
+-- * 'name' - The name of the 'Directory' . Should be unique per account, per region.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the published schema that will be copied into the data 'Directory' . For more information, see 'arns' .
+mkCreateDirectory ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'schemaARN'
+  Lude.Text ->
   CreateDirectory
-createDirectory pName_ pSchemaARN_ =
-  CreateDirectory' {_cdName = pName_, _cdSchemaARN = pSchemaARN_}
+mkCreateDirectory pName_ pSchemaARN_ =
+  CreateDirectory' {name = pName_, schemaARN = pSchemaARN_}
 
 -- | The name of the 'Directory' . Should be unique per account, per region.
-cdName :: Lens' CreateDirectory Text
-cdName = lens _cdName (\s a -> s {_cdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdName :: Lens.Lens' CreateDirectory Lude.Text
+cdName = Lens.lens (name :: CreateDirectory -> Lude.Text) (\s a -> s {name = a} :: CreateDirectory)
+{-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the published schema that will be copied into the data 'Directory' . For more information, see 'arns' .
-cdSchemaARN :: Lens' CreateDirectory Text
-cdSchemaARN = lens _cdSchemaARN (\s a -> s {_cdSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSchemaARN :: Lens.Lens' CreateDirectory Lude.Text
+cdSchemaARN = Lens.lens (schemaARN :: CreateDirectory -> Lude.Text) (\s a -> s {schemaARN = a} :: CreateDirectory)
+{-# DEPRECATED cdSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
-instance AWSRequest CreateDirectory where
+instance Lude.AWSRequest CreateDirectory where
   type Rs CreateDirectory = CreateDirectoryResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDirectoryResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .:> "DirectoryArn")
-            <*> (x .:> "Name")
-            <*> (x .:> "ObjectIdentifier")
-            <*> (x .:> "AppliedSchemaArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "DirectoryArn")
+            Lude.<*> (x Lude..:> "Name")
+            Lude.<*> (x Lude..:> "ObjectIdentifier")
+            Lude.<*> (x Lude..:> "AppliedSchemaArn")
       )
 
-instance Hashable CreateDirectory
-
-instance NFData CreateDirectory
-
-instance ToHeaders CreateDirectory where
+instance Lude.ToHeaders CreateDirectory where
   toHeaders CreateDirectory' {..} =
-    mconcat ["x-amz-data-partition" =# _cdSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON CreateDirectory where
+instance Lude.ToJSON CreateDirectory where
   toJSON CreateDirectory' {..} =
-    object (catMaybes [Just ("Name" .= _cdName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath CreateDirectory where
-  toPath = const "/amazonclouddirectory/2017-01-11/directory/create"
+instance Lude.ToPath CreateDirectory where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/directory/create"
 
-instance ToQuery CreateDirectory where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDirectory where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDirectoryResponse' smart constructor.
+-- | /See:/ 'mkCreateDirectoryResponse' smart constructor.
 data CreateDirectoryResponse = CreateDirectoryResponse'
-  { _cdrsResponseStatus ::
-      !Int,
-    _cdrsDirectoryARN :: !Text,
-    _cdrsName :: !Text,
-    _cdrsObjectIdentifier :: !Text,
-    _cdrsAppliedSchemaARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    directoryARN :: Lude.Text,
+    name :: Lude.Text,
+    objectIdentifier :: Lude.Text,
+    appliedSchemaARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDirectoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrsResponseStatus' - -- | The response status code.
---
--- * 'cdrsDirectoryARN' - The ARN that is associated with the 'Directory' . For more information, see 'arns' .
---
--- * 'cdrsName' - The name of the 'Directory' .
---
--- * 'cdrsObjectIdentifier' - The root object node of the created directory.
---
--- * 'cdrsAppliedSchemaARN' - The ARN of the published schema in the 'Directory' . Once a published schema is copied into the directory, it has its own ARN, which is referred to applied schema ARN. For more information, see 'arns' .
-createDirectoryResponse ::
-  -- | 'cdrsResponseStatus'
-  Int ->
-  -- | 'cdrsDirectoryARN'
-  Text ->
-  -- | 'cdrsName'
-  Text ->
-  -- | 'cdrsObjectIdentifier'
-  Text ->
-  -- | 'cdrsAppliedSchemaARN'
-  Text ->
+-- * 'appliedSchemaARN' - The ARN of the published schema in the 'Directory' . Once a published schema is copied into the directory, it has its own ARN, which is referred to applied schema ARN. For more information, see 'arns' .
+-- * 'directoryARN' - The ARN that is associated with the 'Directory' . For more information, see 'arns' .
+-- * 'name' - The name of the 'Directory' .
+-- * 'objectIdentifier' - The root object node of the created directory.
+-- * 'responseStatus' - The response status code.
+mkCreateDirectoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'objectIdentifier'
+  Lude.Text ->
+  -- | 'appliedSchemaARN'
+  Lude.Text ->
   CreateDirectoryResponse
-createDirectoryResponse
+mkCreateDirectoryResponse
   pResponseStatus_
   pDirectoryARN_
   pName_
   pObjectIdentifier_
   pAppliedSchemaARN_ =
     CreateDirectoryResponse'
-      { _cdrsResponseStatus = pResponseStatus_,
-        _cdrsDirectoryARN = pDirectoryARN_,
-        _cdrsName = pName_,
-        _cdrsObjectIdentifier = pObjectIdentifier_,
-        _cdrsAppliedSchemaARN = pAppliedSchemaARN_
+      { responseStatus = pResponseStatus_,
+        directoryARN = pDirectoryARN_,
+        name = pName_,
+        objectIdentifier = pObjectIdentifier_,
+        appliedSchemaARN = pAppliedSchemaARN_
       }
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDirectoryResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\s a -> s {_cdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsResponseStatus :: Lens.Lens' CreateDirectoryResponse Lude.Int
+cdrsResponseStatus = Lens.lens (responseStatus :: CreateDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDirectoryResponse)
+{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ARN that is associated with the 'Directory' . For more information, see 'arns' .
-cdrsDirectoryARN :: Lens' CreateDirectoryResponse Text
-cdrsDirectoryARN = lens _cdrsDirectoryARN (\s a -> s {_cdrsDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsDirectoryARN :: Lens.Lens' CreateDirectoryResponse Lude.Text
+cdrsDirectoryARN = Lens.lens (directoryARN :: CreateDirectoryResponse -> Lude.Text) (\s a -> s {directoryARN = a} :: CreateDirectoryResponse)
+{-# DEPRECATED cdrsDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | The name of the 'Directory' .
-cdrsName :: Lens' CreateDirectoryResponse Text
-cdrsName = lens _cdrsName (\s a -> s {_cdrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsName :: Lens.Lens' CreateDirectoryResponse Lude.Text
+cdrsName = Lens.lens (name :: CreateDirectoryResponse -> Lude.Text) (\s a -> s {name = a} :: CreateDirectoryResponse)
+{-# DEPRECATED cdrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The root object node of the created directory.
-cdrsObjectIdentifier :: Lens' CreateDirectoryResponse Text
-cdrsObjectIdentifier = lens _cdrsObjectIdentifier (\s a -> s {_cdrsObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsObjectIdentifier :: Lens.Lens' CreateDirectoryResponse Lude.Text
+cdrsObjectIdentifier = Lens.lens (objectIdentifier :: CreateDirectoryResponse -> Lude.Text) (\s a -> s {objectIdentifier = a} :: CreateDirectoryResponse)
+{-# DEPRECATED cdrsObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
 -- | The ARN of the published schema in the 'Directory' . Once a published schema is copied into the directory, it has its own ARN, which is referred to applied schema ARN. For more information, see 'arns' .
-cdrsAppliedSchemaARN :: Lens' CreateDirectoryResponse Text
-cdrsAppliedSchemaARN = lens _cdrsAppliedSchemaARN (\s a -> s {_cdrsAppliedSchemaARN = a})
-
-instance NFData CreateDirectoryResponse
+--
+-- /Note:/ Consider using 'appliedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdrsAppliedSchemaARN :: Lens.Lens' CreateDirectoryResponse Lude.Text
+cdrsAppliedSchemaARN = Lens.lens (appliedSchemaARN :: CreateDirectoryResponse -> Lude.Text) (\s a -> s {appliedSchemaARN = a} :: CreateDirectoryResponse)
+{-# DEPRECATED cdrsAppliedSchemaARN "Use generic-lens or generic-optics with 'appliedSchemaARN' instead." #-}

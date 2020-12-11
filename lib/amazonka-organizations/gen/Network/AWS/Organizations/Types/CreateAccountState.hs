@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.CreateAccountState where
+module Network.AWS.Organizations.Types.CreateAccountState
+  ( CreateAccountState
+      ( CreateAccountState',
+        Failed,
+        InProgress,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CreateAccountState
-  = Failed
-  | InProgress
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CreateAccountState = CreateAccountState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CreateAccountState where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing CreateAccountState from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, succeeded"
+pattern Failed :: CreateAccountState
+pattern Failed = CreateAccountState' "FAILED"
 
-instance ToText CreateAccountState where
-  toText = \case
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
-    Succeeded -> "SUCCEEDED"
+pattern InProgress :: CreateAccountState
+pattern InProgress = CreateAccountState' "IN_PROGRESS"
 
-instance Hashable CreateAccountState
+pattern Succeeded :: CreateAccountState
+pattern Succeeded = CreateAccountState' "SUCCEEDED"
 
-instance NFData CreateAccountState
-
-instance ToByteString CreateAccountState
-
-instance ToQuery CreateAccountState
-
-instance ToHeader CreateAccountState
-
-instance ToJSON CreateAccountState where
-  toJSON = toJSONText
-
-instance FromJSON CreateAccountState where
-  parseJSON = parseJSONText "CreateAccountState"
+{-# COMPLETE
+  Failed,
+  InProgress,
+  Succeeded,
+  CreateAccountState'
+  #-}

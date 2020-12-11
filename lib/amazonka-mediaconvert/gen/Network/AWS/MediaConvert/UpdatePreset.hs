@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,170 @@
 --
 -- Modify one of your existing presets.
 module Network.AWS.MediaConvert.UpdatePreset
-  ( -- * Creating a Request
-    updatePreset,
-    UpdatePreset,
+  ( -- * Creating a request
+    UpdatePreset (..),
+    mkUpdatePreset,
 
-    -- * Request Lenses
+    -- ** Request lenses
     upSettings,
     upCategory,
     upDescription,
     upName,
 
-    -- * Destructuring the Response
-    updatePresetResponse,
-    UpdatePresetResponse,
+    -- * Destructuring the response
+    UpdatePresetResponse (..),
+    mkUpdatePresetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uprsPreset,
     uprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updatePreset' smart constructor.
+-- | /See:/ 'mkUpdatePreset' smart constructor.
 data UpdatePreset = UpdatePreset'
-  { _upSettings ::
-      !(Maybe PresetSettings),
-    _upCategory :: !(Maybe Text),
-    _upDescription :: !(Maybe Text),
-    _upName :: !Text
+  { settings ::
+      Lude.Maybe PresetSettings,
+    category :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePreset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upSettings' - Settings for preset
---
--- * 'upCategory' - The new category for the preset, if you are changing it.
---
--- * 'upDescription' - The new description for the preset, if you are changing it.
---
--- * 'upName' - The name of the preset you are modifying.
-updatePreset ::
-  -- | 'upName'
-  Text ->
+-- * 'category' - The new category for the preset, if you are changing it.
+-- * 'description' - The new description for the preset, if you are changing it.
+-- * 'name' - The name of the preset you are modifying.
+-- * 'settings' - Settings for preset
+mkUpdatePreset ::
+  -- | 'name'
+  Lude.Text ->
   UpdatePreset
-updatePreset pName_ =
+mkUpdatePreset pName_ =
   UpdatePreset'
-    { _upSettings = Nothing,
-      _upCategory = Nothing,
-      _upDescription = Nothing,
-      _upName = pName_
+    { settings = Lude.Nothing,
+      category = Lude.Nothing,
+      description = Lude.Nothing,
+      name = pName_
     }
 
 -- | Settings for preset
-upSettings :: Lens' UpdatePreset (Maybe PresetSettings)
-upSettings = lens _upSettings (\s a -> s {_upSettings = a})
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upSettings :: Lens.Lens' UpdatePreset (Lude.Maybe PresetSettings)
+upSettings = Lens.lens (settings :: UpdatePreset -> Lude.Maybe PresetSettings) (\s a -> s {settings = a} :: UpdatePreset)
+{-# DEPRECATED upSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 -- | The new category for the preset, if you are changing it.
-upCategory :: Lens' UpdatePreset (Maybe Text)
-upCategory = lens _upCategory (\s a -> s {_upCategory = a})
+--
+-- /Note:/ Consider using 'category' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upCategory :: Lens.Lens' UpdatePreset (Lude.Maybe Lude.Text)
+upCategory = Lens.lens (category :: UpdatePreset -> Lude.Maybe Lude.Text) (\s a -> s {category = a} :: UpdatePreset)
+{-# DEPRECATED upCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
 -- | The new description for the preset, if you are changing it.
-upDescription :: Lens' UpdatePreset (Maybe Text)
-upDescription = lens _upDescription (\s a -> s {_upDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDescription :: Lens.Lens' UpdatePreset (Lude.Maybe Lude.Text)
+upDescription = Lens.lens (description :: UpdatePreset -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdatePreset)
+{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the preset you are modifying.
-upName :: Lens' UpdatePreset Text
-upName = lens _upName (\s a -> s {_upName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upName :: Lens.Lens' UpdatePreset Lude.Text
+upName = Lens.lens (name :: UpdatePreset -> Lude.Text) (\s a -> s {name = a} :: UpdatePreset)
+{-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest UpdatePreset where
+instance Lude.AWSRequest UpdatePreset where
   type Rs UpdatePreset = UpdatePresetResponse
-  request = putJSON mediaConvert
+  request = Req.putJSON mediaConvertService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdatePresetResponse' <$> (x .?> "preset") <*> (pure (fromEnum s))
+          UpdatePresetResponse'
+            Lude.<$> (x Lude..?> "preset") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdatePreset
-
-instance NFData UpdatePreset
-
-instance ToHeaders UpdatePreset where
+instance Lude.ToHeaders UpdatePreset where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdatePreset where
-  toJSON UpdatePreset' {..} =
-    object
-      ( catMaybes
-          [ ("settings" .=) <$> _upSettings,
-            ("category" .=) <$> _upCategory,
-            ("description" .=) <$> _upDescription
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdatePreset where
+instance Lude.ToJSON UpdatePreset where
+  toJSON UpdatePreset' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("settings" Lude..=) Lude.<$> settings,
+            ("category" Lude..=) Lude.<$> category,
+            ("description" Lude..=) Lude.<$> description
+          ]
+      )
+
+instance Lude.ToPath UpdatePreset where
   toPath UpdatePreset' {..} =
-    mconcat ["/2017-08-29/presets/", toBS _upName]
+    Lude.mconcat ["/2017-08-29/presets/", Lude.toBS name]
 
-instance ToQuery UpdatePreset where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePreset where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updatePresetResponse' smart constructor.
+-- | /See:/ 'mkUpdatePresetResponse' smart constructor.
 data UpdatePresetResponse = UpdatePresetResponse'
-  { _uprsPreset ::
-      !(Maybe Preset),
-    _uprsResponseStatus :: !Int
+  { preset ::
+      Lude.Maybe Preset,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePresetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uprsPreset' - A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
---
--- * 'uprsResponseStatus' - -- | The response status code.
-updatePresetResponse ::
-  -- | 'uprsResponseStatus'
-  Int ->
+-- * 'preset' - A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+-- * 'responseStatus' - The response status code.
+mkUpdatePresetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdatePresetResponse
-updatePresetResponse pResponseStatus_ =
+mkUpdatePresetResponse pResponseStatus_ =
   UpdatePresetResponse'
-    { _uprsPreset = Nothing,
-      _uprsResponseStatus = pResponseStatus_
+    { preset = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
-uprsPreset :: Lens' UpdatePresetResponse (Maybe Preset)
-uprsPreset = lens _uprsPreset (\s a -> s {_uprsPreset = a})
+--
+-- /Note:/ Consider using 'preset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsPreset :: Lens.Lens' UpdatePresetResponse (Lude.Maybe Preset)
+uprsPreset = Lens.lens (preset :: UpdatePresetResponse -> Lude.Maybe Preset) (\s a -> s {preset = a} :: UpdatePresetResponse)
+{-# DEPRECATED uprsPreset "Use generic-lens or generic-optics with 'preset' instead." #-}
 
--- | -- | The response status code.
-uprsResponseStatus :: Lens' UpdatePresetResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\s a -> s {_uprsResponseStatus = a})
-
-instance NFData UpdatePresetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprsResponseStatus :: Lens.Lens' UpdatePresetResponse Lude.Int
+uprsResponseStatus = Lens.lens (responseStatus :: UpdatePresetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePresetResponse)
+{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

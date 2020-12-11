@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Inspects text and returns an inference of the prevailing sentiment (@POSITIVE@ , @NEUTRAL@ , @MIXED@ , or @NEGATIVE@ ).
 module Network.AWS.Comprehend.DetectSentiment
-  ( -- * Creating a Request
-    detectSentiment,
-    DetectSentiment,
+  ( -- * Creating a request
+    DetectSentiment (..),
+    mkDetectSentiment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsText,
     dsLanguageCode,
 
-    -- * Destructuring the Response
-    detectSentimentResponse,
-    DetectSentimentResponse,
+    -- * Destructuring the response
+    DetectSentimentResponse (..),
+    mkDetectSentimentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     detrsSentiment,
     detrsSentimentScore,
     detrsResponseStatus,
@@ -39,127 +34,134 @@ module Network.AWS.Comprehend.DetectSentiment
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detectSentiment' smart constructor.
+-- | /See:/ 'mkDetectSentiment' smart constructor.
 data DetectSentiment = DetectSentiment'
-  { _dsText ::
-      !(Sensitive Text),
-    _dsLanguageCode :: !LanguageCode
+  { text ::
+      Lude.Sensitive Lude.Text,
+    languageCode :: LanguageCode
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectSentiment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsText' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
---
--- * 'dsLanguageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-detectSentiment ::
-  -- | 'dsText'
-  Text ->
-  -- | 'dsLanguageCode'
+-- * 'languageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+-- * 'text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+mkDetectSentiment ::
+  -- | 'text'
+  Lude.Sensitive Lude.Text ->
+  -- | 'languageCode'
   LanguageCode ->
   DetectSentiment
-detectSentiment pText_ pLanguageCode_ =
-  DetectSentiment'
-    { _dsText = _Sensitive # pText_,
-      _dsLanguageCode = pLanguageCode_
-    }
+mkDetectSentiment pText_ pLanguageCode_ =
+  DetectSentiment' {text = pText_, languageCode = pLanguageCode_}
 
 -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-dsText :: Lens' DetectSentiment Text
-dsText = lens _dsText (\s a -> s {_dsText = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsText :: Lens.Lens' DetectSentiment (Lude.Sensitive Lude.Text)
+dsText = Lens.lens (text :: DetectSentiment -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: DetectSentiment)
+{-# DEPRECATED dsText "Use generic-lens or generic-optics with 'text' instead." #-}
 
 -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-dsLanguageCode :: Lens' DetectSentiment LanguageCode
-dsLanguageCode = lens _dsLanguageCode (\s a -> s {_dsLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsLanguageCode :: Lens.Lens' DetectSentiment LanguageCode
+dsLanguageCode = Lens.lens (languageCode :: DetectSentiment -> LanguageCode) (\s a -> s {languageCode = a} :: DetectSentiment)
+{-# DEPRECATED dsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
-instance AWSRequest DetectSentiment where
+instance Lude.AWSRequest DetectSentiment where
   type Rs DetectSentiment = DetectSentimentResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DetectSentimentResponse'
-            <$> (x .?> "Sentiment")
-            <*> (x .?> "SentimentScore")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Sentiment")
+            Lude.<*> (x Lude..?> "SentimentScore")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DetectSentiment
-
-instance NFData DetectSentiment
-
-instance ToHeaders DetectSentiment where
+instance Lude.ToHeaders DetectSentiment where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.DetectSentiment" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.DetectSentiment" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DetectSentiment where
+instance Lude.ToJSON DetectSentiment where
   toJSON DetectSentiment' {..} =
-    object
-      ( catMaybes
-          [ Just ("Text" .= _dsText),
-            Just ("LanguageCode" .= _dsLanguageCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Text" Lude..= text),
+            Lude.Just ("LanguageCode" Lude..= languageCode)
           ]
       )
 
-instance ToPath DetectSentiment where
-  toPath = const "/"
+instance Lude.ToPath DetectSentiment where
+  toPath = Lude.const "/"
 
-instance ToQuery DetectSentiment where
-  toQuery = const mempty
+instance Lude.ToQuery DetectSentiment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'detectSentimentResponse' smart constructor.
+-- | /See:/ 'mkDetectSentimentResponse' smart constructor.
 data DetectSentimentResponse = DetectSentimentResponse'
-  { _detrsSentiment ::
-      !(Maybe SentimentType),
-    _detrsSentimentScore ::
-      !(Maybe SentimentScore),
-    _detrsResponseStatus :: !Int
+  { sentiment ::
+      Lude.Maybe SentimentType,
+    sentimentScore :: Lude.Maybe SentimentScore,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectSentimentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detrsSentiment' - The inferred sentiment that Amazon Comprehend has the highest level of confidence in.
---
--- * 'detrsSentimentScore' - An object that lists the sentiments, and their corresponding confidence levels.
---
--- * 'detrsResponseStatus' - -- | The response status code.
-detectSentimentResponse ::
-  -- | 'detrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sentiment' - The inferred sentiment that Amazon Comprehend has the highest level of confidence in.
+-- * 'sentimentScore' - An object that lists the sentiments, and their corresponding confidence levels.
+mkDetectSentimentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DetectSentimentResponse
-detectSentimentResponse pResponseStatus_ =
+mkDetectSentimentResponse pResponseStatus_ =
   DetectSentimentResponse'
-    { _detrsSentiment = Nothing,
-      _detrsSentimentScore = Nothing,
-      _detrsResponseStatus = pResponseStatus_
+    { sentiment = Lude.Nothing,
+      sentimentScore = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The inferred sentiment that Amazon Comprehend has the highest level of confidence in.
-detrsSentiment :: Lens' DetectSentimentResponse (Maybe SentimentType)
-detrsSentiment = lens _detrsSentiment (\s a -> s {_detrsSentiment = a})
+--
+-- /Note:/ Consider using 'sentiment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsSentiment :: Lens.Lens' DetectSentimentResponse (Lude.Maybe SentimentType)
+detrsSentiment = Lens.lens (sentiment :: DetectSentimentResponse -> Lude.Maybe SentimentType) (\s a -> s {sentiment = a} :: DetectSentimentResponse)
+{-# DEPRECATED detrsSentiment "Use generic-lens or generic-optics with 'sentiment' instead." #-}
 
 -- | An object that lists the sentiments, and their corresponding confidence levels.
-detrsSentimentScore :: Lens' DetectSentimentResponse (Maybe SentimentScore)
-detrsSentimentScore = lens _detrsSentimentScore (\s a -> s {_detrsSentimentScore = a})
+--
+-- /Note:/ Consider using 'sentimentScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsSentimentScore :: Lens.Lens' DetectSentimentResponse (Lude.Maybe SentimentScore)
+detrsSentimentScore = Lens.lens (sentimentScore :: DetectSentimentResponse -> Lude.Maybe SentimentScore) (\s a -> s {sentimentScore = a} :: DetectSentimentResponse)
+{-# DEPRECATED detrsSentimentScore "Use generic-lens or generic-optics with 'sentimentScore' instead." #-}
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DetectSentimentResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\s a -> s {_detrsResponseStatus = a})
-
-instance NFData DetectSentimentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsResponseStatus :: Lens.Lens' DetectSentimentResponse Lude.Int
+detrsResponseStatus = Lens.lens (responseStatus :: DetectSentimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectSentimentResponse)
+{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

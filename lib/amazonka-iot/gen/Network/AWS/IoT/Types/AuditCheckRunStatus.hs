@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditCheckRunStatus where
+module Network.AWS.IoT.Types.AuditCheckRunStatus
+  ( AuditCheckRunStatus
+      ( AuditCheckRunStatus',
+        ACRSCanceled,
+        ACRSCompletedCompliant,
+        ACRSCompletedNonCompliant,
+        ACRSFailed,
+        ACRSInProgress,
+        ACRSWaitingForDataCollection
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuditCheckRunStatus
-  = ACRSCanceled
-  | ACRSCompletedCompliant
-  | ACRSCompletedNonCompliant
-  | ACRSFailed
-  | ACRSInProgress
-  | ACRSWaitingForDataCollection
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuditCheckRunStatus = AuditCheckRunStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuditCheckRunStatus where
-  parser =
-    takeLowerText >>= \case
-      "canceled" -> pure ACRSCanceled
-      "completed_compliant" -> pure ACRSCompletedCompliant
-      "completed_non_compliant" -> pure ACRSCompletedNonCompliant
-      "failed" -> pure ACRSFailed
-      "in_progress" -> pure ACRSInProgress
-      "waiting_for_data_collection" -> pure ACRSWaitingForDataCollection
-      e ->
-        fromTextError $
-          "Failure parsing AuditCheckRunStatus from value: '" <> e
-            <> "'. Accepted values: canceled, completed_compliant, completed_non_compliant, failed, in_progress, waiting_for_data_collection"
+pattern ACRSCanceled :: AuditCheckRunStatus
+pattern ACRSCanceled = AuditCheckRunStatus' "CANCELED"
 
-instance ToText AuditCheckRunStatus where
-  toText = \case
-    ACRSCanceled -> "CANCELED"
-    ACRSCompletedCompliant -> "COMPLETED_COMPLIANT"
-    ACRSCompletedNonCompliant -> "COMPLETED_NON_COMPLIANT"
-    ACRSFailed -> "FAILED"
-    ACRSInProgress -> "IN_PROGRESS"
-    ACRSWaitingForDataCollection -> "WAITING_FOR_DATA_COLLECTION"
+pattern ACRSCompletedCompliant :: AuditCheckRunStatus
+pattern ACRSCompletedCompliant = AuditCheckRunStatus' "COMPLETED_COMPLIANT"
 
-instance Hashable AuditCheckRunStatus
+pattern ACRSCompletedNonCompliant :: AuditCheckRunStatus
+pattern ACRSCompletedNonCompliant = AuditCheckRunStatus' "COMPLETED_NON_COMPLIANT"
 
-instance NFData AuditCheckRunStatus
+pattern ACRSFailed :: AuditCheckRunStatus
+pattern ACRSFailed = AuditCheckRunStatus' "FAILED"
 
-instance ToByteString AuditCheckRunStatus
+pattern ACRSInProgress :: AuditCheckRunStatus
+pattern ACRSInProgress = AuditCheckRunStatus' "IN_PROGRESS"
 
-instance ToQuery AuditCheckRunStatus
+pattern ACRSWaitingForDataCollection :: AuditCheckRunStatus
+pattern ACRSWaitingForDataCollection = AuditCheckRunStatus' "WAITING_FOR_DATA_COLLECTION"
 
-instance ToHeader AuditCheckRunStatus
-
-instance FromJSON AuditCheckRunStatus where
-  parseJSON = parseJSONText "AuditCheckRunStatus"
+{-# COMPLETE
+  ACRSCanceled,
+  ACRSCompletedCompliant,
+  ACRSCompletedNonCompliant,
+  ACRSFailed,
+  ACRSInProgress,
+  ACRSWaitingForDataCollection,
+  AuditCheckRunStatus'
+  #-}

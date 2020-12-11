@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SQS.Types.DeleteMessageBatchResultEntry where
+module Network.AWS.SQS.Types.DeleteMessageBatchResultEntry
+  ( DeleteMessageBatchResultEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeleteMessageBatchResultEntry,
+
+    -- * Lenses
+    dId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encloses the @Id@ of an entry in @'DeleteMessageBatch' .@
 --
---
---
--- /See:/ 'deleteMessageBatchResultEntry' smart constructor.
+-- /See:/ 'mkDeleteMessageBatchResultEntry' smart constructor.
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
-  { _dId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMessageBatchResultEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dId' - Represents a successfully deleted message.
-deleteMessageBatchResultEntry ::
-  -- | 'dId'
-  Text ->
+-- * 'id' - Represents a successfully deleted message.
+mkDeleteMessageBatchResultEntry ::
+  -- | 'id'
+  Lude.Text ->
   DeleteMessageBatchResultEntry
-deleteMessageBatchResultEntry pId_ =
-  DeleteMessageBatchResultEntry' {_dId = pId_}
+mkDeleteMessageBatchResultEntry pId_ =
+  DeleteMessageBatchResultEntry' {id = pId_}
 
 -- | Represents a successfully deleted message.
-dId :: Lens' DeleteMessageBatchResultEntry Text
-dId = lens _dId (\s a -> s {_dId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dId :: Lens.Lens' DeleteMessageBatchResultEntry Lude.Text
+dId = Lens.lens (id :: DeleteMessageBatchResultEntry -> Lude.Text) (\s a -> s {id = a} :: DeleteMessageBatchResultEntry)
+{-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromXML DeleteMessageBatchResultEntry where
-  parseXML x = DeleteMessageBatchResultEntry' <$> (x .@ "Id")
-
-instance Hashable DeleteMessageBatchResultEntry
-
-instance NFData DeleteMessageBatchResultEntry
+instance Lude.FromXML DeleteMessageBatchResultEntry where
+  parseXML x =
+    DeleteMessageBatchResultEntry' Lude.<$> (x Lude..@ "Id")

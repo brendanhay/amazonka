@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.SSESpecification where
+module Network.AWS.DAX.Types.SSESpecification
+  ( SSESpecification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSSESpecification,
+
+    -- * Lenses
+    ssesEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the settings used to enable server-side encryption.
 --
---
---
--- /See:/ 'sSESpecification' smart constructor.
-newtype SSESpecification = SSESpecification' {_ssesEnabled :: Bool}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkSSESpecification' smart constructor.
+newtype SSESpecification = SSESpecification' {enabled :: Lude.Bool}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSESpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssesEnabled' - Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.
-sSESpecification ::
-  -- | 'ssesEnabled'
-  Bool ->
+-- * 'enabled' - Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.
+mkSSESpecification ::
+  -- | 'enabled'
+  Lude.Bool ->
   SSESpecification
-sSESpecification pEnabled_ =
-  SSESpecification' {_ssesEnabled = pEnabled_}
+mkSSESpecification pEnabled_ =
+  SSESpecification' {enabled = pEnabled_}
 
 -- | Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.
-ssesEnabled :: Lens' SSESpecification Bool
-ssesEnabled = lens _ssesEnabled (\s a -> s {_ssesEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssesEnabled :: Lens.Lens' SSESpecification Lude.Bool
+ssesEnabled = Lens.lens (enabled :: SSESpecification -> Lude.Bool) (\s a -> s {enabled = a} :: SSESpecification)
+{-# DEPRECATED ssesEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Hashable SSESpecification
-
-instance NFData SSESpecification
-
-instance ToJSON SSESpecification where
+instance Lude.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =
-    object (catMaybes [Just ("Enabled" .= _ssesEnabled)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Enabled" Lude..= enabled)])

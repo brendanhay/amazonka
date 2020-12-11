@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.FailedCreateWorkspaceRequest where
+module Network.AWS.WorkSpaces.Types.FailedCreateWorkspaceRequest
+  ( FailedCreateWorkspaceRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFailedCreateWorkspaceRequest,
+
+    -- * Lenses
+    fcwrWorkspaceRequest,
+    fcwrErrorCode,
+    fcwrErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.WorkspaceRequest
 
 -- | Describes a WorkSpace that cannot be created.
 --
---
---
--- /See:/ 'failedCreateWorkspaceRequest' smart constructor.
+-- /See:/ 'mkFailedCreateWorkspaceRequest' smart constructor.
 data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
-  { _fcwrWorkspaceRequest ::
-      !(Maybe WorkspaceRequest),
-    _fcwrErrorCode :: !(Maybe Text),
-    _fcwrErrorMessage ::
-      !(Maybe Text)
+  { workspaceRequest ::
+      Lude.Maybe WorkspaceRequest,
+    errorCode :: Lude.Maybe Lude.Text,
+    errorMessage ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedCreateWorkspaceRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fcwrWorkspaceRequest' - Information about the WorkSpace.
---
--- * 'fcwrErrorCode' - The error code that is returned if the WorkSpace cannot be created.
---
--- * 'fcwrErrorMessage' - The text of the error message that is returned if the WorkSpace cannot be created.
-failedCreateWorkspaceRequest ::
+-- * 'errorCode' - The error code that is returned if the WorkSpace cannot be created.
+-- * 'errorMessage' - The text of the error message that is returned if the WorkSpace cannot be created.
+-- * 'workspaceRequest' - Information about the WorkSpace.
+mkFailedCreateWorkspaceRequest ::
   FailedCreateWorkspaceRequest
-failedCreateWorkspaceRequest =
+mkFailedCreateWorkspaceRequest =
   FailedCreateWorkspaceRequest'
-    { _fcwrWorkspaceRequest = Nothing,
-      _fcwrErrorCode = Nothing,
-      _fcwrErrorMessage = Nothing
+    { workspaceRequest = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | Information about the WorkSpace.
-fcwrWorkspaceRequest :: Lens' FailedCreateWorkspaceRequest (Maybe WorkspaceRequest)
-fcwrWorkspaceRequest = lens _fcwrWorkspaceRequest (\s a -> s {_fcwrWorkspaceRequest = a})
+--
+-- /Note:/ Consider using 'workspaceRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcwrWorkspaceRequest :: Lens.Lens' FailedCreateWorkspaceRequest (Lude.Maybe WorkspaceRequest)
+fcwrWorkspaceRequest = Lens.lens (workspaceRequest :: FailedCreateWorkspaceRequest -> Lude.Maybe WorkspaceRequest) (\s a -> s {workspaceRequest = a} :: FailedCreateWorkspaceRequest)
+{-# DEPRECATED fcwrWorkspaceRequest "Use generic-lens or generic-optics with 'workspaceRequest' instead." #-}
 
 -- | The error code that is returned if the WorkSpace cannot be created.
-fcwrErrorCode :: Lens' FailedCreateWorkspaceRequest (Maybe Text)
-fcwrErrorCode = lens _fcwrErrorCode (\s a -> s {_fcwrErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcwrErrorCode :: Lens.Lens' FailedCreateWorkspaceRequest (Lude.Maybe Lude.Text)
+fcwrErrorCode = Lens.lens (errorCode :: FailedCreateWorkspaceRequest -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: FailedCreateWorkspaceRequest)
+{-# DEPRECATED fcwrErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The text of the error message that is returned if the WorkSpace cannot be created.
-fcwrErrorMessage :: Lens' FailedCreateWorkspaceRequest (Maybe Text)
-fcwrErrorMessage = lens _fcwrErrorMessage (\s a -> s {_fcwrErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcwrErrorMessage :: Lens.Lens' FailedCreateWorkspaceRequest (Lude.Maybe Lude.Text)
+fcwrErrorMessage = Lens.lens (errorMessage :: FailedCreateWorkspaceRequest -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: FailedCreateWorkspaceRequest)
+{-# DEPRECATED fcwrErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON FailedCreateWorkspaceRequest where
+instance Lude.FromJSON FailedCreateWorkspaceRequest where
   parseJSON =
-    withObject
+    Lude.withObject
       "FailedCreateWorkspaceRequest"
       ( \x ->
           FailedCreateWorkspaceRequest'
-            <$> (x .:? "WorkspaceRequest")
-            <*> (x .:? "ErrorCode")
-            <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "WorkspaceRequest")
+            Lude.<*> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable FailedCreateWorkspaceRequest
-
-instance NFData FailedCreateWorkspaceRequest

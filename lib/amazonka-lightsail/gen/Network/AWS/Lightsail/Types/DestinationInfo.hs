@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.DestinationInfo where
+module Network.AWS.Lightsail.Types.DestinationInfo
+  ( DestinationInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDestinationInfo,
+
+    -- * Lenses
+    diService,
+    diId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the destination of a record.
 --
---
---
--- /See:/ 'destinationInfo' smart constructor.
+-- /See:/ 'mkDestinationInfo' smart constructor.
 data DestinationInfo = DestinationInfo'
-  { _diService ::
-      !(Maybe Text),
-    _diId :: !(Maybe Text)
+  { service ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DestinationInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diService' - The destination service of the record.
---
--- * 'diId' - The ID of the resource created at the destination.
-destinationInfo ::
+-- * 'id' - The ID of the resource created at the destination.
+-- * 'service' - The destination service of the record.
+mkDestinationInfo ::
   DestinationInfo
-destinationInfo =
-  DestinationInfo' {_diService = Nothing, _diId = Nothing}
+mkDestinationInfo =
+  DestinationInfo' {service = Lude.Nothing, id = Lude.Nothing}
 
 -- | The destination service of the record.
-diService :: Lens' DestinationInfo (Maybe Text)
-diService = lens _diService (\s a -> s {_diService = a})
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diService :: Lens.Lens' DestinationInfo (Lude.Maybe Lude.Text)
+diService = Lens.lens (service :: DestinationInfo -> Lude.Maybe Lude.Text) (\s a -> s {service = a} :: DestinationInfo)
+{-# DEPRECATED diService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | The ID of the resource created at the destination.
-diId :: Lens' DestinationInfo (Maybe Text)
-diId = lens _diId (\s a -> s {_diId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diId :: Lens.Lens' DestinationInfo (Lude.Maybe Lude.Text)
+diId = Lens.lens (id :: DestinationInfo -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DestinationInfo)
+{-# DEPRECATED diId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON DestinationInfo where
+instance Lude.FromJSON DestinationInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "DestinationInfo"
-      (\x -> DestinationInfo' <$> (x .:? "service") <*> (x .:? "id"))
-
-instance Hashable DestinationInfo
-
-instance NFData DestinationInfo
+      ( \x ->
+          DestinationInfo'
+            Lude.<$> (x Lude..:? "service") Lude.<*> (x Lude..:? "id")
+      )

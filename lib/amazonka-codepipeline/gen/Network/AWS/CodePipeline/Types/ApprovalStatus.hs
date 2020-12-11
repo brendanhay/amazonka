@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ApprovalStatus where
+module Network.AWS.CodePipeline.Types.ApprovalStatus
+  ( ApprovalStatus
+      ( ApprovalStatus',
+        Approved,
+        Rejected
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ApprovalStatus
-  = Approved
-  | Rejected
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ApprovalStatus = ApprovalStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ApprovalStatus where
-  parser =
-    takeLowerText >>= \case
-      "approved" -> pure Approved
-      "rejected" -> pure Rejected
-      e ->
-        fromTextError $
-          "Failure parsing ApprovalStatus from value: '" <> e
-            <> "'. Accepted values: approved, rejected"
+pattern Approved :: ApprovalStatus
+pattern Approved = ApprovalStatus' "Approved"
 
-instance ToText ApprovalStatus where
-  toText = \case
-    Approved -> "Approved"
-    Rejected -> "Rejected"
+pattern Rejected :: ApprovalStatus
+pattern Rejected = ApprovalStatus' "Rejected"
 
-instance Hashable ApprovalStatus
-
-instance NFData ApprovalStatus
-
-instance ToByteString ApprovalStatus
-
-instance ToQuery ApprovalStatus
-
-instance ToHeader ApprovalStatus
-
-instance ToJSON ApprovalStatus where
-  toJSON = toJSONText
+{-# COMPLETE
+  Approved,
+  Rejected,
+  ApprovalStatus'
+  #-}

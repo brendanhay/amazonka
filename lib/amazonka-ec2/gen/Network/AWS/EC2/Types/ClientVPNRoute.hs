@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,99 +7,127 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNRoute where
+module Network.AWS.EC2.Types.ClientVPNRoute
+  ( ClientVPNRoute (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClientVPNRoute,
+
+    -- * Lenses
+    cvrStatus,
+    cvrOrigin,
+    cvrClientVPNEndpointId,
+    cvrTargetSubnet,
+    cvrDestinationCidr,
+    cvrType,
+    cvrDescription,
+  )
+where
+
 import Network.AWS.EC2.Types.ClientVPNRouteStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a Client VPN endpoint route.
 --
---
---
--- /See:/ 'clientVPNRoute' smart constructor.
+-- /See:/ 'mkClientVPNRoute' smart constructor.
 data ClientVPNRoute = ClientVPNRoute'
-  { _cvrStatus ::
-      !(Maybe ClientVPNRouteStatus),
-    _cvrOrigin :: !(Maybe Text),
-    _cvrClientVPNEndpointId :: !(Maybe Text),
-    _cvrTargetSubnet :: !(Maybe Text),
-    _cvrDestinationCidr :: !(Maybe Text),
-    _cvrType :: !(Maybe Text),
-    _cvrDescription :: !(Maybe Text)
+  { status ::
+      Lude.Maybe ClientVPNRouteStatus,
+    origin :: Lude.Maybe Lude.Text,
+    clientVPNEndpointId :: Lude.Maybe Lude.Text,
+    targetSubnet :: Lude.Maybe Lude.Text,
+    destinationCidr :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNRoute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvrStatus' - The current state of the route.
---
--- * 'cvrOrigin' - Indicates how the route was associated with the Client VPN endpoint. @associate@ indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. @add-route@ indicates that the route was manually added using the __CreateClientVpnRoute__ action.
---
--- * 'cvrClientVPNEndpointId' - The ID of the Client VPN endpoint with which the route is associated.
---
--- * 'cvrTargetSubnet' - The ID of the subnet through which traffic is routed.
---
--- * 'cvrDestinationCidr' - The IPv4 address range, in CIDR notation, of the route destination.
---
--- * 'cvrType' - The route type.
---
--- * 'cvrDescription' - A brief description of the route.
-clientVPNRoute ::
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the route is associated.
+-- * 'description' - A brief description of the route.
+-- * 'destinationCidr' - The IPv4 address range, in CIDR notation, of the route destination.
+-- * 'origin' - Indicates how the route was associated with the Client VPN endpoint. @associate@ indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. @add-route@ indicates that the route was manually added using the __CreateClientVpnRoute__ action.
+-- * 'status' - The current state of the route.
+-- * 'targetSubnet' - The ID of the subnet through which traffic is routed.
+-- * 'type'' - The route type.
+mkClientVPNRoute ::
   ClientVPNRoute
-clientVPNRoute =
+mkClientVPNRoute =
   ClientVPNRoute'
-    { _cvrStatus = Nothing,
-      _cvrOrigin = Nothing,
-      _cvrClientVPNEndpointId = Nothing,
-      _cvrTargetSubnet = Nothing,
-      _cvrDestinationCidr = Nothing,
-      _cvrType = Nothing,
-      _cvrDescription = Nothing
+    { status = Lude.Nothing,
+      origin = Lude.Nothing,
+      clientVPNEndpointId = Lude.Nothing,
+      targetSubnet = Lude.Nothing,
+      destinationCidr = Lude.Nothing,
+      type' = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The current state of the route.
-cvrStatus :: Lens' ClientVPNRoute (Maybe ClientVPNRouteStatus)
-cvrStatus = lens _cvrStatus (\s a -> s {_cvrStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrStatus :: Lens.Lens' ClientVPNRoute (Lude.Maybe ClientVPNRouteStatus)
+cvrStatus = Lens.lens (status :: ClientVPNRoute -> Lude.Maybe ClientVPNRouteStatus) (\s a -> s {status = a} :: ClientVPNRoute)
+{-# DEPRECATED cvrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Indicates how the route was associated with the Client VPN endpoint. @associate@ indicates that the route was automatically added when the target network was associated with the Client VPN endpoint. @add-route@ indicates that the route was manually added using the __CreateClientVpnRoute__ action.
-cvrOrigin :: Lens' ClientVPNRoute (Maybe Text)
-cvrOrigin = lens _cvrOrigin (\s a -> s {_cvrOrigin = a})
+--
+-- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrOrigin :: Lens.Lens' ClientVPNRoute (Lude.Maybe Lude.Text)
+cvrOrigin = Lens.lens (origin :: ClientVPNRoute -> Lude.Maybe Lude.Text) (\s a -> s {origin = a} :: ClientVPNRoute)
+{-# DEPRECATED cvrOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
 
 -- | The ID of the Client VPN endpoint with which the route is associated.
-cvrClientVPNEndpointId :: Lens' ClientVPNRoute (Maybe Text)
-cvrClientVPNEndpointId = lens _cvrClientVPNEndpointId (\s a -> s {_cvrClientVPNEndpointId = a})
+--
+-- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrClientVPNEndpointId :: Lens.Lens' ClientVPNRoute (Lude.Maybe Lude.Text)
+cvrClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: ClientVPNRoute -> Lude.Maybe Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: ClientVPNRoute)
+{-# DEPRECATED cvrClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
 -- | The ID of the subnet through which traffic is routed.
-cvrTargetSubnet :: Lens' ClientVPNRoute (Maybe Text)
-cvrTargetSubnet = lens _cvrTargetSubnet (\s a -> s {_cvrTargetSubnet = a})
+--
+-- /Note:/ Consider using 'targetSubnet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrTargetSubnet :: Lens.Lens' ClientVPNRoute (Lude.Maybe Lude.Text)
+cvrTargetSubnet = Lens.lens (targetSubnet :: ClientVPNRoute -> Lude.Maybe Lude.Text) (\s a -> s {targetSubnet = a} :: ClientVPNRoute)
+{-# DEPRECATED cvrTargetSubnet "Use generic-lens or generic-optics with 'targetSubnet' instead." #-}
 
 -- | The IPv4 address range, in CIDR notation, of the route destination.
-cvrDestinationCidr :: Lens' ClientVPNRoute (Maybe Text)
-cvrDestinationCidr = lens _cvrDestinationCidr (\s a -> s {_cvrDestinationCidr = a})
+--
+-- /Note:/ Consider using 'destinationCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrDestinationCidr :: Lens.Lens' ClientVPNRoute (Lude.Maybe Lude.Text)
+cvrDestinationCidr = Lens.lens (destinationCidr :: ClientVPNRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidr = a} :: ClientVPNRoute)
+{-# DEPRECATED cvrDestinationCidr "Use generic-lens or generic-optics with 'destinationCidr' instead." #-}
 
 -- | The route type.
-cvrType :: Lens' ClientVPNRoute (Maybe Text)
-cvrType = lens _cvrType (\s a -> s {_cvrType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrType :: Lens.Lens' ClientVPNRoute (Lude.Maybe Lude.Text)
+cvrType = Lens.lens (type' :: ClientVPNRoute -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ClientVPNRoute)
+{-# DEPRECATED cvrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A brief description of the route.
-cvrDescription :: Lens' ClientVPNRoute (Maybe Text)
-cvrDescription = lens _cvrDescription (\s a -> s {_cvrDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvrDescription :: Lens.Lens' ClientVPNRoute (Lude.Maybe Lude.Text)
+cvrDescription = Lens.lens (description :: ClientVPNRoute -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ClientVPNRoute)
+{-# DEPRECATED cvrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML ClientVPNRoute where
+instance Lude.FromXML ClientVPNRoute where
   parseXML x =
     ClientVPNRoute'
-      <$> (x .@? "status")
-      <*> (x .@? "origin")
-      <*> (x .@? "clientVpnEndpointId")
-      <*> (x .@? "targetSubnet")
-      <*> (x .@? "destinationCidr")
-      <*> (x .@? "type")
-      <*> (x .@? "description")
-
-instance Hashable ClientVPNRoute
-
-instance NFData ClientVPNRoute
+      Lude.<$> (x Lude..@? "status")
+      Lude.<*> (x Lude..@? "origin")
+      Lude.<*> (x Lude..@? "clientVpnEndpointId")
+      Lude.<*> (x Lude..@? "targetSubnet")
+      Lude.<*> (x Lude..@? "destinationCidr")
+      Lude.<*> (x Lude..@? "type")
+      Lude.<*> (x Lude..@? "description")

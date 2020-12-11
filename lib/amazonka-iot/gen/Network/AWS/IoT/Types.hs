@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types
-  ( -- * Service Configuration
-    ioT,
+  ( -- * Service configuration
+    ioTService,
 
     -- * Errors
 
@@ -178,63 +176,63 @@ module Network.AWS.IoT.Types
     ViolationEventType (..),
 
     -- * AWSJobAbortConfig
-    AWSJobAbortConfig,
-    awsJobAbortConfig,
+    AWSJobAbortConfig (..),
+    mkAWSJobAbortConfig,
     ajacAbortCriteriaList,
 
     -- * AWSJobAbortCriteria
-    AWSJobAbortCriteria,
-    awsJobAbortCriteria,
+    AWSJobAbortCriteria (..),
+    mkAWSJobAbortCriteria,
     ajacFailureType,
     ajacAction,
     ajacThresholdPercentage,
     ajacMinNumberOfExecutedThings,
 
     -- * AWSJobExecutionsRolloutConfig
-    AWSJobExecutionsRolloutConfig,
-    awsJobExecutionsRolloutConfig,
+    AWSJobExecutionsRolloutConfig (..),
+    mkAWSJobExecutionsRolloutConfig,
     ajercExponentialRate,
     ajercMaximumPerMinute,
 
     -- * AWSJobExponentialRolloutRate
-    AWSJobExponentialRolloutRate,
-    awsJobExponentialRolloutRate,
+    AWSJobExponentialRolloutRate (..),
+    mkAWSJobExponentialRolloutRate,
     ajerrBaseRatePerMinute,
     ajerrIncrementFactor,
     ajerrRateIncreaseCriteria,
 
     -- * AWSJobPresignedURLConfig
-    AWSJobPresignedURLConfig,
-    awsJobPresignedURLConfig,
+    AWSJobPresignedURLConfig (..),
+    mkAWSJobPresignedURLConfig,
     ajpucExpiresInSec,
 
     -- * AWSJobRateIncreaseCriteria
-    AWSJobRateIncreaseCriteria,
-    awsJobRateIncreaseCriteria,
+    AWSJobRateIncreaseCriteria (..),
+    mkAWSJobRateIncreaseCriteria,
     ajricNumberOfNotifiedThings,
     ajricNumberOfSucceededThings,
 
     -- * AWSJobTimeoutConfig
-    AWSJobTimeoutConfig,
-    awsJobTimeoutConfig,
+    AWSJobTimeoutConfig (..),
+    mkAWSJobTimeoutConfig,
     ajtcInProgressTimeoutInMinutes,
 
     -- * AbortConfig
-    AbortConfig,
-    abortConfig,
+    AbortConfig (..),
+    mkAbortConfig,
     acCriteriaList,
 
     -- * AbortCriteria
-    AbortCriteria,
-    abortCriteria,
+    AbortCriteria (..),
+    mkAbortCriteria,
     acFailureType,
     acAction,
     acThresholdPercentage,
     acMinNumberOfExecutedThings,
 
     -- * Action
-    Action,
-    action,
+    Action (..),
+    mkAction,
     aCloudwatchMetric,
     aCloudwatchLogs,
     aDynamoDBv2,
@@ -257,8 +255,8 @@ module Network.AWS.IoT.Types
     aSqs,
 
     -- * ActiveViolation
-    ActiveViolation,
-    activeViolation,
+    ActiveViolation (..),
+    mkActiveViolation,
     avLastViolationValue,
     avLastViolationTime,
     avViolationStartTime,
@@ -268,57 +266,57 @@ module Network.AWS.IoT.Types
     avThingName,
 
     -- * AddThingsToThingGroupParams
-    AddThingsToThingGroupParams,
-    addThingsToThingGroupParams,
+    AddThingsToThingGroupParams (..),
+    mkAddThingsToThingGroupParams,
     atttgpOverrideDynamicGroups,
     atttgpThingGroupNames,
 
     -- * AlertTarget
-    AlertTarget,
-    alertTarget,
+    AlertTarget (..),
+    mkAlertTarget,
     atAlertTargetARN,
     atRoleARN,
 
     -- * Allowed
-    Allowed,
-    allowed,
+    Allowed (..),
+    mkAllowed,
     aPolicies,
 
     -- * AssetPropertyTimestamp
-    AssetPropertyTimestamp,
-    assetPropertyTimestamp,
+    AssetPropertyTimestamp (..),
+    mkAssetPropertyTimestamp,
     aptOffsetInNanos,
     aptTimeInSeconds,
 
     -- * AssetPropertyValue
-    AssetPropertyValue,
-    assetPropertyValue,
+    AssetPropertyValue (..),
+    mkAssetPropertyValue,
     apvQuality,
     apvValue,
     apvTimestamp,
 
     -- * AssetPropertyVariant
-    AssetPropertyVariant,
-    assetPropertyVariant,
+    AssetPropertyVariant (..),
+    mkAssetPropertyVariant,
     apvIntegerValue,
     apvDoubleValue,
     apvStringValue,
     apvBooleanValue,
 
     -- * AttributePayload
-    AttributePayload,
-    attributePayload,
+    AttributePayload (..),
+    mkAttributePayload,
     apAttributes,
     apMerge,
 
     -- * AuditCheckConfiguration
-    AuditCheckConfiguration,
-    auditCheckConfiguration,
+    AuditCheckConfiguration (..),
+    mkAuditCheckConfiguration,
     accEnabled,
 
     -- * AuditCheckDetails
-    AuditCheckDetails,
-    auditCheckDetails,
+    AuditCheckDetails (..),
+    mkAuditCheckDetails,
     acdSuppressedNonCompliantResourcesCount,
     acdTotalResourcesCount,
     acdCheckCompliant,
@@ -328,8 +326,8 @@ module Network.AWS.IoT.Types
     acdCheckRunStatus,
 
     -- * AuditFinding
-    AuditFinding,
-    auditFinding,
+    AuditFinding (..),
+    mkAuditFinding,
     afIsSuppressed,
     afTaskId,
     afFindingTime,
@@ -343,8 +341,8 @@ module Network.AWS.IoT.Types
     afFindingId,
 
     -- * AuditMitigationActionExecutionMetadata
-    AuditMitigationActionExecutionMetadata,
-    auditMitigationActionExecutionMetadata,
+    AuditMitigationActionExecutionMetadata (..),
+    mkAuditMitigationActionExecutionMetadata,
     amaemStatus,
     amaemStartTime,
     amaemTaskId,
@@ -356,29 +354,29 @@ module Network.AWS.IoT.Types
     amaemMessage,
 
     -- * AuditMitigationActionsTaskMetadata
-    AuditMitigationActionsTaskMetadata,
-    auditMitigationActionsTaskMetadata,
+    AuditMitigationActionsTaskMetadata (..),
+    mkAuditMitigationActionsTaskMetadata,
     amatmStartTime,
     amatmTaskId,
     amatmTaskStatus,
 
     -- * AuditMitigationActionsTaskTarget
-    AuditMitigationActionsTaskTarget,
-    auditMitigationActionsTaskTarget,
+    AuditMitigationActionsTaskTarget (..),
+    mkAuditMitigationActionsTaskTarget,
     amattAuditTaskId,
     amattFindingIds,
     amattAuditCheckToReasonCodeFilter,
 
     -- * AuditNotificationTarget
-    AuditNotificationTarget,
-    auditNotificationTarget,
+    AuditNotificationTarget (..),
+    mkAuditNotificationTarget,
     antTargetARN,
     antEnabled,
     antRoleARN,
 
     -- * AuditSuppression
-    AuditSuppression,
-    auditSuppression,
+    AuditSuppression (..),
+    mkAuditSuppression,
     asExpirationDate,
     asSuppressIndefinitely,
     asDescription,
@@ -386,21 +384,21 @@ module Network.AWS.IoT.Types
     asResourceIdentifier,
 
     -- * AuditTaskMetadata
-    AuditTaskMetadata,
-    auditTaskMetadata,
+    AuditTaskMetadata (..),
+    mkAuditTaskMetadata,
     atmTaskType,
     atmTaskId,
     atmTaskStatus,
 
     -- * AuthInfo
-    AuthInfo,
-    authInfo,
+    AuthInfo (..),
+    mkAuthInfo,
     aiActionType,
     aiResources,
 
     -- * AuthResult
-    AuthResult,
-    authResult,
+    AuthResult (..),
+    mkAuthResult,
     arDenied,
     arAuthDecision,
     arAllowed,
@@ -408,14 +406,14 @@ module Network.AWS.IoT.Types
     arAuthInfo,
 
     -- * AuthorizerConfig
-    AuthorizerConfig,
-    authorizerConfig,
+    AuthorizerConfig (..),
+    mkAuthorizerConfig,
     acAllowAuthorizerOverride,
     acDefaultAuthorizerName,
 
     -- * AuthorizerDescription
-    AuthorizerDescription,
-    authorizerDescription,
+    AuthorizerDescription (..),
+    mkAuthorizerDescription,
     adStatus,
     adLastModifiedDate,
     adSigningDisabled,
@@ -427,22 +425,22 @@ module Network.AWS.IoT.Types
     adTokenKeyName,
 
     -- * AuthorizerSummary
-    AuthorizerSummary,
-    authorizerSummary,
+    AuthorizerSummary (..),
+    mkAuthorizerSummary,
     asAuthorizerName,
     asAuthorizerARN,
 
     -- * Behavior
-    Behavior,
-    behavior,
+    Behavior (..),
+    mkBehavior,
     bMetricDimension,
     bMetric,
     bCriteria,
     bName,
 
     -- * BehaviorCriteria
-    BehaviorCriteria,
-    behaviorCriteria,
+    BehaviorCriteria (..),
+    mkBehaviorCriteria,
     bcValue,
     bcConsecutiveDatapointsToAlarm,
     bcComparisonOperator,
@@ -451,26 +449,26 @@ module Network.AWS.IoT.Types
     bcConsecutiveDatapointsToClear,
 
     -- * BillingGroupMetadata
-    BillingGroupMetadata,
-    billingGroupMetadata,
+    BillingGroupMetadata (..),
+    mkBillingGroupMetadata,
     bgmCreationDate,
 
     -- * BillingGroupProperties
-    BillingGroupProperties,
-    billingGroupProperties,
+    BillingGroupProperties (..),
+    mkBillingGroupProperties,
     bgpBillingGroupDescription,
 
     -- * CACertificate
-    CACertificate,
-    cACertificate,
+    CACertificate (..),
+    mkCACertificate,
     cacStatus,
     cacCertificateARN,
     cacCertificateId,
     cacCreationDate,
 
     -- * CACertificateDescription
-    CACertificateDescription,
-    cACertificateDescription,
+    CACertificateDescription (..),
+    mkCACertificateDescription,
     cacdStatus,
     cacdOwnedBy,
     cacdLastModifiedDate,
@@ -484,8 +482,8 @@ module Network.AWS.IoT.Types
     cacdCustomerVersion,
 
     -- * Certificate
-    Certificate,
-    certificate,
+    Certificate (..),
+    mkCertificate,
     cStatus,
     cCertificateARN,
     cCertificateId,
@@ -493,8 +491,8 @@ module Network.AWS.IoT.Types
     cCreationDate,
 
     -- * CertificateDescription
-    CertificateDescription,
-    certificateDescription,
+    CertificateDescription (..),
+    mkCertificateDescription,
     cdStatus,
     cdOwnedBy,
     cdLastModifiedDate,
@@ -511,28 +509,28 @@ module Network.AWS.IoT.Types
     cdCustomerVersion,
 
     -- * CertificateValidity
-    CertificateValidity,
-    certificateValidity,
+    CertificateValidity (..),
+    mkCertificateValidity,
     cvNotBefore,
     cvNotAfter,
 
     -- * CloudwatchAlarmAction
-    CloudwatchAlarmAction,
-    cloudwatchAlarmAction,
+    CloudwatchAlarmAction (..),
+    mkCloudwatchAlarmAction,
     caaRoleARN,
     caaAlarmName,
     caaStateReason,
     caaStateValue,
 
     -- * CloudwatchLogsAction
-    CloudwatchLogsAction,
-    cloudwatchLogsAction,
+    CloudwatchLogsAction (..),
+    mkCloudwatchLogsAction,
     claRoleARN,
     claLogGroupName,
 
     -- * CloudwatchMetricAction
-    CloudwatchMetricAction,
-    cloudwatchMetricAction,
+    CloudwatchMetricAction (..),
+    mkCloudwatchMetricAction,
     cmaMetricTimestamp,
     cmaRoleARN,
     cmaMetricNamespace,
@@ -541,57 +539,57 @@ module Network.AWS.IoT.Types
     cmaMetricUnit,
 
     -- * CodeSigning
-    CodeSigning,
-    codeSigning,
+    CodeSigning (..),
+    mkCodeSigning,
     csCustomCodeSigning,
     csStartSigningJobParameter,
     csAwsSignerJobId,
 
     -- * CodeSigningCertificateChain
-    CodeSigningCertificateChain,
-    codeSigningCertificateChain,
+    CodeSigningCertificateChain (..),
+    mkCodeSigningCertificateChain,
     csccCertificateName,
     csccInlineDocument,
 
     -- * CodeSigningSignature
-    CodeSigningSignature,
-    codeSigningSignature,
+    CodeSigningSignature (..),
+    mkCodeSigningSignature,
     cssInlineDocument,
 
     -- * Configuration
-    Configuration,
-    configuration,
+    Configuration (..),
+    mkConfiguration,
     cEnabled,
 
     -- * CustomCodeSigning
-    CustomCodeSigning,
-    customCodeSigning,
+    CustomCodeSigning (..),
+    mkCustomCodeSigning,
     ccsSignature,
     ccsHashAlgorithm,
     ccsCertificateChain,
     ccsSignatureAlgorithm,
 
     -- * Denied
-    Denied,
-    denied,
+    Denied (..),
+    mkDenied,
     dImplicitDeny,
     dExplicitDeny,
 
     -- * Destination
-    Destination,
-    destination,
+    Destination (..),
+    mkDestination,
     dS3Destination,
 
     -- * DomainConfigurationSummary
-    DomainConfigurationSummary,
-    domainConfigurationSummary,
+    DomainConfigurationSummary (..),
+    mkDomainConfigurationSummary,
     dcsDomainConfigurationName,
     dcsDomainConfigurationARN,
     dcsServiceType,
 
     -- * DynamoDBAction
-    DynamoDBAction,
-    dynamoDBAction,
+    DynamoDBAction (..),
+    mkDynamoDBAction,
     ddbaHashKeyType,
     ddbaOperation,
     ddbaRangeKeyType,
@@ -604,21 +602,21 @@ module Network.AWS.IoT.Types
     ddbaHashKeyValue,
 
     -- * DynamoDBv2Action
-    DynamoDBv2Action,
-    dynamoDBv2Action,
+    DynamoDBv2Action (..),
+    mkDynamoDBv2Action,
     ddaRoleARN,
     ddaPutItem,
 
     -- * EffectivePolicy
-    EffectivePolicy,
-    effectivePolicy,
+    EffectivePolicy (..),
+    mkEffectivePolicy,
     epPolicyName,
     epPolicyDocument,
     epPolicyARN,
 
     -- * ElasticsearchAction
-    ElasticsearchAction,
-    elasticsearchAction,
+    ElasticsearchAction (..),
+    mkElasticsearchAction,
     eaRoleARN,
     eaEndpoint,
     eaIndex,
@@ -626,147 +624,147 @@ module Network.AWS.IoT.Types
     eaId,
 
     -- * EnableIOTLoggingParams
-    EnableIOTLoggingParams,
-    enableIOTLoggingParams,
+    EnableIOTLoggingParams (..),
+    mkEnableIOTLoggingParams,
     eiotlpRoleARNForLogging,
     eiotlpLogLevel,
 
     -- * ErrorInfo
-    ErrorInfo,
-    errorInfo,
+    ErrorInfo (..),
+    mkErrorInfo,
     eiCode,
     eiMessage,
 
     -- * ExplicitDeny
-    ExplicitDeny,
-    explicitDeny,
+    ExplicitDeny (..),
+    mkExplicitDeny,
     edPolicies,
 
     -- * ExponentialRolloutRate
-    ExponentialRolloutRate,
-    exponentialRolloutRate,
+    ExponentialRolloutRate (..),
+    mkExponentialRolloutRate,
     errBaseRatePerMinute,
     errIncrementFactor,
     errRateIncreaseCriteria,
 
     -- * Field
-    Field,
-    field,
+    Field (..),
+    mkField,
     fName,
     fType,
 
     -- * FileLocation
-    FileLocation,
-    fileLocation,
+    FileLocation (..),
+    mkFileLocation,
     flStream,
     flS3Location,
 
     -- * FirehoseAction
-    FirehoseAction,
-    firehoseAction,
+    FirehoseAction (..),
+    mkFirehoseAction,
     faBatchMode,
     faSeparator,
     faRoleARN,
     faDeliveryStreamName,
 
     -- * GroupNameAndARN
-    GroupNameAndARN,
-    groupNameAndARN,
+    GroupNameAndARN (..),
+    mkGroupNameAndARN,
     gnaaGroupARN,
     gnaaGroupName,
 
     -- * HTTPAction
-    HTTPAction,
-    hTTPAction,
+    HTTPAction (..),
+    mkHTTPAction,
     httpaConfirmationURL,
     httpaAuth,
     httpaHeaders,
     httpaUrl,
 
     -- * HTTPActionHeader
-    HTTPActionHeader,
-    hTTPActionHeader,
+    HTTPActionHeader (..),
+    mkHTTPActionHeader,
     httpahKey,
     httpahValue,
 
     -- * HTTPAuthorization
-    HTTPAuthorization,
-    hTTPAuthorization,
+    HTTPAuthorization (..),
+    mkHTTPAuthorization,
     httpaSigv4,
 
     -- * HTTPContext
-    HTTPContext,
-    hTTPContext,
+    HTTPContext (..),
+    mkHTTPContext,
     httpcHeaders,
     httpcQueryString,
 
     -- * HTTPURLDestinationConfiguration
-    HTTPURLDestinationConfiguration,
-    hTTPURLDestinationConfiguration,
+    HTTPURLDestinationConfiguration (..),
+    mkHTTPURLDestinationConfiguration,
     httpudcConfirmationURL,
 
     -- * HTTPURLDestinationProperties
-    HTTPURLDestinationProperties,
-    hTTPURLDestinationProperties,
+    HTTPURLDestinationProperties (..),
+    mkHTTPURLDestinationProperties,
     httpudpConfirmationURL,
 
     -- * HTTPURLDestinationSummary
-    HTTPURLDestinationSummary,
-    hTTPURLDestinationSummary,
+    HTTPURLDestinationSummary (..),
+    mkHTTPURLDestinationSummary,
     httpudsConfirmationURL,
 
     -- * ImplicitDeny
-    ImplicitDeny,
-    implicitDeny,
+    ImplicitDeny (..),
+    mkImplicitDeny,
     idPolicies,
 
     -- * IotAnalyticsAction
-    IotAnalyticsAction,
-    iotAnalyticsAction,
+    IotAnalyticsAction (..),
+    mkIotAnalyticsAction,
     iaaBatchMode,
     iaaChannelARN,
     iaaChannelName,
     iaaRoleARN,
 
     -- * IotEventsAction
-    IotEventsAction,
-    iotEventsAction,
+    IotEventsAction (..),
+    mkIotEventsAction,
     ieaBatchMode,
     ieaMessageId,
     ieaInputName,
     ieaRoleARN,
 
     -- * IotSiteWiseAction
-    IotSiteWiseAction,
-    iotSiteWiseAction,
+    IotSiteWiseAction (..),
+    mkIotSiteWiseAction,
     iswaPutAssetPropertyValueEntries,
     iswaRoleARN,
 
     -- * Job
-    Job,
-    job,
-    jobStatus,
-    jobJobExecutionsRolloutConfig,
-    jobJobId,
-    jobLastUpdatedAt,
-    jobJobARN,
-    jobCreatedAt,
-    jobAbortConfig,
-    jobJobProcessDetails,
-    jobNamespaceId,
-    jobReasonCode,
-    jobPresignedURLConfig,
-    jobForceCanceled,
-    jobTargets,
-    jobCompletedAt,
-    jobComment,
-    jobDescription,
-    jobTargetSelection,
-    jobTimeoutConfig,
+    Job (..),
+    mkJob,
+    jStatus,
+    jJobExecutionsRolloutConfig,
+    jJobId,
+    jLastUpdatedAt,
+    jJobARN,
+    jCreatedAt,
+    jAbortConfig,
+    jJobProcessDetails,
+    jNamespaceId,
+    jReasonCode,
+    jPresignedURLConfig,
+    jForceCanceled,
+    jTargets,
+    jCompletedAt,
+    jComment,
+    jDescription,
+    jTargetSelection,
+    jTimeoutConfig,
 
     -- * JobExecution
-    JobExecution,
-    jobExecution,
+    JobExecution (..),
+    mkJobExecution,
     jeStatus,
     jeJobId,
     jeLastUpdatedAt,
@@ -780,13 +778,13 @@ module Network.AWS.IoT.Types
     jeForceCanceled,
 
     -- * JobExecutionStatusDetails
-    JobExecutionStatusDetails,
-    jobExecutionStatusDetails,
+    JobExecutionStatusDetails (..),
+    mkJobExecutionStatusDetails,
     jesdDetailsMap,
 
     -- * JobExecutionSummary
-    JobExecutionSummary,
-    jobExecutionSummary,
+    JobExecutionSummary (..),
+    mkJobExecutionSummary,
     jesStatus,
     jesLastUpdatedAt,
     jesQueuedAt,
@@ -794,26 +792,26 @@ module Network.AWS.IoT.Types
     jesStartedAt,
 
     -- * JobExecutionSummaryForJob
-    JobExecutionSummaryForJob,
-    jobExecutionSummaryForJob,
+    JobExecutionSummaryForJob (..),
+    mkJobExecutionSummaryForJob,
     jesfjJobExecutionSummary,
     jesfjThingARN,
 
     -- * JobExecutionSummaryForThing
-    JobExecutionSummaryForThing,
-    jobExecutionSummaryForThing,
+    JobExecutionSummaryForThing (..),
+    mkJobExecutionSummaryForThing,
     jesftJobId,
     jesftJobExecutionSummary,
 
     -- * JobExecutionsRolloutConfig
-    JobExecutionsRolloutConfig,
-    jobExecutionsRolloutConfig,
+    JobExecutionsRolloutConfig (..),
+    mkJobExecutionsRolloutConfig,
     jercExponentialRate,
     jercMaximumPerMinute,
 
     -- * JobProcessDetails
-    JobProcessDetails,
-    jobProcessDetails,
+    JobProcessDetails (..),
+    mkJobProcessDetails,
     jpdNumberOfRemovedThings,
     jpdNumberOfQueuedThings,
     jpdNumberOfFailedThings,
@@ -825,8 +823,8 @@ module Network.AWS.IoT.Types
     jpdProcessingTargets,
 
     -- * JobSummary
-    JobSummary,
-    jobSummary,
+    JobSummary (..),
+    mkJobSummary,
     jsStatus,
     jsJobId,
     jsLastUpdatedAt,
@@ -837,78 +835,78 @@ module Network.AWS.IoT.Types
     jsTargetSelection,
 
     -- * KeyPair
-    KeyPair,
-    keyPair,
+    KeyPair (..),
+    mkKeyPair,
     kpPrivateKey,
     kpPublicKey,
 
     -- * KinesisAction
-    KinesisAction,
-    kinesisAction,
+    KinesisAction (..),
+    mkKinesisAction,
     kaPartitionKey,
     kaRoleARN,
     kaStreamName,
 
     -- * LambdaAction
-    LambdaAction,
-    lambdaAction,
+    LambdaAction (..),
+    mkLambdaAction,
     laFunctionARN,
 
     -- * LogTarget
-    LogTarget,
-    logTarget,
+    LogTarget (..),
+    mkLogTarget,
     ltTargetName,
     ltTargetType,
 
     -- * LogTargetConfiguration
-    LogTargetConfiguration,
-    logTargetConfiguration,
+    LogTargetConfiguration (..),
+    mkLogTargetConfiguration,
     ltcLogLevel,
     ltcLogTarget,
 
     -- * LoggingOptionsPayload
-    LoggingOptionsPayload,
-    loggingOptionsPayload,
+    LoggingOptionsPayload (..),
+    mkLoggingOptionsPayload,
     lopLogLevel,
     lopRoleARN,
 
     -- * MetricDimension
-    MetricDimension,
-    metricDimension,
+    MetricDimension (..),
+    mkMetricDimension,
     mdOperator,
     mdDimensionName,
 
     -- * MetricToRetain
-    MetricToRetain,
-    metricToRetain,
+    MetricToRetain (..),
+    mkMetricToRetain,
     mtrMetricDimension,
     mtrMetric,
 
     -- * MetricValue
-    MetricValue,
-    metricValue,
+    MetricValue (..),
+    mkMetricValue,
     mvCidrs,
     mvCount,
     mvPorts,
 
     -- * MitigationAction
-    MitigationAction,
-    mitigationAction,
+    MitigationAction (..),
+    mkMitigationAction,
     maActionParams,
     maName,
     maId,
     maRoleARN,
 
     -- * MitigationActionIdentifier
-    MitigationActionIdentifier,
-    mitigationActionIdentifier,
+    MitigationActionIdentifier (..),
+    mkMitigationActionIdentifier,
     maiActionName,
     maiCreationDate,
     maiActionARN,
 
     -- * MitigationActionParams
-    MitigationActionParams,
-    mitigationActionParams,
+    MitigationActionParams (..),
+    mkMitigationActionParams,
     mapEnableIOTLoggingParams,
     mapAddThingsToThingGroupParams,
     mapUpdateCACertificateParams,
@@ -917,22 +915,22 @@ module Network.AWS.IoT.Types
     mapPublishFindingToSNSParams,
 
     -- * MqttContext
-    MqttContext,
-    mqttContext,
+    MqttContext (..),
+    mkMqttContext,
     mcClientId,
     mcUsername,
     mcPassword,
 
     -- * NonCompliantResource
-    NonCompliantResource,
-    nonCompliantResource,
+    NonCompliantResource (..),
+    mkNonCompliantResource,
     ncrAdditionalInfo,
     ncrResourceType,
     ncrResourceIdentifier,
 
     -- * OTAUpdateFile
-    OTAUpdateFile,
-    oTAUpdateFile,
+    OTAUpdateFile (..),
+    mkOTAUpdateFile,
     otaufFileLocation,
     otaufFileType,
     otaufFileVersion,
@@ -941,8 +939,8 @@ module Network.AWS.IoT.Types
     otaufFileName,
 
     -- * OTAUpdateInfo
-    OTAUpdateInfo,
-    oTAUpdateInfo,
+    OTAUpdateInfo (..),
+    mkOTAUpdateInfo,
     otauiLastModifiedDate,
     otauiAwsJobExecutionsRolloutConfig,
     otauiAwsIotJobId,
@@ -961,15 +959,15 @@ module Network.AWS.IoT.Types
     otauiTargetSelection,
 
     -- * OTAUpdateSummary
-    OTAUpdateSummary,
-    oTAUpdateSummary,
+    OTAUpdateSummary (..),
+    mkOTAUpdateSummary,
     otausCreationDate,
     otausOtaUpdateId,
     otausOtaUpdateARN,
 
     -- * OutgoingCertificate
-    OutgoingCertificate,
-    outgoingCertificate,
+    OutgoingCertificate (..),
+    mkOutgoingCertificate,
     ocTransferDate,
     ocCertificateARN,
     ocCertificateId,
@@ -978,45 +976,45 @@ module Network.AWS.IoT.Types
     ocTransferMessage,
 
     -- * PercentPair
-    PercentPair,
-    percentPair,
+    PercentPair (..),
+    mkPercentPair,
     ppValue,
     ppPercent,
 
     -- * Policy
-    Policy,
-    policy,
+    Policy (..),
+    mkPolicy,
     pPolicyName,
     pPolicyARN,
 
     -- * PolicyVersion
-    PolicyVersion,
-    policyVersion,
+    PolicyVersion (..),
+    mkPolicyVersion,
     pvVersionId,
     pvCreateDate,
     pvIsDefaultVersion,
 
     -- * PolicyVersionIdentifier
-    PolicyVersionIdentifier,
-    policyVersionIdentifier,
+    PolicyVersionIdentifier (..),
+    mkPolicyVersionIdentifier,
     pviPolicyName,
     pviPolicyVersionId,
 
     -- * PresignedURLConfig
-    PresignedURLConfig,
-    presignedURLConfig,
+    PresignedURLConfig (..),
+    mkPresignedURLConfig,
     pucExpiresInSec,
     pucRoleARN,
 
     -- * ProvisioningHook
-    ProvisioningHook,
-    provisioningHook,
+    ProvisioningHook (..),
+    mkProvisioningHook,
     phPayloadVersion,
     phTargetARN,
 
     -- * ProvisioningTemplateSummary
-    ProvisioningTemplateSummary,
-    provisioningTemplateSummary,
+    ProvisioningTemplateSummary (..),
+    mkProvisioningTemplateSummary,
     ptsLastModifiedDate,
     ptsTemplateName,
     ptsEnabled,
@@ -1025,20 +1023,20 @@ module Network.AWS.IoT.Types
     ptsDescription,
 
     -- * ProvisioningTemplateVersionSummary
-    ProvisioningTemplateVersionSummary,
-    provisioningTemplateVersionSummary,
+    ProvisioningTemplateVersionSummary (..),
+    mkProvisioningTemplateVersionSummary,
     ptvsVersionId,
     ptvsCreationDate,
     ptvsIsDefaultVersion,
 
     -- * PublishFindingToSNSParams
-    PublishFindingToSNSParams,
-    publishFindingToSNSParams,
+    PublishFindingToSNSParams (..),
+    mkPublishFindingToSNSParams,
     pftspTopicARN,
 
     -- * PutAssetPropertyValueEntry
-    PutAssetPropertyValueEntry,
-    putAssetPropertyValueEntry,
+    PutAssetPropertyValueEntry (..),
+    mkPutAssetPropertyValueEntry,
     papveEntryId,
     papvePropertyAlias,
     papvePropertyId,
@@ -1046,44 +1044,44 @@ module Network.AWS.IoT.Types
     papvePropertyValues,
 
     -- * PutItemInput
-    PutItemInput,
-    putItemInput,
+    PutItemInput (..),
+    mkPutItemInput,
     piiTableName,
 
     -- * RateIncreaseCriteria
-    RateIncreaseCriteria,
-    rateIncreaseCriteria,
+    RateIncreaseCriteria (..),
+    mkRateIncreaseCriteria,
     ricNumberOfNotifiedThings,
     ricNumberOfSucceededThings,
 
     -- * RegistrationConfig
-    RegistrationConfig,
-    registrationConfig,
+    RegistrationConfig (..),
+    mkRegistrationConfig,
     rcTemplateBody,
     rcRoleARN,
 
     -- * RelatedResource
-    RelatedResource,
-    relatedResource,
+    RelatedResource (..),
+    mkRelatedResource,
     rrAdditionalInfo,
     rrResourceType,
     rrResourceIdentifier,
 
     -- * ReplaceDefaultPolicyVersionParams
-    ReplaceDefaultPolicyVersionParams,
-    replaceDefaultPolicyVersionParams,
+    ReplaceDefaultPolicyVersionParams (..),
+    mkReplaceDefaultPolicyVersionParams,
     rdpvpTemplateName,
 
     -- * RepublishAction
-    RepublishAction,
-    republishAction,
+    RepublishAction (..),
+    mkRepublishAction,
     raQos,
     raRoleARN,
     raTopic,
 
     -- * ResourceIdentifier
-    ResourceIdentifier,
-    resourceIdentifier,
+    ResourceIdentifier (..),
+    mkResourceIdentifier,
     riIamRoleARN,
     riClientId,
     riRoleAliasARN,
@@ -1094,8 +1092,8 @@ module Network.AWS.IoT.Types
     riCognitoIdentityPoolId,
 
     -- * RoleAliasDescription
-    RoleAliasDescription,
-    roleAliasDescription,
+    RoleAliasDescription (..),
+    mkRoleAliasDescription,
     radRoleAliasARN,
     radLastModifiedDate,
     radRoleAlias,
@@ -1105,42 +1103,42 @@ module Network.AWS.IoT.Types
     radRoleARN,
 
     -- * S3Action
-    S3Action,
-    s3Action,
+    S3Action (..),
+    mkS3Action,
     sCannedACL,
     sRoleARN,
     sBucketName,
     sKey,
 
     -- * S3Destination
-    S3Destination,
-    s3Destination,
+    S3Destination (..),
+    mkS3Destination,
     sdPrefix,
     sdBucket,
 
     -- * S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slBucket,
     slKey,
     slVersion,
 
     -- * SNSAction
-    SNSAction,
-    snsAction,
+    SNSAction (..),
+    mkSNSAction,
     snsaMessageFormat,
     snsaTargetARN,
     snsaRoleARN,
 
     -- * SalesforceAction
-    SalesforceAction,
-    salesforceAction,
+    SalesforceAction (..),
+    mkSalesforceAction,
     saToken,
     saUrl,
 
     -- * ScheduledAuditMetadata
-    ScheduledAuditMetadata,
-    scheduledAuditMetadata,
+    ScheduledAuditMetadata (..),
+    mkScheduledAuditMetadata,
     samFrequency,
     samScheduledAuditName,
     samDayOfMonth,
@@ -1148,65 +1146,65 @@ module Network.AWS.IoT.Types
     samScheduledAuditARN,
 
     -- * SecurityProfileIdentifier
-    SecurityProfileIdentifier,
-    securityProfileIdentifier,
+    SecurityProfileIdentifier (..),
+    mkSecurityProfileIdentifier,
     spiName,
     spiArn,
 
     -- * SecurityProfileTarget
-    SecurityProfileTarget,
-    securityProfileTarget,
+    SecurityProfileTarget (..),
+    mkSecurityProfileTarget,
     sptArn,
 
     -- * SecurityProfileTargetMapping
-    SecurityProfileTargetMapping,
-    securityProfileTargetMapping,
+    SecurityProfileTargetMapping (..),
+    mkSecurityProfileTargetMapping,
     sptmSecurityProfileIdentifier,
     sptmTarget,
 
     -- * ServerCertificateSummary
-    ServerCertificateSummary,
-    serverCertificateSummary,
+    ServerCertificateSummary (..),
+    mkServerCertificateSummary,
     scsServerCertificateStatusDetail,
     scsServerCertificateStatus,
     scsServerCertificateARN,
 
     -- * SigV4Authorization
-    SigV4Authorization,
-    sigV4Authorization,
+    SigV4Authorization (..),
+    mkSigV4Authorization,
     svaSigningRegion,
     svaServiceName,
     svaRoleARN,
 
     -- * SigningProfileParameter
-    SigningProfileParameter,
-    signingProfileParameter,
+    SigningProfileParameter (..),
+    mkSigningProfileParameter,
     sppPlatform,
     sppCertificateARN,
     sppCertificatePathOnDevice,
 
     -- * SqsAction
-    SqsAction,
-    sqsAction,
+    SqsAction (..),
+    mkSqsAction,
     saUseBase64,
     saRoleARN,
     saQueueURL,
 
     -- * StartSigningJobParameter
-    StartSigningJobParameter,
-    startSigningJobParameter,
+    StartSigningJobParameter (..),
+    mkStartSigningJobParameter,
     ssjpDestination,
     ssjpSigningProfileName,
     ssjpSigningProfileParameter,
 
     -- * StatisticalThreshold
-    StatisticalThreshold,
-    statisticalThreshold,
+    StatisticalThreshold (..),
+    mkStatisticalThreshold,
     stStatistic,
 
     -- * Statistics
-    Statistics,
-    statistics,
+    Statistics (..),
+    mkStatistics,
     sStdDeviation,
     sMaximum,
     sAverage,
@@ -1217,27 +1215,27 @@ module Network.AWS.IoT.Types
     sSum,
 
     -- * StepFunctionsAction
-    StepFunctionsAction,
-    stepFunctionsAction,
+    StepFunctionsAction (..),
+    mkStepFunctionsAction,
     sfaExecutionNamePrefix,
     sfaStateMachineName,
     sfaRoleARN,
 
     -- * Stream
-    Stream,
-    stream,
+    Stream (..),
+    mkStream,
     sFileId,
     sStreamId,
 
     -- * StreamFile
-    StreamFile,
-    streamFile,
+    StreamFile (..),
+    mkStreamFile,
     sfS3Location,
     sfFileId,
 
     -- * StreamInfo
-    StreamInfo,
-    streamInfo,
+    StreamInfo (..),
+    mkStreamInfo,
     siLastUpdatedAt,
     siCreatedAt,
     siStreamVersion,
@@ -1248,27 +1246,27 @@ module Network.AWS.IoT.Types
     siRoleARN,
 
     -- * StreamSummary
-    StreamSummary,
-    streamSummary,
+    StreamSummary (..),
+    mkStreamSummary,
     ssStreamVersion,
     ssStreamARN,
     ssDescription,
     ssStreamId,
 
     -- * TLSContext
-    TLSContext,
-    tlsContext,
+    TLSContext (..),
+    mkTLSContext,
     tcServerName,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * TaskStatistics
-    TaskStatistics,
-    taskStatistics,
+    TaskStatistics (..),
+    mkTaskStatistics,
     tsNonCompliantChecks,
     tsWaitingForDataCollectionChecks,
     tsFailedChecks,
@@ -1278,8 +1276,8 @@ module Network.AWS.IoT.Types
     tsCanceledChecks,
 
     -- * TaskStatisticsForAuditCheck
-    TaskStatisticsForAuditCheck,
-    taskStatisticsForAuditCheck,
+    TaskStatisticsForAuditCheck (..),
+    mkTaskStatisticsForAuditCheck,
     tsfacCanceledFindingsCount,
     tsfacSkippedFindingsCount,
     tsfacTotalFindingsCount,
@@ -1287,8 +1285,8 @@ module Network.AWS.IoT.Types
     tsfacSucceededFindingsCount,
 
     -- * ThingAttribute
-    ThingAttribute,
-    thingAttribute,
+    ThingAttribute (..),
+    mkThingAttribute,
     taThingTypeName,
     taThingARN,
     taAttributes,
@@ -1296,14 +1294,14 @@ module Network.AWS.IoT.Types
     taThingName,
 
     -- * ThingConnectivity
-    ThingConnectivity,
-    thingConnectivity,
+    ThingConnectivity (..),
+    mkThingConnectivity,
     tcConnected,
     tcTimestamp,
 
     -- * ThingDocument
-    ThingDocument,
-    thingDocument,
+    ThingDocument (..),
+    mkThingDocument,
     tdThingGroupNames,
     tdThingTypeName,
     tdShadow,
@@ -1313,8 +1311,8 @@ module Network.AWS.IoT.Types
     tdThingId,
 
     -- * ThingGroupDocument
-    ThingGroupDocument,
-    thingGroupDocument,
+    ThingGroupDocument (..),
+    mkThingGroupDocument,
     tgdParentGroupNames,
     tgdThingGroupId,
     tgdThingGroupName,
@@ -1322,62 +1320,62 @@ module Network.AWS.IoT.Types
     tgdThingGroupDescription,
 
     -- * ThingGroupIndexingConfiguration
-    ThingGroupIndexingConfiguration,
-    thingGroupIndexingConfiguration,
+    ThingGroupIndexingConfiguration (..),
+    mkThingGroupIndexingConfiguration,
     tgicManagedFields,
     tgicCustomFields,
     tgicThingGroupIndexingMode,
 
     -- * ThingGroupMetadata
-    ThingGroupMetadata,
-    thingGroupMetadata,
+    ThingGroupMetadata (..),
+    mkThingGroupMetadata,
     tgmRootToParentThingGroups,
     tgmParentGroupName,
     tgmCreationDate,
 
     -- * ThingGroupProperties
-    ThingGroupProperties,
-    thingGroupProperties,
+    ThingGroupProperties (..),
+    mkThingGroupProperties,
     tgpAttributePayload,
     tgpThingGroupDescription,
 
     -- * ThingIndexingConfiguration
-    ThingIndexingConfiguration,
-    thingIndexingConfiguration,
+    ThingIndexingConfiguration (..),
+    mkThingIndexingConfiguration,
     ticManagedFields,
     ticThingConnectivityIndexingMode,
     ticCustomFields,
     ticThingIndexingMode,
 
     -- * ThingTypeDefinition
-    ThingTypeDefinition,
-    thingTypeDefinition,
+    ThingTypeDefinition (..),
+    mkThingTypeDefinition,
     ttdThingTypeProperties,
     ttdThingTypeName,
     ttdThingTypeMetadata,
     ttdThingTypeARN,
 
     -- * ThingTypeMetadata
-    ThingTypeMetadata,
-    thingTypeMetadata,
+    ThingTypeMetadata (..),
+    mkThingTypeMetadata,
     ttmDeprecationDate,
     ttmCreationDate,
     ttmDeprecated,
 
     -- * ThingTypeProperties
-    ThingTypeProperties,
-    thingTypeProperties,
+    ThingTypeProperties (..),
+    mkThingTypeProperties,
     ttpSearchableAttributes,
     ttpThingTypeDescription,
 
     -- * TimeoutConfig
-    TimeoutConfig,
-    timeoutConfig,
+    TimeoutConfig (..),
+    mkTimeoutConfig,
     tcInProgressTimeoutInMinutes,
 
     -- * TimestreamAction
-    TimestreamAction,
-    timestreamAction,
+    TimestreamAction (..),
+    mkTimestreamAction,
     taTimestamp,
     taRoleARN,
     taDatabaseName,
@@ -1385,20 +1383,20 @@ module Network.AWS.IoT.Types
     taDimensions,
 
     -- * TimestreamDimension
-    TimestreamDimension,
-    timestreamDimension,
+    TimestreamDimension (..),
+    mkTimestreamDimension,
     tdName,
     tdValue,
 
     -- * TimestreamTimestamp
-    TimestreamTimestamp,
-    timestreamTimestamp,
+    TimestreamTimestamp (..),
+    mkTimestreamTimestamp,
     ttValue,
     ttUnit,
 
     -- * TopicRule
-    TopicRule,
-    topicRule,
+    TopicRule (..),
+    mkTopicRule,
     trCreatedAt,
     trActions,
     trAwsIotSqlVersion,
@@ -1409,29 +1407,29 @@ module Network.AWS.IoT.Types
     trDescription,
 
     -- * TopicRuleDestination
-    TopicRuleDestination,
-    topicRuleDestination,
+    TopicRuleDestination (..),
+    mkTopicRuleDestination,
     trdStatus,
     trdHttpURLProperties,
     trdArn,
     trdStatusReason,
 
     -- * TopicRuleDestinationConfiguration
-    TopicRuleDestinationConfiguration,
-    topicRuleDestinationConfiguration,
+    TopicRuleDestinationConfiguration (..),
+    mkTopicRuleDestinationConfiguration,
     trdcHttpURLConfiguration,
 
     -- * TopicRuleDestinationSummary
-    TopicRuleDestinationSummary,
-    topicRuleDestinationSummary,
+    TopicRuleDestinationSummary (..),
+    mkTopicRuleDestinationSummary,
     trdsStatus,
     trdsHttpURLSummary,
     trdsArn,
     trdsStatusReason,
 
     -- * TopicRuleListItem
-    TopicRuleListItem,
-    topicRuleListItem,
+    TopicRuleListItem (..),
+    mkTopicRuleListItem,
     trliCreatedAt,
     trliRuleDisabled,
     trliRuleName,
@@ -1439,8 +1437,8 @@ module Network.AWS.IoT.Types
     trliTopicPattern,
 
     -- * TopicRulePayload
-    TopicRulePayload,
-    topicRulePayload,
+    TopicRulePayload (..),
+    mkTopicRulePayload,
     trpAwsIotSqlVersion,
     trpErrorAction,
     trpRuleDisabled,
@@ -1449,8 +1447,8 @@ module Network.AWS.IoT.Types
     trpActions,
 
     -- * TransferData
-    TransferData,
-    transferData,
+    TransferData (..),
+    mkTransferData,
     tdTransferDate,
     tdAcceptDate,
     tdTransferMessage,
@@ -1458,23 +1456,23 @@ module Network.AWS.IoT.Types
     tdRejectReason,
 
     -- * UpdateCACertificateParams
-    UpdateCACertificateParams,
-    updateCACertificateParams,
+    UpdateCACertificateParams (..),
+    mkUpdateCACertificateParams,
     ucacpAction,
 
     -- * UpdateDeviceCertificateParams
-    UpdateDeviceCertificateParams,
-    updateDeviceCertificateParams,
+    UpdateDeviceCertificateParams (..),
+    mkUpdateDeviceCertificateParams,
     udcpAction,
 
     -- * ValidationError
-    ValidationError,
-    validationError,
+    ValidationError (..),
+    mkValidationError,
     veErrorMessage,
 
     -- * ViolationEvent
-    ViolationEvent,
-    violationEvent,
+    ViolationEvent (..),
+    mkViolationEvent,
     veViolationEventType,
     veViolationId,
     veBehavior,
@@ -1710,48 +1708,60 @@ import Network.AWS.IoT.Types.UpdateDeviceCertificateParams
 import Network.AWS.IoT.Types.ValidationError
 import Network.AWS.IoT.Types.ViolationEvent
 import Network.AWS.IoT.Types.ViolationEventType
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-05-28@ of the Amazon IoT SDK configuration.
-ioT :: Service
-ioT =
-  Service
-    { _svcAbbrev = "IoT",
-      _svcSigner = v4,
-      _svcPrefix = "iot",
-      _svcVersion = "2015-05-28",
-      _svcEndpoint = defaultEndpoint ioT,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "IoT",
-      _svcRetry = retry
+ioTService :: Lude.Service
+ioTService =
+  Lude.Service
+    { Lude._svcAbbrev = "IoT",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "iot",
+      Lude._svcVersion = "2015-05-28",
+      Lude._svcEndpoint = Lude.defaultEndpoint ioTService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "IoT",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

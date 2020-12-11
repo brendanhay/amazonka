@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.MongoDBTarget where
+module Network.AWS.Glue.Types.MongoDBTarget
+  ( MongoDBTarget (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMongoDBTarget,
+
+    -- * Lenses
+    mdtPath,
+    mdtConnectionName,
+    mdtScanAll,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies an Amazon DocumentDB or MongoDB data store to crawl.
 --
---
---
--- /See:/ 'mongoDBTarget' smart constructor.
+-- /See:/ 'mkMongoDBTarget' smart constructor.
 data MongoDBTarget = MongoDBTarget'
-  { _mdtPath :: !(Maybe Text),
-    _mdtConnectionName :: !(Maybe Text),
-    _mdtScanAll :: !(Maybe Bool)
+  { path :: Lude.Maybe Lude.Text,
+    connectionName :: Lude.Maybe Lude.Text,
+    scanAll :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MongoDBTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'connectionName' - The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+-- * 'path' - The path of the Amazon DocumentDB or MongoDB target (database/collection).
+-- * 'scanAll' - Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.
 --
--- * 'mdtPath' - The path of the Amazon DocumentDB or MongoDB target (database/collection).
---
--- * 'mdtConnectionName' - The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
---
--- * 'mdtScanAll' - Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. A value of @true@ means to scan all records, while a value of @false@ means to sample the records. If no value is specified, the value defaults to @true@ .
-mongoDBTarget ::
+-- A value of @true@ means to scan all records, while a value of @false@ means to sample the records. If no value is specified, the value defaults to @true@ .
+mkMongoDBTarget ::
   MongoDBTarget
-mongoDBTarget =
+mkMongoDBTarget =
   MongoDBTarget'
-    { _mdtPath = Nothing,
-      _mdtConnectionName = Nothing,
-      _mdtScanAll = Nothing
+    { path = Lude.Nothing,
+      connectionName = Lude.Nothing,
+      scanAll = Lude.Nothing
     }
 
 -- | The path of the Amazon DocumentDB or MongoDB target (database/collection).
-mdtPath :: Lens' MongoDBTarget (Maybe Text)
-mdtPath = lens _mdtPath (\s a -> s {_mdtPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdtPath :: Lens.Lens' MongoDBTarget (Lude.Maybe Lude.Text)
+mdtPath = Lens.lens (path :: MongoDBTarget -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: MongoDBTarget)
+{-# DEPRECATED mdtPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
-mdtConnectionName :: Lens' MongoDBTarget (Maybe Text)
-mdtConnectionName = lens _mdtConnectionName (\s a -> s {_mdtConnectionName = a})
+--
+-- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdtConnectionName :: Lens.Lens' MongoDBTarget (Lude.Maybe Lude.Text)
+mdtConnectionName = Lens.lens (connectionName :: MongoDBTarget -> Lude.Maybe Lude.Text) (\s a -> s {connectionName = a} :: MongoDBTarget)
+{-# DEPRECATED mdtConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
 
--- | Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. A value of @true@ means to scan all records, while a value of @false@ means to sample the records. If no value is specified, the value defaults to @true@ .
-mdtScanAll :: Lens' MongoDBTarget (Maybe Bool)
-mdtScanAll = lens _mdtScanAll (\s a -> s {_mdtScanAll = a})
+-- | Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.
+--
+-- A value of @true@ means to scan all records, while a value of @false@ means to sample the records. If no value is specified, the value defaults to @true@ .
+--
+-- /Note:/ Consider using 'scanAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdtScanAll :: Lens.Lens' MongoDBTarget (Lude.Maybe Lude.Bool)
+mdtScanAll = Lens.lens (scanAll :: MongoDBTarget -> Lude.Maybe Lude.Bool) (\s a -> s {scanAll = a} :: MongoDBTarget)
+{-# DEPRECATED mdtScanAll "Use generic-lens or generic-optics with 'scanAll' instead." #-}
 
-instance FromJSON MongoDBTarget where
+instance Lude.FromJSON MongoDBTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "MongoDBTarget"
       ( \x ->
           MongoDBTarget'
-            <$> (x .:? "Path") <*> (x .:? "ConnectionName") <*> (x .:? "ScanAll")
+            Lude.<$> (x Lude..:? "Path")
+            Lude.<*> (x Lude..:? "ConnectionName")
+            Lude.<*> (x Lude..:? "ScanAll")
       )
 
-instance Hashable MongoDBTarget
-
-instance NFData MongoDBTarget
-
-instance ToJSON MongoDBTarget where
+instance Lude.ToJSON MongoDBTarget where
   toJSON MongoDBTarget' {..} =
-    object
-      ( catMaybes
-          [ ("Path" .=) <$> _mdtPath,
-            ("ConnectionName" .=) <$> _mdtConnectionName,
-            ("ScanAll" .=) <$> _mdtScanAll
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Path" Lude..=) Lude.<$> path,
+            ("ConnectionName" Lude..=) Lude.<$> connectionName,
+            ("ScanAll" Lude..=) Lude.<$> scanAll
           ]
       )

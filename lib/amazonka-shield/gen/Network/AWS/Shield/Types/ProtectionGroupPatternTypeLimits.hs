@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits where
+module Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits
+  ( ProtectionGroupPatternTypeLimits (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProtectionGroupPatternTypeLimits,
+
+    -- * Lenses
+    pgptlArbitraryPatternLimits,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits
 
 -- | Limits settings by pattern type in the protection groups for your subscription.
 --
---
---
--- /See:/ 'protectionGroupPatternTypeLimits' smart constructor.
+-- /See:/ 'mkProtectionGroupPatternTypeLimits' smart constructor.
 newtype ProtectionGroupPatternTypeLimits = ProtectionGroupPatternTypeLimits'
-  { _pgptlArbitraryPatternLimits ::
+  { arbitraryPatternLimits ::
       ProtectionGroupArbitraryPatternLimits
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectionGroupPatternTypeLimits' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pgptlArbitraryPatternLimits' - Limits settings on protection groups with arbitrary pattern type.
-protectionGroupPatternTypeLimits ::
-  -- | 'pgptlArbitraryPatternLimits'
+-- * 'arbitraryPatternLimits' - Limits settings on protection groups with arbitrary pattern type.
+mkProtectionGroupPatternTypeLimits ::
+  -- | 'arbitraryPatternLimits'
   ProtectionGroupArbitraryPatternLimits ->
   ProtectionGroupPatternTypeLimits
-protectionGroupPatternTypeLimits pArbitraryPatternLimits_ =
+mkProtectionGroupPatternTypeLimits pArbitraryPatternLimits_ =
   ProtectionGroupPatternTypeLimits'
-    { _pgptlArbitraryPatternLimits =
+    { arbitraryPatternLimits =
         pArbitraryPatternLimits_
     }
 
 -- | Limits settings on protection groups with arbitrary pattern type.
-pgptlArbitraryPatternLimits :: Lens' ProtectionGroupPatternTypeLimits ProtectionGroupArbitraryPatternLimits
-pgptlArbitraryPatternLimits = lens _pgptlArbitraryPatternLimits (\s a -> s {_pgptlArbitraryPatternLimits = a})
+--
+-- /Note:/ Consider using 'arbitraryPatternLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgptlArbitraryPatternLimits :: Lens.Lens' ProtectionGroupPatternTypeLimits ProtectionGroupArbitraryPatternLimits
+pgptlArbitraryPatternLimits = Lens.lens (arbitraryPatternLimits :: ProtectionGroupPatternTypeLimits -> ProtectionGroupArbitraryPatternLimits) (\s a -> s {arbitraryPatternLimits = a} :: ProtectionGroupPatternTypeLimits)
+{-# DEPRECATED pgptlArbitraryPatternLimits "Use generic-lens or generic-optics with 'arbitraryPatternLimits' instead." #-}
 
-instance FromJSON ProtectionGroupPatternTypeLimits where
+instance Lude.FromJSON ProtectionGroupPatternTypeLimits where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProtectionGroupPatternTypeLimits"
       ( \x ->
           ProtectionGroupPatternTypeLimits'
-            <$> (x .: "ArbitraryPatternLimits")
+            Lude.<$> (x Lude..: "ArbitraryPatternLimits")
       )
-
-instance Hashable ProtectionGroupPatternTypeLimits
-
-instance NFData ProtectionGroupPatternTypeLimits

@@ -28,169 +28,169 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestPutEncryptionConfig $
---             putEncryptionConfig
+--             mkPutEncryptionConfig
 --
 --         , requestGetServiceGraph $
---             getServiceGraph
+--             mkGetServiceGraph
 --
 --         , requestGetSamplingTargets $
---             getSamplingTargets
+--             mkGetSamplingTargets
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestGetTraceSummaries $
---             getTraceSummaries
+--             mkGetTraceSummaries
 --
 --         , requestPutTraceSegments $
---             putTraceSegments
+--             mkPutTraceSegments
 --
 --         , requestBatchGetTraces $
---             batchGetTraces
+--             mkBatchGetTraces
 --
 --         , requestGetInsight $
---             getInsight
+--             mkGetInsight
 --
 --         , requestGetTimeSeriesServiceStatistics $
---             getTimeSeriesServiceStatistics
+--             mkGetTimeSeriesServiceStatistics
 --
 --         , requestGetEncryptionConfig $
---             getEncryptionConfig
+--             mkGetEncryptionConfig
 --
 --         , requestGetInsightImpactGraph $
---             getInsightImpactGraph
+--             mkGetInsightImpactGraph
 --
 --         , requestUpdateSamplingRule $
---             updateSamplingRule
+--             mkUpdateSamplingRule
 --
 --         , requestDeleteSamplingRule $
---             deleteSamplingRule
+--             mkDeleteSamplingRule
 --
 --         , requestGetInsightEvents $
---             getInsightEvents
+--             mkGetInsightEvents
 --
 --         , requestGetGroups $
---             getGroups
+--             mkGetGroups
 --
 --         , requestGetInsightSummaries $
---             getInsightSummaries
+--             mkGetInsightSummaries
 --
 --         , requestPutTelemetryRecords $
---             putTelemetryRecords
+--             mkPutTelemetryRecords
 --
 --         , requestGetSamplingRules $
---             getSamplingRules
+--             mkGetSamplingRules
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestGetTraceGraph $
---             getTraceGraph
+--             mkGetTraceGraph
 --
 --         , requestCreateGroup $
---             createGroup
+--             mkCreateGroup
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestDeleteGroup $
---             deleteGroup
+--             mkDeleteGroup
 --
 --         , requestUpdateGroup $
---             updateGroup
+--             mkUpdateGroup
 --
 --         , requestGetGroup $
---             getGroup
+--             mkGetGroup
 --
 --         , requestGetSamplingStatisticSummaries $
---             getSamplingStatisticSummaries
+--             mkGetSamplingStatisticSummaries
 --
 --         , requestCreateSamplingRule $
---             createSamplingRule
+--             mkCreateSamplingRule
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responsePutEncryptionConfig $
---             putEncryptionConfigResponse
+--             mkPutEncryptionConfigResponse
 --
 --         , responseGetServiceGraph $
---             getServiceGraphResponse
+--             mkGetServiceGraphResponse
 --
 --         , responseGetSamplingTargets $
---             getSamplingTargetsResponse
+--             mkGetSamplingTargetsResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseGetTraceSummaries $
---             getTraceSummariesResponse
+--             mkGetTraceSummariesResponse
 --
 --         , responsePutTraceSegments $
---             putTraceSegmentsResponse
+--             mkPutTraceSegmentsResponse
 --
 --         , responseBatchGetTraces $
---             batchGetTracesResponse
+--             mkBatchGetTracesResponse
 --
 --         , responseGetInsight $
---             getInsightResponse
+--             mkGetInsightResponse
 --
 --         , responseGetTimeSeriesServiceStatistics $
---             getTimeSeriesServiceStatisticsResponse
+--             mkGetTimeSeriesServiceStatisticsResponse
 --
 --         , responseGetEncryptionConfig $
---             getEncryptionConfigResponse
+--             mkGetEncryptionConfigResponse
 --
 --         , responseGetInsightImpactGraph $
---             getInsightImpactGraphResponse
+--             mkGetInsightImpactGraphResponse
 --
 --         , responseUpdateSamplingRule $
---             updateSamplingRuleResponse
+--             mkUpdateSamplingRuleResponse
 --
 --         , responseDeleteSamplingRule $
---             deleteSamplingRuleResponse
+--             mkDeleteSamplingRuleResponse
 --
 --         , responseGetInsightEvents $
---             getInsightEventsResponse
+--             mkGetInsightEventsResponse
 --
 --         , responseGetGroups $
---             getGroupsResponse
+--             mkGetGroupsResponse
 --
 --         , responseGetInsightSummaries $
---             getInsightSummariesResponse
+--             mkGetInsightSummariesResponse
 --
 --         , responsePutTelemetryRecords $
---             putTelemetryRecordsResponse
+--             mkPutTelemetryRecordsResponse
 --
 --         , responseGetSamplingRules $
---             getSamplingRulesResponse
+--             mkGetSamplingRulesResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseGetTraceGraph $
---             getTraceGraphResponse
+--             mkGetTraceGraphResponse
 --
 --         , responseCreateGroup $
---             createGroupResponse
+--             mkCreateGroupResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseDeleteGroup $
---             deleteGroupResponse
+--             mkDeleteGroupResponse
 --
 --         , responseUpdateGroup $
---             updateGroupResponse
+--             mkUpdateGroupResponse
 --
 --         , responseGetGroup $
---             getGroupResponse
+--             mkGetGroupResponse
 --
 --         , responseGetSamplingStatisticSummaries $
---             getSamplingStatisticSummariesResponse
+--             mkGetSamplingStatisticSummariesResponse
 --
 --         , responseCreateSamplingRule $
---             createSamplingRuleResponse
+--             mkCreateSamplingRuleResponse
 --
 --           ]
 --     ]
@@ -366,7 +366,7 @@ responsePutEncryptionConfig =
   res
     "PutEncryptionConfigResponse"
     "fixture/PutEncryptionConfigResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy PutEncryptionConfig)
 
 responseGetServiceGraph :: GetServiceGraphResponse -> TestTree
@@ -374,7 +374,7 @@ responseGetServiceGraph =
   res
     "GetServiceGraphResponse"
     "fixture/GetServiceGraphResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetServiceGraph)
 
 responseGetSamplingTargets :: GetSamplingTargetsResponse -> TestTree
@@ -382,7 +382,7 @@ responseGetSamplingTargets =
   res
     "GetSamplingTargetsResponse"
     "fixture/GetSamplingTargetsResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetSamplingTargets)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -390,7 +390,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetTraceSummaries :: GetTraceSummariesResponse -> TestTree
@@ -398,7 +398,7 @@ responseGetTraceSummaries =
   res
     "GetTraceSummariesResponse"
     "fixture/GetTraceSummariesResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetTraceSummaries)
 
 responsePutTraceSegments :: PutTraceSegmentsResponse -> TestTree
@@ -406,7 +406,7 @@ responsePutTraceSegments =
   res
     "PutTraceSegmentsResponse"
     "fixture/PutTraceSegmentsResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy PutTraceSegments)
 
 responseBatchGetTraces :: BatchGetTracesResponse -> TestTree
@@ -414,7 +414,7 @@ responseBatchGetTraces =
   res
     "BatchGetTracesResponse"
     "fixture/BatchGetTracesResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy BatchGetTraces)
 
 responseGetInsight :: GetInsightResponse -> TestTree
@@ -422,7 +422,7 @@ responseGetInsight =
   res
     "GetInsightResponse"
     "fixture/GetInsightResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetInsight)
 
 responseGetTimeSeriesServiceStatistics :: GetTimeSeriesServiceStatisticsResponse -> TestTree
@@ -430,7 +430,7 @@ responseGetTimeSeriesServiceStatistics =
   res
     "GetTimeSeriesServiceStatisticsResponse"
     "fixture/GetTimeSeriesServiceStatisticsResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetTimeSeriesServiceStatistics)
 
 responseGetEncryptionConfig :: GetEncryptionConfigResponse -> TestTree
@@ -438,7 +438,7 @@ responseGetEncryptionConfig =
   res
     "GetEncryptionConfigResponse"
     "fixture/GetEncryptionConfigResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetEncryptionConfig)
 
 responseGetInsightImpactGraph :: GetInsightImpactGraphResponse -> TestTree
@@ -446,7 +446,7 @@ responseGetInsightImpactGraph =
   res
     "GetInsightImpactGraphResponse"
     "fixture/GetInsightImpactGraphResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetInsightImpactGraph)
 
 responseUpdateSamplingRule :: UpdateSamplingRuleResponse -> TestTree
@@ -454,7 +454,7 @@ responseUpdateSamplingRule =
   res
     "UpdateSamplingRuleResponse"
     "fixture/UpdateSamplingRuleResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy UpdateSamplingRule)
 
 responseDeleteSamplingRule :: DeleteSamplingRuleResponse -> TestTree
@@ -462,7 +462,7 @@ responseDeleteSamplingRule =
   res
     "DeleteSamplingRuleResponse"
     "fixture/DeleteSamplingRuleResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy DeleteSamplingRule)
 
 responseGetInsightEvents :: GetInsightEventsResponse -> TestTree
@@ -470,7 +470,7 @@ responseGetInsightEvents =
   res
     "GetInsightEventsResponse"
     "fixture/GetInsightEventsResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetInsightEvents)
 
 responseGetGroups :: GetGroupsResponse -> TestTree
@@ -478,7 +478,7 @@ responseGetGroups =
   res
     "GetGroupsResponse"
     "fixture/GetGroupsResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetGroups)
 
 responseGetInsightSummaries :: GetInsightSummariesResponse -> TestTree
@@ -486,7 +486,7 @@ responseGetInsightSummaries =
   res
     "GetInsightSummariesResponse"
     "fixture/GetInsightSummariesResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetInsightSummaries)
 
 responsePutTelemetryRecords :: PutTelemetryRecordsResponse -> TestTree
@@ -494,7 +494,7 @@ responsePutTelemetryRecords =
   res
     "PutTelemetryRecordsResponse"
     "fixture/PutTelemetryRecordsResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy PutTelemetryRecords)
 
 responseGetSamplingRules :: GetSamplingRulesResponse -> TestTree
@@ -502,7 +502,7 @@ responseGetSamplingRules =
   res
     "GetSamplingRulesResponse"
     "fixture/GetSamplingRulesResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetSamplingRules)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -510,7 +510,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy TagResource)
 
 responseGetTraceGraph :: GetTraceGraphResponse -> TestTree
@@ -518,7 +518,7 @@ responseGetTraceGraph =
   res
     "GetTraceGraphResponse"
     "fixture/GetTraceGraphResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetTraceGraph)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
@@ -526,7 +526,7 @@ responseCreateGroup =
   res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy CreateGroup)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -534,7 +534,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy UntagResource)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
@@ -542,7 +542,7 @@ responseDeleteGroup =
   res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
@@ -550,7 +550,7 @@ responseUpdateGroup =
   res
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy UpdateGroup)
 
 responseGetGroup :: GetGroupResponse -> TestTree
@@ -558,7 +558,7 @@ responseGetGroup =
   res
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetGroup)
 
 responseGetSamplingStatisticSummaries :: GetSamplingStatisticSummariesResponse -> TestTree
@@ -566,7 +566,7 @@ responseGetSamplingStatisticSummaries =
   res
     "GetSamplingStatisticSummariesResponse"
     "fixture/GetSamplingStatisticSummariesResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy GetSamplingStatisticSummaries)
 
 responseCreateSamplingRule :: CreateSamplingRuleResponse -> TestTree
@@ -574,5 +574,5 @@ responseCreateSamplingRule =
   res
     "CreateSamplingRuleResponse"
     "fixture/CreateSamplingRuleResponse.proto"
-    xRay
+    xRayService
     (Proxy :: Proxy CreateSamplingRule)

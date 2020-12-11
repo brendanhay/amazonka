@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.TopicStatus where
+module Network.AWS.DirectoryService.Types.TopicStatus
+  ( TopicStatus
+      ( TopicStatus',
+        TDeleted,
+        TFailed,
+        TRegistered,
+        TTopicNotFound
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TopicStatus
-  = TDeleted
-  | TFailed
-  | TRegistered
-  | TTopicNotFound
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TopicStatus = TopicStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TopicStatus where
-  parser =
-    takeLowerText >>= \case
-      "deleted" -> pure TDeleted
-      "failed" -> pure TFailed
-      "registered" -> pure TRegistered
-      "topic not found" -> pure TTopicNotFound
-      e ->
-        fromTextError $
-          "Failure parsing TopicStatus from value: '" <> e
-            <> "'. Accepted values: deleted, failed, registered, topic not found"
+pattern TDeleted :: TopicStatus
+pattern TDeleted = TopicStatus' "Deleted"
 
-instance ToText TopicStatus where
-  toText = \case
-    TDeleted -> "Deleted"
-    TFailed -> "Failed"
-    TRegistered -> "Registered"
-    TTopicNotFound -> "Topic not found"
+pattern TFailed :: TopicStatus
+pattern TFailed = TopicStatus' "Failed"
 
-instance Hashable TopicStatus
+pattern TRegistered :: TopicStatus
+pattern TRegistered = TopicStatus' "Registered"
 
-instance NFData TopicStatus
+pattern TTopicNotFound :: TopicStatus
+pattern TTopicNotFound = TopicStatus' "Topic not found"
 
-instance ToByteString TopicStatus
-
-instance ToQuery TopicStatus
-
-instance ToHeader TopicStatus
-
-instance FromJSON TopicStatus where
-  parseJSON = parseJSONText "TopicStatus"
+{-# COMPLETE
+  TDeleted,
+  TFailed,
+  TRegistered,
+  TTopicNotFound,
+  TopicStatus'
+  #-}

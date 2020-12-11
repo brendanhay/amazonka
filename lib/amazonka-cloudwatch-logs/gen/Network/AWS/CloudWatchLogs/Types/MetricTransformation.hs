@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchLogs.Types.MetricTransformation where
+module Network.AWS.CloudWatchLogs.Types.MetricTransformation
+  ( MetricTransformation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMetricTransformation,
+
+    -- * Lenses
+    mtDefaultValue,
+    mtMetricName,
+    mtMetricNamespace,
+    mtMetricValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates how to transform ingested log events to metric data in a CloudWatch metric.
 --
---
---
--- /See:/ 'metricTransformation' smart constructor.
+-- /See:/ 'mkMetricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'
-  { _mtDefaultValue ::
-      !(Maybe Double),
-    _mtMetricName :: !Text,
-    _mtMetricNamespace :: !Text,
-    _mtMetricValue :: !Text
+  { defaultValue ::
+      Lude.Maybe Lude.Double,
+    metricName :: Lude.Text,
+    metricNamespace :: Lude.Text,
+    metricValue :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricTransformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtDefaultValue' - (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
---
--- * 'mtMetricName' - The name of the CloudWatch metric.
---
--- * 'mtMetricNamespace' - A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces> .
---
--- * 'mtMetricValue' - The value to publish to the CloudWatch metric when a filter pattern matches a log event.
-metricTransformation ::
-  -- | 'mtMetricName'
-  Text ->
-  -- | 'mtMetricNamespace'
-  Text ->
-  -- | 'mtMetricValue'
-  Text ->
+-- * 'defaultValue' - (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
+-- * 'metricName' - The name of the CloudWatch metric.
+-- * 'metricNamespace' - A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces> .
+-- * 'metricValue' - The value to publish to the CloudWatch metric when a filter pattern matches a log event.
+mkMetricTransformation ::
+  -- | 'metricName'
+  Lude.Text ->
+  -- | 'metricNamespace'
+  Lude.Text ->
+  -- | 'metricValue'
+  Lude.Text ->
   MetricTransformation
-metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
+mkMetricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
   MetricTransformation'
-    { _mtDefaultValue = Nothing,
-      _mtMetricName = pMetricName_,
-      _mtMetricNamespace = pMetricNamespace_,
-      _mtMetricValue = pMetricValue_
+    { defaultValue = Lude.Nothing,
+      metricName = pMetricName_,
+      metricNamespace = pMetricNamespace_,
+      metricValue = pMetricValue_
     }
 
 -- | (Optional) The value to emit when a filter pattern does not match a log event. This value can be null.
-mtDefaultValue :: Lens' MetricTransformation (Maybe Double)
-mtDefaultValue = lens _mtDefaultValue (\s a -> s {_mtDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtDefaultValue :: Lens.Lens' MetricTransformation (Lude.Maybe Lude.Double)
+mtDefaultValue = Lens.lens (defaultValue :: MetricTransformation -> Lude.Maybe Lude.Double) (\s a -> s {defaultValue = a} :: MetricTransformation)
+{-# DEPRECATED mtDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | The name of the CloudWatch metric.
-mtMetricName :: Lens' MetricTransformation Text
-mtMetricName = lens _mtMetricName (\s a -> s {_mtMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtMetricName :: Lens.Lens' MetricTransformation Lude.Text
+mtMetricName = Lens.lens (metricName :: MetricTransformation -> Lude.Text) (\s a -> s {metricName = a} :: MetricTransformation)
+{-# DEPRECATED mtMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace Namespaces> .
-mtMetricNamespace :: Lens' MetricTransformation Text
-mtMetricNamespace = lens _mtMetricNamespace (\s a -> s {_mtMetricNamespace = a})
+--
+-- /Note:/ Consider using 'metricNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtMetricNamespace :: Lens.Lens' MetricTransformation Lude.Text
+mtMetricNamespace = Lens.lens (metricNamespace :: MetricTransformation -> Lude.Text) (\s a -> s {metricNamespace = a} :: MetricTransformation)
+{-# DEPRECATED mtMetricNamespace "Use generic-lens or generic-optics with 'metricNamespace' instead." #-}
 
 -- | The value to publish to the CloudWatch metric when a filter pattern matches a log event.
-mtMetricValue :: Lens' MetricTransformation Text
-mtMetricValue = lens _mtMetricValue (\s a -> s {_mtMetricValue = a})
+--
+-- /Note:/ Consider using 'metricValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtMetricValue :: Lens.Lens' MetricTransformation Lude.Text
+mtMetricValue = Lens.lens (metricValue :: MetricTransformation -> Lude.Text) (\s a -> s {metricValue = a} :: MetricTransformation)
+{-# DEPRECATED mtMetricValue "Use generic-lens or generic-optics with 'metricValue' instead." #-}
 
-instance FromJSON MetricTransformation where
+instance Lude.FromJSON MetricTransformation where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricTransformation"
       ( \x ->
           MetricTransformation'
-            <$> (x .:? "defaultValue")
-            <*> (x .: "metricName")
-            <*> (x .: "metricNamespace")
-            <*> (x .: "metricValue")
+            Lude.<$> (x Lude..:? "defaultValue")
+            Lude.<*> (x Lude..: "metricName")
+            Lude.<*> (x Lude..: "metricNamespace")
+            Lude.<*> (x Lude..: "metricValue")
       )
 
-instance Hashable MetricTransformation
-
-instance NFData MetricTransformation
-
-instance ToJSON MetricTransformation where
+instance Lude.ToJSON MetricTransformation where
   toJSON MetricTransformation' {..} =
-    object
-      ( catMaybes
-          [ ("defaultValue" .=) <$> _mtDefaultValue,
-            Just ("metricName" .= _mtMetricName),
-            Just ("metricNamespace" .= _mtMetricNamespace),
-            Just ("metricValue" .= _mtMetricValue)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("defaultValue" Lude..=) Lude.<$> defaultValue,
+            Lude.Just ("metricName" Lude..= metricName),
+            Lude.Just ("metricNamespace" Lude..= metricNamespace),
+            Lude.Just ("metricValue" Lude..= metricValue)
           ]
       )

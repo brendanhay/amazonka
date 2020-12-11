@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.OutpostMode where
+module Network.AWS.ElastiCache.Types.OutpostMode
+  ( OutpostMode
+      ( OutpostMode',
+        CrossOutpost,
+        SingleOutpost
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OutpostMode
-  = CrossOutpost
-  | SingleOutpost
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OutpostMode = OutpostMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OutpostMode where
-  parser =
-    takeLowerText >>= \case
-      "cross-outpost" -> pure CrossOutpost
-      "single-outpost" -> pure SingleOutpost
-      e ->
-        fromTextError $
-          "Failure parsing OutpostMode from value: '" <> e
-            <> "'. Accepted values: cross-outpost, single-outpost"
+pattern CrossOutpost :: OutpostMode
+pattern CrossOutpost = OutpostMode' "cross-outpost"
 
-instance ToText OutpostMode where
-  toText = \case
-    CrossOutpost -> "cross-outpost"
-    SingleOutpost -> "single-outpost"
+pattern SingleOutpost :: OutpostMode
+pattern SingleOutpost = OutpostMode' "single-outpost"
 
-instance Hashable OutpostMode
-
-instance NFData OutpostMode
-
-instance ToByteString OutpostMode
-
-instance ToQuery OutpostMode
-
-instance ToHeader OutpostMode
+{-# COMPLETE
+  CrossOutpost,
+  SingleOutpost,
+  OutpostMode'
+  #-}

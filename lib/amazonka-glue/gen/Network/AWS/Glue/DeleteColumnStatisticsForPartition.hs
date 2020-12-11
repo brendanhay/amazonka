@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,178 +14,189 @@
 --
 -- Delete the partition column statistics of a column.
 --
---
 -- The Identity and Access Management (IAM) permission required for this operation is @DeletePartition@ .
 module Network.AWS.Glue.DeleteColumnStatisticsForPartition
-  ( -- * Creating a Request
-    deleteColumnStatisticsForPartition,
-    DeleteColumnStatisticsForPartition,
+  ( -- * Creating a request
+    DeleteColumnStatisticsForPartition (..),
+    mkDeleteColumnStatisticsForPartition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcsfpCatalogId,
     dcsfpDatabaseName,
     dcsfpTableName,
     dcsfpPartitionValues,
     dcsfpColumnName,
 
-    -- * Destructuring the Response
-    deleteColumnStatisticsForPartitionResponse,
-    DeleteColumnStatisticsForPartitionResponse,
+    -- * Destructuring the response
+    DeleteColumnStatisticsForPartitionResponse (..),
+    mkDeleteColumnStatisticsForPartitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcsfprsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteColumnStatisticsForPartition' smart constructor.
+-- | /See:/ 'mkDeleteColumnStatisticsForPartition' smart constructor.
 data DeleteColumnStatisticsForPartition = DeleteColumnStatisticsForPartition'
-  { _dcsfpCatalogId ::
-      !(Maybe Text),
-    _dcsfpDatabaseName ::
-      !Text,
-    _dcsfpTableName ::
-      !Text,
-    _dcsfpPartitionValues ::
-      ![Text],
-    _dcsfpColumnName ::
-      !Text
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName ::
+      Lude.Text,
+    tableName ::
+      Lude.Text,
+    partitionValues ::
+      [Lude.Text],
+    columnName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteColumnStatisticsForPartition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsfpCatalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
---
--- * 'dcsfpDatabaseName' - The name of the catalog database where the partitions reside.
---
--- * 'dcsfpTableName' - The name of the partitions' table.
---
--- * 'dcsfpPartitionValues' - A list of partition values identifying the partition.
---
--- * 'dcsfpColumnName' - Name of the column.
-deleteColumnStatisticsForPartition ::
-  -- | 'dcsfpDatabaseName'
-  Text ->
-  -- | 'dcsfpTableName'
-  Text ->
-  -- | 'dcsfpColumnName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
+-- * 'columnName' - Name of the column.
+-- * 'databaseName' - The name of the catalog database where the partitions reside.
+-- * 'partitionValues' - A list of partition values identifying the partition.
+-- * 'tableName' - The name of the partitions' table.
+mkDeleteColumnStatisticsForPartition ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
+  -- | 'columnName'
+  Lude.Text ->
   DeleteColumnStatisticsForPartition
-deleteColumnStatisticsForPartition
+mkDeleteColumnStatisticsForPartition
   pDatabaseName_
   pTableName_
   pColumnName_ =
     DeleteColumnStatisticsForPartition'
-      { _dcsfpCatalogId = Nothing,
-        _dcsfpDatabaseName = pDatabaseName_,
-        _dcsfpTableName = pTableName_,
-        _dcsfpPartitionValues = mempty,
-        _dcsfpColumnName = pColumnName_
+      { catalogId = Lude.Nothing,
+        databaseName = pDatabaseName_,
+        tableName = pTableName_,
+        partitionValues = Lude.mempty,
+        columnName = pColumnName_
       }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
-dcsfpCatalogId :: Lens' DeleteColumnStatisticsForPartition (Maybe Text)
-dcsfpCatalogId = lens _dcsfpCatalogId (\s a -> s {_dcsfpCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsfpCatalogId :: Lens.Lens' DeleteColumnStatisticsForPartition (Lude.Maybe Lude.Text)
+dcsfpCatalogId = Lens.lens (catalogId :: DeleteColumnStatisticsForPartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DeleteColumnStatisticsForPartition)
+{-# DEPRECATED dcsfpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database where the partitions reside.
-dcsfpDatabaseName :: Lens' DeleteColumnStatisticsForPartition Text
-dcsfpDatabaseName = lens _dcsfpDatabaseName (\s a -> s {_dcsfpDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsfpDatabaseName :: Lens.Lens' DeleteColumnStatisticsForPartition Lude.Text
+dcsfpDatabaseName = Lens.lens (databaseName :: DeleteColumnStatisticsForPartition -> Lude.Text) (\s a -> s {databaseName = a} :: DeleteColumnStatisticsForPartition)
+{-# DEPRECATED dcsfpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the partitions' table.
-dcsfpTableName :: Lens' DeleteColumnStatisticsForPartition Text
-dcsfpTableName = lens _dcsfpTableName (\s a -> s {_dcsfpTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsfpTableName :: Lens.Lens' DeleteColumnStatisticsForPartition Lude.Text
+dcsfpTableName = Lens.lens (tableName :: DeleteColumnStatisticsForPartition -> Lude.Text) (\s a -> s {tableName = a} :: DeleteColumnStatisticsForPartition)
+{-# DEPRECATED dcsfpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | A list of partition values identifying the partition.
-dcsfpPartitionValues :: Lens' DeleteColumnStatisticsForPartition [Text]
-dcsfpPartitionValues = lens _dcsfpPartitionValues (\s a -> s {_dcsfpPartitionValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'partitionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsfpPartitionValues :: Lens.Lens' DeleteColumnStatisticsForPartition [Lude.Text]
+dcsfpPartitionValues = Lens.lens (partitionValues :: DeleteColumnStatisticsForPartition -> [Lude.Text]) (\s a -> s {partitionValues = a} :: DeleteColumnStatisticsForPartition)
+{-# DEPRECATED dcsfpPartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
 
 -- | Name of the column.
-dcsfpColumnName :: Lens' DeleteColumnStatisticsForPartition Text
-dcsfpColumnName = lens _dcsfpColumnName (\s a -> s {_dcsfpColumnName = a})
+--
+-- /Note:/ Consider using 'columnName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsfpColumnName :: Lens.Lens' DeleteColumnStatisticsForPartition Lude.Text
+dcsfpColumnName = Lens.lens (columnName :: DeleteColumnStatisticsForPartition -> Lude.Text) (\s a -> s {columnName = a} :: DeleteColumnStatisticsForPartition)
+{-# DEPRECATED dcsfpColumnName "Use generic-lens or generic-optics with 'columnName' instead." #-}
 
-instance AWSRequest DeleteColumnStatisticsForPartition where
+instance Lude.AWSRequest DeleteColumnStatisticsForPartition where
   type
     Rs DeleteColumnStatisticsForPartition =
       DeleteColumnStatisticsForPartitionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
           DeleteColumnStatisticsForPartitionResponse'
-            <$> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteColumnStatisticsForPartition
-
-instance NFData DeleteColumnStatisticsForPartition
-
-instance ToHeaders DeleteColumnStatisticsForPartition where
+instance Lude.ToHeaders DeleteColumnStatisticsForPartition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSGlue.DeleteColumnStatisticsForPartition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSGlue.DeleteColumnStatisticsForPartition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteColumnStatisticsForPartition where
+instance Lude.ToJSON DeleteColumnStatisticsForPartition where
   toJSON DeleteColumnStatisticsForPartition' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _dcsfpCatalogId,
-            Just ("DatabaseName" .= _dcsfpDatabaseName),
-            Just ("TableName" .= _dcsfpTableName),
-            Just ("PartitionValues" .= _dcsfpPartitionValues),
-            Just ("ColumnName" .= _dcsfpColumnName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("PartitionValues" Lude..= partitionValues),
+            Lude.Just ("ColumnName" Lude..= columnName)
           ]
       )
 
-instance ToPath DeleteColumnStatisticsForPartition where
-  toPath = const "/"
+instance Lude.ToPath DeleteColumnStatisticsForPartition where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteColumnStatisticsForPartition where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteColumnStatisticsForPartition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteColumnStatisticsForPartitionResponse' smart constructor.
+-- | /See:/ 'mkDeleteColumnStatisticsForPartitionResponse' smart constructor.
 newtype DeleteColumnStatisticsForPartitionResponse = DeleteColumnStatisticsForPartitionResponse'
-  { _dcsfprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteColumnStatisticsForPartitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsfprsResponseStatus' - -- | The response status code.
-deleteColumnStatisticsForPartitionResponse ::
-  -- | 'dcsfprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteColumnStatisticsForPartitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteColumnStatisticsForPartitionResponse
-deleteColumnStatisticsForPartitionResponse pResponseStatus_ =
+mkDeleteColumnStatisticsForPartitionResponse pResponseStatus_ =
   DeleteColumnStatisticsForPartitionResponse'
-    { _dcsfprsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dcsfprsResponseStatus :: Lens' DeleteColumnStatisticsForPartitionResponse Int
-dcsfprsResponseStatus = lens _dcsfprsResponseStatus (\s a -> s {_dcsfprsResponseStatus = a})
-
-instance NFData DeleteColumnStatisticsForPartitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsfprsResponseStatus :: Lens.Lens' DeleteColumnStatisticsForPartitionResponse Lude.Int
+dcsfprsResponseStatus = Lens.lens (responseStatus :: DeleteColumnStatisticsForPartitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteColumnStatisticsForPartitionResponse)
+{-# DEPRECATED dcsfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ConstraintSummary where
+module Network.AWS.ServiceCatalog.Types.ConstraintSummary
+  ( ConstraintSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConstraintSummary,
+
+    -- * Lenses
+    csType,
+    csDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summary information about a constraint.
 --
---
---
--- /See:/ 'constraintSummary' smart constructor.
+-- /See:/ 'mkConstraintSummary' smart constructor.
 data ConstraintSummary = ConstraintSummary'
-  { _csType ::
-      !(Maybe Text),
-    _csDescription :: !(Maybe Text)
+  { type' ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConstraintSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - The description of the constraint.
+-- * 'type'' - The type of constraint.
 --
--- * 'csType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * STACKSET     * @TEMPLATE@
 --
--- * 'csDescription' - The description of the constraint.
-constraintSummary ::
+--     * @LAUNCH@
+--
+--
+--     * @NOTIFICATION@
+--
+--
+--     * STACKSET
+--
+--
+--     * @TEMPLATE@
+mkConstraintSummary ::
   ConstraintSummary
-constraintSummary =
-  ConstraintSummary' {_csType = Nothing, _csDescription = Nothing}
+mkConstraintSummary =
+  ConstraintSummary'
+    { type' = Lude.Nothing,
+      description = Lude.Nothing
+    }
 
--- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * STACKSET     * @TEMPLATE@
-csType :: Lens' ConstraintSummary (Maybe Text)
-csType = lens _csType (\s a -> s {_csType = a})
+-- | The type of constraint.
+--
+--
+--     * @LAUNCH@
+--
+--
+--     * @NOTIFICATION@
+--
+--
+--     * STACKSET
+--
+--
+--     * @TEMPLATE@
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csType :: Lens.Lens' ConstraintSummary (Lude.Maybe Lude.Text)
+csType = Lens.lens (type' :: ConstraintSummary -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ConstraintSummary)
+{-# DEPRECATED csType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The description of the constraint.
-csDescription :: Lens' ConstraintSummary (Maybe Text)
-csDescription = lens _csDescription (\s a -> s {_csDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDescription :: Lens.Lens' ConstraintSummary (Lude.Maybe Lude.Text)
+csDescription = Lens.lens (description :: ConstraintSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ConstraintSummary)
+{-# DEPRECATED csDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ConstraintSummary where
+instance Lude.FromJSON ConstraintSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConstraintSummary"
       ( \x ->
-          ConstraintSummary' <$> (x .:? "Type") <*> (x .:? "Description")
+          ConstraintSummary'
+            Lude.<$> (x Lude..:? "Type") Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable ConstraintSummary
-
-instance NFData ConstraintSummary

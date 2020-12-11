@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.RulePriorityPair where
+module Network.AWS.ELBv2.Types.RulePriorityPair
+  ( RulePriorityPair (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRulePriorityPair,
+
+    -- * Lenses
+    rppPriority,
+    rppRuleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the priorities for the rules for a listener.
 --
---
---
--- /See:/ 'rulePriorityPair' smart constructor.
+-- /See:/ 'mkRulePriorityPair' smart constructor.
 data RulePriorityPair = RulePriorityPair'
-  { _rppPriority ::
-      !(Maybe Nat),
-    _rppRuleARN :: !(Maybe Text)
+  { priority ::
+      Lude.Maybe Lude.Natural,
+    ruleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RulePriorityPair' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rppPriority' - The rule priority.
---
--- * 'rppRuleARN' - The Amazon Resource Name (ARN) of the rule.
-rulePriorityPair ::
+-- * 'priority' - The rule priority.
+-- * 'ruleARN' - The Amazon Resource Name (ARN) of the rule.
+mkRulePriorityPair ::
   RulePriorityPair
-rulePriorityPair =
-  RulePriorityPair' {_rppPriority = Nothing, _rppRuleARN = Nothing}
+mkRulePriorityPair =
+  RulePriorityPair'
+    { priority = Lude.Nothing,
+      ruleARN = Lude.Nothing
+    }
 
 -- | The rule priority.
-rppPriority :: Lens' RulePriorityPair (Maybe Natural)
-rppPriority = lens _rppPriority (\s a -> s {_rppPriority = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rppPriority :: Lens.Lens' RulePriorityPair (Lude.Maybe Lude.Natural)
+rppPriority = Lens.lens (priority :: RulePriorityPair -> Lude.Maybe Lude.Natural) (\s a -> s {priority = a} :: RulePriorityPair)
+{-# DEPRECATED rppPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the rule.
-rppRuleARN :: Lens' RulePriorityPair (Maybe Text)
-rppRuleARN = lens _rppRuleARN (\s a -> s {_rppRuleARN = a})
+--
+-- /Note:/ Consider using 'ruleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rppRuleARN :: Lens.Lens' RulePriorityPair (Lude.Maybe Lude.Text)
+rppRuleARN = Lens.lens (ruleARN :: RulePriorityPair -> Lude.Maybe Lude.Text) (\s a -> s {ruleARN = a} :: RulePriorityPair)
+{-# DEPRECATED rppRuleARN "Use generic-lens or generic-optics with 'ruleARN' instead." #-}
 
-instance Hashable RulePriorityPair
-
-instance NFData RulePriorityPair
-
-instance ToQuery RulePriorityPair where
+instance Lude.ToQuery RulePriorityPair where
   toQuery RulePriorityPair' {..} =
-    mconcat ["Priority" =: _rppPriority, "RuleArn" =: _rppRuleARN]
+    Lude.mconcat
+      ["Priority" Lude.=: priority, "RuleArn" Lude.=: ruleARN]

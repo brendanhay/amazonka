@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,102 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Kinesis.Types.SubscribeToShardEvent where
+module Network.AWS.Kinesis.Types.SubscribeToShardEvent
+  ( SubscribeToShardEvent (..),
+
+    -- * Smart constructor
+    mkSubscribeToShardEvent,
+
+    -- * Lenses
+    stseChildShards,
+    stseRecords,
+    stseContinuationSequenceNumber,
+    stseMillisBehindLatest,
+  )
+where
 
 import Network.AWS.Kinesis.Types.ChildShard
 import Network.AWS.Kinesis.Types.Record
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type over an HTTP/2 connection to your consumer.
 --
---
---
--- /See:/ 'subscribeToShardEvent' smart constructor.
+-- /See:/ 'mkSubscribeToShardEvent' smart constructor.
 data SubscribeToShardEvent = SubscribeToShardEvent'
-  { _stseChildShards ::
-      !(Maybe [ChildShard]),
-    _stseRecords :: ![Record],
-    _stseContinuationSequenceNumber :: !Text,
-    _stseMillisBehindLatest :: !Nat
+  { childShards ::
+      Lude.Maybe [ChildShard],
+    records :: [Record],
+    continuationSequenceNumber :: Lude.Text,
+    millisBehindLatest :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscribeToShardEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stseChildShards' - Undocumented member.
---
--- * 'stseRecords' -
---
--- * 'stseContinuationSequenceNumber' - Use this as @SequenceNumber@ in the next call to 'SubscribeToShard' , with @StartingPosition@ set to @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@ . Use @ContinuationSequenceNumber@ for checkpointing because it captures your shard progress even when no data is written to the shard.
---
--- * 'stseMillisBehindLatest' - The number of milliseconds the read records are from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
-subscribeToShardEvent ::
-  -- | 'stseContinuationSequenceNumber'
-  Text ->
-  -- | 'stseMillisBehindLatest'
-  Natural ->
+-- * 'childShards' - Undocumented field.
+-- * 'continuationSequenceNumber' - Use this as @SequenceNumber@ in the next call to 'SubscribeToShard' , with @StartingPosition@ set to @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@ . Use @ContinuationSequenceNumber@ for checkpointing because it captures your shard progress even when no data is written to the shard.
+-- * 'millisBehindLatest' - The number of milliseconds the read records are from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
+-- * 'records' -
+mkSubscribeToShardEvent ::
+  -- | 'continuationSequenceNumber'
+  Lude.Text ->
+  -- | 'millisBehindLatest'
+  Lude.Natural ->
   SubscribeToShardEvent
-subscribeToShardEvent
+mkSubscribeToShardEvent
   pContinuationSequenceNumber_
   pMillisBehindLatest_ =
     SubscribeToShardEvent'
-      { _stseChildShards = Nothing,
-        _stseRecords = mempty,
-        _stseContinuationSequenceNumber = pContinuationSequenceNumber_,
-        _stseMillisBehindLatest = _Nat # pMillisBehindLatest_
+      { childShards = Lude.Nothing,
+        records = Lude.mempty,
+        continuationSequenceNumber = pContinuationSequenceNumber_,
+        millisBehindLatest = pMillisBehindLatest_
       }
 
--- | Undocumented member.
-stseChildShards :: Lens' SubscribeToShardEvent [ChildShard]
-stseChildShards = lens _stseChildShards (\s a -> s {_stseChildShards = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'childShards' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stseChildShards :: Lens.Lens' SubscribeToShardEvent (Lude.Maybe [ChildShard])
+stseChildShards = Lens.lens (childShards :: SubscribeToShardEvent -> Lude.Maybe [ChildShard]) (\s a -> s {childShards = a} :: SubscribeToShardEvent)
+{-# DEPRECATED stseChildShards "Use generic-lens or generic-optics with 'childShards' instead." #-}
 
 -- |
-stseRecords :: Lens' SubscribeToShardEvent [Record]
-stseRecords = lens _stseRecords (\s a -> s {_stseRecords = a}) . _Coerce
+--
+-- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stseRecords :: Lens.Lens' SubscribeToShardEvent [Record]
+stseRecords = Lens.lens (records :: SubscribeToShardEvent -> [Record]) (\s a -> s {records = a} :: SubscribeToShardEvent)
+{-# DEPRECATED stseRecords "Use generic-lens or generic-optics with 'records' instead." #-}
 
 -- | Use this as @SequenceNumber@ in the next call to 'SubscribeToShard' , with @StartingPosition@ set to @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@ . Use @ContinuationSequenceNumber@ for checkpointing because it captures your shard progress even when no data is written to the shard.
-stseContinuationSequenceNumber :: Lens' SubscribeToShardEvent Text
-stseContinuationSequenceNumber = lens _stseContinuationSequenceNumber (\s a -> s {_stseContinuationSequenceNumber = a})
+--
+-- /Note:/ Consider using 'continuationSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stseContinuationSequenceNumber :: Lens.Lens' SubscribeToShardEvent Lude.Text
+stseContinuationSequenceNumber = Lens.lens (continuationSequenceNumber :: SubscribeToShardEvent -> Lude.Text) (\s a -> s {continuationSequenceNumber = a} :: SubscribeToShardEvent)
+{-# DEPRECATED stseContinuationSequenceNumber "Use generic-lens or generic-optics with 'continuationSequenceNumber' instead." #-}
 
 -- | The number of milliseconds the read records are from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
-stseMillisBehindLatest :: Lens' SubscribeToShardEvent Natural
-stseMillisBehindLatest = lens _stseMillisBehindLatest (\s a -> s {_stseMillisBehindLatest = a}) . _Nat
+--
+-- /Note:/ Consider using 'millisBehindLatest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stseMillisBehindLatest :: Lens.Lens' SubscribeToShardEvent Lude.Natural
+stseMillisBehindLatest = Lens.lens (millisBehindLatest :: SubscribeToShardEvent -> Lude.Natural) (\s a -> s {millisBehindLatest = a} :: SubscribeToShardEvent)
+{-# DEPRECATED stseMillisBehindLatest "Use generic-lens or generic-optics with 'millisBehindLatest' instead." #-}
 
-instance FromJSON SubscribeToShardEvent where
+instance Lude.FromJSON SubscribeToShardEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "SubscribeToShardEvent"
       ( \x ->
           SubscribeToShardEvent'
-            <$> (x .:? "ChildShards" .!= mempty)
-            <*> (x .:? "Records" .!= mempty)
-            <*> (x .: "ContinuationSequenceNumber")
-            <*> (x .: "MillisBehindLatest")
+            Lude.<$> (x Lude..:? "ChildShards" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Records" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "ContinuationSequenceNumber")
+            Lude.<*> (x Lude..: "MillisBehindLatest")
       )
-
-instance Hashable SubscribeToShardEvent
-
-instance NFData SubscribeToShardEvent

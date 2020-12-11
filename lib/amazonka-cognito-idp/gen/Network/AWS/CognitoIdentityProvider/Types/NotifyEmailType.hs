@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.NotifyEmailType where
+module Network.AWS.CognitoIdentityProvider.Types.NotifyEmailType
+  ( NotifyEmailType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNotifyEmailType,
+
+    -- * Lenses
+    netTextBody,
+    netHTMLBody,
+    netSubject,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The notify email type.
 --
---
---
--- /See:/ 'notifyEmailType' smart constructor.
+-- /See:/ 'mkNotifyEmailType' smart constructor.
 data NotifyEmailType = NotifyEmailType'
-  { _netTextBody ::
-      !(Maybe Text),
-    _netHTMLBody :: !(Maybe Text),
-    _netSubject :: !Text
+  { textBody ::
+      Lude.Maybe Lude.Text,
+    htmlBody :: Lude.Maybe Lude.Text,
+    subject :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyEmailType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'netTextBody' - The text body.
---
--- * 'netHTMLBody' - The HTML body.
---
--- * 'netSubject' - The subject.
-notifyEmailType ::
-  -- | 'netSubject'
-  Text ->
+-- * 'htmlBody' - The HTML body.
+-- * 'subject' - The subject.
+-- * 'textBody' - The text body.
+mkNotifyEmailType ::
+  -- | 'subject'
+  Lude.Text ->
   NotifyEmailType
-notifyEmailType pSubject_ =
+mkNotifyEmailType pSubject_ =
   NotifyEmailType'
-    { _netTextBody = Nothing,
-      _netHTMLBody = Nothing,
-      _netSubject = pSubject_
+    { textBody = Lude.Nothing,
+      htmlBody = Lude.Nothing,
+      subject = pSubject_
     }
 
 -- | The text body.
-netTextBody :: Lens' NotifyEmailType (Maybe Text)
-netTextBody = lens _netTextBody (\s a -> s {_netTextBody = a})
+--
+-- /Note:/ Consider using 'textBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+netTextBody :: Lens.Lens' NotifyEmailType (Lude.Maybe Lude.Text)
+netTextBody = Lens.lens (textBody :: NotifyEmailType -> Lude.Maybe Lude.Text) (\s a -> s {textBody = a} :: NotifyEmailType)
+{-# DEPRECATED netTextBody "Use generic-lens or generic-optics with 'textBody' instead." #-}
 
 -- | The HTML body.
-netHTMLBody :: Lens' NotifyEmailType (Maybe Text)
-netHTMLBody = lens _netHTMLBody (\s a -> s {_netHTMLBody = a})
+--
+-- /Note:/ Consider using 'htmlBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+netHTMLBody :: Lens.Lens' NotifyEmailType (Lude.Maybe Lude.Text)
+netHTMLBody = Lens.lens (htmlBody :: NotifyEmailType -> Lude.Maybe Lude.Text) (\s a -> s {htmlBody = a} :: NotifyEmailType)
+{-# DEPRECATED netHTMLBody "Use generic-lens or generic-optics with 'htmlBody' instead." #-}
 
 -- | The subject.
-netSubject :: Lens' NotifyEmailType Text
-netSubject = lens _netSubject (\s a -> s {_netSubject = a})
+--
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+netSubject :: Lens.Lens' NotifyEmailType Lude.Text
+netSubject = Lens.lens (subject :: NotifyEmailType -> Lude.Text) (\s a -> s {subject = a} :: NotifyEmailType)
+{-# DEPRECATED netSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
-instance FromJSON NotifyEmailType where
+instance Lude.FromJSON NotifyEmailType where
   parseJSON =
-    withObject
+    Lude.withObject
       "NotifyEmailType"
       ( \x ->
           NotifyEmailType'
-            <$> (x .:? "TextBody") <*> (x .:? "HtmlBody") <*> (x .: "Subject")
+            Lude.<$> (x Lude..:? "TextBody")
+            Lude.<*> (x Lude..:? "HtmlBody")
+            Lude.<*> (x Lude..: "Subject")
       )
 
-instance Hashable NotifyEmailType
-
-instance NFData NotifyEmailType
-
-instance ToJSON NotifyEmailType where
+instance Lude.ToJSON NotifyEmailType where
   toJSON NotifyEmailType' {..} =
-    object
-      ( catMaybes
-          [ ("TextBody" .=) <$> _netTextBody,
-            ("HtmlBody" .=) <$> _netHTMLBody,
-            Just ("Subject" .= _netSubject)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TextBody" Lude..=) Lude.<$> textBody,
+            ("HtmlBody" Lude..=) Lude.<$> htmlBody,
+            Lude.Just ("Subject" Lude..= subject)
           ]
       )

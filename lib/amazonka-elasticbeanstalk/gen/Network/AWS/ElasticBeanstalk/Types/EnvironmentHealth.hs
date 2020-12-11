@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth where
+module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth
+  ( EnvironmentHealth
+      ( EnvironmentHealth',
+        Green,
+        Grey,
+        Red,
+        Yellow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnvironmentHealth
-  = Green
-  | Grey
-  | Red
-  | Yellow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnvironmentHealth = EnvironmentHealth' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnvironmentHealth where
-  parser =
-    takeLowerText >>= \case
-      "green" -> pure Green
-      "grey" -> pure Grey
-      "red" -> pure Red
-      "yellow" -> pure Yellow
-      e ->
-        fromTextError $
-          "Failure parsing EnvironmentHealth from value: '" <> e
-            <> "'. Accepted values: green, grey, red, yellow"
+pattern Green :: EnvironmentHealth
+pattern Green = EnvironmentHealth' "Green"
 
-instance ToText EnvironmentHealth where
-  toText = \case
-    Green -> "Green"
-    Grey -> "Grey"
-    Red -> "Red"
-    Yellow -> "Yellow"
+pattern Grey :: EnvironmentHealth
+pattern Grey = EnvironmentHealth' "Grey"
 
-instance Hashable EnvironmentHealth
+pattern Red :: EnvironmentHealth
+pattern Red = EnvironmentHealth' "Red"
 
-instance NFData EnvironmentHealth
+pattern Yellow :: EnvironmentHealth
+pattern Yellow = EnvironmentHealth' "Yellow"
 
-instance ToByteString EnvironmentHealth
-
-instance ToQuery EnvironmentHealth
-
-instance ToHeader EnvironmentHealth
-
-instance FromXML EnvironmentHealth where
-  parseXML = parseXMLText "EnvironmentHealth"
+{-# COMPLETE
+  Green,
+  Grey,
+  Red,
+  Yellow,
+  EnvironmentHealth'
+  #-}

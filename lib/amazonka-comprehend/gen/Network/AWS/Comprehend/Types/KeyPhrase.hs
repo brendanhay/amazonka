@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.KeyPhrase where
+module Network.AWS.Comprehend.Types.KeyPhrase
+  ( KeyPhrase (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKeyPhrase,
+
+    -- * Lenses
+    kpBeginOffset,
+    kpText,
+    kpScore,
+    kpEndOffset,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a key noun phrase.
 --
---
---
--- /See:/ 'keyPhrase' smart constructor.
+-- /See:/ 'mkKeyPhrase' smart constructor.
 data KeyPhrase = KeyPhrase'
-  { _kpBeginOffset :: !(Maybe Int),
-    _kpText :: !(Maybe Text),
-    _kpScore :: !(Maybe Double),
-    _kpEndOffset :: !(Maybe Int)
+  { beginOffset :: Lude.Maybe Lude.Int,
+    text :: Lude.Maybe Lude.Text,
+    score :: Lude.Maybe Lude.Double,
+    endOffset :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyPhrase' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kpBeginOffset' - A character offset in the input text that shows where the key phrase begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A /code point/ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
---
--- * 'kpText' - The text of a key noun phrase.
---
--- * 'kpScore' - The level of confidence that Amazon Comprehend has in the accuracy of the detection.
---
--- * 'kpEndOffset' - A character offset in the input text where the key phrase ends. The offset returns the position of each UTF-8 code point in the string. A @code point@ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
-keyPhrase ::
+-- * 'beginOffset' - A character offset in the input text that shows where the key phrase begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A /code point/ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
+-- * 'endOffset' - A character offset in the input text where the key phrase ends. The offset returns the position of each UTF-8 code point in the string. A @code point@ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
+-- * 'score' - The level of confidence that Amazon Comprehend has in the accuracy of the detection.
+-- * 'text' - The text of a key noun phrase.
+mkKeyPhrase ::
   KeyPhrase
-keyPhrase =
+mkKeyPhrase =
   KeyPhrase'
-    { _kpBeginOffset = Nothing,
-      _kpText = Nothing,
-      _kpScore = Nothing,
-      _kpEndOffset = Nothing
+    { beginOffset = Lude.Nothing,
+      text = Lude.Nothing,
+      score = Lude.Nothing,
+      endOffset = Lude.Nothing
     }
 
 -- | A character offset in the input text that shows where the key phrase begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A /code point/ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
-kpBeginOffset :: Lens' KeyPhrase (Maybe Int)
-kpBeginOffset = lens _kpBeginOffset (\s a -> s {_kpBeginOffset = a})
+--
+-- /Note:/ Consider using 'beginOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kpBeginOffset :: Lens.Lens' KeyPhrase (Lude.Maybe Lude.Int)
+kpBeginOffset = Lens.lens (beginOffset :: KeyPhrase -> Lude.Maybe Lude.Int) (\s a -> s {beginOffset = a} :: KeyPhrase)
+{-# DEPRECATED kpBeginOffset "Use generic-lens or generic-optics with 'beginOffset' instead." #-}
 
 -- | The text of a key noun phrase.
-kpText :: Lens' KeyPhrase (Maybe Text)
-kpText = lens _kpText (\s a -> s {_kpText = a})
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kpText :: Lens.Lens' KeyPhrase (Lude.Maybe Lude.Text)
+kpText = Lens.lens (text :: KeyPhrase -> Lude.Maybe Lude.Text) (\s a -> s {text = a} :: KeyPhrase)
+{-# DEPRECATED kpText "Use generic-lens or generic-optics with 'text' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of the detection.
-kpScore :: Lens' KeyPhrase (Maybe Double)
-kpScore = lens _kpScore (\s a -> s {_kpScore = a})
+--
+-- /Note:/ Consider using 'score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kpScore :: Lens.Lens' KeyPhrase (Lude.Maybe Lude.Double)
+kpScore = Lens.lens (score :: KeyPhrase -> Lude.Maybe Lude.Double) (\s a -> s {score = a} :: KeyPhrase)
+{-# DEPRECATED kpScore "Use generic-lens or generic-optics with 'score' instead." #-}
 
 -- | A character offset in the input text where the key phrase ends. The offset returns the position of each UTF-8 code point in the string. A @code point@ is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.
-kpEndOffset :: Lens' KeyPhrase (Maybe Int)
-kpEndOffset = lens _kpEndOffset (\s a -> s {_kpEndOffset = a})
+--
+-- /Note:/ Consider using 'endOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kpEndOffset :: Lens.Lens' KeyPhrase (Lude.Maybe Lude.Int)
+kpEndOffset = Lens.lens (endOffset :: KeyPhrase -> Lude.Maybe Lude.Int) (\s a -> s {endOffset = a} :: KeyPhrase)
+{-# DEPRECATED kpEndOffset "Use generic-lens or generic-optics with 'endOffset' instead." #-}
 
-instance FromJSON KeyPhrase where
+instance Lude.FromJSON KeyPhrase where
   parseJSON =
-    withObject
+    Lude.withObject
       "KeyPhrase"
       ( \x ->
           KeyPhrase'
-            <$> (x .:? "BeginOffset")
-            <*> (x .:? "Text")
-            <*> (x .:? "Score")
-            <*> (x .:? "EndOffset")
+            Lude.<$> (x Lude..:? "BeginOffset")
+            Lude.<*> (x Lude..:? "Text")
+            Lude.<*> (x Lude..:? "Score")
+            Lude.<*> (x Lude..:? "EndOffset")
       )
-
-instance Hashable KeyPhrase
-
-instance NFData KeyPhrase

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,188 @@
 --
 -- Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
 --
---
 -- You can add protection to only a single resource with each CreateProtection request. If you want to add protection to multiple resources at once, use the <https://console.aws.amazon.com/waf/ AWS WAF console> . For more information see <https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html Getting Started with AWS Shield Advanced> and <https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html Add AWS Shield Advanced Protection to more AWS Resources> .
 module Network.AWS.Shield.CreateProtection
-  ( -- * Creating a Request
-    createProtection,
-    CreateProtection,
+  ( -- * Creating a request
+    CreateProtection (..),
+    mkCreateProtection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpName,
     cpResourceARN,
 
-    -- * Destructuring the Response
-    createProtectionResponse,
-    CreateProtectionResponse,
+    -- * Destructuring the response
+    CreateProtectionResponse (..),
+    mkCreateProtectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprsProtectionId,
     cprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'createProtection' smart constructor.
+-- | /See:/ 'mkCreateProtection' smart constructor.
 data CreateProtection = CreateProtection'
-  { _cpName :: !Text,
-    _cpResourceARN :: !Text
+  { name :: Lude.Text,
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProtection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - Friendly name for the @Protection@ you are creating.
+-- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource to be protected.
 --
--- * 'cpName' - Friendly name for the @Protection@ you are creating.
+-- The ARN should be in one of the following formats:
 --
--- * 'cpResourceARN' - The ARN (Amazon Resource Name) of the resource to be protected. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @      * For an AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @      * For an AWS Global Accelerator accelerator: @arn:aws:globalaccelerator::/account-id/ :accelerator//accelerator-id/ @      * For Amazon Route 53: @arn:aws:route53:::hostedzone//hosted-zone-id/ @      * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
-createProtection ::
-  -- | 'cpName'
-  Text ->
-  -- | 'cpResourceARN'
-  Text ->
+--     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
+--
+--
+--     * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @
+--
+--
+--     * For an AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @
+--
+--
+--     * For an AWS Global Accelerator accelerator: @arn:aws:globalaccelerator::/account-id/ :accelerator//accelerator-id/ @
+--
+--
+--     * For Amazon Route 53: @arn:aws:route53:::hostedzone//hosted-zone-id/ @
+--
+--
+--     * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
+mkCreateProtection ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'resourceARN'
+  Lude.Text ->
   CreateProtection
-createProtection pName_ pResourceARN_ =
-  CreateProtection'
-    { _cpName = pName_,
-      _cpResourceARN = pResourceARN_
-    }
+mkCreateProtection pName_ pResourceARN_ =
+  CreateProtection' {name = pName_, resourceARN = pResourceARN_}
 
 -- | Friendly name for the @Protection@ you are creating.
-cpName :: Lens' CreateProtection Text
-cpName = lens _cpName (\s a -> s {_cpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CreateProtection Lude.Text
+cpName = Lens.lens (name :: CreateProtection -> Lude.Text) (\s a -> s {name = a} :: CreateProtection)
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The ARN (Amazon Resource Name) of the resource to be protected. The ARN should be in one of the following formats:     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @      * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @      * For an AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @      * For an AWS Global Accelerator accelerator: @arn:aws:globalaccelerator::/account-id/ :accelerator//accelerator-id/ @      * For Amazon Route 53: @arn:aws:route53:::hostedzone//hosted-zone-id/ @      * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
-cpResourceARN :: Lens' CreateProtection Text
-cpResourceARN = lens _cpResourceARN (\s a -> s {_cpResourceARN = a})
+-- | The ARN (Amazon Resource Name) of the resource to be protected.
+--
+-- The ARN should be in one of the following formats:
+--
+--     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
+--
+--
+--     * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @
+--
+--
+--     * For an AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @
+--
+--
+--     * For an AWS Global Accelerator accelerator: @arn:aws:globalaccelerator::/account-id/ :accelerator//accelerator-id/ @
+--
+--
+--     * For Amazon Route 53: @arn:aws:route53:::hostedzone//hosted-zone-id/ @
+--
+--
+--     * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
+--
+--
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpResourceARN :: Lens.Lens' CreateProtection Lude.Text
+cpResourceARN = Lens.lens (resourceARN :: CreateProtection -> Lude.Text) (\s a -> s {resourceARN = a} :: CreateProtection)
+{-# DEPRECATED cpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest CreateProtection where
+instance Lude.AWSRequest CreateProtection where
   type Rs CreateProtection = CreateProtectionResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateProtectionResponse'
-            <$> (x .?> "ProtectionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ProtectionId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateProtection
-
-instance NFData CreateProtection
-
-instance ToHeaders CreateProtection where
+instance Lude.ToHeaders CreateProtection where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.CreateProtection" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.CreateProtection" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateProtection where
+instance Lude.ToJSON CreateProtection where
   toJSON CreateProtection' {..} =
-    object
-      ( catMaybes
-          [Just ("Name" .= _cpName), Just ("ResourceArn" .= _cpResourceARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("ResourceArn" Lude..= resourceARN)
+          ]
       )
 
-instance ToPath CreateProtection where
-  toPath = const "/"
+instance Lude.ToPath CreateProtection where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateProtection where
-  toQuery = const mempty
+instance Lude.ToQuery CreateProtection where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createProtectionResponse' smart constructor.
+-- | /See:/ 'mkCreateProtectionResponse' smart constructor.
 data CreateProtectionResponse = CreateProtectionResponse'
-  { _cprsProtectionId ::
-      !(Maybe Text),
-    _cprsResponseStatus :: !Int
+  { protectionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProtectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprsProtectionId' - The unique identifier (ID) for the 'Protection' object that is created.
---
--- * 'cprsResponseStatus' - -- | The response status code.
-createProtectionResponse ::
-  -- | 'cprsResponseStatus'
-  Int ->
+-- * 'protectionId' - The unique identifier (ID) for the 'Protection' object that is created.
+-- * 'responseStatus' - The response status code.
+mkCreateProtectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateProtectionResponse
-createProtectionResponse pResponseStatus_ =
+mkCreateProtectionResponse pResponseStatus_ =
   CreateProtectionResponse'
-    { _cprsProtectionId = Nothing,
-      _cprsResponseStatus = pResponseStatus_
+    { protectionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique identifier (ID) for the 'Protection' object that is created.
-cprsProtectionId :: Lens' CreateProtectionResponse (Maybe Text)
-cprsProtectionId = lens _cprsProtectionId (\s a -> s {_cprsProtectionId = a})
+--
+-- /Note:/ Consider using 'protectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsProtectionId :: Lens.Lens' CreateProtectionResponse (Lude.Maybe Lude.Text)
+cprsProtectionId = Lens.lens (protectionId :: CreateProtectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {protectionId = a} :: CreateProtectionResponse)
+{-# DEPRECATED cprsProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreateProtectionResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\s a -> s {_cprsResponseStatus = a})
-
-instance NFData CreateProtectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsResponseStatus :: Lens.Lens' CreateProtectionResponse Lude.Int
+cprsResponseStatus = Lens.lens (responseStatus :: CreateProtectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProtectionResponse)
+{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

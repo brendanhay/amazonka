@@ -13,13 +13,11 @@
 --
 -- Amazon GuardDuty is a continuous security monitoring service that analyzes and processes the following data sources: VPC Flow Logs, AWS CloudTrail event logs, and DNS logs. It uses threat intelligence feeds (such as lists of malicious IPs and domains) and machine learning to identify unexpected, potentially unauthorized, and malicious activity within your AWS environment. This can include issues like escalations of privileges, uses of exposed credentials, or communication with malicious IPs, URLs, or domains. For example, GuardDuty can detect compromised EC2 instances that serve malware or mine bitcoin.
 --
---
 -- GuardDuty also monitors AWS account access behavior for signs of compromise. Some examples of this are unauthorized infrastructure deployments such as EC2 instances deployed in a Region that has never been used, or unusual API calls like a password policy change to reduce password strength.
---
 -- GuardDuty informs you of the status of your AWS environment by producing security findings that you can view in the GuardDuty console or through Amazon CloudWatch events. For more information, see the /<https:\/\/docs.aws.amazon.com\/guardduty\/latest\/ug\/what-is-guardduty.html Amazon GuardDuty User Guide> / .
 module Network.AWS.GuardDuty
-  ( -- * Service Configuration
-    guardDuty,
+  ( -- * Service configuration
+    guardDutyService,
 
     -- * Errors
     -- $errors
@@ -255,8 +253,8 @@ module Network.AWS.GuardDuty
     UsageStatisticType (..),
 
     -- ** AWSAPICallAction
-    AWSAPICallAction,
-    awsAPICallAction,
+    AWSAPICallAction (..),
+    mkAWSAPICallAction,
     aacaRemoteIPDetails,
     aacaCallerType,
     aacaDomainDetails,
@@ -265,33 +263,33 @@ module Network.AWS.GuardDuty
     aacaAPI,
 
     -- ** AccessControlList
-    AccessControlList,
-    accessControlList,
+    AccessControlList (..),
+    mkAccessControlList,
     aclAllowsPublicWriteAccess,
     aclAllowsPublicReadAccess,
 
     -- ** AccessKeyDetails
-    AccessKeyDetails,
-    accessKeyDetails,
+    AccessKeyDetails (..),
+    mkAccessKeyDetails,
     akdPrincipalId,
     akdUserName,
     akdAccessKeyId,
     akdUserType,
 
     -- ** AccountDetail
-    AccountDetail,
-    accountDetail,
+    AccountDetail (..),
+    mkAccountDetail,
     adAccountId,
     adEmail,
 
     -- ** AccountLevelPermissions
-    AccountLevelPermissions,
-    accountLevelPermissions,
+    AccountLevelPermissions (..),
+    mkAccountLevelPermissions,
     alpBlockPublicAccess,
 
     -- ** Action
-    Action,
-    action,
+    Action (..),
+    mkAction,
     aNetworkConnectionAction,
     aPortProbeAction,
     aActionType,
@@ -299,45 +297,45 @@ module Network.AWS.GuardDuty
     aAWSAPICallAction,
 
     -- ** AdminAccount
-    AdminAccount,
-    adminAccount,
+    AdminAccount (..),
+    mkAdminAccount,
     aaAdminAccountId,
     aaAdminStatus,
 
     -- ** BlockPublicAccess
-    BlockPublicAccess,
-    blockPublicAccess,
+    BlockPublicAccess (..),
+    mkBlockPublicAccess,
     bpaIgnorePublicACLs,
     bpaBlockPublicACLs,
     bpaRestrictPublicBuckets,
     bpaBlockPublicPolicy,
 
     -- ** BucketLevelPermissions
-    BucketLevelPermissions,
-    bucketLevelPermissions,
+    BucketLevelPermissions (..),
+    mkBucketLevelPermissions,
     blpAccessControlList,
     blpBlockPublicAccess,
     blpBucketPolicy,
 
     -- ** BucketPolicy
-    BucketPolicy,
-    bucketPolicy,
+    BucketPolicy (..),
+    mkBucketPolicy,
     bpAllowsPublicWriteAccess,
     bpAllowsPublicReadAccess,
 
     -- ** City
-    City,
-    city,
+    City (..),
+    mkCity,
     cCityName,
 
     -- ** CloudTrailConfigurationResult
-    CloudTrailConfigurationResult,
-    cloudTrailConfigurationResult,
+    CloudTrailConfigurationResult (..),
+    mkCloudTrailConfigurationResult,
     ctcrStatus,
 
     -- ** Condition
-    Condition,
-    condition,
+    Condition (..),
+    mkCondition,
     cEQ,
     cLessThan,
     cLte,
@@ -352,66 +350,66 @@ module Network.AWS.GuardDuty
     cGreaterThan,
 
     -- ** Country
-    Country,
-    country,
+    Country (..),
+    mkCountry,
     cCountryName,
     cCountryCode,
 
     -- ** DNSLogsConfigurationResult
-    DNSLogsConfigurationResult,
-    dnsLogsConfigurationResult,
+    DNSLogsConfigurationResult (..),
+    mkDNSLogsConfigurationResult,
     dlcrStatus,
 
     -- ** DNSRequestAction
-    DNSRequestAction,
-    dnsRequestAction,
+    DNSRequestAction (..),
+    mkDNSRequestAction,
     draDomain,
 
     -- ** DataSourceConfigurations
-    DataSourceConfigurations,
-    dataSourceConfigurations,
+    DataSourceConfigurations (..),
+    mkDataSourceConfigurations,
     dscS3Logs,
 
     -- ** DataSourceConfigurationsResult
-    DataSourceConfigurationsResult,
-    dataSourceConfigurationsResult,
+    DataSourceConfigurationsResult (..),
+    mkDataSourceConfigurationsResult,
     dscrCloudTrail,
     dscrDNSLogs,
     dscrFlowLogs,
     dscrS3Logs,
 
     -- ** DefaultServerSideEncryption
-    DefaultServerSideEncryption,
-    defaultServerSideEncryption,
+    DefaultServerSideEncryption (..),
+    mkDefaultServerSideEncryption,
     dsseEncryptionType,
     dsseKMSMasterKeyARN,
 
     -- ** Destination
-    Destination,
-    destination,
+    Destination (..),
+    mkDestination,
     dDestinationId,
     dDestinationType,
     dStatus,
 
     -- ** DestinationProperties
-    DestinationProperties,
-    destinationProperties,
+    DestinationProperties (..),
+    mkDestinationProperties,
     dpKMSKeyARN,
     dpDestinationARN,
 
     -- ** DomainDetails
-    DomainDetails,
-    domainDetails,
+    DomainDetails (..),
+    mkDomainDetails,
     ddDomain,
 
     -- ** Evidence
-    Evidence,
-    evidence,
+    Evidence (..),
+    mkEvidence,
     eThreatIntelligenceDetails,
 
     -- ** Finding
-    Finding,
-    finding,
+    Finding (..),
+    mkFinding,
     fService,
     fConfidence,
     fPartition,
@@ -429,35 +427,35 @@ module Network.AWS.GuardDuty
     fUpdatedAt,
 
     -- ** FindingCriteria
-    FindingCriteria,
-    findingCriteria,
+    FindingCriteria (..),
+    mkFindingCriteria,
     fcCriterion,
 
     -- ** FindingStatistics
-    FindingStatistics,
-    findingStatistics,
+    FindingStatistics (..),
+    mkFindingStatistics,
     fsCountBySeverity,
 
     -- ** FlowLogsConfigurationResult
-    FlowLogsConfigurationResult,
-    flowLogsConfigurationResult,
+    FlowLogsConfigurationResult (..),
+    mkFlowLogsConfigurationResult,
     flcrStatus,
 
     -- ** GeoLocation
-    GeoLocation,
-    geoLocation,
+    GeoLocation (..),
+    mkGeoLocation,
     glLat,
     glLon,
 
     -- ** IAMInstanceProfile
-    IAMInstanceProfile,
-    iamInstanceProfile,
+    IAMInstanceProfile (..),
+    mkIAMInstanceProfile,
     iapARN,
     iapId,
 
     -- ** InstanceDetails
-    InstanceDetails,
-    instanceDetails,
+    InstanceDetails (..),
+    mkInstanceDetails,
     idInstanceId,
     idPlatform,
     idLaunchTime,
@@ -473,35 +471,35 @@ module Network.AWS.GuardDuty
     idImageDescription,
 
     -- ** Invitation
-    Invitation,
-    invitation,
+    Invitation (..),
+    mkInvitation,
     iInvitedAt,
     iRelationshipStatus,
     iInvitationId,
     iAccountId,
 
     -- ** LocalIPDetails
-    LocalIPDetails,
-    localIPDetails,
+    LocalIPDetails (..),
+    mkLocalIPDetails,
     lidIPAddressV4,
 
     -- ** LocalPortDetails
-    LocalPortDetails,
-    localPortDetails,
+    LocalPortDetails (..),
+    mkLocalPortDetails,
     lpdPortName,
     lpdPort,
 
     -- ** Master
-    Master,
-    master,
+    Master (..),
+    mkMaster,
     masInvitedAt,
     masRelationshipStatus,
     masInvitationId,
     masAccountId,
 
     -- ** Member
-    Member,
-    member,
+    Member (..),
+    mkMember,
     mInvitedAt,
     mDetectorId,
     mAccountId,
@@ -511,14 +509,14 @@ module Network.AWS.GuardDuty
     mUpdatedAt,
 
     -- ** MemberDataSourceConfiguration
-    MemberDataSourceConfiguration,
-    memberDataSourceConfiguration,
+    MemberDataSourceConfiguration (..),
+    mkMemberDataSourceConfiguration,
     mdscAccountId,
     mdscDataSources,
 
     -- ** NetworkConnectionAction
-    NetworkConnectionAction,
-    networkConnectionAction,
+    NetworkConnectionAction (..),
+    mkNetworkConnectionAction,
     ncaRemoteIPDetails,
     ncaProtocol,
     ncaLocalIPDetails,
@@ -528,8 +526,8 @@ module Network.AWS.GuardDuty
     ncaLocalPortDetails,
 
     -- ** NetworkInterface
-    NetworkInterface,
-    networkInterface,
+    NetworkInterface (..),
+    mkNetworkInterface,
     niPrivateIPAddresses,
     niPublicDNSName,
     niSecurityGroups,
@@ -542,78 +540,78 @@ module Network.AWS.GuardDuty
     niIPv6Addresses,
 
     -- ** Organization
-    Organization,
-    organization,
+    Organization (..),
+    mkOrganization,
     oOrg,
     oASNOrg,
     oASN,
     oIsp,
 
     -- ** OrganizationDataSourceConfigurations
-    OrganizationDataSourceConfigurations,
-    organizationDataSourceConfigurations,
+    OrganizationDataSourceConfigurations (..),
+    mkOrganizationDataSourceConfigurations,
     odscS3Logs,
 
     -- ** OrganizationDataSourceConfigurationsResult
-    OrganizationDataSourceConfigurationsResult,
-    organizationDataSourceConfigurationsResult,
+    OrganizationDataSourceConfigurationsResult (..),
+    mkOrganizationDataSourceConfigurationsResult,
     odscrS3Logs,
 
     -- ** OrganizationS3LogsConfiguration
-    OrganizationS3LogsConfiguration,
-    organizationS3LogsConfiguration,
+    OrganizationS3LogsConfiguration (..),
+    mkOrganizationS3LogsConfiguration,
     oslcAutoEnable,
 
     -- ** OrganizationS3LogsConfigurationResult
-    OrganizationS3LogsConfigurationResult,
-    organizationS3LogsConfigurationResult,
+    OrganizationS3LogsConfigurationResult (..),
+    mkOrganizationS3LogsConfigurationResult,
     oslcrAutoEnable,
 
     -- ** Owner
-    Owner,
-    owner,
+    Owner (..),
+    mkOwner,
     oId,
 
     -- ** PermissionConfiguration
-    PermissionConfiguration,
-    permissionConfiguration,
+    PermissionConfiguration (..),
+    mkPermissionConfiguration,
     pcBucketLevelPermissions,
     pcAccountLevelPermissions,
 
     -- ** PortProbeAction
-    PortProbeAction,
-    portProbeAction,
+    PortProbeAction (..),
+    mkPortProbeAction,
     ppaPortProbeDetails,
     ppaBlocked,
 
     -- ** PortProbeDetail
-    PortProbeDetail,
-    portProbeDetail,
+    PortProbeDetail (..),
+    mkPortProbeDetail,
     ppdRemoteIPDetails,
     ppdLocalIPDetails,
     ppdLocalPortDetails,
 
     -- ** PrivateIPAddressDetails
-    PrivateIPAddressDetails,
-    privateIPAddressDetails,
+    PrivateIPAddressDetails (..),
+    mkPrivateIPAddressDetails,
     piadPrivateIPAddress,
     piadPrivateDNSName,
 
     -- ** ProductCode
-    ProductCode,
-    productCode,
+    ProductCode (..),
+    mkProductCode,
     pcProductType,
     pcCode,
 
     -- ** PublicAccess
-    PublicAccess,
-    publicAccess,
+    PublicAccess (..),
+    mkPublicAccess,
     paPermissionConfiguration,
     paEffectivePermission,
 
     -- ** RemoteIPDetails
-    RemoteIPDetails,
-    remoteIPDetails,
+    RemoteIPDetails (..),
+    mkRemoteIPDetails,
     ridCountry,
     ridCity,
     ridIPAddressV4,
@@ -621,22 +619,22 @@ module Network.AWS.GuardDuty
     ridOrganization,
 
     -- ** RemotePortDetails
-    RemotePortDetails,
-    remotePortDetails,
+    RemotePortDetails (..),
+    mkRemotePortDetails,
     rpdPortName,
     rpdPort,
 
     -- ** Resource
-    Resource,
-    resource,
+    Resource (..),
+    mkResource,
     rResourceType,
     rS3BucketDetails,
     rInstanceDetails,
     rAccessKeyDetails,
 
     -- ** S3BucketDetail
-    S3BucketDetail,
-    s3BucketDetail,
+    S3BucketDetail (..),
+    mkS3BucketDetail,
     sbdARN,
     sbdCreatedAt,
     sbdOwner,
@@ -647,24 +645,24 @@ module Network.AWS.GuardDuty
     sbdTags,
 
     -- ** S3LogsConfiguration
-    S3LogsConfiguration,
-    s3LogsConfiguration,
+    S3LogsConfiguration (..),
+    mkS3LogsConfiguration,
     slcEnable,
 
     -- ** S3LogsConfigurationResult
-    S3LogsConfigurationResult,
-    s3LogsConfigurationResult,
+    S3LogsConfigurationResult (..),
+    mkS3LogsConfigurationResult,
     slcrStatus,
 
     -- ** SecurityGroup
-    SecurityGroup,
-    securityGroup,
+    SecurityGroup (..),
+    mkSecurityGroup,
     sgGroupId,
     sgGroupName,
 
     -- ** ServiceInfo
-    ServiceInfo,
-    serviceInfo,
+    ServiceInfo (..),
+    mkServiceInfo,
     siCount,
     siEventFirstSeen,
     siAction,
@@ -677,67 +675,78 @@ module Network.AWS.GuardDuty
     siArchived,
 
     -- ** SortCriteria
-    SortCriteria,
-    sortCriteria,
+    SortCriteria (..),
+    mkSortCriteria,
     scOrderBy,
     scAttributeName,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** ThreatIntelligenceDetail
-    ThreatIntelligenceDetail,
-    threatIntelligenceDetail,
+    ThreatIntelligenceDetail (..),
+    mkThreatIntelligenceDetail,
     tidThreatNames,
     tidThreatListName,
 
     -- ** Total
-    Total,
-    total,
+    Total (..),
+    mkTotal,
     tAmount,
     tUnit,
 
     -- ** UnprocessedAccount
-    UnprocessedAccount,
-    unprocessedAccount,
+    UnprocessedAccount (..),
+    mkUnprocessedAccount,
     uaAccountId,
     uaResult,
 
     -- ** UsageAccountResult
-    UsageAccountResult,
-    usageAccountResult,
+    UsageAccountResult (..),
+    mkUsageAccountResult,
     uarAccountId,
     uarTotal,
 
     -- ** UsageCriteria
-    UsageCriteria,
-    usageCriteria,
+    UsageCriteria (..),
+    mkUsageCriteria,
     ucAccountIds,
     ucResources,
     ucDataSources,
 
     -- ** UsageDataSourceResult
-    UsageDataSourceResult,
-    usageDataSourceResult,
+    UsageDataSourceResult (..),
+    mkUsageDataSourceResult,
     udsrTotal,
     udsrDataSource,
 
     -- ** UsageResourceResult
-    UsageResourceResult,
-    usageResourceResult,
+    UsageResourceResult (..),
+    mkUsageResourceResult,
     urrTotal,
     urrResource,
 
     -- ** UsageStatistics
-    UsageStatistics,
-    usageStatistics,
+    UsageStatistics (..),
+    mkUsageStatistics,
     usTopResources,
     usSumByResource,
     usSumByDataSource,
     usSumByAccount,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -801,6 +810,7 @@ import Network.AWS.GuardDuty.UpdateOrganizationConfiguration
 import Network.AWS.GuardDuty.UpdatePublishingDestination
 import Network.AWS.GuardDuty.UpdateThreatIntelSet
 import Network.AWS.GuardDuty.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

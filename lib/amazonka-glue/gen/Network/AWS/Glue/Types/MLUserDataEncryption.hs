@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.MLUserDataEncryption where
+module Network.AWS.Glue.Types.MLUserDataEncryption
+  ( MLUserDataEncryption (..),
+
+    -- * Smart constructor
+    mkMLUserDataEncryption,
+
+    -- * Lenses
+    mludeKMSKeyId,
+    mludeMlUserDataEncryptionMode,
+  )
+where
 
 import Network.AWS.Glue.Types.MLUserDataEncryptionModeString
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The encryption-at-rest settings of the transform that apply to accessing user data.
 --
---
---
--- /See:/ 'mLUserDataEncryption' smart constructor.
+-- /See:/ 'mkMLUserDataEncryption' smart constructor.
 data MLUserDataEncryption = MLUserDataEncryption'
-  { _mludeKMSKeyId ::
-      !(Maybe Text),
-    _mludeMlUserDataEncryptionMode ::
-      !MLUserDataEncryptionModeString
+  { kmsKeyId ::
+      Lude.Maybe Lude.Text,
+    mlUserDataEncryptionMode ::
+      MLUserDataEncryptionModeString
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MLUserDataEncryption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'kmsKeyId' - The ID for the customer-provided KMS key.
+-- * 'mlUserDataEncryptionMode' - The encryption mode applied to user data. Valid values are:
 --
--- * 'mludeKMSKeyId' - The ID for the customer-provided KMS key.
 --
--- * 'mludeMlUserDataEncryptionMode' - The encryption mode applied to user data. Valid values are:     * DISABLED: encryption is disabled     * SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data stored in Amazon S3.
-mLUserDataEncryption ::
-  -- | 'mludeMlUserDataEncryptionMode'
+--     * DISABLED: encryption is disabled
+--
+--
+--     * SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data stored in Amazon S3.
+mkMLUserDataEncryption ::
+  -- | 'mlUserDataEncryptionMode'
   MLUserDataEncryptionModeString ->
   MLUserDataEncryption
-mLUserDataEncryption pMlUserDataEncryptionMode_ =
+mkMLUserDataEncryption pMlUserDataEncryptionMode_ =
   MLUserDataEncryption'
-    { _mludeKMSKeyId = Nothing,
-      _mludeMlUserDataEncryptionMode = pMlUserDataEncryptionMode_
+    { kmsKeyId = Lude.Nothing,
+      mlUserDataEncryptionMode = pMlUserDataEncryptionMode_
     }
 
 -- | The ID for the customer-provided KMS key.
-mludeKMSKeyId :: Lens' MLUserDataEncryption (Maybe Text)
-mludeKMSKeyId = lens _mludeKMSKeyId (\s a -> s {_mludeKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mludeKMSKeyId :: Lens.Lens' MLUserDataEncryption (Lude.Maybe Lude.Text)
+mludeKMSKeyId = Lens.lens (kmsKeyId :: MLUserDataEncryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: MLUserDataEncryption)
+{-# DEPRECATED mludeKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
--- | The encryption mode applied to user data. Valid values are:     * DISABLED: encryption is disabled     * SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data stored in Amazon S3.
-mludeMlUserDataEncryptionMode :: Lens' MLUserDataEncryption MLUserDataEncryptionModeString
-mludeMlUserDataEncryptionMode = lens _mludeMlUserDataEncryptionMode (\s a -> s {_mludeMlUserDataEncryptionMode = a})
+-- | The encryption mode applied to user data. Valid values are:
+--
+--
+--     * DISABLED: encryption is disabled
+--
+--
+--     * SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data stored in Amazon S3.
+--
+--
+--
+-- /Note:/ Consider using 'mlUserDataEncryptionMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mludeMlUserDataEncryptionMode :: Lens.Lens' MLUserDataEncryption MLUserDataEncryptionModeString
+mludeMlUserDataEncryptionMode = Lens.lens (mlUserDataEncryptionMode :: MLUserDataEncryption -> MLUserDataEncryptionModeString) (\s a -> s {mlUserDataEncryptionMode = a} :: MLUserDataEncryption)
+{-# DEPRECATED mludeMlUserDataEncryptionMode "Use generic-lens or generic-optics with 'mlUserDataEncryptionMode' instead." #-}
 
-instance FromJSON MLUserDataEncryption where
+instance Lude.FromJSON MLUserDataEncryption where
   parseJSON =
-    withObject
+    Lude.withObject
       "MLUserDataEncryption"
       ( \x ->
           MLUserDataEncryption'
-            <$> (x .:? "KmsKeyId") <*> (x .: "MlUserDataEncryptionMode")
+            Lude.<$> (x Lude..:? "KmsKeyId")
+            Lude.<*> (x Lude..: "MlUserDataEncryptionMode")
       )
 
-instance Hashable MLUserDataEncryption
-
-instance NFData MLUserDataEncryption
-
-instance ToJSON MLUserDataEncryption where
+instance Lude.ToJSON MLUserDataEncryption where
   toJSON MLUserDataEncryption' {..} =
-    object
-      ( catMaybes
-          [ ("KmsKeyId" .=) <$> _mludeKMSKeyId,
-            Just
-              ("MlUserDataEncryptionMode" .= _mludeMlUserDataEncryptionMode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            Lude.Just
+              ("MlUserDataEncryptionMode" Lude..= mlUserDataEncryptionMode)
           ]
       )

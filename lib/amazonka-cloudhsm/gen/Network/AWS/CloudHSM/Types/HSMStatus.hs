@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudHSM.Types.HSMStatus where
+module Network.AWS.CloudHSM.Types.HSMStatus
+  ( HSMStatus
+      ( HSMStatus',
+        HSDegraded,
+        HSPending,
+        HSRunning,
+        HSSuspended,
+        HSTerminated,
+        HSTerminating,
+        HSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HSMStatus
-  = HSDegraded
-  | HSPending
-  | HSRunning
-  | HSSuspended
-  | HSTerminated
-  | HSTerminating
-  | HSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HSMStatus = HSMStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HSMStatus where
-  parser =
-    takeLowerText >>= \case
-      "degraded" -> pure HSDegraded
-      "pending" -> pure HSPending
-      "running" -> pure HSRunning
-      "suspended" -> pure HSSuspended
-      "terminated" -> pure HSTerminated
-      "terminating" -> pure HSTerminating
-      "updating" -> pure HSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing HSMStatus from value: '" <> e
-            <> "'. Accepted values: degraded, pending, running, suspended, terminated, terminating, updating"
+pattern HSDegraded :: HSMStatus
+pattern HSDegraded = HSMStatus' "DEGRADED"
 
-instance ToText HSMStatus where
-  toText = \case
-    HSDegraded -> "DEGRADED"
-    HSPending -> "PENDING"
-    HSRunning -> "RUNNING"
-    HSSuspended -> "SUSPENDED"
-    HSTerminated -> "TERMINATED"
-    HSTerminating -> "TERMINATING"
-    HSUpdating -> "UPDATING"
+pattern HSPending :: HSMStatus
+pattern HSPending = HSMStatus' "PENDING"
 
-instance Hashable HSMStatus
+pattern HSRunning :: HSMStatus
+pattern HSRunning = HSMStatus' "RUNNING"
 
-instance NFData HSMStatus
+pattern HSSuspended :: HSMStatus
+pattern HSSuspended = HSMStatus' "SUSPENDED"
 
-instance ToByteString HSMStatus
+pattern HSTerminated :: HSMStatus
+pattern HSTerminated = HSMStatus' "TERMINATED"
 
-instance ToQuery HSMStatus
+pattern HSTerminating :: HSMStatus
+pattern HSTerminating = HSMStatus' "TERMINATING"
 
-instance ToHeader HSMStatus
+pattern HSUpdating :: HSMStatus
+pattern HSUpdating = HSMStatus' "UPDATING"
 
-instance FromJSON HSMStatus where
-  parseJSON = parseJSONText "HSMStatus"
+{-# COMPLETE
+  HSDegraded,
+  HSPending,
+  HSRunning,
+  HSSuspended,
+  HSTerminated,
+  HSTerminating,
+  HSUpdating,
+  HSMStatus'
+  #-}

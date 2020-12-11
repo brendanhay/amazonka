@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,156 @@
 --
 -- Lists the receipt rule sets that exist under your AWS account in the current AWS Region. If there are additional receipt rule sets to be retrieved, you will receive a @NextToken@ that you can provide to the next call to @ListReceiptRuleSets@ to retrieve the additional entries.
 --
---
 -- For information about managing receipt rule sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.SES.ListReceiptRuleSets
-  ( -- * Creating a Request
-    listReceiptRuleSets,
-    ListReceiptRuleSets,
+  ( -- * Creating a request
+    ListReceiptRuleSets (..),
+    mkListReceiptRuleSets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrrsNextToken,
 
-    -- * Destructuring the Response
-    listReceiptRuleSetsResponse,
-    ListReceiptRuleSetsResponse,
+    -- * Destructuring the response
+    ListReceiptRuleSetsResponse (..),
+    mkListReceiptRuleSetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrrsrsRuleSets,
     lrrsrsNextToken,
     lrrsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to list the receipt rule sets that exist under your AWS account. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'listReceiptRuleSets' smart constructor.
+-- /See:/ 'mkListReceiptRuleSets' smart constructor.
 newtype ListReceiptRuleSets = ListReceiptRuleSets'
-  { _lrrsNextToken ::
-      Maybe Text
+  { nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReceiptRuleSets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrrsNextToken' - A token returned from a previous call to @ListReceiptRuleSets@ to indicate the position in the receipt rule set list.
-listReceiptRuleSets ::
+-- * 'nextToken' - A token returned from a previous call to @ListReceiptRuleSets@ to indicate the position in the receipt rule set list.
+mkListReceiptRuleSets ::
   ListReceiptRuleSets
-listReceiptRuleSets =
-  ListReceiptRuleSets' {_lrrsNextToken = Nothing}
+mkListReceiptRuleSets =
+  ListReceiptRuleSets' {nextToken = Lude.Nothing}
 
 -- | A token returned from a previous call to @ListReceiptRuleSets@ to indicate the position in the receipt rule set list.
-lrrsNextToken :: Lens' ListReceiptRuleSets (Maybe Text)
-lrrsNextToken = lens _lrrsNextToken (\s a -> s {_lrrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsNextToken :: Lens.Lens' ListReceiptRuleSets (Lude.Maybe Lude.Text)
+lrrsNextToken = Lens.lens (nextToken :: ListReceiptRuleSets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReceiptRuleSets)
+{-# DEPRECATED lrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListReceiptRuleSets where
+instance Page.AWSPager ListReceiptRuleSets where
   page rq rs
-    | stop (rs ^. lrrsrsNextToken) = Nothing
-    | stop (rs ^. lrrsrsRuleSets) = Nothing
-    | otherwise = Just $ rq & lrrsNextToken .~ rs ^. lrrsrsNextToken
+    | Page.stop (rs Lens.^. lrrsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrrsrsRuleSets) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrrsNextToken Lens..~ rs Lens.^. lrrsrsNextToken
 
-instance AWSRequest ListReceiptRuleSets where
+instance Lude.AWSRequest ListReceiptRuleSets where
   type Rs ListReceiptRuleSets = ListReceiptRuleSetsResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListReceiptRuleSetsResult"
       ( \s h x ->
           ListReceiptRuleSetsResponse'
-            <$> (x .@? "RuleSets" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (x .@? "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "RuleSets" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListReceiptRuleSets
+instance Lude.ToHeaders ListReceiptRuleSets where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListReceiptRuleSets
+instance Lude.ToPath ListReceiptRuleSets where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListReceiptRuleSets where
-  toHeaders = const mempty
-
-instance ToPath ListReceiptRuleSets where
-  toPath = const "/"
-
-instance ToQuery ListReceiptRuleSets where
+instance Lude.ToQuery ListReceiptRuleSets where
   toQuery ListReceiptRuleSets' {..} =
-    mconcat
-      [ "Action" =: ("ListReceiptRuleSets" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "NextToken" =: _lrrsNextToken
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListReceiptRuleSets" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "NextToken" Lude.=: nextToken
       ]
 
 -- | A list of receipt rule sets that exist under your AWS account.
 --
---
---
--- /See:/ 'listReceiptRuleSetsResponse' smart constructor.
+-- /See:/ 'mkListReceiptRuleSetsResponse' smart constructor.
 data ListReceiptRuleSetsResponse = ListReceiptRuleSetsResponse'
-  { _lrrsrsRuleSets ::
-      !(Maybe [ReceiptRuleSetMetadata]),
-    _lrrsrsNextToken :: !(Maybe Text),
-    _lrrsrsResponseStatus :: !Int
+  { ruleSets ::
+      Lude.Maybe [ReceiptRuleSetMetadata],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReceiptRuleSetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrrsrsRuleSets' - The metadata for the currently active receipt rule set. The metadata consists of the rule set name and the timestamp of when the rule set was created.
---
--- * 'lrrsrsNextToken' - A token indicating that there are additional receipt rule sets available to be listed. Pass this token to successive calls of @ListReceiptRuleSets@ to retrieve up to 100 receipt rule sets at a time.
---
--- * 'lrrsrsResponseStatus' - -- | The response status code.
-listReceiptRuleSetsResponse ::
-  -- | 'lrrsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A token indicating that there are additional receipt rule sets available to be listed. Pass this token to successive calls of @ListReceiptRuleSets@ to retrieve up to 100 receipt rule sets at a time.
+-- * 'responseStatus' - The response status code.
+-- * 'ruleSets' - The metadata for the currently active receipt rule set. The metadata consists of the rule set name and the timestamp of when the rule set was created.
+mkListReceiptRuleSetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListReceiptRuleSetsResponse
-listReceiptRuleSetsResponse pResponseStatus_ =
+mkListReceiptRuleSetsResponse pResponseStatus_ =
   ListReceiptRuleSetsResponse'
-    { _lrrsrsRuleSets = Nothing,
-      _lrrsrsNextToken = Nothing,
-      _lrrsrsResponseStatus = pResponseStatus_
+    { ruleSets = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The metadata for the currently active receipt rule set. The metadata consists of the rule set name and the timestamp of when the rule set was created.
-lrrsrsRuleSets :: Lens' ListReceiptRuleSetsResponse [ReceiptRuleSetMetadata]
-lrrsrsRuleSets = lens _lrrsrsRuleSets (\s a -> s {_lrrsrsRuleSets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ruleSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsrsRuleSets :: Lens.Lens' ListReceiptRuleSetsResponse (Lude.Maybe [ReceiptRuleSetMetadata])
+lrrsrsRuleSets = Lens.lens (ruleSets :: ListReceiptRuleSetsResponse -> Lude.Maybe [ReceiptRuleSetMetadata]) (\s a -> s {ruleSets = a} :: ListReceiptRuleSetsResponse)
+{-# DEPRECATED lrrsrsRuleSets "Use generic-lens or generic-optics with 'ruleSets' instead." #-}
 
 -- | A token indicating that there are additional receipt rule sets available to be listed. Pass this token to successive calls of @ListReceiptRuleSets@ to retrieve up to 100 receipt rule sets at a time.
-lrrsrsNextToken :: Lens' ListReceiptRuleSetsResponse (Maybe Text)
-lrrsrsNextToken = lens _lrrsrsNextToken (\s a -> s {_lrrsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsrsNextToken :: Lens.Lens' ListReceiptRuleSetsResponse (Lude.Maybe Lude.Text)
+lrrsrsNextToken = Lens.lens (nextToken :: ListReceiptRuleSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReceiptRuleSetsResponse)
+{-# DEPRECATED lrrsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrrsrsResponseStatus :: Lens' ListReceiptRuleSetsResponse Int
-lrrsrsResponseStatus = lens _lrrsrsResponseStatus (\s a -> s {_lrrsrsResponseStatus = a})
-
-instance NFData ListReceiptRuleSetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrsrsResponseStatus :: Lens.Lens' ListReceiptRuleSetsResponse Lude.Int
+lrrsrsResponseStatus = Lens.lens (responseStatus :: ListReceiptRuleSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListReceiptRuleSetsResponse)
+{-# DEPRECATED lrrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

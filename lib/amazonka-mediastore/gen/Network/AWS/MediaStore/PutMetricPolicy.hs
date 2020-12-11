@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,149 @@
 --
 -- The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.
 module Network.AWS.MediaStore.PutMetricPolicy
-  ( -- * Creating a Request
-    putMetricPolicy,
-    PutMetricPolicy,
+  ( -- * Creating a request
+    PutMetricPolicy (..),
+    mkPutMetricPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pmpContainerName,
     pmpMetricPolicy,
 
-    -- * Destructuring the Response
-    putMetricPolicyResponse,
-    PutMetricPolicyResponse,
+    -- * Destructuring the response
+    PutMetricPolicyResponse (..),
+    mkPutMetricPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pmprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putMetricPolicy' smart constructor.
+-- | /See:/ 'mkPutMetricPolicy' smart constructor.
 data PutMetricPolicy = PutMetricPolicy'
-  { _pmpContainerName :: !Text,
-    _pmpMetricPolicy :: !MetricPolicy
+  { containerName :: Lude.Text,
+    metricPolicy :: MetricPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutMetricPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'containerName' - The name of the container that you want to add the metric policy to.
+-- * 'metricPolicy' - The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for. If you include rules in the policy, construct each rule with both of the following:
 --
--- * 'pmpContainerName' - The name of the container that you want to add the metric policy to.
 --
--- * 'pmpMetricPolicy' - The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for. If you include rules in the policy, construct each rule with both of the following:     * An object group that defines which objects to include in the group. The definition can be a path or a file name, but it can't have more than 900 characters. Valid characters are: a-z, A-Z, 0-9, _ (underscore), = (equal), : (colon), . (period), - (hyphen), ~ (tilde), / (forward slash), and * (asterisk). Wildcards (*) are acceptable.     * An object group name that allows you to refer to the object group. The name can't have more than 30 characters. Valid characters are: a-z, A-Z, 0-9, and _ (underscore).
-putMetricPolicy ::
-  -- | 'pmpContainerName'
-  Text ->
-  -- | 'pmpMetricPolicy'
+--     * An object group that defines which objects to include in the group. The definition can be a path or a file name, but it can't have more than 900 characters. Valid characters are: a-z, A-Z, 0-9, _ (underscore), = (equal), : (colon), . (period), - (hyphen), ~ (tilde), / (forward slash), and * (asterisk). Wildcards (*) are acceptable.
+--
+--
+--     * An object group name that allows you to refer to the object group. The name can't have more than 30 characters. Valid characters are: a-z, A-Z, 0-9, and _ (underscore).
+mkPutMetricPolicy ::
+  -- | 'containerName'
+  Lude.Text ->
+  -- | 'metricPolicy'
   MetricPolicy ->
   PutMetricPolicy
-putMetricPolicy pContainerName_ pMetricPolicy_ =
+mkPutMetricPolicy pContainerName_ pMetricPolicy_ =
   PutMetricPolicy'
-    { _pmpContainerName = pContainerName_,
-      _pmpMetricPolicy = pMetricPolicy_
+    { containerName = pContainerName_,
+      metricPolicy = pMetricPolicy_
     }
 
 -- | The name of the container that you want to add the metric policy to.
-pmpContainerName :: Lens' PutMetricPolicy Text
-pmpContainerName = lens _pmpContainerName (\s a -> s {_pmpContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmpContainerName :: Lens.Lens' PutMetricPolicy Lude.Text
+pmpContainerName = Lens.lens (containerName :: PutMetricPolicy -> Lude.Text) (\s a -> s {containerName = a} :: PutMetricPolicy)
+{-# DEPRECATED pmpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
--- | The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for. If you include rules in the policy, construct each rule with both of the following:     * An object group that defines which objects to include in the group. The definition can be a path or a file name, but it can't have more than 900 characters. Valid characters are: a-z, A-Z, 0-9, _ (underscore), = (equal), : (colon), . (period), - (hyphen), ~ (tilde), / (forward slash), and * (asterisk). Wildcards (*) are acceptable.     * An object group name that allows you to refer to the object group. The name can't have more than 30 characters. Valid characters are: a-z, A-Z, 0-9, and _ (underscore).
-pmpMetricPolicy :: Lens' PutMetricPolicy MetricPolicy
-pmpMetricPolicy = lens _pmpMetricPolicy (\s a -> s {_pmpMetricPolicy = a})
+-- | The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for. If you include rules in the policy, construct each rule with both of the following:
+--
+--
+--     * An object group that defines which objects to include in the group. The definition can be a path or a file name, but it can't have more than 900 characters. Valid characters are: a-z, A-Z, 0-9, _ (underscore), = (equal), : (colon), . (period), - (hyphen), ~ (tilde), / (forward slash), and * (asterisk). Wildcards (*) are acceptable.
+--
+--
+--     * An object group name that allows you to refer to the object group. The name can't have more than 30 characters. Valid characters are: a-z, A-Z, 0-9, and _ (underscore).
+--
+--
+--
+-- /Note:/ Consider using 'metricPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmpMetricPolicy :: Lens.Lens' PutMetricPolicy MetricPolicy
+pmpMetricPolicy = Lens.lens (metricPolicy :: PutMetricPolicy -> MetricPolicy) (\s a -> s {metricPolicy = a} :: PutMetricPolicy)
+{-# DEPRECATED pmpMetricPolicy "Use generic-lens or generic-optics with 'metricPolicy' instead." #-}
 
-instance AWSRequest PutMetricPolicy where
+instance Lude.AWSRequest PutMetricPolicy where
   type Rs PutMetricPolicy = PutMetricPolicyResponse
-  request = postJSON mediaStore
+  request = Req.postJSON mediaStoreService
   response =
-    receiveEmpty
-      (\s h x -> PutMetricPolicyResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          PutMetricPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutMetricPolicy
-
-instance NFData PutMetricPolicy
-
-instance ToHeaders PutMetricPolicy where
+instance Lude.ToHeaders PutMetricPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MediaStore_20170901.PutMetricPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MediaStore_20170901.PutMetricPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutMetricPolicy where
+instance Lude.ToJSON PutMetricPolicy where
   toJSON PutMetricPolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("ContainerName" .= _pmpContainerName),
-            Just ("MetricPolicy" .= _pmpMetricPolicy)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ContainerName" Lude..= containerName),
+            Lude.Just ("MetricPolicy" Lude..= metricPolicy)
           ]
       )
 
-instance ToPath PutMetricPolicy where
-  toPath = const "/"
+instance Lude.ToPath PutMetricPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery PutMetricPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutMetricPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putMetricPolicyResponse' smart constructor.
+-- | /See:/ 'mkPutMetricPolicyResponse' smart constructor.
 newtype PutMetricPolicyResponse = PutMetricPolicyResponse'
-  { _pmprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutMetricPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pmprsResponseStatus' - -- | The response status code.
-putMetricPolicyResponse ::
-  -- | 'pmprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutMetricPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutMetricPolicyResponse
-putMetricPolicyResponse pResponseStatus_ =
-  PutMetricPolicyResponse' {_pmprsResponseStatus = pResponseStatus_}
+mkPutMetricPolicyResponse pResponseStatus_ =
+  PutMetricPolicyResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-pmprsResponseStatus :: Lens' PutMetricPolicyResponse Int
-pmprsResponseStatus = lens _pmprsResponseStatus (\s a -> s {_pmprsResponseStatus = a})
-
-instance NFData PutMetricPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmprsResponseStatus :: Lens.Lens' PutMetricPolicyResponse Lude.Int
+pmprsResponseStatus = Lens.lens (responseStatus :: PutMetricPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutMetricPolicyResponse)
+{-# DEPRECATED pmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

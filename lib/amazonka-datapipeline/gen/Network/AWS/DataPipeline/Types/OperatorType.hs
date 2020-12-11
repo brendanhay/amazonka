@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataPipeline.Types.OperatorType where
+module Network.AWS.DataPipeline.Types.OperatorType
+  ( OperatorType
+      ( OperatorType',
+        OperatorBetween,
+        OperatorEQ,
+        OperatorGE,
+        OperatorLE,
+        OperatorRefEQ
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperatorType
-  = OperatorBetween
-  | OperatorEQ'
-  | OperatorGE
-  | OperatorLE
-  | OperatorRefEQ
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperatorType = OperatorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperatorType where
-  parser =
-    takeLowerText >>= \case
-      "between" -> pure OperatorBetween
-      "eq" -> pure OperatorEQ'
-      "ge" -> pure OperatorGE
-      "le" -> pure OperatorLE
-      "ref_eq" -> pure OperatorRefEQ
-      e ->
-        fromTextError $
-          "Failure parsing OperatorType from value: '" <> e
-            <> "'. Accepted values: between, eq, ge, le, ref_eq"
+pattern OperatorBetween :: OperatorType
+pattern OperatorBetween = OperatorType' "BETWEEN"
 
-instance ToText OperatorType where
-  toText = \case
-    OperatorBetween -> "BETWEEN"
-    OperatorEQ' -> "EQ"
-    OperatorGE -> "GE"
-    OperatorLE -> "LE"
-    OperatorRefEQ -> "REF_EQ"
+pattern OperatorEQ :: OperatorType
+pattern OperatorEQ = OperatorType' "EQ"
 
-instance Hashable OperatorType
+pattern OperatorGE :: OperatorType
+pattern OperatorGE = OperatorType' "GE"
 
-instance NFData OperatorType
+pattern OperatorLE :: OperatorType
+pattern OperatorLE = OperatorType' "LE"
 
-instance ToByteString OperatorType
+pattern OperatorRefEQ :: OperatorType
+pattern OperatorRefEQ = OperatorType' "REF_EQ"
 
-instance ToQuery OperatorType
-
-instance ToHeader OperatorType
-
-instance ToJSON OperatorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  OperatorBetween,
+  OperatorEQ,
+  OperatorGE,
+  OperatorLE,
+  OperatorRefEQ,
+  OperatorType'
+  #-}

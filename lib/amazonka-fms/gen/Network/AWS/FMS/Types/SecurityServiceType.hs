@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.SecurityServiceType where
+module Network.AWS.FMS.Types.SecurityServiceType
+  ( SecurityServiceType
+      ( SecurityServiceType',
+        NetworkFirewall,
+        SecurityGroupsCommon,
+        SecurityGroupsContentAudit,
+        SecurityGroupsUsageAudit,
+        ShieldAdvanced,
+        WAFV2,
+        Waf
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SecurityServiceType
-  = NetworkFirewall
-  | SecurityGroupsCommon
-  | SecurityGroupsContentAudit
-  | SecurityGroupsUsageAudit
-  | ShieldAdvanced
-  | WAFV2
-  | Waf
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SecurityServiceType = SecurityServiceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SecurityServiceType where
-  parser =
-    takeLowerText >>= \case
-      "network_firewall" -> pure NetworkFirewall
-      "security_groups_common" -> pure SecurityGroupsCommon
-      "security_groups_content_audit" -> pure SecurityGroupsContentAudit
-      "security_groups_usage_audit" -> pure SecurityGroupsUsageAudit
-      "shield_advanced" -> pure ShieldAdvanced
-      "wafv2" -> pure WAFV2
-      "waf" -> pure Waf
-      e ->
-        fromTextError $
-          "Failure parsing SecurityServiceType from value: '" <> e
-            <> "'. Accepted values: network_firewall, security_groups_common, security_groups_content_audit, security_groups_usage_audit, shield_advanced, wafv2, waf"
+pattern NetworkFirewall :: SecurityServiceType
+pattern NetworkFirewall = SecurityServiceType' "NETWORK_FIREWALL"
 
-instance ToText SecurityServiceType where
-  toText = \case
-    NetworkFirewall -> "NETWORK_FIREWALL"
-    SecurityGroupsCommon -> "SECURITY_GROUPS_COMMON"
-    SecurityGroupsContentAudit -> "SECURITY_GROUPS_CONTENT_AUDIT"
-    SecurityGroupsUsageAudit -> "SECURITY_GROUPS_USAGE_AUDIT"
-    ShieldAdvanced -> "SHIELD_ADVANCED"
-    WAFV2 -> "WAFV2"
-    Waf -> "WAF"
+pattern SecurityGroupsCommon :: SecurityServiceType
+pattern SecurityGroupsCommon = SecurityServiceType' "SECURITY_GROUPS_COMMON"
 
-instance Hashable SecurityServiceType
+pattern SecurityGroupsContentAudit :: SecurityServiceType
+pattern SecurityGroupsContentAudit = SecurityServiceType' "SECURITY_GROUPS_CONTENT_AUDIT"
 
-instance NFData SecurityServiceType
+pattern SecurityGroupsUsageAudit :: SecurityServiceType
+pattern SecurityGroupsUsageAudit = SecurityServiceType' "SECURITY_GROUPS_USAGE_AUDIT"
 
-instance ToByteString SecurityServiceType
+pattern ShieldAdvanced :: SecurityServiceType
+pattern ShieldAdvanced = SecurityServiceType' "SHIELD_ADVANCED"
 
-instance ToQuery SecurityServiceType
+pattern WAFV2 :: SecurityServiceType
+pattern WAFV2 = SecurityServiceType' "WAFV2"
 
-instance ToHeader SecurityServiceType
+pattern Waf :: SecurityServiceType
+pattern Waf = SecurityServiceType' "WAF"
 
-instance ToJSON SecurityServiceType where
-  toJSON = toJSONText
-
-instance FromJSON SecurityServiceType where
-  parseJSON = parseJSONText "SecurityServiceType"
+{-# COMPLETE
+  NetworkFirewall,
+  SecurityGroupsCommon,
+  SecurityGroupsContentAudit,
+  SecurityGroupsUsageAudit,
+  ShieldAdvanced,
+  WAFV2,
+  Waf,
+  SecurityServiceType'
+  #-}

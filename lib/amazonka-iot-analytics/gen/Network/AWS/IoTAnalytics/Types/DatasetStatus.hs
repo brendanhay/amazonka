@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatasetStatus where
+module Network.AWS.IoTAnalytics.Types.DatasetStatus
+  ( DatasetStatus
+      ( DatasetStatus',
+        Active,
+        Creating,
+        Deleting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DatasetStatus
-  = Active
-  | Creating
-  | Deleting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DatasetStatus = DatasetStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DatasetStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "creating" -> pure Creating
-      "deleting" -> pure Deleting
-      e ->
-        fromTextError $
-          "Failure parsing DatasetStatus from value: '" <> e
-            <> "'. Accepted values: active, creating, deleting"
+pattern Active :: DatasetStatus
+pattern Active = DatasetStatus' "ACTIVE"
 
-instance ToText DatasetStatus where
-  toText = \case
-    Active -> "ACTIVE"
-    Creating -> "CREATING"
-    Deleting -> "DELETING"
+pattern Creating :: DatasetStatus
+pattern Creating = DatasetStatus' "CREATING"
 
-instance Hashable DatasetStatus
+pattern Deleting :: DatasetStatus
+pattern Deleting = DatasetStatus' "DELETING"
 
-instance NFData DatasetStatus
-
-instance ToByteString DatasetStatus
-
-instance ToQuery DatasetStatus
-
-instance ToHeader DatasetStatus
-
-instance FromJSON DatasetStatus where
-  parseJSON = parseJSONText "DatasetStatus"
+{-# COMPLETE
+  Active,
+  Creating,
+  Deleting,
+  DatasetStatus'
+  #-}

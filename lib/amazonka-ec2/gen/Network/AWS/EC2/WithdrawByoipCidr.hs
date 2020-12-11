@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,137 @@
 --
 -- Stops advertising an address range that is provisioned as an address pool.
 --
---
 -- You can perform this operation at most once every 10 seconds, even if you specify different address ranges each time.
---
 -- It can take a few minutes before traffic to the specified addresses stops routing to AWS because of BGP propagation delays.
 module Network.AWS.EC2.WithdrawByoipCidr
-  ( -- * Creating a Request
-    withdrawByoipCidr,
-    WithdrawByoipCidr,
+  ( -- * Creating a request
+    WithdrawByoipCidr (..),
+    mkWithdrawByoipCidr,
 
-    -- * Request Lenses
+    -- ** Request lenses
     wbcDryRun,
     wbcCidr,
 
-    -- * Destructuring the Response
-    withdrawByoipCidrResponse,
-    WithdrawByoipCidrResponse,
+    -- * Destructuring the response
+    WithdrawByoipCidrResponse (..),
+    mkWithdrawByoipCidrResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     wbcrsByoipCidr,
     wbcrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'withdrawByoipCidr' smart constructor.
+-- | /See:/ 'mkWithdrawByoipCidr' smart constructor.
 data WithdrawByoipCidr = WithdrawByoipCidr'
-  { _wbcDryRun ::
-      !(Maybe Bool),
-    _wbcCidr :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    cidr :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WithdrawByoipCidr' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wbcDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'wbcCidr' - The address range, in CIDR notation.
-withdrawByoipCidr ::
-  -- | 'wbcCidr'
-  Text ->
+-- * 'cidr' - The address range, in CIDR notation.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+mkWithdrawByoipCidr ::
+  -- | 'cidr'
+  Lude.Text ->
   WithdrawByoipCidr
-withdrawByoipCidr pCidr_ =
-  WithdrawByoipCidr' {_wbcDryRun = Nothing, _wbcCidr = pCidr_}
+mkWithdrawByoipCidr pCidr_ =
+  WithdrawByoipCidr' {dryRun = Lude.Nothing, cidr = pCidr_}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-wbcDryRun :: Lens' WithdrawByoipCidr (Maybe Bool)
-wbcDryRun = lens _wbcDryRun (\s a -> s {_wbcDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbcDryRun :: Lens.Lens' WithdrawByoipCidr (Lude.Maybe Lude.Bool)
+wbcDryRun = Lens.lens (dryRun :: WithdrawByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: WithdrawByoipCidr)
+{-# DEPRECATED wbcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The address range, in CIDR notation.
-wbcCidr :: Lens' WithdrawByoipCidr Text
-wbcCidr = lens _wbcCidr (\s a -> s {_wbcCidr = a})
+--
+-- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbcCidr :: Lens.Lens' WithdrawByoipCidr Lude.Text
+wbcCidr = Lens.lens (cidr :: WithdrawByoipCidr -> Lude.Text) (\s a -> s {cidr = a} :: WithdrawByoipCidr)
+{-# DEPRECATED wbcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
-instance AWSRequest WithdrawByoipCidr where
+instance Lude.AWSRequest WithdrawByoipCidr where
   type Rs WithdrawByoipCidr = WithdrawByoipCidrResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           WithdrawByoipCidrResponse'
-            <$> (x .@? "byoipCidr") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "byoipCidr") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable WithdrawByoipCidr
+instance Lude.ToHeaders WithdrawByoipCidr where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData WithdrawByoipCidr
+instance Lude.ToPath WithdrawByoipCidr where
+  toPath = Lude.const "/"
 
-instance ToHeaders WithdrawByoipCidr where
-  toHeaders = const mempty
-
-instance ToPath WithdrawByoipCidr where
-  toPath = const "/"
-
-instance ToQuery WithdrawByoipCidr where
+instance Lude.ToQuery WithdrawByoipCidr where
   toQuery WithdrawByoipCidr' {..} =
-    mconcat
-      [ "Action" =: ("WithdrawByoipCidr" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _wbcDryRun,
-        "Cidr" =: _wbcCidr
+    Lude.mconcat
+      [ "Action" Lude.=: ("WithdrawByoipCidr" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "Cidr" Lude.=: cidr
       ]
 
--- | /See:/ 'withdrawByoipCidrResponse' smart constructor.
+-- | /See:/ 'mkWithdrawByoipCidrResponse' smart constructor.
 data WithdrawByoipCidrResponse = WithdrawByoipCidrResponse'
-  { _wbcrsByoipCidr ::
-      !(Maybe ByoipCidr),
-    _wbcrsResponseStatus :: !Int
+  { byoipCidr ::
+      Lude.Maybe ByoipCidr,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WithdrawByoipCidrResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wbcrsByoipCidr' - Information about the address pool.
---
--- * 'wbcrsResponseStatus' - -- | The response status code.
-withdrawByoipCidrResponse ::
-  -- | 'wbcrsResponseStatus'
-  Int ->
+-- * 'byoipCidr' - Information about the address pool.
+-- * 'responseStatus' - The response status code.
+mkWithdrawByoipCidrResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   WithdrawByoipCidrResponse
-withdrawByoipCidrResponse pResponseStatus_ =
+mkWithdrawByoipCidrResponse pResponseStatus_ =
   WithdrawByoipCidrResponse'
-    { _wbcrsByoipCidr = Nothing,
-      _wbcrsResponseStatus = pResponseStatus_
+    { byoipCidr = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the address pool.
-wbcrsByoipCidr :: Lens' WithdrawByoipCidrResponse (Maybe ByoipCidr)
-wbcrsByoipCidr = lens _wbcrsByoipCidr (\s a -> s {_wbcrsByoipCidr = a})
+--
+-- /Note:/ Consider using 'byoipCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbcrsByoipCidr :: Lens.Lens' WithdrawByoipCidrResponse (Lude.Maybe ByoipCidr)
+wbcrsByoipCidr = Lens.lens (byoipCidr :: WithdrawByoipCidrResponse -> Lude.Maybe ByoipCidr) (\s a -> s {byoipCidr = a} :: WithdrawByoipCidrResponse)
+{-# DEPRECATED wbcrsByoipCidr "Use generic-lens or generic-optics with 'byoipCidr' instead." #-}
 
--- | -- | The response status code.
-wbcrsResponseStatus :: Lens' WithdrawByoipCidrResponse Int
-wbcrsResponseStatus = lens _wbcrsResponseStatus (\s a -> s {_wbcrsResponseStatus = a})
-
-instance NFData WithdrawByoipCidrResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbcrsResponseStatus :: Lens.Lens' WithdrawByoipCidrResponse Lude.Int
+wbcrsResponseStatus = Lens.lens (responseStatus :: WithdrawByoipCidrResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: WithdrawByoipCidrResponse)
+{-# DEPRECATED wbcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.FrameCaptureSettings where
+module Network.AWS.MediaConvert.Types.FrameCaptureSettings
+  ( FrameCaptureSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFrameCaptureSettings,
+
+    -- * Lenses
+    fcsQuality,
+    fcsFramerateDenominator,
+    fcsMaxCaptures,
+    fcsFramerateNumerator,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
 --
--- /See:/ 'frameCaptureSettings' smart constructor.
+-- /See:/ 'mkFrameCaptureSettings' smart constructor.
 data FrameCaptureSettings = FrameCaptureSettings'
-  { _fcsQuality ::
-      !(Maybe Nat),
-    _fcsFramerateDenominator :: !(Maybe Nat),
-    _fcsMaxCaptures :: !(Maybe Nat),
-    _fcsFramerateNumerator :: !(Maybe Nat)
+  { quality ::
+      Lude.Maybe Lude.Natural,
+    framerateDenominator :: Lude.Maybe Lude.Natural,
+    maxCaptures :: Lude.Maybe Lude.Natural,
+    framerateNumerator :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FrameCaptureSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fcsQuality' - JPEG Quality - a higher value equals higher quality.
---
--- * 'fcsFramerateDenominator' - Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.n.jpg where n is the 0-based sequence number of each Capture.
---
--- * 'fcsMaxCaptures' - Maximum number of captures (encoded jpg output files).
---
--- * 'fcsFramerateNumerator' - Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame sequence number zero padded to 7 decimal places.
-frameCaptureSettings ::
+-- * 'framerateDenominator' - Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.n.jpg where n is the 0-based sequence number of each Capture.
+-- * 'framerateNumerator' - Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame sequence number zero padded to 7 decimal places.
+-- * 'maxCaptures' - Maximum number of captures (encoded jpg output files).
+-- * 'quality' - JPEG Quality - a higher value equals higher quality.
+mkFrameCaptureSettings ::
   FrameCaptureSettings
-frameCaptureSettings =
+mkFrameCaptureSettings =
   FrameCaptureSettings'
-    { _fcsQuality = Nothing,
-      _fcsFramerateDenominator = Nothing,
-      _fcsMaxCaptures = Nothing,
-      _fcsFramerateNumerator = Nothing
+    { quality = Lude.Nothing,
+      framerateDenominator = Lude.Nothing,
+      maxCaptures = Lude.Nothing,
+      framerateNumerator = Lude.Nothing
     }
 
 -- | JPEG Quality - a higher value equals higher quality.
-fcsQuality :: Lens' FrameCaptureSettings (Maybe Natural)
-fcsQuality = lens _fcsQuality (\s a -> s {_fcsQuality = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'quality' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcsQuality :: Lens.Lens' FrameCaptureSettings (Lude.Maybe Lude.Natural)
+fcsQuality = Lens.lens (quality :: FrameCaptureSettings -> Lude.Maybe Lude.Natural) (\s a -> s {quality = a} :: FrameCaptureSettings)
+{-# DEPRECATED fcsQuality "Use generic-lens or generic-optics with 'quality' instead." #-}
 
 -- | Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.n.jpg where n is the 0-based sequence number of each Capture.
-fcsFramerateDenominator :: Lens' FrameCaptureSettings (Maybe Natural)
-fcsFramerateDenominator = lens _fcsFramerateDenominator (\s a -> s {_fcsFramerateDenominator = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'framerateDenominator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcsFramerateDenominator :: Lens.Lens' FrameCaptureSettings (Lude.Maybe Lude.Natural)
+fcsFramerateDenominator = Lens.lens (framerateDenominator :: FrameCaptureSettings -> Lude.Maybe Lude.Natural) (\s a -> s {framerateDenominator = a} :: FrameCaptureSettings)
+{-# DEPRECATED fcsFramerateDenominator "Use generic-lens or generic-optics with 'framerateDenominator' instead." #-}
 
 -- | Maximum number of captures (encoded jpg output files).
-fcsMaxCaptures :: Lens' FrameCaptureSettings (Maybe Natural)
-fcsMaxCaptures = lens _fcsMaxCaptures (\s a -> s {_fcsMaxCaptures = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxCaptures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcsMaxCaptures :: Lens.Lens' FrameCaptureSettings (Lude.Maybe Lude.Natural)
+fcsMaxCaptures = Lens.lens (maxCaptures :: FrameCaptureSettings -> Lude.Maybe Lude.Natural) (\s a -> s {maxCaptures = a} :: FrameCaptureSettings)
+{-# DEPRECATED fcsMaxCaptures "Use generic-lens or generic-optics with 'maxCaptures' instead." #-}
 
 -- | Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame sequence number zero padded to 7 decimal places.
-fcsFramerateNumerator :: Lens' FrameCaptureSettings (Maybe Natural)
-fcsFramerateNumerator = lens _fcsFramerateNumerator (\s a -> s {_fcsFramerateNumerator = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'framerateNumerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcsFramerateNumerator :: Lens.Lens' FrameCaptureSettings (Lude.Maybe Lude.Natural)
+fcsFramerateNumerator = Lens.lens (framerateNumerator :: FrameCaptureSettings -> Lude.Maybe Lude.Natural) (\s a -> s {framerateNumerator = a} :: FrameCaptureSettings)
+{-# DEPRECATED fcsFramerateNumerator "Use generic-lens or generic-optics with 'framerateNumerator' instead." #-}
 
-instance FromJSON FrameCaptureSettings where
+instance Lude.FromJSON FrameCaptureSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "FrameCaptureSettings"
       ( \x ->
           FrameCaptureSettings'
-            <$> (x .:? "quality")
-            <*> (x .:? "framerateDenominator")
-            <*> (x .:? "maxCaptures")
-            <*> (x .:? "framerateNumerator")
+            Lude.<$> (x Lude..:? "quality")
+            Lude.<*> (x Lude..:? "framerateDenominator")
+            Lude.<*> (x Lude..:? "maxCaptures")
+            Lude.<*> (x Lude..:? "framerateNumerator")
       )
 
-instance Hashable FrameCaptureSettings
-
-instance NFData FrameCaptureSettings
-
-instance ToJSON FrameCaptureSettings where
+instance Lude.ToJSON FrameCaptureSettings where
   toJSON FrameCaptureSettings' {..} =
-    object
-      ( catMaybes
-          [ ("quality" .=) <$> _fcsQuality,
-            ("framerateDenominator" .=) <$> _fcsFramerateDenominator,
-            ("maxCaptures" .=) <$> _fcsMaxCaptures,
-            ("framerateNumerator" .=) <$> _fcsFramerateNumerator
+    Lude.object
+      ( Lude.catMaybes
+          [ ("quality" Lude..=) Lude.<$> quality,
+            ("framerateDenominator" Lude..=) Lude.<$> framerateDenominator,
+            ("maxCaptures" Lude..=) Lude.<$> maxCaptures,
+            ("framerateNumerator" Lude..=) Lude.<$> framerateNumerator
           ]
       )

@@ -14,17 +14,13 @@
 -- __Elastic Load Balancing__
 --
 -- A load balancer can distribute incoming traffic across your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered instances and ensures that it routes traffic only to healthy instances. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer and a protocol and port number for connections from the load balancer to the instances.
---
 -- Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers. You can select a load balancer based on your application needs. For more information, see the <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/ Elastic Load Balancing User Guide> .
---
 -- This reference covers the 2012-06-01 API, which supports Classic Load Balancers. The 2015-12-01 API supports Application Load Balancers and Network Load Balancers.
---
 -- To get started, create a load balancer with one or more listeners using 'CreateLoadBalancer' . Register your instances with the load balancer using 'RegisterInstancesWithLoadBalancer' .
---
 -- All Elastic Load Balancing operations are /idempotent/ , which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.
 module Network.AWS.ELB
-  ( -- * Service Configuration
-    elb,
+  ( -- * Service configuration
+    elbService,
 
     -- * Errors
     -- $errors
@@ -33,13 +29,13 @@ module Network.AWS.ELB
     -- $waiters
 
     -- ** AnyInstanceInService
-    anyInstanceInService,
+    mkAnyInstanceInService,
 
     -- ** InstanceDeregistered
-    instanceDeregistered,
+    mkInstanceDeregistered,
 
     -- ** InstanceInService
-    instanceInService,
+    mkInstanceInService,
 
     -- * Operations
     -- $operations
@@ -137,50 +133,50 @@ module Network.AWS.ELB
     module Network.AWS.ELB.Internal,
 
     -- ** AccessLog
-    AccessLog,
-    accessLog,
+    AccessLog (..),
+    mkAccessLog,
     alEmitInterval,
     alS3BucketPrefix,
     alS3BucketName,
     alEnabled,
 
     -- ** AdditionalAttribute
-    AdditionalAttribute,
-    additionalAttribute,
+    AdditionalAttribute (..),
+    mkAdditionalAttribute,
     aaValue,
     aaKey,
 
     -- ** AppCookieStickinessPolicy
-    AppCookieStickinessPolicy,
-    appCookieStickinessPolicy,
+    AppCookieStickinessPolicy (..),
+    mkAppCookieStickinessPolicy,
     acspPolicyName,
     acspCookieName,
 
     -- ** BackendServerDescription
-    BackendServerDescription,
-    backendServerDescription,
+    BackendServerDescription (..),
+    mkBackendServerDescription,
     bsdPolicyNames,
     bsdInstancePort,
 
     -- ** ConnectionDraining
-    ConnectionDraining,
-    connectionDraining,
+    ConnectionDraining (..),
+    mkConnectionDraining,
     cdTimeout,
     cdEnabled,
 
     -- ** ConnectionSettings
-    ConnectionSettings,
-    connectionSettings,
+    ConnectionSettings (..),
+    mkConnectionSettings,
     csIdleTimeout,
 
     -- ** CrossZoneLoadBalancing
-    CrossZoneLoadBalancing,
-    crossZoneLoadBalancing,
+    CrossZoneLoadBalancing (..),
+    mkCrossZoneLoadBalancing,
     czlbEnabled,
 
     -- ** HealthCheck
-    HealthCheck,
-    healthCheck,
+    HealthCheck (..),
+    mkHealthCheck,
     hcTarget,
     hcInterval,
     hcTimeout,
@@ -188,33 +184,33 @@ module Network.AWS.ELB
     hcHealthyThreshold,
 
     -- ** Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iInstanceId,
 
     -- ** InstanceState
-    InstanceState,
-    instanceState,
+    InstanceState (..),
+    mkInstanceState,
     isInstanceId,
     isState,
     isReasonCode,
     isDescription,
 
     -- ** LBCookieStickinessPolicy
-    LBCookieStickinessPolicy,
-    lBCookieStickinessPolicy,
+    LBCookieStickinessPolicy (..),
+    mkLBCookieStickinessPolicy,
     lbcspPolicyName,
     lbcspCookieExpirationPeriod,
 
     -- ** Limit
-    Limit,
-    limit,
+    Limit (..),
+    mkLimit,
     lMax,
     lName,
 
     -- ** Listener
-    Listener,
-    listener,
+    Listener (..),
+    mkListener,
     lInstanceProtocol,
     lSSLCertificateId,
     lProtocol,
@@ -222,14 +218,14 @@ module Network.AWS.ELB
     lInstancePort,
 
     -- ** ListenerDescription
-    ListenerDescription,
-    listenerDescription,
+    ListenerDescription (..),
+    mkListenerDescription,
     ldPolicyNames,
     ldListener,
 
     -- ** LoadBalancerAttributes
-    LoadBalancerAttributes,
-    loadBalancerAttributes,
+    LoadBalancerAttributes (..),
+    mkLoadBalancerAttributes,
     lbaCrossZoneLoadBalancing,
     lbaAccessLog,
     lbaAdditionalAttributes,
@@ -237,8 +233,8 @@ module Network.AWS.ELB
     lbaConnectionDraining,
 
     -- ** LoadBalancerDescription
-    LoadBalancerDescription,
-    loadBalancerDescription,
+    LoadBalancerDescription (..),
+    mkLoadBalancerDescription,
     lbdSourceSecurityGroup,
     lbdCanonicalHostedZoneName,
     lbdSecurityGroups,
@@ -257,27 +253,27 @@ module Network.AWS.ELB
     lbdPolicies,
 
     -- ** Policies
-    Policies,
-    policies,
+    Policies (..),
+    mkPolicies,
     pOtherPolicies,
     pLBCookieStickinessPolicies,
     pAppCookieStickinessPolicies,
 
     -- ** PolicyAttribute
-    PolicyAttribute,
-    policyAttribute,
+    PolicyAttribute (..),
+    mkPolicyAttribute,
     paAttributeValue,
     paAttributeName,
 
     -- ** PolicyAttributeDescription
-    PolicyAttributeDescription,
-    policyAttributeDescription,
+    PolicyAttributeDescription (..),
+    mkPolicyAttributeDescription,
     padAttributeValue,
     padAttributeName,
 
     -- ** PolicyAttributeTypeDescription
-    PolicyAttributeTypeDescription,
-    policyAttributeTypeDescription,
+    PolicyAttributeTypeDescription (..),
+    mkPolicyAttributeTypeDescription,
     patdAttributeType,
     patdCardinality,
     patdDefaultValue,
@@ -285,41 +281,52 @@ module Network.AWS.ELB
     patdDescription,
 
     -- ** PolicyDescription
-    PolicyDescription,
-    policyDescription,
+    PolicyDescription (..),
+    mkPolicyDescription,
     pdPolicyName,
     pdPolicyAttributeDescriptions,
     pdPolicyTypeName,
 
     -- ** PolicyTypeDescription
-    PolicyTypeDescription,
-    policyTypeDescription,
+    PolicyTypeDescription (..),
+    mkPolicyTypeDescription,
     ptdPolicyTypeName,
     ptdDescription,
     ptdPolicyAttributeTypeDescriptions,
 
     -- ** SourceSecurityGroup
-    SourceSecurityGroup,
-    sourceSecurityGroup,
+    SourceSecurityGroup (..),
+    mkSourceSecurityGroup,
     ssgOwnerAlias,
     ssgGroupName,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TagDescription
-    TagDescription,
-    tagDescription,
+    TagDescription (..),
+    mkTagDescription,
     tdLoadBalancerName,
     tdTags,
 
     -- ** TagKeyOnly
-    TagKeyOnly,
-    tagKeyOnly,
+    TagKeyOnly (..),
+    mkTagKeyOnly,
     tkoKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -355,6 +362,7 @@ import Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
 import Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
 import Network.AWS.ELB.Types
 import Network.AWS.ELB.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

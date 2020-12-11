@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ValidationWarning where
+module Network.AWS.EC2.Types.ValidationWarning
+  ( ValidationWarning (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkValidationWarning,
+
+    -- * Lenses
+    vwErrors,
+  )
+where
+
 import Network.AWS.EC2.Types.ValidationError
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The error codes and error messages that are returned for the parameters or parameter combinations that are not valid when a new launch template or new version of a launch template is created.
 --
---
---
--- /See:/ 'validationWarning' smart constructor.
+-- /See:/ 'mkValidationWarning' smart constructor.
 newtype ValidationWarning = ValidationWarning'
-  { _vwErrors ::
-      Maybe [ValidationError]
+  { errors ::
+      Lude.Maybe [ValidationError]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationWarning' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vwErrors' - The error codes and error messages.
-validationWarning ::
+-- * 'errors' - The error codes and error messages.
+mkValidationWarning ::
   ValidationWarning
-validationWarning = ValidationWarning' {_vwErrors = Nothing}
+mkValidationWarning = ValidationWarning' {errors = Lude.Nothing}
 
 -- | The error codes and error messages.
-vwErrors :: Lens' ValidationWarning [ValidationError]
-vwErrors = lens _vwErrors (\s a -> s {_vwErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vwErrors :: Lens.Lens' ValidationWarning (Lude.Maybe [ValidationError])
+vwErrors = Lens.lens (errors :: ValidationWarning -> Lude.Maybe [ValidationError]) (\s a -> s {errors = a} :: ValidationWarning)
+{-# DEPRECATED vwErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
-instance FromXML ValidationWarning where
+instance Lude.FromXML ValidationWarning where
   parseXML x =
     ValidationWarning'
-      <$> (x .@? "errorSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable ValidationWarning
-
-instance NFData ValidationWarning
+      Lude.<$> ( x Lude..@? "errorSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

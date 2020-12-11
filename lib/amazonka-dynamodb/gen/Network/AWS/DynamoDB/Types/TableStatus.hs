@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.TableStatus where
+module Network.AWS.DynamoDB.Types.TableStatus
+  ( TableStatus
+      ( TableStatus',
+        TSActive,
+        TSArchived,
+        TSArchiving,
+        TSCreating,
+        TSDeleting,
+        TSInaccessibleEncryptionCredentials,
+        TSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TableStatus
-  = TSActive
-  | TSArchived
-  | TSArchiving
-  | TSCreating
-  | TSDeleting
-  | TSInaccessibleEncryptionCredentials
-  | TSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TableStatus = TableStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TableStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure TSActive
-      "archived" -> pure TSArchived
-      "archiving" -> pure TSArchiving
-      "creating" -> pure TSCreating
-      "deleting" -> pure TSDeleting
-      "inaccessible_encryption_credentials" -> pure TSInaccessibleEncryptionCredentials
-      "updating" -> pure TSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing TableStatus from value: '" <> e
-            <> "'. Accepted values: active, archived, archiving, creating, deleting, inaccessible_encryption_credentials, updating"
+pattern TSActive :: TableStatus
+pattern TSActive = TableStatus' "ACTIVE"
 
-instance ToText TableStatus where
-  toText = \case
-    TSActive -> "ACTIVE"
-    TSArchived -> "ARCHIVED"
-    TSArchiving -> "ARCHIVING"
-    TSCreating -> "CREATING"
-    TSDeleting -> "DELETING"
-    TSInaccessibleEncryptionCredentials -> "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
-    TSUpdating -> "UPDATING"
+pattern TSArchived :: TableStatus
+pattern TSArchived = TableStatus' "ARCHIVED"
 
-instance Hashable TableStatus
+pattern TSArchiving :: TableStatus
+pattern TSArchiving = TableStatus' "ARCHIVING"
 
-instance NFData TableStatus
+pattern TSCreating :: TableStatus
+pattern TSCreating = TableStatus' "CREATING"
 
-instance ToByteString TableStatus
+pattern TSDeleting :: TableStatus
+pattern TSDeleting = TableStatus' "DELETING"
 
-instance ToQuery TableStatus
+pattern TSInaccessibleEncryptionCredentials :: TableStatus
+pattern TSInaccessibleEncryptionCredentials = TableStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
 
-instance ToHeader TableStatus
+pattern TSUpdating :: TableStatus
+pattern TSUpdating = TableStatus' "UPDATING"
 
-instance FromJSON TableStatus where
-  parseJSON = parseJSONText "TableStatus"
+{-# COMPLETE
+  TSActive,
+  TSArchived,
+  TSArchiving,
+  TSCreating,
+  TSDeleting,
+  TSInaccessibleEncryptionCredentials,
+  TSUpdating,
+  TableStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ReplacementTypeEnum where
+module Network.AWS.CodeCommit.Types.ReplacementTypeEnum
+  ( ReplacementTypeEnum
+      ( ReplacementTypeEnum',
+        KeepBase,
+        KeepDestination,
+        KeepSource,
+        UseNewContent
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReplacementTypeEnum
-  = KeepBase
-  | KeepDestination
-  | KeepSource
-  | UseNewContent
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReplacementTypeEnum = ReplacementTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReplacementTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "keep_base" -> pure KeepBase
-      "keep_destination" -> pure KeepDestination
-      "keep_source" -> pure KeepSource
-      "use_new_content" -> pure UseNewContent
-      e ->
-        fromTextError $
-          "Failure parsing ReplacementTypeEnum from value: '" <> e
-            <> "'. Accepted values: keep_base, keep_destination, keep_source, use_new_content"
+pattern KeepBase :: ReplacementTypeEnum
+pattern KeepBase = ReplacementTypeEnum' "KEEP_BASE"
 
-instance ToText ReplacementTypeEnum where
-  toText = \case
-    KeepBase -> "KEEP_BASE"
-    KeepDestination -> "KEEP_DESTINATION"
-    KeepSource -> "KEEP_SOURCE"
-    UseNewContent -> "USE_NEW_CONTENT"
+pattern KeepDestination :: ReplacementTypeEnum
+pattern KeepDestination = ReplacementTypeEnum' "KEEP_DESTINATION"
 
-instance Hashable ReplacementTypeEnum
+pattern KeepSource :: ReplacementTypeEnum
+pattern KeepSource = ReplacementTypeEnum' "KEEP_SOURCE"
 
-instance NFData ReplacementTypeEnum
+pattern UseNewContent :: ReplacementTypeEnum
+pattern UseNewContent = ReplacementTypeEnum' "USE_NEW_CONTENT"
 
-instance ToByteString ReplacementTypeEnum
-
-instance ToQuery ReplacementTypeEnum
-
-instance ToHeader ReplacementTypeEnum
-
-instance ToJSON ReplacementTypeEnum where
-  toJSON = toJSONText
+{-# COMPLETE
+  KeepBase,
+  KeepDestination,
+  KeepSource,
+  UseNewContent,
+  ReplacementTypeEnum'
+  #-}

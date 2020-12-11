@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,125 @@
 --
 -- Stops the application from processing input data. You can stop an application only if it is in the running state. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to find the application state. After the application is stopped, Amazon Kinesis Analytics stops reading data from the input, the application stops processing data, and there is no output written to the destination.
 --
---
 -- This operation requires permissions to perform the @kinesisanalytics:StopApplication@ action.
 module Network.AWS.KinesisAnalytics.StopApplication
-  ( -- * Creating a Request
-    stopApplication,
-    StopApplication,
+  ( -- * Creating a request
+    StopApplication (..),
+    mkStopApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sApplicationName,
 
-    -- * Destructuring the Response
-    stopApplicationResponse,
-    StopApplicationResponse,
+    -- * Destructuring the response
+    StopApplicationResponse (..),
+    mkStopApplicationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsResponseStatus,
   )
 where
 
 import Network.AWS.KinesisAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'stopApplication' smart constructor.
+-- /See:/ 'mkStopApplication' smart constructor.
 newtype StopApplication = StopApplication'
-  { _sApplicationName ::
-      Text
+  { applicationName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sApplicationName' - Name of the running application to stop.
-stopApplication ::
-  -- | 'sApplicationName'
-  Text ->
+-- * 'applicationName' - Name of the running application to stop.
+mkStopApplication ::
+  -- | 'applicationName'
+  Lude.Text ->
   StopApplication
-stopApplication pApplicationName_ =
-  StopApplication' {_sApplicationName = pApplicationName_}
+mkStopApplication pApplicationName_ =
+  StopApplication' {applicationName = pApplicationName_}
 
 -- | Name of the running application to stop.
-sApplicationName :: Lens' StopApplication Text
-sApplicationName = lens _sApplicationName (\s a -> s {_sApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sApplicationName :: Lens.Lens' StopApplication Lude.Text
+sApplicationName = Lens.lens (applicationName :: StopApplication -> Lude.Text) (\s a -> s {applicationName = a} :: StopApplication)
+{-# DEPRECATED sApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSRequest StopApplication where
+instance Lude.AWSRequest StopApplication where
   type Rs StopApplication = StopApplicationResponse
-  request = postJSON kinesisAnalytics
+  request = Req.postJSON kinesisAnalyticsService
   response =
-    receiveEmpty
-      (\s h x -> StopApplicationResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StopApplicationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StopApplication
-
-instance NFData StopApplication
-
-instance ToHeaders StopApplication where
+instance Lude.ToHeaders StopApplication where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("KinesisAnalytics_20150814.StopApplication" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("KinesisAnalytics_20150814.StopApplication" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopApplication where
+instance Lude.ToJSON StopApplication where
   toJSON StopApplication' {..} =
-    object
-      (catMaybes [Just ("ApplicationName" .= _sApplicationName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ApplicationName" Lude..= applicationName)]
+      )
 
-instance ToPath StopApplication where
-  toPath = const "/"
+instance Lude.ToPath StopApplication where
+  toPath = Lude.const "/"
 
-instance ToQuery StopApplication where
-  toQuery = const mempty
+instance Lude.ToQuery StopApplication where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'stopApplicationResponse' smart constructor.
+-- /See:/ 'mkStopApplicationResponse' smart constructor.
 newtype StopApplicationResponse = StopApplicationResponse'
-  { _srsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopApplicationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsResponseStatus' - -- | The response status code.
-stopApplicationResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopApplicationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopApplicationResponse
-stopApplicationResponse pResponseStatus_ =
-  StopApplicationResponse' {_srsResponseStatus = pResponseStatus_}
+mkStopApplicationResponse pResponseStatus_ =
+  StopApplicationResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StopApplicationResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StopApplicationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StopApplicationResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopApplicationResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

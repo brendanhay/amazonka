@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.DeviceConfigurationType where
+module Network.AWS.CognitoIdentityProvider.Types.DeviceConfigurationType
+  ( DeviceConfigurationType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeviceConfigurationType,
+
+    -- * Lenses
+    dctChallengeRequiredOnNewDevice,
+    dctDeviceOnlyRememberedOnUserPrompt,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The configuration for the user pool's device tracking.
 --
---
---
--- /See:/ 'deviceConfigurationType' smart constructor.
+-- /See:/ 'mkDeviceConfigurationType' smart constructor.
 data DeviceConfigurationType = DeviceConfigurationType'
-  { _dctChallengeRequiredOnNewDevice ::
-      !(Maybe Bool),
-    _dctDeviceOnlyRememberedOnUserPrompt ::
-      !(Maybe Bool)
+  { challengeRequiredOnNewDevice ::
+      Lude.Maybe Lude.Bool,
+    deviceOnlyRememberedOnUserPrompt ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceConfigurationType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dctChallengeRequiredOnNewDevice' - Indicates whether a challenge is required on a new device. Only applicable to a new device.
---
--- * 'dctDeviceOnlyRememberedOnUserPrompt' - If true, a device is only remembered on user prompt.
-deviceConfigurationType ::
+-- * 'challengeRequiredOnNewDevice' - Indicates whether a challenge is required on a new device. Only applicable to a new device.
+-- * 'deviceOnlyRememberedOnUserPrompt' - If true, a device is only remembered on user prompt.
+mkDeviceConfigurationType ::
   DeviceConfigurationType
-deviceConfigurationType =
+mkDeviceConfigurationType =
   DeviceConfigurationType'
-    { _dctChallengeRequiredOnNewDevice =
-        Nothing,
-      _dctDeviceOnlyRememberedOnUserPrompt = Nothing
+    { challengeRequiredOnNewDevice =
+        Lude.Nothing,
+      deviceOnlyRememberedOnUserPrompt = Lude.Nothing
     }
 
 -- | Indicates whether a challenge is required on a new device. Only applicable to a new device.
-dctChallengeRequiredOnNewDevice :: Lens' DeviceConfigurationType (Maybe Bool)
-dctChallengeRequiredOnNewDevice = lens _dctChallengeRequiredOnNewDevice (\s a -> s {_dctChallengeRequiredOnNewDevice = a})
+--
+-- /Note:/ Consider using 'challengeRequiredOnNewDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dctChallengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Lude.Maybe Lude.Bool)
+dctChallengeRequiredOnNewDevice = Lens.lens (challengeRequiredOnNewDevice :: DeviceConfigurationType -> Lude.Maybe Lude.Bool) (\s a -> s {challengeRequiredOnNewDevice = a} :: DeviceConfigurationType)
+{-# DEPRECATED dctChallengeRequiredOnNewDevice "Use generic-lens or generic-optics with 'challengeRequiredOnNewDevice' instead." #-}
 
 -- | If true, a device is only remembered on user prompt.
-dctDeviceOnlyRememberedOnUserPrompt :: Lens' DeviceConfigurationType (Maybe Bool)
-dctDeviceOnlyRememberedOnUserPrompt = lens _dctDeviceOnlyRememberedOnUserPrompt (\s a -> s {_dctDeviceOnlyRememberedOnUserPrompt = a})
+--
+-- /Note:/ Consider using 'deviceOnlyRememberedOnUserPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dctDeviceOnlyRememberedOnUserPrompt :: Lens.Lens' DeviceConfigurationType (Lude.Maybe Lude.Bool)
+dctDeviceOnlyRememberedOnUserPrompt = Lens.lens (deviceOnlyRememberedOnUserPrompt :: DeviceConfigurationType -> Lude.Maybe Lude.Bool) (\s a -> s {deviceOnlyRememberedOnUserPrompt = a} :: DeviceConfigurationType)
+{-# DEPRECATED dctDeviceOnlyRememberedOnUserPrompt "Use generic-lens or generic-optics with 'deviceOnlyRememberedOnUserPrompt' instead." #-}
 
-instance FromJSON DeviceConfigurationType where
+instance Lude.FromJSON DeviceConfigurationType where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeviceConfigurationType"
       ( \x ->
           DeviceConfigurationType'
-            <$> (x .:? "ChallengeRequiredOnNewDevice")
-            <*> (x .:? "DeviceOnlyRememberedOnUserPrompt")
+            Lude.<$> (x Lude..:? "ChallengeRequiredOnNewDevice")
+            Lude.<*> (x Lude..:? "DeviceOnlyRememberedOnUserPrompt")
       )
 
-instance Hashable DeviceConfigurationType
-
-instance NFData DeviceConfigurationType
-
-instance ToJSON DeviceConfigurationType where
+instance Lude.ToJSON DeviceConfigurationType where
   toJSON DeviceConfigurationType' {..} =
-    object
-      ( catMaybes
-          [ ("ChallengeRequiredOnNewDevice" .=)
-              <$> _dctChallengeRequiredOnNewDevice,
-            ("DeviceOnlyRememberedOnUserPrompt" .=)
-              <$> _dctDeviceOnlyRememberedOnUserPrompt
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ChallengeRequiredOnNewDevice" Lude..=)
+              Lude.<$> challengeRequiredOnNewDevice,
+            ("DeviceOnlyRememberedOnUserPrompt" Lude..=)
+              Lude.<$> deviceOnlyRememberedOnUserPrompt
           ]
       )

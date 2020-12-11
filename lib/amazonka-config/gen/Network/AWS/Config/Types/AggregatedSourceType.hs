@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.AggregatedSourceType where
+module Network.AWS.Config.Types.AggregatedSourceType
+  ( AggregatedSourceType
+      ( AggregatedSourceType',
+        Account,
+        Organization
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AggregatedSourceType
-  = Account
-  | Organization
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AggregatedSourceType = AggregatedSourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AggregatedSourceType where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure Account
-      "organization" -> pure Organization
-      e ->
-        fromTextError $
-          "Failure parsing AggregatedSourceType from value: '" <> e
-            <> "'. Accepted values: account, organization"
+pattern Account :: AggregatedSourceType
+pattern Account = AggregatedSourceType' "ACCOUNT"
 
-instance ToText AggregatedSourceType where
-  toText = \case
-    Account -> "ACCOUNT"
-    Organization -> "ORGANIZATION"
+pattern Organization :: AggregatedSourceType
+pattern Organization = AggregatedSourceType' "ORGANIZATION"
 
-instance Hashable AggregatedSourceType
-
-instance NFData AggregatedSourceType
-
-instance ToByteString AggregatedSourceType
-
-instance ToQuery AggregatedSourceType
-
-instance ToHeader AggregatedSourceType
-
-instance FromJSON AggregatedSourceType where
-  parseJSON = parseJSONText "AggregatedSourceType"
+{-# COMPLETE
+  Account,
+  Organization,
+  AggregatedSourceType'
+  #-}

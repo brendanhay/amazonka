@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType where
+module Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType
+  ( ResourceServerScopeType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceServerScopeType,
+
+    -- * Lenses
+    rsstScopeName,
+    rsstScopeDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A resource server scope.
 --
---
---
--- /See:/ 'resourceServerScopeType' smart constructor.
+-- /See:/ 'mkResourceServerScopeType' smart constructor.
 data ResourceServerScopeType = ResourceServerScopeType'
-  { _rsstScopeName ::
-      !Text,
-    _rsstScopeDescription :: !Text
+  { scopeName ::
+      Lude.Text,
+    scopeDescription :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceServerScopeType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsstScopeName' - The name of the scope.
---
--- * 'rsstScopeDescription' - A description of the scope.
-resourceServerScopeType ::
-  -- | 'rsstScopeName'
-  Text ->
-  -- | 'rsstScopeDescription'
-  Text ->
+-- * 'scopeDescription' - A description of the scope.
+-- * 'scopeName' - The name of the scope.
+mkResourceServerScopeType ::
+  -- | 'scopeName'
+  Lude.Text ->
+  -- | 'scopeDescription'
+  Lude.Text ->
   ResourceServerScopeType
-resourceServerScopeType pScopeName_ pScopeDescription_ =
+mkResourceServerScopeType pScopeName_ pScopeDescription_ =
   ResourceServerScopeType'
-    { _rsstScopeName = pScopeName_,
-      _rsstScopeDescription = pScopeDescription_
+    { scopeName = pScopeName_,
+      scopeDescription = pScopeDescription_
     }
 
 -- | The name of the scope.
-rsstScopeName :: Lens' ResourceServerScopeType Text
-rsstScopeName = lens _rsstScopeName (\s a -> s {_rsstScopeName = a})
+--
+-- /Note:/ Consider using 'scopeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsstScopeName :: Lens.Lens' ResourceServerScopeType Lude.Text
+rsstScopeName = Lens.lens (scopeName :: ResourceServerScopeType -> Lude.Text) (\s a -> s {scopeName = a} :: ResourceServerScopeType)
+{-# DEPRECATED rsstScopeName "Use generic-lens or generic-optics with 'scopeName' instead." #-}
 
 -- | A description of the scope.
-rsstScopeDescription :: Lens' ResourceServerScopeType Text
-rsstScopeDescription = lens _rsstScopeDescription (\s a -> s {_rsstScopeDescription = a})
+--
+-- /Note:/ Consider using 'scopeDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsstScopeDescription :: Lens.Lens' ResourceServerScopeType Lude.Text
+rsstScopeDescription = Lens.lens (scopeDescription :: ResourceServerScopeType -> Lude.Text) (\s a -> s {scopeDescription = a} :: ResourceServerScopeType)
+{-# DEPRECATED rsstScopeDescription "Use generic-lens or generic-optics with 'scopeDescription' instead." #-}
 
-instance FromJSON ResourceServerScopeType where
+instance Lude.FromJSON ResourceServerScopeType where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceServerScopeType"
       ( \x ->
           ResourceServerScopeType'
-            <$> (x .: "ScopeName") <*> (x .: "ScopeDescription")
+            Lude.<$> (x Lude..: "ScopeName") Lude.<*> (x Lude..: "ScopeDescription")
       )
 
-instance Hashable ResourceServerScopeType
-
-instance NFData ResourceServerScopeType
-
-instance ToJSON ResourceServerScopeType where
+instance Lude.ToJSON ResourceServerScopeType where
   toJSON ResourceServerScopeType' {..} =
-    object
-      ( catMaybes
-          [ Just ("ScopeName" .= _rsstScopeName),
-            Just ("ScopeDescription" .= _rsstScopeDescription)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ScopeName" Lude..= scopeName),
+            Lude.Just ("ScopeDescription" Lude..= scopeDescription)
           ]
       )

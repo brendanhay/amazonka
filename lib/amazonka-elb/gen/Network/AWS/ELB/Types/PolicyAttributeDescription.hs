@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.PolicyAttributeDescription where
+module Network.AWS.ELB.Types.PolicyAttributeDescription
+  ( PolicyAttributeDescription (..),
+
+    -- * Smart constructor
+    mkPolicyAttributeDescription,
+
+    -- * Lenses
+    padAttributeValue,
+    padAttributeName,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a policy attribute.
 --
---
---
--- /See:/ 'policyAttributeDescription' smart constructor.
+-- /See:/ 'mkPolicyAttributeDescription' smart constructor.
 data PolicyAttributeDescription = PolicyAttributeDescription'
-  { _padAttributeValue ::
-      !(Maybe Text),
-    _padAttributeName :: !(Maybe Text)
+  { attributeValue ::
+      Lude.Maybe Lude.Text,
+    attributeName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyAttributeDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'padAttributeValue' - The value of the attribute.
---
--- * 'padAttributeName' - The name of the attribute.
-policyAttributeDescription ::
+-- * 'attributeName' - The name of the attribute.
+-- * 'attributeValue' - The value of the attribute.
+mkPolicyAttributeDescription ::
   PolicyAttributeDescription
-policyAttributeDescription =
+mkPolicyAttributeDescription =
   PolicyAttributeDescription'
-    { _padAttributeValue = Nothing,
-      _padAttributeName = Nothing
+    { attributeValue = Lude.Nothing,
+      attributeName = Lude.Nothing
     }
 
 -- | The value of the attribute.
-padAttributeValue :: Lens' PolicyAttributeDescription (Maybe Text)
-padAttributeValue = lens _padAttributeValue (\s a -> s {_padAttributeValue = a})
+--
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padAttributeValue :: Lens.Lens' PolicyAttributeDescription (Lude.Maybe Lude.Text)
+padAttributeValue = Lens.lens (attributeValue :: PolicyAttributeDescription -> Lude.Maybe Lude.Text) (\s a -> s {attributeValue = a} :: PolicyAttributeDescription)
+{-# DEPRECATED padAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
 -- | The name of the attribute.
-padAttributeName :: Lens' PolicyAttributeDescription (Maybe Text)
-padAttributeName = lens _padAttributeName (\s a -> s {_padAttributeName = a})
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padAttributeName :: Lens.Lens' PolicyAttributeDescription (Lude.Maybe Lude.Text)
+padAttributeName = Lens.lens (attributeName :: PolicyAttributeDescription -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: PolicyAttributeDescription)
+{-# DEPRECATED padAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance FromXML PolicyAttributeDescription where
+instance Lude.FromXML PolicyAttributeDescription where
   parseXML x =
     PolicyAttributeDescription'
-      <$> (x .@? "AttributeValue") <*> (x .@? "AttributeName")
-
-instance Hashable PolicyAttributeDescription
-
-instance NFData PolicyAttributeDescription
+      Lude.<$> (x Lude..@? "AttributeValue") Lude.<*> (x Lude..@? "AttributeName")

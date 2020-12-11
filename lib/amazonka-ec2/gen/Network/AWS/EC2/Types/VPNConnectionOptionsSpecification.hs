@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,122 +7,180 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPNConnectionOptionsSpecification where
+module Network.AWS.EC2.Types.VPNConnectionOptionsSpecification
+  ( VPNConnectionOptionsSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVPNConnectionOptionsSpecification,
+
+    -- * Lenses
+    vcosTunnelInsideIPVersion,
+    vcosRemoteIPv4NetworkCidr,
+    vcosEnableAcceleration,
+    vcosLocalIPv4NetworkCidr,
+    vcosRemoteIPv6NetworkCidr,
+    vcosTunnelOptions,
+    vcosLocalIPv6NetworkCidr,
+    vcosStaticRoutesOnly,
+  )
+where
+
 import Network.AWS.EC2.Types.TunnelInsideIPVersion
 import Network.AWS.EC2.Types.VPNTunnelOptionsSpecification
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes VPN connection options.
 --
---
---
--- /See:/ 'vpnConnectionOptionsSpecification' smart constructor.
+-- /See:/ 'mkVPNConnectionOptionsSpecification' smart constructor.
 data VPNConnectionOptionsSpecification = VPNConnectionOptionsSpecification'
-  { _vcosTunnelInsideIPVersion ::
-      !( Maybe
-           TunnelInsideIPVersion
-       ),
-    _vcosRemoteIPv4NetworkCidr ::
-      !(Maybe Text),
-    _vcosEnableAcceleration ::
-      !(Maybe Bool),
-    _vcosLocalIPv4NetworkCidr ::
-      !(Maybe Text),
-    _vcosRemoteIPv6NetworkCidr ::
-      !(Maybe Text),
-    _vcosTunnelOptions ::
-      !( Maybe
-           [VPNTunnelOptionsSpecification]
-       ),
-    _vcosLocalIPv6NetworkCidr ::
-      !(Maybe Text),
-    _vcosStaticRoutesOnly ::
-      !(Maybe Bool)
+  { tunnelInsideIPVersion ::
+      Lude.Maybe
+        TunnelInsideIPVersion,
+    remoteIPv4NetworkCidr ::
+      Lude.Maybe Lude.Text,
+    enableAcceleration ::
+      Lude.Maybe Lude.Bool,
+    localIPv4NetworkCidr ::
+      Lude.Maybe Lude.Text,
+    remoteIPv6NetworkCidr ::
+      Lude.Maybe Lude.Text,
+    tunnelOptions ::
+      Lude.Maybe
+        [VPNTunnelOptionsSpecification],
+    localIPv6NetworkCidr ::
+      Lude.Maybe Lude.Text,
+    staticRoutesOnly ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPNConnectionOptionsSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'enableAcceleration' - Indicate whether to enable acceleration for the VPN connection.
 --
--- * 'vcosTunnelInsideIPVersion' - Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Default: @ipv4@
+-- Default: @false@
+-- * 'localIPv4NetworkCidr' - The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
 --
--- * 'vcosRemoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection. Default: @0.0.0.0/0@
+-- Default: @0.0.0.0/0@
+-- * 'localIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 --
--- * 'vcosEnableAcceleration' - Indicate whether to enable acceleration for the VPN connection. Default: @false@
+-- Default: @::/0@
+-- * 'remoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
 --
--- * 'vcosLocalIPv4NetworkCidr' - The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection. Default: @0.0.0.0/0@
+-- Default: @0.0.0.0/0@
+-- * 'remoteIPv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection.
 --
--- * 'vcosRemoteIPv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection. Default: @::/0@
+-- Default: @::/0@
+-- * 'staticRoutesOnly' - Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Use 'CreateVpnConnectionRoute' to create a static route.
 --
--- * 'vcosTunnelOptions' - The tunnel options for the VPN connection.
+-- Default: @false@
+-- * 'tunnelInsideIPVersion' - Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
 --
--- * 'vcosLocalIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection. Default: @::/0@
---
--- * 'vcosStaticRoutesOnly' - Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Use 'CreateVpnConnectionRoute' to create a static route. Default: @false@
-vpnConnectionOptionsSpecification ::
+-- Default: @ipv4@
+-- * 'tunnelOptions' - The tunnel options for the VPN connection.
+mkVPNConnectionOptionsSpecification ::
   VPNConnectionOptionsSpecification
-vpnConnectionOptionsSpecification =
+mkVPNConnectionOptionsSpecification =
   VPNConnectionOptionsSpecification'
-    { _vcosTunnelInsideIPVersion =
-        Nothing,
-      _vcosRemoteIPv4NetworkCidr = Nothing,
-      _vcosEnableAcceleration = Nothing,
-      _vcosLocalIPv4NetworkCidr = Nothing,
-      _vcosRemoteIPv6NetworkCidr = Nothing,
-      _vcosTunnelOptions = Nothing,
-      _vcosLocalIPv6NetworkCidr = Nothing,
-      _vcosStaticRoutesOnly = Nothing
+    { tunnelInsideIPVersion =
+        Lude.Nothing,
+      remoteIPv4NetworkCidr = Lude.Nothing,
+      enableAcceleration = Lude.Nothing,
+      localIPv4NetworkCidr = Lude.Nothing,
+      remoteIPv6NetworkCidr = Lude.Nothing,
+      tunnelOptions = Lude.Nothing,
+      localIPv6NetworkCidr = Lude.Nothing,
+      staticRoutesOnly = Lude.Nothing
     }
 
--- | Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Default: @ipv4@
-vcosTunnelInsideIPVersion :: Lens' VPNConnectionOptionsSpecification (Maybe TunnelInsideIPVersion)
-vcosTunnelInsideIPVersion = lens _vcosTunnelInsideIPVersion (\s a -> s {_vcosTunnelInsideIPVersion = a})
+-- | Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
+--
+-- Default: @ipv4@
+--
+-- /Note:/ Consider using 'tunnelInsideIPVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcosTunnelInsideIPVersion :: Lens.Lens' VPNConnectionOptionsSpecification (Lude.Maybe TunnelInsideIPVersion)
+vcosTunnelInsideIPVersion = Lens.lens (tunnelInsideIPVersion :: VPNConnectionOptionsSpecification -> Lude.Maybe TunnelInsideIPVersion) (\s a -> s {tunnelInsideIPVersion = a} :: VPNConnectionOptionsSpecification)
+{-# DEPRECATED vcosTunnelInsideIPVersion "Use generic-lens or generic-optics with 'tunnelInsideIPVersion' instead." #-}
 
--- | The IPv4 CIDR on the AWS side of the VPN connection. Default: @0.0.0.0/0@
-vcosRemoteIPv4NetworkCidr :: Lens' VPNConnectionOptionsSpecification (Maybe Text)
-vcosRemoteIPv4NetworkCidr = lens _vcosRemoteIPv4NetworkCidr (\s a -> s {_vcosRemoteIPv4NetworkCidr = a})
+-- | The IPv4 CIDR on the AWS side of the VPN connection.
+--
+-- Default: @0.0.0.0/0@
+--
+-- /Note:/ Consider using 'remoteIPv4NetworkCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcosRemoteIPv4NetworkCidr :: Lens.Lens' VPNConnectionOptionsSpecification (Lude.Maybe Lude.Text)
+vcosRemoteIPv4NetworkCidr = Lens.lens (remoteIPv4NetworkCidr :: VPNConnectionOptionsSpecification -> Lude.Maybe Lude.Text) (\s a -> s {remoteIPv4NetworkCidr = a} :: VPNConnectionOptionsSpecification)
+{-# DEPRECATED vcosRemoteIPv4NetworkCidr "Use generic-lens or generic-optics with 'remoteIPv4NetworkCidr' instead." #-}
 
--- | Indicate whether to enable acceleration for the VPN connection. Default: @false@
-vcosEnableAcceleration :: Lens' VPNConnectionOptionsSpecification (Maybe Bool)
-vcosEnableAcceleration = lens _vcosEnableAcceleration (\s a -> s {_vcosEnableAcceleration = a})
+-- | Indicate whether to enable acceleration for the VPN connection.
+--
+-- Default: @false@
+--
+-- /Note:/ Consider using 'enableAcceleration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcosEnableAcceleration :: Lens.Lens' VPNConnectionOptionsSpecification (Lude.Maybe Lude.Bool)
+vcosEnableAcceleration = Lens.lens (enableAcceleration :: VPNConnectionOptionsSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {enableAcceleration = a} :: VPNConnectionOptionsSpecification)
+{-# DEPRECATED vcosEnableAcceleration "Use generic-lens or generic-optics with 'enableAcceleration' instead." #-}
 
--- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection. Default: @0.0.0.0/0@
-vcosLocalIPv4NetworkCidr :: Lens' VPNConnectionOptionsSpecification (Maybe Text)
-vcosLocalIPv4NetworkCidr = lens _vcosLocalIPv4NetworkCidr (\s a -> s {_vcosLocalIPv4NetworkCidr = a})
+-- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+--
+-- Default: @0.0.0.0/0@
+--
+-- /Note:/ Consider using 'localIPv4NetworkCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcosLocalIPv4NetworkCidr :: Lens.Lens' VPNConnectionOptionsSpecification (Lude.Maybe Lude.Text)
+vcosLocalIPv4NetworkCidr = Lens.lens (localIPv4NetworkCidr :: VPNConnectionOptionsSpecification -> Lude.Maybe Lude.Text) (\s a -> s {localIPv4NetworkCidr = a} :: VPNConnectionOptionsSpecification)
+{-# DEPRECATED vcosLocalIPv4NetworkCidr "Use generic-lens or generic-optics with 'localIPv4NetworkCidr' instead." #-}
 
--- | The IPv6 CIDR on the AWS side of the VPN connection. Default: @::/0@
-vcosRemoteIPv6NetworkCidr :: Lens' VPNConnectionOptionsSpecification (Maybe Text)
-vcosRemoteIPv6NetworkCidr = lens _vcosRemoteIPv6NetworkCidr (\s a -> s {_vcosRemoteIPv6NetworkCidr = a})
+-- | The IPv6 CIDR on the AWS side of the VPN connection.
+--
+-- Default: @::/0@
+--
+-- /Note:/ Consider using 'remoteIPv6NetworkCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcosRemoteIPv6NetworkCidr :: Lens.Lens' VPNConnectionOptionsSpecification (Lude.Maybe Lude.Text)
+vcosRemoteIPv6NetworkCidr = Lens.lens (remoteIPv6NetworkCidr :: VPNConnectionOptionsSpecification -> Lude.Maybe Lude.Text) (\s a -> s {remoteIPv6NetworkCidr = a} :: VPNConnectionOptionsSpecification)
+{-# DEPRECATED vcosRemoteIPv6NetworkCidr "Use generic-lens or generic-optics with 'remoteIPv6NetworkCidr' instead." #-}
 
 -- | The tunnel options for the VPN connection.
-vcosTunnelOptions :: Lens' VPNConnectionOptionsSpecification [VPNTunnelOptionsSpecification]
-vcosTunnelOptions = lens _vcosTunnelOptions (\s a -> s {_vcosTunnelOptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tunnelOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcosTunnelOptions :: Lens.Lens' VPNConnectionOptionsSpecification (Lude.Maybe [VPNTunnelOptionsSpecification])
+vcosTunnelOptions = Lens.lens (tunnelOptions :: VPNConnectionOptionsSpecification -> Lude.Maybe [VPNTunnelOptionsSpecification]) (\s a -> s {tunnelOptions = a} :: VPNConnectionOptionsSpecification)
+{-# DEPRECATED vcosTunnelOptions "Use generic-lens or generic-optics with 'tunnelOptions' instead." #-}
 
--- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection. Default: @::/0@
-vcosLocalIPv6NetworkCidr :: Lens' VPNConnectionOptionsSpecification (Maybe Text)
-vcosLocalIPv6NetworkCidr = lens _vcosLocalIPv6NetworkCidr (\s a -> s {_vcosLocalIPv6NetworkCidr = a})
+-- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+--
+-- Default: @::/0@
+--
+-- /Note:/ Consider using 'localIPv6NetworkCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcosLocalIPv6NetworkCidr :: Lens.Lens' VPNConnectionOptionsSpecification (Lude.Maybe Lude.Text)
+vcosLocalIPv6NetworkCidr = Lens.lens (localIPv6NetworkCidr :: VPNConnectionOptionsSpecification -> Lude.Maybe Lude.Text) (\s a -> s {localIPv6NetworkCidr = a} :: VPNConnectionOptionsSpecification)
+{-# DEPRECATED vcosLocalIPv6NetworkCidr "Use generic-lens or generic-optics with 'localIPv6NetworkCidr' instead." #-}
 
--- | Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Use 'CreateVpnConnectionRoute' to create a static route. Default: @false@
-vcosStaticRoutesOnly :: Lens' VPNConnectionOptionsSpecification (Maybe Bool)
-vcosStaticRoutesOnly = lens _vcosStaticRoutesOnly (\s a -> s {_vcosStaticRoutesOnly = a})
+-- | Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify @true@ . Use 'CreateVpnConnectionRoute' to create a static route.
+--
+-- Default: @false@
+--
+-- /Note:/ Consider using 'staticRoutesOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcosStaticRoutesOnly :: Lens.Lens' VPNConnectionOptionsSpecification (Lude.Maybe Lude.Bool)
+vcosStaticRoutesOnly = Lens.lens (staticRoutesOnly :: VPNConnectionOptionsSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {staticRoutesOnly = a} :: VPNConnectionOptionsSpecification)
+{-# DEPRECATED vcosStaticRoutesOnly "Use generic-lens or generic-optics with 'staticRoutesOnly' instead." #-}
 
-instance Hashable VPNConnectionOptionsSpecification
-
-instance NFData VPNConnectionOptionsSpecification
-
-instance ToQuery VPNConnectionOptionsSpecification where
+instance Lude.ToQuery VPNConnectionOptionsSpecification where
   toQuery VPNConnectionOptionsSpecification' {..} =
-    mconcat
-      [ "TunnelInsideIpVersion" =: _vcosTunnelInsideIPVersion,
-        "RemoteIpv4NetworkCidr" =: _vcosRemoteIPv4NetworkCidr,
-        "EnableAcceleration" =: _vcosEnableAcceleration,
-        "LocalIpv4NetworkCidr" =: _vcosLocalIPv4NetworkCidr,
-        "RemoteIpv6NetworkCidr" =: _vcosRemoteIPv6NetworkCidr,
-        toQuery (toQueryList "TunnelOptions" <$> _vcosTunnelOptions),
-        "LocalIpv6NetworkCidr" =: _vcosLocalIPv6NetworkCidr,
-        "StaticRoutesOnly" =: _vcosStaticRoutesOnly
+    Lude.mconcat
+      [ "TunnelInsideIpVersion" Lude.=: tunnelInsideIPVersion,
+        "RemoteIpv4NetworkCidr" Lude.=: remoteIPv4NetworkCidr,
+        "EnableAcceleration" Lude.=: enableAcceleration,
+        "LocalIpv4NetworkCidr" Lude.=: localIPv4NetworkCidr,
+        "RemoteIpv6NetworkCidr" Lude.=: remoteIPv6NetworkCidr,
+        Lude.toQuery
+          (Lude.toQueryList "TunnelOptions" Lude.<$> tunnelOptions),
+        "LocalIpv6NetworkCidr" Lude.=: localIPv6NetworkCidr,
+        "StaticRoutesOnly" Lude.=: staticRoutesOnly
       ]

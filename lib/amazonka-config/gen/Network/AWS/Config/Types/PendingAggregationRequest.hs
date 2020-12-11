@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.PendingAggregationRequest where
+module Network.AWS.Config.Types.PendingAggregationRequest
+  ( PendingAggregationRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPendingAggregationRequest,
+
+    -- * Lenses
+    parRequesterAccountId,
+    parRequesterAWSRegion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object that represents the account ID and region of an aggregator account that is requesting authorization but is not yet authorized.
 --
---
---
--- /See:/ 'pendingAggregationRequest' smart constructor.
+-- /See:/ 'mkPendingAggregationRequest' smart constructor.
 data PendingAggregationRequest = PendingAggregationRequest'
-  { _parRequesterAccountId ::
-      !(Maybe Text),
-    _parRequesterAWSRegion :: !(Maybe Text)
+  { requesterAccountId ::
+      Lude.Maybe Lude.Text,
+    requesterAWSRegion ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingAggregationRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'parRequesterAccountId' - The 12-digit account ID of the account requesting to aggregate data.
---
--- * 'parRequesterAWSRegion' - The region requesting to aggregate data.
-pendingAggregationRequest ::
+-- * 'requesterAWSRegion' - The region requesting to aggregate data.
+-- * 'requesterAccountId' - The 12-digit account ID of the account requesting to aggregate data.
+mkPendingAggregationRequest ::
   PendingAggregationRequest
-pendingAggregationRequest =
+mkPendingAggregationRequest =
   PendingAggregationRequest'
-    { _parRequesterAccountId = Nothing,
-      _parRequesterAWSRegion = Nothing
+    { requesterAccountId = Lude.Nothing,
+      requesterAWSRegion = Lude.Nothing
     }
 
 -- | The 12-digit account ID of the account requesting to aggregate data.
-parRequesterAccountId :: Lens' PendingAggregationRequest (Maybe Text)
-parRequesterAccountId = lens _parRequesterAccountId (\s a -> s {_parRequesterAccountId = a})
+--
+-- /Note:/ Consider using 'requesterAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parRequesterAccountId :: Lens.Lens' PendingAggregationRequest (Lude.Maybe Lude.Text)
+parRequesterAccountId = Lens.lens (requesterAccountId :: PendingAggregationRequest -> Lude.Maybe Lude.Text) (\s a -> s {requesterAccountId = a} :: PendingAggregationRequest)
+{-# DEPRECATED parRequesterAccountId "Use generic-lens or generic-optics with 'requesterAccountId' instead." #-}
 
 -- | The region requesting to aggregate data.
-parRequesterAWSRegion :: Lens' PendingAggregationRequest (Maybe Text)
-parRequesterAWSRegion = lens _parRequesterAWSRegion (\s a -> s {_parRequesterAWSRegion = a})
+--
+-- /Note:/ Consider using 'requesterAWSRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parRequesterAWSRegion :: Lens.Lens' PendingAggregationRequest (Lude.Maybe Lude.Text)
+parRequesterAWSRegion = Lens.lens (requesterAWSRegion :: PendingAggregationRequest -> Lude.Maybe Lude.Text) (\s a -> s {requesterAWSRegion = a} :: PendingAggregationRequest)
+{-# DEPRECATED parRequesterAWSRegion "Use generic-lens or generic-optics with 'requesterAWSRegion' instead." #-}
 
-instance FromJSON PendingAggregationRequest where
+instance Lude.FromJSON PendingAggregationRequest where
   parseJSON =
-    withObject
+    Lude.withObject
       "PendingAggregationRequest"
       ( \x ->
           PendingAggregationRequest'
-            <$> (x .:? "RequesterAccountId") <*> (x .:? "RequesterAwsRegion")
+            Lude.<$> (x Lude..:? "RequesterAccountId")
+            Lude.<*> (x Lude..:? "RequesterAwsRegion")
       )
-
-instance Hashable PendingAggregationRequest
-
-instance NFData PendingAggregationRequest

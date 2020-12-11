@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.UpdateAgentLogLevel where
+module Network.AWS.Greengrass.Types.UpdateAgentLogLevel
+  ( UpdateAgentLogLevel
+      ( UpdateAgentLogLevel',
+        UALLDebug,
+        UALLError,
+        UALLFatal,
+        UALLInfo,
+        UALLNone,
+        UALLTrace,
+        UALLVerbose,
+        UALLWarn
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The minimum level of log statements that should be logged by the OTA Agent during an update.
-data UpdateAgentLogLevel
-  = UALLDebug
-  | UALLError'
-  | UALLFatal
-  | UALLInfo
-  | UALLNone
-  | UALLTrace
-  | UALLVerbose
-  | UALLWarn
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UpdateAgentLogLevel = UpdateAgentLogLevel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UpdateAgentLogLevel where
-  parser =
-    takeLowerText >>= \case
-      "debug" -> pure UALLDebug
-      "error" -> pure UALLError'
-      "fatal" -> pure UALLFatal
-      "info" -> pure UALLInfo
-      "none" -> pure UALLNone
-      "trace" -> pure UALLTrace
-      "verbose" -> pure UALLVerbose
-      "warn" -> pure UALLWarn
-      e ->
-        fromTextError $
-          "Failure parsing UpdateAgentLogLevel from value: '" <> e
-            <> "'. Accepted values: debug, error, fatal, info, none, trace, verbose, warn"
+pattern UALLDebug :: UpdateAgentLogLevel
+pattern UALLDebug = UpdateAgentLogLevel' "DEBUG"
 
-instance ToText UpdateAgentLogLevel where
-  toText = \case
-    UALLDebug -> "DEBUG"
-    UALLError' -> "ERROR"
-    UALLFatal -> "FATAL"
-    UALLInfo -> "INFO"
-    UALLNone -> "NONE"
-    UALLTrace -> "TRACE"
-    UALLVerbose -> "VERBOSE"
-    UALLWarn -> "WARN"
+pattern UALLError :: UpdateAgentLogLevel
+pattern UALLError = UpdateAgentLogLevel' "ERROR"
 
-instance Hashable UpdateAgentLogLevel
+pattern UALLFatal :: UpdateAgentLogLevel
+pattern UALLFatal = UpdateAgentLogLevel' "FATAL"
 
-instance NFData UpdateAgentLogLevel
+pattern UALLInfo :: UpdateAgentLogLevel
+pattern UALLInfo = UpdateAgentLogLevel' "INFO"
 
-instance ToByteString UpdateAgentLogLevel
+pattern UALLNone :: UpdateAgentLogLevel
+pattern UALLNone = UpdateAgentLogLevel' "NONE"
 
-instance ToQuery UpdateAgentLogLevel
+pattern UALLTrace :: UpdateAgentLogLevel
+pattern UALLTrace = UpdateAgentLogLevel' "TRACE"
 
-instance ToHeader UpdateAgentLogLevel
+pattern UALLVerbose :: UpdateAgentLogLevel
+pattern UALLVerbose = UpdateAgentLogLevel' "VERBOSE"
 
-instance ToJSON UpdateAgentLogLevel where
-  toJSON = toJSONText
+pattern UALLWarn :: UpdateAgentLogLevel
+pattern UALLWarn = UpdateAgentLogLevel' "WARN"
+
+{-# COMPLETE
+  UALLDebug,
+  UALLError,
+  UALLFatal,
+  UALLInfo,
+  UALLNone,
+  UALLTrace,
+  UALLVerbose,
+  UALLWarn,
+  UpdateAgentLogLevel'
+  #-}

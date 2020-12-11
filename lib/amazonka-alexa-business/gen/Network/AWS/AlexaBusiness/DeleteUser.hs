@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,133 @@
 --
 -- Deletes a specified user by user ARN and enrollment ARN.
 module Network.AWS.AlexaBusiness.DeleteUser
-  ( -- * Creating a Request
-    deleteUser,
-    DeleteUser,
+  ( -- * Creating a request
+    DeleteUser (..),
+    mkDeleteUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     duUserARN,
     duEnrollmentId,
 
-    -- * Destructuring the Response
-    deleteUserResponse,
-    DeleteUserResponse,
+    -- * Destructuring the response
+    DeleteUserResponse (..),
+    mkDeleteUserResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dursResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteUser' smart constructor.
+-- | /See:/ 'mkDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { _duUserARN :: !(Maybe Text),
-    _duEnrollmentId :: !Text
+  { userARN :: Lude.Maybe Lude.Text,
+    enrollmentId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'duUserARN' - The ARN of the user to delete in the organization. Required.
---
--- * 'duEnrollmentId' - The ARN of the user's enrollment in the organization. Required.
-deleteUser ::
-  -- | 'duEnrollmentId'
-  Text ->
+-- * 'enrollmentId' - The ARN of the user's enrollment in the organization. Required.
+-- * 'userARN' - The ARN of the user to delete in the organization. Required.
+mkDeleteUser ::
+  -- | 'enrollmentId'
+  Lude.Text ->
   DeleteUser
-deleteUser pEnrollmentId_ =
+mkDeleteUser pEnrollmentId_ =
   DeleteUser'
-    { _duUserARN = Nothing,
-      _duEnrollmentId = pEnrollmentId_
+    { userARN = Lude.Nothing,
+      enrollmentId = pEnrollmentId_
     }
 
 -- | The ARN of the user to delete in the organization. Required.
-duUserARN :: Lens' DeleteUser (Maybe Text)
-duUserARN = lens _duUserARN (\s a -> s {_duUserARN = a})
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duUserARN :: Lens.Lens' DeleteUser (Lude.Maybe Lude.Text)
+duUserARN = Lens.lens (userARN :: DeleteUser -> Lude.Maybe Lude.Text) (\s a -> s {userARN = a} :: DeleteUser)
+{-# DEPRECATED duUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
 -- | The ARN of the user's enrollment in the organization. Required.
-duEnrollmentId :: Lens' DeleteUser Text
-duEnrollmentId = lens _duEnrollmentId (\s a -> s {_duEnrollmentId = a})
+--
+-- /Note:/ Consider using 'enrollmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duEnrollmentId :: Lens.Lens' DeleteUser Lude.Text
+duEnrollmentId = Lens.lens (enrollmentId :: DeleteUser -> Lude.Text) (\s a -> s {enrollmentId = a} :: DeleteUser)
+{-# DEPRECATED duEnrollmentId "Use generic-lens or generic-optics with 'enrollmentId' instead." #-}
 
-instance AWSRequest DeleteUser where
+instance Lude.AWSRequest DeleteUser where
   type Rs DeleteUser = DeleteUserResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> DeleteUserResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteUserResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteUser
-
-instance NFData DeleteUser
-
-instance ToHeaders DeleteUser where
+instance Lude.ToHeaders DeleteUser where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.DeleteUser" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.DeleteUser" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteUser where
+instance Lude.ToJSON DeleteUser where
   toJSON DeleteUser' {..} =
-    object
-      ( catMaybes
-          [ ("UserArn" .=) <$> _duUserARN,
-            Just ("EnrollmentId" .= _duEnrollmentId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UserArn" Lude..=) Lude.<$> userARN,
+            Lude.Just ("EnrollmentId" Lude..= enrollmentId)
           ]
       )
 
-instance ToPath DeleteUser where
-  toPath = const "/"
+instance Lude.ToPath DeleteUser where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteUser where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteUser where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteUserResponse' smart constructor.
+-- | /See:/ 'mkDeleteUserResponse' smart constructor.
 newtype DeleteUserResponse = DeleteUserResponse'
-  { _dursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dursResponseStatus' - -- | The response status code.
-deleteUserResponse ::
-  -- | 'dursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteUserResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteUserResponse
-deleteUserResponse pResponseStatus_ =
-  DeleteUserResponse' {_dursResponseStatus = pResponseStatus_}
+mkDeleteUserResponse pResponseStatus_ =
+  DeleteUserResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dursResponseStatus :: Lens' DeleteUserResponse Int
-dursResponseStatus = lens _dursResponseStatus (\s a -> s {_dursResponseStatus = a})
-
-instance NFData DeleteUserResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dursResponseStatus :: Lens.Lens' DeleteUserResponse Lude.Int
+dursResponseStatus = Lens.lens (responseStatus :: DeleteUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUserResponse)
+{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

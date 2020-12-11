@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType where
+module Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionNameType
+  ( RecoveryOptionNameType
+      ( RecoveryOptionNameType',
+        AdminOnly,
+        VerifiedEmail,
+        VerifiedPhoneNumber
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RecoveryOptionNameType
-  = AdminOnly
-  | VerifiedEmail
-  | VerifiedPhoneNumber
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RecoveryOptionNameType = RecoveryOptionNameType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RecoveryOptionNameType where
-  parser =
-    takeLowerText >>= \case
-      "admin_only" -> pure AdminOnly
-      "verified_email" -> pure VerifiedEmail
-      "verified_phone_number" -> pure VerifiedPhoneNumber
-      e ->
-        fromTextError $
-          "Failure parsing RecoveryOptionNameType from value: '" <> e
-            <> "'. Accepted values: admin_only, verified_email, verified_phone_number"
+pattern AdminOnly :: RecoveryOptionNameType
+pattern AdminOnly = RecoveryOptionNameType' "admin_only"
 
-instance ToText RecoveryOptionNameType where
-  toText = \case
-    AdminOnly -> "admin_only"
-    VerifiedEmail -> "verified_email"
-    VerifiedPhoneNumber -> "verified_phone_number"
+pattern VerifiedEmail :: RecoveryOptionNameType
+pattern VerifiedEmail = RecoveryOptionNameType' "verified_email"
 
-instance Hashable RecoveryOptionNameType
+pattern VerifiedPhoneNumber :: RecoveryOptionNameType
+pattern VerifiedPhoneNumber = RecoveryOptionNameType' "verified_phone_number"
 
-instance NFData RecoveryOptionNameType
-
-instance ToByteString RecoveryOptionNameType
-
-instance ToQuery RecoveryOptionNameType
-
-instance ToHeader RecoveryOptionNameType
-
-instance ToJSON RecoveryOptionNameType where
-  toJSON = toJSONText
-
-instance FromJSON RecoveryOptionNameType where
-  parseJSON = parseJSONText "RecoveryOptionNameType"
+{-# COMPLETE
+  AdminOnly,
+  VerifiedEmail,
+  VerifiedPhoneNumber,
+  RecoveryOptionNameType'
+  #-}

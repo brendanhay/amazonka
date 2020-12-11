@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ActionExecutionResult where
+module Network.AWS.CodePipeline.Types.ActionExecutionResult
+  ( ActionExecutionResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkActionExecutionResult,
+
+    -- * Lenses
+    aerExternalExecutionURL,
+    aerExternalExecutionId,
+    aerExternalExecutionSummary,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Execution result information, such as the external execution ID.
 --
---
---
--- /See:/ 'actionExecutionResult' smart constructor.
+-- /See:/ 'mkActionExecutionResult' smart constructor.
 data ActionExecutionResult = ActionExecutionResult'
-  { _aerExternalExecutionURL ::
-      !(Maybe Text),
-    _aerExternalExecutionId :: !(Maybe Text),
-    _aerExternalExecutionSummary :: !(Maybe Text)
+  { externalExecutionURL ::
+      Lude.Maybe Lude.Text,
+    externalExecutionId :: Lude.Maybe Lude.Text,
+    externalExecutionSummary ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionExecutionResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aerExternalExecutionURL' - The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action.
---
--- * 'aerExternalExecutionId' - The action provider's external ID for the action execution.
---
--- * 'aerExternalExecutionSummary' - The action provider's summary for the action execution.
-actionExecutionResult ::
+-- * 'externalExecutionId' - The action provider's external ID for the action execution.
+-- * 'externalExecutionSummary' - The action provider's summary for the action execution.
+-- * 'externalExecutionURL' - The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action.
+mkActionExecutionResult ::
   ActionExecutionResult
-actionExecutionResult =
+mkActionExecutionResult =
   ActionExecutionResult'
-    { _aerExternalExecutionURL = Nothing,
-      _aerExternalExecutionId = Nothing,
-      _aerExternalExecutionSummary = Nothing
+    { externalExecutionURL = Lude.Nothing,
+      externalExecutionId = Lude.Nothing,
+      externalExecutionSummary = Lude.Nothing
     }
 
 -- | The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action.
-aerExternalExecutionURL :: Lens' ActionExecutionResult (Maybe Text)
-aerExternalExecutionURL = lens _aerExternalExecutionURL (\s a -> s {_aerExternalExecutionURL = a})
+--
+-- /Note:/ Consider using 'externalExecutionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aerExternalExecutionURL :: Lens.Lens' ActionExecutionResult (Lude.Maybe Lude.Text)
+aerExternalExecutionURL = Lens.lens (externalExecutionURL :: ActionExecutionResult -> Lude.Maybe Lude.Text) (\s a -> s {externalExecutionURL = a} :: ActionExecutionResult)
+{-# DEPRECATED aerExternalExecutionURL "Use generic-lens or generic-optics with 'externalExecutionURL' instead." #-}
 
 -- | The action provider's external ID for the action execution.
-aerExternalExecutionId :: Lens' ActionExecutionResult (Maybe Text)
-aerExternalExecutionId = lens _aerExternalExecutionId (\s a -> s {_aerExternalExecutionId = a})
+--
+-- /Note:/ Consider using 'externalExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aerExternalExecutionId :: Lens.Lens' ActionExecutionResult (Lude.Maybe Lude.Text)
+aerExternalExecutionId = Lens.lens (externalExecutionId :: ActionExecutionResult -> Lude.Maybe Lude.Text) (\s a -> s {externalExecutionId = a} :: ActionExecutionResult)
+{-# DEPRECATED aerExternalExecutionId "Use generic-lens or generic-optics with 'externalExecutionId' instead." #-}
 
 -- | The action provider's summary for the action execution.
-aerExternalExecutionSummary :: Lens' ActionExecutionResult (Maybe Text)
-aerExternalExecutionSummary = lens _aerExternalExecutionSummary (\s a -> s {_aerExternalExecutionSummary = a})
+--
+-- /Note:/ Consider using 'externalExecutionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aerExternalExecutionSummary :: Lens.Lens' ActionExecutionResult (Lude.Maybe Lude.Text)
+aerExternalExecutionSummary = Lens.lens (externalExecutionSummary :: ActionExecutionResult -> Lude.Maybe Lude.Text) (\s a -> s {externalExecutionSummary = a} :: ActionExecutionResult)
+{-# DEPRECATED aerExternalExecutionSummary "Use generic-lens or generic-optics with 'externalExecutionSummary' instead." #-}
 
-instance FromJSON ActionExecutionResult where
+instance Lude.FromJSON ActionExecutionResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "ActionExecutionResult"
       ( \x ->
           ActionExecutionResult'
-            <$> (x .:? "externalExecutionUrl")
-            <*> (x .:? "externalExecutionId")
-            <*> (x .:? "externalExecutionSummary")
+            Lude.<$> (x Lude..:? "externalExecutionUrl")
+            Lude.<*> (x Lude..:? "externalExecutionId")
+            Lude.<*> (x Lude..:? "externalExecutionSummary")
       )
-
-instance Hashable ActionExecutionResult
-
-instance NFData ActionExecutionResult

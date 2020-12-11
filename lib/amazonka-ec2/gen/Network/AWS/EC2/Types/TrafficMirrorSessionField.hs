@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TrafficMirrorSessionField where
+module Network.AWS.EC2.Types.TrafficMirrorSessionField
+  ( TrafficMirrorSessionField
+      ( TrafficMirrorSessionField',
+        TMSFDescription,
+        TMSFPacketLength,
+        TMSFVirtualNetworkId
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrafficMirrorSessionField
-  = TMSFDescription
-  | TMSFPacketLength
-  | TMSFVirtualNetworkId
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrafficMirrorSessionField = TrafficMirrorSessionField' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrafficMirrorSessionField where
-  parser =
-    takeLowerText >>= \case
-      "description" -> pure TMSFDescription
-      "packet-length" -> pure TMSFPacketLength
-      "virtual-network-id" -> pure TMSFVirtualNetworkId
-      e ->
-        fromTextError $
-          "Failure parsing TrafficMirrorSessionField from value: '" <> e
-            <> "'. Accepted values: description, packet-length, virtual-network-id"
+pattern TMSFDescription :: TrafficMirrorSessionField
+pattern TMSFDescription = TrafficMirrorSessionField' "description"
 
-instance ToText TrafficMirrorSessionField where
-  toText = \case
-    TMSFDescription -> "description"
-    TMSFPacketLength -> "packet-length"
-    TMSFVirtualNetworkId -> "virtual-network-id"
+pattern TMSFPacketLength :: TrafficMirrorSessionField
+pattern TMSFPacketLength = TrafficMirrorSessionField' "packet-length"
 
-instance Hashable TrafficMirrorSessionField
+pattern TMSFVirtualNetworkId :: TrafficMirrorSessionField
+pattern TMSFVirtualNetworkId = TrafficMirrorSessionField' "virtual-network-id"
 
-instance NFData TrafficMirrorSessionField
-
-instance ToByteString TrafficMirrorSessionField
-
-instance ToQuery TrafficMirrorSessionField
-
-instance ToHeader TrafficMirrorSessionField
+{-# COMPLETE
+  TMSFDescription,
+  TMSFPacketLength,
+  TMSFVirtualNetworkId,
+  TrafficMirrorSessionField'
+  #-}

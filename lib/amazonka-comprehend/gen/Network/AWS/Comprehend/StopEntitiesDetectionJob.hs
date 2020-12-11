@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,22 @@
 --
 -- Stops an entities detection job in progress.
 --
---
 -- If the job state is @IN_PROGRESS@ the job is marked for termination and put into the @STOP_REQUESTED@ state. If the job completes before it can be stopped, it is put into the @COMPLETED@ state; otherwise the job is stopped and put into the @STOPPED@ state.
---
 -- If the job is in the @COMPLETED@ or @FAILED@ state when you call the @StopDominantLanguageDetectionJob@ operation, the operation returns a 400 Internal Request Exception.
---
 -- When a job is stopped, any documents already processed are written to the output location.
 module Network.AWS.Comprehend.StopEntitiesDetectionJob
-  ( -- * Creating a Request
-    stopEntitiesDetectionJob,
-    StopEntitiesDetectionJob,
+  ( -- * Creating a request
+    StopEntitiesDetectionJob (..),
+    mkStopEntitiesDetectionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sJobId,
 
-    -- * Destructuring the Response
-    stopEntitiesDetectionJobResponse,
-    StopEntitiesDetectionJobResponse,
+    -- * Destructuring the response
+    StopEntitiesDetectionJobResponse (..),
+    mkStopEntitiesDetectionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsJobId,
     srsJobStatus,
     srsResponseStatus,
@@ -45,109 +37,128 @@ module Network.AWS.Comprehend.StopEntitiesDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopEntitiesDetectionJob' smart constructor.
+-- | /See:/ 'mkStopEntitiesDetectionJob' smart constructor.
 newtype StopEntitiesDetectionJob = StopEntitiesDetectionJob'
-  { _sJobId ::
-      Text
+  { jobId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopEntitiesDetectionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sJobId' - The identifier of the entities detection job to stop.
-stopEntitiesDetectionJob ::
-  -- | 'sJobId'
-  Text ->
+-- * 'jobId' - The identifier of the entities detection job to stop.
+mkStopEntitiesDetectionJob ::
+  -- | 'jobId'
+  Lude.Text ->
   StopEntitiesDetectionJob
-stopEntitiesDetectionJob pJobId_ =
-  StopEntitiesDetectionJob' {_sJobId = pJobId_}
+mkStopEntitiesDetectionJob pJobId_ =
+  StopEntitiesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier of the entities detection job to stop.
-sJobId :: Lens' StopEntitiesDetectionJob Text
-sJobId = lens _sJobId (\s a -> s {_sJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sJobId :: Lens.Lens' StopEntitiesDetectionJob Lude.Text
+sJobId = Lens.lens (jobId :: StopEntitiesDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: StopEntitiesDetectionJob)
+{-# DEPRECATED sJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest StopEntitiesDetectionJob where
+instance Lude.AWSRequest StopEntitiesDetectionJob where
   type Rs StopEntitiesDetectionJob = StopEntitiesDetectionJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StopEntitiesDetectionJobResponse'
-            <$> (x .?> "JobId") <*> (x .?> "JobStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobId")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopEntitiesDetectionJob
-
-instance NFData StopEntitiesDetectionJob
-
-instance ToHeaders StopEntitiesDetectionJob where
+instance Lude.ToHeaders StopEntitiesDetectionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.StopEntitiesDetectionJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.StopEntitiesDetectionJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopEntitiesDetectionJob where
+instance Lude.ToJSON StopEntitiesDetectionJob where
   toJSON StopEntitiesDetectionJob' {..} =
-    object (catMaybes [Just ("JobId" .= _sJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
 
-instance ToPath StopEntitiesDetectionJob where
-  toPath = const "/"
+instance Lude.ToPath StopEntitiesDetectionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StopEntitiesDetectionJob where
-  toQuery = const mempty
+instance Lude.ToQuery StopEntitiesDetectionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopEntitiesDetectionJobResponse' smart constructor.
+-- | /See:/ 'mkStopEntitiesDetectionJobResponse' smart constructor.
 data StopEntitiesDetectionJobResponse = StopEntitiesDetectionJobResponse'
-  { _srsJobId ::
-      !(Maybe Text),
-    _srsJobStatus ::
-      !(Maybe JobStatus),
-    _srsResponseStatus ::
-      !Int
+  { jobId ::
+      Lude.Maybe Lude.Text,
+    jobStatus ::
+      Lude.Maybe JobStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopEntitiesDetectionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsJobId' - The identifier of the entities detection job to stop.
---
--- * 'srsJobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopEntitiesDetectionJob@ operation.
---
--- * 'srsResponseStatus' - -- | The response status code.
-stopEntitiesDetectionJobResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'jobId' - The identifier of the entities detection job to stop.
+-- * 'jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopEntitiesDetectionJob@ operation.
+-- * 'responseStatus' - The response status code.
+mkStopEntitiesDetectionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopEntitiesDetectionJobResponse
-stopEntitiesDetectionJobResponse pResponseStatus_ =
+mkStopEntitiesDetectionJobResponse pResponseStatus_ =
   StopEntitiesDetectionJobResponse'
-    { _srsJobId = Nothing,
-      _srsJobStatus = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the entities detection job to stop.
-srsJobId :: Lens' StopEntitiesDetectionJobResponse (Maybe Text)
-srsJobId = lens _srsJobId (\s a -> s {_srsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsJobId :: Lens.Lens' StopEntitiesDetectionJobResponse (Lude.Maybe Lude.Text)
+srsJobId = Lens.lens (jobId :: StopEntitiesDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StopEntitiesDetectionJobResponse)
+{-# DEPRECATED srsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopEntitiesDetectionJob@ operation.
-srsJobStatus :: Lens' StopEntitiesDetectionJobResponse (Maybe JobStatus)
-srsJobStatus = lens _srsJobStatus (\s a -> s {_srsJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsJobStatus :: Lens.Lens' StopEntitiesDetectionJobResponse (Lude.Maybe JobStatus)
+srsJobStatus = Lens.lens (jobStatus :: StopEntitiesDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StopEntitiesDetectionJobResponse)
+{-# DEPRECATED srsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StopEntitiesDetectionJobResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StopEntitiesDetectionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StopEntitiesDetectionJobResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopEntitiesDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopEntitiesDetectionJobResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

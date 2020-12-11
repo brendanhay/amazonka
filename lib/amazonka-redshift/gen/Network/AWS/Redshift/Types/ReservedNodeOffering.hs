@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,121 +7,155 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ReservedNodeOffering where
+module Network.AWS.Redshift.Types.ReservedNodeOffering
+  ( ReservedNodeOffering (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReservedNodeOffering,
+
+    -- * Lenses
+    rnoReservedNodeOfferingType,
+    rnoCurrencyCode,
+    rnoReservedNodeOfferingId,
+    rnoRecurringCharges,
+    rnoOfferingType,
+    rnoUsagePrice,
+    rnoNodeType,
+    rnoFixedPrice,
+    rnoDuration,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.RecurringCharge
 import Network.AWS.Redshift.Types.ReservedNodeOfferingType
 
 -- | Describes a reserved node offering.
 --
---
---
--- /See:/ 'reservedNodeOffering' smart constructor.
+-- /See:/ 'mkReservedNodeOffering' smart constructor.
 data ReservedNodeOffering = ReservedNodeOffering'
-  { _rnoReservedNodeOfferingType ::
-      !(Maybe ReservedNodeOfferingType),
-    _rnoCurrencyCode :: !(Maybe Text),
-    _rnoReservedNodeOfferingId :: !(Maybe Text),
-    _rnoRecurringCharges ::
-      !(Maybe [RecurringCharge]),
-    _rnoOfferingType :: !(Maybe Text),
-    _rnoUsagePrice :: !(Maybe Double),
-    _rnoNodeType :: !(Maybe Text),
-    _rnoFixedPrice :: !(Maybe Double),
-    _rnoDuration :: !(Maybe Int)
+  { reservedNodeOfferingType ::
+      Lude.Maybe ReservedNodeOfferingType,
+    currencyCode :: Lude.Maybe Lude.Text,
+    reservedNodeOfferingId :: Lude.Maybe Lude.Text,
+    recurringCharges :: Lude.Maybe [RecurringCharge],
+    offeringType :: Lude.Maybe Lude.Text,
+    usagePrice :: Lude.Maybe Lude.Double,
+    nodeType :: Lude.Maybe Lude.Text,
+    fixedPrice :: Lude.Maybe Lude.Double,
+    duration :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedNodeOffering' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rnoReservedNodeOfferingType' -
---
--- * 'rnoCurrencyCode' - The currency code for the compute nodes offering.
---
--- * 'rnoReservedNodeOfferingId' - The offering identifier.
---
--- * 'rnoRecurringCharges' - The charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes.
---
--- * 'rnoOfferingType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
---
--- * 'rnoUsagePrice' - The rate you are charged for each hour the cluster that is using the offering is running.
---
--- * 'rnoNodeType' - The node type offered by the reserved node offering.
---
--- * 'rnoFixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved node offering.
---
--- * 'rnoDuration' - The duration, in seconds, for which the offering will reserve the node.
-reservedNodeOffering ::
+-- * 'currencyCode' - The currency code for the compute nodes offering.
+-- * 'duration' - The duration, in seconds, for which the offering will reserve the node.
+-- * 'fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved node offering.
+-- * 'nodeType' - The node type offered by the reserved node offering.
+-- * 'offeringType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
+-- * 'recurringCharges' - The charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes.
+-- * 'reservedNodeOfferingId' - The offering identifier.
+-- * 'reservedNodeOfferingType' -
+-- * 'usagePrice' - The rate you are charged for each hour the cluster that is using the offering is running.
+mkReservedNodeOffering ::
   ReservedNodeOffering
-reservedNodeOffering =
+mkReservedNodeOffering =
   ReservedNodeOffering'
-    { _rnoReservedNodeOfferingType = Nothing,
-      _rnoCurrencyCode = Nothing,
-      _rnoReservedNodeOfferingId = Nothing,
-      _rnoRecurringCharges = Nothing,
-      _rnoOfferingType = Nothing,
-      _rnoUsagePrice = Nothing,
-      _rnoNodeType = Nothing,
-      _rnoFixedPrice = Nothing,
-      _rnoDuration = Nothing
+    { reservedNodeOfferingType = Lude.Nothing,
+      currencyCode = Lude.Nothing,
+      reservedNodeOfferingId = Lude.Nothing,
+      recurringCharges = Lude.Nothing,
+      offeringType = Lude.Nothing,
+      usagePrice = Lude.Nothing,
+      nodeType = Lude.Nothing,
+      fixedPrice = Lude.Nothing,
+      duration = Lude.Nothing
     }
 
 -- |
-rnoReservedNodeOfferingType :: Lens' ReservedNodeOffering (Maybe ReservedNodeOfferingType)
-rnoReservedNodeOfferingType = lens _rnoReservedNodeOfferingType (\s a -> s {_rnoReservedNodeOfferingType = a})
+--
+-- /Note:/ Consider using 'reservedNodeOfferingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnoReservedNodeOfferingType :: Lens.Lens' ReservedNodeOffering (Lude.Maybe ReservedNodeOfferingType)
+rnoReservedNodeOfferingType = Lens.lens (reservedNodeOfferingType :: ReservedNodeOffering -> Lude.Maybe ReservedNodeOfferingType) (\s a -> s {reservedNodeOfferingType = a} :: ReservedNodeOffering)
+{-# DEPRECATED rnoReservedNodeOfferingType "Use generic-lens or generic-optics with 'reservedNodeOfferingType' instead." #-}
 
 -- | The currency code for the compute nodes offering.
-rnoCurrencyCode :: Lens' ReservedNodeOffering (Maybe Text)
-rnoCurrencyCode = lens _rnoCurrencyCode (\s a -> s {_rnoCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnoCurrencyCode :: Lens.Lens' ReservedNodeOffering (Lude.Maybe Lude.Text)
+rnoCurrencyCode = Lens.lens (currencyCode :: ReservedNodeOffering -> Lude.Maybe Lude.Text) (\s a -> s {currencyCode = a} :: ReservedNodeOffering)
+{-# DEPRECATED rnoCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The offering identifier.
-rnoReservedNodeOfferingId :: Lens' ReservedNodeOffering (Maybe Text)
-rnoReservedNodeOfferingId = lens _rnoReservedNodeOfferingId (\s a -> s {_rnoReservedNodeOfferingId = a})
+--
+-- /Note:/ Consider using 'reservedNodeOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnoReservedNodeOfferingId :: Lens.Lens' ReservedNodeOffering (Lude.Maybe Lude.Text)
+rnoReservedNodeOfferingId = Lens.lens (reservedNodeOfferingId :: ReservedNodeOffering -> Lude.Maybe Lude.Text) (\s a -> s {reservedNodeOfferingId = a} :: ReservedNodeOffering)
+{-# DEPRECATED rnoReservedNodeOfferingId "Use generic-lens or generic-optics with 'reservedNodeOfferingId' instead." #-}
 
 -- | The charge to your account regardless of whether you are creating any clusters using the node offering. Recurring charges are only in effect for heavy-utilization reserved nodes.
-rnoRecurringCharges :: Lens' ReservedNodeOffering [RecurringCharge]
-rnoRecurringCharges = lens _rnoRecurringCharges (\s a -> s {_rnoRecurringCharges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'recurringCharges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnoRecurringCharges :: Lens.Lens' ReservedNodeOffering (Lude.Maybe [RecurringCharge])
+rnoRecurringCharges = Lens.lens (recurringCharges :: ReservedNodeOffering -> Lude.Maybe [RecurringCharge]) (\s a -> s {recurringCharges = a} :: ReservedNodeOffering)
+{-# DEPRECATED rnoRecurringCharges "Use generic-lens or generic-optics with 'recurringCharges' instead." #-}
 
 -- | The anticipated utilization of the reserved node, as defined in the reserved node offering.
-rnoOfferingType :: Lens' ReservedNodeOffering (Maybe Text)
-rnoOfferingType = lens _rnoOfferingType (\s a -> s {_rnoOfferingType = a})
+--
+-- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnoOfferingType :: Lens.Lens' ReservedNodeOffering (Lude.Maybe Lude.Text)
+rnoOfferingType = Lens.lens (offeringType :: ReservedNodeOffering -> Lude.Maybe Lude.Text) (\s a -> s {offeringType = a} :: ReservedNodeOffering)
+{-# DEPRECATED rnoOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
 
 -- | The rate you are charged for each hour the cluster that is using the offering is running.
-rnoUsagePrice :: Lens' ReservedNodeOffering (Maybe Double)
-rnoUsagePrice = lens _rnoUsagePrice (\s a -> s {_rnoUsagePrice = a})
+--
+-- /Note:/ Consider using 'usagePrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnoUsagePrice :: Lens.Lens' ReservedNodeOffering (Lude.Maybe Lude.Double)
+rnoUsagePrice = Lens.lens (usagePrice :: ReservedNodeOffering -> Lude.Maybe Lude.Double) (\s a -> s {usagePrice = a} :: ReservedNodeOffering)
+{-# DEPRECATED rnoUsagePrice "Use generic-lens or generic-optics with 'usagePrice' instead." #-}
 
 -- | The node type offered by the reserved node offering.
-rnoNodeType :: Lens' ReservedNodeOffering (Maybe Text)
-rnoNodeType = lens _rnoNodeType (\s a -> s {_rnoNodeType = a})
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnoNodeType :: Lens.Lens' ReservedNodeOffering (Lude.Maybe Lude.Text)
+rnoNodeType = Lens.lens (nodeType :: ReservedNodeOffering -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: ReservedNodeOffering)
+{-# DEPRECATED rnoNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
 -- | The upfront fixed charge you will pay to purchase the specific reserved node offering.
-rnoFixedPrice :: Lens' ReservedNodeOffering (Maybe Double)
-rnoFixedPrice = lens _rnoFixedPrice (\s a -> s {_rnoFixedPrice = a})
+--
+-- /Note:/ Consider using 'fixedPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnoFixedPrice :: Lens.Lens' ReservedNodeOffering (Lude.Maybe Lude.Double)
+rnoFixedPrice = Lens.lens (fixedPrice :: ReservedNodeOffering -> Lude.Maybe Lude.Double) (\s a -> s {fixedPrice = a} :: ReservedNodeOffering)
+{-# DEPRECATED rnoFixedPrice "Use generic-lens or generic-optics with 'fixedPrice' instead." #-}
 
 -- | The duration, in seconds, for which the offering will reserve the node.
-rnoDuration :: Lens' ReservedNodeOffering (Maybe Int)
-rnoDuration = lens _rnoDuration (\s a -> s {_rnoDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnoDuration :: Lens.Lens' ReservedNodeOffering (Lude.Maybe Lude.Int)
+rnoDuration = Lens.lens (duration :: ReservedNodeOffering -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: ReservedNodeOffering)
+{-# DEPRECATED rnoDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
-instance FromXML ReservedNodeOffering where
+instance Lude.FromXML ReservedNodeOffering where
   parseXML x =
     ReservedNodeOffering'
-      <$> (x .@? "ReservedNodeOfferingType")
-      <*> (x .@? "CurrencyCode")
-      <*> (x .@? "ReservedNodeOfferingId")
-      <*> ( x .@? "RecurringCharges" .!@ mempty
-              >>= may (parseXMLList "RecurringCharge")
-          )
-      <*> (x .@? "OfferingType")
-      <*> (x .@? "UsagePrice")
-      <*> (x .@? "NodeType")
-      <*> (x .@? "FixedPrice")
-      <*> (x .@? "Duration")
-
-instance Hashable ReservedNodeOffering
-
-instance NFData ReservedNodeOffering
+      Lude.<$> (x Lude..@? "ReservedNodeOfferingType")
+      Lude.<*> (x Lude..@? "CurrencyCode")
+      Lude.<*> (x Lude..@? "ReservedNodeOfferingId")
+      Lude.<*> ( x Lude..@? "RecurringCharges" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "RecurringCharge")
+               )
+      Lude.<*> (x Lude..@? "OfferingType")
+      Lude.<*> (x Lude..@? "UsagePrice")
+      Lude.<*> (x Lude..@? "NodeType")
+      Lude.<*> (x Lude..@? "FixedPrice")
+      Lude.<*> (x Lude..@? "Duration")

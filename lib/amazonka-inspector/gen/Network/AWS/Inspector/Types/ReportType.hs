@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.ReportType where
+module Network.AWS.Inspector.Types.ReportType
+  ( ReportType
+      ( ReportType',
+        Finding,
+        Full
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReportType
-  = Finding
-  | Full
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReportType = ReportType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReportType where
-  parser =
-    takeLowerText >>= \case
-      "finding" -> pure Finding
-      "full" -> pure Full
-      e ->
-        fromTextError $
-          "Failure parsing ReportType from value: '" <> e
-            <> "'. Accepted values: finding, full"
+pattern Finding :: ReportType
+pattern Finding = ReportType' "FINDING"
 
-instance ToText ReportType where
-  toText = \case
-    Finding -> "FINDING"
-    Full -> "FULL"
+pattern Full :: ReportType
+pattern Full = ReportType' "FULL"
 
-instance Hashable ReportType
-
-instance NFData ReportType
-
-instance ToByteString ReportType
-
-instance ToQuery ReportType
-
-instance ToHeader ReportType
-
-instance ToJSON ReportType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Finding,
+  Full,
+  ReportType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ComplianceSummaryByResourceType where
+module Network.AWS.Config.Types.ComplianceSummaryByResourceType
+  ( ComplianceSummaryByResourceType (..),
+
+    -- * Smart constructor
+    mkComplianceSummaryByResourceType,
+
+    -- * Lenses
+    csbrtResourceType,
+    csbrtComplianceSummary,
+  )
+where
 
 import Network.AWS.Config.Types.ComplianceSummary
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The number of AWS resources of a specific type that are compliant or noncompliant, up to a maximum of 100 for each.
 --
---
---
--- /See:/ 'complianceSummaryByResourceType' smart constructor.
+-- /See:/ 'mkComplianceSummaryByResourceType' smart constructor.
 data ComplianceSummaryByResourceType = ComplianceSummaryByResourceType'
-  { _csbrtResourceType ::
-      !(Maybe Text),
-    _csbrtComplianceSummary ::
-      !(Maybe ComplianceSummary)
+  { resourceType ::
+      Lude.Maybe Lude.Text,
+    complianceSummary ::
+      Lude.Maybe
+        ComplianceSummary
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceSummaryByResourceType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csbrtResourceType' - The type of AWS resource.
---
--- * 'csbrtComplianceSummary' - The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each.
-complianceSummaryByResourceType ::
+-- * 'complianceSummary' - The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each.
+-- * 'resourceType' - The type of AWS resource.
+mkComplianceSummaryByResourceType ::
   ComplianceSummaryByResourceType
-complianceSummaryByResourceType =
+mkComplianceSummaryByResourceType =
   ComplianceSummaryByResourceType'
-    { _csbrtResourceType = Nothing,
-      _csbrtComplianceSummary = Nothing
+    { resourceType = Lude.Nothing,
+      complianceSummary = Lude.Nothing
     }
 
 -- | The type of AWS resource.
-csbrtResourceType :: Lens' ComplianceSummaryByResourceType (Maybe Text)
-csbrtResourceType = lens _csbrtResourceType (\s a -> s {_csbrtResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csbrtResourceType :: Lens.Lens' ComplianceSummaryByResourceType (Lude.Maybe Lude.Text)
+csbrtResourceType = Lens.lens (resourceType :: ComplianceSummaryByResourceType -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ComplianceSummaryByResourceType)
+{-# DEPRECATED csbrtResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each.
-csbrtComplianceSummary :: Lens' ComplianceSummaryByResourceType (Maybe ComplianceSummary)
-csbrtComplianceSummary = lens _csbrtComplianceSummary (\s a -> s {_csbrtComplianceSummary = a})
+--
+-- /Note:/ Consider using 'complianceSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csbrtComplianceSummary :: Lens.Lens' ComplianceSummaryByResourceType (Lude.Maybe ComplianceSummary)
+csbrtComplianceSummary = Lens.lens (complianceSummary :: ComplianceSummaryByResourceType -> Lude.Maybe ComplianceSummary) (\s a -> s {complianceSummary = a} :: ComplianceSummaryByResourceType)
+{-# DEPRECATED csbrtComplianceSummary "Use generic-lens or generic-optics with 'complianceSummary' instead." #-}
 
-instance FromJSON ComplianceSummaryByResourceType where
+instance Lude.FromJSON ComplianceSummaryByResourceType where
   parseJSON =
-    withObject
+    Lude.withObject
       "ComplianceSummaryByResourceType"
       ( \x ->
           ComplianceSummaryByResourceType'
-            <$> (x .:? "ResourceType") <*> (x .:? "ComplianceSummary")
+            Lude.<$> (x Lude..:? "ResourceType")
+            Lude.<*> (x Lude..:? "ComplianceSummary")
       )
-
-instance Hashable ComplianceSummaryByResourceType
-
-instance NFData ComplianceSummaryByResourceType

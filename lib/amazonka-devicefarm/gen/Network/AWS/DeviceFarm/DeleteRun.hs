@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,108 +14,118 @@
 --
 -- Deletes the run, given the run ARN.
 --
---
 -- Deleting this resource does not stop an in-progress run.
 module Network.AWS.DeviceFarm.DeleteRun
-  ( -- * Creating a Request
-    deleteRun,
-    DeleteRun,
+  ( -- * Creating a request
+    DeleteRun (..),
+    mkDeleteRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drArn,
 
-    -- * Destructuring the Response
-    deleteRunResponse,
-    DeleteRunResponse,
+    -- * Destructuring the response
+    DeleteRunResponse (..),
+    mkDeleteRunResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the delete run operation.
 --
---
---
--- /See:/ 'deleteRun' smart constructor.
-newtype DeleteRun = DeleteRun' {_drArn :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteRun' smart constructor.
+newtype DeleteRun = DeleteRun' {arn :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drArn' - The Amazon Resource Name (ARN) for the run to delete.
-deleteRun ::
-  -- | 'drArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) for the run to delete.
+mkDeleteRun ::
+  -- | 'arn'
+  Lude.Text ->
   DeleteRun
-deleteRun pArn_ = DeleteRun' {_drArn = pArn_}
+mkDeleteRun pArn_ = DeleteRun' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) for the run to delete.
-drArn :: Lens' DeleteRun Text
-drArn = lens _drArn (\s a -> s {_drArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drArn :: Lens.Lens' DeleteRun Lude.Text
+drArn = Lens.lens (arn :: DeleteRun -> Lude.Text) (\s a -> s {arn = a} :: DeleteRun)
+{-# DEPRECATED drArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest DeleteRun where
+instance Lude.AWSRequest DeleteRun where
   type Rs DeleteRun = DeleteRunResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveEmpty
-      (\s h x -> DeleteRunResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteRunResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteRun
-
-instance NFData DeleteRun
-
-instance ToHeaders DeleteRun where
+instance Lude.ToHeaders DeleteRun where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DeviceFarm_20150623.DeleteRun" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DeviceFarm_20150623.DeleteRun" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRun where
-  toJSON DeleteRun' {..} = object (catMaybes [Just ("arn" .= _drArn)])
+instance Lude.ToJSON DeleteRun where
+  toJSON DeleteRun' {..} =
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath DeleteRun where
-  toPath = const "/"
+instance Lude.ToPath DeleteRun where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRun where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRun where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a delete run request.
 --
---
---
--- /See:/ 'deleteRunResponse' smart constructor.
+-- /See:/ 'mkDeleteRunResponse' smart constructor.
 newtype DeleteRunResponse = DeleteRunResponse'
-  { _drrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRunResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsResponseStatus' - -- | The response status code.
-deleteRunResponse ::
-  -- | 'drrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteRunResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRunResponse
-deleteRunResponse pResponseStatus_ =
-  DeleteRunResponse' {_drrsResponseStatus = pResponseStatus_}
+mkDeleteRunResponse pResponseStatus_ =
+  DeleteRunResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DeleteRunResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\s a -> s {_drrsResponseStatus = a})
-
-instance NFData DeleteRunResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResponseStatus :: Lens.Lens' DeleteRunResponse Lude.Int
+drrsResponseStatus = Lens.lens (responseStatus :: DeleteRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRunResponse)
+{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.UtteranceData where
+module Network.AWS.LexModels.Types.UtteranceData
+  ( UtteranceData (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUtteranceData,
+
+    -- * Lenses
+    udFirstUtteredDate,
+    udCount,
+    udUtteranceString,
+    udLastUtteredDate,
+    udDistinctUsers,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about a single utterance that was made to your bot.
 --
---
---
--- /See:/ 'utteranceData' smart constructor.
+-- /See:/ 'mkUtteranceData' smart constructor.
 data UtteranceData = UtteranceData'
-  { _udFirstUtteredDate ::
-      !(Maybe POSIX),
-    _udCount :: !(Maybe Int),
-    _udUtteranceString :: !(Maybe Text),
-    _udLastUtteredDate :: !(Maybe POSIX),
-    _udDistinctUsers :: !(Maybe Int)
+  { firstUtteredDate ::
+      Lude.Maybe Lude.Timestamp,
+    count :: Lude.Maybe Lude.Int,
+    utteranceString :: Lude.Maybe Lude.Text,
+    lastUtteredDate :: Lude.Maybe Lude.Timestamp,
+    distinctUsers :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UtteranceData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udFirstUtteredDate' - The date that the utterance was first recorded.
---
--- * 'udCount' - The number of times that the utterance was processed.
---
--- * 'udUtteranceString' - The text that was entered by the user or the text representation of an audio clip.
---
--- * 'udLastUtteredDate' - The date that the utterance was last recorded.
---
--- * 'udDistinctUsers' - The total number of individuals that used the utterance.
-utteranceData ::
+-- * 'count' - The number of times that the utterance was processed.
+-- * 'distinctUsers' - The total number of individuals that used the utterance.
+-- * 'firstUtteredDate' - The date that the utterance was first recorded.
+-- * 'lastUtteredDate' - The date that the utterance was last recorded.
+-- * 'utteranceString' - The text that was entered by the user or the text representation of an audio clip.
+mkUtteranceData ::
   UtteranceData
-utteranceData =
+mkUtteranceData =
   UtteranceData'
-    { _udFirstUtteredDate = Nothing,
-      _udCount = Nothing,
-      _udUtteranceString = Nothing,
-      _udLastUtteredDate = Nothing,
-      _udDistinctUsers = Nothing
+    { firstUtteredDate = Lude.Nothing,
+      count = Lude.Nothing,
+      utteranceString = Lude.Nothing,
+      lastUtteredDate = Lude.Nothing,
+      distinctUsers = Lude.Nothing
     }
 
 -- | The date that the utterance was first recorded.
-udFirstUtteredDate :: Lens' UtteranceData (Maybe UTCTime)
-udFirstUtteredDate = lens _udFirstUtteredDate (\s a -> s {_udFirstUtteredDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'firstUtteredDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udFirstUtteredDate :: Lens.Lens' UtteranceData (Lude.Maybe Lude.Timestamp)
+udFirstUtteredDate = Lens.lens (firstUtteredDate :: UtteranceData -> Lude.Maybe Lude.Timestamp) (\s a -> s {firstUtteredDate = a} :: UtteranceData)
+{-# DEPRECATED udFirstUtteredDate "Use generic-lens or generic-optics with 'firstUtteredDate' instead." #-}
 
 -- | The number of times that the utterance was processed.
-udCount :: Lens' UtteranceData (Maybe Int)
-udCount = lens _udCount (\s a -> s {_udCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udCount :: Lens.Lens' UtteranceData (Lude.Maybe Lude.Int)
+udCount = Lens.lens (count :: UtteranceData -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: UtteranceData)
+{-# DEPRECATED udCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The text that was entered by the user or the text representation of an audio clip.
-udUtteranceString :: Lens' UtteranceData (Maybe Text)
-udUtteranceString = lens _udUtteranceString (\s a -> s {_udUtteranceString = a})
+--
+-- /Note:/ Consider using 'utteranceString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udUtteranceString :: Lens.Lens' UtteranceData (Lude.Maybe Lude.Text)
+udUtteranceString = Lens.lens (utteranceString :: UtteranceData -> Lude.Maybe Lude.Text) (\s a -> s {utteranceString = a} :: UtteranceData)
+{-# DEPRECATED udUtteranceString "Use generic-lens or generic-optics with 'utteranceString' instead." #-}
 
 -- | The date that the utterance was last recorded.
-udLastUtteredDate :: Lens' UtteranceData (Maybe UTCTime)
-udLastUtteredDate = lens _udLastUtteredDate (\s a -> s {_udLastUtteredDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUtteredDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udLastUtteredDate :: Lens.Lens' UtteranceData (Lude.Maybe Lude.Timestamp)
+udLastUtteredDate = Lens.lens (lastUtteredDate :: UtteranceData -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUtteredDate = a} :: UtteranceData)
+{-# DEPRECATED udLastUtteredDate "Use generic-lens or generic-optics with 'lastUtteredDate' instead." #-}
 
 -- | The total number of individuals that used the utterance.
-udDistinctUsers :: Lens' UtteranceData (Maybe Int)
-udDistinctUsers = lens _udDistinctUsers (\s a -> s {_udDistinctUsers = a})
+--
+-- /Note:/ Consider using 'distinctUsers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDistinctUsers :: Lens.Lens' UtteranceData (Lude.Maybe Lude.Int)
+udDistinctUsers = Lens.lens (distinctUsers :: UtteranceData -> Lude.Maybe Lude.Int) (\s a -> s {distinctUsers = a} :: UtteranceData)
+{-# DEPRECATED udDistinctUsers "Use generic-lens or generic-optics with 'distinctUsers' instead." #-}
 
-instance FromJSON UtteranceData where
+instance Lude.FromJSON UtteranceData where
   parseJSON =
-    withObject
+    Lude.withObject
       "UtteranceData"
       ( \x ->
           UtteranceData'
-            <$> (x .:? "firstUtteredDate")
-            <*> (x .:? "count")
-            <*> (x .:? "utteranceString")
-            <*> (x .:? "lastUtteredDate")
-            <*> (x .:? "distinctUsers")
+            Lude.<$> (x Lude..:? "firstUtteredDate")
+            Lude.<*> (x Lude..:? "count")
+            Lude.<*> (x Lude..:? "utteranceString")
+            Lude.<*> (x Lude..:? "lastUtteredDate")
+            Lude.<*> (x Lude..:? "distinctUsers")
       )
-
-instance Hashable UtteranceData
-
-instance NFData UtteranceData

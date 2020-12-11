@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,154 +7,201 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.RAIdArray where
+module Network.AWS.OpsWorks.Types.RAIdArray
+  ( RAIDArray (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRAIDArray,
+
+    -- * Lenses
+    raiaInstanceId,
+    raiaSize,
+    raiaIOPS,
+    raiaCreatedAt,
+    raiaRAIDLevel,
+    raiaDevice,
+    raiaNumberOfDisks,
+    raiaAvailabilityZone,
+    raiaName,
+    raiaRAIDArrayId,
+    raiaVolumeType,
+    raiaStackId,
+    raiaMountPoint,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an instance's RAID array.
 --
---
---
--- /See:/ 'rAIdArray' smart constructor.
-data RAIdArray = RAIdArray'
-  { _raiaInstanceId :: !(Maybe Text),
-    _raiaSize :: !(Maybe Int),
-    _raiaIOPS :: !(Maybe Int),
-    _raiaCreatedAt :: !(Maybe Text),
-    _raiaRAIdLevel :: !(Maybe Int),
-    _raiaDevice :: !(Maybe Text),
-    _raiaNumberOfDisks :: !(Maybe Int),
-    _raiaAvailabilityZone :: !(Maybe Text),
-    _raiaName :: !(Maybe Text),
-    _raiaRAIdArrayId :: !(Maybe Text),
-    _raiaVolumeType :: !(Maybe Text),
-    _raiaStackId :: !(Maybe Text),
-    _raiaMountPoint :: !(Maybe Text)
+-- /See:/ 'mkRAIDArray' smart constructor.
+data RAIDArray = RAIDArray'
+  { instanceId :: Lude.Maybe Lude.Text,
+    size :: Lude.Maybe Lude.Int,
+    iops :: Lude.Maybe Lude.Int,
+    createdAt :: Lude.Maybe Lude.Text,
+    raidLevel :: Lude.Maybe Lude.Int,
+    device :: Lude.Maybe Lude.Text,
+    numberOfDisks :: Lude.Maybe Lude.Int,
+    availabilityZone :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    raidArrayId :: Lude.Maybe Lude.Text,
+    volumeType :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Maybe Lude.Text,
+    mountPoint :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
--- | Creates a value of 'RAIdArray' with the minimum fields required to make a request.
+-- | Creates a value of 'RAIDArray' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'raiaInstanceId' - The instance ID.
---
--- * 'raiaSize' - The array's size.
---
--- * 'raiaIOPS' - For PIOPS volumes, the IOPS per disk.
---
--- * 'raiaCreatedAt' - When the RAID array was created.
---
--- * 'raiaRAIdLevel' - The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
---
--- * 'raiaDevice' - The array's Linux device. For example /dev/mdadm0.
---
--- * 'raiaNumberOfDisks' - The number of disks in the array.
---
--- * 'raiaAvailabilityZone' - The array's Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
---
--- * 'raiaName' - The array name.
---
--- * 'raiaRAIdArrayId' - The array ID.
---
--- * 'raiaVolumeType' - The volume type, standard or PIOPS.
---
--- * 'raiaStackId' - The stack ID.
---
--- * 'raiaMountPoint' - The array's mount point.
-rAIdArray ::
-  RAIdArray
-rAIdArray =
-  RAIdArray'
-    { _raiaInstanceId = Nothing,
-      _raiaSize = Nothing,
-      _raiaIOPS = Nothing,
-      _raiaCreatedAt = Nothing,
-      _raiaRAIdLevel = Nothing,
-      _raiaDevice = Nothing,
-      _raiaNumberOfDisks = Nothing,
-      _raiaAvailabilityZone = Nothing,
-      _raiaName = Nothing,
-      _raiaRAIdArrayId = Nothing,
-      _raiaVolumeType = Nothing,
-      _raiaStackId = Nothing,
-      _raiaMountPoint = Nothing
+-- * 'availabilityZone' - The array's Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+-- * 'createdAt' - When the RAID array was created.
+-- * 'device' - The array's Linux device. For example /dev/mdadm0.
+-- * 'instanceId' - The instance ID.
+-- * 'iops' - For PIOPS volumes, the IOPS per disk.
+-- * 'mountPoint' - The array's mount point.
+-- * 'name' - The array name.
+-- * 'numberOfDisks' - The number of disks in the array.
+-- * 'raidArrayId' - The array ID.
+-- * 'raidLevel' - The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
+-- * 'size' - The array's size.
+-- * 'stackId' - The stack ID.
+-- * 'volumeType' - The volume type, standard or PIOPS.
+mkRAIDArray ::
+  RAIDArray
+mkRAIDArray =
+  RAIDArray'
+    { instanceId = Lude.Nothing,
+      size = Lude.Nothing,
+      iops = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      raidLevel = Lude.Nothing,
+      device = Lude.Nothing,
+      numberOfDisks = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      name = Lude.Nothing,
+      raidArrayId = Lude.Nothing,
+      volumeType = Lude.Nothing,
+      stackId = Lude.Nothing,
+      mountPoint = Lude.Nothing
     }
 
 -- | The instance ID.
-raiaInstanceId :: Lens' RAIdArray (Maybe Text)
-raiaInstanceId = lens _raiaInstanceId (\s a -> s {_raiaInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaInstanceId :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Text)
+raiaInstanceId = Lens.lens (instanceId :: RAIDArray -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: RAIDArray)
+{-# DEPRECATED raiaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The array's size.
-raiaSize :: Lens' RAIdArray (Maybe Int)
-raiaSize = lens _raiaSize (\s a -> s {_raiaSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaSize :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Int)
+raiaSize = Lens.lens (size :: RAIDArray -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: RAIDArray)
+{-# DEPRECATED raiaSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | For PIOPS volumes, the IOPS per disk.
-raiaIOPS :: Lens' RAIdArray (Maybe Int)
-raiaIOPS = lens _raiaIOPS (\s a -> s {_raiaIOPS = a})
+--
+-- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaIOPS :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Int)
+raiaIOPS = Lens.lens (iops :: RAIDArray -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: RAIDArray)
+{-# DEPRECATED raiaIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
 
 -- | When the RAID array was created.
-raiaCreatedAt :: Lens' RAIdArray (Maybe Text)
-raiaCreatedAt = lens _raiaCreatedAt (\s a -> s {_raiaCreatedAt = a})
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaCreatedAt :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Text)
+raiaCreatedAt = Lens.lens (createdAt :: RAIDArray -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: RAIDArray)
+{-# DEPRECATED raiaCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
-raiaRAIdLevel :: Lens' RAIdArray (Maybe Int)
-raiaRAIdLevel = lens _raiaRAIdLevel (\s a -> s {_raiaRAIdLevel = a})
+--
+-- /Note:/ Consider using 'raidLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaRAIDLevel :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Int)
+raiaRAIDLevel = Lens.lens (raidLevel :: RAIDArray -> Lude.Maybe Lude.Int) (\s a -> s {raidLevel = a} :: RAIDArray)
+{-# DEPRECATED raiaRAIDLevel "Use generic-lens or generic-optics with 'raidLevel' instead." #-}
 
 -- | The array's Linux device. For example /dev/mdadm0.
-raiaDevice :: Lens' RAIdArray (Maybe Text)
-raiaDevice = lens _raiaDevice (\s a -> s {_raiaDevice = a})
+--
+-- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaDevice :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Text)
+raiaDevice = Lens.lens (device :: RAIDArray -> Lude.Maybe Lude.Text) (\s a -> s {device = a} :: RAIDArray)
+{-# DEPRECATED raiaDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | The number of disks in the array.
-raiaNumberOfDisks :: Lens' RAIdArray (Maybe Int)
-raiaNumberOfDisks = lens _raiaNumberOfDisks (\s a -> s {_raiaNumberOfDisks = a})
+--
+-- /Note:/ Consider using 'numberOfDisks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaNumberOfDisks :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Int)
+raiaNumberOfDisks = Lens.lens (numberOfDisks :: RAIDArray -> Lude.Maybe Lude.Int) (\s a -> s {numberOfDisks = a} :: RAIDArray)
+{-# DEPRECATED raiaNumberOfDisks "Use generic-lens or generic-optics with 'numberOfDisks' instead." #-}
 
 -- | The array's Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
-raiaAvailabilityZone :: Lens' RAIdArray (Maybe Text)
-raiaAvailabilityZone = lens _raiaAvailabilityZone (\s a -> s {_raiaAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaAvailabilityZone :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Text)
+raiaAvailabilityZone = Lens.lens (availabilityZone :: RAIDArray -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: RAIDArray)
+{-# DEPRECATED raiaAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The array name.
-raiaName :: Lens' RAIdArray (Maybe Text)
-raiaName = lens _raiaName (\s a -> s {_raiaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaName :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Text)
+raiaName = Lens.lens (name :: RAIDArray -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RAIDArray)
+{-# DEPRECATED raiaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The array ID.
-raiaRAIdArrayId :: Lens' RAIdArray (Maybe Text)
-raiaRAIdArrayId = lens _raiaRAIdArrayId (\s a -> s {_raiaRAIdArrayId = a})
+--
+-- /Note:/ Consider using 'raidArrayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaRAIDArrayId :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Text)
+raiaRAIDArrayId = Lens.lens (raidArrayId :: RAIDArray -> Lude.Maybe Lude.Text) (\s a -> s {raidArrayId = a} :: RAIDArray)
+{-# DEPRECATED raiaRAIDArrayId "Use generic-lens or generic-optics with 'raidArrayId' instead." #-}
 
 -- | The volume type, standard or PIOPS.
-raiaVolumeType :: Lens' RAIdArray (Maybe Text)
-raiaVolumeType = lens _raiaVolumeType (\s a -> s {_raiaVolumeType = a})
+--
+-- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaVolumeType :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Text)
+raiaVolumeType = Lens.lens (volumeType :: RAIDArray -> Lude.Maybe Lude.Text) (\s a -> s {volumeType = a} :: RAIDArray)
+{-# DEPRECATED raiaVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
 -- | The stack ID.
-raiaStackId :: Lens' RAIdArray (Maybe Text)
-raiaStackId = lens _raiaStackId (\s a -> s {_raiaStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaStackId :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Text)
+raiaStackId = Lens.lens (stackId :: RAIDArray -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: RAIDArray)
+{-# DEPRECATED raiaStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The array's mount point.
-raiaMountPoint :: Lens' RAIdArray (Maybe Text)
-raiaMountPoint = lens _raiaMountPoint (\s a -> s {_raiaMountPoint = a})
+--
+-- /Note:/ Consider using 'mountPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raiaMountPoint :: Lens.Lens' RAIDArray (Lude.Maybe Lude.Text)
+raiaMountPoint = Lens.lens (mountPoint :: RAIDArray -> Lude.Maybe Lude.Text) (\s a -> s {mountPoint = a} :: RAIDArray)
+{-# DEPRECATED raiaMountPoint "Use generic-lens or generic-optics with 'mountPoint' instead." #-}
 
-instance FromJSON RAIdArray where
+instance Lude.FromJSON RAIDArray where
   parseJSON =
-    withObject
-      "RAIdArray"
+    Lude.withObject
+      "RAIDArray"
       ( \x ->
-          RAIdArray'
-            <$> (x .:? "InstanceId")
-            <*> (x .:? "Size")
-            <*> (x .:? "Iops")
-            <*> (x .:? "CreatedAt")
-            <*> (x .:? "RaidLevel")
-            <*> (x .:? "Device")
-            <*> (x .:? "NumberOfDisks")
-            <*> (x .:? "AvailabilityZone")
-            <*> (x .:? "Name")
-            <*> (x .:? "RaidArrayId")
-            <*> (x .:? "VolumeType")
-            <*> (x .:? "StackId")
-            <*> (x .:? "MountPoint")
+          RAIDArray'
+            Lude.<$> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "Size")
+            Lude.<*> (x Lude..:? "Iops")
+            Lude.<*> (x Lude..:? "CreatedAt")
+            Lude.<*> (x Lude..:? "RaidLevel")
+            Lude.<*> (x Lude..:? "Device")
+            Lude.<*> (x Lude..:? "NumberOfDisks")
+            Lude.<*> (x Lude..:? "AvailabilityZone")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "RaidArrayId")
+            Lude.<*> (x Lude..:? "VolumeType")
+            Lude.<*> (x Lude..:? "StackId")
+            Lude.<*> (x Lude..:? "MountPoint")
       )
-
-instance Hashable RAIdArray
-
-instance NFData RAIdArray

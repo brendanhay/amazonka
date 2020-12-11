@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.TargetType where
+module Network.AWS.DirectoryService.Types.TargetType
+  ( TargetType
+      ( TargetType',
+        Account
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TargetType = Account
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TargetType = TargetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TargetType where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure Account
-      e ->
-        fromTextError $
-          "Failure parsing TargetType from value: '" <> e
-            <> "'. Accepted values: account"
+pattern Account :: TargetType
+pattern Account = TargetType' "ACCOUNT"
 
-instance ToText TargetType where
-  toText = \case
-    Account -> "ACCOUNT"
-
-instance Hashable TargetType
-
-instance NFData TargetType
-
-instance ToByteString TargetType
-
-instance ToQuery TargetType
-
-instance ToHeader TargetType
-
-instance ToJSON TargetType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Account,
+  TargetType'
+  #-}

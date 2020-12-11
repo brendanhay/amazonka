@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,133 @@
 --
 -- Updates a device definition.
 module Network.AWS.Greengrass.UpdateDeviceDefinition
-  ( -- * Creating a Request
-    updateDeviceDefinition,
-    UpdateDeviceDefinition,
+  ( -- * Creating a request
+    UpdateDeviceDefinition (..),
+    mkUpdateDeviceDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uddName,
     uddDeviceDefinitionId,
 
-    -- * Destructuring the Response
-    updateDeviceDefinitionResponse,
-    UpdateDeviceDefinitionResponse,
+    -- * Destructuring the response
+    UpdateDeviceDefinitionResponse (..),
+    mkUpdateDeviceDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uddrsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDeviceDefinition' smart constructor.
+-- | /See:/ 'mkUpdateDeviceDefinition' smart constructor.
 data UpdateDeviceDefinition = UpdateDeviceDefinition'
-  { _uddName ::
-      !(Maybe Text),
-    _uddDeviceDefinitionId :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    deviceDefinitionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeviceDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uddName' - The name of the definition.
---
--- * 'uddDeviceDefinitionId' - The ID of the device definition.
-updateDeviceDefinition ::
-  -- | 'uddDeviceDefinitionId'
-  Text ->
+-- * 'deviceDefinitionId' - The ID of the device definition.
+-- * 'name' - The name of the definition.
+mkUpdateDeviceDefinition ::
+  -- | 'deviceDefinitionId'
+  Lude.Text ->
   UpdateDeviceDefinition
-updateDeviceDefinition pDeviceDefinitionId_ =
+mkUpdateDeviceDefinition pDeviceDefinitionId_ =
   UpdateDeviceDefinition'
-    { _uddName = Nothing,
-      _uddDeviceDefinitionId = pDeviceDefinitionId_
+    { name = Lude.Nothing,
+      deviceDefinitionId = pDeviceDefinitionId_
     }
 
 -- | The name of the definition.
-uddName :: Lens' UpdateDeviceDefinition (Maybe Text)
-uddName = lens _uddName (\s a -> s {_uddName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uddName :: Lens.Lens' UpdateDeviceDefinition (Lude.Maybe Lude.Text)
+uddName = Lens.lens (name :: UpdateDeviceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateDeviceDefinition)
+{-# DEPRECATED uddName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the device definition.
-uddDeviceDefinitionId :: Lens' UpdateDeviceDefinition Text
-uddDeviceDefinitionId = lens _uddDeviceDefinitionId (\s a -> s {_uddDeviceDefinitionId = a})
+--
+-- /Note:/ Consider using 'deviceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uddDeviceDefinitionId :: Lens.Lens' UpdateDeviceDefinition Lude.Text
+uddDeviceDefinitionId = Lens.lens (deviceDefinitionId :: UpdateDeviceDefinition -> Lude.Text) (\s a -> s {deviceDefinitionId = a} :: UpdateDeviceDefinition)
+{-# DEPRECATED uddDeviceDefinitionId "Use generic-lens or generic-optics with 'deviceDefinitionId' instead." #-}
 
-instance AWSRequest UpdateDeviceDefinition where
+instance Lude.AWSRequest UpdateDeviceDefinition where
   type Rs UpdateDeviceDefinition = UpdateDeviceDefinitionResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateDeviceDefinitionResponse' <$> (pure (fromEnum s))
+          UpdateDeviceDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateDeviceDefinition
-
-instance NFData UpdateDeviceDefinition
-
-instance ToHeaders UpdateDeviceDefinition where
+instance Lude.ToHeaders UpdateDeviceDefinition where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateDeviceDefinition where
+instance Lude.ToJSON UpdateDeviceDefinition where
   toJSON UpdateDeviceDefinition' {..} =
-    object (catMaybes [("Name" .=) <$> _uddName])
+    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
 
-instance ToPath UpdateDeviceDefinition where
+instance Lude.ToPath UpdateDeviceDefinition where
   toPath UpdateDeviceDefinition' {..} =
-    mconcat
-      ["/greengrass/definition/devices/", toBS _uddDeviceDefinitionId]
+    Lude.mconcat
+      ["/greengrass/definition/devices/", Lude.toBS deviceDefinitionId]
 
-instance ToQuery UpdateDeviceDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDeviceDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDeviceDefinitionResponse' smart constructor.
+-- | /See:/ 'mkUpdateDeviceDefinitionResponse' smart constructor.
 newtype UpdateDeviceDefinitionResponse = UpdateDeviceDefinitionResponse'
-  { _uddrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeviceDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uddrsResponseStatus' - -- | The response status code.
-updateDeviceDefinitionResponse ::
-  -- | 'uddrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateDeviceDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDeviceDefinitionResponse
-updateDeviceDefinitionResponse pResponseStatus_ =
+mkUpdateDeviceDefinitionResponse pResponseStatus_ =
   UpdateDeviceDefinitionResponse'
-    { _uddrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-uddrsResponseStatus :: Lens' UpdateDeviceDefinitionResponse Int
-uddrsResponseStatus = lens _uddrsResponseStatus (\s a -> s {_uddrsResponseStatus = a})
-
-instance NFData UpdateDeviceDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uddrsResponseStatus :: Lens.Lens' UpdateDeviceDefinitionResponse Lude.Int
+uddrsResponseStatus = Lens.lens (responseStatus :: UpdateDeviceDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDeviceDefinitionResponse)
+{-# DEPRECATED uddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

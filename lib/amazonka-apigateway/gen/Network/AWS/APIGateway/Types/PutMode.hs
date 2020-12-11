@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.PutMode where
+module Network.AWS.APIGateway.Types.PutMode
+  ( PutMode
+      ( PutMode',
+        Merge,
+        Overwrite
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PutMode
-  = Merge
-  | Overwrite
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PutMode = PutMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PutMode where
-  parser =
-    takeLowerText >>= \case
-      "merge" -> pure Merge
-      "overwrite" -> pure Overwrite
-      e ->
-        fromTextError $
-          "Failure parsing PutMode from value: '" <> e
-            <> "'. Accepted values: merge, overwrite"
+pattern Merge :: PutMode
+pattern Merge = PutMode' "merge"
 
-instance ToText PutMode where
-  toText = \case
-    Merge -> "merge"
-    Overwrite -> "overwrite"
+pattern Overwrite :: PutMode
+pattern Overwrite = PutMode' "overwrite"
 
-instance Hashable PutMode
-
-instance NFData PutMode
-
-instance ToByteString PutMode
-
-instance ToQuery PutMode
-
-instance ToHeader PutMode
-
-instance ToJSON PutMode where
-  toJSON = toJSONText
+{-# COMPLETE
+  Merge,
+  Overwrite,
+  PutMode'
+  #-}

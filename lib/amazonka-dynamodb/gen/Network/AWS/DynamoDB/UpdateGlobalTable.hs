@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,159 @@
 --
 -- Adds or removes replicas in the specified global table. The global table must already exist to be able to use this operation. Any replica to be added must be empty, have the same name as the global table, have the same key schema, have DynamoDB Streams enabled, and have the same provisioned and maximum write capacity units.
 --
---
 -- If global secondary indexes are specified, then the following conditions must also be met:
 --
 --     * The global secondary indexes must have the same name.
 --
+--
 --     * The global secondary indexes must have the same hash key and sort key (if present).
+--
 --
 --     * The global secondary indexes must have the same provisioned and maximum write capacity units.
 module Network.AWS.DynamoDB.UpdateGlobalTable
-  ( -- * Creating a Request
-    updateGlobalTable,
-    UpdateGlobalTable,
+  ( -- * Creating a request
+    UpdateGlobalTable (..),
+    mkUpdateGlobalTable,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugtGlobalTableName,
     ugtReplicaUpdates,
 
-    -- * Destructuring the Response
-    updateGlobalTableResponse,
-    UpdateGlobalTableResponse,
+    -- * Destructuring the response
+    UpdateGlobalTableResponse (..),
+    mkUpdateGlobalTableResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugtrsGlobalTableDescription,
     ugtrsResponseStatus,
   )
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateGlobalTable' smart constructor.
+-- | /See:/ 'mkUpdateGlobalTable' smart constructor.
 data UpdateGlobalTable = UpdateGlobalTable'
-  { _ugtGlobalTableName ::
-      !Text,
-    _ugtReplicaUpdates :: ![ReplicaUpdate]
+  { globalTableName ::
+      Lude.Text,
+    replicaUpdates :: [ReplicaUpdate]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGlobalTable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugtGlobalTableName' - The global table name.
---
--- * 'ugtReplicaUpdates' - A list of Regions that should be added or removed from the global table.
-updateGlobalTable ::
-  -- | 'ugtGlobalTableName'
-  Text ->
+-- * 'globalTableName' - The global table name.
+-- * 'replicaUpdates' - A list of Regions that should be added or removed from the global table.
+mkUpdateGlobalTable ::
+  -- | 'globalTableName'
+  Lude.Text ->
   UpdateGlobalTable
-updateGlobalTable pGlobalTableName_ =
+mkUpdateGlobalTable pGlobalTableName_ =
   UpdateGlobalTable'
-    { _ugtGlobalTableName = pGlobalTableName_,
-      _ugtReplicaUpdates = mempty
+    { globalTableName = pGlobalTableName_,
+      replicaUpdates = Lude.mempty
     }
 
 -- | The global table name.
-ugtGlobalTableName :: Lens' UpdateGlobalTable Text
-ugtGlobalTableName = lens _ugtGlobalTableName (\s a -> s {_ugtGlobalTableName = a})
+--
+-- /Note:/ Consider using 'globalTableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtGlobalTableName :: Lens.Lens' UpdateGlobalTable Lude.Text
+ugtGlobalTableName = Lens.lens (globalTableName :: UpdateGlobalTable -> Lude.Text) (\s a -> s {globalTableName = a} :: UpdateGlobalTable)
+{-# DEPRECATED ugtGlobalTableName "Use generic-lens or generic-optics with 'globalTableName' instead." #-}
 
 -- | A list of Regions that should be added or removed from the global table.
-ugtReplicaUpdates :: Lens' UpdateGlobalTable [ReplicaUpdate]
-ugtReplicaUpdates = lens _ugtReplicaUpdates (\s a -> s {_ugtReplicaUpdates = a}) . _Coerce
+--
+-- /Note:/ Consider using 'replicaUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtReplicaUpdates :: Lens.Lens' UpdateGlobalTable [ReplicaUpdate]
+ugtReplicaUpdates = Lens.lens (replicaUpdates :: UpdateGlobalTable -> [ReplicaUpdate]) (\s a -> s {replicaUpdates = a} :: UpdateGlobalTable)
+{-# DEPRECATED ugtReplicaUpdates "Use generic-lens or generic-optics with 'replicaUpdates' instead." #-}
 
-instance AWSRequest UpdateGlobalTable where
+instance Lude.AWSRequest UpdateGlobalTable where
   type Rs UpdateGlobalTable = UpdateGlobalTableResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateGlobalTableResponse'
-            <$> (x .?> "GlobalTableDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GlobalTableDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateGlobalTable
-
-instance NFData UpdateGlobalTable
-
-instance ToHeaders UpdateGlobalTable where
+instance Lude.ToHeaders UpdateGlobalTable where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.UpdateGlobalTable" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.UpdateGlobalTable" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateGlobalTable where
+instance Lude.ToJSON UpdateGlobalTable where
   toJSON UpdateGlobalTable' {..} =
-    object
-      ( catMaybes
-          [ Just ("GlobalTableName" .= _ugtGlobalTableName),
-            Just ("ReplicaUpdates" .= _ugtReplicaUpdates)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GlobalTableName" Lude..= globalTableName),
+            Lude.Just ("ReplicaUpdates" Lude..= replicaUpdates)
           ]
       )
 
-instance ToPath UpdateGlobalTable where
-  toPath = const "/"
+instance Lude.ToPath UpdateGlobalTable where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateGlobalTable where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGlobalTable where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateGlobalTableResponse' smart constructor.
+-- | /See:/ 'mkUpdateGlobalTableResponse' smart constructor.
 data UpdateGlobalTableResponse = UpdateGlobalTableResponse'
-  { _ugtrsGlobalTableDescription ::
-      !(Maybe GlobalTableDescription),
-    _ugtrsResponseStatus :: !Int
+  { globalTableDescription ::
+      Lude.Maybe GlobalTableDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGlobalTableResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugtrsGlobalTableDescription' - Contains the details of the global table.
---
--- * 'ugtrsResponseStatus' - -- | The response status code.
-updateGlobalTableResponse ::
-  -- | 'ugtrsResponseStatus'
-  Int ->
+-- * 'globalTableDescription' - Contains the details of the global table.
+-- * 'responseStatus' - The response status code.
+mkUpdateGlobalTableResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGlobalTableResponse
-updateGlobalTableResponse pResponseStatus_ =
+mkUpdateGlobalTableResponse pResponseStatus_ =
   UpdateGlobalTableResponse'
-    { _ugtrsGlobalTableDescription =
-        Nothing,
-      _ugtrsResponseStatus = pResponseStatus_
+    { globalTableDescription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Contains the details of the global table.
-ugtrsGlobalTableDescription :: Lens' UpdateGlobalTableResponse (Maybe GlobalTableDescription)
-ugtrsGlobalTableDescription = lens _ugtrsGlobalTableDescription (\s a -> s {_ugtrsGlobalTableDescription = a})
+--
+-- /Note:/ Consider using 'globalTableDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtrsGlobalTableDescription :: Lens.Lens' UpdateGlobalTableResponse (Lude.Maybe GlobalTableDescription)
+ugtrsGlobalTableDescription = Lens.lens (globalTableDescription :: UpdateGlobalTableResponse -> Lude.Maybe GlobalTableDescription) (\s a -> s {globalTableDescription = a} :: UpdateGlobalTableResponse)
+{-# DEPRECATED ugtrsGlobalTableDescription "Use generic-lens or generic-optics with 'globalTableDescription' instead." #-}
 
--- | -- | The response status code.
-ugtrsResponseStatus :: Lens' UpdateGlobalTableResponse Int
-ugtrsResponseStatus = lens _ugtrsResponseStatus (\s a -> s {_ugtrsResponseStatus = a})
-
-instance NFData UpdateGlobalTableResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugtrsResponseStatus :: Lens.Lens' UpdateGlobalTableResponse Lude.Int
+ugtrsResponseStatus = Lens.lens (responseStatus :: UpdateGlobalTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGlobalTableResponse)
+{-# DEPRECATED ugtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

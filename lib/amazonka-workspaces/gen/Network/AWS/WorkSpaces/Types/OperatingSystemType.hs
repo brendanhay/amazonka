@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.OperatingSystemType where
+module Network.AWS.WorkSpaces.Types.OperatingSystemType
+  ( OperatingSystemType
+      ( OperatingSystemType',
+        Linux,
+        Windows
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperatingSystemType
-  = Linux
-  | Windows
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperatingSystemType = OperatingSystemType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperatingSystemType where
-  parser =
-    takeLowerText >>= \case
-      "linux" -> pure Linux
-      "windows" -> pure Windows
-      e ->
-        fromTextError $
-          "Failure parsing OperatingSystemType from value: '" <> e
-            <> "'. Accepted values: linux, windows"
+pattern Linux :: OperatingSystemType
+pattern Linux = OperatingSystemType' "LINUX"
 
-instance ToText OperatingSystemType where
-  toText = \case
-    Linux -> "LINUX"
-    Windows -> "WINDOWS"
+pattern Windows :: OperatingSystemType
+pattern Windows = OperatingSystemType' "WINDOWS"
 
-instance Hashable OperatingSystemType
-
-instance NFData OperatingSystemType
-
-instance ToByteString OperatingSystemType
-
-instance ToQuery OperatingSystemType
-
-instance ToHeader OperatingSystemType
-
-instance FromJSON OperatingSystemType where
-  parseJSON = parseJSONText "OperatingSystemType"
+{-# COMPLETE
+  Linux,
+  Windows,
+  OperatingSystemType'
+  #-}

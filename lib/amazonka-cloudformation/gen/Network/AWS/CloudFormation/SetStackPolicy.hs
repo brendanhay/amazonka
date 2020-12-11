@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,115 @@
 --
 -- Sets a stack policy for a specified stack.
 module Network.AWS.CloudFormation.SetStackPolicy
-  ( -- * Creating a Request
-    setStackPolicy,
-    SetStackPolicy,
+  ( -- * Creating a request
+    SetStackPolicy (..),
+    mkSetStackPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sspStackPolicyBody,
     sspStackPolicyURL,
     sspStackName,
 
-    -- * Destructuring the Response
-    setStackPolicyResponse,
-    SetStackPolicyResponse,
+    -- * Destructuring the response
+    SetStackPolicyResponse (..),
+    mkSetStackPolicyResponse,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'SetStackPolicy' action.
 --
---
---
--- /See:/ 'setStackPolicy' smart constructor.
+-- /See:/ 'mkSetStackPolicy' smart constructor.
 data SetStackPolicy = SetStackPolicy'
-  { _sspStackPolicyBody ::
-      !(Maybe Text),
-    _sspStackPolicyURL :: !(Maybe Text),
-    _sspStackName :: !Text
+  { stackPolicyBody ::
+      Lude.Maybe Lude.Text,
+    stackPolicyURL :: Lude.Maybe Lude.Text,
+    stackName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetStackPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sspStackPolicyBody' - Structure containing the stack policy body. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
---
--- * 'sspStackPolicyURL' - Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
---
--- * 'sspStackName' - The name or unique stack ID that you want to associate a policy with.
-setStackPolicy ::
-  -- | 'sspStackName'
-  Text ->
+-- * 'stackName' - The name or unique stack ID that you want to associate a policy with.
+-- * 'stackPolicyBody' - Structure containing the stack policy body. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+-- * 'stackPolicyURL' - Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+mkSetStackPolicy ::
+  -- | 'stackName'
+  Lude.Text ->
   SetStackPolicy
-setStackPolicy pStackName_ =
+mkSetStackPolicy pStackName_ =
   SetStackPolicy'
-    { _sspStackPolicyBody = Nothing,
-      _sspStackPolicyURL = Nothing,
-      _sspStackName = pStackName_
+    { stackPolicyBody = Lude.Nothing,
+      stackPolicyURL = Lude.Nothing,
+      stackName = pStackName_
     }
 
 -- | Structure containing the stack policy body. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
-sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
-sspStackPolicyBody = lens _sspStackPolicyBody (\s a -> s {_sspStackPolicyBody = a})
+--
+-- /Note:/ Consider using 'stackPolicyBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sspStackPolicyBody :: Lens.Lens' SetStackPolicy (Lude.Maybe Lude.Text)
+sspStackPolicyBody = Lens.lens (stackPolicyBody :: SetStackPolicy -> Lude.Maybe Lude.Text) (\s a -> s {stackPolicyBody = a} :: SetStackPolicy)
+{-# DEPRECATED sspStackPolicyBody "Use generic-lens or generic-optics with 'stackPolicyBody' instead." #-}
 
 -- | Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
-sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
-sspStackPolicyURL = lens _sspStackPolicyURL (\s a -> s {_sspStackPolicyURL = a})
+--
+-- /Note:/ Consider using 'stackPolicyURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sspStackPolicyURL :: Lens.Lens' SetStackPolicy (Lude.Maybe Lude.Text)
+sspStackPolicyURL = Lens.lens (stackPolicyURL :: SetStackPolicy -> Lude.Maybe Lude.Text) (\s a -> s {stackPolicyURL = a} :: SetStackPolicy)
+{-# DEPRECATED sspStackPolicyURL "Use generic-lens or generic-optics with 'stackPolicyURL' instead." #-}
 
 -- | The name or unique stack ID that you want to associate a policy with.
-sspStackName :: Lens' SetStackPolicy Text
-sspStackName = lens _sspStackName (\s a -> s {_sspStackName = a})
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sspStackName :: Lens.Lens' SetStackPolicy Lude.Text
+sspStackName = Lens.lens (stackName :: SetStackPolicy -> Lude.Text) (\s a -> s {stackName = a} :: SetStackPolicy)
+{-# DEPRECATED sspStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance AWSRequest SetStackPolicy where
+instance Lude.AWSRequest SetStackPolicy where
   type Rs SetStackPolicy = SetStackPolicyResponse
-  request = postQuery cloudFormation
-  response = receiveNull SetStackPolicyResponse'
+  request = Req.postQuery cloudFormationService
+  response = Res.receiveNull SetStackPolicyResponse'
 
-instance Hashable SetStackPolicy
+instance Lude.ToHeaders SetStackPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetStackPolicy
+instance Lude.ToPath SetStackPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetStackPolicy where
-  toHeaders = const mempty
-
-instance ToPath SetStackPolicy where
-  toPath = const "/"
-
-instance ToQuery SetStackPolicy where
+instance Lude.ToQuery SetStackPolicy where
   toQuery SetStackPolicy' {..} =
-    mconcat
-      [ "Action" =: ("SetStackPolicy" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "StackPolicyBody" =: _sspStackPolicyBody,
-        "StackPolicyURL" =: _sspStackPolicyURL,
-        "StackName" =: _sspStackName
+    Lude.mconcat
+      [ "Action" Lude.=: ("SetStackPolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "StackPolicyBody" Lude.=: stackPolicyBody,
+        "StackPolicyURL" Lude.=: stackPolicyURL,
+        "StackName" Lude.=: stackName
       ]
 
--- | /See:/ 'setStackPolicyResponse' smart constructor.
+-- | /See:/ 'mkSetStackPolicyResponse' smart constructor.
 data SetStackPolicyResponse = SetStackPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetStackPolicyResponse' with the minimum fields required to make a request.
-setStackPolicyResponse ::
+mkSetStackPolicyResponse ::
   SetStackPolicyResponse
-setStackPolicyResponse = SetStackPolicyResponse'
-
-instance NFData SetStackPolicyResponse
+mkSetStackPolicyResponse = SetStackPolicyResponse'

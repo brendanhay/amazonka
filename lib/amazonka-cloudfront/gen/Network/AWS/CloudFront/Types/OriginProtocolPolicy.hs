@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginProtocolPolicy where
+module Network.AWS.CloudFront.Types.OriginProtocolPolicy
+  ( OriginProtocolPolicy
+      ( OriginProtocolPolicy',
+        HTTPOnly,
+        HTTPSOnly,
+        MatchViewer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OriginProtocolPolicy
-  = HTTPOnly
-  | HTTPSOnly
-  | MatchViewer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OriginProtocolPolicy = OriginProtocolPolicy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OriginProtocolPolicy where
-  parser =
-    takeLowerText >>= \case
-      "http-only" -> pure HTTPOnly
-      "https-only" -> pure HTTPSOnly
-      "match-viewer" -> pure MatchViewer
-      e ->
-        fromTextError $
-          "Failure parsing OriginProtocolPolicy from value: '" <> e
-            <> "'. Accepted values: http-only, https-only, match-viewer"
+pattern HTTPOnly :: OriginProtocolPolicy
+pattern HTTPOnly = OriginProtocolPolicy' "http-only"
 
-instance ToText OriginProtocolPolicy where
-  toText = \case
-    HTTPOnly -> "http-only"
-    HTTPSOnly -> "https-only"
-    MatchViewer -> "match-viewer"
+pattern HTTPSOnly :: OriginProtocolPolicy
+pattern HTTPSOnly = OriginProtocolPolicy' "https-only"
 
-instance Hashable OriginProtocolPolicy
+pattern MatchViewer :: OriginProtocolPolicy
+pattern MatchViewer = OriginProtocolPolicy' "match-viewer"
 
-instance NFData OriginProtocolPolicy
-
-instance ToByteString OriginProtocolPolicy
-
-instance ToQuery OriginProtocolPolicy
-
-instance ToHeader OriginProtocolPolicy
-
-instance FromXML OriginProtocolPolicy where
-  parseXML = parseXMLText "OriginProtocolPolicy"
-
-instance ToXML OriginProtocolPolicy where
-  toXML = toXMLText
+{-# COMPLETE
+  HTTPOnly,
+  HTTPSOnly,
+  MatchViewer,
+  OriginProtocolPolicy'
+  #-}

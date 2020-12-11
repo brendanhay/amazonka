@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.PrivateIPAddressDetails where
+module Network.AWS.GuardDuty.Types.PrivateIPAddressDetails
+  ( PrivateIPAddressDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPrivateIPAddressDetails,
+
+    -- * Lenses
+    piadPrivateIPAddress,
+    piadPrivateDNSName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains other private IP address information of the EC2 instance.
 --
---
---
--- /See:/ 'privateIPAddressDetails' smart constructor.
+-- /See:/ 'mkPrivateIPAddressDetails' smart constructor.
 data PrivateIPAddressDetails = PrivateIPAddressDetails'
-  { _piadPrivateIPAddress ::
-      !(Maybe Text),
-    _piadPrivateDNSName :: !(Maybe Text)
+  { privateIPAddress ::
+      Lude.Maybe Lude.Text,
+    privateDNSName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrivateIPAddressDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piadPrivateIPAddress' - The private IP address of the EC2 instance.
---
--- * 'piadPrivateDNSName' - The private DNS name of the EC2 instance.
-privateIPAddressDetails ::
+-- * 'privateDNSName' - The private DNS name of the EC2 instance.
+-- * 'privateIPAddress' - The private IP address of the EC2 instance.
+mkPrivateIPAddressDetails ::
   PrivateIPAddressDetails
-privateIPAddressDetails =
+mkPrivateIPAddressDetails =
   PrivateIPAddressDetails'
-    { _piadPrivateIPAddress = Nothing,
-      _piadPrivateDNSName = Nothing
+    { privateIPAddress = Lude.Nothing,
+      privateDNSName = Lude.Nothing
     }
 
 -- | The private IP address of the EC2 instance.
-piadPrivateIPAddress :: Lens' PrivateIPAddressDetails (Maybe Text)
-piadPrivateIPAddress = lens _piadPrivateIPAddress (\s a -> s {_piadPrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piadPrivateIPAddress :: Lens.Lens' PrivateIPAddressDetails (Lude.Maybe Lude.Text)
+piadPrivateIPAddress = Lens.lens (privateIPAddress :: PrivateIPAddressDetails -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: PrivateIPAddressDetails)
+{-# DEPRECATED piadPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
 
 -- | The private DNS name of the EC2 instance.
-piadPrivateDNSName :: Lens' PrivateIPAddressDetails (Maybe Text)
-piadPrivateDNSName = lens _piadPrivateDNSName (\s a -> s {_piadPrivateDNSName = a})
+--
+-- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piadPrivateDNSName :: Lens.Lens' PrivateIPAddressDetails (Lude.Maybe Lude.Text)
+piadPrivateDNSName = Lens.lens (privateDNSName :: PrivateIPAddressDetails -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: PrivateIPAddressDetails)
+{-# DEPRECATED piadPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
 
-instance FromJSON PrivateIPAddressDetails where
+instance Lude.FromJSON PrivateIPAddressDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "PrivateIPAddressDetails"
       ( \x ->
           PrivateIPAddressDetails'
-            <$> (x .:? "privateIpAddress") <*> (x .:? "privateDnsName")
+            Lude.<$> (x Lude..:? "privateIpAddress")
+            Lude.<*> (x Lude..:? "privateDnsName")
       )
-
-instance Hashable PrivateIPAddressDetails
-
-instance NFData PrivateIPAddressDetails

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,125 @@
 --
 -- Deletes the recurring report delivery schedule with the specified schedule ARN.
 module Network.AWS.AlexaBusiness.DeleteBusinessReportSchedule
-  ( -- * Creating a Request
-    deleteBusinessReportSchedule,
-    DeleteBusinessReportSchedule,
+  ( -- * Creating a request
+    DeleteBusinessReportSchedule (..),
+    mkDeleteBusinessReportSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbrsScheduleARN,
 
-    -- * Destructuring the Response
-    deleteBusinessReportScheduleResponse,
-    DeleteBusinessReportScheduleResponse,
+    -- * Destructuring the response
+    DeleteBusinessReportScheduleResponse (..),
+    mkDeleteBusinessReportScheduleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbrsrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBusinessReportSchedule' smart constructor.
+-- | /See:/ 'mkDeleteBusinessReportSchedule' smart constructor.
 newtype DeleteBusinessReportSchedule = DeleteBusinessReportSchedule'
-  { _dbrsScheduleARN ::
-      Text
+  { scheduleARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBusinessReportSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrsScheduleARN' - The ARN of the business report schedule.
-deleteBusinessReportSchedule ::
-  -- | 'dbrsScheduleARN'
-  Text ->
+-- * 'scheduleARN' - The ARN of the business report schedule.
+mkDeleteBusinessReportSchedule ::
+  -- | 'scheduleARN'
+  Lude.Text ->
   DeleteBusinessReportSchedule
-deleteBusinessReportSchedule pScheduleARN_ =
-  DeleteBusinessReportSchedule' {_dbrsScheduleARN = pScheduleARN_}
+mkDeleteBusinessReportSchedule pScheduleARN_ =
+  DeleteBusinessReportSchedule' {scheduleARN = pScheduleARN_}
 
 -- | The ARN of the business report schedule.
-dbrsScheduleARN :: Lens' DeleteBusinessReportSchedule Text
-dbrsScheduleARN = lens _dbrsScheduleARN (\s a -> s {_dbrsScheduleARN = a})
+--
+-- /Note:/ Consider using 'scheduleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsScheduleARN :: Lens.Lens' DeleteBusinessReportSchedule Lude.Text
+dbrsScheduleARN = Lens.lens (scheduleARN :: DeleteBusinessReportSchedule -> Lude.Text) (\s a -> s {scheduleARN = a} :: DeleteBusinessReportSchedule)
+{-# DEPRECATED dbrsScheduleARN "Use generic-lens or generic-optics with 'scheduleARN' instead." #-}
 
-instance AWSRequest DeleteBusinessReportSchedule where
+instance Lude.AWSRequest DeleteBusinessReportSchedule where
   type
     Rs DeleteBusinessReportSchedule =
       DeleteBusinessReportScheduleResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteBusinessReportScheduleResponse' <$> (pure (fromEnum s))
+          DeleteBusinessReportScheduleResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteBusinessReportSchedule
-
-instance NFData DeleteBusinessReportSchedule
-
-instance ToHeaders DeleteBusinessReportSchedule where
+instance Lude.ToHeaders DeleteBusinessReportSchedule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.DeleteBusinessReportSchedule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AlexaForBusiness.DeleteBusinessReportSchedule" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteBusinessReportSchedule where
+instance Lude.ToJSON DeleteBusinessReportSchedule where
   toJSON DeleteBusinessReportSchedule' {..} =
-    object (catMaybes [Just ("ScheduleArn" .= _dbrsScheduleARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ScheduleArn" Lude..= scheduleARN)])
 
-instance ToPath DeleteBusinessReportSchedule where
-  toPath = const "/"
+instance Lude.ToPath DeleteBusinessReportSchedule where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteBusinessReportSchedule where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBusinessReportSchedule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBusinessReportScheduleResponse' smart constructor.
+-- | /See:/ 'mkDeleteBusinessReportScheduleResponse' smart constructor.
 newtype DeleteBusinessReportScheduleResponse = DeleteBusinessReportScheduleResponse'
-  { _dbrsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBusinessReportScheduleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbrsrsResponseStatus' - -- | The response status code.
-deleteBusinessReportScheduleResponse ::
-  -- | 'dbrsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteBusinessReportScheduleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteBusinessReportScheduleResponse
-deleteBusinessReportScheduleResponse pResponseStatus_ =
+mkDeleteBusinessReportScheduleResponse pResponseStatus_ =
   DeleteBusinessReportScheduleResponse'
-    { _dbrsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dbrsrsResponseStatus :: Lens' DeleteBusinessReportScheduleResponse Int
-dbrsrsResponseStatus = lens _dbrsrsResponseStatus (\s a -> s {_dbrsrsResponseStatus = a})
-
-instance NFData DeleteBusinessReportScheduleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsrsResponseStatus :: Lens.Lens' DeleteBusinessReportScheduleResponse Lude.Int
+dbrsrsResponseStatus = Lens.lens (responseStatus :: DeleteBusinessReportScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBusinessReportScheduleResponse)
+{-# DEPRECATED dbrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

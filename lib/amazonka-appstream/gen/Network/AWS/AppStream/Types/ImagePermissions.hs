@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.ImagePermissions where
+module Network.AWS.AppStream.Types.ImagePermissions
+  ( ImagePermissions (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkImagePermissions,
+
+    -- * Lenses
+    ipAllowFleet,
+    ipAllowImageBuilder,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the permissions for an image.
 --
---
---
--- /See:/ 'imagePermissions' smart constructor.
+-- /See:/ 'mkImagePermissions' smart constructor.
 data ImagePermissions = ImagePermissions'
-  { _ipAllowFleet ::
-      !(Maybe Bool),
-    _ipAllowImageBuilder :: !(Maybe Bool)
+  { allowFleet ::
+      Lude.Maybe Lude.Bool,
+    allowImageBuilder :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImagePermissions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipAllowFleet' - Indicates whether the image can be used for a fleet.
---
--- * 'ipAllowImageBuilder' - Indicates whether the image can be used for an image builder.
-imagePermissions ::
+-- * 'allowFleet' - Indicates whether the image can be used for a fleet.
+-- * 'allowImageBuilder' - Indicates whether the image can be used for an image builder.
+mkImagePermissions ::
   ImagePermissions
-imagePermissions =
+mkImagePermissions =
   ImagePermissions'
-    { _ipAllowFleet = Nothing,
-      _ipAllowImageBuilder = Nothing
+    { allowFleet = Lude.Nothing,
+      allowImageBuilder = Lude.Nothing
     }
 
 -- | Indicates whether the image can be used for a fleet.
-ipAllowFleet :: Lens' ImagePermissions (Maybe Bool)
-ipAllowFleet = lens _ipAllowFleet (\s a -> s {_ipAllowFleet = a})
+--
+-- /Note:/ Consider using 'allowFleet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipAllowFleet :: Lens.Lens' ImagePermissions (Lude.Maybe Lude.Bool)
+ipAllowFleet = Lens.lens (allowFleet :: ImagePermissions -> Lude.Maybe Lude.Bool) (\s a -> s {allowFleet = a} :: ImagePermissions)
+{-# DEPRECATED ipAllowFleet "Use generic-lens or generic-optics with 'allowFleet' instead." #-}
 
 -- | Indicates whether the image can be used for an image builder.
-ipAllowImageBuilder :: Lens' ImagePermissions (Maybe Bool)
-ipAllowImageBuilder = lens _ipAllowImageBuilder (\s a -> s {_ipAllowImageBuilder = a})
+--
+-- /Note:/ Consider using 'allowImageBuilder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipAllowImageBuilder :: Lens.Lens' ImagePermissions (Lude.Maybe Lude.Bool)
+ipAllowImageBuilder = Lens.lens (allowImageBuilder :: ImagePermissions -> Lude.Maybe Lude.Bool) (\s a -> s {allowImageBuilder = a} :: ImagePermissions)
+{-# DEPRECATED ipAllowImageBuilder "Use generic-lens or generic-optics with 'allowImageBuilder' instead." #-}
 
-instance FromJSON ImagePermissions where
+instance Lude.FromJSON ImagePermissions where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImagePermissions"
       ( \x ->
           ImagePermissions'
-            <$> (x .:? "allowFleet") <*> (x .:? "allowImageBuilder")
+            Lude.<$> (x Lude..:? "allowFleet")
+            Lude.<*> (x Lude..:? "allowImageBuilder")
       )
 
-instance Hashable ImagePermissions
-
-instance NFData ImagePermissions
-
-instance ToJSON ImagePermissions where
+instance Lude.ToJSON ImagePermissions where
   toJSON ImagePermissions' {..} =
-    object
-      ( catMaybes
-          [ ("allowFleet" .=) <$> _ipAllowFleet,
-            ("allowImageBuilder" .=) <$> _ipAllowImageBuilder
+    Lude.object
+      ( Lude.catMaybes
+          [ ("allowFleet" Lude..=) Lude.<$> allowFleet,
+            ("allowImageBuilder" Lude..=) Lude.<$> allowImageBuilder
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisionedProductViewFilterBy where
+module Network.AWS.ServiceCatalog.Types.ProvisionedProductViewFilterBy
+  ( ProvisionedProductViewFilterBy
+      ( ProvisionedProductViewFilterBy',
+        SearchQuery
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProvisionedProductViewFilterBy = SearchQuery
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProvisionedProductViewFilterBy = ProvisionedProductViewFilterBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProvisionedProductViewFilterBy where
-  parser =
-    takeLowerText >>= \case
-      "searchquery" -> pure SearchQuery
-      e ->
-        fromTextError $
-          "Failure parsing ProvisionedProductViewFilterBy from value: '" <> e
-            <> "'. Accepted values: searchquery"
+pattern SearchQuery :: ProvisionedProductViewFilterBy
+pattern SearchQuery = ProvisionedProductViewFilterBy' "SearchQuery"
 
-instance ToText ProvisionedProductViewFilterBy where
-  toText = \case
-    SearchQuery -> "SearchQuery"
-
-instance Hashable ProvisionedProductViewFilterBy
-
-instance NFData ProvisionedProductViewFilterBy
-
-instance ToByteString ProvisionedProductViewFilterBy
-
-instance ToQuery ProvisionedProductViewFilterBy
-
-instance ToHeader ProvisionedProductViewFilterBy
-
-instance ToJSON ProvisionedProductViewFilterBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  SearchQuery,
+  ProvisionedProductViewFilterBy'
+  #-}

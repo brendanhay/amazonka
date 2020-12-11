@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ResourceAttribute where
+module Network.AWS.CloudFormation.Types.ResourceAttribute
+  ( ResourceAttribute
+      ( ResourceAttribute',
+        CreationPolicy,
+        DeletionPolicy,
+        Metadata,
+        Properties,
+        Tags,
+        UpdatePolicy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceAttribute
-  = CreationPolicy
-  | DeletionPolicy
-  | Metadata
-  | Properties
-  | Tags
-  | UpdatePolicy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceAttribute = ResourceAttribute' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceAttribute where
-  parser =
-    takeLowerText >>= \case
-      "creationpolicy" -> pure CreationPolicy
-      "deletionpolicy" -> pure DeletionPolicy
-      "metadata" -> pure Metadata
-      "properties" -> pure Properties
-      "tags" -> pure Tags
-      "updatepolicy" -> pure UpdatePolicy
-      e ->
-        fromTextError $
-          "Failure parsing ResourceAttribute from value: '" <> e
-            <> "'. Accepted values: creationpolicy, deletionpolicy, metadata, properties, tags, updatepolicy"
+pattern CreationPolicy :: ResourceAttribute
+pattern CreationPolicy = ResourceAttribute' "CreationPolicy"
 
-instance ToText ResourceAttribute where
-  toText = \case
-    CreationPolicy -> "CreationPolicy"
-    DeletionPolicy -> "DeletionPolicy"
-    Metadata -> "Metadata"
-    Properties -> "Properties"
-    Tags -> "Tags"
-    UpdatePolicy -> "UpdatePolicy"
+pattern DeletionPolicy :: ResourceAttribute
+pattern DeletionPolicy = ResourceAttribute' "DeletionPolicy"
 
-instance Hashable ResourceAttribute
+pattern Metadata :: ResourceAttribute
+pattern Metadata = ResourceAttribute' "Metadata"
 
-instance NFData ResourceAttribute
+pattern Properties :: ResourceAttribute
+pattern Properties = ResourceAttribute' "Properties"
 
-instance ToByteString ResourceAttribute
+pattern Tags :: ResourceAttribute
+pattern Tags = ResourceAttribute' "Tags"
 
-instance ToQuery ResourceAttribute
+pattern UpdatePolicy :: ResourceAttribute
+pattern UpdatePolicy = ResourceAttribute' "UpdatePolicy"
 
-instance ToHeader ResourceAttribute
-
-instance FromXML ResourceAttribute where
-  parseXML = parseXMLText "ResourceAttribute"
+{-# COMPLETE
+  CreationPolicy,
+  DeletionPolicy,
+  Metadata,
+  Properties,
+  Tags,
+  UpdatePolicy,
+  ResourceAttribute'
+  #-}

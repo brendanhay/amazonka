@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.RegexMatchSetSummary where
+module Network.AWS.WAF.Types.RegexMatchSetSummary
+  ( RegexMatchSetSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRegexMatchSetSummary,
+
+    -- * Lenses
+    rmssRegexMatchSetId,
+    rmssName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returned by 'ListRegexMatchSets' . Each @RegexMatchSetSummary@ object includes the @Name@ and @RegexMatchSetId@ for one 'RegexMatchSet' .
 --
---
---
--- /See:/ 'regexMatchSetSummary' smart constructor.
+-- /See:/ 'mkRegexMatchSetSummary' smart constructor.
 data RegexMatchSetSummary = RegexMatchSetSummary'
-  { _rmssRegexMatchSetId ::
-      !Text,
-    _rmssName :: !Text
+  { regexMatchSetId ::
+      Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegexMatchSetSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
+-- * 'regexMatchSetId' - The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ , update a @RegexMatchSet@ , remove a @RegexMatchSet@ from a @Rule@ , and delete a @RegexMatchSet@ from AWS WAF.
 --
--- * 'rmssRegexMatchSetId' - The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ , update a @RegexMatchSet@ , remove a @RegexMatchSet@ from a @Rule@ , and delete a @RegexMatchSet@ from AWS WAF. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
---
--- * 'rmssName' - A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
-regexMatchSetSummary ::
-  -- | 'rmssRegexMatchSetId'
-  Text ->
-  -- | 'rmssName'
-  Text ->
+-- @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+mkRegexMatchSetSummary ::
+  -- | 'regexMatchSetId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   RegexMatchSetSummary
-regexMatchSetSummary pRegexMatchSetId_ pName_ =
+mkRegexMatchSetSummary pRegexMatchSetId_ pName_ =
   RegexMatchSetSummary'
-    { _rmssRegexMatchSetId = pRegexMatchSetId_,
-      _rmssName = pName_
+    { regexMatchSetId = pRegexMatchSetId_,
+      name = pName_
     }
 
--- | The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ , update a @RegexMatchSet@ , remove a @RegexMatchSet@ from a @Rule@ , and delete a @RegexMatchSet@ from AWS WAF. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
-rmssRegexMatchSetId :: Lens' RegexMatchSetSummary Text
-rmssRegexMatchSetId = lens _rmssRegexMatchSetId (\s a -> s {_rmssRegexMatchSetId = a})
+-- | The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ , update a @RegexMatchSet@ , remove a @RegexMatchSet@ from a @Rule@ , and delete a @RegexMatchSet@ from AWS WAF.
+--
+-- @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+--
+-- /Note:/ Consider using 'regexMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmssRegexMatchSetId :: Lens.Lens' RegexMatchSetSummary Lude.Text
+rmssRegexMatchSetId = Lens.lens (regexMatchSetId :: RegexMatchSetSummary -> Lude.Text) (\s a -> s {regexMatchSetId = a} :: RegexMatchSetSummary)
+{-# DEPRECATED rmssRegexMatchSetId "Use generic-lens or generic-optics with 'regexMatchSetId' instead." #-}
 
 -- | A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
-rmssName :: Lens' RegexMatchSetSummary Text
-rmssName = lens _rmssName (\s a -> s {_rmssName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmssName :: Lens.Lens' RegexMatchSetSummary Lude.Text
+rmssName = Lens.lens (name :: RegexMatchSetSummary -> Lude.Text) (\s a -> s {name = a} :: RegexMatchSetSummary)
+{-# DEPRECATED rmssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON RegexMatchSetSummary where
+instance Lude.FromJSON RegexMatchSetSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "RegexMatchSetSummary"
       ( \x ->
           RegexMatchSetSummary'
-            <$> (x .: "RegexMatchSetId") <*> (x .: "Name")
+            Lude.<$> (x Lude..: "RegexMatchSetId") Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable RegexMatchSetSummary
-
-instance NFData RegexMatchSetSummary

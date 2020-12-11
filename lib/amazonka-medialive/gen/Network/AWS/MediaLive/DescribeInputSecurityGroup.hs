@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Produces a summary of an Input Security Group
 module Network.AWS.MediaLive.DescribeInputSecurityGroup
-  ( -- * Creating a Request
-    describeInputSecurityGroup,
-    DescribeInputSecurityGroup,
+  ( -- * Creating a request
+    DescribeInputSecurityGroup (..),
+    mkDescribeInputSecurityGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     disgInputSecurityGroupId,
 
-    -- * Destructuring the Response
-    describeInputSecurityGroupResponse,
-    DescribeInputSecurityGroupResponse,
+    -- * Destructuring the response
+    DescribeInputSecurityGroupResponse (..),
+    mkDescribeInputSecurityGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desrsState,
     desrsARN,
     desrsInputs,
@@ -41,165 +36,187 @@ module Network.AWS.MediaLive.DescribeInputSecurityGroup
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for DescribeInputSecurityGroupRequest
 --
--- /See:/ 'describeInputSecurityGroup' smart constructor.
+-- /See:/ 'mkDescribeInputSecurityGroup' smart constructor.
 newtype DescribeInputSecurityGroup = DescribeInputSecurityGroup'
-  { _disgInputSecurityGroupId ::
-      Text
+  { inputSecurityGroupId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInputSecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'disgInputSecurityGroupId' - The id of the Input Security Group to describe
-describeInputSecurityGroup ::
-  -- | 'disgInputSecurityGroupId'
-  Text ->
+-- * 'inputSecurityGroupId' - The id of the Input Security Group to describe
+mkDescribeInputSecurityGroup ::
+  -- | 'inputSecurityGroupId'
+  Lude.Text ->
   DescribeInputSecurityGroup
-describeInputSecurityGroup pInputSecurityGroupId_ =
+mkDescribeInputSecurityGroup pInputSecurityGroupId_ =
   DescribeInputSecurityGroup'
-    { _disgInputSecurityGroupId =
+    { inputSecurityGroupId =
         pInputSecurityGroupId_
     }
 
 -- | The id of the Input Security Group to describe
-disgInputSecurityGroupId :: Lens' DescribeInputSecurityGroup Text
-disgInputSecurityGroupId = lens _disgInputSecurityGroupId (\s a -> s {_disgInputSecurityGroupId = a})
+--
+-- /Note:/ Consider using 'inputSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disgInputSecurityGroupId :: Lens.Lens' DescribeInputSecurityGroup Lude.Text
+disgInputSecurityGroupId = Lens.lens (inputSecurityGroupId :: DescribeInputSecurityGroup -> Lude.Text) (\s a -> s {inputSecurityGroupId = a} :: DescribeInputSecurityGroup)
+{-# DEPRECATED disgInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
 
-instance AWSRequest DescribeInputSecurityGroup where
+instance Lude.AWSRequest DescribeInputSecurityGroup where
   type
     Rs DescribeInputSecurityGroup =
       DescribeInputSecurityGroupResponse
-  request = get mediaLive
+  request = Req.get mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeInputSecurityGroupResponse'
-            <$> (x .?> "state")
-            <*> (x .?> "arn")
-            <*> (x .?> "inputs" .!@ mempty)
-            <*> (x .?> "id")
-            <*> (x .?> "whitelistRules" .!@ mempty)
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "state")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "inputs" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "whitelistRules" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInputSecurityGroup
-
-instance NFData DescribeInputSecurityGroup
-
-instance ToHeaders DescribeInputSecurityGroup where
+instance Lude.ToHeaders DescribeInputSecurityGroup where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeInputSecurityGroup where
+instance Lude.ToPath DescribeInputSecurityGroup where
   toPath DescribeInputSecurityGroup' {..} =
-    mconcat
-      ["/prod/inputSecurityGroups/", toBS _disgInputSecurityGroupId]
+    Lude.mconcat
+      ["/prod/inputSecurityGroups/", Lude.toBS inputSecurityGroupId]
 
-instance ToQuery DescribeInputSecurityGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeInputSecurityGroup where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DescribeInputSecurityGroupResponse
 --
--- /See:/ 'describeInputSecurityGroupResponse' smart constructor.
+-- /See:/ 'mkDescribeInputSecurityGroupResponse' smart constructor.
 data DescribeInputSecurityGroupResponse = DescribeInputSecurityGroupResponse'
-  { _desrsState ::
-      !( Maybe
-           InputSecurityGroupState
-       ),
-    _desrsARN ::
-      !(Maybe Text),
-    _desrsInputs ::
-      !(Maybe [Text]),
-    _desrsId ::
-      !(Maybe Text),
-    _desrsWhitelistRules ::
-      !( Maybe
-           [InputWhitelistRule]
-       ),
-    _desrsTags ::
-      !( Maybe
-           ( Map
-               Text
-               (Text)
-           )
-       ),
-    _desrsResponseStatus ::
-      !Int
+  { state ::
+      Lude.Maybe
+        InputSecurityGroupState,
+    arn ::
+      Lude.Maybe Lude.Text,
+    inputs ::
+      Lude.Maybe
+        [Lude.Text],
+    id ::
+      Lude.Maybe Lude.Text,
+    whitelistRules ::
+      Lude.Maybe
+        [InputWhitelistRule],
+    tags ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInputSecurityGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desrsState' - The current state of the Input Security Group.
---
--- * 'desrsARN' - Unique ARN of Input Security Group
---
--- * 'desrsInputs' - The list of inputs currently using this Input Security Group.
---
--- * 'desrsId' - The Id of the Input Security Group
---
--- * 'desrsWhitelistRules' - Whitelist rules and their sync status
---
--- * 'desrsTags' - A collection of key-value pairs.
---
--- * 'desrsResponseStatus' - -- | The response status code.
-describeInputSecurityGroupResponse ::
-  -- | 'desrsResponseStatus'
-  Int ->
+-- * 'arn' - Unique ARN of Input Security Group
+-- * 'id' - The Id of the Input Security Group
+-- * 'inputs' - The list of inputs currently using this Input Security Group.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The current state of the Input Security Group.
+-- * 'tags' - A collection of key-value pairs.
+-- * 'whitelistRules' - Whitelist rules and their sync status
+mkDescribeInputSecurityGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInputSecurityGroupResponse
-describeInputSecurityGroupResponse pResponseStatus_ =
+mkDescribeInputSecurityGroupResponse pResponseStatus_ =
   DescribeInputSecurityGroupResponse'
-    { _desrsState = Nothing,
-      _desrsARN = Nothing,
-      _desrsInputs = Nothing,
-      _desrsId = Nothing,
-      _desrsWhitelistRules = Nothing,
-      _desrsTags = Nothing,
-      _desrsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      arn = Lude.Nothing,
+      inputs = Lude.Nothing,
+      id = Lude.Nothing,
+      whitelistRules = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current state of the Input Security Group.
-desrsState :: Lens' DescribeInputSecurityGroupResponse (Maybe InputSecurityGroupState)
-desrsState = lens _desrsState (\s a -> s {_desrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsState :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe InputSecurityGroupState)
+desrsState = Lens.lens (state :: DescribeInputSecurityGroupResponse -> Lude.Maybe InputSecurityGroupState) (\s a -> s {state = a} :: DescribeInputSecurityGroupResponse)
+{-# DEPRECATED desrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Unique ARN of Input Security Group
-desrsARN :: Lens' DescribeInputSecurityGroupResponse (Maybe Text)
-desrsARN = lens _desrsARN (\s a -> s {_desrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsARN :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe Lude.Text)
+desrsARN = Lens.lens (arn :: DescribeInputSecurityGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeInputSecurityGroupResponse)
+{-# DEPRECATED desrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The list of inputs currently using this Input Security Group.
-desrsInputs :: Lens' DescribeInputSecurityGroupResponse [Text]
-desrsInputs = lens _desrsInputs (\s a -> s {_desrsInputs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsInputs :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe [Lude.Text])
+desrsInputs = Lens.lens (inputs :: DescribeInputSecurityGroupResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {inputs = a} :: DescribeInputSecurityGroupResponse)
+{-# DEPRECATED desrsInputs "Use generic-lens or generic-optics with 'inputs' instead." #-}
 
 -- | The Id of the Input Security Group
-desrsId :: Lens' DescribeInputSecurityGroupResponse (Maybe Text)
-desrsId = lens _desrsId (\s a -> s {_desrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsId :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe Lude.Text)
+desrsId = Lens.lens (id :: DescribeInputSecurityGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeInputSecurityGroupResponse)
+{-# DEPRECATED desrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Whitelist rules and their sync status
-desrsWhitelistRules :: Lens' DescribeInputSecurityGroupResponse [InputWhitelistRule]
-desrsWhitelistRules = lens _desrsWhitelistRules (\s a -> s {_desrsWhitelistRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'whitelistRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsWhitelistRules :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe [InputWhitelistRule])
+desrsWhitelistRules = Lens.lens (whitelistRules :: DescribeInputSecurityGroupResponse -> Lude.Maybe [InputWhitelistRule]) (\s a -> s {whitelistRules = a} :: DescribeInputSecurityGroupResponse)
+{-# DEPRECATED desrsWhitelistRules "Use generic-lens or generic-optics with 'whitelistRules' instead." #-}
 
 -- | A collection of key-value pairs.
-desrsTags :: Lens' DescribeInputSecurityGroupResponse (HashMap Text (Text))
-desrsTags = lens _desrsTags (\s a -> s {_desrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsTags :: Lens.Lens' DescribeInputSecurityGroupResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+desrsTags = Lens.lens (tags :: DescribeInputSecurityGroupResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DescribeInputSecurityGroupResponse)
+{-# DEPRECATED desrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeInputSecurityGroupResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\s a -> s {_desrsResponseStatus = a})
-
-instance NFData DescribeInputSecurityGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DescribeInputSecurityGroupResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DescribeInputSecurityGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInputSecurityGroupResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

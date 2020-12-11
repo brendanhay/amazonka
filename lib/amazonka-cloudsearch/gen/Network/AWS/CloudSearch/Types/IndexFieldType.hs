@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.IndexFieldType where
+module Network.AWS.CloudSearch.Types.IndexFieldType
+  ( IndexFieldType
+      ( IndexFieldType',
+        Date,
+        DateArray,
+        Double,
+        DoubleArray,
+        Int,
+        IntArray,
+        Latlon,
+        Literal,
+        LiteralArray,
+        Text,
+        TextArray
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/ .
-data IndexFieldType
-  = Date
-  | DateArray
-  | Double
-  | DoubleArray
-  | Int
-  | IntArray
-  | Latlon
-  | Literal
-  | LiteralArray
-  | Text
-  | TextArray
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IndexFieldType = IndexFieldType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IndexFieldType where
-  parser =
-    takeLowerText >>= \case
-      "date" -> pure Date
-      "date-array" -> pure DateArray
-      "double" -> pure Double
-      "double-array" -> pure DoubleArray
-      "int" -> pure Int
-      "int-array" -> pure IntArray
-      "latlon" -> pure Latlon
-      "literal" -> pure Literal
-      "literal-array" -> pure LiteralArray
-      "text" -> pure Text
-      "text-array" -> pure TextArray
-      e ->
-        fromTextError $
-          "Failure parsing IndexFieldType from value: '" <> e
-            <> "'. Accepted values: date, date-array, double, double-array, int, int-array, latlon, literal, literal-array, text, text-array"
+pattern Date :: IndexFieldType
+pattern Date = IndexFieldType' "date"
 
-instance ToText IndexFieldType where
-  toText = \case
-    Date -> "date"
-    DateArray -> "date-array"
-    Double -> "double"
-    DoubleArray -> "double-array"
-    Int -> "int"
-    IntArray -> "int-array"
-    Latlon -> "latlon"
-    Literal -> "literal"
-    LiteralArray -> "literal-array"
-    Text -> "text"
-    TextArray -> "text-array"
+pattern DateArray :: IndexFieldType
+pattern DateArray = IndexFieldType' "date-array"
 
-instance Hashable IndexFieldType
+pattern Double :: IndexFieldType
+pattern Double = IndexFieldType' "double"
 
-instance NFData IndexFieldType
+pattern DoubleArray :: IndexFieldType
+pattern DoubleArray = IndexFieldType' "double-array"
 
-instance ToByteString IndexFieldType
+pattern Int :: IndexFieldType
+pattern Int = IndexFieldType' "int"
 
-instance ToQuery IndexFieldType
+pattern IntArray :: IndexFieldType
+pattern IntArray = IndexFieldType' "int-array"
 
-instance ToHeader IndexFieldType
+pattern Latlon :: IndexFieldType
+pattern Latlon = IndexFieldType' "latlon"
 
-instance FromXML IndexFieldType where
-  parseXML = parseXMLText "IndexFieldType"
+pattern Literal :: IndexFieldType
+pattern Literal = IndexFieldType' "literal"
+
+pattern LiteralArray :: IndexFieldType
+pattern LiteralArray = IndexFieldType' "literal-array"
+
+pattern Text :: IndexFieldType
+pattern Text = IndexFieldType' "text"
+
+pattern TextArray :: IndexFieldType
+pattern TextArray = IndexFieldType' "text-array"
+
+{-# COMPLETE
+  Date,
+  DateArray,
+  Double,
+  DoubleArray,
+  Int,
+  IntArray,
+  Latlon,
+  Literal,
+  LiteralArray,
+  Text,
+  TextArray,
+  IndexFieldType'
+  #-}

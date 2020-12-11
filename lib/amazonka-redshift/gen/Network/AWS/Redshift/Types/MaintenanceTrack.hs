@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.MaintenanceTrack where
+module Network.AWS.Redshift.Types.MaintenanceTrack
+  ( MaintenanceTrack (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMaintenanceTrack,
+
+    -- * Lenses
+    mtDatabaseVersion,
+    mtMaintenanceTrackName,
+    mtUpdateTargets,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.UpdateTarget
 
 -- | Defines a maintenance track that determines which Amazon Redshift version to apply during a maintenance window. If the value for @MaintenanceTrack@ is @current@ , the cluster is updated to the most recently certified maintenance release. If the value is @trailing@ , the cluster is updated to the previously certified maintenance release.
 --
---
---
--- /See:/ 'maintenanceTrack' smart constructor.
+-- /See:/ 'mkMaintenanceTrack' smart constructor.
 data MaintenanceTrack = MaintenanceTrack'
-  { _mtDatabaseVersion ::
-      !(Maybe Text),
-    _mtMaintenanceTrackName :: !(Maybe Text),
-    _mtUpdateTargets :: !(Maybe [UpdateTarget])
+  { databaseVersion ::
+      Lude.Maybe Lude.Text,
+    maintenanceTrackName :: Lude.Maybe Lude.Text,
+    updateTargets :: Lude.Maybe [UpdateTarget]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceTrack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtDatabaseVersion' - The version number for the cluster release.
---
--- * 'mtMaintenanceTrackName' - The name of the maintenance track. Possible values are @current@ and @trailing@ .
---
--- * 'mtUpdateTargets' - An array of 'UpdateTarget' objects to update with the maintenance track.
-maintenanceTrack ::
+-- * 'databaseVersion' - The version number for the cluster release.
+-- * 'maintenanceTrackName' - The name of the maintenance track. Possible values are @current@ and @trailing@ .
+-- * 'updateTargets' - An array of 'UpdateTarget' objects to update with the maintenance track.
+mkMaintenanceTrack ::
   MaintenanceTrack
-maintenanceTrack =
+mkMaintenanceTrack =
   MaintenanceTrack'
-    { _mtDatabaseVersion = Nothing,
-      _mtMaintenanceTrackName = Nothing,
-      _mtUpdateTargets = Nothing
+    { databaseVersion = Lude.Nothing,
+      maintenanceTrackName = Lude.Nothing,
+      updateTargets = Lude.Nothing
     }
 
 -- | The version number for the cluster release.
-mtDatabaseVersion :: Lens' MaintenanceTrack (Maybe Text)
-mtDatabaseVersion = lens _mtDatabaseVersion (\s a -> s {_mtDatabaseVersion = a})
+--
+-- /Note:/ Consider using 'databaseVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtDatabaseVersion :: Lens.Lens' MaintenanceTrack (Lude.Maybe Lude.Text)
+mtDatabaseVersion = Lens.lens (databaseVersion :: MaintenanceTrack -> Lude.Maybe Lude.Text) (\s a -> s {databaseVersion = a} :: MaintenanceTrack)
+{-# DEPRECATED mtDatabaseVersion "Use generic-lens or generic-optics with 'databaseVersion' instead." #-}
 
 -- | The name of the maintenance track. Possible values are @current@ and @trailing@ .
-mtMaintenanceTrackName :: Lens' MaintenanceTrack (Maybe Text)
-mtMaintenanceTrackName = lens _mtMaintenanceTrackName (\s a -> s {_mtMaintenanceTrackName = a})
+--
+-- /Note:/ Consider using 'maintenanceTrackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtMaintenanceTrackName :: Lens.Lens' MaintenanceTrack (Lude.Maybe Lude.Text)
+mtMaintenanceTrackName = Lens.lens (maintenanceTrackName :: MaintenanceTrack -> Lude.Maybe Lude.Text) (\s a -> s {maintenanceTrackName = a} :: MaintenanceTrack)
+{-# DEPRECATED mtMaintenanceTrackName "Use generic-lens or generic-optics with 'maintenanceTrackName' instead." #-}
 
 -- | An array of 'UpdateTarget' objects to update with the maintenance track.
-mtUpdateTargets :: Lens' MaintenanceTrack [UpdateTarget]
-mtUpdateTargets = lens _mtUpdateTargets (\s a -> s {_mtUpdateTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'updateTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtUpdateTargets :: Lens.Lens' MaintenanceTrack (Lude.Maybe [UpdateTarget])
+mtUpdateTargets = Lens.lens (updateTargets :: MaintenanceTrack -> Lude.Maybe [UpdateTarget]) (\s a -> s {updateTargets = a} :: MaintenanceTrack)
+{-# DEPRECATED mtUpdateTargets "Use generic-lens or generic-optics with 'updateTargets' instead." #-}
 
-instance FromXML MaintenanceTrack where
+instance Lude.FromXML MaintenanceTrack where
   parseXML x =
     MaintenanceTrack'
-      <$> (x .@? "DatabaseVersion")
-      <*> (x .@? "MaintenanceTrackName")
-      <*> ( x .@? "UpdateTargets" .!@ mempty
-              >>= may (parseXMLList "UpdateTarget")
-          )
-
-instance Hashable MaintenanceTrack
-
-instance NFData MaintenanceTrack
+      Lude.<$> (x Lude..@? "DatabaseVersion")
+      Lude.<*> (x Lude..@? "MaintenanceTrackName")
+      Lude.<*> ( x Lude..@? "UpdateTargets" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "UpdateTarget")
+               )

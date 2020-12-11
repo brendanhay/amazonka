@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,115 +7,146 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.InstanceProfile where
+module Network.AWS.IAM.Types.InstanceProfile
+  ( InstanceProfile (..),
+
+    -- * Smart constructor
+    mkInstanceProfile,
+
+    -- * Lenses
+    ipPath,
+    ipInstanceProfileName,
+    ipInstanceProfileId,
+    ipARN,
+    ipCreateDate,
+    ipRoles,
+  )
+where
 
 import Network.AWS.IAM.Types.Role
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about an instance profile.
---
 --
 -- This data type is used as a response element in the following operations:
 --
 --     * 'CreateInstanceProfile'
 --
+--
 --     * 'GetInstanceProfile'
 --
+--
 --     * 'ListInstanceProfiles'
+--
 --
 --     * 'ListInstanceProfilesForRole'
 --
 --
 --
---
--- /See:/ 'instanceProfile' smart constructor.
+-- /See:/ 'mkInstanceProfile' smart constructor.
 data InstanceProfile = InstanceProfile'
-  { _ipPath :: !Text,
-    _ipInstanceProfileName :: !Text,
-    _ipInstanceProfileId :: !Text,
-    _ipARN :: !Text,
-    _ipCreateDate :: !ISO8601,
-    _ipRoles :: ![Role]
+  { path :: Lude.Text,
+    instanceProfileName :: Lude.Text,
+    instanceProfileId :: Lude.Text,
+    arn :: Lude.Text,
+    createDate :: Lude.ISO8601,
+    roles :: [Role]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ipPath' - The path to the instance profile. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
---
--- * 'ipInstanceProfileName' - The name identifying the instance profile.
---
--- * 'ipInstanceProfileId' - The stable and unique string identifying the instance profile. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
---
--- * 'ipARN' - The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
---
--- * 'ipCreateDate' - The date when the instance profile was created.
---
--- * 'ipRoles' - The role associated with the instance profile.
-instanceProfile ::
-  -- | 'ipPath'
-  Text ->
-  -- | 'ipInstanceProfileName'
-  Text ->
-  -- | 'ipInstanceProfileId'
-  Text ->
-  -- | 'ipARN'
-  Text ->
-  -- | 'ipCreateDate'
-  UTCTime ->
+-- * 'arn' - The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'createDate' - The date when the instance profile was created.
+-- * 'instanceProfileId' - The stable and unique string identifying the instance profile. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'instanceProfileName' - The name identifying the instance profile.
+-- * 'path' - The path to the instance profile. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'roles' - The role associated with the instance profile.
+mkInstanceProfile ::
+  -- | 'path'
+  Lude.Text ->
+  -- | 'instanceProfileName'
+  Lude.Text ->
+  -- | 'instanceProfileId'
+  Lude.Text ->
+  -- | 'arn'
+  Lude.Text ->
+  -- | 'createDate'
+  Lude.ISO8601 ->
   InstanceProfile
-instanceProfile
+mkInstanceProfile
   pPath_
   pInstanceProfileName_
   pInstanceProfileId_
   pARN_
   pCreateDate_ =
     InstanceProfile'
-      { _ipPath = pPath_,
-        _ipInstanceProfileName = pInstanceProfileName_,
-        _ipInstanceProfileId = pInstanceProfileId_,
-        _ipARN = pARN_,
-        _ipCreateDate = _Time # pCreateDate_,
-        _ipRoles = mempty
+      { path = pPath_,
+        instanceProfileName = pInstanceProfileName_,
+        instanceProfileId = pInstanceProfileId_,
+        arn = pARN_,
+        createDate = pCreateDate_,
+        roles = Lude.mempty
       }
 
 -- | The path to the instance profile. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-ipPath :: Lens' InstanceProfile Text
-ipPath = lens _ipPath (\s a -> s {_ipPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipPath :: Lens.Lens' InstanceProfile Lude.Text
+ipPath = Lens.lens (path :: InstanceProfile -> Lude.Text) (\s a -> s {path = a} :: InstanceProfile)
+{-# DEPRECATED ipPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The name identifying the instance profile.
-ipInstanceProfileName :: Lens' InstanceProfile Text
-ipInstanceProfileName = lens _ipInstanceProfileName (\s a -> s {_ipInstanceProfileName = a})
+--
+-- /Note:/ Consider using 'instanceProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipInstanceProfileName :: Lens.Lens' InstanceProfile Lude.Text
+ipInstanceProfileName = Lens.lens (instanceProfileName :: InstanceProfile -> Lude.Text) (\s a -> s {instanceProfileName = a} :: InstanceProfile)
+{-# DEPRECATED ipInstanceProfileName "Use generic-lens or generic-optics with 'instanceProfileName' instead." #-}
 
 -- | The stable and unique string identifying the instance profile. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-ipInstanceProfileId :: Lens' InstanceProfile Text
-ipInstanceProfileId = lens _ipInstanceProfileId (\s a -> s {_ipInstanceProfileId = a})
+--
+-- /Note:/ Consider using 'instanceProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipInstanceProfileId :: Lens.Lens' InstanceProfile Lude.Text
+ipInstanceProfileId = Lens.lens (instanceProfileId :: InstanceProfile -> Lude.Text) (\s a -> s {instanceProfileId = a} :: InstanceProfile)
+{-# DEPRECATED ipInstanceProfileId "Use generic-lens or generic-optics with 'instanceProfileId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-ipARN :: Lens' InstanceProfile Text
-ipARN = lens _ipARN (\s a -> s {_ipARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipARN :: Lens.Lens' InstanceProfile Lude.Text
+ipARN = Lens.lens (arn :: InstanceProfile -> Lude.Text) (\s a -> s {arn = a} :: InstanceProfile)
+{-# DEPRECATED ipARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date when the instance profile was created.
-ipCreateDate :: Lens' InstanceProfile UTCTime
-ipCreateDate = lens _ipCreateDate (\s a -> s {_ipCreateDate = a}) . _Time
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipCreateDate :: Lens.Lens' InstanceProfile Lude.ISO8601
+ipCreateDate = Lens.lens (createDate :: InstanceProfile -> Lude.ISO8601) (\s a -> s {createDate = a} :: InstanceProfile)
+{-# DEPRECATED ipCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The role associated with the instance profile.
-ipRoles :: Lens' InstanceProfile [Role]
-ipRoles = lens _ipRoles (\s a -> s {_ipRoles = a}) . _Coerce
+--
+-- /Note:/ Consider using 'roles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipRoles :: Lens.Lens' InstanceProfile [Role]
+ipRoles = Lens.lens (roles :: InstanceProfile -> [Role]) (\s a -> s {roles = a} :: InstanceProfile)
+{-# DEPRECATED ipRoles "Use generic-lens or generic-optics with 'roles' instead." #-}
 
-instance FromXML InstanceProfile where
+instance Lude.FromXML InstanceProfile where
   parseXML x =
     InstanceProfile'
-      <$> (x .@ "Path")
-      <*> (x .@ "InstanceProfileName")
-      <*> (x .@ "InstanceProfileId")
-      <*> (x .@ "Arn")
-      <*> (x .@ "CreateDate")
-      <*> (x .@? "Roles" .!@ mempty >>= parseXMLList "member")
-
-instance Hashable InstanceProfile
-
-instance NFData InstanceProfile
+      Lude.<$> (x Lude..@ "Path")
+      Lude.<*> (x Lude..@ "InstanceProfileName")
+      Lude.<*> (x Lude..@ "InstanceProfileId")
+      Lude.<*> (x Lude..@ "Arn")
+      Lude.<*> (x Lude..@ "CreateDate")
+      Lude.<*> ( x Lude..@? "Roles" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLList "member"
+               )

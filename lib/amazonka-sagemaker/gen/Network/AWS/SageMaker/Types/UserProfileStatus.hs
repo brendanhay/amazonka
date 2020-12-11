@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.UserProfileStatus where
+module Network.AWS.SageMaker.Types.UserProfileStatus
+  ( UserProfileStatus
+      ( UserProfileStatus',
+        UPSDeleteFailed,
+        UPSDeleting,
+        UPSFailed,
+        UPSInService,
+        UPSPending,
+        UPSUpdateFailed,
+        UPSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UserProfileStatus
-  = UPSDeleteFailed
-  | UPSDeleting
-  | UPSFailed
-  | UPSInService
-  | UPSPending
-  | UPSUpdateFailed
-  | UPSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UserProfileStatus = UserProfileStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UserProfileStatus where
-  parser =
-    takeLowerText >>= \case
-      "delete_failed" -> pure UPSDeleteFailed
-      "deleting" -> pure UPSDeleting
-      "failed" -> pure UPSFailed
-      "inservice" -> pure UPSInService
-      "pending" -> pure UPSPending
-      "update_failed" -> pure UPSUpdateFailed
-      "updating" -> pure UPSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing UserProfileStatus from value: '" <> e
-            <> "'. Accepted values: delete_failed, deleting, failed, inservice, pending, update_failed, updating"
+pattern UPSDeleteFailed :: UserProfileStatus
+pattern UPSDeleteFailed = UserProfileStatus' "Delete_Failed"
 
-instance ToText UserProfileStatus where
-  toText = \case
-    UPSDeleteFailed -> "Delete_Failed"
-    UPSDeleting -> "Deleting"
-    UPSFailed -> "Failed"
-    UPSInService -> "InService"
-    UPSPending -> "Pending"
-    UPSUpdateFailed -> "Update_Failed"
-    UPSUpdating -> "Updating"
+pattern UPSDeleting :: UserProfileStatus
+pattern UPSDeleting = UserProfileStatus' "Deleting"
 
-instance Hashable UserProfileStatus
+pattern UPSFailed :: UserProfileStatus
+pattern UPSFailed = UserProfileStatus' "Failed"
 
-instance NFData UserProfileStatus
+pattern UPSInService :: UserProfileStatus
+pattern UPSInService = UserProfileStatus' "InService"
 
-instance ToByteString UserProfileStatus
+pattern UPSPending :: UserProfileStatus
+pattern UPSPending = UserProfileStatus' "Pending"
 
-instance ToQuery UserProfileStatus
+pattern UPSUpdateFailed :: UserProfileStatus
+pattern UPSUpdateFailed = UserProfileStatus' "Update_Failed"
 
-instance ToHeader UserProfileStatus
+pattern UPSUpdating :: UserProfileStatus
+pattern UPSUpdating = UserProfileStatus' "Updating"
 
-instance FromJSON UserProfileStatus where
-  parseJSON = parseJSONText "UserProfileStatus"
+{-# COMPLETE
+  UPSDeleteFailed,
+  UPSDeleting,
+  UPSFailed,
+  UPSInService,
+  UPSPending,
+  UPSUpdateFailed,
+  UPSUpdating,
+  UserProfileStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.StudioSummary where
+module Network.AWS.EMR.Types.StudioSummary
+  ( StudioSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStudioSummary,
+
+    -- * Lenses
+    ssCreationTime,
+    ssStudioId,
+    ssVPCId,
+    ssURL,
+    ssName,
+    ssDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details for an Amazon EMR Studio, including ID, Name, VPC, and Description. The details do not include subnets, IAM roles, security groups, or tags associated with the Studio.
 --
---
---
--- /See:/ 'studioSummary' smart constructor.
+-- /See:/ 'mkStudioSummary' smart constructor.
 data StudioSummary = StudioSummary'
-  { _ssCreationTime ::
-      !(Maybe POSIX),
-    _ssStudioId :: !(Maybe Text),
-    _ssVPCId :: !(Maybe Text),
-    _ssURL :: !(Maybe Text),
-    _ssName :: !(Maybe Text),
-    _ssDescription :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    studioId :: Lude.Maybe Lude.Text,
+    vpcId :: Lude.Maybe Lude.Text,
+    url :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StudioSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssCreationTime' - The time when the Amazon EMR Studio was created.
---
--- * 'ssStudioId' - The ID of the Amazon EMR Studio.
---
--- * 'ssVPCId' - The ID of the Virtual Private Cloud (Amazon VPC) associated with the Amazon EMR Studio.
---
--- * 'ssURL' - The unique access URL of the Amazon EMR Studio.
---
--- * 'ssName' - The name of the Amazon EMR Studio.
---
--- * 'ssDescription' - The detailed description of the EMR Studio.
-studioSummary ::
+-- * 'creationTime' - The time when the Amazon EMR Studio was created.
+-- * 'description' - The detailed description of the EMR Studio.
+-- * 'name' - The name of the Amazon EMR Studio.
+-- * 'studioId' - The ID of the Amazon EMR Studio.
+-- * 'url' - The unique access URL of the Amazon EMR Studio.
+-- * 'vpcId' - The ID of the Virtual Private Cloud (Amazon VPC) associated with the Amazon EMR Studio.
+mkStudioSummary ::
   StudioSummary
-studioSummary =
+mkStudioSummary =
   StudioSummary'
-    { _ssCreationTime = Nothing,
-      _ssStudioId = Nothing,
-      _ssVPCId = Nothing,
-      _ssURL = Nothing,
-      _ssName = Nothing,
-      _ssDescription = Nothing
+    { creationTime = Lude.Nothing,
+      studioId = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      url = Lude.Nothing,
+      name = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The time when the Amazon EMR Studio was created.
-ssCreationTime :: Lens' StudioSummary (Maybe UTCTime)
-ssCreationTime = lens _ssCreationTime (\s a -> s {_ssCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssCreationTime :: Lens.Lens' StudioSummary (Lude.Maybe Lude.Timestamp)
+ssCreationTime = Lens.lens (creationTime :: StudioSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: StudioSummary)
+{-# DEPRECATED ssCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The ID of the Amazon EMR Studio.
-ssStudioId :: Lens' StudioSummary (Maybe Text)
-ssStudioId = lens _ssStudioId (\s a -> s {_ssStudioId = a})
+--
+-- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStudioId :: Lens.Lens' StudioSummary (Lude.Maybe Lude.Text)
+ssStudioId = Lens.lens (studioId :: StudioSummary -> Lude.Maybe Lude.Text) (\s a -> s {studioId = a} :: StudioSummary)
+{-# DEPRECATED ssStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
 
 -- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the Amazon EMR Studio.
-ssVPCId :: Lens' StudioSummary (Maybe Text)
-ssVPCId = lens _ssVPCId (\s a -> s {_ssVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssVPCId :: Lens.Lens' StudioSummary (Lude.Maybe Lude.Text)
+ssVPCId = Lens.lens (vpcId :: StudioSummary -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: StudioSummary)
+{-# DEPRECATED ssVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The unique access URL of the Amazon EMR Studio.
-ssURL :: Lens' StudioSummary (Maybe Text)
-ssURL = lens _ssURL (\s a -> s {_ssURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssURL :: Lens.Lens' StudioSummary (Lude.Maybe Lude.Text)
+ssURL = Lens.lens (url :: StudioSummary -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: StudioSummary)
+{-# DEPRECATED ssURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The name of the Amazon EMR Studio.
-ssName :: Lens' StudioSummary (Maybe Text)
-ssName = lens _ssName (\s a -> s {_ssName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssName :: Lens.Lens' StudioSummary (Lude.Maybe Lude.Text)
+ssName = Lens.lens (name :: StudioSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StudioSummary)
+{-# DEPRECATED ssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The detailed description of the EMR Studio.
-ssDescription :: Lens' StudioSummary (Maybe Text)
-ssDescription = lens _ssDescription (\s a -> s {_ssDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssDescription :: Lens.Lens' StudioSummary (Lude.Maybe Lude.Text)
+ssDescription = Lens.lens (description :: StudioSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StudioSummary)
+{-# DEPRECATED ssDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON StudioSummary where
+instance Lude.FromJSON StudioSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "StudioSummary"
       ( \x ->
           StudioSummary'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "StudioId")
-            <*> (x .:? "VpcId")
-            <*> (x .:? "Url")
-            <*> (x .:? "Name")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "StudioId")
+            Lude.<*> (x Lude..:? "VpcId")
+            Lude.<*> (x Lude..:? "Url")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable StudioSummary
-
-instance NFData StudioSummary

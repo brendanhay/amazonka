@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.S3SseAlgorithm where
+module Network.AWS.DynamoDB.Types.S3SseAlgorithm
+  ( S3SseAlgorithm
+      ( S3SseAlgorithm',
+        SSAAES256,
+        SSAKMS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data S3SseAlgorithm
-  = SSAAES256
-  | SSAKMS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype S3SseAlgorithm = S3SseAlgorithm' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText S3SseAlgorithm where
-  parser =
-    takeLowerText >>= \case
-      "aes256" -> pure SSAAES256
-      "kms" -> pure SSAKMS
-      e ->
-        fromTextError $
-          "Failure parsing S3SseAlgorithm from value: '" <> e
-            <> "'. Accepted values: aes256, kms"
+pattern SSAAES256 :: S3SseAlgorithm
+pattern SSAAES256 = S3SseAlgorithm' "AES256"
 
-instance ToText S3SseAlgorithm where
-  toText = \case
-    SSAAES256 -> "AES256"
-    SSAKMS -> "KMS"
+pattern SSAKMS :: S3SseAlgorithm
+pattern SSAKMS = S3SseAlgorithm' "KMS"
 
-instance Hashable S3SseAlgorithm
-
-instance NFData S3SseAlgorithm
-
-instance ToByteString S3SseAlgorithm
-
-instance ToQuery S3SseAlgorithm
-
-instance ToHeader S3SseAlgorithm
-
-instance ToJSON S3SseAlgorithm where
-  toJSON = toJSONText
-
-instance FromJSON S3SseAlgorithm where
-  parseJSON = parseJSONText "S3SseAlgorithm"
+{-# COMPLETE
+  SSAAES256,
+  SSAKMS,
+  S3SseAlgorithm'
+  #-}

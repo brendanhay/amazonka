@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,121 @@
 --
 -- Deletes a Kinesis data stream and all its shards and data. You must shut down any applications that are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream, it receives the exception @ResourceNotFoundException@ .
 --
---
 -- If the stream is in the @ACTIVE@ state, you can delete it. After a @DeleteStream@ request, the specified stream is in the @DELETING@ state until Kinesis Data Streams completes the deletion.
---
 -- __Note:__ Kinesis Data Streams might continue to accept data read and write operations, such as 'PutRecord' , 'PutRecords' , and 'GetRecords' , on a stream in the @DELETING@ state until the stream deletion is complete.
---
 -- When you delete a stream, any shards in that stream are also deleted, and any tags are dissociated from the stream.
---
 -- You can use the 'DescribeStream' operation to check the state of the stream, which is returned in @StreamStatus@ .
---
 -- 'DeleteStream' has a limit of five transactions per second per account.
 module Network.AWS.Kinesis.DeleteStream
-  ( -- * Creating a Request
-    deleteStream,
-    DeleteStream,
+  ( -- * Creating a request
+    DeleteStream (..),
+    mkDeleteStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsEnforceConsumerDeletion,
     dsStreamName,
 
-    -- * Destructuring the Response
-    deleteStreamResponse,
-    DeleteStreamResponse,
+    -- * Destructuring the response
+    DeleteStreamResponse (..),
+    mkDeleteStreamResponse,
   )
 where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for 'DeleteStream' .
 --
---
---
--- /See:/ 'deleteStream' smart constructor.
+-- /See:/ 'mkDeleteStream' smart constructor.
 data DeleteStream = DeleteStream'
-  { _dsEnforceConsumerDeletion ::
-      !(Maybe Bool),
-    _dsStreamName :: !Text
+  { enforceConsumerDeletion ::
+      Lude.Maybe Lude.Bool,
+    streamName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsEnforceConsumerDeletion' - If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
---
--- * 'dsStreamName' - The name of the stream to delete.
-deleteStream ::
-  -- | 'dsStreamName'
-  Text ->
+-- * 'enforceConsumerDeletion' - If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
+-- * 'streamName' - The name of the stream to delete.
+mkDeleteStream ::
+  -- | 'streamName'
+  Lude.Text ->
   DeleteStream
-deleteStream pStreamName_ =
+mkDeleteStream pStreamName_ =
   DeleteStream'
-    { _dsEnforceConsumerDeletion = Nothing,
-      _dsStreamName = pStreamName_
+    { enforceConsumerDeletion = Lude.Nothing,
+      streamName = pStreamName_
     }
 
 -- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
-dsEnforceConsumerDeletion :: Lens' DeleteStream (Maybe Bool)
-dsEnforceConsumerDeletion = lens _dsEnforceConsumerDeletion (\s a -> s {_dsEnforceConsumerDeletion = a})
+--
+-- /Note:/ Consider using 'enforceConsumerDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsEnforceConsumerDeletion :: Lens.Lens' DeleteStream (Lude.Maybe Lude.Bool)
+dsEnforceConsumerDeletion = Lens.lens (enforceConsumerDeletion :: DeleteStream -> Lude.Maybe Lude.Bool) (\s a -> s {enforceConsumerDeletion = a} :: DeleteStream)
+{-# DEPRECATED dsEnforceConsumerDeletion "Use generic-lens or generic-optics with 'enforceConsumerDeletion' instead." #-}
 
 -- | The name of the stream to delete.
-dsStreamName :: Lens' DeleteStream Text
-dsStreamName = lens _dsStreamName (\s a -> s {_dsStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStreamName :: Lens.Lens' DeleteStream Lude.Text
+dsStreamName = Lens.lens (streamName :: DeleteStream -> Lude.Text) (\s a -> s {streamName = a} :: DeleteStream)
+{-# DEPRECATED dsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance AWSRequest DeleteStream where
+instance Lude.AWSRequest DeleteStream where
   type Rs DeleteStream = DeleteStreamResponse
-  request = postJSON kinesis
-  response = receiveNull DeleteStreamResponse'
+  request = Req.postJSON kinesisService
+  response = Res.receiveNull DeleteStreamResponse'
 
-instance Hashable DeleteStream
-
-instance NFData DeleteStream
-
-instance ToHeaders DeleteStream where
+instance Lude.ToHeaders DeleteStream where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Kinesis_20131202.DeleteStream" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Kinesis_20131202.DeleteStream" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteStream where
+instance Lude.ToJSON DeleteStream where
   toJSON DeleteStream' {..} =
-    object
-      ( catMaybes
-          [ ("EnforceConsumerDeletion" .=) <$> _dsEnforceConsumerDeletion,
-            Just ("StreamName" .= _dsStreamName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EnforceConsumerDeletion" Lude..=)
+              Lude.<$> enforceConsumerDeletion,
+            Lude.Just ("StreamName" Lude..= streamName)
           ]
       )
 
-instance ToPath DeleteStream where
-  toPath = const "/"
+instance Lude.ToPath DeleteStream where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteStream where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteStream where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteStreamResponse' smart constructor.
+-- | /See:/ 'mkDeleteStreamResponse' smart constructor.
 data DeleteStreamResponse = DeleteStreamResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.
-deleteStreamResponse ::
+mkDeleteStreamResponse ::
   DeleteStreamResponse
-deleteStreamResponse = DeleteStreamResponse'
-
-instance NFData DeleteStreamResponse
+mkDeleteStreamResponse = DeleteStreamResponse'

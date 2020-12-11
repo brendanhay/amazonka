@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue where
+module Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
+  ( RefreshSchemasStatusTypeValue
+      ( RefreshSchemasStatusTypeValue',
+        Failed,
+        Refreshing,
+        Successful
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RefreshSchemasStatusTypeValue
-  = Failed
-  | Refreshing
-  | Successful
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RefreshSchemasStatusTypeValue = RefreshSchemasStatusTypeValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RefreshSchemasStatusTypeValue where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "refreshing" -> pure Refreshing
-      "successful" -> pure Successful
-      e ->
-        fromTextError $
-          "Failure parsing RefreshSchemasStatusTypeValue from value: '" <> e
-            <> "'. Accepted values: failed, refreshing, successful"
+pattern Failed :: RefreshSchemasStatusTypeValue
+pattern Failed = RefreshSchemasStatusTypeValue' "failed"
 
-instance ToText RefreshSchemasStatusTypeValue where
-  toText = \case
-    Failed -> "failed"
-    Refreshing -> "refreshing"
-    Successful -> "successful"
+pattern Refreshing :: RefreshSchemasStatusTypeValue
+pattern Refreshing = RefreshSchemasStatusTypeValue' "refreshing"
 
-instance Hashable RefreshSchemasStatusTypeValue
+pattern Successful :: RefreshSchemasStatusTypeValue
+pattern Successful = RefreshSchemasStatusTypeValue' "successful"
 
-instance NFData RefreshSchemasStatusTypeValue
-
-instance ToByteString RefreshSchemasStatusTypeValue
-
-instance ToQuery RefreshSchemasStatusTypeValue
-
-instance ToHeader RefreshSchemasStatusTypeValue
-
-instance FromJSON RefreshSchemasStatusTypeValue where
-  parseJSON = parseJSONText "RefreshSchemasStatusTypeValue"
+{-# COMPLETE
+  Failed,
+  Refreshing,
+  Successful,
+  RefreshSchemasStatusTypeValue'
+  #-}

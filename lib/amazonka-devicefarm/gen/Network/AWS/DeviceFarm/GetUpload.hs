@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,130 @@
 --
 -- Gets information about an upload.
 module Network.AWS.DeviceFarm.GetUpload
-  ( -- * Creating a Request
-    getUpload,
-    GetUpload,
+  ( -- * Creating a request
+    GetUpload (..),
+    mkGetUpload,
 
-    -- * Request Lenses
+    -- ** Request lenses
     guArn,
 
-    -- * Destructuring the Response
-    getUploadResponse,
-    GetUploadResponse,
+    -- * Destructuring the response
+    GetUploadResponse (..),
+    mkGetUploadResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gursUpload,
     gursResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the get upload operation.
 --
---
---
--- /See:/ 'getUpload' smart constructor.
-newtype GetUpload = GetUpload' {_guArn :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetUpload' smart constructor.
+newtype GetUpload = GetUpload' {arn :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUpload' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'guArn' - The upload's ARN.
-getUpload ::
-  -- | 'guArn'
-  Text ->
+-- * 'arn' - The upload's ARN.
+mkGetUpload ::
+  -- | 'arn'
+  Lude.Text ->
   GetUpload
-getUpload pArn_ = GetUpload' {_guArn = pArn_}
+mkGetUpload pArn_ = GetUpload' {arn = pArn_}
 
 -- | The upload's ARN.
-guArn :: Lens' GetUpload Text
-guArn = lens _guArn (\s a -> s {_guArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guArn :: Lens.Lens' GetUpload Lude.Text
+guArn = Lens.lens (arn :: GetUpload -> Lude.Text) (\s a -> s {arn = a} :: GetUpload)
+{-# DEPRECATED guArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest GetUpload where
+instance Lude.AWSRequest GetUpload where
   type Rs GetUpload = GetUploadResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetUploadResponse' <$> (x .?> "upload") <*> (pure (fromEnum s))
+          GetUploadResponse'
+            Lude.<$> (x Lude..?> "upload") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetUpload
-
-instance NFData GetUpload
-
-instance ToHeaders GetUpload where
+instance Lude.ToHeaders GetUpload where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DeviceFarm_20150623.GetUpload" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DeviceFarm_20150623.GetUpload" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetUpload where
-  toJSON GetUpload' {..} = object (catMaybes [Just ("arn" .= _guArn)])
+instance Lude.ToJSON GetUpload where
+  toJSON GetUpload' {..} =
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath GetUpload where
-  toPath = const "/"
+instance Lude.ToPath GetUpload where
+  toPath = Lude.const "/"
 
-instance ToQuery GetUpload where
-  toQuery = const mempty
+instance Lude.ToQuery GetUpload where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a get upload request.
 --
---
---
--- /See:/ 'getUploadResponse' smart constructor.
+-- /See:/ 'mkGetUploadResponse' smart constructor.
 data GetUploadResponse = GetUploadResponse'
-  { _gursUpload ::
-      !(Maybe Upload),
-    _gursResponseStatus :: !Int
+  { upload ::
+      Lude.Maybe Upload,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUploadResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gursUpload' - An app or a set of one or more tests to upload or that have been uploaded.
---
--- * 'gursResponseStatus' - -- | The response status code.
-getUploadResponse ::
-  -- | 'gursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'upload' - An app or a set of one or more tests to upload or that have been uploaded.
+mkGetUploadResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetUploadResponse
-getUploadResponse pResponseStatus_ =
+mkGetUploadResponse pResponseStatus_ =
   GetUploadResponse'
-    { _gursUpload = Nothing,
-      _gursResponseStatus = pResponseStatus_
+    { upload = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An app or a set of one or more tests to upload or that have been uploaded.
-gursUpload :: Lens' GetUploadResponse (Maybe Upload)
-gursUpload = lens _gursUpload (\s a -> s {_gursUpload = a})
+--
+-- /Note:/ Consider using 'upload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gursUpload :: Lens.Lens' GetUploadResponse (Lude.Maybe Upload)
+gursUpload = Lens.lens (upload :: GetUploadResponse -> Lude.Maybe Upload) (\s a -> s {upload = a} :: GetUploadResponse)
+{-# DEPRECATED gursUpload "Use generic-lens or generic-optics with 'upload' instead." #-}
 
--- | -- | The response status code.
-gursResponseStatus :: Lens' GetUploadResponse Int
-gursResponseStatus = lens _gursResponseStatus (\s a -> s {_gursResponseStatus = a})
-
-instance NFData GetUploadResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gursResponseStatus :: Lens.Lens' GetUploadResponse Lude.Int
+gursResponseStatus = Lens.lens (responseStatus :: GetUploadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUploadResponse)
+{-# DEPRECATED gursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

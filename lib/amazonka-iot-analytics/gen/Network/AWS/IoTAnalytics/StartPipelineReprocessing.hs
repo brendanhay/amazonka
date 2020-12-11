@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,157 @@
 --
 -- Starts the reprocessing of raw message data through the pipeline.
 module Network.AWS.IoTAnalytics.StartPipelineReprocessing
-  ( -- * Creating a Request
-    startPipelineReprocessing,
-    StartPipelineReprocessing,
+  ( -- * Creating a request
+    StartPipelineReprocessing (..),
+    mkStartPipelineReprocessing,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sprStartTime,
     sprEndTime,
     sprPipelineName,
 
-    -- * Destructuring the Response
-    startPipelineReprocessingResponse,
-    StartPipelineReprocessingResponse,
+    -- * Destructuring the response
+    StartPipelineReprocessingResponse (..),
+    mkStartPipelineReprocessingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sprrsReprocessingId,
     sprrsResponseStatus,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startPipelineReprocessing' smart constructor.
+-- | /See:/ 'mkStartPipelineReprocessing' smart constructor.
 data StartPipelineReprocessing = StartPipelineReprocessing'
-  { _sprStartTime ::
-      !(Maybe POSIX),
-    _sprEndTime :: !(Maybe POSIX),
-    _sprPipelineName :: !Text
+  { startTime ::
+      Lude.Maybe Lude.Timestamp,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    pipelineName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPipelineReprocessing' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sprStartTime' - The start time (inclusive) of raw message data that is reprocessed.
---
--- * 'sprEndTime' - The end time (exclusive) of raw message data that is reprocessed.
---
--- * 'sprPipelineName' - The name of the pipeline on which to start reprocessing.
-startPipelineReprocessing ::
-  -- | 'sprPipelineName'
-  Text ->
+-- * 'endTime' - The end time (exclusive) of raw message data that is reprocessed.
+-- * 'pipelineName' - The name of the pipeline on which to start reprocessing.
+-- * 'startTime' - The start time (inclusive) of raw message data that is reprocessed.
+mkStartPipelineReprocessing ::
+  -- | 'pipelineName'
+  Lude.Text ->
   StartPipelineReprocessing
-startPipelineReprocessing pPipelineName_ =
+mkStartPipelineReprocessing pPipelineName_ =
   StartPipelineReprocessing'
-    { _sprStartTime = Nothing,
-      _sprEndTime = Nothing,
-      _sprPipelineName = pPipelineName_
+    { startTime = Lude.Nothing,
+      endTime = Lude.Nothing,
+      pipelineName = pPipelineName_
     }
 
 -- | The start time (inclusive) of raw message data that is reprocessed.
-sprStartTime :: Lens' StartPipelineReprocessing (Maybe UTCTime)
-sprStartTime = lens _sprStartTime (\s a -> s {_sprStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprStartTime :: Lens.Lens' StartPipelineReprocessing (Lude.Maybe Lude.Timestamp)
+sprStartTime = Lens.lens (startTime :: StartPipelineReprocessing -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: StartPipelineReprocessing)
+{-# DEPRECATED sprStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end time (exclusive) of raw message data that is reprocessed.
-sprEndTime :: Lens' StartPipelineReprocessing (Maybe UTCTime)
-sprEndTime = lens _sprEndTime (\s a -> s {_sprEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprEndTime :: Lens.Lens' StartPipelineReprocessing (Lude.Maybe Lude.Timestamp)
+sprEndTime = Lens.lens (endTime :: StartPipelineReprocessing -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: StartPipelineReprocessing)
+{-# DEPRECATED sprEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The name of the pipeline on which to start reprocessing.
-sprPipelineName :: Lens' StartPipelineReprocessing Text
-sprPipelineName = lens _sprPipelineName (\s a -> s {_sprPipelineName = a})
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprPipelineName :: Lens.Lens' StartPipelineReprocessing Lude.Text
+sprPipelineName = Lens.lens (pipelineName :: StartPipelineReprocessing -> Lude.Text) (\s a -> s {pipelineName = a} :: StartPipelineReprocessing)
+{-# DEPRECATED sprPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
-instance AWSRequest StartPipelineReprocessing where
+instance Lude.AWSRequest StartPipelineReprocessing where
   type
     Rs StartPipelineReprocessing =
       StartPipelineReprocessingResponse
-  request = postJSON ioTAnalytics
+  request = Req.postJSON ioTAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartPipelineReprocessingResponse'
-            <$> (x .?> "reprocessingId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "reprocessingId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartPipelineReprocessing
+instance Lude.ToHeaders StartPipelineReprocessing where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData StartPipelineReprocessing
-
-instance ToHeaders StartPipelineReprocessing where
-  toHeaders = const mempty
-
-instance ToJSON StartPipelineReprocessing where
+instance Lude.ToJSON StartPipelineReprocessing where
   toJSON StartPipelineReprocessing' {..} =
-    object
-      ( catMaybes
-          [ ("startTime" .=) <$> _sprStartTime,
-            ("endTime" .=) <$> _sprEndTime
+    Lude.object
+      ( Lude.catMaybes
+          [ ("startTime" Lude..=) Lude.<$> startTime,
+            ("endTime" Lude..=) Lude.<$> endTime
           ]
       )
 
-instance ToPath StartPipelineReprocessing where
+instance Lude.ToPath StartPipelineReprocessing where
   toPath StartPipelineReprocessing' {..} =
-    mconcat ["/pipelines/", toBS _sprPipelineName, "/reprocessing"]
+    Lude.mconcat
+      ["/pipelines/", Lude.toBS pipelineName, "/reprocessing"]
 
-instance ToQuery StartPipelineReprocessing where
-  toQuery = const mempty
+instance Lude.ToQuery StartPipelineReprocessing where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startPipelineReprocessingResponse' smart constructor.
+-- | /See:/ 'mkStartPipelineReprocessingResponse' smart constructor.
 data StartPipelineReprocessingResponse = StartPipelineReprocessingResponse'
-  { _sprrsReprocessingId ::
-      !(Maybe Text),
-    _sprrsResponseStatus ::
-      !Int
+  { reprocessingId ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPipelineReprocessingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sprrsReprocessingId' - The ID of the pipeline reprocessing activity that was started.
---
--- * 'sprrsResponseStatus' - -- | The response status code.
-startPipelineReprocessingResponse ::
-  -- | 'sprrsResponseStatus'
-  Int ->
+-- * 'reprocessingId' - The ID of the pipeline reprocessing activity that was started.
+-- * 'responseStatus' - The response status code.
+mkStartPipelineReprocessingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartPipelineReprocessingResponse
-startPipelineReprocessingResponse pResponseStatus_ =
+mkStartPipelineReprocessingResponse pResponseStatus_ =
   StartPipelineReprocessingResponse'
-    { _sprrsReprocessingId =
-        Nothing,
-      _sprrsResponseStatus = pResponseStatus_
+    { reprocessingId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the pipeline reprocessing activity that was started.
-sprrsReprocessingId :: Lens' StartPipelineReprocessingResponse (Maybe Text)
-sprrsReprocessingId = lens _sprrsReprocessingId (\s a -> s {_sprrsReprocessingId = a})
+--
+-- /Note:/ Consider using 'reprocessingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprrsReprocessingId :: Lens.Lens' StartPipelineReprocessingResponse (Lude.Maybe Lude.Text)
+sprrsReprocessingId = Lens.lens (reprocessingId :: StartPipelineReprocessingResponse -> Lude.Maybe Lude.Text) (\s a -> s {reprocessingId = a} :: StartPipelineReprocessingResponse)
+{-# DEPRECATED sprrsReprocessingId "Use generic-lens or generic-optics with 'reprocessingId' instead." #-}
 
--- | -- | The response status code.
-sprrsResponseStatus :: Lens' StartPipelineReprocessingResponse Int
-sprrsResponseStatus = lens _sprrsResponseStatus (\s a -> s {_sprrsResponseStatus = a})
-
-instance NFData StartPipelineReprocessingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sprrsResponseStatus :: Lens.Lens' StartPipelineReprocessingResponse Lude.Int
+sprrsResponseStatus = Lens.lens (responseStatus :: StartPipelineReprocessingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartPipelineReprocessingResponse)
+{-# DEPRECATED sprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

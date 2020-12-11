@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Changes information about the specified API.
 module Network.AWS.APIGateway.UpdateRestAPI
-  ( -- * Creating a Request
-    updateRestAPI,
-    UpdateRestAPI,
+  ( -- * Creating a request
+    UpdateRestAPI (..),
+    mkUpdateRestAPI,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uraPatchOperations,
     uraRestAPIId,
 
-    -- * Destructuring the Response
-    restAPI,
-    RestAPI,
+    -- * Destructuring the response
+    RestAPI (..),
+    mkRestAPI,
 
-    -- * Response Lenses
+    -- ** Response lenses
     raMinimumCompressionSize,
     raDisableExecuteAPIEndpoint,
     raBinaryMediaTypes,
@@ -49,69 +44,78 @@ module Network.AWS.APIGateway.UpdateRestAPI
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to update an existing 'RestApi' resource in your collection.
 --
---
---
--- /See:/ 'updateRestAPI' smart constructor.
+-- /See:/ 'mkUpdateRestAPI' smart constructor.
 data UpdateRestAPI = UpdateRestAPI'
-  { _uraPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _uraRestAPIId :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRestAPI' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uraPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'uraRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-updateRestAPI ::
-  -- | 'uraRestAPIId'
-  Text ->
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkUpdateRestAPI ::
+  -- | 'restAPIId'
+  Lude.Text ->
   UpdateRestAPI
-updateRestAPI pRestAPIId_ =
+mkUpdateRestAPI pRestAPIId_ =
   UpdateRestAPI'
-    { _uraPatchOperations = Nothing,
-      _uraRestAPIId = pRestAPIId_
+    { patchOperations = Lude.Nothing,
+      restAPIId = pRestAPIId_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-uraPatchOperations :: Lens' UpdateRestAPI [PatchOperation]
-uraPatchOperations = lens _uraPatchOperations (\s a -> s {_uraPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uraPatchOperations :: Lens.Lens' UpdateRestAPI (Lude.Maybe [PatchOperation])
+uraPatchOperations = Lens.lens (patchOperations :: UpdateRestAPI -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateRestAPI)
+{-# DEPRECATED uraPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-uraRestAPIId :: Lens' UpdateRestAPI Text
-uraRestAPIId = lens _uraRestAPIId (\s a -> s {_uraRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uraRestAPIId :: Lens.Lens' UpdateRestAPI Lude.Text
+uraRestAPIId = Lens.lens (restAPIId :: UpdateRestAPI -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateRestAPI)
+{-# DEPRECATED uraRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
-instance AWSRequest UpdateRestAPI where
+instance Lude.AWSRequest UpdateRestAPI where
   type Rs UpdateRestAPI = RestAPI
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateRestAPI
-
-instance NFData UpdateRestAPI
-
-instance ToHeaders UpdateRestAPI where
+instance Lude.ToHeaders UpdateRestAPI where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateRestAPI where
+instance Lude.ToJSON UpdateRestAPI where
   toJSON UpdateRestAPI' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _uraPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateRestAPI where
+instance Lude.ToPath UpdateRestAPI where
   toPath UpdateRestAPI' {..} =
-    mconcat ["/restapis/", toBS _uraRestAPIId]
+    Lude.mconcat ["/restapis/", Lude.toBS restAPIId]
 
-instance ToQuery UpdateRestAPI where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRestAPI where
+  toQuery = Lude.const Lude.mempty

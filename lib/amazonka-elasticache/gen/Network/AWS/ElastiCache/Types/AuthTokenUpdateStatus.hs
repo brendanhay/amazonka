@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus where
+module Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
+  ( AuthTokenUpdateStatus
+      ( AuthTokenUpdateStatus',
+        Rotating,
+        Setting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthTokenUpdateStatus
-  = Rotating
-  | Setting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthTokenUpdateStatus = AuthTokenUpdateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthTokenUpdateStatus where
-  parser =
-    takeLowerText >>= \case
-      "rotating" -> pure Rotating
-      "setting" -> pure Setting
-      e ->
-        fromTextError $
-          "Failure parsing AuthTokenUpdateStatus from value: '" <> e
-            <> "'. Accepted values: rotating, setting"
+pattern Rotating :: AuthTokenUpdateStatus
+pattern Rotating = AuthTokenUpdateStatus' "ROTATING"
 
-instance ToText AuthTokenUpdateStatus where
-  toText = \case
-    Rotating -> "ROTATING"
-    Setting -> "SETTING"
+pattern Setting :: AuthTokenUpdateStatus
+pattern Setting = AuthTokenUpdateStatus' "SETTING"
 
-instance Hashable AuthTokenUpdateStatus
-
-instance NFData AuthTokenUpdateStatus
-
-instance ToByteString AuthTokenUpdateStatus
-
-instance ToQuery AuthTokenUpdateStatus
-
-instance ToHeader AuthTokenUpdateStatus
-
-instance FromXML AuthTokenUpdateStatus where
-  parseXML = parseXMLText "AuthTokenUpdateStatus"
+{-# COMPLETE
+  Rotating,
+  Setting,
+  AuthTokenUpdateStatus'
+  #-}

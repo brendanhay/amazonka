@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,87 +14,97 @@
 --
 -- Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be associated with the master account of your AWS organization or associated with a member account that has the appropriate permissions. If the account ID that you submit is not an AWS Organizations master account, AWS Firewall Manager will set the appropriate permissions for the given member account.
 --
---
 -- The account that you associate with AWS Firewall Manager is called the AWS Firewall Manager administrator account.
 module Network.AWS.FMS.AssociateAdminAccount
-  ( -- * Creating a Request
-    associateAdminAccount,
-    AssociateAdminAccount,
+  ( -- * Creating a request
+    AssociateAdminAccount (..),
+    mkAssociateAdminAccount,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aaaAdminAccount,
 
-    -- * Destructuring the Response
-    associateAdminAccountResponse,
-    AssociateAdminAccountResponse,
+    -- * Destructuring the response
+    AssociateAdminAccountResponse (..),
+    mkAssociateAdminAccountResponse,
   )
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateAdminAccount' smart constructor.
+-- | /See:/ 'mkAssociateAdminAccount' smart constructor.
 newtype AssociateAdminAccount = AssociateAdminAccount'
-  { _aaaAdminAccount ::
-      Text
+  { adminAccount ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateAdminAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aaaAdminAccount' - The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. For more information about AWS Organizations and master accounts, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization> .
-associateAdminAccount ::
-  -- | 'aaaAdminAccount'
-  Text ->
+-- * 'adminAccount' - The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. For more information about AWS Organizations and master accounts, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization> .
+mkAssociateAdminAccount ::
+  -- | 'adminAccount'
+  Lude.Text ->
   AssociateAdminAccount
-associateAdminAccount pAdminAccount_ =
-  AssociateAdminAccount' {_aaaAdminAccount = pAdminAccount_}
+mkAssociateAdminAccount pAdminAccount_ =
+  AssociateAdminAccount' {adminAccount = pAdminAccount_}
 
 -- | The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. For more information about AWS Organizations and master accounts, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization> .
-aaaAdminAccount :: Lens' AssociateAdminAccount Text
-aaaAdminAccount = lens _aaaAdminAccount (\s a -> s {_aaaAdminAccount = a})
+--
+-- /Note:/ Consider using 'adminAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaaAdminAccount :: Lens.Lens' AssociateAdminAccount Lude.Text
+aaaAdminAccount = Lens.lens (adminAccount :: AssociateAdminAccount -> Lude.Text) (\s a -> s {adminAccount = a} :: AssociateAdminAccount)
+{-# DEPRECATED aaaAdminAccount "Use generic-lens or generic-optics with 'adminAccount' instead." #-}
 
-instance AWSRequest AssociateAdminAccount where
+instance Lude.AWSRequest AssociateAdminAccount where
   type Rs AssociateAdminAccount = AssociateAdminAccountResponse
-  request = postJSON fms
-  response = receiveNull AssociateAdminAccountResponse'
+  request = Req.postJSON fmsService
+  response = Res.receiveNull AssociateAdminAccountResponse'
 
-instance Hashable AssociateAdminAccount
-
-instance NFData AssociateAdminAccount
-
-instance ToHeaders AssociateAdminAccount where
+instance Lude.ToHeaders AssociateAdminAccount where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSFMS_20180101.AssociateAdminAccount" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSFMS_20180101.AssociateAdminAccount" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateAdminAccount where
+instance Lude.ToJSON AssociateAdminAccount where
   toJSON AssociateAdminAccount' {..} =
-    object (catMaybes [Just ("AdminAccount" .= _aaaAdminAccount)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("AdminAccount" Lude..= adminAccount)])
 
-instance ToPath AssociateAdminAccount where
-  toPath = const "/"
+instance Lude.ToPath AssociateAdminAccount where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateAdminAccount where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateAdminAccount where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateAdminAccountResponse' smart constructor.
+-- | /See:/ 'mkAssociateAdminAccountResponse' smart constructor.
 data AssociateAdminAccountResponse = AssociateAdminAccountResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateAdminAccountResponse' with the minimum fields required to make a request.
-associateAdminAccountResponse ::
+mkAssociateAdminAccountResponse ::
   AssociateAdminAccountResponse
-associateAdminAccountResponse = AssociateAdminAccountResponse'
-
-instance NFData AssociateAdminAccountResponse
+mkAssociateAdminAccountResponse = AssociateAdminAccountResponse'

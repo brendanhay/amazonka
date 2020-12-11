@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Lists conference providers under a specific AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AlexaBusiness.ListConferenceProviders
-  ( -- * Creating a Request
-    listConferenceProviders,
-    ListConferenceProviders,
+  ( -- * Creating a request
+    ListConferenceProviders (..),
+    mkListConferenceProviders,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lcpNextToken,
     lcpMaxResults,
 
-    -- * Destructuring the Response
-    listConferenceProvidersResponse,
-    ListConferenceProvidersResponse,
+    -- * Destructuring the response
+    ListConferenceProvidersResponse (..),
+    mkListConferenceProvidersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcprsConferenceProviders,
     lcprsNextToken,
     lcprsResponseStatus,
@@ -43,134 +36,152 @@ module Network.AWS.AlexaBusiness.ListConferenceProviders
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listConferenceProviders' smart constructor.
+-- | /See:/ 'mkListConferenceProviders' smart constructor.
 data ListConferenceProviders = ListConferenceProviders'
-  { _lcpNextToken ::
-      !(Maybe Text),
-    _lcpMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConferenceProviders' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcpNextToken' - The tokens used for pagination.
---
--- * 'lcpMaxResults' - The maximum number of conference providers to be returned, per paginated calls.
-listConferenceProviders ::
+-- * 'maxResults' - The maximum number of conference providers to be returned, per paginated calls.
+-- * 'nextToken' - The tokens used for pagination.
+mkListConferenceProviders ::
   ListConferenceProviders
-listConferenceProviders =
+mkListConferenceProviders =
   ListConferenceProviders'
-    { _lcpNextToken = Nothing,
-      _lcpMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The tokens used for pagination.
-lcpNextToken :: Lens' ListConferenceProviders (Maybe Text)
-lcpNextToken = lens _lcpNextToken (\s a -> s {_lcpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcpNextToken :: Lens.Lens' ListConferenceProviders (Lude.Maybe Lude.Text)
+lcpNextToken = Lens.lens (nextToken :: ListConferenceProviders -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConferenceProviders)
+{-# DEPRECATED lcpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of conference providers to be returned, per paginated calls.
-lcpMaxResults :: Lens' ListConferenceProviders (Maybe Natural)
-lcpMaxResults = lens _lcpMaxResults (\s a -> s {_lcpMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcpMaxResults :: Lens.Lens' ListConferenceProviders (Lude.Maybe Lude.Natural)
+lcpMaxResults = Lens.lens (maxResults :: ListConferenceProviders -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListConferenceProviders)
+{-# DEPRECATED lcpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListConferenceProviders where
+instance Page.AWSPager ListConferenceProviders where
   page rq rs
-    | stop (rs ^. lcprsNextToken) = Nothing
-    | stop (rs ^. lcprsConferenceProviders) = Nothing
-    | otherwise = Just $ rq & lcpNextToken .~ rs ^. lcprsNextToken
+    | Page.stop (rs Lens.^. lcprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lcprsConferenceProviders) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lcpNextToken Lens..~ rs Lens.^. lcprsNextToken
 
-instance AWSRequest ListConferenceProviders where
+instance Lude.AWSRequest ListConferenceProviders where
   type Rs ListConferenceProviders = ListConferenceProvidersResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListConferenceProvidersResponse'
-            <$> (x .?> "ConferenceProviders" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ConferenceProviders" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListConferenceProviders
-
-instance NFData ListConferenceProviders
-
-instance ToHeaders ListConferenceProviders where
+instance Lude.ToHeaders ListConferenceProviders where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.ListConferenceProviders" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.ListConferenceProviders" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListConferenceProviders where
+instance Lude.ToJSON ListConferenceProviders where
   toJSON ListConferenceProviders' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lcpNextToken,
-            ("MaxResults" .=) <$> _lcpMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListConferenceProviders where
-  toPath = const "/"
+instance Lude.ToPath ListConferenceProviders where
+  toPath = Lude.const "/"
 
-instance ToQuery ListConferenceProviders where
-  toQuery = const mempty
+instance Lude.ToQuery ListConferenceProviders where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listConferenceProvidersResponse' smart constructor.
+-- | /See:/ 'mkListConferenceProvidersResponse' smart constructor.
 data ListConferenceProvidersResponse = ListConferenceProvidersResponse'
-  { _lcprsConferenceProviders ::
-      !( Maybe
-           [ConferenceProvider]
-       ),
-    _lcprsNextToken ::
-      !(Maybe Text),
-    _lcprsResponseStatus ::
-      !Int
+  { conferenceProviders ::
+      Lude.Maybe
+        [ConferenceProvider],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConferenceProvidersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcprsConferenceProviders' - The conference providers.
---
--- * 'lcprsNextToken' - The tokens used for pagination.
---
--- * 'lcprsResponseStatus' - -- | The response status code.
-listConferenceProvidersResponse ::
-  -- | 'lcprsResponseStatus'
-  Int ->
+-- * 'conferenceProviders' - The conference providers.
+-- * 'nextToken' - The tokens used for pagination.
+-- * 'responseStatus' - The response status code.
+mkListConferenceProvidersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListConferenceProvidersResponse
-listConferenceProvidersResponse pResponseStatus_ =
+mkListConferenceProvidersResponse pResponseStatus_ =
   ListConferenceProvidersResponse'
-    { _lcprsConferenceProviders =
-        Nothing,
-      _lcprsNextToken = Nothing,
-      _lcprsResponseStatus = pResponseStatus_
+    { conferenceProviders =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The conference providers.
-lcprsConferenceProviders :: Lens' ListConferenceProvidersResponse [ConferenceProvider]
-lcprsConferenceProviders = lens _lcprsConferenceProviders (\s a -> s {_lcprsConferenceProviders = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'conferenceProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcprsConferenceProviders :: Lens.Lens' ListConferenceProvidersResponse (Lude.Maybe [ConferenceProvider])
+lcprsConferenceProviders = Lens.lens (conferenceProviders :: ListConferenceProvidersResponse -> Lude.Maybe [ConferenceProvider]) (\s a -> s {conferenceProviders = a} :: ListConferenceProvidersResponse)
+{-# DEPRECATED lcprsConferenceProviders "Use generic-lens or generic-optics with 'conferenceProviders' instead." #-}
 
 -- | The tokens used for pagination.
-lcprsNextToken :: Lens' ListConferenceProvidersResponse (Maybe Text)
-lcprsNextToken = lens _lcprsNextToken (\s a -> s {_lcprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcprsNextToken :: Lens.Lens' ListConferenceProvidersResponse (Lude.Maybe Lude.Text)
+lcprsNextToken = Lens.lens (nextToken :: ListConferenceProvidersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConferenceProvidersResponse)
+{-# DEPRECATED lcprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lcprsResponseStatus :: Lens' ListConferenceProvidersResponse Int
-lcprsResponseStatus = lens _lcprsResponseStatus (\s a -> s {_lcprsResponseStatus = a})
-
-instance NFData ListConferenceProvidersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcprsResponseStatus :: Lens.Lens' ListConferenceProvidersResponse Lude.Int
+lcprsResponseStatus = Lens.lens (responseStatus :: ListConferenceProvidersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListConferenceProvidersResponse)
+{-# DEPRECATED lcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

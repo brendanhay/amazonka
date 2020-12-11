@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.GlacierJobParameters where
+module Network.AWS.S3.Types.GlacierJobParameters
+  ( GlacierJobParameters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGlacierJobParameters,
+
+    -- * Lenses
+    gjpTier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tier
 
 -- | Container for S3 Glacier job parameters.
 --
---
---
--- /See:/ 'glacierJobParameters' smart constructor.
-newtype GlacierJobParameters = GlacierJobParameters'
-  { _gjpTier ::
-      Tier
-  }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGlacierJobParameters' smart constructor.
+newtype GlacierJobParameters = GlacierJobParameters' {tier :: Tier}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlacierJobParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjpTier' - Retrieval tier at which the restore will be processed.
-glacierJobParameters ::
-  -- | 'gjpTier'
+-- * 'tier' - Retrieval tier at which the restore will be processed.
+mkGlacierJobParameters ::
+  -- | 'tier'
   Tier ->
   GlacierJobParameters
-glacierJobParameters pTier_ =
-  GlacierJobParameters' {_gjpTier = pTier_}
+mkGlacierJobParameters pTier_ =
+  GlacierJobParameters' {tier = pTier_}
 
 -- | Retrieval tier at which the restore will be processed.
-gjpTier :: Lens' GlacierJobParameters Tier
-gjpTier = lens _gjpTier (\s a -> s {_gjpTier = a})
+--
+-- /Note:/ Consider using 'tier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjpTier :: Lens.Lens' GlacierJobParameters Tier
+gjpTier = Lens.lens (tier :: GlacierJobParameters -> Tier) (\s a -> s {tier = a} :: GlacierJobParameters)
+{-# DEPRECATED gjpTier "Use generic-lens or generic-optics with 'tier' instead." #-}
 
-instance Hashable GlacierJobParameters
-
-instance NFData GlacierJobParameters
-
-instance ToXML GlacierJobParameters where
-  toXML GlacierJobParameters' {..} = mconcat ["Tier" @= _gjpTier]
+instance Lude.ToXML GlacierJobParameters where
+  toXML GlacierJobParameters' {..} =
+    Lude.mconcat ["Tier" Lude.@= tier]

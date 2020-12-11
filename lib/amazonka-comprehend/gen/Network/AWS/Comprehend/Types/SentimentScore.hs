@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.SentimentScore where
+module Network.AWS.Comprehend.Types.SentimentScore
+  ( SentimentScore (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSentimentScore,
+
+    -- * Lenses
+    ssMixed,
+    ssNegative,
+    ssNeutral,
+    ssPositive,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the level of confidence that Amazon Comprehend has in the accuracy of its detection of sentiments.
 --
---
---
--- /See:/ 'sentimentScore' smart constructor.
+-- /See:/ 'mkSentimentScore' smart constructor.
 data SentimentScore = SentimentScore'
-  { _ssMixed :: !(Maybe Double),
-    _ssNegative :: !(Maybe Double),
-    _ssNeutral :: !(Maybe Double),
-    _ssPositive :: !(Maybe Double)
+  { mixed ::
+      Lude.Maybe Lude.Double,
+    negative :: Lude.Maybe Lude.Double,
+    neutral :: Lude.Maybe Lude.Double,
+    positive :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SentimentScore' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssMixed' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @MIXED@ sentiment.
---
--- * 'ssNegative' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEGATIVE@ sentiment.
---
--- * 'ssNeutral' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEUTRAL@ sentiment.
---
--- * 'ssPositive' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @POSITIVE@ sentiment.
-sentimentScore ::
+-- * 'mixed' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @MIXED@ sentiment.
+-- * 'negative' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEGATIVE@ sentiment.
+-- * 'neutral' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEUTRAL@ sentiment.
+-- * 'positive' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @POSITIVE@ sentiment.
+mkSentimentScore ::
   SentimentScore
-sentimentScore =
+mkSentimentScore =
   SentimentScore'
-    { _ssMixed = Nothing,
-      _ssNegative = Nothing,
-      _ssNeutral = Nothing,
-      _ssPositive = Nothing
+    { mixed = Lude.Nothing,
+      negative = Lude.Nothing,
+      neutral = Lude.Nothing,
+      positive = Lude.Nothing
     }
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @MIXED@ sentiment.
-ssMixed :: Lens' SentimentScore (Maybe Double)
-ssMixed = lens _ssMixed (\s a -> s {_ssMixed = a})
+--
+-- /Note:/ Consider using 'mixed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssMixed :: Lens.Lens' SentimentScore (Lude.Maybe Lude.Double)
+ssMixed = Lens.lens (mixed :: SentimentScore -> Lude.Maybe Lude.Double) (\s a -> s {mixed = a} :: SentimentScore)
+{-# DEPRECATED ssMixed "Use generic-lens or generic-optics with 'mixed' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEGATIVE@ sentiment.
-ssNegative :: Lens' SentimentScore (Maybe Double)
-ssNegative = lens _ssNegative (\s a -> s {_ssNegative = a})
+--
+-- /Note:/ Consider using 'negative' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssNegative :: Lens.Lens' SentimentScore (Lude.Maybe Lude.Double)
+ssNegative = Lens.lens (negative :: SentimentScore -> Lude.Maybe Lude.Double) (\s a -> s {negative = a} :: SentimentScore)
+{-# DEPRECATED ssNegative "Use generic-lens or generic-optics with 'negative' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEUTRAL@ sentiment.
-ssNeutral :: Lens' SentimentScore (Maybe Double)
-ssNeutral = lens _ssNeutral (\s a -> s {_ssNeutral = a})
+--
+-- /Note:/ Consider using 'neutral' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssNeutral :: Lens.Lens' SentimentScore (Lude.Maybe Lude.Double)
+ssNeutral = Lens.lens (neutral :: SentimentScore -> Lude.Maybe Lude.Double) (\s a -> s {neutral = a} :: SentimentScore)
+{-# DEPRECATED ssNeutral "Use generic-lens or generic-optics with 'neutral' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @POSITIVE@ sentiment.
-ssPositive :: Lens' SentimentScore (Maybe Double)
-ssPositive = lens _ssPositive (\s a -> s {_ssPositive = a})
+--
+-- /Note:/ Consider using 'positive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssPositive :: Lens.Lens' SentimentScore (Lude.Maybe Lude.Double)
+ssPositive = Lens.lens (positive :: SentimentScore -> Lude.Maybe Lude.Double) (\s a -> s {positive = a} :: SentimentScore)
+{-# DEPRECATED ssPositive "Use generic-lens or generic-optics with 'positive' instead." #-}
 
-instance FromJSON SentimentScore where
+instance Lude.FromJSON SentimentScore where
   parseJSON =
-    withObject
+    Lude.withObject
       "SentimentScore"
       ( \x ->
           SentimentScore'
-            <$> (x .:? "Mixed")
-            <*> (x .:? "Negative")
-            <*> (x .:? "Neutral")
-            <*> (x .:? "Positive")
+            Lude.<$> (x Lude..:? "Mixed")
+            Lude.<*> (x Lude..:? "Negative")
+            Lude.<*> (x Lude..:? "Neutral")
+            Lude.<*> (x Lude..:? "Positive")
       )
-
-instance Hashable SentimentScore
-
-instance NFData SentimentScore

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,20 +16,20 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Greengrass.ListDeployments
-  ( -- * Creating a Request
-    listDeployments,
-    ListDeployments,
+  ( -- * Creating a request
+    ListDeployments (..),
+    mkListDeployments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldNextToken,
     ldMaxResults,
     ldGroupId,
 
-    -- * Destructuring the Response
-    listDeploymentsResponse,
-    ListDeploymentsResponse,
+    -- * Destructuring the response
+    ListDeploymentsResponse (..),
+    mkListDeploymentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldrsNextToken,
     ldrsDeployments,
     ldrsResponseStatus,
@@ -42,130 +37,154 @@ module Network.AWS.Greengrass.ListDeployments
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listDeployments' smart constructor.
+-- | /See:/ 'mkListDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { _ldNextToken ::
-      !(Maybe Text),
-    _ldMaxResults :: !(Maybe Text),
-    _ldGroupId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Text,
+    groupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeployments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'ldMaxResults' - The maximum number of results to be returned per request.
---
--- * 'ldGroupId' - The ID of the Greengrass group.
-listDeployments ::
-  -- | 'ldGroupId'
-  Text ->
+-- * 'groupId' - The ID of the Greengrass group.
+-- * 'maxResults' - The maximum number of results to be returned per request.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+mkListDeployments ::
+  -- | 'groupId'
+  Lude.Text ->
   ListDeployments
-listDeployments pGroupId_ =
+mkListDeployments pGroupId_ =
   ListDeployments'
-    { _ldNextToken = Nothing,
-      _ldMaxResults = Nothing,
-      _ldGroupId = pGroupId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      groupId = pGroupId_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-ldNextToken :: Lens' ListDeployments (Maybe Text)
-ldNextToken = lens _ldNextToken (\s a -> s {_ldNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldNextToken :: Lens.Lens' ListDeployments (Lude.Maybe Lude.Text)
+ldNextToken = Lens.lens (nextToken :: ListDeployments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeployments)
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
-ldMaxResults :: Lens' ListDeployments (Maybe Text)
-ldMaxResults = lens _ldMaxResults (\s a -> s {_ldMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMaxResults :: Lens.Lens' ListDeployments (Lude.Maybe Lude.Text)
+ldMaxResults = Lens.lens (maxResults :: ListDeployments -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListDeployments)
+{-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the Greengrass group.
-ldGroupId :: Lens' ListDeployments Text
-ldGroupId = lens _ldGroupId (\s a -> s {_ldGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldGroupId :: Lens.Lens' ListDeployments Lude.Text
+ldGroupId = Lens.lens (groupId :: ListDeployments -> Lude.Text) (\s a -> s {groupId = a} :: ListDeployments)
+{-# DEPRECATED ldGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSPager ListDeployments where
+instance Page.AWSPager ListDeployments where
   page rq rs
-    | stop (rs ^. ldrsNextToken) = Nothing
-    | stop (rs ^. ldrsDeployments) = Nothing
-    | otherwise = Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
+    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldrsDeployments) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
 
-instance AWSRequest ListDeployments where
+instance Lude.AWSRequest ListDeployments where
   type Rs ListDeployments = ListDeploymentsResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDeploymentsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Deployments" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Deployments" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDeployments
-
-instance NFData ListDeployments
-
-instance ToHeaders ListDeployments where
+instance Lude.ToHeaders ListDeployments where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListDeployments where
+instance Lude.ToPath ListDeployments where
   toPath ListDeployments' {..} =
-    mconcat ["/greengrass/groups/", toBS _ldGroupId, "/deployments"]
+    Lude.mconcat
+      ["/greengrass/groups/", Lude.toBS groupId, "/deployments"]
 
-instance ToQuery ListDeployments where
+instance Lude.ToQuery ListDeployments where
   toQuery ListDeployments' {..} =
-    mconcat
-      ["NextToken" =: _ldNextToken, "MaxResults" =: _ldMaxResults]
+    Lude.mconcat
+      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
 
--- | /See:/ 'listDeploymentsResponse' smart constructor.
+-- | /See:/ 'mkListDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
-  { _ldrsNextToken ::
-      !(Maybe Text),
-    _ldrsDeployments :: !(Maybe [Deployment]),
-    _ldrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    deployments :: Lude.Maybe [Deployment],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'ldrsDeployments' - A list of deployments for the requested groups.
---
--- * 'ldrsResponseStatus' - -- | The response status code.
-listDeploymentsResponse ::
-  -- | 'ldrsResponseStatus'
-  Int ->
+-- * 'deployments' - A list of deployments for the requested groups.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListDeploymentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDeploymentsResponse
-listDeploymentsResponse pResponseStatus_ =
+mkListDeploymentsResponse pResponseStatus_ =
   ListDeploymentsResponse'
-    { _ldrsNextToken = Nothing,
-      _ldrsDeployments = Nothing,
-      _ldrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      deployments = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
-ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\s a -> s {_ldrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsNextToken :: Lens.Lens' ListDeploymentsResponse (Lude.Maybe Lude.Text)
+ldrsNextToken = Lens.lens (nextToken :: ListDeploymentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeploymentsResponse)
+{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of deployments for the requested groups.
-ldrsDeployments :: Lens' ListDeploymentsResponse [Deployment]
-ldrsDeployments = lens _ldrsDeployments (\s a -> s {_ldrsDeployments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deployments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsDeployments :: Lens.Lens' ListDeploymentsResponse (Lude.Maybe [Deployment])
+ldrsDeployments = Lens.lens (deployments :: ListDeploymentsResponse -> Lude.Maybe [Deployment]) (\s a -> s {deployments = a} :: ListDeploymentsResponse)
+{-# DEPRECATED ldrsDeployments "Use generic-lens or generic-optics with 'deployments' instead." #-}
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDeploymentsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\s a -> s {_ldrsResponseStatus = a})
-
-instance NFData ListDeploymentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDeploymentsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDeploymentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeploymentsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

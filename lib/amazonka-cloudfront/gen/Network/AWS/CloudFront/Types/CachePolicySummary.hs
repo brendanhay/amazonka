@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.CachePolicySummary where
+module Network.AWS.CloudFront.Types.CachePolicySummary
+  ( CachePolicySummary (..),
+
+    -- * Smart constructor
+    mkCachePolicySummary,
+
+    -- * Lenses
+    cpsType,
+    cpsCachePolicy,
+  )
+where
 
 import Network.AWS.CloudFront.Types.CachePolicy
 import Network.AWS.CloudFront.Types.CachePolicyType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains a cache policy.
 --
---
---
--- /See:/ 'cachePolicySummary' smart constructor.
+-- /See:/ 'mkCachePolicySummary' smart constructor.
 data CachePolicySummary = CachePolicySummary'
-  { _cpsType ::
-      !CachePolicyType,
-    _cpsCachePolicy :: !CachePolicy
+  { type' ::
+      CachePolicyType,
+    cachePolicy :: CachePolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachePolicySummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpsType' - The type of cache policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
---
--- * 'cpsCachePolicy' - The cache policy.
-cachePolicySummary ::
-  -- | 'cpsType'
+-- * 'cachePolicy' - The cache policy.
+-- * 'type'' - The type of cache policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
+mkCachePolicySummary ::
+  -- | 'type''
   CachePolicyType ->
-  -- | 'cpsCachePolicy'
+  -- | 'cachePolicy'
   CachePolicy ->
   CachePolicySummary
-cachePolicySummary pType_ pCachePolicy_ =
-  CachePolicySummary'
-    { _cpsType = pType_,
-      _cpsCachePolicy = pCachePolicy_
-    }
+mkCachePolicySummary pType_ pCachePolicy_ =
+  CachePolicySummary' {type' = pType_, cachePolicy = pCachePolicy_}
 
 -- | The type of cache policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
-cpsType :: Lens' CachePolicySummary CachePolicyType
-cpsType = lens _cpsType (\s a -> s {_cpsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsType :: Lens.Lens' CachePolicySummary CachePolicyType
+cpsType = Lens.lens (type' :: CachePolicySummary -> CachePolicyType) (\s a -> s {type' = a} :: CachePolicySummary)
+{-# DEPRECATED cpsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The cache policy.
-cpsCachePolicy :: Lens' CachePolicySummary CachePolicy
-cpsCachePolicy = lens _cpsCachePolicy (\s a -> s {_cpsCachePolicy = a})
+--
+-- /Note:/ Consider using 'cachePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsCachePolicy :: Lens.Lens' CachePolicySummary CachePolicy
+cpsCachePolicy = Lens.lens (cachePolicy :: CachePolicySummary -> CachePolicy) (\s a -> s {cachePolicy = a} :: CachePolicySummary)
+{-# DEPRECATED cpsCachePolicy "Use generic-lens or generic-optics with 'cachePolicy' instead." #-}
 
-instance FromXML CachePolicySummary where
+instance Lude.FromXML CachePolicySummary where
   parseXML x =
-    CachePolicySummary' <$> (x .@ "Type") <*> (x .@ "CachePolicy")
-
-instance Hashable CachePolicySummary
-
-instance NFData CachePolicySummary
+    CachePolicySummary'
+      Lude.<$> (x Lude..@ "Type") Lude.<*> (x Lude..@ "CachePolicy")

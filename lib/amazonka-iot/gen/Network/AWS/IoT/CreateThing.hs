@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a @ResourceAlreadyExistsException@ is thrown.
 module Network.AWS.IoT.CreateThing
-  ( -- * Creating a Request
-    createThing,
-    CreateThing,
+  ( -- * Creating a request
+    CreateThing (..),
+    mkCreateThing,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctThingTypeName,
     ctAttributePayload,
     ctBillingGroupName,
     ctThingName,
 
-    -- * Destructuring the Response
-    createThingResponse,
-    CreateThingResponse,
+    -- * Destructuring the response
+    CreateThingResponse (..),
+    mkCreateThingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctrsThingARN,
     ctrsThingName,
     ctrsThingId,
@@ -42,150 +37,178 @@ module Network.AWS.IoT.CreateThing
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the CreateThing operation.
 --
---
---
--- /See:/ 'createThing' smart constructor.
+-- /See:/ 'mkCreateThing' smart constructor.
 data CreateThing = CreateThing'
-  { _ctThingTypeName :: !(Maybe Text),
-    _ctAttributePayload :: !(Maybe AttributePayload),
-    _ctBillingGroupName :: !(Maybe Text),
-    _ctThingName :: !Text
+  { thingTypeName ::
+      Lude.Maybe Lude.Text,
+    attributePayload :: Lude.Maybe AttributePayload,
+    billingGroupName :: Lude.Maybe Lude.Text,
+    thingName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThing' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributePayload' - The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:
 --
--- * 'ctThingTypeName' - The name of the thing type associated with the new thing.
+-- @{\"attributes\":{\"string1\":\"string2\"}}@
+-- * 'billingGroupName' - The name of the billing group the thing will be added to.
+-- * 'thingName' - The name of the thing to create.
 --
--- * 'ctAttributePayload' - The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
---
--- * 'ctBillingGroupName' - The name of the billing group the thing will be added to.
---
--- * 'ctThingName' - The name of the thing to create. You can't change a thing's name after you create it. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
-createThing ::
-  -- | 'ctThingName'
-  Text ->
+-- You can't change a thing's name after you create it. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+-- * 'thingTypeName' - The name of the thing type associated with the new thing.
+mkCreateThing ::
+  -- | 'thingName'
+  Lude.Text ->
   CreateThing
-createThing pThingName_ =
+mkCreateThing pThingName_ =
   CreateThing'
-    { _ctThingTypeName = Nothing,
-      _ctAttributePayload = Nothing,
-      _ctBillingGroupName = Nothing,
-      _ctThingName = pThingName_
+    { thingTypeName = Lude.Nothing,
+      attributePayload = Lude.Nothing,
+      billingGroupName = Lude.Nothing,
+      thingName = pThingName_
     }
 
 -- | The name of the thing type associated with the new thing.
-ctThingTypeName :: Lens' CreateThing (Maybe Text)
-ctThingTypeName = lens _ctThingTypeName (\s a -> s {_ctThingTypeName = a})
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctThingTypeName :: Lens.Lens' CreateThing (Lude.Maybe Lude.Text)
+ctThingTypeName = Lens.lens (thingTypeName :: CreateThing -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: CreateThing)
+{-# DEPRECATED ctThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
--- | The attribute payload, which consists of up to three name/value pairs in a JSON document. For example: @{\"attributes\":{\"string1\":\"string2\"}}@
-ctAttributePayload :: Lens' CreateThing (Maybe AttributePayload)
-ctAttributePayload = lens _ctAttributePayload (\s a -> s {_ctAttributePayload = a})
+-- | The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:
+--
+-- @{\"attributes\":{\"string1\":\"string2\"}}@
+--
+-- /Note:/ Consider using 'attributePayload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctAttributePayload :: Lens.Lens' CreateThing (Lude.Maybe AttributePayload)
+ctAttributePayload = Lens.lens (attributePayload :: CreateThing -> Lude.Maybe AttributePayload) (\s a -> s {attributePayload = a} :: CreateThing)
+{-# DEPRECATED ctAttributePayload "Use generic-lens or generic-optics with 'attributePayload' instead." #-}
 
 -- | The name of the billing group the thing will be added to.
-ctBillingGroupName :: Lens' CreateThing (Maybe Text)
-ctBillingGroupName = lens _ctBillingGroupName (\s a -> s {_ctBillingGroupName = a})
+--
+-- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctBillingGroupName :: Lens.Lens' CreateThing (Lude.Maybe Lude.Text)
+ctBillingGroupName = Lens.lens (billingGroupName :: CreateThing -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: CreateThing)
+{-# DEPRECATED ctBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
--- | The name of the thing to create. You can't change a thing's name after you create it. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
-ctThingName :: Lens' CreateThing Text
-ctThingName = lens _ctThingName (\s a -> s {_ctThingName = a})
+-- | The name of the thing to create.
+--
+-- You can't change a thing's name after you create it. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctThingName :: Lens.Lens' CreateThing Lude.Text
+ctThingName = Lens.lens (thingName :: CreateThing -> Lude.Text) (\s a -> s {thingName = a} :: CreateThing)
+{-# DEPRECATED ctThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSRequest CreateThing where
+instance Lude.AWSRequest CreateThing where
   type Rs CreateThing = CreateThingResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateThingResponse'
-            <$> (x .?> "thingArn")
-            <*> (x .?> "thingName")
-            <*> (x .?> "thingId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "thingArn")
+            Lude.<*> (x Lude..?> "thingName")
+            Lude.<*> (x Lude..?> "thingId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateThing
+instance Lude.ToHeaders CreateThing where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateThing
-
-instance ToHeaders CreateThing where
-  toHeaders = const mempty
-
-instance ToJSON CreateThing where
+instance Lude.ToJSON CreateThing where
   toJSON CreateThing' {..} =
-    object
-      ( catMaybes
-          [ ("thingTypeName" .=) <$> _ctThingTypeName,
-            ("attributePayload" .=) <$> _ctAttributePayload,
-            ("billingGroupName" .=) <$> _ctBillingGroupName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("thingTypeName" Lude..=) Lude.<$> thingTypeName,
+            ("attributePayload" Lude..=) Lude.<$> attributePayload,
+            ("billingGroupName" Lude..=) Lude.<$> billingGroupName
           ]
       )
 
-instance ToPath CreateThing where
-  toPath CreateThing' {..} = mconcat ["/things/", toBS _ctThingName]
+instance Lude.ToPath CreateThing where
+  toPath CreateThing' {..} =
+    Lude.mconcat ["/things/", Lude.toBS thingName]
 
-instance ToQuery CreateThing where
-  toQuery = const mempty
+instance Lude.ToQuery CreateThing where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output of the CreateThing operation.
 --
---
---
--- /See:/ 'createThingResponse' smart constructor.
+-- /See:/ 'mkCreateThingResponse' smart constructor.
 data CreateThingResponse = CreateThingResponse'
-  { _ctrsThingARN ::
-      !(Maybe Text),
-    _ctrsThingName :: !(Maybe Text),
-    _ctrsThingId :: !(Maybe Text),
-    _ctrsResponseStatus :: !Int
+  { thingARN ::
+      Lude.Maybe Lude.Text,
+    thingName :: Lude.Maybe Lude.Text,
+    thingId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctrsThingARN' - The ARN of the new thing.
---
--- * 'ctrsThingName' - The name of the new thing.
---
--- * 'ctrsThingId' - The thing ID.
---
--- * 'ctrsResponseStatus' - -- | The response status code.
-createThingResponse ::
-  -- | 'ctrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'thingARN' - The ARN of the new thing.
+-- * 'thingId' - The thing ID.
+-- * 'thingName' - The name of the new thing.
+mkCreateThingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateThingResponse
-createThingResponse pResponseStatus_ =
+mkCreateThingResponse pResponseStatus_ =
   CreateThingResponse'
-    { _ctrsThingARN = Nothing,
-      _ctrsThingName = Nothing,
-      _ctrsThingId = Nothing,
-      _ctrsResponseStatus = pResponseStatus_
+    { thingARN = Lude.Nothing,
+      thingName = Lude.Nothing,
+      thingId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the new thing.
-ctrsThingARN :: Lens' CreateThingResponse (Maybe Text)
-ctrsThingARN = lens _ctrsThingARN (\s a -> s {_ctrsThingARN = a})
+--
+-- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrsThingARN :: Lens.Lens' CreateThingResponse (Lude.Maybe Lude.Text)
+ctrsThingARN = Lens.lens (thingARN :: CreateThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingARN = a} :: CreateThingResponse)
+{-# DEPRECATED ctrsThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
 
 -- | The name of the new thing.
-ctrsThingName :: Lens' CreateThingResponse (Maybe Text)
-ctrsThingName = lens _ctrsThingName (\s a -> s {_ctrsThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrsThingName :: Lens.Lens' CreateThingResponse (Lude.Maybe Lude.Text)
+ctrsThingName = Lens.lens (thingName :: CreateThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: CreateThingResponse)
+{-# DEPRECATED ctrsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | The thing ID.
-ctrsThingId :: Lens' CreateThingResponse (Maybe Text)
-ctrsThingId = lens _ctrsThingId (\s a -> s {_ctrsThingId = a})
+--
+-- /Note:/ Consider using 'thingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrsThingId :: Lens.Lens' CreateThingResponse (Lude.Maybe Lude.Text)
+ctrsThingId = Lens.lens (thingId :: CreateThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingId = a} :: CreateThingResponse)
+{-# DEPRECATED ctrsThingId "Use generic-lens or generic-optics with 'thingId' instead." #-}
 
--- | -- | The response status code.
-ctrsResponseStatus :: Lens' CreateThingResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\s a -> s {_ctrsResponseStatus = a})
-
-instance NFData CreateThingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrsResponseStatus :: Lens.Lens' CreateThingResponse Lude.Int
+ctrsResponseStatus = Lens.lens (responseStatus :: CreateThingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateThingResponse)
+{-# DEPRECATED ctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

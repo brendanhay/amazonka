@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,155 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideo.Types.StreamInfo where
+module Network.AWS.KinesisVideo.Types.StreamInfo
+  ( StreamInfo (..),
+
+    -- * Smart constructor
+    mkStreamInfo,
+
+    -- * Lenses
+    siCreationTime,
+    siStatus,
+    siMediaType,
+    siDataRetentionInHours,
+    siStreamARN,
+    siKMSKeyId,
+    siDeviceName,
+    siVersion,
+    siStreamName,
+  )
+where
 
 import Network.AWS.KinesisVideo.Types.StreamStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object describing a Kinesis video stream.
 --
---
---
--- /See:/ 'streamInfo' smart constructor.
+-- /See:/ 'mkStreamInfo' smart constructor.
 data StreamInfo = StreamInfo'
-  { _siCreationTime :: !(Maybe POSIX),
-    _siStatus :: !(Maybe StreamStatus),
-    _siMediaType :: !(Maybe Text),
-    _siDataRetentionInHours :: !(Maybe Nat),
-    _siStreamARN :: !(Maybe Text),
-    _siKMSKeyId :: !(Maybe Text),
-    _siDeviceName :: !(Maybe Text),
-    _siVersion :: !(Maybe Text),
-    _siStreamName :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe StreamStatus,
+    mediaType :: Lude.Maybe Lude.Text,
+    dataRetentionInHours :: Lude.Maybe Lude.Natural,
+    streamARN :: Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    deviceName :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    streamName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'siCreationTime' - A time stamp that indicates when the stream was created.
---
--- * 'siStatus' - The status of the stream.
---
--- * 'siMediaType' - The @MediaType@ of the stream.
---
--- * 'siDataRetentionInHours' - How long the stream retains data, in hours.
---
--- * 'siStreamARN' - The Amazon Resource Name (ARN) of the stream.
---
--- * 'siKMSKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.
---
--- * 'siDeviceName' - The name of the device that is associated with the stream.
---
--- * 'siVersion' - The version of the stream.
---
--- * 'siStreamName' - The name of the stream.
-streamInfo ::
+-- * 'creationTime' - A time stamp that indicates when the stream was created.
+-- * 'dataRetentionInHours' - How long the stream retains data, in hours.
+-- * 'deviceName' - The name of the device that is associated with the stream.
+-- * 'kmsKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.
+-- * 'mediaType' - The @MediaType@ of the stream.
+-- * 'status' - The status of the stream.
+-- * 'streamARN' - The Amazon Resource Name (ARN) of the stream.
+-- * 'streamName' - The name of the stream.
+-- * 'version' - The version of the stream.
+mkStreamInfo ::
   StreamInfo
-streamInfo =
+mkStreamInfo =
   StreamInfo'
-    { _siCreationTime = Nothing,
-      _siStatus = Nothing,
-      _siMediaType = Nothing,
-      _siDataRetentionInHours = Nothing,
-      _siStreamARN = Nothing,
-      _siKMSKeyId = Nothing,
-      _siDeviceName = Nothing,
-      _siVersion = Nothing,
-      _siStreamName = Nothing
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      mediaType = Lude.Nothing,
+      dataRetentionInHours = Lude.Nothing,
+      streamARN = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      deviceName = Lude.Nothing,
+      version = Lude.Nothing,
+      streamName = Lude.Nothing
     }
 
 -- | A time stamp that indicates when the stream was created.
-siCreationTime :: Lens' StreamInfo (Maybe UTCTime)
-siCreationTime = lens _siCreationTime (\s a -> s {_siCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siCreationTime :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Timestamp)
+siCreationTime = Lens.lens (creationTime :: StreamInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: StreamInfo)
+{-# DEPRECATED siCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status of the stream.
-siStatus :: Lens' StreamInfo (Maybe StreamStatus)
-siStatus = lens _siStatus (\s a -> s {_siStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStatus :: Lens.Lens' StreamInfo (Lude.Maybe StreamStatus)
+siStatus = Lens.lens (status :: StreamInfo -> Lude.Maybe StreamStatus) (\s a -> s {status = a} :: StreamInfo)
+{-# DEPRECATED siStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The @MediaType@ of the stream.
-siMediaType :: Lens' StreamInfo (Maybe Text)
-siMediaType = lens _siMediaType (\s a -> s {_siMediaType = a})
+--
+-- /Note:/ Consider using 'mediaType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siMediaType :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siMediaType = Lens.lens (mediaType :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {mediaType = a} :: StreamInfo)
+{-# DEPRECATED siMediaType "Use generic-lens or generic-optics with 'mediaType' instead." #-}
 
 -- | How long the stream retains data, in hours.
-siDataRetentionInHours :: Lens' StreamInfo (Maybe Natural)
-siDataRetentionInHours = lens _siDataRetentionInHours (\s a -> s {_siDataRetentionInHours = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'dataRetentionInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siDataRetentionInHours :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Natural)
+siDataRetentionInHours = Lens.lens (dataRetentionInHours :: StreamInfo -> Lude.Maybe Lude.Natural) (\s a -> s {dataRetentionInHours = a} :: StreamInfo)
+{-# DEPRECATED siDataRetentionInHours "Use generic-lens or generic-optics with 'dataRetentionInHours' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the stream.
-siStreamARN :: Lens' StreamInfo (Maybe Text)
-siStreamARN = lens _siStreamARN (\s a -> s {_siStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStreamARN :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siStreamARN = Lens.lens (streamARN :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: StreamInfo)
+{-# DEPRECATED siStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.
-siKMSKeyId :: Lens' StreamInfo (Maybe Text)
-siKMSKeyId = lens _siKMSKeyId (\s a -> s {_siKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siKMSKeyId :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siKMSKeyId = Lens.lens (kmsKeyId :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: StreamInfo)
+{-# DEPRECATED siKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The name of the device that is associated with the stream.
-siDeviceName :: Lens' StreamInfo (Maybe Text)
-siDeviceName = lens _siDeviceName (\s a -> s {_siDeviceName = a})
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siDeviceName :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siDeviceName = Lens.lens (deviceName :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: StreamInfo)
+{-# DEPRECATED siDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
 -- | The version of the stream.
-siVersion :: Lens' StreamInfo (Maybe Text)
-siVersion = lens _siVersion (\s a -> s {_siVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siVersion :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siVersion = Lens.lens (version :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: StreamInfo)
+{-# DEPRECATED siVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the stream.
-siStreamName :: Lens' StreamInfo (Maybe Text)
-siStreamName = lens _siStreamName (\s a -> s {_siStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStreamName :: Lens.Lens' StreamInfo (Lude.Maybe Lude.Text)
+siStreamName = Lens.lens (streamName :: StreamInfo -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: StreamInfo)
+{-# DEPRECATED siStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance FromJSON StreamInfo where
+instance Lude.FromJSON StreamInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "StreamInfo"
       ( \x ->
           StreamInfo'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "Status")
-            <*> (x .:? "MediaType")
-            <*> (x .:? "DataRetentionInHours")
-            <*> (x .:? "StreamARN")
-            <*> (x .:? "KmsKeyId")
-            <*> (x .:? "DeviceName")
-            <*> (x .:? "Version")
-            <*> (x .:? "StreamName")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "MediaType")
+            Lude.<*> (x Lude..:? "DataRetentionInHours")
+            Lude.<*> (x Lude..:? "StreamARN")
+            Lude.<*> (x Lude..:? "KmsKeyId")
+            Lude.<*> (x Lude..:? "DeviceName")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "StreamName")
       )
-
-instance Hashable StreamInfo
-
-instance NFData StreamInfo

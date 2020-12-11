@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.Finding where
+module Network.AWS.GuardDuty.Types.Finding
+  ( Finding (..),
+
+    -- * Smart constructor
+    mkFinding,
+
+    -- * Lenses
+    fService,
+    fConfidence,
+    fPartition,
+    fTitle,
+    fDescription,
+    fAccountId,
+    fARN,
+    fCreatedAt,
+    fId,
+    fRegion,
+    fResource,
+    fSchemaVersion,
+    fSeverity,
+    fType,
+    fUpdatedAt,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.Resource
 import Network.AWS.GuardDuty.Types.ServiceInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the finding, which is generated when abnormal or suspicious activity is detected.
 --
---
---
--- /See:/ 'finding' smart constructor.
+-- /See:/ 'mkFinding' smart constructor.
 data Finding = Finding'
-  { _fService :: !(Maybe ServiceInfo),
-    _fConfidence :: !(Maybe Double),
-    _fPartition :: !(Maybe Text),
-    _fTitle :: !(Maybe Text),
-    _fDescription :: !(Maybe Text),
-    _fAccountId :: !Text,
-    _fARN :: !Text,
-    _fCreatedAt :: !Text,
-    _fId :: !Text,
-    _fRegion :: !Text,
-    _fResource :: !Resource,
-    _fSchemaVersion :: !Text,
-    _fSeverity :: !Double,
-    _fType :: !Text,
-    _fUpdatedAt :: !Text
+  { service :: Lude.Maybe ServiceInfo,
+    confidence :: Lude.Maybe Lude.Double,
+    partition :: Lude.Maybe Lude.Text,
+    title :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    accountId :: Lude.Text,
+    arn :: Lude.Text,
+    createdAt :: Lude.Text,
+    id :: Lude.Text,
+    region :: Lude.Text,
+    resource :: Resource,
+    schemaVersion :: Lude.Text,
+    severity :: Lude.Double,
+    type' :: Lude.Text,
+    updatedAt :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Finding' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fService' - Undocumented member.
---
--- * 'fConfidence' - The confidence score for the finding.
---
--- * 'fPartition' - The partition associated with the finding.
---
--- * 'fTitle' - The title of the finding.
---
--- * 'fDescription' - The description of the finding.
---
--- * 'fAccountId' - The ID of the account in which the finding was generated.
---
--- * 'fARN' - The ARN of the finding.
---
--- * 'fCreatedAt' - The time and date when the finding was created.
---
--- * 'fId' - The ID of the finding.
---
--- * 'fRegion' - The Region where the finding was generated.
---
--- * 'fResource' - Undocumented member.
---
--- * 'fSchemaVersion' - The version of the schema used for the finding.
---
--- * 'fSeverity' - The severity of the finding.
---
--- * 'fType' - The type of finding.
---
--- * 'fUpdatedAt' - The time and date when the finding was last updated.
-finding ::
-  -- | 'fAccountId'
-  Text ->
-  -- | 'fARN'
-  Text ->
-  -- | 'fCreatedAt'
-  Text ->
-  -- | 'fId'
-  Text ->
-  -- | 'fRegion'
-  Text ->
-  -- | 'fResource'
+-- * 'accountId' - The ID of the account in which the finding was generated.
+-- * 'arn' - The ARN of the finding.
+-- * 'confidence' - The confidence score for the finding.
+-- * 'createdAt' - The time and date when the finding was created.
+-- * 'description' - The description of the finding.
+-- * 'id' - The ID of the finding.
+-- * 'partition' - The partition associated with the finding.
+-- * 'region' - The Region where the finding was generated.
+-- * 'resource' - Undocumented field.
+-- * 'schemaVersion' - The version of the schema used for the finding.
+-- * 'service' - Undocumented field.
+-- * 'severity' - The severity of the finding.
+-- * 'title' - The title of the finding.
+-- * 'type'' - The type of finding.
+-- * 'updatedAt' - The time and date when the finding was last updated.
+mkFinding ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'arn'
+  Lude.Text ->
+  -- | 'createdAt'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
+  -- | 'region'
+  Lude.Text ->
+  -- | 'resource'
   Resource ->
-  -- | 'fSchemaVersion'
-  Text ->
-  -- | 'fSeverity'
-  Double ->
-  -- | 'fType'
-  Text ->
-  -- | 'fUpdatedAt'
-  Text ->
+  -- | 'schemaVersion'
+  Lude.Text ->
+  -- | 'severity'
+  Lude.Double ->
+  -- | 'type''
+  Lude.Text ->
+  -- | 'updatedAt'
+  Lude.Text ->
   Finding
-finding
+mkFinding
   pAccountId_
   pARN_
   pCreatedAt_
@@ -111,106 +117,147 @@ finding
   pType_
   pUpdatedAt_ =
     Finding'
-      { _fService = Nothing,
-        _fConfidence = Nothing,
-        _fPartition = Nothing,
-        _fTitle = Nothing,
-        _fDescription = Nothing,
-        _fAccountId = pAccountId_,
-        _fARN = pARN_,
-        _fCreatedAt = pCreatedAt_,
-        _fId = pId_,
-        _fRegion = pRegion_,
-        _fResource = pResource_,
-        _fSchemaVersion = pSchemaVersion_,
-        _fSeverity = pSeverity_,
-        _fType = pType_,
-        _fUpdatedAt = pUpdatedAt_
+      { service = Lude.Nothing,
+        confidence = Lude.Nothing,
+        partition = Lude.Nothing,
+        title = Lude.Nothing,
+        description = Lude.Nothing,
+        accountId = pAccountId_,
+        arn = pARN_,
+        createdAt = pCreatedAt_,
+        id = pId_,
+        region = pRegion_,
+        resource = pResource_,
+        schemaVersion = pSchemaVersion_,
+        severity = pSeverity_,
+        type' = pType_,
+        updatedAt = pUpdatedAt_
       }
 
--- | Undocumented member.
-fService :: Lens' Finding (Maybe ServiceInfo)
-fService = lens _fService (\s a -> s {_fService = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fService :: Lens.Lens' Finding (Lude.Maybe ServiceInfo)
+fService = Lens.lens (service :: Finding -> Lude.Maybe ServiceInfo) (\s a -> s {service = a} :: Finding)
+{-# DEPRECATED fService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | The confidence score for the finding.
-fConfidence :: Lens' Finding (Maybe Double)
-fConfidence = lens _fConfidence (\s a -> s {_fConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fConfidence :: Lens.Lens' Finding (Lude.Maybe Lude.Double)
+fConfidence = Lens.lens (confidence :: Finding -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Finding)
+{-# DEPRECATED fConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
 -- | The partition associated with the finding.
-fPartition :: Lens' Finding (Maybe Text)
-fPartition = lens _fPartition (\s a -> s {_fPartition = a})
+--
+-- /Note:/ Consider using 'partition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fPartition :: Lens.Lens' Finding (Lude.Maybe Lude.Text)
+fPartition = Lens.lens (partition :: Finding -> Lude.Maybe Lude.Text) (\s a -> s {partition = a} :: Finding)
+{-# DEPRECATED fPartition "Use generic-lens or generic-optics with 'partition' instead." #-}
 
 -- | The title of the finding.
-fTitle :: Lens' Finding (Maybe Text)
-fTitle = lens _fTitle (\s a -> s {_fTitle = a})
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fTitle :: Lens.Lens' Finding (Lude.Maybe Lude.Text)
+fTitle = Lens.lens (title :: Finding -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: Finding)
+{-# DEPRECATED fTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 -- | The description of the finding.
-fDescription :: Lens' Finding (Maybe Text)
-fDescription = lens _fDescription (\s a -> s {_fDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fDescription :: Lens.Lens' Finding (Lude.Maybe Lude.Text)
+fDescription = Lens.lens (description :: Finding -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Finding)
+{-# DEPRECATED fDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the account in which the finding was generated.
-fAccountId :: Lens' Finding Text
-fAccountId = lens _fAccountId (\s a -> s {_fAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fAccountId :: Lens.Lens' Finding Lude.Text
+fAccountId = Lens.lens (accountId :: Finding -> Lude.Text) (\s a -> s {accountId = a} :: Finding)
+{-# DEPRECATED fAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The ARN of the finding.
-fARN :: Lens' Finding Text
-fARN = lens _fARN (\s a -> s {_fARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fARN :: Lens.Lens' Finding Lude.Text
+fARN = Lens.lens (arn :: Finding -> Lude.Text) (\s a -> s {arn = a} :: Finding)
+{-# DEPRECATED fARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time and date when the finding was created.
-fCreatedAt :: Lens' Finding Text
-fCreatedAt = lens _fCreatedAt (\s a -> s {_fCreatedAt = a})
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fCreatedAt :: Lens.Lens' Finding Lude.Text
+fCreatedAt = Lens.lens (createdAt :: Finding -> Lude.Text) (\s a -> s {createdAt = a} :: Finding)
+{-# DEPRECATED fCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The ID of the finding.
-fId :: Lens' Finding Text
-fId = lens _fId (\s a -> s {_fId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fId :: Lens.Lens' Finding Lude.Text
+fId = Lens.lens (id :: Finding -> Lude.Text) (\s a -> s {id = a} :: Finding)
+{-# DEPRECATED fId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The Region where the finding was generated.
-fRegion :: Lens' Finding Text
-fRegion = lens _fRegion (\s a -> s {_fRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fRegion :: Lens.Lens' Finding Lude.Text
+fRegion = Lens.lens (region :: Finding -> Lude.Text) (\s a -> s {region = a} :: Finding)
+{-# DEPRECATED fRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
--- | Undocumented member.
-fResource :: Lens' Finding Resource
-fResource = lens _fResource (\s a -> s {_fResource = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fResource :: Lens.Lens' Finding Resource
+fResource = Lens.lens (resource :: Finding -> Resource) (\s a -> s {resource = a} :: Finding)
+{-# DEPRECATED fResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
 -- | The version of the schema used for the finding.
-fSchemaVersion :: Lens' Finding Text
-fSchemaVersion = lens _fSchemaVersion (\s a -> s {_fSchemaVersion = a})
+--
+-- /Note:/ Consider using 'schemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fSchemaVersion :: Lens.Lens' Finding Lude.Text
+fSchemaVersion = Lens.lens (schemaVersion :: Finding -> Lude.Text) (\s a -> s {schemaVersion = a} :: Finding)
+{-# DEPRECATED fSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
 
 -- | The severity of the finding.
-fSeverity :: Lens' Finding Double
-fSeverity = lens _fSeverity (\s a -> s {_fSeverity = a})
+--
+-- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fSeverity :: Lens.Lens' Finding Lude.Double
+fSeverity = Lens.lens (severity :: Finding -> Lude.Double) (\s a -> s {severity = a} :: Finding)
+{-# DEPRECATED fSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
 -- | The type of finding.
-fType :: Lens' Finding Text
-fType = lens _fType (\s a -> s {_fType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fType :: Lens.Lens' Finding Lude.Text
+fType = Lens.lens (type' :: Finding -> Lude.Text) (\s a -> s {type' = a} :: Finding)
+{-# DEPRECATED fType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The time and date when the finding was last updated.
-fUpdatedAt :: Lens' Finding Text
-fUpdatedAt = lens _fUpdatedAt (\s a -> s {_fUpdatedAt = a})
+--
+-- /Note:/ Consider using 'updatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fUpdatedAt :: Lens.Lens' Finding Lude.Text
+fUpdatedAt = Lens.lens (updatedAt :: Finding -> Lude.Text) (\s a -> s {updatedAt = a} :: Finding)
+{-# DEPRECATED fUpdatedAt "Use generic-lens or generic-optics with 'updatedAt' instead." #-}
 
-instance FromJSON Finding where
+instance Lude.FromJSON Finding where
   parseJSON =
-    withObject
+    Lude.withObject
       "Finding"
       ( \x ->
           Finding'
-            <$> (x .:? "service")
-            <*> (x .:? "confidence")
-            <*> (x .:? "partition")
-            <*> (x .:? "title")
-            <*> (x .:? "description")
-            <*> (x .: "accountId")
-            <*> (x .: "arn")
-            <*> (x .: "createdAt")
-            <*> (x .: "id")
-            <*> (x .: "region")
-            <*> (x .: "resource")
-            <*> (x .: "schemaVersion")
-            <*> (x .: "severity")
-            <*> (x .: "type")
-            <*> (x .: "updatedAt")
+            Lude.<$> (x Lude..:? "service")
+            Lude.<*> (x Lude..:? "confidence")
+            Lude.<*> (x Lude..:? "partition")
+            Lude.<*> (x Lude..:? "title")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..: "accountId")
+            Lude.<*> (x Lude..: "arn")
+            Lude.<*> (x Lude..: "createdAt")
+            Lude.<*> (x Lude..: "id")
+            Lude.<*> (x Lude..: "region")
+            Lude.<*> (x Lude..: "resource")
+            Lude.<*> (x Lude..: "schemaVersion")
+            Lude.<*> (x Lude..: "severity")
+            Lude.<*> (x Lude..: "type")
+            Lude.<*> (x Lude..: "updatedAt")
       )
-
-instance Hashable Finding
-
-instance NFData Finding

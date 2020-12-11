@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,159 @@
 --
 -- Creates or updates the contact attributes associated with the specified contact.
 --
---
 -- You can add or update attributes for both ongoing and completed contacts. For example, you can update the customer's name or the reason the customer called while the call is active, or add notes about steps that the agent took during the call that are displayed to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or identifying abusive callers.
---
 -- Contact attributes are available in Amazon Connect for 24 months, and are then deleted.
---
 -- __Important:__ You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.
 module Network.AWS.Connect.UpdateContactAttributes
-  ( -- * Creating a Request
-    updateContactAttributes,
-    UpdateContactAttributes,
+  ( -- * Creating a request
+    UpdateContactAttributes (..),
+    mkUpdateContactAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucaInitialContactId,
     ucaInstanceId,
     ucaAttributes,
 
-    -- * Destructuring the Response
-    updateContactAttributesResponse,
-    UpdateContactAttributesResponse,
+    -- * Destructuring the response
+    UpdateContactAttributesResponse (..),
+    mkUpdateContactAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ucarsResponseStatus,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateContactAttributes' smart constructor.
+-- | /See:/ 'mkUpdateContactAttributes' smart constructor.
 data UpdateContactAttributes = UpdateContactAttributes'
-  { _ucaInitialContactId ::
-      !Text,
-    _ucaInstanceId :: !Text,
-    _ucaAttributes :: !(Map Text (Text))
+  { initialContactId ::
+      Lude.Text,
+    instanceId :: Lude.Text,
+    attributes ::
+      Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContactAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributes' - The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other contact attributes.
 --
--- * 'ucaInitialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
---
--- * 'ucaInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'ucaAttributes' - The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other contact attributes. You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
-updateContactAttributes ::
-  -- | 'ucaInitialContactId'
-  Text ->
-  -- | 'ucaInstanceId'
-  Text ->
+-- You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
+-- * 'initialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+mkUpdateContactAttributes ::
+  -- | 'initialContactId'
+  Lude.Text ->
+  -- | 'instanceId'
+  Lude.Text ->
   UpdateContactAttributes
-updateContactAttributes pInitialContactId_ pInstanceId_ =
+mkUpdateContactAttributes pInitialContactId_ pInstanceId_ =
   UpdateContactAttributes'
-    { _ucaInitialContactId =
-        pInitialContactId_,
-      _ucaInstanceId = pInstanceId_,
-      _ucaAttributes = mempty
+    { initialContactId = pInitialContactId_,
+      instanceId = pInstanceId_,
+      attributes = Lude.mempty
     }
 
 -- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
-ucaInitialContactId :: Lens' UpdateContactAttributes Text
-ucaInitialContactId = lens _ucaInitialContactId (\s a -> s {_ucaInitialContactId = a})
+--
+-- /Note:/ Consider using 'initialContactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaInitialContactId :: Lens.Lens' UpdateContactAttributes Lude.Text
+ucaInitialContactId = Lens.lens (initialContactId :: UpdateContactAttributes -> Lude.Text) (\s a -> s {initialContactId = a} :: UpdateContactAttributes)
+{-# DEPRECATED ucaInitialContactId "Use generic-lens or generic-optics with 'initialContactId' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-ucaInstanceId :: Lens' UpdateContactAttributes Text
-ucaInstanceId = lens _ucaInstanceId (\s a -> s {_ucaInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaInstanceId :: Lens.Lens' UpdateContactAttributes Lude.Text
+ucaInstanceId = Lens.lens (instanceId :: UpdateContactAttributes -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateContactAttributes)
+{-# DEPRECATED ucaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
--- | The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other contact attributes. You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
-ucaAttributes :: Lens' UpdateContactAttributes (HashMap Text (Text))
-ucaAttributes = lens _ucaAttributes (\s a -> s {_ucaAttributes = a}) . _Map
+-- | The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other contact attributes.
+--
+-- You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaAttributes :: Lens.Lens' UpdateContactAttributes (Lude.HashMap Lude.Text (Lude.Text))
+ucaAttributes = Lens.lens (attributes :: UpdateContactAttributes -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {attributes = a} :: UpdateContactAttributes)
+{-# DEPRECATED ucaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance AWSRequest UpdateContactAttributes where
+instance Lude.AWSRequest UpdateContactAttributes where
   type Rs UpdateContactAttributes = UpdateContactAttributesResponse
-  request = postJSON connect
+  request = Req.postJSON connectService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateContactAttributesResponse' <$> (pure (fromEnum s))
+          UpdateContactAttributesResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateContactAttributes
-
-instance NFData UpdateContactAttributes
-
-instance ToHeaders UpdateContactAttributes where
+instance Lude.ToHeaders UpdateContactAttributes where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateContactAttributes where
-  toJSON UpdateContactAttributes' {..} =
-    object
-      ( catMaybes
-          [ Just ("InitialContactId" .= _ucaInitialContactId),
-            Just ("InstanceId" .= _ucaInstanceId),
-            Just ("Attributes" .= _ucaAttributes)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateContactAttributes where
-  toPath = const "/contact/attributes"
+instance Lude.ToJSON UpdateContactAttributes where
+  toJSON UpdateContactAttributes' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("InitialContactId" Lude..= initialContactId),
+            Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("Attributes" Lude..= attributes)
+          ]
+      )
 
-instance ToQuery UpdateContactAttributes where
-  toQuery = const mempty
+instance Lude.ToPath UpdateContactAttributes where
+  toPath = Lude.const "/contact/attributes"
 
--- | /See:/ 'updateContactAttributesResponse' smart constructor.
+instance Lude.ToQuery UpdateContactAttributes where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkUpdateContactAttributesResponse' smart constructor.
 newtype UpdateContactAttributesResponse = UpdateContactAttributesResponse'
-  { _ucarsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContactAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucarsResponseStatus' - -- | The response status code.
-updateContactAttributesResponse ::
-  -- | 'ucarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateContactAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateContactAttributesResponse
-updateContactAttributesResponse pResponseStatus_ =
+mkUpdateContactAttributesResponse pResponseStatus_ =
   UpdateContactAttributesResponse'
-    { _ucarsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ucarsResponseStatus :: Lens' UpdateContactAttributesResponse Int
-ucarsResponseStatus = lens _ucarsResponseStatus (\s a -> s {_ucarsResponseStatus = a})
-
-instance NFData UpdateContactAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucarsResponseStatus :: Lens.Lens' UpdateContactAttributesResponse Lude.Int
+ucarsResponseStatus = Lens.lens (responseStatus :: UpdateContactAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateContactAttributesResponse)
+{-# DEPRECATED ucarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

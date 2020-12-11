@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.NotebookInstanceSortOrder where
+module Network.AWS.SageMaker.Types.NotebookInstanceSortOrder
+  ( NotebookInstanceSortOrder
+      ( NotebookInstanceSortOrder',
+        Ascending,
+        Descending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotebookInstanceSortOrder
-  = Ascending
-  | Descending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotebookInstanceSortOrder = NotebookInstanceSortOrder' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotebookInstanceSortOrder where
-  parser =
-    takeLowerText >>= \case
-      "ascending" -> pure Ascending
-      "descending" -> pure Descending
-      e ->
-        fromTextError $
-          "Failure parsing NotebookInstanceSortOrder from value: '" <> e
-            <> "'. Accepted values: ascending, descending"
+pattern Ascending :: NotebookInstanceSortOrder
+pattern Ascending = NotebookInstanceSortOrder' "Ascending"
 
-instance ToText NotebookInstanceSortOrder where
-  toText = \case
-    Ascending -> "Ascending"
-    Descending -> "Descending"
+pattern Descending :: NotebookInstanceSortOrder
+pattern Descending = NotebookInstanceSortOrder' "Descending"
 
-instance Hashable NotebookInstanceSortOrder
-
-instance NFData NotebookInstanceSortOrder
-
-instance ToByteString NotebookInstanceSortOrder
-
-instance ToQuery NotebookInstanceSortOrder
-
-instance ToHeader NotebookInstanceSortOrder
-
-instance ToJSON NotebookInstanceSortOrder where
-  toJSON = toJSONText
+{-# COMPLETE
+  Ascending,
+  Descending,
+  NotebookInstanceSortOrder'
+  #-}

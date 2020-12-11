@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,150 @@
 --
 -- Provides more detail about the cluster step.
 module Network.AWS.EMR.DescribeStep
-  ( -- * Creating a Request
-    describeStep,
-    DescribeStep,
+  ( -- * Creating a request
+    DescribeStep (..),
+    mkDescribeStep,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsClusterId,
     dsStepId,
 
-    -- * Destructuring the Response
-    describeStepResponse,
-    DescribeStepResponse,
+    -- * Destructuring the response
+    DescribeStepResponse (..),
+    mkDescribeStepResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsStep,
     dsrsResponseStatus,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | This input determines which step to describe.
 --
---
---
--- /See:/ 'describeStep' smart constructor.
+-- /See:/ 'mkDescribeStep' smart constructor.
 data DescribeStep = DescribeStep'
-  { _dsClusterId :: !Text,
-    _dsStepId :: !Text
+  { clusterId :: Lude.Text,
+    stepId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStep' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsClusterId' - The identifier of the cluster with steps to describe.
---
--- * 'dsStepId' - The identifier of the step to describe.
-describeStep ::
-  -- | 'dsClusterId'
-  Text ->
-  -- | 'dsStepId'
-  Text ->
+-- * 'clusterId' - The identifier of the cluster with steps to describe.
+-- * 'stepId' - The identifier of the step to describe.
+mkDescribeStep ::
+  -- | 'clusterId'
+  Lude.Text ->
+  -- | 'stepId'
+  Lude.Text ->
   DescribeStep
-describeStep pClusterId_ pStepId_ =
-  DescribeStep' {_dsClusterId = pClusterId_, _dsStepId = pStepId_}
+mkDescribeStep pClusterId_ pStepId_ =
+  DescribeStep' {clusterId = pClusterId_, stepId = pStepId_}
 
 -- | The identifier of the cluster with steps to describe.
-dsClusterId :: Lens' DescribeStep Text
-dsClusterId = lens _dsClusterId (\s a -> s {_dsClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsClusterId :: Lens.Lens' DescribeStep Lude.Text
+dsClusterId = Lens.lens (clusterId :: DescribeStep -> Lude.Text) (\s a -> s {clusterId = a} :: DescribeStep)
+{-# DEPRECATED dsClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The identifier of the step to describe.
-dsStepId :: Lens' DescribeStep Text
-dsStepId = lens _dsStepId (\s a -> s {_dsStepId = a})
+--
+-- /Note:/ Consider using 'stepId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStepId :: Lens.Lens' DescribeStep Lude.Text
+dsStepId = Lens.lens (stepId :: DescribeStep -> Lude.Text) (\s a -> s {stepId = a} :: DescribeStep)
+{-# DEPRECATED dsStepId "Use generic-lens or generic-optics with 'stepId' instead." #-}
 
-instance AWSRequest DescribeStep where
+instance Lude.AWSRequest DescribeStep where
   type Rs DescribeStep = DescribeStepResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          DescribeStepResponse' <$> (x .?> "Step") <*> (pure (fromEnum s))
+          DescribeStepResponse'
+            Lude.<$> (x Lude..?> "Step") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStep
-
-instance NFData DescribeStep
-
-instance ToHeaders DescribeStep where
+instance Lude.ToHeaders DescribeStep where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("ElasticMapReduce.DescribeStep" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("ElasticMapReduce.DescribeStep" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeStep where
+instance Lude.ToJSON DescribeStep where
   toJSON DescribeStep' {..} =
-    object
-      ( catMaybes
-          [Just ("ClusterId" .= _dsClusterId), Just ("StepId" .= _dsStepId)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ClusterId" Lude..= clusterId),
+            Lude.Just ("StepId" Lude..= stepId)
+          ]
       )
 
-instance ToPath DescribeStep where
-  toPath = const "/"
+instance Lude.ToPath DescribeStep where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeStep where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeStep where
+  toQuery = Lude.const Lude.mempty
 
 -- | This output contains the description of the cluster step.
 --
---
---
--- /See:/ 'describeStepResponse' smart constructor.
+-- /See:/ 'mkDescribeStepResponse' smart constructor.
 data DescribeStepResponse = DescribeStepResponse'
-  { _dsrsStep ::
-      !(Maybe Step),
-    _dsrsResponseStatus :: !Int
+  { step ::
+      Lude.Maybe Step,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStepResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsStep' - The step details for the requested step identifier.
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-describeStepResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'step' - The step details for the requested step identifier.
+mkDescribeStepResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStepResponse
-describeStepResponse pResponseStatus_ =
+mkDescribeStepResponse pResponseStatus_ =
   DescribeStepResponse'
-    { _dsrsStep = Nothing,
-      _dsrsResponseStatus = pResponseStatus_
+    { step = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The step details for the requested step identifier.
-dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
-dsrsStep = lens _dsrsStep (\s a -> s {_dsrsStep = a})
+--
+-- /Note:/ Consider using 'step' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsStep :: Lens.Lens' DescribeStepResponse (Lude.Maybe Step)
+dsrsStep = Lens.lens (step :: DescribeStepResponse -> Lude.Maybe Step) (\s a -> s {step = a} :: DescribeStepResponse)
+{-# DEPRECATED dsrsStep "Use generic-lens or generic-optics with 'step' instead." #-}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DescribeStepResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DescribeStepResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DescribeStepResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DescribeStepResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStepResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

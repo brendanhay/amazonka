@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProductType where
+module Network.AWS.ServiceCatalog.Types.ProductType
+  ( ProductType
+      ( ProductType',
+        CloudFormationTemplate,
+        Marketplace
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProductType
-  = CloudFormationTemplate
-  | Marketplace
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProductType = ProductType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProductType where
-  parser =
-    takeLowerText >>= \case
-      "cloud_formation_template" -> pure CloudFormationTemplate
-      "marketplace" -> pure Marketplace
-      e ->
-        fromTextError $
-          "Failure parsing ProductType from value: '" <> e
-            <> "'. Accepted values: cloud_formation_template, marketplace"
+pattern CloudFormationTemplate :: ProductType
+pattern CloudFormationTemplate = ProductType' "CLOUD_FORMATION_TEMPLATE"
 
-instance ToText ProductType where
-  toText = \case
-    CloudFormationTemplate -> "CLOUD_FORMATION_TEMPLATE"
-    Marketplace -> "MARKETPLACE"
+pattern Marketplace :: ProductType
+pattern Marketplace = ProductType' "MARKETPLACE"
 
-instance Hashable ProductType
-
-instance NFData ProductType
-
-instance ToByteString ProductType
-
-instance ToQuery ProductType
-
-instance ToHeader ProductType
-
-instance ToJSON ProductType where
-  toJSON = toJSONText
-
-instance FromJSON ProductType where
-  parseJSON = parseJSONText "ProductType"
+{-# COMPLETE
+  CloudFormationTemplate,
+  Marketplace,
+  ProductType'
+  #-}

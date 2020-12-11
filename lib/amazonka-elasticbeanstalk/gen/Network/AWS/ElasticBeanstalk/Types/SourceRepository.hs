@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.SourceRepository where
+module Network.AWS.ElasticBeanstalk.Types.SourceRepository
+  ( SourceRepository
+      ( SourceRepository',
+        CodeCommit,
+        S3
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SourceRepository
-  = CodeCommit
-  | S3
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SourceRepository = SourceRepository' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SourceRepository where
-  parser =
-    takeLowerText >>= \case
-      "codecommit" -> pure CodeCommit
-      "s3" -> pure S3
-      e ->
-        fromTextError $
-          "Failure parsing SourceRepository from value: '" <> e
-            <> "'. Accepted values: codecommit, s3"
+pattern CodeCommit :: SourceRepository
+pattern CodeCommit = SourceRepository' "CodeCommit"
 
-instance ToText SourceRepository where
-  toText = \case
-    CodeCommit -> "CodeCommit"
-    S3 -> "S3"
+pattern S3 :: SourceRepository
+pattern S3 = SourceRepository' "S3"
 
-instance Hashable SourceRepository
-
-instance NFData SourceRepository
-
-instance ToByteString SourceRepository
-
-instance ToQuery SourceRepository
-
-instance ToHeader SourceRepository
-
-instance FromXML SourceRepository where
-  parseXML = parseXMLText "SourceRepository"
+{-# COMPLETE
+  CodeCommit,
+  S3,
+  SourceRepository'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.ConnectivityInfo where
+module Network.AWS.Greengrass.Types.ConnectivityInfo
+  ( ConnectivityInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConnectivityInfo,
+
+    -- * Lenses
+    ciPortNumber,
+    ciId,
+    ciMetadata,
+    ciHostAddress,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a Greengrass core's connectivity.
 --
--- /See:/ 'connectivityInfo' smart constructor.
+-- /See:/ 'mkConnectivityInfo' smart constructor.
 data ConnectivityInfo = ConnectivityInfo'
-  { _ciPortNumber ::
-      !(Maybe Int),
-    _ciId :: !(Maybe Text),
-    _ciMetadata :: !(Maybe Text),
-    _ciHostAddress :: !(Maybe Text)
+  { portNumber ::
+      Lude.Maybe Lude.Int,
+    id :: Lude.Maybe Lude.Text,
+    metadata :: Lude.Maybe Lude.Text,
+    hostAddress :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectivityInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciPortNumber' - The port of the Greengrass core. Usually 8883.
---
--- * 'ciId' - The ID of the connectivity information.
---
--- * 'ciMetadata' - Metadata for this endpoint.
---
--- * 'ciHostAddress' - The endpoint for the Greengrass core. Can be an IP address or DNS.
-connectivityInfo ::
+-- * 'hostAddress' - The endpoint for the Greengrass core. Can be an IP address or DNS.
+-- * 'id' - The ID of the connectivity information.
+-- * 'metadata' - Metadata for this endpoint.
+-- * 'portNumber' - The port of the Greengrass core. Usually 8883.
+mkConnectivityInfo ::
   ConnectivityInfo
-connectivityInfo =
+mkConnectivityInfo =
   ConnectivityInfo'
-    { _ciPortNumber = Nothing,
-      _ciId = Nothing,
-      _ciMetadata = Nothing,
-      _ciHostAddress = Nothing
+    { portNumber = Lude.Nothing,
+      id = Lude.Nothing,
+      metadata = Lude.Nothing,
+      hostAddress = Lude.Nothing
     }
 
 -- | The port of the Greengrass core. Usually 8883.
-ciPortNumber :: Lens' ConnectivityInfo (Maybe Int)
-ciPortNumber = lens _ciPortNumber (\s a -> s {_ciPortNumber = a})
+--
+-- /Note:/ Consider using 'portNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciPortNumber :: Lens.Lens' ConnectivityInfo (Lude.Maybe Lude.Int)
+ciPortNumber = Lens.lens (portNumber :: ConnectivityInfo -> Lude.Maybe Lude.Int) (\s a -> s {portNumber = a} :: ConnectivityInfo)
+{-# DEPRECATED ciPortNumber "Use generic-lens or generic-optics with 'portNumber' instead." #-}
 
 -- | The ID of the connectivity information.
-ciId :: Lens' ConnectivityInfo (Maybe Text)
-ciId = lens _ciId (\s a -> s {_ciId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciId :: Lens.Lens' ConnectivityInfo (Lude.Maybe Lude.Text)
+ciId = Lens.lens (id :: ConnectivityInfo -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ConnectivityInfo)
+{-# DEPRECATED ciId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Metadata for this endpoint.
-ciMetadata :: Lens' ConnectivityInfo (Maybe Text)
-ciMetadata = lens _ciMetadata (\s a -> s {_ciMetadata = a})
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciMetadata :: Lens.Lens' ConnectivityInfo (Lude.Maybe Lude.Text)
+ciMetadata = Lens.lens (metadata :: ConnectivityInfo -> Lude.Maybe Lude.Text) (\s a -> s {metadata = a} :: ConnectivityInfo)
+{-# DEPRECATED ciMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
 -- | The endpoint for the Greengrass core. Can be an IP address or DNS.
-ciHostAddress :: Lens' ConnectivityInfo (Maybe Text)
-ciHostAddress = lens _ciHostAddress (\s a -> s {_ciHostAddress = a})
+--
+-- /Note:/ Consider using 'hostAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciHostAddress :: Lens.Lens' ConnectivityInfo (Lude.Maybe Lude.Text)
+ciHostAddress = Lens.lens (hostAddress :: ConnectivityInfo -> Lude.Maybe Lude.Text) (\s a -> s {hostAddress = a} :: ConnectivityInfo)
+{-# DEPRECATED ciHostAddress "Use generic-lens or generic-optics with 'hostAddress' instead." #-}
 
-instance FromJSON ConnectivityInfo where
+instance Lude.FromJSON ConnectivityInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConnectivityInfo"
       ( \x ->
           ConnectivityInfo'
-            <$> (x .:? "PortNumber")
-            <*> (x .:? "Id")
-            <*> (x .:? "Metadata")
-            <*> (x .:? "HostAddress")
+            Lude.<$> (x Lude..:? "PortNumber")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Metadata")
+            Lude.<*> (x Lude..:? "HostAddress")
       )
 
-instance Hashable ConnectivityInfo
-
-instance NFData ConnectivityInfo
-
-instance ToJSON ConnectivityInfo where
+instance Lude.ToJSON ConnectivityInfo where
   toJSON ConnectivityInfo' {..} =
-    object
-      ( catMaybes
-          [ ("PortNumber" .=) <$> _ciPortNumber,
-            ("Id" .=) <$> _ciId,
-            ("Metadata" .=) <$> _ciMetadata,
-            ("HostAddress" .=) <$> _ciHostAddress
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PortNumber" Lude..=) Lude.<$> portNumber,
+            ("Id" Lude..=) Lude.<$> id,
+            ("Metadata" Lude..=) Lude.<$> metadata,
+            ("HostAddress" Lude..=) Lude.<$> hostAddress
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.AudioSelectorGroup where
+module Network.AWS.MediaConvert.Types.AudioSelectorGroup
+  ( AudioSelectorGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAudioSelectorGroup,
+
+    -- * Lenses
+    asgAudioSelectorNames,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Group of Audio Selectors
 --
--- /See:/ 'audioSelectorGroup' smart constructor.
+-- /See:/ 'mkAudioSelectorGroup' smart constructor.
 newtype AudioSelectorGroup = AudioSelectorGroup'
-  { _asgAudioSelectorNames ::
-      Maybe [Text]
+  { audioSelectorNames ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioSelectorGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asgAudioSelectorNames' - Name of an Audio Selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
-audioSelectorGroup ::
+-- * 'audioSelectorNames' - Name of an Audio Selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
+mkAudioSelectorGroup ::
   AudioSelectorGroup
-audioSelectorGroup =
-  AudioSelectorGroup' {_asgAudioSelectorNames = Nothing}
+mkAudioSelectorGroup =
+  AudioSelectorGroup' {audioSelectorNames = Lude.Nothing}
 
 -- | Name of an Audio Selector within the same input to include in the group.  Audio selector names are standardized, based on their order within the input (e.g., "Audio Selector 1"). The audio selector name parameter can be repeated to add any number of audio selectors to the group.
-asgAudioSelectorNames :: Lens' AudioSelectorGroup [Text]
-asgAudioSelectorNames = lens _asgAudioSelectorNames (\s a -> s {_asgAudioSelectorNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'audioSelectorNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgAudioSelectorNames :: Lens.Lens' AudioSelectorGroup (Lude.Maybe [Lude.Text])
+asgAudioSelectorNames = Lens.lens (audioSelectorNames :: AudioSelectorGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {audioSelectorNames = a} :: AudioSelectorGroup)
+{-# DEPRECATED asgAudioSelectorNames "Use generic-lens or generic-optics with 'audioSelectorNames' instead." #-}
 
-instance FromJSON AudioSelectorGroup where
+instance Lude.FromJSON AudioSelectorGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "AudioSelectorGroup"
       ( \x ->
-          AudioSelectorGroup' <$> (x .:? "audioSelectorNames" .!= mempty)
+          AudioSelectorGroup'
+            Lude.<$> (x Lude..:? "audioSelectorNames" Lude..!= Lude.mempty)
       )
 
-instance Hashable AudioSelectorGroup
-
-instance NFData AudioSelectorGroup
-
-instance ToJSON AudioSelectorGroup where
+instance Lude.ToJSON AudioSelectorGroup where
   toJSON AudioSelectorGroup' {..} =
-    object
-      (catMaybes [("audioSelectorNames" .=) <$> _asgAudioSelectorNames])
+    Lude.object
+      ( Lude.catMaybes
+          [("audioSelectorNames" Lude..=) Lude.<$> audioSelectorNames]
+      )

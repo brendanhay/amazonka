@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SlotDateTimeRangeRequest where
+module Network.AWS.EC2.Types.SlotDateTimeRangeRequest
+  ( SlotDateTimeRangeRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSlotDateTimeRangeRequest,
+
+    -- * Lenses
+    sdtrrEarliestTime,
+    sdtrrLatestTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.
 --
---
---
--- /See:/ 'slotDateTimeRangeRequest' smart constructor.
+-- /See:/ 'mkSlotDateTimeRangeRequest' smart constructor.
 data SlotDateTimeRangeRequest = SlotDateTimeRangeRequest'
-  { _sdtrrEarliestTime ::
-      !ISO8601,
-    _sdtrrLatestTime :: !ISO8601
+  { earliestTime ::
+      Lude.ISO8601,
+    latestTime :: Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SlotDateTimeRangeRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdtrrEarliestTime' - The earliest date and time, in UTC, for the Scheduled Instance to start.
---
--- * 'sdtrrLatestTime' - The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.
-slotDateTimeRangeRequest ::
-  -- | 'sdtrrEarliestTime'
-  UTCTime ->
-  -- | 'sdtrrLatestTime'
-  UTCTime ->
+-- * 'earliestTime' - The earliest date and time, in UTC, for the Scheduled Instance to start.
+-- * 'latestTime' - The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.
+mkSlotDateTimeRangeRequest ::
+  -- | 'earliestTime'
+  Lude.ISO8601 ->
+  -- | 'latestTime'
+  Lude.ISO8601 ->
   SlotDateTimeRangeRequest
-slotDateTimeRangeRequest pEarliestTime_ pLatestTime_ =
+mkSlotDateTimeRangeRequest pEarliestTime_ pLatestTime_ =
   SlotDateTimeRangeRequest'
-    { _sdtrrEarliestTime =
-        _Time # pEarliestTime_,
-      _sdtrrLatestTime = _Time # pLatestTime_
+    { earliestTime = pEarliestTime_,
+      latestTime = pLatestTime_
     }
 
 -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
-sdtrrEarliestTime :: Lens' SlotDateTimeRangeRequest UTCTime
-sdtrrEarliestTime = lens _sdtrrEarliestTime (\s a -> s {_sdtrrEarliestTime = a}) . _Time
+--
+-- /Note:/ Consider using 'earliestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdtrrEarliestTime :: Lens.Lens' SlotDateTimeRangeRequest Lude.ISO8601
+sdtrrEarliestTime = Lens.lens (earliestTime :: SlotDateTimeRangeRequest -> Lude.ISO8601) (\s a -> s {earliestTime = a} :: SlotDateTimeRangeRequest)
+{-# DEPRECATED sdtrrEarliestTime "Use generic-lens or generic-optics with 'earliestTime' instead." #-}
 
 -- | The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.
-sdtrrLatestTime :: Lens' SlotDateTimeRangeRequest UTCTime
-sdtrrLatestTime = lens _sdtrrLatestTime (\s a -> s {_sdtrrLatestTime = a}) . _Time
+--
+-- /Note:/ Consider using 'latestTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdtrrLatestTime :: Lens.Lens' SlotDateTimeRangeRequest Lude.ISO8601
+sdtrrLatestTime = Lens.lens (latestTime :: SlotDateTimeRangeRequest -> Lude.ISO8601) (\s a -> s {latestTime = a} :: SlotDateTimeRangeRequest)
+{-# DEPRECATED sdtrrLatestTime "Use generic-lens or generic-optics with 'latestTime' instead." #-}
 
-instance Hashable SlotDateTimeRangeRequest
-
-instance NFData SlotDateTimeRangeRequest
-
-instance ToQuery SlotDateTimeRangeRequest where
+instance Lude.ToQuery SlotDateTimeRangeRequest where
   toQuery SlotDateTimeRangeRequest' {..} =
-    mconcat
-      [ "EarliestTime" =: _sdtrrEarliestTime,
-        "LatestTime" =: _sdtrrLatestTime
+    Lude.mconcat
+      [ "EarliestTime" Lude.=: earliestTime,
+        "LatestTime" Lude.=: latestTime
       ]

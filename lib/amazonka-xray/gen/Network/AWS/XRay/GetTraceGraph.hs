@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,160 @@
 --
 -- Retrieves a service graph for one or more specific trace IDs.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.XRay.GetTraceGraph
-  ( -- * Creating a Request
-    getTraceGraph,
-    GetTraceGraph,
+  ( -- * Creating a request
+    GetTraceGraph (..),
+    mkGetTraceGraph,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtgNextToken,
     gtgTraceIds,
 
-    -- * Destructuring the Response
-    getTraceGraphResponse,
-    GetTraceGraphResponse,
+    -- * Destructuring the response
+    GetTraceGraphResponse (..),
+    mkGetTraceGraphResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtgrsNextToken,
     gtgrsServices,
     gtgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'getTraceGraph' smart constructor.
+-- | /See:/ 'mkGetTraceGraph' smart constructor.
 data GetTraceGraph = GetTraceGraph'
-  { _gtgNextToken :: !(Maybe Text),
-    _gtgTraceIds :: ![Text]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    traceIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTraceGraph' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtgNextToken' - Pagination token.
---
--- * 'gtgTraceIds' - Trace IDs of requests for which to generate a service graph.
-getTraceGraph ::
+-- * 'nextToken' - Pagination token.
+-- * 'traceIds' - Trace IDs of requests for which to generate a service graph.
+mkGetTraceGraph ::
   GetTraceGraph
-getTraceGraph =
-  GetTraceGraph' {_gtgNextToken = Nothing, _gtgTraceIds = mempty}
+mkGetTraceGraph =
+  GetTraceGraph' {nextToken = Lude.Nothing, traceIds = Lude.mempty}
 
 -- | Pagination token.
-gtgNextToken :: Lens' GetTraceGraph (Maybe Text)
-gtgNextToken = lens _gtgNextToken (\s a -> s {_gtgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgNextToken :: Lens.Lens' GetTraceGraph (Lude.Maybe Lude.Text)
+gtgNextToken = Lens.lens (nextToken :: GetTraceGraph -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTraceGraph)
+{-# DEPRECATED gtgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Trace IDs of requests for which to generate a service graph.
-gtgTraceIds :: Lens' GetTraceGraph [Text]
-gtgTraceIds = lens _gtgTraceIds (\s a -> s {_gtgTraceIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'traceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgTraceIds :: Lens.Lens' GetTraceGraph [Lude.Text]
+gtgTraceIds = Lens.lens (traceIds :: GetTraceGraph -> [Lude.Text]) (\s a -> s {traceIds = a} :: GetTraceGraph)
+{-# DEPRECATED gtgTraceIds "Use generic-lens or generic-optics with 'traceIds' instead." #-}
 
-instance AWSPager GetTraceGraph where
+instance Page.AWSPager GetTraceGraph where
   page rq rs
-    | stop (rs ^. gtgrsNextToken) = Nothing
-    | stop (rs ^. gtgrsServices) = Nothing
-    | otherwise = Just $ rq & gtgNextToken .~ rs ^. gtgrsNextToken
+    | Page.stop (rs Lens.^. gtgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gtgrsServices) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gtgNextToken Lens..~ rs Lens.^. gtgrsNextToken
 
-instance AWSRequest GetTraceGraph where
+instance Lude.AWSRequest GetTraceGraph where
   type Rs GetTraceGraph = GetTraceGraphResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetTraceGraphResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Services" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Services" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTraceGraph
+instance Lude.ToHeaders GetTraceGraph where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetTraceGraph
-
-instance ToHeaders GetTraceGraph where
-  toHeaders = const mempty
-
-instance ToJSON GetTraceGraph where
+instance Lude.ToJSON GetTraceGraph where
   toJSON GetTraceGraph' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gtgNextToken,
-            Just ("TraceIds" .= _gtgTraceIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("TraceIds" Lude..= traceIds)
           ]
       )
 
-instance ToPath GetTraceGraph where
-  toPath = const "/TraceGraph"
+instance Lude.ToPath GetTraceGraph where
+  toPath = Lude.const "/TraceGraph"
 
-instance ToQuery GetTraceGraph where
-  toQuery = const mempty
+instance Lude.ToQuery GetTraceGraph where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getTraceGraphResponse' smart constructor.
+-- | /See:/ 'mkGetTraceGraphResponse' smart constructor.
 data GetTraceGraphResponse = GetTraceGraphResponse'
-  { _gtgrsNextToken ::
-      !(Maybe Text),
-    _gtgrsServices :: !(Maybe [ServiceInfo]),
-    _gtgrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    services :: Lude.Maybe [ServiceInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTraceGraphResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtgrsNextToken' - Pagination token.
---
--- * 'gtgrsServices' - The services that have processed one of the specified requests.
---
--- * 'gtgrsResponseStatus' - -- | The response status code.
-getTraceGraphResponse ::
-  -- | 'gtgrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Pagination token.
+-- * 'responseStatus' - The response status code.
+-- * 'services' - The services that have processed one of the specified requests.
+mkGetTraceGraphResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTraceGraphResponse
-getTraceGraphResponse pResponseStatus_ =
+mkGetTraceGraphResponse pResponseStatus_ =
   GetTraceGraphResponse'
-    { _gtgrsNextToken = Nothing,
-      _gtgrsServices = Nothing,
-      _gtgrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      services = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Pagination token.
-gtgrsNextToken :: Lens' GetTraceGraphResponse (Maybe Text)
-gtgrsNextToken = lens _gtgrsNextToken (\s a -> s {_gtgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgrsNextToken :: Lens.Lens' GetTraceGraphResponse (Lude.Maybe Lude.Text)
+gtgrsNextToken = Lens.lens (nextToken :: GetTraceGraphResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTraceGraphResponse)
+{-# DEPRECATED gtgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The services that have processed one of the specified requests.
-gtgrsServices :: Lens' GetTraceGraphResponse [ServiceInfo]
-gtgrsServices = lens _gtgrsServices (\s a -> s {_gtgrsServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgrsServices :: Lens.Lens' GetTraceGraphResponse (Lude.Maybe [ServiceInfo])
+gtgrsServices = Lens.lens (services :: GetTraceGraphResponse -> Lude.Maybe [ServiceInfo]) (\s a -> s {services = a} :: GetTraceGraphResponse)
+{-# DEPRECATED gtgrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
--- | -- | The response status code.
-gtgrsResponseStatus :: Lens' GetTraceGraphResponse Int
-gtgrsResponseStatus = lens _gtgrsResponseStatus (\s a -> s {_gtgrsResponseStatus = a})
-
-instance NFData GetTraceGraphResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgrsResponseStatus :: Lens.Lens' GetTraceGraphResponse Lude.Int
+gtgrsResponseStatus = Lens.lens (responseStatus :: GetTraceGraphResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTraceGraphResponse)
+{-# DEPRECATED gtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed by a trusted publisher. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html Configuring code signing> .
 --
---
 -- The function's code is locked when you publish a version. You can't modify the code of a published version, only the unpublished version.
 module Network.AWS.Lambda.UpdateFunctionCode
-  ( -- * Creating a Request
-    updateFunctionCode,
-    UpdateFunctionCode,
+  ( -- * Creating a request
+    UpdateFunctionCode (..),
+    mkUpdateFunctionCode,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uS3ObjectVersion,
     uS3Key,
     uZipFile,
@@ -36,11 +30,11 @@ module Network.AWS.Lambda.UpdateFunctionCode
     uPublish,
     uFunctionName,
 
-    -- * Destructuring the Response
-    functionConfiguration,
-    FunctionConfiguration,
+    -- * Destructuring the response
+    FunctionConfiguration (..),
+    mkFunctionConfiguration,
 
-    -- * Response Lenses
+    -- ** Response lenses
     fcMemorySize,
     fcRuntime,
     fcState,
@@ -74,121 +68,168 @@ module Network.AWS.Lambda.UpdateFunctionCode
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateFunctionCode' smart constructor.
+-- | /See:/ 'mkUpdateFunctionCode' smart constructor.
 data UpdateFunctionCode = UpdateFunctionCode'
-  { _uS3ObjectVersion ::
-      !(Maybe Text),
-    _uS3Key :: !(Maybe Text),
-    _uZipFile :: !(Maybe (Sensitive Base64)),
-    _uS3Bucket :: !(Maybe Text),
-    _uDryRun :: !(Maybe Bool),
-    _uRevisionId :: !(Maybe Text),
-    _uPublish :: !(Maybe Bool),
-    _uFunctionName :: !Text
+  { s3ObjectVersion ::
+      Lude.Maybe Lude.Text,
+    s3Key :: Lude.Maybe Lude.Text,
+    zipFile :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    s3Bucket :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    revisionId :: Lude.Maybe Lude.Text,
+    publish :: Lude.Maybe Lude.Bool,
+    functionName :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFunctionCode' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Set to true to validate the request parameters and access permissions without modifying the function code.
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'uS3ObjectVersion' - For versioned objects, the version of the deployment package object to use.
+-- __Name formats__
 --
--- * 'uS3Key' - The Amazon S3 key of the deployment package.
+--     * __Function name__ - @my-function@ .
 --
--- * 'uZipFile' - The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
 --
--- * 'uS3Bucket' - An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
 --
--- * 'uDryRun' - Set to true to validate the request parameters and access permissions without modifying the function code.
 --
--- * 'uRevisionId' - Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
 --
--- * 'uPublish' - Set to true to publish a new version of the function after updating the code. This has the same effect as calling 'PublishVersion' separately.
 --
--- * 'uFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-updateFunctionCode ::
-  -- | 'uFunctionName'
-  Text ->
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'publish' - Set to true to publish a new version of the function after updating the code. This has the same effect as calling 'PublishVersion' separately.
+-- * 'revisionId' - Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
+-- * 's3Bucket' - An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+-- * 's3Key' - The Amazon S3 key of the deployment package.
+-- * 's3ObjectVersion' - For versioned objects, the version of the deployment package object to use.
+-- * 'zipFile' - The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+mkUpdateFunctionCode ::
+  -- | 'functionName'
+  Lude.Text ->
   UpdateFunctionCode
-updateFunctionCode pFunctionName_ =
+mkUpdateFunctionCode pFunctionName_ =
   UpdateFunctionCode'
-    { _uS3ObjectVersion = Nothing,
-      _uS3Key = Nothing,
-      _uZipFile = Nothing,
-      _uS3Bucket = Nothing,
-      _uDryRun = Nothing,
-      _uRevisionId = Nothing,
-      _uPublish = Nothing,
-      _uFunctionName = pFunctionName_
+    { s3ObjectVersion = Lude.Nothing,
+      s3Key = Lude.Nothing,
+      zipFile = Lude.Nothing,
+      s3Bucket = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      revisionId = Lude.Nothing,
+      publish = Lude.Nothing,
+      functionName = pFunctionName_
     }
 
 -- | For versioned objects, the version of the deployment package object to use.
-uS3ObjectVersion :: Lens' UpdateFunctionCode (Maybe Text)
-uS3ObjectVersion = lens _uS3ObjectVersion (\s a -> s {_uS3ObjectVersion = a})
+--
+-- /Note:/ Consider using 's3ObjectVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uS3ObjectVersion :: Lens.Lens' UpdateFunctionCode (Lude.Maybe Lude.Text)
+uS3ObjectVersion = Lens.lens (s3ObjectVersion :: UpdateFunctionCode -> Lude.Maybe Lude.Text) (\s a -> s {s3ObjectVersion = a} :: UpdateFunctionCode)
+{-# DEPRECATED uS3ObjectVersion "Use generic-lens or generic-optics with 's3ObjectVersion' instead." #-}
 
 -- | The Amazon S3 key of the deployment package.
-uS3Key :: Lens' UpdateFunctionCode (Maybe Text)
-uS3Key = lens _uS3Key (\s a -> s {_uS3Key = a})
+--
+-- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uS3Key :: Lens.Lens' UpdateFunctionCode (Lude.Maybe Lude.Text)
+uS3Key = Lens.lens (s3Key :: UpdateFunctionCode -> Lude.Maybe Lude.Text) (\s a -> s {s3Key = a} :: UpdateFunctionCode)
+{-# DEPRECATED uS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
 
--- | The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-uZipFile :: Lens' UpdateFunctionCode (Maybe ByteString)
-uZipFile = lens _uZipFile (\s a -> s {_uZipFile = a}) . mapping (_Sensitive . _Base64)
+-- | The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'zipFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uZipFile :: Lens.Lens' UpdateFunctionCode (Lude.Maybe (Lude.Sensitive Lude.Base64))
+uZipFile = Lens.lens (zipFile :: UpdateFunctionCode -> Lude.Maybe (Lude.Sensitive Lude.Base64)) (\s a -> s {zipFile = a} :: UpdateFunctionCode)
+{-# DEPRECATED uZipFile "Use generic-lens or generic-optics with 'zipFile' instead." #-}
 
 -- | An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
-uS3Bucket :: Lens' UpdateFunctionCode (Maybe Text)
-uS3Bucket = lens _uS3Bucket (\s a -> s {_uS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uS3Bucket :: Lens.Lens' UpdateFunctionCode (Lude.Maybe Lude.Text)
+uS3Bucket = Lens.lens (s3Bucket :: UpdateFunctionCode -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: UpdateFunctionCode)
+{-# DEPRECATED uS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
 -- | Set to true to validate the request parameters and access permissions without modifying the function code.
-uDryRun :: Lens' UpdateFunctionCode (Maybe Bool)
-uDryRun = lens _uDryRun (\s a -> s {_uDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDryRun :: Lens.Lens' UpdateFunctionCode (Lude.Maybe Lude.Bool)
+uDryRun = Lens.lens (dryRun :: UpdateFunctionCode -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: UpdateFunctionCode)
+{-# DEPRECATED uDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
-uRevisionId :: Lens' UpdateFunctionCode (Maybe Text)
-uRevisionId = lens _uRevisionId (\s a -> s {_uRevisionId = a})
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uRevisionId :: Lens.Lens' UpdateFunctionCode (Lude.Maybe Lude.Text)
+uRevisionId = Lens.lens (revisionId :: UpdateFunctionCode -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: UpdateFunctionCode)
+{-# DEPRECATED uRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
 -- | Set to true to publish a new version of the function after updating the code. This has the same effect as calling 'PublishVersion' separately.
-uPublish :: Lens' UpdateFunctionCode (Maybe Bool)
-uPublish = lens _uPublish (\s a -> s {_uPublish = a})
+--
+-- /Note:/ Consider using 'publish' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uPublish :: Lens.Lens' UpdateFunctionCode (Lude.Maybe Lude.Bool)
+uPublish = Lens.lens (publish :: UpdateFunctionCode -> Lude.Maybe Lude.Bool) (\s a -> s {publish = a} :: UpdateFunctionCode)
+{-# DEPRECATED uPublish "Use generic-lens or generic-optics with 'publish' instead." #-}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @my-function@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .     * __Partial ARN__ - @123456789012:function:my-function@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-uFunctionName :: Lens' UpdateFunctionCode Text
-uFunctionName = lens _uFunctionName (\s a -> s {_uFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @my-function@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uFunctionName :: Lens.Lens' UpdateFunctionCode Lude.Text
+uFunctionName = Lens.lens (functionName :: UpdateFunctionCode -> Lude.Text) (\s a -> s {functionName = a} :: UpdateFunctionCode)
+{-# DEPRECATED uFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSRequest UpdateFunctionCode where
+instance Lude.AWSRequest UpdateFunctionCode where
   type Rs UpdateFunctionCode = FunctionConfiguration
-  request = putJSON lambda
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.putJSON lambdaService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateFunctionCode
+instance Lude.ToHeaders UpdateFunctionCode where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateFunctionCode
-
-instance ToHeaders UpdateFunctionCode where
-  toHeaders = const mempty
-
-instance ToJSON UpdateFunctionCode where
+instance Lude.ToJSON UpdateFunctionCode where
   toJSON UpdateFunctionCode' {..} =
-    object
-      ( catMaybes
-          [ ("S3ObjectVersion" .=) <$> _uS3ObjectVersion,
-            ("S3Key" .=) <$> _uS3Key,
-            ("ZipFile" .=) <$> _uZipFile,
-            ("S3Bucket" .=) <$> _uS3Bucket,
-            ("DryRun" .=) <$> _uDryRun,
-            ("RevisionId" .=) <$> _uRevisionId,
-            ("Publish" .=) <$> _uPublish
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3ObjectVersion" Lude..=) Lude.<$> s3ObjectVersion,
+            ("S3Key" Lude..=) Lude.<$> s3Key,
+            ("ZipFile" Lude..=) Lude.<$> zipFile,
+            ("S3Bucket" Lude..=) Lude.<$> s3Bucket,
+            ("DryRun" Lude..=) Lude.<$> dryRun,
+            ("RevisionId" Lude..=) Lude.<$> revisionId,
+            ("Publish" Lude..=) Lude.<$> publish
           ]
       )
 
-instance ToPath UpdateFunctionCode where
+instance Lude.ToPath UpdateFunctionCode where
   toPath UpdateFunctionCode' {..} =
-    mconcat ["/2015-03-31/functions/", toBS _uFunctionName, "/code"]
+    Lude.mconcat
+      ["/2015-03-31/functions/", Lude.toBS functionName, "/code"]
 
-instance ToQuery UpdateFunctionCode where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateFunctionCode where
+  toQuery = Lude.const Lude.mempty

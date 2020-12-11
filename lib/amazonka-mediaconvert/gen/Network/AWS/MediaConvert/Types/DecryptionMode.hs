@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DecryptionMode where
+module Network.AWS.MediaConvert.Types.DecryptionMode
+  ( DecryptionMode
+      ( DecryptionMode',
+        DMAESCbc,
+        DMAESCtr,
+        DMAESGCM
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify the encryption mode that you used to encrypt your input files.
-data DecryptionMode
-  = DMAESCbc
-  | DMAESCtr
-  | DMAESGCM
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DecryptionMode = DecryptionMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DecryptionMode where
-  parser =
-    takeLowerText >>= \case
-      "aes_cbc" -> pure DMAESCbc
-      "aes_ctr" -> pure DMAESCtr
-      "aes_gcm" -> pure DMAESGCM
-      e ->
-        fromTextError $
-          "Failure parsing DecryptionMode from value: '" <> e
-            <> "'. Accepted values: aes_cbc, aes_ctr, aes_gcm"
+pattern DMAESCbc :: DecryptionMode
+pattern DMAESCbc = DecryptionMode' "AES_CBC"
 
-instance ToText DecryptionMode where
-  toText = \case
-    DMAESCbc -> "AES_CBC"
-    DMAESCtr -> "AES_CTR"
-    DMAESGCM -> "AES_GCM"
+pattern DMAESCtr :: DecryptionMode
+pattern DMAESCtr = DecryptionMode' "AES_CTR"
 
-instance Hashable DecryptionMode
+pattern DMAESGCM :: DecryptionMode
+pattern DMAESGCM = DecryptionMode' "AES_GCM"
 
-instance NFData DecryptionMode
-
-instance ToByteString DecryptionMode
-
-instance ToQuery DecryptionMode
-
-instance ToHeader DecryptionMode
-
-instance ToJSON DecryptionMode where
-  toJSON = toJSONText
-
-instance FromJSON DecryptionMode where
-  parseJSON = parseJSONText "DecryptionMode"
+{-# COMPLETE
+  DMAESCbc,
+  DMAESCtr,
+  DMAESGCM,
+  DecryptionMode'
+  #-}

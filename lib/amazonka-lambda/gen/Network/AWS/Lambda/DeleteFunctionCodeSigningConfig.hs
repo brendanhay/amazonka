@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,116 @@
 --
 -- Removes the code signing configuration from the function.
 module Network.AWS.Lambda.DeleteFunctionCodeSigningConfig
-  ( -- * Creating a Request
-    deleteFunctionCodeSigningConfig,
-    DeleteFunctionCodeSigningConfig,
+  ( -- * Creating a request
+    DeleteFunctionCodeSigningConfig (..),
+    mkDeleteFunctionCodeSigningConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfcscFunctionName,
 
-    -- * Destructuring the Response
-    deleteFunctionCodeSigningConfigResponse,
-    DeleteFunctionCodeSigningConfigResponse,
+    -- * Destructuring the response
+    DeleteFunctionCodeSigningConfigResponse (..),
+    mkDeleteFunctionCodeSigningConfigResponse,
   )
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteFunctionCodeSigningConfig' smart constructor.
+-- | /See:/ 'mkDeleteFunctionCodeSigningConfig' smart constructor.
 newtype DeleteFunctionCodeSigningConfig = DeleteFunctionCodeSigningConfig'
-  { _dfcscFunctionName ::
-      Text
+  { functionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFunctionCodeSigningConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'dfcscFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-deleteFunctionCodeSigningConfig ::
-  -- | 'dfcscFunctionName'
-  Text ->
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+mkDeleteFunctionCodeSigningConfig ::
+  -- | 'functionName'
+  Lude.Text ->
   DeleteFunctionCodeSigningConfig
-deleteFunctionCodeSigningConfig pFunctionName_ =
-  DeleteFunctionCodeSigningConfig'
-    { _dfcscFunctionName =
-        pFunctionName_
-    }
+mkDeleteFunctionCodeSigningConfig pFunctionName_ =
+  DeleteFunctionCodeSigningConfig' {functionName = pFunctionName_}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-dfcscFunctionName :: Lens' DeleteFunctionCodeSigningConfig Text
-dfcscFunctionName = lens _dfcscFunctionName (\s a -> s {_dfcscFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcscFunctionName :: Lens.Lens' DeleteFunctionCodeSigningConfig Lude.Text
+dfcscFunctionName = Lens.lens (functionName :: DeleteFunctionCodeSigningConfig -> Lude.Text) (\s a -> s {functionName = a} :: DeleteFunctionCodeSigningConfig)
+{-# DEPRECATED dfcscFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance AWSRequest DeleteFunctionCodeSigningConfig where
+instance Lude.AWSRequest DeleteFunctionCodeSigningConfig where
   type
     Rs DeleteFunctionCodeSigningConfig =
       DeleteFunctionCodeSigningConfigResponse
-  request = delete lambda
-  response = receiveNull DeleteFunctionCodeSigningConfigResponse'
+  request = Req.delete lambdaService
+  response = Res.receiveNull DeleteFunctionCodeSigningConfigResponse'
 
-instance Hashable DeleteFunctionCodeSigningConfig
+instance Lude.ToHeaders DeleteFunctionCodeSigningConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteFunctionCodeSigningConfig
-
-instance ToHeaders DeleteFunctionCodeSigningConfig where
-  toHeaders = const mempty
-
-instance ToPath DeleteFunctionCodeSigningConfig where
+instance Lude.ToPath DeleteFunctionCodeSigningConfig where
   toPath DeleteFunctionCodeSigningConfig' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-06-30/functions/",
-        toBS _dfcscFunctionName,
+        Lude.toBS functionName,
         "/code-signing-config"
       ]
 
-instance ToQuery DeleteFunctionCodeSigningConfig where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteFunctionCodeSigningConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteFunctionCodeSigningConfigResponse' smart constructor.
+-- | /See:/ 'mkDeleteFunctionCodeSigningConfigResponse' smart constructor.
 data DeleteFunctionCodeSigningConfigResponse = DeleteFunctionCodeSigningConfigResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFunctionCodeSigningConfigResponse' with the minimum fields required to make a request.
-deleteFunctionCodeSigningConfigResponse ::
+mkDeleteFunctionCodeSigningConfigResponse ::
   DeleteFunctionCodeSigningConfigResponse
-deleteFunctionCodeSigningConfigResponse =
+mkDeleteFunctionCodeSigningConfigResponse =
   DeleteFunctionCodeSigningConfigResponse'
-
-instance NFData DeleteFunctionCodeSigningConfigResponse

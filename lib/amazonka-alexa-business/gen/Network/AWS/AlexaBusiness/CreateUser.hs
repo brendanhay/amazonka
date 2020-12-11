@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a user.
 module Network.AWS.AlexaBusiness.CreateUser
-  ( -- * Creating a Request
-    createUser,
-    CreateUser,
+  ( -- * Creating a request
+    CreateUser (..),
+    mkCreateUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cuEmail,
     cuLastName,
     cuFirstName,
@@ -31,158 +26,183 @@ module Network.AWS.AlexaBusiness.CreateUser
     cuTags,
     cuUserId,
 
-    -- * Destructuring the Response
-    createUserResponse,
-    CreateUserResponse,
+    -- * Destructuring the response
+    CreateUserResponse (..),
+    mkCreateUserResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cursUserARN,
     cursResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createUser' smart constructor.
+-- | /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { _cuEmail :: !(Maybe Text),
-    _cuLastName :: !(Maybe Text),
-    _cuFirstName :: !(Maybe Text),
-    _cuClientRequestToken :: !(Maybe Text),
-    _cuTags :: !(Maybe [Tag]),
-    _cuUserId :: !Text
+  { email :: Lude.Maybe Lude.Text,
+    lastName :: Lude.Maybe Lude.Text,
+    firstName :: Lude.Maybe Lude.Text,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    userId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cuEmail' - The email address for the user.
---
--- * 'cuLastName' - The last name for the user.
---
--- * 'cuFirstName' - The first name for the user.
---
--- * 'cuClientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
---
--- * 'cuTags' - The tags for the user.
---
--- * 'cuUserId' - The ARN for the user.
-createUser ::
-  -- | 'cuUserId'
-  Text ->
+-- * 'clientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
+-- * 'email' - The email address for the user.
+-- * 'firstName' - The first name for the user.
+-- * 'lastName' - The last name for the user.
+-- * 'tags' - The tags for the user.
+-- * 'userId' - The ARN for the user.
+mkCreateUser ::
+  -- | 'userId'
+  Lude.Text ->
   CreateUser
-createUser pUserId_ =
+mkCreateUser pUserId_ =
   CreateUser'
-    { _cuEmail = Nothing,
-      _cuLastName = Nothing,
-      _cuFirstName = Nothing,
-      _cuClientRequestToken = Nothing,
-      _cuTags = Nothing,
-      _cuUserId = pUserId_
+    { email = Lude.Nothing,
+      lastName = Lude.Nothing,
+      firstName = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
+      tags = Lude.Nothing,
+      userId = pUserId_
     }
 
 -- | The email address for the user.
-cuEmail :: Lens' CreateUser (Maybe Text)
-cuEmail = lens _cuEmail (\s a -> s {_cuEmail = a})
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuEmail :: Lens.Lens' CreateUser (Lude.Maybe Lude.Text)
+cuEmail = Lens.lens (email :: CreateUser -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: CreateUser)
+{-# DEPRECATED cuEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The last name for the user.
-cuLastName :: Lens' CreateUser (Maybe Text)
-cuLastName = lens _cuLastName (\s a -> s {_cuLastName = a})
+--
+-- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuLastName :: Lens.Lens' CreateUser (Lude.Maybe Lude.Text)
+cuLastName = Lens.lens (lastName :: CreateUser -> Lude.Maybe Lude.Text) (\s a -> s {lastName = a} :: CreateUser)
+{-# DEPRECATED cuLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
 
 -- | The first name for the user.
-cuFirstName :: Lens' CreateUser (Maybe Text)
-cuFirstName = lens _cuFirstName (\s a -> s {_cuFirstName = a})
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuFirstName :: Lens.Lens' CreateUser (Lude.Maybe Lude.Text)
+cuFirstName = Lens.lens (firstName :: CreateUser -> Lude.Maybe Lude.Text) (\s a -> s {firstName = a} :: CreateUser)
+{-# DEPRECATED cuFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
 -- | A unique, user-specified identifier for this request that ensures idempotency.
-cuClientRequestToken :: Lens' CreateUser (Maybe Text)
-cuClientRequestToken = lens _cuClientRequestToken (\s a -> s {_cuClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuClientRequestToken :: Lens.Lens' CreateUser (Lude.Maybe Lude.Text)
+cuClientRequestToken = Lens.lens (clientRequestToken :: CreateUser -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateUser)
+{-# DEPRECATED cuClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The tags for the user.
-cuTags :: Lens' CreateUser [Tag]
-cuTags = lens _cuTags (\s a -> s {_cuTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuTags :: Lens.Lens' CreateUser (Lude.Maybe [Tag])
+cuTags = Lens.lens (tags :: CreateUser -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateUser)
+{-# DEPRECATED cuTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ARN for the user.
-cuUserId :: Lens' CreateUser Text
-cuUserId = lens _cuUserId (\s a -> s {_cuUserId = a})
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuUserId :: Lens.Lens' CreateUser Lude.Text
+cuUserId = Lens.lens (userId :: CreateUser -> Lude.Text) (\s a -> s {userId = a} :: CreateUser)
+{-# DEPRECATED cuUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance AWSRequest CreateUser where
+instance Lude.AWSRequest CreateUser where
   type Rs CreateUser = CreateUserResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateUserResponse' <$> (x .?> "UserArn") <*> (pure (fromEnum s))
+          CreateUserResponse'
+            Lude.<$> (x Lude..?> "UserArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateUser
-
-instance NFData CreateUser
-
-instance ToHeaders CreateUser where
+instance Lude.ToHeaders CreateUser where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.CreateUser" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.CreateUser" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateUser where
+instance Lude.ToJSON CreateUser where
   toJSON CreateUser' {..} =
-    object
-      ( catMaybes
-          [ ("Email" .=) <$> _cuEmail,
-            ("LastName" .=) <$> _cuLastName,
-            ("FirstName" .=) <$> _cuFirstName,
-            ("ClientRequestToken" .=) <$> _cuClientRequestToken,
-            ("Tags" .=) <$> _cuTags,
-            Just ("UserId" .= _cuUserId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Email" Lude..=) Lude.<$> email,
+            ("LastName" Lude..=) Lude.<$> lastName,
+            ("FirstName" Lude..=) Lude.<$> firstName,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("UserId" Lude..= userId)
           ]
       )
 
-instance ToPath CreateUser where
-  toPath = const "/"
+instance Lude.ToPath CreateUser where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateUser where
-  toQuery = const mempty
+instance Lude.ToQuery CreateUser where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createUserResponse' smart constructor.
+-- | /See:/ 'mkCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { _cursUserARN ::
-      !(Maybe Text),
-    _cursResponseStatus :: !Int
+  { userARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cursUserARN' - The ARN of the newly created user in the response.
---
--- * 'cursResponseStatus' - -- | The response status code.
-createUserResponse ::
-  -- | 'cursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'userARN' - The ARN of the newly created user in the response.
+mkCreateUserResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateUserResponse
-createUserResponse pResponseStatus_ =
+mkCreateUserResponse pResponseStatus_ =
   CreateUserResponse'
-    { _cursUserARN = Nothing,
-      _cursResponseStatus = pResponseStatus_
+    { userARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the newly created user in the response.
-cursUserARN :: Lens' CreateUserResponse (Maybe Text)
-cursUserARN = lens _cursUserARN (\s a -> s {_cursUserARN = a})
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cursUserARN :: Lens.Lens' CreateUserResponse (Lude.Maybe Lude.Text)
+cursUserARN = Lens.lens (userARN :: CreateUserResponse -> Lude.Maybe Lude.Text) (\s a -> s {userARN = a} :: CreateUserResponse)
+{-# DEPRECATED cursUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
--- | -- | The response status code.
-cursResponseStatus :: Lens' CreateUserResponse Int
-cursResponseStatus = lens _cursResponseStatus (\s a -> s {_cursResponseStatus = a})
-
-instance NFData CreateUserResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cursResponseStatus :: Lens.Lens' CreateUserResponse Lude.Int
+cursResponseStatus = Lens.lens (responseStatus :: CreateUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserResponse)
+{-# DEPRECATED cursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

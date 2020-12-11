@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,33 @@
 --
 -- Composes an email message to multiple destinations. The message body is created using an email template.
 --
---
 -- In order to send email using the @SendBulkTemplatedEmail@ operation, your call to the API must meet the following requirements:
 --
 --     * The call must refer to an existing email template. You can create email templates using the 'CreateTemplate' operation.
 --
+--
 --     * The message must be sent from a verified email address or domain.
+--
 --
 --     * If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Verifying Email Addresses and Domains> in the /Amazon SES Developer Guide./
 --
+--
 --     * The maximum message size is 10 MB.
+--
 --
 --     * Each @Destination@ parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format /UserName@[SubDomain.]Domain.TopLevelDomain/ ), the entire message will be rejected, even if the message contains other recipients that are valid.
 --
+--
 --     * The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the @SendBulkTemplatedEmail@ operation several times to send the message to each group.
+--
 --
 --     * The number of destinations you can contact in a single call to the API may be limited by your account's maximum sending rate.
 module Network.AWS.SES.SendBulkTemplatedEmail
-  ( -- * Creating a Request
-    sendBulkTemplatedEmail,
-    SendBulkTemplatedEmail,
+  ( -- * Creating a request
+    SendBulkTemplatedEmail (..),
+    mkSendBulkTemplatedEmail,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sbteReturnPath,
     sbteConfigurationSetName,
     sbteSourceARN,
@@ -53,208 +53,260 @@ module Network.AWS.SES.SendBulkTemplatedEmail
     sbteTemplate,
     sbteDestinations,
 
-    -- * Destructuring the Response
-    sendBulkTemplatedEmailResponse,
-    SendBulkTemplatedEmailResponse,
+    -- * Destructuring the response
+    SendBulkTemplatedEmailResponse (..),
+    mkSendBulkTemplatedEmailResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sbtersResponseStatus,
     sbtersStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to send a templated email to multiple destinations using Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'sendBulkTemplatedEmail' smart constructor.
+-- /See:/ 'mkSendBulkTemplatedEmail' smart constructor.
 data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
-  { _sbteReturnPath ::
-      !(Maybe Text),
-    _sbteConfigurationSetName :: !(Maybe Text),
-    _sbteSourceARN :: !(Maybe Text),
-    _sbteDefaultTags :: !(Maybe [MessageTag]),
-    _sbteReturnPathARN :: !(Maybe Text),
-    _sbteTemplateARN :: !(Maybe Text),
-    _sbteDefaultTemplateData :: !(Maybe Text),
-    _sbteReplyToAddresses :: !(Maybe [Text]),
-    _sbteSource :: !Text,
-    _sbteTemplate :: !Text,
-    _sbteDestinations :: ![BulkEmailDestination]
+  { returnPath ::
+      Lude.Maybe Lude.Text,
+    configurationSetName :: Lude.Maybe Lude.Text,
+    sourceARN :: Lude.Maybe Lude.Text,
+    defaultTags :: Lude.Maybe [MessageTag],
+    returnPathARN :: Lude.Maybe Lude.Text,
+    templateARN :: Lude.Maybe Lude.Text,
+    defaultTemplateData :: Lude.Maybe Lude.Text,
+    replyToAddresses :: Lude.Maybe [Lude.Text],
+    source :: Lude.Text,
+    template :: Lude.Text,
+    destinations :: [BulkEmailDestination]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendBulkTemplatedEmail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'configurationSetName' - The name of the configuration set to use when you send an email using @SendBulkTemplatedEmail@ .
+-- * 'defaultTags' - A list of tags, in the form of name/value pairs, to apply to an email that you send to a destination using @SendBulkTemplatedEmail@ .
+-- * 'defaultTemplateData' - A list of replacement values to apply to the template when replacement data is not specified in a Destination object. These values act as a default or fallback option when no other data is available.
 --
--- * 'sbteReturnPath' - The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+-- The template data is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
+-- * 'destinations' - One or more @Destination@ objects. All of the recipients in a @Destination@ will receive the same version of the email. You can specify up to 50 @Destination@ objects within a @Destinations@ array.
+-- * 'replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
+-- * 'returnPath' - The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+-- * 'returnPathARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter.
 --
--- * 'sbteConfigurationSetName' - The name of the configuration set to use when you send an email using @SendBulkTemplatedEmail@ .
+-- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ .
+-- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+-- * 'source' - The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> .
 --
--- * 'sbteSourceARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+-- If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+-- * 'sourceARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
 --
--- * 'sbteDefaultTags' - A list of tags, in the form of name/value pairs, to apply to an email that you send to a destination using @SendBulkTemplatedEmail@ .
---
--- * 'sbteReturnPathARN' - This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ . For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
---
--- * 'sbteTemplateARN' - The ARN of the template to use when sending this email.
---
--- * 'sbteDefaultTemplateData' - A list of replacement values to apply to the template when replacement data is not specified in a Destination object. These values act as a default or fallback option when no other data is available. The template data is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
---
--- * 'sbteReplyToAddresses' - The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
---
--- * 'sbteSource' - The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
---
--- * 'sbteTemplate' - The template to use when sending this email.
---
--- * 'sbteDestinations' - One or more @Destination@ objects. All of the recipients in a @Destination@ will receive the same version of the email. You can specify up to 50 @Destination@ objects within a @Destinations@ array.
-sendBulkTemplatedEmail ::
-  -- | 'sbteSource'
-  Text ->
-  -- | 'sbteTemplate'
-  Text ->
+-- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ .
+-- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+-- * 'template' - The template to use when sending this email.
+-- * 'templateARN' - The ARN of the template to use when sending this email.
+mkSendBulkTemplatedEmail ::
+  -- | 'source'
+  Lude.Text ->
+  -- | 'template'
+  Lude.Text ->
   SendBulkTemplatedEmail
-sendBulkTemplatedEmail pSource_ pTemplate_ =
+mkSendBulkTemplatedEmail pSource_ pTemplate_ =
   SendBulkTemplatedEmail'
-    { _sbteReturnPath = Nothing,
-      _sbteConfigurationSetName = Nothing,
-      _sbteSourceARN = Nothing,
-      _sbteDefaultTags = Nothing,
-      _sbteReturnPathARN = Nothing,
-      _sbteTemplateARN = Nothing,
-      _sbteDefaultTemplateData = Nothing,
-      _sbteReplyToAddresses = Nothing,
-      _sbteSource = pSource_,
-      _sbteTemplate = pTemplate_,
-      _sbteDestinations = mempty
+    { returnPath = Lude.Nothing,
+      configurationSetName = Lude.Nothing,
+      sourceARN = Lude.Nothing,
+      defaultTags = Lude.Nothing,
+      returnPathARN = Lude.Nothing,
+      templateARN = Lude.Nothing,
+      defaultTemplateData = Lude.Nothing,
+      replyToAddresses = Lude.Nothing,
+      source = pSource_,
+      template = pTemplate_,
+      destinations = Lude.mempty
     }
 
 -- | The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the @ReturnPath@ parameter. The @ReturnPath@ parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
-sbteReturnPath :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteReturnPath = lens _sbteReturnPath (\s a -> s {_sbteReturnPath = a})
+--
+-- /Note:/ Consider using 'returnPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteReturnPath :: Lens.Lens' SendBulkTemplatedEmail (Lude.Maybe Lude.Text)
+sbteReturnPath = Lens.lens (returnPath :: SendBulkTemplatedEmail -> Lude.Maybe Lude.Text) (\s a -> s {returnPath = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteReturnPath "Use generic-lens or generic-optics with 'returnPath' instead." #-}
 
 -- | The name of the configuration set to use when you send an email using @SendBulkTemplatedEmail@ .
-sbteConfigurationSetName :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteConfigurationSetName = lens _sbteConfigurationSetName (\s a -> s {_sbteConfigurationSetName = a})
+--
+-- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteConfigurationSetName :: Lens.Lens' SendBulkTemplatedEmail (Lude.Maybe Lude.Text)
+sbteConfigurationSetName = Lens.lens (configurationSetName :: SendBulkTemplatedEmail -> Lude.Maybe Lude.Text) (\s a -> s {configurationSetName = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
--- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ . For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
-sbteSourceARN :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteSourceARN = lens _sbteSourceARN (\s a -> s {_sbteSourceARN = a})
+-- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ .
+-- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+-- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteSourceARN :: Lens.Lens' SendBulkTemplatedEmail (Lude.Maybe Lude.Text)
+sbteSourceARN = Lens.lens (sourceARN :: SendBulkTemplatedEmail -> Lude.Maybe Lude.Text) (\s a -> s {sourceARN = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
 
 -- | A list of tags, in the form of name/value pairs, to apply to an email that you send to a destination using @SendBulkTemplatedEmail@ .
-sbteDefaultTags :: Lens' SendBulkTemplatedEmail [MessageTag]
-sbteDefaultTags = lens _sbteDefaultTags (\s a -> s {_sbteDefaultTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'defaultTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteDefaultTags :: Lens.Lens' SendBulkTemplatedEmail (Lude.Maybe [MessageTag])
+sbteDefaultTags = Lens.lens (defaultTags :: SendBulkTemplatedEmail -> Lude.Maybe [MessageTag]) (\s a -> s {defaultTags = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteDefaultTags "Use generic-lens or generic-optics with 'defaultTags' instead." #-}
 
--- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter. For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ . For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
-sbteReturnPathARN :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteReturnPathARN = lens _sbteReturnPathARN (\s a -> s {_sbteReturnPathARN = a})
+-- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ .
+-- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+-- /Note:/ Consider using 'returnPathARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteReturnPathARN :: Lens.Lens' SendBulkTemplatedEmail (Lude.Maybe Lude.Text)
+sbteReturnPathARN = Lens.lens (returnPathARN :: SendBulkTemplatedEmail -> Lude.Maybe Lude.Text) (\s a -> s {returnPathARN = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteReturnPathARN "Use generic-lens or generic-optics with 'returnPathARN' instead." #-}
 
 -- | The ARN of the template to use when sending this email.
-sbteTemplateARN :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteTemplateARN = lens _sbteTemplateARN (\s a -> s {_sbteTemplateARN = a})
+--
+-- /Note:/ Consider using 'templateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteTemplateARN :: Lens.Lens' SendBulkTemplatedEmail (Lude.Maybe Lude.Text)
+sbteTemplateARN = Lens.lens (templateARN :: SendBulkTemplatedEmail -> Lude.Maybe Lude.Text) (\s a -> s {templateARN = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteTemplateARN "Use generic-lens or generic-optics with 'templateARN' instead." #-}
 
--- | A list of replacement values to apply to the template when replacement data is not specified in a Destination object. These values act as a default or fallback option when no other data is available. The template data is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
-sbteDefaultTemplateData :: Lens' SendBulkTemplatedEmail (Maybe Text)
-sbteDefaultTemplateData = lens _sbteDefaultTemplateData (\s a -> s {_sbteDefaultTemplateData = a})
+-- | A list of replacement values to apply to the template when replacement data is not specified in a Destination object. These values act as a default or fallback option when no other data is available.
+--
+-- The template data is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.
+--
+-- /Note:/ Consider using 'defaultTemplateData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteDefaultTemplateData :: Lens.Lens' SendBulkTemplatedEmail (Lude.Maybe Lude.Text)
+sbteDefaultTemplateData = Lens.lens (defaultTemplateData :: SendBulkTemplatedEmail -> Lude.Maybe Lude.Text) (\s a -> s {defaultTemplateData = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteDefaultTemplateData "Use generic-lens or generic-optics with 'defaultTemplateData' instead." #-}
 
 -- | The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.
-sbteReplyToAddresses :: Lens' SendBulkTemplatedEmail [Text]
-sbteReplyToAddresses = lens _sbteReplyToAddresses (\s a -> s {_sbteReplyToAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replyToAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteReplyToAddresses :: Lens.Lens' SendBulkTemplatedEmail (Lude.Maybe [Lude.Text])
+sbteReplyToAddresses = Lens.lens (replyToAddresses :: SendBulkTemplatedEmail -> Lude.Maybe [Lude.Text]) (\s a -> s {replyToAddresses = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteReplyToAddresses "Use generic-lens or generic-optics with 'replyToAddresses' instead." #-}
 
--- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> . If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
-sbteSource :: Lens' SendBulkTemplatedEmail Text
-sbteSource = lens _sbteSource (\s a -> s {_sbteSource = a})
+-- | The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide> .
+--
+-- If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the @SourceArn@ parameter. For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteSource :: Lens.Lens' SendBulkTemplatedEmail Lude.Text
+sbteSource = Lens.lens (source :: SendBulkTemplatedEmail -> Lude.Text) (\s a -> s {source = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | The template to use when sending this email.
-sbteTemplate :: Lens' SendBulkTemplatedEmail Text
-sbteTemplate = lens _sbteTemplate (\s a -> s {_sbteTemplate = a})
+--
+-- /Note:/ Consider using 'template' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteTemplate :: Lens.Lens' SendBulkTemplatedEmail Lude.Text
+sbteTemplate = Lens.lens (template :: SendBulkTemplatedEmail -> Lude.Text) (\s a -> s {template = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteTemplate "Use generic-lens or generic-optics with 'template' instead." #-}
 
 -- | One or more @Destination@ objects. All of the recipients in a @Destination@ will receive the same version of the email. You can specify up to 50 @Destination@ objects within a @Destinations@ array.
-sbteDestinations :: Lens' SendBulkTemplatedEmail [BulkEmailDestination]
-sbteDestinations = lens _sbteDestinations (\s a -> s {_sbteDestinations = a}) . _Coerce
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbteDestinations :: Lens.Lens' SendBulkTemplatedEmail [BulkEmailDestination]
+sbteDestinations = Lens.lens (destinations :: SendBulkTemplatedEmail -> [BulkEmailDestination]) (\s a -> s {destinations = a} :: SendBulkTemplatedEmail)
+{-# DEPRECATED sbteDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
-instance AWSRequest SendBulkTemplatedEmail where
+instance Lude.AWSRequest SendBulkTemplatedEmail where
   type Rs SendBulkTemplatedEmail = SendBulkTemplatedEmailResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "SendBulkTemplatedEmailResult"
       ( \s h x ->
           SendBulkTemplatedEmailResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .@? "Status" .!@ mempty >>= parseXMLList "member")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "Status" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable SendBulkTemplatedEmail
+instance Lude.ToHeaders SendBulkTemplatedEmail where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SendBulkTemplatedEmail
+instance Lude.ToPath SendBulkTemplatedEmail where
+  toPath = Lude.const "/"
 
-instance ToHeaders SendBulkTemplatedEmail where
-  toHeaders = const mempty
-
-instance ToPath SendBulkTemplatedEmail where
-  toPath = const "/"
-
-instance ToQuery SendBulkTemplatedEmail where
+instance Lude.ToQuery SendBulkTemplatedEmail where
   toQuery SendBulkTemplatedEmail' {..} =
-    mconcat
-      [ "Action" =: ("SendBulkTemplatedEmail" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "ReturnPath" =: _sbteReturnPath,
-        "ConfigurationSetName" =: _sbteConfigurationSetName,
-        "SourceArn" =: _sbteSourceARN,
+    Lude.mconcat
+      [ "Action" Lude.=: ("SendBulkTemplatedEmail" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "ReturnPath" Lude.=: returnPath,
+        "ConfigurationSetName" Lude.=: configurationSetName,
+        "SourceArn" Lude.=: sourceARN,
         "DefaultTags"
-          =: toQuery (toQueryList "member" <$> _sbteDefaultTags),
-        "ReturnPathArn" =: _sbteReturnPathARN,
-        "TemplateArn" =: _sbteTemplateARN,
-        "DefaultTemplateData" =: _sbteDefaultTemplateData,
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> defaultTags),
+        "ReturnPathArn" Lude.=: returnPathARN,
+        "TemplateArn" Lude.=: templateARN,
+        "DefaultTemplateData" Lude.=: defaultTemplateData,
         "ReplyToAddresses"
-          =: toQuery (toQueryList "member" <$> _sbteReplyToAddresses),
-        "Source" =: _sbteSource,
-        "Template" =: _sbteTemplate,
-        "Destinations" =: toQueryList "member" _sbteDestinations
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> replyToAddresses),
+        "Source" Lude.=: source,
+        "Template" Lude.=: template,
+        "Destinations" Lude.=: Lude.toQueryList "member" destinations
       ]
 
--- | /See:/ 'sendBulkTemplatedEmailResponse' smart constructor.
+-- | /See:/ 'mkSendBulkTemplatedEmailResponse' smart constructor.
 data SendBulkTemplatedEmailResponse = SendBulkTemplatedEmailResponse'
-  { _sbtersResponseStatus ::
-      !Int,
-    _sbtersStatus ::
-      ![BulkEmailDestinationStatus]
+  { responseStatus ::
+      Lude.Int,
+    status ::
+      [BulkEmailDestinationStatus]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendBulkTemplatedEmailResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbtersResponseStatus' - -- | The response status code.
---
--- * 'sbtersStatus' - The unique message identifier returned from the @SendBulkTemplatedEmail@ action.
-sendBulkTemplatedEmailResponse ::
-  -- | 'sbtersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The unique message identifier returned from the @SendBulkTemplatedEmail@ action.
+mkSendBulkTemplatedEmailResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SendBulkTemplatedEmailResponse
-sendBulkTemplatedEmailResponse pResponseStatus_ =
+mkSendBulkTemplatedEmailResponse pResponseStatus_ =
   SendBulkTemplatedEmailResponse'
-    { _sbtersResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _sbtersStatus = mempty
+      status = Lude.mempty
     }
 
--- | -- | The response status code.
-sbtersResponseStatus :: Lens' SendBulkTemplatedEmailResponse Int
-sbtersResponseStatus = lens _sbtersResponseStatus (\s a -> s {_sbtersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbtersResponseStatus :: Lens.Lens' SendBulkTemplatedEmailResponse Lude.Int
+sbtersResponseStatus = Lens.lens (responseStatus :: SendBulkTemplatedEmailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendBulkTemplatedEmailResponse)
+{-# DEPRECATED sbtersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The unique message identifier returned from the @SendBulkTemplatedEmail@ action.
-sbtersStatus :: Lens' SendBulkTemplatedEmailResponse [BulkEmailDestinationStatus]
-sbtersStatus = lens _sbtersStatus (\s a -> s {_sbtersStatus = a}) . _Coerce
-
-instance NFData SendBulkTemplatedEmailResponse
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbtersStatus :: Lens.Lens' SendBulkTemplatedEmailResponse [BulkEmailDestinationStatus]
+sbtersStatus = Lens.lens (status :: SendBulkTemplatedEmailResponse -> [BulkEmailDestinationStatus]) (\s a -> s {status = a} :: SendBulkTemplatedEmailResponse)
+{-# DEPRECATED sbtersStatus "Use generic-lens or generic-optics with 'status' instead." #-}

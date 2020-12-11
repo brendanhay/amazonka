@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,155 +14,175 @@
 --
 -- Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that are identified by a search or filter.
 module Network.AWS.AlexaBusiness.SendAnnouncement
-  ( -- * Creating a Request
-    sendAnnouncement,
-    SendAnnouncement,
+  ( -- * Creating a request
+    SendAnnouncement (..),
+    mkSendAnnouncement,
 
-    -- * Request Lenses
+    -- ** Request lenses
     saTimeToLiveInSeconds,
     saRoomFilters,
     saContent,
     saClientRequestToken,
 
-    -- * Destructuring the Response
-    sendAnnouncementResponse,
-    SendAnnouncementResponse,
+    -- * Destructuring the response
+    SendAnnouncementResponse (..),
+    mkSendAnnouncementResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sarsAnnouncementARN,
     sarsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'sendAnnouncement' smart constructor.
+-- | /See:/ 'mkSendAnnouncement' smart constructor.
 data SendAnnouncement = SendAnnouncement'
-  { _saTimeToLiveInSeconds ::
-      !(Maybe Nat),
-    _saRoomFilters :: ![Filter],
-    _saContent :: !Content,
-    _saClientRequestToken :: !Text
+  { timeToLiveInSeconds ::
+      Lude.Maybe Lude.Natural,
+    roomFilters :: [Filter],
+    content :: Content,
+    clientRequestToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendAnnouncement' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'saTimeToLiveInSeconds' - The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the announcement is not delivered.
---
--- * 'saRoomFilters' - The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.
---
--- * 'saContent' - The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).
---
--- * 'saClientRequestToken' - The unique, user-specified identifier for the request that ensures idempotency.
-sendAnnouncement ::
-  -- | 'saContent'
+-- * 'clientRequestToken' - The unique, user-specified identifier for the request that ensures idempotency.
+-- * 'content' - The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).
+-- * 'roomFilters' - The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.
+-- * 'timeToLiveInSeconds' - The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the announcement is not delivered.
+mkSendAnnouncement ::
+  -- | 'content'
   Content ->
-  -- | 'saClientRequestToken'
-  Text ->
+  -- | 'clientRequestToken'
+  Lude.Text ->
   SendAnnouncement
-sendAnnouncement pContent_ pClientRequestToken_ =
+mkSendAnnouncement pContent_ pClientRequestToken_ =
   SendAnnouncement'
-    { _saTimeToLiveInSeconds = Nothing,
-      _saRoomFilters = mempty,
-      _saContent = pContent_,
-      _saClientRequestToken = pClientRequestToken_
+    { timeToLiveInSeconds = Lude.Nothing,
+      roomFilters = Lude.mempty,
+      content = pContent_,
+      clientRequestToken = pClientRequestToken_
     }
 
 -- | The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the announcement is not delivered.
-saTimeToLiveInSeconds :: Lens' SendAnnouncement (Maybe Natural)
-saTimeToLiveInSeconds = lens _saTimeToLiveInSeconds (\s a -> s {_saTimeToLiveInSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timeToLiveInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saTimeToLiveInSeconds :: Lens.Lens' SendAnnouncement (Lude.Maybe Lude.Natural)
+saTimeToLiveInSeconds = Lens.lens (timeToLiveInSeconds :: SendAnnouncement -> Lude.Maybe Lude.Natural) (\s a -> s {timeToLiveInSeconds = a} :: SendAnnouncement)
+{-# DEPRECATED saTimeToLiveInSeconds "Use generic-lens or generic-optics with 'timeToLiveInSeconds' instead." #-}
 
 -- | The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.
-saRoomFilters :: Lens' SendAnnouncement [Filter]
-saRoomFilters = lens _saRoomFilters (\s a -> s {_saRoomFilters = a}) . _Coerce
+--
+-- /Note:/ Consider using 'roomFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saRoomFilters :: Lens.Lens' SendAnnouncement [Filter]
+saRoomFilters = Lens.lens (roomFilters :: SendAnnouncement -> [Filter]) (\s a -> s {roomFilters = a} :: SendAnnouncement)
+{-# DEPRECATED saRoomFilters "Use generic-lens or generic-optics with 'roomFilters' instead." #-}
 
 -- | The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).
-saContent :: Lens' SendAnnouncement Content
-saContent = lens _saContent (\s a -> s {_saContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saContent :: Lens.Lens' SendAnnouncement Content
+saContent = Lens.lens (content :: SendAnnouncement -> Content) (\s a -> s {content = a} :: SendAnnouncement)
+{-# DEPRECATED saContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The unique, user-specified identifier for the request that ensures idempotency.
-saClientRequestToken :: Lens' SendAnnouncement Text
-saClientRequestToken = lens _saClientRequestToken (\s a -> s {_saClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saClientRequestToken :: Lens.Lens' SendAnnouncement Lude.Text
+saClientRequestToken = Lens.lens (clientRequestToken :: SendAnnouncement -> Lude.Text) (\s a -> s {clientRequestToken = a} :: SendAnnouncement)
+{-# DEPRECATED saClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
-instance AWSRequest SendAnnouncement where
+instance Lude.AWSRequest SendAnnouncement where
   type Rs SendAnnouncement = SendAnnouncementResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SendAnnouncementResponse'
-            <$> (x .?> "AnnouncementArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AnnouncementArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SendAnnouncement
-
-instance NFData SendAnnouncement
-
-instance ToHeaders SendAnnouncement where
+instance Lude.ToHeaders SendAnnouncement where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.SendAnnouncement" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.SendAnnouncement" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SendAnnouncement where
+instance Lude.ToJSON SendAnnouncement where
   toJSON SendAnnouncement' {..} =
-    object
-      ( catMaybes
-          [ ("TimeToLiveInSeconds" .=) <$> _saTimeToLiveInSeconds,
-            Just ("RoomFilters" .= _saRoomFilters),
-            Just ("Content" .= _saContent),
-            Just ("ClientRequestToken" .= _saClientRequestToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TimeToLiveInSeconds" Lude..=) Lude.<$> timeToLiveInSeconds,
+            Lude.Just ("RoomFilters" Lude..= roomFilters),
+            Lude.Just ("Content" Lude..= content),
+            Lude.Just ("ClientRequestToken" Lude..= clientRequestToken)
           ]
       )
 
-instance ToPath SendAnnouncement where
-  toPath = const "/"
+instance Lude.ToPath SendAnnouncement where
+  toPath = Lude.const "/"
 
-instance ToQuery SendAnnouncement where
-  toQuery = const mempty
+instance Lude.ToQuery SendAnnouncement where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'sendAnnouncementResponse' smart constructor.
+-- | /See:/ 'mkSendAnnouncementResponse' smart constructor.
 data SendAnnouncementResponse = SendAnnouncementResponse'
-  { _sarsAnnouncementARN ::
-      !(Maybe Text),
-    _sarsResponseStatus :: !Int
+  { announcementARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendAnnouncementResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sarsAnnouncementARN' - The identifier of the announcement.
---
--- * 'sarsResponseStatus' - -- | The response status code.
-sendAnnouncementResponse ::
-  -- | 'sarsResponseStatus'
-  Int ->
+-- * 'announcementARN' - The identifier of the announcement.
+-- * 'responseStatus' - The response status code.
+mkSendAnnouncementResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SendAnnouncementResponse
-sendAnnouncementResponse pResponseStatus_ =
+mkSendAnnouncementResponse pResponseStatus_ =
   SendAnnouncementResponse'
-    { _sarsAnnouncementARN = Nothing,
-      _sarsResponseStatus = pResponseStatus_
+    { announcementARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the announcement.
-sarsAnnouncementARN :: Lens' SendAnnouncementResponse (Maybe Text)
-sarsAnnouncementARN = lens _sarsAnnouncementARN (\s a -> s {_sarsAnnouncementARN = a})
+--
+-- /Note:/ Consider using 'announcementARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarsAnnouncementARN :: Lens.Lens' SendAnnouncementResponse (Lude.Maybe Lude.Text)
+sarsAnnouncementARN = Lens.lens (announcementARN :: SendAnnouncementResponse -> Lude.Maybe Lude.Text) (\s a -> s {announcementARN = a} :: SendAnnouncementResponse)
+{-# DEPRECATED sarsAnnouncementARN "Use generic-lens or generic-optics with 'announcementARN' instead." #-}
 
--- | -- | The response status code.
-sarsResponseStatus :: Lens' SendAnnouncementResponse Int
-sarsResponseStatus = lens _sarsResponseStatus (\s a -> s {_sarsResponseStatus = a})
-
-instance NFData SendAnnouncementResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarsResponseStatus :: Lens.Lens' SendAnnouncementResponse Lude.Int
+sarsResponseStatus = Lens.lens (responseStatus :: SendAnnouncementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendAnnouncementResponse)
+{-# DEPRECATED sarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

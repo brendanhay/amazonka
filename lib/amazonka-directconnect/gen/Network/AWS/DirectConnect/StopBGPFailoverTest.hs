@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,135 @@
 --
 -- Stops the virtual interface failover test.
 module Network.AWS.DirectConnect.StopBGPFailoverTest
-  ( -- * Creating a Request
-    stopBGPFailoverTest,
-    StopBGPFailoverTest,
+  ( -- * Creating a request
+    StopBGPFailoverTest (..),
+    mkStopBGPFailoverTest,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sbgpftVirtualInterfaceId,
 
-    -- * Destructuring the Response
-    stopBGPFailoverTestResponse,
-    StopBGPFailoverTestResponse,
+    -- * Destructuring the response
+    StopBGPFailoverTestResponse (..),
+    mkStopBGPFailoverTestResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sbgpftrsVirtualInterfaceTest,
     sbgpftrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopBGPFailoverTest' smart constructor.
+-- | /See:/ 'mkStopBGPFailoverTest' smart constructor.
 newtype StopBGPFailoverTest = StopBGPFailoverTest'
-  { _sbgpftVirtualInterfaceId ::
-      Text
+  { virtualInterfaceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopBGPFailoverTest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbgpftVirtualInterfaceId' - The ID of the virtual interface you no longer want to test.
-stopBGPFailoverTest ::
-  -- | 'sbgpftVirtualInterfaceId'
-  Text ->
+-- * 'virtualInterfaceId' - The ID of the virtual interface you no longer want to test.
+mkStopBGPFailoverTest ::
+  -- | 'virtualInterfaceId'
+  Lude.Text ->
   StopBGPFailoverTest
-stopBGPFailoverTest pVirtualInterfaceId_ =
-  StopBGPFailoverTest'
-    { _sbgpftVirtualInterfaceId =
-        pVirtualInterfaceId_
-    }
+mkStopBGPFailoverTest pVirtualInterfaceId_ =
+  StopBGPFailoverTest' {virtualInterfaceId = pVirtualInterfaceId_}
 
 -- | The ID of the virtual interface you no longer want to test.
-sbgpftVirtualInterfaceId :: Lens' StopBGPFailoverTest Text
-sbgpftVirtualInterfaceId = lens _sbgpftVirtualInterfaceId (\s a -> s {_sbgpftVirtualInterfaceId = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbgpftVirtualInterfaceId :: Lens.Lens' StopBGPFailoverTest Lude.Text
+sbgpftVirtualInterfaceId = Lens.lens (virtualInterfaceId :: StopBGPFailoverTest -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: StopBGPFailoverTest)
+{-# DEPRECATED sbgpftVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance AWSRequest StopBGPFailoverTest where
+instance Lude.AWSRequest StopBGPFailoverTest where
   type Rs StopBGPFailoverTest = StopBGPFailoverTestResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StopBGPFailoverTestResponse'
-            <$> (x .?> "virtualInterfaceTest") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "virtualInterfaceTest")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopBGPFailoverTest
-
-instance NFData StopBGPFailoverTest
-
-instance ToHeaders StopBGPFailoverTest where
+instance Lude.ToHeaders StopBGPFailoverTest where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.StopBgpFailoverTest" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OvertureService.StopBgpFailoverTest" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopBGPFailoverTest where
+instance Lude.ToJSON StopBGPFailoverTest where
   toJSON StopBGPFailoverTest' {..} =
-    object
-      ( catMaybes
-          [Just ("virtualInterfaceId" .= _sbgpftVirtualInterfaceId)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("virtualInterfaceId" Lude..= virtualInterfaceId)]
       )
 
-instance ToPath StopBGPFailoverTest where
-  toPath = const "/"
+instance Lude.ToPath StopBGPFailoverTest where
+  toPath = Lude.const "/"
 
-instance ToQuery StopBGPFailoverTest where
-  toQuery = const mempty
+instance Lude.ToQuery StopBGPFailoverTest where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopBGPFailoverTestResponse' smart constructor.
+-- | /See:/ 'mkStopBGPFailoverTestResponse' smart constructor.
 data StopBGPFailoverTestResponse = StopBGPFailoverTestResponse'
-  { _sbgpftrsVirtualInterfaceTest ::
-      !( Maybe
-           VirtualInterfaceTestHistory
-       ),
-    _sbgpftrsResponseStatus :: !Int
+  { virtualInterfaceTest ::
+      Lude.Maybe
+        VirtualInterfaceTestHistory,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopBGPFailoverTestResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sbgpftrsVirtualInterfaceTest' - Information about the virtual interface failover test.
---
--- * 'sbgpftrsResponseStatus' - -- | The response status code.
-stopBGPFailoverTestResponse ::
-  -- | 'sbgpftrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'virtualInterfaceTest' - Information about the virtual interface failover test.
+mkStopBGPFailoverTestResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopBGPFailoverTestResponse
-stopBGPFailoverTestResponse pResponseStatus_ =
+mkStopBGPFailoverTestResponse pResponseStatus_ =
   StopBGPFailoverTestResponse'
-    { _sbgpftrsVirtualInterfaceTest =
-        Nothing,
-      _sbgpftrsResponseStatus = pResponseStatus_
+    { virtualInterfaceTest = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the virtual interface failover test.
-sbgpftrsVirtualInterfaceTest :: Lens' StopBGPFailoverTestResponse (Maybe VirtualInterfaceTestHistory)
-sbgpftrsVirtualInterfaceTest = lens _sbgpftrsVirtualInterfaceTest (\s a -> s {_sbgpftrsVirtualInterfaceTest = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceTest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbgpftrsVirtualInterfaceTest :: Lens.Lens' StopBGPFailoverTestResponse (Lude.Maybe VirtualInterfaceTestHistory)
+sbgpftrsVirtualInterfaceTest = Lens.lens (virtualInterfaceTest :: StopBGPFailoverTestResponse -> Lude.Maybe VirtualInterfaceTestHistory) (\s a -> s {virtualInterfaceTest = a} :: StopBGPFailoverTestResponse)
+{-# DEPRECATED sbgpftrsVirtualInterfaceTest "Use generic-lens or generic-optics with 'virtualInterfaceTest' instead." #-}
 
--- | -- | The response status code.
-sbgpftrsResponseStatus :: Lens' StopBGPFailoverTestResponse Int
-sbgpftrsResponseStatus = lens _sbgpftrsResponseStatus (\s a -> s {_sbgpftrsResponseStatus = a})
-
-instance NFData StopBGPFailoverTestResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbgpftrsResponseStatus :: Lens.Lens' StopBGPFailoverTestResponse Lude.Int
+sbgpftrsResponseStatus = Lens.lens (responseStatus :: StopBGPFailoverTestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopBGPFailoverTestResponse)
+{-# DEPRECATED sbgpftrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

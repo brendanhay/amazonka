@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,112 @@
 --
 -- Deletes a data catalog.
 module Network.AWS.Athena.DeleteDataCatalog
-  ( -- * Creating a Request
-    deleteDataCatalog,
-    DeleteDataCatalog,
+  ( -- * Creating a request
+    DeleteDataCatalog (..),
+    mkDeleteDataCatalog,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcName,
 
-    -- * Destructuring the Response
-    deleteDataCatalogResponse,
-    DeleteDataCatalogResponse,
+    -- * Destructuring the response
+    DeleteDataCatalogResponse (..),
+    mkDeleteDataCatalogResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcrsResponseStatus,
   )
 where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDataCatalog' smart constructor.
-newtype DeleteDataCatalog = DeleteDataCatalog' {_ddcName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteDataCatalog' smart constructor.
+newtype DeleteDataCatalog = DeleteDataCatalog' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataCatalog' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcName' - The name of the data catalog to delete.
-deleteDataCatalog ::
-  -- | 'ddcName'
-  Text ->
+-- * 'name' - The name of the data catalog to delete.
+mkDeleteDataCatalog ::
+  -- | 'name'
+  Lude.Text ->
   DeleteDataCatalog
-deleteDataCatalog pName_ = DeleteDataCatalog' {_ddcName = pName_}
+mkDeleteDataCatalog pName_ = DeleteDataCatalog' {name = pName_}
 
 -- | The name of the data catalog to delete.
-ddcName :: Lens' DeleteDataCatalog Text
-ddcName = lens _ddcName (\s a -> s {_ddcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcName :: Lens.Lens' DeleteDataCatalog Lude.Text
+ddcName = Lens.lens (name :: DeleteDataCatalog -> Lude.Text) (\s a -> s {name = a} :: DeleteDataCatalog)
+{-# DEPRECATED ddcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteDataCatalog where
+instance Lude.AWSRequest DeleteDataCatalog where
   type Rs DeleteDataCatalog = DeleteDataCatalogResponse
-  request = postJSON athena
+  request = Req.postJSON athenaService
   response =
-    receiveEmpty
-      (\s h x -> DeleteDataCatalogResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteDataCatalogResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteDataCatalog
-
-instance NFData DeleteDataCatalog
-
-instance ToHeaders DeleteDataCatalog where
+instance Lude.ToHeaders DeleteDataCatalog where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonAthena.DeleteDataCatalog" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonAthena.DeleteDataCatalog" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteDataCatalog where
+instance Lude.ToJSON DeleteDataCatalog where
   toJSON DeleteDataCatalog' {..} =
-    object (catMaybes [Just ("Name" .= _ddcName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DeleteDataCatalog where
-  toPath = const "/"
+instance Lude.ToPath DeleteDataCatalog where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteDataCatalog where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDataCatalog where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDataCatalogResponse' smart constructor.
+-- | /See:/ 'mkDeleteDataCatalogResponse' smart constructor.
 newtype DeleteDataCatalogResponse = DeleteDataCatalogResponse'
-  { _ddcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataCatalogResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcrsResponseStatus' - -- | The response status code.
-deleteDataCatalogResponse ::
-  -- | 'ddcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteDataCatalogResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDataCatalogResponse
-deleteDataCatalogResponse pResponseStatus_ =
-  DeleteDataCatalogResponse'
-    { _ddcrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteDataCatalogResponse pResponseStatus_ =
+  DeleteDataCatalogResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ddcrsResponseStatus :: Lens' DeleteDataCatalogResponse Int
-ddcrsResponseStatus = lens _ddcrsResponseStatus (\s a -> s {_ddcrsResponseStatus = a})
-
-instance NFData DeleteDataCatalogResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsResponseStatus :: Lens.Lens' DeleteDataCatalogResponse Lude.Int
+ddcrsResponseStatus = Lens.lens (responseStatus :: DeleteDataCatalogResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDataCatalogResponse)
+{-# DEPRECATED ddcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

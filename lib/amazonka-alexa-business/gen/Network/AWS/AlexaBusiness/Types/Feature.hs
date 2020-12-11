@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.Feature where
+module Network.AWS.AlexaBusiness.Types.Feature
+  ( Feature
+      ( Feature',
+        All,
+        Bluetooth,
+        Lists,
+        NetworkProfile,
+        Notifications,
+        Settings,
+        Skills,
+        Volume
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Feature
-  = All
-  | Bluetooth
-  | Lists
-  | NetworkProfile
-  | Notifications
-  | Settings
-  | Skills
-  | Volume
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Feature = Feature' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Feature where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      "bluetooth" -> pure Bluetooth
-      "lists" -> pure Lists
-      "network_profile" -> pure NetworkProfile
-      "notifications" -> pure Notifications
-      "settings" -> pure Settings
-      "skills" -> pure Skills
-      "volume" -> pure Volume
-      e ->
-        fromTextError $
-          "Failure parsing Feature from value: '" <> e
-            <> "'. Accepted values: all, bluetooth, lists, network_profile, notifications, settings, skills, volume"
+pattern All :: Feature
+pattern All = Feature' "ALL"
 
-instance ToText Feature where
-  toText = \case
-    All -> "ALL"
-    Bluetooth -> "BLUETOOTH"
-    Lists -> "LISTS"
-    NetworkProfile -> "NETWORK_PROFILE"
-    Notifications -> "NOTIFICATIONS"
-    Settings -> "SETTINGS"
-    Skills -> "SKILLS"
-    Volume -> "VOLUME"
+pattern Bluetooth :: Feature
+pattern Bluetooth = Feature' "BLUETOOTH"
 
-instance Hashable Feature
+pattern Lists :: Feature
+pattern Lists = Feature' "LISTS"
 
-instance NFData Feature
+pattern NetworkProfile :: Feature
+pattern NetworkProfile = Feature' "NETWORK_PROFILE"
 
-instance ToByteString Feature
+pattern Notifications :: Feature
+pattern Notifications = Feature' "NOTIFICATIONS"
 
-instance ToQuery Feature
+pattern Settings :: Feature
+pattern Settings = Feature' "SETTINGS"
 
-instance ToHeader Feature
+pattern Skills :: Feature
+pattern Skills = Feature' "SKILLS"
 
-instance ToJSON Feature where
-  toJSON = toJSONText
+pattern Volume :: Feature
+pattern Volume = Feature' "VOLUME"
 
-instance FromJSON Feature where
-  parseJSON = parseJSONText "Feature"
+{-# COMPLETE
+  All,
+  Bluetooth,
+  Lists,
+  NetworkProfile,
+  Notifications,
+  Settings,
+  Skills,
+  Volume,
+  Feature'
+  #-}

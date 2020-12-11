@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,175 +14,197 @@
 --
 -- Retrieves the list of applications nested in the containing application.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies
-  ( -- * Creating a Request
-    listApplicationDependencies,
-    ListApplicationDependencies,
+  ( -- * Creating a request
+    ListApplicationDependencies (..),
+    mkListApplicationDependencies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ladSemanticVersion,
     ladNextToken,
     ladMaxItems,
     ladApplicationId,
 
-    -- * Destructuring the Response
-    listApplicationDependenciesResponse,
-    ListApplicationDependenciesResponse,
+    -- * Destructuring the response
+    ListApplicationDependenciesResponse (..),
+    mkListApplicationDependenciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ladrsDependencies,
     ladrsNextToken,
     ladrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServerlessApplicationRepository.Types
 
--- | /See:/ 'listApplicationDependencies' smart constructor.
+-- | /See:/ 'mkListApplicationDependencies' smart constructor.
 data ListApplicationDependencies = ListApplicationDependencies'
-  { _ladSemanticVersion ::
-      !(Maybe Text),
-    _ladNextToken :: !(Maybe Text),
-    _ladMaxItems :: !(Maybe Nat),
-    _ladApplicationId :: !Text
+  { semanticVersion ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationDependencies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ladSemanticVersion' - The semantic version of the application to get.
---
--- * 'ladNextToken' - A token to specify where to start paginating.
---
--- * 'ladMaxItems' - The total number of items to return.
---
--- * 'ladApplicationId' - The Amazon Resource Name (ARN) of the application.
-listApplicationDependencies ::
-  -- | 'ladApplicationId'
-  Text ->
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- * 'maxItems' - The total number of items to return.
+-- * 'nextToken' - A token to specify where to start paginating.
+-- * 'semanticVersion' - The semantic version of the application to get.
+mkListApplicationDependencies ::
+  -- | 'applicationId'
+  Lude.Text ->
   ListApplicationDependencies
-listApplicationDependencies pApplicationId_ =
+mkListApplicationDependencies pApplicationId_ =
   ListApplicationDependencies'
-    { _ladSemanticVersion = Nothing,
-      _ladNextToken = Nothing,
-      _ladMaxItems = Nothing,
-      _ladApplicationId = pApplicationId_
+    { semanticVersion = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      applicationId = pApplicationId_
     }
 
 -- | The semantic version of the application to get.
-ladSemanticVersion :: Lens' ListApplicationDependencies (Maybe Text)
-ladSemanticVersion = lens _ladSemanticVersion (\s a -> s {_ladSemanticVersion = a})
+--
+-- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladSemanticVersion :: Lens.Lens' ListApplicationDependencies (Lude.Maybe Lude.Text)
+ladSemanticVersion = Lens.lens (semanticVersion :: ListApplicationDependencies -> Lude.Maybe Lude.Text) (\s a -> s {semanticVersion = a} :: ListApplicationDependencies)
+{-# DEPRECATED ladSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
 
 -- | A token to specify where to start paginating.
-ladNextToken :: Lens' ListApplicationDependencies (Maybe Text)
-ladNextToken = lens _ladNextToken (\s a -> s {_ladNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladNextToken :: Lens.Lens' ListApplicationDependencies (Lude.Maybe Lude.Text)
+ladNextToken = Lens.lens (nextToken :: ListApplicationDependencies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplicationDependencies)
+{-# DEPRECATED ladNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of items to return.
-ladMaxItems :: Lens' ListApplicationDependencies (Maybe Natural)
-ladMaxItems = lens _ladMaxItems (\s a -> s {_ladMaxItems = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladMaxItems :: Lens.Lens' ListApplicationDependencies (Lude.Maybe Lude.Natural)
+ladMaxItems = Lens.lens (maxItems :: ListApplicationDependencies -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListApplicationDependencies)
+{-# DEPRECATED ladMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the application.
-ladApplicationId :: Lens' ListApplicationDependencies Text
-ladApplicationId = lens _ladApplicationId (\s a -> s {_ladApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladApplicationId :: Lens.Lens' ListApplicationDependencies Lude.Text
+ladApplicationId = Lens.lens (applicationId :: ListApplicationDependencies -> Lude.Text) (\s a -> s {applicationId = a} :: ListApplicationDependencies)
+{-# DEPRECATED ladApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSPager ListApplicationDependencies where
+instance Page.AWSPager ListApplicationDependencies where
   page rq rs
-    | stop (rs ^. ladrsNextToken) = Nothing
-    | stop (rs ^. ladrsDependencies) = Nothing
-    | otherwise = Just $ rq & ladNextToken .~ rs ^. ladrsNextToken
+    | Page.stop (rs Lens.^. ladrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ladrsDependencies) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ladNextToken Lens..~ rs Lens.^. ladrsNextToken
 
-instance AWSRequest ListApplicationDependencies where
+instance Lude.AWSRequest ListApplicationDependencies where
   type
     Rs ListApplicationDependencies =
       ListApplicationDependenciesResponse
-  request = get serverlessApplicationRepository
+  request = Req.get serverlessApplicationRepositoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListApplicationDependenciesResponse'
-            <$> (x .?> "dependencies" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "dependencies" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListApplicationDependencies
-
-instance NFData ListApplicationDependencies
-
-instance ToHeaders ListApplicationDependencies where
+instance Lude.ToHeaders ListApplicationDependencies where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListApplicationDependencies where
+instance Lude.ToPath ListApplicationDependencies where
   toPath ListApplicationDependencies' {..} =
-    mconcat
-      ["/applications/", toBS _ladApplicationId, "/dependencies"]
+    Lude.mconcat
+      ["/applications/", Lude.toBS applicationId, "/dependencies"]
 
-instance ToQuery ListApplicationDependencies where
+instance Lude.ToQuery ListApplicationDependencies where
   toQuery ListApplicationDependencies' {..} =
-    mconcat
-      [ "semanticVersion" =: _ladSemanticVersion,
-        "nextToken" =: _ladNextToken,
-        "maxItems" =: _ladMaxItems
+    Lude.mconcat
+      [ "semanticVersion" Lude.=: semanticVersion,
+        "nextToken" Lude.=: nextToken,
+        "maxItems" Lude.=: maxItems
       ]
 
--- | /See:/ 'listApplicationDependenciesResponse' smart constructor.
+-- | /See:/ 'mkListApplicationDependenciesResponse' smart constructor.
 data ListApplicationDependenciesResponse = ListApplicationDependenciesResponse'
-  { _ladrsDependencies ::
-      !( Maybe
-           [ApplicationDependencySummary]
-       ),
-    _ladrsNextToken ::
-      !(Maybe Text),
-    _ladrsResponseStatus ::
-      !Int
+  { dependencies ::
+      Lude.Maybe
+        [ApplicationDependencySummary],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationDependenciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ladrsDependencies' - An array of application summaries nested in the application.
---
--- * 'ladrsNextToken' - The token to request the next page of results.
---
--- * 'ladrsResponseStatus' - -- | The response status code.
-listApplicationDependenciesResponse ::
-  -- | 'ladrsResponseStatus'
-  Int ->
+-- * 'dependencies' - An array of application summaries nested in the application.
+-- * 'nextToken' - The token to request the next page of results.
+-- * 'responseStatus' - The response status code.
+mkListApplicationDependenciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListApplicationDependenciesResponse
-listApplicationDependenciesResponse pResponseStatus_ =
+mkListApplicationDependenciesResponse pResponseStatus_ =
   ListApplicationDependenciesResponse'
-    { _ladrsDependencies =
-        Nothing,
-      _ladrsNextToken = Nothing,
-      _ladrsResponseStatus = pResponseStatus_
+    { dependencies = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of application summaries nested in the application.
-ladrsDependencies :: Lens' ListApplicationDependenciesResponse [ApplicationDependencySummary]
-ladrsDependencies = lens _ladrsDependencies (\s a -> s {_ladrsDependencies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dependencies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladrsDependencies :: Lens.Lens' ListApplicationDependenciesResponse (Lude.Maybe [ApplicationDependencySummary])
+ladrsDependencies = Lens.lens (dependencies :: ListApplicationDependenciesResponse -> Lude.Maybe [ApplicationDependencySummary]) (\s a -> s {dependencies = a} :: ListApplicationDependenciesResponse)
+{-# DEPRECATED ladrsDependencies "Use generic-lens or generic-optics with 'dependencies' instead." #-}
 
 -- | The token to request the next page of results.
-ladrsNextToken :: Lens' ListApplicationDependenciesResponse (Maybe Text)
-ladrsNextToken = lens _ladrsNextToken (\s a -> s {_ladrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladrsNextToken :: Lens.Lens' ListApplicationDependenciesResponse (Lude.Maybe Lude.Text)
+ladrsNextToken = Lens.lens (nextToken :: ListApplicationDependenciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApplicationDependenciesResponse)
+{-# DEPRECATED ladrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ladrsResponseStatus :: Lens' ListApplicationDependenciesResponse Int
-ladrsResponseStatus = lens _ladrsResponseStatus (\s a -> s {_ladrsResponseStatus = a})
-
-instance NFData ListApplicationDependenciesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladrsResponseStatus :: Lens.Lens' ListApplicationDependenciesResponse Lude.Int
+ladrsResponseStatus = Lens.lens (responseStatus :: ListApplicationDependenciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListApplicationDependenciesResponse)
+{-# DEPRECATED ladrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

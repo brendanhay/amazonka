@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ScheduledWindowExecution where
+module Network.AWS.SSM.Types.ScheduledWindowExecution
+  ( ScheduledWindowExecution (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkScheduledWindowExecution,
+
+    -- * Lenses
+    sweExecutionTime,
+    sweName,
+    sweWindowId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a scheduled execution for a maintenance window.
 --
---
---
--- /See:/ 'scheduledWindowExecution' smart constructor.
+-- /See:/ 'mkScheduledWindowExecution' smart constructor.
 data ScheduledWindowExecution = ScheduledWindowExecution'
-  { _sweExecutionTime ::
-      !(Maybe Text),
-    _sweName :: !(Maybe Text),
-    _sweWindowId :: !(Maybe Text)
+  { executionTime ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    windowId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledWindowExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sweExecutionTime' - The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be run.
---
--- * 'sweName' - The name of the maintenance window to be run.
---
--- * 'sweWindowId' - The ID of the maintenance window to be run.
-scheduledWindowExecution ::
+-- * 'executionTime' - The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be run.
+-- * 'name' - The name of the maintenance window to be run.
+-- * 'windowId' - The ID of the maintenance window to be run.
+mkScheduledWindowExecution ::
   ScheduledWindowExecution
-scheduledWindowExecution =
+mkScheduledWindowExecution =
   ScheduledWindowExecution'
-    { _sweExecutionTime = Nothing,
-      _sweName = Nothing,
-      _sweWindowId = Nothing
+    { executionTime = Lude.Nothing,
+      name = Lude.Nothing,
+      windowId = Lude.Nothing
     }
 
 -- | The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be run.
-sweExecutionTime :: Lens' ScheduledWindowExecution (Maybe Text)
-sweExecutionTime = lens _sweExecutionTime (\s a -> s {_sweExecutionTime = a})
+--
+-- /Note:/ Consider using 'executionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sweExecutionTime :: Lens.Lens' ScheduledWindowExecution (Lude.Maybe Lude.Text)
+sweExecutionTime = Lens.lens (executionTime :: ScheduledWindowExecution -> Lude.Maybe Lude.Text) (\s a -> s {executionTime = a} :: ScheduledWindowExecution)
+{-# DEPRECATED sweExecutionTime "Use generic-lens or generic-optics with 'executionTime' instead." #-}
 
 -- | The name of the maintenance window to be run.
-sweName :: Lens' ScheduledWindowExecution (Maybe Text)
-sweName = lens _sweName (\s a -> s {_sweName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sweName :: Lens.Lens' ScheduledWindowExecution (Lude.Maybe Lude.Text)
+sweName = Lens.lens (name :: ScheduledWindowExecution -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ScheduledWindowExecution)
+{-# DEPRECATED sweName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the maintenance window to be run.
-sweWindowId :: Lens' ScheduledWindowExecution (Maybe Text)
-sweWindowId = lens _sweWindowId (\s a -> s {_sweWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sweWindowId :: Lens.Lens' ScheduledWindowExecution (Lude.Maybe Lude.Text)
+sweWindowId = Lens.lens (windowId :: ScheduledWindowExecution -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: ScheduledWindowExecution)
+{-# DEPRECATED sweWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance FromJSON ScheduledWindowExecution where
+instance Lude.FromJSON ScheduledWindowExecution where
   parseJSON =
-    withObject
+    Lude.withObject
       "ScheduledWindowExecution"
       ( \x ->
           ScheduledWindowExecution'
-            <$> (x .:? "ExecutionTime") <*> (x .:? "Name") <*> (x .:? "WindowId")
+            Lude.<$> (x Lude..:? "ExecutionTime")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "WindowId")
       )
-
-instance Hashable ScheduledWindowExecution
-
-instance NFData ScheduledWindowExecution

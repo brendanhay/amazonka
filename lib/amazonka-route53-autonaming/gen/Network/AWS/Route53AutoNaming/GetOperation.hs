@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,128 @@
 --
 -- Gets information about any operation that returns an operation ID in the response, such as a @CreateService@ request.
 module Network.AWS.Route53AutoNaming.GetOperation
-  ( -- * Creating a Request
-    getOperation,
-    GetOperation,
+  ( -- * Creating a request
+    GetOperation (..),
+    mkGetOperation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     goOperationId,
 
-    -- * Destructuring the Response
-    getOperationResponse,
-    GetOperationResponse,
+    -- * Destructuring the response
+    GetOperationResponse (..),
+    mkGetOperationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gorsOperation,
     gorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53AutoNaming.Types
 
--- | /See:/ 'getOperation' smart constructor.
-newtype GetOperation = GetOperation' {_goOperationId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetOperation' smart constructor.
+newtype GetOperation = GetOperation' {operationId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOperation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'goOperationId' - The ID of the operation that you want to get more information about.
-getOperation ::
-  -- | 'goOperationId'
-  Text ->
+-- * 'operationId' - The ID of the operation that you want to get more information about.
+mkGetOperation ::
+  -- | 'operationId'
+  Lude.Text ->
   GetOperation
-getOperation pOperationId_ =
-  GetOperation' {_goOperationId = pOperationId_}
+mkGetOperation pOperationId_ =
+  GetOperation' {operationId = pOperationId_}
 
 -- | The ID of the operation that you want to get more information about.
-goOperationId :: Lens' GetOperation Text
-goOperationId = lens _goOperationId (\s a -> s {_goOperationId = a})
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goOperationId :: Lens.Lens' GetOperation Lude.Text
+goOperationId = Lens.lens (operationId :: GetOperation -> Lude.Text) (\s a -> s {operationId = a} :: GetOperation)
+{-# DEPRECATED goOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
-instance AWSRequest GetOperation where
+instance Lude.AWSRequest GetOperation where
   type Rs GetOperation = GetOperationResponse
-  request = postJSON route53AutoNaming
+  request = Req.postJSON route53AutoNamingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetOperationResponse'
-            <$> (x .?> "Operation") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetOperation
-
-instance NFData GetOperation
-
-instance ToHeaders GetOperation where
+instance Lude.ToHeaders GetOperation where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53AutoNaming_v20170314.GetOperation" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Route53AutoNaming_v20170314.GetOperation" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetOperation where
+instance Lude.ToJSON GetOperation where
   toJSON GetOperation' {..} =
-    object (catMaybes [Just ("OperationId" .= _goOperationId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("OperationId" Lude..= operationId)])
 
-instance ToPath GetOperation where
-  toPath = const "/"
+instance Lude.ToPath GetOperation where
+  toPath = Lude.const "/"
 
-instance ToQuery GetOperation where
-  toQuery = const mempty
+instance Lude.ToQuery GetOperation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getOperationResponse' smart constructor.
+-- | /See:/ 'mkGetOperationResponse' smart constructor.
 data GetOperationResponse = GetOperationResponse'
-  { _gorsOperation ::
-      !(Maybe Operation),
-    _gorsResponseStatus :: !Int
+  { operation ::
+      Lude.Maybe Operation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOperationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gorsOperation' - A complex type that contains information about the operation.
---
--- * 'gorsResponseStatus' - -- | The response status code.
-getOperationResponse ::
-  -- | 'gorsResponseStatus'
-  Int ->
+-- * 'operation' - A complex type that contains information about the operation.
+-- * 'responseStatus' - The response status code.
+mkGetOperationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetOperationResponse
-getOperationResponse pResponseStatus_ =
+mkGetOperationResponse pResponseStatus_ =
   GetOperationResponse'
-    { _gorsOperation = Nothing,
-      _gorsResponseStatus = pResponseStatus_
+    { operation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A complex type that contains information about the operation.
-gorsOperation :: Lens' GetOperationResponse (Maybe Operation)
-gorsOperation = lens _gorsOperation (\s a -> s {_gorsOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorsOperation :: Lens.Lens' GetOperationResponse (Lude.Maybe Operation)
+gorsOperation = Lens.lens (operation :: GetOperationResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: GetOperationResponse)
+{-# DEPRECATED gorsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
--- | -- | The response status code.
-gorsResponseStatus :: Lens' GetOperationResponse Int
-gorsResponseStatus = lens _gorsResponseStatus (\s a -> s {_gorsResponseStatus = a})
-
-instance NFData GetOperationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorsResponseStatus :: Lens.Lens' GetOperationResponse Lude.Int
+gorsResponseStatus = Lens.lens (responseStatus :: GetOperationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOperationResponse)
+{-# DEPRECATED gorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

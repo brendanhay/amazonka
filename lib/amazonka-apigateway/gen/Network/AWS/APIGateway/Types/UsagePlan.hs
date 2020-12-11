@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,115 +7,147 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.UsagePlan where
+module Network.AWS.APIGateway.Types.UsagePlan
+  ( UsagePlan (..),
+
+    -- * Smart constructor
+    mkUsagePlan,
+
+    -- * Lenses
+    upApiStages,
+    upName,
+    upId,
+    upThrottle,
+    upQuota,
+    upDescription,
+    upProductCode,
+    upTags,
+  )
+where
 
 import Network.AWS.APIGateway.Types.APIStage
 import Network.AWS.APIGateway.Types.QuotaSettings
 import Network.AWS.APIGateway.Types.ThrottleSettings
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a usage plan than can specify who can assess associated API stages with specified request limits and quotas.
 --
---
 -- In a usage plan, you associate an API by specifying the API's Id and a stage name of the specified API. You add plan customers by adding API keys to the plan.
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
--- /See:/ 'usagePlan' smart constructor.
+-- /See:/ 'mkUsagePlan' smart constructor.
 data UsagePlan = UsagePlan'
-  { _upApiStages :: !(Maybe [APIStage]),
-    _upName :: !(Maybe Text),
-    _upId :: !(Maybe Text),
-    _upThrottle :: !(Maybe ThrottleSettings),
-    _upQuota :: !(Maybe QuotaSettings),
-    _upDescription :: !(Maybe Text),
-    _upProductCode :: !(Maybe Text),
-    _upTags :: !(Maybe (Map Text (Text)))
+  { apiStages :: Lude.Maybe [APIStage],
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    throttle :: Lude.Maybe ThrottleSettings,
+    quota :: Lude.Maybe QuotaSettings,
+    description :: Lude.Maybe Lude.Text,
+    productCode :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsagePlan' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upApiStages' - The associated API stages of a usage plan.
---
--- * 'upName' - The name of a usage plan.
---
--- * 'upId' - The identifier of a 'UsagePlan' resource.
---
--- * 'upThrottle' - The request throttle limits of a usage plan.
---
--- * 'upQuota' - The maximum number of permitted requests per a given unit time interval.
---
--- * 'upDescription' - The description of a usage plan.
---
--- * 'upProductCode' - The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
---
--- * 'upTags' - The collection of tags. Each tag element is associated with a given resource.
-usagePlan ::
+-- * 'apiStages' - The associated API stages of a usage plan.
+-- * 'description' - The description of a usage plan.
+-- * 'id' - The identifier of a 'UsagePlan' resource.
+-- * 'name' - The name of a usage plan.
+-- * 'productCode' - The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
+-- * 'quota' - The maximum number of permitted requests per a given unit time interval.
+-- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
+-- * 'throttle' - The request throttle limits of a usage plan.
+mkUsagePlan ::
   UsagePlan
-usagePlan =
+mkUsagePlan =
   UsagePlan'
-    { _upApiStages = Nothing,
-      _upName = Nothing,
-      _upId = Nothing,
-      _upThrottle = Nothing,
-      _upQuota = Nothing,
-      _upDescription = Nothing,
-      _upProductCode = Nothing,
-      _upTags = Nothing
+    { apiStages = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      throttle = Lude.Nothing,
+      quota = Lude.Nothing,
+      description = Lude.Nothing,
+      productCode = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The associated API stages of a usage plan.
-upApiStages :: Lens' UsagePlan [APIStage]
-upApiStages = lens _upApiStages (\s a -> s {_upApiStages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'apiStages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upApiStages :: Lens.Lens' UsagePlan (Lude.Maybe [APIStage])
+upApiStages = Lens.lens (apiStages :: UsagePlan -> Lude.Maybe [APIStage]) (\s a -> s {apiStages = a} :: UsagePlan)
+{-# DEPRECATED upApiStages "Use generic-lens or generic-optics with 'apiStages' instead." #-}
 
 -- | The name of a usage plan.
-upName :: Lens' UsagePlan (Maybe Text)
-upName = lens _upName (\s a -> s {_upName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upName :: Lens.Lens' UsagePlan (Lude.Maybe Lude.Text)
+upName = Lens.lens (name :: UsagePlan -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UsagePlan)
+{-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of a 'UsagePlan' resource.
-upId :: Lens' UsagePlan (Maybe Text)
-upId = lens _upId (\s a -> s {_upId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upId :: Lens.Lens' UsagePlan (Lude.Maybe Lude.Text)
+upId = Lens.lens (id :: UsagePlan -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: UsagePlan)
+{-# DEPRECATED upId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The request throttle limits of a usage plan.
-upThrottle :: Lens' UsagePlan (Maybe ThrottleSettings)
-upThrottle = lens _upThrottle (\s a -> s {_upThrottle = a})
+--
+-- /Note:/ Consider using 'throttle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upThrottle :: Lens.Lens' UsagePlan (Lude.Maybe ThrottleSettings)
+upThrottle = Lens.lens (throttle :: UsagePlan -> Lude.Maybe ThrottleSettings) (\s a -> s {throttle = a} :: UsagePlan)
+{-# DEPRECATED upThrottle "Use generic-lens or generic-optics with 'throttle' instead." #-}
 
 -- | The maximum number of permitted requests per a given unit time interval.
-upQuota :: Lens' UsagePlan (Maybe QuotaSettings)
-upQuota = lens _upQuota (\s a -> s {_upQuota = a})
+--
+-- /Note:/ Consider using 'quota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upQuota :: Lens.Lens' UsagePlan (Lude.Maybe QuotaSettings)
+upQuota = Lens.lens (quota :: UsagePlan -> Lude.Maybe QuotaSettings) (\s a -> s {quota = a} :: UsagePlan)
+{-# DEPRECATED upQuota "Use generic-lens or generic-optics with 'quota' instead." #-}
 
 -- | The description of a usage plan.
-upDescription :: Lens' UsagePlan (Maybe Text)
-upDescription = lens _upDescription (\s a -> s {_upDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDescription :: Lens.Lens' UsagePlan (Lude.Maybe Lude.Text)
+upDescription = Lens.lens (description :: UsagePlan -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UsagePlan)
+{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The AWS Markeplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-upProductCode :: Lens' UsagePlan (Maybe Text)
-upProductCode = lens _upProductCode (\s a -> s {_upProductCode = a})
+--
+-- /Note:/ Consider using 'productCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upProductCode :: Lens.Lens' UsagePlan (Lude.Maybe Lude.Text)
+upProductCode = Lens.lens (productCode :: UsagePlan -> Lude.Maybe Lude.Text) (\s a -> s {productCode = a} :: UsagePlan)
+{-# DEPRECATED upProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
 
 -- | The collection of tags. Each tag element is associated with a given resource.
-upTags :: Lens' UsagePlan (HashMap Text (Text))
-upTags = lens _upTags (\s a -> s {_upTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upTags :: Lens.Lens' UsagePlan (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+upTags = Lens.lens (tags :: UsagePlan -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: UsagePlan)
+{-# DEPRECATED upTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON UsagePlan where
+instance Lude.FromJSON UsagePlan where
   parseJSON =
-    withObject
+    Lude.withObject
       "UsagePlan"
       ( \x ->
           UsagePlan'
-            <$> (x .:? "apiStages" .!= mempty)
-            <*> (x .:? "name")
-            <*> (x .:? "id")
-            <*> (x .:? "throttle")
-            <*> (x .:? "quota")
-            <*> (x .:? "description")
-            <*> (x .:? "productCode")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "apiStages" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "throttle")
+            Lude.<*> (x Lude..:? "quota")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "productCode")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable UsagePlan
-
-instance NFData UsagePlan

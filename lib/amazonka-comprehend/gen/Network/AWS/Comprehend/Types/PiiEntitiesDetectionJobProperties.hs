@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobProperties where
+module Network.AWS.Comprehend.Types.PiiEntitiesDetectionJobProperties
+  ( PiiEntitiesDetectionJobProperties (..),
+
+    -- * Smart constructor
+    mkPiiEntitiesDetectionJobProperties,
+
+    -- * Lenses
+    pedjpLanguageCode,
+    pedjpJobId,
+    pedjpJobName,
+    pedjpMode,
+    pedjpInputDataConfig,
+    pedjpRedactionConfig,
+    pedjpEndTime,
+    pedjpOutputDataConfig,
+    pedjpDataAccessRoleARN,
+    pedjpJobStatus,
+    pedjpMessage,
+    pedjpSubmitTime,
+  )
+where
 
 import Network.AWS.Comprehend.Types.InputDataConfig
 import Network.AWS.Comprehend.Types.JobStatus
@@ -21,163 +35,189 @@ import Network.AWS.Comprehend.Types.LanguageCode
 import Network.AWS.Comprehend.Types.PiiEntitiesDetectionMode
 import Network.AWS.Comprehend.Types.PiiOutputDataConfig
 import Network.AWS.Comprehend.Types.RedactionConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about a PII entities detection job.
 --
---
---
--- /See:/ 'piiEntitiesDetectionJobProperties' smart constructor.
+-- /See:/ 'mkPiiEntitiesDetectionJobProperties' smart constructor.
 data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
-  { _pedjpLanguageCode ::
-      !(Maybe LanguageCode),
-    _pedjpJobId ::
-      !(Maybe Text),
-    _pedjpJobName ::
-      !(Maybe Text),
-    _pedjpMode ::
-      !( Maybe
-           PiiEntitiesDetectionMode
-       ),
-    _pedjpInputDataConfig ::
-      !( Maybe
-           InputDataConfig
-       ),
-    _pedjpRedactionConfig ::
-      !( Maybe
-           RedactionConfig
-       ),
-    _pedjpEndTime ::
-      !(Maybe POSIX),
-    _pedjpOutputDataConfig ::
-      !( Maybe
-           PiiOutputDataConfig
-       ),
-    _pedjpDataAccessRoleARN ::
-      !(Maybe Text),
-    _pedjpJobStatus ::
-      !(Maybe JobStatus),
-    _pedjpMessage ::
-      !(Maybe Text),
-    _pedjpSubmitTime ::
-      !(Maybe POSIX)
+  { languageCode ::
+      Lude.Maybe LanguageCode,
+    jobId ::
+      Lude.Maybe Lude.Text,
+    jobName ::
+      Lude.Maybe Lude.Text,
+    mode ::
+      Lude.Maybe
+        PiiEntitiesDetectionMode,
+    inputDataConfig ::
+      Lude.Maybe
+        InputDataConfig,
+    redactionConfig ::
+      Lude.Maybe
+        RedactionConfig,
+    endTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    outputDataConfig ::
+      Lude.Maybe
+        PiiOutputDataConfig,
+    dataAccessRoleARN ::
+      Lude.Maybe Lude.Text,
+    jobStatus ::
+      Lude.Maybe JobStatus,
+    message ::
+      Lude.Maybe Lude.Text,
+    submitTime ::
+      Lude.Maybe
+        Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PiiEntitiesDetectionJobProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
+-- * 'endTime' - The time that the PII entities detection job completed.
+-- * 'inputDataConfig' - The input properties for a PII entities detection job.
+-- * 'jobId' - The identifier assigned to the PII entities detection job.
+-- * 'jobName' - The name that you assigned the PII entities detection job.
+-- * 'jobStatus' - The current status of the PII entities detection job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
+-- * 'languageCode' - The language code of the input documents
+-- * 'message' - A description of the status of a job.
+-- * 'mode' - Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.
+-- * 'outputDataConfig' - The output data configuration that you supplied when you created the PII entities detection job.
+-- * 'redactionConfig' - Provides configuration parameters for PII entity redaction.
 --
--- * 'pedjpLanguageCode' - The language code of the input documents
---
--- * 'pedjpJobId' - The identifier assigned to the PII entities detection job.
---
--- * 'pedjpJobName' - The name that you assigned the PII entities detection job.
---
--- * 'pedjpMode' - Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.
---
--- * 'pedjpInputDataConfig' - The input properties for a PII entities detection job.
---
--- * 'pedjpRedactionConfig' - Provides configuration parameters for PII entity redaction. This parameter is required if you set the @Mode@ parameter to @ONLY_REDACTION@ . In that case, you must provide a @RedactionConfig@ definition that includes the @PiiEntityTypes@ parameter.
---
--- * 'pedjpEndTime' - The time that the PII entities detection job completed.
---
--- * 'pedjpOutputDataConfig' - The output data configuration that you supplied when you created the PII entities detection job.
---
--- * 'pedjpDataAccessRoleARN' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
---
--- * 'pedjpJobStatus' - The current status of the PII entities detection job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
---
--- * 'pedjpMessage' - A description of the status of a job.
---
--- * 'pedjpSubmitTime' - The time that the PII entities detection job was submitted for processing.
-piiEntitiesDetectionJobProperties ::
+-- This parameter is required if you set the @Mode@ parameter to @ONLY_REDACTION@ . In that case, you must provide a @RedactionConfig@ definition that includes the @PiiEntityTypes@ parameter.
+-- * 'submitTime' - The time that the PII entities detection job was submitted for processing.
+mkPiiEntitiesDetectionJobProperties ::
   PiiEntitiesDetectionJobProperties
-piiEntitiesDetectionJobProperties =
+mkPiiEntitiesDetectionJobProperties =
   PiiEntitiesDetectionJobProperties'
-    { _pedjpLanguageCode = Nothing,
-      _pedjpJobId = Nothing,
-      _pedjpJobName = Nothing,
-      _pedjpMode = Nothing,
-      _pedjpInputDataConfig = Nothing,
-      _pedjpRedactionConfig = Nothing,
-      _pedjpEndTime = Nothing,
-      _pedjpOutputDataConfig = Nothing,
-      _pedjpDataAccessRoleARN = Nothing,
-      _pedjpJobStatus = Nothing,
-      _pedjpMessage = Nothing,
-      _pedjpSubmitTime = Nothing
+    { languageCode = Lude.Nothing,
+      jobId = Lude.Nothing,
+      jobName = Lude.Nothing,
+      mode = Lude.Nothing,
+      inputDataConfig = Lude.Nothing,
+      redactionConfig = Lude.Nothing,
+      endTime = Lude.Nothing,
+      outputDataConfig = Lude.Nothing,
+      dataAccessRoleARN = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      message = Lude.Nothing,
+      submitTime = Lude.Nothing
     }
 
 -- | The language code of the input documents
-pedjpLanguageCode :: Lens' PiiEntitiesDetectionJobProperties (Maybe LanguageCode)
-pedjpLanguageCode = lens _pedjpLanguageCode (\s a -> s {_pedjpLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpLanguageCode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe LanguageCode)
+pedjpLanguageCode = Lens.lens (languageCode :: PiiEntitiesDetectionJobProperties -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The identifier assigned to the PII entities detection job.
-pedjpJobId :: Lens' PiiEntitiesDetectionJobProperties (Maybe Text)
-pedjpJobId = lens _pedjpJobId (\s a -> s {_pedjpJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpJobId :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe Lude.Text)
+pedjpJobId = Lens.lens (jobId :: PiiEntitiesDetectionJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The name that you assigned the PII entities detection job.
-pedjpJobName :: Lens' PiiEntitiesDetectionJobProperties (Maybe Text)
-pedjpJobName = lens _pedjpJobName (\s a -> s {_pedjpJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpJobName :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe Lude.Text)
+pedjpJobName = Lens.lens (jobName :: PiiEntitiesDetectionJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.
-pedjpMode :: Lens' PiiEntitiesDetectionJobProperties (Maybe PiiEntitiesDetectionMode)
-pedjpMode = lens _pedjpMode (\s a -> s {_pedjpMode = a})
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpMode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe PiiEntitiesDetectionMode)
+pedjpMode = Lens.lens (mode :: PiiEntitiesDetectionJobProperties -> Lude.Maybe PiiEntitiesDetectionMode) (\s a -> s {mode = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
 -- | The input properties for a PII entities detection job.
-pedjpInputDataConfig :: Lens' PiiEntitiesDetectionJobProperties (Maybe InputDataConfig)
-pedjpInputDataConfig = lens _pedjpInputDataConfig (\s a -> s {_pedjpInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpInputDataConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe InputDataConfig)
+pedjpInputDataConfig = Lens.lens (inputDataConfig :: PiiEntitiesDetectionJobProperties -> Lude.Maybe InputDataConfig) (\s a -> s {inputDataConfig = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
--- | Provides configuration parameters for PII entity redaction. This parameter is required if you set the @Mode@ parameter to @ONLY_REDACTION@ . In that case, you must provide a @RedactionConfig@ definition that includes the @PiiEntityTypes@ parameter.
-pedjpRedactionConfig :: Lens' PiiEntitiesDetectionJobProperties (Maybe RedactionConfig)
-pedjpRedactionConfig = lens _pedjpRedactionConfig (\s a -> s {_pedjpRedactionConfig = a})
+-- | Provides configuration parameters for PII entity redaction.
+--
+-- This parameter is required if you set the @Mode@ parameter to @ONLY_REDACTION@ . In that case, you must provide a @RedactionConfig@ definition that includes the @PiiEntityTypes@ parameter.
+--
+-- /Note:/ Consider using 'redactionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpRedactionConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe RedactionConfig)
+pedjpRedactionConfig = Lens.lens (redactionConfig :: PiiEntitiesDetectionJobProperties -> Lude.Maybe RedactionConfig) (\s a -> s {redactionConfig = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpRedactionConfig "Use generic-lens or generic-optics with 'redactionConfig' instead." #-}
 
 -- | The time that the PII entities detection job completed.
-pedjpEndTime :: Lens' PiiEntitiesDetectionJobProperties (Maybe UTCTime)
-pedjpEndTime = lens _pedjpEndTime (\s a -> s {_pedjpEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpEndTime :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe Lude.Timestamp)
+pedjpEndTime = Lens.lens (endTime :: PiiEntitiesDetectionJobProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The output data configuration that you supplied when you created the PII entities detection job.
-pedjpOutputDataConfig :: Lens' PiiEntitiesDetectionJobProperties (Maybe PiiOutputDataConfig)
-pedjpOutputDataConfig = lens _pedjpOutputDataConfig (\s a -> s {_pedjpOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpOutputDataConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe PiiOutputDataConfig)
+pedjpOutputDataConfig = Lens.lens (outputDataConfig :: PiiEntitiesDetectionJobProperties -> Lude.Maybe PiiOutputDataConfig) (\s a -> s {outputDataConfig = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
-pedjpDataAccessRoleARN :: Lens' PiiEntitiesDetectionJobProperties (Maybe Text)
-pedjpDataAccessRoleARN = lens _pedjpDataAccessRoleARN (\s a -> s {_pedjpDataAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpDataAccessRoleARN :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe Lude.Text)
+pedjpDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: PiiEntitiesDetectionJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
 -- | The current status of the PII entities detection job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
-pedjpJobStatus :: Lens' PiiEntitiesDetectionJobProperties (Maybe JobStatus)
-pedjpJobStatus = lens _pedjpJobStatus (\s a -> s {_pedjpJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpJobStatus :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe JobStatus)
+pedjpJobStatus = Lens.lens (jobStatus :: PiiEntitiesDetectionJobProperties -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | A description of the status of a job.
-pedjpMessage :: Lens' PiiEntitiesDetectionJobProperties (Maybe Text)
-pedjpMessage = lens _pedjpMessage (\s a -> s {_pedjpMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpMessage :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe Lude.Text)
+pedjpMessage = Lens.lens (message :: PiiEntitiesDetectionJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The time that the PII entities detection job was submitted for processing.
-pedjpSubmitTime :: Lens' PiiEntitiesDetectionJobProperties (Maybe UTCTime)
-pedjpSubmitTime = lens _pedjpSubmitTime (\s a -> s {_pedjpSubmitTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'submitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pedjpSubmitTime :: Lens.Lens' PiiEntitiesDetectionJobProperties (Lude.Maybe Lude.Timestamp)
+pedjpSubmitTime = Lens.lens (submitTime :: PiiEntitiesDetectionJobProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTime = a} :: PiiEntitiesDetectionJobProperties)
+{-# DEPRECATED pedjpSubmitTime "Use generic-lens or generic-optics with 'submitTime' instead." #-}
 
-instance FromJSON PiiEntitiesDetectionJobProperties where
+instance Lude.FromJSON PiiEntitiesDetectionJobProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "PiiEntitiesDetectionJobProperties"
       ( \x ->
           PiiEntitiesDetectionJobProperties'
-            <$> (x .:? "LanguageCode")
-            <*> (x .:? "JobId")
-            <*> (x .:? "JobName")
-            <*> (x .:? "Mode")
-            <*> (x .:? "InputDataConfig")
-            <*> (x .:? "RedactionConfig")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "OutputDataConfig")
-            <*> (x .:? "DataAccessRoleArn")
-            <*> (x .:? "JobStatus")
-            <*> (x .:? "Message")
-            <*> (x .:? "SubmitTime")
+            Lude.<$> (x Lude..:? "LanguageCode")
+            Lude.<*> (x Lude..:? "JobId")
+            Lude.<*> (x Lude..:? "JobName")
+            Lude.<*> (x Lude..:? "Mode")
+            Lude.<*> (x Lude..:? "InputDataConfig")
+            Lude.<*> (x Lude..:? "RedactionConfig")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "OutputDataConfig")
+            Lude.<*> (x Lude..:? "DataAccessRoleArn")
+            Lude.<*> (x Lude..:? "JobStatus")
+            Lude.<*> (x Lude..:? "Message")
+            Lude.<*> (x Lude..:? "SubmitTime")
       )
-
-instance Hashable PiiEntitiesDetectionJobProperties
-
-instance NFData PiiEntitiesDetectionJobProperties

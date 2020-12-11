@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.MatchFieldType where
+module Network.AWS.WAF.Types.MatchFieldType
+  ( MatchFieldType
+      ( MatchFieldType',
+        AllQueryArgs,
+        Body,
+        Header,
+        Method,
+        QueryString,
+        SingleQueryArg,
+        URI
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MatchFieldType
-  = AllQueryArgs
-  | Body
-  | Header
-  | Method
-  | QueryString
-  | SingleQueryArg
-  | URI
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MatchFieldType = MatchFieldType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MatchFieldType where
-  parser =
-    takeLowerText >>= \case
-      "all_query_args" -> pure AllQueryArgs
-      "body" -> pure Body
-      "header" -> pure Header
-      "method" -> pure Method
-      "query_string" -> pure QueryString
-      "single_query_arg" -> pure SingleQueryArg
-      "uri" -> pure URI
-      e ->
-        fromTextError $
-          "Failure parsing MatchFieldType from value: '" <> e
-            <> "'. Accepted values: all_query_args, body, header, method, query_string, single_query_arg, uri"
+pattern AllQueryArgs :: MatchFieldType
+pattern AllQueryArgs = MatchFieldType' "ALL_QUERY_ARGS"
 
-instance ToText MatchFieldType where
-  toText = \case
-    AllQueryArgs -> "ALL_QUERY_ARGS"
-    Body -> "BODY"
-    Header -> "HEADER"
-    Method -> "METHOD"
-    QueryString -> "QUERY_STRING"
-    SingleQueryArg -> "SINGLE_QUERY_ARG"
-    URI -> "URI"
+pattern Body :: MatchFieldType
+pattern Body = MatchFieldType' "BODY"
 
-instance Hashable MatchFieldType
+pattern Header :: MatchFieldType
+pattern Header = MatchFieldType' "HEADER"
 
-instance NFData MatchFieldType
+pattern Method :: MatchFieldType
+pattern Method = MatchFieldType' "METHOD"
 
-instance ToByteString MatchFieldType
+pattern QueryString :: MatchFieldType
+pattern QueryString = MatchFieldType' "QUERY_STRING"
 
-instance ToQuery MatchFieldType
+pattern SingleQueryArg :: MatchFieldType
+pattern SingleQueryArg = MatchFieldType' "SINGLE_QUERY_ARG"
 
-instance ToHeader MatchFieldType
+pattern URI :: MatchFieldType
+pattern URI = MatchFieldType' "URI"
 
-instance ToJSON MatchFieldType where
-  toJSON = toJSONText
-
-instance FromJSON MatchFieldType where
-  parseJSON = parseJSONText "MatchFieldType"
+{-# COMPLETE
+  AllQueryArgs,
+  Body,
+  Header,
+  Method,
+  QueryString,
+  SingleQueryArg,
+  URI,
+  MatchFieldType'
+  #-}

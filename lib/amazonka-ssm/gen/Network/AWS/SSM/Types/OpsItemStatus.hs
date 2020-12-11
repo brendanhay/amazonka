@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsItemStatus where
+module Network.AWS.SSM.Types.OpsItemStatus
+  ( OpsItemStatus
+      ( OpsItemStatus',
+        InProgress,
+        Open,
+        Resolved
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OpsItemStatus
-  = InProgress
-  | Open
-  | Resolved
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OpsItemStatus = OpsItemStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OpsItemStatus where
-  parser =
-    takeLowerText >>= \case
-      "inprogress" -> pure InProgress
-      "open" -> pure Open
-      "resolved" -> pure Resolved
-      e ->
-        fromTextError $
-          "Failure parsing OpsItemStatus from value: '" <> e
-            <> "'. Accepted values: inprogress, open, resolved"
+pattern InProgress :: OpsItemStatus
+pattern InProgress = OpsItemStatus' "InProgress"
 
-instance ToText OpsItemStatus where
-  toText = \case
-    InProgress -> "InProgress"
-    Open -> "Open"
-    Resolved -> "Resolved"
+pattern Open :: OpsItemStatus
+pattern Open = OpsItemStatus' "Open"
 
-instance Hashable OpsItemStatus
+pattern Resolved :: OpsItemStatus
+pattern Resolved = OpsItemStatus' "Resolved"
 
-instance NFData OpsItemStatus
-
-instance ToByteString OpsItemStatus
-
-instance ToQuery OpsItemStatus
-
-instance ToHeader OpsItemStatus
-
-instance ToJSON OpsItemStatus where
-  toJSON = toJSONText
-
-instance FromJSON OpsItemStatus where
-  parseJSON = parseJSONText "OpsItemStatus"
+{-# COMPLETE
+  InProgress,
+  Open,
+  Resolved,
+  OpsItemStatus'
+  #-}

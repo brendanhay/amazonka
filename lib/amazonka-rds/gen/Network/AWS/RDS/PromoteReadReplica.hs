@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,216 @@
 --
 -- Promotes a read replica DB instance to a standalone DB instance.
 module Network.AWS.RDS.PromoteReadReplica
-  ( -- * Creating a Request
-    promoteReadReplica,
-    PromoteReadReplica,
+  ( -- * Creating a request
+    PromoteReadReplica (..),
+    mkPromoteReadReplica,
 
-    -- * Request Lenses
+    -- ** Request lenses
     prrPreferredBackupWindow,
     prrBackupRetentionPeriod,
     prrDBInstanceIdentifier,
 
-    -- * Destructuring the Response
-    promoteReadReplicaResponse,
-    PromoteReadReplicaResponse,
+    -- * Destructuring the response
+    PromoteReadReplicaResponse (..),
+    mkPromoteReadReplicaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     prrrsDBInstance,
     prrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'promoteReadReplica' smart constructor.
+-- /See:/ 'mkPromoteReadReplica' smart constructor.
 data PromoteReadReplica = PromoteReadReplica'
-  { _prrPreferredBackupWindow ::
-      !(Maybe Text),
-    _prrBackupRetentionPeriod :: !(Maybe Int),
-    _prrDBInstanceIdentifier :: !Text
+  { preferredBackupWindow ::
+      Lude.Maybe Lude.Text,
+    backupRetentionPeriod :: Lude.Maybe Lude.Int,
+    dbInstanceIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PromoteReadReplica' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'backupRetentionPeriod' - The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
 --
--- * 'prrPreferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
+-- Default: 1
+-- Constraints:
 --
--- * 'prrBackupRetentionPeriod' - The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Default: 1 Constraints:     * Must be a value from 0 to 35.     * Can't be set to 0 if the DB instance is a source to read replicas.
+--     * Must be a value from 0 to 35.
 --
--- * 'prrDBInstanceIdentifier' - The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must match the identifier of an existing read replica DB instance. Example: @mydbinstance@
-promoteReadReplica ::
-  -- | 'prrDBInstanceIdentifier'
-  Text ->
+--
+--     * Can't be set to 0 if the DB instance is a source to read replicas.
+--
+--
+-- * 'dbInstanceIdentifier' - The DB instance identifier. This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing read replica DB instance.
+--
+--
+-- Example: @mydbinstance@
+-- * 'preferredBackupWindow' - The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.
+--
+-- The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./
+-- Constraints:
+--
+--     * Must be in the format @hh24:mi-hh24:mi@ .
+--
+--
+--     * Must be in Universal Coordinated Time (UTC).
+--
+--
+--     * Must not conflict with the preferred maintenance window.
+--
+--
+--     * Must be at least 30 minutes.
+mkPromoteReadReplica ::
+  -- | 'dbInstanceIdentifier'
+  Lude.Text ->
   PromoteReadReplica
-promoteReadReplica pDBInstanceIdentifier_ =
+mkPromoteReadReplica pDBInstanceIdentifier_ =
   PromoteReadReplica'
-    { _prrPreferredBackupWindow = Nothing,
-      _prrBackupRetentionPeriod = Nothing,
-      _prrDBInstanceIdentifier = pDBInstanceIdentifier_
+    { preferredBackupWindow = Lude.Nothing,
+      backupRetentionPeriod = Lude.Nothing,
+      dbInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.  The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./  Constraints:     * Must be in the format @hh24:mi-hh24:mi@ .     * Must be in Universal Coordinated Time (UTC).     * Must not conflict with the preferred maintenance window.     * Must be at least 30 minutes.
-prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
-prrPreferredBackupWindow = lens _prrPreferredBackupWindow (\s a -> s {_prrPreferredBackupWindow = a})
+-- | The daily time range during which automated backups are created if automated backups are enabled, using the @BackupRetentionPeriod@ parameter.
+--
+-- The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html Adjusting the Preferred Maintenance Window> in the /Amazon RDS User Guide./
+-- Constraints:
+--
+--     * Must be in the format @hh24:mi-hh24:mi@ .
+--
+--
+--     * Must be in Universal Coordinated Time (UTC).
+--
+--
+--     * Must not conflict with the preferred maintenance window.
+--
+--
+--     * Must be at least 30 minutes.
+--
+--
+--
+-- /Note:/ Consider using 'preferredBackupWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrPreferredBackupWindow :: Lens.Lens' PromoteReadReplica (Lude.Maybe Lude.Text)
+prrPreferredBackupWindow = Lens.lens (preferredBackupWindow :: PromoteReadReplica -> Lude.Maybe Lude.Text) (\s a -> s {preferredBackupWindow = a} :: PromoteReadReplica)
+{-# DEPRECATED prrPreferredBackupWindow "Use generic-lens or generic-optics with 'preferredBackupWindow' instead." #-}
 
--- | The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups. Default: 1 Constraints:     * Must be a value from 0 to 35.     * Can't be set to 0 if the DB instance is a source to read replicas.
-prrBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Int)
-prrBackupRetentionPeriod = lens _prrBackupRetentionPeriod (\s a -> s {_prrBackupRetentionPeriod = a})
+-- | The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
+--
+-- Default: 1
+-- Constraints:
+--
+--     * Must be a value from 0 to 35.
+--
+--
+--     * Can't be set to 0 if the DB instance is a source to read replicas.
+--
+--
+--
+-- /Note:/ Consider using 'backupRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrBackupRetentionPeriod :: Lens.Lens' PromoteReadReplica (Lude.Maybe Lude.Int)
+prrBackupRetentionPeriod = Lens.lens (backupRetentionPeriod :: PromoteReadReplica -> Lude.Maybe Lude.Int) (\s a -> s {backupRetentionPeriod = a} :: PromoteReadReplica)
+{-# DEPRECATED prrBackupRetentionPeriod "Use generic-lens or generic-optics with 'backupRetentionPeriod' instead." #-}
 
--- | The DB instance identifier. This value is stored as a lowercase string. Constraints:     * Must match the identifier of an existing read replica DB instance. Example: @mydbinstance@
-prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
-prrDBInstanceIdentifier = lens _prrDBInstanceIdentifier (\s a -> s {_prrDBInstanceIdentifier = a})
+-- | The DB instance identifier. This value is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing read replica DB instance.
+--
+--
+-- Example: @mydbinstance@
+--
+-- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrDBInstanceIdentifier :: Lens.Lens' PromoteReadReplica Lude.Text
+prrDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: PromoteReadReplica -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: PromoteReadReplica)
+{-# DEPRECATED prrDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
-instance AWSRequest PromoteReadReplica where
+instance Lude.AWSRequest PromoteReadReplica where
   type Rs PromoteReadReplica = PromoteReadReplicaResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "PromoteReadReplicaResult"
       ( \s h x ->
           PromoteReadReplicaResponse'
-            <$> (x .@? "DBInstance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBInstance") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PromoteReadReplica
+instance Lude.ToHeaders PromoteReadReplica where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PromoteReadReplica
+instance Lude.ToPath PromoteReadReplica where
+  toPath = Lude.const "/"
 
-instance ToHeaders PromoteReadReplica where
-  toHeaders = const mempty
-
-instance ToPath PromoteReadReplica where
-  toPath = const "/"
-
-instance ToQuery PromoteReadReplica where
+instance Lude.ToQuery PromoteReadReplica where
   toQuery PromoteReadReplica' {..} =
-    mconcat
-      [ "Action" =: ("PromoteReadReplica" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "PreferredBackupWindow" =: _prrPreferredBackupWindow,
-        "BackupRetentionPeriod" =: _prrBackupRetentionPeriod,
-        "DBInstanceIdentifier" =: _prrDBInstanceIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("PromoteReadReplica" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "PreferredBackupWindow" Lude.=: preferredBackupWindow,
+        "BackupRetentionPeriod" Lude.=: backupRetentionPeriod,
+        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier
       ]
 
--- | /See:/ 'promoteReadReplicaResponse' smart constructor.
+-- | /See:/ 'mkPromoteReadReplicaResponse' smart constructor.
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
-  { _prrrsDBInstance ::
-      !(Maybe DBInstance),
-    _prrrsResponseStatus :: !Int
+  { dbInstance ::
+      Lude.Maybe DBInstance,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PromoteReadReplicaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prrrsDBInstance' - Undocumented member.
---
--- * 'prrrsResponseStatus' - -- | The response status code.
-promoteReadReplicaResponse ::
-  -- | 'prrrsResponseStatus'
-  Int ->
+-- * 'dbInstance' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkPromoteReadReplicaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PromoteReadReplicaResponse
-promoteReadReplicaResponse pResponseStatus_ =
+mkPromoteReadReplicaResponse pResponseStatus_ =
   PromoteReadReplicaResponse'
-    { _prrrsDBInstance = Nothing,
-      _prrrsResponseStatus = pResponseStatus_
+    { dbInstance = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
-prrrsDBInstance = lens _prrrsDBInstance (\s a -> s {_prrrsDBInstance = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dbInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrrsDBInstance :: Lens.Lens' PromoteReadReplicaResponse (Lude.Maybe DBInstance)
+prrrsDBInstance = Lens.lens (dbInstance :: PromoteReadReplicaResponse -> Lude.Maybe DBInstance) (\s a -> s {dbInstance = a} :: PromoteReadReplicaResponse)
+{-# DEPRECATED prrrsDBInstance "Use generic-lens or generic-optics with 'dbInstance' instead." #-}
 
--- | -- | The response status code.
-prrrsResponseStatus :: Lens' PromoteReadReplicaResponse Int
-prrrsResponseStatus = lens _prrrsResponseStatus (\s a -> s {_prrrsResponseStatus = a})
-
-instance NFData PromoteReadReplicaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrrsResponseStatus :: Lens.Lens' PromoteReadReplicaResponse Lude.Int
+prrrsResponseStatus = Lens.lens (responseStatus :: PromoteReadReplicaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PromoteReadReplicaResponse)
+{-# DEPRECATED prrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.StatefulRuleGroup where
+module Network.AWS.FMS.Types.StatefulRuleGroup
+  ( StatefulRuleGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStatefulRuleGroup,
+
+    -- * Lenses
+    srgResourceId,
+    srgRuleGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | AWS Network Firewall stateful rule group, used in a 'NetworkFirewallPolicyDescription' .
 --
---
---
--- /See:/ 'statefulRuleGroup' smart constructor.
+-- /See:/ 'mkStatefulRuleGroup' smart constructor.
 data StatefulRuleGroup = StatefulRuleGroup'
-  { _srgResourceId ::
-      !(Maybe Text),
-    _srgRuleGroupName :: !(Maybe Text)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    ruleGroupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatefulRuleGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srgResourceId' - The resource ID of the rule group.
---
--- * 'srgRuleGroupName' - The name of the rule group.
-statefulRuleGroup ::
+-- * 'resourceId' - The resource ID of the rule group.
+-- * 'ruleGroupName' - The name of the rule group.
+mkStatefulRuleGroup ::
   StatefulRuleGroup
-statefulRuleGroup =
+mkStatefulRuleGroup =
   StatefulRuleGroup'
-    { _srgResourceId = Nothing,
-      _srgRuleGroupName = Nothing
+    { resourceId = Lude.Nothing,
+      ruleGroupName = Lude.Nothing
     }
 
 -- | The resource ID of the rule group.
-srgResourceId :: Lens' StatefulRuleGroup (Maybe Text)
-srgResourceId = lens _srgResourceId (\s a -> s {_srgResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srgResourceId :: Lens.Lens' StatefulRuleGroup (Lude.Maybe Lude.Text)
+srgResourceId = Lens.lens (resourceId :: StatefulRuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: StatefulRuleGroup)
+{-# DEPRECATED srgResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The name of the rule group.
-srgRuleGroupName :: Lens' StatefulRuleGroup (Maybe Text)
-srgRuleGroupName = lens _srgRuleGroupName (\s a -> s {_srgRuleGroupName = a})
+--
+-- /Note:/ Consider using 'ruleGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srgRuleGroupName :: Lens.Lens' StatefulRuleGroup (Lude.Maybe Lude.Text)
+srgRuleGroupName = Lens.lens (ruleGroupName :: StatefulRuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {ruleGroupName = a} :: StatefulRuleGroup)
+{-# DEPRECATED srgRuleGroupName "Use generic-lens or generic-optics with 'ruleGroupName' instead." #-}
 
-instance FromJSON StatefulRuleGroup where
+instance Lude.FromJSON StatefulRuleGroup where
   parseJSON =
-    withObject
+    Lude.withObject
       "StatefulRuleGroup"
       ( \x ->
           StatefulRuleGroup'
-            <$> (x .:? "ResourceId") <*> (x .:? "RuleGroupName")
+            Lude.<$> (x Lude..:? "ResourceId") Lude.<*> (x Lude..:? "RuleGroupName")
       )
-
-instance Hashable StatefulRuleGroup
-
-instance NFData StatefulRuleGroup

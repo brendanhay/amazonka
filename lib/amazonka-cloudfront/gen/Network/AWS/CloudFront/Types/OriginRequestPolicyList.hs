@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginRequestPolicyList where
+module Network.AWS.CloudFront.Types.OriginRequestPolicyList
+  ( OriginRequestPolicyList (..),
+
+    -- * Smart constructor
+    mkOriginRequestPolicyList,
+
+    -- * Lenses
+    orplItems,
+    orplNextMarker,
+    orplMaxItems,
+    orplQuantity,
+  )
+where
 
 import Network.AWS.CloudFront.Types.OriginRequestPolicySummary
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of origin request policies.
 --
---
---
--- /See:/ 'originRequestPolicyList' smart constructor.
+-- /See:/ 'mkOriginRequestPolicyList' smart constructor.
 data OriginRequestPolicyList = OriginRequestPolicyList'
-  { _orplItems ::
-      !(Maybe [OriginRequestPolicySummary]),
-    _orplNextMarker :: !(Maybe Text),
-    _orplMaxItems :: !Int,
-    _orplQuantity :: !Int
+  { items ::
+      Lude.Maybe [OriginRequestPolicySummary],
+    nextMarker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Int,
+    quantity :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginRequestPolicyList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'orplItems' - Contains the origin request policies in the list.
---
--- * 'orplNextMarker' - If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing origin request policies where you left off.
---
--- * 'orplMaxItems' - The maximum number of origin request policies requested.
---
--- * 'orplQuantity' - The total number of origin request policies returned in the response.
-originRequestPolicyList ::
-  -- | 'orplMaxItems'
-  Int ->
-  -- | 'orplQuantity'
-  Int ->
+-- * 'items' - Contains the origin request policies in the list.
+-- * 'maxItems' - The maximum number of origin request policies requested.
+-- * 'nextMarker' - If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing origin request policies where you left off.
+-- * 'quantity' - The total number of origin request policies returned in the response.
+mkOriginRequestPolicyList ::
+  -- | 'maxItems'
+  Lude.Int ->
+  -- | 'quantity'
+  Lude.Int ->
   OriginRequestPolicyList
-originRequestPolicyList pMaxItems_ pQuantity_ =
+mkOriginRequestPolicyList pMaxItems_ pQuantity_ =
   OriginRequestPolicyList'
-    { _orplItems = Nothing,
-      _orplNextMarker = Nothing,
-      _orplMaxItems = pMaxItems_,
-      _orplQuantity = pQuantity_
+    { items = Lude.Nothing,
+      nextMarker = Lude.Nothing,
+      maxItems = pMaxItems_,
+      quantity = pQuantity_
     }
 
 -- | Contains the origin request policies in the list.
-orplItems :: Lens' OriginRequestPolicyList [OriginRequestPolicySummary]
-orplItems = lens _orplItems (\s a -> s {_orplItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orplItems :: Lens.Lens' OriginRequestPolicyList (Lude.Maybe [OriginRequestPolicySummary])
+orplItems = Lens.lens (items :: OriginRequestPolicyList -> Lude.Maybe [OriginRequestPolicySummary]) (\s a -> s {items = a} :: OriginRequestPolicyList)
+{-# DEPRECATED orplItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing origin request policies where you left off.
-orplNextMarker :: Lens' OriginRequestPolicyList (Maybe Text)
-orplNextMarker = lens _orplNextMarker (\s a -> s {_orplNextMarker = a})
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orplNextMarker :: Lens.Lens' OriginRequestPolicyList (Lude.Maybe Lude.Text)
+orplNextMarker = Lens.lens (nextMarker :: OriginRequestPolicyList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: OriginRequestPolicyList)
+{-# DEPRECATED orplNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The maximum number of origin request policies requested.
-orplMaxItems :: Lens' OriginRequestPolicyList Int
-orplMaxItems = lens _orplMaxItems (\s a -> s {_orplMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orplMaxItems :: Lens.Lens' OriginRequestPolicyList Lude.Int
+orplMaxItems = Lens.lens (maxItems :: OriginRequestPolicyList -> Lude.Int) (\s a -> s {maxItems = a} :: OriginRequestPolicyList)
+{-# DEPRECATED orplMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The total number of origin request policies returned in the response.
-orplQuantity :: Lens' OriginRequestPolicyList Int
-orplQuantity = lens _orplQuantity (\s a -> s {_orplQuantity = a})
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orplQuantity :: Lens.Lens' OriginRequestPolicyList Lude.Int
+orplQuantity = Lens.lens (quantity :: OriginRequestPolicyList -> Lude.Int) (\s a -> s {quantity = a} :: OriginRequestPolicyList)
+{-# DEPRECATED orplQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
-instance FromXML OriginRequestPolicyList where
+instance Lude.FromXML OriginRequestPolicyList where
   parseXML x =
     OriginRequestPolicyList'
-      <$> ( x .@? "Items" .!@ mempty
-              >>= may (parseXMLList "OriginRequestPolicySummary")
-          )
-      <*> (x .@? "NextMarker")
-      <*> (x .@ "MaxItems")
-      <*> (x .@ "Quantity")
-
-instance Hashable OriginRequestPolicyList
-
-instance NFData OriginRequestPolicyList
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "OriginRequestPolicySummary")
+               )
+      Lude.<*> (x Lude..@? "NextMarker")
+      Lude.<*> (x Lude..@ "MaxItems")
+      Lude.<*> (x Lude..@ "Quantity")

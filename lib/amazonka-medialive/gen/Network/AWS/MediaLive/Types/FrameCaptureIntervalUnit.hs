@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit where
+module Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit
+  ( FrameCaptureIntervalUnit
+      ( FrameCaptureIntervalUnit',
+        Milliseconds,
+        Seconds
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Frame Capture Interval Unit
-data FrameCaptureIntervalUnit
-  = Milliseconds
-  | Seconds
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FrameCaptureIntervalUnit = FrameCaptureIntervalUnit' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FrameCaptureIntervalUnit where
-  parser =
-    takeLowerText >>= \case
-      "milliseconds" -> pure Milliseconds
-      "seconds" -> pure Seconds
-      e ->
-        fromTextError $
-          "Failure parsing FrameCaptureIntervalUnit from value: '" <> e
-            <> "'. Accepted values: milliseconds, seconds"
+pattern Milliseconds :: FrameCaptureIntervalUnit
+pattern Milliseconds = FrameCaptureIntervalUnit' "MILLISECONDS"
 
-instance ToText FrameCaptureIntervalUnit where
-  toText = \case
-    Milliseconds -> "MILLISECONDS"
-    Seconds -> "SECONDS"
+pattern Seconds :: FrameCaptureIntervalUnit
+pattern Seconds = FrameCaptureIntervalUnit' "SECONDS"
 
-instance Hashable FrameCaptureIntervalUnit
-
-instance NFData FrameCaptureIntervalUnit
-
-instance ToByteString FrameCaptureIntervalUnit
-
-instance ToQuery FrameCaptureIntervalUnit
-
-instance ToHeader FrameCaptureIntervalUnit
-
-instance ToJSON FrameCaptureIntervalUnit where
-  toJSON = toJSONText
-
-instance FromJSON FrameCaptureIntervalUnit where
-  parseJSON = parseJSONText "FrameCaptureIntervalUnit"
+{-# COMPLETE
+  Milliseconds,
+  Seconds,
+  FrameCaptureIntervalUnit'
+  #-}

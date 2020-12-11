@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Undocumented operation.
 module Network.AWS.APIGateway.UpdateDocumentationPart
-  ( -- * Creating a Request
-    updateDocumentationPart,
-    UpdateDocumentationPart,
+  ( -- * Creating a request
+    UpdateDocumentationPart (..),
+    mkUpdateDocumentationPart,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udpPatchOperations,
     udpRestAPIId,
     udpDocumentationPartId,
 
-    -- * Destructuring the Response
-    documentationPart,
-    DocumentationPart,
+    -- * Destructuring the response
+    DocumentationPart (..),
+    mkDocumentationPart,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpLocation,
     dpId,
     dpProperties,
@@ -40,84 +35,95 @@ module Network.AWS.APIGateway.UpdateDocumentationPart
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Updates an existing documentation part of a given API.
 --
---
---
--- /See:/ 'updateDocumentationPart' smart constructor.
+-- /See:/ 'mkUpdateDocumentationPart' smart constructor.
 data UpdateDocumentationPart = UpdateDocumentationPart'
-  { _udpPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _udpRestAPIId :: !Text,
-    _udpDocumentationPartId :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text,
+    documentationPartId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentationPart' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udpPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'udpRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'udpDocumentationPartId' - [Required] The identifier of the to-be-updated documentation part.
-updateDocumentationPart ::
-  -- | 'udpRestAPIId'
-  Text ->
-  -- | 'udpDocumentationPartId'
-  Text ->
+-- * 'documentationPartId' - [Required] The identifier of the to-be-updated documentation part.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkUpdateDocumentationPart ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'documentationPartId'
+  Lude.Text ->
   UpdateDocumentationPart
-updateDocumentationPart pRestAPIId_ pDocumentationPartId_ =
+mkUpdateDocumentationPart pRestAPIId_ pDocumentationPartId_ =
   UpdateDocumentationPart'
-    { _udpPatchOperations = Nothing,
-      _udpRestAPIId = pRestAPIId_,
-      _udpDocumentationPartId = pDocumentationPartId_
+    { patchOperations = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      documentationPartId = pDocumentationPartId_
     }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-udpPatchOperations :: Lens' UpdateDocumentationPart [PatchOperation]
-udpPatchOperations = lens _udpPatchOperations (\s a -> s {_udpPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udpPatchOperations :: Lens.Lens' UpdateDocumentationPart (Lude.Maybe [PatchOperation])
+udpPatchOperations = Lens.lens (patchOperations :: UpdateDocumentationPart -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateDocumentationPart)
+{-# DEPRECATED udpPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-udpRestAPIId :: Lens' UpdateDocumentationPart Text
-udpRestAPIId = lens _udpRestAPIId (\s a -> s {_udpRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udpRestAPIId :: Lens.Lens' UpdateDocumentationPart Lude.Text
+udpRestAPIId = Lens.lens (restAPIId :: UpdateDocumentationPart -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateDocumentationPart)
+{-# DEPRECATED udpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the to-be-updated documentation part.
-udpDocumentationPartId :: Lens' UpdateDocumentationPart Text
-udpDocumentationPartId = lens _udpDocumentationPartId (\s a -> s {_udpDocumentationPartId = a})
+--
+-- /Note:/ Consider using 'documentationPartId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udpDocumentationPartId :: Lens.Lens' UpdateDocumentationPart Lude.Text
+udpDocumentationPartId = Lens.lens (documentationPartId :: UpdateDocumentationPart -> Lude.Text) (\s a -> s {documentationPartId = a} :: UpdateDocumentationPart)
+{-# DEPRECATED udpDocumentationPartId "Use generic-lens or generic-optics with 'documentationPartId' instead." #-}
 
-instance AWSRequest UpdateDocumentationPart where
+instance Lude.AWSRequest UpdateDocumentationPart where
   type Rs UpdateDocumentationPart = DocumentationPart
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateDocumentationPart
-
-instance NFData UpdateDocumentationPart
-
-instance ToHeaders UpdateDocumentationPart where
+instance Lude.ToHeaders UpdateDocumentationPart where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateDocumentationPart where
+instance Lude.ToJSON UpdateDocumentationPart where
   toJSON UpdateDocumentationPart' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _udpPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateDocumentationPart where
+instance Lude.ToPath UpdateDocumentationPart where
   toPath UpdateDocumentationPart' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _udpRestAPIId,
+        Lude.toBS restAPIId,
         "/documentation/parts/",
-        toBS _udpDocumentationPartId
+        Lude.toBS documentationPartId
       ]
 
-instance ToQuery UpdateDocumentationPart where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDocumentationPart where
+  toQuery = Lude.const Lude.mempty

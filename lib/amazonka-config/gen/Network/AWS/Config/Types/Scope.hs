@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.Scope where
+module Network.AWS.Config.Types.Scope
+  ( Scope (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkScope,
+
+    -- * Lenses
+    sComplianceResourceTypes,
+    sComplianceResourceId,
+    sTagValue,
+    sTagKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Defines which resources trigger an evaluation for an AWS Config rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
 --
---
---
--- /See:/ 'scope' smart constructor.
+-- /See:/ 'mkScope' smart constructor.
 data Scope = Scope'
-  { _sComplianceResourceTypes :: !(Maybe [Text]),
-    _sComplianceResourceId :: !(Maybe Text),
-    _sTagValue :: !(Maybe Text),
-    _sTagKey :: !(Maybe Text)
+  { complianceResourceTypes ::
+      Lude.Maybe [Lude.Text],
+    complianceResourceId :: Lude.Maybe Lude.Text,
+    tagValue :: Lude.Maybe Lude.Text,
+    tagKey :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scope' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sComplianceResourceTypes' - The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
---
--- * 'sComplianceResourceId' - The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
---
--- * 'sTagValue' - The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
---
--- * 'sTagKey' - The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
-scope ::
+-- * 'complianceResourceId' - The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
+-- * 'complianceResourceTypes' - The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
+-- * 'tagKey' - The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
+-- * 'tagValue' - The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
+mkScope ::
   Scope
-scope =
+mkScope =
   Scope'
-    { _sComplianceResourceTypes = Nothing,
-      _sComplianceResourceId = Nothing,
-      _sTagValue = Nothing,
-      _sTagKey = Nothing
+    { complianceResourceTypes = Lude.Nothing,
+      complianceResourceId = Lude.Nothing,
+      tagValue = Lude.Nothing,
+      tagKey = Lude.Nothing
     }
 
 -- | The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
-sComplianceResourceTypes :: Lens' Scope [Text]
-sComplianceResourceTypes = lens _sComplianceResourceTypes (\s a -> s {_sComplianceResourceTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'complianceResourceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sComplianceResourceTypes :: Lens.Lens' Scope (Lude.Maybe [Lude.Text])
+sComplianceResourceTypes = Lens.lens (complianceResourceTypes :: Scope -> Lude.Maybe [Lude.Text]) (\s a -> s {complianceResourceTypes = a} :: Scope)
+{-# DEPRECATED sComplianceResourceTypes "Use generic-lens or generic-optics with 'complianceResourceTypes' instead." #-}
 
 -- | The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
-sComplianceResourceId :: Lens' Scope (Maybe Text)
-sComplianceResourceId = lens _sComplianceResourceId (\s a -> s {_sComplianceResourceId = a})
+--
+-- /Note:/ Consider using 'complianceResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sComplianceResourceId :: Lens.Lens' Scope (Lude.Maybe Lude.Text)
+sComplianceResourceId = Lens.lens (complianceResourceId :: Scope -> Lude.Maybe Lude.Text) (\s a -> s {complianceResourceId = a} :: Scope)
+{-# DEPRECATED sComplianceResourceId "Use generic-lens or generic-optics with 'complianceResourceId' instead." #-}
 
 -- | The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
-sTagValue :: Lens' Scope (Maybe Text)
-sTagValue = lens _sTagValue (\s a -> s {_sTagValue = a})
+--
+-- /Note:/ Consider using 'tagValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTagValue :: Lens.Lens' Scope (Lude.Maybe Lude.Text)
+sTagValue = Lens.lens (tagValue :: Scope -> Lude.Maybe Lude.Text) (\s a -> s {tagValue = a} :: Scope)
+{-# DEPRECATED sTagValue "Use generic-lens or generic-optics with 'tagValue' instead." #-}
 
 -- | The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
-sTagKey :: Lens' Scope (Maybe Text)
-sTagKey = lens _sTagKey (\s a -> s {_sTagKey = a})
+--
+-- /Note:/ Consider using 'tagKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTagKey :: Lens.Lens' Scope (Lude.Maybe Lude.Text)
+sTagKey = Lens.lens (tagKey :: Scope -> Lude.Maybe Lude.Text) (\s a -> s {tagKey = a} :: Scope)
+{-# DEPRECATED sTagKey "Use generic-lens or generic-optics with 'tagKey' instead." #-}
 
-instance FromJSON Scope where
+instance Lude.FromJSON Scope where
   parseJSON =
-    withObject
+    Lude.withObject
       "Scope"
       ( \x ->
           Scope'
-            <$> (x .:? "ComplianceResourceTypes" .!= mempty)
-            <*> (x .:? "ComplianceResourceId")
-            <*> (x .:? "TagValue")
-            <*> (x .:? "TagKey")
+            Lude.<$> (x Lude..:? "ComplianceResourceTypes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ComplianceResourceId")
+            Lude.<*> (x Lude..:? "TagValue")
+            Lude.<*> (x Lude..:? "TagKey")
       )
 
-instance Hashable Scope
-
-instance NFData Scope
-
-instance ToJSON Scope where
+instance Lude.ToJSON Scope where
   toJSON Scope' {..} =
-    object
-      ( catMaybes
-          [ ("ComplianceResourceTypes" .=) <$> _sComplianceResourceTypes,
-            ("ComplianceResourceId" .=) <$> _sComplianceResourceId,
-            ("TagValue" .=) <$> _sTagValue,
-            ("TagKey" .=) <$> _sTagKey
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ComplianceResourceTypes" Lude..=)
+              Lude.<$> complianceResourceTypes,
+            ("ComplianceResourceId" Lude..=) Lude.<$> complianceResourceId,
+            ("TagValue" Lude..=) Lude.<$> tagValue,
+            ("TagKey" Lude..=) Lude.<$> tagKey
           ]
       )

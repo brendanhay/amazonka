@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists information about all identity providers for a user pool.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListIdentityProviders
-  ( -- * Creating a Request
-    listIdentityProviders,
-    ListIdentityProviders,
+  ( -- * Creating a request
+    ListIdentityProviders (..),
+    mkListIdentityProviders,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lipNextToken,
     lipMaxResults,
     lipUserPoolId,
 
-    -- * Destructuring the Response
-    listIdentityProvidersResponse,
-    ListIdentityProvidersResponse,
+    -- * Destructuring the response
+    ListIdentityProvidersResponse (..),
+    mkListIdentityProvidersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     liprsNextToken,
     liprsResponseStatus,
     liprsProviders,
@@ -44,143 +37,165 @@ module Network.AWS.CognitoIdentityProvider.ListIdentityProviders
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listIdentityProviders' smart constructor.
+-- | /See:/ 'mkListIdentityProviders' smart constructor.
 data ListIdentityProviders = ListIdentityProviders'
-  { _lipNextToken ::
-      !(Maybe Text),
-    _lipMaxResults :: !(Maybe Nat),
-    _lipUserPoolId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    userPoolId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentityProviders' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lipNextToken' - A pagination token.
---
--- * 'lipMaxResults' - The maximum number of identity providers to return.
---
--- * 'lipUserPoolId' - The user pool ID.
-listIdentityProviders ::
-  -- | 'lipUserPoolId'
-  Text ->
+-- * 'maxResults' - The maximum number of identity providers to return.
+-- * 'nextToken' - A pagination token.
+-- * 'userPoolId' - The user pool ID.
+mkListIdentityProviders ::
+  -- | 'userPoolId'
+  Lude.Text ->
   ListIdentityProviders
-listIdentityProviders pUserPoolId_ =
+mkListIdentityProviders pUserPoolId_ =
   ListIdentityProviders'
-    { _lipNextToken = Nothing,
-      _lipMaxResults = Nothing,
-      _lipUserPoolId = pUserPoolId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      userPoolId = pUserPoolId_
     }
 
 -- | A pagination token.
-lipNextToken :: Lens' ListIdentityProviders (Maybe Text)
-lipNextToken = lens _lipNextToken (\s a -> s {_lipNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipNextToken :: Lens.Lens' ListIdentityProviders (Lude.Maybe Lude.Text)
+lipNextToken = Lens.lens (nextToken :: ListIdentityProviders -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentityProviders)
+{-# DEPRECATED lipNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of identity providers to return.
-lipMaxResults :: Lens' ListIdentityProviders (Maybe Natural)
-lipMaxResults = lens _lipMaxResults (\s a -> s {_lipMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipMaxResults :: Lens.Lens' ListIdentityProviders (Lude.Maybe Lude.Natural)
+lipMaxResults = Lens.lens (maxResults :: ListIdentityProviders -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListIdentityProviders)
+{-# DEPRECATED lipMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The user pool ID.
-lipUserPoolId :: Lens' ListIdentityProviders Text
-lipUserPoolId = lens _lipUserPoolId (\s a -> s {_lipUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lipUserPoolId :: Lens.Lens' ListIdentityProviders Lude.Text
+lipUserPoolId = Lens.lens (userPoolId :: ListIdentityProviders -> Lude.Text) (\s a -> s {userPoolId = a} :: ListIdentityProviders)
+{-# DEPRECATED lipUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSPager ListIdentityProviders where
+instance Page.AWSPager ListIdentityProviders where
   page rq rs
-    | stop (rs ^. liprsNextToken) = Nothing
-    | stop (rs ^. liprsProviders) = Nothing
-    | otherwise = Just $ rq & lipNextToken .~ rs ^. liprsNextToken
+    | Page.stop (rs Lens.^. liprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. liprsProviders) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lipNextToken Lens..~ rs Lens.^. liprsNextToken
 
-instance AWSRequest ListIdentityProviders where
+instance Lude.AWSRequest ListIdentityProviders where
   type Rs ListIdentityProviders = ListIdentityProvidersResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListIdentityProvidersResponse'
-            <$> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "Providers" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "Providers" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListIdentityProviders
-
-instance NFData ListIdentityProviders
-
-instance ToHeaders ListIdentityProviders where
+instance Lude.ToHeaders ListIdentityProviders where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.ListIdentityProviders" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.ListIdentityProviders" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListIdentityProviders where
+instance Lude.ToJSON ListIdentityProviders where
   toJSON ListIdentityProviders' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lipNextToken,
-            ("MaxResults" .=) <$> _lipMaxResults,
-            Just ("UserPoolId" .= _lipUserPoolId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
-instance ToPath ListIdentityProviders where
-  toPath = const "/"
+instance Lude.ToPath ListIdentityProviders where
+  toPath = Lude.const "/"
 
-instance ToQuery ListIdentityProviders where
-  toQuery = const mempty
+instance Lude.ToQuery ListIdentityProviders where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listIdentityProvidersResponse' smart constructor.
+-- | /See:/ 'mkListIdentityProvidersResponse' smart constructor.
 data ListIdentityProvidersResponse = ListIdentityProvidersResponse'
-  { _liprsNextToken ::
-      !(Maybe Text),
-    _liprsResponseStatus :: !Int,
-    _liprsProviders ::
-      ![ProviderDescription]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    providers ::
+      [ProviderDescription]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentityProvidersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liprsNextToken' - A pagination token.
---
--- * 'liprsResponseStatus' - -- | The response status code.
---
--- * 'liprsProviders' - A list of identity provider objects.
-listIdentityProvidersResponse ::
-  -- | 'liprsResponseStatus'
-  Int ->
+-- * 'nextToken' - A pagination token.
+-- * 'providers' - A list of identity provider objects.
+-- * 'responseStatus' - The response status code.
+mkListIdentityProvidersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListIdentityProvidersResponse
-listIdentityProvidersResponse pResponseStatus_ =
+mkListIdentityProvidersResponse pResponseStatus_ =
   ListIdentityProvidersResponse'
-    { _liprsNextToken = Nothing,
-      _liprsResponseStatus = pResponseStatus_,
-      _liprsProviders = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      providers = Lude.mempty
     }
 
 -- | A pagination token.
-liprsNextToken :: Lens' ListIdentityProvidersResponse (Maybe Text)
-liprsNextToken = lens _liprsNextToken (\s a -> s {_liprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liprsNextToken :: Lens.Lens' ListIdentityProvidersResponse (Lude.Maybe Lude.Text)
+liprsNextToken = Lens.lens (nextToken :: ListIdentityProvidersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentityProvidersResponse)
+{-# DEPRECATED liprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-liprsResponseStatus :: Lens' ListIdentityProvidersResponse Int
-liprsResponseStatus = lens _liprsResponseStatus (\s a -> s {_liprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liprsResponseStatus :: Lens.Lens' ListIdentityProvidersResponse Lude.Int
+liprsResponseStatus = Lens.lens (responseStatus :: ListIdentityProvidersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIdentityProvidersResponse)
+{-# DEPRECATED liprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of identity provider objects.
-liprsProviders :: Lens' ListIdentityProvidersResponse [ProviderDescription]
-liprsProviders = lens _liprsProviders (\s a -> s {_liprsProviders = a}) . _Coerce
-
-instance NFData ListIdentityProvidersResponse
+--
+-- /Note:/ Consider using 'providers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liprsProviders :: Lens.Lens' ListIdentityProvidersResponse [ProviderDescription]
+liprsProviders = Lens.lens (providers :: ListIdentityProvidersResponse -> [ProviderDescription]) (\s a -> s {providers = a} :: ListIdentityProvidersResponse)
+{-# DEPRECATED liprsProviders "Use generic-lens or generic-optics with 'providers' instead." #-}

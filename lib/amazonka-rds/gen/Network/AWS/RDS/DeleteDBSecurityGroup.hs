@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,85 +14,120 @@
 --
 -- Deletes a DB security group.
 module Network.AWS.RDS.DeleteDBSecurityGroup
-  ( -- * Creating a Request
-    deleteDBSecurityGroup,
-    DeleteDBSecurityGroup,
+  ( -- * Creating a request
+    DeleteDBSecurityGroup (..),
+    mkDeleteDBSecurityGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddsgDBSecurityGroupName,
 
-    -- * Destructuring the Response
-    deleteDBSecurityGroupResponse,
-    DeleteDBSecurityGroupResponse,
+    -- * Destructuring the response
+    DeleteDBSecurityGroupResponse (..),
+    mkDeleteDBSecurityGroupResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteDBSecurityGroup' smart constructor.
+-- /See:/ 'mkDeleteDBSecurityGroup' smart constructor.
 newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
-  { _ddsgDBSecurityGroupName ::
-      Text
+  { dbSecurityGroupName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBSecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbSecurityGroupName' - The name of the DB security group to delete.
 --
--- * 'ddsgDBSecurityGroupName' - The name of the DB security group to delete. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens     * Must not be "Default"
-deleteDBSecurityGroup ::
-  -- | 'ddsgDBSecurityGroupName'
-  Text ->
+-- Constraints:
+--
+--     * Must be 1 to 255 letters, numbers, or hyphens.
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+--     * Must not be "Default"
+mkDeleteDBSecurityGroup ::
+  -- | 'dbSecurityGroupName'
+  Lude.Text ->
   DeleteDBSecurityGroup
-deleteDBSecurityGroup pDBSecurityGroupName_ =
+mkDeleteDBSecurityGroup pDBSecurityGroupName_ =
   DeleteDBSecurityGroup'
-    { _ddsgDBSecurityGroupName =
+    { dbSecurityGroupName =
         pDBSecurityGroupName_
     }
 
--- | The name of the DB security group to delete. Constraints:     * Must be 1 to 255 letters, numbers, or hyphens.     * First character must be a letter     * Can't end with a hyphen or contain two consecutive hyphens     * Must not be "Default"
-ddsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
-ddsgDBSecurityGroupName = lens _ddsgDBSecurityGroupName (\s a -> s {_ddsgDBSecurityGroupName = a})
+-- | The name of the DB security group to delete.
+--
+-- Constraints:
+--
+--     * Must be 1 to 255 letters, numbers, or hyphens.
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+--     * Must not be "Default"
+--
+--
+--
+-- /Note:/ Consider using 'dbSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsgDBSecurityGroupName :: Lens.Lens' DeleteDBSecurityGroup Lude.Text
+ddsgDBSecurityGroupName = Lens.lens (dbSecurityGroupName :: DeleteDBSecurityGroup -> Lude.Text) (\s a -> s {dbSecurityGroupName = a} :: DeleteDBSecurityGroup)
+{-# DEPRECATED ddsgDBSecurityGroupName "Use generic-lens or generic-optics with 'dbSecurityGroupName' instead." #-}
 
-instance AWSRequest DeleteDBSecurityGroup where
+instance Lude.AWSRequest DeleteDBSecurityGroup where
   type Rs DeleteDBSecurityGroup = DeleteDBSecurityGroupResponse
-  request = postQuery rds
-  response = receiveNull DeleteDBSecurityGroupResponse'
+  request = Req.postQuery rdsService
+  response = Res.receiveNull DeleteDBSecurityGroupResponse'
 
-instance Hashable DeleteDBSecurityGroup
+instance Lude.ToHeaders DeleteDBSecurityGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDBSecurityGroup
+instance Lude.ToPath DeleteDBSecurityGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteDBSecurityGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteDBSecurityGroup where
-  toPath = const "/"
-
-instance ToQuery DeleteDBSecurityGroup where
+instance Lude.ToQuery DeleteDBSecurityGroup where
   toQuery DeleteDBSecurityGroup' {..} =
-    mconcat
-      [ "Action" =: ("DeleteDBSecurityGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DBSecurityGroupName" =: _ddsgDBSecurityGroupName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteDBSecurityGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBSecurityGroupName" Lude.=: dbSecurityGroupName
       ]
 
--- | /See:/ 'deleteDBSecurityGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteDBSecurityGroupResponse' smart constructor.
 data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBSecurityGroupResponse' with the minimum fields required to make a request.
-deleteDBSecurityGroupResponse ::
+mkDeleteDBSecurityGroupResponse ::
   DeleteDBSecurityGroupResponse
-deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse'
-
-instance NFData DeleteDBSecurityGroupResponse
+mkDeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse'

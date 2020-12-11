@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AvailabilityZoneOptInStatus where
+module Network.AWS.EC2.Types.AvailabilityZoneOptInStatus
+  ( AvailabilityZoneOptInStatus
+      ( AvailabilityZoneOptInStatus',
+        AZOISNotOptedIn,
+        AZOISOptInNotRequired,
+        AZOISOptedIn
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AvailabilityZoneOptInStatus
-  = AZOISNotOptedIn
-  | AZOISOptInNotRequired
-  | AZOISOptedIn
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AvailabilityZoneOptInStatus = AvailabilityZoneOptInStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AvailabilityZoneOptInStatus where
-  parser =
-    takeLowerText >>= \case
-      "not-opted-in" -> pure AZOISNotOptedIn
-      "opt-in-not-required" -> pure AZOISOptInNotRequired
-      "opted-in" -> pure AZOISOptedIn
-      e ->
-        fromTextError $
-          "Failure parsing AvailabilityZoneOptInStatus from value: '" <> e
-            <> "'. Accepted values: not-opted-in, opt-in-not-required, opted-in"
+pattern AZOISNotOptedIn :: AvailabilityZoneOptInStatus
+pattern AZOISNotOptedIn = AvailabilityZoneOptInStatus' "not-opted-in"
 
-instance ToText AvailabilityZoneOptInStatus where
-  toText = \case
-    AZOISNotOptedIn -> "not-opted-in"
-    AZOISOptInNotRequired -> "opt-in-not-required"
-    AZOISOptedIn -> "opted-in"
+pattern AZOISOptInNotRequired :: AvailabilityZoneOptInStatus
+pattern AZOISOptInNotRequired = AvailabilityZoneOptInStatus' "opt-in-not-required"
 
-instance Hashable AvailabilityZoneOptInStatus
+pattern AZOISOptedIn :: AvailabilityZoneOptInStatus
+pattern AZOISOptedIn = AvailabilityZoneOptInStatus' "opted-in"
 
-instance NFData AvailabilityZoneOptInStatus
-
-instance ToByteString AvailabilityZoneOptInStatus
-
-instance ToQuery AvailabilityZoneOptInStatus
-
-instance ToHeader AvailabilityZoneOptInStatus
-
-instance FromXML AvailabilityZoneOptInStatus where
-  parseXML = parseXMLText "AvailabilityZoneOptInStatus"
+{-# COMPLETE
+  AZOISNotOptedIn,
+  AZOISOptInNotRequired,
+  AZOISOptedIn,
+  AvailabilityZoneOptInStatus'
+  #-}

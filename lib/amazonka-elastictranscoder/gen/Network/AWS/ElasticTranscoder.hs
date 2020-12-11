@@ -15,8 +15,8 @@
 --
 -- The AWS Elastic Transcoder Service.
 module Network.AWS.ElasticTranscoder
-  ( -- * Service Configuration
-    elasticTranscoder,
+  ( -- * Service configuration
+    elasticTranscoderService,
 
     -- * Errors
     -- $errors
@@ -25,7 +25,7 @@ module Network.AWS.ElasticTranscoder
     -- $waiters
 
     -- ** JobComplete
-    jobComplete,
+    mkJobComplete,
 
     -- * Operations
     -- $operations
@@ -81,8 +81,8 @@ module Network.AWS.ElasticTranscoder
     -- * Types
 
     -- ** Artwork
-    Artwork,
-    artwork,
+    Artwork (..),
+    mkArtwork,
     aSizingPolicy,
     aAlbumArtFormat,
     aMaxHeight,
@@ -92,16 +92,16 @@ module Network.AWS.ElasticTranscoder
     aMaxWidth,
 
     -- ** AudioCodecOptions
-    AudioCodecOptions,
-    audioCodecOptions,
+    AudioCodecOptions (..),
+    mkAudioCodecOptions,
     acoSigned,
     acoBitDepth,
     acoProfile,
     acoBitOrder,
 
     -- ** AudioParameters
-    AudioParameters,
-    audioParameters,
+    AudioParameters (..),
+    mkAudioParameters,
     apChannels,
     apCodec,
     apAudioPackingMode,
@@ -110,15 +110,15 @@ module Network.AWS.ElasticTranscoder
     apCodecOptions,
 
     -- ** CaptionFormat
-    CaptionFormat,
-    captionFormat,
+    CaptionFormat (..),
+    mkCaptionFormat,
     cfPattern,
     cfFormat,
     cfEncryption,
 
     -- ** CaptionSource
-    CaptionSource,
-    captionSource,
+    CaptionSource (..),
+    mkCaptionSource,
     csTimeOffset,
     csEncryption,
     csKey,
@@ -126,20 +126,20 @@ module Network.AWS.ElasticTranscoder
     csLabel,
 
     -- ** Captions
-    Captions,
-    captions,
+    Captions (..),
+    mkCaptions,
     cMergePolicy,
     cCaptionSources,
     cCaptionFormats,
 
     -- ** Clip
-    Clip,
-    clip,
+    Clip (..),
+    mkClip,
     cTimeSpan,
 
     -- ** CreateJobOutput
-    CreateJobOutput,
-    createJobOutput,
+    CreateJobOutput (..),
+    mkCreateJobOutput,
     cjoThumbnailPattern,
     cjoCaptions,
     cjoPresetId,
@@ -153,8 +153,8 @@ module Network.AWS.ElasticTranscoder
     cjoRotate,
 
     -- ** CreateJobPlaylist
-    CreateJobPlaylist,
-    createJobPlaylist,
+    CreateJobPlaylist (..),
+    mkCreateJobPlaylist,
     cjpPlayReadyDrm,
     cjpFormat,
     cjpOutputKeys,
@@ -162,8 +162,8 @@ module Network.AWS.ElasticTranscoder
     cjpHlsContentProtection,
 
     -- ** DetectedProperties
-    DetectedProperties,
-    detectedProperties,
+    DetectedProperties (..),
+    mkDetectedProperties,
     dpHeight,
     dpFrameRate,
     dpFileSize,
@@ -171,16 +171,16 @@ module Network.AWS.ElasticTranscoder
     dpDurationMillis,
 
     -- ** Encryption
-    Encryption,
-    encryption,
+    Encryption (..),
+    mkEncryption,
     eMode,
     eKeyMD5,
     eKey,
     eInitializationVector,
 
     -- ** HlsContentProtection
-    HlsContentProtection,
-    hlsContentProtection,
+    HlsContentProtection (..),
+    mkHlsContentProtection,
     hcpKeyMD5,
     hcpKeyStoragePolicy,
     hcpKey,
@@ -189,14 +189,14 @@ module Network.AWS.ElasticTranscoder
     hcpLicenseAcquisitionURL,
 
     -- ** InputCaptions
-    InputCaptions,
-    inputCaptions,
+    InputCaptions (..),
+    mkInputCaptions,
     icMergePolicy,
     icCaptionSources,
 
     -- ** Job'
-    Job',
-    job',
+    Job' (..),
+    mkJob',
     jStatus,
     jPipelineId,
     jARN,
@@ -211,14 +211,14 @@ module Network.AWS.ElasticTranscoder
     jTiming,
 
     -- ** JobAlbumArt
-    JobAlbumArt,
-    jobAlbumArt,
+    JobAlbumArt (..),
+    mkJobAlbumArt,
     jaaMergePolicy,
     jaaArtwork,
 
     -- ** JobInput
-    JobInput,
-    jobInput,
+    JobInput (..),
+    mkJobInput,
     jiFrameRate,
     jiResolution,
     jiAspectRatio,
@@ -231,8 +231,8 @@ module Network.AWS.ElasticTranscoder
     jiInputCaptions,
 
     -- ** JobOutput
-    JobOutput,
-    jobOutput,
+    JobOutput (..),
+    mkJobOutput,
     joAppliedColorSpaceConversion,
     joThumbnailPattern,
     joStatus,
@@ -256,30 +256,30 @@ module Network.AWS.ElasticTranscoder
     joRotate,
 
     -- ** JobWatermark
-    JobWatermark,
-    jobWatermark,
+    JobWatermark (..),
+    mkJobWatermark,
     jwPresetWatermarkId,
     jwInputKey,
     jwEncryption,
 
     -- ** Notifications
-    Notifications,
-    notifications,
+    Notifications (..),
+    mkNotifications,
     nError,
     nWarning,
     nProgressing,
     nCompleted,
 
     -- ** Permission
-    Permission,
-    permission,
+    Permission (..),
+    mkPermission,
     pAccess,
     pGranteeType,
     pGrantee,
 
     -- ** Pipeline
-    Pipeline,
-    pipeline,
+    Pipeline (..),
+    mkPipeline,
     pipStatus,
     pipARN,
     pipInputBucket,
@@ -293,15 +293,15 @@ module Network.AWS.ElasticTranscoder
     pipThumbnailConfig,
 
     -- ** PipelineOutputConfig
-    PipelineOutputConfig,
-    pipelineOutputConfig,
+    PipelineOutputConfig (..),
+    mkPipelineOutputConfig,
     pocBucket,
     pocStorageClass,
     pocPermissions,
 
     -- ** PlayReadyDrm
-    PlayReadyDrm,
-    playReadyDrm,
+    PlayReadyDrm (..),
+    mkPlayReadyDrm,
     prdKeyId,
     prdFormat,
     prdKeyMD5,
@@ -310,8 +310,8 @@ module Network.AWS.ElasticTranscoder
     prdLicenseAcquisitionURL,
 
     -- ** Playlist
-    Playlist,
-    playlist,
+    Playlist (..),
+    mkPlaylist,
     pStatus,
     pPlayReadyDrm,
     pFormat,
@@ -321,8 +321,8 @@ module Network.AWS.ElasticTranscoder
     pHlsContentProtection,
 
     -- ** Preset
-    Preset,
-    preset,
+    Preset (..),
+    mkPreset,
     preARN,
     preVideo,
     preThumbnails,
@@ -334,8 +334,8 @@ module Network.AWS.ElasticTranscoder
     preAudio,
 
     -- ** PresetWatermark
-    PresetWatermark,
-    presetWatermark,
+    PresetWatermark (..),
+    mkPresetWatermark,
     pwVerticalAlign,
     pwSizingPolicy,
     pwHorizontalOffset,
@@ -348,8 +348,8 @@ module Network.AWS.ElasticTranscoder
     pwTarget,
 
     -- ** Thumbnails
-    Thumbnails,
-    thumbnails,
+    Thumbnails (..),
+    mkThumbnails,
     tSizingPolicy,
     tFormat,
     tMaxHeight,
@@ -360,21 +360,21 @@ module Network.AWS.ElasticTranscoder
     tMaxWidth,
 
     -- ** TimeSpan
-    TimeSpan,
-    timeSpan,
+    TimeSpan (..),
+    mkTimeSpan,
     tsStartTime,
     tsDuration,
 
     -- ** Timing
-    Timing,
-    timing,
+    Timing (..),
+    mkTiming,
     tSubmitTimeMillis,
     tFinishTimeMillis,
     tStartTimeMillis,
 
     -- ** VideoParameters
-    VideoParameters,
-    videoParameters,
+    VideoParameters (..),
+    mkVideoParameters,
     vpKeyframesMaxDist,
     vpFrameRate,
     vpSizingPolicy,
@@ -392,10 +392,21 @@ module Network.AWS.ElasticTranscoder
     vpCodecOptions,
 
     -- ** Warning
-    Warning,
-    warning,
+    Warning (..),
+    mkWarning,
     wCode,
     wMessage,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -417,6 +428,7 @@ import Network.AWS.ElasticTranscoder.UpdatePipeline
 import Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
 import Network.AWS.ElasticTranscoder.UpdatePipelineStatus
 import Network.AWS.ElasticTranscoder.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,124 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary where
+module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary
+  ( ProvisionedProductPlanSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisionedProductPlanSummary,
+
+    -- * Lenses
+    pppsProvisionProductId,
+    pppsProvisioningArtifactId,
+    pppsProvisionProductName,
+    pppsPlanId,
+    pppsPlanName,
+    pppsPlanType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType
 
 -- | Summary information about a plan.
 --
---
---
--- /See:/ 'provisionedProductPlanSummary' smart constructor.
+-- /See:/ 'mkProvisionedProductPlanSummary' smart constructor.
 data ProvisionedProductPlanSummary = ProvisionedProductPlanSummary'
-  { _pppsProvisionProductId ::
-      !(Maybe Text),
-    _pppsProvisioningArtifactId ::
-      !(Maybe Text),
-    _pppsProvisionProductName ::
-      !(Maybe Text),
-    _pppsPlanId :: !(Maybe Text),
-    _pppsPlanName :: !(Maybe Text),
-    _pppsPlanType ::
-      !( Maybe
-           ProvisionedProductPlanType
-       )
+  { provisionProductId ::
+      Lude.Maybe Lude.Text,
+    provisioningArtifactId ::
+      Lude.Maybe Lude.Text,
+    provisionProductName ::
+      Lude.Maybe Lude.Text,
+    planId :: Lude.Maybe Lude.Text,
+    planName ::
+      Lude.Maybe Lude.Text,
+    planType ::
+      Lude.Maybe
+        ProvisionedProductPlanType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedProductPlanSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pppsProvisionProductId' - The product identifier.
---
--- * 'pppsProvisioningArtifactId' - The identifier of the provisioning artifact.
---
--- * 'pppsProvisionProductName' - The user-friendly name of the provisioned product.
---
--- * 'pppsPlanId' - The plan identifier.
---
--- * 'pppsPlanName' - The name of the plan.
---
--- * 'pppsPlanType' - The plan type.
-provisionedProductPlanSummary ::
+-- * 'planId' - The plan identifier.
+-- * 'planName' - The name of the plan.
+-- * 'planType' - The plan type.
+-- * 'provisionProductId' - The product identifier.
+-- * 'provisionProductName' - The user-friendly name of the provisioned product.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+mkProvisionedProductPlanSummary ::
   ProvisionedProductPlanSummary
-provisionedProductPlanSummary =
+mkProvisionedProductPlanSummary =
   ProvisionedProductPlanSummary'
-    { _pppsProvisionProductId = Nothing,
-      _pppsProvisioningArtifactId = Nothing,
-      _pppsProvisionProductName = Nothing,
-      _pppsPlanId = Nothing,
-      _pppsPlanName = Nothing,
-      _pppsPlanType = Nothing
+    { provisionProductId = Lude.Nothing,
+      provisioningArtifactId = Lude.Nothing,
+      provisionProductName = Lude.Nothing,
+      planId = Lude.Nothing,
+      planName = Lude.Nothing,
+      planType = Lude.Nothing
     }
 
 -- | The product identifier.
-pppsProvisionProductId :: Lens' ProvisionedProductPlanSummary (Maybe Text)
-pppsProvisionProductId = lens _pppsProvisionProductId (\s a -> s {_pppsProvisionProductId = a})
+--
+-- /Note:/ Consider using 'provisionProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppsProvisionProductId :: Lens.Lens' ProvisionedProductPlanSummary (Lude.Maybe Lude.Text)
+pppsProvisionProductId = Lens.lens (provisionProductId :: ProvisionedProductPlanSummary -> Lude.Maybe Lude.Text) (\s a -> s {provisionProductId = a} :: ProvisionedProductPlanSummary)
+{-# DEPRECATED pppsProvisionProductId "Use generic-lens or generic-optics with 'provisionProductId' instead." #-}
 
 -- | The identifier of the provisioning artifact.
-pppsProvisioningArtifactId :: Lens' ProvisionedProductPlanSummary (Maybe Text)
-pppsProvisioningArtifactId = lens _pppsProvisioningArtifactId (\s a -> s {_pppsProvisioningArtifactId = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppsProvisioningArtifactId :: Lens.Lens' ProvisionedProductPlanSummary (Lude.Maybe Lude.Text)
+pppsProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ProvisionedProductPlanSummary -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ProvisionedProductPlanSummary)
+{-# DEPRECATED pppsProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The user-friendly name of the provisioned product.
-pppsProvisionProductName :: Lens' ProvisionedProductPlanSummary (Maybe Text)
-pppsProvisionProductName = lens _pppsProvisionProductName (\s a -> s {_pppsProvisionProductName = a})
+--
+-- /Note:/ Consider using 'provisionProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppsProvisionProductName :: Lens.Lens' ProvisionedProductPlanSummary (Lude.Maybe Lude.Text)
+pppsProvisionProductName = Lens.lens (provisionProductName :: ProvisionedProductPlanSummary -> Lude.Maybe Lude.Text) (\s a -> s {provisionProductName = a} :: ProvisionedProductPlanSummary)
+{-# DEPRECATED pppsProvisionProductName "Use generic-lens or generic-optics with 'provisionProductName' instead." #-}
 
 -- | The plan identifier.
-pppsPlanId :: Lens' ProvisionedProductPlanSummary (Maybe Text)
-pppsPlanId = lens _pppsPlanId (\s a -> s {_pppsPlanId = a})
+--
+-- /Note:/ Consider using 'planId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppsPlanId :: Lens.Lens' ProvisionedProductPlanSummary (Lude.Maybe Lude.Text)
+pppsPlanId = Lens.lens (planId :: ProvisionedProductPlanSummary -> Lude.Maybe Lude.Text) (\s a -> s {planId = a} :: ProvisionedProductPlanSummary)
+{-# DEPRECATED pppsPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
 
 -- | The name of the plan.
-pppsPlanName :: Lens' ProvisionedProductPlanSummary (Maybe Text)
-pppsPlanName = lens _pppsPlanName (\s a -> s {_pppsPlanName = a})
+--
+-- /Note:/ Consider using 'planName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppsPlanName :: Lens.Lens' ProvisionedProductPlanSummary (Lude.Maybe Lude.Text)
+pppsPlanName = Lens.lens (planName :: ProvisionedProductPlanSummary -> Lude.Maybe Lude.Text) (\s a -> s {planName = a} :: ProvisionedProductPlanSummary)
+{-# DEPRECATED pppsPlanName "Use generic-lens or generic-optics with 'planName' instead." #-}
 
 -- | The plan type.
-pppsPlanType :: Lens' ProvisionedProductPlanSummary (Maybe ProvisionedProductPlanType)
-pppsPlanType = lens _pppsPlanType (\s a -> s {_pppsPlanType = a})
+--
+-- /Note:/ Consider using 'planType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppsPlanType :: Lens.Lens' ProvisionedProductPlanSummary (Lude.Maybe ProvisionedProductPlanType)
+pppsPlanType = Lens.lens (planType :: ProvisionedProductPlanSummary -> Lude.Maybe ProvisionedProductPlanType) (\s a -> s {planType = a} :: ProvisionedProductPlanSummary)
+{-# DEPRECATED pppsPlanType "Use generic-lens or generic-optics with 'planType' instead." #-}
 
-instance FromJSON ProvisionedProductPlanSummary where
+instance Lude.FromJSON ProvisionedProductPlanSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisionedProductPlanSummary"
       ( \x ->
           ProvisionedProductPlanSummary'
-            <$> (x .:? "ProvisionProductId")
-            <*> (x .:? "ProvisioningArtifactId")
-            <*> (x .:? "ProvisionProductName")
-            <*> (x .:? "PlanId")
-            <*> (x .:? "PlanName")
-            <*> (x .:? "PlanType")
+            Lude.<$> (x Lude..:? "ProvisionProductId")
+            Lude.<*> (x Lude..:? "ProvisioningArtifactId")
+            Lude.<*> (x Lude..:? "ProvisionProductName")
+            Lude.<*> (x Lude..:? "PlanId")
+            Lude.<*> (x Lude..:? "PlanName")
+            Lude.<*> (x Lude..:? "PlanType")
       )
-
-instance Hashable ProvisionedProductPlanSummary
-
-instance NFData ProvisionedProductPlanSummary

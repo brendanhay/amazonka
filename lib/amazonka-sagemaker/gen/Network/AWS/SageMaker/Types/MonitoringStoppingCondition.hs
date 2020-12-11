@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringStoppingCondition where
+module Network.AWS.SageMaker.Types.MonitoringStoppingCondition
+  ( MonitoringStoppingCondition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMonitoringStoppingCondition,
+
+    -- * Lenses
+    mscMaxRuntimeInSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A time limit for how long the monitoring job is allowed to run before stopping.
 --
---
---
--- /See:/ 'monitoringStoppingCondition' smart constructor.
+-- /See:/ 'mkMonitoringStoppingCondition' smart constructor.
 newtype MonitoringStoppingCondition = MonitoringStoppingCondition'
-  { _mscMaxRuntimeInSeconds ::
-      Nat
+  { maxRuntimeInSeconds ::
+      Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringStoppingCondition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mscMaxRuntimeInSeconds' - The maximum runtime allowed in seconds.
-monitoringStoppingCondition ::
-  -- | 'mscMaxRuntimeInSeconds'
-  Natural ->
+-- * 'maxRuntimeInSeconds' - The maximum runtime allowed in seconds.
+mkMonitoringStoppingCondition ::
+  -- | 'maxRuntimeInSeconds'
+  Lude.Natural ->
   MonitoringStoppingCondition
-monitoringStoppingCondition pMaxRuntimeInSeconds_ =
+mkMonitoringStoppingCondition pMaxRuntimeInSeconds_ =
   MonitoringStoppingCondition'
-    { _mscMaxRuntimeInSeconds =
-        _Nat # pMaxRuntimeInSeconds_
+    { maxRuntimeInSeconds =
+        pMaxRuntimeInSeconds_
     }
 
 -- | The maximum runtime allowed in seconds.
-mscMaxRuntimeInSeconds :: Lens' MonitoringStoppingCondition Natural
-mscMaxRuntimeInSeconds = lens _mscMaxRuntimeInSeconds (\s a -> s {_mscMaxRuntimeInSeconds = a}) . _Nat
+--
+-- /Note:/ Consider using 'maxRuntimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mscMaxRuntimeInSeconds :: Lens.Lens' MonitoringStoppingCondition Lude.Natural
+mscMaxRuntimeInSeconds = Lens.lens (maxRuntimeInSeconds :: MonitoringStoppingCondition -> Lude.Natural) (\s a -> s {maxRuntimeInSeconds = a} :: MonitoringStoppingCondition)
+{-# DEPRECATED mscMaxRuntimeInSeconds "Use generic-lens or generic-optics with 'maxRuntimeInSeconds' instead." #-}
 
-instance FromJSON MonitoringStoppingCondition where
+instance Lude.FromJSON MonitoringStoppingCondition where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonitoringStoppingCondition"
       ( \x ->
-          MonitoringStoppingCondition' <$> (x .: "MaxRuntimeInSeconds")
+          MonitoringStoppingCondition'
+            Lude.<$> (x Lude..: "MaxRuntimeInSeconds")
       )
 
-instance Hashable MonitoringStoppingCondition
-
-instance NFData MonitoringStoppingCondition
-
-instance ToJSON MonitoringStoppingCondition where
+instance Lude.ToJSON MonitoringStoppingCondition where
   toJSON MonitoringStoppingCondition' {..} =
-    object
-      ( catMaybes
-          [Just ("MaxRuntimeInSeconds" .= _mscMaxRuntimeInSeconds)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("MaxRuntimeInSeconds" Lude..= maxRuntimeInSeconds)]
       )

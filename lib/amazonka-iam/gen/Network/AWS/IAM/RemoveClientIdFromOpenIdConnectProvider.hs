@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,121 @@
 --
 -- Removes the specified client ID (also known as audience) from the list of client IDs registered for the specified IAM OpenID Connect (OIDC) provider resource object.
 --
---
 -- This operation is idempotent; it does not fail or return an error if you try to remove a client ID that does not exist.
 module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
-  ( -- * Creating a Request
-    removeClientIdFromOpenIdConnectProvider,
-    RemoveClientIdFromOpenIdConnectProvider,
+  ( -- * Creating a request
+    RemoveClientIdFromOpenIdConnectProvider (..),
+    mkRemoveClientIdFromOpenIdConnectProvider,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rcifoicpOpenIdConnectProviderARN,
     rcifoicpClientId,
 
-    -- * Destructuring the Response
-    removeClientIdFromOpenIdConnectProviderResponse,
-    RemoveClientIdFromOpenIdConnectProviderResponse,
+    -- * Destructuring the response
+    RemoveClientIdFromOpenIdConnectProviderResponse (..),
+    mkRemoveClientIdFromOpenIdConnectProviderResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'removeClientIdFromOpenIdConnectProvider' smart constructor.
+-- | /See:/ 'mkRemoveClientIdFromOpenIdConnectProvider' smart constructor.
 data RemoveClientIdFromOpenIdConnectProvider = RemoveClientIdFromOpenIdConnectProvider'
-  { _rcifoicpOpenIdConnectProviderARN ::
-      !Text,
-    _rcifoicpClientId ::
-      !Text
+  { openIdConnectProviderARN ::
+      Lude.Text,
+    clientId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveClientIdFromOpenIdConnectProvider' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientId' - The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see 'CreateOpenIDConnectProvider' .
+-- * 'openIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
 --
--- * 'rcifoicpOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- * 'rcifoicpClientId' - The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see 'CreateOpenIDConnectProvider' .
-removeClientIdFromOpenIdConnectProvider ::
-  -- | 'rcifoicpOpenIdConnectProviderARN'
-  Text ->
-  -- | 'rcifoicpClientId'
-  Text ->
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+mkRemoveClientIdFromOpenIdConnectProvider ::
+  -- | 'openIdConnectProviderARN'
+  Lude.Text ->
+  -- | 'clientId'
+  Lude.Text ->
   RemoveClientIdFromOpenIdConnectProvider
-removeClientIdFromOpenIdConnectProvider
+mkRemoveClientIdFromOpenIdConnectProvider
   pOpenIdConnectProviderARN_
   pClientId_ =
     RemoveClientIdFromOpenIdConnectProvider'
-      { _rcifoicpOpenIdConnectProviderARN =
+      { openIdConnectProviderARN =
           pOpenIdConnectProviderARN_,
-        _rcifoicpClientId = pClientId_
+        clientId = pClientId_
       }
 
--- | The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-rcifoicpOpenIdConnectProviderARN :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
-rcifoicpOpenIdConnectProviderARN = lens _rcifoicpOpenIdConnectProviderARN (\s a -> s {_rcifoicpOpenIdConnectProviderARN = a})
+-- | The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'openIdConnectProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcifoicpOpenIdConnectProviderARN :: Lens.Lens' RemoveClientIdFromOpenIdConnectProvider Lude.Text
+rcifoicpOpenIdConnectProviderARN = Lens.lens (openIdConnectProviderARN :: RemoveClientIdFromOpenIdConnectProvider -> Lude.Text) (\s a -> s {openIdConnectProviderARN = a} :: RemoveClientIdFromOpenIdConnectProvider)
+{-# DEPRECATED rcifoicpOpenIdConnectProviderARN "Use generic-lens or generic-optics with 'openIdConnectProviderARN' instead." #-}
 
 -- | The client ID (also known as audience) to remove from the IAM OIDC provider resource. For more information about client IDs, see 'CreateOpenIDConnectProvider' .
-rcifoicpClientId :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
-rcifoicpClientId = lens _rcifoicpClientId (\s a -> s {_rcifoicpClientId = a})
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcifoicpClientId :: Lens.Lens' RemoveClientIdFromOpenIdConnectProvider Lude.Text
+rcifoicpClientId = Lens.lens (clientId :: RemoveClientIdFromOpenIdConnectProvider -> Lude.Text) (\s a -> s {clientId = a} :: RemoveClientIdFromOpenIdConnectProvider)
+{-# DEPRECATED rcifoicpClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
-instance AWSRequest RemoveClientIdFromOpenIdConnectProvider where
+instance Lude.AWSRequest RemoveClientIdFromOpenIdConnectProvider where
   type
     Rs RemoveClientIdFromOpenIdConnectProvider =
       RemoveClientIdFromOpenIdConnectProviderResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveNull RemoveClientIdFromOpenIdConnectProviderResponse'
+    Res.receiveNull RemoveClientIdFromOpenIdConnectProviderResponse'
 
-instance Hashable RemoveClientIdFromOpenIdConnectProvider
+instance Lude.ToHeaders RemoveClientIdFromOpenIdConnectProvider where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData RemoveClientIdFromOpenIdConnectProvider
+instance Lude.ToPath RemoveClientIdFromOpenIdConnectProvider where
+  toPath = Lude.const "/"
 
-instance ToHeaders RemoveClientIdFromOpenIdConnectProvider where
-  toHeaders = const mempty
-
-instance ToPath RemoveClientIdFromOpenIdConnectProvider where
-  toPath = const "/"
-
-instance ToQuery RemoveClientIdFromOpenIdConnectProvider where
+instance Lude.ToQuery RemoveClientIdFromOpenIdConnectProvider where
   toQuery RemoveClientIdFromOpenIdConnectProvider' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("RemoveClientIDFromOpenIDConnectProvider" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "OpenIDConnectProviderArn" =: _rcifoicpOpenIdConnectProviderARN,
-        "ClientID" =: _rcifoicpClientId
+          Lude.=: ("RemoveClientIDFromOpenIDConnectProvider" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "OpenIDConnectProviderArn" Lude.=: openIdConnectProviderARN,
+        "ClientID" Lude.=: clientId
       ]
 
--- | /See:/ 'removeClientIdFromOpenIdConnectProviderResponse' smart constructor.
+-- | /See:/ 'mkRemoveClientIdFromOpenIdConnectProviderResponse' smart constructor.
 data RemoveClientIdFromOpenIdConnectProviderResponse = RemoveClientIdFromOpenIdConnectProviderResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'RemoveClientIdFromOpenIdConnectProviderResponse' with the minimum fields required to make a request.
-removeClientIdFromOpenIdConnectProviderResponse ::
+mkRemoveClientIdFromOpenIdConnectProviderResponse ::
   RemoveClientIdFromOpenIdConnectProviderResponse
-removeClientIdFromOpenIdConnectProviderResponse =
+mkRemoveClientIdFromOpenIdConnectProviderResponse =
   RemoveClientIdFromOpenIdConnectProviderResponse'
-
-instance NFData RemoveClientIdFromOpenIdConnectProviderResponse

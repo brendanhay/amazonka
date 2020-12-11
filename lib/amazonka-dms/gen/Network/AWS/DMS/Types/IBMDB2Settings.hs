@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,125 +7,151 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.IBMDB2Settings where
+module Network.AWS.DMS.Types.IBMDB2Settings
+  ( IBMDB2Settings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIBMDB2Settings,
+
+    -- * Lenses
+    ibmdsServerName,
+    ibmdsCurrentLsn,
+    ibmdsSetDataCaptureChanges,
+    ibmdsUsername,
+    ibmdsPassword,
+    ibmdsDatabaseName,
+    ibmdsMaxKBytesPerRead,
+    ibmdsPort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information that defines an IBM Db2 LUW endpoint.
 --
---
---
--- /See:/ 'iBMDB2Settings' smart constructor.
+-- /See:/ 'mkIBMDB2Settings' smart constructor.
 data IBMDB2Settings = IBMDB2Settings'
-  { _ibmdsServerName ::
-      !(Maybe Text),
-    _ibmdsCurrentLsn :: !(Maybe Text),
-    _ibmdsSetDataCaptureChanges :: !(Maybe Bool),
-    _ibmdsUsername :: !(Maybe Text),
-    _ibmdsPassword :: !(Maybe (Sensitive Text)),
-    _ibmdsDatabaseName :: !(Maybe Text),
-    _ibmdsMaxKBytesPerRead :: !(Maybe Int),
-    _ibmdsPort :: !(Maybe Int)
+  { serverName ::
+      Lude.Maybe Lude.Text,
+    currentLsn :: Lude.Maybe Lude.Text,
+    setDataCaptureChanges :: Lude.Maybe Lude.Bool,
+    username :: Lude.Maybe Lude.Text,
+    password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    databaseName :: Lude.Maybe Lude.Text,
+    maxKBytesPerRead :: Lude.Maybe Lude.Int,
+    port :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IBMDB2Settings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ibmdsServerName' - Fully qualified domain name of the endpoint.
---
--- * 'ibmdsCurrentLsn' - For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
---
--- * 'ibmdsSetDataCaptureChanges' - Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
---
--- * 'ibmdsUsername' - Endpoint connection user name.
---
--- * 'ibmdsPassword' - Endpoint connection password.
---
--- * 'ibmdsDatabaseName' - Database name for the endpoint.
---
--- * 'ibmdsMaxKBytesPerRead' - Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
---
--- * 'ibmdsPort' - Endpoint TCP port.
-iBMDB2Settings ::
+-- * 'currentLsn' - For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
+-- * 'databaseName' - Database name for the endpoint.
+-- * 'maxKBytesPerRead' - Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
+-- * 'password' - Endpoint connection password.
+-- * 'port' - Endpoint TCP port.
+-- * 'serverName' - Fully qualified domain name of the endpoint.
+-- * 'setDataCaptureChanges' - Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
+-- * 'username' - Endpoint connection user name.
+mkIBMDB2Settings ::
   IBMDB2Settings
-iBMDB2Settings =
+mkIBMDB2Settings =
   IBMDB2Settings'
-    { _ibmdsServerName = Nothing,
-      _ibmdsCurrentLsn = Nothing,
-      _ibmdsSetDataCaptureChanges = Nothing,
-      _ibmdsUsername = Nothing,
-      _ibmdsPassword = Nothing,
-      _ibmdsDatabaseName = Nothing,
-      _ibmdsMaxKBytesPerRead = Nothing,
-      _ibmdsPort = Nothing
+    { serverName = Lude.Nothing,
+      currentLsn = Lude.Nothing,
+      setDataCaptureChanges = Lude.Nothing,
+      username = Lude.Nothing,
+      password = Lude.Nothing,
+      databaseName = Lude.Nothing,
+      maxKBytesPerRead = Lude.Nothing,
+      port = Lude.Nothing
     }
 
 -- | Fully qualified domain name of the endpoint.
-ibmdsServerName :: Lens' IBMDB2Settings (Maybe Text)
-ibmdsServerName = lens _ibmdsServerName (\s a -> s {_ibmdsServerName = a})
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibmdsServerName :: Lens.Lens' IBMDB2Settings (Lude.Maybe Lude.Text)
+ibmdsServerName = Lens.lens (serverName :: IBMDB2Settings -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: IBMDB2Settings)
+{-# DEPRECATED ibmdsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
-ibmdsCurrentLsn :: Lens' IBMDB2Settings (Maybe Text)
-ibmdsCurrentLsn = lens _ibmdsCurrentLsn (\s a -> s {_ibmdsCurrentLsn = a})
+--
+-- /Note:/ Consider using 'currentLsn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibmdsCurrentLsn :: Lens.Lens' IBMDB2Settings (Lude.Maybe Lude.Text)
+ibmdsCurrentLsn = Lens.lens (currentLsn :: IBMDB2Settings -> Lude.Maybe Lude.Text) (\s a -> s {currentLsn = a} :: IBMDB2Settings)
+{-# DEPRECATED ibmdsCurrentLsn "Use generic-lens or generic-optics with 'currentLsn' instead." #-}
 
 -- | Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
-ibmdsSetDataCaptureChanges :: Lens' IBMDB2Settings (Maybe Bool)
-ibmdsSetDataCaptureChanges = lens _ibmdsSetDataCaptureChanges (\s a -> s {_ibmdsSetDataCaptureChanges = a})
+--
+-- /Note:/ Consider using 'setDataCaptureChanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibmdsSetDataCaptureChanges :: Lens.Lens' IBMDB2Settings (Lude.Maybe Lude.Bool)
+ibmdsSetDataCaptureChanges = Lens.lens (setDataCaptureChanges :: IBMDB2Settings -> Lude.Maybe Lude.Bool) (\s a -> s {setDataCaptureChanges = a} :: IBMDB2Settings)
+{-# DEPRECATED ibmdsSetDataCaptureChanges "Use generic-lens or generic-optics with 'setDataCaptureChanges' instead." #-}
 
 -- | Endpoint connection user name.
-ibmdsUsername :: Lens' IBMDB2Settings (Maybe Text)
-ibmdsUsername = lens _ibmdsUsername (\s a -> s {_ibmdsUsername = a})
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibmdsUsername :: Lens.Lens' IBMDB2Settings (Lude.Maybe Lude.Text)
+ibmdsUsername = Lens.lens (username :: IBMDB2Settings -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: IBMDB2Settings)
+{-# DEPRECATED ibmdsUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | Endpoint connection password.
-ibmdsPassword :: Lens' IBMDB2Settings (Maybe Text)
-ibmdsPassword = lens _ibmdsPassword (\s a -> s {_ibmdsPassword = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibmdsPassword :: Lens.Lens' IBMDB2Settings (Lude.Maybe (Lude.Sensitive Lude.Text))
+ibmdsPassword = Lens.lens (password :: IBMDB2Settings -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {password = a} :: IBMDB2Settings)
+{-# DEPRECATED ibmdsPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | Database name for the endpoint.
-ibmdsDatabaseName :: Lens' IBMDB2Settings (Maybe Text)
-ibmdsDatabaseName = lens _ibmdsDatabaseName (\s a -> s {_ibmdsDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibmdsDatabaseName :: Lens.Lens' IBMDB2Settings (Lude.Maybe Lude.Text)
+ibmdsDatabaseName = Lens.lens (databaseName :: IBMDB2Settings -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: IBMDB2Settings)
+{-# DEPRECATED ibmdsDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
-ibmdsMaxKBytesPerRead :: Lens' IBMDB2Settings (Maybe Int)
-ibmdsMaxKBytesPerRead = lens _ibmdsMaxKBytesPerRead (\s a -> s {_ibmdsMaxKBytesPerRead = a})
+--
+-- /Note:/ Consider using 'maxKBytesPerRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibmdsMaxKBytesPerRead :: Lens.Lens' IBMDB2Settings (Lude.Maybe Lude.Int)
+ibmdsMaxKBytesPerRead = Lens.lens (maxKBytesPerRead :: IBMDB2Settings -> Lude.Maybe Lude.Int) (\s a -> s {maxKBytesPerRead = a} :: IBMDB2Settings)
+{-# DEPRECATED ibmdsMaxKBytesPerRead "Use generic-lens or generic-optics with 'maxKBytesPerRead' instead." #-}
 
 -- | Endpoint TCP port.
-ibmdsPort :: Lens' IBMDB2Settings (Maybe Int)
-ibmdsPort = lens _ibmdsPort (\s a -> s {_ibmdsPort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibmdsPort :: Lens.Lens' IBMDB2Settings (Lude.Maybe Lude.Int)
+ibmdsPort = Lens.lens (port :: IBMDB2Settings -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: IBMDB2Settings)
+{-# DEPRECATED ibmdsPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromJSON IBMDB2Settings where
+instance Lude.FromJSON IBMDB2Settings where
   parseJSON =
-    withObject
+    Lude.withObject
       "IBMDB2Settings"
       ( \x ->
           IBMDB2Settings'
-            <$> (x .:? "ServerName")
-            <*> (x .:? "CurrentLsn")
-            <*> (x .:? "SetDataCaptureChanges")
-            <*> (x .:? "Username")
-            <*> (x .:? "Password")
-            <*> (x .:? "DatabaseName")
-            <*> (x .:? "MaxKBytesPerRead")
-            <*> (x .:? "Port")
+            Lude.<$> (x Lude..:? "ServerName")
+            Lude.<*> (x Lude..:? "CurrentLsn")
+            Lude.<*> (x Lude..:? "SetDataCaptureChanges")
+            Lude.<*> (x Lude..:? "Username")
+            Lude.<*> (x Lude..:? "Password")
+            Lude.<*> (x Lude..:? "DatabaseName")
+            Lude.<*> (x Lude..:? "MaxKBytesPerRead")
+            Lude.<*> (x Lude..:? "Port")
       )
 
-instance Hashable IBMDB2Settings
-
-instance NFData IBMDB2Settings
-
-instance ToJSON IBMDB2Settings where
+instance Lude.ToJSON IBMDB2Settings where
   toJSON IBMDB2Settings' {..} =
-    object
-      ( catMaybes
-          [ ("ServerName" .=) <$> _ibmdsServerName,
-            ("CurrentLsn" .=) <$> _ibmdsCurrentLsn,
-            ("SetDataCaptureChanges" .=) <$> _ibmdsSetDataCaptureChanges,
-            ("Username" .=) <$> _ibmdsUsername,
-            ("Password" .=) <$> _ibmdsPassword,
-            ("DatabaseName" .=) <$> _ibmdsDatabaseName,
-            ("MaxKBytesPerRead" .=) <$> _ibmdsMaxKBytesPerRead,
-            ("Port" .=) <$> _ibmdsPort
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ServerName" Lude..=) Lude.<$> serverName,
+            ("CurrentLsn" Lude..=) Lude.<$> currentLsn,
+            ("SetDataCaptureChanges" Lude..=) Lude.<$> setDataCaptureChanges,
+            ("Username" Lude..=) Lude.<$> username,
+            ("Password" Lude..=) Lude.<$> password,
+            ("DatabaseName" Lude..=) Lude.<$> databaseName,
+            ("MaxKBytesPerRead" Lude..=) Lude.<$> maxKBytesPerRead,
+            ("Port" Lude..=) Lude.<$> port
           ]
       )

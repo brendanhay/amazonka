@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,149 @@
 --
 -- Deletes one or more VPC endpoint service configurations in your account. Before you delete the endpoint service configuration, you must reject any @Available@ or @PendingAcceptance@ interface endpoint connections that are attached to the service.
 module Network.AWS.EC2.DeleteVPCEndpointServiceConfigurations
-  ( -- * Creating a Request
-    deleteVPCEndpointServiceConfigurations,
-    DeleteVPCEndpointServiceConfigurations,
+  ( -- * Creating a request
+    DeleteVPCEndpointServiceConfigurations (..),
+    mkDeleteVPCEndpointServiceConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvpcescDryRun,
     dvpcescServiceIds,
 
-    -- * Destructuring the Response
-    deleteVPCEndpointServiceConfigurationsResponse,
-    DeleteVPCEndpointServiceConfigurationsResponse,
+    -- * Destructuring the response
+    DeleteVPCEndpointServiceConfigurationsResponse (..),
+    mkDeleteVPCEndpointServiceConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvpcescrsUnsuccessful,
     dvpcescrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteVPCEndpointServiceConfigurations' smart constructor.
+-- | /See:/ 'mkDeleteVPCEndpointServiceConfigurations' smart constructor.
 data DeleteVPCEndpointServiceConfigurations = DeleteVPCEndpointServiceConfigurations'
-  { _dvpcescDryRun ::
-      !(Maybe Bool),
-    _dvpcescServiceIds ::
-      ![Text]
+  { dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    serviceIds ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEndpointServiceConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcescDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dvpcescServiceIds' - The IDs of one or more services.
-deleteVPCEndpointServiceConfigurations ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'serviceIds' - The IDs of one or more services.
+mkDeleteVPCEndpointServiceConfigurations ::
   DeleteVPCEndpointServiceConfigurations
-deleteVPCEndpointServiceConfigurations =
+mkDeleteVPCEndpointServiceConfigurations =
   DeleteVPCEndpointServiceConfigurations'
-    { _dvpcescDryRun = Nothing,
-      _dvpcescServiceIds = mempty
+    { dryRun = Lude.Nothing,
+      serviceIds = Lude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvpcescDryRun :: Lens' DeleteVPCEndpointServiceConfigurations (Maybe Bool)
-dvpcescDryRun = lens _dvpcescDryRun (\s a -> s {_dvpcescDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcescDryRun :: Lens.Lens' DeleteVPCEndpointServiceConfigurations (Lude.Maybe Lude.Bool)
+dvpcescDryRun = Lens.lens (dryRun :: DeleteVPCEndpointServiceConfigurations -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPCEndpointServiceConfigurations)
+{-# DEPRECATED dvpcescDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of one or more services.
-dvpcescServiceIds :: Lens' DeleteVPCEndpointServiceConfigurations [Text]
-dvpcescServiceIds = lens _dvpcescServiceIds (\s a -> s {_dvpcescServiceIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'serviceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcescServiceIds :: Lens.Lens' DeleteVPCEndpointServiceConfigurations [Lude.Text]
+dvpcescServiceIds = Lens.lens (serviceIds :: DeleteVPCEndpointServiceConfigurations -> [Lude.Text]) (\s a -> s {serviceIds = a} :: DeleteVPCEndpointServiceConfigurations)
+{-# DEPRECATED dvpcescServiceIds "Use generic-lens or generic-optics with 'serviceIds' instead." #-}
 
-instance AWSRequest DeleteVPCEndpointServiceConfigurations where
+instance Lude.AWSRequest DeleteVPCEndpointServiceConfigurations where
   type
     Rs DeleteVPCEndpointServiceConfigurations =
       DeleteVPCEndpointServiceConfigurationsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteVPCEndpointServiceConfigurationsResponse'
-            <$> (x .@? "unsuccessful" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "unsuccessful" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteVPCEndpointServiceConfigurations
+instance Lude.ToHeaders DeleteVPCEndpointServiceConfigurations where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteVPCEndpointServiceConfigurations
+instance Lude.ToPath DeleteVPCEndpointServiceConfigurations where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteVPCEndpointServiceConfigurations where
-  toHeaders = const mempty
-
-instance ToPath DeleteVPCEndpointServiceConfigurations where
-  toPath = const "/"
-
-instance ToQuery DeleteVPCEndpointServiceConfigurations where
+instance Lude.ToQuery DeleteVPCEndpointServiceConfigurations where
   toQuery DeleteVPCEndpointServiceConfigurations' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DeleteVpcEndpointServiceConfigurations" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dvpcescDryRun,
-        toQueryList "ServiceId" _dvpcescServiceIds
+          Lude.=: ("DeleteVpcEndpointServiceConfigurations" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "ServiceId" serviceIds
       ]
 
--- | /See:/ 'deleteVPCEndpointServiceConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkDeleteVPCEndpointServiceConfigurationsResponse' smart constructor.
 data DeleteVPCEndpointServiceConfigurationsResponse = DeleteVPCEndpointServiceConfigurationsResponse'
-  { _dvpcescrsUnsuccessful ::
-      !( Maybe
-           [UnsuccessfulItem]
-       ),
-    _dvpcescrsResponseStatus ::
-      !Int
+  { unsuccessful ::
+      Lude.Maybe
+        [UnsuccessfulItem],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeleteVPCEndpointServiceConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcescrsUnsuccessful' - Information about the service configurations that were not deleted, if applicable.
---
--- * 'dvpcescrsResponseStatus' - -- | The response status code.
-deleteVPCEndpointServiceConfigurationsResponse ::
-  -- | 'dvpcescrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'unsuccessful' - Information about the service configurations that were not deleted, if applicable.
+mkDeleteVPCEndpointServiceConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteVPCEndpointServiceConfigurationsResponse
-deleteVPCEndpointServiceConfigurationsResponse pResponseStatus_ =
+mkDeleteVPCEndpointServiceConfigurationsResponse pResponseStatus_ =
   DeleteVPCEndpointServiceConfigurationsResponse'
-    { _dvpcescrsUnsuccessful =
-        Nothing,
-      _dvpcescrsResponseStatus = pResponseStatus_
+    { unsuccessful =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the service configurations that were not deleted, if applicable.
-dvpcescrsUnsuccessful :: Lens' DeleteVPCEndpointServiceConfigurationsResponse [UnsuccessfulItem]
-dvpcescrsUnsuccessful = lens _dvpcescrsUnsuccessful (\s a -> s {_dvpcescrsUnsuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unsuccessful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcescrsUnsuccessful :: Lens.Lens' DeleteVPCEndpointServiceConfigurationsResponse (Lude.Maybe [UnsuccessfulItem])
+dvpcescrsUnsuccessful = Lens.lens (unsuccessful :: DeleteVPCEndpointServiceConfigurationsResponse -> Lude.Maybe [UnsuccessfulItem]) (\s a -> s {unsuccessful = a} :: DeleteVPCEndpointServiceConfigurationsResponse)
+{-# DEPRECATED dvpcescrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
 
--- | -- | The response status code.
-dvpcescrsResponseStatus :: Lens' DeleteVPCEndpointServiceConfigurationsResponse Int
-dvpcescrsResponseStatus = lens _dvpcescrsResponseStatus (\s a -> s {_dvpcescrsResponseStatus = a})
-
-instance NFData DeleteVPCEndpointServiceConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcescrsResponseStatus :: Lens.Lens' DeleteVPCEndpointServiceConfigurationsResponse Lude.Int
+dvpcescrsResponseStatus = Lens.lens (responseStatus :: DeleteVPCEndpointServiceConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVPCEndpointServiceConfigurationsResponse)
+{-# DEPRECATED dvpcescrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

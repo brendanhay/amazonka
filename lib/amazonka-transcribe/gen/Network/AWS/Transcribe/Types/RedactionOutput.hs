@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.RedactionOutput where
+module Network.AWS.Transcribe.Types.RedactionOutput
+  ( RedactionOutput
+      ( RedactionOutput',
+        Redacted,
+        RedactedAndUnredacted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RedactionOutput
-  = Redacted
-  | RedactedAndUnredacted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RedactionOutput = RedactionOutput' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RedactionOutput where
-  parser =
-    takeLowerText >>= \case
-      "redacted" -> pure Redacted
-      "redacted_and_unredacted" -> pure RedactedAndUnredacted
-      e ->
-        fromTextError $
-          "Failure parsing RedactionOutput from value: '" <> e
-            <> "'. Accepted values: redacted, redacted_and_unredacted"
+pattern Redacted :: RedactionOutput
+pattern Redacted = RedactionOutput' "redacted"
 
-instance ToText RedactionOutput where
-  toText = \case
-    Redacted -> "redacted"
-    RedactedAndUnredacted -> "redacted_and_unredacted"
+pattern RedactedAndUnredacted :: RedactionOutput
+pattern RedactedAndUnredacted = RedactionOutput' "redacted_and_unredacted"
 
-instance Hashable RedactionOutput
-
-instance NFData RedactionOutput
-
-instance ToByteString RedactionOutput
-
-instance ToQuery RedactionOutput
-
-instance ToHeader RedactionOutput
-
-instance ToJSON RedactionOutput where
-  toJSON = toJSONText
-
-instance FromJSON RedactionOutput where
-  parseJSON = parseJSONText "RedactionOutput"
+{-# COMPLETE
+  Redacted,
+  RedactedAndUnredacted,
+  RedactionOutput'
+  #-}

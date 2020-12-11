@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails where
+module Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails
+  ( ExecutionSucceededEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExecutionSucceededEventDetails,
+
+    -- * Lenses
+    esedOutput,
+    esedOutputDetails,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about the successful termination of the execution.
 --
---
---
--- /See:/ 'executionSucceededEventDetails' smart constructor.
+-- /See:/ 'mkExecutionSucceededEventDetails' smart constructor.
 data ExecutionSucceededEventDetails = ExecutionSucceededEventDetails'
-  { _esedOutput ::
-      !(Maybe (Sensitive Text)),
-    _esedOutputDetails ::
-      !( Maybe
-           HistoryEventExecutionDataDetails
-       )
+  { output ::
+      Lude.Maybe
+        (Lude.Sensitive Lude.Text),
+    outputDetails ::
+      Lude.Maybe
+        HistoryEventExecutionDataDetails
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionSucceededEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esedOutput' - The JSON data output by the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
---
--- * 'esedOutputDetails' - Contains details about the output of an execution history event.
-executionSucceededEventDetails ::
+-- * 'output' - The JSON data output by the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+-- * 'outputDetails' - Contains details about the output of an execution history event.
+mkExecutionSucceededEventDetails ::
   ExecutionSucceededEventDetails
-executionSucceededEventDetails =
+mkExecutionSucceededEventDetails =
   ExecutionSucceededEventDetails'
-    { _esedOutput = Nothing,
-      _esedOutputDetails = Nothing
+    { output = Lude.Nothing,
+      outputDetails = Lude.Nothing
     }
 
 -- | The JSON data output by the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-esedOutput :: Lens' ExecutionSucceededEventDetails (Maybe Text)
-esedOutput = lens _esedOutput (\s a -> s {_esedOutput = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esedOutput :: Lens.Lens' ExecutionSucceededEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
+esedOutput = Lens.lens (output :: ExecutionSucceededEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {output = a} :: ExecutionSucceededEventDetails)
+{-# DEPRECATED esedOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | Contains details about the output of an execution history event.
-esedOutputDetails :: Lens' ExecutionSucceededEventDetails (Maybe HistoryEventExecutionDataDetails)
-esedOutputDetails = lens _esedOutputDetails (\s a -> s {_esedOutputDetails = a})
+--
+-- /Note:/ Consider using 'outputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esedOutputDetails :: Lens.Lens' ExecutionSucceededEventDetails (Lude.Maybe HistoryEventExecutionDataDetails)
+esedOutputDetails = Lens.lens (outputDetails :: ExecutionSucceededEventDetails -> Lude.Maybe HistoryEventExecutionDataDetails) (\s a -> s {outputDetails = a} :: ExecutionSucceededEventDetails)
+{-# DEPRECATED esedOutputDetails "Use generic-lens or generic-optics with 'outputDetails' instead." #-}
 
-instance FromJSON ExecutionSucceededEventDetails where
+instance Lude.FromJSON ExecutionSucceededEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExecutionSucceededEventDetails"
       ( \x ->
           ExecutionSucceededEventDetails'
-            <$> (x .:? "output") <*> (x .:? "outputDetails")
+            Lude.<$> (x Lude..:? "output") Lude.<*> (x Lude..:? "outputDetails")
       )
-
-instance Hashable ExecutionSucceededEventDetails
-
-instance NFData ExecutionSucceededEventDetails

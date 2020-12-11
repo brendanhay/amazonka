@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,150 @@
 --
 -- Prevents artifacts in a pipeline from transitioning to the next stage in the pipeline.
 module Network.AWS.CodePipeline.DisableStageTransition
-  ( -- * Creating a Request
-    disableStageTransition,
-    DisableStageTransition,
+  ( -- * Creating a request
+    DisableStageTransition (..),
+    mkDisableStageTransition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dstPipelineName,
     dstStageName,
     dstTransitionType,
     dstReason,
 
-    -- * Destructuring the Response
-    disableStageTransitionResponse,
-    DisableStageTransitionResponse,
+    -- * Destructuring the response
+    DisableStageTransitionResponse (..),
+    mkDisableStageTransitionResponse,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @DisableStageTransition@ action.
 --
---
---
--- /See:/ 'disableStageTransition' smart constructor.
+-- /See:/ 'mkDisableStageTransition' smart constructor.
 data DisableStageTransition = DisableStageTransition'
-  { _dstPipelineName ::
-      !Text,
-    _dstStageName :: !Text,
-    _dstTransitionType :: !StageTransitionType,
-    _dstReason :: !Text
+  { pipelineName ::
+      Lude.Text,
+    stageName :: Lude.Text,
+    transitionType :: StageTransitionType,
+    reason :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableStageTransition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dstPipelineName' - The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
---
--- * 'dstStageName' - The name of the stage where you want to disable the inbound or outbound transition of artifacts.
---
--- * 'dstTransitionType' - Specifies whether artifacts are prevented from transitioning into the stage and being processed by the actions in that stage (inbound), or prevented from transitioning from the stage after they have been processed by the actions in that stage (outbound).
---
--- * 'dstReason' - The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
-disableStageTransition ::
-  -- | 'dstPipelineName'
-  Text ->
-  -- | 'dstStageName'
-  Text ->
-  -- | 'dstTransitionType'
+-- * 'pipelineName' - The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
+-- * 'reason' - The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
+-- * 'stageName' - The name of the stage where you want to disable the inbound or outbound transition of artifacts.
+-- * 'transitionType' - Specifies whether artifacts are prevented from transitioning into the stage and being processed by the actions in that stage (inbound), or prevented from transitioning from the stage after they have been processed by the actions in that stage (outbound).
+mkDisableStageTransition ::
+  -- | 'pipelineName'
+  Lude.Text ->
+  -- | 'stageName'
+  Lude.Text ->
+  -- | 'transitionType'
   StageTransitionType ->
-  -- | 'dstReason'
-  Text ->
+  -- | 'reason'
+  Lude.Text ->
   DisableStageTransition
-disableStageTransition
+mkDisableStageTransition
   pPipelineName_
   pStageName_
   pTransitionType_
   pReason_ =
     DisableStageTransition'
-      { _dstPipelineName = pPipelineName_,
-        _dstStageName = pStageName_,
-        _dstTransitionType = pTransitionType_,
-        _dstReason = pReason_
+      { pipelineName = pPipelineName_,
+        stageName = pStageName_,
+        transitionType = pTransitionType_,
+        reason = pReason_
       }
 
 -- | The name of the pipeline in which you want to disable the flow of artifacts from one stage to another.
-dstPipelineName :: Lens' DisableStageTransition Text
-dstPipelineName = lens _dstPipelineName (\s a -> s {_dstPipelineName = a})
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstPipelineName :: Lens.Lens' DisableStageTransition Lude.Text
+dstPipelineName = Lens.lens (pipelineName :: DisableStageTransition -> Lude.Text) (\s a -> s {pipelineName = a} :: DisableStageTransition)
+{-# DEPRECATED dstPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The name of the stage where you want to disable the inbound or outbound transition of artifacts.
-dstStageName :: Lens' DisableStageTransition Text
-dstStageName = lens _dstStageName (\s a -> s {_dstStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstStageName :: Lens.Lens' DisableStageTransition Lude.Text
+dstStageName = Lens.lens (stageName :: DisableStageTransition -> Lude.Text) (\s a -> s {stageName = a} :: DisableStageTransition)
+{-# DEPRECATED dstStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | Specifies whether artifacts are prevented from transitioning into the stage and being processed by the actions in that stage (inbound), or prevented from transitioning from the stage after they have been processed by the actions in that stage (outbound).
-dstTransitionType :: Lens' DisableStageTransition StageTransitionType
-dstTransitionType = lens _dstTransitionType (\s a -> s {_dstTransitionType = a})
+--
+-- /Note:/ Consider using 'transitionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstTransitionType :: Lens.Lens' DisableStageTransition StageTransitionType
+dstTransitionType = Lens.lens (transitionType :: DisableStageTransition -> StageTransitionType) (\s a -> s {transitionType = a} :: DisableStageTransition)
+{-# DEPRECATED dstTransitionType "Use generic-lens or generic-optics with 'transitionType' instead." #-}
 
 -- | The reason given to the user that a stage is disabled, such as waiting for manual approval or manual tests. This message is displayed in the pipeline console UI.
-dstReason :: Lens' DisableStageTransition Text
-dstReason = lens _dstReason (\s a -> s {_dstReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstReason :: Lens.Lens' DisableStageTransition Lude.Text
+dstReason = Lens.lens (reason :: DisableStageTransition -> Lude.Text) (\s a -> s {reason = a} :: DisableStageTransition)
+{-# DEPRECATED dstReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
-instance AWSRequest DisableStageTransition where
+instance Lude.AWSRequest DisableStageTransition where
   type Rs DisableStageTransition = DisableStageTransitionResponse
-  request = postJSON codePipeline
-  response = receiveNull DisableStageTransitionResponse'
+  request = Req.postJSON codePipelineService
+  response = Res.receiveNull DisableStageTransitionResponse'
 
-instance Hashable DisableStageTransition
-
-instance NFData DisableStageTransition
-
-instance ToHeaders DisableStageTransition where
+instance Lude.ToHeaders DisableStageTransition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.DisableStageTransition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodePipeline_20150709.DisableStageTransition" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableStageTransition where
+instance Lude.ToJSON DisableStageTransition where
   toJSON DisableStageTransition' {..} =
-    object
-      ( catMaybes
-          [ Just ("pipelineName" .= _dstPipelineName),
-            Just ("stageName" .= _dstStageName),
-            Just ("transitionType" .= _dstTransitionType),
-            Just ("reason" .= _dstReason)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("pipelineName" Lude..= pipelineName),
+            Lude.Just ("stageName" Lude..= stageName),
+            Lude.Just ("transitionType" Lude..= transitionType),
+            Lude.Just ("reason" Lude..= reason)
           ]
       )
 
-instance ToPath DisableStageTransition where
-  toPath = const "/"
+instance Lude.ToPath DisableStageTransition where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableStageTransition where
-  toQuery = const mempty
+instance Lude.ToQuery DisableStageTransition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableStageTransitionResponse' smart constructor.
+-- | /See:/ 'mkDisableStageTransitionResponse' smart constructor.
 data DisableStageTransitionResponse = DisableStageTransitionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableStageTransitionResponse' with the minimum fields required to make a request.
-disableStageTransitionResponse ::
+mkDisableStageTransitionResponse ::
   DisableStageTransitionResponse
-disableStageTransitionResponse = DisableStageTransitionResponse'
-
-instance NFData DisableStageTransitionResponse
+mkDisableStageTransitionResponse = DisableStageTransitionResponse'

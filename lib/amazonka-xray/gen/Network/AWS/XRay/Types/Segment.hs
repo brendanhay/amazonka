@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.Segment where
+module Network.AWS.XRay.Types.Segment
+  ( Segment (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSegment,
+
+    -- * Lenses
+    sDocument,
+    sId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with 'PutTraceSegments' , or an @inferred@ segment for a downstream service, generated from a subsegment sent by the service that called it.
 --
---
 -- For the full segment document schema, see <https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html AWS X-Ray Segment Documents> in the /AWS X-Ray Developer Guide/ .
 --
---
--- /See:/ 'segment' smart constructor.
+-- /See:/ 'mkSegment' smart constructor.
 data Segment = Segment'
-  { _sDocument :: !(Maybe Text),
-    _sId :: !(Maybe Text)
+  { document :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Segment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sDocument' - The segment document.
---
--- * 'sId' - The segment's ID.
-segment ::
+-- * 'document' - The segment document.
+-- * 'id' - The segment's ID.
+mkSegment ::
   Segment
-segment = Segment' {_sDocument = Nothing, _sId = Nothing}
+mkSegment = Segment' {document = Lude.Nothing, id = Lude.Nothing}
 
 -- | The segment document.
-sDocument :: Lens' Segment (Maybe Text)
-sDocument = lens _sDocument (\s a -> s {_sDocument = a})
+--
+-- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDocument :: Lens.Lens' Segment (Lude.Maybe Lude.Text)
+sDocument = Lens.lens (document :: Segment -> Lude.Maybe Lude.Text) (\s a -> s {document = a} :: Segment)
+{-# DEPRECATED sDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
 -- | The segment's ID.
-sId :: Lens' Segment (Maybe Text)
-sId = lens _sId (\s a -> s {_sId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sId :: Lens.Lens' Segment (Lude.Maybe Lude.Text)
+sId = Lens.lens (id :: Segment -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Segment)
+{-# DEPRECATED sId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromJSON Segment where
+instance Lude.FromJSON Segment where
   parseJSON =
-    withObject
+    Lude.withObject
       "Segment"
-      (\x -> Segment' <$> (x .:? "Document") <*> (x .:? "Id"))
-
-instance Hashable Segment
-
-instance NFData Segment
+      ( \x ->
+          Segment'
+            Lude.<$> (x Lude..:? "Document") Lude.<*> (x Lude..:? "Id")
+      )

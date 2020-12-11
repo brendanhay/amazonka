@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,168 @@
 --
 -- Deletes output destination configuration from your application configuration. Amazon Kinesis Analytics will no longer write data from the corresponding in-application stream to the external output destination.
 --
---
 -- This operation requires permissions to perform the @kinesisanalytics:DeleteApplicationOutput@ action.
 module Network.AWS.KinesisAnalytics.DeleteApplicationOutput
-  ( -- * Creating a Request
-    deleteApplicationOutput,
-    DeleteApplicationOutput,
+  ( -- * Creating a request
+    DeleteApplicationOutput (..),
+    mkDeleteApplicationOutput,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daoApplicationName,
     daoCurrentApplicationVersionId,
     daoOutputId,
 
-    -- * Destructuring the Response
-    deleteApplicationOutputResponse,
-    DeleteApplicationOutputResponse,
+    -- * Destructuring the response
+    DeleteApplicationOutputResponse (..),
+    mkDeleteApplicationOutputResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     daorsResponseStatus,
   )
 where
 
 import Network.AWS.KinesisAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteApplicationOutput' smart constructor.
+-- /See:/ 'mkDeleteApplicationOutput' smart constructor.
 data DeleteApplicationOutput = DeleteApplicationOutput'
-  { _daoApplicationName ::
-      !Text,
-    _daoCurrentApplicationVersionId :: !Nat,
-    _daoOutputId :: !Text
+  { applicationName ::
+      Lude.Text,
+    currentApplicationVersionId :: Lude.Natural,
+    outputId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daoApplicationName' - Amazon Kinesis Analytics application name.
---
--- * 'daoCurrentApplicationVersionId' - Amazon Kinesis Analytics application version. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
---
--- * 'daoOutputId' - The ID of the configuration to delete. Each output configuration that is added to the application, either when the application is created or later using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationOutput.html AddApplicationOutput> operation, has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the specific @OutputId@ .
-deleteApplicationOutput ::
-  -- | 'daoApplicationName'
-  Text ->
-  -- | 'daoCurrentApplicationVersionId'
-  Natural ->
-  -- | 'daoOutputId'
-  Text ->
+-- * 'applicationName' - Amazon Kinesis Analytics application name.
+-- * 'currentApplicationVersionId' - Amazon Kinesis Analytics application version. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
+-- * 'outputId' - The ID of the configuration to delete. Each output configuration that is added to the application, either when the application is created or later using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationOutput.html AddApplicationOutput> operation, has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the specific @OutputId@ .
+mkDeleteApplicationOutput ::
+  -- | 'applicationName'
+  Lude.Text ->
+  -- | 'currentApplicationVersionId'
+  Lude.Natural ->
+  -- | 'outputId'
+  Lude.Text ->
   DeleteApplicationOutput
-deleteApplicationOutput
+mkDeleteApplicationOutput
   pApplicationName_
   pCurrentApplicationVersionId_
   pOutputId_ =
     DeleteApplicationOutput'
-      { _daoApplicationName = pApplicationName_,
-        _daoCurrentApplicationVersionId =
-          _Nat # pCurrentApplicationVersionId_,
-        _daoOutputId = pOutputId_
+      { applicationName = pApplicationName_,
+        currentApplicationVersionId = pCurrentApplicationVersionId_,
+        outputId = pOutputId_
       }
 
 -- | Amazon Kinesis Analytics application name.
-daoApplicationName :: Lens' DeleteApplicationOutput Text
-daoApplicationName = lens _daoApplicationName (\s a -> s {_daoApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoApplicationName :: Lens.Lens' DeleteApplicationOutput Lude.Text
+daoApplicationName = Lens.lens (applicationName :: DeleteApplicationOutput -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteApplicationOutput)
+{-# DEPRECATED daoApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Amazon Kinesis Analytics application version. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the current application version. If the version specified is not the current version, the @ConcurrentModificationException@ is returned.
-daoCurrentApplicationVersionId :: Lens' DeleteApplicationOutput Natural
-daoCurrentApplicationVersionId = lens _daoCurrentApplicationVersionId (\s a -> s {_daoCurrentApplicationVersionId = a}) . _Nat
+--
+-- /Note:/ Consider using 'currentApplicationVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoCurrentApplicationVersionId :: Lens.Lens' DeleteApplicationOutput Lude.Natural
+daoCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: DeleteApplicationOutput -> Lude.Natural) (\s a -> s {currentApplicationVersionId = a} :: DeleteApplicationOutput)
+{-# DEPRECATED daoCurrentApplicationVersionId "Use generic-lens or generic-optics with 'currentApplicationVersionId' instead." #-}
 
 -- | The ID of the configuration to delete. Each output configuration that is added to the application, either when the application is created or later using the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationOutput.html AddApplicationOutput> operation, has a unique ID. You need to provide the ID to uniquely identify the output configuration that you want to delete from the application configuration. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to get the specific @OutputId@ .
-daoOutputId :: Lens' DeleteApplicationOutput Text
-daoOutputId = lens _daoOutputId (\s a -> s {_daoOutputId = a})
+--
+-- /Note:/ Consider using 'outputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daoOutputId :: Lens.Lens' DeleteApplicationOutput Lude.Text
+daoOutputId = Lens.lens (outputId :: DeleteApplicationOutput -> Lude.Text) (\s a -> s {outputId = a} :: DeleteApplicationOutput)
+{-# DEPRECATED daoOutputId "Use generic-lens or generic-optics with 'outputId' instead." #-}
 
-instance AWSRequest DeleteApplicationOutput where
+instance Lude.AWSRequest DeleteApplicationOutput where
   type Rs DeleteApplicationOutput = DeleteApplicationOutputResponse
-  request = postJSON kinesisAnalytics
+  request = Req.postJSON kinesisAnalyticsService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteApplicationOutputResponse' <$> (pure (fromEnum s))
+          DeleteApplicationOutputResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteApplicationOutput
-
-instance NFData DeleteApplicationOutput
-
-instance ToHeaders DeleteApplicationOutput where
+instance Lude.ToHeaders DeleteApplicationOutput where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "KinesisAnalytics_20150814.DeleteApplicationOutput" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "KinesisAnalytics_20150814.DeleteApplicationOutput" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteApplicationOutput where
+instance Lude.ToJSON DeleteApplicationOutput where
   toJSON DeleteApplicationOutput' {..} =
-    object
-      ( catMaybes
-          [ Just ("ApplicationName" .= _daoApplicationName),
-            Just
-              ("CurrentApplicationVersionId" .= _daoCurrentApplicationVersionId),
-            Just ("OutputId" .= _daoOutputId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ApplicationName" Lude..= applicationName),
+            Lude.Just
+              ( "CurrentApplicationVersionId"
+                  Lude..= currentApplicationVersionId
+              ),
+            Lude.Just ("OutputId" Lude..= outputId)
           ]
       )
 
-instance ToPath DeleteApplicationOutput where
-  toPath = const "/"
+instance Lude.ToPath DeleteApplicationOutput where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteApplicationOutput where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteApplicationOutput where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'deleteApplicationOutputResponse' smart constructor.
+-- /See:/ 'mkDeleteApplicationOutputResponse' smart constructor.
 newtype DeleteApplicationOutputResponse = DeleteApplicationOutputResponse'
-  { _daorsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationOutputResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daorsResponseStatus' - -- | The response status code.
-deleteApplicationOutputResponse ::
-  -- | 'daorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteApplicationOutputResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteApplicationOutputResponse
-deleteApplicationOutputResponse pResponseStatus_ =
+mkDeleteApplicationOutputResponse pResponseStatus_ =
   DeleteApplicationOutputResponse'
-    { _daorsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-daorsResponseStatus :: Lens' DeleteApplicationOutputResponse Int
-daorsResponseStatus = lens _daorsResponseStatus (\s a -> s {_daorsResponseStatus = a})
-
-instance NFData DeleteApplicationOutputResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daorsResponseStatus :: Lens.Lens' DeleteApplicationOutputResponse Lude.Int
+daorsResponseStatus = Lens.lens (responseStatus :: DeleteApplicationOutputResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteApplicationOutputResponse)
+{-# DEPRECATED daorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.LifeCycleState where
+module Network.AWS.EFS.Types.LifeCycleState
+  ( LifeCycleState
+      ( LifeCycleState',
+        Available,
+        Creating,
+        Deleted,
+        Deleting,
+        Updating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LifeCycleState
-  = Available
-  | Creating
-  | Deleted
-  | Deleting
-  | Updating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LifeCycleState = LifeCycleState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LifeCycleState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure Available
-      "creating" -> pure Creating
-      "deleted" -> pure Deleted
-      "deleting" -> pure Deleting
-      "updating" -> pure Updating
-      e ->
-        fromTextError $
-          "Failure parsing LifeCycleState from value: '" <> e
-            <> "'. Accepted values: available, creating, deleted, deleting, updating"
+pattern Available :: LifeCycleState
+pattern Available = LifeCycleState' "available"
 
-instance ToText LifeCycleState where
-  toText = \case
-    Available -> "available"
-    Creating -> "creating"
-    Deleted -> "deleted"
-    Deleting -> "deleting"
-    Updating -> "updating"
+pattern Creating :: LifeCycleState
+pattern Creating = LifeCycleState' "creating"
 
-instance Hashable LifeCycleState
+pattern Deleted :: LifeCycleState
+pattern Deleted = LifeCycleState' "deleted"
 
-instance NFData LifeCycleState
+pattern Deleting :: LifeCycleState
+pattern Deleting = LifeCycleState' "deleting"
 
-instance ToByteString LifeCycleState
+pattern Updating :: LifeCycleState
+pattern Updating = LifeCycleState' "updating"
 
-instance ToQuery LifeCycleState
-
-instance ToHeader LifeCycleState
-
-instance FromJSON LifeCycleState where
-  parseJSON = parseJSONText "LifeCycleState"
+{-# COMPLETE
+  Available,
+  Creating,
+  Deleted,
+  Deleting,
+  Updating,
+  LifeCycleState'
+  #-}

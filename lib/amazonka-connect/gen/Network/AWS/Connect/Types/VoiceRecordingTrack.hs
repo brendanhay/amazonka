@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.VoiceRecordingTrack where
+module Network.AWS.Connect.Types.VoiceRecordingTrack
+  ( VoiceRecordingTrack
+      ( VoiceRecordingTrack',
+        All,
+        FromAgent,
+        ToAgent
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VoiceRecordingTrack
-  = All
-  | FromAgent
-  | ToAgent
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VoiceRecordingTrack = VoiceRecordingTrack' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VoiceRecordingTrack where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      "from_agent" -> pure FromAgent
-      "to_agent" -> pure ToAgent
-      e ->
-        fromTextError $
-          "Failure parsing VoiceRecordingTrack from value: '" <> e
-            <> "'. Accepted values: all, from_agent, to_agent"
+pattern All :: VoiceRecordingTrack
+pattern All = VoiceRecordingTrack' "ALL"
 
-instance ToText VoiceRecordingTrack where
-  toText = \case
-    All -> "ALL"
-    FromAgent -> "FROM_AGENT"
-    ToAgent -> "TO_AGENT"
+pattern FromAgent :: VoiceRecordingTrack
+pattern FromAgent = VoiceRecordingTrack' "FROM_AGENT"
 
-instance Hashable VoiceRecordingTrack
+pattern ToAgent :: VoiceRecordingTrack
+pattern ToAgent = VoiceRecordingTrack' "TO_AGENT"
 
-instance NFData VoiceRecordingTrack
-
-instance ToByteString VoiceRecordingTrack
-
-instance ToQuery VoiceRecordingTrack
-
-instance ToHeader VoiceRecordingTrack
-
-instance ToJSON VoiceRecordingTrack where
-  toJSON = toJSONText
+{-# COMPLETE
+  All,
+  FromAgent,
+  ToAgent,
+  VoiceRecordingTrack'
+  #-}

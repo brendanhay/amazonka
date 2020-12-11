@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceStatus where
+module Network.AWS.EMR.Types.InstanceStatus
+  ( InstanceStatus (..),
+
+    -- * Smart constructor
+    mkInstanceStatus,
+
+    -- * Lenses
+    isState,
+    isStateChangeReason,
+    isTimeline,
+  )
+where
 
 import Network.AWS.EMR.Types.InstanceState
 import Network.AWS.EMR.Types.InstanceStateChangeReason
 import Network.AWS.EMR.Types.InstanceTimeline
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The instance status details.
 --
---
---
--- /See:/ 'instanceStatus' smart constructor.
+-- /See:/ 'mkInstanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
-  { _isState ::
-      !(Maybe InstanceState),
-    _isStateChangeReason :: !(Maybe InstanceStateChangeReason),
-    _isTimeline :: !(Maybe InstanceTimeline)
+  { state ::
+      Lude.Maybe InstanceState,
+    stateChangeReason :: Lude.Maybe InstanceStateChangeReason,
+    timeline :: Lude.Maybe InstanceTimeline
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isState' - The current state of the instance.
---
--- * 'isStateChangeReason' - The details of the status change reason for the instance.
---
--- * 'isTimeline' - The timeline of the instance status over time.
-instanceStatus ::
+-- * 'state' - The current state of the instance.
+-- * 'stateChangeReason' - The details of the status change reason for the instance.
+-- * 'timeline' - The timeline of the instance status over time.
+mkInstanceStatus ::
   InstanceStatus
-instanceStatus =
+mkInstanceStatus =
   InstanceStatus'
-    { _isState = Nothing,
-      _isStateChangeReason = Nothing,
-      _isTimeline = Nothing
+    { state = Lude.Nothing,
+      stateChangeReason = Lude.Nothing,
+      timeline = Lude.Nothing
     }
 
 -- | The current state of the instance.
-isState :: Lens' InstanceStatus (Maybe InstanceState)
-isState = lens _isState (\s a -> s {_isState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isState :: Lens.Lens' InstanceStatus (Lude.Maybe InstanceState)
+isState = Lens.lens (state :: InstanceStatus -> Lude.Maybe InstanceState) (\s a -> s {state = a} :: InstanceStatus)
+{-# DEPRECATED isState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The details of the status change reason for the instance.
-isStateChangeReason :: Lens' InstanceStatus (Maybe InstanceStateChangeReason)
-isStateChangeReason = lens _isStateChangeReason (\s a -> s {_isStateChangeReason = a})
+--
+-- /Note:/ Consider using 'stateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isStateChangeReason :: Lens.Lens' InstanceStatus (Lude.Maybe InstanceStateChangeReason)
+isStateChangeReason = Lens.lens (stateChangeReason :: InstanceStatus -> Lude.Maybe InstanceStateChangeReason) (\s a -> s {stateChangeReason = a} :: InstanceStatus)
+{-# DEPRECATED isStateChangeReason "Use generic-lens or generic-optics with 'stateChangeReason' instead." #-}
 
 -- | The timeline of the instance status over time.
-isTimeline :: Lens' InstanceStatus (Maybe InstanceTimeline)
-isTimeline = lens _isTimeline (\s a -> s {_isTimeline = a})
+--
+-- /Note:/ Consider using 'timeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isTimeline :: Lens.Lens' InstanceStatus (Lude.Maybe InstanceTimeline)
+isTimeline = Lens.lens (timeline :: InstanceStatus -> Lude.Maybe InstanceTimeline) (\s a -> s {timeline = a} :: InstanceStatus)
+{-# DEPRECATED isTimeline "Use generic-lens or generic-optics with 'timeline' instead." #-}
 
-instance FromJSON InstanceStatus where
+instance Lude.FromJSON InstanceStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceStatus"
       ( \x ->
           InstanceStatus'
-            <$> (x .:? "State")
-            <*> (x .:? "StateChangeReason")
-            <*> (x .:? "Timeline")
+            Lude.<$> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "StateChangeReason")
+            Lude.<*> (x Lude..:? "Timeline")
       )
-
-instance Hashable InstanceStatus
-
-instance NFData InstanceStatus

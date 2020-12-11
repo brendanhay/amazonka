@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.ByteMatchSetSummary where
+module Network.AWS.WAFRegional.Types.ByteMatchSetSummary
+  ( ByteMatchSetSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkByteMatchSetSummary,
+
+    -- * Lenses
+    bmssByteMatchSetId,
+    bmssName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returned by 'ListByteMatchSets' . Each @ByteMatchSetSummary@ object includes the @Name@ and @ByteMatchSetId@ for one 'ByteMatchSet' .
 --
---
---
--- /See:/ 'byteMatchSetSummary' smart constructor.
+-- /See:/ 'mkByteMatchSetSummary' smart constructor.
 data ByteMatchSetSummary = ByteMatchSetSummary'
-  { _bmssByteMatchSetId ::
-      !Text,
-    _bmssName :: !Text
+  { byteMatchSetId ::
+      Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ByteMatchSetSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'byteMatchSetId' - The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ , update a @ByteMatchSet@ , remove a @ByteMatchSet@ from a @Rule@ , and delete a @ByteMatchSet@ from AWS WAF.
 --
--- * 'bmssByteMatchSetId' - The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ , update a @ByteMatchSet@ , remove a @ByteMatchSet@ from a @Rule@ , and delete a @ByteMatchSet@ from AWS WAF. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
---
--- * 'bmssName' - A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
-byteMatchSetSummary ::
-  -- | 'bmssByteMatchSetId'
-  Text ->
-  -- | 'bmssName'
-  Text ->
+-- @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
+-- * 'name' - A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
+mkByteMatchSetSummary ::
+  -- | 'byteMatchSetId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   ByteMatchSetSummary
-byteMatchSetSummary pByteMatchSetId_ pName_ =
+mkByteMatchSetSummary pByteMatchSetId_ pName_ =
   ByteMatchSetSummary'
-    { _bmssByteMatchSetId = pByteMatchSetId_,
-      _bmssName = pName_
+    { byteMatchSetId = pByteMatchSetId_,
+      name = pName_
     }
 
--- | The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ , update a @ByteMatchSet@ , remove a @ByteMatchSet@ from a @Rule@ , and delete a @ByteMatchSet@ from AWS WAF. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
-bmssByteMatchSetId :: Lens' ByteMatchSetSummary Text
-bmssByteMatchSetId = lens _bmssByteMatchSetId (\s a -> s {_bmssByteMatchSetId = a})
+-- | The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ , update a @ByteMatchSet@ , remove a @ByteMatchSet@ from a @Rule@ , and delete a @ByteMatchSet@ from AWS WAF.
+--
+-- @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
+--
+-- /Note:/ Consider using 'byteMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmssByteMatchSetId :: Lens.Lens' ByteMatchSetSummary Lude.Text
+bmssByteMatchSetId = Lens.lens (byteMatchSetId :: ByteMatchSetSummary -> Lude.Text) (\s a -> s {byteMatchSetId = a} :: ByteMatchSetSummary)
+{-# DEPRECATED bmssByteMatchSetId "Use generic-lens or generic-optics with 'byteMatchSetId' instead." #-}
 
 -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
-bmssName :: Lens' ByteMatchSetSummary Text
-bmssName = lens _bmssName (\s a -> s {_bmssName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmssName :: Lens.Lens' ByteMatchSetSummary Lude.Text
+bmssName = Lens.lens (name :: ByteMatchSetSummary -> Lude.Text) (\s a -> s {name = a} :: ByteMatchSetSummary)
+{-# DEPRECATED bmssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON ByteMatchSetSummary where
+instance Lude.FromJSON ByteMatchSetSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ByteMatchSetSummary"
       ( \x ->
-          ByteMatchSetSummary' <$> (x .: "ByteMatchSetId") <*> (x .: "Name")
+          ByteMatchSetSummary'
+            Lude.<$> (x Lude..: "ByteMatchSetId") Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable ByteMatchSetSummary
-
-instance NFData ByteMatchSetSummary

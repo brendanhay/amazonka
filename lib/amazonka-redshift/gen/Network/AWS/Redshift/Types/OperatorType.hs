@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.OperatorType where
+module Network.AWS.Redshift.Types.OperatorType
+  ( OperatorType
+      ( OperatorType',
+        Between,
+        EQ,
+        GE,
+        GT,
+        IN,
+        LE,
+        LT
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data OperatorType
-  = Between
-  | EQ'
-  | GE
-  | GT'
-  | IN
-  | LE
-  | LT'
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperatorType = OperatorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperatorType where
-  parser =
-    takeLowerText >>= \case
-      "between" -> pure Between
-      "eq" -> pure EQ'
-      "ge" -> pure GE
-      "gt" -> pure GT'
-      "in" -> pure IN
-      "le" -> pure LE
-      "lt" -> pure LT'
-      e ->
-        fromTextError $
-          "Failure parsing OperatorType from value: '" <> e
-            <> "'. Accepted values: between, eq, ge, gt, in, le, lt"
+pattern Between :: OperatorType
+pattern Between = OperatorType' "between"
 
-instance ToText OperatorType where
-  toText = \case
-    Between -> "between"
-    EQ' -> "eq"
-    GE -> "ge"
-    GT' -> "gt"
-    IN -> "in"
-    LE -> "le"
-    LT' -> "lt"
+pattern EQ :: OperatorType
+pattern EQ = OperatorType' "eq"
 
-instance Hashable OperatorType
+pattern GE :: OperatorType
+pattern GE = OperatorType' "ge"
 
-instance NFData OperatorType
+pattern GT :: OperatorType
+pattern GT = OperatorType' "gt"
 
-instance ToByteString OperatorType
+pattern IN :: OperatorType
+pattern IN = OperatorType' "in"
 
-instance ToQuery OperatorType
+pattern LE :: OperatorType
+pattern LE = OperatorType' "le"
 
-instance ToHeader OperatorType
+pattern LT :: OperatorType
+pattern LT = OperatorType' "lt"
+
+{-# COMPLETE
+  Between,
+  EQ,
+  GE,
+  GT,
+  IN,
+  LE,
+  LT,
+  OperatorType'
+  #-}

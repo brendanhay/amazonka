@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.CloudWatchLogsConfig where
+module Network.AWS.CodeBuild.Types.CloudWatchLogsConfig
+  ( CloudWatchLogsConfig (..),
+
+    -- * Smart constructor
+    mkCloudWatchLogsConfig,
+
+    -- * Lenses
+    cwlcGroupName,
+    cwlcStreamName,
+    cwlcStatus,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.LogsConfigStatusType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about Amazon CloudWatch Logs for a build project.
 --
---
---
--- /See:/ 'cloudWatchLogsConfig' smart constructor.
+-- /See:/ 'mkCloudWatchLogsConfig' smart constructor.
 data CloudWatchLogsConfig = CloudWatchLogsConfig'
-  { _cwlcGroupName ::
-      !(Maybe Text),
-    _cwlcStreamName :: !(Maybe Text),
-    _cwlcStatus :: !LogsConfigStatusType
+  { groupName ::
+      Lude.Maybe Lude.Text,
+    streamName :: Lude.Maybe Lude.Text,
+    status :: LogsConfigStatusType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchLogsConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'groupName' - The group name of the logs in Amazon CloudWatch Logs. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams> .
+-- * 'status' - The current status of the logs in Amazon CloudWatch Logs for a build project. Valid values are:
 --
--- * 'cwlcGroupName' - The group name of the logs in Amazon CloudWatch Logs. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams> .
 --
--- * 'cwlcStreamName' - The prefix of the stream name of the Amazon CloudWatch Logs. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams> .
+--     * @ENABLED@ : Amazon CloudWatch Logs are enabled for this build project.
 --
--- * 'cwlcStatus' - The current status of the logs in Amazon CloudWatch Logs for a build project. Valid values are:     * @ENABLED@ : Amazon CloudWatch Logs are enabled for this build project.     * @DISABLED@ : Amazon CloudWatch Logs are not enabled for this build project.
-cloudWatchLogsConfig ::
-  -- | 'cwlcStatus'
+--
+--     * @DISABLED@ : Amazon CloudWatch Logs are not enabled for this build project.
+--
+--
+-- * 'streamName' - The prefix of the stream name of the Amazon CloudWatch Logs. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams> .
+mkCloudWatchLogsConfig ::
+  -- | 'status'
   LogsConfigStatusType ->
   CloudWatchLogsConfig
-cloudWatchLogsConfig pStatus_ =
+mkCloudWatchLogsConfig pStatus_ =
   CloudWatchLogsConfig'
-    { _cwlcGroupName = Nothing,
-      _cwlcStreamName = Nothing,
-      _cwlcStatus = pStatus_
+    { groupName = Lude.Nothing,
+      streamName = Lude.Nothing,
+      status = pStatus_
     }
 
 -- | The group name of the logs in Amazon CloudWatch Logs. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams> .
-cwlcGroupName :: Lens' CloudWatchLogsConfig (Maybe Text)
-cwlcGroupName = lens _cwlcGroupName (\s a -> s {_cwlcGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwlcGroupName :: Lens.Lens' CloudWatchLogsConfig (Lude.Maybe Lude.Text)
+cwlcGroupName = Lens.lens (groupName :: CloudWatchLogsConfig -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: CloudWatchLogsConfig)
+{-# DEPRECATED cwlcGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The prefix of the stream name of the Amazon CloudWatch Logs. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html Working with Log Groups and Log Streams> .
-cwlcStreamName :: Lens' CloudWatchLogsConfig (Maybe Text)
-cwlcStreamName = lens _cwlcStreamName (\s a -> s {_cwlcStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwlcStreamName :: Lens.Lens' CloudWatchLogsConfig (Lude.Maybe Lude.Text)
+cwlcStreamName = Lens.lens (streamName :: CloudWatchLogsConfig -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: CloudWatchLogsConfig)
+{-# DEPRECATED cwlcStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
--- | The current status of the logs in Amazon CloudWatch Logs for a build project. Valid values are:     * @ENABLED@ : Amazon CloudWatch Logs are enabled for this build project.     * @DISABLED@ : Amazon CloudWatch Logs are not enabled for this build project.
-cwlcStatus :: Lens' CloudWatchLogsConfig LogsConfigStatusType
-cwlcStatus = lens _cwlcStatus (\s a -> s {_cwlcStatus = a})
+-- | The current status of the logs in Amazon CloudWatch Logs for a build project. Valid values are:
+--
+--
+--     * @ENABLED@ : Amazon CloudWatch Logs are enabled for this build project.
+--
+--
+--     * @DISABLED@ : Amazon CloudWatch Logs are not enabled for this build project.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwlcStatus :: Lens.Lens' CloudWatchLogsConfig LogsConfigStatusType
+cwlcStatus = Lens.lens (status :: CloudWatchLogsConfig -> LogsConfigStatusType) (\s a -> s {status = a} :: CloudWatchLogsConfig)
+{-# DEPRECATED cwlcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON CloudWatchLogsConfig where
+instance Lude.FromJSON CloudWatchLogsConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudWatchLogsConfig"
       ( \x ->
           CloudWatchLogsConfig'
-            <$> (x .:? "groupName") <*> (x .:? "streamName") <*> (x .: "status")
+            Lude.<$> (x Lude..:? "groupName")
+            Lude.<*> (x Lude..:? "streamName")
+            Lude.<*> (x Lude..: "status")
       )
 
-instance Hashable CloudWatchLogsConfig
-
-instance NFData CloudWatchLogsConfig
-
-instance ToJSON CloudWatchLogsConfig where
+instance Lude.ToJSON CloudWatchLogsConfig where
   toJSON CloudWatchLogsConfig' {..} =
-    object
-      ( catMaybes
-          [ ("groupName" .=) <$> _cwlcGroupName,
-            ("streamName" .=) <$> _cwlcStreamName,
-            Just ("status" .= _cwlcStatus)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("groupName" Lude..=) Lude.<$> groupName,
+            ("streamName" Lude..=) Lude.<$> streamName,
+            Lude.Just ("status" Lude..= status)
           ]
       )

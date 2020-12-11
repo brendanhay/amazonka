@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,142 @@
 --
 -- Use 'UpdateRole' instead.
 --
---
 -- Modifies only the description of a role. This operation performs the same function as the @Description@ parameter in the @UpdateRole@ operation.
 module Network.AWS.IAM.UpdateRoleDescription
-  ( -- * Creating a Request
-    updateRoleDescription,
-    UpdateRoleDescription,
+  ( -- * Creating a request
+    UpdateRoleDescription (..),
+    mkUpdateRoleDescription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urdRoleName,
     urdDescription,
 
-    -- * Destructuring the Response
-    updateRoleDescriptionResponse,
-    UpdateRoleDescriptionResponse,
+    -- * Destructuring the response
+    UpdateRoleDescriptionResponse (..),
+    mkUpdateRoleDescriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urdrsRole,
     urdrsResponseStatus,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateRoleDescription' smart constructor.
+-- | /See:/ 'mkUpdateRoleDescription' smart constructor.
 data UpdateRoleDescription = UpdateRoleDescription'
-  { _urdRoleName ::
-      !Text,
-    _urdDescription :: !Text
+  { roleName ::
+      Lude.Text,
+    description :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoleDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urdRoleName' - The name of the role that you want to modify.
---
--- * 'urdDescription' - The new description that you want to apply to the specified role.
-updateRoleDescription ::
-  -- | 'urdRoleName'
-  Text ->
-  -- | 'urdDescription'
-  Text ->
+-- * 'description' - The new description that you want to apply to the specified role.
+-- * 'roleName' - The name of the role that you want to modify.
+mkUpdateRoleDescription ::
+  -- | 'roleName'
+  Lude.Text ->
+  -- | 'description'
+  Lude.Text ->
   UpdateRoleDescription
-updateRoleDescription pRoleName_ pDescription_ =
+mkUpdateRoleDescription pRoleName_ pDescription_ =
   UpdateRoleDescription'
-    { _urdRoleName = pRoleName_,
-      _urdDescription = pDescription_
+    { roleName = pRoleName_,
+      description = pDescription_
     }
 
 -- | The name of the role that you want to modify.
-urdRoleName :: Lens' UpdateRoleDescription Text
-urdRoleName = lens _urdRoleName (\s a -> s {_urdRoleName = a})
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdRoleName :: Lens.Lens' UpdateRoleDescription Lude.Text
+urdRoleName = Lens.lens (roleName :: UpdateRoleDescription -> Lude.Text) (\s a -> s {roleName = a} :: UpdateRoleDescription)
+{-# DEPRECATED urdRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The new description that you want to apply to the specified role.
-urdDescription :: Lens' UpdateRoleDescription Text
-urdDescription = lens _urdDescription (\s a -> s {_urdDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdDescription :: Lens.Lens' UpdateRoleDescription Lude.Text
+urdDescription = Lens.lens (description :: UpdateRoleDescription -> Lude.Text) (\s a -> s {description = a} :: UpdateRoleDescription)
+{-# DEPRECATED urdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance AWSRequest UpdateRoleDescription where
+instance Lude.AWSRequest UpdateRoleDescription where
   type Rs UpdateRoleDescription = UpdateRoleDescriptionResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "UpdateRoleDescriptionResult"
       ( \s h x ->
           UpdateRoleDescriptionResponse'
-            <$> (x .@? "Role") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Role") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateRoleDescription
+instance Lude.ToHeaders UpdateRoleDescription where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateRoleDescription
+instance Lude.ToPath UpdateRoleDescription where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateRoleDescription where
-  toHeaders = const mempty
-
-instance ToPath UpdateRoleDescription where
-  toPath = const "/"
-
-instance ToQuery UpdateRoleDescription where
+instance Lude.ToQuery UpdateRoleDescription where
   toQuery UpdateRoleDescription' {..} =
-    mconcat
-      [ "Action" =: ("UpdateRoleDescription" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "RoleName" =: _urdRoleName,
-        "Description" =: _urdDescription
+    Lude.mconcat
+      [ "Action" Lude.=: ("UpdateRoleDescription" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "RoleName" Lude.=: roleName,
+        "Description" Lude.=: description
       ]
 
--- | /See:/ 'updateRoleDescriptionResponse' smart constructor.
+-- | /See:/ 'mkUpdateRoleDescriptionResponse' smart constructor.
 data UpdateRoleDescriptionResponse = UpdateRoleDescriptionResponse'
-  { _urdrsRole ::
-      !(Maybe Role),
-    _urdrsResponseStatus :: !Int
+  { role' ::
+      Lude.Maybe Role,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoleDescriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urdrsRole' - A structure that contains details about the modified role.
---
--- * 'urdrsResponseStatus' - -- | The response status code.
-updateRoleDescriptionResponse ::
-  -- | 'urdrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'role'' - A structure that contains details about the modified role.
+mkUpdateRoleDescriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateRoleDescriptionResponse
-updateRoleDescriptionResponse pResponseStatus_ =
+mkUpdateRoleDescriptionResponse pResponseStatus_ =
   UpdateRoleDescriptionResponse'
-    { _urdrsRole = Nothing,
-      _urdrsResponseStatus = pResponseStatus_
+    { role' = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure that contains details about the modified role.
-urdrsRole :: Lens' UpdateRoleDescriptionResponse (Maybe Role)
-urdrsRole = lens _urdrsRole (\s a -> s {_urdrsRole = a})
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdrsRole :: Lens.Lens' UpdateRoleDescriptionResponse (Lude.Maybe Role)
+urdrsRole = Lens.lens (role' :: UpdateRoleDescriptionResponse -> Lude.Maybe Role) (\s a -> s {role' = a} :: UpdateRoleDescriptionResponse)
+{-# DEPRECATED urdrsRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
--- | -- | The response status code.
-urdrsResponseStatus :: Lens' UpdateRoleDescriptionResponse Int
-urdrsResponseStatus = lens _urdrsResponseStatus (\s a -> s {_urdrsResponseStatus = a})
-
-instance NFData UpdateRoleDescriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdrsResponseStatus :: Lens.Lens' UpdateRoleDescriptionResponse Lude.Int
+urdrsResponseStatus = Lens.lens (responseStatus :: UpdateRoleDescriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRoleDescriptionResponse)
+{-# DEPRECATED urdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

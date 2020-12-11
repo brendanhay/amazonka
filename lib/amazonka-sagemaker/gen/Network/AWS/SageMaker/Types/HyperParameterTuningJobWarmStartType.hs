@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType where
+module Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType
+  ( HyperParameterTuningJobWarmStartType
+      ( HyperParameterTuningJobWarmStartType',
+        IdenticalDataAndAlgorithm,
+        TransferLearning
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HyperParameterTuningJobWarmStartType
-  = IdenticalDataAndAlgorithm
-  | TransferLearning
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HyperParameterTuningJobWarmStartType = HyperParameterTuningJobWarmStartType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HyperParameterTuningJobWarmStartType where
-  parser =
-    takeLowerText >>= \case
-      "identicaldataandalgorithm" -> pure IdenticalDataAndAlgorithm
-      "transferlearning" -> pure TransferLearning
-      e ->
-        fromTextError $
-          "Failure parsing HyperParameterTuningJobWarmStartType from value: '" <> e
-            <> "'. Accepted values: identicaldataandalgorithm, transferlearning"
+pattern IdenticalDataAndAlgorithm :: HyperParameterTuningJobWarmStartType
+pattern IdenticalDataAndAlgorithm = HyperParameterTuningJobWarmStartType' "IdenticalDataAndAlgorithm"
 
-instance ToText HyperParameterTuningJobWarmStartType where
-  toText = \case
-    IdenticalDataAndAlgorithm -> "IdenticalDataAndAlgorithm"
-    TransferLearning -> "TransferLearning"
+pattern TransferLearning :: HyperParameterTuningJobWarmStartType
+pattern TransferLearning = HyperParameterTuningJobWarmStartType' "TransferLearning"
 
-instance Hashable HyperParameterTuningJobWarmStartType
-
-instance NFData HyperParameterTuningJobWarmStartType
-
-instance ToByteString HyperParameterTuningJobWarmStartType
-
-instance ToQuery HyperParameterTuningJobWarmStartType
-
-instance ToHeader HyperParameterTuningJobWarmStartType
-
-instance ToJSON HyperParameterTuningJobWarmStartType where
-  toJSON = toJSONText
-
-instance FromJSON HyperParameterTuningJobWarmStartType where
-  parseJSON = parseJSONText "HyperParameterTuningJobWarmStartType"
+{-# COMPLETE
+  IdenticalDataAndAlgorithm,
+  TransferLearning,
+  HyperParameterTuningJobWarmStartType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.ProtectionGroupAggregation where
+module Network.AWS.Shield.Types.ProtectionGroupAggregation
+  ( ProtectionGroupAggregation
+      ( ProtectionGroupAggregation',
+        Max,
+        Mean,
+        Sum
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProtectionGroupAggregation
-  = Max
-  | Mean
-  | Sum
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProtectionGroupAggregation = ProtectionGroupAggregation' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProtectionGroupAggregation where
-  parser =
-    takeLowerText >>= \case
-      "max" -> pure Max
-      "mean" -> pure Mean
-      "sum" -> pure Sum
-      e ->
-        fromTextError $
-          "Failure parsing ProtectionGroupAggregation from value: '" <> e
-            <> "'. Accepted values: max, mean, sum"
+pattern Max :: ProtectionGroupAggregation
+pattern Max = ProtectionGroupAggregation' "MAX"
 
-instance ToText ProtectionGroupAggregation where
-  toText = \case
-    Max -> "MAX"
-    Mean -> "MEAN"
-    Sum -> "SUM"
+pattern Mean :: ProtectionGroupAggregation
+pattern Mean = ProtectionGroupAggregation' "MEAN"
 
-instance Hashable ProtectionGroupAggregation
+pattern Sum :: ProtectionGroupAggregation
+pattern Sum = ProtectionGroupAggregation' "SUM"
 
-instance NFData ProtectionGroupAggregation
-
-instance ToByteString ProtectionGroupAggregation
-
-instance ToQuery ProtectionGroupAggregation
-
-instance ToHeader ProtectionGroupAggregation
-
-instance ToJSON ProtectionGroupAggregation where
-  toJSON = toJSONText
-
-instance FromJSON ProtectionGroupAggregation where
-  parseJSON = parseJSONText "ProtectionGroupAggregation"
+{-# COMPLETE
+  Max,
+  Mean,
+  Sum,
+  ProtectionGroupAggregation'
+  #-}

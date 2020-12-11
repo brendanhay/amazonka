@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.
 module Network.AWS.EC2.DescribeVPCAttribute
-  ( -- * Creating a Request
-    describeVPCAttribute,
-    DescribeVPCAttribute,
+  ( -- * Creating a request
+    DescribeVPCAttribute (..),
+    mkDescribeVPCAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvpcaDryRun,
     dvpcaAttribute,
     dvpcaVPCId,
 
-    -- * Destructuring the Response
-    describeVPCAttributeResponse,
-    DescribeVPCAttributeResponse,
+    -- * Destructuring the response
+    DescribeVPCAttributeResponse (..),
+    mkDescribeVPCAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvpcarsEnableDNSHostnames,
     dvpcarsEnableDNSSupport,
     dvpcarsVPCId,
@@ -41,136 +36,155 @@ module Network.AWS.EC2.DescribeVPCAttribute
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVPCAttribute' smart constructor.
+-- | /See:/ 'mkDescribeVPCAttribute' smart constructor.
 data DescribeVPCAttribute = DescribeVPCAttribute'
-  { _dvpcaDryRun ::
-      !(Maybe Bool),
-    _dvpcaAttribute :: !VPCAttributeName,
-    _dvpcaVPCId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    attribute :: VPCAttributeName,
+    vpcId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dvpcaAttribute' - The VPC attribute.
---
--- * 'dvpcaVPCId' - The ID of the VPC.
-describeVPCAttribute ::
-  -- | 'dvpcaAttribute'
+-- * 'attribute' - The VPC attribute.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'vpcId' - The ID of the VPC.
+mkDescribeVPCAttribute ::
+  -- | 'attribute'
   VPCAttributeName ->
-  -- | 'dvpcaVPCId'
-  Text ->
+  -- | 'vpcId'
+  Lude.Text ->
   DescribeVPCAttribute
-describeVPCAttribute pAttribute_ pVPCId_ =
+mkDescribeVPCAttribute pAttribute_ pVPCId_ =
   DescribeVPCAttribute'
-    { _dvpcaDryRun = Nothing,
-      _dvpcaAttribute = pAttribute_,
-      _dvpcaVPCId = pVPCId_
+    { dryRun = Lude.Nothing,
+      attribute = pAttribute_,
+      vpcId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvpcaDryRun :: Lens' DescribeVPCAttribute (Maybe Bool)
-dvpcaDryRun = lens _dvpcaDryRun (\s a -> s {_dvpcaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcaDryRun :: Lens.Lens' DescribeVPCAttribute (Lude.Maybe Lude.Bool)
+dvpcaDryRun = Lens.lens (dryRun :: DescribeVPCAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVPCAttribute)
+{-# DEPRECATED dvpcaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The VPC attribute.
-dvpcaAttribute :: Lens' DescribeVPCAttribute VPCAttributeName
-dvpcaAttribute = lens _dvpcaAttribute (\s a -> s {_dvpcaAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcaAttribute :: Lens.Lens' DescribeVPCAttribute VPCAttributeName
+dvpcaAttribute = Lens.lens (attribute :: DescribeVPCAttribute -> VPCAttributeName) (\s a -> s {attribute = a} :: DescribeVPCAttribute)
+{-# DEPRECATED dvpcaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The ID of the VPC.
-dvpcaVPCId :: Lens' DescribeVPCAttribute Text
-dvpcaVPCId = lens _dvpcaVPCId (\s a -> s {_dvpcaVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcaVPCId :: Lens.Lens' DescribeVPCAttribute Lude.Text
+dvpcaVPCId = Lens.lens (vpcId :: DescribeVPCAttribute -> Lude.Text) (\s a -> s {vpcId = a} :: DescribeVPCAttribute)
+{-# DEPRECATED dvpcaVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance AWSRequest DescribeVPCAttribute where
+instance Lude.AWSRequest DescribeVPCAttribute where
   type Rs DescribeVPCAttribute = DescribeVPCAttributeResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeVPCAttributeResponse'
-            <$> (x .@? "enableDnsHostnames")
-            <*> (x .@? "enableDnsSupport")
-            <*> (x .@? "vpcId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "enableDnsHostnames")
+            Lude.<*> (x Lude..@? "enableDnsSupport")
+            Lude.<*> (x Lude..@? "vpcId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVPCAttribute
+instance Lude.ToHeaders DescribeVPCAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVPCAttribute
+instance Lude.ToPath DescribeVPCAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeVPCAttribute where
-  toHeaders = const mempty
-
-instance ToPath DescribeVPCAttribute where
-  toPath = const "/"
-
-instance ToQuery DescribeVPCAttribute where
+instance Lude.ToQuery DescribeVPCAttribute where
   toQuery DescribeVPCAttribute' {..} =
-    mconcat
-      [ "Action" =: ("DescribeVpcAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dvpcaDryRun,
-        "Attribute" =: _dvpcaAttribute,
-        "VpcId" =: _dvpcaVPCId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeVpcAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        "Attribute" Lude.=: attribute,
+        "VpcId" Lude.=: vpcId
       ]
 
--- | /See:/ 'describeVPCAttributeResponse' smart constructor.
+-- | /See:/ 'mkDescribeVPCAttributeResponse' smart constructor.
 data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
-  { _dvpcarsEnableDNSHostnames ::
-      !(Maybe AttributeBooleanValue),
-    _dvpcarsEnableDNSSupport ::
-      !(Maybe AttributeBooleanValue),
-    _dvpcarsVPCId :: !(Maybe Text),
-    _dvpcarsResponseStatus :: !Int
+  { enableDNSHostnames ::
+      Lude.Maybe AttributeBooleanValue,
+    enableDNSSupport ::
+      Lude.Maybe AttributeBooleanValue,
+    vpcId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvpcarsEnableDNSHostnames' - Indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is @true@ , instances in the VPC get DNS hostnames; otherwise, they do not.
---
--- * 'dvpcarsEnableDNSSupport' - Indicates whether DNS resolution is enabled for the VPC. If this attribute is @true@ , the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
---
--- * 'dvpcarsVPCId' - The ID of the VPC.
---
--- * 'dvpcarsResponseStatus' - -- | The response status code.
-describeVPCAttributeResponse ::
-  -- | 'dvpcarsResponseStatus'
-  Int ->
+-- * 'enableDNSHostnames' - Indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is @true@ , instances in the VPC get DNS hostnames; otherwise, they do not.
+-- * 'enableDNSSupport' - Indicates whether DNS resolution is enabled for the VPC. If this attribute is @true@ , the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
+-- * 'responseStatus' - The response status code.
+-- * 'vpcId' - The ID of the VPC.
+mkDescribeVPCAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVPCAttributeResponse
-describeVPCAttributeResponse pResponseStatus_ =
+mkDescribeVPCAttributeResponse pResponseStatus_ =
   DescribeVPCAttributeResponse'
-    { _dvpcarsEnableDNSHostnames =
-        Nothing,
-      _dvpcarsEnableDNSSupport = Nothing,
-      _dvpcarsVPCId = Nothing,
-      _dvpcarsResponseStatus = pResponseStatus_
+    { enableDNSHostnames = Lude.Nothing,
+      enableDNSSupport = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is @true@ , instances in the VPC get DNS hostnames; otherwise, they do not.
-dvpcarsEnableDNSHostnames :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
-dvpcarsEnableDNSHostnames = lens _dvpcarsEnableDNSHostnames (\s a -> s {_dvpcarsEnableDNSHostnames = a})
+--
+-- /Note:/ Consider using 'enableDNSHostnames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcarsEnableDNSHostnames :: Lens.Lens' DescribeVPCAttributeResponse (Lude.Maybe AttributeBooleanValue)
+dvpcarsEnableDNSHostnames = Lens.lens (enableDNSHostnames :: DescribeVPCAttributeResponse -> Lude.Maybe AttributeBooleanValue) (\s a -> s {enableDNSHostnames = a} :: DescribeVPCAttributeResponse)
+{-# DEPRECATED dvpcarsEnableDNSHostnames "Use generic-lens or generic-optics with 'enableDNSHostnames' instead." #-}
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this attribute is @true@ , the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
-dvpcarsEnableDNSSupport :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
-dvpcarsEnableDNSSupport = lens _dvpcarsEnableDNSSupport (\s a -> s {_dvpcarsEnableDNSSupport = a})
+--
+-- /Note:/ Consider using 'enableDNSSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcarsEnableDNSSupport :: Lens.Lens' DescribeVPCAttributeResponse (Lude.Maybe AttributeBooleanValue)
+dvpcarsEnableDNSSupport = Lens.lens (enableDNSSupport :: DescribeVPCAttributeResponse -> Lude.Maybe AttributeBooleanValue) (\s a -> s {enableDNSSupport = a} :: DescribeVPCAttributeResponse)
+{-# DEPRECATED dvpcarsEnableDNSSupport "Use generic-lens or generic-optics with 'enableDNSSupport' instead." #-}
 
 -- | The ID of the VPC.
-dvpcarsVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
-dvpcarsVPCId = lens _dvpcarsVPCId (\s a -> s {_dvpcarsVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcarsVPCId :: Lens.Lens' DescribeVPCAttributeResponse (Lude.Maybe Lude.Text)
+dvpcarsVPCId = Lens.lens (vpcId :: DescribeVPCAttributeResponse -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DescribeVPCAttributeResponse)
+{-# DEPRECATED dvpcarsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
--- | -- | The response status code.
-dvpcarsResponseStatus :: Lens' DescribeVPCAttributeResponse Int
-dvpcarsResponseStatus = lens _dvpcarsResponseStatus (\s a -> s {_dvpcarsResponseStatus = a})
-
-instance NFData DescribeVPCAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcarsResponseStatus :: Lens.Lens' DescribeVPCAttributeResponse Lude.Int
+dvpcarsResponseStatus = Lens.lens (responseStatus :: DescribeVPCAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCAttributeResponse)
+{-# DEPRECATED dvpcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

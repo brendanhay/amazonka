@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.MessageFormatValue where
+module Network.AWS.DMS.Types.MessageFormatValue
+  ( MessageFormatValue
+      ( MessageFormatValue',
+        JSON,
+        JSONUnformatted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MessageFormatValue
-  = JSON
-  | JSONUnformatted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MessageFormatValue = MessageFormatValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MessageFormatValue where
-  parser =
-    takeLowerText >>= \case
-      "json" -> pure JSON
-      "json-unformatted" -> pure JSONUnformatted
-      e ->
-        fromTextError $
-          "Failure parsing MessageFormatValue from value: '" <> e
-            <> "'. Accepted values: json, json-unformatted"
+pattern JSON :: MessageFormatValue
+pattern JSON = MessageFormatValue' "json"
 
-instance ToText MessageFormatValue where
-  toText = \case
-    JSON -> "json"
-    JSONUnformatted -> "json-unformatted"
+pattern JSONUnformatted :: MessageFormatValue
+pattern JSONUnformatted = MessageFormatValue' "json-unformatted"
 
-instance Hashable MessageFormatValue
-
-instance NFData MessageFormatValue
-
-instance ToByteString MessageFormatValue
-
-instance ToQuery MessageFormatValue
-
-instance ToHeader MessageFormatValue
-
-instance ToJSON MessageFormatValue where
-  toJSON = toJSONText
-
-instance FromJSON MessageFormatValue where
-  parseJSON = parseJSONText "MessageFormatValue"
+{-# COMPLETE
+  JSON,
+  JSONUnformatted,
+  MessageFormatValue'
+  #-}

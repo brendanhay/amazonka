@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists the tags that have been added to the specified resource. This operation is supported in storage gateways of all types.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListTagsForResource
-  ( -- * Creating a Request
-    listTagsForResource,
-    ListTagsForResource,
+  ( -- * Creating a request
+    ListTagsForResource (..),
+    mkListTagsForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfrMarker,
     ltfrLimit,
     ltfrResourceARN,
 
-    -- * Destructuring the Response
-    listTagsForResourceResponse,
-    ListTagsForResourceResponse,
+    -- * Destructuring the response
+    ListTagsForResourceResponse (..),
+    mkListTagsForResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltfrrsResourceARN,
     ltfrrsMarker,
     ltfrrsTags,
@@ -44,158 +37,178 @@ module Network.AWS.StorageGateway.ListTagsForResource
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | ListTagsForResourceInput
 --
---
---
--- /See:/ 'listTagsForResource' smart constructor.
+-- /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { _ltfrMarker ::
-      !(Maybe Text),
-    _ltfrLimit :: !(Maybe Nat),
-    _ltfrResourceARN :: !Text
+  { marker ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfrMarker' - An opaque string that indicates the position at which to begin returning the list of tags.
---
--- * 'ltfrLimit' - Specifies that the list of tags returned be limited to the specified number of items.
---
--- * 'ltfrResourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to list tags.
-listTagsForResource ::
-  -- | 'ltfrResourceARN'
-  Text ->
+-- * 'limit' - Specifies that the list of tags returned be limited to the specified number of items.
+-- * 'marker' - An opaque string that indicates the position at which to begin returning the list of tags.
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to list tags.
+mkListTagsForResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   ListTagsForResource
-listTagsForResource pResourceARN_ =
+mkListTagsForResource pResourceARN_ =
   ListTagsForResource'
-    { _ltfrMarker = Nothing,
-      _ltfrLimit = Nothing,
-      _ltfrResourceARN = pResourceARN_
+    { marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      resourceARN = pResourceARN_
     }
 
 -- | An opaque string that indicates the position at which to begin returning the list of tags.
-ltfrMarker :: Lens' ListTagsForResource (Maybe Text)
-ltfrMarker = lens _ltfrMarker (\s a -> s {_ltfrMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrMarker :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Text)
+ltfrMarker = Lens.lens (marker :: ListTagsForResource -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies that the list of tags returned be limited to the specified number of items.
-ltfrLimit :: Lens' ListTagsForResource (Maybe Natural)
-ltfrLimit = lens _ltfrLimit (\s a -> s {_ltfrLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrLimit :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
+ltfrLimit = Lens.lens (limit :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the resource for which you want to list tags.
-ltfrResourceARN :: Lens' ListTagsForResource Text
-ltfrResourceARN = lens _ltfrResourceARN (\s a -> s {_ltfrResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
+ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSPager ListTagsForResource where
+instance Page.AWSPager ListTagsForResource where
   page rq rs
-    | stop (rs ^. ltfrrsMarker) = Nothing
-    | stop (rs ^. ltfrrsTags) = Nothing
-    | otherwise = Just $ rq & ltfrMarker .~ rs ^. ltfrrsMarker
+    | Page.stop (rs Lens.^. ltfrrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltfrrsTags) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltfrMarker Lens..~ rs Lens.^. ltfrrsMarker
 
-instance AWSRequest ListTagsForResource where
+instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            <$> (x .?> "ResourceARN")
-            <*> (x .?> "Marker")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ResourceARN")
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTagsForResource
-
-instance NFData ListTagsForResource
-
-instance ToHeaders ListTagsForResource where
+instance Lude.ToHeaders ListTagsForResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.ListTagsForResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.ListTagsForResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTagsForResource where
+instance Lude.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
-    object
-      ( catMaybes
-          [ ("Marker" .=) <$> _ltfrMarker,
-            ("Limit" .=) <$> _ltfrLimit,
-            Just ("ResourceARN" .= _ltfrResourceARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("ResourceARN" Lude..= resourceARN)
           ]
       )
 
-instance ToPath ListTagsForResource where
-  toPath = const "/"
+instance Lude.ToPath ListTagsForResource where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTagsForResource where
-  toQuery = const mempty
+instance Lude.ToQuery ListTagsForResource where
+  toQuery = Lude.const Lude.mempty
 
 -- | ListTagsForResourceOutput
 --
---
---
--- /See:/ 'listTagsForResourceResponse' smart constructor.
+-- /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { _ltfrrsResourceARN ::
-      !(Maybe Text),
-    _ltfrrsMarker :: !(Maybe Text),
-    _ltfrrsTags :: !(Maybe [Tag]),
-    _ltfrrsResponseStatus :: !Int
+  { resourceARN ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfrrsResourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to list tags.
---
--- * 'ltfrrsMarker' - An opaque string that indicates the position at which to stop returning the list of tags.
---
--- * 'ltfrrsTags' - An array that contains the tags for the specified resource.
---
--- * 'ltfrrsResponseStatus' - -- | The response status code.
-listTagsForResourceResponse ::
-  -- | 'ltfrrsResponseStatus'
-  Int ->
+-- * 'marker' - An opaque string that indicates the position at which to stop returning the list of tags.
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to list tags.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - An array that contains the tags for the specified resource.
+mkListTagsForResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForResourceResponse
-listTagsForResourceResponse pResponseStatus_ =
+mkListTagsForResourceResponse pResponseStatus_ =
   ListTagsForResourceResponse'
-    { _ltfrrsResourceARN = Nothing,
-      _ltfrrsMarker = Nothing,
-      _ltfrrsTags = Nothing,
-      _ltfrrsResponseStatus = pResponseStatus_
+    { resourceARN = Lude.Nothing,
+      marker = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the resource for which you want to list tags.
-ltfrrsResourceARN :: Lens' ListTagsForResourceResponse (Maybe Text)
-ltfrrsResourceARN = lens _ltfrrsResourceARN (\s a -> s {_ltfrrsResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsResourceARN :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe Lude.Text)
+ltfrrsResourceARN = Lens.lens (resourceARN :: ListTagsForResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | An opaque string that indicates the position at which to stop returning the list of tags.
-ltfrrsMarker :: Lens' ListTagsForResourceResponse (Maybe Text)
-ltfrrsMarker = lens _ltfrrsMarker (\s a -> s {_ltfrrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsMarker :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe Lude.Text)
+ltfrrsMarker = Lens.lens (marker :: ListTagsForResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | An array that contains the tags for the specified resource.
-ltfrrsTags :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTags = lens _ltfrrsTags (\s a -> s {_ltfrrsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsTags :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe [Tag])
+ltfrrsTags = Lens.lens (tags :: ListTagsForResourceResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ltfrrsResponseStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrsResponseStatus = lens _ltfrrsResponseStatus (\s a -> s {_ltfrrsResponseStatus = a})
-
-instance NFData ListTagsForResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
+ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
+{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

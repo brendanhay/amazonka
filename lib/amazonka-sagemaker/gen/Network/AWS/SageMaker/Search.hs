@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +14,15 @@
 --
 -- Finds Amazon SageMaker resources that match a search query. Matching resources are returned as a list of @SearchRecord@ objects in the response. You can sort the search results by any resource property in a ascending or descending order.
 --
---
 -- You can query against the following value types: numeric, text, Boolean, and timestamp.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.Search
-  ( -- * Creating a Request
-    search,
-    Search,
+  ( -- * Creating a request
+    Search (..),
+    mkSearch,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sNextToken,
     sSearchExpression,
     sSortOrder,
@@ -37,177 +30,205 @@ module Network.AWS.SageMaker.Search
     sSortBy,
     sResource,
 
-    -- * Destructuring the Response
-    searchResponse,
-    SearchResponse,
+    -- * Destructuring the response
+    SearchResponse (..),
+    mkSearchResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsResults,
     srsNextToken,
     srsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'search' smart constructor.
+-- | /See:/ 'mkSearch' smart constructor.
 data Search = Search'
-  { _sNextToken :: !(Maybe Text),
-    _sSearchExpression :: !(Maybe SearchExpression),
-    _sSortOrder :: !(Maybe SearchSortOrder),
-    _sMaxResults :: !(Maybe Nat),
-    _sSortBy :: !(Maybe Text),
-    _sResource :: !ResourceType
+  { nextToken :: Lude.Maybe Lude.Text,
+    searchExpression :: Lude.Maybe SearchExpression,
+    sortOrder :: Lude.Maybe SearchSortOrder,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe Lude.Text,
+    resource :: ResourceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Search' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sNextToken' - If more than @MaxResults@ resources match the specified @SearchExpression@ , the response includes a @NextToken@ . The @NextToken@ can be passed to the next @SearchRequest@ to continue retrieving results.
---
--- * 'sSearchExpression' - A Boolean conditional statement. Resources must satisfy this condition to be included in search results. You must provide at least one subexpression, filter, or nested filter. The maximum number of recursive @SubExpressions@ , @NestedFilters@ , and @Filters@ that can be included in a @SearchExpression@ object is 50.
---
--- * 'sSortOrder' - How @SearchResults@ are ordered. Valid values are @Ascending@ or @Descending@ . The default is @Descending@ .
---
--- * 'sMaxResults' - The maximum number of results to return.
---
--- * 'sSortBy' - The name of the resource property used to sort the @SearchResults@ . The default is @LastModifiedTime@ .
---
--- * 'sResource' - The name of the Amazon SageMaker resource to search for.
-search ::
-  -- | 'sResource'
+-- * 'maxResults' - The maximum number of results to return.
+-- * 'nextToken' - If more than @MaxResults@ resources match the specified @SearchExpression@ , the response includes a @NextToken@ . The @NextToken@ can be passed to the next @SearchRequest@ to continue retrieving results.
+-- * 'resource' - The name of the Amazon SageMaker resource to search for.
+-- * 'searchExpression' - A Boolean conditional statement. Resources must satisfy this condition to be included in search results. You must provide at least one subexpression, filter, or nested filter. The maximum number of recursive @SubExpressions@ , @NestedFilters@ , and @Filters@ that can be included in a @SearchExpression@ object is 50.
+-- * 'sortBy' - The name of the resource property used to sort the @SearchResults@ . The default is @LastModifiedTime@ .
+-- * 'sortOrder' - How @SearchResults@ are ordered. Valid values are @Ascending@ or @Descending@ . The default is @Descending@ .
+mkSearch ::
+  -- | 'resource'
   ResourceType ->
   Search
-search pResource_ =
+mkSearch pResource_ =
   Search'
-    { _sNextToken = Nothing,
-      _sSearchExpression = Nothing,
-      _sSortOrder = Nothing,
-      _sMaxResults = Nothing,
-      _sSortBy = Nothing,
-      _sResource = pResource_
+    { nextToken = Lude.Nothing,
+      searchExpression = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing,
+      resource = pResource_
     }
 
 -- | If more than @MaxResults@ resources match the specified @SearchExpression@ , the response includes a @NextToken@ . The @NextToken@ can be passed to the next @SearchRequest@ to continue retrieving results.
-sNextToken :: Lens' Search (Maybe Text)
-sNextToken = lens _sNextToken (\s a -> s {_sNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sNextToken :: Lens.Lens' Search (Lude.Maybe Lude.Text)
+sNextToken = Lens.lens (nextToken :: Search -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: Search)
+{-# DEPRECATED sNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A Boolean conditional statement. Resources must satisfy this condition to be included in search results. You must provide at least one subexpression, filter, or nested filter. The maximum number of recursive @SubExpressions@ , @NestedFilters@ , and @Filters@ that can be included in a @SearchExpression@ object is 50.
-sSearchExpression :: Lens' Search (Maybe SearchExpression)
-sSearchExpression = lens _sSearchExpression (\s a -> s {_sSearchExpression = a})
+--
+-- /Note:/ Consider using 'searchExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSearchExpression :: Lens.Lens' Search (Lude.Maybe SearchExpression)
+sSearchExpression = Lens.lens (searchExpression :: Search -> Lude.Maybe SearchExpression) (\s a -> s {searchExpression = a} :: Search)
+{-# DEPRECATED sSearchExpression "Use generic-lens or generic-optics with 'searchExpression' instead." #-}
 
 -- | How @SearchResults@ are ordered. Valid values are @Ascending@ or @Descending@ . The default is @Descending@ .
-sSortOrder :: Lens' Search (Maybe SearchSortOrder)
-sSortOrder = lens _sSortOrder (\s a -> s {_sSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSortOrder :: Lens.Lens' Search (Lude.Maybe SearchSortOrder)
+sSortOrder = Lens.lens (sortOrder :: Search -> Lude.Maybe SearchSortOrder) (\s a -> s {sortOrder = a} :: Search)
+{-# DEPRECATED sSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | The maximum number of results to return.
-sMaxResults :: Lens' Search (Maybe Natural)
-sMaxResults = lens _sMaxResults (\s a -> s {_sMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMaxResults :: Lens.Lens' Search (Lude.Maybe Lude.Natural)
+sMaxResults = Lens.lens (maxResults :: Search -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: Search)
+{-# DEPRECATED sMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the resource property used to sort the @SearchResults@ . The default is @LastModifiedTime@ .
-sSortBy :: Lens' Search (Maybe Text)
-sSortBy = lens _sSortBy (\s a -> s {_sSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSortBy :: Lens.Lens' Search (Lude.Maybe Lude.Text)
+sSortBy = Lens.lens (sortBy :: Search -> Lude.Maybe Lude.Text) (\s a -> s {sortBy = a} :: Search)
+{-# DEPRECATED sSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
 -- | The name of the Amazon SageMaker resource to search for.
-sResource :: Lens' Search ResourceType
-sResource = lens _sResource (\s a -> s {_sResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sResource :: Lens.Lens' Search ResourceType
+sResource = Lens.lens (resource :: Search -> ResourceType) (\s a -> s {resource = a} :: Search)
+{-# DEPRECATED sResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance AWSPager Search where
+instance Page.AWSPager Search where
   page rq rs
-    | stop (rs ^. srsNextToken) = Nothing
-    | stop (rs ^. srsResults) = Nothing
-    | otherwise = Just $ rq & sNextToken .~ rs ^. srsNextToken
+    | Page.stop (rs Lens.^. srsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. srsResults) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& sNextToken Lens..~ rs Lens.^. srsNextToken
 
-instance AWSRequest Search where
+instance Lude.AWSRequest Search where
   type Rs Search = SearchResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SearchResponse'
-            <$> (x .?> "Results" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Results" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable Search
-
-instance NFData Search
-
-instance ToHeaders Search where
+instance Lude.ToHeaders Search where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.Search" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("SageMaker.Search" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON Search where
+instance Lude.ToJSON Search where
   toJSON Search' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _sNextToken,
-            ("SearchExpression" .=) <$> _sSearchExpression,
-            ("SortOrder" .=) <$> _sSortOrder,
-            ("MaxResults" .=) <$> _sMaxResults,
-            ("SortBy" .=) <$> _sSortBy,
-            Just ("Resource" .= _sResource)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SearchExpression" Lude..=) Lude.<$> searchExpression,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy,
+            Lude.Just ("Resource" Lude..= resource)
           ]
       )
 
-instance ToPath Search where
-  toPath = const "/"
+instance Lude.ToPath Search where
+  toPath = Lude.const "/"
 
-instance ToQuery Search where
-  toQuery = const mempty
+instance Lude.ToQuery Search where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'searchResponse' smart constructor.
+-- | /See:/ 'mkSearchResponse' smart constructor.
 data SearchResponse = SearchResponse'
-  { _srsResults ::
-      !(Maybe [SearchRecord]),
-    _srsNextToken :: !(Maybe Text),
-    _srsResponseStatus :: !Int
+  { results ::
+      Lude.Maybe [SearchRecord],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsResults' - A list of @SearchRecord@ objects.
---
--- * 'srsNextToken' - If the result of the previous @Search@ request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request.
---
--- * 'srsResponseStatus' - -- | The response status code.
-searchResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the result of the previous @Search@ request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request.
+-- * 'responseStatus' - The response status code.
+-- * 'results' - A list of @SearchRecord@ objects.
+mkSearchResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchResponse
-searchResponse pResponseStatus_ =
+mkSearchResponse pResponseStatus_ =
   SearchResponse'
-    { _srsResults = Nothing,
-      _srsNextToken = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { results = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of @SearchRecord@ objects.
-srsResults :: Lens' SearchResponse [SearchRecord]
-srsResults = lens _srsResults (\s a -> s {_srsResults = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResults :: Lens.Lens' SearchResponse (Lude.Maybe [SearchRecord])
+srsResults = Lens.lens (results :: SearchResponse -> Lude.Maybe [SearchRecord]) (\s a -> s {results = a} :: SearchResponse)
+{-# DEPRECATED srsResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
 -- | If the result of the previous @Search@ request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request.
-srsNextToken :: Lens' SearchResponse (Maybe Text)
-srsNextToken = lens _srsNextToken (\s a -> s {_srsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsNextToken :: Lens.Lens' SearchResponse (Lude.Maybe Lude.Text)
+srsNextToken = Lens.lens (nextToken :: SearchResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchResponse)
+{-# DEPRECATED srsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' SearchResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData SearchResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' SearchResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: SearchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

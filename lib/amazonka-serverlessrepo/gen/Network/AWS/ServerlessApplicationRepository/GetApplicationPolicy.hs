@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,128 @@
 --
 -- Retrieves the policy for the application.
 module Network.AWS.ServerlessApplicationRepository.GetApplicationPolicy
-  ( -- * Creating a Request
-    getApplicationPolicy,
-    GetApplicationPolicy,
+  ( -- * Creating a request
+    GetApplicationPolicy (..),
+    mkGetApplicationPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gapApplicationId,
 
-    -- * Destructuring the Response
-    getApplicationPolicyResponse,
-    GetApplicationPolicyResponse,
+    -- * Destructuring the response
+    GetApplicationPolicyResponse (..),
+    mkGetApplicationPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gaprsStatements,
     gaprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServerlessApplicationRepository.Types
 
--- | /See:/ 'getApplicationPolicy' smart constructor.
+-- | /See:/ 'mkGetApplicationPolicy' smart constructor.
 newtype GetApplicationPolicy = GetApplicationPolicy'
-  { _gapApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplicationPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gapApplicationId' - The Amazon Resource Name (ARN) of the application.
-getApplicationPolicy ::
-  -- | 'gapApplicationId'
-  Text ->
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+mkGetApplicationPolicy ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetApplicationPolicy
-getApplicationPolicy pApplicationId_ =
-  GetApplicationPolicy' {_gapApplicationId = pApplicationId_}
+mkGetApplicationPolicy pApplicationId_ =
+  GetApplicationPolicy' {applicationId = pApplicationId_}
 
 -- | The Amazon Resource Name (ARN) of the application.
-gapApplicationId :: Lens' GetApplicationPolicy Text
-gapApplicationId = lens _gapApplicationId (\s a -> s {_gapApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gapApplicationId :: Lens.Lens' GetApplicationPolicy Lude.Text
+gapApplicationId = Lens.lens (applicationId :: GetApplicationPolicy -> Lude.Text) (\s a -> s {applicationId = a} :: GetApplicationPolicy)
+{-# DEPRECATED gapApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetApplicationPolicy where
+instance Lude.AWSRequest GetApplicationPolicy where
   type Rs GetApplicationPolicy = GetApplicationPolicyResponse
-  request = get serverlessApplicationRepository
+  request = Req.get serverlessApplicationRepositoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetApplicationPolicyResponse'
-            <$> (x .?> "statements" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "statements" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetApplicationPolicy
-
-instance NFData GetApplicationPolicy
-
-instance ToHeaders GetApplicationPolicy where
+instance Lude.ToHeaders GetApplicationPolicy where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetApplicationPolicy where
+instance Lude.ToPath GetApplicationPolicy where
   toPath GetApplicationPolicy' {..} =
-    mconcat ["/applications/", toBS _gapApplicationId, "/policy"]
+    Lude.mconcat
+      ["/applications/", Lude.toBS applicationId, "/policy"]
 
-instance ToQuery GetApplicationPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery GetApplicationPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getApplicationPolicyResponse' smart constructor.
+-- | /See:/ 'mkGetApplicationPolicyResponse' smart constructor.
 data GetApplicationPolicyResponse = GetApplicationPolicyResponse'
-  { _gaprsStatements ::
-      !( Maybe
-           [ApplicationPolicyStatement]
-       ),
-    _gaprsResponseStatus :: !Int
+  { statements ::
+      Lude.Maybe
+        [ApplicationPolicyStatement],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApplicationPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaprsStatements' - An array of policy statements applied to the application.
---
--- * 'gaprsResponseStatus' - -- | The response status code.
-getApplicationPolicyResponse ::
-  -- | 'gaprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'statements' - An array of policy statements applied to the application.
+mkGetApplicationPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetApplicationPolicyResponse
-getApplicationPolicyResponse pResponseStatus_ =
+mkGetApplicationPolicyResponse pResponseStatus_ =
   GetApplicationPolicyResponse'
-    { _gaprsStatements = Nothing,
-      _gaprsResponseStatus = pResponseStatus_
+    { statements = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of policy statements applied to the application.
-gaprsStatements :: Lens' GetApplicationPolicyResponse [ApplicationPolicyStatement]
-gaprsStatements = lens _gaprsStatements (\s a -> s {_gaprsStatements = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'statements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaprsStatements :: Lens.Lens' GetApplicationPolicyResponse (Lude.Maybe [ApplicationPolicyStatement])
+gaprsStatements = Lens.lens (statements :: GetApplicationPolicyResponse -> Lude.Maybe [ApplicationPolicyStatement]) (\s a -> s {statements = a} :: GetApplicationPolicyResponse)
+{-# DEPRECATED gaprsStatements "Use generic-lens or generic-optics with 'statements' instead." #-}
 
--- | -- | The response status code.
-gaprsResponseStatus :: Lens' GetApplicationPolicyResponse Int
-gaprsResponseStatus = lens _gaprsResponseStatus (\s a -> s {_gaprsResponseStatus = a})
-
-instance NFData GetApplicationPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaprsResponseStatus :: Lens.Lens' GetApplicationPolicyResponse Lude.Int
+gaprsResponseStatus = Lens.lens (responseStatus :: GetApplicationPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetApplicationPolicyResponse)
+{-# DEPRECATED gaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

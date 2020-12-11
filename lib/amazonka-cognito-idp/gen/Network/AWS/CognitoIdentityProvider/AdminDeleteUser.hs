@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,113 @@
 --
 -- Deletes a user as an administrator. Works on any user.
 --
---
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminDeleteUser
-  ( -- * Creating a Request
-    adminDeleteUser,
-    AdminDeleteUser,
+  ( -- * Creating a request
+    AdminDeleteUser (..),
+    mkAdminDeleteUser,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aUserPoolId,
     aUsername,
 
-    -- * Destructuring the Response
-    adminDeleteUserResponse,
-    AdminDeleteUserResponse,
+    -- * Destructuring the response
+    AdminDeleteUserResponse (..),
+    mkAdminDeleteUserResponse,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to delete a user as an administrator.
 --
---
---
--- /See:/ 'adminDeleteUser' smart constructor.
+-- /See:/ 'mkAdminDeleteUser' smart constructor.
 data AdminDeleteUser = AdminDeleteUser'
-  { _aUserPoolId :: !Text,
-    _aUsername :: !(Sensitive Text)
+  { userPoolId :: Lude.Text,
+    username :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminDeleteUser' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aUserPoolId' - The user pool ID for the user pool where you want to delete the user.
---
--- * 'aUsername' - The user name of the user you wish to delete.
-adminDeleteUser ::
-  -- | 'aUserPoolId'
-  Text ->
-  -- | 'aUsername'
-  Text ->
+-- * 'userPoolId' - The user pool ID for the user pool where you want to delete the user.
+-- * 'username' - The user name of the user you wish to delete.
+mkAdminDeleteUser ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   AdminDeleteUser
-adminDeleteUser pUserPoolId_ pUsername_ =
+mkAdminDeleteUser pUserPoolId_ pUsername_ =
   AdminDeleteUser'
-    { _aUserPoolId = pUserPoolId_,
-      _aUsername = _Sensitive # pUsername_
+    { userPoolId = pUserPoolId_,
+      username = pUsername_
     }
 
 -- | The user pool ID for the user pool where you want to delete the user.
-aUserPoolId :: Lens' AdminDeleteUser Text
-aUserPoolId = lens _aUserPoolId (\s a -> s {_aUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aUserPoolId :: Lens.Lens' AdminDeleteUser Lude.Text
+aUserPoolId = Lens.lens (userPoolId :: AdminDeleteUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminDeleteUser)
+{-# DEPRECATED aUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name of the user you wish to delete.
-aUsername :: Lens' AdminDeleteUser Text
-aUsername = lens _aUsername (\s a -> s {_aUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aUsername :: Lens.Lens' AdminDeleteUser (Lude.Sensitive Lude.Text)
+aUsername = Lens.lens (username :: AdminDeleteUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminDeleteUser)
+{-# DEPRECATED aUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
-instance AWSRequest AdminDeleteUser where
+instance Lude.AWSRequest AdminDeleteUser where
   type Rs AdminDeleteUser = AdminDeleteUserResponse
-  request = postJSON cognitoIdentityProvider
-  response = receiveNull AdminDeleteUserResponse'
+  request = Req.postJSON cognitoIdentityProviderService
+  response = Res.receiveNull AdminDeleteUserResponse'
 
-instance Hashable AdminDeleteUser
-
-instance NFData AdminDeleteUser
-
-instance ToHeaders AdminDeleteUser where
+instance Lude.ToHeaders AdminDeleteUser where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.AdminDeleteUser" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AdminDeleteUser" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AdminDeleteUser where
+instance Lude.ToJSON AdminDeleteUser where
   toJSON AdminDeleteUser' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _aUserPoolId),
-            Just ("Username" .= _aUsername)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("Username" Lude..= username)
           ]
       )
 
-instance ToPath AdminDeleteUser where
-  toPath = const "/"
+instance Lude.ToPath AdminDeleteUser where
+  toPath = Lude.const "/"
 
-instance ToQuery AdminDeleteUser where
-  toQuery = const mempty
+instance Lude.ToQuery AdminDeleteUser where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'adminDeleteUserResponse' smart constructor.
+-- | /See:/ 'mkAdminDeleteUserResponse' smart constructor.
 data AdminDeleteUserResponse = AdminDeleteUserResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminDeleteUserResponse' with the minimum fields required to make a request.
-adminDeleteUserResponse ::
+mkAdminDeleteUserResponse ::
   AdminDeleteUserResponse
-adminDeleteUserResponse = AdminDeleteUserResponse'
-
-instance NFData AdminDeleteUserResponse
+mkAdminDeleteUserResponse = AdminDeleteUserResponse'

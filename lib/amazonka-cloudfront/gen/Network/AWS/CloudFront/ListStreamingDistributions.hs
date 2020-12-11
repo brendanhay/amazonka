@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,167 @@
 --
 -- List streaming distributions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListStreamingDistributions
-  ( -- * Creating a Request
-    listStreamingDistributions,
-    ListStreamingDistributions,
+  ( -- * Creating a request
+    ListStreamingDistributions (..),
+    mkListStreamingDistributions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsdMarker,
     lsdMaxItems,
 
-    -- * Destructuring the Response
-    listStreamingDistributionsResponse,
-    ListStreamingDistributionsResponse,
+    -- * Destructuring the response
+    ListStreamingDistributionsResponse (..),
+    mkListStreamingDistributionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsdrsResponseStatus,
     lsdrsStreamingDistributionList,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to list your streaming distributions.
 --
---
---
--- /See:/ 'listStreamingDistributions' smart constructor.
+-- /See:/ 'mkListStreamingDistributions' smart constructor.
 data ListStreamingDistributions = ListStreamingDistributions'
-  { _lsdMarker ::
-      !(Maybe Text),
-    _lsdMaxItems :: !(Maybe Text)
+  { marker ::
+      Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamingDistributions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsdMarker' - The value that you provided for the @Marker@ request parameter.
---
--- * 'lsdMaxItems' - The value that you provided for the @MaxItems@ request parameter.
-listStreamingDistributions ::
+-- * 'marker' - The value that you provided for the @Marker@ request parameter.
+-- * 'maxItems' - The value that you provided for the @MaxItems@ request parameter.
+mkListStreamingDistributions ::
   ListStreamingDistributions
-listStreamingDistributions =
+mkListStreamingDistributions =
   ListStreamingDistributions'
-    { _lsdMarker = Nothing,
-      _lsdMaxItems = Nothing
+    { marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
 
 -- | The value that you provided for the @Marker@ request parameter.
-lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
-lsdMarker = lens _lsdMarker (\s a -> s {_lsdMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdMarker :: Lens.Lens' ListStreamingDistributions (Lude.Maybe Lude.Text)
+lsdMarker = Lens.lens (marker :: ListStreamingDistributions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListStreamingDistributions)
+{-# DEPRECATED lsdMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The value that you provided for the @MaxItems@ request parameter.
-lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
-lsdMaxItems = lens _lsdMaxItems (\s a -> s {_lsdMaxItems = a})
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdMaxItems :: Lens.Lens' ListStreamingDistributions (Lude.Maybe Lude.Text)
+lsdMaxItems = Lens.lens (maxItems :: ListStreamingDistributions -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListStreamingDistributions)
+{-# DEPRECATED lsdMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSPager ListStreamingDistributions where
+instance Page.AWSPager ListStreamingDistributions where
   page rq rs
-    | stop (rs ^. lsdrsStreamingDistributionList . sdlIsTruncated) =
-      Nothing
-    | isNothing
-        (rs ^? lsdrsStreamingDistributionList . sdlNextMarker . _Just) =
-      Nothing
-    | otherwise =
-      Just $
+    | Page.stop
+        (rs Lens.^. lsdrsStreamingDistributionList Lude.. sdlIsTruncated) =
+      Lude.Nothing
+    | Lude.isNothing
+        ( rs
+            Lens.^? lsdrsStreamingDistributionList
+              Lude.. sdlNextMarker
+              Lude.. Lens._Just
+        ) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
         rq
-          & lsdMarker
-          .~ rs ^? lsdrsStreamingDistributionList . sdlNextMarker . _Just
+          Lude.& lsdMarker
+          Lens..~ rs
+          Lens.^? lsdrsStreamingDistributionList
+            Lude.. sdlNextMarker
+            Lude.. Lens._Just
 
-instance AWSRequest ListStreamingDistributions where
+instance Lude.AWSRequest ListStreamingDistributions where
   type
     Rs ListStreamingDistributions =
       ListStreamingDistributionsResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ListStreamingDistributionsResponse'
-            <$> (pure (fromEnum s)) <*> (parseXML x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.parseXML x)
       )
 
-instance Hashable ListStreamingDistributions
+instance Lude.ToHeaders ListStreamingDistributions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListStreamingDistributions
+instance Lude.ToPath ListStreamingDistributions where
+  toPath = Lude.const "/2020-05-31/streaming-distribution"
 
-instance ToHeaders ListStreamingDistributions where
-  toHeaders = const mempty
-
-instance ToPath ListStreamingDistributions where
-  toPath = const "/2020-05-31/streaming-distribution"
-
-instance ToQuery ListStreamingDistributions where
+instance Lude.ToQuery ListStreamingDistributions where
   toQuery ListStreamingDistributions' {..} =
-    mconcat ["Marker" =: _lsdMarker, "MaxItems" =: _lsdMaxItems]
+    Lude.mconcat
+      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'listStreamingDistributionsResponse' smart constructor.
+-- /See:/ 'mkListStreamingDistributionsResponse' smart constructor.
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
-  { _lsdrsResponseStatus ::
-      !Int,
-    _lsdrsStreamingDistributionList ::
-      !StreamingDistributionList
+  { responseStatus ::
+      Lude.Int,
+    streamingDistributionList ::
+      StreamingDistributionList
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamingDistributionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsdrsResponseStatus' - -- | The response status code.
---
--- * 'lsdrsStreamingDistributionList' - The @StreamingDistributionList@ type.
-listStreamingDistributionsResponse ::
-  -- | 'lsdrsResponseStatus'
-  Int ->
-  -- | 'lsdrsStreamingDistributionList'
+-- * 'responseStatus' - The response status code.
+-- * 'streamingDistributionList' - The @StreamingDistributionList@ type.
+mkListStreamingDistributionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'streamingDistributionList'
   StreamingDistributionList ->
   ListStreamingDistributionsResponse
-listStreamingDistributionsResponse
+mkListStreamingDistributionsResponse
   pResponseStatus_
   pStreamingDistributionList_ =
     ListStreamingDistributionsResponse'
-      { _lsdrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _lsdrsStreamingDistributionList =
-          pStreamingDistributionList_
+        streamingDistributionList = pStreamingDistributionList_
       }
 
--- | -- | The response status code.
-lsdrsResponseStatus :: Lens' ListStreamingDistributionsResponse Int
-lsdrsResponseStatus = lens _lsdrsResponseStatus (\s a -> s {_lsdrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdrsResponseStatus :: Lens.Lens' ListStreamingDistributionsResponse Lude.Int
+lsdrsResponseStatus = Lens.lens (responseStatus :: ListStreamingDistributionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamingDistributionsResponse)
+{-# DEPRECATED lsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The @StreamingDistributionList@ type.
-lsdrsStreamingDistributionList :: Lens' ListStreamingDistributionsResponse StreamingDistributionList
-lsdrsStreamingDistributionList = lens _lsdrsStreamingDistributionList (\s a -> s {_lsdrsStreamingDistributionList = a})
-
-instance NFData ListStreamingDistributionsResponse
+--
+-- /Note:/ Consider using 'streamingDistributionList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdrsStreamingDistributionList :: Lens.Lens' ListStreamingDistributionsResponse StreamingDistributionList
+lsdrsStreamingDistributionList = Lens.lens (streamingDistributionList :: ListStreamingDistributionsResponse -> StreamingDistributionList) (\s a -> s {streamingDistributionList = a} :: ListStreamingDistributionsResponse)
+{-# DEPRECATED lsdrsStreamingDistributionList "Use generic-lens or generic-optics with 'streamingDistributionList' instead." #-}

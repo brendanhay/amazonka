@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.SamplingStatisticSummary where
+module Network.AWS.XRay.Types.SamplingStatisticSummary
+  ( SamplingStatisticSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSamplingStatisticSummary,
+
+    -- * Lenses
+    sssRequestCount,
+    sssBorrowCount,
+    sssRuleName,
+    sssTimestamp,
+    sssSampledCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Aggregated request sampling data for a sampling rule across all services for a 10-second window.
 --
---
---
--- /See:/ 'samplingStatisticSummary' smart constructor.
+-- /See:/ 'mkSamplingStatisticSummary' smart constructor.
 data SamplingStatisticSummary = SamplingStatisticSummary'
-  { _sssRequestCount ::
-      !(Maybe Int),
-    _sssBorrowCount :: !(Maybe Int),
-    _sssRuleName :: !(Maybe Text),
-    _sssTimestamp :: !(Maybe POSIX),
-    _sssSampledCount :: !(Maybe Int)
+  { requestCount ::
+      Lude.Maybe Lude.Int,
+    borrowCount :: Lude.Maybe Lude.Int,
+    ruleName :: Lude.Maybe Lude.Text,
+    timestamp :: Lude.Maybe Lude.Timestamp,
+    sampledCount :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SamplingStatisticSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sssRequestCount' - The number of requests that matched the rule.
---
--- * 'sssBorrowCount' - The number of requests recorded with borrowed reservoir quota.
---
--- * 'sssRuleName' - The name of the sampling rule.
---
--- * 'sssTimestamp' - The start time of the reporting window.
---
--- * 'sssSampledCount' - The number of requests recorded.
-samplingStatisticSummary ::
+-- * 'borrowCount' - The number of requests recorded with borrowed reservoir quota.
+-- * 'requestCount' - The number of requests that matched the rule.
+-- * 'ruleName' - The name of the sampling rule.
+-- * 'sampledCount' - The number of requests recorded.
+-- * 'timestamp' - The start time of the reporting window.
+mkSamplingStatisticSummary ::
   SamplingStatisticSummary
-samplingStatisticSummary =
+mkSamplingStatisticSummary =
   SamplingStatisticSummary'
-    { _sssRequestCount = Nothing,
-      _sssBorrowCount = Nothing,
-      _sssRuleName = Nothing,
-      _sssTimestamp = Nothing,
-      _sssSampledCount = Nothing
+    { requestCount = Lude.Nothing,
+      borrowCount = Lude.Nothing,
+      ruleName = Lude.Nothing,
+      timestamp = Lude.Nothing,
+      sampledCount = Lude.Nothing
     }
 
 -- | The number of requests that matched the rule.
-sssRequestCount :: Lens' SamplingStatisticSummary (Maybe Int)
-sssRequestCount = lens _sssRequestCount (\s a -> s {_sssRequestCount = a})
+--
+-- /Note:/ Consider using 'requestCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssRequestCount :: Lens.Lens' SamplingStatisticSummary (Lude.Maybe Lude.Int)
+sssRequestCount = Lens.lens (requestCount :: SamplingStatisticSummary -> Lude.Maybe Lude.Int) (\s a -> s {requestCount = a} :: SamplingStatisticSummary)
+{-# DEPRECATED sssRequestCount "Use generic-lens or generic-optics with 'requestCount' instead." #-}
 
 -- | The number of requests recorded with borrowed reservoir quota.
-sssBorrowCount :: Lens' SamplingStatisticSummary (Maybe Int)
-sssBorrowCount = lens _sssBorrowCount (\s a -> s {_sssBorrowCount = a})
+--
+-- /Note:/ Consider using 'borrowCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssBorrowCount :: Lens.Lens' SamplingStatisticSummary (Lude.Maybe Lude.Int)
+sssBorrowCount = Lens.lens (borrowCount :: SamplingStatisticSummary -> Lude.Maybe Lude.Int) (\s a -> s {borrowCount = a} :: SamplingStatisticSummary)
+{-# DEPRECATED sssBorrowCount "Use generic-lens or generic-optics with 'borrowCount' instead." #-}
 
 -- | The name of the sampling rule.
-sssRuleName :: Lens' SamplingStatisticSummary (Maybe Text)
-sssRuleName = lens _sssRuleName (\s a -> s {_sssRuleName = a})
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssRuleName :: Lens.Lens' SamplingStatisticSummary (Lude.Maybe Lude.Text)
+sssRuleName = Lens.lens (ruleName :: SamplingStatisticSummary -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: SamplingStatisticSummary)
+{-# DEPRECATED sssRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The start time of the reporting window.
-sssTimestamp :: Lens' SamplingStatisticSummary (Maybe UTCTime)
-sssTimestamp = lens _sssTimestamp (\s a -> s {_sssTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssTimestamp :: Lens.Lens' SamplingStatisticSummary (Lude.Maybe Lude.Timestamp)
+sssTimestamp = Lens.lens (timestamp :: SamplingStatisticSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: SamplingStatisticSummary)
+{-# DEPRECATED sssTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The number of requests recorded.
-sssSampledCount :: Lens' SamplingStatisticSummary (Maybe Int)
-sssSampledCount = lens _sssSampledCount (\s a -> s {_sssSampledCount = a})
+--
+-- /Note:/ Consider using 'sampledCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sssSampledCount :: Lens.Lens' SamplingStatisticSummary (Lude.Maybe Lude.Int)
+sssSampledCount = Lens.lens (sampledCount :: SamplingStatisticSummary -> Lude.Maybe Lude.Int) (\s a -> s {sampledCount = a} :: SamplingStatisticSummary)
+{-# DEPRECATED sssSampledCount "Use generic-lens or generic-optics with 'sampledCount' instead." #-}
 
-instance FromJSON SamplingStatisticSummary where
+instance Lude.FromJSON SamplingStatisticSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "SamplingStatisticSummary"
       ( \x ->
           SamplingStatisticSummary'
-            <$> (x .:? "RequestCount")
-            <*> (x .:? "BorrowCount")
-            <*> (x .:? "RuleName")
-            <*> (x .:? "Timestamp")
-            <*> (x .:? "SampledCount")
+            Lude.<$> (x Lude..:? "RequestCount")
+            Lude.<*> (x Lude..:? "BorrowCount")
+            Lude.<*> (x Lude..:? "RuleName")
+            Lude.<*> (x Lude..:? "Timestamp")
+            Lude.<*> (x Lude..:? "SampledCount")
       )
-
-instance Hashable SamplingStatisticSummary
-
-instance NFData SamplingStatisticSummary

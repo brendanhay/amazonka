@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,103 +7,131 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MarketplaceMetering.Types.UsageRecord where
+module Network.AWS.MarketplaceMetering.Types.UsageRecord
+  ( UsageRecord (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkUsageRecord,
+
+    -- * Lenses
+    urQuantity,
+    urUsageAllocations,
+    urTimestamp,
+    urCustomerIdentifier,
+    urDimension,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types.UsageAllocation
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | A UsageRecord indicates a quantity of usage for a given product, customer, dimension and time.
 --
---
 -- Multiple requests with the same UsageRecords as input will be deduplicated to prevent double charges.
 --
---
--- /See:/ 'usageRecord' smart constructor.
+-- /See:/ 'mkUsageRecord' smart constructor.
 data UsageRecord = UsageRecord'
-  { _urQuantity :: !(Maybe Nat),
-    _urUsageAllocations :: !(Maybe (List1 UsageAllocation)),
-    _urTimestamp :: !POSIX,
-    _urCustomerIdentifier :: !Text,
-    _urDimension :: !Text
+  { quantity ::
+      Lude.Maybe Lude.Natural,
+    usageAllocations :: Lude.Maybe (Lude.NonEmpty UsageAllocation),
+    timestamp :: Lude.Timestamp,
+    customerIdentifier :: Lude.Text,
+    dimension :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageRecord' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'customerIdentifier' - The CustomerIdentifier is obtained through the ResolveCustomer operation and represents an individual buyer in your application.
+-- * 'dimension' - During the process of registering a product on AWS Marketplace, up to eight dimensions are specified. These represent different units of value in your application.
+-- * 'quantity' - The quantity of usage consumed by the customer for the given dimension and time. Defaults to @0@ if not specified.
+-- * 'timestamp' - Timestamp, in UTC, for which the usage is being reported.
 --
--- * 'urQuantity' - The quantity of usage consumed by the customer for the given dimension and time. Defaults to @0@ if not specified.
---
--- * 'urUsageAllocations' - The set of UsageAllocations to submit. The sum of all UsageAllocation quantities must equal the Quantity of the UsageRecord.
---
--- * 'urTimestamp' - Timestamp, in UTC, for which the usage is being reported. Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.
---
--- * 'urCustomerIdentifier' - The CustomerIdentifier is obtained through the ResolveCustomer operation and represents an individual buyer in your application.
---
--- * 'urDimension' - During the process of registering a product on AWS Marketplace, up to eight dimensions are specified. These represent different units of value in your application.
-usageRecord ::
-  -- | 'urTimestamp'
-  UTCTime ->
-  -- | 'urCustomerIdentifier'
-  Text ->
-  -- | 'urDimension'
-  Text ->
+-- Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.
+-- * 'usageAllocations' - The set of UsageAllocations to submit. The sum of all UsageAllocation quantities must equal the Quantity of the UsageRecord.
+mkUsageRecord ::
+  -- | 'timestamp'
+  Lude.Timestamp ->
+  -- | 'customerIdentifier'
+  Lude.Text ->
+  -- | 'dimension'
+  Lude.Text ->
   UsageRecord
-usageRecord pTimestamp_ pCustomerIdentifier_ pDimension_ =
+mkUsageRecord pTimestamp_ pCustomerIdentifier_ pDimension_ =
   UsageRecord'
-    { _urQuantity = Nothing,
-      _urUsageAllocations = Nothing,
-      _urTimestamp = _Time # pTimestamp_,
-      _urCustomerIdentifier = pCustomerIdentifier_,
-      _urDimension = pDimension_
+    { quantity = Lude.Nothing,
+      usageAllocations = Lude.Nothing,
+      timestamp = pTimestamp_,
+      customerIdentifier = pCustomerIdentifier_,
+      dimension = pDimension_
     }
 
 -- | The quantity of usage consumed by the customer for the given dimension and time. Defaults to @0@ if not specified.
-urQuantity :: Lens' UsageRecord (Maybe Natural)
-urQuantity = lens _urQuantity (\s a -> s {_urQuantity = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urQuantity :: Lens.Lens' UsageRecord (Lude.Maybe Lude.Natural)
+urQuantity = Lens.lens (quantity :: UsageRecord -> Lude.Maybe Lude.Natural) (\s a -> s {quantity = a} :: UsageRecord)
+{-# DEPRECATED urQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | The set of UsageAllocations to submit. The sum of all UsageAllocation quantities must equal the Quantity of the UsageRecord.
-urUsageAllocations :: Lens' UsageRecord (Maybe (NonEmpty UsageAllocation))
-urUsageAllocations = lens _urUsageAllocations (\s a -> s {_urUsageAllocations = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'usageAllocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urUsageAllocations :: Lens.Lens' UsageRecord (Lude.Maybe (Lude.NonEmpty UsageAllocation))
+urUsageAllocations = Lens.lens (usageAllocations :: UsageRecord -> Lude.Maybe (Lude.NonEmpty UsageAllocation)) (\s a -> s {usageAllocations = a} :: UsageRecord)
+{-# DEPRECATED urUsageAllocations "Use generic-lens or generic-optics with 'usageAllocations' instead." #-}
 
--- | Timestamp, in UTC, for which the usage is being reported. Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.
-urTimestamp :: Lens' UsageRecord UTCTime
-urTimestamp = lens _urTimestamp (\s a -> s {_urTimestamp = a}) . _Time
+-- | Timestamp, in UTC, for which the usage is being reported.
+--
+-- Your application can meter usage for up to one hour in the past. Make sure the timestamp value is not before the start of the software usage.
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urTimestamp :: Lens.Lens' UsageRecord Lude.Timestamp
+urTimestamp = Lens.lens (timestamp :: UsageRecord -> Lude.Timestamp) (\s a -> s {timestamp = a} :: UsageRecord)
+{-# DEPRECATED urTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The CustomerIdentifier is obtained through the ResolveCustomer operation and represents an individual buyer in your application.
-urCustomerIdentifier :: Lens' UsageRecord Text
-urCustomerIdentifier = lens _urCustomerIdentifier (\s a -> s {_urCustomerIdentifier = a})
+--
+-- /Note:/ Consider using 'customerIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urCustomerIdentifier :: Lens.Lens' UsageRecord Lude.Text
+urCustomerIdentifier = Lens.lens (customerIdentifier :: UsageRecord -> Lude.Text) (\s a -> s {customerIdentifier = a} :: UsageRecord)
+{-# DEPRECATED urCustomerIdentifier "Use generic-lens or generic-optics with 'customerIdentifier' instead." #-}
 
 -- | During the process of registering a product on AWS Marketplace, up to eight dimensions are specified. These represent different units of value in your application.
-urDimension :: Lens' UsageRecord Text
-urDimension = lens _urDimension (\s a -> s {_urDimension = a})
+--
+-- /Note:/ Consider using 'dimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urDimension :: Lens.Lens' UsageRecord Lude.Text
+urDimension = Lens.lens (dimension :: UsageRecord -> Lude.Text) (\s a -> s {dimension = a} :: UsageRecord)
+{-# DEPRECATED urDimension "Use generic-lens or generic-optics with 'dimension' instead." #-}
 
-instance FromJSON UsageRecord where
+instance Lude.FromJSON UsageRecord where
   parseJSON =
-    withObject
+    Lude.withObject
       "UsageRecord"
       ( \x ->
           UsageRecord'
-            <$> (x .:? "Quantity")
-            <*> (x .:? "UsageAllocations")
-            <*> (x .: "Timestamp")
-            <*> (x .: "CustomerIdentifier")
-            <*> (x .: "Dimension")
+            Lude.<$> (x Lude..:? "Quantity")
+            Lude.<*> (x Lude..:? "UsageAllocations")
+            Lude.<*> (x Lude..: "Timestamp")
+            Lude.<*> (x Lude..: "CustomerIdentifier")
+            Lude.<*> (x Lude..: "Dimension")
       )
 
-instance Hashable UsageRecord
-
-instance NFData UsageRecord
-
-instance ToJSON UsageRecord where
+instance Lude.ToJSON UsageRecord where
   toJSON UsageRecord' {..} =
-    object
-      ( catMaybes
-          [ ("Quantity" .=) <$> _urQuantity,
-            ("UsageAllocations" .=) <$> _urUsageAllocations,
-            Just ("Timestamp" .= _urTimestamp),
-            Just ("CustomerIdentifier" .= _urCustomerIdentifier),
-            Just ("Dimension" .= _urDimension)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Quantity" Lude..=) Lude.<$> quantity,
+            ("UsageAllocations" Lude..=) Lude.<$> usageAllocations,
+            Lude.Just ("Timestamp" Lude..= timestamp),
+            Lude.Just ("CustomerIdentifier" Lude..= customerIdentifier),
+            Lude.Just ("Dimension" Lude..= dimension)
           ]
       )

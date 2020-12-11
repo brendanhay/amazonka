@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves information about a medical vocabulary.
 module Network.AWS.Transcribe.GetMedicalVocabulary
-  ( -- * Creating a Request
-    getMedicalVocabulary,
-    GetMedicalVocabulary,
+  ( -- * Creating a request
+    GetMedicalVocabulary (..),
+    mkGetMedicalVocabulary,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmvVocabularyName,
 
-    -- * Destructuring the Response
-    getMedicalVocabularyResponse,
-    GetMedicalVocabularyResponse,
+    -- * Destructuring the response
+    GetMedicalVocabularyResponse (..),
+    mkGetMedicalVocabularyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmvrsFailureReason,
     gmvrsLanguageCode,
     gmvrsDownloadURI,
@@ -41,152 +36,177 @@ module Network.AWS.Transcribe.GetMedicalVocabulary
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'getMedicalVocabulary' smart constructor.
+-- | /See:/ 'mkGetMedicalVocabulary' smart constructor.
 newtype GetMedicalVocabulary = GetMedicalVocabulary'
-  { _gmvVocabularyName ::
-      Text
+  { vocabularyName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMedicalVocabulary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmvVocabularyName' - The name of the vocabulary that you want information about. The value is case sensitive.
-getMedicalVocabulary ::
-  -- | 'gmvVocabularyName'
-  Text ->
+-- * 'vocabularyName' - The name of the vocabulary that you want information about. The value is case sensitive.
+mkGetMedicalVocabulary ::
+  -- | 'vocabularyName'
+  Lude.Text ->
   GetMedicalVocabulary
-getMedicalVocabulary pVocabularyName_ =
-  GetMedicalVocabulary' {_gmvVocabularyName = pVocabularyName_}
+mkGetMedicalVocabulary pVocabularyName_ =
+  GetMedicalVocabulary' {vocabularyName = pVocabularyName_}
 
 -- | The name of the vocabulary that you want information about. The value is case sensitive.
-gmvVocabularyName :: Lens' GetMedicalVocabulary Text
-gmvVocabularyName = lens _gmvVocabularyName (\s a -> s {_gmvVocabularyName = a})
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmvVocabularyName :: Lens.Lens' GetMedicalVocabulary Lude.Text
+gmvVocabularyName = Lens.lens (vocabularyName :: GetMedicalVocabulary -> Lude.Text) (\s a -> s {vocabularyName = a} :: GetMedicalVocabulary)
+{-# DEPRECATED gmvVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
-instance AWSRequest GetMedicalVocabulary where
+instance Lude.AWSRequest GetMedicalVocabulary where
   type Rs GetMedicalVocabulary = GetMedicalVocabularyResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetMedicalVocabularyResponse'
-            <$> (x .?> "FailureReason")
-            <*> (x .?> "LanguageCode")
-            <*> (x .?> "DownloadUri")
-            <*> (x .?> "VocabularyName")
-            <*> (x .?> "LastModifiedTime")
-            <*> (x .?> "VocabularyState")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "LanguageCode")
+            Lude.<*> (x Lude..?> "DownloadUri")
+            Lude.<*> (x Lude..?> "VocabularyName")
+            Lude.<*> (x Lude..?> "LastModifiedTime")
+            Lude.<*> (x Lude..?> "VocabularyState")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetMedicalVocabulary
-
-instance NFData GetMedicalVocabulary
-
-instance ToHeaders GetMedicalVocabulary where
+instance Lude.ToHeaders GetMedicalVocabulary where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Transcribe.GetMedicalVocabulary" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Transcribe.GetMedicalVocabulary" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetMedicalVocabulary where
+instance Lude.ToJSON GetMedicalVocabulary where
   toJSON GetMedicalVocabulary' {..} =
-    object
-      (catMaybes [Just ("VocabularyName" .= _gmvVocabularyName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("VocabularyName" Lude..= vocabularyName)]
+      )
 
-instance ToPath GetMedicalVocabulary where
-  toPath = const "/"
+instance Lude.ToPath GetMedicalVocabulary where
+  toPath = Lude.const "/"
 
-instance ToQuery GetMedicalVocabulary where
-  toQuery = const mempty
+instance Lude.ToQuery GetMedicalVocabulary where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getMedicalVocabularyResponse' smart constructor.
+-- | /See:/ 'mkGetMedicalVocabularyResponse' smart constructor.
 data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
-  { _gmvrsFailureReason ::
-      !(Maybe Text),
-    _gmvrsLanguageCode ::
-      !(Maybe LanguageCode),
-    _gmvrsDownloadURI ::
-      !(Maybe Text),
-    _gmvrsVocabularyName ::
-      !(Maybe Text),
-    _gmvrsLastModifiedTime ::
-      !(Maybe POSIX),
-    _gmvrsVocabularyState ::
-      !(Maybe VocabularyState),
-    _gmvrsResponseStatus :: !Int
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    languageCode ::
+      Lude.Maybe LanguageCode,
+    downloadURI ::
+      Lude.Maybe Lude.Text,
+    vocabularyName ::
+      Lude.Maybe Lude.Text,
+    lastModifiedTime ::
+      Lude.Maybe Lude.Timestamp,
+    vocabularyState ::
+      Lude.Maybe VocabularyState,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMedicalVocabularyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmvrsFailureReason' - If the @VocabularyState@ is @FAILED@ , this field contains information about why the job failed.
---
--- * 'gmvrsLanguageCode' - The valid language code for your vocabulary entries.
---
--- * 'gmvrsDownloadURI' - The location in Amazon S3 where the vocabulary is stored. Use this URI to get the contents of the vocabulary. You can download your vocabulary from the URI for a limited time.
---
--- * 'gmvrsVocabularyName' - The name of the vocabulary returned by Amazon Transcribe Medical.
---
--- * 'gmvrsLastModifiedTime' - The date and time that the vocabulary was last modified with a text file different from the one that was previously used.
---
--- * 'gmvrsVocabularyState' - The processing state of the vocabulary. If the @VocabularyState@ is @READY@ then you can use it in the @StartMedicalTranscriptionJob@ operation.
---
--- * 'gmvrsResponseStatus' - -- | The response status code.
-getMedicalVocabularyResponse ::
-  -- | 'gmvrsResponseStatus'
-  Int ->
+-- * 'downloadURI' - The location in Amazon S3 where the vocabulary is stored. Use this URI to get the contents of the vocabulary. You can download your vocabulary from the URI for a limited time.
+-- * 'failureReason' - If the @VocabularyState@ is @FAILED@ , this field contains information about why the job failed.
+-- * 'languageCode' - The valid language code for your vocabulary entries.
+-- * 'lastModifiedTime' - The date and time that the vocabulary was last modified with a text file different from the one that was previously used.
+-- * 'responseStatus' - The response status code.
+-- * 'vocabularyName' - The name of the vocabulary returned by Amazon Transcribe Medical.
+-- * 'vocabularyState' - The processing state of the vocabulary. If the @VocabularyState@ is @READY@ then you can use it in the @StartMedicalTranscriptionJob@ operation.
+mkGetMedicalVocabularyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMedicalVocabularyResponse
-getMedicalVocabularyResponse pResponseStatus_ =
+mkGetMedicalVocabularyResponse pResponseStatus_ =
   GetMedicalVocabularyResponse'
-    { _gmvrsFailureReason = Nothing,
-      _gmvrsLanguageCode = Nothing,
-      _gmvrsDownloadURI = Nothing,
-      _gmvrsVocabularyName = Nothing,
-      _gmvrsLastModifiedTime = Nothing,
-      _gmvrsVocabularyState = Nothing,
-      _gmvrsResponseStatus = pResponseStatus_
+    { failureReason = Lude.Nothing,
+      languageCode = Lude.Nothing,
+      downloadURI = Lude.Nothing,
+      vocabularyName = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      vocabularyState = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the @VocabularyState@ is @FAILED@ , this field contains information about why the job failed.
-gmvrsFailureReason :: Lens' GetMedicalVocabularyResponse (Maybe Text)
-gmvrsFailureReason = lens _gmvrsFailureReason (\s a -> s {_gmvrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmvrsFailureReason :: Lens.Lens' GetMedicalVocabularyResponse (Lude.Maybe Lude.Text)
+gmvrsFailureReason = Lens.lens (failureReason :: GetMedicalVocabularyResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: GetMedicalVocabularyResponse)
+{-# DEPRECATED gmvrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The valid language code for your vocabulary entries.
-gmvrsLanguageCode :: Lens' GetMedicalVocabularyResponse (Maybe LanguageCode)
-gmvrsLanguageCode = lens _gmvrsLanguageCode (\s a -> s {_gmvrsLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmvrsLanguageCode :: Lens.Lens' GetMedicalVocabularyResponse (Lude.Maybe LanguageCode)
+gmvrsLanguageCode = Lens.lens (languageCode :: GetMedicalVocabularyResponse -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: GetMedicalVocabularyResponse)
+{-# DEPRECATED gmvrsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The location in Amazon S3 where the vocabulary is stored. Use this URI to get the contents of the vocabulary. You can download your vocabulary from the URI for a limited time.
-gmvrsDownloadURI :: Lens' GetMedicalVocabularyResponse (Maybe Text)
-gmvrsDownloadURI = lens _gmvrsDownloadURI (\s a -> s {_gmvrsDownloadURI = a})
+--
+-- /Note:/ Consider using 'downloadURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmvrsDownloadURI :: Lens.Lens' GetMedicalVocabularyResponse (Lude.Maybe Lude.Text)
+gmvrsDownloadURI = Lens.lens (downloadURI :: GetMedicalVocabularyResponse -> Lude.Maybe Lude.Text) (\s a -> s {downloadURI = a} :: GetMedicalVocabularyResponse)
+{-# DEPRECATED gmvrsDownloadURI "Use generic-lens or generic-optics with 'downloadURI' instead." #-}
 
 -- | The name of the vocabulary returned by Amazon Transcribe Medical.
-gmvrsVocabularyName :: Lens' GetMedicalVocabularyResponse (Maybe Text)
-gmvrsVocabularyName = lens _gmvrsVocabularyName (\s a -> s {_gmvrsVocabularyName = a})
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmvrsVocabularyName :: Lens.Lens' GetMedicalVocabularyResponse (Lude.Maybe Lude.Text)
+gmvrsVocabularyName = Lens.lens (vocabularyName :: GetMedicalVocabularyResponse -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyName = a} :: GetMedicalVocabularyResponse)
+{-# DEPRECATED gmvrsVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The date and time that the vocabulary was last modified with a text file different from the one that was previously used.
-gmvrsLastModifiedTime :: Lens' GetMedicalVocabularyResponse (Maybe UTCTime)
-gmvrsLastModifiedTime = lens _gmvrsLastModifiedTime (\s a -> s {_gmvrsLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmvrsLastModifiedTime :: Lens.Lens' GetMedicalVocabularyResponse (Lude.Maybe Lude.Timestamp)
+gmvrsLastModifiedTime = Lens.lens (lastModifiedTime :: GetMedicalVocabularyResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: GetMedicalVocabularyResponse)
+{-# DEPRECATED gmvrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The processing state of the vocabulary. If the @VocabularyState@ is @READY@ then you can use it in the @StartMedicalTranscriptionJob@ operation.
-gmvrsVocabularyState :: Lens' GetMedicalVocabularyResponse (Maybe VocabularyState)
-gmvrsVocabularyState = lens _gmvrsVocabularyState (\s a -> s {_gmvrsVocabularyState = a})
+--
+-- /Note:/ Consider using 'vocabularyState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmvrsVocabularyState :: Lens.Lens' GetMedicalVocabularyResponse (Lude.Maybe VocabularyState)
+gmvrsVocabularyState = Lens.lens (vocabularyState :: GetMedicalVocabularyResponse -> Lude.Maybe VocabularyState) (\s a -> s {vocabularyState = a} :: GetMedicalVocabularyResponse)
+{-# DEPRECATED gmvrsVocabularyState "Use generic-lens or generic-optics with 'vocabularyState' instead." #-}
 
--- | -- | The response status code.
-gmvrsResponseStatus :: Lens' GetMedicalVocabularyResponse Int
-gmvrsResponseStatus = lens _gmvrsResponseStatus (\s a -> s {_gmvrsResponseStatus = a})
-
-instance NFData GetMedicalVocabularyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmvrsResponseStatus :: Lens.Lens' GetMedicalVocabularyResponse Lude.Int
+gmvrsResponseStatus = Lens.lens (responseStatus :: GetMedicalVocabularyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMedicalVocabularyResponse)
+{-# DEPRECATED gmvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,150 +14,167 @@
 --
 -- Creates a signaling channel.
 --
---
 -- @CreateSignalingChannel@ is an asynchronous operation.
 module Network.AWS.KinesisVideo.CreateSignalingChannel
-  ( -- * Creating a Request
-    createSignalingChannel,
-    CreateSignalingChannel,
+  ( -- * Creating a request
+    CreateSignalingChannel (..),
+    mkCreateSignalingChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cscSingleMasterConfiguration,
     cscChannelType,
     cscTags,
     cscChannelName,
 
-    -- * Destructuring the Response
-    createSignalingChannelResponse,
-    CreateSignalingChannelResponse,
+    -- * Destructuring the response
+    CreateSignalingChannelResponse (..),
+    mkCreateSignalingChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cscrsChannelARN,
     cscrsResponseStatus,
   )
 where
 
 import Network.AWS.KinesisVideo.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createSignalingChannel' smart constructor.
+-- | /See:/ 'mkCreateSignalingChannel' smart constructor.
 data CreateSignalingChannel = CreateSignalingChannel'
-  { _cscSingleMasterConfiguration ::
-      !(Maybe SingleMasterConfiguration),
-    _cscChannelType :: !(Maybe ChannelType),
-    _cscTags :: !(Maybe [Tag]),
-    _cscChannelName :: !Text
+  { singleMasterConfiguration ::
+      Lude.Maybe SingleMasterConfiguration,
+    channelType :: Lude.Maybe ChannelType,
+    tags :: Lude.Maybe [Tag],
+    channelName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSignalingChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cscSingleMasterConfiguration' - A structure containing the configuration for the @SINGLE_MASTER@ channel type.
---
--- * 'cscChannelType' - A type of the signaling channel that you are creating. Currently, @SINGLE_MASTER@ is the only supported channel type.
---
--- * 'cscTags' - A set of tags (key-value pairs) that you want to associate with this channel.
---
--- * 'cscChannelName' - A name for the signaling channel that you are creating. It must be unique for each AWS account and AWS Region.
-createSignalingChannel ::
-  -- | 'cscChannelName'
-  Text ->
+-- * 'channelName' - A name for the signaling channel that you are creating. It must be unique for each AWS account and AWS Region.
+-- * 'channelType' - A type of the signaling channel that you are creating. Currently, @SINGLE_MASTER@ is the only supported channel type.
+-- * 'singleMasterConfiguration' - A structure containing the configuration for the @SINGLE_MASTER@ channel type.
+-- * 'tags' - A set of tags (key-value pairs) that you want to associate with this channel.
+mkCreateSignalingChannel ::
+  -- | 'channelName'
+  Lude.Text ->
   CreateSignalingChannel
-createSignalingChannel pChannelName_ =
+mkCreateSignalingChannel pChannelName_ =
   CreateSignalingChannel'
-    { _cscSingleMasterConfiguration = Nothing,
-      _cscChannelType = Nothing,
-      _cscTags = Nothing,
-      _cscChannelName = pChannelName_
+    { singleMasterConfiguration = Lude.Nothing,
+      channelType = Lude.Nothing,
+      tags = Lude.Nothing,
+      channelName = pChannelName_
     }
 
 -- | A structure containing the configuration for the @SINGLE_MASTER@ channel type.
-cscSingleMasterConfiguration :: Lens' CreateSignalingChannel (Maybe SingleMasterConfiguration)
-cscSingleMasterConfiguration = lens _cscSingleMasterConfiguration (\s a -> s {_cscSingleMasterConfiguration = a})
+--
+-- /Note:/ Consider using 'singleMasterConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscSingleMasterConfiguration :: Lens.Lens' CreateSignalingChannel (Lude.Maybe SingleMasterConfiguration)
+cscSingleMasterConfiguration = Lens.lens (singleMasterConfiguration :: CreateSignalingChannel -> Lude.Maybe SingleMasterConfiguration) (\s a -> s {singleMasterConfiguration = a} :: CreateSignalingChannel)
+{-# DEPRECATED cscSingleMasterConfiguration "Use generic-lens or generic-optics with 'singleMasterConfiguration' instead." #-}
 
 -- | A type of the signaling channel that you are creating. Currently, @SINGLE_MASTER@ is the only supported channel type.
-cscChannelType :: Lens' CreateSignalingChannel (Maybe ChannelType)
-cscChannelType = lens _cscChannelType (\s a -> s {_cscChannelType = a})
+--
+-- /Note:/ Consider using 'channelType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscChannelType :: Lens.Lens' CreateSignalingChannel (Lude.Maybe ChannelType)
+cscChannelType = Lens.lens (channelType :: CreateSignalingChannel -> Lude.Maybe ChannelType) (\s a -> s {channelType = a} :: CreateSignalingChannel)
+{-# DEPRECATED cscChannelType "Use generic-lens or generic-optics with 'channelType' instead." #-}
 
 -- | A set of tags (key-value pairs) that you want to associate with this channel.
-cscTags :: Lens' CreateSignalingChannel [Tag]
-cscTags = lens _cscTags (\s a -> s {_cscTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscTags :: Lens.Lens' CreateSignalingChannel (Lude.Maybe [Tag])
+cscTags = Lens.lens (tags :: CreateSignalingChannel -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSignalingChannel)
+{-# DEPRECATED cscTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | A name for the signaling channel that you are creating. It must be unique for each AWS account and AWS Region.
-cscChannelName :: Lens' CreateSignalingChannel Text
-cscChannelName = lens _cscChannelName (\s a -> s {_cscChannelName = a})
+--
+-- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscChannelName :: Lens.Lens' CreateSignalingChannel Lude.Text
+cscChannelName = Lens.lens (channelName :: CreateSignalingChannel -> Lude.Text) (\s a -> s {channelName = a} :: CreateSignalingChannel)
+{-# DEPRECATED cscChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
-instance AWSRequest CreateSignalingChannel where
+instance Lude.AWSRequest CreateSignalingChannel where
   type Rs CreateSignalingChannel = CreateSignalingChannelResponse
-  request = postJSON kinesisVideo
+  request = Req.postJSON kinesisVideoService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateSignalingChannelResponse'
-            <$> (x .?> "ChannelARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChannelARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateSignalingChannel
+instance Lude.ToHeaders CreateSignalingChannel where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateSignalingChannel
-
-instance ToHeaders CreateSignalingChannel where
-  toHeaders = const mempty
-
-instance ToJSON CreateSignalingChannel where
+instance Lude.ToJSON CreateSignalingChannel where
   toJSON CreateSignalingChannel' {..} =
-    object
-      ( catMaybes
-          [ ("SingleMasterConfiguration" .=)
-              <$> _cscSingleMasterConfiguration,
-            ("ChannelType" .=) <$> _cscChannelType,
-            ("Tags" .=) <$> _cscTags,
-            Just ("ChannelName" .= _cscChannelName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SingleMasterConfiguration" Lude..=)
+              Lude.<$> singleMasterConfiguration,
+            ("ChannelType" Lude..=) Lude.<$> channelType,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("ChannelName" Lude..= channelName)
           ]
       )
 
-instance ToPath CreateSignalingChannel where
-  toPath = const "/createSignalingChannel"
+instance Lude.ToPath CreateSignalingChannel where
+  toPath = Lude.const "/createSignalingChannel"
 
-instance ToQuery CreateSignalingChannel where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSignalingChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createSignalingChannelResponse' smart constructor.
+-- | /See:/ 'mkCreateSignalingChannelResponse' smart constructor.
 data CreateSignalingChannelResponse = CreateSignalingChannelResponse'
-  { _cscrsChannelARN ::
-      !(Maybe Text),
-    _cscrsResponseStatus :: !Int
+  { channelARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSignalingChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cscrsChannelARN' - The Amazon Resource Name (ARN) of the created channel.
---
--- * 'cscrsResponseStatus' - -- | The response status code.
-createSignalingChannelResponse ::
-  -- | 'cscrsResponseStatus'
-  Int ->
+-- * 'channelARN' - The Amazon Resource Name (ARN) of the created channel.
+-- * 'responseStatus' - The response status code.
+mkCreateSignalingChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSignalingChannelResponse
-createSignalingChannelResponse pResponseStatus_ =
+mkCreateSignalingChannelResponse pResponseStatus_ =
   CreateSignalingChannelResponse'
-    { _cscrsChannelARN = Nothing,
-      _cscrsResponseStatus = pResponseStatus_
+    { channelARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the created channel.
-cscrsChannelARN :: Lens' CreateSignalingChannelResponse (Maybe Text)
-cscrsChannelARN = lens _cscrsChannelARN (\s a -> s {_cscrsChannelARN = a})
+--
+-- /Note:/ Consider using 'channelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscrsChannelARN :: Lens.Lens' CreateSignalingChannelResponse (Lude.Maybe Lude.Text)
+cscrsChannelARN = Lens.lens (channelARN :: CreateSignalingChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {channelARN = a} :: CreateSignalingChannelResponse)
+{-# DEPRECATED cscrsChannelARN "Use generic-lens or generic-optics with 'channelARN' instead." #-}
 
--- | -- | The response status code.
-cscrsResponseStatus :: Lens' CreateSignalingChannelResponse Int
-cscrsResponseStatus = lens _cscrsResponseStatus (\s a -> s {_cscrsResponseStatus = a})
-
-instance NFData CreateSignalingChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscrsResponseStatus :: Lens.Lens' CreateSignalingChannelResponse Lude.Int
+cscrsResponseStatus = Lens.lens (responseStatus :: CreateSignalingChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSignalingChannelResponse)
+{-# DEPRECATED cscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +14,25 @@
 --
 -- Returns information about the signing certificates associated with the specified IAM user. If none exists, the operation returns an empty list.
 --
---
 -- Although each user is limited to a small number of signing certificates, you can still paginate the results using the @MaxItems@ and @Marker@ parameters.
---
 -- If the @UserName@ field is not specified, the user name is determined implicitly based on the AWS access key ID used to sign the request for this API. This operation works for access keys under the AWS account. Consequently, you can use this operation to manage AWS account root user credentials even if the AWS account has no associated users.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListSigningCertificates
-  ( -- * Creating a Request
-    listSigningCertificates,
-    ListSigningCertificates,
+  ( -- * Creating a request
+    ListSigningCertificates (..),
+    mkListSigningCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lUserName,
     lMarker,
     lMaxItems,
 
-    -- * Destructuring the Response
-    listSigningCertificatesResponse,
-    ListSigningCertificatesResponse,
+    -- * Destructuring the response
+    ListSigningCertificatesResponse (..),
+    mkListSigningCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrsMarker,
     lrsIsTruncated,
     lrsResponseStatus,
@@ -49,144 +41,173 @@ module Network.AWS.IAM.ListSigningCertificates
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listSigningCertificates' smart constructor.
+-- | /See:/ 'mkListSigningCertificates' smart constructor.
 data ListSigningCertificates = ListSigningCertificates'
-  { _lUserName ::
-      !(Maybe Text),
-    _lMarker :: !(Maybe Text),
-    _lMaxItems :: !(Maybe Nat)
+  { userName ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSigningCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
--- * 'lUserName' - The name of the IAM user whose signing certificates you want to examine. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- * 'userName' - The name of the IAM user whose signing certificates you want to examine.
 --
--- * 'lMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
---
--- * 'lMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-listSigningCertificates ::
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkListSigningCertificates ::
   ListSigningCertificates
-listSigningCertificates =
+mkListSigningCertificates =
   ListSigningCertificates'
-    { _lUserName = Nothing,
-      _lMarker = Nothing,
-      _lMaxItems = Nothing
+    { userName = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
 
--- | The name of the IAM user whose signing certificates you want to examine. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-lUserName :: Lens' ListSigningCertificates (Maybe Text)
-lUserName = lens _lUserName (\s a -> s {_lUserName = a})
+-- | The name of the IAM user whose signing certificates you want to examine.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lUserName :: Lens.Lens' ListSigningCertificates (Lude.Maybe Lude.Text)
+lUserName = Lens.lens (userName :: ListSigningCertificates -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: ListSigningCertificates)
+{-# DEPRECATED lUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-lMarker :: Lens' ListSigningCertificates (Maybe Text)
-lMarker = lens _lMarker (\s a -> s {_lMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMarker :: Lens.Lens' ListSigningCertificates (Lude.Maybe Lude.Text)
+lMarker = Lens.lens (marker :: ListSigningCertificates -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListSigningCertificates)
+{-# DEPRECATED lMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-lMaxItems :: Lens' ListSigningCertificates (Maybe Natural)
-lMaxItems = lens _lMaxItems (\s a -> s {_lMaxItems = a}) . mapping _Nat
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+--
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMaxItems :: Lens.Lens' ListSigningCertificates (Lude.Maybe Lude.Natural)
+lMaxItems = Lens.lens (maxItems :: ListSigningCertificates -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListSigningCertificates)
+{-# DEPRECATED lMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance AWSPager ListSigningCertificates where
+instance Page.AWSPager ListSigningCertificates where
   page rq rs
-    | stop (rs ^. lrsIsTruncated) = Nothing
-    | isNothing (rs ^. lrsMarker) = Nothing
-    | otherwise = Just $ rq & lMarker .~ rs ^. lrsMarker
+    | Page.stop (rs Lens.^. lrsIsTruncated) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. lrsMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& lMarker Lens..~ rs Lens.^. lrsMarker
 
-instance AWSRequest ListSigningCertificates where
+instance Lude.AWSRequest ListSigningCertificates where
   type Rs ListSigningCertificates = ListSigningCertificatesResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListSigningCertificatesResult"
       ( \s h x ->
           ListSigningCertificatesResponse'
-            <$> (x .@? "Marker")
-            <*> (x .@? "IsTruncated")
-            <*> (pure (fromEnum s))
-            <*> (x .@? "Certificates" .!@ mempty >>= parseXMLList "member")
+            Lude.<$> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "Certificates" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable ListSigningCertificates
+instance Lude.ToHeaders ListSigningCertificates where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListSigningCertificates
+instance Lude.ToPath ListSigningCertificates where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListSigningCertificates where
-  toHeaders = const mempty
-
-instance ToPath ListSigningCertificates where
-  toPath = const "/"
-
-instance ToQuery ListSigningCertificates where
+instance Lude.ToQuery ListSigningCertificates where
   toQuery ListSigningCertificates' {..} =
-    mconcat
-      [ "Action" =: ("ListSigningCertificates" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _lUserName,
-        "Marker" =: _lMarker,
-        "MaxItems" =: _lMaxItems
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListSigningCertificates" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "Marker" Lude.=: marker,
+        "MaxItems" Lude.=: maxItems
       ]
 
 -- | Contains the response to a successful 'ListSigningCertificates' request.
 --
---
---
--- /See:/ 'listSigningCertificatesResponse' smart constructor.
+-- /See:/ 'mkListSigningCertificatesResponse' smart constructor.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
-  { _lrsMarker ::
-      !(Maybe Text),
-    _lrsIsTruncated ::
-      !(Maybe Bool),
-    _lrsResponseStatus :: !Int,
-    _lrsCertificates ::
-      ![SigningCertificate]
+  { marker ::
+      Lude.Maybe Lude.Text,
+    isTruncated ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int,
+    certificates ::
+      [SigningCertificate]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSigningCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'lrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
---
--- * 'lrsResponseStatus' - -- | The response status code.
---
--- * 'lrsCertificates' - A list of the user's signing certificate information.
-listSigningCertificatesResponse ::
-  -- | 'lrsResponseStatus'
-  Int ->
+-- * 'certificates' - A list of the user's signing certificate information.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'responseStatus' - The response status code.
+mkListSigningCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSigningCertificatesResponse
-listSigningCertificatesResponse pResponseStatus_ =
+mkListSigningCertificatesResponse pResponseStatus_ =
   ListSigningCertificatesResponse'
-    { _lrsMarker = Nothing,
-      _lrsIsTruncated = Nothing,
-      _lrsResponseStatus = pResponseStatus_,
-      _lrsCertificates = mempty
+    { marker = Lude.Nothing,
+      isTruncated = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      certificates = Lude.mempty
     }
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-lrsMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
-lrsMarker = lens _lrsMarker (\s a -> s {_lrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsMarker :: Lens.Lens' ListSigningCertificatesResponse (Lude.Maybe Lude.Text)
+lrsMarker = Lens.lens (marker :: ListSigningCertificatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListSigningCertificatesResponse)
+{-# DEPRECATED lrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
-lrsIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
-lrsIsTruncated = lens _lrsIsTruncated (\s a -> s {_lrsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsIsTruncated :: Lens.Lens' ListSigningCertificatesResponse (Lude.Maybe Lude.Bool)
+lrsIsTruncated = Lens.lens (isTruncated :: ListSigningCertificatesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListSigningCertificatesResponse)
+{-# DEPRECATED lrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | -- | The response status code.
-lrsResponseStatus :: Lens' ListSigningCertificatesResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\s a -> s {_lrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsResponseStatus :: Lens.Lens' ListSigningCertificatesResponse Lude.Int
+lrsResponseStatus = Lens.lens (responseStatus :: ListSigningCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSigningCertificatesResponse)
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of the user's signing certificate information.
-lrsCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
-lrsCertificates = lens _lrsCertificates (\s a -> s {_lrsCertificates = a}) . _Coerce
-
-instance NFData ListSigningCertificatesResponse
+--
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsCertificates :: Lens.Lens' ListSigningCertificatesResponse [SigningCertificate]
+lrsCertificates = Lens.lens (certificates :: ListSigningCertificatesResponse -> [SigningCertificate]) (\s a -> s {certificates = a} :: ListSigningCertificatesResponse)
+{-# DEPRECATED lrsCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}

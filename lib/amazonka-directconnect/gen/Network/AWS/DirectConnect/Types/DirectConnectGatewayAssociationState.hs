@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState where
+module Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState
+  ( DirectConnectGatewayAssociationState
+      ( DirectConnectGatewayAssociationState',
+        Associated,
+        Associating,
+        Disassociated,
+        Disassociating,
+        Updating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectConnectGatewayAssociationState
-  = Associated
-  | Associating
-  | Disassociated
-  | Disassociating
-  | Updating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectConnectGatewayAssociationState = DirectConnectGatewayAssociationState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectConnectGatewayAssociationState where
-  parser =
-    takeLowerText >>= \case
-      "associated" -> pure Associated
-      "associating" -> pure Associating
-      "disassociated" -> pure Disassociated
-      "disassociating" -> pure Disassociating
-      "updating" -> pure Updating
-      e ->
-        fromTextError $
-          "Failure parsing DirectConnectGatewayAssociationState from value: '" <> e
-            <> "'. Accepted values: associated, associating, disassociated, disassociating, updating"
+pattern Associated :: DirectConnectGatewayAssociationState
+pattern Associated = DirectConnectGatewayAssociationState' "associated"
 
-instance ToText DirectConnectGatewayAssociationState where
-  toText = \case
-    Associated -> "associated"
-    Associating -> "associating"
-    Disassociated -> "disassociated"
-    Disassociating -> "disassociating"
-    Updating -> "updating"
+pattern Associating :: DirectConnectGatewayAssociationState
+pattern Associating = DirectConnectGatewayAssociationState' "associating"
 
-instance Hashable DirectConnectGatewayAssociationState
+pattern Disassociated :: DirectConnectGatewayAssociationState
+pattern Disassociated = DirectConnectGatewayAssociationState' "disassociated"
 
-instance NFData DirectConnectGatewayAssociationState
+pattern Disassociating :: DirectConnectGatewayAssociationState
+pattern Disassociating = DirectConnectGatewayAssociationState' "disassociating"
 
-instance ToByteString DirectConnectGatewayAssociationState
+pattern Updating :: DirectConnectGatewayAssociationState
+pattern Updating = DirectConnectGatewayAssociationState' "updating"
 
-instance ToQuery DirectConnectGatewayAssociationState
-
-instance ToHeader DirectConnectGatewayAssociationState
-
-instance FromJSON DirectConnectGatewayAssociationState where
-  parseJSON = parseJSONText "DirectConnectGatewayAssociationState"
+{-# COMPLETE
+  Associated,
+  Associating,
+  Disassociated,
+  Disassociating,
+  Updating,
+  DirectConnectGatewayAssociationState'
+  #-}

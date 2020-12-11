@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,97 +14,114 @@
 --
 -- Deletes a room profile by the profile ARN.
 module Network.AWS.AlexaBusiness.DeleteProfile
-  ( -- * Creating a Request
-    deleteProfile,
-    DeleteProfile,
+  ( -- * Creating a request
+    DeleteProfile (..),
+    mkDeleteProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpProfileARN,
 
-    -- * Destructuring the Response
-    deleteProfileResponse,
-    DeleteProfileResponse,
+    -- * Destructuring the response
+    DeleteProfileResponse (..),
+    mkDeleteProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dprsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteProfile' smart constructor.
-newtype DeleteProfile = DeleteProfile' {_dpProfileARN :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteProfile' smart constructor.
+newtype DeleteProfile = DeleteProfile'
+  { profileARN ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpProfileARN' - The ARN of the room profile to delete. Required.
-deleteProfile ::
+-- * 'profileARN' - The ARN of the room profile to delete. Required.
+mkDeleteProfile ::
   DeleteProfile
-deleteProfile = DeleteProfile' {_dpProfileARN = Nothing}
+mkDeleteProfile = DeleteProfile' {profileARN = Lude.Nothing}
 
 -- | The ARN of the room profile to delete. Required.
-dpProfileARN :: Lens' DeleteProfile (Maybe Text)
-dpProfileARN = lens _dpProfileARN (\s a -> s {_dpProfileARN = a})
+--
+-- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpProfileARN :: Lens.Lens' DeleteProfile (Lude.Maybe Lude.Text)
+dpProfileARN = Lens.lens (profileARN :: DeleteProfile -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: DeleteProfile)
+{-# DEPRECATED dpProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
 
-instance AWSRequest DeleteProfile where
+instance Lude.AWSRequest DeleteProfile where
   type Rs DeleteProfile = DeleteProfileResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> DeleteProfileResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteProfileResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteProfile
-
-instance NFData DeleteProfile
-
-instance ToHeaders DeleteProfile where
+instance Lude.ToHeaders DeleteProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.DeleteProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.DeleteProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteProfile where
+instance Lude.ToJSON DeleteProfile where
   toJSON DeleteProfile' {..} =
-    object (catMaybes [("ProfileArn" .=) <$> _dpProfileARN])
+    Lude.object
+      (Lude.catMaybes [("ProfileArn" Lude..=) Lude.<$> profileARN])
 
-instance ToPath DeleteProfile where
-  toPath = const "/"
+instance Lude.ToPath DeleteProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteProfile where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteProfileResponse' smart constructor.
+-- | /See:/ 'mkDeleteProfileResponse' smart constructor.
 newtype DeleteProfileResponse = DeleteProfileResponse'
-  { _dprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dprsResponseStatus' - -- | The response status code.
-deleteProfileResponse ::
-  -- | 'dprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteProfileResponse
-deleteProfileResponse pResponseStatus_ =
-  DeleteProfileResponse' {_dprsResponseStatus = pResponseStatus_}
+mkDeleteProfileResponse pResponseStatus_ =
+  DeleteProfileResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dprsResponseStatus :: Lens' DeleteProfileResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\s a -> s {_dprsResponseStatus = a})
-
-instance NFData DeleteProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprsResponseStatus :: Lens.Lens' DeleteProfileResponse Lude.Int
+dprsResponseStatus = Lens.lens (responseStatus :: DeleteProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProfileResponse)
+{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

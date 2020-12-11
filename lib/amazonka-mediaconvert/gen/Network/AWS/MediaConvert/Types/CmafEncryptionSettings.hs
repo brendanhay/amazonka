@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,114 +7,142 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafEncryptionSettings where
+module Network.AWS.MediaConvert.Types.CmafEncryptionSettings
+  ( CmafEncryptionSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkCmafEncryptionSettings,
+
+    -- * Lenses
+    cesEncryptionMethod,
+    cesConstantInitializationVector,
+    cesType,
+    cesStaticKeyProvider,
+    cesSpekeKeyProvider,
+    cesInitializationVectorInManifest,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.CmafEncryptionType
 import Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
 import Network.AWS.MediaConvert.Types.CmafKeyProviderType
 import Network.AWS.MediaConvert.Types.SpekeKeyProviderCmaf
 import Network.AWS.MediaConvert.Types.StaticKeyProvider
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for CMAF encryption
 --
--- /See:/ 'cmafEncryptionSettings' smart constructor.
+-- /See:/ 'mkCmafEncryptionSettings' smart constructor.
 data CmafEncryptionSettings = CmafEncryptionSettings'
-  { _cesEncryptionMethod ::
-      !(Maybe CmafEncryptionType),
-    _cesConstantInitializationVector ::
-      !(Maybe Text),
-    _cesType :: !(Maybe CmafKeyProviderType),
-    _cesStaticKeyProvider ::
-      !(Maybe StaticKeyProvider),
-    _cesSpekeKeyProvider ::
-      !(Maybe SpekeKeyProviderCmaf),
-    _cesInitializationVectorInManifest ::
-      !(Maybe CmafInitializationVectorInManifest)
+  { encryptionMethod ::
+      Lude.Maybe CmafEncryptionType,
+    constantInitializationVector ::
+      Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe CmafKeyProviderType,
+    staticKeyProvider ::
+      Lude.Maybe StaticKeyProvider,
+    spekeKeyProvider ::
+      Lude.Maybe SpekeKeyProviderCmaf,
+    initializationVectorInManifest ::
+      Lude.Maybe CmafInitializationVectorInManifest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CmafEncryptionSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cesEncryptionMethod' - Specify the encryption scheme that you want the service to use when encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or AES_CTR (AES-CTR).
---
--- * 'cesConstantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
---
--- * 'cesType' - Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
---
--- * 'cesStaticKeyProvider' - Use these settings to set up encryption with a static key provider.
---
--- * 'cesSpekeKeyProvider' - If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
---
--- * 'cesInitializationVectorInManifest' - When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
-cmafEncryptionSettings ::
+-- * 'constantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
+-- * 'encryptionMethod' - Specify the encryption scheme that you want the service to use when encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or AES_CTR (AES-CTR).
+-- * 'initializationVectorInManifest' - When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
+-- * 'spekeKeyProvider' - If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
+-- * 'staticKeyProvider' - Use these settings to set up encryption with a static key provider.
+-- * 'type'' - Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
+mkCmafEncryptionSettings ::
   CmafEncryptionSettings
-cmafEncryptionSettings =
+mkCmafEncryptionSettings =
   CmafEncryptionSettings'
-    { _cesEncryptionMethod = Nothing,
-      _cesConstantInitializationVector = Nothing,
-      _cesType = Nothing,
-      _cesStaticKeyProvider = Nothing,
-      _cesSpekeKeyProvider = Nothing,
-      _cesInitializationVectorInManifest = Nothing
+    { encryptionMethod = Lude.Nothing,
+      constantInitializationVector = Lude.Nothing,
+      type' = Lude.Nothing,
+      staticKeyProvider = Lude.Nothing,
+      spekeKeyProvider = Lude.Nothing,
+      initializationVectorInManifest = Lude.Nothing
     }
 
 -- | Specify the encryption scheme that you want the service to use when encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or AES_CTR (AES-CTR).
-cesEncryptionMethod :: Lens' CmafEncryptionSettings (Maybe CmafEncryptionType)
-cesEncryptionMethod = lens _cesEncryptionMethod (\s a -> s {_cesEncryptionMethod = a})
+--
+-- /Note:/ Consider using 'encryptionMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesEncryptionMethod :: Lens.Lens' CmafEncryptionSettings (Lude.Maybe CmafEncryptionType)
+cesEncryptionMethod = Lens.lens (encryptionMethod :: CmafEncryptionSettings -> Lude.Maybe CmafEncryptionType) (\s a -> s {encryptionMethod = a} :: CmafEncryptionSettings)
+{-# DEPRECATED cesEncryptionMethod "Use generic-lens or generic-optics with 'encryptionMethod' instead." #-}
 
 -- | This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
-cesConstantInitializationVector :: Lens' CmafEncryptionSettings (Maybe Text)
-cesConstantInitializationVector = lens _cesConstantInitializationVector (\s a -> s {_cesConstantInitializationVector = a})
+--
+-- /Note:/ Consider using 'constantInitializationVector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesConstantInitializationVector :: Lens.Lens' CmafEncryptionSettings (Lude.Maybe Lude.Text)
+cesConstantInitializationVector = Lens.lens (constantInitializationVector :: CmafEncryptionSettings -> Lude.Maybe Lude.Text) (\s a -> s {constantInitializationVector = a} :: CmafEncryptionSettings)
+{-# DEPRECATED cesConstantInitializationVector "Use generic-lens or generic-optics with 'constantInitializationVector' instead." #-}
 
 -- | Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
-cesType :: Lens' CmafEncryptionSettings (Maybe CmafKeyProviderType)
-cesType = lens _cesType (\s a -> s {_cesType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesType :: Lens.Lens' CmafEncryptionSettings (Lude.Maybe CmafKeyProviderType)
+cesType = Lens.lens (type' :: CmafEncryptionSettings -> Lude.Maybe CmafKeyProviderType) (\s a -> s {type' = a} :: CmafEncryptionSettings)
+{-# DEPRECATED cesType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Use these settings to set up encryption with a static key provider.
-cesStaticKeyProvider :: Lens' CmafEncryptionSettings (Maybe StaticKeyProvider)
-cesStaticKeyProvider = lens _cesStaticKeyProvider (\s a -> s {_cesStaticKeyProvider = a})
+--
+-- /Note:/ Consider using 'staticKeyProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesStaticKeyProvider :: Lens.Lens' CmafEncryptionSettings (Lude.Maybe StaticKeyProvider)
+cesStaticKeyProvider = Lens.lens (staticKeyProvider :: CmafEncryptionSettings -> Lude.Maybe StaticKeyProvider) (\s a -> s {staticKeyProvider = a} :: CmafEncryptionSettings)
+{-# DEPRECATED cesStaticKeyProvider "Use generic-lens or generic-optics with 'staticKeyProvider' instead." #-}
 
 -- | If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
-cesSpekeKeyProvider :: Lens' CmafEncryptionSettings (Maybe SpekeKeyProviderCmaf)
-cesSpekeKeyProvider = lens _cesSpekeKeyProvider (\s a -> s {_cesSpekeKeyProvider = a})
+--
+-- /Note:/ Consider using 'spekeKeyProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesSpekeKeyProvider :: Lens.Lens' CmafEncryptionSettings (Lude.Maybe SpekeKeyProviderCmaf)
+cesSpekeKeyProvider = Lens.lens (spekeKeyProvider :: CmafEncryptionSettings -> Lude.Maybe SpekeKeyProviderCmaf) (\s a -> s {spekeKeyProvider = a} :: CmafEncryptionSettings)
+{-# DEPRECATED cesSpekeKeyProvider "Use generic-lens or generic-optics with 'spekeKeyProvider' instead." #-}
 
 -- | When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
-cesInitializationVectorInManifest :: Lens' CmafEncryptionSettings (Maybe CmafInitializationVectorInManifest)
-cesInitializationVectorInManifest = lens _cesInitializationVectorInManifest (\s a -> s {_cesInitializationVectorInManifest = a})
+--
+-- /Note:/ Consider using 'initializationVectorInManifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesInitializationVectorInManifest :: Lens.Lens' CmafEncryptionSettings (Lude.Maybe CmafInitializationVectorInManifest)
+cesInitializationVectorInManifest = Lens.lens (initializationVectorInManifest :: CmafEncryptionSettings -> Lude.Maybe CmafInitializationVectorInManifest) (\s a -> s {initializationVectorInManifest = a} :: CmafEncryptionSettings)
+{-# DEPRECATED cesInitializationVectorInManifest "Use generic-lens or generic-optics with 'initializationVectorInManifest' instead." #-}
 
-instance FromJSON CmafEncryptionSettings where
+instance Lude.FromJSON CmafEncryptionSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "CmafEncryptionSettings"
       ( \x ->
           CmafEncryptionSettings'
-            <$> (x .:? "encryptionMethod")
-            <*> (x .:? "constantInitializationVector")
-            <*> (x .:? "type")
-            <*> (x .:? "staticKeyProvider")
-            <*> (x .:? "spekeKeyProvider")
-            <*> (x .:? "initializationVectorInManifest")
+            Lude.<$> (x Lude..:? "encryptionMethod")
+            Lude.<*> (x Lude..:? "constantInitializationVector")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "staticKeyProvider")
+            Lude.<*> (x Lude..:? "spekeKeyProvider")
+            Lude.<*> (x Lude..:? "initializationVectorInManifest")
       )
 
-instance Hashable CmafEncryptionSettings
-
-instance NFData CmafEncryptionSettings
-
-instance ToJSON CmafEncryptionSettings where
+instance Lude.ToJSON CmafEncryptionSettings where
   toJSON CmafEncryptionSettings' {..} =
-    object
-      ( catMaybes
-          [ ("encryptionMethod" .=) <$> _cesEncryptionMethod,
-            ("constantInitializationVector" .=)
-              <$> _cesConstantInitializationVector,
-            ("type" .=) <$> _cesType,
-            ("staticKeyProvider" .=) <$> _cesStaticKeyProvider,
-            ("spekeKeyProvider" .=) <$> _cesSpekeKeyProvider,
-            ("initializationVectorInManifest" .=)
-              <$> _cesInitializationVectorInManifest
+    Lude.object
+      ( Lude.catMaybes
+          [ ("encryptionMethod" Lude..=) Lude.<$> encryptionMethod,
+            ("constantInitializationVector" Lude..=)
+              Lude.<$> constantInitializationVector,
+            ("type" Lude..=) Lude.<$> type',
+            ("staticKeyProvider" Lude..=) Lude.<$> staticKeyProvider,
+            ("spekeKeyProvider" Lude..=) Lude.<$> spekeKeyProvider,
+            ("initializationVectorInManifest" Lude..=)
+              Lude.<$> initializationVectorInManifest
           ]
       )

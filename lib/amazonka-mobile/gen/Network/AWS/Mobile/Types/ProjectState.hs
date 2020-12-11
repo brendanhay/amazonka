@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Mobile.Types.ProjectState where
+module Network.AWS.Mobile.Types.ProjectState
+  ( ProjectState
+      ( ProjectState',
+        Importing,
+        Normal,
+        Syncing
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Synchronization state for a project.
-data ProjectState
-  = Importing
-  | Normal
-  | Syncing
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProjectState = ProjectState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProjectState where
-  parser =
-    takeLowerText >>= \case
-      "importing" -> pure Importing
-      "normal" -> pure Normal
-      "syncing" -> pure Syncing
-      e ->
-        fromTextError $
-          "Failure parsing ProjectState from value: '" <> e
-            <> "'. Accepted values: importing, normal, syncing"
+pattern Importing :: ProjectState
+pattern Importing = ProjectState' "IMPORTING"
 
-instance ToText ProjectState where
-  toText = \case
-    Importing -> "IMPORTING"
-    Normal -> "NORMAL"
-    Syncing -> "SYNCING"
+pattern Normal :: ProjectState
+pattern Normal = ProjectState' "NORMAL"
 
-instance Hashable ProjectState
+pattern Syncing :: ProjectState
+pattern Syncing = ProjectState' "SYNCING"
 
-instance NFData ProjectState
-
-instance ToByteString ProjectState
-
-instance ToQuery ProjectState
-
-instance ToHeader ProjectState
-
-instance FromJSON ProjectState where
-  parseJSON = parseJSONText "ProjectState"
+{-# COMPLETE
+  Importing,
+  Normal,
+  Syncing,
+  ProjectState'
+  #-}

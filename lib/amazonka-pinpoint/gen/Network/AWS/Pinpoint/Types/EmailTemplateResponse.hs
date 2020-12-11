@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,168 +7,216 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EmailTemplateResponse where
+module Network.AWS.Pinpoint.Types.EmailTemplateResponse
+  ( EmailTemplateResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkEmailTemplateResponse,
+
+    -- * Lenses
+    etSubject,
+    etTextPart,
+    etARN,
+    etTemplateDescription,
+    etDefaultSubstitutions,
+    etVersion,
+    etHTMLPart,
+    etRecommenderId,
+    etTags,
+    etLastModifiedDate,
+    etCreationDate,
+    etTemplateName,
+    etTemplateType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.TemplateType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.
 --
---
---
--- /See:/ 'emailTemplateResponse' smart constructor.
+-- /See:/ 'mkEmailTemplateResponse' smart constructor.
 data EmailTemplateResponse = EmailTemplateResponse'
-  { _etSubject ::
-      !(Maybe Text),
-    _etTextPart :: !(Maybe Text),
-    _etARN :: !(Maybe Text),
-    _etTemplateDescription :: !(Maybe Text),
-    _etDefaultSubstitutions :: !(Maybe Text),
-    _etVersion :: !(Maybe Text),
-    _etHTMLPart :: !(Maybe Text),
-    _etRecommenderId :: !(Maybe Text),
-    _etTags :: !(Maybe (Map Text (Text))),
-    _etLastModifiedDate :: !Text,
-    _etCreationDate :: !Text,
-    _etTemplateName :: !Text,
-    _etTemplateType :: !TemplateType
+  { subject ::
+      Lude.Maybe Lude.Text,
+    textPart :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    templateDescription :: Lude.Maybe Lude.Text,
+    defaultSubstitutions :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    htmlPart :: Lude.Maybe Lude.Text,
+    recommenderId :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    lastModifiedDate :: Lude.Text,
+    creationDate :: Lude.Text,
+    templateName :: Lude.Text,
+    templateType :: TemplateType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmailTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etSubject' - The subject line, or title, that's used in email messages that are based on the message template.
---
--- * 'etTextPart' - The message body, in plain text format, that's used in email messages that are based on the message template.
---
--- * 'etARN' - The Amazon Resource Name (ARN) of the message template.
---
--- * 'etTemplateDescription' - The custom description of the message template.
---
--- * 'etDefaultSubstitutions' - The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
---
--- * 'etVersion' - The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
---
--- * 'etHTMLPart' - The message body, in HTML format, that's used in email messages that are based on the message template.
---
--- * 'etRecommenderId' - The unique identifier for the recommender model that's used by the message template.
---
--- * 'etTags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.
---
--- * 'etLastModifiedDate' - The date, in ISO 8601 format, when the message template was last modified.
---
--- * 'etCreationDate' - The date, in ISO 8601 format, when the message template was created.
---
--- * 'etTemplateName' - The name of the message template.
---
--- * 'etTemplateType' - The type of channel that the message template is designed for. For an email template, this value is EMAIL.
-emailTemplateResponse ::
-  -- | 'etLastModifiedDate'
-  Text ->
-  -- | 'etCreationDate'
-  Text ->
-  -- | 'etTemplateName'
-  Text ->
-  -- | 'etTemplateType'
+-- * 'arn' - The Amazon Resource Name (ARN) of the message template.
+-- * 'creationDate' - The date, in ISO 8601 format, when the message template was created.
+-- * 'defaultSubstitutions' - The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
+-- * 'htmlPart' - The message body, in HTML format, that's used in email messages that are based on the message template.
+-- * 'lastModifiedDate' - The date, in ISO 8601 format, when the message template was last modified.
+-- * 'recommenderId' - The unique identifier for the recommender model that's used by the message template.
+-- * 'subject' - The subject line, or title, that's used in email messages that are based on the message template.
+-- * 'tags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.
+-- * 'templateDescription' - The custom description of the message template.
+-- * 'templateName' - The name of the message template.
+-- * 'templateType' - The type of channel that the message template is designed for. For an email template, this value is EMAIL.
+-- * 'textPart' - The message body, in plain text format, that's used in email messages that are based on the message template.
+-- * 'version' - The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
+mkEmailTemplateResponse ::
+  -- | 'lastModifiedDate'
+  Lude.Text ->
+  -- | 'creationDate'
+  Lude.Text ->
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'templateType'
   TemplateType ->
   EmailTemplateResponse
-emailTemplateResponse
+mkEmailTemplateResponse
   pLastModifiedDate_
   pCreationDate_
   pTemplateName_
   pTemplateType_ =
     EmailTemplateResponse'
-      { _etSubject = Nothing,
-        _etTextPart = Nothing,
-        _etARN = Nothing,
-        _etTemplateDescription = Nothing,
-        _etDefaultSubstitutions = Nothing,
-        _etVersion = Nothing,
-        _etHTMLPart = Nothing,
-        _etRecommenderId = Nothing,
-        _etTags = Nothing,
-        _etLastModifiedDate = pLastModifiedDate_,
-        _etCreationDate = pCreationDate_,
-        _etTemplateName = pTemplateName_,
-        _etTemplateType = pTemplateType_
+      { subject = Lude.Nothing,
+        textPart = Lude.Nothing,
+        arn = Lude.Nothing,
+        templateDescription = Lude.Nothing,
+        defaultSubstitutions = Lude.Nothing,
+        version = Lude.Nothing,
+        htmlPart = Lude.Nothing,
+        recommenderId = Lude.Nothing,
+        tags = Lude.Nothing,
+        lastModifiedDate = pLastModifiedDate_,
+        creationDate = pCreationDate_,
+        templateName = pTemplateName_,
+        templateType = pTemplateType_
       }
 
 -- | The subject line, or title, that's used in email messages that are based on the message template.
-etSubject :: Lens' EmailTemplateResponse (Maybe Text)
-etSubject = lens _etSubject (\s a -> s {_etSubject = a})
+--
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etSubject :: Lens.Lens' EmailTemplateResponse (Lude.Maybe Lude.Text)
+etSubject = Lens.lens (subject :: EmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {subject = a} :: EmailTemplateResponse)
+{-# DEPRECATED etSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The message body, in plain text format, that's used in email messages that are based on the message template.
-etTextPart :: Lens' EmailTemplateResponse (Maybe Text)
-etTextPart = lens _etTextPart (\s a -> s {_etTextPart = a})
+--
+-- /Note:/ Consider using 'textPart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etTextPart :: Lens.Lens' EmailTemplateResponse (Lude.Maybe Lude.Text)
+etTextPart = Lens.lens (textPart :: EmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {textPart = a} :: EmailTemplateResponse)
+{-# DEPRECATED etTextPart "Use generic-lens or generic-optics with 'textPart' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the message template.
-etARN :: Lens' EmailTemplateResponse (Maybe Text)
-etARN = lens _etARN (\s a -> s {_etARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etARN :: Lens.Lens' EmailTemplateResponse (Lude.Maybe Lude.Text)
+etARN = Lens.lens (arn :: EmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: EmailTemplateResponse)
+{-# DEPRECATED etARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The custom description of the message template.
-etTemplateDescription :: Lens' EmailTemplateResponse (Maybe Text)
-etTemplateDescription = lens _etTemplateDescription (\s a -> s {_etTemplateDescription = a})
+--
+-- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etTemplateDescription :: Lens.Lens' EmailTemplateResponse (Lude.Maybe Lude.Text)
+etTemplateDescription = Lens.lens (templateDescription :: EmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateDescription = a} :: EmailTemplateResponse)
+{-# DEPRECATED etTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
 
 -- | The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
-etDefaultSubstitutions :: Lens' EmailTemplateResponse (Maybe Text)
-etDefaultSubstitutions = lens _etDefaultSubstitutions (\s a -> s {_etDefaultSubstitutions = a})
+--
+-- /Note:/ Consider using 'defaultSubstitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etDefaultSubstitutions :: Lens.Lens' EmailTemplateResponse (Lude.Maybe Lude.Text)
+etDefaultSubstitutions = Lens.lens (defaultSubstitutions :: EmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultSubstitutions = a} :: EmailTemplateResponse)
+{-# DEPRECATED etDefaultSubstitutions "Use generic-lens or generic-optics with 'defaultSubstitutions' instead." #-}
 
 -- | The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
-etVersion :: Lens' EmailTemplateResponse (Maybe Text)
-etVersion = lens _etVersion (\s a -> s {_etVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etVersion :: Lens.Lens' EmailTemplateResponse (Lude.Maybe Lude.Text)
+etVersion = Lens.lens (version :: EmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: EmailTemplateResponse)
+{-# DEPRECATED etVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The message body, in HTML format, that's used in email messages that are based on the message template.
-etHTMLPart :: Lens' EmailTemplateResponse (Maybe Text)
-etHTMLPart = lens _etHTMLPart (\s a -> s {_etHTMLPart = a})
+--
+-- /Note:/ Consider using 'htmlPart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etHTMLPart :: Lens.Lens' EmailTemplateResponse (Lude.Maybe Lude.Text)
+etHTMLPart = Lens.lens (htmlPart :: EmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {htmlPart = a} :: EmailTemplateResponse)
+{-# DEPRECATED etHTMLPart "Use generic-lens or generic-optics with 'htmlPart' instead." #-}
 
 -- | The unique identifier for the recommender model that's used by the message template.
-etRecommenderId :: Lens' EmailTemplateResponse (Maybe Text)
-etRecommenderId = lens _etRecommenderId (\s a -> s {_etRecommenderId = a})
+--
+-- /Note:/ Consider using 'recommenderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etRecommenderId :: Lens.Lens' EmailTemplateResponse (Lude.Maybe Lude.Text)
+etRecommenderId = Lens.lens (recommenderId :: EmailTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {recommenderId = a} :: EmailTemplateResponse)
+{-# DEPRECATED etRecommenderId "Use generic-lens or generic-optics with 'recommenderId' instead." #-}
 
 -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.
-etTags :: Lens' EmailTemplateResponse (HashMap Text (Text))
-etTags = lens _etTags (\s a -> s {_etTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etTags :: Lens.Lens' EmailTemplateResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+etTags = Lens.lens (tags :: EmailTemplateResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: EmailTemplateResponse)
+{-# DEPRECATED etTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The date, in ISO 8601 format, when the message template was last modified.
-etLastModifiedDate :: Lens' EmailTemplateResponse Text
-etLastModifiedDate = lens _etLastModifiedDate (\s a -> s {_etLastModifiedDate = a})
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etLastModifiedDate :: Lens.Lens' EmailTemplateResponse Lude.Text
+etLastModifiedDate = Lens.lens (lastModifiedDate :: EmailTemplateResponse -> Lude.Text) (\s a -> s {lastModifiedDate = a} :: EmailTemplateResponse)
+{-# DEPRECATED etLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The date, in ISO 8601 format, when the message template was created.
-etCreationDate :: Lens' EmailTemplateResponse Text
-etCreationDate = lens _etCreationDate (\s a -> s {_etCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etCreationDate :: Lens.Lens' EmailTemplateResponse Lude.Text
+etCreationDate = Lens.lens (creationDate :: EmailTemplateResponse -> Lude.Text) (\s a -> s {creationDate = a} :: EmailTemplateResponse)
+{-# DEPRECATED etCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The name of the message template.
-etTemplateName :: Lens' EmailTemplateResponse Text
-etTemplateName = lens _etTemplateName (\s a -> s {_etTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etTemplateName :: Lens.Lens' EmailTemplateResponse Lude.Text
+etTemplateName = Lens.lens (templateName :: EmailTemplateResponse -> Lude.Text) (\s a -> s {templateName = a} :: EmailTemplateResponse)
+{-# DEPRECATED etTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The type of channel that the message template is designed for. For an email template, this value is EMAIL.
-etTemplateType :: Lens' EmailTemplateResponse TemplateType
-etTemplateType = lens _etTemplateType (\s a -> s {_etTemplateType = a})
+--
+-- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etTemplateType :: Lens.Lens' EmailTemplateResponse TemplateType
+etTemplateType = Lens.lens (templateType :: EmailTemplateResponse -> TemplateType) (\s a -> s {templateType = a} :: EmailTemplateResponse)
+{-# DEPRECATED etTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
 
-instance FromJSON EmailTemplateResponse where
+instance Lude.FromJSON EmailTemplateResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "EmailTemplateResponse"
       ( \x ->
           EmailTemplateResponse'
-            <$> (x .:? "Subject")
-            <*> (x .:? "TextPart")
-            <*> (x .:? "Arn")
-            <*> (x .:? "TemplateDescription")
-            <*> (x .:? "DefaultSubstitutions")
-            <*> (x .:? "Version")
-            <*> (x .:? "HtmlPart")
-            <*> (x .:? "RecommenderId")
-            <*> (x .:? "tags" .!= mempty)
-            <*> (x .: "LastModifiedDate")
-            <*> (x .: "CreationDate")
-            <*> (x .: "TemplateName")
-            <*> (x .: "TemplateType")
+            Lude.<$> (x Lude..:? "Subject")
+            Lude.<*> (x Lude..:? "TextPart")
+            Lude.<*> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "TemplateDescription")
+            Lude.<*> (x Lude..:? "DefaultSubstitutions")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "HtmlPart")
+            Lude.<*> (x Lude..:? "RecommenderId")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "LastModifiedDate")
+            Lude.<*> (x Lude..: "CreationDate")
+            Lude.<*> (x Lude..: "TemplateName")
+            Lude.<*> (x Lude..: "TemplateType")
       )
-
-instance Hashable EmailTemplateResponse
-
-instance NFData EmailTemplateResponse

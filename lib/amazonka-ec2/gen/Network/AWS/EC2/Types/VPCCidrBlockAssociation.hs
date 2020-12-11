@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPCCidrBlockAssociation where
+module Network.AWS.EC2.Types.VPCCidrBlockAssociation
+  ( VPCCidrBlockAssociation (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVPCCidrBlockAssociation,
+
+    -- * Lenses
+    vcbaAssociationId,
+    vcbaCidrBlockState,
+    vcbaCidrBlock,
+  )
+where
+
 import Network.AWS.EC2.Types.VPCCidrBlockState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an IPv4 CIDR block associated with a VPC.
 --
---
---
--- /See:/ 'vpcCidrBlockAssociation' smart constructor.
+-- /See:/ 'mkVPCCidrBlockAssociation' smart constructor.
 data VPCCidrBlockAssociation = VPCCidrBlockAssociation'
-  { _vcbaAssociationId ::
-      !(Maybe Text),
-    _vcbaCidrBlockState ::
-      !(Maybe VPCCidrBlockState),
-    _vcbaCidrBlock :: !(Maybe Text)
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    cidrBlockState ::
+      Lude.Maybe VPCCidrBlockState,
+    cidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCCidrBlockAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vcbaAssociationId' - The association ID for the IPv4 CIDR block.
---
--- * 'vcbaCidrBlockState' - Information about the state of the CIDR block.
---
--- * 'vcbaCidrBlock' - The IPv4 CIDR block.
-vpcCidrBlockAssociation ::
+-- * 'associationId' - The association ID for the IPv4 CIDR block.
+-- * 'cidrBlock' - The IPv4 CIDR block.
+-- * 'cidrBlockState' - Information about the state of the CIDR block.
+mkVPCCidrBlockAssociation ::
   VPCCidrBlockAssociation
-vpcCidrBlockAssociation =
+mkVPCCidrBlockAssociation =
   VPCCidrBlockAssociation'
-    { _vcbaAssociationId = Nothing,
-      _vcbaCidrBlockState = Nothing,
-      _vcbaCidrBlock = Nothing
+    { associationId = Lude.Nothing,
+      cidrBlockState = Lude.Nothing,
+      cidrBlock = Lude.Nothing
     }
 
 -- | The association ID for the IPv4 CIDR block.
-vcbaAssociationId :: Lens' VPCCidrBlockAssociation (Maybe Text)
-vcbaAssociationId = lens _vcbaAssociationId (\s a -> s {_vcbaAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcbaAssociationId :: Lens.Lens' VPCCidrBlockAssociation (Lude.Maybe Lude.Text)
+vcbaAssociationId = Lens.lens (associationId :: VPCCidrBlockAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: VPCCidrBlockAssociation)
+{-# DEPRECATED vcbaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | Information about the state of the CIDR block.
-vcbaCidrBlockState :: Lens' VPCCidrBlockAssociation (Maybe VPCCidrBlockState)
-vcbaCidrBlockState = lens _vcbaCidrBlockState (\s a -> s {_vcbaCidrBlockState = a})
+--
+-- /Note:/ Consider using 'cidrBlockState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcbaCidrBlockState :: Lens.Lens' VPCCidrBlockAssociation (Lude.Maybe VPCCidrBlockState)
+vcbaCidrBlockState = Lens.lens (cidrBlockState :: VPCCidrBlockAssociation -> Lude.Maybe VPCCidrBlockState) (\s a -> s {cidrBlockState = a} :: VPCCidrBlockAssociation)
+{-# DEPRECATED vcbaCidrBlockState "Use generic-lens or generic-optics with 'cidrBlockState' instead." #-}
 
 -- | The IPv4 CIDR block.
-vcbaCidrBlock :: Lens' VPCCidrBlockAssociation (Maybe Text)
-vcbaCidrBlock = lens _vcbaCidrBlock (\s a -> s {_vcbaCidrBlock = a})
+--
+-- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcbaCidrBlock :: Lens.Lens' VPCCidrBlockAssociation (Lude.Maybe Lude.Text)
+vcbaCidrBlock = Lens.lens (cidrBlock :: VPCCidrBlockAssociation -> Lude.Maybe Lude.Text) (\s a -> s {cidrBlock = a} :: VPCCidrBlockAssociation)
+{-# DEPRECATED vcbaCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
-instance FromXML VPCCidrBlockAssociation where
+instance Lude.FromXML VPCCidrBlockAssociation where
   parseXML x =
     VPCCidrBlockAssociation'
-      <$> (x .@? "associationId")
-      <*> (x .@? "cidrBlockState")
-      <*> (x .@? "cidrBlock")
-
-instance Hashable VPCCidrBlockAssociation
-
-instance NFData VPCCidrBlockAssociation
+      Lude.<$> (x Lude..@? "associationId")
+      Lude.<*> (x Lude..@? "cidrBlockState")
+      Lude.<*> (x Lude..@? "cidrBlock")

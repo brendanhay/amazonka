@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.DirectoryType where
+module Network.AWS.Connect.Types.DirectoryType
+  ( DirectoryType
+      ( DirectoryType',
+        ConnectManaged,
+        ExistingDirectory,
+        Saml
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectoryType
-  = ConnectManaged
-  | ExistingDirectory
-  | Saml
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectoryType = DirectoryType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectoryType where
-  parser =
-    takeLowerText >>= \case
-      "connect_managed" -> pure ConnectManaged
-      "existing_directory" -> pure ExistingDirectory
-      "saml" -> pure Saml
-      e ->
-        fromTextError $
-          "Failure parsing DirectoryType from value: '" <> e
-            <> "'. Accepted values: connect_managed, existing_directory, saml"
+pattern ConnectManaged :: DirectoryType
+pattern ConnectManaged = DirectoryType' "CONNECT_MANAGED"
 
-instance ToText DirectoryType where
-  toText = \case
-    ConnectManaged -> "CONNECT_MANAGED"
-    ExistingDirectory -> "EXISTING_DIRECTORY"
-    Saml -> "SAML"
+pattern ExistingDirectory :: DirectoryType
+pattern ExistingDirectory = DirectoryType' "EXISTING_DIRECTORY"
 
-instance Hashable DirectoryType
+pattern Saml :: DirectoryType
+pattern Saml = DirectoryType' "SAML"
 
-instance NFData DirectoryType
-
-instance ToByteString DirectoryType
-
-instance ToQuery DirectoryType
-
-instance ToHeader DirectoryType
-
-instance ToJSON DirectoryType where
-  toJSON = toJSONText
-
-instance FromJSON DirectoryType where
-  parseJSON = parseJSONText "DirectoryType"
+{-# COMPLETE
+  ConnectManaged,
+  ExistingDirectory,
+  Saml,
+  DirectoryType'
+  #-}

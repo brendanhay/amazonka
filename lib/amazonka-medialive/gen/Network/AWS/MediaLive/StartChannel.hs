@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Starts an existing channel
 module Network.AWS.MediaLive.StartChannel
-  ( -- * Creating a Request
-    startChannel,
-    StartChannel,
+  ( -- * Creating a request
+    StartChannel (..),
+    mkStartChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     scChannelId,
 
-    -- * Destructuring the Response
-    startChannelResponse,
-    StartChannelResponse,
+    -- * Destructuring the response
+    StartChannelResponse (..),
+    mkStartChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     scrsState,
     scrsLogLevel,
     scrsARN,
@@ -51,238 +46,287 @@ module Network.AWS.MediaLive.StartChannel
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for StartChannelRequest
 --
--- /See:/ 'startChannel' smart constructor.
-newtype StartChannel = StartChannel' {_scChannelId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkStartChannel' smart constructor.
+newtype StartChannel = StartChannel' {channelId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scChannelId' - A request to start a channel
-startChannel ::
-  -- | 'scChannelId'
-  Text ->
+-- * 'channelId' - A request to start a channel
+mkStartChannel ::
+  -- | 'channelId'
+  Lude.Text ->
   StartChannel
-startChannel pChannelId_ =
-  StartChannel' {_scChannelId = pChannelId_}
+mkStartChannel pChannelId_ = StartChannel' {channelId = pChannelId_}
 
 -- | A request to start a channel
-scChannelId :: Lens' StartChannel Text
-scChannelId = lens _scChannelId (\s a -> s {_scChannelId = a})
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scChannelId :: Lens.Lens' StartChannel Lude.Text
+scChannelId = Lens.lens (channelId :: StartChannel -> Lude.Text) (\s a -> s {channelId = a} :: StartChannel)
+{-# DEPRECATED scChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
-instance AWSRequest StartChannel where
+instance Lude.AWSRequest StartChannel where
   type Rs StartChannel = StartChannelResponse
-  request = postJSON mediaLive
+  request = Req.postJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartChannelResponse'
-            <$> (x .?> "state")
-            <*> (x .?> "logLevel")
-            <*> (x .?> "arn")
-            <*> (x .?> "pipelinesRunningCount")
-            <*> (x .?> "pipelineDetails" .!@ mempty)
-            <*> (x .?> "inputSpecification")
-            <*> (x .?> "inputAttachments" .!@ mempty)
-            <*> (x .?> "destinations" .!@ mempty)
-            <*> (x .?> "name")
-            <*> (x .?> "cdiInputSpecification")
-            <*> (x .?> "id")
-            <*> (x .?> "channelClass")
-            <*> (x .?> "egressEndpoints" .!@ mempty)
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (x .?> "encoderSettings")
-            <*> (x .?> "roleArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "state")
+            Lude.<*> (x Lude..?> "logLevel")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "pipelinesRunningCount")
+            Lude.<*> (x Lude..?> "pipelineDetails" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "inputSpecification")
+            Lude.<*> (x Lude..?> "inputAttachments" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "destinations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "cdiInputSpecification")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "channelClass")
+            Lude.<*> (x Lude..?> "egressEndpoints" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "encoderSettings")
+            Lude.<*> (x Lude..?> "roleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartChannel
-
-instance NFData StartChannel
-
-instance ToHeaders StartChannel where
+instance Lude.ToHeaders StartChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON StartChannel where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON StartChannel where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath StartChannel where
+instance Lude.ToPath StartChannel where
   toPath StartChannel' {..} =
-    mconcat ["/prod/channels/", toBS _scChannelId, "/start"]
+    Lude.mconcat ["/prod/channels/", Lude.toBS channelId, "/start"]
 
-instance ToQuery StartChannel where
-  toQuery = const mempty
+instance Lude.ToQuery StartChannel where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for StartChannelResponse
 --
--- /See:/ 'startChannelResponse' smart constructor.
+-- /See:/ 'mkStartChannelResponse' smart constructor.
 data StartChannelResponse = StartChannelResponse'
-  { _scrsState ::
-      !(Maybe ChannelState),
-    _scrsLogLevel :: !(Maybe LogLevel),
-    _scrsARN :: !(Maybe Text),
-    _scrsPipelinesRunningCount :: !(Maybe Int),
-    _scrsPipelineDetails :: !(Maybe [PipelineDetail]),
-    _scrsInputSpecification ::
-      !(Maybe InputSpecification),
-    _scrsInputAttachments ::
-      !(Maybe [InputAttachment]),
-    _scrsDestinations :: !(Maybe [OutputDestination]),
-    _scrsName :: !(Maybe Text),
-    _scrsCdiInputSpecification ::
-      !(Maybe CdiInputSpecification),
-    _scrsId :: !(Maybe Text),
-    _scrsChannelClass :: !(Maybe ChannelClass),
-    _scrsEgressEndpoints ::
-      !(Maybe [ChannelEgressEndpoint]),
-    _scrsTags :: !(Maybe (Map Text (Text))),
-    _scrsEncoderSettings :: !(Maybe EncoderSettings),
-    _scrsRoleARN :: !(Maybe Text),
-    _scrsResponseStatus :: !Int
+  { state ::
+      Lude.Maybe ChannelState,
+    logLevel :: Lude.Maybe LogLevel,
+    arn :: Lude.Maybe Lude.Text,
+    pipelinesRunningCount :: Lude.Maybe Lude.Int,
+    pipelineDetails :: Lude.Maybe [PipelineDetail],
+    inputSpecification ::
+      Lude.Maybe InputSpecification,
+    inputAttachments :: Lude.Maybe [InputAttachment],
+    destinations :: Lude.Maybe [OutputDestination],
+    name :: Lude.Maybe Lude.Text,
+    cdiInputSpecification ::
+      Lude.Maybe CdiInputSpecification,
+    id :: Lude.Maybe Lude.Text,
+    channelClass :: Lude.Maybe ChannelClass,
+    egressEndpoints ::
+      Lude.Maybe [ChannelEgressEndpoint],
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    encoderSettings :: Lude.Maybe EncoderSettings,
+    roleARN :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The unique arn of the channel.
+-- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
+-- * 'channelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+-- * 'destinations' - A list of destinations of the channel. For UDP outputs, there is one
 --
--- * 'scrsState' - Undocumented member.
---
--- * 'scrsLogLevel' - The log level being written to CloudWatch Logs.
---
--- * 'scrsARN' - The unique arn of the channel.
---
--- * 'scrsPipelinesRunningCount' - The number of currently healthy pipelines.
---
--- * 'scrsPipelineDetails' - Runtime details for the pipelines of a running channel.
---
--- * 'scrsInputSpecification' - Specification of network and file inputs for this channel
---
--- * 'scrsInputAttachments' - List of input attachments for channel.
---
--- * 'scrsDestinations' - A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager.
---
--- * 'scrsName' - The name of the channel. (user-mutable)
---
--- * 'scrsCdiInputSpecification' - Specification of CDI inputs for this channel
---
--- * 'scrsId' - The unique id of the channel.
---
--- * 'scrsChannelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
---
--- * 'scrsEgressEndpoints' - The endpoints where outgoing connections initiate from
---
--- * 'scrsTags' - A collection of key-value pairs.
---
--- * 'scrsEncoderSettings' - Undocumented member.
---
--- * 'scrsRoleARN' - The Amazon Resource Name (ARN) of the role assumed when running the Channel.
---
--- * 'scrsResponseStatus' - -- | The response status code.
-startChannelResponse ::
-  -- | 'scrsResponseStatus'
-  Int ->
+-- destination per output. For other types (HLS, for example), there is
+-- one destination per packager.
+-- * 'egressEndpoints' - The endpoints where outgoing connections initiate from
+-- * 'encoderSettings' - Undocumented field.
+-- * 'id' - The unique id of the channel.
+-- * 'inputAttachments' - List of input attachments for channel.
+-- * 'inputSpecification' - Specification of network and file inputs for this channel
+-- * 'logLevel' - The log level being written to CloudWatch Logs.
+-- * 'name' - The name of the channel. (user-mutable)
+-- * 'pipelineDetails' - Runtime details for the pipelines of a running channel.
+-- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+-- * 'state' - Undocumented field.
+-- * 'tags' - A collection of key-value pairs.
+mkStartChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartChannelResponse
-startChannelResponse pResponseStatus_ =
+mkStartChannelResponse pResponseStatus_ =
   StartChannelResponse'
-    { _scrsState = Nothing,
-      _scrsLogLevel = Nothing,
-      _scrsARN = Nothing,
-      _scrsPipelinesRunningCount = Nothing,
-      _scrsPipelineDetails = Nothing,
-      _scrsInputSpecification = Nothing,
-      _scrsInputAttachments = Nothing,
-      _scrsDestinations = Nothing,
-      _scrsName = Nothing,
-      _scrsCdiInputSpecification = Nothing,
-      _scrsId = Nothing,
-      _scrsChannelClass = Nothing,
-      _scrsEgressEndpoints = Nothing,
-      _scrsTags = Nothing,
-      _scrsEncoderSettings = Nothing,
-      _scrsRoleARN = Nothing,
-      _scrsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      logLevel = Lude.Nothing,
+      arn = Lude.Nothing,
+      pipelinesRunningCount = Lude.Nothing,
+      pipelineDetails = Lude.Nothing,
+      inputSpecification = Lude.Nothing,
+      inputAttachments = Lude.Nothing,
+      destinations = Lude.Nothing,
+      name = Lude.Nothing,
+      cdiInputSpecification = Lude.Nothing,
+      id = Lude.Nothing,
+      channelClass = Lude.Nothing,
+      egressEndpoints = Lude.Nothing,
+      tags = Lude.Nothing,
+      encoderSettings = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-scrsState :: Lens' StartChannelResponse (Maybe ChannelState)
-scrsState = lens _scrsState (\s a -> s {_scrsState = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsState :: Lens.Lens' StartChannelResponse (Lude.Maybe ChannelState)
+scrsState = Lens.lens (state :: StartChannelResponse -> Lude.Maybe ChannelState) (\s a -> s {state = a} :: StartChannelResponse)
+{-# DEPRECATED scrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The log level being written to CloudWatch Logs.
-scrsLogLevel :: Lens' StartChannelResponse (Maybe LogLevel)
-scrsLogLevel = lens _scrsLogLevel (\s a -> s {_scrsLogLevel = a})
+--
+-- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsLogLevel :: Lens.Lens' StartChannelResponse (Lude.Maybe LogLevel)
+scrsLogLevel = Lens.lens (logLevel :: StartChannelResponse -> Lude.Maybe LogLevel) (\s a -> s {logLevel = a} :: StartChannelResponse)
+{-# DEPRECATED scrsLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
 -- | The unique arn of the channel.
-scrsARN :: Lens' StartChannelResponse (Maybe Text)
-scrsARN = lens _scrsARN (\s a -> s {_scrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsARN :: Lens.Lens' StartChannelResponse (Lude.Maybe Lude.Text)
+scrsARN = Lens.lens (arn :: StartChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: StartChannelResponse)
+{-# DEPRECATED scrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The number of currently healthy pipelines.
-scrsPipelinesRunningCount :: Lens' StartChannelResponse (Maybe Int)
-scrsPipelinesRunningCount = lens _scrsPipelinesRunningCount (\s a -> s {_scrsPipelinesRunningCount = a})
+--
+-- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsPipelinesRunningCount :: Lens.Lens' StartChannelResponse (Lude.Maybe Lude.Int)
+scrsPipelinesRunningCount = Lens.lens (pipelinesRunningCount :: StartChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {pipelinesRunningCount = a} :: StartChannelResponse)
+{-# DEPRECATED scrsPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
 
 -- | Runtime details for the pipelines of a running channel.
-scrsPipelineDetails :: Lens' StartChannelResponse [PipelineDetail]
-scrsPipelineDetails = lens _scrsPipelineDetails (\s a -> s {_scrsPipelineDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'pipelineDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsPipelineDetails :: Lens.Lens' StartChannelResponse (Lude.Maybe [PipelineDetail])
+scrsPipelineDetails = Lens.lens (pipelineDetails :: StartChannelResponse -> Lude.Maybe [PipelineDetail]) (\s a -> s {pipelineDetails = a} :: StartChannelResponse)
+{-# DEPRECATED scrsPipelineDetails "Use generic-lens or generic-optics with 'pipelineDetails' instead." #-}
 
 -- | Specification of network and file inputs for this channel
-scrsInputSpecification :: Lens' StartChannelResponse (Maybe InputSpecification)
-scrsInputSpecification = lens _scrsInputSpecification (\s a -> s {_scrsInputSpecification = a})
+--
+-- /Note:/ Consider using 'inputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsInputSpecification :: Lens.Lens' StartChannelResponse (Lude.Maybe InputSpecification)
+scrsInputSpecification = Lens.lens (inputSpecification :: StartChannelResponse -> Lude.Maybe InputSpecification) (\s a -> s {inputSpecification = a} :: StartChannelResponse)
+{-# DEPRECATED scrsInputSpecification "Use generic-lens or generic-optics with 'inputSpecification' instead." #-}
 
 -- | List of input attachments for channel.
-scrsInputAttachments :: Lens' StartChannelResponse [InputAttachment]
-scrsInputAttachments = lens _scrsInputAttachments (\s a -> s {_scrsInputAttachments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsInputAttachments :: Lens.Lens' StartChannelResponse (Lude.Maybe [InputAttachment])
+scrsInputAttachments = Lens.lens (inputAttachments :: StartChannelResponse -> Lude.Maybe [InputAttachment]) (\s a -> s {inputAttachments = a} :: StartChannelResponse)
+{-# DEPRECATED scrsInputAttachments "Use generic-lens or generic-optics with 'inputAttachments' instead." #-}
 
--- | A list of destinations of the channel. For UDP outputs, there is one destination per output. For other types (HLS, for example), there is one destination per packager.
-scrsDestinations :: Lens' StartChannelResponse [OutputDestination]
-scrsDestinations = lens _scrsDestinations (\s a -> s {_scrsDestinations = a}) . _Default . _Coerce
+-- | A list of destinations of the channel. For UDP outputs, there is one
+--
+-- destination per output. For other types (HLS, for example), there is
+-- one destination per packager.
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsDestinations :: Lens.Lens' StartChannelResponse (Lude.Maybe [OutputDestination])
+scrsDestinations = Lens.lens (destinations :: StartChannelResponse -> Lude.Maybe [OutputDestination]) (\s a -> s {destinations = a} :: StartChannelResponse)
+{-# DEPRECATED scrsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The name of the channel. (user-mutable)
-scrsName :: Lens' StartChannelResponse (Maybe Text)
-scrsName = lens _scrsName (\s a -> s {_scrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsName :: Lens.Lens' StartChannelResponse (Lude.Maybe Lude.Text)
+scrsName = Lens.lens (name :: StartChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StartChannelResponse)
+{-# DEPRECATED scrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specification of CDI inputs for this channel
-scrsCdiInputSpecification :: Lens' StartChannelResponse (Maybe CdiInputSpecification)
-scrsCdiInputSpecification = lens _scrsCdiInputSpecification (\s a -> s {_scrsCdiInputSpecification = a})
+--
+-- /Note:/ Consider using 'cdiInputSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsCdiInputSpecification :: Lens.Lens' StartChannelResponse (Lude.Maybe CdiInputSpecification)
+scrsCdiInputSpecification = Lens.lens (cdiInputSpecification :: StartChannelResponse -> Lude.Maybe CdiInputSpecification) (\s a -> s {cdiInputSpecification = a} :: StartChannelResponse)
+{-# DEPRECATED scrsCdiInputSpecification "Use generic-lens or generic-optics with 'cdiInputSpecification' instead." #-}
 
 -- | The unique id of the channel.
-scrsId :: Lens' StartChannelResponse (Maybe Text)
-scrsId = lens _scrsId (\s a -> s {_scrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsId :: Lens.Lens' StartChannelResponse (Lude.Maybe Lude.Text)
+scrsId = Lens.lens (id :: StartChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: StartChannelResponse)
+{-# DEPRECATED scrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-scrsChannelClass :: Lens' StartChannelResponse (Maybe ChannelClass)
-scrsChannelClass = lens _scrsChannelClass (\s a -> s {_scrsChannelClass = a})
+--
+-- /Note:/ Consider using 'channelClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsChannelClass :: Lens.Lens' StartChannelResponse (Lude.Maybe ChannelClass)
+scrsChannelClass = Lens.lens (channelClass :: StartChannelResponse -> Lude.Maybe ChannelClass) (\s a -> s {channelClass = a} :: StartChannelResponse)
+{-# DEPRECATED scrsChannelClass "Use generic-lens or generic-optics with 'channelClass' instead." #-}
 
 -- | The endpoints where outgoing connections initiate from
-scrsEgressEndpoints :: Lens' StartChannelResponse [ChannelEgressEndpoint]
-scrsEgressEndpoints = lens _scrsEgressEndpoints (\s a -> s {_scrsEgressEndpoints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'egressEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsEgressEndpoints :: Lens.Lens' StartChannelResponse (Lude.Maybe [ChannelEgressEndpoint])
+scrsEgressEndpoints = Lens.lens (egressEndpoints :: StartChannelResponse -> Lude.Maybe [ChannelEgressEndpoint]) (\s a -> s {egressEndpoints = a} :: StartChannelResponse)
+{-# DEPRECATED scrsEgressEndpoints "Use generic-lens or generic-optics with 'egressEndpoints' instead." #-}
 
 -- | A collection of key-value pairs.
-scrsTags :: Lens' StartChannelResponse (HashMap Text (Text))
-scrsTags = lens _scrsTags (\s a -> s {_scrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsTags :: Lens.Lens' StartChannelResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+scrsTags = Lens.lens (tags :: StartChannelResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: StartChannelResponse)
+{-# DEPRECATED scrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | Undocumented member.
-scrsEncoderSettings :: Lens' StartChannelResponse (Maybe EncoderSettings)
-scrsEncoderSettings = lens _scrsEncoderSettings (\s a -> s {_scrsEncoderSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'encoderSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsEncoderSettings :: Lens.Lens' StartChannelResponse (Lude.Maybe EncoderSettings)
+scrsEncoderSettings = Lens.lens (encoderSettings :: StartChannelResponse -> Lude.Maybe EncoderSettings) (\s a -> s {encoderSettings = a} :: StartChannelResponse)
+{-# DEPRECATED scrsEncoderSettings "Use generic-lens or generic-optics with 'encoderSettings' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-scrsRoleARN :: Lens' StartChannelResponse (Maybe Text)
-scrsRoleARN = lens _scrsRoleARN (\s a -> s {_scrsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsRoleARN :: Lens.Lens' StartChannelResponse (Lude.Maybe Lude.Text)
+scrsRoleARN = Lens.lens (roleARN :: StartChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: StartChannelResponse)
+{-# DEPRECATED scrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-scrsResponseStatus :: Lens' StartChannelResponse Int
-scrsResponseStatus = lens _scrsResponseStatus (\s a -> s {_scrsResponseStatus = a})
-
-instance NFData StartChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrsResponseStatus :: Lens.Lens' StartChannelResponse Lude.Int
+scrsResponseStatus = Lens.lens (responseStatus :: StartChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartChannelResponse)
+{-# DEPRECATED scrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

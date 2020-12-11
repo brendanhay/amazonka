@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest where
+module Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest
+  ( ContainerServiceDeploymentRequest (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkContainerServiceDeploymentRequest,
+
+    -- * Lenses
+    csdrPublicEndpoint,
+    csdrContainers,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.Container
 import Network.AWS.Lightsail.Types.EndpointRequest
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a container deployment configuration of an Amazon Lightsail container service.
 --
---
 -- A deployment specifies the settings, such as the ports and launch command, of containers that are deployed to your container service.
 --
---
--- /See:/ 'containerServiceDeploymentRequest' smart constructor.
+-- /See:/ 'mkContainerServiceDeploymentRequest' smart constructor.
 data ContainerServiceDeploymentRequest = ContainerServiceDeploymentRequest'
-  { _csdrPublicEndpoint ::
-      !( Maybe
-           EndpointRequest
-       ),
-    _csdrContainers ::
-      !( Maybe
-           ( Map
-               Text
-               (Container)
-           )
-       )
+  { publicEndpoint ::
+      Lude.Maybe
+        EndpointRequest,
+    containers ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Container)
+        )
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerServiceDeploymentRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csdrPublicEndpoint' - An object that describes the endpoint of the deployment.
---
--- * 'csdrContainers' - An object that describes the configuration for the containers of the deployment.
-containerServiceDeploymentRequest ::
+-- * 'containers' - An object that describes the configuration for the containers of the deployment.
+-- * 'publicEndpoint' - An object that describes the endpoint of the deployment.
+mkContainerServiceDeploymentRequest ::
   ContainerServiceDeploymentRequest
-containerServiceDeploymentRequest =
+mkContainerServiceDeploymentRequest =
   ContainerServiceDeploymentRequest'
-    { _csdrPublicEndpoint = Nothing,
-      _csdrContainers = Nothing
+    { publicEndpoint = Lude.Nothing,
+      containers = Lude.Nothing
     }
 
 -- | An object that describes the endpoint of the deployment.
-csdrPublicEndpoint :: Lens' ContainerServiceDeploymentRequest (Maybe EndpointRequest)
-csdrPublicEndpoint = lens _csdrPublicEndpoint (\s a -> s {_csdrPublicEndpoint = a})
+--
+-- /Note:/ Consider using 'publicEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrPublicEndpoint :: Lens.Lens' ContainerServiceDeploymentRequest (Lude.Maybe EndpointRequest)
+csdrPublicEndpoint = Lens.lens (publicEndpoint :: ContainerServiceDeploymentRequest -> Lude.Maybe EndpointRequest) (\s a -> s {publicEndpoint = a} :: ContainerServiceDeploymentRequest)
+{-# DEPRECATED csdrPublicEndpoint "Use generic-lens or generic-optics with 'publicEndpoint' instead." #-}
 
 -- | An object that describes the configuration for the containers of the deployment.
-csdrContainers :: Lens' ContainerServiceDeploymentRequest (HashMap Text (Container))
-csdrContainers = lens _csdrContainers (\s a -> s {_csdrContainers = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrContainers :: Lens.Lens' ContainerServiceDeploymentRequest (Lude.Maybe (Lude.HashMap Lude.Text (Container)))
+csdrContainers = Lens.lens (containers :: ContainerServiceDeploymentRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Container))) (\s a -> s {containers = a} :: ContainerServiceDeploymentRequest)
+{-# DEPRECATED csdrContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
 
-instance Hashable ContainerServiceDeploymentRequest
-
-instance NFData ContainerServiceDeploymentRequest
-
-instance ToJSON ContainerServiceDeploymentRequest where
+instance Lude.ToJSON ContainerServiceDeploymentRequest where
   toJSON ContainerServiceDeploymentRequest' {..} =
-    object
-      ( catMaybes
-          [ ("publicEndpoint" .=) <$> _csdrPublicEndpoint,
-            ("containers" .=) <$> _csdrContainers
+    Lude.object
+      ( Lude.catMaybes
+          [ ("publicEndpoint" Lude..=) Lude.<$> publicEndpoint,
+            ("containers" Lude..=) Lude.<$> containers
           ]
       )

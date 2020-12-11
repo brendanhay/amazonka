@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.SchemaVersionErrorItem where
+module Network.AWS.Glue.Types.SchemaVersionErrorItem
+  ( SchemaVersionErrorItem (..),
+
+    -- * Smart constructor
+    mkSchemaVersionErrorItem,
+
+    -- * Lenses
+    sveiVersionNumber,
+    sveiErrorDetails,
+  )
+where
 
 import Network.AWS.Glue.Types.ErrorDetails
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object that contains the error details for an operation on a schema version.
 --
---
---
--- /See:/ 'schemaVersionErrorItem' smart constructor.
+-- /See:/ 'mkSchemaVersionErrorItem' smart constructor.
 data SchemaVersionErrorItem = SchemaVersionErrorItem'
-  { _sveiVersionNumber ::
-      !(Maybe Nat),
-    _sveiErrorDetails :: !(Maybe ErrorDetails)
+  { versionNumber ::
+      Lude.Maybe Lude.Natural,
+    errorDetails :: Lude.Maybe ErrorDetails
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaVersionErrorItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sveiVersionNumber' - The version number of the schema.
---
--- * 'sveiErrorDetails' - The details of the error for the schema version.
-schemaVersionErrorItem ::
+-- * 'errorDetails' - The details of the error for the schema version.
+-- * 'versionNumber' - The version number of the schema.
+mkSchemaVersionErrorItem ::
   SchemaVersionErrorItem
-schemaVersionErrorItem =
+mkSchemaVersionErrorItem =
   SchemaVersionErrorItem'
-    { _sveiVersionNumber = Nothing,
-      _sveiErrorDetails = Nothing
+    { versionNumber = Lude.Nothing,
+      errorDetails = Lude.Nothing
     }
 
 -- | The version number of the schema.
-sveiVersionNumber :: Lens' SchemaVersionErrorItem (Maybe Natural)
-sveiVersionNumber = lens _sveiVersionNumber (\s a -> s {_sveiVersionNumber = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sveiVersionNumber :: Lens.Lens' SchemaVersionErrorItem (Lude.Maybe Lude.Natural)
+sveiVersionNumber = Lens.lens (versionNumber :: SchemaVersionErrorItem -> Lude.Maybe Lude.Natural) (\s a -> s {versionNumber = a} :: SchemaVersionErrorItem)
+{-# DEPRECATED sveiVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
 -- | The details of the error for the schema version.
-sveiErrorDetails :: Lens' SchemaVersionErrorItem (Maybe ErrorDetails)
-sveiErrorDetails = lens _sveiErrorDetails (\s a -> s {_sveiErrorDetails = a})
+--
+-- /Note:/ Consider using 'errorDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sveiErrorDetails :: Lens.Lens' SchemaVersionErrorItem (Lude.Maybe ErrorDetails)
+sveiErrorDetails = Lens.lens (errorDetails :: SchemaVersionErrorItem -> Lude.Maybe ErrorDetails) (\s a -> s {errorDetails = a} :: SchemaVersionErrorItem)
+{-# DEPRECATED sveiErrorDetails "Use generic-lens or generic-optics with 'errorDetails' instead." #-}
 
-instance FromJSON SchemaVersionErrorItem where
+instance Lude.FromJSON SchemaVersionErrorItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "SchemaVersionErrorItem"
       ( \x ->
           SchemaVersionErrorItem'
-            <$> (x .:? "VersionNumber") <*> (x .:? "ErrorDetails")
+            Lude.<$> (x Lude..:? "VersionNumber") Lude.<*> (x Lude..:? "ErrorDetails")
       )
-
-instance Hashable SchemaVersionErrorItem
-
-instance NFData SchemaVersionErrorItem

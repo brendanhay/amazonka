@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.MigrationStatus where
+module Network.AWS.MigrationHub.Types.MigrationStatus
+  ( MigrationStatus
+      ( MigrationStatus',
+        MSCompleted,
+        MSFailed,
+        MSInProgress,
+        MSNotStarted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MigrationStatus
-  = MSCompleted
-  | MSFailed
-  | MSInProgress
-  | MSNotStarted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MigrationStatus = MigrationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MigrationStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure MSCompleted
-      "failed" -> pure MSFailed
-      "in_progress" -> pure MSInProgress
-      "not_started" -> pure MSNotStarted
-      e ->
-        fromTextError $
-          "Failure parsing MigrationStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, in_progress, not_started"
+pattern MSCompleted :: MigrationStatus
+pattern MSCompleted = MigrationStatus' "COMPLETED"
 
-instance ToText MigrationStatus where
-  toText = \case
-    MSCompleted -> "COMPLETED"
-    MSFailed -> "FAILED"
-    MSInProgress -> "IN_PROGRESS"
-    MSNotStarted -> "NOT_STARTED"
+pattern MSFailed :: MigrationStatus
+pattern MSFailed = MigrationStatus' "FAILED"
 
-instance Hashable MigrationStatus
+pattern MSInProgress :: MigrationStatus
+pattern MSInProgress = MigrationStatus' "IN_PROGRESS"
 
-instance NFData MigrationStatus
+pattern MSNotStarted :: MigrationStatus
+pattern MSNotStarted = MigrationStatus' "NOT_STARTED"
 
-instance ToByteString MigrationStatus
-
-instance ToQuery MigrationStatus
-
-instance ToHeader MigrationStatus
-
-instance ToJSON MigrationStatus where
-  toJSON = toJSONText
-
-instance FromJSON MigrationStatus where
-  parseJSON = parseJSONText "MigrationStatus"
+{-# COMPLETE
+  MSCompleted,
+  MSFailed,
+  MSInProgress,
+  MSNotStarted,
+  MigrationStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,176 +17,197 @@
 --
 --     * Whether to insert or delete the @RegexPatternString@ .
 --
---     * The regular expression pattern that you want to insert or delete. For more information, see 'RegexPatternSet' .
 --
+--     * The regular expression pattern that you want to insert or delete. For more information, see 'RegexPatternSet' .
 --
 --
 -- For example, you can create a @RegexPatternString@ such as @B[a@]dB[o0]t@ . AWS WAF will match this @RegexPatternString@ to:
 --
 --     * BadBot
 --
+--
 --     * BadB0t
+--
 --
 --     * B@dBot
 --
---     * B@dB0t
 --
+--     * B@dB0t
 --
 --
 -- To create and configure a @RegexPatternSet@ , perform the following steps:
 --
 --     * Create a @RegexPatternSet.@ For more information, see 'CreateRegexPatternSet' .
 --
+--
 --     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of an @UpdateRegexPatternSet@ request.
+--
 --
 --     * Submit an @UpdateRegexPatternSet@ request to specify the regular expression pattern that you want AWS WAF to watch for.
 --
 --
---
 -- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 module Network.AWS.WAFRegional.UpdateRegexPatternSet
-  ( -- * Creating a Request
-    updateRegexPatternSet,
-    UpdateRegexPatternSet,
+  ( -- * Creating a request
+    UpdateRegexPatternSet (..),
+    mkUpdateRegexPatternSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urpsRegexPatternSetId,
     urpsUpdates,
     urpsChangeToken,
 
-    -- * Destructuring the Response
-    updateRegexPatternSetResponse,
-    UpdateRegexPatternSetResponse,
+    -- * Destructuring the response
+    UpdateRegexPatternSetResponse (..),
+    mkUpdateRegexPatternSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urpsrsChangeToken,
     urpsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'updateRegexPatternSet' smart constructor.
+-- | /See:/ 'mkUpdateRegexPatternSet' smart constructor.
 data UpdateRegexPatternSet = UpdateRegexPatternSet'
-  { _urpsRegexPatternSetId ::
-      !Text,
-    _urpsUpdates :: !(List1 RegexPatternSetUpdate),
-    _urpsChangeToken :: !Text
+  { regexPatternSetId ::
+      Lude.Text,
+    updates :: Lude.NonEmpty RegexPatternSetUpdate,
+    changeToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRegexPatternSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urpsRegexPatternSetId' - The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to update. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
---
--- * 'urpsUpdates' - An array of @RegexPatternSetUpdate@ objects that you want to insert into or delete from a 'RegexPatternSet' .
---
--- * 'urpsChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-updateRegexPatternSet ::
-  -- | 'urpsRegexPatternSetId'
-  Text ->
-  -- | 'urpsUpdates'
-  NonEmpty RegexPatternSetUpdate ->
-  -- | 'urpsChangeToken'
-  Text ->
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'regexPatternSetId' - The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to update. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+-- * 'updates' - An array of @RegexPatternSetUpdate@ objects that you want to insert into or delete from a 'RegexPatternSet' .
+mkUpdateRegexPatternSet ::
+  -- | 'regexPatternSetId'
+  Lude.Text ->
+  -- | 'updates'
+  Lude.NonEmpty RegexPatternSetUpdate ->
+  -- | 'changeToken'
+  Lude.Text ->
   UpdateRegexPatternSet
-updateRegexPatternSet pRegexPatternSetId_ pUpdates_ pChangeToken_ =
+mkUpdateRegexPatternSet pRegexPatternSetId_ pUpdates_ pChangeToken_ =
   UpdateRegexPatternSet'
-    { _urpsRegexPatternSetId =
-        pRegexPatternSetId_,
-      _urpsUpdates = _List1 # pUpdates_,
-      _urpsChangeToken = pChangeToken_
+    { regexPatternSetId = pRegexPatternSetId_,
+      updates = pUpdates_,
+      changeToken = pChangeToken_
     }
 
 -- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to update. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
-urpsRegexPatternSetId :: Lens' UpdateRegexPatternSet Text
-urpsRegexPatternSetId = lens _urpsRegexPatternSetId (\s a -> s {_urpsRegexPatternSetId = a})
+--
+-- /Note:/ Consider using 'regexPatternSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpsRegexPatternSetId :: Lens.Lens' UpdateRegexPatternSet Lude.Text
+urpsRegexPatternSetId = Lens.lens (regexPatternSetId :: UpdateRegexPatternSet -> Lude.Text) (\s a -> s {regexPatternSetId = a} :: UpdateRegexPatternSet)
+{-# DEPRECATED urpsRegexPatternSetId "Use generic-lens or generic-optics with 'regexPatternSetId' instead." #-}
 
 -- | An array of @RegexPatternSetUpdate@ objects that you want to insert into or delete from a 'RegexPatternSet' .
-urpsUpdates :: Lens' UpdateRegexPatternSet (NonEmpty RegexPatternSetUpdate)
-urpsUpdates = lens _urpsUpdates (\s a -> s {_urpsUpdates = a}) . _List1
+--
+-- /Note:/ Consider using 'updates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpsUpdates :: Lens.Lens' UpdateRegexPatternSet (Lude.NonEmpty RegexPatternSetUpdate)
+urpsUpdates = Lens.lens (updates :: UpdateRegexPatternSet -> Lude.NonEmpty RegexPatternSetUpdate) (\s a -> s {updates = a} :: UpdateRegexPatternSet)
+{-# DEPRECATED urpsUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-urpsChangeToken :: Lens' UpdateRegexPatternSet Text
-urpsChangeToken = lens _urpsChangeToken (\s a -> s {_urpsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpsChangeToken :: Lens.Lens' UpdateRegexPatternSet Lude.Text
+urpsChangeToken = Lens.lens (changeToken :: UpdateRegexPatternSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateRegexPatternSet)
+{-# DEPRECATED urpsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance AWSRequest UpdateRegexPatternSet where
+instance Lude.AWSRequest UpdateRegexPatternSet where
   type Rs UpdateRegexPatternSet = UpdateRegexPatternSetResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateRegexPatternSetResponse'
-            <$> (x .?> "ChangeToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateRegexPatternSet
-
-instance NFData UpdateRegexPatternSet
-
-instance ToHeaders UpdateRegexPatternSet where
+instance Lude.ToHeaders UpdateRegexPatternSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.UpdateRegexPatternSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.UpdateRegexPatternSet" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateRegexPatternSet where
+instance Lude.ToJSON UpdateRegexPatternSet where
   toJSON UpdateRegexPatternSet' {..} =
-    object
-      ( catMaybes
-          [ Just ("RegexPatternSetId" .= _urpsRegexPatternSetId),
-            Just ("Updates" .= _urpsUpdates),
-            Just ("ChangeToken" .= _urpsChangeToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("RegexPatternSetId" Lude..= regexPatternSetId),
+            Lude.Just ("Updates" Lude..= updates),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
-instance ToPath UpdateRegexPatternSet where
-  toPath = const "/"
+instance Lude.ToPath UpdateRegexPatternSet where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateRegexPatternSet where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRegexPatternSet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateRegexPatternSetResponse' smart constructor.
+-- | /See:/ 'mkUpdateRegexPatternSetResponse' smart constructor.
 data UpdateRegexPatternSetResponse = UpdateRegexPatternSetResponse'
-  { _urpsrsChangeToken ::
-      !(Maybe Text),
-    _urpsrsResponseStatus :: !Int
+  { changeToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRegexPatternSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urpsrsChangeToken' - The @ChangeToken@ that you used to submit the @UpdateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'urpsrsResponseStatus' - -- | The response status code.
-updateRegexPatternSetResponse ::
-  -- | 'urpsrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @UpdateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+mkUpdateRegexPatternSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateRegexPatternSetResponse
-updateRegexPatternSetResponse pResponseStatus_ =
+mkUpdateRegexPatternSetResponse pResponseStatus_ =
   UpdateRegexPatternSetResponse'
-    { _urpsrsChangeToken = Nothing,
-      _urpsrsResponseStatus = pResponseStatus_
+    { changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-urpsrsChangeToken :: Lens' UpdateRegexPatternSetResponse (Maybe Text)
-urpsrsChangeToken = lens _urpsrsChangeToken (\s a -> s {_urpsrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpsrsChangeToken :: Lens.Lens' UpdateRegexPatternSetResponse (Lude.Maybe Lude.Text)
+urpsrsChangeToken = Lens.lens (changeToken :: UpdateRegexPatternSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: UpdateRegexPatternSetResponse)
+{-# DEPRECATED urpsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-urpsrsResponseStatus :: Lens' UpdateRegexPatternSetResponse Int
-urpsrsResponseStatus = lens _urpsrsResponseStatus (\s a -> s {_urpsrsResponseStatus = a})
-
-instance NFData UpdateRegexPatternSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpsrsResponseStatus :: Lens.Lens' UpdateRegexPatternSetResponse Lude.Int
+urpsrsResponseStatus = Lens.lens (responseStatus :: UpdateRegexPatternSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRegexPatternSetResponse)
+{-# DEPRECATED urpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

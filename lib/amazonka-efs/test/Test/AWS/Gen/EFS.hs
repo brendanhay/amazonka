@@ -28,139 +28,139 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestCreateAccessPoint $
---             createAccessPoint
+--             mkCreateAccessPoint
 --
 --         , requestDescribeMountTargets $
---             describeMountTargets
+--             mkDescribeMountTargets
 --
 --         , requestDeleteFileSystemPolicy $
---             deleteFileSystemPolicy
+--             mkDeleteFileSystemPolicy
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestPutFileSystemPolicy $
---             putFileSystemPolicy
+--             mkPutFileSystemPolicy
 --
 --         , requestDescribeFileSystems $
---             describeFileSystems
+--             mkDescribeFileSystems
 --
 --         , requestDeleteMountTarget $
---             deleteMountTarget
+--             mkDeleteMountTarget
 --
 --         , requestDescribeMountTargetSecurityGroups $
---             describeMountTargetSecurityGroups
+--             mkDescribeMountTargetSecurityGroups
 --
 --         , requestDescribeAccessPoints $
---             describeAccessPoints
+--             mkDescribeAccessPoints
 --
 --         , requestModifyMountTargetSecurityGroups $
---             modifyMountTargetSecurityGroups
+--             mkModifyMountTargetSecurityGroups
 --
 --         , requestCreateFileSystem $
---             createFileSystem
+--             mkCreateFileSystem
 --
 --         , requestPutLifecycleConfiguration $
---             putLifecycleConfiguration
+--             mkPutLifecycleConfiguration
 --
 --         , requestPutBackupPolicy $
---             putBackupPolicy
+--             mkPutBackupPolicy
 --
 --         , requestDeleteFileSystem $
---             deleteFileSystem
+--             mkDeleteFileSystem
 --
 --         , requestUpdateFileSystem $
---             updateFileSystem
+--             mkUpdateFileSystem
 --
 --         , requestCreateMountTarget $
---             createMountTarget
+--             mkCreateMountTarget
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestDescribeBackupPolicy $
---             describeBackupPolicy
+--             mkDescribeBackupPolicy
 --
 --         , requestDescribeLifecycleConfiguration $
---             describeLifecycleConfiguration
+--             mkDescribeLifecycleConfiguration
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestDescribeFileSystemPolicy $
---             describeFileSystemPolicy
+--             mkDescribeFileSystemPolicy
 --
 --         , requestDeleteAccessPoint $
---             deleteAccessPoint
+--             mkDeleteAccessPoint
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseCreateAccessPoint $
---             accessPointDescription
+--             mkAccessPointDescription
 --
 --         , responseDescribeMountTargets $
---             describeMountTargetsResponse
+--             mkDescribeMountTargetsResponse
 --
 --         , responseDeleteFileSystemPolicy $
---             deleteFileSystemPolicyResponse
+--             mkDeleteFileSystemPolicyResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responsePutFileSystemPolicy $
---             fileSystemPolicyDescription
+--             mkFileSystemPolicyDescription
 --
 --         , responseDescribeFileSystems $
---             describeFileSystemsResponse
+--             mkDescribeFileSystemsResponse
 --
 --         , responseDeleteMountTarget $
---             deleteMountTargetResponse
+--             mkDeleteMountTargetResponse
 --
 --         , responseDescribeMountTargetSecurityGroups $
---             describeMountTargetSecurityGroupsResponse
+--             mkDescribeMountTargetSecurityGroupsResponse
 --
 --         , responseDescribeAccessPoints $
---             describeAccessPointsResponse
+--             mkDescribeAccessPointsResponse
 --
 --         , responseModifyMountTargetSecurityGroups $
---             modifyMountTargetSecurityGroupsResponse
+--             mkModifyMountTargetSecurityGroupsResponse
 --
 --         , responseCreateFileSystem $
---             fileSystemDescription
+--             mkFileSystemDescription
 --
 --         , responsePutLifecycleConfiguration $
---             lifecycleConfigurationDescription
+--             mkLifecycleConfigurationDescription
 --
 --         , responsePutBackupPolicy $
---             backupPolicyDescription
+--             mkBackupPolicyDescription
 --
 --         , responseDeleteFileSystem $
---             deleteFileSystemResponse
+--             mkDeleteFileSystemResponse
 --
 --         , responseUpdateFileSystem $
---             fileSystemDescription
+--             mkFileSystemDescription
 --
 --         , responseCreateMountTarget $
---             mountTargetDescription
+--             mkMountTargetDescription
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseDescribeBackupPolicy $
---             backupPolicyDescription
+--             mkBackupPolicyDescription
 --
 --         , responseDescribeLifecycleConfiguration $
---             lifecycleConfigurationDescription
+--             mkLifecycleConfigurationDescription
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseDescribeFileSystemPolicy $
---             fileSystemPolicyDescription
+--             mkFileSystemPolicyDescription
 --
 --         , responseDeleteAccessPoint $
---             deleteAccessPointResponse
+--             mkDeleteAccessPointResponse
 --
 --           ]
 --     ]
@@ -306,7 +306,7 @@ responseCreateAccessPoint =
   res
     "CreateAccessPointResponse"
     "fixture/CreateAccessPointResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy CreateAccessPoint)
 
 responseDescribeMountTargets :: DescribeMountTargetsResponse -> TestTree
@@ -314,7 +314,7 @@ responseDescribeMountTargets =
   res
     "DescribeMountTargetsResponse"
     "fixture/DescribeMountTargetsResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DescribeMountTargets)
 
 responseDeleteFileSystemPolicy :: DeleteFileSystemPolicyResponse -> TestTree
@@ -322,7 +322,7 @@ responseDeleteFileSystemPolicy =
   res
     "DeleteFileSystemPolicyResponse"
     "fixture/DeleteFileSystemPolicyResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DeleteFileSystemPolicy)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -330,7 +330,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy ListTagsForResource)
 
 responsePutFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
@@ -338,7 +338,7 @@ responsePutFileSystemPolicy =
   res
     "PutFileSystemPolicyResponse"
     "fixture/PutFileSystemPolicyResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy PutFileSystemPolicy)
 
 responseDescribeFileSystems :: DescribeFileSystemsResponse -> TestTree
@@ -346,7 +346,7 @@ responseDescribeFileSystems =
   res
     "DescribeFileSystemsResponse"
     "fixture/DescribeFileSystemsResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DescribeFileSystems)
 
 responseDeleteMountTarget :: DeleteMountTargetResponse -> TestTree
@@ -354,7 +354,7 @@ responseDeleteMountTarget =
   res
     "DeleteMountTargetResponse"
     "fixture/DeleteMountTargetResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DeleteMountTarget)
 
 responseDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroupsResponse -> TestTree
@@ -362,7 +362,7 @@ responseDescribeMountTargetSecurityGroups =
   res
     "DescribeMountTargetSecurityGroupsResponse"
     "fixture/DescribeMountTargetSecurityGroupsResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DescribeMountTargetSecurityGroups)
 
 responseDescribeAccessPoints :: DescribeAccessPointsResponse -> TestTree
@@ -370,7 +370,7 @@ responseDescribeAccessPoints =
   res
     "DescribeAccessPointsResponse"
     "fixture/DescribeAccessPointsResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DescribeAccessPoints)
 
 responseModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroupsResponse -> TestTree
@@ -378,7 +378,7 @@ responseModifyMountTargetSecurityGroups =
   res
     "ModifyMountTargetSecurityGroupsResponse"
     "fixture/ModifyMountTargetSecurityGroupsResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy ModifyMountTargetSecurityGroups)
 
 responseCreateFileSystem :: FileSystemDescription -> TestTree
@@ -386,7 +386,7 @@ responseCreateFileSystem =
   res
     "CreateFileSystemResponse"
     "fixture/CreateFileSystemResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy CreateFileSystem)
 
 responsePutLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
@@ -394,7 +394,7 @@ responsePutLifecycleConfiguration =
   res
     "PutLifecycleConfigurationResponse"
     "fixture/PutLifecycleConfigurationResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy PutLifecycleConfiguration)
 
 responsePutBackupPolicy :: BackupPolicyDescription -> TestTree
@@ -402,7 +402,7 @@ responsePutBackupPolicy =
   res
     "PutBackupPolicyResponse"
     "fixture/PutBackupPolicyResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy PutBackupPolicy)
 
 responseDeleteFileSystem :: DeleteFileSystemResponse -> TestTree
@@ -410,7 +410,7 @@ responseDeleteFileSystem =
   res
     "DeleteFileSystemResponse"
     "fixture/DeleteFileSystemResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DeleteFileSystem)
 
 responseUpdateFileSystem :: FileSystemDescription -> TestTree
@@ -418,7 +418,7 @@ responseUpdateFileSystem =
   res
     "UpdateFileSystemResponse"
     "fixture/UpdateFileSystemResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy UpdateFileSystem)
 
 responseCreateMountTarget :: MountTargetDescription -> TestTree
@@ -426,7 +426,7 @@ responseCreateMountTarget =
   res
     "CreateMountTargetResponse"
     "fixture/CreateMountTargetResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy CreateMountTarget)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -434,7 +434,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy TagResource)
 
 responseDescribeBackupPolicy :: BackupPolicyDescription -> TestTree
@@ -442,7 +442,7 @@ responseDescribeBackupPolicy =
   res
     "DescribeBackupPolicyResponse"
     "fixture/DescribeBackupPolicyResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DescribeBackupPolicy)
 
 responseDescribeLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
@@ -450,7 +450,7 @@ responseDescribeLifecycleConfiguration =
   res
     "DescribeLifecycleConfigurationResponse"
     "fixture/DescribeLifecycleConfigurationResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DescribeLifecycleConfiguration)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -458,7 +458,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy UntagResource)
 
 responseDescribeFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
@@ -466,7 +466,7 @@ responseDescribeFileSystemPolicy =
   res
     "DescribeFileSystemPolicyResponse"
     "fixture/DescribeFileSystemPolicyResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DescribeFileSystemPolicy)
 
 responseDeleteAccessPoint :: DeleteAccessPointResponse -> TestTree
@@ -474,5 +474,5 @@ responseDeleteAccessPoint =
   res
     "DeleteAccessPointResponse"
     "fixture/DeleteAccessPointResponse.proto"
-    efs
+    efsService
     (Proxy :: Proxy DeleteAccessPoint)

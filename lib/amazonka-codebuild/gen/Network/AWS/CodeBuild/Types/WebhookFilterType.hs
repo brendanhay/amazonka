@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.WebhookFilterType where
+module Network.AWS.CodeBuild.Types.WebhookFilterType
+  ( WebhookFilterType
+      ( WebhookFilterType',
+        ActorAccountId,
+        BaseRef,
+        CommitMessage,
+        Event,
+        FilePath,
+        HeadRef
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WebhookFilterType
-  = ActorAccountId
-  | BaseRef
-  | CommitMessage
-  | Event
-  | FilePath
-  | HeadRef
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WebhookFilterType = WebhookFilterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WebhookFilterType where
-  parser =
-    takeLowerText >>= \case
-      "actor_account_id" -> pure ActorAccountId
-      "base_ref" -> pure BaseRef
-      "commit_message" -> pure CommitMessage
-      "event" -> pure Event
-      "file_path" -> pure FilePath
-      "head_ref" -> pure HeadRef
-      e ->
-        fromTextError $
-          "Failure parsing WebhookFilterType from value: '" <> e
-            <> "'. Accepted values: actor_account_id, base_ref, commit_message, event, file_path, head_ref"
+pattern ActorAccountId :: WebhookFilterType
+pattern ActorAccountId = WebhookFilterType' "ACTOR_ACCOUNT_ID"
 
-instance ToText WebhookFilterType where
-  toText = \case
-    ActorAccountId -> "ACTOR_ACCOUNT_ID"
-    BaseRef -> "BASE_REF"
-    CommitMessage -> "COMMIT_MESSAGE"
-    Event -> "EVENT"
-    FilePath -> "FILE_PATH"
-    HeadRef -> "HEAD_REF"
+pattern BaseRef :: WebhookFilterType
+pattern BaseRef = WebhookFilterType' "BASE_REF"
 
-instance Hashable WebhookFilterType
+pattern CommitMessage :: WebhookFilterType
+pattern CommitMessage = WebhookFilterType' "COMMIT_MESSAGE"
 
-instance NFData WebhookFilterType
+pattern Event :: WebhookFilterType
+pattern Event = WebhookFilterType' "EVENT"
 
-instance ToByteString WebhookFilterType
+pattern FilePath :: WebhookFilterType
+pattern FilePath = WebhookFilterType' "FILE_PATH"
 
-instance ToQuery WebhookFilterType
+pattern HeadRef :: WebhookFilterType
+pattern HeadRef = WebhookFilterType' "HEAD_REF"
 
-instance ToHeader WebhookFilterType
-
-instance ToJSON WebhookFilterType where
-  toJSON = toJSONText
-
-instance FromJSON WebhookFilterType where
-  parseJSON = parseJSONText "WebhookFilterType"
+{-# COMPLETE
+  ActorAccountId,
+  BaseRef,
+  CommitMessage,
+  Event,
+  FilePath,
+  HeadRef,
+  WebhookFilterType'
+  #-}

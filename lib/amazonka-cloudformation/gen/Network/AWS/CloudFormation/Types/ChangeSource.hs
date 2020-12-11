@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.ChangeSource where
+module Network.AWS.CloudFormation.Types.ChangeSource
+  ( ChangeSource
+      ( ChangeSource',
+        Automatic,
+        DirectModification,
+        ParameterReference,
+        ResourceAttribute,
+        ResourceReference
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChangeSource
-  = Automatic
-  | DirectModification
-  | ParameterReference
-  | ResourceAttribute
-  | ResourceReference
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeSource = ChangeSource' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeSource where
-  parser =
-    takeLowerText >>= \case
-      "automatic" -> pure Automatic
-      "directmodification" -> pure DirectModification
-      "parameterreference" -> pure ParameterReference
-      "resourceattribute" -> pure ResourceAttribute
-      "resourcereference" -> pure ResourceReference
-      e ->
-        fromTextError $
-          "Failure parsing ChangeSource from value: '" <> e
-            <> "'. Accepted values: automatic, directmodification, parameterreference, resourceattribute, resourcereference"
+pattern Automatic :: ChangeSource
+pattern Automatic = ChangeSource' "Automatic"
 
-instance ToText ChangeSource where
-  toText = \case
-    Automatic -> "Automatic"
-    DirectModification -> "DirectModification"
-    ParameterReference -> "ParameterReference"
-    ResourceAttribute -> "ResourceAttribute"
-    ResourceReference -> "ResourceReference"
+pattern DirectModification :: ChangeSource
+pattern DirectModification = ChangeSource' "DirectModification"
 
-instance Hashable ChangeSource
+pattern ParameterReference :: ChangeSource
+pattern ParameterReference = ChangeSource' "ParameterReference"
 
-instance NFData ChangeSource
+pattern ResourceAttribute :: ChangeSource
+pattern ResourceAttribute = ChangeSource' "ResourceAttribute"
 
-instance ToByteString ChangeSource
+pattern ResourceReference :: ChangeSource
+pattern ResourceReference = ChangeSource' "ResourceReference"
 
-instance ToQuery ChangeSource
-
-instance ToHeader ChangeSource
-
-instance FromXML ChangeSource where
-  parseXML = parseXMLText "ChangeSource"
+{-# COMPLETE
+  Automatic,
+  DirectModification,
+  ParameterReference,
+  ResourceAttribute,
+  ResourceReference,
+  ChangeSource'
+  #-}

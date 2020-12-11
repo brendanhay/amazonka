@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,9 +7,34 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotFleetLaunchSpecification where
+module Network.AWS.EC2.Types.SpotFleetLaunchSpecification
+  ( SpotFleetLaunchSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSpotFleetLaunchSpecification,
+
+    -- * Lenses
+    sflsSecurityGroups,
+    sflsSpotPrice,
+    sflsWeightedCapacity,
+    sflsKeyName,
+    sflsNetworkInterfaces,
+    sflsRAMDiskId,
+    sflsSubnetId,
+    sflsKernelId,
+    sflsInstanceType,
+    sflsEBSOptimized,
+    sflsUserData,
+    sflsMonitoring,
+    sflsTagSpecifications,
+    sflsIAMInstanceProfile,
+    sflsImageId,
+    sflsAddressingType,
+    sflsBlockDeviceMappings,
+    sflsPlacement,
+  )
+where
+
 import Network.AWS.EC2.Types.BlockDeviceMapping
 import Network.AWS.EC2.Types.GroupIdentifier
 import Network.AWS.EC2.Types.IAMInstanceProfileSpecification
@@ -24,242 +43,292 @@ import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.SpotFleetMonitoring
 import Network.AWS.EC2.Types.SpotFleetTagSpecification
 import Network.AWS.EC2.Types.SpotPlacement
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request or want to specify an EFA network device, you can't use @SpotFleetLaunchSpecification@ ; you must use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html LaunchTemplateConfig> .
 --
---
---
--- /See:/ 'spotFleetLaunchSpecification' smart constructor.
+-- /See:/ 'mkSpotFleetLaunchSpecification' smart constructor.
 data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
-  { _sflsSecurityGroups ::
-      !(Maybe [GroupIdentifier]),
-    _sflsSpotPrice :: !(Maybe Text),
-    _sflsWeightedCapacity ::
-      !(Maybe Double),
-    _sflsKeyName :: !(Maybe Text),
-    _sflsNetworkInterfaces ::
-      !( Maybe
-           [InstanceNetworkInterfaceSpecification]
-       ),
-    _sflsRAMDiskId :: !(Maybe Text),
-    _sflsSubnetId :: !(Maybe Text),
-    _sflsKernelId :: !(Maybe Text),
-    _sflsInstanceType ::
-      !(Maybe InstanceType),
-    _sflsEBSOptimized ::
-      !(Maybe Bool),
-    _sflsUserData :: !(Maybe Text),
-    _sflsMonitoring ::
-      !(Maybe SpotFleetMonitoring),
-    _sflsTagSpecifications ::
-      !( Maybe
-           [SpotFleetTagSpecification]
-       ),
-    _sflsIAMInstanceProfile ::
-      !( Maybe
-           IAMInstanceProfileSpecification
-       ),
-    _sflsImageId :: !(Maybe Text),
-    _sflsAddressingType ::
-      !(Maybe Text),
-    _sflsBlockDeviceMappings ::
-      !(Maybe [BlockDeviceMapping]),
-    _sflsPlacement ::
-      !(Maybe SpotPlacement)
+  { securityGroups ::
+      Lude.Maybe [GroupIdentifier],
+    spotPrice :: Lude.Maybe Lude.Text,
+    weightedCapacity ::
+      Lude.Maybe Lude.Double,
+    keyName :: Lude.Maybe Lude.Text,
+    networkInterfaces ::
+      Lude.Maybe
+        [InstanceNetworkInterfaceSpecification],
+    ramdiskId :: Lude.Maybe Lude.Text,
+    subnetId :: Lude.Maybe Lude.Text,
+    kernelId :: Lude.Maybe Lude.Text,
+    instanceType ::
+      Lude.Maybe InstanceType,
+    ebsOptimized ::
+      Lude.Maybe Lude.Bool,
+    userData :: Lude.Maybe Lude.Text,
+    monitoring ::
+      Lude.Maybe SpotFleetMonitoring,
+    tagSpecifications ::
+      Lude.Maybe
+        [SpotFleetTagSpecification],
+    iamInstanceProfile ::
+      Lude.Maybe
+        IAMInstanceProfileSpecification,
+    imageId :: Lude.Maybe Lude.Text,
+    addressingType ::
+      Lude.Maybe Lude.Text,
+    blockDeviceMappings ::
+      Lude.Maybe [BlockDeviceMapping],
+    placement ::
+      Lude.Maybe SpotPlacement
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotFleetLaunchSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'addressingType' - Deprecated.
+-- * 'blockDeviceMappings' - One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
+-- * 'ebsOptimized' - Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 --
--- * 'sflsSecurityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+-- Default: @false@
+-- * 'iamInstanceProfile' - The IAM instance profile.
+-- * 'imageId' - The ID of the AMI.
+-- * 'instanceType' - The instance type.
+-- * 'kernelId' - The ID of the kernel.
+-- * 'keyName' - The name of the key pair.
+-- * 'monitoring' - Enable or disable monitoring for the instances.
+-- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+-- * 'placement' - The placement information.
+-- * 'ramdiskId' - The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
+-- * 'securityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+-- * 'spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance. If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of @WeightedCapacity@ .
+-- * 'subnetId' - The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
+-- * 'tagSpecifications' - The tags to apply during creation.
+-- * 'userData' - The Base64-encoded user data that instances use when starting up.
+-- * 'weightedCapacity' - The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
 --
--- * 'sflsSpotPrice' - The maximum price per unit hour that you are willing to pay for a Spot Instance. If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of @WeightedCapacity@ .
---
--- * 'sflsWeightedCapacity' - The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O. If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
---
--- * 'sflsKeyName' - The name of the key pair.
---
--- * 'sflsNetworkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
---
--- * 'sflsRAMDiskId' - The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
---
--- * 'sflsSubnetId' - The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
---
--- * 'sflsKernelId' - The ID of the kernel.
---
--- * 'sflsInstanceType' - The instance type.
---
--- * 'sflsEBSOptimized' - Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. Default: @false@
---
--- * 'sflsUserData' - The Base64-encoded user data that instances use when starting up.
---
--- * 'sflsMonitoring' - Enable or disable monitoring for the instances.
---
--- * 'sflsTagSpecifications' - The tags to apply during creation.
---
--- * 'sflsIAMInstanceProfile' - The IAM instance profile.
---
--- * 'sflsImageId' - The ID of the AMI.
---
--- * 'sflsAddressingType' - Deprecated.
---
--- * 'sflsBlockDeviceMappings' - One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
---
--- * 'sflsPlacement' - The placement information.
-spotFleetLaunchSpecification ::
+-- If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+mkSpotFleetLaunchSpecification ::
   SpotFleetLaunchSpecification
-spotFleetLaunchSpecification =
+mkSpotFleetLaunchSpecification =
   SpotFleetLaunchSpecification'
-    { _sflsSecurityGroups = Nothing,
-      _sflsSpotPrice = Nothing,
-      _sflsWeightedCapacity = Nothing,
-      _sflsKeyName = Nothing,
-      _sflsNetworkInterfaces = Nothing,
-      _sflsRAMDiskId = Nothing,
-      _sflsSubnetId = Nothing,
-      _sflsKernelId = Nothing,
-      _sflsInstanceType = Nothing,
-      _sflsEBSOptimized = Nothing,
-      _sflsUserData = Nothing,
-      _sflsMonitoring = Nothing,
-      _sflsTagSpecifications = Nothing,
-      _sflsIAMInstanceProfile = Nothing,
-      _sflsImageId = Nothing,
-      _sflsAddressingType = Nothing,
-      _sflsBlockDeviceMappings = Nothing,
-      _sflsPlacement = Nothing
+    { securityGroups = Lude.Nothing,
+      spotPrice = Lude.Nothing,
+      weightedCapacity = Lude.Nothing,
+      keyName = Lude.Nothing,
+      networkInterfaces = Lude.Nothing,
+      ramdiskId = Lude.Nothing,
+      subnetId = Lude.Nothing,
+      kernelId = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      ebsOptimized = Lude.Nothing,
+      userData = Lude.Nothing,
+      monitoring = Lude.Nothing,
+      tagSpecifications = Lude.Nothing,
+      iamInstanceProfile = Lude.Nothing,
+      imageId = Lude.Nothing,
+      addressingType = Lude.Nothing,
+      blockDeviceMappings = Lude.Nothing,
+      placement = Lude.Nothing
     }
 
 -- | One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
-sflsSecurityGroups :: Lens' SpotFleetLaunchSpecification [GroupIdentifier]
-sflsSecurityGroups = lens _sflsSecurityGroups (\s a -> s {_sflsSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsSecurityGroups :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe [GroupIdentifier])
+sflsSecurityGroups = Lens.lens (securityGroups :: SpotFleetLaunchSpecification -> Lude.Maybe [GroupIdentifier]) (\s a -> s {securityGroups = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot Instance. If this value is not specified, the default is the Spot price specified for the fleet. To determine the Spot price per unit hour, divide the Spot price by the value of @WeightedCapacity@ .
-sflsSpotPrice :: Lens' SpotFleetLaunchSpecification (Maybe Text)
-sflsSpotPrice = lens _sflsSpotPrice (\s a -> s {_sflsSpotPrice = a})
+--
+-- /Note:/ Consider using 'spotPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsSpotPrice :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Text)
+sflsSpotPrice = Lens.lens (spotPrice :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {spotPrice = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsSpotPrice "Use generic-lens or generic-optics with 'spotPrice' instead." #-}
 
--- | The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O. If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
-sflsWeightedCapacity :: Lens' SpotFleetLaunchSpecification (Maybe Double)
-sflsWeightedCapacity = lens _sflsWeightedCapacity (\s a -> s {_sflsWeightedCapacity = a})
+-- | The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
+--
+-- If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the number of instances to the next whole number. If this value is not specified, the default is 1.
+--
+-- /Note:/ Consider using 'weightedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsWeightedCapacity :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Double)
+sflsWeightedCapacity = Lens.lens (weightedCapacity :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Double) (\s a -> s {weightedCapacity = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsWeightedCapacity "Use generic-lens or generic-optics with 'weightedCapacity' instead." #-}
 
 -- | The name of the key pair.
-sflsKeyName :: Lens' SpotFleetLaunchSpecification (Maybe Text)
-sflsKeyName = lens _sflsKeyName (\s a -> s {_sflsKeyName = a})
+--
+-- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsKeyName :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Text)
+sflsKeyName = Lens.lens (keyName :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {keyName = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
 
 -- | One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
-sflsNetworkInterfaces :: Lens' SpotFleetLaunchSpecification [InstanceNetworkInterfaceSpecification]
-sflsNetworkInterfaces = lens _sflsNetworkInterfaces (\s a -> s {_sflsNetworkInterfaces = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'networkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsNetworkInterfaces :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe [InstanceNetworkInterfaceSpecification])
+sflsNetworkInterfaces = Lens.lens (networkInterfaces :: SpotFleetLaunchSpecification -> Lude.Maybe [InstanceNetworkInterfaceSpecification]) (\s a -> s {networkInterfaces = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsNetworkInterfaces "Use generic-lens or generic-optics with 'networkInterfaces' instead." #-}
 
 -- | The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
-sflsRAMDiskId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
-sflsRAMDiskId = lens _sflsRAMDiskId (\s a -> s {_sflsRAMDiskId = a})
+--
+-- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsRAMDiskId :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Text)
+sflsRAMDiskId = Lens.lens (ramdiskId :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {ramdiskId = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsRAMDiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
 
 -- | The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
-sflsSubnetId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
-sflsSubnetId = lens _sflsSubnetId (\s a -> s {_sflsSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsSubnetId :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Text)
+sflsSubnetId = Lens.lens (subnetId :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The ID of the kernel.
-sflsKernelId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
-sflsKernelId = lens _sflsKernelId (\s a -> s {_sflsKernelId = a})
+--
+-- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsKernelId :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Text)
+sflsKernelId = Lens.lens (kernelId :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {kernelId = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
 
 -- | The instance type.
-sflsInstanceType :: Lens' SpotFleetLaunchSpecification (Maybe InstanceType)
-sflsInstanceType = lens _sflsInstanceType (\s a -> s {_sflsInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsInstanceType :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe InstanceType)
+sflsInstanceType = Lens.lens (instanceType :: SpotFleetLaunchSpecification -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
--- | Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. Default: @false@
-sflsEBSOptimized :: Lens' SpotFleetLaunchSpecification (Maybe Bool)
-sflsEBSOptimized = lens _sflsEBSOptimized (\s a -> s {_sflsEBSOptimized = a})
+-- | Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+--
+-- Default: @false@
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsEBSOptimized :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Bool)
+sflsEBSOptimized = Lens.lens (ebsOptimized :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {ebsOptimized = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
 
 -- | The Base64-encoded user data that instances use when starting up.
-sflsUserData :: Lens' SpotFleetLaunchSpecification (Maybe Text)
-sflsUserData = lens _sflsUserData (\s a -> s {_sflsUserData = a})
+--
+-- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsUserData :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Text)
+sflsUserData = Lens.lens (userData :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {userData = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
 
 -- | Enable or disable monitoring for the instances.
-sflsMonitoring :: Lens' SpotFleetLaunchSpecification (Maybe SpotFleetMonitoring)
-sflsMonitoring = lens _sflsMonitoring (\s a -> s {_sflsMonitoring = a})
+--
+-- /Note:/ Consider using 'monitoring' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsMonitoring :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe SpotFleetMonitoring)
+sflsMonitoring = Lens.lens (monitoring :: SpotFleetLaunchSpecification -> Lude.Maybe SpotFleetMonitoring) (\s a -> s {monitoring = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsMonitoring "Use generic-lens or generic-optics with 'monitoring' instead." #-}
 
 -- | The tags to apply during creation.
-sflsTagSpecifications :: Lens' SpotFleetLaunchSpecification [SpotFleetTagSpecification]
-sflsTagSpecifications = lens _sflsTagSpecifications (\s a -> s {_sflsTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsTagSpecifications :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe [SpotFleetTagSpecification])
+sflsTagSpecifications = Lens.lens (tagSpecifications :: SpotFleetLaunchSpecification -> Lude.Maybe [SpotFleetTagSpecification]) (\s a -> s {tagSpecifications = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The IAM instance profile.
-sflsIAMInstanceProfile :: Lens' SpotFleetLaunchSpecification (Maybe IAMInstanceProfileSpecification)
-sflsIAMInstanceProfile = lens _sflsIAMInstanceProfile (\s a -> s {_sflsIAMInstanceProfile = a})
+--
+-- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsIAMInstanceProfile :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe IAMInstanceProfileSpecification)
+sflsIAMInstanceProfile = Lens.lens (iamInstanceProfile :: SpotFleetLaunchSpecification -> Lude.Maybe IAMInstanceProfileSpecification) (\s a -> s {iamInstanceProfile = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
 -- | The ID of the AMI.
-sflsImageId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
-sflsImageId = lens _sflsImageId (\s a -> s {_sflsImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsImageId :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Text)
+sflsImageId = Lens.lens (imageId :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | Deprecated.
-sflsAddressingType :: Lens' SpotFleetLaunchSpecification (Maybe Text)
-sflsAddressingType = lens _sflsAddressingType (\s a -> s {_sflsAddressingType = a})
+--
+-- /Note:/ Consider using 'addressingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsAddressingType :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe Lude.Text)
+sflsAddressingType = Lens.lens (addressingType :: SpotFleetLaunchSpecification -> Lude.Maybe Lude.Text) (\s a -> s {addressingType = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsAddressingType "Use generic-lens or generic-optics with 'addressingType' instead." #-}
 
 -- | One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
-sflsBlockDeviceMappings :: Lens' SpotFleetLaunchSpecification [BlockDeviceMapping]
-sflsBlockDeviceMappings = lens _sflsBlockDeviceMappings (\s a -> s {_sflsBlockDeviceMappings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsBlockDeviceMappings :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe [BlockDeviceMapping])
+sflsBlockDeviceMappings = Lens.lens (blockDeviceMappings :: SpotFleetLaunchSpecification -> Lude.Maybe [BlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
 
 -- | The placement information.
-sflsPlacement :: Lens' SpotFleetLaunchSpecification (Maybe SpotPlacement)
-sflsPlacement = lens _sflsPlacement (\s a -> s {_sflsPlacement = a})
+--
+-- /Note:/ Consider using 'placement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sflsPlacement :: Lens.Lens' SpotFleetLaunchSpecification (Lude.Maybe SpotPlacement)
+sflsPlacement = Lens.lens (placement :: SpotFleetLaunchSpecification -> Lude.Maybe SpotPlacement) (\s a -> s {placement = a} :: SpotFleetLaunchSpecification)
+{-# DEPRECATED sflsPlacement "Use generic-lens or generic-optics with 'placement' instead." #-}
 
-instance FromXML SpotFleetLaunchSpecification where
+instance Lude.FromXML SpotFleetLaunchSpecification where
   parseXML x =
     SpotFleetLaunchSpecification'
-      <$> (x .@? "groupSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "spotPrice")
-      <*> (x .@? "weightedCapacity")
-      <*> (x .@? "keyName")
-      <*> ( x .@? "networkInterfaceSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "ramdiskId")
-      <*> (x .@? "subnetId")
-      <*> (x .@? "kernelId")
-      <*> (x .@? "instanceType")
-      <*> (x .@? "ebsOptimized")
-      <*> (x .@? "userData")
-      <*> (x .@? "monitoring")
-      <*> ( x .@? "tagSpecificationSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "iamInstanceProfile")
-      <*> (x .@? "imageId")
-      <*> (x .@? "addressingType")
-      <*> ( x .@? "blockDeviceMapping" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "placement")
+      Lude.<$> ( x Lude..@? "groupSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "spotPrice")
+      Lude.<*> (x Lude..@? "weightedCapacity")
+      Lude.<*> (x Lude..@? "keyName")
+      Lude.<*> ( x Lude..@? "networkInterfaceSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "ramdiskId")
+      Lude.<*> (x Lude..@? "subnetId")
+      Lude.<*> (x Lude..@? "kernelId")
+      Lude.<*> (x Lude..@? "instanceType")
+      Lude.<*> (x Lude..@? "ebsOptimized")
+      Lude.<*> (x Lude..@? "userData")
+      Lude.<*> (x Lude..@? "monitoring")
+      Lude.<*> ( x Lude..@? "tagSpecificationSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "iamInstanceProfile")
+      Lude.<*> (x Lude..@? "imageId")
+      Lude.<*> (x Lude..@? "addressingType")
+      Lude.<*> ( x Lude..@? "blockDeviceMapping" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "placement")
 
-instance Hashable SpotFleetLaunchSpecification
-
-instance NFData SpotFleetLaunchSpecification
-
-instance ToQuery SpotFleetLaunchSpecification where
+instance Lude.ToQuery SpotFleetLaunchSpecification where
   toQuery SpotFleetLaunchSpecification' {..} =
-    mconcat
-      [ toQuery (toQueryList "GroupSet" <$> _sflsSecurityGroups),
-        "SpotPrice" =: _sflsSpotPrice,
-        "WeightedCapacity" =: _sflsWeightedCapacity,
-        "KeyName" =: _sflsKeyName,
-        toQuery
-          (toQueryList "NetworkInterfaceSet" <$> _sflsNetworkInterfaces),
-        "RamdiskId" =: _sflsRAMDiskId,
-        "SubnetId" =: _sflsSubnetId,
-        "KernelId" =: _sflsKernelId,
-        "InstanceType" =: _sflsInstanceType,
-        "EbsOptimized" =: _sflsEBSOptimized,
-        "UserData" =: _sflsUserData,
-        "Monitoring" =: _sflsMonitoring,
-        toQuery
-          (toQueryList "TagSpecificationSet" <$> _sflsTagSpecifications),
-        "IamInstanceProfile" =: _sflsIAMInstanceProfile,
-        "ImageId" =: _sflsImageId,
-        "AddressingType" =: _sflsAddressingType,
-        toQuery
-          (toQueryList "BlockDeviceMapping" <$> _sflsBlockDeviceMappings),
-        "Placement" =: _sflsPlacement
+    Lude.mconcat
+      [ Lude.toQuery
+          (Lude.toQueryList "GroupSet" Lude.<$> securityGroups),
+        "SpotPrice" Lude.=: spotPrice,
+        "WeightedCapacity" Lude.=: weightedCapacity,
+        "KeyName" Lude.=: keyName,
+        Lude.toQuery
+          ( Lude.toQueryList "NetworkInterfaceSet"
+              Lude.<$> networkInterfaces
+          ),
+        "RamdiskId" Lude.=: ramdiskId,
+        "SubnetId" Lude.=: subnetId,
+        "KernelId" Lude.=: kernelId,
+        "InstanceType" Lude.=: instanceType,
+        "EbsOptimized" Lude.=: ebsOptimized,
+        "UserData" Lude.=: userData,
+        "Monitoring" Lude.=: monitoring,
+        Lude.toQuery
+          ( Lude.toQueryList "TagSpecificationSet"
+              Lude.<$> tagSpecifications
+          ),
+        "IamInstanceProfile" Lude.=: iamInstanceProfile,
+        "ImageId" Lude.=: imageId,
+        "AddressingType" Lude.=: addressingType,
+        Lude.toQuery
+          ( Lude.toQueryList "BlockDeviceMapping"
+              Lude.<$> blockDeviceMappings
+          ),
+        "Placement" Lude.=: placement
       ]

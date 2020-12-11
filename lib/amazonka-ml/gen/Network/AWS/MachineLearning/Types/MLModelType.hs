@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.MLModelType where
+module Network.AWS.MachineLearning.Types.MLModelType
+  ( MLModelType
+      ( MLModelType',
+        Binary,
+        Multiclass,
+        Regression
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MLModelType
-  = Binary
-  | Multiclass
-  | Regression
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MLModelType = MLModelType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MLModelType where
-  parser =
-    takeLowerText >>= \case
-      "binary" -> pure Binary
-      "multiclass" -> pure Multiclass
-      "regression" -> pure Regression
-      e ->
-        fromTextError $
-          "Failure parsing MLModelType from value: '" <> e
-            <> "'. Accepted values: binary, multiclass, regression"
+pattern Binary :: MLModelType
+pattern Binary = MLModelType' "BINARY"
 
-instance ToText MLModelType where
-  toText = \case
-    Binary -> "BINARY"
-    Multiclass -> "MULTICLASS"
-    Regression -> "REGRESSION"
+pattern Multiclass :: MLModelType
+pattern Multiclass = MLModelType' "MULTICLASS"
 
-instance Hashable MLModelType
+pattern Regression :: MLModelType
+pattern Regression = MLModelType' "REGRESSION"
 
-instance NFData MLModelType
-
-instance ToByteString MLModelType
-
-instance ToQuery MLModelType
-
-instance ToHeader MLModelType
-
-instance ToJSON MLModelType where
-  toJSON = toJSONText
-
-instance FromJSON MLModelType where
-  parseJSON = parseJSONText "MLModelType"
+{-# COMPLETE
+  Binary,
+  Multiclass,
+  Regression,
+  MLModelType'
+  #-}

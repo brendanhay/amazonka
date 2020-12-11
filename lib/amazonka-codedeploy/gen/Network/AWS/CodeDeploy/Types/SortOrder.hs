@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.SortOrder where
+module Network.AWS.CodeDeploy.Types.SortOrder
+  ( SortOrder
+      ( SortOrder',
+        Ascending,
+        Descending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SortOrder
-  = Ascending
-  | Descending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SortOrder = SortOrder' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SortOrder where
-  parser =
-    takeLowerText >>= \case
-      "ascending" -> pure Ascending
-      "descending" -> pure Descending
-      e ->
-        fromTextError $
-          "Failure parsing SortOrder from value: '" <> e
-            <> "'. Accepted values: ascending, descending"
+pattern Ascending :: SortOrder
+pattern Ascending = SortOrder' "ascending"
 
-instance ToText SortOrder where
-  toText = \case
-    Ascending -> "ascending"
-    Descending -> "descending"
+pattern Descending :: SortOrder
+pattern Descending = SortOrder' "descending"
 
-instance Hashable SortOrder
-
-instance NFData SortOrder
-
-instance ToByteString SortOrder
-
-instance ToQuery SortOrder
-
-instance ToHeader SortOrder
-
-instance ToJSON SortOrder where
-  toJSON = toJSONText
+{-# COMPLETE
+  Ascending,
+  Descending,
+  SortOrder'
+  #-}

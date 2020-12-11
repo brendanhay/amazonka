@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists the specified metric filters. You can list all of the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
-  ( -- * Creating a Request
-    describeMetricFilters,
-    DescribeMetricFilters,
+  ( -- * Creating a request
+    DescribeMetricFilters (..),
+    mkDescribeMetricFilters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmfFilterNamePrefix,
     dmfMetricName,
     dmfLogGroupName,
@@ -35,11 +28,11 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     dmfMetricNamespace,
     dmfLimit,
 
-    -- * Destructuring the Response
-    describeMetricFiltersResponse,
-    DescribeMetricFiltersResponse,
+    -- * Destructuring the response
+    DescribeMetricFiltersResponse (..),
+    mkDescribeMetricFiltersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmfrsNextToken,
     dmfrsMetricFilters,
     dmfrsResponseStatus,
@@ -47,166 +40,194 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeMetricFilters' smart constructor.
+-- | /See:/ 'mkDescribeMetricFilters' smart constructor.
 data DescribeMetricFilters = DescribeMetricFilters'
-  { _dmfFilterNamePrefix ::
-      !(Maybe Text),
-    _dmfMetricName :: !(Maybe Text),
-    _dmfLogGroupName :: !(Maybe Text),
-    _dmfNextToken :: !(Maybe Text),
-    _dmfMetricNamespace :: !(Maybe Text),
-    _dmfLimit :: !(Maybe Nat)
+  { filterNamePrefix ::
+      Lude.Maybe Lude.Text,
+    metricName :: Lude.Maybe Lude.Text,
+    logGroupName :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    metricNamespace :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMetricFilters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmfFilterNamePrefix' - The prefix to match. CloudWatch Logs uses the value you set here only if you also include the @logGroupName@ parameter in your request.
---
--- * 'dmfMetricName' - Filters results to include only those with the specified metric name. If you include this parameter in your request, you must also include the @metricNamespace@ parameter.
---
--- * 'dmfLogGroupName' - The name of the log group.
---
--- * 'dmfNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'dmfMetricNamespace' - Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the @metricName@ parameter.
---
--- * 'dmfLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-describeMetricFilters ::
+-- * 'filterNamePrefix' - The prefix to match. CloudWatch Logs uses the value you set here only if you also include the @logGroupName@ parameter in your request.
+-- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+-- * 'logGroupName' - The name of the log group.
+-- * 'metricName' - Filters results to include only those with the specified metric name. If you include this parameter in your request, you must also include the @metricNamespace@ parameter.
+-- * 'metricNamespace' - Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the @metricName@ parameter.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkDescribeMetricFilters ::
   DescribeMetricFilters
-describeMetricFilters =
+mkDescribeMetricFilters =
   DescribeMetricFilters'
-    { _dmfFilterNamePrefix = Nothing,
-      _dmfMetricName = Nothing,
-      _dmfLogGroupName = Nothing,
-      _dmfNextToken = Nothing,
-      _dmfMetricNamespace = Nothing,
-      _dmfLimit = Nothing
+    { filterNamePrefix = Lude.Nothing,
+      metricName = Lude.Nothing,
+      logGroupName = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      metricNamespace = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | The prefix to match. CloudWatch Logs uses the value you set here only if you also include the @logGroupName@ parameter in your request.
-dmfFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
-dmfFilterNamePrefix = lens _dmfFilterNamePrefix (\s a -> s {_dmfFilterNamePrefix = a})
+--
+-- /Note:/ Consider using 'filterNamePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfFilterNamePrefix :: Lens.Lens' DescribeMetricFilters (Lude.Maybe Lude.Text)
+dmfFilterNamePrefix = Lens.lens (filterNamePrefix :: DescribeMetricFilters -> Lude.Maybe Lude.Text) (\s a -> s {filterNamePrefix = a} :: DescribeMetricFilters)
+{-# DEPRECATED dmfFilterNamePrefix "Use generic-lens or generic-optics with 'filterNamePrefix' instead." #-}
 
 -- | Filters results to include only those with the specified metric name. If you include this parameter in your request, you must also include the @metricNamespace@ parameter.
-dmfMetricName :: Lens' DescribeMetricFilters (Maybe Text)
-dmfMetricName = lens _dmfMetricName (\s a -> s {_dmfMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfMetricName :: Lens.Lens' DescribeMetricFilters (Lude.Maybe Lude.Text)
+dmfMetricName = Lens.lens (metricName :: DescribeMetricFilters -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: DescribeMetricFilters)
+{-# DEPRECATED dmfMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The name of the log group.
-dmfLogGroupName :: Lens' DescribeMetricFilters (Maybe Text)
-dmfLogGroupName = lens _dmfLogGroupName (\s a -> s {_dmfLogGroupName = a})
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfLogGroupName :: Lens.Lens' DescribeMetricFilters (Lude.Maybe Lude.Text)
+dmfLogGroupName = Lens.lens (logGroupName :: DescribeMetricFilters -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: DescribeMetricFilters)
+{-# DEPRECATED dmfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
-dmfNextToken = lens _dmfNextToken (\s a -> s {_dmfNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfNextToken :: Lens.Lens' DescribeMetricFilters (Lude.Maybe Lude.Text)
+dmfNextToken = Lens.lens (nextToken :: DescribeMetricFilters -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMetricFilters)
+{-# DEPRECATED dmfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the @metricName@ parameter.
-dmfMetricNamespace :: Lens' DescribeMetricFilters (Maybe Text)
-dmfMetricNamespace = lens _dmfMetricNamespace (\s a -> s {_dmfMetricNamespace = a})
+--
+-- /Note:/ Consider using 'metricNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfMetricNamespace :: Lens.Lens' DescribeMetricFilters (Lude.Maybe Lude.Text)
+dmfMetricNamespace = Lens.lens (metricNamespace :: DescribeMetricFilters -> Lude.Maybe Lude.Text) (\s a -> s {metricNamespace = a} :: DescribeMetricFilters)
+{-# DEPRECATED dmfMetricNamespace "Use generic-lens or generic-optics with 'metricNamespace' instead." #-}
 
 -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
-dmfLimit = lens _dmfLimit (\s a -> s {_dmfLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfLimit :: Lens.Lens' DescribeMetricFilters (Lude.Maybe Lude.Natural)
+dmfLimit = Lens.lens (limit :: DescribeMetricFilters -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeMetricFilters)
+{-# DEPRECATED dmfLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager DescribeMetricFilters where
+instance Page.AWSPager DescribeMetricFilters where
   page rq rs
-    | stop (rs ^. dmfrsNextToken) = Nothing
-    | stop (rs ^. dmfrsMetricFilters) = Nothing
-    | otherwise = Just $ rq & dmfNextToken .~ rs ^. dmfrsNextToken
+    | Page.stop (rs Lens.^. dmfrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dmfrsMetricFilters) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dmfNextToken Lens..~ rs Lens.^. dmfrsNextToken
 
-instance AWSRequest DescribeMetricFilters where
+instance Lude.AWSRequest DescribeMetricFilters where
   type Rs DescribeMetricFilters = DescribeMetricFiltersResponse
-  request = postJSON cloudWatchLogs
+  request = Req.postJSON cloudWatchLogsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeMetricFiltersResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "metricFilters" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "metricFilters" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeMetricFilters
-
-instance NFData DescribeMetricFilters
-
-instance ToHeaders DescribeMetricFilters where
+instance Lude.ToHeaders DescribeMetricFilters where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.DescribeMetricFilters" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.DescribeMetricFilters" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeMetricFilters where
+instance Lude.ToJSON DescribeMetricFilters where
   toJSON DescribeMetricFilters' {..} =
-    object
-      ( catMaybes
-          [ ("filterNamePrefix" .=) <$> _dmfFilterNamePrefix,
-            ("metricName" .=) <$> _dmfMetricName,
-            ("logGroupName" .=) <$> _dmfLogGroupName,
-            ("nextToken" .=) <$> _dmfNextToken,
-            ("metricNamespace" .=) <$> _dmfMetricNamespace,
-            ("limit" .=) <$> _dmfLimit
+    Lude.object
+      ( Lude.catMaybes
+          [ ("filterNamePrefix" Lude..=) Lude.<$> filterNamePrefix,
+            ("metricName" Lude..=) Lude.<$> metricName,
+            ("logGroupName" Lude..=) Lude.<$> logGroupName,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("metricNamespace" Lude..=) Lude.<$> metricNamespace,
+            ("limit" Lude..=) Lude.<$> limit
           ]
       )
 
-instance ToPath DescribeMetricFilters where
-  toPath = const "/"
+instance Lude.ToPath DescribeMetricFilters where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeMetricFilters where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeMetricFilters where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeMetricFiltersResponse' smart constructor.
+-- | /See:/ 'mkDescribeMetricFiltersResponse' smart constructor.
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
-  { _dmfrsNextToken ::
-      !(Maybe Text),
-    _dmfrsMetricFilters ::
-      !(Maybe [MetricFilter]),
-    _dmfrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    metricFilters ::
+      Lude.Maybe [MetricFilter],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMetricFiltersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmfrsNextToken' - Undocumented member.
---
--- * 'dmfrsMetricFilters' - The metric filters.
---
--- * 'dmfrsResponseStatus' - -- | The response status code.
-describeMetricFiltersResponse ::
-  -- | 'dmfrsResponseStatus'
-  Int ->
+-- * 'metricFilters' - The metric filters.
+-- * 'nextToken' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDescribeMetricFiltersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMetricFiltersResponse
-describeMetricFiltersResponse pResponseStatus_ =
+mkDescribeMetricFiltersResponse pResponseStatus_ =
   DescribeMetricFiltersResponse'
-    { _dmfrsNextToken = Nothing,
-      _dmfrsMetricFilters = Nothing,
-      _dmfrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      metricFilters = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-dmfrsNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
-dmfrsNextToken = lens _dmfrsNextToken (\s a -> s {_dmfrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfrsNextToken :: Lens.Lens' DescribeMetricFiltersResponse (Lude.Maybe Lude.Text)
+dmfrsNextToken = Lens.lens (nextToken :: DescribeMetricFiltersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMetricFiltersResponse)
+{-# DEPRECATED dmfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The metric filters.
-dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
-dmfrsMetricFilters = lens _dmfrsMetricFilters (\s a -> s {_dmfrsMetricFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'metricFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfrsMetricFilters :: Lens.Lens' DescribeMetricFiltersResponse (Lude.Maybe [MetricFilter])
+dmfrsMetricFilters = Lens.lens (metricFilters :: DescribeMetricFiltersResponse -> Lude.Maybe [MetricFilter]) (\s a -> s {metricFilters = a} :: DescribeMetricFiltersResponse)
+{-# DEPRECATED dmfrsMetricFilters "Use generic-lens or generic-optics with 'metricFilters' instead." #-}
 
--- | -- | The response status code.
-dmfrsResponseStatus :: Lens' DescribeMetricFiltersResponse Int
-dmfrsResponseStatus = lens _dmfrsResponseStatus (\s a -> s {_dmfrsResponseStatus = a})
-
-instance NFData DescribeMetricFiltersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfrsResponseStatus :: Lens.Lens' DescribeMetricFiltersResponse Lude.Int
+dmfrsResponseStatus = Lens.lens (responseStatus :: DescribeMetricFiltersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMetricFiltersResponse)
+{-# DEPRECATED dmfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

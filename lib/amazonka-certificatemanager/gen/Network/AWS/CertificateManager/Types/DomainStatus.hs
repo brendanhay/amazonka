@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.DomainStatus where
+module Network.AWS.CertificateManager.Types.DomainStatus
+  ( DomainStatus
+      ( DomainStatus',
+        Failed,
+        PendingValidation,
+        Success
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DomainStatus
-  = Failed
-  | PendingValidation
-  | Success
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DomainStatus = DomainStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DomainStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "pending_validation" -> pure PendingValidation
-      "success" -> pure Success
-      e ->
-        fromTextError $
-          "Failure parsing DomainStatus from value: '" <> e
-            <> "'. Accepted values: failed, pending_validation, success"
+pattern Failed :: DomainStatus
+pattern Failed = DomainStatus' "FAILED"
 
-instance ToText DomainStatus where
-  toText = \case
-    Failed -> "FAILED"
-    PendingValidation -> "PENDING_VALIDATION"
-    Success -> "SUCCESS"
+pattern PendingValidation :: DomainStatus
+pattern PendingValidation = DomainStatus' "PENDING_VALIDATION"
 
-instance Hashable DomainStatus
+pattern Success :: DomainStatus
+pattern Success = DomainStatus' "SUCCESS"
 
-instance NFData DomainStatus
-
-instance ToByteString DomainStatus
-
-instance ToQuery DomainStatus
-
-instance ToHeader DomainStatus
-
-instance FromJSON DomainStatus where
-  parseJSON = parseJSONText "DomainStatus"
+{-# COMPLETE
+  Failed,
+  PendingValidation,
+  Success,
+  DomainStatus'
+  #-}

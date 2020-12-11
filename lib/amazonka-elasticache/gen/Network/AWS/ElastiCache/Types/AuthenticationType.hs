@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.AuthenticationType where
+module Network.AWS.ElastiCache.Types.AuthenticationType
+  ( AuthenticationType
+      ( AuthenticationType',
+        NoPassword,
+        Password
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuthenticationType
-  = NoPassword
-  | Password
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuthenticationType = AuthenticationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuthenticationType where
-  parser =
-    takeLowerText >>= \case
-      "no-password" -> pure NoPassword
-      "password" -> pure Password
-      e ->
-        fromTextError $
-          "Failure parsing AuthenticationType from value: '" <> e
-            <> "'. Accepted values: no-password, password"
+pattern NoPassword :: AuthenticationType
+pattern NoPassword = AuthenticationType' "no-password"
 
-instance ToText AuthenticationType where
-  toText = \case
-    NoPassword -> "no-password"
-    Password -> "password"
+pattern Password :: AuthenticationType
+pattern Password = AuthenticationType' "password"
 
-instance Hashable AuthenticationType
-
-instance NFData AuthenticationType
-
-instance ToByteString AuthenticationType
-
-instance ToQuery AuthenticationType
-
-instance ToHeader AuthenticationType
-
-instance FromXML AuthenticationType where
-  parseXML = parseXMLText "AuthenticationType"
+{-# COMPLETE
+  NoPassword,
+  Password,
+  AuthenticationType'
+  #-}

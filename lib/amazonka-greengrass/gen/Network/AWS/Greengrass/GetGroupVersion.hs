@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Retrieves information about a group version.
 module Network.AWS.Greengrass.GetGroupVersion
-  ( -- * Creating a Request
-    getGroupVersion,
-    GetGroupVersion,
+  ( -- * Creating a request
+    GetGroupVersion (..),
+    mkGetGroupVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggvGroupVersionId,
     ggvGroupId,
 
-    -- * Destructuring the Response
-    getGroupVersionResponse,
-    GetGroupVersionResponse,
+    -- * Destructuring the response
+    GetGroupVersionResponse (..),
+    mkGetGroupVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggvrsDefinition,
     ggvrsARN,
     ggvrsCreationTimestamp,
@@ -42,147 +37,171 @@ module Network.AWS.Greengrass.GetGroupVersion
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getGroupVersion' smart constructor.
+-- | /See:/ 'mkGetGroupVersion' smart constructor.
 data GetGroupVersion = GetGroupVersion'
-  { _ggvGroupVersionId ::
-      !Text,
-    _ggvGroupId :: !Text
+  { groupVersionId ::
+      Lude.Text,
+    groupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggvGroupVersionId' - The ID of the group version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListGroupVersions'' requests. If the version is the last one that was associated with a group, the value also maps to the ''LatestVersion'' property of the corresponding ''GroupInformation'' object.
---
--- * 'ggvGroupId' - The ID of the Greengrass group.
-getGroupVersion ::
-  -- | 'ggvGroupVersionId'
-  Text ->
-  -- | 'ggvGroupId'
-  Text ->
+-- * 'groupId' - The ID of the Greengrass group.
+-- * 'groupVersionId' - The ID of the group version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListGroupVersions'' requests. If the version is the last one that was associated with a group, the value also maps to the ''LatestVersion'' property of the corresponding ''GroupInformation'' object.
+mkGetGroupVersion ::
+  -- | 'groupVersionId'
+  Lude.Text ->
+  -- | 'groupId'
+  Lude.Text ->
   GetGroupVersion
-getGroupVersion pGroupVersionId_ pGroupId_ =
+mkGetGroupVersion pGroupVersionId_ pGroupId_ =
   GetGroupVersion'
-    { _ggvGroupVersionId = pGroupVersionId_,
-      _ggvGroupId = pGroupId_
+    { groupVersionId = pGroupVersionId_,
+      groupId = pGroupId_
     }
 
 -- | The ID of the group version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListGroupVersions'' requests. If the version is the last one that was associated with a group, the value also maps to the ''LatestVersion'' property of the corresponding ''GroupInformation'' object.
-ggvGroupVersionId :: Lens' GetGroupVersion Text
-ggvGroupVersionId = lens _ggvGroupVersionId (\s a -> s {_ggvGroupVersionId = a})
+--
+-- /Note:/ Consider using 'groupVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggvGroupVersionId :: Lens.Lens' GetGroupVersion Lude.Text
+ggvGroupVersionId = Lens.lens (groupVersionId :: GetGroupVersion -> Lude.Text) (\s a -> s {groupVersionId = a} :: GetGroupVersion)
+{-# DEPRECATED ggvGroupVersionId "Use generic-lens or generic-optics with 'groupVersionId' instead." #-}
 
 -- | The ID of the Greengrass group.
-ggvGroupId :: Lens' GetGroupVersion Text
-ggvGroupId = lens _ggvGroupId (\s a -> s {_ggvGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggvGroupId :: Lens.Lens' GetGroupVersion Lude.Text
+ggvGroupId = Lens.lens (groupId :: GetGroupVersion -> Lude.Text) (\s a -> s {groupId = a} :: GetGroupVersion)
+{-# DEPRECATED ggvGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest GetGroupVersion where
+instance Lude.AWSRequest GetGroupVersion where
   type Rs GetGroupVersion = GetGroupVersionResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetGroupVersionResponse'
-            <$> (x .?> "Definition")
-            <*> (x .?> "Arn")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Version")
-            <*> (x .?> "Id")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Definition")
+            Lude.<*> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Version")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetGroupVersion
-
-instance NFData GetGroupVersion
-
-instance ToHeaders GetGroupVersion where
+instance Lude.ToHeaders GetGroupVersion where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetGroupVersion where
+instance Lude.ToPath GetGroupVersion where
   toPath GetGroupVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/groups/",
-        toBS _ggvGroupId,
+        Lude.toBS groupId,
         "/versions/",
-        toBS _ggvGroupVersionId
+        Lude.toBS groupVersionId
       ]
 
-instance ToQuery GetGroupVersion where
-  toQuery = const mempty
+instance Lude.ToQuery GetGroupVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getGroupVersionResponse' smart constructor.
+-- | /See:/ 'mkGetGroupVersionResponse' smart constructor.
 data GetGroupVersionResponse = GetGroupVersionResponse'
-  { _ggvrsDefinition ::
-      !(Maybe GroupVersion),
-    _ggvrsARN :: !(Maybe Text),
-    _ggvrsCreationTimestamp :: !(Maybe Text),
-    _ggvrsVersion :: !(Maybe Text),
-    _ggvrsId :: !(Maybe Text),
-    _ggvrsResponseStatus :: !Int
+  { definition ::
+      Lude.Maybe GroupVersion,
+    arn :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggvrsDefinition' - Information about the group version definition.
---
--- * 'ggvrsARN' - The ARN of the group version.
---
--- * 'ggvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the group version was created.
---
--- * 'ggvrsVersion' - The ID of the group version.
---
--- * 'ggvrsId' - The ID of the group that the version is associated with.
---
--- * 'ggvrsResponseStatus' - -- | The response status code.
-getGroupVersionResponse ::
-  -- | 'ggvrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the group version.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the group version was created.
+-- * 'definition' - Information about the group version definition.
+-- * 'id' - The ID of the group that the version is associated with.
+-- * 'responseStatus' - The response status code.
+-- * 'version' - The ID of the group version.
+mkGetGroupVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGroupVersionResponse
-getGroupVersionResponse pResponseStatus_ =
+mkGetGroupVersionResponse pResponseStatus_ =
   GetGroupVersionResponse'
-    { _ggvrsDefinition = Nothing,
-      _ggvrsARN = Nothing,
-      _ggvrsCreationTimestamp = Nothing,
-      _ggvrsVersion = Nothing,
-      _ggvrsId = Nothing,
-      _ggvrsResponseStatus = pResponseStatus_
+    { definition = Lude.Nothing,
+      arn = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      version = Lude.Nothing,
+      id = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the group version definition.
-ggvrsDefinition :: Lens' GetGroupVersionResponse (Maybe GroupVersion)
-ggvrsDefinition = lens _ggvrsDefinition (\s a -> s {_ggvrsDefinition = a})
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggvrsDefinition :: Lens.Lens' GetGroupVersionResponse (Lude.Maybe GroupVersion)
+ggvrsDefinition = Lens.lens (definition :: GetGroupVersionResponse -> Lude.Maybe GroupVersion) (\s a -> s {definition = a} :: GetGroupVersionResponse)
+{-# DEPRECATED ggvrsDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The ARN of the group version.
-ggvrsARN :: Lens' GetGroupVersionResponse (Maybe Text)
-ggvrsARN = lens _ggvrsARN (\s a -> s {_ggvrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggvrsARN :: Lens.Lens' GetGroupVersionResponse (Lude.Maybe Lude.Text)
+ggvrsARN = Lens.lens (arn :: GetGroupVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetGroupVersionResponse)
+{-# DEPRECATED ggvrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the group version was created.
-ggvrsCreationTimestamp :: Lens' GetGroupVersionResponse (Maybe Text)
-ggvrsCreationTimestamp = lens _ggvrsCreationTimestamp (\s a -> s {_ggvrsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggvrsCreationTimestamp :: Lens.Lens' GetGroupVersionResponse (Lude.Maybe Lude.Text)
+ggvrsCreationTimestamp = Lens.lens (creationTimestamp :: GetGroupVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: GetGroupVersionResponse)
+{-# DEPRECATED ggvrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the group version.
-ggvrsVersion :: Lens' GetGroupVersionResponse (Maybe Text)
-ggvrsVersion = lens _ggvrsVersion (\s a -> s {_ggvrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggvrsVersion :: Lens.Lens' GetGroupVersionResponse (Lude.Maybe Lude.Text)
+ggvrsVersion = Lens.lens (version :: GetGroupVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetGroupVersionResponse)
+{-# DEPRECATED ggvrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The ID of the group that the version is associated with.
-ggvrsId :: Lens' GetGroupVersionResponse (Maybe Text)
-ggvrsId = lens _ggvrsId (\s a -> s {_ggvrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggvrsId :: Lens.Lens' GetGroupVersionResponse (Lude.Maybe Lude.Text)
+ggvrsId = Lens.lens (id :: GetGroupVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetGroupVersionResponse)
+{-# DEPRECATED ggvrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | -- | The response status code.
-ggvrsResponseStatus :: Lens' GetGroupVersionResponse Int
-ggvrsResponseStatus = lens _ggvrsResponseStatus (\s a -> s {_ggvrsResponseStatus = a})
-
-instance NFData GetGroupVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggvrsResponseStatus :: Lens.Lens' GetGroupVersionResponse Lude.Int
+ggvrsResponseStatus = Lens.lens (responseStatus :: GetGroupVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupVersionResponse)
+{-# DEPRECATED ggvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

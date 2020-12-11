@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.HTTPEndpointS3BackupMode where
+module Network.AWS.Firehose.Types.HTTPEndpointS3BackupMode
+  ( HTTPEndpointS3BackupMode
+      ( HTTPEndpointS3BackupMode',
+        AllData,
+        FailedDataOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HTTPEndpointS3BackupMode
-  = AllData
-  | FailedDataOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HTTPEndpointS3BackupMode = HTTPEndpointS3BackupMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HTTPEndpointS3BackupMode where
-  parser =
-    takeLowerText >>= \case
-      "alldata" -> pure AllData
-      "faileddataonly" -> pure FailedDataOnly
-      e ->
-        fromTextError $
-          "Failure parsing HTTPEndpointS3BackupMode from value: '" <> e
-            <> "'. Accepted values: alldata, faileddataonly"
+pattern AllData :: HTTPEndpointS3BackupMode
+pattern AllData = HTTPEndpointS3BackupMode' "AllData"
 
-instance ToText HTTPEndpointS3BackupMode where
-  toText = \case
-    AllData -> "AllData"
-    FailedDataOnly -> "FailedDataOnly"
+pattern FailedDataOnly :: HTTPEndpointS3BackupMode
+pattern FailedDataOnly = HTTPEndpointS3BackupMode' "FailedDataOnly"
 
-instance Hashable HTTPEndpointS3BackupMode
-
-instance NFData HTTPEndpointS3BackupMode
-
-instance ToByteString HTTPEndpointS3BackupMode
-
-instance ToQuery HTTPEndpointS3BackupMode
-
-instance ToHeader HTTPEndpointS3BackupMode
-
-instance ToJSON HTTPEndpointS3BackupMode where
-  toJSON = toJSONText
-
-instance FromJSON HTTPEndpointS3BackupMode where
-  parseJSON = parseJSONText "HTTPEndpointS3BackupMode"
+{-# COMPLETE
+  AllData,
+  FailedDataOnly,
+  HTTPEndpointS3BackupMode'
+  #-}

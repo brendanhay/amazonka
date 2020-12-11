@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,38 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.FleetAttributes where
+module Network.AWS.GameLift.Types.FleetAttributes
+  ( FleetAttributes (..),
+
+    -- * Smart constructor
+    mkFleetAttributes,
+
+    -- * Lenses
+    faCreationTime,
+    faStatus,
+    faServerLaunchParameters,
+    faLogPaths,
+    faOperatingSystem,
+    faBuildId,
+    faFleetARN,
+    faFleetType,
+    faTerminationTime,
+    faInstanceType,
+    faStoppedActions,
+    faNewGameSessionProtectionPolicy,
+    faName,
+    faScriptId,
+    faScriptARN,
+    faCertificateConfiguration,
+    faServerLaunchPath,
+    faInstanceRoleARN,
+    faMetricGroups,
+    faBuildARN,
+    faFleetId,
+    faDescription,
+    faResourceCreationLimitPolicy,
+  )
+where
 
 import Network.AWS.GameLift.Types.CertificateConfiguration
 import Network.AWS.GameLift.Types.EC2InstanceType
@@ -23,260 +48,370 @@ import Network.AWS.GameLift.Types.FleetType
 import Network.AWS.GameLift.Types.OperatingSystem
 import Network.AWS.GameLift.Types.ProtectionPolicy
 import Network.AWS.GameLift.Types.ResourceCreationLimitPolicy
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | General properties describing a fleet.
 --
 --
 --     * 'CreateFleet'
 --
+--
 --     * 'ListFleets'
+--
 --
 --     * 'DeleteFleet'
 --
+--
 --     * 'DescribeFleetAttributes'
 --
+--
 --     * 'UpdateFleetAttributes'
+--
 --
 --     * 'StartFleetActions' or 'StopFleetActions'
 --
 --
 --
---
--- /See:/ 'fleetAttributes' smart constructor.
+-- /See:/ 'mkFleetAttributes' smart constructor.
 data FleetAttributes = FleetAttributes'
-  { _faCreationTime ::
-      !(Maybe POSIX),
-    _faStatus :: !(Maybe FleetStatus),
-    _faServerLaunchParameters :: !(Maybe Text),
-    _faLogPaths :: !(Maybe [Text]),
-    _faOperatingSystem :: !(Maybe OperatingSystem),
-    _faBuildId :: !(Maybe Text),
-    _faFleetARN :: !(Maybe Text),
-    _faFleetType :: !(Maybe FleetType),
-    _faTerminationTime :: !(Maybe POSIX),
-    _faInstanceType :: !(Maybe EC2InstanceType),
-    _faStoppedActions :: !(Maybe (List1 FleetAction)),
-    _faNewGameSessionProtectionPolicy ::
-      !(Maybe ProtectionPolicy),
-    _faName :: !(Maybe Text),
-    _faScriptId :: !(Maybe Text),
-    _faScriptARN :: !(Maybe Text),
-    _faCertificateConfiguration ::
-      !(Maybe CertificateConfiguration),
-    _faServerLaunchPath :: !(Maybe Text),
-    _faInstanceRoleARN :: !(Maybe Text),
-    _faMetricGroups :: !(Maybe [Text]),
-    _faBuildARN :: !(Maybe Text),
-    _faFleetId :: !(Maybe Text),
-    _faDescription :: !(Maybe Text),
-    _faResourceCreationLimitPolicy ::
-      !(Maybe ResourceCreationLimitPolicy)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe FleetStatus,
+    serverLaunchParameters :: Lude.Maybe Lude.Text,
+    logPaths :: Lude.Maybe [Lude.Text],
+    operatingSystem :: Lude.Maybe OperatingSystem,
+    buildId :: Lude.Maybe Lude.Text,
+    fleetARN :: Lude.Maybe Lude.Text,
+    fleetType :: Lude.Maybe FleetType,
+    terminationTime :: Lude.Maybe Lude.Timestamp,
+    instanceType :: Lude.Maybe EC2InstanceType,
+    stoppedActions :: Lude.Maybe (Lude.NonEmpty FleetAction),
+    newGameSessionProtectionPolicy ::
+      Lude.Maybe ProtectionPolicy,
+    name :: Lude.Maybe Lude.Text,
+    scriptId :: Lude.Maybe Lude.Text,
+    scriptARN :: Lude.Maybe Lude.Text,
+    certificateConfiguration ::
+      Lude.Maybe CertificateConfiguration,
+    serverLaunchPath :: Lude.Maybe Lude.Text,
+    instanceRoleARN :: Lude.Maybe Lude.Text,
+    metricGroups :: Lude.Maybe [Lude.Text],
+    buildARN :: Lude.Maybe Lude.Text,
+    fleetId :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    resourceCreationLimitPolicy ::
+      Lude.Maybe ResourceCreationLimitPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'buildARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift build resource that is deployed on instances in this fleet. In a GameLift build ARN, the resource ID matches the /BuildId/ value.
+-- * 'buildId' - A unique identifier for a build.
+-- * 'certificateConfiguration' - Indicates whether a TLS/SSL certificate was generated for the fleet.
+-- * 'creationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'description' - Human-readable description of the fleet.
+-- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift fleet ARN, the resource ID matches the /FleetId/ value.
+-- * 'fleetId' - A unique identifier for a fleet.
+-- * 'fleetType' - Indicates whether the fleet uses on-demand or spot instances. A spot instance in use may be interrupted with a two-minute notification.
+-- * 'instanceRoleARN' - A unique identifier for an AWS IAM role that manages access to your AWS services.
+-- * 'instanceType' - EC2 instance type indicating the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+-- * 'logPaths' - Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift automatically uploads logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
+-- * 'metricGroups' - Names of metric groups that this fleet is included in. In Amazon CloudWatch, you can view metrics for an individual fleet or aggregated metrics for fleets that are in a fleet metric group. A fleet can be included in only one metric group at a time.
+-- * 'name' - A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
+-- * 'newGameSessionProtectionPolicy' - The type of game session protection to set for all new instances started in the fleet.
 --
--- * 'faCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'faStatus' - Current status of the fleet. Possible fleet statuses include the following:     * __NEW__ -- A new fleet has been defined and desired instances is set to 1.      * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ -- Amazon GameLift is setting up the new fleet, creating new instances with the game build or Realtime script and starting server processes.     * __ACTIVE__ -- Hosts can now accept game sessions.     * __ERROR__ -- An error occurred when downloading, validating, building, or activating the fleet.     * __DELETING__ -- Hosts are responding to a delete fleet request.     * __TERMINATED__ -- The fleet no longer exists.
+--     * __NoProtection__ -- The game session can be terminated during a scale-down event.
 --
--- * 'faServerLaunchParameters' - Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
 --
--- * 'faLogPaths' - Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift automatically uploads logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
+--     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
 --
--- * 'faOperatingSystem' - Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
 --
--- * 'faBuildId' - A unique identifier for a build.
+-- * 'operatingSystem' - Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
+-- * 'resourceCreationLimitPolicy' - Fleet policy to limit the number of game sessions an individual player can create over a span of time.
+-- * 'scriptARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift script resource that is deployed on instances in this fleet. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
+-- * 'scriptId' - A unique identifier for a Realtime script.
+-- * 'serverLaunchParameters' - Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
+-- * 'serverLaunchPath' - Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
+-- * 'status' - Current status of the fleet.
 --
--- * 'faFleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift fleet ARN, the resource ID matches the /FleetId/ value.
+-- Possible fleet statuses include the following:
 --
--- * 'faFleetType' - Indicates whether the fleet uses on-demand or spot instances. A spot instance in use may be interrupted with a two-minute notification.
+--     * __NEW__ -- A new fleet has been defined and desired instances is set to 1.
 --
--- * 'faTerminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'faInstanceType' - EC2 instance type indicating the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+--     * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ -- Amazon GameLift is setting up the new fleet, creating new instances with the game build or Realtime script and starting server processes.
 --
--- * 'faStoppedActions' - List of fleet activity that have been suspended using 'StopFleetActions' . This includes auto-scaling.
 --
--- * 'faNewGameSessionProtectionPolicy' - The type of game session protection to set for all new instances started in the fleet.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+--     * __ACTIVE__ -- Hosts can now accept game sessions.
 --
--- * 'faName' - A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 --
--- * 'faScriptId' - A unique identifier for a Realtime script.
+--     * __ERROR__ -- An error occurred when downloading, validating, building, or activating the fleet.
 --
--- * 'faScriptARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift script resource that is deployed on instances in this fleet. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
 --
--- * 'faCertificateConfiguration' - Indicates whether a TLS/SSL certificate was generated for the fleet.
+--     * __DELETING__ -- Hosts are responding to a delete fleet request.
 --
--- * 'faServerLaunchPath' - Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
 --
--- * 'faInstanceRoleARN' - A unique identifier for an AWS IAM role that manages access to your AWS services.
+--     * __TERMINATED__ -- The fleet no longer exists.
 --
--- * 'faMetricGroups' - Names of metric groups that this fleet is included in. In Amazon CloudWatch, you can view metrics for an individual fleet or aggregated metrics for fleets that are in a fleet metric group. A fleet can be included in only one metric group at a time.
 --
--- * 'faBuildARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift build resource that is deployed on instances in this fleet. In a GameLift build ARN, the resource ID matches the /BuildId/ value.
---
--- * 'faFleetId' - A unique identifier for a fleet.
---
--- * 'faDescription' - Human-readable description of the fleet.
---
--- * 'faResourceCreationLimitPolicy' - Fleet policy to limit the number of game sessions an individual player can create over a span of time.
-fleetAttributes ::
+-- * 'stoppedActions' - List of fleet activity that have been suspended using 'StopFleetActions' . This includes auto-scaling.
+-- * 'terminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+mkFleetAttributes ::
   FleetAttributes
-fleetAttributes =
+mkFleetAttributes =
   FleetAttributes'
-    { _faCreationTime = Nothing,
-      _faStatus = Nothing,
-      _faServerLaunchParameters = Nothing,
-      _faLogPaths = Nothing,
-      _faOperatingSystem = Nothing,
-      _faBuildId = Nothing,
-      _faFleetARN = Nothing,
-      _faFleetType = Nothing,
-      _faTerminationTime = Nothing,
-      _faInstanceType = Nothing,
-      _faStoppedActions = Nothing,
-      _faNewGameSessionProtectionPolicy = Nothing,
-      _faName = Nothing,
-      _faScriptId = Nothing,
-      _faScriptARN = Nothing,
-      _faCertificateConfiguration = Nothing,
-      _faServerLaunchPath = Nothing,
-      _faInstanceRoleARN = Nothing,
-      _faMetricGroups = Nothing,
-      _faBuildARN = Nothing,
-      _faFleetId = Nothing,
-      _faDescription = Nothing,
-      _faResourceCreationLimitPolicy = Nothing
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      serverLaunchParameters = Lude.Nothing,
+      logPaths = Lude.Nothing,
+      operatingSystem = Lude.Nothing,
+      buildId = Lude.Nothing,
+      fleetARN = Lude.Nothing,
+      fleetType = Lude.Nothing,
+      terminationTime = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      stoppedActions = Lude.Nothing,
+      newGameSessionProtectionPolicy = Lude.Nothing,
+      name = Lude.Nothing,
+      scriptId = Lude.Nothing,
+      scriptARN = Lude.Nothing,
+      certificateConfiguration = Lude.Nothing,
+      serverLaunchPath = Lude.Nothing,
+      instanceRoleARN = Lude.Nothing,
+      metricGroups = Lude.Nothing,
+      buildARN = Lude.Nothing,
+      fleetId = Lude.Nothing,
+      description = Lude.Nothing,
+      resourceCreationLimitPolicy = Lude.Nothing
     }
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-faCreationTime :: Lens' FleetAttributes (Maybe UTCTime)
-faCreationTime = lens _faCreationTime (\s a -> s {_faCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faCreationTime :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Timestamp)
+faCreationTime = Lens.lens (creationTime :: FleetAttributes -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: FleetAttributes)
+{-# DEPRECATED faCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
--- | Current status of the fleet. Possible fleet statuses include the following:     * __NEW__ -- A new fleet has been defined and desired instances is set to 1.      * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ -- Amazon GameLift is setting up the new fleet, creating new instances with the game build or Realtime script and starting server processes.     * __ACTIVE__ -- Hosts can now accept game sessions.     * __ERROR__ -- An error occurred when downloading, validating, building, or activating the fleet.     * __DELETING__ -- Hosts are responding to a delete fleet request.     * __TERMINATED__ -- The fleet no longer exists.
-faStatus :: Lens' FleetAttributes (Maybe FleetStatus)
-faStatus = lens _faStatus (\s a -> s {_faStatus = a})
+-- | Current status of the fleet.
+--
+-- Possible fleet statuses include the following:
+--
+--     * __NEW__ -- A new fleet has been defined and desired instances is set to 1.
+--
+--
+--     * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ -- Amazon GameLift is setting up the new fleet, creating new instances with the game build or Realtime script and starting server processes.
+--
+--
+--     * __ACTIVE__ -- Hosts can now accept game sessions.
+--
+--
+--     * __ERROR__ -- An error occurred when downloading, validating, building, or activating the fleet.
+--
+--
+--     * __DELETING__ -- Hosts are responding to a delete fleet request.
+--
+--
+--     * __TERMINATED__ -- The fleet no longer exists.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faStatus :: Lens.Lens' FleetAttributes (Lude.Maybe FleetStatus)
+faStatus = Lens.lens (status :: FleetAttributes -> Lude.Maybe FleetStatus) (\s a -> s {status = a} :: FleetAttributes)
+{-# DEPRECATED faStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
-faServerLaunchParameters :: Lens' FleetAttributes (Maybe Text)
-faServerLaunchParameters = lens _faServerLaunchParameters (\s a -> s {_faServerLaunchParameters = a})
+--
+-- /Note:/ Consider using 'serverLaunchParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faServerLaunchParameters :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faServerLaunchParameters = Lens.lens (serverLaunchParameters :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {serverLaunchParameters = a} :: FleetAttributes)
+{-# DEPRECATED faServerLaunchParameters "Use generic-lens or generic-optics with 'serverLaunchParameters' instead." #-}
 
 -- | Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift automatically uploads logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
-faLogPaths :: Lens' FleetAttributes [Text]
-faLogPaths = lens _faLogPaths (\s a -> s {_faLogPaths = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'logPaths' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faLogPaths :: Lens.Lens' FleetAttributes (Lude.Maybe [Lude.Text])
+faLogPaths = Lens.lens (logPaths :: FleetAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {logPaths = a} :: FleetAttributes)
+{-# DEPRECATED faLogPaths "Use generic-lens or generic-optics with 'logPaths' instead." #-}
 
 -- | Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
-faOperatingSystem :: Lens' FleetAttributes (Maybe OperatingSystem)
-faOperatingSystem = lens _faOperatingSystem (\s a -> s {_faOperatingSystem = a})
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faOperatingSystem :: Lens.Lens' FleetAttributes (Lude.Maybe OperatingSystem)
+faOperatingSystem = Lens.lens (operatingSystem :: FleetAttributes -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: FleetAttributes)
+{-# DEPRECATED faOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
 -- | A unique identifier for a build.
-faBuildId :: Lens' FleetAttributes (Maybe Text)
-faBuildId = lens _faBuildId (\s a -> s {_faBuildId = a})
+--
+-- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faBuildId :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faBuildId = Lens.lens (buildId :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {buildId = a} :: FleetAttributes)
+{-# DEPRECATED faBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
 -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift fleet ARN, the resource ID matches the /FleetId/ value.
-faFleetARN :: Lens' FleetAttributes (Maybe Text)
-faFleetARN = lens _faFleetARN (\s a -> s {_faFleetARN = a})
+--
+-- /Note:/ Consider using 'fleetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faFleetARN :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faFleetARN = Lens.lens (fleetARN :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {fleetARN = a} :: FleetAttributes)
+{-# DEPRECATED faFleetARN "Use generic-lens or generic-optics with 'fleetARN' instead." #-}
 
 -- | Indicates whether the fleet uses on-demand or spot instances. A spot instance in use may be interrupted with a two-minute notification.
-faFleetType :: Lens' FleetAttributes (Maybe FleetType)
-faFleetType = lens _faFleetType (\s a -> s {_faFleetType = a})
+--
+-- /Note:/ Consider using 'fleetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faFleetType :: Lens.Lens' FleetAttributes (Lude.Maybe FleetType)
+faFleetType = Lens.lens (fleetType :: FleetAttributes -> Lude.Maybe FleetType) (\s a -> s {fleetType = a} :: FleetAttributes)
+{-# DEPRECATED faFleetType "Use generic-lens or generic-optics with 'fleetType' instead." #-}
 
 -- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-faTerminationTime :: Lens' FleetAttributes (Maybe UTCTime)
-faTerminationTime = lens _faTerminationTime (\s a -> s {_faTerminationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'terminationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faTerminationTime :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Timestamp)
+faTerminationTime = Lens.lens (terminationTime :: FleetAttributes -> Lude.Maybe Lude.Timestamp) (\s a -> s {terminationTime = a} :: FleetAttributes)
+{-# DEPRECATED faTerminationTime "Use generic-lens or generic-optics with 'terminationTime' instead." #-}
 
 -- | EC2 instance type indicating the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
-faInstanceType :: Lens' FleetAttributes (Maybe EC2InstanceType)
-faInstanceType = lens _faInstanceType (\s a -> s {_faInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faInstanceType :: Lens.Lens' FleetAttributes (Lude.Maybe EC2InstanceType)
+faInstanceType = Lens.lens (instanceType :: FleetAttributes -> Lude.Maybe EC2InstanceType) (\s a -> s {instanceType = a} :: FleetAttributes)
+{-# DEPRECATED faInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | List of fleet activity that have been suspended using 'StopFleetActions' . This includes auto-scaling.
-faStoppedActions :: Lens' FleetAttributes (Maybe (NonEmpty FleetAction))
-faStoppedActions = lens _faStoppedActions (\s a -> s {_faStoppedActions = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'stoppedActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faStoppedActions :: Lens.Lens' FleetAttributes (Lude.Maybe (Lude.NonEmpty FleetAction))
+faStoppedActions = Lens.lens (stoppedActions :: FleetAttributes -> Lude.Maybe (Lude.NonEmpty FleetAction)) (\s a -> s {stoppedActions = a} :: FleetAttributes)
+{-# DEPRECATED faStoppedActions "Use generic-lens or generic-optics with 'stoppedActions' instead." #-}
 
--- | The type of game session protection to set for all new instances started in the fleet.     * __NoProtection__ -- The game session can be terminated during a scale-down event.     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
-faNewGameSessionProtectionPolicy :: Lens' FleetAttributes (Maybe ProtectionPolicy)
-faNewGameSessionProtectionPolicy = lens _faNewGameSessionProtectionPolicy (\s a -> s {_faNewGameSessionProtectionPolicy = a})
+-- | The type of game session protection to set for all new instances started in the fleet.
+--
+--
+--     * __NoProtection__ -- The game session can be terminated during a scale-down event.
+--
+--
+--     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+--
+--
+--
+-- /Note:/ Consider using 'newGameSessionProtectionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faNewGameSessionProtectionPolicy :: Lens.Lens' FleetAttributes (Lude.Maybe ProtectionPolicy)
+faNewGameSessionProtectionPolicy = Lens.lens (newGameSessionProtectionPolicy :: FleetAttributes -> Lude.Maybe ProtectionPolicy) (\s a -> s {newGameSessionProtectionPolicy = a} :: FleetAttributes)
+{-# DEPRECATED faNewGameSessionProtectionPolicy "Use generic-lens or generic-optics with 'newGameSessionProtectionPolicy' instead." #-}
 
 -- | A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
-faName :: Lens' FleetAttributes (Maybe Text)
-faName = lens _faName (\s a -> s {_faName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faName :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faName = Lens.lens (name :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: FleetAttributes)
+{-# DEPRECATED faName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier for a Realtime script.
-faScriptId :: Lens' FleetAttributes (Maybe Text)
-faScriptId = lens _faScriptId (\s a -> s {_faScriptId = a})
+--
+-- /Note:/ Consider using 'scriptId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faScriptId :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faScriptId = Lens.lens (scriptId :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {scriptId = a} :: FleetAttributes)
+{-# DEPRECATED faScriptId "Use generic-lens or generic-optics with 'scriptId' instead." #-}
 
 -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift script resource that is deployed on instances in this fleet. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
-faScriptARN :: Lens' FleetAttributes (Maybe Text)
-faScriptARN = lens _faScriptARN (\s a -> s {_faScriptARN = a})
+--
+-- /Note:/ Consider using 'scriptARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faScriptARN :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faScriptARN = Lens.lens (scriptARN :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {scriptARN = a} :: FleetAttributes)
+{-# DEPRECATED faScriptARN "Use generic-lens or generic-optics with 'scriptARN' instead." #-}
 
 -- | Indicates whether a TLS/SSL certificate was generated for the fleet.
-faCertificateConfiguration :: Lens' FleetAttributes (Maybe CertificateConfiguration)
-faCertificateConfiguration = lens _faCertificateConfiguration (\s a -> s {_faCertificateConfiguration = a})
+--
+-- /Note:/ Consider using 'certificateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faCertificateConfiguration :: Lens.Lens' FleetAttributes (Lude.Maybe CertificateConfiguration)
+faCertificateConfiguration = Lens.lens (certificateConfiguration :: FleetAttributes -> Lude.Maybe CertificateConfiguration) (\s a -> s {certificateConfiguration = a} :: FleetAttributes)
+{-# DEPRECATED faCertificateConfiguration "Use generic-lens or generic-optics with 'certificateConfiguration' instead." #-}
 
 -- | Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
-faServerLaunchPath :: Lens' FleetAttributes (Maybe Text)
-faServerLaunchPath = lens _faServerLaunchPath (\s a -> s {_faServerLaunchPath = a})
+--
+-- /Note:/ Consider using 'serverLaunchPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faServerLaunchPath :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faServerLaunchPath = Lens.lens (serverLaunchPath :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {serverLaunchPath = a} :: FleetAttributes)
+{-# DEPRECATED faServerLaunchPath "Use generic-lens or generic-optics with 'serverLaunchPath' instead." #-}
 
 -- | A unique identifier for an AWS IAM role that manages access to your AWS services.
-faInstanceRoleARN :: Lens' FleetAttributes (Maybe Text)
-faInstanceRoleARN = lens _faInstanceRoleARN (\s a -> s {_faInstanceRoleARN = a})
+--
+-- /Note:/ Consider using 'instanceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faInstanceRoleARN :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faInstanceRoleARN = Lens.lens (instanceRoleARN :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {instanceRoleARN = a} :: FleetAttributes)
+{-# DEPRECATED faInstanceRoleARN "Use generic-lens or generic-optics with 'instanceRoleARN' instead." #-}
 
 -- | Names of metric groups that this fleet is included in. In Amazon CloudWatch, you can view metrics for an individual fleet or aggregated metrics for fleets that are in a fleet metric group. A fleet can be included in only one metric group at a time.
-faMetricGroups :: Lens' FleetAttributes [Text]
-faMetricGroups = lens _faMetricGroups (\s a -> s {_faMetricGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'metricGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faMetricGroups :: Lens.Lens' FleetAttributes (Lude.Maybe [Lude.Text])
+faMetricGroups = Lens.lens (metricGroups :: FleetAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {metricGroups = a} :: FleetAttributes)
+{-# DEPRECATED faMetricGroups "Use generic-lens or generic-optics with 'metricGroups' instead." #-}
 
 -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift build resource that is deployed on instances in this fleet. In a GameLift build ARN, the resource ID matches the /BuildId/ value.
-faBuildARN :: Lens' FleetAttributes (Maybe Text)
-faBuildARN = lens _faBuildARN (\s a -> s {_faBuildARN = a})
+--
+-- /Note:/ Consider using 'buildARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faBuildARN :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faBuildARN = Lens.lens (buildARN :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {buildARN = a} :: FleetAttributes)
+{-# DEPRECATED faBuildARN "Use generic-lens or generic-optics with 'buildARN' instead." #-}
 
 -- | A unique identifier for a fleet.
-faFleetId :: Lens' FleetAttributes (Maybe Text)
-faFleetId = lens _faFleetId (\s a -> s {_faFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faFleetId :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faFleetId = Lens.lens (fleetId :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: FleetAttributes)
+{-# DEPRECATED faFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | Human-readable description of the fleet.
-faDescription :: Lens' FleetAttributes (Maybe Text)
-faDescription = lens _faDescription (\s a -> s {_faDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faDescription :: Lens.Lens' FleetAttributes (Lude.Maybe Lude.Text)
+faDescription = Lens.lens (description :: FleetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: FleetAttributes)
+{-# DEPRECATED faDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Fleet policy to limit the number of game sessions an individual player can create over a span of time.
-faResourceCreationLimitPolicy :: Lens' FleetAttributes (Maybe ResourceCreationLimitPolicy)
-faResourceCreationLimitPolicy = lens _faResourceCreationLimitPolicy (\s a -> s {_faResourceCreationLimitPolicy = a})
+--
+-- /Note:/ Consider using 'resourceCreationLimitPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faResourceCreationLimitPolicy :: Lens.Lens' FleetAttributes (Lude.Maybe ResourceCreationLimitPolicy)
+faResourceCreationLimitPolicy = Lens.lens (resourceCreationLimitPolicy :: FleetAttributes -> Lude.Maybe ResourceCreationLimitPolicy) (\s a -> s {resourceCreationLimitPolicy = a} :: FleetAttributes)
+{-# DEPRECATED faResourceCreationLimitPolicy "Use generic-lens or generic-optics with 'resourceCreationLimitPolicy' instead." #-}
 
-instance FromJSON FleetAttributes where
+instance Lude.FromJSON FleetAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "FleetAttributes"
       ( \x ->
           FleetAttributes'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "Status")
-            <*> (x .:? "ServerLaunchParameters")
-            <*> (x .:? "LogPaths" .!= mempty)
-            <*> (x .:? "OperatingSystem")
-            <*> (x .:? "BuildId")
-            <*> (x .:? "FleetArn")
-            <*> (x .:? "FleetType")
-            <*> (x .:? "TerminationTime")
-            <*> (x .:? "InstanceType")
-            <*> (x .:? "StoppedActions")
-            <*> (x .:? "NewGameSessionProtectionPolicy")
-            <*> (x .:? "Name")
-            <*> (x .:? "ScriptId")
-            <*> (x .:? "ScriptArn")
-            <*> (x .:? "CertificateConfiguration")
-            <*> (x .:? "ServerLaunchPath")
-            <*> (x .:? "InstanceRoleArn")
-            <*> (x .:? "MetricGroups" .!= mempty)
-            <*> (x .:? "BuildArn")
-            <*> (x .:? "FleetId")
-            <*> (x .:? "Description")
-            <*> (x .:? "ResourceCreationLimitPolicy")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "ServerLaunchParameters")
+            Lude.<*> (x Lude..:? "LogPaths" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "OperatingSystem")
+            Lude.<*> (x Lude..:? "BuildId")
+            Lude.<*> (x Lude..:? "FleetArn")
+            Lude.<*> (x Lude..:? "FleetType")
+            Lude.<*> (x Lude..:? "TerminationTime")
+            Lude.<*> (x Lude..:? "InstanceType")
+            Lude.<*> (x Lude..:? "StoppedActions")
+            Lude.<*> (x Lude..:? "NewGameSessionProtectionPolicy")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "ScriptId")
+            Lude.<*> (x Lude..:? "ScriptArn")
+            Lude.<*> (x Lude..:? "CertificateConfiguration")
+            Lude.<*> (x Lude..:? "ServerLaunchPath")
+            Lude.<*> (x Lude..:? "InstanceRoleArn")
+            Lude.<*> (x Lude..:? "MetricGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "BuildArn")
+            Lude.<*> (x Lude..:? "FleetId")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "ResourceCreationLimitPolicy")
       )
-
-instance Hashable FleetAttributes
-
-instance NFData FleetAttributes

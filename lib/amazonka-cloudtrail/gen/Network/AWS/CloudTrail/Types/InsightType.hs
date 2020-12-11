@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.InsightType where
+module Network.AWS.CloudTrail.Types.InsightType
+  ( InsightType
+      ( InsightType',
+        APICallRateInsight
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InsightType = APICallRateInsight
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InsightType = InsightType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InsightType where
-  parser =
-    takeLowerText >>= \case
-      "apicallrateinsight" -> pure APICallRateInsight
-      e ->
-        fromTextError $
-          "Failure parsing InsightType from value: '" <> e
-            <> "'. Accepted values: apicallrateinsight"
+pattern APICallRateInsight :: InsightType
+pattern APICallRateInsight = InsightType' "ApiCallRateInsight"
 
-instance ToText InsightType where
-  toText = \case
-    APICallRateInsight -> "ApiCallRateInsight"
-
-instance Hashable InsightType
-
-instance NFData InsightType
-
-instance ToByteString InsightType
-
-instance ToQuery InsightType
-
-instance ToHeader InsightType
-
-instance ToJSON InsightType where
-  toJSON = toJSONText
-
-instance FromJSON InsightType where
-  parseJSON = parseJSONText "InsightType"
+{-# COMPLETE
+  APICallRateInsight,
+  InsightType'
+  #-}

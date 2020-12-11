@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.UsageLimitLimitType where
+module Network.AWS.Redshift.Types.UsageLimitLimitType
+  ( UsageLimitLimitType
+      ( UsageLimitLimitType',
+        DataScanned,
+        Time
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data UsageLimitLimitType
-  = DataScanned
-  | Time
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UsageLimitLimitType = UsageLimitLimitType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UsageLimitLimitType where
-  parser =
-    takeLowerText >>= \case
-      "data-scanned" -> pure DataScanned
-      "time" -> pure Time
-      e ->
-        fromTextError $
-          "Failure parsing UsageLimitLimitType from value: '" <> e
-            <> "'. Accepted values: data-scanned, time"
+pattern DataScanned :: UsageLimitLimitType
+pattern DataScanned = UsageLimitLimitType' "data-scanned"
 
-instance ToText UsageLimitLimitType where
-  toText = \case
-    DataScanned -> "data-scanned"
-    Time -> "time"
+pattern Time :: UsageLimitLimitType
+pattern Time = UsageLimitLimitType' "time"
 
-instance Hashable UsageLimitLimitType
-
-instance NFData UsageLimitLimitType
-
-instance ToByteString UsageLimitLimitType
-
-instance ToQuery UsageLimitLimitType
-
-instance ToHeader UsageLimitLimitType
-
-instance FromXML UsageLimitLimitType where
-  parseXML = parseXMLText "UsageLimitLimitType"
+{-# COMPLETE
+  DataScanned,
+  Time,
+  UsageLimitLimitType'
+  #-}

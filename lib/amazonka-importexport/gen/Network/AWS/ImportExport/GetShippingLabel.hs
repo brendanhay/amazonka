@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- This operation generates a pre-paid UPS shipping label that you will use to ship your device to AWS for processing.
 module Network.AWS.ImportExport.GetShippingLabel
-  ( -- * Creating a Request
-    getShippingLabel,
-    GetShippingLabel,
+  ( -- * Creating a request
+    GetShippingLabel (..),
+    mkGetShippingLabel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gslStreet3,
     gslAPIVersion,
     gslCountry,
@@ -37,11 +32,11 @@ module Network.AWS.ImportExport.GetShippingLabel
     gslStreet1,
     gslJobIds,
 
-    -- * Destructuring the Response
-    getShippingLabelResponse,
-    GetShippingLabelResponse,
+    -- * Destructuring the response
+    GetShippingLabelResponse (..),
+    mkGetShippingLabelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gslrsShippingLabelURL,
     gslrsWarning,
     gslrsResponseStatus,
@@ -49,204 +44,240 @@ module Network.AWS.ImportExport.GetShippingLabel
 where
 
 import Network.AWS.ImportExport.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getShippingLabel' smart constructor.
+-- | /See:/ 'mkGetShippingLabel' smart constructor.
 data GetShippingLabel = GetShippingLabel'
-  { _gslStreet3 ::
-      !(Maybe Text),
-    _gslAPIVersion :: !(Maybe Text),
-    _gslCountry :: !(Maybe Text),
-    _gslStateOrProvince :: !(Maybe Text),
-    _gslPostalCode :: !(Maybe Text),
-    _gslStreet2 :: !(Maybe Text),
-    _gslName :: !(Maybe Text),
-    _gslCompany :: !(Maybe Text),
-    _gslPhoneNumber :: !(Maybe Text),
-    _gslCity :: !(Maybe Text),
-    _gslStreet1 :: !(Maybe Text),
-    _gslJobIds :: ![Text]
+  { street3 ::
+      Lude.Maybe Lude.Text,
+    apiVersion :: Lude.Maybe Lude.Text,
+    country :: Lude.Maybe Lude.Text,
+    stateOrProvince :: Lude.Maybe Lude.Text,
+    postalCode :: Lude.Maybe Lude.Text,
+    street2 :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    company :: Lude.Maybe Lude.Text,
+    phoneNumber :: Lude.Maybe Lude.Text,
+    city :: Lude.Maybe Lude.Text,
+    street1 :: Lude.Maybe Lude.Text,
+    jobIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetShippingLabel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gslStreet3' - Undocumented member.
---
--- * 'gslAPIVersion' - Undocumented member.
---
--- * 'gslCountry' - Undocumented member.
---
--- * 'gslStateOrProvince' - Undocumented member.
---
--- * 'gslPostalCode' - Undocumented member.
---
--- * 'gslStreet2' - Undocumented member.
---
--- * 'gslName' - Undocumented member.
---
--- * 'gslCompany' - Undocumented member.
---
--- * 'gslPhoneNumber' - Undocumented member.
---
--- * 'gslCity' - Undocumented member.
---
--- * 'gslStreet1' - Undocumented member.
---
--- * 'gslJobIds' - Undocumented member.
-getShippingLabel ::
+-- * 'apiVersion' - Undocumented field.
+-- * 'city' - Undocumented field.
+-- * 'company' - Undocumented field.
+-- * 'country' - Undocumented field.
+-- * 'jobIds' - Undocumented field.
+-- * 'name' - Undocumented field.
+-- * 'phoneNumber' - Undocumented field.
+-- * 'postalCode' - Undocumented field.
+-- * 'stateOrProvince' - Undocumented field.
+-- * 'street1' - Undocumented field.
+-- * 'street2' - Undocumented field.
+-- * 'street3' - Undocumented field.
+mkGetShippingLabel ::
   GetShippingLabel
-getShippingLabel =
+mkGetShippingLabel =
   GetShippingLabel'
-    { _gslStreet3 = Nothing,
-      _gslAPIVersion = Nothing,
-      _gslCountry = Nothing,
-      _gslStateOrProvince = Nothing,
-      _gslPostalCode = Nothing,
-      _gslStreet2 = Nothing,
-      _gslName = Nothing,
-      _gslCompany = Nothing,
-      _gslPhoneNumber = Nothing,
-      _gslCity = Nothing,
-      _gslStreet1 = Nothing,
-      _gslJobIds = mempty
+    { street3 = Lude.Nothing,
+      apiVersion = Lude.Nothing,
+      country = Lude.Nothing,
+      stateOrProvince = Lude.Nothing,
+      postalCode = Lude.Nothing,
+      street2 = Lude.Nothing,
+      name = Lude.Nothing,
+      company = Lude.Nothing,
+      phoneNumber = Lude.Nothing,
+      city = Lude.Nothing,
+      street1 = Lude.Nothing,
+      jobIds = Lude.mempty
     }
 
--- | Undocumented member.
-gslStreet3 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet3 = lens _gslStreet3 (\s a -> s {_gslStreet3 = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'street3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslStreet3 :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslStreet3 = Lens.lens (street3 :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {street3 = a} :: GetShippingLabel)
+{-# DEPRECATED gslStreet3 "Use generic-lens or generic-optics with 'street3' instead." #-}
 
--- | Undocumented member.
-gslAPIVersion :: Lens' GetShippingLabel (Maybe Text)
-gslAPIVersion = lens _gslAPIVersion (\s a -> s {_gslAPIVersion = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'apiVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslAPIVersion :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslAPIVersion = Lens.lens (apiVersion :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {apiVersion = a} :: GetShippingLabel)
+{-# DEPRECATED gslAPIVersion "Use generic-lens or generic-optics with 'apiVersion' instead." #-}
 
--- | Undocumented member.
-gslCountry :: Lens' GetShippingLabel (Maybe Text)
-gslCountry = lens _gslCountry (\s a -> s {_gslCountry = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslCountry :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslCountry = Lens.lens (country :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {country = a} :: GetShippingLabel)
+{-# DEPRECATED gslCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
--- | Undocumented member.
-gslStateOrProvince :: Lens' GetShippingLabel (Maybe Text)
-gslStateOrProvince = lens _gslStateOrProvince (\s a -> s {_gslStateOrProvince = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'stateOrProvince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslStateOrProvince :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslStateOrProvince = Lens.lens (stateOrProvince :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {stateOrProvince = a} :: GetShippingLabel)
+{-# DEPRECATED gslStateOrProvince "Use generic-lens or generic-optics with 'stateOrProvince' instead." #-}
 
--- | Undocumented member.
-gslPostalCode :: Lens' GetShippingLabel (Maybe Text)
-gslPostalCode = lens _gslPostalCode (\s a -> s {_gslPostalCode = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'postalCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslPostalCode :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslPostalCode = Lens.lens (postalCode :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {postalCode = a} :: GetShippingLabel)
+{-# DEPRECATED gslPostalCode "Use generic-lens or generic-optics with 'postalCode' instead." #-}
 
--- | Undocumented member.
-gslStreet2 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet2 = lens _gslStreet2 (\s a -> s {_gslStreet2 = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'street2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslStreet2 :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslStreet2 = Lens.lens (street2 :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {street2 = a} :: GetShippingLabel)
+{-# DEPRECATED gslStreet2 "Use generic-lens or generic-optics with 'street2' instead." #-}
 
--- | Undocumented member.
-gslName :: Lens' GetShippingLabel (Maybe Text)
-gslName = lens _gslName (\s a -> s {_gslName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslName :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslName = Lens.lens (name :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetShippingLabel)
+{-# DEPRECATED gslName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Undocumented member.
-gslCompany :: Lens' GetShippingLabel (Maybe Text)
-gslCompany = lens _gslCompany (\s a -> s {_gslCompany = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'company' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslCompany :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslCompany = Lens.lens (company :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {company = a} :: GetShippingLabel)
+{-# DEPRECATED gslCompany "Use generic-lens or generic-optics with 'company' instead." #-}
 
--- | Undocumented member.
-gslPhoneNumber :: Lens' GetShippingLabel (Maybe Text)
-gslPhoneNumber = lens _gslPhoneNumber (\s a -> s {_gslPhoneNumber = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslPhoneNumber :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslPhoneNumber = Lens.lens (phoneNumber :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {phoneNumber = a} :: GetShippingLabel)
+{-# DEPRECATED gslPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
--- | Undocumented member.
-gslCity :: Lens' GetShippingLabel (Maybe Text)
-gslCity = lens _gslCity (\s a -> s {_gslCity = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'city' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslCity :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslCity = Lens.lens (city :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {city = a} :: GetShippingLabel)
+{-# DEPRECATED gslCity "Use generic-lens or generic-optics with 'city' instead." #-}
 
--- | Undocumented member.
-gslStreet1 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet1 = lens _gslStreet1 (\s a -> s {_gslStreet1 = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'street1' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslStreet1 :: Lens.Lens' GetShippingLabel (Lude.Maybe Lude.Text)
+gslStreet1 = Lens.lens (street1 :: GetShippingLabel -> Lude.Maybe Lude.Text) (\s a -> s {street1 = a} :: GetShippingLabel)
+{-# DEPRECATED gslStreet1 "Use generic-lens or generic-optics with 'street1' instead." #-}
 
--- | Undocumented member.
-gslJobIds :: Lens' GetShippingLabel [Text]
-gslJobIds = lens _gslJobIds (\s a -> s {_gslJobIds = a}) . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'jobIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslJobIds :: Lens.Lens' GetShippingLabel [Lude.Text]
+gslJobIds = Lens.lens (jobIds :: GetShippingLabel -> [Lude.Text]) (\s a -> s {jobIds = a} :: GetShippingLabel)
+{-# DEPRECATED gslJobIds "Use generic-lens or generic-optics with 'jobIds' instead." #-}
 
-instance AWSRequest GetShippingLabel where
+instance Lude.AWSRequest GetShippingLabel where
   type Rs GetShippingLabel = GetShippingLabelResponse
-  request = postQuery importExport
+  request = Req.postQuery importExportService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetShippingLabelResult"
       ( \s h x ->
           GetShippingLabelResponse'
-            <$> (x .@? "ShippingLabelURL")
-            <*> (x .@? "Warning")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "ShippingLabelURL")
+            Lude.<*> (x Lude..@? "Warning")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetShippingLabel
+instance Lude.ToHeaders GetShippingLabel where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetShippingLabel
+instance Lude.ToPath GetShippingLabel where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetShippingLabel where
-  toHeaders = const mempty
-
-instance ToPath GetShippingLabel where
-  toPath = const "/"
-
-instance ToQuery GetShippingLabel where
+instance Lude.ToQuery GetShippingLabel where
   toQuery GetShippingLabel' {..} =
-    mconcat
+    Lude.mconcat
       [ "Operation=GetShippingLabel",
-        "Action" =: ("GetShippingLabel" :: ByteString),
-        "Version" =: ("2010-06-01" :: ByteString),
-        "street3" =: _gslStreet3,
-        "APIVersion" =: _gslAPIVersion,
-        "country" =: _gslCountry,
-        "stateOrProvince" =: _gslStateOrProvince,
-        "postalCode" =: _gslPostalCode,
-        "street2" =: _gslStreet2,
-        "name" =: _gslName,
-        "company" =: _gslCompany,
-        "phoneNumber" =: _gslPhoneNumber,
-        "city" =: _gslCity,
-        "street1" =: _gslStreet1,
-        "jobIds" =: toQueryList "member" _gslJobIds
+        "Action" Lude.=: ("GetShippingLabel" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-06-01" :: Lude.ByteString),
+        "street3" Lude.=: street3,
+        "APIVersion" Lude.=: apiVersion,
+        "country" Lude.=: country,
+        "stateOrProvince" Lude.=: stateOrProvince,
+        "postalCode" Lude.=: postalCode,
+        "street2" Lude.=: street2,
+        "name" Lude.=: name,
+        "company" Lude.=: company,
+        "phoneNumber" Lude.=: phoneNumber,
+        "city" Lude.=: city,
+        "street1" Lude.=: street1,
+        "jobIds" Lude.=: Lude.toQueryList "member" jobIds
       ]
 
--- | /See:/ 'getShippingLabelResponse' smart constructor.
+-- | /See:/ 'mkGetShippingLabelResponse' smart constructor.
 data GetShippingLabelResponse = GetShippingLabelResponse'
-  { _gslrsShippingLabelURL ::
-      !(Maybe Text),
-    _gslrsWarning :: !(Maybe Text),
-    _gslrsResponseStatus :: !Int
+  { shippingLabelURL ::
+      Lude.Maybe Lude.Text,
+    warning :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetShippingLabelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gslrsShippingLabelURL' - Undocumented member.
---
--- * 'gslrsWarning' - Undocumented member.
---
--- * 'gslrsResponseStatus' - -- | The response status code.
-getShippingLabelResponse ::
-  -- | 'gslrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'shippingLabelURL' - Undocumented field.
+-- * 'warning' - Undocumented field.
+mkGetShippingLabelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetShippingLabelResponse
-getShippingLabelResponse pResponseStatus_ =
+mkGetShippingLabelResponse pResponseStatus_ =
   GetShippingLabelResponse'
-    { _gslrsShippingLabelURL = Nothing,
-      _gslrsWarning = Nothing,
-      _gslrsResponseStatus = pResponseStatus_
+    { shippingLabelURL = Lude.Nothing,
+      warning = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-gslrsShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
-gslrsShippingLabelURL = lens _gslrsShippingLabelURL (\s a -> s {_gslrsShippingLabelURL = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'shippingLabelURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslrsShippingLabelURL :: Lens.Lens' GetShippingLabelResponse (Lude.Maybe Lude.Text)
+gslrsShippingLabelURL = Lens.lens (shippingLabelURL :: GetShippingLabelResponse -> Lude.Maybe Lude.Text) (\s a -> s {shippingLabelURL = a} :: GetShippingLabelResponse)
+{-# DEPRECATED gslrsShippingLabelURL "Use generic-lens or generic-optics with 'shippingLabelURL' instead." #-}
 
--- | Undocumented member.
-gslrsWarning :: Lens' GetShippingLabelResponse (Maybe Text)
-gslrsWarning = lens _gslrsWarning (\s a -> s {_gslrsWarning = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'warning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslrsWarning :: Lens.Lens' GetShippingLabelResponse (Lude.Maybe Lude.Text)
+gslrsWarning = Lens.lens (warning :: GetShippingLabelResponse -> Lude.Maybe Lude.Text) (\s a -> s {warning = a} :: GetShippingLabelResponse)
+{-# DEPRECATED gslrsWarning "Use generic-lens or generic-optics with 'warning' instead." #-}
 
--- | -- | The response status code.
-gslrsResponseStatus :: Lens' GetShippingLabelResponse Int
-gslrsResponseStatus = lens _gslrsResponseStatus (\s a -> s {_gslrsResponseStatus = a})
-
-instance NFData GetShippingLabelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslrsResponseStatus :: Lens.Lens' GetShippingLabelResponse Lude.Int
+gslrsResponseStatus = Lens.lens (responseStatus :: GetShippingLabelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetShippingLabelResponse)
+{-# DEPRECATED gslrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

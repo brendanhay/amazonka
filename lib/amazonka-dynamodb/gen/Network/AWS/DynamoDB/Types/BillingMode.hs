@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.BillingMode where
+module Network.AWS.DynamoDB.Types.BillingMode
+  ( BillingMode
+      ( BillingMode',
+        PayPerRequest,
+        Provisioned
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BillingMode
-  = PayPerRequest
-  | Provisioned
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BillingMode = BillingMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BillingMode where
-  parser =
-    takeLowerText >>= \case
-      "pay_per_request" -> pure PayPerRequest
-      "provisioned" -> pure Provisioned
-      e ->
-        fromTextError $
-          "Failure parsing BillingMode from value: '" <> e
-            <> "'. Accepted values: pay_per_request, provisioned"
+pattern PayPerRequest :: BillingMode
+pattern PayPerRequest = BillingMode' "PAY_PER_REQUEST"
 
-instance ToText BillingMode where
-  toText = \case
-    PayPerRequest -> "PAY_PER_REQUEST"
-    Provisioned -> "PROVISIONED"
+pattern Provisioned :: BillingMode
+pattern Provisioned = BillingMode' "PROVISIONED"
 
-instance Hashable BillingMode
-
-instance NFData BillingMode
-
-instance ToByteString BillingMode
-
-instance ToQuery BillingMode
-
-instance ToHeader BillingMode
-
-instance ToJSON BillingMode where
-  toJSON = toJSONText
-
-instance FromJSON BillingMode where
-  parseJSON = parseJSONText "BillingMode"
+{-# COMPLETE
+  PayPerRequest,
+  Provisioned,
+  BillingMode'
+  #-}

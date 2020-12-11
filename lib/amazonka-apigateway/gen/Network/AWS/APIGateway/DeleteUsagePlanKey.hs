@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,102 @@
 --
 -- Deletes a usage plan key and remove the underlying API key from the associated usage plan.
 module Network.AWS.APIGateway.DeleteUsagePlanKey
-  ( -- * Creating a Request
-    deleteUsagePlanKey,
-    DeleteUsagePlanKey,
+  ( -- * Creating a request
+    DeleteUsagePlanKey (..),
+    mkDeleteUsagePlanKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dupkUsagePlanId,
     dupkKeyId,
 
-    -- * Destructuring the Response
-    deleteUsagePlanKeyResponse,
-    DeleteUsagePlanKeyResponse,
+    -- * Destructuring the response
+    DeleteUsagePlanKeyResponse (..),
+    mkDeleteUsagePlanKeyResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The DELETE request to delete a usage plan key and remove the underlying API key from the associated usage plan.
 --
---
---
--- /See:/ 'deleteUsagePlanKey' smart constructor.
+-- /See:/ 'mkDeleteUsagePlanKey' smart constructor.
 data DeleteUsagePlanKey = DeleteUsagePlanKey'
-  { _dupkUsagePlanId ::
-      !Text,
-    _dupkKeyId :: !Text
+  { usagePlanId ::
+      Lude.Text,
+    keyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUsagePlanKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dupkUsagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-deleted 'UsagePlanKey' resource representing a plan customer.
---
--- * 'dupkKeyId' - [Required] The Id of the 'UsagePlanKey' resource to be deleted.
-deleteUsagePlanKey ::
-  -- | 'dupkUsagePlanId'
-  Text ->
-  -- | 'dupkKeyId'
-  Text ->
+-- * 'keyId' - [Required] The Id of the 'UsagePlanKey' resource to be deleted.
+-- * 'usagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-deleted 'UsagePlanKey' resource representing a plan customer.
+mkDeleteUsagePlanKey ::
+  -- | 'usagePlanId'
+  Lude.Text ->
+  -- | 'keyId'
+  Lude.Text ->
   DeleteUsagePlanKey
-deleteUsagePlanKey pUsagePlanId_ pKeyId_ =
-  DeleteUsagePlanKey'
-    { _dupkUsagePlanId = pUsagePlanId_,
-      _dupkKeyId = pKeyId_
-    }
+mkDeleteUsagePlanKey pUsagePlanId_ pKeyId_ =
+  DeleteUsagePlanKey' {usagePlanId = pUsagePlanId_, keyId = pKeyId_}
 
 -- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-deleted 'UsagePlanKey' resource representing a plan customer.
-dupkUsagePlanId :: Lens' DeleteUsagePlanKey Text
-dupkUsagePlanId = lens _dupkUsagePlanId (\s a -> s {_dupkUsagePlanId = a})
+--
+-- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupkUsagePlanId :: Lens.Lens' DeleteUsagePlanKey Lude.Text
+dupkUsagePlanId = Lens.lens (usagePlanId :: DeleteUsagePlanKey -> Lude.Text) (\s a -> s {usagePlanId = a} :: DeleteUsagePlanKey)
+{-# DEPRECATED dupkUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
 
 -- | [Required] The Id of the 'UsagePlanKey' resource to be deleted.
-dupkKeyId :: Lens' DeleteUsagePlanKey Text
-dupkKeyId = lens _dupkKeyId (\s a -> s {_dupkKeyId = a})
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupkKeyId :: Lens.Lens' DeleteUsagePlanKey Lude.Text
+dupkKeyId = Lens.lens (keyId :: DeleteUsagePlanKey -> Lude.Text) (\s a -> s {keyId = a} :: DeleteUsagePlanKey)
+{-# DEPRECATED dupkKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance AWSRequest DeleteUsagePlanKey where
+instance Lude.AWSRequest DeleteUsagePlanKey where
   type Rs DeleteUsagePlanKey = DeleteUsagePlanKeyResponse
-  request = delete apiGateway
-  response = receiveNull DeleteUsagePlanKeyResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteUsagePlanKeyResponse'
 
-instance Hashable DeleteUsagePlanKey
-
-instance NFData DeleteUsagePlanKey
-
-instance ToHeaders DeleteUsagePlanKey where
+instance Lude.ToHeaders DeleteUsagePlanKey where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteUsagePlanKey where
+instance Lude.ToPath DeleteUsagePlanKey where
   toPath DeleteUsagePlanKey' {..} =
-    mconcat
-      ["/usageplans/", toBS _dupkUsagePlanId, "/keys/", toBS _dupkKeyId]
+    Lude.mconcat
+      ["/usageplans/", Lude.toBS usagePlanId, "/keys/", Lude.toBS keyId]
 
-instance ToQuery DeleteUsagePlanKey where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteUsagePlanKey where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteUsagePlanKeyResponse' smart constructor.
+-- | /See:/ 'mkDeleteUsagePlanKeyResponse' smart constructor.
 data DeleteUsagePlanKeyResponse = DeleteUsagePlanKeyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUsagePlanKeyResponse' with the minimum fields required to make a request.
-deleteUsagePlanKeyResponse ::
+mkDeleteUsagePlanKeyResponse ::
   DeleteUsagePlanKeyResponse
-deleteUsagePlanKeyResponse = DeleteUsagePlanKeyResponse'
-
-instance NFData DeleteUsagePlanKeyResponse
+mkDeleteUsagePlanKeyResponse = DeleteUsagePlanKeyResponse'

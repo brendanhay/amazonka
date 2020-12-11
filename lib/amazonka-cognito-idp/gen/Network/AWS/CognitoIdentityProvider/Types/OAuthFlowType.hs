@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.OAuthFlowType where
+module Network.AWS.CognitoIdentityProvider.Types.OAuthFlowType
+  ( OAuthFlowType
+      ( OAuthFlowType',
+        ClientCredentials,
+        Code,
+        Implicit
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OAuthFlowType
-  = ClientCredentials
-  | Code
-  | Implicit
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OAuthFlowType = OAuthFlowType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OAuthFlowType where
-  parser =
-    takeLowerText >>= \case
-      "client_credentials" -> pure ClientCredentials
-      "code" -> pure Code
-      "implicit" -> pure Implicit
-      e ->
-        fromTextError $
-          "Failure parsing OAuthFlowType from value: '" <> e
-            <> "'. Accepted values: client_credentials, code, implicit"
+pattern ClientCredentials :: OAuthFlowType
+pattern ClientCredentials = OAuthFlowType' "client_credentials"
 
-instance ToText OAuthFlowType where
-  toText = \case
-    ClientCredentials -> "client_credentials"
-    Code -> "code"
-    Implicit -> "implicit"
+pattern Code :: OAuthFlowType
+pattern Code = OAuthFlowType' "code"
 
-instance Hashable OAuthFlowType
+pattern Implicit :: OAuthFlowType
+pattern Implicit = OAuthFlowType' "implicit"
 
-instance NFData OAuthFlowType
-
-instance ToByteString OAuthFlowType
-
-instance ToQuery OAuthFlowType
-
-instance ToHeader OAuthFlowType
-
-instance ToJSON OAuthFlowType where
-  toJSON = toJSONText
-
-instance FromJSON OAuthFlowType where
-  parseJSON = parseJSONText "OAuthFlowType"
+{-# COMPLETE
+  ClientCredentials,
+  Code,
+  Implicit,
+  OAuthFlowType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.CustomAMI where
+module Network.AWS.ElasticBeanstalk.Types.CustomAMI
+  ( CustomAMI (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCustomAMI,
+
+    -- * Lenses
+    caVirtualizationType,
+    caImageId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A custom AMI available to platforms.
 --
---
---
--- /See:/ 'customAMI' smart constructor.
+-- /See:/ 'mkCustomAMI' smart constructor.
 data CustomAMI = CustomAMI'
-  { _caVirtualizationType :: !(Maybe Text),
-    _caImageId :: !(Maybe Text)
+  { virtualizationType ::
+      Lude.Maybe Lude.Text,
+    imageId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomAMI' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caVirtualizationType' - The type of virtualization used to create the custom AMI.
---
--- * 'caImageId' - THe ID of the image used to create the custom AMI.
-customAMI ::
+-- * 'imageId' - THe ID of the image used to create the custom AMI.
+-- * 'virtualizationType' - The type of virtualization used to create the custom AMI.
+mkCustomAMI ::
   CustomAMI
-customAMI =
-  CustomAMI' {_caVirtualizationType = Nothing, _caImageId = Nothing}
+mkCustomAMI =
+  CustomAMI'
+    { virtualizationType = Lude.Nothing,
+      imageId = Lude.Nothing
+    }
 
 -- | The type of virtualization used to create the custom AMI.
-caVirtualizationType :: Lens' CustomAMI (Maybe Text)
-caVirtualizationType = lens _caVirtualizationType (\s a -> s {_caVirtualizationType = a})
+--
+-- /Note:/ Consider using 'virtualizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caVirtualizationType :: Lens.Lens' CustomAMI (Lude.Maybe Lude.Text)
+caVirtualizationType = Lens.lens (virtualizationType :: CustomAMI -> Lude.Maybe Lude.Text) (\s a -> s {virtualizationType = a} :: CustomAMI)
+{-# DEPRECATED caVirtualizationType "Use generic-lens or generic-optics with 'virtualizationType' instead." #-}
 
 -- | THe ID of the image used to create the custom AMI.
-caImageId :: Lens' CustomAMI (Maybe Text)
-caImageId = lens _caImageId (\s a -> s {_caImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caImageId :: Lens.Lens' CustomAMI (Lude.Maybe Lude.Text)
+caImageId = Lens.lens (imageId :: CustomAMI -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: CustomAMI)
+{-# DEPRECATED caImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
-instance FromXML CustomAMI where
+instance Lude.FromXML CustomAMI where
   parseXML x =
-    CustomAMI' <$> (x .@? "VirtualizationType") <*> (x .@? "ImageId")
-
-instance Hashable CustomAMI
-
-instance NFData CustomAMI
+    CustomAMI'
+      Lude.<$> (x Lude..@? "VirtualizationType") Lude.<*> (x Lude..@? "ImageId")

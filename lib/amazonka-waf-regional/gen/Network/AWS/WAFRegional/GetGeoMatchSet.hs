@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,133 @@
 --
 -- Returns the 'GeoMatchSet' that is specified by @GeoMatchSetId@ .
 module Network.AWS.WAFRegional.GetGeoMatchSet
-  ( -- * Creating a Request
-    getGeoMatchSet,
-    GetGeoMatchSet,
+  ( -- * Creating a request
+    GetGeoMatchSet (..),
+    mkGetGeoMatchSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggmsGeoMatchSetId,
 
-    -- * Destructuring the Response
-    getGeoMatchSetResponse,
-    GetGeoMatchSetResponse,
+    -- * Destructuring the response
+    GetGeoMatchSetResponse (..),
+    mkGetGeoMatchSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggmsrsGeoMatchSet,
     ggmsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'getGeoMatchSet' smart constructor.
+-- | /See:/ 'mkGetGeoMatchSet' smart constructor.
 newtype GetGeoMatchSet = GetGeoMatchSet'
-  { _ggmsGeoMatchSetId ::
-      Text
+  { geoMatchSetId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGeoMatchSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggmsGeoMatchSetId' - The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to get. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
-getGeoMatchSet ::
-  -- | 'ggmsGeoMatchSetId'
-  Text ->
+-- * 'geoMatchSetId' - The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to get. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
+mkGetGeoMatchSet ::
+  -- | 'geoMatchSetId'
+  Lude.Text ->
   GetGeoMatchSet
-getGeoMatchSet pGeoMatchSetId_ =
-  GetGeoMatchSet' {_ggmsGeoMatchSetId = pGeoMatchSetId_}
+mkGetGeoMatchSet pGeoMatchSetId_ =
+  GetGeoMatchSet' {geoMatchSetId = pGeoMatchSetId_}
 
 -- | The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to get. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
-ggmsGeoMatchSetId :: Lens' GetGeoMatchSet Text
-ggmsGeoMatchSetId = lens _ggmsGeoMatchSetId (\s a -> s {_ggmsGeoMatchSetId = a})
+--
+-- /Note:/ Consider using 'geoMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggmsGeoMatchSetId :: Lens.Lens' GetGeoMatchSet Lude.Text
+ggmsGeoMatchSetId = Lens.lens (geoMatchSetId :: GetGeoMatchSet -> Lude.Text) (\s a -> s {geoMatchSetId = a} :: GetGeoMatchSet)
+{-# DEPRECATED ggmsGeoMatchSetId "Use generic-lens or generic-optics with 'geoMatchSetId' instead." #-}
 
-instance AWSRequest GetGeoMatchSet where
+instance Lude.AWSRequest GetGeoMatchSet where
   type Rs GetGeoMatchSet = GetGeoMatchSetResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetGeoMatchSetResponse'
-            <$> (x .?> "GeoMatchSet") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GeoMatchSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetGeoMatchSet
-
-instance NFData GetGeoMatchSet
-
-instance ToHeaders GetGeoMatchSet where
+instance Lude.ToHeaders GetGeoMatchSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.GetGeoMatchSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_Regional_20161128.GetGeoMatchSet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetGeoMatchSet where
+instance Lude.ToJSON GetGeoMatchSet where
   toJSON GetGeoMatchSet' {..} =
-    object (catMaybes [Just ("GeoMatchSetId" .= _ggmsGeoMatchSetId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("GeoMatchSetId" Lude..= geoMatchSetId)]
+      )
 
-instance ToPath GetGeoMatchSet where
-  toPath = const "/"
+instance Lude.ToPath GetGeoMatchSet where
+  toPath = Lude.const "/"
 
-instance ToQuery GetGeoMatchSet where
-  toQuery = const mempty
+instance Lude.ToQuery GetGeoMatchSet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getGeoMatchSetResponse' smart constructor.
+-- | /See:/ 'mkGetGeoMatchSetResponse' smart constructor.
 data GetGeoMatchSetResponse = GetGeoMatchSetResponse'
-  { _ggmsrsGeoMatchSet ::
-      !(Maybe GeoMatchSet),
-    _ggmsrsResponseStatus :: !Int
+  { geoMatchSet ::
+      Lude.Maybe GeoMatchSet,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGeoMatchSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggmsrsGeoMatchSet' - Information about the 'GeoMatchSet' that you specified in the @GetGeoMatchSet@ request. This includes the @Type@ , which for a @GeoMatchContraint@ is always @Country@ , as well as the @Value@ , which is the identifier for a specific country.
---
--- * 'ggmsrsResponseStatus' - -- | The response status code.
-getGeoMatchSetResponse ::
-  -- | 'ggmsrsResponseStatus'
-  Int ->
+-- * 'geoMatchSet' - Information about the 'GeoMatchSet' that you specified in the @GetGeoMatchSet@ request. This includes the @Type@ , which for a @GeoMatchContraint@ is always @Country@ , as well as the @Value@ , which is the identifier for a specific country.
+-- * 'responseStatus' - The response status code.
+mkGetGeoMatchSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGeoMatchSetResponse
-getGeoMatchSetResponse pResponseStatus_ =
+mkGetGeoMatchSetResponse pResponseStatus_ =
   GetGeoMatchSetResponse'
-    { _ggmsrsGeoMatchSet = Nothing,
-      _ggmsrsResponseStatus = pResponseStatus_
+    { geoMatchSet = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the 'GeoMatchSet' that you specified in the @GetGeoMatchSet@ request. This includes the @Type@ , which for a @GeoMatchContraint@ is always @Country@ , as well as the @Value@ , which is the identifier for a specific country.
-ggmsrsGeoMatchSet :: Lens' GetGeoMatchSetResponse (Maybe GeoMatchSet)
-ggmsrsGeoMatchSet = lens _ggmsrsGeoMatchSet (\s a -> s {_ggmsrsGeoMatchSet = a})
+--
+-- /Note:/ Consider using 'geoMatchSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggmsrsGeoMatchSet :: Lens.Lens' GetGeoMatchSetResponse (Lude.Maybe GeoMatchSet)
+ggmsrsGeoMatchSet = Lens.lens (geoMatchSet :: GetGeoMatchSetResponse -> Lude.Maybe GeoMatchSet) (\s a -> s {geoMatchSet = a} :: GetGeoMatchSetResponse)
+{-# DEPRECATED ggmsrsGeoMatchSet "Use generic-lens or generic-optics with 'geoMatchSet' instead." #-}
 
--- | -- | The response status code.
-ggmsrsResponseStatus :: Lens' GetGeoMatchSetResponse Int
-ggmsrsResponseStatus = lens _ggmsrsResponseStatus (\s a -> s {_ggmsrsResponseStatus = a})
-
-instance NFData GetGeoMatchSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggmsrsResponseStatus :: Lens.Lens' GetGeoMatchSetResponse Lude.Int
+ggmsrsResponseStatus = Lens.lens (responseStatus :: GetGeoMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGeoMatchSetResponse)
+{-# DEPRECATED ggmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

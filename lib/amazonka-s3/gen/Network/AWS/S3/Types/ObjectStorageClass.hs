@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectStorageClass where
+module Network.AWS.S3.Types.ObjectStorageClass
+  ( ObjectStorageClass
+      ( ObjectStorageClass',
+        OSCGlacier,
+        OSCIntelligentTiering,
+        OSCReducedRedundancy,
+        OSCStandard,
+        OSCStandardIA
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data ObjectStorageClass
-  = OSCGlacier
-  | OSCIntelligentTiering
-  | OSCReducedRedundancy
-  | OSCStandard
-  | OSCStandardIA
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ObjectStorageClass = ObjectStorageClass' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ObjectStorageClass where
-  parser =
-    takeLowerText >>= \case
-      "glacier" -> pure OSCGlacier
-      "intelligent_tiering" -> pure OSCIntelligentTiering
-      "reduced_redundancy" -> pure OSCReducedRedundancy
-      "standard" -> pure OSCStandard
-      "standard_ia" -> pure OSCStandardIA
-      e ->
-        fromTextError $
-          "Failure parsing ObjectStorageClass from value: '" <> e
-            <> "'. Accepted values: glacier, intelligent_tiering, reduced_redundancy, standard, standard_ia"
+pattern OSCGlacier :: ObjectStorageClass
+pattern OSCGlacier = ObjectStorageClass' "GLACIER"
 
-instance ToText ObjectStorageClass where
-  toText = \case
-    OSCGlacier -> "GLACIER"
-    OSCIntelligentTiering -> "INTELLIGENT_TIERING"
-    OSCReducedRedundancy -> "REDUCED_REDUNDANCY"
-    OSCStandard -> "STANDARD"
-    OSCStandardIA -> "STANDARD_IA"
+pattern OSCIntelligentTiering :: ObjectStorageClass
+pattern OSCIntelligentTiering = ObjectStorageClass' "INTELLIGENT_TIERING"
 
-instance Hashable ObjectStorageClass
+pattern OSCReducedRedundancy :: ObjectStorageClass
+pattern OSCReducedRedundancy = ObjectStorageClass' "REDUCED_REDUNDANCY"
 
-instance NFData ObjectStorageClass
+pattern OSCStandard :: ObjectStorageClass
+pattern OSCStandard = ObjectStorageClass' "STANDARD"
 
-instance ToByteString ObjectStorageClass
+pattern OSCStandardIA :: ObjectStorageClass
+pattern OSCStandardIA = ObjectStorageClass' "STANDARD_IA"
 
-instance ToQuery ObjectStorageClass
-
-instance ToHeader ObjectStorageClass
-
-instance FromXML ObjectStorageClass where
-  parseXML = parseXMLText "ObjectStorageClass"
+{-# COMPLETE
+  OSCGlacier,
+  OSCIntelligentTiering,
+  OSCReducedRedundancy,
+  OSCStandard,
+  OSCStandardIA,
+  ObjectStorageClass'
+  #-}

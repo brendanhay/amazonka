@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,20 @@
 --
 -- Lists trails that are in the current account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudTrail.ListTrails
-  ( -- * Creating a Request
-    listTrails,
-    ListTrails,
+  ( -- * Creating a request
+    ListTrails (..),
+    mkListTrails,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lNextToken,
 
-    -- * Destructuring the Response
-    listTrailsResponse,
-    ListTrailsResponse,
+    -- * Destructuring the response
+    ListTrailsResponse (..),
+    mkListTrailsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrsNextToken,
     lrsTrails,
     lrsResponseStatus,
@@ -42,112 +35,131 @@ module Network.AWS.CloudTrail.ListTrails
 where
 
 import Network.AWS.CloudTrail.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTrails' smart constructor.
-newtype ListTrails = ListTrails' {_lNextToken :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkListTrails' smart constructor.
+newtype ListTrails = ListTrails' {nextToken :: Lude.Maybe Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lNextToken' - The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
-listTrails ::
+-- * 'nextToken' - The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
+mkListTrails ::
   ListTrails
-listTrails = ListTrails' {_lNextToken = Nothing}
+mkListTrails = ListTrails' {nextToken = Lude.Nothing}
 
 -- | The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
-lNextToken :: Lens' ListTrails (Maybe Text)
-lNextToken = lens _lNextToken (\s a -> s {_lNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListTrails (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListTrails -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrails)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListTrails where
+instance Page.AWSPager ListTrails where
   page rq rs
-    | stop (rs ^. lrsNextToken) = Nothing
-    | stop (rs ^. lrsTrails) = Nothing
-    | otherwise = Just $ rq & lNextToken .~ rs ^. lrsNextToken
+    | Page.stop (rs Lens.^. lrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrsTrails) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lNextToken Lens..~ rs Lens.^. lrsNextToken
 
-instance AWSRequest ListTrails where
+instance Lude.AWSRequest ListTrails where
   type Rs ListTrails = ListTrailsResponse
-  request = postJSON cloudTrail
+  request = Req.postJSON cloudTrailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTrailsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Trails" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Trails" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTrails
-
-instance NFData ListTrails
-
-instance ToHeaders ListTrails where
+instance Lude.ToHeaders ListTrails where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListTrails" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.ListTrails" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTrails where
+instance Lude.ToJSON ListTrails where
   toJSON ListTrails' {..} =
-    object (catMaybes [("NextToken" .=) <$> _lNextToken])
+    Lude.object
+      (Lude.catMaybes [("NextToken" Lude..=) Lude.<$> nextToken])
 
-instance ToPath ListTrails where
-  toPath = const "/"
+instance Lude.ToPath ListTrails where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTrails where
-  toQuery = const mempty
+instance Lude.ToQuery ListTrails where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTrailsResponse' smart constructor.
+-- | /See:/ 'mkListTrailsResponse' smart constructor.
 data ListTrailsResponse = ListTrailsResponse'
-  { _lrsNextToken ::
-      !(Maybe Text),
-    _lrsTrails :: !(Maybe [TrailInfo]),
-    _lrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    trails :: Lude.Maybe [TrailInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrailsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrsNextToken' - The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
---
--- * 'lrsTrails' - Returns the name, ARN, and home region of trails in the current account.
---
--- * 'lrsResponseStatus' - -- | The response status code.
-listTrailsResponse ::
-  -- | 'lrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
+-- * 'responseStatus' - The response status code.
+-- * 'trails' - Returns the name, ARN, and home region of trails in the current account.
+mkListTrailsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTrailsResponse
-listTrailsResponse pResponseStatus_ =
+mkListTrailsResponse pResponseStatus_ =
   ListTrailsResponse'
-    { _lrsNextToken = Nothing,
-      _lrsTrails = Nothing,
-      _lrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      trails = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
-lrsNextToken :: Lens' ListTrailsResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\s a -> s {_lrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsNextToken :: Lens.Lens' ListTrailsResponse (Lude.Maybe Lude.Text)
+lrsNextToken = Lens.lens (nextToken :: ListTrailsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrailsResponse)
+{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Returns the name, ARN, and home region of trails in the current account.
-lrsTrails :: Lens' ListTrailsResponse [TrailInfo]
-lrsTrails = lens _lrsTrails (\s a -> s {_lrsTrails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'trails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsTrails :: Lens.Lens' ListTrailsResponse (Lude.Maybe [TrailInfo])
+lrsTrails = Lens.lens (trails :: ListTrailsResponse -> Lude.Maybe [TrailInfo]) (\s a -> s {trails = a} :: ListTrailsResponse)
+{-# DEPRECATED lrsTrails "Use generic-lens or generic-optics with 'trails' instead." #-}
 
--- | -- | The response status code.
-lrsResponseStatus :: Lens' ListTrailsResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\s a -> s {_lrsResponseStatus = a})
-
-instance NFData ListTrailsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsResponseStatus :: Lens.Lens' ListTrailsResponse Lude.Int
+lrsResponseStatus = Lens.lens (responseStatus :: ListTrailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTrailsResponse)
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

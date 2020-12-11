@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,164 @@
 --
 -- Updates an Amazon Pinpoint configuration for a recommender model.
 module Network.AWS.Pinpoint.UpdateRecommenderConfiguration
-  ( -- * Creating a Request
-    updateRecommenderConfiguration,
-    UpdateRecommenderConfiguration,
+  ( -- * Creating a request
+    UpdateRecommenderConfiguration (..),
+    mkUpdateRecommenderConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urcRecommenderId,
     urcUpdateRecommenderConfiguration,
 
-    -- * Destructuring the Response
-    updateRecommenderConfigurationResponse,
-    UpdateRecommenderConfigurationResponse,
+    -- * Destructuring the response
+    UpdateRecommenderConfigurationResponse (..),
+    mkUpdateRecommenderConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urcrsResponseStatus,
     urcrsRecommenderConfigurationResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateRecommenderConfiguration' smart constructor.
+-- | /See:/ 'mkUpdateRecommenderConfiguration' smart constructor.
 data UpdateRecommenderConfiguration = UpdateRecommenderConfiguration'
-  { _urcRecommenderId ::
-      !Text,
-    _urcUpdateRecommenderConfiguration ::
-      !UpdateRecommenderConfiguration
+  { recommenderId ::
+      Lude.Text,
+    updateRecommenderConfiguration ::
+      UpdateRecommenderConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRecommenderConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urcRecommenderId' - The unique identifier for the recommender model configuration. This identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint console.
---
--- * 'urcUpdateRecommenderConfiguration' - Undocumented member.
-updateRecommenderConfiguration ::
-  -- | 'urcRecommenderId'
-  Text ->
-  -- | 'urcUpdateRecommenderConfiguration'
+-- * 'recommenderId' - The unique identifier for the recommender model configuration. This identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint console.
+-- * 'updateRecommenderConfiguration' - Undocumented field.
+mkUpdateRecommenderConfiguration ::
+  -- | 'recommenderId'
+  Lude.Text ->
+  -- | 'updateRecommenderConfiguration'
   UpdateRecommenderConfiguration ->
   UpdateRecommenderConfiguration
-updateRecommenderConfiguration
+mkUpdateRecommenderConfiguration
   pRecommenderId_
   pUpdateRecommenderConfiguration_ =
     UpdateRecommenderConfiguration'
-      { _urcRecommenderId =
-          pRecommenderId_,
-        _urcUpdateRecommenderConfiguration =
+      { recommenderId = pRecommenderId_,
+        updateRecommenderConfiguration =
           pUpdateRecommenderConfiguration_
       }
 
 -- | The unique identifier for the recommender model configuration. This identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint console.
-urcRecommenderId :: Lens' UpdateRecommenderConfiguration Text
-urcRecommenderId = lens _urcRecommenderId (\s a -> s {_urcRecommenderId = a})
+--
+-- /Note:/ Consider using 'recommenderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urcRecommenderId :: Lens.Lens' UpdateRecommenderConfiguration Lude.Text
+urcRecommenderId = Lens.lens (recommenderId :: UpdateRecommenderConfiguration -> Lude.Text) (\s a -> s {recommenderId = a} :: UpdateRecommenderConfiguration)
+{-# DEPRECATED urcRecommenderId "Use generic-lens or generic-optics with 'recommenderId' instead." #-}
 
--- | Undocumented member.
-urcUpdateRecommenderConfiguration :: Lens' UpdateRecommenderConfiguration UpdateRecommenderConfiguration
-urcUpdateRecommenderConfiguration = lens _urcUpdateRecommenderConfiguration (\s a -> s {_urcUpdateRecommenderConfiguration = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'updateRecommenderConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urcUpdateRecommenderConfiguration :: Lens.Lens' UpdateRecommenderConfiguration UpdateRecommenderConfiguration
+urcUpdateRecommenderConfiguration = Lens.lens (updateRecommenderConfiguration :: UpdateRecommenderConfiguration -> UpdateRecommenderConfiguration) (\s a -> s {updateRecommenderConfiguration = a} :: UpdateRecommenderConfiguration)
+{-# DEPRECATED urcUpdateRecommenderConfiguration "Use generic-lens or generic-optics with 'updateRecommenderConfiguration' instead." #-}
 
-instance AWSRequest UpdateRecommenderConfiguration where
+instance Lude.AWSRequest UpdateRecommenderConfiguration where
   type
     Rs UpdateRecommenderConfiguration =
       UpdateRecommenderConfigurationResponse
-  request = putJSON pinpoint
+  request = Req.putJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateRecommenderConfigurationResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable UpdateRecommenderConfiguration
-
-instance NFData UpdateRecommenderConfiguration
-
-instance ToHeaders UpdateRecommenderConfiguration where
+instance Lude.ToHeaders UpdateRecommenderConfiguration where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateRecommenderConfiguration where
+instance Lude.ToJSON UpdateRecommenderConfiguration where
   toJSON UpdateRecommenderConfiguration' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "UpdateRecommenderConfiguration"
-                  .= _urcUpdateRecommenderConfiguration
+                  Lude..= updateRecommenderConfiguration
               )
           ]
       )
 
-instance ToPath UpdateRecommenderConfiguration where
+instance Lude.ToPath UpdateRecommenderConfiguration where
   toPath UpdateRecommenderConfiguration' {..} =
-    mconcat ["/v1/recommenders/", toBS _urcRecommenderId]
+    Lude.mconcat ["/v1/recommenders/", Lude.toBS recommenderId]
 
-instance ToQuery UpdateRecommenderConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRecommenderConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateRecommenderConfigurationResponse' smart constructor.
+-- | /See:/ 'mkUpdateRecommenderConfigurationResponse' smart constructor.
 data UpdateRecommenderConfigurationResponse = UpdateRecommenderConfigurationResponse'
-  { _urcrsResponseStatus ::
-      !Int,
-    _urcrsRecommenderConfigurationResponse ::
-      !RecommenderConfigurationResponse
+  { responseStatus ::
+      Lude.Int,
+    recommenderConfigurationResponse ::
+      RecommenderConfigurationResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRecommenderConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urcrsResponseStatus' - -- | The response status code.
---
--- * 'urcrsRecommenderConfigurationResponse' - Undocumented member.
-updateRecommenderConfigurationResponse ::
-  -- | 'urcrsResponseStatus'
-  Int ->
-  -- | 'urcrsRecommenderConfigurationResponse'
+-- * 'recommenderConfigurationResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateRecommenderConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'recommenderConfigurationResponse'
   RecommenderConfigurationResponse ->
   UpdateRecommenderConfigurationResponse
-updateRecommenderConfigurationResponse
+mkUpdateRecommenderConfigurationResponse
   pResponseStatus_
   pRecommenderConfigurationResponse_ =
     UpdateRecommenderConfigurationResponse'
-      { _urcrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _urcrsRecommenderConfigurationResponse =
+        recommenderConfigurationResponse =
           pRecommenderConfigurationResponse_
       }
 
--- | -- | The response status code.
-urcrsResponseStatus :: Lens' UpdateRecommenderConfigurationResponse Int
-urcrsResponseStatus = lens _urcrsResponseStatus (\s a -> s {_urcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urcrsResponseStatus :: Lens.Lens' UpdateRecommenderConfigurationResponse Lude.Int
+urcrsResponseStatus = Lens.lens (responseStatus :: UpdateRecommenderConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRecommenderConfigurationResponse)
+{-# DEPRECATED urcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-urcrsRecommenderConfigurationResponse :: Lens' UpdateRecommenderConfigurationResponse RecommenderConfigurationResponse
-urcrsRecommenderConfigurationResponse = lens _urcrsRecommenderConfigurationResponse (\s a -> s {_urcrsRecommenderConfigurationResponse = a})
-
-instance NFData UpdateRecommenderConfigurationResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'recommenderConfigurationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urcrsRecommenderConfigurationResponse :: Lens.Lens' UpdateRecommenderConfigurationResponse RecommenderConfigurationResponse
+urcrsRecommenderConfigurationResponse = Lens.lens (recommenderConfigurationResponse :: UpdateRecommenderConfigurationResponse -> RecommenderConfigurationResponse) (\s a -> s {recommenderConfigurationResponse = a} :: UpdateRecommenderConfigurationResponse)
+{-# DEPRECATED urcrsRecommenderConfigurationResponse "Use generic-lens or generic-optics with 'recommenderConfigurationResponse' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,50 +17,54 @@
 --
 --     * If this operation creates the first version for the secret then Secrets Manager automatically attaches the staging label @AWSCURRENT@ to the new version.
 --
+--
 --     * If another version of this secret already exists, then this operation does not automatically move any staging labels other than those that you explicitly specify in the @VersionStages@ parameter.
 --
+--
 --     * If this operation moves the staging label @AWSCURRENT@ from another version to this version (because you included it in the @StagingLabels@ parameter) then Secrets Manager also automatically moves the staging label @AWSPREVIOUS@ to the version that @AWSCURRENT@ was removed from.
+--
 --
 --     * This operation is idempotent. If a version with a @VersionId@ with the same value as the @ClientRequestToken@ parameter already exists and you specify the same secret data, the operation succeeds but does nothing. However, if the secret data is different, then the operation fails because you cannot modify an existing version; you can only create new ones.
 --
 --
---
 -- __Minimum permissions__
---
 -- To run this command, you must have the following permissions:
 --
 --     * secretsmanager:PutSecretValue
 --
---     * kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account's default AWS managed CMK for Secrets Manager.
 --
+--     * kms:GenerateDataKey - needed only if you use a customer-managed AWS KMS key to encrypt the secret. You do not need this permission to use the account's default AWS managed CMK for Secrets Manager.
 --
 --
 -- __Related operations__
 --
 --     * To retrieve the encrypted value you store in the version of a secret, use 'GetSecretValue' .
 --
+--
 --     * To create a secret, use 'CreateSecret' .
+--
 --
 --     * To get the details for a secret, use 'DescribeSecret' .
 --
+--
 --     * To list the versions attached to a secret, use 'ListSecretVersionIds' .
 module Network.AWS.SecretsManager.PutSecretValue
-  ( -- * Creating a Request
-    putSecretValue,
-    PutSecretValue,
+  ( -- * Creating a request
+    PutSecretValue (..),
+    mkPutSecretValue,
 
-    -- * Request Lenses
+    -- ** Request lenses
     psvVersionStages,
     psvSecretBinary,
     psvSecretString,
     psvClientRequestToken,
     psvSecretId,
 
-    -- * Destructuring the Response
-    putSecretValueResponse,
-    PutSecretValueResponse,
+    -- * Destructuring the response
+    PutSecretValueResponse (..),
+    mkPutSecretValueResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     psvrsVersionId,
     psvrsARN,
     psvrsVersionStages,
@@ -74,169 +73,257 @@ module Network.AWS.SecretsManager.PutSecretValue
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SecretsManager.Types
 
--- | /See:/ 'putSecretValue' smart constructor.
+-- | /See:/ 'mkPutSecretValue' smart constructor.
 data PutSecretValue = PutSecretValue'
-  { _psvVersionStages ::
-      !(Maybe (List1 Text)),
-    _psvSecretBinary :: !(Maybe (Sensitive Base64)),
-    _psvSecretString :: !(Maybe (Sensitive Text)),
-    _psvClientRequestToken :: !(Maybe Text),
-    _psvSecretId :: !Text
+  { versionStages ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    secretBinary :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    secretString :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    secretId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSecretValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientRequestToken' - (Optional) Specifies a unique identifier for the new version of the secret.
 --
--- * 'psvVersionStages' - (Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value for @VersionStages@ then Secrets Manager automatically moves the staging label @AWSCURRENT@ to this new version.
+-- This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.
 --
--- * 'psvSecretBinary' - (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. This parameter is not accessible if the secret using the Secrets Manager console.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+--     * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.
 --
--- * 'psvSecretString' - (Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty. If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse. For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ . For example: @[{"username":"bob"},{"password":"abc123xyz456"}]@  If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
 --
--- * 'psvClientRequestToken' - (Optional) Specifies a unique identifier for the new version of the secret.  This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.      * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.      * If a version with this value already exists and that version's @SecretString@ or @SecretBinary@ values are the same as those in the request then the request is ignored (the operation is idempotent).      * If a version with this value already exists and the version of the @SecretString@ and @SecretBinary@ values are different from those in the request then the request fails because you cannot modify an existing secret version. You can only create new versions to store new secret values. This value becomes the @VersionId@ of the new version.
+--     * If a version with this value already exists and that version's @SecretString@ or @SecretBinary@ values are the same as those in the request then the request is ignored (the operation is idempotent).
 --
--- * 'psvSecretId' - Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-putSecretValue ::
-  -- | 'psvSecretId'
-  Text ->
+--
+--     * If a version with this value already exists and the version of the @SecretString@ and @SecretBinary@ values are different from those in the request then the request fails because you cannot modify an existing secret version. You can only create new versions to store new secret values.
+--
+--
+-- This value becomes the @VersionId@ of the new version.
+-- * 'secretBinary' - (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty.
+--
+-- This parameter is not accessible if the secret using the Secrets Manager console.
+
+----
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+
+-- * 'secretId' - Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+
+-- * 'secretString' - (Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
+
+--
+-- If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse.
+-- For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+-- For example:
+-- @[{"username":"bob"},{"password":"abc123xyz456"}]@
+-- If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
+
+-- * 'versionStages' - (Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function.
+
+--
+-- A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version.
+-- If you do not specify a value for @VersionStages@ then Secrets Manager automatically moves the staging label @AWSCURRENT@ to this new version.
+mkPutSecretValue ::
+  -- | 'secretId'
+  Lude.Text ->
   PutSecretValue
-putSecretValue pSecretId_ =
+mkPutSecretValue pSecretId_ =
   PutSecretValue'
-    { _psvVersionStages = Nothing,
-      _psvSecretBinary = Nothing,
-      _psvSecretString = Nothing,
-      _psvClientRequestToken = Nothing,
-      _psvSecretId = pSecretId_
+    { versionStages = Lude.Nothing,
+      secretBinary = Lude.Nothing,
+      secretString = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
+      secretId = pSecretId_
     }
 
--- | (Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value for @VersionStages@ then Secrets Manager automatically moves the staging label @AWSCURRENT@ to this new version.
-psvVersionStages :: Lens' PutSecretValue (Maybe (NonEmpty Text))
-psvVersionStages = lens _psvVersionStages (\s a -> s {_psvVersionStages = a}) . mapping _List1
+-- | (Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function.
+--
+-- A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version.
+-- If you do not specify a value for @VersionStages@ then Secrets Manager automatically moves the staging label @AWSCURRENT@ to this new version.
+--
+-- /Note:/ Consider using 'versionStages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvVersionStages :: Lens.Lens' PutSecretValue (Lude.Maybe (Lude.NonEmpty Lude.Text))
+psvVersionStages = Lens.lens (versionStages :: PutSecretValue -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {versionStages = a} :: PutSecretValue)
+{-# DEPRECATED psvVersionStages "Use generic-lens or generic-optics with 'versionStages' instead." #-}
 
--- | (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty. This parameter is not accessible if the secret using the Secrets Manager console.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-psvSecretBinary :: Lens' PutSecretValue (Maybe ByteString)
-psvSecretBinary = lens _psvSecretBinary (\s a -> s {_psvSecretBinary = a}) . mapping (_Sensitive . _Base64)
+-- | (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty.
+--
+-- This parameter is not accessible if the secret using the Secrets Manager console.
 
--- | (Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty. If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse. For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ . For example: @[{"username":"bob"},{"password":"abc123xyz456"}]@  If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
-psvSecretString :: Lens' PutSecretValue (Maybe Text)
-psvSecretString = lens _psvSecretString (\s a -> s {_psvSecretString = a}) . mapping _Sensitive
+----
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'secretBinary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvSecretBinary :: Lens.Lens' PutSecretValue (Lude.Maybe (Lude.Sensitive Lude.Base64))
+psvSecretBinary = Lens.lens (secretBinary :: PutSecretValue -> Lude.Maybe (Lude.Sensitive Lude.Base64)) (\s a -> s {secretBinary = a} :: PutSecretValue)
+{-# DEPRECATED psvSecretBinary "Use generic-lens or generic-optics with 'secretBinary' instead." #-}
 
--- | (Optional) Specifies a unique identifier for the new version of the secret.  This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.      * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.      * If a version with this value already exists and that version's @SecretString@ or @SecretBinary@ values are the same as those in the request then the request is ignored (the operation is idempotent).      * If a version with this value already exists and the version of the @SecretString@ and @SecretBinary@ values are different from those in the request then the request fails because you cannot modify an existing secret version. You can only create new versions to store new secret values. This value becomes the @VersionId@ of the new version.
-psvClientRequestToken :: Lens' PutSecretValue (Maybe Text)
-psvClientRequestToken = lens _psvClientRequestToken (\s a -> s {_psvClientRequestToken = a})
+-- | (Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
+--
+-- If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse.
+-- For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+-- For example:
+-- @[{"username":"bob"},{"password":"abc123xyz456"}]@
+-- If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
+--
+-- /Note:/ Consider using 'secretString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvSecretString :: Lens.Lens' PutSecretValue (Lude.Maybe (Lude.Sensitive Lude.Text))
+psvSecretString = Lens.lens (secretString :: PutSecretValue -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretString = a} :: PutSecretValue)
+{-# DEPRECATED psvSecretString "Use generic-lens or generic-optics with 'secretString' instead." #-}
+
+-- | (Optional) Specifies a unique identifier for the new version of the secret.
+--
+-- This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.
+--
+--     * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.
+--
+--
+--     * If a version with this value already exists and that version's @SecretString@ or @SecretBinary@ values are the same as those in the request then the request is ignored (the operation is idempotent).
+--
+--
+--     * If a version with this value already exists and the version of the @SecretString@ and @SecretBinary@ values are different from those in the request then the request fails because you cannot modify an existing secret version. You can only create new versions to store new secret values.
+--
+--
+-- This value becomes the @VersionId@ of the new version.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvClientRequestToken :: Lens.Lens' PutSecretValue (Lude.Maybe Lude.Text)
+psvClientRequestToken = Lens.lens (clientRequestToken :: PutSecretValue -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: PutSecretValue)
+{-# DEPRECATED psvClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-psvSecretId :: Lens' PutSecretValue Text
-psvSecretId = lens _psvSecretId (\s a -> s {_psvSecretId = a})
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvSecretId :: Lens.Lens' PutSecretValue Lude.Text
+psvSecretId = Lens.lens (secretId :: PutSecretValue -> Lude.Text) (\s a -> s {secretId = a} :: PutSecretValue)
+{-# DEPRECATED psvSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
-instance AWSRequest PutSecretValue where
+instance Lude.AWSRequest PutSecretValue where
   type Rs PutSecretValue = PutSecretValueResponse
-  request = postJSON secretsManager
+  request = Req.postJSON secretsManagerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutSecretValueResponse'
-            <$> (x .?> "VersionId")
-            <*> (x .?> "ARN")
-            <*> (x .?> "VersionStages")
-            <*> (x .?> "Name")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "VersionId")
+            Lude.<*> (x Lude..?> "ARN")
+            Lude.<*> (x Lude..?> "VersionStages")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutSecretValue
-
-instance NFData PutSecretValue
-
-instance ToHeaders PutSecretValue where
+instance Lude.ToHeaders PutSecretValue where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("secretsmanager.PutSecretValue" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("secretsmanager.PutSecretValue" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutSecretValue where
+instance Lude.ToJSON PutSecretValue where
   toJSON PutSecretValue' {..} =
-    object
-      ( catMaybes
-          [ ("VersionStages" .=) <$> _psvVersionStages,
-            ("SecretBinary" .=) <$> _psvSecretBinary,
-            ("SecretString" .=) <$> _psvSecretString,
-            ("ClientRequestToken" .=) <$> _psvClientRequestToken,
-            Just ("SecretId" .= _psvSecretId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("VersionStages" Lude..=) Lude.<$> versionStages,
+            ("SecretBinary" Lude..=) Lude.<$> secretBinary,
+            ("SecretString" Lude..=) Lude.<$> secretString,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("SecretId" Lude..= secretId)
           ]
       )
 
-instance ToPath PutSecretValue where
-  toPath = const "/"
+instance Lude.ToPath PutSecretValue where
+  toPath = Lude.const "/"
 
-instance ToQuery PutSecretValue where
-  toQuery = const mempty
+instance Lude.ToQuery PutSecretValue where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putSecretValueResponse' smart constructor.
+-- | /See:/ 'mkPutSecretValueResponse' smart constructor.
 data PutSecretValueResponse = PutSecretValueResponse'
-  { _psvrsVersionId ::
-      !(Maybe Text),
-    _psvrsARN :: !(Maybe Text),
-    _psvrsVersionStages :: !(Maybe (List1 Text)),
-    _psvrsName :: !(Maybe Text),
-    _psvrsResponseStatus :: !Int
+  { versionId ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    versionStages ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    name :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSecretValueResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'psvrsVersionId' - The unique identifier of the version of the secret you just created or updated.
---
--- * 'psvrsARN' - The Amazon Resource Name (ARN) for the secret for which you just created a version.
---
--- * 'psvrsVersionStages' - The list of staging labels that are currently attached to this version of the secret. Staging labels are used to track a version as it progresses through the secret rotation process.
---
--- * 'psvrsName' - The friendly name of the secret for which you just created or updated a version.
---
--- * 'psvrsResponseStatus' - -- | The response status code.
-putSecretValueResponse ::
-  -- | 'psvrsResponseStatus'
-  Int ->
+-- * 'arn' - The Amazon Resource Name (ARN) for the secret for which you just created a version.
+-- * 'name' - The friendly name of the secret for which you just created or updated a version.
+-- * 'responseStatus' - The response status code.
+-- * 'versionId' - The unique identifier of the version of the secret you just created or updated.
+-- * 'versionStages' - The list of staging labels that are currently attached to this version of the secret. Staging labels are used to track a version as it progresses through the secret rotation process.
+mkPutSecretValueResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutSecretValueResponse
-putSecretValueResponse pResponseStatus_ =
+mkPutSecretValueResponse pResponseStatus_ =
   PutSecretValueResponse'
-    { _psvrsVersionId = Nothing,
-      _psvrsARN = Nothing,
-      _psvrsVersionStages = Nothing,
-      _psvrsName = Nothing,
-      _psvrsResponseStatus = pResponseStatus_
+    { versionId = Lude.Nothing,
+      arn = Lude.Nothing,
+      versionStages = Lude.Nothing,
+      name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique identifier of the version of the secret you just created or updated.
-psvrsVersionId :: Lens' PutSecretValueResponse (Maybe Text)
-psvrsVersionId = lens _psvrsVersionId (\s a -> s {_psvrsVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvrsVersionId :: Lens.Lens' PutSecretValueResponse (Lude.Maybe Lude.Text)
+psvrsVersionId = Lens.lens (versionId :: PutSecretValueResponse -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: PutSecretValueResponse)
+{-# DEPRECATED psvrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the secret for which you just created a version.
-psvrsARN :: Lens' PutSecretValueResponse (Maybe Text)
-psvrsARN = lens _psvrsARN (\s a -> s {_psvrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvrsARN :: Lens.Lens' PutSecretValueResponse (Lude.Maybe Lude.Text)
+psvrsARN = Lens.lens (arn :: PutSecretValueResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: PutSecretValueResponse)
+{-# DEPRECATED psvrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The list of staging labels that are currently attached to this version of the secret. Staging labels are used to track a version as it progresses through the secret rotation process.
-psvrsVersionStages :: Lens' PutSecretValueResponse (Maybe (NonEmpty Text))
-psvrsVersionStages = lens _psvrsVersionStages (\s a -> s {_psvrsVersionStages = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'versionStages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvrsVersionStages :: Lens.Lens' PutSecretValueResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+psvrsVersionStages = Lens.lens (versionStages :: PutSecretValueResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {versionStages = a} :: PutSecretValueResponse)
+{-# DEPRECATED psvrsVersionStages "Use generic-lens or generic-optics with 'versionStages' instead." #-}
 
 -- | The friendly name of the secret for which you just created or updated a version.
-psvrsName :: Lens' PutSecretValueResponse (Maybe Text)
-psvrsName = lens _psvrsName (\s a -> s {_psvrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvrsName :: Lens.Lens' PutSecretValueResponse (Lude.Maybe Lude.Text)
+psvrsName = Lens.lens (name :: PutSecretValueResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PutSecretValueResponse)
+{-# DEPRECATED psvrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-psvrsResponseStatus :: Lens' PutSecretValueResponse Int
-psvrsResponseStatus = lens _psvrsResponseStatus (\s a -> s {_psvrsResponseStatus = a})
-
-instance NFData PutSecretValueResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvrsResponseStatus :: Lens.Lens' PutSecretValueResponse Lude.Int
+psvrsResponseStatus = Lens.lens (responseStatus :: PutSecretValueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutSecretValueResponse)
+{-# DEPRECATED psvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

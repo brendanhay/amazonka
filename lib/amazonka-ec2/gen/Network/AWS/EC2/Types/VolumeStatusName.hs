@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeStatusName where
+module Network.AWS.EC2.Types.VolumeStatusName
+  ( VolumeStatusName
+      ( VolumeStatusName',
+        IOEnabled,
+        IOPerformance
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VolumeStatusName
-  = IOEnabled
-  | IOPerformance
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VolumeStatusName = VolumeStatusName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VolumeStatusName where
-  parser =
-    takeLowerText >>= \case
-      "io-enabled" -> pure IOEnabled
-      "io-performance" -> pure IOPerformance
-      e ->
-        fromTextError $
-          "Failure parsing VolumeStatusName from value: '" <> e
-            <> "'. Accepted values: io-enabled, io-performance"
+pattern IOEnabled :: VolumeStatusName
+pattern IOEnabled = VolumeStatusName' "io-enabled"
 
-instance ToText VolumeStatusName where
-  toText = \case
-    IOEnabled -> "io-enabled"
-    IOPerformance -> "io-performance"
+pattern IOPerformance :: VolumeStatusName
+pattern IOPerformance = VolumeStatusName' "io-performance"
 
-instance Hashable VolumeStatusName
-
-instance NFData VolumeStatusName
-
-instance ToByteString VolumeStatusName
-
-instance ToQuery VolumeStatusName
-
-instance ToHeader VolumeStatusName
-
-instance FromXML VolumeStatusName where
-  parseXML = parseXMLText "VolumeStatusName"
+{-# COMPLETE
+  IOEnabled,
+  IOPerformance,
+  VolumeStatusName'
+  #-}

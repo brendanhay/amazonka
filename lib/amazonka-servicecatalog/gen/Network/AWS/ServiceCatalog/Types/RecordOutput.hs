@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.RecordOutput where
+module Network.AWS.ServiceCatalog.Types.RecordOutput
+  ( RecordOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRecordOutput,
+
+    -- * Lenses
+    roOutputValue,
+    roOutputKey,
+    roDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The output for the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
 --
---
---
--- /See:/ 'recordOutput' smart constructor.
+-- /See:/ 'mkRecordOutput' smart constructor.
 data RecordOutput = RecordOutput'
-  { _roOutputValue :: !(Maybe Text),
-    _roOutputKey :: !(Maybe Text),
-    _roDescription :: !(Maybe Text)
+  { outputValue ::
+      Lude.Maybe Lude.Text,
+    outputKey :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'roOutputValue' - The output value.
---
--- * 'roOutputKey' - The output key.
---
--- * 'roDescription' - The description of the output.
-recordOutput ::
+-- * 'description' - The description of the output.
+-- * 'outputKey' - The output key.
+-- * 'outputValue' - The output value.
+mkRecordOutput ::
   RecordOutput
-recordOutput =
+mkRecordOutput =
   RecordOutput'
-    { _roOutputValue = Nothing,
-      _roOutputKey = Nothing,
-      _roDescription = Nothing
+    { outputValue = Lude.Nothing,
+      outputKey = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The output value.
-roOutputValue :: Lens' RecordOutput (Maybe Text)
-roOutputValue = lens _roOutputValue (\s a -> s {_roOutputValue = a})
+--
+-- /Note:/ Consider using 'outputValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roOutputValue :: Lens.Lens' RecordOutput (Lude.Maybe Lude.Text)
+roOutputValue = Lens.lens (outputValue :: RecordOutput -> Lude.Maybe Lude.Text) (\s a -> s {outputValue = a} :: RecordOutput)
+{-# DEPRECATED roOutputValue "Use generic-lens or generic-optics with 'outputValue' instead." #-}
 
 -- | The output key.
-roOutputKey :: Lens' RecordOutput (Maybe Text)
-roOutputKey = lens _roOutputKey (\s a -> s {_roOutputKey = a})
+--
+-- /Note:/ Consider using 'outputKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roOutputKey :: Lens.Lens' RecordOutput (Lude.Maybe Lude.Text)
+roOutputKey = Lens.lens (outputKey :: RecordOutput -> Lude.Maybe Lude.Text) (\s a -> s {outputKey = a} :: RecordOutput)
+{-# DEPRECATED roOutputKey "Use generic-lens or generic-optics with 'outputKey' instead." #-}
 
 -- | The description of the output.
-roDescription :: Lens' RecordOutput (Maybe Text)
-roDescription = lens _roDescription (\s a -> s {_roDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roDescription :: Lens.Lens' RecordOutput (Lude.Maybe Lude.Text)
+roDescription = Lens.lens (description :: RecordOutput -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RecordOutput)
+{-# DEPRECATED roDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON RecordOutput where
+instance Lude.FromJSON RecordOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "RecordOutput"
       ( \x ->
           RecordOutput'
-            <$> (x .:? "OutputValue")
-            <*> (x .:? "OutputKey")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "OutputValue")
+            Lude.<*> (x Lude..:? "OutputKey")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable RecordOutput
-
-instance NFData RecordOutput

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.HiveJSONSerDe where
+module Network.AWS.Firehose.Types.HiveJSONSerDe
+  ( HiveJSONSerDe (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHiveJSONSerDe,
+
+    -- * Lenses
+    hjsdTimestampFormats,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
 --
---
---
--- /See:/ 'hiveJSONSerDe' smart constructor.
+-- /See:/ 'mkHiveJSONSerDe' smart constructor.
 newtype HiveJSONSerDe = HiveJSONSerDe'
-  { _hjsdTimestampFormats ::
-      Maybe [Text]
+  { timestampFormats ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HiveJSONSerDe' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hjsdTimestampFormats' - Indicates how you want Kinesis Data Firehose to parse the date and timestamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html Class DateTimeFormat> . You can also use the special value @millis@ to parse timestamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses @java.sql.Timestamp::valueOf@ by default.
-hiveJSONSerDe ::
+-- * 'timestampFormats' - Indicates how you want Kinesis Data Firehose to parse the date and timestamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html Class DateTimeFormat> . You can also use the special value @millis@ to parse timestamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses @java.sql.Timestamp::valueOf@ by default.
+mkHiveJSONSerDe ::
   HiveJSONSerDe
-hiveJSONSerDe = HiveJSONSerDe' {_hjsdTimestampFormats = Nothing}
+mkHiveJSONSerDe = HiveJSONSerDe' {timestampFormats = Lude.Nothing}
 
 -- | Indicates how you want Kinesis Data Firehose to parse the date and timestamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html Class DateTimeFormat> . You can also use the special value @millis@ to parse timestamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses @java.sql.Timestamp::valueOf@ by default.
-hjsdTimestampFormats :: Lens' HiveJSONSerDe [Text]
-hjsdTimestampFormats = lens _hjsdTimestampFormats (\s a -> s {_hjsdTimestampFormats = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'timestampFormats' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hjsdTimestampFormats :: Lens.Lens' HiveJSONSerDe (Lude.Maybe [Lude.Text])
+hjsdTimestampFormats = Lens.lens (timestampFormats :: HiveJSONSerDe -> Lude.Maybe [Lude.Text]) (\s a -> s {timestampFormats = a} :: HiveJSONSerDe)
+{-# DEPRECATED hjsdTimestampFormats "Use generic-lens or generic-optics with 'timestampFormats' instead." #-}
 
-instance FromJSON HiveJSONSerDe where
+instance Lude.FromJSON HiveJSONSerDe where
   parseJSON =
-    withObject
+    Lude.withObject
       "HiveJSONSerDe"
-      (\x -> HiveJSONSerDe' <$> (x .:? "TimestampFormats" .!= mempty))
+      ( \x ->
+          HiveJSONSerDe'
+            Lude.<$> (x Lude..:? "TimestampFormats" Lude..!= Lude.mempty)
+      )
 
-instance Hashable HiveJSONSerDe
-
-instance NFData HiveJSONSerDe
-
-instance ToJSON HiveJSONSerDe where
+instance Lude.ToJSON HiveJSONSerDe where
   toJSON HiveJSONSerDe' {..} =
-    object
-      (catMaybes [("TimestampFormats" .=) <$> _hjsdTimestampFormats])
+    Lude.object
+      ( Lude.catMaybes
+          [("TimestampFormats" Lude..=) Lude.<$> timestampFormats]
+      )

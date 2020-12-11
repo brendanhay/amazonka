@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Describes properties of scheduled actions.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeScheduledActions
-  ( -- * Creating a Request
-    describeScheduledActions,
-    DescribeScheduledActions,
+  ( -- * Creating a request
+    DescribeScheduledActions (..),
+    mkDescribeScheduledActions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsasStartTime,
     dsasScheduledActionName,
     dsasFilters,
@@ -37,196 +30,234 @@ module Network.AWS.Redshift.DescribeScheduledActions
     dsasMaxRecords,
     dsasEndTime,
 
-    -- * Destructuring the Response
-    describeScheduledActionsResponse,
-    DescribeScheduledActionsResponse,
+    -- * Destructuring the response
+    DescribeScheduledActionsResponse (..),
+    mkDescribeScheduledActionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsarsScheduledActions,
     dsarsMarker,
     dsarsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeScheduledActions' smart constructor.
+-- | /See:/ 'mkDescribeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
-  { _dsasStartTime ::
-      !(Maybe ISO8601),
-    _dsasScheduledActionName :: !(Maybe Text),
-    _dsasFilters ::
-      !(Maybe [ScheduledActionFilter]),
-    _dsasActive :: !(Maybe Bool),
-    _dsasTargetActionType ::
-      !(Maybe ScheduledActionTypeValues),
-    _dsasMarker :: !(Maybe Text),
-    _dsasMaxRecords :: !(Maybe Int),
-    _dsasEndTime :: !(Maybe ISO8601)
+  { startTime ::
+      Lude.Maybe Lude.ISO8601,
+    scheduledActionName ::
+      Lude.Maybe Lude.Text,
+    filters ::
+      Lude.Maybe [ScheduledActionFilter],
+    active :: Lude.Maybe Lude.Bool,
+    targetActionType ::
+      Lude.Maybe ScheduledActionTypeValues,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int,
+    endTime :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledActions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'active' - If true, retrieve only active scheduled actions. If false, retrieve only disabled scheduled actions.
+-- * 'endTime' - The end time in UTC of the scheduled action to retrieve. Only active scheduled actions that have invocations before this time are retrieved.
+-- * 'filters' - List of scheduled action filters.
+-- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeScheduledActions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+-- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
--- * 'dsasStartTime' - The start time in UTC of the scheduled actions to retrieve. Only active scheduled actions that have invocations after this time are retrieved.
---
--- * 'dsasScheduledActionName' - The name of the scheduled action to retrieve.
---
--- * 'dsasFilters' - List of scheduled action filters.
---
--- * 'dsasActive' - If true, retrieve only active scheduled actions. If false, retrieve only disabled scheduled actions.
---
--- * 'dsasTargetActionType' - The type of the scheduled actions to retrieve.
---
--- * 'dsasMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeScheduledActions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
---
--- * 'dsasMaxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
---
--- * 'dsasEndTime' - The end time in UTC of the scheduled action to retrieve. Only active scheduled actions that have invocations before this time are retrieved.
-describeScheduledActions ::
+-- Default: @100@
+-- Constraints: minimum 20, maximum 100.
+-- * 'scheduledActionName' - The name of the scheduled action to retrieve.
+-- * 'startTime' - The start time in UTC of the scheduled actions to retrieve. Only active scheduled actions that have invocations after this time are retrieved.
+-- * 'targetActionType' - The type of the scheduled actions to retrieve.
+mkDescribeScheduledActions ::
   DescribeScheduledActions
-describeScheduledActions =
+mkDescribeScheduledActions =
   DescribeScheduledActions'
-    { _dsasStartTime = Nothing,
-      _dsasScheduledActionName = Nothing,
-      _dsasFilters = Nothing,
-      _dsasActive = Nothing,
-      _dsasTargetActionType = Nothing,
-      _dsasMarker = Nothing,
-      _dsasMaxRecords = Nothing,
-      _dsasEndTime = Nothing
+    { startTime = Lude.Nothing,
+      scheduledActionName = Lude.Nothing,
+      filters = Lude.Nothing,
+      active = Lude.Nothing,
+      targetActionType = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      endTime = Lude.Nothing
     }
 
 -- | The start time in UTC of the scheduled actions to retrieve. Only active scheduled actions that have invocations after this time are retrieved.
-dsasStartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
-dsasStartTime = lens _dsasStartTime (\s a -> s {_dsasStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasStartTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.ISO8601)
+dsasStartTime = Lens.lens (startTime :: DescribeScheduledActions -> Lude.Maybe Lude.ISO8601) (\s a -> s {startTime = a} :: DescribeScheduledActions)
+{-# DEPRECATED dsasStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The name of the scheduled action to retrieve.
-dsasScheduledActionName :: Lens' DescribeScheduledActions (Maybe Text)
-dsasScheduledActionName = lens _dsasScheduledActionName (\s a -> s {_dsasScheduledActionName = a})
+--
+-- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasScheduledActionName :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.Text)
+dsasScheduledActionName = Lens.lens (scheduledActionName :: DescribeScheduledActions -> Lude.Maybe Lude.Text) (\s a -> s {scheduledActionName = a} :: DescribeScheduledActions)
+{-# DEPRECATED dsasScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
 -- | List of scheduled action filters.
-dsasFilters :: Lens' DescribeScheduledActions [ScheduledActionFilter]
-dsasFilters = lens _dsasFilters (\s a -> s {_dsasFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasFilters :: Lens.Lens' DescribeScheduledActions (Lude.Maybe [ScheduledActionFilter])
+dsasFilters = Lens.lens (filters :: DescribeScheduledActions -> Lude.Maybe [ScheduledActionFilter]) (\s a -> s {filters = a} :: DescribeScheduledActions)
+{-# DEPRECATED dsasFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | If true, retrieve only active scheduled actions. If false, retrieve only disabled scheduled actions.
-dsasActive :: Lens' DescribeScheduledActions (Maybe Bool)
-dsasActive = lens _dsasActive (\s a -> s {_dsasActive = a})
+--
+-- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasActive :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.Bool)
+dsasActive = Lens.lens (active :: DescribeScheduledActions -> Lude.Maybe Lude.Bool) (\s a -> s {active = a} :: DescribeScheduledActions)
+{-# DEPRECATED dsasActive "Use generic-lens or generic-optics with 'active' instead." #-}
 
 -- | The type of the scheduled actions to retrieve.
-dsasTargetActionType :: Lens' DescribeScheduledActions (Maybe ScheduledActionTypeValues)
-dsasTargetActionType = lens _dsasTargetActionType (\s a -> s {_dsasTargetActionType = a})
+--
+-- /Note:/ Consider using 'targetActionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasTargetActionType :: Lens.Lens' DescribeScheduledActions (Lude.Maybe ScheduledActionTypeValues)
+dsasTargetActionType = Lens.lens (targetActionType :: DescribeScheduledActions -> Lude.Maybe ScheduledActionTypeValues) (\s a -> s {targetActionType = a} :: DescribeScheduledActions)
+{-# DEPRECATED dsasTargetActionType "Use generic-lens or generic-optics with 'targetActionType' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeScheduledActions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-dsasMarker :: Lens' DescribeScheduledActions (Maybe Text)
-dsasMarker = lens _dsasMarker (\s a -> s {_dsasMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasMarker :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.Text)
+dsasMarker = Lens.lens (marker :: DescribeScheduledActions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeScheduledActions)
+{-# DEPRECATED dsasMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.  Default: @100@  Constraints: minimum 20, maximum 100.
-dsasMaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
-dsasMaxRecords = lens _dsasMaxRecords (\s a -> s {_dsasMaxRecords = a})
+-- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
+--
+-- Default: @100@
+-- Constraints: minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasMaxRecords :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.Int)
+dsasMaxRecords = Lens.lens (maxRecords :: DescribeScheduledActions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeScheduledActions)
+{-# DEPRECATED dsasMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The end time in UTC of the scheduled action to retrieve. Only active scheduled actions that have invocations before this time are retrieved.
-dsasEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
-dsasEndTime = lens _dsasEndTime (\s a -> s {_dsasEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsasEndTime :: Lens.Lens' DescribeScheduledActions (Lude.Maybe Lude.ISO8601)
+dsasEndTime = Lens.lens (endTime :: DescribeScheduledActions -> Lude.Maybe Lude.ISO8601) (\s a -> s {endTime = a} :: DescribeScheduledActions)
+{-# DEPRECATED dsasEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance AWSPager DescribeScheduledActions where
+instance Page.AWSPager DescribeScheduledActions where
   page rq rs
-    | stop (rs ^. dsarsMarker) = Nothing
-    | stop (rs ^. dsarsScheduledActions) = Nothing
-    | otherwise = Just $ rq & dsasMarker .~ rs ^. dsarsMarker
+    | Page.stop (rs Lens.^. dsarsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dsarsScheduledActions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dsasMarker Lens..~ rs Lens.^. dsarsMarker
 
-instance AWSRequest DescribeScheduledActions where
+instance Lude.AWSRequest DescribeScheduledActions where
   type Rs DescribeScheduledActions = DescribeScheduledActionsResponse
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeScheduledActionsResult"
       ( \s h x ->
           DescribeScheduledActionsResponse'
-            <$> ( x .@? "ScheduledActions" .!@ mempty
-                    >>= may (parseXMLList "ScheduledAction")
-                )
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "ScheduledActions" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "ScheduledAction")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeScheduledActions
+instance Lude.ToHeaders DescribeScheduledActions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeScheduledActions
+instance Lude.ToPath DescribeScheduledActions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeScheduledActions where
-  toHeaders = const mempty
-
-instance ToPath DescribeScheduledActions where
-  toPath = const "/"
-
-instance ToQuery DescribeScheduledActions where
+instance Lude.ToQuery DescribeScheduledActions where
   toQuery DescribeScheduledActions' {..} =
-    mconcat
-      [ "Action" =: ("DescribeScheduledActions" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "StartTime" =: _dsasStartTime,
-        "ScheduledActionName" =: _dsasScheduledActionName,
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeScheduledActions" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "StartTime" Lude.=: startTime,
+        "ScheduledActionName" Lude.=: scheduledActionName,
         "Filters"
-          =: toQuery (toQueryList "ScheduledActionFilter" <$> _dsasFilters),
-        "Active" =: _dsasActive,
-        "TargetActionType" =: _dsasTargetActionType,
-        "Marker" =: _dsasMarker,
-        "MaxRecords" =: _dsasMaxRecords,
-        "EndTime" =: _dsasEndTime
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "ScheduledActionFilter" Lude.<$> filters),
+        "Active" Lude.=: active,
+        "TargetActionType" Lude.=: targetActionType,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "EndTime" Lude.=: endTime
       ]
 
--- | /See:/ 'describeScheduledActionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeScheduledActionsResponse' smart constructor.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
-  { _dsarsScheduledActions ::
-      !( Maybe
-           [ScheduledAction]
-       ),
-    _dsarsMarker ::
-      !(Maybe Text),
-    _dsarsResponseStatus ::
-      !Int
+  { scheduledActions ::
+      Lude.Maybe
+        [ScheduledAction],
+    marker ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledActionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsarsScheduledActions' - List of retrieved scheduled actions.
---
--- * 'dsarsMarker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeScheduledActions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
---
--- * 'dsarsResponseStatus' - -- | The response status code.
-describeScheduledActionsResponse ::
-  -- | 'dsarsResponseStatus'
-  Int ->
+-- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeScheduledActions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+-- * 'responseStatus' - The response status code.
+-- * 'scheduledActions' - List of retrieved scheduled actions.
+mkDescribeScheduledActionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeScheduledActionsResponse
-describeScheduledActionsResponse pResponseStatus_ =
+mkDescribeScheduledActionsResponse pResponseStatus_ =
   DescribeScheduledActionsResponse'
-    { _dsarsScheduledActions =
-        Nothing,
-      _dsarsMarker = Nothing,
-      _dsarsResponseStatus = pResponseStatus_
+    { scheduledActions =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | List of retrieved scheduled actions.
-dsarsScheduledActions :: Lens' DescribeScheduledActionsResponse [ScheduledAction]
-dsarsScheduledActions = lens _dsarsScheduledActions (\s a -> s {_dsarsScheduledActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'scheduledActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsScheduledActions :: Lens.Lens' DescribeScheduledActionsResponse (Lude.Maybe [ScheduledAction])
+dsarsScheduledActions = Lens.lens (scheduledActions :: DescribeScheduledActionsResponse -> Lude.Maybe [ScheduledAction]) (\s a -> s {scheduledActions = a} :: DescribeScheduledActionsResponse)
+{-# DEPRECATED dsarsScheduledActions "Use generic-lens or generic-optics with 'scheduledActions' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeScheduledActions' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-dsarsMarker :: Lens' DescribeScheduledActionsResponse (Maybe Text)
-dsarsMarker = lens _dsarsMarker (\s a -> s {_dsarsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsMarker :: Lens.Lens' DescribeScheduledActionsResponse (Lude.Maybe Lude.Text)
+dsarsMarker = Lens.lens (marker :: DescribeScheduledActionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeScheduledActionsResponse)
+{-# DEPRECATED dsarsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dsarsResponseStatus :: Lens' DescribeScheduledActionsResponse Int
-dsarsResponseStatus = lens _dsarsResponseStatus (\s a -> s {_dsarsResponseStatus = a})
-
-instance NFData DescribeScheduledActionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsarsResponseStatus :: Lens.Lens' DescribeScheduledActionsResponse Lude.Int
+dsarsResponseStatus = Lens.lens (responseStatus :: DescribeScheduledActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScheduledActionsResponse)
+{-# DEPRECATED dsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JourneysResponse where
+module Network.AWS.Pinpoint.Types.JourneysResponse
+  ( JourneysResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkJourneysResponse,
+
+    -- * Lenses
+    jNextToken,
+    jItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.JourneyResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.
 --
---
---
--- /See:/ 'journeysResponse' smart constructor.
+-- /See:/ 'mkJourneysResponse' smart constructor.
 data JourneysResponse = JourneysResponse'
-  { _jNextToken ::
-      !(Maybe Text),
-    _jItem :: ![JourneyResponse]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    item :: [JourneyResponse]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'jNextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- * 'jItem' - An array of responses, one for each journey that's associated with the application.
-journeysResponse ::
+-- * 'item' - An array of responses, one for each journey that's associated with the application.
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+mkJourneysResponse ::
   JourneysResponse
-journeysResponse =
-  JourneysResponse' {_jNextToken = Nothing, _jItem = mempty}
+mkJourneysResponse =
+  JourneysResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-jNextToken :: Lens' JourneysResponse (Maybe Text)
-jNextToken = lens _jNextToken (\s a -> s {_jNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jNextToken :: Lens.Lens' JourneysResponse (Lude.Maybe Lude.Text)
+jNextToken = Lens.lens (nextToken :: JourneysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: JourneysResponse)
+{-# DEPRECATED jNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of responses, one for each journey that's associated with the application.
-jItem :: Lens' JourneysResponse [JourneyResponse]
-jItem = lens _jItem (\s a -> s {_jItem = a}) . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jItem :: Lens.Lens' JourneysResponse [JourneyResponse]
+jItem = Lens.lens (item :: JourneysResponse -> [JourneyResponse]) (\s a -> s {item = a} :: JourneysResponse)
+{-# DEPRECATED jItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON JourneysResponse where
+instance Lude.FromJSON JourneysResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "JourneysResponse"
       ( \x ->
           JourneysResponse'
-            <$> (x .:? "NextToken") <*> (x .:? "Item" .!= mempty)
+            Lude.<$> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
       )
-
-instance Hashable JourneysResponse
-
-instance NFData JourneysResponse

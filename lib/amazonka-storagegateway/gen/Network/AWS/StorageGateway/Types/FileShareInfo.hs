@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.FileShareInfo where
+module Network.AWS.StorageGateway.Types.FileShareInfo
+  ( FileShareInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFileShareInfo,
+
+    -- * Lenses
+    fsiFileShareStatus,
+    fsiGatewayARN,
+    fsiFileShareId,
+    fsiFileShareARN,
+    fsiFileShareType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StorageGateway.Types.FileShareType
 
 -- | Describes a file share.
 --
---
---
--- /See:/ 'fileShareInfo' smart constructor.
+-- /See:/ 'mkFileShareInfo' smart constructor.
 data FileShareInfo = FileShareInfo'
-  { _fsiFileShareStatus ::
-      !(Maybe Text),
-    _fsiGatewayARN :: !(Maybe Text),
-    _fsiFileShareId :: !(Maybe Text),
-    _fsiFileShareARN :: !(Maybe Text),
-    _fsiFileShareType :: !(Maybe FileShareType)
+  { fileShareStatus ::
+      Lude.Maybe Lude.Text,
+    gatewayARN :: Lude.Maybe Lude.Text,
+    fileShareId :: Lude.Maybe Lude.Text,
+    fileShareARN :: Lude.Maybe Lude.Text,
+    fileShareType :: Lude.Maybe FileShareType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileShareInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fsiFileShareStatus' - Undocumented member.
---
--- * 'fsiGatewayARN' - Undocumented member.
---
--- * 'fsiFileShareId' - Undocumented member.
---
--- * 'fsiFileShareARN' - Undocumented member.
---
--- * 'fsiFileShareType' - Undocumented member.
-fileShareInfo ::
+-- * 'fileShareARN' - Undocumented field.
+-- * 'fileShareId' - Undocumented field.
+-- * 'fileShareStatus' - Undocumented field.
+-- * 'fileShareType' - Undocumented field.
+-- * 'gatewayARN' - Undocumented field.
+mkFileShareInfo ::
   FileShareInfo
-fileShareInfo =
+mkFileShareInfo =
   FileShareInfo'
-    { _fsiFileShareStatus = Nothing,
-      _fsiGatewayARN = Nothing,
-      _fsiFileShareId = Nothing,
-      _fsiFileShareARN = Nothing,
-      _fsiFileShareType = Nothing
+    { fileShareStatus = Lude.Nothing,
+      gatewayARN = Lude.Nothing,
+      fileShareId = Lude.Nothing,
+      fileShareARN = Lude.Nothing,
+      fileShareType = Lude.Nothing
     }
 
--- | Undocumented member.
-fsiFileShareStatus :: Lens' FileShareInfo (Maybe Text)
-fsiFileShareStatus = lens _fsiFileShareStatus (\s a -> s {_fsiFileShareStatus = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fileShareStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsiFileShareStatus :: Lens.Lens' FileShareInfo (Lude.Maybe Lude.Text)
+fsiFileShareStatus = Lens.lens (fileShareStatus :: FileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {fileShareStatus = a} :: FileShareInfo)
+{-# DEPRECATED fsiFileShareStatus "Use generic-lens or generic-optics with 'fileShareStatus' instead." #-}
 
--- | Undocumented member.
-fsiGatewayARN :: Lens' FileShareInfo (Maybe Text)
-fsiGatewayARN = lens _fsiGatewayARN (\s a -> s {_fsiGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsiGatewayARN :: Lens.Lens' FileShareInfo (Lude.Maybe Lude.Text)
+fsiGatewayARN = Lens.lens (gatewayARN :: FileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: FileShareInfo)
+{-# DEPRECATED fsiGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | Undocumented member.
-fsiFileShareId :: Lens' FileShareInfo (Maybe Text)
-fsiFileShareId = lens _fsiFileShareId (\s a -> s {_fsiFileShareId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fileShareId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsiFileShareId :: Lens.Lens' FileShareInfo (Lude.Maybe Lude.Text)
+fsiFileShareId = Lens.lens (fileShareId :: FileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {fileShareId = a} :: FileShareInfo)
+{-# DEPRECATED fsiFileShareId "Use generic-lens or generic-optics with 'fileShareId' instead." #-}
 
--- | Undocumented member.
-fsiFileShareARN :: Lens' FileShareInfo (Maybe Text)
-fsiFileShareARN = lens _fsiFileShareARN (\s a -> s {_fsiFileShareARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsiFileShareARN :: Lens.Lens' FileShareInfo (Lude.Maybe Lude.Text)
+fsiFileShareARN = Lens.lens (fileShareARN :: FileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {fileShareARN = a} :: FileShareInfo)
+{-# DEPRECATED fsiFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
--- | Undocumented member.
-fsiFileShareType :: Lens' FileShareInfo (Maybe FileShareType)
-fsiFileShareType = lens _fsiFileShareType (\s a -> s {_fsiFileShareType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fileShareType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsiFileShareType :: Lens.Lens' FileShareInfo (Lude.Maybe FileShareType)
+fsiFileShareType = Lens.lens (fileShareType :: FileShareInfo -> Lude.Maybe FileShareType) (\s a -> s {fileShareType = a} :: FileShareInfo)
+{-# DEPRECATED fsiFileShareType "Use generic-lens or generic-optics with 'fileShareType' instead." #-}
 
-instance FromJSON FileShareInfo where
+instance Lude.FromJSON FileShareInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "FileShareInfo"
       ( \x ->
           FileShareInfo'
-            <$> (x .:? "FileShareStatus")
-            <*> (x .:? "GatewayARN")
-            <*> (x .:? "FileShareId")
-            <*> (x .:? "FileShareARN")
-            <*> (x .:? "FileShareType")
+            Lude.<$> (x Lude..:? "FileShareStatus")
+            Lude.<*> (x Lude..:? "GatewayARN")
+            Lude.<*> (x Lude..:? "FileShareId")
+            Lude.<*> (x Lude..:? "FileShareARN")
+            Lude.<*> (x Lude..:? "FileShareType")
       )
-
-instance Hashable FileShareInfo
-
-instance NFData FileShareInfo

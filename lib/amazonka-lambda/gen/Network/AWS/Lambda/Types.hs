@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types
-  ( -- * Service Configuration
-    lambda,
+  ( -- * Service configuration
+    lambdaService,
 
     -- * Errors
 
@@ -55,8 +53,8 @@ module Network.AWS.Lambda.Types
     TracingMode (..),
 
     -- * AccountLimit
-    AccountLimit,
-    accountLimit,
+    AccountLimit (..),
+    mkAccountLimit,
     alConcurrentExecutions,
     alTotalCodeSize,
     alUnreservedConcurrentExecutions,
@@ -64,14 +62,14 @@ module Network.AWS.Lambda.Types
     alCodeSizeZipped,
 
     -- * AccountUsage
-    AccountUsage,
-    accountUsage,
+    AccountUsage (..),
+    mkAccountUsage,
     auTotalCodeSize,
     auFunctionCount,
 
     -- * AliasConfiguration
-    AliasConfiguration,
-    aliasConfiguration,
+    AliasConfiguration (..),
+    mkAliasConfiguration,
     acRoutingConfig,
     acName,
     acFunctionVersion,
@@ -80,18 +78,18 @@ module Network.AWS.Lambda.Types
     acRevisionId,
 
     -- * AliasRoutingConfiguration
-    AliasRoutingConfiguration,
-    aliasRoutingConfiguration,
+    AliasRoutingConfiguration (..),
+    mkAliasRoutingConfiguration,
     arcAdditionalVersionWeights,
 
     -- * AllowedPublishers
-    AllowedPublishers,
-    allowedPublishers,
+    AllowedPublishers (..),
+    mkAllowedPublishers,
     apSigningProfileVersionARNs,
 
     -- * CodeSigningConfig
-    CodeSigningConfig,
-    codeSigningConfig,
+    CodeSigningConfig (..),
+    mkCodeSigningConfig,
     cscDescription,
     cscCodeSigningConfigId,
     cscCodeSigningConfigARN,
@@ -100,46 +98,46 @@ module Network.AWS.Lambda.Types
     cscLastModified,
 
     -- * CodeSigningPolicies
-    CodeSigningPolicies,
-    codeSigningPolicies,
+    CodeSigningPolicies (..),
+    mkCodeSigningPolicies,
     cspUntrustedArtifactOnDeployment,
 
     -- * Concurrency
-    Concurrency,
-    concurrency,
+    Concurrency (..),
+    mkConcurrency,
     cReservedConcurrentExecutions,
 
     -- * DeadLetterConfig
-    DeadLetterConfig,
-    deadLetterConfig,
+    DeadLetterConfig (..),
+    mkDeadLetterConfig,
     dlcTargetARN,
 
     -- * DestinationConfig
-    DestinationConfig,
-    destinationConfig,
+    DestinationConfig (..),
+    mkDestinationConfig,
     dcOnSuccess,
     dcOnFailure,
 
     -- * Environment
-    Environment,
-    environment,
+    Environment (..),
+    mkEnvironment,
     eVariables,
 
     -- * EnvironmentError
-    EnvironmentError,
-    environmentError,
+    EnvironmentError (..),
+    mkEnvironmentError,
     eeErrorCode,
     eeMessage,
 
     -- * EnvironmentResponse
-    EnvironmentResponse,
-    environmentResponse,
+    EnvironmentResponse (..),
+    mkEnvironmentResponse,
     envVariables,
     envError,
 
     -- * EventSourceMappingConfiguration
-    EventSourceMappingConfiguration,
-    eventSourceMappingConfiguration,
+    EventSourceMappingConfiguration (..),
+    mkEventSourceMappingConfiguration,
     esmcEventSourceARN,
     esmcState,
     esmcStartingPositionTimestamp,
@@ -161,28 +159,28 @@ module Network.AWS.Lambda.Types
     esmcStartingPosition,
 
     -- * FileSystemConfig
-    FileSystemConfig,
-    fileSystemConfig,
+    FileSystemConfig (..),
+    mkFileSystemConfig,
     fscARN,
     fscLocalMountPath,
 
     -- * FunctionCode
-    FunctionCode,
-    functionCode,
+    FunctionCode (..),
+    mkFunctionCode,
     fcS3ObjectVersion,
     fcS3Key,
     fcZipFile,
     fcS3Bucket,
 
     -- * FunctionCodeLocation
-    FunctionCodeLocation,
-    functionCodeLocation,
+    FunctionCodeLocation (..),
+    mkFunctionCodeLocation,
     fclLocation,
     fclRepositoryType,
 
     -- * FunctionConfiguration
-    FunctionConfiguration,
-    functionConfiguration,
+    FunctionConfiguration (..),
+    mkFunctionConfiguration,
     fcMemorySize,
     fcRuntime,
     fcState,
@@ -214,8 +212,8 @@ module Network.AWS.Lambda.Types
     fcMasterARN,
 
     -- * FunctionEventInvokeConfig
-    FunctionEventInvokeConfig,
-    functionEventInvokeConfig,
+    FunctionEventInvokeConfig (..),
+    mkFunctionEventInvokeConfig,
     feicFunctionARN,
     feicMaximumEventAgeInSeconds,
     feicMaximumRetryAttempts,
@@ -223,8 +221,8 @@ module Network.AWS.Lambda.Types
     feicDestinationConfig,
 
     -- * GetLayerVersionResponse
-    GetLayerVersionResponse,
-    getLayerVersionResponse,
+    GetLayerVersionResponse (..),
+    mkGetLayerVersionResponse,
     glvLayerVersionARN,
     glvContent,
     glvCreatedDate,
@@ -235,24 +233,24 @@ module Network.AWS.Lambda.Types
     glvCompatibleRuntimes,
 
     -- * Layer
-    Layer,
-    layer,
+    Layer (..),
+    mkLayer,
     lSigningProfileVersionARN,
     lARN,
     lSigningJobARN,
     lCodeSize,
 
     -- * LayerVersionContentInput
-    LayerVersionContentInput,
-    layerVersionContentInput,
+    LayerVersionContentInput (..),
+    mkLayerVersionContentInput,
     lvciS3ObjectVersion,
     lvciS3Key,
     lvciZipFile,
     lvciS3Bucket,
 
     -- * LayerVersionContentOutput
-    LayerVersionContentOutput,
-    layerVersionContentOutput,
+    LayerVersionContentOutput (..),
+    mkLayerVersionContentOutput,
     lvcoSigningProfileVersionARN,
     lvcoLocation,
     lvcoSigningJobARN,
@@ -260,8 +258,8 @@ module Network.AWS.Lambda.Types
     lvcoCodeSha256,
 
     -- * LayerVersionsListItem
-    LayerVersionsListItem,
-    layerVersionsListItem,
+    LayerVersionsListItem (..),
+    mkLayerVersionsListItem,
     lvliLayerVersionARN,
     lvliCreatedDate,
     lvliVersion,
@@ -270,25 +268,25 @@ module Network.AWS.Lambda.Types
     lvliCompatibleRuntimes,
 
     -- * LayersListItem
-    LayersListItem,
-    layersListItem,
+    LayersListItem (..),
+    mkLayersListItem,
     lliLayerName,
     lliLatestMatchingVersion,
     lliLayerARN,
 
     -- * OnFailure
-    OnFailure,
-    onFailure,
+    OnFailure (..),
+    mkOnFailure,
     ofDestination,
 
     -- * OnSuccess
-    OnSuccess,
-    onSuccess,
+    OnSuccess (..),
+    mkOnSuccess,
     osDestination,
 
     -- * ProvisionedConcurrencyConfigListItem
-    ProvisionedConcurrencyConfigListItem,
-    provisionedConcurrencyConfigListItem,
+    ProvisionedConcurrencyConfigListItem (..),
+    mkProvisionedConcurrencyConfigListItem,
     pccliStatus,
     pccliFunctionARN,
     pccliRequestedProvisionedConcurrentExecutions,
@@ -298,30 +296,30 @@ module Network.AWS.Lambda.Types
     pccliLastModified,
 
     -- * SourceAccessConfiguration
-    SourceAccessConfiguration,
-    sourceAccessConfiguration,
+    SourceAccessConfiguration (..),
+    mkSourceAccessConfiguration,
     sacURI,
     sacType,
 
     -- * TracingConfig
-    TracingConfig,
-    tracingConfig,
+    TracingConfig (..),
+    mkTracingConfig,
     tMode,
 
     -- * TracingConfigResponse
-    TracingConfigResponse,
-    tracingConfigResponse,
+    TracingConfigResponse (..),
+    mkTracingConfigResponse,
     tcMode,
 
     -- * VPCConfig
-    VPCConfig,
-    vpcConfig,
+    VPCConfig (..),
+    mkVPCConfig,
     vpccSecurityGroupIds,
     vpccSubnetIds,
 
     -- * VPCConfigResponse
-    VPCConfigResponse,
-    vpcConfigResponse,
+    VPCConfigResponse (..),
+    mkVPCConfigResponse,
     vcSecurityGroupIds,
     vcSubnetIds,
     vcVPCId,
@@ -374,48 +372,60 @@ import Network.AWS.Lambda.Types.TracingConfigResponse
 import Network.AWS.Lambda.Types.TracingMode
 import Network.AWS.Lambda.Types.VPCConfig
 import Network.AWS.Lambda.Types.VPCConfigResponse
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-03-31@ of the Amazon Lambda SDK configuration.
-lambda :: Service
-lambda =
-  Service
-    { _svcAbbrev = "Lambda",
-      _svcSigner = v4,
-      _svcPrefix = "lambda",
-      _svcVersion = "2015-03-31",
-      _svcEndpoint = defaultEndpoint lambda,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Lambda",
-      _svcRetry = retry
+lambdaService :: Lude.Service
+lambdaService =
+  Lude.Service
+    { Lude._svcAbbrev = "Lambda",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "lambda",
+      Lude._svcVersion = "2015-03-31",
+      Lude._svcEndpoint = Lude.defaultEndpoint lambdaService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Lambda",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

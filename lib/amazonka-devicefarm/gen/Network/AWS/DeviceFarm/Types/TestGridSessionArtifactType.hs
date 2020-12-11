@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.TestGridSessionArtifactType where
+module Network.AWS.DeviceFarm.Types.TestGridSessionArtifactType
+  ( TestGridSessionArtifactType
+      ( TestGridSessionArtifactType',
+        SeleniumLog,
+        Unknown,
+        Video
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TestGridSessionArtifactType
-  = SeleniumLog
-  | Unknown
-  | Video
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TestGridSessionArtifactType = TestGridSessionArtifactType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TestGridSessionArtifactType where
-  parser =
-    takeLowerText >>= \case
-      "selenium_log" -> pure SeleniumLog
-      "unknown" -> pure Unknown
-      "video" -> pure Video
-      e ->
-        fromTextError $
-          "Failure parsing TestGridSessionArtifactType from value: '" <> e
-            <> "'. Accepted values: selenium_log, unknown, video"
+pattern SeleniumLog :: TestGridSessionArtifactType
+pattern SeleniumLog = TestGridSessionArtifactType' "SELENIUM_LOG"
 
-instance ToText TestGridSessionArtifactType where
-  toText = \case
-    SeleniumLog -> "SELENIUM_LOG"
-    Unknown -> "UNKNOWN"
-    Video -> "VIDEO"
+pattern Unknown :: TestGridSessionArtifactType
+pattern Unknown = TestGridSessionArtifactType' "UNKNOWN"
 
-instance Hashable TestGridSessionArtifactType
+pattern Video :: TestGridSessionArtifactType
+pattern Video = TestGridSessionArtifactType' "VIDEO"
 
-instance NFData TestGridSessionArtifactType
-
-instance ToByteString TestGridSessionArtifactType
-
-instance ToQuery TestGridSessionArtifactType
-
-instance ToHeader TestGridSessionArtifactType
-
-instance FromJSON TestGridSessionArtifactType where
-  parseJSON = parseJSONText "TestGridSessionArtifactType"
+{-# COMPLETE
+  SeleniumLog,
+  Unknown,
+  Video,
+  TestGridSessionArtifactType'
+  #-}

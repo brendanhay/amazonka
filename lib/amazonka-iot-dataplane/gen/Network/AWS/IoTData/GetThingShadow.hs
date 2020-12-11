@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,133 @@
 --
 -- Gets the shadow for the specified thing.
 --
---
 -- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow> in the AWS IoT Developer Guide.
 module Network.AWS.IoTData.GetThingShadow
-  ( -- * Creating a Request
-    getThingShadow,
-    GetThingShadow,
+  ( -- * Creating a request
+    GetThingShadow (..),
+    mkGetThingShadow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtsShadowName,
     gtsThingName,
 
-    -- * Destructuring the Response
-    getThingShadowResponse,
-    GetThingShadowResponse,
+    -- * Destructuring the response
+    GetThingShadowResponse (..),
+    mkGetThingShadowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtsrsPayload,
     gtsrsResponseStatus,
   )
 where
 
 import Network.AWS.IoTData.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the GetThingShadow operation.
 --
---
---
--- /See:/ 'getThingShadow' smart constructor.
+-- /See:/ 'mkGetThingShadow' smart constructor.
 data GetThingShadow = GetThingShadow'
-  { _gtsShadowName ::
-      !(Maybe Text),
-    _gtsThingName :: !Text
+  { shadowName ::
+      Lude.Maybe Lude.Text,
+    thingName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetThingShadow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtsShadowName' - The name of the shadow.
---
--- * 'gtsThingName' - The name of the thing.
-getThingShadow ::
-  -- | 'gtsThingName'
-  Text ->
+-- * 'shadowName' - The name of the shadow.
+-- * 'thingName' - The name of the thing.
+mkGetThingShadow ::
+  -- | 'thingName'
+  Lude.Text ->
   GetThingShadow
-getThingShadow pThingName_ =
+mkGetThingShadow pThingName_ =
   GetThingShadow'
-    { _gtsShadowName = Nothing,
-      _gtsThingName = pThingName_
+    { shadowName = Lude.Nothing,
+      thingName = pThingName_
     }
 
 -- | The name of the shadow.
-gtsShadowName :: Lens' GetThingShadow (Maybe Text)
-gtsShadowName = lens _gtsShadowName (\s a -> s {_gtsShadowName = a})
+--
+-- /Note:/ Consider using 'shadowName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsShadowName :: Lens.Lens' GetThingShadow (Lude.Maybe Lude.Text)
+gtsShadowName = Lens.lens (shadowName :: GetThingShadow -> Lude.Maybe Lude.Text) (\s a -> s {shadowName = a} :: GetThingShadow)
+{-# DEPRECATED gtsShadowName "Use generic-lens or generic-optics with 'shadowName' instead." #-}
 
 -- | The name of the thing.
-gtsThingName :: Lens' GetThingShadow Text
-gtsThingName = lens _gtsThingName (\s a -> s {_gtsThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsThingName :: Lens.Lens' GetThingShadow Lude.Text
+gtsThingName = Lens.lens (thingName :: GetThingShadow -> Lude.Text) (\s a -> s {thingName = a} :: GetThingShadow)
+{-# DEPRECATED gtsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSRequest GetThingShadow where
+instance Lude.AWSRequest GetThingShadow where
   type Rs GetThingShadow = GetThingShadowResponse
-  request = get ioTData
+  request = Req.get ioTDataService
   response =
-    receiveBytes
+    Res.receiveBytes
       ( \s h x ->
           GetThingShadowResponse'
-            <$> (pure (Just x)) <*> (pure (fromEnum s))
+            Lude.<$> (Lude.pure (Lude.Just x)) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetThingShadow
+instance Lude.ToHeaders GetThingShadow where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetThingShadow
-
-instance ToHeaders GetThingShadow where
-  toHeaders = const mempty
-
-instance ToPath GetThingShadow where
+instance Lude.ToPath GetThingShadow where
   toPath GetThingShadow' {..} =
-    mconcat ["/things/", toBS _gtsThingName, "/shadow"]
+    Lude.mconcat ["/things/", Lude.toBS thingName, "/shadow"]
 
-instance ToQuery GetThingShadow where
-  toQuery GetThingShadow' {..} = mconcat ["name" =: _gtsShadowName]
+instance Lude.ToQuery GetThingShadow where
+  toQuery GetThingShadow' {..} =
+    Lude.mconcat ["name" Lude.=: shadowName]
 
 -- | The output from the GetThingShadow operation.
 --
---
---
--- /See:/ 'getThingShadowResponse' smart constructor.
+-- /See:/ 'mkGetThingShadowResponse' smart constructor.
 data GetThingShadowResponse = GetThingShadowResponse'
-  { _gtsrsPayload ::
-      !(Maybe ByteString),
-    _gtsrsResponseStatus :: !Int
+  { payload ::
+      Lude.Maybe Lude.ByteString,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetThingShadowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtsrsPayload' - The state information, in JSON format.
---
--- * 'gtsrsResponseStatus' - -- | The response status code.
-getThingShadowResponse ::
-  -- | 'gtsrsResponseStatus'
-  Int ->
+-- * 'payload' - The state information, in JSON format.
+-- * 'responseStatus' - The response status code.
+mkGetThingShadowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetThingShadowResponse
-getThingShadowResponse pResponseStatus_ =
+mkGetThingShadowResponse pResponseStatus_ =
   GetThingShadowResponse'
-    { _gtsrsPayload = Nothing,
-      _gtsrsResponseStatus = pResponseStatus_
+    { payload = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The state information, in JSON format.
-gtsrsPayload :: Lens' GetThingShadowResponse (Maybe ByteString)
-gtsrsPayload = lens _gtsrsPayload (\s a -> s {_gtsrsPayload = a})
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsrsPayload :: Lens.Lens' GetThingShadowResponse (Lude.Maybe Lude.ByteString)
+gtsrsPayload = Lens.lens (payload :: GetThingShadowResponse -> Lude.Maybe Lude.ByteString) (\s a -> s {payload = a} :: GetThingShadowResponse)
+{-# DEPRECATED gtsrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
--- | -- | The response status code.
-gtsrsResponseStatus :: Lens' GetThingShadowResponse Int
-gtsrsResponseStatus = lens _gtsrsResponseStatus (\s a -> s {_gtsrsResponseStatus = a})
-
-instance NFData GetThingShadowResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsrsResponseStatus :: Lens.Lens' GetThingShadowResponse Lude.Int
+gtsrsResponseStatus = Lens.lens (responseStatus :: GetThingShadowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetThingShadowResponse)
+{-# DEPRECATED gtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

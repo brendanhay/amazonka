@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TriggerNodeDetails where
+module Network.AWS.Glue.Types.TriggerNodeDetails
+  ( TriggerNodeDetails (..),
+
+    -- * Smart constructor
+    mkTriggerNodeDetails,
+
+    -- * Lenses
+    tndTrigger,
+  )
+where
 
 import Network.AWS.Glue.Types.Trigger
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of a Trigger node present in the workflow.
 --
---
---
--- /See:/ 'triggerNodeDetails' smart constructor.
+-- /See:/ 'mkTriggerNodeDetails' smart constructor.
 newtype TriggerNodeDetails = TriggerNodeDetails'
-  { _tndTrigger ::
-      Maybe Trigger
+  { trigger ::
+      Lude.Maybe Trigger
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TriggerNodeDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tndTrigger' - The information of the trigger represented by the trigger node.
-triggerNodeDetails ::
+-- * 'trigger' - The information of the trigger represented by the trigger node.
+mkTriggerNodeDetails ::
   TriggerNodeDetails
-triggerNodeDetails = TriggerNodeDetails' {_tndTrigger = Nothing}
+mkTriggerNodeDetails = TriggerNodeDetails' {trigger = Lude.Nothing}
 
 -- | The information of the trigger represented by the trigger node.
-tndTrigger :: Lens' TriggerNodeDetails (Maybe Trigger)
-tndTrigger = lens _tndTrigger (\s a -> s {_tndTrigger = a})
+--
+-- /Note:/ Consider using 'trigger' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tndTrigger :: Lens.Lens' TriggerNodeDetails (Lude.Maybe Trigger)
+tndTrigger = Lens.lens (trigger :: TriggerNodeDetails -> Lude.Maybe Trigger) (\s a -> s {trigger = a} :: TriggerNodeDetails)
+{-# DEPRECATED tndTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
 
-instance FromJSON TriggerNodeDetails where
+instance Lude.FromJSON TriggerNodeDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "TriggerNodeDetails"
-      (\x -> TriggerNodeDetails' <$> (x .:? "Trigger"))
-
-instance Hashable TriggerNodeDetails
-
-instance NFData TriggerNodeDetails
+      (\x -> TriggerNodeDetails' Lude.<$> (x Lude..:? "Trigger"))

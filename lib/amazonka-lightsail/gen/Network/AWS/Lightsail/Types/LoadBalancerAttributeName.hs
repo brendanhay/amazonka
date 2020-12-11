@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.LoadBalancerAttributeName where
+module Network.AWS.Lightsail.Types.LoadBalancerAttributeName
+  ( LoadBalancerAttributeName
+      ( LoadBalancerAttributeName',
+        HealthCheckPath,
+        SessionStickinessEnabled,
+        SessionStickinessLbCookieDurationSeconds
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LoadBalancerAttributeName
-  = HealthCheckPath
-  | SessionStickinessEnabled
-  | SessionStickinessLbCookieDurationSeconds
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LoadBalancerAttributeName = LoadBalancerAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LoadBalancerAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "healthcheckpath" -> pure HealthCheckPath
-      "sessionstickinessenabled" -> pure SessionStickinessEnabled
-      "sessionstickiness_lb_cookiedurationseconds" -> pure SessionStickinessLbCookieDurationSeconds
-      e ->
-        fromTextError $
-          "Failure parsing LoadBalancerAttributeName from value: '" <> e
-            <> "'. Accepted values: healthcheckpath, sessionstickinessenabled, sessionstickiness_lb_cookiedurationseconds"
+pattern HealthCheckPath :: LoadBalancerAttributeName
+pattern HealthCheckPath = LoadBalancerAttributeName' "HealthCheckPath"
 
-instance ToText LoadBalancerAttributeName where
-  toText = \case
-    HealthCheckPath -> "HealthCheckPath"
-    SessionStickinessEnabled -> "SessionStickinessEnabled"
-    SessionStickinessLbCookieDurationSeconds -> "SessionStickiness_LB_CookieDurationSeconds"
+pattern SessionStickinessEnabled :: LoadBalancerAttributeName
+pattern SessionStickinessEnabled = LoadBalancerAttributeName' "SessionStickinessEnabled"
 
-instance Hashable LoadBalancerAttributeName
+pattern SessionStickinessLbCookieDurationSeconds :: LoadBalancerAttributeName
+pattern SessionStickinessLbCookieDurationSeconds = LoadBalancerAttributeName' "SessionStickiness_LB_CookieDurationSeconds"
 
-instance NFData LoadBalancerAttributeName
-
-instance ToByteString LoadBalancerAttributeName
-
-instance ToQuery LoadBalancerAttributeName
-
-instance ToHeader LoadBalancerAttributeName
-
-instance ToJSON LoadBalancerAttributeName where
-  toJSON = toJSONText
-
-instance FromJSON LoadBalancerAttributeName where
-  parseJSON = parseJSONText "LoadBalancerAttributeName"
+{-# COMPLETE
+  HealthCheckPath,
+  SessionStickinessEnabled,
+  SessionStickinessLbCookieDurationSeconds,
+  LoadBalancerAttributeName'
+  #-}

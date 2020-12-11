@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.S3DataDistribution where
+module Network.AWS.SageMaker.Types.S3DataDistribution
+  ( S3DataDistribution
+      ( S3DataDistribution',
+        FullyReplicated,
+        ShardedByS3Key
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data S3DataDistribution
-  = FullyReplicated
-  | ShardedByS3Key
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype S3DataDistribution = S3DataDistribution' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText S3DataDistribution where
-  parser =
-    takeLowerText >>= \case
-      "fullyreplicated" -> pure FullyReplicated
-      "shardedbys3key" -> pure ShardedByS3Key
-      e ->
-        fromTextError $
-          "Failure parsing S3DataDistribution from value: '" <> e
-            <> "'. Accepted values: fullyreplicated, shardedbys3key"
+pattern FullyReplicated :: S3DataDistribution
+pattern FullyReplicated = S3DataDistribution' "FullyReplicated"
 
-instance ToText S3DataDistribution where
-  toText = \case
-    FullyReplicated -> "FullyReplicated"
-    ShardedByS3Key -> "ShardedByS3Key"
+pattern ShardedByS3Key :: S3DataDistribution
+pattern ShardedByS3Key = S3DataDistribution' "ShardedByS3Key"
 
-instance Hashable S3DataDistribution
-
-instance NFData S3DataDistribution
-
-instance ToByteString S3DataDistribution
-
-instance ToQuery S3DataDistribution
-
-instance ToHeader S3DataDistribution
-
-instance ToJSON S3DataDistribution where
-  toJSON = toJSONText
-
-instance FromJSON S3DataDistribution where
-  parseJSON = parseJSONText "S3DataDistribution"
+{-# COMPLETE
+  FullyReplicated,
+  ShardedByS3Key,
+  S3DataDistribution'
+  #-}

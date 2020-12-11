@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus where
+module Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
+  ( ElasticsearchVersionStatus (..),
+
+    -- * Smart constructor
+    mkElasticsearchVersionStatus,
+
+    -- * Lenses
+    evsOptions,
+    evsStatus,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.OptionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status of the Elasticsearch version options for the specified Elasticsearch domain.
 --
---
---
--- /See:/ 'elasticsearchVersionStatus' smart constructor.
+-- /See:/ 'mkElasticsearchVersionStatus' smart constructor.
 data ElasticsearchVersionStatus = ElasticsearchVersionStatus'
-  { _evsOptions ::
-      !Text,
-    _evsStatus :: !OptionStatus
+  { options ::
+      Lude.Text,
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchVersionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'evsOptions' - Specifies the Elasticsearch version for the specified Elasticsearch domain.
---
--- * 'evsStatus' - Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
-elasticsearchVersionStatus ::
-  -- | 'evsOptions'
-  Text ->
-  -- | 'evsStatus'
+-- * 'options' - Specifies the Elasticsearch version for the specified Elasticsearch domain.
+-- * 'status' - Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
+mkElasticsearchVersionStatus ::
+  -- | 'options'
+  Lude.Text ->
+  -- | 'status'
   OptionStatus ->
   ElasticsearchVersionStatus
-elasticsearchVersionStatus pOptions_ pStatus_ =
+mkElasticsearchVersionStatus pOptions_ pStatus_ =
   ElasticsearchVersionStatus'
-    { _evsOptions = pOptions_,
-      _evsStatus = pStatus_
+    { options = pOptions_,
+      status = pStatus_
     }
 
 -- | Specifies the Elasticsearch version for the specified Elasticsearch domain.
-evsOptions :: Lens' ElasticsearchVersionStatus Text
-evsOptions = lens _evsOptions (\s a -> s {_evsOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evsOptions :: Lens.Lens' ElasticsearchVersionStatus Lude.Text
+evsOptions = Lens.lens (options :: ElasticsearchVersionStatus -> Lude.Text) (\s a -> s {options = a} :: ElasticsearchVersionStatus)
+{-# DEPRECATED evsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
-evsStatus :: Lens' ElasticsearchVersionStatus OptionStatus
-evsStatus = lens _evsStatus (\s a -> s {_evsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evsStatus :: Lens.Lens' ElasticsearchVersionStatus OptionStatus
+evsStatus = Lens.lens (status :: ElasticsearchVersionStatus -> OptionStatus) (\s a -> s {status = a} :: ElasticsearchVersionStatus)
+{-# DEPRECATED evsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON ElasticsearchVersionStatus where
+instance Lude.FromJSON ElasticsearchVersionStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "ElasticsearchVersionStatus"
       ( \x ->
           ElasticsearchVersionStatus'
-            <$> (x .: "Options") <*> (x .: "Status")
+            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
       )
-
-instance Hashable ElasticsearchVersionStatus
-
-instance NFData ElasticsearchVersionStatus

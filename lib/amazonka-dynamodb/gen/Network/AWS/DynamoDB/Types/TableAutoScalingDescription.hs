@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.TableAutoScalingDescription where
+module Network.AWS.DynamoDB.Types.TableAutoScalingDescription
+  ( TableAutoScalingDescription (..),
+
+    -- * Smart constructor
+    mkTableAutoScalingDescription,
+
+    -- * Lenses
+    tasdTableStatus,
+    tasdReplicas,
+    tasdTableName,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.ReplicaAutoScalingDescription
 import Network.AWS.DynamoDB.Types.TableStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the auto scaling configuration for a global table.
 --
---
---
--- /See:/ 'tableAutoScalingDescription' smart constructor.
+-- /See:/ 'mkTableAutoScalingDescription' smart constructor.
 data TableAutoScalingDescription = TableAutoScalingDescription'
-  { _tasdTableStatus ::
-      !(Maybe TableStatus),
-    _tasdReplicas ::
-      !( Maybe
-           [ReplicaAutoScalingDescription]
-       ),
-    _tasdTableName :: !(Maybe Text)
+  { tableStatus ::
+      Lude.Maybe TableStatus,
+    replicas ::
+      Lude.Maybe
+        [ReplicaAutoScalingDescription],
+    tableName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableAutoScalingDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'replicas' - Represents replicas of the global table.
+-- * 'tableName' - The name of the table.
+-- * 'tableStatus' - The current state of the table:
 --
--- * 'tasdTableStatus' - The current state of the table:     * @CREATING@ - The table is being created.     * @UPDATING@ - The table is being updated.     * @DELETING@ - The table is being deleted.     * @ACTIVE@ - The table is ready for use.
 --
--- * 'tasdReplicas' - Represents replicas of the global table.
+--     * @CREATING@ - The table is being created.
 --
--- * 'tasdTableName' - The name of the table.
-tableAutoScalingDescription ::
+--
+--     * @UPDATING@ - The table is being updated.
+--
+--
+--     * @DELETING@ - The table is being deleted.
+--
+--
+--     * @ACTIVE@ - The table is ready for use.
+mkTableAutoScalingDescription ::
   TableAutoScalingDescription
-tableAutoScalingDescription =
+mkTableAutoScalingDescription =
   TableAutoScalingDescription'
-    { _tasdTableStatus = Nothing,
-      _tasdReplicas = Nothing,
-      _tasdTableName = Nothing
+    { tableStatus = Lude.Nothing,
+      replicas = Lude.Nothing,
+      tableName = Lude.Nothing
     }
 
--- | The current state of the table:     * @CREATING@ - The table is being created.     * @UPDATING@ - The table is being updated.     * @DELETING@ - The table is being deleted.     * @ACTIVE@ - The table is ready for use.
-tasdTableStatus :: Lens' TableAutoScalingDescription (Maybe TableStatus)
-tasdTableStatus = lens _tasdTableStatus (\s a -> s {_tasdTableStatus = a})
+-- | The current state of the table:
+--
+--
+--     * @CREATING@ - The table is being created.
+--
+--
+--     * @UPDATING@ - The table is being updated.
+--
+--
+--     * @DELETING@ - The table is being deleted.
+--
+--
+--     * @ACTIVE@ - The table is ready for use.
+--
+--
+--
+-- /Note:/ Consider using 'tableStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasdTableStatus :: Lens.Lens' TableAutoScalingDescription (Lude.Maybe TableStatus)
+tasdTableStatus = Lens.lens (tableStatus :: TableAutoScalingDescription -> Lude.Maybe TableStatus) (\s a -> s {tableStatus = a} :: TableAutoScalingDescription)
+{-# DEPRECATED tasdTableStatus "Use generic-lens or generic-optics with 'tableStatus' instead." #-}
 
 -- | Represents replicas of the global table.
-tasdReplicas :: Lens' TableAutoScalingDescription [ReplicaAutoScalingDescription]
-tasdReplicas = lens _tasdReplicas (\s a -> s {_tasdReplicas = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'replicas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasdReplicas :: Lens.Lens' TableAutoScalingDescription (Lude.Maybe [ReplicaAutoScalingDescription])
+tasdReplicas = Lens.lens (replicas :: TableAutoScalingDescription -> Lude.Maybe [ReplicaAutoScalingDescription]) (\s a -> s {replicas = a} :: TableAutoScalingDescription)
+{-# DEPRECATED tasdReplicas "Use generic-lens or generic-optics with 'replicas' instead." #-}
 
 -- | The name of the table.
-tasdTableName :: Lens' TableAutoScalingDescription (Maybe Text)
-tasdTableName = lens _tasdTableName (\s a -> s {_tasdTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasdTableName :: Lens.Lens' TableAutoScalingDescription (Lude.Maybe Lude.Text)
+tasdTableName = Lens.lens (tableName :: TableAutoScalingDescription -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: TableAutoScalingDescription)
+{-# DEPRECATED tasdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance FromJSON TableAutoScalingDescription where
+instance Lude.FromJSON TableAutoScalingDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "TableAutoScalingDescription"
       ( \x ->
           TableAutoScalingDescription'
-            <$> (x .:? "TableStatus")
-            <*> (x .:? "Replicas" .!= mempty)
-            <*> (x .:? "TableName")
+            Lude.<$> (x Lude..:? "TableStatus")
+            Lude.<*> (x Lude..:? "Replicas" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TableName")
       )
-
-instance Hashable TableAutoScalingDescription
-
-instance NFData TableAutoScalingDescription

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.Signer where
+module Network.AWS.CloudFront.Types.Signer
+  ( Signer (..),
+
+    -- * Smart constructor
+    mkSigner,
+
+    -- * Lenses
+    sAWSAccountNumber,
+    sKeyPairIds,
+  )
+where
 
 import Network.AWS.CloudFront.Types.KeyPairIds
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of AWS accounts and the active CloudFront key pairs in each account that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
---
---
--- /See:/ 'signer' smart constructor.
+-- /See:/ 'mkSigner' smart constructor.
 data Signer = Signer'
-  { _sAWSAccountNumber :: !(Maybe Text),
-    _sKeyPairIds :: !(Maybe KeyPairIds)
+  { awsAccountNumber :: Lude.Maybe Lude.Text,
+    keyPairIds :: Lude.Maybe KeyPairIds
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Signer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sAWSAccountNumber' - An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is @self@ .
---
--- * 'sKeyPairIds' - A list of CloudFront key pair identifiers.
-signer ::
+-- * 'awsAccountNumber' - An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is @self@ .
+-- * 'keyPairIds' - A list of CloudFront key pair identifiers.
+mkSigner ::
   Signer
-signer =
-  Signer' {_sAWSAccountNumber = Nothing, _sKeyPairIds = Nothing}
+mkSigner =
+  Signer'
+    { awsAccountNumber = Lude.Nothing,
+      keyPairIds = Lude.Nothing
+    }
 
 -- | An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is @self@ .
-sAWSAccountNumber :: Lens' Signer (Maybe Text)
-sAWSAccountNumber = lens _sAWSAccountNumber (\s a -> s {_sAWSAccountNumber = a})
+--
+-- /Note:/ Consider using 'awsAccountNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAWSAccountNumber :: Lens.Lens' Signer (Lude.Maybe Lude.Text)
+sAWSAccountNumber = Lens.lens (awsAccountNumber :: Signer -> Lude.Maybe Lude.Text) (\s a -> s {awsAccountNumber = a} :: Signer)
+{-# DEPRECATED sAWSAccountNumber "Use generic-lens or generic-optics with 'awsAccountNumber' instead." #-}
 
 -- | A list of CloudFront key pair identifiers.
-sKeyPairIds :: Lens' Signer (Maybe KeyPairIds)
-sKeyPairIds = lens _sKeyPairIds (\s a -> s {_sKeyPairIds = a})
+--
+-- /Note:/ Consider using 'keyPairIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sKeyPairIds :: Lens.Lens' Signer (Lude.Maybe KeyPairIds)
+sKeyPairIds = Lens.lens (keyPairIds :: Signer -> Lude.Maybe KeyPairIds) (\s a -> s {keyPairIds = a} :: Signer)
+{-# DEPRECATED sKeyPairIds "Use generic-lens or generic-optics with 'keyPairIds' instead." #-}
 
-instance FromXML Signer where
+instance Lude.FromXML Signer where
   parseXML x =
-    Signer' <$> (x .@? "AwsAccountNumber") <*> (x .@? "KeyPairIds")
-
-instance Hashable Signer
-
-instance NFData Signer
+    Signer'
+      Lude.<$> (x Lude..@? "AwsAccountNumber") Lude.<*> (x Lude..@? "KeyPairIds")

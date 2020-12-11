@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.PidMode where
+module Network.AWS.ECS.Types.PidMode
+  ( PidMode
+      ( PidMode',
+        PMHost,
+        PMTask
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PidMode
-  = PMHost
-  | PMTask
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PidMode = PidMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PidMode where
-  parser =
-    takeLowerText >>= \case
-      "host" -> pure PMHost
-      "task" -> pure PMTask
-      e ->
-        fromTextError $
-          "Failure parsing PidMode from value: '" <> e
-            <> "'. Accepted values: host, task"
+pattern PMHost :: PidMode
+pattern PMHost = PidMode' "host"
 
-instance ToText PidMode where
-  toText = \case
-    PMHost -> "host"
-    PMTask -> "task"
+pattern PMTask :: PidMode
+pattern PMTask = PidMode' "task"
 
-instance Hashable PidMode
-
-instance NFData PidMode
-
-instance ToByteString PidMode
-
-instance ToQuery PidMode
-
-instance ToHeader PidMode
-
-instance ToJSON PidMode where
-  toJSON = toJSONText
-
-instance FromJSON PidMode where
-  parseJSON = parseJSONText "PidMode"
+{-# COMPLETE
+  PMHost,
+  PMTask,
+  PidMode'
+  #-}

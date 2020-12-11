@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,132 @@
 --
 -- Stops an entity recognizer training job while in progress.
 --
---
 -- If the training job state is @TRAINING@ , the job is marked for termination and put into the @STOP_REQUESTED@ state. If the training job completes before it can be stopped, it is put into the @TRAINED@ ; otherwise the training job is stopped and putted into the @STOPPED@ state and the service sends back an HTTP 200 response with an empty HTTP body.
 module Network.AWS.Comprehend.StopTrainingEntityRecognizer
-  ( -- * Creating a Request
-    stopTrainingEntityRecognizer,
-    StopTrainingEntityRecognizer,
+  ( -- * Creating a request
+    StopTrainingEntityRecognizer (..),
+    mkStopTrainingEntityRecognizer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sterEntityRecognizerARN,
 
-    -- * Destructuring the Response
-    stopTrainingEntityRecognizerResponse,
-    StopTrainingEntityRecognizerResponse,
+    -- * Destructuring the response
+    StopTrainingEntityRecognizerResponse (..),
+    mkStopTrainingEntityRecognizerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sterrsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopTrainingEntityRecognizer' smart constructor.
+-- | /See:/ 'mkStopTrainingEntityRecognizer' smart constructor.
 newtype StopTrainingEntityRecognizer = StopTrainingEntityRecognizer'
-  { _sterEntityRecognizerARN ::
-      Text
+  { entityRecognizerARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTrainingEntityRecognizer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sterEntityRecognizerARN' - The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.
-stopTrainingEntityRecognizer ::
-  -- | 'sterEntityRecognizerARN'
-  Text ->
+-- * 'entityRecognizerARN' - The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.
+mkStopTrainingEntityRecognizer ::
+  -- | 'entityRecognizerARN'
+  Lude.Text ->
   StopTrainingEntityRecognizer
-stopTrainingEntityRecognizer pEntityRecognizerARN_ =
+mkStopTrainingEntityRecognizer pEntityRecognizerARN_ =
   StopTrainingEntityRecognizer'
-    { _sterEntityRecognizerARN =
+    { entityRecognizerARN =
         pEntityRecognizerARN_
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.
-sterEntityRecognizerARN :: Lens' StopTrainingEntityRecognizer Text
-sterEntityRecognizerARN = lens _sterEntityRecognizerARN (\s a -> s {_sterEntityRecognizerARN = a})
+--
+-- /Note:/ Consider using 'entityRecognizerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sterEntityRecognizerARN :: Lens.Lens' StopTrainingEntityRecognizer Lude.Text
+sterEntityRecognizerARN = Lens.lens (entityRecognizerARN :: StopTrainingEntityRecognizer -> Lude.Text) (\s a -> s {entityRecognizerARN = a} :: StopTrainingEntityRecognizer)
+{-# DEPRECATED sterEntityRecognizerARN "Use generic-lens or generic-optics with 'entityRecognizerARN' instead." #-}
 
-instance AWSRequest StopTrainingEntityRecognizer where
+instance Lude.AWSRequest StopTrainingEntityRecognizer where
   type
     Rs StopTrainingEntityRecognizer =
       StopTrainingEntityRecognizerResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          StopTrainingEntityRecognizerResponse' <$> (pure (fromEnum s))
+          StopTrainingEntityRecognizerResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopTrainingEntityRecognizer
-
-instance NFData StopTrainingEntityRecognizer
-
-instance ToHeaders StopTrainingEntityRecognizer where
+instance Lude.ToHeaders StopTrainingEntityRecognizer where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.StopTrainingEntityRecognizer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.StopTrainingEntityRecognizer" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopTrainingEntityRecognizer where
+instance Lude.ToJSON StopTrainingEntityRecognizer where
   toJSON StopTrainingEntityRecognizer' {..} =
-    object
-      ( catMaybes
-          [Just ("EntityRecognizerArn" .= _sterEntityRecognizerARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("EntityRecognizerArn" Lude..= entityRecognizerARN)]
       )
 
-instance ToPath StopTrainingEntityRecognizer where
-  toPath = const "/"
+instance Lude.ToPath StopTrainingEntityRecognizer where
+  toPath = Lude.const "/"
 
-instance ToQuery StopTrainingEntityRecognizer where
-  toQuery = const mempty
+instance Lude.ToQuery StopTrainingEntityRecognizer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopTrainingEntityRecognizerResponse' smart constructor.
+-- | /See:/ 'mkStopTrainingEntityRecognizerResponse' smart constructor.
 newtype StopTrainingEntityRecognizerResponse = StopTrainingEntityRecognizerResponse'
-  { _sterrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTrainingEntityRecognizerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sterrsResponseStatus' - -- | The response status code.
-stopTrainingEntityRecognizerResponse ::
-  -- | 'sterrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStopTrainingEntityRecognizerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopTrainingEntityRecognizerResponse
-stopTrainingEntityRecognizerResponse pResponseStatus_ =
+mkStopTrainingEntityRecognizerResponse pResponseStatus_ =
   StopTrainingEntityRecognizerResponse'
-    { _sterrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-sterrsResponseStatus :: Lens' StopTrainingEntityRecognizerResponse Int
-sterrsResponseStatus = lens _sterrsResponseStatus (\s a -> s {_sterrsResponseStatus = a})
-
-instance NFData StopTrainingEntityRecognizerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sterrsResponseStatus :: Lens.Lens' StopTrainingEntityRecognizerResponse Lude.Int
+sterrsResponseStatus = Lens.lens (responseStatus :: StopTrainingEntityRecognizerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopTrainingEntityRecognizerResponse)
+{-# DEPRECATED sterrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,125 @@
 --
 -- Retrieves information about the status and settings of the GCM channel for an application.
 module Network.AWS.Pinpoint.GetGCMChannel
-  ( -- * Creating a Request
-    getGCMChannel,
-    GetGCMChannel,
+  ( -- * Creating a request
+    GetGCMChannel (..),
+    mkGetGCMChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggcApplicationId,
 
-    -- * Destructuring the Response
-    getGCMChannelResponse,
-    GetGCMChannelResponse,
+    -- * Destructuring the response
+    GetGCMChannelResponse (..),
+    mkGetGCMChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggcrsResponseStatus,
     ggcrsGCMChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getGCMChannel' smart constructor.
-newtype GetGCMChannel = GetGCMChannel' {_ggcApplicationId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetGCMChannel' smart constructor.
+newtype GetGCMChannel = GetGCMChannel' {applicationId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGCMChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggcApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getGCMChannel ::
-  -- | 'ggcApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkGetGCMChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetGCMChannel
-getGCMChannel pApplicationId_ =
-  GetGCMChannel' {_ggcApplicationId = pApplicationId_}
+mkGetGCMChannel pApplicationId_ =
+  GetGCMChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-ggcApplicationId :: Lens' GetGCMChannel Text
-ggcApplicationId = lens _ggcApplicationId (\s a -> s {_ggcApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggcApplicationId :: Lens.Lens' GetGCMChannel Lude.Text
+ggcApplicationId = Lens.lens (applicationId :: GetGCMChannel -> Lude.Text) (\s a -> s {applicationId = a} :: GetGCMChannel)
+{-# DEPRECATED ggcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetGCMChannel where
+instance Lude.AWSRequest GetGCMChannel where
   type Rs GetGCMChannel = GetGCMChannelResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetGCMChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetGCMChannel
-
-instance NFData GetGCMChannel
-
-instance ToHeaders GetGCMChannel where
+instance Lude.ToHeaders GetGCMChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetGCMChannel where
+instance Lude.ToPath GetGCMChannel where
   toPath GetGCMChannel' {..} =
-    mconcat ["/v1/apps/", toBS _ggcApplicationId, "/channels/gcm"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/channels/gcm"]
 
-instance ToQuery GetGCMChannel where
-  toQuery = const mempty
+instance Lude.ToQuery GetGCMChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getGCMChannelResponse' smart constructor.
+-- | /See:/ 'mkGetGCMChannelResponse' smart constructor.
 data GetGCMChannelResponse = GetGCMChannelResponse'
-  { _ggcrsResponseStatus ::
-      !Int,
-    _ggcrsGCMChannelResponse :: !GCMChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    gcmChannelResponse :: GCMChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGCMChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggcrsResponseStatus' - -- | The response status code.
---
--- * 'ggcrsGCMChannelResponse' - Undocumented member.
-getGCMChannelResponse ::
-  -- | 'ggcrsResponseStatus'
-  Int ->
-  -- | 'ggcrsGCMChannelResponse'
+-- * 'gcmChannelResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetGCMChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'gcmChannelResponse'
   GCMChannelResponse ->
   GetGCMChannelResponse
-getGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
+mkGetGCMChannelResponse pResponseStatus_ pGCMChannelResponse_ =
   GetGCMChannelResponse'
-    { _ggcrsResponseStatus = pResponseStatus_,
-      _ggcrsGCMChannelResponse = pGCMChannelResponse_
+    { responseStatus = pResponseStatus_,
+      gcmChannelResponse = pGCMChannelResponse_
     }
 
--- | -- | The response status code.
-ggcrsResponseStatus :: Lens' GetGCMChannelResponse Int
-ggcrsResponseStatus = lens _ggcrsResponseStatus (\s a -> s {_ggcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggcrsResponseStatus :: Lens.Lens' GetGCMChannelResponse Lude.Int
+ggcrsResponseStatus = Lens.lens (responseStatus :: GetGCMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGCMChannelResponse)
+{-# DEPRECATED ggcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-ggcrsGCMChannelResponse :: Lens' GetGCMChannelResponse GCMChannelResponse
-ggcrsGCMChannelResponse = lens _ggcrsGCMChannelResponse (\s a -> s {_ggcrsGCMChannelResponse = a})
-
-instance NFData GetGCMChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gcmChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggcrsGCMChannelResponse :: Lens.Lens' GetGCMChannelResponse GCMChannelResponse
+ggcrsGCMChannelResponse = Lens.lens (gcmChannelResponse :: GetGCMChannelResponse -> GCMChannelResponse) (\s a -> s {gcmChannelResponse = a} :: GetGCMChannelResponse)
+{-# DEPRECATED ggcrsGCMChannelResponse "Use generic-lens or generic-optics with 'gcmChannelResponse' instead." #-}

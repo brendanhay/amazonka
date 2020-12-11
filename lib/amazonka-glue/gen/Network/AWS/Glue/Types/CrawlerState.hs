@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CrawlerState where
+module Network.AWS.Glue.Types.CrawlerState
+  ( CrawlerState
+      ( CrawlerState',
+        CReady,
+        CRunning,
+        CStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CrawlerState
-  = CReady
-  | CRunning
-  | CStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CrawlerState = CrawlerState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CrawlerState where
-  parser =
-    takeLowerText >>= \case
-      "ready" -> pure CReady
-      "running" -> pure CRunning
-      "stopping" -> pure CStopping
-      e ->
-        fromTextError $
-          "Failure parsing CrawlerState from value: '" <> e
-            <> "'. Accepted values: ready, running, stopping"
+pattern CReady :: CrawlerState
+pattern CReady = CrawlerState' "READY"
 
-instance ToText CrawlerState where
-  toText = \case
-    CReady -> "READY"
-    CRunning -> "RUNNING"
-    CStopping -> "STOPPING"
+pattern CRunning :: CrawlerState
+pattern CRunning = CrawlerState' "RUNNING"
 
-instance Hashable CrawlerState
+pattern CStopping :: CrawlerState
+pattern CStopping = CrawlerState' "STOPPING"
 
-instance NFData CrawlerState
-
-instance ToByteString CrawlerState
-
-instance ToQuery CrawlerState
-
-instance ToHeader CrawlerState
-
-instance FromJSON CrawlerState where
-  parseJSON = parseJSONText "CrawlerState"
+{-# COMPLETE
+  CReady,
+  CRunning,
+  CStopping,
+  CrawlerState'
+  #-}

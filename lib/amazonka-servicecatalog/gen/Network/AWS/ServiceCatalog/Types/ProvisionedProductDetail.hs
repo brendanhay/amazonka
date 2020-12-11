@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,169 +7,309 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ProvisionedProductDetail where
+module Network.AWS.ServiceCatalog.Types.ProvisionedProductDetail
+  ( ProvisionedProductDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProvisionedProductDetail,
+
+    -- * Lenses
+    ppdLaunchRoleARN,
+    ppdIdempotencyToken,
+    ppdStatus,
+    ppdLastSuccessfulProvisioningRecordId,
+    ppdProvisioningArtifactId,
+    ppdARN,
+    ppdCreatedTime,
+    ppdStatusMessage,
+    ppdName,
+    ppdLastRecordId,
+    ppdId,
+    ppdType,
+    ppdLastProvisioningRecordId,
+    ppdProductId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
 
 -- | Information about a provisioned product.
 --
---
---
--- /See:/ 'provisionedProductDetail' smart constructor.
+-- /See:/ 'mkProvisionedProductDetail' smart constructor.
 data ProvisionedProductDetail = ProvisionedProductDetail'
-  { _ppdLaunchRoleARN ::
-      !(Maybe Text),
-    _ppdIdempotencyToken :: !(Maybe Text),
-    _ppdStatus ::
-      !(Maybe ProvisionedProductStatus),
-    _ppdLastSuccessfulProvisioningRecordId ::
-      !(Maybe Text),
-    _ppdProvisioningArtifactId ::
-      !(Maybe Text),
-    _ppdARN :: !(Maybe Text),
-    _ppdCreatedTime :: !(Maybe POSIX),
-    _ppdStatusMessage :: !(Maybe Text),
-    _ppdName :: !(Maybe Text),
-    _ppdLastRecordId :: !(Maybe Text),
-    _ppdId :: !(Maybe Text),
-    _ppdType :: !(Maybe Text),
-    _ppdLastProvisioningRecordId ::
-      !(Maybe Text),
-    _ppdProductId :: !(Maybe Text)
+  { launchRoleARN ::
+      Lude.Maybe Lude.Text,
+    idempotencyToken :: Lude.Maybe Lude.Text,
+    status ::
+      Lude.Maybe ProvisionedProductStatus,
+    lastSuccessfulProvisioningRecordId ::
+      Lude.Maybe Lude.Text,
+    provisioningArtifactId ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    statusMessage :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    lastRecordId :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text,
+    lastProvisioningRecordId ::
+      Lude.Maybe Lude.Text,
+    productId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedProductDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The ARN of the provisioned product.
+-- * 'createdTime' - The UTC time stamp of the creation time.
+-- * 'id' - The identifier of the provisioned product.
+-- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- * 'lastProvisioningRecordId' - The record identifier of the last request performed on this provisioned product of the following types:
 --
--- * 'ppdLaunchRoleARN' - The ARN of the launch role associated with the provisioned product.
 --
--- * 'ppdIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+--     * ProvisionedProduct
 --
--- * 'ppdStatus' - The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
 --
--- * 'ppdLastSuccessfulProvisioningRecordId' - The record identifier of the last successful request performed on this provisioned product of the following types:     * ProvisionedProduct      * UpdateProvisionedProduct      * ExecuteProvisionedProductPlan      * TerminateProvisionedProduct
+--     * UpdateProvisionedProduct
 --
--- * 'ppdProvisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
 --
--- * 'ppdARN' - The ARN of the provisioned product.
+--     * ExecuteProvisionedProductPlan
 --
--- * 'ppdCreatedTime' - The UTC time stamp of the creation time.
 --
--- * 'ppdStatusMessage' - The current status message of the provisioned product.
+--     * TerminateProvisionedProduct
 --
--- * 'ppdName' - The user-friendly name of the provisioned product.
 --
--- * 'ppdLastRecordId' - The record identifier of the last request performed on this provisioned product.
+-- * 'lastRecordId' - The record identifier of the last request performed on this provisioned product.
+-- * 'lastSuccessfulProvisioningRecordId' - The record identifier of the last successful request performed on this provisioned product of the following types:
 --
--- * 'ppdId' - The identifier of the provisioned product.
 --
--- * 'ppdType' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
+--     * ProvisionedProduct
 --
--- * 'ppdLastProvisioningRecordId' - The record identifier of the last request performed on this provisioned product of the following types:     * ProvisionedProduct      * UpdateProvisionedProduct      * ExecuteProvisionedProductPlan      * TerminateProvisionedProduct
 --
--- * 'ppdProductId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
-provisionedProductDetail ::
+--     * UpdateProvisionedProduct
+--
+--
+--     * ExecuteProvisionedProductPlan
+--
+--
+--     * TerminateProvisionedProduct
+--
+--
+-- * 'launchRoleARN' - The ARN of the launch role associated with the provisioned product.
+-- * 'name' - The user-friendly name of the provisioned product.
+-- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+-- * 'status' - The current status of the provisioned product.
+--
+--
+--     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.
+--
+--
+--     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.
+--
+--
+--     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.
+--
+--
+--     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+--
+--
+--     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
+--
+--
+-- * 'statusMessage' - The current status message of the provisioned product.
+-- * 'type'' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
+mkProvisionedProductDetail ::
   ProvisionedProductDetail
-provisionedProductDetail =
+mkProvisionedProductDetail =
   ProvisionedProductDetail'
-    { _ppdLaunchRoleARN = Nothing,
-      _ppdIdempotencyToken = Nothing,
-      _ppdStatus = Nothing,
-      _ppdLastSuccessfulProvisioningRecordId = Nothing,
-      _ppdProvisioningArtifactId = Nothing,
-      _ppdARN = Nothing,
-      _ppdCreatedTime = Nothing,
-      _ppdStatusMessage = Nothing,
-      _ppdName = Nothing,
-      _ppdLastRecordId = Nothing,
-      _ppdId = Nothing,
-      _ppdType = Nothing,
-      _ppdLastProvisioningRecordId = Nothing,
-      _ppdProductId = Nothing
+    { launchRoleARN = Lude.Nothing,
+      idempotencyToken = Lude.Nothing,
+      status = Lude.Nothing,
+      lastSuccessfulProvisioningRecordId = Lude.Nothing,
+      provisioningArtifactId = Lude.Nothing,
+      arn = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      name = Lude.Nothing,
+      lastRecordId = Lude.Nothing,
+      id = Lude.Nothing,
+      type' = Lude.Nothing,
+      lastProvisioningRecordId = Lude.Nothing,
+      productId = Lude.Nothing
     }
 
 -- | The ARN of the launch role associated with the provisioned product.
-ppdLaunchRoleARN :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdLaunchRoleARN = lens _ppdLaunchRoleARN (\s a -> s {_ppdLaunchRoleARN = a})
+--
+-- /Note:/ Consider using 'launchRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdLaunchRoleARN :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdLaunchRoleARN = Lens.lens (launchRoleARN :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {launchRoleARN = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdLaunchRoleARN "Use generic-lens or generic-optics with 'launchRoleARN' instead." #-}
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-ppdIdempotencyToken :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdIdempotencyToken = lens _ppdIdempotencyToken (\s a -> s {_ppdIdempotencyToken = a})
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdIdempotencyToken :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdIdempotencyToken = Lens.lens (idempotencyToken :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {idempotencyToken = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
--- | The current status of the provisioned product.     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
-ppdStatus :: Lens' ProvisionedProductDetail (Maybe ProvisionedProductStatus)
-ppdStatus = lens _ppdStatus (\s a -> s {_ppdStatus = a})
+-- | The current status of the provisioned product.
+--
+--
+--     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.
+--
+--
+--     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.
+--
+--
+--     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.
+--
+--
+--     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+--
+--
+--     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdStatus :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe ProvisionedProductStatus)
+ppdStatus = Lens.lens (status :: ProvisionedProductDetail -> Lude.Maybe ProvisionedProductStatus) (\s a -> s {status = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The record identifier of the last successful request performed on this provisioned product of the following types:     * ProvisionedProduct      * UpdateProvisionedProduct      * ExecuteProvisionedProductPlan      * TerminateProvisionedProduct
-ppdLastSuccessfulProvisioningRecordId :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdLastSuccessfulProvisioningRecordId = lens _ppdLastSuccessfulProvisioningRecordId (\s a -> s {_ppdLastSuccessfulProvisioningRecordId = a})
+-- | The record identifier of the last successful request performed on this provisioned product of the following types:
+--
+--
+--     * ProvisionedProduct
+--
+--
+--     * UpdateProvisionedProduct
+--
+--
+--     * ExecuteProvisionedProductPlan
+--
+--
+--     * TerminateProvisionedProduct
+--
+--
+--
+-- /Note:/ Consider using 'lastSuccessfulProvisioningRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdLastSuccessfulProvisioningRecordId :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdLastSuccessfulProvisioningRecordId = Lens.lens (lastSuccessfulProvisioningRecordId :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {lastSuccessfulProvisioningRecordId = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdLastSuccessfulProvisioningRecordId "Use generic-lens or generic-optics with 'lastSuccessfulProvisioningRecordId' instead." #-}
 
 -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
-ppdProvisioningArtifactId :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdProvisioningArtifactId = lens _ppdProvisioningArtifactId (\s a -> s {_ppdProvisioningArtifactId = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdProvisioningArtifactId :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The ARN of the provisioned product.
-ppdARN :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdARN = lens _ppdARN (\s a -> s {_ppdARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdARN :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdARN = Lens.lens (arn :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The UTC time stamp of the creation time.
-ppdCreatedTime :: Lens' ProvisionedProductDetail (Maybe UTCTime)
-ppdCreatedTime = lens _ppdCreatedTime (\s a -> s {_ppdCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdCreatedTime :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Timestamp)
+ppdCreatedTime = Lens.lens (createdTime :: ProvisionedProductDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The current status message of the provisioned product.
-ppdStatusMessage :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdStatusMessage = lens _ppdStatusMessage (\s a -> s {_ppdStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdStatusMessage :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdStatusMessage = Lens.lens (statusMessage :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The user-friendly name of the provisioned product.
-ppdName :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdName = lens _ppdName (\s a -> s {_ppdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdName :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdName = Lens.lens (name :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The record identifier of the last request performed on this provisioned product.
-ppdLastRecordId :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdLastRecordId = lens _ppdLastRecordId (\s a -> s {_ppdLastRecordId = a})
+--
+-- /Note:/ Consider using 'lastRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdLastRecordId :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdLastRecordId = Lens.lens (lastRecordId :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {lastRecordId = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdLastRecordId "Use generic-lens or generic-optics with 'lastRecordId' instead." #-}
 
 -- | The identifier of the provisioned product.
-ppdId :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdId = lens _ppdId (\s a -> s {_ppdId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdId :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdId = Lens.lens (id :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
-ppdType :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdType = lens _ppdType (\s a -> s {_ppdType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdType :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdType = Lens.lens (type' :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The record identifier of the last request performed on this provisioned product of the following types:     * ProvisionedProduct      * UpdateProvisionedProduct      * ExecuteProvisionedProductPlan      * TerminateProvisionedProduct
-ppdLastProvisioningRecordId :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdLastProvisioningRecordId = lens _ppdLastProvisioningRecordId (\s a -> s {_ppdLastProvisioningRecordId = a})
+-- | The record identifier of the last request performed on this provisioned product of the following types:
+--
+--
+--     * ProvisionedProduct
+--
+--
+--     * UpdateProvisionedProduct
+--
+--
+--     * ExecuteProvisionedProductPlan
+--
+--
+--     * TerminateProvisionedProduct
+--
+--
+--
+-- /Note:/ Consider using 'lastProvisioningRecordId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdLastProvisioningRecordId :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdLastProvisioningRecordId = Lens.lens (lastProvisioningRecordId :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {lastProvisioningRecordId = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdLastProvisioningRecordId "Use generic-lens or generic-optics with 'lastProvisioningRecordId' instead." #-}
 
 -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
-ppdProductId :: Lens' ProvisionedProductDetail (Maybe Text)
-ppdProductId = lens _ppdProductId (\s a -> s {_ppdProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdProductId :: Lens.Lens' ProvisionedProductDetail (Lude.Maybe Lude.Text)
+ppdProductId = Lens.lens (productId :: ProvisionedProductDetail -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: ProvisionedProductDetail)
+{-# DEPRECATED ppdProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
-instance FromJSON ProvisionedProductDetail where
+instance Lude.FromJSON ProvisionedProductDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProvisionedProductDetail"
       ( \x ->
           ProvisionedProductDetail'
-            <$> (x .:? "LaunchRoleArn")
-            <*> (x .:? "IdempotencyToken")
-            <*> (x .:? "Status")
-            <*> (x .:? "LastSuccessfulProvisioningRecordId")
-            <*> (x .:? "ProvisioningArtifactId")
-            <*> (x .:? "Arn")
-            <*> (x .:? "CreatedTime")
-            <*> (x .:? "StatusMessage")
-            <*> (x .:? "Name")
-            <*> (x .:? "LastRecordId")
-            <*> (x .:? "Id")
-            <*> (x .:? "Type")
-            <*> (x .:? "LastProvisioningRecordId")
-            <*> (x .:? "ProductId")
+            Lude.<$> (x Lude..:? "LaunchRoleArn")
+            Lude.<*> (x Lude..:? "IdempotencyToken")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "LastSuccessfulProvisioningRecordId")
+            Lude.<*> (x Lude..:? "ProvisioningArtifactId")
+            Lude.<*> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "StatusMessage")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "LastRecordId")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "LastProvisioningRecordId")
+            Lude.<*> (x Lude..:? "ProductId")
       )
-
-instance Hashable ProvisionedProductDetail
-
-instance NFData ProvisionedProductDetail

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,36 +14,35 @@
 --
 -- Retrieves a list of configuration items that have tags as specified by the key-value pairs, name and value, passed to the optional parameter @filters@ .
 --
---
 -- There are three valid tag filter names:
 --
 --     * tagKey
 --
+--
 --     * tagValue
+--
 --
 --     * configurationId
 --
 --
---
 -- Also, all configuration items associated with your user account that have tags can be listed if you call @DescribeTags@ as is without passing any parameters.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Discovery.DescribeTags
-  ( -- * Creating a Request
-    describeTags,
-    DescribeTags,
+  ( -- * Creating a request
+    DescribeTags (..),
+    mkDescribeTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtFilters,
     dtNextToken,
     dtMaxResults,
 
-    -- * Destructuring the Response
-    describeTagsResponse,
-    DescribeTagsResponse,
+    -- * Destructuring the response
+    DescribeTagsResponse (..),
+    mkDescribeTagsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrsNextToken,
     dtrsTags,
     dtrsResponseStatus,
@@ -56,138 +50,160 @@ module Network.AWS.Discovery.DescribeTags
 where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeTags' smart constructor.
+-- | /See:/ 'mkDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { _dtFilters ::
-      !(Maybe [TagFilter]),
-    _dtNextToken :: !(Maybe Text),
-    _dtMaxResults :: !(Maybe Int)
+  { filters ::
+      Lude.Maybe [TagFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtFilters' - You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
---
--- * 'dtNextToken' - A token to start the list. Use this token to get the next set of results.
---
--- * 'dtMaxResults' - The total number of items to return in a single page of output. The maximum value is 100.
-describeTags ::
+-- * 'filters' - You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
+-- * 'maxResults' - The total number of items to return in a single page of output. The maximum value is 100.
+-- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+mkDescribeTags ::
   DescribeTags
-describeTags =
+mkDescribeTags =
   DescribeTags'
-    { _dtFilters = Nothing,
-      _dtNextToken = Nothing,
-      _dtMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
-dtFilters :: Lens' DescribeTags [TagFilter]
-dtFilters = lens _dtFilters (\s a -> s {_dtFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtFilters :: Lens.Lens' DescribeTags (Lude.Maybe [TagFilter])
+dtFilters = Lens.lens (filters :: DescribeTags -> Lude.Maybe [TagFilter]) (\s a -> s {filters = a} :: DescribeTags)
+{-# DEPRECATED dtFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | A token to start the list. Use this token to get the next set of results.
-dtNextToken :: Lens' DescribeTags (Maybe Text)
-dtNextToken = lens _dtNextToken (\s a -> s {_dtNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtNextToken :: Lens.Lens' DescribeTags (Lude.Maybe Lude.Text)
+dtNextToken = Lens.lens (nextToken :: DescribeTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTags)
+{-# DEPRECATED dtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of items to return in a single page of output. The maximum value is 100.
-dtMaxResults :: Lens' DescribeTags (Maybe Int)
-dtMaxResults = lens _dtMaxResults (\s a -> s {_dtMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtMaxResults :: Lens.Lens' DescribeTags (Lude.Maybe Lude.Int)
+dtMaxResults = Lens.lens (maxResults :: DescribeTags -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeTags)
+{-# DEPRECATED dtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeTags where
+instance Page.AWSPager DescribeTags where
   page rq rs
-    | stop (rs ^. dtrsNextToken) = Nothing
-    | stop (rs ^. dtrsTags) = Nothing
-    | otherwise = Just $ rq & dtNextToken .~ rs ^. dtrsNextToken
+    | Page.stop (rs Lens.^. dtrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtrsTags) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dtNextToken Lens..~ rs Lens.^. dtrsNextToken
 
-instance AWSRequest DescribeTags where
+instance Lude.AWSRequest DescribeTags where
   type Rs DescribeTags = DescribeTagsResponse
-  request = postJSON discovery
+  request = Req.postJSON discoveryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTagsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTags
-
-instance NFData DescribeTags
-
-instance ToHeaders DescribeTags where
+instance Lude.ToHeaders DescribeTags where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSPoseidonService_V2015_11_01.DescribeTags" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSPoseidonService_V2015_11_01.DescribeTags" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTags where
+instance Lude.ToJSON DescribeTags where
   toJSON DescribeTags' {..} =
-    object
-      ( catMaybes
-          [ ("filters" .=) <$> _dtFilters,
-            ("nextToken" .=) <$> _dtNextToken,
-            ("maxResults" .=) <$> _dtMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("filters" Lude..=) Lude.<$> filters,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeTags where
-  toPath = const "/"
+instance Lude.ToPath DescribeTags where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTags where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTags where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeTagsResponse' smart constructor.
+-- | /See:/ 'mkDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { _dtrsNextToken ::
-      !(Maybe Text),
-    _dtrsTags :: !(Maybe [ConfigurationTag]),
-    _dtrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [ConfigurationTag],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrsNextToken' - The call returns a token. Use this token to get the next set of results.
---
--- * 'dtrsTags' - Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
---
--- * 'dtrsResponseStatus' - -- | The response status code.
-describeTagsResponse ::
-  -- | 'dtrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The call returns a token. Use this token to get the next set of results.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
+mkDescribeTagsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTagsResponse
-describeTagsResponse pResponseStatus_ =
+mkDescribeTagsResponse pResponseStatus_ =
   DescribeTagsResponse'
-    { _dtrsNextToken = Nothing,
-      _dtrsTags = Nothing,
-      _dtrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The call returns a token. Use this token to get the next set of results.
-dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dtrsNextToken = lens _dtrsNextToken (\s a -> s {_dtrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsNextToken :: Lens.Lens' DescribeTagsResponse (Lude.Maybe Lude.Text)
+dtrsNextToken = Lens.lens (nextToken :: DescribeTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
-dtrsTags :: Lens' DescribeTagsResponse [ConfigurationTag]
-dtrsTags = lens _dtrsTags (\s a -> s {_dtrsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsTags :: Lens.Lens' DescribeTagsResponse (Lude.Maybe [ConfigurationTag])
+dtrsTags = Lens.lens (tags :: DescribeTagsResponse -> Lude.Maybe [ConfigurationTag]) (\s a -> s {tags = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\s a -> s {_dtrsResponseStatus = a})
-
-instance NFData DescribeTagsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrsResponseStatus :: Lens.Lens' DescribeTagsResponse Lude.Int
+dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

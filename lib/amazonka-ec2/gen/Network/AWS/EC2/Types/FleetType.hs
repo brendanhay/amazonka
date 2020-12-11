@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FleetType where
+module Network.AWS.EC2.Types.FleetType
+  ( FleetType
+      ( FleetType',
+        FTInstant,
+        FTMaintain,
+        FTRequest
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FleetType
-  = FTInstant
-  | FTMaintain
-  | FTRequest
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetType = FleetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetType where
-  parser =
-    takeLowerText >>= \case
-      "instant" -> pure FTInstant
-      "maintain" -> pure FTMaintain
-      "request" -> pure FTRequest
-      e ->
-        fromTextError $
-          "Failure parsing FleetType from value: '" <> e
-            <> "'. Accepted values: instant, maintain, request"
+pattern FTInstant :: FleetType
+pattern FTInstant = FleetType' "instant"
 
-instance ToText FleetType where
-  toText = \case
-    FTInstant -> "instant"
-    FTMaintain -> "maintain"
-    FTRequest -> "request"
+pattern FTMaintain :: FleetType
+pattern FTMaintain = FleetType' "maintain"
 
-instance Hashable FleetType
+pattern FTRequest :: FleetType
+pattern FTRequest = FleetType' "request"
 
-instance NFData FleetType
-
-instance ToByteString FleetType
-
-instance ToQuery FleetType
-
-instance ToHeader FleetType
-
-instance FromXML FleetType where
-  parseXML = parseXMLText "FleetType"
+{-# COMPLETE
+  FTInstant,
+  FTMaintain,
+  FTRequest,
+  FleetType'
+  #-}

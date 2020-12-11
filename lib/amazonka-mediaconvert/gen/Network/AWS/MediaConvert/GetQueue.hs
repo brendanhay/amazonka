@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,121 @@
 --
 -- Retrieve the JSON for a specific queue.
 module Network.AWS.MediaConvert.GetQueue
-  ( -- * Creating a Request
-    getQueue,
-    GetQueue,
+  ( -- * Creating a request
+    GetQueue (..),
+    mkGetQueue,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gqName,
 
-    -- * Destructuring the Response
-    getQueueResponse,
-    GetQueueResponse,
+    -- * Destructuring the response
+    GetQueueResponse (..),
+    mkGetQueueResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gqrsQueue,
     gqrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getQueue' smart constructor.
-newtype GetQueue = GetQueue' {_gqName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetQueue' smart constructor.
+newtype GetQueue = GetQueue' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQueue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gqName' - The name of the queue that you want information about.
-getQueue ::
-  -- | 'gqName'
-  Text ->
+-- * 'name' - The name of the queue that you want information about.
+mkGetQueue ::
+  -- | 'name'
+  Lude.Text ->
   GetQueue
-getQueue pName_ = GetQueue' {_gqName = pName_}
+mkGetQueue pName_ = GetQueue' {name = pName_}
 
 -- | The name of the queue that you want information about.
-gqName :: Lens' GetQueue Text
-gqName = lens _gqName (\s a -> s {_gqName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqName :: Lens.Lens' GetQueue Lude.Text
+gqName = Lens.lens (name :: GetQueue -> Lude.Text) (\s a -> s {name = a} :: GetQueue)
+{-# DEPRECATED gqName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetQueue where
+instance Lude.AWSRequest GetQueue where
   type Rs GetQueue = GetQueueResponse
-  request = get mediaConvert
+  request = Req.get mediaConvertService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetQueueResponse' <$> (x .?> "queue") <*> (pure (fromEnum s))
+          GetQueueResponse'
+            Lude.<$> (x Lude..?> "queue") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetQueue
-
-instance NFData GetQueue
-
-instance ToHeaders GetQueue where
+instance Lude.ToHeaders GetQueue where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetQueue where
+instance Lude.ToPath GetQueue where
   toPath GetQueue' {..} =
-    mconcat ["/2017-08-29/queues/", toBS _gqName]
+    Lude.mconcat ["/2017-08-29/queues/", Lude.toBS name]
 
-instance ToQuery GetQueue where
-  toQuery = const mempty
+instance Lude.ToQuery GetQueue where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getQueueResponse' smart constructor.
+-- | /See:/ 'mkGetQueueResponse' smart constructor.
 data GetQueueResponse = GetQueueResponse'
-  { _gqrsQueue ::
-      !(Maybe Queue),
-    _gqrsResponseStatus :: !Int
+  { queue ::
+      Lude.Maybe Queue,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQueueResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gqrsQueue' - You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
---
--- * 'gqrsResponseStatus' - -- | The response status code.
-getQueueResponse ::
-  -- | 'gqrsResponseStatus'
-  Int ->
+-- * 'queue' - You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+-- * 'responseStatus' - The response status code.
+mkGetQueueResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetQueueResponse
-getQueueResponse pResponseStatus_ =
+mkGetQueueResponse pResponseStatus_ =
   GetQueueResponse'
-    { _gqrsQueue = Nothing,
-      _gqrsResponseStatus = pResponseStatus_
+    { queue = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
-gqrsQueue :: Lens' GetQueueResponse (Maybe Queue)
-gqrsQueue = lens _gqrsQueue (\s a -> s {_gqrsQueue = a})
+--
+-- /Note:/ Consider using 'queue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqrsQueue :: Lens.Lens' GetQueueResponse (Lude.Maybe Queue)
+gqrsQueue = Lens.lens (queue :: GetQueueResponse -> Lude.Maybe Queue) (\s a -> s {queue = a} :: GetQueueResponse)
+{-# DEPRECATED gqrsQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
 
--- | -- | The response status code.
-gqrsResponseStatus :: Lens' GetQueueResponse Int
-gqrsResponseStatus = lens _gqrsResponseStatus (\s a -> s {_gqrsResponseStatus = a})
-
-instance NFData GetQueueResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqrsResponseStatus :: Lens.Lens' GetQueueResponse Lude.Int
+gqrsResponseStatus = Lens.lens (responseStatus :: GetQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetQueueResponse)
+{-# DEPRECATED gqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

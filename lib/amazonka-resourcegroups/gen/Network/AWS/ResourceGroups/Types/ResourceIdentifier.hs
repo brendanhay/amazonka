@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types.ResourceIdentifier where
+module Network.AWS.ResourceGroups.Types.ResourceIdentifier
+  ( ResourceIdentifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceIdentifier,
+
+    -- * Lenses
+    riResourceType,
+    riResourceARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The ARN of a resource, and its resource type.
 --
---
---
--- /See:/ 'resourceIdentifier' smart constructor.
+-- /See:/ 'mkResourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
-  { _riResourceType ::
-      !(Maybe Text),
-    _riResourceARN :: !(Maybe Text)
+  { resourceType ::
+      Lude.Maybe Lude.Text,
+    resourceARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riResourceType' - The resource type of a resource, such as @AWS::EC2::Instance@ .
---
--- * 'riResourceARN' - The ARN of a resource.
-resourceIdentifier ::
+-- * 'resourceARN' - The ARN of a resource.
+-- * 'resourceType' - The resource type of a resource, such as @AWS::EC2::Instance@ .
+mkResourceIdentifier ::
   ResourceIdentifier
-resourceIdentifier =
+mkResourceIdentifier =
   ResourceIdentifier'
-    { _riResourceType = Nothing,
-      _riResourceARN = Nothing
+    { resourceType = Lude.Nothing,
+      resourceARN = Lude.Nothing
     }
 
 -- | The resource type of a resource, such as @AWS::EC2::Instance@ .
-riResourceType :: Lens' ResourceIdentifier (Maybe Text)
-riResourceType = lens _riResourceType (\s a -> s {_riResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riResourceType :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
+riResourceType = Lens.lens (resourceType :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ResourceIdentifier)
+{-# DEPRECATED riResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ARN of a resource.
-riResourceARN :: Lens' ResourceIdentifier (Maybe Text)
-riResourceARN = lens _riResourceARN (\s a -> s {_riResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riResourceARN :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
+riResourceARN = Lens.lens (resourceARN :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: ResourceIdentifier)
+{-# DEPRECATED riResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance FromJSON ResourceIdentifier where
+instance Lude.FromJSON ResourceIdentifier where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceIdentifier"
       ( \x ->
           ResourceIdentifier'
-            <$> (x .:? "ResourceType") <*> (x .:? "ResourceArn")
+            Lude.<$> (x Lude..:? "ResourceType") Lude.<*> (x Lude..:? "ResourceArn")
       )
-
-instance Hashable ResourceIdentifier
-
-instance NFData ResourceIdentifier

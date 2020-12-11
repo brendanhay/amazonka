@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.CacheMode where
+module Network.AWS.CodeBuild.Types.CacheMode
+  ( CacheMode
+      ( CacheMode',
+        LocalCustomCache,
+        LocalDockerLayerCache,
+        LocalSourceCache
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CacheMode
-  = LocalCustomCache
-  | LocalDockerLayerCache
-  | LocalSourceCache
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CacheMode = CacheMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CacheMode where
-  parser =
-    takeLowerText >>= \case
-      "local_custom_cache" -> pure LocalCustomCache
-      "local_docker_layer_cache" -> pure LocalDockerLayerCache
-      "local_source_cache" -> pure LocalSourceCache
-      e ->
-        fromTextError $
-          "Failure parsing CacheMode from value: '" <> e
-            <> "'. Accepted values: local_custom_cache, local_docker_layer_cache, local_source_cache"
+pattern LocalCustomCache :: CacheMode
+pattern LocalCustomCache = CacheMode' "LOCAL_CUSTOM_CACHE"
 
-instance ToText CacheMode where
-  toText = \case
-    LocalCustomCache -> "LOCAL_CUSTOM_CACHE"
-    LocalDockerLayerCache -> "LOCAL_DOCKER_LAYER_CACHE"
-    LocalSourceCache -> "LOCAL_SOURCE_CACHE"
+pattern LocalDockerLayerCache :: CacheMode
+pattern LocalDockerLayerCache = CacheMode' "LOCAL_DOCKER_LAYER_CACHE"
 
-instance Hashable CacheMode
+pattern LocalSourceCache :: CacheMode
+pattern LocalSourceCache = CacheMode' "LOCAL_SOURCE_CACHE"
 
-instance NFData CacheMode
-
-instance ToByteString CacheMode
-
-instance ToQuery CacheMode
-
-instance ToHeader CacheMode
-
-instance ToJSON CacheMode where
-  toJSON = toJSONText
-
-instance FromJSON CacheMode where
-  parseJSON = parseJSONText "CacheMode"
+{-# COMPLETE
+  LocalCustomCache,
+  LocalDockerLayerCache,
+  LocalSourceCache,
+  CacheMode'
+  #-}

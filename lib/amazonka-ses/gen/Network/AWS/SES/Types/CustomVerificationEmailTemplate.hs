@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.CustomVerificationEmailTemplate where
+module Network.AWS.SES.Types.CustomVerificationEmailTemplate
+  ( CustomVerificationEmailTemplate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCustomVerificationEmailTemplate,
+
+    -- * Lenses
+    cvetFromEmailAddress,
+    cvetTemplateName,
+    cvetFailureRedirectionURL,
+    cvetTemplateSubject,
+    cvetSuccessRedirectionURL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about a custom verification email template.
 --
---
---
--- /See:/ 'customVerificationEmailTemplate' smart constructor.
+-- /See:/ 'mkCustomVerificationEmailTemplate' smart constructor.
 data CustomVerificationEmailTemplate = CustomVerificationEmailTemplate'
-  { _cvetFromEmailAddress ::
-      !(Maybe Text),
-    _cvetTemplateName ::
-      !(Maybe Text),
-    _cvetFailureRedirectionURL ::
-      !(Maybe Text),
-    _cvetTemplateSubject ::
-      !(Maybe Text),
-    _cvetSuccessRedirectionURL ::
-      !(Maybe Text)
+  { fromEmailAddress ::
+      Lude.Maybe Lude.Text,
+    templateName ::
+      Lude.Maybe Lude.Text,
+    failureRedirectionURL ::
+      Lude.Maybe Lude.Text,
+    templateSubject ::
+      Lude.Maybe Lude.Text,
+    successRedirectionURL ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomVerificationEmailTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvetFromEmailAddress' - The email address that the custom verification email is sent from.
---
--- * 'cvetTemplateName' - The name of the custom verification email template.
---
--- * 'cvetFailureRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
---
--- * 'cvetTemplateSubject' - The subject line of the custom verification email.
---
--- * 'cvetSuccessRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
-customVerificationEmailTemplate ::
+-- * 'failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
+-- * 'fromEmailAddress' - The email address that the custom verification email is sent from.
+-- * 'successRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
+-- * 'templateName' - The name of the custom verification email template.
+-- * 'templateSubject' - The subject line of the custom verification email.
+mkCustomVerificationEmailTemplate ::
   CustomVerificationEmailTemplate
-customVerificationEmailTemplate =
+mkCustomVerificationEmailTemplate =
   CustomVerificationEmailTemplate'
-    { _cvetFromEmailAddress = Nothing,
-      _cvetTemplateName = Nothing,
-      _cvetFailureRedirectionURL = Nothing,
-      _cvetTemplateSubject = Nothing,
-      _cvetSuccessRedirectionURL = Nothing
+    { fromEmailAddress = Lude.Nothing,
+      templateName = Lude.Nothing,
+      failureRedirectionURL = Lude.Nothing,
+      templateSubject = Lude.Nothing,
+      successRedirectionURL = Lude.Nothing
     }
 
 -- | The email address that the custom verification email is sent from.
-cvetFromEmailAddress :: Lens' CustomVerificationEmailTemplate (Maybe Text)
-cvetFromEmailAddress = lens _cvetFromEmailAddress (\s a -> s {_cvetFromEmailAddress = a})
+--
+-- /Note:/ Consider using 'fromEmailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvetFromEmailAddress :: Lens.Lens' CustomVerificationEmailTemplate (Lude.Maybe Lude.Text)
+cvetFromEmailAddress = Lens.lens (fromEmailAddress :: CustomVerificationEmailTemplate -> Lude.Maybe Lude.Text) (\s a -> s {fromEmailAddress = a} :: CustomVerificationEmailTemplate)
+{-# DEPRECATED cvetFromEmailAddress "Use generic-lens or generic-optics with 'fromEmailAddress' instead." #-}
 
 -- | The name of the custom verification email template.
-cvetTemplateName :: Lens' CustomVerificationEmailTemplate (Maybe Text)
-cvetTemplateName = lens _cvetTemplateName (\s a -> s {_cvetTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvetTemplateName :: Lens.Lens' CustomVerificationEmailTemplate (Lude.Maybe Lude.Text)
+cvetTemplateName = Lens.lens (templateName :: CustomVerificationEmailTemplate -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: CustomVerificationEmailTemplate)
+{-# DEPRECATED cvetTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
-cvetFailureRedirectionURL :: Lens' CustomVerificationEmailTemplate (Maybe Text)
-cvetFailureRedirectionURL = lens _cvetFailureRedirectionURL (\s a -> s {_cvetFailureRedirectionURL = a})
+--
+-- /Note:/ Consider using 'failureRedirectionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvetFailureRedirectionURL :: Lens.Lens' CustomVerificationEmailTemplate (Lude.Maybe Lude.Text)
+cvetFailureRedirectionURL = Lens.lens (failureRedirectionURL :: CustomVerificationEmailTemplate -> Lude.Maybe Lude.Text) (\s a -> s {failureRedirectionURL = a} :: CustomVerificationEmailTemplate)
+{-# DEPRECATED cvetFailureRedirectionURL "Use generic-lens or generic-optics with 'failureRedirectionURL' instead." #-}
 
 -- | The subject line of the custom verification email.
-cvetTemplateSubject :: Lens' CustomVerificationEmailTemplate (Maybe Text)
-cvetTemplateSubject = lens _cvetTemplateSubject (\s a -> s {_cvetTemplateSubject = a})
+--
+-- /Note:/ Consider using 'templateSubject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvetTemplateSubject :: Lens.Lens' CustomVerificationEmailTemplate (Lude.Maybe Lude.Text)
+cvetTemplateSubject = Lens.lens (templateSubject :: CustomVerificationEmailTemplate -> Lude.Maybe Lude.Text) (\s a -> s {templateSubject = a} :: CustomVerificationEmailTemplate)
+{-# DEPRECATED cvetTemplateSubject "Use generic-lens or generic-optics with 'templateSubject' instead." #-}
 
 -- | The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
-cvetSuccessRedirectionURL :: Lens' CustomVerificationEmailTemplate (Maybe Text)
-cvetSuccessRedirectionURL = lens _cvetSuccessRedirectionURL (\s a -> s {_cvetSuccessRedirectionURL = a})
+--
+-- /Note:/ Consider using 'successRedirectionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvetSuccessRedirectionURL :: Lens.Lens' CustomVerificationEmailTemplate (Lude.Maybe Lude.Text)
+cvetSuccessRedirectionURL = Lens.lens (successRedirectionURL :: CustomVerificationEmailTemplate -> Lude.Maybe Lude.Text) (\s a -> s {successRedirectionURL = a} :: CustomVerificationEmailTemplate)
+{-# DEPRECATED cvetSuccessRedirectionURL "Use generic-lens or generic-optics with 'successRedirectionURL' instead." #-}
 
-instance FromXML CustomVerificationEmailTemplate where
+instance Lude.FromXML CustomVerificationEmailTemplate where
   parseXML x =
     CustomVerificationEmailTemplate'
-      <$> (x .@? "FromEmailAddress")
-      <*> (x .@? "TemplateName")
-      <*> (x .@? "FailureRedirectionURL")
-      <*> (x .@? "TemplateSubject")
-      <*> (x .@? "SuccessRedirectionURL")
-
-instance Hashable CustomVerificationEmailTemplate
-
-instance NFData CustomVerificationEmailTemplate
+      Lude.<$> (x Lude..@? "FromEmailAddress")
+      Lude.<*> (x Lude..@? "TemplateName")
+      Lude.<*> (x Lude..@? "FailureRedirectionURL")
+      Lude.<*> (x Lude..@? "TemplateSubject")
+      Lude.<*> (x Lude..@? "SuccessRedirectionURL")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,188 +17,216 @@
 --
 --     * An @IPSet@ that matches the IP address @192.0.2.44/32@
 --
+--
 --     * A @ByteMatchSet@ that matches @BadBot@ in the @User-Agent@ header
 --
 --
---
 -- You then add the @Rule@ to a @WebACL@ and specify that you want to blocks requests that satisfy the @Rule@ . For a request to be blocked, it must come from the IP address 192.0.2.44 /and/ the @User-Agent@ header in the request must contain the value @BadBot@ .
---
 -- To create and configure a @Rule@ , perform the following steps:
 --
 --     * Create and update the predicates that you want to include in the @Rule@ . For more information, see 'CreateByteMatchSet' , 'CreateIPSet' , and 'CreateSqlInjectionMatchSet' .
 --
+--
 --     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @CreateRule@ request.
+--
 --
 --     * Submit a @CreateRule@ request.
 --
+--
 --     * Use @GetChangeToken@ to get the change token that you provide in the @ChangeToken@ parameter of an 'UpdateRule' request.
 --
+--
 --     * Submit an @UpdateRule@ request to specify the predicates that you want to include in the @Rule@ .
+--
 --
 --     * Create and update a @WebACL@ that contains the @Rule@ . For more information, see 'CreateWebACL' .
 --
 --
---
 -- For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF Developer Guide> .
 module Network.AWS.WAF.CreateRule
-  ( -- * Creating a Request
-    createRule,
-    CreateRule,
+  ( -- * Creating a request
+    CreateRule (..),
+    mkCreateRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crTags,
     crName,
     crMetricName,
     crChangeToken,
 
-    -- * Destructuring the Response
-    createRuleResponse,
-    CreateRuleResponse,
+    -- * Destructuring the response
+    CreateRuleResponse (..),
+    mkCreateRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crrsRule,
     crrsChangeToken,
     crrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
--- | /See:/ 'createRule' smart constructor.
+-- | /See:/ 'mkCreateRule' smart constructor.
 data CreateRule = CreateRule'
-  { _crTags :: !(Maybe (List1 Tag)),
-    _crName :: !Text,
-    _crMetricName :: !Text,
-    _crChangeToken :: !Text
+  { tags ::
+      Lude.Maybe (Lude.NonEmpty Tag),
+    name :: Lude.Text,
+    metricName :: Lude.Text,
+    changeToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crTags' -
---
--- * 'crName' - A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
---
--- * 'crMetricName' - A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @Rule@ .
---
--- * 'crChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-createRule ::
-  -- | 'crName'
-  Text ->
-  -- | 'crMetricName'
-  Text ->
-  -- | 'crChangeToken'
-  Text ->
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'metricName' - A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @Rule@ .
+-- * 'name' - A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
+-- * 'tags' -
+mkCreateRule ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'metricName'
+  Lude.Text ->
+  -- | 'changeToken'
+  Lude.Text ->
   CreateRule
-createRule pName_ pMetricName_ pChangeToken_ =
+mkCreateRule pName_ pMetricName_ pChangeToken_ =
   CreateRule'
-    { _crTags = Nothing,
-      _crName = pName_,
-      _crMetricName = pMetricName_,
-      _crChangeToken = pChangeToken_
+    { tags = Lude.Nothing,
+      name = pName_,
+      metricName = pMetricName_,
+      changeToken = pChangeToken_
     }
 
 -- |
-crTags :: Lens' CreateRule (Maybe (NonEmpty Tag))
-crTags = lens _crTags (\s a -> s {_crTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crTags :: Lens.Lens' CreateRule (Lude.Maybe (Lude.NonEmpty Tag))
+crTags = Lens.lens (tags :: CreateRule -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateRule)
+{-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
-crName :: Lens' CreateRule Text
-crName = lens _crName (\s a -> s {_crName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crName :: Lens.Lens' CreateRule Lude.Text
+crName = Lens.lens (name :: CreateRule -> Lude.Text) (\s a -> s {name = a} :: CreateRule)
+{-# DEPRECATED crName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A friendly name or description for the metrics for this @Rule@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @Rule@ .
-crMetricName :: Lens' CreateRule Text
-crMetricName = lens _crMetricName (\s a -> s {_crMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crMetricName :: Lens.Lens' CreateRule Lude.Text
+crMetricName = Lens.lens (metricName :: CreateRule -> Lude.Text) (\s a -> s {metricName = a} :: CreateRule)
+{-# DEPRECATED crMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-crChangeToken :: Lens' CreateRule Text
-crChangeToken = lens _crChangeToken (\s a -> s {_crChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crChangeToken :: Lens.Lens' CreateRule Lude.Text
+crChangeToken = Lens.lens (changeToken :: CreateRule -> Lude.Text) (\s a -> s {changeToken = a} :: CreateRule)
+{-# DEPRECATED crChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance AWSRequest CreateRule where
+instance Lude.AWSRequest CreateRule where
   type Rs CreateRule = CreateRuleResponse
-  request = postJSON waf
+  request = Req.postJSON wafService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateRuleResponse'
-            <$> (x .?> "Rule") <*> (x .?> "ChangeToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Rule")
+            Lude.<*> (x Lude..?> "ChangeToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateRule
-
-instance NFData CreateRule
-
-instance ToHeaders CreateRule where
+instance Lude.ToHeaders CreateRule where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSWAF_20150824.CreateRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSWAF_20150824.CreateRule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateRule where
+instance Lude.ToJSON CreateRule where
   toJSON CreateRule' {..} =
-    object
-      ( catMaybes
-          [ ("Tags" .=) <$> _crTags,
-            Just ("Name" .= _crName),
-            Just ("MetricName" .= _crMetricName),
-            Just ("ChangeToken" .= _crChangeToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("MetricName" Lude..= metricName),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
-instance ToPath CreateRule where
-  toPath = const "/"
+instance Lude.ToPath CreateRule where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateRule where
-  toQuery = const mempty
+instance Lude.ToQuery CreateRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createRuleResponse' smart constructor.
+-- | /See:/ 'mkCreateRuleResponse' smart constructor.
 data CreateRuleResponse = CreateRuleResponse'
-  { _crrsRule ::
-      !(Maybe Rule),
-    _crrsChangeToken :: !(Maybe Text),
-    _crrsResponseStatus :: !Int
+  { rule ::
+      Lude.Maybe Rule,
+    changeToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrsRule' - The 'Rule' returned in the @CreateRule@ response.
---
--- * 'crrsChangeToken' - The @ChangeToken@ that you used to submit the @CreateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'crrsResponseStatus' - -- | The response status code.
-createRuleResponse ::
-  -- | 'crrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+-- * 'rule' - The 'Rule' returned in the @CreateRule@ response.
+mkCreateRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateRuleResponse
-createRuleResponse pResponseStatus_ =
+mkCreateRuleResponse pResponseStatus_ =
   CreateRuleResponse'
-    { _crrsRule = Nothing,
-      _crrsChangeToken = Nothing,
-      _crrsResponseStatus = pResponseStatus_
+    { rule = Lude.Nothing,
+      changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The 'Rule' returned in the @CreateRule@ response.
-crrsRule :: Lens' CreateRuleResponse (Maybe Rule)
-crrsRule = lens _crrsRule (\s a -> s {_crrsRule = a})
+--
+-- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsRule :: Lens.Lens' CreateRuleResponse (Lude.Maybe Rule)
+crrsRule = Lens.lens (rule :: CreateRuleResponse -> Lude.Maybe Rule) (\s a -> s {rule = a} :: CreateRuleResponse)
+{-# DEPRECATED crrsRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
 -- | The @ChangeToken@ that you used to submit the @CreateRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-crrsChangeToken :: Lens' CreateRuleResponse (Maybe Text)
-crrsChangeToken = lens _crrsChangeToken (\s a -> s {_crrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsChangeToken :: Lens.Lens' CreateRuleResponse (Lude.Maybe Lude.Text)
+crrsChangeToken = Lens.lens (changeToken :: CreateRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: CreateRuleResponse)
+{-# DEPRECATED crrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-crrsResponseStatus :: Lens' CreateRuleResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\s a -> s {_crrsResponseStatus = a})
-
-instance NFData CreateRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsResponseStatus :: Lens.Lens' CreateRuleResponse Lude.Int
+crrsResponseStatus = Lens.lens (responseStatus :: CreateRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateRuleResponse)
+{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Eac3SurroundMode where
+module Network.AWS.MediaLive.Types.Eac3SurroundMode
+  ( Eac3SurroundMode
+      ( Eac3SurroundMode',
+        ESMDisabled,
+        ESMEnabled,
+        ESMNotIndicated
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Eac3 Surround Mode
-data Eac3SurroundMode
-  = ESMDisabled
-  | ESMEnabled
-  | ESMNotIndicated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Eac3SurroundMode = Eac3SurroundMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Eac3SurroundMode where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure ESMDisabled
-      "enabled" -> pure ESMEnabled
-      "not_indicated" -> pure ESMNotIndicated
-      e ->
-        fromTextError $
-          "Failure parsing Eac3SurroundMode from value: '" <> e
-            <> "'. Accepted values: disabled, enabled, not_indicated"
+pattern ESMDisabled :: Eac3SurroundMode
+pattern ESMDisabled = Eac3SurroundMode' "DISABLED"
 
-instance ToText Eac3SurroundMode where
-  toText = \case
-    ESMDisabled -> "DISABLED"
-    ESMEnabled -> "ENABLED"
-    ESMNotIndicated -> "NOT_INDICATED"
+pattern ESMEnabled :: Eac3SurroundMode
+pattern ESMEnabled = Eac3SurroundMode' "ENABLED"
 
-instance Hashable Eac3SurroundMode
+pattern ESMNotIndicated :: Eac3SurroundMode
+pattern ESMNotIndicated = Eac3SurroundMode' "NOT_INDICATED"
 
-instance NFData Eac3SurroundMode
-
-instance ToByteString Eac3SurroundMode
-
-instance ToQuery Eac3SurroundMode
-
-instance ToHeader Eac3SurroundMode
-
-instance ToJSON Eac3SurroundMode where
-  toJSON = toJSONText
-
-instance FromJSON Eac3SurroundMode where
-  parseJSON = parseJSONText "Eac3SurroundMode"
+{-# COMPLETE
+  ESMDisabled,
+  ESMEnabled,
+  ESMNotIndicated,
+  Eac3SurroundMode'
+  #-}

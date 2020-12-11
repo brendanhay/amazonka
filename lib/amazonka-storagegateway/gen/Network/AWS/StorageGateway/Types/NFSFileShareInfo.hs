@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,39 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.NFSFileShareInfo where
+module Network.AWS.StorageGateway.Types.NFSFileShareInfo
+  ( NFSFileShareInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNFSFileShareInfo,
+
+    -- * Lenses
+    nfsfsiFileShareStatus,
+    nfsfsiKMSKey,
+    nfsfsiGatewayARN,
+    nfsfsiPath,
+    nfsfsiCacheAttributes,
+    nfsfsiObjectACL,
+    nfsfsiKMSEncrypted,
+    nfsfsiFileShareId,
+    nfsfsiFileShareARN,
+    nfsfsiDefaultStorageClass,
+    nfsfsiFileShareName,
+    nfsfsiRole,
+    nfsfsiNotificationPolicy,
+    nfsfsiSquash,
+    nfsfsiRequesterPays,
+    nfsfsiNFSFileShareDefaults,
+    nfsfsiLocationARN,
+    nfsfsiClientList,
+    nfsfsiGuessMIMETypeEnabled,
+    nfsfsiReadOnly,
+    nfsfsiTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.StorageGateway.Types.CacheAttributes
 import Network.AWS.StorageGateway.Types.NFSFileShareDefaults
 import Network.AWS.StorageGateway.Types.ObjectACL
@@ -24,221 +47,282 @@ import Network.AWS.StorageGateway.Types.Tag
 
 -- | The Unix file permissions and ownership information assigned, by default, to native S3 objects when file gateway discovers them in S3 buckets. This operation is only supported in file gateways.
 --
---
---
--- /See:/ 'nFSFileShareInfo' smart constructor.
+-- /See:/ 'mkNFSFileShareInfo' smart constructor.
 data NFSFileShareInfo = NFSFileShareInfo'
-  { _nfsfsiFileShareStatus ::
-      !(Maybe Text),
-    _nfsfsiKMSKey :: !(Maybe Text),
-    _nfsfsiGatewayARN :: !(Maybe Text),
-    _nfsfsiPath :: !(Maybe Text),
-    _nfsfsiCacheAttributes :: !(Maybe CacheAttributes),
-    _nfsfsiObjectACL :: !(Maybe ObjectACL),
-    _nfsfsiKMSEncrypted :: !(Maybe Bool),
-    _nfsfsiFileShareId :: !(Maybe Text),
-    _nfsfsiFileShareARN :: !(Maybe Text),
-    _nfsfsiDefaultStorageClass :: !(Maybe Text),
-    _nfsfsiFileShareName :: !(Maybe Text),
-    _nfsfsiRole :: !(Maybe Text),
-    _nfsfsiNotificationPolicy :: !(Maybe Text),
-    _nfsfsiSquash :: !(Maybe Text),
-    _nfsfsiRequesterPays :: !(Maybe Bool),
-    _nfsfsiNFSFileShareDefaults ::
-      !(Maybe NFSFileShareDefaults),
-    _nfsfsiLocationARN :: !(Maybe Text),
-    _nfsfsiClientList :: !(Maybe (List1 Text)),
-    _nfsfsiGuessMIMETypeEnabled :: !(Maybe Bool),
-    _nfsfsiReadOnly :: !(Maybe Bool),
-    _nfsfsiTags :: !(Maybe [Tag])
+  { fileShareStatus ::
+      Lude.Maybe Lude.Text,
+    kmsKey :: Lude.Maybe Lude.Text,
+    gatewayARN :: Lude.Maybe Lude.Text,
+    path :: Lude.Maybe Lude.Text,
+    cacheAttributes :: Lude.Maybe CacheAttributes,
+    objectACL :: Lude.Maybe ObjectACL,
+    kmsEncrypted :: Lude.Maybe Lude.Bool,
+    fileShareId :: Lude.Maybe Lude.Text,
+    fileShareARN :: Lude.Maybe Lude.Text,
+    defaultStorageClass :: Lude.Maybe Lude.Text,
+    fileShareName :: Lude.Maybe Lude.Text,
+    role' :: Lude.Maybe Lude.Text,
+    notificationPolicy :: Lude.Maybe Lude.Text,
+    squash :: Lude.Maybe Lude.Text,
+    requesterPays :: Lude.Maybe Lude.Bool,
+    nFSFileShareDefaults :: Lude.Maybe NFSFileShareDefaults,
+    locationARN :: Lude.Maybe Lude.Text,
+    clientList :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    guessMIMETypeEnabled :: Lude.Maybe Lude.Bool,
+    readOnly :: Lude.Maybe Lude.Bool,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NFSFileShareInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cacheAttributes' - Refresh cache information.
+-- * 'clientList' - Undocumented field.
+-- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
 --
--- * 'nfsfsiFileShareStatus' - Undocumented member.
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+-- * 'fileShareARN' - Undocumented field.
+-- * 'fileShareId' - Undocumented field.
+-- * 'fileShareName' - The name of the file share. Optional.
+-- * 'fileShareStatus' - Undocumented field.
+-- * 'gatewayARN' - Undocumented field.
+-- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
 --
--- * 'nfsfsiKMSKey' - Undocumented member.
+-- Valid Values: @true@ | @false@
+-- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
--- * 'nfsfsiGatewayARN' - Undocumented member.
+-- Valid Values: @true@ | @false@
+-- * 'kmsKey' - Undocumented field.
+-- * 'locationARN' - Undocumented field.
+-- * 'nFSFileShareDefaults' - Undocumented field.
+-- * 'notificationPolicy' - The notification policy of the file share.
+-- * 'objectACL' - Undocumented field.
+-- * 'path' - Undocumented field.
+-- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
 --
--- * 'nfsfsiPath' - Undocumented member.
+-- Valid Values: @true@ | @false@
+-- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
 --
--- * 'nfsfsiCacheAttributes' - Refresh cache information.
---
--- * 'nfsfsiObjectACL' - Undocumented member.
---
--- * 'nfsfsiKMSEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional. Valid Values: @true@ | @false@
---
--- * 'nfsfsiFileShareId' - Undocumented member.
---
--- * 'nfsfsiFileShareARN' - Undocumented member.
---
--- * 'nfsfsiDefaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional. Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
---
--- * 'nfsfsiFileShareName' - The name of the file share. Optional.
---
--- * 'nfsfsiRole' - Undocumented member.
---
--- * 'nfsfsiNotificationPolicy' - The notification policy of the file share.
---
--- * 'nfsfsiSquash' - Undocumented member.
---
--- * 'nfsfsiRequesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data. Valid Values: @true@ | @false@
---
--- * 'nfsfsiNFSFileShareDefaults' - Undocumented member.
---
--- * 'nfsfsiLocationARN' - Undocumented member.
---
--- * 'nfsfsiClientList' - Undocumented member.
---
--- * 'nfsfsiGuessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ . Valid Values: @true@ | @false@
---
--- * 'nfsfsiReadOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ . Valid Values: @true@ | @false@
---
--- * 'nfsfsiTags' - A list of up to 50 tags assigned to the NFS file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
-nFSFileShareInfo ::
+-- Valid Values: @true@ | @false@
+-- * 'role'' - Undocumented field.
+-- * 'squash' - Undocumented field.
+-- * 'tags' - A list of up to 50 tags assigned to the NFS file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
+mkNFSFileShareInfo ::
   NFSFileShareInfo
-nFSFileShareInfo =
+mkNFSFileShareInfo =
   NFSFileShareInfo'
-    { _nfsfsiFileShareStatus = Nothing,
-      _nfsfsiKMSKey = Nothing,
-      _nfsfsiGatewayARN = Nothing,
-      _nfsfsiPath = Nothing,
-      _nfsfsiCacheAttributes = Nothing,
-      _nfsfsiObjectACL = Nothing,
-      _nfsfsiKMSEncrypted = Nothing,
-      _nfsfsiFileShareId = Nothing,
-      _nfsfsiFileShareARN = Nothing,
-      _nfsfsiDefaultStorageClass = Nothing,
-      _nfsfsiFileShareName = Nothing,
-      _nfsfsiRole = Nothing,
-      _nfsfsiNotificationPolicy = Nothing,
-      _nfsfsiSquash = Nothing,
-      _nfsfsiRequesterPays = Nothing,
-      _nfsfsiNFSFileShareDefaults = Nothing,
-      _nfsfsiLocationARN = Nothing,
-      _nfsfsiClientList = Nothing,
-      _nfsfsiGuessMIMETypeEnabled = Nothing,
-      _nfsfsiReadOnly = Nothing,
-      _nfsfsiTags = Nothing
+    { fileShareStatus = Lude.Nothing,
+      kmsKey = Lude.Nothing,
+      gatewayARN = Lude.Nothing,
+      path = Lude.Nothing,
+      cacheAttributes = Lude.Nothing,
+      objectACL = Lude.Nothing,
+      kmsEncrypted = Lude.Nothing,
+      fileShareId = Lude.Nothing,
+      fileShareARN = Lude.Nothing,
+      defaultStorageClass = Lude.Nothing,
+      fileShareName = Lude.Nothing,
+      role' = Lude.Nothing,
+      notificationPolicy = Lude.Nothing,
+      squash = Lude.Nothing,
+      requesterPays = Lude.Nothing,
+      nFSFileShareDefaults = Lude.Nothing,
+      locationARN = Lude.Nothing,
+      clientList = Lude.Nothing,
+      guessMIMETypeEnabled = Lude.Nothing,
+      readOnly = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
--- | Undocumented member.
-nfsfsiFileShareStatus :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiFileShareStatus = lens _nfsfsiFileShareStatus (\s a -> s {_nfsfsiFileShareStatus = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fileShareStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiFileShareStatus :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiFileShareStatus = Lens.lens (fileShareStatus :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {fileShareStatus = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiFileShareStatus "Use generic-lens or generic-optics with 'fileShareStatus' instead." #-}
 
--- | Undocumented member.
-nfsfsiKMSKey :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiKMSKey = lens _nfsfsiKMSKey (\s a -> s {_nfsfsiKMSKey = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'kmsKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiKMSKey :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiKMSKey = Lens.lens (kmsKey :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
 
--- | Undocumented member.
-nfsfsiGatewayARN :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiGatewayARN = lens _nfsfsiGatewayARN (\s a -> s {_nfsfsiGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiGatewayARN :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiGatewayARN = Lens.lens (gatewayARN :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | Undocumented member.
-nfsfsiPath :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiPath = lens _nfsfsiPath (\s a -> s {_nfsfsiPath = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiPath :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiPath = Lens.lens (path :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | Refresh cache information.
-nfsfsiCacheAttributes :: Lens' NFSFileShareInfo (Maybe CacheAttributes)
-nfsfsiCacheAttributes = lens _nfsfsiCacheAttributes (\s a -> s {_nfsfsiCacheAttributes = a})
+--
+-- /Note:/ Consider using 'cacheAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiCacheAttributes :: Lens.Lens' NFSFileShareInfo (Lude.Maybe CacheAttributes)
+nfsfsiCacheAttributes = Lens.lens (cacheAttributes :: NFSFileShareInfo -> Lude.Maybe CacheAttributes) (\s a -> s {cacheAttributes = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiCacheAttributes "Use generic-lens or generic-optics with 'cacheAttributes' instead." #-}
 
--- | Undocumented member.
-nfsfsiObjectACL :: Lens' NFSFileShareInfo (Maybe ObjectACL)
-nfsfsiObjectACL = lens _nfsfsiObjectACL (\s a -> s {_nfsfsiObjectACL = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'objectACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiObjectACL :: Lens.Lens' NFSFileShareInfo (Lude.Maybe ObjectACL)
+nfsfsiObjectACL = Lens.lens (objectACL :: NFSFileShareInfo -> Lude.Maybe ObjectACL) (\s a -> s {objectACL = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiObjectACL "Use generic-lens or generic-optics with 'objectACL' instead." #-}
 
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional. Valid Values: @true@ | @false@
-nfsfsiKMSEncrypted :: Lens' NFSFileShareInfo (Maybe Bool)
-nfsfsiKMSEncrypted = lens _nfsfsiKMSEncrypted (\s a -> s {_nfsfsiKMSEncrypted = a})
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'kmsEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiKMSEncrypted :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Bool)
+nfsfsiKMSEncrypted = Lens.lens (kmsEncrypted :: NFSFileShareInfo -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
 
--- | Undocumented member.
-nfsfsiFileShareId :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiFileShareId = lens _nfsfsiFileShareId (\s a -> s {_nfsfsiFileShareId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fileShareId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiFileShareId :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiFileShareId = Lens.lens (fileShareId :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {fileShareId = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiFileShareId "Use generic-lens or generic-optics with 'fileShareId' instead." #-}
 
--- | Undocumented member.
-nfsfsiFileShareARN :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiFileShareARN = lens _nfsfsiFileShareARN (\s a -> s {_nfsfsiFileShareARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiFileShareARN :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiFileShareARN = Lens.lens (fileShareARN :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {fileShareARN = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
--- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional. Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
-nfsfsiDefaultStorageClass :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiDefaultStorageClass = lens _nfsfsiDefaultStorageClass (\s a -> s {_nfsfsiDefaultStorageClass = a})
+-- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
+--
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+--
+-- /Note:/ Consider using 'defaultStorageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiDefaultStorageClass :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiDefaultStorageClass = Lens.lens (defaultStorageClass :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {defaultStorageClass = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiDefaultStorageClass "Use generic-lens or generic-optics with 'defaultStorageClass' instead." #-}
 
 -- | The name of the file share. Optional.
-nfsfsiFileShareName :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiFileShareName = lens _nfsfsiFileShareName (\s a -> s {_nfsfsiFileShareName = a})
+--
+-- /Note:/ Consider using 'fileShareName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiFileShareName :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiFileShareName = Lens.lens (fileShareName :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {fileShareName = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiFileShareName "Use generic-lens or generic-optics with 'fileShareName' instead." #-}
 
--- | Undocumented member.
-nfsfsiRole :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiRole = lens _nfsfsiRole (\s a -> s {_nfsfsiRole = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiRole :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiRole = Lens.lens (role' :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The notification policy of the file share.
-nfsfsiNotificationPolicy :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiNotificationPolicy = lens _nfsfsiNotificationPolicy (\s a -> s {_nfsfsiNotificationPolicy = a})
+--
+-- /Note:/ Consider using 'notificationPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiNotificationPolicy :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiNotificationPolicy = Lens.lens (notificationPolicy :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {notificationPolicy = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiNotificationPolicy "Use generic-lens or generic-optics with 'notificationPolicy' instead." #-}
 
--- | Undocumented member.
-nfsfsiSquash :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiSquash = lens _nfsfsiSquash (\s a -> s {_nfsfsiSquash = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'squash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiSquash :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiSquash = Lens.lens (squash :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {squash = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiSquash "Use generic-lens or generic-optics with 'squash' instead." #-}
 
--- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data. Valid Values: @true@ | @false@
-nfsfsiRequesterPays :: Lens' NFSFileShareInfo (Maybe Bool)
-nfsfsiRequesterPays = lens _nfsfsiRequesterPays (\s a -> s {_nfsfsiRequesterPays = a})
+-- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'requesterPays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiRequesterPays :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Bool)
+nfsfsiRequesterPays = Lens.lens (requesterPays :: NFSFileShareInfo -> Lude.Maybe Lude.Bool) (\s a -> s {requesterPays = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiRequesterPays "Use generic-lens or generic-optics with 'requesterPays' instead." #-}
 
--- | Undocumented member.
-nfsfsiNFSFileShareDefaults :: Lens' NFSFileShareInfo (Maybe NFSFileShareDefaults)
-nfsfsiNFSFileShareDefaults = lens _nfsfsiNFSFileShareDefaults (\s a -> s {_nfsfsiNFSFileShareDefaults = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nFSFileShareDefaults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiNFSFileShareDefaults :: Lens.Lens' NFSFileShareInfo (Lude.Maybe NFSFileShareDefaults)
+nfsfsiNFSFileShareDefaults = Lens.lens (nFSFileShareDefaults :: NFSFileShareInfo -> Lude.Maybe NFSFileShareDefaults) (\s a -> s {nFSFileShareDefaults = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiNFSFileShareDefaults "Use generic-lens or generic-optics with 'nFSFileShareDefaults' instead." #-}
 
--- | Undocumented member.
-nfsfsiLocationARN :: Lens' NFSFileShareInfo (Maybe Text)
-nfsfsiLocationARN = lens _nfsfsiLocationARN (\s a -> s {_nfsfsiLocationARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'locationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiLocationARN :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Text)
+nfsfsiLocationARN = Lens.lens (locationARN :: NFSFileShareInfo -> Lude.Maybe Lude.Text) (\s a -> s {locationARN = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiLocationARN "Use generic-lens or generic-optics with 'locationARN' instead." #-}
 
--- | Undocumented member.
-nfsfsiClientList :: Lens' NFSFileShareInfo (Maybe (NonEmpty Text))
-nfsfsiClientList = lens _nfsfsiClientList (\s a -> s {_nfsfsiClientList = a}) . mapping _List1
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'clientList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiClientList :: Lens.Lens' NFSFileShareInfo (Lude.Maybe (Lude.NonEmpty Lude.Text))
+nfsfsiClientList = Lens.lens (clientList :: NFSFileShareInfo -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {clientList = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiClientList "Use generic-lens or generic-optics with 'clientList' instead." #-}
 
--- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ . Valid Values: @true@ | @false@
-nfsfsiGuessMIMETypeEnabled :: Lens' NFSFileShareInfo (Maybe Bool)
-nfsfsiGuessMIMETypeEnabled = lens _nfsfsiGuessMIMETypeEnabled (\s a -> s {_nfsfsiGuessMIMETypeEnabled = a})
+-- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'guessMIMETypeEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiGuessMIMETypeEnabled :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Bool)
+nfsfsiGuessMIMETypeEnabled = Lens.lens (guessMIMETypeEnabled :: NFSFileShareInfo -> Lude.Maybe Lude.Bool) (\s a -> s {guessMIMETypeEnabled = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiGuessMIMETypeEnabled "Use generic-lens or generic-optics with 'guessMIMETypeEnabled' instead." #-}
 
--- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ . Valid Values: @true@ | @false@
-nfsfsiReadOnly :: Lens' NFSFileShareInfo (Maybe Bool)
-nfsfsiReadOnly = lens _nfsfsiReadOnly (\s a -> s {_nfsfsiReadOnly = a})
+-- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+--
+-- Valid Values: @true@ | @false@
+--
+-- /Note:/ Consider using 'readOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiReadOnly :: Lens.Lens' NFSFileShareInfo (Lude.Maybe Lude.Bool)
+nfsfsiReadOnly = Lens.lens (readOnly :: NFSFileShareInfo -> Lude.Maybe Lude.Bool) (\s a -> s {readOnly = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
 
 -- | A list of up to 50 tags assigned to the NFS file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
-nfsfsiTags :: Lens' NFSFileShareInfo [Tag]
-nfsfsiTags = lens _nfsfsiTags (\s a -> s {_nfsfsiTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfsfsiTags :: Lens.Lens' NFSFileShareInfo (Lude.Maybe [Tag])
+nfsfsiTags = Lens.lens (tags :: NFSFileShareInfo -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: NFSFileShareInfo)
+{-# DEPRECATED nfsfsiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON NFSFileShareInfo where
+instance Lude.FromJSON NFSFileShareInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "NFSFileShareInfo"
       ( \x ->
           NFSFileShareInfo'
-            <$> (x .:? "FileShareStatus")
-            <*> (x .:? "KMSKey")
-            <*> (x .:? "GatewayARN")
-            <*> (x .:? "Path")
-            <*> (x .:? "CacheAttributes")
-            <*> (x .:? "ObjectACL")
-            <*> (x .:? "KMSEncrypted")
-            <*> (x .:? "FileShareId")
-            <*> (x .:? "FileShareARN")
-            <*> (x .:? "DefaultStorageClass")
-            <*> (x .:? "FileShareName")
-            <*> (x .:? "Role")
-            <*> (x .:? "NotificationPolicy")
-            <*> (x .:? "Squash")
-            <*> (x .:? "RequesterPays")
-            <*> (x .:? "NFSFileShareDefaults")
-            <*> (x .:? "LocationARN")
-            <*> (x .:? "ClientList")
-            <*> (x .:? "GuessMIMETypeEnabled")
-            <*> (x .:? "ReadOnly")
-            <*> (x .:? "Tags" .!= mempty)
+            Lude.<$> (x Lude..:? "FileShareStatus")
+            Lude.<*> (x Lude..:? "KMSKey")
+            Lude.<*> (x Lude..:? "GatewayARN")
+            Lude.<*> (x Lude..:? "Path")
+            Lude.<*> (x Lude..:? "CacheAttributes")
+            Lude.<*> (x Lude..:? "ObjectACL")
+            Lude.<*> (x Lude..:? "KMSEncrypted")
+            Lude.<*> (x Lude..:? "FileShareId")
+            Lude.<*> (x Lude..:? "FileShareARN")
+            Lude.<*> (x Lude..:? "DefaultStorageClass")
+            Lude.<*> (x Lude..:? "FileShareName")
+            Lude.<*> (x Lude..:? "Role")
+            Lude.<*> (x Lude..:? "NotificationPolicy")
+            Lude.<*> (x Lude..:? "Squash")
+            Lude.<*> (x Lude..:? "RequesterPays")
+            Lude.<*> (x Lude..:? "NFSFileShareDefaults")
+            Lude.<*> (x Lude..:? "LocationARN")
+            Lude.<*> (x Lude..:? "ClientList")
+            Lude.<*> (x Lude..:? "GuessMIMETypeEnabled")
+            Lude.<*> (x Lude..:? "ReadOnly")
+            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable NFSFileShareInfo
-
-instance NFData NFSFileShareInfo

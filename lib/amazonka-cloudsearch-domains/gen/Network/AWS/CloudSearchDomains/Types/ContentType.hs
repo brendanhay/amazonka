@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearchDomains.Types.ContentType where
+module Network.AWS.CloudSearchDomains.Types.ContentType
+  ( ContentType
+      ( ContentType',
+        ApplicationJSON,
+        ApplicationXML
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContentType
-  = ApplicationJSON
-  | ApplicationXML
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContentType = ContentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContentType where
-  parser =
-    takeLowerText >>= \case
-      "application/json" -> pure ApplicationJSON
-      "application/xml" -> pure ApplicationXML
-      e ->
-        fromTextError $
-          "Failure parsing ContentType from value: '" <> e
-            <> "'. Accepted values: application/json, application/xml"
+pattern ApplicationJSON :: ContentType
+pattern ApplicationJSON = ContentType' "application/json"
 
-instance ToText ContentType where
-  toText = \case
-    ApplicationJSON -> "application/json"
-    ApplicationXML -> "application/xml"
+pattern ApplicationXML :: ContentType
+pattern ApplicationXML = ContentType' "application/xml"
 
-instance Hashable ContentType
-
-instance NFData ContentType
-
-instance ToByteString ContentType
-
-instance ToQuery ContentType
-
-instance ToHeader ContentType
-
-instance ToJSON ContentType where
-  toJSON = toJSONText
+{-# COMPLETE
+  ApplicationJSON,
+  ApplicationXML,
+  ContentType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ForecastStatistics where
+module Network.AWS.XRay.Types.ForecastStatistics
+  ( ForecastStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkForecastStatistics,
+
+    -- * Lenses
+    fsFaultCountLow,
+    fsFaultCountHigh,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The predicted high and low fault count. This is used to determine if a service has become anomalous and if an insight should be created.
 --
---
---
--- /See:/ 'forecastStatistics' smart constructor.
+-- /See:/ 'mkForecastStatistics' smart constructor.
 data ForecastStatistics = ForecastStatistics'
-  { _fsFaultCountLow ::
-      !(Maybe Integer),
-    _fsFaultCountHigh :: !(Maybe Integer)
+  { faultCountLow ::
+      Lude.Maybe Lude.Integer,
+    faultCountHigh :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForecastStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fsFaultCountLow' - The lower limit of fault counts for a service.
---
--- * 'fsFaultCountHigh' - The upper limit of fault counts for a service.
-forecastStatistics ::
+-- * 'faultCountHigh' - The upper limit of fault counts for a service.
+-- * 'faultCountLow' - The lower limit of fault counts for a service.
+mkForecastStatistics ::
   ForecastStatistics
-forecastStatistics =
+mkForecastStatistics =
   ForecastStatistics'
-    { _fsFaultCountLow = Nothing,
-      _fsFaultCountHigh = Nothing
+    { faultCountLow = Lude.Nothing,
+      faultCountHigh = Lude.Nothing
     }
 
 -- | The lower limit of fault counts for a service.
-fsFaultCountLow :: Lens' ForecastStatistics (Maybe Integer)
-fsFaultCountLow = lens _fsFaultCountLow (\s a -> s {_fsFaultCountLow = a})
+--
+-- /Note:/ Consider using 'faultCountLow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsFaultCountLow :: Lens.Lens' ForecastStatistics (Lude.Maybe Lude.Integer)
+fsFaultCountLow = Lens.lens (faultCountLow :: ForecastStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {faultCountLow = a} :: ForecastStatistics)
+{-# DEPRECATED fsFaultCountLow "Use generic-lens or generic-optics with 'faultCountLow' instead." #-}
 
 -- | The upper limit of fault counts for a service.
-fsFaultCountHigh :: Lens' ForecastStatistics (Maybe Integer)
-fsFaultCountHigh = lens _fsFaultCountHigh (\s a -> s {_fsFaultCountHigh = a})
+--
+-- /Note:/ Consider using 'faultCountHigh' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsFaultCountHigh :: Lens.Lens' ForecastStatistics (Lude.Maybe Lude.Integer)
+fsFaultCountHigh = Lens.lens (faultCountHigh :: ForecastStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {faultCountHigh = a} :: ForecastStatistics)
+{-# DEPRECATED fsFaultCountHigh "Use generic-lens or generic-optics with 'faultCountHigh' instead." #-}
 
-instance FromJSON ForecastStatistics where
+instance Lude.FromJSON ForecastStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "ForecastStatistics"
       ( \x ->
           ForecastStatistics'
-            <$> (x .:? "FaultCountLow") <*> (x .:? "FaultCountHigh")
+            Lude.<$> (x Lude..:? "FaultCountLow")
+            Lude.<*> (x Lude..:? "FaultCountHigh")
       )
-
-instance Hashable ForecastStatistics
-
-instance NFData ForecastStatistics

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ResourceFilters where
+module Network.AWS.Config.Types.ResourceFilters
+  ( ResourceFilters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceFilters,
+
+    -- * Lenses
+    rfResourceId,
+    rfResourceName,
+    rfAccountId,
+    rfRegion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Filters the results by resource account ID, region, resource ID, and resource name.
 --
---
---
--- /See:/ 'resourceFilters' smart constructor.
+-- /See:/ 'mkResourceFilters' smart constructor.
 data ResourceFilters = ResourceFilters'
-  { _rfResourceId ::
-      !(Maybe Text),
-    _rfResourceName :: !(Maybe Text),
-    _rfAccountId :: !(Maybe Text),
-    _rfRegion :: !(Maybe Text)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceName :: Lude.Maybe Lude.Text,
+    accountId :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceFilters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rfResourceId' - The ID of the resource.
---
--- * 'rfResourceName' - The name of the resource.
---
--- * 'rfAccountId' - The 12-digit source account ID.
---
--- * 'rfRegion' - The source region.
-resourceFilters ::
+-- * 'accountId' - The 12-digit source account ID.
+-- * 'region' - The source region.
+-- * 'resourceId' - The ID of the resource.
+-- * 'resourceName' - The name of the resource.
+mkResourceFilters ::
   ResourceFilters
-resourceFilters =
+mkResourceFilters =
   ResourceFilters'
-    { _rfResourceId = Nothing,
-      _rfResourceName = Nothing,
-      _rfAccountId = Nothing,
-      _rfRegion = Nothing
+    { resourceId = Lude.Nothing,
+      resourceName = Lude.Nothing,
+      accountId = Lude.Nothing,
+      region = Lude.Nothing
     }
 
 -- | The ID of the resource.
-rfResourceId :: Lens' ResourceFilters (Maybe Text)
-rfResourceId = lens _rfResourceId (\s a -> s {_rfResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfResourceId :: Lens.Lens' ResourceFilters (Lude.Maybe Lude.Text)
+rfResourceId = Lens.lens (resourceId :: ResourceFilters -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ResourceFilters)
+{-# DEPRECATED rfResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The name of the resource.
-rfResourceName :: Lens' ResourceFilters (Maybe Text)
-rfResourceName = lens _rfResourceName (\s a -> s {_rfResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfResourceName :: Lens.Lens' ResourceFilters (Lude.Maybe Lude.Text)
+rfResourceName = Lens.lens (resourceName :: ResourceFilters -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: ResourceFilters)
+{-# DEPRECATED rfResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The 12-digit source account ID.
-rfAccountId :: Lens' ResourceFilters (Maybe Text)
-rfAccountId = lens _rfAccountId (\s a -> s {_rfAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfAccountId :: Lens.Lens' ResourceFilters (Lude.Maybe Lude.Text)
+rfAccountId = Lens.lens (accountId :: ResourceFilters -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ResourceFilters)
+{-# DEPRECATED rfAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The source region.
-rfRegion :: Lens' ResourceFilters (Maybe Text)
-rfRegion = lens _rfRegion (\s a -> s {_rfRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfRegion :: Lens.Lens' ResourceFilters (Lude.Maybe Lude.Text)
+rfRegion = Lens.lens (region :: ResourceFilters -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: ResourceFilters)
+{-# DEPRECATED rfRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Hashable ResourceFilters
-
-instance NFData ResourceFilters
-
-instance ToJSON ResourceFilters where
+instance Lude.ToJSON ResourceFilters where
   toJSON ResourceFilters' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceId" .=) <$> _rfResourceId,
-            ("ResourceName" .=) <$> _rfResourceName,
-            ("AccountId" .=) <$> _rfAccountId,
-            ("Region" .=) <$> _rfRegion
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceId" Lude..=) Lude.<$> resourceId,
+            ("ResourceName" Lude..=) Lude.<$> resourceName,
+            ("AccountId" Lude..=) Lude.<$> accountId,
+            ("Region" Lude..=) Lude.<$> region
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,194 @@
 --
 -- Creates a new version of the specified managed policy. To update a managed policy, you create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must delete an existing version using 'DeletePolicyVersion' before you create a new version.
 --
---
 -- Optionally, you can set the new version as the policy's default version. The default version is the version that is in effect for the IAM users, groups, and roles to which the policy is attached.
---
 -- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 module Network.AWS.IAM.CreatePolicyVersion
-  ( -- * Creating a Request
-    createPolicyVersion,
-    CreatePolicyVersion,
+  ( -- * Creating a request
+    CreatePolicyVersion (..),
+    mkCreatePolicyVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpvSetAsDefault,
     cpvPolicyARN,
     cpvPolicyDocument,
 
-    -- * Destructuring the Response
-    createPolicyVersionResponse,
-    CreatePolicyVersionResponse,
+    -- * Destructuring the response
+    CreatePolicyVersionResponse (..),
+    mkCreatePolicyVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpvrsPolicyVersion,
     cpvrsResponseStatus,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createPolicyVersion' smart constructor.
+-- | /See:/ 'mkCreatePolicyVersion' smart constructor.
 data CreatePolicyVersion = CreatePolicyVersion'
-  { _cpvSetAsDefault ::
-      !(Maybe Bool),
-    _cpvPolicyARN :: !Text,
-    _cpvPolicyDocument :: !Text
+  { setAsDefault ::
+      Lude.Maybe Lude.Bool,
+    policyARN :: Lude.Text,
+    policyDocument :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicyVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.
 --
--- * 'cpvSetAsDefault' - Specifies whether to set this version as the policy's default version. When this parameter is @true@ , the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to. For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'policyDocument' - The JSON policy document that you want to use as the content for this new version of the policy.
 --
--- * 'cpvPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
 --
--- * 'cpvPolicyDocument' - The JSON policy document that you want to use as the content for this new version of the policy. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-createPolicyVersion ::
-  -- | 'cpvPolicyARN'
-  Text ->
-  -- | 'cpvPolicyDocument'
-  Text ->
+--     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
+--
+--
+--     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
+--
+--
+--     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
+--
+--
+-- * 'setAsDefault' - Specifies whether to set this version as the policy's default version.
+--
+-- When this parameter is @true@ , the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to.
+-- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
+mkCreatePolicyVersion ::
+  -- | 'policyARN'
+  Lude.Text ->
+  -- | 'policyDocument'
+  Lude.Text ->
   CreatePolicyVersion
-createPolicyVersion pPolicyARN_ pPolicyDocument_ =
+mkCreatePolicyVersion pPolicyARN_ pPolicyDocument_ =
   CreatePolicyVersion'
-    { _cpvSetAsDefault = Nothing,
-      _cpvPolicyARN = pPolicyARN_,
-      _cpvPolicyDocument = pPolicyDocument_
+    { setAsDefault = Lude.Nothing,
+      policyARN = pPolicyARN_,
+      policyDocument = pPolicyDocument_
     }
 
--- | Specifies whether to set this version as the policy's default version. When this parameter is @true@ , the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to. For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
-cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
-cpvSetAsDefault = lens _cpvSetAsDefault (\s a -> s {_cpvSetAsDefault = a})
+-- | Specifies whether to set this version as the policy's default version.
+--
+-- When this parameter is @true@ , the new policy version becomes the operative version. That is, it becomes the version that is in effect for the IAM users, groups, and roles that the policy is attached to.
+-- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
+--
+-- /Note:/ Consider using 'setAsDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvSetAsDefault :: Lens.Lens' CreatePolicyVersion (Lude.Maybe Lude.Bool)
+cpvSetAsDefault = Lens.lens (setAsDefault :: CreatePolicyVersion -> Lude.Maybe Lude.Bool) (\s a -> s {setAsDefault = a} :: CreatePolicyVersion)
+{-# DEPRECATED cpvSetAsDefault "Use generic-lens or generic-optics with 'setAsDefault' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-cpvPolicyARN :: Lens' CreatePolicyVersion Text
-cpvPolicyARN = lens _cpvPolicyARN (\s a -> s {_cpvPolicyARN = a})
+-- | The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvPolicyARN :: Lens.Lens' CreatePolicyVersion Lude.Text
+cpvPolicyARN = Lens.lens (policyARN :: CreatePolicyVersion -> Lude.Text) (\s a -> s {policyARN = a} :: CreatePolicyVersion)
+{-# DEPRECATED cpvPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
--- | The JSON policy document that you want to use as the content for this new version of the policy. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-cpvPolicyDocument :: Lens' CreatePolicyVersion Text
-cpvPolicyDocument = lens _cpvPolicyDocument (\s a -> s {_cpvPolicyDocument = a})
+-- | The JSON policy document that you want to use as the content for this new version of the policy.
+--
+-- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
+--
+--     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
+--
+--
+--     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
+--
+--
+--     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
+--
+--
+--
+-- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvPolicyDocument :: Lens.Lens' CreatePolicyVersion Lude.Text
+cpvPolicyDocument = Lens.lens (policyDocument :: CreatePolicyVersion -> Lude.Text) (\s a -> s {policyDocument = a} :: CreatePolicyVersion)
+{-# DEPRECATED cpvPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
-instance AWSRequest CreatePolicyVersion where
+instance Lude.AWSRequest CreatePolicyVersion where
   type Rs CreatePolicyVersion = CreatePolicyVersionResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreatePolicyVersionResult"
       ( \s h x ->
           CreatePolicyVersionResponse'
-            <$> (x .@? "PolicyVersion") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "PolicyVersion")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreatePolicyVersion
+instance Lude.ToHeaders CreatePolicyVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreatePolicyVersion
+instance Lude.ToPath CreatePolicyVersion where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreatePolicyVersion where
-  toHeaders = const mempty
-
-instance ToPath CreatePolicyVersion where
-  toPath = const "/"
-
-instance ToQuery CreatePolicyVersion where
+instance Lude.ToQuery CreatePolicyVersion where
   toQuery CreatePolicyVersion' {..} =
-    mconcat
-      [ "Action" =: ("CreatePolicyVersion" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "SetAsDefault" =: _cpvSetAsDefault,
-        "PolicyArn" =: _cpvPolicyARN,
-        "PolicyDocument" =: _cpvPolicyDocument
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreatePolicyVersion" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "SetAsDefault" Lude.=: setAsDefault,
+        "PolicyArn" Lude.=: policyARN,
+        "PolicyDocument" Lude.=: policyDocument
       ]
 
 -- | Contains the response to a successful 'CreatePolicyVersion' request.
 --
---
---
--- /See:/ 'createPolicyVersionResponse' smart constructor.
+-- /See:/ 'mkCreatePolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
-  { _cpvrsPolicyVersion ::
-      !(Maybe PolicyVersion),
-    _cpvrsResponseStatus :: !Int
+  { policyVersion ::
+      Lude.Maybe PolicyVersion,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicyVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpvrsPolicyVersion' - A structure containing details about the new policy version.
---
--- * 'cpvrsResponseStatus' - -- | The response status code.
-createPolicyVersionResponse ::
-  -- | 'cpvrsResponseStatus'
-  Int ->
+-- * 'policyVersion' - A structure containing details about the new policy version.
+-- * 'responseStatus' - The response status code.
+mkCreatePolicyVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePolicyVersionResponse
-createPolicyVersionResponse pResponseStatus_ =
+mkCreatePolicyVersionResponse pResponseStatus_ =
   CreatePolicyVersionResponse'
-    { _cpvrsPolicyVersion = Nothing,
-      _cpvrsResponseStatus = pResponseStatus_
+    { policyVersion = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure containing details about the new policy version.
-cpvrsPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
-cpvrsPolicyVersion = lens _cpvrsPolicyVersion (\s a -> s {_cpvrsPolicyVersion = a})
+--
+-- /Note:/ Consider using 'policyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvrsPolicyVersion :: Lens.Lens' CreatePolicyVersionResponse (Lude.Maybe PolicyVersion)
+cpvrsPolicyVersion = Lens.lens (policyVersion :: CreatePolicyVersionResponse -> Lude.Maybe PolicyVersion) (\s a -> s {policyVersion = a} :: CreatePolicyVersionResponse)
+{-# DEPRECATED cpvrsPolicyVersion "Use generic-lens or generic-optics with 'policyVersion' instead." #-}
 
--- | -- | The response status code.
-cpvrsResponseStatus :: Lens' CreatePolicyVersionResponse Int
-cpvrsResponseStatus = lens _cpvrsResponseStatus (\s a -> s {_cpvrsResponseStatus = a})
-
-instance NFData CreatePolicyVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvrsResponseStatus :: Lens.Lens' CreatePolicyVersionResponse Lude.Int
+cpvrsResponseStatus = Lens.lens (responseStatus :: CreatePolicyVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePolicyVersionResponse)
+{-# DEPRECATED cpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

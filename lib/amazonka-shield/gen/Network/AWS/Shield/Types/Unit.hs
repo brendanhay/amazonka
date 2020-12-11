@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.Unit where
+module Network.AWS.Shield.Types.Unit
+  ( Unit
+      ( Unit',
+        Bits,
+        Bytes,
+        Packets,
+        Requests
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Unit
-  = Bits
-  | Bytes
-  | Packets
-  | Requests
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Unit = Unit' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Unit where
-  parser =
-    takeLowerText >>= \case
-      "bits" -> pure Bits
-      "bytes" -> pure Bytes
-      "packets" -> pure Packets
-      "requests" -> pure Requests
-      e ->
-        fromTextError $
-          "Failure parsing Unit from value: '" <> e
-            <> "'. Accepted values: bits, bytes, packets, requests"
+pattern Bits :: Unit
+pattern Bits = Unit' "BITS"
 
-instance ToText Unit where
-  toText = \case
-    Bits -> "BITS"
-    Bytes -> "BYTES"
-    Packets -> "PACKETS"
-    Requests -> "REQUESTS"
+pattern Bytes :: Unit
+pattern Bytes = Unit' "BYTES"
 
-instance Hashable Unit
+pattern Packets :: Unit
+pattern Packets = Unit' "PACKETS"
 
-instance NFData Unit
+pattern Requests :: Unit
+pattern Requests = Unit' "REQUESTS"
 
-instance ToByteString Unit
-
-instance ToQuery Unit
-
-instance ToHeader Unit
-
-instance FromJSON Unit where
-  parseJSON = parseJSONText "Unit"
+{-# COMPLETE
+  Bits,
+  Bytes,
+  Packets,
+  Requests,
+  Unit'
+  #-}

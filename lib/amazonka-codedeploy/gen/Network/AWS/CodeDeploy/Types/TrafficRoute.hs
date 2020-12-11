@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TrafficRoute where
+module Network.AWS.CodeDeploy.Types.TrafficRoute
+  ( TrafficRoute (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrafficRoute,
+
+    -- * Lenses
+    trListenerARNs,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a listener. The listener contains the path used to route traffic that is received from the load balancer to a target group.
 --
---
---
--- /See:/ 'trafficRoute' smart constructor.
+-- /See:/ 'mkTrafficRoute' smart constructor.
 newtype TrafficRoute = TrafficRoute'
-  { _trListenerARNs ::
-      Maybe [Text]
+  { listenerARNs ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrafficRoute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trListenerARNs' - The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
-trafficRoute ::
+-- * 'listenerARNs' - The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
+mkTrafficRoute ::
   TrafficRoute
-trafficRoute = TrafficRoute' {_trListenerARNs = Nothing}
+mkTrafficRoute = TrafficRoute' {listenerARNs = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
-trListenerARNs :: Lens' TrafficRoute [Text]
-trListenerARNs = lens _trListenerARNs (\s a -> s {_trListenerARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'listenerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trListenerARNs :: Lens.Lens' TrafficRoute (Lude.Maybe [Lude.Text])
+trListenerARNs = Lens.lens (listenerARNs :: TrafficRoute -> Lude.Maybe [Lude.Text]) (\s a -> s {listenerARNs = a} :: TrafficRoute)
+{-# DEPRECATED trListenerARNs "Use generic-lens or generic-optics with 'listenerARNs' instead." #-}
 
-instance FromJSON TrafficRoute where
+instance Lude.FromJSON TrafficRoute where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrafficRoute"
-      (\x -> TrafficRoute' <$> (x .:? "listenerArns" .!= mempty))
+      ( \x ->
+          TrafficRoute'
+            Lude.<$> (x Lude..:? "listenerArns" Lude..!= Lude.mempty)
+      )
 
-instance Hashable TrafficRoute
-
-instance NFData TrafficRoute
-
-instance ToJSON TrafficRoute where
+instance Lude.ToJSON TrafficRoute where
   toJSON TrafficRoute' {..} =
-    object (catMaybes [("listenerArns" .=) <$> _trListenerARNs])
+    Lude.object
+      (Lude.catMaybes [("listenerArns" Lude..=) Lude.<$> listenerARNs])

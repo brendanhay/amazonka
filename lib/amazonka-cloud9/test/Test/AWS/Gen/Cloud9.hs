@@ -28,85 +28,85 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestListEnvironments $
---             listEnvironments
+--             mkListEnvironments
 --
 --         , requestUpdateEnvironment $
---             updateEnvironment
+--             mkUpdateEnvironment
 --
 --         , requestDeleteEnvironment $
---             deleteEnvironment
+--             mkDeleteEnvironment
 --
 --         , requestDescribeEnvironmentStatus $
---             describeEnvironmentStatus
+--             mkDescribeEnvironmentStatus
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestCreateEnvironmentEC $
---             createEnvironmentEC
+--             mkCreateEnvironmentEC
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestCreateEnvironmentMembership $
---             createEnvironmentMembership
+--             mkCreateEnvironmentMembership
 --
 --         , requestDescribeEnvironments $
---             describeEnvironments
+--             mkDescribeEnvironments
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestDeleteEnvironmentMembership $
---             deleteEnvironmentMembership
+--             mkDeleteEnvironmentMembership
 --
 --         , requestUpdateEnvironmentMembership $
---             updateEnvironmentMembership
+--             mkUpdateEnvironmentMembership
 --
 --         , requestDescribeEnvironmentMemberships $
---             describeEnvironmentMemberships
+--             mkDescribeEnvironmentMemberships
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListEnvironments $
---             listEnvironmentsResponse
+--             mkListEnvironmentsResponse
 --
 --         , responseUpdateEnvironment $
---             updateEnvironmentResponse
+--             mkUpdateEnvironmentResponse
 --
 --         , responseDeleteEnvironment $
---             deleteEnvironmentResponse
+--             mkDeleteEnvironmentResponse
 --
 --         , responseDescribeEnvironmentStatus $
---             describeEnvironmentStatusResponse
+--             mkDescribeEnvironmentStatusResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseCreateEnvironmentEC $
---             createEnvironmentECResponse
+--             mkCreateEnvironmentECResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseCreateEnvironmentMembership $
---             createEnvironmentMembershipResponse
+--             mkCreateEnvironmentMembershipResponse
 --
 --         , responseDescribeEnvironments $
---             describeEnvironmentsResponse
+--             mkDescribeEnvironmentsResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseDeleteEnvironmentMembership $
---             deleteEnvironmentMembershipResponse
+--             mkDeleteEnvironmentMembershipResponse
 --
 --         , responseUpdateEnvironmentMembership $
---             updateEnvironmentMembershipResponse
+--             mkUpdateEnvironmentMembershipResponse
 --
 --         , responseDescribeEnvironmentMemberships $
---             describeEnvironmentMembershipsResponse
+--             mkDescribeEnvironmentMembershipsResponse
 --
 --           ]
 --     ]
@@ -198,7 +198,7 @@ responseListEnvironments =
   res
     "ListEnvironmentsResponse"
     "fixture/ListEnvironmentsResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy ListEnvironments)
 
 responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
@@ -206,7 +206,7 @@ responseUpdateEnvironment =
   res
     "UpdateEnvironmentResponse"
     "fixture/UpdateEnvironmentResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy UpdateEnvironment)
 
 responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
@@ -214,7 +214,7 @@ responseDeleteEnvironment =
   res
     "DeleteEnvironmentResponse"
     "fixture/DeleteEnvironmentResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy DeleteEnvironment)
 
 responseDescribeEnvironmentStatus :: DescribeEnvironmentStatusResponse -> TestTree
@@ -222,7 +222,7 @@ responseDescribeEnvironmentStatus =
   res
     "DescribeEnvironmentStatusResponse"
     "fixture/DescribeEnvironmentStatusResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy DescribeEnvironmentStatus)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -230,7 +230,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy ListTagsForResource)
 
 responseCreateEnvironmentEC :: CreateEnvironmentECResponse -> TestTree
@@ -238,7 +238,7 @@ responseCreateEnvironmentEC =
   res
     "CreateEnvironmentECResponse"
     "fixture/CreateEnvironmentECResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy CreateEnvironmentEC)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -246,7 +246,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy TagResource)
 
 responseCreateEnvironmentMembership :: CreateEnvironmentMembershipResponse -> TestTree
@@ -254,7 +254,7 @@ responseCreateEnvironmentMembership =
   res
     "CreateEnvironmentMembershipResponse"
     "fixture/CreateEnvironmentMembershipResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy CreateEnvironmentMembership)
 
 responseDescribeEnvironments :: DescribeEnvironmentsResponse -> TestTree
@@ -262,7 +262,7 @@ responseDescribeEnvironments =
   res
     "DescribeEnvironmentsResponse"
     "fixture/DescribeEnvironmentsResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy DescribeEnvironments)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -270,7 +270,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy UntagResource)
 
 responseDeleteEnvironmentMembership :: DeleteEnvironmentMembershipResponse -> TestTree
@@ -278,7 +278,7 @@ responseDeleteEnvironmentMembership =
   res
     "DeleteEnvironmentMembershipResponse"
     "fixture/DeleteEnvironmentMembershipResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy DeleteEnvironmentMembership)
 
 responseUpdateEnvironmentMembership :: UpdateEnvironmentMembershipResponse -> TestTree
@@ -286,7 +286,7 @@ responseUpdateEnvironmentMembership =
   res
     "UpdateEnvironmentMembershipResponse"
     "fixture/UpdateEnvironmentMembershipResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy UpdateEnvironmentMembership)
 
 responseDescribeEnvironmentMemberships :: DescribeEnvironmentMembershipsResponse -> TestTree
@@ -294,5 +294,5 @@ responseDescribeEnvironmentMemberships =
   res
     "DescribeEnvironmentMembershipsResponse"
     "fixture/DescribeEnvironmentMembershipsResponse.proto"
-    cloud9
+    cloud9Service
     (Proxy :: Proxy DescribeEnvironmentMemberships)

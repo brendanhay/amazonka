@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,123 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BlackoutSlate where
+module Network.AWS.MediaLive.Types.BlackoutSlate
+  ( BlackoutSlate (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkBlackoutSlate,
+
+    -- * Lenses
+    bsNetworkEndBlackoutImage,
+    bsState,
+    bsNetworkEndBlackout,
+    bsNetworkId,
+    bsBlackoutSlateImage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout
 import Network.AWS.MediaLive.Types.BlackoutSlateState
 import Network.AWS.MediaLive.Types.InputLocation
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Blackout Slate
 --
--- /See:/ 'blackoutSlate' smart constructor.
+-- /See:/ 'mkBlackoutSlate' smart constructor.
 data BlackoutSlate = BlackoutSlate'
-  { _bsNetworkEndBlackoutImage ::
-      !(Maybe InputLocation),
-    _bsState :: !(Maybe BlackoutSlateState),
-    _bsNetworkEndBlackout ::
-      !(Maybe BlackoutSlateNetworkEndBlackout),
-    _bsNetworkId :: !(Maybe Text),
-    _bsBlackoutSlateImage :: !(Maybe InputLocation)
+  { networkEndBlackoutImage ::
+      Lude.Maybe InputLocation,
+    state :: Lude.Maybe BlackoutSlateState,
+    networkEndBlackout ::
+      Lude.Maybe BlackoutSlateNetworkEndBlackout,
+    networkId :: Lude.Maybe Lude.Text,
+    blackoutSlateImage :: Lude.Maybe InputLocation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlackoutSlate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsNetworkEndBlackoutImage' - Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
---
--- * 'bsState' - When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
---
--- * 'bsNetworkEndBlackout' - Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
---
--- * 'bsNetworkId' - Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
---
--- * 'bsBlackoutSlateImage' - Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
-blackoutSlate ::
+-- * 'blackoutSlateImage' - Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
+-- * 'networkEndBlackout' - Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
+-- * 'networkEndBlackoutImage' - Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
+-- * 'networkId' - Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
+-- * 'state' - When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
+mkBlackoutSlate ::
   BlackoutSlate
-blackoutSlate =
+mkBlackoutSlate =
   BlackoutSlate'
-    { _bsNetworkEndBlackoutImage = Nothing,
-      _bsState = Nothing,
-      _bsNetworkEndBlackout = Nothing,
-      _bsNetworkId = Nothing,
-      _bsBlackoutSlateImage = Nothing
+    { networkEndBlackoutImage = Lude.Nothing,
+      state = Lude.Nothing,
+      networkEndBlackout = Lude.Nothing,
+      networkId = Lude.Nothing,
+      blackoutSlateImage = Lude.Nothing
     }
 
 -- | Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
-bsNetworkEndBlackoutImage :: Lens' BlackoutSlate (Maybe InputLocation)
-bsNetworkEndBlackoutImage = lens _bsNetworkEndBlackoutImage (\s a -> s {_bsNetworkEndBlackoutImage = a})
+--
+-- /Note:/ Consider using 'networkEndBlackoutImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsNetworkEndBlackoutImage :: Lens.Lens' BlackoutSlate (Lude.Maybe InputLocation)
+bsNetworkEndBlackoutImage = Lens.lens (networkEndBlackoutImage :: BlackoutSlate -> Lude.Maybe InputLocation) (\s a -> s {networkEndBlackoutImage = a} :: BlackoutSlate)
+{-# DEPRECATED bsNetworkEndBlackoutImage "Use generic-lens or generic-optics with 'networkEndBlackoutImage' instead." #-}
 
 -- | When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
-bsState :: Lens' BlackoutSlate (Maybe BlackoutSlateState)
-bsState = lens _bsState (\s a -> s {_bsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsState :: Lens.Lens' BlackoutSlate (Lude.Maybe BlackoutSlateState)
+bsState = Lens.lens (state :: BlackoutSlate -> Lude.Maybe BlackoutSlateState) (\s a -> s {state = a} :: BlackoutSlate)
+{-# DEPRECATED bsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
-bsNetworkEndBlackout :: Lens' BlackoutSlate (Maybe BlackoutSlateNetworkEndBlackout)
-bsNetworkEndBlackout = lens _bsNetworkEndBlackout (\s a -> s {_bsNetworkEndBlackout = a})
+--
+-- /Note:/ Consider using 'networkEndBlackout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsNetworkEndBlackout :: Lens.Lens' BlackoutSlate (Lude.Maybe BlackoutSlateNetworkEndBlackout)
+bsNetworkEndBlackout = Lens.lens (networkEndBlackout :: BlackoutSlate -> Lude.Maybe BlackoutSlateNetworkEndBlackout) (\s a -> s {networkEndBlackout = a} :: BlackoutSlate)
+{-# DEPRECATED bsNetworkEndBlackout "Use generic-lens or generic-optics with 'networkEndBlackout' instead." #-}
 
 -- | Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
-bsNetworkId :: Lens' BlackoutSlate (Maybe Text)
-bsNetworkId = lens _bsNetworkId (\s a -> s {_bsNetworkId = a})
+--
+-- /Note:/ Consider using 'networkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsNetworkId :: Lens.Lens' BlackoutSlate (Lude.Maybe Lude.Text)
+bsNetworkId = Lens.lens (networkId :: BlackoutSlate -> Lude.Maybe Lude.Text) (\s a -> s {networkId = a} :: BlackoutSlate)
+{-# DEPRECATED bsNetworkId "Use generic-lens or generic-optics with 'networkId' instead." #-}
 
 -- | Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
-bsBlackoutSlateImage :: Lens' BlackoutSlate (Maybe InputLocation)
-bsBlackoutSlateImage = lens _bsBlackoutSlateImage (\s a -> s {_bsBlackoutSlateImage = a})
+--
+-- /Note:/ Consider using 'blackoutSlateImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBlackoutSlateImage :: Lens.Lens' BlackoutSlate (Lude.Maybe InputLocation)
+bsBlackoutSlateImage = Lens.lens (blackoutSlateImage :: BlackoutSlate -> Lude.Maybe InputLocation) (\s a -> s {blackoutSlateImage = a} :: BlackoutSlate)
+{-# DEPRECATED bsBlackoutSlateImage "Use generic-lens or generic-optics with 'blackoutSlateImage' instead." #-}
 
-instance FromJSON BlackoutSlate where
+instance Lude.FromJSON BlackoutSlate where
   parseJSON =
-    withObject
+    Lude.withObject
       "BlackoutSlate"
       ( \x ->
           BlackoutSlate'
-            <$> (x .:? "networkEndBlackoutImage")
-            <*> (x .:? "state")
-            <*> (x .:? "networkEndBlackout")
-            <*> (x .:? "networkId")
-            <*> (x .:? "blackoutSlateImage")
+            Lude.<$> (x Lude..:? "networkEndBlackoutImage")
+            Lude.<*> (x Lude..:? "state")
+            Lude.<*> (x Lude..:? "networkEndBlackout")
+            Lude.<*> (x Lude..:? "networkId")
+            Lude.<*> (x Lude..:? "blackoutSlateImage")
       )
 
-instance Hashable BlackoutSlate
-
-instance NFData BlackoutSlate
-
-instance ToJSON BlackoutSlate where
+instance Lude.ToJSON BlackoutSlate where
   toJSON BlackoutSlate' {..} =
-    object
-      ( catMaybes
-          [ ("networkEndBlackoutImage" .=) <$> _bsNetworkEndBlackoutImage,
-            ("state" .=) <$> _bsState,
-            ("networkEndBlackout" .=) <$> _bsNetworkEndBlackout,
-            ("networkId" .=) <$> _bsNetworkId,
-            ("blackoutSlateImage" .=) <$> _bsBlackoutSlateImage
+    Lude.object
+      ( Lude.catMaybes
+          [ ("networkEndBlackoutImage" Lude..=)
+              Lude.<$> networkEndBlackoutImage,
+            ("state" Lude..=) Lude.<$> state,
+            ("networkEndBlackout" Lude..=) Lude.<$> networkEndBlackout,
+            ("networkId" Lude..=) Lude.<$> networkId,
+            ("blackoutSlateImage" Lude..=) Lude.<$> blackoutSlateImage
           ]
       )

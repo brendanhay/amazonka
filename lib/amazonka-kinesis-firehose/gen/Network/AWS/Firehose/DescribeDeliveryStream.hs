@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,154 +14,165 @@
 --
 -- Describes the specified delivery stream and its status. For example, after your delivery stream is created, call @DescribeDeliveryStream@ to see whether the delivery stream is @ACTIVE@ and therefore ready for data to be sent to it.
 --
---
 -- If the status of a delivery stream is @CREATING_FAILED@ , this status doesn't change, and you can't invoke 'CreateDeliveryStream' again on it. However, you can invoke the 'DeleteDeliveryStream' operation to delete it. If the status is @DELETING_FAILED@ , you can force deletion by invoking 'DeleteDeliveryStream' again but with 'DeleteDeliveryStreamInput$AllowForceDelete' set to true.
 module Network.AWS.Firehose.DescribeDeliveryStream
-  ( -- * Creating a Request
-    describeDeliveryStream,
-    DescribeDeliveryStream,
+  ( -- * Creating a request
+    DescribeDeliveryStream (..),
+    mkDescribeDeliveryStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddsExclusiveStartDestinationId,
     ddsLimit,
     ddsDeliveryStreamName,
 
-    -- * Destructuring the Response
-    describeDeliveryStreamResponse,
-    DescribeDeliveryStreamResponse,
+    -- * Destructuring the response
+    DescribeDeliveryStreamResponse (..),
+    mkDescribeDeliveryStreamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddsrsResponseStatus,
     ddsrsDeliveryStreamDescription,
   )
 where
 
 import Network.AWS.Firehose.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDeliveryStream' smart constructor.
+-- | /See:/ 'mkDescribeDeliveryStream' smart constructor.
 data DescribeDeliveryStream = DescribeDeliveryStream'
-  { _ddsExclusiveStartDestinationId ::
-      !(Maybe Text),
-    _ddsLimit :: !(Maybe Nat),
-    _ddsDeliveryStreamName :: !Text
+  { exclusiveStartDestinationId ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    deliveryStreamName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDeliveryStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddsExclusiveStartDestinationId' - The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
---
--- * 'ddsLimit' - The limit on the number of destinations to return. You can have one destination per delivery stream.
---
--- * 'ddsDeliveryStreamName' - The name of the delivery stream.
-describeDeliveryStream ::
-  -- | 'ddsDeliveryStreamName'
-  Text ->
+-- * 'deliveryStreamName' - The name of the delivery stream.
+-- * 'exclusiveStartDestinationId' - The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
+-- * 'limit' - The limit on the number of destinations to return. You can have one destination per delivery stream.
+mkDescribeDeliveryStream ::
+  -- | 'deliveryStreamName'
+  Lude.Text ->
   DescribeDeliveryStream
-describeDeliveryStream pDeliveryStreamName_ =
+mkDescribeDeliveryStream pDeliveryStreamName_ =
   DescribeDeliveryStream'
-    { _ddsExclusiveStartDestinationId =
-        Nothing,
-      _ddsLimit = Nothing,
-      _ddsDeliveryStreamName = pDeliveryStreamName_
+    { exclusiveStartDestinationId =
+        Lude.Nothing,
+      limit = Lude.Nothing,
+      deliveryStreamName = pDeliveryStreamName_
     }
 
 -- | The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
-ddsExclusiveStartDestinationId :: Lens' DescribeDeliveryStream (Maybe Text)
-ddsExclusiveStartDestinationId = lens _ddsExclusiveStartDestinationId (\s a -> s {_ddsExclusiveStartDestinationId = a})
+--
+-- /Note:/ Consider using 'exclusiveStartDestinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsExclusiveStartDestinationId :: Lens.Lens' DescribeDeliveryStream (Lude.Maybe Lude.Text)
+ddsExclusiveStartDestinationId = Lens.lens (exclusiveStartDestinationId :: DescribeDeliveryStream -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartDestinationId = a} :: DescribeDeliveryStream)
+{-# DEPRECATED ddsExclusiveStartDestinationId "Use generic-lens or generic-optics with 'exclusiveStartDestinationId' instead." #-}
 
 -- | The limit on the number of destinations to return. You can have one destination per delivery stream.
-ddsLimit :: Lens' DescribeDeliveryStream (Maybe Natural)
-ddsLimit = lens _ddsLimit (\s a -> s {_ddsLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsLimit :: Lens.Lens' DescribeDeliveryStream (Lude.Maybe Lude.Natural)
+ddsLimit = Lens.lens (limit :: DescribeDeliveryStream -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeDeliveryStream)
+{-# DEPRECATED ddsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the delivery stream.
-ddsDeliveryStreamName :: Lens' DescribeDeliveryStream Text
-ddsDeliveryStreamName = lens _ddsDeliveryStreamName (\s a -> s {_ddsDeliveryStreamName = a})
+--
+-- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsDeliveryStreamName :: Lens.Lens' DescribeDeliveryStream Lude.Text
+ddsDeliveryStreamName = Lens.lens (deliveryStreamName :: DescribeDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: DescribeDeliveryStream)
+{-# DEPRECATED ddsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
-instance AWSRequest DescribeDeliveryStream where
+instance Lude.AWSRequest DescribeDeliveryStream where
   type Rs DescribeDeliveryStream = DescribeDeliveryStreamResponse
-  request = postJSON firehose
+  request = Req.postJSON firehoseService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDeliveryStreamResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "DeliveryStreamDescription")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "DeliveryStreamDescription")
       )
 
-instance Hashable DescribeDeliveryStream
-
-instance NFData DescribeDeliveryStream
-
-instance ToHeaders DescribeDeliveryStream where
+instance Lude.ToHeaders DescribeDeliveryStream where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Firehose_20150804.DescribeDeliveryStream" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Firehose_20150804.DescribeDeliveryStream" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDeliveryStream where
+instance Lude.ToJSON DescribeDeliveryStream where
   toJSON DescribeDeliveryStream' {..} =
-    object
-      ( catMaybes
-          [ ("ExclusiveStartDestinationId" .=)
-              <$> _ddsExclusiveStartDestinationId,
-            ("Limit" .=) <$> _ddsLimit,
-            Just ("DeliveryStreamName" .= _ddsDeliveryStreamName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ExclusiveStartDestinationId" Lude..=)
+              Lude.<$> exclusiveStartDestinationId,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName)
           ]
       )
 
-instance ToPath DescribeDeliveryStream where
-  toPath = const "/"
+instance Lude.ToPath DescribeDeliveryStream where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDeliveryStream where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDeliveryStream where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeDeliveryStreamResponse' smart constructor.
+-- | /See:/ 'mkDescribeDeliveryStreamResponse' smart constructor.
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
-  { _ddsrsResponseStatus ::
-      !Int,
-    _ddsrsDeliveryStreamDescription ::
-      !DeliveryStreamDescription
+  { responseStatus ::
+      Lude.Int,
+    deliveryStreamDescription ::
+      DeliveryStreamDescription
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDeliveryStreamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddsrsResponseStatus' - -- | The response status code.
---
--- * 'ddsrsDeliveryStreamDescription' - Information about the delivery stream.
-describeDeliveryStreamResponse ::
-  -- | 'ddsrsResponseStatus'
-  Int ->
-  -- | 'ddsrsDeliveryStreamDescription'
+-- * 'deliveryStreamDescription' - Information about the delivery stream.
+-- * 'responseStatus' - The response status code.
+mkDescribeDeliveryStreamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'deliveryStreamDescription'
   DeliveryStreamDescription ->
   DescribeDeliveryStreamResponse
-describeDeliveryStreamResponse
+mkDescribeDeliveryStreamResponse
   pResponseStatus_
   pDeliveryStreamDescription_ =
     DescribeDeliveryStreamResponse'
-      { _ddsrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _ddsrsDeliveryStreamDescription = pDeliveryStreamDescription_
+        deliveryStreamDescription = pDeliveryStreamDescription_
       }
 
--- | -- | The response status code.
-ddsrsResponseStatus :: Lens' DescribeDeliveryStreamResponse Int
-ddsrsResponseStatus = lens _ddsrsResponseStatus (\s a -> s {_ddsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsrsResponseStatus :: Lens.Lens' DescribeDeliveryStreamResponse Lude.Int
+ddsrsResponseStatus = Lens.lens (responseStatus :: DescribeDeliveryStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDeliveryStreamResponse)
+{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the delivery stream.
-ddsrsDeliveryStreamDescription :: Lens' DescribeDeliveryStreamResponse DeliveryStreamDescription
-ddsrsDeliveryStreamDescription = lens _ddsrsDeliveryStreamDescription (\s a -> s {_ddsrsDeliveryStreamDescription = a})
-
-instance NFData DescribeDeliveryStreamResponse
+--
+-- /Note:/ Consider using 'deliveryStreamDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsrsDeliveryStreamDescription :: Lens.Lens' DescribeDeliveryStreamResponse DeliveryStreamDescription
+ddsrsDeliveryStreamDescription = Lens.lens (deliveryStreamDescription :: DescribeDeliveryStreamResponse -> DeliveryStreamDescription) (\s a -> s {deliveryStreamDescription = a} :: DescribeDeliveryStreamResponse)
+{-# DEPRECATED ddsrsDeliveryStreamDescription "Use generic-lens or generic-optics with 'deliveryStreamDescription' instead." #-}

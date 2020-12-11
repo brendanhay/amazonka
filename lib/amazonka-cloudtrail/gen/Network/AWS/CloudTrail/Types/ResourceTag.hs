@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.ResourceTag where
+module Network.AWS.CloudTrail.Types.ResourceTag
+  ( ResourceTag (..),
+
+    -- * Smart constructor
+    mkResourceTag,
+
+    -- * Lenses
+    rResourceId,
+    rTagsList,
+  )
+where
 
 import Network.AWS.CloudTrail.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A resource tag.
 --
---
---
--- /See:/ 'resourceTag' smart constructor.
+-- /See:/ 'mkResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
-  { _rResourceId :: !(Maybe Text),
-    _rTagsList :: !(Maybe [Tag])
+  { resourceId :: Lude.Maybe Lude.Text,
+    tagsList :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceTag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rResourceId' - Specifies the ARN of the resource.
---
--- * 'rTagsList' - A list of tags.
-resourceTag ::
+-- * 'resourceId' - Specifies the ARN of the resource.
+-- * 'tagsList' - A list of tags.
+mkResourceTag ::
   ResourceTag
-resourceTag =
-  ResourceTag' {_rResourceId = Nothing, _rTagsList = Nothing}
+mkResourceTag =
+  ResourceTag' {resourceId = Lude.Nothing, tagsList = Lude.Nothing}
 
 -- | Specifies the ARN of the resource.
-rResourceId :: Lens' ResourceTag (Maybe Text)
-rResourceId = lens _rResourceId (\s a -> s {_rResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResourceId :: Lens.Lens' ResourceTag (Lude.Maybe Lude.Text)
+rResourceId = Lens.lens (resourceId :: ResourceTag -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ResourceTag)
+{-# DEPRECATED rResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | A list of tags.
-rTagsList :: Lens' ResourceTag [Tag]
-rTagsList = lens _rTagsList (\s a -> s {_rTagsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rTagsList :: Lens.Lens' ResourceTag (Lude.Maybe [Tag])
+rTagsList = Lens.lens (tagsList :: ResourceTag -> Lude.Maybe [Tag]) (\s a -> s {tagsList = a} :: ResourceTag)
+{-# DEPRECATED rTagsList "Use generic-lens or generic-optics with 'tagsList' instead." #-}
 
-instance FromJSON ResourceTag where
+instance Lude.FromJSON ResourceTag where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            <$> (x .:? "ResourceId") <*> (x .:? "TagsList" .!= mempty)
+            Lude.<$> (x Lude..:? "ResourceId")
+            Lude.<*> (x Lude..:? "TagsList" Lude..!= Lude.mempty)
       )
-
-instance Hashable ResourceTag
-
-instance NFData ResourceTag

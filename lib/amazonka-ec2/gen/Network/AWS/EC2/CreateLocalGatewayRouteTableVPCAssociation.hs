@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,179 +14,184 @@
 --
 -- Associates the specified VPC with the specified local gateway route table.
 module Network.AWS.EC2.CreateLocalGatewayRouteTableVPCAssociation
-  ( -- * Creating a Request
-    createLocalGatewayRouteTableVPCAssociation,
-    CreateLocalGatewayRouteTableVPCAssociation,
+  ( -- * Creating a request
+    CreateLocalGatewayRouteTableVPCAssociation (..),
+    mkCreateLocalGatewayRouteTableVPCAssociation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     clgrtvaTagSpecifications,
     clgrtvaDryRun,
     clgrtvaLocalGatewayRouteTableId,
     clgrtvaVPCId,
 
-    -- * Destructuring the Response
-    createLocalGatewayRouteTableVPCAssociationResponse,
-    CreateLocalGatewayRouteTableVPCAssociationResponse,
+    -- * Destructuring the response
+    CreateLocalGatewayRouteTableVPCAssociationResponse (..),
+    mkCreateLocalGatewayRouteTableVPCAssociationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     clgrtvarsLocalGatewayRouteTableVPCAssociation,
     clgrtvarsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createLocalGatewayRouteTableVPCAssociation' smart constructor.
+-- | /See:/ 'mkCreateLocalGatewayRouteTableVPCAssociation' smart constructor.
 data CreateLocalGatewayRouteTableVPCAssociation = CreateLocalGatewayRouteTableVPCAssociation'
-  { _clgrtvaTagSpecifications ::
-      !( Maybe
-           [TagSpecification]
-       ),
-    _clgrtvaDryRun ::
-      !( Maybe
-           Bool
-       ),
-    _clgrtvaLocalGatewayRouteTableId ::
-      !Text,
-    _clgrtvaVPCId ::
-      !Text
+  { tagSpecifications ::
+      Lude.Maybe
+        [TagSpecification],
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    localGatewayRouteTableId ::
+      Lude.Text,
+    vpcId ::
+      Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLocalGatewayRouteTableVPCAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clgrtvaTagSpecifications' - The tags to assign to the local gateway route table VPC association.
---
--- * 'clgrtvaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'clgrtvaLocalGatewayRouteTableId' - The ID of the local gateway route table.
---
--- * 'clgrtvaVPCId' - The ID of the VPC.
-createLocalGatewayRouteTableVPCAssociation ::
-  -- | 'clgrtvaLocalGatewayRouteTableId'
-  Text ->
-  -- | 'clgrtvaVPCId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
+-- * 'tagSpecifications' - The tags to assign to the local gateway route table VPC association.
+-- * 'vpcId' - The ID of the VPC.
+mkCreateLocalGatewayRouteTableVPCAssociation ::
+  -- | 'localGatewayRouteTableId'
+  Lude.Text ->
+  -- | 'vpcId'
+  Lude.Text ->
   CreateLocalGatewayRouteTableVPCAssociation
-createLocalGatewayRouteTableVPCAssociation
+mkCreateLocalGatewayRouteTableVPCAssociation
   pLocalGatewayRouteTableId_
   pVPCId_ =
     CreateLocalGatewayRouteTableVPCAssociation'
-      { _clgrtvaTagSpecifications =
-          Nothing,
-        _clgrtvaDryRun = Nothing,
-        _clgrtvaLocalGatewayRouteTableId =
+      { tagSpecifications =
+          Lude.Nothing,
+        dryRun = Lude.Nothing,
+        localGatewayRouteTableId =
           pLocalGatewayRouteTableId_,
-        _clgrtvaVPCId = pVPCId_
+        vpcId = pVPCId_
       }
 
 -- | The tags to assign to the local gateway route table VPC association.
-clgrtvaTagSpecifications :: Lens' CreateLocalGatewayRouteTableVPCAssociation [TagSpecification]
-clgrtvaTagSpecifications = lens _clgrtvaTagSpecifications (\s a -> s {_clgrtvaTagSpecifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clgrtvaTagSpecifications :: Lens.Lens' CreateLocalGatewayRouteTableVPCAssociation (Lude.Maybe [TagSpecification])
+clgrtvaTagSpecifications = Lens.lens (tagSpecifications :: CreateLocalGatewayRouteTableVPCAssociation -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateLocalGatewayRouteTableVPCAssociation)
+{-# DEPRECATED clgrtvaTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-clgrtvaDryRun :: Lens' CreateLocalGatewayRouteTableVPCAssociation (Maybe Bool)
-clgrtvaDryRun = lens _clgrtvaDryRun (\s a -> s {_clgrtvaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clgrtvaDryRun :: Lens.Lens' CreateLocalGatewayRouteTableVPCAssociation (Lude.Maybe Lude.Bool)
+clgrtvaDryRun = Lens.lens (dryRun :: CreateLocalGatewayRouteTableVPCAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateLocalGatewayRouteTableVPCAssociation)
+{-# DEPRECATED clgrtvaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the local gateway route table.
-clgrtvaLocalGatewayRouteTableId :: Lens' CreateLocalGatewayRouteTableVPCAssociation Text
-clgrtvaLocalGatewayRouteTableId = lens _clgrtvaLocalGatewayRouteTableId (\s a -> s {_clgrtvaLocalGatewayRouteTableId = a})
+--
+-- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clgrtvaLocalGatewayRouteTableId :: Lens.Lens' CreateLocalGatewayRouteTableVPCAssociation Lude.Text
+clgrtvaLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: CreateLocalGatewayRouteTableVPCAssociation -> Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: CreateLocalGatewayRouteTableVPCAssociation)
+{-# DEPRECATED clgrtvaLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
 
 -- | The ID of the VPC.
-clgrtvaVPCId :: Lens' CreateLocalGatewayRouteTableVPCAssociation Text
-clgrtvaVPCId = lens _clgrtvaVPCId (\s a -> s {_clgrtvaVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clgrtvaVPCId :: Lens.Lens' CreateLocalGatewayRouteTableVPCAssociation Lude.Text
+clgrtvaVPCId = Lens.lens (vpcId :: CreateLocalGatewayRouteTableVPCAssociation -> Lude.Text) (\s a -> s {vpcId = a} :: CreateLocalGatewayRouteTableVPCAssociation)
+{-# DEPRECATED clgrtvaVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance AWSRequest CreateLocalGatewayRouteTableVPCAssociation where
+instance Lude.AWSRequest CreateLocalGatewayRouteTableVPCAssociation where
   type
     Rs CreateLocalGatewayRouteTableVPCAssociation =
       CreateLocalGatewayRouteTableVPCAssociationResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CreateLocalGatewayRouteTableVPCAssociationResponse'
-            <$> (x .@? "localGatewayRouteTableVpcAssociation")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "localGatewayRouteTableVpcAssociation")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateLocalGatewayRouteTableVPCAssociation
+instance Lude.ToHeaders CreateLocalGatewayRouteTableVPCAssociation where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateLocalGatewayRouteTableVPCAssociation
+instance Lude.ToPath CreateLocalGatewayRouteTableVPCAssociation where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateLocalGatewayRouteTableVPCAssociation where
-  toHeaders = const mempty
-
-instance ToPath CreateLocalGatewayRouteTableVPCAssociation where
-  toPath = const "/"
-
-instance ToQuery CreateLocalGatewayRouteTableVPCAssociation where
+instance Lude.ToQuery CreateLocalGatewayRouteTableVPCAssociation where
   toQuery CreateLocalGatewayRouteTableVPCAssociation' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("CreateLocalGatewayRouteTableVpcAssociation" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery
-          (toQueryList "TagSpecification" <$> _clgrtvaTagSpecifications),
-        "DryRun" =: _clgrtvaDryRun,
-        "LocalGatewayRouteTableId" =: _clgrtvaLocalGatewayRouteTableId,
-        "VpcId" =: _clgrtvaVPCId
+          Lude.=: ("CreateLocalGatewayRouteTableVpcAssociation" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "DryRun" Lude.=: dryRun,
+        "LocalGatewayRouteTableId" Lude.=: localGatewayRouteTableId,
+        "VpcId" Lude.=: vpcId
       ]
 
--- | /See:/ 'createLocalGatewayRouteTableVPCAssociationResponse' smart constructor.
+-- | /See:/ 'mkCreateLocalGatewayRouteTableVPCAssociationResponse' smart constructor.
 data CreateLocalGatewayRouteTableVPCAssociationResponse = CreateLocalGatewayRouteTableVPCAssociationResponse'
-  { _clgrtvarsLocalGatewayRouteTableVPCAssociation ::
-      !( Maybe
-           LocalGatewayRouteTableVPCAssociation
-       ),
-    _clgrtvarsResponseStatus ::
-      !Int
+  { localGatewayRouteTableVPCAssociation ::
+      Lude.Maybe
+        LocalGatewayRouteTableVPCAssociation,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'CreateLocalGatewayRouteTableVPCAssociationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clgrtvarsLocalGatewayRouteTableVPCAssociation' - Information about the association.
---
--- * 'clgrtvarsResponseStatus' - -- | The response status code.
-createLocalGatewayRouteTableVPCAssociationResponse ::
-  -- | 'clgrtvarsResponseStatus'
-  Int ->
+-- * 'localGatewayRouteTableVPCAssociation' - Information about the association.
+-- * 'responseStatus' - The response status code.
+mkCreateLocalGatewayRouteTableVPCAssociationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateLocalGatewayRouteTableVPCAssociationResponse
-createLocalGatewayRouteTableVPCAssociationResponse pResponseStatus_ =
-  CreateLocalGatewayRouteTableVPCAssociationResponse'
-    { _clgrtvarsLocalGatewayRouteTableVPCAssociation =
-        Nothing,
-      _clgrtvarsResponseStatus = pResponseStatus_
-    }
+mkCreateLocalGatewayRouteTableVPCAssociationResponse
+  pResponseStatus_ =
+    CreateLocalGatewayRouteTableVPCAssociationResponse'
+      { localGatewayRouteTableVPCAssociation =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
+      }
 
 -- | Information about the association.
-clgrtvarsLocalGatewayRouteTableVPCAssociation :: Lens' CreateLocalGatewayRouteTableVPCAssociationResponse (Maybe LocalGatewayRouteTableVPCAssociation)
-clgrtvarsLocalGatewayRouteTableVPCAssociation = lens _clgrtvarsLocalGatewayRouteTableVPCAssociation (\s a -> s {_clgrtvarsLocalGatewayRouteTableVPCAssociation = a})
+--
+-- /Note:/ Consider using 'localGatewayRouteTableVPCAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clgrtvarsLocalGatewayRouteTableVPCAssociation :: Lens.Lens' CreateLocalGatewayRouteTableVPCAssociationResponse (Lude.Maybe LocalGatewayRouteTableVPCAssociation)
+clgrtvarsLocalGatewayRouteTableVPCAssociation = Lens.lens (localGatewayRouteTableVPCAssociation :: CreateLocalGatewayRouteTableVPCAssociationResponse -> Lude.Maybe LocalGatewayRouteTableVPCAssociation) (\s a -> s {localGatewayRouteTableVPCAssociation = a} :: CreateLocalGatewayRouteTableVPCAssociationResponse)
+{-# DEPRECATED clgrtvarsLocalGatewayRouteTableVPCAssociation "Use generic-lens or generic-optics with 'localGatewayRouteTableVPCAssociation' instead." #-}
 
--- | -- | The response status code.
-clgrtvarsResponseStatus :: Lens' CreateLocalGatewayRouteTableVPCAssociationResponse Int
-clgrtvarsResponseStatus = lens _clgrtvarsResponseStatus (\s a -> s {_clgrtvarsResponseStatus = a})
-
-instance NFData CreateLocalGatewayRouteTableVPCAssociationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clgrtvarsResponseStatus :: Lens.Lens' CreateLocalGatewayRouteTableVPCAssociationResponse Lude.Int
+clgrtvarsResponseStatus = Lens.lens (responseStatus :: CreateLocalGatewayRouteTableVPCAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLocalGatewayRouteTableVPCAssociationResponse)
+{-# DEPRECATED clgrtvarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

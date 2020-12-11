@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AppType where
+module Network.AWS.SageMaker.Types.AppType
+  ( AppType
+      ( AppType',
+        JupyterServer,
+        KernelGateway,
+        TensorBoard
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AppType
-  = JupyterServer
-  | KernelGateway
-  | TensorBoard
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AppType = AppType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AppType where
-  parser =
-    takeLowerText >>= \case
-      "jupyterserver" -> pure JupyterServer
-      "kernelgateway" -> pure KernelGateway
-      "tensorboard" -> pure TensorBoard
-      e ->
-        fromTextError $
-          "Failure parsing AppType from value: '" <> e
-            <> "'. Accepted values: jupyterserver, kernelgateway, tensorboard"
+pattern JupyterServer :: AppType
+pattern JupyterServer = AppType' "JupyterServer"
 
-instance ToText AppType where
-  toText = \case
-    JupyterServer -> "JupyterServer"
-    KernelGateway -> "KernelGateway"
-    TensorBoard -> "TensorBoard"
+pattern KernelGateway :: AppType
+pattern KernelGateway = AppType' "KernelGateway"
 
-instance Hashable AppType
+pattern TensorBoard :: AppType
+pattern TensorBoard = AppType' "TensorBoard"
 
-instance NFData AppType
-
-instance ToByteString AppType
-
-instance ToQuery AppType
-
-instance ToHeader AppType
-
-instance ToJSON AppType where
-  toJSON = toJSONText
-
-instance FromJSON AppType where
-  parseJSON = parseJSONText "AppType"
+{-# COMPLETE
+  JupyterServer,
+  KernelGateway,
+  TensorBoard,
+  AppType'
+  #-}

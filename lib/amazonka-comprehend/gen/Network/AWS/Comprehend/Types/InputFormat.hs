@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.InputFormat where
+module Network.AWS.Comprehend.Types.InputFormat
+  ( InputFormat
+      ( InputFormat',
+        OneDocPerFile,
+        OneDocPerLine
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InputFormat
-  = OneDocPerFile
-  | OneDocPerLine
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputFormat = InputFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputFormat where
-  parser =
-    takeLowerText >>= \case
-      "one_doc_per_file" -> pure OneDocPerFile
-      "one_doc_per_line" -> pure OneDocPerLine
-      e ->
-        fromTextError $
-          "Failure parsing InputFormat from value: '" <> e
-            <> "'. Accepted values: one_doc_per_file, one_doc_per_line"
+pattern OneDocPerFile :: InputFormat
+pattern OneDocPerFile = InputFormat' "ONE_DOC_PER_FILE"
 
-instance ToText InputFormat where
-  toText = \case
-    OneDocPerFile -> "ONE_DOC_PER_FILE"
-    OneDocPerLine -> "ONE_DOC_PER_LINE"
+pattern OneDocPerLine :: InputFormat
+pattern OneDocPerLine = InputFormat' "ONE_DOC_PER_LINE"
 
-instance Hashable InputFormat
-
-instance NFData InputFormat
-
-instance ToByteString InputFormat
-
-instance ToQuery InputFormat
-
-instance ToHeader InputFormat
-
-instance ToJSON InputFormat where
-  toJSON = toJSONText
-
-instance FromJSON InputFormat where
-  parseJSON = parseJSONText "InputFormat"
+{-# COMPLETE
+  OneDocPerFile,
+  OneDocPerLine,
+  InputFormat'
+  #-}

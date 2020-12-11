@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.EventAggregateField where
+module Network.AWS.AWSHealth.Types.EventAggregateField
+  ( EventAggregateField
+      ( EventAggregateField',
+        EventTypeCategory
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventAggregateField = EventTypeCategory
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventAggregateField = EventAggregateField' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventAggregateField where
-  parser =
-    takeLowerText >>= \case
-      "eventtypecategory" -> pure EventTypeCategory
-      e ->
-        fromTextError $
-          "Failure parsing EventAggregateField from value: '" <> e
-            <> "'. Accepted values: eventtypecategory"
+pattern EventTypeCategory :: EventAggregateField
+pattern EventTypeCategory = EventAggregateField' "eventTypeCategory"
 
-instance ToText EventAggregateField where
-  toText = \case
-    EventTypeCategory -> "eventTypeCategory"
-
-instance Hashable EventAggregateField
-
-instance NFData EventAggregateField
-
-instance ToByteString EventAggregateField
-
-instance ToQuery EventAggregateField
-
-instance ToHeader EventAggregateField
-
-instance ToJSON EventAggregateField where
-  toJSON = toJSONText
+{-# COMPLETE
+  EventTypeCategory,
+  EventAggregateField'
+  #-}

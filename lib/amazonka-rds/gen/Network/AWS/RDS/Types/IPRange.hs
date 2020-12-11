@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.IPRange where
+module Network.AWS.RDS.Types.IPRange
+  ( IPRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIPRange,
+
+    -- * Lenses
+    irStatus,
+    irCIdRIP,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data type is used as a response element in the @DescribeDBSecurityGroups@ action.
 --
---
---
--- /See:/ 'ipRange' smart constructor.
+-- /See:/ 'mkIPRange' smart constructor.
 data IPRange = IPRange'
-  { _irStatus :: !(Maybe Text),
-    _irCIdRIP :: !(Maybe Text)
+  { status :: Lude.Maybe Lude.Text,
+    cIdRIP :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'irStatus' - Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
---
--- * 'irCIdRIP' - Specifies the IP range.
-ipRange ::
+-- * 'cIdRIP' - Specifies the IP range.
+-- * 'status' - Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
+mkIPRange ::
   IPRange
-ipRange = IPRange' {_irStatus = Nothing, _irCIdRIP = Nothing}
+mkIPRange = IPRange' {status = Lude.Nothing, cIdRIP = Lude.Nothing}
 
 -- | Specifies the status of the IP range. Status can be "authorizing", "authorized", "revoking", and "revoked".
-irStatus :: Lens' IPRange (Maybe Text)
-irStatus = lens _irStatus (\s a -> s {_irStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irStatus :: Lens.Lens' IPRange (Lude.Maybe Lude.Text)
+irStatus = Lens.lens (status :: IPRange -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: IPRange)
+{-# DEPRECATED irStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies the IP range.
-irCIdRIP :: Lens' IPRange (Maybe Text)
-irCIdRIP = lens _irCIdRIP (\s a -> s {_irCIdRIP = a})
+--
+-- /Note:/ Consider using 'cIdRIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irCIdRIP :: Lens.Lens' IPRange (Lude.Maybe Lude.Text)
+irCIdRIP = Lens.lens (cIdRIP :: IPRange -> Lude.Maybe Lude.Text) (\s a -> s {cIdRIP = a} :: IPRange)
+{-# DEPRECATED irCIdRIP "Use generic-lens or generic-optics with 'cIdRIP' instead." #-}
 
-instance FromXML IPRange where
-  parseXML x = IPRange' <$> (x .@? "Status") <*> (x .@? "CIDRIP")
-
-instance Hashable IPRange
-
-instance NFData IPRange
+instance Lude.FromXML IPRange where
+  parseXML x =
+    IPRange'
+      Lude.<$> (x Lude..@? "Status") Lude.<*> (x Lude..@? "CIDRIP")

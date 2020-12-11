@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,119 @@
 --
 -- Sets the specified receipt rule set as the active receipt rule set.
 --
---
 -- For information about managing receipt rule sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.SetActiveReceiptRuleSet
-  ( -- * Creating a Request
-    setActiveReceiptRuleSet,
-    SetActiveReceiptRuleSet,
+  ( -- * Creating a request
+    SetActiveReceiptRuleSet (..),
+    mkSetActiveReceiptRuleSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sarrsRuleSetName,
 
-    -- * Destructuring the Response
-    setActiveReceiptRuleSetResponse,
-    SetActiveReceiptRuleSetResponse,
+    -- * Destructuring the response
+    SetActiveReceiptRuleSetResponse (..),
+    mkSetActiveReceiptRuleSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sarrsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to set a receipt rule set as the active receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'setActiveReceiptRuleSet' smart constructor.
+-- /See:/ 'mkSetActiveReceiptRuleSet' smart constructor.
 newtype SetActiveReceiptRuleSet = SetActiveReceiptRuleSet'
-  { _sarrsRuleSetName ::
-      Maybe Text
+  { ruleSetName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetActiveReceiptRuleSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sarrsRuleSetName' - The name of the receipt rule set to make active. Setting this value to null disables all email receiving.
-setActiveReceiptRuleSet ::
+-- * 'ruleSetName' - The name of the receipt rule set to make active. Setting this value to null disables all email receiving.
+mkSetActiveReceiptRuleSet ::
   SetActiveReceiptRuleSet
-setActiveReceiptRuleSet =
-  SetActiveReceiptRuleSet' {_sarrsRuleSetName = Nothing}
+mkSetActiveReceiptRuleSet =
+  SetActiveReceiptRuleSet' {ruleSetName = Lude.Nothing}
 
 -- | The name of the receipt rule set to make active. Setting this value to null disables all email receiving.
-sarrsRuleSetName :: Lens' SetActiveReceiptRuleSet (Maybe Text)
-sarrsRuleSetName = lens _sarrsRuleSetName (\s a -> s {_sarrsRuleSetName = a})
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarrsRuleSetName :: Lens.Lens' SetActiveReceiptRuleSet (Lude.Maybe Lude.Text)
+sarrsRuleSetName = Lens.lens (ruleSetName :: SetActiveReceiptRuleSet -> Lude.Maybe Lude.Text) (\s a -> s {ruleSetName = a} :: SetActiveReceiptRuleSet)
+{-# DEPRECATED sarrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
-instance AWSRequest SetActiveReceiptRuleSet where
+instance Lude.AWSRequest SetActiveReceiptRuleSet where
   type Rs SetActiveReceiptRuleSet = SetActiveReceiptRuleSetResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "SetActiveReceiptRuleSetResult"
       ( \s h x ->
-          SetActiveReceiptRuleSetResponse' <$> (pure (fromEnum s))
+          SetActiveReceiptRuleSetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SetActiveReceiptRuleSet
+instance Lude.ToHeaders SetActiveReceiptRuleSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetActiveReceiptRuleSet
+instance Lude.ToPath SetActiveReceiptRuleSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetActiveReceiptRuleSet where
-  toHeaders = const mempty
-
-instance ToPath SetActiveReceiptRuleSet where
-  toPath = const "/"
-
-instance ToQuery SetActiveReceiptRuleSet where
+instance Lude.ToQuery SetActiveReceiptRuleSet where
   toQuery SetActiveReceiptRuleSet' {..} =
-    mconcat
-      [ "Action" =: ("SetActiveReceiptRuleSet" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "RuleSetName" =: _sarrsRuleSetName
+    Lude.mconcat
+      [ "Action" Lude.=: ("SetActiveReceiptRuleSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "RuleSetName" Lude.=: ruleSetName
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'setActiveReceiptRuleSetResponse' smart constructor.
+-- /See:/ 'mkSetActiveReceiptRuleSetResponse' smart constructor.
 newtype SetActiveReceiptRuleSetResponse = SetActiveReceiptRuleSetResponse'
-  { _sarrsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetActiveReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sarrsrsResponseStatus' - -- | The response status code.
-setActiveReceiptRuleSetResponse ::
-  -- | 'sarrsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkSetActiveReceiptRuleSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SetActiveReceiptRuleSetResponse
-setActiveReceiptRuleSetResponse pResponseStatus_ =
+mkSetActiveReceiptRuleSetResponse pResponseStatus_ =
   SetActiveReceiptRuleSetResponse'
-    { _sarrsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-sarrsrsResponseStatus :: Lens' SetActiveReceiptRuleSetResponse Int
-sarrsrsResponseStatus = lens _sarrsrsResponseStatus (\s a -> s {_sarrsrsResponseStatus = a})
-
-instance NFData SetActiveReceiptRuleSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarrsrsResponseStatus :: Lens.Lens' SetActiveReceiptRuleSetResponse Lude.Int
+sarrsrsResponseStatus = Lens.lens (responseStatus :: SetActiveReceiptRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetActiveReceiptRuleSetResponse)
+{-# DEPRECATED sarrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

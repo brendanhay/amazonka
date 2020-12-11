@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,120 +7,152 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceInfo where
+module Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceInfo
+  ( ExportSnapshotRecordSourceInfo (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkExportSnapshotRecordSourceInfo,
+
+    -- * Lenses
+    esrsiDiskSnapshotInfo,
+    esrsiResourceType,
+    esrsiArn,
+    esrsiCreatedAt,
+    esrsiFromResourceARN,
+    esrsiName,
+    esrsiInstanceSnapshotInfo,
+    esrsiFromResourceName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.DiskSnapshotInfo
 import Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceType
 import Network.AWS.Lightsail.Types.InstanceSnapshotInfo
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the source of an export snapshot record.
 --
---
---
--- /See:/ 'exportSnapshotRecordSourceInfo' smart constructor.
+-- /See:/ 'mkExportSnapshotRecordSourceInfo' smart constructor.
 data ExportSnapshotRecordSourceInfo = ExportSnapshotRecordSourceInfo'
-  { _esrsiDiskSnapshotInfo ::
-      !(Maybe DiskSnapshotInfo),
-    _esrsiResourceType ::
-      !( Maybe
-           ExportSnapshotRecordSourceType
-       ),
-    _esrsiArn :: !(Maybe Text),
-    _esrsiCreatedAt ::
-      !(Maybe POSIX),
-    _esrsiFromResourceARN ::
-      !(Maybe Text),
-    _esrsiName :: !(Maybe Text),
-    _esrsiInstanceSnapshotInfo ::
-      !(Maybe InstanceSnapshotInfo),
-    _esrsiFromResourceName ::
-      !(Maybe Text)
+  { diskSnapshotInfo ::
+      Lude.Maybe DiskSnapshotInfo,
+    resourceType ::
+      Lude.Maybe
+        ExportSnapshotRecordSourceType,
+    arn :: Lude.Maybe Lude.Text,
+    createdAt ::
+      Lude.Maybe Lude.Timestamp,
+    fromResourceARN ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    instanceSnapshotInfo ::
+      Lude.Maybe
+        InstanceSnapshotInfo,
+    fromResourceName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportSnapshotRecordSourceInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esrsiDiskSnapshotInfo' - A list of objects describing a disk snapshot.
---
--- * 'esrsiResourceType' - The Lightsail resource type (e.g., @InstanceSnapshot@ or @DiskSnapshot@ ).
---
--- * 'esrsiArn' - The Amazon Resource Name (ARN) of the source instance or disk snapshot.
---
--- * 'esrsiCreatedAt' - The date when the source instance or disk snapshot was created.
---
--- * 'esrsiFromResourceARN' - The Amazon Resource Name (ARN) of the snapshot's source instance or disk.
---
--- * 'esrsiName' - The name of the source instance or disk snapshot.
---
--- * 'esrsiInstanceSnapshotInfo' - A list of objects describing an instance snapshot.
---
--- * 'esrsiFromResourceName' - The name of the snapshot's source instance or disk.
-exportSnapshotRecordSourceInfo ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the source instance or disk snapshot.
+-- * 'createdAt' - The date when the source instance or disk snapshot was created.
+-- * 'diskSnapshotInfo' - A list of objects describing a disk snapshot.
+-- * 'fromResourceARN' - The Amazon Resource Name (ARN) of the snapshot's source instance or disk.
+-- * 'fromResourceName' - The name of the snapshot's source instance or disk.
+-- * 'instanceSnapshotInfo' - A list of objects describing an instance snapshot.
+-- * 'name' - The name of the source instance or disk snapshot.
+-- * 'resourceType' - The Lightsail resource type (e.g., @InstanceSnapshot@ or @DiskSnapshot@ ).
+mkExportSnapshotRecordSourceInfo ::
   ExportSnapshotRecordSourceInfo
-exportSnapshotRecordSourceInfo =
+mkExportSnapshotRecordSourceInfo =
   ExportSnapshotRecordSourceInfo'
-    { _esrsiDiskSnapshotInfo = Nothing,
-      _esrsiResourceType = Nothing,
-      _esrsiArn = Nothing,
-      _esrsiCreatedAt = Nothing,
-      _esrsiFromResourceARN = Nothing,
-      _esrsiName = Nothing,
-      _esrsiInstanceSnapshotInfo = Nothing,
-      _esrsiFromResourceName = Nothing
+    { diskSnapshotInfo = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      arn = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      fromResourceARN = Lude.Nothing,
+      name = Lude.Nothing,
+      instanceSnapshotInfo = Lude.Nothing,
+      fromResourceName = Lude.Nothing
     }
 
 -- | A list of objects describing a disk snapshot.
-esrsiDiskSnapshotInfo :: Lens' ExportSnapshotRecordSourceInfo (Maybe DiskSnapshotInfo)
-esrsiDiskSnapshotInfo = lens _esrsiDiskSnapshotInfo (\s a -> s {_esrsiDiskSnapshotInfo = a})
+--
+-- /Note:/ Consider using 'diskSnapshotInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrsiDiskSnapshotInfo :: Lens.Lens' ExportSnapshotRecordSourceInfo (Lude.Maybe DiskSnapshotInfo)
+esrsiDiskSnapshotInfo = Lens.lens (diskSnapshotInfo :: ExportSnapshotRecordSourceInfo -> Lude.Maybe DiskSnapshotInfo) (\s a -> s {diskSnapshotInfo = a} :: ExportSnapshotRecordSourceInfo)
+{-# DEPRECATED esrsiDiskSnapshotInfo "Use generic-lens or generic-optics with 'diskSnapshotInfo' instead." #-}
 
 -- | The Lightsail resource type (e.g., @InstanceSnapshot@ or @DiskSnapshot@ ).
-esrsiResourceType :: Lens' ExportSnapshotRecordSourceInfo (Maybe ExportSnapshotRecordSourceType)
-esrsiResourceType = lens _esrsiResourceType (\s a -> s {_esrsiResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrsiResourceType :: Lens.Lens' ExportSnapshotRecordSourceInfo (Lude.Maybe ExportSnapshotRecordSourceType)
+esrsiResourceType = Lens.lens (resourceType :: ExportSnapshotRecordSourceInfo -> Lude.Maybe ExportSnapshotRecordSourceType) (\s a -> s {resourceType = a} :: ExportSnapshotRecordSourceInfo)
+{-# DEPRECATED esrsiResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the source instance or disk snapshot.
-esrsiArn :: Lens' ExportSnapshotRecordSourceInfo (Maybe Text)
-esrsiArn = lens _esrsiArn (\s a -> s {_esrsiArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrsiArn :: Lens.Lens' ExportSnapshotRecordSourceInfo (Lude.Maybe Lude.Text)
+esrsiArn = Lens.lens (arn :: ExportSnapshotRecordSourceInfo -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ExportSnapshotRecordSourceInfo)
+{-# DEPRECATED esrsiArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date when the source instance or disk snapshot was created.
-esrsiCreatedAt :: Lens' ExportSnapshotRecordSourceInfo (Maybe UTCTime)
-esrsiCreatedAt = lens _esrsiCreatedAt (\s a -> s {_esrsiCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrsiCreatedAt :: Lens.Lens' ExportSnapshotRecordSourceInfo (Lude.Maybe Lude.Timestamp)
+esrsiCreatedAt = Lens.lens (createdAt :: ExportSnapshotRecordSourceInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ExportSnapshotRecordSourceInfo)
+{-# DEPRECATED esrsiCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the snapshot's source instance or disk.
-esrsiFromResourceARN :: Lens' ExportSnapshotRecordSourceInfo (Maybe Text)
-esrsiFromResourceARN = lens _esrsiFromResourceARN (\s a -> s {_esrsiFromResourceARN = a})
+--
+-- /Note:/ Consider using 'fromResourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrsiFromResourceARN :: Lens.Lens' ExportSnapshotRecordSourceInfo (Lude.Maybe Lude.Text)
+esrsiFromResourceARN = Lens.lens (fromResourceARN :: ExportSnapshotRecordSourceInfo -> Lude.Maybe Lude.Text) (\s a -> s {fromResourceARN = a} :: ExportSnapshotRecordSourceInfo)
+{-# DEPRECATED esrsiFromResourceARN "Use generic-lens or generic-optics with 'fromResourceARN' instead." #-}
 
 -- | The name of the source instance or disk snapshot.
-esrsiName :: Lens' ExportSnapshotRecordSourceInfo (Maybe Text)
-esrsiName = lens _esrsiName (\s a -> s {_esrsiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrsiName :: Lens.Lens' ExportSnapshotRecordSourceInfo (Lude.Maybe Lude.Text)
+esrsiName = Lens.lens (name :: ExportSnapshotRecordSourceInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ExportSnapshotRecordSourceInfo)
+{-# DEPRECATED esrsiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of objects describing an instance snapshot.
-esrsiInstanceSnapshotInfo :: Lens' ExportSnapshotRecordSourceInfo (Maybe InstanceSnapshotInfo)
-esrsiInstanceSnapshotInfo = lens _esrsiInstanceSnapshotInfo (\s a -> s {_esrsiInstanceSnapshotInfo = a})
+--
+-- /Note:/ Consider using 'instanceSnapshotInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrsiInstanceSnapshotInfo :: Lens.Lens' ExportSnapshotRecordSourceInfo (Lude.Maybe InstanceSnapshotInfo)
+esrsiInstanceSnapshotInfo = Lens.lens (instanceSnapshotInfo :: ExportSnapshotRecordSourceInfo -> Lude.Maybe InstanceSnapshotInfo) (\s a -> s {instanceSnapshotInfo = a} :: ExportSnapshotRecordSourceInfo)
+{-# DEPRECATED esrsiInstanceSnapshotInfo "Use generic-lens or generic-optics with 'instanceSnapshotInfo' instead." #-}
 
 -- | The name of the snapshot's source instance or disk.
-esrsiFromResourceName :: Lens' ExportSnapshotRecordSourceInfo (Maybe Text)
-esrsiFromResourceName = lens _esrsiFromResourceName (\s a -> s {_esrsiFromResourceName = a})
+--
+-- /Note:/ Consider using 'fromResourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrsiFromResourceName :: Lens.Lens' ExportSnapshotRecordSourceInfo (Lude.Maybe Lude.Text)
+esrsiFromResourceName = Lens.lens (fromResourceName :: ExportSnapshotRecordSourceInfo -> Lude.Maybe Lude.Text) (\s a -> s {fromResourceName = a} :: ExportSnapshotRecordSourceInfo)
+{-# DEPRECATED esrsiFromResourceName "Use generic-lens or generic-optics with 'fromResourceName' instead." #-}
 
-instance FromJSON ExportSnapshotRecordSourceInfo where
+instance Lude.FromJSON ExportSnapshotRecordSourceInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExportSnapshotRecordSourceInfo"
       ( \x ->
           ExportSnapshotRecordSourceInfo'
-            <$> (x .:? "diskSnapshotInfo")
-            <*> (x .:? "resourceType")
-            <*> (x .:? "arn")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "fromResourceArn")
-            <*> (x .:? "name")
-            <*> (x .:? "instanceSnapshotInfo")
-            <*> (x .:? "fromResourceName")
+            Lude.<$> (x Lude..:? "diskSnapshotInfo")
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "fromResourceArn")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "instanceSnapshotInfo")
+            Lude.<*> (x Lude..:? "fromResourceName")
       )
-
-instance Hashable ExportSnapshotRecordSourceInfo
-
-instance NFData ExportSnapshotRecordSourceInfo

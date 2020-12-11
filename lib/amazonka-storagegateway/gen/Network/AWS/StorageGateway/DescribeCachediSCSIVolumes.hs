@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,141 @@
 --
 -- Returns a description of the gateway volumes specified in the request. This operation is only supported in the cached volume gateway types.
 --
---
 -- The list of gateway volumes in the request must be from one gateway. In the response, AWS Storage Gateway returns volume information sorted by volume Amazon Resource Name (ARN).
 module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
-  ( -- * Creating a Request
-    describeCachediSCSIVolumes,
-    DescribeCachediSCSIVolumes,
+  ( -- * Creating a request
+    DescribeCachediSCSIVolumes (..),
+    mkDescribeCachediSCSIVolumes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcscsivVolumeARNs,
 
-    -- * Destructuring the Response
-    describeCachediSCSIVolumesResponse,
-    DescribeCachediSCSIVolumesResponse,
+    -- * Destructuring the response
+    DescribeCachediSCSIVolumesResponse (..),
+    mkDescribeCachediSCSIVolumesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcscsivrsCachediSCSIVolumes,
     dcscsivrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeCachediSCSIVolumes' smart constructor.
+-- | /See:/ 'mkDescribeCachediSCSIVolumes' smart constructor.
 newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
-  { _dcscsivVolumeARNs ::
-      [Text]
+  { volumeARNs ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCachediSCSIVolumes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcscsivVolumeARNs' - An array of strings where each string represents the Amazon Resource Name (ARN) of a cached volume. All of the specified cached volumes must be from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
-describeCachediSCSIVolumes ::
+-- * 'volumeARNs' - An array of strings where each string represents the Amazon Resource Name (ARN) of a cached volume. All of the specified cached volumes must be from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
+mkDescribeCachediSCSIVolumes ::
   DescribeCachediSCSIVolumes
-describeCachediSCSIVolumes =
-  DescribeCachediSCSIVolumes' {_dcscsivVolumeARNs = mempty}
+mkDescribeCachediSCSIVolumes =
+  DescribeCachediSCSIVolumes' {volumeARNs = Lude.mempty}
 
 -- | An array of strings where each string represents the Amazon Resource Name (ARN) of a cached volume. All of the specified cached volumes must be from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
-dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
-dcscsivVolumeARNs = lens _dcscsivVolumeARNs (\s a -> s {_dcscsivVolumeARNs = a}) . _Coerce
+--
+-- /Note:/ Consider using 'volumeARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcscsivVolumeARNs :: Lens.Lens' DescribeCachediSCSIVolumes [Lude.Text]
+dcscsivVolumeARNs = Lens.lens (volumeARNs :: DescribeCachediSCSIVolumes -> [Lude.Text]) (\s a -> s {volumeARNs = a} :: DescribeCachediSCSIVolumes)
+{-# DEPRECATED dcscsivVolumeARNs "Use generic-lens or generic-optics with 'volumeARNs' instead." #-}
 
-instance AWSRequest DescribeCachediSCSIVolumes where
+instance Lude.AWSRequest DescribeCachediSCSIVolumes where
   type
     Rs DescribeCachediSCSIVolumes =
       DescribeCachediSCSIVolumesResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCachediSCSIVolumesResponse'
-            <$> (x .?> "CachediSCSIVolumes" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CachediSCSIVolumes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCachediSCSIVolumes
-
-instance NFData DescribeCachediSCSIVolumes
-
-instance ToHeaders DescribeCachediSCSIVolumes where
+instance Lude.ToHeaders DescribeCachediSCSIVolumes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StorageGateway_20130630.DescribeCachediSCSIVolumes" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StorageGateway_20130630.DescribeCachediSCSIVolumes" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCachediSCSIVolumes where
+instance Lude.ToJSON DescribeCachediSCSIVolumes where
   toJSON DescribeCachediSCSIVolumes' {..} =
-    object (catMaybes [Just ("VolumeARNs" .= _dcscsivVolumeARNs)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("VolumeARNs" Lude..= volumeARNs)])
 
-instance ToPath DescribeCachediSCSIVolumes where
-  toPath = const "/"
+instance Lude.ToPath DescribeCachediSCSIVolumes where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCachediSCSIVolumes where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCachediSCSIVolumes where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
---
---
--- /See:/ 'describeCachediSCSIVolumesResponse' smart constructor.
+-- /See:/ 'mkDescribeCachediSCSIVolumesResponse' smart constructor.
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
-  { _dcscsivrsCachediSCSIVolumes ::
-      !( Maybe
-           [CachediSCSIVolume]
-       ),
-    _dcscsivrsResponseStatus ::
-      !Int
+  { cachediSCSIVolumes ::
+      Lude.Maybe
+        [CachediSCSIVolume],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCachediSCSIVolumesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcscsivrsCachediSCSIVolumes' - An array of objects where each object contains metadata about one cached volume.
---
--- * 'dcscsivrsResponseStatus' - -- | The response status code.
-describeCachediSCSIVolumesResponse ::
-  -- | 'dcscsivrsResponseStatus'
-  Int ->
+-- * 'cachediSCSIVolumes' - An array of objects where each object contains metadata about one cached volume.
+-- * 'responseStatus' - The response status code.
+mkDescribeCachediSCSIVolumesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCachediSCSIVolumesResponse
-describeCachediSCSIVolumesResponse pResponseStatus_ =
+mkDescribeCachediSCSIVolumesResponse pResponseStatus_ =
   DescribeCachediSCSIVolumesResponse'
-    { _dcscsivrsCachediSCSIVolumes =
-        Nothing,
-      _dcscsivrsResponseStatus = pResponseStatus_
+    { cachediSCSIVolumes =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects where each object contains metadata about one cached volume.
-dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
-dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\s a -> s {_dcscsivrsCachediSCSIVolumes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cachediSCSIVolumes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcscsivrsCachediSCSIVolumes :: Lens.Lens' DescribeCachediSCSIVolumesResponse (Lude.Maybe [CachediSCSIVolume])
+dcscsivrsCachediSCSIVolumes = Lens.lens (cachediSCSIVolumes :: DescribeCachediSCSIVolumesResponse -> Lude.Maybe [CachediSCSIVolume]) (\s a -> s {cachediSCSIVolumes = a} :: DescribeCachediSCSIVolumesResponse)
+{-# DEPRECATED dcscsivrsCachediSCSIVolumes "Use generic-lens or generic-optics with 'cachediSCSIVolumes' instead." #-}
 
--- | -- | The response status code.
-dcscsivrsResponseStatus :: Lens' DescribeCachediSCSIVolumesResponse Int
-dcscsivrsResponseStatus = lens _dcscsivrsResponseStatus (\s a -> s {_dcscsivrsResponseStatus = a})
-
-instance NFData DescribeCachediSCSIVolumesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcscsivrsResponseStatus :: Lens.Lens' DescribeCachediSCSIVolumesResponse Lude.Int
+dcscsivrsResponseStatus = Lens.lens (responseStatus :: DescribeCachediSCSIVolumesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCachediSCSIVolumesResponse)
+{-# DEPRECATED dcscsivrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

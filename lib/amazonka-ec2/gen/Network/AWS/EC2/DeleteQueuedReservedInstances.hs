@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Deletes the queued purchases for the specified Reserved Instances.
 module Network.AWS.EC2.DeleteQueuedReservedInstances
-  ( -- * Creating a Request
-    deleteQueuedReservedInstances,
-    DeleteQueuedReservedInstances,
+  ( -- * Creating a request
+    DeleteQueuedReservedInstances (..),
+    mkDeleteQueuedReservedInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dqriDryRun,
     dqriReservedInstancesIds,
 
-    -- * Destructuring the Response
-    deleteQueuedReservedInstancesResponse,
-    DeleteQueuedReservedInstancesResponse,
+    -- * Destructuring the response
+    DeleteQueuedReservedInstancesResponse (..),
+    mkDeleteQueuedReservedInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dqrirsFailedQueuedPurchaseDeletions,
     dqrirsSuccessfulQueuedPurchaseDeletions,
     dqrirsResponseStatus,
@@ -39,128 +34,144 @@ module Network.AWS.EC2.DeleteQueuedReservedInstances
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteQueuedReservedInstances' smart constructor.
+-- | /See:/ 'mkDeleteQueuedReservedInstances' smart constructor.
 data DeleteQueuedReservedInstances = DeleteQueuedReservedInstances'
-  { _dqriDryRun ::
-      !(Maybe Bool),
-    _dqriReservedInstancesIds ::
-      !(List1 Text)
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    reservedInstancesIds ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueuedReservedInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqriDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'dqriReservedInstancesIds' - The IDs of the Reserved Instances.
-deleteQueuedReservedInstances ::
-  -- | 'dqriReservedInstancesIds'
-  NonEmpty Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'reservedInstancesIds' - The IDs of the Reserved Instances.
+mkDeleteQueuedReservedInstances ::
+  -- | 'reservedInstancesIds'
+  Lude.NonEmpty Lude.Text ->
   DeleteQueuedReservedInstances
-deleteQueuedReservedInstances pReservedInstancesIds_ =
+mkDeleteQueuedReservedInstances pReservedInstancesIds_ =
   DeleteQueuedReservedInstances'
-    { _dqriDryRun = Nothing,
-      _dqriReservedInstancesIds = _List1 # pReservedInstancesIds_
+    { dryRun = Lude.Nothing,
+      reservedInstancesIds = pReservedInstancesIds_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dqriDryRun :: Lens' DeleteQueuedReservedInstances (Maybe Bool)
-dqriDryRun = lens _dqriDryRun (\s a -> s {_dqriDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqriDryRun :: Lens.Lens' DeleteQueuedReservedInstances (Lude.Maybe Lude.Bool)
+dqriDryRun = Lens.lens (dryRun :: DeleteQueuedReservedInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteQueuedReservedInstances)
+{-# DEPRECATED dqriDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the Reserved Instances.
-dqriReservedInstancesIds :: Lens' DeleteQueuedReservedInstances (NonEmpty Text)
-dqriReservedInstancesIds = lens _dqriReservedInstancesIds (\s a -> s {_dqriReservedInstancesIds = a}) . _List1
+--
+-- /Note:/ Consider using 'reservedInstancesIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqriReservedInstancesIds :: Lens.Lens' DeleteQueuedReservedInstances (Lude.NonEmpty Lude.Text)
+dqriReservedInstancesIds = Lens.lens (reservedInstancesIds :: DeleteQueuedReservedInstances -> Lude.NonEmpty Lude.Text) (\s a -> s {reservedInstancesIds = a} :: DeleteQueuedReservedInstances)
+{-# DEPRECATED dqriReservedInstancesIds "Use generic-lens or generic-optics with 'reservedInstancesIds' instead." #-}
 
-instance AWSRequest DeleteQueuedReservedInstances where
+instance Lude.AWSRequest DeleteQueuedReservedInstances where
   type
     Rs DeleteQueuedReservedInstances =
       DeleteQueuedReservedInstancesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeleteQueuedReservedInstancesResponse'
-            <$> ( x .@? "failedQueuedPurchaseDeletionSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> ( x .@? "successfulQueuedPurchaseDeletionSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "failedQueuedPurchaseDeletionSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> ( x Lude..@? "successfulQueuedPurchaseDeletionSet"
+                         Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteQueuedReservedInstances
+instance Lude.ToHeaders DeleteQueuedReservedInstances where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteQueuedReservedInstances
+instance Lude.ToPath DeleteQueuedReservedInstances where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteQueuedReservedInstances where
-  toHeaders = const mempty
-
-instance ToPath DeleteQueuedReservedInstances where
-  toPath = const "/"
-
-instance ToQuery DeleteQueuedReservedInstances where
+instance Lude.ToQuery DeleteQueuedReservedInstances where
   toQuery DeleteQueuedReservedInstances' {..} =
-    mconcat
-      [ "Action" =: ("DeleteQueuedReservedInstances" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _dqriDryRun,
-        toQueryList "ReservedInstancesId" _dqriReservedInstancesIds
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DeleteQueuedReservedInstances" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "ReservedInstancesId" reservedInstancesIds
       ]
 
--- | /See:/ 'deleteQueuedReservedInstancesResponse' smart constructor.
+-- | /See:/ 'mkDeleteQueuedReservedInstancesResponse' smart constructor.
 data DeleteQueuedReservedInstancesResponse = DeleteQueuedReservedInstancesResponse'
-  { _dqrirsFailedQueuedPurchaseDeletions ::
-      !( Maybe
-           [FailedQueuedPurchaseDeletion]
-       ),
-    _dqrirsSuccessfulQueuedPurchaseDeletions ::
-      !( Maybe
-           [SuccessfulQueuedPurchaseDeletion]
-       ),
-    _dqrirsResponseStatus ::
-      !Int
+  { failedQueuedPurchaseDeletions ::
+      Lude.Maybe
+        [FailedQueuedPurchaseDeletion],
+    successfulQueuedPurchaseDeletions ::
+      Lude.Maybe
+        [SuccessfulQueuedPurchaseDeletion],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueuedReservedInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dqrirsFailedQueuedPurchaseDeletions' - Information about the queued purchases that could not be deleted.
---
--- * 'dqrirsSuccessfulQueuedPurchaseDeletions' - Information about the queued purchases that were successfully deleted.
---
--- * 'dqrirsResponseStatus' - -- | The response status code.
-deleteQueuedReservedInstancesResponse ::
-  -- | 'dqrirsResponseStatus'
-  Int ->
+-- * 'failedQueuedPurchaseDeletions' - Information about the queued purchases that could not be deleted.
+-- * 'responseStatus' - The response status code.
+-- * 'successfulQueuedPurchaseDeletions' - Information about the queued purchases that were successfully deleted.
+mkDeleteQueuedReservedInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteQueuedReservedInstancesResponse
-deleteQueuedReservedInstancesResponse pResponseStatus_ =
+mkDeleteQueuedReservedInstancesResponse pResponseStatus_ =
   DeleteQueuedReservedInstancesResponse'
-    { _dqrirsFailedQueuedPurchaseDeletions =
-        Nothing,
-      _dqrirsSuccessfulQueuedPurchaseDeletions = Nothing,
-      _dqrirsResponseStatus = pResponseStatus_
+    { failedQueuedPurchaseDeletions =
+        Lude.Nothing,
+      successfulQueuedPurchaseDeletions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the queued purchases that could not be deleted.
-dqrirsFailedQueuedPurchaseDeletions :: Lens' DeleteQueuedReservedInstancesResponse [FailedQueuedPurchaseDeletion]
-dqrirsFailedQueuedPurchaseDeletions = lens _dqrirsFailedQueuedPurchaseDeletions (\s a -> s {_dqrirsFailedQueuedPurchaseDeletions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failedQueuedPurchaseDeletions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqrirsFailedQueuedPurchaseDeletions :: Lens.Lens' DeleteQueuedReservedInstancesResponse (Lude.Maybe [FailedQueuedPurchaseDeletion])
+dqrirsFailedQueuedPurchaseDeletions = Lens.lens (failedQueuedPurchaseDeletions :: DeleteQueuedReservedInstancesResponse -> Lude.Maybe [FailedQueuedPurchaseDeletion]) (\s a -> s {failedQueuedPurchaseDeletions = a} :: DeleteQueuedReservedInstancesResponse)
+{-# DEPRECATED dqrirsFailedQueuedPurchaseDeletions "Use generic-lens or generic-optics with 'failedQueuedPurchaseDeletions' instead." #-}
 
 -- | Information about the queued purchases that were successfully deleted.
-dqrirsSuccessfulQueuedPurchaseDeletions :: Lens' DeleteQueuedReservedInstancesResponse [SuccessfulQueuedPurchaseDeletion]
-dqrirsSuccessfulQueuedPurchaseDeletions = lens _dqrirsSuccessfulQueuedPurchaseDeletions (\s a -> s {_dqrirsSuccessfulQueuedPurchaseDeletions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'successfulQueuedPurchaseDeletions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqrirsSuccessfulQueuedPurchaseDeletions :: Lens.Lens' DeleteQueuedReservedInstancesResponse (Lude.Maybe [SuccessfulQueuedPurchaseDeletion])
+dqrirsSuccessfulQueuedPurchaseDeletions = Lens.lens (successfulQueuedPurchaseDeletions :: DeleteQueuedReservedInstancesResponse -> Lude.Maybe [SuccessfulQueuedPurchaseDeletion]) (\s a -> s {successfulQueuedPurchaseDeletions = a} :: DeleteQueuedReservedInstancesResponse)
+{-# DEPRECATED dqrirsSuccessfulQueuedPurchaseDeletions "Use generic-lens or generic-optics with 'successfulQueuedPurchaseDeletions' instead." #-}
 
--- | -- | The response status code.
-dqrirsResponseStatus :: Lens' DeleteQueuedReservedInstancesResponse Int
-dqrirsResponseStatus = lens _dqrirsResponseStatus (\s a -> s {_dqrirsResponseStatus = a})
-
-instance NFData DeleteQueuedReservedInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqrirsResponseStatus :: Lens.Lens' DeleteQueuedReservedInstancesResponse Lude.Int
+dqrirsResponseStatus = Lens.lens (responseStatus :: DeleteQueuedReservedInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteQueuedReservedInstancesResponse)
+{-# DEPRECATED dqrirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

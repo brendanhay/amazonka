@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,150 @@
 --
 -- Updates the properties of an AppImageConfig.
 module Network.AWS.SageMaker.UpdateAppImageConfig
-  ( -- * Creating a Request
-    updateAppImageConfig,
-    UpdateAppImageConfig,
+  ( -- * Creating a request
+    UpdateAppImageConfig (..),
+    mkUpdateAppImageConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uaicKernelGatewayImageConfig,
     uaicAppImageConfigName,
 
-    -- * Destructuring the Response
-    updateAppImageConfigResponse,
-    UpdateAppImageConfigResponse,
+    -- * Destructuring the response
+    UpdateAppImageConfigResponse (..),
+    mkUpdateAppImageConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uaicrsAppImageConfigARN,
     uaicrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'updateAppImageConfig' smart constructor.
+-- | /See:/ 'mkUpdateAppImageConfig' smart constructor.
 data UpdateAppImageConfig = UpdateAppImageConfig'
-  { _uaicKernelGatewayImageConfig ::
-      !(Maybe KernelGatewayImageConfig),
-    _uaicAppImageConfigName :: !Text
+  { kernelGatewayImageConfig ::
+      Lude.Maybe KernelGatewayImageConfig,
+    appImageConfigName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAppImageConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaicKernelGatewayImageConfig' - The new KernelGateway app to run on the image.
---
--- * 'uaicAppImageConfigName' - The name of the AppImageConfig to update.
-updateAppImageConfig ::
-  -- | 'uaicAppImageConfigName'
-  Text ->
+-- * 'appImageConfigName' - The name of the AppImageConfig to update.
+-- * 'kernelGatewayImageConfig' - The new KernelGateway app to run on the image.
+mkUpdateAppImageConfig ::
+  -- | 'appImageConfigName'
+  Lude.Text ->
   UpdateAppImageConfig
-updateAppImageConfig pAppImageConfigName_ =
+mkUpdateAppImageConfig pAppImageConfigName_ =
   UpdateAppImageConfig'
-    { _uaicKernelGatewayImageConfig = Nothing,
-      _uaicAppImageConfigName = pAppImageConfigName_
+    { kernelGatewayImageConfig = Lude.Nothing,
+      appImageConfigName = pAppImageConfigName_
     }
 
 -- | The new KernelGateway app to run on the image.
-uaicKernelGatewayImageConfig :: Lens' UpdateAppImageConfig (Maybe KernelGatewayImageConfig)
-uaicKernelGatewayImageConfig = lens _uaicKernelGatewayImageConfig (\s a -> s {_uaicKernelGatewayImageConfig = a})
+--
+-- /Note:/ Consider using 'kernelGatewayImageConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaicKernelGatewayImageConfig :: Lens.Lens' UpdateAppImageConfig (Lude.Maybe KernelGatewayImageConfig)
+uaicKernelGatewayImageConfig = Lens.lens (kernelGatewayImageConfig :: UpdateAppImageConfig -> Lude.Maybe KernelGatewayImageConfig) (\s a -> s {kernelGatewayImageConfig = a} :: UpdateAppImageConfig)
+{-# DEPRECATED uaicKernelGatewayImageConfig "Use generic-lens or generic-optics with 'kernelGatewayImageConfig' instead." #-}
 
 -- | The name of the AppImageConfig to update.
-uaicAppImageConfigName :: Lens' UpdateAppImageConfig Text
-uaicAppImageConfigName = lens _uaicAppImageConfigName (\s a -> s {_uaicAppImageConfigName = a})
+--
+-- /Note:/ Consider using 'appImageConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaicAppImageConfigName :: Lens.Lens' UpdateAppImageConfig Lude.Text
+uaicAppImageConfigName = Lens.lens (appImageConfigName :: UpdateAppImageConfig -> Lude.Text) (\s a -> s {appImageConfigName = a} :: UpdateAppImageConfig)
+{-# DEPRECATED uaicAppImageConfigName "Use generic-lens or generic-optics with 'appImageConfigName' instead." #-}
 
-instance AWSRequest UpdateAppImageConfig where
+instance Lude.AWSRequest UpdateAppImageConfig where
   type Rs UpdateAppImageConfig = UpdateAppImageConfigResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateAppImageConfigResponse'
-            <$> (x .?> "AppImageConfigArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AppImageConfigArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateAppImageConfig
-
-instance NFData UpdateAppImageConfig
-
-instance ToHeaders UpdateAppImageConfig where
+instance Lude.ToHeaders UpdateAppImageConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.UpdateAppImageConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.UpdateAppImageConfig" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateAppImageConfig where
+instance Lude.ToJSON UpdateAppImageConfig where
   toJSON UpdateAppImageConfig' {..} =
-    object
-      ( catMaybes
-          [ ("KernelGatewayImageConfig" .=) <$> _uaicKernelGatewayImageConfig,
-            Just ("AppImageConfigName" .= _uaicAppImageConfigName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KernelGatewayImageConfig" Lude..=)
+              Lude.<$> kernelGatewayImageConfig,
+            Lude.Just ("AppImageConfigName" Lude..= appImageConfigName)
           ]
       )
 
-instance ToPath UpdateAppImageConfig where
-  toPath = const "/"
+instance Lude.ToPath UpdateAppImageConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateAppImageConfig where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAppImageConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAppImageConfigResponse' smart constructor.
+-- | /See:/ 'mkUpdateAppImageConfigResponse' smart constructor.
 data UpdateAppImageConfigResponse = UpdateAppImageConfigResponse'
-  { _uaicrsAppImageConfigARN ::
-      !(Maybe Text),
-    _uaicrsResponseStatus :: !Int
+  { appImageConfigARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAppImageConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uaicrsAppImageConfigARN' - The Amazon Resource Name (ARN) for the AppImageConfig.
---
--- * 'uaicrsResponseStatus' - -- | The response status code.
-updateAppImageConfigResponse ::
-  -- | 'uaicrsResponseStatus'
-  Int ->
+-- * 'appImageConfigARN' - The Amazon Resource Name (ARN) for the AppImageConfig.
+-- * 'responseStatus' - The response status code.
+mkUpdateAppImageConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateAppImageConfigResponse
-updateAppImageConfigResponse pResponseStatus_ =
+mkUpdateAppImageConfigResponse pResponseStatus_ =
   UpdateAppImageConfigResponse'
-    { _uaicrsAppImageConfigARN = Nothing,
-      _uaicrsResponseStatus = pResponseStatus_
+    { appImageConfigARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) for the AppImageConfig.
-uaicrsAppImageConfigARN :: Lens' UpdateAppImageConfigResponse (Maybe Text)
-uaicrsAppImageConfigARN = lens _uaicrsAppImageConfigARN (\s a -> s {_uaicrsAppImageConfigARN = a})
+--
+-- /Note:/ Consider using 'appImageConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaicrsAppImageConfigARN :: Lens.Lens' UpdateAppImageConfigResponse (Lude.Maybe Lude.Text)
+uaicrsAppImageConfigARN = Lens.lens (appImageConfigARN :: UpdateAppImageConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {appImageConfigARN = a} :: UpdateAppImageConfigResponse)
+{-# DEPRECATED uaicrsAppImageConfigARN "Use generic-lens or generic-optics with 'appImageConfigARN' instead." #-}
 
--- | -- | The response status code.
-uaicrsResponseStatus :: Lens' UpdateAppImageConfigResponse Int
-uaicrsResponseStatus = lens _uaicrsResponseStatus (\s a -> s {_uaicrsResponseStatus = a})
-
-instance NFData UpdateAppImageConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaicrsResponseStatus :: Lens.Lens' UpdateAppImageConfigResponse Lude.Int
+uaicrsResponseStatus = Lens.lens (responseStatus :: UpdateAppImageConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAppImageConfigResponse)
+{-# DEPRECATED uaicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

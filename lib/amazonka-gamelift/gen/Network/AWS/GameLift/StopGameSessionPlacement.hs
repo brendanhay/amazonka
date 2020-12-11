@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,147 +17,165 @@
 --
 --     * 'CreateGameSession'
 --
+--
 --     * 'DescribeGameSessions'
+--
 --
 --     * 'DescribeGameSessionDetails'
 --
+--
 --     * 'SearchGameSessions'
+--
 --
 --     * 'UpdateGameSession'
 --
+--
 --     * 'GetGameSessionLogUrl'
+--
 --
 --     * Game session placements
 --
 --     * 'StartGameSessionPlacement'
 --
+--
 --     * 'DescribeGameSessionPlacement'
+--
 --
 --     * 'StopGameSessionPlacement'
 module Network.AWS.GameLift.StopGameSessionPlacement
-  ( -- * Creating a Request
-    stopGameSessionPlacement,
-    StopGameSessionPlacement,
+  ( -- * Creating a request
+    StopGameSessionPlacement (..),
+    mkStopGameSessionPlacement,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sPlacementId,
 
-    -- * Destructuring the Response
-    stopGameSessionPlacementResponse,
-    StopGameSessionPlacementResponse,
+    -- * Destructuring the response
+    StopGameSessionPlacementResponse (..),
+    mkStopGameSessionPlacementResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     storsGameSessionPlacement,
     storsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'stopGameSessionPlacement' smart constructor.
+-- /See:/ 'mkStopGameSessionPlacement' smart constructor.
 newtype StopGameSessionPlacement = StopGameSessionPlacement'
-  { _sPlacementId ::
-      Text
+  { placementId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopGameSessionPlacement' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sPlacementId' - A unique identifier for a game session placement to cancel.
-stopGameSessionPlacement ::
-  -- | 'sPlacementId'
-  Text ->
+-- * 'placementId' - A unique identifier for a game session placement to cancel.
+mkStopGameSessionPlacement ::
+  -- | 'placementId'
+  Lude.Text ->
   StopGameSessionPlacement
-stopGameSessionPlacement pPlacementId_ =
-  StopGameSessionPlacement' {_sPlacementId = pPlacementId_}
+mkStopGameSessionPlacement pPlacementId_ =
+  StopGameSessionPlacement' {placementId = pPlacementId_}
 
 -- | A unique identifier for a game session placement to cancel.
-sPlacementId :: Lens' StopGameSessionPlacement Text
-sPlacementId = lens _sPlacementId (\s a -> s {_sPlacementId = a})
+--
+-- /Note:/ Consider using 'placementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sPlacementId :: Lens.Lens' StopGameSessionPlacement Lude.Text
+sPlacementId = Lens.lens (placementId :: StopGameSessionPlacement -> Lude.Text) (\s a -> s {placementId = a} :: StopGameSessionPlacement)
+{-# DEPRECATED sPlacementId "Use generic-lens or generic-optics with 'placementId' instead." #-}
 
-instance AWSRequest StopGameSessionPlacement where
+instance Lude.AWSRequest StopGameSessionPlacement where
   type Rs StopGameSessionPlacement = StopGameSessionPlacementResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StopGameSessionPlacementResponse'
-            <$> (x .?> "GameSessionPlacement") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GameSessionPlacement")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopGameSessionPlacement
-
-instance NFData StopGameSessionPlacement
-
-instance ToHeaders StopGameSessionPlacement where
+instance Lude.ToHeaders StopGameSessionPlacement where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("GameLift.StopGameSessionPlacement" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("GameLift.StopGameSessionPlacement" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopGameSessionPlacement where
+instance Lude.ToJSON StopGameSessionPlacement where
   toJSON StopGameSessionPlacement' {..} =
-    object (catMaybes [Just ("PlacementId" .= _sPlacementId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("PlacementId" Lude..= placementId)])
 
-instance ToPath StopGameSessionPlacement where
-  toPath = const "/"
+instance Lude.ToPath StopGameSessionPlacement where
+  toPath = Lude.const "/"
 
-instance ToQuery StopGameSessionPlacement where
-  toQuery = const mempty
+instance Lude.ToQuery StopGameSessionPlacement where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'stopGameSessionPlacementResponse' smart constructor.
+-- /See:/ 'mkStopGameSessionPlacementResponse' smart constructor.
 data StopGameSessionPlacementResponse = StopGameSessionPlacementResponse'
-  { _storsGameSessionPlacement ::
-      !( Maybe
-           GameSessionPlacement
-       ),
-    _storsResponseStatus ::
-      !Int
+  { gameSessionPlacement ::
+      Lude.Maybe
+        GameSessionPlacement,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopGameSessionPlacementResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'storsGameSessionPlacement' - Object that describes the canceled game session placement, with @CANCELLED@ status and an end time stamp.
---
--- * 'storsResponseStatus' - -- | The response status code.
-stopGameSessionPlacementResponse ::
-  -- | 'storsResponseStatus'
-  Int ->
+-- * 'gameSessionPlacement' - Object that describes the canceled game session placement, with @CANCELLED@ status and an end time stamp.
+-- * 'responseStatus' - The response status code.
+mkStopGameSessionPlacementResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopGameSessionPlacementResponse
-stopGameSessionPlacementResponse pResponseStatus_ =
+mkStopGameSessionPlacementResponse pResponseStatus_ =
   StopGameSessionPlacementResponse'
-    { _storsGameSessionPlacement =
-        Nothing,
-      _storsResponseStatus = pResponseStatus_
+    { gameSessionPlacement =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Object that describes the canceled game session placement, with @CANCELLED@ status and an end time stamp.
-storsGameSessionPlacement :: Lens' StopGameSessionPlacementResponse (Maybe GameSessionPlacement)
-storsGameSessionPlacement = lens _storsGameSessionPlacement (\s a -> s {_storsGameSessionPlacement = a})
+--
+-- /Note:/ Consider using 'gameSessionPlacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+storsGameSessionPlacement :: Lens.Lens' StopGameSessionPlacementResponse (Lude.Maybe GameSessionPlacement)
+storsGameSessionPlacement = Lens.lens (gameSessionPlacement :: StopGameSessionPlacementResponse -> Lude.Maybe GameSessionPlacement) (\s a -> s {gameSessionPlacement = a} :: StopGameSessionPlacementResponse)
+{-# DEPRECATED storsGameSessionPlacement "Use generic-lens or generic-optics with 'gameSessionPlacement' instead." #-}
 
--- | -- | The response status code.
-storsResponseStatus :: Lens' StopGameSessionPlacementResponse Int
-storsResponseStatus = lens _storsResponseStatus (\s a -> s {_storsResponseStatus = a})
-
-instance NFData StopGameSessionPlacementResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+storsResponseStatus :: Lens.Lens' StopGameSessionPlacementResponse Lude.Int
+storsResponseStatus = Lens.lens (responseStatus :: StopGameSessionPlacementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopGameSessionPlacementResponse)
+{-# DEPRECATED storsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

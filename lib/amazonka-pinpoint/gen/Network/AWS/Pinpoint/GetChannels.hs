@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,124 @@
 --
 -- Retrieves information about the history and status of each channel for an application.
 module Network.AWS.Pinpoint.GetChannels
-  ( -- * Creating a Request
-    getChannels,
-    GetChannels,
+  ( -- * Creating a request
+    GetChannels (..),
+    mkGetChannels,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcsApplicationId,
 
-    -- * Destructuring the Response
-    getChannelsResponse,
-    GetChannelsResponse,
+    -- * Destructuring the response
+    GetChannelsResponse (..),
+    mkGetChannelsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcsrsResponseStatus,
     gcsrsChannelsResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getChannels' smart constructor.
-newtype GetChannels = GetChannels' {_gcsApplicationId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetChannels' smart constructor.
+newtype GetChannels = GetChannels' {applicationId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChannels' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcsApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-getChannels ::
-  -- | 'gcsApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkGetChannels ::
+  -- | 'applicationId'
+  Lude.Text ->
   GetChannels
-getChannels pApplicationId_ =
-  GetChannels' {_gcsApplicationId = pApplicationId_}
+mkGetChannels pApplicationId_ =
+  GetChannels' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gcsApplicationId :: Lens' GetChannels Text
-gcsApplicationId = lens _gcsApplicationId (\s a -> s {_gcsApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsApplicationId :: Lens.Lens' GetChannels Lude.Text
+gcsApplicationId = Lens.lens (applicationId :: GetChannels -> Lude.Text) (\s a -> s {applicationId = a} :: GetChannels)
+{-# DEPRECATED gcsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest GetChannels where
+instance Lude.AWSRequest GetChannels where
   type Rs GetChannels = GetChannelsResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetChannelsResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetChannels
-
-instance NFData GetChannels
-
-instance ToHeaders GetChannels where
+instance Lude.ToHeaders GetChannels where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetChannels where
+instance Lude.ToPath GetChannels where
   toPath GetChannels' {..} =
-    mconcat ["/v1/apps/", toBS _gcsApplicationId, "/channels"]
+    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId, "/channels"]
 
-instance ToQuery GetChannels where
-  toQuery = const mempty
+instance Lude.ToQuery GetChannels where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getChannelsResponse' smart constructor.
+-- | /See:/ 'mkGetChannelsResponse' smart constructor.
 data GetChannelsResponse = GetChannelsResponse'
-  { _gcsrsResponseStatus ::
-      !Int,
-    _gcsrsChannelsResponse :: !ChannelsResponse
+  { responseStatus ::
+      Lude.Int,
+    channelsResponse :: ChannelsResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetChannelsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcsrsResponseStatus' - -- | The response status code.
---
--- * 'gcsrsChannelsResponse' - Undocumented member.
-getChannelsResponse ::
-  -- | 'gcsrsResponseStatus'
-  Int ->
-  -- | 'gcsrsChannelsResponse'
+-- * 'channelsResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetChannelsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'channelsResponse'
   ChannelsResponse ->
   GetChannelsResponse
-getChannelsResponse pResponseStatus_ pChannelsResponse_ =
+mkGetChannelsResponse pResponseStatus_ pChannelsResponse_ =
   GetChannelsResponse'
-    { _gcsrsResponseStatus = pResponseStatus_,
-      _gcsrsChannelsResponse = pChannelsResponse_
+    { responseStatus = pResponseStatus_,
+      channelsResponse = pChannelsResponse_
     }
 
--- | -- | The response status code.
-gcsrsResponseStatus :: Lens' GetChannelsResponse Int
-gcsrsResponseStatus = lens _gcsrsResponseStatus (\s a -> s {_gcsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsResponseStatus :: Lens.Lens' GetChannelsResponse Lude.Int
+gcsrsResponseStatus = Lens.lens (responseStatus :: GetChannelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetChannelsResponse)
+{-# DEPRECATED gcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gcsrsChannelsResponse :: Lens' GetChannelsResponse ChannelsResponse
-gcsrsChannelsResponse = lens _gcsrsChannelsResponse (\s a -> s {_gcsrsChannelsResponse = a})
-
-instance NFData GetChannelsResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'channelsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrsChannelsResponse :: Lens.Lens' GetChannelsResponse ChannelsResponse
+gcsrsChannelsResponse = Lens.lens (channelsResponse :: GetChannelsResponse -> ChannelsResponse) (\s a -> s {channelsResponse = a} :: GetChannelsResponse)
+{-# DEPRECATED gcsrsChannelsResponse "Use generic-lens or generic-optics with 'channelsResponse' instead." #-}

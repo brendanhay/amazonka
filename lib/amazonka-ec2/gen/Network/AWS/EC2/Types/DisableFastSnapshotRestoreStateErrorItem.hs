@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateErrorItem where
+module Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateErrorItem
+  ( DisableFastSnapshotRestoreStateErrorItem (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkDisableFastSnapshotRestoreStateErrorItem,
+
+    -- * Lenses
+    dfsrseiError,
+    dfsrseiAvailabilityZone,
+  )
+where
+
 import Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateError
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about an error that occurred when disabling fast snapshot restores.
 --
---
---
--- /See:/ 'disableFastSnapshotRestoreStateErrorItem' smart constructor.
+-- /See:/ 'mkDisableFastSnapshotRestoreStateErrorItem' smart constructor.
 data DisableFastSnapshotRestoreStateErrorItem = DisableFastSnapshotRestoreStateErrorItem'
-  { _dfsrseiError ::
-      !( Maybe
-           DisableFastSnapshotRestoreStateError
-       ),
-    _dfsrseiAvailabilityZone ::
-      !( Maybe
-           Text
-       )
+  { error ::
+      Lude.Maybe
+        DisableFastSnapshotRestoreStateError,
+    availabilityZone ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableFastSnapshotRestoreStateErrorItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfsrseiError' - The error.
---
--- * 'dfsrseiAvailabilityZone' - The Availability Zone.
-disableFastSnapshotRestoreStateErrorItem ::
+-- * 'availabilityZone' - The Availability Zone.
+-- * 'error' - The error.
+mkDisableFastSnapshotRestoreStateErrorItem ::
   DisableFastSnapshotRestoreStateErrorItem
-disableFastSnapshotRestoreStateErrorItem =
+mkDisableFastSnapshotRestoreStateErrorItem =
   DisableFastSnapshotRestoreStateErrorItem'
-    { _dfsrseiError =
-        Nothing,
-      _dfsrseiAvailabilityZone = Nothing
+    { error = Lude.Nothing,
+      availabilityZone = Lude.Nothing
     }
 
 -- | The error.
-dfsrseiError :: Lens' DisableFastSnapshotRestoreStateErrorItem (Maybe DisableFastSnapshotRestoreStateError)
-dfsrseiError = lens _dfsrseiError (\s a -> s {_dfsrseiError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrseiError :: Lens.Lens' DisableFastSnapshotRestoreStateErrorItem (Lude.Maybe DisableFastSnapshotRestoreStateError)
+dfsrseiError = Lens.lens (error :: DisableFastSnapshotRestoreStateErrorItem -> Lude.Maybe DisableFastSnapshotRestoreStateError) (\s a -> s {error = a} :: DisableFastSnapshotRestoreStateErrorItem)
+{-# DEPRECATED dfsrseiError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The Availability Zone.
-dfsrseiAvailabilityZone :: Lens' DisableFastSnapshotRestoreStateErrorItem (Maybe Text)
-dfsrseiAvailabilityZone = lens _dfsrseiAvailabilityZone (\s a -> s {_dfsrseiAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsrseiAvailabilityZone :: Lens.Lens' DisableFastSnapshotRestoreStateErrorItem (Lude.Maybe Lude.Text)
+dfsrseiAvailabilityZone = Lens.lens (availabilityZone :: DisableFastSnapshotRestoreStateErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: DisableFastSnapshotRestoreStateErrorItem)
+{-# DEPRECATED dfsrseiAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
-instance FromXML DisableFastSnapshotRestoreStateErrorItem where
+instance Lude.FromXML DisableFastSnapshotRestoreStateErrorItem where
   parseXML x =
     DisableFastSnapshotRestoreStateErrorItem'
-      <$> (x .@? "error") <*> (x .@? "availabilityZone")
-
-instance Hashable DisableFastSnapshotRestoreStateErrorItem
-
-instance NFData DisableFastSnapshotRestoreStateErrorItem
+      Lude.<$> (x Lude..@? "error") Lude.<*> (x Lude..@? "availabilityZone")

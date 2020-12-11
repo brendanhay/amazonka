@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- List the resolvers that are associated with a specific function.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AppSync.ListResolversByFunction
-  ( -- * Creating a Request
-    listResolversByFunction,
-    ListResolversByFunction,
+  ( -- * Creating a request
+    ListResolversByFunction (..),
+    mkListResolversByFunction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrbfNextToken,
     lrbfMaxResults,
     lrbfApiId,
     lrbfFunctionId,
 
-    -- * Destructuring the Response
-    listResolversByFunctionResponse,
-    ListResolversByFunctionResponse,
+    -- * Destructuring the response
+    ListResolversByFunctionResponse (..),
+    mkListResolversByFunctionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrbfrsNextToken,
     lrbfrsResolvers,
     lrbfrsResponseStatus,
@@ -45,148 +38,172 @@ module Network.AWS.AppSync.ListResolversByFunction
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listResolversByFunction' smart constructor.
+-- | /See:/ 'mkListResolversByFunction' smart constructor.
 data ListResolversByFunction = ListResolversByFunction'
-  { _lrbfNextToken ::
-      !(Maybe Text),
-    _lrbfMaxResults :: !(Maybe Nat),
-    _lrbfApiId :: !Text,
-    _lrbfFunctionId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    apiId :: Lude.Text,
+    functionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResolversByFunction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrbfNextToken' - An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
---
--- * 'lrbfMaxResults' - The maximum number of results you want the request to return.
---
--- * 'lrbfApiId' - The API ID.
---
--- * 'lrbfFunctionId' - The Function ID.
-listResolversByFunction ::
-  -- | 'lrbfApiId'
-  Text ->
-  -- | 'lrbfFunctionId'
-  Text ->
+-- * 'apiId' - The API ID.
+-- * 'functionId' - The Function ID.
+-- * 'maxResults' - The maximum number of results you want the request to return.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
+mkListResolversByFunction ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'functionId'
+  Lude.Text ->
   ListResolversByFunction
-listResolversByFunction pApiId_ pFunctionId_ =
+mkListResolversByFunction pApiId_ pFunctionId_ =
   ListResolversByFunction'
-    { _lrbfNextToken = Nothing,
-      _lrbfMaxResults = Nothing,
-      _lrbfApiId = pApiId_,
-      _lrbfFunctionId = pFunctionId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      apiId = pApiId_,
+      functionId = pFunctionId_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.
-lrbfNextToken :: Lens' ListResolversByFunction (Maybe Text)
-lrbfNextToken = lens _lrbfNextToken (\s a -> s {_lrbfNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbfNextToken :: Lens.Lens' ListResolversByFunction (Lude.Maybe Lude.Text)
+lrbfNextToken = Lens.lens (nextToken :: ListResolversByFunction -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResolversByFunction)
+{-# DEPRECATED lrbfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results you want the request to return.
-lrbfMaxResults :: Lens' ListResolversByFunction (Maybe Natural)
-lrbfMaxResults = lens _lrbfMaxResults (\s a -> s {_lrbfMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbfMaxResults :: Lens.Lens' ListResolversByFunction (Lude.Maybe Lude.Natural)
+lrbfMaxResults = Lens.lens (maxResults :: ListResolversByFunction -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListResolversByFunction)
+{-# DEPRECATED lrbfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The API ID.
-lrbfApiId :: Lens' ListResolversByFunction Text
-lrbfApiId = lens _lrbfApiId (\s a -> s {_lrbfApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbfApiId :: Lens.Lens' ListResolversByFunction Lude.Text
+lrbfApiId = Lens.lens (apiId :: ListResolversByFunction -> Lude.Text) (\s a -> s {apiId = a} :: ListResolversByFunction)
+{-# DEPRECATED lrbfApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The Function ID.
-lrbfFunctionId :: Lens' ListResolversByFunction Text
-lrbfFunctionId = lens _lrbfFunctionId (\s a -> s {_lrbfFunctionId = a})
+--
+-- /Note:/ Consider using 'functionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbfFunctionId :: Lens.Lens' ListResolversByFunction Lude.Text
+lrbfFunctionId = Lens.lens (functionId :: ListResolversByFunction -> Lude.Text) (\s a -> s {functionId = a} :: ListResolversByFunction)
+{-# DEPRECATED lrbfFunctionId "Use generic-lens or generic-optics with 'functionId' instead." #-}
 
-instance AWSPager ListResolversByFunction where
+instance Page.AWSPager ListResolversByFunction where
   page rq rs
-    | stop (rs ^. lrbfrsNextToken) = Nothing
-    | stop (rs ^. lrbfrsResolvers) = Nothing
-    | otherwise = Just $ rq & lrbfNextToken .~ rs ^. lrbfrsNextToken
+    | Page.stop (rs Lens.^. lrbfrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrbfrsResolvers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrbfNextToken Lens..~ rs Lens.^. lrbfrsNextToken
 
-instance AWSRequest ListResolversByFunction where
+instance Lude.AWSRequest ListResolversByFunction where
   type Rs ListResolversByFunction = ListResolversByFunctionResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListResolversByFunctionResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "resolvers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "resolvers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListResolversByFunction
-
-instance NFData ListResolversByFunction
-
-instance ToHeaders ListResolversByFunction where
+instance Lude.ToHeaders ListResolversByFunction where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListResolversByFunction where
+instance Lude.ToPath ListResolversByFunction where
   toPath ListResolversByFunction' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apis/",
-        toBS _lrbfApiId,
+        Lude.toBS apiId,
         "/functions/",
-        toBS _lrbfFunctionId,
+        Lude.toBS functionId,
         "/resolvers"
       ]
 
-instance ToQuery ListResolversByFunction where
+instance Lude.ToQuery ListResolversByFunction where
   toQuery ListResolversByFunction' {..} =
-    mconcat
-      ["nextToken" =: _lrbfNextToken, "maxResults" =: _lrbfMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listResolversByFunctionResponse' smart constructor.
+-- | /See:/ 'mkListResolversByFunctionResponse' smart constructor.
 data ListResolversByFunctionResponse = ListResolversByFunctionResponse'
-  { _lrbfrsNextToken ::
-      !(Maybe Text),
-    _lrbfrsResolvers ::
-      !(Maybe [Resolver]),
-    _lrbfrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    resolvers ::
+      Lude.Maybe [Resolver],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResolversByFunctionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrbfrsNextToken' - An identifier that can be used to return the next set of items in the list.
---
--- * 'lrbfrsResolvers' - The list of resolvers.
---
--- * 'lrbfrsResponseStatus' - -- | The response status code.
-listResolversByFunctionResponse ::
-  -- | 'lrbfrsResponseStatus'
-  Int ->
+-- * 'nextToken' - An identifier that can be used to return the next set of items in the list.
+-- * 'resolvers' - The list of resolvers.
+-- * 'responseStatus' - The response status code.
+mkListResolversByFunctionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListResolversByFunctionResponse
-listResolversByFunctionResponse pResponseStatus_ =
+mkListResolversByFunctionResponse pResponseStatus_ =
   ListResolversByFunctionResponse'
-    { _lrbfrsNextToken = Nothing,
-      _lrbfrsResolvers = Nothing,
-      _lrbfrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      resolvers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An identifier that can be used to return the next set of items in the list.
-lrbfrsNextToken :: Lens' ListResolversByFunctionResponse (Maybe Text)
-lrbfrsNextToken = lens _lrbfrsNextToken (\s a -> s {_lrbfrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbfrsNextToken :: Lens.Lens' ListResolversByFunctionResponse (Lude.Maybe Lude.Text)
+lrbfrsNextToken = Lens.lens (nextToken :: ListResolversByFunctionResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListResolversByFunctionResponse)
+{-# DEPRECATED lrbfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of resolvers.
-lrbfrsResolvers :: Lens' ListResolversByFunctionResponse [Resolver]
-lrbfrsResolvers = lens _lrbfrsResolvers (\s a -> s {_lrbfrsResolvers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resolvers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbfrsResolvers :: Lens.Lens' ListResolversByFunctionResponse (Lude.Maybe [Resolver])
+lrbfrsResolvers = Lens.lens (resolvers :: ListResolversByFunctionResponse -> Lude.Maybe [Resolver]) (\s a -> s {resolvers = a} :: ListResolversByFunctionResponse)
+{-# DEPRECATED lrbfrsResolvers "Use generic-lens or generic-optics with 'resolvers' instead." #-}
 
--- | -- | The response status code.
-lrbfrsResponseStatus :: Lens' ListResolversByFunctionResponse Int
-lrbfrsResponseStatus = lens _lrbfrsResponseStatus (\s a -> s {_lrbfrsResponseStatus = a})
-
-instance NFData ListResolversByFunctionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrbfrsResponseStatus :: Lens.Lens' ListResolversByFunctionResponse Lude.Int
+lrbfrsResponseStatus = Lens.lens (responseStatus :: ListResolversByFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResolversByFunctionResponse)
+{-# DEPRECATED lrbfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

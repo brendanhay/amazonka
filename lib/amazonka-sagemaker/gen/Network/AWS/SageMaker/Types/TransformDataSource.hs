@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TransformDataSource where
+module Network.AWS.SageMaker.Types.TransformDataSource
+  ( TransformDataSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTransformDataSource,
+
+    -- * Lenses
+    tdsS3DataSource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.TransformS3DataSource
 
 -- | Describes the location of the channel data.
 --
---
---
--- /See:/ 'transformDataSource' smart constructor.
+-- /See:/ 'mkTransformDataSource' smart constructor.
 newtype TransformDataSource = TransformDataSource'
-  { _tdsS3DataSource ::
+  { s3DataSource ::
       TransformS3DataSource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformDataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tdsS3DataSource' - The S3 location of the data source that is associated with a channel.
-transformDataSource ::
-  -- | 'tdsS3DataSource'
+-- * 's3DataSource' - The S3 location of the data source that is associated with a channel.
+mkTransformDataSource ::
+  -- | 's3DataSource'
   TransformS3DataSource ->
   TransformDataSource
-transformDataSource pS3DataSource_ =
-  TransformDataSource' {_tdsS3DataSource = pS3DataSource_}
+mkTransformDataSource pS3DataSource_ =
+  TransformDataSource' {s3DataSource = pS3DataSource_}
 
 -- | The S3 location of the data source that is associated with a channel.
-tdsS3DataSource :: Lens' TransformDataSource TransformS3DataSource
-tdsS3DataSource = lens _tdsS3DataSource (\s a -> s {_tdsS3DataSource = a})
+--
+-- /Note:/ Consider using 's3DataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdsS3DataSource :: Lens.Lens' TransformDataSource TransformS3DataSource
+tdsS3DataSource = Lens.lens (s3DataSource :: TransformDataSource -> TransformS3DataSource) (\s a -> s {s3DataSource = a} :: TransformDataSource)
+{-# DEPRECATED tdsS3DataSource "Use generic-lens or generic-optics with 's3DataSource' instead." #-}
 
-instance FromJSON TransformDataSource where
+instance Lude.FromJSON TransformDataSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "TransformDataSource"
-      (\x -> TransformDataSource' <$> (x .: "S3DataSource"))
+      (\x -> TransformDataSource' Lude.<$> (x Lude..: "S3DataSource"))
 
-instance Hashable TransformDataSource
-
-instance NFData TransformDataSource
-
-instance ToJSON TransformDataSource where
+instance Lude.ToJSON TransformDataSource where
   toJSON TransformDataSource' {..} =
-    object (catMaybes [Just ("S3DataSource" .= _tdsS3DataSource)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("S3DataSource" Lude..= s3DataSource)])

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.EntityAggregate where
+module Network.AWS.AWSHealth.Types.EntityAggregate
+  ( EntityAggregate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEntityAggregate,
+
+    -- * Lenses
+    eCount,
+    eEventARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The number of entities that are affected by one or more events. Returned by the <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEntityAggregates.html DescribeEntityAggregates> operation.
 --
---
---
--- /See:/ 'entityAggregate' smart constructor.
+-- /See:/ 'mkEntityAggregate' smart constructor.
 data EntityAggregate = EntityAggregate'
-  { _eCount :: !(Maybe Int),
-    _eEventARN :: !(Maybe Text)
+  { count ::
+      Lude.Maybe Lude.Int,
+    eventARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityAggregate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eCount' - The number of entities that match the criteria for the specified events.
---
--- * 'eEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-entityAggregate ::
+-- * 'count' - The number of entities that match the criteria for the specified events.
+-- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+mkEntityAggregate ::
   EntityAggregate
-entityAggregate =
-  EntityAggregate' {_eCount = Nothing, _eEventARN = Nothing}
+mkEntityAggregate =
+  EntityAggregate' {count = Lude.Nothing, eventARN = Lude.Nothing}
 
 -- | The number of entities that match the criteria for the specified events.
-eCount :: Lens' EntityAggregate (Maybe Int)
-eCount = lens _eCount (\s a -> s {_eCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eCount :: Lens.Lens' EntityAggregate (Lude.Maybe Lude.Int)
+eCount = Lens.lens (count :: EntityAggregate -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: EntityAggregate)
+{-# DEPRECATED eCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-eEventARN :: Lens' EntityAggregate (Maybe Text)
-eEventARN = lens _eEventARN (\s a -> s {_eEventARN = a})
+--
+-- /Note:/ Consider using 'eventARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEventARN :: Lens.Lens' EntityAggregate (Lude.Maybe Lude.Text)
+eEventARN = Lens.lens (eventARN :: EntityAggregate -> Lude.Maybe Lude.Text) (\s a -> s {eventARN = a} :: EntityAggregate)
+{-# DEPRECATED eEventARN "Use generic-lens or generic-optics with 'eventARN' instead." #-}
 
-instance FromJSON EntityAggregate where
+instance Lude.FromJSON EntityAggregate where
   parseJSON =
-    withObject
+    Lude.withObject
       "EntityAggregate"
       ( \x ->
-          EntityAggregate' <$> (x .:? "count") <*> (x .:? "eventArn")
+          EntityAggregate'
+            Lude.<$> (x Lude..:? "count") Lude.<*> (x Lude..:? "eventArn")
       )
-
-instance Hashable EntityAggregate
-
-instance NFData EntityAggregate

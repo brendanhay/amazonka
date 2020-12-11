@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Gets the tags for a project.
 module Network.AWS.CodeStar.ListTagsForProject
-  ( -- * Creating a Request
-    listTagsForProject,
-    ListTagsForProject,
+  ( -- * Creating a request
+    ListTagsForProject (..),
+    mkListTagsForProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfpNextToken,
     ltfpMaxResults,
     ltfpId,
 
-    -- * Destructuring the Response
-    listTagsForProjectResponse,
-    ListTagsForProjectResponse,
+    -- * Destructuring the response
+    ListTagsForProjectResponse (..),
+    mkListTagsForProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltfprsNextToken,
     ltfprsTags,
     ltfprsResponseStatus,
@@ -40,134 +35,157 @@ module Network.AWS.CodeStar.ListTagsForProject
 where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTagsForProject' smart constructor.
+-- | /See:/ 'mkListTagsForProject' smart constructor.
 data ListTagsForProject = ListTagsForProject'
-  { _ltfpNextToken ::
-      !(Maybe Text),
-    _ltfpMaxResults :: !(Maybe Nat),
-    _ltfpId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfpNextToken' - Reserved for future use.
---
--- * 'ltfpMaxResults' - Reserved for future use.
---
--- * 'ltfpId' - The ID of the project to get tags for.
-listTagsForProject ::
-  -- | 'ltfpId'
-  Text ->
+-- * 'id' - The ID of the project to get tags for.
+-- * 'maxResults' - Reserved for future use.
+-- * 'nextToken' - Reserved for future use.
+mkListTagsForProject ::
+  -- | 'id'
+  Lude.Text ->
   ListTagsForProject
-listTagsForProject pId_ =
+mkListTagsForProject pId_ =
   ListTagsForProject'
-    { _ltfpNextToken = Nothing,
-      _ltfpMaxResults = Nothing,
-      _ltfpId = pId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      id = pId_
     }
 
 -- | Reserved for future use.
-ltfpNextToken :: Lens' ListTagsForProject (Maybe Text)
-ltfpNextToken = lens _ltfpNextToken (\s a -> s {_ltfpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfpNextToken :: Lens.Lens' ListTagsForProject (Lude.Maybe Lude.Text)
+ltfpNextToken = Lens.lens (nextToken :: ListTagsForProject -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForProject)
+{-# DEPRECATED ltfpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Reserved for future use.
-ltfpMaxResults :: Lens' ListTagsForProject (Maybe Natural)
-ltfpMaxResults = lens _ltfpMaxResults (\s a -> s {_ltfpMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfpMaxResults :: Lens.Lens' ListTagsForProject (Lude.Maybe Lude.Natural)
+ltfpMaxResults = Lens.lens (maxResults :: ListTagsForProject -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTagsForProject)
+{-# DEPRECATED ltfpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the project to get tags for.
-ltfpId :: Lens' ListTagsForProject Text
-ltfpId = lens _ltfpId (\s a -> s {_ltfpId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfpId :: Lens.Lens' ListTagsForProject Lude.Text
+ltfpId = Lens.lens (id :: ListTagsForProject -> Lude.Text) (\s a -> s {id = a} :: ListTagsForProject)
+{-# DEPRECATED ltfpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest ListTagsForProject where
+instance Lude.AWSRequest ListTagsForProject where
   type Rs ListTagsForProject = ListTagsForProjectResponse
-  request = postJSON codeStar
+  request = Req.postJSON codeStarService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTagsForProjectResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTagsForProject
-
-instance NFData ListTagsForProject
-
-instance ToHeaders ListTagsForProject where
+instance Lude.ToHeaders ListTagsForProject where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeStar_20170419.ListTagsForProject" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeStar_20170419.ListTagsForProject" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTagsForProject where
+instance Lude.ToJSON ListTagsForProject where
   toJSON ListTagsForProject' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _ltfpNextToken,
-            ("maxResults" .=) <$> _ltfpMaxResults,
-            Just ("id" .= _ltfpId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("id" Lude..= id)
           ]
       )
 
-instance ToPath ListTagsForProject where
-  toPath = const "/"
+instance Lude.ToPath ListTagsForProject where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTagsForProject where
-  toQuery = const mempty
+instance Lude.ToQuery ListTagsForProject where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTagsForProjectResponse' smart constructor.
+-- | /See:/ 'mkListTagsForProjectResponse' smart constructor.
 data ListTagsForProjectResponse = ListTagsForProjectResponse'
-  { _ltfprsNextToken ::
-      !(Maybe Text),
-    _ltfprsTags ::
-      !(Maybe (Map Text (Text))),
-    _ltfprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfprsNextToken' - Reserved for future use.
---
--- * 'ltfprsTags' - The tags for the project.
---
--- * 'ltfprsResponseStatus' - -- | The response status code.
-listTagsForProjectResponse ::
-  -- | 'ltfprsResponseStatus'
-  Int ->
+-- * 'nextToken' - Reserved for future use.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The tags for the project.
+mkListTagsForProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForProjectResponse
-listTagsForProjectResponse pResponseStatus_ =
+mkListTagsForProjectResponse pResponseStatus_ =
   ListTagsForProjectResponse'
-    { _ltfprsNextToken = Nothing,
-      _ltfprsTags = Nothing,
-      _ltfprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Reserved for future use.
-ltfprsNextToken :: Lens' ListTagsForProjectResponse (Maybe Text)
-ltfprsNextToken = lens _ltfprsNextToken (\s a -> s {_ltfprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfprsNextToken :: Lens.Lens' ListTagsForProjectResponse (Lude.Maybe Lude.Text)
+ltfprsNextToken = Lens.lens (nextToken :: ListTagsForProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForProjectResponse)
+{-# DEPRECATED ltfprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The tags for the project.
-ltfprsTags :: Lens' ListTagsForProjectResponse (HashMap Text (Text))
-ltfprsTags = lens _ltfprsTags (\s a -> s {_ltfprsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfprsTags :: Lens.Lens' ListTagsForProjectResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ltfprsTags = Lens.lens (tags :: ListTagsForProjectResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListTagsForProjectResponse)
+{-# DEPRECATED ltfprsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ltfprsResponseStatus :: Lens' ListTagsForProjectResponse Int
-ltfprsResponseStatus = lens _ltfprsResponseStatus (\s a -> s {_ltfprsResponseStatus = a})
-
-instance NFData ListTagsForProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfprsResponseStatus :: Lens.Lens' ListTagsForProjectResponse Lude.Int
+ltfprsResponseStatus = Lens.lens (responseStatus :: ListTagsForProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForProjectResponse)
+{-# DEPRECATED ltfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

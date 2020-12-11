@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -11,125 +10,171 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Waiters where
+module Network.AWS.Redshift.Waiters
+  ( -- * ClusterRestored
+    mkClusterRestored,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * ClusterDeleted
+    mkClusterDeleted,
+
+    -- * SnapshotAvailable
+    mkSnapshotAvailable,
+
+    -- * ClusterAvailable
+    mkClusterAvailable,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.DescribeClusterSnapshots
 import Network.AWS.Redshift.DescribeClusters
 import Network.AWS.Redshift.Types
-import Network.AWS.Waiter
+import qualified Network.AWS.Waiter as Wait
 
 -- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
-clusterRestored :: Wait DescribeClusters
-clusterRestored =
-  Wait
-    { _waitName = "ClusterRestored",
-      _waitAttempts = 30,
-      _waitDelay = 60,
-      _waitAcceptors =
-        [ matchAll
+mkClusterRestored :: Wait.Wait DescribeClusters
+mkClusterRestored =
+  Wait.Wait
+    { Wait._waitName = "ClusterRestored",
+      Wait._waitAttempts = 30,
+      Wait._waitDelay = 60,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "completed"
-            AcceptSuccess
-            ( folding (concatOf (dcrsClusters . to toList))
-                . cRestoreStatus
-                . _Just
-                . rsStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. cRestoreStatus
+                Lude.. Lens._Just
+                Lude.. rsStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "deleting"
-            AcceptFailure
-            ( folding (concatOf (dcrsClusters . to toList))
-                . cClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. cClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }
 
 -- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
-clusterDeleted :: Wait DescribeClusters
-clusterDeleted =
-  Wait
-    { _waitName = "ClusterDeleted",
-      _waitAttempts = 30,
-      _waitDelay = 60,
-      _waitAcceptors =
-        [ matchError "ClusterNotFound" AcceptSuccess,
-          matchAny
+mkClusterDeleted :: Wait.Wait DescribeClusters
+mkClusterDeleted =
+  Wait.Wait
+    { Wait._waitName = "ClusterDeleted",
+      Wait._waitAttempts = 30,
+      Wait._waitDelay = 60,
+      Wait._waitAcceptors =
+        [ Wait.matchError "ClusterNotFound" Wait.AcceptSuccess,
+          Wait.matchAny
             "creating"
-            AcceptFailure
-            ( folding (concatOf (dcrsClusters . to toList))
-                . cClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. cClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "modifying"
-            AcceptFailure
-            ( folding (concatOf (dcrsClusters . to toList))
-                . cClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. cClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }
 
 -- | Polls 'Network.AWS.Redshift.DescribeClusterSnapshots' every 15 seconds until a successful state is reached. An error is returned after 20 failed checks.
-snapshotAvailable :: Wait DescribeClusterSnapshots
-snapshotAvailable =
-  Wait
-    { _waitName = "SnapshotAvailable",
-      _waitAttempts = 20,
-      _waitDelay = 15,
-      _waitAcceptors =
-        [ matchAll
+mkSnapshotAvailable :: Wait.Wait DescribeClusterSnapshots
+mkSnapshotAvailable =
+  Wait.Wait
+    { Wait._waitName = "SnapshotAvailable",
+      Wait._waitAttempts = 20,
+      Wait._waitDelay = 15,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "available"
-            AcceptSuccess
-            ( folding (concatOf (dcssrsSnapshots . to toList)) . sStatus . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dcssrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. sStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "failed"
-            AcceptFailure
-            ( folding (concatOf (dcssrsSnapshots . to toList)) . sStatus . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dcssrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. sStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "deleted"
-            AcceptFailure
-            ( folding (concatOf (dcssrsSnapshots . to toList)) . sStatus . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dcssrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. sStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }
 
 -- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a successful state is reached. An error is returned after 30 failed checks.
-clusterAvailable :: Wait DescribeClusters
-clusterAvailable =
-  Wait
-    { _waitName = "ClusterAvailable",
-      _waitAttempts = 30,
-      _waitDelay = 60,
-      _waitAcceptors =
-        [ matchAll
+mkClusterAvailable :: Wait.Wait DescribeClusters
+mkClusterAvailable =
+  Wait.Wait
+    { Wait._waitName = "ClusterAvailable",
+      Wait._waitAttempts = 30,
+      Wait._waitDelay = 60,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "available"
-            AcceptSuccess
-            ( folding (concatOf (dcrsClusters . to toList))
-                . cClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. cClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "deleting"
-            AcceptFailure
-            ( folding (concatOf (dcrsClusters . to toList))
-                . cClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. cClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchError "ClusterNotFound" AcceptRetry
+          Wait.matchError "ClusterNotFound" Wait.AcceptRetry
         ]
     }

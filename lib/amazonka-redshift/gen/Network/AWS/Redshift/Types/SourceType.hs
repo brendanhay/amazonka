@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.SourceType where
+module Network.AWS.Redshift.Types.SourceType
+  ( SourceType
+      ( SourceType',
+        Cluster,
+        ClusterParameterGroup,
+        ClusterSecurityGroup,
+        ClusterSnapshot,
+        ScheduledAction
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data SourceType
-  = Cluster
-  | ClusterParameterGroup
-  | ClusterSecurityGroup
-  | ClusterSnapshot
-  | ScheduledAction
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SourceType = SourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SourceType where
-  parser =
-    takeLowerText >>= \case
-      "cluster" -> pure Cluster
-      "cluster-parameter-group" -> pure ClusterParameterGroup
-      "cluster-security-group" -> pure ClusterSecurityGroup
-      "cluster-snapshot" -> pure ClusterSnapshot
-      "scheduled-action" -> pure ScheduledAction
-      e ->
-        fromTextError $
-          "Failure parsing SourceType from value: '" <> e
-            <> "'. Accepted values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, scheduled-action"
+pattern Cluster :: SourceType
+pattern Cluster = SourceType' "cluster"
 
-instance ToText SourceType where
-  toText = \case
-    Cluster -> "cluster"
-    ClusterParameterGroup -> "cluster-parameter-group"
-    ClusterSecurityGroup -> "cluster-security-group"
-    ClusterSnapshot -> "cluster-snapshot"
-    ScheduledAction -> "scheduled-action"
+pattern ClusterParameterGroup :: SourceType
+pattern ClusterParameterGroup = SourceType' "cluster-parameter-group"
 
-instance Hashable SourceType
+pattern ClusterSecurityGroup :: SourceType
+pattern ClusterSecurityGroup = SourceType' "cluster-security-group"
 
-instance NFData SourceType
+pattern ClusterSnapshot :: SourceType
+pattern ClusterSnapshot = SourceType' "cluster-snapshot"
 
-instance ToByteString SourceType
+pattern ScheduledAction :: SourceType
+pattern ScheduledAction = SourceType' "scheduled-action"
 
-instance ToQuery SourceType
-
-instance ToHeader SourceType
-
-instance FromXML SourceType where
-  parseXML = parseXMLText "SourceType"
+{-# COMPLETE
+  Cluster,
+  ClusterParameterGroup,
+  ClusterSecurityGroup,
+  ClusterSnapshot,
+  ScheduledAction,
+  SourceType'
+  #-}

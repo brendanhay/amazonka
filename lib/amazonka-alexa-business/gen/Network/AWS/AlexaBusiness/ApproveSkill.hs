@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,113 @@
 --
 -- Associates a skill with the organization under the customer's AWS account. If a skill is private, the user implicitly accepts access to this skill during enablement.
 module Network.AWS.AlexaBusiness.ApproveSkill
-  ( -- * Creating a Request
-    approveSkill,
-    ApproveSkill,
+  ( -- * Creating a request
+    ApproveSkill (..),
+    mkApproveSkill,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asSkillId,
 
-    -- * Destructuring the Response
-    approveSkillResponse,
-    ApproveSkillResponse,
+    -- * Destructuring the response
+    ApproveSkillResponse (..),
+    mkApproveSkillResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'approveSkill' smart constructor.
-newtype ApproveSkill = ApproveSkill' {_asSkillId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkApproveSkill' smart constructor.
+newtype ApproveSkill = ApproveSkill' {skillId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApproveSkill' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asSkillId' - The unique identifier of the skill.
-approveSkill ::
-  -- | 'asSkillId'
-  Text ->
+-- * 'skillId' - The unique identifier of the skill.
+mkApproveSkill ::
+  -- | 'skillId'
+  Lude.Text ->
   ApproveSkill
-approveSkill pSkillId_ = ApproveSkill' {_asSkillId = pSkillId_}
+mkApproveSkill pSkillId_ = ApproveSkill' {skillId = pSkillId_}
 
 -- | The unique identifier of the skill.
-asSkillId :: Lens' ApproveSkill Text
-asSkillId = lens _asSkillId (\s a -> s {_asSkillId = a})
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asSkillId :: Lens.Lens' ApproveSkill Lude.Text
+asSkillId = Lens.lens (skillId :: ApproveSkill -> Lude.Text) (\s a -> s {skillId = a} :: ApproveSkill)
+{-# DEPRECATED asSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
-instance AWSRequest ApproveSkill where
+instance Lude.AWSRequest ApproveSkill where
   type Rs ApproveSkill = ApproveSkillResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> ApproveSkillResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          ApproveSkillResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable ApproveSkill
-
-instance NFData ApproveSkill
-
-instance ToHeaders ApproveSkill where
+instance Lude.ToHeaders ApproveSkill where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.ApproveSkill" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.ApproveSkill" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ApproveSkill where
+instance Lude.ToJSON ApproveSkill where
   toJSON ApproveSkill' {..} =
-    object (catMaybes [Just ("SkillId" .= _asSkillId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SkillId" Lude..= skillId)])
 
-instance ToPath ApproveSkill where
-  toPath = const "/"
+instance Lude.ToPath ApproveSkill where
+  toPath = Lude.const "/"
 
-instance ToQuery ApproveSkill where
-  toQuery = const mempty
+instance Lude.ToQuery ApproveSkill where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'approveSkillResponse' smart constructor.
+-- | /See:/ 'mkApproveSkillResponse' smart constructor.
 newtype ApproveSkillResponse = ApproveSkillResponse'
-  { _asrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApproveSkillResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asrsResponseStatus' - -- | The response status code.
-approveSkillResponse ::
-  -- | 'asrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkApproveSkillResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ApproveSkillResponse
-approveSkillResponse pResponseStatus_ =
-  ApproveSkillResponse' {_asrsResponseStatus = pResponseStatus_}
+mkApproveSkillResponse pResponseStatus_ =
+  ApproveSkillResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-asrsResponseStatus :: Lens' ApproveSkillResponse Int
-asrsResponseStatus = lens _asrsResponseStatus (\s a -> s {_asrsResponseStatus = a})
-
-instance NFData ApproveSkillResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrsResponseStatus :: Lens.Lens' ApproveSkillResponse Lude.Int
+asrsResponseStatus = Lens.lens (responseStatus :: ApproveSkillResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ApproveSkillResponse)
+{-# DEPRECATED asrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

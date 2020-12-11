@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.ThirdPartyJobDetails where
+module Network.AWS.CodePipeline.Types.ThirdPartyJobDetails
+  ( ThirdPartyJobDetails (..),
+
+    -- * Smart constructor
+    mkThirdPartyJobDetails,
+
+    -- * Lenses
+    tpjdData,
+    tpjdId,
+    tpjdNonce,
+  )
+where
 
 import Network.AWS.CodePipeline.Types.ThirdPartyJobData
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of a job sent in response to a @GetThirdPartyJobDetails@ request.
 --
---
---
--- /See:/ 'thirdPartyJobDetails' smart constructor.
+-- /See:/ 'mkThirdPartyJobDetails' smart constructor.
 data ThirdPartyJobDetails = ThirdPartyJobDetails'
-  { _tpjdData ::
-      !(Maybe ThirdPartyJobData),
-    _tpjdId :: !(Maybe Text),
-    _tpjdNonce :: !(Maybe Text)
+  { data' ::
+      Lude.Maybe ThirdPartyJobData,
+    id :: Lude.Maybe Lude.Text,
+    nonce :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThirdPartyJobDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tpjdData' - The data to be returned by the third party job worker.
---
--- * 'tpjdId' - The identifier used to identify the job details in AWS CodePipeline.
---
--- * 'tpjdNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeThirdPartyJob' request.
-thirdPartyJobDetails ::
+-- * 'data'' - The data to be returned by the third party job worker.
+-- * 'id' - The identifier used to identify the job details in AWS CodePipeline.
+-- * 'nonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeThirdPartyJob' request.
+mkThirdPartyJobDetails ::
   ThirdPartyJobDetails
-thirdPartyJobDetails =
+mkThirdPartyJobDetails =
   ThirdPartyJobDetails'
-    { _tpjdData = Nothing,
-      _tpjdId = Nothing,
-      _tpjdNonce = Nothing
+    { data' = Lude.Nothing,
+      id = Lude.Nothing,
+      nonce = Lude.Nothing
     }
 
 -- | The data to be returned by the third party job worker.
-tpjdData :: Lens' ThirdPartyJobDetails (Maybe ThirdPartyJobData)
-tpjdData = lens _tpjdData (\s a -> s {_tpjdData = a})
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpjdData :: Lens.Lens' ThirdPartyJobDetails (Lude.Maybe ThirdPartyJobData)
+tpjdData = Lens.lens (data' :: ThirdPartyJobDetails -> Lude.Maybe ThirdPartyJobData) (\s a -> s {data' = a} :: ThirdPartyJobDetails)
+{-# DEPRECATED tpjdData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | The identifier used to identify the job details in AWS CodePipeline.
-tpjdId :: Lens' ThirdPartyJobDetails (Maybe Text)
-tpjdId = lens _tpjdId (\s a -> s {_tpjdId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpjdId :: Lens.Lens' ThirdPartyJobDetails (Lude.Maybe Lude.Text)
+tpjdId = Lens.lens (id :: ThirdPartyJobDetails -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ThirdPartyJobDetails)
+{-# DEPRECATED tpjdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an 'AcknowledgeThirdPartyJob' request.
-tpjdNonce :: Lens' ThirdPartyJobDetails (Maybe Text)
-tpjdNonce = lens _tpjdNonce (\s a -> s {_tpjdNonce = a})
+--
+-- /Note:/ Consider using 'nonce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpjdNonce :: Lens.Lens' ThirdPartyJobDetails (Lude.Maybe Lude.Text)
+tpjdNonce = Lens.lens (nonce :: ThirdPartyJobDetails -> Lude.Maybe Lude.Text) (\s a -> s {nonce = a} :: ThirdPartyJobDetails)
+{-# DEPRECATED tpjdNonce "Use generic-lens or generic-optics with 'nonce' instead." #-}
 
-instance FromJSON ThirdPartyJobDetails where
+instance Lude.FromJSON ThirdPartyJobDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ThirdPartyJobDetails"
       ( \x ->
           ThirdPartyJobDetails'
-            <$> (x .:? "data") <*> (x .:? "id") <*> (x .:? "nonce")
+            Lude.<$> (x Lude..:? "data")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "nonce")
       )
-
-instance Hashable ThirdPartyJobDetails
-
-instance NFData ThirdPartyJobDetails

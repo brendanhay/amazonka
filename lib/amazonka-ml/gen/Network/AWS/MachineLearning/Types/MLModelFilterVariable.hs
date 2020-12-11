@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MachineLearning.Types.MLModelFilterVariable where
+module Network.AWS.MachineLearning.Types.MLModelFilterVariable
+  ( MLModelFilterVariable
+      ( MLModelFilterVariable',
+        MLMFVAlgorithm,
+        MLMFVCreatedAt,
+        MLMFVIAMUser,
+        MLMFVLastUpdatedAt,
+        MLMFVMLModelType,
+        MLMFVName,
+        MLMFVRealtimeEndpointStatus,
+        MLMFVStatus,
+        MLMFVTrainingDataSourceId,
+        MLMFVTrainingDataURI
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MLModelFilterVariable
-  = MLMFVAlgorithm
-  | MLMFVCreatedAt
-  | MLMFVIAMUser
-  | MLMFVLastUpdatedAt
-  | MLMFVMLModelType
-  | MLMFVName
-  | MLMFVRealtimeEndpointStatus
-  | MLMFVStatus
-  | MLMFVTrainingDataSourceId
-  | MLMFVTrainingDataURI
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MLModelFilterVariable = MLModelFilterVariable' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MLModelFilterVariable where
-  parser =
-    takeLowerText >>= \case
-      "algorithm" -> pure MLMFVAlgorithm
-      "createdat" -> pure MLMFVCreatedAt
-      "iamuser" -> pure MLMFVIAMUser
-      "lastupdatedat" -> pure MLMFVLastUpdatedAt
-      "mlmodeltype" -> pure MLMFVMLModelType
-      "name" -> pure MLMFVName
-      "realtimeendpointstatus" -> pure MLMFVRealtimeEndpointStatus
-      "status" -> pure MLMFVStatus
-      "trainingdatasourceid" -> pure MLMFVTrainingDataSourceId
-      "trainingdatauri" -> pure MLMFVTrainingDataURI
-      e ->
-        fromTextError $
-          "Failure parsing MLModelFilterVariable from value: '" <> e
-            <> "'. Accepted values: algorithm, createdat, iamuser, lastupdatedat, mlmodeltype, name, realtimeendpointstatus, status, trainingdatasourceid, trainingdatauri"
+pattern MLMFVAlgorithm :: MLModelFilterVariable
+pattern MLMFVAlgorithm = MLModelFilterVariable' "Algorithm"
 
-instance ToText MLModelFilterVariable where
-  toText = \case
-    MLMFVAlgorithm -> "Algorithm"
-    MLMFVCreatedAt -> "CreatedAt"
-    MLMFVIAMUser -> "IAMUser"
-    MLMFVLastUpdatedAt -> "LastUpdatedAt"
-    MLMFVMLModelType -> "MLModelType"
-    MLMFVName -> "Name"
-    MLMFVRealtimeEndpointStatus -> "RealtimeEndpointStatus"
-    MLMFVStatus -> "Status"
-    MLMFVTrainingDataSourceId -> "TrainingDataSourceId"
-    MLMFVTrainingDataURI -> "TrainingDataURI"
+pattern MLMFVCreatedAt :: MLModelFilterVariable
+pattern MLMFVCreatedAt = MLModelFilterVariable' "CreatedAt"
 
-instance Hashable MLModelFilterVariable
+pattern MLMFVIAMUser :: MLModelFilterVariable
+pattern MLMFVIAMUser = MLModelFilterVariable' "IAMUser"
 
-instance NFData MLModelFilterVariable
+pattern MLMFVLastUpdatedAt :: MLModelFilterVariable
+pattern MLMFVLastUpdatedAt = MLModelFilterVariable' "LastUpdatedAt"
 
-instance ToByteString MLModelFilterVariable
+pattern MLMFVMLModelType :: MLModelFilterVariable
+pattern MLMFVMLModelType = MLModelFilterVariable' "MLModelType"
 
-instance ToQuery MLModelFilterVariable
+pattern MLMFVName :: MLModelFilterVariable
+pattern MLMFVName = MLModelFilterVariable' "Name"
 
-instance ToHeader MLModelFilterVariable
+pattern MLMFVRealtimeEndpointStatus :: MLModelFilterVariable
+pattern MLMFVRealtimeEndpointStatus = MLModelFilterVariable' "RealtimeEndpointStatus"
 
-instance ToJSON MLModelFilterVariable where
-  toJSON = toJSONText
+pattern MLMFVStatus :: MLModelFilterVariable
+pattern MLMFVStatus = MLModelFilterVariable' "Status"
+
+pattern MLMFVTrainingDataSourceId :: MLModelFilterVariable
+pattern MLMFVTrainingDataSourceId = MLModelFilterVariable' "TrainingDataSourceId"
+
+pattern MLMFVTrainingDataURI :: MLModelFilterVariable
+pattern MLMFVTrainingDataURI = MLModelFilterVariable' "TrainingDataURI"
+
+{-# COMPLETE
+  MLMFVAlgorithm,
+  MLMFVCreatedAt,
+  MLMFVIAMUser,
+  MLMFVLastUpdatedAt,
+  MLMFVMLModelType,
+  MLMFVName,
+  MLMFVRealtimeEndpointStatus,
+  MLMFVStatus,
+  MLMFVTrainingDataSourceId,
+  MLMFVTrainingDataURI,
+  MLModelFilterVariable'
+  #-}

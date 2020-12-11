@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,135 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.ConnectionPoolConfiguration where
+module Network.AWS.RDS.Types.ConnectionPoolConfiguration
+  ( ConnectionPoolConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConnectionPoolConfiguration,
+
+    -- * Lenses
+    cpcMaxIdleConnectionsPercent,
+    cpcSessionPinningFilters,
+    cpcMaxConnectionsPercent,
+    cpcConnectionBorrowTimeout,
+    cpcInitQuery,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the settings that control the size and behavior of the connection pool associated with a @DBProxyTargetGroup@ .
 --
---
---
--- /See:/ 'connectionPoolConfiguration' smart constructor.
+-- /See:/ 'mkConnectionPoolConfiguration' smart constructor.
 data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
-  { _cpcMaxIdleConnectionsPercent ::
-      !(Maybe Int),
-    _cpcSessionPinningFilters ::
-      !(Maybe [Text]),
-    _cpcMaxConnectionsPercent ::
-      !(Maybe Int),
-    _cpcConnectionBorrowTimeout ::
-      !(Maybe Int),
-    _cpcInitQuery :: !(Maybe Text)
+  { maxIdleConnectionsPercent ::
+      Lude.Maybe Lude.Int,
+    sessionPinningFilters ::
+      Lude.Maybe [Lude.Text],
+    maxConnectionsPercent ::
+      Lude.Maybe Lude.Int,
+    connectionBorrowTimeout ::
+      Lude.Maybe Lude.Int,
+    initQuery :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionPoolConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'connectionBorrowTimeout' - The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
 --
--- * 'cpcMaxIdleConnectionsPercent' - Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the @max_connections@ setting for the RDS DB instance or Aurora DB cluster used by the target group.  Default: 50 Constraints: between 0 and @MaxConnectionsPercent@
+-- Default: 120
+-- Constraints: between 1 and 3600, or 0 representing unlimited
+-- * 'initQuery' - One or more SQL statements for the proxy to run when opening each new database connection. Typically used with @SET@ statements to make sure that each connection has identical settings such as time zone and character set. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single @SET@ statement, such as @SET x=1, y=2@ .
 --
--- * 'cpcSessionPinningFilters' - Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Default: no session pinning filters
+-- Default: no initialization query
+-- * 'maxConnectionsPercent' - The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the @max_connections@ setting for the RDS DB instance or Aurora DB cluster used by the target group.
 --
--- * 'cpcMaxConnectionsPercent' - The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the @max_connections@ setting for the RDS DB instance or Aurora DB cluster used by the target group. Default: 100 Constraints: between 1 and 100
+-- Default: 100
+-- Constraints: between 1 and 100
+-- * 'maxIdleConnectionsPercent' - Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the @max_connections@ setting for the RDS DB instance or Aurora DB cluster used by the target group.
 --
--- * 'cpcConnectionBorrowTimeout' - The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions. Default: 120 Constraints: between 1 and 3600, or 0 representing unlimited
+-- Default: 50
+-- Constraints: between 0 and @MaxConnectionsPercent@
+-- * 'sessionPinningFilters' - Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior.
 --
--- * 'cpcInitQuery' - One or more SQL statements for the proxy to run when opening each new database connection. Typically used with @SET@ statements to make sure that each connection has identical settings such as time zone and character set. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single @SET@ statement, such as @SET x=1, y=2@ .  Default: no initialization query
-connectionPoolConfiguration ::
+-- Default: no session pinning filters
+mkConnectionPoolConfiguration ::
   ConnectionPoolConfiguration
-connectionPoolConfiguration =
+mkConnectionPoolConfiguration =
   ConnectionPoolConfiguration'
-    { _cpcMaxIdleConnectionsPercent =
-        Nothing,
-      _cpcSessionPinningFilters = Nothing,
-      _cpcMaxConnectionsPercent = Nothing,
-      _cpcConnectionBorrowTimeout = Nothing,
-      _cpcInitQuery = Nothing
+    { maxIdleConnectionsPercent =
+        Lude.Nothing,
+      sessionPinningFilters = Lude.Nothing,
+      maxConnectionsPercent = Lude.Nothing,
+      connectionBorrowTimeout = Lude.Nothing,
+      initQuery = Lude.Nothing
     }
 
--- | Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the @max_connections@ setting for the RDS DB instance or Aurora DB cluster used by the target group.  Default: 50 Constraints: between 0 and @MaxConnectionsPercent@
-cpcMaxIdleConnectionsPercent :: Lens' ConnectionPoolConfiguration (Maybe Int)
-cpcMaxIdleConnectionsPercent = lens _cpcMaxIdleConnectionsPercent (\s a -> s {_cpcMaxIdleConnectionsPercent = a})
+-- | Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the @max_connections@ setting for the RDS DB instance or Aurora DB cluster used by the target group.
+--
+-- Default: 50
+-- Constraints: between 0 and @MaxConnectionsPercent@
+--
+-- /Note:/ Consider using 'maxIdleConnectionsPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcMaxIdleConnectionsPercent :: Lens.Lens' ConnectionPoolConfiguration (Lude.Maybe Lude.Int)
+cpcMaxIdleConnectionsPercent = Lens.lens (maxIdleConnectionsPercent :: ConnectionPoolConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {maxIdleConnectionsPercent = a} :: ConnectionPoolConfiguration)
+{-# DEPRECATED cpcMaxIdleConnectionsPercent "Use generic-lens or generic-optics with 'maxIdleConnectionsPercent' instead." #-}
 
--- | Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Default: no session pinning filters
-cpcSessionPinningFilters :: Lens' ConnectionPoolConfiguration [Text]
-cpcSessionPinningFilters = lens _cpcSessionPinningFilters (\s a -> s {_cpcSessionPinningFilters = a}) . _Default . _Coerce
+-- | Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior.
+--
+-- Default: no session pinning filters
+--
+-- /Note:/ Consider using 'sessionPinningFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcSessionPinningFilters :: Lens.Lens' ConnectionPoolConfiguration (Lude.Maybe [Lude.Text])
+cpcSessionPinningFilters = Lens.lens (sessionPinningFilters :: ConnectionPoolConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {sessionPinningFilters = a} :: ConnectionPoolConfiguration)
+{-# DEPRECATED cpcSessionPinningFilters "Use generic-lens or generic-optics with 'sessionPinningFilters' instead." #-}
 
--- | The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the @max_connections@ setting for the RDS DB instance or Aurora DB cluster used by the target group. Default: 100 Constraints: between 1 and 100
-cpcMaxConnectionsPercent :: Lens' ConnectionPoolConfiguration (Maybe Int)
-cpcMaxConnectionsPercent = lens _cpcMaxConnectionsPercent (\s a -> s {_cpcMaxConnectionsPercent = a})
+-- | The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the @max_connections@ setting for the RDS DB instance or Aurora DB cluster used by the target group.
+--
+-- Default: 100
+-- Constraints: between 1 and 100
+--
+-- /Note:/ Consider using 'maxConnectionsPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcMaxConnectionsPercent :: Lens.Lens' ConnectionPoolConfiguration (Lude.Maybe Lude.Int)
+cpcMaxConnectionsPercent = Lens.lens (maxConnectionsPercent :: ConnectionPoolConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {maxConnectionsPercent = a} :: ConnectionPoolConfiguration)
+{-# DEPRECATED cpcMaxConnectionsPercent "Use generic-lens or generic-optics with 'maxConnectionsPercent' instead." #-}
 
--- | The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions. Default: 120 Constraints: between 1 and 3600, or 0 representing unlimited
-cpcConnectionBorrowTimeout :: Lens' ConnectionPoolConfiguration (Maybe Int)
-cpcConnectionBorrowTimeout = lens _cpcConnectionBorrowTimeout (\s a -> s {_cpcConnectionBorrowTimeout = a})
+-- | The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+--
+-- Default: 120
+-- Constraints: between 1 and 3600, or 0 representing unlimited
+--
+-- /Note:/ Consider using 'connectionBorrowTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcConnectionBorrowTimeout :: Lens.Lens' ConnectionPoolConfiguration (Lude.Maybe Lude.Int)
+cpcConnectionBorrowTimeout = Lens.lens (connectionBorrowTimeout :: ConnectionPoolConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {connectionBorrowTimeout = a} :: ConnectionPoolConfiguration)
+{-# DEPRECATED cpcConnectionBorrowTimeout "Use generic-lens or generic-optics with 'connectionBorrowTimeout' instead." #-}
 
--- | One or more SQL statements for the proxy to run when opening each new database connection. Typically used with @SET@ statements to make sure that each connection has identical settings such as time zone and character set. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single @SET@ statement, such as @SET x=1, y=2@ .  Default: no initialization query
-cpcInitQuery :: Lens' ConnectionPoolConfiguration (Maybe Text)
-cpcInitQuery = lens _cpcInitQuery (\s a -> s {_cpcInitQuery = a})
+-- | One or more SQL statements for the proxy to run when opening each new database connection. Typically used with @SET@ statements to make sure that each connection has identical settings such as time zone and character set. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single @SET@ statement, such as @SET x=1, y=2@ .
+--
+-- Default: no initialization query
+--
+-- /Note:/ Consider using 'initQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcInitQuery :: Lens.Lens' ConnectionPoolConfiguration (Lude.Maybe Lude.Text)
+cpcInitQuery = Lens.lens (initQuery :: ConnectionPoolConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {initQuery = a} :: ConnectionPoolConfiguration)
+{-# DEPRECATED cpcInitQuery "Use generic-lens or generic-optics with 'initQuery' instead." #-}
 
-instance Hashable ConnectionPoolConfiguration
-
-instance NFData ConnectionPoolConfiguration
-
-instance ToQuery ConnectionPoolConfiguration where
+instance Lude.ToQuery ConnectionPoolConfiguration where
   toQuery ConnectionPoolConfiguration' {..} =
-    mconcat
-      [ "MaxIdleConnectionsPercent" =: _cpcMaxIdleConnectionsPercent,
+    Lude.mconcat
+      [ "MaxIdleConnectionsPercent" Lude.=: maxIdleConnectionsPercent,
         "SessionPinningFilters"
-          =: toQuery (toQueryList "member" <$> _cpcSessionPinningFilters),
-        "MaxConnectionsPercent" =: _cpcMaxConnectionsPercent,
-        "ConnectionBorrowTimeout" =: _cpcConnectionBorrowTimeout,
-        "InitQuery" =: _cpcInitQuery
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> sessionPinningFilters),
+        "MaxConnectionsPercent" Lude.=: maxConnectionsPercent,
+        "ConnectionBorrowTimeout" Lude.=: connectionBorrowTimeout,
+        "InitQuery" Lude.=: initQuery
       ]

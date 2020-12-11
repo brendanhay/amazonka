@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexSettings where
+module Network.AWS.MediaLive.Types.MultiplexSettings
+  ( MultiplexSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMultiplexSettings,
+
+    -- * Lenses
+    msMaximumVideoBufferDelayMilliseconds,
+    msTransportStreamReservedBitrate,
+    msTransportStreamBitrate,
+    msTransportStreamId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains configuration for a Multiplex event
 --
--- /See:/ 'multiplexSettings' smart constructor.
+-- /See:/ 'mkMultiplexSettings' smart constructor.
 data MultiplexSettings = MultiplexSettings'
-  { _msMaximumVideoBufferDelayMilliseconds ::
-      !(Maybe Nat),
-    _msTransportStreamReservedBitrate :: !(Maybe Nat),
-    _msTransportStreamBitrate :: !Nat,
-    _msTransportStreamId :: !Nat
+  { maximumVideoBufferDelayMilliseconds ::
+      Lude.Maybe Lude.Natural,
+    transportStreamReservedBitrate ::
+      Lude.Maybe Lude.Natural,
+    transportStreamBitrate :: Lude.Natural,
+    transportStreamId :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msMaximumVideoBufferDelayMilliseconds' - Maximum video buffer delay in milliseconds.
---
--- * 'msTransportStreamReservedBitrate' - Transport stream reserved bit rate.
---
--- * 'msTransportStreamBitrate' - Transport stream bit rate.
---
--- * 'msTransportStreamId' - Transport stream ID.
-multiplexSettings ::
-  -- | 'msTransportStreamBitrate'
-  Natural ->
-  -- | 'msTransportStreamId'
-  Natural ->
+-- * 'maximumVideoBufferDelayMilliseconds' - Maximum video buffer delay in milliseconds.
+-- * 'transportStreamBitrate' - Transport stream bit rate.
+-- * 'transportStreamId' - Transport stream ID.
+-- * 'transportStreamReservedBitrate' - Transport stream reserved bit rate.
+mkMultiplexSettings ::
+  -- | 'transportStreamBitrate'
+  Lude.Natural ->
+  -- | 'transportStreamId'
+  Lude.Natural ->
   MultiplexSettings
-multiplexSettings pTransportStreamBitrate_ pTransportStreamId_ =
+mkMultiplexSettings pTransportStreamBitrate_ pTransportStreamId_ =
   MultiplexSettings'
-    { _msMaximumVideoBufferDelayMilliseconds =
-        Nothing,
-      _msTransportStreamReservedBitrate = Nothing,
-      _msTransportStreamBitrate = _Nat # pTransportStreamBitrate_,
-      _msTransportStreamId = _Nat # pTransportStreamId_
+    { maximumVideoBufferDelayMilliseconds =
+        Lude.Nothing,
+      transportStreamReservedBitrate = Lude.Nothing,
+      transportStreamBitrate = pTransportStreamBitrate_,
+      transportStreamId = pTransportStreamId_
     }
 
 -- | Maximum video buffer delay in milliseconds.
-msMaximumVideoBufferDelayMilliseconds :: Lens' MultiplexSettings (Maybe Natural)
-msMaximumVideoBufferDelayMilliseconds = lens _msMaximumVideoBufferDelayMilliseconds (\s a -> s {_msMaximumVideoBufferDelayMilliseconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maximumVideoBufferDelayMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msMaximumVideoBufferDelayMilliseconds :: Lens.Lens' MultiplexSettings (Lude.Maybe Lude.Natural)
+msMaximumVideoBufferDelayMilliseconds = Lens.lens (maximumVideoBufferDelayMilliseconds :: MultiplexSettings -> Lude.Maybe Lude.Natural) (\s a -> s {maximumVideoBufferDelayMilliseconds = a} :: MultiplexSettings)
+{-# DEPRECATED msMaximumVideoBufferDelayMilliseconds "Use generic-lens or generic-optics with 'maximumVideoBufferDelayMilliseconds' instead." #-}
 
 -- | Transport stream reserved bit rate.
-msTransportStreamReservedBitrate :: Lens' MultiplexSettings (Maybe Natural)
-msTransportStreamReservedBitrate = lens _msTransportStreamReservedBitrate (\s a -> s {_msTransportStreamReservedBitrate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'transportStreamReservedBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msTransportStreamReservedBitrate :: Lens.Lens' MultiplexSettings (Lude.Maybe Lude.Natural)
+msTransportStreamReservedBitrate = Lens.lens (transportStreamReservedBitrate :: MultiplexSettings -> Lude.Maybe Lude.Natural) (\s a -> s {transportStreamReservedBitrate = a} :: MultiplexSettings)
+{-# DEPRECATED msTransportStreamReservedBitrate "Use generic-lens or generic-optics with 'transportStreamReservedBitrate' instead." #-}
 
 -- | Transport stream bit rate.
-msTransportStreamBitrate :: Lens' MultiplexSettings Natural
-msTransportStreamBitrate = lens _msTransportStreamBitrate (\s a -> s {_msTransportStreamBitrate = a}) . _Nat
+--
+-- /Note:/ Consider using 'transportStreamBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msTransportStreamBitrate :: Lens.Lens' MultiplexSettings Lude.Natural
+msTransportStreamBitrate = Lens.lens (transportStreamBitrate :: MultiplexSettings -> Lude.Natural) (\s a -> s {transportStreamBitrate = a} :: MultiplexSettings)
+{-# DEPRECATED msTransportStreamBitrate "Use generic-lens or generic-optics with 'transportStreamBitrate' instead." #-}
 
 -- | Transport stream ID.
-msTransportStreamId :: Lens' MultiplexSettings Natural
-msTransportStreamId = lens _msTransportStreamId (\s a -> s {_msTransportStreamId = a}) . _Nat
+--
+-- /Note:/ Consider using 'transportStreamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msTransportStreamId :: Lens.Lens' MultiplexSettings Lude.Natural
+msTransportStreamId = Lens.lens (transportStreamId :: MultiplexSettings -> Lude.Natural) (\s a -> s {transportStreamId = a} :: MultiplexSettings)
+{-# DEPRECATED msTransportStreamId "Use generic-lens or generic-optics with 'transportStreamId' instead." #-}
 
-instance FromJSON MultiplexSettings where
+instance Lude.FromJSON MultiplexSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "MultiplexSettings"
       ( \x ->
           MultiplexSettings'
-            <$> (x .:? "maximumVideoBufferDelayMilliseconds")
-            <*> (x .:? "transportStreamReservedBitrate")
-            <*> (x .: "transportStreamBitrate")
-            <*> (x .: "transportStreamId")
+            Lude.<$> (x Lude..:? "maximumVideoBufferDelayMilliseconds")
+            Lude.<*> (x Lude..:? "transportStreamReservedBitrate")
+            Lude.<*> (x Lude..: "transportStreamBitrate")
+            Lude.<*> (x Lude..: "transportStreamId")
       )
 
-instance Hashable MultiplexSettings
-
-instance NFData MultiplexSettings
-
-instance ToJSON MultiplexSettings where
+instance Lude.ToJSON MultiplexSettings where
   toJSON MultiplexSettings' {..} =
-    object
-      ( catMaybes
-          [ ("maximumVideoBufferDelayMilliseconds" .=)
-              <$> _msMaximumVideoBufferDelayMilliseconds,
-            ("transportStreamReservedBitrate" .=)
-              <$> _msTransportStreamReservedBitrate,
-            Just ("transportStreamBitrate" .= _msTransportStreamBitrate),
-            Just ("transportStreamId" .= _msTransportStreamId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("maximumVideoBufferDelayMilliseconds" Lude..=)
+              Lude.<$> maximumVideoBufferDelayMilliseconds,
+            ("transportStreamReservedBitrate" Lude..=)
+              Lude.<$> transportStreamReservedBitrate,
+            Lude.Just
+              ("transportStreamBitrate" Lude..= transportStreamBitrate),
+            Lude.Just ("transportStreamId" Lude..= transportStreamId)
           ]
       )

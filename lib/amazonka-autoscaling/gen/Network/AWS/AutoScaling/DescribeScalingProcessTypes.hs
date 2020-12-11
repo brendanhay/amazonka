@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,115 @@
 --
 -- Describes the scaling process types for use with the 'ResumeProcesses' and 'SuspendProcesses' APIs.
 module Network.AWS.AutoScaling.DescribeScalingProcessTypes
-  ( -- * Creating a Request
-    describeScalingProcessTypes,
-    DescribeScalingProcessTypes,
+  ( -- * Creating a request
+    DescribeScalingProcessTypes (..),
+    mkDescribeScalingProcessTypes,
 
-    -- * Destructuring the Response
-    describeScalingProcessTypesResponse,
-    DescribeScalingProcessTypesResponse,
+    -- * Destructuring the response
+    DescribeScalingProcessTypesResponse (..),
+    mkDescribeScalingProcessTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsptrsProcesses,
     dsptrsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeScalingProcessTypes' smart constructor.
+-- | /See:/ 'mkDescribeScalingProcessTypes' smart constructor.
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScalingProcessTypes' with the minimum fields required to make a request.
-describeScalingProcessTypes ::
+mkDescribeScalingProcessTypes ::
   DescribeScalingProcessTypes
-describeScalingProcessTypes = DescribeScalingProcessTypes'
+mkDescribeScalingProcessTypes = DescribeScalingProcessTypes'
 
-instance AWSRequest DescribeScalingProcessTypes where
+instance Lude.AWSRequest DescribeScalingProcessTypes where
   type
     Rs DescribeScalingProcessTypes =
       DescribeScalingProcessTypesResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeScalingProcessTypesResult"
       ( \s h x ->
           DescribeScalingProcessTypesResponse'
-            <$> (x .@? "Processes" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Processes" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeScalingProcessTypes
+instance Lude.ToHeaders DescribeScalingProcessTypes where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeScalingProcessTypes
+instance Lude.ToPath DescribeScalingProcessTypes where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeScalingProcessTypes where
-  toHeaders = const mempty
-
-instance ToPath DescribeScalingProcessTypes where
-  toPath = const "/"
-
-instance ToQuery DescribeScalingProcessTypes where
+instance Lude.ToQuery DescribeScalingProcessTypes where
   toQuery =
-    const
-      ( mconcat
-          [ "Action" =: ("DescribeScalingProcessTypes" :: ByteString),
-            "Version" =: ("2011-01-01" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "Action"
+              Lude.=: ("DescribeScalingProcessTypes" :: Lude.ByteString),
+            "Version" Lude.=: ("2011-01-01" :: Lude.ByteString)
           ]
       )
 
--- | /See:/ 'describeScalingProcessTypesResponse' smart constructor.
+-- | /See:/ 'mkDescribeScalingProcessTypesResponse' smart constructor.
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
-  { _dsptrsProcesses ::
-      !( Maybe
-           [ProcessType]
-       ),
-    _dsptrsResponseStatus ::
-      !Int
+  { processes ::
+      Lude.Maybe
+        [ProcessType],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScalingProcessTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsptrsProcesses' - The names of the process types.
---
--- * 'dsptrsResponseStatus' - -- | The response status code.
-describeScalingProcessTypesResponse ::
-  -- | 'dsptrsResponseStatus'
-  Int ->
+-- * 'processes' - The names of the process types.
+-- * 'responseStatus' - The response status code.
+mkDescribeScalingProcessTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeScalingProcessTypesResponse
-describeScalingProcessTypesResponse pResponseStatus_ =
+mkDescribeScalingProcessTypesResponse pResponseStatus_ =
   DescribeScalingProcessTypesResponse'
-    { _dsptrsProcesses = Nothing,
-      _dsptrsResponseStatus = pResponseStatus_
+    { processes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The names of the process types.
-dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
-dsptrsProcesses = lens _dsptrsProcesses (\s a -> s {_dsptrsProcesses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'processes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsptrsProcesses :: Lens.Lens' DescribeScalingProcessTypesResponse (Lude.Maybe [ProcessType])
+dsptrsProcesses = Lens.lens (processes :: DescribeScalingProcessTypesResponse -> Lude.Maybe [ProcessType]) (\s a -> s {processes = a} :: DescribeScalingProcessTypesResponse)
+{-# DEPRECATED dsptrsProcesses "Use generic-lens or generic-optics with 'processes' instead." #-}
 
--- | -- | The response status code.
-dsptrsResponseStatus :: Lens' DescribeScalingProcessTypesResponse Int
-dsptrsResponseStatus = lens _dsptrsResponseStatus (\s a -> s {_dsptrsResponseStatus = a})
-
-instance NFData DescribeScalingProcessTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsptrsResponseStatus :: Lens.Lens' DescribeScalingProcessTypesResponse Lude.Int
+dsptrsResponseStatus = Lens.lens (responseStatus :: DescribeScalingProcessTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScalingProcessTypesResponse)
+{-# DEPRECATED dsptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.ComputePlatform where
+module Network.AWS.CodeDeploy.Types.ComputePlatform
+  ( ComputePlatform
+      ( ComputePlatform',
+        Ecs,
+        Lambda,
+        Server
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComputePlatform
-  = Ecs
-  | Lambda
-  | Server
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComputePlatform = ComputePlatform' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComputePlatform where
-  parser =
-    takeLowerText >>= \case
-      "ecs" -> pure Ecs
-      "lambda" -> pure Lambda
-      "server" -> pure Server
-      e ->
-        fromTextError $
-          "Failure parsing ComputePlatform from value: '" <> e
-            <> "'. Accepted values: ecs, lambda, server"
+pattern Ecs :: ComputePlatform
+pattern Ecs = ComputePlatform' "ECS"
 
-instance ToText ComputePlatform where
-  toText = \case
-    Ecs -> "ECS"
-    Lambda -> "Lambda"
-    Server -> "Server"
+pattern Lambda :: ComputePlatform
+pattern Lambda = ComputePlatform' "Lambda"
 
-instance Hashable ComputePlatform
+pattern Server :: ComputePlatform
+pattern Server = ComputePlatform' "Server"
 
-instance NFData ComputePlatform
-
-instance ToByteString ComputePlatform
-
-instance ToQuery ComputePlatform
-
-instance ToHeader ComputePlatform
-
-instance ToJSON ComputePlatform where
-  toJSON = toJSONText
-
-instance FromJSON ComputePlatform where
-  parseJSON = parseJSONText "ComputePlatform"
+{-# COMPLETE
+  Ecs,
+  Lambda,
+  Server,
+  ComputePlatform'
+  #-}

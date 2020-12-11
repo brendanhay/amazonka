@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns a paginated list of all approved origins associated with the instance.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListApprovedOrigins
-  ( -- * Creating a Request
-    listApprovedOrigins,
-    ListApprovedOrigins,
+  ( -- * Creating a request
+    ListApprovedOrigins (..),
+    mkListApprovedOrigins,
 
-    -- * Request Lenses
+    -- ** Request lenses
     laoNextToken,
     laoMaxResults,
     laoInstanceId,
 
-    -- * Destructuring the Response
-    listApprovedOriginsResponse,
-    ListApprovedOriginsResponse,
+    -- * Destructuring the response
+    ListApprovedOriginsResponse (..),
+    mkListApprovedOriginsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     laorsNextToken,
     laorsOrigins,
     laorsResponseStatus,
@@ -44,130 +37,154 @@ module Network.AWS.Connect.ListApprovedOrigins
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listApprovedOrigins' smart constructor.
+-- | /See:/ 'mkListApprovedOrigins' smart constructor.
 data ListApprovedOrigins = ListApprovedOrigins'
-  { _laoNextToken ::
-      !(Maybe Text),
-    _laoMaxResults :: !(Maybe Nat),
-    _laoInstanceId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApprovedOrigins' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laoNextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- * 'laoMaxResults' - The maximimum number of results to return per page.
---
--- * 'laoInstanceId' - The identifier of the Amazon Connect instance.
-listApprovedOrigins ::
-  -- | 'laoInstanceId'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'maxResults' - The maximimum number of results to return per page.
+-- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+mkListApprovedOrigins ::
+  -- | 'instanceId'
+  Lude.Text ->
   ListApprovedOrigins
-listApprovedOrigins pInstanceId_ =
+mkListApprovedOrigins pInstanceId_ =
   ListApprovedOrigins'
-    { _laoNextToken = Nothing,
-      _laoMaxResults = Nothing,
-      _laoInstanceId = pInstanceId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-laoNextToken :: Lens' ListApprovedOrigins (Maybe Text)
-laoNextToken = lens _laoNextToken (\s a -> s {_laoNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laoNextToken :: Lens.Lens' ListApprovedOrigins (Lude.Maybe Lude.Text)
+laoNextToken = Lens.lens (nextToken :: ListApprovedOrigins -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApprovedOrigins)
+{-# DEPRECATED laoNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
-laoMaxResults :: Lens' ListApprovedOrigins (Maybe Natural)
-laoMaxResults = lens _laoMaxResults (\s a -> s {_laoMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laoMaxResults :: Lens.Lens' ListApprovedOrigins (Lude.Maybe Lude.Natural)
+laoMaxResults = Lens.lens (maxResults :: ListApprovedOrigins -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListApprovedOrigins)
+{-# DEPRECATED laoMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-laoInstanceId :: Lens' ListApprovedOrigins Text
-laoInstanceId = lens _laoInstanceId (\s a -> s {_laoInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laoInstanceId :: Lens.Lens' ListApprovedOrigins Lude.Text
+laoInstanceId = Lens.lens (instanceId :: ListApprovedOrigins -> Lude.Text) (\s a -> s {instanceId = a} :: ListApprovedOrigins)
+{-# DEPRECATED laoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSPager ListApprovedOrigins where
+instance Page.AWSPager ListApprovedOrigins where
   page rq rs
-    | stop (rs ^. laorsNextToken) = Nothing
-    | stop (rs ^. laorsOrigins) = Nothing
-    | otherwise = Just $ rq & laoNextToken .~ rs ^. laorsNextToken
+    | Page.stop (rs Lens.^. laorsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. laorsOrigins) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& laoNextToken Lens..~ rs Lens.^. laorsNextToken
 
-instance AWSRequest ListApprovedOrigins where
+instance Lude.AWSRequest ListApprovedOrigins where
   type Rs ListApprovedOrigins = ListApprovedOriginsResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListApprovedOriginsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Origins" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Origins" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListApprovedOrigins
-
-instance NFData ListApprovedOrigins
-
-instance ToHeaders ListApprovedOrigins where
+instance Lude.ToHeaders ListApprovedOrigins where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListApprovedOrigins where
+instance Lude.ToPath ListApprovedOrigins where
   toPath ListApprovedOrigins' {..} =
-    mconcat ["/instance/", toBS _laoInstanceId, "/approved-origins"]
+    Lude.mconcat
+      ["/instance/", Lude.toBS instanceId, "/approved-origins"]
 
-instance ToQuery ListApprovedOrigins where
+instance Lude.ToQuery ListApprovedOrigins where
   toQuery ListApprovedOrigins' {..} =
-    mconcat
-      ["nextToken" =: _laoNextToken, "maxResults" =: _laoMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listApprovedOriginsResponse' smart constructor.
+-- | /See:/ 'mkListApprovedOriginsResponse' smart constructor.
 data ListApprovedOriginsResponse = ListApprovedOriginsResponse'
-  { _laorsNextToken ::
-      !(Maybe Text),
-    _laorsOrigins :: !(Maybe [Text]),
-    _laorsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    origins :: Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApprovedOriginsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laorsNextToken' - If there are additional results, this is the token for the next set of results.
---
--- * 'laorsOrigins' - The approved origins.
---
--- * 'laorsResponseStatus' - -- | The response status code.
-listApprovedOriginsResponse ::
-  -- | 'laorsResponseStatus'
-  Int ->
+-- * 'nextToken' - If there are additional results, this is the token for the next set of results.
+-- * 'origins' - The approved origins.
+-- * 'responseStatus' - The response status code.
+mkListApprovedOriginsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListApprovedOriginsResponse
-listApprovedOriginsResponse pResponseStatus_ =
+mkListApprovedOriginsResponse pResponseStatus_ =
   ListApprovedOriginsResponse'
-    { _laorsNextToken = Nothing,
-      _laorsOrigins = Nothing,
-      _laorsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      origins = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of results.
-laorsNextToken :: Lens' ListApprovedOriginsResponse (Maybe Text)
-laorsNextToken = lens _laorsNextToken (\s a -> s {_laorsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laorsNextToken :: Lens.Lens' ListApprovedOriginsResponse (Lude.Maybe Lude.Text)
+laorsNextToken = Lens.lens (nextToken :: ListApprovedOriginsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApprovedOriginsResponse)
+{-# DEPRECATED laorsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The approved origins.
-laorsOrigins :: Lens' ListApprovedOriginsResponse [Text]
-laorsOrigins = lens _laorsOrigins (\s a -> s {_laorsOrigins = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'origins' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laorsOrigins :: Lens.Lens' ListApprovedOriginsResponse (Lude.Maybe [Lude.Text])
+laorsOrigins = Lens.lens (origins :: ListApprovedOriginsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {origins = a} :: ListApprovedOriginsResponse)
+{-# DEPRECATED laorsOrigins "Use generic-lens or generic-optics with 'origins' instead." #-}
 
--- | -- | The response status code.
-laorsResponseStatus :: Lens' ListApprovedOriginsResponse Int
-laorsResponseStatus = lens _laorsResponseStatus (\s a -> s {_laorsResponseStatus = a})
-
-instance NFData ListApprovedOriginsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laorsResponseStatus :: Lens.Lens' ListApprovedOriginsResponse Lude.Int
+laorsResponseStatus = Lens.lens (responseStatus :: ListApprovedOriginsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListApprovedOriginsResponse)
+{-# DEPRECATED laorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

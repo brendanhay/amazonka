@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Searches rooms and lists the ones that meet a set of filter and sort criteria.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AlexaBusiness.SearchRooms
-  ( -- * Creating a Request
-    searchRooms,
-    SearchRooms,
+  ( -- * Creating a request
+    SearchRooms (..),
+    mkSearchRooms,
 
-    -- * Request Lenses
+    -- ** Request lenses
     srFilters,
     srSortCriteria,
     srNextToken,
     srMaxResults,
 
-    -- * Destructuring the Response
-    searchRoomsResponse,
-    SearchRoomsResponse,
+    -- * Destructuring the response
+    SearchRoomsResponse (..),
+    mkSearchRoomsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srrsRooms,
     srrsNextToken,
     srrsTotalCount,
@@ -46,154 +39,181 @@ module Network.AWS.AlexaBusiness.SearchRooms
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'searchRooms' smart constructor.
+-- | /See:/ 'mkSearchRooms' smart constructor.
 data SearchRooms = SearchRooms'
-  { _srFilters :: !(Maybe [Filter]),
-    _srSortCriteria :: !(Maybe [Sort]),
-    _srNextToken :: !(Maybe Text),
-    _srMaxResults :: !(Maybe Nat)
+  { filters :: Lude.Maybe [Filter],
+    sortCriteria :: Lude.Maybe [Sort],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchRooms' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srFilters' - The filters to use to list a specified set of rooms. The supported filter keys are RoomName and ProfileName.
---
--- * 'srSortCriteria' - The sort order to use in listing the specified set of rooms. The supported sort keys are RoomName and ProfileName.
---
--- * 'srNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
---
--- * 'srMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-searchRooms ::
+-- * 'filters' - The filters to use to list a specified set of rooms. The supported filter keys are RoomName and ProfileName.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- * 'sortCriteria' - The sort order to use in listing the specified set of rooms. The supported sort keys are RoomName and ProfileName.
+mkSearchRooms ::
   SearchRooms
-searchRooms =
+mkSearchRooms =
   SearchRooms'
-    { _srFilters = Nothing,
-      _srSortCriteria = Nothing,
-      _srNextToken = Nothing,
-      _srMaxResults = Nothing
+    { filters = Lude.Nothing,
+      sortCriteria = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The filters to use to list a specified set of rooms. The supported filter keys are RoomName and ProfileName.
-srFilters :: Lens' SearchRooms [Filter]
-srFilters = lens _srFilters (\s a -> s {_srFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srFilters :: Lens.Lens' SearchRooms (Lude.Maybe [Filter])
+srFilters = Lens.lens (filters :: SearchRooms -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: SearchRooms)
+{-# DEPRECATED srFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The sort order to use in listing the specified set of rooms. The supported sort keys are RoomName and ProfileName.
-srSortCriteria :: Lens' SearchRooms [Sort]
-srSortCriteria = lens _srSortCriteria (\s a -> s {_srSortCriteria = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srSortCriteria :: Lens.Lens' SearchRooms (Lude.Maybe [Sort])
+srSortCriteria = Lens.lens (sortCriteria :: SearchRooms -> Lude.Maybe [Sort]) (\s a -> s {sortCriteria = a} :: SearchRooms)
+{-# DEPRECATED srSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-srNextToken :: Lens' SearchRooms (Maybe Text)
-srNextToken = lens _srNextToken (\s a -> s {_srNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srNextToken :: Lens.Lens' SearchRooms (Lude.Maybe Lude.Text)
+srNextToken = Lens.lens (nextToken :: SearchRooms -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchRooms)
+{-# DEPRECATED srNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-srMaxResults :: Lens' SearchRooms (Maybe Natural)
-srMaxResults = lens _srMaxResults (\s a -> s {_srMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srMaxResults :: Lens.Lens' SearchRooms (Lude.Maybe Lude.Natural)
+srMaxResults = Lens.lens (maxResults :: SearchRooms -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchRooms)
+{-# DEPRECATED srMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager SearchRooms where
+instance Page.AWSPager SearchRooms where
   page rq rs
-    | stop (rs ^. srrsNextToken) = Nothing
-    | stop (rs ^. srrsRooms) = Nothing
-    | otherwise = Just $ rq & srNextToken .~ rs ^. srrsNextToken
+    | Page.stop (rs Lens.^. srrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. srrsRooms) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& srNextToken Lens..~ rs Lens.^. srrsNextToken
 
-instance AWSRequest SearchRooms where
+instance Lude.AWSRequest SearchRooms where
   type Rs SearchRooms = SearchRoomsResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           SearchRoomsResponse'
-            <$> (x .?> "Rooms" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "TotalCount")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Rooms" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "TotalCount")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SearchRooms
-
-instance NFData SearchRooms
-
-instance ToHeaders SearchRooms where
+instance Lude.ToHeaders SearchRooms where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.SearchRooms" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.SearchRooms" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SearchRooms where
+instance Lude.ToJSON SearchRooms where
   toJSON SearchRooms' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _srFilters,
-            ("SortCriteria" .=) <$> _srSortCriteria,
-            ("NextToken" .=) <$> _srNextToken,
-            ("MaxResults" .=) <$> _srMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("SortCriteria" Lude..=) Lude.<$> sortCriteria,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath SearchRooms where
-  toPath = const "/"
+instance Lude.ToPath SearchRooms where
+  toPath = Lude.const "/"
 
-instance ToQuery SearchRooms where
-  toQuery = const mempty
+instance Lude.ToQuery SearchRooms where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'searchRoomsResponse' smart constructor.
+-- | /See:/ 'mkSearchRoomsResponse' smart constructor.
 data SearchRoomsResponse = SearchRoomsResponse'
-  { _srrsRooms ::
-      !(Maybe [RoomData]),
-    _srrsNextToken :: !(Maybe Text),
-    _srrsTotalCount :: !(Maybe Int),
-    _srrsResponseStatus :: !Int
+  { rooms ::
+      Lude.Maybe [RoomData],
+    nextToken :: Lude.Maybe Lude.Text,
+    totalCount :: Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchRoomsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srrsRooms' - The rooms that meet the specified set of filter criteria, in sort order.
---
--- * 'srrsNextToken' - The token returned to indicate that there is more data available.
---
--- * 'srrsTotalCount' - The total number of rooms returned.
---
--- * 'srrsResponseStatus' - -- | The response status code.
-searchRoomsResponse ::
-  -- | 'srrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token returned to indicate that there is more data available.
+-- * 'responseStatus' - The response status code.
+-- * 'rooms' - The rooms that meet the specified set of filter criteria, in sort order.
+-- * 'totalCount' - The total number of rooms returned.
+mkSearchRoomsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SearchRoomsResponse
-searchRoomsResponse pResponseStatus_ =
+mkSearchRoomsResponse pResponseStatus_ =
   SearchRoomsResponse'
-    { _srrsRooms = Nothing,
-      _srrsNextToken = Nothing,
-      _srrsTotalCount = Nothing,
-      _srrsResponseStatus = pResponseStatus_
+    { rooms = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      totalCount = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The rooms that meet the specified set of filter criteria, in sort order.
-srrsRooms :: Lens' SearchRoomsResponse [RoomData]
-srrsRooms = lens _srrsRooms (\s a -> s {_srrsRooms = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rooms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrsRooms :: Lens.Lens' SearchRoomsResponse (Lude.Maybe [RoomData])
+srrsRooms = Lens.lens (rooms :: SearchRoomsResponse -> Lude.Maybe [RoomData]) (\s a -> s {rooms = a} :: SearchRoomsResponse)
+{-# DEPRECATED srrsRooms "Use generic-lens or generic-optics with 'rooms' instead." #-}
 
 -- | The token returned to indicate that there is more data available.
-srrsNextToken :: Lens' SearchRoomsResponse (Maybe Text)
-srrsNextToken = lens _srrsNextToken (\s a -> s {_srrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrsNextToken :: Lens.Lens' SearchRoomsResponse (Lude.Maybe Lude.Text)
+srrsNextToken = Lens.lens (nextToken :: SearchRoomsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchRoomsResponse)
+{-# DEPRECATED srrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of rooms returned.
-srrsTotalCount :: Lens' SearchRoomsResponse (Maybe Int)
-srrsTotalCount = lens _srrsTotalCount (\s a -> s {_srrsTotalCount = a})
+--
+-- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrsTotalCount :: Lens.Lens' SearchRoomsResponse (Lude.Maybe Lude.Int)
+srrsTotalCount = Lens.lens (totalCount :: SearchRoomsResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalCount = a} :: SearchRoomsResponse)
+{-# DEPRECATED srrsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
--- | -- | The response status code.
-srrsResponseStatus :: Lens' SearchRoomsResponse Int
-srrsResponseStatus = lens _srrsResponseStatus (\s a -> s {_srrsResponseStatus = a})
-
-instance NFData SearchRoomsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrsResponseStatus :: Lens.Lens' SearchRoomsResponse Lude.Int
+srrsResponseStatus = Lens.lens (responseStatus :: SearchRoomsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchRoomsResponse)
+{-# DEPRECATED srrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

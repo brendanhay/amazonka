@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.HealthStatusFilter where
+module Network.AWS.Route53AutoNaming.Types.HealthStatusFilter
+  ( HealthStatusFilter
+      ( HealthStatusFilter',
+        HSFAll,
+        HSFHealthy,
+        HSFUnhealthy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HealthStatusFilter
-  = HSFAll
-  | HSFHealthy
-  | HSFUnhealthy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HealthStatusFilter = HealthStatusFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HealthStatusFilter where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure HSFAll
-      "healthy" -> pure HSFHealthy
-      "unhealthy" -> pure HSFUnhealthy
-      e ->
-        fromTextError $
-          "Failure parsing HealthStatusFilter from value: '" <> e
-            <> "'. Accepted values: all, healthy, unhealthy"
+pattern HSFAll :: HealthStatusFilter
+pattern HSFAll = HealthStatusFilter' "ALL"
 
-instance ToText HealthStatusFilter where
-  toText = \case
-    HSFAll -> "ALL"
-    HSFHealthy -> "HEALTHY"
-    HSFUnhealthy -> "UNHEALTHY"
+pattern HSFHealthy :: HealthStatusFilter
+pattern HSFHealthy = HealthStatusFilter' "HEALTHY"
 
-instance Hashable HealthStatusFilter
+pattern HSFUnhealthy :: HealthStatusFilter
+pattern HSFUnhealthy = HealthStatusFilter' "UNHEALTHY"
 
-instance NFData HealthStatusFilter
-
-instance ToByteString HealthStatusFilter
-
-instance ToQuery HealthStatusFilter
-
-instance ToHeader HealthStatusFilter
-
-instance ToJSON HealthStatusFilter where
-  toJSON = toJSONText
+{-# COMPLETE
+  HSFAll,
+  HSFHealthy,
+  HSFUnhealthy,
+  HealthStatusFilter'
+  #-}

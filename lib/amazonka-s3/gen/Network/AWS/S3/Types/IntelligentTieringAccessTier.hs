@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.IntelligentTieringAccessTier where
+module Network.AWS.S3.Types.IntelligentTieringAccessTier
+  ( IntelligentTieringAccessTier
+      ( IntelligentTieringAccessTier',
+        ArchiveAccess,
+        DeepArchiveAccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data IntelligentTieringAccessTier
-  = ArchiveAccess
-  | DeepArchiveAccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IntelligentTieringAccessTier = IntelligentTieringAccessTier' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IntelligentTieringAccessTier where
-  parser =
-    takeLowerText >>= \case
-      "archive_access" -> pure ArchiveAccess
-      "deep_archive_access" -> pure DeepArchiveAccess
-      e ->
-        fromTextError $
-          "Failure parsing IntelligentTieringAccessTier from value: '" <> e
-            <> "'. Accepted values: archive_access, deep_archive_access"
+pattern ArchiveAccess :: IntelligentTieringAccessTier
+pattern ArchiveAccess = IntelligentTieringAccessTier' "ARCHIVE_ACCESS"
 
-instance ToText IntelligentTieringAccessTier where
-  toText = \case
-    ArchiveAccess -> "ARCHIVE_ACCESS"
-    DeepArchiveAccess -> "DEEP_ARCHIVE_ACCESS"
+pattern DeepArchiveAccess :: IntelligentTieringAccessTier
+pattern DeepArchiveAccess = IntelligentTieringAccessTier' "DEEP_ARCHIVE_ACCESS"
 
-instance Hashable IntelligentTieringAccessTier
-
-instance NFData IntelligentTieringAccessTier
-
-instance ToByteString IntelligentTieringAccessTier
-
-instance ToQuery IntelligentTieringAccessTier
-
-instance ToHeader IntelligentTieringAccessTier
-
-instance FromXML IntelligentTieringAccessTier where
-  parseXML = parseXMLText "IntelligentTieringAccessTier"
-
-instance ToXML IntelligentTieringAccessTier where
-  toXML = toXMLText
+{-# COMPLETE
+  ArchiveAccess,
+  DeepArchiveAccess,
+  IntelligentTieringAccessTier'
+  #-}

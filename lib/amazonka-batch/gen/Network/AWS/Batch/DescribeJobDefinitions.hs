@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes a list of job definitions. You can specify a @status@ (such as @ACTIVE@ ) to only return job definitions that match that status.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Batch.DescribeJobDefinitions
-  ( -- * Creating a Request
-    describeJobDefinitions,
-    DescribeJobDefinitions,
+  ( -- * Creating a request
+    DescribeJobDefinitions (..),
+    mkDescribeJobDefinitions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     djdStatus,
     djdJobDefinitionName,
     djdJobDefinitions,
     djdNextToken,
     djdMaxResults,
 
-    -- * Destructuring the Response
-    describeJobDefinitionsResponse,
-    DescribeJobDefinitionsResponse,
+    -- * Destructuring the response
+    DescribeJobDefinitionsResponse (..),
+    mkDescribeJobDefinitionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     djdrsJobDefinitions,
     djdrsNextToken,
     djdrsResponseStatus,
@@ -46,154 +39,181 @@ module Network.AWS.Batch.DescribeJobDefinitions
 where
 
 import Network.AWS.Batch.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeJobDefinitions' smart constructor.
+-- | /See:/ 'mkDescribeJobDefinitions' smart constructor.
 data DescribeJobDefinitions = DescribeJobDefinitions'
-  { _djdStatus ::
-      !(Maybe Text),
-    _djdJobDefinitionName :: !(Maybe Text),
-    _djdJobDefinitions :: !(Maybe [Text]),
-    _djdNextToken :: !(Maybe Text),
-    _djdMaxResults :: !(Maybe Int)
+  { status ::
+      Lude.Maybe Lude.Text,
+    jobDefinitionName :: Lude.Maybe Lude.Text,
+    jobDefinitions :: Lude.Maybe [Lude.Text],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobDefinitions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'djdStatus' - The status with which to filter job definitions.
---
--- * 'djdJobDefinitionName' - The name of the job definition to describe.
---
--- * 'djdJobDefinitions' - A list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.
---
--- * 'djdNextToken' - The @nextToken@ value returned from a previous paginated @DescribeJobDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
---
--- * 'djdMaxResults' - The maximum number of results returned by @DescribeJobDefinitions@ in paginated output. When this parameter is used, @DescribeJobDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
-describeJobDefinitions ::
+-- * 'jobDefinitionName' - The name of the job definition to describe.
+-- * 'jobDefinitions' - A list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.
+-- * 'maxResults' - The maximum number of results returned by @DescribeJobDefinitions@ in paginated output. When this parameter is used, @DescribeJobDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
+-- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeJobDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+-- * 'status' - The status with which to filter job definitions.
+mkDescribeJobDefinitions ::
   DescribeJobDefinitions
-describeJobDefinitions =
+mkDescribeJobDefinitions =
   DescribeJobDefinitions'
-    { _djdStatus = Nothing,
-      _djdJobDefinitionName = Nothing,
-      _djdJobDefinitions = Nothing,
-      _djdNextToken = Nothing,
-      _djdMaxResults = Nothing
+    { status = Lude.Nothing,
+      jobDefinitionName = Lude.Nothing,
+      jobDefinitions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The status with which to filter job definitions.
-djdStatus :: Lens' DescribeJobDefinitions (Maybe Text)
-djdStatus = lens _djdStatus (\s a -> s {_djdStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djdStatus :: Lens.Lens' DescribeJobDefinitions (Lude.Maybe Lude.Text)
+djdStatus = Lens.lens (status :: DescribeJobDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DescribeJobDefinitions)
+{-# DEPRECATED djdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the job definition to describe.
-djdJobDefinitionName :: Lens' DescribeJobDefinitions (Maybe Text)
-djdJobDefinitionName = lens _djdJobDefinitionName (\s a -> s {_djdJobDefinitionName = a})
+--
+-- /Note:/ Consider using 'jobDefinitionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djdJobDefinitionName :: Lens.Lens' DescribeJobDefinitions (Lude.Maybe Lude.Text)
+djdJobDefinitionName = Lens.lens (jobDefinitionName :: DescribeJobDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {jobDefinitionName = a} :: DescribeJobDefinitions)
+{-# DEPRECATED djdJobDefinitionName "Use generic-lens or generic-optics with 'jobDefinitionName' instead." #-}
 
 -- | A list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.
-djdJobDefinitions :: Lens' DescribeJobDefinitions [Text]
-djdJobDefinitions = lens _djdJobDefinitions (\s a -> s {_djdJobDefinitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djdJobDefinitions :: Lens.Lens' DescribeJobDefinitions (Lude.Maybe [Lude.Text])
+djdJobDefinitions = Lens.lens (jobDefinitions :: DescribeJobDefinitions -> Lude.Maybe [Lude.Text]) (\s a -> s {jobDefinitions = a} :: DescribeJobDefinitions)
+{-# DEPRECATED djdJobDefinitions "Use generic-lens or generic-optics with 'jobDefinitions' instead." #-}
 
 -- | The @nextToken@ value returned from a previous paginated @DescribeJobDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
-djdNextToken :: Lens' DescribeJobDefinitions (Maybe Text)
-djdNextToken = lens _djdNextToken (\s a -> s {_djdNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djdNextToken :: Lens.Lens' DescribeJobDefinitions (Lude.Maybe Lude.Text)
+djdNextToken = Lens.lens (nextToken :: DescribeJobDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeJobDefinitions)
+{-# DEPRECATED djdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results returned by @DescribeJobDefinitions@ in paginated output. When this parameter is used, @DescribeJobDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
-djdMaxResults :: Lens' DescribeJobDefinitions (Maybe Int)
-djdMaxResults = lens _djdMaxResults (\s a -> s {_djdMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djdMaxResults :: Lens.Lens' DescribeJobDefinitions (Lude.Maybe Lude.Int)
+djdMaxResults = Lens.lens (maxResults :: DescribeJobDefinitions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeJobDefinitions)
+{-# DEPRECATED djdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeJobDefinitions where
+instance Page.AWSPager DescribeJobDefinitions where
   page rq rs
-    | stop (rs ^. djdrsNextToken) = Nothing
-    | stop (rs ^. djdrsJobDefinitions) = Nothing
-    | otherwise = Just $ rq & djdNextToken .~ rs ^. djdrsNextToken
+    | Page.stop (rs Lens.^. djdrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. djdrsJobDefinitions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& djdNextToken Lens..~ rs Lens.^. djdrsNextToken
 
-instance AWSRequest DescribeJobDefinitions where
+instance Lude.AWSRequest DescribeJobDefinitions where
   type Rs DescribeJobDefinitions = DescribeJobDefinitionsResponse
-  request = postJSON batch
+  request = Req.postJSON batchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeJobDefinitionsResponse'
-            <$> (x .?> "jobDefinitions" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobDefinitions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeJobDefinitions
-
-instance NFData DescribeJobDefinitions
-
-instance ToHeaders DescribeJobDefinitions where
+instance Lude.ToHeaders DescribeJobDefinitions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON DescribeJobDefinitions where
-  toJSON DescribeJobDefinitions' {..} =
-    object
-      ( catMaybes
-          [ ("status" .=) <$> _djdStatus,
-            ("jobDefinitionName" .=) <$> _djdJobDefinitionName,
-            ("jobDefinitions" .=) <$> _djdJobDefinitions,
-            ("nextToken" .=) <$> _djdNextToken,
-            ("maxResults" .=) <$> _djdMaxResults
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath DescribeJobDefinitions where
-  toPath = const "/v1/describejobdefinitions"
+instance Lude.ToJSON DescribeJobDefinitions where
+  toJSON DescribeJobDefinitions' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("status" Lude..=) Lude.<$> status,
+            ("jobDefinitionName" Lude..=) Lude.<$> jobDefinitionName,
+            ("jobDefinitions" Lude..=) Lude.<$> jobDefinitions,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
+          ]
+      )
 
-instance ToQuery DescribeJobDefinitions where
-  toQuery = const mempty
+instance Lude.ToPath DescribeJobDefinitions where
+  toPath = Lude.const "/v1/describejobdefinitions"
 
--- | /See:/ 'describeJobDefinitionsResponse' smart constructor.
+instance Lude.ToQuery DescribeJobDefinitions where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkDescribeJobDefinitionsResponse' smart constructor.
 data DescribeJobDefinitionsResponse = DescribeJobDefinitionsResponse'
-  { _djdrsJobDefinitions ::
-      !(Maybe [JobDefinition]),
-    _djdrsNextToken ::
-      !(Maybe Text),
-    _djdrsResponseStatus :: !Int
+  { jobDefinitions ::
+      Lude.Maybe [JobDefinition],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobDefinitionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'djdrsJobDefinitions' - The list of job definitions.
---
--- * 'djdrsNextToken' - The @nextToken@ value to include in a future @DescribeJobDefinitions@ request. When the results of a @DescribeJobDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'djdrsResponseStatus' - -- | The response status code.
-describeJobDefinitionsResponse ::
-  -- | 'djdrsResponseStatus'
-  Int ->
+-- * 'jobDefinitions' - The list of job definitions.
+-- * 'nextToken' - The @nextToken@ value to include in a future @DescribeJobDefinitions@ request. When the results of a @DescribeJobDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeJobDefinitionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeJobDefinitionsResponse
-describeJobDefinitionsResponse pResponseStatus_ =
+mkDescribeJobDefinitionsResponse pResponseStatus_ =
   DescribeJobDefinitionsResponse'
-    { _djdrsJobDefinitions = Nothing,
-      _djdrsNextToken = Nothing,
-      _djdrsResponseStatus = pResponseStatus_
+    { jobDefinitions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of job definitions.
-djdrsJobDefinitions :: Lens' DescribeJobDefinitionsResponse [JobDefinition]
-djdrsJobDefinitions = lens _djdrsJobDefinitions (\s a -> s {_djdrsJobDefinitions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djdrsJobDefinitions :: Lens.Lens' DescribeJobDefinitionsResponse (Lude.Maybe [JobDefinition])
+djdrsJobDefinitions = Lens.lens (jobDefinitions :: DescribeJobDefinitionsResponse -> Lude.Maybe [JobDefinition]) (\s a -> s {jobDefinitions = a} :: DescribeJobDefinitionsResponse)
+{-# DEPRECATED djdrsJobDefinitions "Use generic-lens or generic-optics with 'jobDefinitions' instead." #-}
 
 -- | The @nextToken@ value to include in a future @DescribeJobDefinitions@ request. When the results of a @DescribeJobDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-djdrsNextToken :: Lens' DescribeJobDefinitionsResponse (Maybe Text)
-djdrsNextToken = lens _djdrsNextToken (\s a -> s {_djdrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djdrsNextToken :: Lens.Lens' DescribeJobDefinitionsResponse (Lude.Maybe Lude.Text)
+djdrsNextToken = Lens.lens (nextToken :: DescribeJobDefinitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeJobDefinitionsResponse)
+{-# DEPRECATED djdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-djdrsResponseStatus :: Lens' DescribeJobDefinitionsResponse Int
-djdrsResponseStatus = lens _djdrsResponseStatus (\s a -> s {_djdrsResponseStatus = a})
-
-instance NFData DescribeJobDefinitionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djdrsResponseStatus :: Lens.Lens' DescribeJobDefinitionsResponse Lude.Int
+djdrsResponseStatus = Lens.lens (responseStatus :: DescribeJobDefinitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeJobDefinitionsResponse)
+{-# DEPRECATED djdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

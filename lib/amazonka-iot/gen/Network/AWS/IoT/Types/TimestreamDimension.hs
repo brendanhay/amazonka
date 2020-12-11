@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TimestreamDimension where
+module Network.AWS.IoT.Types.TimestreamDimension
+  ( TimestreamDimension (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTimestreamDimension,
+
+    -- * Lenses
+    tdName,
+    tdValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Metadata attributes of the time series that are written in each measure record.
 --
---
---
--- /See:/ 'timestreamDimension' smart constructor.
+-- /See:/ 'mkTimestreamDimension' smart constructor.
 data TimestreamDimension = TimestreamDimension'
-  { _tdName :: !Text,
-    _tdValue :: !Text
+  { name :: Lude.Text,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimestreamDimension' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
 --
--- * 'tdName' - The metadata dimension name. This is the name of the column in the Amazon Timestream database table record. Dimensions cannot be named: @measure_name@ , @measure_value@ , or @time@ . These names are reserved. Dimension names cannot start with @ts_@ or @measure_value@ and they cannot contain the colon (@:@ ) character.
---
--- * 'tdValue' - The value to write in this column of the database record.
-timestreamDimension ::
-  -- | 'tdName'
-  Text ->
-  -- | 'tdValue'
-  Text ->
+-- Dimensions cannot be named: @measure_name@ , @measure_value@ , or @time@ . These names are reserved. Dimension names cannot start with @ts_@ or @measure_value@ and they cannot contain the colon (@:@ ) character.
+-- * 'value' - The value to write in this column of the database record.
+mkTimestreamDimension ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'value'
+  Lude.Text ->
   TimestreamDimension
-timestreamDimension pName_ pValue_ =
-  TimestreamDimension' {_tdName = pName_, _tdValue = pValue_}
+mkTimestreamDimension pName_ pValue_ =
+  TimestreamDimension' {name = pName_, value = pValue_}
 
--- | The metadata dimension name. This is the name of the column in the Amazon Timestream database table record. Dimensions cannot be named: @measure_name@ , @measure_value@ , or @time@ . These names are reserved. Dimension names cannot start with @ts_@ or @measure_value@ and they cannot contain the colon (@:@ ) character.
-tdName :: Lens' TimestreamDimension Text
-tdName = lens _tdName (\s a -> s {_tdName = a})
+-- | The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
+--
+-- Dimensions cannot be named: @measure_name@ , @measure_value@ , or @time@ . These names are reserved. Dimension names cannot start with @ts_@ or @measure_value@ and they cannot contain the colon (@:@ ) character.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdName :: Lens.Lens' TimestreamDimension Lude.Text
+tdName = Lens.lens (name :: TimestreamDimension -> Lude.Text) (\s a -> s {name = a} :: TimestreamDimension)
+{-# DEPRECATED tdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value to write in this column of the database record.
-tdValue :: Lens' TimestreamDimension Text
-tdValue = lens _tdValue (\s a -> s {_tdValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdValue :: Lens.Lens' TimestreamDimension Lude.Text
+tdValue = Lens.lens (value :: TimestreamDimension -> Lude.Text) (\s a -> s {value = a} :: TimestreamDimension)
+{-# DEPRECATED tdValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromJSON TimestreamDimension where
+instance Lude.FromJSON TimestreamDimension where
   parseJSON =
-    withObject
+    Lude.withObject
       "TimestreamDimension"
-      (\x -> TimestreamDimension' <$> (x .: "name") <*> (x .: "value"))
+      ( \x ->
+          TimestreamDimension'
+            Lude.<$> (x Lude..: "name") Lude.<*> (x Lude..: "value")
+      )
 
-instance Hashable TimestreamDimension
-
-instance NFData TimestreamDimension
-
-instance ToJSON TimestreamDimension where
+instance Lude.ToJSON TimestreamDimension where
   toJSON TimestreamDimension' {..} =
-    object
-      (catMaybes [Just ("name" .= _tdName), Just ("value" .= _tdValue)])
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just ("value" Lude..= value)
+          ]
+      )

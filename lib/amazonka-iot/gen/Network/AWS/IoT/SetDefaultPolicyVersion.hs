@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,109 @@
 --
 -- Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.
 module Network.AWS.IoT.SetDefaultPolicyVersion
-  ( -- * Creating a Request
-    setDefaultPolicyVersion,
-    SetDefaultPolicyVersion,
+  ( -- * Creating a request
+    SetDefaultPolicyVersion (..),
+    mkSetDefaultPolicyVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sdpvPolicyName,
     sdpvPolicyVersionId,
 
-    -- * Destructuring the Response
-    setDefaultPolicyVersionResponse,
-    SetDefaultPolicyVersionResponse,
+    -- * Destructuring the response
+    SetDefaultPolicyVersionResponse (..),
+    mkSetDefaultPolicyVersionResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the SetDefaultPolicyVersion operation.
 --
---
---
--- /See:/ 'setDefaultPolicyVersion' smart constructor.
+-- /See:/ 'mkSetDefaultPolicyVersion' smart constructor.
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
-  { _sdpvPolicyName ::
-      !Text,
-    _sdpvPolicyVersionId :: !Text
+  { policyName ::
+      Lude.Text,
+    policyVersionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDefaultPolicyVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdpvPolicyName' - The policy name.
---
--- * 'sdpvPolicyVersionId' - The policy version ID.
-setDefaultPolicyVersion ::
-  -- | 'sdpvPolicyName'
-  Text ->
-  -- | 'sdpvPolicyVersionId'
-  Text ->
+-- * 'policyName' - The policy name.
+-- * 'policyVersionId' - The policy version ID.
+mkSetDefaultPolicyVersion ::
+  -- | 'policyName'
+  Lude.Text ->
+  -- | 'policyVersionId'
+  Lude.Text ->
   SetDefaultPolicyVersion
-setDefaultPolicyVersion pPolicyName_ pPolicyVersionId_ =
+mkSetDefaultPolicyVersion pPolicyName_ pPolicyVersionId_ =
   SetDefaultPolicyVersion'
-    { _sdpvPolicyName = pPolicyName_,
-      _sdpvPolicyVersionId = pPolicyVersionId_
+    { policyName = pPolicyName_,
+      policyVersionId = pPolicyVersionId_
     }
 
 -- | The policy name.
-sdpvPolicyName :: Lens' SetDefaultPolicyVersion Text
-sdpvPolicyName = lens _sdpvPolicyName (\s a -> s {_sdpvPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdpvPolicyName :: Lens.Lens' SetDefaultPolicyVersion Lude.Text
+sdpvPolicyName = Lens.lens (policyName :: SetDefaultPolicyVersion -> Lude.Text) (\s a -> s {policyName = a} :: SetDefaultPolicyVersion)
+{-# DEPRECATED sdpvPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy version ID.
-sdpvPolicyVersionId :: Lens' SetDefaultPolicyVersion Text
-sdpvPolicyVersionId = lens _sdpvPolicyVersionId (\s a -> s {_sdpvPolicyVersionId = a})
+--
+-- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdpvPolicyVersionId :: Lens.Lens' SetDefaultPolicyVersion Lude.Text
+sdpvPolicyVersionId = Lens.lens (policyVersionId :: SetDefaultPolicyVersion -> Lude.Text) (\s a -> s {policyVersionId = a} :: SetDefaultPolicyVersion)
+{-# DEPRECATED sdpvPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
 
-instance AWSRequest SetDefaultPolicyVersion where
+instance Lude.AWSRequest SetDefaultPolicyVersion where
   type Rs SetDefaultPolicyVersion = SetDefaultPolicyVersionResponse
-  request = patchJSON ioT
-  response = receiveNull SetDefaultPolicyVersionResponse'
+  request = Req.patchJSON ioTService
+  response = Res.receiveNull SetDefaultPolicyVersionResponse'
 
-instance Hashable SetDefaultPolicyVersion
+instance Lude.ToHeaders SetDefaultPolicyVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetDefaultPolicyVersion
+instance Lude.ToJSON SetDefaultPolicyVersion where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToHeaders SetDefaultPolicyVersion where
-  toHeaders = const mempty
-
-instance ToJSON SetDefaultPolicyVersion where
-  toJSON = const (Object mempty)
-
-instance ToPath SetDefaultPolicyVersion where
+instance Lude.ToPath SetDefaultPolicyVersion where
   toPath SetDefaultPolicyVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/policies/",
-        toBS _sdpvPolicyName,
+        Lude.toBS policyName,
         "/version/",
-        toBS _sdpvPolicyVersionId
+        Lude.toBS policyVersionId
       ]
 
-instance ToQuery SetDefaultPolicyVersion where
-  toQuery = const mempty
+instance Lude.ToQuery SetDefaultPolicyVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'setDefaultPolicyVersionResponse' smart constructor.
+-- | /See:/ 'mkSetDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDefaultPolicyVersionResponse' with the minimum fields required to make a request.
-setDefaultPolicyVersionResponse ::
+mkSetDefaultPolicyVersionResponse ::
   SetDefaultPolicyVersionResponse
-setDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
-
-instance NFData SetDefaultPolicyVersionResponse
+mkSetDefaultPolicyVersionResponse =
+  SetDefaultPolicyVersionResponse'

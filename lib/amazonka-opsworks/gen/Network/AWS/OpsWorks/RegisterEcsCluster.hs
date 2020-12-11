@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,155 @@
 --
 -- Registers a specified Amazon ECS cluster with a stack. You can register only one cluster with a stack. A cluster can be registered with only one stack. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.RegisterEcsCluster
-  ( -- * Creating a Request
-    registerEcsCluster,
-    RegisterEcsCluster,
+  ( -- * Creating a request
+    RegisterEcsCluster (..),
+    mkRegisterEcsCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     recEcsClusterARN,
     recStackId,
 
-    -- * Destructuring the Response
-    registerEcsClusterResponse,
-    RegisterEcsClusterResponse,
+    -- * Destructuring the response
+    RegisterEcsClusterResponse (..),
+    mkRegisterEcsClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     recrsEcsClusterARN,
     recrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'registerEcsCluster' smart constructor.
+-- | /See:/ 'mkRegisterEcsCluster' smart constructor.
 data RegisterEcsCluster = RegisterEcsCluster'
-  { _recEcsClusterARN ::
-      !Text,
-    _recStackId :: !Text
+  { ecsClusterARN ::
+      Lude.Text,
+    stackId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterEcsCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'recEcsClusterARN' - The cluster's ARN.
---
--- * 'recStackId' - The stack ID.
-registerEcsCluster ::
-  -- | 'recEcsClusterARN'
-  Text ->
-  -- | 'recStackId'
-  Text ->
+-- * 'ecsClusterARN' - The cluster's ARN.
+-- * 'stackId' - The stack ID.
+mkRegisterEcsCluster ::
+  -- | 'ecsClusterARN'
+  Lude.Text ->
+  -- | 'stackId'
+  Lude.Text ->
   RegisterEcsCluster
-registerEcsCluster pEcsClusterARN_ pStackId_ =
+mkRegisterEcsCluster pEcsClusterARN_ pStackId_ =
   RegisterEcsCluster'
-    { _recEcsClusterARN = pEcsClusterARN_,
-      _recStackId = pStackId_
+    { ecsClusterARN = pEcsClusterARN_,
+      stackId = pStackId_
     }
 
 -- | The cluster's ARN.
-recEcsClusterARN :: Lens' RegisterEcsCluster Text
-recEcsClusterARN = lens _recEcsClusterARN (\s a -> s {_recEcsClusterARN = a})
+--
+-- /Note:/ Consider using 'ecsClusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+recEcsClusterARN :: Lens.Lens' RegisterEcsCluster Lude.Text
+recEcsClusterARN = Lens.lens (ecsClusterARN :: RegisterEcsCluster -> Lude.Text) (\s a -> s {ecsClusterARN = a} :: RegisterEcsCluster)
+{-# DEPRECATED recEcsClusterARN "Use generic-lens or generic-optics with 'ecsClusterARN' instead." #-}
 
 -- | The stack ID.
-recStackId :: Lens' RegisterEcsCluster Text
-recStackId = lens _recStackId (\s a -> s {_recStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+recStackId :: Lens.Lens' RegisterEcsCluster Lude.Text
+recStackId = Lens.lens (stackId :: RegisterEcsCluster -> Lude.Text) (\s a -> s {stackId = a} :: RegisterEcsCluster)
+{-# DEPRECATED recStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest RegisterEcsCluster where
+instance Lude.AWSRequest RegisterEcsCluster where
   type Rs RegisterEcsCluster = RegisterEcsClusterResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterEcsClusterResponse'
-            <$> (x .?> "EcsClusterArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EcsClusterArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterEcsCluster
-
-instance NFData RegisterEcsCluster
-
-instance ToHeaders RegisterEcsCluster where
+instance Lude.ToHeaders RegisterEcsCluster where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.RegisterEcsCluster" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.RegisterEcsCluster" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterEcsCluster where
+instance Lude.ToJSON RegisterEcsCluster where
   toJSON RegisterEcsCluster' {..} =
-    object
-      ( catMaybes
-          [ Just ("EcsClusterArn" .= _recEcsClusterARN),
-            Just ("StackId" .= _recStackId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("EcsClusterArn" Lude..= ecsClusterARN),
+            Lude.Just ("StackId" Lude..= stackId)
           ]
       )
 
-instance ToPath RegisterEcsCluster where
-  toPath = const "/"
+instance Lude.ToPath RegisterEcsCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterEcsCluster where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterEcsCluster where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @RegisterEcsCluster@ request.
 --
---
---
--- /See:/ 'registerEcsClusterResponse' smart constructor.
+-- /See:/ 'mkRegisterEcsClusterResponse' smart constructor.
 data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
-  { _recrsEcsClusterARN ::
-      !(Maybe Text),
-    _recrsResponseStatus :: !Int
+  { ecsClusterARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterEcsClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'recrsEcsClusterARN' - The cluster's ARN.
---
--- * 'recrsResponseStatus' - -- | The response status code.
-registerEcsClusterResponse ::
-  -- | 'recrsResponseStatus'
-  Int ->
+-- * 'ecsClusterARN' - The cluster's ARN.
+-- * 'responseStatus' - The response status code.
+mkRegisterEcsClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterEcsClusterResponse
-registerEcsClusterResponse pResponseStatus_ =
+mkRegisterEcsClusterResponse pResponseStatus_ =
   RegisterEcsClusterResponse'
-    { _recrsEcsClusterARN = Nothing,
-      _recrsResponseStatus = pResponseStatus_
+    { ecsClusterARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The cluster's ARN.
-recrsEcsClusterARN :: Lens' RegisterEcsClusterResponse (Maybe Text)
-recrsEcsClusterARN = lens _recrsEcsClusterARN (\s a -> s {_recrsEcsClusterARN = a})
+--
+-- /Note:/ Consider using 'ecsClusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+recrsEcsClusterARN :: Lens.Lens' RegisterEcsClusterResponse (Lude.Maybe Lude.Text)
+recrsEcsClusterARN = Lens.lens (ecsClusterARN :: RegisterEcsClusterResponse -> Lude.Maybe Lude.Text) (\s a -> s {ecsClusterARN = a} :: RegisterEcsClusterResponse)
+{-# DEPRECATED recrsEcsClusterARN "Use generic-lens or generic-optics with 'ecsClusterARN' instead." #-}
 
--- | -- | The response status code.
-recrsResponseStatus :: Lens' RegisterEcsClusterResponse Int
-recrsResponseStatus = lens _recrsResponseStatus (\s a -> s {_recrsResponseStatus = a})
-
-instance NFData RegisterEcsClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+recrsResponseStatus :: Lens.Lens' RegisterEcsClusterResponse Lude.Int
+recrsResponseStatus = Lens.lens (responseStatus :: RegisterEcsClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterEcsClusterResponse)
+{-# DEPRECATED recrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

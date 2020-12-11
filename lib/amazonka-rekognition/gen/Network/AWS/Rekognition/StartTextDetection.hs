@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,169 +14,187 @@
 --
 -- Starts asynchronous detection of text in a stored video.
 --
---
 -- Amazon Rekognition Video can detect text in a video stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartTextDetection@ returns a job identifier (@JobId@ ) which you use to get the results of the operation. When text detection is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ .
---
 -- To get the results of the text detection operation, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . if so, call 'GetTextDetection' and pass the job identifier (@JobId@ ) from the initial call to @StartTextDetection@ .
 module Network.AWS.Rekognition.StartTextDetection
-  ( -- * Creating a Request
-    startTextDetection,
-    StartTextDetection,
+  ( -- * Creating a request
+    StartTextDetection (..),
+    mkStartTextDetection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stdJobTag,
     stdFilters,
     stdNotificationChannel,
     stdClientRequestToken,
     stdVideo,
 
-    -- * Destructuring the Response
-    startTextDetectionResponse,
-    StartTextDetectionResponse,
+    -- * Destructuring the response
+    StartTextDetectionResponse (..),
+    mkStartTextDetectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     stdrsJobId,
     stdrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startTextDetection' smart constructor.
+-- | /See:/ 'mkStartTextDetection' smart constructor.
 data StartTextDetection = StartTextDetection'
-  { _stdJobTag ::
-      !(Maybe Text),
-    _stdFilters :: !(Maybe StartTextDetectionFilters),
-    _stdNotificationChannel ::
-      !(Maybe NotificationChannel),
-    _stdClientRequestToken :: !(Maybe Text),
-    _stdVideo :: !Video
+  { jobTag ::
+      Lude.Maybe Lude.Text,
+    filters :: Lude.Maybe StartTextDetectionFilters,
+    notificationChannel :: Lude.Maybe NotificationChannel,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    video :: Video
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTextDetection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stdJobTag' - An identifier returned in the completion status published by your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
---
--- * 'stdFilters' - Optional parameters that let you set criteria the text must meet to be included in your response.
---
--- * 'stdNotificationChannel' - Undocumented member.
---
--- * 'stdClientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartTextDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidentaly started more than once.
---
--- * 'stdVideo' - Undocumented member.
-startTextDetection ::
-  -- | 'stdVideo'
+-- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartTextDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidentaly started more than once.
+-- * 'filters' - Optional parameters that let you set criteria the text must meet to be included in your response.
+-- * 'jobTag' - An identifier returned in the completion status published by your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+-- * 'notificationChannel' - Undocumented field.
+-- * 'video' - Undocumented field.
+mkStartTextDetection ::
+  -- | 'video'
   Video ->
   StartTextDetection
-startTextDetection pVideo_ =
+mkStartTextDetection pVideo_ =
   StartTextDetection'
-    { _stdJobTag = Nothing,
-      _stdFilters = Nothing,
-      _stdNotificationChannel = Nothing,
-      _stdClientRequestToken = Nothing,
-      _stdVideo = pVideo_
+    { jobTag = Lude.Nothing,
+      filters = Lude.Nothing,
+      notificationChannel = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
+      video = pVideo_
     }
 
 -- | An identifier returned in the completion status published by your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
-stdJobTag :: Lens' StartTextDetection (Maybe Text)
-stdJobTag = lens _stdJobTag (\s a -> s {_stdJobTag = a})
+--
+-- /Note:/ Consider using 'jobTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdJobTag :: Lens.Lens' StartTextDetection (Lude.Maybe Lude.Text)
+stdJobTag = Lens.lens (jobTag :: StartTextDetection -> Lude.Maybe Lude.Text) (\s a -> s {jobTag = a} :: StartTextDetection)
+{-# DEPRECATED stdJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
 
 -- | Optional parameters that let you set criteria the text must meet to be included in your response.
-stdFilters :: Lens' StartTextDetection (Maybe StartTextDetectionFilters)
-stdFilters = lens _stdFilters (\s a -> s {_stdFilters = a})
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdFilters :: Lens.Lens' StartTextDetection (Lude.Maybe StartTextDetectionFilters)
+stdFilters = Lens.lens (filters :: StartTextDetection -> Lude.Maybe StartTextDetectionFilters) (\s a -> s {filters = a} :: StartTextDetection)
+{-# DEPRECATED stdFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | Undocumented member.
-stdNotificationChannel :: Lens' StartTextDetection (Maybe NotificationChannel)
-stdNotificationChannel = lens _stdNotificationChannel (\s a -> s {_stdNotificationChannel = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdNotificationChannel :: Lens.Lens' StartTextDetection (Lude.Maybe NotificationChannel)
+stdNotificationChannel = Lens.lens (notificationChannel :: StartTextDetection -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartTextDetection)
+{-# DEPRECATED stdNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
 
 -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartTextDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidentaly started more than once.
-stdClientRequestToken :: Lens' StartTextDetection (Maybe Text)
-stdClientRequestToken = lens _stdClientRequestToken (\s a -> s {_stdClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdClientRequestToken :: Lens.Lens' StartTextDetection (Lude.Maybe Lude.Text)
+stdClientRequestToken = Lens.lens (clientRequestToken :: StartTextDetection -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartTextDetection)
+{-# DEPRECATED stdClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
--- | Undocumented member.
-stdVideo :: Lens' StartTextDetection Video
-stdVideo = lens _stdVideo (\s a -> s {_stdVideo = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdVideo :: Lens.Lens' StartTextDetection Video
+stdVideo = Lens.lens (video :: StartTextDetection -> Video) (\s a -> s {video = a} :: StartTextDetection)
+{-# DEPRECATED stdVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
-instance AWSRequest StartTextDetection where
+instance Lude.AWSRequest StartTextDetection where
   type Rs StartTextDetection = StartTextDetectionResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartTextDetectionResponse'
-            <$> (x .?> "JobId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartTextDetection
-
-instance NFData StartTextDetection
-
-instance ToHeaders StartTextDetection where
+instance Lude.ToHeaders StartTextDetection where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.StartTextDetection" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.StartTextDetection" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartTextDetection where
+instance Lude.ToJSON StartTextDetection where
   toJSON StartTextDetection' {..} =
-    object
-      ( catMaybes
-          [ ("JobTag" .=) <$> _stdJobTag,
-            ("Filters" .=) <$> _stdFilters,
-            ("NotificationChannel" .=) <$> _stdNotificationChannel,
-            ("ClientRequestToken" .=) <$> _stdClientRequestToken,
-            Just ("Video" .= _stdVideo)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("JobTag" Lude..=) Lude.<$> jobTag,
+            ("Filters" Lude..=) Lude.<$> filters,
+            ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("Video" Lude..= video)
           ]
       )
 
-instance ToPath StartTextDetection where
-  toPath = const "/"
+instance Lude.ToPath StartTextDetection where
+  toPath = Lude.const "/"
 
-instance ToQuery StartTextDetection where
-  toQuery = const mempty
+instance Lude.ToQuery StartTextDetection where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startTextDetectionResponse' smart constructor.
+-- | /See:/ 'mkStartTextDetectionResponse' smart constructor.
 data StartTextDetectionResponse = StartTextDetectionResponse'
-  { _stdrsJobId ::
-      !(Maybe Text),
-    _stdrsResponseStatus :: !Int
+  { jobId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTextDetectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stdrsJobId' - Identifier for the text detection job. Use @JobId@ to identify the job in a subsequent call to @GetTextDetection@ .
---
--- * 'stdrsResponseStatus' - -- | The response status code.
-startTextDetectionResponse ::
-  -- | 'stdrsResponseStatus'
-  Int ->
+-- * 'jobId' - Identifier for the text detection job. Use @JobId@ to identify the job in a subsequent call to @GetTextDetection@ .
+-- * 'responseStatus' - The response status code.
+mkStartTextDetectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartTextDetectionResponse
-startTextDetectionResponse pResponseStatus_ =
+mkStartTextDetectionResponse pResponseStatus_ =
   StartTextDetectionResponse'
-    { _stdrsJobId = Nothing,
-      _stdrsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Identifier for the text detection job. Use @JobId@ to identify the job in a subsequent call to @GetTextDetection@ .
-stdrsJobId :: Lens' StartTextDetectionResponse (Maybe Text)
-stdrsJobId = lens _stdrsJobId (\s a -> s {_stdrsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdrsJobId :: Lens.Lens' StartTextDetectionResponse (Lude.Maybe Lude.Text)
+stdrsJobId = Lens.lens (jobId :: StartTextDetectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartTextDetectionResponse)
+{-# DEPRECATED stdrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | -- | The response status code.
-stdrsResponseStatus :: Lens' StartTextDetectionResponse Int
-stdrsResponseStatus = lens _stdrsResponseStatus (\s a -> s {_stdrsResponseStatus = a})
-
-instance NFData StartTextDetectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdrsResponseStatus :: Lens.Lens' StartTextDetectionResponse Lude.Int
+stdrsResponseStatus = Lens.lens (responseStatus :: StartTextDetectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartTextDetectionResponse)
+{-# DEPRECATED stdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

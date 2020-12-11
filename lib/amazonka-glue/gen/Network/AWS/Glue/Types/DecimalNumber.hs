@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.DecimalNumber where
+module Network.AWS.Glue.Types.DecimalNumber
+  ( DecimalNumber (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDecimalNumber,
+
+    -- * Lenses
+    dnUnscaledValue,
+    dnScale,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains a numeric value in decimal format.
 --
---
---
--- /See:/ 'decimalNumber' smart constructor.
+-- /See:/ 'mkDecimalNumber' smart constructor.
 data DecimalNumber = DecimalNumber'
-  { _dnUnscaledValue :: !Base64,
-    _dnScale :: !Int
+  { unscaledValue :: Lude.Base64,
+    scale :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DecimalNumber' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnUnscaledValue' - The unscaled numeric value.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
---
--- * 'dnScale' - The scale that determines where the decimal point falls in the unscaled value.
-decimalNumber ::
-  -- | 'dnUnscaledValue'
-  ByteString ->
-  -- | 'dnScale'
-  Int ->
+-- * 'scale' - The scale that determines where the decimal point falls in the unscaled value.
+-- * 'unscaledValue' - The unscaled numeric value.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+mkDecimalNumber ::
+  -- | 'unscaledValue'
+  Lude.Base64 ->
+  -- | 'scale'
+  Lude.Int ->
   DecimalNumber
-decimalNumber pUnscaledValue_ pScale_ =
-  DecimalNumber'
-    { _dnUnscaledValue = _Base64 # pUnscaledValue_,
-      _dnScale = pScale_
-    }
+mkDecimalNumber pUnscaledValue_ pScale_ =
+  DecimalNumber' {unscaledValue = pUnscaledValue_, scale = pScale_}
 
--- | The unscaled numeric value.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-dnUnscaledValue :: Lens' DecimalNumber ByteString
-dnUnscaledValue = lens _dnUnscaledValue (\s a -> s {_dnUnscaledValue = a}) . _Base64
+-- | The unscaled numeric value.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'unscaledValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnUnscaledValue :: Lens.Lens' DecimalNumber Lude.Base64
+dnUnscaledValue = Lens.lens (unscaledValue :: DecimalNumber -> Lude.Base64) (\s a -> s {unscaledValue = a} :: DecimalNumber)
+{-# DEPRECATED dnUnscaledValue "Use generic-lens or generic-optics with 'unscaledValue' instead." #-}
 
 -- | The scale that determines where the decimal point falls in the unscaled value.
-dnScale :: Lens' DecimalNumber Int
-dnScale = lens _dnScale (\s a -> s {_dnScale = a})
+--
+-- /Note:/ Consider using 'scale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnScale :: Lens.Lens' DecimalNumber Lude.Int
+dnScale = Lens.lens (scale :: DecimalNumber -> Lude.Int) (\s a -> s {scale = a} :: DecimalNumber)
+{-# DEPRECATED dnScale "Use generic-lens or generic-optics with 'scale' instead." #-}
 
-instance FromJSON DecimalNumber where
+instance Lude.FromJSON DecimalNumber where
   parseJSON =
-    withObject
+    Lude.withObject
       "DecimalNumber"
       ( \x ->
-          DecimalNumber' <$> (x .: "UnscaledValue") <*> (x .: "Scale")
+          DecimalNumber'
+            Lude.<$> (x Lude..: "UnscaledValue") Lude.<*> (x Lude..: "Scale")
       )
 
-instance Hashable DecimalNumber
-
-instance NFData DecimalNumber
-
-instance ToJSON DecimalNumber where
+instance Lude.ToJSON DecimalNumber where
   toJSON DecimalNumber' {..} =
-    object
-      ( catMaybes
-          [ Just ("UnscaledValue" .= _dnUnscaledValue),
-            Just ("Scale" .= _dnScale)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UnscaledValue" Lude..= unscaledValue),
+            Lude.Just ("Scale" Lude..= scale)
           ]
       )

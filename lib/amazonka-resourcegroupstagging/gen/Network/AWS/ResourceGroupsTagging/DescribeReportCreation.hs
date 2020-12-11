@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,17 @@
 --
 -- Describes the status of the @StartReportCreation@ operation.
 --
---
 -- You can call this operation only from the organization's master account and from the us-east-1 Region.
 module Network.AWS.ResourceGroupsTagging.DescribeReportCreation
-  ( -- * Creating a Request
-    describeReportCreation,
-    DescribeReportCreation,
+  ( -- * Creating a request
+    DescribeReportCreation (..),
+    mkDescribeReportCreation,
 
-    -- * Destructuring the Response
-    describeReportCreationResponse,
-    DescribeReportCreationResponse,
+    -- * Destructuring the response
+    DescribeReportCreationResponse (..),
+    mkDescribeReportCreationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drcrsStatus,
     drcrsS3Location,
     drcrsErrorMessage,
@@ -38,108 +32,152 @@ module Network.AWS.ResourceGroupsTagging.DescribeReportCreation
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroupsTagging.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeReportCreation' smart constructor.
+-- | /See:/ 'mkDescribeReportCreation' smart constructor.
 data DescribeReportCreation = DescribeReportCreation'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReportCreation' with the minimum fields required to make a request.
-describeReportCreation ::
+mkDescribeReportCreation ::
   DescribeReportCreation
-describeReportCreation = DescribeReportCreation'
+mkDescribeReportCreation = DescribeReportCreation'
 
-instance AWSRequest DescribeReportCreation where
+instance Lude.AWSRequest DescribeReportCreation where
   type Rs DescribeReportCreation = DescribeReportCreationResponse
-  request = postJSON resourceGroupsTagging
+  request = Req.postJSON resourceGroupsTaggingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeReportCreationResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "S3Location")
-            <*> (x .?> "ErrorMessage")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "S3Location")
+            Lude.<*> (x Lude..?> "ErrorMessage")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeReportCreation
-
-instance NFData DescribeReportCreation
-
-instance ToHeaders DescribeReportCreation where
+instance Lude.ToHeaders DescribeReportCreation where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeReportCreation where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeReportCreation where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeReportCreation where
-  toPath = const "/"
+instance Lude.ToPath DescribeReportCreation where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeReportCreation where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeReportCreation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeReportCreationResponse' smart constructor.
+-- | /See:/ 'mkDescribeReportCreationResponse' smart constructor.
 data DescribeReportCreationResponse = DescribeReportCreationResponse'
-  { _drcrsStatus ::
-      !(Maybe Text),
-    _drcrsS3Location ::
-      !(Maybe Text),
-    _drcrsErrorMessage ::
-      !(Maybe Text),
-    _drcrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe Lude.Text,
+    s3Location ::
+      Lude.Maybe Lude.Text,
+    errorMessage ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReportCreationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'errorMessage' - Details of the common errors that all operations return.
+-- * 'responseStatus' - The response status code.
+-- * 's3Location' - The path to the Amazon S3 bucket where the report was stored on creation.
+-- * 'status' - Reports the status of the operation.
 --
--- * 'drcrsStatus' - Reports the status of the operation. The operation status can be one of the following:     * @RUNNING@ - Report creation is in progress.     * @SUCCEEDED@ - Report creation is complete. You can open the report from the Amazon S3 bucket that you specified when you ran @StartReportCreation@ .     * @FAILED@ - Report creation timed out or the Amazon S3 bucket is not accessible.      * @NO REPORT@ - No report was generated in the last 90 days.
+-- The operation status can be one of the following:
 --
--- * 'drcrsS3Location' - The path to the Amazon S3 bucket where the report was stored on creation.
+--     * @RUNNING@ - Report creation is in progress.
 --
--- * 'drcrsErrorMessage' - Details of the common errors that all operations return.
 --
--- * 'drcrsResponseStatus' - -- | The response status code.
-describeReportCreationResponse ::
-  -- | 'drcrsResponseStatus'
-  Int ->
+--     * @SUCCEEDED@ - Report creation is complete. You can open the report from the Amazon S3 bucket that you specified when you ran @StartReportCreation@ .
+--
+--
+--     * @FAILED@ - Report creation timed out or the Amazon S3 bucket is not accessible.
+--
+--
+--     * @NO REPORT@ - No report was generated in the last 90 days.
+mkDescribeReportCreationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeReportCreationResponse
-describeReportCreationResponse pResponseStatus_ =
+mkDescribeReportCreationResponse pResponseStatus_ =
   DescribeReportCreationResponse'
-    { _drcrsStatus = Nothing,
-      _drcrsS3Location = Nothing,
-      _drcrsErrorMessage = Nothing,
-      _drcrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      s3Location = Lude.Nothing,
+      errorMessage = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Reports the status of the operation. The operation status can be one of the following:     * @RUNNING@ - Report creation is in progress.     * @SUCCEEDED@ - Report creation is complete. You can open the report from the Amazon S3 bucket that you specified when you ran @StartReportCreation@ .     * @FAILED@ - Report creation timed out or the Amazon S3 bucket is not accessible.      * @NO REPORT@ - No report was generated in the last 90 days.
-drcrsStatus :: Lens' DescribeReportCreationResponse (Maybe Text)
-drcrsStatus = lens _drcrsStatus (\s a -> s {_drcrsStatus = a})
+-- | Reports the status of the operation.
+--
+-- The operation status can be one of the following:
+--
+--     * @RUNNING@ - Report creation is in progress.
+--
+--
+--     * @SUCCEEDED@ - Report creation is complete. You can open the report from the Amazon S3 bucket that you specified when you ran @StartReportCreation@ .
+--
+--
+--     * @FAILED@ - Report creation timed out or the Amazon S3 bucket is not accessible.
+--
+--
+--     * @NO REPORT@ - No report was generated in the last 90 days.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcrsStatus :: Lens.Lens' DescribeReportCreationResponse (Lude.Maybe Lude.Text)
+drcrsStatus = Lens.lens (status :: DescribeReportCreationResponse -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DescribeReportCreationResponse)
+{-# DEPRECATED drcrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The path to the Amazon S3 bucket where the report was stored on creation.
-drcrsS3Location :: Lens' DescribeReportCreationResponse (Maybe Text)
-drcrsS3Location = lens _drcrsS3Location (\s a -> s {_drcrsS3Location = a})
+--
+-- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcrsS3Location :: Lens.Lens' DescribeReportCreationResponse (Lude.Maybe Lude.Text)
+drcrsS3Location = Lens.lens (s3Location :: DescribeReportCreationResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3Location = a} :: DescribeReportCreationResponse)
+{-# DEPRECATED drcrsS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
 -- | Details of the common errors that all operations return.
-drcrsErrorMessage :: Lens' DescribeReportCreationResponse (Maybe Text)
-drcrsErrorMessage = lens _drcrsErrorMessage (\s a -> s {_drcrsErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcrsErrorMessage :: Lens.Lens' DescribeReportCreationResponse (Lude.Maybe Lude.Text)
+drcrsErrorMessage = Lens.lens (errorMessage :: DescribeReportCreationResponse -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: DescribeReportCreationResponse)
+{-# DEPRECATED drcrsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
--- | -- | The response status code.
-drcrsResponseStatus :: Lens' DescribeReportCreationResponse Int
-drcrsResponseStatus = lens _drcrsResponseStatus (\s a -> s {_drcrsResponseStatus = a})
-
-instance NFData DescribeReportCreationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcrsResponseStatus :: Lens.Lens' DescribeReportCreationResponse Lude.Int
+drcrsResponseStatus = Lens.lens (responseStatus :: DescribeReportCreationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReportCreationResponse)
+{-# DEPRECATED drcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

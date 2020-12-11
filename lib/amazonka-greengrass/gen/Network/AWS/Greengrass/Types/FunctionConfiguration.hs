@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,116 +7,147 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.FunctionConfiguration where
+module Network.AWS.Greengrass.Types.FunctionConfiguration
+  ( FunctionConfiguration (..),
+
+    -- * Smart constructor
+    mkFunctionConfiguration,
+
+    -- * Lenses
+    fcMemorySize,
+    fcExecArgs,
+    fcEnvironment,
+    fcExecutable,
+    fcPinned,
+    fcEncodingType,
+    fcTimeout,
+  )
+where
 
 import Network.AWS.Greengrass.Types.EncodingType
 import Network.AWS.Greengrass.Types.FunctionConfigurationEnvironment
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The configuration of the Lambda function.
 --
--- /See:/ 'functionConfiguration' smart constructor.
+-- /See:/ 'mkFunctionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { _fcMemorySize ::
-      !(Maybe Int),
-    _fcExecArgs :: !(Maybe Text),
-    _fcEnvironment ::
-      !(Maybe FunctionConfigurationEnvironment),
-    _fcExecutable :: !(Maybe Text),
-    _fcPinned :: !(Maybe Bool),
-    _fcEncodingType :: !(Maybe EncodingType),
-    _fcTimeout :: !(Maybe Int)
+  { memorySize ::
+      Lude.Maybe Lude.Int,
+    execArgs :: Lude.Maybe Lude.Text,
+    environment ::
+      Lude.Maybe FunctionConfigurationEnvironment,
+    executable :: Lude.Maybe Lude.Text,
+    pinned :: Lude.Maybe Lude.Bool,
+    encodingType :: Lude.Maybe EncodingType,
+    timeout :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fcMemorySize' - The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization.
---
--- * 'fcExecArgs' - The execution arguments.
---
--- * 'fcEnvironment' - The environment configuration of the function.
---
--- * 'fcExecutable' - The name of the function executable.
---
--- * 'fcPinned' - True if the function is pinned. Pinned means the function is long-lived and starts when the core starts.
---
--- * 'fcEncodingType' - The expected encoding type of the input payload for the function. The default is ''json''.
---
--- * 'fcTimeout' - The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.
-functionConfiguration ::
+-- * 'encodingType' - The expected encoding type of the input payload for the function. The default is ''json''.
+-- * 'environment' - The environment configuration of the function.
+-- * 'execArgs' - The execution arguments.
+-- * 'executable' - The name of the function executable.
+-- * 'memorySize' - The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization.
+-- * 'pinned' - True if the function is pinned. Pinned means the function is long-lived and starts when the core starts.
+-- * 'timeout' - The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.
+mkFunctionConfiguration ::
   FunctionConfiguration
-functionConfiguration =
+mkFunctionConfiguration =
   FunctionConfiguration'
-    { _fcMemorySize = Nothing,
-      _fcExecArgs = Nothing,
-      _fcEnvironment = Nothing,
-      _fcExecutable = Nothing,
-      _fcPinned = Nothing,
-      _fcEncodingType = Nothing,
-      _fcTimeout = Nothing
+    { memorySize = Lude.Nothing,
+      execArgs = Lude.Nothing,
+      environment = Lude.Nothing,
+      executable = Lude.Nothing,
+      pinned = Lude.Nothing,
+      encodingType = Lude.Nothing,
+      timeout = Lude.Nothing
     }
 
 -- | The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization.
-fcMemorySize :: Lens' FunctionConfiguration (Maybe Int)
-fcMemorySize = lens _fcMemorySize (\s a -> s {_fcMemorySize = a})
+--
+-- /Note:/ Consider using 'memorySize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcMemorySize :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Int)
+fcMemorySize = Lens.lens (memorySize :: FunctionConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {memorySize = a} :: FunctionConfiguration)
+{-# DEPRECATED fcMemorySize "Use generic-lens or generic-optics with 'memorySize' instead." #-}
 
 -- | The execution arguments.
-fcExecArgs :: Lens' FunctionConfiguration (Maybe Text)
-fcExecArgs = lens _fcExecArgs (\s a -> s {_fcExecArgs = a})
+--
+-- /Note:/ Consider using 'execArgs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcExecArgs :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
+fcExecArgs = Lens.lens (execArgs :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {execArgs = a} :: FunctionConfiguration)
+{-# DEPRECATED fcExecArgs "Use generic-lens or generic-optics with 'execArgs' instead." #-}
 
 -- | The environment configuration of the function.
-fcEnvironment :: Lens' FunctionConfiguration (Maybe FunctionConfigurationEnvironment)
-fcEnvironment = lens _fcEnvironment (\s a -> s {_fcEnvironment = a})
+--
+-- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcEnvironment :: Lens.Lens' FunctionConfiguration (Lude.Maybe FunctionConfigurationEnvironment)
+fcEnvironment = Lens.lens (environment :: FunctionConfiguration -> Lude.Maybe FunctionConfigurationEnvironment) (\s a -> s {environment = a} :: FunctionConfiguration)
+{-# DEPRECATED fcEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
 
 -- | The name of the function executable.
-fcExecutable :: Lens' FunctionConfiguration (Maybe Text)
-fcExecutable = lens _fcExecutable (\s a -> s {_fcExecutable = a})
+--
+-- /Note:/ Consider using 'executable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcExecutable :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Text)
+fcExecutable = Lens.lens (executable :: FunctionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {executable = a} :: FunctionConfiguration)
+{-# DEPRECATED fcExecutable "Use generic-lens or generic-optics with 'executable' instead." #-}
 
 -- | True if the function is pinned. Pinned means the function is long-lived and starts when the core starts.
-fcPinned :: Lens' FunctionConfiguration (Maybe Bool)
-fcPinned = lens _fcPinned (\s a -> s {_fcPinned = a})
+--
+-- /Note:/ Consider using 'pinned' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcPinned :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Bool)
+fcPinned = Lens.lens (pinned :: FunctionConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {pinned = a} :: FunctionConfiguration)
+{-# DEPRECATED fcPinned "Use generic-lens or generic-optics with 'pinned' instead." #-}
 
 -- | The expected encoding type of the input payload for the function. The default is ''json''.
-fcEncodingType :: Lens' FunctionConfiguration (Maybe EncodingType)
-fcEncodingType = lens _fcEncodingType (\s a -> s {_fcEncodingType = a})
+--
+-- /Note:/ Consider using 'encodingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcEncodingType :: Lens.Lens' FunctionConfiguration (Lude.Maybe EncodingType)
+fcEncodingType = Lens.lens (encodingType :: FunctionConfiguration -> Lude.Maybe EncodingType) (\s a -> s {encodingType = a} :: FunctionConfiguration)
+{-# DEPRECATED fcEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
 
 -- | The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.
-fcTimeout :: Lens' FunctionConfiguration (Maybe Int)
-fcTimeout = lens _fcTimeout (\s a -> s {_fcTimeout = a})
+--
+-- /Note:/ Consider using 'timeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcTimeout :: Lens.Lens' FunctionConfiguration (Lude.Maybe Lude.Int)
+fcTimeout = Lens.lens (timeout :: FunctionConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {timeout = a} :: FunctionConfiguration)
+{-# DEPRECATED fcTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
-instance FromJSON FunctionConfiguration where
+instance Lude.FromJSON FunctionConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "FunctionConfiguration"
       ( \x ->
           FunctionConfiguration'
-            <$> (x .:? "MemorySize")
-            <*> (x .:? "ExecArgs")
-            <*> (x .:? "Environment")
-            <*> (x .:? "Executable")
-            <*> (x .:? "Pinned")
-            <*> (x .:? "EncodingType")
-            <*> (x .:? "Timeout")
+            Lude.<$> (x Lude..:? "MemorySize")
+            Lude.<*> (x Lude..:? "ExecArgs")
+            Lude.<*> (x Lude..:? "Environment")
+            Lude.<*> (x Lude..:? "Executable")
+            Lude.<*> (x Lude..:? "Pinned")
+            Lude.<*> (x Lude..:? "EncodingType")
+            Lude.<*> (x Lude..:? "Timeout")
       )
 
-instance Hashable FunctionConfiguration
-
-instance NFData FunctionConfiguration
-
-instance ToJSON FunctionConfiguration where
+instance Lude.ToJSON FunctionConfiguration where
   toJSON FunctionConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("MemorySize" .=) <$> _fcMemorySize,
-            ("ExecArgs" .=) <$> _fcExecArgs,
-            ("Environment" .=) <$> _fcEnvironment,
-            ("Executable" .=) <$> _fcExecutable,
-            ("Pinned" .=) <$> _fcPinned,
-            ("EncodingType" .=) <$> _fcEncodingType,
-            ("Timeout" .=) <$> _fcTimeout
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MemorySize" Lude..=) Lude.<$> memorySize,
+            ("ExecArgs" Lude..=) Lude.<$> execArgs,
+            ("Environment" Lude..=) Lude.<$> environment,
+            ("Executable" Lude..=) Lude.<$> executable,
+            ("Pinned" Lude..=) Lude.<$> pinned,
+            ("EncodingType" Lude..=) Lude.<$> encodingType,
+            ("Timeout" Lude..=) Lude.<$> timeout
           ]
       )

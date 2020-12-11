@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ExecutionMode where
+module Network.AWS.SSM.Types.ExecutionMode
+  ( ExecutionMode
+      ( ExecutionMode',
+        EMAuto,
+        EMInteractive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExecutionMode
-  = EMAuto
-  | EMInteractive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExecutionMode = ExecutionMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExecutionMode where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure EMAuto
-      "interactive" -> pure EMInteractive
-      e ->
-        fromTextError $
-          "Failure parsing ExecutionMode from value: '" <> e
-            <> "'. Accepted values: auto, interactive"
+pattern EMAuto :: ExecutionMode
+pattern EMAuto = ExecutionMode' "Auto"
 
-instance ToText ExecutionMode where
-  toText = \case
-    EMAuto -> "Auto"
-    EMInteractive -> "Interactive"
+pattern EMInteractive :: ExecutionMode
+pattern EMInteractive = ExecutionMode' "Interactive"
 
-instance Hashable ExecutionMode
-
-instance NFData ExecutionMode
-
-instance ToByteString ExecutionMode
-
-instance ToQuery ExecutionMode
-
-instance ToHeader ExecutionMode
-
-instance ToJSON ExecutionMode where
-  toJSON = toJSONText
-
-instance FromJSON ExecutionMode where
-  parseJSON = parseJSONText "ExecutionMode"
+{-# COMPLETE
+  EMAuto,
+  EMInteractive,
+  ExecutionMode'
+  #-}

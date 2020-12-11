@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.CandidateStepType where
+module Network.AWS.SageMaker.Types.CandidateStepType
+  ( CandidateStepType
+      ( CandidateStepType',
+        AWSSageMakerProcessingJob,
+        AWSSageMakerTrainingJob,
+        AWSSageMakerTransformJob
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CandidateStepType
-  = AWSSageMakerProcessingJob
-  | AWSSageMakerTrainingJob
-  | AWSSageMakerTransformJob
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CandidateStepType = CandidateStepType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CandidateStepType where
-  parser =
-    takeLowerText >>= \case
-      "aws::sagemaker::processingjob" -> pure AWSSageMakerProcessingJob
-      "aws::sagemaker::trainingjob" -> pure AWSSageMakerTrainingJob
-      "aws::sagemaker::transformjob" -> pure AWSSageMakerTransformJob
-      e ->
-        fromTextError $
-          "Failure parsing CandidateStepType from value: '" <> e
-            <> "'. Accepted values: aws::sagemaker::processingjob, aws::sagemaker::trainingjob, aws::sagemaker::transformjob"
+pattern AWSSageMakerProcessingJob :: CandidateStepType
+pattern AWSSageMakerProcessingJob = CandidateStepType' "AWS::SageMaker::ProcessingJob"
 
-instance ToText CandidateStepType where
-  toText = \case
-    AWSSageMakerProcessingJob -> "AWS::SageMaker::ProcessingJob"
-    AWSSageMakerTrainingJob -> "AWS::SageMaker::TrainingJob"
-    AWSSageMakerTransformJob -> "AWS::SageMaker::TransformJob"
+pattern AWSSageMakerTrainingJob :: CandidateStepType
+pattern AWSSageMakerTrainingJob = CandidateStepType' "AWS::SageMaker::TrainingJob"
 
-instance Hashable CandidateStepType
+pattern AWSSageMakerTransformJob :: CandidateStepType
+pattern AWSSageMakerTransformJob = CandidateStepType' "AWS::SageMaker::TransformJob"
 
-instance NFData CandidateStepType
-
-instance ToByteString CandidateStepType
-
-instance ToQuery CandidateStepType
-
-instance ToHeader CandidateStepType
-
-instance FromJSON CandidateStepType where
-  parseJSON = parseJSONText "CandidateStepType"
+{-# COMPLETE
+  AWSSageMakerProcessingJob,
+  AWSSageMakerTrainingJob,
+  AWSSageMakerTransformJob,
+  CandidateStepType'
+  #-}

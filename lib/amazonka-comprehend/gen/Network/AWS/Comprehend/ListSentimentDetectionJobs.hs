@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets a list of sentiment detection jobs that you have submitted.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Comprehend.ListSentimentDetectionJobs
-  ( -- * Creating a Request
-    listSentimentDetectionJobs,
-    ListSentimentDetectionJobs,
+  ( -- * Creating a request
+    ListSentimentDetectionJobs (..),
+    mkListSentimentDetectionJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsdjNextToken,
     lsdjFilter,
     lsdjMaxResults,
 
-    -- * Destructuring the Response
-    listSentimentDetectionJobsResponse,
-    ListSentimentDetectionJobsResponse,
+    -- * Destructuring the response
+    ListSentimentDetectionJobsResponse (..),
+    mkListSentimentDetectionJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsdjrsNextToken,
     lsdjrsSentimentDetectionJobPropertiesList,
     lsdjrsResponseStatus,
@@ -44,145 +37,172 @@ module Network.AWS.Comprehend.ListSentimentDetectionJobs
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listSentimentDetectionJobs' smart constructor.
+-- | /See:/ 'mkListSentimentDetectionJobs' smart constructor.
 data ListSentimentDetectionJobs = ListSentimentDetectionJobs'
-  { _lsdjNextToken ::
-      !(Maybe Text),
-    _lsdjFilter ::
-      !(Maybe SentimentDetectionJobFilter),
-    _lsdjMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter ::
+      Lude.Maybe
+        SentimentDetectionJobFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSentimentDetectionJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsdjNextToken' - Identifies the next page of results to return.
---
--- * 'lsdjFilter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
---
--- * 'lsdjMaxResults' - The maximum number of results to return in each page. The default is 100.
-listSentimentDetectionJobs ::
+-- * 'filter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
+-- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
+-- * 'nextToken' - Identifies the next page of results to return.
+mkListSentimentDetectionJobs ::
   ListSentimentDetectionJobs
-listSentimentDetectionJobs =
+mkListSentimentDetectionJobs =
   ListSentimentDetectionJobs'
-    { _lsdjNextToken = Nothing,
-      _lsdjFilter = Nothing,
-      _lsdjMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Identifies the next page of results to return.
-lsdjNextToken :: Lens' ListSentimentDetectionJobs (Maybe Text)
-lsdjNextToken = lens _lsdjNextToken (\s a -> s {_lsdjNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdjNextToken :: Lens.Lens' ListSentimentDetectionJobs (Lude.Maybe Lude.Text)
+lsdjNextToken = Lens.lens (nextToken :: ListSentimentDetectionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSentimentDetectionJobs)
+{-# DEPRECATED lsdjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
-lsdjFilter :: Lens' ListSentimentDetectionJobs (Maybe SentimentDetectionJobFilter)
-lsdjFilter = lens _lsdjFilter (\s a -> s {_lsdjFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdjFilter :: Lens.Lens' ListSentimentDetectionJobs (Lude.Maybe SentimentDetectionJobFilter)
+lsdjFilter = Lens.lens (filter :: ListSentimentDetectionJobs -> Lude.Maybe SentimentDetectionJobFilter) (\s a -> s {filter = a} :: ListSentimentDetectionJobs)
+{-# DEPRECATED lsdjFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page. The default is 100.
-lsdjMaxResults :: Lens' ListSentimentDetectionJobs (Maybe Natural)
-lsdjMaxResults = lens _lsdjMaxResults (\s a -> s {_lsdjMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdjMaxResults :: Lens.Lens' ListSentimentDetectionJobs (Lude.Maybe Lude.Natural)
+lsdjMaxResults = Lens.lens (maxResults :: ListSentimentDetectionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSentimentDetectionJobs)
+{-# DEPRECATED lsdjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListSentimentDetectionJobs where
+instance Page.AWSPager ListSentimentDetectionJobs where
   page rq rs
-    | stop (rs ^. lsdjrsNextToken) = Nothing
-    | stop (rs ^. lsdjrsSentimentDetectionJobPropertiesList) = Nothing
-    | otherwise = Just $ rq & lsdjNextToken .~ rs ^. lsdjrsNextToken
+    | Page.stop (rs Lens.^. lsdjrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsdjrsSentimentDetectionJobPropertiesList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lsdjNextToken Lens..~ rs Lens.^. lsdjrsNextToken
 
-instance AWSRequest ListSentimentDetectionJobs where
+instance Lude.AWSRequest ListSentimentDetectionJobs where
   type
     Rs ListSentimentDetectionJobs =
       ListSentimentDetectionJobsResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListSentimentDetectionJobsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "SentimentDetectionJobPropertiesList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> ( x Lude..?> "SentimentDetectionJobPropertiesList"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListSentimentDetectionJobs
-
-instance NFData ListSentimentDetectionJobs
-
-instance ToHeaders ListSentimentDetectionJobs where
+instance Lude.ToHeaders ListSentimentDetectionJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.ListSentimentDetectionJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.ListSentimentDetectionJobs" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListSentimentDetectionJobs where
+instance Lude.ToJSON ListSentimentDetectionJobs where
   toJSON ListSentimentDetectionJobs' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lsdjNextToken,
-            ("Filter" .=) <$> _lsdjFilter,
-            ("MaxResults" .=) <$> _lsdjMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListSentimentDetectionJobs where
-  toPath = const "/"
+instance Lude.ToPath ListSentimentDetectionJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery ListSentimentDetectionJobs where
-  toQuery = const mempty
+instance Lude.ToQuery ListSentimentDetectionJobs where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listSentimentDetectionJobsResponse' smart constructor.
+-- | /See:/ 'mkListSentimentDetectionJobsResponse' smart constructor.
 data ListSentimentDetectionJobsResponse = ListSentimentDetectionJobsResponse'
-  { _lsdjrsNextToken ::
-      !(Maybe Text),
-    _lsdjrsSentimentDetectionJobPropertiesList ::
-      !( Maybe
-           [SentimentDetectionJobProperties]
-       ),
-    _lsdjrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    sentimentDetectionJobPropertiesList ::
+      Lude.Maybe
+        [SentimentDetectionJobProperties],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSentimentDetectionJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsdjrsNextToken' - Identifies the next page of results to return.
---
--- * 'lsdjrsSentimentDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
---
--- * 'lsdjrsResponseStatus' - -- | The response status code.
-listSentimentDetectionJobsResponse ::
-  -- | 'lsdjrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Identifies the next page of results to return.
+-- * 'responseStatus' - The response status code.
+-- * 'sentimentDetectionJobPropertiesList' - A list containing the properties of each job that is returned.
+mkListSentimentDetectionJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSentimentDetectionJobsResponse
-listSentimentDetectionJobsResponse pResponseStatus_ =
+mkListSentimentDetectionJobsResponse pResponseStatus_ =
   ListSentimentDetectionJobsResponse'
-    { _lsdjrsNextToken = Nothing,
-      _lsdjrsSentimentDetectionJobPropertiesList = Nothing,
-      _lsdjrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      sentimentDetectionJobPropertiesList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Identifies the next page of results to return.
-lsdjrsNextToken :: Lens' ListSentimentDetectionJobsResponse (Maybe Text)
-lsdjrsNextToken = lens _lsdjrsNextToken (\s a -> s {_lsdjrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdjrsNextToken :: Lens.Lens' ListSentimentDetectionJobsResponse (Lude.Maybe Lude.Text)
+lsdjrsNextToken = Lens.lens (nextToken :: ListSentimentDetectionJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSentimentDetectionJobsResponse)
+{-# DEPRECATED lsdjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list containing the properties of each job that is returned.
-lsdjrsSentimentDetectionJobPropertiesList :: Lens' ListSentimentDetectionJobsResponse [SentimentDetectionJobProperties]
-lsdjrsSentimentDetectionJobPropertiesList = lens _lsdjrsSentimentDetectionJobPropertiesList (\s a -> s {_lsdjrsSentimentDetectionJobPropertiesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sentimentDetectionJobPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdjrsSentimentDetectionJobPropertiesList :: Lens.Lens' ListSentimentDetectionJobsResponse (Lude.Maybe [SentimentDetectionJobProperties])
+lsdjrsSentimentDetectionJobPropertiesList = Lens.lens (sentimentDetectionJobPropertiesList :: ListSentimentDetectionJobsResponse -> Lude.Maybe [SentimentDetectionJobProperties]) (\s a -> s {sentimentDetectionJobPropertiesList = a} :: ListSentimentDetectionJobsResponse)
+{-# DEPRECATED lsdjrsSentimentDetectionJobPropertiesList "Use generic-lens or generic-optics with 'sentimentDetectionJobPropertiesList' instead." #-}
 
--- | -- | The response status code.
-lsdjrsResponseStatus :: Lens' ListSentimentDetectionJobsResponse Int
-lsdjrsResponseStatus = lens _lsdjrsResponseStatus (\s a -> s {_lsdjrsResponseStatus = a})
-
-instance NFData ListSentimentDetectionJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdjrsResponseStatus :: Lens.Lens' ListSentimentDetectionJobsResponse Lude.Int
+lsdjrsResponseStatus = Lens.lens (responseStatus :: ListSentimentDetectionJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSentimentDetectionJobsResponse)
+{-# DEPRECATED lsdjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

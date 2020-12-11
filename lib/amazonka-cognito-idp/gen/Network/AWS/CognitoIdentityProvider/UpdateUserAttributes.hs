@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,173 @@
 --
 -- Allows a user to update a specific attribute (one at a time).
 module Network.AWS.CognitoIdentityProvider.UpdateUserAttributes
-  ( -- * Creating a Request
-    updateUserAttributes,
-    UpdateUserAttributes,
+  ( -- * Creating a request
+    UpdateUserAttributes (..),
+    mkUpdateUserAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uuaClientMetadata,
     uuaUserAttributes,
     uuaAccessToken,
 
-    -- * Destructuring the Response
-    updateUserAttributesResponse,
-    UpdateUserAttributesResponse,
+    -- * Destructuring the response
+    UpdateUserAttributesResponse (..),
+    mkUpdateUserAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uuarsCodeDeliveryDetailsList,
     uuarsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to update user attributes.
 --
---
---
--- /See:/ 'updateUserAttributes' smart constructor.
+-- /See:/ 'mkUpdateUserAttributes' smart constructor.
 data UpdateUserAttributes = UpdateUserAttributes'
-  { _uuaClientMetadata ::
-      !(Maybe (Map Text (Text))),
-    _uuaUserAttributes :: ![AttributeType],
-    _uuaAccessToken :: !(Sensitive Text)
+  { clientMetadata ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    userAttributes :: [AttributeType],
+    accessToken :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accessToken' - The access token for the request to update user attributes.
+-- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
--- * 'uuaClientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.  You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+-- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+-- * 'userAttributes' - An array of name-value pairs representing user attributes.
 --
--- * 'uuaUserAttributes' - An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
---
--- * 'uuaAccessToken' - The access token for the request to update user attributes.
-updateUserAttributes ::
-  -- | 'uuaAccessToken'
-  Text ->
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+mkUpdateUserAttributes ::
+  -- | 'accessToken'
+  Lude.Sensitive Lude.Text ->
   UpdateUserAttributes
-updateUserAttributes pAccessToken_ =
+mkUpdateUserAttributes pAccessToken_ =
   UpdateUserAttributes'
-    { _uuaClientMetadata = Nothing,
-      _uuaUserAttributes = mempty,
-      _uuaAccessToken = _Sensitive # pAccessToken_
+    { clientMetadata = Lude.Nothing,
+      userAttributes = Lude.mempty,
+      accessToken = pAccessToken_
     }
 
--- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.  You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
-uuaClientMetadata :: Lens' UpdateUserAttributes (HashMap Text (Text))
-uuaClientMetadata = lens _uuaClientMetadata (\s a -> s {_uuaClientMetadata = a}) . _Default . _Map
+-- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+--
+-- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+--
+-- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuaClientMetadata :: Lens.Lens' UpdateUserAttributes (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+uuaClientMetadata = Lens.lens (clientMetadata :: UpdateUserAttributes -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: UpdateUserAttributes)
+{-# DEPRECATED uuaClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
--- | An array of name-value pairs representing user attributes. For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
-uuaUserAttributes :: Lens' UpdateUserAttributes [AttributeType]
-uuaUserAttributes = lens _uuaUserAttributes (\s a -> s {_uuaUserAttributes = a}) . _Coerce
+-- | An array of name-value pairs representing user attributes.
+--
+-- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+--
+-- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuaUserAttributes :: Lens.Lens' UpdateUserAttributes [AttributeType]
+uuaUserAttributes = Lens.lens (userAttributes :: UpdateUserAttributes -> [AttributeType]) (\s a -> s {userAttributes = a} :: UpdateUserAttributes)
+{-# DEPRECATED uuaUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
 
 -- | The access token for the request to update user attributes.
-uuaAccessToken :: Lens' UpdateUserAttributes Text
-uuaAccessToken = lens _uuaAccessToken (\s a -> s {_uuaAccessToken = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuaAccessToken :: Lens.Lens' UpdateUserAttributes (Lude.Sensitive Lude.Text)
+uuaAccessToken = Lens.lens (accessToken :: UpdateUserAttributes -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: UpdateUserAttributes)
+{-# DEPRECATED uuaAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
-instance AWSRequest UpdateUserAttributes where
+instance Lude.AWSRequest UpdateUserAttributes where
   type Rs UpdateUserAttributes = UpdateUserAttributesResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateUserAttributesResponse'
-            <$> (x .?> "CodeDeliveryDetailsList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CodeDeliveryDetailsList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateUserAttributes
-
-instance NFData UpdateUserAttributes
-
-instance ToHeaders UpdateUserAttributes where
+instance Lude.ToHeaders UpdateUserAttributes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.UpdateUserAttributes" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.UpdateUserAttributes" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateUserAttributes where
+instance Lude.ToJSON UpdateUserAttributes where
   toJSON UpdateUserAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("ClientMetadata" .=) <$> _uuaClientMetadata,
-            Just ("UserAttributes" .= _uuaUserAttributes),
-            Just ("AccessToken" .= _uuaAccessToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
+            Lude.Just ("UserAttributes" Lude..= userAttributes),
+            Lude.Just ("AccessToken" Lude..= accessToken)
           ]
       )
 
-instance ToPath UpdateUserAttributes where
-  toPath = const "/"
+instance Lude.ToPath UpdateUserAttributes where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateUserAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUserAttributes where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server for the request to update user attributes.
 --
---
---
--- /See:/ 'updateUserAttributesResponse' smart constructor.
+-- /See:/ 'mkUpdateUserAttributesResponse' smart constructor.
 data UpdateUserAttributesResponse = UpdateUserAttributesResponse'
-  { _uuarsCodeDeliveryDetailsList ::
-      !( Maybe
-           [CodeDeliveryDetailsType]
-       ),
-    _uuarsResponseStatus :: !Int
+  { codeDeliveryDetailsList ::
+      Lude.Maybe
+        [CodeDeliveryDetailsType],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uuarsCodeDeliveryDetailsList' - The code delivery details list from the server for the request to update user attributes.
---
--- * 'uuarsResponseStatus' - -- | The response status code.
-updateUserAttributesResponse ::
-  -- | 'uuarsResponseStatus'
-  Int ->
+-- * 'codeDeliveryDetailsList' - The code delivery details list from the server for the request to update user attributes.
+-- * 'responseStatus' - The response status code.
+mkUpdateUserAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateUserAttributesResponse
-updateUserAttributesResponse pResponseStatus_ =
+mkUpdateUserAttributesResponse pResponseStatus_ =
   UpdateUserAttributesResponse'
-    { _uuarsCodeDeliveryDetailsList =
-        Nothing,
-      _uuarsResponseStatus = pResponseStatus_
+    { codeDeliveryDetailsList =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The code delivery details list from the server for the request to update user attributes.
-uuarsCodeDeliveryDetailsList :: Lens' UpdateUserAttributesResponse [CodeDeliveryDetailsType]
-uuarsCodeDeliveryDetailsList = lens _uuarsCodeDeliveryDetailsList (\s a -> s {_uuarsCodeDeliveryDetailsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'codeDeliveryDetailsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuarsCodeDeliveryDetailsList :: Lens.Lens' UpdateUserAttributesResponse (Lude.Maybe [CodeDeliveryDetailsType])
+uuarsCodeDeliveryDetailsList = Lens.lens (codeDeliveryDetailsList :: UpdateUserAttributesResponse -> Lude.Maybe [CodeDeliveryDetailsType]) (\s a -> s {codeDeliveryDetailsList = a} :: UpdateUserAttributesResponse)
+{-# DEPRECATED uuarsCodeDeliveryDetailsList "Use generic-lens or generic-optics with 'codeDeliveryDetailsList' instead." #-}
 
--- | -- | The response status code.
-uuarsResponseStatus :: Lens' UpdateUserAttributesResponse Int
-uuarsResponseStatus = lens _uuarsResponseStatus (\s a -> s {_uuarsResponseStatus = a})
-
-instance NFData UpdateUserAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuarsResponseStatus :: Lens.Lens' UpdateUserAttributesResponse Lude.Int
+uuarsResponseStatus = Lens.lens (responseStatus :: UpdateUserAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateUserAttributesResponse)
+{-# DEPRECATED uuarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

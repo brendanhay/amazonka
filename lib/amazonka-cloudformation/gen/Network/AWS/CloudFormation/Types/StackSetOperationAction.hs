@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSetOperationAction where
+module Network.AWS.CloudFormation.Types.StackSetOperationAction
+  ( StackSetOperationAction
+      ( StackSetOperationAction',
+        Create,
+        Delete,
+        DetectDrift,
+        Update
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackSetOperationAction
-  = Create
-  | Delete
-  | DetectDrift
-  | Update
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackSetOperationAction = StackSetOperationAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackSetOperationAction where
-  parser =
-    takeLowerText >>= \case
-      "create" -> pure Create
-      "delete" -> pure Delete
-      "detect_drift" -> pure DetectDrift
-      "update" -> pure Update
-      e ->
-        fromTextError $
-          "Failure parsing StackSetOperationAction from value: '" <> e
-            <> "'. Accepted values: create, delete, detect_drift, update"
+pattern Create :: StackSetOperationAction
+pattern Create = StackSetOperationAction' "CREATE"
 
-instance ToText StackSetOperationAction where
-  toText = \case
-    Create -> "CREATE"
-    Delete -> "DELETE"
-    DetectDrift -> "DETECT_DRIFT"
-    Update -> "UPDATE"
+pattern Delete :: StackSetOperationAction
+pattern Delete = StackSetOperationAction' "DELETE"
 
-instance Hashable StackSetOperationAction
+pattern DetectDrift :: StackSetOperationAction
+pattern DetectDrift = StackSetOperationAction' "DETECT_DRIFT"
 
-instance NFData StackSetOperationAction
+pattern Update :: StackSetOperationAction
+pattern Update = StackSetOperationAction' "UPDATE"
 
-instance ToByteString StackSetOperationAction
-
-instance ToQuery StackSetOperationAction
-
-instance ToHeader StackSetOperationAction
-
-instance FromXML StackSetOperationAction where
-  parseXML = parseXMLText "StackSetOperationAction"
+{-# COMPLETE
+  Create,
+  Delete,
+  DetectDrift,
+  Update,
+  StackSetOperationAction'
+  #-}

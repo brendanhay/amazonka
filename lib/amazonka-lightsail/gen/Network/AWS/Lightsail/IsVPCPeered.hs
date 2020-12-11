@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,111 @@
 --
 -- Returns a Boolean value indicating whether your Lightsail VPC is peered.
 module Network.AWS.Lightsail.IsVPCPeered
-  ( -- * Creating a Request
-    isVPCPeered,
-    IsVPCPeered,
+  ( -- * Creating a request
+    IsVPCPeered (..),
+    mkIsVPCPeered,
 
-    -- * Destructuring the Response
-    isVPCPeeredResponse,
-    IsVPCPeeredResponse,
+    -- * Destructuring the response
+    IsVPCPeeredResponse (..),
+    mkIsVPCPeeredResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ivprsIsPeered,
     ivprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'isVPCPeered' smart constructor.
+-- | /See:/ 'mkIsVPCPeered' smart constructor.
 data IsVPCPeered = IsVPCPeered'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IsVPCPeered' with the minimum fields required to make a request.
-isVPCPeered ::
+mkIsVPCPeered ::
   IsVPCPeered
-isVPCPeered = IsVPCPeered'
+mkIsVPCPeered = IsVPCPeered'
 
-instance AWSRequest IsVPCPeered where
+instance Lude.AWSRequest IsVPCPeered where
   type Rs IsVPCPeered = IsVPCPeeredResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           IsVPCPeeredResponse'
-            <$> (x .?> "isPeered") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "isPeered") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable IsVPCPeered
-
-instance NFData IsVPCPeered
-
-instance ToHeaders IsVPCPeered where
+instance Lude.ToHeaders IsVPCPeered where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.IsVpcPeered" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.IsVpcPeered" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON IsVPCPeered where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON IsVPCPeered where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath IsVPCPeered where
-  toPath = const "/"
+instance Lude.ToPath IsVPCPeered where
+  toPath = Lude.const "/"
 
-instance ToQuery IsVPCPeered where
-  toQuery = const mempty
+instance Lude.ToQuery IsVPCPeered where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'isVPCPeeredResponse' smart constructor.
+-- | /See:/ 'mkIsVPCPeeredResponse' smart constructor.
 data IsVPCPeeredResponse = IsVPCPeeredResponse'
-  { _ivprsIsPeered ::
-      !(Maybe Bool),
-    _ivprsResponseStatus :: !Int
+  { isPeered ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IsVPCPeeredResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ivprsIsPeered' - Returns @true@ if the Lightsail VPC is peered; otherwise, @false@ .
---
--- * 'ivprsResponseStatus' - -- | The response status code.
-isVPCPeeredResponse ::
-  -- | 'ivprsResponseStatus'
-  Int ->
+-- * 'isPeered' - Returns @true@ if the Lightsail VPC is peered; otherwise, @false@ .
+-- * 'responseStatus' - The response status code.
+mkIsVPCPeeredResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   IsVPCPeeredResponse
-isVPCPeeredResponse pResponseStatus_ =
+mkIsVPCPeeredResponse pResponseStatus_ =
   IsVPCPeeredResponse'
-    { _ivprsIsPeered = Nothing,
-      _ivprsResponseStatus = pResponseStatus_
+    { isPeered = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns @true@ if the Lightsail VPC is peered; otherwise, @false@ .
-ivprsIsPeered :: Lens' IsVPCPeeredResponse (Maybe Bool)
-ivprsIsPeered = lens _ivprsIsPeered (\s a -> s {_ivprsIsPeered = a})
+--
+-- /Note:/ Consider using 'isPeered' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivprsIsPeered :: Lens.Lens' IsVPCPeeredResponse (Lude.Maybe Lude.Bool)
+ivprsIsPeered = Lens.lens (isPeered :: IsVPCPeeredResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isPeered = a} :: IsVPCPeeredResponse)
+{-# DEPRECATED ivprsIsPeered "Use generic-lens or generic-optics with 'isPeered' instead." #-}
 
--- | -- | The response status code.
-ivprsResponseStatus :: Lens' IsVPCPeeredResponse Int
-ivprsResponseStatus = lens _ivprsResponseStatus (\s a -> s {_ivprsResponseStatus = a})
-
-instance NFData IsVPCPeeredResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivprsResponseStatus :: Lens.Lens' IsVPCPeeredResponse Lude.Int
+ivprsResponseStatus = Lens.lens (responseStatus :: IsVPCPeeredResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: IsVPCPeeredResponse)
+{-# DEPRECATED ivprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

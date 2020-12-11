@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,105 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.TaskScheduledEventDetails where
+module Network.AWS.StepFunctions.Types.TaskScheduledEventDetails
+  ( TaskScheduledEventDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTaskScheduledEventDetails,
+
+    -- * Lenses
+    tasHeartbeatInSeconds,
+    tasTimeoutInSeconds,
+    tasResourceType,
+    tasResource,
+    tasRegion,
+    tasParameters,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about a task scheduled during an execution.
 --
---
---
--- /See:/ 'taskScheduledEventDetails' smart constructor.
+-- /See:/ 'mkTaskScheduledEventDetails' smart constructor.
 data TaskScheduledEventDetails = TaskScheduledEventDetails'
-  { _tasHeartbeatInSeconds ::
-      !(Maybe Integer),
-    _tasTimeoutInSeconds ::
-      !(Maybe Integer),
-    _tasResourceType :: !Text,
-    _tasResource :: !Text,
-    _tasRegion :: !Text,
-    _tasParameters :: !(Sensitive Text)
+  { heartbeatInSeconds ::
+      Lude.Maybe Lude.Integer,
+    timeoutInSeconds ::
+      Lude.Maybe Lude.Integer,
+    resourceType :: Lude.Text,
+    resource :: Lude.Text,
+    region :: Lude.Text,
+    parameters :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskScheduledEventDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tasHeartbeatInSeconds' - The maximum allowed duration between two heartbeats for the task.
---
--- * 'tasTimeoutInSeconds' - The maximum allowed duration of the task.
---
--- * 'tasResourceType' - The action of the resource called by a task state.
---
--- * 'tasResource' - The service name of the resource in a task state.
---
--- * 'tasRegion' - The region of the scheduled task
---
--- * 'tasParameters' - The JSON data passed to the resource referenced in a task state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-taskScheduledEventDetails ::
-  -- | 'tasResourceType'
-  Text ->
-  -- | 'tasResource'
-  Text ->
-  -- | 'tasRegion'
-  Text ->
-  -- | 'tasParameters'
-  Text ->
+-- * 'heartbeatInSeconds' - The maximum allowed duration between two heartbeats for the task.
+-- * 'parameters' - The JSON data passed to the resource referenced in a task state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+-- * 'region' - The region of the scheduled task
+-- * 'resource' - The service name of the resource in a task state.
+-- * 'resourceType' - The action of the resource called by a task state.
+-- * 'timeoutInSeconds' - The maximum allowed duration of the task.
+mkTaskScheduledEventDetails ::
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'resource'
+  Lude.Text ->
+  -- | 'region'
+  Lude.Text ->
+  -- | 'parameters'
+  Lude.Sensitive Lude.Text ->
   TaskScheduledEventDetails
-taskScheduledEventDetails
+mkTaskScheduledEventDetails
   pResourceType_
   pResource_
   pRegion_
   pParameters_ =
     TaskScheduledEventDetails'
-      { _tasHeartbeatInSeconds = Nothing,
-        _tasTimeoutInSeconds = Nothing,
-        _tasResourceType = pResourceType_,
-        _tasResource = pResource_,
-        _tasRegion = pRegion_,
-        _tasParameters = _Sensitive # pParameters_
+      { heartbeatInSeconds = Lude.Nothing,
+        timeoutInSeconds = Lude.Nothing,
+        resourceType = pResourceType_,
+        resource = pResource_,
+        region = pRegion_,
+        parameters = pParameters_
       }
 
 -- | The maximum allowed duration between two heartbeats for the task.
-tasHeartbeatInSeconds :: Lens' TaskScheduledEventDetails (Maybe Integer)
-tasHeartbeatInSeconds = lens _tasHeartbeatInSeconds (\s a -> s {_tasHeartbeatInSeconds = a})
+--
+-- /Note:/ Consider using 'heartbeatInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasHeartbeatInSeconds :: Lens.Lens' TaskScheduledEventDetails (Lude.Maybe Lude.Integer)
+tasHeartbeatInSeconds = Lens.lens (heartbeatInSeconds :: TaskScheduledEventDetails -> Lude.Maybe Lude.Integer) (\s a -> s {heartbeatInSeconds = a} :: TaskScheduledEventDetails)
+{-# DEPRECATED tasHeartbeatInSeconds "Use generic-lens or generic-optics with 'heartbeatInSeconds' instead." #-}
 
 -- | The maximum allowed duration of the task.
-tasTimeoutInSeconds :: Lens' TaskScheduledEventDetails (Maybe Integer)
-tasTimeoutInSeconds = lens _tasTimeoutInSeconds (\s a -> s {_tasTimeoutInSeconds = a})
+--
+-- /Note:/ Consider using 'timeoutInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasTimeoutInSeconds :: Lens.Lens' TaskScheduledEventDetails (Lude.Maybe Lude.Integer)
+tasTimeoutInSeconds = Lens.lens (timeoutInSeconds :: TaskScheduledEventDetails -> Lude.Maybe Lude.Integer) (\s a -> s {timeoutInSeconds = a} :: TaskScheduledEventDetails)
+{-# DEPRECATED tasTimeoutInSeconds "Use generic-lens or generic-optics with 'timeoutInSeconds' instead." #-}
 
 -- | The action of the resource called by a task state.
-tasResourceType :: Lens' TaskScheduledEventDetails Text
-tasResourceType = lens _tasResourceType (\s a -> s {_tasResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasResourceType :: Lens.Lens' TaskScheduledEventDetails Lude.Text
+tasResourceType = Lens.lens (resourceType :: TaskScheduledEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskScheduledEventDetails)
+{-# DEPRECATED tasResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The service name of the resource in a task state.
-tasResource :: Lens' TaskScheduledEventDetails Text
-tasResource = lens _tasResource (\s a -> s {_tasResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasResource :: Lens.Lens' TaskScheduledEventDetails Lude.Text
+tasResource = Lens.lens (resource :: TaskScheduledEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskScheduledEventDetails)
+{-# DEPRECATED tasResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
 -- | The region of the scheduled task
-tasRegion :: Lens' TaskScheduledEventDetails Text
-tasRegion = lens _tasRegion (\s a -> s {_tasRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasRegion :: Lens.Lens' TaskScheduledEventDetails Lude.Text
+tasRegion = Lens.lens (region :: TaskScheduledEventDetails -> Lude.Text) (\s a -> s {region = a} :: TaskScheduledEventDetails)
+{-# DEPRECATED tasRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The JSON data passed to the resource referenced in a task state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-tasParameters :: Lens' TaskScheduledEventDetails Text
-tasParameters = lens _tasParameters (\s a -> s {_tasParameters = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasParameters :: Lens.Lens' TaskScheduledEventDetails (Lude.Sensitive Lude.Text)
+tasParameters = Lens.lens (parameters :: TaskScheduledEventDetails -> Lude.Sensitive Lude.Text) (\s a -> s {parameters = a} :: TaskScheduledEventDetails)
+{-# DEPRECATED tasParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance FromJSON TaskScheduledEventDetails where
+instance Lude.FromJSON TaskScheduledEventDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "TaskScheduledEventDetails"
       ( \x ->
           TaskScheduledEventDetails'
-            <$> (x .:? "heartbeatInSeconds")
-            <*> (x .:? "timeoutInSeconds")
-            <*> (x .: "resourceType")
-            <*> (x .: "resource")
-            <*> (x .: "region")
-            <*> (x .: "parameters")
+            Lude.<$> (x Lude..:? "heartbeatInSeconds")
+            Lude.<*> (x Lude..:? "timeoutInSeconds")
+            Lude.<*> (x Lude..: "resourceType")
+            Lude.<*> (x Lude..: "resource")
+            Lude.<*> (x Lude..: "region")
+            Lude.<*> (x Lude..: "parameters")
       )
-
-instance Hashable TaskScheduledEventDetails
-
-instance NFData TaskScheduledEventDetails

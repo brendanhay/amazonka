@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.RetentionAction where
+module Network.AWS.WorkMail.Types.RetentionAction
+  ( RetentionAction
+      ( RetentionAction',
+        Delete,
+        None,
+        PermanentlyDelete
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RetentionAction
-  = Delete
-  | None
-  | PermanentlyDelete
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RetentionAction = RetentionAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RetentionAction where
-  parser =
-    takeLowerText >>= \case
-      "delete" -> pure Delete
-      "none" -> pure None
-      "permanently_delete" -> pure PermanentlyDelete
-      e ->
-        fromTextError $
-          "Failure parsing RetentionAction from value: '" <> e
-            <> "'. Accepted values: delete, none, permanently_delete"
+pattern Delete :: RetentionAction
+pattern Delete = RetentionAction' "DELETE"
 
-instance ToText RetentionAction where
-  toText = \case
-    Delete -> "DELETE"
-    None -> "NONE"
-    PermanentlyDelete -> "PERMANENTLY_DELETE"
+pattern None :: RetentionAction
+pattern None = RetentionAction' "NONE"
 
-instance Hashable RetentionAction
+pattern PermanentlyDelete :: RetentionAction
+pattern PermanentlyDelete = RetentionAction' "PERMANENTLY_DELETE"
 
-instance NFData RetentionAction
-
-instance ToByteString RetentionAction
-
-instance ToQuery RetentionAction
-
-instance ToHeader RetentionAction
-
-instance ToJSON RetentionAction where
-  toJSON = toJSONText
-
-instance FromJSON RetentionAction where
-  parseJSON = parseJSONText "RetentionAction"
+{-# COMPLETE
+  Delete,
+  None,
+  PermanentlyDelete,
+  RetentionAction'
+  #-}

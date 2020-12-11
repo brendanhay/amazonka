@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,133 @@
 --
 -- This is documentation for __AWS CloudHSM Classic__ . For more information, see <http://aws.amazon.com/cloudhsm/faqs-classic/ AWS CloudHSM Classic FAQs> , the <http://docs.aws.amazon.com/cloudhsm/classic/userguide/ AWS CloudHSM Classic User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/classic/APIReference/ AWS CloudHSM Classic API Reference> .
 --
---
 -- __For information about the current version of AWS CloudHSM__ , see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> , the <http://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> , and the <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference> .
---
 -- Creates a high-availability partition group. A high-availability partition group is a group of partitions that spans multiple physical HSMs.
 module Network.AWS.CloudHSM.CreateHAPG
-  ( -- * Creating a Request
-    createHAPG,
-    CreateHAPG,
+  ( -- * Creating a request
+    CreateHAPG (..),
+    mkCreateHAPG,
 
-    -- * Request Lenses
+    -- ** Request lenses
     chLabel,
 
-    -- * Destructuring the Response
-    createHAPGResponse,
-    CreateHAPGResponse,
+    -- * Destructuring the response
+    CreateHAPGResponse (..),
+    mkCreateHAPGResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     chapgrsHAPGARN,
     chapgrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudHSM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'CreateHapgRequest' action.
 --
---
---
--- /See:/ 'createHAPG' smart constructor.
-newtype CreateHAPG = CreateHAPG' {_chLabel :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkCreateHAPG' smart constructor.
+newtype CreateHAPG = CreateHAPG' {label :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHAPG' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chLabel' - The label of the new high-availability partition group.
-createHAPG ::
-  -- | 'chLabel'
-  Text ->
+-- * 'label' - The label of the new high-availability partition group.
+mkCreateHAPG ::
+  -- | 'label'
+  Lude.Text ->
   CreateHAPG
-createHAPG pLabel_ = CreateHAPG' {_chLabel = pLabel_}
+mkCreateHAPG pLabel_ = CreateHAPG' {label = pLabel_}
 
 -- | The label of the new high-availability partition group.
-chLabel :: Lens' CreateHAPG Text
-chLabel = lens _chLabel (\s a -> s {_chLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chLabel :: Lens.Lens' CreateHAPG Lude.Text
+chLabel = Lens.lens (label :: CreateHAPG -> Lude.Text) (\s a -> s {label = a} :: CreateHAPG)
+{-# DEPRECATED chLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
-instance AWSRequest CreateHAPG where
+instance Lude.AWSRequest CreateHAPG where
   type Rs CreateHAPG = CreateHAPGResponse
-  request = postJSON cloudHSM
+  request = Req.postJSON cloudHSMService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateHAPGResponse' <$> (x .?> "HapgArn") <*> (pure (fromEnum s))
+          CreateHAPGResponse'
+            Lude.<$> (x Lude..?> "HapgArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateHAPG
-
-instance NFData CreateHAPG
-
-instance ToHeaders CreateHAPG where
+instance Lude.ToHeaders CreateHAPG where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CloudHsmFrontendService.CreateHapg" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CloudHsmFrontendService.CreateHapg" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateHAPG where
+instance Lude.ToJSON CreateHAPG where
   toJSON CreateHAPG' {..} =
-    object (catMaybes [Just ("Label" .= _chLabel)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Label" Lude..= label)])
 
-instance ToPath CreateHAPG where
-  toPath = const "/"
+instance Lude.ToPath CreateHAPG where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateHAPG where
-  toQuery = const mempty
+instance Lude.ToQuery CreateHAPG where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of the 'CreateHAPartitionGroup' action.
 --
---
---
--- /See:/ 'createHAPGResponse' smart constructor.
+-- /See:/ 'mkCreateHAPGResponse' smart constructor.
 data CreateHAPGResponse = CreateHAPGResponse'
-  { _chapgrsHAPGARN ::
-      !(Maybe Text),
-    _chapgrsResponseStatus :: !Int
+  { hapgARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHAPGResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chapgrsHAPGARN' - The ARN of the high-availability partition group.
---
--- * 'chapgrsResponseStatus' - -- | The response status code.
-createHAPGResponse ::
-  -- | 'chapgrsResponseStatus'
-  Int ->
+-- * 'hapgARN' - The ARN of the high-availability partition group.
+-- * 'responseStatus' - The response status code.
+mkCreateHAPGResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateHAPGResponse
-createHAPGResponse pResponseStatus_ =
+mkCreateHAPGResponse pResponseStatus_ =
   CreateHAPGResponse'
-    { _chapgrsHAPGARN = Nothing,
-      _chapgrsResponseStatus = pResponseStatus_
+    { hapgARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the high-availability partition group.
-chapgrsHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
-chapgrsHAPGARN = lens _chapgrsHAPGARN (\s a -> s {_chapgrsHAPGARN = a})
+--
+-- /Note:/ Consider using 'hapgARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chapgrsHAPGARN :: Lens.Lens' CreateHAPGResponse (Lude.Maybe Lude.Text)
+chapgrsHAPGARN = Lens.lens (hapgARN :: CreateHAPGResponse -> Lude.Maybe Lude.Text) (\s a -> s {hapgARN = a} :: CreateHAPGResponse)
+{-# DEPRECATED chapgrsHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
 
--- | -- | The response status code.
-chapgrsResponseStatus :: Lens' CreateHAPGResponse Int
-chapgrsResponseStatus = lens _chapgrsResponseStatus (\s a -> s {_chapgrsResponseStatus = a})
-
-instance NFData CreateHAPGResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chapgrsResponseStatus :: Lens.Lens' CreateHAPGResponse Lude.Int
+chapgrsResponseStatus = Lens.lens (responseStatus :: CreateHAPGResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHAPGResponse)
+{-# DEPRECATED chapgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

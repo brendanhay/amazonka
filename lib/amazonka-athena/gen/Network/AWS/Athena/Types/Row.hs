@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,37 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.Row where
+module Network.AWS.Athena.Types.Row
+  ( Row (..),
+
+    -- * Smart constructor
+    mkRow,
+
+    -- * Lenses
+    rData,
+  )
+where
 
 import Network.AWS.Athena.Types.Datum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The rows that comprise a query result table.
 --
---
---
--- /See:/ 'row' smart constructor.
-newtype Row = Row' {_rowData :: Maybe [Datum]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkRow' smart constructor.
+newtype Row = Row' {data' :: Lude.Maybe [Datum]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Row' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rowData' - The data that populates a row in a query result table.
-row ::
+-- * 'data'' - The data that populates a row in a query result table.
+mkRow ::
   Row
-row = Row' {_rowData = Nothing}
+mkRow = Row' {data' = Lude.Nothing}
 
 -- | The data that populates a row in a query result table.
-rowData :: Lens' Row [Datum]
-rowData = lens _rowData (\s a -> s {_rowData = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rData :: Lens.Lens' Row (Lude.Maybe [Datum])
+rData = Lens.lens (data' :: Row -> Lude.Maybe [Datum]) (\s a -> s {data' = a} :: Row)
+{-# DEPRECATED rData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
-instance FromJSON Row where
+instance Lude.FromJSON Row where
   parseJSON =
-    withObject "Row" (\x -> Row' <$> (x .:? "Data" .!= mempty))
-
-instance Hashable Row
-
-instance NFData Row
+    Lude.withObject
+      "Row"
+      (\x -> Row' Lude.<$> (x Lude..:? "Data" Lude..!= Lude.mempty))

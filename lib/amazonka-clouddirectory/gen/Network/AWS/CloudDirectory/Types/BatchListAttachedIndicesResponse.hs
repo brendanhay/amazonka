@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse where
+module Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse
+  ( BatchListAttachedIndicesResponse (..),
+
+    -- * Smart constructor
+    mkBatchListAttachedIndicesResponse,
+
+    -- * Lenses
+    blaiIndexAttachments,
+    blaiNextToken,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.IndexAttachment
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'ListAttachedIndices' response operation.
 --
---
---
--- /See:/ 'batchListAttachedIndicesResponse' smart constructor.
+-- /See:/ 'mkBatchListAttachedIndicesResponse' smart constructor.
 data BatchListAttachedIndicesResponse = BatchListAttachedIndicesResponse'
-  { _blaiIndexAttachments ::
-      !( Maybe
-           [IndexAttachment]
-       ),
-    _blaiNextToken ::
-      !(Maybe Text)
+  { indexAttachments ::
+      Lude.Maybe
+        [IndexAttachment],
+    nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListAttachedIndicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'blaiIndexAttachments' - The indices attached to the specified object.
---
--- * 'blaiNextToken' - The pagination token.
-batchListAttachedIndicesResponse ::
+-- * 'indexAttachments' - The indices attached to the specified object.
+-- * 'nextToken' - The pagination token.
+mkBatchListAttachedIndicesResponse ::
   BatchListAttachedIndicesResponse
-batchListAttachedIndicesResponse =
+mkBatchListAttachedIndicesResponse =
   BatchListAttachedIndicesResponse'
-    { _blaiIndexAttachments =
-        Nothing,
-      _blaiNextToken = Nothing
+    { indexAttachments =
+        Lude.Nothing,
+      nextToken = Lude.Nothing
     }
 
 -- | The indices attached to the specified object.
-blaiIndexAttachments :: Lens' BatchListAttachedIndicesResponse [IndexAttachment]
-blaiIndexAttachments = lens _blaiIndexAttachments (\s a -> s {_blaiIndexAttachments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'indexAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blaiIndexAttachments :: Lens.Lens' BatchListAttachedIndicesResponse (Lude.Maybe [IndexAttachment])
+blaiIndexAttachments = Lens.lens (indexAttachments :: BatchListAttachedIndicesResponse -> Lude.Maybe [IndexAttachment]) (\s a -> s {indexAttachments = a} :: BatchListAttachedIndicesResponse)
+{-# DEPRECATED blaiIndexAttachments "Use generic-lens or generic-optics with 'indexAttachments' instead." #-}
 
 -- | The pagination token.
-blaiNextToken :: Lens' BatchListAttachedIndicesResponse (Maybe Text)
-blaiNextToken = lens _blaiNextToken (\s a -> s {_blaiNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blaiNextToken :: Lens.Lens' BatchListAttachedIndicesResponse (Lude.Maybe Lude.Text)
+blaiNextToken = Lens.lens (nextToken :: BatchListAttachedIndicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListAttachedIndicesResponse)
+{-# DEPRECATED blaiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance FromJSON BatchListAttachedIndicesResponse where
+instance Lude.FromJSON BatchListAttachedIndicesResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchListAttachedIndicesResponse"
       ( \x ->
           BatchListAttachedIndicesResponse'
-            <$> (x .:? "IndexAttachments" .!= mempty) <*> (x .:? "NextToken")
+            Lude.<$> (x Lude..:? "IndexAttachments" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NextToken")
       )
-
-instance Hashable BatchListAttachedIndicesResponse
-
-instance NFData BatchListAttachedIndicesResponse

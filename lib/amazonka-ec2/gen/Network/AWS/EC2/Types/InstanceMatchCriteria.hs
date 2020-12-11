@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceMatchCriteria where
+module Network.AWS.EC2.Types.InstanceMatchCriteria
+  ( InstanceMatchCriteria
+      ( InstanceMatchCriteria',
+        IMCOpen,
+        IMCTargeted
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceMatchCriteria
-  = IMCOpen
-  | IMCTargeted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceMatchCriteria = InstanceMatchCriteria' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceMatchCriteria where
-  parser =
-    takeLowerText >>= \case
-      "open" -> pure IMCOpen
-      "targeted" -> pure IMCTargeted
-      e ->
-        fromTextError $
-          "Failure parsing InstanceMatchCriteria from value: '" <> e
-            <> "'. Accepted values: open, targeted"
+pattern IMCOpen :: InstanceMatchCriteria
+pattern IMCOpen = InstanceMatchCriteria' "open"
 
-instance ToText InstanceMatchCriteria where
-  toText = \case
-    IMCOpen -> "open"
-    IMCTargeted -> "targeted"
+pattern IMCTargeted :: InstanceMatchCriteria
+pattern IMCTargeted = InstanceMatchCriteria' "targeted"
 
-instance Hashable InstanceMatchCriteria
-
-instance NFData InstanceMatchCriteria
-
-instance ToByteString InstanceMatchCriteria
-
-instance ToQuery InstanceMatchCriteria
-
-instance ToHeader InstanceMatchCriteria
-
-instance FromXML InstanceMatchCriteria where
-  parseXML = parseXMLText "InstanceMatchCriteria"
+{-# COMPLETE
+  IMCOpen,
+  IMCTargeted,
+  InstanceMatchCriteria'
+  #-}

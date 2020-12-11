@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.S3Location where
+module Network.AWS.SMS.Types.S3Location
+  ( S3Location (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkS3Location,
+
+    -- * Lenses
+    slBucket,
+    slKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Location of an Amazon S3 object.
 --
---
---
--- /See:/ 's3Location' smart constructor.
+-- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
-  { _slBucket :: !(Maybe Text),
-    _slKey :: !(Maybe Text)
+  { bucket :: Lude.Maybe Lude.Text,
+    key :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slBucket' - The Amazon S3 bucket name.
---
--- * 'slKey' - The Amazon S3 bucket key.
-s3Location ::
+-- * 'bucket' - The Amazon S3 bucket name.
+-- * 'key' - The Amazon S3 bucket key.
+mkS3Location ::
   S3Location
-s3Location = S3Location' {_slBucket = Nothing, _slKey = Nothing}
+mkS3Location =
+  S3Location' {bucket = Lude.Nothing, key = Lude.Nothing}
 
 -- | The Amazon S3 bucket name.
-slBucket :: Lens' S3Location (Maybe Text)
-slBucket = lens _slBucket (\s a -> s {_slBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slBucket :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
+slBucket = Lens.lens (bucket :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: S3Location)
+{-# DEPRECATED slBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The Amazon S3 bucket key.
-slKey :: Lens' S3Location (Maybe Text)
-slKey = lens _slKey (\s a -> s {_slKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slKey :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
+slKey = Lens.lens (key :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: S3Location)
+{-# DEPRECATED slKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromJSON S3Location where
+instance Lude.FromJSON S3Location where
   parseJSON =
-    withObject
+    Lude.withObject
       "S3Location"
-      (\x -> S3Location' <$> (x .:? "bucket") <*> (x .:? "key"))
+      ( \x ->
+          S3Location'
+            Lude.<$> (x Lude..:? "bucket") Lude.<*> (x Lude..:? "key")
+      )
 
-instance Hashable S3Location
-
-instance NFData S3Location
-
-instance ToJSON S3Location where
+instance Lude.ToJSON S3Location where
   toJSON S3Location' {..} =
-    object
-      (catMaybes [("bucket" .=) <$> _slBucket, ("key" .=) <$> _slKey])
+    Lude.object
+      ( Lude.catMaybes
+          [("bucket" Lude..=) Lude.<$> bucket, ("key" Lude..=) Lude.<$> key]
+      )

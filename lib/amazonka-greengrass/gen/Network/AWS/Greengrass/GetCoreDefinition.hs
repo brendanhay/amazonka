@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves information about a core definition version.
 module Network.AWS.Greengrass.GetCoreDefinition
-  ( -- * Creating a Request
-    getCoreDefinition,
-    GetCoreDefinition,
+  ( -- * Creating a request
+    GetCoreDefinition (..),
+    mkGetCoreDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcdCoreDefinitionId,
 
-    -- * Destructuring the Response
-    getCoreDefinitionResponse,
-    GetCoreDefinitionResponse,
+    -- * Destructuring the response
+    GetCoreDefinitionResponse (..),
+    mkGetCoreDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcdrsLatestVersionARN,
     gcdrsARN,
     gcdrsName,
@@ -44,161 +39,190 @@ module Network.AWS.Greengrass.GetCoreDefinition
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCoreDefinition' smart constructor.
+-- | /See:/ 'mkGetCoreDefinition' smart constructor.
 newtype GetCoreDefinition = GetCoreDefinition'
-  { _gcdCoreDefinitionId ::
-      Text
+  { coreDefinitionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCoreDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcdCoreDefinitionId' - The ID of the core definition.
-getCoreDefinition ::
-  -- | 'gcdCoreDefinitionId'
-  Text ->
+-- * 'coreDefinitionId' - The ID of the core definition.
+mkGetCoreDefinition ::
+  -- | 'coreDefinitionId'
+  Lude.Text ->
   GetCoreDefinition
-getCoreDefinition pCoreDefinitionId_ =
-  GetCoreDefinition' {_gcdCoreDefinitionId = pCoreDefinitionId_}
+mkGetCoreDefinition pCoreDefinitionId_ =
+  GetCoreDefinition' {coreDefinitionId = pCoreDefinitionId_}
 
 -- | The ID of the core definition.
-gcdCoreDefinitionId :: Lens' GetCoreDefinition Text
-gcdCoreDefinitionId = lens _gcdCoreDefinitionId (\s a -> s {_gcdCoreDefinitionId = a})
+--
+-- /Note:/ Consider using 'coreDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdCoreDefinitionId :: Lens.Lens' GetCoreDefinition Lude.Text
+gcdCoreDefinitionId = Lens.lens (coreDefinitionId :: GetCoreDefinition -> Lude.Text) (\s a -> s {coreDefinitionId = a} :: GetCoreDefinition)
+{-# DEPRECATED gcdCoreDefinitionId "Use generic-lens or generic-optics with 'coreDefinitionId' instead." #-}
 
-instance AWSRequest GetCoreDefinition where
+instance Lude.AWSRequest GetCoreDefinition where
   type Rs GetCoreDefinition = GetCoreDefinitionResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCoreDefinitionResponse'
-            <$> (x .?> "LatestVersionArn")
-            <*> (x .?> "Arn")
-            <*> (x .?> "Name")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Id")
-            <*> (x .?> "LatestVersion")
-            <*> (x .?> "LastUpdatedTimestamp")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LatestVersionArn")
+            Lude.<*> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (x Lude..?> "LatestVersion")
+            Lude.<*> (x Lude..?> "LastUpdatedTimestamp")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCoreDefinition
-
-instance NFData GetCoreDefinition
-
-instance ToHeaders GetCoreDefinition where
+instance Lude.ToHeaders GetCoreDefinition where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetCoreDefinition where
+instance Lude.ToPath GetCoreDefinition where
   toPath GetCoreDefinition' {..} =
-    mconcat
-      ["/greengrass/definition/cores/", toBS _gcdCoreDefinitionId]
+    Lude.mconcat
+      ["/greengrass/definition/cores/", Lude.toBS coreDefinitionId]
 
-instance ToQuery GetCoreDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery GetCoreDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCoreDefinitionResponse' smart constructor.
+-- | /See:/ 'mkGetCoreDefinitionResponse' smart constructor.
 data GetCoreDefinitionResponse = GetCoreDefinitionResponse'
-  { _gcdrsLatestVersionARN ::
-      !(Maybe Text),
-    _gcdrsARN :: !(Maybe Text),
-    _gcdrsName :: !(Maybe Text),
-    _gcdrsCreationTimestamp ::
-      !(Maybe Text),
-    _gcdrsId :: !(Maybe Text),
-    _gcdrsLatestVersion :: !(Maybe Text),
-    _gcdrsLastUpdatedTimestamp ::
-      !(Maybe Text),
-    _gcdrsTags ::
-      !(Maybe (Map Text (Text))),
-    _gcdrsResponseStatus :: !Int
+  { latestVersionARN ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    latestVersion :: Lude.Maybe Lude.Text,
+    lastUpdatedTimestamp ::
+      Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCoreDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcdrsLatestVersionARN' - The ARN of the latest version associated with the definition.
---
--- * 'gcdrsARN' - The ARN of the definition.
---
--- * 'gcdrsName' - The name of the definition.
---
--- * 'gcdrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
---
--- * 'gcdrsId' - The ID of the definition.
---
--- * 'gcdrsLatestVersion' - The ID of the latest version associated with the definition.
---
--- * 'gcdrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
---
--- * 'gcdrsTags' - Tag(s) attached to the resource arn.
---
--- * 'gcdrsResponseStatus' - -- | The response status code.
-getCoreDefinitionResponse ::
-  -- | 'gcdrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the definition.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
+-- * 'id' - The ID of the definition.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
+-- * 'latestVersion' - The ID of the latest version associated with the definition.
+-- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
+-- * 'name' - The name of the definition.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Tag(s) attached to the resource arn.
+mkGetCoreDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCoreDefinitionResponse
-getCoreDefinitionResponse pResponseStatus_ =
+mkGetCoreDefinitionResponse pResponseStatus_ =
   GetCoreDefinitionResponse'
-    { _gcdrsLatestVersionARN = Nothing,
-      _gcdrsARN = Nothing,
-      _gcdrsName = Nothing,
-      _gcdrsCreationTimestamp = Nothing,
-      _gcdrsId = Nothing,
-      _gcdrsLatestVersion = Nothing,
-      _gcdrsLastUpdatedTimestamp = Nothing,
-      _gcdrsTags = Nothing,
-      _gcdrsResponseStatus = pResponseStatus_
+    { latestVersionARN = Lude.Nothing,
+      arn = Lude.Nothing,
+      name = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      id = Lude.Nothing,
+      latestVersion = Lude.Nothing,
+      lastUpdatedTimestamp = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the latest version associated with the definition.
-gcdrsLatestVersionARN :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsLatestVersionARN = lens _gcdrsLatestVersionARN (\s a -> s {_gcdrsLatestVersionARN = a})
+--
+-- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrsLatestVersionARN :: Lens.Lens' GetCoreDefinitionResponse (Lude.Maybe Lude.Text)
+gcdrsLatestVersionARN = Lens.lens (latestVersionARN :: GetCoreDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: GetCoreDefinitionResponse)
+{-# DEPRECATED gcdrsLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
-gcdrsARN :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsARN = lens _gcdrsARN (\s a -> s {_gcdrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrsARN :: Lens.Lens' GetCoreDefinitionResponse (Lude.Maybe Lude.Text)
+gcdrsARN = Lens.lens (arn :: GetCoreDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetCoreDefinitionResponse)
+{-# DEPRECATED gcdrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the definition.
-gcdrsName :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsName = lens _gcdrsName (\s a -> s {_gcdrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrsName :: Lens.Lens' GetCoreDefinitionResponse (Lude.Maybe Lude.Text)
+gcdrsName = Lens.lens (name :: GetCoreDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetCoreDefinitionResponse)
+{-# DEPRECATED gcdrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
-gcdrsCreationTimestamp :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsCreationTimestamp = lens _gcdrsCreationTimestamp (\s a -> s {_gcdrsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrsCreationTimestamp :: Lens.Lens' GetCoreDefinitionResponse (Lude.Maybe Lude.Text)
+gcdrsCreationTimestamp = Lens.lens (creationTimestamp :: GetCoreDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: GetCoreDefinitionResponse)
+{-# DEPRECATED gcdrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
-gcdrsId :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsId = lens _gcdrsId (\s a -> s {_gcdrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrsId :: Lens.Lens' GetCoreDefinitionResponse (Lude.Maybe Lude.Text)
+gcdrsId = Lens.lens (id :: GetCoreDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetCoreDefinitionResponse)
+{-# DEPRECATED gcdrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ID of the latest version associated with the definition.
-gcdrsLatestVersion :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsLatestVersion = lens _gcdrsLatestVersion (\s a -> s {_gcdrsLatestVersion = a})
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrsLatestVersion :: Lens.Lens' GetCoreDefinitionResponse (Lude.Maybe Lude.Text)
+gcdrsLatestVersion = Lens.lens (latestVersion :: GetCoreDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: GetCoreDefinitionResponse)
+{-# DEPRECATED gcdrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
-gcdrsLastUpdatedTimestamp :: Lens' GetCoreDefinitionResponse (Maybe Text)
-gcdrsLastUpdatedTimestamp = lens _gcdrsLastUpdatedTimestamp (\s a -> s {_gcdrsLastUpdatedTimestamp = a})
+--
+-- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrsLastUpdatedTimestamp :: Lens.Lens' GetCoreDefinitionResponse (Lude.Maybe Lude.Text)
+gcdrsLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: GetCoreDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: GetCoreDefinitionResponse)
+{-# DEPRECATED gcdrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
 
 -- | Tag(s) attached to the resource arn.
-gcdrsTags :: Lens' GetCoreDefinitionResponse (HashMap Text (Text))
-gcdrsTags = lens _gcdrsTags (\s a -> s {_gcdrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrsTags :: Lens.Lens' GetCoreDefinitionResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+gcdrsTags = Lens.lens (tags :: GetCoreDefinitionResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GetCoreDefinitionResponse)
+{-# DEPRECATED gcdrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-gcdrsResponseStatus :: Lens' GetCoreDefinitionResponse Int
-gcdrsResponseStatus = lens _gcdrsResponseStatus (\s a -> s {_gcdrsResponseStatus = a})
-
-instance NFData GetCoreDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrsResponseStatus :: Lens.Lens' GetCoreDefinitionResponse Lude.Int
+gcdrsResponseStatus = Lens.lens (responseStatus :: GetCoreDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCoreDefinitionResponse)
+{-# DEPRECATED gcdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

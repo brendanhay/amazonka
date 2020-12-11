@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,32 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.Cluster where
+module Network.AWS.DAX.Types.Cluster
+  ( Cluster (..),
+
+    -- * Smart constructor
+    mkCluster,
+
+    -- * Lenses
+    cStatus,
+    cIAMRoleARN,
+    cClusterARN,
+    cActiveNodes,
+    cSecurityGroups,
+    cNotificationConfiguration,
+    cNodeIdsToRemove,
+    cTotalNodes,
+    cPreferredMaintenanceWindow,
+    cSubnetGroup,
+    cClusterName,
+    cNodeType,
+    cNodes,
+    cClusterDiscoveryEndpoint,
+    cSSEDescription,
+    cDescription,
+    cParameterGroup,
+  )
+where
 
 import Network.AWS.DAX.Types.Endpoint
 import Network.AWS.DAX.Types.Node
@@ -21,188 +40,222 @@ import Network.AWS.DAX.Types.NotificationConfiguration
 import Network.AWS.DAX.Types.ParameterGroupStatus
 import Network.AWS.DAX.Types.SSEDescription
 import Network.AWS.DAX.Types.SecurityGroupMembership
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains all of the attributes of a specific DAX cluster.
 --
---
---
--- /See:/ 'cluster' smart constructor.
+-- /See:/ 'mkCluster' smart constructor.
 data Cluster = Cluster'
-  { _cStatus :: !(Maybe Text),
-    _cIAMRoleARN :: !(Maybe Text),
-    _cClusterARN :: !(Maybe Text),
-    _cActiveNodes :: !(Maybe Int),
-    _cSecurityGroups :: !(Maybe [SecurityGroupMembership]),
-    _cNotificationConfiguration :: !(Maybe NotificationConfiguration),
-    _cNodeIdsToRemove :: !(Maybe [Text]),
-    _cTotalNodes :: !(Maybe Int),
-    _cPreferredMaintenanceWindow :: !(Maybe Text),
-    _cSubnetGroup :: !(Maybe Text),
-    _cClusterName :: !(Maybe Text),
-    _cNodeType :: !(Maybe Text),
-    _cNodes :: !(Maybe [Node]),
-    _cClusterDiscoveryEndpoint :: !(Maybe Endpoint),
-    _cSSEDescription :: !(Maybe SSEDescription),
-    _cDescription :: !(Maybe Text),
-    _cParameterGroup :: !(Maybe ParameterGroupStatus)
+  { status :: Lude.Maybe Lude.Text,
+    iamRoleARN :: Lude.Maybe Lude.Text,
+    clusterARN :: Lude.Maybe Lude.Text,
+    activeNodes :: Lude.Maybe Lude.Int,
+    securityGroups :: Lude.Maybe [SecurityGroupMembership],
+    notificationConfiguration :: Lude.Maybe NotificationConfiguration,
+    nodeIdsToRemove :: Lude.Maybe [Lude.Text],
+    totalNodes :: Lude.Maybe Lude.Int,
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    subnetGroup :: Lude.Maybe Lude.Text,
+    clusterName :: Lude.Maybe Lude.Text,
+    nodeType :: Lude.Maybe Lude.Text,
+    nodes :: Lude.Maybe [Node],
+    clusterDiscoveryEndpoint :: Lude.Maybe Endpoint,
+    sSEDescription :: Lude.Maybe SSEDescription,
+    description :: Lude.Maybe Lude.Text,
+    parameterGroup :: Lude.Maybe ParameterGroupStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cStatus' - The current status of the cluster.
---
--- * 'cIAMRoleARN' - A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
---
--- * 'cClusterARN' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.
---
--- * 'cActiveNodes' - The number of nodes in the cluster that are active (i.e., capable of serving requests).
---
--- * 'cSecurityGroups' - A list of security groups, and the status of each, for the nodes in the cluster.
---
--- * 'cNotificationConfiguration' - Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).
---
--- * 'cNodeIdsToRemove' - A list of nodes to be removed from the cluster.
---
--- * 'cTotalNodes' - The total number of nodes in the cluster.
---
--- * 'cPreferredMaintenanceWindow' - A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
---
--- * 'cSubnetGroup' - The subnet group where the DAX cluster is running.
---
--- * 'cClusterName' - The name of the DAX cluster.
---
--- * 'cNodeType' - The node type for the nodes in the cluster. (All nodes in a DAX cluster are of the same type.)
---
--- * 'cNodes' - A list of nodes that are currently in the cluster.
---
--- * 'cClusterDiscoveryEndpoint' - The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
---
--- * 'cSSEDescription' - The description of the server-side encryption status on the specified DAX cluster.
---
--- * 'cDescription' - The description of the cluster.
---
--- * 'cParameterGroup' - The parameter group being used by nodes in the cluster.
-cluster ::
+-- * 'activeNodes' - The number of nodes in the cluster that are active (i.e., capable of serving requests).
+-- * 'clusterARN' - The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+-- * 'clusterDiscoveryEndpoint' - The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
+-- * 'clusterName' - The name of the DAX cluster.
+-- * 'description' - The description of the cluster.
+-- * 'iamRoleARN' - A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+-- * 'nodeIdsToRemove' - A list of nodes to be removed from the cluster.
+-- * 'nodeType' - The node type for the nodes in the cluster. (All nodes in a DAX cluster are of the same type.)
+-- * 'nodes' - A list of nodes that are currently in the cluster.
+-- * 'notificationConfiguration' - Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).
+-- * 'parameterGroup' - The parameter group being used by nodes in the cluster.
+-- * 'preferredMaintenanceWindow' - A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
+-- * 'sSEDescription' - The description of the server-side encryption status on the specified DAX cluster.
+-- * 'securityGroups' - A list of security groups, and the status of each, for the nodes in the cluster.
+-- * 'status' - The current status of the cluster.
+-- * 'subnetGroup' - The subnet group where the DAX cluster is running.
+-- * 'totalNodes' - The total number of nodes in the cluster.
+mkCluster ::
   Cluster
-cluster =
+mkCluster =
   Cluster'
-    { _cStatus = Nothing,
-      _cIAMRoleARN = Nothing,
-      _cClusterARN = Nothing,
-      _cActiveNodes = Nothing,
-      _cSecurityGroups = Nothing,
-      _cNotificationConfiguration = Nothing,
-      _cNodeIdsToRemove = Nothing,
-      _cTotalNodes = Nothing,
-      _cPreferredMaintenanceWindow = Nothing,
-      _cSubnetGroup = Nothing,
-      _cClusterName = Nothing,
-      _cNodeType = Nothing,
-      _cNodes = Nothing,
-      _cClusterDiscoveryEndpoint = Nothing,
-      _cSSEDescription = Nothing,
-      _cDescription = Nothing,
-      _cParameterGroup = Nothing
+    { status = Lude.Nothing,
+      iamRoleARN = Lude.Nothing,
+      clusterARN = Lude.Nothing,
+      activeNodes = Lude.Nothing,
+      securityGroups = Lude.Nothing,
+      notificationConfiguration = Lude.Nothing,
+      nodeIdsToRemove = Lude.Nothing,
+      totalNodes = Lude.Nothing,
+      preferredMaintenanceWindow = Lude.Nothing,
+      subnetGroup = Lude.Nothing,
+      clusterName = Lude.Nothing,
+      nodeType = Lude.Nothing,
+      nodes = Lude.Nothing,
+      clusterDiscoveryEndpoint = Lude.Nothing,
+      sSEDescription = Lude.Nothing,
+      description = Lude.Nothing,
+      parameterGroup = Lude.Nothing
     }
 
 -- | The current status of the cluster.
-cStatus :: Lens' Cluster (Maybe Text)
-cStatus = lens _cStatus (\s a -> s {_cStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStatus :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cStatus = Lens.lens (status :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Cluster)
+{-# DEPRECATED cStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
-cIAMRoleARN :: Lens' Cluster (Maybe Text)
-cIAMRoleARN = lens _cIAMRoleARN (\s a -> s {_cIAMRoleARN = a})
+--
+-- /Note:/ Consider using 'iamRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cIAMRoleARN :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cIAMRoleARN = Lens.lens (iamRoleARN :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {iamRoleARN = a} :: Cluster)
+{-# DEPRECATED cIAMRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the cluster.
-cClusterARN :: Lens' Cluster (Maybe Text)
-cClusterARN = lens _cClusterARN (\s a -> s {_cClusterARN = a})
+--
+-- /Note:/ Consider using 'clusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cClusterARN :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cClusterARN = Lens.lens (clusterARN :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterARN = a} :: Cluster)
+{-# DEPRECATED cClusterARN "Use generic-lens or generic-optics with 'clusterARN' instead." #-}
 
 -- | The number of nodes in the cluster that are active (i.e., capable of serving requests).
-cActiveNodes :: Lens' Cluster (Maybe Int)
-cActiveNodes = lens _cActiveNodes (\s a -> s {_cActiveNodes = a})
+--
+-- /Note:/ Consider using 'activeNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cActiveNodes :: Lens.Lens' Cluster (Lude.Maybe Lude.Int)
+cActiveNodes = Lens.lens (activeNodes :: Cluster -> Lude.Maybe Lude.Int) (\s a -> s {activeNodes = a} :: Cluster)
+{-# DEPRECATED cActiveNodes "Use generic-lens or generic-optics with 'activeNodes' instead." #-}
 
 -- | A list of security groups, and the status of each, for the nodes in the cluster.
-cSecurityGroups :: Lens' Cluster [SecurityGroupMembership]
-cSecurityGroups = lens _cSecurityGroups (\s a -> s {_cSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSecurityGroups :: Lens.Lens' Cluster (Lude.Maybe [SecurityGroupMembership])
+cSecurityGroups = Lens.lens (securityGroups :: Cluster -> Lude.Maybe [SecurityGroupMembership]) (\s a -> s {securityGroups = a} :: Cluster)
+{-# DEPRECATED cSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | Describes a notification topic and its status. Notification topics are used for publishing DAX events to subscribers using Amazon Simple Notification Service (SNS).
-cNotificationConfiguration :: Lens' Cluster (Maybe NotificationConfiguration)
-cNotificationConfiguration = lens _cNotificationConfiguration (\s a -> s {_cNotificationConfiguration = a})
+--
+-- /Note:/ Consider using 'notificationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cNotificationConfiguration :: Lens.Lens' Cluster (Lude.Maybe NotificationConfiguration)
+cNotificationConfiguration = Lens.lens (notificationConfiguration :: Cluster -> Lude.Maybe NotificationConfiguration) (\s a -> s {notificationConfiguration = a} :: Cluster)
+{-# DEPRECATED cNotificationConfiguration "Use generic-lens or generic-optics with 'notificationConfiguration' instead." #-}
 
 -- | A list of nodes to be removed from the cluster.
-cNodeIdsToRemove :: Lens' Cluster [Text]
-cNodeIdsToRemove = lens _cNodeIdsToRemove (\s a -> s {_cNodeIdsToRemove = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodeIdsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cNodeIdsToRemove :: Lens.Lens' Cluster (Lude.Maybe [Lude.Text])
+cNodeIdsToRemove = Lens.lens (nodeIdsToRemove :: Cluster -> Lude.Maybe [Lude.Text]) (\s a -> s {nodeIdsToRemove = a} :: Cluster)
+{-# DEPRECATED cNodeIdsToRemove "Use generic-lens or generic-optics with 'nodeIdsToRemove' instead." #-}
 
 -- | The total number of nodes in the cluster.
-cTotalNodes :: Lens' Cluster (Maybe Int)
-cTotalNodes = lens _cTotalNodes (\s a -> s {_cTotalNodes = a})
+--
+-- /Note:/ Consider using 'totalNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTotalNodes :: Lens.Lens' Cluster (Lude.Maybe Lude.Int)
+cTotalNodes = Lens.lens (totalNodes :: Cluster -> Lude.Maybe Lude.Int) (\s a -> s {totalNodes = a} :: Cluster)
+{-# DEPRECATED cTotalNodes "Use generic-lens or generic-optics with 'totalNodes' instead." #-}
 
 -- | A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
-cPreferredMaintenanceWindow :: Lens' Cluster (Maybe Text)
-cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\s a -> s {_cPreferredMaintenanceWindow = a})
+--
+-- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPreferredMaintenanceWindow :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: Cluster)
+{-# DEPRECATED cPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
 
 -- | The subnet group where the DAX cluster is running.
-cSubnetGroup :: Lens' Cluster (Maybe Text)
-cSubnetGroup = lens _cSubnetGroup (\s a -> s {_cSubnetGroup = a})
+--
+-- /Note:/ Consider using 'subnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSubnetGroup :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cSubnetGroup = Lens.lens (subnetGroup :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {subnetGroup = a} :: Cluster)
+{-# DEPRECATED cSubnetGroup "Use generic-lens or generic-optics with 'subnetGroup' instead." #-}
 
 -- | The name of the DAX cluster.
-cClusterName :: Lens' Cluster (Maybe Text)
-cClusterName = lens _cClusterName (\s a -> s {_cClusterName = a})
+--
+-- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cClusterName :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cClusterName = Lens.lens (clusterName :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterName = a} :: Cluster)
+{-# DEPRECATED cClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
 
 -- | The node type for the nodes in the cluster. (All nodes in a DAX cluster are of the same type.)
-cNodeType :: Lens' Cluster (Maybe Text)
-cNodeType = lens _cNodeType (\s a -> s {_cNodeType = a})
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cNodeType :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cNodeType = Lens.lens (nodeType :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: Cluster)
+{-# DEPRECATED cNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
 -- | A list of nodes that are currently in the cluster.
-cNodes :: Lens' Cluster [Node]
-cNodes = lens _cNodes (\s a -> s {_cNodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cNodes :: Lens.Lens' Cluster (Lude.Maybe [Node])
+cNodes = Lens.lens (nodes :: Cluster -> Lude.Maybe [Node]) (\s a -> s {nodes = a} :: Cluster)
+{-# DEPRECATED cNodes "Use generic-lens or generic-optics with 'nodes' instead." #-}
 
 -- | The configuration endpoint for this DAX cluster, consisting of a DNS name and a port number. Client applications can specify this endpoint, rather than an individual node endpoint, and allow the DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
-cClusterDiscoveryEndpoint :: Lens' Cluster (Maybe Endpoint)
-cClusterDiscoveryEndpoint = lens _cClusterDiscoveryEndpoint (\s a -> s {_cClusterDiscoveryEndpoint = a})
+--
+-- /Note:/ Consider using 'clusterDiscoveryEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cClusterDiscoveryEndpoint :: Lens.Lens' Cluster (Lude.Maybe Endpoint)
+cClusterDiscoveryEndpoint = Lens.lens (clusterDiscoveryEndpoint :: Cluster -> Lude.Maybe Endpoint) (\s a -> s {clusterDiscoveryEndpoint = a} :: Cluster)
+{-# DEPRECATED cClusterDiscoveryEndpoint "Use generic-lens or generic-optics with 'clusterDiscoveryEndpoint' instead." #-}
 
 -- | The description of the server-side encryption status on the specified DAX cluster.
-cSSEDescription :: Lens' Cluster (Maybe SSEDescription)
-cSSEDescription = lens _cSSEDescription (\s a -> s {_cSSEDescription = a})
+--
+-- /Note:/ Consider using 'sSEDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSSEDescription :: Lens.Lens' Cluster (Lude.Maybe SSEDescription)
+cSSEDescription = Lens.lens (sSEDescription :: Cluster -> Lude.Maybe SSEDescription) (\s a -> s {sSEDescription = a} :: Cluster)
+{-# DEPRECATED cSSEDescription "Use generic-lens or generic-optics with 'sSEDescription' instead." #-}
 
 -- | The description of the cluster.
-cDescription :: Lens' Cluster (Maybe Text)
-cDescription = lens _cDescription (\s a -> s {_cDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDescription :: Lens.Lens' Cluster (Lude.Maybe Lude.Text)
+cDescription = Lens.lens (description :: Cluster -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Cluster)
+{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The parameter group being used by nodes in the cluster.
-cParameterGroup :: Lens' Cluster (Maybe ParameterGroupStatus)
-cParameterGroup = lens _cParameterGroup (\s a -> s {_cParameterGroup = a})
+--
+-- /Note:/ Consider using 'parameterGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cParameterGroup :: Lens.Lens' Cluster (Lude.Maybe ParameterGroupStatus)
+cParameterGroup = Lens.lens (parameterGroup :: Cluster -> Lude.Maybe ParameterGroupStatus) (\s a -> s {parameterGroup = a} :: Cluster)
+{-# DEPRECATED cParameterGroup "Use generic-lens or generic-optics with 'parameterGroup' instead." #-}
 
-instance FromJSON Cluster where
+instance Lude.FromJSON Cluster where
   parseJSON =
-    withObject
+    Lude.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            <$> (x .:? "Status")
-            <*> (x .:? "IamRoleArn")
-            <*> (x .:? "ClusterArn")
-            <*> (x .:? "ActiveNodes")
-            <*> (x .:? "SecurityGroups" .!= mempty)
-            <*> (x .:? "NotificationConfiguration")
-            <*> (x .:? "NodeIdsToRemove" .!= mempty)
-            <*> (x .:? "TotalNodes")
-            <*> (x .:? "PreferredMaintenanceWindow")
-            <*> (x .:? "SubnetGroup")
-            <*> (x .:? "ClusterName")
-            <*> (x .:? "NodeType")
-            <*> (x .:? "Nodes" .!= mempty)
-            <*> (x .:? "ClusterDiscoveryEndpoint")
-            <*> (x .:? "SSEDescription")
-            <*> (x .:? "Description")
-            <*> (x .:? "ParameterGroup")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "IamRoleArn")
+            Lude.<*> (x Lude..:? "ClusterArn")
+            Lude.<*> (x Lude..:? "ActiveNodes")
+            Lude.<*> (x Lude..:? "SecurityGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NotificationConfiguration")
+            Lude.<*> (x Lude..:? "NodeIdsToRemove" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TotalNodes")
+            Lude.<*> (x Lude..:? "PreferredMaintenanceWindow")
+            Lude.<*> (x Lude..:? "SubnetGroup")
+            Lude.<*> (x Lude..:? "ClusterName")
+            Lude.<*> (x Lude..:? "NodeType")
+            Lude.<*> (x Lude..:? "Nodes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ClusterDiscoveryEndpoint")
+            Lude.<*> (x Lude..:? "SSEDescription")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "ParameterGroup")
       )
-
-instance Hashable Cluster
-
-instance NFData Cluster

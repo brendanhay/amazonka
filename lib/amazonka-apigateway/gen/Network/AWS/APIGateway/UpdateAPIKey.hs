@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Changes information about an 'ApiKey' resource.
 module Network.AWS.APIGateway.UpdateAPIKey
-  ( -- * Creating a Request
-    updateAPIKey,
-    UpdateAPIKey,
+  ( -- * Creating a request
+    UpdateAPIKey (..),
+    mkUpdateAPIKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uakPatchOperations,
     uakApiKey,
 
-    -- * Destructuring the Response
-    apiKey,
-    APIKey,
+    -- * Destructuring the response
+    APIKey (..),
+    mkAPIKey,
 
-    -- * Response Lenses
+    -- ** Response lenses
     akEnabled,
     akValue,
     akCustomerId,
@@ -46,68 +41,75 @@ module Network.AWS.APIGateway.UpdateAPIKey
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to change information about an 'ApiKey' resource.
 --
---
---
--- /See:/ 'updateAPIKey' smart constructor.
+-- /See:/ 'mkUpdateAPIKey' smart constructor.
 data UpdateAPIKey = UpdateAPIKey'
-  { _uakPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _uakApiKey :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    apiKey :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPIKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uakPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'uakApiKey' - [Required] The identifier of the 'ApiKey' resource to be updated.
-updateAPIKey ::
-  -- | 'uakApiKey'
-  Text ->
+-- * 'apiKey' - [Required] The identifier of the 'ApiKey' resource to be updated.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+mkUpdateAPIKey ::
+  -- | 'apiKey'
+  Lude.Text ->
   UpdateAPIKey
-updateAPIKey pApiKey_ =
-  UpdateAPIKey'
-    { _uakPatchOperations = Nothing,
-      _uakApiKey = pApiKey_
-    }
+mkUpdateAPIKey pApiKey_ =
+  UpdateAPIKey' {patchOperations = Lude.Nothing, apiKey = pApiKey_}
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-uakPatchOperations :: Lens' UpdateAPIKey [PatchOperation]
-uakPatchOperations = lens _uakPatchOperations (\s a -> s {_uakPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakPatchOperations :: Lens.Lens' UpdateAPIKey (Lude.Maybe [PatchOperation])
+uakPatchOperations = Lens.lens (patchOperations :: UpdateAPIKey -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateAPIKey)
+{-# DEPRECATED uakPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The identifier of the 'ApiKey' resource to be updated.
-uakApiKey :: Lens' UpdateAPIKey Text
-uakApiKey = lens _uakApiKey (\s a -> s {_uakApiKey = a})
+--
+-- /Note:/ Consider using 'apiKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakApiKey :: Lens.Lens' UpdateAPIKey Lude.Text
+uakApiKey = Lens.lens (apiKey :: UpdateAPIKey -> Lude.Text) (\s a -> s {apiKey = a} :: UpdateAPIKey)
+{-# DEPRECATED uakApiKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
 
-instance AWSRequest UpdateAPIKey where
+instance Lude.AWSRequest UpdateAPIKey where
   type Rs UpdateAPIKey = APIKey
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateAPIKey
-
-instance NFData UpdateAPIKey
-
-instance ToHeaders UpdateAPIKey where
+instance Lude.ToHeaders UpdateAPIKey where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateAPIKey where
+instance Lude.ToJSON UpdateAPIKey where
   toJSON UpdateAPIKey' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _uakPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateAPIKey where
-  toPath UpdateAPIKey' {..} = mconcat ["/apikeys/", toBS _uakApiKey]
+instance Lude.ToPath UpdateAPIKey where
+  toPath UpdateAPIKey' {..} =
+    Lude.mconcat ["/apikeys/", Lude.toBS apiKey]
 
-instance ToQuery UpdateAPIKey where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAPIKey where
+  toQuery = Lude.const Lude.mempty

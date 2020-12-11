@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.Policy where
+module Network.AWS.IoT.Types.Policy
+  ( Policy (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPolicy,
+
+    -- * Lenses
+    pPolicyName,
+    pPolicyARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an AWS IoT policy.
 --
---
---
--- /See:/ 'policy' smart constructor.
+-- /See:/ 'mkPolicy' smart constructor.
 data Policy = Policy'
-  { _pPolicyName :: !(Maybe Text),
-    _pPolicyARN :: !(Maybe Text)
+  { policyName :: Lude.Maybe Lude.Text,
+    policyARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Policy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pPolicyName' - The policy name.
---
--- * 'pPolicyARN' - The policy ARN.
-policy ::
+-- * 'policyARN' - The policy ARN.
+-- * 'policyName' - The policy name.
+mkPolicy ::
   Policy
-policy = Policy' {_pPolicyName = Nothing, _pPolicyARN = Nothing}
+mkPolicy =
+  Policy' {policyName = Lude.Nothing, policyARN = Lude.Nothing}
 
 -- | The policy name.
-pPolicyName :: Lens' Policy (Maybe Text)
-pPolicyName = lens _pPolicyName (\s a -> s {_pPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPolicyName :: Lens.Lens' Policy (Lude.Maybe Lude.Text)
+pPolicyName = Lens.lens (policyName :: Policy -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: Policy)
+{-# DEPRECATED pPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy ARN.
-pPolicyARN :: Lens' Policy (Maybe Text)
-pPolicyARN = lens _pPolicyARN (\s a -> s {_pPolicyARN = a})
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPolicyARN :: Lens.Lens' Policy (Lude.Maybe Lude.Text)
+pPolicyARN = Lens.lens (policyARN :: Policy -> Lude.Maybe Lude.Text) (\s a -> s {policyARN = a} :: Policy)
+{-# DEPRECATED pPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
-instance FromJSON Policy where
+instance Lude.FromJSON Policy where
   parseJSON =
-    withObject
+    Lude.withObject
       "Policy"
-      (\x -> Policy' <$> (x .:? "policyName") <*> (x .:? "policyArn"))
-
-instance Hashable Policy
-
-instance NFData Policy
+      ( \x ->
+          Policy'
+            Lude.<$> (x Lude..:? "policyName") Lude.<*> (x Lude..:? "policyArn")
+      )

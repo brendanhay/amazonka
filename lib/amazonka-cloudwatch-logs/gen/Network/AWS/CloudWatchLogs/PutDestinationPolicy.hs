@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,114 @@
 --
 -- Creates or updates an access policy associated with an existing destination. An access policy is an <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html IAM policy document> that is used to authorize claims to register a subscription filter against a given destination.
 module Network.AWS.CloudWatchLogs.PutDestinationPolicy
-  ( -- * Creating a Request
-    putDestinationPolicy,
-    PutDestinationPolicy,
+  ( -- * Creating a request
+    PutDestinationPolicy (..),
+    mkPutDestinationPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pdpDestinationName,
     pdpAccessPolicy,
 
-    -- * Destructuring the Response
-    putDestinationPolicyResponse,
-    PutDestinationPolicyResponse,
+    -- * Destructuring the response
+    PutDestinationPolicyResponse (..),
+    mkPutDestinationPolicyResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putDestinationPolicy' smart constructor.
+-- | /See:/ 'mkPutDestinationPolicy' smart constructor.
 data PutDestinationPolicy = PutDestinationPolicy'
-  { _pdpDestinationName ::
-      !Text,
-    _pdpAccessPolicy :: !Text
+  { destinationName ::
+      Lude.Text,
+    accessPolicy :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDestinationPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdpDestinationName' - A name for an existing destination.
---
--- * 'pdpAccessPolicy' - An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
-putDestinationPolicy ::
-  -- | 'pdpDestinationName'
-  Text ->
-  -- | 'pdpAccessPolicy'
-  Text ->
+-- * 'accessPolicy' - An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
+-- * 'destinationName' - A name for an existing destination.
+mkPutDestinationPolicy ::
+  -- | 'destinationName'
+  Lude.Text ->
+  -- | 'accessPolicy'
+  Lude.Text ->
   PutDestinationPolicy
-putDestinationPolicy pDestinationName_ pAccessPolicy_ =
+mkPutDestinationPolicy pDestinationName_ pAccessPolicy_ =
   PutDestinationPolicy'
-    { _pdpDestinationName = pDestinationName_,
-      _pdpAccessPolicy = pAccessPolicy_
+    { destinationName = pDestinationName_,
+      accessPolicy = pAccessPolicy_
     }
 
 -- | A name for an existing destination.
-pdpDestinationName :: Lens' PutDestinationPolicy Text
-pdpDestinationName = lens _pdpDestinationName (\s a -> s {_pdpDestinationName = a})
+--
+-- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdpDestinationName :: Lens.Lens' PutDestinationPolicy Lude.Text
+pdpDestinationName = Lens.lens (destinationName :: PutDestinationPolicy -> Lude.Text) (\s a -> s {destinationName = a} :: PutDestinationPolicy)
+{-# DEPRECATED pdpDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
 -- | An IAM policy document that authorizes cross-account users to deliver their log events to the associated destination. This can be up to 5120 bytes.
-pdpAccessPolicy :: Lens' PutDestinationPolicy Text
-pdpAccessPolicy = lens _pdpAccessPolicy (\s a -> s {_pdpAccessPolicy = a})
+--
+-- /Note:/ Consider using 'accessPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdpAccessPolicy :: Lens.Lens' PutDestinationPolicy Lude.Text
+pdpAccessPolicy = Lens.lens (accessPolicy :: PutDestinationPolicy -> Lude.Text) (\s a -> s {accessPolicy = a} :: PutDestinationPolicy)
+{-# DEPRECATED pdpAccessPolicy "Use generic-lens or generic-optics with 'accessPolicy' instead." #-}
 
-instance AWSRequest PutDestinationPolicy where
+instance Lude.AWSRequest PutDestinationPolicy where
   type Rs PutDestinationPolicy = PutDestinationPolicyResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull PutDestinationPolicyResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull PutDestinationPolicyResponse'
 
-instance Hashable PutDestinationPolicy
-
-instance NFData PutDestinationPolicy
-
-instance ToHeaders PutDestinationPolicy where
+instance Lude.ToHeaders PutDestinationPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.PutDestinationPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.PutDestinationPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutDestinationPolicy where
+instance Lude.ToJSON PutDestinationPolicy where
   toJSON PutDestinationPolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("destinationName" .= _pdpDestinationName),
-            Just ("accessPolicy" .= _pdpAccessPolicy)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("destinationName" Lude..= destinationName),
+            Lude.Just ("accessPolicy" Lude..= accessPolicy)
           ]
       )
 
-instance ToPath PutDestinationPolicy where
-  toPath = const "/"
+instance Lude.ToPath PutDestinationPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery PutDestinationPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutDestinationPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putDestinationPolicyResponse' smart constructor.
+-- | /See:/ 'mkPutDestinationPolicyResponse' smart constructor.
 data PutDestinationPolicyResponse = PutDestinationPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDestinationPolicyResponse' with the minimum fields required to make a request.
-putDestinationPolicyResponse ::
+mkPutDestinationPolicyResponse ::
   PutDestinationPolicyResponse
-putDestinationPolicyResponse = PutDestinationPolicyResponse'
-
-instance NFData PutDestinationPolicyResponse
+mkPutDestinationPolicyResponse = PutDestinationPolicyResponse'

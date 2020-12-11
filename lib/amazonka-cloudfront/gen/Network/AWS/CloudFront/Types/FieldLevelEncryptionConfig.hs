@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig where
+module Network.AWS.CloudFront.Types.FieldLevelEncryptionConfig
+  ( FieldLevelEncryptionConfig (..),
+
+    -- * Smart constructor
+    mkFieldLevelEncryptionConfig,
+
+    -- * Lenses
+    flecQueryArgProfileConfig,
+    flecContentTypeProfileConfig,
+    flecComment,
+    flecCallerReference,
+  )
+where
 
 import Network.AWS.CloudFront.Types.ContentTypeProfileConfig
 import Network.AWS.CloudFront.Types.QueryArgProfileConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A complex data type that includes the profile configurations specified for field-level encryption.
 --
---
---
--- /See:/ 'fieldLevelEncryptionConfig' smart constructor.
+-- /See:/ 'mkFieldLevelEncryptionConfig' smart constructor.
 data FieldLevelEncryptionConfig = FieldLevelEncryptionConfig'
-  { _flecQueryArgProfileConfig ::
-      !(Maybe QueryArgProfileConfig),
-    _flecContentTypeProfileConfig ::
-      !(Maybe ContentTypeProfileConfig),
-    _flecComment :: !(Maybe Text),
-    _flecCallerReference :: !Text
+  { queryArgProfileConfig ::
+      Lude.Maybe QueryArgProfileConfig,
+    contentTypeProfileConfig ::
+      Lude.Maybe ContentTypeProfileConfig,
+    comment :: Lude.Maybe Lude.Text,
+    callerReference :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FieldLevelEncryptionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'flecQueryArgProfileConfig' - A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
---
--- * 'flecContentTypeProfileConfig' - A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
---
--- * 'flecComment' - An optional comment about the configuration.
---
--- * 'flecCallerReference' - A unique number that ensures the request can't be replayed.
-fieldLevelEncryptionConfig ::
-  -- | 'flecCallerReference'
-  Text ->
+-- * 'callerReference' - A unique number that ensures the request can't be replayed.
+-- * 'comment' - An optional comment about the configuration.
+-- * 'contentTypeProfileConfig' - A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+-- * 'queryArgProfileConfig' - A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+mkFieldLevelEncryptionConfig ::
+  -- | 'callerReference'
+  Lude.Text ->
   FieldLevelEncryptionConfig
-fieldLevelEncryptionConfig pCallerReference_ =
+mkFieldLevelEncryptionConfig pCallerReference_ =
   FieldLevelEncryptionConfig'
-    { _flecQueryArgProfileConfig = Nothing,
-      _flecContentTypeProfileConfig = Nothing,
-      _flecComment = Nothing,
-      _flecCallerReference = pCallerReference_
+    { queryArgProfileConfig = Lude.Nothing,
+      contentTypeProfileConfig = Lude.Nothing,
+      comment = Lude.Nothing,
+      callerReference = pCallerReference_
     }
 
 -- | A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
-flecQueryArgProfileConfig :: Lens' FieldLevelEncryptionConfig (Maybe QueryArgProfileConfig)
-flecQueryArgProfileConfig = lens _flecQueryArgProfileConfig (\s a -> s {_flecQueryArgProfileConfig = a})
+--
+-- /Note:/ Consider using 'queryArgProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flecQueryArgProfileConfig :: Lens.Lens' FieldLevelEncryptionConfig (Lude.Maybe QueryArgProfileConfig)
+flecQueryArgProfileConfig = Lens.lens (queryArgProfileConfig :: FieldLevelEncryptionConfig -> Lude.Maybe QueryArgProfileConfig) (\s a -> s {queryArgProfileConfig = a} :: FieldLevelEncryptionConfig)
+{-# DEPRECATED flecQueryArgProfileConfig "Use generic-lens or generic-optics with 'queryArgProfileConfig' instead." #-}
 
 -- | A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
-flecContentTypeProfileConfig :: Lens' FieldLevelEncryptionConfig (Maybe ContentTypeProfileConfig)
-flecContentTypeProfileConfig = lens _flecContentTypeProfileConfig (\s a -> s {_flecContentTypeProfileConfig = a})
+--
+-- /Note:/ Consider using 'contentTypeProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flecContentTypeProfileConfig :: Lens.Lens' FieldLevelEncryptionConfig (Lude.Maybe ContentTypeProfileConfig)
+flecContentTypeProfileConfig = Lens.lens (contentTypeProfileConfig :: FieldLevelEncryptionConfig -> Lude.Maybe ContentTypeProfileConfig) (\s a -> s {contentTypeProfileConfig = a} :: FieldLevelEncryptionConfig)
+{-# DEPRECATED flecContentTypeProfileConfig "Use generic-lens or generic-optics with 'contentTypeProfileConfig' instead." #-}
 
 -- | An optional comment about the configuration.
-flecComment :: Lens' FieldLevelEncryptionConfig (Maybe Text)
-flecComment = lens _flecComment (\s a -> s {_flecComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flecComment :: Lens.Lens' FieldLevelEncryptionConfig (Lude.Maybe Lude.Text)
+flecComment = Lens.lens (comment :: FieldLevelEncryptionConfig -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: FieldLevelEncryptionConfig)
+{-# DEPRECATED flecComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | A unique number that ensures the request can't be replayed.
-flecCallerReference :: Lens' FieldLevelEncryptionConfig Text
-flecCallerReference = lens _flecCallerReference (\s a -> s {_flecCallerReference = a})
+--
+-- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flecCallerReference :: Lens.Lens' FieldLevelEncryptionConfig Lude.Text
+flecCallerReference = Lens.lens (callerReference :: FieldLevelEncryptionConfig -> Lude.Text) (\s a -> s {callerReference = a} :: FieldLevelEncryptionConfig)
+{-# DEPRECATED flecCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
-instance FromXML FieldLevelEncryptionConfig where
+instance Lude.FromXML FieldLevelEncryptionConfig where
   parseXML x =
     FieldLevelEncryptionConfig'
-      <$> (x .@? "QueryArgProfileConfig")
-      <*> (x .@? "ContentTypeProfileConfig")
-      <*> (x .@? "Comment")
-      <*> (x .@ "CallerReference")
+      Lude.<$> (x Lude..@? "QueryArgProfileConfig")
+      Lude.<*> (x Lude..@? "ContentTypeProfileConfig")
+      Lude.<*> (x Lude..@? "Comment")
+      Lude.<*> (x Lude..@ "CallerReference")
 
-instance Hashable FieldLevelEncryptionConfig
-
-instance NFData FieldLevelEncryptionConfig
-
-instance ToXML FieldLevelEncryptionConfig where
+instance Lude.ToXML FieldLevelEncryptionConfig where
   toXML FieldLevelEncryptionConfig' {..} =
-    mconcat
-      [ "QueryArgProfileConfig" @= _flecQueryArgProfileConfig,
-        "ContentTypeProfileConfig" @= _flecContentTypeProfileConfig,
-        "Comment" @= _flecComment,
-        "CallerReference" @= _flecCallerReference
+    Lude.mconcat
+      [ "QueryArgProfileConfig" Lude.@= queryArgProfileConfig,
+        "ContentTypeProfileConfig" Lude.@= contentTypeProfileConfig,
+        "Comment" Lude.@= comment,
+        "CallerReference" Lude.@= callerReference
       ]

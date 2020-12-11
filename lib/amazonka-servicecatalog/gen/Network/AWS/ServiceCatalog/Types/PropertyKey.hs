@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.PropertyKey where
+module Network.AWS.ServiceCatalog.Types.PropertyKey
+  ( PropertyKey
+      ( PropertyKey',
+        LaunchRole,
+        Owner
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PropertyKey
-  = LaunchRole
-  | Owner
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PropertyKey = PropertyKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PropertyKey where
-  parser =
-    takeLowerText >>= \case
-      "launch_role" -> pure LaunchRole
-      "owner" -> pure Owner
-      e ->
-        fromTextError $
-          "Failure parsing PropertyKey from value: '" <> e
-            <> "'. Accepted values: launch_role, owner"
+pattern LaunchRole :: PropertyKey
+pattern LaunchRole = PropertyKey' "LAUNCH_ROLE"
 
-instance ToText PropertyKey where
-  toText = \case
-    LaunchRole -> "LAUNCH_ROLE"
-    Owner -> "OWNER"
+pattern Owner :: PropertyKey
+pattern Owner = PropertyKey' "OWNER"
 
-instance Hashable PropertyKey
-
-instance NFData PropertyKey
-
-instance ToByteString PropertyKey
-
-instance ToQuery PropertyKey
-
-instance ToHeader PropertyKey
-
-instance ToJSON PropertyKey where
-  toJSON = toJSONText
-
-instance FromJSON PropertyKey where
-  parseJSON = parseJSONText "PropertyKey"
+{-# COMPLETE
+  LaunchRole,
+  Owner,
+  PropertyKey'
+  #-}

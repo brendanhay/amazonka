@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.ClientProperties where
+module Network.AWS.WorkSpaces.Types.ClientProperties
+  ( ClientProperties (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkClientProperties,
+
+    -- * Lenses
+    cpReconnectEnabled,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.ReconnectEnum
 
 -- | Describes an Amazon WorkSpaces client.
 --
---
---
--- /See:/ 'clientProperties' smart constructor.
+-- /See:/ 'mkClientProperties' smart constructor.
 newtype ClientProperties = ClientProperties'
-  { _cpReconnectEnabled ::
-      Maybe ReconnectEnum
+  { reconnectEnabled ::
+      Lude.Maybe ReconnectEnum
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpReconnectEnabled' - Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials.
-clientProperties ::
+-- * 'reconnectEnabled' - Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials.
+mkClientProperties ::
   ClientProperties
-clientProperties = ClientProperties' {_cpReconnectEnabled = Nothing}
+mkClientProperties =
+  ClientProperties' {reconnectEnabled = Lude.Nothing}
 
 -- | Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials.
-cpReconnectEnabled :: Lens' ClientProperties (Maybe ReconnectEnum)
-cpReconnectEnabled = lens _cpReconnectEnabled (\s a -> s {_cpReconnectEnabled = a})
+--
+-- /Note:/ Consider using 'reconnectEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpReconnectEnabled :: Lens.Lens' ClientProperties (Lude.Maybe ReconnectEnum)
+cpReconnectEnabled = Lens.lens (reconnectEnabled :: ClientProperties -> Lude.Maybe ReconnectEnum) (\s a -> s {reconnectEnabled = a} :: ClientProperties)
+{-# DEPRECATED cpReconnectEnabled "Use generic-lens or generic-optics with 'reconnectEnabled' instead." #-}
 
-instance FromJSON ClientProperties where
+instance Lude.FromJSON ClientProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "ClientProperties"
-      (\x -> ClientProperties' <$> (x .:? "ReconnectEnabled"))
+      (\x -> ClientProperties' Lude.<$> (x Lude..:? "ReconnectEnabled"))
 
-instance Hashable ClientProperties
-
-instance NFData ClientProperties
-
-instance ToJSON ClientProperties where
+instance Lude.ToJSON ClientProperties where
   toJSON ClientProperties' {..} =
-    object
-      (catMaybes [("ReconnectEnabled" .=) <$> _cpReconnectEnabled])
+    Lude.object
+      ( Lude.catMaybes
+          [("ReconnectEnabled" Lude..=) Lude.<$> reconnectEnabled]
+      )

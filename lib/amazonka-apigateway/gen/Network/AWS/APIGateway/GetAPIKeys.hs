@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Gets information about the current 'ApiKeys' resource.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetAPIKeys
-  ( -- * Creating a Request
-    getAPIKeys,
-    GetAPIKeys,
+  ( -- * Creating a request
+    GetAPIKeys (..),
+    mkGetAPIKeys,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gakIncludeValues,
     gakCustomerId,
     gakNameQuery,
     gakLimit,
     gakPosition,
 
-    -- * Destructuring the Response
-    getAPIKeysResponse,
-    GetAPIKeysResponse,
+    -- * Destructuring the response
+    GetAPIKeysResponse (..),
+    mkGetAPIKeysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gakrsItems,
     gakrsWarnings,
     gakrsPosition,
@@ -47,162 +40,190 @@ module Network.AWS.APIGateway.GetAPIKeys
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to get information about the current 'ApiKeys' resource.
 --
---
---
--- /See:/ 'getAPIKeys' smart constructor.
+-- /See:/ 'mkGetAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
-  { _gakIncludeValues :: !(Maybe Bool),
-    _gakCustomerId :: !(Maybe Text),
-    _gakNameQuery :: !(Maybe Text),
-    _gakLimit :: !(Maybe Int),
-    _gakPosition :: !(Maybe Text)
+  { includeValues ::
+      Lude.Maybe Lude.Bool,
+    customerId :: Lude.Maybe Lude.Text,
+    nameQuery :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPIKeys' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gakIncludeValues' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
---
--- * 'gakCustomerId' - The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
---
--- * 'gakNameQuery' - The name of queried API keys.
---
--- * 'gakLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gakPosition' - The current pagination position in the paged result set.
-getAPIKeys ::
+-- * 'customerId' - The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
+-- * 'includeValues' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'nameQuery' - The name of queried API keys.
+-- * 'position' - The current pagination position in the paged result set.
+mkGetAPIKeys ::
   GetAPIKeys
-getAPIKeys =
+mkGetAPIKeys =
   GetAPIKeys'
-    { _gakIncludeValues = Nothing,
-      _gakCustomerId = Nothing,
-      _gakNameQuery = Nothing,
-      _gakLimit = Nothing,
-      _gakPosition = Nothing
+    { includeValues = Lude.Nothing,
+      customerId = Lude.Nothing,
+      nameQuery = Lude.Nothing,
+      limit = Lude.Nothing,
+      position = Lude.Nothing
     }
 
 -- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
-gakIncludeValues :: Lens' GetAPIKeys (Maybe Bool)
-gakIncludeValues = lens _gakIncludeValues (\s a -> s {_gakIncludeValues = a})
+--
+-- /Note:/ Consider using 'includeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakIncludeValues :: Lens.Lens' GetAPIKeys (Lude.Maybe Lude.Bool)
+gakIncludeValues = Lens.lens (includeValues :: GetAPIKeys -> Lude.Maybe Lude.Bool) (\s a -> s {includeValues = a} :: GetAPIKeys)
+{-# DEPRECATED gakIncludeValues "Use generic-lens or generic-optics with 'includeValues' instead." #-}
 
 -- | The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
-gakCustomerId :: Lens' GetAPIKeys (Maybe Text)
-gakCustomerId = lens _gakCustomerId (\s a -> s {_gakCustomerId = a})
+--
+-- /Note:/ Consider using 'customerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakCustomerId :: Lens.Lens' GetAPIKeys (Lude.Maybe Lude.Text)
+gakCustomerId = Lens.lens (customerId :: GetAPIKeys -> Lude.Maybe Lude.Text) (\s a -> s {customerId = a} :: GetAPIKeys)
+{-# DEPRECATED gakCustomerId "Use generic-lens or generic-optics with 'customerId' instead." #-}
 
 -- | The name of queried API keys.
-gakNameQuery :: Lens' GetAPIKeys (Maybe Text)
-gakNameQuery = lens _gakNameQuery (\s a -> s {_gakNameQuery = a})
+--
+-- /Note:/ Consider using 'nameQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakNameQuery :: Lens.Lens' GetAPIKeys (Lude.Maybe Lude.Text)
+gakNameQuery = Lens.lens (nameQuery :: GetAPIKeys -> Lude.Maybe Lude.Text) (\s a -> s {nameQuery = a} :: GetAPIKeys)
+{-# DEPRECATED gakNameQuery "Use generic-lens or generic-optics with 'nameQuery' instead." #-}
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gakLimit :: Lens' GetAPIKeys (Maybe Int)
-gakLimit = lens _gakLimit (\s a -> s {_gakLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakLimit :: Lens.Lens' GetAPIKeys (Lude.Maybe Lude.Int)
+gakLimit = Lens.lens (limit :: GetAPIKeys -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetAPIKeys)
+{-# DEPRECATED gakLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gakPosition :: Lens' GetAPIKeys (Maybe Text)
-gakPosition = lens _gakPosition (\s a -> s {_gakPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakPosition :: Lens.Lens' GetAPIKeys (Lude.Maybe Lude.Text)
+gakPosition = Lens.lens (position :: GetAPIKeys -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetAPIKeys)
+{-# DEPRECATED gakPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
-instance AWSPager GetAPIKeys where
+instance Page.AWSPager GetAPIKeys where
   page rq rs
-    | stop (rs ^. gakrsPosition) = Nothing
-    | stop (rs ^. gakrsItems) = Nothing
-    | otherwise = Just $ rq & gakPosition .~ rs ^. gakrsPosition
+    | Page.stop (rs Lens.^. gakrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. gakrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gakPosition Lens..~ rs Lens.^. gakrsPosition
 
-instance AWSRequest GetAPIKeys where
+instance Lude.AWSRequest GetAPIKeys where
   type Rs GetAPIKeys = GetAPIKeysResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAPIKeysResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "warnings" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "warnings" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAPIKeys
-
-instance NFData GetAPIKeys
-
-instance ToHeaders GetAPIKeys where
+instance Lude.ToHeaders GetAPIKeys where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetAPIKeys where
-  toPath = const "/apikeys"
+instance Lude.ToPath GetAPIKeys where
+  toPath = Lude.const "/apikeys"
 
-instance ToQuery GetAPIKeys where
+instance Lude.ToQuery GetAPIKeys where
   toQuery GetAPIKeys' {..} =
-    mconcat
-      [ "includeValues" =: _gakIncludeValues,
-        "customerId" =: _gakCustomerId,
-        "name" =: _gakNameQuery,
-        "limit" =: _gakLimit,
-        "position" =: _gakPosition
+    Lude.mconcat
+      [ "includeValues" Lude.=: includeValues,
+        "customerId" Lude.=: customerId,
+        "name" Lude.=: nameQuery,
+        "limit" Lude.=: limit,
+        "position" Lude.=: position
       ]
 
 -- | Represents a collection of API keys as represented by an 'ApiKeys' resource.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
 --
--- /See:/ 'getAPIKeysResponse' smart constructor.
+-- /See:/ 'mkGetAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'
-  { _gakrsItems ::
-      !(Maybe [APIKey]),
-    _gakrsWarnings :: !(Maybe [Text]),
-    _gakrsPosition :: !(Maybe Text),
-    _gakrsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [APIKey],
+    warnings :: Lude.Maybe [Lude.Text],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPIKeysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gakrsItems' - The current page of elements from this collection.
---
--- * 'gakrsWarnings' - A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
---
--- * 'gakrsPosition' - Undocumented member.
---
--- * 'gakrsResponseStatus' - -- | The response status code.
-getAPIKeysResponse ::
-  -- | 'gakrsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'warnings' - A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
+mkGetAPIKeysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAPIKeysResponse
-getAPIKeysResponse pResponseStatus_ =
+mkGetAPIKeysResponse pResponseStatus_ =
   GetAPIKeysResponse'
-    { _gakrsItems = Nothing,
-      _gakrsWarnings = Nothing,
-      _gakrsPosition = Nothing,
-      _gakrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      warnings = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-gakrsItems :: Lens' GetAPIKeysResponse [APIKey]
-gakrsItems = lens _gakrsItems (\s a -> s {_gakrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakrsItems :: Lens.Lens' GetAPIKeysResponse (Lude.Maybe [APIKey])
+gakrsItems = Lens.lens (items :: GetAPIKeysResponse -> Lude.Maybe [APIKey]) (\s a -> s {items = a} :: GetAPIKeysResponse)
+{-# DEPRECATED gakrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
-gakrsWarnings :: Lens' GetAPIKeysResponse [Text]
-gakrsWarnings = lens _gakrsWarnings (\s a -> s {_gakrsWarnings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'warnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakrsWarnings :: Lens.Lens' GetAPIKeysResponse (Lude.Maybe [Lude.Text])
+gakrsWarnings = Lens.lens (warnings :: GetAPIKeysResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {warnings = a} :: GetAPIKeysResponse)
+{-# DEPRECATED gakrsWarnings "Use generic-lens or generic-optics with 'warnings' instead." #-}
 
--- | Undocumented member.
-gakrsPosition :: Lens' GetAPIKeysResponse (Maybe Text)
-gakrsPosition = lens _gakrsPosition (\s a -> s {_gakrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakrsPosition :: Lens.Lens' GetAPIKeysResponse (Lude.Maybe Lude.Text)
+gakrsPosition = Lens.lens (position :: GetAPIKeysResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetAPIKeysResponse)
+{-# DEPRECATED gakrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-gakrsResponseStatus :: Lens' GetAPIKeysResponse Int
-gakrsResponseStatus = lens _gakrsResponseStatus (\s a -> s {_gakrsResponseStatus = a})
-
-instance NFData GetAPIKeysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gakrsResponseStatus :: Lens.Lens' GetAPIKeysResponse Lude.Int
+gakrsResponseStatus = Lens.lens (responseStatus :: GetAPIKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAPIKeysResponse)
+{-# DEPRECATED gakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

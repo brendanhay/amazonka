@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Translate.Types.MergeStrategy where
+module Network.AWS.Translate.Types.MergeStrategy
+  ( MergeStrategy
+      ( MergeStrategy',
+        Overwrite
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MergeStrategy = Overwrite
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MergeStrategy = MergeStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MergeStrategy where
-  parser =
-    takeLowerText >>= \case
-      "overwrite" -> pure Overwrite
-      e ->
-        fromTextError $
-          "Failure parsing MergeStrategy from value: '" <> e
-            <> "'. Accepted values: overwrite"
+pattern Overwrite :: MergeStrategy
+pattern Overwrite = MergeStrategy' "OVERWRITE"
 
-instance ToText MergeStrategy where
-  toText = \case
-    Overwrite -> "OVERWRITE"
-
-instance Hashable MergeStrategy
-
-instance NFData MergeStrategy
-
-instance ToByteString MergeStrategy
-
-instance ToQuery MergeStrategy
-
-instance ToHeader MergeStrategy
-
-instance ToJSON MergeStrategy where
-  toJSON = toJSONText
+{-# COMPLETE
+  Overwrite,
+  MergeStrategy'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,149 @@
 --
 -- Adds two domain controllers in the specified Region for the specified directory.
 module Network.AWS.DirectoryService.AddRegion
-  ( -- * Creating a Request
-    addRegion,
-    AddRegion,
+  ( -- * Creating a request
+    AddRegion (..),
+    mkAddRegion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     arDirectoryId,
     arRegionName,
     arVPCSettings,
 
-    -- * Destructuring the Response
-    addRegionResponse,
-    AddRegionResponse,
+    -- * Destructuring the response
+    AddRegionResponse (..),
+    mkAddRegionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     arrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addRegion' smart constructor.
+-- | /See:/ 'mkAddRegion' smart constructor.
 data AddRegion = AddRegion'
-  { _arDirectoryId :: !Text,
-    _arRegionName :: !Text,
-    _arVPCSettings :: !DirectoryVPCSettings
+  { directoryId :: Lude.Text,
+    regionName :: Lude.Text,
+    vpcSettings :: DirectoryVPCSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddRegion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arDirectoryId' - The identifier of the directory to which you want to add Region replication.
---
--- * 'arRegionName' - The name of the Region where you want to add domain controllers for replication. For example, @us-east-1@ .
---
--- * 'arVPCSettings' - Undocumented member.
-addRegion ::
-  -- | 'arDirectoryId'
-  Text ->
-  -- | 'arRegionName'
-  Text ->
-  -- | 'arVPCSettings'
+-- * 'directoryId' - The identifier of the directory to which you want to add Region replication.
+-- * 'regionName' - The name of the Region where you want to add domain controllers for replication. For example, @us-east-1@ .
+-- * 'vpcSettings' - Undocumented field.
+mkAddRegion ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'regionName'
+  Lude.Text ->
+  -- | 'vpcSettings'
   DirectoryVPCSettings ->
   AddRegion
-addRegion pDirectoryId_ pRegionName_ pVPCSettings_ =
+mkAddRegion pDirectoryId_ pRegionName_ pVPCSettings_ =
   AddRegion'
-    { _arDirectoryId = pDirectoryId_,
-      _arRegionName = pRegionName_,
-      _arVPCSettings = pVPCSettings_
+    { directoryId = pDirectoryId_,
+      regionName = pRegionName_,
+      vpcSettings = pVPCSettings_
     }
 
 -- | The identifier of the directory to which you want to add Region replication.
-arDirectoryId :: Lens' AddRegion Text
-arDirectoryId = lens _arDirectoryId (\s a -> s {_arDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arDirectoryId :: Lens.Lens' AddRegion Lude.Text
+arDirectoryId = Lens.lens (directoryId :: AddRegion -> Lude.Text) (\s a -> s {directoryId = a} :: AddRegion)
+{-# DEPRECATED arDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The name of the Region where you want to add domain controllers for replication. For example, @us-east-1@ .
-arRegionName :: Lens' AddRegion Text
-arRegionName = lens _arRegionName (\s a -> s {_arRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arRegionName :: Lens.Lens' AddRegion Lude.Text
+arRegionName = Lens.lens (regionName :: AddRegion -> Lude.Text) (\s a -> s {regionName = a} :: AddRegion)
+{-# DEPRECATED arRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
--- | Undocumented member.
-arVPCSettings :: Lens' AddRegion DirectoryVPCSettings
-arVPCSettings = lens _arVPCSettings (\s a -> s {_arVPCSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'vpcSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arVPCSettings :: Lens.Lens' AddRegion DirectoryVPCSettings
+arVPCSettings = Lens.lens (vpcSettings :: AddRegion -> DirectoryVPCSettings) (\s a -> s {vpcSettings = a} :: AddRegion)
+{-# DEPRECATED arVPCSettings "Use generic-lens or generic-optics with 'vpcSettings' instead." #-}
 
-instance AWSRequest AddRegion where
+instance Lude.AWSRequest AddRegion where
   type Rs AddRegion = AddRegionResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> AddRegionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AddRegionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AddRegion
-
-instance NFData AddRegion
-
-instance ToHeaders AddRegion where
+instance Lude.ToHeaders AddRegion where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.AddRegion" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.AddRegion" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddRegion where
+instance Lude.ToJSON AddRegion where
   toJSON AddRegion' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _arDirectoryId),
-            Just ("RegionName" .= _arRegionName),
-            Just ("VPCSettings" .= _arVPCSettings)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("RegionName" Lude..= regionName),
+            Lude.Just ("VPCSettings" Lude..= vpcSettings)
           ]
       )
 
-instance ToPath AddRegion where
-  toPath = const "/"
+instance Lude.ToPath AddRegion where
+  toPath = Lude.const "/"
 
-instance ToQuery AddRegion where
-  toQuery = const mempty
+instance Lude.ToQuery AddRegion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'addRegionResponse' smart constructor.
+-- | /See:/ 'mkAddRegionResponse' smart constructor.
 newtype AddRegionResponse = AddRegionResponse'
-  { _arrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddRegionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'arrsResponseStatus' - -- | The response status code.
-addRegionResponse ::
-  -- | 'arrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAddRegionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddRegionResponse
-addRegionResponse pResponseStatus_ =
-  AddRegionResponse' {_arrsResponseStatus = pResponseStatus_}
+mkAddRegionResponse pResponseStatus_ =
+  AddRegionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-arrsResponseStatus :: Lens' AddRegionResponse Int
-arrsResponseStatus = lens _arrsResponseStatus (\s a -> s {_arrsResponseStatus = a})
-
-instance NFData AddRegionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arrsResponseStatus :: Lens.Lens' AddRegionResponse Lude.Int
+arrsResponseStatus = Lens.lens (responseStatus :: AddRegionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddRegionResponse)
+{-# DEPRECATED arrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

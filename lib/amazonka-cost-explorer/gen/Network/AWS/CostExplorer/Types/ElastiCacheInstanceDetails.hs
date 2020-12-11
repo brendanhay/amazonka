@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,94 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.ElastiCacheInstanceDetails where
+module Network.AWS.CostExplorer.Types.ElastiCacheInstanceDetails
+  ( ElastiCacheInstanceDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkElastiCacheInstanceDetails,
+
+    -- * Lenses
+    ecidCurrentGeneration,
+    ecidProductDescription,
+    ecidFamily,
+    ecidSizeFlexEligible,
+    ecidRegion,
+    ecidNodeType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about the Amazon ElastiCache instances that AWS recommends that you purchase.
 --
---
---
--- /See:/ 'elastiCacheInstanceDetails' smart constructor.
+-- /See:/ 'mkElastiCacheInstanceDetails' smart constructor.
 data ElastiCacheInstanceDetails = ElastiCacheInstanceDetails'
-  { _ecidCurrentGeneration ::
-      !(Maybe Bool),
-    _ecidProductDescription ::
-      !(Maybe Text),
-    _ecidFamily :: !(Maybe Text),
-    _ecidSizeFlexEligible ::
-      !(Maybe Bool),
-    _ecidRegion :: !(Maybe Text),
-    _ecidNodeType :: !(Maybe Text)
+  { currentGeneration ::
+      Lude.Maybe Lude.Bool,
+    productDescription ::
+      Lude.Maybe Lude.Text,
+    family :: Lude.Maybe Lude.Text,
+    sizeFlexEligible ::
+      Lude.Maybe Lude.Bool,
+    region :: Lude.Maybe Lude.Text,
+    nodeType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElastiCacheInstanceDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecidCurrentGeneration' - Whether the recommendation is for a current generation instance.
---
--- * 'ecidProductDescription' - The description of the recommended reservation.
---
--- * 'ecidFamily' - The instance family of the recommended reservation.
---
--- * 'ecidSizeFlexEligible' - Whether the recommended reservation is size flexible.
---
--- * 'ecidRegion' - The AWS Region of the recommended reservation.
---
--- * 'ecidNodeType' - The type of node that AWS recommends.
-elastiCacheInstanceDetails ::
+-- * 'currentGeneration' - Whether the recommendation is for a current generation instance.
+-- * 'family' - The instance family of the recommended reservation.
+-- * 'nodeType' - The type of node that AWS recommends.
+-- * 'productDescription' - The description of the recommended reservation.
+-- * 'region' - The AWS Region of the recommended reservation.
+-- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
+mkElastiCacheInstanceDetails ::
   ElastiCacheInstanceDetails
-elastiCacheInstanceDetails =
+mkElastiCacheInstanceDetails =
   ElastiCacheInstanceDetails'
-    { _ecidCurrentGeneration = Nothing,
-      _ecidProductDescription = Nothing,
-      _ecidFamily = Nothing,
-      _ecidSizeFlexEligible = Nothing,
-      _ecidRegion = Nothing,
-      _ecidNodeType = Nothing
+    { currentGeneration = Lude.Nothing,
+      productDescription = Lude.Nothing,
+      family = Lude.Nothing,
+      sizeFlexEligible = Lude.Nothing,
+      region = Lude.Nothing,
+      nodeType = Lude.Nothing
     }
 
 -- | Whether the recommendation is for a current generation instance.
-ecidCurrentGeneration :: Lens' ElastiCacheInstanceDetails (Maybe Bool)
-ecidCurrentGeneration = lens _ecidCurrentGeneration (\s a -> s {_ecidCurrentGeneration = a})
+--
+-- /Note:/ Consider using 'currentGeneration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidCurrentGeneration :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Bool)
+ecidCurrentGeneration = Lens.lens (currentGeneration :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {currentGeneration = a} :: ElastiCacheInstanceDetails)
+{-# DEPRECATED ecidCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
 
 -- | The description of the recommended reservation.
-ecidProductDescription :: Lens' ElastiCacheInstanceDetails (Maybe Text)
-ecidProductDescription = lens _ecidProductDescription (\s a -> s {_ecidProductDescription = a})
+--
+-- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidProductDescription :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Text)
+ecidProductDescription = Lens.lens (productDescription :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {productDescription = a} :: ElastiCacheInstanceDetails)
+{-# DEPRECATED ecidProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
 
 -- | The instance family of the recommended reservation.
-ecidFamily :: Lens' ElastiCacheInstanceDetails (Maybe Text)
-ecidFamily = lens _ecidFamily (\s a -> s {_ecidFamily = a})
+--
+-- /Note:/ Consider using 'family' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidFamily :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Text)
+ecidFamily = Lens.lens (family :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {family = a} :: ElastiCacheInstanceDetails)
+{-# DEPRECATED ecidFamily "Use generic-lens or generic-optics with 'family' instead." #-}
 
 -- | Whether the recommended reservation is size flexible.
-ecidSizeFlexEligible :: Lens' ElastiCacheInstanceDetails (Maybe Bool)
-ecidSizeFlexEligible = lens _ecidSizeFlexEligible (\s a -> s {_ecidSizeFlexEligible = a})
+--
+-- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidSizeFlexEligible :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Bool)
+ecidSizeFlexEligible = Lens.lens (sizeFlexEligible :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {sizeFlexEligible = a} :: ElastiCacheInstanceDetails)
+{-# DEPRECATED ecidSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
 
 -- | The AWS Region of the recommended reservation.
-ecidRegion :: Lens' ElastiCacheInstanceDetails (Maybe Text)
-ecidRegion = lens _ecidRegion (\s a -> s {_ecidRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidRegion :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Text)
+ecidRegion = Lens.lens (region :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: ElastiCacheInstanceDetails)
+{-# DEPRECATED ecidRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The type of node that AWS recommends.
-ecidNodeType :: Lens' ElastiCacheInstanceDetails (Maybe Text)
-ecidNodeType = lens _ecidNodeType (\s a -> s {_ecidNodeType = a})
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecidNodeType :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Text)
+ecidNodeType = Lens.lens (nodeType :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: ElastiCacheInstanceDetails)
+{-# DEPRECATED ecidNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
-instance FromJSON ElastiCacheInstanceDetails where
+instance Lude.FromJSON ElastiCacheInstanceDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ElastiCacheInstanceDetails"
       ( \x ->
           ElastiCacheInstanceDetails'
-            <$> (x .:? "CurrentGeneration")
-            <*> (x .:? "ProductDescription")
-            <*> (x .:? "Family")
-            <*> (x .:? "SizeFlexEligible")
-            <*> (x .:? "Region")
-            <*> (x .:? "NodeType")
+            Lude.<$> (x Lude..:? "CurrentGeneration")
+            Lude.<*> (x Lude..:? "ProductDescription")
+            Lude.<*> (x Lude..:? "Family")
+            Lude.<*> (x Lude..:? "SizeFlexEligible")
+            Lude.<*> (x Lude..:? "Region")
+            Lude.<*> (x Lude..:? "NodeType")
       )
-
-instance Hashable ElastiCacheInstanceDetails
-
-instance NFData ElastiCacheInstanceDetails

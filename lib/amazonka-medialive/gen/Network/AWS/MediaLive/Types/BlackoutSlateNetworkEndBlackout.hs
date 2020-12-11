@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout where
+module Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout
+  ( BlackoutSlateNetworkEndBlackout
+      ( BlackoutSlateNetworkEndBlackout',
+        BSNEBDisabled,
+        BSNEBEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Blackout Slate Network End Blackout
-data BlackoutSlateNetworkEndBlackout
-  = BSNEBDisabled
-  | BSNEBEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BlackoutSlateNetworkEndBlackout = BlackoutSlateNetworkEndBlackout' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BlackoutSlateNetworkEndBlackout where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure BSNEBDisabled
-      "enabled" -> pure BSNEBEnabled
-      e ->
-        fromTextError $
-          "Failure parsing BlackoutSlateNetworkEndBlackout from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern BSNEBDisabled :: BlackoutSlateNetworkEndBlackout
+pattern BSNEBDisabled = BlackoutSlateNetworkEndBlackout' "DISABLED"
 
-instance ToText BlackoutSlateNetworkEndBlackout where
-  toText = \case
-    BSNEBDisabled -> "DISABLED"
-    BSNEBEnabled -> "ENABLED"
+pattern BSNEBEnabled :: BlackoutSlateNetworkEndBlackout
+pattern BSNEBEnabled = BlackoutSlateNetworkEndBlackout' "ENABLED"
 
-instance Hashable BlackoutSlateNetworkEndBlackout
-
-instance NFData BlackoutSlateNetworkEndBlackout
-
-instance ToByteString BlackoutSlateNetworkEndBlackout
-
-instance ToQuery BlackoutSlateNetworkEndBlackout
-
-instance ToHeader BlackoutSlateNetworkEndBlackout
-
-instance ToJSON BlackoutSlateNetworkEndBlackout where
-  toJSON = toJSONText
-
-instance FromJSON BlackoutSlateNetworkEndBlackout where
-  parseJSON = parseJSONText "BlackoutSlateNetworkEndBlackout"
+{-# COMPLETE
+  BSNEBDisabled,
+  BSNEBEnabled,
+  BlackoutSlateNetworkEndBlackout'
+  #-}

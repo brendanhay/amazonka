@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,191 +14,202 @@
 --
 -- Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline. Note that this API applies only to Windows patch baselines.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
-  ( -- * Creating a Request
-    describeEffectivePatchesForPatchBaseline,
-    DescribeEffectivePatchesForPatchBaseline,
+  ( -- * Creating a request
+    DescribeEffectivePatchesForPatchBaseline (..),
+    mkDescribeEffectivePatchesForPatchBaseline,
 
-    -- * Request Lenses
+    -- ** Request lenses
     depfpbNextToken,
     depfpbMaxResults,
     depfpbBaselineId,
 
-    -- * Destructuring the Response
-    describeEffectivePatchesForPatchBaselineResponse,
-    DescribeEffectivePatchesForPatchBaselineResponse,
+    -- * Destructuring the response
+    DescribeEffectivePatchesForPatchBaselineResponse (..),
+    mkDescribeEffectivePatchesForPatchBaselineResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     depfpbrsEffectivePatches,
     depfpbrsNextToken,
     depfpbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'describeEffectivePatchesForPatchBaseline' smart constructor.
+-- | /See:/ 'mkDescribeEffectivePatchesForPatchBaseline' smart constructor.
 data DescribeEffectivePatchesForPatchBaseline = DescribeEffectivePatchesForPatchBaseline'
-  { _depfpbNextToken ::
-      !( Maybe
-           Text
-       ),
-    _depfpbMaxResults ::
-      !( Maybe
-           Nat
-       ),
-    _depfpbBaselineId ::
-      !Text
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    maxResults ::
+      Lude.Maybe
+        Lude.Natural,
+    baselineId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEffectivePatchesForPatchBaseline' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'depfpbNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- * 'depfpbMaxResults' - The maximum number of patches to return (per page).
---
--- * 'depfpbBaselineId' - The ID of the patch baseline to retrieve the effective patches for.
-describeEffectivePatchesForPatchBaseline ::
-  -- | 'depfpbBaselineId'
-  Text ->
+-- * 'baselineId' - The ID of the patch baseline to retrieve the effective patches for.
+-- * 'maxResults' - The maximum number of patches to return (per page).
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+mkDescribeEffectivePatchesForPatchBaseline ::
+  -- | 'baselineId'
+  Lude.Text ->
   DescribeEffectivePatchesForPatchBaseline
-describeEffectivePatchesForPatchBaseline pBaselineId_ =
+mkDescribeEffectivePatchesForPatchBaseline pBaselineId_ =
   DescribeEffectivePatchesForPatchBaseline'
-    { _depfpbNextToken =
-        Nothing,
-      _depfpbMaxResults = Nothing,
-      _depfpbBaselineId = pBaselineId_
+    { nextToken =
+        Lude.Nothing,
+      maxResults = Lude.Nothing,
+      baselineId = pBaselineId_
     }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
-depfpbNextToken :: Lens' DescribeEffectivePatchesForPatchBaseline (Maybe Text)
-depfpbNextToken = lens _depfpbNextToken (\s a -> s {_depfpbNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depfpbNextToken :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline (Lude.Maybe Lude.Text)
+depfpbNextToken = Lens.lens (nextToken :: DescribeEffectivePatchesForPatchBaseline -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEffectivePatchesForPatchBaseline)
+{-# DEPRECATED depfpbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of patches to return (per page).
-depfpbMaxResults :: Lens' DescribeEffectivePatchesForPatchBaseline (Maybe Natural)
-depfpbMaxResults = lens _depfpbMaxResults (\s a -> s {_depfpbMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depfpbMaxResults :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline (Lude.Maybe Lude.Natural)
+depfpbMaxResults = Lens.lens (maxResults :: DescribeEffectivePatchesForPatchBaseline -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEffectivePatchesForPatchBaseline)
+{-# DEPRECATED depfpbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the patch baseline to retrieve the effective patches for.
-depfpbBaselineId :: Lens' DescribeEffectivePatchesForPatchBaseline Text
-depfpbBaselineId = lens _depfpbBaselineId (\s a -> s {_depfpbBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depfpbBaselineId :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline Lude.Text
+depfpbBaselineId = Lens.lens (baselineId :: DescribeEffectivePatchesForPatchBaseline -> Lude.Text) (\s a -> s {baselineId = a} :: DescribeEffectivePatchesForPatchBaseline)
+{-# DEPRECATED depfpbBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
-instance AWSPager DescribeEffectivePatchesForPatchBaseline where
+instance Page.AWSPager DescribeEffectivePatchesForPatchBaseline where
   page rq rs
-    | stop (rs ^. depfpbrsNextToken) = Nothing
-    | stop (rs ^. depfpbrsEffectivePatches) = Nothing
-    | otherwise =
-      Just $ rq & depfpbNextToken .~ rs ^. depfpbrsNextToken
+    | Page.stop (rs Lens.^. depfpbrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. depfpbrsEffectivePatches) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& depfpbNextToken Lens..~ rs Lens.^. depfpbrsNextToken
 
-instance AWSRequest DescribeEffectivePatchesForPatchBaseline where
+instance Lude.AWSRequest DescribeEffectivePatchesForPatchBaseline where
   type
     Rs DescribeEffectivePatchesForPatchBaseline =
       DescribeEffectivePatchesForPatchBaselineResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEffectivePatchesForPatchBaselineResponse'
-            <$> (x .?> "EffectivePatches" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EffectivePatches" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEffectivePatchesForPatchBaseline
-
-instance NFData DescribeEffectivePatchesForPatchBaseline
-
-instance ToHeaders DescribeEffectivePatchesForPatchBaseline where
+instance Lude.ToHeaders DescribeEffectivePatchesForPatchBaseline where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonSSM.DescribeEffectivePatchesForPatchBaseline" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonSSM.DescribeEffectivePatchesForPatchBaseline" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEffectivePatchesForPatchBaseline where
+instance Lude.ToJSON DescribeEffectivePatchesForPatchBaseline where
   toJSON DescribeEffectivePatchesForPatchBaseline' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _depfpbNextToken,
-            ("MaxResults" .=) <$> _depfpbMaxResults,
-            Just ("BaselineId" .= _depfpbBaselineId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("BaselineId" Lude..= baselineId)
           ]
       )
 
-instance ToPath DescribeEffectivePatchesForPatchBaseline where
-  toPath = const "/"
+instance Lude.ToPath DescribeEffectivePatchesForPatchBaseline where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEffectivePatchesForPatchBaseline where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEffectivePatchesForPatchBaseline where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEffectivePatchesForPatchBaselineResponse' smart constructor.
+-- | /See:/ 'mkDescribeEffectivePatchesForPatchBaselineResponse' smart constructor.
 data DescribeEffectivePatchesForPatchBaselineResponse = DescribeEffectivePatchesForPatchBaselineResponse'
-  { _depfpbrsEffectivePatches ::
-      !( Maybe
-           [EffectivePatch]
-       ),
-    _depfpbrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _depfpbrsResponseStatus ::
-      !Int
+  { effectivePatches ::
+      Lude.Maybe
+        [EffectivePatch],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeEffectivePatchesForPatchBaselineResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'depfpbrsEffectivePatches' - An array of patches and patch status.
---
--- * 'depfpbrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'depfpbrsResponseStatus' - -- | The response status code.
-describeEffectivePatchesForPatchBaselineResponse ::
-  -- | 'depfpbrsResponseStatus'
-  Int ->
+-- * 'effectivePatches' - An array of patches and patch status.
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'responseStatus' - The response status code.
+mkDescribeEffectivePatchesForPatchBaselineResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEffectivePatchesForPatchBaselineResponse
-describeEffectivePatchesForPatchBaselineResponse pResponseStatus_ =
+mkDescribeEffectivePatchesForPatchBaselineResponse pResponseStatus_ =
   DescribeEffectivePatchesForPatchBaselineResponse'
-    { _depfpbrsEffectivePatches =
-        Nothing,
-      _depfpbrsNextToken = Nothing,
-      _depfpbrsResponseStatus = pResponseStatus_
+    { effectivePatches =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of patches and patch status.
-depfpbrsEffectivePatches :: Lens' DescribeEffectivePatchesForPatchBaselineResponse [EffectivePatch]
-depfpbrsEffectivePatches = lens _depfpbrsEffectivePatches (\s a -> s {_depfpbrsEffectivePatches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'effectivePatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depfpbrsEffectivePatches :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse (Lude.Maybe [EffectivePatch])
+depfpbrsEffectivePatches = Lens.lens (effectivePatches :: DescribeEffectivePatchesForPatchBaselineResponse -> Lude.Maybe [EffectivePatch]) (\s a -> s {effectivePatches = a} :: DescribeEffectivePatchesForPatchBaselineResponse)
+{-# DEPRECATED depfpbrsEffectivePatches "Use generic-lens or generic-optics with 'effectivePatches' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-depfpbrsNextToken :: Lens' DescribeEffectivePatchesForPatchBaselineResponse (Maybe Text)
-depfpbrsNextToken = lens _depfpbrsNextToken (\s a -> s {_depfpbrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depfpbrsNextToken :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse (Lude.Maybe Lude.Text)
+depfpbrsNextToken = Lens.lens (nextToken :: DescribeEffectivePatchesForPatchBaselineResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEffectivePatchesForPatchBaselineResponse)
+{-# DEPRECATED depfpbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-depfpbrsResponseStatus :: Lens' DescribeEffectivePatchesForPatchBaselineResponse Int
-depfpbrsResponseStatus = lens _depfpbrsResponseStatus (\s a -> s {_depfpbrsResponseStatus = a})
-
-instance NFData DescribeEffectivePatchesForPatchBaselineResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depfpbrsResponseStatus :: Lens.Lens' DescribeEffectivePatchesForPatchBaselineResponse Lude.Int
+depfpbrsResponseStatus = Lens.lens (responseStatus :: DescribeEffectivePatchesForPatchBaselineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEffectivePatchesForPatchBaselineResponse)
+{-# DEPRECATED depfpbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

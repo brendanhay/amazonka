@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Owner where
+module Network.AWS.S3.Types.Owner
+  ( Owner (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOwner,
+
+    -- * Lenses
+    oDisplayName,
+    oId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Container for the owner's display name and ID.
 --
---
---
--- /See:/ 'owner' smart constructor.
+-- /See:/ 'mkOwner' smart constructor.
 data Owner = Owner'
-  { _oDisplayName :: !(Maybe Text),
-    _oId :: !(Maybe Text)
+  { displayName :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Owner' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oDisplayName' - Container for the display name of the owner.
---
--- * 'oId' - Container for the ID of the owner.
-owner ::
+-- * 'displayName' - Container for the display name of the owner.
+-- * 'id' - Container for the ID of the owner.
+mkOwner ::
   Owner
-owner = Owner' {_oDisplayName = Nothing, _oId = Nothing}
+mkOwner = Owner' {displayName = Lude.Nothing, id = Lude.Nothing}
 
 -- | Container for the display name of the owner.
-oDisplayName :: Lens' Owner (Maybe Text)
-oDisplayName = lens _oDisplayName (\s a -> s {_oDisplayName = a})
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oDisplayName :: Lens.Lens' Owner (Lude.Maybe Lude.Text)
+oDisplayName = Lens.lens (displayName :: Owner -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: Owner)
+{-# DEPRECATED oDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | Container for the ID of the owner.
-oId :: Lens' Owner (Maybe Text)
-oId = lens _oId (\s a -> s {_oId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oId :: Lens.Lens' Owner (Lude.Maybe Lude.Text)
+oId = Lens.lens (id :: Owner -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Owner)
+{-# DEPRECATED oId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromXML Owner where
-  parseXML x = Owner' <$> (x .@? "DisplayName") <*> (x .@? "ID")
+instance Lude.FromXML Owner where
+  parseXML x =
+    Owner'
+      Lude.<$> (x Lude..@? "DisplayName") Lude.<*> (x Lude..@? "ID")
 
-instance Hashable Owner
-
-instance NFData Owner
-
-instance ToXML Owner where
+instance Lude.ToXML Owner where
   toXML Owner' {..} =
-    mconcat ["DisplayName" @= _oDisplayName, "ID" @= _oId]
+    Lude.mconcat ["DisplayName" Lude.@= displayName, "ID" Lude.@= id]

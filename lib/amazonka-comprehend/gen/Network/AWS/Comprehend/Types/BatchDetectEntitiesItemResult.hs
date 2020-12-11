@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult where
+module Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult
+  ( BatchDetectEntitiesItemResult (..),
+
+    -- * Smart constructor
+    mkBatchDetectEntitiesItemResult,
+
+    -- * Lenses
+    bdeirEntities,
+    bdeirIndex,
+  )
+where
 
 import Network.AWS.Comprehend.Types.Entity
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.
 --
---
---
--- /See:/ 'batchDetectEntitiesItemResult' smart constructor.
+-- /See:/ 'mkBatchDetectEntitiesItemResult' smart constructor.
 data BatchDetectEntitiesItemResult = BatchDetectEntitiesItemResult'
-  { _bdeirEntities ::
-      !(Maybe [Entity]),
-    _bdeirIndex :: !(Maybe Int)
+  { entities ::
+      Lude.Maybe [Entity],
+    index :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetectEntitiesItemResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdeirEntities' - One or more 'Entity' objects, one for each entity detected in the document.
---
--- * 'bdeirIndex' - The zero-based index of the document in the input list.
-batchDetectEntitiesItemResult ::
+-- * 'entities' - One or more 'Entity' objects, one for each entity detected in the document.
+-- * 'index' - The zero-based index of the document in the input list.
+mkBatchDetectEntitiesItemResult ::
   BatchDetectEntitiesItemResult
-batchDetectEntitiesItemResult =
+mkBatchDetectEntitiesItemResult =
   BatchDetectEntitiesItemResult'
-    { _bdeirEntities = Nothing,
-      _bdeirIndex = Nothing
+    { entities = Lude.Nothing,
+      index = Lude.Nothing
     }
 
 -- | One or more 'Entity' objects, one for each entity detected in the document.
-bdeirEntities :: Lens' BatchDetectEntitiesItemResult [Entity]
-bdeirEntities = lens _bdeirEntities (\s a -> s {_bdeirEntities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'entities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdeirEntities :: Lens.Lens' BatchDetectEntitiesItemResult (Lude.Maybe [Entity])
+bdeirEntities = Lens.lens (entities :: BatchDetectEntitiesItemResult -> Lude.Maybe [Entity]) (\s a -> s {entities = a} :: BatchDetectEntitiesItemResult)
+{-# DEPRECATED bdeirEntities "Use generic-lens or generic-optics with 'entities' instead." #-}
 
 -- | The zero-based index of the document in the input list.
-bdeirIndex :: Lens' BatchDetectEntitiesItemResult (Maybe Int)
-bdeirIndex = lens _bdeirIndex (\s a -> s {_bdeirIndex = a})
+--
+-- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdeirIndex :: Lens.Lens' BatchDetectEntitiesItemResult (Lude.Maybe Lude.Int)
+bdeirIndex = Lens.lens (index :: BatchDetectEntitiesItemResult -> Lude.Maybe Lude.Int) (\s a -> s {index = a} :: BatchDetectEntitiesItemResult)
+{-# DEPRECATED bdeirIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
-instance FromJSON BatchDetectEntitiesItemResult where
+instance Lude.FromJSON BatchDetectEntitiesItemResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchDetectEntitiesItemResult"
       ( \x ->
           BatchDetectEntitiesItemResult'
-            <$> (x .:? "Entities" .!= mempty) <*> (x .:? "Index")
+            Lude.<$> (x Lude..:? "Entities" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Index")
       )
-
-instance Hashable BatchDetectEntitiesItemResult
-
-instance NFData BatchDetectEntitiesItemResult

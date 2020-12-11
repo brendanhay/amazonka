@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,25 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ResourceChange where
+module Network.AWS.ServiceCatalog.Types.ResourceChange
+  ( ResourceChange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceChange,
+
+    -- * Lenses
+    rcLogicalResourceId,
+    rcPhysicalResourceId,
+    rcResourceType,
+    rcAction,
+    rcScope,
+    rcDetails,
+    rcReplacement,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ChangeAction
 import Network.AWS.ServiceCatalog.Types.Replacement
 import Network.AWS.ServiceCatalog.Types.ResourceAttribute
@@ -24,94 +33,108 @@ import Network.AWS.ServiceCatalog.Types.ResourceChangeDetail
 
 -- | Information about a resource change that will occur when a plan is executed.
 --
---
---
--- /See:/ 'resourceChange' smart constructor.
+-- /See:/ 'mkResourceChange' smart constructor.
 data ResourceChange = ResourceChange'
-  { _rcLogicalResourceId ::
-      !(Maybe Text),
-    _rcPhysicalResourceId :: !(Maybe Text),
-    _rcResourceType :: !(Maybe Text),
-    _rcAction :: !(Maybe ChangeAction),
-    _rcScope :: !(Maybe [ResourceAttribute]),
-    _rcDetails :: !(Maybe [ResourceChangeDetail]),
-    _rcReplacement :: !(Maybe Replacement)
+  { logicalResourceId ::
+      Lude.Maybe Lude.Text,
+    physicalResourceId :: Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe Lude.Text,
+    action :: Lude.Maybe ChangeAction,
+    scope :: Lude.Maybe [ResourceAttribute],
+    details :: Lude.Maybe [ResourceChangeDetail],
+    replacement :: Lude.Maybe Replacement
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceChange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcLogicalResourceId' - The ID of the resource, as defined in the CloudFormation template.
---
--- * 'rcPhysicalResourceId' - The ID of the resource, if it was already created.
---
--- * 'rcResourceType' - The type of resource.
---
--- * 'rcAction' - The change action.
---
--- * 'rcScope' - The change scope.
---
--- * 'rcDetails' - Information about the resource changes.
---
--- * 'rcReplacement' - If the change type is @Modify@ , indicates whether the existing resource is deleted and replaced with a new one.
-resourceChange ::
+-- * 'action' - The change action.
+-- * 'details' - Information about the resource changes.
+-- * 'logicalResourceId' - The ID of the resource, as defined in the CloudFormation template.
+-- * 'physicalResourceId' - The ID of the resource, if it was already created.
+-- * 'replacement' - If the change type is @Modify@ , indicates whether the existing resource is deleted and replaced with a new one.
+-- * 'resourceType' - The type of resource.
+-- * 'scope' - The change scope.
+mkResourceChange ::
   ResourceChange
-resourceChange =
+mkResourceChange =
   ResourceChange'
-    { _rcLogicalResourceId = Nothing,
-      _rcPhysicalResourceId = Nothing,
-      _rcResourceType = Nothing,
-      _rcAction = Nothing,
-      _rcScope = Nothing,
-      _rcDetails = Nothing,
-      _rcReplacement = Nothing
+    { logicalResourceId = Lude.Nothing,
+      physicalResourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      action = Lude.Nothing,
+      scope = Lude.Nothing,
+      details = Lude.Nothing,
+      replacement = Lude.Nothing
     }
 
 -- | The ID of the resource, as defined in the CloudFormation template.
-rcLogicalResourceId :: Lens' ResourceChange (Maybe Text)
-rcLogicalResourceId = lens _rcLogicalResourceId (\s a -> s {_rcLogicalResourceId = a})
+--
+-- /Note:/ Consider using 'logicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcLogicalResourceId :: Lens.Lens' ResourceChange (Lude.Maybe Lude.Text)
+rcLogicalResourceId = Lens.lens (logicalResourceId :: ResourceChange -> Lude.Maybe Lude.Text) (\s a -> s {logicalResourceId = a} :: ResourceChange)
+{-# DEPRECATED rcLogicalResourceId "Use generic-lens or generic-optics with 'logicalResourceId' instead." #-}
 
 -- | The ID of the resource, if it was already created.
-rcPhysicalResourceId :: Lens' ResourceChange (Maybe Text)
-rcPhysicalResourceId = lens _rcPhysicalResourceId (\s a -> s {_rcPhysicalResourceId = a})
+--
+-- /Note:/ Consider using 'physicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcPhysicalResourceId :: Lens.Lens' ResourceChange (Lude.Maybe Lude.Text)
+rcPhysicalResourceId = Lens.lens (physicalResourceId :: ResourceChange -> Lude.Maybe Lude.Text) (\s a -> s {physicalResourceId = a} :: ResourceChange)
+{-# DEPRECATED rcPhysicalResourceId "Use generic-lens or generic-optics with 'physicalResourceId' instead." #-}
 
 -- | The type of resource.
-rcResourceType :: Lens' ResourceChange (Maybe Text)
-rcResourceType = lens _rcResourceType (\s a -> s {_rcResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcResourceType :: Lens.Lens' ResourceChange (Lude.Maybe Lude.Text)
+rcResourceType = Lens.lens (resourceType :: ResourceChange -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ResourceChange)
+{-# DEPRECATED rcResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The change action.
-rcAction :: Lens' ResourceChange (Maybe ChangeAction)
-rcAction = lens _rcAction (\s a -> s {_rcAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcAction :: Lens.Lens' ResourceChange (Lude.Maybe ChangeAction)
+rcAction = Lens.lens (action :: ResourceChange -> Lude.Maybe ChangeAction) (\s a -> s {action = a} :: ResourceChange)
+{-# DEPRECATED rcAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The change scope.
-rcScope :: Lens' ResourceChange [ResourceAttribute]
-rcScope = lens _rcScope (\s a -> s {_rcScope = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'scope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcScope :: Lens.Lens' ResourceChange (Lude.Maybe [ResourceAttribute])
+rcScope = Lens.lens (scope :: ResourceChange -> Lude.Maybe [ResourceAttribute]) (\s a -> s {scope = a} :: ResourceChange)
+{-# DEPRECATED rcScope "Use generic-lens or generic-optics with 'scope' instead." #-}
 
 -- | Information about the resource changes.
-rcDetails :: Lens' ResourceChange [ResourceChangeDetail]
-rcDetails = lens _rcDetails (\s a -> s {_rcDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcDetails :: Lens.Lens' ResourceChange (Lude.Maybe [ResourceChangeDetail])
+rcDetails = Lens.lens (details :: ResourceChange -> Lude.Maybe [ResourceChangeDetail]) (\s a -> s {details = a} :: ResourceChange)
+{-# DEPRECATED rcDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | If the change type is @Modify@ , indicates whether the existing resource is deleted and replaced with a new one.
-rcReplacement :: Lens' ResourceChange (Maybe Replacement)
-rcReplacement = lens _rcReplacement (\s a -> s {_rcReplacement = a})
+--
+-- /Note:/ Consider using 'replacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcReplacement :: Lens.Lens' ResourceChange (Lude.Maybe Replacement)
+rcReplacement = Lens.lens (replacement :: ResourceChange -> Lude.Maybe Replacement) (\s a -> s {replacement = a} :: ResourceChange)
+{-# DEPRECATED rcReplacement "Use generic-lens or generic-optics with 'replacement' instead." #-}
 
-instance FromJSON ResourceChange where
+instance Lude.FromJSON ResourceChange where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceChange"
       ( \x ->
           ResourceChange'
-            <$> (x .:? "LogicalResourceId")
-            <*> (x .:? "PhysicalResourceId")
-            <*> (x .:? "ResourceType")
-            <*> (x .:? "Action")
-            <*> (x .:? "Scope" .!= mempty)
-            <*> (x .:? "Details" .!= mempty)
-            <*> (x .:? "Replacement")
+            Lude.<$> (x Lude..:? "LogicalResourceId")
+            Lude.<*> (x Lude..:? "PhysicalResourceId")
+            Lude.<*> (x Lude..:? "ResourceType")
+            Lude.<*> (x Lude..:? "Action")
+            Lude.<*> (x Lude..:? "Scope" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Details" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Replacement")
       )
-
-instance Hashable ResourceChange
-
-instance NFData ResourceChange

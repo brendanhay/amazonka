@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.ArchiveGroupSettings where
+module Network.AWS.MediaLive.Types.ArchiveGroupSettings
+  ( ArchiveGroupSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkArchiveGroupSettings,
+
+    -- * Lenses
+    agsRolloverInterval,
+    agsDestination,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.OutputLocationRef
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Archive Group Settings
 --
--- /See:/ 'archiveGroupSettings' smart constructor.
+-- /See:/ 'mkArchiveGroupSettings' smart constructor.
 data ArchiveGroupSettings = ArchiveGroupSettings'
-  { _agsRolloverInterval ::
-      !(Maybe Nat),
-    _agsDestination :: !OutputLocationRef
+  { rolloverInterval ::
+      Lude.Maybe Lude.Natural,
+    destination :: OutputLocationRef
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchiveGroupSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'agsRolloverInterval' - Number of seconds to write to archive file before closing and starting a new one.
---
--- * 'agsDestination' - A directory and base filename where archive files should be written.
-archiveGroupSettings ::
-  -- | 'agsDestination'
+-- * 'destination' - A directory and base filename where archive files should be written.
+-- * 'rolloverInterval' - Number of seconds to write to archive file before closing and starting a new one.
+mkArchiveGroupSettings ::
+  -- | 'destination'
   OutputLocationRef ->
   ArchiveGroupSettings
-archiveGroupSettings pDestination_ =
+mkArchiveGroupSettings pDestination_ =
   ArchiveGroupSettings'
-    { _agsRolloverInterval = Nothing,
-      _agsDestination = pDestination_
+    { rolloverInterval = Lude.Nothing,
+      destination = pDestination_
     }
 
 -- | Number of seconds to write to archive file before closing and starting a new one.
-agsRolloverInterval :: Lens' ArchiveGroupSettings (Maybe Natural)
-agsRolloverInterval = lens _agsRolloverInterval (\s a -> s {_agsRolloverInterval = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'rolloverInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agsRolloverInterval :: Lens.Lens' ArchiveGroupSettings (Lude.Maybe Lude.Natural)
+agsRolloverInterval = Lens.lens (rolloverInterval :: ArchiveGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {rolloverInterval = a} :: ArchiveGroupSettings)
+{-# DEPRECATED agsRolloverInterval "Use generic-lens or generic-optics with 'rolloverInterval' instead." #-}
 
 -- | A directory and base filename where archive files should be written.
-agsDestination :: Lens' ArchiveGroupSettings OutputLocationRef
-agsDestination = lens _agsDestination (\s a -> s {_agsDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agsDestination :: Lens.Lens' ArchiveGroupSettings OutputLocationRef
+agsDestination = Lens.lens (destination :: ArchiveGroupSettings -> OutputLocationRef) (\s a -> s {destination = a} :: ArchiveGroupSettings)
+{-# DEPRECATED agsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance FromJSON ArchiveGroupSettings where
+instance Lude.FromJSON ArchiveGroupSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "ArchiveGroupSettings"
       ( \x ->
           ArchiveGroupSettings'
-            <$> (x .:? "rolloverInterval") <*> (x .: "destination")
+            Lude.<$> (x Lude..:? "rolloverInterval") Lude.<*> (x Lude..: "destination")
       )
 
-instance Hashable ArchiveGroupSettings
-
-instance NFData ArchiveGroupSettings
-
-instance ToJSON ArchiveGroupSettings where
+instance Lude.ToJSON ArchiveGroupSettings where
   toJSON ArchiveGroupSettings' {..} =
-    object
-      ( catMaybes
-          [ ("rolloverInterval" .=) <$> _agsRolloverInterval,
-            Just ("destination" .= _agsDestination)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("rolloverInterval" Lude..=) Lude.<$> rolloverInterval,
+            Lude.Just ("destination" Lude..= destination)
           ]
       )

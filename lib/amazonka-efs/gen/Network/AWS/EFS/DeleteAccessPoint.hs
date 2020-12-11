@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,77 +14,86 @@
 --
 -- Deletes the specified access point. After deletion is complete, new clients can no longer connect to the access points. Clients connected to the access point at the time of deletion will continue to function until they terminate their connection.
 --
---
 -- This operation requires permissions for the @elasticfilesystem:DeleteAccessPoint@ action.
 module Network.AWS.EFS.DeleteAccessPoint
-  ( -- * Creating a Request
-    deleteAccessPoint,
-    DeleteAccessPoint,
+  ( -- * Creating a request
+    DeleteAccessPoint (..),
+    mkDeleteAccessPoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dAccessPointId,
 
-    -- * Destructuring the Response
-    deleteAccessPointResponse,
-    DeleteAccessPointResponse,
+    -- * Destructuring the response
+    DeleteAccessPointResponse (..),
+    mkDeleteAccessPointResponse,
   )
 where
 
 import Network.AWS.EFS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAccessPoint' smart constructor.
+-- | /See:/ 'mkDeleteAccessPoint' smart constructor.
 newtype DeleteAccessPoint = DeleteAccessPoint'
-  { _dAccessPointId ::
-      Text
+  { accessPointId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessPoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dAccessPointId' - The ID of the access point that you want to delete.
-deleteAccessPoint ::
-  -- | 'dAccessPointId'
-  Text ->
+-- * 'accessPointId' - The ID of the access point that you want to delete.
+mkDeleteAccessPoint ::
+  -- | 'accessPointId'
+  Lude.Text ->
   DeleteAccessPoint
-deleteAccessPoint pAccessPointId_ =
-  DeleteAccessPoint' {_dAccessPointId = pAccessPointId_}
+mkDeleteAccessPoint pAccessPointId_ =
+  DeleteAccessPoint' {accessPointId = pAccessPointId_}
 
 -- | The ID of the access point that you want to delete.
-dAccessPointId :: Lens' DeleteAccessPoint Text
-dAccessPointId = lens _dAccessPointId (\s a -> s {_dAccessPointId = a})
+--
+-- /Note:/ Consider using 'accessPointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAccessPointId :: Lens.Lens' DeleteAccessPoint Lude.Text
+dAccessPointId = Lens.lens (accessPointId :: DeleteAccessPoint -> Lude.Text) (\s a -> s {accessPointId = a} :: DeleteAccessPoint)
+{-# DEPRECATED dAccessPointId "Use generic-lens or generic-optics with 'accessPointId' instead." #-}
 
-instance AWSRequest DeleteAccessPoint where
+instance Lude.AWSRequest DeleteAccessPoint where
   type Rs DeleteAccessPoint = DeleteAccessPointResponse
-  request = delete efs
-  response = receiveNull DeleteAccessPointResponse'
+  request = Req.delete efsService
+  response = Res.receiveNull DeleteAccessPointResponse'
 
-instance Hashable DeleteAccessPoint
+instance Lude.ToHeaders DeleteAccessPoint where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteAccessPoint
-
-instance ToHeaders DeleteAccessPoint where
-  toHeaders = const mempty
-
-instance ToPath DeleteAccessPoint where
+instance Lude.ToPath DeleteAccessPoint where
   toPath DeleteAccessPoint' {..} =
-    mconcat ["/2015-02-01/access-points/", toBS _dAccessPointId]
+    Lude.mconcat
+      ["/2015-02-01/access-points/", Lude.toBS accessPointId]
 
-instance ToQuery DeleteAccessPoint where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteAccessPoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteAccessPointResponse' smart constructor.
+-- | /See:/ 'mkDeleteAccessPointResponse' smart constructor.
 data DeleteAccessPointResponse = DeleteAccessPointResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessPointResponse' with the minimum fields required to make a request.
-deleteAccessPointResponse ::
+mkDeleteAccessPointResponse ::
   DeleteAccessPointResponse
-deleteAccessPointResponse = DeleteAccessPointResponse'
-
-instance NFData DeleteAccessPointResponse
+mkDeleteAccessPointResponse = DeleteAccessPointResponse'

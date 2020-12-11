@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,135 @@
 --
 -- Updates information about the specified endpoint.
 module Network.AWS.Comprehend.UpdateEndpoint
-  ( -- * Creating a Request
-    updateEndpoint,
-    UpdateEndpoint,
+  ( -- * Creating a request
+    UpdateEndpoint (..),
+    mkUpdateEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ueEndpointARN,
     ueDesiredInferenceUnits,
 
-    -- * Destructuring the Response
-    updateEndpointResponse,
-    UpdateEndpointResponse,
+    -- * Destructuring the response
+    UpdateEndpointResponse (..),
+    mkUpdateEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uersResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateEndpoint' smart constructor.
+-- | /See:/ 'mkUpdateEndpoint' smart constructor.
 data UpdateEndpoint = UpdateEndpoint'
-  { _ueEndpointARN :: !Text,
-    _ueDesiredInferenceUnits :: !Nat
+  { endpointARN :: Lude.Text,
+    desiredInferenceUnits :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ueEndpointARN' - The Amazon Resource Number (ARN) of the endpoint being updated.
---
--- * 'ueDesiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
-updateEndpoint ::
-  -- | 'ueEndpointARN'
-  Text ->
-  -- | 'ueDesiredInferenceUnits'
-  Natural ->
+-- * 'desiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
+-- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint being updated.
+mkUpdateEndpoint ::
+  -- | 'endpointARN'
+  Lude.Text ->
+  -- | 'desiredInferenceUnits'
+  Lude.Natural ->
   UpdateEndpoint
-updateEndpoint pEndpointARN_ pDesiredInferenceUnits_ =
+mkUpdateEndpoint pEndpointARN_ pDesiredInferenceUnits_ =
   UpdateEndpoint'
-    { _ueEndpointARN = pEndpointARN_,
-      _ueDesiredInferenceUnits = _Nat # pDesiredInferenceUnits_
+    { endpointARN = pEndpointARN_,
+      desiredInferenceUnits = pDesiredInferenceUnits_
     }
 
 -- | The Amazon Resource Number (ARN) of the endpoint being updated.
-ueEndpointARN :: Lens' UpdateEndpoint Text
-ueEndpointARN = lens _ueEndpointARN (\s a -> s {_ueEndpointARN = a})
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueEndpointARN :: Lens.Lens' UpdateEndpoint Lude.Text
+ueEndpointARN = Lens.lens (endpointARN :: UpdateEndpoint -> Lude.Text) (\s a -> s {endpointARN = a} :: UpdateEndpoint)
+{-# DEPRECATED ueEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 -- | The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
-ueDesiredInferenceUnits :: Lens' UpdateEndpoint Natural
-ueDesiredInferenceUnits = lens _ueDesiredInferenceUnits (\s a -> s {_ueDesiredInferenceUnits = a}) . _Nat
+--
+-- /Note:/ Consider using 'desiredInferenceUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueDesiredInferenceUnits :: Lens.Lens' UpdateEndpoint Lude.Natural
+ueDesiredInferenceUnits = Lens.lens (desiredInferenceUnits :: UpdateEndpoint -> Lude.Natural) (\s a -> s {desiredInferenceUnits = a} :: UpdateEndpoint)
+{-# DEPRECATED ueDesiredInferenceUnits "Use generic-lens or generic-optics with 'desiredInferenceUnits' instead." #-}
 
-instance AWSRequest UpdateEndpoint where
+instance Lude.AWSRequest UpdateEndpoint where
   type Rs UpdateEndpoint = UpdateEndpointResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveEmpty
-      (\s h x -> UpdateEndpointResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateEndpointResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateEndpoint
-
-instance NFData UpdateEndpoint
-
-instance ToHeaders UpdateEndpoint where
+instance Lude.ToHeaders UpdateEndpoint where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.UpdateEndpoint" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.UpdateEndpoint" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateEndpoint where
+instance Lude.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
-    object
-      ( catMaybes
-          [ Just ("EndpointArn" .= _ueEndpointARN),
-            Just ("DesiredInferenceUnits" .= _ueDesiredInferenceUnits)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("EndpointArn" Lude..= endpointARN),
+            Lude.Just ("DesiredInferenceUnits" Lude..= desiredInferenceUnits)
           ]
       )
 
-instance ToPath UpdateEndpoint where
-  toPath = const "/"
+instance Lude.ToPath UpdateEndpoint where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateEndpoint where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateEndpoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateEndpointResponse' smart constructor.
+-- | /See:/ 'mkUpdateEndpointResponse' smart constructor.
 newtype UpdateEndpointResponse = UpdateEndpointResponse'
-  { _uersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uersResponseStatus' - -- | The response status code.
-updateEndpointResponse ::
-  -- | 'uersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateEndpointResponse
-updateEndpointResponse pResponseStatus_ =
-  UpdateEndpointResponse' {_uersResponseStatus = pResponseStatus_}
+mkUpdateEndpointResponse pResponseStatus_ =
+  UpdateEndpointResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-uersResponseStatus :: Lens' UpdateEndpointResponse Int
-uersResponseStatus = lens _uersResponseStatus (\s a -> s {_uersResponseStatus = a})
-
-instance NFData UpdateEndpointResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uersResponseStatus :: Lens.Lens' UpdateEndpointResponse Lude.Int
+uersResponseStatus = Lens.lens (responseStatus :: UpdateEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEndpointResponse)
+{-# DEPRECATED uersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

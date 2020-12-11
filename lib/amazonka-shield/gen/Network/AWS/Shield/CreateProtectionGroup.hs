@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,197 @@
 --
 -- Creates a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
 module Network.AWS.Shield.CreateProtectionGroup
-  ( -- * Creating a Request
-    createProtectionGroup,
-    CreateProtectionGroup,
+  ( -- * Creating a request
+    CreateProtectionGroup (..),
+    mkCreateProtectionGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpgResourceType,
     cpgMembers,
     cpgProtectionGroupId,
     cpgAggregation,
     cpgPattern,
 
-    -- * Destructuring the Response
-    createProtectionGroupResponse,
-    CreateProtectionGroupResponse,
+    -- * Destructuring the response
+    CreateProtectionGroupResponse (..),
+    mkCreateProtectionGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'createProtectionGroup' smart constructor.
+-- | /See:/ 'mkCreateProtectionGroup' smart constructor.
 data CreateProtectionGroup = CreateProtectionGroup'
-  { _cpgResourceType ::
-      !(Maybe ProtectedResourceType),
-    _cpgMembers :: !(Maybe [Text]),
-    _cpgProtectionGroupId :: !Text,
-    _cpgAggregation :: !ProtectionGroupAggregation,
-    _cpgPattern :: !ProtectionGroupPattern
+  { resourceType ::
+      Lude.Maybe ProtectedResourceType,
+    members :: Lude.Maybe [Lude.Text],
+    protectionGroupId :: Lude.Text,
+    aggregation :: ProtectionGroupAggregation,
+    pattern' :: ProtectionGroupPattern
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProtectionGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'aggregation' - Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
 --
--- * 'cpgResourceType' - The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not set it for any other @Pattern@ setting.
 --
--- * 'cpgMembers' - The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set @Pattern@ to @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
+--     * Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.
 --
--- * 'cpgProtectionGroupId' - The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
 --
--- * 'cpgAggregation' - Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.     * Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.     * Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.     * Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.
+--     * Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.
 --
--- * 'cpgPattern' - The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.
-createProtectionGroup ::
-  -- | 'cpgProtectionGroupId'
-  Text ->
-  -- | 'cpgAggregation'
+--
+--     * Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.
+--
+--
+-- * 'members' - The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set @Pattern@ to @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
+-- * 'pattern'' - The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.
+-- * 'protectionGroupId' - The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
+-- * 'resourceType' - The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not set it for any other @Pattern@ setting.
+mkCreateProtectionGroup ::
+  -- | 'protectionGroupId'
+  Lude.Text ->
+  -- | 'aggregation'
   ProtectionGroupAggregation ->
-  -- | 'cpgPattern'
+  -- | 'pattern''
   ProtectionGroupPattern ->
   CreateProtectionGroup
-createProtectionGroup pProtectionGroupId_ pAggregation_ pPattern_ =
+mkCreateProtectionGroup pProtectionGroupId_ pAggregation_ pPattern_ =
   CreateProtectionGroup'
-    { _cpgResourceType = Nothing,
-      _cpgMembers = Nothing,
-      _cpgProtectionGroupId = pProtectionGroupId_,
-      _cpgAggregation = pAggregation_,
-      _cpgPattern = pPattern_
+    { resourceType = Lude.Nothing,
+      members = Lude.Nothing,
+      protectionGroupId = pProtectionGroupId_,
+      aggregation = pAggregation_,
+      pattern' = pPattern_
     }
 
 -- | The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not set it for any other @Pattern@ setting.
-cpgResourceType :: Lens' CreateProtectionGroup (Maybe ProtectedResourceType)
-cpgResourceType = lens _cpgResourceType (\s a -> s {_cpgResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgResourceType :: Lens.Lens' CreateProtectionGroup (Lude.Maybe ProtectedResourceType)
+cpgResourceType = Lens.lens (resourceType :: CreateProtectionGroup -> Lude.Maybe ProtectedResourceType) (\s a -> s {resourceType = a} :: CreateProtectionGroup)
+{-# DEPRECATED cpgResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set @Pattern@ to @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
-cpgMembers :: Lens' CreateProtectionGroup [Text]
-cpgMembers = lens _cpgMembers (\s a -> s {_cpgMembers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'members' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgMembers :: Lens.Lens' CreateProtectionGroup (Lude.Maybe [Lude.Text])
+cpgMembers = Lens.lens (members :: CreateProtectionGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {members = a} :: CreateProtectionGroup)
+{-# DEPRECATED cpgMembers "Use generic-lens or generic-optics with 'members' instead." #-}
 
 -- | The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
-cpgProtectionGroupId :: Lens' CreateProtectionGroup Text
-cpgProtectionGroupId = lens _cpgProtectionGroupId (\s a -> s {_cpgProtectionGroupId = a})
+--
+-- /Note:/ Consider using 'protectionGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgProtectionGroupId :: Lens.Lens' CreateProtectionGroup Lude.Text
+cpgProtectionGroupId = Lens.lens (protectionGroupId :: CreateProtectionGroup -> Lude.Text) (\s a -> s {protectionGroupId = a} :: CreateProtectionGroup)
+{-# DEPRECATED cpgProtectionGroupId "Use generic-lens or generic-optics with 'protectionGroupId' instead." #-}
 
--- | Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.     * Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.     * Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.     * Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.
-cpgAggregation :: Lens' CreateProtectionGroup ProtectionGroupAggregation
-cpgAggregation = lens _cpgAggregation (\s a -> s {_cpgAggregation = a})
+-- | Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
+--
+--
+--     * Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.
+--
+--
+--     * Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.
+--
+--
+--     * Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include CloudFront distributions and origin resources for CloudFront distributions.
+--
+--
+--
+-- /Note:/ Consider using 'aggregation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgAggregation :: Lens.Lens' CreateProtectionGroup ProtectionGroupAggregation
+cpgAggregation = Lens.lens (aggregation :: CreateProtectionGroup -> ProtectionGroupAggregation) (\s a -> s {aggregation = a} :: CreateProtectionGroup)
+{-# DEPRECATED cpgAggregation "Use generic-lens or generic-optics with 'aggregation' instead." #-}
 
 -- | The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.
-cpgPattern :: Lens' CreateProtectionGroup ProtectionGroupPattern
-cpgPattern = lens _cpgPattern (\s a -> s {_cpgPattern = a})
+--
+-- /Note:/ Consider using 'pattern'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgPattern :: Lens.Lens' CreateProtectionGroup ProtectionGroupPattern
+cpgPattern = Lens.lens (pattern' :: CreateProtectionGroup -> ProtectionGroupPattern) (\s a -> s {pattern' = a} :: CreateProtectionGroup)
+{-# DEPRECATED cpgPattern "Use generic-lens or generic-optics with 'pattern'' instead." #-}
 
-instance AWSRequest CreateProtectionGroup where
+instance Lude.AWSRequest CreateProtectionGroup where
   type Rs CreateProtectionGroup = CreateProtectionGroupResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveEmpty
-      (\s h x -> CreateProtectionGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateProtectionGroupResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateProtectionGroup
-
-instance NFData CreateProtectionGroup
-
-instance ToHeaders CreateProtectionGroup where
+instance Lude.ToHeaders CreateProtectionGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.CreateProtectionGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.CreateProtectionGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateProtectionGroup where
+instance Lude.ToJSON CreateProtectionGroup where
   toJSON CreateProtectionGroup' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceType" .=) <$> _cpgResourceType,
-            ("Members" .=) <$> _cpgMembers,
-            Just ("ProtectionGroupId" .= _cpgProtectionGroupId),
-            Just ("Aggregation" .= _cpgAggregation),
-            Just ("Pattern" .= _cpgPattern)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceType" Lude..=) Lude.<$> resourceType,
+            ("Members" Lude..=) Lude.<$> members,
+            Lude.Just ("ProtectionGroupId" Lude..= protectionGroupId),
+            Lude.Just ("Aggregation" Lude..= aggregation),
+            Lude.Just ("Pattern" Lude..= pattern')
           ]
       )
 
-instance ToPath CreateProtectionGroup where
-  toPath = const "/"
+instance Lude.ToPath CreateProtectionGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateProtectionGroup where
-  toQuery = const mempty
+instance Lude.ToQuery CreateProtectionGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createProtectionGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateProtectionGroupResponse' smart constructor.
 newtype CreateProtectionGroupResponse = CreateProtectionGroupResponse'
-  { _cpgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProtectionGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpgrsResponseStatus' - -- | The response status code.
-createProtectionGroupResponse ::
-  -- | 'cpgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateProtectionGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateProtectionGroupResponse
-createProtectionGroupResponse pResponseStatus_ =
-  CreateProtectionGroupResponse'
-    { _cpgrsResponseStatus =
-        pResponseStatus_
-    }
+mkCreateProtectionGroupResponse pResponseStatus_ =
+  CreateProtectionGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-cpgrsResponseStatus :: Lens' CreateProtectionGroupResponse Int
-cpgrsResponseStatus = lens _cpgrsResponseStatus (\s a -> s {_cpgrsResponseStatus = a})
-
-instance NFData CreateProtectionGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgrsResponseStatus :: Lens.Lens' CreateProtectionGroupResponse Lude.Int
+cpgrsResponseStatus = Lens.lens (responseStatus :: CreateProtectionGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProtectionGroupResponse)
+{-# DEPRECATED cpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

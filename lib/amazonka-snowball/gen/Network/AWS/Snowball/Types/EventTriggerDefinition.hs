@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Snowball.Types.EventTriggerDefinition where
+module Network.AWS.Snowball.Types.EventTriggerDefinition
+  ( EventTriggerDefinition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEventTriggerDefinition,
+
+    -- * Lenses
+    etdEventResourceARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The container for the 'EventTriggerDefinition$EventResourceARN' .
 --
---
---
--- /See:/ 'eventTriggerDefinition' smart constructor.
+-- /See:/ 'mkEventTriggerDefinition' smart constructor.
 newtype EventTriggerDefinition = EventTriggerDefinition'
-  { _etdEventResourceARN ::
-      Maybe Text
+  { eventResourceARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventTriggerDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etdEventResourceARN' - The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
-eventTriggerDefinition ::
+-- * 'eventResourceARN' - The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
+mkEventTriggerDefinition ::
   EventTriggerDefinition
-eventTriggerDefinition =
-  EventTriggerDefinition' {_etdEventResourceARN = Nothing}
+mkEventTriggerDefinition =
+  EventTriggerDefinition' {eventResourceARN = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an AWS Lambda function's event trigger associated with this job.
-etdEventResourceARN :: Lens' EventTriggerDefinition (Maybe Text)
-etdEventResourceARN = lens _etdEventResourceARN (\s a -> s {_etdEventResourceARN = a})
+--
+-- /Note:/ Consider using 'eventResourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etdEventResourceARN :: Lens.Lens' EventTriggerDefinition (Lude.Maybe Lude.Text)
+etdEventResourceARN = Lens.lens (eventResourceARN :: EventTriggerDefinition -> Lude.Maybe Lude.Text) (\s a -> s {eventResourceARN = a} :: EventTriggerDefinition)
+{-# DEPRECATED etdEventResourceARN "Use generic-lens or generic-optics with 'eventResourceARN' instead." #-}
 
-instance FromJSON EventTriggerDefinition where
+instance Lude.FromJSON EventTriggerDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventTriggerDefinition"
-      (\x -> EventTriggerDefinition' <$> (x .:? "EventResourceARN"))
+      ( \x ->
+          EventTriggerDefinition' Lude.<$> (x Lude..:? "EventResourceARN")
+      )
 
-instance Hashable EventTriggerDefinition
-
-instance NFData EventTriggerDefinition
-
-instance ToJSON EventTriggerDefinition where
+instance Lude.ToJSON EventTriggerDefinition where
   toJSON EventTriggerDefinition' {..} =
-    object
-      (catMaybes [("EventResourceARN" .=) <$> _etdEventResourceARN])
+    Lude.object
+      ( Lude.catMaybes
+          [("EventResourceARN" Lude..=) Lude.<$> eventResourceARN]
+      )

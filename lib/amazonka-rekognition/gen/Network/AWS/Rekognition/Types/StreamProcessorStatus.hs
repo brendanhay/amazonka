@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.StreamProcessorStatus where
+module Network.AWS.Rekognition.Types.StreamProcessorStatus
+  ( StreamProcessorStatus
+      ( StreamProcessorStatus',
+        SPSFailed,
+        SPSRunning,
+        SPSStarting,
+        SPSStopped,
+        SPSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StreamProcessorStatus
-  = SPSFailed
-  | SPSRunning
-  | SPSStarting
-  | SPSStopped
-  | SPSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StreamProcessorStatus = StreamProcessorStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StreamProcessorStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure SPSFailed
-      "running" -> pure SPSRunning
-      "starting" -> pure SPSStarting
-      "stopped" -> pure SPSStopped
-      "stopping" -> pure SPSStopping
-      e ->
-        fromTextError $
-          "Failure parsing StreamProcessorStatus from value: '" <> e
-            <> "'. Accepted values: failed, running, starting, stopped, stopping"
+pattern SPSFailed :: StreamProcessorStatus
+pattern SPSFailed = StreamProcessorStatus' "FAILED"
 
-instance ToText StreamProcessorStatus where
-  toText = \case
-    SPSFailed -> "FAILED"
-    SPSRunning -> "RUNNING"
-    SPSStarting -> "STARTING"
-    SPSStopped -> "STOPPED"
-    SPSStopping -> "STOPPING"
+pattern SPSRunning :: StreamProcessorStatus
+pattern SPSRunning = StreamProcessorStatus' "RUNNING"
 
-instance Hashable StreamProcessorStatus
+pattern SPSStarting :: StreamProcessorStatus
+pattern SPSStarting = StreamProcessorStatus' "STARTING"
 
-instance NFData StreamProcessorStatus
+pattern SPSStopped :: StreamProcessorStatus
+pattern SPSStopped = StreamProcessorStatus' "STOPPED"
 
-instance ToByteString StreamProcessorStatus
+pattern SPSStopping :: StreamProcessorStatus
+pattern SPSStopping = StreamProcessorStatus' "STOPPING"
 
-instance ToQuery StreamProcessorStatus
-
-instance ToHeader StreamProcessorStatus
-
-instance FromJSON StreamProcessorStatus where
-  parseJSON = parseJSONText "StreamProcessorStatus"
+{-# COMPLETE
+  SPSFailed,
+  SPSRunning,
+  SPSStarting,
+  SPSStopped,
+  SPSStopping,
+  StreamProcessorStatus'
+  #-}

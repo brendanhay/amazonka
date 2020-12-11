@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,96 +7,122 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.XMLClassifier where
+module Network.AWS.Glue.Types.XMLClassifier
+  ( XMLClassifier (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkXMLClassifier,
+
+    -- * Lenses
+    xcCreationTime,
+    xcLastUpdated,
+    xcVersion,
+    xcRowTag,
+    xcName,
+    xcClassification,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A classifier for @XML@ content.
 --
---
---
--- /See:/ 'xmlClassifier' smart constructor.
+-- /See:/ 'mkXMLClassifier' smart constructor.
 data XMLClassifier = XMLClassifier'
-  { _xcCreationTime ::
-      !(Maybe POSIX),
-    _xcLastUpdated :: !(Maybe POSIX),
-    _xcVersion :: !(Maybe Integer),
-    _xcRowTag :: !(Maybe Text),
-    _xcName :: !Text,
-    _xcClassification :: !Text
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    lastUpdated :: Lude.Maybe Lude.Timestamp,
+    version :: Lude.Maybe Lude.Integer,
+    rowTag :: Lude.Maybe Lude.Text,
+    name :: Lude.Text,
+    classification :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'XMLClassifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'xcCreationTime' - The time that this classifier was registered.
---
--- * 'xcLastUpdated' - The time that this classifier was last updated.
---
--- * 'xcVersion' - The version of this classifier.
---
--- * 'xcRowTag' - The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by @/>@ ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, @<row item_a="A" item_b="B"></row>@ is okay, but @<row item_a="A" item_b="B" />@ is not).
---
--- * 'xcName' - The name of the classifier.
---
--- * 'xcClassification' - An identifier of the data format that the classifier matches.
-xmlClassifier ::
-  -- | 'xcName'
-  Text ->
-  -- | 'xcClassification'
-  Text ->
+-- * 'classification' - An identifier of the data format that the classifier matches.
+-- * 'creationTime' - The time that this classifier was registered.
+-- * 'lastUpdated' - The time that this classifier was last updated.
+-- * 'name' - The name of the classifier.
+-- * 'rowTag' - The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by @/>@ ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, @<row item_a="A" item_b="B"></row>@ is okay, but @<row item_a="A" item_b="B" />@ is not).
+-- * 'version' - The version of this classifier.
+mkXMLClassifier ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'classification'
+  Lude.Text ->
   XMLClassifier
-xmlClassifier pName_ pClassification_ =
+mkXMLClassifier pName_ pClassification_ =
   XMLClassifier'
-    { _xcCreationTime = Nothing,
-      _xcLastUpdated = Nothing,
-      _xcVersion = Nothing,
-      _xcRowTag = Nothing,
-      _xcName = pName_,
-      _xcClassification = pClassification_
+    { creationTime = Lude.Nothing,
+      lastUpdated = Lude.Nothing,
+      version = Lude.Nothing,
+      rowTag = Lude.Nothing,
+      name = pName_,
+      classification = pClassification_
     }
 
 -- | The time that this classifier was registered.
-xcCreationTime :: Lens' XMLClassifier (Maybe UTCTime)
-xcCreationTime = lens _xcCreationTime (\s a -> s {_xcCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xcCreationTime :: Lens.Lens' XMLClassifier (Lude.Maybe Lude.Timestamp)
+xcCreationTime = Lens.lens (creationTime :: XMLClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: XMLClassifier)
+{-# DEPRECATED xcCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The time that this classifier was last updated.
-xcLastUpdated :: Lens' XMLClassifier (Maybe UTCTime)
-xcLastUpdated = lens _xcLastUpdated (\s a -> s {_xcLastUpdated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xcLastUpdated :: Lens.Lens' XMLClassifier (Lude.Maybe Lude.Timestamp)
+xcLastUpdated = Lens.lens (lastUpdated :: XMLClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdated = a} :: XMLClassifier)
+{-# DEPRECATED xcLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
 
 -- | The version of this classifier.
-xcVersion :: Lens' XMLClassifier (Maybe Integer)
-xcVersion = lens _xcVersion (\s a -> s {_xcVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xcVersion :: Lens.Lens' XMLClassifier (Lude.Maybe Lude.Integer)
+xcVersion = Lens.lens (version :: XMLClassifier -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: XMLClassifier)
+{-# DEPRECATED xcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by @/>@ ). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, @<row item_a="A" item_b="B"></row>@ is okay, but @<row item_a="A" item_b="B" />@ is not).
-xcRowTag :: Lens' XMLClassifier (Maybe Text)
-xcRowTag = lens _xcRowTag (\s a -> s {_xcRowTag = a})
+--
+-- /Note:/ Consider using 'rowTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xcRowTag :: Lens.Lens' XMLClassifier (Lude.Maybe Lude.Text)
+xcRowTag = Lens.lens (rowTag :: XMLClassifier -> Lude.Maybe Lude.Text) (\s a -> s {rowTag = a} :: XMLClassifier)
+{-# DEPRECATED xcRowTag "Use generic-lens or generic-optics with 'rowTag' instead." #-}
 
 -- | The name of the classifier.
-xcName :: Lens' XMLClassifier Text
-xcName = lens _xcName (\s a -> s {_xcName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xcName :: Lens.Lens' XMLClassifier Lude.Text
+xcName = Lens.lens (name :: XMLClassifier -> Lude.Text) (\s a -> s {name = a} :: XMLClassifier)
+{-# DEPRECATED xcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An identifier of the data format that the classifier matches.
-xcClassification :: Lens' XMLClassifier Text
-xcClassification = lens _xcClassification (\s a -> s {_xcClassification = a})
+--
+-- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xcClassification :: Lens.Lens' XMLClassifier Lude.Text
+xcClassification = Lens.lens (classification :: XMLClassifier -> Lude.Text) (\s a -> s {classification = a} :: XMLClassifier)
+{-# DEPRECATED xcClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
-instance FromJSON XMLClassifier where
+instance Lude.FromJSON XMLClassifier where
   parseJSON =
-    withObject
+    Lude.withObject
       "XMLClassifier"
       ( \x ->
           XMLClassifier'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "LastUpdated")
-            <*> (x .:? "Version")
-            <*> (x .:? "RowTag")
-            <*> (x .: "Name")
-            <*> (x .: "Classification")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "LastUpdated")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "RowTag")
+            Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..: "Classification")
       )
-
-instance Hashable XMLClassifier
-
-instance NFData XMLClassifier

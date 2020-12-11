@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.ShareTarget where
+module Network.AWS.DirectoryService.Types.ShareTarget
+  ( ShareTarget (..),
+
+    -- * Smart constructor
+    mkShareTarget,
+
+    -- * Lenses
+    stId,
+    stType,
+  )
+where
 
 import Network.AWS.DirectoryService.Types.TargetType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Identifier that contains details about the directory consumer account.
 --
---
---
--- /See:/ 'shareTarget' smart constructor.
+-- /See:/ 'mkShareTarget' smart constructor.
 data ShareTarget = ShareTarget'
-  { _stId :: !Text,
-    _stType :: !TargetType
+  { id :: Lude.Text,
+    type' :: TargetType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShareTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stId' - Identifier of the directory consumer account.
---
--- * 'stType' - Type of identifier to be used in the @Id@ field.
-shareTarget ::
-  -- | 'stId'
-  Text ->
-  -- | 'stType'
+-- * 'id' - Identifier of the directory consumer account.
+-- * 'type'' - Type of identifier to be used in the @Id@ field.
+mkShareTarget ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'type''
   TargetType ->
   ShareTarget
-shareTarget pId_ pType_ =
-  ShareTarget' {_stId = pId_, _stType = pType_}
+mkShareTarget pId_ pType_ = ShareTarget' {id = pId_, type' = pType_}
 
 -- | Identifier of the directory consumer account.
-stId :: Lens' ShareTarget Text
-stId = lens _stId (\s a -> s {_stId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stId :: Lens.Lens' ShareTarget Lude.Text
+stId = Lens.lens (id :: ShareTarget -> Lude.Text) (\s a -> s {id = a} :: ShareTarget)
+{-# DEPRECATED stId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Type of identifier to be used in the @Id@ field.
-stType :: Lens' ShareTarget TargetType
-stType = lens _stType (\s a -> s {_stType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stType :: Lens.Lens' ShareTarget TargetType
+stType = Lens.lens (type' :: ShareTarget -> TargetType) (\s a -> s {type' = a} :: ShareTarget)
+{-# DEPRECATED stType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Hashable ShareTarget
-
-instance NFData ShareTarget
-
-instance ToJSON ShareTarget where
+instance Lude.ToJSON ShareTarget where
   toJSON ShareTarget' {..} =
-    object
-      (catMaybes [Just ("Id" .= _stId), Just ("Type" .= _stType)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("Id" Lude..= id), Lude.Just ("Type" Lude..= type')]
+      )

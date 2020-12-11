@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector where
+module Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
+  ( ClipFragmentSelector (..),
+
+    -- * Smart constructor
+    mkClipFragmentSelector,
+
+    -- * Lenses
+    cfsFragmentSelectorType,
+    cfsTimestampRange,
+  )
+where
 
 import Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
 import Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the timestamp range and timestamp origin of a range of fragments.
 --
---
 -- Fragments that have duplicate producer timestamps are deduplicated. This means that if producers are producing a stream of fragments with producer timestamps that are approximately equal to the true clock time, the clip will contain all of the fragments within the requested timestamp range. If some fragments are ingested within the same time range and very different points in time, only the oldest ingested collection of fragments are returned.
 --
---
--- /See:/ 'clipFragmentSelector' smart constructor.
+-- /See:/ 'mkClipFragmentSelector' smart constructor.
 data ClipFragmentSelector = ClipFragmentSelector'
-  { _cfsFragmentSelectorType ::
-      !ClipFragmentSelectorType,
-    _cfsTimestampRange :: !ClipTimestampRange
+  { fragmentSelectorType ::
+      ClipFragmentSelectorType,
+    timestampRange :: ClipTimestampRange
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClipFragmentSelector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfsFragmentSelectorType' - The origin of the timestamps to use (Server or Producer).
---
--- * 'cfsTimestampRange' - The range of timestamps to return.
-clipFragmentSelector ::
-  -- | 'cfsFragmentSelectorType'
+-- * 'fragmentSelectorType' - The origin of the timestamps to use (Server or Producer).
+-- * 'timestampRange' - The range of timestamps to return.
+mkClipFragmentSelector ::
+  -- | 'fragmentSelectorType'
   ClipFragmentSelectorType ->
-  -- | 'cfsTimestampRange'
+  -- | 'timestampRange'
   ClipTimestampRange ->
   ClipFragmentSelector
-clipFragmentSelector pFragmentSelectorType_ pTimestampRange_ =
+mkClipFragmentSelector pFragmentSelectorType_ pTimestampRange_ =
   ClipFragmentSelector'
-    { _cfsFragmentSelectorType =
+    { fragmentSelectorType =
         pFragmentSelectorType_,
-      _cfsTimestampRange = pTimestampRange_
+      timestampRange = pTimestampRange_
     }
 
 -- | The origin of the timestamps to use (Server or Producer).
-cfsFragmentSelectorType :: Lens' ClipFragmentSelector ClipFragmentSelectorType
-cfsFragmentSelectorType = lens _cfsFragmentSelectorType (\s a -> s {_cfsFragmentSelectorType = a})
+--
+-- /Note:/ Consider using 'fragmentSelectorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsFragmentSelectorType :: Lens.Lens' ClipFragmentSelector ClipFragmentSelectorType
+cfsFragmentSelectorType = Lens.lens (fragmentSelectorType :: ClipFragmentSelector -> ClipFragmentSelectorType) (\s a -> s {fragmentSelectorType = a} :: ClipFragmentSelector)
+{-# DEPRECATED cfsFragmentSelectorType "Use generic-lens or generic-optics with 'fragmentSelectorType' instead." #-}
 
 -- | The range of timestamps to return.
-cfsTimestampRange :: Lens' ClipFragmentSelector ClipTimestampRange
-cfsTimestampRange = lens _cfsTimestampRange (\s a -> s {_cfsTimestampRange = a})
+--
+-- /Note:/ Consider using 'timestampRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsTimestampRange :: Lens.Lens' ClipFragmentSelector ClipTimestampRange
+cfsTimestampRange = Lens.lens (timestampRange :: ClipFragmentSelector -> ClipTimestampRange) (\s a -> s {timestampRange = a} :: ClipFragmentSelector)
+{-# DEPRECATED cfsTimestampRange "Use generic-lens or generic-optics with 'timestampRange' instead." #-}
 
-instance Hashable ClipFragmentSelector
-
-instance NFData ClipFragmentSelector
-
-instance ToJSON ClipFragmentSelector where
+instance Lude.ToJSON ClipFragmentSelector where
   toJSON ClipFragmentSelector' {..} =
-    object
-      ( catMaybes
-          [ Just ("FragmentSelectorType" .= _cfsFragmentSelectorType),
-            Just ("TimestampRange" .= _cfsTimestampRange)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("FragmentSelectorType" Lude..= fragmentSelectorType),
+            Lude.Just ("TimestampRange" Lude..= timestampRange)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,137 @@
 --
 -- Creates the content of a data set by applying a @queryAction@ (a SQL query) or a @containerAction@ (executing a containerized application).
 module Network.AWS.IoTAnalytics.CreateDatasetContent
-  ( -- * Creating a Request
-    createDatasetContent,
-    CreateDatasetContent,
+  ( -- * Creating a request
+    CreateDatasetContent (..),
+    mkCreateDatasetContent,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdcVersionId,
     cdcDatasetName,
 
-    -- * Destructuring the Response
-    createDatasetContentResponse,
-    CreateDatasetContentResponse,
+    -- * Destructuring the response
+    CreateDatasetContentResponse (..),
+    mkCreateDatasetContentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdcrsVersionId,
     cdcrsResponseStatus,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDatasetContent' smart constructor.
+-- | /See:/ 'mkCreateDatasetContent' smart constructor.
 data CreateDatasetContent = CreateDatasetContent'
-  { _cdcVersionId ::
-      !(Maybe Text),
-    _cdcDatasetName :: !Text
+  { versionId ::
+      Lude.Maybe Lude.Text,
+    datasetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDatasetContent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcVersionId' - The version ID of the dataset content. To specify @versionId@ for a dataset content, the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
---
--- * 'cdcDatasetName' - The name of the dataset.
-createDatasetContent ::
-  -- | 'cdcDatasetName'
-  Text ->
+-- * 'datasetName' - The name of the dataset.
+-- * 'versionId' - The version ID of the dataset content. To specify @versionId@ for a dataset content, the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
+mkCreateDatasetContent ::
+  -- | 'datasetName'
+  Lude.Text ->
   CreateDatasetContent
-createDatasetContent pDatasetName_ =
+mkCreateDatasetContent pDatasetName_ =
   CreateDatasetContent'
-    { _cdcVersionId = Nothing,
-      _cdcDatasetName = pDatasetName_
+    { versionId = Lude.Nothing,
+      datasetName = pDatasetName_
     }
 
 -- | The version ID of the dataset content. To specify @versionId@ for a dataset content, the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
-cdcVersionId :: Lens' CreateDatasetContent (Maybe Text)
-cdcVersionId = lens _cdcVersionId (\s a -> s {_cdcVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcVersionId :: Lens.Lens' CreateDatasetContent (Lude.Maybe Lude.Text)
+cdcVersionId = Lens.lens (versionId :: CreateDatasetContent -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: CreateDatasetContent)
+{-# DEPRECATED cdcVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The name of the dataset.
-cdcDatasetName :: Lens' CreateDatasetContent Text
-cdcDatasetName = lens _cdcDatasetName (\s a -> s {_cdcDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDatasetName :: Lens.Lens' CreateDatasetContent Lude.Text
+cdcDatasetName = Lens.lens (datasetName :: CreateDatasetContent -> Lude.Text) (\s a -> s {datasetName = a} :: CreateDatasetContent)
+{-# DEPRECATED cdcDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance AWSRequest CreateDatasetContent where
+instance Lude.AWSRequest CreateDatasetContent where
   type Rs CreateDatasetContent = CreateDatasetContentResponse
-  request = postJSON ioTAnalytics
+  request = Req.postJSON ioTAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDatasetContentResponse'
-            <$> (x .?> "versionId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "versionId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDatasetContent
+instance Lude.ToHeaders CreateDatasetContent where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateDatasetContent
-
-instance ToHeaders CreateDatasetContent where
-  toHeaders = const mempty
-
-instance ToJSON CreateDatasetContent where
+instance Lude.ToJSON CreateDatasetContent where
   toJSON CreateDatasetContent' {..} =
-    object (catMaybes [("versionId" .=) <$> _cdcVersionId])
+    Lude.object
+      (Lude.catMaybes [("versionId" Lude..=) Lude.<$> versionId])
 
-instance ToPath CreateDatasetContent where
+instance Lude.ToPath CreateDatasetContent where
   toPath CreateDatasetContent' {..} =
-    mconcat ["/datasets/", toBS _cdcDatasetName, "/content"]
+    Lude.mconcat ["/datasets/", Lude.toBS datasetName, "/content"]
 
-instance ToQuery CreateDatasetContent where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDatasetContent where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDatasetContentResponse' smart constructor.
+-- | /See:/ 'mkCreateDatasetContentResponse' smart constructor.
 data CreateDatasetContentResponse = CreateDatasetContentResponse'
-  { _cdcrsVersionId ::
-      !(Maybe Text),
-    _cdcrsResponseStatus :: !Int
+  { versionId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDatasetContentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcrsVersionId' - The version ID of the dataset contents that are being created.
---
--- * 'cdcrsResponseStatus' - -- | The response status code.
-createDatasetContentResponse ::
-  -- | 'cdcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'versionId' - The version ID of the dataset contents that are being created.
+mkCreateDatasetContentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDatasetContentResponse
-createDatasetContentResponse pResponseStatus_ =
+mkCreateDatasetContentResponse pResponseStatus_ =
   CreateDatasetContentResponse'
-    { _cdcrsVersionId = Nothing,
-      _cdcrsResponseStatus = pResponseStatus_
+    { versionId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The version ID of the dataset contents that are being created.
-cdcrsVersionId :: Lens' CreateDatasetContentResponse (Maybe Text)
-cdcrsVersionId = lens _cdcrsVersionId (\s a -> s {_cdcrsVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsVersionId :: Lens.Lens' CreateDatasetContentResponse (Lude.Maybe Lude.Text)
+cdcrsVersionId = Lens.lens (versionId :: CreateDatasetContentResponse -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: CreateDatasetContentResponse)
+{-# DEPRECATED cdcrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
--- | -- | The response status code.
-cdcrsResponseStatus :: Lens' CreateDatasetContentResponse Int
-cdcrsResponseStatus = lens _cdcrsResponseStatus (\s a -> s {_cdcrsResponseStatus = a})
-
-instance NFData CreateDatasetContentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsResponseStatus :: Lens.Lens' CreateDatasetContentResponse Lude.Int
+cdcrsResponseStatus = Lens.lens (responseStatus :: CreateDatasetContentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDatasetContentResponse)
+{-# DEPRECATED cdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

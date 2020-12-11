@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AutomationExecutionFilter where
+module Network.AWS.SSM.Types.AutomationExecutionFilter
+  ( AutomationExecutionFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutomationExecutionFilter,
+
+    -- * Lenses
+    autKey,
+    autValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.AutomationExecutionFilterKey
 
 -- | A filter used to match specific automation executions. This is used to limit the scope of Automation execution information returned.
 --
---
---
--- /See:/ 'automationExecutionFilter' smart constructor.
+-- /See:/ 'mkAutomationExecutionFilter' smart constructor.
 data AutomationExecutionFilter = AutomationExecutionFilter'
-  { _autKey ::
-      !AutomationExecutionFilterKey,
-    _autValues :: !(List1 Text)
+  { key ::
+      AutomationExecutionFilterKey,
+    values :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomationExecutionFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'autKey' - One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter, TargetResourceGroup.
---
--- * 'autValues' - The values used to limit the execution information associated with the filter's key.
-automationExecutionFilter ::
-  -- | 'autKey'
+-- * 'key' - One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter, TargetResourceGroup.
+-- * 'values' - The values used to limit the execution information associated with the filter's key.
+mkAutomationExecutionFilter ::
+  -- | 'key'
   AutomationExecutionFilterKey ->
-  -- | 'autValues'
-  NonEmpty Text ->
+  -- | 'values'
+  Lude.NonEmpty Lude.Text ->
   AutomationExecutionFilter
-automationExecutionFilter pKey_ pValues_ =
-  AutomationExecutionFilter'
-    { _autKey = pKey_,
-      _autValues = _List1 # pValues_
-    }
+mkAutomationExecutionFilter pKey_ pValues_ =
+  AutomationExecutionFilter' {key = pKey_, values = pValues_}
 
 -- | One or more keys to limit the results. Valid filter keys include the following: DocumentNamePrefix, ExecutionStatus, ExecutionId, ParentExecutionId, CurrentAction, StartTimeBefore, StartTimeAfter, TargetResourceGroup.
-autKey :: Lens' AutomationExecutionFilter AutomationExecutionFilterKey
-autKey = lens _autKey (\s a -> s {_autKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+autKey :: Lens.Lens' AutomationExecutionFilter AutomationExecutionFilterKey
+autKey = Lens.lens (key :: AutomationExecutionFilter -> AutomationExecutionFilterKey) (\s a -> s {key = a} :: AutomationExecutionFilter)
+{-# DEPRECATED autKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The values used to limit the execution information associated with the filter's key.
-autValues :: Lens' AutomationExecutionFilter (NonEmpty Text)
-autValues = lens _autValues (\s a -> s {_autValues = a}) . _List1
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+autValues :: Lens.Lens' AutomationExecutionFilter (Lude.NonEmpty Lude.Text)
+autValues = Lens.lens (values :: AutomationExecutionFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: AutomationExecutionFilter)
+{-# DEPRECATED autValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Hashable AutomationExecutionFilter
-
-instance NFData AutomationExecutionFilter
-
-instance ToJSON AutomationExecutionFilter where
+instance Lude.ToJSON AutomationExecutionFilter where
   toJSON AutomationExecutionFilter' {..} =
-    object
-      ( catMaybes
-          [Just ("Key" .= _autKey), Just ("Values" .= _autValues)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Values" Lude..= values)
+          ]
       )

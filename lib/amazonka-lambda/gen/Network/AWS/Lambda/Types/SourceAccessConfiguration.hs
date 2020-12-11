@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.SourceAccessConfiguration where
+module Network.AWS.Lambda.Types.SourceAccessConfiguration
+  ( SourceAccessConfiguration (..),
+
+    -- * Smart constructor
+    mkSourceAccessConfiguration,
+
+    -- * Lenses
+    sacURI,
+    sacType,
+  )
+where
 
 import Network.AWS.Lambda.Types.SourceAccessType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
 --
---
---
--- /See:/ 'sourceAccessConfiguration' smart constructor.
+-- /See:/ 'mkSourceAccessConfiguration' smart constructor.
 data SourceAccessConfiguration = SourceAccessConfiguration'
-  { _sacURI ::
-      !(Maybe Text),
-    _sacType :: !(Maybe SourceAccessType)
+  { uri ::
+      Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe SourceAccessType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceAccessConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'type'' - To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
 --
--- * 'sacURI' - To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@  The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+-- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+-- * 'uri' - To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
 --
--- * 'sacType' - To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@  The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
-sourceAccessConfiguration ::
+-- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+mkSourceAccessConfiguration ::
   SourceAccessConfiguration
-sourceAccessConfiguration =
-  SourceAccessConfiguration' {_sacURI = Nothing, _sacType = Nothing}
+mkSourceAccessConfiguration =
+  SourceAccessConfiguration'
+    { uri = Lude.Nothing,
+      type' = Lude.Nothing
+    }
 
--- | To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@  The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
-sacURI :: Lens' SourceAccessConfiguration (Maybe Text)
-sacURI = lens _sacURI (\s a -> s {_sacURI = a})
+-- | To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
+--
+-- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+--
+-- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sacURI :: Lens.Lens' SourceAccessConfiguration (Lude.Maybe Lude.Text)
+sacURI = Lens.lens (uri :: SourceAccessConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {uri = a} :: SourceAccessConfiguration)
+{-# DEPRECATED sacURI "Use generic-lens or generic-optics with 'uri' instead." #-}
 
--- | To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@  The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
-sacType :: Lens' SourceAccessConfiguration (Maybe SourceAccessType)
-sacType = lens _sacType (\s a -> s {_sacType = a})
+-- | To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
+--
+-- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sacType :: Lens.Lens' SourceAccessConfiguration (Lude.Maybe SourceAccessType)
+sacType = Lens.lens (type' :: SourceAccessConfiguration -> Lude.Maybe SourceAccessType) (\s a -> s {type' = a} :: SourceAccessConfiguration)
+{-# DEPRECATED sacType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON SourceAccessConfiguration where
+instance Lude.FromJSON SourceAccessConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "SourceAccessConfiguration"
       ( \x ->
-          SourceAccessConfiguration' <$> (x .:? "URI") <*> (x .:? "Type")
+          SourceAccessConfiguration'
+            Lude.<$> (x Lude..:? "URI") Lude.<*> (x Lude..:? "Type")
       )
 
-instance Hashable SourceAccessConfiguration
-
-instance NFData SourceAccessConfiguration
-
-instance ToJSON SourceAccessConfiguration where
+instance Lude.ToJSON SourceAccessConfiguration where
   toJSON SourceAccessConfiguration' {..} =
-    object
-      (catMaybes [("URI" .=) <$> _sacURI, ("Type" .=) <$> _sacType])
+    Lude.object
+      ( Lude.catMaybes
+          [("URI" Lude..=) Lude.<$> uri, ("Type" Lude..=) Lude.<$> type']
+      )

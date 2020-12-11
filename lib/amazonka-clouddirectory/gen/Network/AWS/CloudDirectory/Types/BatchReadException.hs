@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchReadException where
+module Network.AWS.CloudDirectory.Types.BatchReadException
+  ( BatchReadException (..),
+
+    -- * Smart constructor
+    mkBatchReadException,
+
+    -- * Lenses
+    breType,
+    breMessage,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.BatchReadExceptionType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The batch read exception structure, which contains the exception type and message.
 --
---
---
--- /See:/ 'batchReadException' smart constructor.
+-- /See:/ 'mkBatchReadException' smart constructor.
 data BatchReadException = BatchReadException'
-  { _breType ::
-      !(Maybe BatchReadExceptionType),
-    _breMessage :: !(Maybe Text)
+  { type' ::
+      Lude.Maybe BatchReadExceptionType,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchReadException' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'breType' - A type of exception, such as @InvalidArnException@ .
---
--- * 'breMessage' - An exception message that is associated with the failure.
-batchReadException ::
+-- * 'message' - An exception message that is associated with the failure.
+-- * 'type'' - A type of exception, such as @InvalidArnException@ .
+mkBatchReadException ::
   BatchReadException
-batchReadException =
-  BatchReadException' {_breType = Nothing, _breMessage = Nothing}
+mkBatchReadException =
+  BatchReadException' {type' = Lude.Nothing, message = Lude.Nothing}
 
 -- | A type of exception, such as @InvalidArnException@ .
-breType :: Lens' BatchReadException (Maybe BatchReadExceptionType)
-breType = lens _breType (\s a -> s {_breType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+breType :: Lens.Lens' BatchReadException (Lude.Maybe BatchReadExceptionType)
+breType = Lens.lens (type' :: BatchReadException -> Lude.Maybe BatchReadExceptionType) (\s a -> s {type' = a} :: BatchReadException)
+{-# DEPRECATED breType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | An exception message that is associated with the failure.
-breMessage :: Lens' BatchReadException (Maybe Text)
-breMessage = lens _breMessage (\s a -> s {_breMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+breMessage :: Lens.Lens' BatchReadException (Lude.Maybe Lude.Text)
+breMessage = Lens.lens (message :: BatchReadException -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: BatchReadException)
+{-# DEPRECATED breMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON BatchReadException where
+instance Lude.FromJSON BatchReadException where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchReadException"
       ( \x ->
-          BatchReadException' <$> (x .:? "Type") <*> (x .:? "Message")
+          BatchReadException'
+            Lude.<$> (x Lude..:? "Type") Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable BatchReadException
-
-instance NFData BatchReadException

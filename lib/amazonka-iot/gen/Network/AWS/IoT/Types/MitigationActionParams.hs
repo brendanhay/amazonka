@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,21 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.MitigationActionParams where
+module Network.AWS.IoT.Types.MitigationActionParams
+  ( MitigationActionParams (..),
+
+    -- * Smart constructor
+    mkMitigationActionParams,
+
+    -- * Lenses
+    mapEnableIOTLoggingParams,
+    mapAddThingsToThingGroupParams,
+    mapUpdateCACertificateParams,
+    mapUpdateDeviceCertificateParams,
+    mapReplaceDefaultPolicyVersionParams,
+    mapPublishFindingToSNSParams,
+  )
+where
 
 import Network.AWS.IoT.Types.AddThingsToThingGroupParams
 import Network.AWS.IoT.Types.EnableIOTLoggingParams
@@ -21,112 +29,126 @@ import Network.AWS.IoT.Types.PublishFindingToSNSParams
 import Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams
 import Network.AWS.IoT.Types.UpdateCACertificateParams
 import Network.AWS.IoT.Types.UpdateDeviceCertificateParams
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 --
---
---
--- /See:/ 'mitigationActionParams' smart constructor.
+-- /See:/ 'mkMitigationActionParams' smart constructor.
 data MitigationActionParams = MitigationActionParams'
-  { _mapEnableIOTLoggingParams ::
-      !(Maybe EnableIOTLoggingParams),
-    _mapAddThingsToThingGroupParams ::
-      !(Maybe AddThingsToThingGroupParams),
-    _mapUpdateCACertificateParams ::
-      !(Maybe UpdateCACertificateParams),
-    _mapUpdateDeviceCertificateParams ::
-      !(Maybe UpdateDeviceCertificateParams),
-    _mapReplaceDefaultPolicyVersionParams ::
-      !(Maybe ReplaceDefaultPolicyVersionParams),
-    _mapPublishFindingToSNSParams ::
-      !(Maybe PublishFindingToSNSParams)
+  { enableIOTLoggingParams ::
+      Lude.Maybe EnableIOTLoggingParams,
+    addThingsToThingGroupParams ::
+      Lude.Maybe AddThingsToThingGroupParams,
+    updateCACertificateParams ::
+      Lude.Maybe UpdateCACertificateParams,
+    updateDeviceCertificateParams ::
+      Lude.Maybe UpdateDeviceCertificateParams,
+    replaceDefaultPolicyVersionParams ::
+      Lude.Maybe ReplaceDefaultPolicyVersionParams,
+    publishFindingToSNSParams ::
+      Lude.Maybe PublishFindingToSNSParams
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MitigationActionParams' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mapEnableIOTLoggingParams' - Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
---
--- * 'mapAddThingsToThingGroupParams' - Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
---
--- * 'mapUpdateCACertificateParams' - Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
---
--- * 'mapUpdateDeviceCertificateParams' - Parameters to define a mitigation action that changes the state of the device certificate to inactive.
---
--- * 'mapReplaceDefaultPolicyVersionParams' - Parameters to define a mitigation action that adds a blank policy to restrict permissions.
---
--- * 'mapPublishFindingToSNSParams' - Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
-mitigationActionParams ::
+-- * 'addThingsToThingGroupParams' - Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
+-- * 'enableIOTLoggingParams' - Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
+-- * 'publishFindingToSNSParams' - Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+-- * 'replaceDefaultPolicyVersionParams' - Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+-- * 'updateCACertificateParams' - Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+-- * 'updateDeviceCertificateParams' - Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+mkMitigationActionParams ::
   MitigationActionParams
-mitigationActionParams =
+mkMitigationActionParams =
   MitigationActionParams'
-    { _mapEnableIOTLoggingParams = Nothing,
-      _mapAddThingsToThingGroupParams = Nothing,
-      _mapUpdateCACertificateParams = Nothing,
-      _mapUpdateDeviceCertificateParams = Nothing,
-      _mapReplaceDefaultPolicyVersionParams = Nothing,
-      _mapPublishFindingToSNSParams = Nothing
+    { enableIOTLoggingParams = Lude.Nothing,
+      addThingsToThingGroupParams = Lude.Nothing,
+      updateCACertificateParams = Lude.Nothing,
+      updateDeviceCertificateParams = Lude.Nothing,
+      replaceDefaultPolicyVersionParams = Lude.Nothing,
+      publishFindingToSNSParams = Lude.Nothing
     }
 
 -- | Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
-mapEnableIOTLoggingParams :: Lens' MitigationActionParams (Maybe EnableIOTLoggingParams)
-mapEnableIOTLoggingParams = lens _mapEnableIOTLoggingParams (\s a -> s {_mapEnableIOTLoggingParams = a})
+--
+-- /Note:/ Consider using 'enableIOTLoggingParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mapEnableIOTLoggingParams :: Lens.Lens' MitigationActionParams (Lude.Maybe EnableIOTLoggingParams)
+mapEnableIOTLoggingParams = Lens.lens (enableIOTLoggingParams :: MitigationActionParams -> Lude.Maybe EnableIOTLoggingParams) (\s a -> s {enableIOTLoggingParams = a} :: MitigationActionParams)
+{-# DEPRECATED mapEnableIOTLoggingParams "Use generic-lens or generic-optics with 'enableIOTLoggingParams' instead." #-}
 
 -- | Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
-mapAddThingsToThingGroupParams :: Lens' MitigationActionParams (Maybe AddThingsToThingGroupParams)
-mapAddThingsToThingGroupParams = lens _mapAddThingsToThingGroupParams (\s a -> s {_mapAddThingsToThingGroupParams = a})
+--
+-- /Note:/ Consider using 'addThingsToThingGroupParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mapAddThingsToThingGroupParams :: Lens.Lens' MitigationActionParams (Lude.Maybe AddThingsToThingGroupParams)
+mapAddThingsToThingGroupParams = Lens.lens (addThingsToThingGroupParams :: MitigationActionParams -> Lude.Maybe AddThingsToThingGroupParams) (\s a -> s {addThingsToThingGroupParams = a} :: MitigationActionParams)
+{-# DEPRECATED mapAddThingsToThingGroupParams "Use generic-lens or generic-optics with 'addThingsToThingGroupParams' instead." #-}
 
 -- | Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
-mapUpdateCACertificateParams :: Lens' MitigationActionParams (Maybe UpdateCACertificateParams)
-mapUpdateCACertificateParams = lens _mapUpdateCACertificateParams (\s a -> s {_mapUpdateCACertificateParams = a})
+--
+-- /Note:/ Consider using 'updateCACertificateParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mapUpdateCACertificateParams :: Lens.Lens' MitigationActionParams (Lude.Maybe UpdateCACertificateParams)
+mapUpdateCACertificateParams = Lens.lens (updateCACertificateParams :: MitigationActionParams -> Lude.Maybe UpdateCACertificateParams) (\s a -> s {updateCACertificateParams = a} :: MitigationActionParams)
+{-# DEPRECATED mapUpdateCACertificateParams "Use generic-lens or generic-optics with 'updateCACertificateParams' instead." #-}
 
 -- | Parameters to define a mitigation action that changes the state of the device certificate to inactive.
-mapUpdateDeviceCertificateParams :: Lens' MitigationActionParams (Maybe UpdateDeviceCertificateParams)
-mapUpdateDeviceCertificateParams = lens _mapUpdateDeviceCertificateParams (\s a -> s {_mapUpdateDeviceCertificateParams = a})
+--
+-- /Note:/ Consider using 'updateDeviceCertificateParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mapUpdateDeviceCertificateParams :: Lens.Lens' MitigationActionParams (Lude.Maybe UpdateDeviceCertificateParams)
+mapUpdateDeviceCertificateParams = Lens.lens (updateDeviceCertificateParams :: MitigationActionParams -> Lude.Maybe UpdateDeviceCertificateParams) (\s a -> s {updateDeviceCertificateParams = a} :: MitigationActionParams)
+{-# DEPRECATED mapUpdateDeviceCertificateParams "Use generic-lens or generic-optics with 'updateDeviceCertificateParams' instead." #-}
 
 -- | Parameters to define a mitigation action that adds a blank policy to restrict permissions.
-mapReplaceDefaultPolicyVersionParams :: Lens' MitigationActionParams (Maybe ReplaceDefaultPolicyVersionParams)
-mapReplaceDefaultPolicyVersionParams = lens _mapReplaceDefaultPolicyVersionParams (\s a -> s {_mapReplaceDefaultPolicyVersionParams = a})
+--
+-- /Note:/ Consider using 'replaceDefaultPolicyVersionParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mapReplaceDefaultPolicyVersionParams :: Lens.Lens' MitigationActionParams (Lude.Maybe ReplaceDefaultPolicyVersionParams)
+mapReplaceDefaultPolicyVersionParams = Lens.lens (replaceDefaultPolicyVersionParams :: MitigationActionParams -> Lude.Maybe ReplaceDefaultPolicyVersionParams) (\s a -> s {replaceDefaultPolicyVersionParams = a} :: MitigationActionParams)
+{-# DEPRECATED mapReplaceDefaultPolicyVersionParams "Use generic-lens or generic-optics with 'replaceDefaultPolicyVersionParams' instead." #-}
 
 -- | Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
-mapPublishFindingToSNSParams :: Lens' MitigationActionParams (Maybe PublishFindingToSNSParams)
-mapPublishFindingToSNSParams = lens _mapPublishFindingToSNSParams (\s a -> s {_mapPublishFindingToSNSParams = a})
+--
+-- /Note:/ Consider using 'publishFindingToSNSParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mapPublishFindingToSNSParams :: Lens.Lens' MitigationActionParams (Lude.Maybe PublishFindingToSNSParams)
+mapPublishFindingToSNSParams = Lens.lens (publishFindingToSNSParams :: MitigationActionParams -> Lude.Maybe PublishFindingToSNSParams) (\s a -> s {publishFindingToSNSParams = a} :: MitigationActionParams)
+{-# DEPRECATED mapPublishFindingToSNSParams "Use generic-lens or generic-optics with 'publishFindingToSNSParams' instead." #-}
 
-instance FromJSON MitigationActionParams where
+instance Lude.FromJSON MitigationActionParams where
   parseJSON =
-    withObject
+    Lude.withObject
       "MitigationActionParams"
       ( \x ->
           MitigationActionParams'
-            <$> (x .:? "enableIoTLoggingParams")
-            <*> (x .:? "addThingsToThingGroupParams")
-            <*> (x .:? "updateCACertificateParams")
-            <*> (x .:? "updateDeviceCertificateParams")
-            <*> (x .:? "replaceDefaultPolicyVersionParams")
-            <*> (x .:? "publishFindingToSnsParams")
+            Lude.<$> (x Lude..:? "enableIoTLoggingParams")
+            Lude.<*> (x Lude..:? "addThingsToThingGroupParams")
+            Lude.<*> (x Lude..:? "updateCACertificateParams")
+            Lude.<*> (x Lude..:? "updateDeviceCertificateParams")
+            Lude.<*> (x Lude..:? "replaceDefaultPolicyVersionParams")
+            Lude.<*> (x Lude..:? "publishFindingToSnsParams")
       )
 
-instance Hashable MitigationActionParams
-
-instance NFData MitigationActionParams
-
-instance ToJSON MitigationActionParams where
+instance Lude.ToJSON MitigationActionParams where
   toJSON MitigationActionParams' {..} =
-    object
-      ( catMaybes
-          [ ("enableIoTLoggingParams" .=) <$> _mapEnableIOTLoggingParams,
-            ("addThingsToThingGroupParams" .=)
-              <$> _mapAddThingsToThingGroupParams,
-            ("updateCACertificateParams" .=) <$> _mapUpdateCACertificateParams,
-            ("updateDeviceCertificateParams" .=)
-              <$> _mapUpdateDeviceCertificateParams,
-            ("replaceDefaultPolicyVersionParams" .=)
-              <$> _mapReplaceDefaultPolicyVersionParams,
-            ("publishFindingToSnsParams" .=)
-              <$> _mapPublishFindingToSNSParams
+    Lude.object
+      ( Lude.catMaybes
+          [ ("enableIoTLoggingParams" Lude..=)
+              Lude.<$> enableIOTLoggingParams,
+            ("addThingsToThingGroupParams" Lude..=)
+              Lude.<$> addThingsToThingGroupParams,
+            ("updateCACertificateParams" Lude..=)
+              Lude.<$> updateCACertificateParams,
+            ("updateDeviceCertificateParams" Lude..=)
+              Lude.<$> updateDeviceCertificateParams,
+            ("replaceDefaultPolicyVersionParams" Lude..=)
+              Lude.<$> replaceDefaultPolicyVersionParams,
+            ("publishFindingToSnsParams" Lude..=)
+              Lude.<$> publishFindingToSNSParams
           ]
       )

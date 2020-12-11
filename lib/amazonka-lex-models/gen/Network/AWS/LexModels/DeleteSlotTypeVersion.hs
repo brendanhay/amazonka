@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,104 @@
 --
 -- Deletes a specific version of a slot type. To delete all versions of a slot type, use the 'DeleteSlotType' operation.
 --
---
 -- This operation requires permissions for the @lex:DeleteSlotTypeVersion@ action.
 module Network.AWS.LexModels.DeleteSlotTypeVersion
-  ( -- * Creating a Request
-    deleteSlotTypeVersion,
-    DeleteSlotTypeVersion,
+  ( -- * Creating a request
+    DeleteSlotTypeVersion (..),
+    mkDeleteSlotTypeVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dstvName,
     dstvVersion,
 
-    -- * Destructuring the Response
-    deleteSlotTypeVersionResponse,
-    DeleteSlotTypeVersionResponse,
+    -- * Destructuring the response
+    DeleteSlotTypeVersionResponse (..),
+    mkDeleteSlotTypeVersionResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSlotTypeVersion' smart constructor.
+-- | /See:/ 'mkDeleteSlotTypeVersion' smart constructor.
 data DeleteSlotTypeVersion = DeleteSlotTypeVersion'
-  { _dstvName ::
-      !Text,
-    _dstvVersion :: !Text
+  { name ::
+      Lude.Text,
+    version :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSlotTypeVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dstvName' - The name of the slot type.
---
--- * 'dstvVersion' - The version of the slot type to delete. You cannot delete the @> LATEST@ version of the slot type. To delete the @> LATEST@ version, use the 'DeleteSlotType' operation.
-deleteSlotTypeVersion ::
-  -- | 'dstvName'
-  Text ->
-  -- | 'dstvVersion'
-  Text ->
+-- * 'name' - The name of the slot type.
+-- * 'version' - The version of the slot type to delete. You cannot delete the @> LATEST@ version of the slot type. To delete the @> LATEST@ version, use the 'DeleteSlotType' operation.
+mkDeleteSlotTypeVersion ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'version'
+  Lude.Text ->
   DeleteSlotTypeVersion
-deleteSlotTypeVersion pName_ pVersion_ =
-  DeleteSlotTypeVersion'
-    { _dstvName = pName_,
-      _dstvVersion = pVersion_
-    }
+mkDeleteSlotTypeVersion pName_ pVersion_ =
+  DeleteSlotTypeVersion' {name = pName_, version = pVersion_}
 
 -- | The name of the slot type.
-dstvName :: Lens' DeleteSlotTypeVersion Text
-dstvName = lens _dstvName (\s a -> s {_dstvName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstvName :: Lens.Lens' DeleteSlotTypeVersion Lude.Text
+dstvName = Lens.lens (name :: DeleteSlotTypeVersion -> Lude.Text) (\s a -> s {name = a} :: DeleteSlotTypeVersion)
+{-# DEPRECATED dstvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the slot type to delete. You cannot delete the @> LATEST@ version of the slot type. To delete the @> LATEST@ version, use the 'DeleteSlotType' operation.
-dstvVersion :: Lens' DeleteSlotTypeVersion Text
-dstvVersion = lens _dstvVersion (\s a -> s {_dstvVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstvVersion :: Lens.Lens' DeleteSlotTypeVersion Lude.Text
+dstvVersion = Lens.lens (version :: DeleteSlotTypeVersion -> Lude.Text) (\s a -> s {version = a} :: DeleteSlotTypeVersion)
+{-# DEPRECATED dstvVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance AWSRequest DeleteSlotTypeVersion where
+instance Lude.AWSRequest DeleteSlotTypeVersion where
   type Rs DeleteSlotTypeVersion = DeleteSlotTypeVersionResponse
-  request = delete lexModels
-  response = receiveNull DeleteSlotTypeVersionResponse'
+  request = Req.delete lexModelsService
+  response = Res.receiveNull DeleteSlotTypeVersionResponse'
 
-instance Hashable DeleteSlotTypeVersion
-
-instance NFData DeleteSlotTypeVersion
-
-instance ToHeaders DeleteSlotTypeVersion where
+instance Lude.ToHeaders DeleteSlotTypeVersion where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteSlotTypeVersion where
+instance Lude.ToPath DeleteSlotTypeVersion where
   toPath DeleteSlotTypeVersion' {..} =
-    mconcat
-      ["/slottypes/", toBS _dstvName, "/version/", toBS _dstvVersion]
+    Lude.mconcat
+      ["/slottypes/", Lude.toBS name, "/version/", Lude.toBS version]
 
-instance ToQuery DeleteSlotTypeVersion where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSlotTypeVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSlotTypeVersionResponse' smart constructor.
+-- | /See:/ 'mkDeleteSlotTypeVersionResponse' smart constructor.
 data DeleteSlotTypeVersionResponse = DeleteSlotTypeVersionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSlotTypeVersionResponse' with the minimum fields required to make a request.
-deleteSlotTypeVersionResponse ::
+mkDeleteSlotTypeVersionResponse ::
   DeleteSlotTypeVersionResponse
-deleteSlotTypeVersionResponse = DeleteSlotTypeVersionResponse'
-
-instance NFData DeleteSlotTypeVersionResponse
+mkDeleteSlotTypeVersionResponse = DeleteSlotTypeVersionResponse'

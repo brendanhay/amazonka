@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.DelegationSet where
+module Network.AWS.Route53.Types.DelegationSet
+  ( DelegationSet (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDelegationSet,
+
+    -- * Lenses
+    dsId,
+    dsCallerReference,
+    dsNameServers,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
 -- | A complex type that lists the name servers in a delegation set, as well as the @CallerReference@ and the @ID@ for the delegation set.
 --
---
---
--- /See:/ 'delegationSet' smart constructor.
+-- /See:/ 'mkDelegationSet' smart constructor.
 data DelegationSet = DelegationSet'
-  { _dsId :: !(Maybe ResourceId),
-    _dsCallerReference :: !(Maybe Text),
-    _dsNameServers :: !(List1 Text)
+  { id :: Lude.Maybe ResourceId,
+    callerReference :: Lude.Maybe Lude.Text,
+    nameServers :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DelegationSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsId' - The ID that Amazon Route 53 assigns to a reusable delegation set.
---
--- * 'dsCallerReference' - The value that you specified for @CallerReference@ when you created the reusable delegation set.
---
--- * 'dsNameServers' - A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.
-delegationSet ::
-  -- | 'dsNameServers'
-  NonEmpty Text ->
+-- * 'callerReference' - The value that you specified for @CallerReference@ when you created the reusable delegation set.
+-- * 'id' - The ID that Amazon Route 53 assigns to a reusable delegation set.
+-- * 'nameServers' - A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.
+mkDelegationSet ::
+  -- | 'nameServers'
+  Lude.NonEmpty Lude.Text ->
   DelegationSet
-delegationSet pNameServers_ =
+mkDelegationSet pNameServers_ =
   DelegationSet'
-    { _dsId = Nothing,
-      _dsCallerReference = Nothing,
-      _dsNameServers = _List1 # pNameServers_
+    { id = Lude.Nothing,
+      callerReference = Lude.Nothing,
+      nameServers = pNameServers_
     }
 
 -- | The ID that Amazon Route 53 assigns to a reusable delegation set.
-dsId :: Lens' DelegationSet (Maybe ResourceId)
-dsId = lens _dsId (\s a -> s {_dsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsId :: Lens.Lens' DelegationSet (Lude.Maybe ResourceId)
+dsId = Lens.lens (id :: DelegationSet -> Lude.Maybe ResourceId) (\s a -> s {id = a} :: DelegationSet)
+{-# DEPRECATED dsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The value that you specified for @CallerReference@ when you created the reusable delegation set.
-dsCallerReference :: Lens' DelegationSet (Maybe Text)
-dsCallerReference = lens _dsCallerReference (\s a -> s {_dsCallerReference = a})
+--
+-- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsCallerReference :: Lens.Lens' DelegationSet (Lude.Maybe Lude.Text)
+dsCallerReference = Lens.lens (callerReference :: DelegationSet -> Lude.Maybe Lude.Text) (\s a -> s {callerReference = a} :: DelegationSet)
+{-# DEPRECATED dsCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
 -- | A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.
-dsNameServers :: Lens' DelegationSet (NonEmpty Text)
-dsNameServers = lens _dsNameServers (\s a -> s {_dsNameServers = a}) . _List1
+--
+-- /Note:/ Consider using 'nameServers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsNameServers :: Lens.Lens' DelegationSet (Lude.NonEmpty Lude.Text)
+dsNameServers = Lens.lens (nameServers :: DelegationSet -> Lude.NonEmpty Lude.Text) (\s a -> s {nameServers = a} :: DelegationSet)
+{-# DEPRECATED dsNameServers "Use generic-lens or generic-optics with 'nameServers' instead." #-}
 
-instance FromXML DelegationSet where
+instance Lude.FromXML DelegationSet where
   parseXML x =
     DelegationSet'
-      <$> (x .@? "Id")
-      <*> (x .@? "CallerReference")
-      <*> (x .@? "NameServers" .!@ mempty >>= parseXMLList1 "NameServer")
-
-instance Hashable DelegationSet
-
-instance NFData DelegationSet
+      Lude.<$> (x Lude..@? "Id")
+      Lude.<*> (x Lude..@? "CallerReference")
+      Lude.<*> ( x Lude..@? "NameServers" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLNonEmpty "NameServer"
+               )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,158 @@
 --
 -- Gets the expressions configured for the search domain. Can be limited to specific expressions by name. By default, shows all expressions and includes any pending changes to the configuration. Set the @Deployed@ option to @true@ to show the active configuration and exclude pending changes. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions> in the /Amazon CloudSearch Developer Guide/ .
 module Network.AWS.CloudSearch.DescribeExpressions
-  ( -- * Creating a Request
-    describeExpressions,
-    DescribeExpressions,
+  ( -- * Creating a request
+    DescribeExpressions (..),
+    mkDescribeExpressions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deDeployed,
     deExpressionNames,
     deDomainName,
 
-    -- * Destructuring the Response
-    describeExpressionsResponse,
-    DescribeExpressionsResponse,
+    -- * Destructuring the response
+    DescribeExpressionsResponse (..),
+    mkDescribeExpressionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsResponseStatus,
     drsExpressions,
   )
 where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'DescribeDomains' @ operation. Specifies the name of the domain you want to describe. To restrict the response to particular expressions, specify the names of the expressions you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
 --
---
---
--- /See:/ 'describeExpressions' smart constructor.
+-- /See:/ 'mkDescribeExpressions' smart constructor.
 data DescribeExpressions = DescribeExpressions'
-  { _deDeployed ::
-      !(Maybe Bool),
-    _deExpressionNames :: !(Maybe [Text]),
-    _deDomainName :: !Text
+  { deployed ::
+      Lude.Maybe Lude.Bool,
+    expressionNames :: Lude.Maybe [Lude.Text],
+    domainName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExpressions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deDeployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
---
--- * 'deExpressionNames' - Limits the @'DescribeExpressions' @ response to the specified expressions. If not specified, all expressions are shown.
---
--- * 'deDomainName' - The name of the domain you want to describe.
-describeExpressions ::
-  -- | 'deDomainName'
-  Text ->
+-- * 'deployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+-- * 'domainName' - The name of the domain you want to describe.
+-- * 'expressionNames' - Limits the @'DescribeExpressions' @ response to the specified expressions. If not specified, all expressions are shown.
+mkDescribeExpressions ::
+  -- | 'domainName'
+  Lude.Text ->
   DescribeExpressions
-describeExpressions pDomainName_ =
+mkDescribeExpressions pDomainName_ =
   DescribeExpressions'
-    { _deDeployed = Nothing,
-      _deExpressionNames = Nothing,
-      _deDomainName = pDomainName_
+    { deployed = Lude.Nothing,
+      expressionNames = Lude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
-deDeployed :: Lens' DescribeExpressions (Maybe Bool)
-deDeployed = lens _deDeployed (\s a -> s {_deDeployed = a})
+--
+-- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deDeployed :: Lens.Lens' DescribeExpressions (Lude.Maybe Lude.Bool)
+deDeployed = Lens.lens (deployed :: DescribeExpressions -> Lude.Maybe Lude.Bool) (\s a -> s {deployed = a} :: DescribeExpressions)
+{-# DEPRECATED deDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
 
 -- | Limits the @'DescribeExpressions' @ response to the specified expressions. If not specified, all expressions are shown.
-deExpressionNames :: Lens' DescribeExpressions [Text]
-deExpressionNames = lens _deExpressionNames (\s a -> s {_deExpressionNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'expressionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deExpressionNames :: Lens.Lens' DescribeExpressions (Lude.Maybe [Lude.Text])
+deExpressionNames = Lens.lens (expressionNames :: DescribeExpressions -> Lude.Maybe [Lude.Text]) (\s a -> s {expressionNames = a} :: DescribeExpressions)
+{-# DEPRECATED deExpressionNames "Use generic-lens or generic-optics with 'expressionNames' instead." #-}
 
 -- | The name of the domain you want to describe.
-deDomainName :: Lens' DescribeExpressions Text
-deDomainName = lens _deDomainName (\s a -> s {_deDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deDomainName :: Lens.Lens' DescribeExpressions Lude.Text
+deDomainName = Lens.lens (domainName :: DescribeExpressions -> Lude.Text) (\s a -> s {domainName = a} :: DescribeExpressions)
+{-# DEPRECATED deDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest DescribeExpressions where
+instance Lude.AWSRequest DescribeExpressions where
   type Rs DescribeExpressions = DescribeExpressionsResponse
-  request = postQuery cloudSearch
+  request = Req.postQuery cloudSearchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeExpressionsResult"
       ( \s h x ->
           DescribeExpressionsResponse'
-            <$> (pure (fromEnum s))
-            <*> (x .@? "Expressions" .!@ mempty >>= parseXMLList "member")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> ( x Lude..@? "Expressions" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.parseXMLList "member"
+                     )
       )
 
-instance Hashable DescribeExpressions
+instance Lude.ToHeaders DescribeExpressions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeExpressions
+instance Lude.ToPath DescribeExpressions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeExpressions where
-  toHeaders = const mempty
-
-instance ToPath DescribeExpressions where
-  toPath = const "/"
-
-instance ToQuery DescribeExpressions where
+instance Lude.ToQuery DescribeExpressions where
   toQuery DescribeExpressions' {..} =
-    mconcat
-      [ "Action" =: ("DescribeExpressions" :: ByteString),
-        "Version" =: ("2013-01-01" :: ByteString),
-        "Deployed" =: _deDeployed,
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeExpressions" :: Lude.ByteString),
+        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
+        "Deployed" Lude.=: deployed,
         "ExpressionNames"
-          =: toQuery (toQueryList "member" <$> _deExpressionNames),
-        "DomainName" =: _deDomainName
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> expressionNames),
+        "DomainName" Lude.=: domainName
       ]
 
 -- | The result of a @DescribeExpressions@ request. Contains the expressions configured for the domain specified in the request.
 --
---
---
--- /See:/ 'describeExpressionsResponse' smart constructor.
+-- /See:/ 'mkDescribeExpressionsResponse' smart constructor.
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-  { _drsResponseStatus ::
-      !Int,
-    _drsExpressions ::
-      ![ExpressionStatus]
+  { responseStatus ::
+      Lude.Int,
+    expressions :: [ExpressionStatus]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExpressionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsResponseStatus' - -- | The response status code.
---
--- * 'drsExpressions' - The expressions configured for the domain.
-describeExpressionsResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'expressions' - The expressions configured for the domain.
+-- * 'responseStatus' - The response status code.
+mkDescribeExpressionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeExpressionsResponse
-describeExpressionsResponse pResponseStatus_ =
+mkDescribeExpressionsResponse pResponseStatus_ =
   DescribeExpressionsResponse'
-    { _drsResponseStatus =
-        pResponseStatus_,
-      _drsExpressions = mempty
+    { responseStatus = pResponseStatus_,
+      expressions = Lude.mempty
     }
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeExpressionsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeExpressionsResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeExpressionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExpressionsResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The expressions configured for the domain.
-drsExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-drsExpressions = lens _drsExpressions (\s a -> s {_drsExpressions = a}) . _Coerce
-
-instance NFData DescribeExpressionsResponse
+--
+-- /Note:/ Consider using 'expressions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsExpressions :: Lens.Lens' DescribeExpressionsResponse [ExpressionStatus]
+drsExpressions = Lens.lens (expressions :: DescribeExpressionsResponse -> [ExpressionStatus]) (\s a -> s {expressions = a} :: DescribeExpressionsResponse)
+{-# DEPRECATED drsExpressions "Use generic-lens or generic-optics with 'expressions' instead." #-}

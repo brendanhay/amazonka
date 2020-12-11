@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,141 +16,165 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.MediaLive.ListMultiplexes
-  ( -- * Creating a Request
-    listMultiplexes,
-    ListMultiplexes,
+  ( -- * Creating a request
+    ListMultiplexes (..),
+    mkListMultiplexes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lmNextToken,
     lmMaxResults,
 
-    -- * Destructuring the Response
-    listMultiplexesResponse,
-    ListMultiplexesResponse,
+    -- * Destructuring the response
+    ListMultiplexesResponse (..),
+    mkListMultiplexesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lmrsNextToken,
     lmrsMultiplexes,
     lmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for ListMultiplexesRequest
 --
--- /See:/ 'listMultiplexes' smart constructor.
+-- /See:/ 'mkListMultiplexes' smart constructor.
 data ListMultiplexes = ListMultiplexes'
-  { _lmNextToken ::
-      !(Maybe Text),
-    _lmMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMultiplexes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmNextToken' - The token to retrieve the next page of results.
---
--- * 'lmMaxResults' - The maximum number of items to return.
-listMultiplexes ::
+-- * 'maxResults' - The maximum number of items to return.
+-- * 'nextToken' - The token to retrieve the next page of results.
+mkListMultiplexes ::
   ListMultiplexes
-listMultiplexes =
-  ListMultiplexes' {_lmNextToken = Nothing, _lmMaxResults = Nothing}
+mkListMultiplexes =
+  ListMultiplexes'
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
+    }
 
 -- | The token to retrieve the next page of results.
-lmNextToken :: Lens' ListMultiplexes (Maybe Text)
-lmNextToken = lens _lmNextToken (\s a -> s {_lmNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmNextToken :: Lens.Lens' ListMultiplexes (Lude.Maybe Lude.Text)
+lmNextToken = Lens.lens (nextToken :: ListMultiplexes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMultiplexes)
+{-# DEPRECATED lmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return.
-lmMaxResults :: Lens' ListMultiplexes (Maybe Natural)
-lmMaxResults = lens _lmMaxResults (\s a -> s {_lmMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmMaxResults :: Lens.Lens' ListMultiplexes (Lude.Maybe Lude.Natural)
+lmMaxResults = Lens.lens (maxResults :: ListMultiplexes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMultiplexes)
+{-# DEPRECATED lmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListMultiplexes where
+instance Page.AWSPager ListMultiplexes where
   page rq rs
-    | stop (rs ^. lmrsNextToken) = Nothing
-    | stop (rs ^. lmrsMultiplexes) = Nothing
-    | otherwise = Just $ rq & lmNextToken .~ rs ^. lmrsNextToken
+    | Page.stop (rs Lens.^. lmrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lmrsMultiplexes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lmNextToken Lens..~ rs Lens.^. lmrsNextToken
 
-instance AWSRequest ListMultiplexes where
+instance Lude.AWSRequest ListMultiplexes where
   type Rs ListMultiplexes = ListMultiplexesResponse
-  request = get mediaLive
+  request = Req.get mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListMultiplexesResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "multiplexes" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "multiplexes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListMultiplexes
-
-instance NFData ListMultiplexes
-
-instance ToHeaders ListMultiplexes where
+instance Lude.ToHeaders ListMultiplexes where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListMultiplexes where
-  toPath = const "/prod/multiplexes"
+instance Lude.ToPath ListMultiplexes where
+  toPath = Lude.const "/prod/multiplexes"
 
-instance ToQuery ListMultiplexes where
+instance Lude.ToQuery ListMultiplexes where
   toQuery ListMultiplexes' {..} =
-    mconcat
-      ["nextToken" =: _lmNextToken, "maxResults" =: _lmMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
 -- | Placeholder documentation for ListMultiplexesResponse
 --
--- /See:/ 'listMultiplexesResponse' smart constructor.
+-- /See:/ 'mkListMultiplexesResponse' smart constructor.
 data ListMultiplexesResponse = ListMultiplexesResponse'
-  { _lmrsNextToken ::
-      !(Maybe Text),
-    _lmrsMultiplexes ::
-      !(Maybe [MultiplexSummary]),
-    _lmrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    multiplexes ::
+      Lude.Maybe [MultiplexSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMultiplexesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lmrsNextToken' - Token for the next ListMultiplexes request.
---
--- * 'lmrsMultiplexes' - List of multiplexes.
---
--- * 'lmrsResponseStatus' - -- | The response status code.
-listMultiplexesResponse ::
-  -- | 'lmrsResponseStatus'
-  Int ->
+-- * 'multiplexes' - List of multiplexes.
+-- * 'nextToken' - Token for the next ListMultiplexes request.
+-- * 'responseStatus' - The response status code.
+mkListMultiplexesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListMultiplexesResponse
-listMultiplexesResponse pResponseStatus_ =
+mkListMultiplexesResponse pResponseStatus_ =
   ListMultiplexesResponse'
-    { _lmrsNextToken = Nothing,
-      _lmrsMultiplexes = Nothing,
-      _lmrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      multiplexes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Token for the next ListMultiplexes request.
-lmrsNextToken :: Lens' ListMultiplexesResponse (Maybe Text)
-lmrsNextToken = lens _lmrsNextToken (\s a -> s {_lmrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrsNextToken :: Lens.Lens' ListMultiplexesResponse (Lude.Maybe Lude.Text)
+lmrsNextToken = Lens.lens (nextToken :: ListMultiplexesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMultiplexesResponse)
+{-# DEPRECATED lmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of multiplexes.
-lmrsMultiplexes :: Lens' ListMultiplexesResponse [MultiplexSummary]
-lmrsMultiplexes = lens _lmrsMultiplexes (\s a -> s {_lmrsMultiplexes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'multiplexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrsMultiplexes :: Lens.Lens' ListMultiplexesResponse (Lude.Maybe [MultiplexSummary])
+lmrsMultiplexes = Lens.lens (multiplexes :: ListMultiplexesResponse -> Lude.Maybe [MultiplexSummary]) (\s a -> s {multiplexes = a} :: ListMultiplexesResponse)
+{-# DEPRECATED lmrsMultiplexes "Use generic-lens or generic-optics with 'multiplexes' instead." #-}
 
--- | -- | The response status code.
-lmrsResponseStatus :: Lens' ListMultiplexesResponse Int
-lmrsResponseStatus = lens _lmrsResponseStatus (\s a -> s {_lmrsResponseStatus = a})
-
-instance NFData ListMultiplexesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrsResponseStatus :: Lens.Lens' ListMultiplexesResponse Lude.Int
+lmrsResponseStatus = Lens.lens (responseStatus :: ListMultiplexesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMultiplexesResponse)
+{-# DEPRECATED lmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

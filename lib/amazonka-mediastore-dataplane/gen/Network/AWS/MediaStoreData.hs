@@ -13,8 +13,8 @@
 --
 -- An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3 service. Objects are the fundamental entities that are stored in AWS Elemental MediaStore.
 module Network.AWS.MediaStoreData
-  ( -- * Service Configuration
-    mediaStoreData,
+  ( -- * Service configuration
+    mediaStoreDataService,
 
     -- * Errors
     -- $errors
@@ -52,14 +52,25 @@ module Network.AWS.MediaStoreData
     UploadAvailability (..),
 
     -- ** Item
-    Item,
-    item,
+    Item (..),
+    mkItem,
     iETag,
     iContentLength,
     iName,
     iType,
     iLastModified,
     iContentType,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -70,6 +81,7 @@ import Network.AWS.MediaStoreData.ListItems
 import Network.AWS.MediaStoreData.PutObject
 import Network.AWS.MediaStoreData.Types
 import Network.AWS.MediaStoreData.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

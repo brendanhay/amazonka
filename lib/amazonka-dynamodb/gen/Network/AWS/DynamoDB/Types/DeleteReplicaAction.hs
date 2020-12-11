@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.DeleteReplicaAction where
+module Network.AWS.DynamoDB.Types.DeleteReplicaAction
+  ( DeleteReplicaAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeleteReplicaAction,
+
+    -- * Lenses
+    draRegionName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a replica to be removed.
 --
---
---
--- /See:/ 'deleteReplicaAction' smart constructor.
+-- /See:/ 'mkDeleteReplicaAction' smart constructor.
 newtype DeleteReplicaAction = DeleteReplicaAction'
-  { _draRegionName ::
-      Text
+  { regionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReplicaAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'draRegionName' - The Region of the replica to be removed.
-deleteReplicaAction ::
-  -- | 'draRegionName'
-  Text ->
+-- * 'regionName' - The Region of the replica to be removed.
+mkDeleteReplicaAction ::
+  -- | 'regionName'
+  Lude.Text ->
   DeleteReplicaAction
-deleteReplicaAction pRegionName_ =
-  DeleteReplicaAction' {_draRegionName = pRegionName_}
+mkDeleteReplicaAction pRegionName_ =
+  DeleteReplicaAction' {regionName = pRegionName_}
 
 -- | The Region of the replica to be removed.
-draRegionName :: Lens' DeleteReplicaAction Text
-draRegionName = lens _draRegionName (\s a -> s {_draRegionName = a})
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+draRegionName :: Lens.Lens' DeleteReplicaAction Lude.Text
+draRegionName = Lens.lens (regionName :: DeleteReplicaAction -> Lude.Text) (\s a -> s {regionName = a} :: DeleteReplicaAction)
+{-# DEPRECATED draRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
-instance Hashable DeleteReplicaAction
-
-instance NFData DeleteReplicaAction
-
-instance ToJSON DeleteReplicaAction where
+instance Lude.ToJSON DeleteReplicaAction where
   toJSON DeleteReplicaAction' {..} =
-    object (catMaybes [Just ("RegionName" .= _draRegionName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("RegionName" Lude..= regionName)])

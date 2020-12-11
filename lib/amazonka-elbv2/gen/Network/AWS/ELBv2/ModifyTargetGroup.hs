@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Modifies the health checks used when evaluating the health state of the targets in the specified target group.
 module Network.AWS.ELBv2.ModifyTargetGroup
-  ( -- * Creating a Request
-    modifyTargetGroup,
-    ModifyTargetGroup,
+  ( -- * Creating a request
+    ModifyTargetGroup (..),
+    mkModifyTargetGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mtgMatcher,
     mtgHealthCheckPath,
     mtgHealthCheckEnabled,
@@ -35,189 +30,243 @@ module Network.AWS.ELBv2.ModifyTargetGroup
     mtgHealthCheckPort,
     mtgTargetGroupARN,
 
-    -- * Destructuring the Response
-    modifyTargetGroupResponse,
-    ModifyTargetGroupResponse,
+    -- * Destructuring the response
+    ModifyTargetGroupResponse (..),
+    mkModifyTargetGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mtgrsTargetGroups,
     mtgrsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyTargetGroup' smart constructor.
+-- | /See:/ 'mkModifyTargetGroup' smart constructor.
 data ModifyTargetGroup = ModifyTargetGroup'
-  { _mtgMatcher ::
-      !(Maybe Matcher),
-    _mtgHealthCheckPath :: !(Maybe Text),
-    _mtgHealthCheckEnabled :: !(Maybe Bool),
-    _mtgUnhealthyThresholdCount :: !(Maybe Nat),
-    _mtgHealthCheckIntervalSeconds :: !(Maybe Nat),
-    _mtgHealthyThresholdCount :: !(Maybe Nat),
-    _mtgHealthCheckProtocol :: !(Maybe ProtocolEnum),
-    _mtgHealthCheckTimeoutSeconds :: !(Maybe Nat),
-    _mtgHealthCheckPort :: !(Maybe Text),
-    _mtgTargetGroupARN :: !Text
+  { matcher ::
+      Lude.Maybe Matcher,
+    healthCheckPath :: Lude.Maybe Lude.Text,
+    healthCheckEnabled :: Lude.Maybe Lude.Bool,
+    unhealthyThresholdCount :: Lude.Maybe Lude.Natural,
+    healthCheckIntervalSeconds :: Lude.Maybe Lude.Natural,
+    healthyThresholdCount :: Lude.Maybe Lude.Natural,
+    healthCheckProtocol :: Lude.Maybe ProtocolEnum,
+    healthCheckTimeoutSeconds :: Lude.Maybe Lude.Natural,
+    healthCheckPort :: Lude.Maybe Lude.Text,
+    targetGroupARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTargetGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'healthCheckEnabled' - Indicates whether health checks are enabled.
+-- * 'healthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an individual target. For TCP health checks, the supported values are 10 or 30 seconds.
 --
--- * 'mtgMatcher' - [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target. With Network Load Balancers, you can't modify this setting.
+-- With Network Load Balancers, you can't modify this setting.
+-- * 'healthCheckPath' - [HTTP/HTTPS health checks] The destination for health checks on the targets.
 --
--- * 'mtgHealthCheckPath' - [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
+-- [HTTP1 or HTTP2 protocol version] The ping path. The default is /.
+-- [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
+-- * 'healthCheckPort' - The port the load balancer uses when performing health checks on targets.
+-- * 'healthCheckProtocol' - The protocol the load balancer uses when performing health checks on targets. The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
 --
--- * 'mtgHealthCheckEnabled' - Indicates whether health checks are enabled.
+-- With Network Load Balancers, you can't modify this setting.
+-- * 'healthCheckTimeoutSeconds' - [HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means a failed health check.
 --
--- * 'mtgUnhealthyThresholdCount' - The number of consecutive health check failures required before considering the target unhealthy. For target groups with a protocol of TCP or TLS, this value must be the same as the healthy threshold count.
+-- With Network Load Balancers, you can't modify this setting.
+-- * 'healthyThresholdCount' - The number of consecutive health checks successes required before considering an unhealthy target healthy.
+-- * 'matcher' - [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
 --
--- * 'mtgHealthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an individual target. For TCP health checks, the supported values are 10 or 30 seconds. With Network Load Balancers, you can't modify this setting.
---
--- * 'mtgHealthyThresholdCount' - The number of consecutive health checks successes required before considering an unhealthy target healthy.
---
--- * 'mtgHealthCheckProtocol' - The protocol the load balancer uses when performing health checks on targets. The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks. With Network Load Balancers, you can't modify this setting.
---
--- * 'mtgHealthCheckTimeoutSeconds' - [HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means a failed health check. With Network Load Balancers, you can't modify this setting.
---
--- * 'mtgHealthCheckPort' - The port the load balancer uses when performing health checks on targets.
---
--- * 'mtgTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
-modifyTargetGroup ::
-  -- | 'mtgTargetGroupARN'
-  Text ->
+-- With Network Load Balancers, you can't modify this setting.
+-- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
+-- * 'unhealthyThresholdCount' - The number of consecutive health check failures required before considering the target unhealthy. For target groups with a protocol of TCP or TLS, this value must be the same as the healthy threshold count.
+mkModifyTargetGroup ::
+  -- | 'targetGroupARN'
+  Lude.Text ->
   ModifyTargetGroup
-modifyTargetGroup pTargetGroupARN_ =
+mkModifyTargetGroup pTargetGroupARN_ =
   ModifyTargetGroup'
-    { _mtgMatcher = Nothing,
-      _mtgHealthCheckPath = Nothing,
-      _mtgHealthCheckEnabled = Nothing,
-      _mtgUnhealthyThresholdCount = Nothing,
-      _mtgHealthCheckIntervalSeconds = Nothing,
-      _mtgHealthyThresholdCount = Nothing,
-      _mtgHealthCheckProtocol = Nothing,
-      _mtgHealthCheckTimeoutSeconds = Nothing,
-      _mtgHealthCheckPort = Nothing,
-      _mtgTargetGroupARN = pTargetGroupARN_
+    { matcher = Lude.Nothing,
+      healthCheckPath = Lude.Nothing,
+      healthCheckEnabled = Lude.Nothing,
+      unhealthyThresholdCount = Lude.Nothing,
+      healthCheckIntervalSeconds = Lude.Nothing,
+      healthyThresholdCount = Lude.Nothing,
+      healthCheckProtocol = Lude.Nothing,
+      healthCheckTimeoutSeconds = Lude.Nothing,
+      healthCheckPort = Lude.Nothing,
+      targetGroupARN = pTargetGroupARN_
     }
 
--- | [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target. With Network Load Balancers, you can't modify this setting.
-mtgMatcher :: Lens' ModifyTargetGroup (Maybe Matcher)
-mtgMatcher = lens _mtgMatcher (\s a -> s {_mtgMatcher = a})
+-- | [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
+--
+-- With Network Load Balancers, you can't modify this setting.
+--
+-- /Note:/ Consider using 'matcher' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgMatcher :: Lens.Lens' ModifyTargetGroup (Lude.Maybe Matcher)
+mtgMatcher = Lens.lens (matcher :: ModifyTargetGroup -> Lude.Maybe Matcher) (\s a -> s {matcher = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgMatcher "Use generic-lens or generic-optics with 'matcher' instead." #-}
 
--- | [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
-mtgHealthCheckPath :: Lens' ModifyTargetGroup (Maybe Text)
-mtgHealthCheckPath = lens _mtgHealthCheckPath (\s a -> s {_mtgHealthCheckPath = a})
+-- | [HTTP/HTTPS health checks] The destination for health checks on the targets.
+--
+-- [HTTP1 or HTTP2 protocol version] The ping path. The default is /.
+-- [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
+--
+-- /Note:/ Consider using 'healthCheckPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgHealthCheckPath :: Lens.Lens' ModifyTargetGroup (Lude.Maybe Lude.Text)
+mtgHealthCheckPath = Lens.lens (healthCheckPath :: ModifyTargetGroup -> Lude.Maybe Lude.Text) (\s a -> s {healthCheckPath = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgHealthCheckPath "Use generic-lens or generic-optics with 'healthCheckPath' instead." #-}
 
 -- | Indicates whether health checks are enabled.
-mtgHealthCheckEnabled :: Lens' ModifyTargetGroup (Maybe Bool)
-mtgHealthCheckEnabled = lens _mtgHealthCheckEnabled (\s a -> s {_mtgHealthCheckEnabled = a})
+--
+-- /Note:/ Consider using 'healthCheckEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgHealthCheckEnabled :: Lens.Lens' ModifyTargetGroup (Lude.Maybe Lude.Bool)
+mtgHealthCheckEnabled = Lens.lens (healthCheckEnabled :: ModifyTargetGroup -> Lude.Maybe Lude.Bool) (\s a -> s {healthCheckEnabled = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgHealthCheckEnabled "Use generic-lens or generic-optics with 'healthCheckEnabled' instead." #-}
 
 -- | The number of consecutive health check failures required before considering the target unhealthy. For target groups with a protocol of TCP or TLS, this value must be the same as the healthy threshold count.
-mtgUnhealthyThresholdCount :: Lens' ModifyTargetGroup (Maybe Natural)
-mtgUnhealthyThresholdCount = lens _mtgUnhealthyThresholdCount (\s a -> s {_mtgUnhealthyThresholdCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'unhealthyThresholdCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgUnhealthyThresholdCount :: Lens.Lens' ModifyTargetGroup (Lude.Maybe Lude.Natural)
+mtgUnhealthyThresholdCount = Lens.lens (unhealthyThresholdCount :: ModifyTargetGroup -> Lude.Maybe Lude.Natural) (\s a -> s {unhealthyThresholdCount = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgUnhealthyThresholdCount "Use generic-lens or generic-optics with 'unhealthyThresholdCount' instead." #-}
 
--- | The approximate amount of time, in seconds, between health checks of an individual target. For TCP health checks, the supported values are 10 or 30 seconds. With Network Load Balancers, you can't modify this setting.
-mtgHealthCheckIntervalSeconds :: Lens' ModifyTargetGroup (Maybe Natural)
-mtgHealthCheckIntervalSeconds = lens _mtgHealthCheckIntervalSeconds (\s a -> s {_mtgHealthCheckIntervalSeconds = a}) . mapping _Nat
+-- | The approximate amount of time, in seconds, between health checks of an individual target. For TCP health checks, the supported values are 10 or 30 seconds.
+--
+-- With Network Load Balancers, you can't modify this setting.
+--
+-- /Note:/ Consider using 'healthCheckIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgHealthCheckIntervalSeconds :: Lens.Lens' ModifyTargetGroup (Lude.Maybe Lude.Natural)
+mtgHealthCheckIntervalSeconds = Lens.lens (healthCheckIntervalSeconds :: ModifyTargetGroup -> Lude.Maybe Lude.Natural) (\s a -> s {healthCheckIntervalSeconds = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgHealthCheckIntervalSeconds "Use generic-lens or generic-optics with 'healthCheckIntervalSeconds' instead." #-}
 
 -- | The number of consecutive health checks successes required before considering an unhealthy target healthy.
-mtgHealthyThresholdCount :: Lens' ModifyTargetGroup (Maybe Natural)
-mtgHealthyThresholdCount = lens _mtgHealthyThresholdCount (\s a -> s {_mtgHealthyThresholdCount = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'healthyThresholdCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgHealthyThresholdCount :: Lens.Lens' ModifyTargetGroup (Lude.Maybe Lude.Natural)
+mtgHealthyThresholdCount = Lens.lens (healthyThresholdCount :: ModifyTargetGroup -> Lude.Maybe Lude.Natural) (\s a -> s {healthyThresholdCount = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgHealthyThresholdCount "Use generic-lens or generic-optics with 'healthyThresholdCount' instead." #-}
 
--- | The protocol the load balancer uses when performing health checks on targets. The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks. With Network Load Balancers, you can't modify this setting.
-mtgHealthCheckProtocol :: Lens' ModifyTargetGroup (Maybe ProtocolEnum)
-mtgHealthCheckProtocol = lens _mtgHealthCheckProtocol (\s a -> s {_mtgHealthCheckProtocol = a})
+-- | The protocol the load balancer uses when performing health checks on targets. The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.
+--
+-- With Network Load Balancers, you can't modify this setting.
+--
+-- /Note:/ Consider using 'healthCheckProtocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgHealthCheckProtocol :: Lens.Lens' ModifyTargetGroup (Lude.Maybe ProtocolEnum)
+mtgHealthCheckProtocol = Lens.lens (healthCheckProtocol :: ModifyTargetGroup -> Lude.Maybe ProtocolEnum) (\s a -> s {healthCheckProtocol = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgHealthCheckProtocol "Use generic-lens or generic-optics with 'healthCheckProtocol' instead." #-}
 
--- | [HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means a failed health check. With Network Load Balancers, you can't modify this setting.
-mtgHealthCheckTimeoutSeconds :: Lens' ModifyTargetGroup (Maybe Natural)
-mtgHealthCheckTimeoutSeconds = lens _mtgHealthCheckTimeoutSeconds (\s a -> s {_mtgHealthCheckTimeoutSeconds = a}) . mapping _Nat
+-- | [HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means a failed health check.
+--
+-- With Network Load Balancers, you can't modify this setting.
+--
+-- /Note:/ Consider using 'healthCheckTimeoutSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgHealthCheckTimeoutSeconds :: Lens.Lens' ModifyTargetGroup (Lude.Maybe Lude.Natural)
+mtgHealthCheckTimeoutSeconds = Lens.lens (healthCheckTimeoutSeconds :: ModifyTargetGroup -> Lude.Maybe Lude.Natural) (\s a -> s {healthCheckTimeoutSeconds = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgHealthCheckTimeoutSeconds "Use generic-lens or generic-optics with 'healthCheckTimeoutSeconds' instead." #-}
 
 -- | The port the load balancer uses when performing health checks on targets.
-mtgHealthCheckPort :: Lens' ModifyTargetGroup (Maybe Text)
-mtgHealthCheckPort = lens _mtgHealthCheckPort (\s a -> s {_mtgHealthCheckPort = a})
+--
+-- /Note:/ Consider using 'healthCheckPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgHealthCheckPort :: Lens.Lens' ModifyTargetGroup (Lude.Maybe Lude.Text)
+mtgHealthCheckPort = Lens.lens (healthCheckPort :: ModifyTargetGroup -> Lude.Maybe Lude.Text) (\s a -> s {healthCheckPort = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgHealthCheckPort "Use generic-lens or generic-optics with 'healthCheckPort' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the target group.
-mtgTargetGroupARN :: Lens' ModifyTargetGroup Text
-mtgTargetGroupARN = lens _mtgTargetGroupARN (\s a -> s {_mtgTargetGroupARN = a})
+--
+-- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgTargetGroupARN :: Lens.Lens' ModifyTargetGroup Lude.Text
+mtgTargetGroupARN = Lens.lens (targetGroupARN :: ModifyTargetGroup -> Lude.Text) (\s a -> s {targetGroupARN = a} :: ModifyTargetGroup)
+{-# DEPRECATED mtgTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
 
-instance AWSRequest ModifyTargetGroup where
+instance Lude.AWSRequest ModifyTargetGroup where
   type Rs ModifyTargetGroup = ModifyTargetGroupResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ModifyTargetGroupResult"
       ( \s h x ->
           ModifyTargetGroupResponse'
-            <$> (x .@? "TargetGroups" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "TargetGroups" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyTargetGroup
+instance Lude.ToHeaders ModifyTargetGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyTargetGroup
+instance Lude.ToPath ModifyTargetGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyTargetGroup where
-  toHeaders = const mempty
-
-instance ToPath ModifyTargetGroup where
-  toPath = const "/"
-
-instance ToQuery ModifyTargetGroup where
+instance Lude.ToQuery ModifyTargetGroup where
   toQuery ModifyTargetGroup' {..} =
-    mconcat
-      [ "Action" =: ("ModifyTargetGroup" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "Matcher" =: _mtgMatcher,
-        "HealthCheckPath" =: _mtgHealthCheckPath,
-        "HealthCheckEnabled" =: _mtgHealthCheckEnabled,
-        "UnhealthyThresholdCount" =: _mtgUnhealthyThresholdCount,
-        "HealthCheckIntervalSeconds" =: _mtgHealthCheckIntervalSeconds,
-        "HealthyThresholdCount" =: _mtgHealthyThresholdCount,
-        "HealthCheckProtocol" =: _mtgHealthCheckProtocol,
-        "HealthCheckTimeoutSeconds" =: _mtgHealthCheckTimeoutSeconds,
-        "HealthCheckPort" =: _mtgHealthCheckPort,
-        "TargetGroupArn" =: _mtgTargetGroupARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyTargetGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "Matcher" Lude.=: matcher,
+        "HealthCheckPath" Lude.=: healthCheckPath,
+        "HealthCheckEnabled" Lude.=: healthCheckEnabled,
+        "UnhealthyThresholdCount" Lude.=: unhealthyThresholdCount,
+        "HealthCheckIntervalSeconds" Lude.=: healthCheckIntervalSeconds,
+        "HealthyThresholdCount" Lude.=: healthyThresholdCount,
+        "HealthCheckProtocol" Lude.=: healthCheckProtocol,
+        "HealthCheckTimeoutSeconds" Lude.=: healthCheckTimeoutSeconds,
+        "HealthCheckPort" Lude.=: healthCheckPort,
+        "TargetGroupArn" Lude.=: targetGroupARN
       ]
 
--- | /See:/ 'modifyTargetGroupResponse' smart constructor.
+-- | /See:/ 'mkModifyTargetGroupResponse' smart constructor.
 data ModifyTargetGroupResponse = ModifyTargetGroupResponse'
-  { _mtgrsTargetGroups ::
-      !(Maybe [TargetGroup]),
-    _mtgrsResponseStatus :: !Int
+  { targetGroups ::
+      Lude.Maybe [TargetGroup],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTargetGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtgrsTargetGroups' - Information about the modified target group.
---
--- * 'mtgrsResponseStatus' - -- | The response status code.
-modifyTargetGroupResponse ::
-  -- | 'mtgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'targetGroups' - Information about the modified target group.
+mkModifyTargetGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyTargetGroupResponse
-modifyTargetGroupResponse pResponseStatus_ =
+mkModifyTargetGroupResponse pResponseStatus_ =
   ModifyTargetGroupResponse'
-    { _mtgrsTargetGroups = Nothing,
-      _mtgrsResponseStatus = pResponseStatus_
+    { targetGroups = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the modified target group.
-mtgrsTargetGroups :: Lens' ModifyTargetGroupResponse [TargetGroup]
-mtgrsTargetGroups = lens _mtgrsTargetGroups (\s a -> s {_mtgrsTargetGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgrsTargetGroups :: Lens.Lens' ModifyTargetGroupResponse (Lude.Maybe [TargetGroup])
+mtgrsTargetGroups = Lens.lens (targetGroups :: ModifyTargetGroupResponse -> Lude.Maybe [TargetGroup]) (\s a -> s {targetGroups = a} :: ModifyTargetGroupResponse)
+{-# DEPRECATED mtgrsTargetGroups "Use generic-lens or generic-optics with 'targetGroups' instead." #-}
 
--- | -- | The response status code.
-mtgrsResponseStatus :: Lens' ModifyTargetGroupResponse Int
-mtgrsResponseStatus = lens _mtgrsResponseStatus (\s a -> s {_mtgrsResponseStatus = a})
-
-instance NFData ModifyTargetGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtgrsResponseStatus :: Lens.Lens' ModifyTargetGroupResponse Lude.Int
+mtgrsResponseStatus = Lens.lens (responseStatus :: ModifyTargetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyTargetGroupResponse)
+{-# DEPRECATED mtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

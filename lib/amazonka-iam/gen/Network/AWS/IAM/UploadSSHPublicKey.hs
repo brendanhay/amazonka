@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,172 @@
 --
 -- Uploads an SSH public key and associates it with the specified IAM user.
 --
---
 -- The SSH public key uploaded by this operation can be used only for authenticating the associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys to authenticate to an AWS CodeCommit repository, see <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH Connections> in the /AWS CodeCommit User Guide/ .
 module Network.AWS.IAM.UploadSSHPublicKey
-  ( -- * Creating a Request
-    uploadSSHPublicKey,
-    UploadSSHPublicKey,
+  ( -- * Creating a request
+    UploadSSHPublicKey (..),
+    mkUploadSSHPublicKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usshpkUserName,
     usshpkSSHPublicKeyBody,
 
-    -- * Destructuring the Response
-    uploadSSHPublicKeyResponse,
-    UploadSSHPublicKeyResponse,
+    -- * Destructuring the response
+    UploadSSHPublicKeyResponse (..),
+    mkUploadSSHPublicKeyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uspkrsSSHPublicKey,
     uspkrsResponseStatus,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'uploadSSHPublicKey' smart constructor.
+-- | /See:/ 'mkUploadSSHPublicKey' smart constructor.
 data UploadSSHPublicKey = UploadSSHPublicKey'
-  { _usshpkUserName ::
-      !Text,
-    _usshpkSSHPublicKeyBody :: !Text
+  { userName ::
+      Lude.Text,
+    sshPublicKeyBody :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadSSHPublicKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'sshPublicKeyBody' - The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.
 --
--- * 'usshpkUserName' - The name of the IAM user to associate the SSH public key with. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
 --
--- * 'usshpkSSHPublicKeyBody' - The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-uploadSSHPublicKey ::
-  -- | 'usshpkUserName'
-  Text ->
-  -- | 'usshpkSSHPublicKeyBody'
-  Text ->
+--     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
+--
+--
+--     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
+--
+--
+--     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
+--
+--
+-- * 'userName' - The name of the IAM user to associate the SSH public key with.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkUploadSSHPublicKey ::
+  -- | 'userName'
+  Lude.Text ->
+  -- | 'sshPublicKeyBody'
+  Lude.Text ->
   UploadSSHPublicKey
-uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
+mkUploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
   UploadSSHPublicKey'
-    { _usshpkUserName = pUserName_,
-      _usshpkSSHPublicKeyBody = pSSHPublicKeyBody_
+    { userName = pUserName_,
+      sshPublicKeyBody = pSSHPublicKeyBody_
     }
 
--- | The name of the IAM user to associate the SSH public key with. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-usshpkUserName :: Lens' UploadSSHPublicKey Text
-usshpkUserName = lens _usshpkUserName (\s a -> s {_usshpkUserName = a})
+-- | The name of the IAM user to associate the SSH public key with.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usshpkUserName :: Lens.Lens' UploadSSHPublicKey Lude.Text
+usshpkUserName = Lens.lens (userName :: UploadSSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: UploadSSHPublicKey)
+{-# DEPRECATED usshpkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
--- | The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long. The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-usshpkSSHPublicKeyBody :: Lens' UploadSSHPublicKey Text
-usshpkSSHPublicKeyBody = lens _usshpkSSHPublicKeyBody (\s a -> s {_usshpkSSHPublicKeyBody = a})
+-- | The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
+--
+--     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
+--
+--
+--     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
+--
+--
+--     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
+--
+--
+--
+-- /Note:/ Consider using 'sshPublicKeyBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usshpkSSHPublicKeyBody :: Lens.Lens' UploadSSHPublicKey Lude.Text
+usshpkSSHPublicKeyBody = Lens.lens (sshPublicKeyBody :: UploadSSHPublicKey -> Lude.Text) (\s a -> s {sshPublicKeyBody = a} :: UploadSSHPublicKey)
+{-# DEPRECATED usshpkSSHPublicKeyBody "Use generic-lens or generic-optics with 'sshPublicKeyBody' instead." #-}
 
-instance AWSRequest UploadSSHPublicKey where
+instance Lude.AWSRequest UploadSSHPublicKey where
   type Rs UploadSSHPublicKey = UploadSSHPublicKeyResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "UploadSSHPublicKeyResult"
       ( \s h x ->
           UploadSSHPublicKeyResponse'
-            <$> (x .@? "SSHPublicKey") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "SSHPublicKey") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UploadSSHPublicKey
+instance Lude.ToHeaders UploadSSHPublicKey where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UploadSSHPublicKey
+instance Lude.ToPath UploadSSHPublicKey where
+  toPath = Lude.const "/"
 
-instance ToHeaders UploadSSHPublicKey where
-  toHeaders = const mempty
-
-instance ToPath UploadSSHPublicKey where
-  toPath = const "/"
-
-instance ToQuery UploadSSHPublicKey where
+instance Lude.ToQuery UploadSSHPublicKey where
   toQuery UploadSSHPublicKey' {..} =
-    mconcat
-      [ "Action" =: ("UploadSSHPublicKey" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "UserName" =: _usshpkUserName,
-        "SSHPublicKeyBody" =: _usshpkSSHPublicKeyBody
+    Lude.mconcat
+      [ "Action" Lude.=: ("UploadSSHPublicKey" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
+        "SSHPublicKeyBody" Lude.=: sshPublicKeyBody
       ]
 
 -- | Contains the response to a successful 'UploadSSHPublicKey' request.
 --
---
---
--- /See:/ 'uploadSSHPublicKeyResponse' smart constructor.
+-- /See:/ 'mkUploadSSHPublicKeyResponse' smart constructor.
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
-  { _uspkrsSSHPublicKey ::
-      !(Maybe SSHPublicKey),
-    _uspkrsResponseStatus :: !Int
+  { sshPublicKey ::
+      Lude.Maybe SSHPublicKey,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadSSHPublicKeyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uspkrsSSHPublicKey' - Contains information about the SSH public key.
---
--- * 'uspkrsResponseStatus' - -- | The response status code.
-uploadSSHPublicKeyResponse ::
-  -- | 'uspkrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sshPublicKey' - Contains information about the SSH public key.
+mkUploadSSHPublicKeyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UploadSSHPublicKeyResponse
-uploadSSHPublicKeyResponse pResponseStatus_ =
+mkUploadSSHPublicKeyResponse pResponseStatus_ =
   UploadSSHPublicKeyResponse'
-    { _uspkrsSSHPublicKey = Nothing,
-      _uspkrsResponseStatus = pResponseStatus_
+    { sshPublicKey = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Contains information about the SSH public key.
-uspkrsSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
-uspkrsSSHPublicKey = lens _uspkrsSSHPublicKey (\s a -> s {_uspkrsSSHPublicKey = a})
+--
+-- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uspkrsSSHPublicKey :: Lens.Lens' UploadSSHPublicKeyResponse (Lude.Maybe SSHPublicKey)
+uspkrsSSHPublicKey = Lens.lens (sshPublicKey :: UploadSSHPublicKeyResponse -> Lude.Maybe SSHPublicKey) (\s a -> s {sshPublicKey = a} :: UploadSSHPublicKeyResponse)
+{-# DEPRECATED uspkrsSSHPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
--- | -- | The response status code.
-uspkrsResponseStatus :: Lens' UploadSSHPublicKeyResponse Int
-uspkrsResponseStatus = lens _uspkrsResponseStatus (\s a -> s {_uspkrsResponseStatus = a})
-
-instance NFData UploadSSHPublicKeyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uspkrsResponseStatus :: Lens.Lens' UploadSSHPublicKeyResponse Lude.Int
+uspkrsResponseStatus = Lens.lens (responseStatus :: UploadSSHPublicKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UploadSSHPublicKeyResponse)
+{-# DEPRECATED uspkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

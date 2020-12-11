@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,158 @@
 --
 -- Creates a unique key that you can distribute to clients who are executing your API.
 module Network.AWS.AppSync.CreateAPIKey
-  ( -- * Creating a Request
-    createAPIKey,
-    CreateAPIKey,
+  ( -- * Creating a request
+    CreateAPIKey (..),
+    mkCreateAPIKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cakExpires,
     cakDescription,
     cakApiId,
 
-    -- * Destructuring the Response
-    createAPIKeyResponse,
-    CreateAPIKeyResponse,
+    -- * Destructuring the response
+    CreateAPIKeyResponse (..),
+    mkCreateAPIKeyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cakrsApiKey,
     cakrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createAPIKey' smart constructor.
+-- | /See:/ 'mkCreateAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
-  { _cakExpires :: !(Maybe Integer),
-    _cakDescription :: !(Maybe Text),
-    _cakApiId :: !Text
+  { expires ::
+      Lude.Maybe Lude.Integer,
+    description :: Lude.Maybe Lude.Text,
+    apiId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAPIKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cakExpires' - The time from creation time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time. For more information, see .
---
--- * 'cakDescription' - A description of the purpose of the API key.
---
--- * 'cakApiId' - The ID for your GraphQL API.
-createAPIKey ::
-  -- | 'cakApiId'
-  Text ->
+-- * 'apiId' - The ID for your GraphQL API.
+-- * 'description' - A description of the purpose of the API key.
+-- * 'expires' - The time from creation time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time. For more information, see .
+mkCreateAPIKey ::
+  -- | 'apiId'
+  Lude.Text ->
   CreateAPIKey
-createAPIKey pApiId_ =
+mkCreateAPIKey pApiId_ =
   CreateAPIKey'
-    { _cakExpires = Nothing,
-      _cakDescription = Nothing,
-      _cakApiId = pApiId_
+    { expires = Lude.Nothing,
+      description = Lude.Nothing,
+      apiId = pApiId_
     }
 
 -- | The time from creation time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour. The default value for this parameter is 7 days from creation time. For more information, see .
-cakExpires :: Lens' CreateAPIKey (Maybe Integer)
-cakExpires = lens _cakExpires (\s a -> s {_cakExpires = a})
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakExpires :: Lens.Lens' CreateAPIKey (Lude.Maybe Lude.Integer)
+cakExpires = Lens.lens (expires :: CreateAPIKey -> Lude.Maybe Lude.Integer) (\s a -> s {expires = a} :: CreateAPIKey)
+{-# DEPRECATED cakExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
 -- | A description of the purpose of the API key.
-cakDescription :: Lens' CreateAPIKey (Maybe Text)
-cakDescription = lens _cakDescription (\s a -> s {_cakDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakDescription :: Lens.Lens' CreateAPIKey (Lude.Maybe Lude.Text)
+cakDescription = Lens.lens (description :: CreateAPIKey -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateAPIKey)
+{-# DEPRECATED cakDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID for your GraphQL API.
-cakApiId :: Lens' CreateAPIKey Text
-cakApiId = lens _cakApiId (\s a -> s {_cakApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakApiId :: Lens.Lens' CreateAPIKey Lude.Text
+cakApiId = Lens.lens (apiId :: CreateAPIKey -> Lude.Text) (\s a -> s {apiId = a} :: CreateAPIKey)
+{-# DEPRECATED cakApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSRequest CreateAPIKey where
+instance Lude.AWSRequest CreateAPIKey where
   type Rs CreateAPIKey = CreateAPIKeyResponse
-  request = postJSON appSync
+  request = Req.postJSON appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateAPIKeyResponse' <$> (x .?> "apiKey") <*> (pure (fromEnum s))
+          CreateAPIKeyResponse'
+            Lude.<$> (x Lude..?> "apiKey") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateAPIKey
-
-instance NFData CreateAPIKey
-
-instance ToHeaders CreateAPIKey where
+instance Lude.ToHeaders CreateAPIKey where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateAPIKey where
-  toJSON CreateAPIKey' {..} =
-    object
-      ( catMaybes
-          [ ("expires" .=) <$> _cakExpires,
-            ("description" .=) <$> _cakDescription
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateAPIKey where
+instance Lude.ToJSON CreateAPIKey where
+  toJSON CreateAPIKey' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("expires" Lude..=) Lude.<$> expires,
+            ("description" Lude..=) Lude.<$> description
+          ]
+      )
+
+instance Lude.ToPath CreateAPIKey where
   toPath CreateAPIKey' {..} =
-    mconcat ["/v1/apis/", toBS _cakApiId, "/apikeys"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/apikeys"]
 
-instance ToQuery CreateAPIKey where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAPIKey where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAPIKeyResponse' smart constructor.
+-- | /See:/ 'mkCreateAPIKeyResponse' smart constructor.
 data CreateAPIKeyResponse = CreateAPIKeyResponse'
-  { _cakrsApiKey ::
-      !(Maybe APIKey),
-    _cakrsResponseStatus :: !Int
+  { apiKey ::
+      Lude.Maybe APIKey,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAPIKeyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cakrsApiKey' - The API key.
---
--- * 'cakrsResponseStatus' - -- | The response status code.
-createAPIKeyResponse ::
-  -- | 'cakrsResponseStatus'
-  Int ->
+-- * 'apiKey' - The API key.
+-- * 'responseStatus' - The response status code.
+mkCreateAPIKeyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAPIKeyResponse
-createAPIKeyResponse pResponseStatus_ =
+mkCreateAPIKeyResponse pResponseStatus_ =
   CreateAPIKeyResponse'
-    { _cakrsApiKey = Nothing,
-      _cakrsResponseStatus = pResponseStatus_
+    { apiKey = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The API key.
-cakrsApiKey :: Lens' CreateAPIKeyResponse (Maybe APIKey)
-cakrsApiKey = lens _cakrsApiKey (\s a -> s {_cakrsApiKey = a})
+--
+-- /Note:/ Consider using 'apiKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakrsApiKey :: Lens.Lens' CreateAPIKeyResponse (Lude.Maybe APIKey)
+cakrsApiKey = Lens.lens (apiKey :: CreateAPIKeyResponse -> Lude.Maybe APIKey) (\s a -> s {apiKey = a} :: CreateAPIKeyResponse)
+{-# DEPRECATED cakrsApiKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
 
--- | -- | The response status code.
-cakrsResponseStatus :: Lens' CreateAPIKeyResponse Int
-cakrsResponseStatus = lens _cakrsResponseStatus (\s a -> s {_cakrsResponseStatus = a})
-
-instance NFData CreateAPIKeyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakrsResponseStatus :: Lens.Lens' CreateAPIKeyResponse Lude.Int
+cakrsResponseStatus = Lens.lens (responseStatus :: CreateAPIKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAPIKeyResponse)
+{-# DEPRECATED cakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AWSHealth.Types.EventDetailsErrorItem where
+module Network.AWS.AWSHealth.Types.EventDetailsErrorItem
+  ( EventDetailsErrorItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEventDetailsErrorItem,
+
+    -- * Lenses
+    edeiEventARN,
+    edeiErrorName,
+    edeiErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Error information returned when a <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html DescribeEventDetails> operation cannot find a specified event.
 --
---
---
--- /See:/ 'eventDetailsErrorItem' smart constructor.
+-- /See:/ 'mkEventDetailsErrorItem' smart constructor.
 data EventDetailsErrorItem = EventDetailsErrorItem'
-  { _edeiEventARN ::
-      !(Maybe Text),
-    _edeiErrorName :: !(Maybe Text),
-    _edeiErrorMessage :: !(Maybe Text)
+  { eventARN ::
+      Lude.Maybe Lude.Text,
+    errorName :: Lude.Maybe Lude.Text,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventDetailsErrorItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edeiEventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
---
--- * 'edeiErrorName' - The name of the error.
---
--- * 'edeiErrorMessage' - A message that describes the error.
-eventDetailsErrorItem ::
+-- * 'errorMessage' - A message that describes the error.
+-- * 'errorName' - The name of the error.
+-- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+mkEventDetailsErrorItem ::
   EventDetailsErrorItem
-eventDetailsErrorItem =
+mkEventDetailsErrorItem =
   EventDetailsErrorItem'
-    { _edeiEventARN = Nothing,
-      _edeiErrorName = Nothing,
-      _edeiErrorMessage = Nothing
+    { eventARN = Lude.Nothing,
+      errorName = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-edeiEventARN :: Lens' EventDetailsErrorItem (Maybe Text)
-edeiEventARN = lens _edeiEventARN (\s a -> s {_edeiEventARN = a})
+--
+-- /Note:/ Consider using 'eventARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edeiEventARN :: Lens.Lens' EventDetailsErrorItem (Lude.Maybe Lude.Text)
+edeiEventARN = Lens.lens (eventARN :: EventDetailsErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {eventARN = a} :: EventDetailsErrorItem)
+{-# DEPRECATED edeiEventARN "Use generic-lens or generic-optics with 'eventARN' instead." #-}
 
 -- | The name of the error.
-edeiErrorName :: Lens' EventDetailsErrorItem (Maybe Text)
-edeiErrorName = lens _edeiErrorName (\s a -> s {_edeiErrorName = a})
+--
+-- /Note:/ Consider using 'errorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edeiErrorName :: Lens.Lens' EventDetailsErrorItem (Lude.Maybe Lude.Text)
+edeiErrorName = Lens.lens (errorName :: EventDetailsErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {errorName = a} :: EventDetailsErrorItem)
+{-# DEPRECATED edeiErrorName "Use generic-lens or generic-optics with 'errorName' instead." #-}
 
 -- | A message that describes the error.
-edeiErrorMessage :: Lens' EventDetailsErrorItem (Maybe Text)
-edeiErrorMessage = lens _edeiErrorMessage (\s a -> s {_edeiErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edeiErrorMessage :: Lens.Lens' EventDetailsErrorItem (Lude.Maybe Lude.Text)
+edeiErrorMessage = Lens.lens (errorMessage :: EventDetailsErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: EventDetailsErrorItem)
+{-# DEPRECATED edeiErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON EventDetailsErrorItem where
+instance Lude.FromJSON EventDetailsErrorItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "EventDetailsErrorItem"
       ( \x ->
           EventDetailsErrorItem'
-            <$> (x .:? "eventArn")
-            <*> (x .:? "errorName")
-            <*> (x .:? "errorMessage")
+            Lude.<$> (x Lude..:? "eventArn")
+            Lude.<*> (x Lude..:? "errorName")
+            Lude.<*> (x Lude..:? "errorMessage")
       )
-
-instance Hashable EventDetailsErrorItem
-
-instance NFData EventDetailsErrorItem

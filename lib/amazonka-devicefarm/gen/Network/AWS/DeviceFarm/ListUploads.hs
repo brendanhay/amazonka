@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets information about uploads, given an AWS Device Farm project ARN.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListUploads
-  ( -- * Creating a Request
-    listUploads,
-    ListUploads,
+  ( -- * Creating a request
+    ListUploads (..),
+    mkListUploads,
 
-    -- * Request Lenses
+    -- ** Request lenses
     luNextToken,
     luType,
     luArn,
 
-    -- * Destructuring the Response
-    listUploadsResponse,
-    ListUploadsResponse,
+    -- * Destructuring the response
+    ListUploadsResponse (..),
+    mkListUploadsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lursNextToken,
     lursUploads,
     lursResponseStatus,
@@ -44,147 +37,361 @@ module Network.AWS.DeviceFarm.ListUploads
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the list uploads operation.
 --
---
---
--- /See:/ 'listUploads' smart constructor.
+-- /See:/ 'mkListUploads' smart constructor.
 data ListUploads = ListUploads'
-  { _luNextToken :: !(Maybe Text),
-    _luType :: !(Maybe UploadType),
-    _luArn :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe UploadType,
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUploads' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'arn' - The Amazon Resource Name (ARN) of the project for which you want to list uploads.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'type'' - The type of upload.
 --
--- * 'luNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- Must be one of the following values:
 --
--- * 'luType' - The type of upload. Must be one of the following values:     * ANDROID_APP     * IOS_APP     * WEB_APP     * EXTERNAL_DATA     * APPIUM_JAVA_JUNIT_TEST_PACKAGE     * APPIUM_JAVA_TESTNG_TEST_PACKAGE     * APPIUM_PYTHON_TEST_PACKAGE     * APPIUM_NODE_TEST_PACKAGE     * APPIUM_RUBY_TEST_PACKAGE     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE     * APPIUM_WEB_PYTHON_TEST_PACKAGE     * APPIUM_WEB_NODE_TEST_PACKAGE     * APPIUM_WEB_RUBY_TEST_PACKAGE     * CALABASH_TEST_PACKAGE     * INSTRUMENTATION_TEST_PACKAGE     * UIAUTOMATION_TEST_PACKAGE     * UIAUTOMATOR_TEST_PACKAGE     * XCTEST_TEST_PACKAGE     * XCTEST_UI_TEST_PACKAGE     * APPIUM_JAVA_JUNIT_TEST_SPEC     * APPIUM_JAVA_TESTNG_TEST_SPEC     * APPIUM_PYTHON_TEST_SPEC     * APPIUM_NODE_TEST_SPEC     * APPIUM_RUBY_TEST_SPEC     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC     * APPIUM_WEB_PYTHON_TEST_SPEC     * APPIUM_WEB_NODE_TEST_SPEC     * APPIUM_WEB_RUBY_TEST_SPEC     * INSTRUMENTATION_TEST_SPEC     * XCTEST_UI_TEST_SPEC
+--     * ANDROID_APP
 --
--- * 'luArn' - The Amazon Resource Name (ARN) of the project for which you want to list uploads.
-listUploads ::
-  -- | 'luArn'
-  Text ->
+--
+--     * IOS_APP
+--
+--
+--     * WEB_APP
+--
+--
+--     * EXTERNAL_DATA
+--
+--
+--     * APPIUM_JAVA_JUNIT_TEST_PACKAGE
+--
+--
+--     * APPIUM_JAVA_TESTNG_TEST_PACKAGE
+--
+--
+--     * APPIUM_PYTHON_TEST_PACKAGE
+--
+--
+--     * APPIUM_NODE_TEST_PACKAGE
+--
+--
+--     * APPIUM_RUBY_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_PYTHON_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_NODE_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_RUBY_TEST_PACKAGE
+--
+--
+--     * CALABASH_TEST_PACKAGE
+--
+--
+--     * INSTRUMENTATION_TEST_PACKAGE
+--
+--
+--     * UIAUTOMATION_TEST_PACKAGE
+--
+--
+--     * UIAUTOMATOR_TEST_PACKAGE
+--
+--
+--     * XCTEST_TEST_PACKAGE
+--
+--
+--     * XCTEST_UI_TEST_PACKAGE
+--
+--
+--     * APPIUM_JAVA_JUNIT_TEST_SPEC
+--
+--
+--     * APPIUM_JAVA_TESTNG_TEST_SPEC
+--
+--
+--     * APPIUM_PYTHON_TEST_SPEC
+--
+--
+--     * APPIUM_NODE_TEST_SPEC
+--
+--
+--     * APPIUM_RUBY_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_PYTHON_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_NODE_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_RUBY_TEST_SPEC
+--
+--
+--     * INSTRUMENTATION_TEST_SPEC
+--
+--
+--     * XCTEST_UI_TEST_SPEC
+mkListUploads ::
+  -- | 'arn'
+  Lude.Text ->
   ListUploads
-listUploads pArn_ =
+mkListUploads pArn_ =
   ListUploads'
-    { _luNextToken = Nothing,
-      _luType = Nothing,
-      _luArn = pArn_
+    { nextToken = Lude.Nothing,
+      type' = Lude.Nothing,
+      arn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-luNextToken :: Lens' ListUploads (Maybe Text)
-luNextToken = lens _luNextToken (\s a -> s {_luNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luNextToken :: Lens.Lens' ListUploads (Lude.Maybe Lude.Text)
+luNextToken = Lens.lens (nextToken :: ListUploads -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUploads)
+{-# DEPRECATED luNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The type of upload. Must be one of the following values:     * ANDROID_APP     * IOS_APP     * WEB_APP     * EXTERNAL_DATA     * APPIUM_JAVA_JUNIT_TEST_PACKAGE     * APPIUM_JAVA_TESTNG_TEST_PACKAGE     * APPIUM_PYTHON_TEST_PACKAGE     * APPIUM_NODE_TEST_PACKAGE     * APPIUM_RUBY_TEST_PACKAGE     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE     * APPIUM_WEB_PYTHON_TEST_PACKAGE     * APPIUM_WEB_NODE_TEST_PACKAGE     * APPIUM_WEB_RUBY_TEST_PACKAGE     * CALABASH_TEST_PACKAGE     * INSTRUMENTATION_TEST_PACKAGE     * UIAUTOMATION_TEST_PACKAGE     * UIAUTOMATOR_TEST_PACKAGE     * XCTEST_TEST_PACKAGE     * XCTEST_UI_TEST_PACKAGE     * APPIUM_JAVA_JUNIT_TEST_SPEC     * APPIUM_JAVA_TESTNG_TEST_SPEC     * APPIUM_PYTHON_TEST_SPEC     * APPIUM_NODE_TEST_SPEC     * APPIUM_RUBY_TEST_SPEC     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC     * APPIUM_WEB_PYTHON_TEST_SPEC     * APPIUM_WEB_NODE_TEST_SPEC     * APPIUM_WEB_RUBY_TEST_SPEC     * INSTRUMENTATION_TEST_SPEC     * XCTEST_UI_TEST_SPEC
-luType :: Lens' ListUploads (Maybe UploadType)
-luType = lens _luType (\s a -> s {_luType = a})
+-- | The type of upload.
+--
+-- Must be one of the following values:
+--
+--     * ANDROID_APP
+--
+--
+--     * IOS_APP
+--
+--
+--     * WEB_APP
+--
+--
+--     * EXTERNAL_DATA
+--
+--
+--     * APPIUM_JAVA_JUNIT_TEST_PACKAGE
+--
+--
+--     * APPIUM_JAVA_TESTNG_TEST_PACKAGE
+--
+--
+--     * APPIUM_PYTHON_TEST_PACKAGE
+--
+--
+--     * APPIUM_NODE_TEST_PACKAGE
+--
+--
+--     * APPIUM_RUBY_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_PYTHON_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_NODE_TEST_PACKAGE
+--
+--
+--     * APPIUM_WEB_RUBY_TEST_PACKAGE
+--
+--
+--     * CALABASH_TEST_PACKAGE
+--
+--
+--     * INSTRUMENTATION_TEST_PACKAGE
+--
+--
+--     * UIAUTOMATION_TEST_PACKAGE
+--
+--
+--     * UIAUTOMATOR_TEST_PACKAGE
+--
+--
+--     * XCTEST_TEST_PACKAGE
+--
+--
+--     * XCTEST_UI_TEST_PACKAGE
+--
+--
+--     * APPIUM_JAVA_JUNIT_TEST_SPEC
+--
+--
+--     * APPIUM_JAVA_TESTNG_TEST_SPEC
+--
+--
+--     * APPIUM_PYTHON_TEST_SPEC
+--
+--
+--     * APPIUM_NODE_TEST_SPEC
+--
+--
+--     * APPIUM_RUBY_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_PYTHON_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_NODE_TEST_SPEC
+--
+--
+--     * APPIUM_WEB_RUBY_TEST_SPEC
+--
+--
+--     * INSTRUMENTATION_TEST_SPEC
+--
+--
+--     * XCTEST_UI_TEST_SPEC
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luType :: Lens.Lens' ListUploads (Lude.Maybe UploadType)
+luType = Lens.lens (type' :: ListUploads -> Lude.Maybe UploadType) (\s a -> s {type' = a} :: ListUploads)
+{-# DEPRECATED luType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list uploads.
-luArn :: Lens' ListUploads Text
-luArn = lens _luArn (\s a -> s {_luArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luArn :: Lens.Lens' ListUploads Lude.Text
+luArn = Lens.lens (arn :: ListUploads -> Lude.Text) (\s a -> s {arn = a} :: ListUploads)
+{-# DEPRECATED luArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSPager ListUploads where
+instance Page.AWSPager ListUploads where
   page rq rs
-    | stop (rs ^. lursNextToken) = Nothing
-    | stop (rs ^. lursUploads) = Nothing
-    | otherwise = Just $ rq & luNextToken .~ rs ^. lursNextToken
+    | Page.stop (rs Lens.^. lursNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lursUploads) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& luNextToken Lens..~ rs Lens.^. lursNextToken
 
-instance AWSRequest ListUploads where
+instance Lude.AWSRequest ListUploads where
   type Rs ListUploads = ListUploadsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListUploadsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "uploads" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "uploads" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListUploads
-
-instance NFData ListUploads
-
-instance ToHeaders ListUploads where
+instance Lude.ToHeaders ListUploads where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListUploads" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.ListUploads" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListUploads where
+instance Lude.ToJSON ListUploads where
   toJSON ListUploads' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _luNextToken,
-            ("type" .=) <$> _luType,
-            Just ("arn" .= _luArn)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("type" Lude..=) Lude.<$> type',
+            Lude.Just ("arn" Lude..= arn)
           ]
       )
 
-instance ToPath ListUploads where
-  toPath = const "/"
+instance Lude.ToPath ListUploads where
+  toPath = Lude.const "/"
 
-instance ToQuery ListUploads where
-  toQuery = const mempty
+instance Lude.ToQuery ListUploads where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a list uploads request.
 --
---
---
--- /See:/ 'listUploadsResponse' smart constructor.
+-- /See:/ 'mkListUploadsResponse' smart constructor.
 data ListUploadsResponse = ListUploadsResponse'
-  { _lursNextToken ::
-      !(Maybe Text),
-    _lursUploads :: !(Maybe [Upload]),
-    _lursResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    uploads :: Lude.Maybe [Upload],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUploadsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lursNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
---
--- * 'lursUploads' - Information about the uploads.
---
--- * 'lursResponseStatus' - -- | The response status code.
-listUploadsResponse ::
-  -- | 'lursResponseStatus'
-  Int ->
+-- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+-- * 'uploads' - Information about the uploads.
+mkListUploadsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListUploadsResponse
-listUploadsResponse pResponseStatus_ =
+mkListUploadsResponse pResponseStatus_ =
   ListUploadsResponse'
-    { _lursNextToken = Nothing,
-      _lursUploads = Nothing,
-      _lursResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      uploads = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
-lursNextToken :: Lens' ListUploadsResponse (Maybe Text)
-lursNextToken = lens _lursNextToken (\s a -> s {_lursNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lursNextToken :: Lens.Lens' ListUploadsResponse (Lude.Maybe Lude.Text)
+lursNextToken = Lens.lens (nextToken :: ListUploadsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUploadsResponse)
+{-# DEPRECATED lursNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the uploads.
-lursUploads :: Lens' ListUploadsResponse [Upload]
-lursUploads = lens _lursUploads (\s a -> s {_lursUploads = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'uploads' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lursUploads :: Lens.Lens' ListUploadsResponse (Lude.Maybe [Upload])
+lursUploads = Lens.lens (uploads :: ListUploadsResponse -> Lude.Maybe [Upload]) (\s a -> s {uploads = a} :: ListUploadsResponse)
+{-# DEPRECATED lursUploads "Use generic-lens or generic-optics with 'uploads' instead." #-}
 
--- | -- | The response status code.
-lursResponseStatus :: Lens' ListUploadsResponse Int
-lursResponseStatus = lens _lursResponseStatus (\s a -> s {_lursResponseStatus = a})
-
-instance NFData ListUploadsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lursResponseStatus :: Lens.Lens' ListUploadsResponse Lude.Int
+lursResponseStatus = Lens.lens (responseStatus :: ListUploadsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUploadsResponse)
+{-# DEPRECATED lursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

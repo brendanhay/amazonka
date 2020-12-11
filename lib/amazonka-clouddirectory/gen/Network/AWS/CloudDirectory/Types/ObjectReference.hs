@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.ObjectReference where
+module Network.AWS.CloudDirectory.Types.ObjectReference
+  ( ObjectReference (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkObjectReference,
+
+    -- * Lenses
+    orSelector,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The reference that identifies an object.
 --
---
---
--- /See:/ 'objectReference' smart constructor.
+-- /See:/ 'mkObjectReference' smart constructor.
 newtype ObjectReference = ObjectReference'
-  { _orSelector ::
-      Maybe Text
+  { selector ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectReference' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'selector' - A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html Access Objects> . You can identify an object in one of the following ways:
 --
--- * 'orSelector' - A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html Access Objects> . You can identify an object in one of the following ways:     * /> ObjectIdentifier/ - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier     * /\/some\/path/ - Identifies the object based on path     * /#SomeBatchReference/ - Identifies the object in a batch call
-objectReference ::
+--
+--     * /> ObjectIdentifier/ - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier
+--
+--
+--     * /\/some\/path/ - Identifies the object based on path
+--
+--
+--     * /#SomeBatchReference/ - Identifies the object in a batch call
+mkObjectReference ::
   ObjectReference
-objectReference = ObjectReference' {_orSelector = Nothing}
+mkObjectReference = ObjectReference' {selector = Lude.Nothing}
 
--- | A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html Access Objects> . You can identify an object in one of the following ways:     * /> ObjectIdentifier/ - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier     * /\/some\/path/ - Identifies the object based on path     * /#SomeBatchReference/ - Identifies the object in a batch call
-orSelector :: Lens' ObjectReference (Maybe Text)
-orSelector = lens _orSelector (\s a -> s {_orSelector = a})
+-- | A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html Access Objects> . You can identify an object in one of the following ways:
+--
+--
+--     * /> ObjectIdentifier/ - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier
+--
+--
+--     * /\/some\/path/ - Identifies the object based on path
+--
+--
+--     * /#SomeBatchReference/ - Identifies the object in a batch call
+--
+--
+--
+-- /Note:/ Consider using 'selector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orSelector :: Lens.Lens' ObjectReference (Lude.Maybe Lude.Text)
+orSelector = Lens.lens (selector :: ObjectReference -> Lude.Maybe Lude.Text) (\s a -> s {selector = a} :: ObjectReference)
+{-# DEPRECATED orSelector "Use generic-lens or generic-optics with 'selector' instead." #-}
 
-instance FromJSON ObjectReference where
+instance Lude.FromJSON ObjectReference where
   parseJSON =
-    withObject
+    Lude.withObject
       "ObjectReference"
-      (\x -> ObjectReference' <$> (x .:? "Selector"))
+      (\x -> ObjectReference' Lude.<$> (x Lude..:? "Selector"))
 
-instance Hashable ObjectReference
-
-instance NFData ObjectReference
-
-instance ToJSON ObjectReference where
+instance Lude.ToJSON ObjectReference where
   toJSON ObjectReference' {..} =
-    object (catMaybes [("Selector" .=) <$> _orSelector])
+    Lude.object
+      (Lude.catMaybes [("Selector" Lude..=) Lude.<$> selector])

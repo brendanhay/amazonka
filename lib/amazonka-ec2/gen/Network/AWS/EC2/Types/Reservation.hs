@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,112 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Reservation where
+module Network.AWS.EC2.Types.Reservation
+  ( Reservation (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkReservation,
+
+    -- * Lenses
+    rGroups,
+    rInstances,
+    rRequesterId,
+    rReservationId,
+    rOwnerId,
+  )
+where
+
 import Network.AWS.EC2.Types.GroupIdentifier
 import Network.AWS.EC2.Types.Instance
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a launch request for one or more instances, and includes owner, requester, and security group information that applies to all instances in the launch request.
 --
---
---
--- /See:/ 'reservation' smart constructor.
+-- /See:/ 'mkReservation' smart constructor.
 data Reservation = Reservation'
-  { _rGroups ::
-      !(Maybe [GroupIdentifier]),
-    _rInstances :: !(Maybe [Instance]),
-    _rRequesterId :: !(Maybe Text),
-    _rReservationId :: !Text,
-    _rOwnerId :: !Text
+  { groups ::
+      Lude.Maybe [GroupIdentifier],
+    instances :: Lude.Maybe [Instance],
+    requesterId :: Lude.Maybe Lude.Text,
+    reservationId :: Lude.Text,
+    ownerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Reservation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rGroups' - [EC2-Classic only] The security groups.
---
--- * 'rInstances' - The instances.
---
--- * 'rRequesterId' - The ID of the requester that launched the instances on your behalf (for example, AWS Management Console or Auto Scaling).
---
--- * 'rReservationId' - The ID of the reservation.
---
--- * 'rOwnerId' - The ID of the AWS account that owns the reservation.
-reservation ::
-  -- | 'rReservationId'
-  Text ->
-  -- | 'rOwnerId'
-  Text ->
+-- * 'groups' - [EC2-Classic only] The security groups.
+-- * 'instances' - The instances.
+-- * 'ownerId' - The ID of the AWS account that owns the reservation.
+-- * 'requesterId' - The ID of the requester that launched the instances on your behalf (for example, AWS Management Console or Auto Scaling).
+-- * 'reservationId' - The ID of the reservation.
+mkReservation ::
+  -- | 'reservationId'
+  Lude.Text ->
+  -- | 'ownerId'
+  Lude.Text ->
   Reservation
-reservation pReservationId_ pOwnerId_ =
+mkReservation pReservationId_ pOwnerId_ =
   Reservation'
-    { _rGroups = Nothing,
-      _rInstances = Nothing,
-      _rRequesterId = Nothing,
-      _rReservationId = pReservationId_,
-      _rOwnerId = pOwnerId_
+    { groups = Lude.Nothing,
+      instances = Lude.Nothing,
+      requesterId = Lude.Nothing,
+      reservationId = pReservationId_,
+      ownerId = pOwnerId_
     }
 
 -- | [EC2-Classic only] The security groups.
-rGroups :: Lens' Reservation [GroupIdentifier]
-rGroups = lens _rGroups (\s a -> s {_rGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rGroups :: Lens.Lens' Reservation (Lude.Maybe [GroupIdentifier])
+rGroups = Lens.lens (groups :: Reservation -> Lude.Maybe [GroupIdentifier]) (\s a -> s {groups = a} :: Reservation)
+{-# DEPRECATED rGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The instances.
-rInstances :: Lens' Reservation [Instance]
-rInstances = lens _rInstances (\s a -> s {_rInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rInstances :: Lens.Lens' Reservation (Lude.Maybe [Instance])
+rInstances = Lens.lens (instances :: Reservation -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: Reservation)
+{-# DEPRECATED rInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
 -- | The ID of the requester that launched the instances on your behalf (for example, AWS Management Console or Auto Scaling).
-rRequesterId :: Lens' Reservation (Maybe Text)
-rRequesterId = lens _rRequesterId (\s a -> s {_rRequesterId = a})
+--
+-- /Note:/ Consider using 'requesterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRequesterId :: Lens.Lens' Reservation (Lude.Maybe Lude.Text)
+rRequesterId = Lens.lens (requesterId :: Reservation -> Lude.Maybe Lude.Text) (\s a -> s {requesterId = a} :: Reservation)
+{-# DEPRECATED rRequesterId "Use generic-lens or generic-optics with 'requesterId' instead." #-}
 
 -- | The ID of the reservation.
-rReservationId :: Lens' Reservation Text
-rReservationId = lens _rReservationId (\s a -> s {_rReservationId = a})
+--
+-- /Note:/ Consider using 'reservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rReservationId :: Lens.Lens' Reservation Lude.Text
+rReservationId = Lens.lens (reservationId :: Reservation -> Lude.Text) (\s a -> s {reservationId = a} :: Reservation)
+{-# DEPRECATED rReservationId "Use generic-lens or generic-optics with 'reservationId' instead." #-}
 
 -- | The ID of the AWS account that owns the reservation.
-rOwnerId :: Lens' Reservation Text
-rOwnerId = lens _rOwnerId (\s a -> s {_rOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rOwnerId :: Lens.Lens' Reservation Lude.Text
+rOwnerId = Lens.lens (ownerId :: Reservation -> Lude.Text) (\s a -> s {ownerId = a} :: Reservation)
+{-# DEPRECATED rOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
-instance FromXML Reservation where
+instance Lude.FromXML Reservation where
   parseXML x =
     Reservation'
-      <$> (x .@? "groupSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "instancesSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "requesterId")
-      <*> (x .@ "reservationId")
-      <*> (x .@ "ownerId")
-
-instance Hashable Reservation
-
-instance NFData Reservation
+      Lude.<$> ( x Lude..@? "groupSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> ( x Lude..@? "instancesSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "requesterId")
+      Lude.<*> (x Lude..@ "reservationId")
+      Lude.<*> (x Lude..@ "ownerId")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearchDomains.Types.Hit where
+module Network.AWS.CloudSearchDomains.Types.Hit
+  ( Hit (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHit,
+
+    -- * Lenses
+    hExprs,
+    hId,
+    hHighlights,
+    hFields,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a document that matches the search request.
 --
---
---
--- /See:/ 'hit' smart constructor.
+-- /See:/ 'mkHit' smart constructor.
 data Hit = Hit'
-  { _hitExprs :: !(Maybe (Map Text (Text))),
-    _hitId :: !(Maybe Text),
-    _hitHighlights :: !(Maybe (Map Text (Text))),
-    _hitFields :: !(Maybe (Map Text ([Text])))
+  { exprs ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    id :: Lude.Maybe Lude.Text,
+    highlights :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    fields :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Hit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hitExprs' - The expressions returned from a document that matches the search request.
---
--- * 'hitId' - The document ID of a document that matches the search request.
---
--- * 'hitHighlights' - The highlights returned from a document that matches the search request.
---
--- * 'hitFields' - The fields returned from a document that matches the search request.
-hit ::
+-- * 'exprs' - The expressions returned from a document that matches the search request.
+-- * 'fields' - The fields returned from a document that matches the search request.
+-- * 'highlights' - The highlights returned from a document that matches the search request.
+-- * 'id' - The document ID of a document that matches the search request.
+mkHit ::
   Hit
-hit =
+mkHit =
   Hit'
-    { _hitExprs = Nothing,
-      _hitId = Nothing,
-      _hitHighlights = Nothing,
-      _hitFields = Nothing
+    { exprs = Lude.Nothing,
+      id = Lude.Nothing,
+      highlights = Lude.Nothing,
+      fields = Lude.Nothing
     }
 
 -- | The expressions returned from a document that matches the search request.
-hitExprs :: Lens' Hit (HashMap Text (Text))
-hitExprs = lens _hitExprs (\s a -> s {_hitExprs = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'exprs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hExprs :: Lens.Lens' Hit (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+hExprs = Lens.lens (exprs :: Hit -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {exprs = a} :: Hit)
+{-# DEPRECATED hExprs "Use generic-lens or generic-optics with 'exprs' instead." #-}
 
 -- | The document ID of a document that matches the search request.
-hitId :: Lens' Hit (Maybe Text)
-hitId = lens _hitId (\s a -> s {_hitId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hId :: Lens.Lens' Hit (Lude.Maybe Lude.Text)
+hId = Lens.lens (id :: Hit -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Hit)
+{-# DEPRECATED hId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The highlights returned from a document that matches the search request.
-hitHighlights :: Lens' Hit (HashMap Text (Text))
-hitHighlights = lens _hitHighlights (\s a -> s {_hitHighlights = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'highlights' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hHighlights :: Lens.Lens' Hit (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+hHighlights = Lens.lens (highlights :: Hit -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {highlights = a} :: Hit)
+{-# DEPRECATED hHighlights "Use generic-lens or generic-optics with 'highlights' instead." #-}
 
 -- | The fields returned from a document that matches the search request.
-hitFields :: Lens' Hit (HashMap Text ([Text]))
-hitFields = lens _hitFields (\s a -> s {_hitFields = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'fields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hFields :: Lens.Lens' Hit (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+hFields = Lens.lens (fields :: Hit -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {fields = a} :: Hit)
+{-# DEPRECATED hFields "Use generic-lens or generic-optics with 'fields' instead." #-}
 
-instance FromJSON Hit where
+instance Lude.FromJSON Hit where
   parseJSON =
-    withObject
+    Lude.withObject
       "Hit"
       ( \x ->
           Hit'
-            <$> (x .:? "exprs" .!= mempty)
-            <*> (x .:? "id")
-            <*> (x .:? "highlights" .!= mempty)
-            <*> (x .:? "fields" .!= mempty)
+            Lude.<$> (x Lude..:? "exprs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "highlights" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "fields" Lude..!= Lude.mempty)
       )
-
-instance Hashable Hit
-
-instance NFData Hit

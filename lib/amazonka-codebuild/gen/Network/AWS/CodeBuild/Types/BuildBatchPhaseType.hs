@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.BuildBatchPhaseType where
+module Network.AWS.CodeBuild.Types.BuildBatchPhaseType
+  ( BuildBatchPhaseType
+      ( BuildBatchPhaseType',
+        BBPTCombineArtifacts,
+        BBPTDownloadBatchspec,
+        BBPTFailed,
+        BBPTInProgress,
+        BBPTStopped,
+        BBPTSubmitted,
+        BBPTSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BuildBatchPhaseType
-  = BBPTCombineArtifacts
-  | BBPTDownloadBatchspec
-  | BBPTFailed
-  | BBPTInProgress
-  | BBPTStopped
-  | BBPTSubmitted
-  | BBPTSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BuildBatchPhaseType = BuildBatchPhaseType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BuildBatchPhaseType where
-  parser =
-    takeLowerText >>= \case
-      "combine_artifacts" -> pure BBPTCombineArtifacts
-      "download_batchspec" -> pure BBPTDownloadBatchspec
-      "failed" -> pure BBPTFailed
-      "in_progress" -> pure BBPTInProgress
-      "stopped" -> pure BBPTStopped
-      "submitted" -> pure BBPTSubmitted
-      "succeeded" -> pure BBPTSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing BuildBatchPhaseType from value: '" <> e
-            <> "'. Accepted values: combine_artifacts, download_batchspec, failed, in_progress, stopped, submitted, succeeded"
+pattern BBPTCombineArtifacts :: BuildBatchPhaseType
+pattern BBPTCombineArtifacts = BuildBatchPhaseType' "COMBINE_ARTIFACTS"
 
-instance ToText BuildBatchPhaseType where
-  toText = \case
-    BBPTCombineArtifacts -> "COMBINE_ARTIFACTS"
-    BBPTDownloadBatchspec -> "DOWNLOAD_BATCHSPEC"
-    BBPTFailed -> "FAILED"
-    BBPTInProgress -> "IN_PROGRESS"
-    BBPTStopped -> "STOPPED"
-    BBPTSubmitted -> "SUBMITTED"
-    BBPTSucceeded -> "SUCCEEDED"
+pattern BBPTDownloadBatchspec :: BuildBatchPhaseType
+pattern BBPTDownloadBatchspec = BuildBatchPhaseType' "DOWNLOAD_BATCHSPEC"
 
-instance Hashable BuildBatchPhaseType
+pattern BBPTFailed :: BuildBatchPhaseType
+pattern BBPTFailed = BuildBatchPhaseType' "FAILED"
 
-instance NFData BuildBatchPhaseType
+pattern BBPTInProgress :: BuildBatchPhaseType
+pattern BBPTInProgress = BuildBatchPhaseType' "IN_PROGRESS"
 
-instance ToByteString BuildBatchPhaseType
+pattern BBPTStopped :: BuildBatchPhaseType
+pattern BBPTStopped = BuildBatchPhaseType' "STOPPED"
 
-instance ToQuery BuildBatchPhaseType
+pattern BBPTSubmitted :: BuildBatchPhaseType
+pattern BBPTSubmitted = BuildBatchPhaseType' "SUBMITTED"
 
-instance ToHeader BuildBatchPhaseType
+pattern BBPTSucceeded :: BuildBatchPhaseType
+pattern BBPTSucceeded = BuildBatchPhaseType' "SUCCEEDED"
 
-instance FromJSON BuildBatchPhaseType where
-  parseJSON = parseJSONText "BuildBatchPhaseType"
+{-# COMPLETE
+  BBPTCombineArtifacts,
+  BBPTDownloadBatchspec,
+  BBPTFailed,
+  BBPTInProgress,
+  BBPTStopped,
+  BBPTSubmitted,
+  BBPTSucceeded,
+  BuildBatchPhaseType'
+  #-}

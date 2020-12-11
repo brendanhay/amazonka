@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence where
+module Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence
+  ( BusinessReportRecurrence (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBusinessReportRecurrence,
+
+    -- * Lenses
+    brrStartDate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The recurrence of the reports.
 --
---
---
--- /See:/ 'businessReportRecurrence' smart constructor.
+-- /See:/ 'mkBusinessReportRecurrence' smart constructor.
 newtype BusinessReportRecurrence = BusinessReportRecurrence'
-  { _brrStartDate ::
-      Maybe Text
+  { startDate ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BusinessReportRecurrence' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'brrStartDate' - The start date.
-businessReportRecurrence ::
+-- * 'startDate' - The start date.
+mkBusinessReportRecurrence ::
   BusinessReportRecurrence
-businessReportRecurrence =
-  BusinessReportRecurrence' {_brrStartDate = Nothing}
+mkBusinessReportRecurrence =
+  BusinessReportRecurrence' {startDate = Lude.Nothing}
 
 -- | The start date.
-brrStartDate :: Lens' BusinessReportRecurrence (Maybe Text)
-brrStartDate = lens _brrStartDate (\s a -> s {_brrStartDate = a})
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brrStartDate :: Lens.Lens' BusinessReportRecurrence (Lude.Maybe Lude.Text)
+brrStartDate = Lens.lens (startDate :: BusinessReportRecurrence -> Lude.Maybe Lude.Text) (\s a -> s {startDate = a} :: BusinessReportRecurrence)
+{-# DEPRECATED brrStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
-instance FromJSON BusinessReportRecurrence where
+instance Lude.FromJSON BusinessReportRecurrence where
   parseJSON =
-    withObject
+    Lude.withObject
       "BusinessReportRecurrence"
-      (\x -> BusinessReportRecurrence' <$> (x .:? "StartDate"))
+      ( \x ->
+          BusinessReportRecurrence' Lude.<$> (x Lude..:? "StartDate")
+      )
 
-instance Hashable BusinessReportRecurrence
-
-instance NFData BusinessReportRecurrence
-
-instance ToJSON BusinessReportRecurrence where
+instance Lude.ToJSON BusinessReportRecurrence where
   toJSON BusinessReportRecurrence' {..} =
-    object (catMaybes [("StartDate" .=) <$> _brrStartDate])
+    Lude.object
+      (Lude.catMaybes [("StartDate" Lude..=) Lude.<$> startDate])

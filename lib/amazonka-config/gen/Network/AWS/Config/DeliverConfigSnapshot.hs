@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,135 +17,147 @@
 --
 --     * Notification of the start of the delivery.
 --
+--
 --     * Notification of the completion of the delivery, if the delivery was successfully completed.
+--
 --
 --     * Notification of delivery failure, if the delivery failed.
 module Network.AWS.Config.DeliverConfigSnapshot
-  ( -- * Creating a Request
-    deliverConfigSnapshot,
-    DeliverConfigSnapshot,
+  ( -- * Creating a request
+    DeliverConfigSnapshot (..),
+    mkDeliverConfigSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcsDeliveryChannelName,
 
-    -- * Destructuring the Response
-    deliverConfigSnapshotResponse,
-    DeliverConfigSnapshotResponse,
+    -- * Destructuring the response
+    DeliverConfigSnapshotResponse (..),
+    mkDeliverConfigSnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcsrsConfigSnapshotId,
     dcsrsResponseStatus,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the 'DeliverConfigSnapshot' action.
 --
---
---
--- /See:/ 'deliverConfigSnapshot' smart constructor.
+-- /See:/ 'mkDeliverConfigSnapshot' smart constructor.
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
-  { _dcsDeliveryChannelName ::
-      Text
+  { deliveryChannelName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliverConfigSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsDeliveryChannelName' - The name of the delivery channel through which the snapshot is delivered.
-deliverConfigSnapshot ::
-  -- | 'dcsDeliveryChannelName'
-  Text ->
+-- * 'deliveryChannelName' - The name of the delivery channel through which the snapshot is delivered.
+mkDeliverConfigSnapshot ::
+  -- | 'deliveryChannelName'
+  Lude.Text ->
   DeliverConfigSnapshot
-deliverConfigSnapshot pDeliveryChannelName_ =
+mkDeliverConfigSnapshot pDeliveryChannelName_ =
   DeliverConfigSnapshot'
-    { _dcsDeliveryChannelName =
+    { deliveryChannelName =
         pDeliveryChannelName_
     }
 
 -- | The name of the delivery channel through which the snapshot is delivered.
-dcsDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
-dcsDeliveryChannelName = lens _dcsDeliveryChannelName (\s a -> s {_dcsDeliveryChannelName = a})
+--
+-- /Note:/ Consider using 'deliveryChannelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsDeliveryChannelName :: Lens.Lens' DeliverConfigSnapshot Lude.Text
+dcsDeliveryChannelName = Lens.lens (deliveryChannelName :: DeliverConfigSnapshot -> Lude.Text) (\s a -> s {deliveryChannelName = a} :: DeliverConfigSnapshot)
+{-# DEPRECATED dcsDeliveryChannelName "Use generic-lens or generic-optics with 'deliveryChannelName' instead." #-}
 
-instance AWSRequest DeliverConfigSnapshot where
+instance Lude.AWSRequest DeliverConfigSnapshot where
   type Rs DeliverConfigSnapshot = DeliverConfigSnapshotResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeliverConfigSnapshotResponse'
-            <$> (x .?> "configSnapshotId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "configSnapshotId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeliverConfigSnapshot
-
-instance NFData DeliverConfigSnapshot
-
-instance ToHeaders DeliverConfigSnapshot where
+instance Lude.ToHeaders DeliverConfigSnapshot where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.DeliverConfigSnapshot" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StarlingDoveService.DeliverConfigSnapshot" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeliverConfigSnapshot where
+instance Lude.ToJSON DeliverConfigSnapshot where
   toJSON DeliverConfigSnapshot' {..} =
-    object
-      ( catMaybes
-          [Just ("deliveryChannelName" .= _dcsDeliveryChannelName)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("deliveryChannelName" Lude..= deliveryChannelName)]
       )
 
-instance ToPath DeliverConfigSnapshot where
-  toPath = const "/"
+instance Lude.ToPath DeliverConfigSnapshot where
+  toPath = Lude.const "/"
 
-instance ToQuery DeliverConfigSnapshot where
-  toQuery = const mempty
+instance Lude.ToQuery DeliverConfigSnapshot where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output for the 'DeliverConfigSnapshot' action, in JSON format.
 --
---
---
--- /See:/ 'deliverConfigSnapshotResponse' smart constructor.
+-- /See:/ 'mkDeliverConfigSnapshotResponse' smart constructor.
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
-  { _dcsrsConfigSnapshotId ::
-      !(Maybe Text),
-    _dcsrsResponseStatus :: !Int
+  { configSnapshotId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliverConfigSnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsrsConfigSnapshotId' - The ID of the snapshot that is being created.
---
--- * 'dcsrsResponseStatus' - -- | The response status code.
-deliverConfigSnapshotResponse ::
-  -- | 'dcsrsResponseStatus'
-  Int ->
+-- * 'configSnapshotId' - The ID of the snapshot that is being created.
+-- * 'responseStatus' - The response status code.
+mkDeliverConfigSnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeliverConfigSnapshotResponse
-deliverConfigSnapshotResponse pResponseStatus_ =
+mkDeliverConfigSnapshotResponse pResponseStatus_ =
   DeliverConfigSnapshotResponse'
-    { _dcsrsConfigSnapshotId = Nothing,
-      _dcsrsResponseStatus = pResponseStatus_
+    { configSnapshotId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the snapshot that is being created.
-dcsrsConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
-dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\s a -> s {_dcsrsConfigSnapshotId = a})
+--
+-- /Note:/ Consider using 'configSnapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrsConfigSnapshotId :: Lens.Lens' DeliverConfigSnapshotResponse (Lude.Maybe Lude.Text)
+dcsrsConfigSnapshotId = Lens.lens (configSnapshotId :: DeliverConfigSnapshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {configSnapshotId = a} :: DeliverConfigSnapshotResponse)
+{-# DEPRECATED dcsrsConfigSnapshotId "Use generic-lens or generic-optics with 'configSnapshotId' instead." #-}
 
--- | -- | The response status code.
-dcsrsResponseStatus :: Lens' DeliverConfigSnapshotResponse Int
-dcsrsResponseStatus = lens _dcsrsResponseStatus (\s a -> s {_dcsrsResponseStatus = a})
-
-instance NFData DeliverConfigSnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsrsResponseStatus :: Lens.Lens' DeliverConfigSnapshotResponse Lude.Int
+dcsrsResponseStatus = Lens.lens (responseStatus :: DeliverConfigSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeliverConfigSnapshotResponse)
+{-# DEPRECATED dcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

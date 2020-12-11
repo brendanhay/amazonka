@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.BackendServerDescription where
+module Network.AWS.ELB.Types.BackendServerDescription
+  ( BackendServerDescription (..),
+
+    -- * Smart constructor
+    mkBackendServerDescription,
+
+    -- * Lenses
+    bsdPolicyNames,
+    bsdInstancePort,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the configuration of an EC2 instance.
 --
---
---
--- /See:/ 'backendServerDescription' smart constructor.
+-- /See:/ 'mkBackendServerDescription' smart constructor.
 data BackendServerDescription = BackendServerDescription'
-  { _bsdPolicyNames ::
-      !(Maybe [Text]),
-    _bsdInstancePort :: !(Maybe Nat)
+  { policyNames ::
+      Lude.Maybe [Lude.Text],
+    instancePort :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackendServerDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsdPolicyNames' - The names of the policies enabled for the EC2 instance.
---
--- * 'bsdInstancePort' - The port on which the EC2 instance is listening.
-backendServerDescription ::
+-- * 'instancePort' - The port on which the EC2 instance is listening.
+-- * 'policyNames' - The names of the policies enabled for the EC2 instance.
+mkBackendServerDescription ::
   BackendServerDescription
-backendServerDescription =
+mkBackendServerDescription =
   BackendServerDescription'
-    { _bsdPolicyNames = Nothing,
-      _bsdInstancePort = Nothing
+    { policyNames = Lude.Nothing,
+      instancePort = Lude.Nothing
     }
 
 -- | The names of the policies enabled for the EC2 instance.
-bsdPolicyNames :: Lens' BackendServerDescription [Text]
-bsdPolicyNames = lens _bsdPolicyNames (\s a -> s {_bsdPolicyNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsdPolicyNames :: Lens.Lens' BackendServerDescription (Lude.Maybe [Lude.Text])
+bsdPolicyNames = Lens.lens (policyNames :: BackendServerDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNames = a} :: BackendServerDescription)
+{-# DEPRECATED bsdPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | The port on which the EC2 instance is listening.
-bsdInstancePort :: Lens' BackendServerDescription (Maybe Natural)
-bsdInstancePort = lens _bsdInstancePort (\s a -> s {_bsdInstancePort = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'instancePort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsdInstancePort :: Lens.Lens' BackendServerDescription (Lude.Maybe Lude.Natural)
+bsdInstancePort = Lens.lens (instancePort :: BackendServerDescription -> Lude.Maybe Lude.Natural) (\s a -> s {instancePort = a} :: BackendServerDescription)
+{-# DEPRECATED bsdInstancePort "Use generic-lens or generic-optics with 'instancePort' instead." #-}
 
-instance FromXML BackendServerDescription where
+instance Lude.FromXML BackendServerDescription where
   parseXML x =
     BackendServerDescription'
-      <$> (x .@? "PolicyNames" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "InstancePort")
-
-instance Hashable BackendServerDescription
-
-instance NFData BackendServerDescription
+      Lude.<$> ( x Lude..@? "PolicyNames" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "InstancePort")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.BillingMethod where
+module Network.AWS.DeviceFarm.Types.BillingMethod
+  ( BillingMethod
+      ( BillingMethod',
+        Metered,
+        Unmetered
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BillingMethod
-  = Metered
-  | Unmetered
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BillingMethod = BillingMethod' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BillingMethod where
-  parser =
-    takeLowerText >>= \case
-      "metered" -> pure Metered
-      "unmetered" -> pure Unmetered
-      e ->
-        fromTextError $
-          "Failure parsing BillingMethod from value: '" <> e
-            <> "'. Accepted values: metered, unmetered"
+pattern Metered :: BillingMethod
+pattern Metered = BillingMethod' "METERED"
 
-instance ToText BillingMethod where
-  toText = \case
-    Metered -> "METERED"
-    Unmetered -> "UNMETERED"
+pattern Unmetered :: BillingMethod
+pattern Unmetered = BillingMethod' "UNMETERED"
 
-instance Hashable BillingMethod
-
-instance NFData BillingMethod
-
-instance ToByteString BillingMethod
-
-instance ToQuery BillingMethod
-
-instance ToHeader BillingMethod
-
-instance ToJSON BillingMethod where
-  toJSON = toJSONText
-
-instance FromJSON BillingMethod where
-  parseJSON = parseJSONText "BillingMethod"
+{-# COMPLETE
+  Metered,
+  Unmetered,
+  BillingMethod'
+  #-}

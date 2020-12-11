@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,101 +14,109 @@
 --
 -- Creates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html AWS Site-to-Site VPN> in the /AWS Site-to-Site VPN User Guide/ .
 module Network.AWS.EC2.CreateVPNConnectionRoute
-  ( -- * Creating a Request
-    createVPNConnectionRoute,
-    CreateVPNConnectionRoute,
+  ( -- * Creating a request
+    CreateVPNConnectionRoute (..),
+    mkCreateVPNConnectionRoute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cvcrDestinationCidrBlock,
     cvcrVPNConnectionId,
 
-    -- * Destructuring the Response
-    createVPNConnectionRouteResponse,
-    CreateVPNConnectionRouteResponse,
+    -- * Destructuring the response
+    CreateVPNConnectionRouteResponse (..),
+    mkCreateVPNConnectionRouteResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for CreateVpnConnectionRoute.
 --
---
---
--- /See:/ 'createVPNConnectionRoute' smart constructor.
+-- /See:/ 'mkCreateVPNConnectionRoute' smart constructor.
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
-  { _cvcrDestinationCidrBlock ::
-      !Text,
-    _cvcrVPNConnectionId :: !Text
+  { destinationCidrBlock ::
+      Lude.Text,
+    vpnConnectionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPNConnectionRoute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvcrDestinationCidrBlock' - The CIDR block associated with the local subnet of the customer network.
---
--- * 'cvcrVPNConnectionId' - The ID of the VPN connection.
-createVPNConnectionRoute ::
-  -- | 'cvcrDestinationCidrBlock'
-  Text ->
-  -- | 'cvcrVPNConnectionId'
-  Text ->
+-- * 'destinationCidrBlock' - The CIDR block associated with the local subnet of the customer network.
+-- * 'vpnConnectionId' - The ID of the VPN connection.
+mkCreateVPNConnectionRoute ::
+  -- | 'destinationCidrBlock'
+  Lude.Text ->
+  -- | 'vpnConnectionId'
+  Lude.Text ->
   CreateVPNConnectionRoute
-createVPNConnectionRoute pDestinationCidrBlock_ pVPNConnectionId_ =
+mkCreateVPNConnectionRoute pDestinationCidrBlock_ pVPNConnectionId_ =
   CreateVPNConnectionRoute'
-    { _cvcrDestinationCidrBlock =
+    { destinationCidrBlock =
         pDestinationCidrBlock_,
-      _cvcrVPNConnectionId = pVPNConnectionId_
+      vpnConnectionId = pVPNConnectionId_
     }
 
 -- | The CIDR block associated with the local subnet of the customer network.
-cvcrDestinationCidrBlock :: Lens' CreateVPNConnectionRoute Text
-cvcrDestinationCidrBlock = lens _cvcrDestinationCidrBlock (\s a -> s {_cvcrDestinationCidrBlock = a})
+--
+-- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvcrDestinationCidrBlock :: Lens.Lens' CreateVPNConnectionRoute Lude.Text
+cvcrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: CreateVPNConnectionRoute -> Lude.Text) (\s a -> s {destinationCidrBlock = a} :: CreateVPNConnectionRoute)
+{-# DEPRECATED cvcrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
 -- | The ID of the VPN connection.
-cvcrVPNConnectionId :: Lens' CreateVPNConnectionRoute Text
-cvcrVPNConnectionId = lens _cvcrVPNConnectionId (\s a -> s {_cvcrVPNConnectionId = a})
+--
+-- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvcrVPNConnectionId :: Lens.Lens' CreateVPNConnectionRoute Lude.Text
+cvcrVPNConnectionId = Lens.lens (vpnConnectionId :: CreateVPNConnectionRoute -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: CreateVPNConnectionRoute)
+{-# DEPRECATED cvcrVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
 
-instance AWSRequest CreateVPNConnectionRoute where
+instance Lude.AWSRequest CreateVPNConnectionRoute where
   type Rs CreateVPNConnectionRoute = CreateVPNConnectionRouteResponse
-  request = postQuery ec2
-  response = receiveNull CreateVPNConnectionRouteResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull CreateVPNConnectionRouteResponse'
 
-instance Hashable CreateVPNConnectionRoute
+instance Lude.ToHeaders CreateVPNConnectionRoute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateVPNConnectionRoute
+instance Lude.ToPath CreateVPNConnectionRoute where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateVPNConnectionRoute where
-  toHeaders = const mempty
-
-instance ToPath CreateVPNConnectionRoute where
-  toPath = const "/"
-
-instance ToQuery CreateVPNConnectionRoute where
+instance Lude.ToQuery CreateVPNConnectionRoute where
   toQuery CreateVPNConnectionRoute' {..} =
-    mconcat
-      [ "Action" =: ("CreateVpnConnectionRoute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DestinationCidrBlock" =: _cvcrDestinationCidrBlock,
-        "VpnConnectionId" =: _cvcrVPNConnectionId
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateVpnConnectionRoute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DestinationCidrBlock" Lude.=: destinationCidrBlock,
+        "VpnConnectionId" Lude.=: vpnConnectionId
       ]
 
--- | /See:/ 'createVPNConnectionRouteResponse' smart constructor.
+-- | /See:/ 'mkCreateVPNConnectionRouteResponse' smart constructor.
 data CreateVPNConnectionRouteResponse = CreateVPNConnectionRouteResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPNConnectionRouteResponse' with the minimum fields required to make a request.
-createVPNConnectionRouteResponse ::
+mkCreateVPNConnectionRouteResponse ::
   CreateVPNConnectionRouteResponse
-createVPNConnectionRouteResponse =
+mkCreateVPNConnectionRouteResponse =
   CreateVPNConnectionRouteResponse'
-
-instance NFData CreateVPNConnectionRouteResponse

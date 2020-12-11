@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.AdjustmentType where
+module Network.AWS.EMR.Types.AdjustmentType
+  ( AdjustmentType
+      ( AdjustmentType',
+        ChangeInCapacity,
+        ExactCapacity,
+        PercentChangeInCapacity
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AdjustmentType
-  = ChangeInCapacity
-  | ExactCapacity
-  | PercentChangeInCapacity
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AdjustmentType = AdjustmentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AdjustmentType where
-  parser =
-    takeLowerText >>= \case
-      "change_in_capacity" -> pure ChangeInCapacity
-      "exact_capacity" -> pure ExactCapacity
-      "percent_change_in_capacity" -> pure PercentChangeInCapacity
-      e ->
-        fromTextError $
-          "Failure parsing AdjustmentType from value: '" <> e
-            <> "'. Accepted values: change_in_capacity, exact_capacity, percent_change_in_capacity"
+pattern ChangeInCapacity :: AdjustmentType
+pattern ChangeInCapacity = AdjustmentType' "CHANGE_IN_CAPACITY"
 
-instance ToText AdjustmentType where
-  toText = \case
-    ChangeInCapacity -> "CHANGE_IN_CAPACITY"
-    ExactCapacity -> "EXACT_CAPACITY"
-    PercentChangeInCapacity -> "PERCENT_CHANGE_IN_CAPACITY"
+pattern ExactCapacity :: AdjustmentType
+pattern ExactCapacity = AdjustmentType' "EXACT_CAPACITY"
 
-instance Hashable AdjustmentType
+pattern PercentChangeInCapacity :: AdjustmentType
+pattern PercentChangeInCapacity = AdjustmentType' "PERCENT_CHANGE_IN_CAPACITY"
 
-instance NFData AdjustmentType
-
-instance ToByteString AdjustmentType
-
-instance ToQuery AdjustmentType
-
-instance ToHeader AdjustmentType
-
-instance ToJSON AdjustmentType where
-  toJSON = toJSONText
-
-instance FromJSON AdjustmentType where
-  parseJSON = parseJSONText "AdjustmentType"
+{-# COMPLETE
+  ChangeInCapacity,
+  ExactCapacity,
+  PercentChangeInCapacity,
+  AdjustmentType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DoubleRange where
+module Network.AWS.RDS.Types.DoubleRange
+  ( DoubleRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDoubleRange,
+
+    -- * Lenses
+    drTo,
+    drFrom,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A range of double values.
 --
---
---
--- /See:/ 'doubleRange' smart constructor.
+-- /See:/ 'mkDoubleRange' smart constructor.
 data DoubleRange = DoubleRange'
-  { _drTo :: !(Maybe Double),
-    _drFrom :: !(Maybe Double)
+  { to :: Lude.Maybe Lude.Double,
+    from :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DoubleRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drTo' - The maximum value in the range.
---
--- * 'drFrom' - The minimum value in the range.
-doubleRange ::
+-- * 'from' - The minimum value in the range.
+-- * 'to' - The maximum value in the range.
+mkDoubleRange ::
   DoubleRange
-doubleRange = DoubleRange' {_drTo = Nothing, _drFrom = Nothing}
+mkDoubleRange =
+  DoubleRange' {to = Lude.Nothing, from = Lude.Nothing}
 
 -- | The maximum value in the range.
-drTo :: Lens' DoubleRange (Maybe Double)
-drTo = lens _drTo (\s a -> s {_drTo = a})
+--
+-- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drTo :: Lens.Lens' DoubleRange (Lude.Maybe Lude.Double)
+drTo = Lens.lens (to :: DoubleRange -> Lude.Maybe Lude.Double) (\s a -> s {to = a} :: DoubleRange)
+{-# DEPRECATED drTo "Use generic-lens or generic-optics with 'to' instead." #-}
 
 -- | The minimum value in the range.
-drFrom :: Lens' DoubleRange (Maybe Double)
-drFrom = lens _drFrom (\s a -> s {_drFrom = a})
+--
+-- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drFrom :: Lens.Lens' DoubleRange (Lude.Maybe Lude.Double)
+drFrom = Lens.lens (from :: DoubleRange -> Lude.Maybe Lude.Double) (\s a -> s {from = a} :: DoubleRange)
+{-# DEPRECATED drFrom "Use generic-lens or generic-optics with 'from' instead." #-}
 
-instance FromXML DoubleRange where
-  parseXML x = DoubleRange' <$> (x .@? "To") <*> (x .@? "From")
-
-instance Hashable DoubleRange
-
-instance NFData DoubleRange
+instance Lude.FromXML DoubleRange where
+  parseXML x =
+    DoubleRange'
+      Lude.<$> (x Lude..@? "To") Lude.<*> (x Lude..@? "From")

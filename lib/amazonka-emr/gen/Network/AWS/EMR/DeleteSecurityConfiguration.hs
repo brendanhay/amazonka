@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,124 @@
 --
 -- Deletes a security configuration.
 module Network.AWS.EMR.DeleteSecurityConfiguration
-  ( -- * Creating a Request
-    deleteSecurityConfiguration,
-    DeleteSecurityConfiguration,
+  ( -- * Creating a request
+    DeleteSecurityConfiguration (..),
+    mkDeleteSecurityConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dscName,
 
-    -- * Destructuring the Response
-    deleteSecurityConfigurationResponse,
-    DeleteSecurityConfigurationResponse,
+    -- * Destructuring the response
+    DeleteSecurityConfigurationResponse (..),
+    mkDeleteSecurityConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dscrsResponseStatus,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSecurityConfiguration' smart constructor.
+-- | /See:/ 'mkDeleteSecurityConfiguration' smart constructor.
 newtype DeleteSecurityConfiguration = DeleteSecurityConfiguration'
-  { _dscName ::
-      Text
+  { name ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecurityConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dscName' - The name of the security configuration.
-deleteSecurityConfiguration ::
-  -- | 'dscName'
-  Text ->
+-- * 'name' - The name of the security configuration.
+mkDeleteSecurityConfiguration ::
+  -- | 'name'
+  Lude.Text ->
   DeleteSecurityConfiguration
-deleteSecurityConfiguration pName_ =
-  DeleteSecurityConfiguration' {_dscName = pName_}
+mkDeleteSecurityConfiguration pName_ =
+  DeleteSecurityConfiguration' {name = pName_}
 
 -- | The name of the security configuration.
-dscName :: Lens' DeleteSecurityConfiguration Text
-dscName = lens _dscName (\s a -> s {_dscName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscName :: Lens.Lens' DeleteSecurityConfiguration Lude.Text
+dscName = Lens.lens (name :: DeleteSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: DeleteSecurityConfiguration)
+{-# DEPRECATED dscName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteSecurityConfiguration where
+instance Lude.AWSRequest DeleteSecurityConfiguration where
   type
     Rs DeleteSecurityConfiguration =
       DeleteSecurityConfigurationResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteSecurityConfigurationResponse' <$> (pure (fromEnum s))
+          DeleteSecurityConfigurationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteSecurityConfiguration
-
-instance NFData DeleteSecurityConfiguration
-
-instance ToHeaders DeleteSecurityConfiguration where
+instance Lude.ToHeaders DeleteSecurityConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.DeleteSecurityConfiguration" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ElasticMapReduce.DeleteSecurityConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteSecurityConfiguration where
+instance Lude.ToJSON DeleteSecurityConfiguration where
   toJSON DeleteSecurityConfiguration' {..} =
-    object (catMaybes [Just ("Name" .= _dscName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DeleteSecurityConfiguration where
-  toPath = const "/"
+instance Lude.ToPath DeleteSecurityConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteSecurityConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteSecurityConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteSecurityConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDeleteSecurityConfigurationResponse' smart constructor.
 newtype DeleteSecurityConfigurationResponse = DeleteSecurityConfigurationResponse'
-  { _dscrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecurityConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dscrsResponseStatus' - -- | The response status code.
-deleteSecurityConfigurationResponse ::
-  -- | 'dscrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteSecurityConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSecurityConfigurationResponse
-deleteSecurityConfigurationResponse pResponseStatus_ =
+mkDeleteSecurityConfigurationResponse pResponseStatus_ =
   DeleteSecurityConfigurationResponse'
-    { _dscrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dscrsResponseStatus :: Lens' DeleteSecurityConfigurationResponse Int
-dscrsResponseStatus = lens _dscrsResponseStatus (\s a -> s {_dscrsResponseStatus = a})
-
-instance NFData DeleteSecurityConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscrsResponseStatus :: Lens.Lens' DeleteSecurityConfigurationResponse Lude.Int
+dscrsResponseStatus = Lens.lens (responseStatus :: DeleteSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSecurityConfigurationResponse)
+{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ConversionTaskState where
+module Network.AWS.EC2.Types.ConversionTaskState
+  ( ConversionTaskState
+      ( ConversionTaskState',
+        CTSActive,
+        CTSCancelled,
+        CTSCancelling,
+        CTSCompleted
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConversionTaskState
-  = CTSActive
-  | CTSCancelled
-  | CTSCancelling
-  | CTSCompleted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConversionTaskState = ConversionTaskState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConversionTaskState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CTSActive
-      "cancelled" -> pure CTSCancelled
-      "cancelling" -> pure CTSCancelling
-      "completed" -> pure CTSCompleted
-      e ->
-        fromTextError $
-          "Failure parsing ConversionTaskState from value: '" <> e
-            <> "'. Accepted values: active, cancelled, cancelling, completed"
+pattern CTSActive :: ConversionTaskState
+pattern CTSActive = ConversionTaskState' "active"
 
-instance ToText ConversionTaskState where
-  toText = \case
-    CTSActive -> "active"
-    CTSCancelled -> "cancelled"
-    CTSCancelling -> "cancelling"
-    CTSCompleted -> "completed"
+pattern CTSCancelled :: ConversionTaskState
+pattern CTSCancelled = ConversionTaskState' "cancelled"
 
-instance Hashable ConversionTaskState
+pattern CTSCancelling :: ConversionTaskState
+pattern CTSCancelling = ConversionTaskState' "cancelling"
 
-instance NFData ConversionTaskState
+pattern CTSCompleted :: ConversionTaskState
+pattern CTSCompleted = ConversionTaskState' "completed"
 
-instance ToByteString ConversionTaskState
-
-instance ToQuery ConversionTaskState
-
-instance ToHeader ConversionTaskState
-
-instance FromXML ConversionTaskState where
-  parseXML = parseXMLText "ConversionTaskState"
+{-# COMPLETE
+  CTSActive,
+  CTSCancelled,
+  CTSCancelling,
+  CTSCompleted,
+  ConversionTaskState'
+  #-}

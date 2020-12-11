@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ElasticInferenceAcceleratorAssociation where
+module Network.AWS.EC2.Types.ElasticInferenceAcceleratorAssociation
+  ( ElasticInferenceAcceleratorAssociation (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkElasticInferenceAcceleratorAssociation,
+
+    -- * Lenses
+    eiaaElasticInferenceAcceleratorAssociationState,
+    eiaaElasticInferenceAcceleratorAssociationTime,
+    eiaaElasticInferenceAcceleratorARN,
+    eiaaElasticInferenceAcceleratorAssociationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the association between an instance and an elastic inference accelerator.
 --
---
---
--- /See:/ 'elasticInferenceAcceleratorAssociation' smart constructor.
+-- /See:/ 'mkElasticInferenceAcceleratorAssociation' smart constructor.
 data ElasticInferenceAcceleratorAssociation = ElasticInferenceAcceleratorAssociation'
-  { _eiaaElasticInferenceAcceleratorAssociationState ::
-      !(Maybe Text),
-    _eiaaElasticInferenceAcceleratorAssociationTime ::
-      !( Maybe
-           ISO8601
-       ),
-    _eiaaElasticInferenceAcceleratorARN ::
-      !(Maybe Text),
-    _eiaaElasticInferenceAcceleratorAssociationId ::
-      !(Maybe Text)
+  { elasticInferenceAcceleratorAssociationState ::
+      Lude.Maybe
+        Lude.Text,
+    elasticInferenceAcceleratorAssociationTime ::
+      Lude.Maybe
+        Lude.ISO8601,
+    elasticInferenceAcceleratorARN ::
+      Lude.Maybe
+        Lude.Text,
+    elasticInferenceAcceleratorAssociationId ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticInferenceAcceleratorAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eiaaElasticInferenceAcceleratorAssociationState' - The state of the elastic inference accelerator.
---
--- * 'eiaaElasticInferenceAcceleratorAssociationTime' - The time at which the elastic inference accelerator is associated with an instance.
---
--- * 'eiaaElasticInferenceAcceleratorARN' - The Amazon Resource Name (ARN) of the elastic inference accelerator.
---
--- * 'eiaaElasticInferenceAcceleratorAssociationId' - The ID of the association.
-elasticInferenceAcceleratorAssociation ::
+-- * 'elasticInferenceAcceleratorARN' - The Amazon Resource Name (ARN) of the elastic inference accelerator.
+-- * 'elasticInferenceAcceleratorAssociationId' - The ID of the association.
+-- * 'elasticInferenceAcceleratorAssociationState' - The state of the elastic inference accelerator.
+-- * 'elasticInferenceAcceleratorAssociationTime' - The time at which the elastic inference accelerator is associated with an instance.
+mkElasticInferenceAcceleratorAssociation ::
   ElasticInferenceAcceleratorAssociation
-elasticInferenceAcceleratorAssociation =
+mkElasticInferenceAcceleratorAssociation =
   ElasticInferenceAcceleratorAssociation'
-    { _eiaaElasticInferenceAcceleratorAssociationState =
-        Nothing,
-      _eiaaElasticInferenceAcceleratorAssociationTime =
-        Nothing,
-      _eiaaElasticInferenceAcceleratorARN = Nothing,
-      _eiaaElasticInferenceAcceleratorAssociationId = Nothing
+    { elasticInferenceAcceleratorAssociationState =
+        Lude.Nothing,
+      elasticInferenceAcceleratorAssociationTime =
+        Lude.Nothing,
+      elasticInferenceAcceleratorARN = Lude.Nothing,
+      elasticInferenceAcceleratorAssociationId = Lude.Nothing
     }
 
 -- | The state of the elastic inference accelerator.
-eiaaElasticInferenceAcceleratorAssociationState :: Lens' ElasticInferenceAcceleratorAssociation (Maybe Text)
-eiaaElasticInferenceAcceleratorAssociationState = lens _eiaaElasticInferenceAcceleratorAssociationState (\s a -> s {_eiaaElasticInferenceAcceleratorAssociationState = a})
+--
+-- /Note:/ Consider using 'elasticInferenceAcceleratorAssociationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiaaElasticInferenceAcceleratorAssociationState :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Lude.Maybe Lude.Text)
+eiaaElasticInferenceAcceleratorAssociationState = Lens.lens (elasticInferenceAcceleratorAssociationState :: ElasticInferenceAcceleratorAssociation -> Lude.Maybe Lude.Text) (\s a -> s {elasticInferenceAcceleratorAssociationState = a} :: ElasticInferenceAcceleratorAssociation)
+{-# DEPRECATED eiaaElasticInferenceAcceleratorAssociationState "Use generic-lens or generic-optics with 'elasticInferenceAcceleratorAssociationState' instead." #-}
 
 -- | The time at which the elastic inference accelerator is associated with an instance.
-eiaaElasticInferenceAcceleratorAssociationTime :: Lens' ElasticInferenceAcceleratorAssociation (Maybe UTCTime)
-eiaaElasticInferenceAcceleratorAssociationTime = lens _eiaaElasticInferenceAcceleratorAssociationTime (\s a -> s {_eiaaElasticInferenceAcceleratorAssociationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'elasticInferenceAcceleratorAssociationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiaaElasticInferenceAcceleratorAssociationTime :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Lude.Maybe Lude.ISO8601)
+eiaaElasticInferenceAcceleratorAssociationTime = Lens.lens (elasticInferenceAcceleratorAssociationTime :: ElasticInferenceAcceleratorAssociation -> Lude.Maybe Lude.ISO8601) (\s a -> s {elasticInferenceAcceleratorAssociationTime = a} :: ElasticInferenceAcceleratorAssociation)
+{-# DEPRECATED eiaaElasticInferenceAcceleratorAssociationTime "Use generic-lens or generic-optics with 'elasticInferenceAcceleratorAssociationTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the elastic inference accelerator.
-eiaaElasticInferenceAcceleratorARN :: Lens' ElasticInferenceAcceleratorAssociation (Maybe Text)
-eiaaElasticInferenceAcceleratorARN = lens _eiaaElasticInferenceAcceleratorARN (\s a -> s {_eiaaElasticInferenceAcceleratorARN = a})
+--
+-- /Note:/ Consider using 'elasticInferenceAcceleratorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiaaElasticInferenceAcceleratorARN :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Lude.Maybe Lude.Text)
+eiaaElasticInferenceAcceleratorARN = Lens.lens (elasticInferenceAcceleratorARN :: ElasticInferenceAcceleratorAssociation -> Lude.Maybe Lude.Text) (\s a -> s {elasticInferenceAcceleratorARN = a} :: ElasticInferenceAcceleratorAssociation)
+{-# DEPRECATED eiaaElasticInferenceAcceleratorARN "Use generic-lens or generic-optics with 'elasticInferenceAcceleratorARN' instead." #-}
 
 -- | The ID of the association.
-eiaaElasticInferenceAcceleratorAssociationId :: Lens' ElasticInferenceAcceleratorAssociation (Maybe Text)
-eiaaElasticInferenceAcceleratorAssociationId = lens _eiaaElasticInferenceAcceleratorAssociationId (\s a -> s {_eiaaElasticInferenceAcceleratorAssociationId = a})
+--
+-- /Note:/ Consider using 'elasticInferenceAcceleratorAssociationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiaaElasticInferenceAcceleratorAssociationId :: Lens.Lens' ElasticInferenceAcceleratorAssociation (Lude.Maybe Lude.Text)
+eiaaElasticInferenceAcceleratorAssociationId = Lens.lens (elasticInferenceAcceleratorAssociationId :: ElasticInferenceAcceleratorAssociation -> Lude.Maybe Lude.Text) (\s a -> s {elasticInferenceAcceleratorAssociationId = a} :: ElasticInferenceAcceleratorAssociation)
+{-# DEPRECATED eiaaElasticInferenceAcceleratorAssociationId "Use generic-lens or generic-optics with 'elasticInferenceAcceleratorAssociationId' instead." #-}
 
-instance FromXML ElasticInferenceAcceleratorAssociation where
+instance Lude.FromXML ElasticInferenceAcceleratorAssociation where
   parseXML x =
     ElasticInferenceAcceleratorAssociation'
-      <$> (x .@? "elasticInferenceAcceleratorAssociationState")
-      <*> (x .@? "elasticInferenceAcceleratorAssociationTime")
-      <*> (x .@? "elasticInferenceAcceleratorArn")
-      <*> (x .@? "elasticInferenceAcceleratorAssociationId")
-
-instance Hashable ElasticInferenceAcceleratorAssociation
-
-instance NFData ElasticInferenceAcceleratorAssociation
+      Lude.<$> (x Lude..@? "elasticInferenceAcceleratorAssociationState")
+      Lude.<*> (x Lude..@? "elasticInferenceAcceleratorAssociationTime")
+      Lude.<*> (x Lude..@? "elasticInferenceAcceleratorArn")
+      Lude.<*> (x Lude..@? "elasticInferenceAcceleratorAssociationId")

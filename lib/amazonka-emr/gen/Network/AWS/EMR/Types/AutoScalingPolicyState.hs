@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.AutoScalingPolicyState where
+module Network.AWS.EMR.Types.AutoScalingPolicyState
+  ( AutoScalingPolicyState
+      ( AutoScalingPolicyState',
+        Attached,
+        Attaching,
+        Detached,
+        Detaching,
+        Failed,
+        Pending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutoScalingPolicyState
-  = Attached
-  | Attaching
-  | Detached
-  | Detaching
-  | Failed
-  | Pending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutoScalingPolicyState = AutoScalingPolicyState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutoScalingPolicyState where
-  parser =
-    takeLowerText >>= \case
-      "attached" -> pure Attached
-      "attaching" -> pure Attaching
-      "detached" -> pure Detached
-      "detaching" -> pure Detaching
-      "failed" -> pure Failed
-      "pending" -> pure Pending
-      e ->
-        fromTextError $
-          "Failure parsing AutoScalingPolicyState from value: '" <> e
-            <> "'. Accepted values: attached, attaching, detached, detaching, failed, pending"
+pattern Attached :: AutoScalingPolicyState
+pattern Attached = AutoScalingPolicyState' "ATTACHED"
 
-instance ToText AutoScalingPolicyState where
-  toText = \case
-    Attached -> "ATTACHED"
-    Attaching -> "ATTACHING"
-    Detached -> "DETACHED"
-    Detaching -> "DETACHING"
-    Failed -> "FAILED"
-    Pending -> "PENDING"
+pattern Attaching :: AutoScalingPolicyState
+pattern Attaching = AutoScalingPolicyState' "ATTACHING"
 
-instance Hashable AutoScalingPolicyState
+pattern Detached :: AutoScalingPolicyState
+pattern Detached = AutoScalingPolicyState' "DETACHED"
 
-instance NFData AutoScalingPolicyState
+pattern Detaching :: AutoScalingPolicyState
+pattern Detaching = AutoScalingPolicyState' "DETACHING"
 
-instance ToByteString AutoScalingPolicyState
+pattern Failed :: AutoScalingPolicyState
+pattern Failed = AutoScalingPolicyState' "FAILED"
 
-instance ToQuery AutoScalingPolicyState
+pattern Pending :: AutoScalingPolicyState
+pattern Pending = AutoScalingPolicyState' "PENDING"
 
-instance ToHeader AutoScalingPolicyState
-
-instance FromJSON AutoScalingPolicyState where
-  parseJSON = parseJSONText "AutoScalingPolicyState"
+{-# COMPLETE
+  Attached,
+  Attaching,
+  Detached,
+  Detaching,
+  Failed,
+  Pending,
+  AutoScalingPolicyState'
+  #-}

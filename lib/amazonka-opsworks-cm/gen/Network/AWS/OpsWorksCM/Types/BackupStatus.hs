@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorksCM.Types.BackupStatus where
+module Network.AWS.OpsWorksCM.Types.BackupStatus
+  ( BackupStatus
+      ( BackupStatus',
+        BSDeleting,
+        BSFailed,
+        BSInProgress,
+        BSOK
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BackupStatus
-  = BSDeleting
-  | BSFailed
-  | BSInProgress
-  | BSOK
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BackupStatus = BackupStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BackupStatus where
-  parser =
-    takeLowerText >>= \case
-      "deleting" -> pure BSDeleting
-      "failed" -> pure BSFailed
-      "in_progress" -> pure BSInProgress
-      "ok" -> pure BSOK
-      e ->
-        fromTextError $
-          "Failure parsing BackupStatus from value: '" <> e
-            <> "'. Accepted values: deleting, failed, in_progress, ok"
+pattern BSDeleting :: BackupStatus
+pattern BSDeleting = BackupStatus' "DELETING"
 
-instance ToText BackupStatus where
-  toText = \case
-    BSDeleting -> "DELETING"
-    BSFailed -> "FAILED"
-    BSInProgress -> "IN_PROGRESS"
-    BSOK -> "OK"
+pattern BSFailed :: BackupStatus
+pattern BSFailed = BackupStatus' "FAILED"
 
-instance Hashable BackupStatus
+pattern BSInProgress :: BackupStatus
+pattern BSInProgress = BackupStatus' "IN_PROGRESS"
 
-instance NFData BackupStatus
+pattern BSOK :: BackupStatus
+pattern BSOK = BackupStatus' "OK"
 
-instance ToByteString BackupStatus
-
-instance ToQuery BackupStatus
-
-instance ToHeader BackupStatus
-
-instance FromJSON BackupStatus where
-  parseJSON = parseJSONText "BackupStatus"
+{-# COMPLETE
+  BSDeleting,
+  BSFailed,
+  BSInProgress,
+  BSOK,
+  BackupStatus'
+  #-}

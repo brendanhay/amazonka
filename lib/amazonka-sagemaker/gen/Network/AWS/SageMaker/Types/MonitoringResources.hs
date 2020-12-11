@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringResources where
+module Network.AWS.SageMaker.Types.MonitoringResources
+  ( MonitoringResources (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMonitoringResources,
+
+    -- * Lenses
+    mrClusterConfig,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.MonitoringClusterConfig
 
 -- | Identifies the resources to deploy for a monitoring job.
 --
---
---
--- /See:/ 'monitoringResources' smart constructor.
+-- /See:/ 'mkMonitoringResources' smart constructor.
 newtype MonitoringResources = MonitoringResources'
-  { _mrClusterConfig ::
+  { clusterConfig ::
       MonitoringClusterConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringResources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mrClusterConfig' - The configuration for the cluster resources used to run the processing job.
-monitoringResources ::
-  -- | 'mrClusterConfig'
+-- * 'clusterConfig' - The configuration for the cluster resources used to run the processing job.
+mkMonitoringResources ::
+  -- | 'clusterConfig'
   MonitoringClusterConfig ->
   MonitoringResources
-monitoringResources pClusterConfig_ =
-  MonitoringResources' {_mrClusterConfig = pClusterConfig_}
+mkMonitoringResources pClusterConfig_ =
+  MonitoringResources' {clusterConfig = pClusterConfig_}
 
 -- | The configuration for the cluster resources used to run the processing job.
-mrClusterConfig :: Lens' MonitoringResources MonitoringClusterConfig
-mrClusterConfig = lens _mrClusterConfig (\s a -> s {_mrClusterConfig = a})
+--
+-- /Note:/ Consider using 'clusterConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrClusterConfig :: Lens.Lens' MonitoringResources MonitoringClusterConfig
+mrClusterConfig = Lens.lens (clusterConfig :: MonitoringResources -> MonitoringClusterConfig) (\s a -> s {clusterConfig = a} :: MonitoringResources)
+{-# DEPRECATED mrClusterConfig "Use generic-lens or generic-optics with 'clusterConfig' instead." #-}
 
-instance FromJSON MonitoringResources where
+instance Lude.FromJSON MonitoringResources where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonitoringResources"
-      (\x -> MonitoringResources' <$> (x .: "ClusterConfig"))
+      (\x -> MonitoringResources' Lude.<$> (x Lude..: "ClusterConfig"))
 
-instance Hashable MonitoringResources
-
-instance NFData MonitoringResources
-
-instance ToJSON MonitoringResources where
+instance Lude.ToJSON MonitoringResources where
   toJSON MonitoringResources' {..} =
-    object (catMaybes [Just ("ClusterConfig" .= _mrClusterConfig)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ClusterConfig" Lude..= clusterConfig)]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.LookbackPeriodInDays where
+module Network.AWS.CostExplorer.Types.LookbackPeriodInDays
+  ( LookbackPeriodInDays
+      ( LookbackPeriodInDays',
+        SevenDays,
+        SixtyDays,
+        ThirtyDays
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LookbackPeriodInDays
-  = SevenDays
-  | SixtyDays
-  | ThirtyDays
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LookbackPeriodInDays = LookbackPeriodInDays' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LookbackPeriodInDays where
-  parser =
-    takeLowerText >>= \case
-      "seven_days" -> pure SevenDays
-      "sixty_days" -> pure SixtyDays
-      "thirty_days" -> pure ThirtyDays
-      e ->
-        fromTextError $
-          "Failure parsing LookbackPeriodInDays from value: '" <> e
-            <> "'. Accepted values: seven_days, sixty_days, thirty_days"
+pattern SevenDays :: LookbackPeriodInDays
+pattern SevenDays = LookbackPeriodInDays' "SEVEN_DAYS"
 
-instance ToText LookbackPeriodInDays where
-  toText = \case
-    SevenDays -> "SEVEN_DAYS"
-    SixtyDays -> "SIXTY_DAYS"
-    ThirtyDays -> "THIRTY_DAYS"
+pattern SixtyDays :: LookbackPeriodInDays
+pattern SixtyDays = LookbackPeriodInDays' "SIXTY_DAYS"
 
-instance Hashable LookbackPeriodInDays
+pattern ThirtyDays :: LookbackPeriodInDays
+pattern ThirtyDays = LookbackPeriodInDays' "THIRTY_DAYS"
 
-instance NFData LookbackPeriodInDays
-
-instance ToByteString LookbackPeriodInDays
-
-instance ToQuery LookbackPeriodInDays
-
-instance ToHeader LookbackPeriodInDays
-
-instance ToJSON LookbackPeriodInDays where
-  toJSON = toJSONText
-
-instance FromJSON LookbackPeriodInDays where
-  parseJSON = parseJSONText "LookbackPeriodInDays"
+{-# COMPLETE
+  SevenDays,
+  SixtyDays,
+  ThirtyDays,
+  LookbackPeriodInDays'
+  #-}

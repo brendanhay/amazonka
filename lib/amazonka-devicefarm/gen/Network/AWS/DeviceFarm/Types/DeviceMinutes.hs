@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.DeviceMinutes where
+module Network.AWS.DeviceFarm.Types.DeviceMinutes
+  ( DeviceMinutes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeviceMinutes,
+
+    -- * Lenses
+    dmMetered,
+    dmTotal,
+    dmUnmetered,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the total (metered or unmetered) minutes used by the resource to run tests. Contains the sum of minutes consumed by all children.
 --
---
---
--- /See:/ 'deviceMinutes' smart constructor.
+-- /See:/ 'mkDeviceMinutes' smart constructor.
 data DeviceMinutes = DeviceMinutes'
-  { _dmMetered :: !(Maybe Double),
-    _dmTotal :: !(Maybe Double),
-    _dmUnmetered :: !(Maybe Double)
+  { metered ::
+      Lude.Maybe Lude.Double,
+    total :: Lude.Maybe Lude.Double,
+    unmetered :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceMinutes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmMetered' - When specified, represents only the sum of metered minutes used by the resource to run tests.
---
--- * 'dmTotal' - When specified, represents the total minutes used by the resource to run tests.
---
--- * 'dmUnmetered' - When specified, represents only the sum of unmetered minutes used by the resource to run tests.
-deviceMinutes ::
+-- * 'metered' - When specified, represents only the sum of metered minutes used by the resource to run tests.
+-- * 'total' - When specified, represents the total minutes used by the resource to run tests.
+-- * 'unmetered' - When specified, represents only the sum of unmetered minutes used by the resource to run tests.
+mkDeviceMinutes ::
   DeviceMinutes
-deviceMinutes =
+mkDeviceMinutes =
   DeviceMinutes'
-    { _dmMetered = Nothing,
-      _dmTotal = Nothing,
-      _dmUnmetered = Nothing
+    { metered = Lude.Nothing,
+      total = Lude.Nothing,
+      unmetered = Lude.Nothing
     }
 
 -- | When specified, represents only the sum of metered minutes used by the resource to run tests.
-dmMetered :: Lens' DeviceMinutes (Maybe Double)
-dmMetered = lens _dmMetered (\s a -> s {_dmMetered = a})
+--
+-- /Note:/ Consider using 'metered' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmMetered :: Lens.Lens' DeviceMinutes (Lude.Maybe Lude.Double)
+dmMetered = Lens.lens (metered :: DeviceMinutes -> Lude.Maybe Lude.Double) (\s a -> s {metered = a} :: DeviceMinutes)
+{-# DEPRECATED dmMetered "Use generic-lens or generic-optics with 'metered' instead." #-}
 
 -- | When specified, represents the total minutes used by the resource to run tests.
-dmTotal :: Lens' DeviceMinutes (Maybe Double)
-dmTotal = lens _dmTotal (\s a -> s {_dmTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmTotal :: Lens.Lens' DeviceMinutes (Lude.Maybe Lude.Double)
+dmTotal = Lens.lens (total :: DeviceMinutes -> Lude.Maybe Lude.Double) (\s a -> s {total = a} :: DeviceMinutes)
+{-# DEPRECATED dmTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
 -- | When specified, represents only the sum of unmetered minutes used by the resource to run tests.
-dmUnmetered :: Lens' DeviceMinutes (Maybe Double)
-dmUnmetered = lens _dmUnmetered (\s a -> s {_dmUnmetered = a})
+--
+-- /Note:/ Consider using 'unmetered' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmUnmetered :: Lens.Lens' DeviceMinutes (Lude.Maybe Lude.Double)
+dmUnmetered = Lens.lens (unmetered :: DeviceMinutes -> Lude.Maybe Lude.Double) (\s a -> s {unmetered = a} :: DeviceMinutes)
+{-# DEPRECATED dmUnmetered "Use generic-lens or generic-optics with 'unmetered' instead." #-}
 
-instance FromJSON DeviceMinutes where
+instance Lude.FromJSON DeviceMinutes where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeviceMinutes"
       ( \x ->
           DeviceMinutes'
-            <$> (x .:? "metered") <*> (x .:? "total") <*> (x .:? "unmetered")
+            Lude.<$> (x Lude..:? "metered")
+            Lude.<*> (x Lude..:? "total")
+            Lude.<*> (x Lude..:? "unmetered")
       )
-
-instance Hashable DeviceMinutes
-
-instance NFData DeviceMinutes

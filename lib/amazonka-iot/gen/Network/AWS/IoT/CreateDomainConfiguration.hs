@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a domain configuration.
 module Network.AWS.IoT.CreateDomainConfiguration
-  ( -- * Creating a Request
-    createDomainConfiguration,
-    CreateDomainConfiguration,
+  ( -- * Creating a request
+    CreateDomainConfiguration (..),
+    mkCreateDomainConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdcAuthorizerConfig,
     cdcServerCertificateARNs,
     cdcDomainName,
@@ -32,11 +27,11 @@ module Network.AWS.IoT.CreateDomainConfiguration
     cdcTags,
     cdcDomainConfigurationName,
 
-    -- * Destructuring the Response
-    createDomainConfigurationResponse,
-    CreateDomainConfigurationResponse,
+    -- * Destructuring the response
+    CreateDomainConfigurationResponse (..),
+    mkCreateDomainConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdcrsDomainConfigurationName,
     cdcrsDomainConfigurationARN,
     cdcrsResponseStatus,
@@ -44,170 +39,197 @@ module Network.AWS.IoT.CreateDomainConfiguration
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createDomainConfiguration' smart constructor.
+-- | /See:/ 'mkCreateDomainConfiguration' smart constructor.
 data CreateDomainConfiguration = CreateDomainConfiguration'
-  { _cdcAuthorizerConfig ::
-      !(Maybe AuthorizerConfig),
-    _cdcServerCertificateARNs ::
-      !(Maybe [Text]),
-    _cdcDomainName :: !(Maybe Text),
-    _cdcServiceType :: !(Maybe ServiceType),
-    _cdcValidationCertificateARN ::
-      !(Maybe Text),
-    _cdcTags :: !(Maybe [Tag]),
-    _cdcDomainConfigurationName :: !Text
+  { authorizerConfig ::
+      Lude.Maybe AuthorizerConfig,
+    serverCertificateARNs ::
+      Lude.Maybe [Lude.Text],
+    domainName :: Lude.Maybe Lude.Text,
+    serviceType :: Lude.Maybe ServiceType,
+    validationCertificateARN ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    domainConfigurationName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcAuthorizerConfig' - An object that specifies the authorization service for a domain.
---
--- * 'cdcServerCertificateARNs' - The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS-managed domains.
---
--- * 'cdcDomainName' - The name of the domain.
---
--- * 'cdcServiceType' - The type of service delivered by the endpoint.
---
--- * 'cdcValidationCertificateARN' - The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS-managed domains.
---
--- * 'cdcTags' - Metadata which can be used to manage the domain configuration.
---
--- * 'cdcDomainConfigurationName' - The name of the domain configuration. This value must be unique to a region.
-createDomainConfiguration ::
-  -- | 'cdcDomainConfigurationName'
-  Text ->
+-- * 'authorizerConfig' - An object that specifies the authorization service for a domain.
+-- * 'domainConfigurationName' - The name of the domain configuration. This value must be unique to a region.
+-- * 'domainName' - The name of the domain.
+-- * 'serverCertificateARNs' - The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS-managed domains.
+-- * 'serviceType' - The type of service delivered by the endpoint.
+-- * 'tags' - Metadata which can be used to manage the domain configuration.
+-- * 'validationCertificateARN' - The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS-managed domains.
+mkCreateDomainConfiguration ::
+  -- | 'domainConfigurationName'
+  Lude.Text ->
   CreateDomainConfiguration
-createDomainConfiguration pDomainConfigurationName_ =
+mkCreateDomainConfiguration pDomainConfigurationName_ =
   CreateDomainConfiguration'
-    { _cdcAuthorizerConfig = Nothing,
-      _cdcServerCertificateARNs = Nothing,
-      _cdcDomainName = Nothing,
-      _cdcServiceType = Nothing,
-      _cdcValidationCertificateARN = Nothing,
-      _cdcTags = Nothing,
-      _cdcDomainConfigurationName = pDomainConfigurationName_
+    { authorizerConfig = Lude.Nothing,
+      serverCertificateARNs = Lude.Nothing,
+      domainName = Lude.Nothing,
+      serviceType = Lude.Nothing,
+      validationCertificateARN = Lude.Nothing,
+      tags = Lude.Nothing,
+      domainConfigurationName = pDomainConfigurationName_
     }
 
 -- | An object that specifies the authorization service for a domain.
-cdcAuthorizerConfig :: Lens' CreateDomainConfiguration (Maybe AuthorizerConfig)
-cdcAuthorizerConfig = lens _cdcAuthorizerConfig (\s a -> s {_cdcAuthorizerConfig = a})
+--
+-- /Note:/ Consider using 'authorizerConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcAuthorizerConfig :: Lens.Lens' CreateDomainConfiguration (Lude.Maybe AuthorizerConfig)
+cdcAuthorizerConfig = Lens.lens (authorizerConfig :: CreateDomainConfiguration -> Lude.Maybe AuthorizerConfig) (\s a -> s {authorizerConfig = a} :: CreateDomainConfiguration)
+{-# DEPRECATED cdcAuthorizerConfig "Use generic-lens or generic-optics with 'authorizerConfig' instead." #-}
 
 -- | The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS-managed domains.
-cdcServerCertificateARNs :: Lens' CreateDomainConfiguration [Text]
-cdcServerCertificateARNs = lens _cdcServerCertificateARNs (\s a -> s {_cdcServerCertificateARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverCertificateARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcServerCertificateARNs :: Lens.Lens' CreateDomainConfiguration (Lude.Maybe [Lude.Text])
+cdcServerCertificateARNs = Lens.lens (serverCertificateARNs :: CreateDomainConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {serverCertificateARNs = a} :: CreateDomainConfiguration)
+{-# DEPRECATED cdcServerCertificateARNs "Use generic-lens or generic-optics with 'serverCertificateARNs' instead." #-}
 
 -- | The name of the domain.
-cdcDomainName :: Lens' CreateDomainConfiguration (Maybe Text)
-cdcDomainName = lens _cdcDomainName (\s a -> s {_cdcDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDomainName :: Lens.Lens' CreateDomainConfiguration (Lude.Maybe Lude.Text)
+cdcDomainName = Lens.lens (domainName :: CreateDomainConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: CreateDomainConfiguration)
+{-# DEPRECATED cdcDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The type of service delivered by the endpoint.
-cdcServiceType :: Lens' CreateDomainConfiguration (Maybe ServiceType)
-cdcServiceType = lens _cdcServiceType (\s a -> s {_cdcServiceType = a})
+--
+-- /Note:/ Consider using 'serviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcServiceType :: Lens.Lens' CreateDomainConfiguration (Lude.Maybe ServiceType)
+cdcServiceType = Lens.lens (serviceType :: CreateDomainConfiguration -> Lude.Maybe ServiceType) (\s a -> s {serviceType = a} :: CreateDomainConfiguration)
+{-# DEPRECATED cdcServiceType "Use generic-lens or generic-optics with 'serviceType' instead." #-}
 
 -- | The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS-managed domains.
-cdcValidationCertificateARN :: Lens' CreateDomainConfiguration (Maybe Text)
-cdcValidationCertificateARN = lens _cdcValidationCertificateARN (\s a -> s {_cdcValidationCertificateARN = a})
+--
+-- /Note:/ Consider using 'validationCertificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcValidationCertificateARN :: Lens.Lens' CreateDomainConfiguration (Lude.Maybe Lude.Text)
+cdcValidationCertificateARN = Lens.lens (validationCertificateARN :: CreateDomainConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {validationCertificateARN = a} :: CreateDomainConfiguration)
+{-# DEPRECATED cdcValidationCertificateARN "Use generic-lens or generic-optics with 'validationCertificateARN' instead." #-}
 
 -- | Metadata which can be used to manage the domain configuration.
-cdcTags :: Lens' CreateDomainConfiguration [Tag]
-cdcTags = lens _cdcTags (\s a -> s {_cdcTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcTags :: Lens.Lens' CreateDomainConfiguration (Lude.Maybe [Tag])
+cdcTags = Lens.lens (tags :: CreateDomainConfiguration -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDomainConfiguration)
+{-# DEPRECATED cdcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the domain configuration. This value must be unique to a region.
-cdcDomainConfigurationName :: Lens' CreateDomainConfiguration Text
-cdcDomainConfigurationName = lens _cdcDomainConfigurationName (\s a -> s {_cdcDomainConfigurationName = a})
+--
+-- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDomainConfigurationName :: Lens.Lens' CreateDomainConfiguration Lude.Text
+cdcDomainConfigurationName = Lens.lens (domainConfigurationName :: CreateDomainConfiguration -> Lude.Text) (\s a -> s {domainConfigurationName = a} :: CreateDomainConfiguration)
+{-# DEPRECATED cdcDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
 
-instance AWSRequest CreateDomainConfiguration where
+instance Lude.AWSRequest CreateDomainConfiguration where
   type
     Rs CreateDomainConfiguration =
       CreateDomainConfigurationResponse
-  request = postJSON ioT
+  request = Req.postJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateDomainConfigurationResponse'
-            <$> (x .?> "domainConfigurationName")
-            <*> (x .?> "domainConfigurationArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "domainConfigurationName")
+            Lude.<*> (x Lude..?> "domainConfigurationArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDomainConfiguration
+instance Lude.ToHeaders CreateDomainConfiguration where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateDomainConfiguration
-
-instance ToHeaders CreateDomainConfiguration where
-  toHeaders = const mempty
-
-instance ToJSON CreateDomainConfiguration where
+instance Lude.ToJSON CreateDomainConfiguration where
   toJSON CreateDomainConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("authorizerConfig" .=) <$> _cdcAuthorizerConfig,
-            ("serverCertificateArns" .=) <$> _cdcServerCertificateARNs,
-            ("domainName" .=) <$> _cdcDomainName,
-            ("serviceType" .=) <$> _cdcServiceType,
-            ("validationCertificateArn" .=) <$> _cdcValidationCertificateARN,
-            ("tags" .=) <$> _cdcTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("authorizerConfig" Lude..=) Lude.<$> authorizerConfig,
+            ("serverCertificateArns" Lude..=) Lude.<$> serverCertificateARNs,
+            ("domainName" Lude..=) Lude.<$> domainName,
+            ("serviceType" Lude..=) Lude.<$> serviceType,
+            ("validationCertificateArn" Lude..=)
+              Lude.<$> validationCertificateARN,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath CreateDomainConfiguration where
+instance Lude.ToPath CreateDomainConfiguration where
   toPath CreateDomainConfiguration' {..} =
-    mconcat
-      ["/domainConfigurations/", toBS _cdcDomainConfigurationName]
+    Lude.mconcat
+      ["/domainConfigurations/", Lude.toBS domainConfigurationName]
 
-instance ToQuery CreateDomainConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDomainConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createDomainConfigurationResponse' smart constructor.
+-- | /See:/ 'mkCreateDomainConfigurationResponse' smart constructor.
 data CreateDomainConfigurationResponse = CreateDomainConfigurationResponse'
-  { _cdcrsDomainConfigurationName ::
-      !(Maybe Text),
-    _cdcrsDomainConfigurationARN ::
-      !(Maybe Text),
-    _cdcrsResponseStatus ::
-      !Int
+  { domainConfigurationName ::
+      Lude.Maybe Lude.Text,
+    domainConfigurationARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdcrsDomainConfigurationName' - The name of the domain configuration.
---
--- * 'cdcrsDomainConfigurationARN' - The ARN of the domain configuration.
---
--- * 'cdcrsResponseStatus' - -- | The response status code.
-createDomainConfigurationResponse ::
-  -- | 'cdcrsResponseStatus'
-  Int ->
+-- * 'domainConfigurationARN' - The ARN of the domain configuration.
+-- * 'domainConfigurationName' - The name of the domain configuration.
+-- * 'responseStatus' - The response status code.
+mkCreateDomainConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDomainConfigurationResponse
-createDomainConfigurationResponse pResponseStatus_ =
+mkCreateDomainConfigurationResponse pResponseStatus_ =
   CreateDomainConfigurationResponse'
-    { _cdcrsDomainConfigurationName =
-        Nothing,
-      _cdcrsDomainConfigurationARN = Nothing,
-      _cdcrsResponseStatus = pResponseStatus_
+    { domainConfigurationName =
+        Lude.Nothing,
+      domainConfigurationARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the domain configuration.
-cdcrsDomainConfigurationName :: Lens' CreateDomainConfigurationResponse (Maybe Text)
-cdcrsDomainConfigurationName = lens _cdcrsDomainConfigurationName (\s a -> s {_cdcrsDomainConfigurationName = a})
+--
+-- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsDomainConfigurationName :: Lens.Lens' CreateDomainConfigurationResponse (Lude.Maybe Lude.Text)
+cdcrsDomainConfigurationName = Lens.lens (domainConfigurationName :: CreateDomainConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainConfigurationName = a} :: CreateDomainConfigurationResponse)
+{-# DEPRECATED cdcrsDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
 
 -- | The ARN of the domain configuration.
-cdcrsDomainConfigurationARN :: Lens' CreateDomainConfigurationResponse (Maybe Text)
-cdcrsDomainConfigurationARN = lens _cdcrsDomainConfigurationARN (\s a -> s {_cdcrsDomainConfigurationARN = a})
+--
+-- /Note:/ Consider using 'domainConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsDomainConfigurationARN :: Lens.Lens' CreateDomainConfigurationResponse (Lude.Maybe Lude.Text)
+cdcrsDomainConfigurationARN = Lens.lens (domainConfigurationARN :: CreateDomainConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainConfigurationARN = a} :: CreateDomainConfigurationResponse)
+{-# DEPRECATED cdcrsDomainConfigurationARN "Use generic-lens or generic-optics with 'domainConfigurationARN' instead." #-}
 
--- | -- | The response status code.
-cdcrsResponseStatus :: Lens' CreateDomainConfigurationResponse Int
-cdcrsResponseStatus = lens _cdcrsResponseStatus (\s a -> s {_cdcrsResponseStatus = a})
-
-instance NFData CreateDomainConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcrsResponseStatus :: Lens.Lens' CreateDomainConfigurationResponse Lude.Int
+cdcrsResponseStatus = Lens.lens (responseStatus :: CreateDomainConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDomainConfigurationResponse)
+{-# DEPRECATED cdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

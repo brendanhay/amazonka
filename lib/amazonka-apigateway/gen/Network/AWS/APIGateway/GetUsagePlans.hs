@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets all the usage plans of the caller's account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetUsagePlans
-  ( -- * Creating a Request
-    getUsagePlans,
-    GetUsagePlans,
+  ( -- * Creating a request
+    GetUsagePlans (..),
+    mkGetUsagePlans,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gupKeyId,
     gupLimit,
     gupPosition,
 
-    -- * Destructuring the Response
-    getUsagePlansResponse,
-    GetUsagePlansResponse,
+    -- * Destructuring the response
+    GetUsagePlansResponse (..),
+    mkGetUsagePlansResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     guprsItems,
     guprsPosition,
     guprsResponseStatus,
@@ -44,135 +37,156 @@ module Network.AWS.APIGateway.GetUsagePlans
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The GET request to get all the usage plans of the caller's account.
 --
---
---
--- /See:/ 'getUsagePlans' smart constructor.
+-- /See:/ 'mkGetUsagePlans' smart constructor.
 data GetUsagePlans = GetUsagePlans'
-  { _gupKeyId :: !(Maybe Text),
-    _gupLimit :: !(Maybe Int),
-    _gupPosition :: !(Maybe Text)
+  { keyId :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsagePlans' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gupKeyId' - The identifier of the API key associated with the usage plans.
---
--- * 'gupLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gupPosition' - The current pagination position in the paged result set.
-getUsagePlans ::
+-- * 'keyId' - The identifier of the API key associated with the usage plans.
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'position' - The current pagination position in the paged result set.
+mkGetUsagePlans ::
   GetUsagePlans
-getUsagePlans =
+mkGetUsagePlans =
   GetUsagePlans'
-    { _gupKeyId = Nothing,
-      _gupLimit = Nothing,
-      _gupPosition = Nothing
+    { keyId = Lude.Nothing,
+      limit = Lude.Nothing,
+      position = Lude.Nothing
     }
 
 -- | The identifier of the API key associated with the usage plans.
-gupKeyId :: Lens' GetUsagePlans (Maybe Text)
-gupKeyId = lens _gupKeyId (\s a -> s {_gupKeyId = a})
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupKeyId :: Lens.Lens' GetUsagePlans (Lude.Maybe Lude.Text)
+gupKeyId = Lens.lens (keyId :: GetUsagePlans -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: GetUsagePlans)
+{-# DEPRECATED gupKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gupLimit :: Lens' GetUsagePlans (Maybe Int)
-gupLimit = lens _gupLimit (\s a -> s {_gupLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupLimit :: Lens.Lens' GetUsagePlans (Lude.Maybe Lude.Int)
+gupLimit = Lens.lens (limit :: GetUsagePlans -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetUsagePlans)
+{-# DEPRECATED gupLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gupPosition :: Lens' GetUsagePlans (Maybe Text)
-gupPosition = lens _gupPosition (\s a -> s {_gupPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gupPosition :: Lens.Lens' GetUsagePlans (Lude.Maybe Lude.Text)
+gupPosition = Lens.lens (position :: GetUsagePlans -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetUsagePlans)
+{-# DEPRECATED gupPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
-instance AWSPager GetUsagePlans where
+instance Page.AWSPager GetUsagePlans where
   page rq rs
-    | stop (rs ^. guprsPosition) = Nothing
-    | stop (rs ^. guprsItems) = Nothing
-    | otherwise = Just $ rq & gupPosition .~ rs ^. guprsPosition
+    | Page.stop (rs Lens.^. guprsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. guprsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gupPosition Lens..~ rs Lens.^. guprsPosition
 
-instance AWSRequest GetUsagePlans where
+instance Lude.AWSRequest GetUsagePlans where
   type Rs GetUsagePlans = GetUsagePlansResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetUsagePlansResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetUsagePlans
-
-instance NFData GetUsagePlans
-
-instance ToHeaders GetUsagePlans where
+instance Lude.ToHeaders GetUsagePlans where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetUsagePlans where
-  toPath = const "/usageplans"
+instance Lude.ToPath GetUsagePlans where
+  toPath = Lude.const "/usageplans"
 
-instance ToQuery GetUsagePlans where
+instance Lude.ToQuery GetUsagePlans where
   toQuery GetUsagePlans' {..} =
-    mconcat
-      [ "keyId" =: _gupKeyId,
-        "limit" =: _gupLimit,
-        "position" =: _gupPosition
+    Lude.mconcat
+      [ "keyId" Lude.=: keyId,
+        "limit" Lude.=: limit,
+        "position" Lude.=: position
       ]
 
 -- | Represents a collection of usage plans for an AWS account.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
--- /See:/ 'getUsagePlansResponse' smart constructor.
+-- /See:/ 'mkGetUsagePlansResponse' smart constructor.
 data GetUsagePlansResponse = GetUsagePlansResponse'
-  { _guprsItems ::
-      !(Maybe [UsagePlan]),
-    _guprsPosition :: !(Maybe Text),
-    _guprsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [UsagePlan],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsagePlansResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'guprsItems' - The current page of elements from this collection.
---
--- * 'guprsPosition' - Undocumented member.
---
--- * 'guprsResponseStatus' - -- | The response status code.
-getUsagePlansResponse ::
-  -- | 'guprsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetUsagePlansResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetUsagePlansResponse
-getUsagePlansResponse pResponseStatus_ =
+mkGetUsagePlansResponse pResponseStatus_ =
   GetUsagePlansResponse'
-    { _guprsItems = Nothing,
-      _guprsPosition = Nothing,
-      _guprsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-guprsItems :: Lens' GetUsagePlansResponse [UsagePlan]
-guprsItems = lens _guprsItems (\s a -> s {_guprsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guprsItems :: Lens.Lens' GetUsagePlansResponse (Lude.Maybe [UsagePlan])
+guprsItems = Lens.lens (items :: GetUsagePlansResponse -> Lude.Maybe [UsagePlan]) (\s a -> s {items = a} :: GetUsagePlansResponse)
+{-# DEPRECATED guprsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-guprsPosition :: Lens' GetUsagePlansResponse (Maybe Text)
-guprsPosition = lens _guprsPosition (\s a -> s {_guprsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guprsPosition :: Lens.Lens' GetUsagePlansResponse (Lude.Maybe Lude.Text)
+guprsPosition = Lens.lens (position :: GetUsagePlansResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetUsagePlansResponse)
+{-# DEPRECATED guprsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-guprsResponseStatus :: Lens' GetUsagePlansResponse Int
-guprsResponseStatus = lens _guprsResponseStatus (\s a -> s {_guprsResponseStatus = a})
-
-instance NFData GetUsagePlansResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guprsResponseStatus :: Lens.Lens' GetUsagePlansResponse Lude.Int
+guprsResponseStatus = Lens.lens (responseStatus :: GetUsagePlansResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUsagePlansResponse)
+{-# DEPRECATED guprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

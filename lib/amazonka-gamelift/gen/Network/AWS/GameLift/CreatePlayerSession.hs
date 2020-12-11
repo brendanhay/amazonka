@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,171 +14,189 @@
 --
 -- Reserves an open player slot in an active game session. Before a player can be added, a game session must have an @ACTIVE@ status, have a creation policy of @ALLOW_ALL@ , and have an open player slot. To add a group of players to a game session, use 'CreatePlayerSessions' . When the player connects to the game server and references a player session ID, the game server contacts the Amazon GameLift service to validate the player reservation and accept the player.
 --
---
 -- To create a player session, specify a game session ID, player ID, and optionally a string of player data. If successful, a slot is reserved in the game session for the player and a new 'PlayerSession' object is returned. Player sessions cannot be updated.
---
 -- /Available in Amazon GameLift Local./
 --
 --     * 'CreatePlayerSession'
 --
+--
 --     * 'CreatePlayerSessions'
 --
+--
 --     * 'DescribePlayerSessions'
+--
 --
 --     * Game session placements
 --
 --     * 'StartGameSessionPlacement'
 --
+--
 --     * 'DescribeGameSessionPlacement'
+--
 --
 --     * 'StopGameSessionPlacement'
 module Network.AWS.GameLift.CreatePlayerSession
-  ( -- * Creating a Request
-    createPlayerSession,
-    CreatePlayerSession,
+  ( -- * Creating a request
+    CreatePlayerSession (..),
+    mkCreatePlayerSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cPlayerData,
     cGameSessionId,
     cPlayerId,
 
-    -- * Destructuring the Response
-    createPlayerSessionResponse,
-    CreatePlayerSessionResponse,
+    -- * Destructuring the response
+    CreatePlayerSessionResponse (..),
+    mkCreatePlayerSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpsrsPlayerSession,
     cpsrsResponseStatus,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'createPlayerSession' smart constructor.
+-- /See:/ 'mkCreatePlayerSession' smart constructor.
 data CreatePlayerSession = CreatePlayerSession'
-  { _cPlayerData ::
-      !(Maybe Text),
-    _cGameSessionId :: !Text,
-    _cPlayerId :: !Text
+  { playerData ::
+      Lude.Maybe Lude.Text,
+    gameSessionId :: Lude.Text,
+    playerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlayerSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cPlayerData' - Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
---
--- * 'cGameSessionId' - A unique identifier for the game session to add a player to.
---
--- * 'cPlayerId' - A unique identifier for a player. Player IDs are developer-defined.
-createPlayerSession ::
-  -- | 'cGameSessionId'
-  Text ->
-  -- | 'cPlayerId'
-  Text ->
+-- * 'gameSessionId' - A unique identifier for the game session to add a player to.
+-- * 'playerData' - Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
+-- * 'playerId' - A unique identifier for a player. Player IDs are developer-defined.
+mkCreatePlayerSession ::
+  -- | 'gameSessionId'
+  Lude.Text ->
+  -- | 'playerId'
+  Lude.Text ->
   CreatePlayerSession
-createPlayerSession pGameSessionId_ pPlayerId_ =
+mkCreatePlayerSession pGameSessionId_ pPlayerId_ =
   CreatePlayerSession'
-    { _cPlayerData = Nothing,
-      _cGameSessionId = pGameSessionId_,
-      _cPlayerId = pPlayerId_
+    { playerData = Lude.Nothing,
+      gameSessionId = pGameSessionId_,
+      playerId = pPlayerId_
     }
 
 -- | Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
-cPlayerData :: Lens' CreatePlayerSession (Maybe Text)
-cPlayerData = lens _cPlayerData (\s a -> s {_cPlayerData = a})
+--
+-- /Note:/ Consider using 'playerData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPlayerData :: Lens.Lens' CreatePlayerSession (Lude.Maybe Lude.Text)
+cPlayerData = Lens.lens (playerData :: CreatePlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerData = a} :: CreatePlayerSession)
+{-# DEPRECATED cPlayerData "Use generic-lens or generic-optics with 'playerData' instead." #-}
 
 -- | A unique identifier for the game session to add a player to.
-cGameSessionId :: Lens' CreatePlayerSession Text
-cGameSessionId = lens _cGameSessionId (\s a -> s {_cGameSessionId = a})
+--
+-- /Note:/ Consider using 'gameSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cGameSessionId :: Lens.Lens' CreatePlayerSession Lude.Text
+cGameSessionId = Lens.lens (gameSessionId :: CreatePlayerSession -> Lude.Text) (\s a -> s {gameSessionId = a} :: CreatePlayerSession)
+{-# DEPRECATED cGameSessionId "Use generic-lens or generic-optics with 'gameSessionId' instead." #-}
 
 -- | A unique identifier for a player. Player IDs are developer-defined.
-cPlayerId :: Lens' CreatePlayerSession Text
-cPlayerId = lens _cPlayerId (\s a -> s {_cPlayerId = a})
+--
+-- /Note:/ Consider using 'playerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPlayerId :: Lens.Lens' CreatePlayerSession Lude.Text
+cPlayerId = Lens.lens (playerId :: CreatePlayerSession -> Lude.Text) (\s a -> s {playerId = a} :: CreatePlayerSession)
+{-# DEPRECATED cPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
 
-instance AWSRequest CreatePlayerSession where
+instance Lude.AWSRequest CreatePlayerSession where
   type Rs CreatePlayerSession = CreatePlayerSessionResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreatePlayerSessionResponse'
-            <$> (x .?> "PlayerSession") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PlayerSession")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreatePlayerSession
-
-instance NFData CreatePlayerSession
-
-instance ToHeaders CreatePlayerSession where
+instance Lude.ToHeaders CreatePlayerSession where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.CreatePlayerSession" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.CreatePlayerSession" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreatePlayerSession where
+instance Lude.ToJSON CreatePlayerSession where
   toJSON CreatePlayerSession' {..} =
-    object
-      ( catMaybes
-          [ ("PlayerData" .=) <$> _cPlayerData,
-            Just ("GameSessionId" .= _cGameSessionId),
-            Just ("PlayerId" .= _cPlayerId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PlayerData" Lude..=) Lude.<$> playerData,
+            Lude.Just ("GameSessionId" Lude..= gameSessionId),
+            Lude.Just ("PlayerId" Lude..= playerId)
           ]
       )
 
-instance ToPath CreatePlayerSession where
-  toPath = const "/"
+instance Lude.ToPath CreatePlayerSession where
+  toPath = Lude.const "/"
 
-instance ToQuery CreatePlayerSession where
-  toQuery = const mempty
+instance Lude.ToQuery CreatePlayerSession where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'createPlayerSessionResponse' smart constructor.
+-- /See:/ 'mkCreatePlayerSessionResponse' smart constructor.
 data CreatePlayerSessionResponse = CreatePlayerSessionResponse'
-  { _cpsrsPlayerSession ::
-      !(Maybe PlayerSession),
-    _cpsrsResponseStatus :: !Int
+  { playerSession ::
+      Lude.Maybe PlayerSession,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlayerSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpsrsPlayerSession' - Object that describes the newly created player session record.
---
--- * 'cpsrsResponseStatus' - -- | The response status code.
-createPlayerSessionResponse ::
-  -- | 'cpsrsResponseStatus'
-  Int ->
+-- * 'playerSession' - Object that describes the newly created player session record.
+-- * 'responseStatus' - The response status code.
+mkCreatePlayerSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePlayerSessionResponse
-createPlayerSessionResponse pResponseStatus_ =
+mkCreatePlayerSessionResponse pResponseStatus_ =
   CreatePlayerSessionResponse'
-    { _cpsrsPlayerSession = Nothing,
-      _cpsrsResponseStatus = pResponseStatus_
+    { playerSession = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Object that describes the newly created player session record.
-cpsrsPlayerSession :: Lens' CreatePlayerSessionResponse (Maybe PlayerSession)
-cpsrsPlayerSession = lens _cpsrsPlayerSession (\s a -> s {_cpsrsPlayerSession = a})
+--
+-- /Note:/ Consider using 'playerSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsrsPlayerSession :: Lens.Lens' CreatePlayerSessionResponse (Lude.Maybe PlayerSession)
+cpsrsPlayerSession = Lens.lens (playerSession :: CreatePlayerSessionResponse -> Lude.Maybe PlayerSession) (\s a -> s {playerSession = a} :: CreatePlayerSessionResponse)
+{-# DEPRECATED cpsrsPlayerSession "Use generic-lens or generic-optics with 'playerSession' instead." #-}
 
--- | -- | The response status code.
-cpsrsResponseStatus :: Lens' CreatePlayerSessionResponse Int
-cpsrsResponseStatus = lens _cpsrsResponseStatus (\s a -> s {_cpsrsResponseStatus = a})
-
-instance NFData CreatePlayerSessionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsrsResponseStatus :: Lens.Lens' CreatePlayerSessionResponse Lude.Int
+cpsrsResponseStatus = Lens.lens (responseStatus :: CreatePlayerSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePlayerSessionResponse)
+{-# DEPRECATED cpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

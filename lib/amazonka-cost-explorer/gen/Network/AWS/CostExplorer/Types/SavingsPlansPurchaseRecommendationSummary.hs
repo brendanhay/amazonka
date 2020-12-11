@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,178 +7,201 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary where
+module Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary
+  ( SavingsPlansPurchaseRecommendationSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSavingsPlansPurchaseRecommendationSummary,
+
+    -- * Lenses
+    spprsCurrencyCode,
+    spprsDailyCommitmentToPurchase,
+    spprsEstimatedTotalCost,
+    spprsEstimatedROI,
+    spprsEstimatedSavingsAmount,
+    spprsEstimatedMonthlySavingsAmount,
+    spprsEstimatedOnDemandCostWithCurrentCommitment,
+    spprsEstimatedSavingsPercentage,
+    spprsTotalRecommendationCount,
+    spprsCurrentOnDemandSpend,
+    spprsHourlyCommitmentToPurchase,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summary metrics for your Savings Plans Purchase Recommendations.
 --
---
---
--- /See:/ 'savingsPlansPurchaseRecommendationSummary' smart constructor.
+-- /See:/ 'mkSavingsPlansPurchaseRecommendationSummary' smart constructor.
 data SavingsPlansPurchaseRecommendationSummary = SavingsPlansPurchaseRecommendationSummary'
-  { _spprsCurrencyCode ::
-      !( Maybe
-           Text
-       ),
-    _spprsDailyCommitmentToPurchase ::
-      !( Maybe
-           Text
-       ),
-    _spprsEstimatedTotalCost ::
-      !( Maybe
-           Text
-       ),
-    _spprsEstimatedROI ::
-      !( Maybe
-           Text
-       ),
-    _spprsEstimatedSavingsAmount ::
-      !( Maybe
-           Text
-       ),
-    _spprsEstimatedMonthlySavingsAmount ::
-      !( Maybe
-           Text
-       ),
-    _spprsEstimatedOnDemandCostWithCurrentCommitment ::
-      !( Maybe
-           Text
-       ),
-    _spprsEstimatedSavingsPercentage ::
-      !( Maybe
-           Text
-       ),
-    _spprsTotalRecommendationCount ::
-      !( Maybe
-           Text
-       ),
-    _spprsCurrentOnDemandSpend ::
-      !( Maybe
-           Text
-       ),
-    _spprsHourlyCommitmentToPurchase ::
-      !( Maybe
-           Text
-       )
+  { currencyCode ::
+      Lude.Maybe
+        Lude.Text,
+    dailyCommitmentToPurchase ::
+      Lude.Maybe
+        Lude.Text,
+    estimatedTotalCost ::
+      Lude.Maybe
+        Lude.Text,
+    estimatedROI ::
+      Lude.Maybe
+        Lude.Text,
+    estimatedSavingsAmount ::
+      Lude.Maybe
+        Lude.Text,
+    estimatedMonthlySavingsAmount ::
+      Lude.Maybe
+        Lude.Text,
+    estimatedOnDemandCostWithCurrentCommitment ::
+      Lude.Maybe
+        Lude.Text,
+    estimatedSavingsPercentage ::
+      Lude.Maybe
+        Lude.Text,
+    totalRecommendationCount ::
+      Lude.Maybe
+        Lude.Text,
+    currentOnDemandSpend ::
+      Lude.Maybe
+        Lude.Text,
+    hourlyCommitmentToPurchase ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansPurchaseRecommendationSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spprsCurrencyCode' - The currency code AWS used to generate the recommendations and present potential savings.
---
--- * 'spprsDailyCommitmentToPurchase' - The recommended Savings Plans cost on a daily (24 hourly) basis.
---
--- * 'spprsEstimatedTotalCost' - The estimated total cost of the usage after purchasing the recommended Savings Plans. This is a sum of the cost of Savings Plans during this term, and the remaining On-Demand usage.
---
--- * 'spprsEstimatedROI' - The estimated return on investment based on the recommended Savings Plans and estimated savings.
---
--- * 'spprsEstimatedSavingsAmount' - The estimated total savings over the lookback period, based on the purchase of the recommended Savings Plans.
---
--- * 'spprsEstimatedMonthlySavingsAmount' - The estimated monthly savings amount, based on the recommended Savings Plans purchase.
---
--- * 'spprsEstimatedOnDemandCostWithCurrentCommitment' - The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own.
---
--- * 'spprsEstimatedSavingsPercentage' - The estimated savings relative to the total cost of On-Demand usage, over the lookback period. This is calculated as @estimatedSavingsAmount@ / @CurrentOnDemandSpend@ *100.
---
--- * 'spprsTotalRecommendationCount' - The aggregate number of Savings Plans recommendations that exist for your account.
---
--- * 'spprsCurrentOnDemandSpend' - The current total on demand spend of the applicable usage types over the lookback period.
---
--- * 'spprsHourlyCommitmentToPurchase' - The recommended hourly commitment based on the recommendation parameters.
-savingsPlansPurchaseRecommendationSummary ::
+-- * 'currencyCode' - The currency code AWS used to generate the recommendations and present potential savings.
+-- * 'currentOnDemandSpend' - The current total on demand spend of the applicable usage types over the lookback period.
+-- * 'dailyCommitmentToPurchase' - The recommended Savings Plans cost on a daily (24 hourly) basis.
+-- * 'estimatedMonthlySavingsAmount' - The estimated monthly savings amount, based on the recommended Savings Plans purchase.
+-- * 'estimatedOnDemandCostWithCurrentCommitment' - The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own.
+-- * 'estimatedROI' - The estimated return on investment based on the recommended Savings Plans and estimated savings.
+-- * 'estimatedSavingsAmount' - The estimated total savings over the lookback period, based on the purchase of the recommended Savings Plans.
+-- * 'estimatedSavingsPercentage' - The estimated savings relative to the total cost of On-Demand usage, over the lookback period. This is calculated as @estimatedSavingsAmount@ / @CurrentOnDemandSpend@ *100.
+-- * 'estimatedTotalCost' - The estimated total cost of the usage after purchasing the recommended Savings Plans. This is a sum of the cost of Savings Plans during this term, and the remaining On-Demand usage.
+-- * 'hourlyCommitmentToPurchase' - The recommended hourly commitment based on the recommendation parameters.
+-- * 'totalRecommendationCount' - The aggregate number of Savings Plans recommendations that exist for your account.
+mkSavingsPlansPurchaseRecommendationSummary ::
   SavingsPlansPurchaseRecommendationSummary
-savingsPlansPurchaseRecommendationSummary =
+mkSavingsPlansPurchaseRecommendationSummary =
   SavingsPlansPurchaseRecommendationSummary'
-    { _spprsCurrencyCode =
-        Nothing,
-      _spprsDailyCommitmentToPurchase = Nothing,
-      _spprsEstimatedTotalCost = Nothing,
-      _spprsEstimatedROI = Nothing,
-      _spprsEstimatedSavingsAmount = Nothing,
-      _spprsEstimatedMonthlySavingsAmount = Nothing,
-      _spprsEstimatedOnDemandCostWithCurrentCommitment =
-        Nothing,
-      _spprsEstimatedSavingsPercentage = Nothing,
-      _spprsTotalRecommendationCount = Nothing,
-      _spprsCurrentOnDemandSpend = Nothing,
-      _spprsHourlyCommitmentToPurchase = Nothing
+    { currencyCode =
+        Lude.Nothing,
+      dailyCommitmentToPurchase = Lude.Nothing,
+      estimatedTotalCost = Lude.Nothing,
+      estimatedROI = Lude.Nothing,
+      estimatedSavingsAmount = Lude.Nothing,
+      estimatedMonthlySavingsAmount = Lude.Nothing,
+      estimatedOnDemandCostWithCurrentCommitment =
+        Lude.Nothing,
+      estimatedSavingsPercentage = Lude.Nothing,
+      totalRecommendationCount = Lude.Nothing,
+      currentOnDemandSpend = Lude.Nothing,
+      hourlyCommitmentToPurchase = Lude.Nothing
     }
 
 -- | The currency code AWS used to generate the recommendations and present potential savings.
-spprsCurrencyCode :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsCurrencyCode = lens _spprsCurrencyCode (\s a -> s {_spprsCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsCurrencyCode :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsCurrencyCode = Lens.lens (currencyCode :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {currencyCode = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The recommended Savings Plans cost on a daily (24 hourly) basis.
-spprsDailyCommitmentToPurchase :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsDailyCommitmentToPurchase = lens _spprsDailyCommitmentToPurchase (\s a -> s {_spprsDailyCommitmentToPurchase = a})
+--
+-- /Note:/ Consider using 'dailyCommitmentToPurchase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsDailyCommitmentToPurchase :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsDailyCommitmentToPurchase = Lens.lens (dailyCommitmentToPurchase :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {dailyCommitmentToPurchase = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsDailyCommitmentToPurchase "Use generic-lens or generic-optics with 'dailyCommitmentToPurchase' instead." #-}
 
 -- | The estimated total cost of the usage after purchasing the recommended Savings Plans. This is a sum of the cost of Savings Plans during this term, and the remaining On-Demand usage.
-spprsEstimatedTotalCost :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsEstimatedTotalCost = lens _spprsEstimatedTotalCost (\s a -> s {_spprsEstimatedTotalCost = a})
+--
+-- /Note:/ Consider using 'estimatedTotalCost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsEstimatedTotalCost :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsEstimatedTotalCost = Lens.lens (estimatedTotalCost :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {estimatedTotalCost = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsEstimatedTotalCost "Use generic-lens or generic-optics with 'estimatedTotalCost' instead." #-}
 
 -- | The estimated return on investment based on the recommended Savings Plans and estimated savings.
-spprsEstimatedROI :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsEstimatedROI = lens _spprsEstimatedROI (\s a -> s {_spprsEstimatedROI = a})
+--
+-- /Note:/ Consider using 'estimatedROI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsEstimatedROI :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsEstimatedROI = Lens.lens (estimatedROI :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {estimatedROI = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsEstimatedROI "Use generic-lens or generic-optics with 'estimatedROI' instead." #-}
 
 -- | The estimated total savings over the lookback period, based on the purchase of the recommended Savings Plans.
-spprsEstimatedSavingsAmount :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsEstimatedSavingsAmount = lens _spprsEstimatedSavingsAmount (\s a -> s {_spprsEstimatedSavingsAmount = a})
+--
+-- /Note:/ Consider using 'estimatedSavingsAmount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsEstimatedSavingsAmount :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsEstimatedSavingsAmount = Lens.lens (estimatedSavingsAmount :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {estimatedSavingsAmount = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsEstimatedSavingsAmount "Use generic-lens or generic-optics with 'estimatedSavingsAmount' instead." #-}
 
 -- | The estimated monthly savings amount, based on the recommended Savings Plans purchase.
-spprsEstimatedMonthlySavingsAmount :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsEstimatedMonthlySavingsAmount = lens _spprsEstimatedMonthlySavingsAmount (\s a -> s {_spprsEstimatedMonthlySavingsAmount = a})
+--
+-- /Note:/ Consider using 'estimatedMonthlySavingsAmount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsEstimatedMonthlySavingsAmount :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsEstimatedMonthlySavingsAmount = Lens.lens (estimatedMonthlySavingsAmount :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {estimatedMonthlySavingsAmount = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsEstimatedMonthlySavingsAmount "Use generic-lens or generic-optics with 'estimatedMonthlySavingsAmount' instead." #-}
 
 -- | The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own.
-spprsEstimatedOnDemandCostWithCurrentCommitment :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsEstimatedOnDemandCostWithCurrentCommitment = lens _spprsEstimatedOnDemandCostWithCurrentCommitment (\s a -> s {_spprsEstimatedOnDemandCostWithCurrentCommitment = a})
+--
+-- /Note:/ Consider using 'estimatedOnDemandCostWithCurrentCommitment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsEstimatedOnDemandCostWithCurrentCommitment :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsEstimatedOnDemandCostWithCurrentCommitment = Lens.lens (estimatedOnDemandCostWithCurrentCommitment :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {estimatedOnDemandCostWithCurrentCommitment = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsEstimatedOnDemandCostWithCurrentCommitment "Use generic-lens or generic-optics with 'estimatedOnDemandCostWithCurrentCommitment' instead." #-}
 
 -- | The estimated savings relative to the total cost of On-Demand usage, over the lookback period. This is calculated as @estimatedSavingsAmount@ / @CurrentOnDemandSpend@ *100.
-spprsEstimatedSavingsPercentage :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsEstimatedSavingsPercentage = lens _spprsEstimatedSavingsPercentage (\s a -> s {_spprsEstimatedSavingsPercentage = a})
+--
+-- /Note:/ Consider using 'estimatedSavingsPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsEstimatedSavingsPercentage :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsEstimatedSavingsPercentage = Lens.lens (estimatedSavingsPercentage :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {estimatedSavingsPercentage = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsEstimatedSavingsPercentage "Use generic-lens or generic-optics with 'estimatedSavingsPercentage' instead." #-}
 
 -- | The aggregate number of Savings Plans recommendations that exist for your account.
-spprsTotalRecommendationCount :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsTotalRecommendationCount = lens _spprsTotalRecommendationCount (\s a -> s {_spprsTotalRecommendationCount = a})
+--
+-- /Note:/ Consider using 'totalRecommendationCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsTotalRecommendationCount :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsTotalRecommendationCount = Lens.lens (totalRecommendationCount :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {totalRecommendationCount = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsTotalRecommendationCount "Use generic-lens or generic-optics with 'totalRecommendationCount' instead." #-}
 
 -- | The current total on demand spend of the applicable usage types over the lookback period.
-spprsCurrentOnDemandSpend :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsCurrentOnDemandSpend = lens _spprsCurrentOnDemandSpend (\s a -> s {_spprsCurrentOnDemandSpend = a})
+--
+-- /Note:/ Consider using 'currentOnDemandSpend' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsCurrentOnDemandSpend :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsCurrentOnDemandSpend = Lens.lens (currentOnDemandSpend :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {currentOnDemandSpend = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsCurrentOnDemandSpend "Use generic-lens or generic-optics with 'currentOnDemandSpend' instead." #-}
 
 -- | The recommended hourly commitment based on the recommendation parameters.
-spprsHourlyCommitmentToPurchase :: Lens' SavingsPlansPurchaseRecommendationSummary (Maybe Text)
-spprsHourlyCommitmentToPurchase = lens _spprsHourlyCommitmentToPurchase (\s a -> s {_spprsHourlyCommitmentToPurchase = a})
+--
+-- /Note:/ Consider using 'hourlyCommitmentToPurchase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spprsHourlyCommitmentToPurchase :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Lude.Maybe Lude.Text)
+spprsHourlyCommitmentToPurchase = Lens.lens (hourlyCommitmentToPurchase :: SavingsPlansPurchaseRecommendationSummary -> Lude.Maybe Lude.Text) (\s a -> s {hourlyCommitmentToPurchase = a} :: SavingsPlansPurchaseRecommendationSummary)
+{-# DEPRECATED spprsHourlyCommitmentToPurchase "Use generic-lens or generic-optics with 'hourlyCommitmentToPurchase' instead." #-}
 
-instance FromJSON SavingsPlansPurchaseRecommendationSummary where
+instance Lude.FromJSON SavingsPlansPurchaseRecommendationSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "SavingsPlansPurchaseRecommendationSummary"
       ( \x ->
           SavingsPlansPurchaseRecommendationSummary'
-            <$> (x .:? "CurrencyCode")
-            <*> (x .:? "DailyCommitmentToPurchase")
-            <*> (x .:? "EstimatedTotalCost")
-            <*> (x .:? "EstimatedROI")
-            <*> (x .:? "EstimatedSavingsAmount")
-            <*> (x .:? "EstimatedMonthlySavingsAmount")
-            <*> (x .:? "EstimatedOnDemandCostWithCurrentCommitment")
-            <*> (x .:? "EstimatedSavingsPercentage")
-            <*> (x .:? "TotalRecommendationCount")
-            <*> (x .:? "CurrentOnDemandSpend")
-            <*> (x .:? "HourlyCommitmentToPurchase")
+            Lude.<$> (x Lude..:? "CurrencyCode")
+            Lude.<*> (x Lude..:? "DailyCommitmentToPurchase")
+            Lude.<*> (x Lude..:? "EstimatedTotalCost")
+            Lude.<*> (x Lude..:? "EstimatedROI")
+            Lude.<*> (x Lude..:? "EstimatedSavingsAmount")
+            Lude.<*> (x Lude..:? "EstimatedMonthlySavingsAmount")
+            Lude.<*> (x Lude..:? "EstimatedOnDemandCostWithCurrentCommitment")
+            Lude.<*> (x Lude..:? "EstimatedSavingsPercentage")
+            Lude.<*> (x Lude..:? "TotalRecommendationCount")
+            Lude.<*> (x Lude..:? "CurrentOnDemandSpend")
+            Lude.<*> (x Lude..:? "HourlyCommitmentToPurchase")
       )
-
-instance Hashable SavingsPlansPurchaseRecommendationSummary
-
-instance NFData SavingsPlansPurchaseRecommendationSummary

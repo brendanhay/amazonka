@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,101 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.EC2SecurityGroup where
+module Network.AWS.RDS.Types.EC2SecurityGroup
+  ( EC2SecurityGroup (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEC2SecurityGroup,
+
+    -- * Lenses
+    esgStatus,
+    esgEC2SecurityGroupOwnerId,
+    esgEC2SecurityGroupName,
+    esgEC2SecurityGroupId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data type is used as a response element in the following actions:
 --
 --
 --     * @AuthorizeDBSecurityGroupIngress@
 --
+--
 --     * @DescribeDBSecurityGroups@
+--
 --
 --     * @RevokeDBSecurityGroupIngress@
 --
 --
 --
---
--- /See:/ 'ec2SecurityGroup' smart constructor.
+-- /See:/ 'mkEC2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-  { _esgStatus ::
-      !(Maybe Text),
-    _esgEC2SecurityGroupOwnerId :: !(Maybe Text),
-    _esgEC2SecurityGroupName :: !(Maybe Text),
-    _esgEC2SecurityGroupId :: !(Maybe Text)
+  { status ::
+      Lude.Maybe Lude.Text,
+    ec2SecurityGroupOwnerId :: Lude.Maybe Lude.Text,
+    ec2SecurityGroupName :: Lude.Maybe Lude.Text,
+    ec2SecurityGroupId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esgStatus' - Provides the status of the EC2 security group. Status can be "authorizing", "authorized", "revoking", and "revoked".
---
--- * 'esgEC2SecurityGroupOwnerId' - Specifies the AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
---
--- * 'esgEC2SecurityGroupName' - Specifies the name of the EC2 security group.
---
--- * 'esgEC2SecurityGroupId' - Specifies the id of the EC2 security group.
-ec2SecurityGroup ::
+-- * 'ec2SecurityGroupId' - Specifies the id of the EC2 security group.
+-- * 'ec2SecurityGroupName' - Specifies the name of the EC2 security group.
+-- * 'ec2SecurityGroupOwnerId' - Specifies the AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
+-- * 'status' - Provides the status of the EC2 security group. Status can be "authorizing", "authorized", "revoking", and "revoked".
+mkEC2SecurityGroup ::
   EC2SecurityGroup
-ec2SecurityGroup =
+mkEC2SecurityGroup =
   EC2SecurityGroup'
-    { _esgStatus = Nothing,
-      _esgEC2SecurityGroupOwnerId = Nothing,
-      _esgEC2SecurityGroupName = Nothing,
-      _esgEC2SecurityGroupId = Nothing
+    { status = Lude.Nothing,
+      ec2SecurityGroupOwnerId = Lude.Nothing,
+      ec2SecurityGroupName = Lude.Nothing,
+      ec2SecurityGroupId = Lude.Nothing
     }
 
 -- | Provides the status of the EC2 security group. Status can be "authorizing", "authorized", "revoking", and "revoked".
-esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
-esgStatus = lens _esgStatus (\s a -> s {_esgStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esgStatus :: Lens.Lens' EC2SecurityGroup (Lude.Maybe Lude.Text)
+esgStatus = Lens.lens (status :: EC2SecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: EC2SecurityGroup)
+{-# DEPRECATED esgStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies the AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
-esgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
-esgEC2SecurityGroupOwnerId = lens _esgEC2SecurityGroupOwnerId (\s a -> s {_esgEC2SecurityGroupOwnerId = a})
+--
+-- /Note:/ Consider using 'ec2SecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esgEC2SecurityGroupOwnerId :: Lens.Lens' EC2SecurityGroup (Lude.Maybe Lude.Text)
+esgEC2SecurityGroupOwnerId = Lens.lens (ec2SecurityGroupOwnerId :: EC2SecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupOwnerId = a} :: EC2SecurityGroup)
+{-# DEPRECATED esgEC2SecurityGroupOwnerId "Use generic-lens or generic-optics with 'ec2SecurityGroupOwnerId' instead." #-}
 
 -- | Specifies the name of the EC2 security group.
-esgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
-esgEC2SecurityGroupName = lens _esgEC2SecurityGroupName (\s a -> s {_esgEC2SecurityGroupName = a})
+--
+-- /Note:/ Consider using 'ec2SecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esgEC2SecurityGroupName :: Lens.Lens' EC2SecurityGroup (Lude.Maybe Lude.Text)
+esgEC2SecurityGroupName = Lens.lens (ec2SecurityGroupName :: EC2SecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupName = a} :: EC2SecurityGroup)
+{-# DEPRECATED esgEC2SecurityGroupName "Use generic-lens or generic-optics with 'ec2SecurityGroupName' instead." #-}
 
 -- | Specifies the id of the EC2 security group.
-esgEC2SecurityGroupId :: Lens' EC2SecurityGroup (Maybe Text)
-esgEC2SecurityGroupId = lens _esgEC2SecurityGroupId (\s a -> s {_esgEC2SecurityGroupId = a})
+--
+-- /Note:/ Consider using 'ec2SecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esgEC2SecurityGroupId :: Lens.Lens' EC2SecurityGroup (Lude.Maybe Lude.Text)
+esgEC2SecurityGroupId = Lens.lens (ec2SecurityGroupId :: EC2SecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupId = a} :: EC2SecurityGroup)
+{-# DEPRECATED esgEC2SecurityGroupId "Use generic-lens or generic-optics with 'ec2SecurityGroupId' instead." #-}
 
-instance FromXML EC2SecurityGroup where
+instance Lude.FromXML EC2SecurityGroup where
   parseXML x =
     EC2SecurityGroup'
-      <$> (x .@? "Status")
-      <*> (x .@? "EC2SecurityGroupOwnerId")
-      <*> (x .@? "EC2SecurityGroupName")
-      <*> (x .@? "EC2SecurityGroupId")
-
-instance Hashable EC2SecurityGroup
-
-instance NFData EC2SecurityGroup
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "EC2SecurityGroupOwnerId")
+      Lude.<*> (x Lude..@? "EC2SecurityGroupName")
+      Lude.<*> (x Lude..@? "EC2SecurityGroupId")

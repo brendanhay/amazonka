@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,123 +7,159 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationExecutionTarget where
+module Network.AWS.SSM.Types.AssociationExecutionTarget
+  ( AssociationExecutionTarget (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAssociationExecutionTarget,
+
+    -- * Lenses
+    aetAssociationId,
+    aetDetailedStatus,
+    aetStatus,
+    aetExecutionId,
+    aetResourceId,
+    aetResourceType,
+    aetOutputSource,
+    aetLastExecutionDate,
+    aetAssociationVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.OutputSource
 
 -- | Includes information about the specified association execution.
 --
---
---
--- /See:/ 'associationExecutionTarget' smart constructor.
+-- /See:/ 'mkAssociationExecutionTarget' smart constructor.
 data AssociationExecutionTarget = AssociationExecutionTarget'
-  { _aetAssociationId ::
-      !(Maybe Text),
-    _aetDetailedStatus :: !(Maybe Text),
-    _aetStatus :: !(Maybe Text),
-    _aetExecutionId :: !(Maybe Text),
-    _aetResourceId :: !(Maybe Text),
-    _aetResourceType :: !(Maybe Text),
-    _aetOutputSource ::
-      !(Maybe OutputSource),
-    _aetLastExecutionDate ::
-      !(Maybe POSIX),
-    _aetAssociationVersion ::
-      !(Maybe Text)
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    detailedStatus ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe Lude.Text,
+    executionId :: Lude.Maybe Lude.Text,
+    resourceId :: Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe Lude.Text,
+    outputSource ::
+      Lude.Maybe OutputSource,
+    lastExecutionDate ::
+      Lude.Maybe Lude.Timestamp,
+    associationVersion ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationExecutionTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aetAssociationId' - The association ID.
---
--- * 'aetDetailedStatus' - Detailed information about the execution status.
---
--- * 'aetStatus' - The association execution status.
---
--- * 'aetExecutionId' - The execution ID.
---
--- * 'aetResourceId' - The resource ID, for example, the instance ID where the association ran.
---
--- * 'aetResourceType' - The resource type, for example, instance.
---
--- * 'aetOutputSource' - The location where the association details are saved.
---
--- * 'aetLastExecutionDate' - The date of the last execution.
---
--- * 'aetAssociationVersion' - The association version.
-associationExecutionTarget ::
+-- * 'associationId' - The association ID.
+-- * 'associationVersion' - The association version.
+-- * 'detailedStatus' - Detailed information about the execution status.
+-- * 'executionId' - The execution ID.
+-- * 'lastExecutionDate' - The date of the last execution.
+-- * 'outputSource' - The location where the association details are saved.
+-- * 'resourceId' - The resource ID, for example, the instance ID where the association ran.
+-- * 'resourceType' - The resource type, for example, instance.
+-- * 'status' - The association execution status.
+mkAssociationExecutionTarget ::
   AssociationExecutionTarget
-associationExecutionTarget =
+mkAssociationExecutionTarget =
   AssociationExecutionTarget'
-    { _aetAssociationId = Nothing,
-      _aetDetailedStatus = Nothing,
-      _aetStatus = Nothing,
-      _aetExecutionId = Nothing,
-      _aetResourceId = Nothing,
-      _aetResourceType = Nothing,
-      _aetOutputSource = Nothing,
-      _aetLastExecutionDate = Nothing,
-      _aetAssociationVersion = Nothing
+    { associationId = Lude.Nothing,
+      detailedStatus = Lude.Nothing,
+      status = Lude.Nothing,
+      executionId = Lude.Nothing,
+      resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      outputSource = Lude.Nothing,
+      lastExecutionDate = Lude.Nothing,
+      associationVersion = Lude.Nothing
     }
 
 -- | The association ID.
-aetAssociationId :: Lens' AssociationExecutionTarget (Maybe Text)
-aetAssociationId = lens _aetAssociationId (\s a -> s {_aetAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetAssociationId :: Lens.Lens' AssociationExecutionTarget (Lude.Maybe Lude.Text)
+aetAssociationId = Lens.lens (associationId :: AssociationExecutionTarget -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: AssociationExecutionTarget)
+{-# DEPRECATED aetAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | Detailed information about the execution status.
-aetDetailedStatus :: Lens' AssociationExecutionTarget (Maybe Text)
-aetDetailedStatus = lens _aetDetailedStatus (\s a -> s {_aetDetailedStatus = a})
+--
+-- /Note:/ Consider using 'detailedStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetDetailedStatus :: Lens.Lens' AssociationExecutionTarget (Lude.Maybe Lude.Text)
+aetDetailedStatus = Lens.lens (detailedStatus :: AssociationExecutionTarget -> Lude.Maybe Lude.Text) (\s a -> s {detailedStatus = a} :: AssociationExecutionTarget)
+{-# DEPRECATED aetDetailedStatus "Use generic-lens or generic-optics with 'detailedStatus' instead." #-}
 
 -- | The association execution status.
-aetStatus :: Lens' AssociationExecutionTarget (Maybe Text)
-aetStatus = lens _aetStatus (\s a -> s {_aetStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetStatus :: Lens.Lens' AssociationExecutionTarget (Lude.Maybe Lude.Text)
+aetStatus = Lens.lens (status :: AssociationExecutionTarget -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: AssociationExecutionTarget)
+{-# DEPRECATED aetStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The execution ID.
-aetExecutionId :: Lens' AssociationExecutionTarget (Maybe Text)
-aetExecutionId = lens _aetExecutionId (\s a -> s {_aetExecutionId = a})
+--
+-- /Note:/ Consider using 'executionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetExecutionId :: Lens.Lens' AssociationExecutionTarget (Lude.Maybe Lude.Text)
+aetExecutionId = Lens.lens (executionId :: AssociationExecutionTarget -> Lude.Maybe Lude.Text) (\s a -> s {executionId = a} :: AssociationExecutionTarget)
+{-# DEPRECATED aetExecutionId "Use generic-lens or generic-optics with 'executionId' instead." #-}
 
 -- | The resource ID, for example, the instance ID where the association ran.
-aetResourceId :: Lens' AssociationExecutionTarget (Maybe Text)
-aetResourceId = lens _aetResourceId (\s a -> s {_aetResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetResourceId :: Lens.Lens' AssociationExecutionTarget (Lude.Maybe Lude.Text)
+aetResourceId = Lens.lens (resourceId :: AssociationExecutionTarget -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: AssociationExecutionTarget)
+{-# DEPRECATED aetResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The resource type, for example, instance.
-aetResourceType :: Lens' AssociationExecutionTarget (Maybe Text)
-aetResourceType = lens _aetResourceType (\s a -> s {_aetResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetResourceType :: Lens.Lens' AssociationExecutionTarget (Lude.Maybe Lude.Text)
+aetResourceType = Lens.lens (resourceType :: AssociationExecutionTarget -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: AssociationExecutionTarget)
+{-# DEPRECATED aetResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The location where the association details are saved.
-aetOutputSource :: Lens' AssociationExecutionTarget (Maybe OutputSource)
-aetOutputSource = lens _aetOutputSource (\s a -> s {_aetOutputSource = a})
+--
+-- /Note:/ Consider using 'outputSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetOutputSource :: Lens.Lens' AssociationExecutionTarget (Lude.Maybe OutputSource)
+aetOutputSource = Lens.lens (outputSource :: AssociationExecutionTarget -> Lude.Maybe OutputSource) (\s a -> s {outputSource = a} :: AssociationExecutionTarget)
+{-# DEPRECATED aetOutputSource "Use generic-lens or generic-optics with 'outputSource' instead." #-}
 
 -- | The date of the last execution.
-aetLastExecutionDate :: Lens' AssociationExecutionTarget (Maybe UTCTime)
-aetLastExecutionDate = lens _aetLastExecutionDate (\s a -> s {_aetLastExecutionDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastExecutionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetLastExecutionDate :: Lens.Lens' AssociationExecutionTarget (Lude.Maybe Lude.Timestamp)
+aetLastExecutionDate = Lens.lens (lastExecutionDate :: AssociationExecutionTarget -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastExecutionDate = a} :: AssociationExecutionTarget)
+{-# DEPRECATED aetLastExecutionDate "Use generic-lens or generic-optics with 'lastExecutionDate' instead." #-}
 
 -- | The association version.
-aetAssociationVersion :: Lens' AssociationExecutionTarget (Maybe Text)
-aetAssociationVersion = lens _aetAssociationVersion (\s a -> s {_aetAssociationVersion = a})
+--
+-- /Note:/ Consider using 'associationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetAssociationVersion :: Lens.Lens' AssociationExecutionTarget (Lude.Maybe Lude.Text)
+aetAssociationVersion = Lens.lens (associationVersion :: AssociationExecutionTarget -> Lude.Maybe Lude.Text) (\s a -> s {associationVersion = a} :: AssociationExecutionTarget)
+{-# DEPRECATED aetAssociationVersion "Use generic-lens or generic-optics with 'associationVersion' instead." #-}
 
-instance FromJSON AssociationExecutionTarget where
+instance Lude.FromJSON AssociationExecutionTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "AssociationExecutionTarget"
       ( \x ->
           AssociationExecutionTarget'
-            <$> (x .:? "AssociationId")
-            <*> (x .:? "DetailedStatus")
-            <*> (x .:? "Status")
-            <*> (x .:? "ExecutionId")
-            <*> (x .:? "ResourceId")
-            <*> (x .:? "ResourceType")
-            <*> (x .:? "OutputSource")
-            <*> (x .:? "LastExecutionDate")
-            <*> (x .:? "AssociationVersion")
+            Lude.<$> (x Lude..:? "AssociationId")
+            Lude.<*> (x Lude..:? "DetailedStatus")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "ExecutionId")
+            Lude.<*> (x Lude..:? "ResourceId")
+            Lude.<*> (x Lude..:? "ResourceType")
+            Lude.<*> (x Lude..:? "OutputSource")
+            Lude.<*> (x Lude..:? "LastExecutionDate")
+            Lude.<*> (x Lude..:? "AssociationVersion")
       )
-
-instance Hashable AssociationExecutionTarget
-
-instance NFData AssociationExecutionTarget

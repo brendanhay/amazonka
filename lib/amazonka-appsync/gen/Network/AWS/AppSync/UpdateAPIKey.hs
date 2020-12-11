@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,149 +14,172 @@
 --
 -- Updates an API key. The key can be updated while it is not deleted.
 module Network.AWS.AppSync.UpdateAPIKey
-  ( -- * Creating a Request
-    updateAPIKey,
-    UpdateAPIKey,
+  ( -- * Creating a request
+    UpdateAPIKey (..),
+    mkUpdateAPIKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uakExpires,
     uakDescription,
     uakApiId,
     uakId,
 
-    -- * Destructuring the Response
-    updateAPIKeyResponse,
-    UpdateAPIKeyResponse,
+    -- * Destructuring the response
+    UpdateAPIKeyResponse (..),
+    mkUpdateAPIKeyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uakrsApiKey,
     uakrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateAPIKey' smart constructor.
+-- | /See:/ 'mkUpdateAPIKey' smart constructor.
 data UpdateAPIKey = UpdateAPIKey'
-  { _uakExpires :: !(Maybe Integer),
-    _uakDescription :: !(Maybe Text),
-    _uakApiId :: !Text,
-    _uakId :: !Text
+  { expires ::
+      Lude.Maybe Lude.Integer,
+    description :: Lude.Maybe Lude.Text,
+    apiId :: Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPIKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uakExpires' - The time from update time after which the API key expires. The date is represented as seconds since the epoch. For more information, see .
---
--- * 'uakDescription' - A description of the purpose of the API key.
---
--- * 'uakApiId' - The ID for the GraphQL API.
---
--- * 'uakId' - The API key ID.
-updateAPIKey ::
-  -- | 'uakApiId'
-  Text ->
-  -- | 'uakId'
-  Text ->
+-- * 'apiId' - The ID for the GraphQL API.
+-- * 'description' - A description of the purpose of the API key.
+-- * 'expires' - The time from update time after which the API key expires. The date is represented as seconds since the epoch. For more information, see .
+-- * 'id' - The API key ID.
+mkUpdateAPIKey ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   UpdateAPIKey
-updateAPIKey pApiId_ pId_ =
+mkUpdateAPIKey pApiId_ pId_ =
   UpdateAPIKey'
-    { _uakExpires = Nothing,
-      _uakDescription = Nothing,
-      _uakApiId = pApiId_,
-      _uakId = pId_
+    { expires = Lude.Nothing,
+      description = Lude.Nothing,
+      apiId = pApiId_,
+      id = pId_
     }
 
 -- | The time from update time after which the API key expires. The date is represented as seconds since the epoch. For more information, see .
-uakExpires :: Lens' UpdateAPIKey (Maybe Integer)
-uakExpires = lens _uakExpires (\s a -> s {_uakExpires = a})
+--
+-- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakExpires :: Lens.Lens' UpdateAPIKey (Lude.Maybe Lude.Integer)
+uakExpires = Lens.lens (expires :: UpdateAPIKey -> Lude.Maybe Lude.Integer) (\s a -> s {expires = a} :: UpdateAPIKey)
+{-# DEPRECATED uakExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
 -- | A description of the purpose of the API key.
-uakDescription :: Lens' UpdateAPIKey (Maybe Text)
-uakDescription = lens _uakDescription (\s a -> s {_uakDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakDescription :: Lens.Lens' UpdateAPIKey (Lude.Maybe Lude.Text)
+uakDescription = Lens.lens (description :: UpdateAPIKey -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateAPIKey)
+{-# DEPRECATED uakDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID for the GraphQL API.
-uakApiId :: Lens' UpdateAPIKey Text
-uakApiId = lens _uakApiId (\s a -> s {_uakApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakApiId :: Lens.Lens' UpdateAPIKey Lude.Text
+uakApiId = Lens.lens (apiId :: UpdateAPIKey -> Lude.Text) (\s a -> s {apiId = a} :: UpdateAPIKey)
+{-# DEPRECATED uakApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The API key ID.
-uakId :: Lens' UpdateAPIKey Text
-uakId = lens _uakId (\s a -> s {_uakId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakId :: Lens.Lens' UpdateAPIKey Lude.Text
+uakId = Lens.lens (id :: UpdateAPIKey -> Lude.Text) (\s a -> s {id = a} :: UpdateAPIKey)
+{-# DEPRECATED uakId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest UpdateAPIKey where
+instance Lude.AWSRequest UpdateAPIKey where
   type Rs UpdateAPIKey = UpdateAPIKeyResponse
-  request = postJSON appSync
+  request = Req.postJSON appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          UpdateAPIKeyResponse' <$> (x .?> "apiKey") <*> (pure (fromEnum s))
+          UpdateAPIKeyResponse'
+            Lude.<$> (x Lude..?> "apiKey") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateAPIKey
-
-instance NFData UpdateAPIKey
-
-instance ToHeaders UpdateAPIKey where
+instance Lude.ToHeaders UpdateAPIKey where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateAPIKey where
-  toJSON UpdateAPIKey' {..} =
-    object
-      ( catMaybes
-          [ ("expires" .=) <$> _uakExpires,
-            ("description" .=) <$> _uakDescription
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateAPIKey where
+instance Lude.ToJSON UpdateAPIKey where
+  toJSON UpdateAPIKey' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("expires" Lude..=) Lude.<$> expires,
+            ("description" Lude..=) Lude.<$> description
+          ]
+      )
+
+instance Lude.ToPath UpdateAPIKey where
   toPath UpdateAPIKey' {..} =
-    mconcat ["/v1/apis/", toBS _uakApiId, "/apikeys/", toBS _uakId]
+    Lude.mconcat
+      ["/v1/apis/", Lude.toBS apiId, "/apikeys/", Lude.toBS id]
 
-instance ToQuery UpdateAPIKey where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateAPIKey where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateAPIKeyResponse' smart constructor.
+-- | /See:/ 'mkUpdateAPIKeyResponse' smart constructor.
 data UpdateAPIKeyResponse = UpdateAPIKeyResponse'
-  { _uakrsApiKey ::
-      !(Maybe APIKey),
-    _uakrsResponseStatus :: !Int
+  { apiKey ::
+      Lude.Maybe APIKey,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPIKeyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uakrsApiKey' - The API key.
---
--- * 'uakrsResponseStatus' - -- | The response status code.
-updateAPIKeyResponse ::
-  -- | 'uakrsResponseStatus'
-  Int ->
+-- * 'apiKey' - The API key.
+-- * 'responseStatus' - The response status code.
+mkUpdateAPIKeyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateAPIKeyResponse
-updateAPIKeyResponse pResponseStatus_ =
+mkUpdateAPIKeyResponse pResponseStatus_ =
   UpdateAPIKeyResponse'
-    { _uakrsApiKey = Nothing,
-      _uakrsResponseStatus = pResponseStatus_
+    { apiKey = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The API key.
-uakrsApiKey :: Lens' UpdateAPIKeyResponse (Maybe APIKey)
-uakrsApiKey = lens _uakrsApiKey (\s a -> s {_uakrsApiKey = a})
+--
+-- /Note:/ Consider using 'apiKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakrsApiKey :: Lens.Lens' UpdateAPIKeyResponse (Lude.Maybe APIKey)
+uakrsApiKey = Lens.lens (apiKey :: UpdateAPIKeyResponse -> Lude.Maybe APIKey) (\s a -> s {apiKey = a} :: UpdateAPIKeyResponse)
+{-# DEPRECATED uakrsApiKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
 
--- | -- | The response status code.
-uakrsResponseStatus :: Lens' UpdateAPIKeyResponse Int
-uakrsResponseStatus = lens _uakrsResponseStatus (\s a -> s {_uakrsResponseStatus = a})
-
-instance NFData UpdateAPIKeyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakrsResponseStatus :: Lens.Lens' UpdateAPIKeyResponse Lude.Int
+uakrsResponseStatus = Lens.lens (responseStatus :: UpdateAPIKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateAPIKeyResponse)
+{-# DEPRECATED uakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

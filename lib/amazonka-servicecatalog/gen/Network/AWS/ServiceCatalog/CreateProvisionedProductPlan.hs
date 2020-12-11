@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Creates a plan. A plan includes the list of resources to be created (when provisioning a new product) or modified (when updating a provisioned product) when the plan is executed.
 --
---
 -- You can create one plan per provisioned product. To create a plan for an existing provisioned product, the product status must be AVAILBLE or TAINTED.
---
 -- To view the resource changes in the change set, use 'DescribeProvisionedProductPlan' . To create or modify the provisioned product, use 'ExecuteProvisionedProductPlan' .
 module Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
-  ( -- * Creating a Request
-    createProvisionedProductPlan,
-    CreateProvisionedProductPlan,
+  ( -- * Creating a request
+    CreateProvisionedProductPlan (..),
+    mkCreateProvisionedProductPlan,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpppNotificationARNs,
     cpppAcceptLanguage,
     cpppPathId,
@@ -41,11 +34,11 @@ module Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
     cpppProvisioningArtifactId,
     cpppIdempotencyToken,
 
-    -- * Destructuring the Response
-    createProvisionedProductPlanResponse,
-    CreateProvisionedProductPlanResponse,
+    -- * Destructuring the response
+    CreateProvisionedProductPlanResponse (..),
+    mkCreateProvisionedProductPlanResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cppprsProvisionedProductName,
     cppprsProvisionProductId,
     cppprsProvisioningArtifactId,
@@ -55,76 +48,83 @@ module Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'createProvisionedProductPlan' smart constructor.
+-- | /See:/ 'mkCreateProvisionedProductPlan' smart constructor.
 data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
-  { _cpppNotificationARNs ::
-      !(Maybe [Text]),
-    _cpppAcceptLanguage ::
-      !(Maybe Text),
-    _cpppPathId :: !(Maybe Text),
-    _cpppProvisioningParameters ::
-      !( Maybe
-           [UpdateProvisioningParameter]
-       ),
-    _cpppTags :: !(Maybe [Tag]),
-    _cpppPlanName :: !Text,
-    _cpppPlanType ::
-      !ProvisionedProductPlanType,
-    _cpppProductId :: !Text,
-    _cpppProvisionedProductName ::
-      !Text,
-    _cpppProvisioningArtifactId ::
-      !Text,
-    _cpppIdempotencyToken :: !Text
+  { notificationARNs ::
+      Lude.Maybe [Lude.Text],
+    acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    pathId :: Lude.Maybe Lude.Text,
+    provisioningParameters ::
+      Lude.Maybe
+        [UpdateProvisioningParameter],
+    tags :: Lude.Maybe [Tag],
+    planName :: Lude.Text,
+    planType ::
+      ProvisionedProductPlanType,
+    productId :: Lude.Text,
+    provisionedProductName ::
+      Lude.Text,
+    provisioningArtifactId ::
+      Lude.Text,
+    idempotencyToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisionedProductPlan' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'cpppNotificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 --
--- * 'cpppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+--     * @en@ - English (default)
 --
--- * 'cpppPathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
 --
--- * 'cpppProvisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
+--     * @jp@ - Japanese
 --
--- * 'cpppTags' - One or more tags. If the plan is for an existing provisioned product, the product must have a @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
 --
--- * 'cpppPlanName' - The name of the plan.
+--     * @zh@ - Chinese
 --
--- * 'cpppPlanType' - The plan type.
 --
--- * 'cpppProductId' - The product identifier.
+-- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- * 'notificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+-- * 'pathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
+-- * 'planName' - The name of the plan.
+-- * 'planType' - The plan type.
+-- * 'productId' - The product identifier.
+-- * 'provisionedProductName' - A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'provisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
+-- * 'tags' - One or more tags.
 --
--- * 'cpppProvisionedProductName' - A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
---
--- * 'cpppProvisioningArtifactId' - The identifier of the provisioning artifact.
---
--- * 'cpppIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-createProvisionedProductPlan ::
-  -- | 'cpppPlanName'
-  Text ->
-  -- | 'cpppPlanType'
+-- If the plan is for an existing provisioned product, the product must have a @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
+mkCreateProvisionedProductPlan ::
+  -- | 'planName'
+  Lude.Text ->
+  -- | 'planType'
   ProvisionedProductPlanType ->
-  -- | 'cpppProductId'
-  Text ->
-  -- | 'cpppProvisionedProductName'
-  Text ->
-  -- | 'cpppProvisioningArtifactId'
-  Text ->
-  -- | 'cpppIdempotencyToken'
-  Text ->
+  -- | 'productId'
+  Lude.Text ->
+  -- | 'provisionedProductName'
+  Lude.Text ->
+  -- | 'provisioningArtifactId'
+  Lude.Text ->
+  -- | 'idempotencyToken'
+  Lude.Text ->
   CreateProvisionedProductPlan
-createProvisionedProductPlan
+mkCreateProvisionedProductPlan
   pPlanName_
   pPlanType_
   pProductId_
@@ -132,189 +132,255 @@ createProvisionedProductPlan
   pProvisioningArtifactId_
   pIdempotencyToken_ =
     CreateProvisionedProductPlan'
-      { _cpppNotificationARNs = Nothing,
-        _cpppAcceptLanguage = Nothing,
-        _cpppPathId = Nothing,
-        _cpppProvisioningParameters = Nothing,
-        _cpppTags = Nothing,
-        _cpppPlanName = pPlanName_,
-        _cpppPlanType = pPlanType_,
-        _cpppProductId = pProductId_,
-        _cpppProvisionedProductName = pProvisionedProductName_,
-        _cpppProvisioningArtifactId = pProvisioningArtifactId_,
-        _cpppIdempotencyToken = pIdempotencyToken_
+      { notificationARNs = Lude.Nothing,
+        acceptLanguage = Lude.Nothing,
+        pathId = Lude.Nothing,
+        provisioningParameters = Lude.Nothing,
+        tags = Lude.Nothing,
+        planName = pPlanName_,
+        planType = pPlanType_,
+        productId = pProductId_,
+        provisionedProductName = pProvisionedProductName_,
+        provisioningArtifactId = pProvisioningArtifactId_,
+        idempotencyToken = pIdempotencyToken_
       }
 
 -- | Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-cpppNotificationARNs :: Lens' CreateProvisionedProductPlan [Text]
-cpppNotificationARNs = lens _cpppNotificationARNs (\s a -> s {_cpppNotificationARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notificationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppNotificationARNs :: Lens.Lens' CreateProvisionedProductPlan (Lude.Maybe [Lude.Text])
+cpppNotificationARNs = Lens.lens (notificationARNs :: CreateProvisionedProductPlan -> Lude.Maybe [Lude.Text]) (\s a -> s {notificationARNs = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppNotificationARNs "Use generic-lens or generic-optics with 'notificationARNs' instead." #-}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-cpppAcceptLanguage :: Lens' CreateProvisionedProductPlan (Maybe Text)
-cpppAcceptLanguage = lens _cpppAcceptLanguage (\s a -> s {_cpppAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppAcceptLanguage :: Lens.Lens' CreateProvisionedProductPlan (Lude.Maybe Lude.Text)
+cpppAcceptLanguage = Lens.lens (acceptLanguage :: CreateProvisionedProductPlan -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
-cpppPathId :: Lens' CreateProvisionedProductPlan (Maybe Text)
-cpppPathId = lens _cpppPathId (\s a -> s {_cpppPathId = a})
+--
+-- /Note:/ Consider using 'pathId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppPathId :: Lens.Lens' CreateProvisionedProductPlan (Lude.Maybe Lude.Text)
+cpppPathId = Lens.lens (pathId :: CreateProvisionedProductPlan -> Lude.Maybe Lude.Text) (\s a -> s {pathId = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppPathId "Use generic-lens or generic-optics with 'pathId' instead." #-}
 
 -- | Parameters specified by the administrator that are required for provisioning the product.
-cpppProvisioningParameters :: Lens' CreateProvisionedProductPlan [UpdateProvisioningParameter]
-cpppProvisioningParameters = lens _cpppProvisioningParameters (\s a -> s {_cpppProvisioningParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'provisioningParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppProvisioningParameters :: Lens.Lens' CreateProvisionedProductPlan (Lude.Maybe [UpdateProvisioningParameter])
+cpppProvisioningParameters = Lens.lens (provisioningParameters :: CreateProvisionedProductPlan -> Lude.Maybe [UpdateProvisioningParameter]) (\s a -> s {provisioningParameters = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppProvisioningParameters "Use generic-lens or generic-optics with 'provisioningParameters' instead." #-}
 
--- | One or more tags. If the plan is for an existing provisioned product, the product must have a @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
-cpppTags :: Lens' CreateProvisionedProductPlan [Tag]
-cpppTags = lens _cpppTags (\s a -> s {_cpppTags = a}) . _Default . _Coerce
+-- | One or more tags.
+--
+-- If the plan is for an existing provisioned product, the product must have a @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppTags :: Lens.Lens' CreateProvisionedProductPlan (Lude.Maybe [Tag])
+cpppTags = Lens.lens (tags :: CreateProvisionedProductPlan -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the plan.
-cpppPlanName :: Lens' CreateProvisionedProductPlan Text
-cpppPlanName = lens _cpppPlanName (\s a -> s {_cpppPlanName = a})
+--
+-- /Note:/ Consider using 'planName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppPlanName :: Lens.Lens' CreateProvisionedProductPlan Lude.Text
+cpppPlanName = Lens.lens (planName :: CreateProvisionedProductPlan -> Lude.Text) (\s a -> s {planName = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppPlanName "Use generic-lens or generic-optics with 'planName' instead." #-}
 
 -- | The plan type.
-cpppPlanType :: Lens' CreateProvisionedProductPlan ProvisionedProductPlanType
-cpppPlanType = lens _cpppPlanType (\s a -> s {_cpppPlanType = a})
+--
+-- /Note:/ Consider using 'planType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppPlanType :: Lens.Lens' CreateProvisionedProductPlan ProvisionedProductPlanType
+cpppPlanType = Lens.lens (planType :: CreateProvisionedProductPlan -> ProvisionedProductPlanType) (\s a -> s {planType = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppPlanType "Use generic-lens or generic-optics with 'planType' instead." #-}
 
 -- | The product identifier.
-cpppProductId :: Lens' CreateProvisionedProductPlan Text
-cpppProductId = lens _cpppProductId (\s a -> s {_cpppProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppProductId :: Lens.Lens' CreateProvisionedProductPlan Lude.Text
+cpppProductId = Lens.lens (productId :: CreateProvisionedProductPlan -> Lude.Text) (\s a -> s {productId = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
-cpppProvisionedProductName :: Lens' CreateProvisionedProductPlan Text
-cpppProvisionedProductName = lens _cpppProvisionedProductName (\s a -> s {_cpppProvisionedProductName = a})
+--
+-- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppProvisionedProductName :: Lens.Lens' CreateProvisionedProductPlan Lude.Text
+cpppProvisionedProductName = Lens.lens (provisionedProductName :: CreateProvisionedProductPlan -> Lude.Text) (\s a -> s {provisionedProductName = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
 
 -- | The identifier of the provisioning artifact.
-cpppProvisioningArtifactId :: Lens' CreateProvisionedProductPlan Text
-cpppProvisioningArtifactId = lens _cpppProvisioningArtifactId (\s a -> s {_cpppProvisioningArtifactId = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppProvisioningArtifactId :: Lens.Lens' CreateProvisionedProductPlan Lude.Text
+cpppProvisioningArtifactId = Lens.lens (provisioningArtifactId :: CreateProvisionedProductPlan -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-cpppIdempotencyToken :: Lens' CreateProvisionedProductPlan Text
-cpppIdempotencyToken = lens _cpppIdempotencyToken (\s a -> s {_cpppIdempotencyToken = a})
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpppIdempotencyToken :: Lens.Lens' CreateProvisionedProductPlan Lude.Text
+cpppIdempotencyToken = Lens.lens (idempotencyToken :: CreateProvisionedProductPlan -> Lude.Text) (\s a -> s {idempotencyToken = a} :: CreateProvisionedProductPlan)
+{-# DEPRECATED cpppIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
-instance AWSRequest CreateProvisionedProductPlan where
+instance Lude.AWSRequest CreateProvisionedProductPlan where
   type
     Rs CreateProvisionedProductPlan =
       CreateProvisionedProductPlanResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateProvisionedProductPlanResponse'
-            <$> (x .?> "ProvisionedProductName")
-            <*> (x .?> "ProvisionProductId")
-            <*> (x .?> "ProvisioningArtifactId")
-            <*> (x .?> "PlanId")
-            <*> (x .?> "PlanName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ProvisionedProductName")
+            Lude.<*> (x Lude..?> "ProvisionProductId")
+            Lude.<*> (x Lude..?> "ProvisioningArtifactId")
+            Lude.<*> (x Lude..?> "PlanId")
+            Lude.<*> (x Lude..?> "PlanName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateProvisionedProductPlan
-
-instance NFData CreateProvisionedProductPlan
-
-instance ToHeaders CreateProvisionedProductPlan where
+instance Lude.ToHeaders CreateProvisionedProductPlan where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.CreateProvisionedProductPlan" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.CreateProvisionedProductPlan" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateProvisionedProductPlan where
+instance Lude.ToJSON CreateProvisionedProductPlan where
   toJSON CreateProvisionedProductPlan' {..} =
-    object
-      ( catMaybes
-          [ ("NotificationArns" .=) <$> _cpppNotificationARNs,
-            ("AcceptLanguage" .=) <$> _cpppAcceptLanguage,
-            ("PathId" .=) <$> _cpppPathId,
-            ("ProvisioningParameters" .=) <$> _cpppProvisioningParameters,
-            ("Tags" .=) <$> _cpppTags,
-            Just ("PlanName" .= _cpppPlanName),
-            Just ("PlanType" .= _cpppPlanType),
-            Just ("ProductId" .= _cpppProductId),
-            Just ("ProvisionedProductName" .= _cpppProvisionedProductName),
-            Just ("ProvisioningArtifactId" .= _cpppProvisioningArtifactId),
-            Just ("IdempotencyToken" .= _cpppIdempotencyToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NotificationArns" Lude..=) Lude.<$> notificationARNs,
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("PathId" Lude..=) Lude.<$> pathId,
+            ("ProvisioningParameters" Lude..=) Lude.<$> provisioningParameters,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("PlanName" Lude..= planName),
+            Lude.Just ("PlanType" Lude..= planType),
+            Lude.Just ("ProductId" Lude..= productId),
+            Lude.Just
+              ("ProvisionedProductName" Lude..= provisionedProductName),
+            Lude.Just
+              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
+            Lude.Just ("IdempotencyToken" Lude..= idempotencyToken)
           ]
       )
 
-instance ToPath CreateProvisionedProductPlan where
-  toPath = const "/"
+instance Lude.ToPath CreateProvisionedProductPlan where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateProvisionedProductPlan where
-  toQuery = const mempty
+instance Lude.ToQuery CreateProvisionedProductPlan where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createProvisionedProductPlanResponse' smart constructor.
+-- | /See:/ 'mkCreateProvisionedProductPlanResponse' smart constructor.
 data CreateProvisionedProductPlanResponse = CreateProvisionedProductPlanResponse'
-  { _cppprsProvisionedProductName ::
-      !(Maybe Text),
-    _cppprsProvisionProductId ::
-      !(Maybe Text),
-    _cppprsProvisioningArtifactId ::
-      !(Maybe Text),
-    _cppprsPlanId ::
-      !(Maybe Text),
-    _cppprsPlanName ::
-      !(Maybe Text),
-    _cppprsResponseStatus ::
-      !Int
+  { provisionedProductName ::
+      Lude.Maybe
+        Lude.Text,
+    provisionProductId ::
+      Lude.Maybe
+        Lude.Text,
+    provisioningArtifactId ::
+      Lude.Maybe
+        Lude.Text,
+    planId ::
+      Lude.Maybe
+        Lude.Text,
+    planName ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisionedProductPlanResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cppprsProvisionedProductName' - The user-friendly name of the provisioned product.
---
--- * 'cppprsProvisionProductId' - The product identifier.
---
--- * 'cppprsProvisioningArtifactId' - The identifier of the provisioning artifact.
---
--- * 'cppprsPlanId' - The plan identifier.
---
--- * 'cppprsPlanName' - The name of the plan.
---
--- * 'cppprsResponseStatus' - -- | The response status code.
-createProvisionedProductPlanResponse ::
-  -- | 'cppprsResponseStatus'
-  Int ->
+-- * 'planId' - The plan identifier.
+-- * 'planName' - The name of the plan.
+-- * 'provisionProductId' - The product identifier.
+-- * 'provisionedProductName' - The user-friendly name of the provisioned product.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'responseStatus' - The response status code.
+mkCreateProvisionedProductPlanResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateProvisionedProductPlanResponse
-createProvisionedProductPlanResponse pResponseStatus_ =
+mkCreateProvisionedProductPlanResponse pResponseStatus_ =
   CreateProvisionedProductPlanResponse'
-    { _cppprsProvisionedProductName =
-        Nothing,
-      _cppprsProvisionProductId = Nothing,
-      _cppprsProvisioningArtifactId = Nothing,
-      _cppprsPlanId = Nothing,
-      _cppprsPlanName = Nothing,
-      _cppprsResponseStatus = pResponseStatus_
+    { provisionedProductName =
+        Lude.Nothing,
+      provisionProductId = Lude.Nothing,
+      provisioningArtifactId = Lude.Nothing,
+      planId = Lude.Nothing,
+      planName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The user-friendly name of the provisioned product.
-cppprsProvisionedProductName :: Lens' CreateProvisionedProductPlanResponse (Maybe Text)
-cppprsProvisionedProductName = lens _cppprsProvisionedProductName (\s a -> s {_cppprsProvisionedProductName = a})
+--
+-- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cppprsProvisionedProductName :: Lens.Lens' CreateProvisionedProductPlanResponse (Lude.Maybe Lude.Text)
+cppprsProvisionedProductName = Lens.lens (provisionedProductName :: CreateProvisionedProductPlanResponse -> Lude.Maybe Lude.Text) (\s a -> s {provisionedProductName = a} :: CreateProvisionedProductPlanResponse)
+{-# DEPRECATED cppprsProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
 
 -- | The product identifier.
-cppprsProvisionProductId :: Lens' CreateProvisionedProductPlanResponse (Maybe Text)
-cppprsProvisionProductId = lens _cppprsProvisionProductId (\s a -> s {_cppprsProvisionProductId = a})
+--
+-- /Note:/ Consider using 'provisionProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cppprsProvisionProductId :: Lens.Lens' CreateProvisionedProductPlanResponse (Lude.Maybe Lude.Text)
+cppprsProvisionProductId = Lens.lens (provisionProductId :: CreateProvisionedProductPlanResponse -> Lude.Maybe Lude.Text) (\s a -> s {provisionProductId = a} :: CreateProvisionedProductPlanResponse)
+{-# DEPRECATED cppprsProvisionProductId "Use generic-lens or generic-optics with 'provisionProductId' instead." #-}
 
 -- | The identifier of the provisioning artifact.
-cppprsProvisioningArtifactId :: Lens' CreateProvisionedProductPlanResponse (Maybe Text)
-cppprsProvisioningArtifactId = lens _cppprsProvisioningArtifactId (\s a -> s {_cppprsProvisioningArtifactId = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cppprsProvisioningArtifactId :: Lens.Lens' CreateProvisionedProductPlanResponse (Lude.Maybe Lude.Text)
+cppprsProvisioningArtifactId = Lens.lens (provisioningArtifactId :: CreateProvisionedProductPlanResponse -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: CreateProvisionedProductPlanResponse)
+{-# DEPRECATED cppprsProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The plan identifier.
-cppprsPlanId :: Lens' CreateProvisionedProductPlanResponse (Maybe Text)
-cppprsPlanId = lens _cppprsPlanId (\s a -> s {_cppprsPlanId = a})
+--
+-- /Note:/ Consider using 'planId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cppprsPlanId :: Lens.Lens' CreateProvisionedProductPlanResponse (Lude.Maybe Lude.Text)
+cppprsPlanId = Lens.lens (planId :: CreateProvisionedProductPlanResponse -> Lude.Maybe Lude.Text) (\s a -> s {planId = a} :: CreateProvisionedProductPlanResponse)
+{-# DEPRECATED cppprsPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
 
 -- | The name of the plan.
-cppprsPlanName :: Lens' CreateProvisionedProductPlanResponse (Maybe Text)
-cppprsPlanName = lens _cppprsPlanName (\s a -> s {_cppprsPlanName = a})
+--
+-- /Note:/ Consider using 'planName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cppprsPlanName :: Lens.Lens' CreateProvisionedProductPlanResponse (Lude.Maybe Lude.Text)
+cppprsPlanName = Lens.lens (planName :: CreateProvisionedProductPlanResponse -> Lude.Maybe Lude.Text) (\s a -> s {planName = a} :: CreateProvisionedProductPlanResponse)
+{-# DEPRECATED cppprsPlanName "Use generic-lens or generic-optics with 'planName' instead." #-}
 
--- | -- | The response status code.
-cppprsResponseStatus :: Lens' CreateProvisionedProductPlanResponse Int
-cppprsResponseStatus = lens _cppprsResponseStatus (\s a -> s {_cppprsResponseStatus = a})
-
-instance NFData CreateProvisionedProductPlanResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cppprsResponseStatus :: Lens.Lens' CreateProvisionedProductPlanResponse Lude.Int
+cppprsResponseStatus = Lens.lens (responseStatus :: CreateProvisionedProductPlanResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProvisionedProductPlanResponse)
+{-# DEPRECATED cppprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

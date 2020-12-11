@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SnapshotState where
+module Network.AWS.EC2.Types.SnapshotState
+  ( SnapshotState
+      ( SnapshotState',
+        SSCompleted,
+        SSError,
+        SSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SnapshotState
-  = SSCompleted
-  | SSError'
-  | SSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SnapshotState = SnapshotState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SnapshotState where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure SSCompleted
-      "error" -> pure SSError'
-      "pending" -> pure SSPending
-      e ->
-        fromTextError $
-          "Failure parsing SnapshotState from value: '" <> e
-            <> "'. Accepted values: completed, error, pending"
+pattern SSCompleted :: SnapshotState
+pattern SSCompleted = SnapshotState' "completed"
 
-instance ToText SnapshotState where
-  toText = \case
-    SSCompleted -> "completed"
-    SSError' -> "error"
-    SSPending -> "pending"
+pattern SSError :: SnapshotState
+pattern SSError = SnapshotState' "error"
 
-instance Hashable SnapshotState
+pattern SSPending :: SnapshotState
+pattern SSPending = SnapshotState' "pending"
 
-instance NFData SnapshotState
-
-instance ToByteString SnapshotState
-
-instance ToQuery SnapshotState
-
-instance ToHeader SnapshotState
-
-instance FromXML SnapshotState where
-  parseXML = parseXMLText "SnapshotState"
+{-# COMPLETE
+  SSCompleted,
+  SSError,
+  SSPending,
+  SnapshotState'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,37 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDeviceRequest where
+module Network.AWS.MediaLive.Types.InputDeviceRequest
+  ( InputDeviceRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInputDeviceRequest,
+
+    -- * Lenses
+    idrId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for an input device.
 --
--- /See:/ 'inputDeviceRequest' smart constructor.
+-- /See:/ 'mkInputDeviceRequest' smart constructor.
 newtype InputDeviceRequest = InputDeviceRequest'
-  { _idrId ::
-      Maybe Text
+  { id ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDeviceRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idrId' - The unique ID for the device.
-inputDeviceRequest ::
+-- * 'id' - The unique ID for the device.
+mkInputDeviceRequest ::
   InputDeviceRequest
-inputDeviceRequest = InputDeviceRequest' {_idrId = Nothing}
+mkInputDeviceRequest = InputDeviceRequest' {id = Lude.Nothing}
 
 -- | The unique ID for the device.
-idrId :: Lens' InputDeviceRequest (Maybe Text)
-idrId = lens _idrId (\s a -> s {_idrId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idrId :: Lens.Lens' InputDeviceRequest (Lude.Maybe Lude.Text)
+idrId = Lens.lens (id :: InputDeviceRequest -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InputDeviceRequest)
+{-# DEPRECATED idrId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Hashable InputDeviceRequest
-
-instance NFData InputDeviceRequest
-
-instance ToJSON InputDeviceRequest where
+instance Lude.ToJSON InputDeviceRequest where
   toJSON InputDeviceRequest' {..} =
-    object (catMaybes [("id" .=) <$> _idrId])
+    Lude.object (Lude.catMaybes [("id" Lude..=) Lude.<$> id])

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.FileSizes where
+module Network.AWS.CodeCommit.Types.FileSizes
+  ( FileSizes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFileSizes,
+
+    -- * Lenses
+    fsDestination,
+    fsBase,
+    fsSource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the size of files in a merge or pull request.
 --
---
---
--- /See:/ 'fileSizes' smart constructor.
+-- /See:/ 'mkFileSizes' smart constructor.
 data FileSizes = FileSizes'
-  { _fsDestination :: !(Maybe Integer),
-    _fsBase :: !(Maybe Integer),
-    _fsSource :: !(Maybe Integer)
+  { destination :: Lude.Maybe Lude.Integer,
+    base :: Lude.Maybe Lude.Integer,
+    source :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileSizes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fsDestination' - The size of a file in the destination of a merge or pull request.
---
--- * 'fsBase' - The size of a file in the base of a merge or pull request.
---
--- * 'fsSource' - The size of a file in the source of a merge or pull request.
-fileSizes ::
+-- * 'base' - The size of a file in the base of a merge or pull request.
+-- * 'destination' - The size of a file in the destination of a merge or pull request.
+-- * 'source' - The size of a file in the source of a merge or pull request.
+mkFileSizes ::
   FileSizes
-fileSizes =
+mkFileSizes =
   FileSizes'
-    { _fsDestination = Nothing,
-      _fsBase = Nothing,
-      _fsSource = Nothing
+    { destination = Lude.Nothing,
+      base = Lude.Nothing,
+      source = Lude.Nothing
     }
 
 -- | The size of a file in the destination of a merge or pull request.
-fsDestination :: Lens' FileSizes (Maybe Integer)
-fsDestination = lens _fsDestination (\s a -> s {_fsDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsDestination :: Lens.Lens' FileSizes (Lude.Maybe Lude.Integer)
+fsDestination = Lens.lens (destination :: FileSizes -> Lude.Maybe Lude.Integer) (\s a -> s {destination = a} :: FileSizes)
+{-# DEPRECATED fsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The size of a file in the base of a merge or pull request.
-fsBase :: Lens' FileSizes (Maybe Integer)
-fsBase = lens _fsBase (\s a -> s {_fsBase = a})
+--
+-- /Note:/ Consider using 'base' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsBase :: Lens.Lens' FileSizes (Lude.Maybe Lude.Integer)
+fsBase = Lens.lens (base :: FileSizes -> Lude.Maybe Lude.Integer) (\s a -> s {base = a} :: FileSizes)
+{-# DEPRECATED fsBase "Use generic-lens or generic-optics with 'base' instead." #-}
 
 -- | The size of a file in the source of a merge or pull request.
-fsSource :: Lens' FileSizes (Maybe Integer)
-fsSource = lens _fsSource (\s a -> s {_fsSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsSource :: Lens.Lens' FileSizes (Lude.Maybe Lude.Integer)
+fsSource = Lens.lens (source :: FileSizes -> Lude.Maybe Lude.Integer) (\s a -> s {source = a} :: FileSizes)
+{-# DEPRECATED fsSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance FromJSON FileSizes where
+instance Lude.FromJSON FileSizes where
   parseJSON =
-    withObject
+    Lude.withObject
       "FileSizes"
       ( \x ->
           FileSizes'
-            <$> (x .:? "destination") <*> (x .:? "base") <*> (x .:? "source")
+            Lude.<$> (x Lude..:? "destination")
+            Lude.<*> (x Lude..:? "base")
+            Lude.<*> (x Lude..:? "source")
       )
-
-instance Hashable FileSizes
-
-instance NFData FileSizes

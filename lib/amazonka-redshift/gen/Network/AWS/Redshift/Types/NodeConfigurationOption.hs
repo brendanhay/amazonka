@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.NodeConfigurationOption where
+module Network.AWS.Redshift.Types.NodeConfigurationOption
+  ( NodeConfigurationOption (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNodeConfigurationOption,
+
+    -- * Lenses
+    ncoMode,
+    ncoNumberOfNodes,
+    ncoNodeType,
+    ncoEstimatedDiskUtilizationPercent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.Mode
 
 -- | A list of node configurations.
 --
---
---
--- /See:/ 'nodeConfigurationOption' smart constructor.
+-- /See:/ 'mkNodeConfigurationOption' smart constructor.
 data NodeConfigurationOption = NodeConfigurationOption'
-  { _ncoMode ::
-      !(Maybe Mode),
-    _ncoNumberOfNodes :: !(Maybe Int),
-    _ncoNodeType :: !(Maybe Text),
-    _ncoEstimatedDiskUtilizationPercent ::
-      !(Maybe Double)
+  { mode ::
+      Lude.Maybe Mode,
+    numberOfNodes :: Lude.Maybe Lude.Int,
+    nodeType :: Lude.Maybe Lude.Text,
+    estimatedDiskUtilizationPercent ::
+      Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeConfigurationOption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ncoMode' - The category of the node configuration recommendation.
---
--- * 'ncoNumberOfNodes' - The number of nodes.
---
--- * 'ncoNodeType' - The node type, such as, "ds2.8xlarge".
---
--- * 'ncoEstimatedDiskUtilizationPercent' - The estimated disk utilizaton percentage.
-nodeConfigurationOption ::
+-- * 'estimatedDiskUtilizationPercent' - The estimated disk utilizaton percentage.
+-- * 'mode' - The category of the node configuration recommendation.
+-- * 'nodeType' - The node type, such as, "ds2.8xlarge".
+-- * 'numberOfNodes' - The number of nodes.
+mkNodeConfigurationOption ::
   NodeConfigurationOption
-nodeConfigurationOption =
+mkNodeConfigurationOption =
   NodeConfigurationOption'
-    { _ncoMode = Nothing,
-      _ncoNumberOfNodes = Nothing,
-      _ncoNodeType = Nothing,
-      _ncoEstimatedDiskUtilizationPercent = Nothing
+    { mode = Lude.Nothing,
+      numberOfNodes = Lude.Nothing,
+      nodeType = Lude.Nothing,
+      estimatedDiskUtilizationPercent = Lude.Nothing
     }
 
 -- | The category of the node configuration recommendation.
-ncoMode :: Lens' NodeConfigurationOption (Maybe Mode)
-ncoMode = lens _ncoMode (\s a -> s {_ncoMode = a})
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncoMode :: Lens.Lens' NodeConfigurationOption (Lude.Maybe Mode)
+ncoMode = Lens.lens (mode :: NodeConfigurationOption -> Lude.Maybe Mode) (\s a -> s {mode = a} :: NodeConfigurationOption)
+{-# DEPRECATED ncoMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
 -- | The number of nodes.
-ncoNumberOfNodes :: Lens' NodeConfigurationOption (Maybe Int)
-ncoNumberOfNodes = lens _ncoNumberOfNodes (\s a -> s {_ncoNumberOfNodes = a})
+--
+-- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncoNumberOfNodes :: Lens.Lens' NodeConfigurationOption (Lude.Maybe Lude.Int)
+ncoNumberOfNodes = Lens.lens (numberOfNodes :: NodeConfigurationOption -> Lude.Maybe Lude.Int) (\s a -> s {numberOfNodes = a} :: NodeConfigurationOption)
+{-# DEPRECATED ncoNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
 
 -- | The node type, such as, "ds2.8xlarge".
-ncoNodeType :: Lens' NodeConfigurationOption (Maybe Text)
-ncoNodeType = lens _ncoNodeType (\s a -> s {_ncoNodeType = a})
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncoNodeType :: Lens.Lens' NodeConfigurationOption (Lude.Maybe Lude.Text)
+ncoNodeType = Lens.lens (nodeType :: NodeConfigurationOption -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: NodeConfigurationOption)
+{-# DEPRECATED ncoNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
 -- | The estimated disk utilizaton percentage.
-ncoEstimatedDiskUtilizationPercent :: Lens' NodeConfigurationOption (Maybe Double)
-ncoEstimatedDiskUtilizationPercent = lens _ncoEstimatedDiskUtilizationPercent (\s a -> s {_ncoEstimatedDiskUtilizationPercent = a})
+--
+-- /Note:/ Consider using 'estimatedDiskUtilizationPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncoEstimatedDiskUtilizationPercent :: Lens.Lens' NodeConfigurationOption (Lude.Maybe Lude.Double)
+ncoEstimatedDiskUtilizationPercent = Lens.lens (estimatedDiskUtilizationPercent :: NodeConfigurationOption -> Lude.Maybe Lude.Double) (\s a -> s {estimatedDiskUtilizationPercent = a} :: NodeConfigurationOption)
+{-# DEPRECATED ncoEstimatedDiskUtilizationPercent "Use generic-lens or generic-optics with 'estimatedDiskUtilizationPercent' instead." #-}
 
-instance FromXML NodeConfigurationOption where
+instance Lude.FromXML NodeConfigurationOption where
   parseXML x =
     NodeConfigurationOption'
-      <$> (x .@? "Mode")
-      <*> (x .@? "NumberOfNodes")
-      <*> (x .@? "NodeType")
-      <*> (x .@? "EstimatedDiskUtilizationPercent")
-
-instance Hashable NodeConfigurationOption
-
-instance NFData NodeConfigurationOption
+      Lude.<$> (x Lude..@? "Mode")
+      Lude.<*> (x Lude..@? "NumberOfNodes")
+      Lude.<*> (x Lude..@? "NodeType")
+      Lude.<*> (x Lude..@? "EstimatedDiskUtilizationPercent")

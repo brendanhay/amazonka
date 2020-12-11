@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.Gateway where
+module Network.AWS.AlexaBusiness.Types.Gateway
+  ( Gateway (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGateway,
+
+    -- * Lenses
+    gARN,
+    gName,
+    gGatewayGroupARN,
+    gSoftwareVersion,
+    gDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details of the gateway.
 --
---
---
--- /See:/ 'gateway' smart constructor.
+-- /See:/ 'mkGateway' smart constructor.
 data Gateway = Gateway'
-  { _gARN :: !(Maybe Text),
-    _gName :: !(Maybe Text),
-    _gGatewayGroupARN :: !(Maybe Text),
-    _gSoftwareVersion :: !(Maybe Text),
-    _gDescription :: !(Maybe Text)
+  { arn :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    gatewayGroupARN :: Lude.Maybe Lude.Text,
+    softwareVersion :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Gateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gARN' - The ARN of the gateway.
---
--- * 'gName' - The name of the gateway.
---
--- * 'gGatewayGroupARN' - The ARN of the gateway group that the gateway is associated to.
---
--- * 'gSoftwareVersion' - The software version of the gateway. The gateway automatically updates its software version during normal operation.
---
--- * 'gDescription' - The description of the gateway.
-gateway ::
+-- * 'arn' - The ARN of the gateway.
+-- * 'description' - The description of the gateway.
+-- * 'gatewayGroupARN' - The ARN of the gateway group that the gateway is associated to.
+-- * 'name' - The name of the gateway.
+-- * 'softwareVersion' - The software version of the gateway. The gateway automatically updates its software version during normal operation.
+mkGateway ::
   Gateway
-gateway =
+mkGateway =
   Gateway'
-    { _gARN = Nothing,
-      _gName = Nothing,
-      _gGatewayGroupARN = Nothing,
-      _gSoftwareVersion = Nothing,
-      _gDescription = Nothing
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      gatewayGroupARN = Lude.Nothing,
+      softwareVersion = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The ARN of the gateway.
-gARN :: Lens' Gateway (Maybe Text)
-gARN = lens _gARN (\s a -> s {_gARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gARN :: Lens.Lens' Gateway (Lude.Maybe Lude.Text)
+gARN = Lens.lens (arn :: Gateway -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Gateway)
+{-# DEPRECATED gARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the gateway.
-gName :: Lens' Gateway (Maybe Text)
-gName = lens _gName (\s a -> s {_gName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gName :: Lens.Lens' Gateway (Lude.Maybe Lude.Text)
+gName = Lens.lens (name :: Gateway -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Gateway)
+{-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ARN of the gateway group that the gateway is associated to.
-gGatewayGroupARN :: Lens' Gateway (Maybe Text)
-gGatewayGroupARN = lens _gGatewayGroupARN (\s a -> s {_gGatewayGroupARN = a})
+--
+-- /Note:/ Consider using 'gatewayGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gGatewayGroupARN :: Lens.Lens' Gateway (Lude.Maybe Lude.Text)
+gGatewayGroupARN = Lens.lens (gatewayGroupARN :: Gateway -> Lude.Maybe Lude.Text) (\s a -> s {gatewayGroupARN = a} :: Gateway)
+{-# DEPRECATED gGatewayGroupARN "Use generic-lens or generic-optics with 'gatewayGroupARN' instead." #-}
 
 -- | The software version of the gateway. The gateway automatically updates its software version during normal operation.
-gSoftwareVersion :: Lens' Gateway (Maybe Text)
-gSoftwareVersion = lens _gSoftwareVersion (\s a -> s {_gSoftwareVersion = a})
+--
+-- /Note:/ Consider using 'softwareVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gSoftwareVersion :: Lens.Lens' Gateway (Lude.Maybe Lude.Text)
+gSoftwareVersion = Lens.lens (softwareVersion :: Gateway -> Lude.Maybe Lude.Text) (\s a -> s {softwareVersion = a} :: Gateway)
+{-# DEPRECATED gSoftwareVersion "Use generic-lens or generic-optics with 'softwareVersion' instead." #-}
 
 -- | The description of the gateway.
-gDescription :: Lens' Gateway (Maybe Text)
-gDescription = lens _gDescription (\s a -> s {_gDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gDescription :: Lens.Lens' Gateway (Lude.Maybe Lude.Text)
+gDescription = Lens.lens (description :: Gateway -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Gateway)
+{-# DEPRECATED gDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON Gateway where
+instance Lude.FromJSON Gateway where
   parseJSON =
-    withObject
+    Lude.withObject
       "Gateway"
       ( \x ->
           Gateway'
-            <$> (x .:? "Arn")
-            <*> (x .:? "Name")
-            <*> (x .:? "GatewayGroupArn")
-            <*> (x .:? "SoftwareVersion")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "GatewayGroupArn")
+            Lude.<*> (x Lude..:? "SoftwareVersion")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable Gateway
-
-instance NFData Gateway

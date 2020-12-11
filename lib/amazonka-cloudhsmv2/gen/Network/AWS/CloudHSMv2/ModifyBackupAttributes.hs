@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,150 @@
 --
 -- Modifies attributes for AWS CloudHSM backup.
 module Network.AWS.CloudHSMv2.ModifyBackupAttributes
-  ( -- * Creating a Request
-    modifyBackupAttributes,
-    ModifyBackupAttributes,
+  ( -- * Creating a request
+    ModifyBackupAttributes (..),
+    mkModifyBackupAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mbaBackupId,
     mbaNeverExpires,
 
-    -- * Destructuring the Response
-    modifyBackupAttributesResponse,
-    ModifyBackupAttributesResponse,
+    -- * Destructuring the response
+    ModifyBackupAttributesResponse (..),
+    mkModifyBackupAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mbarsBackup,
     mbarsResponseStatus,
   )
 where
 
 import Network.AWS.CloudHSMv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyBackupAttributes' smart constructor.
+-- | /See:/ 'mkModifyBackupAttributes' smart constructor.
 data ModifyBackupAttributes = ModifyBackupAttributes'
-  { _mbaBackupId ::
-      !Text,
-    _mbaNeverExpires :: !Bool
+  { backupId ::
+      Lude.Text,
+    neverExpires :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyBackupAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mbaBackupId' - The identifier (ID) of the backup to modify. To find the ID of a backup, use the 'DescribeBackups' operation.
---
--- * 'mbaNeverExpires' - Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
-modifyBackupAttributes ::
-  -- | 'mbaBackupId'
-  Text ->
-  -- | 'mbaNeverExpires'
-  Bool ->
+-- * 'backupId' - The identifier (ID) of the backup to modify. To find the ID of a backup, use the 'DescribeBackups' operation.
+-- * 'neverExpires' - Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
+mkModifyBackupAttributes ::
+  -- | 'backupId'
+  Lude.Text ->
+  -- | 'neverExpires'
+  Lude.Bool ->
   ModifyBackupAttributes
-modifyBackupAttributes pBackupId_ pNeverExpires_ =
+mkModifyBackupAttributes pBackupId_ pNeverExpires_ =
   ModifyBackupAttributes'
-    { _mbaBackupId = pBackupId_,
-      _mbaNeverExpires = pNeverExpires_
+    { backupId = pBackupId_,
+      neverExpires = pNeverExpires_
     }
 
 -- | The identifier (ID) of the backup to modify. To find the ID of a backup, use the 'DescribeBackups' operation.
-mbaBackupId :: Lens' ModifyBackupAttributes Text
-mbaBackupId = lens _mbaBackupId (\s a -> s {_mbaBackupId = a})
+--
+-- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbaBackupId :: Lens.Lens' ModifyBackupAttributes Lude.Text
+mbaBackupId = Lens.lens (backupId :: ModifyBackupAttributes -> Lude.Text) (\s a -> s {backupId = a} :: ModifyBackupAttributes)
+{-# DEPRECATED mbaBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
 
 -- | Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
-mbaNeverExpires :: Lens' ModifyBackupAttributes Bool
-mbaNeverExpires = lens _mbaNeverExpires (\s a -> s {_mbaNeverExpires = a})
+--
+-- /Note:/ Consider using 'neverExpires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbaNeverExpires :: Lens.Lens' ModifyBackupAttributes Lude.Bool
+mbaNeverExpires = Lens.lens (neverExpires :: ModifyBackupAttributes -> Lude.Bool) (\s a -> s {neverExpires = a} :: ModifyBackupAttributes)
+{-# DEPRECATED mbaNeverExpires "Use generic-lens or generic-optics with 'neverExpires' instead." #-}
 
-instance AWSRequest ModifyBackupAttributes where
+instance Lude.AWSRequest ModifyBackupAttributes where
   type Rs ModifyBackupAttributes = ModifyBackupAttributesResponse
-  request = postJSON cloudHSMv2
+  request = Req.postJSON cloudHSMv2Service
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ModifyBackupAttributesResponse'
-            <$> (x .?> "Backup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Backup") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyBackupAttributes
-
-instance NFData ModifyBackupAttributes
-
-instance ToHeaders ModifyBackupAttributes where
+instance Lude.ToHeaders ModifyBackupAttributes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("BaldrApiService.ModifyBackupAttributes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("BaldrApiService.ModifyBackupAttributes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyBackupAttributes where
+instance Lude.ToJSON ModifyBackupAttributes where
   toJSON ModifyBackupAttributes' {..} =
-    object
-      ( catMaybes
-          [ Just ("BackupId" .= _mbaBackupId),
-            Just ("NeverExpires" .= _mbaNeverExpires)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("BackupId" Lude..= backupId),
+            Lude.Just ("NeverExpires" Lude..= neverExpires)
           ]
       )
 
-instance ToPath ModifyBackupAttributes where
-  toPath = const "/"
+instance Lude.ToPath ModifyBackupAttributes where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyBackupAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyBackupAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyBackupAttributesResponse' smart constructor.
+-- | /See:/ 'mkModifyBackupAttributesResponse' smart constructor.
 data ModifyBackupAttributesResponse = ModifyBackupAttributesResponse'
-  { _mbarsBackup ::
-      !(Maybe Backup),
-    _mbarsResponseStatus :: !Int
+  { backup ::
+      Lude.Maybe Backup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyBackupAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mbarsBackup' - Undocumented member.
---
--- * 'mbarsResponseStatus' - -- | The response status code.
-modifyBackupAttributesResponse ::
-  -- | 'mbarsResponseStatus'
-  Int ->
+-- * 'backup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkModifyBackupAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyBackupAttributesResponse
-modifyBackupAttributesResponse pResponseStatus_ =
+mkModifyBackupAttributesResponse pResponseStatus_ =
   ModifyBackupAttributesResponse'
-    { _mbarsBackup = Nothing,
-      _mbarsResponseStatus = pResponseStatus_
+    { backup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-mbarsBackup :: Lens' ModifyBackupAttributesResponse (Maybe Backup)
-mbarsBackup = lens _mbarsBackup (\s a -> s {_mbarsBackup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'backup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbarsBackup :: Lens.Lens' ModifyBackupAttributesResponse (Lude.Maybe Backup)
+mbarsBackup = Lens.lens (backup :: ModifyBackupAttributesResponse -> Lude.Maybe Backup) (\s a -> s {backup = a} :: ModifyBackupAttributesResponse)
+{-# DEPRECATED mbarsBackup "Use generic-lens or generic-optics with 'backup' instead." #-}
 
--- | -- | The response status code.
-mbarsResponseStatus :: Lens' ModifyBackupAttributesResponse Int
-mbarsResponseStatus = lens _mbarsResponseStatus (\s a -> s {_mbarsResponseStatus = a})
-
-instance NFData ModifyBackupAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbarsResponseStatus :: Lens.Lens' ModifyBackupAttributesResponse Lude.Int
+mbarsResponseStatus = Lens.lens (responseStatus :: ModifyBackupAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyBackupAttributesResponse)
+{-# DEPRECATED mbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

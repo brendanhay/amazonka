@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,173 +14,207 @@
 --
 -- Creates a new DB cluster parameter group.
 --
---
 -- Parameters in a DB cluster parameter group apply to all of the instances in a DB cluster.
---
 -- A DB cluster parameter group is initially created with the default parameters for the database engine used by instances in the DB cluster. To provide custom values for any of the parameters, you must modify the group after creating it using @ModifyDBClusterParameterGroup@ . Once you've created a DB cluster parameter group, you need to associate it with your DB cluster using @ModifyDBCluster@ . When you associate a new DB cluster parameter group with a running DB cluster, you need to reboot the DB instances in the DB cluster without failover for the new DB cluster parameter group and associated settings to take effect.
---
 -- /Important:/ After you create a DB cluster parameter group, you should wait at least 5 minutes before creating your first DB cluster that uses that DB cluster parameter group as the default parameter group. This allows Amazon RDS to fully complete the create action before the DB cluster parameter group is used as the default for a new DB cluster. This is especially important for parameters that are critical when creating the default database for a DB cluster, such as the character set for the default database defined by the @character_set_database@ parameter. You can use the /Parameter Groups/ option of the <https://console.aws.amazon.com/rds/ Amazon RDS console> or the @DescribeDBClusterParameters@ action to verify that your DB cluster parameter group has been created or modified.
---
 -- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
 module Network.AWS.RDS.CreateDBClusterParameterGroup
-  ( -- * Creating a Request
-    createDBClusterParameterGroup,
-    CreateDBClusterParameterGroup,
+  ( -- * Creating a request
+    CreateDBClusterParameterGroup (..),
+    mkCreateDBClusterParameterGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdcpgTags,
     cdcpgDBClusterParameterGroupName,
     cdcpgDBParameterGroupFamily,
     cdcpgDescription,
 
-    -- * Destructuring the Response
-    createDBClusterParameterGroupResponse,
-    CreateDBClusterParameterGroupResponse,
+    -- * Destructuring the response
+    CreateDBClusterParameterGroupResponse (..),
+    mkCreateDBClusterParameterGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdbcpgrsDBClusterParameterGroup,
     cdbcpgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createDBClusterParameterGroup' smart constructor.
+-- /See:/ 'mkCreateDBClusterParameterGroup' smart constructor.
 data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
-  { _cdcpgTags ::
-      !(Maybe [Tag]),
-    _cdcpgDBClusterParameterGroupName ::
-      !Text,
-    _cdcpgDBParameterGroupFamily ::
-      !Text,
-    _cdcpgDescription :: !Text
+  { tags ::
+      Lude.Maybe [Tag],
+    dbClusterParameterGroupName ::
+      Lude.Text,
+    dbParameterGroupFamily ::
+      Lude.Text,
+    description :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDBClusterParameterGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group.
 --
--- * 'cdcpgTags' - Tags to assign to the DB cluster parameter group.
+-- Constraints:
 --
--- * 'cdcpgDBClusterParameterGroupName' - The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DB cluster parameter group.
+--     * Must match the name of an existing DB cluster parameter group.
 --
--- * 'cdcpgDBParameterGroupFamily' - The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family. __Aurora MySQL__  Example: @aurora5.6@ , @aurora-mysql5.7@  __Aurora PostgreSQL__  Example: @aurora-postgresql9.6@
 --
--- * 'cdcpgDescription' - The description for the DB cluster parameter group.
-createDBClusterParameterGroup ::
-  -- | 'cdcpgDBClusterParameterGroupName'
-  Text ->
-  -- | 'cdcpgDBParameterGroupFamily'
-  Text ->
-  -- | 'cdcpgDescription'
-  Text ->
+-- * 'dbParameterGroupFamily' - The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
+--
+-- __Aurora MySQL__
+-- Example: @aurora5.6@ , @aurora-mysql5.7@
+-- __Aurora PostgreSQL__
+-- Example: @aurora-postgresql9.6@
+-- * 'description' - The description for the DB cluster parameter group.
+-- * 'tags' - Tags to assign to the DB cluster parameter group.
+mkCreateDBClusterParameterGroup ::
+  -- | 'dbClusterParameterGroupName'
+  Lude.Text ->
+  -- | 'dbParameterGroupFamily'
+  Lude.Text ->
+  -- | 'description'
+  Lude.Text ->
   CreateDBClusterParameterGroup
-createDBClusterParameterGroup
+mkCreateDBClusterParameterGroup
   pDBClusterParameterGroupName_
   pDBParameterGroupFamily_
   pDescription_ =
     CreateDBClusterParameterGroup'
-      { _cdcpgTags = Nothing,
-        _cdcpgDBClusterParameterGroupName =
-          pDBClusterParameterGroupName_,
-        _cdcpgDBParameterGroupFamily = pDBParameterGroupFamily_,
-        _cdcpgDescription = pDescription_
+      { tags = Lude.Nothing,
+        dbClusterParameterGroupName = pDBClusterParameterGroupName_,
+        dbParameterGroupFamily = pDBParameterGroupFamily_,
+        description = pDescription_
       }
 
 -- | Tags to assign to the DB cluster parameter group.
-cdcpgTags :: Lens' CreateDBClusterParameterGroup [Tag]
-cdcpgTags = lens _cdcpgTags (\s a -> s {_cdcpgTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcpgTags :: Lens.Lens' CreateDBClusterParameterGroup (Lude.Maybe [Tag])
+cdcpgTags = Lens.lens (tags :: CreateDBClusterParameterGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDBClusterParameterGroup)
+{-# DEPRECATED cdcpgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the DB cluster parameter group. Constraints:     * Must match the name of an existing DB cluster parameter group.
-cdcpgDBClusterParameterGroupName :: Lens' CreateDBClusterParameterGroup Text
-cdcpgDBClusterParameterGroupName = lens _cdcpgDBClusterParameterGroupName (\s a -> s {_cdcpgDBClusterParameterGroupName = a})
+-- | The name of the DB cluster parameter group.
+--
+-- Constraints:
+--
+--     * Must match the name of an existing DB cluster parameter group.
+--
+--
+--
+-- /Note:/ Consider using 'dbClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcpgDBClusterParameterGroupName :: Lens.Lens' CreateDBClusterParameterGroup Lude.Text
+cdcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: CreateDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: CreateDBClusterParameterGroup)
+{-# DEPRECATED cdcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
 
--- | The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family. __Aurora MySQL__  Example: @aurora5.6@ , @aurora-mysql5.7@  __Aurora PostgreSQL__  Example: @aurora-postgresql9.6@
-cdcpgDBParameterGroupFamily :: Lens' CreateDBClusterParameterGroup Text
-cdcpgDBParameterGroupFamily = lens _cdcpgDBParameterGroupFamily (\s a -> s {_cdcpgDBParameterGroupFamily = a})
+-- | The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a database engine and engine version compatible with that DB cluster parameter group family.
+--
+-- __Aurora MySQL__
+-- Example: @aurora5.6@ , @aurora-mysql5.7@
+-- __Aurora PostgreSQL__
+-- Example: @aurora-postgresql9.6@
+--
+-- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcpgDBParameterGroupFamily :: Lens.Lens' CreateDBClusterParameterGroup Lude.Text
+cdcpgDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: CreateDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: CreateDBClusterParameterGroup)
+{-# DEPRECATED cdcpgDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
 
 -- | The description for the DB cluster parameter group.
-cdcpgDescription :: Lens' CreateDBClusterParameterGroup Text
-cdcpgDescription = lens _cdcpgDescription (\s a -> s {_cdcpgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcpgDescription :: Lens.Lens' CreateDBClusterParameterGroup Lude.Text
+cdcpgDescription = Lens.lens (description :: CreateDBClusterParameterGroup -> Lude.Text) (\s a -> s {description = a} :: CreateDBClusterParameterGroup)
+{-# DEPRECATED cdcpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance AWSRequest CreateDBClusterParameterGroup where
+instance Lude.AWSRequest CreateDBClusterParameterGroup where
   type
     Rs CreateDBClusterParameterGroup =
       CreateDBClusterParameterGroupResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateDBClusterParameterGroupResult"
       ( \s h x ->
           CreateDBClusterParameterGroupResponse'
-            <$> (x .@? "DBClusterParameterGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "DBClusterParameterGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateDBClusterParameterGroup
+instance Lude.ToHeaders CreateDBClusterParameterGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateDBClusterParameterGroup
+instance Lude.ToPath CreateDBClusterParameterGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateDBClusterParameterGroup where
-  toHeaders = const mempty
-
-instance ToPath CreateDBClusterParameterGroup where
-  toPath = const "/"
-
-instance ToQuery CreateDBClusterParameterGroup where
+instance Lude.ToQuery CreateDBClusterParameterGroup where
   toQuery CreateDBClusterParameterGroup' {..} =
-    mconcat
-      [ "Action" =: ("CreateDBClusterParameterGroup" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Tags" =: toQuery (toQueryList "Tag" <$> _cdcpgTags),
-        "DBClusterParameterGroupName" =: _cdcpgDBClusterParameterGroupName,
-        "DBParameterGroupFamily" =: _cdcpgDBParameterGroupFamily,
-        "Description" =: _cdcpgDescription
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("CreateDBClusterParameterGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "DBClusterParameterGroupName" Lude.=: dbClusterParameterGroupName,
+        "DBParameterGroupFamily" Lude.=: dbParameterGroupFamily,
+        "Description" Lude.=: description
       ]
 
--- | /See:/ 'createDBClusterParameterGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateDBClusterParameterGroupResponse' smart constructor.
 data CreateDBClusterParameterGroupResponse = CreateDBClusterParameterGroupResponse'
-  { _cdbcpgrsDBClusterParameterGroup ::
-      !( Maybe
-           DBClusterParameterGroup
-       ),
-    _cdbcpgrsResponseStatus ::
-      !Int
+  { dbClusterParameterGroup ::
+      Lude.Maybe
+        DBClusterParameterGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDBClusterParameterGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdbcpgrsDBClusterParameterGroup' - Undocumented member.
---
--- * 'cdbcpgrsResponseStatus' - -- | The response status code.
-createDBClusterParameterGroupResponse ::
-  -- | 'cdbcpgrsResponseStatus'
-  Int ->
+-- * 'dbClusterParameterGroup' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateDBClusterParameterGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateDBClusterParameterGroupResponse
-createDBClusterParameterGroupResponse pResponseStatus_ =
+mkCreateDBClusterParameterGroupResponse pResponseStatus_ =
   CreateDBClusterParameterGroupResponse'
-    { _cdbcpgrsDBClusterParameterGroup =
-        Nothing,
-      _cdbcpgrsResponseStatus = pResponseStatus_
+    { dbClusterParameterGroup =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-cdbcpgrsDBClusterParameterGroup :: Lens' CreateDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
-cdbcpgrsDBClusterParameterGroup = lens _cdbcpgrsDBClusterParameterGroup (\s a -> s {_cdbcpgrsDBClusterParameterGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dbClusterParameterGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbcpgrsDBClusterParameterGroup :: Lens.Lens' CreateDBClusterParameterGroupResponse (Lude.Maybe DBClusterParameterGroup)
+cdbcpgrsDBClusterParameterGroup = Lens.lens (dbClusterParameterGroup :: CreateDBClusterParameterGroupResponse -> Lude.Maybe DBClusterParameterGroup) (\s a -> s {dbClusterParameterGroup = a} :: CreateDBClusterParameterGroupResponse)
+{-# DEPRECATED cdbcpgrsDBClusterParameterGroup "Use generic-lens or generic-optics with 'dbClusterParameterGroup' instead." #-}
 
--- | -- | The response status code.
-cdbcpgrsResponseStatus :: Lens' CreateDBClusterParameterGroupResponse Int
-cdbcpgrsResponseStatus = lens _cdbcpgrsResponseStatus (\s a -> s {_cdbcpgrsResponseStatus = a})
-
-instance NFData CreateDBClusterParameterGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbcpgrsResponseStatus :: Lens.Lens' CreateDBClusterParameterGroupResponse Lude.Int
+cdbcpgrsResponseStatus = Lens.lens (responseStatus :: CreateDBClusterParameterGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDBClusterParameterGroupResponse)
+{-# DEPRECATED cdbcpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

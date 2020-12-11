@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Discovers registered instances for a specified namespace and service. You can use @DiscoverInstances@ to discover instances for any type of namespace. For public and private DNS namespaces, you can also use DNS queries to discover instances.
 module Network.AWS.Route53AutoNaming.DiscoverInstances
-  ( -- * Creating a Request
-    discoverInstances,
-    DiscoverInstances,
+  ( -- * Creating a request
+    DiscoverInstances (..),
+    mkDiscoverInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diQueryParameters,
     diOptionalParameters,
     diHealthStatus,
@@ -31,163 +26,190 @@ module Network.AWS.Route53AutoNaming.DiscoverInstances
     diNamespaceName,
     diServiceName,
 
-    -- * Destructuring the Response
-    discoverInstancesResponse,
-    DiscoverInstancesResponse,
+    -- * Destructuring the response
+    DiscoverInstancesResponse (..),
+    mkDiscoverInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dirsInstances,
     dirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53AutoNaming.Types
 
--- | /See:/ 'discoverInstances' smart constructor.
+-- | /See:/ 'mkDiscoverInstances' smart constructor.
 data DiscoverInstances = DiscoverInstances'
-  { _diQueryParameters ::
-      !(Maybe (Map Text (Text))),
-    _diOptionalParameters :: !(Maybe (Map Text (Text))),
-    _diHealthStatus :: !(Maybe HealthStatusFilter),
-    _diMaxResults :: !(Maybe Nat),
-    _diNamespaceName :: !Text,
-    _diServiceName :: !Text
+  { queryParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    optionalParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    healthStatus :: Lude.Maybe HealthStatusFilter,
+    maxResults :: Lude.Maybe Lude.Natural,
+    namespaceName :: Lude.Text,
+    serviceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiscoverInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diQueryParameters' - Filters to scope the results based on custom attributes for the instance. For example, @{version=v1, az=1a}@ . Only instances that match all the specified key-value pairs will be returned.
---
--- * 'diOptionalParameters' - Opportunistic filters to scope the results based on custom attributes. If there are instances that match both the filters specified in both the @QueryParameters@ parameter and this parameter, they are returned. Otherwise, these filters are ignored and only instances that match the filters specified in the @QueryParameters@ parameter are returned.
---
--- * 'diHealthStatus' - The health status of the instances that you want to discover.
---
--- * 'diMaxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @DiscoverInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
---
--- * 'diNamespaceName' - The name of the namespace that you specified when you registered the instance.
---
--- * 'diServiceName' - The name of the service that you specified when you registered the instance.
-discoverInstances ::
-  -- | 'diNamespaceName'
-  Text ->
-  -- | 'diServiceName'
-  Text ->
+-- * 'healthStatus' - The health status of the instances that you want to discover.
+-- * 'maxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @DiscoverInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
+-- * 'namespaceName' - The name of the namespace that you specified when you registered the instance.
+-- * 'optionalParameters' - Opportunistic filters to scope the results based on custom attributes. If there are instances that match both the filters specified in both the @QueryParameters@ parameter and this parameter, they are returned. Otherwise, these filters are ignored and only instances that match the filters specified in the @QueryParameters@ parameter are returned.
+-- * 'queryParameters' - Filters to scope the results based on custom attributes for the instance. For example, @{version=v1, az=1a}@ . Only instances that match all the specified key-value pairs will be returned.
+-- * 'serviceName' - The name of the service that you specified when you registered the instance.
+mkDiscoverInstances ::
+  -- | 'namespaceName'
+  Lude.Text ->
+  -- | 'serviceName'
+  Lude.Text ->
   DiscoverInstances
-discoverInstances pNamespaceName_ pServiceName_ =
+mkDiscoverInstances pNamespaceName_ pServiceName_ =
   DiscoverInstances'
-    { _diQueryParameters = Nothing,
-      _diOptionalParameters = Nothing,
-      _diHealthStatus = Nothing,
-      _diMaxResults = Nothing,
-      _diNamespaceName = pNamespaceName_,
-      _diServiceName = pServiceName_
+    { queryParameters = Lude.Nothing,
+      optionalParameters = Lude.Nothing,
+      healthStatus = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      namespaceName = pNamespaceName_,
+      serviceName = pServiceName_
     }
 
 -- | Filters to scope the results based on custom attributes for the instance. For example, @{version=v1, az=1a}@ . Only instances that match all the specified key-value pairs will be returned.
-diQueryParameters :: Lens' DiscoverInstances (HashMap Text (Text))
-diQueryParameters = lens _diQueryParameters (\s a -> s {_diQueryParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'queryParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diQueryParameters :: Lens.Lens' DiscoverInstances (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+diQueryParameters = Lens.lens (queryParameters :: DiscoverInstances -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {queryParameters = a} :: DiscoverInstances)
+{-# DEPRECATED diQueryParameters "Use generic-lens or generic-optics with 'queryParameters' instead." #-}
 
 -- | Opportunistic filters to scope the results based on custom attributes. If there are instances that match both the filters specified in both the @QueryParameters@ parameter and this parameter, they are returned. Otherwise, these filters are ignored and only instances that match the filters specified in the @QueryParameters@ parameter are returned.
-diOptionalParameters :: Lens' DiscoverInstances (HashMap Text (Text))
-diOptionalParameters = lens _diOptionalParameters (\s a -> s {_diOptionalParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'optionalParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diOptionalParameters :: Lens.Lens' DiscoverInstances (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+diOptionalParameters = Lens.lens (optionalParameters :: DiscoverInstances -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {optionalParameters = a} :: DiscoverInstances)
+{-# DEPRECATED diOptionalParameters "Use generic-lens or generic-optics with 'optionalParameters' instead." #-}
 
 -- | The health status of the instances that you want to discover.
-diHealthStatus :: Lens' DiscoverInstances (Maybe HealthStatusFilter)
-diHealthStatus = lens _diHealthStatus (\s a -> s {_diHealthStatus = a})
+--
+-- /Note:/ Consider using 'healthStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diHealthStatus :: Lens.Lens' DiscoverInstances (Lude.Maybe HealthStatusFilter)
+diHealthStatus = Lens.lens (healthStatus :: DiscoverInstances -> Lude.Maybe HealthStatusFilter) (\s a -> s {healthStatus = a} :: DiscoverInstances)
+{-# DEPRECATED diHealthStatus "Use generic-lens or generic-optics with 'healthStatus' instead." #-}
 
 -- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @DiscoverInstances@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
-diMaxResults :: Lens' DiscoverInstances (Maybe Natural)
-diMaxResults = lens _diMaxResults (\s a -> s {_diMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diMaxResults :: Lens.Lens' DiscoverInstances (Lude.Maybe Lude.Natural)
+diMaxResults = Lens.lens (maxResults :: DiscoverInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DiscoverInstances)
+{-# DEPRECATED diMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the namespace that you specified when you registered the instance.
-diNamespaceName :: Lens' DiscoverInstances Text
-diNamespaceName = lens _diNamespaceName (\s a -> s {_diNamespaceName = a})
+--
+-- /Note:/ Consider using 'namespaceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diNamespaceName :: Lens.Lens' DiscoverInstances Lude.Text
+diNamespaceName = Lens.lens (namespaceName :: DiscoverInstances -> Lude.Text) (\s a -> s {namespaceName = a} :: DiscoverInstances)
+{-# DEPRECATED diNamespaceName "Use generic-lens or generic-optics with 'namespaceName' instead." #-}
 
 -- | The name of the service that you specified when you registered the instance.
-diServiceName :: Lens' DiscoverInstances Text
-diServiceName = lens _diServiceName (\s a -> s {_diServiceName = a})
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diServiceName :: Lens.Lens' DiscoverInstances Lude.Text
+diServiceName = Lens.lens (serviceName :: DiscoverInstances -> Lude.Text) (\s a -> s {serviceName = a} :: DiscoverInstances)
+{-# DEPRECATED diServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
-instance AWSRequest DiscoverInstances where
+instance Lude.AWSRequest DiscoverInstances where
   type Rs DiscoverInstances = DiscoverInstancesResponse
-  request = postJSON route53AutoNaming
+  request = Req.postJSON route53AutoNamingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DiscoverInstancesResponse'
-            <$> (x .?> "Instances" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Instances" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DiscoverInstances
-
-instance NFData DiscoverInstances
-
-instance ToHeaders DiscoverInstances where
+instance Lude.ToHeaders DiscoverInstances where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53AutoNaming_v20170314.DiscoverInstances" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53AutoNaming_v20170314.DiscoverInstances" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DiscoverInstances where
+instance Lude.ToJSON DiscoverInstances where
   toJSON DiscoverInstances' {..} =
-    object
-      ( catMaybes
-          [ ("QueryParameters" .=) <$> _diQueryParameters,
-            ("OptionalParameters" .=) <$> _diOptionalParameters,
-            ("HealthStatus" .=) <$> _diHealthStatus,
-            ("MaxResults" .=) <$> _diMaxResults,
-            Just ("NamespaceName" .= _diNamespaceName),
-            Just ("ServiceName" .= _diServiceName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("QueryParameters" Lude..=) Lude.<$> queryParameters,
+            ("OptionalParameters" Lude..=) Lude.<$> optionalParameters,
+            ("HealthStatus" Lude..=) Lude.<$> healthStatus,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("NamespaceName" Lude..= namespaceName),
+            Lude.Just ("ServiceName" Lude..= serviceName)
           ]
       )
 
-instance ToPath DiscoverInstances where
-  toPath = const "/"
+instance Lude.ToPath DiscoverInstances where
+  toPath = Lude.const "/"
 
-instance ToQuery DiscoverInstances where
-  toQuery = const mempty
+instance Lude.ToQuery DiscoverInstances where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'discoverInstancesResponse' smart constructor.
+-- | /See:/ 'mkDiscoverInstancesResponse' smart constructor.
 data DiscoverInstancesResponse = DiscoverInstancesResponse'
-  { _dirsInstances ::
-      !(Maybe [HTTPInstanceSummary]),
-    _dirsResponseStatus :: !Int
+  { instances ::
+      Lude.Maybe [HTTPInstanceSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiscoverInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dirsInstances' - A complex type that contains one @HttpInstanceSummary@ for each registered instance.
---
--- * 'dirsResponseStatus' - -- | The response status code.
-discoverInstancesResponse ::
-  -- | 'dirsResponseStatus'
-  Int ->
+-- * 'instances' - A complex type that contains one @HttpInstanceSummary@ for each registered instance.
+-- * 'responseStatus' - The response status code.
+mkDiscoverInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DiscoverInstancesResponse
-discoverInstancesResponse pResponseStatus_ =
+mkDiscoverInstancesResponse pResponseStatus_ =
   DiscoverInstancesResponse'
-    { _dirsInstances = Nothing,
-      _dirsResponseStatus = pResponseStatus_
+    { instances = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A complex type that contains one @HttpInstanceSummary@ for each registered instance.
-dirsInstances :: Lens' DiscoverInstancesResponse [HTTPInstanceSummary]
-dirsInstances = lens _dirsInstances (\s a -> s {_dirsInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsInstances :: Lens.Lens' DiscoverInstancesResponse (Lude.Maybe [HTTPInstanceSummary])
+dirsInstances = Lens.lens (instances :: DiscoverInstancesResponse -> Lude.Maybe [HTTPInstanceSummary]) (\s a -> s {instances = a} :: DiscoverInstancesResponse)
+{-# DEPRECATED dirsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
--- | -- | The response status code.
-dirsResponseStatus :: Lens' DiscoverInstancesResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\s a -> s {_dirsResponseStatus = a})
-
-instance NFData DiscoverInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dirsResponseStatus :: Lens.Lens' DiscoverInstancesResponse Lude.Int
+dirsResponseStatus = Lens.lens (responseStatus :: DiscoverInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DiscoverInstancesResponse)
+{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

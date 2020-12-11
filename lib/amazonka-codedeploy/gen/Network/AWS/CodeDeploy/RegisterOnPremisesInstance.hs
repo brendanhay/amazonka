@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,131 @@
 --
 -- Registers an on-premises instance.
 module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
-  ( -- * Creating a Request
-    registerOnPremisesInstance,
-    RegisterOnPremisesInstance,
+  ( -- * Creating a request
+    RegisterOnPremisesInstance (..),
+    mkRegisterOnPremisesInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ropiIamUserARN,
     ropiIamSessionARN,
     ropiInstanceName,
 
-    -- * Destructuring the Response
-    registerOnPremisesInstanceResponse,
-    RegisterOnPremisesInstanceResponse,
+    -- * Destructuring the response
+    RegisterOnPremisesInstanceResponse (..),
+    mkRegisterOnPremisesInstanceResponse,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of the register on-premises instance operation.
 --
---
---
--- /See:/ 'registerOnPremisesInstance' smart constructor.
+-- /See:/ 'mkRegisterOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
-  { _ropiIamUserARN ::
-      !(Maybe Text),
-    _ropiIamSessionARN :: !(Maybe Text),
-    _ropiInstanceName :: !Text
+  { iamUserARN ::
+      Lude.Maybe Lude.Text,
+    iamSessionARN :: Lude.Maybe Lude.Text,
+    instanceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterOnPremisesInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ropiIamUserARN' - The ARN of the IAM user to associate with the on-premises instance.
---
--- * 'ropiIamSessionARN' - The ARN of the IAM session to associate with the on-premises instance.
---
--- * 'ropiInstanceName' - The name of the on-premises instance to register.
-registerOnPremisesInstance ::
-  -- | 'ropiInstanceName'
-  Text ->
+-- * 'iamSessionARN' - The ARN of the IAM session to associate with the on-premises instance.
+-- * 'iamUserARN' - The ARN of the IAM user to associate with the on-premises instance.
+-- * 'instanceName' - The name of the on-premises instance to register.
+mkRegisterOnPremisesInstance ::
+  -- | 'instanceName'
+  Lude.Text ->
   RegisterOnPremisesInstance
-registerOnPremisesInstance pInstanceName_ =
+mkRegisterOnPremisesInstance pInstanceName_ =
   RegisterOnPremisesInstance'
-    { _ropiIamUserARN = Nothing,
-      _ropiIamSessionARN = Nothing,
-      _ropiInstanceName = pInstanceName_
+    { iamUserARN = Lude.Nothing,
+      iamSessionARN = Lude.Nothing,
+      instanceName = pInstanceName_
     }
 
 -- | The ARN of the IAM user to associate with the on-premises instance.
-ropiIamUserARN :: Lens' RegisterOnPremisesInstance (Maybe Text)
-ropiIamUserARN = lens _ropiIamUserARN (\s a -> s {_ropiIamUserARN = a})
+--
+-- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ropiIamUserARN :: Lens.Lens' RegisterOnPremisesInstance (Lude.Maybe Lude.Text)
+ropiIamUserARN = Lens.lens (iamUserARN :: RegisterOnPremisesInstance -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: RegisterOnPremisesInstance)
+{-# DEPRECATED ropiIamUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
 
 -- | The ARN of the IAM session to associate with the on-premises instance.
-ropiIamSessionARN :: Lens' RegisterOnPremisesInstance (Maybe Text)
-ropiIamSessionARN = lens _ropiIamSessionARN (\s a -> s {_ropiIamSessionARN = a})
+--
+-- /Note:/ Consider using 'iamSessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ropiIamSessionARN :: Lens.Lens' RegisterOnPremisesInstance (Lude.Maybe Lude.Text)
+ropiIamSessionARN = Lens.lens (iamSessionARN :: RegisterOnPremisesInstance -> Lude.Maybe Lude.Text) (\s a -> s {iamSessionARN = a} :: RegisterOnPremisesInstance)
+{-# DEPRECATED ropiIamSessionARN "Use generic-lens or generic-optics with 'iamSessionARN' instead." #-}
 
 -- | The name of the on-premises instance to register.
-ropiInstanceName :: Lens' RegisterOnPremisesInstance Text
-ropiInstanceName = lens _ropiInstanceName (\s a -> s {_ropiInstanceName = a})
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ropiInstanceName :: Lens.Lens' RegisterOnPremisesInstance Lude.Text
+ropiInstanceName = Lens.lens (instanceName :: RegisterOnPremisesInstance -> Lude.Text) (\s a -> s {instanceName = a} :: RegisterOnPremisesInstance)
+{-# DEPRECATED ropiInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance AWSRequest RegisterOnPremisesInstance where
+instance Lude.AWSRequest RegisterOnPremisesInstance where
   type
     Rs RegisterOnPremisesInstance =
       RegisterOnPremisesInstanceResponse
-  request = postJSON codeDeploy
-  response = receiveNull RegisterOnPremisesInstanceResponse'
+  request = Req.postJSON codeDeployService
+  response = Res.receiveNull RegisterOnPremisesInstanceResponse'
 
-instance Hashable RegisterOnPremisesInstance
-
-instance NFData RegisterOnPremisesInstance
-
-instance ToHeaders RegisterOnPremisesInstance where
+instance Lude.ToHeaders RegisterOnPremisesInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.RegisterOnPremisesInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeDeploy_20141006.RegisterOnPremisesInstance" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterOnPremisesInstance where
+instance Lude.ToJSON RegisterOnPremisesInstance where
   toJSON RegisterOnPremisesInstance' {..} =
-    object
-      ( catMaybes
-          [ ("iamUserArn" .=) <$> _ropiIamUserARN,
-            ("iamSessionArn" .=) <$> _ropiIamSessionARN,
-            Just ("instanceName" .= _ropiInstanceName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("iamUserArn" Lude..=) Lude.<$> iamUserARN,
+            ("iamSessionArn" Lude..=) Lude.<$> iamSessionARN,
+            Lude.Just ("instanceName" Lude..= instanceName)
           ]
       )
 
-instance ToPath RegisterOnPremisesInstance where
-  toPath = const "/"
+instance Lude.ToPath RegisterOnPremisesInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterOnPremisesInstance where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterOnPremisesInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'registerOnPremisesInstanceResponse' smart constructor.
+-- | /See:/ 'mkRegisterOnPremisesInstanceResponse' smart constructor.
 data RegisterOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterOnPremisesInstanceResponse' with the minimum fields required to make a request.
-registerOnPremisesInstanceResponse ::
+mkRegisterOnPremisesInstanceResponse ::
   RegisterOnPremisesInstanceResponse
-registerOnPremisesInstanceResponse =
+mkRegisterOnPremisesInstanceResponse =
   RegisterOnPremisesInstanceResponse'
-
-instance NFData RegisterOnPremisesInstanceResponse

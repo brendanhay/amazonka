@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.SmartHomeAppliance where
+module Network.AWS.AlexaBusiness.Types.SmartHomeAppliance
+  ( SmartHomeAppliance (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSmartHomeAppliance,
+
+    -- * Lenses
+    shaFriendlyName,
+    shaManufacturerName,
+    shaDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A smart home appliance that can connect to a central system. Any domestic device can be a smart appliance.
 --
---
---
--- /See:/ 'smartHomeAppliance' smart constructor.
+-- /See:/ 'mkSmartHomeAppliance' smart constructor.
 data SmartHomeAppliance = SmartHomeAppliance'
-  { _shaFriendlyName ::
-      !(Maybe Text),
-    _shaManufacturerName :: !(Maybe Text),
-    _shaDescription :: !(Maybe Text)
+  { friendlyName ::
+      Lude.Maybe Lude.Text,
+    manufacturerName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SmartHomeAppliance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'shaFriendlyName' - The friendly name of the smart home appliance.
---
--- * 'shaManufacturerName' - The name of the manufacturer of the smart home appliance.
---
--- * 'shaDescription' - The description of the smart home appliance.
-smartHomeAppliance ::
+-- * 'description' - The description of the smart home appliance.
+-- * 'friendlyName' - The friendly name of the smart home appliance.
+-- * 'manufacturerName' - The name of the manufacturer of the smart home appliance.
+mkSmartHomeAppliance ::
   SmartHomeAppliance
-smartHomeAppliance =
+mkSmartHomeAppliance =
   SmartHomeAppliance'
-    { _shaFriendlyName = Nothing,
-      _shaManufacturerName = Nothing,
-      _shaDescription = Nothing
+    { friendlyName = Lude.Nothing,
+      manufacturerName = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The friendly name of the smart home appliance.
-shaFriendlyName :: Lens' SmartHomeAppliance (Maybe Text)
-shaFriendlyName = lens _shaFriendlyName (\s a -> s {_shaFriendlyName = a})
+--
+-- /Note:/ Consider using 'friendlyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+shaFriendlyName :: Lens.Lens' SmartHomeAppliance (Lude.Maybe Lude.Text)
+shaFriendlyName = Lens.lens (friendlyName :: SmartHomeAppliance -> Lude.Maybe Lude.Text) (\s a -> s {friendlyName = a} :: SmartHomeAppliance)
+{-# DEPRECATED shaFriendlyName "Use generic-lens or generic-optics with 'friendlyName' instead." #-}
 
 -- | The name of the manufacturer of the smart home appliance.
-shaManufacturerName :: Lens' SmartHomeAppliance (Maybe Text)
-shaManufacturerName = lens _shaManufacturerName (\s a -> s {_shaManufacturerName = a})
+--
+-- /Note:/ Consider using 'manufacturerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+shaManufacturerName :: Lens.Lens' SmartHomeAppliance (Lude.Maybe Lude.Text)
+shaManufacturerName = Lens.lens (manufacturerName :: SmartHomeAppliance -> Lude.Maybe Lude.Text) (\s a -> s {manufacturerName = a} :: SmartHomeAppliance)
+{-# DEPRECATED shaManufacturerName "Use generic-lens or generic-optics with 'manufacturerName' instead." #-}
 
 -- | The description of the smart home appliance.
-shaDescription :: Lens' SmartHomeAppliance (Maybe Text)
-shaDescription = lens _shaDescription (\s a -> s {_shaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+shaDescription :: Lens.Lens' SmartHomeAppliance (Lude.Maybe Lude.Text)
+shaDescription = Lens.lens (description :: SmartHomeAppliance -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SmartHomeAppliance)
+{-# DEPRECATED shaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON SmartHomeAppliance where
+instance Lude.FromJSON SmartHomeAppliance where
   parseJSON =
-    withObject
+    Lude.withObject
       "SmartHomeAppliance"
       ( \x ->
           SmartHomeAppliance'
-            <$> (x .:? "FriendlyName")
-            <*> (x .:? "ManufacturerName")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "FriendlyName")
+            Lude.<*> (x Lude..:? "ManufacturerName")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable SmartHomeAppliance
-
-instance NFData SmartHomeAppliance

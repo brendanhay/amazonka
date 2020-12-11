@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionTimeoutType where
+module Network.AWS.SWF.Types.WorkflowExecutionTimeoutType
+  ( WorkflowExecutionTimeoutType
+      ( WorkflowExecutionTimeoutType',
+        WETTStartToClose
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkflowExecutionTimeoutType = WETTStartToClose
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkflowExecutionTimeoutType = WorkflowExecutionTimeoutType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkflowExecutionTimeoutType where
-  parser =
-    takeLowerText >>= \case
-      "start_to_close" -> pure WETTStartToClose
-      e ->
-        fromTextError $
-          "Failure parsing WorkflowExecutionTimeoutType from value: '" <> e
-            <> "'. Accepted values: start_to_close"
+pattern WETTStartToClose :: WorkflowExecutionTimeoutType
+pattern WETTStartToClose = WorkflowExecutionTimeoutType' "START_TO_CLOSE"
 
-instance ToText WorkflowExecutionTimeoutType where
-  toText = \case
-    WETTStartToClose -> "START_TO_CLOSE"
-
-instance Hashable WorkflowExecutionTimeoutType
-
-instance NFData WorkflowExecutionTimeoutType
-
-instance ToByteString WorkflowExecutionTimeoutType
-
-instance ToQuery WorkflowExecutionTimeoutType
-
-instance ToHeader WorkflowExecutionTimeoutType
-
-instance FromJSON WorkflowExecutionTimeoutType where
-  parseJSON = parseJSONText "WorkflowExecutionTimeoutType"
+{-# COMPLETE
+  WETTStartToClose,
+  WorkflowExecutionTimeoutType'
+  #-}

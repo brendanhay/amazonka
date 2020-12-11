@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DefaultTargetCapacityType where
+module Network.AWS.EC2.Types.DefaultTargetCapacityType
+  ( DefaultTargetCapacityType
+      ( DefaultTargetCapacityType',
+        DTCTOnDemand,
+        DTCTSpot
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DefaultTargetCapacityType
-  = DTCTOnDemand
-  | DTCTSpot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DefaultTargetCapacityType = DefaultTargetCapacityType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DefaultTargetCapacityType where
-  parser =
-    takeLowerText >>= \case
-      "on-demand" -> pure DTCTOnDemand
-      "spot" -> pure DTCTSpot
-      e ->
-        fromTextError $
-          "Failure parsing DefaultTargetCapacityType from value: '" <> e
-            <> "'. Accepted values: on-demand, spot"
+pattern DTCTOnDemand :: DefaultTargetCapacityType
+pattern DTCTOnDemand = DefaultTargetCapacityType' "on-demand"
 
-instance ToText DefaultTargetCapacityType where
-  toText = \case
-    DTCTOnDemand -> "on-demand"
-    DTCTSpot -> "spot"
+pattern DTCTSpot :: DefaultTargetCapacityType
+pattern DTCTSpot = DefaultTargetCapacityType' "spot"
 
-instance Hashable DefaultTargetCapacityType
-
-instance NFData DefaultTargetCapacityType
-
-instance ToByteString DefaultTargetCapacityType
-
-instance ToQuery DefaultTargetCapacityType
-
-instance ToHeader DefaultTargetCapacityType
-
-instance FromXML DefaultTargetCapacityType where
-  parseXML = parseXMLText "DefaultTargetCapacityType"
+{-# COMPLETE
+  DTCTOnDemand,
+  DTCTSpot,
+  DefaultTargetCapacityType'
+  #-}

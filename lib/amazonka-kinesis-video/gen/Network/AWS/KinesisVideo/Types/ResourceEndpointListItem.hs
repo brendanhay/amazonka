@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideo.Types.ResourceEndpointListItem where
+module Network.AWS.KinesisVideo.Types.ResourceEndpointListItem
+  ( ResourceEndpointListItem (..),
+
+    -- * Smart constructor
+    mkResourceEndpointListItem,
+
+    -- * Lenses
+    reliProtocol,
+    reliResourceEndpoint,
+  )
+where
 
 import Network.AWS.KinesisVideo.Types.ChannelProtocol
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object that describes the endpoint of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
 --
---
---
--- /See:/ 'resourceEndpointListItem' smart constructor.
+-- /See:/ 'mkResourceEndpointListItem' smart constructor.
 data ResourceEndpointListItem = ResourceEndpointListItem'
-  { _reliProtocol ::
-      !(Maybe ChannelProtocol),
-    _reliResourceEndpoint :: !(Maybe Text)
+  { protocol ::
+      Lude.Maybe ChannelProtocol,
+    resourceEndpoint :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceEndpointListItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'reliProtocol' - The protocol of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
---
--- * 'reliResourceEndpoint' - The endpoint of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
-resourceEndpointListItem ::
+-- * 'protocol' - The protocol of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
+-- * 'resourceEndpoint' - The endpoint of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
+mkResourceEndpointListItem ::
   ResourceEndpointListItem
-resourceEndpointListItem =
+mkResourceEndpointListItem =
   ResourceEndpointListItem'
-    { _reliProtocol = Nothing,
-      _reliResourceEndpoint = Nothing
+    { protocol = Lude.Nothing,
+      resourceEndpoint = Lude.Nothing
     }
 
 -- | The protocol of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
-reliProtocol :: Lens' ResourceEndpointListItem (Maybe ChannelProtocol)
-reliProtocol = lens _reliProtocol (\s a -> s {_reliProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reliProtocol :: Lens.Lens' ResourceEndpointListItem (Lude.Maybe ChannelProtocol)
+reliProtocol = Lens.lens (protocol :: ResourceEndpointListItem -> Lude.Maybe ChannelProtocol) (\s a -> s {protocol = a} :: ResourceEndpointListItem)
+{-# DEPRECATED reliProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The endpoint of the signaling channel returned by the @GetSignalingChannelEndpoint@ API.
-reliResourceEndpoint :: Lens' ResourceEndpointListItem (Maybe Text)
-reliResourceEndpoint = lens _reliResourceEndpoint (\s a -> s {_reliResourceEndpoint = a})
+--
+-- /Note:/ Consider using 'resourceEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reliResourceEndpoint :: Lens.Lens' ResourceEndpointListItem (Lude.Maybe Lude.Text)
+reliResourceEndpoint = Lens.lens (resourceEndpoint :: ResourceEndpointListItem -> Lude.Maybe Lude.Text) (\s a -> s {resourceEndpoint = a} :: ResourceEndpointListItem)
+{-# DEPRECATED reliResourceEndpoint "Use generic-lens or generic-optics with 'resourceEndpoint' instead." #-}
 
-instance FromJSON ResourceEndpointListItem where
+instance Lude.FromJSON ResourceEndpointListItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceEndpointListItem"
       ( \x ->
           ResourceEndpointListItem'
-            <$> (x .:? "Protocol") <*> (x .:? "ResourceEndpoint")
+            Lude.<$> (x Lude..:? "Protocol") Lude.<*> (x Lude..:? "ResourceEndpoint")
       )
-
-instance Hashable ResourceEndpointListItem
-
-instance NFData ResourceEndpointListItem

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,137 @@
 --
 -- Returns a link to a currently running remote access session.
 module Network.AWS.DeviceFarm.GetRemoteAccessSession
-  ( -- * Creating a Request
-    getRemoteAccessSession,
-    GetRemoteAccessSession,
+  ( -- * Creating a request
+    GetRemoteAccessSession (..),
+    mkGetRemoteAccessSession,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grasArn,
 
-    -- * Destructuring the Response
-    getRemoteAccessSessionResponse,
-    GetRemoteAccessSessionResponse,
+    -- * Destructuring the response
+    GetRemoteAccessSessionResponse (..),
+    mkGetRemoteAccessSessionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grasrsRemoteAccessSession,
     grasrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to get information about the specified remote access session.
 --
---
---
--- /See:/ 'getRemoteAccessSession' smart constructor.
+-- /See:/ 'mkGetRemoteAccessSession' smart constructor.
 newtype GetRemoteAccessSession = GetRemoteAccessSession'
-  { _grasArn ::
-      Text
+  { arn ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRemoteAccessSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grasArn' - The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
-getRemoteAccessSession ::
-  -- | 'grasArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
+mkGetRemoteAccessSession ::
+  -- | 'arn'
+  Lude.Text ->
   GetRemoteAccessSession
-getRemoteAccessSession pArn_ =
-  GetRemoteAccessSession' {_grasArn = pArn_}
+mkGetRemoteAccessSession pArn_ =
+  GetRemoteAccessSession' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
-grasArn :: Lens' GetRemoteAccessSession Text
-grasArn = lens _grasArn (\s a -> s {_grasArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grasArn :: Lens.Lens' GetRemoteAccessSession Lude.Text
+grasArn = Lens.lens (arn :: GetRemoteAccessSession -> Lude.Text) (\s a -> s {arn = a} :: GetRemoteAccessSession)
+{-# DEPRECATED grasArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest GetRemoteAccessSession where
+instance Lude.AWSRequest GetRemoteAccessSession where
   type Rs GetRemoteAccessSession = GetRemoteAccessSessionResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRemoteAccessSessionResponse'
-            <$> (x .?> "remoteAccessSession") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "remoteAccessSession")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRemoteAccessSession
-
-instance NFData GetRemoteAccessSession
-
-instance ToHeaders GetRemoteAccessSession where
+instance Lude.ToHeaders GetRemoteAccessSession where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.GetRemoteAccessSession" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.GetRemoteAccessSession" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRemoteAccessSession where
+instance Lude.ToJSON GetRemoteAccessSession where
   toJSON GetRemoteAccessSession' {..} =
-    object (catMaybes [Just ("arn" .= _grasArn)])
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath GetRemoteAccessSession where
-  toPath = const "/"
+instance Lude.ToPath GetRemoteAccessSession where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRemoteAccessSession where
-  toQuery = const mempty
+instance Lude.ToQuery GetRemoteAccessSession where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server that lists detailed information about the remote access session.
 --
---
---
--- /See:/ 'getRemoteAccessSessionResponse' smart constructor.
+-- /See:/ 'mkGetRemoteAccessSessionResponse' smart constructor.
 data GetRemoteAccessSessionResponse = GetRemoteAccessSessionResponse'
-  { _grasrsRemoteAccessSession ::
-      !(Maybe RemoteAccessSession),
-    _grasrsResponseStatus :: !Int
+  { remoteAccessSession ::
+      Lude.Maybe
+        RemoteAccessSession,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRemoteAccessSessionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grasrsRemoteAccessSession' - A container that lists detailed information about the remote access session.
---
--- * 'grasrsResponseStatus' - -- | The response status code.
-getRemoteAccessSessionResponse ::
-  -- | 'grasrsResponseStatus'
-  Int ->
+-- * 'remoteAccessSession' - A container that lists detailed information about the remote access session.
+-- * 'responseStatus' - The response status code.
+mkGetRemoteAccessSessionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRemoteAccessSessionResponse
-getRemoteAccessSessionResponse pResponseStatus_ =
+mkGetRemoteAccessSessionResponse pResponseStatus_ =
   GetRemoteAccessSessionResponse'
-    { _grasrsRemoteAccessSession =
-        Nothing,
-      _grasrsResponseStatus = pResponseStatus_
+    { remoteAccessSession =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A container that lists detailed information about the remote access session.
-grasrsRemoteAccessSession :: Lens' GetRemoteAccessSessionResponse (Maybe RemoteAccessSession)
-grasrsRemoteAccessSession = lens _grasrsRemoteAccessSession (\s a -> s {_grasrsRemoteAccessSession = a})
+--
+-- /Note:/ Consider using 'remoteAccessSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grasrsRemoteAccessSession :: Lens.Lens' GetRemoteAccessSessionResponse (Lude.Maybe RemoteAccessSession)
+grasrsRemoteAccessSession = Lens.lens (remoteAccessSession :: GetRemoteAccessSessionResponse -> Lude.Maybe RemoteAccessSession) (\s a -> s {remoteAccessSession = a} :: GetRemoteAccessSessionResponse)
+{-# DEPRECATED grasrsRemoteAccessSession "Use generic-lens or generic-optics with 'remoteAccessSession' instead." #-}
 
--- | -- | The response status code.
-grasrsResponseStatus :: Lens' GetRemoteAccessSessionResponse Int
-grasrsResponseStatus = lens _grasrsResponseStatus (\s a -> s {_grasrsResponseStatus = a})
-
-instance NFData GetRemoteAccessSessionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grasrsResponseStatus :: Lens.Lens' GetRemoteAccessSessionResponse Lude.Int
+grasrsResponseStatus = Lens.lens (responseStatus :: GetRemoteAccessSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRemoteAccessSessionResponse)
+{-# DEPRECATED grasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

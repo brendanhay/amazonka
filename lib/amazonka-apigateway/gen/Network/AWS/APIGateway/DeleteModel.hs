@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,92 +14,105 @@
 --
 -- Deletes a model.
 module Network.AWS.APIGateway.DeleteModel
-  ( -- * Creating a Request
-    deleteModel,
-    DeleteModel,
+  ( -- * Creating a request
+    DeleteModel (..),
+    mkDeleteModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dRestAPIId,
     dModelName,
 
-    -- * Destructuring the Response
-    deleteModelResponse,
-    DeleteModelResponse,
+    -- * Destructuring the response
+    DeleteModelResponse (..),
+    mkDeleteModelResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to delete an existing model in an existing 'RestApi' resource.
 --
---
---
--- /See:/ 'deleteModel' smart constructor.
+-- /See:/ 'mkDeleteModel' smart constructor.
 data DeleteModel = DeleteModel'
-  { _dRestAPIId :: !Text,
-    _dModelName :: !Text
+  { restAPIId :: Lude.Text,
+    modelName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'dModelName' - [Required] The name of the model to delete.
-deleteModel ::
-  -- | 'dRestAPIId'
-  Text ->
-  -- | 'dModelName'
-  Text ->
+-- * 'modelName' - [Required] The name of the model to delete.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkDeleteModel ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'modelName'
+  Lude.Text ->
   DeleteModel
-deleteModel pRestAPIId_ pModelName_ =
-  DeleteModel'
-    { _dRestAPIId = pRestAPIId_,
-      _dModelName = pModelName_
-    }
+mkDeleteModel pRestAPIId_ pModelName_ =
+  DeleteModel' {restAPIId = pRestAPIId_, modelName = pModelName_}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-dRestAPIId :: Lens' DeleteModel Text
-dRestAPIId = lens _dRestAPIId (\s a -> s {_dRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRestAPIId :: Lens.Lens' DeleteModel Lude.Text
+dRestAPIId = Lens.lens (restAPIId :: DeleteModel -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteModel)
+{-# DEPRECATED dRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the model to delete.
-dModelName :: Lens' DeleteModel Text
-dModelName = lens _dModelName (\s a -> s {_dModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dModelName :: Lens.Lens' DeleteModel Lude.Text
+dModelName = Lens.lens (modelName :: DeleteModel -> Lude.Text) (\s a -> s {modelName = a} :: DeleteModel)
+{-# DEPRECATED dModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
-instance AWSRequest DeleteModel where
+instance Lude.AWSRequest DeleteModel where
   type Rs DeleteModel = DeleteModelResponse
-  request = delete apiGateway
-  response = receiveNull DeleteModelResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull DeleteModelResponse'
 
-instance Hashable DeleteModel
-
-instance NFData DeleteModel
-
-instance ToHeaders DeleteModel where
+instance Lude.ToHeaders DeleteModel where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath DeleteModel where
+instance Lude.ToPath DeleteModel where
   toPath DeleteModel' {..} =
-    mconcat
-      ["/restapis/", toBS _dRestAPIId, "/models/", toBS _dModelName]
+    Lude.mconcat
+      [ "/restapis/",
+        Lude.toBS restAPIId,
+        "/models/",
+        Lude.toBS modelName
+      ]
 
-instance ToQuery DeleteModel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteModel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteModelResponse' smart constructor.
+-- | /See:/ 'mkDeleteModelResponse' smart constructor.
 data DeleteModelResponse = DeleteModelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModelResponse' with the minimum fields required to make a request.
-deleteModelResponse ::
+mkDeleteModelResponse ::
   DeleteModelResponse
-deleteModelResponse = DeleteModelResponse'
-
-instance NFData DeleteModelResponse
+mkDeleteModelResponse = DeleteModelResponse'

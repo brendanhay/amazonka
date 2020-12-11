@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,152 +14,170 @@
 --
 -- Updates the @MLModelName@ and the @ScoreThreshold@ of an @MLModel@ .
 --
---
 -- You can use the @GetMLModel@ operation to view the contents of the updated data element.
 module Network.AWS.MachineLearning.UpdateMLModel
-  ( -- * Creating a Request
-    updateMLModel,
-    UpdateMLModel,
+  ( -- * Creating a request
+    UpdateMLModel (..),
+    mkUpdateMLModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     umlmMLModelName,
     umlmScoreThreshold,
     umlmMLModelId,
 
-    -- * Destructuring the Response
-    updateMLModelResponse,
-    UpdateMLModelResponse,
+    -- * Destructuring the response
+    UpdateMLModelResponse (..),
+    mkUpdateMLModelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     umlmrsMLModelId,
     umlmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateMLModel' smart constructor.
+-- | /See:/ 'mkUpdateMLModel' smart constructor.
 data UpdateMLModel = UpdateMLModel'
-  { _umlmMLModelName ::
-      !(Maybe Text),
-    _umlmScoreThreshold :: !(Maybe Double),
-    _umlmMLModelId :: !Text
+  { mLModelName ::
+      Lude.Maybe Lude.Text,
+    scoreThreshold :: Lude.Maybe Lude.Double,
+    mLModelId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMLModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'mLModelId' - The ID assigned to the @MLModel@ during creation.
+-- * 'mLModelName' - A user-supplied name or description of the @MLModel@ .
+-- * 'scoreThreshold' - The @ScoreThreshold@ used in binary classification @MLModel@ that marks the boundary between a positive prediction and a negative prediction.
 --
--- * 'umlmMLModelName' - A user-supplied name or description of the @MLModel@ .
---
--- * 'umlmScoreThreshold' - The @ScoreThreshold@ used in binary classification @MLModel@ that marks the boundary between a positive prediction and a negative prediction. Output values greater than or equal to the @ScoreThreshold@ receive a positive result from the @MLModel@ , such as @true@ . Output values less than the @ScoreThreshold@ receive a negative response from the @MLModel@ , such as @false@ .
---
--- * 'umlmMLModelId' - The ID assigned to the @MLModel@ during creation.
-updateMLModel ::
-  -- | 'umlmMLModelId'
-  Text ->
+-- Output values greater than or equal to the @ScoreThreshold@ receive a positive result from the @MLModel@ , such as @true@ . Output values less than the @ScoreThreshold@ receive a negative response from the @MLModel@ , such as @false@ .
+mkUpdateMLModel ::
+  -- | 'mLModelId'
+  Lude.Text ->
   UpdateMLModel
-updateMLModel pMLModelId_ =
+mkUpdateMLModel pMLModelId_ =
   UpdateMLModel'
-    { _umlmMLModelName = Nothing,
-      _umlmScoreThreshold = Nothing,
-      _umlmMLModelId = pMLModelId_
+    { mLModelName = Lude.Nothing,
+      scoreThreshold = Lude.Nothing,
+      mLModelId = pMLModelId_
     }
 
 -- | A user-supplied name or description of the @MLModel@ .
-umlmMLModelName :: Lens' UpdateMLModel (Maybe Text)
-umlmMLModelName = lens _umlmMLModelName (\s a -> s {_umlmMLModelName = a})
+--
+-- /Note:/ Consider using 'mLModelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umlmMLModelName :: Lens.Lens' UpdateMLModel (Lude.Maybe Lude.Text)
+umlmMLModelName = Lens.lens (mLModelName :: UpdateMLModel -> Lude.Maybe Lude.Text) (\s a -> s {mLModelName = a} :: UpdateMLModel)
+{-# DEPRECATED umlmMLModelName "Use generic-lens or generic-optics with 'mLModelName' instead." #-}
 
--- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks the boundary between a positive prediction and a negative prediction. Output values greater than or equal to the @ScoreThreshold@ receive a positive result from the @MLModel@ , such as @true@ . Output values less than the @ScoreThreshold@ receive a negative response from the @MLModel@ , such as @false@ .
-umlmScoreThreshold :: Lens' UpdateMLModel (Maybe Double)
-umlmScoreThreshold = lens _umlmScoreThreshold (\s a -> s {_umlmScoreThreshold = a})
+-- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks the boundary between a positive prediction and a negative prediction.
+--
+-- Output values greater than or equal to the @ScoreThreshold@ receive a positive result from the @MLModel@ , such as @true@ . Output values less than the @ScoreThreshold@ receive a negative response from the @MLModel@ , such as @false@ .
+--
+-- /Note:/ Consider using 'scoreThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umlmScoreThreshold :: Lens.Lens' UpdateMLModel (Lude.Maybe Lude.Double)
+umlmScoreThreshold = Lens.lens (scoreThreshold :: UpdateMLModel -> Lude.Maybe Lude.Double) (\s a -> s {scoreThreshold = a} :: UpdateMLModel)
+{-# DEPRECATED umlmScoreThreshold "Use generic-lens or generic-optics with 'scoreThreshold' instead." #-}
 
 -- | The ID assigned to the @MLModel@ during creation.
-umlmMLModelId :: Lens' UpdateMLModel Text
-umlmMLModelId = lens _umlmMLModelId (\s a -> s {_umlmMLModelId = a})
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umlmMLModelId :: Lens.Lens' UpdateMLModel Lude.Text
+umlmMLModelId = Lens.lens (mLModelId :: UpdateMLModel -> Lude.Text) (\s a -> s {mLModelId = a} :: UpdateMLModel)
+{-# DEPRECATED umlmMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
-instance AWSRequest UpdateMLModel where
+instance Lude.AWSRequest UpdateMLModel where
   type Rs UpdateMLModel = UpdateMLModelResponse
-  request = postJSON machineLearning
+  request = Req.postJSON machineLearningService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateMLModelResponse'
-            <$> (x .?> "MLModelId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "MLModelId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateMLModel
-
-instance NFData UpdateMLModel
-
-instance ToHeaders UpdateMLModel where
+instance Lude.ToHeaders UpdateMLModel where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonML_20141212.UpdateMLModel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonML_20141212.UpdateMLModel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateMLModel where
+instance Lude.ToJSON UpdateMLModel where
   toJSON UpdateMLModel' {..} =
-    object
-      ( catMaybes
-          [ ("MLModelName" .=) <$> _umlmMLModelName,
-            ("ScoreThreshold" .=) <$> _umlmScoreThreshold,
-            Just ("MLModelId" .= _umlmMLModelId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MLModelName" Lude..=) Lude.<$> mLModelName,
+            ("ScoreThreshold" Lude..=) Lude.<$> scoreThreshold,
+            Lude.Just ("MLModelId" Lude..= mLModelId)
           ]
       )
 
-instance ToPath UpdateMLModel where
-  toPath = const "/"
+instance Lude.ToPath UpdateMLModel where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateMLModel where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateMLModel where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of an @UpdateMLModel@ operation.
 --
---
 -- You can see the updated content by using the @GetMLModel@ operation.
 --
---
--- /See:/ 'updateMLModelResponse' smart constructor.
+-- /See:/ 'mkUpdateMLModelResponse' smart constructor.
 data UpdateMLModelResponse = UpdateMLModelResponse'
-  { _umlmrsMLModelId ::
-      !(Maybe Text),
-    _umlmrsResponseStatus :: !Int
+  { mLModelId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMLModelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umlmrsMLModelId' - The ID assigned to the @MLModel@ during creation. This value should be identical to the value of the @MLModelID@ in the request.
---
--- * 'umlmrsResponseStatus' - -- | The response status code.
-updateMLModelResponse ::
-  -- | 'umlmrsResponseStatus'
-  Int ->
+-- * 'mLModelId' - The ID assigned to the @MLModel@ during creation. This value should be identical to the value of the @MLModelID@ in the request.
+-- * 'responseStatus' - The response status code.
+mkUpdateMLModelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateMLModelResponse
-updateMLModelResponse pResponseStatus_ =
+mkUpdateMLModelResponse pResponseStatus_ =
   UpdateMLModelResponse'
-    { _umlmrsMLModelId = Nothing,
-      _umlmrsResponseStatus = pResponseStatus_
+    { mLModelId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID assigned to the @MLModel@ during creation. This value should be identical to the value of the @MLModelID@ in the request.
-umlmrsMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
-umlmrsMLModelId = lens _umlmrsMLModelId (\s a -> s {_umlmrsMLModelId = a})
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umlmrsMLModelId :: Lens.Lens' UpdateMLModelResponse (Lude.Maybe Lude.Text)
+umlmrsMLModelId = Lens.lens (mLModelId :: UpdateMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: UpdateMLModelResponse)
+{-# DEPRECATED umlmrsMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
--- | -- | The response status code.
-umlmrsResponseStatus :: Lens' UpdateMLModelResponse Int
-umlmrsResponseStatus = lens _umlmrsResponseStatus (\s a -> s {_umlmrsResponseStatus = a})
-
-instance NFData UpdateMLModelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umlmrsResponseStatus :: Lens.Lens' UpdateMLModelResponse Lude.Int
+umlmrsResponseStatus = Lens.lens (responseStatus :: UpdateMLModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMLModelResponse)
+{-# DEPRECATED umlmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.TextTransformation where
+module Network.AWS.WAF.Types.TextTransformation
+  ( TextTransformation
+      ( TextTransformation',
+        CmdLine,
+        CompressWhiteSpace,
+        HTMLEntityDecode,
+        Lowercase,
+        None,
+        URLDecode
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TextTransformation
-  = CmdLine
-  | CompressWhiteSpace
-  | HTMLEntityDecode
-  | Lowercase
-  | None
-  | URLDecode
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TextTransformation = TextTransformation' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TextTransformation where
-  parser =
-    takeLowerText >>= \case
-      "cmd_line" -> pure CmdLine
-      "compress_white_space" -> pure CompressWhiteSpace
-      "html_entity_decode" -> pure HTMLEntityDecode
-      "lowercase" -> pure Lowercase
-      "none" -> pure None
-      "url_decode" -> pure URLDecode
-      e ->
-        fromTextError $
-          "Failure parsing TextTransformation from value: '" <> e
-            <> "'. Accepted values: cmd_line, compress_white_space, html_entity_decode, lowercase, none, url_decode"
+pattern CmdLine :: TextTransformation
+pattern CmdLine = TextTransformation' "CMD_LINE"
 
-instance ToText TextTransformation where
-  toText = \case
-    CmdLine -> "CMD_LINE"
-    CompressWhiteSpace -> "COMPRESS_WHITE_SPACE"
-    HTMLEntityDecode -> "HTML_ENTITY_DECODE"
-    Lowercase -> "LOWERCASE"
-    None -> "NONE"
-    URLDecode -> "URL_DECODE"
+pattern CompressWhiteSpace :: TextTransformation
+pattern CompressWhiteSpace = TextTransformation' "COMPRESS_WHITE_SPACE"
 
-instance Hashable TextTransformation
+pattern HTMLEntityDecode :: TextTransformation
+pattern HTMLEntityDecode = TextTransformation' "HTML_ENTITY_DECODE"
 
-instance NFData TextTransformation
+pattern Lowercase :: TextTransformation
+pattern Lowercase = TextTransformation' "LOWERCASE"
 
-instance ToByteString TextTransformation
+pattern None :: TextTransformation
+pattern None = TextTransformation' "NONE"
 
-instance ToQuery TextTransformation
+pattern URLDecode :: TextTransformation
+pattern URLDecode = TextTransformation' "URL_DECODE"
 
-instance ToHeader TextTransformation
-
-instance ToJSON TextTransformation where
-  toJSON = toJSONText
-
-instance FromJSON TextTransformation where
-  parseJSON = parseJSONText "TextTransformation"
+{-# COMPLETE
+  CmdLine,
+  CompressWhiteSpace,
+  HTMLEntityDecode,
+  Lowercase,
+  None,
+  URLDecode,
+  TextTransformation'
+  #-}

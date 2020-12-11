@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.DomainTransferability where
+module Network.AWS.Route53Domains.Types.DomainTransferability
+  ( DomainTransferability (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDomainTransferability,
+
+    -- * Lenses
+    dtTransferable,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53Domains.Types.Transferable
 
 -- | A complex type that contains information about whether the specified domain can be transferred to Route 53.
 --
---
---
--- /See:/ 'domainTransferability' smart constructor.
+-- /See:/ 'mkDomainTransferability' smart constructor.
 newtype DomainTransferability = DomainTransferability'
-  { _dtTransferable ::
-      Maybe Transferable
+  { transferable ::
+      Lude.Maybe Transferable
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainTransferability' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtTransferable' - Undocumented member.
-domainTransferability ::
+-- * 'transferable' - Undocumented field.
+mkDomainTransferability ::
   DomainTransferability
-domainTransferability =
-  DomainTransferability' {_dtTransferable = Nothing}
+mkDomainTransferability =
+  DomainTransferability' {transferable = Lude.Nothing}
 
--- | Undocumented member.
-dtTransferable :: Lens' DomainTransferability (Maybe Transferable)
-dtTransferable = lens _dtTransferable (\s a -> s {_dtTransferable = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'transferable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTransferable :: Lens.Lens' DomainTransferability (Lude.Maybe Transferable)
+dtTransferable = Lens.lens (transferable :: DomainTransferability -> Lude.Maybe Transferable) (\s a -> s {transferable = a} :: DomainTransferability)
+{-# DEPRECATED dtTransferable "Use generic-lens or generic-optics with 'transferable' instead." #-}
 
-instance FromJSON DomainTransferability where
+instance Lude.FromJSON DomainTransferability where
   parseJSON =
-    withObject
+    Lude.withObject
       "DomainTransferability"
-      (\x -> DomainTransferability' <$> (x .:? "Transferable"))
-
-instance Hashable DomainTransferability
-
-instance NFData DomainTransferability
+      ( \x ->
+          DomainTransferability' Lude.<$> (x Lude..:? "Transferable")
+      )

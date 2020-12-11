@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,104 @@
 --
 -- Deletes the specified scaling policy.
 --
---
 -- Deleting either a step scaling policy or a simple scaling policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.
---
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html Deleting a scaling policy> in the /Amazon EC2 Auto Scaling User Guide/ .
 module Network.AWS.AutoScaling.DeletePolicy
-  ( -- * Creating a Request
-    deletePolicy,
-    DeletePolicy,
+  ( -- * Creating a request
+    DeletePolicy (..),
+    mkDeletePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpAutoScalingGroupName,
     dpPolicyName,
 
-    -- * Destructuring the Response
-    deletePolicyResponse,
-    DeletePolicyResponse,
+    -- * Destructuring the response
+    DeletePolicyResponse (..),
+    mkDeletePolicyResponse,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deletePolicy' smart constructor.
+-- | /See:/ 'mkDeletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
-  { _dpAutoScalingGroupName ::
-      !(Maybe Text),
-    _dpPolicyName :: !Text
+  { autoScalingGroupName ::
+      Lude.Maybe Lude.Text,
+    policyName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpAutoScalingGroupName' - The name of the Auto Scaling group.
---
--- * 'dpPolicyName' - The name or Amazon Resource Name (ARN) of the policy.
-deletePolicy ::
-  -- | 'dpPolicyName'
-  Text ->
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'policyName' - The name or Amazon Resource Name (ARN) of the policy.
+mkDeletePolicy ::
+  -- | 'policyName'
+  Lude.Text ->
   DeletePolicy
-deletePolicy pPolicyName_ =
+mkDeletePolicy pPolicyName_ =
   DeletePolicy'
-    { _dpAutoScalingGroupName = Nothing,
-      _dpPolicyName = pPolicyName_
+    { autoScalingGroupName = Lude.Nothing,
+      policyName = pPolicyName_
     }
 
 -- | The name of the Auto Scaling group.
-dpAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
-dpAutoScalingGroupName = lens _dpAutoScalingGroupName (\s a -> s {_dpAutoScalingGroupName = a})
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpAutoScalingGroupName :: Lens.Lens' DeletePolicy (Lude.Maybe Lude.Text)
+dpAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DeletePolicy -> Lude.Maybe Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DeletePolicy)
+{-# DEPRECATED dpAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The name or Amazon Resource Name (ARN) of the policy.
-dpPolicyName :: Lens' DeletePolicy Text
-dpPolicyName = lens _dpPolicyName (\s a -> s {_dpPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpPolicyName :: Lens.Lens' DeletePolicy Lude.Text
+dpPolicyName = Lens.lens (policyName :: DeletePolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeletePolicy)
+{-# DEPRECATED dpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance AWSRequest DeletePolicy where
+instance Lude.AWSRequest DeletePolicy where
   type Rs DeletePolicy = DeletePolicyResponse
-  request = postQuery autoScaling
-  response = receiveNull DeletePolicyResponse'
+  request = Req.postQuery autoScalingService
+  response = Res.receiveNull DeletePolicyResponse'
 
-instance Hashable DeletePolicy
+instance Lude.ToHeaders DeletePolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeletePolicy
+instance Lude.ToPath DeletePolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeletePolicy where
-  toHeaders = const mempty
-
-instance ToPath DeletePolicy where
-  toPath = const "/"
-
-instance ToQuery DeletePolicy where
+instance Lude.ToQuery DeletePolicy where
   toQuery DeletePolicy' {..} =
-    mconcat
-      [ "Action" =: ("DeletePolicy" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "AutoScalingGroupName" =: _dpAutoScalingGroupName,
-        "PolicyName" =: _dpPolicyName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeletePolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
+        "PolicyName" Lude.=: policyName
       ]
 
--- | /See:/ 'deletePolicyResponse' smart constructor.
+-- | /See:/ 'mkDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
-deletePolicyResponse ::
+mkDeletePolicyResponse ::
   DeletePolicyResponse
-deletePolicyResponse = DeletePolicyResponse'
-
-instance NFData DeletePolicyResponse
+mkDeletePolicyResponse = DeletePolicyResponse'

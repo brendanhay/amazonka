@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Creates a new Channel.
 module Network.AWS.MediaPackage.CreateChannel
-  ( -- * Creating a Request
-    createChannel,
-    CreateChannel,
+  ( -- * Creating a request
+    CreateChannel (..),
+    mkCreateChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccDescription,
     ccTags,
     ccId,
 
-    -- * Destructuring the Response
-    createChannelResponse,
-    CreateChannelResponse,
+    -- * Destructuring the response
+    CreateChannelResponse (..),
+    mkCreateChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsIngressAccessLogs,
     ccrsHlsIngest,
     ccrsARN,
@@ -44,179 +39,213 @@ module Network.AWS.MediaPackage.CreateChannel
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A new Channel configuration.
 --
--- /See:/ 'createChannel' smart constructor.
+-- /See:/ 'mkCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { _ccDescription ::
-      !(Maybe Text),
-    _ccTags :: !(Maybe (Map Text (Text))),
-    _ccId :: !Text
+  { description ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - A short text description of the Channel.
+-- * 'id' - The ID of the Channel. The ID must be unique within the region and it
 --
--- * 'ccDescription' - A short text description of the Channel.
---
--- * 'ccTags' - Undocumented member.
---
--- * 'ccId' - The ID of the Channel. The ID must be unique within the region and it cannot be changed after a Channel is created.
-createChannel ::
-  -- | 'ccId'
-  Text ->
+-- cannot be changed after a Channel is created.
+-- * 'tags' - Undocumented field.
+mkCreateChannel ::
+  -- | 'id'
+  Lude.Text ->
   CreateChannel
-createChannel pId_ =
+mkCreateChannel pId_ =
   CreateChannel'
-    { _ccDescription = Nothing,
-      _ccTags = Nothing,
-      _ccId = pId_
+    { description = Lude.Nothing,
+      tags = Lude.Nothing,
+      id = pId_
     }
 
 -- | A short text description of the Channel.
-ccDescription :: Lens' CreateChannel (Maybe Text)
-ccDescription = lens _ccDescription (\s a -> s {_ccDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDescription :: Lens.Lens' CreateChannel (Lude.Maybe Lude.Text)
+ccDescription = Lens.lens (description :: CreateChannel -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateChannel)
+{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-ccTags :: Lens' CreateChannel (HashMap Text (Text))
-ccTags = lens _ccTags (\s a -> s {_ccTags = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTags :: Lens.Lens' CreateChannel (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ccTags = Lens.lens (tags :: CreateChannel -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateChannel)
+{-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The ID of the Channel. The ID must be unique within the region and it cannot be changed after a Channel is created.
-ccId :: Lens' CreateChannel Text
-ccId = lens _ccId (\s a -> s {_ccId = a})
+-- | The ID of the Channel. The ID must be unique within the region and it
+--
+-- cannot be changed after a Channel is created.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccId :: Lens.Lens' CreateChannel Lude.Text
+ccId = Lens.lens (id :: CreateChannel -> Lude.Text) (\s a -> s {id = a} :: CreateChannel)
+{-# DEPRECATED ccId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest CreateChannel where
+instance Lude.AWSRequest CreateChannel where
   type Rs CreateChannel = CreateChannelResponse
-  request = postJSON mediaPackage
+  request = Req.postJSON mediaPackageService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateChannelResponse'
-            <$> (x .?> "ingressAccessLogs")
-            <*> (x .?> "hlsIngest")
-            <*> (x .?> "arn")
-            <*> (x .?> "id")
-            <*> (x .?> "description")
-            <*> (x .?> "egressAccessLogs")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ingressAccessLogs")
+            Lude.<*> (x Lude..?> "hlsIngest")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (x Lude..?> "egressAccessLogs")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateChannel
-
-instance NFData CreateChannel
-
-instance ToHeaders CreateChannel where
+instance Lude.ToHeaders CreateChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateChannel where
-  toJSON CreateChannel' {..} =
-    object
-      ( catMaybes
-          [ ("description" .=) <$> _ccDescription,
-            ("tags" .=) <$> _ccTags,
-            Just ("id" .= _ccId)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateChannel where
-  toPath = const "/channels"
+instance Lude.ToJSON CreateChannel where
+  toJSON CreateChannel' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("id" Lude..= id)
+          ]
+      )
 
-instance ToQuery CreateChannel where
-  toQuery = const mempty
+instance Lude.ToPath CreateChannel where
+  toPath = Lude.const "/channels"
 
--- | /See:/ 'createChannelResponse' smart constructor.
+instance Lude.ToQuery CreateChannel where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkCreateChannelResponse' smart constructor.
 data CreateChannelResponse = CreateChannelResponse'
-  { _ccrsIngressAccessLogs ::
-      !(Maybe IngressAccessLogs),
-    _ccrsHlsIngest :: !(Maybe HlsIngest),
-    _ccrsARN :: !(Maybe Text),
-    _ccrsId :: !(Maybe Text),
-    _ccrsDescription :: !(Maybe Text),
-    _ccrsEgressAccessLogs ::
-      !(Maybe EgressAccessLogs),
-    _ccrsTags :: !(Maybe (Map Text (Text))),
-    _ccrsResponseStatus :: !Int
+  { ingressAccessLogs ::
+      Lude.Maybe IngressAccessLogs,
+    hlsIngest :: Lude.Maybe HlsIngest,
+    arn :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    egressAccessLogs :: Lude.Maybe EgressAccessLogs,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsIngressAccessLogs' - Undocumented member.
---
--- * 'ccrsHlsIngest' - Undocumented member.
---
--- * 'ccrsARN' - The Amazon Resource Name (ARN) assigned to the Channel.
---
--- * 'ccrsId' - The ID of the Channel.
---
--- * 'ccrsDescription' - A short text description of the Channel.
---
--- * 'ccrsEgressAccessLogs' - Undocumented member.
---
--- * 'ccrsTags' - Undocumented member.
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-createChannelResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' - Undocumented field.
+-- * 'hlsIngest' - Undocumented field.
+-- * 'id' - The ID of the Channel.
+-- * 'ingressAccessLogs' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - Undocumented field.
+mkCreateChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateChannelResponse
-createChannelResponse pResponseStatus_ =
+mkCreateChannelResponse pResponseStatus_ =
   CreateChannelResponse'
-    { _ccrsIngressAccessLogs = Nothing,
-      _ccrsHlsIngest = Nothing,
-      _ccrsARN = Nothing,
-      _ccrsId = Nothing,
-      _ccrsDescription = Nothing,
-      _ccrsEgressAccessLogs = Nothing,
-      _ccrsTags = Nothing,
-      _ccrsResponseStatus = pResponseStatus_
+    { ingressAccessLogs = Lude.Nothing,
+      hlsIngest = Lude.Nothing,
+      arn = Lude.Nothing,
+      id = Lude.Nothing,
+      description = Lude.Nothing,
+      egressAccessLogs = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-ccrsIngressAccessLogs :: Lens' CreateChannelResponse (Maybe IngressAccessLogs)
-ccrsIngressAccessLogs = lens _ccrsIngressAccessLogs (\s a -> s {_ccrsIngressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ingressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsIngressAccessLogs :: Lens.Lens' CreateChannelResponse (Lude.Maybe IngressAccessLogs)
+ccrsIngressAccessLogs = Lens.lens (ingressAccessLogs :: CreateChannelResponse -> Lude.Maybe IngressAccessLogs) (\s a -> s {ingressAccessLogs = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsIngressAccessLogs "Use generic-lens or generic-optics with 'ingressAccessLogs' instead." #-}
 
--- | Undocumented member.
-ccrsHlsIngest :: Lens' CreateChannelResponse (Maybe HlsIngest)
-ccrsHlsIngest = lens _ccrsHlsIngest (\s a -> s {_ccrsHlsIngest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'hlsIngest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsHlsIngest :: Lens.Lens' CreateChannelResponse (Lude.Maybe HlsIngest)
+ccrsHlsIngest = Lens.lens (hlsIngest :: CreateChannelResponse -> Lude.Maybe HlsIngest) (\s a -> s {hlsIngest = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsHlsIngest "Use generic-lens or generic-optics with 'hlsIngest' instead." #-}
 
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
-ccrsARN :: Lens' CreateChannelResponse (Maybe Text)
-ccrsARN = lens _ccrsARN (\s a -> s {_ccrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsARN :: Lens.Lens' CreateChannelResponse (Lude.Maybe Lude.Text)
+ccrsARN = Lens.lens (arn :: CreateChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The ID of the Channel.
-ccrsId :: Lens' CreateChannelResponse (Maybe Text)
-ccrsId = lens _ccrsId (\s a -> s {_ccrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsId :: Lens.Lens' CreateChannelResponse (Lude.Maybe Lude.Text)
+ccrsId = Lens.lens (id :: CreateChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A short text description of the Channel.
-ccrsDescription :: Lens' CreateChannelResponse (Maybe Text)
-ccrsDescription = lens _ccrsDescription (\s a -> s {_ccrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsDescription :: Lens.Lens' CreateChannelResponse (Lude.Maybe Lude.Text)
+ccrsDescription = Lens.lens (description :: CreateChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | Undocumented member.
-ccrsEgressAccessLogs :: Lens' CreateChannelResponse (Maybe EgressAccessLogs)
-ccrsEgressAccessLogs = lens _ccrsEgressAccessLogs (\s a -> s {_ccrsEgressAccessLogs = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'egressAccessLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsEgressAccessLogs :: Lens.Lens' CreateChannelResponse (Lude.Maybe EgressAccessLogs)
+ccrsEgressAccessLogs = Lens.lens (egressAccessLogs :: CreateChannelResponse -> Lude.Maybe EgressAccessLogs) (\s a -> s {egressAccessLogs = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsEgressAccessLogs "Use generic-lens or generic-optics with 'egressAccessLogs' instead." #-}
 
--- | Undocumented member.
-ccrsTags :: Lens' CreateChannelResponse (HashMap Text (Text))
-ccrsTags = lens _ccrsTags (\s a -> s {_ccrsTags = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsTags :: Lens.Lens' CreateChannelResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ccrsTags = Lens.lens (tags :: CreateChannelResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateChannelResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CreateChannelResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateChannelResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateChannelResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

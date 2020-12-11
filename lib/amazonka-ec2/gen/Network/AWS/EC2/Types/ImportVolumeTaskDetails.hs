@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ImportVolumeTaskDetails where
+module Network.AWS.EC2.Types.ImportVolumeTaskDetails
+  ( ImportVolumeTaskDetails (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkImportVolumeTaskDetails,
+
+    -- * Lenses
+    ivtdBytesConverted,
+    ivtdImage,
+    ivtdVolume,
+    ivtdAvailabilityZone,
+    ivtdDescription,
+  )
+where
+
 import Network.AWS.EC2.Types.DiskImageDescription
 import Network.AWS.EC2.Types.DiskImageVolumeDescription
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an import volume task.
 --
---
---
--- /See:/ 'importVolumeTaskDetails' smart constructor.
+-- /See:/ 'mkImportVolumeTaskDetails' smart constructor.
 data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
-  { _ivtdBytesConverted ::
-      !(Maybe Integer),
-    _ivtdImage :: !(Maybe DiskImageDescription),
-    _ivtdVolume ::
-      !(Maybe DiskImageVolumeDescription),
-    _ivtdAvailabilityZone :: !(Maybe Text),
-    _ivtdDescription :: !(Maybe Text)
+  { bytesConverted ::
+      Lude.Maybe Lude.Integer,
+    image :: Lude.Maybe DiskImageDescription,
+    volume ::
+      Lude.Maybe DiskImageVolumeDescription,
+    availabilityZone :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportVolumeTaskDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ivtdBytesConverted' - The number of bytes converted so far.
---
--- * 'ivtdImage' - The image.
---
--- * 'ivtdVolume' - The volume.
---
--- * 'ivtdAvailabilityZone' - The Availability Zone where the resulting volume will reside.
---
--- * 'ivtdDescription' - The description you provided when starting the import volume task.
-importVolumeTaskDetails ::
+-- * 'availabilityZone' - The Availability Zone where the resulting volume will reside.
+-- * 'bytesConverted' - The number of bytes converted so far.
+-- * 'description' - The description you provided when starting the import volume task.
+-- * 'image' - The image.
+-- * 'volume' - The volume.
+mkImportVolumeTaskDetails ::
   ImportVolumeTaskDetails
-importVolumeTaskDetails =
+mkImportVolumeTaskDetails =
   ImportVolumeTaskDetails'
-    { _ivtdBytesConverted = Nothing,
-      _ivtdImage = Nothing,
-      _ivtdVolume = Nothing,
-      _ivtdAvailabilityZone = Nothing,
-      _ivtdDescription = Nothing
+    { bytesConverted = Lude.Nothing,
+      image = Lude.Nothing,
+      volume = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The number of bytes converted so far.
-ivtdBytesConverted :: Lens' ImportVolumeTaskDetails (Maybe Integer)
-ivtdBytesConverted = lens _ivtdBytesConverted (\s a -> s {_ivtdBytesConverted = a})
+--
+-- /Note:/ Consider using 'bytesConverted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivtdBytesConverted :: Lens.Lens' ImportVolumeTaskDetails (Lude.Maybe Lude.Integer)
+ivtdBytesConverted = Lens.lens (bytesConverted :: ImportVolumeTaskDetails -> Lude.Maybe Lude.Integer) (\s a -> s {bytesConverted = a} :: ImportVolumeTaskDetails)
+{-# DEPRECATED ivtdBytesConverted "Use generic-lens or generic-optics with 'bytesConverted' instead." #-}
 
 -- | The image.
-ivtdImage :: Lens' ImportVolumeTaskDetails (Maybe DiskImageDescription)
-ivtdImage = lens _ivtdImage (\s a -> s {_ivtdImage = a})
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivtdImage :: Lens.Lens' ImportVolumeTaskDetails (Lude.Maybe DiskImageDescription)
+ivtdImage = Lens.lens (image :: ImportVolumeTaskDetails -> Lude.Maybe DiskImageDescription) (\s a -> s {image = a} :: ImportVolumeTaskDetails)
+{-# DEPRECATED ivtdImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | The volume.
-ivtdVolume :: Lens' ImportVolumeTaskDetails (Maybe DiskImageVolumeDescription)
-ivtdVolume = lens _ivtdVolume (\s a -> s {_ivtdVolume = a})
+--
+-- /Note:/ Consider using 'volume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivtdVolume :: Lens.Lens' ImportVolumeTaskDetails (Lude.Maybe DiskImageVolumeDescription)
+ivtdVolume = Lens.lens (volume :: ImportVolumeTaskDetails -> Lude.Maybe DiskImageVolumeDescription) (\s a -> s {volume = a} :: ImportVolumeTaskDetails)
+{-# DEPRECATED ivtdVolume "Use generic-lens or generic-optics with 'volume' instead." #-}
 
 -- | The Availability Zone where the resulting volume will reside.
-ivtdAvailabilityZone :: Lens' ImportVolumeTaskDetails (Maybe Text)
-ivtdAvailabilityZone = lens _ivtdAvailabilityZone (\s a -> s {_ivtdAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivtdAvailabilityZone :: Lens.Lens' ImportVolumeTaskDetails (Lude.Maybe Lude.Text)
+ivtdAvailabilityZone = Lens.lens (availabilityZone :: ImportVolumeTaskDetails -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ImportVolumeTaskDetails)
+{-# DEPRECATED ivtdAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The description you provided when starting the import volume task.
-ivtdDescription :: Lens' ImportVolumeTaskDetails (Maybe Text)
-ivtdDescription = lens _ivtdDescription (\s a -> s {_ivtdDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivtdDescription :: Lens.Lens' ImportVolumeTaskDetails (Lude.Maybe Lude.Text)
+ivtdDescription = Lens.lens (description :: ImportVolumeTaskDetails -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportVolumeTaskDetails)
+{-# DEPRECATED ivtdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML ImportVolumeTaskDetails where
+instance Lude.FromXML ImportVolumeTaskDetails where
   parseXML x =
     ImportVolumeTaskDetails'
-      <$> (x .@? "bytesConverted")
-      <*> (x .@? "image")
-      <*> (x .@? "volume")
-      <*> (x .@? "availabilityZone")
-      <*> (x .@? "description")
-
-instance Hashable ImportVolumeTaskDetails
-
-instance NFData ImportVolumeTaskDetails
+      Lude.<$> (x Lude..@? "bytesConverted")
+      Lude.<*> (x Lude..@? "image")
+      Lude.<*> (x Lude..@? "volume")
+      Lude.<*> (x Lude..@? "availabilityZone")
+      Lude.<*> (x Lude..@? "description")

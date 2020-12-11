@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Gets information about one or more application revisions. The maximum number of application revisions that can be returned is 25.
 module Network.AWS.CodeDeploy.BatchGetApplicationRevisions
-  ( -- * Creating a Request
-    batchGetApplicationRevisions,
-    BatchGetApplicationRevisions,
+  ( -- * Creating a request
+    BatchGetApplicationRevisions (..),
+    mkBatchGetApplicationRevisions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgarApplicationName,
     bgarRevisions,
 
-    -- * Destructuring the Response
-    batchGetApplicationRevisionsResponse,
-    BatchGetApplicationRevisionsResponse,
+    -- * Destructuring the response
+    BatchGetApplicationRevisionsResponse (..),
+    mkBatchGetApplicationRevisionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgarrsApplicationName,
     bgarrsRevisions,
     bgarrsErrorMessage,
@@ -40,151 +35,168 @@ module Network.AWS.CodeDeploy.BatchGetApplicationRevisions
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @BatchGetApplicationRevisions@ operation.
 --
---
---
--- /See:/ 'batchGetApplicationRevisions' smart constructor.
+-- /See:/ 'mkBatchGetApplicationRevisions' smart constructor.
 data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
-  { _bgarApplicationName ::
-      !Text,
-    _bgarRevisions ::
-      ![RevisionLocation]
+  { applicationName ::
+      Lude.Text,
+    revisions :: [RevisionLocation]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetApplicationRevisions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgarApplicationName' - The name of an AWS CodeDeploy application about which to get revision information.
---
--- * 'bgarRevisions' - An array of @RevisionLocation@ objects that specify information to get about the application revisions, including type and location. The maximum number of @RevisionLocation@ objects you can specify is 25.
-batchGetApplicationRevisions ::
-  -- | 'bgarApplicationName'
-  Text ->
+-- * 'applicationName' - The name of an AWS CodeDeploy application about which to get revision information.
+-- * 'revisions' - An array of @RevisionLocation@ objects that specify information to get about the application revisions, including type and location. The maximum number of @RevisionLocation@ objects you can specify is 25.
+mkBatchGetApplicationRevisions ::
+  -- | 'applicationName'
+  Lude.Text ->
   BatchGetApplicationRevisions
-batchGetApplicationRevisions pApplicationName_ =
+mkBatchGetApplicationRevisions pApplicationName_ =
   BatchGetApplicationRevisions'
-    { _bgarApplicationName =
+    { applicationName =
         pApplicationName_,
-      _bgarRevisions = mempty
+      revisions = Lude.mempty
     }
 
 -- | The name of an AWS CodeDeploy application about which to get revision information.
-bgarApplicationName :: Lens' BatchGetApplicationRevisions Text
-bgarApplicationName = lens _bgarApplicationName (\s a -> s {_bgarApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarApplicationName :: Lens.Lens' BatchGetApplicationRevisions Lude.Text
+bgarApplicationName = Lens.lens (applicationName :: BatchGetApplicationRevisions -> Lude.Text) (\s a -> s {applicationName = a} :: BatchGetApplicationRevisions)
+{-# DEPRECATED bgarApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | An array of @RevisionLocation@ objects that specify information to get about the application revisions, including type and location. The maximum number of @RevisionLocation@ objects you can specify is 25.
-bgarRevisions :: Lens' BatchGetApplicationRevisions [RevisionLocation]
-bgarRevisions = lens _bgarRevisions (\s a -> s {_bgarRevisions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'revisions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarRevisions :: Lens.Lens' BatchGetApplicationRevisions [RevisionLocation]
+bgarRevisions = Lens.lens (revisions :: BatchGetApplicationRevisions -> [RevisionLocation]) (\s a -> s {revisions = a} :: BatchGetApplicationRevisions)
+{-# DEPRECATED bgarRevisions "Use generic-lens or generic-optics with 'revisions' instead." #-}
 
-instance AWSRequest BatchGetApplicationRevisions where
+instance Lude.AWSRequest BatchGetApplicationRevisions where
   type
     Rs BatchGetApplicationRevisions =
       BatchGetApplicationRevisionsResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetApplicationRevisionsResponse'
-            <$> (x .?> "applicationName")
-            <*> (x .?> "revisions" .!@ mempty)
-            <*> (x .?> "errorMessage")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "applicationName")
+            Lude.<*> (x Lude..?> "revisions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "errorMessage")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetApplicationRevisions
-
-instance NFData BatchGetApplicationRevisions
-
-instance ToHeaders BatchGetApplicationRevisions where
+instance Lude.ToHeaders BatchGetApplicationRevisions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.BatchGetApplicationRevisions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeDeploy_20141006.BatchGetApplicationRevisions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetApplicationRevisions where
+instance Lude.ToJSON BatchGetApplicationRevisions where
   toJSON BatchGetApplicationRevisions' {..} =
-    object
-      ( catMaybes
-          [ Just ("applicationName" .= _bgarApplicationName),
-            Just ("revisions" .= _bgarRevisions)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("applicationName" Lude..= applicationName),
+            Lude.Just ("revisions" Lude..= revisions)
           ]
       )
 
-instance ToPath BatchGetApplicationRevisions where
-  toPath = const "/"
+instance Lude.ToPath BatchGetApplicationRevisions where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetApplicationRevisions where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetApplicationRevisions where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @BatchGetApplicationRevisions@ operation.
 --
---
---
--- /See:/ 'batchGetApplicationRevisionsResponse' smart constructor.
+-- /See:/ 'mkBatchGetApplicationRevisionsResponse' smart constructor.
 data BatchGetApplicationRevisionsResponse = BatchGetApplicationRevisionsResponse'
-  { _bgarrsApplicationName ::
-      !(Maybe Text),
-    _bgarrsRevisions ::
-      !( Maybe
-           [RevisionInfo]
-       ),
-    _bgarrsErrorMessage ::
-      !(Maybe Text),
-    _bgarrsResponseStatus ::
-      !Int
+  { applicationName ::
+      Lude.Maybe
+        Lude.Text,
+    revisions ::
+      Lude.Maybe
+        [RevisionInfo],
+    errorMessage ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetApplicationRevisionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgarrsApplicationName' - The name of the application that corresponds to the revisions.
---
--- * 'bgarrsRevisions' - Additional information about the revisions, including the type and location.
---
--- * 'bgarrsErrorMessage' - Information about errors that might have occurred during the API call.
---
--- * 'bgarrsResponseStatus' - -- | The response status code.
-batchGetApplicationRevisionsResponse ::
-  -- | 'bgarrsResponseStatus'
-  Int ->
+-- * 'applicationName' - The name of the application that corresponds to the revisions.
+-- * 'errorMessage' - Information about errors that might have occurred during the API call.
+-- * 'responseStatus' - The response status code.
+-- * 'revisions' - Additional information about the revisions, including the type and location.
+mkBatchGetApplicationRevisionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetApplicationRevisionsResponse
-batchGetApplicationRevisionsResponse pResponseStatus_ =
+mkBatchGetApplicationRevisionsResponse pResponseStatus_ =
   BatchGetApplicationRevisionsResponse'
-    { _bgarrsApplicationName =
-        Nothing,
-      _bgarrsRevisions = Nothing,
-      _bgarrsErrorMessage = Nothing,
-      _bgarrsResponseStatus = pResponseStatus_
+    { applicationName =
+        Lude.Nothing,
+      revisions = Lude.Nothing,
+      errorMessage = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the application that corresponds to the revisions.
-bgarrsApplicationName :: Lens' BatchGetApplicationRevisionsResponse (Maybe Text)
-bgarrsApplicationName = lens _bgarrsApplicationName (\s a -> s {_bgarrsApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarrsApplicationName :: Lens.Lens' BatchGetApplicationRevisionsResponse (Lude.Maybe Lude.Text)
+bgarrsApplicationName = Lens.lens (applicationName :: BatchGetApplicationRevisionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: BatchGetApplicationRevisionsResponse)
+{-# DEPRECATED bgarrsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Additional information about the revisions, including the type and location.
-bgarrsRevisions :: Lens' BatchGetApplicationRevisionsResponse [RevisionInfo]
-bgarrsRevisions = lens _bgarrsRevisions (\s a -> s {_bgarrsRevisions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'revisions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarrsRevisions :: Lens.Lens' BatchGetApplicationRevisionsResponse (Lude.Maybe [RevisionInfo])
+bgarrsRevisions = Lens.lens (revisions :: BatchGetApplicationRevisionsResponse -> Lude.Maybe [RevisionInfo]) (\s a -> s {revisions = a} :: BatchGetApplicationRevisionsResponse)
+{-# DEPRECATED bgarrsRevisions "Use generic-lens or generic-optics with 'revisions' instead." #-}
 
 -- | Information about errors that might have occurred during the API call.
-bgarrsErrorMessage :: Lens' BatchGetApplicationRevisionsResponse (Maybe Text)
-bgarrsErrorMessage = lens _bgarrsErrorMessage (\s a -> s {_bgarrsErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarrsErrorMessage :: Lens.Lens' BatchGetApplicationRevisionsResponse (Lude.Maybe Lude.Text)
+bgarrsErrorMessage = Lens.lens (errorMessage :: BatchGetApplicationRevisionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: BatchGetApplicationRevisionsResponse)
+{-# DEPRECATED bgarrsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
--- | -- | The response status code.
-bgarrsResponseStatus :: Lens' BatchGetApplicationRevisionsResponse Int
-bgarrsResponseStatus = lens _bgarrsResponseStatus (\s a -> s {_bgarrsResponseStatus = a})
-
-instance NFData BatchGetApplicationRevisionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgarrsResponseStatus :: Lens.Lens' BatchGetApplicationRevisionsResponse Lude.Int
+bgarrsResponseStatus = Lens.lens (responseStatus :: BatchGetApplicationRevisionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetApplicationRevisionsResponse)
+{-# DEPRECATED bgarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

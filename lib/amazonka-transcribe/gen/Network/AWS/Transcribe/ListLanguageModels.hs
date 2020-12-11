@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,162 +14,183 @@
 --
 -- Provides more information about the custom language models you've created. You can use the information in this list to find a specific custom language model. You can then use the operation to get more information about it.
 module Network.AWS.Transcribe.ListLanguageModels
-  ( -- * Creating a Request
-    listLanguageModels,
-    ListLanguageModels,
+  ( -- * Creating a request
+    ListLanguageModels (..),
+    mkListLanguageModels,
 
-    -- * Request Lenses
+    -- ** Request lenses
     llmNameContains,
     llmNextToken,
     llmStatusEquals,
     llmMaxResults,
 
-    -- * Destructuring the Response
-    listLanguageModelsResponse,
-    ListLanguageModelsResponse,
+    -- * Destructuring the response
+    ListLanguageModelsResponse (..),
+    mkListLanguageModelsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     llmrsNextToken,
     llmrsModels,
     llmrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'listLanguageModels' smart constructor.
+-- | /See:/ 'mkListLanguageModels' smart constructor.
 data ListLanguageModels = ListLanguageModels'
-  { _llmNameContains ::
-      !(Maybe Text),
-    _llmNextToken :: !(Maybe Text),
-    _llmStatusEquals :: !(Maybe ModelStatus),
-    _llmMaxResults :: !(Maybe Nat)
+  { nameContains ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    statusEquals :: Lude.Maybe ModelStatus,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLanguageModels' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'llmNameContains' - When specified, the custom language model names returned contain the substring you've specified.
---
--- * 'llmNextToken' - When included, fetches the next set of jobs if the result of the previous request was truncated.
---
--- * 'llmStatusEquals' - When specified, returns only custom language models with the specified status. Language models are ordered by creation date, with the newest models first. If you don't specify a status, Amazon Transcribe returns all custom language models ordered by date.
---
--- * 'llmMaxResults' - The maximum number of language models to return in the response. If there are fewer results in the list, the response contains only the actual results.
-listLanguageModels ::
+-- * 'maxResults' - The maximum number of language models to return in the response. If there are fewer results in the list, the response contains only the actual results.
+-- * 'nameContains' - When specified, the custom language model names returned contain the substring you've specified.
+-- * 'nextToken' - When included, fetches the next set of jobs if the result of the previous request was truncated.
+-- * 'statusEquals' - When specified, returns only custom language models with the specified status. Language models are ordered by creation date, with the newest models first. If you don't specify a status, Amazon Transcribe returns all custom language models ordered by date.
+mkListLanguageModels ::
   ListLanguageModels
-listLanguageModels =
+mkListLanguageModels =
   ListLanguageModels'
-    { _llmNameContains = Nothing,
-      _llmNextToken = Nothing,
-      _llmStatusEquals = Nothing,
-      _llmMaxResults = Nothing
+    { nameContains = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      statusEquals = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | When specified, the custom language model names returned contain the substring you've specified.
-llmNameContains :: Lens' ListLanguageModels (Maybe Text)
-llmNameContains = lens _llmNameContains (\s a -> s {_llmNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llmNameContains :: Lens.Lens' ListLanguageModels (Lude.Maybe Lude.Text)
+llmNameContains = Lens.lens (nameContains :: ListLanguageModels -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListLanguageModels)
+{-# DEPRECATED llmNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | When included, fetches the next set of jobs if the result of the previous request was truncated.
-llmNextToken :: Lens' ListLanguageModels (Maybe Text)
-llmNextToken = lens _llmNextToken (\s a -> s {_llmNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llmNextToken :: Lens.Lens' ListLanguageModels (Lude.Maybe Lude.Text)
+llmNextToken = Lens.lens (nextToken :: ListLanguageModels -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLanguageModels)
+{-# DEPRECATED llmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | When specified, returns only custom language models with the specified status. Language models are ordered by creation date, with the newest models first. If you don't specify a status, Amazon Transcribe returns all custom language models ordered by date.
-llmStatusEquals :: Lens' ListLanguageModels (Maybe ModelStatus)
-llmStatusEquals = lens _llmStatusEquals (\s a -> s {_llmStatusEquals = a})
+--
+-- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llmStatusEquals :: Lens.Lens' ListLanguageModels (Lude.Maybe ModelStatus)
+llmStatusEquals = Lens.lens (statusEquals :: ListLanguageModels -> Lude.Maybe ModelStatus) (\s a -> s {statusEquals = a} :: ListLanguageModels)
+{-# DEPRECATED llmStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
 
 -- | The maximum number of language models to return in the response. If there are fewer results in the list, the response contains only the actual results.
-llmMaxResults :: Lens' ListLanguageModels (Maybe Natural)
-llmMaxResults = lens _llmMaxResults (\s a -> s {_llmMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llmMaxResults :: Lens.Lens' ListLanguageModels (Lude.Maybe Lude.Natural)
+llmMaxResults = Lens.lens (maxResults :: ListLanguageModels -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListLanguageModels)
+{-# DEPRECATED llmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListLanguageModels where
+instance Lude.AWSRequest ListLanguageModels where
   type Rs ListLanguageModels = ListLanguageModelsResponse
-  request = postJSON transcribe
+  request = Req.postJSON transcribeService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListLanguageModelsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Models" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Models" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListLanguageModels
-
-instance NFData ListLanguageModels
-
-instance ToHeaders ListLanguageModels where
+instance Lude.ToHeaders ListLanguageModels where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Transcribe.ListLanguageModels" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Transcribe.ListLanguageModels" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListLanguageModels where
+instance Lude.ToJSON ListLanguageModels where
   toJSON ListLanguageModels' {..} =
-    object
-      ( catMaybes
-          [ ("NameContains" .=) <$> _llmNameContains,
-            ("NextToken" .=) <$> _llmNextToken,
-            ("StatusEquals" .=) <$> _llmStatusEquals,
-            ("MaxResults" .=) <$> _llmMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NameContains" Lude..=) Lude.<$> nameContains,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("StatusEquals" Lude..=) Lude.<$> statusEquals,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListLanguageModels where
-  toPath = const "/"
+instance Lude.ToPath ListLanguageModels where
+  toPath = Lude.const "/"
 
-instance ToQuery ListLanguageModels where
-  toQuery = const mempty
+instance Lude.ToQuery ListLanguageModels where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listLanguageModelsResponse' smart constructor.
+-- | /See:/ 'mkListLanguageModelsResponse' smart constructor.
 data ListLanguageModelsResponse = ListLanguageModelsResponse'
-  { _llmrsNextToken ::
-      !(Maybe Text),
-    _llmrsModels ::
-      !(Maybe [LanguageModel]),
-    _llmrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    models :: Lude.Maybe [LanguageModel],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLanguageModelsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'llmrsNextToken' - The operation returns a page of jobs at a time. The maximum size of the list is set by the MaxResults parameter. If there are more language models in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the operation to return the next page of language models.
---
--- * 'llmrsModels' - A list of objects containing information about custom language models.
---
--- * 'llmrsResponseStatus' - -- | The response status code.
-listLanguageModelsResponse ::
-  -- | 'llmrsResponseStatus'
-  Int ->
+-- * 'models' - A list of objects containing information about custom language models.
+-- * 'nextToken' - The operation returns a page of jobs at a time. The maximum size of the list is set by the MaxResults parameter. If there are more language models in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the operation to return the next page of language models.
+-- * 'responseStatus' - The response status code.
+mkListLanguageModelsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListLanguageModelsResponse
-listLanguageModelsResponse pResponseStatus_ =
+mkListLanguageModelsResponse pResponseStatus_ =
   ListLanguageModelsResponse'
-    { _llmrsNextToken = Nothing,
-      _llmrsModels = Nothing,
-      _llmrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      models = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The operation returns a page of jobs at a time. The maximum size of the list is set by the MaxResults parameter. If there are more language models in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the operation to return the next page of language models.
-llmrsNextToken :: Lens' ListLanguageModelsResponse (Maybe Text)
-llmrsNextToken = lens _llmrsNextToken (\s a -> s {_llmrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llmrsNextToken :: Lens.Lens' ListLanguageModelsResponse (Lude.Maybe Lude.Text)
+llmrsNextToken = Lens.lens (nextToken :: ListLanguageModelsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLanguageModelsResponse)
+{-# DEPRECATED llmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of objects containing information about custom language models.
-llmrsModels :: Lens' ListLanguageModelsResponse [LanguageModel]
-llmrsModels = lens _llmrsModels (\s a -> s {_llmrsModels = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'models' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llmrsModels :: Lens.Lens' ListLanguageModelsResponse (Lude.Maybe [LanguageModel])
+llmrsModels = Lens.lens (models :: ListLanguageModelsResponse -> Lude.Maybe [LanguageModel]) (\s a -> s {models = a} :: ListLanguageModelsResponse)
+{-# DEPRECATED llmrsModels "Use generic-lens or generic-optics with 'models' instead." #-}
 
--- | -- | The response status code.
-llmrsResponseStatus :: Lens' ListLanguageModelsResponse Int
-llmrsResponseStatus = lens _llmrsResponseStatus (\s a -> s {_llmrsResponseStatus = a})
-
-instance NFData ListLanguageModelsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llmrsResponseStatus :: Lens.Lens' ListLanguageModelsResponse Lude.Int
+llmrsResponseStatus = Lens.lens (responseStatus :: ListLanguageModelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLanguageModelsResponse)
+{-# DEPRECATED llmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

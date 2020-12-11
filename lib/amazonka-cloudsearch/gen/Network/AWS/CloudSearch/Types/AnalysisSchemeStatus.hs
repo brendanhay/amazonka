@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearch.Types.AnalysisSchemeStatus where
+module Network.AWS.CloudSearch.Types.AnalysisSchemeStatus
+  ( AnalysisSchemeStatus (..),
+
+    -- * Smart constructor
+    mkAnalysisSchemeStatus,
+
+    -- * Lenses
+    assOptions,
+    assStatus,
+  )
+where
 
 import Network.AWS.CloudSearch.Types.AnalysisScheme
 import Network.AWS.CloudSearch.Types.OptionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The status and configuration of an @AnalysisScheme@ .
 --
---
---
--- /See:/ 'analysisSchemeStatus' smart constructor.
+-- /See:/ 'mkAnalysisSchemeStatus' smart constructor.
 data AnalysisSchemeStatus = AnalysisSchemeStatus'
-  { _assOptions ::
-      !AnalysisScheme,
-    _assStatus :: !OptionStatus
+  { options ::
+      AnalysisScheme,
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnalysisSchemeStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'assOptions' - Undocumented member.
---
--- * 'assStatus' - Undocumented member.
-analysisSchemeStatus ::
-  -- | 'assOptions'
+-- * 'options' - Undocumented field.
+-- * 'status' - Undocumented field.
+mkAnalysisSchemeStatus ::
+  -- | 'options'
   AnalysisScheme ->
-  -- | 'assStatus'
+  -- | 'status'
   OptionStatus ->
   AnalysisSchemeStatus
-analysisSchemeStatus pOptions_ pStatus_ =
-  AnalysisSchemeStatus'
-    { _assOptions = pOptions_,
-      _assStatus = pStatus_
-    }
+mkAnalysisSchemeStatus pOptions_ pStatus_ =
+  AnalysisSchemeStatus' {options = pOptions_, status = pStatus_}
 
--- | Undocumented member.
-assOptions :: Lens' AnalysisSchemeStatus AnalysisScheme
-assOptions = lens _assOptions (\s a -> s {_assOptions = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assOptions :: Lens.Lens' AnalysisSchemeStatus AnalysisScheme
+assOptions = Lens.lens (options :: AnalysisSchemeStatus -> AnalysisScheme) (\s a -> s {options = a} :: AnalysisSchemeStatus)
+{-# DEPRECATED assOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
--- | Undocumented member.
-assStatus :: Lens' AnalysisSchemeStatus OptionStatus
-assStatus = lens _assStatus (\s a -> s {_assStatus = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assStatus :: Lens.Lens' AnalysisSchemeStatus OptionStatus
+assStatus = Lens.lens (status :: AnalysisSchemeStatus -> OptionStatus) (\s a -> s {status = a} :: AnalysisSchemeStatus)
+{-# DEPRECATED assStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML AnalysisSchemeStatus where
+instance Lude.FromXML AnalysisSchemeStatus where
   parseXML x =
-    AnalysisSchemeStatus' <$> (x .@ "Options") <*> (x .@ "Status")
-
-instance Hashable AnalysisSchemeStatus
-
-instance NFData AnalysisSchemeStatus
+    AnalysisSchemeStatus'
+      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")

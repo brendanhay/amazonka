@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Adds a new 'Model' resource to an existing 'RestApi' resource.
 module Network.AWS.APIGateway.CreateModel
-  ( -- * Creating a Request
-    createModel,
-    CreateModel,
+  ( -- * Creating a request
+    CreateModel (..),
+    mkCreateModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cmSchema,
     cmDescription,
     cmRestAPIId,
     cmName,
     cmContentType,
 
-    -- * Destructuring the Response
-    model,
-    Model,
+    -- * Destructuring the response
+    Model (..),
+    mkModel,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mSchema,
     mName,
     mId,
@@ -44,102 +39,115 @@ module Network.AWS.APIGateway.CreateModel
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to add a new 'Model' to an existing 'RestApi' resource.
 --
---
---
--- /See:/ 'createModel' smart constructor.
+-- /See:/ 'mkCreateModel' smart constructor.
 data CreateModel = CreateModel'
-  { _cmSchema :: !(Maybe Text),
-    _cmDescription :: !(Maybe Text),
-    _cmRestAPIId :: !Text,
-    _cmName :: !Text,
-    _cmContentType :: !Text
+  { schema :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    restAPIId :: Lude.Text,
+    name :: Lude.Text,
+    contentType :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmSchema' - The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
---
--- * 'cmDescription' - The description of the model.
---
--- * 'cmRestAPIId' - [Required] The 'RestApi' identifier under which the 'Model' will be created.
---
--- * 'cmName' - [Required] The name of the model. Must be alphanumeric.
---
--- * 'cmContentType' - [Required] The content-type for the model.
-createModel ::
-  -- | 'cmRestAPIId'
-  Text ->
-  -- | 'cmName'
-  Text ->
-  -- | 'cmContentType'
-  Text ->
+-- * 'contentType' - [Required] The content-type for the model.
+-- * 'description' - The description of the model.
+-- * 'name' - [Required] The name of the model. Must be alphanumeric.
+-- * 'restAPIId' - [Required] The 'RestApi' identifier under which the 'Model' will be created.
+-- * 'schema' - The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
+mkCreateModel ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'contentType'
+  Lude.Text ->
   CreateModel
-createModel pRestAPIId_ pName_ pContentType_ =
+mkCreateModel pRestAPIId_ pName_ pContentType_ =
   CreateModel'
-    { _cmSchema = Nothing,
-      _cmDescription = Nothing,
-      _cmRestAPIId = pRestAPIId_,
-      _cmName = pName_,
-      _cmContentType = pContentType_
+    { schema = Lude.Nothing,
+      description = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      name = pName_,
+      contentType = pContentType_
     }
 
 -- | The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
-cmSchema :: Lens' CreateModel (Maybe Text)
-cmSchema = lens _cmSchema (\s a -> s {_cmSchema = a})
+--
+-- /Note:/ Consider using 'schema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmSchema :: Lens.Lens' CreateModel (Lude.Maybe Lude.Text)
+cmSchema = Lens.lens (schema :: CreateModel -> Lude.Maybe Lude.Text) (\s a -> s {schema = a} :: CreateModel)
+{-# DEPRECATED cmSchema "Use generic-lens or generic-optics with 'schema' instead." #-}
 
 -- | The description of the model.
-cmDescription :: Lens' CreateModel (Maybe Text)
-cmDescription = lens _cmDescription (\s a -> s {_cmDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmDescription :: Lens.Lens' CreateModel (Lude.Maybe Lude.Text)
+cmDescription = Lens.lens (description :: CreateModel -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateModel)
+{-# DEPRECATED cmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | [Required] The 'RestApi' identifier under which the 'Model' will be created.
-cmRestAPIId :: Lens' CreateModel Text
-cmRestAPIId = lens _cmRestAPIId (\s a -> s {_cmRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmRestAPIId :: Lens.Lens' CreateModel Lude.Text
+cmRestAPIId = Lens.lens (restAPIId :: CreateModel -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateModel)
+{-# DEPRECATED cmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the model. Must be alphanumeric.
-cmName :: Lens' CreateModel Text
-cmName = lens _cmName (\s a -> s {_cmName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmName :: Lens.Lens' CreateModel Lude.Text
+cmName = Lens.lens (name :: CreateModel -> Lude.Text) (\s a -> s {name = a} :: CreateModel)
+{-# DEPRECATED cmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | [Required] The content-type for the model.
-cmContentType :: Lens' CreateModel Text
-cmContentType = lens _cmContentType (\s a -> s {_cmContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmContentType :: Lens.Lens' CreateModel Lude.Text
+cmContentType = Lens.lens (contentType :: CreateModel -> Lude.Text) (\s a -> s {contentType = a} :: CreateModel)
+{-# DEPRECATED cmContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
-instance AWSRequest CreateModel where
+instance Lude.AWSRequest CreateModel where
   type Rs CreateModel = Model
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateModel
-
-instance NFData CreateModel
-
-instance ToHeaders CreateModel where
+instance Lude.ToHeaders CreateModel where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON CreateModel where
+instance Lude.ToJSON CreateModel where
   toJSON CreateModel' {..} =
-    object
-      ( catMaybes
-          [ ("schema" .=) <$> _cmSchema,
-            ("description" .=) <$> _cmDescription,
-            Just ("name" .= _cmName),
-            Just ("contentType" .= _cmContentType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("schema" Lude..=) Lude.<$> schema,
+            ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just ("contentType" Lude..= contentType)
           ]
       )
 
-instance ToPath CreateModel where
+instance Lude.ToPath CreateModel where
   toPath CreateModel' {..} =
-    mconcat ["/restapis/", toBS _cmRestAPIId, "/models"]
+    Lude.mconcat ["/restapis/", Lude.toBS restAPIId, "/models"]
 
-instance ToQuery CreateModel where
-  toQuery = const mempty
+instance Lude.ToQuery CreateModel where
+  toQuery = Lude.const Lude.mempty

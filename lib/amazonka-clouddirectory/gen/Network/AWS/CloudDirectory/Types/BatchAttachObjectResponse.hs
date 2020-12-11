@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse where
+module Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse
+  ( BatchAttachObjectResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchAttachObjectResponse,
+
+    -- * Lenses
+    baoAttachedObjectIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output batch 'AttachObject' response operation.
 --
---
---
--- /See:/ 'batchAttachObjectResponse' smart constructor.
+-- /See:/ 'mkBatchAttachObjectResponse' smart constructor.
 newtype BatchAttachObjectResponse = BatchAttachObjectResponse'
-  { _baoAttachedObjectIdentifier ::
-      Maybe Text
+  { attachedObjectIdentifier ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachObjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'baoAttachedObjectIdentifier' - The @ObjectIdentifier@ of the object that has been attached.
-batchAttachObjectResponse ::
+-- * 'attachedObjectIdentifier' - The @ObjectIdentifier@ of the object that has been attached.
+mkBatchAttachObjectResponse ::
   BatchAttachObjectResponse
-batchAttachObjectResponse =
+mkBatchAttachObjectResponse =
   BatchAttachObjectResponse'
-    { _baoAttachedObjectIdentifier =
-        Nothing
+    { attachedObjectIdentifier =
+        Lude.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the object that has been attached.
-baoAttachedObjectIdentifier :: Lens' BatchAttachObjectResponse (Maybe Text)
-baoAttachedObjectIdentifier = lens _baoAttachedObjectIdentifier (\s a -> s {_baoAttachedObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'attachedObjectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baoAttachedObjectIdentifier :: Lens.Lens' BatchAttachObjectResponse (Lude.Maybe Lude.Text)
+baoAttachedObjectIdentifier = Lens.lens (attachedObjectIdentifier :: BatchAttachObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {attachedObjectIdentifier = a} :: BatchAttachObjectResponse)
+{-# DEPRECATED baoAttachedObjectIdentifier "Use generic-lens or generic-optics with 'attachedObjectIdentifier' instead." #-}
 
-instance FromJSON BatchAttachObjectResponse where
+instance Lude.FromJSON BatchAttachObjectResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchAttachObjectResponse"
       ( \x ->
-          BatchAttachObjectResponse' <$> (x .:? "attachedObjectIdentifier")
+          BatchAttachObjectResponse'
+            Lude.<$> (x Lude..:? "attachedObjectIdentifier")
       )
-
-instance Hashable BatchAttachObjectResponse
-
-instance NFData BatchAttachObjectResponse

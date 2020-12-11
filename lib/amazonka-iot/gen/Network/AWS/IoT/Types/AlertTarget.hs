@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AlertTarget where
+module Network.AWS.IoT.Types.AlertTarget
+  ( AlertTarget (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAlertTarget,
+
+    -- * Lenses
+    atAlertTargetARN,
+    atRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A structure containing the alert target ARN and the role ARN.
 --
---
---
--- /See:/ 'alertTarget' smart constructor.
+-- /See:/ 'mkAlertTarget' smart constructor.
 data AlertTarget = AlertTarget'
-  { _atAlertTargetARN :: !Text,
-    _atRoleARN :: !Text
+  { alertTargetARN :: Lude.Text,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlertTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atAlertTargetARN' - The ARN of the notification target to which alerts are sent.
---
--- * 'atRoleARN' - The ARN of the role that grants permission to send alerts to the notification target.
-alertTarget ::
-  -- | 'atAlertTargetARN'
-  Text ->
-  -- | 'atRoleARN'
-  Text ->
+-- * 'alertTargetARN' - The ARN of the notification target to which alerts are sent.
+-- * 'roleARN' - The ARN of the role that grants permission to send alerts to the notification target.
+mkAlertTarget ::
+  -- | 'alertTargetARN'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   AlertTarget
-alertTarget pAlertTargetARN_ pRoleARN_ =
+mkAlertTarget pAlertTargetARN_ pRoleARN_ =
   AlertTarget'
-    { _atAlertTargetARN = pAlertTargetARN_,
-      _atRoleARN = pRoleARN_
+    { alertTargetARN = pAlertTargetARN_,
+      roleARN = pRoleARN_
     }
 
 -- | The ARN of the notification target to which alerts are sent.
-atAlertTargetARN :: Lens' AlertTarget Text
-atAlertTargetARN = lens _atAlertTargetARN (\s a -> s {_atAlertTargetARN = a})
+--
+-- /Note:/ Consider using 'alertTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atAlertTargetARN :: Lens.Lens' AlertTarget Lude.Text
+atAlertTargetARN = Lens.lens (alertTargetARN :: AlertTarget -> Lude.Text) (\s a -> s {alertTargetARN = a} :: AlertTarget)
+{-# DEPRECATED atAlertTargetARN "Use generic-lens or generic-optics with 'alertTargetARN' instead." #-}
 
 -- | The ARN of the role that grants permission to send alerts to the notification target.
-atRoleARN :: Lens' AlertTarget Text
-atRoleARN = lens _atRoleARN (\s a -> s {_atRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atRoleARN :: Lens.Lens' AlertTarget Lude.Text
+atRoleARN = Lens.lens (roleARN :: AlertTarget -> Lude.Text) (\s a -> s {roleARN = a} :: AlertTarget)
+{-# DEPRECATED atRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromJSON AlertTarget where
+instance Lude.FromJSON AlertTarget where
   parseJSON =
-    withObject
+    Lude.withObject
       "AlertTarget"
       ( \x ->
-          AlertTarget' <$> (x .: "alertTargetArn") <*> (x .: "roleArn")
+          AlertTarget'
+            Lude.<$> (x Lude..: "alertTargetArn") Lude.<*> (x Lude..: "roleArn")
       )
 
-instance Hashable AlertTarget
-
-instance NFData AlertTarget
-
-instance ToJSON AlertTarget where
+instance Lude.ToJSON AlertTarget where
   toJSON AlertTarget' {..} =
-    object
-      ( catMaybes
-          [ Just ("alertTargetArn" .= _atAlertTargetARN),
-            Just ("roleArn" .= _atRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("alertTargetArn" Lude..= alertTargetARN),
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

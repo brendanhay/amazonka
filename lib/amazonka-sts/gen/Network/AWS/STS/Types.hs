@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,84 +8,98 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.STS.Types
-  ( -- * Service Configuration
-    sts,
+  ( -- * Service configuration
+    stsService,
 
     -- * Errors
 
     -- * AssumedRoleUser
-    AssumedRoleUser,
-    assumedRoleUser,
+    AssumedRoleUser (..),
+    mkAssumedRoleUser,
     aruAssumedRoleId,
     aruARN,
 
     -- * FederatedUser
-    FederatedUser,
-    federatedUser,
+    FederatedUser (..),
+    mkFederatedUser,
     fuFederatedUserId,
     fuARN,
 
     -- * PolicyDescriptorType
-    PolicyDescriptorType,
-    policyDescriptorType,
+    PolicyDescriptorType (..),
+    mkPolicyDescriptorType,
     pdtArn,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.STS.Types.AssumedRoleUser
 import Network.AWS.STS.Types.FederatedUser
 import Network.AWS.STS.Types.PolicyDescriptorType
 import Network.AWS.STS.Types.Tag
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2011-06-15@ of the Amazon Security Token Service SDK configuration.
-sts :: Service
-sts =
-  Service
-    { _svcAbbrev = "STS",
-      _svcSigner = v4,
-      _svcPrefix = "sts",
-      _svcVersion = "2011-06-15",
-      _svcEndpoint = defaultEndpoint sts,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseXMLError "STS",
-      _svcRetry = retry
+stsService :: Lude.Service
+stsService =
+  Lude.Service
+    { Lude._svcAbbrev = "STS",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "sts",
+      Lude._svcVersion = "2011-06-15",
+      Lude._svcEndpoint = Lude.defaultEndpoint stsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseXMLError "STS",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | has (hasCode "IDPCommunicationError" . hasStatus 400) e =
-        Just "idp_unreachable_error"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lens.has
+          (Lude.hasCode "IDPCommunicationError" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "idp_unreachable_error"
+      | Lude.otherwise = Lude.Nothing

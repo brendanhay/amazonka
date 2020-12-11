@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types
-  ( -- * Service Configuration
-    dms,
+  ( -- * Service configuration
+    dmsService,
 
     -- * Errors
 
@@ -82,20 +80,20 @@ module Network.AWS.DMS.Types
     TargetDBType (..),
 
     -- * AccountQuota
-    AccountQuota,
-    accountQuota,
+    AccountQuota (..),
+    mkAccountQuota,
     aqMax,
     aqUsed,
     aqAccountQuotaName,
 
     -- * AvailabilityZone
-    AvailabilityZone,
-    availabilityZone,
+    AvailabilityZone (..),
+    mkAvailabilityZone,
     azName,
 
     -- * Certificate
-    Certificate,
-    certificate,
+    Certificate (..),
+    mkCertificate,
     cCertificateOwner,
     cSigningAlgorithm,
     cValidFromDate,
@@ -108,8 +106,8 @@ module Network.AWS.DMS.Types
     cValidToDate,
 
     -- * Connection
-    Connection,
-    connection,
+    Connection (..),
+    mkConnection,
     cStatus,
     cReplicationInstanceARN,
     cEndpointIdentifier,
@@ -118,14 +116,14 @@ module Network.AWS.DMS.Types
     cLastFailureMessage,
 
     -- * DmsTransferSettings
-    DmsTransferSettings,
-    dmsTransferSettings,
+    DmsTransferSettings (..),
+    mkDmsTransferSettings,
     dtsServiceAccessRoleARN,
     dtsBucketName,
 
     -- * DocDBSettings
-    DocDBSettings,
-    docDBSettings,
+    DocDBSettings (..),
+    mkDocDBSettings,
     ddsServerName,
     ddsUsername,
     ddsKMSKeyId,
@@ -137,21 +135,21 @@ module Network.AWS.DMS.Types
     ddsPort,
 
     -- * DynamoDBSettings
-    DynamoDBSettings,
-    dynamoDBSettings,
+    DynamoDBSettings (..),
+    mkDynamoDBSettings,
     ddsServiceAccessRoleARN,
 
     -- * ElasticsearchSettings
-    ElasticsearchSettings,
-    elasticsearchSettings,
+    ElasticsearchSettings (..),
+    mkElasticsearchSettings,
     esFullLoadErrorPercentage,
     esErrorRetryDuration,
     esServiceAccessRoleARN,
     esEndpointURI,
 
     -- * Endpoint
-    Endpoint,
-    endpoint,
+    Endpoint (..),
+    mkEndpoint,
     eStatus,
     eDmsTransferSettings,
     eMySQLSettings,
@@ -187,8 +185,8 @@ module Network.AWS.DMS.Types
     ePort,
 
     -- * Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eSourceType,
     eSourceIdentifier,
     eDate,
@@ -196,14 +194,14 @@ module Network.AWS.DMS.Types
     eMessage,
 
     -- * EventCategoryGroup
-    EventCategoryGroup,
-    eventCategoryGroup,
+    EventCategoryGroup (..),
+    mkEventCategoryGroup,
     ecgSourceType,
     ecgEventCategories,
 
     -- * EventSubscription
-    EventSubscription,
-    eventSubscription,
+    EventSubscription (..),
+    mkEventSubscription,
     esStatus,
     esCustomerAWSId,
     esCustSubscriptionId,
@@ -215,14 +213,14 @@ module Network.AWS.DMS.Types
     esSourceIdsList,
 
     -- * Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fName,
     fValues,
 
     -- * IBMDB2Settings
-    IBMDB2Settings,
-    iBMDB2Settings,
+    IBMDB2Settings (..),
+    mkIBMDB2Settings,
     ibmdsServerName,
     ibmdsCurrentLsn,
     ibmdsSetDataCaptureChanges,
@@ -233,8 +231,8 @@ module Network.AWS.DMS.Types
     ibmdsPort,
 
     -- * KafkaSettings
-    KafkaSettings,
-    kafkaSettings,
+    KafkaSettings (..),
+    mkKafkaSettings,
     ksIncludeTransactionDetails,
     ksIncludeTableAlterOperations,
     ksPartitionIncludeSchemaTable,
@@ -247,8 +245,8 @@ module Network.AWS.DMS.Types
     ksIncludeNullAndEmpty,
 
     -- * KinesisSettings
-    KinesisSettings,
-    kinesisSettings,
+    KinesisSettings (..),
+    mkKinesisSettings,
     kIncludeTransactionDetails,
     kIncludeTableAlterOperations,
     kServiceAccessRoleARN,
@@ -260,8 +258,8 @@ module Network.AWS.DMS.Types
     kIncludeNullAndEmpty,
 
     -- * MicrosoftSQLServerSettings
-    MicrosoftSQLServerSettings,
-    microsoftSQLServerSettings,
+    MicrosoftSQLServerSettings (..),
+    mkMicrosoftSQLServerSettings,
     msqlssBcpPacketSize,
     msqlssUseBcpFullLoad,
     msqlssServerName,
@@ -274,8 +272,8 @@ module Network.AWS.DMS.Types
     msqlssPort,
 
     -- * MongoDBSettings
-    MongoDBSettings,
-    mongoDBSettings,
+    MongoDBSettings (..),
+    mkMongoDBSettings,
     mdsServerName,
     mdsAuthMechanism,
     mdsUsername,
@@ -290,8 +288,8 @@ module Network.AWS.DMS.Types
     mdsPort,
 
     -- * MySQLSettings
-    MySQLSettings,
-    mySQLSettings,
+    MySQLSettings (..),
+    mkMySQLSettings,
     msqlsMaxFileSize,
     msqlsTargetDBType,
     msqlsServerName,
@@ -305,8 +303,8 @@ module Network.AWS.DMS.Types
     msqlsPort,
 
     -- * NeptuneSettings
-    NeptuneSettings,
-    neptuneSettings,
+    NeptuneSettings (..),
+    mkNeptuneSettings,
     nsMaxFileSize,
     nsMaxRetryCount,
     nsServiceAccessRoleARN,
@@ -316,8 +314,8 @@ module Network.AWS.DMS.Types
     nsS3BucketFolder,
 
     -- * OracleSettings
-    OracleSettings,
-    oracleSettings,
+    OracleSettings (..),
+    mkOracleSettings,
     osFailTasksOnLobTruncation,
     osServerName,
     osDirectPathNoLog,
@@ -350,8 +348,8 @@ module Network.AWS.DMS.Types
     osPort,
 
     -- * OrderableReplicationInstance
-    OrderableReplicationInstance,
-    orderableReplicationInstance,
+    OrderableReplicationInstance (..),
+    mkOrderableReplicationInstance,
     oriEngineVersion,
     oriMinAllocatedStorage,
     oriReleaseStatus,
@@ -363,8 +361,8 @@ module Network.AWS.DMS.Types
     oriStorageType,
 
     -- * PendingMaintenanceAction
-    PendingMaintenanceAction,
-    pendingMaintenanceAction,
+    PendingMaintenanceAction (..),
+    mkPendingMaintenanceAction,
     pmaAutoAppliedAfterDate,
     pmaAction,
     pmaOptInStatus,
@@ -373,8 +371,8 @@ module Network.AWS.DMS.Types
     pmaCurrentApplyDate,
 
     -- * PostgreSQLSettings
-    PostgreSQLSettings,
-    postgreSQLSettings,
+    PostgreSQLSettings (..),
+    mkPostgreSQLSettings,
     psqlsExecuteTimeout,
     psqlsMaxFileSize,
     psqlsFailTasksOnLobTruncation,
@@ -389,8 +387,8 @@ module Network.AWS.DMS.Types
     psqlsPort,
 
     -- * RedshiftSettings
-    RedshiftSettings,
-    redshiftSettings,
+    RedshiftSettings (..),
+    mkRedshiftSettings,
     rsEmptyAsNull,
     rsCaseSensitiveNames,
     rsMaxFileSize,
@@ -421,8 +419,8 @@ module Network.AWS.DMS.Types
     rsFileTransferUploadStreams,
 
     -- * RefreshSchemasStatus
-    RefreshSchemasStatus,
-    refreshSchemasStatus,
+    RefreshSchemasStatus (..),
+    mkRefreshSchemasStatus,
     rssStatus,
     rssLastRefreshDate,
     rssReplicationInstanceARN,
@@ -430,8 +428,8 @@ module Network.AWS.DMS.Types
     rssLastFailureMessage,
 
     -- * ReplicationInstance
-    ReplicationInstance,
-    replicationInstance,
+    ReplicationInstance (..),
+    mkReplicationInstance,
     riEngineVersion,
     riPubliclyAccessible,
     riAutoMinorVersionUpgrade,
@@ -457,23 +455,23 @@ module Network.AWS.DMS.Types
     riPendingModifiedValues,
 
     -- * ReplicationInstanceTaskLog
-    ReplicationInstanceTaskLog,
-    replicationInstanceTaskLog,
+    ReplicationInstanceTaskLog (..),
+    mkReplicationInstanceTaskLog,
     ritlReplicationTaskName,
     ritlReplicationTaskARN,
     ritlReplicationInstanceTaskLogSize,
 
     -- * ReplicationPendingModifiedValues
-    ReplicationPendingModifiedValues,
-    replicationPendingModifiedValues,
+    ReplicationPendingModifiedValues (..),
+    mkReplicationPendingModifiedValues,
     rpmvEngineVersion,
     rpmvMultiAZ,
     rpmvAllocatedStorage,
     rpmvReplicationInstanceClass,
 
     -- * ReplicationSubnetGroup
-    ReplicationSubnetGroup,
-    replicationSubnetGroup,
+    ReplicationSubnetGroup (..),
+    mkReplicationSubnetGroup,
     rsgVPCId,
     rsgSubnets,
     rsgReplicationSubnetGroupIdentifier,
@@ -481,8 +479,8 @@ module Network.AWS.DMS.Types
     rsgReplicationSubnetGroupDescription,
 
     -- * ReplicationTask
-    ReplicationTask,
-    replicationTask,
+    ReplicationTask (..),
+    mkReplicationTask,
     repReplicationTaskSettings,
     repStatus,
     repStopReason,
@@ -504,8 +502,8 @@ module Network.AWS.DMS.Types
     repLastFailureMessage,
 
     -- * ReplicationTaskAssessmentResult
-    ReplicationTaskAssessmentResult,
-    replicationTaskAssessmentResult,
+    ReplicationTaskAssessmentResult (..),
+    mkReplicationTaskAssessmentResult,
     rAssessmentResults,
     rAssessmentResultsFile,
     rReplicationTaskIdentifier,
@@ -515,8 +513,8 @@ module Network.AWS.DMS.Types
     rReplicationTaskARN,
 
     -- * ReplicationTaskAssessmentRun
-    ReplicationTaskAssessmentRun,
-    replicationTaskAssessmentRun,
+    ReplicationTaskAssessmentRun (..),
+    mkReplicationTaskAssessmentRun,
     rtarStatus,
     rtarServiceAccessRoleARN,
     rtarReplicationTaskAssessmentRunCreationDate,
@@ -531,14 +529,14 @@ module Network.AWS.DMS.Types
     rtarLastFailureMessage,
 
     -- * ReplicationTaskAssessmentRunProgress
-    ReplicationTaskAssessmentRunProgress,
-    replicationTaskAssessmentRunProgress,
+    ReplicationTaskAssessmentRunProgress (..),
+    mkReplicationTaskAssessmentRunProgress,
     rtarpIndividualAssessmentCount,
     rtarpIndividualAssessmentCompletedCount,
 
     -- * ReplicationTaskIndividualAssessment
-    ReplicationTaskIndividualAssessment,
-    replicationTaskIndividualAssessment,
+    ReplicationTaskIndividualAssessment (..),
+    mkReplicationTaskIndividualAssessment,
     rtiaStatus,
     rtiaReplicationTaskIndividualAssessmentStartDate,
     rtiaIndividualAssessmentName,
@@ -546,8 +544,8 @@ module Network.AWS.DMS.Types
     rtiaReplicationTaskAssessmentRunARN,
 
     -- * ReplicationTaskStats
-    ReplicationTaskStats,
-    replicationTaskStats,
+    ReplicationTaskStats (..),
+    mkReplicationTaskStats,
     rtsStopDate,
     rtsFullLoadProgressPercent,
     rtsFullLoadStartDate,
@@ -561,14 +559,14 @@ module Network.AWS.DMS.Types
     rtsFreshStartDate,
 
     -- * ResourcePendingMaintenanceActions
-    ResourcePendingMaintenanceActions,
-    resourcePendingMaintenanceActions,
+    ResourcePendingMaintenanceActions (..),
+    mkResourcePendingMaintenanceActions,
     rpmaPendingMaintenanceActionDetails,
     rpmaResourceIdentifier,
 
     -- * S3Settings
-    S3Settings,
-    s3Settings,
+    S3Settings (..),
+    mkS3Settings,
     ssParquetVersion,
     ssParquetTimestampInMillisecond,
     ssIncludeOpForFullLoad,
@@ -595,15 +593,15 @@ module Network.AWS.DMS.Types
     ssRowGroupLength,
 
     -- * Subnet
-    Subnet,
-    subnet,
+    Subnet (..),
+    mkSubnet,
     sSubnetStatus,
     sSubnetIdentifier,
     sSubnetAvailabilityZone,
 
     -- * SupportedEndpointType
-    SupportedEndpointType,
-    supportedEndpointType,
+    SupportedEndpointType (..),
+    mkSupportedEndpointType,
     setEngineDisplayName,
     setEndpointType,
     setEngineName,
@@ -611,8 +609,8 @@ module Network.AWS.DMS.Types
     setSupportsCDC,
 
     -- * SybaseSettings
-    SybaseSettings,
-    sybaseSettings,
+    SybaseSettings (..),
+    mkSybaseSettings,
     ssServerName,
     ssUsername,
     ssPassword,
@@ -620,8 +618,8 @@ module Network.AWS.DMS.Types
     ssPort,
 
     -- * TableStatistics
-    TableStatistics,
-    tableStatistics,
+    TableStatistics (..),
+    mkTableStatistics,
     tsValidationState,
     tsFullLoadRows,
     tsInserts,
@@ -643,20 +641,20 @@ module Network.AWS.DMS.Types
     tsTableName,
 
     -- * TableToReload
-    TableToReload,
-    tableToReload,
+    TableToReload (..),
+    mkTableToReload,
     ttrSchemaName,
     ttrTableName,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * VPCSecurityGroupMembership
-    VPCSecurityGroupMembership,
-    vpcSecurityGroupMembership,
+    VPCSecurityGroupMembership (..),
+    mkVPCSecurityGroupMembership,
     vsgmStatus,
     vsgmVPCSecurityGroupId,
   )
@@ -729,48 +727,60 @@ import Network.AWS.DMS.Types.TableToReload
 import Network.AWS.DMS.Types.Tag
 import Network.AWS.DMS.Types.TargetDBType
 import Network.AWS.DMS.Types.VPCSecurityGroupMembership
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-01-01@ of the Amazon Database Migration Service SDK configuration.
-dms :: Service
-dms =
-  Service
-    { _svcAbbrev = "DMS",
-      _svcSigner = v4,
-      _svcPrefix = "dms",
-      _svcVersion = "2016-01-01",
-      _svcEndpoint = defaultEndpoint dms,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "DMS",
-      _svcRetry = retry
+dmsService :: Lude.Service
+dmsService =
+  Lude.Service
+    { Lude._svcAbbrev = "DMS",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "dms",
+      Lude._svcVersion = "2016-01-01",
+      Lude._svcEndpoint = Lude.defaultEndpoint dmsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "DMS",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CapacityReservationTenancy where
+module Network.AWS.EC2.Types.CapacityReservationTenancy
+  ( CapacityReservationTenancy
+      ( CapacityReservationTenancy',
+        CRTDedicated,
+        CRTDefault
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CapacityReservationTenancy
-  = CRTDedicated
-  | CRTDefault
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CapacityReservationTenancy = CapacityReservationTenancy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CapacityReservationTenancy where
-  parser =
-    takeLowerText >>= \case
-      "dedicated" -> pure CRTDedicated
-      "default" -> pure CRTDefault
-      e ->
-        fromTextError $
-          "Failure parsing CapacityReservationTenancy from value: '" <> e
-            <> "'. Accepted values: dedicated, default"
+pattern CRTDedicated :: CapacityReservationTenancy
+pattern CRTDedicated = CapacityReservationTenancy' "dedicated"
 
-instance ToText CapacityReservationTenancy where
-  toText = \case
-    CRTDedicated -> "dedicated"
-    CRTDefault -> "default"
+pattern CRTDefault :: CapacityReservationTenancy
+pattern CRTDefault = CapacityReservationTenancy' "default"
 
-instance Hashable CapacityReservationTenancy
-
-instance NFData CapacityReservationTenancy
-
-instance ToByteString CapacityReservationTenancy
-
-instance ToQuery CapacityReservationTenancy
-
-instance ToHeader CapacityReservationTenancy
-
-instance FromXML CapacityReservationTenancy where
-  parseXML = parseXMLText "CapacityReservationTenancy"
+{-# COMPLETE
+  CRTDedicated,
+  CRTDefault,
+  CapacityReservationTenancy'
+  #-}

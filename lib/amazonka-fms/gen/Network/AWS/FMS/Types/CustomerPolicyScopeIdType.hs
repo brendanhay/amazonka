@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.CustomerPolicyScopeIdType where
+module Network.AWS.FMS.Types.CustomerPolicyScopeIdType
+  ( CustomerPolicyScopeIdType
+      ( CustomerPolicyScopeIdType',
+        Account,
+        OrgUnit
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CustomerPolicyScopeIdType
-  = Account
-  | OrgUnit
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CustomerPolicyScopeIdType = CustomerPolicyScopeIdType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CustomerPolicyScopeIdType where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure Account
-      "org_unit" -> pure OrgUnit
-      e ->
-        fromTextError $
-          "Failure parsing CustomerPolicyScopeIdType from value: '" <> e
-            <> "'. Accepted values: account, org_unit"
+pattern Account :: CustomerPolicyScopeIdType
+pattern Account = CustomerPolicyScopeIdType' "ACCOUNT"
 
-instance ToText CustomerPolicyScopeIdType where
-  toText = \case
-    Account -> "ACCOUNT"
-    OrgUnit -> "ORG_UNIT"
+pattern OrgUnit :: CustomerPolicyScopeIdType
+pattern OrgUnit = CustomerPolicyScopeIdType' "ORG_UNIT"
 
-instance Hashable CustomerPolicyScopeIdType
-
-instance NFData CustomerPolicyScopeIdType
-
-instance ToByteString CustomerPolicyScopeIdType
-
-instance ToQuery CustomerPolicyScopeIdType
-
-instance ToHeader CustomerPolicyScopeIdType
-
-instance ToJSON CustomerPolicyScopeIdType where
-  toJSON = toJSONText
-
-instance FromJSON CustomerPolicyScopeIdType where
-  parseJSON = parseJSONText "CustomerPolicyScopeIdType"
+{-# COMPLETE
+  Account,
+  OrgUnit,
+  CustomerPolicyScopeIdType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.ActionType where
+module Network.AWS.Budgets.Types.ActionType
+  ( ActionType
+      ( ActionType',
+        ApplyIAMPolicy,
+        ApplyScpPolicy,
+        RunSsmDocuments
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActionType
-  = ApplyIAMPolicy
-  | ApplyScpPolicy
-  | RunSsmDocuments
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActionType = ActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActionType where
-  parser =
-    takeLowerText >>= \case
-      "apply_iam_policy" -> pure ApplyIAMPolicy
-      "apply_scp_policy" -> pure ApplyScpPolicy
-      "run_ssm_documents" -> pure RunSsmDocuments
-      e ->
-        fromTextError $
-          "Failure parsing ActionType from value: '" <> e
-            <> "'. Accepted values: apply_iam_policy, apply_scp_policy, run_ssm_documents"
+pattern ApplyIAMPolicy :: ActionType
+pattern ApplyIAMPolicy = ActionType' "APPLY_IAM_POLICY"
 
-instance ToText ActionType where
-  toText = \case
-    ApplyIAMPolicy -> "APPLY_IAM_POLICY"
-    ApplyScpPolicy -> "APPLY_SCP_POLICY"
-    RunSsmDocuments -> "RUN_SSM_DOCUMENTS"
+pattern ApplyScpPolicy :: ActionType
+pattern ApplyScpPolicy = ActionType' "APPLY_SCP_POLICY"
 
-instance Hashable ActionType
+pattern RunSsmDocuments :: ActionType
+pattern RunSsmDocuments = ActionType' "RUN_SSM_DOCUMENTS"
 
-instance NFData ActionType
-
-instance ToByteString ActionType
-
-instance ToQuery ActionType
-
-instance ToHeader ActionType
-
-instance ToJSON ActionType where
-  toJSON = toJSONText
-
-instance FromJSON ActionType where
-  parseJSON = parseJSONText "ActionType"
+{-# COMPLETE
+  ApplyIAMPolicy,
+  ApplyScpPolicy,
+  RunSsmDocuments,
+  ActionType'
+  #-}

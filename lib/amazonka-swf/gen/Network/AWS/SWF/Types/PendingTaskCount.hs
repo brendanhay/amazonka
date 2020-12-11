@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.PendingTaskCount where
+module Network.AWS.SWF.Types.PendingTaskCount
+  ( PendingTaskCount (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPendingTaskCount,
+
+    -- * Lenses
+    ptcTruncated,
+    ptcCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the count of tasks in a task list.
 --
---
---
--- /See:/ 'pendingTaskCount' smart constructor.
+-- /See:/ 'mkPendingTaskCount' smart constructor.
 data PendingTaskCount = PendingTaskCount'
-  { _ptcTruncated ::
-      !(Maybe Bool),
-    _ptcCount :: !Nat
+  { truncated ::
+      Lude.Maybe Lude.Bool,
+    count :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingTaskCount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptcTruncated' - If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
---
--- * 'ptcCount' - The number of tasks in the task list.
-pendingTaskCount ::
-  -- | 'ptcCount'
-  Natural ->
+-- * 'count' - The number of tasks in the task list.
+-- * 'truncated' - If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
+mkPendingTaskCount ::
+  -- | 'count'
+  Lude.Natural ->
   PendingTaskCount
-pendingTaskCount pCount_ =
-  PendingTaskCount'
-    { _ptcTruncated = Nothing,
-      _ptcCount = _Nat # pCount_
-    }
+mkPendingTaskCount pCount_ =
+  PendingTaskCount' {truncated = Lude.Nothing, count = pCount_}
 
 -- | If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
-ptcTruncated :: Lens' PendingTaskCount (Maybe Bool)
-ptcTruncated = lens _ptcTruncated (\s a -> s {_ptcTruncated = a})
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptcTruncated :: Lens.Lens' PendingTaskCount (Lude.Maybe Lude.Bool)
+ptcTruncated = Lens.lens (truncated :: PendingTaskCount -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: PendingTaskCount)
+{-# DEPRECATED ptcTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | The number of tasks in the task list.
-ptcCount :: Lens' PendingTaskCount Natural
-ptcCount = lens _ptcCount (\s a -> s {_ptcCount = a}) . _Nat
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptcCount :: Lens.Lens' PendingTaskCount Lude.Natural
+ptcCount = Lens.lens (count :: PendingTaskCount -> Lude.Natural) (\s a -> s {count = a} :: PendingTaskCount)
+{-# DEPRECATED ptcCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
-instance FromJSON PendingTaskCount where
+instance Lude.FromJSON PendingTaskCount where
   parseJSON =
-    withObject
+    Lude.withObject
       "PendingTaskCount"
       ( \x ->
-          PendingTaskCount' <$> (x .:? "truncated") <*> (x .: "count")
+          PendingTaskCount'
+            Lude.<$> (x Lude..:? "truncated") Lude.<*> (x Lude..: "count")
       )
-
-instance Hashable PendingTaskCount
-
-instance NFData PendingTaskCount

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,159 +14,173 @@
 --
 -- This operation replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.
 --
---
 -- If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
 module Network.AWS.Route53Domains.UpdateDomainNameservers
-  ( -- * Creating a Request
-    updateDomainNameservers,
-    UpdateDomainNameservers,
+  ( -- * Creating a request
+    UpdateDomainNameservers (..),
+    mkUpdateDomainNameservers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udnFIAuthKey,
     udnDomainName,
     udnNameservers,
 
-    -- * Destructuring the Response
-    updateDomainNameserversResponse,
-    UpdateDomainNameserversResponse,
+    -- * Destructuring the response
+    UpdateDomainNameserversResponse (..),
+    mkUpdateDomainNameserversResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udnrsResponseStatus,
     udnrsOperationId,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
 -- | Replaces the current set of name servers for the domain with the specified set of name servers. If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.
 --
---
 -- If successful, this operation returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.
 --
---
--- /See:/ 'updateDomainNameservers' smart constructor.
+-- /See:/ 'mkUpdateDomainNameservers' smart constructor.
 data UpdateDomainNameservers = UpdateDomainNameservers'
-  { _udnFIAuthKey ::
-      !(Maybe Text),
-    _udnDomainName :: !Text,
-    _udnNameservers :: ![Nameserver]
+  { fIAuthKey ::
+      Lude.Maybe Lude.Text,
+    domainName :: Lude.Text,
+    nameservers :: [Nameserver]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainNameservers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udnFIAuthKey' - The authorization key for .fi domains
---
--- * 'udnDomainName' - The name of the domain that you want to change name servers for.
---
--- * 'udnNameservers' - A list of new name servers for the domain.
-updateDomainNameservers ::
-  -- | 'udnDomainName'
-  Text ->
+-- * 'domainName' - The name of the domain that you want to change name servers for.
+-- * 'fIAuthKey' - The authorization key for .fi domains
+-- * 'nameservers' - A list of new name servers for the domain.
+mkUpdateDomainNameservers ::
+  -- | 'domainName'
+  Lude.Text ->
   UpdateDomainNameservers
-updateDomainNameservers pDomainName_ =
+mkUpdateDomainNameservers pDomainName_ =
   UpdateDomainNameservers'
-    { _udnFIAuthKey = Nothing,
-      _udnDomainName = pDomainName_,
-      _udnNameservers = mempty
+    { fIAuthKey = Lude.Nothing,
+      domainName = pDomainName_,
+      nameservers = Lude.mempty
     }
 
 -- | The authorization key for .fi domains
-udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
-udnFIAuthKey = lens _udnFIAuthKey (\s a -> s {_udnFIAuthKey = a})
+--
+-- /Note:/ Consider using 'fIAuthKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udnFIAuthKey :: Lens.Lens' UpdateDomainNameservers (Lude.Maybe Lude.Text)
+udnFIAuthKey = Lens.lens (fIAuthKey :: UpdateDomainNameservers -> Lude.Maybe Lude.Text) (\s a -> s {fIAuthKey = a} :: UpdateDomainNameservers)
+{-# DEPRECATED udnFIAuthKey "Use generic-lens or generic-optics with 'fIAuthKey' instead." #-}
 
 -- | The name of the domain that you want to change name servers for.
-udnDomainName :: Lens' UpdateDomainNameservers Text
-udnDomainName = lens _udnDomainName (\s a -> s {_udnDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udnDomainName :: Lens.Lens' UpdateDomainNameservers Lude.Text
+udnDomainName = Lens.lens (domainName :: UpdateDomainNameservers -> Lude.Text) (\s a -> s {domainName = a} :: UpdateDomainNameservers)
+{-# DEPRECATED udnDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | A list of new name servers for the domain.
-udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
-udnNameservers = lens _udnNameservers (\s a -> s {_udnNameservers = a}) . _Coerce
+--
+-- /Note:/ Consider using 'nameservers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udnNameservers :: Lens.Lens' UpdateDomainNameservers [Nameserver]
+udnNameservers = Lens.lens (nameservers :: UpdateDomainNameservers -> [Nameserver]) (\s a -> s {nameservers = a} :: UpdateDomainNameservers)
+{-# DEPRECATED udnNameservers "Use generic-lens or generic-optics with 'nameservers' instead." #-}
 
-instance AWSRequest UpdateDomainNameservers where
+instance Lude.AWSRequest UpdateDomainNameservers where
   type Rs UpdateDomainNameservers = UpdateDomainNameserversResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateDomainNameserversResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "OperationId")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "OperationId")
       )
 
-instance Hashable UpdateDomainNameservers
-
-instance NFData UpdateDomainNameservers
-
-instance ToHeaders UpdateDomainNameservers where
+instance Lude.ToHeaders UpdateDomainNameservers where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53Domains_v20140515.UpdateDomainNameservers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53Domains_v20140515.UpdateDomainNameservers" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDomainNameservers where
+instance Lude.ToJSON UpdateDomainNameservers where
   toJSON UpdateDomainNameservers' {..} =
-    object
-      ( catMaybes
-          [ ("FIAuthKey" .=) <$> _udnFIAuthKey,
-            Just ("DomainName" .= _udnDomainName),
-            Just ("Nameservers" .= _udnNameservers)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FIAuthKey" Lude..=) Lude.<$> fIAuthKey,
+            Lude.Just ("DomainName" Lude..= domainName),
+            Lude.Just ("Nameservers" Lude..= nameservers)
           ]
       )
 
-instance ToPath UpdateDomainNameservers where
-  toPath = const "/"
+instance Lude.ToPath UpdateDomainNameservers where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDomainNameservers where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDomainNameservers where
+  toQuery = Lude.const Lude.mempty
 
 -- | The UpdateDomainNameservers response includes the following element.
 --
---
---
--- /See:/ 'updateDomainNameserversResponse' smart constructor.
+-- /See:/ 'mkUpdateDomainNameserversResponse' smart constructor.
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
-  { _udnrsResponseStatus ::
-      !Int,
-    _udnrsOperationId :: !Text
+  { responseStatus ::
+      Lude.Int,
+    operationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainNameserversResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udnrsResponseStatus' - -- | The response status code.
---
--- * 'udnrsOperationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
-updateDomainNameserversResponse ::
-  -- | 'udnrsResponseStatus'
-  Int ->
-  -- | 'udnrsOperationId'
-  Text ->
+-- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
+-- * 'responseStatus' - The response status code.
+mkUpdateDomainNameserversResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'operationId'
+  Lude.Text ->
   UpdateDomainNameserversResponse
-updateDomainNameserversResponse pResponseStatus_ pOperationId_ =
+mkUpdateDomainNameserversResponse pResponseStatus_ pOperationId_ =
   UpdateDomainNameserversResponse'
-    { _udnrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _udnrsOperationId = pOperationId_
+      operationId = pOperationId_
     }
 
--- | -- | The response status code.
-udnrsResponseStatus :: Lens' UpdateDomainNameserversResponse Int
-udnrsResponseStatus = lens _udnrsResponseStatus (\s a -> s {_udnrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udnrsResponseStatus :: Lens.Lens' UpdateDomainNameserversResponse Lude.Int
+udnrsResponseStatus = Lens.lens (responseStatus :: UpdateDomainNameserversResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainNameserversResponse)
+{-# DEPRECATED udnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
-udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
-udnrsOperationId = lens _udnrsOperationId (\s a -> s {_udnrsOperationId = a})
-
-instance NFData UpdateDomainNameserversResponse
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udnrsOperationId :: Lens.Lens' UpdateDomainNameserversResponse Lude.Text
+udnrsOperationId = Lens.lens (operationId :: UpdateDomainNameserversResponse -> Lude.Text) (\s a -> s {operationId = a} :: UpdateDomainNameserversResponse)
+{-# DEPRECATED udnrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}

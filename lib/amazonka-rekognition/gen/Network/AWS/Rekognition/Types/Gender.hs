@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.Gender where
+module Network.AWS.Rekognition.Types.Gender
+  ( Gender (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGender,
+
+    -- * Lenses
+    gValue,
+    gConfidence,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.GenderType
 
 -- | The predicted gender of a detected face.
 --
---
 -- Amazon Rekognition makes gender binary (male/female) predictions based on the physical appearance of a face in a particular image. This kind of prediction is not designed to categorize a person’s gender identity, and you shouldn't use Amazon Rekognition to make such a determination. For example, a male actor wearing a long-haired wig and earrings for a role might be predicted as female.
---
 -- Using Amazon Rekognition to make gender binary predictions is best suited for use cases where aggregate gender distribution statistics need to be analyzed without identifying specific users. For example, the percentage of female users compared to male users on a social media platform.
---
 -- We don't recommend using gender binary predictions to make decisions that impact  an individual's rights, privacy, or access to services.
 --
---
--- /See:/ 'gender' smart constructor.
+-- /See:/ 'mkGender' smart constructor.
 data Gender = Gender'
-  { _gValue :: !(Maybe GenderType),
-    _gConfidence :: !(Maybe Double)
+  { value :: Lude.Maybe GenderType,
+    confidence :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Gender' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gValue' - The predicted gender of the face.
---
--- * 'gConfidence' - Level of confidence in the prediction.
-gender ::
+-- * 'confidence' - Level of confidence in the prediction.
+-- * 'value' - The predicted gender of the face.
+mkGender ::
   Gender
-gender = Gender' {_gValue = Nothing, _gConfidence = Nothing}
+mkGender = Gender' {value = Lude.Nothing, confidence = Lude.Nothing}
 
 -- | The predicted gender of the face.
-gValue :: Lens' Gender (Maybe GenderType)
-gValue = lens _gValue (\s a -> s {_gValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gValue :: Lens.Lens' Gender (Lude.Maybe GenderType)
+gValue = Lens.lens (value :: Gender -> Lude.Maybe GenderType) (\s a -> s {value = a} :: Gender)
+{-# DEPRECATED gValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Level of confidence in the prediction.
-gConfidence :: Lens' Gender (Maybe Double)
-gConfidence = lens _gConfidence (\s a -> s {_gConfidence = a})
+--
+-- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gConfidence :: Lens.Lens' Gender (Lude.Maybe Lude.Double)
+gConfidence = Lens.lens (confidence :: Gender -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Gender)
+{-# DEPRECATED gConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance FromJSON Gender where
+instance Lude.FromJSON Gender where
   parseJSON =
-    withObject
+    Lude.withObject
       "Gender"
-      (\x -> Gender' <$> (x .:? "Value") <*> (x .:? "Confidence"))
-
-instance Hashable Gender
-
-instance NFData Gender
+      ( \x ->
+          Gender'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
+      )

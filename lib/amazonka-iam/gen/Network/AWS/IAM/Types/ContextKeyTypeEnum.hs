@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.ContextKeyTypeEnum where
+module Network.AWS.IAM.Types.ContextKeyTypeEnum
+  ( ContextKeyTypeEnum
+      ( ContextKeyTypeEnum',
+        Binary,
+        BinaryList,
+        Boolean,
+        BooleanList,
+        Date,
+        DateList,
+        IP,
+        IPList,
+        Numeric,
+        NumericList,
+        String,
+        StringList
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContextKeyTypeEnum
-  = Binary
-  | BinaryList
-  | Boolean
-  | BooleanList
-  | Date
-  | DateList
-  | IP
-  | IPList
-  | Numeric
-  | NumericList
-  | String
-  | StringList
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContextKeyTypeEnum = ContextKeyTypeEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContextKeyTypeEnum where
-  parser =
-    takeLowerText >>= \case
-      "binary" -> pure Binary
-      "binarylist" -> pure BinaryList
-      "boolean" -> pure Boolean
-      "booleanlist" -> pure BooleanList
-      "date" -> pure Date
-      "datelist" -> pure DateList
-      "ip" -> pure IP
-      "iplist" -> pure IPList
-      "numeric" -> pure Numeric
-      "numericlist" -> pure NumericList
-      "string" -> pure String
-      "stringlist" -> pure StringList
-      e ->
-        fromTextError $
-          "Failure parsing ContextKeyTypeEnum from value: '" <> e
-            <> "'. Accepted values: binary, binarylist, boolean, booleanlist, date, datelist, ip, iplist, numeric, numericlist, string, stringlist"
+pattern Binary :: ContextKeyTypeEnum
+pattern Binary = ContextKeyTypeEnum' "binary"
 
-instance ToText ContextKeyTypeEnum where
-  toText = \case
-    Binary -> "binary"
-    BinaryList -> "binaryList"
-    Boolean -> "boolean"
-    BooleanList -> "booleanList"
-    Date -> "date"
-    DateList -> "dateList"
-    IP -> "ip"
-    IPList -> "ipList"
-    Numeric -> "numeric"
-    NumericList -> "numericList"
-    String -> "string"
-    StringList -> "stringList"
+pattern BinaryList :: ContextKeyTypeEnum
+pattern BinaryList = ContextKeyTypeEnum' "binaryList"
 
-instance Hashable ContextKeyTypeEnum
+pattern Boolean :: ContextKeyTypeEnum
+pattern Boolean = ContextKeyTypeEnum' "boolean"
 
-instance NFData ContextKeyTypeEnum
+pattern BooleanList :: ContextKeyTypeEnum
+pattern BooleanList = ContextKeyTypeEnum' "booleanList"
 
-instance ToByteString ContextKeyTypeEnum
+pattern Date :: ContextKeyTypeEnum
+pattern Date = ContextKeyTypeEnum' "date"
 
-instance ToQuery ContextKeyTypeEnum
+pattern DateList :: ContextKeyTypeEnum
+pattern DateList = ContextKeyTypeEnum' "dateList"
 
-instance ToHeader ContextKeyTypeEnum
+pattern IP :: ContextKeyTypeEnum
+pattern IP = ContextKeyTypeEnum' "ip"
+
+pattern IPList :: ContextKeyTypeEnum
+pattern IPList = ContextKeyTypeEnum' "ipList"
+
+pattern Numeric :: ContextKeyTypeEnum
+pattern Numeric = ContextKeyTypeEnum' "numeric"
+
+pattern NumericList :: ContextKeyTypeEnum
+pattern NumericList = ContextKeyTypeEnum' "numericList"
+
+pattern String :: ContextKeyTypeEnum
+pattern String = ContextKeyTypeEnum' "string"
+
+pattern StringList :: ContextKeyTypeEnum
+pattern StringList = ContextKeyTypeEnum' "stringList"
+
+{-# COMPLETE
+  Binary,
+  BinaryList,
+  Boolean,
+  BooleanList,
+  Date,
+  DateList,
+  IP,
+  IPList,
+  Numeric,
+  NumericList,
+  String,
+  StringList,
+  ContextKeyTypeEnum'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets details about the specified Git repository.
 module Network.AWS.SageMaker.DescribeCodeRepository
-  ( -- * Creating a Request
-    describeCodeRepository,
-    DescribeCodeRepository,
+  ( -- * Creating a request
+    DescribeCodeRepository (..),
+    mkDescribeCodeRepository,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcrCodeRepositoryName,
 
-    -- * Destructuring the Response
-    describeCodeRepositoryResponse,
-    DescribeCodeRepositoryResponse,
+    -- * Destructuring the response
+    DescribeCodeRepositoryResponse (..),
+    mkDescribeCodeRepositoryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrrsGitConfig,
     dcrrsResponseStatus,
     dcrrsCodeRepositoryName,
@@ -40,157 +35,181 @@ module Network.AWS.SageMaker.DescribeCodeRepository
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeCodeRepository' smart constructor.
+-- | /See:/ 'mkDescribeCodeRepository' smart constructor.
 newtype DescribeCodeRepository = DescribeCodeRepository'
-  { _dcrCodeRepositoryName ::
-      Text
+  { codeRepositoryName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCodeRepository' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrCodeRepositoryName' - The name of the Git repository to describe.
-describeCodeRepository ::
-  -- | 'dcrCodeRepositoryName'
-  Text ->
+-- * 'codeRepositoryName' - The name of the Git repository to describe.
+mkDescribeCodeRepository ::
+  -- | 'codeRepositoryName'
+  Lude.Text ->
   DescribeCodeRepository
-describeCodeRepository pCodeRepositoryName_ =
+mkDescribeCodeRepository pCodeRepositoryName_ =
   DescribeCodeRepository'
-    { _dcrCodeRepositoryName =
+    { codeRepositoryName =
         pCodeRepositoryName_
     }
 
 -- | The name of the Git repository to describe.
-dcrCodeRepositoryName :: Lens' DescribeCodeRepository Text
-dcrCodeRepositoryName = lens _dcrCodeRepositoryName (\s a -> s {_dcrCodeRepositoryName = a})
+--
+-- /Note:/ Consider using 'codeRepositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrCodeRepositoryName :: Lens.Lens' DescribeCodeRepository Lude.Text
+dcrCodeRepositoryName = Lens.lens (codeRepositoryName :: DescribeCodeRepository -> Lude.Text) (\s a -> s {codeRepositoryName = a} :: DescribeCodeRepository)
+{-# DEPRECATED dcrCodeRepositoryName "Use generic-lens or generic-optics with 'codeRepositoryName' instead." #-}
 
-instance AWSRequest DescribeCodeRepository where
+instance Lude.AWSRequest DescribeCodeRepository where
   type Rs DescribeCodeRepository = DescribeCodeRepositoryResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCodeRepositoryResponse'
-            <$> (x .?> "GitConfig")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "CodeRepositoryName")
-            <*> (x .:> "CodeRepositoryArn")
-            <*> (x .:> "CreationTime")
-            <*> (x .:> "LastModifiedTime")
+            Lude.<$> (x Lude..?> "GitConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "CodeRepositoryName")
+            Lude.<*> (x Lude..:> "CodeRepositoryArn")
+            Lude.<*> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "LastModifiedTime")
       )
 
-instance Hashable DescribeCodeRepository
-
-instance NFData DescribeCodeRepository
-
-instance ToHeaders DescribeCodeRepository where
+instance Lude.ToHeaders DescribeCodeRepository where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DescribeCodeRepository" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DescribeCodeRepository" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCodeRepository where
+instance Lude.ToJSON DescribeCodeRepository where
   toJSON DescribeCodeRepository' {..} =
-    object
-      (catMaybes [Just ("CodeRepositoryName" .= _dcrCodeRepositoryName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("CodeRepositoryName" Lude..= codeRepositoryName)]
+      )
 
-instance ToPath DescribeCodeRepository where
-  toPath = const "/"
+instance Lude.ToPath DescribeCodeRepository where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCodeRepository where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCodeRepository where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeCodeRepositoryResponse' smart constructor.
+-- | /See:/ 'mkDescribeCodeRepositoryResponse' smart constructor.
 data DescribeCodeRepositoryResponse = DescribeCodeRepositoryResponse'
-  { _dcrrsGitConfig ::
-      !(Maybe GitConfig),
-    _dcrrsResponseStatus :: !Int,
-    _dcrrsCodeRepositoryName ::
-      !Text,
-    _dcrrsCodeRepositoryARN ::
-      !Text,
-    _dcrrsCreationTime :: !POSIX,
-    _dcrrsLastModifiedTime ::
-      !POSIX
+  { gitConfig ::
+      Lude.Maybe GitConfig,
+    responseStatus :: Lude.Int,
+    codeRepositoryName ::
+      Lude.Text,
+    codeRepositoryARN ::
+      Lude.Text,
+    creationTime ::
+      Lude.Timestamp,
+    lastModifiedTime ::
+      Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCodeRepositoryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrrsGitConfig' - Configuration details about the repository, including the URL where the repository is located, the default branch, and the Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the repository.
---
--- * 'dcrrsResponseStatus' - -- | The response status code.
---
--- * 'dcrrsCodeRepositoryName' - The name of the Git repository.
---
--- * 'dcrrsCodeRepositoryARN' - The Amazon Resource Name (ARN) of the Git repository.
---
--- * 'dcrrsCreationTime' - The date and time that the repository was created.
---
--- * 'dcrrsLastModifiedTime' - The date and time that the repository was last changed.
-describeCodeRepositoryResponse ::
-  -- | 'dcrrsResponseStatus'
-  Int ->
-  -- | 'dcrrsCodeRepositoryName'
-  Text ->
-  -- | 'dcrrsCodeRepositoryARN'
-  Text ->
-  -- | 'dcrrsCreationTime'
-  UTCTime ->
-  -- | 'dcrrsLastModifiedTime'
-  UTCTime ->
+-- * 'codeRepositoryARN' - The Amazon Resource Name (ARN) of the Git repository.
+-- * 'codeRepositoryName' - The name of the Git repository.
+-- * 'creationTime' - The date and time that the repository was created.
+-- * 'gitConfig' - Configuration details about the repository, including the URL where the repository is located, the default branch, and the Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the repository.
+-- * 'lastModifiedTime' - The date and time that the repository was last changed.
+-- * 'responseStatus' - The response status code.
+mkDescribeCodeRepositoryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'codeRepositoryName'
+  Lude.Text ->
+  -- | 'codeRepositoryARN'
+  Lude.Text ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'lastModifiedTime'
+  Lude.Timestamp ->
   DescribeCodeRepositoryResponse
-describeCodeRepositoryResponse
+mkDescribeCodeRepositoryResponse
   pResponseStatus_
   pCodeRepositoryName_
   pCodeRepositoryARN_
   pCreationTime_
   pLastModifiedTime_ =
     DescribeCodeRepositoryResponse'
-      { _dcrrsGitConfig = Nothing,
-        _dcrrsResponseStatus = pResponseStatus_,
-        _dcrrsCodeRepositoryName = pCodeRepositoryName_,
-        _dcrrsCodeRepositoryARN = pCodeRepositoryARN_,
-        _dcrrsCreationTime = _Time # pCreationTime_,
-        _dcrrsLastModifiedTime = _Time # pLastModifiedTime_
+      { gitConfig = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        codeRepositoryName = pCodeRepositoryName_,
+        codeRepositoryARN = pCodeRepositoryARN_,
+        creationTime = pCreationTime_,
+        lastModifiedTime = pLastModifiedTime_
       }
 
 -- | Configuration details about the repository, including the URL where the repository is located, the default branch, and the Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the repository.
-dcrrsGitConfig :: Lens' DescribeCodeRepositoryResponse (Maybe GitConfig)
-dcrrsGitConfig = lens _dcrrsGitConfig (\s a -> s {_dcrrsGitConfig = a})
+--
+-- /Note:/ Consider using 'gitConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsGitConfig :: Lens.Lens' DescribeCodeRepositoryResponse (Lude.Maybe GitConfig)
+dcrrsGitConfig = Lens.lens (gitConfig :: DescribeCodeRepositoryResponse -> Lude.Maybe GitConfig) (\s a -> s {gitConfig = a} :: DescribeCodeRepositoryResponse)
+{-# DEPRECATED dcrrsGitConfig "Use generic-lens or generic-optics with 'gitConfig' instead." #-}
 
--- | -- | The response status code.
-dcrrsResponseStatus :: Lens' DescribeCodeRepositoryResponse Int
-dcrrsResponseStatus = lens _dcrrsResponseStatus (\s a -> s {_dcrrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsResponseStatus :: Lens.Lens' DescribeCodeRepositoryResponse Lude.Int
+dcrrsResponseStatus = Lens.lens (responseStatus :: DescribeCodeRepositoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCodeRepositoryResponse)
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The name of the Git repository.
-dcrrsCodeRepositoryName :: Lens' DescribeCodeRepositoryResponse Text
-dcrrsCodeRepositoryName = lens _dcrrsCodeRepositoryName (\s a -> s {_dcrrsCodeRepositoryName = a})
+--
+-- /Note:/ Consider using 'codeRepositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsCodeRepositoryName :: Lens.Lens' DescribeCodeRepositoryResponse Lude.Text
+dcrrsCodeRepositoryName = Lens.lens (codeRepositoryName :: DescribeCodeRepositoryResponse -> Lude.Text) (\s a -> s {codeRepositoryName = a} :: DescribeCodeRepositoryResponse)
+{-# DEPRECATED dcrrsCodeRepositoryName "Use generic-lens or generic-optics with 'codeRepositoryName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Git repository.
-dcrrsCodeRepositoryARN :: Lens' DescribeCodeRepositoryResponse Text
-dcrrsCodeRepositoryARN = lens _dcrrsCodeRepositoryARN (\s a -> s {_dcrrsCodeRepositoryARN = a})
+--
+-- /Note:/ Consider using 'codeRepositoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsCodeRepositoryARN :: Lens.Lens' DescribeCodeRepositoryResponse Lude.Text
+dcrrsCodeRepositoryARN = Lens.lens (codeRepositoryARN :: DescribeCodeRepositoryResponse -> Lude.Text) (\s a -> s {codeRepositoryARN = a} :: DescribeCodeRepositoryResponse)
+{-# DEPRECATED dcrrsCodeRepositoryARN "Use generic-lens or generic-optics with 'codeRepositoryARN' instead." #-}
 
 -- | The date and time that the repository was created.
-dcrrsCreationTime :: Lens' DescribeCodeRepositoryResponse UTCTime
-dcrrsCreationTime = lens _dcrrsCreationTime (\s a -> s {_dcrrsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsCreationTime :: Lens.Lens' DescribeCodeRepositoryResponse Lude.Timestamp
+dcrrsCreationTime = Lens.lens (creationTime :: DescribeCodeRepositoryResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeCodeRepositoryResponse)
+{-# DEPRECATED dcrrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The date and time that the repository was last changed.
-dcrrsLastModifiedTime :: Lens' DescribeCodeRepositoryResponse UTCTime
-dcrrsLastModifiedTime = lens _dcrrsLastModifiedTime (\s a -> s {_dcrrsLastModifiedTime = a}) . _Time
-
-instance NFData DescribeCodeRepositoryResponse
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsLastModifiedTime :: Lens.Lens' DescribeCodeRepositoryResponse Lude.Timestamp
+dcrrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeCodeRepositoryResponse -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeCodeRepositoryResponse)
+{-# DEPRECATED dcrrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}

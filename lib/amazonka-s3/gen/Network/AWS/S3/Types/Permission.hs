@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Permission where
+module Network.AWS.S3.Types.Permission
+  ( Permission
+      ( Permission',
+        PFullControl,
+        PRead,
+        PReadAcp,
+        PWrite,
+        PWriteAcp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data Permission
-  = PFullControl
-  | PRead
-  | PReadAcp
-  | PWrite
-  | PWriteAcp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Permission = Permission' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Permission where
-  parser =
-    takeLowerText >>= \case
-      "full_control" -> pure PFullControl
-      "read" -> pure PRead
-      "read_acp" -> pure PReadAcp
-      "write" -> pure PWrite
-      "write_acp" -> pure PWriteAcp
-      e ->
-        fromTextError $
-          "Failure parsing Permission from value: '" <> e
-            <> "'. Accepted values: full_control, read, read_acp, write, write_acp"
+pattern PFullControl :: Permission
+pattern PFullControl = Permission' "FULL_CONTROL"
 
-instance ToText Permission where
-  toText = \case
-    PFullControl -> "FULL_CONTROL"
-    PRead -> "READ"
-    PReadAcp -> "READ_ACP"
-    PWrite -> "WRITE"
-    PWriteAcp -> "WRITE_ACP"
+pattern PRead :: Permission
+pattern PRead = Permission' "READ"
 
-instance Hashable Permission
+pattern PReadAcp :: Permission
+pattern PReadAcp = Permission' "READ_ACP"
 
-instance NFData Permission
+pattern PWrite :: Permission
+pattern PWrite = Permission' "WRITE"
 
-instance ToByteString Permission
+pattern PWriteAcp :: Permission
+pattern PWriteAcp = Permission' "WRITE_ACP"
 
-instance ToQuery Permission
-
-instance ToHeader Permission
-
-instance FromXML Permission where
-  parseXML = parseXMLText "Permission"
-
-instance ToXML Permission where
-  toXML = toXMLText
+{-# COMPLETE
+  PFullControl,
+  PRead,
+  PReadAcp,
+  PWrite,
+  PWriteAcp,
+  Permission'
+  #-}

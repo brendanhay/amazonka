@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ReservedInstanceState where
+module Network.AWS.EC2.Types.ReservedInstanceState
+  ( ReservedInstanceState
+      ( ReservedInstanceState',
+        Active,
+        PaymentFailed,
+        PaymentPending,
+        Queued,
+        QueuedDeleted,
+        Retired
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReservedInstanceState
-  = Active
-  | PaymentFailed
-  | PaymentPending
-  | Queued
-  | QueuedDeleted
-  | Retired
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReservedInstanceState = ReservedInstanceState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReservedInstanceState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "payment-failed" -> pure PaymentFailed
-      "payment-pending" -> pure PaymentPending
-      "queued" -> pure Queued
-      "queued-deleted" -> pure QueuedDeleted
-      "retired" -> pure Retired
-      e ->
-        fromTextError $
-          "Failure parsing ReservedInstanceState from value: '" <> e
-            <> "'. Accepted values: active, payment-failed, payment-pending, queued, queued-deleted, retired"
+pattern Active :: ReservedInstanceState
+pattern Active = ReservedInstanceState' "active"
 
-instance ToText ReservedInstanceState where
-  toText = \case
-    Active -> "active"
-    PaymentFailed -> "payment-failed"
-    PaymentPending -> "payment-pending"
-    Queued -> "queued"
-    QueuedDeleted -> "queued-deleted"
-    Retired -> "retired"
+pattern PaymentFailed :: ReservedInstanceState
+pattern PaymentFailed = ReservedInstanceState' "payment-failed"
 
-instance Hashable ReservedInstanceState
+pattern PaymentPending :: ReservedInstanceState
+pattern PaymentPending = ReservedInstanceState' "payment-pending"
 
-instance NFData ReservedInstanceState
+pattern Queued :: ReservedInstanceState
+pattern Queued = ReservedInstanceState' "queued"
 
-instance ToByteString ReservedInstanceState
+pattern QueuedDeleted :: ReservedInstanceState
+pattern QueuedDeleted = ReservedInstanceState' "queued-deleted"
 
-instance ToQuery ReservedInstanceState
+pattern Retired :: ReservedInstanceState
+pattern Retired = ReservedInstanceState' "retired"
 
-instance ToHeader ReservedInstanceState
-
-instance FromXML ReservedInstanceState where
-  parseXML = parseXMLText "ReservedInstanceState"
+{-# COMPLETE
+  Active,
+  PaymentFailed,
+  PaymentPending,
+  Queued,
+  QueuedDeleted,
+  Retired,
+  ReservedInstanceState'
+  #-}

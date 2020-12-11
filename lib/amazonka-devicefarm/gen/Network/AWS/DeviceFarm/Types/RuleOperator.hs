@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.RuleOperator where
+module Network.AWS.DeviceFarm.Types.RuleOperator
+  ( RuleOperator
+      ( RuleOperator',
+        Contains,
+        Equals,
+        GreaterThan,
+        GreaterThanOrEquals,
+        IN,
+        LessThan,
+        LessThanOrEquals,
+        NotIn
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RuleOperator
-  = Contains
-  | Equals
-  | GreaterThan
-  | GreaterThanOrEquals
-  | IN
-  | LessThan
-  | LessThanOrEquals
-  | NotIn
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RuleOperator = RuleOperator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RuleOperator where
-  parser =
-    takeLowerText >>= \case
-      "contains" -> pure Contains
-      "equals" -> pure Equals
-      "greater_than" -> pure GreaterThan
-      "greater_than_or_equals" -> pure GreaterThanOrEquals
-      "in" -> pure IN
-      "less_than" -> pure LessThan
-      "less_than_or_equals" -> pure LessThanOrEquals
-      "not_in" -> pure NotIn
-      e ->
-        fromTextError $
-          "Failure parsing RuleOperator from value: '" <> e
-            <> "'. Accepted values: contains, equals, greater_than, greater_than_or_equals, in, less_than, less_than_or_equals, not_in"
+pattern Contains :: RuleOperator
+pattern Contains = RuleOperator' "CONTAINS"
 
-instance ToText RuleOperator where
-  toText = \case
-    Contains -> "CONTAINS"
-    Equals -> "EQUALS"
-    GreaterThan -> "GREATER_THAN"
-    GreaterThanOrEquals -> "GREATER_THAN_OR_EQUALS"
-    IN -> "IN"
-    LessThan -> "LESS_THAN"
-    LessThanOrEquals -> "LESS_THAN_OR_EQUALS"
-    NotIn -> "NOT_IN"
+pattern Equals :: RuleOperator
+pattern Equals = RuleOperator' "EQUALS"
 
-instance Hashable RuleOperator
+pattern GreaterThan :: RuleOperator
+pattern GreaterThan = RuleOperator' "GREATER_THAN"
 
-instance NFData RuleOperator
+pattern GreaterThanOrEquals :: RuleOperator
+pattern GreaterThanOrEquals = RuleOperator' "GREATER_THAN_OR_EQUALS"
 
-instance ToByteString RuleOperator
+pattern IN :: RuleOperator
+pattern IN = RuleOperator' "IN"
 
-instance ToQuery RuleOperator
+pattern LessThan :: RuleOperator
+pattern LessThan = RuleOperator' "LESS_THAN"
 
-instance ToHeader RuleOperator
+pattern LessThanOrEquals :: RuleOperator
+pattern LessThanOrEquals = RuleOperator' "LESS_THAN_OR_EQUALS"
 
-instance ToJSON RuleOperator where
-  toJSON = toJSONText
+pattern NotIn :: RuleOperator
+pattern NotIn = RuleOperator' "NOT_IN"
 
-instance FromJSON RuleOperator where
-  parseJSON = parseJSONText "RuleOperator"
+{-# COMPLETE
+  Contains,
+  Equals,
+  GreaterThan,
+  GreaterThanOrEquals,
+  IN,
+  LessThan,
+  LessThanOrEquals,
+  NotIn,
+  RuleOperator'
+  #-}

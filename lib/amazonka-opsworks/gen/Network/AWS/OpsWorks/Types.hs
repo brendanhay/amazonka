@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types
-  ( -- * Service Configuration
-    opsWorks,
+  ( -- * Service configuration
+    opsWorksService,
 
     -- * Errors
 
@@ -61,32 +59,32 @@ module Network.AWS.OpsWorks.Types
     VolumeType (..),
 
     -- * AgentVersion
-    AgentVersion,
-    agentVersion,
+    AgentVersion (..),
+    mkAgentVersion,
     avVersion,
     avConfigurationManager,
 
     -- * App
-    App,
-    app,
-    appSSLConfiguration,
-    appEnvironment,
-    appEnableSSL,
-    appCreatedAt,
-    appShortname,
-    appDataSources,
-    appAppSource,
-    appAppId,
-    appAttributes,
-    appName,
-    appType,
-    appStackId,
-    appDomains,
-    appDescription,
+    App (..),
+    mkApp,
+    aSSLConfiguration,
+    aEnvironment,
+    aEnableSSL,
+    aCreatedAt,
+    aShortname,
+    aDataSources,
+    aAppSource,
+    aAppId,
+    aAttributes,
+    aName,
+    aType,
+    aStackId,
+    aDomains,
+    aDescription,
 
     -- * AutoScalingThresholds
-    AutoScalingThresholds,
-    autoScalingThresholds,
+    AutoScalingThresholds (..),
+    mkAutoScalingThresholds,
     astInstanceCount,
     astIgnoreMetricsTime,
     astLoadThreshold,
@@ -96,28 +94,28 @@ module Network.AWS.OpsWorks.Types
     astCPUThreshold,
 
     -- * BlockDeviceMapping
-    BlockDeviceMapping,
-    blockDeviceMapping,
+    BlockDeviceMapping (..),
+    mkBlockDeviceMapping,
     bdmVirtualName,
     bdmNoDevice,
     bdmEBS,
     bdmDeviceName,
 
     -- * ChefConfiguration
-    ChefConfiguration,
-    chefConfiguration,
+    ChefConfiguration (..),
+    mkChefConfiguration,
     ccBerkshelfVersion,
     ccManageBerkshelf,
 
     -- * CloudWatchLogsConfiguration
-    CloudWatchLogsConfiguration,
-    cloudWatchLogsConfiguration,
+    CloudWatchLogsConfiguration (..),
+    mkCloudWatchLogsConfiguration,
     cwlcEnabled,
     cwlcLogStreams,
 
     -- * CloudWatchLogsLogStream
-    CloudWatchLogsLogStream,
-    cloudWatchLogsLogStream,
+    CloudWatchLogsLogStream (..),
+    mkCloudWatchLogsLogStream,
     cwllsBatchCount,
     cwllsFileFingerprintLines,
     cwllsBufferDuration,
@@ -131,8 +129,8 @@ module Network.AWS.OpsWorks.Types
     cwllsFile,
 
     -- * Command
-    Command,
-    command,
+    Command (..),
+    mkCommand,
     cDeploymentId,
     cInstanceId,
     cStatus,
@@ -145,15 +143,15 @@ module Network.AWS.OpsWorks.Types
     cAcknowledgedAt,
 
     -- * DataSource
-    DataSource,
-    dataSource,
+    DataSource (..),
+    mkDataSource,
     dsARN,
     dsDatabaseName,
     dsType,
 
     -- * Deployment
-    Deployment,
-    deployment,
+    Deployment (..),
+    mkDeployment,
     dDeploymentId,
     dStatus,
     dCommand,
@@ -168,14 +166,14 @@ module Network.AWS.OpsWorks.Types
     dDuration,
 
     -- * DeploymentCommand
-    DeploymentCommand,
-    deploymentCommand,
+    DeploymentCommand (..),
+    mkDeploymentCommand,
     dcArgs,
     dcName,
 
     -- * EBSBlockDevice
-    EBSBlockDevice,
-    ebsBlockDevice,
+    EBSBlockDevice (..),
+    mkEBSBlockDevice,
     ebdDeleteOnTermination,
     ebdVolumeSize,
     ebdIOPS,
@@ -183,16 +181,16 @@ module Network.AWS.OpsWorks.Types
     ebdSnapshotId,
 
     -- * EcsCluster
-    EcsCluster,
-    ecsCluster,
+    EcsCluster (..),
+    mkEcsCluster,
     ecEcsClusterARN,
     ecEcsClusterName,
     ecRegisteredAt,
     ecStackId,
 
     -- * ElasticIP
-    ElasticIP,
-    elasticIP,
+    ElasticIP (..),
+    mkElasticIP,
     eiInstanceId,
     eiDomain,
     eiIP,
@@ -200,8 +198,8 @@ module Network.AWS.OpsWorks.Types
     eiRegion,
 
     -- * ElasticLoadBalancer
-    ElasticLoadBalancer,
-    elasticLoadBalancer,
+    ElasticLoadBalancer (..),
+    mkElasticLoadBalancer,
     elbSubnetIds,
     elbVPCId,
     elbAvailabilityZones,
@@ -213,15 +211,15 @@ module Network.AWS.OpsWorks.Types
     elbDNSName,
 
     -- * EnvironmentVariable
-    EnvironmentVariable,
-    environmentVariable,
+    EnvironmentVariable (..),
+    mkEnvironmentVariable,
     evSecure,
     evKey,
     evValue,
 
     -- * Instance
-    Instance,
-    instance',
+    Instance (..),
+    mkInstance,
     iPrivateDNS,
     iReportedAgentVersion,
     iInstanceId,
@@ -265,14 +263,14 @@ module Network.AWS.OpsWorks.Types
     iBlockDeviceMappings,
 
     -- * InstanceIdentity
-    InstanceIdentity,
-    instanceIdentity,
+    InstanceIdentity (..),
+    mkInstanceIdentity,
     iiSignature,
     iiDocument,
 
     -- * InstancesCount
-    InstancesCount,
-    instancesCount,
+    InstancesCount (..),
+    mkInstancesCount,
     icTerminating,
     icPending,
     icOnline,
@@ -295,8 +293,8 @@ module Network.AWS.OpsWorks.Types
     icRegistering,
 
     -- * Layer
-    Layer,
-    layer,
+    Layer (..),
+    mkLayer,
     lCustomInstanceProfileARN,
     lCustomSecurityGroupIds,
     lInstallUpdatesOnBoot,
@@ -322,21 +320,21 @@ module Network.AWS.OpsWorks.Types
     lAutoAssignElasticIPs,
 
     -- * LifecycleEventConfiguration
-    LifecycleEventConfiguration,
-    lifecycleEventConfiguration,
+    LifecycleEventConfiguration (..),
+    mkLifecycleEventConfiguration,
     lecShutdown,
 
     -- * LoadBasedAutoScalingConfiguration
-    LoadBasedAutoScalingConfiguration,
-    loadBasedAutoScalingConfiguration,
+    LoadBasedAutoScalingConfiguration (..),
+    mkLoadBasedAutoScalingConfiguration,
     lbascUpScaling,
     lbascEnable,
     lbascDownScaling,
     lbascLayerId,
 
     -- * OperatingSystem
-    OperatingSystem,
-    operatingSystem,
+    OperatingSystem (..),
+    mkOperatingSystem,
     osReportedVersion,
     osSupported,
     osName,
@@ -346,40 +344,40 @@ module Network.AWS.OpsWorks.Types
     osReportedName,
 
     -- * OperatingSystemConfigurationManager
-    OperatingSystemConfigurationManager,
-    operatingSystemConfigurationManager,
+    OperatingSystemConfigurationManager (..),
+    mkOperatingSystemConfigurationManager,
     oscmName,
     oscmVersion,
 
     -- * Permission
-    Permission,
-    permission,
+    Permission (..),
+    mkPermission,
     pIAMUserARN,
     pAllowSudo,
     pStackId,
     pLevel,
     pAllowSSH,
 
-    -- * RAIdArray
-    RAIdArray,
-    rAIdArray,
+    -- * RAIDArray
+    RAIDArray (..),
+    mkRAIDArray,
     raiaInstanceId,
     raiaSize,
     raiaIOPS,
     raiaCreatedAt,
-    raiaRAIdLevel,
+    raiaRAIDLevel,
     raiaDevice,
     raiaNumberOfDisks,
     raiaAvailabilityZone,
     raiaName,
-    raiaRAIdArrayId,
+    raiaRAIDArrayId,
     raiaVolumeType,
     raiaStackId,
     raiaMountPoint,
 
     -- * RDSDBInstance
-    RDSDBInstance,
-    rdsDBInstance,
+    RDSDBInstance (..),
+    mkRDSDBInstance,
     rdiRDSDBInstanceARN,
     rdiDBUser,
     rdiMissingOnRDS,
@@ -391,8 +389,8 @@ module Network.AWS.OpsWorks.Types
     rdiDBPassword,
 
     -- * Recipes
-    Recipes,
-    recipes,
+    Recipes (..),
+    mkRecipes,
     rSetup,
     rShutdown,
     rUndeploy,
@@ -400,30 +398,30 @@ module Network.AWS.OpsWorks.Types
     rDeploy,
 
     -- * ReportedOS
-    ReportedOS,
-    reportedOS,
+    ReportedOS (..),
+    mkReportedOS,
     roFamily,
     roName,
     roVersion,
 
     -- * SSLConfiguration
-    SSLConfiguration,
-    sslConfiguration,
+    SSLConfiguration (..),
+    mkSSLConfiguration,
     scPrivateKey,
     scCertificate,
     scChain,
 
     -- * SelfUserProfile
-    SelfUserProfile,
-    selfUserProfile,
+    SelfUserProfile (..),
+    mkSelfUserProfile,
     supSSHPublicKey,
     supSSHUsername,
     supIAMUserARN,
     supName,
 
     -- * ServiceError'
-    ServiceError',
-    serviceError',
+    ServiceError' (..),
+    mkServiceError',
     seInstanceId,
     seCreatedAt,
     seServiceErrorId,
@@ -432,14 +430,14 @@ module Network.AWS.OpsWorks.Types
     seMessage,
 
     -- * ShutdownEventConfiguration
-    ShutdownEventConfiguration,
-    shutdownEventConfiguration,
+    ShutdownEventConfiguration (..),
+    mkShutdownEventConfiguration,
     secExecutionTimeout,
     secDelayUntilElbConnectionsDrained,
 
     -- * Source
-    Source,
-    source,
+    Source (..),
+    mkSource,
     sURL,
     sUsername,
     sSSHKey,
@@ -448,8 +446,8 @@ module Network.AWS.OpsWorks.Types
     sRevision,
 
     -- * Stack
-    Stack,
-    stack,
+    Stack (..),
+    mkStack,
     sDefaultInstanceProfileARN,
     sServiceRoleARN,
     sDefaultRootDeviceType,
@@ -474,14 +472,14 @@ module Network.AWS.OpsWorks.Types
     sHostnameTheme,
 
     -- * StackConfigurationManager
-    StackConfigurationManager,
-    stackConfigurationManager,
+    StackConfigurationManager (..),
+    mkStackConfigurationManager,
     scmName,
     scmVersion,
 
     -- * StackSummary
-    StackSummary,
-    stackSummary,
+    StackSummary (..),
+    mkStackSummary,
     ssARN,
     ssAppsCount,
     ssName,
@@ -490,22 +488,22 @@ module Network.AWS.OpsWorks.Types
     ssInstancesCount,
 
     -- * TemporaryCredential
-    TemporaryCredential,
-    temporaryCredential,
+    TemporaryCredential (..),
+    mkTemporaryCredential,
     tcInstanceId,
     tcUsername,
     tcPassword,
     tcValidForInMinutes,
 
     -- * TimeBasedAutoScalingConfiguration
-    TimeBasedAutoScalingConfiguration,
-    timeBasedAutoScalingConfiguration,
+    TimeBasedAutoScalingConfiguration (..),
+    mkTimeBasedAutoScalingConfiguration,
     tbascInstanceId,
     tbascAutoScalingSchedule,
 
     -- * UserProfile
-    UserProfile,
-    userProfile,
+    UserProfile (..),
+    mkUserProfile,
     upAllowSelfManagement,
     upSSHPublicKey,
     upSSHUsername,
@@ -513,8 +511,8 @@ module Network.AWS.OpsWorks.Types
     upName,
 
     -- * Volume
-    Volume,
-    volume,
+    Volume (..),
+    mkVolume,
     vInstanceId,
     vStatus,
     vSize,
@@ -523,7 +521,7 @@ module Network.AWS.OpsWorks.Types
     vEncrypted,
     vAvailabilityZone,
     vName,
-    vRAIdArrayId,
+    vRAIDArrayId,
     vVolumeId,
     vRegion,
     vVolumeType,
@@ -531,10 +529,10 @@ module Network.AWS.OpsWorks.Types
     vMountPoint,
 
     -- * VolumeConfiguration
-    VolumeConfiguration,
-    volumeConfiguration,
+    VolumeConfiguration (..),
+    mkVolumeConfiguration,
     vcIOPS,
-    vcRAIdLevel,
+    vcRAIDLevel,
     vcEncrypted,
     vcVolumeType,
     vcMountPoint,
@@ -542,8 +540,8 @@ module Network.AWS.OpsWorks.Types
     vcSize,
 
     -- * WeeklyAutoScalingSchedule
-    WeeklyAutoScalingSchedule,
-    weeklyAutoScalingSchedule,
+    WeeklyAutoScalingSchedule (..),
+    mkWeeklyAutoScalingSchedule,
     wassThursday,
     wassWednesday,
     wassSaturday,
@@ -554,7 +552,7 @@ module Network.AWS.OpsWorks.Types
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.AgentVersion
 import Network.AWS.OpsWorks.Types.App
 import Network.AWS.OpsWorks.Types.AppAttributesKeys
@@ -590,7 +588,7 @@ import Network.AWS.OpsWorks.Types.LoadBasedAutoScalingConfiguration
 import Network.AWS.OpsWorks.Types.OperatingSystem
 import Network.AWS.OpsWorks.Types.OperatingSystemConfigurationManager
 import Network.AWS.OpsWorks.Types.Permission
-import Network.AWS.OpsWorks.Types.RAIdArray
+import Network.AWS.OpsWorks.Types.RAIDArray
 import Network.AWS.OpsWorks.Types.RDSDBInstance
 import Network.AWS.OpsWorks.Types.Recipes
 import Network.AWS.OpsWorks.Types.ReportedOS
@@ -613,47 +611,59 @@ import Network.AWS.OpsWorks.Types.Volume
 import Network.AWS.OpsWorks.Types.VolumeConfiguration
 import Network.AWS.OpsWorks.Types.VolumeType
 import Network.AWS.OpsWorks.Types.WeeklyAutoScalingSchedule
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2013-02-18@ of the Amazon OpsWorks SDK configuration.
-opsWorks :: Service
-opsWorks =
-  Service
-    { _svcAbbrev = "OpsWorks",
-      _svcSigner = v4,
-      _svcPrefix = "opsworks",
-      _svcVersion = "2013-02-18",
-      _svcEndpoint = defaultEndpoint opsWorks,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "OpsWorks",
-      _svcRetry = retry
+opsWorksService :: Lude.Service
+opsWorksService =
+  Lude.Service
+    { Lude._svcAbbrev = "OpsWorks",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "opsworks",
+      Lude._svcVersion = "2013-02-18",
+      Lude._svcEndpoint = Lude.defaultEndpoint opsWorksService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "OpsWorks",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

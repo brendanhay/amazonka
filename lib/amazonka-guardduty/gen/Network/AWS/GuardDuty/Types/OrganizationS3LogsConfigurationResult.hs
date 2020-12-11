@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.OrganizationS3LogsConfigurationResult where
+module Network.AWS.GuardDuty.Types.OrganizationS3LogsConfigurationResult
+  ( OrganizationS3LogsConfigurationResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOrganizationS3LogsConfigurationResult,
+
+    -- * Lenses
+    oslcrAutoEnable,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The current configuration of S3 data event logs as a data source for the organization.
 --
---
---
--- /See:/ 'organizationS3LogsConfigurationResult' smart constructor.
+-- /See:/ 'mkOrganizationS3LogsConfigurationResult' smart constructor.
 newtype OrganizationS3LogsConfigurationResult = OrganizationS3LogsConfigurationResult'
-  { _oslcrAutoEnable ::
-      Bool
+  { autoEnable ::
+      Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationS3LogsConfigurationResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oslcrAutoEnable' - A value that describes whether S3 data event logs are automatically enabled for new members of the organization.
-organizationS3LogsConfigurationResult ::
-  -- | 'oslcrAutoEnable'
-  Bool ->
+-- * 'autoEnable' - A value that describes whether S3 data event logs are automatically enabled for new members of the organization.
+mkOrganizationS3LogsConfigurationResult ::
+  -- | 'autoEnable'
+  Lude.Bool ->
   OrganizationS3LogsConfigurationResult
-organizationS3LogsConfigurationResult pAutoEnable_ =
-  OrganizationS3LogsConfigurationResult'
-    { _oslcrAutoEnable =
-        pAutoEnable_
-    }
+mkOrganizationS3LogsConfigurationResult pAutoEnable_ =
+  OrganizationS3LogsConfigurationResult' {autoEnable = pAutoEnable_}
 
 -- | A value that describes whether S3 data event logs are automatically enabled for new members of the organization.
-oslcrAutoEnable :: Lens' OrganizationS3LogsConfigurationResult Bool
-oslcrAutoEnable = lens _oslcrAutoEnable (\s a -> s {_oslcrAutoEnable = a})
+--
+-- /Note:/ Consider using 'autoEnable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oslcrAutoEnable :: Lens.Lens' OrganizationS3LogsConfigurationResult Lude.Bool
+oslcrAutoEnable = Lens.lens (autoEnable :: OrganizationS3LogsConfigurationResult -> Lude.Bool) (\s a -> s {autoEnable = a} :: OrganizationS3LogsConfigurationResult)
+{-# DEPRECATED oslcrAutoEnable "Use generic-lens or generic-optics with 'autoEnable' instead." #-}
 
-instance FromJSON OrganizationS3LogsConfigurationResult where
+instance Lude.FromJSON OrganizationS3LogsConfigurationResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "OrganizationS3LogsConfigurationResult"
       ( \x ->
-          OrganizationS3LogsConfigurationResult' <$> (x .: "autoEnable")
+          OrganizationS3LogsConfigurationResult'
+            Lude.<$> (x Lude..: "autoEnable")
       )
-
-instance Hashable OrganizationS3LogsConfigurationResult
-
-instance NFData OrganizationS3LogsConfigurationResult

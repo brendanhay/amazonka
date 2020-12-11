@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSetOperationStatus where
+module Network.AWS.CloudFormation.Types.StackSetOperationStatus
+  ( StackSetOperationStatus
+      ( StackSetOperationStatus',
+        SSOSFailed,
+        SSOSQueued,
+        SSOSRunning,
+        SSOSStopped,
+        SSOSStopping,
+        SSOSSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StackSetOperationStatus
-  = SSOSFailed
-  | SSOSQueued
-  | SSOSRunning
-  | SSOSStopped
-  | SSOSStopping
-  | SSOSSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StackSetOperationStatus = StackSetOperationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StackSetOperationStatus where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure SSOSFailed
-      "queued" -> pure SSOSQueued
-      "running" -> pure SSOSRunning
-      "stopped" -> pure SSOSStopped
-      "stopping" -> pure SSOSStopping
-      "succeeded" -> pure SSOSSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing StackSetOperationStatus from value: '" <> e
-            <> "'. Accepted values: failed, queued, running, stopped, stopping, succeeded"
+pattern SSOSFailed :: StackSetOperationStatus
+pattern SSOSFailed = StackSetOperationStatus' "FAILED"
 
-instance ToText StackSetOperationStatus where
-  toText = \case
-    SSOSFailed -> "FAILED"
-    SSOSQueued -> "QUEUED"
-    SSOSRunning -> "RUNNING"
-    SSOSStopped -> "STOPPED"
-    SSOSStopping -> "STOPPING"
-    SSOSSucceeded -> "SUCCEEDED"
+pattern SSOSQueued :: StackSetOperationStatus
+pattern SSOSQueued = StackSetOperationStatus' "QUEUED"
 
-instance Hashable StackSetOperationStatus
+pattern SSOSRunning :: StackSetOperationStatus
+pattern SSOSRunning = StackSetOperationStatus' "RUNNING"
 
-instance NFData StackSetOperationStatus
+pattern SSOSStopped :: StackSetOperationStatus
+pattern SSOSStopped = StackSetOperationStatus' "STOPPED"
 
-instance ToByteString StackSetOperationStatus
+pattern SSOSStopping :: StackSetOperationStatus
+pattern SSOSStopping = StackSetOperationStatus' "STOPPING"
 
-instance ToQuery StackSetOperationStatus
+pattern SSOSSucceeded :: StackSetOperationStatus
+pattern SSOSSucceeded = StackSetOperationStatus' "SUCCEEDED"
 
-instance ToHeader StackSetOperationStatus
-
-instance FromXML StackSetOperationStatus where
-  parseXML = parseXMLText "StackSetOperationStatus"
+{-# COMPLETE
+  SSOSFailed,
+  SSOSQueued,
+  SSOSRunning,
+  SSOSStopped,
+  SSOSStopping,
+  SSOSSucceeded,
+  StackSetOperationStatus'
+  #-}

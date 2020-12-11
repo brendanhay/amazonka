@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Runs an on-demand remediation for the specified AWS Config rules against the last known remediation configuration. It runs an execution against the current state of your resources. Remediation execution is asynchronous.
 --
---
 -- You can specify up to 100 resource keys per request. An existing StartRemediationExecution call for the specified resource keys must complete before you can call the API again.
 module Network.AWS.Config.StartRemediationExecution
-  ( -- * Creating a Request
-    startRemediationExecution,
-    StartRemediationExecution,
+  ( -- * Creating a request
+    StartRemediationExecution (..),
+    mkStartRemediationExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sreConfigRuleName,
     sreResourceKeys,
 
-    -- * Destructuring the Response
-    startRemediationExecutionResponse,
-    StartRemediationExecutionResponse,
+    -- * Destructuring the response
+    StartRemediationExecutionResponse (..),
+    mkStartRemediationExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srersFailureMessage,
     srersFailedItems,
     srersResponseStatus,
@@ -42,136 +36,153 @@ module Network.AWS.Config.StartRemediationExecution
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startRemediationExecution' smart constructor.
+-- | /See:/ 'mkStartRemediationExecution' smart constructor.
 data StartRemediationExecution = StartRemediationExecution'
-  { _sreConfigRuleName ::
-      !Text,
-    _sreResourceKeys ::
-      !(List1 ResourceKey)
+  { configRuleName ::
+      Lude.Text,
+    resourceKeys ::
+      Lude.NonEmpty ResourceKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartRemediationExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sreConfigRuleName' - The list of names of AWS Config rules that you want to run remediation execution for.
---
--- * 'sreResourceKeys' - A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
-startRemediationExecution ::
-  -- | 'sreConfigRuleName'
-  Text ->
-  -- | 'sreResourceKeys'
-  NonEmpty ResourceKey ->
+-- * 'configRuleName' - The list of names of AWS Config rules that you want to run remediation execution for.
+-- * 'resourceKeys' - A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+mkStartRemediationExecution ::
+  -- | 'configRuleName'
+  Lude.Text ->
+  -- | 'resourceKeys'
+  Lude.NonEmpty ResourceKey ->
   StartRemediationExecution
-startRemediationExecution pConfigRuleName_ pResourceKeys_ =
+mkStartRemediationExecution pConfigRuleName_ pResourceKeys_ =
   StartRemediationExecution'
-    { _sreConfigRuleName = pConfigRuleName_,
-      _sreResourceKeys = _List1 # pResourceKeys_
+    { configRuleName = pConfigRuleName_,
+      resourceKeys = pResourceKeys_
     }
 
 -- | The list of names of AWS Config rules that you want to run remediation execution for.
-sreConfigRuleName :: Lens' StartRemediationExecution Text
-sreConfigRuleName = lens _sreConfigRuleName (\s a -> s {_sreConfigRuleName = a})
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sreConfigRuleName :: Lens.Lens' StartRemediationExecution Lude.Text
+sreConfigRuleName = Lens.lens (configRuleName :: StartRemediationExecution -> Lude.Text) (\s a -> s {configRuleName = a} :: StartRemediationExecution)
+{-# DEPRECATED sreConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
-sreResourceKeys :: Lens' StartRemediationExecution (NonEmpty ResourceKey)
-sreResourceKeys = lens _sreResourceKeys (\s a -> s {_sreResourceKeys = a}) . _List1
+--
+-- /Note:/ Consider using 'resourceKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sreResourceKeys :: Lens.Lens' StartRemediationExecution (Lude.NonEmpty ResourceKey)
+sreResourceKeys = Lens.lens (resourceKeys :: StartRemediationExecution -> Lude.NonEmpty ResourceKey) (\s a -> s {resourceKeys = a} :: StartRemediationExecution)
+{-# DEPRECATED sreResourceKeys "Use generic-lens or generic-optics with 'resourceKeys' instead." #-}
 
-instance AWSRequest StartRemediationExecution where
+instance Lude.AWSRequest StartRemediationExecution where
   type
     Rs StartRemediationExecution =
       StartRemediationExecutionResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartRemediationExecutionResponse'
-            <$> (x .?> "FailureMessage")
-            <*> (x .?> "FailedItems")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FailureMessage")
+            Lude.<*> (x Lude..?> "FailedItems")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartRemediationExecution
-
-instance NFData StartRemediationExecution
-
-instance ToHeaders StartRemediationExecution where
+instance Lude.ToHeaders StartRemediationExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.StartRemediationExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.StartRemediationExecution" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartRemediationExecution where
+instance Lude.ToJSON StartRemediationExecution where
   toJSON StartRemediationExecution' {..} =
-    object
-      ( catMaybes
-          [ Just ("ConfigRuleName" .= _sreConfigRuleName),
-            Just ("ResourceKeys" .= _sreResourceKeys)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ConfigRuleName" Lude..= configRuleName),
+            Lude.Just ("ResourceKeys" Lude..= resourceKeys)
           ]
       )
 
-instance ToPath StartRemediationExecution where
-  toPath = const "/"
+instance Lude.ToPath StartRemediationExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery StartRemediationExecution where
-  toQuery = const mempty
+instance Lude.ToQuery StartRemediationExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startRemediationExecutionResponse' smart constructor.
+-- | /See:/ 'mkStartRemediationExecutionResponse' smart constructor.
 data StartRemediationExecutionResponse = StartRemediationExecutionResponse'
-  { _srersFailureMessage ::
-      !(Maybe Text),
-    _srersFailedItems ::
-      !( Maybe
-           ( List1
-               ResourceKey
-           )
-       ),
-    _srersResponseStatus ::
-      !Int
+  { failureMessage ::
+      Lude.Maybe Lude.Text,
+    failedItems ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            ResourceKey
+        ),
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartRemediationExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srersFailureMessage' - Returns a failure message. For example, the resource is already compliant.
---
--- * 'srersFailedItems' - For resources that have failed to start execution, the API returns a resource key object.
---
--- * 'srersResponseStatus' - -- | The response status code.
-startRemediationExecutionResponse ::
-  -- | 'srersResponseStatus'
-  Int ->
+-- * 'failedItems' - For resources that have failed to start execution, the API returns a resource key object.
+-- * 'failureMessage' - Returns a failure message. For example, the resource is already compliant.
+-- * 'responseStatus' - The response status code.
+mkStartRemediationExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartRemediationExecutionResponse
-startRemediationExecutionResponse pResponseStatus_ =
+mkStartRemediationExecutionResponse pResponseStatus_ =
   StartRemediationExecutionResponse'
-    { _srersFailureMessage =
-        Nothing,
-      _srersFailedItems = Nothing,
-      _srersResponseStatus = pResponseStatus_
+    { failureMessage = Lude.Nothing,
+      failedItems = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a failure message. For example, the resource is already compliant.
-srersFailureMessage :: Lens' StartRemediationExecutionResponse (Maybe Text)
-srersFailureMessage = lens _srersFailureMessage (\s a -> s {_srersFailureMessage = a})
+--
+-- /Note:/ Consider using 'failureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srersFailureMessage :: Lens.Lens' StartRemediationExecutionResponse (Lude.Maybe Lude.Text)
+srersFailureMessage = Lens.lens (failureMessage :: StartRemediationExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureMessage = a} :: StartRemediationExecutionResponse)
+{-# DEPRECATED srersFailureMessage "Use generic-lens or generic-optics with 'failureMessage' instead." #-}
 
 -- | For resources that have failed to start execution, the API returns a resource key object.
-srersFailedItems :: Lens' StartRemediationExecutionResponse (Maybe (NonEmpty ResourceKey))
-srersFailedItems = lens _srersFailedItems (\s a -> s {_srersFailedItems = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srersFailedItems :: Lens.Lens' StartRemediationExecutionResponse (Lude.Maybe (Lude.NonEmpty ResourceKey))
+srersFailedItems = Lens.lens (failedItems :: StartRemediationExecutionResponse -> Lude.Maybe (Lude.NonEmpty ResourceKey)) (\s a -> s {failedItems = a} :: StartRemediationExecutionResponse)
+{-# DEPRECATED srersFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
 
--- | -- | The response status code.
-srersResponseStatus :: Lens' StartRemediationExecutionResponse Int
-srersResponseStatus = lens _srersResponseStatus (\s a -> s {_srersResponseStatus = a})
-
-instance NFData StartRemediationExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srersResponseStatus :: Lens.Lens' StartRemediationExecutionResponse Lude.Int
+srersResponseStatus = Lens.lens (responseStatus :: StartRemediationExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartRemediationExecutionResponse)
+{-# DEPRECATED srersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

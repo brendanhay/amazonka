@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.SMBSecurityStrategy where
+module Network.AWS.StorageGateway.Types.SMBSecurityStrategy
+  ( SMBSecurityStrategy
+      ( SMBSecurityStrategy',
+        SMBSSClientSpecified,
+        SMBSSMandatoryEncryption,
+        SMBSSMandatorySigning
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SMBSecurityStrategy
-  = SMBSSClientSpecified
-  | SMBSSMandatoryEncryption
-  | SMBSSMandatorySigning
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SMBSecurityStrategy = SMBSecurityStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SMBSecurityStrategy where
-  parser =
-    takeLowerText >>= \case
-      "clientspecified" -> pure SMBSSClientSpecified
-      "mandatoryencryption" -> pure SMBSSMandatoryEncryption
-      "mandatorysigning" -> pure SMBSSMandatorySigning
-      e ->
-        fromTextError $
-          "Failure parsing SMBSecurityStrategy from value: '" <> e
-            <> "'. Accepted values: clientspecified, mandatoryencryption, mandatorysigning"
+pattern SMBSSClientSpecified :: SMBSecurityStrategy
+pattern SMBSSClientSpecified = SMBSecurityStrategy' "ClientSpecified"
 
-instance ToText SMBSecurityStrategy where
-  toText = \case
-    SMBSSClientSpecified -> "ClientSpecified"
-    SMBSSMandatoryEncryption -> "MandatoryEncryption"
-    SMBSSMandatorySigning -> "MandatorySigning"
+pattern SMBSSMandatoryEncryption :: SMBSecurityStrategy
+pattern SMBSSMandatoryEncryption = SMBSecurityStrategy' "MandatoryEncryption"
 
-instance Hashable SMBSecurityStrategy
+pattern SMBSSMandatorySigning :: SMBSecurityStrategy
+pattern SMBSSMandatorySigning = SMBSecurityStrategy' "MandatorySigning"
 
-instance NFData SMBSecurityStrategy
-
-instance ToByteString SMBSecurityStrategy
-
-instance ToQuery SMBSecurityStrategy
-
-instance ToHeader SMBSecurityStrategy
-
-instance ToJSON SMBSecurityStrategy where
-  toJSON = toJSONText
-
-instance FromJSON SMBSecurityStrategy where
-  parseJSON = parseJSONText "SMBSecurityStrategy"
+{-# COMPLETE
+  SMBSSClientSpecified,
+  SMBSSMandatoryEncryption,
+  SMBSSMandatorySigning,
+  SMBSecurityStrategy'
+  #-}

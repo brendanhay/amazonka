@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Describes the Elastic Graphics accelerator associated with your instances. For more information about Elastic Graphics, see <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html Amazon Elastic Graphics> .
 module Network.AWS.EC2.DescribeElasticGpus
-  ( -- * Creating a Request
-    describeElasticGpus,
-    DescribeElasticGpus,
+  ( -- * Creating a request
+    DescribeElasticGpus (..),
+    mkDescribeElasticGpus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     degFilters,
     degNextToken,
     degDryRun,
     degMaxResults,
     degElasticGpuIds,
 
-    -- * Destructuring the Response
-    describeElasticGpusResponse,
-    DescribeElasticGpusResponse,
+    -- * Destructuring the response
+    DescribeElasticGpusResponse (..),
+    mkDescribeElasticGpusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     degrsElasticGpuSet,
     degrsNextToken,
     degrsMaxResults,
@@ -43,148 +38,209 @@ module Network.AWS.EC2.DescribeElasticGpus
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeElasticGpus' smart constructor.
+-- | /See:/ 'mkDescribeElasticGpus' smart constructor.
 data DescribeElasticGpus = DescribeElasticGpus'
-  { _degFilters ::
-      !(Maybe [Filter]),
-    _degNextToken :: !(Maybe Text),
-    _degDryRun :: !(Maybe Bool),
-    _degMaxResults :: !(Maybe Nat),
-    _degElasticGpuIds :: !(Maybe [Text])
+  { filters ::
+      Lude.Maybe [Filter],
+    nextToken :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    maxResults :: Lude.Maybe Lude.Natural,
+    elasticGpuIds :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticGpus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'elasticGpuIds' - The Elastic Graphics accelerator IDs.
+-- * 'filters' - The filters.
 --
--- * 'degFilters' - The filters.     * @availability-zone@ - The Availability Zone in which the Elastic Graphics accelerator resides.     * @elastic-gpu-health@ - The status of the Elastic Graphics accelerator (@OK@ | @IMPAIRED@ ).     * @elastic-gpu-state@ - The state of the Elastic Graphics accelerator (@ATTACHED@ ).     * @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for example, @eg1.medium@ .     * @instance-id@ - The ID of the instance to which the Elastic Graphics accelerator is associated.
 --
--- * 'degNextToken' - The token to request the next page of results.
+--     * @availability-zone@ - The Availability Zone in which the Elastic Graphics accelerator resides.
 --
--- * 'degDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'degMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
+--     * @elastic-gpu-health@ - The status of the Elastic Graphics accelerator (@OK@ | @IMPAIRED@ ).
 --
--- * 'degElasticGpuIds' - The Elastic Graphics accelerator IDs.
-describeElasticGpus ::
+--
+--     * @elastic-gpu-state@ - The state of the Elastic Graphics accelerator (@ATTACHED@ ).
+--
+--
+--     * @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for example, @eg1.medium@ .
+--
+--
+--     * @instance-id@ - The ID of the instance to which the Elastic Graphics accelerator is associated.
+--
+--
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
+-- * 'nextToken' - The token to request the next page of results.
+mkDescribeElasticGpus ::
   DescribeElasticGpus
-describeElasticGpus =
+mkDescribeElasticGpus =
   DescribeElasticGpus'
-    { _degFilters = Nothing,
-      _degNextToken = Nothing,
-      _degDryRun = Nothing,
-      _degMaxResults = Nothing,
-      _degElasticGpuIds = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      elasticGpuIds = Lude.Nothing
     }
 
--- | The filters.     * @availability-zone@ - The Availability Zone in which the Elastic Graphics accelerator resides.     * @elastic-gpu-health@ - The status of the Elastic Graphics accelerator (@OK@ | @IMPAIRED@ ).     * @elastic-gpu-state@ - The state of the Elastic Graphics accelerator (@ATTACHED@ ).     * @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for example, @eg1.medium@ .     * @instance-id@ - The ID of the instance to which the Elastic Graphics accelerator is associated.
-degFilters :: Lens' DescribeElasticGpus [Filter]
-degFilters = lens _degFilters (\s a -> s {_degFilters = a}) . _Default . _Coerce
+-- | The filters.
+--
+--
+--     * @availability-zone@ - The Availability Zone in which the Elastic Graphics accelerator resides.
+--
+--
+--     * @elastic-gpu-health@ - The status of the Elastic Graphics accelerator (@OK@ | @IMPAIRED@ ).
+--
+--
+--     * @elastic-gpu-state@ - The state of the Elastic Graphics accelerator (@ATTACHED@ ).
+--
+--
+--     * @elastic-gpu-type@ - The type of Elastic Graphics accelerator; for example, @eg1.medium@ .
+--
+--
+--     * @instance-id@ - The ID of the instance to which the Elastic Graphics accelerator is associated.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+degFilters :: Lens.Lens' DescribeElasticGpus (Lude.Maybe [Filter])
+degFilters = Lens.lens (filters :: DescribeElasticGpus -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeElasticGpus)
+{-# DEPRECATED degFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token to request the next page of results.
-degNextToken :: Lens' DescribeElasticGpus (Maybe Text)
-degNextToken = lens _degNextToken (\s a -> s {_degNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+degNextToken :: Lens.Lens' DescribeElasticGpus (Lude.Maybe Lude.Text)
+degNextToken = Lens.lens (nextToken :: DescribeElasticGpus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeElasticGpus)
+{-# DEPRECATED degNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-degDryRun :: Lens' DescribeElasticGpus (Maybe Bool)
-degDryRun = lens _degDryRun (\s a -> s {_degDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+degDryRun :: Lens.Lens' DescribeElasticGpus (Lude.Maybe Lude.Bool)
+degDryRun = Lens.lens (dryRun :: DescribeElasticGpus -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeElasticGpus)
+{-# DEPRECATED degDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000.
-degMaxResults :: Lens' DescribeElasticGpus (Maybe Natural)
-degMaxResults = lens _degMaxResults (\s a -> s {_degMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+degMaxResults :: Lens.Lens' DescribeElasticGpus (Lude.Maybe Lude.Natural)
+degMaxResults = Lens.lens (maxResults :: DescribeElasticGpus -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeElasticGpus)
+{-# DEPRECATED degMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Elastic Graphics accelerator IDs.
-degElasticGpuIds :: Lens' DescribeElasticGpus [Text]
-degElasticGpuIds = lens _degElasticGpuIds (\s a -> s {_degElasticGpuIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'elasticGpuIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+degElasticGpuIds :: Lens.Lens' DescribeElasticGpus (Lude.Maybe [Lude.Text])
+degElasticGpuIds = Lens.lens (elasticGpuIds :: DescribeElasticGpus -> Lude.Maybe [Lude.Text]) (\s a -> s {elasticGpuIds = a} :: DescribeElasticGpus)
+{-# DEPRECATED degElasticGpuIds "Use generic-lens or generic-optics with 'elasticGpuIds' instead." #-}
 
-instance AWSRequest DescribeElasticGpus where
+instance Lude.AWSRequest DescribeElasticGpus where
   type Rs DescribeElasticGpus = DescribeElasticGpusResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeElasticGpusResponse'
-            <$> (x .@? "elasticGpuSet" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (x .@? "nextToken")
-            <*> (x .@? "maxResults")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "elasticGpuSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (x Lude..@? "nextToken")
+            Lude.<*> (x Lude..@? "maxResults")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeElasticGpus
+instance Lude.ToHeaders DescribeElasticGpus where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeElasticGpus
+instance Lude.ToPath DescribeElasticGpus where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeElasticGpus where
-  toHeaders = const mempty
-
-instance ToPath DescribeElasticGpus where
-  toPath = const "/"
-
-instance ToQuery DescribeElasticGpus where
+instance Lude.ToQuery DescribeElasticGpus where
   toQuery DescribeElasticGpus' {..} =
-    mconcat
-      [ "Action" =: ("DescribeElasticGpus" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _degFilters),
-        "NextToken" =: _degNextToken,
-        "DryRun" =: _degDryRun,
-        "MaxResults" =: _degMaxResults,
-        toQuery (toQueryList "ElasticGpuId" <$> _degElasticGpuIds)
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeElasticGpus" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults,
+        Lude.toQuery
+          (Lude.toQueryList "ElasticGpuId" Lude.<$> elasticGpuIds)
       ]
 
--- | /See:/ 'describeElasticGpusResponse' smart constructor.
+-- | /See:/ 'mkDescribeElasticGpusResponse' smart constructor.
 data DescribeElasticGpusResponse = DescribeElasticGpusResponse'
-  { _degrsElasticGpuSet ::
-      !(Maybe [ElasticGpus]),
-    _degrsNextToken :: !(Maybe Text),
-    _degrsMaxResults :: !(Maybe Int),
-    _degrsResponseStatus :: !Int
+  { elasticGpuSet ::
+      Lude.Maybe [ElasticGpus],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticGpusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'degrsElasticGpuSet' - Information about the Elastic Graphics accelerators.
---
--- * 'degrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'degrsMaxResults' - The total number of items to return. If the total number of items available is more than the value specified in max-items then a Next-Token will be provided in the output that you can use to resume pagination.
---
--- * 'degrsResponseStatus' - -- | The response status code.
-describeElasticGpusResponse ::
-  -- | 'degrsResponseStatus'
-  Int ->
+-- * 'elasticGpuSet' - Information about the Elastic Graphics accelerators.
+-- * 'maxResults' - The total number of items to return. If the total number of items available is more than the value specified in max-items then a Next-Token will be provided in the output that you can use to resume pagination.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeElasticGpusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeElasticGpusResponse
-describeElasticGpusResponse pResponseStatus_ =
+mkDescribeElasticGpusResponse pResponseStatus_ =
   DescribeElasticGpusResponse'
-    { _degrsElasticGpuSet = Nothing,
-      _degrsNextToken = Nothing,
-      _degrsMaxResults = Nothing,
-      _degrsResponseStatus = pResponseStatus_
+    { elasticGpuSet = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the Elastic Graphics accelerators.
-degrsElasticGpuSet :: Lens' DescribeElasticGpusResponse [ElasticGpus]
-degrsElasticGpuSet = lens _degrsElasticGpuSet (\s a -> s {_degrsElasticGpuSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'elasticGpuSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+degrsElasticGpuSet :: Lens.Lens' DescribeElasticGpusResponse (Lude.Maybe [ElasticGpus])
+degrsElasticGpuSet = Lens.lens (elasticGpuSet :: DescribeElasticGpusResponse -> Lude.Maybe [ElasticGpus]) (\s a -> s {elasticGpuSet = a} :: DescribeElasticGpusResponse)
+{-# DEPRECATED degrsElasticGpuSet "Use generic-lens or generic-optics with 'elasticGpuSet' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-degrsNextToken :: Lens' DescribeElasticGpusResponse (Maybe Text)
-degrsNextToken = lens _degrsNextToken (\s a -> s {_degrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+degrsNextToken :: Lens.Lens' DescribeElasticGpusResponse (Lude.Maybe Lude.Text)
+degrsNextToken = Lens.lens (nextToken :: DescribeElasticGpusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeElasticGpusResponse)
+{-# DEPRECATED degrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of items to return. If the total number of items available is more than the value specified in max-items then a Next-Token will be provided in the output that you can use to resume pagination.
-degrsMaxResults :: Lens' DescribeElasticGpusResponse (Maybe Int)
-degrsMaxResults = lens _degrsMaxResults (\s a -> s {_degrsMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+degrsMaxResults :: Lens.Lens' DescribeElasticGpusResponse (Lude.Maybe Lude.Int)
+degrsMaxResults = Lens.lens (maxResults :: DescribeElasticGpusResponse -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeElasticGpusResponse)
+{-# DEPRECATED degrsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | -- | The response status code.
-degrsResponseStatus :: Lens' DescribeElasticGpusResponse Int
-degrsResponseStatus = lens _degrsResponseStatus (\s a -> s {_degrsResponseStatus = a})
-
-instance NFData DescribeElasticGpusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+degrsResponseStatus :: Lens.Lens' DescribeElasticGpusResponse Lude.Int
+degrsResponseStatus = Lens.lens (responseStatus :: DescribeElasticGpusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeElasticGpusResponse)
+{-# DEPRECATED degrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

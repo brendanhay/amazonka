@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.AddressFamily where
+module Network.AWS.DirectConnect.Types.AddressFamily
+  ( AddressFamily
+      ( AddressFamily',
+        IPV4,
+        IPV6
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AddressFamily
-  = IPV4
-  | IPV6
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AddressFamily = AddressFamily' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AddressFamily where
-  parser =
-    takeLowerText >>= \case
-      "ipv4" -> pure IPV4
-      "ipv6" -> pure IPV6
-      e ->
-        fromTextError $
-          "Failure parsing AddressFamily from value: '" <> e
-            <> "'. Accepted values: ipv4, ipv6"
+pattern IPV4 :: AddressFamily
+pattern IPV4 = AddressFamily' "ipv4"
 
-instance ToText AddressFamily where
-  toText = \case
-    IPV4 -> "ipv4"
-    IPV6 -> "ipv6"
+pattern IPV6 :: AddressFamily
+pattern IPV6 = AddressFamily' "ipv6"
 
-instance Hashable AddressFamily
-
-instance NFData AddressFamily
-
-instance ToByteString AddressFamily
-
-instance ToQuery AddressFamily
-
-instance ToHeader AddressFamily
-
-instance ToJSON AddressFamily where
-  toJSON = toJSONText
-
-instance FromJSON AddressFamily where
-  parseJSON = parseJSONText "AddressFamily"
+{-# COMPLETE
+  IPV4,
+  IPV6,
+  AddressFamily'
+  #-}

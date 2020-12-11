@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,93 @@
 --
 -- Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.
 module Network.AWS.CloudWatchLogs.DeleteResourcePolicy
-  ( -- * Creating a Request
-    deleteResourcePolicy,
-    DeleteResourcePolicy,
+  ( -- * Creating a request
+    DeleteResourcePolicy (..),
+    mkDeleteResourcePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drpPolicyName,
 
-    -- * Destructuring the Response
-    deleteResourcePolicyResponse,
-    DeleteResourcePolicyResponse,
+    -- * Destructuring the response
+    DeleteResourcePolicyResponse (..),
+    mkDeleteResourcePolicyResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteResourcePolicy' smart constructor.
+-- | /See:/ 'mkDeleteResourcePolicy' smart constructor.
 newtype DeleteResourcePolicy = DeleteResourcePolicy'
-  { _drpPolicyName ::
-      Maybe Text
+  { policyName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourcePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drpPolicyName' - The name of the policy to be revoked. This parameter is required.
-deleteResourcePolicy ::
+-- * 'policyName' - The name of the policy to be revoked. This parameter is required.
+mkDeleteResourcePolicy ::
   DeleteResourcePolicy
-deleteResourcePolicy =
-  DeleteResourcePolicy' {_drpPolicyName = Nothing}
+mkDeleteResourcePolicy =
+  DeleteResourcePolicy' {policyName = Lude.Nothing}
 
 -- | The name of the policy to be revoked. This parameter is required.
-drpPolicyName :: Lens' DeleteResourcePolicy (Maybe Text)
-drpPolicyName = lens _drpPolicyName (\s a -> s {_drpPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpPolicyName :: Lens.Lens' DeleteResourcePolicy (Lude.Maybe Lude.Text)
+drpPolicyName = Lens.lens (policyName :: DeleteResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: DeleteResourcePolicy)
+{-# DEPRECATED drpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance AWSRequest DeleteResourcePolicy where
+instance Lude.AWSRequest DeleteResourcePolicy where
   type Rs DeleteResourcePolicy = DeleteResourcePolicyResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull DeleteResourcePolicyResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull DeleteResourcePolicyResponse'
 
-instance Hashable DeleteResourcePolicy
-
-instance NFData DeleteResourcePolicy
-
-instance ToHeaders DeleteResourcePolicy where
+instance Lude.ToHeaders DeleteResourcePolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.DeleteResourcePolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.DeleteResourcePolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteResourcePolicy where
+instance Lude.ToJSON DeleteResourcePolicy where
   toJSON DeleteResourcePolicy' {..} =
-    object (catMaybes [("policyName" .=) <$> _drpPolicyName])
+    Lude.object
+      (Lude.catMaybes [("policyName" Lude..=) Lude.<$> policyName])
 
-instance ToPath DeleteResourcePolicy where
-  toPath = const "/"
+instance Lude.ToPath DeleteResourcePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteResourcePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteResourcePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteResourcePolicyResponse' smart constructor.
+-- | /See:/ 'mkDeleteResourcePolicyResponse' smart constructor.
 data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourcePolicyResponse' with the minimum fields required to make a request.
-deleteResourcePolicyResponse ::
+mkDeleteResourcePolicyResponse ::
   DeleteResourcePolicyResponse
-deleteResourcePolicyResponse = DeleteResourcePolicyResponse'
-
-instance NFData DeleteResourcePolicyResponse
+mkDeleteResourcePolicyResponse = DeleteResourcePolicyResponse'

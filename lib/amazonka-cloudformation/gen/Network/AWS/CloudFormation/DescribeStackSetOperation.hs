@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,146 @@
 --
 -- Returns the description of the specified stack set operation.
 module Network.AWS.CloudFormation.DescribeStackSetOperation
-  ( -- * Creating a Request
-    describeStackSetOperation,
-    DescribeStackSetOperation,
+  ( -- * Creating a request
+    DescribeStackSetOperation (..),
+    mkDescribeStackSetOperation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dssoStackSetName,
     dssoOperationId,
 
-    -- * Destructuring the Response
-    describeStackSetOperationResponse,
-    DescribeStackSetOperationResponse,
+    -- * Destructuring the response
+    DescribeStackSetOperationResponse (..),
+    mkDescribeStackSetOperationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dssorsStackSetOperation,
     dssorsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStackSetOperation' smart constructor.
+-- | /See:/ 'mkDescribeStackSetOperation' smart constructor.
 data DescribeStackSetOperation = DescribeStackSetOperation'
-  { _dssoStackSetName ::
-      !Text,
-    _dssoOperationId :: !Text
+  { stackSetName ::
+      Lude.Text,
+    operationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSetOperation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssoStackSetName' - The name or the unique stack ID of the stack set for the stack operation.
---
--- * 'dssoOperationId' - The unique ID of the stack set operation.
-describeStackSetOperation ::
-  -- | 'dssoStackSetName'
-  Text ->
-  -- | 'dssoOperationId'
-  Text ->
+-- * 'operationId' - The unique ID of the stack set operation.
+-- * 'stackSetName' - The name or the unique stack ID of the stack set for the stack operation.
+mkDescribeStackSetOperation ::
+  -- | 'stackSetName'
+  Lude.Text ->
+  -- | 'operationId'
+  Lude.Text ->
   DescribeStackSetOperation
-describeStackSetOperation pStackSetName_ pOperationId_ =
+mkDescribeStackSetOperation pStackSetName_ pOperationId_ =
   DescribeStackSetOperation'
-    { _dssoStackSetName = pStackSetName_,
-      _dssoOperationId = pOperationId_
+    { stackSetName = pStackSetName_,
+      operationId = pOperationId_
     }
 
 -- | The name or the unique stack ID of the stack set for the stack operation.
-dssoStackSetName :: Lens' DescribeStackSetOperation Text
-dssoStackSetName = lens _dssoStackSetName (\s a -> s {_dssoStackSetName = a})
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssoStackSetName :: Lens.Lens' DescribeStackSetOperation Lude.Text
+dssoStackSetName = Lens.lens (stackSetName :: DescribeStackSetOperation -> Lude.Text) (\s a -> s {stackSetName = a} :: DescribeStackSetOperation)
+{-# DEPRECATED dssoStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 -- | The unique ID of the stack set operation.
-dssoOperationId :: Lens' DescribeStackSetOperation Text
-dssoOperationId = lens _dssoOperationId (\s a -> s {_dssoOperationId = a})
+--
+-- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssoOperationId :: Lens.Lens' DescribeStackSetOperation Lude.Text
+dssoOperationId = Lens.lens (operationId :: DescribeStackSetOperation -> Lude.Text) (\s a -> s {operationId = a} :: DescribeStackSetOperation)
+{-# DEPRECATED dssoOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
-instance AWSRequest DescribeStackSetOperation where
+instance Lude.AWSRequest DescribeStackSetOperation where
   type
     Rs DescribeStackSetOperation =
       DescribeStackSetOperationResponse
-  request = postQuery cloudFormation
+  request = Req.postQuery cloudFormationService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeStackSetOperationResult"
       ( \s h x ->
           DescribeStackSetOperationResponse'
-            <$> (x .@? "StackSetOperation") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "StackSetOperation")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStackSetOperation
+instance Lude.ToHeaders DescribeStackSetOperation where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeStackSetOperation
+instance Lude.ToPath DescribeStackSetOperation where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeStackSetOperation where
-  toHeaders = const mempty
-
-instance ToPath DescribeStackSetOperation where
-  toPath = const "/"
-
-instance ToQuery DescribeStackSetOperation where
+instance Lude.ToQuery DescribeStackSetOperation where
   toQuery DescribeStackSetOperation' {..} =
-    mconcat
-      [ "Action" =: ("DescribeStackSetOperation" :: ByteString),
-        "Version" =: ("2010-05-15" :: ByteString),
-        "StackSetName" =: _dssoStackSetName,
-        "OperationId" =: _dssoOperationId
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeStackSetOperation" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
+        "StackSetName" Lude.=: stackSetName,
+        "OperationId" Lude.=: operationId
       ]
 
--- | /See:/ 'describeStackSetOperationResponse' smart constructor.
+-- | /See:/ 'mkDescribeStackSetOperationResponse' smart constructor.
 data DescribeStackSetOperationResponse = DescribeStackSetOperationResponse'
-  { _dssorsStackSetOperation ::
-      !( Maybe
-           StackSetOperation
-       ),
-    _dssorsResponseStatus ::
-      !Int
+  { stackSetOperation ::
+      Lude.Maybe
+        StackSetOperation,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSetOperationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssorsStackSetOperation' - The specified stack set operation.
---
--- * 'dssorsResponseStatus' - -- | The response status code.
-describeStackSetOperationResponse ::
-  -- | 'dssorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'stackSetOperation' - The specified stack set operation.
+mkDescribeStackSetOperationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStackSetOperationResponse
-describeStackSetOperationResponse pResponseStatus_ =
+mkDescribeStackSetOperationResponse pResponseStatus_ =
   DescribeStackSetOperationResponse'
-    { _dssorsStackSetOperation =
-        Nothing,
-      _dssorsResponseStatus = pResponseStatus_
+    { stackSetOperation =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The specified stack set operation.
-dssorsStackSetOperation :: Lens' DescribeStackSetOperationResponse (Maybe StackSetOperation)
-dssorsStackSetOperation = lens _dssorsStackSetOperation (\s a -> s {_dssorsStackSetOperation = a})
+--
+-- /Note:/ Consider using 'stackSetOperation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssorsStackSetOperation :: Lens.Lens' DescribeStackSetOperationResponse (Lude.Maybe StackSetOperation)
+dssorsStackSetOperation = Lens.lens (stackSetOperation :: DescribeStackSetOperationResponse -> Lude.Maybe StackSetOperation) (\s a -> s {stackSetOperation = a} :: DescribeStackSetOperationResponse)
+{-# DEPRECATED dssorsStackSetOperation "Use generic-lens or generic-optics with 'stackSetOperation' instead." #-}
 
--- | -- | The response status code.
-dssorsResponseStatus :: Lens' DescribeStackSetOperationResponse Int
-dssorsResponseStatus = lens _dssorsResponseStatus (\s a -> s {_dssorsResponseStatus = a})
-
-instance NFData DescribeStackSetOperationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssorsResponseStatus :: Lens.Lens' DescribeStackSetOperationResponse Lude.Int
+dssorsResponseStatus = Lens.lens (responseStatus :: DescribeStackSetOperationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackSetOperationResponse)
+{-# DEPRECATED dssorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

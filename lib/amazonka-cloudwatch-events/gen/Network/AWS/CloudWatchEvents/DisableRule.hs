@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,111 @@
 --
 -- Disables the specified rule. A disabled rule won't match any events, and won't self-trigger if it has a schedule expression.
 --
---
 -- When you disable a rule, incoming events might continue to match to the disabled rule. Allow a short period of time for changes to take effect.
 module Network.AWS.CloudWatchEvents.DisableRule
-  ( -- * Creating a Request
-    disableRule,
-    DisableRule,
+  ( -- * Creating a request
+    DisableRule (..),
+    mkDisableRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dEventBusName,
     dName,
 
-    -- * Destructuring the Response
-    disableRuleResponse,
-    DisableRuleResponse,
+    -- * Destructuring the response
+    DisableRuleResponse (..),
+    mkDisableRuleResponse,
   )
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disableRule' smart constructor.
+-- | /See:/ 'mkDisableRule' smart constructor.
 data DisableRule = DisableRule'
-  { _dEventBusName :: !(Maybe Text),
-    _dName :: !Text
+  { eventBusName ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dEventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
---
--- * 'dName' - The name of the rule.
-disableRule ::
-  -- | 'dName'
-  Text ->
+-- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+-- * 'name' - The name of the rule.
+mkDisableRule ::
+  -- | 'name'
+  Lude.Text ->
   DisableRule
-disableRule pName_ =
-  DisableRule' {_dEventBusName = Nothing, _dName = pName_}
+mkDisableRule pName_ =
+  DisableRule' {eventBusName = Lude.Nothing, name = pName_}
 
 -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-dEventBusName :: Lens' DisableRule (Maybe Text)
-dEventBusName = lens _dEventBusName (\s a -> s {_dEventBusName = a})
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dEventBusName :: Lens.Lens' DisableRule (Lude.Maybe Lude.Text)
+dEventBusName = Lens.lens (eventBusName :: DisableRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: DisableRule)
+{-# DEPRECATED dEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The name of the rule.
-dName :: Lens' DisableRule Text
-dName = lens _dName (\s a -> s {_dName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dName :: Lens.Lens' DisableRule Lude.Text
+dName = Lens.lens (name :: DisableRule -> Lude.Text) (\s a -> s {name = a} :: DisableRule)
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DisableRule where
+instance Lude.AWSRequest DisableRule where
   type Rs DisableRule = DisableRuleResponse
-  request = postJSON cloudWatchEvents
-  response = receiveNull DisableRuleResponse'
+  request = Req.postJSON cloudWatchEventsService
+  response = Res.receiveNull DisableRuleResponse'
 
-instance Hashable DisableRule
-
-instance NFData DisableRule
-
-instance ToHeaders DisableRule where
+instance Lude.ToHeaders DisableRule where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.DisableRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.DisableRule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisableRule where
+instance Lude.ToJSON DisableRule where
   toJSON DisableRule' {..} =
-    object
-      ( catMaybes
-          [("EventBusName" .=) <$> _dEventBusName, Just ("Name" .= _dName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("EventBusName" Lude..=) Lude.<$> eventBusName,
+            Lude.Just ("Name" Lude..= name)
+          ]
       )
 
-instance ToPath DisableRule where
-  toPath = const "/"
+instance Lude.ToPath DisableRule where
+  toPath = Lude.const "/"
 
-instance ToQuery DisableRule where
-  toQuery = const mempty
+instance Lude.ToQuery DisableRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disableRuleResponse' smart constructor.
+-- | /See:/ 'mkDisableRuleResponse' smart constructor.
 data DisableRuleResponse = DisableRuleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableRuleResponse' with the minimum fields required to make a request.
-disableRuleResponse ::
+mkDisableRuleResponse ::
   DisableRuleResponse
-disableRuleResponse = DisableRuleResponse'
-
-instance NFData DisableRuleResponse
+mkDisableRuleResponse = DisableRuleResponse'

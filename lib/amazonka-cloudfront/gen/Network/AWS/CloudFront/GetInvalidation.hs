@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,140 @@
 --
 -- Get the information about an invalidation.
 module Network.AWS.CloudFront.GetInvalidation
-  ( -- * Creating a Request
-    getInvalidation,
-    GetInvalidation,
+  ( -- * Creating a request
+    GetInvalidation (..),
+    mkGetInvalidation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     giDistributionId,
     giId,
 
-    -- * Destructuring the Response
-    getInvalidationResponse,
-    GetInvalidationResponse,
+    -- * Destructuring the response
+    GetInvalidationResponse (..),
+    mkGetInvalidationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     girsInvalidation,
     girsResponseStatus,
   )
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to get an invalidation's information.
 --
---
---
--- /See:/ 'getInvalidation' smart constructor.
+-- /See:/ 'mkGetInvalidation' smart constructor.
 data GetInvalidation = GetInvalidation'
-  { _giDistributionId :: !Text,
-    _giId :: !Text
+  { distributionId ::
+      Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInvalidation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giDistributionId' - The distribution's ID.
---
--- * 'giId' - The identifier for the invalidation request, for example, @IDFDVBD632BHDS5@ .
-getInvalidation ::
-  -- | 'giDistributionId'
-  Text ->
-  -- | 'giId'
-  Text ->
+-- * 'distributionId' - The distribution's ID.
+-- * 'id' - The identifier for the invalidation request, for example, @IDFDVBD632BHDS5@ .
+mkGetInvalidation ::
+  -- | 'distributionId'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   GetInvalidation
-getInvalidation pDistributionId_ pId_ =
-  GetInvalidation'
-    { _giDistributionId = pDistributionId_,
-      _giId = pId_
-    }
+mkGetInvalidation pDistributionId_ pId_ =
+  GetInvalidation' {distributionId = pDistributionId_, id = pId_}
 
 -- | The distribution's ID.
-giDistributionId :: Lens' GetInvalidation Text
-giDistributionId = lens _giDistributionId (\s a -> s {_giDistributionId = a})
+--
+-- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giDistributionId :: Lens.Lens' GetInvalidation Lude.Text
+giDistributionId = Lens.lens (distributionId :: GetInvalidation -> Lude.Text) (\s a -> s {distributionId = a} :: GetInvalidation)
+{-# DEPRECATED giDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
 -- | The identifier for the invalidation request, for example, @IDFDVBD632BHDS5@ .
-giId :: Lens' GetInvalidation Text
-giId = lens _giId (\s a -> s {_giId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giId :: Lens.Lens' GetInvalidation Lude.Text
+giId = Lens.lens (id :: GetInvalidation -> Lude.Text) (\s a -> s {id = a} :: GetInvalidation)
+{-# DEPRECATED giId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetInvalidation where
+instance Lude.AWSRequest GetInvalidation where
   type Rs GetInvalidation = GetInvalidationResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
-          GetInvalidationResponse' <$> (parseXML x) <*> (pure (fromEnum s))
+          GetInvalidationResponse'
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetInvalidation
+instance Lude.ToHeaders GetInvalidation where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetInvalidation
-
-instance ToHeaders GetInvalidation where
-  toHeaders = const mempty
-
-instance ToPath GetInvalidation where
+instance Lude.ToPath GetInvalidation where
   toPath GetInvalidation' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2020-05-31/distribution/",
-        toBS _giDistributionId,
+        Lude.toBS distributionId,
         "/invalidation/",
-        toBS _giId
+        Lude.toBS id
       ]
 
-instance ToQuery GetInvalidation where
-  toQuery = const mempty
+instance Lude.ToQuery GetInvalidation where
+  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'getInvalidationResponse' smart constructor.
+-- /See:/ 'mkGetInvalidationResponse' smart constructor.
 data GetInvalidationResponse = GetInvalidationResponse'
-  { _girsInvalidation ::
-      !(Maybe Invalidation),
-    _girsResponseStatus :: !Int
+  { invalidation ::
+      Lude.Maybe Invalidation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInvalidationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'girsInvalidation' - The invalidation's information. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html Invalidation Complex Type> .
---
--- * 'girsResponseStatus' - -- | The response status code.
-getInvalidationResponse ::
-  -- | 'girsResponseStatus'
-  Int ->
+-- * 'invalidation' - The invalidation's information. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html Invalidation Complex Type> .
+-- * 'responseStatus' - The response status code.
+mkGetInvalidationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetInvalidationResponse
-getInvalidationResponse pResponseStatus_ =
+mkGetInvalidationResponse pResponseStatus_ =
   GetInvalidationResponse'
-    { _girsInvalidation = Nothing,
-      _girsResponseStatus = pResponseStatus_
+    { invalidation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The invalidation's information. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html Invalidation Complex Type> .
-girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
-girsInvalidation = lens _girsInvalidation (\s a -> s {_girsInvalidation = a})
+--
+-- /Note:/ Consider using 'invalidation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsInvalidation :: Lens.Lens' GetInvalidationResponse (Lude.Maybe Invalidation)
+girsInvalidation = Lens.lens (invalidation :: GetInvalidationResponse -> Lude.Maybe Invalidation) (\s a -> s {invalidation = a} :: GetInvalidationResponse)
+{-# DEPRECATED girsInvalidation "Use generic-lens or generic-optics with 'invalidation' instead." #-}
 
--- | -- | The response status code.
-girsResponseStatus :: Lens' GetInvalidationResponse Int
-girsResponseStatus = lens _girsResponseStatus (\s a -> s {_girsResponseStatus = a})
-
-instance NFData GetInvalidationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+girsResponseStatus :: Lens.Lens' GetInvalidationResponse Lude.Int
+girsResponseStatus = Lens.lens (responseStatus :: GetInvalidationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInvalidationResponse)
+{-# DEPRECATED girsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

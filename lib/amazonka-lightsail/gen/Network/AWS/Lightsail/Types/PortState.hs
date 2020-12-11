@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.PortState where
+module Network.AWS.Lightsail.Types.PortState
+  ( PortState
+      ( PortState',
+        Closed,
+        Open
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PortState
-  = Closed
-  | Open
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PortState = PortState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PortState where
-  parser =
-    takeLowerText >>= \case
-      "closed" -> pure Closed
-      "open" -> pure Open
-      e ->
-        fromTextError $
-          "Failure parsing PortState from value: '" <> e
-            <> "'. Accepted values: closed, open"
+pattern Closed :: PortState
+pattern Closed = PortState' "closed"
 
-instance ToText PortState where
-  toText = \case
-    Closed -> "closed"
-    Open -> "open"
+pattern Open :: PortState
+pattern Open = PortState' "open"
 
-instance Hashable PortState
-
-instance NFData PortState
-
-instance ToByteString PortState
-
-instance ToQuery PortState
-
-instance ToHeader PortState
-
-instance FromJSON PortState where
-  parseJSON = parseJSONText "PortState"
+{-# COMPLETE
+  Closed,
+  Open,
+  PortState'
+  #-}

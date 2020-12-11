@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.
 module Network.AWS.DynamoDB.ListContributorInsights
-  ( -- * Creating a Request
-    listContributorInsights,
-    ListContributorInsights,
+  ( -- * Creating a request
+    ListContributorInsights (..),
+    mkListContributorInsights,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lciNextToken,
     lciMaxResults,
     lciTableName,
 
-    -- * Destructuring the Response
-    listContributorInsightsResponse,
-    ListContributorInsightsResponse,
+    -- * Destructuring the response
+    ListContributorInsightsResponse (..),
+    mkListContributorInsightsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lcirsContributorInsightsSummaries,
     lcirsNextToken,
     lcirsResponseStatus,
@@ -40,136 +35,153 @@ module Network.AWS.DynamoDB.ListContributorInsights
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listContributorInsights' smart constructor.
+-- | /See:/ 'mkListContributorInsights' smart constructor.
 data ListContributorInsights = ListContributorInsights'
-  { _lciNextToken ::
-      !(Maybe Text),
-    _lciMaxResults :: !(Maybe Int),
-    _lciTableName :: !(Maybe Text)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    tableName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListContributorInsights' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lciNextToken' - A token to for the desired page, if there is one.
---
--- * 'lciMaxResults' - Maximum number of results to return per page.
---
--- * 'lciTableName' - The name of the table.
-listContributorInsights ::
+-- * 'maxResults' - Maximum number of results to return per page.
+-- * 'nextToken' - A token to for the desired page, if there is one.
+-- * 'tableName' - The name of the table.
+mkListContributorInsights ::
   ListContributorInsights
-listContributorInsights =
+mkListContributorInsights =
   ListContributorInsights'
-    { _lciNextToken = Nothing,
-      _lciMaxResults = Nothing,
-      _lciTableName = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      tableName = Lude.Nothing
     }
 
 -- | A token to for the desired page, if there is one.
-lciNextToken :: Lens' ListContributorInsights (Maybe Text)
-lciNextToken = lens _lciNextToken (\s a -> s {_lciNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciNextToken :: Lens.Lens' ListContributorInsights (Lude.Maybe Lude.Text)
+lciNextToken = Lens.lens (nextToken :: ListContributorInsights -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListContributorInsights)
+{-# DEPRECATED lciNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to return per page.
-lciMaxResults :: Lens' ListContributorInsights (Maybe Int)
-lciMaxResults = lens _lciMaxResults (\s a -> s {_lciMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciMaxResults :: Lens.Lens' ListContributorInsights (Lude.Maybe Lude.Int)
+lciMaxResults = Lens.lens (maxResults :: ListContributorInsights -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListContributorInsights)
+{-# DEPRECATED lciMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the table.
-lciTableName :: Lens' ListContributorInsights (Maybe Text)
-lciTableName = lens _lciTableName (\s a -> s {_lciTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lciTableName :: Lens.Lens' ListContributorInsights (Lude.Maybe Lude.Text)
+lciTableName = Lens.lens (tableName :: ListContributorInsights -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: ListContributorInsights)
+{-# DEPRECATED lciTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance AWSRequest ListContributorInsights where
+instance Lude.AWSRequest ListContributorInsights where
   type Rs ListContributorInsights = ListContributorInsightsResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListContributorInsightsResponse'
-            <$> (x .?> "ContributorInsightsSummaries" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ContributorInsightsSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListContributorInsights
-
-instance NFData ListContributorInsights
-
-instance ToHeaders ListContributorInsights where
+instance Lude.ToHeaders ListContributorInsights where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.ListContributorInsights" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.ListContributorInsights" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListContributorInsights where
+instance Lude.ToJSON ListContributorInsights where
   toJSON ListContributorInsights' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lciNextToken,
-            ("MaxResults" .=) <$> _lciMaxResults,
-            ("TableName" .=) <$> _lciTableName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("TableName" Lude..=) Lude.<$> tableName
           ]
       )
 
-instance ToPath ListContributorInsights where
-  toPath = const "/"
+instance Lude.ToPath ListContributorInsights where
+  toPath = Lude.const "/"
 
-instance ToQuery ListContributorInsights where
-  toQuery = const mempty
+instance Lude.ToQuery ListContributorInsights where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listContributorInsightsResponse' smart constructor.
+-- | /See:/ 'mkListContributorInsightsResponse' smart constructor.
 data ListContributorInsightsResponse = ListContributorInsightsResponse'
-  { _lcirsContributorInsightsSummaries ::
-      !( Maybe
-           [ContributorInsightsSummary]
-       ),
-    _lcirsNextToken ::
-      !(Maybe Text),
-    _lcirsResponseStatus ::
-      !Int
+  { contributorInsightsSummaries ::
+      Lude.Maybe
+        [ContributorInsightsSummary],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListContributorInsightsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcirsContributorInsightsSummaries' - A list of ContributorInsightsSummary.
---
--- * 'lcirsNextToken' - A token to go to the next page if there is one.
---
--- * 'lcirsResponseStatus' - -- | The response status code.
-listContributorInsightsResponse ::
-  -- | 'lcirsResponseStatus'
-  Int ->
+-- * 'contributorInsightsSummaries' - A list of ContributorInsightsSummary.
+-- * 'nextToken' - A token to go to the next page if there is one.
+-- * 'responseStatus' - The response status code.
+mkListContributorInsightsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListContributorInsightsResponse
-listContributorInsightsResponse pResponseStatus_ =
+mkListContributorInsightsResponse pResponseStatus_ =
   ListContributorInsightsResponse'
-    { _lcirsContributorInsightsSummaries =
-        Nothing,
-      _lcirsNextToken = Nothing,
-      _lcirsResponseStatus = pResponseStatus_
+    { contributorInsightsSummaries =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of ContributorInsightsSummary.
-lcirsContributorInsightsSummaries :: Lens' ListContributorInsightsResponse [ContributorInsightsSummary]
-lcirsContributorInsightsSummaries = lens _lcirsContributorInsightsSummaries (\s a -> s {_lcirsContributorInsightsSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'contributorInsightsSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcirsContributorInsightsSummaries :: Lens.Lens' ListContributorInsightsResponse (Lude.Maybe [ContributorInsightsSummary])
+lcirsContributorInsightsSummaries = Lens.lens (contributorInsightsSummaries :: ListContributorInsightsResponse -> Lude.Maybe [ContributorInsightsSummary]) (\s a -> s {contributorInsightsSummaries = a} :: ListContributorInsightsResponse)
+{-# DEPRECATED lcirsContributorInsightsSummaries "Use generic-lens or generic-optics with 'contributorInsightsSummaries' instead." #-}
 
 -- | A token to go to the next page if there is one.
-lcirsNextToken :: Lens' ListContributorInsightsResponse (Maybe Text)
-lcirsNextToken = lens _lcirsNextToken (\s a -> s {_lcirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcirsNextToken :: Lens.Lens' ListContributorInsightsResponse (Lude.Maybe Lude.Text)
+lcirsNextToken = Lens.lens (nextToken :: ListContributorInsightsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListContributorInsightsResponse)
+{-# DEPRECATED lcirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lcirsResponseStatus :: Lens' ListContributorInsightsResponse Int
-lcirsResponseStatus = lens _lcirsResponseStatus (\s a -> s {_lcirsResponseStatus = a})
-
-instance NFData ListContributorInsightsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcirsResponseStatus :: Lens.Lens' ListContributorInsightsResponse Lude.Int
+lcirsResponseStatus = Lens.lens (responseStatus :: ListContributorInsightsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListContributorInsightsResponse)
+{-# DEPRECATED lcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,138 @@
 --
 -- Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.
 --
---
 -- For information about how to construct an object lifecycle policy, see <https://docs.aws.amazon.com/mediastore/latest/ug/policies-object-lifecycle-components.html Components of an Object Lifecycle Policy> .
 module Network.AWS.MediaStore.PutLifecyclePolicy
-  ( -- * Creating a Request
-    putLifecyclePolicy,
-    PutLifecyclePolicy,
+  ( -- * Creating a request
+    PutLifecyclePolicy (..),
+    mkPutLifecyclePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     plpContainerName,
     plpLifecyclePolicy,
 
-    -- * Destructuring the Response
-    putLifecyclePolicyResponse,
-    PutLifecyclePolicyResponse,
+    -- * Destructuring the response
+    PutLifecyclePolicyResponse (..),
+    mkPutLifecyclePolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     plprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putLifecyclePolicy' smart constructor.
+-- | /See:/ 'mkPutLifecyclePolicy' smart constructor.
 data PutLifecyclePolicy = PutLifecyclePolicy'
-  { _plpContainerName ::
-      !Text,
-    _plpLifecyclePolicy :: !Text
+  { containerName ::
+      Lude.Text,
+    lifecyclePolicy :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecyclePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plpContainerName' - The name of the container that you want to assign the object lifecycle policy to.
---
--- * 'plpLifecyclePolicy' - The object lifecycle policy to apply to the container.
-putLifecyclePolicy ::
-  -- | 'plpContainerName'
-  Text ->
-  -- | 'plpLifecyclePolicy'
-  Text ->
+-- * 'containerName' - The name of the container that you want to assign the object lifecycle policy to.
+-- * 'lifecyclePolicy' - The object lifecycle policy to apply to the container.
+mkPutLifecyclePolicy ::
+  -- | 'containerName'
+  Lude.Text ->
+  -- | 'lifecyclePolicy'
+  Lude.Text ->
   PutLifecyclePolicy
-putLifecyclePolicy pContainerName_ pLifecyclePolicy_ =
+mkPutLifecyclePolicy pContainerName_ pLifecyclePolicy_ =
   PutLifecyclePolicy'
-    { _plpContainerName = pContainerName_,
-      _plpLifecyclePolicy = pLifecyclePolicy_
+    { containerName = pContainerName_,
+      lifecyclePolicy = pLifecyclePolicy_
     }
 
 -- | The name of the container that you want to assign the object lifecycle policy to.
-plpContainerName :: Lens' PutLifecyclePolicy Text
-plpContainerName = lens _plpContainerName (\s a -> s {_plpContainerName = a})
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plpContainerName :: Lens.Lens' PutLifecyclePolicy Lude.Text
+plpContainerName = Lens.lens (containerName :: PutLifecyclePolicy -> Lude.Text) (\s a -> s {containerName = a} :: PutLifecyclePolicy)
+{-# DEPRECATED plpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 -- | The object lifecycle policy to apply to the container.
-plpLifecyclePolicy :: Lens' PutLifecyclePolicy Text
-plpLifecyclePolicy = lens _plpLifecyclePolicy (\s a -> s {_plpLifecyclePolicy = a})
+--
+-- /Note:/ Consider using 'lifecyclePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plpLifecyclePolicy :: Lens.Lens' PutLifecyclePolicy Lude.Text
+plpLifecyclePolicy = Lens.lens (lifecyclePolicy :: PutLifecyclePolicy -> Lude.Text) (\s a -> s {lifecyclePolicy = a} :: PutLifecyclePolicy)
+{-# DEPRECATED plpLifecyclePolicy "Use generic-lens or generic-optics with 'lifecyclePolicy' instead." #-}
 
-instance AWSRequest PutLifecyclePolicy where
+instance Lude.AWSRequest PutLifecyclePolicy where
   type Rs PutLifecyclePolicy = PutLifecyclePolicyResponse
-  request = postJSON mediaStore
+  request = Req.postJSON mediaStoreService
   response =
-    receiveEmpty
-      (\s h x -> PutLifecyclePolicyResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          PutLifecyclePolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutLifecyclePolicy
-
-instance NFData PutLifecyclePolicy
-
-instance ToHeaders PutLifecyclePolicy where
+instance Lude.ToHeaders PutLifecyclePolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MediaStore_20170901.PutLifecyclePolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("MediaStore_20170901.PutLifecyclePolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutLifecyclePolicy where
+instance Lude.ToJSON PutLifecyclePolicy where
   toJSON PutLifecyclePolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("ContainerName" .= _plpContainerName),
-            Just ("LifecyclePolicy" .= _plpLifecyclePolicy)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ContainerName" Lude..= containerName),
+            Lude.Just ("LifecyclePolicy" Lude..= lifecyclePolicy)
           ]
       )
 
-instance ToPath PutLifecyclePolicy where
-  toPath = const "/"
+instance Lude.ToPath PutLifecyclePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery PutLifecyclePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutLifecyclePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putLifecyclePolicyResponse' smart constructor.
+-- | /See:/ 'mkPutLifecyclePolicyResponse' smart constructor.
 newtype PutLifecyclePolicyResponse = PutLifecyclePolicyResponse'
-  { _plprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecyclePolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'plprsResponseStatus' - -- | The response status code.
-putLifecyclePolicyResponse ::
-  -- | 'plprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutLifecyclePolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutLifecyclePolicyResponse
-putLifecyclePolicyResponse pResponseStatus_ =
-  PutLifecyclePolicyResponse'
-    { _plprsResponseStatus =
-        pResponseStatus_
-    }
+mkPutLifecyclePolicyResponse pResponseStatus_ =
+  PutLifecyclePolicyResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-plprsResponseStatus :: Lens' PutLifecyclePolicyResponse Int
-plprsResponseStatus = lens _plprsResponseStatus (\s a -> s {_plprsResponseStatus = a})
-
-instance NFData PutLifecyclePolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plprsResponseStatus :: Lens.Lens' PutLifecyclePolicyResponse Lude.Int
+plprsResponseStatus = Lens.lens (responseStatus :: PutLifecyclePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutLifecyclePolicyResponse)
+{-# DEPRECATED plprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,146 @@
 --
 -- Resets a bookmark entry.
 module Network.AWS.Glue.ResetJobBookmark
-  ( -- * Creating a Request
-    resetJobBookmark,
-    ResetJobBookmark,
+  ( -- * Creating a request
+    ResetJobBookmark (..),
+    mkResetJobBookmark,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rjbRunId,
     rjbJobName,
 
-    -- * Destructuring the Response
-    resetJobBookmarkResponse,
-    ResetJobBookmarkResponse,
+    -- * Destructuring the response
+    ResetJobBookmarkResponse (..),
+    mkResetJobBookmarkResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rjbrsJobBookmarkEntry,
     rjbrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'resetJobBookmark' smart constructor.
+-- | /See:/ 'mkResetJobBookmark' smart constructor.
 data ResetJobBookmark = ResetJobBookmark'
-  { _rjbRunId ::
-      !(Maybe Text),
-    _rjbJobName :: !Text
+  { runId ::
+      Lude.Maybe Lude.Text,
+    jobName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetJobBookmark' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rjbRunId' - The unique run identifier associated with this job run.
---
--- * 'rjbJobName' - The name of the job in question.
-resetJobBookmark ::
-  -- | 'rjbJobName'
-  Text ->
+-- * 'jobName' - The name of the job in question.
+-- * 'runId' - The unique run identifier associated with this job run.
+mkResetJobBookmark ::
+  -- | 'jobName'
+  Lude.Text ->
   ResetJobBookmark
-resetJobBookmark pJobName_ =
-  ResetJobBookmark' {_rjbRunId = Nothing, _rjbJobName = pJobName_}
+mkResetJobBookmark pJobName_ =
+  ResetJobBookmark' {runId = Lude.Nothing, jobName = pJobName_}
 
 -- | The unique run identifier associated with this job run.
-rjbRunId :: Lens' ResetJobBookmark (Maybe Text)
-rjbRunId = lens _rjbRunId (\s a -> s {_rjbRunId = a})
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjbRunId :: Lens.Lens' ResetJobBookmark (Lude.Maybe Lude.Text)
+rjbRunId = Lens.lens (runId :: ResetJobBookmark -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: ResetJobBookmark)
+{-# DEPRECATED rjbRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
 -- | The name of the job in question.
-rjbJobName :: Lens' ResetJobBookmark Text
-rjbJobName = lens _rjbJobName (\s a -> s {_rjbJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjbJobName :: Lens.Lens' ResetJobBookmark Lude.Text
+rjbJobName = Lens.lens (jobName :: ResetJobBookmark -> Lude.Text) (\s a -> s {jobName = a} :: ResetJobBookmark)
+{-# DEPRECATED rjbJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
-instance AWSRequest ResetJobBookmark where
+instance Lude.AWSRequest ResetJobBookmark where
   type Rs ResetJobBookmark = ResetJobBookmarkResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ResetJobBookmarkResponse'
-            <$> (x .?> "JobBookmarkEntry") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobBookmarkEntry")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResetJobBookmark
-
-instance NFData ResetJobBookmark
-
-instance ToHeaders ResetJobBookmark where
+instance Lude.ToHeaders ResetJobBookmark where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.ResetJobBookmark" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.ResetJobBookmark" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ResetJobBookmark where
+instance Lude.ToJSON ResetJobBookmark where
   toJSON ResetJobBookmark' {..} =
-    object
-      ( catMaybes
-          [("RunId" .=) <$> _rjbRunId, Just ("JobName" .= _rjbJobName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RunId" Lude..=) Lude.<$> runId,
+            Lude.Just ("JobName" Lude..= jobName)
+          ]
       )
 
-instance ToPath ResetJobBookmark where
-  toPath = const "/"
+instance Lude.ToPath ResetJobBookmark where
+  toPath = Lude.const "/"
 
-instance ToQuery ResetJobBookmark where
-  toQuery = const mempty
+instance Lude.ToQuery ResetJobBookmark where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'resetJobBookmarkResponse' smart constructor.
+-- | /See:/ 'mkResetJobBookmarkResponse' smart constructor.
 data ResetJobBookmarkResponse = ResetJobBookmarkResponse'
-  { _rjbrsJobBookmarkEntry ::
-      !(Maybe JobBookmarkEntry),
-    _rjbrsResponseStatus :: !Int
+  { jobBookmarkEntry ::
+      Lude.Maybe JobBookmarkEntry,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetJobBookmarkResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rjbrsJobBookmarkEntry' - The reset bookmark entry.
---
--- * 'rjbrsResponseStatus' - -- | The response status code.
-resetJobBookmarkResponse ::
-  -- | 'rjbrsResponseStatus'
-  Int ->
+-- * 'jobBookmarkEntry' - The reset bookmark entry.
+-- * 'responseStatus' - The response status code.
+mkResetJobBookmarkResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResetJobBookmarkResponse
-resetJobBookmarkResponse pResponseStatus_ =
+mkResetJobBookmarkResponse pResponseStatus_ =
   ResetJobBookmarkResponse'
-    { _rjbrsJobBookmarkEntry = Nothing,
-      _rjbrsResponseStatus = pResponseStatus_
+    { jobBookmarkEntry = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The reset bookmark entry.
-rjbrsJobBookmarkEntry :: Lens' ResetJobBookmarkResponse (Maybe JobBookmarkEntry)
-rjbrsJobBookmarkEntry = lens _rjbrsJobBookmarkEntry (\s a -> s {_rjbrsJobBookmarkEntry = a})
+--
+-- /Note:/ Consider using 'jobBookmarkEntry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjbrsJobBookmarkEntry :: Lens.Lens' ResetJobBookmarkResponse (Lude.Maybe JobBookmarkEntry)
+rjbrsJobBookmarkEntry = Lens.lens (jobBookmarkEntry :: ResetJobBookmarkResponse -> Lude.Maybe JobBookmarkEntry) (\s a -> s {jobBookmarkEntry = a} :: ResetJobBookmarkResponse)
+{-# DEPRECATED rjbrsJobBookmarkEntry "Use generic-lens or generic-optics with 'jobBookmarkEntry' instead." #-}
 
--- | -- | The response status code.
-rjbrsResponseStatus :: Lens' ResetJobBookmarkResponse Int
-rjbrsResponseStatus = lens _rjbrsResponseStatus (\s a -> s {_rjbrsResponseStatus = a})
-
-instance NFData ResetJobBookmarkResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjbrsResponseStatus :: Lens.Lens' ResetJobBookmarkResponse Lude.Int
+rjbrsResponseStatus = Lens.lens (responseStatus :: ResetJobBookmarkResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetJobBookmarkResponse)
+{-# DEPRECATED rjbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,149 @@
 --
 -- Modifies the number of steps that can be executed concurrently for the cluster specified using ClusterID.
 module Network.AWS.EMR.ModifyCluster
-  ( -- * Creating a Request
-    modifyCluster,
-    ModifyCluster,
+  ( -- * Creating a request
+    ModifyCluster (..),
+    mkModifyCluster,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mcStepConcurrencyLevel,
     mcClusterId,
 
-    -- * Destructuring the Response
-    modifyClusterResponse,
-    ModifyClusterResponse,
+    -- * Destructuring the response
+    ModifyClusterResponse (..),
+    mkModifyClusterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mcrsStepConcurrencyLevel,
     mcrsResponseStatus,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyCluster' smart constructor.
+-- | /See:/ 'mkModifyCluster' smart constructor.
 data ModifyCluster = ModifyCluster'
-  { _mcStepConcurrencyLevel ::
-      !(Maybe Int),
-    _mcClusterId :: !Text
+  { stepConcurrencyLevel ::
+      Lude.Maybe Lude.Int,
+    clusterId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCluster' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcStepConcurrencyLevel' - The number of steps that can be executed concurrently. You can specify a maximum of 256 steps.
---
--- * 'mcClusterId' - The unique identifier of the cluster.
-modifyCluster ::
-  -- | 'mcClusterId'
-  Text ->
+-- * 'clusterId' - The unique identifier of the cluster.
+-- * 'stepConcurrencyLevel' - The number of steps that can be executed concurrently. You can specify a maximum of 256 steps.
+mkModifyCluster ::
+  -- | 'clusterId'
+  Lude.Text ->
   ModifyCluster
-modifyCluster pClusterId_ =
+mkModifyCluster pClusterId_ =
   ModifyCluster'
-    { _mcStepConcurrencyLevel = Nothing,
-      _mcClusterId = pClusterId_
+    { stepConcurrencyLevel = Lude.Nothing,
+      clusterId = pClusterId_
     }
 
 -- | The number of steps that can be executed concurrently. You can specify a maximum of 256 steps.
-mcStepConcurrencyLevel :: Lens' ModifyCluster (Maybe Int)
-mcStepConcurrencyLevel = lens _mcStepConcurrencyLevel (\s a -> s {_mcStepConcurrencyLevel = a})
+--
+-- /Note:/ Consider using 'stepConcurrencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcStepConcurrencyLevel :: Lens.Lens' ModifyCluster (Lude.Maybe Lude.Int)
+mcStepConcurrencyLevel = Lens.lens (stepConcurrencyLevel :: ModifyCluster -> Lude.Maybe Lude.Int) (\s a -> s {stepConcurrencyLevel = a} :: ModifyCluster)
+{-# DEPRECATED mcStepConcurrencyLevel "Use generic-lens or generic-optics with 'stepConcurrencyLevel' instead." #-}
 
 -- | The unique identifier of the cluster.
-mcClusterId :: Lens' ModifyCluster Text
-mcClusterId = lens _mcClusterId (\s a -> s {_mcClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcClusterId :: Lens.Lens' ModifyCluster Lude.Text
+mcClusterId = Lens.lens (clusterId :: ModifyCluster -> Lude.Text) (\s a -> s {clusterId = a} :: ModifyCluster)
+{-# DEPRECATED mcClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance AWSRequest ModifyCluster where
+instance Lude.AWSRequest ModifyCluster where
   type Rs ModifyCluster = ModifyClusterResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ModifyClusterResponse'
-            <$> (x .?> "StepConcurrencyLevel") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "StepConcurrencyLevel")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyCluster
-
-instance NFData ModifyCluster
-
-instance ToHeaders ModifyCluster where
+instance Lude.ToHeaders ModifyCluster where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.ModifyCluster" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.ModifyCluster" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyCluster where
+instance Lude.ToJSON ModifyCluster where
   toJSON ModifyCluster' {..} =
-    object
-      ( catMaybes
-          [ ("StepConcurrencyLevel" .=) <$> _mcStepConcurrencyLevel,
-            Just ("ClusterId" .= _mcClusterId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StepConcurrencyLevel" Lude..=) Lude.<$> stepConcurrencyLevel,
+            Lude.Just ("ClusterId" Lude..= clusterId)
           ]
       )
 
-instance ToPath ModifyCluster where
-  toPath = const "/"
+instance Lude.ToPath ModifyCluster where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyCluster where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyCluster where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'modifyClusterResponse' smart constructor.
+-- | /See:/ 'mkModifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
-  { _mcrsStepConcurrencyLevel ::
-      !(Maybe Int),
-    _mcrsResponseStatus :: !Int
+  { stepConcurrencyLevel ::
+      Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcrsStepConcurrencyLevel' - The number of steps that can be executed concurrently.
---
--- * 'mcrsResponseStatus' - -- | The response status code.
-modifyClusterResponse ::
-  -- | 'mcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'stepConcurrencyLevel' - The number of steps that can be executed concurrently.
+mkModifyClusterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyClusterResponse
-modifyClusterResponse pResponseStatus_ =
+mkModifyClusterResponse pResponseStatus_ =
   ModifyClusterResponse'
-    { _mcrsStepConcurrencyLevel = Nothing,
-      _mcrsResponseStatus = pResponseStatus_
+    { stepConcurrencyLevel = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The number of steps that can be executed concurrently.
-mcrsStepConcurrencyLevel :: Lens' ModifyClusterResponse (Maybe Int)
-mcrsStepConcurrencyLevel = lens _mcrsStepConcurrencyLevel (\s a -> s {_mcrsStepConcurrencyLevel = a})
+--
+-- /Note:/ Consider using 'stepConcurrencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcrsStepConcurrencyLevel :: Lens.Lens' ModifyClusterResponse (Lude.Maybe Lude.Int)
+mcrsStepConcurrencyLevel = Lens.lens (stepConcurrencyLevel :: ModifyClusterResponse -> Lude.Maybe Lude.Int) (\s a -> s {stepConcurrencyLevel = a} :: ModifyClusterResponse)
+{-# DEPRECATED mcrsStepConcurrencyLevel "Use generic-lens or generic-optics with 'stepConcurrencyLevel' instead." #-}
 
--- | -- | The response status code.
-mcrsResponseStatus :: Lens' ModifyClusterResponse Int
-mcrsResponseStatus = lens _mcrsResponseStatus (\s a -> s {_mcrsResponseStatus = a})
-
-instance NFData ModifyClusterResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcrsResponseStatus :: Lens.Lens' ModifyClusterResponse Lude.Int
+mcrsResponseStatus = Lens.lens (responseStatus :: ModifyClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyClusterResponse)
+{-# DEPRECATED mcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

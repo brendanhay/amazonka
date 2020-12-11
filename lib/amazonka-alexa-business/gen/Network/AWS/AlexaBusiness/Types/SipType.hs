@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.SipType where
+module Network.AWS.AlexaBusiness.Types.SipType
+  ( SipType
+      ( SipType',
+        Work
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SipType = Work
-  deriving (Eq, Ord, Show, Enum, Bounded, Data, Typeable, Generic)
+newtype SipType = SipType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
+    )
 
-instance FromText SipType where
-  parser =
-    takeLowerText >>= \case
-      "work" -> pure Work
-      e ->
-        fromTextError $
-          "Failure parsing SipType from value: '" <> e
-            <> "'. Accepted values: work"
+pattern Work :: SipType
+pattern Work = SipType' "WORK"
 
-instance ToText SipType where
-  toText = \case
-    Work -> "WORK"
-
-instance Hashable SipType
-
-instance NFData SipType
-
-instance ToByteString SipType
-
-instance ToQuery SipType
-
-instance ToHeader SipType
-
-instance ToJSON SipType where
-  toJSON = toJSONText
-
-instance FromJSON SipType where
-  parseJSON = parseJSONText "SipType"
+{-# COMPLETE
+  Work,
+  SipType'
+  #-}

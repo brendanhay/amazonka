@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H265Tier where
+module Network.AWS.MediaLive.Types.H265Tier
+  ( H265Tier
+      ( H265Tier',
+        HTHigh,
+        HTMain
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H265 Tier
-data H265Tier
-  = HTHigh
-  | HTMain
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H265Tier = H265Tier' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H265Tier where
-  parser =
-    takeLowerText >>= \case
-      "high" -> pure HTHigh
-      "main" -> pure HTMain
-      e ->
-        fromTextError $
-          "Failure parsing H265Tier from value: '" <> e
-            <> "'. Accepted values: high, main"
+pattern HTHigh :: H265Tier
+pattern HTHigh = H265Tier' "HIGH"
 
-instance ToText H265Tier where
-  toText = \case
-    HTHigh -> "HIGH"
-    HTMain -> "MAIN"
+pattern HTMain :: H265Tier
+pattern HTMain = H265Tier' "MAIN"
 
-instance Hashable H265Tier
-
-instance NFData H265Tier
-
-instance ToByteString H265Tier
-
-instance ToQuery H265Tier
-
-instance ToHeader H265Tier
-
-instance ToJSON H265Tier where
-  toJSON = toJSONText
-
-instance FromJSON H265Tier where
-  parseJSON = parseJSONText "H265Tier"
+{-# COMPLETE
+  HTHigh,
+  HTMain,
+  H265Tier'
+  #-}

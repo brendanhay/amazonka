@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DiskImageVolumeDescription where
+module Network.AWS.EC2.Types.DiskImageVolumeDescription
+  ( DiskImageVolumeDescription (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDiskImageVolumeDescription,
+
+    -- * Lenses
+    divdSize,
+    divdId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a disk image volume.
 --
---
---
--- /See:/ 'diskImageVolumeDescription' smart constructor.
+-- /See:/ 'mkDiskImageVolumeDescription' smart constructor.
 data DiskImageVolumeDescription = DiskImageVolumeDescription'
-  { _divdSize ::
-      !(Maybe Integer),
-    _divdId :: !(Maybe Text)
+  { size ::
+      Lude.Maybe Lude.Integer,
+    id :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiskImageVolumeDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'divdSize' - The size of the volume, in GiB.
---
--- * 'divdId' - The volume identifier.
-diskImageVolumeDescription ::
+-- * 'id' - The volume identifier.
+-- * 'size' - The size of the volume, in GiB.
+mkDiskImageVolumeDescription ::
   DiskImageVolumeDescription
-diskImageVolumeDescription =
+mkDiskImageVolumeDescription =
   DiskImageVolumeDescription'
-    { _divdSize = Nothing,
-      _divdId = Nothing
+    { size = Lude.Nothing,
+      id = Lude.Nothing
     }
 
 -- | The size of the volume, in GiB.
-divdSize :: Lens' DiskImageVolumeDescription (Maybe Integer)
-divdSize = lens _divdSize (\s a -> s {_divdSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divdSize :: Lens.Lens' DiskImageVolumeDescription (Lude.Maybe Lude.Integer)
+divdSize = Lens.lens (size :: DiskImageVolumeDescription -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: DiskImageVolumeDescription)
+{-# DEPRECATED divdSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The volume identifier.
-divdId :: Lens' DiskImageVolumeDescription (Maybe Text)
-divdId = lens _divdId (\s a -> s {_divdId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divdId :: Lens.Lens' DiskImageVolumeDescription (Lude.Maybe Lude.Text)
+divdId = Lens.lens (id :: DiskImageVolumeDescription -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DiskImageVolumeDescription)
+{-# DEPRECATED divdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance FromXML DiskImageVolumeDescription where
+instance Lude.FromXML DiskImageVolumeDescription where
   parseXML x =
-    DiskImageVolumeDescription' <$> (x .@? "size") <*> (x .@? "id")
-
-instance Hashable DiskImageVolumeDescription
-
-instance NFData DiskImageVolumeDescription
+    DiskImageVolumeDescription'
+      Lude.<$> (x Lude..@? "size") Lude.<*> (x Lude..@? "id")

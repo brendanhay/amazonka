@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,116 @@
 --
 -- Updates the settings of a data store.
 module Network.AWS.IoTAnalytics.UpdateDatastore
-  ( -- * Creating a Request
-    updateDatastore,
-    UpdateDatastore,
+  ( -- * Creating a request
+    UpdateDatastore (..),
+    mkUpdateDatastore,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uRetentionPeriod,
     uDatastoreStorage,
     uDatastoreName,
 
-    -- * Destructuring the Response
-    updateDatastoreResponse,
-    UpdateDatastoreResponse,
+    -- * Destructuring the response
+    UpdateDatastoreResponse (..),
+    mkUpdateDatastoreResponse,
   )
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDatastore' smart constructor.
+-- | /See:/ 'mkUpdateDatastore' smart constructor.
 data UpdateDatastore = UpdateDatastore'
-  { _uRetentionPeriod ::
-      !(Maybe RetentionPeriod),
-    _uDatastoreStorage :: !(Maybe DatastoreStorage),
-    _uDatastoreName :: !Text
+  { retentionPeriod ::
+      Lude.Maybe RetentionPeriod,
+    datastoreStorage :: Lude.Maybe DatastoreStorage,
+    datastoreName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDatastore' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uRetentionPeriod' - How long, in days, message data is kept for the data store. The retention period cannot be updated if the data store's S3 storage is customer-managed.
---
--- * 'uDatastoreStorage' - Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is@serviceManagedS3@ . You cannot change this storage option after the data store is created.
---
--- * 'uDatastoreName' - The name of the data store to be updated.
-updateDatastore ::
-  -- | 'uDatastoreName'
-  Text ->
+-- * 'datastoreName' - The name of the data store to be updated.
+-- * 'datastoreStorage' - Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is@serviceManagedS3@ . You cannot change this storage option after the data store is created.
+-- * 'retentionPeriod' - How long, in days, message data is kept for the data store. The retention period cannot be updated if the data store's S3 storage is customer-managed.
+mkUpdateDatastore ::
+  -- | 'datastoreName'
+  Lude.Text ->
   UpdateDatastore
-updateDatastore pDatastoreName_ =
+mkUpdateDatastore pDatastoreName_ =
   UpdateDatastore'
-    { _uRetentionPeriod = Nothing,
-      _uDatastoreStorage = Nothing,
-      _uDatastoreName = pDatastoreName_
+    { retentionPeriod = Lude.Nothing,
+      datastoreStorage = Lude.Nothing,
+      datastoreName = pDatastoreName_
     }
 
 -- | How long, in days, message data is kept for the data store. The retention period cannot be updated if the data store's S3 storage is customer-managed.
-uRetentionPeriod :: Lens' UpdateDatastore (Maybe RetentionPeriod)
-uRetentionPeriod = lens _uRetentionPeriod (\s a -> s {_uRetentionPeriod = a})
+--
+-- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uRetentionPeriod :: Lens.Lens' UpdateDatastore (Lude.Maybe RetentionPeriod)
+uRetentionPeriod = Lens.lens (retentionPeriod :: UpdateDatastore -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: UpdateDatastore)
+{-# DEPRECATED uRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
 
 -- | Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is@serviceManagedS3@ . You cannot change this storage option after the data store is created.
-uDatastoreStorage :: Lens' UpdateDatastore (Maybe DatastoreStorage)
-uDatastoreStorage = lens _uDatastoreStorage (\s a -> s {_uDatastoreStorage = a})
+--
+-- /Note:/ Consider using 'datastoreStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDatastoreStorage :: Lens.Lens' UpdateDatastore (Lude.Maybe DatastoreStorage)
+uDatastoreStorage = Lens.lens (datastoreStorage :: UpdateDatastore -> Lude.Maybe DatastoreStorage) (\s a -> s {datastoreStorage = a} :: UpdateDatastore)
+{-# DEPRECATED uDatastoreStorage "Use generic-lens or generic-optics with 'datastoreStorage' instead." #-}
 
 -- | The name of the data store to be updated.
-uDatastoreName :: Lens' UpdateDatastore Text
-uDatastoreName = lens _uDatastoreName (\s a -> s {_uDatastoreName = a})
+--
+-- /Note:/ Consider using 'datastoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDatastoreName :: Lens.Lens' UpdateDatastore Lude.Text
+uDatastoreName = Lens.lens (datastoreName :: UpdateDatastore -> Lude.Text) (\s a -> s {datastoreName = a} :: UpdateDatastore)
+{-# DEPRECATED uDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
 
-instance AWSRequest UpdateDatastore where
+instance Lude.AWSRequest UpdateDatastore where
   type Rs UpdateDatastore = UpdateDatastoreResponse
-  request = putJSON ioTAnalytics
-  response = receiveNull UpdateDatastoreResponse'
+  request = Req.putJSON ioTAnalyticsService
+  response = Res.receiveNull UpdateDatastoreResponse'
 
-instance Hashable UpdateDatastore
+instance Lude.ToHeaders UpdateDatastore where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateDatastore
-
-instance ToHeaders UpdateDatastore where
-  toHeaders = const mempty
-
-instance ToJSON UpdateDatastore where
+instance Lude.ToJSON UpdateDatastore where
   toJSON UpdateDatastore' {..} =
-    object
-      ( catMaybes
-          [ ("retentionPeriod" .=) <$> _uRetentionPeriod,
-            ("datastoreStorage" .=) <$> _uDatastoreStorage
+    Lude.object
+      ( Lude.catMaybes
+          [ ("retentionPeriod" Lude..=) Lude.<$> retentionPeriod,
+            ("datastoreStorage" Lude..=) Lude.<$> datastoreStorage
           ]
       )
 
-instance ToPath UpdateDatastore where
+instance Lude.ToPath UpdateDatastore where
   toPath UpdateDatastore' {..} =
-    mconcat ["/datastores/", toBS _uDatastoreName]
+    Lude.mconcat ["/datastores/", Lude.toBS datastoreName]
 
-instance ToQuery UpdateDatastore where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDatastore where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDatastoreResponse' smart constructor.
+-- | /See:/ 'mkUpdateDatastoreResponse' smart constructor.
 data UpdateDatastoreResponse = UpdateDatastoreResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDatastoreResponse' with the minimum fields required to make a request.
-updateDatastoreResponse ::
+mkUpdateDatastoreResponse ::
   UpdateDatastoreResponse
-updateDatastoreResponse = UpdateDatastoreResponse'
-
-instance NFData UpdateDatastoreResponse
+mkUpdateDatastoreResponse = UpdateDatastoreResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Returns a list of orderable DB instance options for the specified engine.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
-  ( -- * Creating a Request
-    describeOrderableDBInstanceOptions,
-    DescribeOrderableDBInstanceOptions,
+  ( -- * Creating a request
+    DescribeOrderableDBInstanceOptions (..),
+    mkDescribeOrderableDBInstanceOptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dodioEngineVersion,
     dodioAvailabilityZoneGroup,
     dodioFilters,
@@ -38,231 +31,263 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     dodioVPC,
     dodioEngine,
 
-    -- * Destructuring the Response
-    describeOrderableDBInstanceOptionsResponse,
-    DescribeOrderableDBInstanceOptionsResponse,
+    -- * Destructuring the response
+    DescribeOrderableDBInstanceOptionsResponse (..),
+    mkDescribeOrderableDBInstanceOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dodiorsOrderableDBInstanceOptions,
     dodiorsMarker,
     dodiorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeOrderableDBInstanceOptions' smart constructor.
+-- /See:/ 'mkDescribeOrderableDBInstanceOptions' smart constructor.
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
-  { _dodioEngineVersion ::
-      !(Maybe Text),
-    _dodioAvailabilityZoneGroup ::
-      !(Maybe Text),
-    _dodioFilters ::
-      !(Maybe [Filter]),
-    _dodioDBInstanceClass ::
-      !(Maybe Text),
-    _dodioLicenseModel ::
-      !(Maybe Text),
-    _dodioMarker ::
-      !(Maybe Text),
-    _dodioMaxRecords ::
-      !(Maybe Int),
-    _dodioVPC ::
-      !(Maybe Bool),
-    _dodioEngine :: !Text
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    availabilityZoneGroup ::
+      Lude.Maybe Lude.Text,
+    filters ::
+      Lude.Maybe [Filter],
+    dbInstanceClass ::
+      Lude.Maybe Lude.Text,
+    licenseModel ::
+      Lude.Maybe Lude.Text,
+    marker ::
+      Lude.Maybe Lude.Text,
+    maxRecords ::
+      Lude.Maybe Lude.Int,
+    vpc ::
+      Lude.Maybe Lude.Bool,
+    engine :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrderableDBInstanceOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'availabilityZoneGroup' - The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group.
 --
--- * 'dodioEngineVersion' - The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.
+-- Omit this parameter to show the available offerings in the specified AWS Region.
+-- * 'dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
+-- * 'engine' - The name of the engine to retrieve DB instance options for.
+-- * 'engineVersion' - The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.
+-- * 'filters' - This parameter isn't currently supported.
+-- * 'licenseModel' - The license model filter value. Specify this parameter to show only the available offerings matching the specified license model.
+-- * 'marker' - An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
--- * 'dodioAvailabilityZoneGroup' - The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group. Omit this parameter to show the available offerings in the specified AWS Region.
---
--- * 'dodioFilters' - This parameter isn't currently supported.
---
--- * 'dodioDBInstanceClass' - The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
---
--- * 'dodioLicenseModel' - The license model filter value. Specify this parameter to show only the available offerings matching the specified license model.
---
--- * 'dodioMarker' - An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dodioMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
---
--- * 'dodioVPC' - A value that indicates whether to show only VPC or non-VPC offerings.
---
--- * 'dodioEngine' - The name of the engine to retrieve DB instance options for.
-describeOrderableDBInstanceOptions ::
-  -- | 'dodioEngine'
-  Text ->
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'vpc' - A value that indicates whether to show only VPC or non-VPC offerings.
+mkDescribeOrderableDBInstanceOptions ::
+  -- | 'engine'
+  Lude.Text ->
   DescribeOrderableDBInstanceOptions
-describeOrderableDBInstanceOptions pEngine_ =
+mkDescribeOrderableDBInstanceOptions pEngine_ =
   DescribeOrderableDBInstanceOptions'
-    { _dodioEngineVersion =
-        Nothing,
-      _dodioAvailabilityZoneGroup = Nothing,
-      _dodioFilters = Nothing,
-      _dodioDBInstanceClass = Nothing,
-      _dodioLicenseModel = Nothing,
-      _dodioMarker = Nothing,
-      _dodioMaxRecords = Nothing,
-      _dodioVPC = Nothing,
-      _dodioEngine = pEngine_
+    { engineVersion = Lude.Nothing,
+      availabilityZoneGroup = Lude.Nothing,
+      filters = Lude.Nothing,
+      dbInstanceClass = Lude.Nothing,
+      licenseModel = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      vpc = Lude.Nothing,
+      engine = pEngine_
     }
 
 -- | The engine version filter value. Specify this parameter to show only the available offerings matching the specified engine version.
-dodioEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodioEngineVersion = lens _dodioEngineVersion (\s a -> s {_dodioEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioEngineVersion :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe Lude.Text)
+dodioEngineVersion = Lens.lens (engineVersion :: DescribeOrderableDBInstanceOptions -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
--- | The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group. Omit this parameter to show the available offerings in the specified AWS Region.
-dodioAvailabilityZoneGroup :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodioAvailabilityZoneGroup = lens _dodioAvailabilityZoneGroup (\s a -> s {_dodioAvailabilityZoneGroup = a})
+-- | The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group.
+--
+-- Omit this parameter to show the available offerings in the specified AWS Region.
+--
+-- /Note:/ Consider using 'availabilityZoneGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioAvailabilityZoneGroup :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe Lude.Text)
+dodioAvailabilityZoneGroup = Lens.lens (availabilityZoneGroup :: DescribeOrderableDBInstanceOptions -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneGroup = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioAvailabilityZoneGroup "Use generic-lens or generic-optics with 'availabilityZoneGroup' instead." #-}
 
 -- | This parameter isn't currently supported.
-dodioFilters :: Lens' DescribeOrderableDBInstanceOptions [Filter]
-dodioFilters = lens _dodioFilters (\s a -> s {_dodioFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioFilters :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe [Filter])
+dodioFilters = Lens.lens (filters :: DescribeOrderableDBInstanceOptions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The DB instance class filter value. Specify this parameter to show only the available offerings matching the specified DB instance class.
-dodioDBInstanceClass :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodioDBInstanceClass = lens _dodioDBInstanceClass (\s a -> s {_dodioDBInstanceClass = a})
+--
+-- /Note:/ Consider using 'dbInstanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioDBInstanceClass :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe Lude.Text)
+dodioDBInstanceClass = Lens.lens (dbInstanceClass :: DescribeOrderableDBInstanceOptions -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceClass = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioDBInstanceClass "Use generic-lens or generic-optics with 'dbInstanceClass' instead." #-}
 
 -- | The license model filter value. Specify this parameter to show only the available offerings matching the specified license model.
-dodioLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodioLicenseModel = lens _dodioLicenseModel (\s a -> s {_dodioLicenseModel = a})
+--
+-- /Note:/ Consider using 'licenseModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioLicenseModel :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe Lude.Text)
+dodioLicenseModel = Lens.lens (licenseModel :: DescribeOrderableDBInstanceOptions -> Lude.Maybe Lude.Text) (\s a -> s {licenseModel = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioLicenseModel "Use generic-lens or generic-optics with 'licenseModel' instead." #-}
 
 -- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dodioMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodioMarker = lens _dodioMarker (\s a -> s {_dodioMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioMarker :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe Lude.Text)
+dodioMarker = Lens.lens (marker :: DescribeOrderableDBInstanceOptions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-dodioMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Int)
-dodioMaxRecords = lens _dodioMaxRecords (\s a -> s {_dodioMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioMaxRecords :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe Lude.Int)
+dodioMaxRecords = Lens.lens (maxRecords :: DescribeOrderableDBInstanceOptions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | A value that indicates whether to show only VPC or non-VPC offerings.
-dodioVPC :: Lens' DescribeOrderableDBInstanceOptions (Maybe Bool)
-dodioVPC = lens _dodioVPC (\s a -> s {_dodioVPC = a})
+--
+-- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioVPC :: Lens.Lens' DescribeOrderableDBInstanceOptions (Lude.Maybe Lude.Bool)
+dodioVPC = Lens.lens (vpc :: DescribeOrderableDBInstanceOptions -> Lude.Maybe Lude.Bool) (\s a -> s {vpc = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
 -- | The name of the engine to retrieve DB instance options for.
-dodioEngine :: Lens' DescribeOrderableDBInstanceOptions Text
-dodioEngine = lens _dodioEngine (\s a -> s {_dodioEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodioEngine :: Lens.Lens' DescribeOrderableDBInstanceOptions Lude.Text
+dodioEngine = Lens.lens (engine :: DescribeOrderableDBInstanceOptions -> Lude.Text) (\s a -> s {engine = a} :: DescribeOrderableDBInstanceOptions)
+{-# DEPRECATED dodioEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
-instance AWSPager DescribeOrderableDBInstanceOptions where
+instance Page.AWSPager DescribeOrderableDBInstanceOptions where
   page rq rs
-    | stop (rs ^. dodiorsMarker) = Nothing
-    | stop (rs ^. dodiorsOrderableDBInstanceOptions) = Nothing
-    | otherwise = Just $ rq & dodioMarker .~ rs ^. dodiorsMarker
+    | Page.stop (rs Lens.^. dodiorsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dodiorsOrderableDBInstanceOptions) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dodioMarker Lens..~ rs Lens.^. dodiorsMarker
 
-instance AWSRequest DescribeOrderableDBInstanceOptions where
+instance Lude.AWSRequest DescribeOrderableDBInstanceOptions where
   type
     Rs DescribeOrderableDBInstanceOptions =
       DescribeOrderableDBInstanceOptionsResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeOrderableDBInstanceOptionsResult"
       ( \s h x ->
           DescribeOrderableDBInstanceOptionsResponse'
-            <$> ( x .@? "OrderableDBInstanceOptions" .!@ mempty
-                    >>= may (parseXMLList "OrderableDBInstanceOption")
-                )
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "OrderableDBInstanceOptions" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "OrderableDBInstanceOption")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeOrderableDBInstanceOptions
+instance Lude.ToHeaders DescribeOrderableDBInstanceOptions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeOrderableDBInstanceOptions
+instance Lude.ToPath DescribeOrderableDBInstanceOptions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeOrderableDBInstanceOptions where
-  toHeaders = const mempty
-
-instance ToPath DescribeOrderableDBInstanceOptions where
-  toPath = const "/"
-
-instance ToQuery DescribeOrderableDBInstanceOptions where
+instance Lude.ToQuery DescribeOrderableDBInstanceOptions where
   toQuery DescribeOrderableDBInstanceOptions' {..} =
-    mconcat
-      [ "Action" =: ("DescribeOrderableDBInstanceOptions" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "EngineVersion" =: _dodioEngineVersion,
-        "AvailabilityZoneGroup" =: _dodioAvailabilityZoneGroup,
-        "Filters" =: toQuery (toQueryList "Filter" <$> _dodioFilters),
-        "DBInstanceClass" =: _dodioDBInstanceClass,
-        "LicenseModel" =: _dodioLicenseModel,
-        "Marker" =: _dodioMarker,
-        "MaxRecords" =: _dodioMaxRecords,
-        "Vpc" =: _dodioVPC,
-        "Engine" =: _dodioEngine
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("DescribeOrderableDBInstanceOptions" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "EngineVersion" Lude.=: engineVersion,
+        "AvailabilityZoneGroup" Lude.=: availabilityZoneGroup,
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "DBInstanceClass" Lude.=: dbInstanceClass,
+        "LicenseModel" Lude.=: licenseModel,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
+        "Vpc" Lude.=: vpc,
+        "Engine" Lude.=: engine
       ]
 
 -- | Contains the result of a successful invocation of the @DescribeOrderableDBInstanceOptions@ action.
 --
---
---
--- /See:/ 'describeOrderableDBInstanceOptionsResponse' smart constructor.
+-- /See:/ 'mkDescribeOrderableDBInstanceOptionsResponse' smart constructor.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
-  { _dodiorsOrderableDBInstanceOptions ::
-      !( Maybe
-           [OrderableDBInstanceOption]
-       ),
-    _dodiorsMarker ::
-      !( Maybe
-           Text
-       ),
-    _dodiorsResponseStatus ::
-      !Int
+  { orderableDBInstanceOptions ::
+      Lude.Maybe
+        [OrderableDBInstanceOption],
+    marker ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrderableDBInstanceOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dodiorsOrderableDBInstanceOptions' - An @OrderableDBInstanceOption@ structure containing information about orderable options for the DB instance.
---
--- * 'dodiorsMarker' - An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dodiorsResponseStatus' - -- | The response status code.
-describeOrderableDBInstanceOptionsResponse ::
-  -- | 'dodiorsResponseStatus'
-  Int ->
+-- * 'marker' - An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'orderableDBInstanceOptions' - An @OrderableDBInstanceOption@ structure containing information about orderable options for the DB instance.
+-- * 'responseStatus' - The response status code.
+mkDescribeOrderableDBInstanceOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeOrderableDBInstanceOptionsResponse
-describeOrderableDBInstanceOptionsResponse pResponseStatus_ =
+mkDescribeOrderableDBInstanceOptionsResponse pResponseStatus_ =
   DescribeOrderableDBInstanceOptionsResponse'
-    { _dodiorsOrderableDBInstanceOptions =
-        Nothing,
-      _dodiorsMarker = Nothing,
-      _dodiorsResponseStatus = pResponseStatus_
+    { orderableDBInstanceOptions =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An @OrderableDBInstanceOption@ structure containing information about orderable options for the DB instance.
-dodiorsOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
-dodiorsOrderableDBInstanceOptions = lens _dodiorsOrderableDBInstanceOptions (\s a -> s {_dodiorsOrderableDBInstanceOptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'orderableDBInstanceOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodiorsOrderableDBInstanceOptions :: Lens.Lens' DescribeOrderableDBInstanceOptionsResponse (Lude.Maybe [OrderableDBInstanceOption])
+dodiorsOrderableDBInstanceOptions = Lens.lens (orderableDBInstanceOptions :: DescribeOrderableDBInstanceOptionsResponse -> Lude.Maybe [OrderableDBInstanceOption]) (\s a -> s {orderableDBInstanceOptions = a} :: DescribeOrderableDBInstanceOptionsResponse)
+{-# DEPRECATED dodiorsOrderableDBInstanceOptions "Use generic-lens or generic-optics with 'orderableDBInstanceOptions' instead." #-}
 
 -- | An optional pagination token provided by a previous OrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dodiorsMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
-dodiorsMarker = lens _dodiorsMarker (\s a -> s {_dodiorsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodiorsMarker :: Lens.Lens' DescribeOrderableDBInstanceOptionsResponse (Lude.Maybe Lude.Text)
+dodiorsMarker = Lens.lens (marker :: DescribeOrderableDBInstanceOptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeOrderableDBInstanceOptionsResponse)
+{-# DEPRECATED dodiorsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dodiorsResponseStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
-dodiorsResponseStatus = lens _dodiorsResponseStatus (\s a -> s {_dodiorsResponseStatus = a})
-
-instance NFData DescribeOrderableDBInstanceOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dodiorsResponseStatus :: Lens.Lens' DescribeOrderableDBInstanceOptionsResponse Lude.Int
+dodiorsResponseStatus = Lens.lens (responseStatus :: DescribeOrderableDBInstanceOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOrderableDBInstanceOptionsResponse)
+{-# DEPRECATED dodiorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

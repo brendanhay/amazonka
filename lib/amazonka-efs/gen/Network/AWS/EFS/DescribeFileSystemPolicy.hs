@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,71 +14,74 @@
 --
 -- Returns the @FileSystemPolicy@ for the specified EFS file system.
 --
---
 -- This operation requires permissions for the @elasticfilesystem:DescribeFileSystemPolicy@ action.
 module Network.AWS.EFS.DescribeFileSystemPolicy
-  ( -- * Creating a Request
-    describeFileSystemPolicy,
-    DescribeFileSystemPolicy,
+  ( -- * Creating a request
+    DescribeFileSystemPolicy (..),
+    mkDescribeFileSystemPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desFileSystemId,
 
-    -- * Destructuring the Response
-    fileSystemPolicyDescription,
-    FileSystemPolicyDescription,
+    -- * Destructuring the response
+    FileSystemPolicyDescription (..),
+    mkFileSystemPolicyDescription,
 
-    -- * Response Lenses
+    -- ** Response lenses
     fspdFileSystemId,
     fspdPolicy,
   )
 where
 
 import Network.AWS.EFS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeFileSystemPolicy' smart constructor.
+-- | /See:/ 'mkDescribeFileSystemPolicy' smart constructor.
 newtype DescribeFileSystemPolicy = DescribeFileSystemPolicy'
-  { _desFileSystemId ::
-      Text
+  { fileSystemId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFileSystemPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desFileSystemId' - Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
-describeFileSystemPolicy ::
-  -- | 'desFileSystemId'
-  Text ->
+-- * 'fileSystemId' - Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
+mkDescribeFileSystemPolicy ::
+  -- | 'fileSystemId'
+  Lude.Text ->
   DescribeFileSystemPolicy
-describeFileSystemPolicy pFileSystemId_ =
-  DescribeFileSystemPolicy' {_desFileSystemId = pFileSystemId_}
+mkDescribeFileSystemPolicy pFileSystemId_ =
+  DescribeFileSystemPolicy' {fileSystemId = pFileSystemId_}
 
 -- | Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
-desFileSystemId :: Lens' DescribeFileSystemPolicy Text
-desFileSystemId = lens _desFileSystemId (\s a -> s {_desFileSystemId = a})
+--
+-- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desFileSystemId :: Lens.Lens' DescribeFileSystemPolicy Lude.Text
+desFileSystemId = Lens.lens (fileSystemId :: DescribeFileSystemPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeFileSystemPolicy)
+{-# DEPRECATED desFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
-instance AWSRequest DescribeFileSystemPolicy where
+instance Lude.AWSRequest DescribeFileSystemPolicy where
   type Rs DescribeFileSystemPolicy = FileSystemPolicyDescription
-  request = get efs
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get efsService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable DescribeFileSystemPolicy
+instance Lude.ToHeaders DescribeFileSystemPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeFileSystemPolicy
-
-instance ToHeaders DescribeFileSystemPolicy where
-  toHeaders = const mempty
-
-instance ToPath DescribeFileSystemPolicy where
+instance Lude.ToPath DescribeFileSystemPolicy where
   toPath DescribeFileSystemPolicy' {..} =
-    mconcat
-      ["/2015-02-01/file-systems/", toBS _desFileSystemId, "/policy"]
+    Lude.mconcat
+      ["/2015-02-01/file-systems/", Lude.toBS fileSystemId, "/policy"]
 
-instance ToQuery DescribeFileSystemPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeFileSystemPolicy where
+  toQuery = Lude.const Lude.mempty

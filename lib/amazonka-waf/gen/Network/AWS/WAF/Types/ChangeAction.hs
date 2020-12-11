@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.ChangeAction where
+module Network.AWS.WAF.Types.ChangeAction
+  ( ChangeAction
+      ( ChangeAction',
+        Delete,
+        Insert
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChangeAction
-  = Delete
-  | Insert
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChangeAction = ChangeAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChangeAction where
-  parser =
-    takeLowerText >>= \case
-      "delete" -> pure Delete
-      "insert" -> pure Insert
-      e ->
-        fromTextError $
-          "Failure parsing ChangeAction from value: '" <> e
-            <> "'. Accepted values: delete, insert"
+pattern Delete :: ChangeAction
+pattern Delete = ChangeAction' "DELETE"
 
-instance ToText ChangeAction where
-  toText = \case
-    Delete -> "DELETE"
-    Insert -> "INSERT"
+pattern Insert :: ChangeAction
+pattern Insert = ChangeAction' "INSERT"
 
-instance Hashable ChangeAction
-
-instance NFData ChangeAction
-
-instance ToByteString ChangeAction
-
-instance ToQuery ChangeAction
-
-instance ToHeader ChangeAction
-
-instance ToJSON ChangeAction where
-  toJSON = toJSONText
+{-# COMPLETE
+  Delete,
+  Insert,
+  ChangeAction'
+  #-}

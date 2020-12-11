@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,159 @@
 --
 -- Obtains information about which SNS topics receive status messages from the specified directory.
 --
---
 -- If no input parameters are provided, such as DirectoryId or TopicName, this request describes all of the associations in the account.
 module Network.AWS.DirectoryService.DescribeEventTopics
-  ( -- * Creating a Request
-    describeEventTopics,
-    DescribeEventTopics,
+  ( -- * Creating a request
+    DescribeEventTopics (..),
+    mkDescribeEventTopics,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dDirectoryId,
     dTopicNames,
 
-    -- * Destructuring the Response
-    describeEventTopicsResponse,
-    DescribeEventTopicsResponse,
+    -- * Destructuring the response
+    DescribeEventTopicsResponse (..),
+    mkDescribeEventTopicsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     detrsEventTopics,
     detrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Describes event topics.
 --
---
---
--- /See:/ 'describeEventTopics' smart constructor.
+-- /See:/ 'mkDescribeEventTopics' smart constructor.
 data DescribeEventTopics = DescribeEventTopics'
-  { _dDirectoryId ::
-      !(Maybe Text),
-    _dTopicNames :: !(Maybe [Text])
+  { directoryId ::
+      Lude.Maybe Lude.Text,
+    topicNames :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventTopics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'directoryId' - The Directory ID for which to get the list of associated SNS topics. If this member is null, associations for all Directory IDs are returned.
+-- * 'topicNames' - A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.
 --
--- * 'dDirectoryId' - The Directory ID for which to get the list of associated SNS topics. If this member is null, associations for all Directory IDs are returned.
---
--- * 'dTopicNames' - A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned. An empty list results in an @InvalidParameterException@ being thrown.
-describeEventTopics ::
+-- An empty list results in an @InvalidParameterException@ being thrown.
+mkDescribeEventTopics ::
   DescribeEventTopics
-describeEventTopics =
+mkDescribeEventTopics =
   DescribeEventTopics'
-    { _dDirectoryId = Nothing,
-      _dTopicNames = Nothing
+    { directoryId = Lude.Nothing,
+      topicNames = Lude.Nothing
     }
 
 -- | The Directory ID for which to get the list of associated SNS topics. If this member is null, associations for all Directory IDs are returned.
-dDirectoryId :: Lens' DescribeEventTopics (Maybe Text)
-dDirectoryId = lens _dDirectoryId (\s a -> s {_dDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDirectoryId :: Lens.Lens' DescribeEventTopics (Lude.Maybe Lude.Text)
+dDirectoryId = Lens.lens (directoryId :: DescribeEventTopics -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DescribeEventTopics)
+{-# DEPRECATED dDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
--- | A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned. An empty list results in an @InvalidParameterException@ being thrown.
-dTopicNames :: Lens' DescribeEventTopics [Text]
-dTopicNames = lens _dTopicNames (\s a -> s {_dTopicNames = a}) . _Default . _Coerce
+-- | A list of SNS topic names for which to obtain the information. If this member is null, all associations for the specified Directory ID are returned.
+--
+-- An empty list results in an @InvalidParameterException@ being thrown.
+--
+-- /Note:/ Consider using 'topicNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTopicNames :: Lens.Lens' DescribeEventTopics (Lude.Maybe [Lude.Text])
+dTopicNames = Lens.lens (topicNames :: DescribeEventTopics -> Lude.Maybe [Lude.Text]) (\s a -> s {topicNames = a} :: DescribeEventTopics)
+{-# DEPRECATED dTopicNames "Use generic-lens or generic-optics with 'topicNames' instead." #-}
 
-instance AWSRequest DescribeEventTopics where
+instance Lude.AWSRequest DescribeEventTopics where
   type Rs DescribeEventTopics = DescribeEventTopicsResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEventTopicsResponse'
-            <$> (x .?> "EventTopics" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EventTopics" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEventTopics
-
-instance NFData DescribeEventTopics
-
-instance ToHeaders DescribeEventTopics where
+instance Lude.ToHeaders DescribeEventTopics where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.DescribeEventTopics" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.DescribeEventTopics" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEventTopics where
+instance Lude.ToJSON DescribeEventTopics where
   toJSON DescribeEventTopics' {..} =
-    object
-      ( catMaybes
-          [ ("DirectoryId" .=) <$> _dDirectoryId,
-            ("TopicNames" .=) <$> _dTopicNames
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DirectoryId" Lude..=) Lude.<$> directoryId,
+            ("TopicNames" Lude..=) Lude.<$> topicNames
           ]
       )
 
-instance ToPath DescribeEventTopics where
-  toPath = const "/"
+instance Lude.ToPath DescribeEventTopics where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEventTopics where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEventTopics where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a DescribeEventTopic request.
 --
---
---
--- /See:/ 'describeEventTopicsResponse' smart constructor.
+-- /See:/ 'mkDescribeEventTopicsResponse' smart constructor.
 data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
-  { _detrsEventTopics ::
-      !(Maybe [EventTopic]),
-    _detrsResponseStatus :: !Int
+  { eventTopics ::
+      Lude.Maybe [EventTopic],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventTopicsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detrsEventTopics' - A list of SNS topic names that receive status messages from the specified Directory ID.
---
--- * 'detrsResponseStatus' - -- | The response status code.
-describeEventTopicsResponse ::
-  -- | 'detrsResponseStatus'
-  Int ->
+-- * 'eventTopics' - A list of SNS topic names that receive status messages from the specified Directory ID.
+-- * 'responseStatus' - The response status code.
+mkDescribeEventTopicsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEventTopicsResponse
-describeEventTopicsResponse pResponseStatus_ =
+mkDescribeEventTopicsResponse pResponseStatus_ =
   DescribeEventTopicsResponse'
-    { _detrsEventTopics = Nothing,
-      _detrsResponseStatus = pResponseStatus_
+    { eventTopics = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of SNS topic names that receive status messages from the specified Directory ID.
-detrsEventTopics :: Lens' DescribeEventTopicsResponse [EventTopic]
-detrsEventTopics = lens _detrsEventTopics (\s a -> s {_detrsEventTopics = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventTopics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsEventTopics :: Lens.Lens' DescribeEventTopicsResponse (Lude.Maybe [EventTopic])
+detrsEventTopics = Lens.lens (eventTopics :: DescribeEventTopicsResponse -> Lude.Maybe [EventTopic]) (\s a -> s {eventTopics = a} :: DescribeEventTopicsResponse)
+{-# DEPRECATED detrsEventTopics "Use generic-lens or generic-optics with 'eventTopics' instead." #-}
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DescribeEventTopicsResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\s a -> s {_detrsResponseStatus = a})
-
-instance NFData DescribeEventTopicsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsResponseStatus :: Lens.Lens' DescribeEventTopicsResponse Lude.Int
+detrsResponseStatus = Lens.lens (responseStatus :: DescribeEventTopicsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventTopicsResponse)
+{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,162 @@
 --
 -- Disassociates an IAM role from an AWS Certificate Manager (ACM) certificate. Disassociating an IAM role from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the AWS Key Management Service (KMS) customer master key (CMK) used to encrypt the private key. This effectively revokes the role's permission to use the certificate.
 module Network.AWS.EC2.DisassociateEnclaveCertificateIAMRole
-  ( -- * Creating a Request
-    disassociateEnclaveCertificateIAMRole,
-    DisassociateEnclaveCertificateIAMRole,
+  ( -- * Creating a request
+    DisassociateEnclaveCertificateIAMRole (..),
+    mkDisassociateEnclaveCertificateIAMRole,
 
-    -- * Request Lenses
+    -- ** Request lenses
     decirCertificateARN,
     decirDryRun,
     decirRoleARN,
 
-    -- * Destructuring the Response
-    disassociateEnclaveCertificateIAMRoleResponse,
-    DisassociateEnclaveCertificateIAMRoleResponse,
+    -- * Destructuring the response
+    DisassociateEnclaveCertificateIAMRoleResponse (..),
+    mkDisassociateEnclaveCertificateIAMRoleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     decirrsReturn,
     decirrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateEnclaveCertificateIAMRole' smart constructor.
+-- | /See:/ 'mkDisassociateEnclaveCertificateIAMRole' smart constructor.
 data DisassociateEnclaveCertificateIAMRole = DisassociateEnclaveCertificateIAMRole'
-  { _decirCertificateARN ::
-      !(Maybe Text),
-    _decirDryRun ::
-      !(Maybe Bool),
-    _decirRoleARN ::
-      !(Maybe Text)
+  { certificateARN ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    roleARN ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateEnclaveCertificateIAMRole' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'decirCertificateARN' - The ARN of the ACM certificate from which to disassociate the IAM role.
---
--- * 'decirDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'decirRoleARN' - The ARN of the IAM role to disassociate.
-disassociateEnclaveCertificateIAMRole ::
+-- * 'certificateARN' - The ARN of the ACM certificate from which to disassociate the IAM role.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'roleARN' - The ARN of the IAM role to disassociate.
+mkDisassociateEnclaveCertificateIAMRole ::
   DisassociateEnclaveCertificateIAMRole
-disassociateEnclaveCertificateIAMRole =
+mkDisassociateEnclaveCertificateIAMRole =
   DisassociateEnclaveCertificateIAMRole'
-    { _decirCertificateARN =
-        Nothing,
-      _decirDryRun = Nothing,
-      _decirRoleARN = Nothing
+    { certificateARN =
+        Lude.Nothing,
+      dryRun = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
 -- | The ARN of the ACM certificate from which to disassociate the IAM role.
-decirCertificateARN :: Lens' DisassociateEnclaveCertificateIAMRole (Maybe Text)
-decirCertificateARN = lens _decirCertificateARN (\s a -> s {_decirCertificateARN = a})
+--
+-- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decirCertificateARN :: Lens.Lens' DisassociateEnclaveCertificateIAMRole (Lude.Maybe Lude.Text)
+decirCertificateARN = Lens.lens (certificateARN :: DisassociateEnclaveCertificateIAMRole -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: DisassociateEnclaveCertificateIAMRole)
+{-# DEPRECATED decirCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-decirDryRun :: Lens' DisassociateEnclaveCertificateIAMRole (Maybe Bool)
-decirDryRun = lens _decirDryRun (\s a -> s {_decirDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decirDryRun :: Lens.Lens' DisassociateEnclaveCertificateIAMRole (Lude.Maybe Lude.Bool)
+decirDryRun = Lens.lens (dryRun :: DisassociateEnclaveCertificateIAMRole -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DisassociateEnclaveCertificateIAMRole)
+{-# DEPRECATED decirDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ARN of the IAM role to disassociate.
-decirRoleARN :: Lens' DisassociateEnclaveCertificateIAMRole (Maybe Text)
-decirRoleARN = lens _decirRoleARN (\s a -> s {_decirRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decirRoleARN :: Lens.Lens' DisassociateEnclaveCertificateIAMRole (Lude.Maybe Lude.Text)
+decirRoleARN = Lens.lens (roleARN :: DisassociateEnclaveCertificateIAMRole -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DisassociateEnclaveCertificateIAMRole)
+{-# DEPRECATED decirRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance AWSRequest DisassociateEnclaveCertificateIAMRole where
+instance Lude.AWSRequest DisassociateEnclaveCertificateIAMRole where
   type
     Rs DisassociateEnclaveCertificateIAMRole =
       DisassociateEnclaveCertificateIAMRoleResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DisassociateEnclaveCertificateIAMRoleResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateEnclaveCertificateIAMRole
+instance Lude.ToHeaders DisassociateEnclaveCertificateIAMRole where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisassociateEnclaveCertificateIAMRole
+instance Lude.ToPath DisassociateEnclaveCertificateIAMRole where
+  toPath = Lude.const "/"
 
-instance ToHeaders DisassociateEnclaveCertificateIAMRole where
-  toHeaders = const mempty
-
-instance ToPath DisassociateEnclaveCertificateIAMRole where
-  toPath = const "/"
-
-instance ToQuery DisassociateEnclaveCertificateIAMRole where
+instance Lude.ToQuery DisassociateEnclaveCertificateIAMRole where
   toQuery DisassociateEnclaveCertificateIAMRole' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DisassociateEnclaveCertificateIamRole" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "CertificateArn" =: _decirCertificateARN,
-        "DryRun" =: _decirDryRun,
-        "RoleArn" =: _decirRoleARN
+          Lude.=: ("DisassociateEnclaveCertificateIamRole" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "CertificateArn" Lude.=: certificateARN,
+        "DryRun" Lude.=: dryRun,
+        "RoleArn" Lude.=: roleARN
       ]
 
--- | /See:/ 'disassociateEnclaveCertificateIAMRoleResponse' smart constructor.
+-- | /See:/ 'mkDisassociateEnclaveCertificateIAMRoleResponse' smart constructor.
 data DisassociateEnclaveCertificateIAMRoleResponse = DisassociateEnclaveCertificateIAMRoleResponse'
-  { _decirrsReturn ::
-      !( Maybe
-           Bool
-       ),
-    _decirrsResponseStatus ::
-      !Int
+  { return ::
+      Lude.Maybe
+        Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DisassociateEnclaveCertificateIAMRoleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'decirrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
---
--- * 'decirrsResponseStatus' - -- | The response status code.
-disassociateEnclaveCertificateIAMRoleResponse ::
-  -- | 'decirrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+mkDisassociateEnclaveCertificateIAMRoleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateEnclaveCertificateIAMRoleResponse
-disassociateEnclaveCertificateIAMRoleResponse pResponseStatus_ =
+mkDisassociateEnclaveCertificateIAMRoleResponse pResponseStatus_ =
   DisassociateEnclaveCertificateIAMRoleResponse'
-    { _decirrsReturn =
-        Nothing,
-      _decirrsResponseStatus = pResponseStatus_
+    { return =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-decirrsReturn :: Lens' DisassociateEnclaveCertificateIAMRoleResponse (Maybe Bool)
-decirrsReturn = lens _decirrsReturn (\s a -> s {_decirrsReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decirrsReturn :: Lens.Lens' DisassociateEnclaveCertificateIAMRoleResponse (Lude.Maybe Lude.Bool)
+decirrsReturn = Lens.lens (return :: DisassociateEnclaveCertificateIAMRoleResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: DisassociateEnclaveCertificateIAMRoleResponse)
+{-# DEPRECATED decirrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-decirrsResponseStatus :: Lens' DisassociateEnclaveCertificateIAMRoleResponse Int
-decirrsResponseStatus = lens _decirrsResponseStatus (\s a -> s {_decirrsResponseStatus = a})
-
-instance NFData DisassociateEnclaveCertificateIAMRoleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decirrsResponseStatus :: Lens.Lens' DisassociateEnclaveCertificateIAMRoleResponse Lude.Int
+decirrsResponseStatus = Lens.lens (responseStatus :: DisassociateEnclaveCertificateIAMRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateEnclaveCertificateIAMRoleResponse)
+{-# DEPRECATED decirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

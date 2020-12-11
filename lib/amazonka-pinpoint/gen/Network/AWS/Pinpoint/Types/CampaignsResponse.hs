@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.CampaignsResponse where
+module Network.AWS.Pinpoint.Types.CampaignsResponse
+  ( CampaignsResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkCampaignsResponse,
+
+    -- * Lenses
+    cNextToken,
+    cItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.CampaignResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the configuration and other settings for all the campaigns that are associated with an application.
 --
---
---
--- /See:/ 'campaignsResponse' smart constructor.
+-- /See:/ 'mkCampaignsResponse' smart constructor.
 data CampaignsResponse = CampaignsResponse'
-  { _cNextToken ::
-      !(Maybe Text),
-    _cItem :: ![CampaignResponse]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    item :: [CampaignResponse]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CampaignsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cNextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- * 'cItem' - An array of responses, one for each campaign that's associated with the application.
-campaignsResponse ::
+-- * 'item' - An array of responses, one for each campaign that's associated with the application.
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+mkCampaignsResponse ::
   CampaignsResponse
-campaignsResponse =
-  CampaignsResponse' {_cNextToken = Nothing, _cItem = mempty}
+mkCampaignsResponse =
+  CampaignsResponse' {nextToken = Lude.Nothing, item = Lude.mempty}
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-cNextToken :: Lens' CampaignsResponse (Maybe Text)
-cNextToken = lens _cNextToken (\s a -> s {_cNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cNextToken :: Lens.Lens' CampaignsResponse (Lude.Maybe Lude.Text)
+cNextToken = Lens.lens (nextToken :: CampaignsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: CampaignsResponse)
+{-# DEPRECATED cNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of responses, one for each campaign that's associated with the application.
-cItem :: Lens' CampaignsResponse [CampaignResponse]
-cItem = lens _cItem (\s a -> s {_cItem = a}) . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cItem :: Lens.Lens' CampaignsResponse [CampaignResponse]
+cItem = Lens.lens (item :: CampaignsResponse -> [CampaignResponse]) (\s a -> s {item = a} :: CampaignsResponse)
+{-# DEPRECATED cItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON CampaignsResponse where
+instance Lude.FromJSON CampaignsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "CampaignsResponse"
       ( \x ->
           CampaignsResponse'
-            <$> (x .:? "NextToken") <*> (x .:? "Item" .!= mempty)
+            Lude.<$> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
       )
-
-instance Hashable CampaignsResponse
-
-instance NFData CampaignsResponse

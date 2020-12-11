@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.APIKeySourceType where
+module Network.AWS.APIGateway.Types.APIKeySourceType
+  ( APIKeySourceType
+      ( APIKeySourceType',
+        Authorizer,
+        Header
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data APIKeySourceType
-  = Authorizer
-  | Header
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype APIKeySourceType = APIKeySourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText APIKeySourceType where
-  parser =
-    takeLowerText >>= \case
-      "authorizer" -> pure Authorizer
-      "header" -> pure Header
-      e ->
-        fromTextError $
-          "Failure parsing APIKeySourceType from value: '" <> e
-            <> "'. Accepted values: authorizer, header"
+pattern Authorizer :: APIKeySourceType
+pattern Authorizer = APIKeySourceType' "AUTHORIZER"
 
-instance ToText APIKeySourceType where
-  toText = \case
-    Authorizer -> "AUTHORIZER"
-    Header -> "HEADER"
+pattern Header :: APIKeySourceType
+pattern Header = APIKeySourceType' "HEADER"
 
-instance Hashable APIKeySourceType
-
-instance NFData APIKeySourceType
-
-instance ToByteString APIKeySourceType
-
-instance ToQuery APIKeySourceType
-
-instance ToHeader APIKeySourceType
-
-instance ToJSON APIKeySourceType where
-  toJSON = toJSONText
-
-instance FromJSON APIKeySourceType where
-  parseJSON = parseJSONText "APIKeySourceType"
+{-# COMPLETE
+  Authorizer,
+  Header,
+  APIKeySourceType'
+  #-}

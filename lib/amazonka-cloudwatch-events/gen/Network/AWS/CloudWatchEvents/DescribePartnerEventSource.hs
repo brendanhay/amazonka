@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- An SaaS partner can use this operation to list details about a partner event source that they have created. AWS customers do not use this operation. Instead, AWS customers can use 'DescribeEventSource' to see details about a partner event source that is shared with them.
 module Network.AWS.CloudWatchEvents.DescribePartnerEventSource
-  ( -- * Creating a Request
-    describePartnerEventSource,
-    DescribePartnerEventSource,
+  ( -- * Creating a request
+    DescribePartnerEventSource (..),
+    mkDescribePartnerEventSource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpespName,
 
-    -- * Destructuring the Response
-    describePartnerEventSourceResponse,
-    DescribePartnerEventSourceResponse,
+    -- * Destructuring the response
+    DescribePartnerEventSourceResponse (..),
+    mkDescribePartnerEventSourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dpesrsARN,
     dpesrsName,
     dpesrsResponseStatus,
@@ -38,111 +33,128 @@ module Network.AWS.CloudWatchEvents.DescribePartnerEventSource
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describePartnerEventSource' smart constructor.
+-- | /See:/ 'mkDescribePartnerEventSource' smart constructor.
 newtype DescribePartnerEventSource = DescribePartnerEventSource'
-  { _dpespName ::
-      Text
+  { name ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePartnerEventSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpespName' - The name of the event source to display.
-describePartnerEventSource ::
-  -- | 'dpespName'
-  Text ->
+-- * 'name' - The name of the event source to display.
+mkDescribePartnerEventSource ::
+  -- | 'name'
+  Lude.Text ->
   DescribePartnerEventSource
-describePartnerEventSource pName_ =
-  DescribePartnerEventSource' {_dpespName = pName_}
+mkDescribePartnerEventSource pName_ =
+  DescribePartnerEventSource' {name = pName_}
 
 -- | The name of the event source to display.
-dpespName :: Lens' DescribePartnerEventSource Text
-dpespName = lens _dpespName (\s a -> s {_dpespName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpespName :: Lens.Lens' DescribePartnerEventSource Lude.Text
+dpespName = Lens.lens (name :: DescribePartnerEventSource -> Lude.Text) (\s a -> s {name = a} :: DescribePartnerEventSource)
+{-# DEPRECATED dpespName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DescribePartnerEventSource where
+instance Lude.AWSRequest DescribePartnerEventSource where
   type
     Rs DescribePartnerEventSource =
       DescribePartnerEventSourceResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribePartnerEventSourceResponse'
-            <$> (x .?> "Arn") <*> (x .?> "Name") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribePartnerEventSource
-
-instance NFData DescribePartnerEventSource
-
-instance ToHeaders DescribePartnerEventSource where
+instance Lude.ToHeaders DescribePartnerEventSource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSEvents.DescribePartnerEventSource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSEvents.DescribePartnerEventSource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribePartnerEventSource where
+instance Lude.ToJSON DescribePartnerEventSource where
   toJSON DescribePartnerEventSource' {..} =
-    object (catMaybes [Just ("Name" .= _dpespName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DescribePartnerEventSource where
-  toPath = const "/"
+instance Lude.ToPath DescribePartnerEventSource where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribePartnerEventSource where
-  toQuery = const mempty
+instance Lude.ToQuery DescribePartnerEventSource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describePartnerEventSourceResponse' smart constructor.
+-- | /See:/ 'mkDescribePartnerEventSourceResponse' smart constructor.
 data DescribePartnerEventSourceResponse = DescribePartnerEventSourceResponse'
-  { _dpesrsARN ::
-      !(Maybe Text),
-    _dpesrsName ::
-      !(Maybe Text),
-    _dpesrsResponseStatus ::
-      !Int
+  { arn ::
+      Lude.Maybe Lude.Text,
+    name ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePartnerEventSourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpesrsARN' - The ARN of the event source.
---
--- * 'dpesrsName' - The name of the event source.
---
--- * 'dpesrsResponseStatus' - -- | The response status code.
-describePartnerEventSourceResponse ::
-  -- | 'dpesrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the event source.
+-- * 'name' - The name of the event source.
+-- * 'responseStatus' - The response status code.
+mkDescribePartnerEventSourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribePartnerEventSourceResponse
-describePartnerEventSourceResponse pResponseStatus_ =
+mkDescribePartnerEventSourceResponse pResponseStatus_ =
   DescribePartnerEventSourceResponse'
-    { _dpesrsARN = Nothing,
-      _dpesrsName = Nothing,
-      _dpesrsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the event source.
-dpesrsARN :: Lens' DescribePartnerEventSourceResponse (Maybe Text)
-dpesrsARN = lens _dpesrsARN (\s a -> s {_dpesrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpesrsARN :: Lens.Lens' DescribePartnerEventSourceResponse (Lude.Maybe Lude.Text)
+dpesrsARN = Lens.lens (arn :: DescribePartnerEventSourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribePartnerEventSourceResponse)
+{-# DEPRECATED dpesrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the event source.
-dpesrsName :: Lens' DescribePartnerEventSourceResponse (Maybe Text)
-dpesrsName = lens _dpesrsName (\s a -> s {_dpesrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpesrsName :: Lens.Lens' DescribePartnerEventSourceResponse (Lude.Maybe Lude.Text)
+dpesrsName = Lens.lens (name :: DescribePartnerEventSourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribePartnerEventSourceResponse)
+{-# DEPRECATED dpesrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | -- | The response status code.
-dpesrsResponseStatus :: Lens' DescribePartnerEventSourceResponse Int
-dpesrsResponseStatus = lens _dpesrsResponseStatus (\s a -> s {_dpesrsResponseStatus = a})
-
-instance NFData DescribePartnerEventSourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpesrsResponseStatus :: Lens.Lens' DescribePartnerEventSourceResponse Lude.Int
+dpesrsResponseStatus = Lens.lens (responseStatus :: DescribePartnerEventSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePartnerEventSourceResponse)
+{-# DEPRECATED dpesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

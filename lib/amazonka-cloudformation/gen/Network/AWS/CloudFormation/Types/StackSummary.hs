@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,141 +7,190 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackSummary where
+module Network.AWS.CloudFormation.Types.StackSummary
+  ( StackSummary (..),
+
+    -- * Smart constructor
+    mkStackSummary,
+
+    -- * Lenses
+    ssLastUpdatedTime,
+    ssRootId,
+    ssStackStatusReason,
+    ssTemplateDescription,
+    ssDriftInformation,
+    ssDeletionTime,
+    ssStackId,
+    ssParentId,
+    ssStackName,
+    ssCreationTime,
+    ssStackStatus,
+  )
+where
 
 import Network.AWS.CloudFormation.Types.StackDriftInformationSummary
 import Network.AWS.CloudFormation.Types.StackStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The StackSummary Data Type
 --
---
---
--- /See:/ 'stackSummary' smart constructor.
+-- /See:/ 'mkStackSummary' smart constructor.
 data StackSummary = StackSummary'
-  { _ssLastUpdatedTime ::
-      !(Maybe ISO8601),
-    _ssRootId :: !(Maybe Text),
-    _ssStackStatusReason :: !(Maybe Text),
-    _ssTemplateDescription :: !(Maybe Text),
-    _ssDriftInformation :: !(Maybe StackDriftInformationSummary),
-    _ssDeletionTime :: !(Maybe ISO8601),
-    _ssStackId :: !(Maybe Text),
-    _ssParentId :: !(Maybe Text),
-    _ssStackName :: !Text,
-    _ssCreationTime :: !ISO8601,
-    _ssStackStatus :: !StackStatus
+  { lastUpdatedTime ::
+      Lude.Maybe Lude.ISO8601,
+    rootId :: Lude.Maybe Lude.Text,
+    stackStatusReason :: Lude.Maybe Lude.Text,
+    templateDescription :: Lude.Maybe Lude.Text,
+    driftInformation :: Lude.Maybe StackDriftInformationSummary,
+    deletionTime :: Lude.Maybe Lude.ISO8601,
+    stackId :: Lude.Maybe Lude.Text,
+    parentId :: Lude.Maybe Lude.Text,
+    stackName :: Lude.Text,
+    creationTime :: Lude.ISO8601,
+    stackStatus :: StackStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'creationTime' - The time the stack was created.
+-- * 'deletionTime' - The time the stack was deleted.
+-- * 'driftInformation' - Summarizes information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
+-- * 'lastUpdatedTime' - The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+-- * 'parentId' - For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
 --
--- * 'ssLastUpdatedTime' - The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+-- * 'rootId' - For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
 --
--- * 'ssRootId' - For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
---
--- * 'ssStackStatusReason' - Success/Failure message associated with the stack status.
---
--- * 'ssTemplateDescription' - The template description of the template used to create the stack.
---
--- * 'ssDriftInformation' - Summarizes information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
---
--- * 'ssDeletionTime' - The time the stack was deleted.
---
--- * 'ssStackId' - Unique stack identifier.
---
--- * 'ssParentId' - For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
---
--- * 'ssStackName' - The name associated with the stack.
---
--- * 'ssCreationTime' - The time the stack was created.
---
--- * 'ssStackStatus' - The current status of the stack.
-stackSummary ::
-  -- | 'ssStackName'
-  Text ->
-  -- | 'ssCreationTime'
-  UTCTime ->
-  -- | 'ssStackStatus'
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+-- * 'stackId' - Unique stack identifier.
+-- * 'stackName' - The name associated with the stack.
+-- * 'stackStatus' - The current status of the stack.
+-- * 'stackStatusReason' - Success/Failure message associated with the stack status.
+-- * 'templateDescription' - The template description of the template used to create the stack.
+mkStackSummary ::
+  -- | 'stackName'
+  Lude.Text ->
+  -- | 'creationTime'
+  Lude.ISO8601 ->
+  -- | 'stackStatus'
   StackStatus ->
   StackSummary
-stackSummary pStackName_ pCreationTime_ pStackStatus_ =
+mkStackSummary pStackName_ pCreationTime_ pStackStatus_ =
   StackSummary'
-    { _ssLastUpdatedTime = Nothing,
-      _ssRootId = Nothing,
-      _ssStackStatusReason = Nothing,
-      _ssTemplateDescription = Nothing,
-      _ssDriftInformation = Nothing,
-      _ssDeletionTime = Nothing,
-      _ssStackId = Nothing,
-      _ssParentId = Nothing,
-      _ssStackName = pStackName_,
-      _ssCreationTime = _Time # pCreationTime_,
-      _ssStackStatus = pStackStatus_
+    { lastUpdatedTime = Lude.Nothing,
+      rootId = Lude.Nothing,
+      stackStatusReason = Lude.Nothing,
+      templateDescription = Lude.Nothing,
+      driftInformation = Lude.Nothing,
+      deletionTime = Lude.Nothing,
+      stackId = Lude.Nothing,
+      parentId = Lude.Nothing,
+      stackName = pStackName_,
+      creationTime = pCreationTime_,
+      stackStatus = pStackStatus_
     }
 
 -- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
-ssLastUpdatedTime :: Lens' StackSummary (Maybe UTCTime)
-ssLastUpdatedTime = lens _ssLastUpdatedTime (\s a -> s {_ssLastUpdatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssLastUpdatedTime :: Lens.Lens' StackSummary (Lude.Maybe Lude.ISO8601)
+ssLastUpdatedTime = Lens.lens (lastUpdatedTime :: StackSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastUpdatedTime = a} :: StackSummary)
+{-# DEPRECATED ssLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
--- | For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
-ssRootId :: Lens' StackSummary (Maybe Text)
-ssRootId = lens _ssRootId (\s a -> s {_ssRootId = a})
+-- | For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+--
+-- /Note:/ Consider using 'rootId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssRootId :: Lens.Lens' StackSummary (Lude.Maybe Lude.Text)
+ssRootId = Lens.lens (rootId :: StackSummary -> Lude.Maybe Lude.Text) (\s a -> s {rootId = a} :: StackSummary)
+{-# DEPRECATED ssRootId "Use generic-lens or generic-optics with 'rootId' instead." #-}
 
 -- | Success/Failure message associated with the stack status.
-ssStackStatusReason :: Lens' StackSummary (Maybe Text)
-ssStackStatusReason = lens _ssStackStatusReason (\s a -> s {_ssStackStatusReason = a})
+--
+-- /Note:/ Consider using 'stackStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStackStatusReason :: Lens.Lens' StackSummary (Lude.Maybe Lude.Text)
+ssStackStatusReason = Lens.lens (stackStatusReason :: StackSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackStatusReason = a} :: StackSummary)
+{-# DEPRECATED ssStackStatusReason "Use generic-lens or generic-optics with 'stackStatusReason' instead." #-}
 
 -- | The template description of the template used to create the stack.
-ssTemplateDescription :: Lens' StackSummary (Maybe Text)
-ssTemplateDescription = lens _ssTemplateDescription (\s a -> s {_ssTemplateDescription = a})
+--
+-- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssTemplateDescription :: Lens.Lens' StackSummary (Lude.Maybe Lude.Text)
+ssTemplateDescription = Lens.lens (templateDescription :: StackSummary -> Lude.Maybe Lude.Text) (\s a -> s {templateDescription = a} :: StackSummary)
+{-# DEPRECATED ssTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
 
 -- | Summarizes information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
-ssDriftInformation :: Lens' StackSummary (Maybe StackDriftInformationSummary)
-ssDriftInformation = lens _ssDriftInformation (\s a -> s {_ssDriftInformation = a})
+--
+-- /Note:/ Consider using 'driftInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssDriftInformation :: Lens.Lens' StackSummary (Lude.Maybe StackDriftInformationSummary)
+ssDriftInformation = Lens.lens (driftInformation :: StackSummary -> Lude.Maybe StackDriftInformationSummary) (\s a -> s {driftInformation = a} :: StackSummary)
+{-# DEPRECATED ssDriftInformation "Use generic-lens or generic-optics with 'driftInformation' instead." #-}
 
 -- | The time the stack was deleted.
-ssDeletionTime :: Lens' StackSummary (Maybe UTCTime)
-ssDeletionTime = lens _ssDeletionTime (\s a -> s {_ssDeletionTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deletionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssDeletionTime :: Lens.Lens' StackSummary (Lude.Maybe Lude.ISO8601)
+ssDeletionTime = Lens.lens (deletionTime :: StackSummary -> Lude.Maybe Lude.ISO8601) (\s a -> s {deletionTime = a} :: StackSummary)
+{-# DEPRECATED ssDeletionTime "Use generic-lens or generic-optics with 'deletionTime' instead." #-}
 
 -- | Unique stack identifier.
-ssStackId :: Lens' StackSummary (Maybe Text)
-ssStackId = lens _ssStackId (\s a -> s {_ssStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStackId :: Lens.Lens' StackSummary (Lude.Maybe Lude.Text)
+ssStackId = Lens.lens (stackId :: StackSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: StackSummary)
+{-# DEPRECATED ssStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
--- | For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
-ssParentId :: Lens' StackSummary (Maybe Text)
-ssParentId = lens _ssParentId (\s a -> s {_ssParentId = a})
+-- | For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+--
+-- /Note:/ Consider using 'parentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssParentId :: Lens.Lens' StackSummary (Lude.Maybe Lude.Text)
+ssParentId = Lens.lens (parentId :: StackSummary -> Lude.Maybe Lude.Text) (\s a -> s {parentId = a} :: StackSummary)
+{-# DEPRECATED ssParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
 -- | The name associated with the stack.
-ssStackName :: Lens' StackSummary Text
-ssStackName = lens _ssStackName (\s a -> s {_ssStackName = a})
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStackName :: Lens.Lens' StackSummary Lude.Text
+ssStackName = Lens.lens (stackName :: StackSummary -> Lude.Text) (\s a -> s {stackName = a} :: StackSummary)
+{-# DEPRECATED ssStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 -- | The time the stack was created.
-ssCreationTime :: Lens' StackSummary UTCTime
-ssCreationTime = lens _ssCreationTime (\s a -> s {_ssCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssCreationTime :: Lens.Lens' StackSummary Lude.ISO8601
+ssCreationTime = Lens.lens (creationTime :: StackSummary -> Lude.ISO8601) (\s a -> s {creationTime = a} :: StackSummary)
+{-# DEPRECATED ssCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The current status of the stack.
-ssStackStatus :: Lens' StackSummary StackStatus
-ssStackStatus = lens _ssStackStatus (\s a -> s {_ssStackStatus = a})
+--
+-- /Note:/ Consider using 'stackStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStackStatus :: Lens.Lens' StackSummary StackStatus
+ssStackStatus = Lens.lens (stackStatus :: StackSummary -> StackStatus) (\s a -> s {stackStatus = a} :: StackSummary)
+{-# DEPRECATED ssStackStatus "Use generic-lens or generic-optics with 'stackStatus' instead." #-}
 
-instance FromXML StackSummary where
+instance Lude.FromXML StackSummary where
   parseXML x =
     StackSummary'
-      <$> (x .@? "LastUpdatedTime")
-      <*> (x .@? "RootId")
-      <*> (x .@? "StackStatusReason")
-      <*> (x .@? "TemplateDescription")
-      <*> (x .@? "DriftInformation")
-      <*> (x .@? "DeletionTime")
-      <*> (x .@? "StackId")
-      <*> (x .@? "ParentId")
-      <*> (x .@ "StackName")
-      <*> (x .@ "CreationTime")
-      <*> (x .@ "StackStatus")
-
-instance Hashable StackSummary
-
-instance NFData StackSummary
+      Lude.<$> (x Lude..@? "LastUpdatedTime")
+      Lude.<*> (x Lude..@? "RootId")
+      Lude.<*> (x Lude..@? "StackStatusReason")
+      Lude.<*> (x Lude..@? "TemplateDescription")
+      Lude.<*> (x Lude..@? "DriftInformation")
+      Lude.<*> (x Lude..@? "DeletionTime")
+      Lude.<*> (x Lude..@? "StackId")
+      Lude.<*> (x Lude..@? "ParentId")
+      Lude.<*> (x Lude..@ "StackName")
+      Lude.<*> (x Lude..@ "CreationTime")
+      Lude.<*> (x Lude..@ "StackStatus")

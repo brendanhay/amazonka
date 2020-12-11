@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,133 +7,184 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Types.LanguageCode where
+module Network.AWS.Polly.Types.LanguageCode
+  ( LanguageCode
+      ( LanguageCode',
+        Arb,
+        CmnCn,
+        CyGb,
+        DaDk,
+        DeDe,
+        EnAu,
+        EnGb,
+        EnGbWls,
+        EnIn,
+        EnUs,
+        EsEs,
+        EsMx,
+        EsUs,
+        FrCa,
+        FrFr,
+        HiIn,
+        IsIs,
+        ItIt,
+        JaJp,
+        KoKr,
+        NbNo,
+        NlNl,
+        PlPl,
+        PtBr,
+        PtPt,
+        RoRo,
+        RuRu,
+        SvSe,
+        TrTr
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LanguageCode
-  = Arb
-  | CmnCn
-  | CyGb
-  | DaDk
-  | DeDe
-  | EnAu
-  | EnGb
-  | EnGbWls
-  | EnIn
-  | EnUs
-  | EsEs
-  | EsMx
-  | EsUs
-  | FrCa
-  | FrFr
-  | HiIn
-  | IsIs
-  | ItIt
-  | JaJp
-  | KoKr
-  | NbNo
-  | NlNl
-  | PlPl
-  | PtBr
-  | PtPt
-  | RoRo
-  | RuRu
-  | SvSe
-  | TrTr
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LanguageCode = LanguageCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LanguageCode where
-  parser =
-    takeLowerText >>= \case
-      "arb" -> pure Arb
-      "cmn-cn" -> pure CmnCn
-      "cy-gb" -> pure CyGb
-      "da-dk" -> pure DaDk
-      "de-de" -> pure DeDe
-      "en-au" -> pure EnAu
-      "en-gb" -> pure EnGb
-      "en-gb-wls" -> pure EnGbWls
-      "en-in" -> pure EnIn
-      "en-us" -> pure EnUs
-      "es-es" -> pure EsEs
-      "es-mx" -> pure EsMx
-      "es-us" -> pure EsUs
-      "fr-ca" -> pure FrCa
-      "fr-fr" -> pure FrFr
-      "hi-in" -> pure HiIn
-      "is-is" -> pure IsIs
-      "it-it" -> pure ItIt
-      "ja-jp" -> pure JaJp
-      "ko-kr" -> pure KoKr
-      "nb-no" -> pure NbNo
-      "nl-nl" -> pure NlNl
-      "pl-pl" -> pure PlPl
-      "pt-br" -> pure PtBr
-      "pt-pt" -> pure PtPt
-      "ro-ro" -> pure RoRo
-      "ru-ru" -> pure RuRu
-      "sv-se" -> pure SvSe
-      "tr-tr" -> pure TrTr
-      e ->
-        fromTextError $
-          "Failure parsing LanguageCode from value: '" <> e
-            <> "'. Accepted values: arb, cmn-cn, cy-gb, da-dk, de-de, en-au, en-gb, en-gb-wls, en-in, en-us, es-es, es-mx, es-us, fr-ca, fr-fr, hi-in, is-is, it-it, ja-jp, ko-kr, nb-no, nl-nl, pl-pl, pt-br, pt-pt, ro-ro, ru-ru, sv-se, tr-tr"
+pattern Arb :: LanguageCode
+pattern Arb = LanguageCode' "arb"
 
-instance ToText LanguageCode where
-  toText = \case
-    Arb -> "arb"
-    CmnCn -> "cmn-CN"
-    CyGb -> "cy-GB"
-    DaDk -> "da-DK"
-    DeDe -> "de-DE"
-    EnAu -> "en-AU"
-    EnGb -> "en-GB"
-    EnGbWls -> "en-GB-WLS"
-    EnIn -> "en-IN"
-    EnUs -> "en-US"
-    EsEs -> "es-ES"
-    EsMx -> "es-MX"
-    EsUs -> "es-US"
-    FrCa -> "fr-CA"
-    FrFr -> "fr-FR"
-    HiIn -> "hi-IN"
-    IsIs -> "is-IS"
-    ItIt -> "it-IT"
-    JaJp -> "ja-JP"
-    KoKr -> "ko-KR"
-    NbNo -> "nb-NO"
-    NlNl -> "nl-NL"
-    PlPl -> "pl-PL"
-    PtBr -> "pt-BR"
-    PtPt -> "pt-PT"
-    RoRo -> "ro-RO"
-    RuRu -> "ru-RU"
-    SvSe -> "sv-SE"
-    TrTr -> "tr-TR"
+pattern CmnCn :: LanguageCode
+pattern CmnCn = LanguageCode' "cmn-CN"
 
-instance Hashable LanguageCode
+pattern CyGb :: LanguageCode
+pattern CyGb = LanguageCode' "cy-GB"
 
-instance NFData LanguageCode
+pattern DaDk :: LanguageCode
+pattern DaDk = LanguageCode' "da-DK"
 
-instance ToByteString LanguageCode
+pattern DeDe :: LanguageCode
+pattern DeDe = LanguageCode' "de-DE"
 
-instance ToQuery LanguageCode
+pattern EnAu :: LanguageCode
+pattern EnAu = LanguageCode' "en-AU"
 
-instance ToHeader LanguageCode
+pattern EnGb :: LanguageCode
+pattern EnGb = LanguageCode' "en-GB"
 
-instance ToJSON LanguageCode where
-  toJSON = toJSONText
+pattern EnGbWls :: LanguageCode
+pattern EnGbWls = LanguageCode' "en-GB-WLS"
 
-instance FromJSON LanguageCode where
-  parseJSON = parseJSONText "LanguageCode"
+pattern EnIn :: LanguageCode
+pattern EnIn = LanguageCode' "en-IN"
+
+pattern EnUs :: LanguageCode
+pattern EnUs = LanguageCode' "en-US"
+
+pattern EsEs :: LanguageCode
+pattern EsEs = LanguageCode' "es-ES"
+
+pattern EsMx :: LanguageCode
+pattern EsMx = LanguageCode' "es-MX"
+
+pattern EsUs :: LanguageCode
+pattern EsUs = LanguageCode' "es-US"
+
+pattern FrCa :: LanguageCode
+pattern FrCa = LanguageCode' "fr-CA"
+
+pattern FrFr :: LanguageCode
+pattern FrFr = LanguageCode' "fr-FR"
+
+pattern HiIn :: LanguageCode
+pattern HiIn = LanguageCode' "hi-IN"
+
+pattern IsIs :: LanguageCode
+pattern IsIs = LanguageCode' "is-IS"
+
+pattern ItIt :: LanguageCode
+pattern ItIt = LanguageCode' "it-IT"
+
+pattern JaJp :: LanguageCode
+pattern JaJp = LanguageCode' "ja-JP"
+
+pattern KoKr :: LanguageCode
+pattern KoKr = LanguageCode' "ko-KR"
+
+pattern NbNo :: LanguageCode
+pattern NbNo = LanguageCode' "nb-NO"
+
+pattern NlNl :: LanguageCode
+pattern NlNl = LanguageCode' "nl-NL"
+
+pattern PlPl :: LanguageCode
+pattern PlPl = LanguageCode' "pl-PL"
+
+pattern PtBr :: LanguageCode
+pattern PtBr = LanguageCode' "pt-BR"
+
+pattern PtPt :: LanguageCode
+pattern PtPt = LanguageCode' "pt-PT"
+
+pattern RoRo :: LanguageCode
+pattern RoRo = LanguageCode' "ro-RO"
+
+pattern RuRu :: LanguageCode
+pattern RuRu = LanguageCode' "ru-RU"
+
+pattern SvSe :: LanguageCode
+pattern SvSe = LanguageCode' "sv-SE"
+
+pattern TrTr :: LanguageCode
+pattern TrTr = LanguageCode' "tr-TR"
+
+{-# COMPLETE
+  Arb,
+  CmnCn,
+  CyGb,
+  DaDk,
+  DeDe,
+  EnAu,
+  EnGb,
+  EnGbWls,
+  EnIn,
+  EnUs,
+  EsEs,
+  EsMx,
+  EsUs,
+  FrCa,
+  FrFr,
+  HiIn,
+  IsIs,
+  ItIt,
+  JaJp,
+  KoKr,
+  NbNo,
+  NlNl,
+  PlPl,
+  PtBr,
+  PtPt,
+  RoRo,
+  RuRu,
+  SvSe,
+  TrTr,
+  LanguageCode'
+  #-}

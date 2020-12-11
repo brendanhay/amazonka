@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types
-  ( -- * Service Configuration
-    storageGateway,
+  ( -- * Service configuration
+    storageGatewayService,
 
     -- * Errors
 
@@ -46,14 +44,14 @@ module Network.AWS.StorageGateway.Types
     TapeStorageClass (..),
 
     -- * AutomaticTapeCreationPolicyInfo
-    AutomaticTapeCreationPolicyInfo,
-    automaticTapeCreationPolicyInfo,
+    AutomaticTapeCreationPolicyInfo (..),
+    mkAutomaticTapeCreationPolicyInfo,
     atcpiGatewayARN,
     atcpiAutomaticTapeCreationRules,
 
     -- * AutomaticTapeCreationRule
-    AutomaticTapeCreationRule,
-    automaticTapeCreationRule,
+    AutomaticTapeCreationRule (..),
+    mkAutomaticTapeCreationRule,
     atcrWorm,
     atcrTapeBarcodePrefix,
     atcrPoolId,
@@ -61,8 +59,8 @@ module Network.AWS.StorageGateway.Types
     atcrMinimumNumTapes,
 
     -- * BandwidthRateLimitInterval
-    BandwidthRateLimitInterval,
-    bandwidthRateLimitInterval,
+    BandwidthRateLimitInterval (..),
+    mkBandwidthRateLimitInterval,
     brliAverageUploadRateLimitInBitsPerSec,
     brliAverageDownloadRateLimitInBitsPerSec,
     brliStartHourOfDay,
@@ -72,13 +70,13 @@ module Network.AWS.StorageGateway.Types
     brliDaysOfWeek,
 
     -- * CacheAttributes
-    CacheAttributes,
-    cacheAttributes,
+    CacheAttributes (..),
+    mkCacheAttributes,
     caCacheStaleTimeoutInSeconds,
 
     -- * CachediSCSIVolume
-    CachediSCSIVolume,
-    cachediSCSIVolume,
+    CachediSCSIVolume (..),
+    mkCachediSCSIVolume,
     cscsivVolumeiSCSIAttributes,
     cscsivVolumeStatus,
     cscsivSourceSnapshotId,
@@ -94,24 +92,24 @@ module Network.AWS.StorageGateway.Types
     cscsivTargetName,
 
     -- * ChapInfo
-    ChapInfo,
-    chapInfo,
+    ChapInfo (..),
+    mkChapInfo,
     ciTargetARN,
     ciSecretToAuthenticateInitiator,
     ciInitiatorName,
     ciSecretToAuthenticateTarget,
 
     -- * DeviceiSCSIAttributes
-    DeviceiSCSIAttributes,
-    deviceiSCSIAttributes,
+    DeviceiSCSIAttributes (..),
+    mkDeviceiSCSIAttributes,
     dscsiaTargetARN,
     dscsiaChapEnabled,
     dscsiaNetworkInterfaceId,
     dscsiaNetworkInterfacePort,
 
     -- * Disk
-    Disk,
-    disk,
+    Disk (..),
+    mkDisk,
     dDiskAllocationResource,
     dDiskAllocationType,
     dDiskNode,
@@ -122,8 +120,8 @@ module Network.AWS.StorageGateway.Types
     dDiskAttributeList,
 
     -- * FileShareInfo
-    FileShareInfo,
-    fileShareInfo,
+    FileShareInfo (..),
+    mkFileShareInfo,
     fsiFileShareStatus,
     fsiGatewayARN,
     fsiFileShareId,
@@ -131,8 +129,8 @@ module Network.AWS.StorageGateway.Types
     fsiFileShareType,
 
     -- * GatewayInfo
-    GatewayInfo,
-    gatewayInfo,
+    GatewayInfo (..),
+    mkGatewayInfo,
     giEC2InstanceRegion,
     giGatewayARN,
     giEC2InstanceId,
@@ -142,16 +140,16 @@ module Network.AWS.StorageGateway.Types
     giGatewayType,
 
     -- * NFSFileShareDefaults
-    NFSFileShareDefaults,
-    nFSFileShareDefaults,
+    NFSFileShareDefaults (..),
+    mkNFSFileShareDefaults,
     nfsfsdFileMode,
     nfsfsdOwnerId,
     nfsfsdDirectoryMode,
     nfsfsdGroupId,
 
     -- * NFSFileShareInfo
-    NFSFileShareInfo,
-    nFSFileShareInfo,
+    NFSFileShareInfo (..),
+    mkNFSFileShareInfo,
     nfsfsiFileShareStatus,
     nfsfsiKMSKey,
     nfsfsiGatewayARN,
@@ -175,15 +173,15 @@ module Network.AWS.StorageGateway.Types
     nfsfsiTags,
 
     -- * NetworkInterface
-    NetworkInterface,
-    networkInterface,
+    NetworkInterface (..),
+    mkNetworkInterface,
     niIPv6Address,
     niMACAddress,
     niIPv4Address,
 
     -- * PoolInfo
-    PoolInfo,
-    poolInfo,
+    PoolInfo (..),
+    mkPoolInfo,
     piRetentionLockType,
     piRetentionLockTimeInDays,
     piPoolName,
@@ -192,8 +190,8 @@ module Network.AWS.StorageGateway.Types
     piPoolARN,
 
     -- * SMBFileShareInfo
-    SMBFileShareInfo,
-    sMBFileShareInfo,
+    SMBFileShareInfo (..),
+    mkSMBFileShareInfo,
     smbfsiAccessBasedEnumeration,
     smbfsiAdminUserList,
     smbfsiAuditDestinationARN,
@@ -222,8 +220,8 @@ module Network.AWS.StorageGateway.Types
     smbfsiTags,
 
     -- * StorediSCSIVolume
-    StorediSCSIVolume,
-    storediSCSIVolume,
+    StorediSCSIVolume (..),
+    mkStorediSCSIVolume,
     sscsivVolumeiSCSIAttributes,
     sscsivVolumeStatus,
     sscsivSourceSnapshotId,
@@ -241,14 +239,14 @@ module Network.AWS.StorageGateway.Types
     sscsivTargetName,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * Tape
-    Tape,
-    tape,
+    Tape (..),
+    mkTape,
     tTapeBarcode,
     tTapeStatus,
     tKMSKey,
@@ -264,8 +262,8 @@ module Network.AWS.StorageGateway.Types
     tRetentionStartDate,
 
     -- * TapeArchive
-    TapeArchive,
-    tapeArchive,
+    TapeArchive (..),
+    mkTapeArchive,
     taTapeBarcode,
     taTapeStatus,
     taKMSKey,
@@ -281,8 +279,8 @@ module Network.AWS.StorageGateway.Types
     taRetrievedTo,
 
     -- * TapeInfo
-    TapeInfo,
-    tapeInfo,
+    TapeInfo (..),
+    mkTapeInfo,
     tiTapeBarcode,
     tiTapeStatus,
     tiTapeARN,
@@ -293,16 +291,16 @@ module Network.AWS.StorageGateway.Types
     tiRetentionStartDate,
 
     -- * TapeRecoveryPointInfo
-    TapeRecoveryPointInfo,
-    tapeRecoveryPointInfo,
+    TapeRecoveryPointInfo (..),
+    mkTapeRecoveryPointInfo,
     trpiTapeStatus,
     trpiTapeRecoveryPointTime,
     trpiTapeARN,
     trpiTapeSizeInBytes,
 
     -- * VTLDevice
-    VTLDevice,
-    vTLDevice,
+    VTLDevice (..),
+    mkVTLDevice,
     vtldDeviceiSCSIAttributes,
     vtldVTLDeviceVendor,
     vtldVTLDeviceARN,
@@ -310,8 +308,8 @@ module Network.AWS.StorageGateway.Types
     vtldVTLDeviceProductIdentifier,
 
     -- * VolumeInfo
-    VolumeInfo,
-    volumeInfo,
+    VolumeInfo (..),
+    mkVolumeInfo,
     viGatewayARN,
     viVolumeAttachmentStatus,
     viVolumeARN,
@@ -321,16 +319,16 @@ module Network.AWS.StorageGateway.Types
     viVolumeType,
 
     -- * VolumeRecoveryPointInfo
-    VolumeRecoveryPointInfo,
-    volumeRecoveryPointInfo,
+    VolumeRecoveryPointInfo (..),
+    mkVolumeRecoveryPointInfo,
     vrpiVolumeRecoveryPointTime,
     vrpiVolumeARN,
     vrpiVolumeSizeInBytes,
     vrpiVolumeUsageInBytes,
 
     -- * VolumeiSCSIAttributes
-    VolumeiSCSIAttributes,
-    volumeiSCSIAttributes,
+    VolumeiSCSIAttributes (..),
+    mkVolumeiSCSIAttributes,
     vscsiaLunNumber,
     vscsiaTargetARN,
     vscsiaChapEnabled,
@@ -339,9 +337,9 @@ module Network.AWS.StorageGateway.Types
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.StorageGateway.Types.ActiveDirectoryStatus
 import Network.AWS.StorageGateway.Types.AutomaticTapeCreationPolicyInfo
 import Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule
@@ -379,43 +377,55 @@ import Network.AWS.StorageGateway.Types.VolumeRecoveryPointInfo
 import Network.AWS.StorageGateway.Types.VolumeiSCSIAttributes
 
 -- | API version @2013-06-30@ of the Amazon Storage Gateway SDK configuration.
-storageGateway :: Service
-storageGateway =
-  Service
-    { _svcAbbrev = "StorageGateway",
-      _svcSigner = v4,
-      _svcPrefix = "storagegateway",
-      _svcVersion = "2013-06-30",
-      _svcEndpoint = defaultEndpoint storageGateway,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "StorageGateway",
-      _svcRetry = retry
+storageGatewayService :: Lude.Service
+storageGatewayService =
+  Lude.Service
+    { Lude._svcAbbrev = "StorageGateway",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "storagegateway",
+      Lude._svcVersion = "2013-06-30",
+      Lude._svcEndpoint = Lude.defaultEndpoint storageGatewayService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "StorageGateway",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

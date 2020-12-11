@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.ConnectorDefinitionVersion where
+module Network.AWS.Greengrass.Types.ConnectorDefinitionVersion
+  ( ConnectorDefinitionVersion (..),
+
+    -- * Smart constructor
+    mkConnectorDefinitionVersion,
+
+    -- * Lenses
+    cdvConnectors,
+  )
+where
 
 import Network.AWS.Greengrass.Types.Connector
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the connector definition version, which is a container for connectors.
 --
--- /See:/ 'connectorDefinitionVersion' smart constructor.
+-- /See:/ 'mkConnectorDefinitionVersion' smart constructor.
 newtype ConnectorDefinitionVersion = ConnectorDefinitionVersion'
-  { _cdvConnectors ::
-      Maybe [Connector]
+  { connectors ::
+      Lude.Maybe [Connector]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectorDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdvConnectors' - A list of references to connectors in this version, with their corresponding configuration settings.
-connectorDefinitionVersion ::
+-- * 'connectors' - A list of references to connectors in this version, with their corresponding configuration settings.
+mkConnectorDefinitionVersion ::
   ConnectorDefinitionVersion
-connectorDefinitionVersion =
-  ConnectorDefinitionVersion' {_cdvConnectors = Nothing}
+mkConnectorDefinitionVersion =
+  ConnectorDefinitionVersion' {connectors = Lude.Nothing}
 
 -- | A list of references to connectors in this version, with their corresponding configuration settings.
-cdvConnectors :: Lens' ConnectorDefinitionVersion [Connector]
-cdvConnectors = lens _cdvConnectors (\s a -> s {_cdvConnectors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'connectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdvConnectors :: Lens.Lens' ConnectorDefinitionVersion (Lude.Maybe [Connector])
+cdvConnectors = Lens.lens (connectors :: ConnectorDefinitionVersion -> Lude.Maybe [Connector]) (\s a -> s {connectors = a} :: ConnectorDefinitionVersion)
+{-# DEPRECATED cdvConnectors "Use generic-lens or generic-optics with 'connectors' instead." #-}
 
-instance FromJSON ConnectorDefinitionVersion where
+instance Lude.FromJSON ConnectorDefinitionVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConnectorDefinitionVersion"
       ( \x ->
-          ConnectorDefinitionVersion' <$> (x .:? "Connectors" .!= mempty)
+          ConnectorDefinitionVersion'
+            Lude.<$> (x Lude..:? "Connectors" Lude..!= Lude.mempty)
       )
 
-instance Hashable ConnectorDefinitionVersion
-
-instance NFData ConnectorDefinitionVersion
-
-instance ToJSON ConnectorDefinitionVersion where
+instance Lude.ToJSON ConnectorDefinitionVersion where
   toJSON ConnectorDefinitionVersion' {..} =
-    object (catMaybes [("Connectors" .=) <$> _cdvConnectors])
+    Lude.object
+      (Lude.catMaybes [("Connectors" Lude..=) Lude.<$> connectors])

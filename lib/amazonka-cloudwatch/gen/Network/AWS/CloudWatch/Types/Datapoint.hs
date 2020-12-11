@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,141 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.Datapoint where
+module Network.AWS.CloudWatch.Types.Datapoint
+  ( Datapoint (..),
+
+    -- * Smart constructor
+    mkDatapoint,
+
+    -- * Lenses
+    dSampleCount,
+    dMaximum,
+    dAverage,
+    dMinimum,
+    dExtendedStatistics,
+    dSum,
+    dUnit,
+    dTimestamp,
+  )
+where
 
 import Network.AWS.CloudWatch.Types.StandardUnit
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encapsulates the statistical data that CloudWatch computes from metric data.
 --
---
---
--- /See:/ 'datapoint' smart constructor.
+-- /See:/ 'mkDatapoint' smart constructor.
 data Datapoint = Datapoint'
-  { _dSampleCount :: !(Maybe Double),
-    _dMaximum :: !(Maybe Double),
-    _dAverage :: !(Maybe Double),
-    _dMinimum :: !(Maybe Double),
-    _dExtendedStatistics :: !(Maybe (Map Text (Double))),
-    _dSum :: !(Maybe Double),
-    _dUnit :: !(Maybe StandardUnit),
-    _dTimestamp :: !(Maybe ISO8601)
+  { sampleCount :: Lude.Maybe Lude.Double,
+    maximum :: Lude.Maybe Lude.Double,
+    average :: Lude.Maybe Lude.Double,
+    minimum :: Lude.Maybe Lude.Double,
+    extendedStatistics ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+    sum :: Lude.Maybe Lude.Double,
+    unit :: Lude.Maybe StandardUnit,
+    timestamp :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Datapoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dSampleCount' - The number of metric values that contributed to the aggregate value of this data point.
---
--- * 'dMaximum' - The maximum metric value for the data point.
---
--- * 'dAverage' - The average of the metric values that correspond to the data point.
---
--- * 'dMinimum' - The minimum metric value for the data point.
---
--- * 'dExtendedStatistics' - The percentile statistic for the data point.
---
--- * 'dSum' - The sum of the metric values for the data point.
---
--- * 'dUnit' - The standard unit for the data point.
---
--- * 'dTimestamp' - The time stamp used for the data point.
-datapoint ::
+-- * 'average' - The average of the metric values that correspond to the data point.
+-- * 'extendedStatistics' - The percentile statistic for the data point.
+-- * 'maximum' - The maximum metric value for the data point.
+-- * 'minimum' - The minimum metric value for the data point.
+-- * 'sampleCount' - The number of metric values that contributed to the aggregate value of this data point.
+-- * 'sum' - The sum of the metric values for the data point.
+-- * 'timestamp' - The time stamp used for the data point.
+-- * 'unit' - The standard unit for the data point.
+mkDatapoint ::
   Datapoint
-datapoint =
+mkDatapoint =
   Datapoint'
-    { _dSampleCount = Nothing,
-      _dMaximum = Nothing,
-      _dAverage = Nothing,
-      _dMinimum = Nothing,
-      _dExtendedStatistics = Nothing,
-      _dSum = Nothing,
-      _dUnit = Nothing,
-      _dTimestamp = Nothing
+    { sampleCount = Lude.Nothing,
+      maximum = Lude.Nothing,
+      average = Lude.Nothing,
+      minimum = Lude.Nothing,
+      extendedStatistics = Lude.Nothing,
+      sum = Lude.Nothing,
+      unit = Lude.Nothing,
+      timestamp = Lude.Nothing
     }
 
 -- | The number of metric values that contributed to the aggregate value of this data point.
-dSampleCount :: Lens' Datapoint (Maybe Double)
-dSampleCount = lens _dSampleCount (\s a -> s {_dSampleCount = a})
+--
+-- /Note:/ Consider using 'sampleCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSampleCount :: Lens.Lens' Datapoint (Lude.Maybe Lude.Double)
+dSampleCount = Lens.lens (sampleCount :: Datapoint -> Lude.Maybe Lude.Double) (\s a -> s {sampleCount = a} :: Datapoint)
+{-# DEPRECATED dSampleCount "Use generic-lens or generic-optics with 'sampleCount' instead." #-}
 
 -- | The maximum metric value for the data point.
-dMaximum :: Lens' Datapoint (Maybe Double)
-dMaximum = lens _dMaximum (\s a -> s {_dMaximum = a})
+--
+-- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMaximum :: Lens.Lens' Datapoint (Lude.Maybe Lude.Double)
+dMaximum = Lens.lens (maximum :: Datapoint -> Lude.Maybe Lude.Double) (\s a -> s {maximum = a} :: Datapoint)
+{-# DEPRECATED dMaximum "Use generic-lens or generic-optics with 'maximum' instead." #-}
 
 -- | The average of the metric values that correspond to the data point.
-dAverage :: Lens' Datapoint (Maybe Double)
-dAverage = lens _dAverage (\s a -> s {_dAverage = a})
+--
+-- /Note:/ Consider using 'average' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAverage :: Lens.Lens' Datapoint (Lude.Maybe Lude.Double)
+dAverage = Lens.lens (average :: Datapoint -> Lude.Maybe Lude.Double) (\s a -> s {average = a} :: Datapoint)
+{-# DEPRECATED dAverage "Use generic-lens or generic-optics with 'average' instead." #-}
 
 -- | The minimum metric value for the data point.
-dMinimum :: Lens' Datapoint (Maybe Double)
-dMinimum = lens _dMinimum (\s a -> s {_dMinimum = a})
+--
+-- /Note:/ Consider using 'minimum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMinimum :: Lens.Lens' Datapoint (Lude.Maybe Lude.Double)
+dMinimum = Lens.lens (minimum :: Datapoint -> Lude.Maybe Lude.Double) (\s a -> s {minimum = a} :: Datapoint)
+{-# DEPRECATED dMinimum "Use generic-lens or generic-optics with 'minimum' instead." #-}
 
 -- | The percentile statistic for the data point.
-dExtendedStatistics :: Lens' Datapoint (HashMap Text (Double))
-dExtendedStatistics = lens _dExtendedStatistics (\s a -> s {_dExtendedStatistics = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'extendedStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dExtendedStatistics :: Lens.Lens' Datapoint (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)))
+dExtendedStatistics = Lens.lens (extendedStatistics :: Datapoint -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double))) (\s a -> s {extendedStatistics = a} :: Datapoint)
+{-# DEPRECATED dExtendedStatistics "Use generic-lens or generic-optics with 'extendedStatistics' instead." #-}
 
 -- | The sum of the metric values for the data point.
-dSum :: Lens' Datapoint (Maybe Double)
-dSum = lens _dSum (\s a -> s {_dSum = a})
+--
+-- /Note:/ Consider using 'sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSum :: Lens.Lens' Datapoint (Lude.Maybe Lude.Double)
+dSum = Lens.lens (sum :: Datapoint -> Lude.Maybe Lude.Double) (\s a -> s {sum = a} :: Datapoint)
+{-# DEPRECATED dSum "Use generic-lens or generic-optics with 'sum' instead." #-}
 
 -- | The standard unit for the data point.
-dUnit :: Lens' Datapoint (Maybe StandardUnit)
-dUnit = lens _dUnit (\s a -> s {_dUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dUnit :: Lens.Lens' Datapoint (Lude.Maybe StandardUnit)
+dUnit = Lens.lens (unit :: Datapoint -> Lude.Maybe StandardUnit) (\s a -> s {unit = a} :: Datapoint)
+{-# DEPRECATED dUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | The time stamp used for the data point.
-dTimestamp :: Lens' Datapoint (Maybe UTCTime)
-dTimestamp = lens _dTimestamp (\s a -> s {_dTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTimestamp :: Lens.Lens' Datapoint (Lude.Maybe Lude.ISO8601)
+dTimestamp = Lens.lens (timestamp :: Datapoint -> Lude.Maybe Lude.ISO8601) (\s a -> s {timestamp = a} :: Datapoint)
+{-# DEPRECATED dTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance FromXML Datapoint where
+instance Lude.FromXML Datapoint where
   parseXML x =
     Datapoint'
-      <$> (x .@? "SampleCount")
-      <*> (x .@? "Maximum")
-      <*> (x .@? "Average")
-      <*> (x .@? "Minimum")
-      <*> ( x .@? "ExtendedStatistics" .!@ mempty
-              >>= may (parseXMLMap "entry" "key" "value")
-          )
-      <*> (x .@? "Sum")
-      <*> (x .@? "Unit")
-      <*> (x .@? "Timestamp")
-
-instance Hashable Datapoint
-
-instance NFData Datapoint
+      Lude.<$> (x Lude..@? "SampleCount")
+      Lude.<*> (x Lude..@? "Maximum")
+      Lude.<*> (x Lude..@? "Average")
+      Lude.<*> (x Lude..@? "Minimum")
+      Lude.<*> ( x Lude..@? "ExtendedStatistics" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+               )
+      Lude.<*> (x Lude..@? "Sum")
+      Lude.<*> (x Lude..@? "Unit")
+      Lude.<*> (x Lude..@? "Timestamp")

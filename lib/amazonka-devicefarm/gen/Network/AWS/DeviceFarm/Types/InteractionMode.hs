@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.InteractionMode where
+module Network.AWS.DeviceFarm.Types.InteractionMode
+  ( InteractionMode
+      ( InteractionMode',
+        Interactive,
+        NoVideo,
+        VideoOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InteractionMode
-  = Interactive
-  | NoVideo
-  | VideoOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InteractionMode = InteractionMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InteractionMode where
-  parser =
-    takeLowerText >>= \case
-      "interactive" -> pure Interactive
-      "no_video" -> pure NoVideo
-      "video_only" -> pure VideoOnly
-      e ->
-        fromTextError $
-          "Failure parsing InteractionMode from value: '" <> e
-            <> "'. Accepted values: interactive, no_video, video_only"
+pattern Interactive :: InteractionMode
+pattern Interactive = InteractionMode' "INTERACTIVE"
 
-instance ToText InteractionMode where
-  toText = \case
-    Interactive -> "INTERACTIVE"
-    NoVideo -> "NO_VIDEO"
-    VideoOnly -> "VIDEO_ONLY"
+pattern NoVideo :: InteractionMode
+pattern NoVideo = InteractionMode' "NO_VIDEO"
 
-instance Hashable InteractionMode
+pattern VideoOnly :: InteractionMode
+pattern VideoOnly = InteractionMode' "VIDEO_ONLY"
 
-instance NFData InteractionMode
-
-instance ToByteString InteractionMode
-
-instance ToQuery InteractionMode
-
-instance ToHeader InteractionMode
-
-instance ToJSON InteractionMode where
-  toJSON = toJSONText
-
-instance FromJSON InteractionMode where
-  parseJSON = parseJSONText "InteractionMode"
+{-# COMPLETE
+  Interactive,
+  NoVideo,
+  VideoOnly,
+  InteractionMode'
+  #-}

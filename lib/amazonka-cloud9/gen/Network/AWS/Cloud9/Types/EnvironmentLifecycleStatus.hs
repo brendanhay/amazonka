@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus where
+module Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
+  ( EnvironmentLifecycleStatus
+      ( EnvironmentLifecycleStatus',
+        CreateFailed,
+        Created,
+        Creating,
+        DeleteFailed,
+        Deleting
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnvironmentLifecycleStatus
-  = CreateFailed
-  | Created
-  | Creating
-  | DeleteFailed
-  | Deleting
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnvironmentLifecycleStatus = EnvironmentLifecycleStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnvironmentLifecycleStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_failed" -> pure CreateFailed
-      "created" -> pure Created
-      "creating" -> pure Creating
-      "delete_failed" -> pure DeleteFailed
-      "deleting" -> pure Deleting
-      e ->
-        fromTextError $
-          "Failure parsing EnvironmentLifecycleStatus from value: '" <> e
-            <> "'. Accepted values: create_failed, created, creating, delete_failed, deleting"
+pattern CreateFailed :: EnvironmentLifecycleStatus
+pattern CreateFailed = EnvironmentLifecycleStatus' "CREATE_FAILED"
 
-instance ToText EnvironmentLifecycleStatus where
-  toText = \case
-    CreateFailed -> "CREATE_FAILED"
-    Created -> "CREATED"
-    Creating -> "CREATING"
-    DeleteFailed -> "DELETE_FAILED"
-    Deleting -> "DELETING"
+pattern Created :: EnvironmentLifecycleStatus
+pattern Created = EnvironmentLifecycleStatus' "CREATED"
 
-instance Hashable EnvironmentLifecycleStatus
+pattern Creating :: EnvironmentLifecycleStatus
+pattern Creating = EnvironmentLifecycleStatus' "CREATING"
 
-instance NFData EnvironmentLifecycleStatus
+pattern DeleteFailed :: EnvironmentLifecycleStatus
+pattern DeleteFailed = EnvironmentLifecycleStatus' "DELETE_FAILED"
 
-instance ToByteString EnvironmentLifecycleStatus
+pattern Deleting :: EnvironmentLifecycleStatus
+pattern Deleting = EnvironmentLifecycleStatus' "DELETING"
 
-instance ToQuery EnvironmentLifecycleStatus
-
-instance ToHeader EnvironmentLifecycleStatus
-
-instance FromJSON EnvironmentLifecycleStatus where
-  parseJSON = parseJSONText "EnvironmentLifecycleStatus"
+{-# COMPLETE
+  CreateFailed,
+  Created,
+  Creating,
+  DeleteFailed,
+  Deleting,
+  EnvironmentLifecycleStatus'
+  #-}

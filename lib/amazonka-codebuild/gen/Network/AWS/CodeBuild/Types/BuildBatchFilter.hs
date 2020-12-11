@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.BuildBatchFilter where
+module Network.AWS.CodeBuild.Types.BuildBatchFilter
+  ( BuildBatchFilter (..),
+
+    -- * Smart constructor
+    mkBuildBatchFilter,
+
+    -- * Lenses
+    bbfStatus,
+  )
+where
 
 import Network.AWS.CodeBuild.Types.StatusType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies filters when retrieving batch builds.
 --
---
---
--- /See:/ 'buildBatchFilter' smart constructor.
+-- /See:/ 'mkBuildBatchFilter' smart constructor.
 newtype BuildBatchFilter = BuildBatchFilter'
-  { _bbfStatus ::
-      Maybe StatusType
+  { status ::
+      Lude.Maybe StatusType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildBatchFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bbfStatus' - The status of the batch builds to retrieve. Only batch builds that have this status will be retrieved.
-buildBatchFilter ::
+-- * 'status' - The status of the batch builds to retrieve. Only batch builds that have this status will be retrieved.
+mkBuildBatchFilter ::
   BuildBatchFilter
-buildBatchFilter = BuildBatchFilter' {_bbfStatus = Nothing}
+mkBuildBatchFilter = BuildBatchFilter' {status = Lude.Nothing}
 
 -- | The status of the batch builds to retrieve. Only batch builds that have this status will be retrieved.
-bbfStatus :: Lens' BuildBatchFilter (Maybe StatusType)
-bbfStatus = lens _bbfStatus (\s a -> s {_bbfStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bbfStatus :: Lens.Lens' BuildBatchFilter (Lude.Maybe StatusType)
+bbfStatus = Lens.lens (status :: BuildBatchFilter -> Lude.Maybe StatusType) (\s a -> s {status = a} :: BuildBatchFilter)
+{-# DEPRECATED bbfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Hashable BuildBatchFilter
-
-instance NFData BuildBatchFilter
-
-instance ToJSON BuildBatchFilter where
+instance Lude.ToJSON BuildBatchFilter where
   toJSON BuildBatchFilter' {..} =
-    object (catMaybes [("status" .=) <$> _bbfStatus])
+    Lude.object (Lude.catMaybes [("status" Lude..=) Lude.<$> status])

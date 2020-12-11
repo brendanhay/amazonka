@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,181 +14,193 @@
 --
 -- Deregisters the specified sources (network interfaces) from the transit gateway multicast group.
 module Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources
-  ( -- * Creating a Request
-    deregisterTransitGatewayMulticastGroupSources,
-    DeregisterTransitGatewayMulticastGroupSources,
+  ( -- * Creating a request
+    DeregisterTransitGatewayMulticastGroupSources (..),
+    mkDeregisterTransitGatewayMulticastGroupSources,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtgmgsNetworkInterfaceIds,
     dtgmgsTransitGatewayMulticastDomainId,
     dtgmgsGroupIPAddress,
     dtgmgsDryRun,
 
-    -- * Destructuring the Response
-    deregisterTransitGatewayMulticastGroupSourcesResponse,
-    DeregisterTransitGatewayMulticastGroupSourcesResponse,
+    -- * Destructuring the response
+    DeregisterTransitGatewayMulticastGroupSourcesResponse (..),
+    mkDeregisterTransitGatewayMulticastGroupSourcesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtgmgsrsDeregisteredMulticastGroupSources,
     dtgmgsrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterTransitGatewayMulticastGroupSources' smart constructor.
+-- | /See:/ 'mkDeregisterTransitGatewayMulticastGroupSources' smart constructor.
 data DeregisterTransitGatewayMulticastGroupSources = DeregisterTransitGatewayMulticastGroupSources'
-  { _dtgmgsNetworkInterfaceIds ::
-      !( Maybe
-           [Text]
-       ),
-    _dtgmgsTransitGatewayMulticastDomainId ::
-      !( Maybe
-           Text
-       ),
-    _dtgmgsGroupIPAddress ::
-      !( Maybe
-           Text
-       ),
-    _dtgmgsDryRun ::
-      !( Maybe
-           Bool
-       )
+  { networkInterfaceIds ::
+      Lude.Maybe
+        [Lude.Text],
+    transitGatewayMulticastDomainId ::
+      Lude.Maybe
+        Lude.Text,
+    groupIPAddress ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeregisterTransitGatewayMulticastGroupSources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgmgsNetworkInterfaceIds' - The IDs of the group sources' network interfaces.
---
--- * 'dtgmgsTransitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
---
--- * 'dtgmgsGroupIPAddress' - The IP address assigned to the transit gateway multicast group.
---
--- * 'dtgmgsDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-deregisterTransitGatewayMulticastGroupSources ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
+-- * 'networkInterfaceIds' - The IDs of the group sources' network interfaces.
+-- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+mkDeregisterTransitGatewayMulticastGroupSources ::
   DeregisterTransitGatewayMulticastGroupSources
-deregisterTransitGatewayMulticastGroupSources =
+mkDeregisterTransitGatewayMulticastGroupSources =
   DeregisterTransitGatewayMulticastGroupSources'
-    { _dtgmgsNetworkInterfaceIds =
-        Nothing,
-      _dtgmgsTransitGatewayMulticastDomainId = Nothing,
-      _dtgmgsGroupIPAddress = Nothing,
-      _dtgmgsDryRun = Nothing
+    { networkInterfaceIds =
+        Lude.Nothing,
+      transitGatewayMulticastDomainId = Lude.Nothing,
+      groupIPAddress = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The IDs of the group sources' network interfaces.
-dtgmgsNetworkInterfaceIds :: Lens' DeregisterTransitGatewayMulticastGroupSources [Text]
-dtgmgsNetworkInterfaceIds = lens _dtgmgsNetworkInterfaceIds (\s a -> s {_dtgmgsNetworkInterfaceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'networkInterfaceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmgsNetworkInterfaceIds :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Lude.Maybe [Lude.Text])
+dtgmgsNetworkInterfaceIds = Lens.lens (networkInterfaceIds :: DeregisterTransitGatewayMulticastGroupSources -> Lude.Maybe [Lude.Text]) (\s a -> s {networkInterfaceIds = a} :: DeregisterTransitGatewayMulticastGroupSources)
+{-# DEPRECATED dtgmgsNetworkInterfaceIds "Use generic-lens or generic-optics with 'networkInterfaceIds' instead." #-}
 
 -- | The ID of the transit gateway multicast domain.
-dtgmgsTransitGatewayMulticastDomainId :: Lens' DeregisterTransitGatewayMulticastGroupSources (Maybe Text)
-dtgmgsTransitGatewayMulticastDomainId = lens _dtgmgsTransitGatewayMulticastDomainId (\s a -> s {_dtgmgsTransitGatewayMulticastDomainId = a})
+--
+-- /Note:/ Consider using 'transitGatewayMulticastDomainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmgsTransitGatewayMulticastDomainId :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Lude.Maybe Lude.Text)
+dtgmgsTransitGatewayMulticastDomainId = Lens.lens (transitGatewayMulticastDomainId :: DeregisterTransitGatewayMulticastGroupSources -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayMulticastDomainId = a} :: DeregisterTransitGatewayMulticastGroupSources)
+{-# DEPRECATED dtgmgsTransitGatewayMulticastDomainId "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainId' instead." #-}
 
 -- | The IP address assigned to the transit gateway multicast group.
-dtgmgsGroupIPAddress :: Lens' DeregisterTransitGatewayMulticastGroupSources (Maybe Text)
-dtgmgsGroupIPAddress = lens _dtgmgsGroupIPAddress (\s a -> s {_dtgmgsGroupIPAddress = a})
+--
+-- /Note:/ Consider using 'groupIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmgsGroupIPAddress :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Lude.Maybe Lude.Text)
+dtgmgsGroupIPAddress = Lens.lens (groupIPAddress :: DeregisterTransitGatewayMulticastGroupSources -> Lude.Maybe Lude.Text) (\s a -> s {groupIPAddress = a} :: DeregisterTransitGatewayMulticastGroupSources)
+{-# DEPRECATED dtgmgsGroupIPAddress "Use generic-lens or generic-optics with 'groupIPAddress' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dtgmgsDryRun :: Lens' DeregisterTransitGatewayMulticastGroupSources (Maybe Bool)
-dtgmgsDryRun = lens _dtgmgsDryRun (\s a -> s {_dtgmgsDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmgsDryRun :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSources (Lude.Maybe Lude.Bool)
+dtgmgsDryRun = Lens.lens (dryRun :: DeregisterTransitGatewayMulticastGroupSources -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeregisterTransitGatewayMulticastGroupSources)
+{-# DEPRECATED dtgmgsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DeregisterTransitGatewayMulticastGroupSources where
+instance
+  Lude.AWSRequest
+    DeregisterTransitGatewayMulticastGroupSources
+  where
   type
     Rs DeregisterTransitGatewayMulticastGroupSources =
       DeregisterTransitGatewayMulticastGroupSourcesResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DeregisterTransitGatewayMulticastGroupSourcesResponse'
-            <$> (x .@? "deregisteredMulticastGroupSources")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "deregisteredMulticastGroupSources")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterTransitGatewayMulticastGroupSources
+instance
+  Lude.ToHeaders
+    DeregisterTransitGatewayMulticastGroupSources
+  where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeregisterTransitGatewayMulticastGroupSources
+instance Lude.ToPath DeregisterTransitGatewayMulticastGroupSources where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeregisterTransitGatewayMulticastGroupSources where
-  toHeaders = const mempty
-
-instance ToPath DeregisterTransitGatewayMulticastGroupSources where
-  toPath = const "/"
-
-instance ToQuery DeregisterTransitGatewayMulticastGroupSources where
+instance Lude.ToQuery DeregisterTransitGatewayMulticastGroupSources where
   toQuery DeregisterTransitGatewayMulticastGroupSources' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DeregisterTransitGatewayMulticastGroupSources" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery
-          (toQueryList "NetworkInterfaceIds" <$> _dtgmgsNetworkInterfaceIds),
+          Lude.=: ( "DeregisterTransitGatewayMulticastGroupSources" ::
+                      Lude.ByteString
+                  ),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          ( Lude.toQueryList "NetworkInterfaceIds"
+              Lude.<$> networkInterfaceIds
+          ),
         "TransitGatewayMulticastDomainId"
-          =: _dtgmgsTransitGatewayMulticastDomainId,
-        "GroupIpAddress" =: _dtgmgsGroupIPAddress,
-        "DryRun" =: _dtgmgsDryRun
+          Lude.=: transitGatewayMulticastDomainId,
+        "GroupIpAddress" Lude.=: groupIPAddress,
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'deregisterTransitGatewayMulticastGroupSourcesResponse' smart constructor.
+-- | /See:/ 'mkDeregisterTransitGatewayMulticastGroupSourcesResponse' smart constructor.
 data DeregisterTransitGatewayMulticastGroupSourcesResponse = DeregisterTransitGatewayMulticastGroupSourcesResponse'
-  { _dtgmgsrsDeregisteredMulticastGroupSources ::
-      !( Maybe
-           TransitGatewayMulticastDeregisteredGroupSources
-       ),
-    _dtgmgsrsResponseStatus ::
-      !Int
+  { deregisteredMulticastGroupSources ::
+      Lude.Maybe
+        TransitGatewayMulticastDeregisteredGroupSources,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeregisterTransitGatewayMulticastGroupSourcesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtgmgsrsDeregisteredMulticastGroupSources' - Information about the deregistered group sources.
---
--- * 'dtgmgsrsResponseStatus' - -- | The response status code.
-deregisterTransitGatewayMulticastGroupSourcesResponse ::
-  -- | 'dtgmgsrsResponseStatus'
-  Int ->
+-- * 'deregisteredMulticastGroupSources' - Information about the deregistered group sources.
+-- * 'responseStatus' - The response status code.
+mkDeregisterTransitGatewayMulticastGroupSourcesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterTransitGatewayMulticastGroupSourcesResponse
-deregisterTransitGatewayMulticastGroupSourcesResponse
+mkDeregisterTransitGatewayMulticastGroupSourcesResponse
   pResponseStatus_ =
     DeregisterTransitGatewayMulticastGroupSourcesResponse'
-      { _dtgmgsrsDeregisteredMulticastGroupSources =
-          Nothing,
-        _dtgmgsrsResponseStatus =
-          pResponseStatus_
+      { deregisteredMulticastGroupSources =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | Information about the deregistered group sources.
-dtgmgsrsDeregisteredMulticastGroupSources :: Lens' DeregisterTransitGatewayMulticastGroupSourcesResponse (Maybe TransitGatewayMulticastDeregisteredGroupSources)
-dtgmgsrsDeregisteredMulticastGroupSources = lens _dtgmgsrsDeregisteredMulticastGroupSources (\s a -> s {_dtgmgsrsDeregisteredMulticastGroupSources = a})
+--
+-- /Note:/ Consider using 'deregisteredMulticastGroupSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmgsrsDeregisteredMulticastGroupSources :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSourcesResponse (Lude.Maybe TransitGatewayMulticastDeregisteredGroupSources)
+dtgmgsrsDeregisteredMulticastGroupSources = Lens.lens (deregisteredMulticastGroupSources :: DeregisterTransitGatewayMulticastGroupSourcesResponse -> Lude.Maybe TransitGatewayMulticastDeregisteredGroupSources) (\s a -> s {deregisteredMulticastGroupSources = a} :: DeregisterTransitGatewayMulticastGroupSourcesResponse)
+{-# DEPRECATED dtgmgsrsDeregisteredMulticastGroupSources "Use generic-lens or generic-optics with 'deregisteredMulticastGroupSources' instead." #-}
 
--- | -- | The response status code.
-dtgmgsrsResponseStatus :: Lens' DeregisterTransitGatewayMulticastGroupSourcesResponse Int
-dtgmgsrsResponseStatus = lens _dtgmgsrsResponseStatus (\s a -> s {_dtgmgsrsResponseStatus = a})
-
-instance
-  NFData
-    DeregisterTransitGatewayMulticastGroupSourcesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgmgsrsResponseStatus :: Lens.Lens' DeregisterTransitGatewayMulticastGroupSourcesResponse Lude.Int
+dtgmgsrsResponseStatus = Lens.lens (responseStatus :: DeregisterTransitGatewayMulticastGroupSourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterTransitGatewayMulticastGroupSourcesResponse)
+{-# DEPRECATED dtgmgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

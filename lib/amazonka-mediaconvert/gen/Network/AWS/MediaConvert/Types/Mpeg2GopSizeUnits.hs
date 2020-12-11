@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits where
+module Network.AWS.MediaConvert.Types.Mpeg2GopSizeUnits
+  ( Mpeg2GopSizeUnits
+      ( Mpeg2GopSizeUnits',
+        MGSUFrames,
+        MGSUSeconds
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates if the GOP Size in MPEG2 is specified in frames or seconds. If seconds the system will convert the GOP Size into a frame count at run time.
-data Mpeg2GopSizeUnits
-  = MGSUFrames
-  | MGSUSeconds
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2GopSizeUnits = Mpeg2GopSizeUnits' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2GopSizeUnits where
-  parser =
-    takeLowerText >>= \case
-      "frames" -> pure MGSUFrames
-      "seconds" -> pure MGSUSeconds
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2GopSizeUnits from value: '" <> e
-            <> "'. Accepted values: frames, seconds"
+pattern MGSUFrames :: Mpeg2GopSizeUnits
+pattern MGSUFrames = Mpeg2GopSizeUnits' "FRAMES"
 
-instance ToText Mpeg2GopSizeUnits where
-  toText = \case
-    MGSUFrames -> "FRAMES"
-    MGSUSeconds -> "SECONDS"
+pattern MGSUSeconds :: Mpeg2GopSizeUnits
+pattern MGSUSeconds = Mpeg2GopSizeUnits' "SECONDS"
 
-instance Hashable Mpeg2GopSizeUnits
-
-instance NFData Mpeg2GopSizeUnits
-
-instance ToByteString Mpeg2GopSizeUnits
-
-instance ToQuery Mpeg2GopSizeUnits
-
-instance ToHeader Mpeg2GopSizeUnits
-
-instance ToJSON Mpeg2GopSizeUnits where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2GopSizeUnits where
-  parseJSON = parseJSONText "Mpeg2GopSizeUnits"
+{-# COMPLETE
+  MGSUFrames,
+  MGSUSeconds,
+  Mpeg2GopSizeUnits'
+  #-}

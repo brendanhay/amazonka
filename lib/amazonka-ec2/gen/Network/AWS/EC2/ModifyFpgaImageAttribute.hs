@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Modifies the specified attribute of the specified Amazon FPGA Image (AFI).
 module Network.AWS.EC2.ModifyFpgaImageAttribute
-  ( -- * Creating a Request
-    modifyFpgaImageAttribute,
-    ModifyFpgaImageAttribute,
+  ( -- * Creating a request
+    ModifyFpgaImageAttribute (..),
+    mkModifyFpgaImageAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mfiaAttribute,
     mfiaUserIds,
     mfiaUserGroups,
@@ -35,193 +30,223 @@ module Network.AWS.EC2.ModifyFpgaImageAttribute
     mfiaDryRun,
     mfiaFpgaImageId,
 
-    -- * Destructuring the Response
-    modifyFpgaImageAttributeResponse,
-    ModifyFpgaImageAttributeResponse,
+    -- * Destructuring the response
+    ModifyFpgaImageAttributeResponse (..),
+    mkModifyFpgaImageAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mfiarsFpgaImageAttribute,
     mfiarsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifyFpgaImageAttribute' smart constructor.
+-- | /See:/ 'mkModifyFpgaImageAttribute' smart constructor.
 data ModifyFpgaImageAttribute = ModifyFpgaImageAttribute'
-  { _mfiaAttribute ::
-      !(Maybe FpgaImageAttributeName),
-    _mfiaUserIds :: !(Maybe [Text]),
-    _mfiaUserGroups :: !(Maybe [Text]),
-    _mfiaLoadPermission ::
-      !(Maybe LoadPermissionModifications),
-    _mfiaName :: !(Maybe Text),
-    _mfiaOperationType ::
-      !(Maybe OperationType),
-    _mfiaProductCodes :: !(Maybe [Text]),
-    _mfiaDescription :: !(Maybe Text),
-    _mfiaDryRun :: !(Maybe Bool),
-    _mfiaFpgaImageId :: !Text
+  { attribute ::
+      Lude.Maybe FpgaImageAttributeName,
+    userIds :: Lude.Maybe [Lude.Text],
+    userGroups :: Lude.Maybe [Lude.Text],
+    loadPermission ::
+      Lude.Maybe LoadPermissionModifications,
+    name :: Lude.Maybe Lude.Text,
+    operationType :: Lude.Maybe OperationType,
+    productCodes :: Lude.Maybe [Lude.Text],
+    description :: Lude.Maybe Lude.Text,
+    dryRun :: Lude.Maybe Lude.Bool,
+    fpgaImageId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyFpgaImageAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mfiaAttribute' - The name of the attribute.
---
--- * 'mfiaUserIds' - The AWS account IDs. This parameter is valid only when modifying the @loadPermission@ attribute.
---
--- * 'mfiaUserGroups' - The user groups. This parameter is valid only when modifying the @loadPermission@ attribute.
---
--- * 'mfiaLoadPermission' - The load permission for the AFI.
---
--- * 'mfiaName' - A name for the AFI.
---
--- * 'mfiaOperationType' - The operation type.
---
--- * 'mfiaProductCodes' - The product codes. After you add a product code to an AFI, it can't be removed. This parameter is valid only when modifying the @productCodes@ attribute.
---
--- * 'mfiaDescription' - A description for the AFI.
---
--- * 'mfiaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'mfiaFpgaImageId' - The ID of the AFI.
-modifyFpgaImageAttribute ::
-  -- | 'mfiaFpgaImageId'
-  Text ->
+-- * 'attribute' - The name of the attribute.
+-- * 'description' - A description for the AFI.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'fpgaImageId' - The ID of the AFI.
+-- * 'loadPermission' - The load permission for the AFI.
+-- * 'name' - A name for the AFI.
+-- * 'operationType' - The operation type.
+-- * 'productCodes' - The product codes. After you add a product code to an AFI, it can't be removed. This parameter is valid only when modifying the @productCodes@ attribute.
+-- * 'userGroups' - The user groups. This parameter is valid only when modifying the @loadPermission@ attribute.
+-- * 'userIds' - The AWS account IDs. This parameter is valid only when modifying the @loadPermission@ attribute.
+mkModifyFpgaImageAttribute ::
+  -- | 'fpgaImageId'
+  Lude.Text ->
   ModifyFpgaImageAttribute
-modifyFpgaImageAttribute pFpgaImageId_ =
+mkModifyFpgaImageAttribute pFpgaImageId_ =
   ModifyFpgaImageAttribute'
-    { _mfiaAttribute = Nothing,
-      _mfiaUserIds = Nothing,
-      _mfiaUserGroups = Nothing,
-      _mfiaLoadPermission = Nothing,
-      _mfiaName = Nothing,
-      _mfiaOperationType = Nothing,
-      _mfiaProductCodes = Nothing,
-      _mfiaDescription = Nothing,
-      _mfiaDryRun = Nothing,
-      _mfiaFpgaImageId = pFpgaImageId_
+    { attribute = Lude.Nothing,
+      userIds = Lude.Nothing,
+      userGroups = Lude.Nothing,
+      loadPermission = Lude.Nothing,
+      name = Lude.Nothing,
+      operationType = Lude.Nothing,
+      productCodes = Lude.Nothing,
+      description = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      fpgaImageId = pFpgaImageId_
     }
 
 -- | The name of the attribute.
-mfiaAttribute :: Lens' ModifyFpgaImageAttribute (Maybe FpgaImageAttributeName)
-mfiaAttribute = lens _mfiaAttribute (\s a -> s {_mfiaAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaAttribute :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe FpgaImageAttributeName)
+mfiaAttribute = Lens.lens (attribute :: ModifyFpgaImageAttribute -> Lude.Maybe FpgaImageAttributeName) (\s a -> s {attribute = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The AWS account IDs. This parameter is valid only when modifying the @loadPermission@ attribute.
-mfiaUserIds :: Lens' ModifyFpgaImageAttribute [Text]
-mfiaUserIds = lens _mfiaUserIds (\s a -> s {_mfiaUserIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaUserIds :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe [Lude.Text])
+mfiaUserIds = Lens.lens (userIds :: ModifyFpgaImageAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {userIds = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
 
 -- | The user groups. This parameter is valid only when modifying the @loadPermission@ attribute.
-mfiaUserGroups :: Lens' ModifyFpgaImageAttribute [Text]
-mfiaUserGroups = lens _mfiaUserGroups (\s a -> s {_mfiaUserGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaUserGroups :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe [Lude.Text])
+mfiaUserGroups = Lens.lens (userGroups :: ModifyFpgaImageAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {userGroups = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaUserGroups "Use generic-lens or generic-optics with 'userGroups' instead." #-}
 
 -- | The load permission for the AFI.
-mfiaLoadPermission :: Lens' ModifyFpgaImageAttribute (Maybe LoadPermissionModifications)
-mfiaLoadPermission = lens _mfiaLoadPermission (\s a -> s {_mfiaLoadPermission = a})
+--
+-- /Note:/ Consider using 'loadPermission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaLoadPermission :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe LoadPermissionModifications)
+mfiaLoadPermission = Lens.lens (loadPermission :: ModifyFpgaImageAttribute -> Lude.Maybe LoadPermissionModifications) (\s a -> s {loadPermission = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaLoadPermission "Use generic-lens or generic-optics with 'loadPermission' instead." #-}
 
 -- | A name for the AFI.
-mfiaName :: Lens' ModifyFpgaImageAttribute (Maybe Text)
-mfiaName = lens _mfiaName (\s a -> s {_mfiaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaName :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe Lude.Text)
+mfiaName = Lens.lens (name :: ModifyFpgaImageAttribute -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The operation type.
-mfiaOperationType :: Lens' ModifyFpgaImageAttribute (Maybe OperationType)
-mfiaOperationType = lens _mfiaOperationType (\s a -> s {_mfiaOperationType = a})
+--
+-- /Note:/ Consider using 'operationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaOperationType :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe OperationType)
+mfiaOperationType = Lens.lens (operationType :: ModifyFpgaImageAttribute -> Lude.Maybe OperationType) (\s a -> s {operationType = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaOperationType "Use generic-lens or generic-optics with 'operationType' instead." #-}
 
 -- | The product codes. After you add a product code to an AFI, it can't be removed. This parameter is valid only when modifying the @productCodes@ attribute.
-mfiaProductCodes :: Lens' ModifyFpgaImageAttribute [Text]
-mfiaProductCodes = lens _mfiaProductCodes (\s a -> s {_mfiaProductCodes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaProductCodes :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe [Lude.Text])
+mfiaProductCodes = Lens.lens (productCodes :: ModifyFpgaImageAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {productCodes = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
 
 -- | A description for the AFI.
-mfiaDescription :: Lens' ModifyFpgaImageAttribute (Maybe Text)
-mfiaDescription = lens _mfiaDescription (\s a -> s {_mfiaDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaDescription :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe Lude.Text)
+mfiaDescription = Lens.lens (description :: ModifyFpgaImageAttribute -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mfiaDryRun :: Lens' ModifyFpgaImageAttribute (Maybe Bool)
-mfiaDryRun = lens _mfiaDryRun (\s a -> s {_mfiaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaDryRun :: Lens.Lens' ModifyFpgaImageAttribute (Lude.Maybe Lude.Bool)
+mfiaDryRun = Lens.lens (dryRun :: ModifyFpgaImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the AFI.
-mfiaFpgaImageId :: Lens' ModifyFpgaImageAttribute Text
-mfiaFpgaImageId = lens _mfiaFpgaImageId (\s a -> s {_mfiaFpgaImageId = a})
+--
+-- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiaFpgaImageId :: Lens.Lens' ModifyFpgaImageAttribute Lude.Text
+mfiaFpgaImageId = Lens.lens (fpgaImageId :: ModifyFpgaImageAttribute -> Lude.Text) (\s a -> s {fpgaImageId = a} :: ModifyFpgaImageAttribute)
+{-# DEPRECATED mfiaFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
-instance AWSRequest ModifyFpgaImageAttribute where
+instance Lude.AWSRequest ModifyFpgaImageAttribute where
   type Rs ModifyFpgaImageAttribute = ModifyFpgaImageAttributeResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyFpgaImageAttributeResponse'
-            <$> (x .@? "fpgaImageAttribute") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "fpgaImageAttribute")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyFpgaImageAttribute
+instance Lude.ToHeaders ModifyFpgaImageAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyFpgaImageAttribute
+instance Lude.ToPath ModifyFpgaImageAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyFpgaImageAttribute where
-  toHeaders = const mempty
-
-instance ToPath ModifyFpgaImageAttribute where
-  toPath = const "/"
-
-instance ToQuery ModifyFpgaImageAttribute where
+instance Lude.ToQuery ModifyFpgaImageAttribute where
   toQuery ModifyFpgaImageAttribute' {..} =
-    mconcat
-      [ "Action" =: ("ModifyFpgaImageAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "Attribute" =: _mfiaAttribute,
-        toQuery (toQueryList "UserId" <$> _mfiaUserIds),
-        toQuery (toQueryList "UserGroup" <$> _mfiaUserGroups),
-        "LoadPermission" =: _mfiaLoadPermission,
-        "Name" =: _mfiaName,
-        "OperationType" =: _mfiaOperationType,
-        toQuery (toQueryList "ProductCode" <$> _mfiaProductCodes),
-        "Description" =: _mfiaDescription,
-        "DryRun" =: _mfiaDryRun,
-        "FpgaImageId" =: _mfiaFpgaImageId
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyFpgaImageAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Attribute" Lude.=: attribute,
+        Lude.toQuery (Lude.toQueryList "UserId" Lude.<$> userIds),
+        Lude.toQuery (Lude.toQueryList "UserGroup" Lude.<$> userGroups),
+        "LoadPermission" Lude.=: loadPermission,
+        "Name" Lude.=: name,
+        "OperationType" Lude.=: operationType,
+        Lude.toQuery
+          (Lude.toQueryList "ProductCode" Lude.<$> productCodes),
+        "Description" Lude.=: description,
+        "DryRun" Lude.=: dryRun,
+        "FpgaImageId" Lude.=: fpgaImageId
       ]
 
--- | /See:/ 'modifyFpgaImageAttributeResponse' smart constructor.
+-- | /See:/ 'mkModifyFpgaImageAttributeResponse' smart constructor.
 data ModifyFpgaImageAttributeResponse = ModifyFpgaImageAttributeResponse'
-  { _mfiarsFpgaImageAttribute ::
-      !( Maybe
-           FpgaImageAttribute
-       ),
-    _mfiarsResponseStatus ::
-      !Int
+  { fpgaImageAttribute ::
+      Lude.Maybe
+        FpgaImageAttribute,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyFpgaImageAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mfiarsFpgaImageAttribute' - Information about the attribute.
---
--- * 'mfiarsResponseStatus' - -- | The response status code.
-modifyFpgaImageAttributeResponse ::
-  -- | 'mfiarsResponseStatus'
-  Int ->
+-- * 'fpgaImageAttribute' - Information about the attribute.
+-- * 'responseStatus' - The response status code.
+mkModifyFpgaImageAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyFpgaImageAttributeResponse
-modifyFpgaImageAttributeResponse pResponseStatus_ =
+mkModifyFpgaImageAttributeResponse pResponseStatus_ =
   ModifyFpgaImageAttributeResponse'
-    { _mfiarsFpgaImageAttribute =
-        Nothing,
-      _mfiarsResponseStatus = pResponseStatus_
+    { fpgaImageAttribute =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the attribute.
-mfiarsFpgaImageAttribute :: Lens' ModifyFpgaImageAttributeResponse (Maybe FpgaImageAttribute)
-mfiarsFpgaImageAttribute = lens _mfiarsFpgaImageAttribute (\s a -> s {_mfiarsFpgaImageAttribute = a})
+--
+-- /Note:/ Consider using 'fpgaImageAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiarsFpgaImageAttribute :: Lens.Lens' ModifyFpgaImageAttributeResponse (Lude.Maybe FpgaImageAttribute)
+mfiarsFpgaImageAttribute = Lens.lens (fpgaImageAttribute :: ModifyFpgaImageAttributeResponse -> Lude.Maybe FpgaImageAttribute) (\s a -> s {fpgaImageAttribute = a} :: ModifyFpgaImageAttributeResponse)
+{-# DEPRECATED mfiarsFpgaImageAttribute "Use generic-lens or generic-optics with 'fpgaImageAttribute' instead." #-}
 
--- | -- | The response status code.
-mfiarsResponseStatus :: Lens' ModifyFpgaImageAttributeResponse Int
-mfiarsResponseStatus = lens _mfiarsResponseStatus (\s a -> s {_mfiarsResponseStatus = a})
-
-instance NFData ModifyFpgaImageAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfiarsResponseStatus :: Lens.Lens' ModifyFpgaImageAttributeResponse Lude.Int
+mfiarsResponseStatus = Lens.lens (responseStatus :: ModifyFpgaImageAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyFpgaImageAttributeResponse)
+{-# DEPRECATED mfiarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

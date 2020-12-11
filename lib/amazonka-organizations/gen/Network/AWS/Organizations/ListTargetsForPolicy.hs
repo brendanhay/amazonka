@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,168 +14,194 @@
 --
 -- Lists all the roots, organizational units (OUs), and accounts that the specified policy is attached to.
 --
---
 -- This operation can be called only from the organization's management account or by a member account that is a delegated administrator for an AWS service.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Organizations.ListTargetsForPolicy
-  ( -- * Creating a Request
-    listTargetsForPolicy,
-    ListTargetsForPolicy,
+  ( -- * Creating a request
+    ListTargetsForPolicy (..),
+    mkListTargetsForPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltfpNextToken,
     ltfpMaxResults,
     ltfpPolicyId,
 
-    -- * Destructuring the Response
-    listTargetsForPolicyResponse,
-    ListTargetsForPolicyResponse,
+    -- * Destructuring the response
+    ListTargetsForPolicyResponse (..),
+    mkListTargetsForPolicyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltfprsNextToken,
     ltfprsTargets,
     ltfprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listTargetsForPolicy' smart constructor.
+-- | /See:/ 'mkListTargetsForPolicy' smart constructor.
 data ListTargetsForPolicy = ListTargetsForPolicy'
-  { _ltfpNextToken ::
-      !(Maybe Text),
-    _ltfpMaxResults :: !(Maybe Nat),
-    _ltfpPolicyId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    policyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsForPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+-- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+-- * 'policyId' - The unique identifier (ID) of the policy whose attachments you want to know.
 --
--- * 'ltfpNextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
---
--- * 'ltfpMaxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
---
--- * 'ltfpPolicyId' - The unique identifier (ID) of the policy whose attachments you want to know. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
-listTargetsForPolicy ::
-  -- | 'ltfpPolicyId'
-  Text ->
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+mkListTargetsForPolicy ::
+  -- | 'policyId'
+  Lude.Text ->
   ListTargetsForPolicy
-listTargetsForPolicy pPolicyId_ =
+mkListTargetsForPolicy pPolicyId_ =
   ListTargetsForPolicy'
-    { _ltfpNextToken = Nothing,
-      _ltfpMaxResults = Nothing,
-      _ltfpPolicyId = pPolicyId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      policyId = pPolicyId_
     }
 
 -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-ltfpNextToken :: Lens' ListTargetsForPolicy (Maybe Text)
-ltfpNextToken = lens _ltfpNextToken (\s a -> s {_ltfpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfpNextToken :: Lens.Lens' ListTargetsForPolicy (Lude.Maybe Lude.Text)
+ltfpNextToken = Lens.lens (nextToken :: ListTargetsForPolicy -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTargetsForPolicy)
+{-# DEPRECATED ltfpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-ltfpMaxResults :: Lens' ListTargetsForPolicy (Maybe Natural)
-ltfpMaxResults = lens _ltfpMaxResults (\s a -> s {_ltfpMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfpMaxResults :: Lens.Lens' ListTargetsForPolicy (Lude.Maybe Lude.Natural)
+ltfpMaxResults = Lens.lens (maxResults :: ListTargetsForPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTargetsForPolicy)
+{-# DEPRECATED ltfpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The unique identifier (ID) of the policy whose attachments you want to know. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
-ltfpPolicyId :: Lens' ListTargetsForPolicy Text
-ltfpPolicyId = lens _ltfpPolicyId (\s a -> s {_ltfpPolicyId = a})
+-- | The unique identifier (ID) of the policy whose attachments you want to know.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfpPolicyId :: Lens.Lens' ListTargetsForPolicy Lude.Text
+ltfpPolicyId = Lens.lens (policyId :: ListTargetsForPolicy -> Lude.Text) (\s a -> s {policyId = a} :: ListTargetsForPolicy)
+{-# DEPRECATED ltfpPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
-instance AWSPager ListTargetsForPolicy where
+instance Page.AWSPager ListTargetsForPolicy where
   page rq rs
-    | stop (rs ^. ltfprsNextToken) = Nothing
-    | stop (rs ^. ltfprsTargets) = Nothing
-    | otherwise = Just $ rq & ltfpNextToken .~ rs ^. ltfprsNextToken
+    | Page.stop (rs Lens.^. ltfprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltfprsTargets) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltfpNextToken Lens..~ rs Lens.^. ltfprsNextToken
 
-instance AWSRequest ListTargetsForPolicy where
+instance Lude.AWSRequest ListTargetsForPolicy where
   type Rs ListTargetsForPolicy = ListTargetsForPolicyResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTargetsForPolicyResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Targets" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Targets" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTargetsForPolicy
-
-instance NFData ListTargetsForPolicy
-
-instance ToHeaders ListTargetsForPolicy where
+instance Lude.ToHeaders ListTargetsForPolicy where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.ListTargetsForPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSOrganizationsV20161128.ListTargetsForPolicy" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTargetsForPolicy where
+instance Lude.ToJSON ListTargetsForPolicy where
   toJSON ListTargetsForPolicy' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ltfpNextToken,
-            ("MaxResults" .=) <$> _ltfpMaxResults,
-            Just ("PolicyId" .= _ltfpPolicyId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("PolicyId" Lude..= policyId)
           ]
       )
 
-instance ToPath ListTargetsForPolicy where
-  toPath = const "/"
+instance Lude.ToPath ListTargetsForPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTargetsForPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery ListTargetsForPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTargetsForPolicyResponse' smart constructor.
+-- | /See:/ 'mkListTargetsForPolicyResponse' smart constructor.
 data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
-  { _ltfprsNextToken ::
-      !(Maybe Text),
-    _ltfprsTargets ::
-      !(Maybe [PolicyTargetSummary]),
-    _ltfprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    targets ::
+      Lude.Maybe [PolicyTargetSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsForPolicyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltfprsNextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
---
--- * 'ltfprsTargets' - A list of structures, each of which contains details about one of the entities to which the specified policy is attached.
---
--- * 'ltfprsResponseStatus' - -- | The response status code.
-listTargetsForPolicyResponse ::
-  -- | 'ltfprsResponseStatus'
-  Int ->
+-- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
+-- * 'responseStatus' - The response status code.
+-- * 'targets' - A list of structures, each of which contains details about one of the entities to which the specified policy is attached.
+mkListTargetsForPolicyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTargetsForPolicyResponse
-listTargetsForPolicyResponse pResponseStatus_ =
+mkListTargetsForPolicyResponse pResponseStatus_ =
   ListTargetsForPolicyResponse'
-    { _ltfprsNextToken = Nothing,
-      _ltfprsTargets = Nothing,
-      _ltfprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      targets = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-ltfprsNextToken :: Lens' ListTargetsForPolicyResponse (Maybe Text)
-ltfprsNextToken = lens _ltfprsNextToken (\s a -> s {_ltfprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfprsNextToken :: Lens.Lens' ListTargetsForPolicyResponse (Lude.Maybe Lude.Text)
+ltfprsNextToken = Lens.lens (nextToken :: ListTargetsForPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTargetsForPolicyResponse)
+{-# DEPRECATED ltfprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of structures, each of which contains details about one of the entities to which the specified policy is attached.
-ltfprsTargets :: Lens' ListTargetsForPolicyResponse [PolicyTargetSummary]
-ltfprsTargets = lens _ltfprsTargets (\s a -> s {_ltfprsTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfprsTargets :: Lens.Lens' ListTargetsForPolicyResponse (Lude.Maybe [PolicyTargetSummary])
+ltfprsTargets = Lens.lens (targets :: ListTargetsForPolicyResponse -> Lude.Maybe [PolicyTargetSummary]) (\s a -> s {targets = a} :: ListTargetsForPolicyResponse)
+{-# DEPRECATED ltfprsTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
--- | -- | The response status code.
-ltfprsResponseStatus :: Lens' ListTargetsForPolicyResponse Int
-ltfprsResponseStatus = lens _ltfprsResponseStatus (\s a -> s {_ltfprsResponseStatus = a})
-
-instance NFData ListTargetsForPolicyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfprsResponseStatus :: Lens.Lens' ListTargetsForPolicyResponse Lude.Int
+ltfprsResponseStatus = Lens.lens (responseStatus :: ListTargetsForPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTargetsForPolicyResponse)
+{-# DEPRECATED ltfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

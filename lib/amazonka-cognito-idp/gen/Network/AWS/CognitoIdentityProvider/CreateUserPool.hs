@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a new Amazon Cognito user pool and sets the password policy for the pool.
 module Network.AWS.CognitoIdentityProvider.CreateUserPool
-  ( -- * Creating a Request
-    createUserPool,
-    CreateUserPool,
+  ( -- * Creating a request
+    CreateUserPool (..),
+    mkCreateUserPool,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cupUserPoolTags,
     cupVerificationMessageTemplate,
     cupEmailVerificationMessage,
@@ -46,310 +41,361 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPool
     cupUsernameConfiguration,
     cupPoolName,
 
-    -- * Destructuring the Response
-    createUserPoolResponse,
-    CreateUserPoolResponse,
+    -- * Destructuring the response
+    CreateUserPoolResponse (..),
+    mkCreateUserPoolResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cuprsUserPool,
     cuprsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to create a user pool.
 --
---
---
--- /See:/ 'createUserPool' smart constructor.
+-- /See:/ 'mkCreateUserPool' smart constructor.
 data CreateUserPool = CreateUserPool'
-  { _cupUserPoolTags ::
-      !(Maybe (Map Text (Text))),
-    _cupVerificationMessageTemplate ::
-      !(Maybe VerificationMessageTemplateType),
-    _cupEmailVerificationMessage :: !(Maybe Text),
-    _cupSmsAuthenticationMessage :: !(Maybe Text),
-    _cupUserPoolAddOns :: !(Maybe UserPoolAddOnsType),
-    _cupEmailVerificationSubject :: !(Maybe Text),
-    _cupUsernameAttributes :: !(Maybe [UsernameAttributeType]),
-    _cupAliasAttributes :: !(Maybe [AliasAttributeType]),
-    _cupSchema :: !(Maybe (List1 SchemaAttributeType)),
-    _cupAccountRecoverySetting ::
-      !(Maybe AccountRecoverySettingType),
-    _cupEmailConfiguration :: !(Maybe EmailConfigurationType),
-    _cupSmsVerificationMessage :: !(Maybe Text),
-    _cupMFAConfiguration :: !(Maybe UserPoolMFAType),
-    _cupLambdaConfig :: !(Maybe LambdaConfigType),
-    _cupSmsConfiguration :: !(Maybe SmsConfigurationType),
-    _cupAdminCreateUserConfig ::
-      !(Maybe AdminCreateUserConfigType),
-    _cupDeviceConfiguration :: !(Maybe DeviceConfigurationType),
-    _cupAutoVerifiedAttributes ::
-      !(Maybe [VerifiedAttributeType]),
-    _cupPolicies :: !(Maybe UserPoolPolicyType),
-    _cupUsernameConfiguration ::
-      !(Maybe UsernameConfigurationType),
-    _cupPoolName :: !Text
+  { userPoolTags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    verificationMessageTemplate ::
+      Lude.Maybe VerificationMessageTemplateType,
+    emailVerificationMessage :: Lude.Maybe Lude.Text,
+    smsAuthenticationMessage :: Lude.Maybe Lude.Text,
+    userPoolAddOns :: Lude.Maybe UserPoolAddOnsType,
+    emailVerificationSubject :: Lude.Maybe Lude.Text,
+    usernameAttributes :: Lude.Maybe [UsernameAttributeType],
+    aliasAttributes :: Lude.Maybe [AliasAttributeType],
+    schema :: Lude.Maybe (Lude.NonEmpty SchemaAttributeType),
+    accountRecoverySetting ::
+      Lude.Maybe AccountRecoverySettingType,
+    emailConfiguration :: Lude.Maybe EmailConfigurationType,
+    smsVerificationMessage :: Lude.Maybe Lude.Text,
+    mfaConfiguration :: Lude.Maybe UserPoolMFAType,
+    lambdaConfig :: Lude.Maybe LambdaConfigType,
+    smsConfiguration :: Lude.Maybe SmsConfigurationType,
+    adminCreateUserConfig :: Lude.Maybe AdminCreateUserConfigType,
+    deviceConfiguration :: Lude.Maybe DeviceConfigurationType,
+    autoVerifiedAttributes :: Lude.Maybe [VerifiedAttributeType],
+    policies :: Lude.Maybe UserPoolPolicyType,
+    usernameConfiguration :: Lude.Maybe UsernameConfigurationType,
+    poolName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserPool' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cupUserPoolTags' - The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
---
--- * 'cupVerificationMessageTemplate' - The template for the verification message that the user sees when the app requests permission to access the user's information.
---
--- * 'cupEmailVerificationMessage' - A string representing the email verification message. EmailVerificationMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
---
--- * 'cupSmsAuthenticationMessage' - A string representing the SMS authentication message.
---
--- * 'cupUserPoolAddOns' - Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
---
--- * 'cupEmailVerificationSubject' - A string representing the email verification subject. EmailVerificationSubject is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
---
--- * 'cupUsernameAttributes' - Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
---
--- * 'cupAliasAttributes' - Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
---
--- * 'cupSchema' - An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
---
--- * 'cupAccountRecoverySetting' - Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
---
--- * 'cupEmailConfiguration' - The email configuration.
---
--- * 'cupSmsVerificationMessage' - A string representing the SMS verification message.
---
--- * 'cupMFAConfiguration' - Specifies MFA configuration details.
---
--- * 'cupLambdaConfig' - The Lambda trigger configuration information for the new user pool.
---
--- * 'cupSmsConfiguration' - The SMS configuration.
---
--- * 'cupAdminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
---
--- * 'cupDeviceConfiguration' - The device configuration.
---
--- * 'cupAutoVerifiedAttributes' - The attributes to be auto-verified. Possible values: __email__ , __phone_number__ .
---
--- * 'cupPolicies' - The policies associated with the new user pool.
---
--- * 'cupUsernameConfiguration' - You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to @False@ , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType> .
---
--- * 'cupPoolName' - A string used to name the user pool.
-createUserPool ::
-  -- | 'cupPoolName'
-  Text ->
+-- * 'accountRecoverySetting' - Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+-- * 'adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
+-- * 'aliasAttributes' - Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
+-- * 'autoVerifiedAttributes' - The attributes to be auto-verified. Possible values: __email__ , __phone_number__ .
+-- * 'deviceConfiguration' - The device configuration.
+-- * 'emailConfiguration' - The email configuration.
+-- * 'emailVerificationMessage' - A string representing the email verification message. EmailVerificationMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
+-- * 'emailVerificationSubject' - A string representing the email verification subject. EmailVerificationSubject is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
+-- * 'lambdaConfig' - The Lambda trigger configuration information for the new user pool.
+-- * 'mfaConfiguration' - Specifies MFA configuration details.
+-- * 'policies' - The policies associated with the new user pool.
+-- * 'poolName' - A string used to name the user pool.
+-- * 'schema' - An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+-- * 'smsAuthenticationMessage' - A string representing the SMS authentication message.
+-- * 'smsConfiguration' - The SMS configuration.
+-- * 'smsVerificationMessage' - A string representing the SMS verification message.
+-- * 'userPoolAddOns' - Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
+-- * 'userPoolTags' - The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+-- * 'usernameAttributes' - Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
+-- * 'usernameConfiguration' - You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to @False@ , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType> .
+-- * 'verificationMessageTemplate' - The template for the verification message that the user sees when the app requests permission to access the user's information.
+mkCreateUserPool ::
+  -- | 'poolName'
+  Lude.Text ->
   CreateUserPool
-createUserPool pPoolName_ =
+mkCreateUserPool pPoolName_ =
   CreateUserPool'
-    { _cupUserPoolTags = Nothing,
-      _cupVerificationMessageTemplate = Nothing,
-      _cupEmailVerificationMessage = Nothing,
-      _cupSmsAuthenticationMessage = Nothing,
-      _cupUserPoolAddOns = Nothing,
-      _cupEmailVerificationSubject = Nothing,
-      _cupUsernameAttributes = Nothing,
-      _cupAliasAttributes = Nothing,
-      _cupSchema = Nothing,
-      _cupAccountRecoverySetting = Nothing,
-      _cupEmailConfiguration = Nothing,
-      _cupSmsVerificationMessage = Nothing,
-      _cupMFAConfiguration = Nothing,
-      _cupLambdaConfig = Nothing,
-      _cupSmsConfiguration = Nothing,
-      _cupAdminCreateUserConfig = Nothing,
-      _cupDeviceConfiguration = Nothing,
-      _cupAutoVerifiedAttributes = Nothing,
-      _cupPolicies = Nothing,
-      _cupUsernameConfiguration = Nothing,
-      _cupPoolName = pPoolName_
+    { userPoolTags = Lude.Nothing,
+      verificationMessageTemplate = Lude.Nothing,
+      emailVerificationMessage = Lude.Nothing,
+      smsAuthenticationMessage = Lude.Nothing,
+      userPoolAddOns = Lude.Nothing,
+      emailVerificationSubject = Lude.Nothing,
+      usernameAttributes = Lude.Nothing,
+      aliasAttributes = Lude.Nothing,
+      schema = Lude.Nothing,
+      accountRecoverySetting = Lude.Nothing,
+      emailConfiguration = Lude.Nothing,
+      smsVerificationMessage = Lude.Nothing,
+      mfaConfiguration = Lude.Nothing,
+      lambdaConfig = Lude.Nothing,
+      smsConfiguration = Lude.Nothing,
+      adminCreateUserConfig = Lude.Nothing,
+      deviceConfiguration = Lude.Nothing,
+      autoVerifiedAttributes = Lude.Nothing,
+      policies = Lude.Nothing,
+      usernameConfiguration = Lude.Nothing,
+      poolName = pPoolName_
     }
 
 -- | The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
-cupUserPoolTags :: Lens' CreateUserPool (HashMap Text (Text))
-cupUserPoolTags = lens _cupUserPoolTags (\s a -> s {_cupUserPoolTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'userPoolTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupUserPoolTags :: Lens.Lens' CreateUserPool (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cupUserPoolTags = Lens.lens (userPoolTags :: CreateUserPool -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {userPoolTags = a} :: CreateUserPool)
+{-# DEPRECATED cupUserPoolTags "Use generic-lens or generic-optics with 'userPoolTags' instead." #-}
 
 -- | The template for the verification message that the user sees when the app requests permission to access the user's information.
-cupVerificationMessageTemplate :: Lens' CreateUserPool (Maybe VerificationMessageTemplateType)
-cupVerificationMessageTemplate = lens _cupVerificationMessageTemplate (\s a -> s {_cupVerificationMessageTemplate = a})
+--
+-- /Note:/ Consider using 'verificationMessageTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupVerificationMessageTemplate :: Lens.Lens' CreateUserPool (Lude.Maybe VerificationMessageTemplateType)
+cupVerificationMessageTemplate = Lens.lens (verificationMessageTemplate :: CreateUserPool -> Lude.Maybe VerificationMessageTemplateType) (\s a -> s {verificationMessageTemplate = a} :: CreateUserPool)
+{-# DEPRECATED cupVerificationMessageTemplate "Use generic-lens or generic-optics with 'verificationMessageTemplate' instead." #-}
 
 -- | A string representing the email verification message. EmailVerificationMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
-cupEmailVerificationMessage :: Lens' CreateUserPool (Maybe Text)
-cupEmailVerificationMessage = lens _cupEmailVerificationMessage (\s a -> s {_cupEmailVerificationMessage = a})
+--
+-- /Note:/ Consider using 'emailVerificationMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupEmailVerificationMessage :: Lens.Lens' CreateUserPool (Lude.Maybe Lude.Text)
+cupEmailVerificationMessage = Lens.lens (emailVerificationMessage :: CreateUserPool -> Lude.Maybe Lude.Text) (\s a -> s {emailVerificationMessage = a} :: CreateUserPool)
+{-# DEPRECATED cupEmailVerificationMessage "Use generic-lens or generic-optics with 'emailVerificationMessage' instead." #-}
 
 -- | A string representing the SMS authentication message.
-cupSmsAuthenticationMessage :: Lens' CreateUserPool (Maybe Text)
-cupSmsAuthenticationMessage = lens _cupSmsAuthenticationMessage (\s a -> s {_cupSmsAuthenticationMessage = a})
+--
+-- /Note:/ Consider using 'smsAuthenticationMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupSmsAuthenticationMessage :: Lens.Lens' CreateUserPool (Lude.Maybe Lude.Text)
+cupSmsAuthenticationMessage = Lens.lens (smsAuthenticationMessage :: CreateUserPool -> Lude.Maybe Lude.Text) (\s a -> s {smsAuthenticationMessage = a} :: CreateUserPool)
+{-# DEPRECATED cupSmsAuthenticationMessage "Use generic-lens or generic-optics with 'smsAuthenticationMessage' instead." #-}
 
 -- | Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
-cupUserPoolAddOns :: Lens' CreateUserPool (Maybe UserPoolAddOnsType)
-cupUserPoolAddOns = lens _cupUserPoolAddOns (\s a -> s {_cupUserPoolAddOns = a})
+--
+-- /Note:/ Consider using 'userPoolAddOns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupUserPoolAddOns :: Lens.Lens' CreateUserPool (Lude.Maybe UserPoolAddOnsType)
+cupUserPoolAddOns = Lens.lens (userPoolAddOns :: CreateUserPool -> Lude.Maybe UserPoolAddOnsType) (\s a -> s {userPoolAddOns = a} :: CreateUserPool)
+{-# DEPRECATED cupUserPoolAddOns "Use generic-lens or generic-optics with 'userPoolAddOns' instead." #-}
 
 -- | A string representing the email verification subject. EmailVerificationSubject is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
-cupEmailVerificationSubject :: Lens' CreateUserPool (Maybe Text)
-cupEmailVerificationSubject = lens _cupEmailVerificationSubject (\s a -> s {_cupEmailVerificationSubject = a})
+--
+-- /Note:/ Consider using 'emailVerificationSubject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupEmailVerificationSubject :: Lens.Lens' CreateUserPool (Lude.Maybe Lude.Text)
+cupEmailVerificationSubject = Lens.lens (emailVerificationSubject :: CreateUserPool -> Lude.Maybe Lude.Text) (\s a -> s {emailVerificationSubject = a} :: CreateUserPool)
+{-# DEPRECATED cupEmailVerificationSubject "Use generic-lens or generic-optics with 'emailVerificationSubject' instead." #-}
 
 -- | Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
-cupUsernameAttributes :: Lens' CreateUserPool [UsernameAttributeType]
-cupUsernameAttributes = lens _cupUsernameAttributes (\s a -> s {_cupUsernameAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'usernameAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupUsernameAttributes :: Lens.Lens' CreateUserPool (Lude.Maybe [UsernameAttributeType])
+cupUsernameAttributes = Lens.lens (usernameAttributes :: CreateUserPool -> Lude.Maybe [UsernameAttributeType]) (\s a -> s {usernameAttributes = a} :: CreateUserPool)
+{-# DEPRECATED cupUsernameAttributes "Use generic-lens or generic-optics with 'usernameAttributes' instead." #-}
 
 -- | Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
-cupAliasAttributes :: Lens' CreateUserPool [AliasAttributeType]
-cupAliasAttributes = lens _cupAliasAttributes (\s a -> s {_cupAliasAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'aliasAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupAliasAttributes :: Lens.Lens' CreateUserPool (Lude.Maybe [AliasAttributeType])
+cupAliasAttributes = Lens.lens (aliasAttributes :: CreateUserPool -> Lude.Maybe [AliasAttributeType]) (\s a -> s {aliasAttributes = a} :: CreateUserPool)
+{-# DEPRECATED cupAliasAttributes "Use generic-lens or generic-optics with 'aliasAttributes' instead." #-}
 
 -- | An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
-cupSchema :: Lens' CreateUserPool (Maybe (NonEmpty SchemaAttributeType))
-cupSchema = lens _cupSchema (\s a -> s {_cupSchema = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'schema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupSchema :: Lens.Lens' CreateUserPool (Lude.Maybe (Lude.NonEmpty SchemaAttributeType))
+cupSchema = Lens.lens (schema :: CreateUserPool -> Lude.Maybe (Lude.NonEmpty SchemaAttributeType)) (\s a -> s {schema = a} :: CreateUserPool)
+{-# DEPRECATED cupSchema "Use generic-lens or generic-optics with 'schema' instead." #-}
 
 -- | Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
-cupAccountRecoverySetting :: Lens' CreateUserPool (Maybe AccountRecoverySettingType)
-cupAccountRecoverySetting = lens _cupAccountRecoverySetting (\s a -> s {_cupAccountRecoverySetting = a})
+--
+-- /Note:/ Consider using 'accountRecoverySetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupAccountRecoverySetting :: Lens.Lens' CreateUserPool (Lude.Maybe AccountRecoverySettingType)
+cupAccountRecoverySetting = Lens.lens (accountRecoverySetting :: CreateUserPool -> Lude.Maybe AccountRecoverySettingType) (\s a -> s {accountRecoverySetting = a} :: CreateUserPool)
+{-# DEPRECATED cupAccountRecoverySetting "Use generic-lens or generic-optics with 'accountRecoverySetting' instead." #-}
 
 -- | The email configuration.
-cupEmailConfiguration :: Lens' CreateUserPool (Maybe EmailConfigurationType)
-cupEmailConfiguration = lens _cupEmailConfiguration (\s a -> s {_cupEmailConfiguration = a})
+--
+-- /Note:/ Consider using 'emailConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupEmailConfiguration :: Lens.Lens' CreateUserPool (Lude.Maybe EmailConfigurationType)
+cupEmailConfiguration = Lens.lens (emailConfiguration :: CreateUserPool -> Lude.Maybe EmailConfigurationType) (\s a -> s {emailConfiguration = a} :: CreateUserPool)
+{-# DEPRECATED cupEmailConfiguration "Use generic-lens or generic-optics with 'emailConfiguration' instead." #-}
 
 -- | A string representing the SMS verification message.
-cupSmsVerificationMessage :: Lens' CreateUserPool (Maybe Text)
-cupSmsVerificationMessage = lens _cupSmsVerificationMessage (\s a -> s {_cupSmsVerificationMessage = a})
+--
+-- /Note:/ Consider using 'smsVerificationMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupSmsVerificationMessage :: Lens.Lens' CreateUserPool (Lude.Maybe Lude.Text)
+cupSmsVerificationMessage = Lens.lens (smsVerificationMessage :: CreateUserPool -> Lude.Maybe Lude.Text) (\s a -> s {smsVerificationMessage = a} :: CreateUserPool)
+{-# DEPRECATED cupSmsVerificationMessage "Use generic-lens or generic-optics with 'smsVerificationMessage' instead." #-}
 
 -- | Specifies MFA configuration details.
-cupMFAConfiguration :: Lens' CreateUserPool (Maybe UserPoolMFAType)
-cupMFAConfiguration = lens _cupMFAConfiguration (\s a -> s {_cupMFAConfiguration = a})
+--
+-- /Note:/ Consider using 'mfaConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupMFAConfiguration :: Lens.Lens' CreateUserPool (Lude.Maybe UserPoolMFAType)
+cupMFAConfiguration = Lens.lens (mfaConfiguration :: CreateUserPool -> Lude.Maybe UserPoolMFAType) (\s a -> s {mfaConfiguration = a} :: CreateUserPool)
+{-# DEPRECATED cupMFAConfiguration "Use generic-lens or generic-optics with 'mfaConfiguration' instead." #-}
 
 -- | The Lambda trigger configuration information for the new user pool.
-cupLambdaConfig :: Lens' CreateUserPool (Maybe LambdaConfigType)
-cupLambdaConfig = lens _cupLambdaConfig (\s a -> s {_cupLambdaConfig = a})
+--
+-- /Note:/ Consider using 'lambdaConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupLambdaConfig :: Lens.Lens' CreateUserPool (Lude.Maybe LambdaConfigType)
+cupLambdaConfig = Lens.lens (lambdaConfig :: CreateUserPool -> Lude.Maybe LambdaConfigType) (\s a -> s {lambdaConfig = a} :: CreateUserPool)
+{-# DEPRECATED cupLambdaConfig "Use generic-lens or generic-optics with 'lambdaConfig' instead." #-}
 
 -- | The SMS configuration.
-cupSmsConfiguration :: Lens' CreateUserPool (Maybe SmsConfigurationType)
-cupSmsConfiguration = lens _cupSmsConfiguration (\s a -> s {_cupSmsConfiguration = a})
+--
+-- /Note:/ Consider using 'smsConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupSmsConfiguration :: Lens.Lens' CreateUserPool (Lude.Maybe SmsConfigurationType)
+cupSmsConfiguration = Lens.lens (smsConfiguration :: CreateUserPool -> Lude.Maybe SmsConfigurationType) (\s a -> s {smsConfiguration = a} :: CreateUserPool)
+{-# DEPRECATED cupSmsConfiguration "Use generic-lens or generic-optics with 'smsConfiguration' instead." #-}
 
 -- | The configuration for @AdminCreateUser@ requests.
-cupAdminCreateUserConfig :: Lens' CreateUserPool (Maybe AdminCreateUserConfigType)
-cupAdminCreateUserConfig = lens _cupAdminCreateUserConfig (\s a -> s {_cupAdminCreateUserConfig = a})
+--
+-- /Note:/ Consider using 'adminCreateUserConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupAdminCreateUserConfig :: Lens.Lens' CreateUserPool (Lude.Maybe AdminCreateUserConfigType)
+cupAdminCreateUserConfig = Lens.lens (adminCreateUserConfig :: CreateUserPool -> Lude.Maybe AdminCreateUserConfigType) (\s a -> s {adminCreateUserConfig = a} :: CreateUserPool)
+{-# DEPRECATED cupAdminCreateUserConfig "Use generic-lens or generic-optics with 'adminCreateUserConfig' instead." #-}
 
 -- | The device configuration.
-cupDeviceConfiguration :: Lens' CreateUserPool (Maybe DeviceConfigurationType)
-cupDeviceConfiguration = lens _cupDeviceConfiguration (\s a -> s {_cupDeviceConfiguration = a})
+--
+-- /Note:/ Consider using 'deviceConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupDeviceConfiguration :: Lens.Lens' CreateUserPool (Lude.Maybe DeviceConfigurationType)
+cupDeviceConfiguration = Lens.lens (deviceConfiguration :: CreateUserPool -> Lude.Maybe DeviceConfigurationType) (\s a -> s {deviceConfiguration = a} :: CreateUserPool)
+{-# DEPRECATED cupDeviceConfiguration "Use generic-lens or generic-optics with 'deviceConfiguration' instead." #-}
 
 -- | The attributes to be auto-verified. Possible values: __email__ , __phone_number__ .
-cupAutoVerifiedAttributes :: Lens' CreateUserPool [VerifiedAttributeType]
-cupAutoVerifiedAttributes = lens _cupAutoVerifiedAttributes (\s a -> s {_cupAutoVerifiedAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'autoVerifiedAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupAutoVerifiedAttributes :: Lens.Lens' CreateUserPool (Lude.Maybe [VerifiedAttributeType])
+cupAutoVerifiedAttributes = Lens.lens (autoVerifiedAttributes :: CreateUserPool -> Lude.Maybe [VerifiedAttributeType]) (\s a -> s {autoVerifiedAttributes = a} :: CreateUserPool)
+{-# DEPRECATED cupAutoVerifiedAttributes "Use generic-lens or generic-optics with 'autoVerifiedAttributes' instead." #-}
 
 -- | The policies associated with the new user pool.
-cupPolicies :: Lens' CreateUserPool (Maybe UserPoolPolicyType)
-cupPolicies = lens _cupPolicies (\s a -> s {_cupPolicies = a})
+--
+-- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupPolicies :: Lens.Lens' CreateUserPool (Lude.Maybe UserPoolPolicyType)
+cupPolicies = Lens.lens (policies :: CreateUserPool -> Lude.Maybe UserPoolPolicyType) (\s a -> s {policies = a} :: CreateUserPool)
+{-# DEPRECATED cupPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
 -- | You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to @False@ , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType> .
-cupUsernameConfiguration :: Lens' CreateUserPool (Maybe UsernameConfigurationType)
-cupUsernameConfiguration = lens _cupUsernameConfiguration (\s a -> s {_cupUsernameConfiguration = a})
+--
+-- /Note:/ Consider using 'usernameConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupUsernameConfiguration :: Lens.Lens' CreateUserPool (Lude.Maybe UsernameConfigurationType)
+cupUsernameConfiguration = Lens.lens (usernameConfiguration :: CreateUserPool -> Lude.Maybe UsernameConfigurationType) (\s a -> s {usernameConfiguration = a} :: CreateUserPool)
+{-# DEPRECATED cupUsernameConfiguration "Use generic-lens or generic-optics with 'usernameConfiguration' instead." #-}
 
 -- | A string used to name the user pool.
-cupPoolName :: Lens' CreateUserPool Text
-cupPoolName = lens _cupPoolName (\s a -> s {_cupPoolName = a})
+--
+-- /Note:/ Consider using 'poolName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupPoolName :: Lens.Lens' CreateUserPool Lude.Text
+cupPoolName = Lens.lens (poolName :: CreateUserPool -> Lude.Text) (\s a -> s {poolName = a} :: CreateUserPool)
+{-# DEPRECATED cupPoolName "Use generic-lens or generic-optics with 'poolName' instead." #-}
 
-instance AWSRequest CreateUserPool where
+instance Lude.AWSRequest CreateUserPool where
   type Rs CreateUserPool = CreateUserPoolResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateUserPoolResponse'
-            <$> (x .?> "UserPool") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "UserPool") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateUserPool
-
-instance NFData CreateUserPool
-
-instance ToHeaders CreateUserPool where
+instance Lude.ToHeaders CreateUserPool where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.CreateUserPool" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.CreateUserPool" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateUserPool where
+instance Lude.ToJSON CreateUserPool where
   toJSON CreateUserPool' {..} =
-    object
-      ( catMaybes
-          [ ("UserPoolTags" .=) <$> _cupUserPoolTags,
-            ("VerificationMessageTemplate" .=)
-              <$> _cupVerificationMessageTemplate,
-            ("EmailVerificationMessage" .=) <$> _cupEmailVerificationMessage,
-            ("SmsAuthenticationMessage" .=) <$> _cupSmsAuthenticationMessage,
-            ("UserPoolAddOns" .=) <$> _cupUserPoolAddOns,
-            ("EmailVerificationSubject" .=) <$> _cupEmailVerificationSubject,
-            ("UsernameAttributes" .=) <$> _cupUsernameAttributes,
-            ("AliasAttributes" .=) <$> _cupAliasAttributes,
-            ("Schema" .=) <$> _cupSchema,
-            ("AccountRecoverySetting" .=) <$> _cupAccountRecoverySetting,
-            ("EmailConfiguration" .=) <$> _cupEmailConfiguration,
-            ("SmsVerificationMessage" .=) <$> _cupSmsVerificationMessage,
-            ("MfaConfiguration" .=) <$> _cupMFAConfiguration,
-            ("LambdaConfig" .=) <$> _cupLambdaConfig,
-            ("SmsConfiguration" .=) <$> _cupSmsConfiguration,
-            ("AdminCreateUserConfig" .=) <$> _cupAdminCreateUserConfig,
-            ("DeviceConfiguration" .=) <$> _cupDeviceConfiguration,
-            ("AutoVerifiedAttributes" .=) <$> _cupAutoVerifiedAttributes,
-            ("Policies" .=) <$> _cupPolicies,
-            ("UsernameConfiguration" .=) <$> _cupUsernameConfiguration,
-            Just ("PoolName" .= _cupPoolName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UserPoolTags" Lude..=) Lude.<$> userPoolTags,
+            ("VerificationMessageTemplate" Lude..=)
+              Lude.<$> verificationMessageTemplate,
+            ("EmailVerificationMessage" Lude..=)
+              Lude.<$> emailVerificationMessage,
+            ("SmsAuthenticationMessage" Lude..=)
+              Lude.<$> smsAuthenticationMessage,
+            ("UserPoolAddOns" Lude..=) Lude.<$> userPoolAddOns,
+            ("EmailVerificationSubject" Lude..=)
+              Lude.<$> emailVerificationSubject,
+            ("UsernameAttributes" Lude..=) Lude.<$> usernameAttributes,
+            ("AliasAttributes" Lude..=) Lude.<$> aliasAttributes,
+            ("Schema" Lude..=) Lude.<$> schema,
+            ("AccountRecoverySetting" Lude..=) Lude.<$> accountRecoverySetting,
+            ("EmailConfiguration" Lude..=) Lude.<$> emailConfiguration,
+            ("SmsVerificationMessage" Lude..=) Lude.<$> smsVerificationMessage,
+            ("MfaConfiguration" Lude..=) Lude.<$> mfaConfiguration,
+            ("LambdaConfig" Lude..=) Lude.<$> lambdaConfig,
+            ("SmsConfiguration" Lude..=) Lude.<$> smsConfiguration,
+            ("AdminCreateUserConfig" Lude..=) Lude.<$> adminCreateUserConfig,
+            ("DeviceConfiguration" Lude..=) Lude.<$> deviceConfiguration,
+            ("AutoVerifiedAttributes" Lude..=) Lude.<$> autoVerifiedAttributes,
+            ("Policies" Lude..=) Lude.<$> policies,
+            ("UsernameConfiguration" Lude..=) Lude.<$> usernameConfiguration,
+            Lude.Just ("PoolName" Lude..= poolName)
           ]
       )
 
-instance ToPath CreateUserPool where
-  toPath = const "/"
+instance Lude.ToPath CreateUserPool where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateUserPool where
-  toQuery = const mempty
+instance Lude.ToQuery CreateUserPool where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server for the request to create a user pool.
 --
---
---
--- /See:/ 'createUserPoolResponse' smart constructor.
+-- /See:/ 'mkCreateUserPoolResponse' smart constructor.
 data CreateUserPoolResponse = CreateUserPoolResponse'
-  { _cuprsUserPool ::
-      !(Maybe UserPoolType),
-    _cuprsResponseStatus :: !Int
+  { userPool ::
+      Lude.Maybe UserPoolType,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserPoolResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cuprsUserPool' - A container for the user pool details.
---
--- * 'cuprsResponseStatus' - -- | The response status code.
-createUserPoolResponse ::
-  -- | 'cuprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'userPool' - A container for the user pool details.
+mkCreateUserPoolResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateUserPoolResponse
-createUserPoolResponse pResponseStatus_ =
+mkCreateUserPoolResponse pResponseStatus_ =
   CreateUserPoolResponse'
-    { _cuprsUserPool = Nothing,
-      _cuprsResponseStatus = pResponseStatus_
+    { userPool = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A container for the user pool details.
-cuprsUserPool :: Lens' CreateUserPoolResponse (Maybe UserPoolType)
-cuprsUserPool = lens _cuprsUserPool (\s a -> s {_cuprsUserPool = a})
+--
+-- /Note:/ Consider using 'userPool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsUserPool :: Lens.Lens' CreateUserPoolResponse (Lude.Maybe UserPoolType)
+cuprsUserPool = Lens.lens (userPool :: CreateUserPoolResponse -> Lude.Maybe UserPoolType) (\s a -> s {userPool = a} :: CreateUserPoolResponse)
+{-# DEPRECATED cuprsUserPool "Use generic-lens or generic-optics with 'userPool' instead." #-}
 
--- | -- | The response status code.
-cuprsResponseStatus :: Lens' CreateUserPoolResponse Int
-cuprsResponseStatus = lens _cuprsResponseStatus (\s a -> s {_cuprsResponseStatus = a})
-
-instance NFData CreateUserPoolResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuprsResponseStatus :: Lens.Lens' CreateUserPoolResponse Lude.Int
+cuprsResponseStatus = Lens.lens (responseStatus :: CreateUserPoolResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserPoolResponse)
+{-# DEPRECATED cuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

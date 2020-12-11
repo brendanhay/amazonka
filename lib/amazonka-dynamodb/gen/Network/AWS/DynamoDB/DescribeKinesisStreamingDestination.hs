@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about the status of Kinesis streaming.
 module Network.AWS.DynamoDB.DescribeKinesisStreamingDestination
-  ( -- * Creating a Request
-    describeKinesisStreamingDestination,
-    DescribeKinesisStreamingDestination,
+  ( -- * Creating a request
+    DescribeKinesisStreamingDestination (..),
+    mkDescribeKinesisStreamingDestination,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dksdkTableName,
 
-    -- * Destructuring the Response
-    describeKinesisStreamingDestinationResponse,
-    DescribeKinesisStreamingDestinationResponse,
+    -- * Destructuring the response
+    DescribeKinesisStreamingDestinationResponse (..),
+    mkDescribeKinesisStreamingDestinationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dksdrsKinesisDataStreamDestinations,
     dksdrsTableName,
     dksdrsResponseStatus,
@@ -38,130 +33,134 @@ module Network.AWS.DynamoDB.DescribeKinesisStreamingDestination
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeKinesisStreamingDestination' smart constructor.
+-- | /See:/ 'mkDescribeKinesisStreamingDestination' smart constructor.
 newtype DescribeKinesisStreamingDestination = DescribeKinesisStreamingDestination'
-  { _dksdkTableName ::
-      Text
+  { tableName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKinesisStreamingDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dksdkTableName' - The name of the table being described.
-describeKinesisStreamingDestination ::
-  -- | 'dksdkTableName'
-  Text ->
+-- * 'tableName' - The name of the table being described.
+mkDescribeKinesisStreamingDestination ::
+  -- | 'tableName'
+  Lude.Text ->
   DescribeKinesisStreamingDestination
-describeKinesisStreamingDestination pTableName_ =
-  DescribeKinesisStreamingDestination'
-    { _dksdkTableName =
-        pTableName_
-    }
+mkDescribeKinesisStreamingDestination pTableName_ =
+  DescribeKinesisStreamingDestination' {tableName = pTableName_}
 
 -- | The name of the table being described.
-dksdkTableName :: Lens' DescribeKinesisStreamingDestination Text
-dksdkTableName = lens _dksdkTableName (\s a -> s {_dksdkTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dksdkTableName :: Lens.Lens' DescribeKinesisStreamingDestination Lude.Text
+dksdkTableName = Lens.lens (tableName :: DescribeKinesisStreamingDestination -> Lude.Text) (\s a -> s {tableName = a} :: DescribeKinesisStreamingDestination)
+{-# DEPRECATED dksdkTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance AWSRequest DescribeKinesisStreamingDestination where
+instance Lude.AWSRequest DescribeKinesisStreamingDestination where
   type
     Rs DescribeKinesisStreamingDestination =
       DescribeKinesisStreamingDestinationResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeKinesisStreamingDestinationResponse'
-            <$> (x .?> "KinesisDataStreamDestinations" .!@ mempty)
-            <*> (x .?> "TableName")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "KinesisDataStreamDestinations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "TableName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeKinesisStreamingDestination
-
-instance NFData DescribeKinesisStreamingDestination
-
-instance ToHeaders DescribeKinesisStreamingDestination where
+instance Lude.ToHeaders DescribeKinesisStreamingDestination where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "DynamoDB_20120810.DescribeKinesisStreamingDestination" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ( "DynamoDB_20120810.DescribeKinesisStreamingDestination" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeKinesisStreamingDestination where
+instance Lude.ToJSON DescribeKinesisStreamingDestination where
   toJSON DescribeKinesisStreamingDestination' {..} =
-    object (catMaybes [Just ("TableName" .= _dksdkTableName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("TableName" Lude..= tableName)])
 
-instance ToPath DescribeKinesisStreamingDestination where
-  toPath = const "/"
+instance Lude.ToPath DescribeKinesisStreamingDestination where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeKinesisStreamingDestination where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeKinesisStreamingDestination where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeKinesisStreamingDestinationResponse' smart constructor.
+-- | /See:/ 'mkDescribeKinesisStreamingDestinationResponse' smart constructor.
 data DescribeKinesisStreamingDestinationResponse = DescribeKinesisStreamingDestinationResponse'
-  { _dksdrsKinesisDataStreamDestinations ::
-      !( Maybe
-           [KinesisDataStreamDestination]
-       ),
-    _dksdrsTableName ::
-      !( Maybe
-           Text
-       ),
-    _dksdrsResponseStatus ::
-      !Int
+  { kinesisDataStreamDestinations ::
+      Lude.Maybe
+        [KinesisDataStreamDestination],
+    tableName ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKinesisStreamingDestinationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dksdrsKinesisDataStreamDestinations' - The list of replica structures for the table being described.
---
--- * 'dksdrsTableName' - The name of the table being described.
---
--- * 'dksdrsResponseStatus' - -- | The response status code.
-describeKinesisStreamingDestinationResponse ::
-  -- | 'dksdrsResponseStatus'
-  Int ->
+-- * 'kinesisDataStreamDestinations' - The list of replica structures for the table being described.
+-- * 'responseStatus' - The response status code.
+-- * 'tableName' - The name of the table being described.
+mkDescribeKinesisStreamingDestinationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeKinesisStreamingDestinationResponse
-describeKinesisStreamingDestinationResponse pResponseStatus_ =
+mkDescribeKinesisStreamingDestinationResponse pResponseStatus_ =
   DescribeKinesisStreamingDestinationResponse'
-    { _dksdrsKinesisDataStreamDestinations =
-        Nothing,
-      _dksdrsTableName = Nothing,
-      _dksdrsResponseStatus = pResponseStatus_
+    { kinesisDataStreamDestinations =
+        Lude.Nothing,
+      tableName = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of replica structures for the table being described.
-dksdrsKinesisDataStreamDestinations :: Lens' DescribeKinesisStreamingDestinationResponse [KinesisDataStreamDestination]
-dksdrsKinesisDataStreamDestinations = lens _dksdrsKinesisDataStreamDestinations (\s a -> s {_dksdrsKinesisDataStreamDestinations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'kinesisDataStreamDestinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dksdrsKinesisDataStreamDestinations :: Lens.Lens' DescribeKinesisStreamingDestinationResponse (Lude.Maybe [KinesisDataStreamDestination])
+dksdrsKinesisDataStreamDestinations = Lens.lens (kinesisDataStreamDestinations :: DescribeKinesisStreamingDestinationResponse -> Lude.Maybe [KinesisDataStreamDestination]) (\s a -> s {kinesisDataStreamDestinations = a} :: DescribeKinesisStreamingDestinationResponse)
+{-# DEPRECATED dksdrsKinesisDataStreamDestinations "Use generic-lens or generic-optics with 'kinesisDataStreamDestinations' instead." #-}
 
 -- | The name of the table being described.
-dksdrsTableName :: Lens' DescribeKinesisStreamingDestinationResponse (Maybe Text)
-dksdrsTableName = lens _dksdrsTableName (\s a -> s {_dksdrsTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dksdrsTableName :: Lens.Lens' DescribeKinesisStreamingDestinationResponse (Lude.Maybe Lude.Text)
+dksdrsTableName = Lens.lens (tableName :: DescribeKinesisStreamingDestinationResponse -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: DescribeKinesisStreamingDestinationResponse)
+{-# DEPRECATED dksdrsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
--- | -- | The response status code.
-dksdrsResponseStatus :: Lens' DescribeKinesisStreamingDestinationResponse Int
-dksdrsResponseStatus = lens _dksdrsResponseStatus (\s a -> s {_dksdrsResponseStatus = a})
-
-instance NFData DescribeKinesisStreamingDestinationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dksdrsResponseStatus :: Lens.Lens' DescribeKinesisStreamingDestinationResponse Lude.Int
+dksdrsResponseStatus = Lens.lens (responseStatus :: DescribeKinesisStreamingDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeKinesisStreamingDestinationResponse)
+{-# DEPRECATED dksdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,116 @@
 --
 -- Deletes a profile that can be applied to one or more private device instances.
 module Network.AWS.DeviceFarm.DeleteInstanceProfile
-  ( -- * Creating a Request
-    deleteInstanceProfile,
-    DeleteInstanceProfile,
+  ( -- * Creating a request
+    DeleteInstanceProfile (..),
+    mkDeleteInstanceProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dipArn,
 
-    -- * Destructuring the Response
-    deleteInstanceProfileResponse,
-    DeleteInstanceProfileResponse,
+    -- * Destructuring the response
+    DeleteInstanceProfileResponse (..),
+    mkDeleteInstanceProfileResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diprsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteInstanceProfile' smart constructor.
+-- | /See:/ 'mkDeleteInstanceProfile' smart constructor.
 newtype DeleteInstanceProfile = DeleteInstanceProfile'
-  { _dipArn ::
-      Text
+  { arn ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInstanceProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dipArn' - The Amazon Resource Name (ARN) of the instance profile you are requesting to delete.
-deleteInstanceProfile ::
-  -- | 'dipArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the instance profile you are requesting to delete.
+mkDeleteInstanceProfile ::
+  -- | 'arn'
+  Lude.Text ->
   DeleteInstanceProfile
-deleteInstanceProfile pArn_ =
-  DeleteInstanceProfile' {_dipArn = pArn_}
+mkDeleteInstanceProfile pArn_ = DeleteInstanceProfile' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the instance profile you are requesting to delete.
-dipArn :: Lens' DeleteInstanceProfile Text
-dipArn = lens _dipArn (\s a -> s {_dipArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipArn :: Lens.Lens' DeleteInstanceProfile Lude.Text
+dipArn = Lens.lens (arn :: DeleteInstanceProfile -> Lude.Text) (\s a -> s {arn = a} :: DeleteInstanceProfile)
+{-# DEPRECATED dipArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest DeleteInstanceProfile where
+instance Lude.AWSRequest DeleteInstanceProfile where
   type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveEmpty
-      (\s h x -> DeleteInstanceProfileResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteInstanceProfileResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteInstanceProfile
-
-instance NFData DeleteInstanceProfile
-
-instance ToHeaders DeleteInstanceProfile where
+instance Lude.ToHeaders DeleteInstanceProfile where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.DeleteInstanceProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.DeleteInstanceProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteInstanceProfile where
+instance Lude.ToJSON DeleteInstanceProfile where
   toJSON DeleteInstanceProfile' {..} =
-    object (catMaybes [Just ("arn" .= _dipArn)])
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath DeleteInstanceProfile where
-  toPath = const "/"
+instance Lude.ToPath DeleteInstanceProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteInstanceProfile where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteInstanceProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteInstanceProfileResponse' smart constructor.
+-- | /See:/ 'mkDeleteInstanceProfileResponse' smart constructor.
 newtype DeleteInstanceProfileResponse = DeleteInstanceProfileResponse'
-  { _diprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInstanceProfileResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diprsResponseStatus' - -- | The response status code.
-deleteInstanceProfileResponse ::
-  -- | 'diprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteInstanceProfileResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteInstanceProfileResponse
-deleteInstanceProfileResponse pResponseStatus_ =
-  DeleteInstanceProfileResponse'
-    { _diprsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteInstanceProfileResponse pResponseStatus_ =
+  DeleteInstanceProfileResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-diprsResponseStatus :: Lens' DeleteInstanceProfileResponse Int
-diprsResponseStatus = lens _diprsResponseStatus (\s a -> s {_diprsResponseStatus = a})
-
-instance NFData DeleteInstanceProfileResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diprsResponseStatus :: Lens.Lens' DeleteInstanceProfileResponse Lude.Int
+diprsResponseStatus = Lens.lens (responseStatus :: DeleteInstanceProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteInstanceProfileResponse)
+{-# DEPRECATED diprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.SDKConfigurationProperty where
+module Network.AWS.APIGateway.Types.SDKConfigurationProperty
+  ( SDKConfigurationProperty (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSDKConfigurationProperty,
+
+    -- * Lenses
+    scpFriendlyName,
+    scpRequired,
+    scpName,
+    scpDefaultValue,
+    scpDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A configuration property of an SDK type.
 --
---
---
--- /See:/ 'sdkConfigurationProperty' smart constructor.
+-- /See:/ 'mkSDKConfigurationProperty' smart constructor.
 data SDKConfigurationProperty = SDKConfigurationProperty'
-  { _scpFriendlyName ::
-      !(Maybe Text),
-    _scpRequired :: !(Maybe Bool),
-    _scpName :: !(Maybe Text),
-    _scpDefaultValue :: !(Maybe Text),
-    _scpDescription :: !(Maybe Text)
+  { friendlyName ::
+      Lude.Maybe Lude.Text,
+    required :: Lude.Maybe Lude.Bool,
+    name :: Lude.Maybe Lude.Text,
+    defaultValue :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SDKConfigurationProperty' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scpFriendlyName' - The user-friendly name of an 'SdkType' configuration property.
---
--- * 'scpRequired' - A boolean flag of an 'SdkType' configuration property to indicate if the associated SDK configuration property is required (@true@ ) or not (@false@ ).
---
--- * 'scpName' - The name of a an 'SdkType' configuration property.
---
--- * 'scpDefaultValue' - The default value of an 'SdkType' configuration property.
---
--- * 'scpDescription' - The description of an 'SdkType' configuration property.
-sdkConfigurationProperty ::
+-- * 'defaultValue' - The default value of an 'SdkType' configuration property.
+-- * 'description' - The description of an 'SdkType' configuration property.
+-- * 'friendlyName' - The user-friendly name of an 'SdkType' configuration property.
+-- * 'name' - The name of a an 'SdkType' configuration property.
+-- * 'required' - A boolean flag of an 'SdkType' configuration property to indicate if the associated SDK configuration property is required (@true@ ) or not (@false@ ).
+mkSDKConfigurationProperty ::
   SDKConfigurationProperty
-sdkConfigurationProperty =
+mkSDKConfigurationProperty =
   SDKConfigurationProperty'
-    { _scpFriendlyName = Nothing,
-      _scpRequired = Nothing,
-      _scpName = Nothing,
-      _scpDefaultValue = Nothing,
-      _scpDescription = Nothing
+    { friendlyName = Lude.Nothing,
+      required = Lude.Nothing,
+      name = Lude.Nothing,
+      defaultValue = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The user-friendly name of an 'SdkType' configuration property.
-scpFriendlyName :: Lens' SDKConfigurationProperty (Maybe Text)
-scpFriendlyName = lens _scpFriendlyName (\s a -> s {_scpFriendlyName = a})
+--
+-- /Note:/ Consider using 'friendlyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scpFriendlyName :: Lens.Lens' SDKConfigurationProperty (Lude.Maybe Lude.Text)
+scpFriendlyName = Lens.lens (friendlyName :: SDKConfigurationProperty -> Lude.Maybe Lude.Text) (\s a -> s {friendlyName = a} :: SDKConfigurationProperty)
+{-# DEPRECATED scpFriendlyName "Use generic-lens or generic-optics with 'friendlyName' instead." #-}
 
 -- | A boolean flag of an 'SdkType' configuration property to indicate if the associated SDK configuration property is required (@true@ ) or not (@false@ ).
-scpRequired :: Lens' SDKConfigurationProperty (Maybe Bool)
-scpRequired = lens _scpRequired (\s a -> s {_scpRequired = a})
+--
+-- /Note:/ Consider using 'required' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scpRequired :: Lens.Lens' SDKConfigurationProperty (Lude.Maybe Lude.Bool)
+scpRequired = Lens.lens (required :: SDKConfigurationProperty -> Lude.Maybe Lude.Bool) (\s a -> s {required = a} :: SDKConfigurationProperty)
+{-# DEPRECATED scpRequired "Use generic-lens or generic-optics with 'required' instead." #-}
 
 -- | The name of a an 'SdkType' configuration property.
-scpName :: Lens' SDKConfigurationProperty (Maybe Text)
-scpName = lens _scpName (\s a -> s {_scpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scpName :: Lens.Lens' SDKConfigurationProperty (Lude.Maybe Lude.Text)
+scpName = Lens.lens (name :: SDKConfigurationProperty -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SDKConfigurationProperty)
+{-# DEPRECATED scpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The default value of an 'SdkType' configuration property.
-scpDefaultValue :: Lens' SDKConfigurationProperty (Maybe Text)
-scpDefaultValue = lens _scpDefaultValue (\s a -> s {_scpDefaultValue = a})
+--
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scpDefaultValue :: Lens.Lens' SDKConfigurationProperty (Lude.Maybe Lude.Text)
+scpDefaultValue = Lens.lens (defaultValue :: SDKConfigurationProperty -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: SDKConfigurationProperty)
+{-# DEPRECATED scpDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | The description of an 'SdkType' configuration property.
-scpDescription :: Lens' SDKConfigurationProperty (Maybe Text)
-scpDescription = lens _scpDescription (\s a -> s {_scpDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scpDescription :: Lens.Lens' SDKConfigurationProperty (Lude.Maybe Lude.Text)
+scpDescription = Lens.lens (description :: SDKConfigurationProperty -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SDKConfigurationProperty)
+{-# DEPRECATED scpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON SDKConfigurationProperty where
+instance Lude.FromJSON SDKConfigurationProperty where
   parseJSON =
-    withObject
+    Lude.withObject
       "SDKConfigurationProperty"
       ( \x ->
           SDKConfigurationProperty'
-            <$> (x .:? "friendlyName")
-            <*> (x .:? "required")
-            <*> (x .:? "name")
-            <*> (x .:? "defaultValue")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "friendlyName")
+            Lude.<*> (x Lude..:? "required")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "defaultValue")
+            Lude.<*> (x Lude..:? "description")
       )
-
-instance Hashable SDKConfigurationProperty
-
-instance NFData SDKConfigurationProperty

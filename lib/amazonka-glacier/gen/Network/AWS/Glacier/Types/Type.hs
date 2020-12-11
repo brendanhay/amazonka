@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.Type where
+module Network.AWS.Glacier.Types.Type
+  ( Type
+      ( Type',
+        AmazonCustomerByEmail,
+        CanonicalUser,
+        Group
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Type
-  = AmazonCustomerByEmail
-  | CanonicalUser
-  | Group
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Type = Type' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Type where
-  parser =
-    takeLowerText >>= \case
-      "amazoncustomerbyemail" -> pure AmazonCustomerByEmail
-      "canonicaluser" -> pure CanonicalUser
-      "group" -> pure Group
-      e ->
-        fromTextError $
-          "Failure parsing Type from value: '" <> e
-            <> "'. Accepted values: amazoncustomerbyemail, canonicaluser, group"
+pattern AmazonCustomerByEmail :: Type
+pattern AmazonCustomerByEmail = Type' "AmazonCustomerByEmail"
 
-instance ToText Type where
-  toText = \case
-    AmazonCustomerByEmail -> "AmazonCustomerByEmail"
-    CanonicalUser -> "CanonicalUser"
-    Group -> "Group"
+pattern CanonicalUser :: Type
+pattern CanonicalUser = Type' "CanonicalUser"
 
-instance Hashable Type
+pattern Group :: Type
+pattern Group = Type' "Group"
 
-instance NFData Type
-
-instance ToByteString Type
-
-instance ToQuery Type
-
-instance ToHeader Type
-
-instance ToJSON Type where
-  toJSON = toJSONText
-
-instance FromJSON Type where
-  parseJSON = parseJSONText "Type"
+{-# COMPLETE
+  AmazonCustomerByEmail,
+  CanonicalUser,
+  Group,
+  Type'
+  #-}

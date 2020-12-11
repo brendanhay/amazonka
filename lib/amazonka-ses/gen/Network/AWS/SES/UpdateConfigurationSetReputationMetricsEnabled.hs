@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,134 @@
 --
 -- Enables or disables the publishing of reputation metrics for emails sent using a specific configuration set in a given AWS Region. Reputation metrics include bounce and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can create alarms when bounce or complaint rates exceed certain thresholds.
 --
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
-  ( -- * Creating a Request
-    updateConfigurationSetReputationMetricsEnabled,
-    UpdateConfigurationSetReputationMetricsEnabled,
+  ( -- * Creating a request
+    UpdateConfigurationSetReputationMetricsEnabled (..),
+    mkUpdateConfigurationSetReputationMetricsEnabled,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucsrmeConfigurationSetName,
     ucsrmeEnabled,
 
-    -- * Destructuring the Response
-    updateConfigurationSetReputationMetricsEnabledResponse,
-    UpdateConfigurationSetReputationMetricsEnabledResponse,
+    -- * Destructuring the response
+    UpdateConfigurationSetReputationMetricsEnabledResponse (..),
+    mkUpdateConfigurationSetReputationMetricsEnabledResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to modify the reputation metric publishing settings for a configuration set.
 --
---
---
--- /See:/ 'updateConfigurationSetReputationMetricsEnabled' smart constructor.
+-- /See:/ 'mkUpdateConfigurationSetReputationMetricsEnabled' smart constructor.
 data UpdateConfigurationSetReputationMetricsEnabled = UpdateConfigurationSetReputationMetricsEnabled'
-  { _ucsrmeConfigurationSetName ::
-      !Text,
-    _ucsrmeEnabled ::
-      !Bool
+  { configurationSetName ::
+      Lude.Text,
+    enabled ::
+      Lude.Bool
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'UpdateConfigurationSetReputationMetricsEnabled' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucsrmeConfigurationSetName' - The name of the configuration set that you want to update.
---
--- * 'ucsrmeEnabled' - Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
-updateConfigurationSetReputationMetricsEnabled ::
-  -- | 'ucsrmeConfigurationSetName'
-  Text ->
-  -- | 'ucsrmeEnabled'
-  Bool ->
+-- * 'configurationSetName' - The name of the configuration set that you want to update.
+-- * 'enabled' - Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
+mkUpdateConfigurationSetReputationMetricsEnabled ::
+  -- | 'configurationSetName'
+  Lude.Text ->
+  -- | 'enabled'
+  Lude.Bool ->
   UpdateConfigurationSetReputationMetricsEnabled
-updateConfigurationSetReputationMetricsEnabled
+mkUpdateConfigurationSetReputationMetricsEnabled
   pConfigurationSetName_
   pEnabled_ =
     UpdateConfigurationSetReputationMetricsEnabled'
-      { _ucsrmeConfigurationSetName =
+      { configurationSetName =
           pConfigurationSetName_,
-        _ucsrmeEnabled = pEnabled_
+        enabled = pEnabled_
       }
 
 -- | The name of the configuration set that you want to update.
-ucsrmeConfigurationSetName :: Lens' UpdateConfigurationSetReputationMetricsEnabled Text
-ucsrmeConfigurationSetName = lens _ucsrmeConfigurationSetName (\s a -> s {_ucsrmeConfigurationSetName = a})
+--
+-- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsrmeConfigurationSetName :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Lude.Text
+ucsrmeConfigurationSetName = Lens.lens (configurationSetName :: UpdateConfigurationSetReputationMetricsEnabled -> Lude.Text) (\s a -> s {configurationSetName = a} :: UpdateConfigurationSetReputationMetricsEnabled)
+{-# DEPRECATED ucsrmeConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 -- | Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
-ucsrmeEnabled :: Lens' UpdateConfigurationSetReputationMetricsEnabled Bool
-ucsrmeEnabled = lens _ucsrmeEnabled (\s a -> s {_ucsrmeEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsrmeEnabled :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Lude.Bool
+ucsrmeEnabled = Lens.lens (enabled :: UpdateConfigurationSetReputationMetricsEnabled -> Lude.Bool) (\s a -> s {enabled = a} :: UpdateConfigurationSetReputationMetricsEnabled)
+{-# DEPRECATED ucsrmeEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance AWSRequest UpdateConfigurationSetReputationMetricsEnabled where
+instance
+  Lude.AWSRequest
+    UpdateConfigurationSetReputationMetricsEnabled
+  where
   type
     Rs UpdateConfigurationSetReputationMetricsEnabled =
       UpdateConfigurationSetReputationMetricsEnabledResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveNull
+    Res.receiveNull
       UpdateConfigurationSetReputationMetricsEnabledResponse'
 
-instance Hashable UpdateConfigurationSetReputationMetricsEnabled
+instance
+  Lude.ToHeaders
+    UpdateConfigurationSetReputationMetricsEnabled
+  where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateConfigurationSetReputationMetricsEnabled
+instance Lude.ToPath UpdateConfigurationSetReputationMetricsEnabled where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateConfigurationSetReputationMetricsEnabled where
-  toHeaders = const mempty
-
-instance ToPath UpdateConfigurationSetReputationMetricsEnabled where
-  toPath = const "/"
-
-instance ToQuery UpdateConfigurationSetReputationMetricsEnabled where
+instance
+  Lude.ToQuery
+    UpdateConfigurationSetReputationMetricsEnabled
+  where
   toQuery UpdateConfigurationSetReputationMetricsEnabled' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("UpdateConfigurationSetReputationMetricsEnabled" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "ConfigurationSetName" =: _ucsrmeConfigurationSetName,
-        "Enabled" =: _ucsrmeEnabled
+          Lude.=: ( "UpdateConfigurationSetReputationMetricsEnabled" ::
+                      Lude.ByteString
+                  ),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "ConfigurationSetName" Lude.=: configurationSetName,
+        "Enabled" Lude.=: enabled
       ]
 
--- | /See:/ 'updateConfigurationSetReputationMetricsEnabledResponse' smart constructor.
+-- | /See:/ 'mkUpdateConfigurationSetReputationMetricsEnabledResponse' smart constructor.
 data UpdateConfigurationSetReputationMetricsEnabledResponse = UpdateConfigurationSetReputationMetricsEnabledResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'UpdateConfigurationSetReputationMetricsEnabledResponse' with the minimum fields required to make a request.
-updateConfigurationSetReputationMetricsEnabledResponse ::
+mkUpdateConfigurationSetReputationMetricsEnabledResponse ::
   UpdateConfigurationSetReputationMetricsEnabledResponse
-updateConfigurationSetReputationMetricsEnabledResponse =
+mkUpdateConfigurationSetReputationMetricsEnabledResponse =
   UpdateConfigurationSetReputationMetricsEnabledResponse'
-
-instance
-  NFData
-    UpdateConfigurationSetReputationMetricsEnabledResponse

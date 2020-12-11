@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse where
+module Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
+  ( BatchUpdateObjectAttributesResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchUpdateObjectAttributesResponse,
+
+    -- * Lenses
+    buoaObjectIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a @BatchUpdate@ response operation.
 --
---
---
--- /See:/ 'batchUpdateObjectAttributesResponse' smart constructor.
+-- /See:/ 'mkBatchUpdateObjectAttributesResponse' smart constructor.
 newtype BatchUpdateObjectAttributesResponse = BatchUpdateObjectAttributesResponse'
-  { _buoaObjectIdentifier ::
-      Maybe Text
+  { objectIdentifier ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchUpdateObjectAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'buoaObjectIdentifier' - ID that is associated with the object.
-batchUpdateObjectAttributesResponse ::
+-- * 'objectIdentifier' - ID that is associated with the object.
+mkBatchUpdateObjectAttributesResponse ::
   BatchUpdateObjectAttributesResponse
-batchUpdateObjectAttributesResponse =
+mkBatchUpdateObjectAttributesResponse =
   BatchUpdateObjectAttributesResponse'
-    { _buoaObjectIdentifier =
-        Nothing
+    { objectIdentifier =
+        Lude.Nothing
     }
 
 -- | ID that is associated with the object.
-buoaObjectIdentifier :: Lens' BatchUpdateObjectAttributesResponse (Maybe Text)
-buoaObjectIdentifier = lens _buoaObjectIdentifier (\s a -> s {_buoaObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+buoaObjectIdentifier :: Lens.Lens' BatchUpdateObjectAttributesResponse (Lude.Maybe Lude.Text)
+buoaObjectIdentifier = Lens.lens (objectIdentifier :: BatchUpdateObjectAttributesResponse -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: BatchUpdateObjectAttributesResponse)
+{-# DEPRECATED buoaObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
-instance FromJSON BatchUpdateObjectAttributesResponse where
+instance Lude.FromJSON BatchUpdateObjectAttributesResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchUpdateObjectAttributesResponse"
       ( \x ->
           BatchUpdateObjectAttributesResponse'
-            <$> (x .:? "ObjectIdentifier")
+            Lude.<$> (x Lude..:? "ObjectIdentifier")
       )
-
-instance Hashable BatchUpdateObjectAttributesResponse
-
-instance NFData BatchUpdateObjectAttributesResponse

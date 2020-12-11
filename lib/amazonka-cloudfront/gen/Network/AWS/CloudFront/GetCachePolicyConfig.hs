@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Gets a cache policy configuration.
 --
---
 -- To get a cache policy configuration, you must provide the policy’s identifier. If the cache policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the cache policy is not attached to a cache behavior, you can get the identifier using @ListCachePolicies@ .
 module Network.AWS.CloudFront.GetCachePolicyConfig
-  ( -- * Creating a Request
-    getCachePolicyConfig,
-    GetCachePolicyConfig,
+  ( -- * Creating a request
+    GetCachePolicyConfig (..),
+    mkGetCachePolicyConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcpcId,
 
-    -- * Destructuring the Response
-    getCachePolicyConfigResponse,
-    GetCachePolicyConfigResponse,
+    -- * Destructuring the response
+    GetCachePolicyConfigResponse (..),
+    mkGetCachePolicyConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcpcrsETag,
     gcpcrsCachePolicyConfig,
     gcpcrsResponseStatus,
@@ -41,97 +35,114 @@ module Network.AWS.CloudFront.GetCachePolicyConfig
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCachePolicyConfig' smart constructor.
+-- | /See:/ 'mkGetCachePolicyConfig' smart constructor.
 newtype GetCachePolicyConfig = GetCachePolicyConfig'
-  { _gcpcId ::
-      Text
+  { id ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCachePolicyConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcpcId' - The unique identifier for the cache policy. If the cache policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the cache policy is not attached to a cache behavior, you can get the identifier using @ListCachePolicies@ .
-getCachePolicyConfig ::
-  -- | 'gcpcId'
-  Text ->
+-- * 'id' - The unique identifier for the cache policy. If the cache policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the cache policy is not attached to a cache behavior, you can get the identifier using @ListCachePolicies@ .
+mkGetCachePolicyConfig ::
+  -- | 'id'
+  Lude.Text ->
   GetCachePolicyConfig
-getCachePolicyConfig pId_ = GetCachePolicyConfig' {_gcpcId = pId_}
+mkGetCachePolicyConfig pId_ = GetCachePolicyConfig' {id = pId_}
 
 -- | The unique identifier for the cache policy. If the cache policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the cache policy is not attached to a cache behavior, you can get the identifier using @ListCachePolicies@ .
-gcpcId :: Lens' GetCachePolicyConfig Text
-gcpcId = lens _gcpcId (\s a -> s {_gcpcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpcId :: Lens.Lens' GetCachePolicyConfig Lude.Text
+gcpcId = Lens.lens (id :: GetCachePolicyConfig -> Lude.Text) (\s a -> s {id = a} :: GetCachePolicyConfig)
+{-# DEPRECATED gcpcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetCachePolicyConfig where
+instance Lude.AWSRequest GetCachePolicyConfig where
   type Rs GetCachePolicyConfig = GetCachePolicyConfigResponse
-  request = get cloudFront
+  request = Req.get cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetCachePolicyConfigResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCachePolicyConfig
+instance Lude.ToHeaders GetCachePolicyConfig where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetCachePolicyConfig
-
-instance ToHeaders GetCachePolicyConfig where
-  toHeaders = const mempty
-
-instance ToPath GetCachePolicyConfig where
+instance Lude.ToPath GetCachePolicyConfig where
   toPath GetCachePolicyConfig' {..} =
-    mconcat ["/2020-05-31/cache-policy/", toBS _gcpcId, "/config"]
+    Lude.mconcat
+      ["/2020-05-31/cache-policy/", Lude.toBS id, "/config"]
 
-instance ToQuery GetCachePolicyConfig where
-  toQuery = const mempty
+instance Lude.ToQuery GetCachePolicyConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCachePolicyConfigResponse' smart constructor.
+-- | /See:/ 'mkGetCachePolicyConfigResponse' smart constructor.
 data GetCachePolicyConfigResponse = GetCachePolicyConfigResponse'
-  { _gcpcrsETag ::
-      !(Maybe Text),
-    _gcpcrsCachePolicyConfig ::
-      !(Maybe CachePolicyConfig),
-    _gcpcrsResponseStatus :: !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    cachePolicyConfig ::
+      Lude.Maybe CachePolicyConfig,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCachePolicyConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcpcrsETag' - The current version of the cache policy.
---
--- * 'gcpcrsCachePolicyConfig' - The cache policy configuration.
---
--- * 'gcpcrsResponseStatus' - -- | The response status code.
-getCachePolicyConfigResponse ::
-  -- | 'gcpcrsResponseStatus'
-  Int ->
+-- * 'cachePolicyConfig' - The cache policy configuration.
+-- * 'eTag' - The current version of the cache policy.
+-- * 'responseStatus' - The response status code.
+mkGetCachePolicyConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCachePolicyConfigResponse
-getCachePolicyConfigResponse pResponseStatus_ =
+mkGetCachePolicyConfigResponse pResponseStatus_ =
   GetCachePolicyConfigResponse'
-    { _gcpcrsETag = Nothing,
-      _gcpcrsCachePolicyConfig = Nothing,
-      _gcpcrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      cachePolicyConfig = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current version of the cache policy.
-gcpcrsETag :: Lens' GetCachePolicyConfigResponse (Maybe Text)
-gcpcrsETag = lens _gcpcrsETag (\s a -> s {_gcpcrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpcrsETag :: Lens.Lens' GetCachePolicyConfigResponse (Lude.Maybe Lude.Text)
+gcpcrsETag = Lens.lens (eTag :: GetCachePolicyConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetCachePolicyConfigResponse)
+{-# DEPRECATED gcpcrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The cache policy configuration.
-gcpcrsCachePolicyConfig :: Lens' GetCachePolicyConfigResponse (Maybe CachePolicyConfig)
-gcpcrsCachePolicyConfig = lens _gcpcrsCachePolicyConfig (\s a -> s {_gcpcrsCachePolicyConfig = a})
+--
+-- /Note:/ Consider using 'cachePolicyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpcrsCachePolicyConfig :: Lens.Lens' GetCachePolicyConfigResponse (Lude.Maybe CachePolicyConfig)
+gcpcrsCachePolicyConfig = Lens.lens (cachePolicyConfig :: GetCachePolicyConfigResponse -> Lude.Maybe CachePolicyConfig) (\s a -> s {cachePolicyConfig = a} :: GetCachePolicyConfigResponse)
+{-# DEPRECATED gcpcrsCachePolicyConfig "Use generic-lens or generic-optics with 'cachePolicyConfig' instead." #-}
 
--- | -- | The response status code.
-gcpcrsResponseStatus :: Lens' GetCachePolicyConfigResponse Int
-gcpcrsResponseStatus = lens _gcpcrsResponseStatus (\s a -> s {_gcpcrsResponseStatus = a})
-
-instance NFData GetCachePolicyConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpcrsResponseStatus :: Lens.Lens' GetCachePolicyConfigResponse Lude.Int
+gcpcrsResponseStatus = Lens.lens (responseStatus :: GetCachePolicyConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCachePolicyConfigResponse)
+{-# DEPRECATED gcpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

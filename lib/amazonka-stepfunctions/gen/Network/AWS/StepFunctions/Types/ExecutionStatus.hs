@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.ExecutionStatus where
+module Network.AWS.StepFunctions.Types.ExecutionStatus
+  ( ExecutionStatus
+      ( ExecutionStatus',
+        Aborted,
+        Failed,
+        Running,
+        Succeeded,
+        TimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExecutionStatus
-  = Aborted
-  | Failed
-  | Running
-  | Succeeded
-  | TimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExecutionStatus = ExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "aborted" -> pure Aborted
-      "failed" -> pure Failed
-      "running" -> pure Running
-      "succeeded" -> pure Succeeded
-      "timed_out" -> pure TimedOut
-      e ->
-        fromTextError $
-          "Failure parsing ExecutionStatus from value: '" <> e
-            <> "'. Accepted values: aborted, failed, running, succeeded, timed_out"
+pattern Aborted :: ExecutionStatus
+pattern Aborted = ExecutionStatus' "ABORTED"
 
-instance ToText ExecutionStatus where
-  toText = \case
-    Aborted -> "ABORTED"
-    Failed -> "FAILED"
-    Running -> "RUNNING"
-    Succeeded -> "SUCCEEDED"
-    TimedOut -> "TIMED_OUT"
+pattern Failed :: ExecutionStatus
+pattern Failed = ExecutionStatus' "FAILED"
 
-instance Hashable ExecutionStatus
+pattern Running :: ExecutionStatus
+pattern Running = ExecutionStatus' "RUNNING"
 
-instance NFData ExecutionStatus
+pattern Succeeded :: ExecutionStatus
+pattern Succeeded = ExecutionStatus' "SUCCEEDED"
 
-instance ToByteString ExecutionStatus
+pattern TimedOut :: ExecutionStatus
+pattern TimedOut = ExecutionStatus' "TIMED_OUT"
 
-instance ToQuery ExecutionStatus
-
-instance ToHeader ExecutionStatus
-
-instance ToJSON ExecutionStatus where
-  toJSON = toJSONText
-
-instance FromJSON ExecutionStatus where
-  parseJSON = parseJSONText "ExecutionStatus"
+{-# COMPLETE
+  Aborted,
+  Failed,
+  Running,
+  Succeeded,
+  TimedOut,
+  ExecutionStatus'
+  #-}

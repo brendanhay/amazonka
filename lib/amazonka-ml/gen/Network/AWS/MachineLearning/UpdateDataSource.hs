@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,156 @@
 --
 -- Updates the @DataSourceName@ of a @DataSource@ .
 --
---
 -- You can use the @GetDataSource@ operation to view the contents of the updated data element.
 module Network.AWS.MachineLearning.UpdateDataSource
-  ( -- * Creating a Request
-    updateDataSource,
-    UpdateDataSource,
+  ( -- * Creating a request
+    UpdateDataSource (..),
+    mkUpdateDataSource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udsDataSourceId,
     udsDataSourceName,
 
-    -- * Destructuring the Response
-    updateDataSourceResponse,
-    UpdateDataSourceResponse,
+    -- * Destructuring the response
+    UpdateDataSourceResponse (..),
+    mkUpdateDataSourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udsrsDataSourceId,
     udsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDataSource' smart constructor.
+-- | /See:/ 'mkUpdateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
-  { _udsDataSourceId ::
-      !Text,
-    _udsDataSourceName :: !Text
+  { dataSourceId ::
+      Lude.Text,
+    dataSourceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udsDataSourceId' - The ID assigned to the @DataSource@ during creation.
---
--- * 'udsDataSourceName' - A new user-supplied name or description of the @DataSource@ that will replace the current description.
-updateDataSource ::
-  -- | 'udsDataSourceId'
-  Text ->
-  -- | 'udsDataSourceName'
-  Text ->
+-- * 'dataSourceId' - The ID assigned to the @DataSource@ during creation.
+-- * 'dataSourceName' - A new user-supplied name or description of the @DataSource@ that will replace the current description.
+mkUpdateDataSource ::
+  -- | 'dataSourceId'
+  Lude.Text ->
+  -- | 'dataSourceName'
+  Lude.Text ->
   UpdateDataSource
-updateDataSource pDataSourceId_ pDataSourceName_ =
+mkUpdateDataSource pDataSourceId_ pDataSourceName_ =
   UpdateDataSource'
-    { _udsDataSourceId = pDataSourceId_,
-      _udsDataSourceName = pDataSourceName_
+    { dataSourceId = pDataSourceId_,
+      dataSourceName = pDataSourceName_
     }
 
 -- | The ID assigned to the @DataSource@ during creation.
-udsDataSourceId :: Lens' UpdateDataSource Text
-udsDataSourceId = lens _udsDataSourceId (\s a -> s {_udsDataSourceId = a})
+--
+-- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsDataSourceId :: Lens.Lens' UpdateDataSource Lude.Text
+udsDataSourceId = Lens.lens (dataSourceId :: UpdateDataSource -> Lude.Text) (\s a -> s {dataSourceId = a} :: UpdateDataSource)
+{-# DEPRECATED udsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
 -- | A new user-supplied name or description of the @DataSource@ that will replace the current description.
-udsDataSourceName :: Lens' UpdateDataSource Text
-udsDataSourceName = lens _udsDataSourceName (\s a -> s {_udsDataSourceName = a})
+--
+-- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsDataSourceName :: Lens.Lens' UpdateDataSource Lude.Text
+udsDataSourceName = Lens.lens (dataSourceName :: UpdateDataSource -> Lude.Text) (\s a -> s {dataSourceName = a} :: UpdateDataSource)
+{-# DEPRECATED udsDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
 
-instance AWSRequest UpdateDataSource where
+instance Lude.AWSRequest UpdateDataSource where
   type Rs UpdateDataSource = UpdateDataSourceResponse
-  request = postJSON machineLearning
+  request = Req.postJSON machineLearningService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateDataSourceResponse'
-            <$> (x .?> "DataSourceId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DataSourceId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateDataSource
-
-instance NFData UpdateDataSource
-
-instance ToHeaders UpdateDataSource where
+instance Lude.ToHeaders UpdateDataSource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonML_20141212.UpdateDataSource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonML_20141212.UpdateDataSource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDataSource where
+instance Lude.ToJSON UpdateDataSource where
   toJSON UpdateDataSource' {..} =
-    object
-      ( catMaybes
-          [ Just ("DataSourceId" .= _udsDataSourceId),
-            Just ("DataSourceName" .= _udsDataSourceName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DataSourceId" Lude..= dataSourceId),
+            Lude.Just ("DataSourceName" Lude..= dataSourceName)
           ]
       )
 
-instance ToPath UpdateDataSource where
-  toPath = const "/"
+instance Lude.ToPath UpdateDataSource where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDataSource where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDataSource where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of an @UpdateDataSource@ operation.
 --
---
 -- You can see the updated content by using the @GetBatchPrediction@ operation.
 --
---
--- /See:/ 'updateDataSourceResponse' smart constructor.
+-- /See:/ 'mkUpdateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-  { _udsrsDataSourceId ::
-      !(Maybe Text),
-    _udsrsResponseStatus :: !Int
+  { dataSourceId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDataSourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udsrsDataSourceId' - The ID assigned to the @DataSource@ during creation. This value should be identical to the value of the @DataSourceID@ in the request.
---
--- * 'udsrsResponseStatus' - -- | The response status code.
-updateDataSourceResponse ::
-  -- | 'udsrsResponseStatus'
-  Int ->
+-- * 'dataSourceId' - The ID assigned to the @DataSource@ during creation. This value should be identical to the value of the @DataSourceID@ in the request.
+-- * 'responseStatus' - The response status code.
+mkUpdateDataSourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDataSourceResponse
-updateDataSourceResponse pResponseStatus_ =
+mkUpdateDataSourceResponse pResponseStatus_ =
   UpdateDataSourceResponse'
-    { _udsrsDataSourceId = Nothing,
-      _udsrsResponseStatus = pResponseStatus_
+    { dataSourceId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID assigned to the @DataSource@ during creation. This value should be identical to the value of the @DataSourceID@ in the request.
-udsrsDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
-udsrsDataSourceId = lens _udsrsDataSourceId (\s a -> s {_udsrsDataSourceId = a})
+--
+-- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsrsDataSourceId :: Lens.Lens' UpdateDataSourceResponse (Lude.Maybe Lude.Text)
+udsrsDataSourceId = Lens.lens (dataSourceId :: UpdateDataSourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceId = a} :: UpdateDataSourceResponse)
+{-# DEPRECATED udsrsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
--- | -- | The response status code.
-udsrsResponseStatus :: Lens' UpdateDataSourceResponse Int
-udsrsResponseStatus = lens _udsrsResponseStatus (\s a -> s {_udsrsResponseStatus = a})
-
-instance NFData UpdateDataSourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsrsResponseStatus :: Lens.Lens' UpdateDataSourceResponse Lude.Int
+udsrsResponseStatus = Lens.lens (responseStatus :: UpdateDataSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDataSourceResponse)
+{-# DEPRECATED udsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.DomainConfiguration where
+module Network.AWS.SWF.Types.DomainConfiguration
+  ( DomainConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDomainConfiguration,
+
+    -- * Lenses
+    dcWorkflowExecutionRetentionPeriodInDays,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the configuration settings of a domain.
 --
---
---
--- /See:/ 'domainConfiguration' smart constructor.
+-- /See:/ 'mkDomainConfiguration' smart constructor.
 newtype DomainConfiguration = DomainConfiguration'
-  { _dcWorkflowExecutionRetentionPeriodInDays ::
-      Text
+  { workflowExecutionRetentionPeriodInDays ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcWorkflowExecutionRetentionPeriodInDays' - The retention period for workflow executions in this domain.
-domainConfiguration ::
-  -- | 'dcWorkflowExecutionRetentionPeriodInDays'
-  Text ->
+-- * 'workflowExecutionRetentionPeriodInDays' - The retention period for workflow executions in this domain.
+mkDomainConfiguration ::
+  -- | 'workflowExecutionRetentionPeriodInDays'
+  Lude.Text ->
   DomainConfiguration
-domainConfiguration pWorkflowExecutionRetentionPeriodInDays_ =
+mkDomainConfiguration pWorkflowExecutionRetentionPeriodInDays_ =
   DomainConfiguration'
-    { _dcWorkflowExecutionRetentionPeriodInDays =
+    { workflowExecutionRetentionPeriodInDays =
         pWorkflowExecutionRetentionPeriodInDays_
     }
 
 -- | The retention period for workflow executions in this domain.
-dcWorkflowExecutionRetentionPeriodInDays :: Lens' DomainConfiguration Text
-dcWorkflowExecutionRetentionPeriodInDays = lens _dcWorkflowExecutionRetentionPeriodInDays (\s a -> s {_dcWorkflowExecutionRetentionPeriodInDays = a})
+--
+-- /Note:/ Consider using 'workflowExecutionRetentionPeriodInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcWorkflowExecutionRetentionPeriodInDays :: Lens.Lens' DomainConfiguration Lude.Text
+dcWorkflowExecutionRetentionPeriodInDays = Lens.lens (workflowExecutionRetentionPeriodInDays :: DomainConfiguration -> Lude.Text) (\s a -> s {workflowExecutionRetentionPeriodInDays = a} :: DomainConfiguration)
+{-# DEPRECATED dcWorkflowExecutionRetentionPeriodInDays "Use generic-lens or generic-optics with 'workflowExecutionRetentionPeriodInDays' instead." #-}
 
-instance FromJSON DomainConfiguration where
+instance Lude.FromJSON DomainConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "DomainConfiguration"
       ( \x ->
           DomainConfiguration'
-            <$> (x .: "workflowExecutionRetentionPeriodInDays")
+            Lude.<$> (x Lude..: "workflowExecutionRetentionPeriodInDays")
       )
-
-instance Hashable DomainConfiguration
-
-instance NFData DomainConfiguration

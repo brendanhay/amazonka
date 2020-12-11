@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,81 +14,90 @@
 --
 -- Deletes a snapshot schedule.
 module Network.AWS.Redshift.DeleteSnapshotSchedule
-  ( -- * Creating a Request
-    deleteSnapshotSchedule,
-    DeleteSnapshotSchedule,
+  ( -- * Creating a request
+    DeleteSnapshotSchedule (..),
+    mkDeleteSnapshotSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dScheduleIdentifier,
 
-    -- * Destructuring the Response
-    deleteSnapshotScheduleResponse,
-    DeleteSnapshotScheduleResponse,
+    -- * Destructuring the response
+    DeleteSnapshotScheduleResponse (..),
+    mkDeleteSnapshotScheduleResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSnapshotSchedule' smart constructor.
+-- | /See:/ 'mkDeleteSnapshotSchedule' smart constructor.
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
-  { _dScheduleIdentifier ::
-      Text
+  { scheduleIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshotSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dScheduleIdentifier' - A unique identifier of the snapshot schedule to delete.
-deleteSnapshotSchedule ::
-  -- | 'dScheduleIdentifier'
-  Text ->
+-- * 'scheduleIdentifier' - A unique identifier of the snapshot schedule to delete.
+mkDeleteSnapshotSchedule ::
+  -- | 'scheduleIdentifier'
+  Lude.Text ->
   DeleteSnapshotSchedule
-deleteSnapshotSchedule pScheduleIdentifier_ =
+mkDeleteSnapshotSchedule pScheduleIdentifier_ =
   DeleteSnapshotSchedule'
-    { _dScheduleIdentifier =
+    { scheduleIdentifier =
         pScheduleIdentifier_
     }
 
 -- | A unique identifier of the snapshot schedule to delete.
-dScheduleIdentifier :: Lens' DeleteSnapshotSchedule Text
-dScheduleIdentifier = lens _dScheduleIdentifier (\s a -> s {_dScheduleIdentifier = a})
+--
+-- /Note:/ Consider using 'scheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dScheduleIdentifier :: Lens.Lens' DeleteSnapshotSchedule Lude.Text
+dScheduleIdentifier = Lens.lens (scheduleIdentifier :: DeleteSnapshotSchedule -> Lude.Text) (\s a -> s {scheduleIdentifier = a} :: DeleteSnapshotSchedule)
+{-# DEPRECATED dScheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead." #-}
 
-instance AWSRequest DeleteSnapshotSchedule where
+instance Lude.AWSRequest DeleteSnapshotSchedule where
   type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
-  request = postQuery redshift
-  response = receiveNull DeleteSnapshotScheduleResponse'
+  request = Req.postQuery redshiftService
+  response = Res.receiveNull DeleteSnapshotScheduleResponse'
 
-instance Hashable DeleteSnapshotSchedule
+instance Lude.ToHeaders DeleteSnapshotSchedule where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteSnapshotSchedule
+instance Lude.ToPath DeleteSnapshotSchedule where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteSnapshotSchedule where
-  toHeaders = const mempty
-
-instance ToPath DeleteSnapshotSchedule where
-  toPath = const "/"
-
-instance ToQuery DeleteSnapshotSchedule where
+instance Lude.ToQuery DeleteSnapshotSchedule where
   toQuery DeleteSnapshotSchedule' {..} =
-    mconcat
-      [ "Action" =: ("DeleteSnapshotSchedule" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ScheduleIdentifier" =: _dScheduleIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteSnapshotSchedule" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ScheduleIdentifier" Lude.=: scheduleIdentifier
       ]
 
--- | /See:/ 'deleteSnapshotScheduleResponse' smart constructor.
+-- | /See:/ 'mkDeleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshotScheduleResponse' with the minimum fields required to make a request.
-deleteSnapshotScheduleResponse ::
+mkDeleteSnapshotScheduleResponse ::
   DeleteSnapshotScheduleResponse
-deleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
-
-instance NFData DeleteSnapshotScheduleResponse
+mkDeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'

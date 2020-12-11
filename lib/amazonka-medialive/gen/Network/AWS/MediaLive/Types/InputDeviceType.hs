@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputDeviceType where
+module Network.AWS.MediaLive.Types.InputDeviceType
+  ( InputDeviceType
+      ( InputDeviceType',
+        HD
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The type of the input device. For an AWS Elemental Link device that outputs resolutions up to 1080, choose "HD".
-data InputDeviceType = HD
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputDeviceType = InputDeviceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputDeviceType where
-  parser =
-    takeLowerText >>= \case
-      "hd" -> pure HD
-      e ->
-        fromTextError $
-          "Failure parsing InputDeviceType from value: '" <> e
-            <> "'. Accepted values: hd"
+pattern HD :: InputDeviceType
+pattern HD = InputDeviceType' "HD"
 
-instance ToText InputDeviceType where
-  toText = \case
-    HD -> "HD"
-
-instance Hashable InputDeviceType
-
-instance NFData InputDeviceType
-
-instance ToByteString InputDeviceType
-
-instance ToQuery InputDeviceType
-
-instance ToHeader InputDeviceType
-
-instance FromJSON InputDeviceType where
-  parseJSON = parseJSONText "InputDeviceType"
+{-# COMPLETE
+  HD,
+  InputDeviceType'
+  #-}

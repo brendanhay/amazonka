@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.RemixSettings where
+module Network.AWS.MediaConvert.Types.RemixSettings
+  ( RemixSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkRemixSettings,
+
+    -- * Lenses
+    rsChannelMapping,
+    rsChannelsIn,
+    rsChannelsOut,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.ChannelMapping
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use Manual audio remixing (RemixSettings) to adjust audio levels for each audio channel in each output of your job. With audio remixing, you can output more or fewer audio channels than your input audio source provides.
 --
--- /See:/ 'remixSettings' smart constructor.
+-- /See:/ 'mkRemixSettings' smart constructor.
 data RemixSettings = RemixSettings'
-  { _rsChannelMapping ::
-      !(Maybe ChannelMapping),
-    _rsChannelsIn :: !(Maybe Nat),
-    _rsChannelsOut :: !(Maybe Nat)
+  { channelMapping ::
+      Lude.Maybe ChannelMapping,
+    channelsIn :: Lude.Maybe Lude.Natural,
+    channelsOut :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemixSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsChannelMapping' - Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).
---
--- * 'rsChannelsIn' - Specify the number of audio channels from your input that you want to use in your output. With remixing, you might combine or split the data in these channels, so the number of channels in your final output might be different.
---
--- * 'rsChannelsOut' - Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.)
-remixSettings ::
+-- * 'channelMapping' - Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).
+-- * 'channelsIn' - Specify the number of audio channels from your input that you want to use in your output. With remixing, you might combine or split the data in these channels, so the number of channels in your final output might be different.
+-- * 'channelsOut' - Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.)
+mkRemixSettings ::
   RemixSettings
-remixSettings =
+mkRemixSettings =
   RemixSettings'
-    { _rsChannelMapping = Nothing,
-      _rsChannelsIn = Nothing,
-      _rsChannelsOut = Nothing
+    { channelMapping = Lude.Nothing,
+      channelsIn = Lude.Nothing,
+      channelsOut = Lude.Nothing
     }
 
 -- | Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).
-rsChannelMapping :: Lens' RemixSettings (Maybe ChannelMapping)
-rsChannelMapping = lens _rsChannelMapping (\s a -> s {_rsChannelMapping = a})
+--
+-- /Note:/ Consider using 'channelMapping' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsChannelMapping :: Lens.Lens' RemixSettings (Lude.Maybe ChannelMapping)
+rsChannelMapping = Lens.lens (channelMapping :: RemixSettings -> Lude.Maybe ChannelMapping) (\s a -> s {channelMapping = a} :: RemixSettings)
+{-# DEPRECATED rsChannelMapping "Use generic-lens or generic-optics with 'channelMapping' instead." #-}
 
 -- | Specify the number of audio channels from your input that you want to use in your output. With remixing, you might combine or split the data in these channels, so the number of channels in your final output might be different.
-rsChannelsIn :: Lens' RemixSettings (Maybe Natural)
-rsChannelsIn = lens _rsChannelsIn (\s a -> s {_rsChannelsIn = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'channelsIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsChannelsIn :: Lens.Lens' RemixSettings (Lude.Maybe Lude.Natural)
+rsChannelsIn = Lens.lens (channelsIn :: RemixSettings -> Lude.Maybe Lude.Natural) (\s a -> s {channelsIn = a} :: RemixSettings)
+{-# DEPRECATED rsChannelsIn "Use generic-lens or generic-optics with 'channelsIn' instead." #-}
 
 -- | Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.)
-rsChannelsOut :: Lens' RemixSettings (Maybe Natural)
-rsChannelsOut = lens _rsChannelsOut (\s a -> s {_rsChannelsOut = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'channelsOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsChannelsOut :: Lens.Lens' RemixSettings (Lude.Maybe Lude.Natural)
+rsChannelsOut = Lens.lens (channelsOut :: RemixSettings -> Lude.Maybe Lude.Natural) (\s a -> s {channelsOut = a} :: RemixSettings)
+{-# DEPRECATED rsChannelsOut "Use generic-lens or generic-optics with 'channelsOut' instead." #-}
 
-instance FromJSON RemixSettings where
+instance Lude.FromJSON RemixSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "RemixSettings"
       ( \x ->
           RemixSettings'
-            <$> (x .:? "channelMapping")
-            <*> (x .:? "channelsIn")
-            <*> (x .:? "channelsOut")
+            Lude.<$> (x Lude..:? "channelMapping")
+            Lude.<*> (x Lude..:? "channelsIn")
+            Lude.<*> (x Lude..:? "channelsOut")
       )
 
-instance Hashable RemixSettings
-
-instance NFData RemixSettings
-
-instance ToJSON RemixSettings where
+instance Lude.ToJSON RemixSettings where
   toJSON RemixSettings' {..} =
-    object
-      ( catMaybes
-          [ ("channelMapping" .=) <$> _rsChannelMapping,
-            ("channelsIn" .=) <$> _rsChannelsIn,
-            ("channelsOut" .=) <$> _rsChannelsOut
+    Lude.object
+      ( Lude.catMaybes
+          [ ("channelMapping" Lude..=) Lude.<$> channelMapping,
+            ("channelsIn" Lude..=) Lude.<$> channelsIn,
+            ("channelsOut" Lude..=) Lude.<$> channelsOut
           ]
       )

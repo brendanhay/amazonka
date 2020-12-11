@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType where
+module Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType
+  ( UsernameAttributeType
+      ( UsernameAttributeType',
+        UATEmail,
+        UATPhoneNumber
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UsernameAttributeType
-  = UATEmail
-  | UATPhoneNumber
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UsernameAttributeType = UsernameAttributeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UsernameAttributeType where
-  parser =
-    takeLowerText >>= \case
-      "email" -> pure UATEmail
-      "phone_number" -> pure UATPhoneNumber
-      e ->
-        fromTextError $
-          "Failure parsing UsernameAttributeType from value: '" <> e
-            <> "'. Accepted values: email, phone_number"
+pattern UATEmail :: UsernameAttributeType
+pattern UATEmail = UsernameAttributeType' "email"
 
-instance ToText UsernameAttributeType where
-  toText = \case
-    UATEmail -> "email"
-    UATPhoneNumber -> "phone_number"
+pattern UATPhoneNumber :: UsernameAttributeType
+pattern UATPhoneNumber = UsernameAttributeType' "phone_number"
 
-instance Hashable UsernameAttributeType
-
-instance NFData UsernameAttributeType
-
-instance ToByteString UsernameAttributeType
-
-instance ToQuery UsernameAttributeType
-
-instance ToHeader UsernameAttributeType
-
-instance ToJSON UsernameAttributeType where
-  toJSON = toJSONText
-
-instance FromJSON UsernameAttributeType where
-  parseJSON = parseJSONText "UsernameAttributeType"
+{-# COMPLETE
+  UATEmail,
+  UATPhoneNumber,
+  UsernameAttributeType'
+  #-}

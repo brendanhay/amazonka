@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,169 @@
 --
 -- Attempts to merge the source commit of a pull request into the specified destination branch for that pull request at the specified commit using the fast-forward merge strategy. If the merge is successful, it closes the pull request.
 module Network.AWS.CodeCommit.MergePullRequestByFastForward
-  ( -- * Creating a Request
-    mergePullRequestByFastForward,
-    MergePullRequestByFastForward,
+  ( -- * Creating a request
+    MergePullRequestByFastForward (..),
+    mkMergePullRequestByFastForward,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mprbffSourceCommitId,
     mprbffPullRequestId,
     mprbffRepositoryName,
 
-    -- * Destructuring the Response
-    mergePullRequestByFastForwardResponse,
-    MergePullRequestByFastForwardResponse,
+    -- * Destructuring the response
+    MergePullRequestByFastForwardResponse (..),
+    mkMergePullRequestByFastForwardResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mprbffrsPullRequest,
     mprbffrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'mergePullRequestByFastForward' smart constructor.
+-- | /See:/ 'mkMergePullRequestByFastForward' smart constructor.
 data MergePullRequestByFastForward = MergePullRequestByFastForward'
-  { _mprbffSourceCommitId ::
-      !(Maybe Text),
-    _mprbffPullRequestId :: !Text,
-    _mprbffRepositoryName :: !Text
+  { sourceCommitId ::
+      Lude.Maybe Lude.Text,
+    pullRequestId :: Lude.Text,
+    repositoryName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergePullRequestByFastForward' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mprbffSourceCommitId' - The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.
---
--- * 'mprbffPullRequestId' - The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
---
--- * 'mprbffRepositoryName' - The name of the repository where the pull request was created.
-mergePullRequestByFastForward ::
-  -- | 'mprbffPullRequestId'
-  Text ->
-  -- | 'mprbffRepositoryName'
-  Text ->
+-- * 'pullRequestId' - The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+-- * 'repositoryName' - The name of the repository where the pull request was created.
+-- * 'sourceCommitId' - The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.
+mkMergePullRequestByFastForward ::
+  -- | 'pullRequestId'
+  Lude.Text ->
+  -- | 'repositoryName'
+  Lude.Text ->
   MergePullRequestByFastForward
-mergePullRequestByFastForward pPullRequestId_ pRepositoryName_ =
+mkMergePullRequestByFastForward pPullRequestId_ pRepositoryName_ =
   MergePullRequestByFastForward'
-    { _mprbffSourceCommitId = Nothing,
-      _mprbffPullRequestId = pPullRequestId_,
-      _mprbffRepositoryName = pRepositoryName_
+    { sourceCommitId = Lude.Nothing,
+      pullRequestId = pPullRequestId_,
+      repositoryName = pRepositoryName_
     }
 
 -- | The full commit ID of the original or updated commit in the pull request source branch. Pass this value if you want an exception thrown if the current commit ID of the tip of the source branch does not match this commit ID.
-mprbffSourceCommitId :: Lens' MergePullRequestByFastForward (Maybe Text)
-mprbffSourceCommitId = lens _mprbffSourceCommitId (\s a -> s {_mprbffSourceCommitId = a})
+--
+-- /Note:/ Consider using 'sourceCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbffSourceCommitId :: Lens.Lens' MergePullRequestByFastForward (Lude.Maybe Lude.Text)
+mprbffSourceCommitId = Lens.lens (sourceCommitId :: MergePullRequestByFastForward -> Lude.Maybe Lude.Text) (\s a -> s {sourceCommitId = a} :: MergePullRequestByFastForward)
+{-# DEPRECATED mprbffSourceCommitId "Use generic-lens or generic-optics with 'sourceCommitId' instead." #-}
 
 -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
-mprbffPullRequestId :: Lens' MergePullRequestByFastForward Text
-mprbffPullRequestId = lens _mprbffPullRequestId (\s a -> s {_mprbffPullRequestId = a})
+--
+-- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbffPullRequestId :: Lens.Lens' MergePullRequestByFastForward Lude.Text
+mprbffPullRequestId = Lens.lens (pullRequestId :: MergePullRequestByFastForward -> Lude.Text) (\s a -> s {pullRequestId = a} :: MergePullRequestByFastForward)
+{-# DEPRECATED mprbffPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The name of the repository where the pull request was created.
-mprbffRepositoryName :: Lens' MergePullRequestByFastForward Text
-mprbffRepositoryName = lens _mprbffRepositoryName (\s a -> s {_mprbffRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbffRepositoryName :: Lens.Lens' MergePullRequestByFastForward Lude.Text
+mprbffRepositoryName = Lens.lens (repositoryName :: MergePullRequestByFastForward -> Lude.Text) (\s a -> s {repositoryName = a} :: MergePullRequestByFastForward)
+{-# DEPRECATED mprbffRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance AWSRequest MergePullRequestByFastForward where
+instance Lude.AWSRequest MergePullRequestByFastForward where
   type
     Rs MergePullRequestByFastForward =
       MergePullRequestByFastForwardResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           MergePullRequestByFastForwardResponse'
-            <$> (x .?> "pullRequest") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "pullRequest") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable MergePullRequestByFastForward
-
-instance NFData MergePullRequestByFastForward
-
-instance ToHeaders MergePullRequestByFastForward where
+instance Lude.ToHeaders MergePullRequestByFastForward where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "CodeCommit_20150413.MergePullRequestByFastForward" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeCommit_20150413.MergePullRequestByFastForward" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON MergePullRequestByFastForward where
+instance Lude.ToJSON MergePullRequestByFastForward where
   toJSON MergePullRequestByFastForward' {..} =
-    object
-      ( catMaybes
-          [ ("sourceCommitId" .=) <$> _mprbffSourceCommitId,
-            Just ("pullRequestId" .= _mprbffPullRequestId),
-            Just ("repositoryName" .= _mprbffRepositoryName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sourceCommitId" Lude..=) Lude.<$> sourceCommitId,
+            Lude.Just ("pullRequestId" Lude..= pullRequestId),
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
-instance ToPath MergePullRequestByFastForward where
-  toPath = const "/"
+instance Lude.ToPath MergePullRequestByFastForward where
+  toPath = Lude.const "/"
 
-instance ToQuery MergePullRequestByFastForward where
-  toQuery = const mempty
+instance Lude.ToQuery MergePullRequestByFastForward where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'mergePullRequestByFastForwardResponse' smart constructor.
+-- | /See:/ 'mkMergePullRequestByFastForwardResponse' smart constructor.
 data MergePullRequestByFastForwardResponse = MergePullRequestByFastForwardResponse'
-  { _mprbffrsPullRequest ::
-      !( Maybe
-           PullRequest
-       ),
-    _mprbffrsResponseStatus ::
-      !Int
+  { pullRequest ::
+      Lude.Maybe
+        PullRequest,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergePullRequestByFastForwardResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mprbffrsPullRequest' - Information about the specified pull request, including the merge.
---
--- * 'mprbffrsResponseStatus' - -- | The response status code.
-mergePullRequestByFastForwardResponse ::
-  -- | 'mprbffrsResponseStatus'
-  Int ->
+-- * 'pullRequest' - Information about the specified pull request, including the merge.
+-- * 'responseStatus' - The response status code.
+mkMergePullRequestByFastForwardResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   MergePullRequestByFastForwardResponse
-mergePullRequestByFastForwardResponse pResponseStatus_ =
+mkMergePullRequestByFastForwardResponse pResponseStatus_ =
   MergePullRequestByFastForwardResponse'
-    { _mprbffrsPullRequest =
-        Nothing,
-      _mprbffrsResponseStatus = pResponseStatus_
+    { pullRequest =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the specified pull request, including the merge.
-mprbffrsPullRequest :: Lens' MergePullRequestByFastForwardResponse (Maybe PullRequest)
-mprbffrsPullRequest = lens _mprbffrsPullRequest (\s a -> s {_mprbffrsPullRequest = a})
+--
+-- /Note:/ Consider using 'pullRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbffrsPullRequest :: Lens.Lens' MergePullRequestByFastForwardResponse (Lude.Maybe PullRequest)
+mprbffrsPullRequest = Lens.lens (pullRequest :: MergePullRequestByFastForwardResponse -> Lude.Maybe PullRequest) (\s a -> s {pullRequest = a} :: MergePullRequestByFastForwardResponse)
+{-# DEPRECATED mprbffrsPullRequest "Use generic-lens or generic-optics with 'pullRequest' instead." #-}
 
--- | -- | The response status code.
-mprbffrsResponseStatus :: Lens' MergePullRequestByFastForwardResponse Int
-mprbffrsResponseStatus = lens _mprbffrsResponseStatus (\s a -> s {_mprbffrsResponseStatus = a})
-
-instance NFData MergePullRequestByFastForwardResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mprbffrsResponseStatus :: Lens.Lens' MergePullRequestByFastForwardResponse Lude.Int
+mprbffrsResponseStatus = Lens.lens (responseStatus :: MergePullRequestByFastForwardResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: MergePullRequestByFastForwardResponse)
+{-# DEPRECATED mprbffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

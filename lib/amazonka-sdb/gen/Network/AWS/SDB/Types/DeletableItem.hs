@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SDB.Types.DeletableItem where
+module Network.AWS.SDB.Types.DeletableItem
+  ( DeletableItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeletableItem,
+
+    -- * Lenses
+    diAttributes,
+    diName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SDB.Types.Attribute
 
--- | /See:/ 'deletableItem' smart constructor.
+-- | /See:/ 'mkDeletableItem' smart constructor.
 data DeletableItem = DeletableItem'
-  { _diAttributes ::
-      !(Maybe [Attribute]),
-    _diName :: !Text
+  { attributes ::
+      Lude.Maybe [Attribute],
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletableItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diAttributes' - Undocumented member.
---
--- * 'diName' - Undocumented member.
-deletableItem ::
-  -- | 'diName'
-  Text ->
+-- * 'attributes' - Undocumented field.
+-- * 'name' - Undocumented field.
+mkDeletableItem ::
+  -- | 'name'
+  Lude.Text ->
   DeletableItem
-deletableItem pName_ =
-  DeletableItem' {_diAttributes = Nothing, _diName = pName_}
+mkDeletableItem pName_ =
+  DeletableItem' {attributes = Lude.Nothing, name = pName_}
 
--- | Undocumented member.
-diAttributes :: Lens' DeletableItem [Attribute]
-diAttributes = lens _diAttributes (\s a -> s {_diAttributes = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diAttributes :: Lens.Lens' DeletableItem (Lude.Maybe [Attribute])
+diAttributes = Lens.lens (attributes :: DeletableItem -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: DeletableItem)
+{-# DEPRECATED diAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | Undocumented member.
-diName :: Lens' DeletableItem Text
-diName = lens _diName (\s a -> s {_diName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diName :: Lens.Lens' DeletableItem Lude.Text
+diName = Lens.lens (name :: DeletableItem -> Lude.Text) (\s a -> s {name = a} :: DeletableItem)
+{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable DeletableItem
-
-instance NFData DeletableItem
-
-instance ToQuery DeletableItem where
+instance Lude.ToQuery DeletableItem where
   toQuery DeletableItem' {..} =
-    mconcat
-      [ toQuery (toQueryList "Attribute" <$> _diAttributes),
-        "ItemName" =: _diName
+    Lude.mconcat
+      [ Lude.toQuery (Lude.toQueryList "Attribute" Lude.<$> attributes),
+        "ItemName" Lude.=: name
       ]

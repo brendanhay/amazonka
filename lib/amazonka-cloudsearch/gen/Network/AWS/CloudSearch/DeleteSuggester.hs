@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,145 @@
 --
 -- Deletes a suggester. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions> in the /Amazon CloudSearch Developer Guide/ .
 module Network.AWS.CloudSearch.DeleteSuggester
-  ( -- * Creating a Request
-    deleteSuggester,
-    DeleteSuggester,
+  ( -- * Creating a request
+    DeleteSuggester (..),
+    mkDeleteSuggester,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddDomainName,
     ddSuggesterName,
 
-    -- * Destructuring the Response
-    deleteSuggesterResponse,
-    DeleteSuggesterResponse,
+    -- * Destructuring the response
+    DeleteSuggesterResponse (..),
+    mkDeleteSuggesterResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delersResponseStatus,
     delersSuggester,
   )
 where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for the parameters to the @'DeleteSuggester' @ operation. Specifies the name of the domain you want to update and name of the suggester you want to delete.
 --
---
---
--- /See:/ 'deleteSuggester' smart constructor.
+-- /See:/ 'mkDeleteSuggester' smart constructor.
 data DeleteSuggester = DeleteSuggester'
-  { _ddDomainName :: !Text,
-    _ddSuggesterName :: !Text
+  { domainName :: Lude.Text,
+    suggesterName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSuggester' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddDomainName' - Undocumented member.
---
--- * 'ddSuggesterName' - Specifies the name of the suggester you want to delete.
-deleteSuggester ::
-  -- | 'ddDomainName'
-  Text ->
-  -- | 'ddSuggesterName'
-  Text ->
+-- * 'domainName' - Undocumented field.
+-- * 'suggesterName' - Specifies the name of the suggester you want to delete.
+mkDeleteSuggester ::
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'suggesterName'
+  Lude.Text ->
   DeleteSuggester
-deleteSuggester pDomainName_ pSuggesterName_ =
+mkDeleteSuggester pDomainName_ pSuggesterName_ =
   DeleteSuggester'
-    { _ddDomainName = pDomainName_,
-      _ddSuggesterName = pSuggesterName_
+    { domainName = pDomainName_,
+      suggesterName = pSuggesterName_
     }
 
--- | Undocumented member.
-ddDomainName :: Lens' DeleteSuggester Text
-ddDomainName = lens _ddDomainName (\s a -> s {_ddDomainName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDomainName :: Lens.Lens' DeleteSuggester Lude.Text
+ddDomainName = Lens.lens (domainName :: DeleteSuggester -> Lude.Text) (\s a -> s {domainName = a} :: DeleteSuggester)
+{-# DEPRECATED ddDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Specifies the name of the suggester you want to delete.
-ddSuggesterName :: Lens' DeleteSuggester Text
-ddSuggesterName = lens _ddSuggesterName (\s a -> s {_ddSuggesterName = a})
+--
+-- /Note:/ Consider using 'suggesterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddSuggesterName :: Lens.Lens' DeleteSuggester Lude.Text
+ddSuggesterName = Lens.lens (suggesterName :: DeleteSuggester -> Lude.Text) (\s a -> s {suggesterName = a} :: DeleteSuggester)
+{-# DEPRECATED ddSuggesterName "Use generic-lens or generic-optics with 'suggesterName' instead." #-}
 
-instance AWSRequest DeleteSuggester where
+instance Lude.AWSRequest DeleteSuggester where
   type Rs DeleteSuggester = DeleteSuggesterResponse
-  request = postQuery cloudSearch
+  request = Req.postQuery cloudSearchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteSuggesterResult"
       ( \s h x ->
           DeleteSuggesterResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "Suggester")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "Suggester")
       )
 
-instance Hashable DeleteSuggester
+instance Lude.ToHeaders DeleteSuggester where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteSuggester
+instance Lude.ToPath DeleteSuggester where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteSuggester where
-  toHeaders = const mempty
-
-instance ToPath DeleteSuggester where
-  toPath = const "/"
-
-instance ToQuery DeleteSuggester where
+instance Lude.ToQuery DeleteSuggester where
   toQuery DeleteSuggester' {..} =
-    mconcat
-      [ "Action" =: ("DeleteSuggester" :: ByteString),
-        "Version" =: ("2013-01-01" :: ByteString),
-        "DomainName" =: _ddDomainName,
-        "SuggesterName" =: _ddSuggesterName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteSuggester" :: Lude.ByteString),
+        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
+        "DomainName" Lude.=: domainName,
+        "SuggesterName" Lude.=: suggesterName
       ]
 
 -- | The result of a @DeleteSuggester@ request. Contains the status of the deleted suggester.
 --
---
---
--- /See:/ 'deleteSuggesterResponse' smart constructor.
+-- /See:/ 'mkDeleteSuggesterResponse' smart constructor.
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
-  { _delersResponseStatus ::
-      !Int,
-    _delersSuggester :: !SuggesterStatus
+  { responseStatus ::
+      Lude.Int,
+    suggester :: SuggesterStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSuggesterResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delersResponseStatus' - -- | The response status code.
---
--- * 'delersSuggester' - The status of the suggester being deleted.
-deleteSuggesterResponse ::
-  -- | 'delersResponseStatus'
-  Int ->
-  -- | 'delersSuggester'
+-- * 'responseStatus' - The response status code.
+-- * 'suggester' - The status of the suggester being deleted.
+mkDeleteSuggesterResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'suggester'
   SuggesterStatus ->
   DeleteSuggesterResponse
-deleteSuggesterResponse pResponseStatus_ pSuggester_ =
+mkDeleteSuggesterResponse pResponseStatus_ pSuggester_ =
   DeleteSuggesterResponse'
-    { _delersResponseStatus =
-        pResponseStatus_,
-      _delersSuggester = pSuggester_
+    { responseStatus = pResponseStatus_,
+      suggester = pSuggester_
     }
 
--- | -- | The response status code.
-delersResponseStatus :: Lens' DeleteSuggesterResponse Int
-delersResponseStatus = lens _delersResponseStatus (\s a -> s {_delersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delersResponseStatus :: Lens.Lens' DeleteSuggesterResponse Lude.Int
+delersResponseStatus = Lens.lens (responseStatus :: DeleteSuggesterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSuggesterResponse)
+{-# DEPRECATED delersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the suggester being deleted.
-delersSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
-delersSuggester = lens _delersSuggester (\s a -> s {_delersSuggester = a})
-
-instance NFData DeleteSuggesterResponse
+--
+-- /Note:/ Consider using 'suggester' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delersSuggester :: Lens.Lens' DeleteSuggesterResponse SuggesterStatus
+delersSuggester = Lens.lens (suggester :: DeleteSuggesterResponse -> SuggesterStatus) (\s a -> s {suggester = a} :: DeleteSuggesterResponse)
+{-# DEPRECATED delersSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}

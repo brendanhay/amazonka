@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.F4vMoovPlacement where
+module Network.AWS.MediaConvert.Types.F4vMoovPlacement
+  ( F4vMoovPlacement
+      ( F4vMoovPlacement',
+        FMPNormal,
+        FMPProgressiveDownload
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
-data F4vMoovPlacement
-  = FMPNormal
-  | FMPProgressiveDownload
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype F4vMoovPlacement = F4vMoovPlacement' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText F4vMoovPlacement where
-  parser =
-    takeLowerText >>= \case
-      "normal" -> pure FMPNormal
-      "progressive_download" -> pure FMPProgressiveDownload
-      e ->
-        fromTextError $
-          "Failure parsing F4vMoovPlacement from value: '" <> e
-            <> "'. Accepted values: normal, progressive_download"
+pattern FMPNormal :: F4vMoovPlacement
+pattern FMPNormal = F4vMoovPlacement' "NORMAL"
 
-instance ToText F4vMoovPlacement where
-  toText = \case
-    FMPNormal -> "NORMAL"
-    FMPProgressiveDownload -> "PROGRESSIVE_DOWNLOAD"
+pattern FMPProgressiveDownload :: F4vMoovPlacement
+pattern FMPProgressiveDownload = F4vMoovPlacement' "PROGRESSIVE_DOWNLOAD"
 
-instance Hashable F4vMoovPlacement
-
-instance NFData F4vMoovPlacement
-
-instance ToByteString F4vMoovPlacement
-
-instance ToQuery F4vMoovPlacement
-
-instance ToHeader F4vMoovPlacement
-
-instance ToJSON F4vMoovPlacement where
-  toJSON = toJSONText
-
-instance FromJSON F4vMoovPlacement where
-  parseJSON = parseJSONText "F4vMoovPlacement"
+{-# COMPLETE
+  FMPNormal,
+  FMPProgressiveDownload,
+  F4vMoovPlacement'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,165 @@
 --
 -- Returns configuration item that is aggregated for your specific resource in a specific source account and region.
 module Network.AWS.Config.GetAggregateResourceConfig
-  ( -- * Creating a Request
-    getAggregateResourceConfig,
-    GetAggregateResourceConfig,
+  ( -- * Creating a request
+    GetAggregateResourceConfig (..),
+    mkGetAggregateResourceConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     garcConfigurationAggregatorName,
     garcResourceIdentifier,
 
-    -- * Destructuring the Response
-    getAggregateResourceConfigResponse,
-    GetAggregateResourceConfigResponse,
+    -- * Destructuring the response
+    GetAggregateResourceConfigResponse (..),
+    mkGetAggregateResourceConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     garcrsConfigurationItem,
     garcrsResponseStatus,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAggregateResourceConfig' smart constructor.
+-- | /See:/ 'mkGetAggregateResourceConfig' smart constructor.
 data GetAggregateResourceConfig = GetAggregateResourceConfig'
-  { _garcConfigurationAggregatorName ::
-      !Text,
-    _garcResourceIdentifier ::
-      !AggregateResourceIdentifier
+  { configurationAggregatorName ::
+      Lude.Text,
+    resourceIdentifier ::
+      AggregateResourceIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateResourceConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garcConfigurationAggregatorName' - The name of the configuration aggregator.
---
--- * 'garcResourceIdentifier' - An object that identifies aggregate resource.
-getAggregateResourceConfig ::
-  -- | 'garcConfigurationAggregatorName'
-  Text ->
-  -- | 'garcResourceIdentifier'
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
+-- * 'resourceIdentifier' - An object that identifies aggregate resource.
+mkGetAggregateResourceConfig ::
+  -- | 'configurationAggregatorName'
+  Lude.Text ->
+  -- | 'resourceIdentifier'
   AggregateResourceIdentifier ->
   GetAggregateResourceConfig
-getAggregateResourceConfig
+mkGetAggregateResourceConfig
   pConfigurationAggregatorName_
   pResourceIdentifier_ =
     GetAggregateResourceConfig'
-      { _garcConfigurationAggregatorName =
+      { configurationAggregatorName =
           pConfigurationAggregatorName_,
-        _garcResourceIdentifier = pResourceIdentifier_
+        resourceIdentifier = pResourceIdentifier_
       }
 
 -- | The name of the configuration aggregator.
-garcConfigurationAggregatorName :: Lens' GetAggregateResourceConfig Text
-garcConfigurationAggregatorName = lens _garcConfigurationAggregatorName (\s a -> s {_garcConfigurationAggregatorName = a})
+--
+-- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garcConfigurationAggregatorName :: Lens.Lens' GetAggregateResourceConfig Lude.Text
+garcConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: GetAggregateResourceConfig -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: GetAggregateResourceConfig)
+{-# DEPRECATED garcConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
 -- | An object that identifies aggregate resource.
-garcResourceIdentifier :: Lens' GetAggregateResourceConfig AggregateResourceIdentifier
-garcResourceIdentifier = lens _garcResourceIdentifier (\s a -> s {_garcResourceIdentifier = a})
+--
+-- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garcResourceIdentifier :: Lens.Lens' GetAggregateResourceConfig AggregateResourceIdentifier
+garcResourceIdentifier = Lens.lens (resourceIdentifier :: GetAggregateResourceConfig -> AggregateResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: GetAggregateResourceConfig)
+{-# DEPRECATED garcResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance AWSRequest GetAggregateResourceConfig where
+instance Lude.AWSRequest GetAggregateResourceConfig where
   type
     Rs GetAggregateResourceConfig =
       GetAggregateResourceConfigResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAggregateResourceConfigResponse'
-            <$> (x .?> "ConfigurationItem") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ConfigurationItem")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAggregateResourceConfig
-
-instance NFData GetAggregateResourceConfig
-
-instance ToHeaders GetAggregateResourceConfig where
+instance Lude.ToHeaders GetAggregateResourceConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.GetAggregateResourceConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.GetAggregateResourceConfig" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAggregateResourceConfig where
+instance Lude.ToJSON GetAggregateResourceConfig where
   toJSON GetAggregateResourceConfig' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "ConfigurationAggregatorName"
-                  .= _garcConfigurationAggregatorName
+                  Lude..= configurationAggregatorName
               ),
-            Just ("ResourceIdentifier" .= _garcResourceIdentifier)
+            Lude.Just ("ResourceIdentifier" Lude..= resourceIdentifier)
           ]
       )
 
-instance ToPath GetAggregateResourceConfig where
-  toPath = const "/"
+instance Lude.ToPath GetAggregateResourceConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAggregateResourceConfig where
-  toQuery = const mempty
+instance Lude.ToQuery GetAggregateResourceConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAggregateResourceConfigResponse' smart constructor.
+-- | /See:/ 'mkGetAggregateResourceConfigResponse' smart constructor.
 data GetAggregateResourceConfigResponse = GetAggregateResourceConfigResponse'
-  { _garcrsConfigurationItem ::
-      !( Maybe
-           ConfigurationItem
-       ),
-    _garcrsResponseStatus ::
-      !Int
+  { configurationItem ::
+      Lude.Maybe
+        ConfigurationItem,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateResourceConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garcrsConfigurationItem' - Returns a @ConfigurationItem@ object.
---
--- * 'garcrsResponseStatus' - -- | The response status code.
-getAggregateResourceConfigResponse ::
-  -- | 'garcrsResponseStatus'
-  Int ->
+-- * 'configurationItem' - Returns a @ConfigurationItem@ object.
+-- * 'responseStatus' - The response status code.
+mkGetAggregateResourceConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAggregateResourceConfigResponse
-getAggregateResourceConfigResponse pResponseStatus_ =
+mkGetAggregateResourceConfigResponse pResponseStatus_ =
   GetAggregateResourceConfigResponse'
-    { _garcrsConfigurationItem =
-        Nothing,
-      _garcrsResponseStatus = pResponseStatus_
+    { configurationItem =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a @ConfigurationItem@ object.
-garcrsConfigurationItem :: Lens' GetAggregateResourceConfigResponse (Maybe ConfigurationItem)
-garcrsConfigurationItem = lens _garcrsConfigurationItem (\s a -> s {_garcrsConfigurationItem = a})
+--
+-- /Note:/ Consider using 'configurationItem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garcrsConfigurationItem :: Lens.Lens' GetAggregateResourceConfigResponse (Lude.Maybe ConfigurationItem)
+garcrsConfigurationItem = Lens.lens (configurationItem :: GetAggregateResourceConfigResponse -> Lude.Maybe ConfigurationItem) (\s a -> s {configurationItem = a} :: GetAggregateResourceConfigResponse)
+{-# DEPRECATED garcrsConfigurationItem "Use generic-lens or generic-optics with 'configurationItem' instead." #-}
 
--- | -- | The response status code.
-garcrsResponseStatus :: Lens' GetAggregateResourceConfigResponse Int
-garcrsResponseStatus = lens _garcrsResponseStatus (\s a -> s {_garcrsResponseStatus = a})
-
-instance NFData GetAggregateResourceConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garcrsResponseStatus :: Lens.Lens' GetAggregateResourceConfigResponse Lude.Int
+garcrsResponseStatus = Lens.lens (responseStatus :: GetAggregateResourceConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAggregateResourceConfigResponse)
+{-# DEPRECATED garcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

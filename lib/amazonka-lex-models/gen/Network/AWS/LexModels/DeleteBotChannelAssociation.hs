@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,129 @@
 --
 -- Deletes the association between an Amazon Lex bot and a messaging platform.
 --
---
 -- This operation requires permission for the @lex:DeleteBotChannelAssociation@ action.
 module Network.AWS.LexModels.DeleteBotChannelAssociation
-  ( -- * Creating a Request
-    deleteBotChannelAssociation,
-    DeleteBotChannelAssociation,
+  ( -- * Creating a request
+    DeleteBotChannelAssociation (..),
+    mkDeleteBotChannelAssociation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbcaName,
     dbcaBotName,
     dbcaBotAlias,
 
-    -- * Destructuring the Response
-    deleteBotChannelAssociationResponse,
-    DeleteBotChannelAssociationResponse,
+    -- * Destructuring the response
+    DeleteBotChannelAssociationResponse (..),
+    mkDeleteBotChannelAssociationResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBotChannelAssociation' smart constructor.
+-- | /See:/ 'mkDeleteBotChannelAssociation' smart constructor.
 data DeleteBotChannelAssociation = DeleteBotChannelAssociation'
-  { _dbcaName ::
-      !Text,
-    _dbcaBotName :: !Text,
-    _dbcaBotAlias :: !Text
+  { name ::
+      Lude.Text,
+    botName :: Lude.Text,
+    botAlias :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBotChannelAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbcaName' - The name of the association. The name is case sensitive.
---
--- * 'dbcaBotName' - The name of the Amazon Lex bot.
---
--- * 'dbcaBotAlias' - An alias that points to the specific version of the Amazon Lex bot to which this association is being made.
-deleteBotChannelAssociation ::
-  -- | 'dbcaName'
-  Text ->
-  -- | 'dbcaBotName'
-  Text ->
-  -- | 'dbcaBotAlias'
-  Text ->
+-- * 'botAlias' - An alias that points to the specific version of the Amazon Lex bot to which this association is being made.
+-- * 'botName' - The name of the Amazon Lex bot.
+-- * 'name' - The name of the association. The name is case sensitive.
+mkDeleteBotChannelAssociation ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'botName'
+  Lude.Text ->
+  -- | 'botAlias'
+  Lude.Text ->
   DeleteBotChannelAssociation
-deleteBotChannelAssociation pName_ pBotName_ pBotAlias_ =
+mkDeleteBotChannelAssociation pName_ pBotName_ pBotAlias_ =
   DeleteBotChannelAssociation'
-    { _dbcaName = pName_,
-      _dbcaBotName = pBotName_,
-      _dbcaBotAlias = pBotAlias_
+    { name = pName_,
+      botName = pBotName_,
+      botAlias = pBotAlias_
     }
 
 -- | The name of the association. The name is case sensitive.
-dbcaName :: Lens' DeleteBotChannelAssociation Text
-dbcaName = lens _dbcaName (\s a -> s {_dbcaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcaName :: Lens.Lens' DeleteBotChannelAssociation Lude.Text
+dbcaName = Lens.lens (name :: DeleteBotChannelAssociation -> Lude.Text) (\s a -> s {name = a} :: DeleteBotChannelAssociation)
+{-# DEPRECATED dbcaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The name of the Amazon Lex bot.
-dbcaBotName :: Lens' DeleteBotChannelAssociation Text
-dbcaBotName = lens _dbcaBotName (\s a -> s {_dbcaBotName = a})
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcaBotName :: Lens.Lens' DeleteBotChannelAssociation Lude.Text
+dbcaBotName = Lens.lens (botName :: DeleteBotChannelAssociation -> Lude.Text) (\s a -> s {botName = a} :: DeleteBotChannelAssociation)
+{-# DEPRECATED dbcaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | An alias that points to the specific version of the Amazon Lex bot to which this association is being made.
-dbcaBotAlias :: Lens' DeleteBotChannelAssociation Text
-dbcaBotAlias = lens _dbcaBotAlias (\s a -> s {_dbcaBotAlias = a})
+--
+-- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcaBotAlias :: Lens.Lens' DeleteBotChannelAssociation Lude.Text
+dbcaBotAlias = Lens.lens (botAlias :: DeleteBotChannelAssociation -> Lude.Text) (\s a -> s {botAlias = a} :: DeleteBotChannelAssociation)
+{-# DEPRECATED dbcaBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
 
-instance AWSRequest DeleteBotChannelAssociation where
+instance Lude.AWSRequest DeleteBotChannelAssociation where
   type
     Rs DeleteBotChannelAssociation =
       DeleteBotChannelAssociationResponse
-  request = delete lexModels
-  response = receiveNull DeleteBotChannelAssociationResponse'
+  request = Req.delete lexModelsService
+  response = Res.receiveNull DeleteBotChannelAssociationResponse'
 
-instance Hashable DeleteBotChannelAssociation
-
-instance NFData DeleteBotChannelAssociation
-
-instance ToHeaders DeleteBotChannelAssociation where
+instance Lude.ToHeaders DeleteBotChannelAssociation where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteBotChannelAssociation where
+instance Lude.ToPath DeleteBotChannelAssociation where
   toPath DeleteBotChannelAssociation' {..} =
-    mconcat
+    Lude.mconcat
       [ "/bots/",
-        toBS _dbcaBotName,
+        Lude.toBS botName,
         "/aliases/",
-        toBS _dbcaBotAlias,
+        Lude.toBS botAlias,
         "/channels/",
-        toBS _dbcaName
+        Lude.toBS name
       ]
 
-instance ToQuery DeleteBotChannelAssociation where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBotChannelAssociation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBotChannelAssociationResponse' smart constructor.
+-- | /See:/ 'mkDeleteBotChannelAssociationResponse' smart constructor.
 data DeleteBotChannelAssociationResponse = DeleteBotChannelAssociationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBotChannelAssociationResponse' with the minimum fields required to make a request.
-deleteBotChannelAssociationResponse ::
+mkDeleteBotChannelAssociationResponse ::
   DeleteBotChannelAssociationResponse
-deleteBotChannelAssociationResponse =
+mkDeleteBotChannelAssociationResponse =
   DeleteBotChannelAssociationResponse'
-
-instance NFData DeleteBotChannelAssociationResponse

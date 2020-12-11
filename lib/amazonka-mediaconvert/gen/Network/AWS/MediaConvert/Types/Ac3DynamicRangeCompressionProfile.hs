@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile where
+module Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
+  ( Ac3DynamicRangeCompressionProfile
+      ( Ac3DynamicRangeCompressionProfile',
+        ADRCPFilmStandard,
+        ADRCPNone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | If set to FILM_STANDARD, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
-data Ac3DynamicRangeCompressionProfile
-  = ADRCPFilmStandard
-  | ADRCPNone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Ac3DynamicRangeCompressionProfile = Ac3DynamicRangeCompressionProfile' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Ac3DynamicRangeCompressionProfile where
-  parser =
-    takeLowerText >>= \case
-      "film_standard" -> pure ADRCPFilmStandard
-      "none" -> pure ADRCPNone
-      e ->
-        fromTextError $
-          "Failure parsing Ac3DynamicRangeCompressionProfile from value: '" <> e
-            <> "'. Accepted values: film_standard, none"
+pattern ADRCPFilmStandard :: Ac3DynamicRangeCompressionProfile
+pattern ADRCPFilmStandard = Ac3DynamicRangeCompressionProfile' "FILM_STANDARD"
 
-instance ToText Ac3DynamicRangeCompressionProfile where
-  toText = \case
-    ADRCPFilmStandard -> "FILM_STANDARD"
-    ADRCPNone -> "NONE"
+pattern ADRCPNone :: Ac3DynamicRangeCompressionProfile
+pattern ADRCPNone = Ac3DynamicRangeCompressionProfile' "NONE"
 
-instance Hashable Ac3DynamicRangeCompressionProfile
-
-instance NFData Ac3DynamicRangeCompressionProfile
-
-instance ToByteString Ac3DynamicRangeCompressionProfile
-
-instance ToQuery Ac3DynamicRangeCompressionProfile
-
-instance ToHeader Ac3DynamicRangeCompressionProfile
-
-instance ToJSON Ac3DynamicRangeCompressionProfile where
-  toJSON = toJSONText
-
-instance FromJSON Ac3DynamicRangeCompressionProfile where
-  parseJSON = parseJSONText "Ac3DynamicRangeCompressionProfile"
+{-# COMPLETE
+  ADRCPFilmStandard,
+  ADRCPNone,
+  Ac3DynamicRangeCompressionProfile'
+  #-}

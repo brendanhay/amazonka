@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Retrieves information about data sets.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoTAnalytics.ListDatasets
-  ( -- * Creating a Request
-    listDatasets,
-    ListDatasets,
+  ( -- * Creating a request
+    ListDatasets (..),
+    mkListDatasets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lNextToken,
     lMaxResults,
 
-    -- * Destructuring the Response
-    listDatasetsResponse,
-    ListDatasetsResponse,
+    -- * Destructuring the response
+    ListDatasetsResponse (..),
+    mkListDatasetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrsNextToken,
     lrsDatasetSummaries,
     lrsResponseStatus,
@@ -43,111 +36,138 @@ module Network.AWS.IoTAnalytics.ListDatasets
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listDatasets' smart constructor.
+-- | /See:/ 'mkListDatasets' smart constructor.
 data ListDatasets = ListDatasets'
-  { _lNextToken :: !(Maybe Text),
-    _lMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDatasets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maxResults' - The maximum number of results to return in this request.
 --
--- * 'lNextToken' - The token for the next set of results.
---
--- * 'lMaxResults' - The maximum number of results to return in this request. The default value is 100.
-listDatasets ::
+-- The default value is 100.
+-- * 'nextToken' - The token for the next set of results.
+mkListDatasets ::
   ListDatasets
-listDatasets =
-  ListDatasets' {_lNextToken = Nothing, _lMaxResults = Nothing}
+mkListDatasets =
+  ListDatasets'
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
+    }
 
 -- | The token for the next set of results.
-lNextToken :: Lens' ListDatasets (Maybe Text)
-lNextToken = lens _lNextToken (\s a -> s {_lNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListDatasets (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListDatasets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDatasets)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to return in this request. The default value is 100.
-lMaxResults :: Lens' ListDatasets (Maybe Natural)
-lMaxResults = lens _lMaxResults (\s a -> s {_lMaxResults = a}) . mapping _Nat
+-- | The maximum number of results to return in this request.
+--
+-- The default value is 100.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMaxResults :: Lens.Lens' ListDatasets (Lude.Maybe Lude.Natural)
+lMaxResults = Lens.lens (maxResults :: ListDatasets -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDatasets)
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListDatasets where
+instance Page.AWSPager ListDatasets where
   page rq rs
-    | stop (rs ^. lrsNextToken) = Nothing
-    | stop (rs ^. lrsDatasetSummaries) = Nothing
-    | otherwise = Just $ rq & lNextToken .~ rs ^. lrsNextToken
+    | Page.stop (rs Lens.^. lrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrsDatasetSummaries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lNextToken Lens..~ rs Lens.^. lrsNextToken
 
-instance AWSRequest ListDatasets where
+instance Lude.AWSRequest ListDatasets where
   type Rs ListDatasets = ListDatasetsResponse
-  request = get ioTAnalytics
+  request = Req.get ioTAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDatasetsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "datasetSummaries" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "datasetSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDatasets
+instance Lude.ToHeaders ListDatasets where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListDatasets
+instance Lude.ToPath ListDatasets where
+  toPath = Lude.const "/datasets"
 
-instance ToHeaders ListDatasets where
-  toHeaders = const mempty
-
-instance ToPath ListDatasets where
-  toPath = const "/datasets"
-
-instance ToQuery ListDatasets where
+instance Lude.ToQuery ListDatasets where
   toQuery ListDatasets' {..} =
-    mconcat
-      ["nextToken" =: _lNextToken, "maxResults" =: _lMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listDatasetsResponse' smart constructor.
+-- | /See:/ 'mkListDatasetsResponse' smart constructor.
 data ListDatasetsResponse = ListDatasetsResponse'
-  { _lrsNextToken ::
-      !(Maybe Text),
-    _lrsDatasetSummaries :: !(Maybe [DatasetSummary]),
-    _lrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    datasetSummaries :: Lude.Maybe [DatasetSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDatasetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrsNextToken' - The token to retrieve the next set of results, or @null@ if there are no more results.
---
--- * 'lrsDatasetSummaries' - A list of @DatasetSummary@ objects.
---
--- * 'lrsResponseStatus' - -- | The response status code.
-listDatasetsResponse ::
-  -- | 'lrsResponseStatus'
-  Int ->
+-- * 'datasetSummaries' - A list of @DatasetSummary@ objects.
+-- * 'nextToken' - The token to retrieve the next set of results, or @null@ if there are no more results.
+-- * 'responseStatus' - The response status code.
+mkListDatasetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDatasetsResponse
-listDatasetsResponse pResponseStatus_ =
+mkListDatasetsResponse pResponseStatus_ =
   ListDatasetsResponse'
-    { _lrsNextToken = Nothing,
-      _lrsDatasetSummaries = Nothing,
-      _lrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      datasetSummaries = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to retrieve the next set of results, or @null@ if there are no more results.
-lrsNextToken :: Lens' ListDatasetsResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\s a -> s {_lrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsNextToken :: Lens.Lens' ListDatasetsResponse (Lude.Maybe Lude.Text)
+lrsNextToken = Lens.lens (nextToken :: ListDatasetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDatasetsResponse)
+{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of @DatasetSummary@ objects.
-lrsDatasetSummaries :: Lens' ListDatasetsResponse [DatasetSummary]
-lrsDatasetSummaries = lens _lrsDatasetSummaries (\s a -> s {_lrsDatasetSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'datasetSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsDatasetSummaries :: Lens.Lens' ListDatasetsResponse (Lude.Maybe [DatasetSummary])
+lrsDatasetSummaries = Lens.lens (datasetSummaries :: ListDatasetsResponse -> Lude.Maybe [DatasetSummary]) (\s a -> s {datasetSummaries = a} :: ListDatasetsResponse)
+{-# DEPRECATED lrsDatasetSummaries "Use generic-lens or generic-optics with 'datasetSummaries' instead." #-}
 
--- | -- | The response status code.
-lrsResponseStatus :: Lens' ListDatasetsResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\s a -> s {_lrsResponseStatus = a})
-
-instance NFData ListDatasetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsResponseStatus :: Lens.Lens' ListDatasetsResponse Lude.Int
+lrsResponseStatus = Lens.lens (responseStatus :: ListDatasetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDatasetsResponse)
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

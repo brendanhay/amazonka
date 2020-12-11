@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentCreator where
+module Network.AWS.CodeDeploy.Types.DeploymentCreator
+  ( DeploymentCreator
+      ( DeploymentCreator',
+        Autoscaling,
+        CloudFormation,
+        CloudFormationRollback,
+        CodeDeploy,
+        CodeDeployRollback,
+        User
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DeploymentCreator
-  = Autoscaling
-  | CloudFormation
-  | CloudFormationRollback
-  | CodeDeploy
-  | CodeDeployRollback
-  | User
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeploymentCreator = DeploymentCreator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeploymentCreator where
-  parser =
-    takeLowerText >>= \case
-      "autoscaling" -> pure Autoscaling
-      "cloudformation" -> pure CloudFormation
-      "cloudformationrollback" -> pure CloudFormationRollback
-      "codedeploy" -> pure CodeDeploy
-      "codedeployrollback" -> pure CodeDeployRollback
-      "user" -> pure User
-      e ->
-        fromTextError $
-          "Failure parsing DeploymentCreator from value: '" <> e
-            <> "'. Accepted values: autoscaling, cloudformation, cloudformationrollback, codedeploy, codedeployrollback, user"
+pattern Autoscaling :: DeploymentCreator
+pattern Autoscaling = DeploymentCreator' "autoscaling"
 
-instance ToText DeploymentCreator where
-  toText = \case
-    Autoscaling -> "autoscaling"
-    CloudFormation -> "CloudFormation"
-    CloudFormationRollback -> "CloudFormationRollback"
-    CodeDeploy -> "CodeDeploy"
-    CodeDeployRollback -> "codeDeployRollback"
-    User -> "user"
+pattern CloudFormation :: DeploymentCreator
+pattern CloudFormation = DeploymentCreator' "CloudFormation"
 
-instance Hashable DeploymentCreator
+pattern CloudFormationRollback :: DeploymentCreator
+pattern CloudFormationRollback = DeploymentCreator' "CloudFormationRollback"
 
-instance NFData DeploymentCreator
+pattern CodeDeploy :: DeploymentCreator
+pattern CodeDeploy = DeploymentCreator' "CodeDeploy"
 
-instance ToByteString DeploymentCreator
+pattern CodeDeployRollback :: DeploymentCreator
+pattern CodeDeployRollback = DeploymentCreator' "codeDeployRollback"
 
-instance ToQuery DeploymentCreator
+pattern User :: DeploymentCreator
+pattern User = DeploymentCreator' "user"
 
-instance ToHeader DeploymentCreator
-
-instance FromJSON DeploymentCreator where
-  parseJSON = parseJSONText "DeploymentCreator"
+{-# COMPLETE
+  Autoscaling,
+  CloudFormation,
+  CloudFormationRollback,
+  CodeDeploy,
+  CodeDeployRollback,
+  User,
+  DeploymentCreator'
+  #-}

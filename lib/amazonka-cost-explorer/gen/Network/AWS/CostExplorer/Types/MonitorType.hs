@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.MonitorType where
+module Network.AWS.CostExplorer.Types.MonitorType
+  ( MonitorType
+      ( MonitorType',
+        Custom,
+        Dimensional
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MonitorType
-  = Custom
-  | Dimensional
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MonitorType = MonitorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MonitorType where
-  parser =
-    takeLowerText >>= \case
-      "custom" -> pure Custom
-      "dimensional" -> pure Dimensional
-      e ->
-        fromTextError $
-          "Failure parsing MonitorType from value: '" <> e
-            <> "'. Accepted values: custom, dimensional"
+pattern Custom :: MonitorType
+pattern Custom = MonitorType' "CUSTOM"
 
-instance ToText MonitorType where
-  toText = \case
-    Custom -> "CUSTOM"
-    Dimensional -> "DIMENSIONAL"
+pattern Dimensional :: MonitorType
+pattern Dimensional = MonitorType' "DIMENSIONAL"
 
-instance Hashable MonitorType
-
-instance NFData MonitorType
-
-instance ToByteString MonitorType
-
-instance ToQuery MonitorType
-
-instance ToHeader MonitorType
-
-instance ToJSON MonitorType where
-  toJSON = toJSONText
-
-instance FromJSON MonitorType where
-  parseJSON = parseJSONText "MonitorType"
+{-# COMPLETE
+  Custom,
+  Dimensional,
+  MonitorType'
+  #-}

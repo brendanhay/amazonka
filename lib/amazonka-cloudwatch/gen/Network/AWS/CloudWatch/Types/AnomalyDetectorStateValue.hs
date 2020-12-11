@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue where
+module Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue
+  ( AnomalyDetectorStateValue
+      ( AnomalyDetectorStateValue',
+        PendingTraining,
+        Trained,
+        TrainedInsufficientData
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AnomalyDetectorStateValue
-  = PendingTraining
-  | Trained
-  | TrainedInsufficientData
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AnomalyDetectorStateValue = AnomalyDetectorStateValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AnomalyDetectorStateValue where
-  parser =
-    takeLowerText >>= \case
-      "pending_training" -> pure PendingTraining
-      "trained" -> pure Trained
-      "trained_insufficient_data" -> pure TrainedInsufficientData
-      e ->
-        fromTextError $
-          "Failure parsing AnomalyDetectorStateValue from value: '" <> e
-            <> "'. Accepted values: pending_training, trained, trained_insufficient_data"
+pattern PendingTraining :: AnomalyDetectorStateValue
+pattern PendingTraining = AnomalyDetectorStateValue' "PENDING_TRAINING"
 
-instance ToText AnomalyDetectorStateValue where
-  toText = \case
-    PendingTraining -> "PENDING_TRAINING"
-    Trained -> "TRAINED"
-    TrainedInsufficientData -> "TRAINED_INSUFFICIENT_DATA"
+pattern Trained :: AnomalyDetectorStateValue
+pattern Trained = AnomalyDetectorStateValue' "TRAINED"
 
-instance Hashable AnomalyDetectorStateValue
+pattern TrainedInsufficientData :: AnomalyDetectorStateValue
+pattern TrainedInsufficientData = AnomalyDetectorStateValue' "TRAINED_INSUFFICIENT_DATA"
 
-instance NFData AnomalyDetectorStateValue
-
-instance ToByteString AnomalyDetectorStateValue
-
-instance ToQuery AnomalyDetectorStateValue
-
-instance ToHeader AnomalyDetectorStateValue
-
-instance FromXML AnomalyDetectorStateValue where
-  parseXML = parseXMLText "AnomalyDetectorStateValue"
+{-# COMPLETE
+  PendingTraining,
+  Trained,
+  TrainedInsufficientData,
+  AnomalyDetectorStateValue'
+  #-}

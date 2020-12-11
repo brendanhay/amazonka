@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.MergeHunkDetail where
+module Network.AWS.CodeCommit.Types.MergeHunkDetail
+  ( MergeHunkDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMergeHunkDetail,
+
+    -- * Lenses
+    mhdStartLine,
+    mhdEndLine,
+    mhdHunkContent,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.
 --
---
---
--- /See:/ 'mergeHunkDetail' smart constructor.
+-- /See:/ 'mkMergeHunkDetail' smart constructor.
 data MergeHunkDetail = MergeHunkDetail'
-  { _mhdStartLine ::
-      !(Maybe Int),
-    _mhdEndLine :: !(Maybe Int),
-    _mhdHunkContent :: !(Maybe Text)
+  { startLine ::
+      Lude.Maybe Lude.Int,
+    endLine :: Lude.Maybe Lude.Int,
+    hunkContent :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeHunkDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mhdStartLine' - The start position of the hunk in the merge result.
---
--- * 'mhdEndLine' - The end position of the hunk in the merge result.
---
--- * 'mhdHunkContent' - The base-64 encoded content of the hunk merged region that might contain a conflict.
-mergeHunkDetail ::
+-- * 'endLine' - The end position of the hunk in the merge result.
+-- * 'hunkContent' - The base-64 encoded content of the hunk merged region that might contain a conflict.
+-- * 'startLine' - The start position of the hunk in the merge result.
+mkMergeHunkDetail ::
   MergeHunkDetail
-mergeHunkDetail =
+mkMergeHunkDetail =
   MergeHunkDetail'
-    { _mhdStartLine = Nothing,
-      _mhdEndLine = Nothing,
-      _mhdHunkContent = Nothing
+    { startLine = Lude.Nothing,
+      endLine = Lude.Nothing,
+      hunkContent = Lude.Nothing
     }
 
 -- | The start position of the hunk in the merge result.
-mhdStartLine :: Lens' MergeHunkDetail (Maybe Int)
-mhdStartLine = lens _mhdStartLine (\s a -> s {_mhdStartLine = a})
+--
+-- /Note:/ Consider using 'startLine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhdStartLine :: Lens.Lens' MergeHunkDetail (Lude.Maybe Lude.Int)
+mhdStartLine = Lens.lens (startLine :: MergeHunkDetail -> Lude.Maybe Lude.Int) (\s a -> s {startLine = a} :: MergeHunkDetail)
+{-# DEPRECATED mhdStartLine "Use generic-lens or generic-optics with 'startLine' instead." #-}
 
 -- | The end position of the hunk in the merge result.
-mhdEndLine :: Lens' MergeHunkDetail (Maybe Int)
-mhdEndLine = lens _mhdEndLine (\s a -> s {_mhdEndLine = a})
+--
+-- /Note:/ Consider using 'endLine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhdEndLine :: Lens.Lens' MergeHunkDetail (Lude.Maybe Lude.Int)
+mhdEndLine = Lens.lens (endLine :: MergeHunkDetail -> Lude.Maybe Lude.Int) (\s a -> s {endLine = a} :: MergeHunkDetail)
+{-# DEPRECATED mhdEndLine "Use generic-lens or generic-optics with 'endLine' instead." #-}
 
 -- | The base-64 encoded content of the hunk merged region that might contain a conflict.
-mhdHunkContent :: Lens' MergeHunkDetail (Maybe Text)
-mhdHunkContent = lens _mhdHunkContent (\s a -> s {_mhdHunkContent = a})
+--
+-- /Note:/ Consider using 'hunkContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhdHunkContent :: Lens.Lens' MergeHunkDetail (Lude.Maybe Lude.Text)
+mhdHunkContent = Lens.lens (hunkContent :: MergeHunkDetail -> Lude.Maybe Lude.Text) (\s a -> s {hunkContent = a} :: MergeHunkDetail)
+{-# DEPRECATED mhdHunkContent "Use generic-lens or generic-optics with 'hunkContent' instead." #-}
 
-instance FromJSON MergeHunkDetail where
+instance Lude.FromJSON MergeHunkDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "MergeHunkDetail"
       ( \x ->
           MergeHunkDetail'
-            <$> (x .:? "startLine")
-            <*> (x .:? "endLine")
-            <*> (x .:? "hunkContent")
+            Lude.<$> (x Lude..:? "startLine")
+            Lude.<*> (x Lude..:? "endLine")
+            Lude.<*> (x Lude..:? "hunkContent")
       )
-
-instance Hashable MergeHunkDetail
-
-instance NFData MergeHunkDetail

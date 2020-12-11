@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationExecutionTargetsFilter where
+module Network.AWS.SSM.Types.AssociationExecutionTargetsFilter
+  ( AssociationExecutionTargetsFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAssociationExecutionTargetsFilter,
+
+    -- * Lenses
+    aetfKey,
+    aetfValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey
 
 -- | Filters for the association execution.
 --
---
---
--- /See:/ 'associationExecutionTargetsFilter' smart constructor.
+-- /See:/ 'mkAssociationExecutionTargetsFilter' smart constructor.
 data AssociationExecutionTargetsFilter = AssociationExecutionTargetsFilter'
-  { _aetfKey ::
-      !AssociationExecutionTargetsFilterKey,
-    _aetfValue :: !Text
+  { key ::
+      AssociationExecutionTargetsFilterKey,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationExecutionTargetsFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aetfKey' - The key value used in the request.
---
--- * 'aetfValue' - The value specified for the key.
-associationExecutionTargetsFilter ::
-  -- | 'aetfKey'
+-- * 'key' - The key value used in the request.
+-- * 'value' - The value specified for the key.
+mkAssociationExecutionTargetsFilter ::
+  -- | 'key'
   AssociationExecutionTargetsFilterKey ->
-  -- | 'aetfValue'
-  Text ->
+  -- | 'value'
+  Lude.Text ->
   AssociationExecutionTargetsFilter
-associationExecutionTargetsFilter pKey_ pValue_ =
-  AssociationExecutionTargetsFilter'
-    { _aetfKey = pKey_,
-      _aetfValue = pValue_
-    }
+mkAssociationExecutionTargetsFilter pKey_ pValue_ =
+  AssociationExecutionTargetsFilter' {key = pKey_, value = pValue_}
 
 -- | The key value used in the request.
-aetfKey :: Lens' AssociationExecutionTargetsFilter AssociationExecutionTargetsFilterKey
-aetfKey = lens _aetfKey (\s a -> s {_aetfKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetfKey :: Lens.Lens' AssociationExecutionTargetsFilter AssociationExecutionTargetsFilterKey
+aetfKey = Lens.lens (key :: AssociationExecutionTargetsFilter -> AssociationExecutionTargetsFilterKey) (\s a -> s {key = a} :: AssociationExecutionTargetsFilter)
+{-# DEPRECATED aetfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The value specified for the key.
-aetfValue :: Lens' AssociationExecutionTargetsFilter Text
-aetfValue = lens _aetfValue (\s a -> s {_aetfValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aetfValue :: Lens.Lens' AssociationExecutionTargetsFilter Lude.Text
+aetfValue = Lens.lens (value :: AssociationExecutionTargetsFilter -> Lude.Text) (\s a -> s {value = a} :: AssociationExecutionTargetsFilter)
+{-# DEPRECATED aetfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Hashable AssociationExecutionTargetsFilter
-
-instance NFData AssociationExecutionTargetsFilter
-
-instance ToJSON AssociationExecutionTargetsFilter where
+instance Lude.ToJSON AssociationExecutionTargetsFilter where
   toJSON AssociationExecutionTargetsFilter' {..} =
-    object
-      ( catMaybes
-          [Just ("Key" .= _aetfKey), Just ("Value" .= _aetfValue)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("Key" Lude..= key), Lude.Just ("Value" Lude..= value)]
       )

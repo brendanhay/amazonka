@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,126 @@
 --
 -- Returns information about a specific block storage disk.
 module Network.AWS.Lightsail.GetDisk
-  ( -- * Creating a Request
-    getDisk,
-    GetDisk,
+  ( -- * Creating a request
+    GetDisk (..),
+    mkGetDisk,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdDiskName,
 
-    -- * Destructuring the Response
-    getDiskResponse,
-    GetDiskResponse,
+    -- * Destructuring the response
+    GetDiskResponse (..),
+    mkGetDiskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggrsDisk,
     ggrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getDisk' smart constructor.
-newtype GetDisk = GetDisk' {_gdDiskName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetDisk' smart constructor.
+newtype GetDisk = GetDisk' {diskName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDisk' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdDiskName' - The name of the disk (e.g., @my-disk@ ).
-getDisk ::
-  -- | 'gdDiskName'
-  Text ->
+-- * 'diskName' - The name of the disk (e.g., @my-disk@ ).
+mkGetDisk ::
+  -- | 'diskName'
+  Lude.Text ->
   GetDisk
-getDisk pDiskName_ = GetDisk' {_gdDiskName = pDiskName_}
+mkGetDisk pDiskName_ = GetDisk' {diskName = pDiskName_}
 
 -- | The name of the disk (e.g., @my-disk@ ).
-gdDiskName :: Lens' GetDisk Text
-gdDiskName = lens _gdDiskName (\s a -> s {_gdDiskName = a})
+--
+-- /Note:/ Consider using 'diskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdDiskName :: Lens.Lens' GetDisk Lude.Text
+gdDiskName = Lens.lens (diskName :: GetDisk -> Lude.Text) (\s a -> s {diskName = a} :: GetDisk)
+{-# DEPRECATED gdDiskName "Use generic-lens or generic-optics with 'diskName' instead." #-}
 
-instance AWSRequest GetDisk where
+instance Lude.AWSRequest GetDisk where
   type Rs GetDisk = GetDiskResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetDiskResponse' <$> (x .?> "disk") <*> (pure (fromEnum s))
+          GetDiskResponse'
+            Lude.<$> (x Lude..?> "disk") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDisk
-
-instance NFData GetDisk
-
-instance ToHeaders GetDisk where
+instance Lude.ToHeaders GetDisk where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("Lightsail_20161128.GetDisk" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("Lightsail_20161128.GetDisk" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDisk where
+instance Lude.ToJSON GetDisk where
   toJSON GetDisk' {..} =
-    object (catMaybes [Just ("diskName" .= _gdDiskName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("diskName" Lude..= diskName)])
 
-instance ToPath GetDisk where
-  toPath = const "/"
+instance Lude.ToPath GetDisk where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDisk where
-  toQuery = const mempty
+instance Lude.ToQuery GetDisk where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDiskResponse' smart constructor.
+-- | /See:/ 'mkGetDiskResponse' smart constructor.
 data GetDiskResponse = GetDiskResponse'
-  { _ggrsDisk :: !(Maybe Disk),
-    _ggrsResponseStatus :: !Int
+  { disk :: Lude.Maybe Disk,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggrsDisk' - An object containing information about the disk.
---
--- * 'ggrsResponseStatus' - -- | The response status code.
-getDiskResponse ::
-  -- | 'ggrsResponseStatus'
-  Int ->
+-- * 'disk' - An object containing information about the disk.
+-- * 'responseStatus' - The response status code.
+mkGetDiskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDiskResponse
-getDiskResponse pResponseStatus_ =
+mkGetDiskResponse pResponseStatus_ =
   GetDiskResponse'
-    { _ggrsDisk = Nothing,
-      _ggrsResponseStatus = pResponseStatus_
+    { disk = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object containing information about the disk.
-ggrsDisk :: Lens' GetDiskResponse (Maybe Disk)
-ggrsDisk = lens _ggrsDisk (\s a -> s {_ggrsDisk = a})
+--
+-- /Note:/ Consider using 'disk' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsDisk :: Lens.Lens' GetDiskResponse (Lude.Maybe Disk)
+ggrsDisk = Lens.lens (disk :: GetDiskResponse -> Lude.Maybe Disk) (\s a -> s {disk = a} :: GetDiskResponse)
+{-# DEPRECATED ggrsDisk "Use generic-lens or generic-optics with 'disk' instead." #-}
 
--- | -- | The response status code.
-ggrsResponseStatus :: Lens' GetDiskResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\s a -> s {_ggrsResponseStatus = a})
-
-instance NFData GetDiskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsResponseStatus :: Lens.Lens' GetDiskResponse Lude.Int
+ggrsResponseStatus = Lens.lens (responseStatus :: GetDiskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDiskResponse)
+{-# DEPRECATED ggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264SubGopLength where
+module Network.AWS.MediaLive.Types.H264SubGopLength
+  ( H264SubGopLength
+      ( H264SubGopLength',
+        Dynamic,
+        Fixed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H264 Sub Gop Length
-data H264SubGopLength
-  = Dynamic
-  | Fixed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264SubGopLength = H264SubGopLength' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264SubGopLength where
-  parser =
-    takeLowerText >>= \case
-      "dynamic" -> pure Dynamic
-      "fixed" -> pure Fixed
-      e ->
-        fromTextError $
-          "Failure parsing H264SubGopLength from value: '" <> e
-            <> "'. Accepted values: dynamic, fixed"
+pattern Dynamic :: H264SubGopLength
+pattern Dynamic = H264SubGopLength' "DYNAMIC"
 
-instance ToText H264SubGopLength where
-  toText = \case
-    Dynamic -> "DYNAMIC"
-    Fixed -> "FIXED"
+pattern Fixed :: H264SubGopLength
+pattern Fixed = H264SubGopLength' "FIXED"
 
-instance Hashable H264SubGopLength
-
-instance NFData H264SubGopLength
-
-instance ToByteString H264SubGopLength
-
-instance ToQuery H264SubGopLength
-
-instance ToHeader H264SubGopLength
-
-instance ToJSON H264SubGopLength where
-  toJSON = toJSONText
-
-instance FromJSON H264SubGopLength where
-  parseJSON = parseJSONText "H264SubGopLength"
+{-# COMPLETE
+  Dynamic,
+  Fixed,
+  H264SubGopLength'
+  #-}

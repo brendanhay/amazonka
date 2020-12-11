@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.NetworkMode where
+module Network.AWS.ECS.Types.NetworkMode
+  ( NetworkMode
+      ( NetworkMode',
+        AWSvpc,
+        Bridge,
+        Host,
+        None
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NetworkMode
-  = AWSvpc
-  | Bridge
-  | Host
-  | None
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NetworkMode = NetworkMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NetworkMode where
-  parser =
-    takeLowerText >>= \case
-      "awsvpc" -> pure AWSvpc
-      "bridge" -> pure Bridge
-      "host" -> pure Host
-      "none" -> pure None
-      e ->
-        fromTextError $
-          "Failure parsing NetworkMode from value: '" <> e
-            <> "'. Accepted values: awsvpc, bridge, host, none"
+pattern AWSvpc :: NetworkMode
+pattern AWSvpc = NetworkMode' "awsvpc"
 
-instance ToText NetworkMode where
-  toText = \case
-    AWSvpc -> "awsvpc"
-    Bridge -> "bridge"
-    Host -> "host"
-    None -> "none"
+pattern Bridge :: NetworkMode
+pattern Bridge = NetworkMode' "bridge"
 
-instance Hashable NetworkMode
+pattern Host :: NetworkMode
+pattern Host = NetworkMode' "host"
 
-instance NFData NetworkMode
+pattern None :: NetworkMode
+pattern None = NetworkMode' "none"
 
-instance ToByteString NetworkMode
-
-instance ToQuery NetworkMode
-
-instance ToHeader NetworkMode
-
-instance ToJSON NetworkMode where
-  toJSON = toJSONText
-
-instance FromJSON NetworkMode where
-  parseJSON = parseJSONText "NetworkMode"
+{-# COMPLETE
+  AWSvpc,
+  Bridge,
+  Host,
+  None,
+  NetworkMode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,141 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.CaptionSource where
+module Network.AWS.ElasticTranscoder.Types.CaptionSource
+  ( CaptionSource (..),
+
+    -- * Smart constructor
+    mkCaptionSource,
+
+    -- * Lenses
+    csTimeOffset,
+    csEncryption,
+    csKey,
+    csLanguage,
+    csLabel,
+  )
+where
 
 import Network.AWS.ElasticTranscoder.Types.Encryption
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A source file for the input sidecar captions used during the transcoding process.
 --
---
---
--- /See:/ 'captionSource' smart constructor.
+-- /See:/ 'mkCaptionSource' smart constructor.
 data CaptionSource = CaptionSource'
-  { _csTimeOffset :: !(Maybe Text),
-    _csEncryption :: !(Maybe Encryption),
-    _csKey :: !(Maybe Text),
-    _csLanguage :: !(Maybe Text),
-    _csLabel :: !(Maybe Text)
+  { timeOffset ::
+      Lude.Maybe Lude.Text,
+    encryption :: Lude.Maybe Encryption,
+    key :: Lude.Maybe Lude.Text,
+    language :: Lude.Maybe Lude.Text,
+    label :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'encryption' - The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you want Elastic Transcoder to apply to your caption sources.
+-- * 'key' - The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.
+-- * 'label' - The label of the caption shown in the player when choosing a language. We recommend that you put the caption language name here, in the language of the captions.
+-- * 'language' - A string that specifies the language of the caption. If you specified multiple inputs with captions, the caption language must match in order to be included in the output. Specify this as one of:
 --
--- * 'csTimeOffset' - For clip generation or captions that do not start at the same time as the associated video file, the @TimeOffset@ tells Elastic Transcoder how much of the video to encode before including captions. Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
 --
--- * 'csEncryption' - The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you want Elastic Transcoder to apply to your caption sources.
+--     * 2-character ISO 639-1 code
 --
--- * 'csKey' - The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.
 --
--- * 'csLanguage' - A string that specifies the language of the caption. If you specified multiple inputs with captions, the caption language must match in order to be included in the output. Specify this as one of:     * 2-character ISO 639-1 code     * 3-character ISO 639-2 code For more information on ISO language codes and language names, see the List of ISO 639-1 codes.
+--     * 3-character ISO 639-2 code
 --
--- * 'csLabel' - The label of the caption shown in the player when choosing a language. We recommend that you put the caption language name here, in the language of the captions.
-captionSource ::
+--
+-- For more information on ISO language codes and language names, see the List of ISO 639-1 codes.
+-- * 'timeOffset' - For clip generation or captions that do not start at the same time as the associated video file, the @TimeOffset@ tells Elastic Transcoder how much of the video to encode before including captions.
+--
+-- Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
+mkCaptionSource ::
   CaptionSource
-captionSource =
+mkCaptionSource =
   CaptionSource'
-    { _csTimeOffset = Nothing,
-      _csEncryption = Nothing,
-      _csKey = Nothing,
-      _csLanguage = Nothing,
-      _csLabel = Nothing
+    { timeOffset = Lude.Nothing,
+      encryption = Lude.Nothing,
+      key = Lude.Nothing,
+      language = Lude.Nothing,
+      label = Lude.Nothing
     }
 
--- | For clip generation or captions that do not start at the same time as the associated video file, the @TimeOffset@ tells Elastic Transcoder how much of the video to encode before including captions. Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
-csTimeOffset :: Lens' CaptionSource (Maybe Text)
-csTimeOffset = lens _csTimeOffset (\s a -> s {_csTimeOffset = a})
+-- | For clip generation or captions that do not start at the same time as the associated video file, the @TimeOffset@ tells Elastic Transcoder how much of the video to encode before including captions.
+--
+-- Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
+--
+-- /Note:/ Consider using 'timeOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTimeOffset :: Lens.Lens' CaptionSource (Lude.Maybe Lude.Text)
+csTimeOffset = Lens.lens (timeOffset :: CaptionSource -> Lude.Maybe Lude.Text) (\s a -> s {timeOffset = a} :: CaptionSource)
+{-# DEPRECATED csTimeOffset "Use generic-lens or generic-optics with 'timeOffset' instead." #-}
 
 -- | The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you want Elastic Transcoder to apply to your caption sources.
-csEncryption :: Lens' CaptionSource (Maybe Encryption)
-csEncryption = lens _csEncryption (\s a -> s {_csEncryption = a})
+--
+-- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csEncryption :: Lens.Lens' CaptionSource (Lude.Maybe Encryption)
+csEncryption = Lens.lens (encryption :: CaptionSource -> Lude.Maybe Encryption) (\s a -> s {encryption = a} :: CaptionSource)
+{-# DEPRECATED csEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
 -- | The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.
-csKey :: Lens' CaptionSource (Maybe Text)
-csKey = lens _csKey (\s a -> s {_csKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csKey :: Lens.Lens' CaptionSource (Lude.Maybe Lude.Text)
+csKey = Lens.lens (key :: CaptionSource -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: CaptionSource)
+{-# DEPRECATED csKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
--- | A string that specifies the language of the caption. If you specified multiple inputs with captions, the caption language must match in order to be included in the output. Specify this as one of:     * 2-character ISO 639-1 code     * 3-character ISO 639-2 code For more information on ISO language codes and language names, see the List of ISO 639-1 codes.
-csLanguage :: Lens' CaptionSource (Maybe Text)
-csLanguage = lens _csLanguage (\s a -> s {_csLanguage = a})
+-- | A string that specifies the language of the caption. If you specified multiple inputs with captions, the caption language must match in order to be included in the output. Specify this as one of:
+--
+--
+--     * 2-character ISO 639-1 code
+--
+--
+--     * 3-character ISO 639-2 code
+--
+--
+-- For more information on ISO language codes and language names, see the List of ISO 639-1 codes.
+--
+-- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csLanguage :: Lens.Lens' CaptionSource (Lude.Maybe Lude.Text)
+csLanguage = Lens.lens (language :: CaptionSource -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: CaptionSource)
+{-# DEPRECATED csLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
 -- | The label of the caption shown in the player when choosing a language. We recommend that you put the caption language name here, in the language of the captions.
-csLabel :: Lens' CaptionSource (Maybe Text)
-csLabel = lens _csLabel (\s a -> s {_csLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csLabel :: Lens.Lens' CaptionSource (Lude.Maybe Lude.Text)
+csLabel = Lens.lens (label :: CaptionSource -> Lude.Maybe Lude.Text) (\s a -> s {label = a} :: CaptionSource)
+{-# DEPRECATED csLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
-instance FromJSON CaptionSource where
+instance Lude.FromJSON CaptionSource where
   parseJSON =
-    withObject
+    Lude.withObject
       "CaptionSource"
       ( \x ->
           CaptionSource'
-            <$> (x .:? "TimeOffset")
-            <*> (x .:? "Encryption")
-            <*> (x .:? "Key")
-            <*> (x .:? "Language")
-            <*> (x .:? "Label")
+            Lude.<$> (x Lude..:? "TimeOffset")
+            Lude.<*> (x Lude..:? "Encryption")
+            Lude.<*> (x Lude..:? "Key")
+            Lude.<*> (x Lude..:? "Language")
+            Lude.<*> (x Lude..:? "Label")
       )
 
-instance Hashable CaptionSource
-
-instance NFData CaptionSource
-
-instance ToJSON CaptionSource where
+instance Lude.ToJSON CaptionSource where
   toJSON CaptionSource' {..} =
-    object
-      ( catMaybes
-          [ ("TimeOffset" .=) <$> _csTimeOffset,
-            ("Encryption" .=) <$> _csEncryption,
-            ("Key" .=) <$> _csKey,
-            ("Language" .=) <$> _csLanguage,
-            ("Label" .=) <$> _csLabel
+    Lude.object
+      ( Lude.catMaybes
+          [ ("TimeOffset" Lude..=) Lude.<$> timeOffset,
+            ("Encryption" Lude..=) Lude.<$> encryption,
+            ("Key" Lude..=) Lude.<$> key,
+            ("Language" Lude..=) Lude.<$> language,
+            ("Label" Lude..=) Lude.<$> label
           ]
       )

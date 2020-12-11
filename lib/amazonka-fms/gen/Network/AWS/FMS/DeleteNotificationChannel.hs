@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,69 +14,78 @@
 --
 -- Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.
 module Network.AWS.FMS.DeleteNotificationChannel
-  ( -- * Creating a Request
-    deleteNotificationChannel,
-    DeleteNotificationChannel,
+  ( -- * Creating a request
+    DeleteNotificationChannel (..),
+    mkDeleteNotificationChannel,
 
-    -- * Destructuring the Response
-    deleteNotificationChannelResponse,
-    DeleteNotificationChannelResponse,
+    -- * Destructuring the response
+    DeleteNotificationChannelResponse (..),
+    mkDeleteNotificationChannelResponse,
   )
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteNotificationChannel' smart constructor.
+-- | /See:/ 'mkDeleteNotificationChannel' smart constructor.
 data DeleteNotificationChannel = DeleteNotificationChannel'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotificationChannel' with the minimum fields required to make a request.
-deleteNotificationChannel ::
+mkDeleteNotificationChannel ::
   DeleteNotificationChannel
-deleteNotificationChannel = DeleteNotificationChannel'
+mkDeleteNotificationChannel = DeleteNotificationChannel'
 
-instance AWSRequest DeleteNotificationChannel where
+instance Lude.AWSRequest DeleteNotificationChannel where
   type
     Rs DeleteNotificationChannel =
       DeleteNotificationChannelResponse
-  request = postJSON fms
-  response = receiveNull DeleteNotificationChannelResponse'
+  request = Req.postJSON fmsService
+  response = Res.receiveNull DeleteNotificationChannelResponse'
 
-instance Hashable DeleteNotificationChannel
-
-instance NFData DeleteNotificationChannel
-
-instance ToHeaders DeleteNotificationChannel where
+instance Lude.ToHeaders DeleteNotificationChannel where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSFMS_20180101.DeleteNotificationChannel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSFMS_20180101.DeleteNotificationChannel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteNotificationChannel where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DeleteNotificationChannel where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DeleteNotificationChannel where
-  toPath = const "/"
+instance Lude.ToPath DeleteNotificationChannel where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteNotificationChannel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteNotificationChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteNotificationChannelResponse' smart constructor.
+-- | /See:/ 'mkDeleteNotificationChannelResponse' smart constructor.
 data DeleteNotificationChannelResponse = DeleteNotificationChannelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotificationChannelResponse' with the minimum fields required to make a request.
-deleteNotificationChannelResponse ::
+mkDeleteNotificationChannelResponse ::
   DeleteNotificationChannelResponse
-deleteNotificationChannelResponse =
+mkDeleteNotificationChannelResponse =
   DeleteNotificationChannelResponse'
-
-instance NFData DeleteNotificationChannelResponse

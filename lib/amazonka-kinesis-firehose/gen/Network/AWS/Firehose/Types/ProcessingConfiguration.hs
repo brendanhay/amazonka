@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ProcessingConfiguration where
+module Network.AWS.Firehose.Types.ProcessingConfiguration
+  ( ProcessingConfiguration (..),
+
+    -- * Smart constructor
+    mkProcessingConfiguration,
+
+    -- * Lenses
+    pcEnabled,
+    pcProcessors,
+  )
+where
 
 import Network.AWS.Firehose.Types.Processor
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a data processing configuration.
 --
---
---
--- /See:/ 'processingConfiguration' smart constructor.
+-- /See:/ 'mkProcessingConfiguration' smart constructor.
 data ProcessingConfiguration = ProcessingConfiguration'
-  { _pcEnabled ::
-      !(Maybe Bool),
-    _pcProcessors :: !(Maybe [Processor])
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    processors :: Lude.Maybe [Processor]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcEnabled' - Enables or disables data processing.
---
--- * 'pcProcessors' - The data processors.
-processingConfiguration ::
+-- * 'enabled' - Enables or disables data processing.
+-- * 'processors' - The data processors.
+mkProcessingConfiguration ::
   ProcessingConfiguration
-processingConfiguration =
+mkProcessingConfiguration =
   ProcessingConfiguration'
-    { _pcEnabled = Nothing,
-      _pcProcessors = Nothing
+    { enabled = Lude.Nothing,
+      processors = Lude.Nothing
     }
 
 -- | Enables or disables data processing.
-pcEnabled :: Lens' ProcessingConfiguration (Maybe Bool)
-pcEnabled = lens _pcEnabled (\s a -> s {_pcEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcEnabled :: Lens.Lens' ProcessingConfiguration (Lude.Maybe Lude.Bool)
+pcEnabled = Lens.lens (enabled :: ProcessingConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ProcessingConfiguration)
+{-# DEPRECATED pcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The data processors.
-pcProcessors :: Lens' ProcessingConfiguration [Processor]
-pcProcessors = lens _pcProcessors (\s a -> s {_pcProcessors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'processors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcProcessors :: Lens.Lens' ProcessingConfiguration (Lude.Maybe [Processor])
+pcProcessors = Lens.lens (processors :: ProcessingConfiguration -> Lude.Maybe [Processor]) (\s a -> s {processors = a} :: ProcessingConfiguration)
+{-# DEPRECATED pcProcessors "Use generic-lens or generic-optics with 'processors' instead." #-}
 
-instance FromJSON ProcessingConfiguration where
+instance Lude.FromJSON ProcessingConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProcessingConfiguration"
       ( \x ->
           ProcessingConfiguration'
-            <$> (x .:? "Enabled") <*> (x .:? "Processors" .!= mempty)
+            Lude.<$> (x Lude..:? "Enabled")
+            Lude.<*> (x Lude..:? "Processors" Lude..!= Lude.mempty)
       )
 
-instance Hashable ProcessingConfiguration
-
-instance NFData ProcessingConfiguration
-
-instance ToJSON ProcessingConfiguration where
+instance Lude.ToJSON ProcessingConfiguration where
   toJSON ProcessingConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("Enabled" .=) <$> _pcEnabled,
-            ("Processors" .=) <$> _pcProcessors
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Enabled" Lude..=) Lude.<$> enabled,
+            ("Processors" Lude..=) Lude.<$> processors
           ]
       )

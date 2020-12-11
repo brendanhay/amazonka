@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns the available automatic snapshots for an instance or disk. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
 module Network.AWS.Lightsail.GetAutoSnapshots
-  ( -- * Creating a Request
-    getAutoSnapshots,
-    GetAutoSnapshots,
+  ( -- * Creating a request
+    GetAutoSnapshots (..),
+    mkGetAutoSnapshots,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gasResourceName,
 
-    -- * Destructuring the Response
-    getAutoSnapshotsResponse,
-    GetAutoSnapshotsResponse,
+    -- * Destructuring the response
+    GetAutoSnapshotsResponse (..),
+    mkGetAutoSnapshotsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gasrsResourceType,
     gasrsResourceName,
     gasrsAutoSnapshots,
@@ -38,120 +33,138 @@ module Network.AWS.Lightsail.GetAutoSnapshots
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAutoSnapshots' smart constructor.
+-- | /See:/ 'mkGetAutoSnapshots' smart constructor.
 newtype GetAutoSnapshots = GetAutoSnapshots'
-  { _gasResourceName ::
-      Text
+  { resourceName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAutoSnapshots' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasResourceName' - The name of the source instance or disk from which to get automatic snapshot information.
-getAutoSnapshots ::
-  -- | 'gasResourceName'
-  Text ->
+-- * 'resourceName' - The name of the source instance or disk from which to get automatic snapshot information.
+mkGetAutoSnapshots ::
+  -- | 'resourceName'
+  Lude.Text ->
   GetAutoSnapshots
-getAutoSnapshots pResourceName_ =
-  GetAutoSnapshots' {_gasResourceName = pResourceName_}
+mkGetAutoSnapshots pResourceName_ =
+  GetAutoSnapshots' {resourceName = pResourceName_}
 
 -- | The name of the source instance or disk from which to get automatic snapshot information.
-gasResourceName :: Lens' GetAutoSnapshots Text
-gasResourceName = lens _gasResourceName (\s a -> s {_gasResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasResourceName :: Lens.Lens' GetAutoSnapshots Lude.Text
+gasResourceName = Lens.lens (resourceName :: GetAutoSnapshots -> Lude.Text) (\s a -> s {resourceName = a} :: GetAutoSnapshots)
+{-# DEPRECATED gasResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
-instance AWSRequest GetAutoSnapshots where
+instance Lude.AWSRequest GetAutoSnapshots where
   type Rs GetAutoSnapshots = GetAutoSnapshotsResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAutoSnapshotsResponse'
-            <$> (x .?> "resourceType")
-            <*> (x .?> "resourceName")
-            <*> (x .?> "autoSnapshots" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "resourceType")
+            Lude.<*> (x Lude..?> "resourceName")
+            Lude.<*> (x Lude..?> "autoSnapshots" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAutoSnapshots
-
-instance NFData GetAutoSnapshots
-
-instance ToHeaders GetAutoSnapshots where
+instance Lude.ToHeaders GetAutoSnapshots where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.GetAutoSnapshots" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.GetAutoSnapshots" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAutoSnapshots where
+instance Lude.ToJSON GetAutoSnapshots where
   toJSON GetAutoSnapshots' {..} =
-    object (catMaybes [Just ("resourceName" .= _gasResourceName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("resourceName" Lude..= resourceName)])
 
-instance ToPath GetAutoSnapshots where
-  toPath = const "/"
+instance Lude.ToPath GetAutoSnapshots where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAutoSnapshots where
-  toQuery = const mempty
+instance Lude.ToQuery GetAutoSnapshots where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAutoSnapshotsResponse' smart constructor.
+-- | /See:/ 'mkGetAutoSnapshotsResponse' smart constructor.
 data GetAutoSnapshotsResponse = GetAutoSnapshotsResponse'
-  { _gasrsResourceType ::
-      !(Maybe ResourceType),
-    _gasrsResourceName :: !(Maybe Text),
-    _gasrsAutoSnapshots ::
-      !(Maybe [AutoSnapshotDetails]),
-    _gasrsResponseStatus :: !Int
+  { resourceType ::
+      Lude.Maybe ResourceType,
+    resourceName :: Lude.Maybe Lude.Text,
+    autoSnapshots ::
+      Lude.Maybe [AutoSnapshotDetails],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAutoSnapshotsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasrsResourceType' - The resource type (e.g., @Instance@ or @Disk@ ).
---
--- * 'gasrsResourceName' - The name of the source instance or disk for the automatic snapshots.
---
--- * 'gasrsAutoSnapshots' - An array of objects that describe the automatic snapshots that are available for the specified source instance or disk.
---
--- * 'gasrsResponseStatus' - -- | The response status code.
-getAutoSnapshotsResponse ::
-  -- | 'gasrsResponseStatus'
-  Int ->
+-- * 'autoSnapshots' - An array of objects that describe the automatic snapshots that are available for the specified source instance or disk.
+-- * 'resourceName' - The name of the source instance or disk for the automatic snapshots.
+-- * 'resourceType' - The resource type (e.g., @Instance@ or @Disk@ ).
+-- * 'responseStatus' - The response status code.
+mkGetAutoSnapshotsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAutoSnapshotsResponse
-getAutoSnapshotsResponse pResponseStatus_ =
+mkGetAutoSnapshotsResponse pResponseStatus_ =
   GetAutoSnapshotsResponse'
-    { _gasrsResourceType = Nothing,
-      _gasrsResourceName = Nothing,
-      _gasrsAutoSnapshots = Nothing,
-      _gasrsResponseStatus = pResponseStatus_
+    { resourceType = Lude.Nothing,
+      resourceName = Lude.Nothing,
+      autoSnapshots = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The resource type (e.g., @Instance@ or @Disk@ ).
-gasrsResourceType :: Lens' GetAutoSnapshotsResponse (Maybe ResourceType)
-gasrsResourceType = lens _gasrsResourceType (\s a -> s {_gasrsResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsResourceType :: Lens.Lens' GetAutoSnapshotsResponse (Lude.Maybe ResourceType)
+gasrsResourceType = Lens.lens (resourceType :: GetAutoSnapshotsResponse -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: GetAutoSnapshotsResponse)
+{-# DEPRECATED gasrsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The name of the source instance or disk for the automatic snapshots.
-gasrsResourceName :: Lens' GetAutoSnapshotsResponse (Maybe Text)
-gasrsResourceName = lens _gasrsResourceName (\s a -> s {_gasrsResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsResourceName :: Lens.Lens' GetAutoSnapshotsResponse (Lude.Maybe Lude.Text)
+gasrsResourceName = Lens.lens (resourceName :: GetAutoSnapshotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: GetAutoSnapshotsResponse)
+{-# DEPRECATED gasrsResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | An array of objects that describe the automatic snapshots that are available for the specified source instance or disk.
-gasrsAutoSnapshots :: Lens' GetAutoSnapshotsResponse [AutoSnapshotDetails]
-gasrsAutoSnapshots = lens _gasrsAutoSnapshots (\s a -> s {_gasrsAutoSnapshots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'autoSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsAutoSnapshots :: Lens.Lens' GetAutoSnapshotsResponse (Lude.Maybe [AutoSnapshotDetails])
+gasrsAutoSnapshots = Lens.lens (autoSnapshots :: GetAutoSnapshotsResponse -> Lude.Maybe [AutoSnapshotDetails]) (\s a -> s {autoSnapshots = a} :: GetAutoSnapshotsResponse)
+{-# DEPRECATED gasrsAutoSnapshots "Use generic-lens or generic-optics with 'autoSnapshots' instead." #-}
 
--- | -- | The response status code.
-gasrsResponseStatus :: Lens' GetAutoSnapshotsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\s a -> s {_gasrsResponseStatus = a})
-
-instance NFData GetAutoSnapshotsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsResponseStatus :: Lens.Lens' GetAutoSnapshotsResponse Lude.Int
+gasrsResponseStatus = Lens.lens (responseStatus :: GetAutoSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAutoSnapshotsResponse)
+{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

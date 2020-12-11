@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists the images in your account and their properties. The list can be filtered by creation time or modified time, and whether the image name contains a specified string.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListImages
-  ( -- * Creating a Request
-    listImages,
-    ListImages,
+  ( -- * Creating a request
+    ListImages (..),
+    mkListImages,
 
-    -- * Request Lenses
+    -- ** Request lenses
     liNameContains,
     liLastModifiedTimeBefore,
     liCreationTimeAfter,
@@ -38,202 +31,237 @@ module Network.AWS.SageMaker.ListImages
     liMaxResults,
     liSortBy,
 
-    -- * Destructuring the Response
-    listImagesResponse,
-    ListImagesResponse,
+    -- * Destructuring the response
+    ListImagesResponse (..),
+    mkListImagesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lirsImages,
     lirsNextToken,
     lirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listImages' smart constructor.
+-- | /See:/ 'mkListImages' smart constructor.
 data ListImages = ListImages'
-  { _liNameContains :: !(Maybe Text),
-    _liLastModifiedTimeBefore :: !(Maybe POSIX),
-    _liCreationTimeAfter :: !(Maybe POSIX),
-    _liNextToken :: !(Maybe Text),
-    _liSortOrder :: !(Maybe ImageSortOrder),
-    _liLastModifiedTimeAfter :: !(Maybe POSIX),
-    _liCreationTimeBefore :: !(Maybe POSIX),
-    _liMaxResults :: !(Maybe Nat),
-    _liSortBy :: !(Maybe ImageSortBy)
+  { nameContains :: Lude.Maybe Lude.Text,
+    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe ImageSortOrder,
+    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    maxResults :: Lude.Maybe Lude.Natural,
+    sortBy :: Lude.Maybe ImageSortBy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListImages' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liNameContains' - A filter that returns only images whose name contains the specified string.
---
--- * 'liLastModifiedTimeBefore' - A filter that returns only images modified on or before the specified time.
---
--- * 'liCreationTimeAfter' - A filter that returns only images created on or after the specified time.
---
--- * 'liNextToken' - If the previous call to @ListImages@ didn't return the full set of images, the call returns a token for getting the next set of images.
---
--- * 'liSortOrder' - The sort order. The default value is @DESCENDING@ .
---
--- * 'liLastModifiedTimeAfter' - A filter that returns only images modified on or after the specified time.
---
--- * 'liCreationTimeBefore' - A filter that returns only images created on or before the specified time.
---
--- * 'liMaxResults' - The maximum number of images to return in the response. The default value is 10.
---
--- * 'liSortBy' - The property used to sort results. The default value is @CREATION_TIME@ .
-listImages ::
+-- * 'creationTimeAfter' - A filter that returns only images created on or after the specified time.
+-- * 'creationTimeBefore' - A filter that returns only images created on or before the specified time.
+-- * 'lastModifiedTimeAfter' - A filter that returns only images modified on or after the specified time.
+-- * 'lastModifiedTimeBefore' - A filter that returns only images modified on or before the specified time.
+-- * 'maxResults' - The maximum number of images to return in the response. The default value is 10.
+-- * 'nameContains' - A filter that returns only images whose name contains the specified string.
+-- * 'nextToken' - If the previous call to @ListImages@ didn't return the full set of images, the call returns a token for getting the next set of images.
+-- * 'sortBy' - The property used to sort results. The default value is @CREATION_TIME@ .
+-- * 'sortOrder' - The sort order. The default value is @DESCENDING@ .
+mkListImages ::
   ListImages
-listImages =
+mkListImages =
   ListImages'
-    { _liNameContains = Nothing,
-      _liLastModifiedTimeBefore = Nothing,
-      _liCreationTimeAfter = Nothing,
-      _liNextToken = Nothing,
-      _liSortOrder = Nothing,
-      _liLastModifiedTimeAfter = Nothing,
-      _liCreationTimeBefore = Nothing,
-      _liMaxResults = Nothing,
-      _liSortBy = Nothing
+    { nameContains = Lude.Nothing,
+      lastModifiedTimeBefore = Lude.Nothing,
+      creationTimeAfter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      lastModifiedTimeAfter = Lude.Nothing,
+      creationTimeBefore = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
 -- | A filter that returns only images whose name contains the specified string.
-liNameContains :: Lens' ListImages (Maybe Text)
-liNameContains = lens _liNameContains (\s a -> s {_liNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liNameContains :: Lens.Lens' ListImages (Lude.Maybe Lude.Text)
+liNameContains = Lens.lens (nameContains :: ListImages -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListImages)
+{-# DEPRECATED liNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A filter that returns only images modified on or before the specified time.
-liLastModifiedTimeBefore :: Lens' ListImages (Maybe UTCTime)
-liLastModifiedTimeBefore = lens _liLastModifiedTimeBefore (\s a -> s {_liLastModifiedTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liLastModifiedTimeBefore :: Lens.Lens' ListImages (Lude.Maybe Lude.Timestamp)
+liLastModifiedTimeBefore = Lens.lens (lastModifiedTimeBefore :: ListImages -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeBefore = a} :: ListImages)
+{-# DEPRECATED liLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | A filter that returns only images created on or after the specified time.
-liCreationTimeAfter :: Lens' ListImages (Maybe UTCTime)
-liCreationTimeAfter = lens _liCreationTimeAfter (\s a -> s {_liCreationTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liCreationTimeAfter :: Lens.Lens' ListImages (Lude.Maybe Lude.Timestamp)
+liCreationTimeAfter = Lens.lens (creationTimeAfter :: ListImages -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListImages)
+{-# DEPRECATED liCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | If the previous call to @ListImages@ didn't return the full set of images, the call returns a token for getting the next set of images.
-liNextToken :: Lens' ListImages (Maybe Text)
-liNextToken = lens _liNextToken (\s a -> s {_liNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liNextToken :: Lens.Lens' ListImages (Lude.Maybe Lude.Text)
+liNextToken = Lens.lens (nextToken :: ListImages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListImages)
+{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The sort order. The default value is @DESCENDING@ .
-liSortOrder :: Lens' ListImages (Maybe ImageSortOrder)
-liSortOrder = lens _liSortOrder (\s a -> s {_liSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liSortOrder :: Lens.Lens' ListImages (Lude.Maybe ImageSortOrder)
+liSortOrder = Lens.lens (sortOrder :: ListImages -> Lude.Maybe ImageSortOrder) (\s a -> s {sortOrder = a} :: ListImages)
+{-# DEPRECATED liSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only images modified on or after the specified time.
-liLastModifiedTimeAfter :: Lens' ListImages (Maybe UTCTime)
-liLastModifiedTimeAfter = lens _liLastModifiedTimeAfter (\s a -> s {_liLastModifiedTimeAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liLastModifiedTimeAfter :: Lens.Lens' ListImages (Lude.Maybe Lude.Timestamp)
+liLastModifiedTimeAfter = Lens.lens (lastModifiedTimeAfter :: ListImages -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeAfter = a} :: ListImages)
+{-# DEPRECATED liLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
 
 -- | A filter that returns only images created on or before the specified time.
-liCreationTimeBefore :: Lens' ListImages (Maybe UTCTime)
-liCreationTimeBefore = lens _liCreationTimeBefore (\s a -> s {_liCreationTimeBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liCreationTimeBefore :: Lens.Lens' ListImages (Lude.Maybe Lude.Timestamp)
+liCreationTimeBefore = Lens.lens (creationTimeBefore :: ListImages -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListImages)
+{-# DEPRECATED liCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | The maximum number of images to return in the response. The default value is 10.
-liMaxResults :: Lens' ListImages (Maybe Natural)
-liMaxResults = lens _liMaxResults (\s a -> s {_liMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liMaxResults :: Lens.Lens' ListImages (Lude.Maybe Lude.Natural)
+liMaxResults = Lens.lens (maxResults :: ListImages -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListImages)
+{-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The property used to sort results. The default value is @CREATION_TIME@ .
-liSortBy :: Lens' ListImages (Maybe ImageSortBy)
-liSortBy = lens _liSortBy (\s a -> s {_liSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liSortBy :: Lens.Lens' ListImages (Lude.Maybe ImageSortBy)
+liSortBy = Lens.lens (sortBy :: ListImages -> Lude.Maybe ImageSortBy) (\s a -> s {sortBy = a} :: ListImages)
+{-# DEPRECATED liSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListImages where
+instance Page.AWSPager ListImages where
   page rq rs
-    | stop (rs ^. lirsNextToken) = Nothing
-    | stop (rs ^. lirsImages) = Nothing
-    | otherwise = Just $ rq & liNextToken .~ rs ^. lirsNextToken
+    | Page.stop (rs Lens.^. lirsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lirsImages) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& liNextToken Lens..~ rs Lens.^. lirsNextToken
 
-instance AWSRequest ListImages where
+instance Lude.AWSRequest ListImages where
   type Rs ListImages = ListImagesResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListImagesResponse'
-            <$> (x .?> "Images" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Images" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListImages
-
-instance NFData ListImages
-
-instance ToHeaders ListImages where
+instance Lude.ToHeaders ListImages where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.ListImages" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.ListImages" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListImages where
+instance Lude.ToJSON ListImages where
   toJSON ListImages' {..} =
-    object
-      ( catMaybes
-          [ ("NameContains" .=) <$> _liNameContains,
-            ("LastModifiedTimeBefore" .=) <$> _liLastModifiedTimeBefore,
-            ("CreationTimeAfter" .=) <$> _liCreationTimeAfter,
-            ("NextToken" .=) <$> _liNextToken,
-            ("SortOrder" .=) <$> _liSortOrder,
-            ("LastModifiedTimeAfter" .=) <$> _liLastModifiedTimeAfter,
-            ("CreationTimeBefore" .=) <$> _liCreationTimeBefore,
-            ("MaxResults" .=) <$> _liMaxResults,
-            ("SortBy" .=) <$> _liSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NameContains" Lude..=) Lude.<$> nameContains,
+            ("LastModifiedTimeBefore" Lude..=) Lude.<$> lastModifiedTimeBefore,
+            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("LastModifiedTimeAfter" Lude..=) Lude.<$> lastModifiedTimeAfter,
+            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListImages where
-  toPath = const "/"
+instance Lude.ToPath ListImages where
+  toPath = Lude.const "/"
 
-instance ToQuery ListImages where
-  toQuery = const mempty
+instance Lude.ToQuery ListImages where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listImagesResponse' smart constructor.
+-- | /See:/ 'mkListImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
-  { _lirsImages ::
-      !(Maybe [Image]),
-    _lirsNextToken :: !(Maybe Text),
-    _lirsResponseStatus :: !Int
+  { images ::
+      Lude.Maybe [Image],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListImagesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirsImages' - A list of images and their properties.
---
--- * 'lirsNextToken' - A token for getting the next set of images, if there are any.
---
--- * 'lirsResponseStatus' - -- | The response status code.
-listImagesResponse ::
-  -- | 'lirsResponseStatus'
-  Int ->
+-- * 'images' - A list of images and their properties.
+-- * 'nextToken' - A token for getting the next set of images, if there are any.
+-- * 'responseStatus' - The response status code.
+mkListImagesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListImagesResponse
-listImagesResponse pResponseStatus_ =
+mkListImagesResponse pResponseStatus_ =
   ListImagesResponse'
-    { _lirsImages = Nothing,
-      _lirsNextToken = Nothing,
-      _lirsResponseStatus = pResponseStatus_
+    { images = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of images and their properties.
-lirsImages :: Lens' ListImagesResponse [Image]
-lirsImages = lens _lirsImages (\s a -> s {_lirsImages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'images' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsImages :: Lens.Lens' ListImagesResponse (Lude.Maybe [Image])
+lirsImages = Lens.lens (images :: ListImagesResponse -> Lude.Maybe [Image]) (\s a -> s {images = a} :: ListImagesResponse)
+{-# DEPRECATED lirsImages "Use generic-lens or generic-optics with 'images' instead." #-}
 
 -- | A token for getting the next set of images, if there are any.
-lirsNextToken :: Lens' ListImagesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\s a -> s {_lirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsNextToken :: Lens.Lens' ListImagesResponse (Lude.Maybe Lude.Text)
+lirsNextToken = Lens.lens (nextToken :: ListImagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListImagesResponse)
+{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListImagesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\s a -> s {_lirsResponseStatus = a})
-
-instance NFData ListImagesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsResponseStatus :: Lens.Lens' ListImagesResponse Lude.Int
+lirsResponseStatus = Lens.lens (responseStatus :: ListImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListImagesResponse)
+{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

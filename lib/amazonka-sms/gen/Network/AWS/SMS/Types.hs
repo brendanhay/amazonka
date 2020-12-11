@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types
-  ( -- * Service Configuration
-    sms,
+  ( -- * Service configuration
+    smsService,
 
     -- * Errors
 
@@ -73,8 +71,8 @@ module Network.AWS.SMS.Types
     ValidationStatus (..),
 
     -- * AppSummary
-    AppSummary,
-    appSummary,
+    AppSummary (..),
+    mkAppSummary,
     asCreationTime,
     asTotalServers,
     asStatus,
@@ -96,21 +94,21 @@ module Network.AWS.SMS.Types
     asDescription,
 
     -- * AppValidationConfiguration
-    AppValidationConfiguration,
-    appValidationConfiguration,
+    AppValidationConfiguration (..),
+    mkAppValidationConfiguration,
     avcSsmValidationParameters,
     avcName,
     avcValidationId,
     avcAppValidationStrategy,
 
     -- * AppValidationOutput
-    AppValidationOutput,
-    appValidationOutput,
+    AppValidationOutput (..),
+    mkAppValidationOutput,
     avoSsmOutput,
 
     -- * Connector
-    Connector,
-    connector,
+    Connector (..),
+    mkConnector,
     cStatus,
     cVmManagerName,
     cIpAddress,
@@ -123,22 +121,22 @@ module Network.AWS.SMS.Types
     cCapabilityList,
 
     -- * LaunchDetails
-    LaunchDetails,
-    launchDetails,
+    LaunchDetails (..),
+    mkLaunchDetails,
     ldStackId,
     ldLatestLaunchTime,
     ldStackName,
 
     -- * NotificationContext
-    NotificationContext,
-    notificationContext,
+    NotificationContext (..),
+    mkNotificationContext,
     ncStatus,
     ncStatusMessage,
     ncValidationId,
 
     -- * ReplicationJob
-    ReplicationJob,
-    replicationJob,
+    ReplicationJob (..),
+    mkReplicationJob,
     rjFrequency,
     rjNumberOfRecentAMIsToKeep,
     rjState,
@@ -159,8 +157,8 @@ module Network.AWS.SMS.Types
     rjDescription,
 
     -- * ReplicationRun
-    ReplicationRun,
-    replicationRun,
+    ReplicationRun (..),
+    mkReplicationRun,
     rrState,
     rrReplicationRunId,
     rrEncrypted,
@@ -174,25 +172,25 @@ module Network.AWS.SMS.Types
     rrDescription,
 
     -- * ReplicationRunStageDetails
-    ReplicationRunStageDetails,
-    replicationRunStageDetails,
+    ReplicationRunStageDetails (..),
+    mkReplicationRunStageDetails,
     rrsdStage,
     rrsdStageProgress,
 
     -- * S3Location
-    S3Location,
-    s3Location,
+    S3Location (..),
+    mkS3Location,
     slBucket,
     slKey,
 
     -- * SSMOutput
-    SSMOutput,
-    sSMOutput,
+    SSMOutput (..),
+    mkSSMOutput,
     ssmoS3Location,
 
     -- * SSMValidationParameters
-    SSMValidationParameters,
-    sSMValidationParameters,
+    SSMValidationParameters (..),
+    mkSSMValidationParameters,
     ssmvpInstanceId,
     ssmvpCommand,
     ssmvpExecutionTimeoutSeconds,
@@ -201,8 +199,8 @@ module Network.AWS.SMS.Types
     ssmvpOutputS3BucketName,
 
     -- * Server
-    Server,
-    server,
+    Server (..),
+    mkServer,
     sServerType,
     sServerId,
     sReplicationJobTerminated,
@@ -210,34 +208,34 @@ module Network.AWS.SMS.Types
     sReplicationJobId,
 
     -- * ServerGroup
-    ServerGroup,
-    serverGroup,
+    ServerGroup (..),
+    mkServerGroup,
     sgServerList,
     sgName,
     sgServerGroupId,
 
     -- * ServerGroupLaunchConfiguration
-    ServerGroupLaunchConfiguration,
-    serverGroupLaunchConfiguration,
+    ServerGroupLaunchConfiguration (..),
+    mkServerGroupLaunchConfiguration,
     sglcServerGroupId,
     sglcLaunchOrder,
     sglcServerLaunchConfigurations,
 
     -- * ServerGroupReplicationConfiguration
-    ServerGroupReplicationConfiguration,
-    serverGroupReplicationConfiguration,
+    ServerGroupReplicationConfiguration (..),
+    mkServerGroupReplicationConfiguration,
     sgrcServerGroupId,
     sgrcServerReplicationConfigurations,
 
     -- * ServerGroupValidationConfiguration
-    ServerGroupValidationConfiguration,
-    serverGroupValidationConfiguration,
+    ServerGroupValidationConfiguration (..),
+    mkServerGroupValidationConfiguration,
     sgvcServerValidationConfigurations,
     sgvcServerGroupId,
 
     -- * ServerLaunchConfiguration
-    ServerLaunchConfiguration,
-    serverLaunchConfiguration,
+    ServerLaunchConfiguration (..),
+    mkServerLaunchConfiguration,
     slcEc2KeyName,
     slcConfigureScriptType,
     slcAssociatePublicIPAddress,
@@ -252,14 +250,14 @@ module Network.AWS.SMS.Types
     slcVpc,
 
     -- * ServerReplicationConfiguration
-    ServerReplicationConfiguration,
-    serverReplicationConfiguration,
+    ServerReplicationConfiguration (..),
+    mkServerReplicationConfiguration,
     srcServerReplicationParameters,
     srcServer,
 
     -- * ServerReplicationParameters
-    ServerReplicationParameters,
-    serverReplicationParameters,
+    ServerReplicationParameters (..),
+    mkServerReplicationParameters,
     srpFrequency,
     srpNumberOfRecentAMIsToKeep,
     srpSeedTime,
@@ -269,8 +267,8 @@ module Network.AWS.SMS.Types
     srpRunOnce,
 
     -- * ServerValidationConfiguration
-    ServerValidationConfiguration,
-    serverValidationConfiguration,
+    ServerValidationConfiguration (..),
+    mkServerValidationConfiguration,
     svcServerValidationStrategy,
     svcUserDataValidationParameters,
     svcName,
@@ -278,35 +276,35 @@ module Network.AWS.SMS.Types
     svcValidationId,
 
     -- * ServerValidationOutput
-    ServerValidationOutput,
-    serverValidationOutput,
+    ServerValidationOutput (..),
+    mkServerValidationOutput,
     svoServer,
 
     -- * Source
-    Source,
-    source,
+    Source (..),
+    mkSource,
     sS3Location,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * UserData
-    UserData,
-    userData,
+    UserData (..),
+    mkUserData,
     udS3Location,
 
     -- * UserDataValidationParameters
-    UserDataValidationParameters,
-    userDataValidationParameters,
+    UserDataValidationParameters (..),
+    mkUserDataValidationParameters,
     udvpScriptType,
     udvpSource,
 
     -- * VMServer
-    VMServer,
-    vMServer,
+    VMServer (..),
+    mkVMServer,
     vmsVmManagerName,
     vmsVmManagerType,
     vmsVmServerAddress,
@@ -314,14 +312,14 @@ module Network.AWS.SMS.Types
     vmsVmPath,
 
     -- * VMServerAddress
-    VMServerAddress,
-    vMServerAddress,
+    VMServerAddress (..),
+    mkVMServerAddress,
     vmsaVmManagerId,
     vmsaVmId,
 
     -- * ValidationOutput
-    ValidationOutput,
-    validationOutput,
+    ValidationOutput (..),
+    mkValidationOutput,
     voStatus,
     voAppValidationOutput,
     voLatestValidationTime,
@@ -332,8 +330,8 @@ module Network.AWS.SMS.Types
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.AppLaunchConfigurationStatus
 import Network.AWS.SMS.Types.AppLaunchStatus
 import Network.AWS.SMS.Types.AppReplicationConfigurationStatus
@@ -382,46 +380,58 @@ import Network.AWS.SMS.Types.VMServer
 import Network.AWS.SMS.Types.VMServerAddress
 import Network.AWS.SMS.Types.ValidationOutput
 import Network.AWS.SMS.Types.ValidationStatus
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-10-24@ of the Amazon Server Migration Service SDK configuration.
-sms :: Service
-sms =
-  Service
-    { _svcAbbrev = "SMS",
-      _svcSigner = v4,
-      _svcPrefix = "sms",
-      _svcVersion = "2016-10-24",
-      _svcEndpoint = defaultEndpoint sms,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "SMS",
-      _svcRetry = retry
+smsService :: Lude.Service
+smsService =
+  Lude.Service
+    { Lude._svcAbbrev = "SMS",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "sms",
+      Lude._svcVersion = "2016-10-24",
+      Lude._svcEndpoint = Lude.defaultEndpoint smsService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "SMS",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

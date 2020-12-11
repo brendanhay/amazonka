@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Inspector.Types.DurationRange where
+module Network.AWS.Inspector.Types.DurationRange
+  ( DurationRange (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDurationRange,
+
+    -- * Lenses
+    drMinSeconds,
+    drMaxSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data type is used in the 'AssessmentTemplateFilter' data type.
 --
---
---
--- /See:/ 'durationRange' smart constructor.
+-- /See:/ 'mkDurationRange' smart constructor.
 data DurationRange = DurationRange'
-  { _drMinSeconds :: !(Maybe Nat),
-    _drMaxSeconds :: !(Maybe Nat)
+  { minSeconds ::
+      Lude.Maybe Lude.Natural,
+    maxSeconds :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DurationRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drMinSeconds' - The minimum value of the duration range. Must be greater than zero.
---
--- * 'drMaxSeconds' - The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
-durationRange ::
+-- * 'maxSeconds' - The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
+-- * 'minSeconds' - The minimum value of the duration range. Must be greater than zero.
+mkDurationRange ::
   DurationRange
-durationRange =
-  DurationRange' {_drMinSeconds = Nothing, _drMaxSeconds = Nothing}
+mkDurationRange =
+  DurationRange'
+    { minSeconds = Lude.Nothing,
+      maxSeconds = Lude.Nothing
+    }
 
 -- | The minimum value of the duration range. Must be greater than zero.
-drMinSeconds :: Lens' DurationRange (Maybe Natural)
-drMinSeconds = lens _drMinSeconds (\s a -> s {_drMinSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'minSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drMinSeconds :: Lens.Lens' DurationRange (Lude.Maybe Lude.Natural)
+drMinSeconds = Lens.lens (minSeconds :: DurationRange -> Lude.Maybe Lude.Natural) (\s a -> s {minSeconds = a} :: DurationRange)
+{-# DEPRECATED drMinSeconds "Use generic-lens or generic-optics with 'minSeconds' instead." #-}
 
 -- | The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
-drMaxSeconds :: Lens' DurationRange (Maybe Natural)
-drMaxSeconds = lens _drMaxSeconds (\s a -> s {_drMaxSeconds = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drMaxSeconds :: Lens.Lens' DurationRange (Lude.Maybe Lude.Natural)
+drMaxSeconds = Lens.lens (maxSeconds :: DurationRange -> Lude.Maybe Lude.Natural) (\s a -> s {maxSeconds = a} :: DurationRange)
+{-# DEPRECATED drMaxSeconds "Use generic-lens or generic-optics with 'maxSeconds' instead." #-}
 
-instance Hashable DurationRange
-
-instance NFData DurationRange
-
-instance ToJSON DurationRange where
+instance Lude.ToJSON DurationRange where
   toJSON DurationRange' {..} =
-    object
-      ( catMaybes
-          [ ("minSeconds" .=) <$> _drMinSeconds,
-            ("maxSeconds" .=) <$> _drMaxSeconds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("minSeconds" Lude..=) Lude.<$> minSeconds,
+            ("maxSeconds" Lude..=) Lude.<$> maxSeconds
           ]
       )

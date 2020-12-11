@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ServerSideEncryption where
+module Network.AWS.S3.Types.ServerSideEncryption
+  ( ServerSideEncryption
+      ( ServerSideEncryption',
+        AES256,
+        AWSKMS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data ServerSideEncryption
-  = AES256
-  | AWSKMS
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServerSideEncryption = ServerSideEncryption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServerSideEncryption where
-  parser =
-    takeLowerText >>= \case
-      "aes256" -> pure AES256
-      "aws:kms" -> pure AWSKMS
-      e ->
-        fromTextError $
-          "Failure parsing ServerSideEncryption from value: '" <> e
-            <> "'. Accepted values: aes256, aws:kms"
+pattern AES256 :: ServerSideEncryption
+pattern AES256 = ServerSideEncryption' "AES256"
 
-instance ToText ServerSideEncryption where
-  toText = \case
-    AES256 -> "AES256"
-    AWSKMS -> "aws:kms"
+pattern AWSKMS :: ServerSideEncryption
+pattern AWSKMS = ServerSideEncryption' "aws:kms"
 
-instance Hashable ServerSideEncryption
-
-instance NFData ServerSideEncryption
-
-instance ToByteString ServerSideEncryption
-
-instance ToQuery ServerSideEncryption
-
-instance ToHeader ServerSideEncryption
-
-instance FromXML ServerSideEncryption where
-  parseXML = parseXMLText "ServerSideEncryption"
-
-instance ToXML ServerSideEncryption where
-  toXML = toXMLText
+{-# COMPLETE
+  AES256,
+  AWSKMS,
+  ServerSideEncryption'
+  #-}

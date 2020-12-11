@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,24 @@
 --
 -- Returns the resource counts across accounts and regions that are present in your AWS Config aggregator. You can request the resource counts by providing filters and GroupByKey.
 --
---
 -- For example, if the input contains accountID 12345678910 and region us-east-1 in filters, the API returns the count of resources in account ID 12345678910 and region us-east-1. If the input contains ACCOUNT_ID as a GroupByKey, the API returns resource counts for all source accounts that are present in your aggregator.
 module Network.AWS.Config.GetAggregateDiscoveredResourceCounts
-  ( -- * Creating a Request
-    getAggregateDiscoveredResourceCounts,
-    GetAggregateDiscoveredResourceCounts,
+  ( -- * Creating a request
+    GetAggregateDiscoveredResourceCounts (..),
+    mkGetAggregateDiscoveredResourceCounts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gadrcFilters,
     gadrcNextToken,
     gadrcLimit,
     gadrcGroupByKey,
     gadrcConfigurationAggregatorName,
 
-    -- * Destructuring the Response
-    getAggregateDiscoveredResourceCountsResponse,
-    GetAggregateDiscoveredResourceCountsResponse,
+    -- * Destructuring the response
+    GetAggregateDiscoveredResourceCountsResponse (..),
+    mkGetAggregateDiscoveredResourceCountsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gadrcrsGroupedResourceCounts,
     gadrcrsNextToken,
     gadrcrsGroupByKey,
@@ -47,208 +41,226 @@ module Network.AWS.Config.GetAggregateDiscoveredResourceCounts
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAggregateDiscoveredResourceCounts' smart constructor.
+-- | /See:/ 'mkGetAggregateDiscoveredResourceCounts' smart constructor.
 data GetAggregateDiscoveredResourceCounts = GetAggregateDiscoveredResourceCounts'
-  { _gadrcFilters ::
-      !( Maybe
-           ResourceCountFilters
-       ),
-    _gadrcNextToken ::
-      !(Maybe Text),
-    _gadrcLimit ::
-      !(Maybe Nat),
-    _gadrcGroupByKey ::
-      !( Maybe
-           ResourceCountGroupKey
-       ),
-    _gadrcConfigurationAggregatorName ::
-      !Text
+  { filters ::
+      Lude.Maybe
+        ResourceCountFilters,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural,
+    groupByKey ::
+      Lude.Maybe
+        ResourceCountGroupKey,
+    configurationAggregatorName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateDiscoveredResourceCounts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gadrcFilters' - Filters the results based on the @ResourceCountFilters@ object.
---
--- * 'gadrcNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gadrcLimit' - The maximum number of 'GroupedResourceCount' objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
---
--- * 'gadrcGroupByKey' - The key to group the resource counts.
---
--- * 'gadrcConfigurationAggregatorName' - The name of the configuration aggregator.
-getAggregateDiscoveredResourceCounts ::
-  -- | 'gadrcConfigurationAggregatorName'
-  Text ->
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
+-- * 'filters' - Filters the results based on the @ResourceCountFilters@ object.
+-- * 'groupByKey' - The key to group the resource counts.
+-- * 'limit' - The maximum number of 'GroupedResourceCount' objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+mkGetAggregateDiscoveredResourceCounts ::
+  -- | 'configurationAggregatorName'
+  Lude.Text ->
   GetAggregateDiscoveredResourceCounts
-getAggregateDiscoveredResourceCounts pConfigurationAggregatorName_ =
-  GetAggregateDiscoveredResourceCounts'
-    { _gadrcFilters = Nothing,
-      _gadrcNextToken = Nothing,
-      _gadrcLimit = Nothing,
-      _gadrcGroupByKey = Nothing,
-      _gadrcConfigurationAggregatorName =
-        pConfigurationAggregatorName_
-    }
+mkGetAggregateDiscoveredResourceCounts
+  pConfigurationAggregatorName_ =
+    GetAggregateDiscoveredResourceCounts'
+      { filters = Lude.Nothing,
+        nextToken = Lude.Nothing,
+        limit = Lude.Nothing,
+        groupByKey = Lude.Nothing,
+        configurationAggregatorName =
+          pConfigurationAggregatorName_
+      }
 
 -- | Filters the results based on the @ResourceCountFilters@ object.
-gadrcFilters :: Lens' GetAggregateDiscoveredResourceCounts (Maybe ResourceCountFilters)
-gadrcFilters = lens _gadrcFilters (\s a -> s {_gadrcFilters = a})
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcFilters :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Lude.Maybe ResourceCountFilters)
+gadrcFilters = Lens.lens (filters :: GetAggregateDiscoveredResourceCounts -> Lude.Maybe ResourceCountFilters) (\s a -> s {filters = a} :: GetAggregateDiscoveredResourceCounts)
+{-# DEPRECATED gadrcFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-gadrcNextToken :: Lens' GetAggregateDiscoveredResourceCounts (Maybe Text)
-gadrcNextToken = lens _gadrcNextToken (\s a -> s {_gadrcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcNextToken :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Lude.Maybe Lude.Text)
+gadrcNextToken = Lens.lens (nextToken :: GetAggregateDiscoveredResourceCounts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetAggregateDiscoveredResourceCounts)
+{-# DEPRECATED gadrcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of 'GroupedResourceCount' objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
-gadrcLimit :: Lens' GetAggregateDiscoveredResourceCounts (Maybe Natural)
-gadrcLimit = lens _gadrcLimit (\s a -> s {_gadrcLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcLimit :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Lude.Maybe Lude.Natural)
+gadrcLimit = Lens.lens (limit :: GetAggregateDiscoveredResourceCounts -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetAggregateDiscoveredResourceCounts)
+{-# DEPRECATED gadrcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The key to group the resource counts.
-gadrcGroupByKey :: Lens' GetAggregateDiscoveredResourceCounts (Maybe ResourceCountGroupKey)
-gadrcGroupByKey = lens _gadrcGroupByKey (\s a -> s {_gadrcGroupByKey = a})
+--
+-- /Note:/ Consider using 'groupByKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcGroupByKey :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Lude.Maybe ResourceCountGroupKey)
+gadrcGroupByKey = Lens.lens (groupByKey :: GetAggregateDiscoveredResourceCounts -> Lude.Maybe ResourceCountGroupKey) (\s a -> s {groupByKey = a} :: GetAggregateDiscoveredResourceCounts)
+{-# DEPRECATED gadrcGroupByKey "Use generic-lens or generic-optics with 'groupByKey' instead." #-}
 
 -- | The name of the configuration aggregator.
-gadrcConfigurationAggregatorName :: Lens' GetAggregateDiscoveredResourceCounts Text
-gadrcConfigurationAggregatorName = lens _gadrcConfigurationAggregatorName (\s a -> s {_gadrcConfigurationAggregatorName = a})
+--
+-- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcConfigurationAggregatorName :: Lens.Lens' GetAggregateDiscoveredResourceCounts Lude.Text
+gadrcConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: GetAggregateDiscoveredResourceCounts -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: GetAggregateDiscoveredResourceCounts)
+{-# DEPRECATED gadrcConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
-instance AWSRequest GetAggregateDiscoveredResourceCounts where
+instance Lude.AWSRequest GetAggregateDiscoveredResourceCounts where
   type
     Rs GetAggregateDiscoveredResourceCounts =
       GetAggregateDiscoveredResourceCountsResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAggregateDiscoveredResourceCountsResponse'
-            <$> (x .?> "GroupedResourceCounts" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "GroupByKey")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "TotalDiscoveredResources")
+            Lude.<$> (x Lude..?> "GroupedResourceCounts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "GroupByKey")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "TotalDiscoveredResources")
       )
 
-instance Hashable GetAggregateDiscoveredResourceCounts
-
-instance NFData GetAggregateDiscoveredResourceCounts
-
-instance ToHeaders GetAggregateDiscoveredResourceCounts where
+instance Lude.ToHeaders GetAggregateDiscoveredResourceCounts where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.GetAggregateDiscoveredResourceCounts" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.GetAggregateDiscoveredResourceCounts" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAggregateDiscoveredResourceCounts where
+instance Lude.ToJSON GetAggregateDiscoveredResourceCounts where
   toJSON GetAggregateDiscoveredResourceCounts' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _gadrcFilters,
-            ("NextToken" .=) <$> _gadrcNextToken,
-            ("Limit" .=) <$> _gadrcLimit,
-            ("GroupByKey" .=) <$> _gadrcGroupByKey,
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            ("GroupByKey" Lude..=) Lude.<$> groupByKey,
+            Lude.Just
               ( "ConfigurationAggregatorName"
-                  .= _gadrcConfigurationAggregatorName
+                  Lude..= configurationAggregatorName
               )
           ]
       )
 
-instance ToPath GetAggregateDiscoveredResourceCounts where
-  toPath = const "/"
+instance Lude.ToPath GetAggregateDiscoveredResourceCounts where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAggregateDiscoveredResourceCounts where
-  toQuery = const mempty
+instance Lude.ToQuery GetAggregateDiscoveredResourceCounts where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAggregateDiscoveredResourceCountsResponse' smart constructor.
+-- | /See:/ 'mkGetAggregateDiscoveredResourceCountsResponse' smart constructor.
 data GetAggregateDiscoveredResourceCountsResponse = GetAggregateDiscoveredResourceCountsResponse'
-  { _gadrcrsGroupedResourceCounts ::
-      !( Maybe
-           [GroupedResourceCount]
-       ),
-    _gadrcrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _gadrcrsGroupByKey ::
-      !( Maybe
-           Text
-       ),
-    _gadrcrsResponseStatus ::
-      !Int,
-    _gadrcrsTotalDiscoveredResources ::
-      !Integer
+  { groupedResourceCounts ::
+      Lude.Maybe
+        [GroupedResourceCount],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    groupByKey ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int,
+    totalDiscoveredResources ::
+      Lude.Integer
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateDiscoveredResourceCountsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gadrcrsGroupedResourceCounts' - Returns a list of GroupedResourceCount objects.
---
--- * 'gadrcrsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'gadrcrsGroupByKey' - The key passed into the request object. If @GroupByKey@ is not provided, the result will be empty.
---
--- * 'gadrcrsResponseStatus' - -- | The response status code.
---
--- * 'gadrcrsTotalDiscoveredResources' - The total number of resources that are present in an aggregator with the filters that you provide.
-getAggregateDiscoveredResourceCountsResponse ::
-  -- | 'gadrcrsResponseStatus'
-  Int ->
-  -- | 'gadrcrsTotalDiscoveredResources'
-  Integer ->
+-- * 'groupByKey' - The key passed into the request object. If @GroupByKey@ is not provided, the result will be empty.
+-- * 'groupedResourceCounts' - Returns a list of GroupedResourceCount objects.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
+-- * 'totalDiscoveredResources' - The total number of resources that are present in an aggregator with the filters that you provide.
+mkGetAggregateDiscoveredResourceCountsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'totalDiscoveredResources'
+  Lude.Integer ->
   GetAggregateDiscoveredResourceCountsResponse
-getAggregateDiscoveredResourceCountsResponse
+mkGetAggregateDiscoveredResourceCountsResponse
   pResponseStatus_
   pTotalDiscoveredResources_ =
     GetAggregateDiscoveredResourceCountsResponse'
-      { _gadrcrsGroupedResourceCounts =
-          Nothing,
-        _gadrcrsNextToken = Nothing,
-        _gadrcrsGroupByKey = Nothing,
-        _gadrcrsResponseStatus = pResponseStatus_,
-        _gadrcrsTotalDiscoveredResources =
+      { groupedResourceCounts =
+          Lude.Nothing,
+        nextToken = Lude.Nothing,
+        groupByKey = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        totalDiscoveredResources =
           pTotalDiscoveredResources_
       }
 
 -- | Returns a list of GroupedResourceCount objects.
-gadrcrsGroupedResourceCounts :: Lens' GetAggregateDiscoveredResourceCountsResponse [GroupedResourceCount]
-gadrcrsGroupedResourceCounts = lens _gadrcrsGroupedResourceCounts (\s a -> s {_gadrcrsGroupedResourceCounts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groupedResourceCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcrsGroupedResourceCounts :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Lude.Maybe [GroupedResourceCount])
+gadrcrsGroupedResourceCounts = Lens.lens (groupedResourceCounts :: GetAggregateDiscoveredResourceCountsResponse -> Lude.Maybe [GroupedResourceCount]) (\s a -> s {groupedResourceCounts = a} :: GetAggregateDiscoveredResourceCountsResponse)
+{-# DEPRECATED gadrcrsGroupedResourceCounts "Use generic-lens or generic-optics with 'groupedResourceCounts' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-gadrcrsNextToken :: Lens' GetAggregateDiscoveredResourceCountsResponse (Maybe Text)
-gadrcrsNextToken = lens _gadrcrsNextToken (\s a -> s {_gadrcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcrsNextToken :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Lude.Maybe Lude.Text)
+gadrcrsNextToken = Lens.lens (nextToken :: GetAggregateDiscoveredResourceCountsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetAggregateDiscoveredResourceCountsResponse)
+{-# DEPRECATED gadrcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The key passed into the request object. If @GroupByKey@ is not provided, the result will be empty.
-gadrcrsGroupByKey :: Lens' GetAggregateDiscoveredResourceCountsResponse (Maybe Text)
-gadrcrsGroupByKey = lens _gadrcrsGroupByKey (\s a -> s {_gadrcrsGroupByKey = a})
+--
+-- /Note:/ Consider using 'groupByKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcrsGroupByKey :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Lude.Maybe Lude.Text)
+gadrcrsGroupByKey = Lens.lens (groupByKey :: GetAggregateDiscoveredResourceCountsResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupByKey = a} :: GetAggregateDiscoveredResourceCountsResponse)
+{-# DEPRECATED gadrcrsGroupByKey "Use generic-lens or generic-optics with 'groupByKey' instead." #-}
 
--- | -- | The response status code.
-gadrcrsResponseStatus :: Lens' GetAggregateDiscoveredResourceCountsResponse Int
-gadrcrsResponseStatus = lens _gadrcrsResponseStatus (\s a -> s {_gadrcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcrsResponseStatus :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse Lude.Int
+gadrcrsResponseStatus = Lens.lens (responseStatus :: GetAggregateDiscoveredResourceCountsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAggregateDiscoveredResourceCountsResponse)
+{-# DEPRECATED gadrcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The total number of resources that are present in an aggregator with the filters that you provide.
-gadrcrsTotalDiscoveredResources :: Lens' GetAggregateDiscoveredResourceCountsResponse Integer
-gadrcrsTotalDiscoveredResources = lens _gadrcrsTotalDiscoveredResources (\s a -> s {_gadrcrsTotalDiscoveredResources = a})
-
-instance NFData GetAggregateDiscoveredResourceCountsResponse
+--
+-- /Note:/ Consider using 'totalDiscoveredResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcrsTotalDiscoveredResources :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse Lude.Integer
+gadrcrsTotalDiscoveredResources = Lens.lens (totalDiscoveredResources :: GetAggregateDiscoveredResourceCountsResponse -> Lude.Integer) (\s a -> s {totalDiscoveredResources = a} :: GetAggregateDiscoveredResourceCountsResponse)
+{-# DEPRECATED gadrcrsTotalDiscoveredResources "Use generic-lens or generic-optics with 'totalDiscoveredResources' instead." #-}

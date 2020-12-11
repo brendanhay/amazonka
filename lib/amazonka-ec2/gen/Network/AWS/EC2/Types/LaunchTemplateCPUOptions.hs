@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateCPUOptions where
+module Network.AWS.EC2.Types.LaunchTemplateCPUOptions
+  ( LaunchTemplateCPUOptions (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLaunchTemplateCPUOptions,
+
+    -- * Lenses
+    ltcoCoreCount,
+    ltcoThreadsPerCore,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The CPU options for the instance.
 --
---
---
--- /See:/ 'launchTemplateCPUOptions' smart constructor.
+-- /See:/ 'mkLaunchTemplateCPUOptions' smart constructor.
 data LaunchTemplateCPUOptions = LaunchTemplateCPUOptions'
-  { _ltcoCoreCount ::
-      !(Maybe Int),
-    _ltcoThreadsPerCore :: !(Maybe Int)
+  { coreCount ::
+      Lude.Maybe Lude.Int,
+    threadsPerCore :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateCPUOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltcoCoreCount' - The number of CPU cores for the instance.
---
--- * 'ltcoThreadsPerCore' - The number of threads per CPU core.
-launchTemplateCPUOptions ::
+-- * 'coreCount' - The number of CPU cores for the instance.
+-- * 'threadsPerCore' - The number of threads per CPU core.
+mkLaunchTemplateCPUOptions ::
   LaunchTemplateCPUOptions
-launchTemplateCPUOptions =
+mkLaunchTemplateCPUOptions =
   LaunchTemplateCPUOptions'
-    { _ltcoCoreCount = Nothing,
-      _ltcoThreadsPerCore = Nothing
+    { coreCount = Lude.Nothing,
+      threadsPerCore = Lude.Nothing
     }
 
 -- | The number of CPU cores for the instance.
-ltcoCoreCount :: Lens' LaunchTemplateCPUOptions (Maybe Int)
-ltcoCoreCount = lens _ltcoCoreCount (\s a -> s {_ltcoCoreCount = a})
+--
+-- /Note:/ Consider using 'coreCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltcoCoreCount :: Lens.Lens' LaunchTemplateCPUOptions (Lude.Maybe Lude.Int)
+ltcoCoreCount = Lens.lens (coreCount :: LaunchTemplateCPUOptions -> Lude.Maybe Lude.Int) (\s a -> s {coreCount = a} :: LaunchTemplateCPUOptions)
+{-# DEPRECATED ltcoCoreCount "Use generic-lens or generic-optics with 'coreCount' instead." #-}
 
 -- | The number of threads per CPU core.
-ltcoThreadsPerCore :: Lens' LaunchTemplateCPUOptions (Maybe Int)
-ltcoThreadsPerCore = lens _ltcoThreadsPerCore (\s a -> s {_ltcoThreadsPerCore = a})
+--
+-- /Note:/ Consider using 'threadsPerCore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltcoThreadsPerCore :: Lens.Lens' LaunchTemplateCPUOptions (Lude.Maybe Lude.Int)
+ltcoThreadsPerCore = Lens.lens (threadsPerCore :: LaunchTemplateCPUOptions -> Lude.Maybe Lude.Int) (\s a -> s {threadsPerCore = a} :: LaunchTemplateCPUOptions)
+{-# DEPRECATED ltcoThreadsPerCore "Use generic-lens or generic-optics with 'threadsPerCore' instead." #-}
 
-instance FromXML LaunchTemplateCPUOptions where
+instance Lude.FromXML LaunchTemplateCPUOptions where
   parseXML x =
     LaunchTemplateCPUOptions'
-      <$> (x .@? "coreCount") <*> (x .@? "threadsPerCore")
-
-instance Hashable LaunchTemplateCPUOptions
-
-instance NFData LaunchTemplateCPUOptions
+      Lude.<$> (x Lude..@? "coreCount") Lude.<*> (x Lude..@? "threadsPerCore")

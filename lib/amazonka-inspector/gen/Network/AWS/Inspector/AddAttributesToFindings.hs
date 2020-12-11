@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,153 @@
 --
 -- Assigns attributes (key and value pairs) to the findings that are specified by the ARNs of the findings.
 module Network.AWS.Inspector.AddAttributesToFindings
-  ( -- * Creating a Request
-    addAttributesToFindings,
-    AddAttributesToFindings,
+  ( -- * Creating a request
+    AddAttributesToFindings (..),
+    mkAddAttributesToFindings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aatfFindingARNs,
     aatfAttributes,
 
-    -- * Destructuring the Response
-    addAttributesToFindingsResponse,
-    AddAttributesToFindingsResponse,
+    -- * Destructuring the response
+    AddAttributesToFindingsResponse (..),
+    mkAddAttributesToFindingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aatfrsResponseStatus,
     aatfrsFailedItems,
   )
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addAttributesToFindings' smart constructor.
+-- | /See:/ 'mkAddAttributesToFindings' smart constructor.
 data AddAttributesToFindings = AddAttributesToFindings'
-  { _aatfFindingARNs ::
-      !(List1 Text),
-    _aatfAttributes :: ![Attribute]
+  { findingARNs ::
+      Lude.NonEmpty Lude.Text,
+    attributes :: [Attribute]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddAttributesToFindings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aatfFindingARNs' - The ARNs that specify the findings that you want to assign attributes to.
---
--- * 'aatfAttributes' - The array of attributes that you want to assign to specified findings.
-addAttributesToFindings ::
-  -- | 'aatfFindingARNs'
-  NonEmpty Text ->
+-- * 'attributes' - The array of attributes that you want to assign to specified findings.
+-- * 'findingARNs' - The ARNs that specify the findings that you want to assign attributes to.
+mkAddAttributesToFindings ::
+  -- | 'findingARNs'
+  Lude.NonEmpty Lude.Text ->
   AddAttributesToFindings
-addAttributesToFindings pFindingARNs_ =
+mkAddAttributesToFindings pFindingARNs_ =
   AddAttributesToFindings'
-    { _aatfFindingARNs =
-        _List1 # pFindingARNs_,
-      _aatfAttributes = mempty
+    { findingARNs = pFindingARNs_,
+      attributes = Lude.mempty
     }
 
 -- | The ARNs that specify the findings that you want to assign attributes to.
-aatfFindingARNs :: Lens' AddAttributesToFindings (NonEmpty Text)
-aatfFindingARNs = lens _aatfFindingARNs (\s a -> s {_aatfFindingARNs = a}) . _List1
+--
+-- /Note:/ Consider using 'findingARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aatfFindingARNs :: Lens.Lens' AddAttributesToFindings (Lude.NonEmpty Lude.Text)
+aatfFindingARNs = Lens.lens (findingARNs :: AddAttributesToFindings -> Lude.NonEmpty Lude.Text) (\s a -> s {findingARNs = a} :: AddAttributesToFindings)
+{-# DEPRECATED aatfFindingARNs "Use generic-lens or generic-optics with 'findingARNs' instead." #-}
 
 -- | The array of attributes that you want to assign to specified findings.
-aatfAttributes :: Lens' AddAttributesToFindings [Attribute]
-aatfAttributes = lens _aatfAttributes (\s a -> s {_aatfAttributes = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aatfAttributes :: Lens.Lens' AddAttributesToFindings [Attribute]
+aatfAttributes = Lens.lens (attributes :: AddAttributesToFindings -> [Attribute]) (\s a -> s {attributes = a} :: AddAttributesToFindings)
+{-# DEPRECATED aatfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance AWSRequest AddAttributesToFindings where
+instance Lude.AWSRequest AddAttributesToFindings where
   type Rs AddAttributesToFindings = AddAttributesToFindingsResponse
-  request = postJSON inspector
+  request = Req.postJSON inspectorService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AddAttributesToFindingsResponse'
-            <$> (pure (fromEnum s)) <*> (x .?> "failedItems" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
       )
 
-instance Hashable AddAttributesToFindings
-
-instance NFData AddAttributesToFindings
-
-instance ToHeaders AddAttributesToFindings where
+instance Lude.ToHeaders AddAttributesToFindings where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.AddAttributesToFindings" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.AddAttributesToFindings" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AddAttributesToFindings where
+instance Lude.ToJSON AddAttributesToFindings where
   toJSON AddAttributesToFindings' {..} =
-    object
-      ( catMaybes
-          [ Just ("findingArns" .= _aatfFindingARNs),
-            Just ("attributes" .= _aatfAttributes)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("findingArns" Lude..= findingARNs),
+            Lude.Just ("attributes" Lude..= attributes)
           ]
       )
 
-instance ToPath AddAttributesToFindings where
-  toPath = const "/"
+instance Lude.ToPath AddAttributesToFindings where
+  toPath = Lude.const "/"
 
-instance ToQuery AddAttributesToFindings where
-  toQuery = const mempty
+instance Lude.ToQuery AddAttributesToFindings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'addAttributesToFindingsResponse' smart constructor.
+-- | /See:/ 'mkAddAttributesToFindingsResponse' smart constructor.
 data AddAttributesToFindingsResponse = AddAttributesToFindingsResponse'
-  { _aatfrsResponseStatus ::
-      !Int,
-    _aatfrsFailedItems ::
-      !( Map
-           Text
-           (FailedItemDetails)
-       )
+  { responseStatus ::
+      Lude.Int,
+    failedItems ::
+      Lude.HashMap
+        Lude.Text
+        (FailedItemDetails)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddAttributesToFindingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aatfrsResponseStatus' - -- | The response status code.
---
--- * 'aatfrsFailedItems' - Attribute details that cannot be described. An error code is provided for each failed item.
-addAttributesToFindingsResponse ::
-  -- | 'aatfrsResponseStatus'
-  Int ->
+-- * 'failedItems' - Attribute details that cannot be described. An error code is provided for each failed item.
+-- * 'responseStatus' - The response status code.
+mkAddAttributesToFindingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddAttributesToFindingsResponse
-addAttributesToFindingsResponse pResponseStatus_ =
+mkAddAttributesToFindingsResponse pResponseStatus_ =
   AddAttributesToFindingsResponse'
-    { _aatfrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _aatfrsFailedItems = mempty
+      failedItems = Lude.mempty
     }
 
--- | -- | The response status code.
-aatfrsResponseStatus :: Lens' AddAttributesToFindingsResponse Int
-aatfrsResponseStatus = lens _aatfrsResponseStatus (\s a -> s {_aatfrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aatfrsResponseStatus :: Lens.Lens' AddAttributesToFindingsResponse Lude.Int
+aatfrsResponseStatus = Lens.lens (responseStatus :: AddAttributesToFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddAttributesToFindingsResponse)
+{-# DEPRECATED aatfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Attribute details that cannot be described. An error code is provided for each failed item.
-aatfrsFailedItems :: Lens' AddAttributesToFindingsResponse (HashMap Text (FailedItemDetails))
-aatfrsFailedItems = lens _aatfrsFailedItems (\s a -> s {_aatfrsFailedItems = a}) . _Map
-
-instance NFData AddAttributesToFindingsResponse
+--
+-- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aatfrsFailedItems :: Lens.Lens' AddAttributesToFindingsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
+aatfrsFailedItems = Lens.lens (failedItems :: AddAttributesToFindingsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: AddAttributesToFindingsResponse)
+{-# DEPRECATED aatfrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}

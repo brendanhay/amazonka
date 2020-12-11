@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,142 @@
 --
 -- Provides details about an entity recognizer including status, S3 buckets containing training data, recognizer metadata, metrics, and so on.
 module Network.AWS.Comprehend.DescribeEntityRecognizer
-  ( -- * Creating a Request
-    describeEntityRecognizer,
-    DescribeEntityRecognizer,
+  ( -- * Creating a request
+    DescribeEntityRecognizer (..),
+    mkDescribeEntityRecognizer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dEntityRecognizerARN,
 
-    -- * Destructuring the Response
-    describeEntityRecognizerResponse,
-    DescribeEntityRecognizerResponse,
+    -- * Destructuring the response
+    DescribeEntityRecognizerResponse (..),
+    mkDescribeEntityRecognizerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsEntityRecognizerProperties,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEntityRecognizer' smart constructor.
+-- | /See:/ 'mkDescribeEntityRecognizer' smart constructor.
 newtype DescribeEntityRecognizer = DescribeEntityRecognizer'
-  { _dEntityRecognizerARN ::
-      Text
+  { entityRecognizerARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEntityRecognizer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dEntityRecognizerARN' - The Amazon Resource Name (ARN) that identifies the entity recognizer.
-describeEntityRecognizer ::
-  -- | 'dEntityRecognizerARN'
-  Text ->
+-- * 'entityRecognizerARN' - The Amazon Resource Name (ARN) that identifies the entity recognizer.
+mkDescribeEntityRecognizer ::
+  -- | 'entityRecognizerARN'
+  Lude.Text ->
   DescribeEntityRecognizer
-describeEntityRecognizer pEntityRecognizerARN_ =
+mkDescribeEntityRecognizer pEntityRecognizerARN_ =
   DescribeEntityRecognizer'
-    { _dEntityRecognizerARN =
+    { entityRecognizerARN =
         pEntityRecognizerARN_
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-dEntityRecognizerARN :: Lens' DescribeEntityRecognizer Text
-dEntityRecognizerARN = lens _dEntityRecognizerARN (\s a -> s {_dEntityRecognizerARN = a})
+--
+-- /Note:/ Consider using 'entityRecognizerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dEntityRecognizerARN :: Lens.Lens' DescribeEntityRecognizer Lude.Text
+dEntityRecognizerARN = Lens.lens (entityRecognizerARN :: DescribeEntityRecognizer -> Lude.Text) (\s a -> s {entityRecognizerARN = a} :: DescribeEntityRecognizer)
+{-# DEPRECATED dEntityRecognizerARN "Use generic-lens or generic-optics with 'entityRecognizerARN' instead." #-}
 
-instance AWSRequest DescribeEntityRecognizer where
+instance Lude.AWSRequest DescribeEntityRecognizer where
   type Rs DescribeEntityRecognizer = DescribeEntityRecognizerResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEntityRecognizerResponse'
-            <$> (x .?> "EntityRecognizerProperties") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EntityRecognizerProperties")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEntityRecognizer
-
-instance NFData DescribeEntityRecognizer
-
-instance ToHeaders DescribeEntityRecognizer where
+instance Lude.ToHeaders DescribeEntityRecognizer where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.DescribeEntityRecognizer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.DescribeEntityRecognizer" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEntityRecognizer where
+instance Lude.ToJSON DescribeEntityRecognizer where
   toJSON DescribeEntityRecognizer' {..} =
-    object
-      (catMaybes [Just ("EntityRecognizerArn" .= _dEntityRecognizerARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("EntityRecognizerArn" Lude..= entityRecognizerARN)]
+      )
 
-instance ToPath DescribeEntityRecognizer where
-  toPath = const "/"
+instance Lude.ToPath DescribeEntityRecognizer where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEntityRecognizer where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEntityRecognizer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEntityRecognizerResponse' smart constructor.
+-- | /See:/ 'mkDescribeEntityRecognizerResponse' smart constructor.
 data DescribeEntityRecognizerResponse = DescribeEntityRecognizerResponse'
-  { _drsEntityRecognizerProperties ::
-      !( Maybe
-           EntityRecognizerProperties
-       ),
-    _drsResponseStatus ::
-      !Int
+  { entityRecognizerProperties ::
+      Lude.Maybe
+        EntityRecognizerProperties,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEntityRecognizerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsEntityRecognizerProperties' - Describes information associated with an entity recognizer.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeEntityRecognizerResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'entityRecognizerProperties' - Describes information associated with an entity recognizer.
+-- * 'responseStatus' - The response status code.
+mkDescribeEntityRecognizerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEntityRecognizerResponse
-describeEntityRecognizerResponse pResponseStatus_ =
+mkDescribeEntityRecognizerResponse pResponseStatus_ =
   DescribeEntityRecognizerResponse'
-    { _drsEntityRecognizerProperties =
-        Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { entityRecognizerProperties =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Describes information associated with an entity recognizer.
-drsEntityRecognizerProperties :: Lens' DescribeEntityRecognizerResponse (Maybe EntityRecognizerProperties)
-drsEntityRecognizerProperties = lens _drsEntityRecognizerProperties (\s a -> s {_drsEntityRecognizerProperties = a})
+--
+-- /Note:/ Consider using 'entityRecognizerProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsEntityRecognizerProperties :: Lens.Lens' DescribeEntityRecognizerResponse (Lude.Maybe EntityRecognizerProperties)
+drsEntityRecognizerProperties = Lens.lens (entityRecognizerProperties :: DescribeEntityRecognizerResponse -> Lude.Maybe EntityRecognizerProperties) (\s a -> s {entityRecognizerProperties = a} :: DescribeEntityRecognizerResponse)
+{-# DEPRECATED drsEntityRecognizerProperties "Use generic-lens or generic-optics with 'entityRecognizerProperties' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeEntityRecognizerResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeEntityRecognizerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeEntityRecognizerResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeEntityRecognizerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEntityRecognizerResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

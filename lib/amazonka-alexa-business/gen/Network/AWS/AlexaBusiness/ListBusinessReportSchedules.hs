@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Lists the details of the schedules that a user configured. A download URL of the report associated with each schedule is returned every time this action is called. A new download URL is returned each time, and is valid for 24 hours.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AlexaBusiness.ListBusinessReportSchedules
-  ( -- * Creating a Request
-    listBusinessReportSchedules,
-    ListBusinessReportSchedules,
+  ( -- * Creating a request
+    ListBusinessReportSchedules (..),
+    mkListBusinessReportSchedules,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lbrsNextToken,
     lbrsMaxResults,
 
-    -- * Destructuring the Response
-    listBusinessReportSchedulesResponse,
-    ListBusinessReportSchedulesResponse,
+    -- * Destructuring the response
+    ListBusinessReportSchedulesResponse (..),
+    mkListBusinessReportSchedulesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lbrsrsBusinessReportSchedules,
     lbrsrsNextToken,
     lbrsrsResponseStatus,
@@ -43,136 +36,160 @@ module Network.AWS.AlexaBusiness.ListBusinessReportSchedules
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listBusinessReportSchedules' smart constructor.
+-- | /See:/ 'mkListBusinessReportSchedules' smart constructor.
 data ListBusinessReportSchedules = ListBusinessReportSchedules'
-  { _lbrsNextToken ::
-      !(Maybe Text),
-    _lbrsMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBusinessReportSchedules' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbrsNextToken' - The token used to list the remaining schedules from the previous API call.
---
--- * 'lbrsMaxResults' - The maximum number of schedules listed in the call.
-listBusinessReportSchedules ::
+-- * 'maxResults' - The maximum number of schedules listed in the call.
+-- * 'nextToken' - The token used to list the remaining schedules from the previous API call.
+mkListBusinessReportSchedules ::
   ListBusinessReportSchedules
-listBusinessReportSchedules =
+mkListBusinessReportSchedules =
   ListBusinessReportSchedules'
-    { _lbrsNextToken = Nothing,
-      _lbrsMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The token used to list the remaining schedules from the previous API call.
-lbrsNextToken :: Lens' ListBusinessReportSchedules (Maybe Text)
-lbrsNextToken = lens _lbrsNextToken (\s a -> s {_lbrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsNextToken :: Lens.Lens' ListBusinessReportSchedules (Lude.Maybe Lude.Text)
+lbrsNextToken = Lens.lens (nextToken :: ListBusinessReportSchedules -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBusinessReportSchedules)
+{-# DEPRECATED lbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of schedules listed in the call.
-lbrsMaxResults :: Lens' ListBusinessReportSchedules (Maybe Natural)
-lbrsMaxResults = lens _lbrsMaxResults (\s a -> s {_lbrsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsMaxResults :: Lens.Lens' ListBusinessReportSchedules (Lude.Maybe Lude.Natural)
+lbrsMaxResults = Lens.lens (maxResults :: ListBusinessReportSchedules -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListBusinessReportSchedules)
+{-# DEPRECATED lbrsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListBusinessReportSchedules where
+instance Page.AWSPager ListBusinessReportSchedules where
   page rq rs
-    | stop (rs ^. lbrsrsNextToken) = Nothing
-    | stop (rs ^. lbrsrsBusinessReportSchedules) = Nothing
-    | otherwise = Just $ rq & lbrsNextToken .~ rs ^. lbrsrsNextToken
+    | Page.stop (rs Lens.^. lbrsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lbrsrsBusinessReportSchedules) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lbrsNextToken Lens..~ rs Lens.^. lbrsrsNextToken
 
-instance AWSRequest ListBusinessReportSchedules where
+instance Lude.AWSRequest ListBusinessReportSchedules where
   type
     Rs ListBusinessReportSchedules =
       ListBusinessReportSchedulesResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListBusinessReportSchedulesResponse'
-            <$> (x .?> "BusinessReportSchedules" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "BusinessReportSchedules" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListBusinessReportSchedules
-
-instance NFData ListBusinessReportSchedules
-
-instance ToHeaders ListBusinessReportSchedules where
+instance Lude.ToHeaders ListBusinessReportSchedules where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.ListBusinessReportSchedules" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AlexaForBusiness.ListBusinessReportSchedules" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListBusinessReportSchedules where
+instance Lude.ToJSON ListBusinessReportSchedules where
   toJSON ListBusinessReportSchedules' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lbrsNextToken,
-            ("MaxResults" .=) <$> _lbrsMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListBusinessReportSchedules where
-  toPath = const "/"
+instance Lude.ToPath ListBusinessReportSchedules where
+  toPath = Lude.const "/"
 
-instance ToQuery ListBusinessReportSchedules where
-  toQuery = const mempty
+instance Lude.ToQuery ListBusinessReportSchedules where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listBusinessReportSchedulesResponse' smart constructor.
+-- | /See:/ 'mkListBusinessReportSchedulesResponse' smart constructor.
 data ListBusinessReportSchedulesResponse = ListBusinessReportSchedulesResponse'
-  { _lbrsrsBusinessReportSchedules ::
-      !( Maybe
-           [BusinessReportSchedule]
-       ),
-    _lbrsrsNextToken ::
-      !(Maybe Text),
-    _lbrsrsResponseStatus ::
-      !Int
+  { businessReportSchedules ::
+      Lude.Maybe
+        [BusinessReportSchedule],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBusinessReportSchedulesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbrsrsBusinessReportSchedules' - The schedule of the reports.
---
--- * 'lbrsrsNextToken' - The token used to list the remaining schedules from the previous API call.
---
--- * 'lbrsrsResponseStatus' - -- | The response status code.
-listBusinessReportSchedulesResponse ::
-  -- | 'lbrsrsResponseStatus'
-  Int ->
+-- * 'businessReportSchedules' - The schedule of the reports.
+-- * 'nextToken' - The token used to list the remaining schedules from the previous API call.
+-- * 'responseStatus' - The response status code.
+mkListBusinessReportSchedulesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListBusinessReportSchedulesResponse
-listBusinessReportSchedulesResponse pResponseStatus_ =
+mkListBusinessReportSchedulesResponse pResponseStatus_ =
   ListBusinessReportSchedulesResponse'
-    { _lbrsrsBusinessReportSchedules =
-        Nothing,
-      _lbrsrsNextToken = Nothing,
-      _lbrsrsResponseStatus = pResponseStatus_
+    { businessReportSchedules =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The schedule of the reports.
-lbrsrsBusinessReportSchedules :: Lens' ListBusinessReportSchedulesResponse [BusinessReportSchedule]
-lbrsrsBusinessReportSchedules = lens _lbrsrsBusinessReportSchedules (\s a -> s {_lbrsrsBusinessReportSchedules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'businessReportSchedules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsrsBusinessReportSchedules :: Lens.Lens' ListBusinessReportSchedulesResponse (Lude.Maybe [BusinessReportSchedule])
+lbrsrsBusinessReportSchedules = Lens.lens (businessReportSchedules :: ListBusinessReportSchedulesResponse -> Lude.Maybe [BusinessReportSchedule]) (\s a -> s {businessReportSchedules = a} :: ListBusinessReportSchedulesResponse)
+{-# DEPRECATED lbrsrsBusinessReportSchedules "Use generic-lens or generic-optics with 'businessReportSchedules' instead." #-}
 
 -- | The token used to list the remaining schedules from the previous API call.
-lbrsrsNextToken :: Lens' ListBusinessReportSchedulesResponse (Maybe Text)
-lbrsrsNextToken = lens _lbrsrsNextToken (\s a -> s {_lbrsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsrsNextToken :: Lens.Lens' ListBusinessReportSchedulesResponse (Lude.Maybe Lude.Text)
+lbrsrsNextToken = Lens.lens (nextToken :: ListBusinessReportSchedulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBusinessReportSchedulesResponse)
+{-# DEPRECATED lbrsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lbrsrsResponseStatus :: Lens' ListBusinessReportSchedulesResponse Int
-lbrsrsResponseStatus = lens _lbrsrsResponseStatus (\s a -> s {_lbrsrsResponseStatus = a})
-
-instance NFData ListBusinessReportSchedulesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbrsrsResponseStatus :: Lens.Lens' ListBusinessReportSchedulesResponse Lude.Int
+lbrsrsResponseStatus = Lens.lens (responseStatus :: ListBusinessReportSchedulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBusinessReportSchedulesResponse)
+{-# DEPRECATED lbrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

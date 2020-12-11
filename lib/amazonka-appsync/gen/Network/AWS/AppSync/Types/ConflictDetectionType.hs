@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.ConflictDetectionType where
+module Network.AWS.AppSync.Types.ConflictDetectionType
+  ( ConflictDetectionType
+      ( ConflictDetectionType',
+        CDTNone,
+        CDTVersion
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConflictDetectionType
-  = CDTNone
-  | CDTVersion
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConflictDetectionType = ConflictDetectionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConflictDetectionType where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure CDTNone
-      "version" -> pure CDTVersion
-      e ->
-        fromTextError $
-          "Failure parsing ConflictDetectionType from value: '" <> e
-            <> "'. Accepted values: none, version"
+pattern CDTNone :: ConflictDetectionType
+pattern CDTNone = ConflictDetectionType' "NONE"
 
-instance ToText ConflictDetectionType where
-  toText = \case
-    CDTNone -> "NONE"
-    CDTVersion -> "VERSION"
+pattern CDTVersion :: ConflictDetectionType
+pattern CDTVersion = ConflictDetectionType' "VERSION"
 
-instance Hashable ConflictDetectionType
-
-instance NFData ConflictDetectionType
-
-instance ToByteString ConflictDetectionType
-
-instance ToQuery ConflictDetectionType
-
-instance ToHeader ConflictDetectionType
-
-instance ToJSON ConflictDetectionType where
-  toJSON = toJSONText
-
-instance FromJSON ConflictDetectionType where
-  parseJSON = parseJSONText "ConflictDetectionType"
+{-# COMPLETE
+  CDTNone,
+  CDTVersion,
+  ConflictDetectionType'
+  #-}

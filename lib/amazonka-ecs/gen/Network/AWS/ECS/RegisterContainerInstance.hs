@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Registers an EC2 instance into the specified cluster. This instance becomes available to place containers on.
 module Network.AWS.ECS.RegisterContainerInstance
-  ( -- * Creating a Request
-    registerContainerInstance,
-    RegisterContainerInstance,
+  ( -- * Creating a request
+    RegisterContainerInstance (..),
+    mkRegisterContainerInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rciPlatformDevices,
     rciInstanceIdentityDocumentSignature,
     rciCluster,
@@ -34,199 +29,276 @@ module Network.AWS.ECS.RegisterContainerInstance
     rciTotalResources,
     rciTags,
 
-    -- * Destructuring the Response
-    registerContainerInstanceResponse,
-    RegisterContainerInstanceResponse,
+    -- * Destructuring the response
+    RegisterContainerInstanceResponse (..),
+    mkRegisterContainerInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rcirsContainerInstance,
     rcirsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'registerContainerInstance' smart constructor.
+-- | /See:/ 'mkRegisterContainerInstance' smart constructor.
 data RegisterContainerInstance = RegisterContainerInstance'
-  { _rciPlatformDevices ::
-      !(Maybe [PlatformDevice]),
-    _rciInstanceIdentityDocumentSignature ::
-      !(Maybe Text),
-    _rciCluster :: !(Maybe Text),
-    _rciInstanceIdentityDocument ::
-      !(Maybe Text),
-    _rciContainerInstanceARN ::
-      !(Maybe Text),
-    _rciVersionInfo :: !(Maybe VersionInfo),
-    _rciAttributes :: !(Maybe [Attribute]),
-    _rciTotalResources ::
-      !(Maybe [Resource]),
-    _rciTags :: !(Maybe [Tag])
+  { platformDevices ::
+      Lude.Maybe [PlatformDevice],
+    instanceIdentityDocumentSignature ::
+      Lude.Maybe Lude.Text,
+    cluster :: Lude.Maybe Lude.Text,
+    instanceIdentityDocument ::
+      Lude.Maybe Lude.Text,
+    containerInstanceARN ::
+      Lude.Maybe Lude.Text,
+    versionInfo :: Lude.Maybe VersionInfo,
+    attributes :: Lude.Maybe [Attribute],
+    totalResources :: Lude.Maybe [Resource],
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterContainerInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'attributes' - The container instance attributes that this container instance supports.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed.
+-- * 'containerInstanceARN' - The ARN of the container instance (if it was previously registered).
+-- * 'instanceIdentityDocument' - The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/document/@
+-- * 'instanceIdentityDocumentSignature' - The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
+-- * 'platformDevices' - The devices that are available on the container instance. The only supported device type is a GPU.
+-- * 'tags' - The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
--- * 'rciPlatformDevices' - The devices that are available on the container instance. The only supported device type is a GPU.
+-- The following basic restrictions apply to tags:
 --
--- * 'rciInstanceIdentityDocumentSignature' - The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
+--     * Maximum number of tags per resource - 50
 --
--- * 'rciCluster' - The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed.
 --
--- * 'rciInstanceIdentityDocument' - The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/document/@
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
 --
--- * 'rciContainerInstanceARN' - The ARN of the container instance (if it was previously registered).
 --
--- * 'rciVersionInfo' - The version information for the Amazon ECS container agent and Docker daemon running on the container instance.
+--     * Maximum key length - 128 Unicode characters in UTF-8
 --
--- * 'rciAttributes' - The container instance attributes that this container instance supports.
 --
--- * 'rciTotalResources' - The resources available on the instance.
+--     * Maximum value length - 256 Unicode characters in UTF-8
 --
--- * 'rciTags' - The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-registerContainerInstance ::
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+-- * 'totalResources' - The resources available on the instance.
+-- * 'versionInfo' - The version information for the Amazon ECS container agent and Docker daemon running on the container instance.
+mkRegisterContainerInstance ::
   RegisterContainerInstance
-registerContainerInstance =
+mkRegisterContainerInstance =
   RegisterContainerInstance'
-    { _rciPlatformDevices = Nothing,
-      _rciInstanceIdentityDocumentSignature = Nothing,
-      _rciCluster = Nothing,
-      _rciInstanceIdentityDocument = Nothing,
-      _rciContainerInstanceARN = Nothing,
-      _rciVersionInfo = Nothing,
-      _rciAttributes = Nothing,
-      _rciTotalResources = Nothing,
-      _rciTags = Nothing
+    { platformDevices = Lude.Nothing,
+      instanceIdentityDocumentSignature = Lude.Nothing,
+      cluster = Lude.Nothing,
+      instanceIdentityDocument = Lude.Nothing,
+      containerInstanceARN = Lude.Nothing,
+      versionInfo = Lude.Nothing,
+      attributes = Lude.Nothing,
+      totalResources = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The devices that are available on the container instance. The only supported device type is a GPU.
-rciPlatformDevices :: Lens' RegisterContainerInstance [PlatformDevice]
-rciPlatformDevices = lens _rciPlatformDevices (\s a -> s {_rciPlatformDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'platformDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciPlatformDevices :: Lens.Lens' RegisterContainerInstance (Lude.Maybe [PlatformDevice])
+rciPlatformDevices = Lens.lens (platformDevices :: RegisterContainerInstance -> Lude.Maybe [PlatformDevice]) (\s a -> s {platformDevices = a} :: RegisterContainerInstance)
+{-# DEPRECATED rciPlatformDevices "Use generic-lens or generic-optics with 'platformDevices' instead." #-}
 
 -- | The instance identity document signature for the EC2 instance to register. This signature can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/signature/@
-rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
-rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignature (\s a -> s {_rciInstanceIdentityDocumentSignature = a})
+--
+-- /Note:/ Consider using 'instanceIdentityDocumentSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciInstanceIdentityDocumentSignature :: Lens.Lens' RegisterContainerInstance (Lude.Maybe Lude.Text)
+rciInstanceIdentityDocumentSignature = Lens.lens (instanceIdentityDocumentSignature :: RegisterContainerInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceIdentityDocumentSignature = a} :: RegisterContainerInstance)
+{-# DEPRECATED rciInstanceIdentityDocumentSignature "Use generic-lens or generic-optics with 'instanceIdentityDocumentSignature' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster with which to register your container instance. If you do not specify a cluster, the default cluster is assumed.
-rciCluster :: Lens' RegisterContainerInstance (Maybe Text)
-rciCluster = lens _rciCluster (\s a -> s {_rciCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciCluster :: Lens.Lens' RegisterContainerInstance (Lude.Maybe Lude.Text)
+rciCluster = Lens.lens (cluster :: RegisterContainerInstance -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: RegisterContainerInstance)
+{-# DEPRECATED rciCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The instance identity document for the EC2 instance to register. This document can be found by running the following command from the instance: @curl http://169.254.169.254/latest/dynamic/instance-identity/document/@
-rciInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
-rciInstanceIdentityDocument = lens _rciInstanceIdentityDocument (\s a -> s {_rciInstanceIdentityDocument = a})
+--
+-- /Note:/ Consider using 'instanceIdentityDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciInstanceIdentityDocument :: Lens.Lens' RegisterContainerInstance (Lude.Maybe Lude.Text)
+rciInstanceIdentityDocument = Lens.lens (instanceIdentityDocument :: RegisterContainerInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceIdentityDocument = a} :: RegisterContainerInstance)
+{-# DEPRECATED rciInstanceIdentityDocument "Use generic-lens or generic-optics with 'instanceIdentityDocument' instead." #-}
 
 -- | The ARN of the container instance (if it was previously registered).
-rciContainerInstanceARN :: Lens' RegisterContainerInstance (Maybe Text)
-rciContainerInstanceARN = lens _rciContainerInstanceARN (\s a -> s {_rciContainerInstanceARN = a})
+--
+-- /Note:/ Consider using 'containerInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciContainerInstanceARN :: Lens.Lens' RegisterContainerInstance (Lude.Maybe Lude.Text)
+rciContainerInstanceARN = Lens.lens (containerInstanceARN :: RegisterContainerInstance -> Lude.Maybe Lude.Text) (\s a -> s {containerInstanceARN = a} :: RegisterContainerInstance)
+{-# DEPRECATED rciContainerInstanceARN "Use generic-lens or generic-optics with 'containerInstanceARN' instead." #-}
 
 -- | The version information for the Amazon ECS container agent and Docker daemon running on the container instance.
-rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
-rciVersionInfo = lens _rciVersionInfo (\s a -> s {_rciVersionInfo = a})
+--
+-- /Note:/ Consider using 'versionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciVersionInfo :: Lens.Lens' RegisterContainerInstance (Lude.Maybe VersionInfo)
+rciVersionInfo = Lens.lens (versionInfo :: RegisterContainerInstance -> Lude.Maybe VersionInfo) (\s a -> s {versionInfo = a} :: RegisterContainerInstance)
+{-# DEPRECATED rciVersionInfo "Use generic-lens or generic-optics with 'versionInfo' instead." #-}
 
 -- | The container instance attributes that this container instance supports.
-rciAttributes :: Lens' RegisterContainerInstance [Attribute]
-rciAttributes = lens _rciAttributes (\s a -> s {_rciAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciAttributes :: Lens.Lens' RegisterContainerInstance (Lude.Maybe [Attribute])
+rciAttributes = Lens.lens (attributes :: RegisterContainerInstance -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: RegisterContainerInstance)
+{-# DEPRECATED rciAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The resources available on the instance.
-rciTotalResources :: Lens' RegisterContainerInstance [Resource]
-rciTotalResources = lens _rciTotalResources (\s a -> s {_rciTotalResources = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'totalResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciTotalResources :: Lens.Lens' RegisterContainerInstance (Lude.Maybe [Resource])
+rciTotalResources = Lens.lens (totalResources :: RegisterContainerInstance -> Lude.Maybe [Resource]) (\s a -> s {totalResources = a} :: RegisterContainerInstance)
+{-# DEPRECATED rciTotalResources "Use generic-lens or generic-optics with 'totalResources' instead." #-}
 
--- | The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-rciTags :: Lens' RegisterContainerInstance [Tag]
-rciTags = lens _rciTags (\s a -> s {_rciTags = a}) . _Default . _Coerce
+-- | The metadata that you apply to the container instance to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+--
+-- The following basic restrictions apply to tags:
+--
+--     * Maximum number of tags per resource - 50
+--
+--
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
+--
+--
+--     * Maximum key length - 128 Unicode characters in UTF-8
+--
+--
+--     * Maximum value length - 256 Unicode characters in UTF-8
+--
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciTags :: Lens.Lens' RegisterContainerInstance (Lude.Maybe [Tag])
+rciTags = Lens.lens (tags :: RegisterContainerInstance -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: RegisterContainerInstance)
+{-# DEPRECATED rciTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest RegisterContainerInstance where
+instance Lude.AWSRequest RegisterContainerInstance where
   type
     Rs RegisterContainerInstance =
       RegisterContainerInstanceResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RegisterContainerInstanceResponse'
-            <$> (x .?> "containerInstance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "containerInstance")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RegisterContainerInstance
-
-instance NFData RegisterContainerInstance
-
-instance ToHeaders RegisterContainerInstance where
+instance Lude.ToHeaders RegisterContainerInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterContainerInstance where
+instance Lude.ToJSON RegisterContainerInstance where
   toJSON RegisterContainerInstance' {..} =
-    object
-      ( catMaybes
-          [ ("platformDevices" .=) <$> _rciPlatformDevices,
-            ("instanceIdentityDocumentSignature" .=)
-              <$> _rciInstanceIdentityDocumentSignature,
-            ("cluster" .=) <$> _rciCluster,
-            ("instanceIdentityDocument" .=) <$> _rciInstanceIdentityDocument,
-            ("containerInstanceArn" .=) <$> _rciContainerInstanceARN,
-            ("versionInfo" .=) <$> _rciVersionInfo,
-            ("attributes" .=) <$> _rciAttributes,
-            ("totalResources" .=) <$> _rciTotalResources,
-            ("tags" .=) <$> _rciTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("platformDevices" Lude..=) Lude.<$> platformDevices,
+            ("instanceIdentityDocumentSignature" Lude..=)
+              Lude.<$> instanceIdentityDocumentSignature,
+            ("cluster" Lude..=) Lude.<$> cluster,
+            ("instanceIdentityDocument" Lude..=)
+              Lude.<$> instanceIdentityDocument,
+            ("containerInstanceArn" Lude..=) Lude.<$> containerInstanceARN,
+            ("versionInfo" Lude..=) Lude.<$> versionInfo,
+            ("attributes" Lude..=) Lude.<$> attributes,
+            ("totalResources" Lude..=) Lude.<$> totalResources,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath RegisterContainerInstance where
-  toPath = const "/"
+instance Lude.ToPath RegisterContainerInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterContainerInstance where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterContainerInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'registerContainerInstanceResponse' smart constructor.
+-- | /See:/ 'mkRegisterContainerInstanceResponse' smart constructor.
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
-  { _rcirsContainerInstance ::
-      !( Maybe
-           ContainerInstance
-       ),
-    _rcirsResponseStatus ::
-      !Int
+  { containerInstance ::
+      Lude.Maybe
+        ContainerInstance,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterContainerInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcirsContainerInstance' - The container instance that was registered.
---
--- * 'rcirsResponseStatus' - -- | The response status code.
-registerContainerInstanceResponse ::
-  -- | 'rcirsResponseStatus'
-  Int ->
+-- * 'containerInstance' - The container instance that was registered.
+-- * 'responseStatus' - The response status code.
+mkRegisterContainerInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterContainerInstanceResponse
-registerContainerInstanceResponse pResponseStatus_ =
+mkRegisterContainerInstanceResponse pResponseStatus_ =
   RegisterContainerInstanceResponse'
-    { _rcirsContainerInstance =
-        Nothing,
-      _rcirsResponseStatus = pResponseStatus_
+    { containerInstance =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The container instance that was registered.
-rcirsContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
-rcirsContainerInstance = lens _rcirsContainerInstance (\s a -> s {_rcirsContainerInstance = a})
+--
+-- /Note:/ Consider using 'containerInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcirsContainerInstance :: Lens.Lens' RegisterContainerInstanceResponse (Lude.Maybe ContainerInstance)
+rcirsContainerInstance = Lens.lens (containerInstance :: RegisterContainerInstanceResponse -> Lude.Maybe ContainerInstance) (\s a -> s {containerInstance = a} :: RegisterContainerInstanceResponse)
+{-# DEPRECATED rcirsContainerInstance "Use generic-lens or generic-optics with 'containerInstance' instead." #-}
 
--- | -- | The response status code.
-rcirsResponseStatus :: Lens' RegisterContainerInstanceResponse Int
-rcirsResponseStatus = lens _rcirsResponseStatus (\s a -> s {_rcirsResponseStatus = a})
-
-instance NFData RegisterContainerInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcirsResponseStatus :: Lens.Lens' RegisterContainerInstanceResponse Lude.Int
+rcirsResponseStatus = Lens.lens (responseStatus :: RegisterContainerInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterContainerInstanceResponse)
+{-# DEPRECATED rcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,119 +7,154 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.RDSDBInstance where
+module Network.AWS.OpsWorks.Types.RDSDBInstance
+  ( RDSDBInstance (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRDSDBInstance,
+
+    -- * Lenses
+    rdiRDSDBInstanceARN,
+    rdiDBUser,
+    rdiMissingOnRDS,
+    rdiEngine,
+    rdiAddress,
+    rdiDBInstanceIdentifier,
+    rdiRegion,
+    rdiStackId,
+    rdiDBPassword,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Amazon RDS instance.
 --
---
---
--- /See:/ 'rdsDBInstance' smart constructor.
+-- /See:/ 'mkRDSDBInstance' smart constructor.
 data RDSDBInstance = RDSDBInstance'
-  { _rdiRDSDBInstanceARN ::
-      !(Maybe Text),
-    _rdiDBUser :: !(Maybe Text),
-    _rdiMissingOnRDS :: !(Maybe Bool),
-    _rdiEngine :: !(Maybe Text),
-    _rdiAddress :: !(Maybe Text),
-    _rdiDBInstanceIdentifier :: !(Maybe Text),
-    _rdiRegion :: !(Maybe Text),
-    _rdiStackId :: !(Maybe Text),
-    _rdiDBPassword :: !(Maybe Text)
+  { rdsDBInstanceARN ::
+      Lude.Maybe Lude.Text,
+    dbUser :: Lude.Maybe Lude.Text,
+    missingOnRDS :: Lude.Maybe Lude.Bool,
+    engine :: Lude.Maybe Lude.Text,
+    address :: Lude.Maybe Lude.Text,
+    dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Maybe Lude.Text,
+    dbPassword :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RDSDBInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdiRDSDBInstanceARN' - The instance's ARN.
---
--- * 'rdiDBUser' - The master user name.
---
--- * 'rdiMissingOnRDS' - Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance. AWS OpsWorks Stacks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance, and then register it again.
---
--- * 'rdiEngine' - The instance's database engine.
---
--- * 'rdiAddress' - The instance's address.
---
--- * 'rdiDBInstanceIdentifier' - The DB instance identifier.
---
--- * 'rdiRegion' - The instance's AWS region.
---
--- * 'rdiStackId' - The ID of the stack with which the instance is registered.
---
--- * 'rdiDBPassword' - AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
-rdsDBInstance ::
+-- * 'address' - The instance's address.
+-- * 'dbInstanceIdentifier' - The DB instance identifier.
+-- * 'dbPassword' - AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
+-- * 'dbUser' - The master user name.
+-- * 'engine' - The instance's database engine.
+-- * 'missingOnRDS' - Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance. AWS OpsWorks Stacks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance, and then register it again.
+-- * 'rdsDBInstanceARN' - The instance's ARN.
+-- * 'region' - The instance's AWS region.
+-- * 'stackId' - The ID of the stack with which the instance is registered.
+mkRDSDBInstance ::
   RDSDBInstance
-rdsDBInstance =
+mkRDSDBInstance =
   RDSDBInstance'
-    { _rdiRDSDBInstanceARN = Nothing,
-      _rdiDBUser = Nothing,
-      _rdiMissingOnRDS = Nothing,
-      _rdiEngine = Nothing,
-      _rdiAddress = Nothing,
-      _rdiDBInstanceIdentifier = Nothing,
-      _rdiRegion = Nothing,
-      _rdiStackId = Nothing,
-      _rdiDBPassword = Nothing
+    { rdsDBInstanceARN = Lude.Nothing,
+      dbUser = Lude.Nothing,
+      missingOnRDS = Lude.Nothing,
+      engine = Lude.Nothing,
+      address = Lude.Nothing,
+      dbInstanceIdentifier = Lude.Nothing,
+      region = Lude.Nothing,
+      stackId = Lude.Nothing,
+      dbPassword = Lude.Nothing
     }
 
 -- | The instance's ARN.
-rdiRDSDBInstanceARN :: Lens' RDSDBInstance (Maybe Text)
-rdiRDSDBInstanceARN = lens _rdiRDSDBInstanceARN (\s a -> s {_rdiRDSDBInstanceARN = a})
+--
+-- /Note:/ Consider using 'rdsDBInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiRDSDBInstanceARN :: Lens.Lens' RDSDBInstance (Lude.Maybe Lude.Text)
+rdiRDSDBInstanceARN = Lens.lens (rdsDBInstanceARN :: RDSDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {rdsDBInstanceARN = a} :: RDSDBInstance)
+{-# DEPRECATED rdiRDSDBInstanceARN "Use generic-lens or generic-optics with 'rdsDBInstanceARN' instead." #-}
 
 -- | The master user name.
-rdiDBUser :: Lens' RDSDBInstance (Maybe Text)
-rdiDBUser = lens _rdiDBUser (\s a -> s {_rdiDBUser = a})
+--
+-- /Note:/ Consider using 'dbUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiDBUser :: Lens.Lens' RDSDBInstance (Lude.Maybe Lude.Text)
+rdiDBUser = Lens.lens (dbUser :: RDSDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbUser = a} :: RDSDBInstance)
+{-# DEPRECATED rdiDBUser "Use generic-lens or generic-optics with 'dbUser' instead." #-}
 
 -- | Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance. AWS OpsWorks Stacks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance, and then register it again.
-rdiMissingOnRDS :: Lens' RDSDBInstance (Maybe Bool)
-rdiMissingOnRDS = lens _rdiMissingOnRDS (\s a -> s {_rdiMissingOnRDS = a})
+--
+-- /Note:/ Consider using 'missingOnRDS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiMissingOnRDS :: Lens.Lens' RDSDBInstance (Lude.Maybe Lude.Bool)
+rdiMissingOnRDS = Lens.lens (missingOnRDS :: RDSDBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {missingOnRDS = a} :: RDSDBInstance)
+{-# DEPRECATED rdiMissingOnRDS "Use generic-lens or generic-optics with 'missingOnRDS' instead." #-}
 
 -- | The instance's database engine.
-rdiEngine :: Lens' RDSDBInstance (Maybe Text)
-rdiEngine = lens _rdiEngine (\s a -> s {_rdiEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiEngine :: Lens.Lens' RDSDBInstance (Lude.Maybe Lude.Text)
+rdiEngine = Lens.lens (engine :: RDSDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: RDSDBInstance)
+{-# DEPRECATED rdiEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The instance's address.
-rdiAddress :: Lens' RDSDBInstance (Maybe Text)
-rdiAddress = lens _rdiAddress (\s a -> s {_rdiAddress = a})
+--
+-- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiAddress :: Lens.Lens' RDSDBInstance (Lude.Maybe Lude.Text)
+rdiAddress = Lens.lens (address :: RDSDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: RDSDBInstance)
+{-# DEPRECATED rdiAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | The DB instance identifier.
-rdiDBInstanceIdentifier :: Lens' RDSDBInstance (Maybe Text)
-rdiDBInstanceIdentifier = lens _rdiDBInstanceIdentifier (\s a -> s {_rdiDBInstanceIdentifier = a})
+--
+-- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiDBInstanceIdentifier :: Lens.Lens' RDSDBInstance (Lude.Maybe Lude.Text)
+rdiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: RDSDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: RDSDBInstance)
+{-# DEPRECATED rdiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
 -- | The instance's AWS region.
-rdiRegion :: Lens' RDSDBInstance (Maybe Text)
-rdiRegion = lens _rdiRegion (\s a -> s {_rdiRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiRegion :: Lens.Lens' RDSDBInstance (Lude.Maybe Lude.Text)
+rdiRegion = Lens.lens (region :: RDSDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: RDSDBInstance)
+{-# DEPRECATED rdiRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The ID of the stack with which the instance is registered.
-rdiStackId :: Lens' RDSDBInstance (Maybe Text)
-rdiStackId = lens _rdiStackId (\s a -> s {_rdiStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiStackId :: Lens.Lens' RDSDBInstance (Lude.Maybe Lude.Text)
+rdiStackId = Lens.lens (stackId :: RDSDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: RDSDBInstance)
+{-# DEPRECATED rdiStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
-rdiDBPassword :: Lens' RDSDBInstance (Maybe Text)
-rdiDBPassword = lens _rdiDBPassword (\s a -> s {_rdiDBPassword = a})
+--
+-- /Note:/ Consider using 'dbPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiDBPassword :: Lens.Lens' RDSDBInstance (Lude.Maybe Lude.Text)
+rdiDBPassword = Lens.lens (dbPassword :: RDSDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbPassword = a} :: RDSDBInstance)
+{-# DEPRECATED rdiDBPassword "Use generic-lens or generic-optics with 'dbPassword' instead." #-}
 
-instance FromJSON RDSDBInstance where
+instance Lude.FromJSON RDSDBInstance where
   parseJSON =
-    withObject
+    Lude.withObject
       "RDSDBInstance"
       ( \x ->
           RDSDBInstance'
-            <$> (x .:? "RdsDbInstanceArn")
-            <*> (x .:? "DbUser")
-            <*> (x .:? "MissingOnRds")
-            <*> (x .:? "Engine")
-            <*> (x .:? "Address")
-            <*> (x .:? "DbInstanceIdentifier")
-            <*> (x .:? "Region")
-            <*> (x .:? "StackId")
-            <*> (x .:? "DbPassword")
+            Lude.<$> (x Lude..:? "RdsDbInstanceArn")
+            Lude.<*> (x Lude..:? "DbUser")
+            Lude.<*> (x Lude..:? "MissingOnRds")
+            Lude.<*> (x Lude..:? "Engine")
+            Lude.<*> (x Lude..:? "Address")
+            Lude.<*> (x Lude..:? "DbInstanceIdentifier")
+            Lude.<*> (x Lude..:? "Region")
+            Lude.<*> (x Lude..:? "StackId")
+            Lude.<*> (x Lude..:? "DbPassword")
       )
-
-instance Hashable RDSDBInstance
-
-instance NFData RDSDBInstance

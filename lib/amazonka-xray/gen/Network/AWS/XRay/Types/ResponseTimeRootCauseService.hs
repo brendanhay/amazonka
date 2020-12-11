@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,95 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ResponseTimeRootCauseService where
+module Network.AWS.XRay.Types.ResponseTimeRootCauseService
+  ( ResponseTimeRootCauseService (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResponseTimeRootCauseService,
+
+    -- * Lenses
+    rtrcsEntityPath,
+    rtrcsAccountId,
+    rtrcsNames,
+    rtrcsName,
+    rtrcsInferred,
+    rtrcsType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.ResponseTimeRootCauseEntity
 
 -- | A collection of fields identifying the service in a response time warning.
 --
---
---
--- /See:/ 'responseTimeRootCauseService' smart constructor.
+-- /See:/ 'mkResponseTimeRootCauseService' smart constructor.
 data ResponseTimeRootCauseService = ResponseTimeRootCauseService'
-  { _rtrcsEntityPath ::
-      !( Maybe
-           [ResponseTimeRootCauseEntity]
-       ),
-    _rtrcsAccountId :: !(Maybe Text),
-    _rtrcsNames :: !(Maybe [Text]),
-    _rtrcsName :: !(Maybe Text),
-    _rtrcsInferred :: !(Maybe Bool),
-    _rtrcsType :: !(Maybe Text)
+  { entityPath ::
+      Lude.Maybe
+        [ResponseTimeRootCauseEntity],
+    accountId :: Lude.Maybe Lude.Text,
+    names :: Lude.Maybe [Lude.Text],
+    name :: Lude.Maybe Lude.Text,
+    inferred :: Lude.Maybe Lude.Bool,
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResponseTimeRootCauseService' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtrcsEntityPath' - The path of root cause entities found on the service.
---
--- * 'rtrcsAccountId' - The account ID associated to the service.
---
--- * 'rtrcsNames' - A collection of associated service names.
---
--- * 'rtrcsName' - The service name.
---
--- * 'rtrcsInferred' - A Boolean value indicating if the service is inferred from the trace.
---
--- * 'rtrcsType' - The type associated to the service.
-responseTimeRootCauseService ::
+-- * 'accountId' - The account ID associated to the service.
+-- * 'entityPath' - The path of root cause entities found on the service.
+-- * 'inferred' - A Boolean value indicating if the service is inferred from the trace.
+-- * 'name' - The service name.
+-- * 'names' - A collection of associated service names.
+-- * 'type'' - The type associated to the service.
+mkResponseTimeRootCauseService ::
   ResponseTimeRootCauseService
-responseTimeRootCauseService =
+mkResponseTimeRootCauseService =
   ResponseTimeRootCauseService'
-    { _rtrcsEntityPath = Nothing,
-      _rtrcsAccountId = Nothing,
-      _rtrcsNames = Nothing,
-      _rtrcsName = Nothing,
-      _rtrcsInferred = Nothing,
-      _rtrcsType = Nothing
+    { entityPath = Lude.Nothing,
+      accountId = Lude.Nothing,
+      names = Lude.Nothing,
+      name = Lude.Nothing,
+      inferred = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The path of root cause entities found on the service.
-rtrcsEntityPath :: Lens' ResponseTimeRootCauseService [ResponseTimeRootCauseEntity]
-rtrcsEntityPath = lens _rtrcsEntityPath (\s a -> s {_rtrcsEntityPath = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'entityPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrcsEntityPath :: Lens.Lens' ResponseTimeRootCauseService (Lude.Maybe [ResponseTimeRootCauseEntity])
+rtrcsEntityPath = Lens.lens (entityPath :: ResponseTimeRootCauseService -> Lude.Maybe [ResponseTimeRootCauseEntity]) (\s a -> s {entityPath = a} :: ResponseTimeRootCauseService)
+{-# DEPRECATED rtrcsEntityPath "Use generic-lens or generic-optics with 'entityPath' instead." #-}
 
 -- | The account ID associated to the service.
-rtrcsAccountId :: Lens' ResponseTimeRootCauseService (Maybe Text)
-rtrcsAccountId = lens _rtrcsAccountId (\s a -> s {_rtrcsAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrcsAccountId :: Lens.Lens' ResponseTimeRootCauseService (Lude.Maybe Lude.Text)
+rtrcsAccountId = Lens.lens (accountId :: ResponseTimeRootCauseService -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ResponseTimeRootCauseService)
+{-# DEPRECATED rtrcsAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | A collection of associated service names.
-rtrcsNames :: Lens' ResponseTimeRootCauseService [Text]
-rtrcsNames = lens _rtrcsNames (\s a -> s {_rtrcsNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrcsNames :: Lens.Lens' ResponseTimeRootCauseService (Lude.Maybe [Lude.Text])
+rtrcsNames = Lens.lens (names :: ResponseTimeRootCauseService -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: ResponseTimeRootCauseService)
+{-# DEPRECATED rtrcsNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The service name.
-rtrcsName :: Lens' ResponseTimeRootCauseService (Maybe Text)
-rtrcsName = lens _rtrcsName (\s a -> s {_rtrcsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrcsName :: Lens.Lens' ResponseTimeRootCauseService (Lude.Maybe Lude.Text)
+rtrcsName = Lens.lens (name :: ResponseTimeRootCauseService -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResponseTimeRootCauseService)
+{-# DEPRECATED rtrcsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A Boolean value indicating if the service is inferred from the trace.
-rtrcsInferred :: Lens' ResponseTimeRootCauseService (Maybe Bool)
-rtrcsInferred = lens _rtrcsInferred (\s a -> s {_rtrcsInferred = a})
+--
+-- /Note:/ Consider using 'inferred' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrcsInferred :: Lens.Lens' ResponseTimeRootCauseService (Lude.Maybe Lude.Bool)
+rtrcsInferred = Lens.lens (inferred :: ResponseTimeRootCauseService -> Lude.Maybe Lude.Bool) (\s a -> s {inferred = a} :: ResponseTimeRootCauseService)
+{-# DEPRECATED rtrcsInferred "Use generic-lens or generic-optics with 'inferred' instead." #-}
 
 -- | The type associated to the service.
-rtrcsType :: Lens' ResponseTimeRootCauseService (Maybe Text)
-rtrcsType = lens _rtrcsType (\s a -> s {_rtrcsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrcsType :: Lens.Lens' ResponseTimeRootCauseService (Lude.Maybe Lude.Text)
+rtrcsType = Lens.lens (type' :: ResponseTimeRootCauseService -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ResponseTimeRootCauseService)
+{-# DEPRECATED rtrcsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON ResponseTimeRootCauseService where
+instance Lude.FromJSON ResponseTimeRootCauseService where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResponseTimeRootCauseService"
       ( \x ->
           ResponseTimeRootCauseService'
-            <$> (x .:? "EntityPath" .!= mempty)
-            <*> (x .:? "AccountId")
-            <*> (x .:? "Names" .!= mempty)
-            <*> (x .:? "Name")
-            <*> (x .:? "Inferred")
-            <*> (x .:? "Type")
+            Lude.<$> (x Lude..:? "EntityPath" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AccountId")
+            Lude.<*> (x Lude..:? "Names" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Inferred")
+            Lude.<*> (x Lude..:? "Type")
       )
-
-instance Hashable ResponseTimeRootCauseService
-
-instance NFData ResponseTimeRootCauseService

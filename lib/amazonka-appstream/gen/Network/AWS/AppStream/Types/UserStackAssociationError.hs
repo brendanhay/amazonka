@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.UserStackAssociationError where
+module Network.AWS.AppStream.Types.UserStackAssociationError
+  ( UserStackAssociationError (..),
+
+    -- * Smart constructor
+    mkUserStackAssociationError,
+
+    -- * Lenses
+    usaeUserStackAssociation,
+    usaeErrorCode,
+    usaeErrorMessage,
+  )
+where
 
 import Network.AWS.AppStream.Types.UserStackAssociation
 import Network.AWS.AppStream.Types.UserStackAssociationErrorCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the error that is returned when a user can’t be associated with or disassociated from a stack.
 --
---
---
--- /See:/ 'userStackAssociationError' smart constructor.
+-- /See:/ 'mkUserStackAssociationError' smart constructor.
 data UserStackAssociationError = UserStackAssociationError'
-  { _usaeUserStackAssociation ::
-      !(Maybe UserStackAssociation),
-    _usaeErrorCode ::
-      !(Maybe UserStackAssociationErrorCode),
-    _usaeErrorMessage :: !(Maybe Text)
+  { userStackAssociation ::
+      Lude.Maybe UserStackAssociation,
+    errorCode ::
+      Lude.Maybe
+        UserStackAssociationErrorCode,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserStackAssociationError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usaeUserStackAssociation' - Information about the user and associated stack.
---
--- * 'usaeErrorCode' - The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.
---
--- * 'usaeErrorMessage' - The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.
-userStackAssociationError ::
+-- * 'errorCode' - The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.
+-- * 'errorMessage' - The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.
+-- * 'userStackAssociation' - Information about the user and associated stack.
+mkUserStackAssociationError ::
   UserStackAssociationError
-userStackAssociationError =
+mkUserStackAssociationError =
   UserStackAssociationError'
-    { _usaeUserStackAssociation = Nothing,
-      _usaeErrorCode = Nothing,
-      _usaeErrorMessage = Nothing
+    { userStackAssociation = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | Information about the user and associated stack.
-usaeUserStackAssociation :: Lens' UserStackAssociationError (Maybe UserStackAssociation)
-usaeUserStackAssociation = lens _usaeUserStackAssociation (\s a -> s {_usaeUserStackAssociation = a})
+--
+-- /Note:/ Consider using 'userStackAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaeUserStackAssociation :: Lens.Lens' UserStackAssociationError (Lude.Maybe UserStackAssociation)
+usaeUserStackAssociation = Lens.lens (userStackAssociation :: UserStackAssociationError -> Lude.Maybe UserStackAssociation) (\s a -> s {userStackAssociation = a} :: UserStackAssociationError)
+{-# DEPRECATED usaeUserStackAssociation "Use generic-lens or generic-optics with 'userStackAssociation' instead." #-}
 
 -- | The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.
-usaeErrorCode :: Lens' UserStackAssociationError (Maybe UserStackAssociationErrorCode)
-usaeErrorCode = lens _usaeErrorCode (\s a -> s {_usaeErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaeErrorCode :: Lens.Lens' UserStackAssociationError (Lude.Maybe UserStackAssociationErrorCode)
+usaeErrorCode = Lens.lens (errorCode :: UserStackAssociationError -> Lude.Maybe UserStackAssociationErrorCode) (\s a -> s {errorCode = a} :: UserStackAssociationError)
+{-# DEPRECATED usaeErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.
-usaeErrorMessage :: Lens' UserStackAssociationError (Maybe Text)
-usaeErrorMessage = lens _usaeErrorMessage (\s a -> s {_usaeErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaeErrorMessage :: Lens.Lens' UserStackAssociationError (Lude.Maybe Lude.Text)
+usaeErrorMessage = Lens.lens (errorMessage :: UserStackAssociationError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: UserStackAssociationError)
+{-# DEPRECATED usaeErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON UserStackAssociationError where
+instance Lude.FromJSON UserStackAssociationError where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserStackAssociationError"
       ( \x ->
           UserStackAssociationError'
-            <$> (x .:? "UserStackAssociation")
-            <*> (x .:? "ErrorCode")
-            <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "UserStackAssociation")
+            Lude.<*> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable UserStackAssociationError
-
-instance NFData UserStackAssociationError

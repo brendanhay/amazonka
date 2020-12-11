@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,111 +7,144 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.Workflow where
+module Network.AWS.Glue.Types.Workflow
+  ( Workflow (..),
+
+    -- * Smart constructor
+    mkWorkflow,
+
+    -- * Lenses
+    wGraph,
+    wLastModifiedOn,
+    wMaxConcurrentRuns,
+    wDefaultRunProperties,
+    wName,
+    wLastRun,
+    wDescription,
+    wCreatedOn,
+  )
+where
 
 import Network.AWS.Glue.Types.WorkflowGraph
 import Network.AWS.Glue.Types.WorkflowRun
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A workflow represents a flow in which AWS Glue components should be executed to complete a logical task.
 --
---
---
--- /See:/ 'workflow' smart constructor.
+-- /See:/ 'mkWorkflow' smart constructor.
 data Workflow = Workflow'
-  { _wGraph :: !(Maybe WorkflowGraph),
-    _wLastModifiedOn :: !(Maybe POSIX),
-    _wMaxConcurrentRuns :: !(Maybe Int),
-    _wDefaultRunProperties :: !(Maybe (Map Text (Text))),
-    _wName :: !(Maybe Text),
-    _wLastRun :: !(Maybe WorkflowRun),
-    _wDescription :: !(Maybe Text),
-    _wCreatedOn :: !(Maybe POSIX)
+  { graph :: Lude.Maybe WorkflowGraph,
+    lastModifiedOn :: Lude.Maybe Lude.Timestamp,
+    maxConcurrentRuns :: Lude.Maybe Lude.Int,
+    defaultRunProperties ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    name :: Lude.Maybe Lude.Text,
+    lastRun :: Lude.Maybe WorkflowRun,
+    description :: Lude.Maybe Lude.Text,
+    createdOn :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Workflow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wGraph' - The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
---
--- * 'wLastModifiedOn' - The date and time when the workflow was last modified.
---
--- * 'wMaxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
---
--- * 'wDefaultRunProperties' - A collection of properties to be used as part of each execution of the workflow.
---
--- * 'wName' - The name of the workflow representing the flow.
---
--- * 'wLastRun' - The information about the last execution of the workflow.
---
--- * 'wDescription' - A description of the workflow.
---
--- * 'wCreatedOn' - The date and time when the workflow was created.
-workflow ::
+-- * 'createdOn' - The date and time when the workflow was created.
+-- * 'defaultRunProperties' - A collection of properties to be used as part of each execution of the workflow.
+-- * 'description' - A description of the workflow.
+-- * 'graph' - The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
+-- * 'lastModifiedOn' - The date and time when the workflow was last modified.
+-- * 'lastRun' - The information about the last execution of the workflow.
+-- * 'maxConcurrentRuns' - You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
+-- * 'name' - The name of the workflow representing the flow.
+mkWorkflow ::
   Workflow
-workflow =
+mkWorkflow =
   Workflow'
-    { _wGraph = Nothing,
-      _wLastModifiedOn = Nothing,
-      _wMaxConcurrentRuns = Nothing,
-      _wDefaultRunProperties = Nothing,
-      _wName = Nothing,
-      _wLastRun = Nothing,
-      _wDescription = Nothing,
-      _wCreatedOn = Nothing
+    { graph = Lude.Nothing,
+      lastModifiedOn = Lude.Nothing,
+      maxConcurrentRuns = Lude.Nothing,
+      defaultRunProperties = Lude.Nothing,
+      name = Lude.Nothing,
+      lastRun = Lude.Nothing,
+      description = Lude.Nothing,
+      createdOn = Lude.Nothing
     }
 
 -- | The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
-wGraph :: Lens' Workflow (Maybe WorkflowGraph)
-wGraph = lens _wGraph (\s a -> s {_wGraph = a})
+--
+-- /Note:/ Consider using 'graph' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wGraph :: Lens.Lens' Workflow (Lude.Maybe WorkflowGraph)
+wGraph = Lens.lens (graph :: Workflow -> Lude.Maybe WorkflowGraph) (\s a -> s {graph = a} :: Workflow)
+{-# DEPRECATED wGraph "Use generic-lens or generic-optics with 'graph' instead." #-}
 
 -- | The date and time when the workflow was last modified.
-wLastModifiedOn :: Lens' Workflow (Maybe UTCTime)
-wLastModifiedOn = lens _wLastModifiedOn (\s a -> s {_wLastModifiedOn = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wLastModifiedOn :: Lens.Lens' Workflow (Lude.Maybe Lude.Timestamp)
+wLastModifiedOn = Lens.lens (lastModifiedOn :: Workflow -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedOn = a} :: Workflow)
+{-# DEPRECATED wLastModifiedOn "Use generic-lens or generic-optics with 'lastModifiedOn' instead." #-}
 
 -- | You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-wMaxConcurrentRuns :: Lens' Workflow (Maybe Int)
-wMaxConcurrentRuns = lens _wMaxConcurrentRuns (\s a -> s {_wMaxConcurrentRuns = a})
+--
+-- /Note:/ Consider using 'maxConcurrentRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wMaxConcurrentRuns :: Lens.Lens' Workflow (Lude.Maybe Lude.Int)
+wMaxConcurrentRuns = Lens.lens (maxConcurrentRuns :: Workflow -> Lude.Maybe Lude.Int) (\s a -> s {maxConcurrentRuns = a} :: Workflow)
+{-# DEPRECATED wMaxConcurrentRuns "Use generic-lens or generic-optics with 'maxConcurrentRuns' instead." #-}
 
 -- | A collection of properties to be used as part of each execution of the workflow.
-wDefaultRunProperties :: Lens' Workflow (HashMap Text (Text))
-wDefaultRunProperties = lens _wDefaultRunProperties (\s a -> s {_wDefaultRunProperties = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'defaultRunProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wDefaultRunProperties :: Lens.Lens' Workflow (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+wDefaultRunProperties = Lens.lens (defaultRunProperties :: Workflow -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {defaultRunProperties = a} :: Workflow)
+{-# DEPRECATED wDefaultRunProperties "Use generic-lens or generic-optics with 'defaultRunProperties' instead." #-}
 
 -- | The name of the workflow representing the flow.
-wName :: Lens' Workflow (Maybe Text)
-wName = lens _wName (\s a -> s {_wName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wName :: Lens.Lens' Workflow (Lude.Maybe Lude.Text)
+wName = Lens.lens (name :: Workflow -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Workflow)
+{-# DEPRECATED wName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The information about the last execution of the workflow.
-wLastRun :: Lens' Workflow (Maybe WorkflowRun)
-wLastRun = lens _wLastRun (\s a -> s {_wLastRun = a})
+--
+-- /Note:/ Consider using 'lastRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wLastRun :: Lens.Lens' Workflow (Lude.Maybe WorkflowRun)
+wLastRun = Lens.lens (lastRun :: Workflow -> Lude.Maybe WorkflowRun) (\s a -> s {lastRun = a} :: Workflow)
+{-# DEPRECATED wLastRun "Use generic-lens or generic-optics with 'lastRun' instead." #-}
 
 -- | A description of the workflow.
-wDescription :: Lens' Workflow (Maybe Text)
-wDescription = lens _wDescription (\s a -> s {_wDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wDescription :: Lens.Lens' Workflow (Lude.Maybe Lude.Text)
+wDescription = Lens.lens (description :: Workflow -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Workflow)
+{-# DEPRECATED wDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The date and time when the workflow was created.
-wCreatedOn :: Lens' Workflow (Maybe UTCTime)
-wCreatedOn = lens _wCreatedOn (\s a -> s {_wCreatedOn = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wCreatedOn :: Lens.Lens' Workflow (Lude.Maybe Lude.Timestamp)
+wCreatedOn = Lens.lens (createdOn :: Workflow -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdOn = a} :: Workflow)
+{-# DEPRECATED wCreatedOn "Use generic-lens or generic-optics with 'createdOn' instead." #-}
 
-instance FromJSON Workflow where
+instance Lude.FromJSON Workflow where
   parseJSON =
-    withObject
+    Lude.withObject
       "Workflow"
       ( \x ->
           Workflow'
-            <$> (x .:? "Graph")
-            <*> (x .:? "LastModifiedOn")
-            <*> (x .:? "MaxConcurrentRuns")
-            <*> (x .:? "DefaultRunProperties" .!= mempty)
-            <*> (x .:? "Name")
-            <*> (x .:? "LastRun")
-            <*> (x .:? "Description")
-            <*> (x .:? "CreatedOn")
+            Lude.<$> (x Lude..:? "Graph")
+            Lude.<*> (x Lude..:? "LastModifiedOn")
+            Lude.<*> (x Lude..:? "MaxConcurrentRuns")
+            Lude.<*> (x Lude..:? "DefaultRunProperties" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "LastRun")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..:? "CreatedOn")
       )
-
-instance Hashable Workflow
-
-instance NFData Workflow

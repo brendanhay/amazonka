@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InstanceAssociation where
+module Network.AWS.SSM.Types.InstanceAssociation
+  ( InstanceAssociation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceAssociation,
+
+    -- * Lenses
+    iaAssociationId,
+    iaInstanceId,
+    iaContent,
+    iaAssociationVersion,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | One or more association documents on the instance.
 --
---
---
--- /See:/ 'instanceAssociation' smart constructor.
+-- /See:/ 'mkInstanceAssociation' smart constructor.
 data InstanceAssociation = InstanceAssociation'
-  { _iaAssociationId ::
-      !(Maybe Text),
-    _iaInstanceId :: !(Maybe Text),
-    _iaContent :: !(Maybe Text),
-    _iaAssociationVersion :: !(Maybe Text)
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    instanceId :: Lude.Maybe Lude.Text,
+    content :: Lude.Maybe Lude.Text,
+    associationVersion :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceAssociation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iaAssociationId' - The association ID.
---
--- * 'iaInstanceId' - The instance ID.
---
--- * 'iaContent' - The content of the association document for the instance(s).
---
--- * 'iaAssociationVersion' - Version information for the association on the instance.
-instanceAssociation ::
+-- * 'associationId' - The association ID.
+-- * 'associationVersion' - Version information for the association on the instance.
+-- * 'content' - The content of the association document for the instance(s).
+-- * 'instanceId' - The instance ID.
+mkInstanceAssociation ::
   InstanceAssociation
-instanceAssociation =
+mkInstanceAssociation =
   InstanceAssociation'
-    { _iaAssociationId = Nothing,
-      _iaInstanceId = Nothing,
-      _iaContent = Nothing,
-      _iaAssociationVersion = Nothing
+    { associationId = Lude.Nothing,
+      instanceId = Lude.Nothing,
+      content = Lude.Nothing,
+      associationVersion = Lude.Nothing
     }
 
 -- | The association ID.
-iaAssociationId :: Lens' InstanceAssociation (Maybe Text)
-iaAssociationId = lens _iaAssociationId (\s a -> s {_iaAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaAssociationId :: Lens.Lens' InstanceAssociation (Lude.Maybe Lude.Text)
+iaAssociationId = Lens.lens (associationId :: InstanceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: InstanceAssociation)
+{-# DEPRECATED iaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The instance ID.
-iaInstanceId :: Lens' InstanceAssociation (Maybe Text)
-iaInstanceId = lens _iaInstanceId (\s a -> s {_iaInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaInstanceId :: Lens.Lens' InstanceAssociation (Lude.Maybe Lude.Text)
+iaInstanceId = Lens.lens (instanceId :: InstanceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceAssociation)
+{-# DEPRECATED iaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The content of the association document for the instance(s).
-iaContent :: Lens' InstanceAssociation (Maybe Text)
-iaContent = lens _iaContent (\s a -> s {_iaContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaContent :: Lens.Lens' InstanceAssociation (Lude.Maybe Lude.Text)
+iaContent = Lens.lens (content :: InstanceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: InstanceAssociation)
+{-# DEPRECATED iaContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | Version information for the association on the instance.
-iaAssociationVersion :: Lens' InstanceAssociation (Maybe Text)
-iaAssociationVersion = lens _iaAssociationVersion (\s a -> s {_iaAssociationVersion = a})
+--
+-- /Note:/ Consider using 'associationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaAssociationVersion :: Lens.Lens' InstanceAssociation (Lude.Maybe Lude.Text)
+iaAssociationVersion = Lens.lens (associationVersion :: InstanceAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationVersion = a} :: InstanceAssociation)
+{-# DEPRECATED iaAssociationVersion "Use generic-lens or generic-optics with 'associationVersion' instead." #-}
 
-instance FromJSON InstanceAssociation where
+instance Lude.FromJSON InstanceAssociation where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceAssociation"
       ( \x ->
           InstanceAssociation'
-            <$> (x .:? "AssociationId")
-            <*> (x .:? "InstanceId")
-            <*> (x .:? "Content")
-            <*> (x .:? "AssociationVersion")
+            Lude.<$> (x Lude..:? "AssociationId")
+            Lude.<*> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "Content")
+            Lude.<*> (x Lude..:? "AssociationVersion")
       )
-
-instance Hashable InstanceAssociation
-
-instance NFData InstanceAssociation

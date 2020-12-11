@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,103 @@
 --
 -- Deletes an alias for the specified bot.
 --
---
 -- You can't delete an alias that is used in the association between a bot and a messaging channel. If an alias is used in a channel association, the @DeleteBot@ operation returns a @ResourceInUseException@ exception that includes a reference to the channel association that refers to the bot. You can remove the reference to the alias by deleting the channel association. If you get the same exception again, delete the referring association until the @DeleteBotAlias@ operation is successful.
 module Network.AWS.LexModels.DeleteBotAlias
-  ( -- * Creating a Request
-    deleteBotAlias,
-    DeleteBotAlias,
+  ( -- * Creating a request
+    DeleteBotAlias (..),
+    mkDeleteBotAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbaName,
     dbaBotName,
 
-    -- * Destructuring the Response
-    deleteBotAliasResponse,
-    DeleteBotAliasResponse,
+    -- * Destructuring the response
+    DeleteBotAliasResponse (..),
+    mkDeleteBotAliasResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteBotAlias' smart constructor.
+-- | /See:/ 'mkDeleteBotAlias' smart constructor.
 data DeleteBotAlias = DeleteBotAlias'
-  { _dbaName :: !Text,
-    _dbaBotName :: !Text
+  { name :: Lude.Text,
+    botName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBotAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbaName' - The name of the alias to delete. The name is case sensitive.
---
--- * 'dbaBotName' - The name of the bot that the alias points to.
-deleteBotAlias ::
-  -- | 'dbaName'
-  Text ->
-  -- | 'dbaBotName'
-  Text ->
+-- * 'botName' - The name of the bot that the alias points to.
+-- * 'name' - The name of the alias to delete. The name is case sensitive.
+mkDeleteBotAlias ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'botName'
+  Lude.Text ->
   DeleteBotAlias
-deleteBotAlias pName_ pBotName_ =
-  DeleteBotAlias' {_dbaName = pName_, _dbaBotName = pBotName_}
+mkDeleteBotAlias pName_ pBotName_ =
+  DeleteBotAlias' {name = pName_, botName = pBotName_}
 
 -- | The name of the alias to delete. The name is case sensitive.
-dbaName :: Lens' DeleteBotAlias Text
-dbaName = lens _dbaName (\s a -> s {_dbaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbaName :: Lens.Lens' DeleteBotAlias Lude.Text
+dbaName = Lens.lens (name :: DeleteBotAlias -> Lude.Text) (\s a -> s {name = a} :: DeleteBotAlias)
+{-# DEPRECATED dbaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The name of the bot that the alias points to.
-dbaBotName :: Lens' DeleteBotAlias Text
-dbaBotName = lens _dbaBotName (\s a -> s {_dbaBotName = a})
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbaBotName :: Lens.Lens' DeleteBotAlias Lude.Text
+dbaBotName = Lens.lens (botName :: DeleteBotAlias -> Lude.Text) (\s a -> s {botName = a} :: DeleteBotAlias)
+{-# DEPRECATED dbaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
-instance AWSRequest DeleteBotAlias where
+instance Lude.AWSRequest DeleteBotAlias where
   type Rs DeleteBotAlias = DeleteBotAliasResponse
-  request = delete lexModels
-  response = receiveNull DeleteBotAliasResponse'
+  request = Req.delete lexModelsService
+  response = Res.receiveNull DeleteBotAliasResponse'
 
-instance Hashable DeleteBotAlias
-
-instance NFData DeleteBotAlias
-
-instance ToHeaders DeleteBotAlias where
+instance Lude.ToHeaders DeleteBotAlias where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteBotAlias where
+instance Lude.ToPath DeleteBotAlias where
   toPath DeleteBotAlias' {..} =
-    mconcat ["/bots/", toBS _dbaBotName, "/aliases/", toBS _dbaName]
+    Lude.mconcat
+      ["/bots/", Lude.toBS botName, "/aliases/", Lude.toBS name]
 
-instance ToQuery DeleteBotAlias where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteBotAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteBotAliasResponse' smart constructor.
+-- | /See:/ 'mkDeleteBotAliasResponse' smart constructor.
 data DeleteBotAliasResponse = DeleteBotAliasResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBotAliasResponse' with the minimum fields required to make a request.
-deleteBotAliasResponse ::
+mkDeleteBotAliasResponse ::
   DeleteBotAliasResponse
-deleteBotAliasResponse = DeleteBotAliasResponse'
-
-instance NFData DeleteBotAliasResponse
+mkDeleteBotAliasResponse = DeleteBotAliasResponse'

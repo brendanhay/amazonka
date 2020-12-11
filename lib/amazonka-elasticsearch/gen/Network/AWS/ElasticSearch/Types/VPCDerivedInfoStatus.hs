@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus where
+module Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus
+  ( VPCDerivedInfoStatus (..),
+
+    -- * Smart constructor
+    mkVPCDerivedInfoStatus,
+
+    -- * Lenses
+    vdisOptions,
+    vdisStatus,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import Network.AWS.ElasticSearch.Types.VPCDerivedInfo
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status of the VPC options for the specified Elasticsearch domain.
 --
---
---
--- /See:/ 'vpcDerivedInfoStatus' smart constructor.
+-- /See:/ 'mkVPCDerivedInfoStatus' smart constructor.
 data VPCDerivedInfoStatus = VPCDerivedInfoStatus'
-  { _vdisOptions ::
-      !VPCDerivedInfo,
-    _vdisStatus :: !OptionStatus
+  { options ::
+      VPCDerivedInfo,
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCDerivedInfoStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vdisOptions' - Specifies the VPC options for the specified Elasticsearch domain.
---
--- * 'vdisStatus' - Specifies the status of the VPC options for the specified Elasticsearch domain.
-vpcDerivedInfoStatus ::
-  -- | 'vdisOptions'
+-- * 'options' - Specifies the VPC options for the specified Elasticsearch domain.
+-- * 'status' - Specifies the status of the VPC options for the specified Elasticsearch domain.
+mkVPCDerivedInfoStatus ::
+  -- | 'options'
   VPCDerivedInfo ->
-  -- | 'vdisStatus'
+  -- | 'status'
   OptionStatus ->
   VPCDerivedInfoStatus
-vpcDerivedInfoStatus pOptions_ pStatus_ =
-  VPCDerivedInfoStatus'
-    { _vdisOptions = pOptions_,
-      _vdisStatus = pStatus_
-    }
+mkVPCDerivedInfoStatus pOptions_ pStatus_ =
+  VPCDerivedInfoStatus' {options = pOptions_, status = pStatus_}
 
 -- | Specifies the VPC options for the specified Elasticsearch domain.
-vdisOptions :: Lens' VPCDerivedInfoStatus VPCDerivedInfo
-vdisOptions = lens _vdisOptions (\s a -> s {_vdisOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdisOptions :: Lens.Lens' VPCDerivedInfoStatus VPCDerivedInfo
+vdisOptions = Lens.lens (options :: VPCDerivedInfoStatus -> VPCDerivedInfo) (\s a -> s {options = a} :: VPCDerivedInfoStatus)
+{-# DEPRECATED vdisOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Specifies the status of the VPC options for the specified Elasticsearch domain.
-vdisStatus :: Lens' VPCDerivedInfoStatus OptionStatus
-vdisStatus = lens _vdisStatus (\s a -> s {_vdisStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdisStatus :: Lens.Lens' VPCDerivedInfoStatus OptionStatus
+vdisStatus = Lens.lens (status :: VPCDerivedInfoStatus -> OptionStatus) (\s a -> s {status = a} :: VPCDerivedInfoStatus)
+{-# DEPRECATED vdisStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON VPCDerivedInfoStatus where
+instance Lude.FromJSON VPCDerivedInfoStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "VPCDerivedInfoStatus"
       ( \x ->
-          VPCDerivedInfoStatus' <$> (x .: "Options") <*> (x .: "Status")
+          VPCDerivedInfoStatus'
+            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
       )
-
-instance Hashable VPCDerivedInfoStatus
-
-instance NFData VPCDerivedInfoStatus

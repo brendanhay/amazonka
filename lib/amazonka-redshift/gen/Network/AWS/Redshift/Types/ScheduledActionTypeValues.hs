@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ScheduledActionTypeValues where
+module Network.AWS.Redshift.Types.ScheduledActionTypeValues
+  ( ScheduledActionTypeValues
+      ( ScheduledActionTypeValues',
+        PauseCluster,
+        ResizeCluster,
+        ResumeCluster
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data ScheduledActionTypeValues
-  = PauseCluster
-  | ResizeCluster
-  | ResumeCluster
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScheduledActionTypeValues = ScheduledActionTypeValues' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScheduledActionTypeValues where
-  parser =
-    takeLowerText >>= \case
-      "pausecluster" -> pure PauseCluster
-      "resizecluster" -> pure ResizeCluster
-      "resumecluster" -> pure ResumeCluster
-      e ->
-        fromTextError $
-          "Failure parsing ScheduledActionTypeValues from value: '" <> e
-            <> "'. Accepted values: pausecluster, resizecluster, resumecluster"
+pattern PauseCluster :: ScheduledActionTypeValues
+pattern PauseCluster = ScheduledActionTypeValues' "PauseCluster"
 
-instance ToText ScheduledActionTypeValues where
-  toText = \case
-    PauseCluster -> "PauseCluster"
-    ResizeCluster -> "ResizeCluster"
-    ResumeCluster -> "ResumeCluster"
+pattern ResizeCluster :: ScheduledActionTypeValues
+pattern ResizeCluster = ScheduledActionTypeValues' "ResizeCluster"
 
-instance Hashable ScheduledActionTypeValues
+pattern ResumeCluster :: ScheduledActionTypeValues
+pattern ResumeCluster = ScheduledActionTypeValues' "ResumeCluster"
 
-instance NFData ScheduledActionTypeValues
-
-instance ToByteString ScheduledActionTypeValues
-
-instance ToQuery ScheduledActionTypeValues
-
-instance ToHeader ScheduledActionTypeValues
+{-# COMPLETE
+  PauseCluster,
+  ResizeCluster,
+  ResumeCluster,
+  ScheduledActionTypeValues'
+  #-}

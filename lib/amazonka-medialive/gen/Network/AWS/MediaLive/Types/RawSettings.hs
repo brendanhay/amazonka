@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,28 +7,40 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.RawSettings where
+module Network.AWS.MediaLive.Types.RawSettings
+  ( RawSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRawSettings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Raw Settings
 --
--- /See:/ 'rawSettings' smart constructor.
+-- /See:/ 'mkRawSettings' smart constructor.
 data RawSettings = RawSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RawSettings' with the minimum fields required to make a request.
-rawSettings ::
+mkRawSettings ::
   RawSettings
-rawSettings = RawSettings'
+mkRawSettings = RawSettings'
 
-instance FromJSON RawSettings where
-  parseJSON = withObject "RawSettings" (\x -> pure RawSettings')
+instance Lude.FromJSON RawSettings where
+  parseJSON =
+    Lude.withObject "RawSettings" (\x -> Lude.pure RawSettings')
 
-instance Hashable RawSettings
-
-instance NFData RawSettings
-
-instance ToJSON RawSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON RawSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

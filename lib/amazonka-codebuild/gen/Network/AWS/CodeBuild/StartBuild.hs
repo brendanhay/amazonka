@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Starts running a build.
 module Network.AWS.CodeBuild.StartBuild
-  ( -- * Creating a Request
-    startBuild,
-    StartBuild,
+  ( -- * Creating a request
+    StartBuild (..),
+    mkStartBuild,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sbEncryptionKeyOverride,
     sbSourceLocationOverride,
     sbEnvironmentVariablesOverride,
@@ -56,393 +51,555 @@ module Network.AWS.CodeBuild.StartBuild
     sbSourceTypeOverride,
     sbProjectName,
 
-    -- * Destructuring the Response
-    startBuildResponse,
-    StartBuildResponse,
+    -- * Destructuring the response
+    StartBuildResponse (..),
+    mkStartBuildResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsBuild,
     srsResponseStatus,
   )
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startBuild' smart constructor.
+-- | /See:/ 'mkStartBuild' smart constructor.
 data StartBuild = StartBuild'
-  { _sbEncryptionKeyOverride ::
-      !(Maybe Text),
-    _sbSourceLocationOverride :: !(Maybe Text),
-    _sbEnvironmentVariablesOverride :: !(Maybe [EnvironmentVariable]),
-    _sbBuildStatusConfigOverride :: !(Maybe BuildStatusConfig),
-    _sbIdempotencyToken :: !(Maybe Text),
-    _sbDebugSessionEnabled :: !(Maybe Bool),
-    _sbRegistryCredentialOverride :: !(Maybe RegistryCredential),
-    _sbTimeoutInMinutesOverride :: !(Maybe Nat),
-    _sbServiceRoleOverride :: !(Maybe Text),
-    _sbCacheOverride :: !(Maybe ProjectCache),
-    _sbQueuedTimeoutInMinutesOverride :: !(Maybe Nat),
-    _sbSecondarySourcesOverride :: !(Maybe [ProjectSource]),
-    _sbGitCloneDepthOverride :: !(Maybe Nat),
-    _sbImagePullCredentialsTypeOverride ::
-      !(Maybe ImagePullCredentialsType),
-    _sbLogsConfigOverride :: !(Maybe LogsConfig),
-    _sbSourceAuthOverride :: !(Maybe SourceAuth),
-    _sbGitSubmodulesConfigOverride :: !(Maybe GitSubmodulesConfig),
-    _sbEnvironmentTypeOverride :: !(Maybe EnvironmentType),
-    _sbCertificateOverride :: !(Maybe Text),
-    _sbComputeTypeOverride :: !(Maybe ComputeType),
-    _sbPrivilegedModeOverride :: !(Maybe Bool),
-    _sbSourceVersion :: !(Maybe Text),
-    _sbBuildspecOverride :: !(Maybe Text),
-    _sbSecondarySourcesVersionOverride ::
-      !(Maybe [ProjectSourceVersion]),
-    _sbReportBuildStatusOverride :: !(Maybe Bool),
-    _sbInsecureSSLOverride :: !(Maybe Bool),
-    _sbImageOverride :: !(Maybe Text),
-    _sbSecondaryArtifactsOverride :: !(Maybe [ProjectArtifacts]),
-    _sbArtifactsOverride :: !(Maybe ProjectArtifacts),
-    _sbSourceTypeOverride :: !(Maybe SourceType),
-    _sbProjectName :: !Text
+  { encryptionKeyOverride ::
+      Lude.Maybe Lude.Text,
+    sourceLocationOverride :: Lude.Maybe Lude.Text,
+    environmentVariablesOverride :: Lude.Maybe [EnvironmentVariable],
+    buildStatusConfigOverride :: Lude.Maybe BuildStatusConfig,
+    idempotencyToken :: Lude.Maybe Lude.Text,
+    debugSessionEnabled :: Lude.Maybe Lude.Bool,
+    registryCredentialOverride :: Lude.Maybe RegistryCredential,
+    timeoutInMinutesOverride :: Lude.Maybe Lude.Natural,
+    serviceRoleOverride :: Lude.Maybe Lude.Text,
+    cacheOverride :: Lude.Maybe ProjectCache,
+    queuedTimeoutInMinutesOverride :: Lude.Maybe Lude.Natural,
+    secondarySourcesOverride :: Lude.Maybe [ProjectSource],
+    gitCloneDepthOverride :: Lude.Maybe Lude.Natural,
+    imagePullCredentialsTypeOverride ::
+      Lude.Maybe ImagePullCredentialsType,
+    logsConfigOverride :: Lude.Maybe LogsConfig,
+    sourceAuthOverride :: Lude.Maybe SourceAuth,
+    gitSubmodulesConfigOverride :: Lude.Maybe GitSubmodulesConfig,
+    environmentTypeOverride :: Lude.Maybe EnvironmentType,
+    certificateOverride :: Lude.Maybe Lude.Text,
+    computeTypeOverride :: Lude.Maybe ComputeType,
+    privilegedModeOverride :: Lude.Maybe Lude.Bool,
+    sourceVersion :: Lude.Maybe Lude.Text,
+    buildspecOverride :: Lude.Maybe Lude.Text,
+    secondarySourcesVersionOverride ::
+      Lude.Maybe [ProjectSourceVersion],
+    reportBuildStatusOverride :: Lude.Maybe Lude.Bool,
+    insecureSSLOverride :: Lude.Maybe Lude.Bool,
+    imageOverride :: Lude.Maybe Lude.Text,
+    secondaryArtifactsOverride :: Lude.Maybe [ProjectArtifacts],
+    artifactsOverride :: Lude.Maybe ProjectArtifacts,
+    sourceTypeOverride :: Lude.Maybe SourceType,
+    projectName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBuild' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'artifactsOverride' - Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
+-- * 'buildStatusConfigOverride' - Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is @GITHUB@ , @GITHUB_ENTERPRISE@ , or @BITBUCKET@ .
+-- * 'buildspecOverride' - A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.
 --
--- * 'sbEncryptionKeyOverride' - The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+-- If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
+-- * 'cacheOverride' - A ProjectCache object specified for this build that overrides the one defined in the build project.
+-- * 'certificateOverride' - The name of a certificate for this build that overrides the one specified in the build project.
+-- * 'computeTypeOverride' - The name of a compute type for this build that overrides the one specified in the build project.
+-- * 'debugSessionEnabled' - Specifies if session debugging is enabled for this build. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager> .
+-- * 'encryptionKeyOverride' - The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.
 --
--- * 'sbSourceLocationOverride' - A location that overrides, for this build, the source location for the one defined in the build project.
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+-- * 'environmentTypeOverride' - A container type for this build that overrides the one specified in the build project.
+-- * 'environmentVariablesOverride' - A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.
+-- * 'gitCloneDepthOverride' - The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.
+-- * 'gitSubmodulesConfigOverride' - Information about the Git submodules configuration for this build of an AWS CodeBuild build project.
+-- * 'idempotencyToken' - A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild request. The token is included in the StartBuild request and is valid for 5 minutes. If you repeat the StartBuild request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
+-- * 'imageOverride' - The name of an image for this build that overrides the one specified in the build project.
+-- * 'imagePullCredentialsTypeOverride' - The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
 --
--- * 'sbEnvironmentVariablesOverride' - A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.
 --
--- * 'sbBuildStatusConfigOverride' - Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is @GITHUB@ , @GITHUB_ENTERPRISE@ , or @BITBUCKET@ .
+--     * CODEBUILD
 --
--- * 'sbIdempotencyToken' - A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild request. The token is included in the StartBuild request and is valid for 5 minutes. If you repeat the StartBuild request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
+--     * Specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild's service principal.
 --
--- * 'sbDebugSessionEnabled' - Specifies if session debugging is enabled for this build. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager> .
 --
--- * 'sbRegistryCredentialOverride' - The credentials for access to a private registry.
+--     * SERVICE_ROLE
 --
--- * 'sbTimeoutInMinutesOverride' - The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
+--     * Specifies that AWS CodeBuild uses your build project's service role.
 --
--- * 'sbServiceRoleOverride' - The name of a service role for this build that overrides the one specified in the build project.
 --
--- * 'sbCacheOverride' - A ProjectCache object specified for this build that overrides the one defined in the build project.
+-- When using a cross-account or private registry image, you must use @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image, you must use @CODEBUILD@ credentials.
+-- * 'insecureSSLOverride' - Enable this flag to override the insecure SSL setting that is specified in the build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
+-- * 'logsConfigOverride' - Log settings for this build that override the log settings defined in the build project.
+-- * 'privilegedModeOverride' - Enable this flag to override privileged mode in the build project.
+-- * 'projectName' - The name of the AWS CodeBuild build project to start running a build.
+-- * 'queuedTimeoutInMinutesOverride' - The number of minutes a build is allowed to be queued before it times out.
+-- * 'registryCredentialOverride' - The credentials for access to a private registry.
+-- * 'reportBuildStatusOverride' - Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown.
+-- * 'secondaryArtifactsOverride' - An array of @ProjectArtifacts@ objects.
+-- * 'secondarySourcesOverride' - An array of @ProjectSource@ objects.
+-- * 'secondarySourcesVersionOverride' - An array of @ProjectSourceVersion@ objects that specify one or more versions of the project's secondary sources to be used for this build only.
+-- * 'serviceRoleOverride' - The name of a service role for this build that overrides the one specified in the build project.
+-- * 'sourceAuthOverride' - An authorization type for this build that overrides the one defined in the build project. This override applies only if the build project's source is BitBucket or GitHub.
+-- * 'sourceLocationOverride' - A location that overrides, for this build, the source location for the one defined in the build project.
+-- * 'sourceTypeOverride' - A source input type, for this build, that overrides the source input defined in the build project.
+-- * 'sourceVersion' - The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:
 --
--- * 'sbQueuedTimeoutInMinutesOverride' - The number of minutes a build is allowed to be queued before it times out.
 --
--- * 'sbSecondarySourcesOverride' - An array of @ProjectSource@ objects.
+--     * AWS CodeCommit
 --
--- * 'sbGitCloneDepthOverride' - The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.
+--     * The commit ID, branch, or Git tag to use.
 --
--- * 'sbImagePullCredentialsTypeOverride' - The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:      * CODEBUILD    * Specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild's service principal.     * SERVICE_ROLE    * Specifies that AWS CodeBuild uses your build project's service role.  When using a cross-account or private registry image, you must use @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image, you must use @CODEBUILD@ credentials.
 --
--- * 'sbLogsConfigOverride' - Log settings for this build that override the log settings defined in the build project.
+--     * GitHub
 --
--- * 'sbSourceAuthOverride' - An authorization type for this build that overrides the one defined in the build project. This override applies only if the build project's source is BitBucket or GitHub.
+--     * The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
 --
--- * 'sbGitSubmodulesConfigOverride' - Information about the Git submodules configuration for this build of an AWS CodeBuild build project.
 --
--- * 'sbEnvironmentTypeOverride' - A container type for this build that overrides the one specified in the build project.
+--     * Bitbucket
 --
--- * 'sbCertificateOverride' - The name of a certificate for this build that overrides the one specified in the build project.
+--     * The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
 --
--- * 'sbComputeTypeOverride' - The name of a compute type for this build that overrides the one specified in the build project.
 --
--- * 'sbPrivilegedModeOverride' - Enable this flag to override privileged mode in the build project.
+--     * Amazon Simple Storage Service (Amazon S3)
 --
--- * 'sbSourceVersion' - The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:     * AWS CodeCommit    * The commit ID, branch, or Git tag to use.     * GitHub    * The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * Bitbucket    * The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * Amazon Simple Storage Service (Amazon S3)    * The version ID of the object that represents the build input ZIP file to use. If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.  For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+--     * The version ID of the object that represents the build input ZIP file to use.
 --
--- * 'sbBuildspecOverride' - A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project. If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
 --
--- * 'sbSecondarySourcesVersionOverride' - An array of @ProjectSourceVersion@ objects that specify one or more versions of the project's secondary sources to be used for this build only.
---
--- * 'sbReportBuildStatusOverride' - Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown.
---
--- * 'sbInsecureSSLOverride' - Enable this flag to override the insecure SSL setting that is specified in the build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
---
--- * 'sbImageOverride' - The name of an image for this build that overrides the one specified in the build project.
---
--- * 'sbSecondaryArtifactsOverride' - An array of @ProjectArtifacts@ objects.
---
--- * 'sbArtifactsOverride' - Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
---
--- * 'sbSourceTypeOverride' - A source input type, for this build, that overrides the source input defined in the build project.
---
--- * 'sbProjectName' - The name of the AWS CodeBuild build project to start running a build.
-startBuild ::
-  -- | 'sbProjectName'
-  Text ->
+-- If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.
+-- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+-- * 'timeoutInMinutesOverride' - The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
+mkStartBuild ::
+  -- | 'projectName'
+  Lude.Text ->
   StartBuild
-startBuild pProjectName_ =
+mkStartBuild pProjectName_ =
   StartBuild'
-    { _sbEncryptionKeyOverride = Nothing,
-      _sbSourceLocationOverride = Nothing,
-      _sbEnvironmentVariablesOverride = Nothing,
-      _sbBuildStatusConfigOverride = Nothing,
-      _sbIdempotencyToken = Nothing,
-      _sbDebugSessionEnabled = Nothing,
-      _sbRegistryCredentialOverride = Nothing,
-      _sbTimeoutInMinutesOverride = Nothing,
-      _sbServiceRoleOverride = Nothing,
-      _sbCacheOverride = Nothing,
-      _sbQueuedTimeoutInMinutesOverride = Nothing,
-      _sbSecondarySourcesOverride = Nothing,
-      _sbGitCloneDepthOverride = Nothing,
-      _sbImagePullCredentialsTypeOverride = Nothing,
-      _sbLogsConfigOverride = Nothing,
-      _sbSourceAuthOverride = Nothing,
-      _sbGitSubmodulesConfigOverride = Nothing,
-      _sbEnvironmentTypeOverride = Nothing,
-      _sbCertificateOverride = Nothing,
-      _sbComputeTypeOverride = Nothing,
-      _sbPrivilegedModeOverride = Nothing,
-      _sbSourceVersion = Nothing,
-      _sbBuildspecOverride = Nothing,
-      _sbSecondarySourcesVersionOverride = Nothing,
-      _sbReportBuildStatusOverride = Nothing,
-      _sbInsecureSSLOverride = Nothing,
-      _sbImageOverride = Nothing,
-      _sbSecondaryArtifactsOverride = Nothing,
-      _sbArtifactsOverride = Nothing,
-      _sbSourceTypeOverride = Nothing,
-      _sbProjectName = pProjectName_
+    { encryptionKeyOverride = Lude.Nothing,
+      sourceLocationOverride = Lude.Nothing,
+      environmentVariablesOverride = Lude.Nothing,
+      buildStatusConfigOverride = Lude.Nothing,
+      idempotencyToken = Lude.Nothing,
+      debugSessionEnabled = Lude.Nothing,
+      registryCredentialOverride = Lude.Nothing,
+      timeoutInMinutesOverride = Lude.Nothing,
+      serviceRoleOverride = Lude.Nothing,
+      cacheOverride = Lude.Nothing,
+      queuedTimeoutInMinutesOverride = Lude.Nothing,
+      secondarySourcesOverride = Lude.Nothing,
+      gitCloneDepthOverride = Lude.Nothing,
+      imagePullCredentialsTypeOverride = Lude.Nothing,
+      logsConfigOverride = Lude.Nothing,
+      sourceAuthOverride = Lude.Nothing,
+      gitSubmodulesConfigOverride = Lude.Nothing,
+      environmentTypeOverride = Lude.Nothing,
+      certificateOverride = Lude.Nothing,
+      computeTypeOverride = Lude.Nothing,
+      privilegedModeOverride = Lude.Nothing,
+      sourceVersion = Lude.Nothing,
+      buildspecOverride = Lude.Nothing,
+      secondarySourcesVersionOverride = Lude.Nothing,
+      reportBuildStatusOverride = Lude.Nothing,
+      insecureSSLOverride = Lude.Nothing,
+      imageOverride = Lude.Nothing,
+      secondaryArtifactsOverride = Lude.Nothing,
+      artifactsOverride = Lude.Nothing,
+      sourceTypeOverride = Lude.Nothing,
+      projectName = pProjectName_
     }
 
--- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts. You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
-sbEncryptionKeyOverride :: Lens' StartBuild (Maybe Text)
-sbEncryptionKeyOverride = lens _sbEncryptionKeyOverride (\s a -> s {_sbEncryptionKeyOverride = a})
+-- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.
+--
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+--
+-- /Note:/ Consider using 'encryptionKeyOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbEncryptionKeyOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Text)
+sbEncryptionKeyOverride = Lens.lens (encryptionKeyOverride :: StartBuild -> Lude.Maybe Lude.Text) (\s a -> s {encryptionKeyOverride = a} :: StartBuild)
+{-# DEPRECATED sbEncryptionKeyOverride "Use generic-lens or generic-optics with 'encryptionKeyOverride' instead." #-}
 
 -- | A location that overrides, for this build, the source location for the one defined in the build project.
-sbSourceLocationOverride :: Lens' StartBuild (Maybe Text)
-sbSourceLocationOverride = lens _sbSourceLocationOverride (\s a -> s {_sbSourceLocationOverride = a})
+--
+-- /Note:/ Consider using 'sourceLocationOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbSourceLocationOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Text)
+sbSourceLocationOverride = Lens.lens (sourceLocationOverride :: StartBuild -> Lude.Maybe Lude.Text) (\s a -> s {sourceLocationOverride = a} :: StartBuild)
+{-# DEPRECATED sbSourceLocationOverride "Use generic-lens or generic-optics with 'sourceLocationOverride' instead." #-}
 
 -- | A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.
-sbEnvironmentVariablesOverride :: Lens' StartBuild [EnvironmentVariable]
-sbEnvironmentVariablesOverride = lens _sbEnvironmentVariablesOverride (\s a -> s {_sbEnvironmentVariablesOverride = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'environmentVariablesOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbEnvironmentVariablesOverride :: Lens.Lens' StartBuild (Lude.Maybe [EnvironmentVariable])
+sbEnvironmentVariablesOverride = Lens.lens (environmentVariablesOverride :: StartBuild -> Lude.Maybe [EnvironmentVariable]) (\s a -> s {environmentVariablesOverride = a} :: StartBuild)
+{-# DEPRECATED sbEnvironmentVariablesOverride "Use generic-lens or generic-optics with 'environmentVariablesOverride' instead." #-}
 
 -- | Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is @GITHUB@ , @GITHUB_ENTERPRISE@ , or @BITBUCKET@ .
-sbBuildStatusConfigOverride :: Lens' StartBuild (Maybe BuildStatusConfig)
-sbBuildStatusConfigOverride = lens _sbBuildStatusConfigOverride (\s a -> s {_sbBuildStatusConfigOverride = a})
+--
+-- /Note:/ Consider using 'buildStatusConfigOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbBuildStatusConfigOverride :: Lens.Lens' StartBuild (Lude.Maybe BuildStatusConfig)
+sbBuildStatusConfigOverride = Lens.lens (buildStatusConfigOverride :: StartBuild -> Lude.Maybe BuildStatusConfig) (\s a -> s {buildStatusConfigOverride = a} :: StartBuild)
+{-# DEPRECATED sbBuildStatusConfigOverride "Use generic-lens or generic-optics with 'buildStatusConfigOverride' instead." #-}
 
 -- | A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild request. The token is included in the StartBuild request and is valid for 5 minutes. If you repeat the StartBuild request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
-sbIdempotencyToken :: Lens' StartBuild (Maybe Text)
-sbIdempotencyToken = lens _sbIdempotencyToken (\s a -> s {_sbIdempotencyToken = a})
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbIdempotencyToken :: Lens.Lens' StartBuild (Lude.Maybe Lude.Text)
+sbIdempotencyToken = Lens.lens (idempotencyToken :: StartBuild -> Lude.Maybe Lude.Text) (\s a -> s {idempotencyToken = a} :: StartBuild)
+{-# DEPRECATED sbIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | Specifies if session debugging is enabled for this build. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager> .
-sbDebugSessionEnabled :: Lens' StartBuild (Maybe Bool)
-sbDebugSessionEnabled = lens _sbDebugSessionEnabled (\s a -> s {_sbDebugSessionEnabled = a})
+--
+-- /Note:/ Consider using 'debugSessionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbDebugSessionEnabled :: Lens.Lens' StartBuild (Lude.Maybe Lude.Bool)
+sbDebugSessionEnabled = Lens.lens (debugSessionEnabled :: StartBuild -> Lude.Maybe Lude.Bool) (\s a -> s {debugSessionEnabled = a} :: StartBuild)
+{-# DEPRECATED sbDebugSessionEnabled "Use generic-lens or generic-optics with 'debugSessionEnabled' instead." #-}
 
 -- | The credentials for access to a private registry.
-sbRegistryCredentialOverride :: Lens' StartBuild (Maybe RegistryCredential)
-sbRegistryCredentialOverride = lens _sbRegistryCredentialOverride (\s a -> s {_sbRegistryCredentialOverride = a})
+--
+-- /Note:/ Consider using 'registryCredentialOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbRegistryCredentialOverride :: Lens.Lens' StartBuild (Lude.Maybe RegistryCredential)
+sbRegistryCredentialOverride = Lens.lens (registryCredentialOverride :: StartBuild -> Lude.Maybe RegistryCredential) (\s a -> s {registryCredentialOverride = a} :: StartBuild)
+{-# DEPRECATED sbRegistryCredentialOverride "Use generic-lens or generic-optics with 'registryCredentialOverride' instead." #-}
 
 -- | The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
-sbTimeoutInMinutesOverride :: Lens' StartBuild (Maybe Natural)
-sbTimeoutInMinutesOverride = lens _sbTimeoutInMinutesOverride (\s a -> s {_sbTimeoutInMinutesOverride = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'timeoutInMinutesOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbTimeoutInMinutesOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Natural)
+sbTimeoutInMinutesOverride = Lens.lens (timeoutInMinutesOverride :: StartBuild -> Lude.Maybe Lude.Natural) (\s a -> s {timeoutInMinutesOverride = a} :: StartBuild)
+{-# DEPRECATED sbTimeoutInMinutesOverride "Use generic-lens or generic-optics with 'timeoutInMinutesOverride' instead." #-}
 
 -- | The name of a service role for this build that overrides the one specified in the build project.
-sbServiceRoleOverride :: Lens' StartBuild (Maybe Text)
-sbServiceRoleOverride = lens _sbServiceRoleOverride (\s a -> s {_sbServiceRoleOverride = a})
+--
+-- /Note:/ Consider using 'serviceRoleOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbServiceRoleOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Text)
+sbServiceRoleOverride = Lens.lens (serviceRoleOverride :: StartBuild -> Lude.Maybe Lude.Text) (\s a -> s {serviceRoleOverride = a} :: StartBuild)
+{-# DEPRECATED sbServiceRoleOverride "Use generic-lens or generic-optics with 'serviceRoleOverride' instead." #-}
 
 -- | A ProjectCache object specified for this build that overrides the one defined in the build project.
-sbCacheOverride :: Lens' StartBuild (Maybe ProjectCache)
-sbCacheOverride = lens _sbCacheOverride (\s a -> s {_sbCacheOverride = a})
+--
+-- /Note:/ Consider using 'cacheOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbCacheOverride :: Lens.Lens' StartBuild (Lude.Maybe ProjectCache)
+sbCacheOverride = Lens.lens (cacheOverride :: StartBuild -> Lude.Maybe ProjectCache) (\s a -> s {cacheOverride = a} :: StartBuild)
+{-# DEPRECATED sbCacheOverride "Use generic-lens or generic-optics with 'cacheOverride' instead." #-}
 
 -- | The number of minutes a build is allowed to be queued before it times out.
-sbQueuedTimeoutInMinutesOverride :: Lens' StartBuild (Maybe Natural)
-sbQueuedTimeoutInMinutesOverride = lens _sbQueuedTimeoutInMinutesOverride (\s a -> s {_sbQueuedTimeoutInMinutesOverride = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'queuedTimeoutInMinutesOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbQueuedTimeoutInMinutesOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Natural)
+sbQueuedTimeoutInMinutesOverride = Lens.lens (queuedTimeoutInMinutesOverride :: StartBuild -> Lude.Maybe Lude.Natural) (\s a -> s {queuedTimeoutInMinutesOverride = a} :: StartBuild)
+{-# DEPRECATED sbQueuedTimeoutInMinutesOverride "Use generic-lens or generic-optics with 'queuedTimeoutInMinutesOverride' instead." #-}
 
 -- | An array of @ProjectSource@ objects.
-sbSecondarySourcesOverride :: Lens' StartBuild [ProjectSource]
-sbSecondarySourcesOverride = lens _sbSecondarySourcesOverride (\s a -> s {_sbSecondarySourcesOverride = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondarySourcesOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbSecondarySourcesOverride :: Lens.Lens' StartBuild (Lude.Maybe [ProjectSource])
+sbSecondarySourcesOverride = Lens.lens (secondarySourcesOverride :: StartBuild -> Lude.Maybe [ProjectSource]) (\s a -> s {secondarySourcesOverride = a} :: StartBuild)
+{-# DEPRECATED sbSecondarySourcesOverride "Use generic-lens or generic-optics with 'secondarySourcesOverride' instead." #-}
 
 -- | The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.
-sbGitCloneDepthOverride :: Lens' StartBuild (Maybe Natural)
-sbGitCloneDepthOverride = lens _sbGitCloneDepthOverride (\s a -> s {_sbGitCloneDepthOverride = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'gitCloneDepthOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbGitCloneDepthOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Natural)
+sbGitCloneDepthOverride = Lens.lens (gitCloneDepthOverride :: StartBuild -> Lude.Maybe Lude.Natural) (\s a -> s {gitCloneDepthOverride = a} :: StartBuild)
+{-# DEPRECATED sbGitCloneDepthOverride "Use generic-lens or generic-optics with 'gitCloneDepthOverride' instead." #-}
 
--- | The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:      * CODEBUILD    * Specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild's service principal.     * SERVICE_ROLE    * Specifies that AWS CodeBuild uses your build project's service role.  When using a cross-account or private registry image, you must use @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image, you must use @CODEBUILD@ credentials.
-sbImagePullCredentialsTypeOverride :: Lens' StartBuild (Maybe ImagePullCredentialsType)
-sbImagePullCredentialsTypeOverride = lens _sbImagePullCredentialsTypeOverride (\s a -> s {_sbImagePullCredentialsTypeOverride = a})
+-- | The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
+--
+--
+--     * CODEBUILD
+--
+--     * Specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild's service principal.
+--
+--
+--     * SERVICE_ROLE
+--
+--     * Specifies that AWS CodeBuild uses your build project's service role.
+--
+--
+-- When using a cross-account or private registry image, you must use @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image, you must use @CODEBUILD@ credentials.
+--
+-- /Note:/ Consider using 'imagePullCredentialsTypeOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbImagePullCredentialsTypeOverride :: Lens.Lens' StartBuild (Lude.Maybe ImagePullCredentialsType)
+sbImagePullCredentialsTypeOverride = Lens.lens (imagePullCredentialsTypeOverride :: StartBuild -> Lude.Maybe ImagePullCredentialsType) (\s a -> s {imagePullCredentialsTypeOverride = a} :: StartBuild)
+{-# DEPRECATED sbImagePullCredentialsTypeOverride "Use generic-lens or generic-optics with 'imagePullCredentialsTypeOverride' instead." #-}
 
 -- | Log settings for this build that override the log settings defined in the build project.
-sbLogsConfigOverride :: Lens' StartBuild (Maybe LogsConfig)
-sbLogsConfigOverride = lens _sbLogsConfigOverride (\s a -> s {_sbLogsConfigOverride = a})
+--
+-- /Note:/ Consider using 'logsConfigOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbLogsConfigOverride :: Lens.Lens' StartBuild (Lude.Maybe LogsConfig)
+sbLogsConfigOverride = Lens.lens (logsConfigOverride :: StartBuild -> Lude.Maybe LogsConfig) (\s a -> s {logsConfigOverride = a} :: StartBuild)
+{-# DEPRECATED sbLogsConfigOverride "Use generic-lens or generic-optics with 'logsConfigOverride' instead." #-}
 
 -- | An authorization type for this build that overrides the one defined in the build project. This override applies only if the build project's source is BitBucket or GitHub.
-sbSourceAuthOverride :: Lens' StartBuild (Maybe SourceAuth)
-sbSourceAuthOverride = lens _sbSourceAuthOverride (\s a -> s {_sbSourceAuthOverride = a})
+--
+-- /Note:/ Consider using 'sourceAuthOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbSourceAuthOverride :: Lens.Lens' StartBuild (Lude.Maybe SourceAuth)
+sbSourceAuthOverride = Lens.lens (sourceAuthOverride :: StartBuild -> Lude.Maybe SourceAuth) (\s a -> s {sourceAuthOverride = a} :: StartBuild)
+{-# DEPRECATED sbSourceAuthOverride "Use generic-lens or generic-optics with 'sourceAuthOverride' instead." #-}
 
 -- | Information about the Git submodules configuration for this build of an AWS CodeBuild build project.
-sbGitSubmodulesConfigOverride :: Lens' StartBuild (Maybe GitSubmodulesConfig)
-sbGitSubmodulesConfigOverride = lens _sbGitSubmodulesConfigOverride (\s a -> s {_sbGitSubmodulesConfigOverride = a})
+--
+-- /Note:/ Consider using 'gitSubmodulesConfigOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbGitSubmodulesConfigOverride :: Lens.Lens' StartBuild (Lude.Maybe GitSubmodulesConfig)
+sbGitSubmodulesConfigOverride = Lens.lens (gitSubmodulesConfigOverride :: StartBuild -> Lude.Maybe GitSubmodulesConfig) (\s a -> s {gitSubmodulesConfigOverride = a} :: StartBuild)
+{-# DEPRECATED sbGitSubmodulesConfigOverride "Use generic-lens or generic-optics with 'gitSubmodulesConfigOverride' instead." #-}
 
 -- | A container type for this build that overrides the one specified in the build project.
-sbEnvironmentTypeOverride :: Lens' StartBuild (Maybe EnvironmentType)
-sbEnvironmentTypeOverride = lens _sbEnvironmentTypeOverride (\s a -> s {_sbEnvironmentTypeOverride = a})
+--
+-- /Note:/ Consider using 'environmentTypeOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbEnvironmentTypeOverride :: Lens.Lens' StartBuild (Lude.Maybe EnvironmentType)
+sbEnvironmentTypeOverride = Lens.lens (environmentTypeOverride :: StartBuild -> Lude.Maybe EnvironmentType) (\s a -> s {environmentTypeOverride = a} :: StartBuild)
+{-# DEPRECATED sbEnvironmentTypeOverride "Use generic-lens or generic-optics with 'environmentTypeOverride' instead." #-}
 
 -- | The name of a certificate for this build that overrides the one specified in the build project.
-sbCertificateOverride :: Lens' StartBuild (Maybe Text)
-sbCertificateOverride = lens _sbCertificateOverride (\s a -> s {_sbCertificateOverride = a})
+--
+-- /Note:/ Consider using 'certificateOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbCertificateOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Text)
+sbCertificateOverride = Lens.lens (certificateOverride :: StartBuild -> Lude.Maybe Lude.Text) (\s a -> s {certificateOverride = a} :: StartBuild)
+{-# DEPRECATED sbCertificateOverride "Use generic-lens or generic-optics with 'certificateOverride' instead." #-}
 
 -- | The name of a compute type for this build that overrides the one specified in the build project.
-sbComputeTypeOverride :: Lens' StartBuild (Maybe ComputeType)
-sbComputeTypeOverride = lens _sbComputeTypeOverride (\s a -> s {_sbComputeTypeOverride = a})
+--
+-- /Note:/ Consider using 'computeTypeOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbComputeTypeOverride :: Lens.Lens' StartBuild (Lude.Maybe ComputeType)
+sbComputeTypeOverride = Lens.lens (computeTypeOverride :: StartBuild -> Lude.Maybe ComputeType) (\s a -> s {computeTypeOverride = a} :: StartBuild)
+{-# DEPRECATED sbComputeTypeOverride "Use generic-lens or generic-optics with 'computeTypeOverride' instead." #-}
 
 -- | Enable this flag to override privileged mode in the build project.
-sbPrivilegedModeOverride :: Lens' StartBuild (Maybe Bool)
-sbPrivilegedModeOverride = lens _sbPrivilegedModeOverride (\s a -> s {_sbPrivilegedModeOverride = a})
+--
+-- /Note:/ Consider using 'privilegedModeOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbPrivilegedModeOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Bool)
+sbPrivilegedModeOverride = Lens.lens (privilegedModeOverride :: StartBuild -> Lude.Maybe Lude.Bool) (\s a -> s {privilegedModeOverride = a} :: StartBuild)
+{-# DEPRECATED sbPrivilegedModeOverride "Use generic-lens or generic-optics with 'privilegedModeOverride' instead." #-}
 
--- | The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:     * AWS CodeCommit    * The commit ID, branch, or Git tag to use.     * GitHub    * The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * Bitbucket    * The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.     * Amazon Simple Storage Service (Amazon S3)    * The version ID of the object that represents the build input ZIP file to use. If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.  For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
-sbSourceVersion :: Lens' StartBuild (Maybe Text)
-sbSourceVersion = lens _sbSourceVersion (\s a -> s {_sbSourceVersion = a})
+-- | The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:
+--
+--
+--     * AWS CodeCommit
+--
+--     * The commit ID, branch, or Git tag to use.
+--
+--
+--     * GitHub
+--
+--     * The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+--
+--
+--     * Bitbucket
+--
+--     * The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+--
+--
+--     * Amazon Simple Storage Service (Amazon S3)
+--
+--     * The version ID of the object that represents the build input ZIP file to use.
+--
+--
+-- If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.
+-- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+--
+-- /Note:/ Consider using 'sourceVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbSourceVersion :: Lens.Lens' StartBuild (Lude.Maybe Lude.Text)
+sbSourceVersion = Lens.lens (sourceVersion :: StartBuild -> Lude.Maybe Lude.Text) (\s a -> s {sourceVersion = a} :: StartBuild)
+{-# DEPRECATED sbSourceVersion "Use generic-lens or generic-optics with 'sourceVersion' instead." #-}
 
--- | A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project. If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
-sbBuildspecOverride :: Lens' StartBuild (Maybe Text)
-sbBuildspecOverride = lens _sbBuildspecOverride (\s a -> s {_sbBuildspecOverride = a})
+-- | A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.
+--
+-- If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
+--
+-- /Note:/ Consider using 'buildspecOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbBuildspecOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Text)
+sbBuildspecOverride = Lens.lens (buildspecOverride :: StartBuild -> Lude.Maybe Lude.Text) (\s a -> s {buildspecOverride = a} :: StartBuild)
+{-# DEPRECATED sbBuildspecOverride "Use generic-lens or generic-optics with 'buildspecOverride' instead." #-}
 
 -- | An array of @ProjectSourceVersion@ objects that specify one or more versions of the project's secondary sources to be used for this build only.
-sbSecondarySourcesVersionOverride :: Lens' StartBuild [ProjectSourceVersion]
-sbSecondarySourcesVersionOverride = lens _sbSecondarySourcesVersionOverride (\s a -> s {_sbSecondarySourcesVersionOverride = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondarySourcesVersionOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbSecondarySourcesVersionOverride :: Lens.Lens' StartBuild (Lude.Maybe [ProjectSourceVersion])
+sbSecondarySourcesVersionOverride = Lens.lens (secondarySourcesVersionOverride :: StartBuild -> Lude.Maybe [ProjectSourceVersion]) (\s a -> s {secondarySourcesVersionOverride = a} :: StartBuild)
+{-# DEPRECATED sbSecondarySourcesVersionOverride "Use generic-lens or generic-optics with 'secondarySourcesVersionOverride' instead." #-}
 
 -- | Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown.
-sbReportBuildStatusOverride :: Lens' StartBuild (Maybe Bool)
-sbReportBuildStatusOverride = lens _sbReportBuildStatusOverride (\s a -> s {_sbReportBuildStatusOverride = a})
+--
+-- /Note:/ Consider using 'reportBuildStatusOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbReportBuildStatusOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Bool)
+sbReportBuildStatusOverride = Lens.lens (reportBuildStatusOverride :: StartBuild -> Lude.Maybe Lude.Bool) (\s a -> s {reportBuildStatusOverride = a} :: StartBuild)
+{-# DEPRECATED sbReportBuildStatusOverride "Use generic-lens or generic-optics with 'reportBuildStatusOverride' instead." #-}
 
 -- | Enable this flag to override the insecure SSL setting that is specified in the build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
-sbInsecureSSLOverride :: Lens' StartBuild (Maybe Bool)
-sbInsecureSSLOverride = lens _sbInsecureSSLOverride (\s a -> s {_sbInsecureSSLOverride = a})
+--
+-- /Note:/ Consider using 'insecureSSLOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbInsecureSSLOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Bool)
+sbInsecureSSLOverride = Lens.lens (insecureSSLOverride :: StartBuild -> Lude.Maybe Lude.Bool) (\s a -> s {insecureSSLOverride = a} :: StartBuild)
+{-# DEPRECATED sbInsecureSSLOverride "Use generic-lens or generic-optics with 'insecureSSLOverride' instead." #-}
 
 -- | The name of an image for this build that overrides the one specified in the build project.
-sbImageOverride :: Lens' StartBuild (Maybe Text)
-sbImageOverride = lens _sbImageOverride (\s a -> s {_sbImageOverride = a})
+--
+-- /Note:/ Consider using 'imageOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbImageOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Text)
+sbImageOverride = Lens.lens (imageOverride :: StartBuild -> Lude.Maybe Lude.Text) (\s a -> s {imageOverride = a} :: StartBuild)
+{-# DEPRECATED sbImageOverride "Use generic-lens or generic-optics with 'imageOverride' instead." #-}
 
 -- | An array of @ProjectArtifacts@ objects.
-sbSecondaryArtifactsOverride :: Lens' StartBuild [ProjectArtifacts]
-sbSecondaryArtifactsOverride = lens _sbSecondaryArtifactsOverride (\s a -> s {_sbSecondaryArtifactsOverride = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'secondaryArtifactsOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbSecondaryArtifactsOverride :: Lens.Lens' StartBuild (Lude.Maybe [ProjectArtifacts])
+sbSecondaryArtifactsOverride = Lens.lens (secondaryArtifactsOverride :: StartBuild -> Lude.Maybe [ProjectArtifacts]) (\s a -> s {secondaryArtifactsOverride = a} :: StartBuild)
+{-# DEPRECATED sbSecondaryArtifactsOverride "Use generic-lens or generic-optics with 'secondaryArtifactsOverride' instead." #-}
 
 -- | Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
-sbArtifactsOverride :: Lens' StartBuild (Maybe ProjectArtifacts)
-sbArtifactsOverride = lens _sbArtifactsOverride (\s a -> s {_sbArtifactsOverride = a})
+--
+-- /Note:/ Consider using 'artifactsOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbArtifactsOverride :: Lens.Lens' StartBuild (Lude.Maybe ProjectArtifacts)
+sbArtifactsOverride = Lens.lens (artifactsOverride :: StartBuild -> Lude.Maybe ProjectArtifacts) (\s a -> s {artifactsOverride = a} :: StartBuild)
+{-# DEPRECATED sbArtifactsOverride "Use generic-lens or generic-optics with 'artifactsOverride' instead." #-}
 
 -- | A source input type, for this build, that overrides the source input defined in the build project.
-sbSourceTypeOverride :: Lens' StartBuild (Maybe SourceType)
-sbSourceTypeOverride = lens _sbSourceTypeOverride (\s a -> s {_sbSourceTypeOverride = a})
+--
+-- /Note:/ Consider using 'sourceTypeOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbSourceTypeOverride :: Lens.Lens' StartBuild (Lude.Maybe SourceType)
+sbSourceTypeOverride = Lens.lens (sourceTypeOverride :: StartBuild -> Lude.Maybe SourceType) (\s a -> s {sourceTypeOverride = a} :: StartBuild)
+{-# DEPRECATED sbSourceTypeOverride "Use generic-lens or generic-optics with 'sourceTypeOverride' instead." #-}
 
 -- | The name of the AWS CodeBuild build project to start running a build.
-sbProjectName :: Lens' StartBuild Text
-sbProjectName = lens _sbProjectName (\s a -> s {_sbProjectName = a})
+--
+-- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbProjectName :: Lens.Lens' StartBuild Lude.Text
+sbProjectName = Lens.lens (projectName :: StartBuild -> Lude.Text) (\s a -> s {projectName = a} :: StartBuild)
+{-# DEPRECATED sbProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
 
-instance AWSRequest StartBuild where
+instance Lude.AWSRequest StartBuild where
   type Rs StartBuild = StartBuildResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          StartBuildResponse' <$> (x .?> "build") <*> (pure (fromEnum s))
+          StartBuildResponse'
+            Lude.<$> (x Lude..?> "build") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartBuild
-
-instance NFData StartBuild
-
-instance ToHeaders StartBuild where
+instance Lude.ToHeaders StartBuild where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("CodeBuild_20161006.StartBuild" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("CodeBuild_20161006.StartBuild" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartBuild where
+instance Lude.ToJSON StartBuild where
   toJSON StartBuild' {..} =
-    object
-      ( catMaybes
-          [ ("encryptionKeyOverride" .=) <$> _sbEncryptionKeyOverride,
-            ("sourceLocationOverride" .=) <$> _sbSourceLocationOverride,
-            ("environmentVariablesOverride" .=)
-              <$> _sbEnvironmentVariablesOverride,
-            ("buildStatusConfigOverride" .=) <$> _sbBuildStatusConfigOverride,
-            ("idempotencyToken" .=) <$> _sbIdempotencyToken,
-            ("debugSessionEnabled" .=) <$> _sbDebugSessionEnabled,
-            ("registryCredentialOverride" .=)
-              <$> _sbRegistryCredentialOverride,
-            ("timeoutInMinutesOverride" .=) <$> _sbTimeoutInMinutesOverride,
-            ("serviceRoleOverride" .=) <$> _sbServiceRoleOverride,
-            ("cacheOverride" .=) <$> _sbCacheOverride,
-            ("queuedTimeoutInMinutesOverride" .=)
-              <$> _sbQueuedTimeoutInMinutesOverride,
-            ("secondarySourcesOverride" .=) <$> _sbSecondarySourcesOverride,
-            ("gitCloneDepthOverride" .=) <$> _sbGitCloneDepthOverride,
-            ("imagePullCredentialsTypeOverride" .=)
-              <$> _sbImagePullCredentialsTypeOverride,
-            ("logsConfigOverride" .=) <$> _sbLogsConfigOverride,
-            ("sourceAuthOverride" .=) <$> _sbSourceAuthOverride,
-            ("gitSubmodulesConfigOverride" .=)
-              <$> _sbGitSubmodulesConfigOverride,
-            ("environmentTypeOverride" .=) <$> _sbEnvironmentTypeOverride,
-            ("certificateOverride" .=) <$> _sbCertificateOverride,
-            ("computeTypeOverride" .=) <$> _sbComputeTypeOverride,
-            ("privilegedModeOverride" .=) <$> _sbPrivilegedModeOverride,
-            ("sourceVersion" .=) <$> _sbSourceVersion,
-            ("buildspecOverride" .=) <$> _sbBuildspecOverride,
-            ("secondarySourcesVersionOverride" .=)
-              <$> _sbSecondarySourcesVersionOverride,
-            ("reportBuildStatusOverride" .=) <$> _sbReportBuildStatusOverride,
-            ("insecureSslOverride" .=) <$> _sbInsecureSSLOverride,
-            ("imageOverride" .=) <$> _sbImageOverride,
-            ("secondaryArtifactsOverride" .=)
-              <$> _sbSecondaryArtifactsOverride,
-            ("artifactsOverride" .=) <$> _sbArtifactsOverride,
-            ("sourceTypeOverride" .=) <$> _sbSourceTypeOverride,
-            Just ("projectName" .= _sbProjectName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("encryptionKeyOverride" Lude..=) Lude.<$> encryptionKeyOverride,
+            ("sourceLocationOverride" Lude..=) Lude.<$> sourceLocationOverride,
+            ("environmentVariablesOverride" Lude..=)
+              Lude.<$> environmentVariablesOverride,
+            ("buildStatusConfigOverride" Lude..=)
+              Lude.<$> buildStatusConfigOverride,
+            ("idempotencyToken" Lude..=) Lude.<$> idempotencyToken,
+            ("debugSessionEnabled" Lude..=) Lude.<$> debugSessionEnabled,
+            ("registryCredentialOverride" Lude..=)
+              Lude.<$> registryCredentialOverride,
+            ("timeoutInMinutesOverride" Lude..=)
+              Lude.<$> timeoutInMinutesOverride,
+            ("serviceRoleOverride" Lude..=) Lude.<$> serviceRoleOverride,
+            ("cacheOverride" Lude..=) Lude.<$> cacheOverride,
+            ("queuedTimeoutInMinutesOverride" Lude..=)
+              Lude.<$> queuedTimeoutInMinutesOverride,
+            ("secondarySourcesOverride" Lude..=)
+              Lude.<$> secondarySourcesOverride,
+            ("gitCloneDepthOverride" Lude..=) Lude.<$> gitCloneDepthOverride,
+            ("imagePullCredentialsTypeOverride" Lude..=)
+              Lude.<$> imagePullCredentialsTypeOverride,
+            ("logsConfigOverride" Lude..=) Lude.<$> logsConfigOverride,
+            ("sourceAuthOverride" Lude..=) Lude.<$> sourceAuthOverride,
+            ("gitSubmodulesConfigOverride" Lude..=)
+              Lude.<$> gitSubmodulesConfigOverride,
+            ("environmentTypeOverride" Lude..=)
+              Lude.<$> environmentTypeOverride,
+            ("certificateOverride" Lude..=) Lude.<$> certificateOverride,
+            ("computeTypeOverride" Lude..=) Lude.<$> computeTypeOverride,
+            ("privilegedModeOverride" Lude..=) Lude.<$> privilegedModeOverride,
+            ("sourceVersion" Lude..=) Lude.<$> sourceVersion,
+            ("buildspecOverride" Lude..=) Lude.<$> buildspecOverride,
+            ("secondarySourcesVersionOverride" Lude..=)
+              Lude.<$> secondarySourcesVersionOverride,
+            ("reportBuildStatusOverride" Lude..=)
+              Lude.<$> reportBuildStatusOverride,
+            ("insecureSslOverride" Lude..=) Lude.<$> insecureSSLOverride,
+            ("imageOverride" Lude..=) Lude.<$> imageOverride,
+            ("secondaryArtifactsOverride" Lude..=)
+              Lude.<$> secondaryArtifactsOverride,
+            ("artifactsOverride" Lude..=) Lude.<$> artifactsOverride,
+            ("sourceTypeOverride" Lude..=) Lude.<$> sourceTypeOverride,
+            Lude.Just ("projectName" Lude..= projectName)
           ]
       )
 
-instance ToPath StartBuild where
-  toPath = const "/"
+instance Lude.ToPath StartBuild where
+  toPath = Lude.const "/"
 
-instance ToQuery StartBuild where
-  toQuery = const mempty
+instance Lude.ToQuery StartBuild where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startBuildResponse' smart constructor.
+-- | /See:/ 'mkStartBuildResponse' smart constructor.
 data StartBuildResponse = StartBuildResponse'
-  { _srsBuild ::
-      !(Maybe Build),
-    _srsResponseStatus :: !Int
+  { build ::
+      Lude.Maybe Build,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBuildResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsBuild' - Information about the build to be run.
---
--- * 'srsResponseStatus' - -- | The response status code.
-startBuildResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'build' - Information about the build to be run.
+-- * 'responseStatus' - The response status code.
+mkStartBuildResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartBuildResponse
-startBuildResponse pResponseStatus_ =
+mkStartBuildResponse pResponseStatus_ =
   StartBuildResponse'
-    { _srsBuild = Nothing,
-      _srsResponseStatus = pResponseStatus_
+    { build = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the build to be run.
-srsBuild :: Lens' StartBuildResponse (Maybe Build)
-srsBuild = lens _srsBuild (\s a -> s {_srsBuild = a})
+--
+-- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsBuild :: Lens.Lens' StartBuildResponse (Lude.Maybe Build)
+srsBuild = Lens.lens (build :: StartBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: StartBuildResponse)
+{-# DEPRECATED srsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StartBuildResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StartBuildResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StartBuildResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StartBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartBuildResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

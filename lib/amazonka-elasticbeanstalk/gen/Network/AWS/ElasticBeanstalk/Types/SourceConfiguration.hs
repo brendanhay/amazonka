@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.SourceConfiguration where
+module Network.AWS.ElasticBeanstalk.Types.SourceConfiguration
+  ( SourceConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSourceConfiguration,
+
+    -- * Lenses
+    scTemplateName,
+    scApplicationName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A specification for an environment configuration.
 --
---
---
--- /See:/ 'sourceConfiguration' smart constructor.
+-- /See:/ 'mkSourceConfiguration' smart constructor.
 data SourceConfiguration = SourceConfiguration'
-  { _scTemplateName ::
-      !(Maybe Text),
-    _scApplicationName :: !(Maybe Text)
+  { templateName ::
+      Lude.Maybe Lude.Text,
+    applicationName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'scTemplateName' - The name of the configuration template.
---
--- * 'scApplicationName' - The name of the application associated with the configuration.
-sourceConfiguration ::
+-- * 'applicationName' - The name of the application associated with the configuration.
+-- * 'templateName' - The name of the configuration template.
+mkSourceConfiguration ::
   SourceConfiguration
-sourceConfiguration =
+mkSourceConfiguration =
   SourceConfiguration'
-    { _scTemplateName = Nothing,
-      _scApplicationName = Nothing
+    { templateName = Lude.Nothing,
+      applicationName = Lude.Nothing
     }
 
 -- | The name of the configuration template.
-scTemplateName :: Lens' SourceConfiguration (Maybe Text)
-scTemplateName = lens _scTemplateName (\s a -> s {_scTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scTemplateName :: Lens.Lens' SourceConfiguration (Lude.Maybe Lude.Text)
+scTemplateName = Lens.lens (templateName :: SourceConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: SourceConfiguration)
+{-# DEPRECATED scTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The name of the application associated with the configuration.
-scApplicationName :: Lens' SourceConfiguration (Maybe Text)
-scApplicationName = lens _scApplicationName (\s a -> s {_scApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scApplicationName :: Lens.Lens' SourceConfiguration (Lude.Maybe Lude.Text)
+scApplicationName = Lens.lens (applicationName :: SourceConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: SourceConfiguration)
+{-# DEPRECATED scApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance Hashable SourceConfiguration
-
-instance NFData SourceConfiguration
-
-instance ToQuery SourceConfiguration where
+instance Lude.ToQuery SourceConfiguration where
   toQuery SourceConfiguration' {..} =
-    mconcat
-      [ "TemplateName" =: _scTemplateName,
-        "ApplicationName" =: _scApplicationName
+    Lude.mconcat
+      [ "TemplateName" Lude.=: templateName,
+        "ApplicationName" Lude.=: applicationName
       ]

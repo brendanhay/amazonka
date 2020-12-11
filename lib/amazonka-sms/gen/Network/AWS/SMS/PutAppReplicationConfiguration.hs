@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,143 @@
 --
 -- Creates or updates the replication configuration for the specified application.
 module Network.AWS.SMS.PutAppReplicationConfiguration
-  ( -- * Creating a Request
-    putAppReplicationConfiguration,
-    PutAppReplicationConfiguration,
+  ( -- * Creating a request
+    PutAppReplicationConfiguration (..),
+    mkPutAppReplicationConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     parcAppId,
     parcServerGroupReplicationConfigurations,
 
-    -- * Destructuring the Response
-    putAppReplicationConfigurationResponse,
-    PutAppReplicationConfigurationResponse,
+    -- * Destructuring the response
+    PutAppReplicationConfigurationResponse (..),
+    mkPutAppReplicationConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     parcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'putAppReplicationConfiguration' smart constructor.
+-- | /See:/ 'mkPutAppReplicationConfiguration' smart constructor.
 data PutAppReplicationConfiguration = PutAppReplicationConfiguration'
-  { _parcAppId ::
-      !(Maybe Text),
-    _parcServerGroupReplicationConfigurations ::
-      !( Maybe
-           [ServerGroupReplicationConfiguration]
-       )
+  { appId ::
+      Lude.Maybe Lude.Text,
+    serverGroupReplicationConfigurations ::
+      Lude.Maybe
+        [ServerGroupReplicationConfiguration]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAppReplicationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'parcAppId' - The ID of the application.
---
--- * 'parcServerGroupReplicationConfigurations' - Information about the replication configurations for server groups in the application.
-putAppReplicationConfiguration ::
+-- * 'appId' - The ID of the application.
+-- * 'serverGroupReplicationConfigurations' - Information about the replication configurations for server groups in the application.
+mkPutAppReplicationConfiguration ::
   PutAppReplicationConfiguration
-putAppReplicationConfiguration =
+mkPutAppReplicationConfiguration =
   PutAppReplicationConfiguration'
-    { _parcAppId = Nothing,
-      _parcServerGroupReplicationConfigurations = Nothing
+    { appId = Lude.Nothing,
+      serverGroupReplicationConfigurations = Lude.Nothing
     }
 
 -- | The ID of the application.
-parcAppId :: Lens' PutAppReplicationConfiguration (Maybe Text)
-parcAppId = lens _parcAppId (\s a -> s {_parcAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parcAppId :: Lens.Lens' PutAppReplicationConfiguration (Lude.Maybe Lude.Text)
+parcAppId = Lens.lens (appId :: PutAppReplicationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: PutAppReplicationConfiguration)
+{-# DEPRECATED parcAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
 -- | Information about the replication configurations for server groups in the application.
-parcServerGroupReplicationConfigurations :: Lens' PutAppReplicationConfiguration [ServerGroupReplicationConfiguration]
-parcServerGroupReplicationConfigurations = lens _parcServerGroupReplicationConfigurations (\s a -> s {_parcServerGroupReplicationConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverGroupReplicationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parcServerGroupReplicationConfigurations :: Lens.Lens' PutAppReplicationConfiguration (Lude.Maybe [ServerGroupReplicationConfiguration])
+parcServerGroupReplicationConfigurations = Lens.lens (serverGroupReplicationConfigurations :: PutAppReplicationConfiguration -> Lude.Maybe [ServerGroupReplicationConfiguration]) (\s a -> s {serverGroupReplicationConfigurations = a} :: PutAppReplicationConfiguration)
+{-# DEPRECATED parcServerGroupReplicationConfigurations "Use generic-lens or generic-optics with 'serverGroupReplicationConfigurations' instead." #-}
 
-instance AWSRequest PutAppReplicationConfiguration where
+instance Lude.AWSRequest PutAppReplicationConfiguration where
   type
     Rs PutAppReplicationConfiguration =
       PutAppReplicationConfigurationResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          PutAppReplicationConfigurationResponse' <$> (pure (fromEnum s))
+          PutAppReplicationConfigurationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutAppReplicationConfiguration
-
-instance NFData PutAppReplicationConfiguration
-
-instance ToHeaders PutAppReplicationConfiguration where
+instance Lude.ToHeaders PutAppReplicationConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutAppReplicationConfiguration where
+instance Lude.ToJSON PutAppReplicationConfiguration where
   toJSON PutAppReplicationConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("appId" .=) <$> _parcAppId,
-            ("serverGroupReplicationConfigurations" .=)
-              <$> _parcServerGroupReplicationConfigurations
+    Lude.object
+      ( Lude.catMaybes
+          [ ("appId" Lude..=) Lude.<$> appId,
+            ("serverGroupReplicationConfigurations" Lude..=)
+              Lude.<$> serverGroupReplicationConfigurations
           ]
       )
 
-instance ToPath PutAppReplicationConfiguration where
-  toPath = const "/"
+instance Lude.ToPath PutAppReplicationConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery PutAppReplicationConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery PutAppReplicationConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putAppReplicationConfigurationResponse' smart constructor.
+-- | /See:/ 'mkPutAppReplicationConfigurationResponse' smart constructor.
 newtype PutAppReplicationConfigurationResponse = PutAppReplicationConfigurationResponse'
-  { _parcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAppReplicationConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'parcrsResponseStatus' - -- | The response status code.
-putAppReplicationConfigurationResponse ::
-  -- | 'parcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutAppReplicationConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutAppReplicationConfigurationResponse
-putAppReplicationConfigurationResponse pResponseStatus_ =
+mkPutAppReplicationConfigurationResponse pResponseStatus_ =
   PutAppReplicationConfigurationResponse'
-    { _parcrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-parcrsResponseStatus :: Lens' PutAppReplicationConfigurationResponse Int
-parcrsResponseStatus = lens _parcrsResponseStatus (\s a -> s {_parcrsResponseStatus = a})
-
-instance NFData PutAppReplicationConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parcrsResponseStatus :: Lens.Lens' PutAppReplicationConfigurationResponse Lude.Int
+parcrsResponseStatus = Lens.lens (responseStatus :: PutAppReplicationConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAppReplicationConfigurationResponse)
+{-# DEPRECATED parcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

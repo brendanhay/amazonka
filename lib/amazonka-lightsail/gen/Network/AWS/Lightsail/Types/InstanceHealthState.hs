@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.InstanceHealthState where
+module Network.AWS.Lightsail.Types.InstanceHealthState
+  ( InstanceHealthState
+      ( InstanceHealthState',
+        Draining,
+        Healthy,
+        Initial,
+        Unavailable,
+        Unhealthy,
+        Unused
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceHealthState
-  = Draining
-  | Healthy
-  | Initial
-  | Unavailable
-  | Unhealthy
-  | Unused
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceHealthState = InstanceHealthState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceHealthState where
-  parser =
-    takeLowerText >>= \case
-      "draining" -> pure Draining
-      "healthy" -> pure Healthy
-      "initial" -> pure Initial
-      "unavailable" -> pure Unavailable
-      "unhealthy" -> pure Unhealthy
-      "unused" -> pure Unused
-      e ->
-        fromTextError $
-          "Failure parsing InstanceHealthState from value: '" <> e
-            <> "'. Accepted values: draining, healthy, initial, unavailable, unhealthy, unused"
+pattern Draining :: InstanceHealthState
+pattern Draining = InstanceHealthState' "draining"
 
-instance ToText InstanceHealthState where
-  toText = \case
-    Draining -> "draining"
-    Healthy -> "healthy"
-    Initial -> "initial"
-    Unavailable -> "unavailable"
-    Unhealthy -> "unhealthy"
-    Unused -> "unused"
+pattern Healthy :: InstanceHealthState
+pattern Healthy = InstanceHealthState' "healthy"
 
-instance Hashable InstanceHealthState
+pattern Initial :: InstanceHealthState
+pattern Initial = InstanceHealthState' "initial"
 
-instance NFData InstanceHealthState
+pattern Unavailable :: InstanceHealthState
+pattern Unavailable = InstanceHealthState' "unavailable"
 
-instance ToByteString InstanceHealthState
+pattern Unhealthy :: InstanceHealthState
+pattern Unhealthy = InstanceHealthState' "unhealthy"
 
-instance ToQuery InstanceHealthState
+pattern Unused :: InstanceHealthState
+pattern Unused = InstanceHealthState' "unused"
 
-instance ToHeader InstanceHealthState
-
-instance FromJSON InstanceHealthState where
-  parseJSON = parseJSONText "InstanceHealthState"
+{-# COMPLETE
+  Draining,
+  Healthy,
+  Initial,
+  Unavailable,
+  Unhealthy,
+  Unused,
+  InstanceHealthState'
+  #-}

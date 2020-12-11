@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Returns information about comments made on the comparison between two commits.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeCommit.GetCommentsForComparedCommit
-  ( -- * Creating a Request
-    getCommentsForComparedCommit,
-    GetCommentsForComparedCommit,
+  ( -- * Creating a request
+    GetCommentsForComparedCommit (..),
+    mkGetCommentsForComparedCommit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcfccNextToken,
     gcfccBeforeCommitId,
     gcfccMaxResults,
     gcfccRepositoryName,
     gcfccAfterCommitId,
 
-    -- * Destructuring the Response
-    getCommentsForComparedCommitResponse,
-    GetCommentsForComparedCommitResponse,
+    -- * Destructuring the response
+    GetCommentsForComparedCommitResponse (..),
+    mkGetCommentsForComparedCommitResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcfccrsCommentsForComparedCommitData,
     gcfccrsNextToken,
     gcfccrsResponseStatus,
@@ -46,168 +39,197 @@ module Network.AWS.CodeCommit.GetCommentsForComparedCommit
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCommentsForComparedCommit' smart constructor.
+-- | /See:/ 'mkGetCommentsForComparedCommit' smart constructor.
 data GetCommentsForComparedCommit = GetCommentsForComparedCommit'
-  { _gcfccNextToken ::
-      !(Maybe Text),
-    _gcfccBeforeCommitId ::
-      !(Maybe Text),
-    _gcfccMaxResults :: !(Maybe Int),
-    _gcfccRepositoryName :: !Text,
-    _gcfccAfterCommitId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    beforeCommitId ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    repositoryName :: Lude.Text,
+    afterCommitId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommentsForComparedCommit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcfccNextToken' - An enumeration token that when provided in a request, returns the next batch of the results.
---
--- * 'gcfccBeforeCommitId' - To establish the directionality of the comparison, the full commit ID of the before commit.
---
--- * 'gcfccMaxResults' - A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500.
---
--- * 'gcfccRepositoryName' - The name of the repository where you want to compare commits.
---
--- * 'gcfccAfterCommitId' - To establish the directionality of the comparison, the full commit ID of the after commit.
-getCommentsForComparedCommit ::
-  -- | 'gcfccRepositoryName'
-  Text ->
-  -- | 'gcfccAfterCommitId'
-  Text ->
+-- * 'afterCommitId' - To establish the directionality of the comparison, the full commit ID of the after commit.
+-- * 'beforeCommitId' - To establish the directionality of the comparison, the full commit ID of the before commit.
+-- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500.
+-- * 'nextToken' - An enumeration token that when provided in a request, returns the next batch of the results.
+-- * 'repositoryName' - The name of the repository where you want to compare commits.
+mkGetCommentsForComparedCommit ::
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'afterCommitId'
+  Lude.Text ->
   GetCommentsForComparedCommit
-getCommentsForComparedCommit pRepositoryName_ pAfterCommitId_ =
+mkGetCommentsForComparedCommit pRepositoryName_ pAfterCommitId_ =
   GetCommentsForComparedCommit'
-    { _gcfccNextToken = Nothing,
-      _gcfccBeforeCommitId = Nothing,
-      _gcfccMaxResults = Nothing,
-      _gcfccRepositoryName = pRepositoryName_,
-      _gcfccAfterCommitId = pAfterCommitId_
+    { nextToken = Lude.Nothing,
+      beforeCommitId = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      repositoryName = pRepositoryName_,
+      afterCommitId = pAfterCommitId_
     }
 
 -- | An enumeration token that when provided in a request, returns the next batch of the results.
-gcfccNextToken :: Lens' GetCommentsForComparedCommit (Maybe Text)
-gcfccNextToken = lens _gcfccNextToken (\s a -> s {_gcfccNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccNextToken :: Lens.Lens' GetCommentsForComparedCommit (Lude.Maybe Lude.Text)
+gcfccNextToken = Lens.lens (nextToken :: GetCommentsForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCommentsForComparedCommit)
+{-# DEPRECATED gcfccNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | To establish the directionality of the comparison, the full commit ID of the before commit.
-gcfccBeforeCommitId :: Lens' GetCommentsForComparedCommit (Maybe Text)
-gcfccBeforeCommitId = lens _gcfccBeforeCommitId (\s a -> s {_gcfccBeforeCommitId = a})
+--
+-- /Note:/ Consider using 'beforeCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccBeforeCommitId :: Lens.Lens' GetCommentsForComparedCommit (Lude.Maybe Lude.Text)
+gcfccBeforeCommitId = Lens.lens (beforeCommitId :: GetCommentsForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {beforeCommitId = a} :: GetCommentsForComparedCommit)
+{-# DEPRECATED gcfccBeforeCommitId "Use generic-lens or generic-optics with 'beforeCommitId' instead." #-}
 
 -- | A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500.
-gcfccMaxResults :: Lens' GetCommentsForComparedCommit (Maybe Int)
-gcfccMaxResults = lens _gcfccMaxResults (\s a -> s {_gcfccMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccMaxResults :: Lens.Lens' GetCommentsForComparedCommit (Lude.Maybe Lude.Int)
+gcfccMaxResults = Lens.lens (maxResults :: GetCommentsForComparedCommit -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetCommentsForComparedCommit)
+{-# DEPRECATED gcfccMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the repository where you want to compare commits.
-gcfccRepositoryName :: Lens' GetCommentsForComparedCommit Text
-gcfccRepositoryName = lens _gcfccRepositoryName (\s a -> s {_gcfccRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccRepositoryName :: Lens.Lens' GetCommentsForComparedCommit Lude.Text
+gcfccRepositoryName = Lens.lens (repositoryName :: GetCommentsForComparedCommit -> Lude.Text) (\s a -> s {repositoryName = a} :: GetCommentsForComparedCommit)
+{-# DEPRECATED gcfccRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | To establish the directionality of the comparison, the full commit ID of the after commit.
-gcfccAfterCommitId :: Lens' GetCommentsForComparedCommit Text
-gcfccAfterCommitId = lens _gcfccAfterCommitId (\s a -> s {_gcfccAfterCommitId = a})
+--
+-- /Note:/ Consider using 'afterCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccAfterCommitId :: Lens.Lens' GetCommentsForComparedCommit Lude.Text
+gcfccAfterCommitId = Lens.lens (afterCommitId :: GetCommentsForComparedCommit -> Lude.Text) (\s a -> s {afterCommitId = a} :: GetCommentsForComparedCommit)
+{-# DEPRECATED gcfccAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
 
-instance AWSPager GetCommentsForComparedCommit where
+instance Page.AWSPager GetCommentsForComparedCommit where
   page rq rs
-    | stop (rs ^. gcfccrsNextToken) = Nothing
-    | stop (rs ^. gcfccrsCommentsForComparedCommitData) = Nothing
-    | otherwise = Just $ rq & gcfccNextToken .~ rs ^. gcfccrsNextToken
+    | Page.stop (rs Lens.^. gcfccrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gcfccrsCommentsForComparedCommitData) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gcfccNextToken Lens..~ rs Lens.^. gcfccrsNextToken
 
-instance AWSRequest GetCommentsForComparedCommit where
+instance Lude.AWSRequest GetCommentsForComparedCommit where
   type
     Rs GetCommentsForComparedCommit =
       GetCommentsForComparedCommitResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCommentsForComparedCommitResponse'
-            <$> (x .?> "commentsForComparedCommitData" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "commentsForComparedCommitData" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCommentsForComparedCommit
-
-instance NFData GetCommentsForComparedCommit
-
-instance ToHeaders GetCommentsForComparedCommit where
+instance Lude.ToHeaders GetCommentsForComparedCommit where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.GetCommentsForComparedCommit" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeCommit_20150413.GetCommentsForComparedCommit" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCommentsForComparedCommit where
+instance Lude.ToJSON GetCommentsForComparedCommit where
   toJSON GetCommentsForComparedCommit' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _gcfccNextToken,
-            ("beforeCommitId" .=) <$> _gcfccBeforeCommitId,
-            ("maxResults" .=) <$> _gcfccMaxResults,
-            Just ("repositoryName" .= _gcfccRepositoryName),
-            Just ("afterCommitId" .= _gcfccAfterCommitId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("beforeCommitId" Lude..=) Lude.<$> beforeCommitId,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("afterCommitId" Lude..= afterCommitId)
           ]
       )
 
-instance ToPath GetCommentsForComparedCommit where
-  toPath = const "/"
+instance Lude.ToPath GetCommentsForComparedCommit where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCommentsForComparedCommit where
-  toQuery = const mempty
+instance Lude.ToQuery GetCommentsForComparedCommit where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCommentsForComparedCommitResponse' smart constructor.
+-- | /See:/ 'mkGetCommentsForComparedCommitResponse' smart constructor.
 data GetCommentsForComparedCommitResponse = GetCommentsForComparedCommitResponse'
-  { _gcfccrsCommentsForComparedCommitData ::
-      !( Maybe
-           [CommentsForComparedCommit]
-       ),
-    _gcfccrsNextToken ::
-      !(Maybe Text),
-    _gcfccrsResponseStatus ::
-      !Int
+  { commentsForComparedCommitData ::
+      Lude.Maybe
+        [CommentsForComparedCommit],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommentsForComparedCommitResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcfccrsCommentsForComparedCommitData' - A list of comment objects on the compared commit.
---
--- * 'gcfccrsNextToken' - An enumeration token that can be used in a request to return the next batch of the results.
---
--- * 'gcfccrsResponseStatus' - -- | The response status code.
-getCommentsForComparedCommitResponse ::
-  -- | 'gcfccrsResponseStatus'
-  Int ->
+-- * 'commentsForComparedCommitData' - A list of comment objects on the compared commit.
+-- * 'nextToken' - An enumeration token that can be used in a request to return the next batch of the results.
+-- * 'responseStatus' - The response status code.
+mkGetCommentsForComparedCommitResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCommentsForComparedCommitResponse
-getCommentsForComparedCommitResponse pResponseStatus_ =
+mkGetCommentsForComparedCommitResponse pResponseStatus_ =
   GetCommentsForComparedCommitResponse'
-    { _gcfccrsCommentsForComparedCommitData =
-        Nothing,
-      _gcfccrsNextToken = Nothing,
-      _gcfccrsResponseStatus = pResponseStatus_
+    { commentsForComparedCommitData =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of comment objects on the compared commit.
-gcfccrsCommentsForComparedCommitData :: Lens' GetCommentsForComparedCommitResponse [CommentsForComparedCommit]
-gcfccrsCommentsForComparedCommitData = lens _gcfccrsCommentsForComparedCommitData (\s a -> s {_gcfccrsCommentsForComparedCommitData = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'commentsForComparedCommitData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccrsCommentsForComparedCommitData :: Lens.Lens' GetCommentsForComparedCommitResponse (Lude.Maybe [CommentsForComparedCommit])
+gcfccrsCommentsForComparedCommitData = Lens.lens (commentsForComparedCommitData :: GetCommentsForComparedCommitResponse -> Lude.Maybe [CommentsForComparedCommit]) (\s a -> s {commentsForComparedCommitData = a} :: GetCommentsForComparedCommitResponse)
+{-# DEPRECATED gcfccrsCommentsForComparedCommitData "Use generic-lens or generic-optics with 'commentsForComparedCommitData' instead." #-}
 
 -- | An enumeration token that can be used in a request to return the next batch of the results.
-gcfccrsNextToken :: Lens' GetCommentsForComparedCommitResponse (Maybe Text)
-gcfccrsNextToken = lens _gcfccrsNextToken (\s a -> s {_gcfccrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccrsNextToken :: Lens.Lens' GetCommentsForComparedCommitResponse (Lude.Maybe Lude.Text)
+gcfccrsNextToken = Lens.lens (nextToken :: GetCommentsForComparedCommitResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCommentsForComparedCommitResponse)
+{-# DEPRECATED gcfccrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gcfccrsResponseStatus :: Lens' GetCommentsForComparedCommitResponse Int
-gcfccrsResponseStatus = lens _gcfccrsResponseStatus (\s a -> s {_gcfccrsResponseStatus = a})
-
-instance NFData GetCommentsForComparedCommitResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccrsResponseStatus :: Lens.Lens' GetCommentsForComparedCommitResponse Lude.Int
+gcfccrsResponseStatus = Lens.lens (responseStatus :: GetCommentsForComparedCommitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCommentsForComparedCommitResponse)
+{-# DEPRECATED gcfccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

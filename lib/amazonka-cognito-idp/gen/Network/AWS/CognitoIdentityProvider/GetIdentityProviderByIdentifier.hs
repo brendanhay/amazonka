@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,161 @@
 --
 -- Gets the specified identity provider.
 module Network.AWS.CognitoIdentityProvider.GetIdentityProviderByIdentifier
-  ( -- * Creating a Request
-    getIdentityProviderByIdentifier,
-    GetIdentityProviderByIdentifier,
+  ( -- * Creating a request
+    GetIdentityProviderByIdentifier (..),
+    mkGetIdentityProviderByIdentifier,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gipbiUserPoolId,
     gipbiIdpIdentifier,
 
-    -- * Destructuring the Response
-    getIdentityProviderByIdentifierResponse,
-    GetIdentityProviderByIdentifierResponse,
+    -- * Destructuring the response
+    GetIdentityProviderByIdentifierResponse (..),
+    mkGetIdentityProviderByIdentifierResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gipbirsResponseStatus,
     gipbirsIdentityProvider,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getIdentityProviderByIdentifier' smart constructor.
+-- | /See:/ 'mkGetIdentityProviderByIdentifier' smart constructor.
 data GetIdentityProviderByIdentifier = GetIdentityProviderByIdentifier'
-  { _gipbiUserPoolId ::
-      !Text,
-    _gipbiIdpIdentifier ::
-      !Text
+  { userPoolId ::
+      Lude.Text,
+    idpIdentifier :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityProviderByIdentifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gipbiUserPoolId' - The user pool ID.
---
--- * 'gipbiIdpIdentifier' - The identity provider ID.
-getIdentityProviderByIdentifier ::
-  -- | 'gipbiUserPoolId'
-  Text ->
-  -- | 'gipbiIdpIdentifier'
-  Text ->
+-- * 'idpIdentifier' - The identity provider ID.
+-- * 'userPoolId' - The user pool ID.
+mkGetIdentityProviderByIdentifier ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'idpIdentifier'
+  Lude.Text ->
   GetIdentityProviderByIdentifier
-getIdentityProviderByIdentifier pUserPoolId_ pIdpIdentifier_ =
+mkGetIdentityProviderByIdentifier pUserPoolId_ pIdpIdentifier_ =
   GetIdentityProviderByIdentifier'
-    { _gipbiUserPoolId = pUserPoolId_,
-      _gipbiIdpIdentifier = pIdpIdentifier_
+    { userPoolId = pUserPoolId_,
+      idpIdentifier = pIdpIdentifier_
     }
 
 -- | The user pool ID.
-gipbiUserPoolId :: Lens' GetIdentityProviderByIdentifier Text
-gipbiUserPoolId = lens _gipbiUserPoolId (\s a -> s {_gipbiUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipbiUserPoolId :: Lens.Lens' GetIdentityProviderByIdentifier Lude.Text
+gipbiUserPoolId = Lens.lens (userPoolId :: GetIdentityProviderByIdentifier -> Lude.Text) (\s a -> s {userPoolId = a} :: GetIdentityProviderByIdentifier)
+{-# DEPRECATED gipbiUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identity provider ID.
-gipbiIdpIdentifier :: Lens' GetIdentityProviderByIdentifier Text
-gipbiIdpIdentifier = lens _gipbiIdpIdentifier (\s a -> s {_gipbiIdpIdentifier = a})
+--
+-- /Note:/ Consider using 'idpIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipbiIdpIdentifier :: Lens.Lens' GetIdentityProviderByIdentifier Lude.Text
+gipbiIdpIdentifier = Lens.lens (idpIdentifier :: GetIdentityProviderByIdentifier -> Lude.Text) (\s a -> s {idpIdentifier = a} :: GetIdentityProviderByIdentifier)
+{-# DEPRECATED gipbiIdpIdentifier "Use generic-lens or generic-optics with 'idpIdentifier' instead." #-}
 
-instance AWSRequest GetIdentityProviderByIdentifier where
+instance Lude.AWSRequest GetIdentityProviderByIdentifier where
   type
     Rs GetIdentityProviderByIdentifier =
       GetIdentityProviderByIdentifierResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetIdentityProviderByIdentifierResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "IdentityProvider")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "IdentityProvider")
       )
 
-instance Hashable GetIdentityProviderByIdentifier
-
-instance NFData GetIdentityProviderByIdentifier
-
-instance ToHeaders GetIdentityProviderByIdentifier where
+instance Lude.ToHeaders GetIdentityProviderByIdentifier where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetIdentityProviderByIdentifier where
+instance Lude.ToJSON GetIdentityProviderByIdentifier where
   toJSON GetIdentityProviderByIdentifier' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _gipbiUserPoolId),
-            Just ("IdpIdentifier" .= _gipbiIdpIdentifier)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("IdpIdentifier" Lude..= idpIdentifier)
           ]
       )
 
-instance ToPath GetIdentityProviderByIdentifier where
-  toPath = const "/"
+instance Lude.ToPath GetIdentityProviderByIdentifier where
+  toPath = Lude.const "/"
 
-instance ToQuery GetIdentityProviderByIdentifier where
-  toQuery = const mempty
+instance Lude.ToQuery GetIdentityProviderByIdentifier where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getIdentityProviderByIdentifierResponse' smart constructor.
+-- | /See:/ 'mkGetIdentityProviderByIdentifierResponse' smart constructor.
 data GetIdentityProviderByIdentifierResponse = GetIdentityProviderByIdentifierResponse'
-  { _gipbirsResponseStatus ::
-      !Int,
-    _gipbirsIdentityProvider ::
-      !IdentityProviderType
+  { responseStatus ::
+      Lude.Int,
+    identityProvider ::
+      IdentityProviderType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityProviderByIdentifierResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gipbirsResponseStatus' - -- | The response status code.
---
--- * 'gipbirsIdentityProvider' - The identity provider object.
-getIdentityProviderByIdentifierResponse ::
-  -- | 'gipbirsResponseStatus'
-  Int ->
-  -- | 'gipbirsIdentityProvider'
+-- * 'identityProvider' - The identity provider object.
+-- * 'responseStatus' - The response status code.
+mkGetIdentityProviderByIdentifierResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'identityProvider'
   IdentityProviderType ->
   GetIdentityProviderByIdentifierResponse
-getIdentityProviderByIdentifierResponse
+mkGetIdentityProviderByIdentifierResponse
   pResponseStatus_
   pIdentityProvider_ =
     GetIdentityProviderByIdentifierResponse'
-      { _gipbirsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _gipbirsIdentityProvider = pIdentityProvider_
+        identityProvider = pIdentityProvider_
       }
 
--- | -- | The response status code.
-gipbirsResponseStatus :: Lens' GetIdentityProviderByIdentifierResponse Int
-gipbirsResponseStatus = lens _gipbirsResponseStatus (\s a -> s {_gipbirsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipbirsResponseStatus :: Lens.Lens' GetIdentityProviderByIdentifierResponse Lude.Int
+gipbirsResponseStatus = Lens.lens (responseStatus :: GetIdentityProviderByIdentifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityProviderByIdentifierResponse)
+{-# DEPRECATED gipbirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The identity provider object.
-gipbirsIdentityProvider :: Lens' GetIdentityProviderByIdentifierResponse IdentityProviderType
-gipbirsIdentityProvider = lens _gipbirsIdentityProvider (\s a -> s {_gipbirsIdentityProvider = a})
-
-instance NFData GetIdentityProviderByIdentifierResponse
+--
+-- /Note:/ Consider using 'identityProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipbirsIdentityProvider :: Lens.Lens' GetIdentityProviderByIdentifierResponse IdentityProviderType
+gipbirsIdentityProvider = Lens.lens (identityProvider :: GetIdentityProviderByIdentifierResponse -> IdentityProviderType) (\s a -> s {identityProvider = a} :: GetIdentityProviderByIdentifierResponse)
+{-# DEPRECATED gipbirsIdentityProvider "Use generic-lens or generic-optics with 'identityProvider' instead." #-}

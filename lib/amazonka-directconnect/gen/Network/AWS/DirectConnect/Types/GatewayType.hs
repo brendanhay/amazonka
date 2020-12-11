@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.GatewayType where
+module Network.AWS.DirectConnect.Types.GatewayType
+  ( GatewayType
+      ( GatewayType',
+        TransitGateway,
+        VirtualPrivateGateway
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GatewayType
-  = TransitGateway
-  | VirtualPrivateGateway
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GatewayType = GatewayType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GatewayType where
-  parser =
-    takeLowerText >>= \case
-      "transitgateway" -> pure TransitGateway
-      "virtualprivategateway" -> pure VirtualPrivateGateway
-      e ->
-        fromTextError $
-          "Failure parsing GatewayType from value: '" <> e
-            <> "'. Accepted values: transitgateway, virtualprivategateway"
+pattern TransitGateway :: GatewayType
+pattern TransitGateway = GatewayType' "transitGateway"
 
-instance ToText GatewayType where
-  toText = \case
-    TransitGateway -> "transitGateway"
-    VirtualPrivateGateway -> "virtualPrivateGateway"
+pattern VirtualPrivateGateway :: GatewayType
+pattern VirtualPrivateGateway = GatewayType' "virtualPrivateGateway"
 
-instance Hashable GatewayType
-
-instance NFData GatewayType
-
-instance ToByteString GatewayType
-
-instance ToQuery GatewayType
-
-instance ToHeader GatewayType
-
-instance FromJSON GatewayType where
-  parseJSON = parseJSONText "GatewayType"
+{-# COMPLETE
+  TransitGateway,
+  VirtualPrivateGateway,
+  GatewayType'
+  #-}

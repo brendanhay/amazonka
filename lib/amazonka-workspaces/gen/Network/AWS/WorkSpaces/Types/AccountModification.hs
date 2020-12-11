@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,123 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.AccountModification where
+module Network.AWS.WorkSpaces.Types.AccountModification
+  ( AccountModification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAccountModification,
+
+    -- * Lenses
+    amStartTime,
+    amDedicatedTenancySupport,
+    amModificationState,
+    amDedicatedTenancyManagementCidrRange,
+    amErrorCode,
+    amErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
 import Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
 
 -- | Describes a modification to the configuration of Bring Your Own License (BYOL) for the specified account.
 --
---
---
--- /See:/ 'accountModification' smart constructor.
+-- /See:/ 'mkAccountModification' smart constructor.
 data AccountModification = AccountModification'
-  { _amStartTime ::
-      !(Maybe POSIX),
-    _amDedicatedTenancySupport ::
-      !(Maybe DedicatedTenancySupportResultEnum),
-    _amModificationState ::
-      !(Maybe DedicatedTenancyModificationStateEnum),
-    _amDedicatedTenancyManagementCidrRange ::
-      !(Maybe Text),
-    _amErrorCode :: !(Maybe Text),
-    _amErrorMessage :: !(Maybe Text)
+  { startTime ::
+      Lude.Maybe Lude.Timestamp,
+    dedicatedTenancySupport ::
+      Lude.Maybe DedicatedTenancySupportResultEnum,
+    modificationState ::
+      Lude.Maybe DedicatedTenancyModificationStateEnum,
+    dedicatedTenancyManagementCidrRange ::
+      Lude.Maybe Lude.Text,
+    errorCode :: Lude.Maybe Lude.Text,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountModification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amStartTime' - The timestamp when the modification of the BYOL configuration was started.
---
--- * 'amDedicatedTenancySupport' - The status of BYOL (whether BYOL is being enabled or disabled).
---
--- * 'amModificationState' - The state of the modification to the configuration of BYOL.
---
--- * 'amDedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the management network interface used for the account.
---
--- * 'amErrorCode' - The error code that is returned if the configuration of BYOL cannot be modified.
---
--- * 'amErrorMessage' - The text of the error message that is returned if the configuration of BYOL cannot be modified.
-accountModification ::
+-- * 'dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the management network interface used for the account.
+-- * 'dedicatedTenancySupport' - The status of BYOL (whether BYOL is being enabled or disabled).
+-- * 'errorCode' - The error code that is returned if the configuration of BYOL cannot be modified.
+-- * 'errorMessage' - The text of the error message that is returned if the configuration of BYOL cannot be modified.
+-- * 'modificationState' - The state of the modification to the configuration of BYOL.
+-- * 'startTime' - The timestamp when the modification of the BYOL configuration was started.
+mkAccountModification ::
   AccountModification
-accountModification =
+mkAccountModification =
   AccountModification'
-    { _amStartTime = Nothing,
-      _amDedicatedTenancySupport = Nothing,
-      _amModificationState = Nothing,
-      _amDedicatedTenancyManagementCidrRange = Nothing,
-      _amErrorCode = Nothing,
-      _amErrorMessage = Nothing
+    { startTime = Lude.Nothing,
+      dedicatedTenancySupport = Lude.Nothing,
+      modificationState = Lude.Nothing,
+      dedicatedTenancyManagementCidrRange = Lude.Nothing,
+      errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | The timestamp when the modification of the BYOL configuration was started.
-amStartTime :: Lens' AccountModification (Maybe UTCTime)
-amStartTime = lens _amStartTime (\s a -> s {_amStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amStartTime :: Lens.Lens' AccountModification (Lude.Maybe Lude.Timestamp)
+amStartTime = Lens.lens (startTime :: AccountModification -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: AccountModification)
+{-# DEPRECATED amStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The status of BYOL (whether BYOL is being enabled or disabled).
-amDedicatedTenancySupport :: Lens' AccountModification (Maybe DedicatedTenancySupportResultEnum)
-amDedicatedTenancySupport = lens _amDedicatedTenancySupport (\s a -> s {_amDedicatedTenancySupport = a})
+--
+-- /Note:/ Consider using 'dedicatedTenancySupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amDedicatedTenancySupport :: Lens.Lens' AccountModification (Lude.Maybe DedicatedTenancySupportResultEnum)
+amDedicatedTenancySupport = Lens.lens (dedicatedTenancySupport :: AccountModification -> Lude.Maybe DedicatedTenancySupportResultEnum) (\s a -> s {dedicatedTenancySupport = a} :: AccountModification)
+{-# DEPRECATED amDedicatedTenancySupport "Use generic-lens or generic-optics with 'dedicatedTenancySupport' instead." #-}
 
 -- | The state of the modification to the configuration of BYOL.
-amModificationState :: Lens' AccountModification (Maybe DedicatedTenancyModificationStateEnum)
-amModificationState = lens _amModificationState (\s a -> s {_amModificationState = a})
+--
+-- /Note:/ Consider using 'modificationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amModificationState :: Lens.Lens' AccountModification (Lude.Maybe DedicatedTenancyModificationStateEnum)
+amModificationState = Lens.lens (modificationState :: AccountModification -> Lude.Maybe DedicatedTenancyModificationStateEnum) (\s a -> s {modificationState = a} :: AccountModification)
+{-# DEPRECATED amModificationState "Use generic-lens or generic-optics with 'modificationState' instead." #-}
 
 -- | The IP address range, specified as an IPv4 CIDR block, for the management network interface used for the account.
-amDedicatedTenancyManagementCidrRange :: Lens' AccountModification (Maybe Text)
-amDedicatedTenancyManagementCidrRange = lens _amDedicatedTenancyManagementCidrRange (\s a -> s {_amDedicatedTenancyManagementCidrRange = a})
+--
+-- /Note:/ Consider using 'dedicatedTenancyManagementCidrRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amDedicatedTenancyManagementCidrRange :: Lens.Lens' AccountModification (Lude.Maybe Lude.Text)
+amDedicatedTenancyManagementCidrRange = Lens.lens (dedicatedTenancyManagementCidrRange :: AccountModification -> Lude.Maybe Lude.Text) (\s a -> s {dedicatedTenancyManagementCidrRange = a} :: AccountModification)
+{-# DEPRECATED amDedicatedTenancyManagementCidrRange "Use generic-lens or generic-optics with 'dedicatedTenancyManagementCidrRange' instead." #-}
 
 -- | The error code that is returned if the configuration of BYOL cannot be modified.
-amErrorCode :: Lens' AccountModification (Maybe Text)
-amErrorCode = lens _amErrorCode (\s a -> s {_amErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amErrorCode :: Lens.Lens' AccountModification (Lude.Maybe Lude.Text)
+amErrorCode = Lens.lens (errorCode :: AccountModification -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: AccountModification)
+{-# DEPRECATED amErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The text of the error message that is returned if the configuration of BYOL cannot be modified.
-amErrorMessage :: Lens' AccountModification (Maybe Text)
-amErrorMessage = lens _amErrorMessage (\s a -> s {_amErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amErrorMessage :: Lens.Lens' AccountModification (Lude.Maybe Lude.Text)
+amErrorMessage = Lens.lens (errorMessage :: AccountModification -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: AccountModification)
+{-# DEPRECATED amErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON AccountModification where
+instance Lude.FromJSON AccountModification where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccountModification"
       ( \x ->
           AccountModification'
-            <$> (x .:? "StartTime")
-            <*> (x .:? "DedicatedTenancySupport")
-            <*> (x .:? "ModificationState")
-            <*> (x .:? "DedicatedTenancyManagementCidrRange")
-            <*> (x .:? "ErrorCode")
-            <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "DedicatedTenancySupport")
+            Lude.<*> (x Lude..:? "ModificationState")
+            Lude.<*> (x Lude..:? "DedicatedTenancyManagementCidrRange")
+            Lude.<*> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable AccountModification
-
-instance NFData AccountModification

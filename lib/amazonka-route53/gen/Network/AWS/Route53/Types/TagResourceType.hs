@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.TagResourceType where
+module Network.AWS.Route53.Types.TagResourceType
+  ( TagResourceType
+      ( TagResourceType',
+        Healthcheck,
+        Hostedzone
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data TagResourceType
-  = Healthcheck
-  | Hostedzone
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TagResourceType = TagResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TagResourceType where
-  parser =
-    takeLowerText >>= \case
-      "healthcheck" -> pure Healthcheck
-      "hostedzone" -> pure Hostedzone
-      e ->
-        fromTextError $
-          "Failure parsing TagResourceType from value: '" <> e
-            <> "'. Accepted values: healthcheck, hostedzone"
+pattern Healthcheck :: TagResourceType
+pattern Healthcheck = TagResourceType' "healthcheck"
 
-instance ToText TagResourceType where
-  toText = \case
-    Healthcheck -> "healthcheck"
-    Hostedzone -> "hostedzone"
+pattern Hostedzone :: TagResourceType
+pattern Hostedzone = TagResourceType' "hostedzone"
 
-instance Hashable TagResourceType
-
-instance NFData TagResourceType
-
-instance ToByteString TagResourceType
-
-instance ToQuery TagResourceType
-
-instance ToHeader TagResourceType
-
-instance FromXML TagResourceType where
-  parseXML = parseXMLText "TagResourceType"
-
-instance ToXML TagResourceType where
-  toXML = toXMLText
+{-# COMPLETE
+  Healthcheck,
+  Hostedzone,
+  TagResourceType'
+  #-}

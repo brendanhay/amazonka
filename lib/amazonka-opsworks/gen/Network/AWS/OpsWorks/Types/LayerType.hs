@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.LayerType where
+module Network.AWS.OpsWorks.Types.LayerType
+  ( LayerType
+      ( LayerType',
+        AWSFlowRuby,
+        Custom,
+        DBMaster,
+        EcsCluster,
+        JavaApp,
+        LB,
+        Memcached,
+        MonitoringMaster,
+        NodejsApp,
+        PHPApp,
+        RailsApp,
+        Web
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LayerType
-  = AWSFlowRuby
-  | Custom
-  | DBMaster
-  | EcsCluster
-  | JavaApp
-  | LB
-  | Memcached
-  | MonitoringMaster
-  | NodejsApp
-  | PHPApp
-  | RailsApp
-  | Web
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LayerType = LayerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LayerType where
-  parser =
-    takeLowerText >>= \case
-      "aws-flow-ruby" -> pure AWSFlowRuby
-      "custom" -> pure Custom
-      "db-master" -> pure DBMaster
-      "ecs-cluster" -> pure EcsCluster
-      "java-app" -> pure JavaApp
-      "lb" -> pure LB
-      "memcached" -> pure Memcached
-      "monitoring-master" -> pure MonitoringMaster
-      "nodejs-app" -> pure NodejsApp
-      "php-app" -> pure PHPApp
-      "rails-app" -> pure RailsApp
-      "web" -> pure Web
-      e ->
-        fromTextError $
-          "Failure parsing LayerType from value: '" <> e
-            <> "'. Accepted values: aws-flow-ruby, custom, db-master, ecs-cluster, java-app, lb, memcached, monitoring-master, nodejs-app, php-app, rails-app, web"
+pattern AWSFlowRuby :: LayerType
+pattern AWSFlowRuby = LayerType' "aws-flow-ruby"
 
-instance ToText LayerType where
-  toText = \case
-    AWSFlowRuby -> "aws-flow-ruby"
-    Custom -> "custom"
-    DBMaster -> "db-master"
-    EcsCluster -> "ecs-cluster"
-    JavaApp -> "java-app"
-    LB -> "lb"
-    Memcached -> "memcached"
-    MonitoringMaster -> "monitoring-master"
-    NodejsApp -> "nodejs-app"
-    PHPApp -> "php-app"
-    RailsApp -> "rails-app"
-    Web -> "web"
+pattern Custom :: LayerType
+pattern Custom = LayerType' "custom"
 
-instance Hashable LayerType
+pattern DBMaster :: LayerType
+pattern DBMaster = LayerType' "db-master"
 
-instance NFData LayerType
+pattern EcsCluster :: LayerType
+pattern EcsCluster = LayerType' "ecs-cluster"
 
-instance ToByteString LayerType
+pattern JavaApp :: LayerType
+pattern JavaApp = LayerType' "java-app"
 
-instance ToQuery LayerType
+pattern LB :: LayerType
+pattern LB = LayerType' "lb"
 
-instance ToHeader LayerType
+pattern Memcached :: LayerType
+pattern Memcached = LayerType' "memcached"
 
-instance ToJSON LayerType where
-  toJSON = toJSONText
+pattern MonitoringMaster :: LayerType
+pattern MonitoringMaster = LayerType' "monitoring-master"
 
-instance FromJSON LayerType where
-  parseJSON = parseJSONText "LayerType"
+pattern NodejsApp :: LayerType
+pattern NodejsApp = LayerType' "nodejs-app"
+
+pattern PHPApp :: LayerType
+pattern PHPApp = LayerType' "php-app"
+
+pattern RailsApp :: LayerType
+pattern RailsApp = LayerType' "rails-app"
+
+pattern Web :: LayerType
+pattern Web = LayerType' "web"
+
+{-# COMPLETE
+  AWSFlowRuby,
+  Custom,
+  DBMaster,
+  EcsCluster,
+  JavaApp,
+  LB,
+  Memcached,
+  MonitoringMaster,
+  NodejsApp,
+  PHPApp,
+  RailsApp,
+  Web,
+  LayerType'
+  #-}

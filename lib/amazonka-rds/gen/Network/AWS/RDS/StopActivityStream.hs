@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,21 @@
 --
 -- Stops a database activity stream that was started using the AWS console, the @start-activity-stream@ AWS CLI command, or the @StartActivityStream@ action.
 --
---
 -- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html Database Activity Streams> in the /Amazon Aurora User Guide/ .
 module Network.AWS.RDS.StopActivityStream
-  ( -- * Creating a Request
-    stopActivityStream,
-    StopActivityStream,
+  ( -- * Creating a request
+    StopActivityStream (..),
+    mkStopActivityStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sasApplyImmediately,
     sasResourceARN,
 
-    -- * Destructuring the Response
-    stopActivityStreamResponse,
-    StopActivityStreamResponse,
+    -- * Destructuring the response
+    StopActivityStreamResponse (..),
+    mkStopActivityStreamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sasrsStatus,
     sasrsKinesisStreamName,
     sasrsKMSKeyId,
@@ -42,126 +36,144 @@ module Network.AWS.RDS.StopActivityStream
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopActivityStream' smart constructor.
+-- | /See:/ 'mkStopActivityStream' smart constructor.
 data StopActivityStream = StopActivityStream'
-  { _sasApplyImmediately ::
-      !(Maybe Bool),
-    _sasResourceARN :: !Text
+  { applyImmediately ::
+      Lude.Maybe Lude.Bool,
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopActivityStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sasApplyImmediately' - Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.
---
--- * 'sasResourceARN' - The Amazon Resource Name (ARN) of the DB cluster for the database activity stream. For example, @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
-stopActivityStream ::
-  -- | 'sasResourceARN'
-  Text ->
+-- * 'applyImmediately' - Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the DB cluster for the database activity stream. For example, @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
+mkStopActivityStream ::
+  -- | 'resourceARN'
+  Lude.Text ->
   StopActivityStream
-stopActivityStream pResourceARN_ =
+mkStopActivityStream pResourceARN_ =
   StopActivityStream'
-    { _sasApplyImmediately = Nothing,
-      _sasResourceARN = pResourceARN_
+    { applyImmediately = Lude.Nothing,
+      resourceARN = pResourceARN_
     }
 
 -- | Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.
-sasApplyImmediately :: Lens' StopActivityStream (Maybe Bool)
-sasApplyImmediately = lens _sasApplyImmediately (\s a -> s {_sasApplyImmediately = a})
+--
+-- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasApplyImmediately :: Lens.Lens' StopActivityStream (Lude.Maybe Lude.Bool)
+sasApplyImmediately = Lens.lens (applyImmediately :: StopActivityStream -> Lude.Maybe Lude.Bool) (\s a -> s {applyImmediately = a} :: StopActivityStream)
+{-# DEPRECATED sasApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the DB cluster for the database activity stream. For example, @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
-sasResourceARN :: Lens' StopActivityStream Text
-sasResourceARN = lens _sasResourceARN (\s a -> s {_sasResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasResourceARN :: Lens.Lens' StopActivityStream Lude.Text
+sasResourceARN = Lens.lens (resourceARN :: StopActivityStream -> Lude.Text) (\s a -> s {resourceARN = a} :: StopActivityStream)
+{-# DEPRECATED sasResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest StopActivityStream where
+instance Lude.AWSRequest StopActivityStream where
   type Rs StopActivityStream = StopActivityStreamResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "StopActivityStreamResult"
       ( \s h x ->
           StopActivityStreamResponse'
-            <$> (x .@? "Status")
-            <*> (x .@? "KinesisStreamName")
-            <*> (x .@? "KmsKeyId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Status")
+            Lude.<*> (x Lude..@? "KinesisStreamName")
+            Lude.<*> (x Lude..@? "KmsKeyId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StopActivityStream
+instance Lude.ToHeaders StopActivityStream where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData StopActivityStream
+instance Lude.ToPath StopActivityStream where
+  toPath = Lude.const "/"
 
-instance ToHeaders StopActivityStream where
-  toHeaders = const mempty
-
-instance ToPath StopActivityStream where
-  toPath = const "/"
-
-instance ToQuery StopActivityStream where
+instance Lude.ToQuery StopActivityStream where
   toQuery StopActivityStream' {..} =
-    mconcat
-      [ "Action" =: ("StopActivityStream" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "ApplyImmediately" =: _sasApplyImmediately,
-        "ResourceArn" =: _sasResourceARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("StopActivityStream" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "ApplyImmediately" Lude.=: applyImmediately,
+        "ResourceArn" Lude.=: resourceARN
       ]
 
--- | /See:/ 'stopActivityStreamResponse' smart constructor.
+-- | /See:/ 'mkStopActivityStreamResponse' smart constructor.
 data StopActivityStreamResponse = StopActivityStreamResponse'
-  { _sasrsStatus ::
-      !(Maybe ActivityStreamStatus),
-    _sasrsKinesisStreamName ::
-      !(Maybe Text),
-    _sasrsKMSKeyId :: !(Maybe Text),
-    _sasrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe ActivityStreamStatus,
+    kinesisStreamName ::
+      Lude.Maybe Lude.Text,
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopActivityStreamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sasrsStatus' - The status of the database activity stream.
---
--- * 'sasrsKinesisStreamName' - The name of the Amazon Kinesis data stream used for the database activity stream.
---
--- * 'sasrsKMSKeyId' - The AWS KMS key identifier used for encrypting messages in the database activity stream.
---
--- * 'sasrsResponseStatus' - -- | The response status code.
-stopActivityStreamResponse ::
-  -- | 'sasrsResponseStatus'
-  Int ->
+-- * 'kinesisStreamName' - The name of the Amazon Kinesis data stream used for the database activity stream.
+-- * 'kmsKeyId' - The AWS KMS key identifier used for encrypting messages in the database activity stream.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the database activity stream.
+mkStopActivityStreamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StopActivityStreamResponse
-stopActivityStreamResponse pResponseStatus_ =
+mkStopActivityStreamResponse pResponseStatus_ =
   StopActivityStreamResponse'
-    { _sasrsStatus = Nothing,
-      _sasrsKinesisStreamName = Nothing,
-      _sasrsKMSKeyId = Nothing,
-      _sasrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      kinesisStreamName = Lude.Nothing,
+      kmsKeyId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the database activity stream.
-sasrsStatus :: Lens' StopActivityStreamResponse (Maybe ActivityStreamStatus)
-sasrsStatus = lens _sasrsStatus (\s a -> s {_sasrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasrsStatus :: Lens.Lens' StopActivityStreamResponse (Lude.Maybe ActivityStreamStatus)
+sasrsStatus = Lens.lens (status :: StopActivityStreamResponse -> Lude.Maybe ActivityStreamStatus) (\s a -> s {status = a} :: StopActivityStreamResponse)
+{-# DEPRECATED sasrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the Amazon Kinesis data stream used for the database activity stream.
-sasrsKinesisStreamName :: Lens' StopActivityStreamResponse (Maybe Text)
-sasrsKinesisStreamName = lens _sasrsKinesisStreamName (\s a -> s {_sasrsKinesisStreamName = a})
+--
+-- /Note:/ Consider using 'kinesisStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasrsKinesisStreamName :: Lens.Lens' StopActivityStreamResponse (Lude.Maybe Lude.Text)
+sasrsKinesisStreamName = Lens.lens (kinesisStreamName :: StopActivityStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {kinesisStreamName = a} :: StopActivityStreamResponse)
+{-# DEPRECATED sasrsKinesisStreamName "Use generic-lens or generic-optics with 'kinesisStreamName' instead." #-}
 
 -- | The AWS KMS key identifier used for encrypting messages in the database activity stream.
-sasrsKMSKeyId :: Lens' StopActivityStreamResponse (Maybe Text)
-sasrsKMSKeyId = lens _sasrsKMSKeyId (\s a -> s {_sasrsKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasrsKMSKeyId :: Lens.Lens' StopActivityStreamResponse (Lude.Maybe Lude.Text)
+sasrsKMSKeyId = Lens.lens (kmsKeyId :: StopActivityStreamResponse -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: StopActivityStreamResponse)
+{-# DEPRECATED sasrsKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
--- | -- | The response status code.
-sasrsResponseStatus :: Lens' StopActivityStreamResponse Int
-sasrsResponseStatus = lens _sasrsResponseStatus (\s a -> s {_sasrsResponseStatus = a})
-
-instance NFData StopActivityStreamResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasrsResponseStatus :: Lens.Lens' StopActivityStreamResponse Lude.Int
+sasrsResponseStatus = Lens.lens (responseStatus :: StopActivityStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopActivityStreamResponse)
+{-# DEPRECATED sasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,256 +7,364 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorksCM.Types.Server where
+module Network.AWS.OpsWorksCM.Types.Server
+  ( Server (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkServer,
+
+    -- * Lenses
+    sEngineVersion,
+    sServiceRoleARN,
+    sDisableAutomatedBackup,
+    sStatus,
+    sInstanceProfileARN,
+    sSecurityGroupIds,
+    sAssociatePublicIPAddress,
+    sServerName,
+    sSubnetIds,
+    sKeyPair,
+    sCreatedAt,
+    sServerARN,
+    sCustomDomain,
+    sEngine,
+    sMaintenanceStatus,
+    sInstanceType,
+    sEngineModel,
+    sEngineAttributes,
+    sPreferredMaintenanceWindow,
+    sPreferredBackupWindow,
+    sStatusReason,
+    sEndpoint,
+    sCloudFormationStackARN,
+    sBackupRetentionCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types.EngineAttribute
 import Network.AWS.OpsWorksCM.Types.MaintenanceStatus
 import Network.AWS.OpsWorksCM.Types.ServerStatus
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a configuration management server.
 --
---
---
--- /See:/ 'server' smart constructor.
+-- /See:/ 'mkServer' smart constructor.
 data Server = Server'
-  { _sEngineVersion :: !(Maybe Text),
-    _sServiceRoleARN :: !(Maybe Text),
-    _sDisableAutomatedBackup :: !(Maybe Bool),
-    _sStatus :: !(Maybe ServerStatus),
-    _sInstanceProfileARN :: !(Maybe Text),
-    _sSecurityGroupIds :: !(Maybe [Text]),
-    _sAssociatePublicIPAddress :: !(Maybe Bool),
-    _sServerName :: !(Maybe Text),
-    _sSubnetIds :: !(Maybe [Text]),
-    _sKeyPair :: !(Maybe Text),
-    _sCreatedAt :: !(Maybe POSIX),
-    _sServerARN :: !(Maybe Text),
-    _sCustomDomain :: !(Maybe Text),
-    _sEngine :: !(Maybe Text),
-    _sMaintenanceStatus :: !(Maybe MaintenanceStatus),
-    _sInstanceType :: !(Maybe Text),
-    _sEngineModel :: !(Maybe Text),
-    _sEngineAttributes :: !(Maybe [EngineAttribute]),
-    _sPreferredMaintenanceWindow :: !(Maybe Text),
-    _sPreferredBackupWindow :: !(Maybe Text),
-    _sStatusReason :: !(Maybe Text),
-    _sEndpoint :: !(Maybe Text),
-    _sCloudFormationStackARN :: !(Maybe Text),
-    _sBackupRetentionCount :: !(Maybe Int)
+  { engineVersion :: Lude.Maybe Lude.Text,
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    disableAutomatedBackup :: Lude.Maybe Lude.Bool,
+    status :: Lude.Maybe ServerStatus,
+    instanceProfileARN :: Lude.Maybe Lude.Text,
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
+    serverName :: Lude.Maybe Lude.Text,
+    subnetIds :: Lude.Maybe [Lude.Text],
+    keyPair :: Lude.Maybe Lude.Text,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    serverARN :: Lude.Maybe Lude.Text,
+    customDomain :: Lude.Maybe Lude.Text,
+    engine :: Lude.Maybe Lude.Text,
+    maintenanceStatus :: Lude.Maybe MaintenanceStatus,
+    instanceType :: Lude.Maybe Lude.Text,
+    engineModel :: Lude.Maybe Lude.Text,
+    engineAttributes :: Lude.Maybe [EngineAttribute],
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    preferredBackupWindow :: Lude.Maybe Lude.Text,
+    statusReason :: Lude.Maybe Lude.Text,
+    endpoint :: Lude.Maybe Lude.Text,
+    cloudFormationStackARN :: Lude.Maybe Lude.Text,
+    backupRetentionCount :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Server' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'associatePublicIPAddress' - Associate a public IP address with a server that you are launching.
+-- * 'backupRetentionCount' - The number of automated backups to keep.
+-- * 'cloudFormationStackARN' - The ARN of the CloudFormation stack that was used to create the server.
+-- * 'createdAt' - Time stamp of server creation. Example @2016-07-29T13:38:47.520Z@
+-- * 'customDomain' - An optional public endpoint of a server, such as @https://aws.my-company.com@ . You cannot access the server by using the @Endpoint@ value if the server has a @CustomDomain@ specified.
+-- * 'disableAutomatedBackup' - Disables automated backups. The number of stored backups is dependent on the value of PreferredBackupCount.
+-- * 'endpoint' - A DNS name that can be used to access the engine. Example: @myserver-asdfghjkl.us-east-1.opsworks.io@ . You cannot access the server by using the @Endpoint@ value if the server has a @CustomDomain@ specified.
+-- * 'engine' - The engine type of the server. Valid values in this release include @ChefAutomate@ and @Puppet@ .
+-- * 'engineAttributes' - The response of a createServer() request returns the master credential to access the server in EngineAttributes. These credentials are not stored by AWS OpsWorks CM; they are returned only as part of the result of createServer().
 --
--- * 'sEngineVersion' - The engine version of the server. For a Chef server, the valid value for EngineVersion is currently @2@ . For a Puppet server, the valid value is @2017@ .
+-- __Attributes returned in a createServer response for Chef__
 --
--- * 'sServiceRoleARN' - The service role ARN used to create the server.
+--     * @CHEF_AUTOMATE_PIVOTAL_KEY@ : A base64-encoded RSA private key that is generated by AWS OpsWorks for Chef Automate. This private key is required to access the Chef API.
 --
--- * 'sDisableAutomatedBackup' - Disables automated backups. The number of stored backups is dependent on the value of PreferredBackupCount.
 --
--- * 'sStatus' - The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server, as well as the server's health state.
+--     * @CHEF_STARTER_KIT@ : A base64-encoded ZIP file. The ZIP file contains a Chef starter kit, which includes a README, a configuration file, and the required RSA private key. Save this file, unzip it, and then change to the directory where you've unzipped the file contents. From this directory, you can run Knife commands.
 --
--- * 'sInstanceProfileARN' - The instance profile ARN of the server.
 --
--- * 'sSecurityGroupIds' - The security group IDs for the server, as specified in the CloudFormation stack. These might not be the same security groups that are shown in the EC2 console.
+-- __Attributes returned in a createServer response for Puppet__
 --
--- * 'sAssociatePublicIPAddress' - Associate a public IP address with a server that you are launching.
+--     * @PUPPET_STARTER_KIT@ : A base64-encoded ZIP file. The ZIP file contains a Puppet starter kit, including a README and a required private key. Save this file, unzip it, and then change to the directory where you've unzipped the file contents.
 --
--- * 'sServerName' - The name of the server.
 --
--- * 'sSubnetIds' - The subnet IDs specified in a CreateServer request.
+--     * @PUPPET_ADMIN_PASSWORD@ : An administrator password that you can use to sign in to the Puppet Enterprise console after the server is online.
 --
--- * 'sKeyPair' - The key pair associated with the server.
 --
--- * 'sCreatedAt' - Time stamp of server creation. Example @2016-07-29T13:38:47.520Z@
---
--- * 'sServerARN' - The ARN of the server.
---
--- * 'sCustomDomain' - An optional public endpoint of a server, such as @https://aws.my-company.com@ . You cannot access the server by using the @Endpoint@ value if the server has a @CustomDomain@ specified.
---
--- * 'sEngine' - The engine type of the server. Valid values in this release include @ChefAutomate@ and @Puppet@ .
---
--- * 'sMaintenanceStatus' - The status of the most recent server maintenance run. Shows @SUCCESS@ or @FAILED@ .
---
--- * 'sInstanceType' - The instance type for the server, as specified in the CloudFormation stack. This might not be the same instance type that is shown in the EC2 console.
---
--- * 'sEngineModel' - The engine model of the server. Valid values in this release include @Monolithic@ for Puppet and @Single@ for Chef.
---
--- * 'sEngineAttributes' - The response of a createServer() request returns the master credential to access the server in EngineAttributes. These credentials are not stored by AWS OpsWorks CM; they are returned only as part of the result of createServer().  __Attributes returned in a createServer response for Chef__      * @CHEF_AUTOMATE_PIVOTAL_KEY@ : A base64-encoded RSA private key that is generated by AWS OpsWorks for Chef Automate. This private key is required to access the Chef API.     * @CHEF_STARTER_KIT@ : A base64-encoded ZIP file. The ZIP file contains a Chef starter kit, which includes a README, a configuration file, and the required RSA private key. Save this file, unzip it, and then change to the directory where you've unzipped the file contents. From this directory, you can run Knife commands. __Attributes returned in a createServer response for Puppet__      * @PUPPET_STARTER_KIT@ : A base64-encoded ZIP file. The ZIP file contains a Puppet starter kit, including a README and a required private key. Save this file, unzip it, and then change to the directory where you've unzipped the file contents.     * @PUPPET_ADMIN_PASSWORD@ : An administrator password that you can use to sign in to the Puppet Enterprise console after the server is online.
---
--- * 'sPreferredMaintenanceWindow' - The preferred maintenance period specified for the server.
---
--- * 'sPreferredBackupWindow' - The preferred backup period specified for the server.
---
--- * 'sStatusReason' - Depending on the server status, this field has either a human-readable message (such as a create or backup error), or an escaped block of JSON (used for health check results).
---
--- * 'sEndpoint' - A DNS name that can be used to access the engine. Example: @myserver-asdfghjkl.us-east-1.opsworks.io@ . You cannot access the server by using the @Endpoint@ value if the server has a @CustomDomain@ specified.
---
--- * 'sCloudFormationStackARN' - The ARN of the CloudFormation stack that was used to create the server.
---
--- * 'sBackupRetentionCount' - The number of automated backups to keep.
-server ::
+-- * 'engineModel' - The engine model of the server. Valid values in this release include @Monolithic@ for Puppet and @Single@ for Chef.
+-- * 'engineVersion' - The engine version of the server. For a Chef server, the valid value for EngineVersion is currently @2@ . For a Puppet server, the valid value is @2017@ .
+-- * 'instanceProfileARN' - The instance profile ARN of the server.
+-- * 'instanceType' - The instance type for the server, as specified in the CloudFormation stack. This might not be the same instance type that is shown in the EC2 console.
+-- * 'keyPair' - The key pair associated with the server.
+-- * 'maintenanceStatus' - The status of the most recent server maintenance run. Shows @SUCCESS@ or @FAILED@ .
+-- * 'preferredBackupWindow' - The preferred backup period specified for the server.
+-- * 'preferredMaintenanceWindow' - The preferred maintenance period specified for the server.
+-- * 'securityGroupIds' - The security group IDs for the server, as specified in the CloudFormation stack. These might not be the same security groups that are shown in the EC2 console.
+-- * 'serverARN' - The ARN of the server.
+-- * 'serverName' - The name of the server.
+-- * 'serviceRoleARN' - The service role ARN used to create the server.
+-- * 'status' - The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server, as well as the server's health state.
+-- * 'statusReason' - Depending on the server status, this field has either a human-readable message (such as a create or backup error), or an escaped block of JSON (used for health check results).
+-- * 'subnetIds' - The subnet IDs specified in a CreateServer request.
+mkServer ::
   Server
-server =
+mkServer =
   Server'
-    { _sEngineVersion = Nothing,
-      _sServiceRoleARN = Nothing,
-      _sDisableAutomatedBackup = Nothing,
-      _sStatus = Nothing,
-      _sInstanceProfileARN = Nothing,
-      _sSecurityGroupIds = Nothing,
-      _sAssociatePublicIPAddress = Nothing,
-      _sServerName = Nothing,
-      _sSubnetIds = Nothing,
-      _sKeyPair = Nothing,
-      _sCreatedAt = Nothing,
-      _sServerARN = Nothing,
-      _sCustomDomain = Nothing,
-      _sEngine = Nothing,
-      _sMaintenanceStatus = Nothing,
-      _sInstanceType = Nothing,
-      _sEngineModel = Nothing,
-      _sEngineAttributes = Nothing,
-      _sPreferredMaintenanceWindow = Nothing,
-      _sPreferredBackupWindow = Nothing,
-      _sStatusReason = Nothing,
-      _sEndpoint = Nothing,
-      _sCloudFormationStackARN = Nothing,
-      _sBackupRetentionCount = Nothing
+    { engineVersion = Lude.Nothing,
+      serviceRoleARN = Lude.Nothing,
+      disableAutomatedBackup = Lude.Nothing,
+      status = Lude.Nothing,
+      instanceProfileARN = Lude.Nothing,
+      securityGroupIds = Lude.Nothing,
+      associatePublicIPAddress = Lude.Nothing,
+      serverName = Lude.Nothing,
+      subnetIds = Lude.Nothing,
+      keyPair = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      serverARN = Lude.Nothing,
+      customDomain = Lude.Nothing,
+      engine = Lude.Nothing,
+      maintenanceStatus = Lude.Nothing,
+      instanceType = Lude.Nothing,
+      engineModel = Lude.Nothing,
+      engineAttributes = Lude.Nothing,
+      preferredMaintenanceWindow = Lude.Nothing,
+      preferredBackupWindow = Lude.Nothing,
+      statusReason = Lude.Nothing,
+      endpoint = Lude.Nothing,
+      cloudFormationStackARN = Lude.Nothing,
+      backupRetentionCount = Lude.Nothing
     }
 
 -- | The engine version of the server. For a Chef server, the valid value for EngineVersion is currently @2@ . For a Puppet server, the valid value is @2017@ .
-sEngineVersion :: Lens' Server (Maybe Text)
-sEngineVersion = lens _sEngineVersion (\s a -> s {_sEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEngineVersion :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sEngineVersion = Lens.lens (engineVersion :: Server -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: Server)
+{-# DEPRECATED sEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The service role ARN used to create the server.
-sServiceRoleARN :: Lens' Server (Maybe Text)
-sServiceRoleARN = lens _sServiceRoleARN (\s a -> s {_sServiceRoleARN = a})
+--
+-- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sServiceRoleARN :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sServiceRoleARN = Lens.lens (serviceRoleARN :: Server -> Lude.Maybe Lude.Text) (\s a -> s {serviceRoleARN = a} :: Server)
+{-# DEPRECATED sServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
 
 -- | Disables automated backups. The number of stored backups is dependent on the value of PreferredBackupCount.
-sDisableAutomatedBackup :: Lens' Server (Maybe Bool)
-sDisableAutomatedBackup = lens _sDisableAutomatedBackup (\s a -> s {_sDisableAutomatedBackup = a})
+--
+-- /Note:/ Consider using 'disableAutomatedBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDisableAutomatedBackup :: Lens.Lens' Server (Lude.Maybe Lude.Bool)
+sDisableAutomatedBackup = Lens.lens (disableAutomatedBackup :: Server -> Lude.Maybe Lude.Bool) (\s a -> s {disableAutomatedBackup = a} :: Server)
+{-# DEPRECATED sDisableAutomatedBackup "Use generic-lens or generic-optics with 'disableAutomatedBackup' instead." #-}
 
 -- | The server's status. This field displays the states of actions in progress, such as creating, running, or backing up the server, as well as the server's health state.
-sStatus :: Lens' Server (Maybe ServerStatus)
-sStatus = lens _sStatus (\s a -> s {_sStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStatus :: Lens.Lens' Server (Lude.Maybe ServerStatus)
+sStatus = Lens.lens (status :: Server -> Lude.Maybe ServerStatus) (\s a -> s {status = a} :: Server)
+{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The instance profile ARN of the server.
-sInstanceProfileARN :: Lens' Server (Maybe Text)
-sInstanceProfileARN = lens _sInstanceProfileARN (\s a -> s {_sInstanceProfileARN = a})
+--
+-- /Note:/ Consider using 'instanceProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sInstanceProfileARN :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sInstanceProfileARN = Lens.lens (instanceProfileARN :: Server -> Lude.Maybe Lude.Text) (\s a -> s {instanceProfileARN = a} :: Server)
+{-# DEPRECATED sInstanceProfileARN "Use generic-lens or generic-optics with 'instanceProfileARN' instead." #-}
 
 -- | The security group IDs for the server, as specified in the CloudFormation stack. These might not be the same security groups that are shown in the EC2 console.
-sSecurityGroupIds :: Lens' Server [Text]
-sSecurityGroupIds = lens _sSecurityGroupIds (\s a -> s {_sSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSecurityGroupIds :: Lens.Lens' Server (Lude.Maybe [Lude.Text])
+sSecurityGroupIds = Lens.lens (securityGroupIds :: Server -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: Server)
+{-# DEPRECATED sSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
 
 -- | Associate a public IP address with a server that you are launching.
-sAssociatePublicIPAddress :: Lens' Server (Maybe Bool)
-sAssociatePublicIPAddress = lens _sAssociatePublicIPAddress (\s a -> s {_sAssociatePublicIPAddress = a})
+--
+-- /Note:/ Consider using 'associatePublicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAssociatePublicIPAddress :: Lens.Lens' Server (Lude.Maybe Lude.Bool)
+sAssociatePublicIPAddress = Lens.lens (associatePublicIPAddress :: Server -> Lude.Maybe Lude.Bool) (\s a -> s {associatePublicIPAddress = a} :: Server)
+{-# DEPRECATED sAssociatePublicIPAddress "Use generic-lens or generic-optics with 'associatePublicIPAddress' instead." #-}
 
 -- | The name of the server.
-sServerName :: Lens' Server (Maybe Text)
-sServerName = lens _sServerName (\s a -> s {_sServerName = a})
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sServerName :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sServerName = Lens.lens (serverName :: Server -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: Server)
+{-# DEPRECATED sServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | The subnet IDs specified in a CreateServer request.
-sSubnetIds :: Lens' Server [Text]
-sSubnetIds = lens _sSubnetIds (\s a -> s {_sSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetIds :: Lens.Lens' Server (Lude.Maybe [Lude.Text])
+sSubnetIds = Lens.lens (subnetIds :: Server -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: Server)
+{-# DEPRECATED sSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The key pair associated with the server.
-sKeyPair :: Lens' Server (Maybe Text)
-sKeyPair = lens _sKeyPair (\s a -> s {_sKeyPair = a})
+--
+-- /Note:/ Consider using 'keyPair' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sKeyPair :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sKeyPair = Lens.lens (keyPair :: Server -> Lude.Maybe Lude.Text) (\s a -> s {keyPair = a} :: Server)
+{-# DEPRECATED sKeyPair "Use generic-lens or generic-optics with 'keyPair' instead." #-}
 
 -- | Time stamp of server creation. Example @2016-07-29T13:38:47.520Z@
-sCreatedAt :: Lens' Server (Maybe UTCTime)
-sCreatedAt = lens _sCreatedAt (\s a -> s {_sCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCreatedAt :: Lens.Lens' Server (Lude.Maybe Lude.Timestamp)
+sCreatedAt = Lens.lens (createdAt :: Server -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Server)
+{-# DEPRECATED sCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The ARN of the server.
-sServerARN :: Lens' Server (Maybe Text)
-sServerARN = lens _sServerARN (\s a -> s {_sServerARN = a})
+--
+-- /Note:/ Consider using 'serverARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sServerARN :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sServerARN = Lens.lens (serverARN :: Server -> Lude.Maybe Lude.Text) (\s a -> s {serverARN = a} :: Server)
+{-# DEPRECATED sServerARN "Use generic-lens or generic-optics with 'serverARN' instead." #-}
 
 -- | An optional public endpoint of a server, such as @https://aws.my-company.com@ . You cannot access the server by using the @Endpoint@ value if the server has a @CustomDomain@ specified.
-sCustomDomain :: Lens' Server (Maybe Text)
-sCustomDomain = lens _sCustomDomain (\s a -> s {_sCustomDomain = a})
+--
+-- /Note:/ Consider using 'customDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCustomDomain :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sCustomDomain = Lens.lens (customDomain :: Server -> Lude.Maybe Lude.Text) (\s a -> s {customDomain = a} :: Server)
+{-# DEPRECATED sCustomDomain "Use generic-lens or generic-optics with 'customDomain' instead." #-}
 
 -- | The engine type of the server. Valid values in this release include @ChefAutomate@ and @Puppet@ .
-sEngine :: Lens' Server (Maybe Text)
-sEngine = lens _sEngine (\s a -> s {_sEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEngine :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sEngine = Lens.lens (engine :: Server -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: Server)
+{-# DEPRECATED sEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The status of the most recent server maintenance run. Shows @SUCCESS@ or @FAILED@ .
-sMaintenanceStatus :: Lens' Server (Maybe MaintenanceStatus)
-sMaintenanceStatus = lens _sMaintenanceStatus (\s a -> s {_sMaintenanceStatus = a})
+--
+-- /Note:/ Consider using 'maintenanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMaintenanceStatus :: Lens.Lens' Server (Lude.Maybe MaintenanceStatus)
+sMaintenanceStatus = Lens.lens (maintenanceStatus :: Server -> Lude.Maybe MaintenanceStatus) (\s a -> s {maintenanceStatus = a} :: Server)
+{-# DEPRECATED sMaintenanceStatus "Use generic-lens or generic-optics with 'maintenanceStatus' instead." #-}
 
 -- | The instance type for the server, as specified in the CloudFormation stack. This might not be the same instance type that is shown in the EC2 console.
-sInstanceType :: Lens' Server (Maybe Text)
-sInstanceType = lens _sInstanceType (\s a -> s {_sInstanceType = a})
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sInstanceType :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sInstanceType = Lens.lens (instanceType :: Server -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: Server)
+{-# DEPRECATED sInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The engine model of the server. Valid values in this release include @Monolithic@ for Puppet and @Single@ for Chef.
-sEngineModel :: Lens' Server (Maybe Text)
-sEngineModel = lens _sEngineModel (\s a -> s {_sEngineModel = a})
+--
+-- /Note:/ Consider using 'engineModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEngineModel :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sEngineModel = Lens.lens (engineModel :: Server -> Lude.Maybe Lude.Text) (\s a -> s {engineModel = a} :: Server)
+{-# DEPRECATED sEngineModel "Use generic-lens or generic-optics with 'engineModel' instead." #-}
 
--- | The response of a createServer() request returns the master credential to access the server in EngineAttributes. These credentials are not stored by AWS OpsWorks CM; they are returned only as part of the result of createServer().  __Attributes returned in a createServer response for Chef__      * @CHEF_AUTOMATE_PIVOTAL_KEY@ : A base64-encoded RSA private key that is generated by AWS OpsWorks for Chef Automate. This private key is required to access the Chef API.     * @CHEF_STARTER_KIT@ : A base64-encoded ZIP file. The ZIP file contains a Chef starter kit, which includes a README, a configuration file, and the required RSA private key. Save this file, unzip it, and then change to the directory where you've unzipped the file contents. From this directory, you can run Knife commands. __Attributes returned in a createServer response for Puppet__      * @PUPPET_STARTER_KIT@ : A base64-encoded ZIP file. The ZIP file contains a Puppet starter kit, including a README and a required private key. Save this file, unzip it, and then change to the directory where you've unzipped the file contents.     * @PUPPET_ADMIN_PASSWORD@ : An administrator password that you can use to sign in to the Puppet Enterprise console after the server is online.
-sEngineAttributes :: Lens' Server [EngineAttribute]
-sEngineAttributes = lens _sEngineAttributes (\s a -> s {_sEngineAttributes = a}) . _Default . _Coerce
+-- | The response of a createServer() request returns the master credential to access the server in EngineAttributes. These credentials are not stored by AWS OpsWorks CM; they are returned only as part of the result of createServer().
+--
+-- __Attributes returned in a createServer response for Chef__
+--
+--     * @CHEF_AUTOMATE_PIVOTAL_KEY@ : A base64-encoded RSA private key that is generated by AWS OpsWorks for Chef Automate. This private key is required to access the Chef API.
+--
+--
+--     * @CHEF_STARTER_KIT@ : A base64-encoded ZIP file. The ZIP file contains a Chef starter kit, which includes a README, a configuration file, and the required RSA private key. Save this file, unzip it, and then change to the directory where you've unzipped the file contents. From this directory, you can run Knife commands.
+--
+--
+-- __Attributes returned in a createServer response for Puppet__
+--
+--     * @PUPPET_STARTER_KIT@ : A base64-encoded ZIP file. The ZIP file contains a Puppet starter kit, including a README and a required private key. Save this file, unzip it, and then change to the directory where you've unzipped the file contents.
+--
+--
+--     * @PUPPET_ADMIN_PASSWORD@ : An administrator password that you can use to sign in to the Puppet Enterprise console after the server is online.
+--
+--
+--
+-- /Note:/ Consider using 'engineAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEngineAttributes :: Lens.Lens' Server (Lude.Maybe [EngineAttribute])
+sEngineAttributes = Lens.lens (engineAttributes :: Server -> Lude.Maybe [EngineAttribute]) (\s a -> s {engineAttributes = a} :: Server)
+{-# DEPRECATED sEngineAttributes "Use generic-lens or generic-optics with 'engineAttributes' instead." #-}
 
 -- | The preferred maintenance period specified for the server.
-sPreferredMaintenanceWindow :: Lens' Server (Maybe Text)
-sPreferredMaintenanceWindow = lens _sPreferredMaintenanceWindow (\s a -> s {_sPreferredMaintenanceWindow = a})
+--
+-- /Note:/ Consider using 'preferredMaintenanceWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sPreferredMaintenanceWindow :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sPreferredMaintenanceWindow = Lens.lens (preferredMaintenanceWindow :: Server -> Lude.Maybe Lude.Text) (\s a -> s {preferredMaintenanceWindow = a} :: Server)
+{-# DEPRECATED sPreferredMaintenanceWindow "Use generic-lens or generic-optics with 'preferredMaintenanceWindow' instead." #-}
 
 -- | The preferred backup period specified for the server.
-sPreferredBackupWindow :: Lens' Server (Maybe Text)
-sPreferredBackupWindow = lens _sPreferredBackupWindow (\s a -> s {_sPreferredBackupWindow = a})
+--
+-- /Note:/ Consider using 'preferredBackupWindow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sPreferredBackupWindow :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sPreferredBackupWindow = Lens.lens (preferredBackupWindow :: Server -> Lude.Maybe Lude.Text) (\s a -> s {preferredBackupWindow = a} :: Server)
+{-# DEPRECATED sPreferredBackupWindow "Use generic-lens or generic-optics with 'preferredBackupWindow' instead." #-}
 
 -- | Depending on the server status, this field has either a human-readable message (such as a create or backup error), or an escaped block of JSON (used for health check results).
-sStatusReason :: Lens' Server (Maybe Text)
-sStatusReason = lens _sStatusReason (\s a -> s {_sStatusReason = a})
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStatusReason :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sStatusReason = Lens.lens (statusReason :: Server -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: Server)
+{-# DEPRECATED sStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
 -- | A DNS name that can be used to access the engine. Example: @myserver-asdfghjkl.us-east-1.opsworks.io@ . You cannot access the server by using the @Endpoint@ value if the server has a @CustomDomain@ specified.
-sEndpoint :: Lens' Server (Maybe Text)
-sEndpoint = lens _sEndpoint (\s a -> s {_sEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEndpoint :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sEndpoint = Lens.lens (endpoint :: Server -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: Server)
+{-# DEPRECATED sEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | The ARN of the CloudFormation stack that was used to create the server.
-sCloudFormationStackARN :: Lens' Server (Maybe Text)
-sCloudFormationStackARN = lens _sCloudFormationStackARN (\s a -> s {_sCloudFormationStackARN = a})
+--
+-- /Note:/ Consider using 'cloudFormationStackARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCloudFormationStackARN :: Lens.Lens' Server (Lude.Maybe Lude.Text)
+sCloudFormationStackARN = Lens.lens (cloudFormationStackARN :: Server -> Lude.Maybe Lude.Text) (\s a -> s {cloudFormationStackARN = a} :: Server)
+{-# DEPRECATED sCloudFormationStackARN "Use generic-lens or generic-optics with 'cloudFormationStackARN' instead." #-}
 
 -- | The number of automated backups to keep.
-sBackupRetentionCount :: Lens' Server (Maybe Int)
-sBackupRetentionCount = lens _sBackupRetentionCount (\s a -> s {_sBackupRetentionCount = a})
+--
+-- /Note:/ Consider using 'backupRetentionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sBackupRetentionCount :: Lens.Lens' Server (Lude.Maybe Lude.Int)
+sBackupRetentionCount = Lens.lens (backupRetentionCount :: Server -> Lude.Maybe Lude.Int) (\s a -> s {backupRetentionCount = a} :: Server)
+{-# DEPRECATED sBackupRetentionCount "Use generic-lens or generic-optics with 'backupRetentionCount' instead." #-}
 
-instance FromJSON Server where
+instance Lude.FromJSON Server where
   parseJSON =
-    withObject
+    Lude.withObject
       "Server"
       ( \x ->
           Server'
-            <$> (x .:? "EngineVersion")
-            <*> (x .:? "ServiceRoleArn")
-            <*> (x .:? "DisableAutomatedBackup")
-            <*> (x .:? "Status")
-            <*> (x .:? "InstanceProfileArn")
-            <*> (x .:? "SecurityGroupIds" .!= mempty)
-            <*> (x .:? "AssociatePublicIpAddress")
-            <*> (x .:? "ServerName")
-            <*> (x .:? "SubnetIds" .!= mempty)
-            <*> (x .:? "KeyPair")
-            <*> (x .:? "CreatedAt")
-            <*> (x .:? "ServerArn")
-            <*> (x .:? "CustomDomain")
-            <*> (x .:? "Engine")
-            <*> (x .:? "MaintenanceStatus")
-            <*> (x .:? "InstanceType")
-            <*> (x .:? "EngineModel")
-            <*> (x .:? "EngineAttributes" .!= mempty)
-            <*> (x .:? "PreferredMaintenanceWindow")
-            <*> (x .:? "PreferredBackupWindow")
-            <*> (x .:? "StatusReason")
-            <*> (x .:? "Endpoint")
-            <*> (x .:? "CloudFormationStackArn")
-            <*> (x .:? "BackupRetentionCount")
+            Lude.<$> (x Lude..:? "EngineVersion")
+            Lude.<*> (x Lude..:? "ServiceRoleArn")
+            Lude.<*> (x Lude..:? "DisableAutomatedBackup")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "InstanceProfileArn")
+            Lude.<*> (x Lude..:? "SecurityGroupIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AssociatePublicIpAddress")
+            Lude.<*> (x Lude..:? "ServerName")
+            Lude.<*> (x Lude..:? "SubnetIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "KeyPair")
+            Lude.<*> (x Lude..:? "CreatedAt")
+            Lude.<*> (x Lude..:? "ServerArn")
+            Lude.<*> (x Lude..:? "CustomDomain")
+            Lude.<*> (x Lude..:? "Engine")
+            Lude.<*> (x Lude..:? "MaintenanceStatus")
+            Lude.<*> (x Lude..:? "InstanceType")
+            Lude.<*> (x Lude..:? "EngineModel")
+            Lude.<*> (x Lude..:? "EngineAttributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "PreferredMaintenanceWindow")
+            Lude.<*> (x Lude..:? "PreferredBackupWindow")
+            Lude.<*> (x Lude..:? "StatusReason")
+            Lude.<*> (x Lude..:? "Endpoint")
+            Lude.<*> (x Lude..:? "CloudFormationStackArn")
+            Lude.<*> (x Lude..:? "BackupRetentionCount")
       )
-
-instance Hashable Server
-
-instance NFData Server

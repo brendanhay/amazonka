@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.HealthCheckType where
+module Network.AWS.Route53AutoNaming.Types.HealthCheckType
+  ( HealthCheckType
+      ( HealthCheckType',
+        HTTP,
+        HTTPS,
+        TCP
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HealthCheckType
-  = HTTP
-  | HTTPS
-  | TCP
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HealthCheckType = HealthCheckType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HealthCheckType where
-  parser =
-    takeLowerText >>= \case
-      "http" -> pure HTTP
-      "https" -> pure HTTPS
-      "tcp" -> pure TCP
-      e ->
-        fromTextError $
-          "Failure parsing HealthCheckType from value: '" <> e
-            <> "'. Accepted values: http, https, tcp"
+pattern HTTP :: HealthCheckType
+pattern HTTP = HealthCheckType' "HTTP"
 
-instance ToText HealthCheckType where
-  toText = \case
-    HTTP -> "HTTP"
-    HTTPS -> "HTTPS"
-    TCP -> "TCP"
+pattern HTTPS :: HealthCheckType
+pattern HTTPS = HealthCheckType' "HTTPS"
 
-instance Hashable HealthCheckType
+pattern TCP :: HealthCheckType
+pattern TCP = HealthCheckType' "TCP"
 
-instance NFData HealthCheckType
-
-instance ToByteString HealthCheckType
-
-instance ToQuery HealthCheckType
-
-instance ToHeader HealthCheckType
-
-instance ToJSON HealthCheckType where
-  toJSON = toJSONText
-
-instance FromJSON HealthCheckType where
-  parseJSON = parseJSONText "HealthCheckType"
+{-# COMPLETE
+  HTTP,
+  HTTPS,
+  TCP,
+  HealthCheckType'
+  #-}

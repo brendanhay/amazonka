@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.CapacityReservationGroup where
+module Network.AWS.EC2.Types.CapacityReservationGroup
+  ( CapacityReservationGroup (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCapacityReservationGroup,
+
+    -- * Lenses
+    crgOwnerId,
+    crgGroupARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a resource group to which a Capacity Reservation has been added.
 --
---
---
--- /See:/ 'capacityReservationGroup' smart constructor.
+-- /See:/ 'mkCapacityReservationGroup' smart constructor.
 data CapacityReservationGroup = CapacityReservationGroup'
-  { _crgOwnerId ::
-      !(Maybe Text),
-    _crgGroupARN :: !(Maybe Text)
+  { ownerId ::
+      Lude.Maybe Lude.Text,
+    groupARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CapacityReservationGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crgOwnerId' - The ID of the AWS account that owns the resource group.
---
--- * 'crgGroupARN' - The ARN of the resource group.
-capacityReservationGroup ::
+-- * 'groupARN' - The ARN of the resource group.
+-- * 'ownerId' - The ID of the AWS account that owns the resource group.
+mkCapacityReservationGroup ::
   CapacityReservationGroup
-capacityReservationGroup =
+mkCapacityReservationGroup =
   CapacityReservationGroup'
-    { _crgOwnerId = Nothing,
-      _crgGroupARN = Nothing
+    { ownerId = Lude.Nothing,
+      groupARN = Lude.Nothing
     }
 
 -- | The ID of the AWS account that owns the resource group.
-crgOwnerId :: Lens' CapacityReservationGroup (Maybe Text)
-crgOwnerId = lens _crgOwnerId (\s a -> s {_crgOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crgOwnerId :: Lens.Lens' CapacityReservationGroup (Lude.Maybe Lude.Text)
+crgOwnerId = Lens.lens (ownerId :: CapacityReservationGroup -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: CapacityReservationGroup)
+{-# DEPRECATED crgOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The ARN of the resource group.
-crgGroupARN :: Lens' CapacityReservationGroup (Maybe Text)
-crgGroupARN = lens _crgGroupARN (\s a -> s {_crgGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crgGroupARN :: Lens.Lens' CapacityReservationGroup (Lude.Maybe Lude.Text)
+crgGroupARN = Lens.lens (groupARN :: CapacityReservationGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: CapacityReservationGroup)
+{-# DEPRECATED crgGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
-instance FromXML CapacityReservationGroup where
+instance Lude.FromXML CapacityReservationGroup where
   parseXML x =
     CapacityReservationGroup'
-      <$> (x .@? "ownerId") <*> (x .@? "groupArn")
-
-instance Hashable CapacityReservationGroup
-
-instance NFData CapacityReservationGroup
+      Lude.<$> (x Lude..@? "ownerId") Lude.<*> (x Lude..@? "groupArn")

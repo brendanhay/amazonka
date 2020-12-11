@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Returns information about the cache of a gateway. This operation is only supported in the cached volume, tape, and file gateway types.
 --
---
 -- The response includes disk IDs that are configured as cache, and it includes the amount of cache allocated and used.
 module Network.AWS.StorageGateway.DescribeCache
-  ( -- * Creating a Request
-    describeCache,
-    DescribeCache,
+  ( -- * Creating a request
+    DescribeCache (..),
+    mkDescribeCache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcGatewayARN,
 
-    -- * Destructuring the Response
-    describeCacheResponse,
-    DescribeCacheResponse,
+    -- * Destructuring the response
+    DescribeCacheResponse (..),
+    mkDescribeCacheResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsGatewayARN,
     dcrsDiskIds,
     dcrsCacheUsedPercentage,
@@ -45,152 +39,179 @@ module Network.AWS.StorageGateway.DescribeCache
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'describeCache' smart constructor.
-newtype DescribeCache = DescribeCache' {_dcGatewayARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDescribeCache' smart constructor.
+newtype DescribeCache = DescribeCache' {gatewayARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcGatewayARN' - Undocumented member.
-describeCache ::
-  -- | 'dcGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+mkDescribeCache ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   DescribeCache
-describeCache pGatewayARN_ =
-  DescribeCache' {_dcGatewayARN = pGatewayARN_}
+mkDescribeCache pGatewayARN_ =
+  DescribeCache' {gatewayARN = pGatewayARN_}
 
--- | Undocumented member.
-dcGatewayARN :: Lens' DescribeCache Text
-dcGatewayARN = lens _dcGatewayARN (\s a -> s {_dcGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcGatewayARN :: Lens.Lens' DescribeCache Lude.Text
+dcGatewayARN = Lens.lens (gatewayARN :: DescribeCache -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeCache)
+{-# DEPRECATED dcGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest DescribeCache where
+instance Lude.AWSRequest DescribeCache where
   type Rs DescribeCache = DescribeCacheResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCacheResponse'
-            <$> (x .?> "GatewayARN")
-            <*> (x .?> "DiskIds" .!@ mempty)
-            <*> (x .?> "CacheUsedPercentage")
-            <*> (x .?> "CacheHitPercentage")
-            <*> (x .?> "CacheMissPercentage")
-            <*> (x .?> "CacheAllocatedInBytes")
-            <*> (x .?> "CacheDirtyPercentage")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN")
+            Lude.<*> (x Lude..?> "DiskIds" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "CacheUsedPercentage")
+            Lude.<*> (x Lude..?> "CacheHitPercentage")
+            Lude.<*> (x Lude..?> "CacheMissPercentage")
+            Lude.<*> (x Lude..?> "CacheAllocatedInBytes")
+            Lude.<*> (x Lude..?> "CacheDirtyPercentage")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCache
-
-instance NFData DescribeCache
-
-instance ToHeaders DescribeCache where
+instance Lude.ToHeaders DescribeCache where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.DescribeCache" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.DescribeCache" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCache where
+instance Lude.ToJSON DescribeCache where
   toJSON DescribeCache' {..} =
-    object (catMaybes [Just ("GatewayARN" .= _dcGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
 
-instance ToPath DescribeCache where
-  toPath = const "/"
+instance Lude.ToPath DescribeCache where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCache where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCache where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeCacheResponse' smart constructor.
+-- | /See:/ 'mkDescribeCacheResponse' smart constructor.
 data DescribeCacheResponse = DescribeCacheResponse'
-  { _dcrsGatewayARN ::
-      !(Maybe Text),
-    _dcrsDiskIds :: !(Maybe [Text]),
-    _dcrsCacheUsedPercentage :: !(Maybe Double),
-    _dcrsCacheHitPercentage :: !(Maybe Double),
-    _dcrsCacheMissPercentage :: !(Maybe Double),
-    _dcrsCacheAllocatedInBytes :: !(Maybe Integer),
-    _dcrsCacheDirtyPercentage :: !(Maybe Double),
-    _dcrsResponseStatus :: !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    diskIds :: Lude.Maybe [Lude.Text],
+    cacheUsedPercentage :: Lude.Maybe Lude.Double,
+    cacheHitPercentage :: Lude.Maybe Lude.Double,
+    cacheMissPercentage :: Lude.Maybe Lude.Double,
+    cacheAllocatedInBytes ::
+      Lude.Maybe Lude.Integer,
+    cacheDirtyPercentage :: Lude.Maybe Lude.Double,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsGatewayARN' - Undocumented member.
---
--- * 'dcrsDiskIds' - An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
---
--- * 'dcrsCacheUsedPercentage' - Percent use of the gateway's cache storage. This metric applies only to the gateway-cached volume setup. The sample is taken at the end of the reporting period.
---
--- * 'dcrsCacheHitPercentage' - Percent of application read operations from the file shares that are served from cache. The sample is taken at the end of the reporting period.
---
--- * 'dcrsCacheMissPercentage' - Percent of application read operations from the file shares that are not served from cache. The sample is taken at the end of the reporting period.
---
--- * 'dcrsCacheAllocatedInBytes' - The amount of cache in bytes allocated to a gateway.
---
--- * 'dcrsCacheDirtyPercentage' - The file share's contribution to the overall percentage of the gateway's cache that has not been persisted to AWS. The sample is taken at the end of the reporting period.
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeCacheResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
+-- * 'cacheAllocatedInBytes' - The amount of cache in bytes allocated to a gateway.
+-- * 'cacheDirtyPercentage' - The file share's contribution to the overall percentage of the gateway's cache that has not been persisted to AWS. The sample is taken at the end of the reporting period.
+-- * 'cacheHitPercentage' - Percent of application read operations from the file shares that are served from cache. The sample is taken at the end of the reporting period.
+-- * 'cacheMissPercentage' - Percent of application read operations from the file shares that are not served from cache. The sample is taken at the end of the reporting period.
+-- * 'cacheUsedPercentage' - Percent use of the gateway's cache storage. This metric applies only to the gateway-cached volume setup. The sample is taken at the end of the reporting period.
+-- * 'diskIds' - An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDescribeCacheResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCacheResponse
-describeCacheResponse pResponseStatus_ =
+mkDescribeCacheResponse pResponseStatus_ =
   DescribeCacheResponse'
-    { _dcrsGatewayARN = Nothing,
-      _dcrsDiskIds = Nothing,
-      _dcrsCacheUsedPercentage = Nothing,
-      _dcrsCacheHitPercentage = Nothing,
-      _dcrsCacheMissPercentage = Nothing,
-      _dcrsCacheAllocatedInBytes = Nothing,
-      _dcrsCacheDirtyPercentage = Nothing,
-      _dcrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      diskIds = Lude.Nothing,
+      cacheUsedPercentage = Lude.Nothing,
+      cacheHitPercentage = Lude.Nothing,
+      cacheMissPercentage = Lude.Nothing,
+      cacheAllocatedInBytes = Lude.Nothing,
+      cacheDirtyPercentage = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-dcrsGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
-dcrsGatewayARN = lens _dcrsGatewayARN (\s a -> s {_dcrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsGatewayARN :: Lens.Lens' DescribeCacheResponse (Lude.Maybe Lude.Text)
+dcrsGatewayARN = Lens.lens (gatewayARN :: DescribeCacheResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeCacheResponse)
+{-# DEPRECATED dcrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
-dcrsDiskIds :: Lens' DescribeCacheResponse [Text]
-dcrsDiskIds = lens _dcrsDiskIds (\s a -> s {_dcrsDiskIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'diskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsDiskIds :: Lens.Lens' DescribeCacheResponse (Lude.Maybe [Lude.Text])
+dcrsDiskIds = Lens.lens (diskIds :: DescribeCacheResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {diskIds = a} :: DescribeCacheResponse)
+{-# DEPRECATED dcrsDiskIds "Use generic-lens or generic-optics with 'diskIds' instead." #-}
 
 -- | Percent use of the gateway's cache storage. This metric applies only to the gateway-cached volume setup. The sample is taken at the end of the reporting period.
-dcrsCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheUsedPercentage = lens _dcrsCacheUsedPercentage (\s a -> s {_dcrsCacheUsedPercentage = a})
+--
+-- /Note:/ Consider using 'cacheUsedPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCacheUsedPercentage :: Lens.Lens' DescribeCacheResponse (Lude.Maybe Lude.Double)
+dcrsCacheUsedPercentage = Lens.lens (cacheUsedPercentage :: DescribeCacheResponse -> Lude.Maybe Lude.Double) (\s a -> s {cacheUsedPercentage = a} :: DescribeCacheResponse)
+{-# DEPRECATED dcrsCacheUsedPercentage "Use generic-lens or generic-optics with 'cacheUsedPercentage' instead." #-}
 
 -- | Percent of application read operations from the file shares that are served from cache. The sample is taken at the end of the reporting period.
-dcrsCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheHitPercentage = lens _dcrsCacheHitPercentage (\s a -> s {_dcrsCacheHitPercentage = a})
+--
+-- /Note:/ Consider using 'cacheHitPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCacheHitPercentage :: Lens.Lens' DescribeCacheResponse (Lude.Maybe Lude.Double)
+dcrsCacheHitPercentage = Lens.lens (cacheHitPercentage :: DescribeCacheResponse -> Lude.Maybe Lude.Double) (\s a -> s {cacheHitPercentage = a} :: DescribeCacheResponse)
+{-# DEPRECATED dcrsCacheHitPercentage "Use generic-lens or generic-optics with 'cacheHitPercentage' instead." #-}
 
 -- | Percent of application read operations from the file shares that are not served from cache. The sample is taken at the end of the reporting period.
-dcrsCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheMissPercentage = lens _dcrsCacheMissPercentage (\s a -> s {_dcrsCacheMissPercentage = a})
+--
+-- /Note:/ Consider using 'cacheMissPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCacheMissPercentage :: Lens.Lens' DescribeCacheResponse (Lude.Maybe Lude.Double)
+dcrsCacheMissPercentage = Lens.lens (cacheMissPercentage :: DescribeCacheResponse -> Lude.Maybe Lude.Double) (\s a -> s {cacheMissPercentage = a} :: DescribeCacheResponse)
+{-# DEPRECATED dcrsCacheMissPercentage "Use generic-lens or generic-optics with 'cacheMissPercentage' instead." #-}
 
 -- | The amount of cache in bytes allocated to a gateway.
-dcrsCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
-dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\s a -> s {_dcrsCacheAllocatedInBytes = a})
+--
+-- /Note:/ Consider using 'cacheAllocatedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCacheAllocatedInBytes :: Lens.Lens' DescribeCacheResponse (Lude.Maybe Lude.Integer)
+dcrsCacheAllocatedInBytes = Lens.lens (cacheAllocatedInBytes :: DescribeCacheResponse -> Lude.Maybe Lude.Integer) (\s a -> s {cacheAllocatedInBytes = a} :: DescribeCacheResponse)
+{-# DEPRECATED dcrsCacheAllocatedInBytes "Use generic-lens or generic-optics with 'cacheAllocatedInBytes' instead." #-}
 
 -- | The file share's contribution to the overall percentage of the gateway's cache that has not been persisted to AWS. The sample is taken at the end of the reporting period.
-dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\s a -> s {_dcrsCacheDirtyPercentage = a})
+--
+-- /Note:/ Consider using 'cacheDirtyPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCacheDirtyPercentage :: Lens.Lens' DescribeCacheResponse (Lude.Maybe Lude.Double)
+dcrsCacheDirtyPercentage = Lens.lens (cacheDirtyPercentage :: DescribeCacheResponse -> Lude.Maybe Lude.Double) (\s a -> s {cacheDirtyPercentage = a} :: DescribeCacheResponse)
+{-# DEPRECATED dcrsCacheDirtyPercentage "Use generic-lens or generic-optics with 'cacheDirtyPercentage' instead." #-}
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeCacheResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
-
-instance NFData DescribeCacheResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DescribeCacheResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeCacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCacheResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

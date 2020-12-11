@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,128 +7,174 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.EventSubscription where
+module Network.AWS.RDS.Types.EventSubscription
+  ( EventSubscription (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEventSubscription,
+
+    -- * Lenses
+    esStatus,
+    esCustomerAWSId,
+    esCustSubscriptionId,
+    esSNSTopicARN,
+    esEventSubscriptionARN,
+    esEnabled,
+    esSourceType,
+    esSubscriptionCreationTime,
+    esEventCategoriesList,
+    esSourceIdsList,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the results of a successful invocation of the @DescribeEventSubscriptions@ action.
 --
---
---
--- /See:/ 'eventSubscription' smart constructor.
+-- /See:/ 'mkEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { _esStatus ::
-      !(Maybe Text),
-    _esCustomerAWSId :: !(Maybe Text),
-    _esCustSubscriptionId :: !(Maybe Text),
-    _esSNSTopicARN :: !(Maybe Text),
-    _esEventSubscriptionARN :: !(Maybe Text),
-    _esEnabled :: !(Maybe Bool),
-    _esSourceType :: !(Maybe Text),
-    _esSubscriptionCreationTime :: !(Maybe Text),
-    _esEventCategoriesList :: !(Maybe [Text]),
-    _esSourceIdsList :: !(Maybe [Text])
+  { status ::
+      Lude.Maybe Lude.Text,
+    customerAWSId :: Lude.Maybe Lude.Text,
+    custSubscriptionId :: Lude.Maybe Lude.Text,
+    snsTopicARN :: Lude.Maybe Lude.Text,
+    eventSubscriptionARN :: Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    sourceType :: Lude.Maybe Lude.Text,
+    subscriptionCreationTime :: Lude.Maybe Lude.Text,
+    eventCategoriesList :: Lude.Maybe [Lude.Text],
+    sourceIdsList :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'custSubscriptionId' - The RDS event notification subscription Id.
+-- * 'customerAWSId' - The AWS customer account associated with the RDS event notification subscription.
+-- * 'enabled' - A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.
+-- * 'eventCategoriesList' - A list of event categories for the RDS event notification subscription.
+-- * 'eventSubscriptionARN' - The Amazon Resource Name (ARN) for the event subscription.
+-- * 'snsTopicARN' - The topic ARN of the RDS event notification subscription.
+-- * 'sourceIdsList' - A list of source IDs for the RDS event notification subscription.
+-- * 'sourceType' - The source type for the RDS event notification subscription.
+-- * 'status' - The status of the RDS event notification subscription.
 --
--- * 'esStatus' - The status of the RDS event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist The status "no-permission" indicates that RDS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
---
--- * 'esCustomerAWSId' - The AWS customer account associated with the RDS event notification subscription.
---
--- * 'esCustSubscriptionId' - The RDS event notification subscription Id.
---
--- * 'esSNSTopicARN' - The topic ARN of the RDS event notification subscription.
---
--- * 'esEventSubscriptionARN' - The Amazon Resource Name (ARN) for the event subscription.
---
--- * 'esEnabled' - A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.
---
--- * 'esSourceType' - The source type for the RDS event notification subscription.
---
--- * 'esSubscriptionCreationTime' - The time the RDS event notification subscription was created.
---
--- * 'esEventCategoriesList' - A list of event categories for the RDS event notification subscription.
---
--- * 'esSourceIdsList' - A list of source IDs for the RDS event notification subscription.
-eventSubscription ::
+-- Constraints:
+-- Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
+-- The status "no-permission" indicates that RDS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+-- * 'subscriptionCreationTime' - The time the RDS event notification subscription was created.
+mkEventSubscription ::
   EventSubscription
-eventSubscription =
+mkEventSubscription =
   EventSubscription'
-    { _esStatus = Nothing,
-      _esCustomerAWSId = Nothing,
-      _esCustSubscriptionId = Nothing,
-      _esSNSTopicARN = Nothing,
-      _esEventSubscriptionARN = Nothing,
-      _esEnabled = Nothing,
-      _esSourceType = Nothing,
-      _esSubscriptionCreationTime = Nothing,
-      _esEventCategoriesList = Nothing,
-      _esSourceIdsList = Nothing
+    { status = Lude.Nothing,
+      customerAWSId = Lude.Nothing,
+      custSubscriptionId = Lude.Nothing,
+      snsTopicARN = Lude.Nothing,
+      eventSubscriptionARN = Lude.Nothing,
+      enabled = Lude.Nothing,
+      sourceType = Lude.Nothing,
+      subscriptionCreationTime = Lude.Nothing,
+      eventCategoriesList = Lude.Nothing,
+      sourceIdsList = Lude.Nothing
     }
 
--- | The status of the RDS event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist The status "no-permission" indicates that RDS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
-esStatus :: Lens' EventSubscription (Maybe Text)
-esStatus = lens _esStatus (\s a -> s {_esStatus = a})
+-- | The status of the RDS event notification subscription.
+--
+-- Constraints:
+-- Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
+-- The status "no-permission" indicates that RDS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esStatus :: Lens.Lens' EventSubscription (Lude.Maybe Lude.Text)
+esStatus = Lens.lens (status :: EventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: EventSubscription)
+{-# DEPRECATED esStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The AWS customer account associated with the RDS event notification subscription.
-esCustomerAWSId :: Lens' EventSubscription (Maybe Text)
-esCustomerAWSId = lens _esCustomerAWSId (\s a -> s {_esCustomerAWSId = a})
+--
+-- /Note:/ Consider using 'customerAWSId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esCustomerAWSId :: Lens.Lens' EventSubscription (Lude.Maybe Lude.Text)
+esCustomerAWSId = Lens.lens (customerAWSId :: EventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {customerAWSId = a} :: EventSubscription)
+{-# DEPRECATED esCustomerAWSId "Use generic-lens or generic-optics with 'customerAWSId' instead." #-}
 
 -- | The RDS event notification subscription Id.
-esCustSubscriptionId :: Lens' EventSubscription (Maybe Text)
-esCustSubscriptionId = lens _esCustSubscriptionId (\s a -> s {_esCustSubscriptionId = a})
+--
+-- /Note:/ Consider using 'custSubscriptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esCustSubscriptionId :: Lens.Lens' EventSubscription (Lude.Maybe Lude.Text)
+esCustSubscriptionId = Lens.lens (custSubscriptionId :: EventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {custSubscriptionId = a} :: EventSubscription)
+{-# DEPRECATED esCustSubscriptionId "Use generic-lens or generic-optics with 'custSubscriptionId' instead." #-}
 
 -- | The topic ARN of the RDS event notification subscription.
-esSNSTopicARN :: Lens' EventSubscription (Maybe Text)
-esSNSTopicARN = lens _esSNSTopicARN (\s a -> s {_esSNSTopicARN = a})
+--
+-- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSNSTopicARN :: Lens.Lens' EventSubscription (Lude.Maybe Lude.Text)
+esSNSTopicARN = Lens.lens (snsTopicARN :: EventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {snsTopicARN = a} :: EventSubscription)
+{-# DEPRECATED esSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the event subscription.
-esEventSubscriptionARN :: Lens' EventSubscription (Maybe Text)
-esEventSubscriptionARN = lens _esEventSubscriptionARN (\s a -> s {_esEventSubscriptionARN = a})
+--
+-- /Note:/ Consider using 'eventSubscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esEventSubscriptionARN :: Lens.Lens' EventSubscription (Lude.Maybe Lude.Text)
+esEventSubscriptionARN = Lens.lens (eventSubscriptionARN :: EventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {eventSubscriptionARN = a} :: EventSubscription)
+{-# DEPRECATED esEventSubscriptionARN "Use generic-lens or generic-optics with 'eventSubscriptionARN' instead." #-}
 
 -- | A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.
-esEnabled :: Lens' EventSubscription (Maybe Bool)
-esEnabled = lens _esEnabled (\s a -> s {_esEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esEnabled :: Lens.Lens' EventSubscription (Lude.Maybe Lude.Bool)
+esEnabled = Lens.lens (enabled :: EventSubscription -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: EventSubscription)
+{-# DEPRECATED esEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The source type for the RDS event notification subscription.
-esSourceType :: Lens' EventSubscription (Maybe Text)
-esSourceType = lens _esSourceType (\s a -> s {_esSourceType = a})
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSourceType :: Lens.Lens' EventSubscription (Lude.Maybe Lude.Text)
+esSourceType = Lens.lens (sourceType :: EventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: EventSubscription)
+{-# DEPRECATED esSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | The time the RDS event notification subscription was created.
-esSubscriptionCreationTime :: Lens' EventSubscription (Maybe Text)
-esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\s a -> s {_esSubscriptionCreationTime = a})
+--
+-- /Note:/ Consider using 'subscriptionCreationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSubscriptionCreationTime :: Lens.Lens' EventSubscription (Lude.Maybe Lude.Text)
+esSubscriptionCreationTime = Lens.lens (subscriptionCreationTime :: EventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionCreationTime = a} :: EventSubscription)
+{-# DEPRECATED esSubscriptionCreationTime "Use generic-lens or generic-optics with 'subscriptionCreationTime' instead." #-}
 
 -- | A list of event categories for the RDS event notification subscription.
-esEventCategoriesList :: Lens' EventSubscription [Text]
-esEventCategoriesList = lens _esEventCategoriesList (\s a -> s {_esEventCategoriesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventCategoriesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esEventCategoriesList :: Lens.Lens' EventSubscription (Lude.Maybe [Lude.Text])
+esEventCategoriesList = Lens.lens (eventCategoriesList :: EventSubscription -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategoriesList = a} :: EventSubscription)
+{-# DEPRECATED esEventCategoriesList "Use generic-lens or generic-optics with 'eventCategoriesList' instead." #-}
 
 -- | A list of source IDs for the RDS event notification subscription.
-esSourceIdsList :: Lens' EventSubscription [Text]
-esSourceIdsList = lens _esSourceIdsList (\s a -> s {_esSourceIdsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sourceIdsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esSourceIdsList :: Lens.Lens' EventSubscription (Lude.Maybe [Lude.Text])
+esSourceIdsList = Lens.lens (sourceIdsList :: EventSubscription -> Lude.Maybe [Lude.Text]) (\s a -> s {sourceIdsList = a} :: EventSubscription)
+{-# DEPRECATED esSourceIdsList "Use generic-lens or generic-optics with 'sourceIdsList' instead." #-}
 
-instance FromXML EventSubscription where
+instance Lude.FromXML EventSubscription where
   parseXML x =
     EventSubscription'
-      <$> (x .@? "Status")
-      <*> (x .@? "CustomerAwsId")
-      <*> (x .@? "CustSubscriptionId")
-      <*> (x .@? "SnsTopicArn")
-      <*> (x .@? "EventSubscriptionArn")
-      <*> (x .@? "Enabled")
-      <*> (x .@? "SourceType")
-      <*> (x .@? "SubscriptionCreationTime")
-      <*> ( x .@? "EventCategoriesList" .!@ mempty
-              >>= may (parseXMLList "EventCategory")
-          )
-      <*> ( x .@? "SourceIdsList" .!@ mempty
-              >>= may (parseXMLList "SourceId")
-          )
-
-instance Hashable EventSubscription
-
-instance NFData EventSubscription
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "CustomerAwsId")
+      Lude.<*> (x Lude..@? "CustSubscriptionId")
+      Lude.<*> (x Lude..@? "SnsTopicArn")
+      Lude.<*> (x Lude..@? "EventSubscriptionArn")
+      Lude.<*> (x Lude..@? "Enabled")
+      Lude.<*> (x Lude..@? "SourceType")
+      Lude.<*> (x Lude..@? "SubscriptionCreationTime")
+      Lude.<*> ( x Lude..@? "EventCategoriesList" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "EventCategory")
+               )
+      Lude.<*> ( x Lude..@? "SourceIdsList" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "SourceId")
+               )

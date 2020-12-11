@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,140 +7,245 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.StackInstance where
+module Network.AWS.CloudFormation.Types.StackInstance
+  ( StackInstance (..),
+
+    -- * Smart constructor
+    mkStackInstance,
+
+    -- * Lenses
+    siStatus,
+    siLastDriftCheckTimestamp,
+    siAccount,
+    siDriftStatus,
+    siOrganizationalUnitId,
+    siRegion,
+    siStatusReason,
+    siStackId,
+    siStackInstanceStatus,
+    siParameterOverrides,
+    siStackSetId,
+  )
+where
 
 import Network.AWS.CloudFormation.Types.Parameter
 import Network.AWS.CloudFormation.Types.StackDriftStatus
 import Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus
 import Network.AWS.CloudFormation.Types.StackInstanceStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An AWS CloudFormation stack, in a specific account and Region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status.
 --
---
---
--- /See:/ 'stackInstance' smart constructor.
+-- /See:/ 'mkStackInstance' smart constructor.
 data StackInstance = StackInstance'
-  { _siStatus ::
-      !(Maybe StackInstanceStatus),
-    _siLastDriftCheckTimestamp :: !(Maybe ISO8601),
-    _siAccount :: !(Maybe Text),
-    _siDriftStatus :: !(Maybe StackDriftStatus),
-    _siOrganizationalUnitId :: !(Maybe Text),
-    _siRegion :: !(Maybe Text),
-    _siStatusReason :: !(Maybe Text),
-    _siStackId :: !(Maybe Text),
-    _siStackInstanceStatus ::
-      !(Maybe StackInstanceComprehensiveStatus),
-    _siParameterOverrides :: !(Maybe [Parameter]),
-    _siStackSetId :: !(Maybe Text)
+  { status ::
+      Lude.Maybe StackInstanceStatus,
+    lastDriftCheckTimestamp :: Lude.Maybe Lude.ISO8601,
+    account :: Lude.Maybe Lude.Text,
+    driftStatus :: Lude.Maybe StackDriftStatus,
+    organizationalUnitId :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    statusReason :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Maybe Lude.Text,
+    stackInstanceStatus ::
+      Lude.Maybe StackInstanceComprehensiveStatus,
+    parameterOverrides :: Lude.Maybe [Parameter],
+    stackSetId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'account' - [@Self-managed@ permissions] The name of the AWS account that the stack instance is associated with.
+-- * 'driftStatus' - Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs.
 --
--- * 'siStatus' - The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
 --
--- * 'siLastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be @NULL@ for any stack instance on which drift detection has not yet been performed.
+--     * @DRIFTED@ : The stack differs from the expected template and parameter configuration of the stack set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.
 --
--- * 'siAccount' - [@Self-managed@ permissions] The name of the AWS account that the stack instance is associated with.
 --
--- * 'siDriftStatus' - Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs.      * @DRIFTED@ : The stack differs from the expected template and parameter configuration of the stack set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack instance differs from its expected stack set configuration.     * @IN_SYNC@ : The stack instance's actual configuration matches its expected stack set configuration.     * @UNKNOWN@ : This value is reserved for future use.
+--     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack instance differs from its expected stack set configuration.
 --
--- * 'siOrganizationalUnitId' - [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
 --
--- * 'siRegion' - The name of the AWS Region that the stack instance is associated with.
+--     * @IN_SYNC@ : The stack instance's actual configuration matches its expected stack set configuration.
 --
--- * 'siStatusReason' - The explanation for the specific status code that is assigned to this stack instance.
 --
--- * 'siStackId' - The ID of the stack instance.
+--     * @UNKNOWN@ : This value is reserved for future use.
 --
--- * 'siStackInstanceStatus' - The detailed status of the stack instance.
 --
--- * 'siParameterOverrides' - A list of parameters from the stack set template whose values have been overridden in this stack instance.
+-- * 'lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be @NULL@ for any stack instance on which drift detection has not yet been performed.
+-- * 'organizationalUnitId' - [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
+-- * 'parameterOverrides' - A list of parameters from the stack set template whose values have been overridden in this stack instance.
+-- * 'region' - The name of the AWS Region that the stack instance is associated with.
+-- * 'stackId' - The ID of the stack instance.
+-- * 'stackInstanceStatus' - The detailed status of the stack instance.
+-- * 'stackSetId' - The name or unique ID of the stack set that the stack instance is associated with.
+-- * 'status' - The status of the stack instance, in terms of its synchronization with its associated stack set.
 --
--- * 'siStackSetId' - The name or unique ID of the stack set that the stack instance is associated with.
-stackInstance ::
+--
+--     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.
+--
+--
+--     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:
+--
+--     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.
+--
+--
+--     * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.
+--
+--
+--
+--
+--     * @CURRENT@ : The stack is currently up to date with the stack set.
+--
+--
+-- * 'statusReason' - The explanation for the specific status code that is assigned to this stack instance.
+mkStackInstance ::
   StackInstance
-stackInstance =
+mkStackInstance =
   StackInstance'
-    { _siStatus = Nothing,
-      _siLastDriftCheckTimestamp = Nothing,
-      _siAccount = Nothing,
-      _siDriftStatus = Nothing,
-      _siOrganizationalUnitId = Nothing,
-      _siRegion = Nothing,
-      _siStatusReason = Nothing,
-      _siStackId = Nothing,
-      _siStackInstanceStatus = Nothing,
-      _siParameterOverrides = Nothing,
-      _siStackSetId = Nothing
+    { status = Lude.Nothing,
+      lastDriftCheckTimestamp = Lude.Nothing,
+      account = Lude.Nothing,
+      driftStatus = Lude.Nothing,
+      organizationalUnitId = Lude.Nothing,
+      region = Lude.Nothing,
+      statusReason = Lude.Nothing,
+      stackId = Lude.Nothing,
+      stackInstanceStatus = Lude.Nothing,
+      parameterOverrides = Lude.Nothing,
+      stackSetId = Lude.Nothing
     }
 
--- | The status of the stack instance, in terms of its synchronization with its associated stack set.     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.      * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.      * @CURRENT@ : The stack is currently up to date with the stack set.
-siStatus :: Lens' StackInstance (Maybe StackInstanceStatus)
-siStatus = lens _siStatus (\s a -> s {_siStatus = a})
+-- | The status of the stack instance, in terms of its synchronization with its associated stack set.
+--
+--
+--     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.
+--
+--
+--     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:
+--
+--     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.
+--
+--
+--     * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.
+--
+--
+--
+--
+--     * @CURRENT@ : The stack is currently up to date with the stack set.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStatus :: Lens.Lens' StackInstance (Lude.Maybe StackInstanceStatus)
+siStatus = Lens.lens (status :: StackInstance -> Lude.Maybe StackInstanceStatus) (\s a -> s {status = a} :: StackInstance)
+{-# DEPRECATED siStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be @NULL@ for any stack instance on which drift detection has not yet been performed.
-siLastDriftCheckTimestamp :: Lens' StackInstance (Maybe UTCTime)
-siLastDriftCheckTimestamp = lens _siLastDriftCheckTimestamp (\s a -> s {_siLastDriftCheckTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastDriftCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siLastDriftCheckTimestamp :: Lens.Lens' StackInstance (Lude.Maybe Lude.ISO8601)
+siLastDriftCheckTimestamp = Lens.lens (lastDriftCheckTimestamp :: StackInstance -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastDriftCheckTimestamp = a} :: StackInstance)
+{-# DEPRECATED siLastDriftCheckTimestamp "Use generic-lens or generic-optics with 'lastDriftCheckTimestamp' instead." #-}
 
 -- | [@Self-managed@ permissions] The name of the AWS account that the stack instance is associated with.
-siAccount :: Lens' StackInstance (Maybe Text)
-siAccount = lens _siAccount (\s a -> s {_siAccount = a})
+--
+-- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siAccount :: Lens.Lens' StackInstance (Lude.Maybe Lude.Text)
+siAccount = Lens.lens (account :: StackInstance -> Lude.Maybe Lude.Text) (\s a -> s {account = a} :: StackInstance)
+{-# DEPRECATED siAccount "Use generic-lens or generic-optics with 'account' instead." #-}
 
--- | Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs.      * @DRIFTED@ : The stack differs from the expected template and parameter configuration of the stack set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack instance differs from its expected stack set configuration.     * @IN_SYNC@ : The stack instance's actual configuration matches its expected stack set configuration.     * @UNKNOWN@ : This value is reserved for future use.
-siDriftStatus :: Lens' StackInstance (Maybe StackDriftStatus)
-siDriftStatus = lens _siDriftStatus (\s a -> s {_siDriftStatus = a})
+-- | Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs.
+--
+--
+--     * @DRIFTED@ : The stack differs from the expected template and parameter configuration of the stack set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.
+--
+--
+--     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack instance differs from its expected stack set configuration.
+--
+--
+--     * @IN_SYNC@ : The stack instance's actual configuration matches its expected stack set configuration.
+--
+--
+--     * @UNKNOWN@ : This value is reserved for future use.
+--
+--
+--
+-- /Note:/ Consider using 'driftStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siDriftStatus :: Lens.Lens' StackInstance (Lude.Maybe StackDriftStatus)
+siDriftStatus = Lens.lens (driftStatus :: StackInstance -> Lude.Maybe StackDriftStatus) (\s a -> s {driftStatus = a} :: StackInstance)
+{-# DEPRECATED siDriftStatus "Use generic-lens or generic-optics with 'driftStatus' instead." #-}
 
 -- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
-siOrganizationalUnitId :: Lens' StackInstance (Maybe Text)
-siOrganizationalUnitId = lens _siOrganizationalUnitId (\s a -> s {_siOrganizationalUnitId = a})
+--
+-- /Note:/ Consider using 'organizationalUnitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siOrganizationalUnitId :: Lens.Lens' StackInstance (Lude.Maybe Lude.Text)
+siOrganizationalUnitId = Lens.lens (organizationalUnitId :: StackInstance -> Lude.Maybe Lude.Text) (\s a -> s {organizationalUnitId = a} :: StackInstance)
+{-# DEPRECATED siOrganizationalUnitId "Use generic-lens or generic-optics with 'organizationalUnitId' instead." #-}
 
 -- | The name of the AWS Region that the stack instance is associated with.
-siRegion :: Lens' StackInstance (Maybe Text)
-siRegion = lens _siRegion (\s a -> s {_siRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siRegion :: Lens.Lens' StackInstance (Lude.Maybe Lude.Text)
+siRegion = Lens.lens (region :: StackInstance -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: StackInstance)
+{-# DEPRECATED siRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The explanation for the specific status code that is assigned to this stack instance.
-siStatusReason :: Lens' StackInstance (Maybe Text)
-siStatusReason = lens _siStatusReason (\s a -> s {_siStatusReason = a})
+--
+-- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStatusReason :: Lens.Lens' StackInstance (Lude.Maybe Lude.Text)
+siStatusReason = Lens.lens (statusReason :: StackInstance -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: StackInstance)
+{-# DEPRECATED siStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
 -- | The ID of the stack instance.
-siStackId :: Lens' StackInstance (Maybe Text)
-siStackId = lens _siStackId (\s a -> s {_siStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStackId :: Lens.Lens' StackInstance (Lude.Maybe Lude.Text)
+siStackId = Lens.lens (stackId :: StackInstance -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: StackInstance)
+{-# DEPRECATED siStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The detailed status of the stack instance.
-siStackInstanceStatus :: Lens' StackInstance (Maybe StackInstanceComprehensiveStatus)
-siStackInstanceStatus = lens _siStackInstanceStatus (\s a -> s {_siStackInstanceStatus = a})
+--
+-- /Note:/ Consider using 'stackInstanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStackInstanceStatus :: Lens.Lens' StackInstance (Lude.Maybe StackInstanceComprehensiveStatus)
+siStackInstanceStatus = Lens.lens (stackInstanceStatus :: StackInstance -> Lude.Maybe StackInstanceComprehensiveStatus) (\s a -> s {stackInstanceStatus = a} :: StackInstance)
+{-# DEPRECATED siStackInstanceStatus "Use generic-lens or generic-optics with 'stackInstanceStatus' instead." #-}
 
 -- | A list of parameters from the stack set template whose values have been overridden in this stack instance.
-siParameterOverrides :: Lens' StackInstance [Parameter]
-siParameterOverrides = lens _siParameterOverrides (\s a -> s {_siParameterOverrides = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameterOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siParameterOverrides :: Lens.Lens' StackInstance (Lude.Maybe [Parameter])
+siParameterOverrides = Lens.lens (parameterOverrides :: StackInstance -> Lude.Maybe [Parameter]) (\s a -> s {parameterOverrides = a} :: StackInstance)
+{-# DEPRECATED siParameterOverrides "Use generic-lens or generic-optics with 'parameterOverrides' instead." #-}
 
 -- | The name or unique ID of the stack set that the stack instance is associated with.
-siStackSetId :: Lens' StackInstance (Maybe Text)
-siStackSetId = lens _siStackSetId (\s a -> s {_siStackSetId = a})
+--
+-- /Note:/ Consider using 'stackSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siStackSetId :: Lens.Lens' StackInstance (Lude.Maybe Lude.Text)
+siStackSetId = Lens.lens (stackSetId :: StackInstance -> Lude.Maybe Lude.Text) (\s a -> s {stackSetId = a} :: StackInstance)
+{-# DEPRECATED siStackSetId "Use generic-lens or generic-optics with 'stackSetId' instead." #-}
 
-instance FromXML StackInstance where
+instance Lude.FromXML StackInstance where
   parseXML x =
     StackInstance'
-      <$> (x .@? "Status")
-      <*> (x .@? "LastDriftCheckTimestamp")
-      <*> (x .@? "Account")
-      <*> (x .@? "DriftStatus")
-      <*> (x .@? "OrganizationalUnitId")
-      <*> (x .@? "Region")
-      <*> (x .@? "StatusReason")
-      <*> (x .@? "StackId")
-      <*> (x .@? "StackInstanceStatus")
-      <*> ( x .@? "ParameterOverrides" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> (x .@? "StackSetId")
-
-instance Hashable StackInstance
-
-instance NFData StackInstance
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "LastDriftCheckTimestamp")
+      Lude.<*> (x Lude..@? "Account")
+      Lude.<*> (x Lude..@? "DriftStatus")
+      Lude.<*> (x Lude..@? "OrganizationalUnitId")
+      Lude.<*> (x Lude..@? "Region")
+      Lude.<*> (x Lude..@? "StatusReason")
+      Lude.<*> (x Lude..@? "StackId")
+      Lude.<*> (x Lude..@? "StackInstanceStatus")
+      Lude.<*> ( x Lude..@? "ParameterOverrides" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "StackSetId")

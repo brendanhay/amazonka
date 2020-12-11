@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H265FilterSettings where
+module Network.AWS.MediaLive.Types.H265FilterSettings
+  ( H265FilterSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkH265FilterSettings,
+
+    -- * Lenses
+    hfsTemporalFilterSettings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TemporalFilterSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H265 Filter Settings
 --
--- /See:/ 'h265FilterSettings' smart constructor.
+-- /See:/ 'mkH265FilterSettings' smart constructor.
 newtype H265FilterSettings = H265FilterSettings'
-  { _hfsTemporalFilterSettings ::
-      Maybe TemporalFilterSettings
+  { temporalFilterSettings ::
+      Lude.Maybe TemporalFilterSettings
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'H265FilterSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'hfsTemporalFilterSettings' - Undocumented member.
-h265FilterSettings ::
+-- * 'temporalFilterSettings' - Undocumented field.
+mkH265FilterSettings ::
   H265FilterSettings
-h265FilterSettings =
-  H265FilterSettings' {_hfsTemporalFilterSettings = Nothing}
+mkH265FilterSettings =
+  H265FilterSettings' {temporalFilterSettings = Lude.Nothing}
 
--- | Undocumented member.
-hfsTemporalFilterSettings :: Lens' H265FilterSettings (Maybe TemporalFilterSettings)
-hfsTemporalFilterSettings = lens _hfsTemporalFilterSettings (\s a -> s {_hfsTemporalFilterSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'temporalFilterSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hfsTemporalFilterSettings :: Lens.Lens' H265FilterSettings (Lude.Maybe TemporalFilterSettings)
+hfsTemporalFilterSettings = Lens.lens (temporalFilterSettings :: H265FilterSettings -> Lude.Maybe TemporalFilterSettings) (\s a -> s {temporalFilterSettings = a} :: H265FilterSettings)
+{-# DEPRECATED hfsTemporalFilterSettings "Use generic-lens or generic-optics with 'temporalFilterSettings' instead." #-}
 
-instance FromJSON H265FilterSettings where
+instance Lude.FromJSON H265FilterSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "H265FilterSettings"
-      (\x -> H265FilterSettings' <$> (x .:? "temporalFilterSettings"))
+      ( \x ->
+          H265FilterSettings' Lude.<$> (x Lude..:? "temporalFilterSettings")
+      )
 
-instance Hashable H265FilterSettings
-
-instance NFData H265FilterSettings
-
-instance ToJSON H265FilterSettings where
+instance Lude.ToJSON H265FilterSettings where
   toJSON H265FilterSettings' {..} =
-    object
-      ( catMaybes
-          [("temporalFilterSettings" .=) <$> _hfsTemporalFilterSettings]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("temporalFilterSettings" Lude..=)
+              Lude.<$> temporalFilterSettings
+          ]
       )

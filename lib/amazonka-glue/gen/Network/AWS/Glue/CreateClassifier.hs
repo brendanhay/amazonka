@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,136 +14,156 @@
 --
 -- Creates a classifier in the user's account. This can be a @GrokClassifier@ , an @XMLClassifier@ , a @JsonClassifier@ , or a @CsvClassifier@ , depending on which field of the request is present.
 module Network.AWS.Glue.CreateClassifier
-  ( -- * Creating a Request
-    createClassifier,
-    CreateClassifier,
+  ( -- * Creating a request
+    CreateClassifier (..),
+    mkCreateClassifier,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccGrokClassifier,
     ccXMLClassifier,
     ccCSVClassifier,
     ccJSONClassifier,
 
-    -- * Destructuring the Response
-    createClassifierResponse,
-    CreateClassifierResponse,
+    -- * Destructuring the response
+    CreateClassifierResponse (..),
+    mkCreateClassifierResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createClassifier' smart constructor.
+-- | /See:/ 'mkCreateClassifier' smart constructor.
 data CreateClassifier = CreateClassifier'
-  { _ccGrokClassifier ::
-      !(Maybe CreateGrokClassifierRequest),
-    _ccXMLClassifier :: !(Maybe CreateXMLClassifierRequest),
-    _ccCSVClassifier :: !(Maybe CreateCSVClassifierRequest),
-    _ccJSONClassifier :: !(Maybe CreateJSONClassifierRequest)
+  { grokClassifier ::
+      Lude.Maybe CreateGrokClassifierRequest,
+    xmlClassifier :: Lude.Maybe CreateXMLClassifierRequest,
+    csvClassifier :: Lude.Maybe CreateCSVClassifierRequest,
+    jsonClassifier :: Lude.Maybe CreateJSONClassifierRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClassifier' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccGrokClassifier' - A @GrokClassifier@ object specifying the classifier to create.
---
--- * 'ccXMLClassifier' - An @XMLClassifier@ object specifying the classifier to create.
---
--- * 'ccCSVClassifier' - A @CsvClassifier@ object specifying the classifier to create.
---
--- * 'ccJSONClassifier' - A @JsonClassifier@ object specifying the classifier to create.
-createClassifier ::
+-- * 'csvClassifier' - A @CsvClassifier@ object specifying the classifier to create.
+-- * 'grokClassifier' - A @GrokClassifier@ object specifying the classifier to create.
+-- * 'jsonClassifier' - A @JsonClassifier@ object specifying the classifier to create.
+-- * 'xmlClassifier' - An @XMLClassifier@ object specifying the classifier to create.
+mkCreateClassifier ::
   CreateClassifier
-createClassifier =
+mkCreateClassifier =
   CreateClassifier'
-    { _ccGrokClassifier = Nothing,
-      _ccXMLClassifier = Nothing,
-      _ccCSVClassifier = Nothing,
-      _ccJSONClassifier = Nothing
+    { grokClassifier = Lude.Nothing,
+      xmlClassifier = Lude.Nothing,
+      csvClassifier = Lude.Nothing,
+      jsonClassifier = Lude.Nothing
     }
 
 -- | A @GrokClassifier@ object specifying the classifier to create.
-ccGrokClassifier :: Lens' CreateClassifier (Maybe CreateGrokClassifierRequest)
-ccGrokClassifier = lens _ccGrokClassifier (\s a -> s {_ccGrokClassifier = a})
+--
+-- /Note:/ Consider using 'grokClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccGrokClassifier :: Lens.Lens' CreateClassifier (Lude.Maybe CreateGrokClassifierRequest)
+ccGrokClassifier = Lens.lens (grokClassifier :: CreateClassifier -> Lude.Maybe CreateGrokClassifierRequest) (\s a -> s {grokClassifier = a} :: CreateClassifier)
+{-# DEPRECATED ccGrokClassifier "Use generic-lens or generic-optics with 'grokClassifier' instead." #-}
 
 -- | An @XMLClassifier@ object specifying the classifier to create.
-ccXMLClassifier :: Lens' CreateClassifier (Maybe CreateXMLClassifierRequest)
-ccXMLClassifier = lens _ccXMLClassifier (\s a -> s {_ccXMLClassifier = a})
+--
+-- /Note:/ Consider using 'xmlClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccXMLClassifier :: Lens.Lens' CreateClassifier (Lude.Maybe CreateXMLClassifierRequest)
+ccXMLClassifier = Lens.lens (xmlClassifier :: CreateClassifier -> Lude.Maybe CreateXMLClassifierRequest) (\s a -> s {xmlClassifier = a} :: CreateClassifier)
+{-# DEPRECATED ccXMLClassifier "Use generic-lens or generic-optics with 'xmlClassifier' instead." #-}
 
 -- | A @CsvClassifier@ object specifying the classifier to create.
-ccCSVClassifier :: Lens' CreateClassifier (Maybe CreateCSVClassifierRequest)
-ccCSVClassifier = lens _ccCSVClassifier (\s a -> s {_ccCSVClassifier = a})
+--
+-- /Note:/ Consider using 'csvClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCSVClassifier :: Lens.Lens' CreateClassifier (Lude.Maybe CreateCSVClassifierRequest)
+ccCSVClassifier = Lens.lens (csvClassifier :: CreateClassifier -> Lude.Maybe CreateCSVClassifierRequest) (\s a -> s {csvClassifier = a} :: CreateClassifier)
+{-# DEPRECATED ccCSVClassifier "Use generic-lens or generic-optics with 'csvClassifier' instead." #-}
 
 -- | A @JsonClassifier@ object specifying the classifier to create.
-ccJSONClassifier :: Lens' CreateClassifier (Maybe CreateJSONClassifierRequest)
-ccJSONClassifier = lens _ccJSONClassifier (\s a -> s {_ccJSONClassifier = a})
+--
+-- /Note:/ Consider using 'jsonClassifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccJSONClassifier :: Lens.Lens' CreateClassifier (Lude.Maybe CreateJSONClassifierRequest)
+ccJSONClassifier = Lens.lens (jsonClassifier :: CreateClassifier -> Lude.Maybe CreateJSONClassifierRequest) (\s a -> s {jsonClassifier = a} :: CreateClassifier)
+{-# DEPRECATED ccJSONClassifier "Use generic-lens or generic-optics with 'jsonClassifier' instead." #-}
 
-instance AWSRequest CreateClassifier where
+instance Lude.AWSRequest CreateClassifier where
   type Rs CreateClassifier = CreateClassifierResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> CreateClassifierResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateClassifierResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateClassifier
-
-instance NFData CreateClassifier
-
-instance ToHeaders CreateClassifier where
+instance Lude.ToHeaders CreateClassifier where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CreateClassifier" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.CreateClassifier" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateClassifier where
+instance Lude.ToJSON CreateClassifier where
   toJSON CreateClassifier' {..} =
-    object
-      ( catMaybes
-          [ ("GrokClassifier" .=) <$> _ccGrokClassifier,
-            ("XMLClassifier" .=) <$> _ccXMLClassifier,
-            ("CsvClassifier" .=) <$> _ccCSVClassifier,
-            ("JsonClassifier" .=) <$> _ccJSONClassifier
+    Lude.object
+      ( Lude.catMaybes
+          [ ("GrokClassifier" Lude..=) Lude.<$> grokClassifier,
+            ("XMLClassifier" Lude..=) Lude.<$> xmlClassifier,
+            ("CsvClassifier" Lude..=) Lude.<$> csvClassifier,
+            ("JsonClassifier" Lude..=) Lude.<$> jsonClassifier
           ]
       )
 
-instance ToPath CreateClassifier where
-  toPath = const "/"
+instance Lude.ToPath CreateClassifier where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateClassifier where
-  toQuery = const mempty
+instance Lude.ToQuery CreateClassifier where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createClassifierResponse' smart constructor.
+-- | /See:/ 'mkCreateClassifierResponse' smart constructor.
 newtype CreateClassifierResponse = CreateClassifierResponse'
-  { _ccrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClassifierResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccrsResponseStatus' - -- | The response status code.
-createClassifierResponse ::
-  -- | 'ccrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateClassifierResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateClassifierResponse
-createClassifierResponse pResponseStatus_ =
-  CreateClassifierResponse' {_ccrsResponseStatus = pResponseStatus_}
+mkCreateClassifierResponse pResponseStatus_ =
+  CreateClassifierResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateClassifierResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\s a -> s {_ccrsResponseStatus = a})
-
-instance NFData CreateClassifierResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateClassifierResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateClassifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateClassifierResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

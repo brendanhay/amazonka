@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ByoipCidr where
+module Network.AWS.EC2.Types.ByoipCidr
+  ( ByoipCidr (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkByoipCidr,
+
+    -- * Lenses
+    bcState,
+    bcCidr,
+    bcStatusMessage,
+    bcDescription,
+  )
+where
+
 import Network.AWS.EC2.Types.ByoipCidrState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an address range that is provisioned for use with your AWS resources through bring your own IP addresses (BYOIP).
 --
---
---
--- /See:/ 'byoipCidr' smart constructor.
+-- /See:/ 'mkByoipCidr' smart constructor.
 data ByoipCidr = ByoipCidr'
-  { _bcState :: !(Maybe ByoipCidrState),
-    _bcCidr :: !(Maybe Text),
-    _bcStatusMessage :: !(Maybe Text),
-    _bcDescription :: !(Maybe Text)
+  { state :: Lude.Maybe ByoipCidrState,
+    cidr :: Lude.Maybe Lude.Text,
+    statusMessage :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ByoipCidr' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bcState' - The state of the address pool.
---
--- * 'bcCidr' - The address range, in CIDR notation.
---
--- * 'bcStatusMessage' - Upon success, contains the ID of the address pool. Otherwise, contains an error message.
---
--- * 'bcDescription' - The description of the address range.
-byoipCidr ::
+-- * 'cidr' - The address range, in CIDR notation.
+-- * 'description' - The description of the address range.
+-- * 'state' - The state of the address pool.
+-- * 'statusMessage' - Upon success, contains the ID of the address pool. Otherwise, contains an error message.
+mkByoipCidr ::
   ByoipCidr
-byoipCidr =
+mkByoipCidr =
   ByoipCidr'
-    { _bcState = Nothing,
-      _bcCidr = Nothing,
-      _bcStatusMessage = Nothing,
-      _bcDescription = Nothing
+    { state = Lude.Nothing,
+      cidr = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The state of the address pool.
-bcState :: Lens' ByoipCidr (Maybe ByoipCidrState)
-bcState = lens _bcState (\s a -> s {_bcState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcState :: Lens.Lens' ByoipCidr (Lude.Maybe ByoipCidrState)
+bcState = Lens.lens (state :: ByoipCidr -> Lude.Maybe ByoipCidrState) (\s a -> s {state = a} :: ByoipCidr)
+{-# DEPRECATED bcState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The address range, in CIDR notation.
-bcCidr :: Lens' ByoipCidr (Maybe Text)
-bcCidr = lens _bcCidr (\s a -> s {_bcCidr = a})
+--
+-- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcCidr :: Lens.Lens' ByoipCidr (Lude.Maybe Lude.Text)
+bcCidr = Lens.lens (cidr :: ByoipCidr -> Lude.Maybe Lude.Text) (\s a -> s {cidr = a} :: ByoipCidr)
+{-# DEPRECATED bcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
 -- | Upon success, contains the ID of the address pool. Otherwise, contains an error message.
-bcStatusMessage :: Lens' ByoipCidr (Maybe Text)
-bcStatusMessage = lens _bcStatusMessage (\s a -> s {_bcStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcStatusMessage :: Lens.Lens' ByoipCidr (Lude.Maybe Lude.Text)
+bcStatusMessage = Lens.lens (statusMessage :: ByoipCidr -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ByoipCidr)
+{-# DEPRECATED bcStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The description of the address range.
-bcDescription :: Lens' ByoipCidr (Maybe Text)
-bcDescription = lens _bcDescription (\s a -> s {_bcDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcDescription :: Lens.Lens' ByoipCidr (Lude.Maybe Lude.Text)
+bcDescription = Lens.lens (description :: ByoipCidr -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ByoipCidr)
+{-# DEPRECATED bcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML ByoipCidr where
+instance Lude.FromXML ByoipCidr where
   parseXML x =
     ByoipCidr'
-      <$> (x .@? "state")
-      <*> (x .@? "cidr")
-      <*> (x .@? "statusMessage")
-      <*> (x .@? "description")
-
-instance Hashable ByoipCidr
-
-instance NFData ByoipCidr
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "cidr")
+      Lude.<*> (x Lude..@? "statusMessage")
+      Lude.<*> (x Lude..@? "description")

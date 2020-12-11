@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.InstanceFleetState where
+module Network.AWS.EMR.Types.InstanceFleetState
+  ( InstanceFleetState
+      ( InstanceFleetState',
+        IFSBootstrapping,
+        IFSProvisioning,
+        IFSResizing,
+        IFSRunning,
+        IFSSuspended,
+        IFSTerminated,
+        IFSTerminating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceFleetState
-  = IFSBootstrapping
-  | IFSProvisioning
-  | IFSResizing
-  | IFSRunning
-  | IFSSuspended
-  | IFSTerminated
-  | IFSTerminating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceFleetState = InstanceFleetState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceFleetState where
-  parser =
-    takeLowerText >>= \case
-      "bootstrapping" -> pure IFSBootstrapping
-      "provisioning" -> pure IFSProvisioning
-      "resizing" -> pure IFSResizing
-      "running" -> pure IFSRunning
-      "suspended" -> pure IFSSuspended
-      "terminated" -> pure IFSTerminated
-      "terminating" -> pure IFSTerminating
-      e ->
-        fromTextError $
-          "Failure parsing InstanceFleetState from value: '" <> e
-            <> "'. Accepted values: bootstrapping, provisioning, resizing, running, suspended, terminated, terminating"
+pattern IFSBootstrapping :: InstanceFleetState
+pattern IFSBootstrapping = InstanceFleetState' "BOOTSTRAPPING"
 
-instance ToText InstanceFleetState where
-  toText = \case
-    IFSBootstrapping -> "BOOTSTRAPPING"
-    IFSProvisioning -> "PROVISIONING"
-    IFSResizing -> "RESIZING"
-    IFSRunning -> "RUNNING"
-    IFSSuspended -> "SUSPENDED"
-    IFSTerminated -> "TERMINATED"
-    IFSTerminating -> "TERMINATING"
+pattern IFSProvisioning :: InstanceFleetState
+pattern IFSProvisioning = InstanceFleetState' "PROVISIONING"
 
-instance Hashable InstanceFleetState
+pattern IFSResizing :: InstanceFleetState
+pattern IFSResizing = InstanceFleetState' "RESIZING"
 
-instance NFData InstanceFleetState
+pattern IFSRunning :: InstanceFleetState
+pattern IFSRunning = InstanceFleetState' "RUNNING"
 
-instance ToByteString InstanceFleetState
+pattern IFSSuspended :: InstanceFleetState
+pattern IFSSuspended = InstanceFleetState' "SUSPENDED"
 
-instance ToQuery InstanceFleetState
+pattern IFSTerminated :: InstanceFleetState
+pattern IFSTerminated = InstanceFleetState' "TERMINATED"
 
-instance ToHeader InstanceFleetState
+pattern IFSTerminating :: InstanceFleetState
+pattern IFSTerminating = InstanceFleetState' "TERMINATING"
 
-instance FromJSON InstanceFleetState where
-  parseJSON = parseJSONText "InstanceFleetState"
+{-# COMPLETE
+  IFSBootstrapping,
+  IFSProvisioning,
+  IFSResizing,
+  IFSRunning,
+  IFSSuspended,
+  IFSTerminated,
+  IFSTerminating,
+  InstanceFleetState'
+  #-}

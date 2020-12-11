@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.CopyObjectResult where
+module Network.AWS.S3.Types.CopyObjectResult
+  ( CopyObjectResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCopyObjectResult,
+
+    -- * Lenses
+    corETag,
+    corLastModified,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Container for all response elements.
 --
---
---
--- /See:/ 'copyObjectResult' smart constructor.
+-- /See:/ 'mkCopyObjectResult' smart constructor.
 data CopyObjectResult = CopyObjectResult'
-  { _corETag ::
-      !(Maybe ETag),
-    _corLastModified :: !(Maybe ISO8601)
+  { eTag :: Lude.Maybe ETag,
+    lastModified :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyObjectResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'corETag' - Returns the ETag of the new object. The ETag reflects only changes to the contents of an object, not its metadata. The source and destination ETag is identical for a successfully copied object.
---
--- * 'corLastModified' - Returns the date that the object was last modified.
-copyObjectResult ::
+-- * 'eTag' - Returns the ETag of the new object. The ETag reflects only changes to the contents of an object, not its metadata. The source and destination ETag is identical for a successfully copied object.
+-- * 'lastModified' - Returns the date that the object was last modified.
+mkCopyObjectResult ::
   CopyObjectResult
-copyObjectResult =
-  CopyObjectResult' {_corETag = Nothing, _corLastModified = Nothing}
+mkCopyObjectResult =
+  CopyObjectResult'
+    { eTag = Lude.Nothing,
+      lastModified = Lude.Nothing
+    }
 
 -- | Returns the ETag of the new object. The ETag reflects only changes to the contents of an object, not its metadata. The source and destination ETag is identical for a successfully copied object.
-corETag :: Lens' CopyObjectResult (Maybe ETag)
-corETag = lens _corETag (\s a -> s {_corETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corETag :: Lens.Lens' CopyObjectResult (Lude.Maybe ETag)
+corETag = Lens.lens (eTag :: CopyObjectResult -> Lude.Maybe ETag) (\s a -> s {eTag = a} :: CopyObjectResult)
+{-# DEPRECATED corETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | Returns the date that the object was last modified.
-corLastModified :: Lens' CopyObjectResult (Maybe UTCTime)
-corLastModified = lens _corLastModified (\s a -> s {_corLastModified = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+corLastModified :: Lens.Lens' CopyObjectResult (Lude.Maybe Lude.ISO8601)
+corLastModified = Lens.lens (lastModified :: CopyObjectResult -> Lude.Maybe Lude.ISO8601) (\s a -> s {lastModified = a} :: CopyObjectResult)
+{-# DEPRECATED corLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
-instance FromXML CopyObjectResult where
+instance Lude.FromXML CopyObjectResult where
   parseXML x =
-    CopyObjectResult' <$> (x .@? "ETag") <*> (x .@? "LastModified")
-
-instance Hashable CopyObjectResult
-
-instance NFData CopyObjectResult
+    CopyObjectResult'
+      Lude.<$> (x Lude..@? "ETag") Lude.<*> (x Lude..@? "LastModified")

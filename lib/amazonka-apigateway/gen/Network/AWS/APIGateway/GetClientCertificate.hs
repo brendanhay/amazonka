@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Gets information about the current 'ClientCertificate' resource.
 module Network.AWS.APIGateway.GetClientCertificate
-  ( -- * Creating a Request
-    getClientCertificate,
-    GetClientCertificate,
+  ( -- * Creating a request
+    GetClientCertificate (..),
+    mkGetClientCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gccClientCertificateId,
 
-    -- * Destructuring the Response
-    clientCertificate,
-    ClientCertificate,
+    -- * Destructuring the response
+    ClientCertificate (..),
+    mkClientCertificate,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccPemEncodedCertificate,
     ccClientCertificateId,
     ccCreatedDate,
@@ -41,57 +36,63 @@ module Network.AWS.APIGateway.GetClientCertificate
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to get information about the current 'ClientCertificate' resource.
 --
---
---
--- /See:/ 'getClientCertificate' smart constructor.
+-- /See:/ 'mkGetClientCertificate' smart constructor.
 newtype GetClientCertificate = GetClientCertificate'
-  { _gccClientCertificateId ::
-      Text
+  { clientCertificateId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClientCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gccClientCertificateId' - [Required] The identifier of the 'ClientCertificate' resource to be described.
-getClientCertificate ::
-  -- | 'gccClientCertificateId'
-  Text ->
+-- * 'clientCertificateId' - [Required] The identifier of the 'ClientCertificate' resource to be described.
+mkGetClientCertificate ::
+  -- | 'clientCertificateId'
+  Lude.Text ->
   GetClientCertificate
-getClientCertificate pClientCertificateId_ =
+mkGetClientCertificate pClientCertificateId_ =
   GetClientCertificate'
-    { _gccClientCertificateId =
+    { clientCertificateId =
         pClientCertificateId_
     }
 
 -- | [Required] The identifier of the 'ClientCertificate' resource to be described.
-gccClientCertificateId :: Lens' GetClientCertificate Text
-gccClientCertificateId = lens _gccClientCertificateId (\s a -> s {_gccClientCertificateId = a})
+--
+-- /Note:/ Consider using 'clientCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccClientCertificateId :: Lens.Lens' GetClientCertificate Lude.Text
+gccClientCertificateId = Lens.lens (clientCertificateId :: GetClientCertificate -> Lude.Text) (\s a -> s {clientCertificateId = a} :: GetClientCertificate)
+{-# DEPRECATED gccClientCertificateId "Use generic-lens or generic-optics with 'clientCertificateId' instead." #-}
 
-instance AWSRequest GetClientCertificate where
+instance Lude.AWSRequest GetClientCertificate where
   type Rs GetClientCertificate = ClientCertificate
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetClientCertificate
-
-instance NFData GetClientCertificate
-
-instance ToHeaders GetClientCertificate where
+instance Lude.ToHeaders GetClientCertificate where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetClientCertificate where
+instance Lude.ToPath GetClientCertificate where
   toPath GetClientCertificate' {..} =
-    mconcat ["/clientcertificates/", toBS _gccClientCertificateId]
+    Lude.mconcat
+      ["/clientcertificates/", Lude.toBS clientCertificateId]
 
-instance ToQuery GetClientCertificate where
-  toQuery = const mempty
+instance Lude.ToQuery GetClientCertificate where
+  toQuery = Lude.const Lude.mempty

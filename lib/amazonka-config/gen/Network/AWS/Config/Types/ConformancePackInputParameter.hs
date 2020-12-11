@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConformancePackInputParameter where
+module Network.AWS.Config.Types.ConformancePackInputParameter
+  ( ConformancePackInputParameter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConformancePackInputParameter,
+
+    -- * Lenses
+    cpipParameterName,
+    cpipParameterValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Input parameters in the form of key-value pairs for the conformance pack, both of which you define. Keys can have a maximum character length of 255 characters, and values can have a maximum length of 4096 characters.
 --
---
---
--- /See:/ 'conformancePackInputParameter' smart constructor.
+-- /See:/ 'mkConformancePackInputParameter' smart constructor.
 data ConformancePackInputParameter = ConformancePackInputParameter'
-  { _cpipParameterName ::
-      !Text,
-    _cpipParameterValue :: !Text
+  { parameterName ::
+      Lude.Text,
+    parameterValue :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConformancePackInputParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpipParameterName' - One part of a key-value pair.
---
--- * 'cpipParameterValue' - Another part of the key-value pair.
-conformancePackInputParameter ::
-  -- | 'cpipParameterName'
-  Text ->
-  -- | 'cpipParameterValue'
-  Text ->
+-- * 'parameterName' - One part of a key-value pair.
+-- * 'parameterValue' - Another part of the key-value pair.
+mkConformancePackInputParameter ::
+  -- | 'parameterName'
+  Lude.Text ->
+  -- | 'parameterValue'
+  Lude.Text ->
   ConformancePackInputParameter
-conformancePackInputParameter pParameterName_ pParameterValue_ =
+mkConformancePackInputParameter pParameterName_ pParameterValue_ =
   ConformancePackInputParameter'
-    { _cpipParameterName =
-        pParameterName_,
-      _cpipParameterValue = pParameterValue_
+    { parameterName = pParameterName_,
+      parameterValue = pParameterValue_
     }
 
 -- | One part of a key-value pair.
-cpipParameterName :: Lens' ConformancePackInputParameter Text
-cpipParameterName = lens _cpipParameterName (\s a -> s {_cpipParameterName = a})
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpipParameterName :: Lens.Lens' ConformancePackInputParameter Lude.Text
+cpipParameterName = Lens.lens (parameterName :: ConformancePackInputParameter -> Lude.Text) (\s a -> s {parameterName = a} :: ConformancePackInputParameter)
+{-# DEPRECATED cpipParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
 -- | Another part of the key-value pair.
-cpipParameterValue :: Lens' ConformancePackInputParameter Text
-cpipParameterValue = lens _cpipParameterValue (\s a -> s {_cpipParameterValue = a})
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpipParameterValue :: Lens.Lens' ConformancePackInputParameter Lude.Text
+cpipParameterValue = Lens.lens (parameterValue :: ConformancePackInputParameter -> Lude.Text) (\s a -> s {parameterValue = a} :: ConformancePackInputParameter)
+{-# DEPRECATED cpipParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
-instance FromJSON ConformancePackInputParameter where
+instance Lude.FromJSON ConformancePackInputParameter where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConformancePackInputParameter"
       ( \x ->
           ConformancePackInputParameter'
-            <$> (x .: "ParameterName") <*> (x .: "ParameterValue")
+            Lude.<$> (x Lude..: "ParameterName") Lude.<*> (x Lude..: "ParameterValue")
       )
 
-instance Hashable ConformancePackInputParameter
-
-instance NFData ConformancePackInputParameter
-
-instance ToJSON ConformancePackInputParameter where
+instance Lude.ToJSON ConformancePackInputParameter where
   toJSON ConformancePackInputParameter' {..} =
-    object
-      ( catMaybes
-          [ Just ("ParameterName" .= _cpipParameterName),
-            Just ("ParameterValue" .= _cpipParameterValue)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ParameterName" Lude..= parameterName),
+            Lude.Just ("ParameterValue" Lude..= parameterValue)
           ]
       )

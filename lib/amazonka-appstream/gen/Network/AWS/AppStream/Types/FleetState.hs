@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.FleetState where
+module Network.AWS.AppStream.Types.FleetState
+  ( FleetState
+      ( FleetState',
+        Running,
+        Starting,
+        Stopped,
+        Stopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FleetState
-  = Running
-  | Starting
-  | Stopped
-  | Stopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetState = FleetState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetState where
-  parser =
-    takeLowerText >>= \case
-      "running" -> pure Running
-      "starting" -> pure Starting
-      "stopped" -> pure Stopped
-      "stopping" -> pure Stopping
-      e ->
-        fromTextError $
-          "Failure parsing FleetState from value: '" <> e
-            <> "'. Accepted values: running, starting, stopped, stopping"
+pattern Running :: FleetState
+pattern Running = FleetState' "RUNNING"
 
-instance ToText FleetState where
-  toText = \case
-    Running -> "RUNNING"
-    Starting -> "STARTING"
-    Stopped -> "STOPPED"
-    Stopping -> "STOPPING"
+pattern Starting :: FleetState
+pattern Starting = FleetState' "STARTING"
 
-instance Hashable FleetState
+pattern Stopped :: FleetState
+pattern Stopped = FleetState' "STOPPED"
 
-instance NFData FleetState
+pattern Stopping :: FleetState
+pattern Stopping = FleetState' "STOPPING"
 
-instance ToByteString FleetState
-
-instance ToQuery FleetState
-
-instance ToHeader FleetState
-
-instance FromJSON FleetState where
-  parseJSON = parseJSONText "FleetState"
+{-# COMPLETE
+  Running,
+  Starting,
+  Stopped,
+  Stopping,
+  FleetState'
+  #-}

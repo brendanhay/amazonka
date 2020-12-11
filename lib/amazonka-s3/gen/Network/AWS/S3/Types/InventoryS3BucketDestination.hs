@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,97 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.InventoryS3BucketDestination where
+module Network.AWS.S3.Types.InventoryS3BucketDestination
+  ( InventoryS3BucketDestination (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInventoryS3BucketDestination,
+
+    -- * Lenses
+    isbdPrefix,
+    isbdAccountId,
+    isbdEncryption,
+    isbdBucket,
+    isbdFormat,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.InventoryEncryption
 import Network.AWS.S3.Types.InventoryFormat
 
 -- | Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
 --
---
---
--- /See:/ 'inventoryS3BucketDestination' smart constructor.
+-- /See:/ 'mkInventoryS3BucketDestination' smart constructor.
 data InventoryS3BucketDestination = InventoryS3BucketDestination'
-  { _isbdPrefix ::
-      !(Maybe Text),
-    _isbdAccountId :: !(Maybe Text),
-    _isbdEncryption ::
-      !(Maybe InventoryEncryption),
-    _isbdBucket :: !BucketName,
-    _isbdFormat :: !InventoryFormat
+  { prefix ::
+      Lude.Maybe Lude.Text,
+    accountId :: Lude.Maybe Lude.Text,
+    encryption ::
+      Lude.Maybe InventoryEncryption,
+    bucket :: BucketName,
+    format :: InventoryFormat
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryS3BucketDestination' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isbdPrefix' - The prefix that is prepended to all inventory results.
---
--- * 'isbdAccountId' - The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
---
--- * 'isbdEncryption' - Contains the type of server-side encryption used to encrypt the inventory results.
---
--- * 'isbdBucket' - The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
---
--- * 'isbdFormat' - Specifies the output format of the inventory results.
-inventoryS3BucketDestination ::
-  -- | 'isbdBucket'
+-- * 'accountId' - The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+-- * 'bucket' - The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
+-- * 'encryption' - Contains the type of server-side encryption used to encrypt the inventory results.
+-- * 'format' - Specifies the output format of the inventory results.
+-- * 'prefix' - The prefix that is prepended to all inventory results.
+mkInventoryS3BucketDestination ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'isbdFormat'
+  -- | 'format'
   InventoryFormat ->
   InventoryS3BucketDestination
-inventoryS3BucketDestination pBucket_ pFormat_ =
+mkInventoryS3BucketDestination pBucket_ pFormat_ =
   InventoryS3BucketDestination'
-    { _isbdPrefix = Nothing,
-      _isbdAccountId = Nothing,
-      _isbdEncryption = Nothing,
-      _isbdBucket = pBucket_,
-      _isbdFormat = pFormat_
+    { prefix = Lude.Nothing,
+      accountId = Lude.Nothing,
+      encryption = Lude.Nothing,
+      bucket = pBucket_,
+      format = pFormat_
     }
 
 -- | The prefix that is prepended to all inventory results.
-isbdPrefix :: Lens' InventoryS3BucketDestination (Maybe Text)
-isbdPrefix = lens _isbdPrefix (\s a -> s {_isbdPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isbdPrefix :: Lens.Lens' InventoryS3BucketDestination (Lude.Maybe Lude.Text)
+isbdPrefix = Lens.lens (prefix :: InventoryS3BucketDestination -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: InventoryS3BucketDestination)
+{-# DEPRECATED isbdPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
-isbdAccountId :: Lens' InventoryS3BucketDestination (Maybe Text)
-isbdAccountId = lens _isbdAccountId (\s a -> s {_isbdAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isbdAccountId :: Lens.Lens' InventoryS3BucketDestination (Lude.Maybe Lude.Text)
+isbdAccountId = Lens.lens (accountId :: InventoryS3BucketDestination -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: InventoryS3BucketDestination)
+{-# DEPRECATED isbdAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | Contains the type of server-side encryption used to encrypt the inventory results.
-isbdEncryption :: Lens' InventoryS3BucketDestination (Maybe InventoryEncryption)
-isbdEncryption = lens _isbdEncryption (\s a -> s {_isbdEncryption = a})
+--
+-- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isbdEncryption :: Lens.Lens' InventoryS3BucketDestination (Lude.Maybe InventoryEncryption)
+isbdEncryption = Lens.lens (encryption :: InventoryS3BucketDestination -> Lude.Maybe InventoryEncryption) (\s a -> s {encryption = a} :: InventoryS3BucketDestination)
+{-# DEPRECATED isbdEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
-isbdBucket :: Lens' InventoryS3BucketDestination BucketName
-isbdBucket = lens _isbdBucket (\s a -> s {_isbdBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isbdBucket :: Lens.Lens' InventoryS3BucketDestination BucketName
+isbdBucket = Lens.lens (bucket :: InventoryS3BucketDestination -> BucketName) (\s a -> s {bucket = a} :: InventoryS3BucketDestination)
+{-# DEPRECATED isbdBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Specifies the output format of the inventory results.
-isbdFormat :: Lens' InventoryS3BucketDestination InventoryFormat
-isbdFormat = lens _isbdFormat (\s a -> s {_isbdFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isbdFormat :: Lens.Lens' InventoryS3BucketDestination InventoryFormat
+isbdFormat = Lens.lens (format :: InventoryS3BucketDestination -> InventoryFormat) (\s a -> s {format = a} :: InventoryS3BucketDestination)
+{-# DEPRECATED isbdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
-instance FromXML InventoryS3BucketDestination where
+instance Lude.FromXML InventoryS3BucketDestination where
   parseXML x =
     InventoryS3BucketDestination'
-      <$> (x .@? "Prefix")
-      <*> (x .@? "AccountId")
-      <*> (x .@? "Encryption")
-      <*> (x .@ "Bucket")
-      <*> (x .@ "Format")
+      Lude.<$> (x Lude..@? "Prefix")
+      Lude.<*> (x Lude..@? "AccountId")
+      Lude.<*> (x Lude..@? "Encryption")
+      Lude.<*> (x Lude..@ "Bucket")
+      Lude.<*> (x Lude..@ "Format")
 
-instance Hashable InventoryS3BucketDestination
-
-instance NFData InventoryS3BucketDestination
-
-instance ToXML InventoryS3BucketDestination where
+instance Lude.ToXML InventoryS3BucketDestination where
   toXML InventoryS3BucketDestination' {..} =
-    mconcat
-      [ "Prefix" @= _isbdPrefix,
-        "AccountId" @= _isbdAccountId,
-        "Encryption" @= _isbdEncryption,
-        "Bucket" @= _isbdBucket,
-        "Format" @= _isbdFormat
+    Lude.mconcat
+      [ "Prefix" Lude.@= prefix,
+        "AccountId" Lude.@= accountId,
+        "Encryption" Lude.@= encryption,
+        "Bucket" Lude.@= bucket,
+        "Format" Lude.@= format
       ]

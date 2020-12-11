@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationType where
+module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationType
+  ( AccountTakeoverRiskConfigurationType (..),
+
+    -- * Smart constructor
+    mkAccountTakeoverRiskConfigurationType,
+
+    -- * Lenses
+    atrctNotifyConfiguration,
+    atrctActions,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionsType
 import Network.AWS.CognitoIdentityProvider.Types.NotifyConfigurationType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
 --
---
---
--- /See:/ 'accountTakeoverRiskConfigurationType' smart constructor.
+-- /See:/ 'mkAccountTakeoverRiskConfigurationType' smart constructor.
 data AccountTakeoverRiskConfigurationType = AccountTakeoverRiskConfigurationType'
-  { _atrctNotifyConfiguration ::
-      !( Maybe
-           NotifyConfigurationType
-       ),
-    _atrctActions ::
-      !AccountTakeoverActionsType
+  { notifyConfiguration ::
+      Lude.Maybe
+        NotifyConfigurationType,
+    actions ::
+      AccountTakeoverActionsType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountTakeoverRiskConfigurationType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atrctNotifyConfiguration' - The notify configuration used to construct email notifications.
---
--- * 'atrctActions' - Account takeover risk configuration actions
-accountTakeoverRiskConfigurationType ::
-  -- | 'atrctActions'
+-- * 'actions' - Account takeover risk configuration actions
+-- * 'notifyConfiguration' - The notify configuration used to construct email notifications.
+mkAccountTakeoverRiskConfigurationType ::
+  -- | 'actions'
   AccountTakeoverActionsType ->
   AccountTakeoverRiskConfigurationType
-accountTakeoverRiskConfigurationType pActions_ =
+mkAccountTakeoverRiskConfigurationType pActions_ =
   AccountTakeoverRiskConfigurationType'
-    { _atrctNotifyConfiguration =
-        Nothing,
-      _atrctActions = pActions_
+    { notifyConfiguration =
+        Lude.Nothing,
+      actions = pActions_
     }
 
 -- | The notify configuration used to construct email notifications.
-atrctNotifyConfiguration :: Lens' AccountTakeoverRiskConfigurationType (Maybe NotifyConfigurationType)
-atrctNotifyConfiguration = lens _atrctNotifyConfiguration (\s a -> s {_atrctNotifyConfiguration = a})
+--
+-- /Note:/ Consider using 'notifyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atrctNotifyConfiguration :: Lens.Lens' AccountTakeoverRiskConfigurationType (Lude.Maybe NotifyConfigurationType)
+atrctNotifyConfiguration = Lens.lens (notifyConfiguration :: AccountTakeoverRiskConfigurationType -> Lude.Maybe NotifyConfigurationType) (\s a -> s {notifyConfiguration = a} :: AccountTakeoverRiskConfigurationType)
+{-# DEPRECATED atrctNotifyConfiguration "Use generic-lens or generic-optics with 'notifyConfiguration' instead." #-}
 
 -- | Account takeover risk configuration actions
-atrctActions :: Lens' AccountTakeoverRiskConfigurationType AccountTakeoverActionsType
-atrctActions = lens _atrctActions (\s a -> s {_atrctActions = a})
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atrctActions :: Lens.Lens' AccountTakeoverRiskConfigurationType AccountTakeoverActionsType
+atrctActions = Lens.lens (actions :: AccountTakeoverRiskConfigurationType -> AccountTakeoverActionsType) (\s a -> s {actions = a} :: AccountTakeoverRiskConfigurationType)
+{-# DEPRECATED atrctActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
-instance FromJSON AccountTakeoverRiskConfigurationType where
+instance Lude.FromJSON AccountTakeoverRiskConfigurationType where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccountTakeoverRiskConfigurationType"
       ( \x ->
           AccountTakeoverRiskConfigurationType'
-            <$> (x .:? "NotifyConfiguration") <*> (x .: "Actions")
+            Lude.<$> (x Lude..:? "NotifyConfiguration") Lude.<*> (x Lude..: "Actions")
       )
 
-instance Hashable AccountTakeoverRiskConfigurationType
-
-instance NFData AccountTakeoverRiskConfigurationType
-
-instance ToJSON AccountTakeoverRiskConfigurationType where
+instance Lude.ToJSON AccountTakeoverRiskConfigurationType where
   toJSON AccountTakeoverRiskConfigurationType' {..} =
-    object
-      ( catMaybes
-          [ ("NotifyConfiguration" .=) <$> _atrctNotifyConfiguration,
-            Just ("Actions" .= _atrctActions)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NotifyConfiguration" Lude..=) Lude.<$> notifyConfiguration,
+            Lude.Just ("Actions" Lude..= actions)
           ]
       )

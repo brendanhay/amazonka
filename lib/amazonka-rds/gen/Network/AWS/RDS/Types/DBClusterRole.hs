@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBClusterRole where
+module Network.AWS.RDS.Types.DBClusterRole
+  ( DBClusterRole (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBClusterRole,
+
+    -- * Lenses
+    dcrStatus,
+    dcrFeatureName,
+    dcrRoleARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 --
---
---
--- /See:/ 'dbClusterRole' smart constructor.
+-- /See:/ 'mkDBClusterRole' smart constructor.
 data DBClusterRole = DBClusterRole'
-  { _dcrStatus :: !(Maybe Text),
-    _dcrFeatureName :: !(Maybe Text),
-    _dcrRoleARN :: !(Maybe Text)
+  { status :: Lude.Maybe Lude.Text,
+    featureName :: Lude.Maybe Lude.Text,
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterRole' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'featureName' - The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see 'DBEngineVersion' .
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
+-- * 'status' - Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:
 --
--- * 'dcrStatus' - Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
 --
--- * 'dcrFeatureName' - The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see 'DBEngineVersion' .
+--     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.
 --
--- * 'dcrRoleARN' - The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-dbClusterRole ::
+--
+--     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.
+--
+--
+--     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
+mkDBClusterRole ::
   DBClusterRole
-dbClusterRole =
+mkDBClusterRole =
   DBClusterRole'
-    { _dcrStatus = Nothing,
-      _dcrFeatureName = Nothing,
-      _dcrRoleARN = Nothing
+    { status = Lude.Nothing,
+      featureName = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
--- | Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
-dcrStatus :: Lens' DBClusterRole (Maybe Text)
-dcrStatus = lens _dcrStatus (\s a -> s {_dcrStatus = a})
+-- | Describes the state of association between the IAM role and the DB cluster. The Status property returns one of the following values:
+--
+--
+--     * @ACTIVE@ - the IAM role ARN is associated with the DB cluster and can be used to access other AWS services on your behalf.
+--
+--
+--     * @PENDING@ - the IAM role ARN is being associated with the DB cluster.
+--
+--
+--     * @INVALID@ - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable to assume the IAM role in order to access other AWS services on your behalf.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrStatus :: Lens.Lens' DBClusterRole (Lude.Maybe Lude.Text)
+dcrStatus = Lens.lens (status :: DBClusterRole -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBClusterRole)
+{-# DEPRECATED dcrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see 'DBEngineVersion' .
-dcrFeatureName :: Lens' DBClusterRole (Maybe Text)
-dcrFeatureName = lens _dcrFeatureName (\s a -> s {_dcrFeatureName = a})
+--
+-- /Note:/ Consider using 'featureName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrFeatureName :: Lens.Lens' DBClusterRole (Lude.Maybe Lude.Text)
+dcrFeatureName = Lens.lens (featureName :: DBClusterRole -> Lude.Maybe Lude.Text) (\s a -> s {featureName = a} :: DBClusterRole)
+{-# DEPRECATED dcrFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.
-dcrRoleARN :: Lens' DBClusterRole (Maybe Text)
-dcrRoleARN = lens _dcrRoleARN (\s a -> s {_dcrRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrRoleARN :: Lens.Lens' DBClusterRole (Lude.Maybe Lude.Text)
+dcrRoleARN = Lens.lens (roleARN :: DBClusterRole -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DBClusterRole)
+{-# DEPRECATED dcrRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance FromXML DBClusterRole where
+instance Lude.FromXML DBClusterRole where
   parseXML x =
     DBClusterRole'
-      <$> (x .@? "Status") <*> (x .@? "FeatureName") <*> (x .@? "RoleArn")
-
-instance Hashable DBClusterRole
-
-instance NFData DBClusterRole
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "FeatureName")
+      Lude.<*> (x Lude..@? "RoleArn")

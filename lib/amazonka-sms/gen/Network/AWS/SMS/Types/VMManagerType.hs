@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.VMManagerType where
+module Network.AWS.SMS.Types.VMManagerType
+  ( VMManagerType
+      ( VMManagerType',
+        HypervManager,
+        Scvmm,
+        Vsphere
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VMManagerType
-  = HypervManager
-  | Scvmm
-  | Vsphere
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VMManagerType = VMManagerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VMManagerType where
-  parser =
-    takeLowerText >>= \case
-      "hyperv-manager" -> pure HypervManager
-      "scvmm" -> pure Scvmm
-      "vsphere" -> pure Vsphere
-      e ->
-        fromTextError $
-          "Failure parsing VMManagerType from value: '" <> e
-            <> "'. Accepted values: hyperv-manager, scvmm, vsphere"
+pattern HypervManager :: VMManagerType
+pattern HypervManager = VMManagerType' "HYPERV-MANAGER"
 
-instance ToText VMManagerType where
-  toText = \case
-    HypervManager -> "HYPERV-MANAGER"
-    Scvmm -> "SCVMM"
-    Vsphere -> "VSPHERE"
+pattern Scvmm :: VMManagerType
+pattern Scvmm = VMManagerType' "SCVMM"
 
-instance Hashable VMManagerType
+pattern Vsphere :: VMManagerType
+pattern Vsphere = VMManagerType' "VSPHERE"
 
-instance NFData VMManagerType
-
-instance ToByteString VMManagerType
-
-instance ToQuery VMManagerType
-
-instance ToHeader VMManagerType
-
-instance ToJSON VMManagerType where
-  toJSON = toJSONText
-
-instance FromJSON VMManagerType where
-  parseJSON = parseJSONText "VMManagerType"
+{-# COMPLETE
+  HypervManager,
+  Scvmm,
+  Vsphere,
+  VMManagerType'
+  #-}

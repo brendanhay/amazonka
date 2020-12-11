@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ItemResponse where
+module Network.AWS.Pinpoint.Types.ItemResponse
+  ( ItemResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkItemResponse,
+
+    -- * Lenses
+    iEndpointItemResponse,
+    iEventsItemResponse,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointItemResponse
 import Network.AWS.Pinpoint.Types.EventItemResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the results of a request to create or update an endpoint that's associated with an event.
 --
---
---
--- /See:/ 'itemResponse' smart constructor.
+-- /See:/ 'mkItemResponse' smart constructor.
 data ItemResponse = ItemResponse'
-  { _iEndpointItemResponse ::
-      !(Maybe EndpointItemResponse),
-    _iEventsItemResponse :: !(Maybe (Map Text (EventItemResponse)))
+  { endpointItemResponse ::
+      Lude.Maybe EndpointItemResponse,
+    eventsItemResponse ::
+      Lude.Maybe (Lude.HashMap Lude.Text (EventItemResponse))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ItemResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iEndpointItemResponse' - The response that was received after the endpoint data was accepted.
---
--- * 'iEventsItemResponse' - A multipart response object that contains a key and a value for each event in the request. In each object, the event ID is the key and an EventItemResponse object is the value.
-itemResponse ::
+-- * 'endpointItemResponse' - The response that was received after the endpoint data was accepted.
+-- * 'eventsItemResponse' - A multipart response object that contains a key and a value for each event in the request. In each object, the event ID is the key and an EventItemResponse object is the value.
+mkItemResponse ::
   ItemResponse
-itemResponse =
+mkItemResponse =
   ItemResponse'
-    { _iEndpointItemResponse = Nothing,
-      _iEventsItemResponse = Nothing
+    { endpointItemResponse = Lude.Nothing,
+      eventsItemResponse = Lude.Nothing
     }
 
 -- | The response that was received after the endpoint data was accepted.
-iEndpointItemResponse :: Lens' ItemResponse (Maybe EndpointItemResponse)
-iEndpointItemResponse = lens _iEndpointItemResponse (\s a -> s {_iEndpointItemResponse = a})
+--
+-- /Note:/ Consider using 'endpointItemResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iEndpointItemResponse :: Lens.Lens' ItemResponse (Lude.Maybe EndpointItemResponse)
+iEndpointItemResponse = Lens.lens (endpointItemResponse :: ItemResponse -> Lude.Maybe EndpointItemResponse) (\s a -> s {endpointItemResponse = a} :: ItemResponse)
+{-# DEPRECATED iEndpointItemResponse "Use generic-lens or generic-optics with 'endpointItemResponse' instead." #-}
 
 -- | A multipart response object that contains a key and a value for each event in the request. In each object, the event ID is the key and an EventItemResponse object is the value.
-iEventsItemResponse :: Lens' ItemResponse (HashMap Text (EventItemResponse))
-iEventsItemResponse = lens _iEventsItemResponse (\s a -> s {_iEventsItemResponse = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'eventsItemResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iEventsItemResponse :: Lens.Lens' ItemResponse (Lude.Maybe (Lude.HashMap Lude.Text (EventItemResponse)))
+iEventsItemResponse = Lens.lens (eventsItemResponse :: ItemResponse -> Lude.Maybe (Lude.HashMap Lude.Text (EventItemResponse))) (\s a -> s {eventsItemResponse = a} :: ItemResponse)
+{-# DEPRECATED iEventsItemResponse "Use generic-lens or generic-optics with 'eventsItemResponse' instead." #-}
 
-instance FromJSON ItemResponse where
+instance Lude.FromJSON ItemResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "ItemResponse"
       ( \x ->
           ItemResponse'
-            <$> (x .:? "EndpointItemResponse")
-            <*> (x .:? "EventsItemResponse" .!= mempty)
+            Lude.<$> (x Lude..:? "EndpointItemResponse")
+            Lude.<*> (x Lude..:? "EventsItemResponse" Lude..!= Lude.mempty)
       )
-
-instance Hashable ItemResponse
-
-instance NFData ItemResponse

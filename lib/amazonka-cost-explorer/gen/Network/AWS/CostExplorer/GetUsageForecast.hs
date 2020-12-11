@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Retrieves a forecast for how much Amazon Web Services predicts that you will use over the forecast time period that you select, based on your past usage.
 module Network.AWS.CostExplorer.GetUsageForecast
-  ( -- * Creating a Request
-    getUsageForecast,
-    GetUsageForecast,
+  ( -- * Creating a request
+    GetUsageForecast (..),
+    mkGetUsageForecast,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gufPredictionIntervalLevel,
     gufFilter,
     gufTimePeriod,
     gufMetric,
     gufGranularity,
 
-    -- * Destructuring the Response
-    getUsageForecastResponse,
-    GetUsageForecastResponse,
+    -- * Destructuring the response
+    GetUsageForecastResponse (..),
+    mkGetUsageForecastResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gufrsForecastResultsByTime,
     gufrsTotal,
     gufrsResponseStatus,
@@ -42,155 +37,201 @@ module Network.AWS.CostExplorer.GetUsageForecast
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getUsageForecast' smart constructor.
+-- | /See:/ 'mkGetUsageForecast' smart constructor.
 data GetUsageForecast = GetUsageForecast'
-  { _gufPredictionIntervalLevel ::
-      !(Maybe Nat),
-    _gufFilter :: !(Maybe Expression),
-    _gufTimePeriod :: !DateInterval,
-    _gufMetric :: !Metric,
-    _gufGranularity :: !Granularity
+  { predictionIntervalLevel ::
+      Lude.Maybe Lude.Natural,
+    filter :: Lude.Maybe Expression,
+    timePeriod :: DateInterval,
+    metric :: Metric,
+    granularity :: Granularity
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsageForecast' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filter' - The filters that you want to use to filter your forecast. Cost Explorer API supports all of the Cost Explorer filters.
+-- * 'granularity' - How granular you want the forecast to be. You can get 3 months of @DAILY@ forecasts or 12 months of @MONTHLY@ forecasts.
 --
--- * 'gufPredictionIntervalLevel' - Cost Explorer always returns the mean forecast as a single point. You can request a prediction interval around the mean by specifying a confidence level. The higher the confidence level, the more confident Cost Explorer is about the actual value falling in the prediction interval. Higher confidence levels result in wider prediction intervals.
+-- The @GetUsageForecast@ operation supports only @DAILY@ and @MONTHLY@ granularities.
+-- * 'metric' - Which metric Cost Explorer uses to create your forecast.
 --
--- * 'gufFilter' - The filters that you want to use to filter your forecast. Cost Explorer API supports all of the Cost Explorer filters.
+-- Valid values for a @GetUsageForecast@ call are the following:
 --
--- * 'gufTimePeriod' - The start and end dates of the period that you want to retrieve usage forecast for. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ . The start date must be equal to or later than the current date to avoid a validation error.
+--     * USAGE_QUANTITY
 --
--- * 'gufMetric' - Which metric Cost Explorer uses to create your forecast. Valid values for a @GetUsageForecast@ call are the following:     * USAGE_QUANTITY     * NORMALIZED_USAGE_AMOUNT
 --
--- * 'gufGranularity' - How granular you want the forecast to be. You can get 3 months of @DAILY@ forecasts or 12 months of @MONTHLY@ forecasts. The @GetUsageForecast@ operation supports only @DAILY@ and @MONTHLY@ granularities.
-getUsageForecast ::
-  -- | 'gufTimePeriod'
+--     * NORMALIZED_USAGE_AMOUNT
+--
+--
+-- * 'predictionIntervalLevel' - Cost Explorer always returns the mean forecast as a single point. You can request a prediction interval around the mean by specifying a confidence level. The higher the confidence level, the more confident Cost Explorer is about the actual value falling in the prediction interval. Higher confidence levels result in wider prediction intervals.
+-- * 'timePeriod' - The start and end dates of the period that you want to retrieve usage forecast for. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ . The start date must be equal to or later than the current date to avoid a validation error.
+mkGetUsageForecast ::
+  -- | 'timePeriod'
   DateInterval ->
-  -- | 'gufMetric'
+  -- | 'metric'
   Metric ->
-  -- | 'gufGranularity'
+  -- | 'granularity'
   Granularity ->
   GetUsageForecast
-getUsageForecast pTimePeriod_ pMetric_ pGranularity_ =
+mkGetUsageForecast pTimePeriod_ pMetric_ pGranularity_ =
   GetUsageForecast'
-    { _gufPredictionIntervalLevel = Nothing,
-      _gufFilter = Nothing,
-      _gufTimePeriod = pTimePeriod_,
-      _gufMetric = pMetric_,
-      _gufGranularity = pGranularity_
+    { predictionIntervalLevel = Lude.Nothing,
+      filter = Lude.Nothing,
+      timePeriod = pTimePeriod_,
+      metric = pMetric_,
+      granularity = pGranularity_
     }
 
 -- | Cost Explorer always returns the mean forecast as a single point. You can request a prediction interval around the mean by specifying a confidence level. The higher the confidence level, the more confident Cost Explorer is about the actual value falling in the prediction interval. Higher confidence levels result in wider prediction intervals.
-gufPredictionIntervalLevel :: Lens' GetUsageForecast (Maybe Natural)
-gufPredictionIntervalLevel = lens _gufPredictionIntervalLevel (\s a -> s {_gufPredictionIntervalLevel = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'predictionIntervalLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gufPredictionIntervalLevel :: Lens.Lens' GetUsageForecast (Lude.Maybe Lude.Natural)
+gufPredictionIntervalLevel = Lens.lens (predictionIntervalLevel :: GetUsageForecast -> Lude.Maybe Lude.Natural) (\s a -> s {predictionIntervalLevel = a} :: GetUsageForecast)
+{-# DEPRECATED gufPredictionIntervalLevel "Use generic-lens or generic-optics with 'predictionIntervalLevel' instead." #-}
 
 -- | The filters that you want to use to filter your forecast. Cost Explorer API supports all of the Cost Explorer filters.
-gufFilter :: Lens' GetUsageForecast (Maybe Expression)
-gufFilter = lens _gufFilter (\s a -> s {_gufFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gufFilter :: Lens.Lens' GetUsageForecast (Lude.Maybe Expression)
+gufFilter = Lens.lens (filter :: GetUsageForecast -> Lude.Maybe Expression) (\s a -> s {filter = a} :: GetUsageForecast)
+{-# DEPRECATED gufFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The start and end dates of the period that you want to retrieve usage forecast for. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ . The start date must be equal to or later than the current date to avoid a validation error.
-gufTimePeriod :: Lens' GetUsageForecast DateInterval
-gufTimePeriod = lens _gufTimePeriod (\s a -> s {_gufTimePeriod = a})
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gufTimePeriod :: Lens.Lens' GetUsageForecast DateInterval
+gufTimePeriod = Lens.lens (timePeriod :: GetUsageForecast -> DateInterval) (\s a -> s {timePeriod = a} :: GetUsageForecast)
+{-# DEPRECATED gufTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
--- | Which metric Cost Explorer uses to create your forecast. Valid values for a @GetUsageForecast@ call are the following:     * USAGE_QUANTITY     * NORMALIZED_USAGE_AMOUNT
-gufMetric :: Lens' GetUsageForecast Metric
-gufMetric = lens _gufMetric (\s a -> s {_gufMetric = a})
+-- | Which metric Cost Explorer uses to create your forecast.
+--
+-- Valid values for a @GetUsageForecast@ call are the following:
+--
+--     * USAGE_QUANTITY
+--
+--
+--     * NORMALIZED_USAGE_AMOUNT
+--
+--
+--
+-- /Note:/ Consider using 'metric' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gufMetric :: Lens.Lens' GetUsageForecast Metric
+gufMetric = Lens.lens (metric :: GetUsageForecast -> Metric) (\s a -> s {metric = a} :: GetUsageForecast)
+{-# DEPRECATED gufMetric "Use generic-lens or generic-optics with 'metric' instead." #-}
 
--- | How granular you want the forecast to be. You can get 3 months of @DAILY@ forecasts or 12 months of @MONTHLY@ forecasts. The @GetUsageForecast@ operation supports only @DAILY@ and @MONTHLY@ granularities.
-gufGranularity :: Lens' GetUsageForecast Granularity
-gufGranularity = lens _gufGranularity (\s a -> s {_gufGranularity = a})
+-- | How granular you want the forecast to be. You can get 3 months of @DAILY@ forecasts or 12 months of @MONTHLY@ forecasts.
+--
+-- The @GetUsageForecast@ operation supports only @DAILY@ and @MONTHLY@ granularities.
+--
+-- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gufGranularity :: Lens.Lens' GetUsageForecast Granularity
+gufGranularity = Lens.lens (granularity :: GetUsageForecast -> Granularity) (\s a -> s {granularity = a} :: GetUsageForecast)
+{-# DEPRECATED gufGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
-instance AWSRequest GetUsageForecast where
+instance Lude.AWSRequest GetUsageForecast where
   type Rs GetUsageForecast = GetUsageForecastResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetUsageForecastResponse'
-            <$> (x .?> "ForecastResultsByTime" .!@ mempty)
-            <*> (x .?> "Total")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ForecastResultsByTime" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Total")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetUsageForecast
-
-instance NFData GetUsageForecast
-
-instance ToHeaders GetUsageForecast where
+instance Lude.ToHeaders GetUsageForecast where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSInsightsIndexService.GetUsageForecast" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSInsightsIndexService.GetUsageForecast" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetUsageForecast where
+instance Lude.ToJSON GetUsageForecast where
   toJSON GetUsageForecast' {..} =
-    object
-      ( catMaybes
-          [ ("PredictionIntervalLevel" .=) <$> _gufPredictionIntervalLevel,
-            ("Filter" .=) <$> _gufFilter,
-            Just ("TimePeriod" .= _gufTimePeriod),
-            Just ("Metric" .= _gufMetric),
-            Just ("Granularity" .= _gufGranularity)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("PredictionIntervalLevel" Lude..=)
+              Lude.<$> predictionIntervalLevel,
+            ("Filter" Lude..=) Lude.<$> filter,
+            Lude.Just ("TimePeriod" Lude..= timePeriod),
+            Lude.Just ("Metric" Lude..= metric),
+            Lude.Just ("Granularity" Lude..= granularity)
           ]
       )
 
-instance ToPath GetUsageForecast where
-  toPath = const "/"
+instance Lude.ToPath GetUsageForecast where
+  toPath = Lude.const "/"
 
-instance ToQuery GetUsageForecast where
-  toQuery = const mempty
+instance Lude.ToQuery GetUsageForecast where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getUsageForecastResponse' smart constructor.
+-- | /See:/ 'mkGetUsageForecastResponse' smart constructor.
 data GetUsageForecastResponse = GetUsageForecastResponse'
-  { _gufrsForecastResultsByTime ::
-      !(Maybe [ForecastResult]),
-    _gufrsTotal :: !(Maybe MetricValue),
-    _gufrsResponseStatus :: !Int
+  { forecastResultsByTime ::
+      Lude.Maybe [ForecastResult],
+    total :: Lude.Maybe MetricValue,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsageForecastResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gufrsForecastResultsByTime' - The forecasts for your query, in order. For @DAILY@ forecasts, this is a list of days. For @MONTHLY@ forecasts, this is a list of months.
---
--- * 'gufrsTotal' - How much you're forecasted to use over the forecast period.
---
--- * 'gufrsResponseStatus' - -- | The response status code.
-getUsageForecastResponse ::
-  -- | 'gufrsResponseStatus'
-  Int ->
+-- * 'forecastResultsByTime' - The forecasts for your query, in order. For @DAILY@ forecasts, this is a list of days. For @MONTHLY@ forecasts, this is a list of months.
+-- * 'responseStatus' - The response status code.
+-- * 'total' - How much you're forecasted to use over the forecast period.
+mkGetUsageForecastResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetUsageForecastResponse
-getUsageForecastResponse pResponseStatus_ =
+mkGetUsageForecastResponse pResponseStatus_ =
   GetUsageForecastResponse'
-    { _gufrsForecastResultsByTime = Nothing,
-      _gufrsTotal = Nothing,
-      _gufrsResponseStatus = pResponseStatus_
+    { forecastResultsByTime = Lude.Nothing,
+      total = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The forecasts for your query, in order. For @DAILY@ forecasts, this is a list of days. For @MONTHLY@ forecasts, this is a list of months.
-gufrsForecastResultsByTime :: Lens' GetUsageForecastResponse [ForecastResult]
-gufrsForecastResultsByTime = lens _gufrsForecastResultsByTime (\s a -> s {_gufrsForecastResultsByTime = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'forecastResultsByTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gufrsForecastResultsByTime :: Lens.Lens' GetUsageForecastResponse (Lude.Maybe [ForecastResult])
+gufrsForecastResultsByTime = Lens.lens (forecastResultsByTime :: GetUsageForecastResponse -> Lude.Maybe [ForecastResult]) (\s a -> s {forecastResultsByTime = a} :: GetUsageForecastResponse)
+{-# DEPRECATED gufrsForecastResultsByTime "Use generic-lens or generic-optics with 'forecastResultsByTime' instead." #-}
 
 -- | How much you're forecasted to use over the forecast period.
-gufrsTotal :: Lens' GetUsageForecastResponse (Maybe MetricValue)
-gufrsTotal = lens _gufrsTotal (\s a -> s {_gufrsTotal = a})
+--
+-- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gufrsTotal :: Lens.Lens' GetUsageForecastResponse (Lude.Maybe MetricValue)
+gufrsTotal = Lens.lens (total :: GetUsageForecastResponse -> Lude.Maybe MetricValue) (\s a -> s {total = a} :: GetUsageForecastResponse)
+{-# DEPRECATED gufrsTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
--- | -- | The response status code.
-gufrsResponseStatus :: Lens' GetUsageForecastResponse Int
-gufrsResponseStatus = lens _gufrsResponseStatus (\s a -> s {_gufrsResponseStatus = a})
-
-instance NFData GetUsageForecastResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gufrsResponseStatus :: Lens.Lens' GetUsageForecastResponse Lude.Int
+gufrsResponseStatus = Lens.lens (responseStatus :: GetUsageForecastResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUsageForecastResponse)
+{-# DEPRECATED gufrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

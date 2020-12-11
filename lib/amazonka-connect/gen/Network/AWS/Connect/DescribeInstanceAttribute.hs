@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,148 @@
 --
 -- Describes the specified instance attribute.
 module Network.AWS.Connect.DescribeInstanceAttribute
-  ( -- * Creating a Request
-    describeInstanceAttribute,
-    DescribeInstanceAttribute,
+  ( -- * Creating a request
+    DescribeInstanceAttribute (..),
+    mkDescribeInstanceAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     diaInstanceId,
     diaAttributeType,
 
-    -- * Destructuring the Response
-    describeInstanceAttributeResponse,
-    DescribeInstanceAttributeResponse,
+    -- * Destructuring the response
+    DescribeInstanceAttributeResponse (..),
+    mkDescribeInstanceAttributeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     diarsAttribute,
     diarsResponseStatus,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeInstanceAttribute' smart constructor.
+-- | /See:/ 'mkDescribeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
-  { _diaInstanceId ::
-      !Text,
-    _diaAttributeType ::
-      !InstanceAttributeType
+  { instanceId ::
+      Lude.Text,
+    attributeType :: InstanceAttributeType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diaInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'diaAttributeType' - The type of attribute.
-describeInstanceAttribute ::
-  -- | 'diaInstanceId'
-  Text ->
-  -- | 'diaAttributeType'
+-- * 'attributeType' - The type of attribute.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+mkDescribeInstanceAttribute ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'attributeType'
   InstanceAttributeType ->
   DescribeInstanceAttribute
-describeInstanceAttribute pInstanceId_ pAttributeType_ =
+mkDescribeInstanceAttribute pInstanceId_ pAttributeType_ =
   DescribeInstanceAttribute'
-    { _diaInstanceId = pInstanceId_,
-      _diaAttributeType = pAttributeType_
+    { instanceId = pInstanceId_,
+      attributeType = pAttributeType_
     }
 
 -- | The identifier of the Amazon Connect instance.
-diaInstanceId :: Lens' DescribeInstanceAttribute Text
-diaInstanceId = lens _diaInstanceId (\s a -> s {_diaInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diaInstanceId :: Lens.Lens' DescribeInstanceAttribute Lude.Text
+diaInstanceId = Lens.lens (instanceId :: DescribeInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstanceAttribute)
+{-# DEPRECATED diaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The type of attribute.
-diaAttributeType :: Lens' DescribeInstanceAttribute InstanceAttributeType
-diaAttributeType = lens _diaAttributeType (\s a -> s {_diaAttributeType = a})
+--
+-- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diaAttributeType :: Lens.Lens' DescribeInstanceAttribute InstanceAttributeType
+diaAttributeType = Lens.lens (attributeType :: DescribeInstanceAttribute -> InstanceAttributeType) (\s a -> s {attributeType = a} :: DescribeInstanceAttribute)
+{-# DEPRECATED diaAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
-instance AWSRequest DescribeInstanceAttribute where
+instance Lude.AWSRequest DescribeInstanceAttribute where
   type
     Rs DescribeInstanceAttribute =
       DescribeInstanceAttributeResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeInstanceAttributeResponse'
-            <$> (x .?> "Attribute") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Attribute") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInstanceAttribute
-
-instance NFData DescribeInstanceAttribute
-
-instance ToHeaders DescribeInstanceAttribute where
+instance Lude.ToHeaders DescribeInstanceAttribute where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeInstanceAttribute where
+instance Lude.ToPath DescribeInstanceAttribute where
   toPath DescribeInstanceAttribute' {..} =
-    mconcat
+    Lude.mconcat
       [ "/instance/",
-        toBS _diaInstanceId,
+        Lude.toBS instanceId,
         "/attribute/",
-        toBS _diaAttributeType
+        Lude.toBS attributeType
       ]
 
-instance ToQuery DescribeInstanceAttribute where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeInstanceAttribute where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeInstanceAttributeResponse' smart constructor.
+-- | /See:/ 'mkDescribeInstanceAttributeResponse' smart constructor.
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-  { _diarsAttribute ::
-      !(Maybe Attribute),
-    _diarsResponseStatus ::
-      !Int
+  { attribute ::
+      Lude.Maybe Attribute,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceAttributeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diarsAttribute' - The type of attribute.
---
--- * 'diarsResponseStatus' - -- | The response status code.
-describeInstanceAttributeResponse ::
-  -- | 'diarsResponseStatus'
-  Int ->
+-- * 'attribute' - The type of attribute.
+-- * 'responseStatus' - The response status code.
+mkDescribeInstanceAttributeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInstanceAttributeResponse
-describeInstanceAttributeResponse pResponseStatus_ =
+mkDescribeInstanceAttributeResponse pResponseStatus_ =
   DescribeInstanceAttributeResponse'
-    { _diarsAttribute = Nothing,
-      _diarsResponseStatus = pResponseStatus_
+    { attribute = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The type of attribute.
-diarsAttribute :: Lens' DescribeInstanceAttributeResponse (Maybe Attribute)
-diarsAttribute = lens _diarsAttribute (\s a -> s {_diarsAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsAttribute :: Lens.Lens' DescribeInstanceAttributeResponse (Lude.Maybe Attribute)
+diarsAttribute = Lens.lens (attribute :: DescribeInstanceAttributeResponse -> Lude.Maybe Attribute) (\s a -> s {attribute = a} :: DescribeInstanceAttributeResponse)
+{-# DEPRECATED diarsAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
--- | -- | The response status code.
-diarsResponseStatus :: Lens' DescribeInstanceAttributeResponse Int
-diarsResponseStatus = lens _diarsResponseStatus (\s a -> s {_diarsResponseStatus = a})
-
-instance NFData DescribeInstanceAttributeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diarsResponseStatus :: Lens.Lens' DescribeInstanceAttributeResponse Lude.Int
+diarsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceAttributeResponse)
+{-# DEPRECATED diarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

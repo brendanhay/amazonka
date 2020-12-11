@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.CacheParameterGroupNameMessage where
+module Network.AWS.ElastiCache.Types.CacheParameterGroupNameMessage
+  ( CacheParameterGroupNameMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCacheParameterGroupNameMessage,
+
+    -- * Lenses
+    cpgnmCacheParameterGroupName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of one of the following operations:
 --
 --
 --     * @ModifyCacheParameterGroup@
 --
+--
 --     * @ResetCacheParameterGroup@
 --
 --
 --
---
--- /See:/ 'cacheParameterGroupNameMessage' smart constructor.
+-- /See:/ 'mkCacheParameterGroupNameMessage' smart constructor.
 newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'
-  { _cpgnmCacheParameterGroupName ::
-      Maybe Text
+  { cacheParameterGroupName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheParameterGroupNameMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpgnmCacheParameterGroupName' - The name of the cache parameter group.
-cacheParameterGroupNameMessage ::
+-- * 'cacheParameterGroupName' - The name of the cache parameter group.
+mkCacheParameterGroupNameMessage ::
   CacheParameterGroupNameMessage
-cacheParameterGroupNameMessage =
+mkCacheParameterGroupNameMessage =
   CacheParameterGroupNameMessage'
-    { _cpgnmCacheParameterGroupName =
-        Nothing
+    { cacheParameterGroupName =
+        Lude.Nothing
     }
 
 -- | The name of the cache parameter group.
-cpgnmCacheParameterGroupName :: Lens' CacheParameterGroupNameMessage (Maybe Text)
-cpgnmCacheParameterGroupName = lens _cpgnmCacheParameterGroupName (\s a -> s {_cpgnmCacheParameterGroupName = a})
+--
+-- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgnmCacheParameterGroupName :: Lens.Lens' CacheParameterGroupNameMessage (Lude.Maybe Lude.Text)
+cpgnmCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: CacheParameterGroupNameMessage -> Lude.Maybe Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: CacheParameterGroupNameMessage)
+{-# DEPRECATED cpgnmCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
-instance FromXML CacheParameterGroupNameMessage where
+instance Lude.FromXML CacheParameterGroupNameMessage where
   parseXML x =
     CacheParameterGroupNameMessage'
-      <$> (x .@? "CacheParameterGroupName")
-
-instance Hashable CacheParameterGroupNameMessage
-
-instance NFData CacheParameterGroupNameMessage
+      Lude.<$> (x Lude..@? "CacheParameterGroupName")

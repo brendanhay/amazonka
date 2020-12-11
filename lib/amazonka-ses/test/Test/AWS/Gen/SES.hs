@@ -28,433 +28,433 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestCreateTemplate $
---             createTemplate
+--             mkCreateTemplate
 --
 --         , requestDeleteConfigurationSetTrackingOptions $
---             deleteConfigurationSetTrackingOptions
+--             mkDeleteConfigurationSetTrackingOptions
 --
 --         , requestUpdateConfigurationSetTrackingOptions $
---             updateConfigurationSetTrackingOptions
+--             mkUpdateConfigurationSetTrackingOptions
 --
 --         , requestCreateReceiptRuleSet $
---             createReceiptRuleSet
+--             mkCreateReceiptRuleSet
 --
 --         , requestSetIdentityHeadersInNotificationsEnabled $
---             setIdentityHeadersInNotificationsEnabled
+--             mkSetIdentityHeadersInNotificationsEnabled
 --
 --         , requestGetSendQuota $
---             getSendQuota
+--             mkGetSendQuota
 --
 --         , requestPutConfigurationSetDeliveryOptions $
---             putConfigurationSetDeliveryOptions
+--             mkPutConfigurationSetDeliveryOptions
 --
 --         , requestDescribeConfigurationSet $
---             describeConfigurationSet
+--             mkDescribeConfigurationSet
 --
 --         , requestPutIdentityPolicy $
---             putIdentityPolicy
+--             mkPutIdentityPolicy
 --
 --         , requestDeleteCustomVerificationEmailTemplate $
---             deleteCustomVerificationEmailTemplate
+--             mkDeleteCustomVerificationEmailTemplate
 --
 --         , requestDeleteIdentityPolicy $
---             deleteIdentityPolicy
+--             mkDeleteIdentityPolicy
 --
 --         , requestUpdateCustomVerificationEmailTemplate $
---             updateCustomVerificationEmailTemplate
+--             mkUpdateCustomVerificationEmailTemplate
 --
 --         , requestSendCustomVerificationEmail $
---             sendCustomVerificationEmail
+--             mkSendCustomVerificationEmail
 --
 --         , requestGetIdentityNotificationAttributes $
---             getIdentityNotificationAttributes
+--             mkGetIdentityNotificationAttributes
 --
 --         , requestUpdateConfigurationSetReputationMetricsEnabled $
---             updateConfigurationSetReputationMetricsEnabled
+--             mkUpdateConfigurationSetReputationMetricsEnabled
 --
 --         , requestListIdentityPolicies $
---             listIdentityPolicies
+--             mkListIdentityPolicies
 --
 --         , requestSetIdentityDkimEnabled $
---             setIdentityDkimEnabled
+--             mkSetIdentityDkimEnabled
 --
 --         , requestListReceiptFilters $
---             listReceiptFilters
+--             mkListReceiptFilters
 --
 --         , requestDescribeReceiptRuleSet $
---             describeReceiptRuleSet
+--             mkDescribeReceiptRuleSet
 --
 --         , requestGetIdentityMailFromDomainAttributes $
---             getIdentityMailFromDomainAttributes
+--             mkGetIdentityMailFromDomainAttributes
 --
 --         , requestCreateReceiptFilter $
---             createReceiptFilter
+--             mkCreateReceiptFilter
 --
 --         , requestUpdateConfigurationSetEventDestination $
---             updateConfigurationSetEventDestination
+--             mkUpdateConfigurationSetEventDestination
 --
 --         , requestDeleteConfigurationSetEventDestination $
---             deleteConfigurationSetEventDestination
+--             mkDeleteConfigurationSetEventDestination
 --
 --         , requestSetIdentityMailFromDomain $
---             setIdentityMailFromDomain
+--             mkSetIdentityMailFromDomain
 --
 --         , requestSetIdentityFeedbackForwardingEnabled $
---             setIdentityFeedbackForwardingEnabled
+--             mkSetIdentityFeedbackForwardingEnabled
 --
 --         , requestListConfigurationSets $
---             listConfigurationSets
+--             mkListConfigurationSets
 --
 --         , requestDeleteConfigurationSet $
---             deleteConfigurationSet
+--             mkDeleteConfigurationSet
 --
 --         , requestGetIdentityVerificationAttributes $
---             getIdentityVerificationAttributes
+--             mkGetIdentityVerificationAttributes
 --
 --         , requestGetIdentityPolicies $
---             getIdentityPolicies
+--             mkGetIdentityPolicies
 --
 --         , requestListTemplates $
---             listTemplates
+--             mkListTemplates
 --
 --         , requestVerifyDomainIdentity $
---             verifyDomainIdentity
+--             mkVerifyDomainIdentity
 --
 --         , requestUpdateTemplate $
---             updateTemplate
+--             mkUpdateTemplate
 --
 --         , requestDeleteTemplate $
---             deleteTemplate
+--             mkDeleteTemplate
 --
 --         , requestReorderReceiptRuleSet $
---             reorderReceiptRuleSet
+--             mkReorderReceiptRuleSet
 --
 --         , requestListReceiptRuleSets $
---             listReceiptRuleSets
+--             mkListReceiptRuleSets
 --
 --         , requestDeleteReceiptRuleSet $
---             deleteReceiptRuleSet
+--             mkDeleteReceiptRuleSet
 --
 --         , requestSetReceiptRulePosition $
---             setReceiptRulePosition
+--             mkSetReceiptRulePosition
 --
 --         , requestSendBounce $
---             sendBounce
+--             mkSendBounce
 --
 --         , requestGetIdentityDkimAttributes $
---             getIdentityDkimAttributes
+--             mkGetIdentityDkimAttributes
 --
 --         , requestSendTemplatedEmail $
---             sendTemplatedEmail
+--             mkSendTemplatedEmail
 --
 --         , requestVerifyDomainDkim $
---             verifyDomainDkim
+--             mkVerifyDomainDkim
 --
 --         , requestTestRenderTemplate $
---             testRenderTemplate
+--             mkTestRenderTemplate
 --
 --         , requestSendBulkTemplatedEmail $
---             sendBulkTemplatedEmail
+--             mkSendBulkTemplatedEmail
 --
 --         , requestSendRawEmail $
---             sendRawEmail
+--             mkSendRawEmail
 --
 --         , requestGetSendStatistics $
---             getSendStatistics
+--             mkGetSendStatistics
 --
 --         , requestListCustomVerificationEmailTemplates $
---             listCustomVerificationEmailTemplates
+--             mkListCustomVerificationEmailTemplates
 --
 --         , requestDeleteIdentity $
---             deleteIdentity
+--             mkDeleteIdentity
 --
 --         , requestDescribeReceiptRule $
---             describeReceiptRule
+--             mkDescribeReceiptRule
 --
 --         , requestListIdentities $
---             listIdentities
+--             mkListIdentities
 --
 --         , requestUpdateConfigurationSetSendingEnabled $
---             updateConfigurationSetSendingEnabled
+--             mkUpdateConfigurationSetSendingEnabled
 --
 --         , requestCreateCustomVerificationEmailTemplate $
---             createCustomVerificationEmailTemplate
+--             mkCreateCustomVerificationEmailTemplate
 --
 --         , requestVerifyEmailIdentity $
---             verifyEmailIdentity
+--             mkVerifyEmailIdentity
 --
 --         , requestVerifyEmailAddress $
---             verifyEmailAddress
+--             mkVerifyEmailAddress
 --
 --         , requestDeleteVerifiedEmailAddress $
---             deleteVerifiedEmailAddress
+--             mkDeleteVerifiedEmailAddress
 --
 --         , requestDeleteReceiptFilter $
---             deleteReceiptFilter
+--             mkDeleteReceiptFilter
 --
 --         , requestListVerifiedEmailAddresses $
---             listVerifiedEmailAddresses
+--             mkListVerifiedEmailAddresses
 --
 --         , requestGetCustomVerificationEmailTemplate $
---             getCustomVerificationEmailTemplate
+--             mkGetCustomVerificationEmailTemplate
 --
 --         , requestSetIdentityNotificationTopic $
---             setIdentityNotificationTopic
+--             mkSetIdentityNotificationTopic
 --
 --         , requestSendEmail $
---             sendEmail
+--             mkSendEmail
 --
 --         , requestDeleteReceiptRule $
---             deleteReceiptRule
+--             mkDeleteReceiptRule
 --
 --         , requestUpdateReceiptRule $
---             updateReceiptRule
+--             mkUpdateReceiptRule
 --
 --         , requestCloneReceiptRuleSet $
---             cloneReceiptRuleSet
+--             mkCloneReceiptRuleSet
 --
 --         , requestCreateConfigurationSetEventDestination $
---             createConfigurationSetEventDestination
+--             mkCreateConfigurationSetEventDestination
 --
 --         , requestGetAccountSendingEnabled $
---             getAccountSendingEnabled
+--             mkGetAccountSendingEnabled
 --
 --         , requestCreateReceiptRule $
---             createReceiptRule
+--             mkCreateReceiptRule
 --
 --         , requestGetTemplate $
---             getTemplate
+--             mkGetTemplate
 --
 --         , requestSetActiveReceiptRuleSet $
---             setActiveReceiptRuleSet
+--             mkSetActiveReceiptRuleSet
 --
 --         , requestCreateConfigurationSet $
---             createConfigurationSet
+--             mkCreateConfigurationSet
 --
 --         , requestUpdateAccountSendingEnabled $
---             updateAccountSendingEnabled
+--             mkUpdateAccountSendingEnabled
 --
 --         , requestCreateConfigurationSetTrackingOptions $
---             createConfigurationSetTrackingOptions
+--             mkCreateConfigurationSetTrackingOptions
 --
 --         , requestDescribeActiveReceiptRuleSet $
---             describeActiveReceiptRuleSet
+--             mkDescribeActiveReceiptRuleSet
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseCreateTemplate $
---             createTemplateResponse
+--             mkCreateTemplateResponse
 --
 --         , responseDeleteConfigurationSetTrackingOptions $
---             deleteConfigurationSetTrackingOptionsResponse
+--             mkDeleteConfigurationSetTrackingOptionsResponse
 --
 --         , responseUpdateConfigurationSetTrackingOptions $
---             updateConfigurationSetTrackingOptionsResponse
+--             mkUpdateConfigurationSetTrackingOptionsResponse
 --
 --         , responseCreateReceiptRuleSet $
---             createReceiptRuleSetResponse
+--             mkCreateReceiptRuleSetResponse
 --
 --         , responseSetIdentityHeadersInNotificationsEnabled $
---             setIdentityHeadersInNotificationsEnabledResponse
+--             mkSetIdentityHeadersInNotificationsEnabledResponse
 --
 --         , responseGetSendQuota $
---             getSendQuotaResponse
+--             mkGetSendQuotaResponse
 --
 --         , responsePutConfigurationSetDeliveryOptions $
---             putConfigurationSetDeliveryOptionsResponse
+--             mkPutConfigurationSetDeliveryOptionsResponse
 --
 --         , responseDescribeConfigurationSet $
---             describeConfigurationSetResponse
+--             mkDescribeConfigurationSetResponse
 --
 --         , responsePutIdentityPolicy $
---             putIdentityPolicyResponse
+--             mkPutIdentityPolicyResponse
 --
 --         , responseDeleteCustomVerificationEmailTemplate $
---             deleteCustomVerificationEmailTemplateResponse
+--             mkDeleteCustomVerificationEmailTemplateResponse
 --
 --         , responseDeleteIdentityPolicy $
---             deleteIdentityPolicyResponse
+--             mkDeleteIdentityPolicyResponse
 --
 --         , responseUpdateCustomVerificationEmailTemplate $
---             updateCustomVerificationEmailTemplateResponse
+--             mkUpdateCustomVerificationEmailTemplateResponse
 --
 --         , responseSendCustomVerificationEmail $
---             sendCustomVerificationEmailResponse
+--             mkSendCustomVerificationEmailResponse
 --
 --         , responseGetIdentityNotificationAttributes $
---             getIdentityNotificationAttributesResponse
+--             mkGetIdentityNotificationAttributesResponse
 --
 --         , responseUpdateConfigurationSetReputationMetricsEnabled $
---             updateConfigurationSetReputationMetricsEnabledResponse
+--             mkUpdateConfigurationSetReputationMetricsEnabledResponse
 --
 --         , responseListIdentityPolicies $
---             listIdentityPoliciesResponse
+--             mkListIdentityPoliciesResponse
 --
 --         , responseSetIdentityDkimEnabled $
---             setIdentityDkimEnabledResponse
+--             mkSetIdentityDkimEnabledResponse
 --
 --         , responseListReceiptFilters $
---             listReceiptFiltersResponse
+--             mkListReceiptFiltersResponse
 --
 --         , responseDescribeReceiptRuleSet $
---             describeReceiptRuleSetResponse
+--             mkDescribeReceiptRuleSetResponse
 --
 --         , responseGetIdentityMailFromDomainAttributes $
---             getIdentityMailFromDomainAttributesResponse
+--             mkGetIdentityMailFromDomainAttributesResponse
 --
 --         , responseCreateReceiptFilter $
---             createReceiptFilterResponse
+--             mkCreateReceiptFilterResponse
 --
 --         , responseUpdateConfigurationSetEventDestination $
---             updateConfigurationSetEventDestinationResponse
+--             mkUpdateConfigurationSetEventDestinationResponse
 --
 --         , responseDeleteConfigurationSetEventDestination $
---             deleteConfigurationSetEventDestinationResponse
+--             mkDeleteConfigurationSetEventDestinationResponse
 --
 --         , responseSetIdentityMailFromDomain $
---             setIdentityMailFromDomainResponse
+--             mkSetIdentityMailFromDomainResponse
 --
 --         , responseSetIdentityFeedbackForwardingEnabled $
---             setIdentityFeedbackForwardingEnabledResponse
+--             mkSetIdentityFeedbackForwardingEnabledResponse
 --
 --         , responseListConfigurationSets $
---             listConfigurationSetsResponse
+--             mkListConfigurationSetsResponse
 --
 --         , responseDeleteConfigurationSet $
---             deleteConfigurationSetResponse
+--             mkDeleteConfigurationSetResponse
 --
 --         , responseGetIdentityVerificationAttributes $
---             getIdentityVerificationAttributesResponse
+--             mkGetIdentityVerificationAttributesResponse
 --
 --         , responseGetIdentityPolicies $
---             getIdentityPoliciesResponse
+--             mkGetIdentityPoliciesResponse
 --
 --         , responseListTemplates $
---             listTemplatesResponse
+--             mkListTemplatesResponse
 --
 --         , responseVerifyDomainIdentity $
---             verifyDomainIdentityResponse
+--             mkVerifyDomainIdentityResponse
 --
 --         , responseUpdateTemplate $
---             updateTemplateResponse
+--             mkUpdateTemplateResponse
 --
 --         , responseDeleteTemplate $
---             deleteTemplateResponse
+--             mkDeleteTemplateResponse
 --
 --         , responseReorderReceiptRuleSet $
---             reorderReceiptRuleSetResponse
+--             mkReorderReceiptRuleSetResponse
 --
 --         , responseListReceiptRuleSets $
---             listReceiptRuleSetsResponse
+--             mkListReceiptRuleSetsResponse
 --
 --         , responseDeleteReceiptRuleSet $
---             deleteReceiptRuleSetResponse
+--             mkDeleteReceiptRuleSetResponse
 --
 --         , responseSetReceiptRulePosition $
---             setReceiptRulePositionResponse
+--             mkSetReceiptRulePositionResponse
 --
 --         , responseSendBounce $
---             sendBounceResponse
+--             mkSendBounceResponse
 --
 --         , responseGetIdentityDkimAttributes $
---             getIdentityDkimAttributesResponse
+--             mkGetIdentityDkimAttributesResponse
 --
 --         , responseSendTemplatedEmail $
---             sendTemplatedEmailResponse
+--             mkSendTemplatedEmailResponse
 --
 --         , responseVerifyDomainDkim $
---             verifyDomainDkimResponse
+--             mkVerifyDomainDkimResponse
 --
 --         , responseTestRenderTemplate $
---             testRenderTemplateResponse
+--             mkTestRenderTemplateResponse
 --
 --         , responseSendBulkTemplatedEmail $
---             sendBulkTemplatedEmailResponse
+--             mkSendBulkTemplatedEmailResponse
 --
 --         , responseSendRawEmail $
---             sendRawEmailResponse
+--             mkSendRawEmailResponse
 --
 --         , responseGetSendStatistics $
---             getSendStatisticsResponse
+--             mkGetSendStatisticsResponse
 --
 --         , responseListCustomVerificationEmailTemplates $
---             listCustomVerificationEmailTemplatesResponse
+--             mkListCustomVerificationEmailTemplatesResponse
 --
 --         , responseDeleteIdentity $
---             deleteIdentityResponse
+--             mkDeleteIdentityResponse
 --
 --         , responseDescribeReceiptRule $
---             describeReceiptRuleResponse
+--             mkDescribeReceiptRuleResponse
 --
 --         , responseListIdentities $
---             listIdentitiesResponse
+--             mkListIdentitiesResponse
 --
 --         , responseUpdateConfigurationSetSendingEnabled $
---             updateConfigurationSetSendingEnabledResponse
+--             mkUpdateConfigurationSetSendingEnabledResponse
 --
 --         , responseCreateCustomVerificationEmailTemplate $
---             createCustomVerificationEmailTemplateResponse
+--             mkCreateCustomVerificationEmailTemplateResponse
 --
 --         , responseVerifyEmailIdentity $
---             verifyEmailIdentityResponse
+--             mkVerifyEmailIdentityResponse
 --
 --         , responseVerifyEmailAddress $
---             verifyEmailAddressResponse
+--             mkVerifyEmailAddressResponse
 --
 --         , responseDeleteVerifiedEmailAddress $
---             deleteVerifiedEmailAddressResponse
+--             mkDeleteVerifiedEmailAddressResponse
 --
 --         , responseDeleteReceiptFilter $
---             deleteReceiptFilterResponse
+--             mkDeleteReceiptFilterResponse
 --
 --         , responseListVerifiedEmailAddresses $
---             listVerifiedEmailAddressesResponse
+--             mkListVerifiedEmailAddressesResponse
 --
 --         , responseGetCustomVerificationEmailTemplate $
---             getCustomVerificationEmailTemplateResponse
+--             mkGetCustomVerificationEmailTemplateResponse
 --
 --         , responseSetIdentityNotificationTopic $
---             setIdentityNotificationTopicResponse
+--             mkSetIdentityNotificationTopicResponse
 --
 --         , responseSendEmail $
---             sendEmailResponse
+--             mkSendEmailResponse
 --
 --         , responseDeleteReceiptRule $
---             deleteReceiptRuleResponse
+--             mkDeleteReceiptRuleResponse
 --
 --         , responseUpdateReceiptRule $
---             updateReceiptRuleResponse
+--             mkUpdateReceiptRuleResponse
 --
 --         , responseCloneReceiptRuleSet $
---             cloneReceiptRuleSetResponse
+--             mkCloneReceiptRuleSetResponse
 --
 --         , responseCreateConfigurationSetEventDestination $
---             createConfigurationSetEventDestinationResponse
+--             mkCreateConfigurationSetEventDestinationResponse
 --
 --         , responseGetAccountSendingEnabled $
---             getAccountSendingEnabledResponse
+--             mkGetAccountSendingEnabledResponse
 --
 --         , responseCreateReceiptRule $
---             createReceiptRuleResponse
+--             mkCreateReceiptRuleResponse
 --
 --         , responseGetTemplate $
---             getTemplateResponse
+--             mkGetTemplateResponse
 --
 --         , responseSetActiveReceiptRuleSet $
---             setActiveReceiptRuleSetResponse
+--             mkSetActiveReceiptRuleSetResponse
 --
 --         , responseCreateConfigurationSet $
---             createConfigurationSetResponse
+--             mkCreateConfigurationSetResponse
 --
 --         , responseUpdateAccountSendingEnabled $
---             updateAccountSendingEnabledResponse
+--             mkUpdateAccountSendingEnabledResponse
 --
 --         , responseCreateConfigurationSetTrackingOptions $
---             createConfigurationSetTrackingOptionsResponse
+--             mkCreateConfigurationSetTrackingOptionsResponse
 --
 --         , responseDescribeActiveReceiptRuleSet $
---             describeActiveReceiptRuleSetResponse
+--             mkDescribeActiveReceiptRuleSetResponse
 --
 --           ]
 --     ]
@@ -894,7 +894,7 @@ responseCreateTemplate =
   res
     "CreateTemplateResponse"
     "fixture/CreateTemplateResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy CreateTemplate)
 
 responseDeleteConfigurationSetTrackingOptions :: DeleteConfigurationSetTrackingOptionsResponse -> TestTree
@@ -902,7 +902,7 @@ responseDeleteConfigurationSetTrackingOptions =
   res
     "DeleteConfigurationSetTrackingOptionsResponse"
     "fixture/DeleteConfigurationSetTrackingOptionsResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteConfigurationSetTrackingOptions)
 
 responseUpdateConfigurationSetTrackingOptions :: UpdateConfigurationSetTrackingOptionsResponse -> TestTree
@@ -910,7 +910,7 @@ responseUpdateConfigurationSetTrackingOptions =
   res
     "UpdateConfigurationSetTrackingOptionsResponse"
     "fixture/UpdateConfigurationSetTrackingOptionsResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy UpdateConfigurationSetTrackingOptions)
 
 responseCreateReceiptRuleSet :: CreateReceiptRuleSetResponse -> TestTree
@@ -918,7 +918,7 @@ responseCreateReceiptRuleSet =
   res
     "CreateReceiptRuleSetResponse"
     "fixture/CreateReceiptRuleSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy CreateReceiptRuleSet)
 
 responseSetIdentityHeadersInNotificationsEnabled :: SetIdentityHeadersInNotificationsEnabledResponse -> TestTree
@@ -926,7 +926,7 @@ responseSetIdentityHeadersInNotificationsEnabled =
   res
     "SetIdentityHeadersInNotificationsEnabledResponse"
     "fixture/SetIdentityHeadersInNotificationsEnabledResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SetIdentityHeadersInNotificationsEnabled)
 
 responseGetSendQuota :: GetSendQuotaResponse -> TestTree
@@ -934,7 +934,7 @@ responseGetSendQuota =
   res
     "GetSendQuotaResponse"
     "fixture/GetSendQuotaResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetSendQuota)
 
 responsePutConfigurationSetDeliveryOptions :: PutConfigurationSetDeliveryOptionsResponse -> TestTree
@@ -942,7 +942,7 @@ responsePutConfigurationSetDeliveryOptions =
   res
     "PutConfigurationSetDeliveryOptionsResponse"
     "fixture/PutConfigurationSetDeliveryOptionsResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy PutConfigurationSetDeliveryOptions)
 
 responseDescribeConfigurationSet :: DescribeConfigurationSetResponse -> TestTree
@@ -950,7 +950,7 @@ responseDescribeConfigurationSet =
   res
     "DescribeConfigurationSetResponse"
     "fixture/DescribeConfigurationSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DescribeConfigurationSet)
 
 responsePutIdentityPolicy :: PutIdentityPolicyResponse -> TestTree
@@ -958,7 +958,7 @@ responsePutIdentityPolicy =
   res
     "PutIdentityPolicyResponse"
     "fixture/PutIdentityPolicyResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy PutIdentityPolicy)
 
 responseDeleteCustomVerificationEmailTemplate :: DeleteCustomVerificationEmailTemplateResponse -> TestTree
@@ -966,7 +966,7 @@ responseDeleteCustomVerificationEmailTemplate =
   res
     "DeleteCustomVerificationEmailTemplateResponse"
     "fixture/DeleteCustomVerificationEmailTemplateResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteCustomVerificationEmailTemplate)
 
 responseDeleteIdentityPolicy :: DeleteIdentityPolicyResponse -> TestTree
@@ -974,7 +974,7 @@ responseDeleteIdentityPolicy =
   res
     "DeleteIdentityPolicyResponse"
     "fixture/DeleteIdentityPolicyResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteIdentityPolicy)
 
 responseUpdateCustomVerificationEmailTemplate :: UpdateCustomVerificationEmailTemplateResponse -> TestTree
@@ -982,7 +982,7 @@ responseUpdateCustomVerificationEmailTemplate =
   res
     "UpdateCustomVerificationEmailTemplateResponse"
     "fixture/UpdateCustomVerificationEmailTemplateResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy UpdateCustomVerificationEmailTemplate)
 
 responseSendCustomVerificationEmail :: SendCustomVerificationEmailResponse -> TestTree
@@ -990,7 +990,7 @@ responseSendCustomVerificationEmail =
   res
     "SendCustomVerificationEmailResponse"
     "fixture/SendCustomVerificationEmailResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SendCustomVerificationEmail)
 
 responseGetIdentityNotificationAttributes :: GetIdentityNotificationAttributesResponse -> TestTree
@@ -998,7 +998,7 @@ responseGetIdentityNotificationAttributes =
   res
     "GetIdentityNotificationAttributesResponse"
     "fixture/GetIdentityNotificationAttributesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetIdentityNotificationAttributes)
 
 responseUpdateConfigurationSetReputationMetricsEnabled :: UpdateConfigurationSetReputationMetricsEnabledResponse -> TestTree
@@ -1006,7 +1006,7 @@ responseUpdateConfigurationSetReputationMetricsEnabled =
   res
     "UpdateConfigurationSetReputationMetricsEnabledResponse"
     "fixture/UpdateConfigurationSetReputationMetricsEnabledResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy UpdateConfigurationSetReputationMetricsEnabled)
 
 responseListIdentityPolicies :: ListIdentityPoliciesResponse -> TestTree
@@ -1014,7 +1014,7 @@ responseListIdentityPolicies =
   res
     "ListIdentityPoliciesResponse"
     "fixture/ListIdentityPoliciesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy ListIdentityPolicies)
 
 responseSetIdentityDkimEnabled :: SetIdentityDkimEnabledResponse -> TestTree
@@ -1022,7 +1022,7 @@ responseSetIdentityDkimEnabled =
   res
     "SetIdentityDkimEnabledResponse"
     "fixture/SetIdentityDkimEnabledResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SetIdentityDkimEnabled)
 
 responseListReceiptFilters :: ListReceiptFiltersResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseListReceiptFilters =
   res
     "ListReceiptFiltersResponse"
     "fixture/ListReceiptFiltersResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy ListReceiptFilters)
 
 responseDescribeReceiptRuleSet :: DescribeReceiptRuleSetResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseDescribeReceiptRuleSet =
   res
     "DescribeReceiptRuleSetResponse"
     "fixture/DescribeReceiptRuleSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DescribeReceiptRuleSet)
 
 responseGetIdentityMailFromDomainAttributes :: GetIdentityMailFromDomainAttributesResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseGetIdentityMailFromDomainAttributes =
   res
     "GetIdentityMailFromDomainAttributesResponse"
     "fixture/GetIdentityMailFromDomainAttributesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetIdentityMailFromDomainAttributes)
 
 responseCreateReceiptFilter :: CreateReceiptFilterResponse -> TestTree
@@ -1054,7 +1054,7 @@ responseCreateReceiptFilter =
   res
     "CreateReceiptFilterResponse"
     "fixture/CreateReceiptFilterResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy CreateReceiptFilter)
 
 responseUpdateConfigurationSetEventDestination :: UpdateConfigurationSetEventDestinationResponse -> TestTree
@@ -1062,7 +1062,7 @@ responseUpdateConfigurationSetEventDestination =
   res
     "UpdateConfigurationSetEventDestinationResponse"
     "fixture/UpdateConfigurationSetEventDestinationResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy UpdateConfigurationSetEventDestination)
 
 responseDeleteConfigurationSetEventDestination :: DeleteConfigurationSetEventDestinationResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseDeleteConfigurationSetEventDestination =
   res
     "DeleteConfigurationSetEventDestinationResponse"
     "fixture/DeleteConfigurationSetEventDestinationResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteConfigurationSetEventDestination)
 
 responseSetIdentityMailFromDomain :: SetIdentityMailFromDomainResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseSetIdentityMailFromDomain =
   res
     "SetIdentityMailFromDomainResponse"
     "fixture/SetIdentityMailFromDomainResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SetIdentityMailFromDomain)
 
 responseSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseSetIdentityFeedbackForwardingEnabled =
   res
     "SetIdentityFeedbackForwardingEnabledResponse"
     "fixture/SetIdentityFeedbackForwardingEnabledResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SetIdentityFeedbackForwardingEnabled)
 
 responseListConfigurationSets :: ListConfigurationSetsResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseListConfigurationSets =
   res
     "ListConfigurationSetsResponse"
     "fixture/ListConfigurationSetsResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy ListConfigurationSets)
 
 responseDeleteConfigurationSet :: DeleteConfigurationSetResponse -> TestTree
@@ -1102,7 +1102,7 @@ responseDeleteConfigurationSet =
   res
     "DeleteConfigurationSetResponse"
     "fixture/DeleteConfigurationSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteConfigurationSet)
 
 responseGetIdentityVerificationAttributes :: GetIdentityVerificationAttributesResponse -> TestTree
@@ -1110,7 +1110,7 @@ responseGetIdentityVerificationAttributes =
   res
     "GetIdentityVerificationAttributesResponse"
     "fixture/GetIdentityVerificationAttributesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetIdentityVerificationAttributes)
 
 responseGetIdentityPolicies :: GetIdentityPoliciesResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseGetIdentityPolicies =
   res
     "GetIdentityPoliciesResponse"
     "fixture/GetIdentityPoliciesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetIdentityPolicies)
 
 responseListTemplates :: ListTemplatesResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseListTemplates =
   res
     "ListTemplatesResponse"
     "fixture/ListTemplatesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy ListTemplates)
 
 responseVerifyDomainIdentity :: VerifyDomainIdentityResponse -> TestTree
@@ -1134,7 +1134,7 @@ responseVerifyDomainIdentity =
   res
     "VerifyDomainIdentityResponse"
     "fixture/VerifyDomainIdentityResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy VerifyDomainIdentity)
 
 responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
@@ -1142,7 +1142,7 @@ responseUpdateTemplate =
   res
     "UpdateTemplateResponse"
     "fixture/UpdateTemplateResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy UpdateTemplate)
 
 responseDeleteTemplate :: DeleteTemplateResponse -> TestTree
@@ -1150,7 +1150,7 @@ responseDeleteTemplate =
   res
     "DeleteTemplateResponse"
     "fixture/DeleteTemplateResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteTemplate)
 
 responseReorderReceiptRuleSet :: ReorderReceiptRuleSetResponse -> TestTree
@@ -1158,7 +1158,7 @@ responseReorderReceiptRuleSet =
   res
     "ReorderReceiptRuleSetResponse"
     "fixture/ReorderReceiptRuleSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy ReorderReceiptRuleSet)
 
 responseListReceiptRuleSets :: ListReceiptRuleSetsResponse -> TestTree
@@ -1166,7 +1166,7 @@ responseListReceiptRuleSets =
   res
     "ListReceiptRuleSetsResponse"
     "fixture/ListReceiptRuleSetsResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy ListReceiptRuleSets)
 
 responseDeleteReceiptRuleSet :: DeleteReceiptRuleSetResponse -> TestTree
@@ -1174,7 +1174,7 @@ responseDeleteReceiptRuleSet =
   res
     "DeleteReceiptRuleSetResponse"
     "fixture/DeleteReceiptRuleSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteReceiptRuleSet)
 
 responseSetReceiptRulePosition :: SetReceiptRulePositionResponse -> TestTree
@@ -1182,7 +1182,7 @@ responseSetReceiptRulePosition =
   res
     "SetReceiptRulePositionResponse"
     "fixture/SetReceiptRulePositionResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SetReceiptRulePosition)
 
 responseSendBounce :: SendBounceResponse -> TestTree
@@ -1190,7 +1190,7 @@ responseSendBounce =
   res
     "SendBounceResponse"
     "fixture/SendBounceResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SendBounce)
 
 responseGetIdentityDkimAttributes :: GetIdentityDkimAttributesResponse -> TestTree
@@ -1198,7 +1198,7 @@ responseGetIdentityDkimAttributes =
   res
     "GetIdentityDkimAttributesResponse"
     "fixture/GetIdentityDkimAttributesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetIdentityDkimAttributes)
 
 responseSendTemplatedEmail :: SendTemplatedEmailResponse -> TestTree
@@ -1206,7 +1206,7 @@ responseSendTemplatedEmail =
   res
     "SendTemplatedEmailResponse"
     "fixture/SendTemplatedEmailResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SendTemplatedEmail)
 
 responseVerifyDomainDkim :: VerifyDomainDkimResponse -> TestTree
@@ -1214,7 +1214,7 @@ responseVerifyDomainDkim =
   res
     "VerifyDomainDkimResponse"
     "fixture/VerifyDomainDkimResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy VerifyDomainDkim)
 
 responseTestRenderTemplate :: TestRenderTemplateResponse -> TestTree
@@ -1222,7 +1222,7 @@ responseTestRenderTemplate =
   res
     "TestRenderTemplateResponse"
     "fixture/TestRenderTemplateResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy TestRenderTemplate)
 
 responseSendBulkTemplatedEmail :: SendBulkTemplatedEmailResponse -> TestTree
@@ -1230,7 +1230,7 @@ responseSendBulkTemplatedEmail =
   res
     "SendBulkTemplatedEmailResponse"
     "fixture/SendBulkTemplatedEmailResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SendBulkTemplatedEmail)
 
 responseSendRawEmail :: SendRawEmailResponse -> TestTree
@@ -1238,7 +1238,7 @@ responseSendRawEmail =
   res
     "SendRawEmailResponse"
     "fixture/SendRawEmailResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SendRawEmail)
 
 responseGetSendStatistics :: GetSendStatisticsResponse -> TestTree
@@ -1246,7 +1246,7 @@ responseGetSendStatistics =
   res
     "GetSendStatisticsResponse"
     "fixture/GetSendStatisticsResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetSendStatistics)
 
 responseListCustomVerificationEmailTemplates :: ListCustomVerificationEmailTemplatesResponse -> TestTree
@@ -1254,7 +1254,7 @@ responseListCustomVerificationEmailTemplates =
   res
     "ListCustomVerificationEmailTemplatesResponse"
     "fixture/ListCustomVerificationEmailTemplatesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy ListCustomVerificationEmailTemplates)
 
 responseDeleteIdentity :: DeleteIdentityResponse -> TestTree
@@ -1262,7 +1262,7 @@ responseDeleteIdentity =
   res
     "DeleteIdentityResponse"
     "fixture/DeleteIdentityResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteIdentity)
 
 responseDescribeReceiptRule :: DescribeReceiptRuleResponse -> TestTree
@@ -1270,7 +1270,7 @@ responseDescribeReceiptRule =
   res
     "DescribeReceiptRuleResponse"
     "fixture/DescribeReceiptRuleResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DescribeReceiptRule)
 
 responseListIdentities :: ListIdentitiesResponse -> TestTree
@@ -1278,7 +1278,7 @@ responseListIdentities =
   res
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy ListIdentities)
 
 responseUpdateConfigurationSetSendingEnabled :: UpdateConfigurationSetSendingEnabledResponse -> TestTree
@@ -1286,7 +1286,7 @@ responseUpdateConfigurationSetSendingEnabled =
   res
     "UpdateConfigurationSetSendingEnabledResponse"
     "fixture/UpdateConfigurationSetSendingEnabledResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy UpdateConfigurationSetSendingEnabled)
 
 responseCreateCustomVerificationEmailTemplate :: CreateCustomVerificationEmailTemplateResponse -> TestTree
@@ -1294,7 +1294,7 @@ responseCreateCustomVerificationEmailTemplate =
   res
     "CreateCustomVerificationEmailTemplateResponse"
     "fixture/CreateCustomVerificationEmailTemplateResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy CreateCustomVerificationEmailTemplate)
 
 responseVerifyEmailIdentity :: VerifyEmailIdentityResponse -> TestTree
@@ -1302,7 +1302,7 @@ responseVerifyEmailIdentity =
   res
     "VerifyEmailIdentityResponse"
     "fixture/VerifyEmailIdentityResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy VerifyEmailIdentity)
 
 responseVerifyEmailAddress :: VerifyEmailAddressResponse -> TestTree
@@ -1310,7 +1310,7 @@ responseVerifyEmailAddress =
   res
     "VerifyEmailAddressResponse"
     "fixture/VerifyEmailAddressResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy VerifyEmailAddress)
 
 responseDeleteVerifiedEmailAddress :: DeleteVerifiedEmailAddressResponse -> TestTree
@@ -1318,7 +1318,7 @@ responseDeleteVerifiedEmailAddress =
   res
     "DeleteVerifiedEmailAddressResponse"
     "fixture/DeleteVerifiedEmailAddressResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteVerifiedEmailAddress)
 
 responseDeleteReceiptFilter :: DeleteReceiptFilterResponse -> TestTree
@@ -1326,7 +1326,7 @@ responseDeleteReceiptFilter =
   res
     "DeleteReceiptFilterResponse"
     "fixture/DeleteReceiptFilterResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteReceiptFilter)
 
 responseListVerifiedEmailAddresses :: ListVerifiedEmailAddressesResponse -> TestTree
@@ -1334,7 +1334,7 @@ responseListVerifiedEmailAddresses =
   res
     "ListVerifiedEmailAddressesResponse"
     "fixture/ListVerifiedEmailAddressesResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy ListVerifiedEmailAddresses)
 
 responseGetCustomVerificationEmailTemplate :: GetCustomVerificationEmailTemplateResponse -> TestTree
@@ -1342,7 +1342,7 @@ responseGetCustomVerificationEmailTemplate =
   res
     "GetCustomVerificationEmailTemplateResponse"
     "fixture/GetCustomVerificationEmailTemplateResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetCustomVerificationEmailTemplate)
 
 responseSetIdentityNotificationTopic :: SetIdentityNotificationTopicResponse -> TestTree
@@ -1350,7 +1350,7 @@ responseSetIdentityNotificationTopic =
   res
     "SetIdentityNotificationTopicResponse"
     "fixture/SetIdentityNotificationTopicResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SetIdentityNotificationTopic)
 
 responseSendEmail :: SendEmailResponse -> TestTree
@@ -1358,7 +1358,7 @@ responseSendEmail =
   res
     "SendEmailResponse"
     "fixture/SendEmailResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SendEmail)
 
 responseDeleteReceiptRule :: DeleteReceiptRuleResponse -> TestTree
@@ -1366,7 +1366,7 @@ responseDeleteReceiptRule =
   res
     "DeleteReceiptRuleResponse"
     "fixture/DeleteReceiptRuleResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DeleteReceiptRule)
 
 responseUpdateReceiptRule :: UpdateReceiptRuleResponse -> TestTree
@@ -1374,7 +1374,7 @@ responseUpdateReceiptRule =
   res
     "UpdateReceiptRuleResponse"
     "fixture/UpdateReceiptRuleResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy UpdateReceiptRule)
 
 responseCloneReceiptRuleSet :: CloneReceiptRuleSetResponse -> TestTree
@@ -1382,7 +1382,7 @@ responseCloneReceiptRuleSet =
   res
     "CloneReceiptRuleSetResponse"
     "fixture/CloneReceiptRuleSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy CloneReceiptRuleSet)
 
 responseCreateConfigurationSetEventDestination :: CreateConfigurationSetEventDestinationResponse -> TestTree
@@ -1390,7 +1390,7 @@ responseCreateConfigurationSetEventDestination =
   res
     "CreateConfigurationSetEventDestinationResponse"
     "fixture/CreateConfigurationSetEventDestinationResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy CreateConfigurationSetEventDestination)
 
 responseGetAccountSendingEnabled :: GetAccountSendingEnabledResponse -> TestTree
@@ -1398,7 +1398,7 @@ responseGetAccountSendingEnabled =
   res
     "GetAccountSendingEnabledResponse"
     "fixture/GetAccountSendingEnabledResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetAccountSendingEnabled)
 
 responseCreateReceiptRule :: CreateReceiptRuleResponse -> TestTree
@@ -1406,7 +1406,7 @@ responseCreateReceiptRule =
   res
     "CreateReceiptRuleResponse"
     "fixture/CreateReceiptRuleResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy CreateReceiptRule)
 
 responseGetTemplate :: GetTemplateResponse -> TestTree
@@ -1414,7 +1414,7 @@ responseGetTemplate =
   res
     "GetTemplateResponse"
     "fixture/GetTemplateResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy GetTemplate)
 
 responseSetActiveReceiptRuleSet :: SetActiveReceiptRuleSetResponse -> TestTree
@@ -1422,7 +1422,7 @@ responseSetActiveReceiptRuleSet =
   res
     "SetActiveReceiptRuleSetResponse"
     "fixture/SetActiveReceiptRuleSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy SetActiveReceiptRuleSet)
 
 responseCreateConfigurationSet :: CreateConfigurationSetResponse -> TestTree
@@ -1430,7 +1430,7 @@ responseCreateConfigurationSet =
   res
     "CreateConfigurationSetResponse"
     "fixture/CreateConfigurationSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy CreateConfigurationSet)
 
 responseUpdateAccountSendingEnabled :: UpdateAccountSendingEnabledResponse -> TestTree
@@ -1438,7 +1438,7 @@ responseUpdateAccountSendingEnabled =
   res
     "UpdateAccountSendingEnabledResponse"
     "fixture/UpdateAccountSendingEnabledResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy UpdateAccountSendingEnabled)
 
 responseCreateConfigurationSetTrackingOptions :: CreateConfigurationSetTrackingOptionsResponse -> TestTree
@@ -1446,7 +1446,7 @@ responseCreateConfigurationSetTrackingOptions =
   res
     "CreateConfigurationSetTrackingOptionsResponse"
     "fixture/CreateConfigurationSetTrackingOptionsResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy CreateConfigurationSetTrackingOptions)
 
 responseDescribeActiveReceiptRuleSet :: DescribeActiveReceiptRuleSetResponse -> TestTree
@@ -1454,5 +1454,5 @@ responseDescribeActiveReceiptRuleSet =
   res
     "DescribeActiveReceiptRuleSetResponse"
     "fixture/DescribeActiveReceiptRuleSetResponse.proto"
-    ses
+    sesService
     (Proxy :: Proxy DescribeActiveReceiptRuleSet)

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.ResourceUtilization where
+module Network.AWS.CostExplorer.Types.ResourceUtilization
+  ( ResourceUtilization (..),
+
+    -- * Smart constructor
+    mkResourceUtilization,
+
+    -- * Lenses
+    ruEC2ResourceUtilization,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.EC2ResourceUtilization
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Resource utilization of current resource.
 --
---
---
--- /See:/ 'resourceUtilization' smart constructor.
+-- /See:/ 'mkResourceUtilization' smart constructor.
 newtype ResourceUtilization = ResourceUtilization'
-  { _ruEC2ResourceUtilization ::
-      Maybe EC2ResourceUtilization
+  { ec2ResourceUtilization ::
+      Lude.Maybe EC2ResourceUtilization
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceUtilization' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ruEC2ResourceUtilization' - Utilization of current Amazon EC2 instance.
-resourceUtilization ::
+-- * 'ec2ResourceUtilization' - Utilization of current Amazon EC2 instance.
+mkResourceUtilization ::
   ResourceUtilization
-resourceUtilization =
-  ResourceUtilization' {_ruEC2ResourceUtilization = Nothing}
+mkResourceUtilization =
+  ResourceUtilization' {ec2ResourceUtilization = Lude.Nothing}
 
 -- | Utilization of current Amazon EC2 instance.
-ruEC2ResourceUtilization :: Lens' ResourceUtilization (Maybe EC2ResourceUtilization)
-ruEC2ResourceUtilization = lens _ruEC2ResourceUtilization (\s a -> s {_ruEC2ResourceUtilization = a})
+--
+-- /Note:/ Consider using 'ec2ResourceUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ruEC2ResourceUtilization :: Lens.Lens' ResourceUtilization (Lude.Maybe EC2ResourceUtilization)
+ruEC2ResourceUtilization = Lens.lens (ec2ResourceUtilization :: ResourceUtilization -> Lude.Maybe EC2ResourceUtilization) (\s a -> s {ec2ResourceUtilization = a} :: ResourceUtilization)
+{-# DEPRECATED ruEC2ResourceUtilization "Use generic-lens or generic-optics with 'ec2ResourceUtilization' instead." #-}
 
-instance FromJSON ResourceUtilization where
+instance Lude.FromJSON ResourceUtilization where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceUtilization"
-      (\x -> ResourceUtilization' <$> (x .:? "EC2ResourceUtilization"))
-
-instance Hashable ResourceUtilization
-
-instance NFData ResourceUtilization
+      ( \x ->
+          ResourceUtilization'
+            Lude.<$> (x Lude..:? "EC2ResourceUtilization")
+      )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,27 +14,24 @@
 --
 -- Provisions a public virtual interface to be owned by the specified AWS account.
 --
---
 -- The owner of a connection calls this function to provision a public virtual interface to be owned by the specified AWS account.
---
 -- Virtual interfaces created using this function must be confirmed by the owner using 'ConfirmPublicVirtualInterface' . Until this step has been completed, the virtual interface is in the @confirming@ state and is not available to handle traffic.
---
 -- When creating an IPv6 public virtual interface, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
-  ( -- * Creating a Request
-    allocatePublicVirtualInterface,
-    AllocatePublicVirtualInterface,
+  ( -- * Creating a request
+    AllocatePublicVirtualInterface (..),
+    mkAllocatePublicVirtualInterface,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aConnectionId,
     aOwnerAccount,
     aNewPublicVirtualInterfaceAllocation,
 
-    -- * Destructuring the Response
-    virtualInterface,
-    VirtualInterface,
+    -- * Destructuring the response
+    VirtualInterface (..),
+    mkVirtualInterface,
 
-    -- * Response Lenses
+    -- ** Response lenses
     viBgpPeers,
     viVirtualGatewayId,
     viMtu,
@@ -68,95 +60,106 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'allocatePublicVirtualInterface' smart constructor.
+-- | /See:/ 'mkAllocatePublicVirtualInterface' smart constructor.
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
-  { _aConnectionId ::
-      !Text,
-    _aOwnerAccount :: !Text,
-    _aNewPublicVirtualInterfaceAllocation ::
-      !NewPublicVirtualInterfaceAllocation
+  { connectionId ::
+      Lude.Text,
+    ownerAccount :: Lude.Text,
+    newPublicVirtualInterfaceAllocation ::
+      NewPublicVirtualInterfaceAllocation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocatePublicVirtualInterface' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aConnectionId' - The ID of the connection on which the public virtual interface is provisioned.
---
--- * 'aOwnerAccount' - The ID of the AWS account that owns the public virtual interface.
---
--- * 'aNewPublicVirtualInterfaceAllocation' - Information about the public virtual interface.
-allocatePublicVirtualInterface ::
-  -- | 'aConnectionId'
-  Text ->
-  -- | 'aOwnerAccount'
-  Text ->
-  -- | 'aNewPublicVirtualInterfaceAllocation'
+-- * 'connectionId' - The ID of the connection on which the public virtual interface is provisioned.
+-- * 'newPublicVirtualInterfaceAllocation' - Information about the public virtual interface.
+-- * 'ownerAccount' - The ID of the AWS account that owns the public virtual interface.
+mkAllocatePublicVirtualInterface ::
+  -- | 'connectionId'
+  Lude.Text ->
+  -- | 'ownerAccount'
+  Lude.Text ->
+  -- | 'newPublicVirtualInterfaceAllocation'
   NewPublicVirtualInterfaceAllocation ->
   AllocatePublicVirtualInterface
-allocatePublicVirtualInterface
+mkAllocatePublicVirtualInterface
   pConnectionId_
   pOwnerAccount_
   pNewPublicVirtualInterfaceAllocation_ =
     AllocatePublicVirtualInterface'
-      { _aConnectionId = pConnectionId_,
-        _aOwnerAccount = pOwnerAccount_,
-        _aNewPublicVirtualInterfaceAllocation =
+      { connectionId = pConnectionId_,
+        ownerAccount = pOwnerAccount_,
+        newPublicVirtualInterfaceAllocation =
           pNewPublicVirtualInterfaceAllocation_
       }
 
 -- | The ID of the connection on which the public virtual interface is provisioned.
-aConnectionId :: Lens' AllocatePublicVirtualInterface Text
-aConnectionId = lens _aConnectionId (\s a -> s {_aConnectionId = a})
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aConnectionId :: Lens.Lens' AllocatePublicVirtualInterface Lude.Text
+aConnectionId = Lens.lens (connectionId :: AllocatePublicVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: AllocatePublicVirtualInterface)
+{-# DEPRECATED aConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the AWS account that owns the public virtual interface.
-aOwnerAccount :: Lens' AllocatePublicVirtualInterface Text
-aOwnerAccount = lens _aOwnerAccount (\s a -> s {_aOwnerAccount = a})
+--
+-- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aOwnerAccount :: Lens.Lens' AllocatePublicVirtualInterface Lude.Text
+aOwnerAccount = Lens.lens (ownerAccount :: AllocatePublicVirtualInterface -> Lude.Text) (\s a -> s {ownerAccount = a} :: AllocatePublicVirtualInterface)
+{-# DEPRECATED aOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
 -- | Information about the public virtual interface.
-aNewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
-aNewPublicVirtualInterfaceAllocation = lens _aNewPublicVirtualInterfaceAllocation (\s a -> s {_aNewPublicVirtualInterfaceAllocation = a})
+--
+-- /Note:/ Consider using 'newPublicVirtualInterfaceAllocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aNewPublicVirtualInterfaceAllocation :: Lens.Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
+aNewPublicVirtualInterfaceAllocation = Lens.lens (newPublicVirtualInterfaceAllocation :: AllocatePublicVirtualInterface -> NewPublicVirtualInterfaceAllocation) (\s a -> s {newPublicVirtualInterfaceAllocation = a} :: AllocatePublicVirtualInterface)
+{-# DEPRECATED aNewPublicVirtualInterfaceAllocation "Use generic-lens or generic-optics with 'newPublicVirtualInterfaceAllocation' instead." #-}
 
-instance AWSRequest AllocatePublicVirtualInterface where
+instance Lude.AWSRequest AllocatePublicVirtualInterface where
   type Rs AllocatePublicVirtualInterface = VirtualInterface
-  request = postJSON directConnect
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON directConnectService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable AllocatePublicVirtualInterface
-
-instance NFData AllocatePublicVirtualInterface
-
-instance ToHeaders AllocatePublicVirtualInterface where
+instance Lude.ToHeaders AllocatePublicVirtualInterface where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.AllocatePublicVirtualInterface" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "OvertureService.AllocatePublicVirtualInterface" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AllocatePublicVirtualInterface where
+instance Lude.ToJSON AllocatePublicVirtualInterface where
   toJSON AllocatePublicVirtualInterface' {..} =
-    object
-      ( catMaybes
-          [ Just ("connectionId" .= _aConnectionId),
-            Just ("ownerAccount" .= _aOwnerAccount),
-            Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("connectionId" Lude..= connectionId),
+            Lude.Just ("ownerAccount" Lude..= ownerAccount),
+            Lude.Just
               ( "newPublicVirtualInterfaceAllocation"
-                  .= _aNewPublicVirtualInterfaceAllocation
+                  Lude..= newPublicVirtualInterfaceAllocation
               )
           ]
       )
 
-instance ToPath AllocatePublicVirtualInterface where
-  toPath = const "/"
+instance Lude.ToPath AllocatePublicVirtualInterface where
+  toPath = Lude.const "/"
 
-instance ToQuery AllocatePublicVirtualInterface where
-  toQuery = const mempty
+instance Lude.ToQuery AllocatePublicVirtualInterface where
+  toQuery = Lude.const Lude.mempty

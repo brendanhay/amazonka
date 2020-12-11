@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,107 +7,134 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule where
+module Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule
+  ( AutomaticTapeCreationRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAutomaticTapeCreationRule,
+
+    -- * Lenses
+    atcrWorm,
+    atcrTapeBarcodePrefix,
+    atcrPoolId,
+    atcrTapeSizeInBytes,
+    atcrMinimumNumTapes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An automatic tape creation policy consists of automatic tape creation rules where each rule defines when and how to create new tapes. For more information about automatic tape creation, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically Creating Tapes Automatically> .
 --
---
---
--- /See:/ 'automaticTapeCreationRule' smart constructor.
+-- /See:/ 'mkAutomaticTapeCreationRule' smart constructor.
 data AutomaticTapeCreationRule = AutomaticTapeCreationRule'
-  { _atcrWorm ::
-      !(Maybe Bool),
-    _atcrTapeBarcodePrefix :: !Text,
-    _atcrPoolId :: !Text,
-    _atcrTapeSizeInBytes :: !Integer,
-    _atcrMinimumNumTapes :: !Nat
+  { worm ::
+      Lude.Maybe Lude.Bool,
+    tapeBarcodePrefix :: Lude.Text,
+    poolId :: Lude.Text,
+    tapeSizeInBytes :: Lude.Integer,
+    minimumNumTapes :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomaticTapeCreationRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'minimumNumTapes' - The minimum number of available virtual tapes that the gateway maintains at all times. If the number of tapes on the gateway goes below this value, the gateway creates as many new tapes as are needed to have @MinimumNumTapes@ on the gateway. For more information about automatic tape creation, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically Creating Tapes Automatically> .
+-- * 'poolId' - The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the Amazon S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 --
--- * 'atcrWorm' - Set to @true@ to indicate that tapes are to be archived as write-once-read-many (WORM). Set to @false@ when WORM is not enabled for tapes.
---
--- * 'atcrTapeBarcodePrefix' - A prefix that you append to the barcode of the virtual tape that you are creating. This prefix makes the barcode unique.
---
--- * 'atcrPoolId' - The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the Amazon S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool. Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
---
--- * 'atcrTapeSizeInBytes' - The size, in bytes, of the virtual tape capacity.
---
--- * 'atcrMinimumNumTapes' - The minimum number of available virtual tapes that the gateway maintains at all times. If the number of tapes on the gateway goes below this value, the gateway creates as many new tapes as are needed to have @MinimumNumTapes@ on the gateway. For more information about automatic tape creation, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically Creating Tapes Automatically> .
-automaticTapeCreationRule ::
-  -- | 'atcrTapeBarcodePrefix'
-  Text ->
-  -- | 'atcrPoolId'
-  Text ->
-  -- | 'atcrTapeSizeInBytes'
-  Integer ->
-  -- | 'atcrMinimumNumTapes'
-  Natural ->
+-- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+-- * 'tapeBarcodePrefix' - A prefix that you append to the barcode of the virtual tape that you are creating. This prefix makes the barcode unique.
+-- * 'tapeSizeInBytes' - The size, in bytes, of the virtual tape capacity.
+-- * 'worm' - Set to @true@ to indicate that tapes are to be archived as write-once-read-many (WORM). Set to @false@ when WORM is not enabled for tapes.
+mkAutomaticTapeCreationRule ::
+  -- | 'tapeBarcodePrefix'
+  Lude.Text ->
+  -- | 'poolId'
+  Lude.Text ->
+  -- | 'tapeSizeInBytes'
+  Lude.Integer ->
+  -- | 'minimumNumTapes'
+  Lude.Natural ->
   AutomaticTapeCreationRule
-automaticTapeCreationRule
+mkAutomaticTapeCreationRule
   pTapeBarcodePrefix_
   pPoolId_
   pTapeSizeInBytes_
   pMinimumNumTapes_ =
     AutomaticTapeCreationRule'
-      { _atcrWorm = Nothing,
-        _atcrTapeBarcodePrefix = pTapeBarcodePrefix_,
-        _atcrPoolId = pPoolId_,
-        _atcrTapeSizeInBytes = pTapeSizeInBytes_,
-        _atcrMinimumNumTapes = _Nat # pMinimumNumTapes_
+      { worm = Lude.Nothing,
+        tapeBarcodePrefix = pTapeBarcodePrefix_,
+        poolId = pPoolId_,
+        tapeSizeInBytes = pTapeSizeInBytes_,
+        minimumNumTapes = pMinimumNumTapes_
       }
 
 -- | Set to @true@ to indicate that tapes are to be archived as write-once-read-many (WORM). Set to @false@ when WORM is not enabled for tapes.
-atcrWorm :: Lens' AutomaticTapeCreationRule (Maybe Bool)
-atcrWorm = lens _atcrWorm (\s a -> s {_atcrWorm = a})
+--
+-- /Note:/ Consider using 'worm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcrWorm :: Lens.Lens' AutomaticTapeCreationRule (Lude.Maybe Lude.Bool)
+atcrWorm = Lens.lens (worm :: AutomaticTapeCreationRule -> Lude.Maybe Lude.Bool) (\s a -> s {worm = a} :: AutomaticTapeCreationRule)
+{-# DEPRECATED atcrWorm "Use generic-lens or generic-optics with 'worm' instead." #-}
 
 -- | A prefix that you append to the barcode of the virtual tape that you are creating. This prefix makes the barcode unique.
-atcrTapeBarcodePrefix :: Lens' AutomaticTapeCreationRule Text
-atcrTapeBarcodePrefix = lens _atcrTapeBarcodePrefix (\s a -> s {_atcrTapeBarcodePrefix = a})
+--
+-- /Note:/ Consider using 'tapeBarcodePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcrTapeBarcodePrefix :: Lens.Lens' AutomaticTapeCreationRule Lude.Text
+atcrTapeBarcodePrefix = Lens.lens (tapeBarcodePrefix :: AutomaticTapeCreationRule -> Lude.Text) (\s a -> s {tapeBarcodePrefix = a} :: AutomaticTapeCreationRule)
+{-# DEPRECATED atcrTapeBarcodePrefix "Use generic-lens or generic-optics with 'tapeBarcodePrefix' instead." #-}
 
--- | The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the Amazon S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool. Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-atcrPoolId :: Lens' AutomaticTapeCreationRule Text
-atcrPoolId = lens _atcrPoolId (\s a -> s {_atcrPoolId = a})
+-- | The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the Amazon S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
+--
+-- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+--
+-- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcrPoolId :: Lens.Lens' AutomaticTapeCreationRule Lude.Text
+atcrPoolId = Lens.lens (poolId :: AutomaticTapeCreationRule -> Lude.Text) (\s a -> s {poolId = a} :: AutomaticTapeCreationRule)
+{-# DEPRECATED atcrPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
 -- | The size, in bytes, of the virtual tape capacity.
-atcrTapeSizeInBytes :: Lens' AutomaticTapeCreationRule Integer
-atcrTapeSizeInBytes = lens _atcrTapeSizeInBytes (\s a -> s {_atcrTapeSizeInBytes = a})
+--
+-- /Note:/ Consider using 'tapeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcrTapeSizeInBytes :: Lens.Lens' AutomaticTapeCreationRule Lude.Integer
+atcrTapeSizeInBytes = Lens.lens (tapeSizeInBytes :: AutomaticTapeCreationRule -> Lude.Integer) (\s a -> s {tapeSizeInBytes = a} :: AutomaticTapeCreationRule)
+{-# DEPRECATED atcrTapeSizeInBytes "Use generic-lens or generic-optics with 'tapeSizeInBytes' instead." #-}
 
 -- | The minimum number of available virtual tapes that the gateway maintains at all times. If the number of tapes on the gateway goes below this value, the gateway creates as many new tapes as are needed to have @MinimumNumTapes@ on the gateway. For more information about automatic tape creation, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically Creating Tapes Automatically> .
-atcrMinimumNumTapes :: Lens' AutomaticTapeCreationRule Natural
-atcrMinimumNumTapes = lens _atcrMinimumNumTapes (\s a -> s {_atcrMinimumNumTapes = a}) . _Nat
+--
+-- /Note:/ Consider using 'minimumNumTapes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcrMinimumNumTapes :: Lens.Lens' AutomaticTapeCreationRule Lude.Natural
+atcrMinimumNumTapes = Lens.lens (minimumNumTapes :: AutomaticTapeCreationRule -> Lude.Natural) (\s a -> s {minimumNumTapes = a} :: AutomaticTapeCreationRule)
+{-# DEPRECATED atcrMinimumNumTapes "Use generic-lens or generic-optics with 'minimumNumTapes' instead." #-}
 
-instance FromJSON AutomaticTapeCreationRule where
+instance Lude.FromJSON AutomaticTapeCreationRule where
   parseJSON =
-    withObject
+    Lude.withObject
       "AutomaticTapeCreationRule"
       ( \x ->
           AutomaticTapeCreationRule'
-            <$> (x .:? "Worm")
-            <*> (x .: "TapeBarcodePrefix")
-            <*> (x .: "PoolId")
-            <*> (x .: "TapeSizeInBytes")
-            <*> (x .: "MinimumNumTapes")
+            Lude.<$> (x Lude..:? "Worm")
+            Lude.<*> (x Lude..: "TapeBarcodePrefix")
+            Lude.<*> (x Lude..: "PoolId")
+            Lude.<*> (x Lude..: "TapeSizeInBytes")
+            Lude.<*> (x Lude..: "MinimumNumTapes")
       )
 
-instance Hashable AutomaticTapeCreationRule
-
-instance NFData AutomaticTapeCreationRule
-
-instance ToJSON AutomaticTapeCreationRule where
+instance Lude.ToJSON AutomaticTapeCreationRule where
   toJSON AutomaticTapeCreationRule' {..} =
-    object
-      ( catMaybes
-          [ ("Worm" .=) <$> _atcrWorm,
-            Just ("TapeBarcodePrefix" .= _atcrTapeBarcodePrefix),
-            Just ("PoolId" .= _atcrPoolId),
-            Just ("TapeSizeInBytes" .= _atcrTapeSizeInBytes),
-            Just ("MinimumNumTapes" .= _atcrMinimumNumTapes)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Worm" Lude..=) Lude.<$> worm,
+            Lude.Just ("TapeBarcodePrefix" Lude..= tapeBarcodePrefix),
+            Lude.Just ("PoolId" Lude..= poolId),
+            Lude.Just ("TapeSizeInBytes" Lude..= tapeSizeInBytes),
+            Lude.Just ("MinimumNumTapes" Lude..= minimumNumTapes)
           ]
       )

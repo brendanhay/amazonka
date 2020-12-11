@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexSettingsSummary where
+module Network.AWS.MediaLive.Types.MultiplexSettingsSummary
+  ( MultiplexSettingsSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMultiplexSettingsSummary,
+
+    -- * Lenses
+    mssTransportStreamBitrate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains summary configuration for a Multiplex event.
 --
--- /See:/ 'multiplexSettingsSummary' smart constructor.
+-- /See:/ 'mkMultiplexSettingsSummary' smart constructor.
 newtype MultiplexSettingsSummary = MultiplexSettingsSummary'
-  { _mssTransportStreamBitrate ::
-      Maybe Nat
+  { transportStreamBitrate ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexSettingsSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mssTransportStreamBitrate' - Transport stream bit rate.
-multiplexSettingsSummary ::
+-- * 'transportStreamBitrate' - Transport stream bit rate.
+mkMultiplexSettingsSummary ::
   MultiplexSettingsSummary
-multiplexSettingsSummary =
-  MultiplexSettingsSummary' {_mssTransportStreamBitrate = Nothing}
+mkMultiplexSettingsSummary =
+  MultiplexSettingsSummary' {transportStreamBitrate = Lude.Nothing}
 
 -- | Transport stream bit rate.
-mssTransportStreamBitrate :: Lens' MultiplexSettingsSummary (Maybe Natural)
-mssTransportStreamBitrate = lens _mssTransportStreamBitrate (\s a -> s {_mssTransportStreamBitrate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'transportStreamBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssTransportStreamBitrate :: Lens.Lens' MultiplexSettingsSummary (Lude.Maybe Lude.Natural)
+mssTransportStreamBitrate = Lens.lens (transportStreamBitrate :: MultiplexSettingsSummary -> Lude.Maybe Lude.Natural) (\s a -> s {transportStreamBitrate = a} :: MultiplexSettingsSummary)
+{-# DEPRECATED mssTransportStreamBitrate "Use generic-lens or generic-optics with 'transportStreamBitrate' instead." #-}
 
-instance FromJSON MultiplexSettingsSummary where
+instance Lude.FromJSON MultiplexSettingsSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "MultiplexSettingsSummary"
       ( \x ->
-          MultiplexSettingsSummary' <$> (x .:? "transportStreamBitrate")
+          MultiplexSettingsSummary'
+            Lude.<$> (x Lude..:? "transportStreamBitrate")
       )
-
-instance Hashable MultiplexSettingsSummary
-
-instance NFData MultiplexSettingsSummary

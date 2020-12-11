@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ElasticGpuSpecificationResponse where
+module Network.AWS.EC2.Types.ElasticGpuSpecificationResponse
+  ( ElasticGpuSpecificationResponse (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkElasticGpuSpecificationResponse,
+
+    -- * Lenses
+    eType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an elastic GPU.
 --
---
---
--- /See:/ 'elasticGpuSpecificationResponse' smart constructor.
+-- /See:/ 'mkElasticGpuSpecificationResponse' smart constructor.
 newtype ElasticGpuSpecificationResponse = ElasticGpuSpecificationResponse'
-  { _eType ::
-      Maybe Text
+  { type' ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticGpuSpecificationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eType' - The elastic GPU type.
-elasticGpuSpecificationResponse ::
+-- * 'type'' - The elastic GPU type.
+mkElasticGpuSpecificationResponse ::
   ElasticGpuSpecificationResponse
-elasticGpuSpecificationResponse =
-  ElasticGpuSpecificationResponse' {_eType = Nothing}
+mkElasticGpuSpecificationResponse =
+  ElasticGpuSpecificationResponse' {type' = Lude.Nothing}
 
 -- | The elastic GPU type.
-eType :: Lens' ElasticGpuSpecificationResponse (Maybe Text)
-eType = lens _eType (\s a -> s {_eType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eType :: Lens.Lens' ElasticGpuSpecificationResponse (Lude.Maybe Lude.Text)
+eType = Lens.lens (type' :: ElasticGpuSpecificationResponse -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ElasticGpuSpecificationResponse)
+{-# DEPRECATED eType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromXML ElasticGpuSpecificationResponse where
-  parseXML x = ElasticGpuSpecificationResponse' <$> (x .@? "type")
-
-instance Hashable ElasticGpuSpecificationResponse
-
-instance NFData ElasticGpuSpecificationResponse
+instance Lude.FromXML ElasticGpuSpecificationResponse where
+  parseXML x =
+    ElasticGpuSpecificationResponse' Lude.<$> (x Lude..@? "type")

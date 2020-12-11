@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,40 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Phase1DHGroupNumbersListValue where
+module Network.AWS.EC2.Types.Phase1DHGroupNumbersListValue
+  ( Phase1DHGroupNumbersListValue (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPhase1DHGroupNumbersListValue,
+
+    -- * Lenses
+    pdhgnlvValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Diffie-Hellmann group number for phase 1 IKE negotiations.
 --
---
---
--- /See:/ 'phase1DHGroupNumbersListValue' smart constructor.
+-- /See:/ 'mkPhase1DHGroupNumbersListValue' smart constructor.
 newtype Phase1DHGroupNumbersListValue = Phase1DHGroupNumbersListValue'
-  { _pdhgnlvValue ::
-      Maybe Int
+  { value ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase1DHGroupNumbersListValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdhgnlvValue' - The Diffie-Hellmann group number.
-phase1DHGroupNumbersListValue ::
+-- * 'value' - The Diffie-Hellmann group number.
+mkPhase1DHGroupNumbersListValue ::
   Phase1DHGroupNumbersListValue
-phase1DHGroupNumbersListValue =
-  Phase1DHGroupNumbersListValue' {_pdhgnlvValue = Nothing}
+mkPhase1DHGroupNumbersListValue =
+  Phase1DHGroupNumbersListValue' {value = Lude.Nothing}
 
 -- | The Diffie-Hellmann group number.
-pdhgnlvValue :: Lens' Phase1DHGroupNumbersListValue (Maybe Int)
-pdhgnlvValue = lens _pdhgnlvValue (\s a -> s {_pdhgnlvValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdhgnlvValue :: Lens.Lens' Phase1DHGroupNumbersListValue (Lude.Maybe Lude.Int)
+pdhgnlvValue = Lens.lens (value :: Phase1DHGroupNumbersListValue -> Lude.Maybe Lude.Int) (\s a -> s {value = a} :: Phase1DHGroupNumbersListValue)
+{-# DEPRECATED pdhgnlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromXML Phase1DHGroupNumbersListValue where
-  parseXML x = Phase1DHGroupNumbersListValue' <$> (x .@? "value")
-
-instance Hashable Phase1DHGroupNumbersListValue
-
-instance NFData Phase1DHGroupNumbersListValue
+instance Lude.FromXML Phase1DHGroupNumbersListValue where
+  parseXML x =
+    Phase1DHGroupNumbersListValue' Lude.<$> (x Lude..@? "value")

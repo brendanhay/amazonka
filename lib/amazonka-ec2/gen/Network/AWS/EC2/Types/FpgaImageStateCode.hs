@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.FpgaImageStateCode where
+module Network.AWS.EC2.Types.FpgaImageStateCode
+  ( FpgaImageStateCode
+      ( FpgaImageStateCode',
+        FISCAvailable,
+        FISCFailed,
+        FISCPending,
+        FISCUnavailable
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FpgaImageStateCode
-  = FISCAvailable
-  | FISCFailed
-  | FISCPending
-  | FISCUnavailable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FpgaImageStateCode = FpgaImageStateCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FpgaImageStateCode where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure FISCAvailable
-      "failed" -> pure FISCFailed
-      "pending" -> pure FISCPending
-      "unavailable" -> pure FISCUnavailable
-      e ->
-        fromTextError $
-          "Failure parsing FpgaImageStateCode from value: '" <> e
-            <> "'. Accepted values: available, failed, pending, unavailable"
+pattern FISCAvailable :: FpgaImageStateCode
+pattern FISCAvailable = FpgaImageStateCode' "available"
 
-instance ToText FpgaImageStateCode where
-  toText = \case
-    FISCAvailable -> "available"
-    FISCFailed -> "failed"
-    FISCPending -> "pending"
-    FISCUnavailable -> "unavailable"
+pattern FISCFailed :: FpgaImageStateCode
+pattern FISCFailed = FpgaImageStateCode' "failed"
 
-instance Hashable FpgaImageStateCode
+pattern FISCPending :: FpgaImageStateCode
+pattern FISCPending = FpgaImageStateCode' "pending"
 
-instance NFData FpgaImageStateCode
+pattern FISCUnavailable :: FpgaImageStateCode
+pattern FISCUnavailable = FpgaImageStateCode' "unavailable"
 
-instance ToByteString FpgaImageStateCode
-
-instance ToQuery FpgaImageStateCode
-
-instance ToHeader FpgaImageStateCode
-
-instance FromXML FpgaImageStateCode where
-  parseXML = parseXMLText "FpgaImageStateCode"
+{-# COMPLETE
+  FISCAvailable,
+  FISCFailed,
+  FISCPending,
+  FISCUnavailable,
+  FpgaImageStateCode'
+  #-}

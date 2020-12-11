@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,156 +7,215 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameServer where
+module Network.AWS.GameLift.Types.GameServer
+  ( GameServer (..),
+
+    -- * Smart constructor
+    mkGameServer,
+
+    -- * Lenses
+    gsInstanceId,
+    gsLastClaimTime,
+    gsGameServerGroupName,
+    gsGameServerData,
+    gsClaimStatus,
+    gsGameServerId,
+    gsUtilizationStatus,
+    gsRegistrationTime,
+    gsLastHealthCheckTime,
+    gsConnectionInfo,
+    gsGameServerGroupARN,
+  )
+where
 
 import Network.AWS.GameLift.Types.GameServerClaimStatus
 import Network.AWS.GameLift.Types.GameServerUtilizationStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game server groups.__
 --
---
 -- Properties describing a game server that is running on an instance in a 'GameServerGroup' .
---
 -- A game server is created by a successful call to @RegisterGameServer@ and deleted by calling @DeregisterGameServer@ . A game server is claimed to host a game session by calling @ClaimGameServer@ .
 --
 --     * 'RegisterGameServer'
 --
+--
 --     * 'ListGameServers'
+--
 --
 --     * 'ClaimGameServer'
 --
+--
 --     * 'DescribeGameServer'
 --
+--
 --     * 'UpdateGameServer'
+--
 --
 --     * 'DeregisterGameServer'
 --
 --
 --
---
--- /See:/ 'gameServer' smart constructor.
+-- /See:/ 'mkGameServer' smart constructor.
 data GameServer = GameServer'
-  { _gsInstanceId :: !(Maybe Text),
-    _gsLastClaimTime :: !(Maybe POSIX),
-    _gsGameServerGroupName :: !(Maybe Text),
-    _gsGameServerData :: !(Maybe Text),
-    _gsClaimStatus :: !(Maybe GameServerClaimStatus),
-    _gsGameServerId :: !(Maybe Text),
-    _gsUtilizationStatus :: !(Maybe GameServerUtilizationStatus),
-    _gsRegistrationTime :: !(Maybe POSIX),
-    _gsLastHealthCheckTime :: !(Maybe POSIX),
-    _gsConnectionInfo :: !(Maybe Text),
-    _gsGameServerGroupARN :: !(Maybe Text)
+  { instanceId :: Lude.Maybe Lude.Text,
+    lastClaimTime :: Lude.Maybe Lude.Timestamp,
+    gameServerGroupName :: Lude.Maybe Lude.Text,
+    gameServerData :: Lude.Maybe Lude.Text,
+    claimStatus :: Lude.Maybe GameServerClaimStatus,
+    gameServerId :: Lude.Maybe Lude.Text,
+    utilizationStatus :: Lude.Maybe GameServerUtilizationStatus,
+    registrationTime :: Lude.Maybe Lude.Timestamp,
+    lastHealthCheckTime :: Lude.Maybe Lude.Timestamp,
+    connectionInfo :: Lude.Maybe Lude.Text,
+    gameServerGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameServer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'claimStatus' - Indicates when an available game server has been reserved for gameplay but has not yet started hosting a game. Once it is claimed, the game server remains in @CLAIMED@ status for a maximum of one minute. During this time, game clients connect to the game server to start the game and trigger the game server to update its utilization status. After one minute, the game server claim status reverts to null.
+-- * 'connectionInfo' - The port and IP address that must be used to establish a client connection to the game server.
+-- * 'gameServerData' - A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
+-- * 'gameServerGroupARN' - The ARN identifier for the game server group where the game server is located.
+-- * 'gameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
+-- * 'gameServerId' - A custom string that uniquely identifies the game server. Game server IDs are developer-defined and are unique across all game server groups in an AWS account.
+-- * 'instanceId' - The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
+-- * 'lastClaimTime' - Timestamp that indicates the last time the game server was claimed with a 'ClaimGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). This value is used to calculate when a claimed game server's status should revert to null.
+-- * 'lastHealthCheckTime' - Timestamp that indicates the last time the game server was updated with health status using an 'UpdateGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). After game server registration, this property is only changed when a game server update specifies a health check value.
+-- * 'registrationTime' - Timestamp that indicates when the game server was created with a 'RegisterGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ).
+-- * 'utilizationStatus' - Indicates whether the game server is currently available for new games or is busy. Possible statuses include:
 --
--- * 'gsInstanceId' - The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
 --
--- * 'gsLastClaimTime' - Timestamp that indicates the last time the game server was claimed with a 'ClaimGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). This value is used to calculate when a claimed game server's status should revert to null.
+--     * @AVAILABLE@ - The game server is available to be claimed. A game server that has been claimed remains in this status until it reports game hosting activity.
 --
--- * 'gsGameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
 --
--- * 'gsGameServerData' - A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
---
--- * 'gsClaimStatus' - Indicates when an available game server has been reserved for gameplay but has not yet started hosting a game. Once it is claimed, the game server remains in @CLAIMED@ status for a maximum of one minute. During this time, game clients connect to the game server to start the game and trigger the game server to update its utilization status. After one minute, the game server claim status reverts to null.
---
--- * 'gsGameServerId' - A custom string that uniquely identifies the game server. Game server IDs are developer-defined and are unique across all game server groups in an AWS account.
---
--- * 'gsUtilizationStatus' - Indicates whether the game server is currently available for new games or is busy. Possible statuses include:     * @AVAILABLE@ - The game server is available to be claimed. A game server that has been claimed remains in this status until it reports game hosting activity.      * @UTILIZED@ - The game server is currently hosting a game session with players.
---
--- * 'gsRegistrationTime' - Timestamp that indicates when the game server was created with a 'RegisterGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ).
---
--- * 'gsLastHealthCheckTime' - Timestamp that indicates the last time the game server was updated with health status using an 'UpdateGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). After game server registration, this property is only changed when a game server update specifies a health check value.
---
--- * 'gsConnectionInfo' - The port and IP address that must be used to establish a client connection to the game server.
---
--- * 'gsGameServerGroupARN' - The ARN identifier for the game server group where the game server is located.
-gameServer ::
+--     * @UTILIZED@ - The game server is currently hosting a game session with players.
+mkGameServer ::
   GameServer
-gameServer =
+mkGameServer =
   GameServer'
-    { _gsInstanceId = Nothing,
-      _gsLastClaimTime = Nothing,
-      _gsGameServerGroupName = Nothing,
-      _gsGameServerData = Nothing,
-      _gsClaimStatus = Nothing,
-      _gsGameServerId = Nothing,
-      _gsUtilizationStatus = Nothing,
-      _gsRegistrationTime = Nothing,
-      _gsLastHealthCheckTime = Nothing,
-      _gsConnectionInfo = Nothing,
-      _gsGameServerGroupARN = Nothing
+    { instanceId = Lude.Nothing,
+      lastClaimTime = Lude.Nothing,
+      gameServerGroupName = Lude.Nothing,
+      gameServerData = Lude.Nothing,
+      claimStatus = Lude.Nothing,
+      gameServerId = Lude.Nothing,
+      utilizationStatus = Lude.Nothing,
+      registrationTime = Lude.Nothing,
+      lastHealthCheckTime = Lude.Nothing,
+      connectionInfo = Lude.Nothing,
+      gameServerGroupARN = Lude.Nothing
     }
 
 -- | The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
-gsInstanceId :: Lens' GameServer (Maybe Text)
-gsInstanceId = lens _gsInstanceId (\s a -> s {_gsInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsInstanceId :: Lens.Lens' GameServer (Lude.Maybe Lude.Text)
+gsInstanceId = Lens.lens (instanceId :: GameServer -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: GameServer)
+{-# DEPRECATED gsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Timestamp that indicates the last time the game server was claimed with a 'ClaimGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). This value is used to calculate when a claimed game server's status should revert to null.
-gsLastClaimTime :: Lens' GameServer (Maybe UTCTime)
-gsLastClaimTime = lens _gsLastClaimTime (\s a -> s {_gsLastClaimTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastClaimTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsLastClaimTime :: Lens.Lens' GameServer (Lude.Maybe Lude.Timestamp)
+gsLastClaimTime = Lens.lens (lastClaimTime :: GameServer -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastClaimTime = a} :: GameServer)
+{-# DEPRECATED gsLastClaimTime "Use generic-lens or generic-optics with 'lastClaimTime' instead." #-}
 
 -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
-gsGameServerGroupName :: Lens' GameServer (Maybe Text)
-gsGameServerGroupName = lens _gsGameServerGroupName (\s a -> s {_gsGameServerGroupName = a})
+--
+-- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsGameServerGroupName :: Lens.Lens' GameServer (Lude.Maybe Lude.Text)
+gsGameServerGroupName = Lens.lens (gameServerGroupName :: GameServer -> Lude.Maybe Lude.Text) (\s a -> s {gameServerGroupName = a} :: GameServer)
+{-# DEPRECATED gsGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 -- | A set of custom game server properties, formatted as a single string value. This data is passed to a game client or service when it requests information on game servers using 'ListGameServers' or 'ClaimGameServer' .
-gsGameServerData :: Lens' GameServer (Maybe Text)
-gsGameServerData = lens _gsGameServerData (\s a -> s {_gsGameServerData = a})
+--
+-- /Note:/ Consider using 'gameServerData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsGameServerData :: Lens.Lens' GameServer (Lude.Maybe Lude.Text)
+gsGameServerData = Lens.lens (gameServerData :: GameServer -> Lude.Maybe Lude.Text) (\s a -> s {gameServerData = a} :: GameServer)
+{-# DEPRECATED gsGameServerData "Use generic-lens or generic-optics with 'gameServerData' instead." #-}
 
 -- | Indicates when an available game server has been reserved for gameplay but has not yet started hosting a game. Once it is claimed, the game server remains in @CLAIMED@ status for a maximum of one minute. During this time, game clients connect to the game server to start the game and trigger the game server to update its utilization status. After one minute, the game server claim status reverts to null.
-gsClaimStatus :: Lens' GameServer (Maybe GameServerClaimStatus)
-gsClaimStatus = lens _gsClaimStatus (\s a -> s {_gsClaimStatus = a})
+--
+-- /Note:/ Consider using 'claimStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsClaimStatus :: Lens.Lens' GameServer (Lude.Maybe GameServerClaimStatus)
+gsClaimStatus = Lens.lens (claimStatus :: GameServer -> Lude.Maybe GameServerClaimStatus) (\s a -> s {claimStatus = a} :: GameServer)
+{-# DEPRECATED gsClaimStatus "Use generic-lens or generic-optics with 'claimStatus' instead." #-}
 
 -- | A custom string that uniquely identifies the game server. Game server IDs are developer-defined and are unique across all game server groups in an AWS account.
-gsGameServerId :: Lens' GameServer (Maybe Text)
-gsGameServerId = lens _gsGameServerId (\s a -> s {_gsGameServerId = a})
+--
+-- /Note:/ Consider using 'gameServerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsGameServerId :: Lens.Lens' GameServer (Lude.Maybe Lude.Text)
+gsGameServerId = Lens.lens (gameServerId :: GameServer -> Lude.Maybe Lude.Text) (\s a -> s {gameServerId = a} :: GameServer)
+{-# DEPRECATED gsGameServerId "Use generic-lens or generic-optics with 'gameServerId' instead." #-}
 
--- | Indicates whether the game server is currently available for new games or is busy. Possible statuses include:     * @AVAILABLE@ - The game server is available to be claimed. A game server that has been claimed remains in this status until it reports game hosting activity.      * @UTILIZED@ - The game server is currently hosting a game session with players.
-gsUtilizationStatus :: Lens' GameServer (Maybe GameServerUtilizationStatus)
-gsUtilizationStatus = lens _gsUtilizationStatus (\s a -> s {_gsUtilizationStatus = a})
+-- | Indicates whether the game server is currently available for new games or is busy. Possible statuses include:
+--
+--
+--     * @AVAILABLE@ - The game server is available to be claimed. A game server that has been claimed remains in this status until it reports game hosting activity.
+--
+--
+--     * @UTILIZED@ - The game server is currently hosting a game session with players.
+--
+--
+--
+-- /Note:/ Consider using 'utilizationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsUtilizationStatus :: Lens.Lens' GameServer (Lude.Maybe GameServerUtilizationStatus)
+gsUtilizationStatus = Lens.lens (utilizationStatus :: GameServer -> Lude.Maybe GameServerUtilizationStatus) (\s a -> s {utilizationStatus = a} :: GameServer)
+{-# DEPRECATED gsUtilizationStatus "Use generic-lens or generic-optics with 'utilizationStatus' instead." #-}
 
 -- | Timestamp that indicates when the game server was created with a 'RegisterGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ).
-gsRegistrationTime :: Lens' GameServer (Maybe UTCTime)
-gsRegistrationTime = lens _gsRegistrationTime (\s a -> s {_gsRegistrationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'registrationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsRegistrationTime :: Lens.Lens' GameServer (Lude.Maybe Lude.Timestamp)
+gsRegistrationTime = Lens.lens (registrationTime :: GameServer -> Lude.Maybe Lude.Timestamp) (\s a -> s {registrationTime = a} :: GameServer)
+{-# DEPRECATED gsRegistrationTime "Use generic-lens or generic-optics with 'registrationTime' instead." #-}
 
 -- | Timestamp that indicates the last time the game server was updated with health status using an 'UpdateGameServer' request. The format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ). After game server registration, this property is only changed when a game server update specifies a health check value.
-gsLastHealthCheckTime :: Lens' GameServer (Maybe UTCTime)
-gsLastHealthCheckTime = lens _gsLastHealthCheckTime (\s a -> s {_gsLastHealthCheckTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastHealthCheckTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsLastHealthCheckTime :: Lens.Lens' GameServer (Lude.Maybe Lude.Timestamp)
+gsLastHealthCheckTime = Lens.lens (lastHealthCheckTime :: GameServer -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastHealthCheckTime = a} :: GameServer)
+{-# DEPRECATED gsLastHealthCheckTime "Use generic-lens or generic-optics with 'lastHealthCheckTime' instead." #-}
 
 -- | The port and IP address that must be used to establish a client connection to the game server.
-gsConnectionInfo :: Lens' GameServer (Maybe Text)
-gsConnectionInfo = lens _gsConnectionInfo (\s a -> s {_gsConnectionInfo = a})
+--
+-- /Note:/ Consider using 'connectionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsConnectionInfo :: Lens.Lens' GameServer (Lude.Maybe Lude.Text)
+gsConnectionInfo = Lens.lens (connectionInfo :: GameServer -> Lude.Maybe Lude.Text) (\s a -> s {connectionInfo = a} :: GameServer)
+{-# DEPRECATED gsConnectionInfo "Use generic-lens or generic-optics with 'connectionInfo' instead." #-}
 
 -- | The ARN identifier for the game server group where the game server is located.
-gsGameServerGroupARN :: Lens' GameServer (Maybe Text)
-gsGameServerGroupARN = lens _gsGameServerGroupARN (\s a -> s {_gsGameServerGroupARN = a})
+--
+-- /Note:/ Consider using 'gameServerGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsGameServerGroupARN :: Lens.Lens' GameServer (Lude.Maybe Lude.Text)
+gsGameServerGroupARN = Lens.lens (gameServerGroupARN :: GameServer -> Lude.Maybe Lude.Text) (\s a -> s {gameServerGroupARN = a} :: GameServer)
+{-# DEPRECATED gsGameServerGroupARN "Use generic-lens or generic-optics with 'gameServerGroupARN' instead." #-}
 
-instance FromJSON GameServer where
+instance Lude.FromJSON GameServer where
   parseJSON =
-    withObject
+    Lude.withObject
       "GameServer"
       ( \x ->
           GameServer'
-            <$> (x .:? "InstanceId")
-            <*> (x .:? "LastClaimTime")
-            <*> (x .:? "GameServerGroupName")
-            <*> (x .:? "GameServerData")
-            <*> (x .:? "ClaimStatus")
-            <*> (x .:? "GameServerId")
-            <*> (x .:? "UtilizationStatus")
-            <*> (x .:? "RegistrationTime")
-            <*> (x .:? "LastHealthCheckTime")
-            <*> (x .:? "ConnectionInfo")
-            <*> (x .:? "GameServerGroupArn")
+            Lude.<$> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "LastClaimTime")
+            Lude.<*> (x Lude..:? "GameServerGroupName")
+            Lude.<*> (x Lude..:? "GameServerData")
+            Lude.<*> (x Lude..:? "ClaimStatus")
+            Lude.<*> (x Lude..:? "GameServerId")
+            Lude.<*> (x Lude..:? "UtilizationStatus")
+            Lude.<*> (x Lude..:? "RegistrationTime")
+            Lude.<*> (x Lude..:? "LastHealthCheckTime")
+            Lude.<*> (x Lude..:? "ConnectionInfo")
+            Lude.<*> (x Lude..:? "GameServerGroupArn")
       )
-
-instance Hashable GameServer
-
-instance NFData GameServer

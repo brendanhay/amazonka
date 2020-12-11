@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InventoryQueryOperatorType where
+module Network.AWS.SSM.Types.InventoryQueryOperatorType
+  ( InventoryQueryOperatorType
+      ( InventoryQueryOperatorType',
+        IQOTBeginWith,
+        IQOTEqual,
+        IQOTExists,
+        IQOTGreaterThan,
+        IQOTLessThan,
+        IQOTNotEqual
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InventoryQueryOperatorType
-  = IQOTBeginWith
-  | IQOTEqual
-  | IQOTExists
-  | IQOTGreaterThan
-  | IQOTLessThan
-  | IQOTNotEqual
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InventoryQueryOperatorType = InventoryQueryOperatorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InventoryQueryOperatorType where
-  parser =
-    takeLowerText >>= \case
-      "beginwith" -> pure IQOTBeginWith
-      "equal" -> pure IQOTEqual
-      "exists" -> pure IQOTExists
-      "greaterthan" -> pure IQOTGreaterThan
-      "lessthan" -> pure IQOTLessThan
-      "notequal" -> pure IQOTNotEqual
-      e ->
-        fromTextError $
-          "Failure parsing InventoryQueryOperatorType from value: '" <> e
-            <> "'. Accepted values: beginwith, equal, exists, greaterthan, lessthan, notequal"
+pattern IQOTBeginWith :: InventoryQueryOperatorType
+pattern IQOTBeginWith = InventoryQueryOperatorType' "BeginWith"
 
-instance ToText InventoryQueryOperatorType where
-  toText = \case
-    IQOTBeginWith -> "BeginWith"
-    IQOTEqual -> "Equal"
-    IQOTExists -> "Exists"
-    IQOTGreaterThan -> "GreaterThan"
-    IQOTLessThan -> "LessThan"
-    IQOTNotEqual -> "NotEqual"
+pattern IQOTEqual :: InventoryQueryOperatorType
+pattern IQOTEqual = InventoryQueryOperatorType' "Equal"
 
-instance Hashable InventoryQueryOperatorType
+pattern IQOTExists :: InventoryQueryOperatorType
+pattern IQOTExists = InventoryQueryOperatorType' "Exists"
 
-instance NFData InventoryQueryOperatorType
+pattern IQOTGreaterThan :: InventoryQueryOperatorType
+pattern IQOTGreaterThan = InventoryQueryOperatorType' "GreaterThan"
 
-instance ToByteString InventoryQueryOperatorType
+pattern IQOTLessThan :: InventoryQueryOperatorType
+pattern IQOTLessThan = InventoryQueryOperatorType' "LessThan"
 
-instance ToQuery InventoryQueryOperatorType
+pattern IQOTNotEqual :: InventoryQueryOperatorType
+pattern IQOTNotEqual = InventoryQueryOperatorType' "NotEqual"
 
-instance ToHeader InventoryQueryOperatorType
-
-instance ToJSON InventoryQueryOperatorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  IQOTBeginWith,
+  IQOTEqual,
+  IQOTExists,
+  IQOTGreaterThan,
+  IQOTLessThan,
+  IQOTNotEqual,
+  InventoryQueryOperatorType'
+  #-}

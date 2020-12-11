@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.Impact where
+module Network.AWS.CostExplorer.Types.Impact
+  ( Impact (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkImpact,
+
+    -- * Lenses
+    iTotalImpact,
+    iMaxImpact,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The anomaly's dollar value.
 --
---
---
--- /See:/ 'impact' smart constructor.
+-- /See:/ 'mkImpact' smart constructor.
 data Impact = Impact'
-  { _iTotalImpact :: !(Maybe Double),
-    _iMaxImpact :: !Double
+  { totalImpact :: Lude.Maybe Lude.Double,
+    maxImpact :: Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Impact' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iTotalImpact' - The cumulative dollar value observed for an anomaly.
---
--- * 'iMaxImpact' - The maximum dollar value observed for an anomaly.
-impact ::
-  -- | 'iMaxImpact'
-  Double ->
+-- * 'maxImpact' - The maximum dollar value observed for an anomaly.
+-- * 'totalImpact' - The cumulative dollar value observed for an anomaly.
+mkImpact ::
+  -- | 'maxImpact'
+  Lude.Double ->
   Impact
-impact pMaxImpact_ =
-  Impact' {_iTotalImpact = Nothing, _iMaxImpact = pMaxImpact_}
+mkImpact pMaxImpact_ =
+  Impact' {totalImpact = Lude.Nothing, maxImpact = pMaxImpact_}
 
 -- | The cumulative dollar value observed for an anomaly.
-iTotalImpact :: Lens' Impact (Maybe Double)
-iTotalImpact = lens _iTotalImpact (\s a -> s {_iTotalImpact = a})
+--
+-- /Note:/ Consider using 'totalImpact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iTotalImpact :: Lens.Lens' Impact (Lude.Maybe Lude.Double)
+iTotalImpact = Lens.lens (totalImpact :: Impact -> Lude.Maybe Lude.Double) (\s a -> s {totalImpact = a} :: Impact)
+{-# DEPRECATED iTotalImpact "Use generic-lens or generic-optics with 'totalImpact' instead." #-}
 
 -- | The maximum dollar value observed for an anomaly.
-iMaxImpact :: Lens' Impact Double
-iMaxImpact = lens _iMaxImpact (\s a -> s {_iMaxImpact = a})
+--
+-- /Note:/ Consider using 'maxImpact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iMaxImpact :: Lens.Lens' Impact Lude.Double
+iMaxImpact = Lens.lens (maxImpact :: Impact -> Lude.Double) (\s a -> s {maxImpact = a} :: Impact)
+{-# DEPRECATED iMaxImpact "Use generic-lens or generic-optics with 'maxImpact' instead." #-}
 
-instance FromJSON Impact where
+instance Lude.FromJSON Impact where
   parseJSON =
-    withObject
+    Lude.withObject
       "Impact"
-      (\x -> Impact' <$> (x .:? "TotalImpact") <*> (x .: "MaxImpact"))
-
-instance Hashable Impact
-
-instance NFData Impact
+      ( \x ->
+          Impact'
+            Lude.<$> (x Lude..:? "TotalImpact") Lude.<*> (x Lude..: "MaxImpact")
+      )

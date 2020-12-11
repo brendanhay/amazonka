@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,138 +7,179 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.AccessControlRule where
+module Network.AWS.WorkMail.Types.AccessControlRule
+  ( AccessControlRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAccessControlRule,
+
+    -- * Lenses
+    acrEffect,
+    acrUserIds,
+    acrActions,
+    acrDateCreated,
+    acrName,
+    acrNotUserIds,
+    acrDateModified,
+    acrIPRanges,
+    acrNotIPRanges,
+    acrNotActions,
+    acrDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkMail.Types.AccessControlRuleEffect
 
 -- | A rule that controls access to an Amazon WorkMail organization.
 --
---
---
--- /See:/ 'accessControlRule' smart constructor.
+-- /See:/ 'mkAccessControlRule' smart constructor.
 data AccessControlRule = AccessControlRule'
-  { _acrEffect ::
-      !(Maybe AccessControlRuleEffect),
-    _acrUserIds :: !(Maybe [Text]),
-    _acrActions :: !(Maybe [Text]),
-    _acrDateCreated :: !(Maybe POSIX),
-    _acrName :: !(Maybe Text),
-    _acrNotUserIds :: !(Maybe [Text]),
-    _acrDateModified :: !(Maybe POSIX),
-    _acrIPRanges :: !(Maybe [Text]),
-    _acrNotIPRanges :: !(Maybe [Text]),
-    _acrNotActions :: !(Maybe [Text]),
-    _acrDescription :: !(Maybe Text)
+  { effect ::
+      Lude.Maybe AccessControlRuleEffect,
+    userIds :: Lude.Maybe [Lude.Text],
+    actions :: Lude.Maybe [Lude.Text],
+    dateCreated :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    notUserIds :: Lude.Maybe [Lude.Text],
+    dateModified :: Lude.Maybe Lude.Timestamp,
+    ipRanges :: Lude.Maybe [Lude.Text],
+    notIPRanges :: Lude.Maybe [Lude.Text],
+    notActions :: Lude.Maybe [Lude.Text],
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessControlRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acrEffect' - The rule effect.
---
--- * 'acrUserIds' - User IDs to include in the rule.
---
--- * 'acrActions' - Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
---
--- * 'acrDateCreated' - The date that the rule was created.
---
--- * 'acrName' - The rule name.
---
--- * 'acrNotUserIds' - User IDs to exclude from the rule.
---
--- * 'acrDateModified' - The date that the rule was modified.
---
--- * 'acrIPRanges' - IPv4 CIDR ranges to include in the rule.
---
--- * 'acrNotIPRanges' - IPv4 CIDR ranges to exclude from the rule.
---
--- * 'acrNotActions' - Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
---
--- * 'acrDescription' - The rule description.
-accessControlRule ::
+-- * 'actions' - Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+-- * 'dateCreated' - The date that the rule was created.
+-- * 'dateModified' - The date that the rule was modified.
+-- * 'description' - The rule description.
+-- * 'effect' - The rule effect.
+-- * 'ipRanges' - IPv4 CIDR ranges to include in the rule.
+-- * 'name' - The rule name.
+-- * 'notActions' - Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+-- * 'notIPRanges' - IPv4 CIDR ranges to exclude from the rule.
+-- * 'notUserIds' - User IDs to exclude from the rule.
+-- * 'userIds' - User IDs to include in the rule.
+mkAccessControlRule ::
   AccessControlRule
-accessControlRule =
+mkAccessControlRule =
   AccessControlRule'
-    { _acrEffect = Nothing,
-      _acrUserIds = Nothing,
-      _acrActions = Nothing,
-      _acrDateCreated = Nothing,
-      _acrName = Nothing,
-      _acrNotUserIds = Nothing,
-      _acrDateModified = Nothing,
-      _acrIPRanges = Nothing,
-      _acrNotIPRanges = Nothing,
-      _acrNotActions = Nothing,
-      _acrDescription = Nothing
+    { effect = Lude.Nothing,
+      userIds = Lude.Nothing,
+      actions = Lude.Nothing,
+      dateCreated = Lude.Nothing,
+      name = Lude.Nothing,
+      notUserIds = Lude.Nothing,
+      dateModified = Lude.Nothing,
+      ipRanges = Lude.Nothing,
+      notIPRanges = Lude.Nothing,
+      notActions = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The rule effect.
-acrEffect :: Lens' AccessControlRule (Maybe AccessControlRuleEffect)
-acrEffect = lens _acrEffect (\s a -> s {_acrEffect = a})
+--
+-- /Note:/ Consider using 'effect' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrEffect :: Lens.Lens' AccessControlRule (Lude.Maybe AccessControlRuleEffect)
+acrEffect = Lens.lens (effect :: AccessControlRule -> Lude.Maybe AccessControlRuleEffect) (\s a -> s {effect = a} :: AccessControlRule)
+{-# DEPRECATED acrEffect "Use generic-lens or generic-optics with 'effect' instead." #-}
 
 -- | User IDs to include in the rule.
-acrUserIds :: Lens' AccessControlRule [Text]
-acrUserIds = lens _acrUserIds (\s a -> s {_acrUserIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrUserIds :: Lens.Lens' AccessControlRule (Lude.Maybe [Lude.Text])
+acrUserIds = Lens.lens (userIds :: AccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {userIds = a} :: AccessControlRule)
+{-# DEPRECATED acrUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
 
 -- | Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
-acrActions :: Lens' AccessControlRule [Text]
-acrActions = lens _acrActions (\s a -> s {_acrActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrActions :: Lens.Lens' AccessControlRule (Lude.Maybe [Lude.Text])
+acrActions = Lens.lens (actions :: AccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {actions = a} :: AccessControlRule)
+{-# DEPRECATED acrActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | The date that the rule was created.
-acrDateCreated :: Lens' AccessControlRule (Maybe UTCTime)
-acrDateCreated = lens _acrDateCreated (\s a -> s {_acrDateCreated = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrDateCreated :: Lens.Lens' AccessControlRule (Lude.Maybe Lude.Timestamp)
+acrDateCreated = Lens.lens (dateCreated :: AccessControlRule -> Lude.Maybe Lude.Timestamp) (\s a -> s {dateCreated = a} :: AccessControlRule)
+{-# DEPRECATED acrDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
 
 -- | The rule name.
-acrName :: Lens' AccessControlRule (Maybe Text)
-acrName = lens _acrName (\s a -> s {_acrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrName :: Lens.Lens' AccessControlRule (Lude.Maybe Lude.Text)
+acrName = Lens.lens (name :: AccessControlRule -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AccessControlRule)
+{-# DEPRECATED acrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | User IDs to exclude from the rule.
-acrNotUserIds :: Lens' AccessControlRule [Text]
-acrNotUserIds = lens _acrNotUserIds (\s a -> s {_acrNotUserIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notUserIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrNotUserIds :: Lens.Lens' AccessControlRule (Lude.Maybe [Lude.Text])
+acrNotUserIds = Lens.lens (notUserIds :: AccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {notUserIds = a} :: AccessControlRule)
+{-# DEPRECATED acrNotUserIds "Use generic-lens or generic-optics with 'notUserIds' instead." #-}
 
 -- | The date that the rule was modified.
-acrDateModified :: Lens' AccessControlRule (Maybe UTCTime)
-acrDateModified = lens _acrDateModified (\s a -> s {_acrDateModified = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'dateModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrDateModified :: Lens.Lens' AccessControlRule (Lude.Maybe Lude.Timestamp)
+acrDateModified = Lens.lens (dateModified :: AccessControlRule -> Lude.Maybe Lude.Timestamp) (\s a -> s {dateModified = a} :: AccessControlRule)
+{-# DEPRECATED acrDateModified "Use generic-lens or generic-optics with 'dateModified' instead." #-}
 
 -- | IPv4 CIDR ranges to include in the rule.
-acrIPRanges :: Lens' AccessControlRule [Text]
-acrIPRanges = lens _acrIPRanges (\s a -> s {_acrIPRanges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrIPRanges :: Lens.Lens' AccessControlRule (Lude.Maybe [Lude.Text])
+acrIPRanges = Lens.lens (ipRanges :: AccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {ipRanges = a} :: AccessControlRule)
+{-# DEPRECATED acrIPRanges "Use generic-lens or generic-optics with 'ipRanges' instead." #-}
 
 -- | IPv4 CIDR ranges to exclude from the rule.
-acrNotIPRanges :: Lens' AccessControlRule [Text]
-acrNotIPRanges = lens _acrNotIPRanges (\s a -> s {_acrNotIPRanges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notIPRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrNotIPRanges :: Lens.Lens' AccessControlRule (Lude.Maybe [Lude.Text])
+acrNotIPRanges = Lens.lens (notIPRanges :: AccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {notIPRanges = a} :: AccessControlRule)
+{-# DEPRECATED acrNotIPRanges "Use generic-lens or generic-optics with 'notIPRanges' instead." #-}
 
 -- | Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
-acrNotActions :: Lens' AccessControlRule [Text]
-acrNotActions = lens _acrNotActions (\s a -> s {_acrNotActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrNotActions :: Lens.Lens' AccessControlRule (Lude.Maybe [Lude.Text])
+acrNotActions = Lens.lens (notActions :: AccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {notActions = a} :: AccessControlRule)
+{-# DEPRECATED acrNotActions "Use generic-lens or generic-optics with 'notActions' instead." #-}
 
 -- | The rule description.
-acrDescription :: Lens' AccessControlRule (Maybe Text)
-acrDescription = lens _acrDescription (\s a -> s {_acrDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acrDescription :: Lens.Lens' AccessControlRule (Lude.Maybe Lude.Text)
+acrDescription = Lens.lens (description :: AccessControlRule -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AccessControlRule)
+{-# DEPRECATED acrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON AccessControlRule where
+instance Lude.FromJSON AccessControlRule where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccessControlRule"
       ( \x ->
           AccessControlRule'
-            <$> (x .:? "Effect")
-            <*> (x .:? "UserIds" .!= mempty)
-            <*> (x .:? "Actions" .!= mempty)
-            <*> (x .:? "DateCreated")
-            <*> (x .:? "Name")
-            <*> (x .:? "NotUserIds" .!= mempty)
-            <*> (x .:? "DateModified")
-            <*> (x .:? "IpRanges" .!= mempty)
-            <*> (x .:? "NotIpRanges" .!= mempty)
-            <*> (x .:? "NotActions" .!= mempty)
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "Effect")
+            Lude.<*> (x Lude..:? "UserIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Actions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "DateCreated")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "NotUserIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "DateModified")
+            Lude.<*> (x Lude..:? "IpRanges" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NotIpRanges" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NotActions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable AccessControlRule
-
-instance NFData AccessControlRule

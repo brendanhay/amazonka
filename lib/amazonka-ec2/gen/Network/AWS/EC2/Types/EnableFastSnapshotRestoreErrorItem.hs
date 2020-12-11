@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EnableFastSnapshotRestoreErrorItem where
+module Network.AWS.EC2.Types.EnableFastSnapshotRestoreErrorItem
+  ( EnableFastSnapshotRestoreErrorItem (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkEnableFastSnapshotRestoreErrorItem,
+
+    -- * Lenses
+    efsreiFastSnapshotRestoreStateErrors,
+    efsreiSnapshotId,
+  )
+where
+
 import Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateErrorItem
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the errors that occurred when enabling fast snapshot restores.
 --
---
---
--- /See:/ 'enableFastSnapshotRestoreErrorItem' smart constructor.
+-- /See:/ 'mkEnableFastSnapshotRestoreErrorItem' smart constructor.
 data EnableFastSnapshotRestoreErrorItem = EnableFastSnapshotRestoreErrorItem'
-  { _efsreiFastSnapshotRestoreStateErrors ::
-      !( Maybe
-           [EnableFastSnapshotRestoreStateErrorItem]
-       ),
-    _efsreiSnapshotId ::
-      !(Maybe Text)
+  { fastSnapshotRestoreStateErrors ::
+      Lude.Maybe
+        [EnableFastSnapshotRestoreStateErrorItem],
+    snapshotId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableFastSnapshotRestoreErrorItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'efsreiFastSnapshotRestoreStateErrors' - The errors.
---
--- * 'efsreiSnapshotId' - The ID of the snapshot.
-enableFastSnapshotRestoreErrorItem ::
+-- * 'fastSnapshotRestoreStateErrors' - The errors.
+-- * 'snapshotId' - The ID of the snapshot.
+mkEnableFastSnapshotRestoreErrorItem ::
   EnableFastSnapshotRestoreErrorItem
-enableFastSnapshotRestoreErrorItem =
+mkEnableFastSnapshotRestoreErrorItem =
   EnableFastSnapshotRestoreErrorItem'
-    { _efsreiFastSnapshotRestoreStateErrors =
-        Nothing,
-      _efsreiSnapshotId = Nothing
+    { fastSnapshotRestoreStateErrors =
+        Lude.Nothing,
+      snapshotId = Lude.Nothing
     }
 
 -- | The errors.
-efsreiFastSnapshotRestoreStateErrors :: Lens' EnableFastSnapshotRestoreErrorItem [EnableFastSnapshotRestoreStateErrorItem]
-efsreiFastSnapshotRestoreStateErrors = lens _efsreiFastSnapshotRestoreStateErrors (\s a -> s {_efsreiFastSnapshotRestoreStateErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'fastSnapshotRestoreStateErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsreiFastSnapshotRestoreStateErrors :: Lens.Lens' EnableFastSnapshotRestoreErrorItem (Lude.Maybe [EnableFastSnapshotRestoreStateErrorItem])
+efsreiFastSnapshotRestoreStateErrors = Lens.lens (fastSnapshotRestoreStateErrors :: EnableFastSnapshotRestoreErrorItem -> Lude.Maybe [EnableFastSnapshotRestoreStateErrorItem]) (\s a -> s {fastSnapshotRestoreStateErrors = a} :: EnableFastSnapshotRestoreErrorItem)
+{-# DEPRECATED efsreiFastSnapshotRestoreStateErrors "Use generic-lens or generic-optics with 'fastSnapshotRestoreStateErrors' instead." #-}
 
 -- | The ID of the snapshot.
-efsreiSnapshotId :: Lens' EnableFastSnapshotRestoreErrorItem (Maybe Text)
-efsreiSnapshotId = lens _efsreiSnapshotId (\s a -> s {_efsreiSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsreiSnapshotId :: Lens.Lens' EnableFastSnapshotRestoreErrorItem (Lude.Maybe Lude.Text)
+efsreiSnapshotId = Lens.lens (snapshotId :: EnableFastSnapshotRestoreErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: EnableFastSnapshotRestoreErrorItem)
+{-# DEPRECATED efsreiSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance FromXML EnableFastSnapshotRestoreErrorItem where
+instance Lude.FromXML EnableFastSnapshotRestoreErrorItem where
   parseXML x =
     EnableFastSnapshotRestoreErrorItem'
-      <$> ( x .@? "fastSnapshotRestoreStateErrorSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "snapshotId")
-
-instance Hashable EnableFastSnapshotRestoreErrorItem
-
-instance NFData EnableFastSnapshotRestoreErrorItem
+      Lude.<$> ( x Lude..@? "fastSnapshotRestoreStateErrorSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "snapshotId")

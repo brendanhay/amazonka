@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.HyperParameterTuningJobStatus where
+module Network.AWS.SageMaker.Types.HyperParameterTuningJobStatus
+  ( HyperParameterTuningJobStatus
+      ( HyperParameterTuningJobStatus',
+        HPTJSCompleted,
+        HPTJSFailed,
+        HPTJSInProgress,
+        HPTJSStopped,
+        HPTJSStopping
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HyperParameterTuningJobStatus
-  = HPTJSCompleted
-  | HPTJSFailed
-  | HPTJSInProgress
-  | HPTJSStopped
-  | HPTJSStopping
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HyperParameterTuningJobStatus = HyperParameterTuningJobStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HyperParameterTuningJobStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure HPTJSCompleted
-      "failed" -> pure HPTJSFailed
-      "inprogress" -> pure HPTJSInProgress
-      "stopped" -> pure HPTJSStopped
-      "stopping" -> pure HPTJSStopping
-      e ->
-        fromTextError $
-          "Failure parsing HyperParameterTuningJobStatus from value: '" <> e
-            <> "'. Accepted values: completed, failed, inprogress, stopped, stopping"
+pattern HPTJSCompleted :: HyperParameterTuningJobStatus
+pattern HPTJSCompleted = HyperParameterTuningJobStatus' "Completed"
 
-instance ToText HyperParameterTuningJobStatus where
-  toText = \case
-    HPTJSCompleted -> "Completed"
-    HPTJSFailed -> "Failed"
-    HPTJSInProgress -> "InProgress"
-    HPTJSStopped -> "Stopped"
-    HPTJSStopping -> "Stopping"
+pattern HPTJSFailed :: HyperParameterTuningJobStatus
+pattern HPTJSFailed = HyperParameterTuningJobStatus' "Failed"
 
-instance Hashable HyperParameterTuningJobStatus
+pattern HPTJSInProgress :: HyperParameterTuningJobStatus
+pattern HPTJSInProgress = HyperParameterTuningJobStatus' "InProgress"
 
-instance NFData HyperParameterTuningJobStatus
+pattern HPTJSStopped :: HyperParameterTuningJobStatus
+pattern HPTJSStopped = HyperParameterTuningJobStatus' "Stopped"
 
-instance ToByteString HyperParameterTuningJobStatus
+pattern HPTJSStopping :: HyperParameterTuningJobStatus
+pattern HPTJSStopping = HyperParameterTuningJobStatus' "Stopping"
 
-instance ToQuery HyperParameterTuningJobStatus
-
-instance ToHeader HyperParameterTuningJobStatus
-
-instance ToJSON HyperParameterTuningJobStatus where
-  toJSON = toJSONText
-
-instance FromJSON HyperParameterTuningJobStatus where
-  parseJSON = parseJSONText "HyperParameterTuningJobStatus"
+{-# COMPLETE
+  HPTJSCompleted,
+  HPTJSFailed,
+  HPTJSInProgress,
+  HPTJSStopped,
+  HPTJSStopping,
+  HyperParameterTuningJobStatus'
+  #-}

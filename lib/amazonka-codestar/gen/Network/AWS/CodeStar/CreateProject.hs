@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Creates a project, including project resources. This action creates a project based on a submitted project request. A set of source code files and a toolchain template file can be included with the project request. If these are not provided, an empty project is created.
 module Network.AWS.CodeStar.CreateProject
-  ( -- * Creating a Request
-    createProject,
-    CreateProject,
+  ( -- * Creating a request
+    CreateProject (..),
+    mkCreateProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpSourceCode,
     cpToolchain,
     cpClientRequestToken,
@@ -32,11 +27,11 @@ module Network.AWS.CodeStar.CreateProject
     cpName,
     cpId,
 
-    -- * Destructuring the Response
-    createProjectResponse,
-    CreateProjectResponse,
+    -- * Destructuring the response
+    CreateProjectResponse (..),
+    mkCreateProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprsProjectTemplateId,
     cprsClientRequestToken,
     cprsResponseStatus,
@@ -46,193 +41,218 @@ module Network.AWS.CodeStar.CreateProject
 where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createProject' smart constructor.
+-- | /See:/ 'mkCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpSourceCode ::
-      !(Maybe [Code]),
-    _cpToolchain :: !(Maybe Toolchain),
-    _cpClientRequestToken :: !(Maybe Text),
-    _cpDescription :: !(Maybe (Sensitive Text)),
-    _cpTags :: !(Maybe (Map Text (Text))),
-    _cpName :: !(Sensitive Text),
-    _cpId :: !Text
+  { sourceCode ::
+      Lude.Maybe [Code],
+    toolchain :: Lude.Maybe Toolchain,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    name :: Lude.Sensitive Lude.Text,
+    id :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpSourceCode' - A list of the Code objects submitted with the project request. If this parameter is specified, the request must also include the toolchain parameter.
---
--- * 'cpToolchain' - The name of the toolchain template file submitted with the project request. If this parameter is specified, the request must also include the sourceCode parameter.
---
--- * 'cpClientRequestToken' - A user- or system-generated token that identifies the entity that requested project creation. This token can be used to repeat the request.
---
--- * 'cpDescription' - The description of the project, if any.
---
--- * 'cpTags' - The tags created for the project.
---
--- * 'cpName' - The display name for the project to be created in AWS CodeStar.
---
--- * 'cpId' - The ID of the project to be created in AWS CodeStar.
-createProject ::
-  -- | 'cpName'
-  Text ->
-  -- | 'cpId'
-  Text ->
+-- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested project creation. This token can be used to repeat the request.
+-- * 'description' - The description of the project, if any.
+-- * 'id' - The ID of the project to be created in AWS CodeStar.
+-- * 'name' - The display name for the project to be created in AWS CodeStar.
+-- * 'sourceCode' - A list of the Code objects submitted with the project request. If this parameter is specified, the request must also include the toolchain parameter.
+-- * 'tags' - The tags created for the project.
+-- * 'toolchain' - The name of the toolchain template file submitted with the project request. If this parameter is specified, the request must also include the sourceCode parameter.
+mkCreateProject ::
+  -- | 'name'
+  Lude.Sensitive Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   CreateProject
-createProject pName_ pId_ =
+mkCreateProject pName_ pId_ =
   CreateProject'
-    { _cpSourceCode = Nothing,
-      _cpToolchain = Nothing,
-      _cpClientRequestToken = Nothing,
-      _cpDescription = Nothing,
-      _cpTags = Nothing,
-      _cpName = _Sensitive # pName_,
-      _cpId = pId_
+    { sourceCode = Lude.Nothing,
+      toolchain = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_,
+      id = pId_
     }
 
 -- | A list of the Code objects submitted with the project request. If this parameter is specified, the request must also include the toolchain parameter.
-cpSourceCode :: Lens' CreateProject [Code]
-cpSourceCode = lens _cpSourceCode (\s a -> s {_cpSourceCode = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sourceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpSourceCode :: Lens.Lens' CreateProject (Lude.Maybe [Code])
+cpSourceCode = Lens.lens (sourceCode :: CreateProject -> Lude.Maybe [Code]) (\s a -> s {sourceCode = a} :: CreateProject)
+{-# DEPRECATED cpSourceCode "Use generic-lens or generic-optics with 'sourceCode' instead." #-}
 
 -- | The name of the toolchain template file submitted with the project request. If this parameter is specified, the request must also include the sourceCode parameter.
-cpToolchain :: Lens' CreateProject (Maybe Toolchain)
-cpToolchain = lens _cpToolchain (\s a -> s {_cpToolchain = a})
+--
+-- /Note:/ Consider using 'toolchain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpToolchain :: Lens.Lens' CreateProject (Lude.Maybe Toolchain)
+cpToolchain = Lens.lens (toolchain :: CreateProject -> Lude.Maybe Toolchain) (\s a -> s {toolchain = a} :: CreateProject)
+{-# DEPRECATED cpToolchain "Use generic-lens or generic-optics with 'toolchain' instead." #-}
 
 -- | A user- or system-generated token that identifies the entity that requested project creation. This token can be used to repeat the request.
-cpClientRequestToken :: Lens' CreateProject (Maybe Text)
-cpClientRequestToken = lens _cpClientRequestToken (\s a -> s {_cpClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpClientRequestToken :: Lens.Lens' CreateProject (Lude.Maybe Lude.Text)
+cpClientRequestToken = Lens.lens (clientRequestToken :: CreateProject -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateProject)
+{-# DEPRECATED cpClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The description of the project, if any.
-cpDescription :: Lens' CreateProject (Maybe Text)
-cpDescription = lens _cpDescription (\s a -> s {_cpDescription = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpDescription :: Lens.Lens' CreateProject (Lude.Maybe (Lude.Sensitive Lude.Text))
+cpDescription = Lens.lens (description :: CreateProject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: CreateProject)
+{-# DEPRECATED cpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags created for the project.
-cpTags :: Lens' CreateProject (HashMap Text (Text))
-cpTags = lens _cpTags (\s a -> s {_cpTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTags :: Lens.Lens' CreateProject (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cpTags = Lens.lens (tags :: CreateProject -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateProject)
+{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The display name for the project to be created in AWS CodeStar.
-cpName :: Lens' CreateProject Text
-cpName = lens _cpName (\s a -> s {_cpName = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CreateProject (Lude.Sensitive Lude.Text)
+cpName = Lens.lens (name :: CreateProject -> Lude.Sensitive Lude.Text) (\s a -> s {name = a} :: CreateProject)
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the project to be created in AWS CodeStar.
-cpId :: Lens' CreateProject Text
-cpId = lens _cpId (\s a -> s {_cpId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpId :: Lens.Lens' CreateProject Lude.Text
+cpId = Lens.lens (id :: CreateProject -> Lude.Text) (\s a -> s {id = a} :: CreateProject)
+{-# DEPRECATED cpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest CreateProject where
+instance Lude.AWSRequest CreateProject where
   type Rs CreateProject = CreateProjectResponse
-  request = postJSON codeStar
+  request = Req.postJSON codeStarService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            <$> (x .?> "projectTemplateId")
-            <*> (x .?> "clientRequestToken")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "id")
-            <*> (x .:> "arn")
+            Lude.<$> (x Lude..?> "projectTemplateId")
+            Lude.<*> (x Lude..?> "clientRequestToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "id")
+            Lude.<*> (x Lude..:> "arn")
       )
 
-instance Hashable CreateProject
-
-instance NFData CreateProject
-
-instance ToHeaders CreateProject where
+instance Lude.ToHeaders CreateProject where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeStar_20170419.CreateProject" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeStar_20170419.CreateProject" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateProject where
+instance Lude.ToJSON CreateProject where
   toJSON CreateProject' {..} =
-    object
-      ( catMaybes
-          [ ("sourceCode" .=) <$> _cpSourceCode,
-            ("toolchain" .=) <$> _cpToolchain,
-            ("clientRequestToken" .=) <$> _cpClientRequestToken,
-            ("description" .=) <$> _cpDescription,
-            ("tags" .=) <$> _cpTags,
-            Just ("name" .= _cpName),
-            Just ("id" .= _cpId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sourceCode" Lude..=) Lude.<$> sourceCode,
+            ("toolchain" Lude..=) Lude.<$> toolchain,
+            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just ("id" Lude..= id)
           ]
       )
 
-instance ToPath CreateProject where
-  toPath = const "/"
+instance Lude.ToPath CreateProject where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateProject where
-  toQuery = const mempty
+instance Lude.ToQuery CreateProject where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createProjectResponse' smart constructor.
+-- | /See:/ 'mkCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-  { _cprsProjectTemplateId ::
-      !(Maybe Text),
-    _cprsClientRequestToken :: !(Maybe Text),
-    _cprsResponseStatus :: !Int,
-    _cprsId :: !Text,
-    _cprsArn :: !Text
+  { projectTemplateId ::
+      Lude.Maybe Lude.Text,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    id :: Lude.Text,
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprsProjectTemplateId' - Reserved for future use.
---
--- * 'cprsClientRequestToken' - A user- or system-generated token that identifies the entity that requested project creation.
---
--- * 'cprsResponseStatus' - -- | The response status code.
---
--- * 'cprsId' - The ID of the project.
---
--- * 'cprsArn' - The Amazon Resource Name (ARN) of the created project.
-createProjectResponse ::
-  -- | 'cprsResponseStatus'
-  Int ->
-  -- | 'cprsId'
-  Text ->
-  -- | 'cprsArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the created project.
+-- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested project creation.
+-- * 'id' - The ID of the project.
+-- * 'projectTemplateId' - Reserved for future use.
+-- * 'responseStatus' - The response status code.
+mkCreateProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'id'
+  Lude.Text ->
+  -- | 'arn'
+  Lude.Text ->
   CreateProjectResponse
-createProjectResponse pResponseStatus_ pId_ pArn_ =
+mkCreateProjectResponse pResponseStatus_ pId_ pArn_ =
   CreateProjectResponse'
-    { _cprsProjectTemplateId = Nothing,
-      _cprsClientRequestToken = Nothing,
-      _cprsResponseStatus = pResponseStatus_,
-      _cprsId = pId_,
-      _cprsArn = pArn_
+    { projectTemplateId = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      id = pId_,
+      arn = pArn_
     }
 
 -- | Reserved for future use.
-cprsProjectTemplateId :: Lens' CreateProjectResponse (Maybe Text)
-cprsProjectTemplateId = lens _cprsProjectTemplateId (\s a -> s {_cprsProjectTemplateId = a})
+--
+-- /Note:/ Consider using 'projectTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsProjectTemplateId :: Lens.Lens' CreateProjectResponse (Lude.Maybe Lude.Text)
+cprsProjectTemplateId = Lens.lens (projectTemplateId :: CreateProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {projectTemplateId = a} :: CreateProjectResponse)
+{-# DEPRECATED cprsProjectTemplateId "Use generic-lens or generic-optics with 'projectTemplateId' instead." #-}
 
 -- | A user- or system-generated token that identifies the entity that requested project creation.
-cprsClientRequestToken :: Lens' CreateProjectResponse (Maybe Text)
-cprsClientRequestToken = lens _cprsClientRequestToken (\s a -> s {_cprsClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsClientRequestToken :: Lens.Lens' CreateProjectResponse (Lude.Maybe Lude.Text)
+cprsClientRequestToken = Lens.lens (clientRequestToken :: CreateProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateProjectResponse)
+{-# DEPRECATED cprsClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreateProjectResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\s a -> s {_cprsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsResponseStatus :: Lens.Lens' CreateProjectResponse Lude.Int
+cprsResponseStatus = Lens.lens (responseStatus :: CreateProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProjectResponse)
+{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ID of the project.
-cprsId :: Lens' CreateProjectResponse Text
-cprsId = lens _cprsId (\s a -> s {_cprsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsId :: Lens.Lens' CreateProjectResponse Lude.Text
+cprsId = Lens.lens (id :: CreateProjectResponse -> Lude.Text) (\s a -> s {id = a} :: CreateProjectResponse)
+{-# DEPRECATED cprsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the created project.
-cprsArn :: Lens' CreateProjectResponse Text
-cprsArn = lens _cprsArn (\s a -> s {_cprsArn = a})
-
-instance NFData CreateProjectResponse
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsArn :: Lens.Lens' CreateProjectResponse Lude.Text
+cprsArn = Lens.lens (arn :: CreateProjectResponse -> Lude.Text) (\s a -> s {arn = a} :: CreateProjectResponse)
+{-# DEPRECATED cprsArn "Use generic-lens or generic-optics with 'arn' instead." #-}

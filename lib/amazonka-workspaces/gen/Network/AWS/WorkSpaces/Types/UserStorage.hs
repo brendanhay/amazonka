@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.UserStorage where
+module Network.AWS.WorkSpaces.Types.UserStorage
+  ( UserStorage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserStorage,
+
+    -- * Lenses
+    usCapacity,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the user storage for a WorkSpace bundle.
 --
---
---
--- /See:/ 'userStorage' smart constructor.
-newtype UserStorage = UserStorage' {_usCapacity :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkUserStorage' smart constructor.
+newtype UserStorage = UserStorage'
+  { capacity ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserStorage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usCapacity' - The size of the user storage.
-userStorage ::
+-- * 'capacity' - The size of the user storage.
+mkUserStorage ::
   UserStorage
-userStorage = UserStorage' {_usCapacity = Nothing}
+mkUserStorage = UserStorage' {capacity = Lude.Nothing}
 
 -- | The size of the user storage.
-usCapacity :: Lens' UserStorage (Maybe Text)
-usCapacity = lens _usCapacity (\s a -> s {_usCapacity = a})
+--
+-- /Note:/ Consider using 'capacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usCapacity :: Lens.Lens' UserStorage (Lude.Maybe Lude.Text)
+usCapacity = Lens.lens (capacity :: UserStorage -> Lude.Maybe Lude.Text) (\s a -> s {capacity = a} :: UserStorage)
+{-# DEPRECATED usCapacity "Use generic-lens or generic-optics with 'capacity' instead." #-}
 
-instance FromJSON UserStorage where
+instance Lude.FromJSON UserStorage where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserStorage"
-      (\x -> UserStorage' <$> (x .:? "Capacity"))
-
-instance Hashable UserStorage
-
-instance NFData UserStorage
+      (\x -> UserStorage' Lude.<$> (x Lude..:? "Capacity"))

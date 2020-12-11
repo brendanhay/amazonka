@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DAX.Types.SSEDescription where
+module Network.AWS.DAX.Types.SSEDescription
+  ( SSEDescription (..),
+
+    -- * Smart constructor
+    mkSSEDescription,
+
+    -- * Lenses
+    ssedStatus,
+  )
+where
 
 import Network.AWS.DAX.Types.SSEStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The description of the server-side encryption status on the specified DAX cluster.
 --
---
---
--- /See:/ 'sSEDescription' smart constructor.
+-- /See:/ 'mkSSEDescription' smart constructor.
 newtype SSEDescription = SSEDescription'
-  { _ssedStatus ::
-      Maybe SSEStatus
+  { status ::
+      Lude.Maybe SSEStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSEDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'status' - The current state of server-side encryption:
 --
--- * 'ssedStatus' - The current state of server-side encryption:     * @ENABLING@ - Server-side encryption is being enabled.     * @ENABLED@ - Server-side encryption is enabled.     * @DISABLING@ - Server-side encryption is being disabled.     * @DISABLED@ - Server-side encryption is disabled.
-sSEDescription ::
+--
+--     * @ENABLING@ - Server-side encryption is being enabled.
+--
+--
+--     * @ENABLED@ - Server-side encryption is enabled.
+--
+--
+--     * @DISABLING@ - Server-side encryption is being disabled.
+--
+--
+--     * @DISABLED@ - Server-side encryption is disabled.
+mkSSEDescription ::
   SSEDescription
-sSEDescription = SSEDescription' {_ssedStatus = Nothing}
+mkSSEDescription = SSEDescription' {status = Lude.Nothing}
 
--- | The current state of server-side encryption:     * @ENABLING@ - Server-side encryption is being enabled.     * @ENABLED@ - Server-side encryption is enabled.     * @DISABLING@ - Server-side encryption is being disabled.     * @DISABLED@ - Server-side encryption is disabled.
-ssedStatus :: Lens' SSEDescription (Maybe SSEStatus)
-ssedStatus = lens _ssedStatus (\s a -> s {_ssedStatus = a})
+-- | The current state of server-side encryption:
+--
+--
+--     * @ENABLING@ - Server-side encryption is being enabled.
+--
+--
+--     * @ENABLED@ - Server-side encryption is enabled.
+--
+--
+--     * @DISABLING@ - Server-side encryption is being disabled.
+--
+--
+--     * @DISABLED@ - Server-side encryption is disabled.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssedStatus :: Lens.Lens' SSEDescription (Lude.Maybe SSEStatus)
+ssedStatus = Lens.lens (status :: SSEDescription -> Lude.Maybe SSEStatus) (\s a -> s {status = a} :: SSEDescription)
+{-# DEPRECATED ssedStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON SSEDescription where
+instance Lude.FromJSON SSEDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "SSEDescription"
-      (\x -> SSEDescription' <$> (x .:? "Status"))
-
-instance Hashable SSEDescription
-
-instance NFData SSEDescription
+      (\x -> SSEDescription' Lude.<$> (x Lude..:? "Status"))

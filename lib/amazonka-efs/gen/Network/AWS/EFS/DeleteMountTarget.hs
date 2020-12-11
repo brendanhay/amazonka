@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,96 @@
 --
 -- Deletes the specified mount target.
 --
---
 -- This operation forcibly breaks any mounts of the file system by using the mount target that is being deleted, which might disrupt instances or applications using those mounts. To avoid applications getting cut off abruptly, you might consider unmounting any mounts of the mount target, if feasible. The operation also deletes the associated network interface. Uncommitted writes might be lost, but breaking a mount target using this operation does not corrupt the file system itself. The file system you created remains. You can mount an EC2 instance in your VPC by using another mount target.
---
 -- This operation requires permissions for the following action on the file system:
 --
 --     * @elasticfilesystem:DeleteMountTarget@
---
 --
 --
 -- The operation also requires permissions for the following Amazon EC2 action on the mount target's network interface:
 --
 --     * @ec2:DeleteNetworkInterface@
 module Network.AWS.EFS.DeleteMountTarget
-  ( -- * Creating a Request
-    deleteMountTarget,
-    DeleteMountTarget,
+  ( -- * Creating a request
+    DeleteMountTarget (..),
+    mkDeleteMountTarget,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dMountTargetId,
 
-    -- * Destructuring the Response
-    deleteMountTargetResponse,
-    DeleteMountTargetResponse,
+    -- * Destructuring the response
+    DeleteMountTargetResponse (..),
+    mkDeleteMountTargetResponse,
   )
 where
 
 import Network.AWS.EFS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteMountTarget' smart constructor.
+-- /See:/ 'mkDeleteMountTarget' smart constructor.
 newtype DeleteMountTarget = DeleteMountTarget'
-  { _dMountTargetId ::
-      Text
+  { mountTargetId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMountTarget' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dMountTargetId' - The ID of the mount target to delete (String).
-deleteMountTarget ::
-  -- | 'dMountTargetId'
-  Text ->
+-- * 'mountTargetId' - The ID of the mount target to delete (String).
+mkDeleteMountTarget ::
+  -- | 'mountTargetId'
+  Lude.Text ->
   DeleteMountTarget
-deleteMountTarget pMountTargetId_ =
-  DeleteMountTarget' {_dMountTargetId = pMountTargetId_}
+mkDeleteMountTarget pMountTargetId_ =
+  DeleteMountTarget' {mountTargetId = pMountTargetId_}
 
 -- | The ID of the mount target to delete (String).
-dMountTargetId :: Lens' DeleteMountTarget Text
-dMountTargetId = lens _dMountTargetId (\s a -> s {_dMountTargetId = a})
+--
+-- /Note:/ Consider using 'mountTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMountTargetId :: Lens.Lens' DeleteMountTarget Lude.Text
+dMountTargetId = Lens.lens (mountTargetId :: DeleteMountTarget -> Lude.Text) (\s a -> s {mountTargetId = a} :: DeleteMountTarget)
+{-# DEPRECATED dMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
 
-instance AWSRequest DeleteMountTarget where
+instance Lude.AWSRequest DeleteMountTarget where
   type Rs DeleteMountTarget = DeleteMountTargetResponse
-  request = delete efs
-  response = receiveNull DeleteMountTargetResponse'
+  request = Req.delete efsService
+  response = Res.receiveNull DeleteMountTargetResponse'
 
-instance Hashable DeleteMountTarget
+instance Lude.ToHeaders DeleteMountTarget where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteMountTarget
-
-instance ToHeaders DeleteMountTarget where
-  toHeaders = const mempty
-
-instance ToPath DeleteMountTarget where
+instance Lude.ToPath DeleteMountTarget where
   toPath DeleteMountTarget' {..} =
-    mconcat ["/2015-02-01/mount-targets/", toBS _dMountTargetId]
+    Lude.mconcat
+      ["/2015-02-01/mount-targets/", Lude.toBS mountTargetId]
 
-instance ToQuery DeleteMountTarget where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteMountTarget where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteMountTargetResponse' smart constructor.
+-- | /See:/ 'mkDeleteMountTargetResponse' smart constructor.
 data DeleteMountTargetResponse = DeleteMountTargetResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMountTargetResponse' with the minimum fields required to make a request.
-deleteMountTargetResponse ::
+mkDeleteMountTargetResponse ::
   DeleteMountTargetResponse
-deleteMountTargetResponse = DeleteMountTargetResponse'
-
-instance NFData DeleteMountTargetResponse
+mkDeleteMountTargetResponse = DeleteMountTargetResponse'

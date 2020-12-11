@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Provides information about the prompts for the specified Amazon Connect instance.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListPrompts
-  ( -- * Creating a Request
-    listPrompts,
-    ListPrompts,
+  ( -- * Creating a request
+    ListPrompts (..),
+    mkListPrompts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpNextToken,
     lpMaxResults,
     lpInstanceId,
 
-    -- * Destructuring the Response
-    listPromptsResponse,
-    ListPromptsResponse,
+    -- * Destructuring the response
+    ListPromptsResponse (..),
+    mkListPromptsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lprsPromptSummaryList,
     lprsNextToken,
     lprsResponseStatus,
@@ -44,129 +37,152 @@ module Network.AWS.Connect.ListPrompts
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listPrompts' smart constructor.
+-- | /See:/ 'mkListPrompts' smart constructor.
 data ListPrompts = ListPrompts'
-  { _lpNextToken :: !(Maybe Text),
-    _lpMaxResults :: !(Maybe Nat),
-    _lpInstanceId :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPrompts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpNextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- * 'lpMaxResults' - The maximum number of results to return per page.
---
--- * 'lpInstanceId' - The identifier of the Amazon Connect instance.
-listPrompts ::
-  -- | 'lpInstanceId'
-  Text ->
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'maxResults' - The maximum number of results to return per page.
+-- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+mkListPrompts ::
+  -- | 'instanceId'
+  Lude.Text ->
   ListPrompts
-listPrompts pInstanceId_ =
+mkListPrompts pInstanceId_ =
   ListPrompts'
-    { _lpNextToken = Nothing,
-      _lpMaxResults = Nothing,
-      _lpInstanceId = pInstanceId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-lpNextToken :: Lens' ListPrompts (Maybe Text)
-lpNextToken = lens _lpNextToken (\s a -> s {_lpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpNextToken :: Lens.Lens' ListPrompts (Lude.Maybe Lude.Text)
+lpNextToken = Lens.lens (nextToken :: ListPrompts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPrompts)
+{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return per page.
-lpMaxResults :: Lens' ListPrompts (Maybe Natural)
-lpMaxResults = lens _lpMaxResults (\s a -> s {_lpMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpMaxResults :: Lens.Lens' ListPrompts (Lude.Maybe Lude.Natural)
+lpMaxResults = Lens.lens (maxResults :: ListPrompts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPrompts)
+{-# DEPRECATED lpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-lpInstanceId :: Lens' ListPrompts Text
-lpInstanceId = lens _lpInstanceId (\s a -> s {_lpInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpInstanceId :: Lens.Lens' ListPrompts Lude.Text
+lpInstanceId = Lens.lens (instanceId :: ListPrompts -> Lude.Text) (\s a -> s {instanceId = a} :: ListPrompts)
+{-# DEPRECATED lpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSPager ListPrompts where
+instance Page.AWSPager ListPrompts where
   page rq rs
-    | stop (rs ^. lprsNextToken) = Nothing
-    | stop (rs ^. lprsPromptSummaryList) = Nothing
-    | otherwise = Just $ rq & lpNextToken .~ rs ^. lprsNextToken
+    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lprsPromptSummaryList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
 
-instance AWSRequest ListPrompts where
+instance Lude.AWSRequest ListPrompts where
   type Rs ListPrompts = ListPromptsResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListPromptsResponse'
-            <$> (x .?> "PromptSummaryList" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "PromptSummaryList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListPrompts
-
-instance NFData ListPrompts
-
-instance ToHeaders ListPrompts where
+instance Lude.ToHeaders ListPrompts where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListPrompts where
+instance Lude.ToPath ListPrompts where
   toPath ListPrompts' {..} =
-    mconcat ["/prompts-summary/", toBS _lpInstanceId]
+    Lude.mconcat ["/prompts-summary/", Lude.toBS instanceId]
 
-instance ToQuery ListPrompts where
+instance Lude.ToQuery ListPrompts where
   toQuery ListPrompts' {..} =
-    mconcat
-      ["nextToken" =: _lpNextToken, "maxResults" =: _lpMaxResults]
+    Lude.mconcat
+      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
--- | /See:/ 'listPromptsResponse' smart constructor.
+-- | /See:/ 'mkListPromptsResponse' smart constructor.
 data ListPromptsResponse = ListPromptsResponse'
-  { _lprsPromptSummaryList ::
-      !(Maybe [PromptSummary]),
-    _lprsNextToken :: !(Maybe Text),
-    _lprsResponseStatus :: !Int
+  { promptSummaryList ::
+      Lude.Maybe [PromptSummary],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPromptsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsPromptSummaryList' - Information about the prompts.
---
--- * 'lprsNextToken' - If there are additional results, this is the token for the next set of results.
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listPromptsResponse ::
-  -- | 'lprsResponseStatus'
-  Int ->
+-- * 'nextToken' - If there are additional results, this is the token for the next set of results.
+-- * 'promptSummaryList' - Information about the prompts.
+-- * 'responseStatus' - The response status code.
+mkListPromptsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListPromptsResponse
-listPromptsResponse pResponseStatus_ =
+mkListPromptsResponse pResponseStatus_ =
   ListPromptsResponse'
-    { _lprsPromptSummaryList = Nothing,
-      _lprsNextToken = Nothing,
-      _lprsResponseStatus = pResponseStatus_
+    { promptSummaryList = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the prompts.
-lprsPromptSummaryList :: Lens' ListPromptsResponse [PromptSummary]
-lprsPromptSummaryList = lens _lprsPromptSummaryList (\s a -> s {_lprsPromptSummaryList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'promptSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsPromptSummaryList :: Lens.Lens' ListPromptsResponse (Lude.Maybe [PromptSummary])
+lprsPromptSummaryList = Lens.lens (promptSummaryList :: ListPromptsResponse -> Lude.Maybe [PromptSummary]) (\s a -> s {promptSummaryList = a} :: ListPromptsResponse)
+{-# DEPRECATED lprsPromptSummaryList "Use generic-lens or generic-optics with 'promptSummaryList' instead." #-}
 
 -- | If there are additional results, this is the token for the next set of results.
-lprsNextToken :: Lens' ListPromptsResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\s a -> s {_lprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsNextToken :: Lens.Lens' ListPromptsResponse (Lude.Maybe Lude.Text)
+lprsNextToken = Lens.lens (nextToken :: ListPromptsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPromptsResponse)
+{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListPromptsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\s a -> s {_lprsResponseStatus = a})
-
-instance NFData ListPromptsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsResponseStatus :: Lens.Lens' ListPromptsResponse Lude.Int
+lprsResponseStatus = Lens.lens (responseStatus :: ListPromptsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPromptsResponse)
+{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

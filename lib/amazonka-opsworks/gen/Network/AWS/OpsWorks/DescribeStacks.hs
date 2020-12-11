@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,133 @@
 --
 -- Requests a description of one or more stacks.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DescribeStacks
-  ( -- * Creating a Request
-    describeStacks,
-    DescribeStacks,
+  ( -- * Creating a request
+    DescribeStacks (..),
+    mkDescribeStacks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsStackIds,
 
-    -- * Destructuring the Response
-    describeStacksResponse,
-    DescribeStacksResponse,
+    -- * Destructuring the response
+    DescribeStacksResponse (..),
+    mkDescribeStacksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsStacks,
     dsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStacks' smart constructor.
+-- | /See:/ 'mkDescribeStacks' smart constructor.
 newtype DescribeStacks = DescribeStacks'
-  { _dsStackIds ::
-      Maybe [Text]
+  { stackIds ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStacks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsStackIds' - An array of stack IDs that specify the stacks to be described. If you omit this parameter, @DescribeStacks@ returns a description of every stack.
-describeStacks ::
+-- * 'stackIds' - An array of stack IDs that specify the stacks to be described. If you omit this parameter, @DescribeStacks@ returns a description of every stack.
+mkDescribeStacks ::
   DescribeStacks
-describeStacks = DescribeStacks' {_dsStackIds = Nothing}
+mkDescribeStacks = DescribeStacks' {stackIds = Lude.Nothing}
 
 -- | An array of stack IDs that specify the stacks to be described. If you omit this parameter, @DescribeStacks@ returns a description of every stack.
-dsStackIds :: Lens' DescribeStacks [Text]
-dsStackIds = lens _dsStackIds (\s a -> s {_dsStackIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stackIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStackIds :: Lens.Lens' DescribeStacks (Lude.Maybe [Lude.Text])
+dsStackIds = Lens.lens (stackIds :: DescribeStacks -> Lude.Maybe [Lude.Text]) (\s a -> s {stackIds = a} :: DescribeStacks)
+{-# DEPRECATED dsStackIds "Use generic-lens or generic-optics with 'stackIds' instead." #-}
 
-instance AWSRequest DescribeStacks where
+instance Lude.AWSRequest DescribeStacks where
   type Rs DescribeStacks = DescribeStacksResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeStacksResponse'
-            <$> (x .?> "Stacks" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Stacks" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStacks
-
-instance NFData DescribeStacks
-
-instance ToHeaders DescribeStacks where
+instance Lude.ToHeaders DescribeStacks where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeStacks" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeStacks" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeStacks where
+instance Lude.ToJSON DescribeStacks where
   toJSON DescribeStacks' {..} =
-    object (catMaybes [("StackIds" .=) <$> _dsStackIds])
+    Lude.object
+      (Lude.catMaybes [("StackIds" Lude..=) Lude.<$> stackIds])
 
-instance ToPath DescribeStacks where
-  toPath = const "/"
+instance Lude.ToPath DescribeStacks where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeStacks where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeStacks where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeStacks@ request.
 --
---
---
--- /See:/ 'describeStacksResponse' smart constructor.
+-- /See:/ 'mkDescribeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-  { _dsrsStacks ::
-      !(Maybe [Stack]),
-    _dsrsResponseStatus :: !Int
+  { stacks ::
+      Lude.Maybe [Stack],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStacksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsStacks' - An array of @Stack@ objects that describe the stacks.
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-describeStacksResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'stacks' - An array of @Stack@ objects that describe the stacks.
+mkDescribeStacksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStacksResponse
-describeStacksResponse pResponseStatus_ =
+mkDescribeStacksResponse pResponseStatus_ =
   DescribeStacksResponse'
-    { _dsrsStacks = Nothing,
-      _dsrsResponseStatus = pResponseStatus_
+    { stacks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of @Stack@ objects that describe the stacks.
-dsrsStacks :: Lens' DescribeStacksResponse [Stack]
-dsrsStacks = lens _dsrsStacks (\s a -> s {_dsrsStacks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stacks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsStacks :: Lens.Lens' DescribeStacksResponse (Lude.Maybe [Stack])
+dsrsStacks = Lens.lens (stacks :: DescribeStacksResponse -> Lude.Maybe [Stack]) (\s a -> s {stacks = a} :: DescribeStacksResponse)
+{-# DEPRECATED dsrsStacks "Use generic-lens or generic-optics with 'stacks' instead." #-}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DescribeStacksResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DescribeStacksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DescribeStacksResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DescribeStacksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStacksResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

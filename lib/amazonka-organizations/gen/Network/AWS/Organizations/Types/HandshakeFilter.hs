@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.HandshakeFilter where
+module Network.AWS.Organizations.Types.HandshakeFilter
+  ( HandshakeFilter (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkHandshakeFilter,
+
+    -- * Lenses
+    hfParentHandshakeId,
+    hfActionType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.ActionType
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the criteria that are used to select the handshakes for the operation.
 --
---
---
--- /See:/ 'handshakeFilter' smart constructor.
+-- /See:/ 'mkHandshakeFilter' smart constructor.
 data HandshakeFilter = HandshakeFilter'
-  { _hfParentHandshakeId ::
-      !(Maybe Text),
-    _hfActionType :: !(Maybe ActionType)
+  { parentHandshakeId ::
+      Lude.Maybe Lude.Text,
+    actionType :: Lude.Maybe ActionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HandshakeFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'actionType' - Specifies the type of handshake action.
 --
--- * 'hfParentHandshakeId' - Specifies the parent handshake. Only used for handshake types that are a child of another type. If you specify @ParentHandshakeId@ , you cannot also specify @ActionType@ . The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+-- If you specify @ActionType@ , you cannot also specify @ParentHandshakeId@ .
+-- * 'parentHandshakeId' - Specifies the parent handshake. Only used for handshake types that are a child of another type.
 --
--- * 'hfActionType' - Specifies the type of handshake action. If you specify @ActionType@ , you cannot also specify @ParentHandshakeId@ .
-handshakeFilter ::
+-- If you specify @ParentHandshakeId@ , you cannot also specify @ActionType@ .
+-- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+mkHandshakeFilter ::
   HandshakeFilter
-handshakeFilter =
+mkHandshakeFilter =
   HandshakeFilter'
-    { _hfParentHandshakeId = Nothing,
-      _hfActionType = Nothing
+    { parentHandshakeId = Lude.Nothing,
+      actionType = Lude.Nothing
     }
 
--- | Specifies the parent handshake. Only used for handshake types that are a child of another type. If you specify @ParentHandshakeId@ , you cannot also specify @ActionType@ . The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
-hfParentHandshakeId :: Lens' HandshakeFilter (Maybe Text)
-hfParentHandshakeId = lens _hfParentHandshakeId (\s a -> s {_hfParentHandshakeId = a})
+-- | Specifies the parent handshake. Only used for handshake types that are a child of another type.
+--
+-- If you specify @ParentHandshakeId@ , you cannot also specify @ActionType@ .
+-- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+--
+-- /Note:/ Consider using 'parentHandshakeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hfParentHandshakeId :: Lens.Lens' HandshakeFilter (Lude.Maybe Lude.Text)
+hfParentHandshakeId = Lens.lens (parentHandshakeId :: HandshakeFilter -> Lude.Maybe Lude.Text) (\s a -> s {parentHandshakeId = a} :: HandshakeFilter)
+{-# DEPRECATED hfParentHandshakeId "Use generic-lens or generic-optics with 'parentHandshakeId' instead." #-}
 
--- | Specifies the type of handshake action. If you specify @ActionType@ , you cannot also specify @ParentHandshakeId@ .
-hfActionType :: Lens' HandshakeFilter (Maybe ActionType)
-hfActionType = lens _hfActionType (\s a -> s {_hfActionType = a})
+-- | Specifies the type of handshake action.
+--
+-- If you specify @ActionType@ , you cannot also specify @ParentHandshakeId@ .
+--
+-- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hfActionType :: Lens.Lens' HandshakeFilter (Lude.Maybe ActionType)
+hfActionType = Lens.lens (actionType :: HandshakeFilter -> Lude.Maybe ActionType) (\s a -> s {actionType = a} :: HandshakeFilter)
+{-# DEPRECATED hfActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
-instance Hashable HandshakeFilter
-
-instance NFData HandshakeFilter
-
-instance ToJSON HandshakeFilter where
+instance Lude.ToJSON HandshakeFilter where
   toJSON HandshakeFilter' {..} =
-    object
-      ( catMaybes
-          [ ("ParentHandshakeId" .=) <$> _hfParentHandshakeId,
-            ("ActionType" .=) <$> _hfActionType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ParentHandshakeId" Lude..=) Lude.<$> parentHandshakeId,
+            ("ActionType" Lude..=) Lude.<$> actionType
           ]
       )

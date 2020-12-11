@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.VPCPeeringConnectionStatus where
+module Network.AWS.GameLift.Types.VPCPeeringConnectionStatus
+  ( VPCPeeringConnectionStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVPCPeeringConnectionStatus,
+
+    -- * Lenses
+    vpcsCode,
+    vpcsMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents status information for a VPC peering connection. Status is associated with a 'VpcPeeringConnection' object. Status codes and messages are provided from EC2 (see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpcPeeringConnectionStateReason.html VpcPeeringConnectionStateReason> ). Connection status information is also communicated as a fleet 'Event' .
 --
---
---
--- /See:/ 'vpcPeeringConnectionStatus' smart constructor.
+-- /See:/ 'mkVPCPeeringConnectionStatus' smart constructor.
 data VPCPeeringConnectionStatus = VPCPeeringConnectionStatus'
-  { _vpcsCode ::
-      !(Maybe Text),
-    _vpcsMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCPeeringConnectionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vpcsCode' - Code indicating the status of a VPC peering connection.
---
--- * 'vpcsMessage' - Additional messaging associated with the connection status.
-vpcPeeringConnectionStatus ::
+-- * 'code' - Code indicating the status of a VPC peering connection.
+-- * 'message' - Additional messaging associated with the connection status.
+mkVPCPeeringConnectionStatus ::
   VPCPeeringConnectionStatus
-vpcPeeringConnectionStatus =
+mkVPCPeeringConnectionStatus =
   VPCPeeringConnectionStatus'
-    { _vpcsCode = Nothing,
-      _vpcsMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | Code indicating the status of a VPC peering connection.
-vpcsCode :: Lens' VPCPeeringConnectionStatus (Maybe Text)
-vpcsCode = lens _vpcsCode (\s a -> s {_vpcsCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcsCode :: Lens.Lens' VPCPeeringConnectionStatus (Lude.Maybe Lude.Text)
+vpcsCode = Lens.lens (code :: VPCPeeringConnectionStatus -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: VPCPeeringConnectionStatus)
+{-# DEPRECATED vpcsCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | Additional messaging associated with the connection status.
-vpcsMessage :: Lens' VPCPeeringConnectionStatus (Maybe Text)
-vpcsMessage = lens _vpcsMessage (\s a -> s {_vpcsMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpcsMessage :: Lens.Lens' VPCPeeringConnectionStatus (Lude.Maybe Lude.Text)
+vpcsMessage = Lens.lens (message :: VPCPeeringConnectionStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: VPCPeeringConnectionStatus)
+{-# DEPRECATED vpcsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON VPCPeeringConnectionStatus where
+instance Lude.FromJSON VPCPeeringConnectionStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "VPCPeeringConnectionStatus"
       ( \x ->
           VPCPeeringConnectionStatus'
-            <$> (x .:? "Code") <*> (x .:? "Message")
+            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable VPCPeeringConnectionStatus
-
-instance NFData VPCPeeringConnectionStatus

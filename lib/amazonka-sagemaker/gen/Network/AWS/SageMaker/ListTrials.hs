@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Lists the trials in your account. Specify an experiment name to limit the list to the trials that are part of that experiment. Specify a trial component name to limit the list to the trials that associated with that trial component. The list can be filtered to show only trials that were created in a specific time range. The list can be sorted by trial name or creation time.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListTrials
-  ( -- * Creating a Request
-    listTrials,
-    ListTrials,
+  ( -- * Creating a request
+    ListTrials (..),
+    mkListTrials,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltsCreatedAfter,
     ltsExperimentName,
     ltsNextToken,
@@ -37,193 +30,227 @@ module Network.AWS.SageMaker.ListTrials
     ltsCreatedBefore,
     ltsSortBy,
 
-    -- * Destructuring the Response
-    listTrialsResponse,
-    ListTrialsResponse,
+    -- * Destructuring the response
+    ListTrialsResponse (..),
+    mkListTrialsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltsrsNextToken,
     ltsrsTrialSummaries,
     ltsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'listTrials' smart constructor.
+-- | /See:/ 'mkListTrials' smart constructor.
 data ListTrials = ListTrials'
-  { _ltsCreatedAfter :: !(Maybe POSIX),
-    _ltsExperimentName :: !(Maybe Text),
-    _ltsNextToken :: !(Maybe Text),
-    _ltsSortOrder :: !(Maybe SortOrder),
-    _ltsTrialComponentName :: !(Maybe Text),
-    _ltsMaxResults :: !(Maybe Nat),
-    _ltsCreatedBefore :: !(Maybe POSIX),
-    _ltsSortBy :: !(Maybe SortTrialsBy)
+  { createdAfter ::
+      Lude.Maybe Lude.Timestamp,
+    experimentName :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortOrder :: Lude.Maybe SortOrder,
+    trialComponentName :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    createdBefore :: Lude.Maybe Lude.Timestamp,
+    sortBy :: Lude.Maybe SortTrialsBy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrials' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltsCreatedAfter' - A filter that returns only trials created after the specified time.
---
--- * 'ltsExperimentName' - A filter that returns only trials that are part of the specified experiment.
---
--- * 'ltsNextToken' - If the previous call to @ListTrials@ didn't return the full set of trials, the call returns a token for getting the next set of trials.
---
--- * 'ltsSortOrder' - The sort order. The default value is @Descending@ .
---
--- * 'ltsTrialComponentName' - A filter that returns only trials that are associated with the specified trial component.
---
--- * 'ltsMaxResults' - The maximum number of trials to return in the response. The default value is 10.
---
--- * 'ltsCreatedBefore' - A filter that returns only trials created before the specified time.
---
--- * 'ltsSortBy' - The property used to sort results. The default value is @CreationTime@ .
-listTrials ::
+-- * 'createdAfter' - A filter that returns only trials created after the specified time.
+-- * 'createdBefore' - A filter that returns only trials created before the specified time.
+-- * 'experimentName' - A filter that returns only trials that are part of the specified experiment.
+-- * 'maxResults' - The maximum number of trials to return in the response. The default value is 10.
+-- * 'nextToken' - If the previous call to @ListTrials@ didn't return the full set of trials, the call returns a token for getting the next set of trials.
+-- * 'sortBy' - The property used to sort results. The default value is @CreationTime@ .
+-- * 'sortOrder' - The sort order. The default value is @Descending@ .
+-- * 'trialComponentName' - A filter that returns only trials that are associated with the specified trial component.
+mkListTrials ::
   ListTrials
-listTrials =
+mkListTrials =
   ListTrials'
-    { _ltsCreatedAfter = Nothing,
-      _ltsExperimentName = Nothing,
-      _ltsNextToken = Nothing,
-      _ltsSortOrder = Nothing,
-      _ltsTrialComponentName = Nothing,
-      _ltsMaxResults = Nothing,
-      _ltsCreatedBefore = Nothing,
-      _ltsSortBy = Nothing
+    { createdAfter = Lude.Nothing,
+      experimentName = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortOrder = Lude.Nothing,
+      trialComponentName = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      createdBefore = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
 -- | A filter that returns only trials created after the specified time.
-ltsCreatedAfter :: Lens' ListTrials (Maybe UTCTime)
-ltsCreatedAfter = lens _ltsCreatedAfter (\s a -> s {_ltsCreatedAfter = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsCreatedAfter :: Lens.Lens' ListTrials (Lude.Maybe Lude.Timestamp)
+ltsCreatedAfter = Lens.lens (createdAfter :: ListTrials -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAfter = a} :: ListTrials)
+{-# DEPRECATED ltsCreatedAfter "Use generic-lens or generic-optics with 'createdAfter' instead." #-}
 
 -- | A filter that returns only trials that are part of the specified experiment.
-ltsExperimentName :: Lens' ListTrials (Maybe Text)
-ltsExperimentName = lens _ltsExperimentName (\s a -> s {_ltsExperimentName = a})
+--
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsExperimentName :: Lens.Lens' ListTrials (Lude.Maybe Lude.Text)
+ltsExperimentName = Lens.lens (experimentName :: ListTrials -> Lude.Maybe Lude.Text) (\s a -> s {experimentName = a} :: ListTrials)
+{-# DEPRECATED ltsExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 -- | If the previous call to @ListTrials@ didn't return the full set of trials, the call returns a token for getting the next set of trials.
-ltsNextToken :: Lens' ListTrials (Maybe Text)
-ltsNextToken = lens _ltsNextToken (\s a -> s {_ltsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsNextToken :: Lens.Lens' ListTrials (Lude.Maybe Lude.Text)
+ltsNextToken = Lens.lens (nextToken :: ListTrials -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrials)
+{-# DEPRECATED ltsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The sort order. The default value is @Descending@ .
-ltsSortOrder :: Lens' ListTrials (Maybe SortOrder)
-ltsSortOrder = lens _ltsSortOrder (\s a -> s {_ltsSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsSortOrder :: Lens.Lens' ListTrials (Lude.Maybe SortOrder)
+ltsSortOrder = Lens.lens (sortOrder :: ListTrials -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListTrials)
+{-# DEPRECATED ltsSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only trials that are associated with the specified trial component.
-ltsTrialComponentName :: Lens' ListTrials (Maybe Text)
-ltsTrialComponentName = lens _ltsTrialComponentName (\s a -> s {_ltsTrialComponentName = a})
+--
+-- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsTrialComponentName :: Lens.Lens' ListTrials (Lude.Maybe Lude.Text)
+ltsTrialComponentName = Lens.lens (trialComponentName :: ListTrials -> Lude.Maybe Lude.Text) (\s a -> s {trialComponentName = a} :: ListTrials)
+{-# DEPRECATED ltsTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
 
 -- | The maximum number of trials to return in the response. The default value is 10.
-ltsMaxResults :: Lens' ListTrials (Maybe Natural)
-ltsMaxResults = lens _ltsMaxResults (\s a -> s {_ltsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsMaxResults :: Lens.Lens' ListTrials (Lude.Maybe Lude.Natural)
+ltsMaxResults = Lens.lens (maxResults :: ListTrials -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTrials)
+{-# DEPRECATED ltsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A filter that returns only trials created before the specified time.
-ltsCreatedBefore :: Lens' ListTrials (Maybe UTCTime)
-ltsCreatedBefore = lens _ltsCreatedBefore (\s a -> s {_ltsCreatedBefore = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsCreatedBefore :: Lens.Lens' ListTrials (Lude.Maybe Lude.Timestamp)
+ltsCreatedBefore = Lens.lens (createdBefore :: ListTrials -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdBefore = a} :: ListTrials)
+{-# DEPRECATED ltsCreatedBefore "Use generic-lens or generic-optics with 'createdBefore' instead." #-}
 
 -- | The property used to sort results. The default value is @CreationTime@ .
-ltsSortBy :: Lens' ListTrials (Maybe SortTrialsBy)
-ltsSortBy = lens _ltsSortBy (\s a -> s {_ltsSortBy = a})
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsSortBy :: Lens.Lens' ListTrials (Lude.Maybe SortTrialsBy)
+ltsSortBy = Lens.lens (sortBy :: ListTrials -> Lude.Maybe SortTrialsBy) (\s a -> s {sortBy = a} :: ListTrials)
+{-# DEPRECATED ltsSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListTrials where
+instance Page.AWSPager ListTrials where
   page rq rs
-    | stop (rs ^. ltsrsNextToken) = Nothing
-    | stop (rs ^. ltsrsTrialSummaries) = Nothing
-    | otherwise = Just $ rq & ltsNextToken .~ rs ^. ltsrsNextToken
+    | Page.stop (rs Lens.^. ltsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltsrsTrialSummaries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ltsNextToken Lens..~ rs Lens.^. ltsrsNextToken
 
-instance AWSRequest ListTrials where
+instance Lude.AWSRequest ListTrials where
   type Rs ListTrials = ListTrialsResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTrialsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "TrialSummaries" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "TrialSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTrials
-
-instance NFData ListTrials
-
-instance ToHeaders ListTrials where
+instance Lude.ToHeaders ListTrials where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.ListTrials" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.ListTrials" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTrials where
+instance Lude.ToJSON ListTrials where
   toJSON ListTrials' {..} =
-    object
-      ( catMaybes
-          [ ("CreatedAfter" .=) <$> _ltsCreatedAfter,
-            ("ExperimentName" .=) <$> _ltsExperimentName,
-            ("NextToken" .=) <$> _ltsNextToken,
-            ("SortOrder" .=) <$> _ltsSortOrder,
-            ("TrialComponentName" .=) <$> _ltsTrialComponentName,
-            ("MaxResults" .=) <$> _ltsMaxResults,
-            ("CreatedBefore" .=) <$> _ltsCreatedBefore,
-            ("SortBy" .=) <$> _ltsSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CreatedAfter" Lude..=) Lude.<$> createdAfter,
+            ("ExperimentName" Lude..=) Lude.<$> experimentName,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("SortOrder" Lude..=) Lude.<$> sortOrder,
+            ("TrialComponentName" Lude..=) Lude.<$> trialComponentName,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("CreatedBefore" Lude..=) Lude.<$> createdBefore,
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListTrials where
-  toPath = const "/"
+instance Lude.ToPath ListTrials where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTrials where
-  toQuery = const mempty
+instance Lude.ToQuery ListTrials where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listTrialsResponse' smart constructor.
+-- | /See:/ 'mkListTrialsResponse' smart constructor.
 data ListTrialsResponse = ListTrialsResponse'
-  { _ltsrsNextToken ::
-      !(Maybe Text),
-    _ltsrsTrialSummaries :: !(Maybe [TrialSummary]),
-    _ltsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    trialSummaries :: Lude.Maybe [TrialSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrialsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltsrsNextToken' - A token for getting the next set of trials, if there are any.
---
--- * 'ltsrsTrialSummaries' - A list of the summaries of your trials.
---
--- * 'ltsrsResponseStatus' - -- | The response status code.
-listTrialsResponse ::
-  -- | 'ltsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - A token for getting the next set of trials, if there are any.
+-- * 'responseStatus' - The response status code.
+-- * 'trialSummaries' - A list of the summaries of your trials.
+mkListTrialsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTrialsResponse
-listTrialsResponse pResponseStatus_ =
+mkListTrialsResponse pResponseStatus_ =
   ListTrialsResponse'
-    { _ltsrsNextToken = Nothing,
-      _ltsrsTrialSummaries = Nothing,
-      _ltsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      trialSummaries = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A token for getting the next set of trials, if there are any.
-ltsrsNextToken :: Lens' ListTrialsResponse (Maybe Text)
-ltsrsNextToken = lens _ltsrsNextToken (\s a -> s {_ltsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsrsNextToken :: Lens.Lens' ListTrialsResponse (Lude.Maybe Lude.Text)
+ltsrsNextToken = Lens.lens (nextToken :: ListTrialsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrialsResponse)
+{-# DEPRECATED ltsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of the summaries of your trials.
-ltsrsTrialSummaries :: Lens' ListTrialsResponse [TrialSummary]
-ltsrsTrialSummaries = lens _ltsrsTrialSummaries (\s a -> s {_ltsrsTrialSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'trialSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsrsTrialSummaries :: Lens.Lens' ListTrialsResponse (Lude.Maybe [TrialSummary])
+ltsrsTrialSummaries = Lens.lens (trialSummaries :: ListTrialsResponse -> Lude.Maybe [TrialSummary]) (\s a -> s {trialSummaries = a} :: ListTrialsResponse)
+{-# DEPRECATED ltsrsTrialSummaries "Use generic-lens or generic-optics with 'trialSummaries' instead." #-}
 
--- | -- | The response status code.
-ltsrsResponseStatus :: Lens' ListTrialsResponse Int
-ltsrsResponseStatus = lens _ltsrsResponseStatus (\s a -> s {_ltsrsResponseStatus = a})
-
-instance NFData ListTrialsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltsrsResponseStatus :: Lens.Lens' ListTrialsResponse Lude.Int
+ltsrsResponseStatus = Lens.lens (responseStatus :: ListTrialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTrialsResponse)
+{-# DEPRECATED ltsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

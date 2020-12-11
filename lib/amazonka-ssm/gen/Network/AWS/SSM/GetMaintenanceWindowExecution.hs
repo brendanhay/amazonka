@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves details about a specific a maintenance window execution.
 module Network.AWS.SSM.GetMaintenanceWindowExecution
-  ( -- * Creating a Request
-    getMaintenanceWindowExecution,
-    GetMaintenanceWindowExecution,
+  ( -- * Creating a request
+    GetMaintenanceWindowExecution (..),
+    mkGetMaintenanceWindowExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmweWindowExecutionId,
 
-    -- * Destructuring the Response
-    getMaintenanceWindowExecutionResponse,
-    GetMaintenanceWindowExecutionResponse,
+    -- * Destructuring the response
+    GetMaintenanceWindowExecutionResponse (..),
+    mkGetMaintenanceWindowExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmwersStatus,
     gmwersStartTime,
     gmwersWindowExecutionId,
@@ -41,160 +36,189 @@ module Network.AWS.SSM.GetMaintenanceWindowExecution
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getMaintenanceWindowExecution' smart constructor.
+-- | /See:/ 'mkGetMaintenanceWindowExecution' smart constructor.
 newtype GetMaintenanceWindowExecution = GetMaintenanceWindowExecution'
-  { _gmweWindowExecutionId ::
-      Text
+  { windowExecutionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmweWindowExecutionId' - The ID of the maintenance window execution that includes the task.
-getMaintenanceWindowExecution ::
-  -- | 'gmweWindowExecutionId'
-  Text ->
+-- * 'windowExecutionId' - The ID of the maintenance window execution that includes the task.
+mkGetMaintenanceWindowExecution ::
+  -- | 'windowExecutionId'
+  Lude.Text ->
   GetMaintenanceWindowExecution
-getMaintenanceWindowExecution pWindowExecutionId_ =
+mkGetMaintenanceWindowExecution pWindowExecutionId_ =
   GetMaintenanceWindowExecution'
-    { _gmweWindowExecutionId =
+    { windowExecutionId =
         pWindowExecutionId_
     }
 
 -- | The ID of the maintenance window execution that includes the task.
-gmweWindowExecutionId :: Lens' GetMaintenanceWindowExecution Text
-gmweWindowExecutionId = lens _gmweWindowExecutionId (\s a -> s {_gmweWindowExecutionId = a})
+--
+-- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmweWindowExecutionId :: Lens.Lens' GetMaintenanceWindowExecution Lude.Text
+gmweWindowExecutionId = Lens.lens (windowExecutionId :: GetMaintenanceWindowExecution -> Lude.Text) (\s a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecution)
+{-# DEPRECATED gmweWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
-instance AWSRequest GetMaintenanceWindowExecution where
+instance Lude.AWSRequest GetMaintenanceWindowExecution where
   type
     Rs GetMaintenanceWindowExecution =
       GetMaintenanceWindowExecutionResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetMaintenanceWindowExecutionResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "StartTime")
-            <*> (x .?> "WindowExecutionId")
-            <*> (x .?> "StatusDetails")
-            <*> (x .?> "EndTime")
-            <*> (x .?> "TaskIds" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "StartTime")
+            Lude.<*> (x Lude..?> "WindowExecutionId")
+            Lude.<*> (x Lude..?> "StatusDetails")
+            Lude.<*> (x Lude..?> "EndTime")
+            Lude.<*> (x Lude..?> "TaskIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetMaintenanceWindowExecution
-
-instance NFData GetMaintenanceWindowExecution
-
-instance ToHeaders GetMaintenanceWindowExecution where
+instance Lude.ToHeaders GetMaintenanceWindowExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.GetMaintenanceWindowExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.GetMaintenanceWindowExecution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetMaintenanceWindowExecution where
+instance Lude.ToJSON GetMaintenanceWindowExecution where
   toJSON GetMaintenanceWindowExecution' {..} =
-    object
-      (catMaybes [Just ("WindowExecutionId" .= _gmweWindowExecutionId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("WindowExecutionId" Lude..= windowExecutionId)]
+      )
 
-instance ToPath GetMaintenanceWindowExecution where
-  toPath = const "/"
+instance Lude.ToPath GetMaintenanceWindowExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery GetMaintenanceWindowExecution where
-  toQuery = const mempty
+instance Lude.ToQuery GetMaintenanceWindowExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getMaintenanceWindowExecutionResponse' smart constructor.
+-- | /See:/ 'mkGetMaintenanceWindowExecutionResponse' smart constructor.
 data GetMaintenanceWindowExecutionResponse = GetMaintenanceWindowExecutionResponse'
-  { _gmwersStatus ::
-      !( Maybe
-           MaintenanceWindowExecutionStatus
-       ),
-    _gmwersStartTime ::
-      !(Maybe POSIX),
-    _gmwersWindowExecutionId ::
-      !(Maybe Text),
-    _gmwersStatusDetails ::
-      !(Maybe Text),
-    _gmwersEndTime ::
-      !(Maybe POSIX),
-    _gmwersTaskIds ::
-      !(Maybe [Text]),
-    _gmwersResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        MaintenanceWindowExecutionStatus,
+    startTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    windowExecutionId ::
+      Lude.Maybe
+        Lude.Text,
+    statusDetails ::
+      Lude.Maybe
+        Lude.Text,
+    endTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    taskIds ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmwersStatus' - The status of the maintenance window execution.
---
--- * 'gmwersStartTime' - The time the maintenance window started running.
---
--- * 'gmwersWindowExecutionId' - The ID of the maintenance window execution.
---
--- * 'gmwersStatusDetails' - The details explaining the Status. Only available for certain status values.
---
--- * 'gmwersEndTime' - The time the maintenance window finished running.
---
--- * 'gmwersTaskIds' - The ID of the task executions from the maintenance window execution.
---
--- * 'gmwersResponseStatus' - -- | The response status code.
-getMaintenanceWindowExecutionResponse ::
-  -- | 'gmwersResponseStatus'
-  Int ->
+-- * 'endTime' - The time the maintenance window finished running.
+-- * 'responseStatus' - The response status code.
+-- * 'startTime' - The time the maintenance window started running.
+-- * 'status' - The status of the maintenance window execution.
+-- * 'statusDetails' - The details explaining the Status. Only available for certain status values.
+-- * 'taskIds' - The ID of the task executions from the maintenance window execution.
+-- * 'windowExecutionId' - The ID of the maintenance window execution.
+mkGetMaintenanceWindowExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMaintenanceWindowExecutionResponse
-getMaintenanceWindowExecutionResponse pResponseStatus_ =
+mkGetMaintenanceWindowExecutionResponse pResponseStatus_ =
   GetMaintenanceWindowExecutionResponse'
-    { _gmwersStatus = Nothing,
-      _gmwersStartTime = Nothing,
-      _gmwersWindowExecutionId = Nothing,
-      _gmwersStatusDetails = Nothing,
-      _gmwersEndTime = Nothing,
-      _gmwersTaskIds = Nothing,
-      _gmwersResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      startTime = Lude.Nothing,
+      windowExecutionId = Lude.Nothing,
+      statusDetails = Lude.Nothing,
+      endTime = Lude.Nothing,
+      taskIds = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the maintenance window execution.
-gmwersStatus :: Lens' GetMaintenanceWindowExecutionResponse (Maybe MaintenanceWindowExecutionStatus)
-gmwersStatus = lens _gmwersStatus (\s a -> s {_gmwersStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwersStatus :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Lude.Maybe MaintenanceWindowExecutionStatus)
+gmwersStatus = Lens.lens (status :: GetMaintenanceWindowExecutionResponse -> Lude.Maybe MaintenanceWindowExecutionStatus) (\s a -> s {status = a} :: GetMaintenanceWindowExecutionResponse)
+{-# DEPRECATED gmwersStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The time the maintenance window started running.
-gmwersStartTime :: Lens' GetMaintenanceWindowExecutionResponse (Maybe UTCTime)
-gmwersStartTime = lens _gmwersStartTime (\s a -> s {_gmwersStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwersStartTime :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Lude.Maybe Lude.Timestamp)
+gmwersStartTime = Lens.lens (startTime :: GetMaintenanceWindowExecutionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: GetMaintenanceWindowExecutionResponse)
+{-# DEPRECATED gmwersStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The ID of the maintenance window execution.
-gmwersWindowExecutionId :: Lens' GetMaintenanceWindowExecutionResponse (Maybe Text)
-gmwersWindowExecutionId = lens _gmwersWindowExecutionId (\s a -> s {_gmwersWindowExecutionId = a})
+--
+-- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwersWindowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Lude.Maybe Lude.Text)
+gmwersWindowExecutionId = Lens.lens (windowExecutionId :: GetMaintenanceWindowExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecutionResponse)
+{-# DEPRECATED gmwersWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
 -- | The details explaining the Status. Only available for certain status values.
-gmwersStatusDetails :: Lens' GetMaintenanceWindowExecutionResponse (Maybe Text)
-gmwersStatusDetails = lens _gmwersStatusDetails (\s a -> s {_gmwersStatusDetails = a})
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwersStatusDetails :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Lude.Maybe Lude.Text)
+gmwersStatusDetails = Lens.lens (statusDetails :: GetMaintenanceWindowExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusDetails = a} :: GetMaintenanceWindowExecutionResponse)
+{-# DEPRECATED gmwersStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | The time the maintenance window finished running.
-gmwersEndTime :: Lens' GetMaintenanceWindowExecutionResponse (Maybe UTCTime)
-gmwersEndTime = lens _gmwersEndTime (\s a -> s {_gmwersEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwersEndTime :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Lude.Maybe Lude.Timestamp)
+gmwersEndTime = Lens.lens (endTime :: GetMaintenanceWindowExecutionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: GetMaintenanceWindowExecutionResponse)
+{-# DEPRECATED gmwersEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The ID of the task executions from the maintenance window execution.
-gmwersTaskIds :: Lens' GetMaintenanceWindowExecutionResponse [Text]
-gmwersTaskIds = lens _gmwersTaskIds (\s a -> s {_gmwersTaskIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'taskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwersTaskIds :: Lens.Lens' GetMaintenanceWindowExecutionResponse (Lude.Maybe [Lude.Text])
+gmwersTaskIds = Lens.lens (taskIds :: GetMaintenanceWindowExecutionResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {taskIds = a} :: GetMaintenanceWindowExecutionResponse)
+{-# DEPRECATED gmwersTaskIds "Use generic-lens or generic-optics with 'taskIds' instead." #-}
 
--- | -- | The response status code.
-gmwersResponseStatus :: Lens' GetMaintenanceWindowExecutionResponse Int
-gmwersResponseStatus = lens _gmwersResponseStatus (\s a -> s {_gmwersResponseStatus = a})
-
-instance NFData GetMaintenanceWindowExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwersResponseStatus :: Lens.Lens' GetMaintenanceWindowExecutionResponse Lude.Int
+gmwersResponseStatus = Lens.lens (responseStatus :: GetMaintenanceWindowExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMaintenanceWindowExecutionResponse)
+{-# DEPRECATED gmwersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

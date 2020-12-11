@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.VMServerAddress where
+module Network.AWS.SMS.Types.VMServerAddress
+  ( VMServerAddress (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVMServerAddress,
+
+    -- * Lenses
+    vmsaVmManagerId,
+    vmsaVmId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a VM server location.
 --
---
---
--- /See:/ 'vMServerAddress' smart constructor.
+-- /See:/ 'mkVMServerAddress' smart constructor.
 data VMServerAddress = VMServerAddress'
-  { _vmsaVmManagerId ::
-      !(Maybe Text),
-    _vmsaVmId :: !(Maybe Text)
+  { vmManagerId ::
+      Lude.Maybe Lude.Text,
+    vmId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VMServerAddress' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vmsaVmManagerId' - The ID of the VM manager.
---
--- * 'vmsaVmId' - The ID of the VM.
-vMServerAddress ::
+-- * 'vmId' - The ID of the VM.
+-- * 'vmManagerId' - The ID of the VM manager.
+mkVMServerAddress ::
   VMServerAddress
-vMServerAddress =
-  VMServerAddress' {_vmsaVmManagerId = Nothing, _vmsaVmId = Nothing}
+mkVMServerAddress =
+  VMServerAddress' {vmManagerId = Lude.Nothing, vmId = Lude.Nothing}
 
 -- | The ID of the VM manager.
-vmsaVmManagerId :: Lens' VMServerAddress (Maybe Text)
-vmsaVmManagerId = lens _vmsaVmManagerId (\s a -> s {_vmsaVmManagerId = a})
+--
+-- /Note:/ Consider using 'vmManagerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmsaVmManagerId :: Lens.Lens' VMServerAddress (Lude.Maybe Lude.Text)
+vmsaVmManagerId = Lens.lens (vmManagerId :: VMServerAddress -> Lude.Maybe Lude.Text) (\s a -> s {vmManagerId = a} :: VMServerAddress)
+{-# DEPRECATED vmsaVmManagerId "Use generic-lens or generic-optics with 'vmManagerId' instead." #-}
 
 -- | The ID of the VM.
-vmsaVmId :: Lens' VMServerAddress (Maybe Text)
-vmsaVmId = lens _vmsaVmId (\s a -> s {_vmsaVmId = a})
+--
+-- /Note:/ Consider using 'vmId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmsaVmId :: Lens.Lens' VMServerAddress (Lude.Maybe Lude.Text)
+vmsaVmId = Lens.lens (vmId :: VMServerAddress -> Lude.Maybe Lude.Text) (\s a -> s {vmId = a} :: VMServerAddress)
+{-# DEPRECATED vmsaVmId "Use generic-lens or generic-optics with 'vmId' instead." #-}
 
-instance FromJSON VMServerAddress where
+instance Lude.FromJSON VMServerAddress where
   parseJSON =
-    withObject
+    Lude.withObject
       "VMServerAddress"
       ( \x ->
-          VMServerAddress' <$> (x .:? "vmManagerId") <*> (x .:? "vmId")
+          VMServerAddress'
+            Lude.<$> (x Lude..:? "vmManagerId") Lude.<*> (x Lude..:? "vmId")
       )
 
-instance Hashable VMServerAddress
-
-instance NFData VMServerAddress
-
-instance ToJSON VMServerAddress where
+instance Lude.ToJSON VMServerAddress where
   toJSON VMServerAddress' {..} =
-    object
-      ( catMaybes
-          [ ("vmManagerId" .=) <$> _vmsaVmManagerId,
-            ("vmId" .=) <$> _vmsaVmId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("vmManagerId" Lude..=) Lude.<$> vmManagerId,
+            ("vmId" Lude..=) Lude.<$> vmId
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Mobile.Types.Resource where
+module Network.AWS.Mobile.Types.Resource
+  ( Resource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResource,
+
+    -- * Lenses
+    rFeature,
+    rArn,
+    rName,
+    rAttributes,
+    rType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an instance of an AWS resource associated with a project.
 --
---
---
--- /See:/ 'resource' smart constructor.
+-- /See:/ 'mkResource' smart constructor.
 data Resource = Resource'
-  { _rFeature :: !(Maybe Text),
-    _rArn :: !(Maybe Text),
-    _rName :: !(Maybe Text),
-    _rAttributes :: !(Maybe (Map Text (Text))),
-    _rType :: !(Maybe Text)
+  { feature :: Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rFeature' - Undocumented member.
---
--- * 'rArn' - Undocumented member.
---
--- * 'rName' - Undocumented member.
---
--- * 'rAttributes' - Undocumented member.
---
--- * 'rType' - Undocumented member.
-resource ::
+-- * 'arn' - Undocumented field.
+-- * 'attributes' - Undocumented field.
+-- * 'feature' - Undocumented field.
+-- * 'name' - Undocumented field.
+-- * 'type'' - Undocumented field.
+mkResource ::
   Resource
-resource =
+mkResource =
   Resource'
-    { _rFeature = Nothing,
-      _rArn = Nothing,
-      _rName = Nothing,
-      _rAttributes = Nothing,
-      _rType = Nothing
+    { feature = Lude.Nothing,
+      arn = Lude.Nothing,
+      name = Lude.Nothing,
+      attributes = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
--- | Undocumented member.
-rFeature :: Lens' Resource (Maybe Text)
-rFeature = lens _rFeature (\s a -> s {_rFeature = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'feature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rFeature :: Lens.Lens' Resource (Lude.Maybe Lude.Text)
+rFeature = Lens.lens (feature :: Resource -> Lude.Maybe Lude.Text) (\s a -> s {feature = a} :: Resource)
+{-# DEPRECATED rFeature "Use generic-lens or generic-optics with 'feature' instead." #-}
 
--- | Undocumented member.
-rArn :: Lens' Resource (Maybe Text)
-rArn = lens _rArn (\s a -> s {_rArn = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rArn :: Lens.Lens' Resource (Lude.Maybe Lude.Text)
+rArn = Lens.lens (arn :: Resource -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Resource)
+{-# DEPRECATED rArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | Undocumented member.
-rName :: Lens' Resource (Maybe Text)
-rName = lens _rName (\s a -> s {_rName = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rName :: Lens.Lens' Resource (Lude.Maybe Lude.Text)
+rName = Lens.lens (name :: Resource -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Resource)
+{-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Undocumented member.
-rAttributes :: Lens' Resource (HashMap Text (Text))
-rAttributes = lens _rAttributes (\s a -> s {_rAttributes = a}) . _Default . _Map
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rAttributes :: Lens.Lens' Resource (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+rAttributes = Lens.lens (attributes :: Resource -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: Resource)
+{-# DEPRECATED rAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | Undocumented member.
-rType :: Lens' Resource (Maybe Text)
-rType = lens _rType (\s a -> s {_rType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rType :: Lens.Lens' Resource (Lude.Maybe Lude.Text)
+rType = Lens.lens (type' :: Resource -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Resource)
+{-# DEPRECATED rType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON Resource where
+instance Lude.FromJSON Resource where
   parseJSON =
-    withObject
+    Lude.withObject
       "Resource"
       ( \x ->
           Resource'
-            <$> (x .:? "feature")
-            <*> (x .:? "arn")
-            <*> (x .:? "name")
-            <*> (x .:? "attributes" .!= mempty)
-            <*> (x .:? "type")
+            Lude.<$> (x Lude..:? "feature")
+            Lude.<*> (x Lude..:? "arn")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "type")
       )
-
-instance Hashable Resource
-
-instance NFData Resource

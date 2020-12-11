@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.ResourceDetail where
+module Network.AWS.ServiceCatalog.Types.ResourceDetail
+  ( ResourceDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceDetail,
+
+    -- * Lenses
+    rARN,
+    rCreatedTime,
+    rName,
+    rId,
+    rDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a resource.
 --
---
---
--- /See:/ 'resourceDetail' smart constructor.
+-- /See:/ 'mkResourceDetail' smart constructor.
 data ResourceDetail = ResourceDetail'
-  { _rARN :: !(Maybe Text),
-    _rCreatedTime :: !(Maybe POSIX),
-    _rName :: !(Maybe Text),
-    _rId :: !(Maybe Text),
-    _rDescription :: !(Maybe Text)
+  { arn :: Lude.Maybe Lude.Text,
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rARN' - The ARN of the resource.
---
--- * 'rCreatedTime' - The creation time of the resource.
---
--- * 'rName' - The name of the resource.
---
--- * 'rId' - The identifier of the resource.
---
--- * 'rDescription' - The description of the resource.
-resourceDetail ::
+-- * 'arn' - The ARN of the resource.
+-- * 'createdTime' - The creation time of the resource.
+-- * 'description' - The description of the resource.
+-- * 'id' - The identifier of the resource.
+-- * 'name' - The name of the resource.
+mkResourceDetail ::
   ResourceDetail
-resourceDetail =
+mkResourceDetail =
   ResourceDetail'
-    { _rARN = Nothing,
-      _rCreatedTime = Nothing,
-      _rName = Nothing,
-      _rId = Nothing,
-      _rDescription = Nothing
+    { arn = Lude.Nothing,
+      createdTime = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The ARN of the resource.
-rARN :: Lens' ResourceDetail (Maybe Text)
-rARN = lens _rARN (\s a -> s {_rARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rARN :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Text)
+rARN = Lens.lens (arn :: ResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ResourceDetail)
+{-# DEPRECATED rARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The creation time of the resource.
-rCreatedTime :: Lens' ResourceDetail (Maybe UTCTime)
-rCreatedTime = lens _rCreatedTime (\s a -> s {_rCreatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCreatedTime :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Timestamp)
+rCreatedTime = Lens.lens (createdTime :: ResourceDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: ResourceDetail)
+{-# DEPRECATED rCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The name of the resource.
-rName :: Lens' ResourceDetail (Maybe Text)
-rName = lens _rName (\s a -> s {_rName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rName :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Text)
+rName = Lens.lens (name :: ResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourceDetail)
+{-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the resource.
-rId :: Lens' ResourceDetail (Maybe Text)
-rId = lens _rId (\s a -> s {_rId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rId :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Text)
+rId = Lens.lens (id :: ResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ResourceDetail)
+{-# DEPRECATED rId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The description of the resource.
-rDescription :: Lens' ResourceDetail (Maybe Text)
-rDescription = lens _rDescription (\s a -> s {_rDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDescription :: Lens.Lens' ResourceDetail (Lude.Maybe Lude.Text)
+rDescription = Lens.lens (description :: ResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ResourceDetail)
+{-# DEPRECATED rDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON ResourceDetail where
+instance Lude.FromJSON ResourceDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceDetail"
       ( \x ->
           ResourceDetail'
-            <$> (x .:? "ARN")
-            <*> (x .:? "CreatedTime")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "ARN")
+            Lude.<*> (x Lude..:? "CreatedTime")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable ResourceDetail
-
-instance NFData ResourceDetail

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.ReceiptFilter where
+module Network.AWS.SES.Types.ReceiptFilter
+  ( ReceiptFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReceiptFilter,
+
+    -- * Lenses
+    rfName,
+    rfIPFilter,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.ReceiptIPFilter
 
 -- | A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.
 --
---
 -- For information about setting up IP address filters, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide> .
 --
---
--- /See:/ 'receiptFilter' smart constructor.
+-- /See:/ 'mkReceiptFilter' smart constructor.
 data ReceiptFilter = ReceiptFilter'
-  { _rfName :: !Text,
-    _rfIPFilter :: !ReceiptIPFilter
+  { name :: Lude.Text,
+    ipFilter :: ReceiptIPFilter
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReceiptFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'ipFilter' - A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+-- * 'name' - The name of the IP address filter. The name must:
 --
--- * 'rfName' - The name of the IP address filter. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 --
--- * 'rfIPFilter' - A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
-receiptFilter ::
-  -- | 'rfName'
-  Text ->
-  -- | 'rfIPFilter'
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Start and end with a letter or number.
+--
+--
+--     * Contain less than 64 characters.
+mkReceiptFilter ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'ipFilter'
   ReceiptIPFilter ->
   ReceiptFilter
-receiptFilter pName_ pIPFilter_ =
-  ReceiptFilter' {_rfName = pName_, _rfIPFilter = pIPFilter_}
+mkReceiptFilter pName_ pIPFilter_ =
+  ReceiptFilter' {name = pName_, ipFilter = pIPFilter_}
 
--- | The name of the IP address filter. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
-rfName :: Lens' ReceiptFilter Text
-rfName = lens _rfName (\s a -> s {_rfName = a})
+-- | The name of the IP address filter. The name must:
+--
+--
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Start and end with a letter or number.
+--
+--
+--     * Contain less than 64 characters.
+--
+--
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfName :: Lens.Lens' ReceiptFilter Lude.Text
+rfName = Lens.lens (name :: ReceiptFilter -> Lude.Text) (\s a -> s {name = a} :: ReceiptFilter)
+{-# DEPRECATED rfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
-rfIPFilter :: Lens' ReceiptFilter ReceiptIPFilter
-rfIPFilter = lens _rfIPFilter (\s a -> s {_rfIPFilter = a})
+--
+-- /Note:/ Consider using 'ipFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfIPFilter :: Lens.Lens' ReceiptFilter ReceiptIPFilter
+rfIPFilter = Lens.lens (ipFilter :: ReceiptFilter -> ReceiptIPFilter) (\s a -> s {ipFilter = a} :: ReceiptFilter)
+{-# DEPRECATED rfIPFilter "Use generic-lens or generic-optics with 'ipFilter' instead." #-}
 
-instance FromXML ReceiptFilter where
-  parseXML x = ReceiptFilter' <$> (x .@ "Name") <*> (x .@ "IpFilter")
+instance Lude.FromXML ReceiptFilter where
+  parseXML x =
+    ReceiptFilter'
+      Lude.<$> (x Lude..@ "Name") Lude.<*> (x Lude..@ "IpFilter")
 
-instance Hashable ReceiptFilter
-
-instance NFData ReceiptFilter
-
-instance ToQuery ReceiptFilter where
+instance Lude.ToQuery ReceiptFilter where
   toQuery ReceiptFilter' {..} =
-    mconcat ["Name" =: _rfName, "IpFilter" =: _rfIPFilter]
+    Lude.mconcat ["Name" Lude.=: name, "IpFilter" Lude.=: ipFilter]

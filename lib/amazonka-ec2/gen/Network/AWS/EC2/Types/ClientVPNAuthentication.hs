@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNAuthentication where
+module Network.AWS.EC2.Types.ClientVPNAuthentication
+  ( ClientVPNAuthentication (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClientVPNAuthentication,
+
+    -- * Lenses
+    cvaActiveDirectory,
+    cvaFederatedAuthentication,
+    cvaMutualAuthentication,
+    cvaType,
+  )
+where
+
 import Network.AWS.EC2.Types.CertificateAuthentication
 import Network.AWS.EC2.Types.ClientVPNAuthenticationType
 import Network.AWS.EC2.Types.DirectoryServiceAuthentication
 import Network.AWS.EC2.Types.FederatedAuthentication
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the authentication methods used by a Client VPN endpoint. For more information, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html Authentication> in the /AWS Client VPN Administrator Guide/ .
 --
---
---
--- /See:/ 'clientVPNAuthentication' smart constructor.
+-- /See:/ 'mkClientVPNAuthentication' smart constructor.
 data ClientVPNAuthentication = ClientVPNAuthentication'
-  { _cvaActiveDirectory ::
-      !(Maybe DirectoryServiceAuthentication),
-    _cvaFederatedAuthentication ::
-      !(Maybe FederatedAuthentication),
-    _cvaMutualAuthentication ::
-      !(Maybe CertificateAuthentication),
-    _cvaType ::
-      !(Maybe ClientVPNAuthenticationType)
+  { activeDirectory ::
+      Lude.Maybe DirectoryServiceAuthentication,
+    federatedAuthentication ::
+      Lude.Maybe FederatedAuthentication,
+    mutualAuthentication ::
+      Lude.Maybe CertificateAuthentication,
+    type' ::
+      Lude.Maybe ClientVPNAuthenticationType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNAuthentication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvaActiveDirectory' - Information about the Active Directory, if applicable.
---
--- * 'cvaFederatedAuthentication' - Information about the IAM SAML identity provider, if applicable.
---
--- * 'cvaMutualAuthentication' - Information about the authentication certificates, if applicable.
---
--- * 'cvaType' - The authentication type used.
-clientVPNAuthentication ::
+-- * 'activeDirectory' - Information about the Active Directory, if applicable.
+-- * 'federatedAuthentication' - Information about the IAM SAML identity provider, if applicable.
+-- * 'mutualAuthentication' - Information about the authentication certificates, if applicable.
+-- * 'type'' - The authentication type used.
+mkClientVPNAuthentication ::
   ClientVPNAuthentication
-clientVPNAuthentication =
+mkClientVPNAuthentication =
   ClientVPNAuthentication'
-    { _cvaActiveDirectory = Nothing,
-      _cvaFederatedAuthentication = Nothing,
-      _cvaMutualAuthentication = Nothing,
-      _cvaType = Nothing
+    { activeDirectory = Lude.Nothing,
+      federatedAuthentication = Lude.Nothing,
+      mutualAuthentication = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | Information about the Active Directory, if applicable.
-cvaActiveDirectory :: Lens' ClientVPNAuthentication (Maybe DirectoryServiceAuthentication)
-cvaActiveDirectory = lens _cvaActiveDirectory (\s a -> s {_cvaActiveDirectory = a})
+--
+-- /Note:/ Consider using 'activeDirectory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvaActiveDirectory :: Lens.Lens' ClientVPNAuthentication (Lude.Maybe DirectoryServiceAuthentication)
+cvaActiveDirectory = Lens.lens (activeDirectory :: ClientVPNAuthentication -> Lude.Maybe DirectoryServiceAuthentication) (\s a -> s {activeDirectory = a} :: ClientVPNAuthentication)
+{-# DEPRECATED cvaActiveDirectory "Use generic-lens or generic-optics with 'activeDirectory' instead." #-}
 
 -- | Information about the IAM SAML identity provider, if applicable.
-cvaFederatedAuthentication :: Lens' ClientVPNAuthentication (Maybe FederatedAuthentication)
-cvaFederatedAuthentication = lens _cvaFederatedAuthentication (\s a -> s {_cvaFederatedAuthentication = a})
+--
+-- /Note:/ Consider using 'federatedAuthentication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvaFederatedAuthentication :: Lens.Lens' ClientVPNAuthentication (Lude.Maybe FederatedAuthentication)
+cvaFederatedAuthentication = Lens.lens (federatedAuthentication :: ClientVPNAuthentication -> Lude.Maybe FederatedAuthentication) (\s a -> s {federatedAuthentication = a} :: ClientVPNAuthentication)
+{-# DEPRECATED cvaFederatedAuthentication "Use generic-lens or generic-optics with 'federatedAuthentication' instead." #-}
 
 -- | Information about the authentication certificates, if applicable.
-cvaMutualAuthentication :: Lens' ClientVPNAuthentication (Maybe CertificateAuthentication)
-cvaMutualAuthentication = lens _cvaMutualAuthentication (\s a -> s {_cvaMutualAuthentication = a})
+--
+-- /Note:/ Consider using 'mutualAuthentication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvaMutualAuthentication :: Lens.Lens' ClientVPNAuthentication (Lude.Maybe CertificateAuthentication)
+cvaMutualAuthentication = Lens.lens (mutualAuthentication :: ClientVPNAuthentication -> Lude.Maybe CertificateAuthentication) (\s a -> s {mutualAuthentication = a} :: ClientVPNAuthentication)
+{-# DEPRECATED cvaMutualAuthentication "Use generic-lens or generic-optics with 'mutualAuthentication' instead." #-}
 
 -- | The authentication type used.
-cvaType :: Lens' ClientVPNAuthentication (Maybe ClientVPNAuthenticationType)
-cvaType = lens _cvaType (\s a -> s {_cvaType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvaType :: Lens.Lens' ClientVPNAuthentication (Lude.Maybe ClientVPNAuthenticationType)
+cvaType = Lens.lens (type' :: ClientVPNAuthentication -> Lude.Maybe ClientVPNAuthenticationType) (\s a -> s {type' = a} :: ClientVPNAuthentication)
+{-# DEPRECATED cvaType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromXML ClientVPNAuthentication where
+instance Lude.FromXML ClientVPNAuthentication where
   parseXML x =
     ClientVPNAuthentication'
-      <$> (x .@? "activeDirectory")
-      <*> (x .@? "federatedAuthentication")
-      <*> (x .@? "mutualAuthentication")
-      <*> (x .@? "type")
-
-instance Hashable ClientVPNAuthentication
-
-instance NFData ClientVPNAuthentication
+      Lude.<$> (x Lude..@? "activeDirectory")
+      Lude.<*> (x Lude..@? "federatedAuthentication")
+      Lude.<*> (x Lude..@? "mutualAuthentication")
+      Lude.<*> (x Lude..@? "type")

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Adds a pending configuration change to a broker.
 module Network.AWS.MQ.UpdateBroker
-  ( -- * Creating a Request
-    updateBroker,
-    UpdateBroker,
+  ( -- * Creating a request
+    UpdateBroker (..),
+    mkUpdateBroker,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ubEngineVersion,
     ubAutoMinorVersionUpgrade,
     ubSecurityGroups,
@@ -34,11 +29,11 @@ module Network.AWS.MQ.UpdateBroker
     ubHostInstanceType,
     ubBrokerId,
 
-    -- * Destructuring the Response
-    updateBrokerResponse,
-    UpdateBrokerResponse,
+    -- * Destructuring the response
+    UpdateBrokerResponse (..),
+    mkUpdateBrokerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ubrsEngineVersion,
     ubrsAutoMinorVersionUpgrade,
     ubrsSecurityGroups,
@@ -52,252 +47,299 @@ module Network.AWS.MQ.UpdateBroker
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Updates the broker using the specified properties.
 --
--- /See:/ 'updateBroker' smart constructor.
+-- /See:/ 'mkUpdateBroker' smart constructor.
 data UpdateBroker = UpdateBroker'
-  { _ubEngineVersion ::
-      !(Maybe Text),
-    _ubAutoMinorVersionUpgrade :: !(Maybe Bool),
-    _ubSecurityGroups :: !(Maybe [Text]),
-    _ubAuthenticationStrategy :: !(Maybe AuthenticationStrategy),
-    _ubLdapServerMetadata :: !(Maybe LdapServerMetadataInput),
-    _ubLogs :: !(Maybe Logs),
-    _ubConfiguration :: !(Maybe ConfigurationId),
-    _ubHostInstanceType :: !(Maybe Text),
-    _ubBrokerId :: !Text
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    securityGroups :: Lude.Maybe [Lude.Text],
+    authenticationStrategy :: Lude.Maybe AuthenticationStrategy,
+    ldapServerMetadata :: Lude.Maybe LdapServerMetadataInput,
+    logs :: Lude.Maybe Logs,
+    configuration :: Lude.Maybe ConfigurationId,
+    hostInstanceType :: Lude.Maybe Lude.Text,
+    brokerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBroker' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubEngineVersion' - The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
---
--- * 'ubAutoMinorVersionUpgrade' - Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
---
--- * 'ubSecurityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
---
--- * 'ubAuthenticationStrategy' - The authentication strategy used to secure the broker.
---
--- * 'ubLdapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
---
--- * 'ubLogs' - Enables Amazon CloudWatch logging for brokers.
---
--- * 'ubConfiguration' - A list of information about the configuration.
---
--- * 'ubHostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
---
--- * 'ubBrokerId' - The unique ID that Amazon MQ generates for the broker.
-updateBroker ::
-  -- | 'ubBrokerId'
-  Text ->
+-- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
+-- * 'autoMinorVersionUpgrade' - Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'configuration' - A list of information about the configuration.
+-- * 'engineVersion' - The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+-- * 'hostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+-- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+-- * 'logs' - Enables Amazon CloudWatch logging for brokers.
+-- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
+mkUpdateBroker ::
+  -- | 'brokerId'
+  Lude.Text ->
   UpdateBroker
-updateBroker pBrokerId_ =
+mkUpdateBroker pBrokerId_ =
   UpdateBroker'
-    { _ubEngineVersion = Nothing,
-      _ubAutoMinorVersionUpgrade = Nothing,
-      _ubSecurityGroups = Nothing,
-      _ubAuthenticationStrategy = Nothing,
-      _ubLdapServerMetadata = Nothing,
-      _ubLogs = Nothing,
-      _ubConfiguration = Nothing,
-      _ubHostInstanceType = Nothing,
-      _ubBrokerId = pBrokerId_
+    { engineVersion = Lude.Nothing,
+      autoMinorVersionUpgrade = Lude.Nothing,
+      securityGroups = Lude.Nothing,
+      authenticationStrategy = Lude.Nothing,
+      ldapServerMetadata = Lude.Nothing,
+      logs = Lude.Nothing,
+      configuration = Lude.Nothing,
+      hostInstanceType = Lude.Nothing,
+      brokerId = pBrokerId_
     }
 
 -- | The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-ubEngineVersion :: Lens' UpdateBroker (Maybe Text)
-ubEngineVersion = lens _ubEngineVersion (\s a -> s {_ubEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubEngineVersion :: Lens.Lens' UpdateBroker (Lude.Maybe Lude.Text)
+ubEngineVersion = Lens.lens (engineVersion :: UpdateBroker -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: UpdateBroker)
+{-# DEPRECATED ubEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
-ubAutoMinorVersionUpgrade :: Lens' UpdateBroker (Maybe Bool)
-ubAutoMinorVersionUpgrade = lens _ubAutoMinorVersionUpgrade (\s a -> s {_ubAutoMinorVersionUpgrade = a})
+--
+-- /Note:/ Consider using 'autoMinorVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubAutoMinorVersionUpgrade :: Lens.Lens' UpdateBroker (Lude.Maybe Lude.Bool)
+ubAutoMinorVersionUpgrade = Lens.lens (autoMinorVersionUpgrade :: UpdateBroker -> Lude.Maybe Lude.Bool) (\s a -> s {autoMinorVersionUpgrade = a} :: UpdateBroker)
+{-# DEPRECATED ubAutoMinorVersionUpgrade "Use generic-lens or generic-optics with 'autoMinorVersionUpgrade' instead." #-}
 
 -- | The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
-ubSecurityGroups :: Lens' UpdateBroker [Text]
-ubSecurityGroups = lens _ubSecurityGroups (\s a -> s {_ubSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubSecurityGroups :: Lens.Lens' UpdateBroker (Lude.Maybe [Lude.Text])
+ubSecurityGroups = Lens.lens (securityGroups :: UpdateBroker -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: UpdateBroker)
+{-# DEPRECATED ubSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The authentication strategy used to secure the broker.
-ubAuthenticationStrategy :: Lens' UpdateBroker (Maybe AuthenticationStrategy)
-ubAuthenticationStrategy = lens _ubAuthenticationStrategy (\s a -> s {_ubAuthenticationStrategy = a})
+--
+-- /Note:/ Consider using 'authenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubAuthenticationStrategy :: Lens.Lens' UpdateBroker (Lude.Maybe AuthenticationStrategy)
+ubAuthenticationStrategy = Lens.lens (authenticationStrategy :: UpdateBroker -> Lude.Maybe AuthenticationStrategy) (\s a -> s {authenticationStrategy = a} :: UpdateBroker)
+{-# DEPRECATED ubAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
 
 -- | The metadata of the LDAP server used to authenticate and authorize connections to the broker.
-ubLdapServerMetadata :: Lens' UpdateBroker (Maybe LdapServerMetadataInput)
-ubLdapServerMetadata = lens _ubLdapServerMetadata (\s a -> s {_ubLdapServerMetadata = a})
+--
+-- /Note:/ Consider using 'ldapServerMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubLdapServerMetadata :: Lens.Lens' UpdateBroker (Lude.Maybe LdapServerMetadataInput)
+ubLdapServerMetadata = Lens.lens (ldapServerMetadata :: UpdateBroker -> Lude.Maybe LdapServerMetadataInput) (\s a -> s {ldapServerMetadata = a} :: UpdateBroker)
+{-# DEPRECATED ubLdapServerMetadata "Use generic-lens or generic-optics with 'ldapServerMetadata' instead." #-}
 
 -- | Enables Amazon CloudWatch logging for brokers.
-ubLogs :: Lens' UpdateBroker (Maybe Logs)
-ubLogs = lens _ubLogs (\s a -> s {_ubLogs = a})
+--
+-- /Note:/ Consider using 'logs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubLogs :: Lens.Lens' UpdateBroker (Lude.Maybe Logs)
+ubLogs = Lens.lens (logs :: UpdateBroker -> Lude.Maybe Logs) (\s a -> s {logs = a} :: UpdateBroker)
+{-# DEPRECATED ubLogs "Use generic-lens or generic-optics with 'logs' instead." #-}
 
 -- | A list of information about the configuration.
-ubConfiguration :: Lens' UpdateBroker (Maybe ConfigurationId)
-ubConfiguration = lens _ubConfiguration (\s a -> s {_ubConfiguration = a})
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubConfiguration :: Lens.Lens' UpdateBroker (Lude.Maybe ConfigurationId)
+ubConfiguration = Lens.lens (configuration :: UpdateBroker -> Lude.Maybe ConfigurationId) (\s a -> s {configuration = a} :: UpdateBroker)
+{-# DEPRECATED ubConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
 -- | The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
-ubHostInstanceType :: Lens' UpdateBroker (Maybe Text)
-ubHostInstanceType = lens _ubHostInstanceType (\s a -> s {_ubHostInstanceType = a})
+--
+-- /Note:/ Consider using 'hostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubHostInstanceType :: Lens.Lens' UpdateBroker (Lude.Maybe Lude.Text)
+ubHostInstanceType = Lens.lens (hostInstanceType :: UpdateBroker -> Lude.Maybe Lude.Text) (\s a -> s {hostInstanceType = a} :: UpdateBroker)
+{-# DEPRECATED ubHostInstanceType "Use generic-lens or generic-optics with 'hostInstanceType' instead." #-}
 
 -- | The unique ID that Amazon MQ generates for the broker.
-ubBrokerId :: Lens' UpdateBroker Text
-ubBrokerId = lens _ubBrokerId (\s a -> s {_ubBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubBrokerId :: Lens.Lens' UpdateBroker Lude.Text
+ubBrokerId = Lens.lens (brokerId :: UpdateBroker -> Lude.Text) (\s a -> s {brokerId = a} :: UpdateBroker)
+{-# DEPRECATED ubBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
-instance AWSRequest UpdateBroker where
+instance Lude.AWSRequest UpdateBroker where
   type Rs UpdateBroker = UpdateBrokerResponse
-  request = putJSON mq
+  request = Req.putJSON mqService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateBrokerResponse'
-            <$> (x .?> "engineVersion")
-            <*> (x .?> "autoMinorVersionUpgrade")
-            <*> (x .?> "securityGroups" .!@ mempty)
-            <*> (x .?> "authenticationStrategy")
-            <*> (x .?> "ldapServerMetadata")
-            <*> (x .?> "logs")
-            <*> (x .?> "configuration")
-            <*> (x .?> "brokerId")
-            <*> (x .?> "hostInstanceType")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "engineVersion")
+            Lude.<*> (x Lude..?> "autoMinorVersionUpgrade")
+            Lude.<*> (x Lude..?> "securityGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "authenticationStrategy")
+            Lude.<*> (x Lude..?> "ldapServerMetadata")
+            Lude.<*> (x Lude..?> "logs")
+            Lude.<*> (x Lude..?> "configuration")
+            Lude.<*> (x Lude..?> "brokerId")
+            Lude.<*> (x Lude..?> "hostInstanceType")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateBroker
-
-instance NFData UpdateBroker
-
-instance ToHeaders UpdateBroker where
+instance Lude.ToHeaders UpdateBroker where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateBroker where
-  toJSON UpdateBroker' {..} =
-    object
-      ( catMaybes
-          [ ("engineVersion" .=) <$> _ubEngineVersion,
-            ("autoMinorVersionUpgrade" .=) <$> _ubAutoMinorVersionUpgrade,
-            ("securityGroups" .=) <$> _ubSecurityGroups,
-            ("authenticationStrategy" .=) <$> _ubAuthenticationStrategy,
-            ("ldapServerMetadata" .=) <$> _ubLdapServerMetadata,
-            ("logs" .=) <$> _ubLogs,
-            ("configuration" .=) <$> _ubConfiguration,
-            ("hostInstanceType" .=) <$> _ubHostInstanceType
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateBroker where
+instance Lude.ToJSON UpdateBroker where
+  toJSON UpdateBroker' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("engineVersion" Lude..=) Lude.<$> engineVersion,
+            ("autoMinorVersionUpgrade" Lude..=)
+              Lude.<$> autoMinorVersionUpgrade,
+            ("securityGroups" Lude..=) Lude.<$> securityGroups,
+            ("authenticationStrategy" Lude..=) Lude.<$> authenticationStrategy,
+            ("ldapServerMetadata" Lude..=) Lude.<$> ldapServerMetadata,
+            ("logs" Lude..=) Lude.<$> logs,
+            ("configuration" Lude..=) Lude.<$> configuration,
+            ("hostInstanceType" Lude..=) Lude.<$> hostInstanceType
+          ]
+      )
+
+instance Lude.ToPath UpdateBroker where
   toPath UpdateBroker' {..} =
-    mconcat ["/v1/brokers/", toBS _ubBrokerId]
+    Lude.mconcat ["/v1/brokers/", Lude.toBS brokerId]
 
-instance ToQuery UpdateBroker where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateBroker where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateBrokerResponse' smart constructor.
+-- | /See:/ 'mkUpdateBrokerResponse' smart constructor.
 data UpdateBrokerResponse = UpdateBrokerResponse'
-  { _ubrsEngineVersion ::
-      !(Maybe Text),
-    _ubrsAutoMinorVersionUpgrade :: !(Maybe Bool),
-    _ubrsSecurityGroups :: !(Maybe [Text]),
-    _ubrsAuthenticationStrategy ::
-      !(Maybe AuthenticationStrategy),
-    _ubrsLdapServerMetadata ::
-      !(Maybe LdapServerMetadataOutput),
-    _ubrsLogs :: !(Maybe Logs),
-    _ubrsConfiguration :: !(Maybe ConfigurationId),
-    _ubrsBrokerId :: !(Maybe Text),
-    _ubrsHostInstanceType :: !(Maybe Text),
-    _ubrsResponseStatus :: !Int
+  { engineVersion ::
+      Lude.Maybe Lude.Text,
+    autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    securityGroups :: Lude.Maybe [Lude.Text],
+    authenticationStrategy ::
+      Lude.Maybe AuthenticationStrategy,
+    ldapServerMetadata ::
+      Lude.Maybe LdapServerMetadataOutput,
+    logs :: Lude.Maybe Logs,
+    configuration :: Lude.Maybe ConfigurationId,
+    brokerId :: Lude.Maybe Lude.Text,
+    hostInstanceType :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBrokerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubrsEngineVersion' - The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
---
--- * 'ubrsAutoMinorVersionUpgrade' - The new value of automatic upgrades to new minor version for brokers.
---
--- * 'ubrsSecurityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
---
--- * 'ubrsAuthenticationStrategy' - The authentication strategy used to secure the broker.
---
--- * 'ubrsLdapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
---
--- * 'ubrsLogs' - The list of information about logs to be enabled for the specified broker.
---
--- * 'ubrsConfiguration' - The ID of the updated configuration.
---
--- * 'ubrsBrokerId' - Required. The unique ID that Amazon MQ generates for the broker.
---
--- * 'ubrsHostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
---
--- * 'ubrsResponseStatus' - -- | The response status code.
-updateBrokerResponse ::
-  -- | 'ubrsResponseStatus'
-  Int ->
+-- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
+-- * 'autoMinorVersionUpgrade' - The new value of automatic upgrades to new minor version for brokers.
+-- * 'brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
+-- * 'configuration' - The ID of the updated configuration.
+-- * 'engineVersion' - The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+-- * 'hostInstanceType' - The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+-- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+-- * 'logs' - The list of information about logs to be enabled for the specified broker.
+-- * 'responseStatus' - The response status code.
+-- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
+mkUpdateBrokerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateBrokerResponse
-updateBrokerResponse pResponseStatus_ =
+mkUpdateBrokerResponse pResponseStatus_ =
   UpdateBrokerResponse'
-    { _ubrsEngineVersion = Nothing,
-      _ubrsAutoMinorVersionUpgrade = Nothing,
-      _ubrsSecurityGroups = Nothing,
-      _ubrsAuthenticationStrategy = Nothing,
-      _ubrsLdapServerMetadata = Nothing,
-      _ubrsLogs = Nothing,
-      _ubrsConfiguration = Nothing,
-      _ubrsBrokerId = Nothing,
-      _ubrsHostInstanceType = Nothing,
-      _ubrsResponseStatus = pResponseStatus_
+    { engineVersion = Lude.Nothing,
+      autoMinorVersionUpgrade = Lude.Nothing,
+      securityGroups = Lude.Nothing,
+      authenticationStrategy = Lude.Nothing,
+      ldapServerMetadata = Lude.Nothing,
+      logs = Lude.Nothing,
+      configuration = Lude.Nothing,
+      brokerId = Lude.Nothing,
+      hostInstanceType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The version of the broker engine to upgrade to. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
-ubrsEngineVersion :: Lens' UpdateBrokerResponse (Maybe Text)
-ubrsEngineVersion = lens _ubrsEngineVersion (\s a -> s {_ubrsEngineVersion = a})
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsEngineVersion :: Lens.Lens' UpdateBrokerResponse (Lude.Maybe Lude.Text)
+ubrsEngineVersion = Lens.lens (engineVersion :: UpdateBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The new value of automatic upgrades to new minor version for brokers.
-ubrsAutoMinorVersionUpgrade :: Lens' UpdateBrokerResponse (Maybe Bool)
-ubrsAutoMinorVersionUpgrade = lens _ubrsAutoMinorVersionUpgrade (\s a -> s {_ubrsAutoMinorVersionUpgrade = a})
+--
+-- /Note:/ Consider using 'autoMinorVersionUpgrade' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsAutoMinorVersionUpgrade :: Lens.Lens' UpdateBrokerResponse (Lude.Maybe Lude.Bool)
+ubrsAutoMinorVersionUpgrade = Lens.lens (autoMinorVersionUpgrade :: UpdateBrokerResponse -> Lude.Maybe Lude.Bool) (\s a -> s {autoMinorVersionUpgrade = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsAutoMinorVersionUpgrade "Use generic-lens or generic-optics with 'autoMinorVersionUpgrade' instead." #-}
 
 -- | The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
-ubrsSecurityGroups :: Lens' UpdateBrokerResponse [Text]
-ubrsSecurityGroups = lens _ubrsSecurityGroups (\s a -> s {_ubrsSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsSecurityGroups :: Lens.Lens' UpdateBrokerResponse (Lude.Maybe [Lude.Text])
+ubrsSecurityGroups = Lens.lens (securityGroups :: UpdateBrokerResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The authentication strategy used to secure the broker.
-ubrsAuthenticationStrategy :: Lens' UpdateBrokerResponse (Maybe AuthenticationStrategy)
-ubrsAuthenticationStrategy = lens _ubrsAuthenticationStrategy (\s a -> s {_ubrsAuthenticationStrategy = a})
+--
+-- /Note:/ Consider using 'authenticationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsAuthenticationStrategy :: Lens.Lens' UpdateBrokerResponse (Lude.Maybe AuthenticationStrategy)
+ubrsAuthenticationStrategy = Lens.lens (authenticationStrategy :: UpdateBrokerResponse -> Lude.Maybe AuthenticationStrategy) (\s a -> s {authenticationStrategy = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsAuthenticationStrategy "Use generic-lens or generic-optics with 'authenticationStrategy' instead." #-}
 
 -- | The metadata of the LDAP server used to authenticate and authorize connections to the broker.
-ubrsLdapServerMetadata :: Lens' UpdateBrokerResponse (Maybe LdapServerMetadataOutput)
-ubrsLdapServerMetadata = lens _ubrsLdapServerMetadata (\s a -> s {_ubrsLdapServerMetadata = a})
+--
+-- /Note:/ Consider using 'ldapServerMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsLdapServerMetadata :: Lens.Lens' UpdateBrokerResponse (Lude.Maybe LdapServerMetadataOutput)
+ubrsLdapServerMetadata = Lens.lens (ldapServerMetadata :: UpdateBrokerResponse -> Lude.Maybe LdapServerMetadataOutput) (\s a -> s {ldapServerMetadata = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsLdapServerMetadata "Use generic-lens or generic-optics with 'ldapServerMetadata' instead." #-}
 
 -- | The list of information about logs to be enabled for the specified broker.
-ubrsLogs :: Lens' UpdateBrokerResponse (Maybe Logs)
-ubrsLogs = lens _ubrsLogs (\s a -> s {_ubrsLogs = a})
+--
+-- /Note:/ Consider using 'logs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsLogs :: Lens.Lens' UpdateBrokerResponse (Lude.Maybe Logs)
+ubrsLogs = Lens.lens (logs :: UpdateBrokerResponse -> Lude.Maybe Logs) (\s a -> s {logs = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsLogs "Use generic-lens or generic-optics with 'logs' instead." #-}
 
 -- | The ID of the updated configuration.
-ubrsConfiguration :: Lens' UpdateBrokerResponse (Maybe ConfigurationId)
-ubrsConfiguration = lens _ubrsConfiguration (\s a -> s {_ubrsConfiguration = a})
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsConfiguration :: Lens.Lens' UpdateBrokerResponse (Lude.Maybe ConfigurationId)
+ubrsConfiguration = Lens.lens (configuration :: UpdateBrokerResponse -> Lude.Maybe ConfigurationId) (\s a -> s {configuration = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
 -- | Required. The unique ID that Amazon MQ generates for the broker.
-ubrsBrokerId :: Lens' UpdateBrokerResponse (Maybe Text)
-ubrsBrokerId = lens _ubrsBrokerId (\s a -> s {_ubrsBrokerId = a})
+--
+-- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsBrokerId :: Lens.Lens' UpdateBrokerResponse (Lude.Maybe Lude.Text)
+ubrsBrokerId = Lens.lens (brokerId :: UpdateBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerId = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
 -- | The host instance type of the broker to upgrade to. For a list of supported instance types, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
-ubrsHostInstanceType :: Lens' UpdateBrokerResponse (Maybe Text)
-ubrsHostInstanceType = lens _ubrsHostInstanceType (\s a -> s {_ubrsHostInstanceType = a})
+--
+-- /Note:/ Consider using 'hostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsHostInstanceType :: Lens.Lens' UpdateBrokerResponse (Lude.Maybe Lude.Text)
+ubrsHostInstanceType = Lens.lens (hostInstanceType :: UpdateBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {hostInstanceType = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsHostInstanceType "Use generic-lens or generic-optics with 'hostInstanceType' instead." #-}
 
--- | -- | The response status code.
-ubrsResponseStatus :: Lens' UpdateBrokerResponse Int
-ubrsResponseStatus = lens _ubrsResponseStatus (\s a -> s {_ubrsResponseStatus = a})
-
-instance NFData UpdateBrokerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubrsResponseStatus :: Lens.Lens' UpdateBrokerResponse Lude.Int
+ubrsResponseStatus = Lens.lens (responseStatus :: UpdateBrokerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateBrokerResponse)
+{-# DEPRECATED ubrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

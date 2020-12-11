@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Provisions the specified product.
 --
---
 -- A provisioned product is a resourced instance of a product. For example, provisioning a product based on a CloudFormation template launches a CloudFormation stack and its underlying resources. You can check the status of this request using 'DescribeRecord' .
---
 -- If the request contains a tag key with an empty list of values, there is a tag conflict for that key. Do not include conflicted keys as tags, or this causes the error "Parameter validation failed: Missing required parameter in Tags[/N/ ]:/Value/ ".
 module Network.AWS.ServiceCatalog.ProvisionProduct
-  ( -- * Creating a Request
-    provisionProduct,
-    ProvisionProduct,
+  ( -- * Creating a request
+    ProvisionProduct (..),
+    mkProvisionProduct,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ppProductName,
     ppProvisioningArtifactId,
     ppProvisioningArtifactName,
@@ -43,228 +36,292 @@ module Network.AWS.ServiceCatalog.ProvisionProduct
     ppProvisionedProductName,
     ppProvisionToken,
 
-    -- * Destructuring the Response
-    provisionProductResponse,
-    ProvisionProductResponse,
+    -- * Destructuring the response
+    ProvisionProductResponse (..),
+    mkProvisionProductResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pprsRecordDetail,
     pprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'provisionProduct' smart constructor.
+-- | /See:/ 'mkProvisionProduct' smart constructor.
 data ProvisionProduct = ProvisionProduct'
-  { _ppProductName ::
-      !(Maybe Text),
-    _ppProvisioningArtifactId :: !(Maybe Text),
-    _ppProvisioningArtifactName :: !(Maybe Text),
-    _ppNotificationARNs :: !(Maybe [Text]),
-    _ppPathName :: !(Maybe Text),
-    _ppAcceptLanguage :: !(Maybe Text),
-    _ppPathId :: !(Maybe Text),
-    _ppProvisioningParameters ::
-      !(Maybe [ProvisioningParameter]),
-    _ppProductId :: !(Maybe Text),
-    _ppTags :: !(Maybe [Tag]),
-    _ppProvisioningPreferences ::
-      !(Maybe ProvisioningPreferences),
-    _ppProvisionedProductName :: !Text,
-    _ppProvisionToken :: !Text
+  { productName ::
+      Lude.Maybe Lude.Text,
+    provisioningArtifactId :: Lude.Maybe Lude.Text,
+    provisioningArtifactName :: Lude.Maybe Lude.Text,
+    notificationARNs :: Lude.Maybe [Lude.Text],
+    pathName :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    pathId :: Lude.Maybe Lude.Text,
+    provisioningParameters ::
+      Lude.Maybe [ProvisioningParameter],
+    productId :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    provisioningPreferences ::
+      Lude.Maybe ProvisioningPreferences,
+    provisionedProductName :: Lude.Text,
+    provisionToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionProduct' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'ppProductName' - The name of the product. You must provide the name or ID, but not both.
 --
--- * 'ppProvisioningArtifactId' - The identifier of the provisioning artifact. You must provide the name or ID, but not both.
+--     * @en@ - English (default)
 --
--- * 'ppProvisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID, but not both.
 --
--- * 'ppNotificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+--     * @jp@ - Japanese
 --
--- * 'ppPathName' - The name of the path. You must provide the name or ID, but not both.
 --
--- * 'ppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+--     * @zh@ - Chinese
 --
--- * 'ppPathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' . You must provide the name or ID, but not both.
 --
--- * 'ppProvisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
---
--- * 'ppProductId' - The product identifier. You must provide the name or ID, but not both.
---
--- * 'ppTags' - One or more tags.
---
--- * 'ppProvisioningPreferences' - An object that contains information about the provisioning preferences for a stack set.
---
--- * 'ppProvisionedProductName' - A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
---
--- * 'ppProvisionToken' - An idempotency token that uniquely identifies the provisioning request.
-provisionProduct ::
-  -- | 'ppProvisionedProductName'
-  Text ->
-  -- | 'ppProvisionToken'
-  Text ->
+-- * 'notificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+-- * 'pathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' . You must provide the name or ID, but not both.
+-- * 'pathName' - The name of the path. You must provide the name or ID, but not both.
+-- * 'productId' - The product identifier. You must provide the name or ID, but not both.
+-- * 'productName' - The name of the product. You must provide the name or ID, but not both.
+-- * 'provisionToken' - An idempotency token that uniquely identifies the provisioning request.
+-- * 'provisionedProductName' - A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact. You must provide the name or ID, but not both.
+-- * 'provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID, but not both.
+-- * 'provisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
+-- * 'provisioningPreferences' - An object that contains information about the provisioning preferences for a stack set.
+-- * 'tags' - One or more tags.
+mkProvisionProduct ::
+  -- | 'provisionedProductName'
+  Lude.Text ->
+  -- | 'provisionToken'
+  Lude.Text ->
   ProvisionProduct
-provisionProduct pProvisionedProductName_ pProvisionToken_ =
+mkProvisionProduct pProvisionedProductName_ pProvisionToken_ =
   ProvisionProduct'
-    { _ppProductName = Nothing,
-      _ppProvisioningArtifactId = Nothing,
-      _ppProvisioningArtifactName = Nothing,
-      _ppNotificationARNs = Nothing,
-      _ppPathName = Nothing,
-      _ppAcceptLanguage = Nothing,
-      _ppPathId = Nothing,
-      _ppProvisioningParameters = Nothing,
-      _ppProductId = Nothing,
-      _ppTags = Nothing,
-      _ppProvisioningPreferences = Nothing,
-      _ppProvisionedProductName = pProvisionedProductName_,
-      _ppProvisionToken = pProvisionToken_
+    { productName = Lude.Nothing,
+      provisioningArtifactId = Lude.Nothing,
+      provisioningArtifactName = Lude.Nothing,
+      notificationARNs = Lude.Nothing,
+      pathName = Lude.Nothing,
+      acceptLanguage = Lude.Nothing,
+      pathId = Lude.Nothing,
+      provisioningParameters = Lude.Nothing,
+      productId = Lude.Nothing,
+      tags = Lude.Nothing,
+      provisioningPreferences = Lude.Nothing,
+      provisionedProductName = pProvisionedProductName_,
+      provisionToken = pProvisionToken_
     }
 
 -- | The name of the product. You must provide the name or ID, but not both.
-ppProductName :: Lens' ProvisionProduct (Maybe Text)
-ppProductName = lens _ppProductName (\s a -> s {_ppProductName = a})
+--
+-- /Note:/ Consider using 'productName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProductName :: Lens.Lens' ProvisionProduct (Lude.Maybe Lude.Text)
+ppProductName = Lens.lens (productName :: ProvisionProduct -> Lude.Maybe Lude.Text) (\s a -> s {productName = a} :: ProvisionProduct)
+{-# DEPRECATED ppProductName "Use generic-lens or generic-optics with 'productName' instead." #-}
 
 -- | The identifier of the provisioning artifact. You must provide the name or ID, but not both.
-ppProvisioningArtifactId :: Lens' ProvisionProduct (Maybe Text)
-ppProvisioningArtifactId = lens _ppProvisioningArtifactId (\s a -> s {_ppProvisioningArtifactId = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProvisioningArtifactId :: Lens.Lens' ProvisionProduct (Lude.Maybe Lude.Text)
+ppProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ProvisionProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ProvisionProduct)
+{-# DEPRECATED ppProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The name of the provisioning artifact. You must provide the name or ID, but not both.
-ppProvisioningArtifactName :: Lens' ProvisionProduct (Maybe Text)
-ppProvisioningArtifactName = lens _ppProvisioningArtifactName (\s a -> s {_ppProvisioningArtifactName = a})
+--
+-- /Note:/ Consider using 'provisioningArtifactName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProvisioningArtifactName :: Lens.Lens' ProvisionProduct (Lude.Maybe Lude.Text)
+ppProvisioningArtifactName = Lens.lens (provisioningArtifactName :: ProvisionProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactName = a} :: ProvisionProduct)
+{-# DEPRECATED ppProvisioningArtifactName "Use generic-lens or generic-optics with 'provisioningArtifactName' instead." #-}
 
 -- | Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-ppNotificationARNs :: Lens' ProvisionProduct [Text]
-ppNotificationARNs = lens _ppNotificationARNs (\s a -> s {_ppNotificationARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notificationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppNotificationARNs :: Lens.Lens' ProvisionProduct (Lude.Maybe [Lude.Text])
+ppNotificationARNs = Lens.lens (notificationARNs :: ProvisionProduct -> Lude.Maybe [Lude.Text]) (\s a -> s {notificationARNs = a} :: ProvisionProduct)
+{-# DEPRECATED ppNotificationARNs "Use generic-lens or generic-optics with 'notificationARNs' instead." #-}
 
 -- | The name of the path. You must provide the name or ID, but not both.
-ppPathName :: Lens' ProvisionProduct (Maybe Text)
-ppPathName = lens _ppPathName (\s a -> s {_ppPathName = a})
+--
+-- /Note:/ Consider using 'pathName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppPathName :: Lens.Lens' ProvisionProduct (Lude.Maybe Lude.Text)
+ppPathName = Lens.lens (pathName :: ProvisionProduct -> Lude.Maybe Lude.Text) (\s a -> s {pathName = a} :: ProvisionProduct)
+{-# DEPRECATED ppPathName "Use generic-lens or generic-optics with 'pathName' instead." #-}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-ppAcceptLanguage :: Lens' ProvisionProduct (Maybe Text)
-ppAcceptLanguage = lens _ppAcceptLanguage (\s a -> s {_ppAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppAcceptLanguage :: Lens.Lens' ProvisionProduct (Lude.Maybe Lude.Text)
+ppAcceptLanguage = Lens.lens (acceptLanguage :: ProvisionProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ProvisionProduct)
+{-# DEPRECATED ppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' . You must provide the name or ID, but not both.
-ppPathId :: Lens' ProvisionProduct (Maybe Text)
-ppPathId = lens _ppPathId (\s a -> s {_ppPathId = a})
+--
+-- /Note:/ Consider using 'pathId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppPathId :: Lens.Lens' ProvisionProduct (Lude.Maybe Lude.Text)
+ppPathId = Lens.lens (pathId :: ProvisionProduct -> Lude.Maybe Lude.Text) (\s a -> s {pathId = a} :: ProvisionProduct)
+{-# DEPRECATED ppPathId "Use generic-lens or generic-optics with 'pathId' instead." #-}
 
 -- | Parameters specified by the administrator that are required for provisioning the product.
-ppProvisioningParameters :: Lens' ProvisionProduct [ProvisioningParameter]
-ppProvisioningParameters = lens _ppProvisioningParameters (\s a -> s {_ppProvisioningParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'provisioningParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProvisioningParameters :: Lens.Lens' ProvisionProduct (Lude.Maybe [ProvisioningParameter])
+ppProvisioningParameters = Lens.lens (provisioningParameters :: ProvisionProduct -> Lude.Maybe [ProvisioningParameter]) (\s a -> s {provisioningParameters = a} :: ProvisionProduct)
+{-# DEPRECATED ppProvisioningParameters "Use generic-lens or generic-optics with 'provisioningParameters' instead." #-}
 
 -- | The product identifier. You must provide the name or ID, but not both.
-ppProductId :: Lens' ProvisionProduct (Maybe Text)
-ppProductId = lens _ppProductId (\s a -> s {_ppProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProductId :: Lens.Lens' ProvisionProduct (Lude.Maybe Lude.Text)
+ppProductId = Lens.lens (productId :: ProvisionProduct -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: ProvisionProduct)
+{-# DEPRECATED ppProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | One or more tags.
-ppTags :: Lens' ProvisionProduct [Tag]
-ppTags = lens _ppTags (\s a -> s {_ppTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppTags :: Lens.Lens' ProvisionProduct (Lude.Maybe [Tag])
+ppTags = Lens.lens (tags :: ProvisionProduct -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ProvisionProduct)
+{-# DEPRECATED ppTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | An object that contains information about the provisioning preferences for a stack set.
-ppProvisioningPreferences :: Lens' ProvisionProduct (Maybe ProvisioningPreferences)
-ppProvisioningPreferences = lens _ppProvisioningPreferences (\s a -> s {_ppProvisioningPreferences = a})
+--
+-- /Note:/ Consider using 'provisioningPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProvisioningPreferences :: Lens.Lens' ProvisionProduct (Lude.Maybe ProvisioningPreferences)
+ppProvisioningPreferences = Lens.lens (provisioningPreferences :: ProvisionProduct -> Lude.Maybe ProvisioningPreferences) (\s a -> s {provisioningPreferences = a} :: ProvisionProduct)
+{-# DEPRECATED ppProvisioningPreferences "Use generic-lens or generic-optics with 'provisioningPreferences' instead." #-}
 
 -- | A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
-ppProvisionedProductName :: Lens' ProvisionProduct Text
-ppProvisionedProductName = lens _ppProvisionedProductName (\s a -> s {_ppProvisionedProductName = a})
+--
+-- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProvisionedProductName :: Lens.Lens' ProvisionProduct Lude.Text
+ppProvisionedProductName = Lens.lens (provisionedProductName :: ProvisionProduct -> Lude.Text) (\s a -> s {provisionedProductName = a} :: ProvisionProduct)
+{-# DEPRECATED ppProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
 
 -- | An idempotency token that uniquely identifies the provisioning request.
-ppProvisionToken :: Lens' ProvisionProduct Text
-ppProvisionToken = lens _ppProvisionToken (\s a -> s {_ppProvisionToken = a})
+--
+-- /Note:/ Consider using 'provisionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProvisionToken :: Lens.Lens' ProvisionProduct Lude.Text
+ppProvisionToken = Lens.lens (provisionToken :: ProvisionProduct -> Lude.Text) (\s a -> s {provisionToken = a} :: ProvisionProduct)
+{-# DEPRECATED ppProvisionToken "Use generic-lens or generic-optics with 'provisionToken' instead." #-}
 
-instance AWSRequest ProvisionProduct where
+instance Lude.AWSRequest ProvisionProduct where
   type Rs ProvisionProduct = ProvisionProductResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ProvisionProductResponse'
-            <$> (x .?> "RecordDetail") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RecordDetail") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ProvisionProduct
-
-instance NFData ProvisionProduct
-
-instance ToHeaders ProvisionProduct where
+instance Lude.ToHeaders ProvisionProduct where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.ProvisionProduct" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.ProvisionProduct" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ProvisionProduct where
+instance Lude.ToJSON ProvisionProduct where
   toJSON ProvisionProduct' {..} =
-    object
-      ( catMaybes
-          [ ("ProductName" .=) <$> _ppProductName,
-            ("ProvisioningArtifactId" .=) <$> _ppProvisioningArtifactId,
-            ("ProvisioningArtifactName" .=) <$> _ppProvisioningArtifactName,
-            ("NotificationArns" .=) <$> _ppNotificationARNs,
-            ("PathName" .=) <$> _ppPathName,
-            ("AcceptLanguage" .=) <$> _ppAcceptLanguage,
-            ("PathId" .=) <$> _ppPathId,
-            ("ProvisioningParameters" .=) <$> _ppProvisioningParameters,
-            ("ProductId" .=) <$> _ppProductId,
-            ("Tags" .=) <$> _ppTags,
-            ("ProvisioningPreferences" .=) <$> _ppProvisioningPreferences,
-            Just ("ProvisionedProductName" .= _ppProvisionedProductName),
-            Just ("ProvisionToken" .= _ppProvisionToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ProductName" Lude..=) Lude.<$> productName,
+            ("ProvisioningArtifactId" Lude..=) Lude.<$> provisioningArtifactId,
+            ("ProvisioningArtifactName" Lude..=)
+              Lude.<$> provisioningArtifactName,
+            ("NotificationArns" Lude..=) Lude.<$> notificationARNs,
+            ("PathName" Lude..=) Lude.<$> pathName,
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("PathId" Lude..=) Lude.<$> pathId,
+            ("ProvisioningParameters" Lude..=) Lude.<$> provisioningParameters,
+            ("ProductId" Lude..=) Lude.<$> productId,
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("ProvisioningPreferences" Lude..=)
+              Lude.<$> provisioningPreferences,
+            Lude.Just
+              ("ProvisionedProductName" Lude..= provisionedProductName),
+            Lude.Just ("ProvisionToken" Lude..= provisionToken)
           ]
       )
 
-instance ToPath ProvisionProduct where
-  toPath = const "/"
+instance Lude.ToPath ProvisionProduct where
+  toPath = Lude.const "/"
 
-instance ToQuery ProvisionProduct where
-  toQuery = const mempty
+instance Lude.ToQuery ProvisionProduct where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'provisionProductResponse' smart constructor.
+-- | /See:/ 'mkProvisionProductResponse' smart constructor.
 data ProvisionProductResponse = ProvisionProductResponse'
-  { _pprsRecordDetail ::
-      !(Maybe RecordDetail),
-    _pprsResponseStatus :: !Int
+  { recordDetail ::
+      Lude.Maybe RecordDetail,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionProductResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pprsRecordDetail' - Information about the result of provisioning the product.
---
--- * 'pprsResponseStatus' - -- | The response status code.
-provisionProductResponse ::
-  -- | 'pprsResponseStatus'
-  Int ->
+-- * 'recordDetail' - Information about the result of provisioning the product.
+-- * 'responseStatus' - The response status code.
+mkProvisionProductResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ProvisionProductResponse
-provisionProductResponse pResponseStatus_ =
+mkProvisionProductResponse pResponseStatus_ =
   ProvisionProductResponse'
-    { _pprsRecordDetail = Nothing,
-      _pprsResponseStatus = pResponseStatus_
+    { recordDetail = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the result of provisioning the product.
-pprsRecordDetail :: Lens' ProvisionProductResponse (Maybe RecordDetail)
-pprsRecordDetail = lens _pprsRecordDetail (\s a -> s {_pprsRecordDetail = a})
+--
+-- /Note:/ Consider using 'recordDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pprsRecordDetail :: Lens.Lens' ProvisionProductResponse (Lude.Maybe RecordDetail)
+pprsRecordDetail = Lens.lens (recordDetail :: ProvisionProductResponse -> Lude.Maybe RecordDetail) (\s a -> s {recordDetail = a} :: ProvisionProductResponse)
+{-# DEPRECATED pprsRecordDetail "Use generic-lens or generic-optics with 'recordDetail' instead." #-}
 
--- | -- | The response status code.
-pprsResponseStatus :: Lens' ProvisionProductResponse Int
-pprsResponseStatus = lens _pprsResponseStatus (\s a -> s {_pprsResponseStatus = a})
-
-instance NFData ProvisionProductResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pprsResponseStatus :: Lens.Lens' ProvisionProductResponse Lude.Int
+pprsResponseStatus = Lens.lens (responseStatus :: ProvisionProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ProvisionProductResponse)
+{-# DEPRECATED pprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

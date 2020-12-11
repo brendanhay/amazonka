@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,117 @@
 --
 -- Deletes the server and the underlying AWS CloudFormation stacks (including the server's EC2 instance). When you run this command, the server state is updated to @DELETING@ . After the server is deleted, it is no longer returned by @DescribeServer@ requests. If the AWS CloudFormation stack cannot be deleted, the server cannot be deleted.
 --
---
 -- This operation is asynchronous.
---
 -- An @InvalidStateException@ is thrown when a server deletion is already in progress. A @ResourceNotFoundException@ is thrown when the server does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
 module Network.AWS.OpsWorksCM.DeleteServer
-  ( -- * Creating a Request
-    deleteServer,
-    DeleteServer,
+  ( -- * Creating a request
+    DeleteServer (..),
+    mkDeleteServer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsServerName,
 
-    -- * Destructuring the Response
-    deleteServerResponse,
-    DeleteServerResponse,
+    -- * Destructuring the response
+    DeleteServerResponse (..),
+    mkDeleteServerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteServer' smart constructor.
-newtype DeleteServer = DeleteServer' {_dsServerName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteServer' smart constructor.
+newtype DeleteServer = DeleteServer' {serverName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsServerName' - The ID of the server to delete.
-deleteServer ::
-  -- | 'dsServerName'
-  Text ->
+-- * 'serverName' - The ID of the server to delete.
+mkDeleteServer ::
+  -- | 'serverName'
+  Lude.Text ->
   DeleteServer
-deleteServer pServerName_ =
-  DeleteServer' {_dsServerName = pServerName_}
+mkDeleteServer pServerName_ =
+  DeleteServer' {serverName = pServerName_}
 
 -- | The ID of the server to delete.
-dsServerName :: Lens' DeleteServer Text
-dsServerName = lens _dsServerName (\s a -> s {_dsServerName = a})
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsServerName :: Lens.Lens' DeleteServer Lude.Text
+dsServerName = Lens.lens (serverName :: DeleteServer -> Lude.Text) (\s a -> s {serverName = a} :: DeleteServer)
+{-# DEPRECATED dsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
-instance AWSRequest DeleteServer where
+instance Lude.AWSRequest DeleteServer where
   type Rs DeleteServer = DeleteServerResponse
-  request = postJSON opsWorksCM
+  request = Req.postJSON opsWorksCMService
   response =
-    receiveEmpty
-      (\s h x -> DeleteServerResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteServerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteServer
-
-instance NFData DeleteServer
-
-instance ToHeaders DeleteServer where
+instance Lude.ToHeaders DeleteServer where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorksCM_V2016_11_01.DeleteServer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorksCM_V2016_11_01.DeleteServer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteServer where
+instance Lude.ToJSON DeleteServer where
   toJSON DeleteServer' {..} =
-    object (catMaybes [Just ("ServerName" .= _dsServerName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ServerName" Lude..= serverName)])
 
-instance ToPath DeleteServer where
-  toPath = const "/"
+instance Lude.ToPath DeleteServer where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteServer where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteServer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteServerResponse' smart constructor.
+-- | /See:/ 'mkDeleteServerResponse' smart constructor.
 newtype DeleteServerResponse = DeleteServerResponse'
-  { _dsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteServerResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteServerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteServerResponse
-deleteServerResponse pResponseStatus_ =
-  DeleteServerResponse' {_dsrsResponseStatus = pResponseStatus_}
+mkDeleteServerResponse pResponseStatus_ =
+  DeleteServerResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteServerResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DeleteServerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DeleteServerResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DeleteServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServerResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

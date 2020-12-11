@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.QueryExecutionStatus where
+module Network.AWS.Athena.Types.QueryExecutionStatus
+  ( QueryExecutionStatus (..),
+
+    -- * Smart constructor
+    mkQueryExecutionStatus,
+
+    -- * Lenses
+    qesState,
+    qesStateChangeReason,
+    qesSubmissionDateTime,
+    qesCompletionDateTime,
+  )
+where
 
 import Network.AWS.Athena.Types.QueryExecutionState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The completion date, current state, submission time, and state change reason (if applicable) for the query execution.
 --
---
---
--- /See:/ 'queryExecutionStatus' smart constructor.
+-- /See:/ 'mkQueryExecutionStatus' smart constructor.
 data QueryExecutionStatus = QueryExecutionStatus'
-  { _qesState ::
-      !(Maybe QueryExecutionState),
-    _qesStateChangeReason :: !(Maybe Text),
-    _qesSubmissionDateTime :: !(Maybe POSIX),
-    _qesCompletionDateTime :: !(Maybe POSIX)
+  { state ::
+      Lude.Maybe QueryExecutionState,
+    stateChangeReason :: Lude.Maybe Lude.Text,
+    submissionDateTime :: Lude.Maybe Lude.Timestamp,
+    completionDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryExecutionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qesState' - The state of query execution. @QUEUED@ indicates that the query has been submitted to the service, and Athena will execute the query as soon as resources are available. @RUNNING@ indicates that the query is in execution phase. @SUCCEEDED@ indicates that the query completed without errors. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that a user input interrupted query execution.
---
--- * 'qesStateChangeReason' - Further detail about the status of the query.
---
--- * 'qesSubmissionDateTime' - The date and time that the query was submitted.
---
--- * 'qesCompletionDateTime' - The date and time that the query completed.
-queryExecutionStatus ::
+-- * 'completionDateTime' - The date and time that the query completed.
+-- * 'state' - The state of query execution. @QUEUED@ indicates that the query has been submitted to the service, and Athena will execute the query as soon as resources are available. @RUNNING@ indicates that the query is in execution phase. @SUCCEEDED@ indicates that the query completed without errors. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that a user input interrupted query execution.
+-- * 'stateChangeReason' - Further detail about the status of the query.
+-- * 'submissionDateTime' - The date and time that the query was submitted.
+mkQueryExecutionStatus ::
   QueryExecutionStatus
-queryExecutionStatus =
+mkQueryExecutionStatus =
   QueryExecutionStatus'
-    { _qesState = Nothing,
-      _qesStateChangeReason = Nothing,
-      _qesSubmissionDateTime = Nothing,
-      _qesCompletionDateTime = Nothing
+    { state = Lude.Nothing,
+      stateChangeReason = Lude.Nothing,
+      submissionDateTime = Lude.Nothing,
+      completionDateTime = Lude.Nothing
     }
 
 -- | The state of query execution. @QUEUED@ indicates that the query has been submitted to the service, and Athena will execute the query as soon as resources are available. @RUNNING@ indicates that the query is in execution phase. @SUCCEEDED@ indicates that the query completed without errors. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that a user input interrupted query execution.
-qesState :: Lens' QueryExecutionStatus (Maybe QueryExecutionState)
-qesState = lens _qesState (\s a -> s {_qesState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qesState :: Lens.Lens' QueryExecutionStatus (Lude.Maybe QueryExecutionState)
+qesState = Lens.lens (state :: QueryExecutionStatus -> Lude.Maybe QueryExecutionState) (\s a -> s {state = a} :: QueryExecutionStatus)
+{-# DEPRECATED qesState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Further detail about the status of the query.
-qesStateChangeReason :: Lens' QueryExecutionStatus (Maybe Text)
-qesStateChangeReason = lens _qesStateChangeReason (\s a -> s {_qesStateChangeReason = a})
+--
+-- /Note:/ Consider using 'stateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qesStateChangeReason :: Lens.Lens' QueryExecutionStatus (Lude.Maybe Lude.Text)
+qesStateChangeReason = Lens.lens (stateChangeReason :: QueryExecutionStatus -> Lude.Maybe Lude.Text) (\s a -> s {stateChangeReason = a} :: QueryExecutionStatus)
+{-# DEPRECATED qesStateChangeReason "Use generic-lens or generic-optics with 'stateChangeReason' instead." #-}
 
 -- | The date and time that the query was submitted.
-qesSubmissionDateTime :: Lens' QueryExecutionStatus (Maybe UTCTime)
-qesSubmissionDateTime = lens _qesSubmissionDateTime (\s a -> s {_qesSubmissionDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'submissionDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qesSubmissionDateTime :: Lens.Lens' QueryExecutionStatus (Lude.Maybe Lude.Timestamp)
+qesSubmissionDateTime = Lens.lens (submissionDateTime :: QueryExecutionStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {submissionDateTime = a} :: QueryExecutionStatus)
+{-# DEPRECATED qesSubmissionDateTime "Use generic-lens or generic-optics with 'submissionDateTime' instead." #-}
 
 -- | The date and time that the query completed.
-qesCompletionDateTime :: Lens' QueryExecutionStatus (Maybe UTCTime)
-qesCompletionDateTime = lens _qesCompletionDateTime (\s a -> s {_qesCompletionDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'completionDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qesCompletionDateTime :: Lens.Lens' QueryExecutionStatus (Lude.Maybe Lude.Timestamp)
+qesCompletionDateTime = Lens.lens (completionDateTime :: QueryExecutionStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {completionDateTime = a} :: QueryExecutionStatus)
+{-# DEPRECATED qesCompletionDateTime "Use generic-lens or generic-optics with 'completionDateTime' instead." #-}
 
-instance FromJSON QueryExecutionStatus where
+instance Lude.FromJSON QueryExecutionStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "QueryExecutionStatus"
       ( \x ->
           QueryExecutionStatus'
-            <$> (x .:? "State")
-            <*> (x .:? "StateChangeReason")
-            <*> (x .:? "SubmissionDateTime")
-            <*> (x .:? "CompletionDateTime")
+            Lude.<$> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "StateChangeReason")
+            Lude.<*> (x Lude..:? "SubmissionDateTime")
+            Lude.<*> (x Lude..:? "CompletionDateTime")
       )
-
-instance Hashable QueryExecutionStatus
-
-instance NFData QueryExecutionStatus

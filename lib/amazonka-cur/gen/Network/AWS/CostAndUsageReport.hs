@@ -13,17 +13,14 @@
 --
 -- The AWS Cost and Usage Report API enables you to programmatically create, query, and delete AWS Cost and Usage report definitions.
 --
---
 -- AWS Cost and Usage reports track the monthly AWS costs and usage associated with your AWS account. The report contains line items for each unique combination of AWS product, usage type, and operation that your AWS account uses. You can configure the AWS Cost and Usage report to show only the data that you want, using the AWS Cost and Usage API.
---
 -- Service Endpoint
---
 -- The AWS Cost and Usage Report API provides the following endpoint:
 --
 --     * cur.us-east-1.amazonaws.com
 module Network.AWS.CostAndUsageReport
-  ( -- * Service Configuration
-    costAndUsageReport,
+  ( -- * Service configuration
+    costAndUsageReportService,
 
     -- * Errors
     -- $errors
@@ -70,8 +67,8 @@ module Network.AWS.CostAndUsageReport
     TimeUnit (..),
 
     -- ** ReportDefinition
-    ReportDefinition,
-    reportDefinition,
+    ReportDefinition (..),
+    mkReportDefinition,
     rdReportVersioning,
     rdAdditionalArtifacts,
     rdRefreshClosedReports,
@@ -83,6 +80,17 @@ module Network.AWS.CostAndUsageReport
     rdS3Bucket,
     rdS3Prefix,
     rdS3Region,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -92,6 +100,7 @@ import Network.AWS.CostAndUsageReport.ModifyReportDefinition
 import Network.AWS.CostAndUsageReport.PutReportDefinition
 import Network.AWS.CostAndUsageReport.Types
 import Network.AWS.CostAndUsageReport.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

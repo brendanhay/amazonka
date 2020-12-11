@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,105 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SpotDatafeedSubscription where
+module Network.AWS.EC2.Types.SpotDatafeedSubscription
+  ( SpotDatafeedSubscription (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSpotDatafeedSubscription,
+
+    -- * Lenses
+    sdsState,
+    sdsPrefix,
+    sdsBucket,
+    sdsOwnerId,
+    sdsFault,
+  )
+where
+
 import Network.AWS.EC2.Types.DatafeedSubscriptionState
 import Network.AWS.EC2.Types.SpotInstanceStateFault
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the data feed for a Spot Instance.
 --
---
---
--- /See:/ 'spotDatafeedSubscription' smart constructor.
+-- /See:/ 'mkSpotDatafeedSubscription' smart constructor.
 data SpotDatafeedSubscription = SpotDatafeedSubscription'
-  { _sdsState ::
-      !(Maybe DatafeedSubscriptionState),
-    _sdsPrefix :: !(Maybe Text),
-    _sdsBucket :: !(Maybe Text),
-    _sdsOwnerId :: !(Maybe Text),
-    _sdsFault ::
-      !(Maybe SpotInstanceStateFault)
+  { state ::
+      Lude.Maybe DatafeedSubscriptionState,
+    prefix :: Lude.Maybe Lude.Text,
+    bucket :: Lude.Maybe Lude.Text,
+    ownerId :: Lude.Maybe Lude.Text,
+    fault ::
+      Lude.Maybe SpotInstanceStateFault
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotDatafeedSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdsState' - The state of the Spot Instance data feed subscription.
---
--- * 'sdsPrefix' - The prefix for the data feed files.
---
--- * 'sdsBucket' - The name of the Amazon S3 bucket where the Spot Instance data feed is located.
---
--- * 'sdsOwnerId' - The AWS account ID of the account.
---
--- * 'sdsFault' - The fault codes for the Spot Instance request, if any.
-spotDatafeedSubscription ::
+-- * 'bucket' - The name of the Amazon S3 bucket where the Spot Instance data feed is located.
+-- * 'fault' - The fault codes for the Spot Instance request, if any.
+-- * 'ownerId' - The AWS account ID of the account.
+-- * 'prefix' - The prefix for the data feed files.
+-- * 'state' - The state of the Spot Instance data feed subscription.
+mkSpotDatafeedSubscription ::
   SpotDatafeedSubscription
-spotDatafeedSubscription =
+mkSpotDatafeedSubscription =
   SpotDatafeedSubscription'
-    { _sdsState = Nothing,
-      _sdsPrefix = Nothing,
-      _sdsBucket = Nothing,
-      _sdsOwnerId = Nothing,
-      _sdsFault = Nothing
+    { state = Lude.Nothing,
+      prefix = Lude.Nothing,
+      bucket = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      fault = Lude.Nothing
     }
 
 -- | The state of the Spot Instance data feed subscription.
-sdsState :: Lens' SpotDatafeedSubscription (Maybe DatafeedSubscriptionState)
-sdsState = lens _sdsState (\s a -> s {_sdsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsState :: Lens.Lens' SpotDatafeedSubscription (Lude.Maybe DatafeedSubscriptionState)
+sdsState = Lens.lens (state :: SpotDatafeedSubscription -> Lude.Maybe DatafeedSubscriptionState) (\s a -> s {state = a} :: SpotDatafeedSubscription)
+{-# DEPRECATED sdsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The prefix for the data feed files.
-sdsPrefix :: Lens' SpotDatafeedSubscription (Maybe Text)
-sdsPrefix = lens _sdsPrefix (\s a -> s {_sdsPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsPrefix :: Lens.Lens' SpotDatafeedSubscription (Lude.Maybe Lude.Text)
+sdsPrefix = Lens.lens (prefix :: SpotDatafeedSubscription -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: SpotDatafeedSubscription)
+{-# DEPRECATED sdsPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | The name of the Amazon S3 bucket where the Spot Instance data feed is located.
-sdsBucket :: Lens' SpotDatafeedSubscription (Maybe Text)
-sdsBucket = lens _sdsBucket (\s a -> s {_sdsBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsBucket :: Lens.Lens' SpotDatafeedSubscription (Lude.Maybe Lude.Text)
+sdsBucket = Lens.lens (bucket :: SpotDatafeedSubscription -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: SpotDatafeedSubscription)
+{-# DEPRECATED sdsBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The AWS account ID of the account.
-sdsOwnerId :: Lens' SpotDatafeedSubscription (Maybe Text)
-sdsOwnerId = lens _sdsOwnerId (\s a -> s {_sdsOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsOwnerId :: Lens.Lens' SpotDatafeedSubscription (Lude.Maybe Lude.Text)
+sdsOwnerId = Lens.lens (ownerId :: SpotDatafeedSubscription -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: SpotDatafeedSubscription)
+{-# DEPRECATED sdsOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The fault codes for the Spot Instance request, if any.
-sdsFault :: Lens' SpotDatafeedSubscription (Maybe SpotInstanceStateFault)
-sdsFault = lens _sdsFault (\s a -> s {_sdsFault = a})
+--
+-- /Note:/ Consider using 'fault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsFault :: Lens.Lens' SpotDatafeedSubscription (Lude.Maybe SpotInstanceStateFault)
+sdsFault = Lens.lens (fault :: SpotDatafeedSubscription -> Lude.Maybe SpotInstanceStateFault) (\s a -> s {fault = a} :: SpotDatafeedSubscription)
+{-# DEPRECATED sdsFault "Use generic-lens or generic-optics with 'fault' instead." #-}
 
-instance FromXML SpotDatafeedSubscription where
+instance Lude.FromXML SpotDatafeedSubscription where
   parseXML x =
     SpotDatafeedSubscription'
-      <$> (x .@? "state")
-      <*> (x .@? "prefix")
-      <*> (x .@? "bucket")
-      <*> (x .@? "ownerId")
-      <*> (x .@? "fault")
-
-instance Hashable SpotDatafeedSubscription
-
-instance NFData SpotDatafeedSubscription
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> (x Lude..@? "prefix")
+      Lude.<*> (x Lude..@? "bucket")
+      Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> (x Lude..@? "fault")

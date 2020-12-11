@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings where
+module Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings
+  ( MultiplexStatmuxVideoSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMultiplexStatmuxVideoSettings,
+
+    -- * Lenses
+    msvsPriority,
+    msvsMinimumBitrate,
+    msvsMaximumBitrate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Statmux rate control settings
 --
--- /See:/ 'multiplexStatmuxVideoSettings' smart constructor.
+-- /See:/ 'mkMultiplexStatmuxVideoSettings' smart constructor.
 data MultiplexStatmuxVideoSettings = MultiplexStatmuxVideoSettings'
-  { _msvsPriority ::
-      !(Maybe Int),
-    _msvsMinimumBitrate ::
-      !(Maybe Nat),
-    _msvsMaximumBitrate ::
-      !(Maybe Nat)
+  { priority ::
+      Lude.Maybe Lude.Int,
+    minimumBitrate ::
+      Lude.Maybe Lude.Natural,
+    maximumBitrate ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexStatmuxVideoSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msvsPriority' - The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
---
--- * 'msvsMinimumBitrate' - Minimum statmux bitrate.
---
--- * 'msvsMaximumBitrate' - Maximum statmux bitrate.
-multiplexStatmuxVideoSettings ::
+-- * 'maximumBitrate' - Maximum statmux bitrate.
+-- * 'minimumBitrate' - Minimum statmux bitrate.
+-- * 'priority' - The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+mkMultiplexStatmuxVideoSettings ::
   MultiplexStatmuxVideoSettings
-multiplexStatmuxVideoSettings =
+mkMultiplexStatmuxVideoSettings =
   MultiplexStatmuxVideoSettings'
-    { _msvsPriority = Nothing,
-      _msvsMinimumBitrate = Nothing,
-      _msvsMaximumBitrate = Nothing
+    { priority = Lude.Nothing,
+      minimumBitrate = Lude.Nothing,
+      maximumBitrate = Lude.Nothing
     }
 
 -- | The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
-msvsPriority :: Lens' MultiplexStatmuxVideoSettings (Maybe Int)
-msvsPriority = lens _msvsPriority (\s a -> s {_msvsPriority = a})
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msvsPriority :: Lens.Lens' MultiplexStatmuxVideoSettings (Lude.Maybe Lude.Int)
+msvsPriority = Lens.lens (priority :: MultiplexStatmuxVideoSettings -> Lude.Maybe Lude.Int) (\s a -> s {priority = a} :: MultiplexStatmuxVideoSettings)
+{-# DEPRECATED msvsPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | Minimum statmux bitrate.
-msvsMinimumBitrate :: Lens' MultiplexStatmuxVideoSettings (Maybe Natural)
-msvsMinimumBitrate = lens _msvsMinimumBitrate (\s a -> s {_msvsMinimumBitrate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'minimumBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msvsMinimumBitrate :: Lens.Lens' MultiplexStatmuxVideoSettings (Lude.Maybe Lude.Natural)
+msvsMinimumBitrate = Lens.lens (minimumBitrate :: MultiplexStatmuxVideoSettings -> Lude.Maybe Lude.Natural) (\s a -> s {minimumBitrate = a} :: MultiplexStatmuxVideoSettings)
+{-# DEPRECATED msvsMinimumBitrate "Use generic-lens or generic-optics with 'minimumBitrate' instead." #-}
 
 -- | Maximum statmux bitrate.
-msvsMaximumBitrate :: Lens' MultiplexStatmuxVideoSettings (Maybe Natural)
-msvsMaximumBitrate = lens _msvsMaximumBitrate (\s a -> s {_msvsMaximumBitrate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maximumBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msvsMaximumBitrate :: Lens.Lens' MultiplexStatmuxVideoSettings (Lude.Maybe Lude.Natural)
+msvsMaximumBitrate = Lens.lens (maximumBitrate :: MultiplexStatmuxVideoSettings -> Lude.Maybe Lude.Natural) (\s a -> s {maximumBitrate = a} :: MultiplexStatmuxVideoSettings)
+{-# DEPRECATED msvsMaximumBitrate "Use generic-lens or generic-optics with 'maximumBitrate' instead." #-}
 
-instance FromJSON MultiplexStatmuxVideoSettings where
+instance Lude.FromJSON MultiplexStatmuxVideoSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "MultiplexStatmuxVideoSettings"
       ( \x ->
           MultiplexStatmuxVideoSettings'
-            <$> (x .:? "priority")
-            <*> (x .:? "minimumBitrate")
-            <*> (x .:? "maximumBitrate")
+            Lude.<$> (x Lude..:? "priority")
+            Lude.<*> (x Lude..:? "minimumBitrate")
+            Lude.<*> (x Lude..:? "maximumBitrate")
       )
 
-instance Hashable MultiplexStatmuxVideoSettings
-
-instance NFData MultiplexStatmuxVideoSettings
-
-instance ToJSON MultiplexStatmuxVideoSettings where
+instance Lude.ToJSON MultiplexStatmuxVideoSettings where
   toJSON MultiplexStatmuxVideoSettings' {..} =
-    object
-      ( catMaybes
-          [ ("priority" .=) <$> _msvsPriority,
-            ("minimumBitrate" .=) <$> _msvsMinimumBitrate,
-            ("maximumBitrate" .=) <$> _msvsMaximumBitrate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("priority" Lude..=) Lude.<$> priority,
+            ("minimumBitrate" Lude..=) Lude.<$> minimumBitrate,
+            ("maximumBitrate" Lude..=) Lude.<$> maximumBitrate
           ]
       )

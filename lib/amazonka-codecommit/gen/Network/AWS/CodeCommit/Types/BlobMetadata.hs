@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.BlobMetadata where
+module Network.AWS.CodeCommit.Types.BlobMetadata
+  ( BlobMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBlobMetadata,
+
+    -- * Lenses
+    bmPath,
+    bmMode,
+    bmBlobId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about a specific Git blob object.
 --
---
---
--- /See:/ 'blobMetadata' smart constructor.
+-- /See:/ 'mkBlobMetadata' smart constructor.
 data BlobMetadata = BlobMetadata'
-  { _bmPath :: !(Maybe Text),
-    _bmMode :: !(Maybe Text),
-    _bmBlobId :: !(Maybe Text)
+  { path :: Lude.Maybe Lude.Text,
+    mode :: Lude.Maybe Lude.Text,
+    blobId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlobMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'blobId' - The full ID of the blob.
+-- * 'mode' - The file mode permissions of the blob. File mode permission codes include:
 --
--- * 'bmPath' - The path to the blob and associated file name, if any.
 --
--- * 'bmMode' - The file mode permissions of the blob. File mode permission codes include:     * @100644@ indicates read/write     * @100755@ indicates read/write/execute     * @160000@ indicates a submodule     * @120000@ indicates a symlink
+--     * @100644@ indicates read/write
 --
--- * 'bmBlobId' - The full ID of the blob.
-blobMetadata ::
+--
+--     * @100755@ indicates read/write/execute
+--
+--
+--     * @160000@ indicates a submodule
+--
+--
+--     * @120000@ indicates a symlink
+--
+--
+-- * 'path' - The path to the blob and associated file name, if any.
+mkBlobMetadata ::
   BlobMetadata
-blobMetadata =
+mkBlobMetadata =
   BlobMetadata'
-    { _bmPath = Nothing,
-      _bmMode = Nothing,
-      _bmBlobId = Nothing
+    { path = Lude.Nothing,
+      mode = Lude.Nothing,
+      blobId = Lude.Nothing
     }
 
 -- | The path to the blob and associated file name, if any.
-bmPath :: Lens' BlobMetadata (Maybe Text)
-bmPath = lens _bmPath (\s a -> s {_bmPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmPath :: Lens.Lens' BlobMetadata (Lude.Maybe Lude.Text)
+bmPath = Lens.lens (path :: BlobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: BlobMetadata)
+{-# DEPRECATED bmPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
--- | The file mode permissions of the blob. File mode permission codes include:     * @100644@ indicates read/write     * @100755@ indicates read/write/execute     * @160000@ indicates a submodule     * @120000@ indicates a symlink
-bmMode :: Lens' BlobMetadata (Maybe Text)
-bmMode = lens _bmMode (\s a -> s {_bmMode = a})
+-- | The file mode permissions of the blob. File mode permission codes include:
+--
+--
+--     * @100644@ indicates read/write
+--
+--
+--     * @100755@ indicates read/write/execute
+--
+--
+--     * @160000@ indicates a submodule
+--
+--
+--     * @120000@ indicates a symlink
+--
+--
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmMode :: Lens.Lens' BlobMetadata (Lude.Maybe Lude.Text)
+bmMode = Lens.lens (mode :: BlobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {mode = a} :: BlobMetadata)
+{-# DEPRECATED bmMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
 -- | The full ID of the blob.
-bmBlobId :: Lens' BlobMetadata (Maybe Text)
-bmBlobId = lens _bmBlobId (\s a -> s {_bmBlobId = a})
+--
+-- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmBlobId :: Lens.Lens' BlobMetadata (Lude.Maybe Lude.Text)
+bmBlobId = Lens.lens (blobId :: BlobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {blobId = a} :: BlobMetadata)
+{-# DEPRECATED bmBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
 
-instance FromJSON BlobMetadata where
+instance Lude.FromJSON BlobMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "BlobMetadata"
       ( \x ->
           BlobMetadata'
-            <$> (x .:? "path") <*> (x .:? "mode") <*> (x .:? "blobId")
+            Lude.<$> (x Lude..:? "path")
+            Lude.<*> (x Lude..:? "mode")
+            Lude.<*> (x Lude..:? "blobId")
       )
-
-instance Hashable BlobMetadata
-
-instance NFData BlobMetadata

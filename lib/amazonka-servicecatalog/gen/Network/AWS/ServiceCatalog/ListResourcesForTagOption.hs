@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,184 +14,221 @@
 --
 -- Lists the resources associated with the specified TagOption.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListResourcesForTagOption
-  ( -- * Creating a Request
-    listResourcesForTagOption,
-    ListResourcesForTagOption,
+  ( -- * Creating a request
+    ListResourcesForTagOption (..),
+    mkListResourcesForTagOption,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrftoResourceType,
     lrftoPageToken,
     lrftoPageSize,
     lrftoTagOptionId,
 
-    -- * Destructuring the Response
-    listResourcesForTagOptionResponse,
-    ListResourcesForTagOptionResponse,
+    -- * Destructuring the response
+    ListResourcesForTagOptionResponse (..),
+    mkListResourcesForTagOptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrftorsResourceDetails,
     lrftorsPageToken,
     lrftorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'listResourcesForTagOption' smart constructor.
+-- | /See:/ 'mkListResourcesForTagOption' smart constructor.
 data ListResourcesForTagOption = ListResourcesForTagOption'
-  { _lrftoResourceType ::
-      !(Maybe Text),
-    _lrftoPageToken :: !(Maybe Text),
-    _lrftoPageSize :: !(Maybe Nat),
-    _lrftoTagOptionId :: !Text
+  { resourceType ::
+      Lude.Maybe Lude.Text,
+    pageToken :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Natural,
+    tagOptionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesForTagOption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'pageSize' - The maximum number of items to return with this call.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'resourceType' - The resource type.
 --
--- * 'lrftoResourceType' - The resource type.     * @Portfolio@      * @Product@
 --
--- * 'lrftoPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+--     * @Portfolio@
 --
--- * 'lrftoPageSize' - The maximum number of items to return with this call.
 --
--- * 'lrftoTagOptionId' - The TagOption identifier.
-listResourcesForTagOption ::
-  -- | 'lrftoTagOptionId'
-  Text ->
+--     * @Product@
+--
+--
+-- * 'tagOptionId' - The TagOption identifier.
+mkListResourcesForTagOption ::
+  -- | 'tagOptionId'
+  Lude.Text ->
   ListResourcesForTagOption
-listResourcesForTagOption pTagOptionId_ =
+mkListResourcesForTagOption pTagOptionId_ =
   ListResourcesForTagOption'
-    { _lrftoResourceType = Nothing,
-      _lrftoPageToken = Nothing,
-      _lrftoPageSize = Nothing,
-      _lrftoTagOptionId = pTagOptionId_
+    { resourceType = Lude.Nothing,
+      pageToken = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      tagOptionId = pTagOptionId_
     }
 
--- | The resource type.     * @Portfolio@      * @Product@
-lrftoResourceType :: Lens' ListResourcesForTagOption (Maybe Text)
-lrftoResourceType = lens _lrftoResourceType (\s a -> s {_lrftoResourceType = a})
+-- | The resource type.
+--
+--
+--     * @Portfolio@
+--
+--
+--     * @Product@
+--
+--
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrftoResourceType :: Lens.Lens' ListResourcesForTagOption (Lude.Maybe Lude.Text)
+lrftoResourceType = Lens.lens (resourceType :: ListResourcesForTagOption -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ListResourcesForTagOption)
+{-# DEPRECATED lrftoResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-lrftoPageToken :: Lens' ListResourcesForTagOption (Maybe Text)
-lrftoPageToken = lens _lrftoPageToken (\s a -> s {_lrftoPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrftoPageToken :: Lens.Lens' ListResourcesForTagOption (Lude.Maybe Lude.Text)
+lrftoPageToken = Lens.lens (pageToken :: ListResourcesForTagOption -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListResourcesForTagOption)
+{-# DEPRECATED lrftoPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
-lrftoPageSize :: Lens' ListResourcesForTagOption (Maybe Natural)
-lrftoPageSize = lens _lrftoPageSize (\s a -> s {_lrftoPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrftoPageSize :: Lens.Lens' ListResourcesForTagOption (Lude.Maybe Lude.Natural)
+lrftoPageSize = Lens.lens (pageSize :: ListResourcesForTagOption -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListResourcesForTagOption)
+{-# DEPRECATED lrftoPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The TagOption identifier.
-lrftoTagOptionId :: Lens' ListResourcesForTagOption Text
-lrftoTagOptionId = lens _lrftoTagOptionId (\s a -> s {_lrftoTagOptionId = a})
+--
+-- /Note:/ Consider using 'tagOptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrftoTagOptionId :: Lens.Lens' ListResourcesForTagOption Lude.Text
+lrftoTagOptionId = Lens.lens (tagOptionId :: ListResourcesForTagOption -> Lude.Text) (\s a -> s {tagOptionId = a} :: ListResourcesForTagOption)
+{-# DEPRECATED lrftoTagOptionId "Use generic-lens or generic-optics with 'tagOptionId' instead." #-}
 
-instance AWSPager ListResourcesForTagOption where
+instance Page.AWSPager ListResourcesForTagOption where
   page rq rs
-    | stop (rs ^. lrftorsPageToken) = Nothing
-    | stop (rs ^. lrftorsResourceDetails) = Nothing
-    | otherwise = Just $ rq & lrftoPageToken .~ rs ^. lrftorsPageToken
+    | Page.stop (rs Lens.^. lrftorsPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrftorsResourceDetails) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lrftoPageToken Lens..~ rs Lens.^. lrftorsPageToken
 
-instance AWSRequest ListResourcesForTagOption where
+instance Lude.AWSRequest ListResourcesForTagOption where
   type
     Rs ListResourcesForTagOption =
       ListResourcesForTagOptionResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListResourcesForTagOptionResponse'
-            <$> (x .?> "ResourceDetails" .!@ mempty)
-            <*> (x .?> "PageToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ResourceDetails" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "PageToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListResourcesForTagOption
-
-instance NFData ListResourcesForTagOption
-
-instance ToHeaders ListResourcesForTagOption where
+instance Lude.ToHeaders ListResourcesForTagOption where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.ListResourcesForTagOption" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.ListResourcesForTagOption" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListResourcesForTagOption where
+instance Lude.ToJSON ListResourcesForTagOption where
   toJSON ListResourcesForTagOption' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceType" .=) <$> _lrftoResourceType,
-            ("PageToken" .=) <$> _lrftoPageToken,
-            ("PageSize" .=) <$> _lrftoPageSize,
-            Just ("TagOptionId" .= _lrftoTagOptionId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceType" Lude..=) Lude.<$> resourceType,
+            ("PageToken" Lude..=) Lude.<$> pageToken,
+            ("PageSize" Lude..=) Lude.<$> pageSize,
+            Lude.Just ("TagOptionId" Lude..= tagOptionId)
           ]
       )
 
-instance ToPath ListResourcesForTagOption where
-  toPath = const "/"
+instance Lude.ToPath ListResourcesForTagOption where
+  toPath = Lude.const "/"
 
-instance ToQuery ListResourcesForTagOption where
-  toQuery = const mempty
+instance Lude.ToQuery ListResourcesForTagOption where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listResourcesForTagOptionResponse' smart constructor.
+-- | /See:/ 'mkListResourcesForTagOptionResponse' smart constructor.
 data ListResourcesForTagOptionResponse = ListResourcesForTagOptionResponse'
-  { _lrftorsResourceDetails ::
-      !( Maybe
-           [ResourceDetail]
-       ),
-    _lrftorsPageToken ::
-      !(Maybe Text),
-    _lrftorsResponseStatus ::
-      !Int
+  { resourceDetails ::
+      Lude.Maybe
+        [ResourceDetail],
+    pageToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesForTagOptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrftorsResourceDetails' - Information about the resources.
---
--- * 'lrftorsPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
---
--- * 'lrftorsResponseStatus' - -- | The response status code.
-listResourcesForTagOptionResponse ::
-  -- | 'lrftorsResponseStatus'
-  Int ->
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'resourceDetails' - Information about the resources.
+-- * 'responseStatus' - The response status code.
+mkListResourcesForTagOptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListResourcesForTagOptionResponse
-listResourcesForTagOptionResponse pResponseStatus_ =
+mkListResourcesForTagOptionResponse pResponseStatus_ =
   ListResourcesForTagOptionResponse'
-    { _lrftorsResourceDetails =
-        Nothing,
-      _lrftorsPageToken = Nothing,
-      _lrftorsResponseStatus = pResponseStatus_
+    { resourceDetails =
+        Lude.Nothing,
+      pageToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the resources.
-lrftorsResourceDetails :: Lens' ListResourcesForTagOptionResponse [ResourceDetail]
-lrftorsResourceDetails = lens _lrftorsResourceDetails (\s a -> s {_lrftorsResourceDetails = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resourceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrftorsResourceDetails :: Lens.Lens' ListResourcesForTagOptionResponse (Lude.Maybe [ResourceDetail])
+lrftorsResourceDetails = Lens.lens (resourceDetails :: ListResourcesForTagOptionResponse -> Lude.Maybe [ResourceDetail]) (\s a -> s {resourceDetails = a} :: ListResourcesForTagOptionResponse)
+{-# DEPRECATED lrftorsResourceDetails "Use generic-lens or generic-optics with 'resourceDetails' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-lrftorsPageToken :: Lens' ListResourcesForTagOptionResponse (Maybe Text)
-lrftorsPageToken = lens _lrftorsPageToken (\s a -> s {_lrftorsPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrftorsPageToken :: Lens.Lens' ListResourcesForTagOptionResponse (Lude.Maybe Lude.Text)
+lrftorsPageToken = Lens.lens (pageToken :: ListResourcesForTagOptionResponse -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListResourcesForTagOptionResponse)
+{-# DEPRECATED lrftorsPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
--- | -- | The response status code.
-lrftorsResponseStatus :: Lens' ListResourcesForTagOptionResponse Int
-lrftorsResponseStatus = lens _lrftorsResponseStatus (\s a -> s {_lrftorsResponseStatus = a})
-
-instance NFData ListResourcesForTagOptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrftorsResponseStatus :: Lens.Lens' ListResourcesForTagOptionResponse Lude.Int
+lrftorsResponseStatus = Lens.lens (responseStatus :: ListResourcesForTagOptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResourcesForTagOptionResponse)
+{-# DEPRECATED lrftorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

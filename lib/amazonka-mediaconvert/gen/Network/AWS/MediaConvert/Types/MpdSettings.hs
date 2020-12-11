@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,99 +7,125 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.MpdSettings where
+module Network.AWS.MediaConvert.Types.MpdSettings
+  ( MpdSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMpdSettings,
+
+    -- * Lenses
+    mpdScte35Esam,
+    mpdAudioDuration,
+    mpdScte35Source,
+    mpdAccessibilityCaptionHints,
+    mpdCaptionContainerType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints
 import Network.AWS.MediaConvert.Types.MpdAudioDuration
 import Network.AWS.MediaConvert.Types.MpdCaptionContainerType
 import Network.AWS.MediaConvert.Types.MpdScte35Esam
 import Network.AWS.MediaConvert.Types.MpdScte35Source
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings for MP4 segments in DASH
 --
--- /See:/ 'mpdSettings' smart constructor.
+-- /See:/ 'mkMpdSettings' smart constructor.
 data MpdSettings = MpdSettings'
-  { _mpdScte35Esam ::
-      !(Maybe MpdScte35Esam),
-    _mpdAudioDuration :: !(Maybe MpdAudioDuration),
-    _mpdScte35Source :: !(Maybe MpdScte35Source),
-    _mpdAccessibilityCaptionHints ::
-      !(Maybe MpdAccessibilityCaptionHints),
-    _mpdCaptionContainerType :: !(Maybe MpdCaptionContainerType)
+  { scte35Esam ::
+      Lude.Maybe MpdScte35Esam,
+    audioDuration :: Lude.Maybe MpdAudioDuration,
+    scte35Source :: Lude.Maybe MpdScte35Source,
+    accessibilityCaptionHints ::
+      Lude.Maybe MpdAccessibilityCaptionHints,
+    captionContainerType :: Lude.Maybe MpdCaptionContainerType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MpdSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mpdScte35Esam' - Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
---
--- * 'mpdAudioDuration' - Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
---
--- * 'mpdScte35Source' - Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
---
--- * 'mpdAccessibilityCaptionHints' - <Accessibility>elements for embedded 608 captions. This markup isn't generally required, but some video players require it to discover and play embedded 608 captions. Keep the default value, Exclude (EXCLUDE), to leave these elements out. When you enable this setting, this is the markup that MediaConvert includes in your manifest: <Accessibility>
---
--- * 'mpdCaptionContainerType' - Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
-mpdSettings ::
+-- * 'accessibilityCaptionHints' - <Accessibility>elements for embedded 608 captions. This markup isn't generally required, but some video players require it to discover and play embedded 608 captions. Keep the default value, Exclude (EXCLUDE), to leave these elements out. When you enable this setting, this is the markup that MediaConvert includes in your manifest: <Accessibility>
+-- * 'audioDuration' - Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+-- * 'captionContainerType' - Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
+-- * 'scte35Esam' - Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
+-- * 'scte35Source' - Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
+mkMpdSettings ::
   MpdSettings
-mpdSettings =
+mkMpdSettings =
   MpdSettings'
-    { _mpdScte35Esam = Nothing,
-      _mpdAudioDuration = Nothing,
-      _mpdScte35Source = Nothing,
-      _mpdAccessibilityCaptionHints = Nothing,
-      _mpdCaptionContainerType = Nothing
+    { scte35Esam = Lude.Nothing,
+      audioDuration = Lude.Nothing,
+      scte35Source = Lude.Nothing,
+      accessibilityCaptionHints = Lude.Nothing,
+      captionContainerType = Lude.Nothing
     }
 
 -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
-mpdScte35Esam :: Lens' MpdSettings (Maybe MpdScte35Esam)
-mpdScte35Esam = lens _mpdScte35Esam (\s a -> s {_mpdScte35Esam = a})
+--
+-- /Note:/ Consider using 'scte35Esam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdScte35Esam :: Lens.Lens' MpdSettings (Lude.Maybe MpdScte35Esam)
+mpdScte35Esam = Lens.lens (scte35Esam :: MpdSettings -> Lude.Maybe MpdScte35Esam) (\s a -> s {scte35Esam = a} :: MpdSettings)
+{-# DEPRECATED mpdScte35Esam "Use generic-lens or generic-optics with 'scte35Esam' instead." #-}
 
 -- | Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
-mpdAudioDuration :: Lens' MpdSettings (Maybe MpdAudioDuration)
-mpdAudioDuration = lens _mpdAudioDuration (\s a -> s {_mpdAudioDuration = a})
+--
+-- /Note:/ Consider using 'audioDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdAudioDuration :: Lens.Lens' MpdSettings (Lude.Maybe MpdAudioDuration)
+mpdAudioDuration = Lens.lens (audioDuration :: MpdSettings -> Lude.Maybe MpdAudioDuration) (\s a -> s {audioDuration = a} :: MpdSettings)
+{-# DEPRECATED mpdAudioDuration "Use generic-lens or generic-optics with 'audioDuration' instead." #-}
 
 -- | Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
-mpdScte35Source :: Lens' MpdSettings (Maybe MpdScte35Source)
-mpdScte35Source = lens _mpdScte35Source (\s a -> s {_mpdScte35Source = a})
+--
+-- /Note:/ Consider using 'scte35Source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdScte35Source :: Lens.Lens' MpdSettings (Lude.Maybe MpdScte35Source)
+mpdScte35Source = Lens.lens (scte35Source :: MpdSettings -> Lude.Maybe MpdScte35Source) (\s a -> s {scte35Source = a} :: MpdSettings)
+{-# DEPRECATED mpdScte35Source "Use generic-lens or generic-optics with 'scte35Source' instead." #-}
 
 -- | <Accessibility>elements for embedded 608 captions. This markup isn't generally required, but some video players require it to discover and play embedded 608 captions. Keep the default value, Exclude (EXCLUDE), to leave these elements out. When you enable this setting, this is the markup that MediaConvert includes in your manifest: <Accessibility>
-mpdAccessibilityCaptionHints :: Lens' MpdSettings (Maybe MpdAccessibilityCaptionHints)
-mpdAccessibilityCaptionHints = lens _mpdAccessibilityCaptionHints (\s a -> s {_mpdAccessibilityCaptionHints = a})
+--
+-- /Note:/ Consider using 'accessibilityCaptionHints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdAccessibilityCaptionHints :: Lens.Lens' MpdSettings (Lude.Maybe MpdAccessibilityCaptionHints)
+mpdAccessibilityCaptionHints = Lens.lens (accessibilityCaptionHints :: MpdSettings -> Lude.Maybe MpdAccessibilityCaptionHints) (\s a -> s {accessibilityCaptionHints = a} :: MpdSettings)
+{-# DEPRECATED mpdAccessibilityCaptionHints "Use generic-lens or generic-optics with 'accessibilityCaptionHints' instead." #-}
 
 -- | Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
-mpdCaptionContainerType :: Lens' MpdSettings (Maybe MpdCaptionContainerType)
-mpdCaptionContainerType = lens _mpdCaptionContainerType (\s a -> s {_mpdCaptionContainerType = a})
+--
+-- /Note:/ Consider using 'captionContainerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpdCaptionContainerType :: Lens.Lens' MpdSettings (Lude.Maybe MpdCaptionContainerType)
+mpdCaptionContainerType = Lens.lens (captionContainerType :: MpdSettings -> Lude.Maybe MpdCaptionContainerType) (\s a -> s {captionContainerType = a} :: MpdSettings)
+{-# DEPRECATED mpdCaptionContainerType "Use generic-lens or generic-optics with 'captionContainerType' instead." #-}
 
-instance FromJSON MpdSettings where
+instance Lude.FromJSON MpdSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "MpdSettings"
       ( \x ->
           MpdSettings'
-            <$> (x .:? "scte35Esam")
-            <*> (x .:? "audioDuration")
-            <*> (x .:? "scte35Source")
-            <*> (x .:? "accessibilityCaptionHints")
-            <*> (x .:? "captionContainerType")
+            Lude.<$> (x Lude..:? "scte35Esam")
+            Lude.<*> (x Lude..:? "audioDuration")
+            Lude.<*> (x Lude..:? "scte35Source")
+            Lude.<*> (x Lude..:? "accessibilityCaptionHints")
+            Lude.<*> (x Lude..:? "captionContainerType")
       )
 
-instance Hashable MpdSettings
-
-instance NFData MpdSettings
-
-instance ToJSON MpdSettings where
+instance Lude.ToJSON MpdSettings where
   toJSON MpdSettings' {..} =
-    object
-      ( catMaybes
-          [ ("scte35Esam" .=) <$> _mpdScte35Esam,
-            ("audioDuration" .=) <$> _mpdAudioDuration,
-            ("scte35Source" .=) <$> _mpdScte35Source,
-            ("accessibilityCaptionHints" .=) <$> _mpdAccessibilityCaptionHints,
-            ("captionContainerType" .=) <$> _mpdCaptionContainerType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("scte35Esam" Lude..=) Lude.<$> scte35Esam,
+            ("audioDuration" Lude..=) Lude.<$> audioDuration,
+            ("scte35Source" Lude..=) Lude.<$> scte35Source,
+            ("accessibilityCaptionHints" Lude..=)
+              Lude.<$> accessibilityCaptionHints,
+            ("captionContainerType" Lude..=) Lude.<$> captionContainerType
           ]
       )

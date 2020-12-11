@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,114 @@
 --
 -- Returns a list of @SourceCredentialsInfo@ objects.
 module Network.AWS.CodeBuild.ListSourceCredentials
-  ( -- * Creating a Request
-    listSourceCredentials,
-    ListSourceCredentials,
+  ( -- * Creating a request
+    ListSourceCredentials (..),
+    mkListSourceCredentials,
 
-    -- * Destructuring the Response
-    listSourceCredentialsResponse,
-    ListSourceCredentialsResponse,
+    -- * Destructuring the response
+    ListSourceCredentialsResponse (..),
+    mkListSourceCredentialsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lscrsSourceCredentialsInfos,
     lscrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listSourceCredentials' smart constructor.
+-- | /See:/ 'mkListSourceCredentials' smart constructor.
 data ListSourceCredentials = ListSourceCredentials'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSourceCredentials' with the minimum fields required to make a request.
-listSourceCredentials ::
+mkListSourceCredentials ::
   ListSourceCredentials
-listSourceCredentials = ListSourceCredentials'
+mkListSourceCredentials = ListSourceCredentials'
 
-instance AWSRequest ListSourceCredentials where
+instance Lude.AWSRequest ListSourceCredentials where
   type Rs ListSourceCredentials = ListSourceCredentialsResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListSourceCredentialsResponse'
-            <$> (x .?> "sourceCredentialsInfos" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "sourceCredentialsInfos" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListSourceCredentials
-
-instance NFData ListSourceCredentials
-
-instance ToHeaders ListSourceCredentials where
+instance Lude.ToHeaders ListSourceCredentials where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.ListSourceCredentials" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.ListSourceCredentials" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListSourceCredentials where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON ListSourceCredentials where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath ListSourceCredentials where
-  toPath = const "/"
+instance Lude.ToPath ListSourceCredentials where
+  toPath = Lude.const "/"
 
-instance ToQuery ListSourceCredentials where
-  toQuery = const mempty
+instance Lude.ToQuery ListSourceCredentials where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listSourceCredentialsResponse' smart constructor.
+-- | /See:/ 'mkListSourceCredentialsResponse' smart constructor.
 data ListSourceCredentialsResponse = ListSourceCredentialsResponse'
-  { _lscrsSourceCredentialsInfos ::
-      !( Maybe
-           [SourceCredentialsInfo]
-       ),
-    _lscrsResponseStatus :: !Int
+  { sourceCredentialsInfos ::
+      Lude.Maybe
+        [SourceCredentialsInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSourceCredentialsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lscrsSourceCredentialsInfos' - A list of @SourceCredentialsInfo@ objects. Each @SourceCredentialsInfo@ object includes the authentication type, token ARN, and type of source provider for one set of credentials.
---
--- * 'lscrsResponseStatus' - -- | The response status code.
-listSourceCredentialsResponse ::
-  -- | 'lscrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'sourceCredentialsInfos' - A list of @SourceCredentialsInfo@ objects. Each @SourceCredentialsInfo@ object includes the authentication type, token ARN, and type of source provider for one set of credentials.
+mkListSourceCredentialsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSourceCredentialsResponse
-listSourceCredentialsResponse pResponseStatus_ =
+mkListSourceCredentialsResponse pResponseStatus_ =
   ListSourceCredentialsResponse'
-    { _lscrsSourceCredentialsInfos =
-        Nothing,
-      _lscrsResponseStatus = pResponseStatus_
+    { sourceCredentialsInfos =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of @SourceCredentialsInfo@ objects. Each @SourceCredentialsInfo@ object includes the authentication type, token ARN, and type of source provider for one set of credentials.
-lscrsSourceCredentialsInfos :: Lens' ListSourceCredentialsResponse [SourceCredentialsInfo]
-lscrsSourceCredentialsInfos = lens _lscrsSourceCredentialsInfos (\s a -> s {_lscrsSourceCredentialsInfos = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sourceCredentialsInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lscrsSourceCredentialsInfos :: Lens.Lens' ListSourceCredentialsResponse (Lude.Maybe [SourceCredentialsInfo])
+lscrsSourceCredentialsInfos = Lens.lens (sourceCredentialsInfos :: ListSourceCredentialsResponse -> Lude.Maybe [SourceCredentialsInfo]) (\s a -> s {sourceCredentialsInfos = a} :: ListSourceCredentialsResponse)
+{-# DEPRECATED lscrsSourceCredentialsInfos "Use generic-lens or generic-optics with 'sourceCredentialsInfos' instead." #-}
 
--- | -- | The response status code.
-lscrsResponseStatus :: Lens' ListSourceCredentialsResponse Int
-lscrsResponseStatus = lens _lscrsResponseStatus (\s a -> s {_lscrsResponseStatus = a})
-
-instance NFData ListSourceCredentialsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lscrsResponseStatus :: Lens.Lens' ListSourceCredentialsResponse Lude.Int
+lscrsResponseStatus = Lens.lens (responseStatus :: ListSourceCredentialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSourceCredentialsResponse)
+{-# DEPRECATED lscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

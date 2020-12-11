@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorksCM.Types.AccountAttribute where
+module Network.AWS.OpsWorksCM.Types.AccountAttribute
+  ( AccountAttribute (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAccountAttribute,
+
+    -- * Lenses
+    aaUsed,
+    aaMaximum,
+    aaName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Stores account attributes.
 --
---
---
--- /See:/ 'accountAttribute' smart constructor.
+-- /See:/ 'mkAccountAttribute' smart constructor.
 data AccountAttribute = AccountAttribute'
-  { _aaUsed :: !(Maybe Int),
-    _aaMaximum :: !(Maybe Int),
-    _aaName :: !(Maybe Text)
+  { used ::
+      Lude.Maybe Lude.Int,
+    maximum :: Lude.Maybe Lude.Int,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maximum' - The maximum allowed value.
+-- * 'name' - The attribute name. The following are supported attribute names.
 --
--- * 'aaUsed' - The current usage, such as the current number of servers that are associated with the account.
 --
--- * 'aaMaximum' - The maximum allowed value.
+--     * /ServerLimit:/ The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.
 --
--- * 'aaName' - The attribute name. The following are supported attribute names.      * /ServerLimit:/ The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.      * /ManualBackupLimit:/ The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum of 50 manual backups saved.
-accountAttribute ::
+--
+--     * /ManualBackupLimit:/ The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum of 50 manual backups saved.
+--
+--
+-- * 'used' - The current usage, such as the current number of servers that are associated with the account.
+mkAccountAttribute ::
   AccountAttribute
-accountAttribute =
+mkAccountAttribute =
   AccountAttribute'
-    { _aaUsed = Nothing,
-      _aaMaximum = Nothing,
-      _aaName = Nothing
+    { used = Lude.Nothing,
+      maximum = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The current usage, such as the current number of servers that are associated with the account.
-aaUsed :: Lens' AccountAttribute (Maybe Int)
-aaUsed = lens _aaUsed (\s a -> s {_aaUsed = a})
+--
+-- /Note:/ Consider using 'used' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaUsed :: Lens.Lens' AccountAttribute (Lude.Maybe Lude.Int)
+aaUsed = Lens.lens (used :: AccountAttribute -> Lude.Maybe Lude.Int) (\s a -> s {used = a} :: AccountAttribute)
+{-# DEPRECATED aaUsed "Use generic-lens or generic-optics with 'used' instead." #-}
 
 -- | The maximum allowed value.
-aaMaximum :: Lens' AccountAttribute (Maybe Int)
-aaMaximum = lens _aaMaximum (\s a -> s {_aaMaximum = a})
+--
+-- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaMaximum :: Lens.Lens' AccountAttribute (Lude.Maybe Lude.Int)
+aaMaximum = Lens.lens (maximum :: AccountAttribute -> Lude.Maybe Lude.Int) (\s a -> s {maximum = a} :: AccountAttribute)
+{-# DEPRECATED aaMaximum "Use generic-lens or generic-optics with 'maximum' instead." #-}
 
--- | The attribute name. The following are supported attribute names.      * /ServerLimit:/ The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.      * /ManualBackupLimit:/ The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum of 50 manual backups saved.
-aaName :: Lens' AccountAttribute (Maybe Text)
-aaName = lens _aaName (\s a -> s {_aaName = a})
+-- | The attribute name. The following are supported attribute names.
+--
+--
+--     * /ServerLimit:/ The number of current servers/maximum number of servers allowed. By default, you can have a maximum of 10 servers.
+--
+--
+--     * /ManualBackupLimit:/ The number of current manual backups/maximum number of backups allowed. By default, you can have a maximum of 50 manual backups saved.
+--
+--
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaName :: Lens.Lens' AccountAttribute (Lude.Maybe Lude.Text)
+aaName = Lens.lens (name :: AccountAttribute -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AccountAttribute)
+{-# DEPRECATED aaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON AccountAttribute where
+instance Lude.FromJSON AccountAttribute where
   parseJSON =
-    withObject
+    Lude.withObject
       "AccountAttribute"
       ( \x ->
           AccountAttribute'
-            <$> (x .:? "Used") <*> (x .:? "Maximum") <*> (x .:? "Name")
+            Lude.<$> (x Lude..:? "Used")
+            Lude.<*> (x Lude..:? "Maximum")
+            Lude.<*> (x Lude..:? "Name")
       )
-
-instance Hashable AccountAttribute
-
-instance NFData AccountAttribute

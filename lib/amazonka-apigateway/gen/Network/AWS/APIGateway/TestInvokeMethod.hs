@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Simulate the execution of a 'Method' in your 'RestApi' with headers, parameters, and an incoming request body.
 module Network.AWS.APIGateway.TestInvokeMethod
-  ( -- * Creating a Request
-    testInvokeMethod,
-    TestInvokeMethod,
+  ( -- * Creating a request
+    TestInvokeMethod (..),
+    mkTestInvokeMethod,
 
-    -- * Request Lenses
+    -- ** Request lenses
     timPathWithQueryString,
     timBody,
     timClientCertificateId,
@@ -34,11 +29,11 @@ module Network.AWS.APIGateway.TestInvokeMethod
     timResourceId,
     timHttpMethod,
 
-    -- * Destructuring the Response
-    testInvokeMethodResponse,
-    TestInvokeMethodResponse,
+    -- * Destructuring the response
+    TestInvokeMethodResponse (..),
+    mkTestInvokeMethodResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     timrsLog,
     timrsStatus,
     timrsBody,
@@ -50,237 +45,280 @@ module Network.AWS.APIGateway.TestInvokeMethod
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Make a request to simulate the execution of a 'Method' .
 --
---
---
--- /See:/ 'testInvokeMethod' smart constructor.
+-- /See:/ 'mkTestInvokeMethod' smart constructor.
 data TestInvokeMethod = TestInvokeMethod'
-  { _timPathWithQueryString ::
-      !(Maybe Text),
-    _timBody :: !(Maybe Text),
-    _timClientCertificateId :: !(Maybe Text),
-    _timStageVariables :: !(Maybe (Map Text (Text))),
-    _timHeaders :: !(Maybe (Map Text (Text))),
-    _timMultiValueHeaders :: !(Maybe (Map Text ([Text]))),
-    _timRestAPIId :: !Text,
-    _timResourceId :: !Text,
-    _timHttpMethod :: !Text
+  { pathWithQueryString ::
+      Lude.Maybe Lude.Text,
+    body :: Lude.Maybe Lude.Text,
+    clientCertificateId :: Lude.Maybe Lude.Text,
+    stageVariables ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    headers ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    multiValueHeaders ::
+      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    restAPIId :: Lude.Text,
+    resourceId :: Lude.Text,
+    httpMethod :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestInvokeMethod' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'timPathWithQueryString' - The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
---
--- * 'timBody' - The simulated request body of an incoming invocation request.
---
--- * 'timClientCertificateId' - A 'ClientCertificate' identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.
---
--- * 'timStageVariables' - A key-value map of stage variables to simulate an invocation on a deployed 'Stage' .
---
--- * 'timHeaders' - A key-value map of headers to simulate an incoming invocation request.
---
--- * 'timMultiValueHeaders' - The headers as a map from string to list of values to simulate an incoming invocation request.
---
--- * 'timRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'timResourceId' - [Required] Specifies a test invoke method request's resource ID.
---
--- * 'timHttpMethod' - [Required] Specifies a test invoke method request's HTTP method.
-testInvokeMethod ::
-  -- | 'timRestAPIId'
-  Text ->
-  -- | 'timResourceId'
-  Text ->
-  -- | 'timHttpMethod'
-  Text ->
+-- * 'body' - The simulated request body of an incoming invocation request.
+-- * 'clientCertificateId' - A 'ClientCertificate' identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.
+-- * 'headers' - A key-value map of headers to simulate an incoming invocation request.
+-- * 'httpMethod' - [Required] Specifies a test invoke method request's HTTP method.
+-- * 'multiValueHeaders' - The headers as a map from string to list of values to simulate an incoming invocation request.
+-- * 'pathWithQueryString' - The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
+-- * 'resourceId' - [Required] Specifies a test invoke method request's resource ID.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'stageVariables' - A key-value map of stage variables to simulate an invocation on a deployed 'Stage' .
+mkTestInvokeMethod ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'httpMethod'
+  Lude.Text ->
   TestInvokeMethod
-testInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
+mkTestInvokeMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
   TestInvokeMethod'
-    { _timPathWithQueryString = Nothing,
-      _timBody = Nothing,
-      _timClientCertificateId = Nothing,
-      _timStageVariables = Nothing,
-      _timHeaders = Nothing,
-      _timMultiValueHeaders = Nothing,
-      _timRestAPIId = pRestAPIId_,
-      _timResourceId = pResourceId_,
-      _timHttpMethod = pHttpMethod_
+    { pathWithQueryString = Lude.Nothing,
+      body = Lude.Nothing,
+      clientCertificateId = Lude.Nothing,
+      stageVariables = Lude.Nothing,
+      headers = Lude.Nothing,
+      multiValueHeaders = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      resourceId = pResourceId_,
+      httpMethod = pHttpMethod_
     }
 
 -- | The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
-timPathWithQueryString :: Lens' TestInvokeMethod (Maybe Text)
-timPathWithQueryString = lens _timPathWithQueryString (\s a -> s {_timPathWithQueryString = a})
+--
+-- /Note:/ Consider using 'pathWithQueryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timPathWithQueryString :: Lens.Lens' TestInvokeMethod (Lude.Maybe Lude.Text)
+timPathWithQueryString = Lens.lens (pathWithQueryString :: TestInvokeMethod -> Lude.Maybe Lude.Text) (\s a -> s {pathWithQueryString = a} :: TestInvokeMethod)
+{-# DEPRECATED timPathWithQueryString "Use generic-lens or generic-optics with 'pathWithQueryString' instead." #-}
 
 -- | The simulated request body of an incoming invocation request.
-timBody :: Lens' TestInvokeMethod (Maybe Text)
-timBody = lens _timBody (\s a -> s {_timBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timBody :: Lens.Lens' TestInvokeMethod (Lude.Maybe Lude.Text)
+timBody = Lens.lens (body :: TestInvokeMethod -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: TestInvokeMethod)
+{-# DEPRECATED timBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | A 'ClientCertificate' identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.
-timClientCertificateId :: Lens' TestInvokeMethod (Maybe Text)
-timClientCertificateId = lens _timClientCertificateId (\s a -> s {_timClientCertificateId = a})
+--
+-- /Note:/ Consider using 'clientCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timClientCertificateId :: Lens.Lens' TestInvokeMethod (Lude.Maybe Lude.Text)
+timClientCertificateId = Lens.lens (clientCertificateId :: TestInvokeMethod -> Lude.Maybe Lude.Text) (\s a -> s {clientCertificateId = a} :: TestInvokeMethod)
+{-# DEPRECATED timClientCertificateId "Use generic-lens or generic-optics with 'clientCertificateId' instead." #-}
 
 -- | A key-value map of stage variables to simulate an invocation on a deployed 'Stage' .
-timStageVariables :: Lens' TestInvokeMethod (HashMap Text (Text))
-timStageVariables = lens _timStageVariables (\s a -> s {_timStageVariables = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'stageVariables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timStageVariables :: Lens.Lens' TestInvokeMethod (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+timStageVariables = Lens.lens (stageVariables :: TestInvokeMethod -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {stageVariables = a} :: TestInvokeMethod)
+{-# DEPRECATED timStageVariables "Use generic-lens or generic-optics with 'stageVariables' instead." #-}
 
 -- | A key-value map of headers to simulate an incoming invocation request.
-timHeaders :: Lens' TestInvokeMethod (HashMap Text (Text))
-timHeaders = lens _timHeaders (\s a -> s {_timHeaders = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timHeaders :: Lens.Lens' TestInvokeMethod (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+timHeaders = Lens.lens (headers :: TestInvokeMethod -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {headers = a} :: TestInvokeMethod)
+{-# DEPRECATED timHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
 
 -- | The headers as a map from string to list of values to simulate an incoming invocation request.
-timMultiValueHeaders :: Lens' TestInvokeMethod (HashMap Text ([Text]))
-timMultiValueHeaders = lens _timMultiValueHeaders (\s a -> s {_timMultiValueHeaders = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'multiValueHeaders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timMultiValueHeaders :: Lens.Lens' TestInvokeMethod (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+timMultiValueHeaders = Lens.lens (multiValueHeaders :: TestInvokeMethod -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {multiValueHeaders = a} :: TestInvokeMethod)
+{-# DEPRECATED timMultiValueHeaders "Use generic-lens or generic-optics with 'multiValueHeaders' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-timRestAPIId :: Lens' TestInvokeMethod Text
-timRestAPIId = lens _timRestAPIId (\s a -> s {_timRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timRestAPIId :: Lens.Lens' TestInvokeMethod Lude.Text
+timRestAPIId = Lens.lens (restAPIId :: TestInvokeMethod -> Lude.Text) (\s a -> s {restAPIId = a} :: TestInvokeMethod)
+{-# DEPRECATED timRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Specifies a test invoke method request's resource ID.
-timResourceId :: Lens' TestInvokeMethod Text
-timResourceId = lens _timResourceId (\s a -> s {_timResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timResourceId :: Lens.Lens' TestInvokeMethod Lude.Text
+timResourceId = Lens.lens (resourceId :: TestInvokeMethod -> Lude.Text) (\s a -> s {resourceId = a} :: TestInvokeMethod)
+{-# DEPRECATED timResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Specifies a test invoke method request's HTTP method.
-timHttpMethod :: Lens' TestInvokeMethod Text
-timHttpMethod = lens _timHttpMethod (\s a -> s {_timHttpMethod = a})
+--
+-- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timHttpMethod :: Lens.Lens' TestInvokeMethod Lude.Text
+timHttpMethod = Lens.lens (httpMethod :: TestInvokeMethod -> Lude.Text) (\s a -> s {httpMethod = a} :: TestInvokeMethod)
+{-# DEPRECATED timHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
 
-instance AWSRequest TestInvokeMethod where
+instance Lude.AWSRequest TestInvokeMethod where
   type Rs TestInvokeMethod = TestInvokeMethodResponse
-  request = postJSON apiGateway
+  request = Req.postJSON apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           TestInvokeMethodResponse'
-            <$> (x .?> "log")
-            <*> (x .?> "status")
-            <*> (x .?> "body")
-            <*> (x .?> "latency")
-            <*> (x .?> "headers" .!@ mempty)
-            <*> (x .?> "multiValueHeaders" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "log")
+            Lude.<*> (x Lude..?> "status")
+            Lude.<*> (x Lude..?> "body")
+            Lude.<*> (x Lude..?> "latency")
+            Lude.<*> (x Lude..?> "headers" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "multiValueHeaders" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable TestInvokeMethod
-
-instance NFData TestInvokeMethod
-
-instance ToHeaders TestInvokeMethod where
+instance Lude.ToHeaders TestInvokeMethod where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON TestInvokeMethod where
+instance Lude.ToJSON TestInvokeMethod where
   toJSON TestInvokeMethod' {..} =
-    object
-      ( catMaybes
-          [ ("pathWithQueryString" .=) <$> _timPathWithQueryString,
-            ("body" .=) <$> _timBody,
-            ("clientCertificateId" .=) <$> _timClientCertificateId,
-            ("stageVariables" .=) <$> _timStageVariables,
-            ("headers" .=) <$> _timHeaders,
-            ("multiValueHeaders" .=) <$> _timMultiValueHeaders
+    Lude.object
+      ( Lude.catMaybes
+          [ ("pathWithQueryString" Lude..=) Lude.<$> pathWithQueryString,
+            ("body" Lude..=) Lude.<$> body,
+            ("clientCertificateId" Lude..=) Lude.<$> clientCertificateId,
+            ("stageVariables" Lude..=) Lude.<$> stageVariables,
+            ("headers" Lude..=) Lude.<$> headers,
+            ("multiValueHeaders" Lude..=) Lude.<$> multiValueHeaders
           ]
       )
 
-instance ToPath TestInvokeMethod where
+instance Lude.ToPath TestInvokeMethod where
   toPath TestInvokeMethod' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _timRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _timResourceId,
+        Lude.toBS resourceId,
         "/methods/",
-        toBS _timHttpMethod
+        Lude.toBS httpMethod
       ]
 
-instance ToQuery TestInvokeMethod where
-  toQuery = const mempty
+instance Lude.ToQuery TestInvokeMethod where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response of the test invoke request in the HTTP method.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console Test API using the API Gateway console>
 --
--- /See:/ 'testInvokeMethodResponse' smart constructor.
+-- /See:/ 'mkTestInvokeMethodResponse' smart constructor.
 data TestInvokeMethodResponse = TestInvokeMethodResponse'
-  { _timrsLog ::
-      !(Maybe Text),
-    _timrsStatus :: !(Maybe Int),
-    _timrsBody :: !(Maybe Text),
-    _timrsLatency :: !(Maybe Integer),
-    _timrsHeaders ::
-      !(Maybe (Map Text (Text))),
-    _timrsMultiValueHeaders ::
-      !(Maybe (Map Text ([Text]))),
-    _timrsResponseStatus :: !Int
+  { log ::
+      Lude.Maybe Lude.Text,
+    status :: Lude.Maybe Lude.Int,
+    body :: Lude.Maybe Lude.Text,
+    latency :: Lude.Maybe Lude.Integer,
+    headers ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    multiValueHeaders ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text ([Lude.Text])),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestInvokeMethodResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'timrsLog' - The API Gateway execution log for the test invoke request.
---
--- * 'timrsStatus' - The HTTP status code.
---
--- * 'timrsBody' - The body of the HTTP response.
---
--- * 'timrsLatency' - The execution latency of the test invoke request.
---
--- * 'timrsHeaders' - The headers of the HTTP response.
---
--- * 'timrsMultiValueHeaders' - The headers of the HTTP response as a map from string to list of values.
---
--- * 'timrsResponseStatus' - -- | The response status code.
-testInvokeMethodResponse ::
-  -- | 'timrsResponseStatus'
-  Int ->
+-- * 'body' - The body of the HTTP response.
+-- * 'headers' - The headers of the HTTP response.
+-- * 'latency' - The execution latency of the test invoke request.
+-- * 'log' - The API Gateway execution log for the test invoke request.
+-- * 'multiValueHeaders' - The headers of the HTTP response as a map from string to list of values.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The HTTP status code.
+mkTestInvokeMethodResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TestInvokeMethodResponse
-testInvokeMethodResponse pResponseStatus_ =
+mkTestInvokeMethodResponse pResponseStatus_ =
   TestInvokeMethodResponse'
-    { _timrsLog = Nothing,
-      _timrsStatus = Nothing,
-      _timrsBody = Nothing,
-      _timrsLatency = Nothing,
-      _timrsHeaders = Nothing,
-      _timrsMultiValueHeaders = Nothing,
-      _timrsResponseStatus = pResponseStatus_
+    { log = Lude.Nothing,
+      status = Lude.Nothing,
+      body = Lude.Nothing,
+      latency = Lude.Nothing,
+      headers = Lude.Nothing,
+      multiValueHeaders = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The API Gateway execution log for the test invoke request.
-timrsLog :: Lens' TestInvokeMethodResponse (Maybe Text)
-timrsLog = lens _timrsLog (\s a -> s {_timrsLog = a})
+--
+-- /Note:/ Consider using 'log' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timrsLog :: Lens.Lens' TestInvokeMethodResponse (Lude.Maybe Lude.Text)
+timrsLog = Lens.lens (log :: TestInvokeMethodResponse -> Lude.Maybe Lude.Text) (\s a -> s {log = a} :: TestInvokeMethodResponse)
+{-# DEPRECATED timrsLog "Use generic-lens or generic-optics with 'log' instead." #-}
 
 -- | The HTTP status code.
-timrsStatus :: Lens' TestInvokeMethodResponse (Maybe Int)
-timrsStatus = lens _timrsStatus (\s a -> s {_timrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timrsStatus :: Lens.Lens' TestInvokeMethodResponse (Lude.Maybe Lude.Int)
+timrsStatus = Lens.lens (status :: TestInvokeMethodResponse -> Lude.Maybe Lude.Int) (\s a -> s {status = a} :: TestInvokeMethodResponse)
+{-# DEPRECATED timrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The body of the HTTP response.
-timrsBody :: Lens' TestInvokeMethodResponse (Maybe Text)
-timrsBody = lens _timrsBody (\s a -> s {_timrsBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timrsBody :: Lens.Lens' TestInvokeMethodResponse (Lude.Maybe Lude.Text)
+timrsBody = Lens.lens (body :: TestInvokeMethodResponse -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: TestInvokeMethodResponse)
+{-# DEPRECATED timrsBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The execution latency of the test invoke request.
-timrsLatency :: Lens' TestInvokeMethodResponse (Maybe Integer)
-timrsLatency = lens _timrsLatency (\s a -> s {_timrsLatency = a})
+--
+-- /Note:/ Consider using 'latency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timrsLatency :: Lens.Lens' TestInvokeMethodResponse (Lude.Maybe Lude.Integer)
+timrsLatency = Lens.lens (latency :: TestInvokeMethodResponse -> Lude.Maybe Lude.Integer) (\s a -> s {latency = a} :: TestInvokeMethodResponse)
+{-# DEPRECATED timrsLatency "Use generic-lens or generic-optics with 'latency' instead." #-}
 
 -- | The headers of the HTTP response.
-timrsHeaders :: Lens' TestInvokeMethodResponse (HashMap Text (Text))
-timrsHeaders = lens _timrsHeaders (\s a -> s {_timrsHeaders = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timrsHeaders :: Lens.Lens' TestInvokeMethodResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+timrsHeaders = Lens.lens (headers :: TestInvokeMethodResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {headers = a} :: TestInvokeMethodResponse)
+{-# DEPRECATED timrsHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
 
 -- | The headers of the HTTP response as a map from string to list of values.
-timrsMultiValueHeaders :: Lens' TestInvokeMethodResponse (HashMap Text ([Text]))
-timrsMultiValueHeaders = lens _timrsMultiValueHeaders (\s a -> s {_timrsMultiValueHeaders = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'multiValueHeaders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timrsMultiValueHeaders :: Lens.Lens' TestInvokeMethodResponse (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+timrsMultiValueHeaders = Lens.lens (multiValueHeaders :: TestInvokeMethodResponse -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {multiValueHeaders = a} :: TestInvokeMethodResponse)
+{-# DEPRECATED timrsMultiValueHeaders "Use generic-lens or generic-optics with 'multiValueHeaders' instead." #-}
 
--- | -- | The response status code.
-timrsResponseStatus :: Lens' TestInvokeMethodResponse Int
-timrsResponseStatus = lens _timrsResponseStatus (\s a -> s {_timrsResponseStatus = a})
-
-instance NFData TestInvokeMethodResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+timrsResponseStatus :: Lens.Lens' TestInvokeMethodResponse Lude.Int
+timrsResponseStatus = Lens.lens (responseStatus :: TestInvokeMethodResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestInvokeMethodResponse)
+{-# DEPRECATED timrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

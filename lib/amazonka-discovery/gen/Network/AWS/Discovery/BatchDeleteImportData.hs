@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,139 @@
 --
 -- Deletes one or more import tasks, each identified by their import ID. Each import task has a number of records that can identify servers or applications.
 --
---
 -- AWS Application Discovery Service has built-in matching logic that will identify when discovered servers match existing entries that you've previously discovered, the information for the already-existing discovered server is updated. When you delete an import task that contains records that were used to match, the information in those matched records that comes from the deleted records will also be deleted.
 module Network.AWS.Discovery.BatchDeleteImportData
-  ( -- * Creating a Request
-    batchDeleteImportData,
-    BatchDeleteImportData,
+  ( -- * Creating a request
+    BatchDeleteImportData (..),
+    mkBatchDeleteImportData,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bdidImportTaskIds,
 
-    -- * Destructuring the Response
-    batchDeleteImportDataResponse,
-    BatchDeleteImportDataResponse,
+    -- * Destructuring the response
+    BatchDeleteImportDataResponse (..),
+    mkBatchDeleteImportDataResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bdidrsErrors,
     bdidrsResponseStatus,
   )
 where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchDeleteImportData' smart constructor.
+-- | /See:/ 'mkBatchDeleteImportData' smart constructor.
 newtype BatchDeleteImportData = BatchDeleteImportData'
-  { _bdidImportTaskIds ::
-      List1 Text
+  { importTaskIds ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteImportData' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdidImportTaskIds' - The IDs for the import tasks that you want to delete.
-batchDeleteImportData ::
-  -- | 'bdidImportTaskIds'
-  NonEmpty Text ->
+-- * 'importTaskIds' - The IDs for the import tasks that you want to delete.
+mkBatchDeleteImportData ::
+  -- | 'importTaskIds'
+  Lude.NonEmpty Lude.Text ->
   BatchDeleteImportData
-batchDeleteImportData pImportTaskIds_ =
-  BatchDeleteImportData'
-    { _bdidImportTaskIds =
-        _List1 # pImportTaskIds_
-    }
+mkBatchDeleteImportData pImportTaskIds_ =
+  BatchDeleteImportData' {importTaskIds = pImportTaskIds_}
 
 -- | The IDs for the import tasks that you want to delete.
-bdidImportTaskIds :: Lens' BatchDeleteImportData (NonEmpty Text)
-bdidImportTaskIds = lens _bdidImportTaskIds (\s a -> s {_bdidImportTaskIds = a}) . _List1
+--
+-- /Note:/ Consider using 'importTaskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdidImportTaskIds :: Lens.Lens' BatchDeleteImportData (Lude.NonEmpty Lude.Text)
+bdidImportTaskIds = Lens.lens (importTaskIds :: BatchDeleteImportData -> Lude.NonEmpty Lude.Text) (\s a -> s {importTaskIds = a} :: BatchDeleteImportData)
+{-# DEPRECATED bdidImportTaskIds "Use generic-lens or generic-optics with 'importTaskIds' instead." #-}
 
-instance AWSRequest BatchDeleteImportData where
+instance Lude.AWSRequest BatchDeleteImportData where
   type Rs BatchDeleteImportData = BatchDeleteImportDataResponse
-  request = postJSON discovery
+  request = Req.postJSON discoveryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchDeleteImportDataResponse'
-            <$> (x .?> "errors" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "errors" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchDeleteImportData
-
-instance NFData BatchDeleteImportData
-
-instance ToHeaders BatchDeleteImportData where
+instance Lude.ToHeaders BatchDeleteImportData where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSPoseidonService_V2015_11_01.BatchDeleteImportData" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSPoseidonService_V2015_11_01.BatchDeleteImportData" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchDeleteImportData where
+instance Lude.ToJSON BatchDeleteImportData where
   toJSON BatchDeleteImportData' {..} =
-    object (catMaybes [Just ("importTaskIds" .= _bdidImportTaskIds)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("importTaskIds" Lude..= importTaskIds)]
+      )
 
-instance ToPath BatchDeleteImportData where
-  toPath = const "/"
+instance Lude.ToPath BatchDeleteImportData where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchDeleteImportData where
-  toQuery = const mempty
+instance Lude.ToQuery BatchDeleteImportData where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchDeleteImportDataResponse' smart constructor.
+-- | /See:/ 'mkBatchDeleteImportDataResponse' smart constructor.
 data BatchDeleteImportDataResponse = BatchDeleteImportDataResponse'
-  { _bdidrsErrors ::
-      !( Maybe
-           [BatchDeleteImportDataError]
-       ),
-    _bdidrsResponseStatus :: !Int
+  { errors ::
+      Lude.Maybe
+        [BatchDeleteImportDataError],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteImportDataResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdidrsErrors' - Error messages returned for each import task that you deleted as a response for this command.
---
--- * 'bdidrsResponseStatus' - -- | The response status code.
-batchDeleteImportDataResponse ::
-  -- | 'bdidrsResponseStatus'
-  Int ->
+-- * 'errors' - Error messages returned for each import task that you deleted as a response for this command.
+-- * 'responseStatus' - The response status code.
+mkBatchDeleteImportDataResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchDeleteImportDataResponse
-batchDeleteImportDataResponse pResponseStatus_ =
+mkBatchDeleteImportDataResponse pResponseStatus_ =
   BatchDeleteImportDataResponse'
-    { _bdidrsErrors = Nothing,
-      _bdidrsResponseStatus = pResponseStatus_
+    { errors = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Error messages returned for each import task that you deleted as a response for this command.
-bdidrsErrors :: Lens' BatchDeleteImportDataResponse [BatchDeleteImportDataError]
-bdidrsErrors = lens _bdidrsErrors (\s a -> s {_bdidrsErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdidrsErrors :: Lens.Lens' BatchDeleteImportDataResponse (Lude.Maybe [BatchDeleteImportDataError])
+bdidrsErrors = Lens.lens (errors :: BatchDeleteImportDataResponse -> Lude.Maybe [BatchDeleteImportDataError]) (\s a -> s {errors = a} :: BatchDeleteImportDataResponse)
+{-# DEPRECATED bdidrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
--- | -- | The response status code.
-bdidrsResponseStatus :: Lens' BatchDeleteImportDataResponse Int
-bdidrsResponseStatus = lens _bdidrsResponseStatus (\s a -> s {_bdidrsResponseStatus = a})
-
-instance NFData BatchDeleteImportDataResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdidrsResponseStatus :: Lens.Lens' BatchDeleteImportDataResponse Lude.Int
+bdidrsResponseStatus = Lens.lens (responseStatus :: BatchDeleteImportDataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteImportDataResponse)
+{-# DEPRECATED bdidrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

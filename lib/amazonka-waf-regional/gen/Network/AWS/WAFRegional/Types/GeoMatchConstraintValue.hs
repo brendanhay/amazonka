@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,793 +7,1284 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.GeoMatchConstraintValue where
+module Network.AWS.WAFRegional.Types.GeoMatchConstraintValue
+  ( GeoMatchConstraintValue
+      ( GeoMatchConstraintValue',
+        GMCVAD,
+        GMCVAE,
+        GMCVAF,
+        GMCVAG,
+        GMCVAI,
+        GMCVAL,
+        GMCVAM,
+        GMCVAO,
+        GMCVAQ,
+        GMCVAR,
+        GMCVAS,
+        GMCVAT,
+        GMCVAU,
+        GMCVAW,
+        GMCVAX,
+        GMCVAZ,
+        GMCVBA,
+        GMCVBB,
+        GMCVBD,
+        GMCVBE,
+        GMCVBF,
+        GMCVBG,
+        GMCVBH,
+        GMCVBI,
+        GMCVBJ,
+        GMCVBL,
+        GMCVBM,
+        GMCVBN,
+        GMCVBO,
+        GMCVBQ,
+        GMCVBR,
+        GMCVBS,
+        GMCVBT,
+        GMCVBV,
+        GMCVBW,
+        GMCVBY,
+        GMCVBZ,
+        GMCVCA,
+        GMCVCC,
+        GMCVCD,
+        GMCVCF,
+        GMCVCG,
+        GMCVCH,
+        GMCVCI,
+        GMCVCK,
+        GMCVCL,
+        GMCVCM,
+        GMCVCN,
+        GMCVCO,
+        GMCVCR,
+        GMCVCU,
+        GMCVCV,
+        GMCVCW,
+        GMCVCX,
+        GMCVCY,
+        GMCVCZ,
+        GMCVDE,
+        GMCVDJ,
+        GMCVDK,
+        GMCVDM,
+        GMCVDO,
+        GMCVDZ,
+        GMCVEC,
+        GMCVEE,
+        GMCVEG,
+        GMCVEH,
+        GMCVER,
+        GMCVES,
+        GMCVET,
+        GMCVFI,
+        GMCVFJ,
+        GMCVFK,
+        GMCVFM,
+        GMCVFO,
+        GMCVFR,
+        GMCVGA,
+        GMCVGB,
+        GMCVGD,
+        GMCVGE,
+        GMCVGF,
+        GMCVGG,
+        GMCVGH,
+        GMCVGI,
+        GMCVGL,
+        GMCVGM,
+        GMCVGN,
+        GMCVGP,
+        GMCVGQ,
+        GMCVGR,
+        GMCVGS,
+        GMCVGT,
+        GMCVGU,
+        GMCVGW,
+        GMCVGY,
+        GMCVHK,
+        GMCVHM,
+        GMCVHN,
+        GMCVHR,
+        GMCVHT,
+        GMCVHU,
+        GMCVIE,
+        GMCVIL,
+        GMCVIM,
+        GMCVIN,
+        GMCVIO,
+        GMCVIQ,
+        GMCVIR,
+        GMCVIS,
+        GMCVIT,
+        GMCVId,
+        GMCVJE,
+        GMCVJM,
+        GMCVJO,
+        GMCVJP,
+        GMCVKE,
+        GMCVKG,
+        GMCVKH,
+        GMCVKI,
+        GMCVKM,
+        GMCVKN,
+        GMCVKP,
+        GMCVKR,
+        GMCVKW,
+        GMCVKY,
+        GMCVKZ,
+        GMCVLA,
+        GMCVLB,
+        GMCVLC,
+        GMCVLI,
+        GMCVLK,
+        GMCVLR,
+        GMCVLS,
+        GMCVLT,
+        GMCVLU,
+        GMCVLV,
+        GMCVLY,
+        GMCVMA,
+        GMCVMC,
+        GMCVMD,
+        GMCVME,
+        GMCVMF,
+        GMCVMG,
+        GMCVMH,
+        GMCVMK,
+        GMCVML,
+        GMCVMM,
+        GMCVMN,
+        GMCVMO,
+        GMCVMP,
+        GMCVMQ,
+        GMCVMR,
+        GMCVMS,
+        GMCVMT,
+        GMCVMU,
+        GMCVMV,
+        GMCVMW,
+        GMCVMX,
+        GMCVMY,
+        GMCVMZ,
+        GMCVNA,
+        GMCVNC,
+        GMCVNE,
+        GMCVNF,
+        GMCVNG,
+        GMCVNI,
+        GMCVNL,
+        GMCVNO,
+        GMCVNP,
+        GMCVNR,
+        GMCVNU,
+        GMCVNZ,
+        GMCVOM,
+        GMCVPA,
+        GMCVPE,
+        GMCVPF,
+        GMCVPG,
+        GMCVPH,
+        GMCVPK,
+        GMCVPL,
+        GMCVPM,
+        GMCVPN,
+        GMCVPR,
+        GMCVPS,
+        GMCVPT,
+        GMCVPW,
+        GMCVPY,
+        GMCVQA,
+        GMCVRE,
+        GMCVRO,
+        GMCVRS,
+        GMCVRU,
+        GMCVRW,
+        GMCVSA,
+        GMCVSB,
+        GMCVSC,
+        GMCVSD,
+        GMCVSE,
+        GMCVSG,
+        GMCVSH,
+        GMCVSI,
+        GMCVSJ,
+        GMCVSK,
+        GMCVSL,
+        GMCVSM,
+        GMCVSN,
+        GMCVSO,
+        GMCVSR,
+        GMCVSS,
+        GMCVST,
+        GMCVSV,
+        GMCVSX,
+        GMCVSY,
+        GMCVSZ,
+        GMCVTC,
+        GMCVTD,
+        GMCVTF,
+        GMCVTG,
+        GMCVTH,
+        GMCVTJ,
+        GMCVTK,
+        GMCVTL,
+        GMCVTM,
+        GMCVTN,
+        GMCVTO,
+        GMCVTR,
+        GMCVTT,
+        GMCVTV,
+        GMCVTW,
+        GMCVTZ,
+        GMCVUA,
+        GMCVUG,
+        GMCVUM,
+        GMCVUS,
+        GMCVUY,
+        GMCVUZ,
+        GMCVVA,
+        GMCVVC,
+        GMCVVE,
+        GMCVVG,
+        GMCVVI,
+        GMCVVN,
+        GMCVVU,
+        GMCVWF,
+        GMCVWS,
+        GMCVYE,
+        GMCVYT,
+        GMCVZA,
+        GMCVZM,
+        GMCVZW
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GeoMatchConstraintValue
-  = GMCVAD
-  | GMCVAE
-  | GMCVAF
-  | GMCVAG
-  | GMCVAI
-  | GMCVAL
-  | GMCVAM
-  | GMCVAO
-  | GMCVAQ
-  | GMCVAR
-  | GMCVAS
-  | GMCVAT
-  | GMCVAU
-  | GMCVAW
-  | GMCVAX
-  | GMCVAZ
-  | GMCVBA
-  | GMCVBB
-  | GMCVBD
-  | GMCVBE
-  | GMCVBF
-  | GMCVBG
-  | GMCVBH
-  | GMCVBI
-  | GMCVBJ
-  | GMCVBL
-  | GMCVBM
-  | GMCVBN
-  | GMCVBO
-  | GMCVBQ
-  | GMCVBR
-  | GMCVBS
-  | GMCVBT
-  | GMCVBV
-  | GMCVBW
-  | GMCVBY
-  | GMCVBZ
-  | GMCVCA
-  | GMCVCC
-  | GMCVCD
-  | GMCVCF
-  | GMCVCG
-  | GMCVCH
-  | GMCVCI
-  | GMCVCK
-  | GMCVCL
-  | GMCVCM
-  | GMCVCN
-  | GMCVCO
-  | GMCVCR
-  | GMCVCU
-  | GMCVCV
-  | GMCVCW
-  | GMCVCX
-  | GMCVCY
-  | GMCVCZ
-  | GMCVDE
-  | GMCVDJ
-  | GMCVDK
-  | GMCVDM
-  | GMCVDO
-  | GMCVDZ
-  | GMCVEC
-  | GMCVEE
-  | GMCVEG
-  | GMCVEH
-  | GMCVER
-  | GMCVES
-  | GMCVET
-  | GMCVFI
-  | GMCVFJ
-  | GMCVFK
-  | GMCVFM
-  | GMCVFO
-  | GMCVFR
-  | GMCVGA
-  | GMCVGB
-  | GMCVGD
-  | GMCVGE
-  | GMCVGF
-  | GMCVGG
-  | GMCVGH
-  | GMCVGI
-  | GMCVGL
-  | GMCVGM
-  | GMCVGN
-  | GMCVGP
-  | GMCVGQ
-  | GMCVGR
-  | GMCVGS
-  | GMCVGT'
-  | GMCVGU
-  | GMCVGW
-  | GMCVGY
-  | GMCVHK
-  | GMCVHM
-  | GMCVHN
-  | GMCVHR
-  | GMCVHT
-  | GMCVHU
-  | GMCVIE
-  | GMCVIL
-  | GMCVIM
-  | GMCVIN
-  | GMCVIO
-  | GMCVIQ
-  | GMCVIR
-  | GMCVIS
-  | GMCVIT
-  | GMCVId
-  | GMCVJE
-  | GMCVJM
-  | GMCVJO
-  | GMCVJP
-  | GMCVKE
-  | GMCVKG
-  | GMCVKH
-  | GMCVKI
-  | GMCVKM
-  | GMCVKN
-  | GMCVKP
-  | GMCVKR
-  | GMCVKW
-  | GMCVKY
-  | GMCVKZ
-  | GMCVLA
-  | GMCVLB
-  | GMCVLC
-  | GMCVLI
-  | GMCVLK
-  | GMCVLR
-  | GMCVLS
-  | GMCVLT'
-  | GMCVLU
-  | GMCVLV
-  | GMCVLY
-  | GMCVMA
-  | GMCVMC
-  | GMCVMD
-  | GMCVME
-  | GMCVMF
-  | GMCVMG
-  | GMCVMH
-  | GMCVMK
-  | GMCVML
-  | GMCVMM
-  | GMCVMN
-  | GMCVMO
-  | GMCVMP
-  | GMCVMQ
-  | GMCVMR
-  | GMCVMS
-  | GMCVMT
-  | GMCVMU
-  | GMCVMV
-  | GMCVMW
-  | GMCVMX
-  | GMCVMY
-  | GMCVMZ
-  | GMCVNA
-  | GMCVNC
-  | GMCVNE
-  | GMCVNF
-  | GMCVNG
-  | GMCVNI
-  | GMCVNL
-  | GMCVNO
-  | GMCVNP
-  | GMCVNR
-  | GMCVNU
-  | GMCVNZ
-  | GMCVOM
-  | GMCVPA
-  | GMCVPE
-  | GMCVPF
-  | GMCVPG
-  | GMCVPH
-  | GMCVPK
-  | GMCVPL
-  | GMCVPM
-  | GMCVPN
-  | GMCVPR
-  | GMCVPS
-  | GMCVPT
-  | GMCVPW
-  | GMCVPY
-  | GMCVQA
-  | GMCVRE
-  | GMCVRO
-  | GMCVRS
-  | GMCVRU
-  | GMCVRW
-  | GMCVSA
-  | GMCVSB
-  | GMCVSC
-  | GMCVSD
-  | GMCVSE
-  | GMCVSG
-  | GMCVSH
-  | GMCVSI
-  | GMCVSJ
-  | GMCVSK
-  | GMCVSL
-  | GMCVSM
-  | GMCVSN
-  | GMCVSO
-  | GMCVSR
-  | GMCVSS
-  | GMCVST
-  | GMCVSV
-  | GMCVSX
-  | GMCVSY
-  | GMCVSZ
-  | GMCVTC
-  | GMCVTD
-  | GMCVTF
-  | GMCVTG
-  | GMCVTH
-  | GMCVTJ
-  | GMCVTK
-  | GMCVTL
-  | GMCVTM
-  | GMCVTN
-  | GMCVTO
-  | GMCVTR
-  | GMCVTT
-  | GMCVTV
-  | GMCVTW
-  | GMCVTZ
-  | GMCVUA
-  | GMCVUG
-  | GMCVUM
-  | GMCVUS
-  | GMCVUY
-  | GMCVUZ
-  | GMCVVA
-  | GMCVVC
-  | GMCVVE
-  | GMCVVG
-  | GMCVVI
-  | GMCVVN
-  | GMCVVU
-  | GMCVWF
-  | GMCVWS
-  | GMCVYE
-  | GMCVYT
-  | GMCVZA
-  | GMCVZM
-  | GMCVZW
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GeoMatchConstraintValue = GeoMatchConstraintValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GeoMatchConstraintValue where
-  parser =
-    takeLowerText >>= \case
-      "ad" -> pure GMCVAD
-      "ae" -> pure GMCVAE
-      "af" -> pure GMCVAF
-      "ag" -> pure GMCVAG
-      "ai" -> pure GMCVAI
-      "al" -> pure GMCVAL
-      "am" -> pure GMCVAM
-      "ao" -> pure GMCVAO
-      "aq" -> pure GMCVAQ
-      "ar" -> pure GMCVAR
-      "as" -> pure GMCVAS
-      "at" -> pure GMCVAT
-      "au" -> pure GMCVAU
-      "aw" -> pure GMCVAW
-      "ax" -> pure GMCVAX
-      "az" -> pure GMCVAZ
-      "ba" -> pure GMCVBA
-      "bb" -> pure GMCVBB
-      "bd" -> pure GMCVBD
-      "be" -> pure GMCVBE
-      "bf" -> pure GMCVBF
-      "bg" -> pure GMCVBG
-      "bh" -> pure GMCVBH
-      "bi" -> pure GMCVBI
-      "bj" -> pure GMCVBJ
-      "bl" -> pure GMCVBL
-      "bm" -> pure GMCVBM
-      "bn" -> pure GMCVBN
-      "bo" -> pure GMCVBO
-      "bq" -> pure GMCVBQ
-      "br" -> pure GMCVBR
-      "bs" -> pure GMCVBS
-      "bt" -> pure GMCVBT
-      "bv" -> pure GMCVBV
-      "bw" -> pure GMCVBW
-      "by" -> pure GMCVBY
-      "bz" -> pure GMCVBZ
-      "ca" -> pure GMCVCA
-      "cc" -> pure GMCVCC
-      "cd" -> pure GMCVCD
-      "cf" -> pure GMCVCF
-      "cg" -> pure GMCVCG
-      "ch" -> pure GMCVCH
-      "ci" -> pure GMCVCI
-      "ck" -> pure GMCVCK
-      "cl" -> pure GMCVCL
-      "cm" -> pure GMCVCM
-      "cn" -> pure GMCVCN
-      "co" -> pure GMCVCO
-      "cr" -> pure GMCVCR
-      "cu" -> pure GMCVCU
-      "cv" -> pure GMCVCV
-      "cw" -> pure GMCVCW
-      "cx" -> pure GMCVCX
-      "cy" -> pure GMCVCY
-      "cz" -> pure GMCVCZ
-      "de" -> pure GMCVDE
-      "dj" -> pure GMCVDJ
-      "dk" -> pure GMCVDK
-      "dm" -> pure GMCVDM
-      "do" -> pure GMCVDO
-      "dz" -> pure GMCVDZ
-      "ec" -> pure GMCVEC
-      "ee" -> pure GMCVEE
-      "eg" -> pure GMCVEG
-      "eh" -> pure GMCVEH
-      "er" -> pure GMCVER
-      "es" -> pure GMCVES
-      "et" -> pure GMCVET
-      "fi" -> pure GMCVFI
-      "fj" -> pure GMCVFJ
-      "fk" -> pure GMCVFK
-      "fm" -> pure GMCVFM
-      "fo" -> pure GMCVFO
-      "fr" -> pure GMCVFR
-      "ga" -> pure GMCVGA
-      "gb" -> pure GMCVGB
-      "gd" -> pure GMCVGD
-      "ge" -> pure GMCVGE
-      "gf" -> pure GMCVGF
-      "gg" -> pure GMCVGG
-      "gh" -> pure GMCVGH
-      "gi" -> pure GMCVGI
-      "gl" -> pure GMCVGL
-      "gm" -> pure GMCVGM
-      "gn" -> pure GMCVGN
-      "gp" -> pure GMCVGP
-      "gq" -> pure GMCVGQ
-      "gr" -> pure GMCVGR
-      "gs" -> pure GMCVGS
-      "gt" -> pure GMCVGT'
-      "gu" -> pure GMCVGU
-      "gw" -> pure GMCVGW
-      "gy" -> pure GMCVGY
-      "hk" -> pure GMCVHK
-      "hm" -> pure GMCVHM
-      "hn" -> pure GMCVHN
-      "hr" -> pure GMCVHR
-      "ht" -> pure GMCVHT
-      "hu" -> pure GMCVHU
-      "ie" -> pure GMCVIE
-      "il" -> pure GMCVIL
-      "im" -> pure GMCVIM
-      "in" -> pure GMCVIN
-      "io" -> pure GMCVIO
-      "iq" -> pure GMCVIQ
-      "ir" -> pure GMCVIR
-      "is" -> pure GMCVIS
-      "it" -> pure GMCVIT
-      "id" -> pure GMCVId
-      "je" -> pure GMCVJE
-      "jm" -> pure GMCVJM
-      "jo" -> pure GMCVJO
-      "jp" -> pure GMCVJP
-      "ke" -> pure GMCVKE
-      "kg" -> pure GMCVKG
-      "kh" -> pure GMCVKH
-      "ki" -> pure GMCVKI
-      "km" -> pure GMCVKM
-      "kn" -> pure GMCVKN
-      "kp" -> pure GMCVKP
-      "kr" -> pure GMCVKR
-      "kw" -> pure GMCVKW
-      "ky" -> pure GMCVKY
-      "kz" -> pure GMCVKZ
-      "la" -> pure GMCVLA
-      "lb" -> pure GMCVLB
-      "lc" -> pure GMCVLC
-      "li" -> pure GMCVLI
-      "lk" -> pure GMCVLK
-      "lr" -> pure GMCVLR
-      "ls" -> pure GMCVLS
-      "lt" -> pure GMCVLT'
-      "lu" -> pure GMCVLU
-      "lv" -> pure GMCVLV
-      "ly" -> pure GMCVLY
-      "ma" -> pure GMCVMA
-      "mc" -> pure GMCVMC
-      "md" -> pure GMCVMD
-      "me" -> pure GMCVME
-      "mf" -> pure GMCVMF
-      "mg" -> pure GMCVMG
-      "mh" -> pure GMCVMH
-      "mk" -> pure GMCVMK
-      "ml" -> pure GMCVML
-      "mm" -> pure GMCVMM
-      "mn" -> pure GMCVMN
-      "mo" -> pure GMCVMO
-      "mp" -> pure GMCVMP
-      "mq" -> pure GMCVMQ
-      "mr" -> pure GMCVMR
-      "ms" -> pure GMCVMS
-      "mt" -> pure GMCVMT
-      "mu" -> pure GMCVMU
-      "mv" -> pure GMCVMV
-      "mw" -> pure GMCVMW
-      "mx" -> pure GMCVMX
-      "my" -> pure GMCVMY
-      "mz" -> pure GMCVMZ
-      "na" -> pure GMCVNA
-      "nc" -> pure GMCVNC
-      "ne" -> pure GMCVNE
-      "nf" -> pure GMCVNF
-      "ng" -> pure GMCVNG
-      "ni" -> pure GMCVNI
-      "nl" -> pure GMCVNL
-      "no" -> pure GMCVNO
-      "np" -> pure GMCVNP
-      "nr" -> pure GMCVNR
-      "nu" -> pure GMCVNU
-      "nz" -> pure GMCVNZ
-      "om" -> pure GMCVOM
-      "pa" -> pure GMCVPA
-      "pe" -> pure GMCVPE
-      "pf" -> pure GMCVPF
-      "pg" -> pure GMCVPG
-      "ph" -> pure GMCVPH
-      "pk" -> pure GMCVPK
-      "pl" -> pure GMCVPL
-      "pm" -> pure GMCVPM
-      "pn" -> pure GMCVPN
-      "pr" -> pure GMCVPR
-      "ps" -> pure GMCVPS
-      "pt" -> pure GMCVPT
-      "pw" -> pure GMCVPW
-      "py" -> pure GMCVPY
-      "qa" -> pure GMCVQA
-      "re" -> pure GMCVRE
-      "ro" -> pure GMCVRO
-      "rs" -> pure GMCVRS
-      "ru" -> pure GMCVRU
-      "rw" -> pure GMCVRW
-      "sa" -> pure GMCVSA
-      "sb" -> pure GMCVSB
-      "sc" -> pure GMCVSC
-      "sd" -> pure GMCVSD
-      "se" -> pure GMCVSE
-      "sg" -> pure GMCVSG
-      "sh" -> pure GMCVSH
-      "si" -> pure GMCVSI
-      "sj" -> pure GMCVSJ
-      "sk" -> pure GMCVSK
-      "sl" -> pure GMCVSL
-      "sm" -> pure GMCVSM
-      "sn" -> pure GMCVSN
-      "so" -> pure GMCVSO
-      "sr" -> pure GMCVSR
-      "ss" -> pure GMCVSS
-      "st" -> pure GMCVST
-      "sv" -> pure GMCVSV
-      "sx" -> pure GMCVSX
-      "sy" -> pure GMCVSY
-      "sz" -> pure GMCVSZ
-      "tc" -> pure GMCVTC
-      "td" -> pure GMCVTD
-      "tf" -> pure GMCVTF
-      "tg" -> pure GMCVTG
-      "th" -> pure GMCVTH
-      "tj" -> pure GMCVTJ
-      "tk" -> pure GMCVTK
-      "tl" -> pure GMCVTL
-      "tm" -> pure GMCVTM
-      "tn" -> pure GMCVTN
-      "to" -> pure GMCVTO
-      "tr" -> pure GMCVTR
-      "tt" -> pure GMCVTT
-      "tv" -> pure GMCVTV
-      "tw" -> pure GMCVTW
-      "tz" -> pure GMCVTZ
-      "ua" -> pure GMCVUA
-      "ug" -> pure GMCVUG
-      "um" -> pure GMCVUM
-      "us" -> pure GMCVUS
-      "uy" -> pure GMCVUY
-      "uz" -> pure GMCVUZ
-      "va" -> pure GMCVVA
-      "vc" -> pure GMCVVC
-      "ve" -> pure GMCVVE
-      "vg" -> pure GMCVVG
-      "vi" -> pure GMCVVI
-      "vn" -> pure GMCVVN
-      "vu" -> pure GMCVVU
-      "wf" -> pure GMCVWF
-      "ws" -> pure GMCVWS
-      "ye" -> pure GMCVYE
-      "yt" -> pure GMCVYT
-      "za" -> pure GMCVZA
-      "zm" -> pure GMCVZM
-      "zw" -> pure GMCVZW
-      e ->
-        fromTextError $
-          "Failure parsing GeoMatchConstraintValue from value: '" <> e
-            <> "'. Accepted values: ad, ae, af, ag, ai, al, am, ao, aq, ar, as, at, au, aw, ax, az, ba, bb, bd, be, bf, bg, bh, bi, bj, bl, bm, bn, bo, bq, br, bs, bt, bv, bw, by, bz, ca, cc, cd, cf, cg, ch, ci, ck, cl, cm, cn, co, cr, cu, cv, cw, cx, cy, cz, de, dj, dk, dm, do, dz, ec, ee, eg, eh, er, es, et, fi, fj, fk, fm, fo, fr, ga, gb, gd, ge, gf, gg, gh, gi, gl, gm, gn, gp, gq, gr, gs, gt, gu, gw, gy, hk, hm, hn, hr, ht, hu, ie, il, im, in, io, iq, ir, is, it, id, je, jm, jo, jp, ke, kg, kh, ki, km, kn, kp, kr, kw, ky, kz, la, lb, lc, li, lk, lr, ls, lt, lu, lv, ly, ma, mc, md, me, mf, mg, mh, mk, ml, mm, mn, mo, mp, mq, mr, ms, mt, mu, mv, mw, mx, my, mz, na, nc, ne, nf, ng, ni, nl, no, np, nr, nu, nz, om, pa, pe, pf, pg, ph, pk, pl, pm, pn, pr, ps, pt, pw, py, qa, re, ro, rs, ru, rw, sa, sb, sc, sd, se, sg, sh, si, sj, sk, sl, sm, sn, so, sr, ss, st, sv, sx, sy, sz, tc, td, tf, tg, th, tj, tk, tl, tm, tn, to, tr, tt, tv, tw, tz, ua, ug, um, us, uy, uz, va, vc, ve, vg, vi, vn, vu, wf, ws, ye, yt, za, zm, zw"
+pattern GMCVAD :: GeoMatchConstraintValue
+pattern GMCVAD = GeoMatchConstraintValue' "AD"
 
-instance ToText GeoMatchConstraintValue where
-  toText = \case
-    GMCVAD -> "AD"
-    GMCVAE -> "AE"
-    GMCVAF -> "AF"
-    GMCVAG -> "AG"
-    GMCVAI -> "AI"
-    GMCVAL -> "AL"
-    GMCVAM -> "AM"
-    GMCVAO -> "AO"
-    GMCVAQ -> "AQ"
-    GMCVAR -> "AR"
-    GMCVAS -> "AS"
-    GMCVAT -> "AT"
-    GMCVAU -> "AU"
-    GMCVAW -> "AW"
-    GMCVAX -> "AX"
-    GMCVAZ -> "AZ"
-    GMCVBA -> "BA"
-    GMCVBB -> "BB"
-    GMCVBD -> "BD"
-    GMCVBE -> "BE"
-    GMCVBF -> "BF"
-    GMCVBG -> "BG"
-    GMCVBH -> "BH"
-    GMCVBI -> "BI"
-    GMCVBJ -> "BJ"
-    GMCVBL -> "BL"
-    GMCVBM -> "BM"
-    GMCVBN -> "BN"
-    GMCVBO -> "BO"
-    GMCVBQ -> "BQ"
-    GMCVBR -> "BR"
-    GMCVBS -> "BS"
-    GMCVBT -> "BT"
-    GMCVBV -> "BV"
-    GMCVBW -> "BW"
-    GMCVBY -> "BY"
-    GMCVBZ -> "BZ"
-    GMCVCA -> "CA"
-    GMCVCC -> "CC"
-    GMCVCD -> "CD"
-    GMCVCF -> "CF"
-    GMCVCG -> "CG"
-    GMCVCH -> "CH"
-    GMCVCI -> "CI"
-    GMCVCK -> "CK"
-    GMCVCL -> "CL"
-    GMCVCM -> "CM"
-    GMCVCN -> "CN"
-    GMCVCO -> "CO"
-    GMCVCR -> "CR"
-    GMCVCU -> "CU"
-    GMCVCV -> "CV"
-    GMCVCW -> "CW"
-    GMCVCX -> "CX"
-    GMCVCY -> "CY"
-    GMCVCZ -> "CZ"
-    GMCVDE -> "DE"
-    GMCVDJ -> "DJ"
-    GMCVDK -> "DK"
-    GMCVDM -> "DM"
-    GMCVDO -> "DO"
-    GMCVDZ -> "DZ"
-    GMCVEC -> "EC"
-    GMCVEE -> "EE"
-    GMCVEG -> "EG"
-    GMCVEH -> "EH"
-    GMCVER -> "ER"
-    GMCVES -> "ES"
-    GMCVET -> "ET"
-    GMCVFI -> "FI"
-    GMCVFJ -> "FJ"
-    GMCVFK -> "FK"
-    GMCVFM -> "FM"
-    GMCVFO -> "FO"
-    GMCVFR -> "FR"
-    GMCVGA -> "GA"
-    GMCVGB -> "GB"
-    GMCVGD -> "GD"
-    GMCVGE -> "GE"
-    GMCVGF -> "GF"
-    GMCVGG -> "GG"
-    GMCVGH -> "GH"
-    GMCVGI -> "GI"
-    GMCVGL -> "GL"
-    GMCVGM -> "GM"
-    GMCVGN -> "GN"
-    GMCVGP -> "GP"
-    GMCVGQ -> "GQ"
-    GMCVGR -> "GR"
-    GMCVGS -> "GS"
-    GMCVGT' -> "GT"
-    GMCVGU -> "GU"
-    GMCVGW -> "GW"
-    GMCVGY -> "GY"
-    GMCVHK -> "HK"
-    GMCVHM -> "HM"
-    GMCVHN -> "HN"
-    GMCVHR -> "HR"
-    GMCVHT -> "HT"
-    GMCVHU -> "HU"
-    GMCVIE -> "IE"
-    GMCVIL -> "IL"
-    GMCVIM -> "IM"
-    GMCVIN -> "IN"
-    GMCVIO -> "IO"
-    GMCVIQ -> "IQ"
-    GMCVIR -> "IR"
-    GMCVIS -> "IS"
-    GMCVIT -> "IT"
-    GMCVId -> "ID"
-    GMCVJE -> "JE"
-    GMCVJM -> "JM"
-    GMCVJO -> "JO"
-    GMCVJP -> "JP"
-    GMCVKE -> "KE"
-    GMCVKG -> "KG"
-    GMCVKH -> "KH"
-    GMCVKI -> "KI"
-    GMCVKM -> "KM"
-    GMCVKN -> "KN"
-    GMCVKP -> "KP"
-    GMCVKR -> "KR"
-    GMCVKW -> "KW"
-    GMCVKY -> "KY"
-    GMCVKZ -> "KZ"
-    GMCVLA -> "LA"
-    GMCVLB -> "LB"
-    GMCVLC -> "LC"
-    GMCVLI -> "LI"
-    GMCVLK -> "LK"
-    GMCVLR -> "LR"
-    GMCVLS -> "LS"
-    GMCVLT' -> "LT"
-    GMCVLU -> "LU"
-    GMCVLV -> "LV"
-    GMCVLY -> "LY"
-    GMCVMA -> "MA"
-    GMCVMC -> "MC"
-    GMCVMD -> "MD"
-    GMCVME -> "ME"
-    GMCVMF -> "MF"
-    GMCVMG -> "MG"
-    GMCVMH -> "MH"
-    GMCVMK -> "MK"
-    GMCVML -> "ML"
-    GMCVMM -> "MM"
-    GMCVMN -> "MN"
-    GMCVMO -> "MO"
-    GMCVMP -> "MP"
-    GMCVMQ -> "MQ"
-    GMCVMR -> "MR"
-    GMCVMS -> "MS"
-    GMCVMT -> "MT"
-    GMCVMU -> "MU"
-    GMCVMV -> "MV"
-    GMCVMW -> "MW"
-    GMCVMX -> "MX"
-    GMCVMY -> "MY"
-    GMCVMZ -> "MZ"
-    GMCVNA -> "NA"
-    GMCVNC -> "NC"
-    GMCVNE -> "NE"
-    GMCVNF -> "NF"
-    GMCVNG -> "NG"
-    GMCVNI -> "NI"
-    GMCVNL -> "NL"
-    GMCVNO -> "NO"
-    GMCVNP -> "NP"
-    GMCVNR -> "NR"
-    GMCVNU -> "NU"
-    GMCVNZ -> "NZ"
-    GMCVOM -> "OM"
-    GMCVPA -> "PA"
-    GMCVPE -> "PE"
-    GMCVPF -> "PF"
-    GMCVPG -> "PG"
-    GMCVPH -> "PH"
-    GMCVPK -> "PK"
-    GMCVPL -> "PL"
-    GMCVPM -> "PM"
-    GMCVPN -> "PN"
-    GMCVPR -> "PR"
-    GMCVPS -> "PS"
-    GMCVPT -> "PT"
-    GMCVPW -> "PW"
-    GMCVPY -> "PY"
-    GMCVQA -> "QA"
-    GMCVRE -> "RE"
-    GMCVRO -> "RO"
-    GMCVRS -> "RS"
-    GMCVRU -> "RU"
-    GMCVRW -> "RW"
-    GMCVSA -> "SA"
-    GMCVSB -> "SB"
-    GMCVSC -> "SC"
-    GMCVSD -> "SD"
-    GMCVSE -> "SE"
-    GMCVSG -> "SG"
-    GMCVSH -> "SH"
-    GMCVSI -> "SI"
-    GMCVSJ -> "SJ"
-    GMCVSK -> "SK"
-    GMCVSL -> "SL"
-    GMCVSM -> "SM"
-    GMCVSN -> "SN"
-    GMCVSO -> "SO"
-    GMCVSR -> "SR"
-    GMCVSS -> "SS"
-    GMCVST -> "ST"
-    GMCVSV -> "SV"
-    GMCVSX -> "SX"
-    GMCVSY -> "SY"
-    GMCVSZ -> "SZ"
-    GMCVTC -> "TC"
-    GMCVTD -> "TD"
-    GMCVTF -> "TF"
-    GMCVTG -> "TG"
-    GMCVTH -> "TH"
-    GMCVTJ -> "TJ"
-    GMCVTK -> "TK"
-    GMCVTL -> "TL"
-    GMCVTM -> "TM"
-    GMCVTN -> "TN"
-    GMCVTO -> "TO"
-    GMCVTR -> "TR"
-    GMCVTT -> "TT"
-    GMCVTV -> "TV"
-    GMCVTW -> "TW"
-    GMCVTZ -> "TZ"
-    GMCVUA -> "UA"
-    GMCVUG -> "UG"
-    GMCVUM -> "UM"
-    GMCVUS -> "US"
-    GMCVUY -> "UY"
-    GMCVUZ -> "UZ"
-    GMCVVA -> "VA"
-    GMCVVC -> "VC"
-    GMCVVE -> "VE"
-    GMCVVG -> "VG"
-    GMCVVI -> "VI"
-    GMCVVN -> "VN"
-    GMCVVU -> "VU"
-    GMCVWF -> "WF"
-    GMCVWS -> "WS"
-    GMCVYE -> "YE"
-    GMCVYT -> "YT"
-    GMCVZA -> "ZA"
-    GMCVZM -> "ZM"
-    GMCVZW -> "ZW"
+pattern GMCVAE :: GeoMatchConstraintValue
+pattern GMCVAE = GeoMatchConstraintValue' "AE"
 
-instance Hashable GeoMatchConstraintValue
+pattern GMCVAF :: GeoMatchConstraintValue
+pattern GMCVAF = GeoMatchConstraintValue' "AF"
 
-instance NFData GeoMatchConstraintValue
+pattern GMCVAG :: GeoMatchConstraintValue
+pattern GMCVAG = GeoMatchConstraintValue' "AG"
 
-instance ToByteString GeoMatchConstraintValue
+pattern GMCVAI :: GeoMatchConstraintValue
+pattern GMCVAI = GeoMatchConstraintValue' "AI"
 
-instance ToQuery GeoMatchConstraintValue
+pattern GMCVAL :: GeoMatchConstraintValue
+pattern GMCVAL = GeoMatchConstraintValue' "AL"
 
-instance ToHeader GeoMatchConstraintValue
+pattern GMCVAM :: GeoMatchConstraintValue
+pattern GMCVAM = GeoMatchConstraintValue' "AM"
 
-instance ToJSON GeoMatchConstraintValue where
-  toJSON = toJSONText
+pattern GMCVAO :: GeoMatchConstraintValue
+pattern GMCVAO = GeoMatchConstraintValue' "AO"
 
-instance FromJSON GeoMatchConstraintValue where
-  parseJSON = parseJSONText "GeoMatchConstraintValue"
+pattern GMCVAQ :: GeoMatchConstraintValue
+pattern GMCVAQ = GeoMatchConstraintValue' "AQ"
+
+pattern GMCVAR :: GeoMatchConstraintValue
+pattern GMCVAR = GeoMatchConstraintValue' "AR"
+
+pattern GMCVAS :: GeoMatchConstraintValue
+pattern GMCVAS = GeoMatchConstraintValue' "AS"
+
+pattern GMCVAT :: GeoMatchConstraintValue
+pattern GMCVAT = GeoMatchConstraintValue' "AT"
+
+pattern GMCVAU :: GeoMatchConstraintValue
+pattern GMCVAU = GeoMatchConstraintValue' "AU"
+
+pattern GMCVAW :: GeoMatchConstraintValue
+pattern GMCVAW = GeoMatchConstraintValue' "AW"
+
+pattern GMCVAX :: GeoMatchConstraintValue
+pattern GMCVAX = GeoMatchConstraintValue' "AX"
+
+pattern GMCVAZ :: GeoMatchConstraintValue
+pattern GMCVAZ = GeoMatchConstraintValue' "AZ"
+
+pattern GMCVBA :: GeoMatchConstraintValue
+pattern GMCVBA = GeoMatchConstraintValue' "BA"
+
+pattern GMCVBB :: GeoMatchConstraintValue
+pattern GMCVBB = GeoMatchConstraintValue' "BB"
+
+pattern GMCVBD :: GeoMatchConstraintValue
+pattern GMCVBD = GeoMatchConstraintValue' "BD"
+
+pattern GMCVBE :: GeoMatchConstraintValue
+pattern GMCVBE = GeoMatchConstraintValue' "BE"
+
+pattern GMCVBF :: GeoMatchConstraintValue
+pattern GMCVBF = GeoMatchConstraintValue' "BF"
+
+pattern GMCVBG :: GeoMatchConstraintValue
+pattern GMCVBG = GeoMatchConstraintValue' "BG"
+
+pattern GMCVBH :: GeoMatchConstraintValue
+pattern GMCVBH = GeoMatchConstraintValue' "BH"
+
+pattern GMCVBI :: GeoMatchConstraintValue
+pattern GMCVBI = GeoMatchConstraintValue' "BI"
+
+pattern GMCVBJ :: GeoMatchConstraintValue
+pattern GMCVBJ = GeoMatchConstraintValue' "BJ"
+
+pattern GMCVBL :: GeoMatchConstraintValue
+pattern GMCVBL = GeoMatchConstraintValue' "BL"
+
+pattern GMCVBM :: GeoMatchConstraintValue
+pattern GMCVBM = GeoMatchConstraintValue' "BM"
+
+pattern GMCVBN :: GeoMatchConstraintValue
+pattern GMCVBN = GeoMatchConstraintValue' "BN"
+
+pattern GMCVBO :: GeoMatchConstraintValue
+pattern GMCVBO = GeoMatchConstraintValue' "BO"
+
+pattern GMCVBQ :: GeoMatchConstraintValue
+pattern GMCVBQ = GeoMatchConstraintValue' "BQ"
+
+pattern GMCVBR :: GeoMatchConstraintValue
+pattern GMCVBR = GeoMatchConstraintValue' "BR"
+
+pattern GMCVBS :: GeoMatchConstraintValue
+pattern GMCVBS = GeoMatchConstraintValue' "BS"
+
+pattern GMCVBT :: GeoMatchConstraintValue
+pattern GMCVBT = GeoMatchConstraintValue' "BT"
+
+pattern GMCVBV :: GeoMatchConstraintValue
+pattern GMCVBV = GeoMatchConstraintValue' "BV"
+
+pattern GMCVBW :: GeoMatchConstraintValue
+pattern GMCVBW = GeoMatchConstraintValue' "BW"
+
+pattern GMCVBY :: GeoMatchConstraintValue
+pattern GMCVBY = GeoMatchConstraintValue' "BY"
+
+pattern GMCVBZ :: GeoMatchConstraintValue
+pattern GMCVBZ = GeoMatchConstraintValue' "BZ"
+
+pattern GMCVCA :: GeoMatchConstraintValue
+pattern GMCVCA = GeoMatchConstraintValue' "CA"
+
+pattern GMCVCC :: GeoMatchConstraintValue
+pattern GMCVCC = GeoMatchConstraintValue' "CC"
+
+pattern GMCVCD :: GeoMatchConstraintValue
+pattern GMCVCD = GeoMatchConstraintValue' "CD"
+
+pattern GMCVCF :: GeoMatchConstraintValue
+pattern GMCVCF = GeoMatchConstraintValue' "CF"
+
+pattern GMCVCG :: GeoMatchConstraintValue
+pattern GMCVCG = GeoMatchConstraintValue' "CG"
+
+pattern GMCVCH :: GeoMatchConstraintValue
+pattern GMCVCH = GeoMatchConstraintValue' "CH"
+
+pattern GMCVCI :: GeoMatchConstraintValue
+pattern GMCVCI = GeoMatchConstraintValue' "CI"
+
+pattern GMCVCK :: GeoMatchConstraintValue
+pattern GMCVCK = GeoMatchConstraintValue' "CK"
+
+pattern GMCVCL :: GeoMatchConstraintValue
+pattern GMCVCL = GeoMatchConstraintValue' "CL"
+
+pattern GMCVCM :: GeoMatchConstraintValue
+pattern GMCVCM = GeoMatchConstraintValue' "CM"
+
+pattern GMCVCN :: GeoMatchConstraintValue
+pattern GMCVCN = GeoMatchConstraintValue' "CN"
+
+pattern GMCVCO :: GeoMatchConstraintValue
+pattern GMCVCO = GeoMatchConstraintValue' "CO"
+
+pattern GMCVCR :: GeoMatchConstraintValue
+pattern GMCVCR = GeoMatchConstraintValue' "CR"
+
+pattern GMCVCU :: GeoMatchConstraintValue
+pattern GMCVCU = GeoMatchConstraintValue' "CU"
+
+pattern GMCVCV :: GeoMatchConstraintValue
+pattern GMCVCV = GeoMatchConstraintValue' "CV"
+
+pattern GMCVCW :: GeoMatchConstraintValue
+pattern GMCVCW = GeoMatchConstraintValue' "CW"
+
+pattern GMCVCX :: GeoMatchConstraintValue
+pattern GMCVCX = GeoMatchConstraintValue' "CX"
+
+pattern GMCVCY :: GeoMatchConstraintValue
+pattern GMCVCY = GeoMatchConstraintValue' "CY"
+
+pattern GMCVCZ :: GeoMatchConstraintValue
+pattern GMCVCZ = GeoMatchConstraintValue' "CZ"
+
+pattern GMCVDE :: GeoMatchConstraintValue
+pattern GMCVDE = GeoMatchConstraintValue' "DE"
+
+pattern GMCVDJ :: GeoMatchConstraintValue
+pattern GMCVDJ = GeoMatchConstraintValue' "DJ"
+
+pattern GMCVDK :: GeoMatchConstraintValue
+pattern GMCVDK = GeoMatchConstraintValue' "DK"
+
+pattern GMCVDM :: GeoMatchConstraintValue
+pattern GMCVDM = GeoMatchConstraintValue' "DM"
+
+pattern GMCVDO :: GeoMatchConstraintValue
+pattern GMCVDO = GeoMatchConstraintValue' "DO"
+
+pattern GMCVDZ :: GeoMatchConstraintValue
+pattern GMCVDZ = GeoMatchConstraintValue' "DZ"
+
+pattern GMCVEC :: GeoMatchConstraintValue
+pattern GMCVEC = GeoMatchConstraintValue' "EC"
+
+pattern GMCVEE :: GeoMatchConstraintValue
+pattern GMCVEE = GeoMatchConstraintValue' "EE"
+
+pattern GMCVEG :: GeoMatchConstraintValue
+pattern GMCVEG = GeoMatchConstraintValue' "EG"
+
+pattern GMCVEH :: GeoMatchConstraintValue
+pattern GMCVEH = GeoMatchConstraintValue' "EH"
+
+pattern GMCVER :: GeoMatchConstraintValue
+pattern GMCVER = GeoMatchConstraintValue' "ER"
+
+pattern GMCVES :: GeoMatchConstraintValue
+pattern GMCVES = GeoMatchConstraintValue' "ES"
+
+pattern GMCVET :: GeoMatchConstraintValue
+pattern GMCVET = GeoMatchConstraintValue' "ET"
+
+pattern GMCVFI :: GeoMatchConstraintValue
+pattern GMCVFI = GeoMatchConstraintValue' "FI"
+
+pattern GMCVFJ :: GeoMatchConstraintValue
+pattern GMCVFJ = GeoMatchConstraintValue' "FJ"
+
+pattern GMCVFK :: GeoMatchConstraintValue
+pattern GMCVFK = GeoMatchConstraintValue' "FK"
+
+pattern GMCVFM :: GeoMatchConstraintValue
+pattern GMCVFM = GeoMatchConstraintValue' "FM"
+
+pattern GMCVFO :: GeoMatchConstraintValue
+pattern GMCVFO = GeoMatchConstraintValue' "FO"
+
+pattern GMCVFR :: GeoMatchConstraintValue
+pattern GMCVFR = GeoMatchConstraintValue' "FR"
+
+pattern GMCVGA :: GeoMatchConstraintValue
+pattern GMCVGA = GeoMatchConstraintValue' "GA"
+
+pattern GMCVGB :: GeoMatchConstraintValue
+pattern GMCVGB = GeoMatchConstraintValue' "GB"
+
+pattern GMCVGD :: GeoMatchConstraintValue
+pattern GMCVGD = GeoMatchConstraintValue' "GD"
+
+pattern GMCVGE :: GeoMatchConstraintValue
+pattern GMCVGE = GeoMatchConstraintValue' "GE"
+
+pattern GMCVGF :: GeoMatchConstraintValue
+pattern GMCVGF = GeoMatchConstraintValue' "GF"
+
+pattern GMCVGG :: GeoMatchConstraintValue
+pattern GMCVGG = GeoMatchConstraintValue' "GG"
+
+pattern GMCVGH :: GeoMatchConstraintValue
+pattern GMCVGH = GeoMatchConstraintValue' "GH"
+
+pattern GMCVGI :: GeoMatchConstraintValue
+pattern GMCVGI = GeoMatchConstraintValue' "GI"
+
+pattern GMCVGL :: GeoMatchConstraintValue
+pattern GMCVGL = GeoMatchConstraintValue' "GL"
+
+pattern GMCVGM :: GeoMatchConstraintValue
+pattern GMCVGM = GeoMatchConstraintValue' "GM"
+
+pattern GMCVGN :: GeoMatchConstraintValue
+pattern GMCVGN = GeoMatchConstraintValue' "GN"
+
+pattern GMCVGP :: GeoMatchConstraintValue
+pattern GMCVGP = GeoMatchConstraintValue' "GP"
+
+pattern GMCVGQ :: GeoMatchConstraintValue
+pattern GMCVGQ = GeoMatchConstraintValue' "GQ"
+
+pattern GMCVGR :: GeoMatchConstraintValue
+pattern GMCVGR = GeoMatchConstraintValue' "GR"
+
+pattern GMCVGS :: GeoMatchConstraintValue
+pattern GMCVGS = GeoMatchConstraintValue' "GS"
+
+pattern GMCVGT :: GeoMatchConstraintValue
+pattern GMCVGT = GeoMatchConstraintValue' "GT"
+
+pattern GMCVGU :: GeoMatchConstraintValue
+pattern GMCVGU = GeoMatchConstraintValue' "GU"
+
+pattern GMCVGW :: GeoMatchConstraintValue
+pattern GMCVGW = GeoMatchConstraintValue' "GW"
+
+pattern GMCVGY :: GeoMatchConstraintValue
+pattern GMCVGY = GeoMatchConstraintValue' "GY"
+
+pattern GMCVHK :: GeoMatchConstraintValue
+pattern GMCVHK = GeoMatchConstraintValue' "HK"
+
+pattern GMCVHM :: GeoMatchConstraintValue
+pattern GMCVHM = GeoMatchConstraintValue' "HM"
+
+pattern GMCVHN :: GeoMatchConstraintValue
+pattern GMCVHN = GeoMatchConstraintValue' "HN"
+
+pattern GMCVHR :: GeoMatchConstraintValue
+pattern GMCVHR = GeoMatchConstraintValue' "HR"
+
+pattern GMCVHT :: GeoMatchConstraintValue
+pattern GMCVHT = GeoMatchConstraintValue' "HT"
+
+pattern GMCVHU :: GeoMatchConstraintValue
+pattern GMCVHU = GeoMatchConstraintValue' "HU"
+
+pattern GMCVIE :: GeoMatchConstraintValue
+pattern GMCVIE = GeoMatchConstraintValue' "IE"
+
+pattern GMCVIL :: GeoMatchConstraintValue
+pattern GMCVIL = GeoMatchConstraintValue' "IL"
+
+pattern GMCVIM :: GeoMatchConstraintValue
+pattern GMCVIM = GeoMatchConstraintValue' "IM"
+
+pattern GMCVIN :: GeoMatchConstraintValue
+pattern GMCVIN = GeoMatchConstraintValue' "IN"
+
+pattern GMCVIO :: GeoMatchConstraintValue
+pattern GMCVIO = GeoMatchConstraintValue' "IO"
+
+pattern GMCVIQ :: GeoMatchConstraintValue
+pattern GMCVIQ = GeoMatchConstraintValue' "IQ"
+
+pattern GMCVIR :: GeoMatchConstraintValue
+pattern GMCVIR = GeoMatchConstraintValue' "IR"
+
+pattern GMCVIS :: GeoMatchConstraintValue
+pattern GMCVIS = GeoMatchConstraintValue' "IS"
+
+pattern GMCVIT :: GeoMatchConstraintValue
+pattern GMCVIT = GeoMatchConstraintValue' "IT"
+
+pattern GMCVId :: GeoMatchConstraintValue
+pattern GMCVId = GeoMatchConstraintValue' "ID"
+
+pattern GMCVJE :: GeoMatchConstraintValue
+pattern GMCVJE = GeoMatchConstraintValue' "JE"
+
+pattern GMCVJM :: GeoMatchConstraintValue
+pattern GMCVJM = GeoMatchConstraintValue' "JM"
+
+pattern GMCVJO :: GeoMatchConstraintValue
+pattern GMCVJO = GeoMatchConstraintValue' "JO"
+
+pattern GMCVJP :: GeoMatchConstraintValue
+pattern GMCVJP = GeoMatchConstraintValue' "JP"
+
+pattern GMCVKE :: GeoMatchConstraintValue
+pattern GMCVKE = GeoMatchConstraintValue' "KE"
+
+pattern GMCVKG :: GeoMatchConstraintValue
+pattern GMCVKG = GeoMatchConstraintValue' "KG"
+
+pattern GMCVKH :: GeoMatchConstraintValue
+pattern GMCVKH = GeoMatchConstraintValue' "KH"
+
+pattern GMCVKI :: GeoMatchConstraintValue
+pattern GMCVKI = GeoMatchConstraintValue' "KI"
+
+pattern GMCVKM :: GeoMatchConstraintValue
+pattern GMCVKM = GeoMatchConstraintValue' "KM"
+
+pattern GMCVKN :: GeoMatchConstraintValue
+pattern GMCVKN = GeoMatchConstraintValue' "KN"
+
+pattern GMCVKP :: GeoMatchConstraintValue
+pattern GMCVKP = GeoMatchConstraintValue' "KP"
+
+pattern GMCVKR :: GeoMatchConstraintValue
+pattern GMCVKR = GeoMatchConstraintValue' "KR"
+
+pattern GMCVKW :: GeoMatchConstraintValue
+pattern GMCVKW = GeoMatchConstraintValue' "KW"
+
+pattern GMCVKY :: GeoMatchConstraintValue
+pattern GMCVKY = GeoMatchConstraintValue' "KY"
+
+pattern GMCVKZ :: GeoMatchConstraintValue
+pattern GMCVKZ = GeoMatchConstraintValue' "KZ"
+
+pattern GMCVLA :: GeoMatchConstraintValue
+pattern GMCVLA = GeoMatchConstraintValue' "LA"
+
+pattern GMCVLB :: GeoMatchConstraintValue
+pattern GMCVLB = GeoMatchConstraintValue' "LB"
+
+pattern GMCVLC :: GeoMatchConstraintValue
+pattern GMCVLC = GeoMatchConstraintValue' "LC"
+
+pattern GMCVLI :: GeoMatchConstraintValue
+pattern GMCVLI = GeoMatchConstraintValue' "LI"
+
+pattern GMCVLK :: GeoMatchConstraintValue
+pattern GMCVLK = GeoMatchConstraintValue' "LK"
+
+pattern GMCVLR :: GeoMatchConstraintValue
+pattern GMCVLR = GeoMatchConstraintValue' "LR"
+
+pattern GMCVLS :: GeoMatchConstraintValue
+pattern GMCVLS = GeoMatchConstraintValue' "LS"
+
+pattern GMCVLT :: GeoMatchConstraintValue
+pattern GMCVLT = GeoMatchConstraintValue' "LT"
+
+pattern GMCVLU :: GeoMatchConstraintValue
+pattern GMCVLU = GeoMatchConstraintValue' "LU"
+
+pattern GMCVLV :: GeoMatchConstraintValue
+pattern GMCVLV = GeoMatchConstraintValue' "LV"
+
+pattern GMCVLY :: GeoMatchConstraintValue
+pattern GMCVLY = GeoMatchConstraintValue' "LY"
+
+pattern GMCVMA :: GeoMatchConstraintValue
+pattern GMCVMA = GeoMatchConstraintValue' "MA"
+
+pattern GMCVMC :: GeoMatchConstraintValue
+pattern GMCVMC = GeoMatchConstraintValue' "MC"
+
+pattern GMCVMD :: GeoMatchConstraintValue
+pattern GMCVMD = GeoMatchConstraintValue' "MD"
+
+pattern GMCVME :: GeoMatchConstraintValue
+pattern GMCVME = GeoMatchConstraintValue' "ME"
+
+pattern GMCVMF :: GeoMatchConstraintValue
+pattern GMCVMF = GeoMatchConstraintValue' "MF"
+
+pattern GMCVMG :: GeoMatchConstraintValue
+pattern GMCVMG = GeoMatchConstraintValue' "MG"
+
+pattern GMCVMH :: GeoMatchConstraintValue
+pattern GMCVMH = GeoMatchConstraintValue' "MH"
+
+pattern GMCVMK :: GeoMatchConstraintValue
+pattern GMCVMK = GeoMatchConstraintValue' "MK"
+
+pattern GMCVML :: GeoMatchConstraintValue
+pattern GMCVML = GeoMatchConstraintValue' "ML"
+
+pattern GMCVMM :: GeoMatchConstraintValue
+pattern GMCVMM = GeoMatchConstraintValue' "MM"
+
+pattern GMCVMN :: GeoMatchConstraintValue
+pattern GMCVMN = GeoMatchConstraintValue' "MN"
+
+pattern GMCVMO :: GeoMatchConstraintValue
+pattern GMCVMO = GeoMatchConstraintValue' "MO"
+
+pattern GMCVMP :: GeoMatchConstraintValue
+pattern GMCVMP = GeoMatchConstraintValue' "MP"
+
+pattern GMCVMQ :: GeoMatchConstraintValue
+pattern GMCVMQ = GeoMatchConstraintValue' "MQ"
+
+pattern GMCVMR :: GeoMatchConstraintValue
+pattern GMCVMR = GeoMatchConstraintValue' "MR"
+
+pattern GMCVMS :: GeoMatchConstraintValue
+pattern GMCVMS = GeoMatchConstraintValue' "MS"
+
+pattern GMCVMT :: GeoMatchConstraintValue
+pattern GMCVMT = GeoMatchConstraintValue' "MT"
+
+pattern GMCVMU :: GeoMatchConstraintValue
+pattern GMCVMU = GeoMatchConstraintValue' "MU"
+
+pattern GMCVMV :: GeoMatchConstraintValue
+pattern GMCVMV = GeoMatchConstraintValue' "MV"
+
+pattern GMCVMW :: GeoMatchConstraintValue
+pattern GMCVMW = GeoMatchConstraintValue' "MW"
+
+pattern GMCVMX :: GeoMatchConstraintValue
+pattern GMCVMX = GeoMatchConstraintValue' "MX"
+
+pattern GMCVMY :: GeoMatchConstraintValue
+pattern GMCVMY = GeoMatchConstraintValue' "MY"
+
+pattern GMCVMZ :: GeoMatchConstraintValue
+pattern GMCVMZ = GeoMatchConstraintValue' "MZ"
+
+pattern GMCVNA :: GeoMatchConstraintValue
+pattern GMCVNA = GeoMatchConstraintValue' "NA"
+
+pattern GMCVNC :: GeoMatchConstraintValue
+pattern GMCVNC = GeoMatchConstraintValue' "NC"
+
+pattern GMCVNE :: GeoMatchConstraintValue
+pattern GMCVNE = GeoMatchConstraintValue' "NE"
+
+pattern GMCVNF :: GeoMatchConstraintValue
+pattern GMCVNF = GeoMatchConstraintValue' "NF"
+
+pattern GMCVNG :: GeoMatchConstraintValue
+pattern GMCVNG = GeoMatchConstraintValue' "NG"
+
+pattern GMCVNI :: GeoMatchConstraintValue
+pattern GMCVNI = GeoMatchConstraintValue' "NI"
+
+pattern GMCVNL :: GeoMatchConstraintValue
+pattern GMCVNL = GeoMatchConstraintValue' "NL"
+
+pattern GMCVNO :: GeoMatchConstraintValue
+pattern GMCVNO = GeoMatchConstraintValue' "NO"
+
+pattern GMCVNP :: GeoMatchConstraintValue
+pattern GMCVNP = GeoMatchConstraintValue' "NP"
+
+pattern GMCVNR :: GeoMatchConstraintValue
+pattern GMCVNR = GeoMatchConstraintValue' "NR"
+
+pattern GMCVNU :: GeoMatchConstraintValue
+pattern GMCVNU = GeoMatchConstraintValue' "NU"
+
+pattern GMCVNZ :: GeoMatchConstraintValue
+pattern GMCVNZ = GeoMatchConstraintValue' "NZ"
+
+pattern GMCVOM :: GeoMatchConstraintValue
+pattern GMCVOM = GeoMatchConstraintValue' "OM"
+
+pattern GMCVPA :: GeoMatchConstraintValue
+pattern GMCVPA = GeoMatchConstraintValue' "PA"
+
+pattern GMCVPE :: GeoMatchConstraintValue
+pattern GMCVPE = GeoMatchConstraintValue' "PE"
+
+pattern GMCVPF :: GeoMatchConstraintValue
+pattern GMCVPF = GeoMatchConstraintValue' "PF"
+
+pattern GMCVPG :: GeoMatchConstraintValue
+pattern GMCVPG = GeoMatchConstraintValue' "PG"
+
+pattern GMCVPH :: GeoMatchConstraintValue
+pattern GMCVPH = GeoMatchConstraintValue' "PH"
+
+pattern GMCVPK :: GeoMatchConstraintValue
+pattern GMCVPK = GeoMatchConstraintValue' "PK"
+
+pattern GMCVPL :: GeoMatchConstraintValue
+pattern GMCVPL = GeoMatchConstraintValue' "PL"
+
+pattern GMCVPM :: GeoMatchConstraintValue
+pattern GMCVPM = GeoMatchConstraintValue' "PM"
+
+pattern GMCVPN :: GeoMatchConstraintValue
+pattern GMCVPN = GeoMatchConstraintValue' "PN"
+
+pattern GMCVPR :: GeoMatchConstraintValue
+pattern GMCVPR = GeoMatchConstraintValue' "PR"
+
+pattern GMCVPS :: GeoMatchConstraintValue
+pattern GMCVPS = GeoMatchConstraintValue' "PS"
+
+pattern GMCVPT :: GeoMatchConstraintValue
+pattern GMCVPT = GeoMatchConstraintValue' "PT"
+
+pattern GMCVPW :: GeoMatchConstraintValue
+pattern GMCVPW = GeoMatchConstraintValue' "PW"
+
+pattern GMCVPY :: GeoMatchConstraintValue
+pattern GMCVPY = GeoMatchConstraintValue' "PY"
+
+pattern GMCVQA :: GeoMatchConstraintValue
+pattern GMCVQA = GeoMatchConstraintValue' "QA"
+
+pattern GMCVRE :: GeoMatchConstraintValue
+pattern GMCVRE = GeoMatchConstraintValue' "RE"
+
+pattern GMCVRO :: GeoMatchConstraintValue
+pattern GMCVRO = GeoMatchConstraintValue' "RO"
+
+pattern GMCVRS :: GeoMatchConstraintValue
+pattern GMCVRS = GeoMatchConstraintValue' "RS"
+
+pattern GMCVRU :: GeoMatchConstraintValue
+pattern GMCVRU = GeoMatchConstraintValue' "RU"
+
+pattern GMCVRW :: GeoMatchConstraintValue
+pattern GMCVRW = GeoMatchConstraintValue' "RW"
+
+pattern GMCVSA :: GeoMatchConstraintValue
+pattern GMCVSA = GeoMatchConstraintValue' "SA"
+
+pattern GMCVSB :: GeoMatchConstraintValue
+pattern GMCVSB = GeoMatchConstraintValue' "SB"
+
+pattern GMCVSC :: GeoMatchConstraintValue
+pattern GMCVSC = GeoMatchConstraintValue' "SC"
+
+pattern GMCVSD :: GeoMatchConstraintValue
+pattern GMCVSD = GeoMatchConstraintValue' "SD"
+
+pattern GMCVSE :: GeoMatchConstraintValue
+pattern GMCVSE = GeoMatchConstraintValue' "SE"
+
+pattern GMCVSG :: GeoMatchConstraintValue
+pattern GMCVSG = GeoMatchConstraintValue' "SG"
+
+pattern GMCVSH :: GeoMatchConstraintValue
+pattern GMCVSH = GeoMatchConstraintValue' "SH"
+
+pattern GMCVSI :: GeoMatchConstraintValue
+pattern GMCVSI = GeoMatchConstraintValue' "SI"
+
+pattern GMCVSJ :: GeoMatchConstraintValue
+pattern GMCVSJ = GeoMatchConstraintValue' "SJ"
+
+pattern GMCVSK :: GeoMatchConstraintValue
+pattern GMCVSK = GeoMatchConstraintValue' "SK"
+
+pattern GMCVSL :: GeoMatchConstraintValue
+pattern GMCVSL = GeoMatchConstraintValue' "SL"
+
+pattern GMCVSM :: GeoMatchConstraintValue
+pattern GMCVSM = GeoMatchConstraintValue' "SM"
+
+pattern GMCVSN :: GeoMatchConstraintValue
+pattern GMCVSN = GeoMatchConstraintValue' "SN"
+
+pattern GMCVSO :: GeoMatchConstraintValue
+pattern GMCVSO = GeoMatchConstraintValue' "SO"
+
+pattern GMCVSR :: GeoMatchConstraintValue
+pattern GMCVSR = GeoMatchConstraintValue' "SR"
+
+pattern GMCVSS :: GeoMatchConstraintValue
+pattern GMCVSS = GeoMatchConstraintValue' "SS"
+
+pattern GMCVST :: GeoMatchConstraintValue
+pattern GMCVST = GeoMatchConstraintValue' "ST"
+
+pattern GMCVSV :: GeoMatchConstraintValue
+pattern GMCVSV = GeoMatchConstraintValue' "SV"
+
+pattern GMCVSX :: GeoMatchConstraintValue
+pattern GMCVSX = GeoMatchConstraintValue' "SX"
+
+pattern GMCVSY :: GeoMatchConstraintValue
+pattern GMCVSY = GeoMatchConstraintValue' "SY"
+
+pattern GMCVSZ :: GeoMatchConstraintValue
+pattern GMCVSZ = GeoMatchConstraintValue' "SZ"
+
+pattern GMCVTC :: GeoMatchConstraintValue
+pattern GMCVTC = GeoMatchConstraintValue' "TC"
+
+pattern GMCVTD :: GeoMatchConstraintValue
+pattern GMCVTD = GeoMatchConstraintValue' "TD"
+
+pattern GMCVTF :: GeoMatchConstraintValue
+pattern GMCVTF = GeoMatchConstraintValue' "TF"
+
+pattern GMCVTG :: GeoMatchConstraintValue
+pattern GMCVTG = GeoMatchConstraintValue' "TG"
+
+pattern GMCVTH :: GeoMatchConstraintValue
+pattern GMCVTH = GeoMatchConstraintValue' "TH"
+
+pattern GMCVTJ :: GeoMatchConstraintValue
+pattern GMCVTJ = GeoMatchConstraintValue' "TJ"
+
+pattern GMCVTK :: GeoMatchConstraintValue
+pattern GMCVTK = GeoMatchConstraintValue' "TK"
+
+pattern GMCVTL :: GeoMatchConstraintValue
+pattern GMCVTL = GeoMatchConstraintValue' "TL"
+
+pattern GMCVTM :: GeoMatchConstraintValue
+pattern GMCVTM = GeoMatchConstraintValue' "TM"
+
+pattern GMCVTN :: GeoMatchConstraintValue
+pattern GMCVTN = GeoMatchConstraintValue' "TN"
+
+pattern GMCVTO :: GeoMatchConstraintValue
+pattern GMCVTO = GeoMatchConstraintValue' "TO"
+
+pattern GMCVTR :: GeoMatchConstraintValue
+pattern GMCVTR = GeoMatchConstraintValue' "TR"
+
+pattern GMCVTT :: GeoMatchConstraintValue
+pattern GMCVTT = GeoMatchConstraintValue' "TT"
+
+pattern GMCVTV :: GeoMatchConstraintValue
+pattern GMCVTV = GeoMatchConstraintValue' "TV"
+
+pattern GMCVTW :: GeoMatchConstraintValue
+pattern GMCVTW = GeoMatchConstraintValue' "TW"
+
+pattern GMCVTZ :: GeoMatchConstraintValue
+pattern GMCVTZ = GeoMatchConstraintValue' "TZ"
+
+pattern GMCVUA :: GeoMatchConstraintValue
+pattern GMCVUA = GeoMatchConstraintValue' "UA"
+
+pattern GMCVUG :: GeoMatchConstraintValue
+pattern GMCVUG = GeoMatchConstraintValue' "UG"
+
+pattern GMCVUM :: GeoMatchConstraintValue
+pattern GMCVUM = GeoMatchConstraintValue' "UM"
+
+pattern GMCVUS :: GeoMatchConstraintValue
+pattern GMCVUS = GeoMatchConstraintValue' "US"
+
+pattern GMCVUY :: GeoMatchConstraintValue
+pattern GMCVUY = GeoMatchConstraintValue' "UY"
+
+pattern GMCVUZ :: GeoMatchConstraintValue
+pattern GMCVUZ = GeoMatchConstraintValue' "UZ"
+
+pattern GMCVVA :: GeoMatchConstraintValue
+pattern GMCVVA = GeoMatchConstraintValue' "VA"
+
+pattern GMCVVC :: GeoMatchConstraintValue
+pattern GMCVVC = GeoMatchConstraintValue' "VC"
+
+pattern GMCVVE :: GeoMatchConstraintValue
+pattern GMCVVE = GeoMatchConstraintValue' "VE"
+
+pattern GMCVVG :: GeoMatchConstraintValue
+pattern GMCVVG = GeoMatchConstraintValue' "VG"
+
+pattern GMCVVI :: GeoMatchConstraintValue
+pattern GMCVVI = GeoMatchConstraintValue' "VI"
+
+pattern GMCVVN :: GeoMatchConstraintValue
+pattern GMCVVN = GeoMatchConstraintValue' "VN"
+
+pattern GMCVVU :: GeoMatchConstraintValue
+pattern GMCVVU = GeoMatchConstraintValue' "VU"
+
+pattern GMCVWF :: GeoMatchConstraintValue
+pattern GMCVWF = GeoMatchConstraintValue' "WF"
+
+pattern GMCVWS :: GeoMatchConstraintValue
+pattern GMCVWS = GeoMatchConstraintValue' "WS"
+
+pattern GMCVYE :: GeoMatchConstraintValue
+pattern GMCVYE = GeoMatchConstraintValue' "YE"
+
+pattern GMCVYT :: GeoMatchConstraintValue
+pattern GMCVYT = GeoMatchConstraintValue' "YT"
+
+pattern GMCVZA :: GeoMatchConstraintValue
+pattern GMCVZA = GeoMatchConstraintValue' "ZA"
+
+pattern GMCVZM :: GeoMatchConstraintValue
+pattern GMCVZM = GeoMatchConstraintValue' "ZM"
+
+pattern GMCVZW :: GeoMatchConstraintValue
+pattern GMCVZW = GeoMatchConstraintValue' "ZW"
+
+{-# COMPLETE
+  GMCVAD,
+  GMCVAE,
+  GMCVAF,
+  GMCVAG,
+  GMCVAI,
+  GMCVAL,
+  GMCVAM,
+  GMCVAO,
+  GMCVAQ,
+  GMCVAR,
+  GMCVAS,
+  GMCVAT,
+  GMCVAU,
+  GMCVAW,
+  GMCVAX,
+  GMCVAZ,
+  GMCVBA,
+  GMCVBB,
+  GMCVBD,
+  GMCVBE,
+  GMCVBF,
+  GMCVBG,
+  GMCVBH,
+  GMCVBI,
+  GMCVBJ,
+  GMCVBL,
+  GMCVBM,
+  GMCVBN,
+  GMCVBO,
+  GMCVBQ,
+  GMCVBR,
+  GMCVBS,
+  GMCVBT,
+  GMCVBV,
+  GMCVBW,
+  GMCVBY,
+  GMCVBZ,
+  GMCVCA,
+  GMCVCC,
+  GMCVCD,
+  GMCVCF,
+  GMCVCG,
+  GMCVCH,
+  GMCVCI,
+  GMCVCK,
+  GMCVCL,
+  GMCVCM,
+  GMCVCN,
+  GMCVCO,
+  GMCVCR,
+  GMCVCU,
+  GMCVCV,
+  GMCVCW,
+  GMCVCX,
+  GMCVCY,
+  GMCVCZ,
+  GMCVDE,
+  GMCVDJ,
+  GMCVDK,
+  GMCVDM,
+  GMCVDO,
+  GMCVDZ,
+  GMCVEC,
+  GMCVEE,
+  GMCVEG,
+  GMCVEH,
+  GMCVER,
+  GMCVES,
+  GMCVET,
+  GMCVFI,
+  GMCVFJ,
+  GMCVFK,
+  GMCVFM,
+  GMCVFO,
+  GMCVFR,
+  GMCVGA,
+  GMCVGB,
+  GMCVGD,
+  GMCVGE,
+  GMCVGF,
+  GMCVGG,
+  GMCVGH,
+  GMCVGI,
+  GMCVGL,
+  GMCVGM,
+  GMCVGN,
+  GMCVGP,
+  GMCVGQ,
+  GMCVGR,
+  GMCVGS,
+  GMCVGT,
+  GMCVGU,
+  GMCVGW,
+  GMCVGY,
+  GMCVHK,
+  GMCVHM,
+  GMCVHN,
+  GMCVHR,
+  GMCVHT,
+  GMCVHU,
+  GMCVIE,
+  GMCVIL,
+  GMCVIM,
+  GMCVIN,
+  GMCVIO,
+  GMCVIQ,
+  GMCVIR,
+  GMCVIS,
+  GMCVIT,
+  GMCVId,
+  GMCVJE,
+  GMCVJM,
+  GMCVJO,
+  GMCVJP,
+  GMCVKE,
+  GMCVKG,
+  GMCVKH,
+  GMCVKI,
+  GMCVKM,
+  GMCVKN,
+  GMCVKP,
+  GMCVKR,
+  GMCVKW,
+  GMCVKY,
+  GMCVKZ,
+  GMCVLA,
+  GMCVLB,
+  GMCVLC,
+  GMCVLI,
+  GMCVLK,
+  GMCVLR,
+  GMCVLS,
+  GMCVLT,
+  GMCVLU,
+  GMCVLV,
+  GMCVLY,
+  GMCVMA,
+  GMCVMC,
+  GMCVMD,
+  GMCVME,
+  GMCVMF,
+  GMCVMG,
+  GMCVMH,
+  GMCVMK,
+  GMCVML,
+  GMCVMM,
+  GMCVMN,
+  GMCVMO,
+  GMCVMP,
+  GMCVMQ,
+  GMCVMR,
+  GMCVMS,
+  GMCVMT,
+  GMCVMU,
+  GMCVMV,
+  GMCVMW,
+  GMCVMX,
+  GMCVMY,
+  GMCVMZ,
+  GMCVNA,
+  GMCVNC,
+  GMCVNE,
+  GMCVNF,
+  GMCVNG,
+  GMCVNI,
+  GMCVNL,
+  GMCVNO,
+  GMCVNP,
+  GMCVNR,
+  GMCVNU,
+  GMCVNZ,
+  GMCVOM,
+  GMCVPA,
+  GMCVPE,
+  GMCVPF,
+  GMCVPG,
+  GMCVPH,
+  GMCVPK,
+  GMCVPL,
+  GMCVPM,
+  GMCVPN,
+  GMCVPR,
+  GMCVPS,
+  GMCVPT,
+  GMCVPW,
+  GMCVPY,
+  GMCVQA,
+  GMCVRE,
+  GMCVRO,
+  GMCVRS,
+  GMCVRU,
+  GMCVRW,
+  GMCVSA,
+  GMCVSB,
+  GMCVSC,
+  GMCVSD,
+  GMCVSE,
+  GMCVSG,
+  GMCVSH,
+  GMCVSI,
+  GMCVSJ,
+  GMCVSK,
+  GMCVSL,
+  GMCVSM,
+  GMCVSN,
+  GMCVSO,
+  GMCVSR,
+  GMCVSS,
+  GMCVST,
+  GMCVSV,
+  GMCVSX,
+  GMCVSY,
+  GMCVSZ,
+  GMCVTC,
+  GMCVTD,
+  GMCVTF,
+  GMCVTG,
+  GMCVTH,
+  GMCVTJ,
+  GMCVTK,
+  GMCVTL,
+  GMCVTM,
+  GMCVTN,
+  GMCVTO,
+  GMCVTR,
+  GMCVTT,
+  GMCVTV,
+  GMCVTW,
+  GMCVTZ,
+  GMCVUA,
+  GMCVUG,
+  GMCVUM,
+  GMCVUS,
+  GMCVUY,
+  GMCVUZ,
+  GMCVVA,
+  GMCVVC,
+  GMCVVE,
+  GMCVVG,
+  GMCVVI,
+  GMCVVN,
+  GMCVVU,
+  GMCVWF,
+  GMCVWS,
+  GMCVYE,
+  GMCVYT,
+  GMCVZA,
+  GMCVZM,
+  GMCVZW,
+  GeoMatchConstraintValue'
+  #-}

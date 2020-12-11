@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManagerPCA.Types.AuditReportStatus where
+module Network.AWS.CertificateManagerPCA.Types.AuditReportStatus
+  ( AuditReportStatus
+      ( AuditReportStatus',
+        ARSCreating,
+        ARSFailed,
+        ARSSuccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuditReportStatus
-  = ARSCreating
-  | ARSFailed
-  | ARSSuccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuditReportStatus = AuditReportStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuditReportStatus where
-  parser =
-    takeLowerText >>= \case
-      "creating" -> pure ARSCreating
-      "failed" -> pure ARSFailed
-      "success" -> pure ARSSuccess
-      e ->
-        fromTextError $
-          "Failure parsing AuditReportStatus from value: '" <> e
-            <> "'. Accepted values: creating, failed, success"
+pattern ARSCreating :: AuditReportStatus
+pattern ARSCreating = AuditReportStatus' "CREATING"
 
-instance ToText AuditReportStatus where
-  toText = \case
-    ARSCreating -> "CREATING"
-    ARSFailed -> "FAILED"
-    ARSSuccess -> "SUCCESS"
+pattern ARSFailed :: AuditReportStatus
+pattern ARSFailed = AuditReportStatus' "FAILED"
 
-instance Hashable AuditReportStatus
+pattern ARSSuccess :: AuditReportStatus
+pattern ARSSuccess = AuditReportStatus' "SUCCESS"
 
-instance NFData AuditReportStatus
-
-instance ToByteString AuditReportStatus
-
-instance ToQuery AuditReportStatus
-
-instance ToHeader AuditReportStatus
-
-instance FromJSON AuditReportStatus where
-  parseJSON = parseJSONText "AuditReportStatus"
+{-# COMPLETE
+  ARSCreating,
+  ARSFailed,
+  ARSSuccess,
+  AuditReportStatus'
+  #-}

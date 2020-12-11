@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Launches an AWS Elastic Beanstalk environment for the specified application using the specified configuration.
 module Network.AWS.ElasticBeanstalk.CreateEnvironment
-  ( -- * Creating a Request
-    createEnvironment,
-    CreateEnvironment,
+  ( -- * Creating a request
+    CreateEnvironment (..),
+    mkCreateEnvironment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cCNAMEPrefix,
     cTemplateName,
     cOptionsToRemove,
@@ -39,11 +34,11 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     cTags,
     cApplicationName,
 
-    -- * Destructuring the Response
-    environmentDescription,
-    EnvironmentDescription,
+    -- * Destructuring the response
+    EnvironmentDescription (..),
+    mkEnvironmentDescription,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eStatus,
     eCNAME,
     eTemplateName,
@@ -69,182 +64,221 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'createEnvironment' smart constructor.
+-- /See:/ 'mkCreateEnvironment' smart constructor.
 data CreateEnvironment = CreateEnvironment'
-  { _cCNAMEPrefix ::
-      !(Maybe Text),
-    _cTemplateName :: !(Maybe Text),
-    _cOptionsToRemove :: !(Maybe [OptionSpecification]),
-    _cOptionSettings ::
-      !(Maybe [ConfigurationOptionSetting]),
-    _cVersionLabel :: !(Maybe Text),
-    _cOperationsRole :: !(Maybe Text),
-    _cPlatformARN :: !(Maybe Text),
-    _cTier :: !(Maybe EnvironmentTier),
-    _cEnvironmentName :: !(Maybe Text),
-    _cSolutionStackName :: !(Maybe Text),
-    _cGroupName :: !(Maybe Text),
-    _cDescription :: !(Maybe Text),
-    _cTags :: !(Maybe [Tag]),
-    _cApplicationName :: !Text
+  { cNAMEPrefix ::
+      Lude.Maybe Lude.Text,
+    templateName :: Lude.Maybe Lude.Text,
+    optionsToRemove :: Lude.Maybe [OptionSpecification],
+    optionSettings ::
+      Lude.Maybe [ConfigurationOptionSetting],
+    versionLabel :: Lude.Maybe Lude.Text,
+    operationsRole :: Lude.Maybe Lude.Text,
+    platformARN :: Lude.Maybe Lude.Text,
+    tier :: Lude.Maybe EnvironmentTier,
+    environmentName :: Lude.Maybe Lude.Text,
+    solutionStackName :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    applicationName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEnvironment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationName' - The name of the application that is associated with this environment.
+-- * 'cNAMEPrefix' - If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+-- * 'description' - Your description for this environment.
+-- * 'environmentName' - A unique name for the environment.
 --
--- * 'cCNAMEPrefix' - If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+-- Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It can't start or end with a hyphen. This name must be unique within a region in your account. If the specified name already exists in the region, Elastic Beanstalk returns an @InvalidParameterValue@ error.
+-- If you don't specify the @CNAMEPrefix@ parameter, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
+-- * 'groupName' - The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
+-- * 'operationsRole' - The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream services during this call and during subsequent calls acting on this environment. To specify an operations role, you must have the @iam:PassRole@ permission for the role. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles> in the /AWS Elastic Beanstalk Developer Guide/ .
+-- * 'optionSettings' - If specified, AWS Elastic Beanstalk sets the specified configuration options to the requested value in the configuration set for the new environment. These override the values obtained from the solution stack or the configuration template.
+-- * 'optionsToRemove' - A list of custom user-defined configuration options to remove from the configuration set for this new environment.
+-- * 'platformARN' - The Amazon Resource Name (ARN) of the custom platform to use with the environment. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms> in the /AWS Elastic Beanstalk Developer Guide/ .
+-- * 'solutionStackName' - The name of an Elastic Beanstalk solution stack (platform version) to use with the environment. If specified, Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. For a list of current solution stacks, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html Elastic Beanstalk Supported Platforms> in the /AWS Elastic Beanstalk Platforms/ guide.
+-- * 'tags' - Specifies the tags applied to resources in the environment.
+-- * 'templateName' - The name of the Elastic Beanstalk configuration template to use with the environment.
+-- * 'tier' - Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+-- * 'versionLabel' - The name of the application version to deploy.
 --
--- * 'cTemplateName' - The name of the Elastic Beanstalk configuration template to use with the environment.
---
--- * 'cOptionsToRemove' - A list of custom user-defined configuration options to remove from the configuration set for this new environment.
---
--- * 'cOptionSettings' - If specified, AWS Elastic Beanstalk sets the specified configuration options to the requested value in the configuration set for the new environment. These override the values obtained from the solution stack or the configuration template.
---
--- * 'cVersionLabel' - The name of the application version to deploy. Default: If not specified, Elastic Beanstalk attempts to deploy the sample application.
---
--- * 'cOperationsRole' - The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream services during this call and during subsequent calls acting on this environment. To specify an operations role, you must have the @iam:PassRole@ permission for the role. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles> in the /AWS Elastic Beanstalk Developer Guide/ .
---
--- * 'cPlatformARN' - The Amazon Resource Name (ARN) of the custom platform to use with the environment. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms> in the /AWS Elastic Beanstalk Developer Guide/ .
---
--- * 'cTier' - Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
---
--- * 'cEnvironmentName' - A unique name for the environment. Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It can't start or end with a hyphen. This name must be unique within a region in your account. If the specified name already exists in the region, Elastic Beanstalk returns an @InvalidParameterValue@ error.  If you don't specify the @CNAMEPrefix@ parameter, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
---
--- * 'cSolutionStackName' - The name of an Elastic Beanstalk solution stack (platform version) to use with the environment. If specified, Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. For a list of current solution stacks, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html Elastic Beanstalk Supported Platforms> in the /AWS Elastic Beanstalk Platforms/ guide.
---
--- * 'cGroupName' - The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
---
--- * 'cDescription' - Your description for this environment.
---
--- * 'cTags' - Specifies the tags applied to resources in the environment.
---
--- * 'cApplicationName' - The name of the application that is associated with this environment.
-createEnvironment ::
-  -- | 'cApplicationName'
-  Text ->
+-- Default: If not specified, Elastic Beanstalk attempts to deploy the sample application.
+mkCreateEnvironment ::
+  -- | 'applicationName'
+  Lude.Text ->
   CreateEnvironment
-createEnvironment pApplicationName_ =
+mkCreateEnvironment pApplicationName_ =
   CreateEnvironment'
-    { _cCNAMEPrefix = Nothing,
-      _cTemplateName = Nothing,
-      _cOptionsToRemove = Nothing,
-      _cOptionSettings = Nothing,
-      _cVersionLabel = Nothing,
-      _cOperationsRole = Nothing,
-      _cPlatformARN = Nothing,
-      _cTier = Nothing,
-      _cEnvironmentName = Nothing,
-      _cSolutionStackName = Nothing,
-      _cGroupName = Nothing,
-      _cDescription = Nothing,
-      _cTags = Nothing,
-      _cApplicationName = pApplicationName_
+    { cNAMEPrefix = Lude.Nothing,
+      templateName = Lude.Nothing,
+      optionsToRemove = Lude.Nothing,
+      optionSettings = Lude.Nothing,
+      versionLabel = Lude.Nothing,
+      operationsRole = Lude.Nothing,
+      platformARN = Lude.Nothing,
+      tier = Lude.Nothing,
+      environmentName = Lude.Nothing,
+      solutionStackName = Lude.Nothing,
+      groupName = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      applicationName = pApplicationName_
     }
 
 -- | If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
-cCNAMEPrefix :: Lens' CreateEnvironment (Maybe Text)
-cCNAMEPrefix = lens _cCNAMEPrefix (\s a -> s {_cCNAMEPrefix = a})
+--
+-- /Note:/ Consider using 'cNAMEPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCNAMEPrefix :: Lens.Lens' CreateEnvironment (Lude.Maybe Lude.Text)
+cCNAMEPrefix = Lens.lens (cNAMEPrefix :: CreateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {cNAMEPrefix = a} :: CreateEnvironment)
+{-# DEPRECATED cCNAMEPrefix "Use generic-lens or generic-optics with 'cNAMEPrefix' instead." #-}
 
 -- | The name of the Elastic Beanstalk configuration template to use with the environment.
-cTemplateName :: Lens' CreateEnvironment (Maybe Text)
-cTemplateName = lens _cTemplateName (\s a -> s {_cTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTemplateName :: Lens.Lens' CreateEnvironment (Lude.Maybe Lude.Text)
+cTemplateName = Lens.lens (templateName :: CreateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: CreateEnvironment)
+{-# DEPRECATED cTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | A list of custom user-defined configuration options to remove from the configuration set for this new environment.
-cOptionsToRemove :: Lens' CreateEnvironment [OptionSpecification]
-cOptionsToRemove = lens _cOptionsToRemove (\s a -> s {_cOptionsToRemove = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cOptionsToRemove :: Lens.Lens' CreateEnvironment (Lude.Maybe [OptionSpecification])
+cOptionsToRemove = Lens.lens (optionsToRemove :: CreateEnvironment -> Lude.Maybe [OptionSpecification]) (\s a -> s {optionsToRemove = a} :: CreateEnvironment)
+{-# DEPRECATED cOptionsToRemove "Use generic-lens or generic-optics with 'optionsToRemove' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration options to the requested value in the configuration set for the new environment. These override the values obtained from the solution stack or the configuration template.
-cOptionSettings :: Lens' CreateEnvironment [ConfigurationOptionSetting]
-cOptionSettings = lens _cOptionSettings (\s a -> s {_cOptionSettings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cOptionSettings :: Lens.Lens' CreateEnvironment (Lude.Maybe [ConfigurationOptionSetting])
+cOptionSettings = Lens.lens (optionSettings :: CreateEnvironment -> Lude.Maybe [ConfigurationOptionSetting]) (\s a -> s {optionSettings = a} :: CreateEnvironment)
+{-# DEPRECATED cOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
 
--- | The name of the application version to deploy. Default: If not specified, Elastic Beanstalk attempts to deploy the sample application.
-cVersionLabel :: Lens' CreateEnvironment (Maybe Text)
-cVersionLabel = lens _cVersionLabel (\s a -> s {_cVersionLabel = a})
+-- | The name of the application version to deploy.
+--
+-- Default: If not specified, Elastic Beanstalk attempts to deploy the sample application.
+--
+-- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVersionLabel :: Lens.Lens' CreateEnvironment (Lude.Maybe Lude.Text)
+cVersionLabel = Lens.lens (versionLabel :: CreateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: CreateEnvironment)
+{-# DEPRECATED cVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream services during this call and during subsequent calls acting on this environment. To specify an operations role, you must have the @iam:PassRole@ permission for the role. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html Operations roles> in the /AWS Elastic Beanstalk Developer Guide/ .
-cOperationsRole :: Lens' CreateEnvironment (Maybe Text)
-cOperationsRole = lens _cOperationsRole (\s a -> s {_cOperationsRole = a})
+--
+-- /Note:/ Consider using 'operationsRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cOperationsRole :: Lens.Lens' CreateEnvironment (Lude.Maybe Lude.Text)
+cOperationsRole = Lens.lens (operationsRole :: CreateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {operationsRole = a} :: CreateEnvironment)
+{-# DEPRECATED cOperationsRole "Use generic-lens or generic-optics with 'operationsRole' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the custom platform to use with the environment. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms> in the /AWS Elastic Beanstalk Developer Guide/ .
-cPlatformARN :: Lens' CreateEnvironment (Maybe Text)
-cPlatformARN = lens _cPlatformARN (\s a -> s {_cPlatformARN = a})
+--
+-- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPlatformARN :: Lens.Lens' CreateEnvironment (Lude.Maybe Lude.Text)
+cPlatformARN = Lens.lens (platformARN :: CreateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: CreateEnvironment)
+{-# DEPRECATED cPlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
 
 -- | Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
-cTier :: Lens' CreateEnvironment (Maybe EnvironmentTier)
-cTier = lens _cTier (\s a -> s {_cTier = a})
+--
+-- /Note:/ Consider using 'tier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTier :: Lens.Lens' CreateEnvironment (Lude.Maybe EnvironmentTier)
+cTier = Lens.lens (tier :: CreateEnvironment -> Lude.Maybe EnvironmentTier) (\s a -> s {tier = a} :: CreateEnvironment)
+{-# DEPRECATED cTier "Use generic-lens or generic-optics with 'tier' instead." #-}
 
--- | A unique name for the environment. Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It can't start or end with a hyphen. This name must be unique within a region in your account. If the specified name already exists in the region, Elastic Beanstalk returns an @InvalidParameterValue@ error.  If you don't specify the @CNAMEPrefix@ parameter, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
-cEnvironmentName :: Lens' CreateEnvironment (Maybe Text)
-cEnvironmentName = lens _cEnvironmentName (\s a -> s {_cEnvironmentName = a})
+-- | A unique name for the environment.
+--
+-- Constraint: Must be from 4 to 40 characters in length. The name can contain only letters, numbers, and hyphens. It can't start or end with a hyphen. This name must be unique within a region in your account. If the specified name already exists in the region, Elastic Beanstalk returns an @InvalidParameterValue@ error.
+-- If you don't specify the @CNAMEPrefix@ parameter, the environment name becomes part of the CNAME, and therefore part of the visible URL for your application.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cEnvironmentName :: Lens.Lens' CreateEnvironment (Lude.Maybe Lude.Text)
+cEnvironmentName = Lens.lens (environmentName :: CreateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: CreateEnvironment)
+{-# DEPRECATED cEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The name of an Elastic Beanstalk solution stack (platform version) to use with the environment. If specified, Elastic Beanstalk sets the configuration values to the default values associated with the specified solution stack. For a list of current solution stacks, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html Elastic Beanstalk Supported Platforms> in the /AWS Elastic Beanstalk Platforms/ guide.
-cSolutionStackName :: Lens' CreateEnvironment (Maybe Text)
-cSolutionStackName = lens _cSolutionStackName (\s a -> s {_cSolutionStackName = a})
+--
+-- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cSolutionStackName :: Lens.Lens' CreateEnvironment (Lude.Maybe Lude.Text)
+cSolutionStackName = Lens.lens (solutionStackName :: CreateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {solutionStackName = a} :: CreateEnvironment)
+{-# DEPRECATED cSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
 
 -- | The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name parameter. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
-cGroupName :: Lens' CreateEnvironment (Maybe Text)
-cGroupName = lens _cGroupName (\s a -> s {_cGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cGroupName :: Lens.Lens' CreateEnvironment (Lude.Maybe Lude.Text)
+cGroupName = Lens.lens (groupName :: CreateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: CreateEnvironment)
+{-# DEPRECATED cGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | Your description for this environment.
-cDescription :: Lens' CreateEnvironment (Maybe Text)
-cDescription = lens _cDescription (\s a -> s {_cDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDescription :: Lens.Lens' CreateEnvironment (Lude.Maybe Lude.Text)
+cDescription = Lens.lens (description :: CreateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateEnvironment)
+{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Specifies the tags applied to resources in the environment.
-cTags :: Lens' CreateEnvironment [Tag]
-cTags = lens _cTags (\s a -> s {_cTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTags :: Lens.Lens' CreateEnvironment (Lude.Maybe [Tag])
+cTags = Lens.lens (tags :: CreateEnvironment -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEnvironment)
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the application that is associated with this environment.
-cApplicationName :: Lens' CreateEnvironment Text
-cApplicationName = lens _cApplicationName (\s a -> s {_cApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cApplicationName :: Lens.Lens' CreateEnvironment Lude.Text
+cApplicationName = Lens.lens (applicationName :: CreateEnvironment -> Lude.Text) (\s a -> s {applicationName = a} :: CreateEnvironment)
+{-# DEPRECATED cApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSRequest CreateEnvironment where
+instance Lude.AWSRequest CreateEnvironment where
   type Rs CreateEnvironment = EnvironmentDescription
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateEnvironmentResult"
-      (\s h x -> parseXML x)
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable CreateEnvironment
+instance Lude.ToHeaders CreateEnvironment where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateEnvironment
+instance Lude.ToPath CreateEnvironment where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateEnvironment where
-  toHeaders = const mempty
-
-instance ToPath CreateEnvironment where
-  toPath = const "/"
-
-instance ToQuery CreateEnvironment where
+instance Lude.ToQuery CreateEnvironment where
   toQuery CreateEnvironment' {..} =
-    mconcat
-      [ "Action" =: ("CreateEnvironment" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "CNAMEPrefix" =: _cCNAMEPrefix,
-        "TemplateName" =: _cTemplateName,
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateEnvironment" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "CNAMEPrefix" Lude.=: cNAMEPrefix,
+        "TemplateName" Lude.=: templateName,
         "OptionsToRemove"
-          =: toQuery (toQueryList "member" <$> _cOptionsToRemove),
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> optionsToRemove),
         "OptionSettings"
-          =: toQuery (toQueryList "member" <$> _cOptionSettings),
-        "VersionLabel" =: _cVersionLabel,
-        "OperationsRole" =: _cOperationsRole,
-        "PlatformArn" =: _cPlatformARN,
-        "Tier" =: _cTier,
-        "EnvironmentName" =: _cEnvironmentName,
-        "SolutionStackName" =: _cSolutionStackName,
-        "GroupName" =: _cGroupName,
-        "Description" =: _cDescription,
-        "Tags" =: toQuery (toQueryList "member" <$> _cTags),
-        "ApplicationName" =: _cApplicationName
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> optionSettings),
+        "VersionLabel" Lude.=: versionLabel,
+        "OperationsRole" Lude.=: operationsRole,
+        "PlatformArn" Lude.=: platformARN,
+        "Tier" Lude.=: tier,
+        "EnvironmentName" Lude.=: environmentName,
+        "SolutionStackName" Lude.=: solutionStackName,
+        "GroupName" Lude.=: groupName,
+        "Description" Lude.=: description,
+        "Tags"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
+        "ApplicationName" Lude.=: applicationName
       ]

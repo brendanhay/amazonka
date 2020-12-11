@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy where
+module Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy
+  ( WorkspaceImageRequiredTenancy
+      ( WorkspaceImageRequiredTenancy',
+        WIRTDedicated,
+        WIRTDefault
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkspaceImageRequiredTenancy
-  = WIRTDedicated
-  | WIRTDefault
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkspaceImageRequiredTenancy = WorkspaceImageRequiredTenancy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkspaceImageRequiredTenancy where
-  parser =
-    takeLowerText >>= \case
-      "dedicated" -> pure WIRTDedicated
-      "default" -> pure WIRTDefault
-      e ->
-        fromTextError $
-          "Failure parsing WorkspaceImageRequiredTenancy from value: '" <> e
-            <> "'. Accepted values: dedicated, default"
+pattern WIRTDedicated :: WorkspaceImageRequiredTenancy
+pattern WIRTDedicated = WorkspaceImageRequiredTenancy' "DEDICATED"
 
-instance ToText WorkspaceImageRequiredTenancy where
-  toText = \case
-    WIRTDedicated -> "DEDICATED"
-    WIRTDefault -> "DEFAULT"
+pattern WIRTDefault :: WorkspaceImageRequiredTenancy
+pattern WIRTDefault = WorkspaceImageRequiredTenancy' "DEFAULT"
 
-instance Hashable WorkspaceImageRequiredTenancy
-
-instance NFData WorkspaceImageRequiredTenancy
-
-instance ToByteString WorkspaceImageRequiredTenancy
-
-instance ToQuery WorkspaceImageRequiredTenancy
-
-instance ToHeader WorkspaceImageRequiredTenancy
-
-instance FromJSON WorkspaceImageRequiredTenancy where
-  parseJSON = parseJSONText "WorkspaceImageRequiredTenancy"
+{-# COMPLETE
+  WIRTDedicated,
+  WIRTDefault,
+  WorkspaceImageRequiredTenancy'
+  #-}

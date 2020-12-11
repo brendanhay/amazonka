@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,175 +7,228 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EmailChannelResponse where
+module Network.AWS.Pinpoint.Types.EmailChannelResponse
+  ( EmailChannelResponse (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEmailChannelResponse,
+
+    -- * Lenses
+    ecMessagesPerSecond,
+    ecLastModifiedDate,
+    ecEnabled,
+    ecFromAddress,
+    ecIsArchived,
+    ecApplicationId,
+    ecVersion,
+    ecConfigurationSet,
+    ecId,
+    ecCreationDate,
+    ecLastModifiedBy,
+    ecIdentity,
+    ecHasCredential,
+    ecRoleARN,
+    ecPlatform,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about the status and settings of the email channel for an application.
 --
---
---
--- /See:/ 'emailChannelResponse' smart constructor.
+-- /See:/ 'mkEmailChannelResponse' smart constructor.
 data EmailChannelResponse = EmailChannelResponse'
-  { _ecMessagesPerSecond ::
-      !(Maybe Int),
-    _ecLastModifiedDate :: !(Maybe Text),
-    _ecEnabled :: !(Maybe Bool),
-    _ecFromAddress :: !(Maybe Text),
-    _ecIsArchived :: !(Maybe Bool),
-    _ecApplicationId :: !(Maybe Text),
-    _ecVersion :: !(Maybe Int),
-    _ecConfigurationSet :: !(Maybe Text),
-    _ecId :: !(Maybe Text),
-    _ecCreationDate :: !(Maybe Text),
-    _ecLastModifiedBy :: !(Maybe Text),
-    _ecIdentity :: !(Maybe Text),
-    _ecHasCredential :: !(Maybe Bool),
-    _ecRoleARN :: !(Maybe Text),
-    _ecPlatform :: !Text
+  { messagesPerSecond ::
+      Lude.Maybe Lude.Int,
+    lastModifiedDate :: Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    fromAddress :: Lude.Maybe Lude.Text,
+    isArchived :: Lude.Maybe Lude.Bool,
+    applicationId :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Int,
+    configurationSet :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Text,
+    lastModifiedBy :: Lude.Maybe Lude.Text,
+    identity :: Lude.Maybe Lude.Text,
+    hasCredential :: Lude.Maybe Lude.Bool,
+    roleARN :: Lude.Maybe Lude.Text,
+    platform :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmailChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecMessagesPerSecond' - The maximum number of emails that can be sent through the channel each second.
---
--- * 'ecLastModifiedDate' - The date and time, in ISO 8601 format, when the email channel was last modified.
---
--- * 'ecEnabled' - Specifies whether the email channel is enabled for the application.
---
--- * 'ecFromAddress' - The verified email address that email is sent from when you send email through the channel.
---
--- * 'ecIsArchived' - Specifies whether the email channel is archived.
---
--- * 'ecApplicationId' - The unique identifier for the application that the email channel applies to.
---
--- * 'ecVersion' - The current version of the email channel.
---
--- * 'ecConfigurationSet' - The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that's applied to messages that are sent through the channel.
---
--- * 'ecId' - (Deprecated) An identifier for the email channel. This property is retained only for backward compatibility.
---
--- * 'ecCreationDate' - The date and time, in ISO 8601 format, when the email channel was enabled.
---
--- * 'ecLastModifiedBy' - The user who last modified the email channel.
---
--- * 'ecIdentity' - The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that's used when you send email through the channel.
---
--- * 'ecHasCredential' - (Not used) This property is retained only for backward compatibility.
---
--- * 'ecRoleARN' - The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.
---
--- * 'ecPlatform' - The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.
-emailChannelResponse ::
-  -- | 'ecPlatform'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application that the email channel applies to.
+-- * 'configurationSet' - The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that's applied to messages that are sent through the channel.
+-- * 'creationDate' - The date and time, in ISO 8601 format, when the email channel was enabled.
+-- * 'enabled' - Specifies whether the email channel is enabled for the application.
+-- * 'fromAddress' - The verified email address that email is sent from when you send email through the channel.
+-- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
+-- * 'id' - (Deprecated) An identifier for the email channel. This property is retained only for backward compatibility.
+-- * 'identity' - The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that's used when you send email through the channel.
+-- * 'isArchived' - Specifies whether the email channel is archived.
+-- * 'lastModifiedBy' - The user who last modified the email channel.
+-- * 'lastModifiedDate' - The date and time, in ISO 8601 format, when the email channel was last modified.
+-- * 'messagesPerSecond' - The maximum number of emails that can be sent through the channel each second.
+-- * 'platform' - The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.
+-- * 'roleARN' - The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.
+-- * 'version' - The current version of the email channel.
+mkEmailChannelResponse ::
+  -- | 'platform'
+  Lude.Text ->
   EmailChannelResponse
-emailChannelResponse pPlatform_ =
+mkEmailChannelResponse pPlatform_ =
   EmailChannelResponse'
-    { _ecMessagesPerSecond = Nothing,
-      _ecLastModifiedDate = Nothing,
-      _ecEnabled = Nothing,
-      _ecFromAddress = Nothing,
-      _ecIsArchived = Nothing,
-      _ecApplicationId = Nothing,
-      _ecVersion = Nothing,
-      _ecConfigurationSet = Nothing,
-      _ecId = Nothing,
-      _ecCreationDate = Nothing,
-      _ecLastModifiedBy = Nothing,
-      _ecIdentity = Nothing,
-      _ecHasCredential = Nothing,
-      _ecRoleARN = Nothing,
-      _ecPlatform = pPlatform_
+    { messagesPerSecond = Lude.Nothing,
+      lastModifiedDate = Lude.Nothing,
+      enabled = Lude.Nothing,
+      fromAddress = Lude.Nothing,
+      isArchived = Lude.Nothing,
+      applicationId = Lude.Nothing,
+      version = Lude.Nothing,
+      configurationSet = Lude.Nothing,
+      id = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      lastModifiedBy = Lude.Nothing,
+      identity = Lude.Nothing,
+      hasCredential = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      platform = pPlatform_
     }
 
 -- | The maximum number of emails that can be sent through the channel each second.
-ecMessagesPerSecond :: Lens' EmailChannelResponse (Maybe Int)
-ecMessagesPerSecond = lens _ecMessagesPerSecond (\s a -> s {_ecMessagesPerSecond = a})
+--
+-- /Note:/ Consider using 'messagesPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecMessagesPerSecond :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Int)
+ecMessagesPerSecond = Lens.lens (messagesPerSecond :: EmailChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {messagesPerSecond = a} :: EmailChannelResponse)
+{-# DEPRECATED ecMessagesPerSecond "Use generic-lens or generic-optics with 'messagesPerSecond' instead." #-}
 
 -- | The date and time, in ISO 8601 format, when the email channel was last modified.
-ecLastModifiedDate :: Lens' EmailChannelResponse (Maybe Text)
-ecLastModifiedDate = lens _ecLastModifiedDate (\s a -> s {_ecLastModifiedDate = a})
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecLastModifiedDate :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
+ecLastModifiedDate = Lens.lens (lastModifiedDate :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedDate = a} :: EmailChannelResponse)
+{-# DEPRECATED ecLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | Specifies whether the email channel is enabled for the application.
-ecEnabled :: Lens' EmailChannelResponse (Maybe Bool)
-ecEnabled = lens _ecEnabled (\s a -> s {_ecEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecEnabled :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Bool)
+ecEnabled = Lens.lens (enabled :: EmailChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: EmailChannelResponse)
+{-# DEPRECATED ecEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The verified email address that email is sent from when you send email through the channel.
-ecFromAddress :: Lens' EmailChannelResponse (Maybe Text)
-ecFromAddress = lens _ecFromAddress (\s a -> s {_ecFromAddress = a})
+--
+-- /Note:/ Consider using 'fromAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecFromAddress :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
+ecFromAddress = Lens.lens (fromAddress :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {fromAddress = a} :: EmailChannelResponse)
+{-# DEPRECATED ecFromAddress "Use generic-lens or generic-optics with 'fromAddress' instead." #-}
 
 -- | Specifies whether the email channel is archived.
-ecIsArchived :: Lens' EmailChannelResponse (Maybe Bool)
-ecIsArchived = lens _ecIsArchived (\s a -> s {_ecIsArchived = a})
+--
+-- /Note:/ Consider using 'isArchived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecIsArchived :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Bool)
+ecIsArchived = Lens.lens (isArchived :: EmailChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isArchived = a} :: EmailChannelResponse)
+{-# DEPRECATED ecIsArchived "Use generic-lens or generic-optics with 'isArchived' instead." #-}
 
 -- | The unique identifier for the application that the email channel applies to.
-ecApplicationId :: Lens' EmailChannelResponse (Maybe Text)
-ecApplicationId = lens _ecApplicationId (\s a -> s {_ecApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecApplicationId :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
+ecApplicationId = Lens.lens (applicationId :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: EmailChannelResponse)
+{-# DEPRECATED ecApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The current version of the email channel.
-ecVersion :: Lens' EmailChannelResponse (Maybe Int)
-ecVersion = lens _ecVersion (\s a -> s {_ecVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecVersion :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Int)
+ecVersion = Lens.lens (version :: EmailChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: EmailChannelResponse)
+{-# DEPRECATED ecVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that's applied to messages that are sent through the channel.
-ecConfigurationSet :: Lens' EmailChannelResponse (Maybe Text)
-ecConfigurationSet = lens _ecConfigurationSet (\s a -> s {_ecConfigurationSet = a})
+--
+-- /Note:/ Consider using 'configurationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecConfigurationSet :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
+ecConfigurationSet = Lens.lens (configurationSet :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {configurationSet = a} :: EmailChannelResponse)
+{-# DEPRECATED ecConfigurationSet "Use generic-lens or generic-optics with 'configurationSet' instead." #-}
 
 -- | (Deprecated) An identifier for the email channel. This property is retained only for backward compatibility.
-ecId :: Lens' EmailChannelResponse (Maybe Text)
-ecId = lens _ecId (\s a -> s {_ecId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecId :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
+ecId = Lens.lens (id :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: EmailChannelResponse)
+{-# DEPRECATED ecId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date and time, in ISO 8601 format, when the email channel was enabled.
-ecCreationDate :: Lens' EmailChannelResponse (Maybe Text)
-ecCreationDate = lens _ecCreationDate (\s a -> s {_ecCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecCreationDate :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
+ecCreationDate = Lens.lens (creationDate :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: EmailChannelResponse)
+{-# DEPRECATED ecCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The user who last modified the email channel.
-ecLastModifiedBy :: Lens' EmailChannelResponse (Maybe Text)
-ecLastModifiedBy = lens _ecLastModifiedBy (\s a -> s {_ecLastModifiedBy = a})
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecLastModifiedBy :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
+ecLastModifiedBy = Lens.lens (lastModifiedBy :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: EmailChannelResponse)
+{-# DEPRECATED ecLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that's used when you send email through the channel.
-ecIdentity :: Lens' EmailChannelResponse (Maybe Text)
-ecIdentity = lens _ecIdentity (\s a -> s {_ecIdentity = a})
+--
+-- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecIdentity :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
+ecIdentity = Lens.lens (identity :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {identity = a} :: EmailChannelResponse)
+{-# DEPRECATED ecIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
 -- | (Not used) This property is retained only for backward compatibility.
-ecHasCredential :: Lens' EmailChannelResponse (Maybe Bool)
-ecHasCredential = lens _ecHasCredential (\s a -> s {_ecHasCredential = a})
+--
+-- /Note:/ Consider using 'hasCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecHasCredential :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Bool)
+ecHasCredential = Lens.lens (hasCredential :: EmailChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: EmailChannelResponse)
+{-# DEPRECATED ecHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
 -- | The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.
-ecRoleARN :: Lens' EmailChannelResponse (Maybe Text)
-ecRoleARN = lens _ecRoleARN (\s a -> s {_ecRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecRoleARN :: Lens.Lens' EmailChannelResponse (Lude.Maybe Lude.Text)
+ecRoleARN = Lens.lens (roleARN :: EmailChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: EmailChannelResponse)
+{-# DEPRECATED ecRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.
-ecPlatform :: Lens' EmailChannelResponse Text
-ecPlatform = lens _ecPlatform (\s a -> s {_ecPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecPlatform :: Lens.Lens' EmailChannelResponse Lude.Text
+ecPlatform = Lens.lens (platform :: EmailChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: EmailChannelResponse)
+{-# DEPRECATED ecPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
-instance FromJSON EmailChannelResponse where
+instance Lude.FromJSON EmailChannelResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "EmailChannelResponse"
       ( \x ->
           EmailChannelResponse'
-            <$> (x .:? "MessagesPerSecond")
-            <*> (x .:? "LastModifiedDate")
-            <*> (x .:? "Enabled")
-            <*> (x .:? "FromAddress")
-            <*> (x .:? "IsArchived")
-            <*> (x .:? "ApplicationId")
-            <*> (x .:? "Version")
-            <*> (x .:? "ConfigurationSet")
-            <*> (x .:? "Id")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "LastModifiedBy")
-            <*> (x .:? "Identity")
-            <*> (x .:? "HasCredential")
-            <*> (x .:? "RoleArn")
-            <*> (x .: "Platform")
+            Lude.<$> (x Lude..:? "MessagesPerSecond")
+            Lude.<*> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..:? "Enabled")
+            Lude.<*> (x Lude..:? "FromAddress")
+            Lude.<*> (x Lude..:? "IsArchived")
+            Lude.<*> (x Lude..:? "ApplicationId")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "ConfigurationSet")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "LastModifiedBy")
+            Lude.<*> (x Lude..:? "Identity")
+            Lude.<*> (x Lude..:? "HasCredential")
+            Lude.<*> (x Lude..:? "RoleArn")
+            Lude.<*> (x Lude..: "Platform")
       )
-
-instance Hashable EmailChannelResponse
-
-instance NFData EmailChannelResponse

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,103 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes where
+module Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes
+  ( WorkflowExecutionTimedOutEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkflowExecutionTimedOutEventAttributes,
+
+    -- * Lenses
+    wetoeaTimeoutType,
+    wetoeaChildPolicy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SWF.Types.ChildPolicy
 import Network.AWS.SWF.Types.WorkflowExecutionTimeoutType
 
 -- | Provides the details of the @WorkflowExecutionTimedOut@ event.
 --
---
---
--- /See:/ 'workflowExecutionTimedOutEventAttributes' smart constructor.
+-- /See:/ 'mkWorkflowExecutionTimedOutEventAttributes' smart constructor.
 data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAttributes'
-  { _wetoeaTimeoutType ::
-      !WorkflowExecutionTimeoutType,
-    _wetoeaChildPolicy ::
-      !ChildPolicy
+  { timeoutType ::
+      WorkflowExecutionTimeoutType,
+    childPolicy ::
+      ChildPolicy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionTimedOutEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'childPolicy' - The policy used for the child workflow executions of this workflow execution.
 --
--- * 'wetoeaTimeoutType' - The type of timeout that caused this event.
+-- The supported child policies are:
 --
--- * 'wetoeaChildPolicy' - The policy used for the child workflow executions of this workflow execution. The supported child policies are:     * @TERMINATE@ – The child executions are terminated.     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.     * @ABANDON@ – No action is taken. The child executions continue to run.
-workflowExecutionTimedOutEventAttributes ::
-  -- | 'wetoeaTimeoutType'
+--     * @TERMINATE@ – The child executions are terminated.
+--
+--
+--     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
+--
+--
+--     * @ABANDON@ – No action is taken. The child executions continue to run.
+--
+--
+-- * 'timeoutType' - The type of timeout that caused this event.
+mkWorkflowExecutionTimedOutEventAttributes ::
+  -- | 'timeoutType'
   WorkflowExecutionTimeoutType ->
-  -- | 'wetoeaChildPolicy'
+  -- | 'childPolicy'
   ChildPolicy ->
   WorkflowExecutionTimedOutEventAttributes
-workflowExecutionTimedOutEventAttributes
+mkWorkflowExecutionTimedOutEventAttributes
   pTimeoutType_
   pChildPolicy_ =
     WorkflowExecutionTimedOutEventAttributes'
-      { _wetoeaTimeoutType =
+      { timeoutType =
           pTimeoutType_,
-        _wetoeaChildPolicy = pChildPolicy_
+        childPolicy = pChildPolicy_
       }
 
 -- | The type of timeout that caused this event.
-wetoeaTimeoutType :: Lens' WorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
-wetoeaTimeoutType = lens _wetoeaTimeoutType (\s a -> s {_wetoeaTimeoutType = a})
+--
+-- /Note:/ Consider using 'timeoutType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wetoeaTimeoutType :: Lens.Lens' WorkflowExecutionTimedOutEventAttributes WorkflowExecutionTimeoutType
+wetoeaTimeoutType = Lens.lens (timeoutType :: WorkflowExecutionTimedOutEventAttributes -> WorkflowExecutionTimeoutType) (\s a -> s {timeoutType = a} :: WorkflowExecutionTimedOutEventAttributes)
+{-# DEPRECATED wetoeaTimeoutType "Use generic-lens or generic-optics with 'timeoutType' instead." #-}
 
--- | The policy used for the child workflow executions of this workflow execution. The supported child policies are:     * @TERMINATE@ – The child executions are terminated.     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.     * @ABANDON@ – No action is taken. The child executions continue to run.
-wetoeaChildPolicy :: Lens' WorkflowExecutionTimedOutEventAttributes ChildPolicy
-wetoeaChildPolicy = lens _wetoeaChildPolicy (\s a -> s {_wetoeaChildPolicy = a})
+-- | The policy used for the child workflow executions of this workflow execution.
+--
+-- The supported child policies are:
+--
+--     * @TERMINATE@ – The child executions are terminated.
+--
+--
+--     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
+--
+--
+--     * @ABANDON@ – No action is taken. The child executions continue to run.
+--
+--
+--
+-- /Note:/ Consider using 'childPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wetoeaChildPolicy :: Lens.Lens' WorkflowExecutionTimedOutEventAttributes ChildPolicy
+wetoeaChildPolicy = Lens.lens (childPolicy :: WorkflowExecutionTimedOutEventAttributes -> ChildPolicy) (\s a -> s {childPolicy = a} :: WorkflowExecutionTimedOutEventAttributes)
+{-# DEPRECATED wetoeaChildPolicy "Use generic-lens or generic-optics with 'childPolicy' instead." #-}
 
-instance FromJSON WorkflowExecutionTimedOutEventAttributes where
+instance Lude.FromJSON WorkflowExecutionTimedOutEventAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "WorkflowExecutionTimedOutEventAttributes"
       ( \x ->
           WorkflowExecutionTimedOutEventAttributes'
-            <$> (x .: "timeoutType") <*> (x .: "childPolicy")
+            Lude.<$> (x Lude..: "timeoutType") Lude.<*> (x Lude..: "childPolicy")
       )
-
-instance Hashable WorkflowExecutionTimedOutEventAttributes
-
-instance NFData WorkflowExecutionTimedOutEventAttributes

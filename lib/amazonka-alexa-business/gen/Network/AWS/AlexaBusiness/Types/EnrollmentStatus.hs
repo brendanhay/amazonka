@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.EnrollmentStatus where
+module Network.AWS.AlexaBusiness.Types.EnrollmentStatus
+  ( EnrollmentStatus
+      ( EnrollmentStatus',
+        ESDeregistering,
+        ESDisassociating,
+        ESInitialized,
+        ESPending,
+        ESRegistered
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnrollmentStatus
-  = ESDeregistering
-  | ESDisassociating
-  | ESInitialized
-  | ESPending
-  | ESRegistered
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnrollmentStatus = EnrollmentStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnrollmentStatus where
-  parser =
-    takeLowerText >>= \case
-      "deregistering" -> pure ESDeregistering
-      "disassociating" -> pure ESDisassociating
-      "initialized" -> pure ESInitialized
-      "pending" -> pure ESPending
-      "registered" -> pure ESRegistered
-      e ->
-        fromTextError $
-          "Failure parsing EnrollmentStatus from value: '" <> e
-            <> "'. Accepted values: deregistering, disassociating, initialized, pending, registered"
+pattern ESDeregistering :: EnrollmentStatus
+pattern ESDeregistering = EnrollmentStatus' "DEREGISTERING"
 
-instance ToText EnrollmentStatus where
-  toText = \case
-    ESDeregistering -> "DEREGISTERING"
-    ESDisassociating -> "DISASSOCIATING"
-    ESInitialized -> "INITIALIZED"
-    ESPending -> "PENDING"
-    ESRegistered -> "REGISTERED"
+pattern ESDisassociating :: EnrollmentStatus
+pattern ESDisassociating = EnrollmentStatus' "DISASSOCIATING"
 
-instance Hashable EnrollmentStatus
+pattern ESInitialized :: EnrollmentStatus
+pattern ESInitialized = EnrollmentStatus' "INITIALIZED"
 
-instance NFData EnrollmentStatus
+pattern ESPending :: EnrollmentStatus
+pattern ESPending = EnrollmentStatus' "PENDING"
 
-instance ToByteString EnrollmentStatus
+pattern ESRegistered :: EnrollmentStatus
+pattern ESRegistered = EnrollmentStatus' "REGISTERED"
 
-instance ToQuery EnrollmentStatus
-
-instance ToHeader EnrollmentStatus
-
-instance FromJSON EnrollmentStatus where
-  parseJSON = parseJSONText "EnrollmentStatus"
+{-# COMPLETE
+  ESDeregistering,
+  ESDisassociating,
+  ESInitialized,
+  ESPending,
+  ESRegistered,
+  EnrollmentStatus'
+  #-}

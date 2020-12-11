@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Previews the agents installed on the EC2 instances that are part of the specified assessment target.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Inspector.PreviewAgents
-  ( -- * Creating a Request
-    previewAgents,
-    PreviewAgents,
+  ( -- * Creating a request
+    PreviewAgents (..),
+    mkPreviewAgents,
 
-    -- * Request Lenses
+    -- ** Request lenses
     paNextToken,
     paMaxResults,
     paPreviewAgentsARN,
 
-    -- * Destructuring the Response
-    previewAgentsResponse,
-    PreviewAgentsResponse,
+    -- * Destructuring the response
+    PreviewAgentsResponse (..),
+    mkPreviewAgentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     parsNextToken,
     parsResponseStatus,
     parsAgentPreviews,
@@ -44,139 +37,162 @@ module Network.AWS.Inspector.PreviewAgents
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'previewAgents' smart constructor.
+-- | /See:/ 'mkPreviewAgents' smart constructor.
 data PreviewAgents = PreviewAgents'
-  { _paNextToken :: !(Maybe Text),
-    _paMaxResults :: !(Maybe Int),
-    _paPreviewAgentsARN :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    previewAgentsARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PreviewAgents' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __PreviewAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
---
--- * 'paMaxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
---
--- * 'paPreviewAgentsARN' - The ARN of the assessment target whose agents you want to preview.
-previewAgents ::
-  -- | 'paPreviewAgentsARN'
-  Text ->
+-- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
+-- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __PreviewAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+-- * 'previewAgentsARN' - The ARN of the assessment target whose agents you want to preview.
+mkPreviewAgents ::
+  -- | 'previewAgentsARN'
+  Lude.Text ->
   PreviewAgents
-previewAgents pPreviewAgentsARN_ =
+mkPreviewAgents pPreviewAgentsARN_ =
   PreviewAgents'
-    { _paNextToken = Nothing,
-      _paMaxResults = Nothing,
-      _paPreviewAgentsARN = pPreviewAgentsARN_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      previewAgentsARN = pPreviewAgentsARN_
     }
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __PreviewAgents__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
-paNextToken :: Lens' PreviewAgents (Maybe Text)
-paNextToken = lens _paNextToken (\s a -> s {_paNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paNextToken :: Lens.Lens' PreviewAgents (Lude.Maybe Lude.Text)
+paNextToken = Lens.lens (nextToken :: PreviewAgents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: PreviewAgents)
+{-# DEPRECATED paNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
-paMaxResults :: Lens' PreviewAgents (Maybe Int)
-paMaxResults = lens _paMaxResults (\s a -> s {_paMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paMaxResults :: Lens.Lens' PreviewAgents (Lude.Maybe Lude.Int)
+paMaxResults = Lens.lens (maxResults :: PreviewAgents -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: PreviewAgents)
+{-# DEPRECATED paMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ARN of the assessment target whose agents you want to preview.
-paPreviewAgentsARN :: Lens' PreviewAgents Text
-paPreviewAgentsARN = lens _paPreviewAgentsARN (\s a -> s {_paPreviewAgentsARN = a})
+--
+-- /Note:/ Consider using 'previewAgentsARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paPreviewAgentsARN :: Lens.Lens' PreviewAgents Lude.Text
+paPreviewAgentsARN = Lens.lens (previewAgentsARN :: PreviewAgents -> Lude.Text) (\s a -> s {previewAgentsARN = a} :: PreviewAgents)
+{-# DEPRECATED paPreviewAgentsARN "Use generic-lens or generic-optics with 'previewAgentsARN' instead." #-}
 
-instance AWSPager PreviewAgents where
+instance Page.AWSPager PreviewAgents where
   page rq rs
-    | stop (rs ^. parsNextToken) = Nothing
-    | stop (rs ^. parsAgentPreviews) = Nothing
-    | otherwise = Just $ rq & paNextToken .~ rs ^. parsNextToken
+    | Page.stop (rs Lens.^. parsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. parsAgentPreviews) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& paNextToken Lens..~ rs Lens.^. parsNextToken
 
-instance AWSRequest PreviewAgents where
+instance Lude.AWSRequest PreviewAgents where
   type Rs PreviewAgents = PreviewAgentsResponse
-  request = postJSON inspector
+  request = Req.postJSON inspectorService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PreviewAgentsResponse'
-            <$> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "agentPreviews" .!@ mempty)
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "agentPreviews" Lude..!@ Lude.mempty)
       )
 
-instance Hashable PreviewAgents
-
-instance NFData PreviewAgents
-
-instance ToHeaders PreviewAgents where
+instance Lude.ToHeaders PreviewAgents where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.PreviewAgents" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.PreviewAgents" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PreviewAgents where
+instance Lude.ToJSON PreviewAgents where
   toJSON PreviewAgents' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _paNextToken,
-            ("maxResults" .=) <$> _paMaxResults,
-            Just ("previewAgentsArn" .= _paPreviewAgentsARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("previewAgentsArn" Lude..= previewAgentsARN)
           ]
       )
 
-instance ToPath PreviewAgents where
-  toPath = const "/"
+instance Lude.ToPath PreviewAgents where
+  toPath = Lude.const "/"
 
-instance ToQuery PreviewAgents where
-  toQuery = const mempty
+instance Lude.ToQuery PreviewAgents where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'previewAgentsResponse' smart constructor.
+-- | /See:/ 'mkPreviewAgentsResponse' smart constructor.
 data PreviewAgentsResponse = PreviewAgentsResponse'
-  { _parsNextToken ::
-      !(Maybe Text),
-    _parsResponseStatus :: !Int,
-    _parsAgentPreviews :: ![AgentPreview]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    agentPreviews :: [AgentPreview]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PreviewAgentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'parsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
---
--- * 'parsResponseStatus' - -- | The response status code.
---
--- * 'parsAgentPreviews' - The resulting list of agents.
-previewAgentsResponse ::
-  -- | 'parsResponseStatus'
-  Int ->
+-- * 'agentPreviews' - The resulting list of agents.
+-- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+-- * 'responseStatus' - The response status code.
+mkPreviewAgentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PreviewAgentsResponse
-previewAgentsResponse pResponseStatus_ =
+mkPreviewAgentsResponse pResponseStatus_ =
   PreviewAgentsResponse'
-    { _parsNextToken = Nothing,
-      _parsResponseStatus = pResponseStatus_,
-      _parsAgentPreviews = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      agentPreviews = Lude.mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
-parsNextToken :: Lens' PreviewAgentsResponse (Maybe Text)
-parsNextToken = lens _parsNextToken (\s a -> s {_parsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parsNextToken :: Lens.Lens' PreviewAgentsResponse (Lude.Maybe Lude.Text)
+parsNextToken = Lens.lens (nextToken :: PreviewAgentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: PreviewAgentsResponse)
+{-# DEPRECATED parsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-parsResponseStatus :: Lens' PreviewAgentsResponse Int
-parsResponseStatus = lens _parsResponseStatus (\s a -> s {_parsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parsResponseStatus :: Lens.Lens' PreviewAgentsResponse Lude.Int
+parsResponseStatus = Lens.lens (responseStatus :: PreviewAgentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PreviewAgentsResponse)
+{-# DEPRECATED parsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The resulting list of agents.
-parsAgentPreviews :: Lens' PreviewAgentsResponse [AgentPreview]
-parsAgentPreviews = lens _parsAgentPreviews (\s a -> s {_parsAgentPreviews = a}) . _Coerce
-
-instance NFData PreviewAgentsResponse
+--
+-- /Note:/ Consider using 'agentPreviews' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parsAgentPreviews :: Lens.Lens' PreviewAgentsResponse [AgentPreview]
+parsAgentPreviews = Lens.lens (agentPreviews :: PreviewAgentsResponse -> [AgentPreview]) (\s a -> s {agentPreviews = a} :: PreviewAgentsResponse)
+{-# DEPRECATED parsAgentPreviews "Use generic-lens or generic-optics with 'agentPreviews' instead." #-}

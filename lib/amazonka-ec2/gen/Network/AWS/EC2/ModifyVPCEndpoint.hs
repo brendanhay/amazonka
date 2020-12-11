@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html VPC Endpoints> in the /Amazon Virtual Private Cloud User Guide/ .
 module Network.AWS.EC2.ModifyVPCEndpoint
-  ( -- * Creating a Request
-    modifyVPCEndpoint,
-    ModifyVPCEndpoint,
+  ( -- * Creating a request
+    ModifyVPCEndpoint (..),
+    mkModifyVPCEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mvePolicyDocument,
     mveRemoveRouteTableIds,
     mveResetPolicy,
@@ -36,205 +31,242 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     mveRemoveSecurityGroupIds,
     mveVPCEndpointId,
 
-    -- * Destructuring the Response
-    modifyVPCEndpointResponse,
-    ModifyVPCEndpointResponse,
+    -- * Destructuring the response
+    ModifyVPCEndpointResponse (..),
+    mkModifyVPCEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mversReturn,
     mversResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for ModifyVpcEndpoint.
 --
---
---
--- /See:/ 'modifyVPCEndpoint' smart constructor.
+-- /See:/ 'mkModifyVPCEndpoint' smart constructor.
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
-  { _mvePolicyDocument ::
-      !(Maybe Text),
-    _mveRemoveRouteTableIds :: !(Maybe [Text]),
-    _mveResetPolicy :: !(Maybe Bool),
-    _mveAddRouteTableIds :: !(Maybe [Text]),
-    _mvePrivateDNSEnabled :: !(Maybe Bool),
-    _mveAddSubnetIds :: !(Maybe [Text]),
-    _mveRemoveSubnetIds :: !(Maybe [Text]),
-    _mveAddSecurityGroupIds :: !(Maybe [Text]),
-    _mveDryRun :: !(Maybe Bool),
-    _mveRemoveSecurityGroupIds :: !(Maybe [Text]),
-    _mveVPCEndpointId :: !Text
+  { policyDocument ::
+      Lude.Maybe Lude.Text,
+    removeRouteTableIds :: Lude.Maybe [Lude.Text],
+    resetPolicy :: Lude.Maybe Lude.Bool,
+    addRouteTableIds :: Lude.Maybe [Lude.Text],
+    privateDNSEnabled :: Lude.Maybe Lude.Bool,
+    addSubnetIds :: Lude.Maybe [Lude.Text],
+    removeSubnetIds :: Lude.Maybe [Lude.Text],
+    addSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    dryRun :: Lude.Maybe Lude.Bool,
+    removeSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    vpcEndpointId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mvePolicyDocument' - (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.
---
--- * 'mveRemoveRouteTableIds' - (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.
---
--- * 'mveResetPolicy' - (Gateway endpoint) Specify @true@ to reset the policy document to the default policy. The default policy allows full access to the service.
---
--- * 'mveAddRouteTableIds' - (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
---
--- * 'mvePrivateDNSEnabled' - (Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.
---
--- * 'mveAddSubnetIds' - (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
---
--- * 'mveRemoveSubnetIds' - (Interface endpoint) One or more subnets IDs in which to remove the endpoint.
---
--- * 'mveAddSecurityGroupIds' - (Interface endpoint) One or more security group IDs to associate with the network interface.
---
--- * 'mveDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'mveRemoveSecurityGroupIds' - (Interface endpoint) One or more security group IDs to disassociate from the network interface.
---
--- * 'mveVPCEndpointId' - The ID of the endpoint.
-modifyVPCEndpoint ::
-  -- | 'mveVPCEndpointId'
-  Text ->
+-- * 'addRouteTableIds' - (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
+-- * 'addSecurityGroupIds' - (Interface endpoint) One or more security group IDs to associate with the network interface.
+-- * 'addSubnetIds' - (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'policyDocument' - (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.
+-- * 'privateDNSEnabled' - (Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.
+-- * 'removeRouteTableIds' - (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.
+-- * 'removeSecurityGroupIds' - (Interface endpoint) One or more security group IDs to disassociate from the network interface.
+-- * 'removeSubnetIds' - (Interface endpoint) One or more subnets IDs in which to remove the endpoint.
+-- * 'resetPolicy' - (Gateway endpoint) Specify @true@ to reset the policy document to the default policy. The default policy allows full access to the service.
+-- * 'vpcEndpointId' - The ID of the endpoint.
+mkModifyVPCEndpoint ::
+  -- | 'vpcEndpointId'
+  Lude.Text ->
   ModifyVPCEndpoint
-modifyVPCEndpoint pVPCEndpointId_ =
+mkModifyVPCEndpoint pVPCEndpointId_ =
   ModifyVPCEndpoint'
-    { _mvePolicyDocument = Nothing,
-      _mveRemoveRouteTableIds = Nothing,
-      _mveResetPolicy = Nothing,
-      _mveAddRouteTableIds = Nothing,
-      _mvePrivateDNSEnabled = Nothing,
-      _mveAddSubnetIds = Nothing,
-      _mveRemoveSubnetIds = Nothing,
-      _mveAddSecurityGroupIds = Nothing,
-      _mveDryRun = Nothing,
-      _mveRemoveSecurityGroupIds = Nothing,
-      _mveVPCEndpointId = pVPCEndpointId_
+    { policyDocument = Lude.Nothing,
+      removeRouteTableIds = Lude.Nothing,
+      resetPolicy = Lude.Nothing,
+      addRouteTableIds = Lude.Nothing,
+      privateDNSEnabled = Lude.Nothing,
+      addSubnetIds = Lude.Nothing,
+      removeSubnetIds = Lude.Nothing,
+      addSecurityGroupIds = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      removeSecurityGroupIds = Lude.Nothing,
+      vpcEndpointId = pVPCEndpointId_
     }
 
 -- | (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.
-mvePolicyDocument :: Lens' ModifyVPCEndpoint (Maybe Text)
-mvePolicyDocument = lens _mvePolicyDocument (\s a -> s {_mvePolicyDocument = a})
+--
+-- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvePolicyDocument :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe Lude.Text)
+mvePolicyDocument = Lens.lens (policyDocument :: ModifyVPCEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {policyDocument = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mvePolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
 -- | (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.
-mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
-mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\s a -> s {_mveRemoveRouteTableIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeRouteTableIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveRemoveRouteTableIds :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe [Lude.Text])
+mveRemoveRouteTableIds = Lens.lens (removeRouteTableIds :: ModifyVPCEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {removeRouteTableIds = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveRemoveRouteTableIds "Use generic-lens or generic-optics with 'removeRouteTableIds' instead." #-}
 
 -- | (Gateway endpoint) Specify @true@ to reset the policy document to the default policy. The default policy allows full access to the service.
-mveResetPolicy :: Lens' ModifyVPCEndpoint (Maybe Bool)
-mveResetPolicy = lens _mveResetPolicy (\s a -> s {_mveResetPolicy = a})
+--
+-- /Note:/ Consider using 'resetPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveResetPolicy :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe Lude.Bool)
+mveResetPolicy = Lens.lens (resetPolicy :: ModifyVPCEndpoint -> Lude.Maybe Lude.Bool) (\s a -> s {resetPolicy = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveResetPolicy "Use generic-lens or generic-optics with 'resetPolicy' instead." #-}
 
 -- | (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
-mveAddRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
-mveAddRouteTableIds = lens _mveAddRouteTableIds (\s a -> s {_mveAddRouteTableIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addRouteTableIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveAddRouteTableIds :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe [Lude.Text])
+mveAddRouteTableIds = Lens.lens (addRouteTableIds :: ModifyVPCEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {addRouteTableIds = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveAddRouteTableIds "Use generic-lens or generic-optics with 'addRouteTableIds' instead." #-}
 
 -- | (Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.
-mvePrivateDNSEnabled :: Lens' ModifyVPCEndpoint (Maybe Bool)
-mvePrivateDNSEnabled = lens _mvePrivateDNSEnabled (\s a -> s {_mvePrivateDNSEnabled = a})
+--
+-- /Note:/ Consider using 'privateDNSEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvePrivateDNSEnabled :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe Lude.Bool)
+mvePrivateDNSEnabled = Lens.lens (privateDNSEnabled :: ModifyVPCEndpoint -> Lude.Maybe Lude.Bool) (\s a -> s {privateDNSEnabled = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mvePrivateDNSEnabled "Use generic-lens or generic-optics with 'privateDNSEnabled' instead." #-}
 
 -- | (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
-mveAddSubnetIds :: Lens' ModifyVPCEndpoint [Text]
-mveAddSubnetIds = lens _mveAddSubnetIds (\s a -> s {_mveAddSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addSubnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveAddSubnetIds :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe [Lude.Text])
+mveAddSubnetIds = Lens.lens (addSubnetIds :: ModifyVPCEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {addSubnetIds = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveAddSubnetIds "Use generic-lens or generic-optics with 'addSubnetIds' instead." #-}
 
 -- | (Interface endpoint) One or more subnets IDs in which to remove the endpoint.
-mveRemoveSubnetIds :: Lens' ModifyVPCEndpoint [Text]
-mveRemoveSubnetIds = lens _mveRemoveSubnetIds (\s a -> s {_mveRemoveSubnetIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeSubnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveRemoveSubnetIds :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe [Lude.Text])
+mveRemoveSubnetIds = Lens.lens (removeSubnetIds :: ModifyVPCEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {removeSubnetIds = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveRemoveSubnetIds "Use generic-lens or generic-optics with 'removeSubnetIds' instead." #-}
 
 -- | (Interface endpoint) One or more security group IDs to associate with the network interface.
-mveAddSecurityGroupIds :: Lens' ModifyVPCEndpoint [Text]
-mveAddSecurityGroupIds = lens _mveAddSecurityGroupIds (\s a -> s {_mveAddSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'addSecurityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveAddSecurityGroupIds :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe [Lude.Text])
+mveAddSecurityGroupIds = Lens.lens (addSecurityGroupIds :: ModifyVPCEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {addSecurityGroupIds = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveAddSecurityGroupIds "Use generic-lens or generic-optics with 'addSecurityGroupIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mveDryRun :: Lens' ModifyVPCEndpoint (Maybe Bool)
-mveDryRun = lens _mveDryRun (\s a -> s {_mveDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveDryRun :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe Lude.Bool)
+mveDryRun = Lens.lens (dryRun :: ModifyVPCEndpoint -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | (Interface endpoint) One or more security group IDs to disassociate from the network interface.
-mveRemoveSecurityGroupIds :: Lens' ModifyVPCEndpoint [Text]
-mveRemoveSecurityGroupIds = lens _mveRemoveSecurityGroupIds (\s a -> s {_mveRemoveSecurityGroupIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'removeSecurityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveRemoveSecurityGroupIds :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe [Lude.Text])
+mveRemoveSecurityGroupIds = Lens.lens (removeSecurityGroupIds :: ModifyVPCEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {removeSecurityGroupIds = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveRemoveSecurityGroupIds "Use generic-lens or generic-optics with 'removeSecurityGroupIds' instead." #-}
 
 -- | The ID of the endpoint.
-mveVPCEndpointId :: Lens' ModifyVPCEndpoint Text
-mveVPCEndpointId = lens _mveVPCEndpointId (\s a -> s {_mveVPCEndpointId = a})
+--
+-- /Note:/ Consider using 'vpcEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveVPCEndpointId :: Lens.Lens' ModifyVPCEndpoint Lude.Text
+mveVPCEndpointId = Lens.lens (vpcEndpointId :: ModifyVPCEndpoint -> Lude.Text) (\s a -> s {vpcEndpointId = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveVPCEndpointId "Use generic-lens or generic-optics with 'vpcEndpointId' instead." #-}
 
-instance AWSRequest ModifyVPCEndpoint where
+instance Lude.AWSRequest ModifyVPCEndpoint where
   type Rs ModifyVPCEndpoint = ModifyVPCEndpointResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           ModifyVPCEndpointResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyVPCEndpoint
+instance Lude.ToHeaders ModifyVPCEndpoint where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifyVPCEndpoint
+instance Lude.ToPath ModifyVPCEndpoint where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifyVPCEndpoint where
-  toHeaders = const mempty
-
-instance ToPath ModifyVPCEndpoint where
-  toPath = const "/"
-
-instance ToQuery ModifyVPCEndpoint where
+instance Lude.ToQuery ModifyVPCEndpoint where
   toQuery ModifyVPCEndpoint' {..} =
-    mconcat
-      [ "Action" =: ("ModifyVpcEndpoint" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "PolicyDocument" =: _mvePolicyDocument,
-        toQuery
-          (toQueryList "RemoveRouteTableId" <$> _mveRemoveRouteTableIds),
-        "ResetPolicy" =: _mveResetPolicy,
-        toQuery (toQueryList "AddRouteTableId" <$> _mveAddRouteTableIds),
-        "PrivateDnsEnabled" =: _mvePrivateDNSEnabled,
-        toQuery (toQueryList "AddSubnetId" <$> _mveAddSubnetIds),
-        toQuery (toQueryList "RemoveSubnetId" <$> _mveRemoveSubnetIds),
-        toQuery
-          (toQueryList "AddSecurityGroupId" <$> _mveAddSecurityGroupIds),
-        "DryRun" =: _mveDryRun,
-        toQuery
-          ( toQueryList "RemoveSecurityGroupId"
-              <$> _mveRemoveSecurityGroupIds
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifyVpcEndpoint" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "PolicyDocument" Lude.=: policyDocument,
+        Lude.toQuery
+          ( Lude.toQueryList "RemoveRouteTableId"
+              Lude.<$> removeRouteTableIds
           ),
-        "VpcEndpointId" =: _mveVPCEndpointId
+        "ResetPolicy" Lude.=: resetPolicy,
+        Lude.toQuery
+          (Lude.toQueryList "AddRouteTableId" Lude.<$> addRouteTableIds),
+        "PrivateDnsEnabled" Lude.=: privateDNSEnabled,
+        Lude.toQuery
+          (Lude.toQueryList "AddSubnetId" Lude.<$> addSubnetIds),
+        Lude.toQuery
+          (Lude.toQueryList "RemoveSubnetId" Lude.<$> removeSubnetIds),
+        Lude.toQuery
+          ( Lude.toQueryList "AddSecurityGroupId"
+              Lude.<$> addSecurityGroupIds
+          ),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQuery
+          ( Lude.toQueryList "RemoveSecurityGroupId"
+              Lude.<$> removeSecurityGroupIds
+          ),
+        "VpcEndpointId" Lude.=: vpcEndpointId
       ]
 
--- | /See:/ 'modifyVPCEndpointResponse' smart constructor.
+-- | /See:/ 'mkModifyVPCEndpointResponse' smart constructor.
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
-  { _mversReturn ::
-      !(Maybe Bool),
-    _mversResponseStatus :: !Int
+  { return ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mversReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
---
--- * 'mversResponseStatus' - -- | The response status code.
-modifyVPCEndpointResponse ::
-  -- | 'mversResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+mkModifyVPCEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyVPCEndpointResponse
-modifyVPCEndpointResponse pResponseStatus_ =
+mkModifyVPCEndpointResponse pResponseStatus_ =
   ModifyVPCEndpointResponse'
-    { _mversReturn = Nothing,
-      _mversResponseStatus = pResponseStatus_
+    { return = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-mversReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
-mversReturn = lens _mversReturn (\s a -> s {_mversReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mversReturn :: Lens.Lens' ModifyVPCEndpointResponse (Lude.Maybe Lude.Bool)
+mversReturn = Lens.lens (return :: ModifyVPCEndpointResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: ModifyVPCEndpointResponse)
+{-# DEPRECATED mversReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-mversResponseStatus :: Lens' ModifyVPCEndpointResponse Int
-mversResponseStatus = lens _mversResponseStatus (\s a -> s {_mversResponseStatus = a})
-
-instance NFData ModifyVPCEndpointResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mversResponseStatus :: Lens.Lens' ModifyVPCEndpointResponse Lude.Int
+mversResponseStatus = Lens.lens (responseStatus :: ModifyVPCEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyVPCEndpointResponse)
+{-# DEPRECATED mversResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

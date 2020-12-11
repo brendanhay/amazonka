@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,32 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.MedicalTranscriptionJob where
+module Network.AWS.Transcribe.Types.MedicalTranscriptionJob
+  ( MedicalTranscriptionJob (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMedicalTranscriptionJob,
+
+    -- * Lenses
+    mtjCreationTime,
+    mtjSpecialty,
+    mtjFailureReason,
+    mtjLanguageCode,
+    mtjSettings,
+    mtjStartTime,
+    mtjCompletionTime,
+    mtjMedia,
+    mtjMediaFormat,
+    mtjMedicalTranscriptionJobName,
+    mtjTranscriptionJobStatus,
+    mtjType,
+    mtjTranscript,
+    mtjMediaSampleRateHertz,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Transcribe.Types.LanguageCode
 import Network.AWS.Transcribe.Types.Media
 import Network.AWS.Transcribe.Types.MediaFormat
@@ -28,161 +44,245 @@ import Network.AWS.Transcribe.Types.Type
 
 -- | The data structure that contains the information for a medical transcription job.
 --
---
---
--- /See:/ 'medicalTranscriptionJob' smart constructor.
+-- /See:/ 'mkMedicalTranscriptionJob' smart constructor.
 data MedicalTranscriptionJob = MedicalTranscriptionJob'
-  { _mtjCreationTime ::
-      !(Maybe POSIX),
-    _mtjSpecialty :: !(Maybe Specialty),
-    _mtjFailureReason :: !(Maybe Text),
-    _mtjLanguageCode :: !(Maybe LanguageCode),
-    _mtjSettings ::
-      !(Maybe MedicalTranscriptionSetting),
-    _mtjStartTime :: !(Maybe POSIX),
-    _mtjCompletionTime :: !(Maybe POSIX),
-    _mtjMedia :: !(Maybe Media),
-    _mtjMediaFormat :: !(Maybe MediaFormat),
-    _mtjMedicalTranscriptionJobName ::
-      !(Maybe Text),
-    _mtjTranscriptionJobStatus ::
-      !(Maybe TranscriptionJobStatus),
-    _mtjType :: !(Maybe Type),
-    _mtjTranscript ::
-      !(Maybe MedicalTranscript),
-    _mtjMediaSampleRateHertz :: !(Maybe Nat)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    specialty :: Lude.Maybe Specialty,
+    failureReason :: Lude.Maybe Lude.Text,
+    languageCode :: Lude.Maybe LanguageCode,
+    settings ::
+      Lude.Maybe MedicalTranscriptionSetting,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    completionTime :: Lude.Maybe Lude.Timestamp,
+    media :: Lude.Maybe Media,
+    mediaFormat :: Lude.Maybe MediaFormat,
+    medicalTranscriptionJobName ::
+      Lude.Maybe Lude.Text,
+    transcriptionJobStatus ::
+      Lude.Maybe TranscriptionJobStatus,
+    type' :: Lude.Maybe Type,
+    transcript :: Lude.Maybe MedicalTranscript,
+    mediaSampleRateHertz ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MedicalTranscriptionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'completionTime' - A timestamp that shows when the job was completed.
+-- * 'creationTime' - A timestamp that shows when the job was created.
+-- * 'failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed.
 --
--- * 'mtjCreationTime' - A timestamp that shows when the job was created.
+-- The @FailureReason@ field contains one of the following values:
 --
--- * 'mtjSpecialty' - The medical specialty of any clinicians providing a dictation or having a conversation. @PRIMARYCARE@ is the only available setting for this object. This specialty enables you to generate transcriptions for the following medical fields:     * Family Medicine
+--     * @Unsupported media format@ - The media format specified in the @MediaFormat@ field of the request isn't valid. See the description of the @MediaFormat@ field for a list of valid values.
 --
--- * 'mtjFailureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed. The @FailureReason@ field contains one of the following values:     * @Unsupported media format@ - The media format specified in the @MediaFormat@ field of the request isn't valid. See the description of the @MediaFormat@ field for a list of valid values.     * @The media format provided does not match the detected media format@ - The media format of the audio file doesn't match the format specified in the @MediaFormat@ field in the request. Check the media format of your media file and make sure the two values match.     * @Invalid sample rate for audio file@ - The sample rate specified in the @MediaSampleRateHertz@ of the request isn't valid. The sample rate must be between 8000 and 48000 Hertz.     * @The sample rate provided does not match the detected sample rate@ - The sample rate in the audio file doesn't match the sample rate specified in the @MediaSampleRateHertz@ field in the request. Check the sample rate of your media file and make sure that the two values match.     * @Invalid file size: file size too large@ - The size of your audio file is larger than what Amazon Transcribe Medical can process. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and Quotas> in the /Amazon Transcribe Medical Guide/      * @Invalid number of channels: number of channels too large@ - Your audio contains more channels than Amazon Transcribe Medical is configured to process. To request additional channels, see <https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html Amazon Transcribe Medical Endpoints and Quotas> in the /Amazon Web Services General Reference/
 --
--- * 'mtjLanguageCode' - The language code for the language spoken in the source audio file. US English (en-US) is the only supported language for medical transcriptions. Any other value you enter for language code results in a @BadRequestException@ error.
+--     * @The media format provided does not match the detected media format@ - The media format of the audio file doesn't match the format specified in the @MediaFormat@ field in the request. Check the media format of your media file and make sure the two values match.
 --
--- * 'mtjSettings' - Object that contains object.
 --
--- * 'mtjStartTime' - A timestamp that shows when the job started processing.
+--     * @Invalid sample rate for audio file@ - The sample rate specified in the @MediaSampleRateHertz@ of the request isn't valid. The sample rate must be between 8000 and 48000 Hertz.
 --
--- * 'mtjCompletionTime' - A timestamp that shows when the job was completed.
 --
--- * 'mtjMedia' - Undocumented member.
+--     * @The sample rate provided does not match the detected sample rate@ - The sample rate in the audio file doesn't match the sample rate specified in the @MediaSampleRateHertz@ field in the request. Check the sample rate of your media file and make sure that the two values match.
 --
--- * 'mtjMediaFormat' - The format of the input media file.
 --
--- * 'mtjMedicalTranscriptionJobName' - The name for a given medical transcription job.
+--     * @Invalid file size: file size too large@ - The size of your audio file is larger than what Amazon Transcribe Medical can process. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and Quotas> in the /Amazon Transcribe Medical Guide/
 --
--- * 'mtjTranscriptionJobStatus' - The completion status of a medical transcription job.
 --
--- * 'mtjType' - The type of speech in the transcription job. @CONVERSATION@ is generally used for patient-physician dialogues. @DICTATION@ is the setting for physicians speaking their notes after seeing a patient. For more information, see 'how-it-works-med'
+--     * @Invalid number of channels: number of channels too large@ - Your audio contains more channels than Amazon Transcribe Medical is configured to process. To request additional channels, see <https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html Amazon Transcribe Medical Endpoints and Quotas> in the /Amazon Web Services General Reference/
 --
--- * 'mtjTranscript' - An object that contains the @MedicalTranscript@ . The @MedicalTranscript@ contains the @TranscriptFileUri@ .
 --
--- * 'mtjMediaSampleRateHertz' - The sample rate, in Hertz, of the source audio containing medical information. If you don't specify the sample rate, Amazon Transcribe Medical determines it for you. If you choose to specify the sample rate, it must match the rate detected by Amazon Transcribe Medical. In most cases, you should leave the @MediaSampleHertz@ blank and let Amazon Transcribe Medical determine the sample rate.
-medicalTranscriptionJob ::
+-- * 'languageCode' - The language code for the language spoken in the source audio file. US English (en-US) is the only supported language for medical transcriptions. Any other value you enter for language code results in a @BadRequestException@ error.
+-- * 'media' - Undocumented field.
+-- * 'mediaFormat' - The format of the input media file.
+-- * 'mediaSampleRateHertz' - The sample rate, in Hertz, of the source audio containing medical information.
+--
+-- If you don't specify the sample rate, Amazon Transcribe Medical determines it for you. If you choose to specify the sample rate, it must match the rate detected by Amazon Transcribe Medical. In most cases, you should leave the @MediaSampleHertz@ blank and let Amazon Transcribe Medical determine the sample rate.
+-- * 'medicalTranscriptionJobName' - The name for a given medical transcription job.
+-- * 'settings' - Object that contains object.
+-- * 'specialty' - The medical specialty of any clinicians providing a dictation or having a conversation. @PRIMARYCARE@ is the only available setting for this object. This specialty enables you to generate transcriptions for the following medical fields:
+--
+--
+--     * Family Medicine
+--
+--
+-- * 'startTime' - A timestamp that shows when the job started processing.
+-- * 'transcript' - An object that contains the @MedicalTranscript@ . The @MedicalTranscript@ contains the @TranscriptFileUri@ .
+-- * 'transcriptionJobStatus' - The completion status of a medical transcription job.
+-- * 'type'' - The type of speech in the transcription job. @CONVERSATION@ is generally used for patient-physician dialogues. @DICTATION@ is the setting for physicians speaking their notes after seeing a patient. For more information, see 'how-it-works-med'
+mkMedicalTranscriptionJob ::
   MedicalTranscriptionJob
-medicalTranscriptionJob =
+mkMedicalTranscriptionJob =
   MedicalTranscriptionJob'
-    { _mtjCreationTime = Nothing,
-      _mtjSpecialty = Nothing,
-      _mtjFailureReason = Nothing,
-      _mtjLanguageCode = Nothing,
-      _mtjSettings = Nothing,
-      _mtjStartTime = Nothing,
-      _mtjCompletionTime = Nothing,
-      _mtjMedia = Nothing,
-      _mtjMediaFormat = Nothing,
-      _mtjMedicalTranscriptionJobName = Nothing,
-      _mtjTranscriptionJobStatus = Nothing,
-      _mtjType = Nothing,
-      _mtjTranscript = Nothing,
-      _mtjMediaSampleRateHertz = Nothing
+    { creationTime = Lude.Nothing,
+      specialty = Lude.Nothing,
+      failureReason = Lude.Nothing,
+      languageCode = Lude.Nothing,
+      settings = Lude.Nothing,
+      startTime = Lude.Nothing,
+      completionTime = Lude.Nothing,
+      media = Lude.Nothing,
+      mediaFormat = Lude.Nothing,
+      medicalTranscriptionJobName = Lude.Nothing,
+      transcriptionJobStatus = Lude.Nothing,
+      type' = Lude.Nothing,
+      transcript = Lude.Nothing,
+      mediaSampleRateHertz = Lude.Nothing
     }
 
 -- | A timestamp that shows when the job was created.
-mtjCreationTime :: Lens' MedicalTranscriptionJob (Maybe UTCTime)
-mtjCreationTime = lens _mtjCreationTime (\s a -> s {_mtjCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjCreationTime :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe Lude.Timestamp)
+mtjCreationTime = Lens.lens (creationTime :: MedicalTranscriptionJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
--- | The medical specialty of any clinicians providing a dictation or having a conversation. @PRIMARYCARE@ is the only available setting for this object. This specialty enables you to generate transcriptions for the following medical fields:     * Family Medicine
-mtjSpecialty :: Lens' MedicalTranscriptionJob (Maybe Specialty)
-mtjSpecialty = lens _mtjSpecialty (\s a -> s {_mtjSpecialty = a})
+-- | The medical specialty of any clinicians providing a dictation or having a conversation. @PRIMARYCARE@ is the only available setting for this object. This specialty enables you to generate transcriptions for the following medical fields:
+--
+--
+--     * Family Medicine
+--
+--
+--
+-- /Note:/ Consider using 'specialty' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjSpecialty :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe Specialty)
+mtjSpecialty = Lens.lens (specialty :: MedicalTranscriptionJob -> Lude.Maybe Specialty) (\s a -> s {specialty = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjSpecialty "Use generic-lens or generic-optics with 'specialty' instead." #-}
 
--- | If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed. The @FailureReason@ field contains one of the following values:     * @Unsupported media format@ - The media format specified in the @MediaFormat@ field of the request isn't valid. See the description of the @MediaFormat@ field for a list of valid values.     * @The media format provided does not match the detected media format@ - The media format of the audio file doesn't match the format specified in the @MediaFormat@ field in the request. Check the media format of your media file and make sure the two values match.     * @Invalid sample rate for audio file@ - The sample rate specified in the @MediaSampleRateHertz@ of the request isn't valid. The sample rate must be between 8000 and 48000 Hertz.     * @The sample rate provided does not match the detected sample rate@ - The sample rate in the audio file doesn't match the sample rate specified in the @MediaSampleRateHertz@ field in the request. Check the sample rate of your media file and make sure that the two values match.     * @Invalid file size: file size too large@ - The size of your audio file is larger than what Amazon Transcribe Medical can process. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and Quotas> in the /Amazon Transcribe Medical Guide/      * @Invalid number of channels: number of channels too large@ - Your audio contains more channels than Amazon Transcribe Medical is configured to process. To request additional channels, see <https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html Amazon Transcribe Medical Endpoints and Quotas> in the /Amazon Web Services General Reference/
-mtjFailureReason :: Lens' MedicalTranscriptionJob (Maybe Text)
-mtjFailureReason = lens _mtjFailureReason (\s a -> s {_mtjFailureReason = a})
+-- | If the @TranscriptionJobStatus@ field is @FAILED@ , this field contains information about why the job failed.
+--
+-- The @FailureReason@ field contains one of the following values:
+--
+--     * @Unsupported media format@ - The media format specified in the @MediaFormat@ field of the request isn't valid. See the description of the @MediaFormat@ field for a list of valid values.
+--
+--
+--     * @The media format provided does not match the detected media format@ - The media format of the audio file doesn't match the format specified in the @MediaFormat@ field in the request. Check the media format of your media file and make sure the two values match.
+--
+--
+--     * @Invalid sample rate for audio file@ - The sample rate specified in the @MediaSampleRateHertz@ of the request isn't valid. The sample rate must be between 8000 and 48000 Hertz.
+--
+--
+--     * @The sample rate provided does not match the detected sample rate@ - The sample rate in the audio file doesn't match the sample rate specified in the @MediaSampleRateHertz@ field in the request. Check the sample rate of your media file and make sure that the two values match.
+--
+--
+--     * @Invalid file size: file size too large@ - The size of your audio file is larger than what Amazon Transcribe Medical can process. For more information, see <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and Quotas> in the /Amazon Transcribe Medical Guide/
+--
+--
+--     * @Invalid number of channels: number of channels too large@ - Your audio contains more channels than Amazon Transcribe Medical is configured to process. To request additional channels, see <https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html Amazon Transcribe Medical Endpoints and Quotas> in the /Amazon Web Services General Reference/
+--
+--
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjFailureReason :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe Lude.Text)
+mtjFailureReason = Lens.lens (failureReason :: MedicalTranscriptionJob -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The language code for the language spoken in the source audio file. US English (en-US) is the only supported language for medical transcriptions. Any other value you enter for language code results in a @BadRequestException@ error.
-mtjLanguageCode :: Lens' MedicalTranscriptionJob (Maybe LanguageCode)
-mtjLanguageCode = lens _mtjLanguageCode (\s a -> s {_mtjLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjLanguageCode :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe LanguageCode)
+mtjLanguageCode = Lens.lens (languageCode :: MedicalTranscriptionJob -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | Object that contains object.
-mtjSettings :: Lens' MedicalTranscriptionJob (Maybe MedicalTranscriptionSetting)
-mtjSettings = lens _mtjSettings (\s a -> s {_mtjSettings = a})
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjSettings :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe MedicalTranscriptionSetting)
+mtjSettings = Lens.lens (settings :: MedicalTranscriptionJob -> Lude.Maybe MedicalTranscriptionSetting) (\s a -> s {settings = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 -- | A timestamp that shows when the job started processing.
-mtjStartTime :: Lens' MedicalTranscriptionJob (Maybe UTCTime)
-mtjStartTime = lens _mtjStartTime (\s a -> s {_mtjStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjStartTime :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe Lude.Timestamp)
+mtjStartTime = Lens.lens (startTime :: MedicalTranscriptionJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | A timestamp that shows when the job was completed.
-mtjCompletionTime :: Lens' MedicalTranscriptionJob (Maybe UTCTime)
-mtjCompletionTime = lens _mtjCompletionTime (\s a -> s {_mtjCompletionTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'completionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjCompletionTime :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe Lude.Timestamp)
+mtjCompletionTime = Lens.lens (completionTime :: MedicalTranscriptionJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {completionTime = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjCompletionTime "Use generic-lens or generic-optics with 'completionTime' instead." #-}
 
--- | Undocumented member.
-mtjMedia :: Lens' MedicalTranscriptionJob (Maybe Media)
-mtjMedia = lens _mtjMedia (\s a -> s {_mtjMedia = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'media' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjMedia :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe Media)
+mtjMedia = Lens.lens (media :: MedicalTranscriptionJob -> Lude.Maybe Media) (\s a -> s {media = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjMedia "Use generic-lens or generic-optics with 'media' instead." #-}
 
 -- | The format of the input media file.
-mtjMediaFormat :: Lens' MedicalTranscriptionJob (Maybe MediaFormat)
-mtjMediaFormat = lens _mtjMediaFormat (\s a -> s {_mtjMediaFormat = a})
+--
+-- /Note:/ Consider using 'mediaFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjMediaFormat :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe MediaFormat)
+mtjMediaFormat = Lens.lens (mediaFormat :: MedicalTranscriptionJob -> Lude.Maybe MediaFormat) (\s a -> s {mediaFormat = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjMediaFormat "Use generic-lens or generic-optics with 'mediaFormat' instead." #-}
 
 -- | The name for a given medical transcription job.
-mtjMedicalTranscriptionJobName :: Lens' MedicalTranscriptionJob (Maybe Text)
-mtjMedicalTranscriptionJobName = lens _mtjMedicalTranscriptionJobName (\s a -> s {_mtjMedicalTranscriptionJobName = a})
+--
+-- /Note:/ Consider using 'medicalTranscriptionJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjMedicalTranscriptionJobName :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe Lude.Text)
+mtjMedicalTranscriptionJobName = Lens.lens (medicalTranscriptionJobName :: MedicalTranscriptionJob -> Lude.Maybe Lude.Text) (\s a -> s {medicalTranscriptionJobName = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjMedicalTranscriptionJobName "Use generic-lens or generic-optics with 'medicalTranscriptionJobName' instead." #-}
 
 -- | The completion status of a medical transcription job.
-mtjTranscriptionJobStatus :: Lens' MedicalTranscriptionJob (Maybe TranscriptionJobStatus)
-mtjTranscriptionJobStatus = lens _mtjTranscriptionJobStatus (\s a -> s {_mtjTranscriptionJobStatus = a})
+--
+-- /Note:/ Consider using 'transcriptionJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjTranscriptionJobStatus :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe TranscriptionJobStatus)
+mtjTranscriptionJobStatus = Lens.lens (transcriptionJobStatus :: MedicalTranscriptionJob -> Lude.Maybe TranscriptionJobStatus) (\s a -> s {transcriptionJobStatus = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjTranscriptionJobStatus "Use generic-lens or generic-optics with 'transcriptionJobStatus' instead." #-}
 
 -- | The type of speech in the transcription job. @CONVERSATION@ is generally used for patient-physician dialogues. @DICTATION@ is the setting for physicians speaking their notes after seeing a patient. For more information, see 'how-it-works-med'
-mtjType :: Lens' MedicalTranscriptionJob (Maybe Type)
-mtjType = lens _mtjType (\s a -> s {_mtjType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjType :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe Type)
+mtjType = Lens.lens (type' :: MedicalTranscriptionJob -> Lude.Maybe Type) (\s a -> s {type' = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | An object that contains the @MedicalTranscript@ . The @MedicalTranscript@ contains the @TranscriptFileUri@ .
-mtjTranscript :: Lens' MedicalTranscriptionJob (Maybe MedicalTranscript)
-mtjTranscript = lens _mtjTranscript (\s a -> s {_mtjTranscript = a})
+--
+-- /Note:/ Consider using 'transcript' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjTranscript :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe MedicalTranscript)
+mtjTranscript = Lens.lens (transcript :: MedicalTranscriptionJob -> Lude.Maybe MedicalTranscript) (\s a -> s {transcript = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjTranscript "Use generic-lens or generic-optics with 'transcript' instead." #-}
 
--- | The sample rate, in Hertz, of the source audio containing medical information. If you don't specify the sample rate, Amazon Transcribe Medical determines it for you. If you choose to specify the sample rate, it must match the rate detected by Amazon Transcribe Medical. In most cases, you should leave the @MediaSampleHertz@ blank and let Amazon Transcribe Medical determine the sample rate.
-mtjMediaSampleRateHertz :: Lens' MedicalTranscriptionJob (Maybe Natural)
-mtjMediaSampleRateHertz = lens _mtjMediaSampleRateHertz (\s a -> s {_mtjMediaSampleRateHertz = a}) . mapping _Nat
+-- | The sample rate, in Hertz, of the source audio containing medical information.
+--
+-- If you don't specify the sample rate, Amazon Transcribe Medical determines it for you. If you choose to specify the sample rate, it must match the rate detected by Amazon Transcribe Medical. In most cases, you should leave the @MediaSampleHertz@ blank and let Amazon Transcribe Medical determine the sample rate.
+--
+-- /Note:/ Consider using 'mediaSampleRateHertz' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtjMediaSampleRateHertz :: Lens.Lens' MedicalTranscriptionJob (Lude.Maybe Lude.Natural)
+mtjMediaSampleRateHertz = Lens.lens (mediaSampleRateHertz :: MedicalTranscriptionJob -> Lude.Maybe Lude.Natural) (\s a -> s {mediaSampleRateHertz = a} :: MedicalTranscriptionJob)
+{-# DEPRECATED mtjMediaSampleRateHertz "Use generic-lens or generic-optics with 'mediaSampleRateHertz' instead." #-}
 
-instance FromJSON MedicalTranscriptionJob where
+instance Lude.FromJSON MedicalTranscriptionJob where
   parseJSON =
-    withObject
+    Lude.withObject
       "MedicalTranscriptionJob"
       ( \x ->
           MedicalTranscriptionJob'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "Specialty")
-            <*> (x .:? "FailureReason")
-            <*> (x .:? "LanguageCode")
-            <*> (x .:? "Settings")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "CompletionTime")
-            <*> (x .:? "Media")
-            <*> (x .:? "MediaFormat")
-            <*> (x .:? "MedicalTranscriptionJobName")
-            <*> (x .:? "TranscriptionJobStatus")
-            <*> (x .:? "Type")
-            <*> (x .:? "Transcript")
-            <*> (x .:? "MediaSampleRateHertz")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "Specialty")
+            Lude.<*> (x Lude..:? "FailureReason")
+            Lude.<*> (x Lude..:? "LanguageCode")
+            Lude.<*> (x Lude..:? "Settings")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "CompletionTime")
+            Lude.<*> (x Lude..:? "Media")
+            Lude.<*> (x Lude..:? "MediaFormat")
+            Lude.<*> (x Lude..:? "MedicalTranscriptionJobName")
+            Lude.<*> (x Lude..:? "TranscriptionJobStatus")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "Transcript")
+            Lude.<*> (x Lude..:? "MediaSampleRateHertz")
       )
-
-instance Hashable MedicalTranscriptionJob
-
-instance NFData MedicalTranscriptionJob

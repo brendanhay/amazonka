@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,140 @@
 --
 -- Deletes an AWS DMS event subscription.
 module Network.AWS.DMS.DeleteEventSubscription
-  ( -- * Creating a Request
-    deleteEventSubscription,
-    DeleteEventSubscription,
+  ( -- * Creating a request
+    DeleteEventSubscription (..),
+    mkDeleteEventSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     desSubscriptionName,
 
-    -- * Destructuring the Response
-    deleteEventSubscriptionResponse,
-    DeleteEventSubscriptionResponse,
+    -- * Destructuring the response
+    DeleteEventSubscriptionResponse (..),
+    mkDeleteEventSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     desersEventSubscription,
     desersResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'deleteEventSubscription' smart constructor.
+-- /See:/ 'mkDeleteEventSubscription' smart constructor.
 newtype DeleteEventSubscription = DeleteEventSubscription'
-  { _desSubscriptionName ::
-      Text
+  { subscriptionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEventSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desSubscriptionName' - The name of the DMS event notification subscription to be deleted.
-deleteEventSubscription ::
-  -- | 'desSubscriptionName'
-  Text ->
+-- * 'subscriptionName' - The name of the DMS event notification subscription to be deleted.
+mkDeleteEventSubscription ::
+  -- | 'subscriptionName'
+  Lude.Text ->
   DeleteEventSubscription
-deleteEventSubscription pSubscriptionName_ =
-  DeleteEventSubscription'
-    { _desSubscriptionName =
-        pSubscriptionName_
-    }
+mkDeleteEventSubscription pSubscriptionName_ =
+  DeleteEventSubscription' {subscriptionName = pSubscriptionName_}
 
 -- | The name of the DMS event notification subscription to be deleted.
-desSubscriptionName :: Lens' DeleteEventSubscription Text
-desSubscriptionName = lens _desSubscriptionName (\s a -> s {_desSubscriptionName = a})
+--
+-- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desSubscriptionName :: Lens.Lens' DeleteEventSubscription Lude.Text
+desSubscriptionName = Lens.lens (subscriptionName :: DeleteEventSubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: DeleteEventSubscription)
+{-# DEPRECATED desSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
-instance AWSRequest DeleteEventSubscription where
+instance Lude.AWSRequest DeleteEventSubscription where
   type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteEventSubscriptionResponse'
-            <$> (x .?> "EventSubscription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EventSubscription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteEventSubscription
-
-instance NFData DeleteEventSubscription
-
-instance ToHeaders DeleteEventSubscription where
+instance Lude.ToHeaders DeleteEventSubscription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.DeleteEventSubscription" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.DeleteEventSubscription" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteEventSubscription where
+instance Lude.ToJSON DeleteEventSubscription where
   toJSON DeleteEventSubscription' {..} =
-    object
-      (catMaybes [Just ("SubscriptionName" .= _desSubscriptionName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("SubscriptionName" Lude..= subscriptionName)]
+      )
 
-instance ToPath DeleteEventSubscription where
-  toPath = const "/"
+instance Lude.ToPath DeleteEventSubscription where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteEventSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteEventSubscription where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'deleteEventSubscriptionResponse' smart constructor.
+-- /See:/ 'mkDeleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
-  { _desersEventSubscription ::
-      !(Maybe EventSubscription),
-    _desersResponseStatus ::
-      !Int
+  { eventSubscription ::
+      Lude.Maybe
+        EventSubscription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEventSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desersEventSubscription' - The event subscription that was deleted.
---
--- * 'desersResponseStatus' - -- | The response status code.
-deleteEventSubscriptionResponse ::
-  -- | 'desersResponseStatus'
-  Int ->
+-- * 'eventSubscription' - The event subscription that was deleted.
+-- * 'responseStatus' - The response status code.
+mkDeleteEventSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteEventSubscriptionResponse
-deleteEventSubscriptionResponse pResponseStatus_ =
+mkDeleteEventSubscriptionResponse pResponseStatus_ =
   DeleteEventSubscriptionResponse'
-    { _desersEventSubscription =
-        Nothing,
-      _desersResponseStatus = pResponseStatus_
+    { eventSubscription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The event subscription that was deleted.
-desersEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
-desersEventSubscription = lens _desersEventSubscription (\s a -> s {_desersEventSubscription = a})
+--
+-- /Note:/ Consider using 'eventSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersEventSubscription :: Lens.Lens' DeleteEventSubscriptionResponse (Lude.Maybe EventSubscription)
+desersEventSubscription = Lens.lens (eventSubscription :: DeleteEventSubscriptionResponse -> Lude.Maybe EventSubscription) (\s a -> s {eventSubscription = a} :: DeleteEventSubscriptionResponse)
+{-# DEPRECATED desersEventSubscription "Use generic-lens or generic-optics with 'eventSubscription' instead." #-}
 
--- | -- | The response status code.
-desersResponseStatus :: Lens' DeleteEventSubscriptionResponse Int
-desersResponseStatus = lens _desersResponseStatus (\s a -> s {_desersResponseStatus = a})
-
-instance NFData DeleteEventSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desersResponseStatus :: Lens.Lens' DeleteEventSubscriptionResponse Lude.Int
+desersResponseStatus = Lens.lens (responseStatus :: DeleteEventSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEventSubscriptionResponse)
+{-# DEPRECATED desersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

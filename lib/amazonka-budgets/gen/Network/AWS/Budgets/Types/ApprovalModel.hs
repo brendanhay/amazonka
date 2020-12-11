@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.ApprovalModel where
+module Network.AWS.Budgets.Types.ApprovalModel
+  ( ApprovalModel
+      ( ApprovalModel',
+        Automatic,
+        Manual
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ApprovalModel
-  = Automatic
-  | Manual
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ApprovalModel = ApprovalModel' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ApprovalModel where
-  parser =
-    takeLowerText >>= \case
-      "automatic" -> pure Automatic
-      "manual" -> pure Manual
-      e ->
-        fromTextError $
-          "Failure parsing ApprovalModel from value: '" <> e
-            <> "'. Accepted values: automatic, manual"
+pattern Automatic :: ApprovalModel
+pattern Automatic = ApprovalModel' "AUTOMATIC"
 
-instance ToText ApprovalModel where
-  toText = \case
-    Automatic -> "AUTOMATIC"
-    Manual -> "MANUAL"
+pattern Manual :: ApprovalModel
+pattern Manual = ApprovalModel' "MANUAL"
 
-instance Hashable ApprovalModel
-
-instance NFData ApprovalModel
-
-instance ToByteString ApprovalModel
-
-instance ToQuery ApprovalModel
-
-instance ToHeader ApprovalModel
-
-instance ToJSON ApprovalModel where
-  toJSON = toJSONText
-
-instance FromJSON ApprovalModel where
-  parseJSON = parseJSONText "ApprovalModel"
+{-# COMPLETE
+  Automatic,
+  Manual,
+  ApprovalModel'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Creates a Microsoft AD directory in the AWS Cloud. For more information, see <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html AWS Managed Microsoft AD> in the /AWS Directory Service Admin Guide/ .
 --
---
 -- Before you call /CreateMicrosoftAD/ , ensure that all of the required permissions have been explicitly granted through a policy. For details about what permissions are required to run the /CreateMicrosoftAD/ operation, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference> .
 module Network.AWS.DirectoryService.CreateMicrosoftAD
-  ( -- * Creating a Request
-    createMicrosoftAD,
-    CreateMicrosoftAD,
+  ( -- * Creating a request
+    CreateMicrosoftAD (..),
+    mkCreateMicrosoftAD,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cmadEdition,
     cmadShortName,
     cmadDescription,
@@ -35,182 +29,201 @@ module Network.AWS.DirectoryService.CreateMicrosoftAD
     cmadPassword,
     cmadVPCSettings,
 
-    -- * Destructuring the Response
-    createMicrosoftADResponse,
-    CreateMicrosoftADResponse,
+    -- * Destructuring the response
+    CreateMicrosoftADResponse (..),
+    mkCreateMicrosoftADResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cmadrsDirectoryId,
     cmadrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Creates an AWS Managed Microsoft AD directory.
 --
---
---
--- /See:/ 'createMicrosoftAD' smart constructor.
+-- /See:/ 'mkCreateMicrosoftAD' smart constructor.
 data CreateMicrosoftAD = CreateMicrosoftAD'
-  { _cmadEdition ::
-      !(Maybe DirectoryEdition),
-    _cmadShortName :: !(Maybe Text),
-    _cmadDescription :: !(Maybe Text),
-    _cmadTags :: !(Maybe [Tag]),
-    _cmadName :: !Text,
-    _cmadPassword :: !(Sensitive Text),
-    _cmadVPCSettings :: !DirectoryVPCSettings
+  { edition ::
+      Lude.Maybe DirectoryEdition,
+    shortName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag],
+    name :: Lude.Text,
+    password :: Lude.Sensitive Lude.Text,
+    vpcSettings :: DirectoryVPCSettings
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMicrosoftAD' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - A description for the directory. This label will appear on the AWS console @Directory Details@ page after the directory is created.
+-- * 'edition' - AWS Managed Microsoft AD is available in two editions: @Standard@ and @Enterprise@ . @Enterprise@ is the default.
+-- * 'name' - The fully qualified domain name for the AWS Managed Microsoft AD directory, such as @corp.example.com@ . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
+-- * 'password' - The password for the default administrative user named @Admin@ .
 --
--- * 'cmadEdition' - AWS Managed Microsoft AD is available in two editions: @Standard@ and @Enterprise@ . @Enterprise@ is the default.
---
--- * 'cmadShortName' - The NetBIOS name for your domain, such as @CORP@ . If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, @CORP@ for the directory DNS @corp.example.com@ .
---
--- * 'cmadDescription' - A description for the directory. This label will appear on the AWS console @Directory Details@ page after the directory is created.
---
--- * 'cmadTags' - The tags to be assigned to the AWS Managed Microsoft AD directory.
---
--- * 'cmadName' - The fully qualified domain name for the AWS Managed Microsoft AD directory, such as @corp.example.com@ . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
---
--- * 'cmadPassword' - The password for the default administrative user named @Admin@ . If you need to change the password for the administrator account, you can use the 'ResetUserPassword' API call.
---
--- * 'cmadVPCSettings' - Contains VPC information for the 'CreateDirectory' or 'CreateMicrosoftAD' operation.
-createMicrosoftAD ::
-  -- | 'cmadName'
-  Text ->
-  -- | 'cmadPassword'
-  Text ->
-  -- | 'cmadVPCSettings'
+-- If you need to change the password for the administrator account, you can use the 'ResetUserPassword' API call.
+-- * 'shortName' - The NetBIOS name for your domain, such as @CORP@ . If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, @CORP@ for the directory DNS @corp.example.com@ .
+-- * 'tags' - The tags to be assigned to the AWS Managed Microsoft AD directory.
+-- * 'vpcSettings' - Contains VPC information for the 'CreateDirectory' or 'CreateMicrosoftAD' operation.
+mkCreateMicrosoftAD ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'password'
+  Lude.Sensitive Lude.Text ->
+  -- | 'vpcSettings'
   DirectoryVPCSettings ->
   CreateMicrosoftAD
-createMicrosoftAD pName_ pPassword_ pVPCSettings_ =
+mkCreateMicrosoftAD pName_ pPassword_ pVPCSettings_ =
   CreateMicrosoftAD'
-    { _cmadEdition = Nothing,
-      _cmadShortName = Nothing,
-      _cmadDescription = Nothing,
-      _cmadTags = Nothing,
-      _cmadName = pName_,
-      _cmadPassword = _Sensitive # pPassword_,
-      _cmadVPCSettings = pVPCSettings_
+    { edition = Lude.Nothing,
+      shortName = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing,
+      name = pName_,
+      password = pPassword_,
+      vpcSettings = pVPCSettings_
     }
 
 -- | AWS Managed Microsoft AD is available in two editions: @Standard@ and @Enterprise@ . @Enterprise@ is the default.
-cmadEdition :: Lens' CreateMicrosoftAD (Maybe DirectoryEdition)
-cmadEdition = lens _cmadEdition (\s a -> s {_cmadEdition = a})
+--
+-- /Note:/ Consider using 'edition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmadEdition :: Lens.Lens' CreateMicrosoftAD (Lude.Maybe DirectoryEdition)
+cmadEdition = Lens.lens (edition :: CreateMicrosoftAD -> Lude.Maybe DirectoryEdition) (\s a -> s {edition = a} :: CreateMicrosoftAD)
+{-# DEPRECATED cmadEdition "Use generic-lens or generic-optics with 'edition' instead." #-}
 
 -- | The NetBIOS name for your domain, such as @CORP@ . If you don't specify a NetBIOS name, it will default to the first part of your directory DNS. For example, @CORP@ for the directory DNS @corp.example.com@ .
-cmadShortName :: Lens' CreateMicrosoftAD (Maybe Text)
-cmadShortName = lens _cmadShortName (\s a -> s {_cmadShortName = a})
+--
+-- /Note:/ Consider using 'shortName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmadShortName :: Lens.Lens' CreateMicrosoftAD (Lude.Maybe Lude.Text)
+cmadShortName = Lens.lens (shortName :: CreateMicrosoftAD -> Lude.Maybe Lude.Text) (\s a -> s {shortName = a} :: CreateMicrosoftAD)
+{-# DEPRECATED cmadShortName "Use generic-lens or generic-optics with 'shortName' instead." #-}
 
 -- | A description for the directory. This label will appear on the AWS console @Directory Details@ page after the directory is created.
-cmadDescription :: Lens' CreateMicrosoftAD (Maybe Text)
-cmadDescription = lens _cmadDescription (\s a -> s {_cmadDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmadDescription :: Lens.Lens' CreateMicrosoftAD (Lude.Maybe Lude.Text)
+cmadDescription = Lens.lens (description :: CreateMicrosoftAD -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateMicrosoftAD)
+{-# DEPRECATED cmadDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The tags to be assigned to the AWS Managed Microsoft AD directory.
-cmadTags :: Lens' CreateMicrosoftAD [Tag]
-cmadTags = lens _cmadTags (\s a -> s {_cmadTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmadTags :: Lens.Lens' CreateMicrosoftAD (Lude.Maybe [Tag])
+cmadTags = Lens.lens (tags :: CreateMicrosoftAD -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateMicrosoftAD)
+{-# DEPRECATED cmadTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The fully qualified domain name for the AWS Managed Microsoft AD directory, such as @corp.example.com@ . This name will resolve inside your VPC only. It does not need to be publicly resolvable.
-cmadName :: Lens' CreateMicrosoftAD Text
-cmadName = lens _cmadName (\s a -> s {_cmadName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmadName :: Lens.Lens' CreateMicrosoftAD Lude.Text
+cmadName = Lens.lens (name :: CreateMicrosoftAD -> Lude.Text) (\s a -> s {name = a} :: CreateMicrosoftAD)
+{-# DEPRECATED cmadName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The password for the default administrative user named @Admin@ . If you need to change the password for the administrator account, you can use the 'ResetUserPassword' API call.
-cmadPassword :: Lens' CreateMicrosoftAD Text
-cmadPassword = lens _cmadPassword (\s a -> s {_cmadPassword = a}) . _Sensitive
+-- | The password for the default administrative user named @Admin@ .
+--
+-- If you need to change the password for the administrator account, you can use the 'ResetUserPassword' API call.
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmadPassword :: Lens.Lens' CreateMicrosoftAD (Lude.Sensitive Lude.Text)
+cmadPassword = Lens.lens (password :: CreateMicrosoftAD -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateMicrosoftAD)
+{-# DEPRECATED cmadPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | Contains VPC information for the 'CreateDirectory' or 'CreateMicrosoftAD' operation.
-cmadVPCSettings :: Lens' CreateMicrosoftAD DirectoryVPCSettings
-cmadVPCSettings = lens _cmadVPCSettings (\s a -> s {_cmadVPCSettings = a})
+--
+-- /Note:/ Consider using 'vpcSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmadVPCSettings :: Lens.Lens' CreateMicrosoftAD DirectoryVPCSettings
+cmadVPCSettings = Lens.lens (vpcSettings :: CreateMicrosoftAD -> DirectoryVPCSettings) (\s a -> s {vpcSettings = a} :: CreateMicrosoftAD)
+{-# DEPRECATED cmadVPCSettings "Use generic-lens or generic-optics with 'vpcSettings' instead." #-}
 
-instance AWSRequest CreateMicrosoftAD where
+instance Lude.AWSRequest CreateMicrosoftAD where
   type Rs CreateMicrosoftAD = CreateMicrosoftADResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateMicrosoftADResponse'
-            <$> (x .?> "DirectoryId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DirectoryId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateMicrosoftAD
-
-instance NFData CreateMicrosoftAD
-
-instance ToHeaders CreateMicrosoftAD where
+instance Lude.ToHeaders CreateMicrosoftAD where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.CreateMicrosoftAD" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.CreateMicrosoftAD" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateMicrosoftAD where
+instance Lude.ToJSON CreateMicrosoftAD where
   toJSON CreateMicrosoftAD' {..} =
-    object
-      ( catMaybes
-          [ ("Edition" .=) <$> _cmadEdition,
-            ("ShortName" .=) <$> _cmadShortName,
-            ("Description" .=) <$> _cmadDescription,
-            ("Tags" .=) <$> _cmadTags,
-            Just ("Name" .= _cmadName),
-            Just ("Password" .= _cmadPassword),
-            Just ("VpcSettings" .= _cmadVPCSettings)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Edition" Lude..=) Lude.<$> edition,
+            ("ShortName" Lude..=) Lude.<$> shortName,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Password" Lude..= password),
+            Lude.Just ("VpcSettings" Lude..= vpcSettings)
           ]
       )
 
-instance ToPath CreateMicrosoftAD where
-  toPath = const "/"
+instance Lude.ToPath CreateMicrosoftAD where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateMicrosoftAD where
-  toQuery = const mempty
+instance Lude.ToQuery CreateMicrosoftAD where
+  toQuery = Lude.const Lude.mempty
 
 -- | Result of a CreateMicrosoftAD request.
 --
---
---
--- /See:/ 'createMicrosoftADResponse' smart constructor.
+-- /See:/ 'mkCreateMicrosoftADResponse' smart constructor.
 data CreateMicrosoftADResponse = CreateMicrosoftADResponse'
-  { _cmadrsDirectoryId ::
-      !(Maybe Text),
-    _cmadrsResponseStatus :: !Int
+  { directoryId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMicrosoftADResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmadrsDirectoryId' - The identifier of the directory that was created.
---
--- * 'cmadrsResponseStatus' - -- | The response status code.
-createMicrosoftADResponse ::
-  -- | 'cmadrsResponseStatus'
-  Int ->
+-- * 'directoryId' - The identifier of the directory that was created.
+-- * 'responseStatus' - The response status code.
+mkCreateMicrosoftADResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateMicrosoftADResponse
-createMicrosoftADResponse pResponseStatus_ =
+mkCreateMicrosoftADResponse pResponseStatus_ =
   CreateMicrosoftADResponse'
-    { _cmadrsDirectoryId = Nothing,
-      _cmadrsResponseStatus = pResponseStatus_
+    { directoryId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the directory that was created.
-cmadrsDirectoryId :: Lens' CreateMicrosoftADResponse (Maybe Text)
-cmadrsDirectoryId = lens _cmadrsDirectoryId (\s a -> s {_cmadrsDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmadrsDirectoryId :: Lens.Lens' CreateMicrosoftADResponse (Lude.Maybe Lude.Text)
+cmadrsDirectoryId = Lens.lens (directoryId :: CreateMicrosoftADResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: CreateMicrosoftADResponse)
+{-# DEPRECATED cmadrsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
--- | -- | The response status code.
-cmadrsResponseStatus :: Lens' CreateMicrosoftADResponse Int
-cmadrsResponseStatus = lens _cmadrsResponseStatus (\s a -> s {_cmadrsResponseStatus = a})
-
-instance NFData CreateMicrosoftADResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmadrsResponseStatus :: Lens.Lens' CreateMicrosoftADResponse Lude.Int
+cmadrsResponseStatus = Lens.lens (responseStatus :: CreateMicrosoftADResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMicrosoftADResponse)
+{-# DEPRECATED cmadrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

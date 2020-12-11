@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudTrail.Types.LookupAttributeKey where
+module Network.AWS.CloudTrail.Types.LookupAttributeKey
+  ( LookupAttributeKey
+      ( LookupAttributeKey',
+        AccessKeyId,
+        EventId,
+        EventName,
+        EventSource,
+        ReadOnly,
+        ResourceName,
+        ResourceType,
+        Username
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LookupAttributeKey
-  = AccessKeyId
-  | EventId
-  | EventName
-  | EventSource
-  | ReadOnly
-  | ResourceName
-  | ResourceType
-  | Username
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LookupAttributeKey = LookupAttributeKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LookupAttributeKey where
-  parser =
-    takeLowerText >>= \case
-      "accesskeyid" -> pure AccessKeyId
-      "eventid" -> pure EventId
-      "eventname" -> pure EventName
-      "eventsource" -> pure EventSource
-      "readonly" -> pure ReadOnly
-      "resourcename" -> pure ResourceName
-      "resourcetype" -> pure ResourceType
-      "username" -> pure Username
-      e ->
-        fromTextError $
-          "Failure parsing LookupAttributeKey from value: '" <> e
-            <> "'. Accepted values: accesskeyid, eventid, eventname, eventsource, readonly, resourcename, resourcetype, username"
+pattern AccessKeyId :: LookupAttributeKey
+pattern AccessKeyId = LookupAttributeKey' "AccessKeyId"
 
-instance ToText LookupAttributeKey where
-  toText = \case
-    AccessKeyId -> "AccessKeyId"
-    EventId -> "EventId"
-    EventName -> "EventName"
-    EventSource -> "EventSource"
-    ReadOnly -> "ReadOnly"
-    ResourceName -> "ResourceName"
-    ResourceType -> "ResourceType"
-    Username -> "Username"
+pattern EventId :: LookupAttributeKey
+pattern EventId = LookupAttributeKey' "EventId"
 
-instance Hashable LookupAttributeKey
+pattern EventName :: LookupAttributeKey
+pattern EventName = LookupAttributeKey' "EventName"
 
-instance NFData LookupAttributeKey
+pattern EventSource :: LookupAttributeKey
+pattern EventSource = LookupAttributeKey' "EventSource"
 
-instance ToByteString LookupAttributeKey
+pattern ReadOnly :: LookupAttributeKey
+pattern ReadOnly = LookupAttributeKey' "ReadOnly"
 
-instance ToQuery LookupAttributeKey
+pattern ResourceName :: LookupAttributeKey
+pattern ResourceName = LookupAttributeKey' "ResourceName"
 
-instance ToHeader LookupAttributeKey
+pattern ResourceType :: LookupAttributeKey
+pattern ResourceType = LookupAttributeKey' "ResourceType"
 
-instance ToJSON LookupAttributeKey where
-  toJSON = toJSONText
+pattern Username :: LookupAttributeKey
+pattern Username = LookupAttributeKey' "Username"
+
+{-# COMPLETE
+  AccessKeyId,
+  EventId,
+  EventName,
+  EventSource,
+  ReadOnly,
+  ResourceName,
+  ResourceType,
+  Username,
+  LookupAttributeKey'
+  #-}

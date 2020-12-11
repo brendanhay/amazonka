@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,121 +14,137 @@
 --
 -- Performs all the write operations in a batch. Either all the operations succeed or none.
 module Network.AWS.CloudDirectory.BatchWrite
-  ( -- * Creating a Request
-    batchWrite,
-    BatchWrite,
+  ( -- * Creating a request
+    BatchWrite (..),
+    mkBatchWrite,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bwDirectoryARN,
     bwOperations,
 
-    -- * Destructuring the Response
-    batchWriteResponse,
-    BatchWriteResponse,
+    -- * Destructuring the response
+    BatchWriteResponse (..),
+    mkBatchWriteResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bwrsResponses,
     bwrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchWrite' smart constructor.
+-- | /See:/ 'mkBatchWrite' smart constructor.
 data BatchWrite = BatchWrite'
-  { _bwDirectoryARN :: !Text,
-    _bwOperations :: ![BatchWriteOperation]
+  { directoryARN :: Lude.Text,
+    operations :: [BatchWriteOperation]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchWrite' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bwDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
---
--- * 'bwOperations' - A list of operations that are part of the batch.
-batchWrite ::
-  -- | 'bwDirectoryARN'
-  Text ->
+-- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
+-- * 'operations' - A list of operations that are part of the batch.
+mkBatchWrite ::
+  -- | 'directoryARN'
+  Lude.Text ->
   BatchWrite
-batchWrite pDirectoryARN_ =
+mkBatchWrite pDirectoryARN_ =
   BatchWrite'
-    { _bwDirectoryARN = pDirectoryARN_,
-      _bwOperations = mempty
+    { directoryARN = pDirectoryARN_,
+      operations = Lude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
-bwDirectoryARN :: Lens' BatchWrite Text
-bwDirectoryARN = lens _bwDirectoryARN (\s a -> s {_bwDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwDirectoryARN :: Lens.Lens' BatchWrite Lude.Text
+bwDirectoryARN = Lens.lens (directoryARN :: BatchWrite -> Lude.Text) (\s a -> s {directoryARN = a} :: BatchWrite)
+{-# DEPRECATED bwDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | A list of operations that are part of the batch.
-bwOperations :: Lens' BatchWrite [BatchWriteOperation]
-bwOperations = lens _bwOperations (\s a -> s {_bwOperations = a}) . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwOperations :: Lens.Lens' BatchWrite [BatchWriteOperation]
+bwOperations = Lens.lens (operations :: BatchWrite -> [BatchWriteOperation]) (\s a -> s {operations = a} :: BatchWrite)
+{-# DEPRECATED bwOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
-instance AWSRequest BatchWrite where
+instance Lude.AWSRequest BatchWrite where
   type Rs BatchWrite = BatchWriteResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchWriteResponse'
-            <$> (x .?> "Responses" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Responses" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchWrite
-
-instance NFData BatchWrite
-
-instance ToHeaders BatchWrite where
+instance Lude.ToHeaders BatchWrite where
   toHeaders BatchWrite' {..} =
-    mconcat ["x-amz-data-partition" =# _bwDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON BatchWrite where
+instance Lude.ToJSON BatchWrite where
   toJSON BatchWrite' {..} =
-    object (catMaybes [Just ("Operations" .= _bwOperations)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Operations" Lude..= operations)])
 
-instance ToPath BatchWrite where
-  toPath = const "/amazonclouddirectory/2017-01-11/batchwrite"
+instance Lude.ToPath BatchWrite where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/batchwrite"
 
-instance ToQuery BatchWrite where
-  toQuery = const mempty
+instance Lude.ToQuery BatchWrite where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchWriteResponse' smart constructor.
+-- | /See:/ 'mkBatchWriteResponse' smart constructor.
 data BatchWriteResponse = BatchWriteResponse'
-  { _bwrsResponses ::
-      !(Maybe [BatchWriteOperationResponse]),
-    _bwrsResponseStatus :: !Int
+  { responses ::
+      Lude.Maybe [BatchWriteOperationResponse],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchWriteResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bwrsResponses' - A list of all the responses for each batch write.
---
--- * 'bwrsResponseStatus' - -- | The response status code.
-batchWriteResponse ::
-  -- | 'bwrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'responses' - A list of all the responses for each batch write.
+mkBatchWriteResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchWriteResponse
-batchWriteResponse pResponseStatus_ =
+mkBatchWriteResponse pResponseStatus_ =
   BatchWriteResponse'
-    { _bwrsResponses = Nothing,
-      _bwrsResponseStatus = pResponseStatus_
+    { responses = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of all the responses for each batch write.
-bwrsResponses :: Lens' BatchWriteResponse [BatchWriteOperationResponse]
-bwrsResponses = lens _bwrsResponses (\s a -> s {_bwrsResponses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'responses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwrsResponses :: Lens.Lens' BatchWriteResponse (Lude.Maybe [BatchWriteOperationResponse])
+bwrsResponses = Lens.lens (responses :: BatchWriteResponse -> Lude.Maybe [BatchWriteOperationResponse]) (\s a -> s {responses = a} :: BatchWriteResponse)
+{-# DEPRECATED bwrsResponses "Use generic-lens or generic-optics with 'responses' instead." #-}
 
--- | -- | The response status code.
-bwrsResponseStatus :: Lens' BatchWriteResponse Int
-bwrsResponseStatus = lens _bwrsResponseStatus (\s a -> s {_bwrsResponseStatus = a})
-
-instance NFData BatchWriteResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bwrsResponseStatus :: Lens.Lens' BatchWriteResponse Lude.Int
+bwrsResponseStatus = Lens.lens (responseStatus :: BatchWriteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchWriteResponse)
+{-# DEPRECATED bwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

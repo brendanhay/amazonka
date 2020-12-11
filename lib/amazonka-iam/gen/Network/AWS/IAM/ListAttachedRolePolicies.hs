@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,29 +14,26 @@
 --
 -- Lists all managed policies that are attached to the specified IAM role.
 --
---
 -- An IAM role can also have inline policies embedded with it. To list the inline policies for a role, use the 'ListRolePolicies' API. For information about policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
---
 -- You can paginate the results using the @MaxItems@ and @Marker@ parameters. You can use the @PathPrefix@ parameter to limit the list of policies to only those matching the specified path prefix. If there are no policies attached to the specified role (or none that match the specified path prefix), the operation returns an empty list.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListAttachedRolePolicies
-  ( -- * Creating a Request
-    listAttachedRolePolicies,
-    ListAttachedRolePolicies,
+  ( -- * Creating a request
+    ListAttachedRolePolicies (..),
+    mkListAttachedRolePolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     larpPathPrefix,
     larpMarker,
     larpMaxItems,
     larpRoleName,
 
-    -- * Destructuring the Response
-    listAttachedRolePoliciesResponse,
-    ListAttachedRolePoliciesResponse,
+    -- * Destructuring the response
+    ListAttachedRolePoliciesResponse (..),
+    mkListAttachedRolePoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     larprsAttachedPolicies,
     larprsMarker,
     larprsIsTruncated,
@@ -50,159 +42,195 @@ module Network.AWS.IAM.ListAttachedRolePolicies
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAttachedRolePolicies' smart constructor.
+-- | /See:/ 'mkListAttachedRolePolicies' smart constructor.
 data ListAttachedRolePolicies = ListAttachedRolePolicies'
-  { _larpPathPrefix ::
-      !(Maybe Text),
-    _larpMarker :: !(Maybe Text),
-    _larpMaxItems :: !(Maybe Nat),
-    _larpRoleName :: !Text
+  { pathPrefix ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxItems :: Lude.Maybe Lude.Natural,
+    roleName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAttachedRolePolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
--- * 'larpPathPrefix' - The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- * 'pathPrefix' - The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies.
 --
--- * 'larpMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'roleName' - The name (friendly name, not ARN) of the role to list attached policies for.
 --
--- * 'larpMaxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
---
--- * 'larpRoleName' - The name (friendly name, not ARN) of the role to list attached policies for. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-listAttachedRolePolicies ::
-  -- | 'larpRoleName'
-  Text ->
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+mkListAttachedRolePolicies ::
+  -- | 'roleName'
+  Lude.Text ->
   ListAttachedRolePolicies
-listAttachedRolePolicies pRoleName_ =
+mkListAttachedRolePolicies pRoleName_ =
   ListAttachedRolePolicies'
-    { _larpPathPrefix = Nothing,
-      _larpMarker = Nothing,
-      _larpMaxItems = Nothing,
-      _larpRoleName = pRoleName_
+    { pathPrefix = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxItems = Lude.Nothing,
+      roleName = pRoleName_
     }
 
--- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
-larpPathPrefix :: Lens' ListAttachedRolePolicies (Maybe Text)
-larpPathPrefix = lens _larpPathPrefix (\s a -> s {_larpPathPrefix = a})
+-- | The path prefix for filtering the results. This parameter is optional. If it is not included, it defaults to a slash (/), listing all policies.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+--
+-- /Note:/ Consider using 'pathPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larpPathPrefix :: Lens.Lens' ListAttachedRolePolicies (Lude.Maybe Lude.Text)
+larpPathPrefix = Lens.lens (pathPrefix :: ListAttachedRolePolicies -> Lude.Maybe Lude.Text) (\s a -> s {pathPrefix = a} :: ListAttachedRolePolicies)
+{-# DEPRECATED larpPathPrefix "Use generic-lens or generic-optics with 'pathPrefix' instead." #-}
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-larpMarker :: Lens' ListAttachedRolePolicies (Maybe Text)
-larpMarker = lens _larpMarker (\s a -> s {_larpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larpMarker :: Lens.Lens' ListAttachedRolePolicies (Lude.Maybe Lude.Text)
+larpMarker = Lens.lens (marker :: ListAttachedRolePolicies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListAttachedRolePolicies)
+{-# DEPRECATED larpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-larpMaxItems :: Lens' ListAttachedRolePolicies (Maybe Natural)
-larpMaxItems = lens _larpMaxItems (\s a -> s {_larpMaxItems = a}) . mapping _Nat
+-- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+--
+-- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larpMaxItems :: Lens.Lens' ListAttachedRolePolicies (Lude.Maybe Lude.Natural)
+larpMaxItems = Lens.lens (maxItems :: ListAttachedRolePolicies -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListAttachedRolePolicies)
+{-# DEPRECATED larpMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The name (friendly name, not ARN) of the role to list attached policies for. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-larpRoleName :: Lens' ListAttachedRolePolicies Text
-larpRoleName = lens _larpRoleName (\s a -> s {_larpRoleName = a})
+-- | The name (friendly name, not ARN) of the role to list attached policies for.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larpRoleName :: Lens.Lens' ListAttachedRolePolicies Lude.Text
+larpRoleName = Lens.lens (roleName :: ListAttachedRolePolicies -> Lude.Text) (\s a -> s {roleName = a} :: ListAttachedRolePolicies)
+{-# DEPRECATED larpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance AWSPager ListAttachedRolePolicies where
+instance Page.AWSPager ListAttachedRolePolicies where
   page rq rs
-    | stop (rs ^. larprsIsTruncated) = Nothing
-    | isNothing (rs ^. larprsMarker) = Nothing
-    | otherwise = Just $ rq & larpMarker .~ rs ^. larprsMarker
+    | Page.stop (rs Lens.^. larprsIsTruncated) = Lude.Nothing
+    | Lude.isNothing (rs Lens.^. larprsMarker) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& larpMarker Lens..~ rs Lens.^. larprsMarker
 
-instance AWSRequest ListAttachedRolePolicies where
+instance Lude.AWSRequest ListAttachedRolePolicies where
   type Rs ListAttachedRolePolicies = ListAttachedRolePoliciesResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "ListAttachedRolePoliciesResult"
       ( \s h x ->
           ListAttachedRolePoliciesResponse'
-            <$> ( x .@? "AttachedPolicies" .!@ mempty
-                    >>= may (parseXMLList "member")
-                )
-            <*> (x .@? "Marker")
-            <*> (x .@? "IsTruncated")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "AttachedPolicies" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAttachedRolePolicies
+instance Lude.ToHeaders ListAttachedRolePolicies where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListAttachedRolePolicies
+instance Lude.ToPath ListAttachedRolePolicies where
+  toPath = Lude.const "/"
 
-instance ToHeaders ListAttachedRolePolicies where
-  toHeaders = const mempty
-
-instance ToPath ListAttachedRolePolicies where
-  toPath = const "/"
-
-instance ToQuery ListAttachedRolePolicies where
+instance Lude.ToQuery ListAttachedRolePolicies where
   toQuery ListAttachedRolePolicies' {..} =
-    mconcat
-      [ "Action" =: ("ListAttachedRolePolicies" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "PathPrefix" =: _larpPathPrefix,
-        "Marker" =: _larpMarker,
-        "MaxItems" =: _larpMaxItems,
-        "RoleName" =: _larpRoleName
+    Lude.mconcat
+      [ "Action" Lude.=: ("ListAttachedRolePolicies" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "PathPrefix" Lude.=: pathPrefix,
+        "Marker" Lude.=: marker,
+        "MaxItems" Lude.=: maxItems,
+        "RoleName" Lude.=: roleName
       ]
 
 -- | Contains the response to a successful 'ListAttachedRolePolicies' request.
 --
---
---
--- /See:/ 'listAttachedRolePoliciesResponse' smart constructor.
+-- /See:/ 'mkListAttachedRolePoliciesResponse' smart constructor.
 data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
-  { _larprsAttachedPolicies ::
-      !(Maybe [AttachedPolicy]),
-    _larprsMarker ::
-      !(Maybe Text),
-    _larprsIsTruncated ::
-      !(Maybe Bool),
-    _larprsResponseStatus ::
-      !Int
+  { attachedPolicies ::
+      Lude.Maybe
+        [AttachedPolicy],
+    marker ::
+      Lude.Maybe Lude.Text,
+    isTruncated ::
+      Lude.Maybe Lude.Bool,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAttachedRolePoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'larprsAttachedPolicies' - A list of the attached policies.
---
--- * 'larprsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'larprsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
---
--- * 'larprsResponseStatus' - -- | The response status code.
-listAttachedRolePoliciesResponse ::
-  -- | 'larprsResponseStatus'
-  Int ->
+-- * 'attachedPolicies' - A list of the attached policies.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'responseStatus' - The response status code.
+mkListAttachedRolePoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAttachedRolePoliciesResponse
-listAttachedRolePoliciesResponse pResponseStatus_ =
+mkListAttachedRolePoliciesResponse pResponseStatus_ =
   ListAttachedRolePoliciesResponse'
-    { _larprsAttachedPolicies =
-        Nothing,
-      _larprsMarker = Nothing,
-      _larprsIsTruncated = Nothing,
-      _larprsResponseStatus = pResponseStatus_
+    { attachedPolicies =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      isTruncated = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of the attached policies.
-larprsAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse [AttachedPolicy]
-larprsAttachedPolicies = lens _larprsAttachedPolicies (\s a -> s {_larprsAttachedPolicies = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attachedPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larprsAttachedPolicies :: Lens.Lens' ListAttachedRolePoliciesResponse (Lude.Maybe [AttachedPolicy])
+larprsAttachedPolicies = Lens.lens (attachedPolicies :: ListAttachedRolePoliciesResponse -> Lude.Maybe [AttachedPolicy]) (\s a -> s {attachedPolicies = a} :: ListAttachedRolePoliciesResponse)
+{-# DEPRECATED larprsAttachedPolicies "Use generic-lens or generic-optics with 'attachedPolicies' instead." #-}
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-larprsMarker :: Lens' ListAttachedRolePoliciesResponse (Maybe Text)
-larprsMarker = lens _larprsMarker (\s a -> s {_larprsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larprsMarker :: Lens.Lens' ListAttachedRolePoliciesResponse (Lude.Maybe Lude.Text)
+larprsMarker = Lens.lens (marker :: ListAttachedRolePoliciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListAttachedRolePoliciesResponse)
+{-# DEPRECATED larprsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
-larprsIsTruncated :: Lens' ListAttachedRolePoliciesResponse (Maybe Bool)
-larprsIsTruncated = lens _larprsIsTruncated (\s a -> s {_larprsIsTruncated = a})
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larprsIsTruncated :: Lens.Lens' ListAttachedRolePoliciesResponse (Lude.Maybe Lude.Bool)
+larprsIsTruncated = Lens.lens (isTruncated :: ListAttachedRolePoliciesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListAttachedRolePoliciesResponse)
+{-# DEPRECATED larprsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | -- | The response status code.
-larprsResponseStatus :: Lens' ListAttachedRolePoliciesResponse Int
-larprsResponseStatus = lens _larprsResponseStatus (\s a -> s {_larprsResponseStatus = a})
-
-instance NFData ListAttachedRolePoliciesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larprsResponseStatus :: Lens.Lens' ListAttachedRolePoliciesResponse Lude.Int
+larprsResponseStatus = Lens.lens (responseStatus :: ListAttachedRolePoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAttachedRolePoliciesResponse)
+{-# DEPRECATED larprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

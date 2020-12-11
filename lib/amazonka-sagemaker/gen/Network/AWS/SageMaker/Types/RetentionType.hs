@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.RetentionType where
+module Network.AWS.SageMaker.Types.RetentionType
+  ( RetentionType
+      ( RetentionType',
+        Delete,
+        Retain
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RetentionType
-  = Delete
-  | Retain
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RetentionType = RetentionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RetentionType where
-  parser =
-    takeLowerText >>= \case
-      "delete" -> pure Delete
-      "retain" -> pure Retain
-      e ->
-        fromTextError $
-          "Failure parsing RetentionType from value: '" <> e
-            <> "'. Accepted values: delete, retain"
+pattern Delete :: RetentionType
+pattern Delete = RetentionType' "Delete"
 
-instance ToText RetentionType where
-  toText = \case
-    Delete -> "Delete"
-    Retain -> "Retain"
+pattern Retain :: RetentionType
+pattern Retain = RetentionType' "Retain"
 
-instance Hashable RetentionType
-
-instance NFData RetentionType
-
-instance ToByteString RetentionType
-
-instance ToQuery RetentionType
-
-instance ToHeader RetentionType
-
-instance ToJSON RetentionType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Delete,
+  Retain,
+  RetentionType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.AnomalousService where
+module Network.AWS.XRay.Types.AnomalousService
+  ( AnomalousService (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAnomalousService,
+
+    -- * Lenses
+    asServiceId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.ServiceId
 
 -- | The service within the service graph that has anomalously high fault rates.
 --
---
---
--- /See:/ 'anomalousService' smart constructor.
+-- /See:/ 'mkAnomalousService' smart constructor.
 newtype AnomalousService = AnomalousService'
-  { _asServiceId ::
-      Maybe ServiceId
+  { serviceId ::
+      Lude.Maybe ServiceId
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnomalousService' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asServiceId' - Undocumented member.
-anomalousService ::
+-- * 'serviceId' - Undocumented field.
+mkAnomalousService ::
   AnomalousService
-anomalousService = AnomalousService' {_asServiceId = Nothing}
+mkAnomalousService = AnomalousService' {serviceId = Lude.Nothing}
 
--- | Undocumented member.
-asServiceId :: Lens' AnomalousService (Maybe ServiceId)
-asServiceId = lens _asServiceId (\s a -> s {_asServiceId = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asServiceId :: Lens.Lens' AnomalousService (Lude.Maybe ServiceId)
+asServiceId = Lens.lens (serviceId :: AnomalousService -> Lude.Maybe ServiceId) (\s a -> s {serviceId = a} :: AnomalousService)
+{-# DEPRECATED asServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
-instance FromJSON AnomalousService where
+instance Lude.FromJSON AnomalousService where
   parseJSON =
-    withObject
+    Lude.withObject
       "AnomalousService"
-      (\x -> AnomalousService' <$> (x .:? "ServiceId"))
-
-instance Hashable AnomalousService
-
-instance NFData AnomalousService
+      (\x -> AnomalousService' Lude.<$> (x Lude..:? "ServiceId"))

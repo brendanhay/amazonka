@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,165 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.DomainSuggestion where
+module Network.AWS.Route53Domains.Types.DomainSuggestion
+  ( DomainSuggestion (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDomainSuggestion,
+
+    -- * Lenses
+    dAvailability,
+    dDomainName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about one suggested domain name.
 --
---
---
--- /See:/ 'domainSuggestion' smart constructor.
+-- /See:/ 'mkDomainSuggestion' smart constructor.
 data DomainSuggestion = DomainSuggestion'
-  { _dAvailability ::
-      !(Maybe Text),
-    _dDomainName :: !(Maybe Text)
+  { availability ::
+      Lude.Maybe Lude.Text,
+    domainName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainSuggestion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'availability' - Whether the domain name is available for registering.
 --
--- * 'dAvailability' - Whether the domain name is available for registering. Valid values:     * AVAILABLE    * The domain name is available.     * AVAILABLE_RESERVED    * The domain name is reserved under specific conditions.     * AVAILABLE_PREORDER    * The domain name is available and can be preordered.     * DONT_KNOW    * The TLD registry didn't reply with a definitive answer about whether the domain name is available. Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.     * PENDING    * The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.     * RESERVED    * The domain name has been reserved for another person or organization.     * UNAVAILABLE    * The domain name is not available.     * UNAVAILABLE_PREMIUM    * The domain name is not available.     * UNAVAILABLE_RESTRICTED    * The domain name is forbidden.
+-- Valid values:
 --
--- * 'dDomainName' - A suggested domain name.
-domainSuggestion ::
+--     * AVAILABLE
+--
+--     * The domain name is available.
+--
+--
+--     * AVAILABLE_RESERVED
+--
+--     * The domain name is reserved under specific conditions.
+--
+--
+--     * AVAILABLE_PREORDER
+--
+--     * The domain name is available and can be preordered.
+--
+--
+--     * DONT_KNOW
+--
+--     * The TLD registry didn't reply with a definitive answer about whether the domain name is available. Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
+--
+--
+--     * PENDING
+--
+--     * The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.
+--
+--
+--     * RESERVED
+--
+--     * The domain name has been reserved for another person or organization.
+--
+--
+--     * UNAVAILABLE
+--
+--     * The domain name is not available.
+--
+--
+--     * UNAVAILABLE_PREMIUM
+--
+--     * The domain name is not available.
+--
+--
+--     * UNAVAILABLE_RESTRICTED
+--
+--     * The domain name is forbidden.
+--
+--
+-- * 'domainName' - A suggested domain name.
+mkDomainSuggestion ::
   DomainSuggestion
-domainSuggestion =
+mkDomainSuggestion =
   DomainSuggestion'
-    { _dAvailability = Nothing,
-      _dDomainName = Nothing
+    { availability = Lude.Nothing,
+      domainName = Lude.Nothing
     }
 
--- | Whether the domain name is available for registering. Valid values:     * AVAILABLE    * The domain name is available.     * AVAILABLE_RESERVED    * The domain name is reserved under specific conditions.     * AVAILABLE_PREORDER    * The domain name is available and can be preordered.     * DONT_KNOW    * The TLD registry didn't reply with a definitive answer about whether the domain name is available. Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.     * PENDING    * The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.     * RESERVED    * The domain name has been reserved for another person or organization.     * UNAVAILABLE    * The domain name is not available.     * UNAVAILABLE_PREMIUM    * The domain name is not available.     * UNAVAILABLE_RESTRICTED    * The domain name is forbidden.
-dAvailability :: Lens' DomainSuggestion (Maybe Text)
-dAvailability = lens _dAvailability (\s a -> s {_dAvailability = a})
+-- | Whether the domain name is available for registering.
+--
+-- Valid values:
+--
+--     * AVAILABLE
+--
+--     * The domain name is available.
+--
+--
+--     * AVAILABLE_RESERVED
+--
+--     * The domain name is reserved under specific conditions.
+--
+--
+--     * AVAILABLE_PREORDER
+--
+--     * The domain name is available and can be preordered.
+--
+--
+--     * DONT_KNOW
+--
+--     * The TLD registry didn't reply with a definitive answer about whether the domain name is available. Route 53 can return this response for a variety of reasons, for example, the registry is performing maintenance. Try again later.
+--
+--
+--     * PENDING
+--
+--     * The TLD registry didn't return a response in the expected amount of time. When the response is delayed, it usually takes just a few extra seconds. You can resubmit the request immediately.
+--
+--
+--     * RESERVED
+--
+--     * The domain name has been reserved for another person or organization.
+--
+--
+--     * UNAVAILABLE
+--
+--     * The domain name is not available.
+--
+--
+--     * UNAVAILABLE_PREMIUM
+--
+--     * The domain name is not available.
+--
+--
+--     * UNAVAILABLE_RESTRICTED
+--
+--     * The domain name is forbidden.
+--
+--
+--
+-- /Note:/ Consider using 'availability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAvailability :: Lens.Lens' DomainSuggestion (Lude.Maybe Lude.Text)
+dAvailability = Lens.lens (availability :: DomainSuggestion -> Lude.Maybe Lude.Text) (\s a -> s {availability = a} :: DomainSuggestion)
+{-# DEPRECATED dAvailability "Use generic-lens or generic-optics with 'availability' instead." #-}
 
 -- | A suggested domain name.
-dDomainName :: Lens' DomainSuggestion (Maybe Text)
-dDomainName = lens _dDomainName (\s a -> s {_dDomainName = a})
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDomainName :: Lens.Lens' DomainSuggestion (Lude.Maybe Lude.Text)
+dDomainName = Lens.lens (domainName :: DomainSuggestion -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: DomainSuggestion)
+{-# DEPRECATED dDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance FromJSON DomainSuggestion where
+instance Lude.FromJSON DomainSuggestion where
   parseJSON =
-    withObject
+    Lude.withObject
       "DomainSuggestion"
       ( \x ->
           DomainSuggestion'
-            <$> (x .:? "Availability") <*> (x .:? "DomainName")
+            Lude.<$> (x Lude..:? "Availability") Lude.<*> (x Lude..:? "DomainName")
       )
-
-instance Hashable DomainSuggestion
-
-instance NFData DomainSuggestion

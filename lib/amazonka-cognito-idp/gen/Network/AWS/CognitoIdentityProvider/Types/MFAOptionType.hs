@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.MFAOptionType where
+module Network.AWS.CognitoIdentityProvider.Types.MFAOptionType
+  ( MFAOptionType (..),
+
+    -- * Smart constructor
+    mkMFAOptionType,
+
+    -- * Lenses
+    motDeliveryMedium,
+    motAttributeName,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | /This data type is no longer supported./ You can use it only for SMS MFA configurations. You can't use it for TOTP software token MFA configurations.
 --
---
---
--- /See:/ 'mfaOptionType' smart constructor.
+-- /See:/ 'mkMFAOptionType' smart constructor.
 data MFAOptionType = MFAOptionType'
-  { _motDeliveryMedium ::
-      !(Maybe DeliveryMediumType),
-    _motAttributeName :: !(Maybe Text)
+  { deliveryMedium ::
+      Lude.Maybe DeliveryMediumType,
+    attributeName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MFAOptionType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'motDeliveryMedium' - The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
---
--- * 'motAttributeName' - The attribute name of the MFA option type. The only valid value is @phone_number@ .
-mfaOptionType ::
+-- * 'attributeName' - The attribute name of the MFA option type. The only valid value is @phone_number@ .
+-- * 'deliveryMedium' - The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
+mkMFAOptionType ::
   MFAOptionType
-mfaOptionType =
+mkMFAOptionType =
   MFAOptionType'
-    { _motDeliveryMedium = Nothing,
-      _motAttributeName = Nothing
+    { deliveryMedium = Lude.Nothing,
+      attributeName = Lude.Nothing
     }
 
 -- | The delivery medium to send the MFA code. You can use this parameter to set only the @SMS@ delivery medium value.
-motDeliveryMedium :: Lens' MFAOptionType (Maybe DeliveryMediumType)
-motDeliveryMedium = lens _motDeliveryMedium (\s a -> s {_motDeliveryMedium = a})
+--
+-- /Note:/ Consider using 'deliveryMedium' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+motDeliveryMedium :: Lens.Lens' MFAOptionType (Lude.Maybe DeliveryMediumType)
+motDeliveryMedium = Lens.lens (deliveryMedium :: MFAOptionType -> Lude.Maybe DeliveryMediumType) (\s a -> s {deliveryMedium = a} :: MFAOptionType)
+{-# DEPRECATED motDeliveryMedium "Use generic-lens or generic-optics with 'deliveryMedium' instead." #-}
 
 -- | The attribute name of the MFA option type. The only valid value is @phone_number@ .
-motAttributeName :: Lens' MFAOptionType (Maybe Text)
-motAttributeName = lens _motAttributeName (\s a -> s {_motAttributeName = a})
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+motAttributeName :: Lens.Lens' MFAOptionType (Lude.Maybe Lude.Text)
+motAttributeName = Lens.lens (attributeName :: MFAOptionType -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: MFAOptionType)
+{-# DEPRECATED motAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance FromJSON MFAOptionType where
+instance Lude.FromJSON MFAOptionType where
   parseJSON =
-    withObject
+    Lude.withObject
       "MFAOptionType"
       ( \x ->
           MFAOptionType'
-            <$> (x .:? "DeliveryMedium") <*> (x .:? "AttributeName")
+            Lude.<$> (x Lude..:? "DeliveryMedium")
+            Lude.<*> (x Lude..:? "AttributeName")
       )
 
-instance Hashable MFAOptionType
-
-instance NFData MFAOptionType
-
-instance ToJSON MFAOptionType where
+instance Lude.ToJSON MFAOptionType where
   toJSON MFAOptionType' {..} =
-    object
-      ( catMaybes
-          [ ("DeliveryMedium" .=) <$> _motDeliveryMedium,
-            ("AttributeName" .=) <$> _motAttributeName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DeliveryMedium" Lude..=) Lude.<$> deliveryMedium,
+            ("AttributeName" Lude..=) Lude.<$> attributeName
           ]
       )

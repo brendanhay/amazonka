@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.RecrawlPolicy where
+module Network.AWS.Glue.Types.RecrawlPolicy
+  ( RecrawlPolicy (..),
+
+    -- * Smart constructor
+    mkRecrawlPolicy,
+
+    -- * Lenses
+    rpRecrawlBehavior,
+  )
+where
 
 import Network.AWS.Glue.Types.RecrawlBehavior
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html Incremental Crawls in AWS Glue> in the developer guide.
 --
---
---
--- /See:/ 'recrawlPolicy' smart constructor.
+-- /See:/ 'mkRecrawlPolicy' smart constructor.
 newtype RecrawlPolicy = RecrawlPolicy'
-  { _rpRecrawlBehavior ::
-      Maybe RecrawlBehavior
+  { recrawlBehavior ::
+      Lude.Maybe RecrawlBehavior
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecrawlPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'recrawlBehavior' - Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
 --
--- * 'rpRecrawlBehavior' - Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of @CRAWL_EVERYTHING@ specifies crawling the entire dataset again. A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that were added since the last crawler run.
-recrawlPolicy ::
+-- A value of @CRAWL_EVERYTHING@ specifies crawling the entire dataset again.
+-- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that were added since the last crawler run.
+mkRecrawlPolicy ::
   RecrawlPolicy
-recrawlPolicy = RecrawlPolicy' {_rpRecrawlBehavior = Nothing}
+mkRecrawlPolicy = RecrawlPolicy' {recrawlBehavior = Lude.Nothing}
 
--- | Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. A value of @CRAWL_EVERYTHING@ specifies crawling the entire dataset again. A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that were added since the last crawler run.
-rpRecrawlBehavior :: Lens' RecrawlPolicy (Maybe RecrawlBehavior)
-rpRecrawlBehavior = lens _rpRecrawlBehavior (\s a -> s {_rpRecrawlBehavior = a})
+-- | Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+--
+-- A value of @CRAWL_EVERYTHING@ specifies crawling the entire dataset again.
+-- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that were added since the last crawler run.
+--
+-- /Note:/ Consider using 'recrawlBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpRecrawlBehavior :: Lens.Lens' RecrawlPolicy (Lude.Maybe RecrawlBehavior)
+rpRecrawlBehavior = Lens.lens (recrawlBehavior :: RecrawlPolicy -> Lude.Maybe RecrawlBehavior) (\s a -> s {recrawlBehavior = a} :: RecrawlPolicy)
+{-# DEPRECATED rpRecrawlBehavior "Use generic-lens or generic-optics with 'recrawlBehavior' instead." #-}
 
-instance FromJSON RecrawlPolicy where
+instance Lude.FromJSON RecrawlPolicy where
   parseJSON =
-    withObject
+    Lude.withObject
       "RecrawlPolicy"
-      (\x -> RecrawlPolicy' <$> (x .:? "RecrawlBehavior"))
+      (\x -> RecrawlPolicy' Lude.<$> (x Lude..:? "RecrawlBehavior"))
 
-instance Hashable RecrawlPolicy
-
-instance NFData RecrawlPolicy
-
-instance ToJSON RecrawlPolicy where
+instance Lude.ToJSON RecrawlPolicy where
   toJSON RecrawlPolicy' {..} =
-    object
-      (catMaybes [("RecrawlBehavior" .=) <$> _rpRecrawlBehavior])
+    Lude.object
+      ( Lude.catMaybes
+          [("RecrawlBehavior" Lude..=) Lude.<$> recrawlBehavior]
+      )

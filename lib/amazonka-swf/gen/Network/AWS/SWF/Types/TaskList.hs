@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.TaskList where
+module Network.AWS.SWF.Types.TaskList
+  ( TaskList (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTaskList,
+
+    -- * Lenses
+    tlName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a task list.
 --
---
---
--- /See:/ 'taskList' smart constructor.
-newtype TaskList = TaskList' {_tlName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkTaskList' smart constructor.
+newtype TaskList = TaskList' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tlName' - The name of the task list.
-taskList ::
-  -- | 'tlName'
-  Text ->
+-- * 'name' - The name of the task list.
+mkTaskList ::
+  -- | 'name'
+  Lude.Text ->
   TaskList
-taskList pName_ = TaskList' {_tlName = pName_}
+mkTaskList pName_ = TaskList' {name = pName_}
 
 -- | The name of the task list.
-tlName :: Lens' TaskList Text
-tlName = lens _tlName (\s a -> s {_tlName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlName :: Lens.Lens' TaskList Lude.Text
+tlName = Lens.lens (name :: TaskList -> Lude.Text) (\s a -> s {name = a} :: TaskList)
+{-# DEPRECATED tlName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON TaskList where
+instance Lude.FromJSON TaskList where
   parseJSON =
-    withObject "TaskList" (\x -> TaskList' <$> (x .: "name"))
+    Lude.withObject
+      "TaskList"
+      (\x -> TaskList' Lude.<$> (x Lude..: "name"))
 
-instance Hashable TaskList
-
-instance NFData TaskList
-
-instance ToJSON TaskList where
+instance Lude.ToJSON TaskList where
   toJSON TaskList' {..} =
-    object (catMaybes [Just ("name" .= _tlName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])

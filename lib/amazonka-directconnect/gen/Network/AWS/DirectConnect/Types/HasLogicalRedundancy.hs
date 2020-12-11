@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.HasLogicalRedundancy where
+module Network.AWS.DirectConnect.Types.HasLogicalRedundancy
+  ( HasLogicalRedundancy
+      ( HasLogicalRedundancy',
+        HLRNO,
+        HLRUnknown,
+        HLRYes
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HasLogicalRedundancy
-  = HLRNO
-  | HLRUnknown
-  | HLRYes
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HasLogicalRedundancy = HasLogicalRedundancy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HasLogicalRedundancy where
-  parser =
-    takeLowerText >>= \case
-      "no" -> pure HLRNO
-      "unknown" -> pure HLRUnknown
-      "yes" -> pure HLRYes
-      e ->
-        fromTextError $
-          "Failure parsing HasLogicalRedundancy from value: '" <> e
-            <> "'. Accepted values: no, unknown, yes"
+pattern HLRNO :: HasLogicalRedundancy
+pattern HLRNO = HasLogicalRedundancy' "no"
 
-instance ToText HasLogicalRedundancy where
-  toText = \case
-    HLRNO -> "no"
-    HLRUnknown -> "unknown"
-    HLRYes -> "yes"
+pattern HLRUnknown :: HasLogicalRedundancy
+pattern HLRUnknown = HasLogicalRedundancy' "unknown"
 
-instance Hashable HasLogicalRedundancy
+pattern HLRYes :: HasLogicalRedundancy
+pattern HLRYes = HasLogicalRedundancy' "yes"
 
-instance NFData HasLogicalRedundancy
-
-instance ToByteString HasLogicalRedundancy
-
-instance ToQuery HasLogicalRedundancy
-
-instance ToHeader HasLogicalRedundancy
-
-instance FromJSON HasLogicalRedundancy where
-  parseJSON = parseJSONText "HasLogicalRedundancy"
+{-# COMPLETE
+  HLRNO,
+  HLRUnknown,
+  HLRYes,
+  HasLogicalRedundancy'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.RetentionLockType where
+module Network.AWS.StorageGateway.Types.RetentionLockType
+  ( RetentionLockType
+      ( RetentionLockType',
+        Compliance,
+        Governance,
+        None
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RetentionLockType
-  = Compliance
-  | Governance
-  | None
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RetentionLockType = RetentionLockType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RetentionLockType where
-  parser =
-    takeLowerText >>= \case
-      "compliance" -> pure Compliance
-      "governance" -> pure Governance
-      "none" -> pure None
-      e ->
-        fromTextError $
-          "Failure parsing RetentionLockType from value: '" <> e
-            <> "'. Accepted values: compliance, governance, none"
+pattern Compliance :: RetentionLockType
+pattern Compliance = RetentionLockType' "COMPLIANCE"
 
-instance ToText RetentionLockType where
-  toText = \case
-    Compliance -> "COMPLIANCE"
-    Governance -> "GOVERNANCE"
-    None -> "NONE"
+pattern Governance :: RetentionLockType
+pattern Governance = RetentionLockType' "GOVERNANCE"
 
-instance Hashable RetentionLockType
+pattern None :: RetentionLockType
+pattern None = RetentionLockType' "NONE"
 
-instance NFData RetentionLockType
-
-instance ToByteString RetentionLockType
-
-instance ToQuery RetentionLockType
-
-instance ToHeader RetentionLockType
-
-instance ToJSON RetentionLockType where
-  toJSON = toJSONText
-
-instance FromJSON RetentionLockType where
-  parseJSON = parseJSONText "RetentionLockType"
+{-# COMPLETE
+  Compliance,
+  Governance,
+  None,
+  RetentionLockType'
+  #-}

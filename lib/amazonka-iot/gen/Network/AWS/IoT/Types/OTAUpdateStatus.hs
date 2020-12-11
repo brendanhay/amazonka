@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.OTAUpdateStatus where
+module Network.AWS.IoT.Types.OTAUpdateStatus
+  ( OTAUpdateStatus
+      ( OTAUpdateStatus',
+        CreateComplete,
+        CreateFailed,
+        CreateInProgress,
+        CreatePending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OTAUpdateStatus
-  = CreateComplete
-  | CreateFailed
-  | CreateInProgress
-  | CreatePending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OTAUpdateStatus = OTAUpdateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OTAUpdateStatus where
-  parser =
-    takeLowerText >>= \case
-      "create_complete" -> pure CreateComplete
-      "create_failed" -> pure CreateFailed
-      "create_in_progress" -> pure CreateInProgress
-      "create_pending" -> pure CreatePending
-      e ->
-        fromTextError $
-          "Failure parsing OTAUpdateStatus from value: '" <> e
-            <> "'. Accepted values: create_complete, create_failed, create_in_progress, create_pending"
+pattern CreateComplete :: OTAUpdateStatus
+pattern CreateComplete = OTAUpdateStatus' "CREATE_COMPLETE"
 
-instance ToText OTAUpdateStatus where
-  toText = \case
-    CreateComplete -> "CREATE_COMPLETE"
-    CreateFailed -> "CREATE_FAILED"
-    CreateInProgress -> "CREATE_IN_PROGRESS"
-    CreatePending -> "CREATE_PENDING"
+pattern CreateFailed :: OTAUpdateStatus
+pattern CreateFailed = OTAUpdateStatus' "CREATE_FAILED"
 
-instance Hashable OTAUpdateStatus
+pattern CreateInProgress :: OTAUpdateStatus
+pattern CreateInProgress = OTAUpdateStatus' "CREATE_IN_PROGRESS"
 
-instance NFData OTAUpdateStatus
+pattern CreatePending :: OTAUpdateStatus
+pattern CreatePending = OTAUpdateStatus' "CREATE_PENDING"
 
-instance ToByteString OTAUpdateStatus
-
-instance ToQuery OTAUpdateStatus
-
-instance ToHeader OTAUpdateStatus
-
-instance ToJSON OTAUpdateStatus where
-  toJSON = toJSONText
-
-instance FromJSON OTAUpdateStatus where
-  parseJSON = parseJSONText "OTAUpdateStatus"
+{-# COMPLETE
+  CreateComplete,
+  CreateFailed,
+  CreateInProgress,
+  CreatePending,
+  OTAUpdateStatus'
+  #-}

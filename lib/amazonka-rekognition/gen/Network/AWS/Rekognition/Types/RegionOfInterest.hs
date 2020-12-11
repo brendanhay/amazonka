@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.RegionOfInterest where
+module Network.AWS.Rekognition.Types.RegionOfInterest
+  ( RegionOfInterest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRegionOfInterest,
+
+    -- * Lenses
+    roiBoundingBox,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.BoundingBox
 
 -- | Specifies a location within the frame that Rekognition checks for text. Uses a @BoundingBox@ object to set a region of the screen.
 --
---
 -- A word is included in the region if the word is more than half in that region. If there is more than one region, the word will be compared with all regions of the screen. Any word more than half in a region is kept in the results.
 --
---
--- /See:/ 'regionOfInterest' smart constructor.
+-- /See:/ 'mkRegionOfInterest' smart constructor.
 newtype RegionOfInterest = RegionOfInterest'
-  { _roiBoundingBox ::
-      Maybe BoundingBox
+  { boundingBox ::
+      Lude.Maybe BoundingBox
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegionOfInterest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'roiBoundingBox' - The box representing a region of interest on screen.
-regionOfInterest ::
+-- * 'boundingBox' - The box representing a region of interest on screen.
+mkRegionOfInterest ::
   RegionOfInterest
-regionOfInterest = RegionOfInterest' {_roiBoundingBox = Nothing}
+mkRegionOfInterest = RegionOfInterest' {boundingBox = Lude.Nothing}
 
 -- | The box representing a region of interest on screen.
-roiBoundingBox :: Lens' RegionOfInterest (Maybe BoundingBox)
-roiBoundingBox = lens _roiBoundingBox (\s a -> s {_roiBoundingBox = a})
+--
+-- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roiBoundingBox :: Lens.Lens' RegionOfInterest (Lude.Maybe BoundingBox)
+roiBoundingBox = Lens.lens (boundingBox :: RegionOfInterest -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: RegionOfInterest)
+{-# DEPRECATED roiBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
 
-instance Hashable RegionOfInterest
-
-instance NFData RegionOfInterest
-
-instance ToJSON RegionOfInterest where
+instance Lude.ToJSON RegionOfInterest where
   toJSON RegionOfInterest' {..} =
-    object (catMaybes [("BoundingBox" .=) <$> _roiBoundingBox])
+    Lude.object
+      (Lude.catMaybes [("BoundingBox" Lude..=) Lude.<$> boundingBox])

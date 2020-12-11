@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ElasticGpuState where
+module Network.AWS.EC2.Types.ElasticGpuState
+  ( ElasticGpuState
+      ( ElasticGpuState',
+        Attached
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ElasticGpuState = Attached
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ElasticGpuState = ElasticGpuState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ElasticGpuState where
-  parser =
-    takeLowerText >>= \case
-      "attached" -> pure Attached
-      e ->
-        fromTextError $
-          "Failure parsing ElasticGpuState from value: '" <> e
-            <> "'. Accepted values: attached"
+pattern Attached :: ElasticGpuState
+pattern Attached = ElasticGpuState' "ATTACHED"
 
-instance ToText ElasticGpuState where
-  toText = \case
-    Attached -> "ATTACHED"
-
-instance Hashable ElasticGpuState
-
-instance NFData ElasticGpuState
-
-instance ToByteString ElasticGpuState
-
-instance ToQuery ElasticGpuState
-
-instance ToHeader ElasticGpuState
-
-instance FromXML ElasticGpuState where
-  parseXML = parseXMLText "ElasticGpuState"
+{-# COMPLETE
+  Attached,
+  ElasticGpuState'
+  #-}

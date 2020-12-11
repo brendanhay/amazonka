@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,100 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types.GroupConfigurationItem where
+module Network.AWS.ResourceGroups.Types.GroupConfigurationItem
+  ( GroupConfigurationItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGroupConfigurationItem,
+
+    -- * Lenses
+    gciParameters,
+    gciType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
 
 -- | An item in a group configuration. A group configuration can have one or more items.
 --
---
---
--- /See:/ 'groupConfigurationItem' smart constructor.
+-- /See:/ 'mkGroupConfigurationItem' smart constructor.
 data GroupConfigurationItem = GroupConfigurationItem'
-  { _gciParameters ::
-      !(Maybe [GroupConfigurationParameter]),
-    _gciType :: !Text
+  { parameters ::
+      Lude.Maybe [GroupConfigurationParameter],
+    type' :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupConfigurationItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'parameters' - A collection of parameters for this group configuration item.
+-- * 'type'' - Specifies the type of group configuration item. Each item must have a unique value for @type@ .
 --
--- * 'gciParameters' - A collection of parameters for this group configuration item.
+-- You can specify the following string values:
 --
--- * 'gciType' - Specifies the type of group configuration item. Each item must have a unique value for @type@ . You can specify the following string values:     * @AWS::EC2::CapacityReservationPool@  For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .     * @AWS::ResourceGroups::Generic@ - Supports parameters that configure the behavior of resource groups of any type.
-groupConfigurationItem ::
-  -- | 'gciType'
-  Text ->
+--     * @AWS::EC2::CapacityReservationPool@
+-- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
+--
+--
+--     * @AWS::ResourceGroups::Generic@ - Supports parameters that configure the behavior of resource groups of any type.
+mkGroupConfigurationItem ::
+  -- | 'type''
+  Lude.Text ->
   GroupConfigurationItem
-groupConfigurationItem pType_ =
+mkGroupConfigurationItem pType_ =
   GroupConfigurationItem'
-    { _gciParameters = Nothing,
-      _gciType = pType_
+    { parameters = Lude.Nothing,
+      type' = pType_
     }
 
 -- | A collection of parameters for this group configuration item.
-gciParameters :: Lens' GroupConfigurationItem [GroupConfigurationParameter]
-gciParameters = lens _gciParameters (\s a -> s {_gciParameters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gciParameters :: Lens.Lens' GroupConfigurationItem (Lude.Maybe [GroupConfigurationParameter])
+gciParameters = Lens.lens (parameters :: GroupConfigurationItem -> Lude.Maybe [GroupConfigurationParameter]) (\s a -> s {parameters = a} :: GroupConfigurationItem)
+{-# DEPRECATED gciParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | Specifies the type of group configuration item. Each item must have a unique value for @type@ . You can specify the following string values:     * @AWS::EC2::CapacityReservationPool@  For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .     * @AWS::ResourceGroups::Generic@ - Supports parameters that configure the behavior of resource groups of any type.
-gciType :: Lens' GroupConfigurationItem Text
-gciType = lens _gciType (\s a -> s {_gciType = a})
+-- | Specifies the type of group configuration item. Each item must have a unique value for @type@ .
+--
+-- You can specify the following string values:
+--
+--     * @AWS::EC2::CapacityReservationPool@
+-- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
+--
+--
+--     * @AWS::ResourceGroups::Generic@ - Supports parameters that configure the behavior of resource groups of any type.
+--
+--
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gciType :: Lens.Lens' GroupConfigurationItem Lude.Text
+gciType = Lens.lens (type' :: GroupConfigurationItem -> Lude.Text) (\s a -> s {type' = a} :: GroupConfigurationItem)
+{-# DEPRECATED gciType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON GroupConfigurationItem where
+instance Lude.FromJSON GroupConfigurationItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "GroupConfigurationItem"
       ( \x ->
           GroupConfigurationItem'
-            <$> (x .:? "Parameters" .!= mempty) <*> (x .: "Type")
+            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "Type")
       )
 
-instance Hashable GroupConfigurationItem
-
-instance NFData GroupConfigurationItem
-
-instance ToJSON GroupConfigurationItem where
+instance Lude.ToJSON GroupConfigurationItem where
   toJSON GroupConfigurationItem' {..} =
-    object
-      ( catMaybes
-          [("Parameters" .=) <$> _gciParameters, Just ("Type" .= _gciType)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Parameters" Lude..=) Lude.<$> parameters,
+            Lude.Just ("Type" Lude..= type')
+          ]
       )

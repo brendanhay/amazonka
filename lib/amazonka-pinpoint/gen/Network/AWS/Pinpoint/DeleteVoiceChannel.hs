@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,131 @@
 --
 -- Disables the voice channel for an application and deletes any existing settings for the channel.
 module Network.AWS.Pinpoint.DeleteVoiceChannel
-  ( -- * Creating a Request
-    deleteVoiceChannel,
-    DeleteVoiceChannel,
+  ( -- * Creating a request
+    DeleteVoiceChannel (..),
+    mkDeleteVoiceChannel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvcApplicationId,
 
-    -- * Destructuring the Response
-    deleteVoiceChannelResponse,
-    DeleteVoiceChannelResponse,
+    -- * Destructuring the response
+    DeleteVoiceChannelResponse (..),
+    mkDeleteVoiceChannelResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvcrsResponseStatus,
     dvcrsVoiceChannelResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteVoiceChannel' smart constructor.
+-- | /See:/ 'mkDeleteVoiceChannel' smart constructor.
 newtype DeleteVoiceChannel = DeleteVoiceChannel'
-  { _dvcApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVoiceChannel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvcApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-deleteVoiceChannel ::
-  -- | 'dvcApplicationId'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+mkDeleteVoiceChannel ::
+  -- | 'applicationId'
+  Lude.Text ->
   DeleteVoiceChannel
-deleteVoiceChannel pApplicationId_ =
-  DeleteVoiceChannel' {_dvcApplicationId = pApplicationId_}
+mkDeleteVoiceChannel pApplicationId_ =
+  DeleteVoiceChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-dvcApplicationId :: Lens' DeleteVoiceChannel Text
-dvcApplicationId = lens _dvcApplicationId (\s a -> s {_dvcApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcApplicationId :: Lens.Lens' DeleteVoiceChannel Lude.Text
+dvcApplicationId = Lens.lens (applicationId :: DeleteVoiceChannel -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteVoiceChannel)
+{-# DEPRECATED dvcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest DeleteVoiceChannel where
+instance Lude.AWSRequest DeleteVoiceChannel where
   type Rs DeleteVoiceChannel = DeleteVoiceChannelResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteVoiceChannelResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteVoiceChannel
-
-instance NFData DeleteVoiceChannel
-
-instance ToHeaders DeleteVoiceChannel where
+instance Lude.ToHeaders DeleteVoiceChannel where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteVoiceChannel where
+instance Lude.ToPath DeleteVoiceChannel where
   toPath DeleteVoiceChannel' {..} =
-    mconcat ["/v1/apps/", toBS _dvcApplicationId, "/channels/voice"]
+    Lude.mconcat
+      ["/v1/apps/", Lude.toBS applicationId, "/channels/voice"]
 
-instance ToQuery DeleteVoiceChannel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteVoiceChannel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteVoiceChannelResponse' smart constructor.
+-- | /See:/ 'mkDeleteVoiceChannelResponse' smart constructor.
 data DeleteVoiceChannelResponse = DeleteVoiceChannelResponse'
-  { _dvcrsResponseStatus ::
-      !Int,
-    _dvcrsVoiceChannelResponse ::
-      !VoiceChannelResponse
+  { responseStatus ::
+      Lude.Int,
+    voiceChannelResponse ::
+      VoiceChannelResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVoiceChannelResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvcrsResponseStatus' - -- | The response status code.
---
--- * 'dvcrsVoiceChannelResponse' - Undocumented member.
-deleteVoiceChannelResponse ::
-  -- | 'dvcrsResponseStatus'
-  Int ->
-  -- | 'dvcrsVoiceChannelResponse'
+-- * 'responseStatus' - The response status code.
+-- * 'voiceChannelResponse' - Undocumented field.
+mkDeleteVoiceChannelResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'voiceChannelResponse'
   VoiceChannelResponse ->
   DeleteVoiceChannelResponse
-deleteVoiceChannelResponse pResponseStatus_ pVoiceChannelResponse_ =
-  DeleteVoiceChannelResponse'
-    { _dvcrsResponseStatus =
-        pResponseStatus_,
-      _dvcrsVoiceChannelResponse = pVoiceChannelResponse_
-    }
+mkDeleteVoiceChannelResponse
+  pResponseStatus_
+  pVoiceChannelResponse_ =
+    DeleteVoiceChannelResponse'
+      { responseStatus = pResponseStatus_,
+        voiceChannelResponse = pVoiceChannelResponse_
+      }
 
--- | -- | The response status code.
-dvcrsResponseStatus :: Lens' DeleteVoiceChannelResponse Int
-dvcrsResponseStatus = lens _dvcrsResponseStatus (\s a -> s {_dvcrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcrsResponseStatus :: Lens.Lens' DeleteVoiceChannelResponse Lude.Int
+dvcrsResponseStatus = Lens.lens (responseStatus :: DeleteVoiceChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVoiceChannelResponse)
+{-# DEPRECATED dvcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-dvcrsVoiceChannelResponse :: Lens' DeleteVoiceChannelResponse VoiceChannelResponse
-dvcrsVoiceChannelResponse = lens _dvcrsVoiceChannelResponse (\s a -> s {_dvcrsVoiceChannelResponse = a})
-
-instance NFData DeleteVoiceChannelResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'voiceChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvcrsVoiceChannelResponse :: Lens.Lens' DeleteVoiceChannelResponse VoiceChannelResponse
+dvcrsVoiceChannelResponse = Lens.lens (voiceChannelResponse :: DeleteVoiceChannelResponse -> VoiceChannelResponse) (\s a -> s {voiceChannelResponse = a} :: DeleteVoiceChannelResponse)
+{-# DEPRECATED dvcrsVoiceChannelResponse "Use generic-lens or generic-optics with 'voiceChannelResponse' instead." #-}

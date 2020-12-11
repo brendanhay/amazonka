@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.FaceRecord where
+module Network.AWS.Rekognition.Types.FaceRecord
+  ( FaceRecord (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFaceRecord,
+
+    -- * Lenses
+    frFaceDetail,
+    frFace,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.Face
 import Network.AWS.Rekognition.Types.FaceDetail
 
 -- | Object containing both the face metadata (stored in the backend database), and facial attributes that are detected but aren't stored in the database.
 --
---
---
--- /See:/ 'faceRecord' smart constructor.
+-- /See:/ 'mkFaceRecord' smart constructor.
 data FaceRecord = FaceRecord'
-  { _frFaceDetail :: !(Maybe FaceDetail),
-    _frFace :: !(Maybe Face)
+  { faceDetail :: Lude.Maybe FaceDetail,
+    face :: Lude.Maybe Face
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaceRecord' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'frFaceDetail' - Structure containing attributes of the face that the algorithm detected.
---
--- * 'frFace' - Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
-faceRecord ::
+-- * 'face' - Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
+-- * 'faceDetail' - Structure containing attributes of the face that the algorithm detected.
+mkFaceRecord ::
   FaceRecord
-faceRecord =
-  FaceRecord' {_frFaceDetail = Nothing, _frFace = Nothing}
+mkFaceRecord =
+  FaceRecord' {faceDetail = Lude.Nothing, face = Lude.Nothing}
 
 -- | Structure containing attributes of the face that the algorithm detected.
-frFaceDetail :: Lens' FaceRecord (Maybe FaceDetail)
-frFaceDetail = lens _frFaceDetail (\s a -> s {_frFaceDetail = a})
+--
+-- /Note:/ Consider using 'faceDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frFaceDetail :: Lens.Lens' FaceRecord (Lude.Maybe FaceDetail)
+frFaceDetail = Lens.lens (faceDetail :: FaceRecord -> Lude.Maybe FaceDetail) (\s a -> s {faceDetail = a} :: FaceRecord)
+{-# DEPRECATED frFaceDetail "Use generic-lens or generic-optics with 'faceDetail' instead." #-}
 
 -- | Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
-frFace :: Lens' FaceRecord (Maybe Face)
-frFace = lens _frFace (\s a -> s {_frFace = a})
+--
+-- /Note:/ Consider using 'face' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frFace :: Lens.Lens' FaceRecord (Lude.Maybe Face)
+frFace = Lens.lens (face :: FaceRecord -> Lude.Maybe Face) (\s a -> s {face = a} :: FaceRecord)
+{-# DEPRECATED frFace "Use generic-lens or generic-optics with 'face' instead." #-}
 
-instance FromJSON FaceRecord where
+instance Lude.FromJSON FaceRecord where
   parseJSON =
-    withObject
+    Lude.withObject
       "FaceRecord"
-      (\x -> FaceRecord' <$> (x .:? "FaceDetail") <*> (x .:? "Face"))
-
-instance Hashable FaceRecord
-
-instance NFData FaceRecord
+      ( \x ->
+          FaceRecord'
+            Lude.<$> (x Lude..:? "FaceDetail") Lude.<*> (x Lude..:? "Face")
+      )

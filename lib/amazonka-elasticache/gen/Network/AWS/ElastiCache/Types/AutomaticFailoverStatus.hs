@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.AutomaticFailoverStatus where
+module Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
+  ( AutomaticFailoverStatus
+      ( AutomaticFailoverStatus',
+        AFSDisabled,
+        AFSDisabling,
+        AFSEnabled,
+        AFSEnabling
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AutomaticFailoverStatus
-  = AFSDisabled
-  | AFSDisabling
-  | AFSEnabled
-  | AFSEnabling
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AutomaticFailoverStatus = AutomaticFailoverStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AutomaticFailoverStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure AFSDisabled
-      "disabling" -> pure AFSDisabling
-      "enabled" -> pure AFSEnabled
-      "enabling" -> pure AFSEnabling
-      e ->
-        fromTextError $
-          "Failure parsing AutomaticFailoverStatus from value: '" <> e
-            <> "'. Accepted values: disabled, disabling, enabled, enabling"
+pattern AFSDisabled :: AutomaticFailoverStatus
+pattern AFSDisabled = AutomaticFailoverStatus' "disabled"
 
-instance ToText AutomaticFailoverStatus where
-  toText = \case
-    AFSDisabled -> "disabled"
-    AFSDisabling -> "disabling"
-    AFSEnabled -> "enabled"
-    AFSEnabling -> "enabling"
+pattern AFSDisabling :: AutomaticFailoverStatus
+pattern AFSDisabling = AutomaticFailoverStatus' "disabling"
 
-instance Hashable AutomaticFailoverStatus
+pattern AFSEnabled :: AutomaticFailoverStatus
+pattern AFSEnabled = AutomaticFailoverStatus' "enabled"
 
-instance NFData AutomaticFailoverStatus
+pattern AFSEnabling :: AutomaticFailoverStatus
+pattern AFSEnabling = AutomaticFailoverStatus' "enabling"
 
-instance ToByteString AutomaticFailoverStatus
-
-instance ToQuery AutomaticFailoverStatus
-
-instance ToHeader AutomaticFailoverStatus
-
-instance FromXML AutomaticFailoverStatus where
-  parseXML = parseXMLText "AutomaticFailoverStatus"
+{-# COMPLETE
+  AFSDisabled,
+  AFSDisabling,
+  AFSEnabled,
+  AFSEnabling,
+  AutomaticFailoverStatus'
+  #-}

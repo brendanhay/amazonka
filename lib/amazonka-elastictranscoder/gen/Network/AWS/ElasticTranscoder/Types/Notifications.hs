@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticTranscoder.Types.Notifications where
+module Network.AWS.ElasticTranscoder.Types.Notifications
+  ( Notifications (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNotifications,
+
+    -- * Lenses
+    nError,
+    nWarning,
+    nProgressing,
+    nCompleted,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.
 --
---
 -- /Important:/ To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.
 --
---
--- /See:/ 'notifications' smart constructor.
+-- /See:/ 'mkNotifications' smart constructor.
 data Notifications = Notifications'
-  { _nError :: !(Maybe Text),
-    _nWarning :: !(Maybe Text),
-    _nProgressing :: !(Maybe Text),
-    _nCompleted :: !(Maybe Text)
+  { error :: Lude.Maybe Lude.Text,
+    warning :: Lude.Maybe Lude.Text,
+    progressing :: Lude.Maybe Lude.Text,
+    completed :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Notifications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nError' - The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.
---
--- * 'nWarning' - The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition.
---
--- * 'nProgressing' - The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.
---
--- * 'nCompleted' - The Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing the job.
-notifications ::
+-- * 'completed' - The Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing the job.
+-- * 'error' - The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.
+-- * 'progressing' - The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.
+-- * 'warning' - The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition.
+mkNotifications ::
   Notifications
-notifications =
+mkNotifications =
   Notifications'
-    { _nError = Nothing,
-      _nWarning = Nothing,
-      _nProgressing = Nothing,
-      _nCompleted = Nothing
+    { error = Lude.Nothing,
+      warning = Lude.Nothing,
+      progressing = Lude.Nothing,
+      completed = Lude.Nothing
     }
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.
-nError :: Lens' Notifications (Maybe Text)
-nError = lens _nError (\s a -> s {_nError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nError :: Lens.Lens' Notifications (Lude.Maybe Lude.Text)
+nError = Lens.lens (error :: Notifications -> Lude.Maybe Lude.Text) (\s a -> s {error = a} :: Notifications)
+{-# DEPRECATED nError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition.
-nWarning :: Lens' Notifications (Maybe Text)
-nWarning = lens _nWarning (\s a -> s {_nWarning = a})
+--
+-- /Note:/ Consider using 'warning' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nWarning :: Lens.Lens' Notifications (Lude.Maybe Lude.Text)
+nWarning = Lens.lens (warning :: Notifications -> Lude.Maybe Lude.Text) (\s a -> s {warning = a} :: Notifications)
+{-# DEPRECATED nWarning "Use generic-lens or generic-optics with 'warning' instead." #-}
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.
-nProgressing :: Lens' Notifications (Maybe Text)
-nProgressing = lens _nProgressing (\s a -> s {_nProgressing = a})
+--
+-- /Note:/ Consider using 'progressing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nProgressing :: Lens.Lens' Notifications (Lude.Maybe Lude.Text)
+nProgressing = Lens.lens (progressing :: Notifications -> Lude.Maybe Lude.Text) (\s a -> s {progressing = a} :: Notifications)
+{-# DEPRECATED nProgressing "Use generic-lens or generic-optics with 'progressing' instead." #-}
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing the job.
-nCompleted :: Lens' Notifications (Maybe Text)
-nCompleted = lens _nCompleted (\s a -> s {_nCompleted = a})
+--
+-- /Note:/ Consider using 'completed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nCompleted :: Lens.Lens' Notifications (Lude.Maybe Lude.Text)
+nCompleted = Lens.lens (completed :: Notifications -> Lude.Maybe Lude.Text) (\s a -> s {completed = a} :: Notifications)
+{-# DEPRECATED nCompleted "Use generic-lens or generic-optics with 'completed' instead." #-}
 
-instance FromJSON Notifications where
+instance Lude.FromJSON Notifications where
   parseJSON =
-    withObject
+    Lude.withObject
       "Notifications"
       ( \x ->
           Notifications'
-            <$> (x .:? "Error")
-            <*> (x .:? "Warning")
-            <*> (x .:? "Progressing")
-            <*> (x .:? "Completed")
+            Lude.<$> (x Lude..:? "Error")
+            Lude.<*> (x Lude..:? "Warning")
+            Lude.<*> (x Lude..:? "Progressing")
+            Lude.<*> (x Lude..:? "Completed")
       )
 
-instance Hashable Notifications
-
-instance NFData Notifications
-
-instance ToJSON Notifications where
+instance Lude.ToJSON Notifications where
   toJSON Notifications' {..} =
-    object
-      ( catMaybes
-          [ ("Error" .=) <$> _nError,
-            ("Warning" .=) <$> _nWarning,
-            ("Progressing" .=) <$> _nProgressing,
-            ("Completed" .=) <$> _nCompleted
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Error" Lude..=) Lude.<$> error,
+            ("Warning" Lude..=) Lude.<$> warning,
+            ("Progressing" Lude..=) Lude.<$> progressing,
+            ("Completed" Lude..=) Lude.<$> completed
           ]
       )

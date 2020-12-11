@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.Fmp4NielsenId3Behavior where
+module Network.AWS.MediaLive.Types.Fmp4NielsenId3Behavior
+  ( Fmp4NielsenId3Behavior
+      ( Fmp4NielsenId3Behavior',
+        FNIBNoPassthrough,
+        FNIBPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Fmp4 Nielsen Id3 Behavior
-data Fmp4NielsenId3Behavior
-  = FNIBNoPassthrough
-  | FNIBPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Fmp4NielsenId3Behavior = Fmp4NielsenId3Behavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Fmp4NielsenId3Behavior where
-  parser =
-    takeLowerText >>= \case
-      "no_passthrough" -> pure FNIBNoPassthrough
-      "passthrough" -> pure FNIBPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing Fmp4NielsenId3Behavior from value: '" <> e
-            <> "'. Accepted values: no_passthrough, passthrough"
+pattern FNIBNoPassthrough :: Fmp4NielsenId3Behavior
+pattern FNIBNoPassthrough = Fmp4NielsenId3Behavior' "NO_PASSTHROUGH"
 
-instance ToText Fmp4NielsenId3Behavior where
-  toText = \case
-    FNIBNoPassthrough -> "NO_PASSTHROUGH"
-    FNIBPassthrough -> "PASSTHROUGH"
+pattern FNIBPassthrough :: Fmp4NielsenId3Behavior
+pattern FNIBPassthrough = Fmp4NielsenId3Behavior' "PASSTHROUGH"
 
-instance Hashable Fmp4NielsenId3Behavior
-
-instance NFData Fmp4NielsenId3Behavior
-
-instance ToByteString Fmp4NielsenId3Behavior
-
-instance ToQuery Fmp4NielsenId3Behavior
-
-instance ToHeader Fmp4NielsenId3Behavior
-
-instance ToJSON Fmp4NielsenId3Behavior where
-  toJSON = toJSONText
-
-instance FromJSON Fmp4NielsenId3Behavior where
-  parseJSON = parseJSONText "Fmp4NielsenId3Behavior"
+{-# COMPLETE
+  FNIBNoPassthrough,
+  FNIBPassthrough,
+  Fmp4NielsenId3Behavior'
+  #-}

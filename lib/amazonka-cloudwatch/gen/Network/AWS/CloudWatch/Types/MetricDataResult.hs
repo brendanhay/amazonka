@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,122 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.MetricDataResult where
+module Network.AWS.CloudWatch.Types.MetricDataResult
+  ( MetricDataResult (..),
+
+    -- * Smart constructor
+    mkMetricDataResult,
+
+    -- * Lenses
+    mdrValues,
+    mdrId,
+    mdrTimestamps,
+    mdrMessages,
+    mdrLabel,
+    mdrStatusCode,
+  )
+where
 
 import Network.AWS.CloudWatch.Types.MessageData
 import Network.AWS.CloudWatch.Types.StatusCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A @GetMetricData@ call returns an array of @MetricDataResult@ structures. Each of these structures includes the data points for that metric, along with the timestamps of those data points and other identifying information.
 --
---
---
--- /See:/ 'metricDataResult' smart constructor.
+-- /See:/ 'mkMetricDataResult' smart constructor.
 data MetricDataResult = MetricDataResult'
-  { _mdrValues ::
-      !(Maybe [Double]),
-    _mdrId :: !(Maybe Text),
-    _mdrTimestamps :: !(Maybe [ISO8601]),
-    _mdrMessages :: !(Maybe [MessageData]),
-    _mdrLabel :: !(Maybe Text),
-    _mdrStatusCode :: !(Maybe StatusCode)
+  { values ::
+      Lude.Maybe [Lude.Double],
+    id :: Lude.Maybe Lude.Text,
+    timestamps :: Lude.Maybe [Lude.ISO8601],
+    messages :: Lude.Maybe [MessageData],
+    label :: Lude.Maybe Lude.Text,
+    statusCode :: Lude.Maybe StatusCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricDataResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdrValues' - The data points for the metric corresponding to @Timestamps@ . The number of values always matches the number of timestamps and the timestamp for Values[x] is Timestamps[x].
---
--- * 'mdrId' - The short name you specified to represent this metric.
---
--- * 'mdrTimestamps' - The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].
---
--- * 'mdrMessages' - A list of messages with additional information about the data returned.
---
--- * 'mdrLabel' - The human-readable label associated with the data.
---
--- * 'mdrStatusCode' - The status of the returned data. @Complete@ indicates that all data points in the requested time range were returned. @PartialData@ means that an incomplete set of data points were returned. You can use the @NextToken@ value that was returned and repeat your request to get more data points. @NextToken@ is not returned if you are performing a math expression. @InternalError@ indicates that an error occurred. Retry your request using @NextToken@ , if present.
-metricDataResult ::
+-- * 'id' - The short name you specified to represent this metric.
+-- * 'label' - The human-readable label associated with the data.
+-- * 'messages' - A list of messages with additional information about the data returned.
+-- * 'statusCode' - The status of the returned data. @Complete@ indicates that all data points in the requested time range were returned. @PartialData@ means that an incomplete set of data points were returned. You can use the @NextToken@ value that was returned and repeat your request to get more data points. @NextToken@ is not returned if you are performing a math expression. @InternalError@ indicates that an error occurred. Retry your request using @NextToken@ , if present.
+-- * 'timestamps' - The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].
+-- * 'values' - The data points for the metric corresponding to @Timestamps@ . The number of values always matches the number of timestamps and the timestamp for Values[x] is Timestamps[x].
+mkMetricDataResult ::
   MetricDataResult
-metricDataResult =
+mkMetricDataResult =
   MetricDataResult'
-    { _mdrValues = Nothing,
-      _mdrId = Nothing,
-      _mdrTimestamps = Nothing,
-      _mdrMessages = Nothing,
-      _mdrLabel = Nothing,
-      _mdrStatusCode = Nothing
+    { values = Lude.Nothing,
+      id = Lude.Nothing,
+      timestamps = Lude.Nothing,
+      messages = Lude.Nothing,
+      label = Lude.Nothing,
+      statusCode = Lude.Nothing
     }
 
 -- | The data points for the metric corresponding to @Timestamps@ . The number of values always matches the number of timestamps and the timestamp for Values[x] is Timestamps[x].
-mdrValues :: Lens' MetricDataResult [Double]
-mdrValues = lens _mdrValues (\s a -> s {_mdrValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdrValues :: Lens.Lens' MetricDataResult (Lude.Maybe [Lude.Double])
+mdrValues = Lens.lens (values :: MetricDataResult -> Lude.Maybe [Lude.Double]) (\s a -> s {values = a} :: MetricDataResult)
+{-# DEPRECATED mdrValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The short name you specified to represent this metric.
-mdrId :: Lens' MetricDataResult (Maybe Text)
-mdrId = lens _mdrId (\s a -> s {_mdrId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdrId :: Lens.Lens' MetricDataResult (Lude.Maybe Lude.Text)
+mdrId = Lens.lens (id :: MetricDataResult -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: MetricDataResult)
+{-# DEPRECATED mdrId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].
-mdrTimestamps :: Lens' MetricDataResult [UTCTime]
-mdrTimestamps = lens _mdrTimestamps (\s a -> s {_mdrTimestamps = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'timestamps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdrTimestamps :: Lens.Lens' MetricDataResult (Lude.Maybe [Lude.ISO8601])
+mdrTimestamps = Lens.lens (timestamps :: MetricDataResult -> Lude.Maybe [Lude.ISO8601]) (\s a -> s {timestamps = a} :: MetricDataResult)
+{-# DEPRECATED mdrTimestamps "Use generic-lens or generic-optics with 'timestamps' instead." #-}
 
 -- | A list of messages with additional information about the data returned.
-mdrMessages :: Lens' MetricDataResult [MessageData]
-mdrMessages = lens _mdrMessages (\s a -> s {_mdrMessages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'messages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdrMessages :: Lens.Lens' MetricDataResult (Lude.Maybe [MessageData])
+mdrMessages = Lens.lens (messages :: MetricDataResult -> Lude.Maybe [MessageData]) (\s a -> s {messages = a} :: MetricDataResult)
+{-# DEPRECATED mdrMessages "Use generic-lens or generic-optics with 'messages' instead." #-}
 
 -- | The human-readable label associated with the data.
-mdrLabel :: Lens' MetricDataResult (Maybe Text)
-mdrLabel = lens _mdrLabel (\s a -> s {_mdrLabel = a})
+--
+-- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdrLabel :: Lens.Lens' MetricDataResult (Lude.Maybe Lude.Text)
+mdrLabel = Lens.lens (label :: MetricDataResult -> Lude.Maybe Lude.Text) (\s a -> s {label = a} :: MetricDataResult)
+{-# DEPRECATED mdrLabel "Use generic-lens or generic-optics with 'label' instead." #-}
 
 -- | The status of the returned data. @Complete@ indicates that all data points in the requested time range were returned. @PartialData@ means that an incomplete set of data points were returned. You can use the @NextToken@ value that was returned and repeat your request to get more data points. @NextToken@ is not returned if you are performing a math expression. @InternalError@ indicates that an error occurred. Retry your request using @NextToken@ , if present.
-mdrStatusCode :: Lens' MetricDataResult (Maybe StatusCode)
-mdrStatusCode = lens _mdrStatusCode (\s a -> s {_mdrStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdrStatusCode :: Lens.Lens' MetricDataResult (Lude.Maybe StatusCode)
+mdrStatusCode = Lens.lens (statusCode :: MetricDataResult -> Lude.Maybe StatusCode) (\s a -> s {statusCode = a} :: MetricDataResult)
+{-# DEPRECATED mdrStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance FromXML MetricDataResult where
+instance Lude.FromXML MetricDataResult where
   parseXML x =
     MetricDataResult'
-      <$> (x .@? "Values" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "Id")
-      <*> (x .@? "Timestamps" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "Messages" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "Label")
-      <*> (x .@? "StatusCode")
-
-instance Hashable MetricDataResult
-
-instance NFData MetricDataResult
+      Lude.<$> ( x Lude..@? "Values" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "Id")
+      Lude.<*> ( x Lude..@? "Timestamps" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> ( x Lude..@? "Messages" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "Label")
+      Lude.<*> (x Lude..@? "StatusCode")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VCPUInfo where
+module Network.AWS.EC2.Types.VCPUInfo
+  ( VCPUInfo (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVCPUInfo,
+
+    -- * Lenses
+    vciValidThreadsPerCore,
+    vciDefaultThreadsPerCore,
+    vciDefaultVCPUs,
+    vciDefaultCores,
+    vciValidCores,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the vCPU configurations for the instance type.
 --
---
---
--- /See:/ 'vCPUInfo' smart constructor.
+-- /See:/ 'mkVCPUInfo' smart constructor.
 data VCPUInfo = VCPUInfo'
-  { _vciValidThreadsPerCore ::
-      !(Maybe [Int]),
-    _vciDefaultThreadsPerCore :: !(Maybe Int),
-    _vciDefaultVCPUs :: !(Maybe Int),
-    _vciDefaultCores :: !(Maybe Int),
-    _vciValidCores :: !(Maybe [Int])
+  { validThreadsPerCore ::
+      Lude.Maybe [Lude.Int],
+    defaultThreadsPerCore :: Lude.Maybe Lude.Int,
+    defaultVCPUs :: Lude.Maybe Lude.Int,
+    defaultCores :: Lude.Maybe Lude.Int,
+    validCores :: Lude.Maybe [Lude.Int]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VCPUInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vciValidThreadsPerCore' - The valid number of threads per core that can be configured for the instance type.
---
--- * 'vciDefaultThreadsPerCore' - The default number of threads per core for the instance type.
---
--- * 'vciDefaultVCPUs' - The default number of vCPUs for the instance type.
---
--- * 'vciDefaultCores' - The default number of cores for the instance type.
---
--- * 'vciValidCores' - The valid number of cores that can be configured for the instance type.
-vCPUInfo ::
+-- * 'defaultCores' - The default number of cores for the instance type.
+-- * 'defaultThreadsPerCore' - The default number of threads per core for the instance type.
+-- * 'defaultVCPUs' - The default number of vCPUs for the instance type.
+-- * 'validCores' - The valid number of cores that can be configured for the instance type.
+-- * 'validThreadsPerCore' - The valid number of threads per core that can be configured for the instance type.
+mkVCPUInfo ::
   VCPUInfo
-vCPUInfo =
+mkVCPUInfo =
   VCPUInfo'
-    { _vciValidThreadsPerCore = Nothing,
-      _vciDefaultThreadsPerCore = Nothing,
-      _vciDefaultVCPUs = Nothing,
-      _vciDefaultCores = Nothing,
-      _vciValidCores = Nothing
+    { validThreadsPerCore = Lude.Nothing,
+      defaultThreadsPerCore = Lude.Nothing,
+      defaultVCPUs = Lude.Nothing,
+      defaultCores = Lude.Nothing,
+      validCores = Lude.Nothing
     }
 
 -- | The valid number of threads per core that can be configured for the instance type.
-vciValidThreadsPerCore :: Lens' VCPUInfo [Int]
-vciValidThreadsPerCore = lens _vciValidThreadsPerCore (\s a -> s {_vciValidThreadsPerCore = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'validThreadsPerCore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vciValidThreadsPerCore :: Lens.Lens' VCPUInfo (Lude.Maybe [Lude.Int])
+vciValidThreadsPerCore = Lens.lens (validThreadsPerCore :: VCPUInfo -> Lude.Maybe [Lude.Int]) (\s a -> s {validThreadsPerCore = a} :: VCPUInfo)
+{-# DEPRECATED vciValidThreadsPerCore "Use generic-lens or generic-optics with 'validThreadsPerCore' instead." #-}
 
 -- | The default number of threads per core for the instance type.
-vciDefaultThreadsPerCore :: Lens' VCPUInfo (Maybe Int)
-vciDefaultThreadsPerCore = lens _vciDefaultThreadsPerCore (\s a -> s {_vciDefaultThreadsPerCore = a})
+--
+-- /Note:/ Consider using 'defaultThreadsPerCore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vciDefaultThreadsPerCore :: Lens.Lens' VCPUInfo (Lude.Maybe Lude.Int)
+vciDefaultThreadsPerCore = Lens.lens (defaultThreadsPerCore :: VCPUInfo -> Lude.Maybe Lude.Int) (\s a -> s {defaultThreadsPerCore = a} :: VCPUInfo)
+{-# DEPRECATED vciDefaultThreadsPerCore "Use generic-lens or generic-optics with 'defaultThreadsPerCore' instead." #-}
 
 -- | The default number of vCPUs for the instance type.
-vciDefaultVCPUs :: Lens' VCPUInfo (Maybe Int)
-vciDefaultVCPUs = lens _vciDefaultVCPUs (\s a -> s {_vciDefaultVCPUs = a})
+--
+-- /Note:/ Consider using 'defaultVCPUs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vciDefaultVCPUs :: Lens.Lens' VCPUInfo (Lude.Maybe Lude.Int)
+vciDefaultVCPUs = Lens.lens (defaultVCPUs :: VCPUInfo -> Lude.Maybe Lude.Int) (\s a -> s {defaultVCPUs = a} :: VCPUInfo)
+{-# DEPRECATED vciDefaultVCPUs "Use generic-lens or generic-optics with 'defaultVCPUs' instead." #-}
 
 -- | The default number of cores for the instance type.
-vciDefaultCores :: Lens' VCPUInfo (Maybe Int)
-vciDefaultCores = lens _vciDefaultCores (\s a -> s {_vciDefaultCores = a})
+--
+-- /Note:/ Consider using 'defaultCores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vciDefaultCores :: Lens.Lens' VCPUInfo (Lude.Maybe Lude.Int)
+vciDefaultCores = Lens.lens (defaultCores :: VCPUInfo -> Lude.Maybe Lude.Int) (\s a -> s {defaultCores = a} :: VCPUInfo)
+{-# DEPRECATED vciDefaultCores "Use generic-lens or generic-optics with 'defaultCores' instead." #-}
 
 -- | The valid number of cores that can be configured for the instance type.
-vciValidCores :: Lens' VCPUInfo [Int]
-vciValidCores = lens _vciValidCores (\s a -> s {_vciValidCores = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'validCores' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vciValidCores :: Lens.Lens' VCPUInfo (Lude.Maybe [Lude.Int])
+vciValidCores = Lens.lens (validCores :: VCPUInfo -> Lude.Maybe [Lude.Int]) (\s a -> s {validCores = a} :: VCPUInfo)
+{-# DEPRECATED vciValidCores "Use generic-lens or generic-optics with 'validCores' instead." #-}
 
-instance FromXML VCPUInfo where
+instance Lude.FromXML VCPUInfo where
   parseXML x =
     VCPUInfo'
-      <$> ( x .@? "validThreadsPerCore" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "defaultThreadsPerCore")
-      <*> (x .@? "defaultVCpus")
-      <*> (x .@? "defaultCores")
-      <*> (x .@? "validCores" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable VCPUInfo
-
-instance NFData VCPUInfo
+      Lude.<$> ( x Lude..@? "validThreadsPerCore" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "defaultThreadsPerCore")
+      Lude.<*> (x Lude..@? "defaultVCpus")
+      Lude.<*> (x Lude..@? "defaultCores")
+      Lude.<*> ( x Lude..@? "validCores" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

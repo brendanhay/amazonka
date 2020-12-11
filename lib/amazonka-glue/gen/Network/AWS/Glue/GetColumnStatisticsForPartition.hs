@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,24 @@
 --
 -- Retrieves partition statistics of columns.
 --
---
 -- The Identity and Access Management (IAM) permission required for this operation is @GetPartition@ .
 module Network.AWS.Glue.GetColumnStatisticsForPartition
-  ( -- * Creating a Request
-    getColumnStatisticsForPartition,
-    GetColumnStatisticsForPartition,
+  ( -- * Creating a request
+    GetColumnStatisticsForPartition (..),
+    mkGetColumnStatisticsForPartition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcsfpCatalogId,
     gcsfpDatabaseName,
     gcsfpTableName,
     gcsfpPartitionValues,
     gcsfpColumnNames,
 
-    -- * Destructuring the Response
-    getColumnStatisticsForPartitionResponse,
-    GetColumnStatisticsForPartitionResponse,
+    -- * Destructuring the response
+    GetColumnStatisticsForPartitionResponse (..),
+    mkGetColumnStatisticsForPartitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcsfprsErrors,
     gcsfprsColumnStatisticsList,
     gcsfprsResponseStatus,
@@ -45,164 +39,183 @@ module Network.AWS.Glue.GetColumnStatisticsForPartition
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getColumnStatisticsForPartition' smart constructor.
+-- | /See:/ 'mkGetColumnStatisticsForPartition' smart constructor.
 data GetColumnStatisticsForPartition = GetColumnStatisticsForPartition'
-  { _gcsfpCatalogId ::
-      !(Maybe Text),
-    _gcsfpDatabaseName :: !Text,
-    _gcsfpTableName :: !Text,
-    _gcsfpPartitionValues ::
-      ![Text],
-    _gcsfpColumnNames ::
-      ![Text]
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    tableName :: Lude.Text,
+    partitionValues ::
+      [Lude.Text],
+    columnNames :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetColumnStatisticsForPartition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcsfpCatalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
---
--- * 'gcsfpDatabaseName' - The name of the catalog database where the partitions reside.
---
--- * 'gcsfpTableName' - The name of the partitions' table.
---
--- * 'gcsfpPartitionValues' - A list of partition values identifying the partition.
---
--- * 'gcsfpColumnNames' - A list of the column names.
-getColumnStatisticsForPartition ::
-  -- | 'gcsfpDatabaseName'
-  Text ->
-  -- | 'gcsfpTableName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
+-- * 'columnNames' - A list of the column names.
+-- * 'databaseName' - The name of the catalog database where the partitions reside.
+-- * 'partitionValues' - A list of partition values identifying the partition.
+-- * 'tableName' - The name of the partitions' table.
+mkGetColumnStatisticsForPartition ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   GetColumnStatisticsForPartition
-getColumnStatisticsForPartition pDatabaseName_ pTableName_ =
+mkGetColumnStatisticsForPartition pDatabaseName_ pTableName_ =
   GetColumnStatisticsForPartition'
-    { _gcsfpCatalogId = Nothing,
-      _gcsfpDatabaseName = pDatabaseName_,
-      _gcsfpTableName = pTableName_,
-      _gcsfpPartitionValues = mempty,
-      _gcsfpColumnNames = mempty
+    { catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_,
+      partitionValues = Lude.mempty,
+      columnNames = Lude.mempty
     }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
-gcsfpCatalogId :: Lens' GetColumnStatisticsForPartition (Maybe Text)
-gcsfpCatalogId = lens _gcsfpCatalogId (\s a -> s {_gcsfpCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsfpCatalogId :: Lens.Lens' GetColumnStatisticsForPartition (Lude.Maybe Lude.Text)
+gcsfpCatalogId = Lens.lens (catalogId :: GetColumnStatisticsForPartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetColumnStatisticsForPartition)
+{-# DEPRECATED gcsfpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database where the partitions reside.
-gcsfpDatabaseName :: Lens' GetColumnStatisticsForPartition Text
-gcsfpDatabaseName = lens _gcsfpDatabaseName (\s a -> s {_gcsfpDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsfpDatabaseName :: Lens.Lens' GetColumnStatisticsForPartition Lude.Text
+gcsfpDatabaseName = Lens.lens (databaseName :: GetColumnStatisticsForPartition -> Lude.Text) (\s a -> s {databaseName = a} :: GetColumnStatisticsForPartition)
+{-# DEPRECATED gcsfpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the partitions' table.
-gcsfpTableName :: Lens' GetColumnStatisticsForPartition Text
-gcsfpTableName = lens _gcsfpTableName (\s a -> s {_gcsfpTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsfpTableName :: Lens.Lens' GetColumnStatisticsForPartition Lude.Text
+gcsfpTableName = Lens.lens (tableName :: GetColumnStatisticsForPartition -> Lude.Text) (\s a -> s {tableName = a} :: GetColumnStatisticsForPartition)
+{-# DEPRECATED gcsfpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | A list of partition values identifying the partition.
-gcsfpPartitionValues :: Lens' GetColumnStatisticsForPartition [Text]
-gcsfpPartitionValues = lens _gcsfpPartitionValues (\s a -> s {_gcsfpPartitionValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'partitionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsfpPartitionValues :: Lens.Lens' GetColumnStatisticsForPartition [Lude.Text]
+gcsfpPartitionValues = Lens.lens (partitionValues :: GetColumnStatisticsForPartition -> [Lude.Text]) (\s a -> s {partitionValues = a} :: GetColumnStatisticsForPartition)
+{-# DEPRECATED gcsfpPartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
 
 -- | A list of the column names.
-gcsfpColumnNames :: Lens' GetColumnStatisticsForPartition [Text]
-gcsfpColumnNames = lens _gcsfpColumnNames (\s a -> s {_gcsfpColumnNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'columnNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsfpColumnNames :: Lens.Lens' GetColumnStatisticsForPartition [Lude.Text]
+gcsfpColumnNames = Lens.lens (columnNames :: GetColumnStatisticsForPartition -> [Lude.Text]) (\s a -> s {columnNames = a} :: GetColumnStatisticsForPartition)
+{-# DEPRECATED gcsfpColumnNames "Use generic-lens or generic-optics with 'columnNames' instead." #-}
 
-instance AWSRequest GetColumnStatisticsForPartition where
+instance Lude.AWSRequest GetColumnStatisticsForPartition where
   type
     Rs GetColumnStatisticsForPartition =
       GetColumnStatisticsForPartitionResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetColumnStatisticsForPartitionResponse'
-            <$> (x .?> "Errors" .!@ mempty)
-            <*> (x .?> "ColumnStatisticsList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Errors" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "ColumnStatisticsList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetColumnStatisticsForPartition
-
-instance NFData GetColumnStatisticsForPartition
-
-instance ToHeaders GetColumnStatisticsForPartition where
+instance Lude.ToHeaders GetColumnStatisticsForPartition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSGlue.GetColumnStatisticsForPartition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSGlue.GetColumnStatisticsForPartition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetColumnStatisticsForPartition where
+instance Lude.ToJSON GetColumnStatisticsForPartition where
   toJSON GetColumnStatisticsForPartition' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _gcsfpCatalogId,
-            Just ("DatabaseName" .= _gcsfpDatabaseName),
-            Just ("TableName" .= _gcsfpTableName),
-            Just ("PartitionValues" .= _gcsfpPartitionValues),
-            Just ("ColumnNames" .= _gcsfpColumnNames)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("PartitionValues" Lude..= partitionValues),
+            Lude.Just ("ColumnNames" Lude..= columnNames)
           ]
       )
 
-instance ToPath GetColumnStatisticsForPartition where
-  toPath = const "/"
+instance Lude.ToPath GetColumnStatisticsForPartition where
+  toPath = Lude.const "/"
 
-instance ToQuery GetColumnStatisticsForPartition where
-  toQuery = const mempty
+instance Lude.ToQuery GetColumnStatisticsForPartition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getColumnStatisticsForPartitionResponse' smart constructor.
+-- | /See:/ 'mkGetColumnStatisticsForPartitionResponse' smart constructor.
 data GetColumnStatisticsForPartitionResponse = GetColumnStatisticsForPartitionResponse'
-  { _gcsfprsErrors ::
-      !( Maybe
-           [ColumnError]
-       ),
-    _gcsfprsColumnStatisticsList ::
-      !( Maybe
-           [ColumnStatistics]
-       ),
-    _gcsfprsResponseStatus ::
-      !Int
+  { errors ::
+      Lude.Maybe
+        [ColumnError],
+    columnStatisticsList ::
+      Lude.Maybe
+        [ColumnStatistics],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetColumnStatisticsForPartitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcsfprsErrors' - Error occurred during retrieving column statistics data.
---
--- * 'gcsfprsColumnStatisticsList' - List of ColumnStatistics that failed to be retrieved.
---
--- * 'gcsfprsResponseStatus' - -- | The response status code.
-getColumnStatisticsForPartitionResponse ::
-  -- | 'gcsfprsResponseStatus'
-  Int ->
+-- * 'columnStatisticsList' - List of ColumnStatistics that failed to be retrieved.
+-- * 'errors' - Error occurred during retrieving column statistics data.
+-- * 'responseStatus' - The response status code.
+mkGetColumnStatisticsForPartitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetColumnStatisticsForPartitionResponse
-getColumnStatisticsForPartitionResponse pResponseStatus_ =
+mkGetColumnStatisticsForPartitionResponse pResponseStatus_ =
   GetColumnStatisticsForPartitionResponse'
-    { _gcsfprsErrors =
-        Nothing,
-      _gcsfprsColumnStatisticsList = Nothing,
-      _gcsfprsResponseStatus = pResponseStatus_
+    { errors = Lude.Nothing,
+      columnStatisticsList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Error occurred during retrieving column statistics data.
-gcsfprsErrors :: Lens' GetColumnStatisticsForPartitionResponse [ColumnError]
-gcsfprsErrors = lens _gcsfprsErrors (\s a -> s {_gcsfprsErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsfprsErrors :: Lens.Lens' GetColumnStatisticsForPartitionResponse (Lude.Maybe [ColumnError])
+gcsfprsErrors = Lens.lens (errors :: GetColumnStatisticsForPartitionResponse -> Lude.Maybe [ColumnError]) (\s a -> s {errors = a} :: GetColumnStatisticsForPartitionResponse)
+{-# DEPRECATED gcsfprsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
 -- | List of ColumnStatistics that failed to be retrieved.
-gcsfprsColumnStatisticsList :: Lens' GetColumnStatisticsForPartitionResponse [ColumnStatistics]
-gcsfprsColumnStatisticsList = lens _gcsfprsColumnStatisticsList (\s a -> s {_gcsfprsColumnStatisticsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'columnStatisticsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsfprsColumnStatisticsList :: Lens.Lens' GetColumnStatisticsForPartitionResponse (Lude.Maybe [ColumnStatistics])
+gcsfprsColumnStatisticsList = Lens.lens (columnStatisticsList :: GetColumnStatisticsForPartitionResponse -> Lude.Maybe [ColumnStatistics]) (\s a -> s {columnStatisticsList = a} :: GetColumnStatisticsForPartitionResponse)
+{-# DEPRECATED gcsfprsColumnStatisticsList "Use generic-lens or generic-optics with 'columnStatisticsList' instead." #-}
 
--- | -- | The response status code.
-gcsfprsResponseStatus :: Lens' GetColumnStatisticsForPartitionResponse Int
-gcsfprsResponseStatus = lens _gcsfprsResponseStatus (\s a -> s {_gcsfprsResponseStatus = a})
-
-instance NFData GetColumnStatisticsForPartitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsfprsResponseStatus :: Lens.Lens' GetColumnStatisticsForPartitionResponse Lude.Int
+gcsfprsResponseStatus = Lens.lens (responseStatus :: GetColumnStatisticsForPartitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetColumnStatisticsForPartitionResponse)
+{-# DEPRECATED gcsfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

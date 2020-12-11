@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.EndpointTypesElement where
+module Network.AWS.Pinpoint.Types.EndpointTypesElement
+  ( EndpointTypesElement
+      ( EndpointTypesElement',
+        ADM,
+        APNS,
+        APNSSandbox,
+        APNSVoip,
+        APNSVoipSandbox,
+        Baidu,
+        Custom,
+        Email,
+        GCM,
+        Push,
+        Sms,
+        Voice
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EndpointTypesElement
-  = ADM
-  | APNS
-  | APNSSandbox
-  | APNSVoip
-  | APNSVoipSandbox
-  | Baidu
-  | Custom
-  | Email
-  | GCM
-  | Push
-  | Sms
-  | Voice
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EndpointTypesElement = EndpointTypesElement' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EndpointTypesElement where
-  parser =
-    takeLowerText >>= \case
-      "adm" -> pure ADM
-      "apns" -> pure APNS
-      "apns_sandbox" -> pure APNSSandbox
-      "apns_voip" -> pure APNSVoip
-      "apns_voip_sandbox" -> pure APNSVoipSandbox
-      "baidu" -> pure Baidu
-      "custom" -> pure Custom
-      "email" -> pure Email
-      "gcm" -> pure GCM
-      "push" -> pure Push
-      "sms" -> pure Sms
-      "voice" -> pure Voice
-      e ->
-        fromTextError $
-          "Failure parsing EndpointTypesElement from value: '" <> e
-            <> "'. Accepted values: adm, apns, apns_sandbox, apns_voip, apns_voip_sandbox, baidu, custom, email, gcm, push, sms, voice"
+pattern ADM :: EndpointTypesElement
+pattern ADM = EndpointTypesElement' "ADM"
 
-instance ToText EndpointTypesElement where
-  toText = \case
-    ADM -> "ADM"
-    APNS -> "APNS"
-    APNSSandbox -> "APNS_SANDBOX"
-    APNSVoip -> "APNS_VOIP"
-    APNSVoipSandbox -> "APNS_VOIP_SANDBOX"
-    Baidu -> "BAIDU"
-    Custom -> "CUSTOM"
-    Email -> "EMAIL"
-    GCM -> "GCM"
-    Push -> "PUSH"
-    Sms -> "SMS"
-    Voice -> "VOICE"
+pattern APNS :: EndpointTypesElement
+pattern APNS = EndpointTypesElement' "APNS"
 
-instance Hashable EndpointTypesElement
+pattern APNSSandbox :: EndpointTypesElement
+pattern APNSSandbox = EndpointTypesElement' "APNS_SANDBOX"
 
-instance NFData EndpointTypesElement
+pattern APNSVoip :: EndpointTypesElement
+pattern APNSVoip = EndpointTypesElement' "APNS_VOIP"
 
-instance ToByteString EndpointTypesElement
+pattern APNSVoipSandbox :: EndpointTypesElement
+pattern APNSVoipSandbox = EndpointTypesElement' "APNS_VOIP_SANDBOX"
 
-instance ToQuery EndpointTypesElement
+pattern Baidu :: EndpointTypesElement
+pattern Baidu = EndpointTypesElement' "BAIDU"
 
-instance ToHeader EndpointTypesElement
+pattern Custom :: EndpointTypesElement
+pattern Custom = EndpointTypesElement' "CUSTOM"
 
-instance ToJSON EndpointTypesElement where
-  toJSON = toJSONText
+pattern Email :: EndpointTypesElement
+pattern Email = EndpointTypesElement' "EMAIL"
 
-instance FromJSON EndpointTypesElement where
-  parseJSON = parseJSONText "EndpointTypesElement"
+pattern GCM :: EndpointTypesElement
+pattern GCM = EndpointTypesElement' "GCM"
+
+pattern Push :: EndpointTypesElement
+pattern Push = EndpointTypesElement' "PUSH"
+
+pattern Sms :: EndpointTypesElement
+pattern Sms = EndpointTypesElement' "SMS"
+
+pattern Voice :: EndpointTypesElement
+pattern Voice = EndpointTypesElement' "VOICE"
+
+{-# COMPLETE
+  ADM,
+  APNS,
+  APNSSandbox,
+  APNSVoip,
+  APNSVoipSandbox,
+  Baidu,
+  Custom,
+  Email,
+  GCM,
+  Push,
+  Sms,
+  Voice,
+  EndpointTypesElement'
+  #-}

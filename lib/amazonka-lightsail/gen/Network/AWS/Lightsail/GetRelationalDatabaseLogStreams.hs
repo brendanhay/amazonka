@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,146 @@
 --
 -- Returns a list of available log streams for a specific database in Amazon Lightsail.
 module Network.AWS.Lightsail.GetRelationalDatabaseLogStreams
-  ( -- * Creating a Request
-    getRelationalDatabaseLogStreams,
-    GetRelationalDatabaseLogStreams,
+  ( -- * Creating a request
+    GetRelationalDatabaseLogStreams (..),
+    mkGetRelationalDatabaseLogStreams,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grdlsRelationalDatabaseName,
 
-    -- * Destructuring the Response
-    getRelationalDatabaseLogStreamsResponse,
-    GetRelationalDatabaseLogStreamsResponse,
+    -- * Destructuring the response
+    GetRelationalDatabaseLogStreamsResponse (..),
+    mkGetRelationalDatabaseLogStreamsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grdlsrsLogStreams,
     grdlsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getRelationalDatabaseLogStreams' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabaseLogStreams' smart constructor.
 newtype GetRelationalDatabaseLogStreams = GetRelationalDatabaseLogStreams'
-  { _grdlsRelationalDatabaseName ::
-      Text
+  { relationalDatabaseName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseLogStreams' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grdlsRelationalDatabaseName' - The name of your database for which to get log streams.
-getRelationalDatabaseLogStreams ::
-  -- | 'grdlsRelationalDatabaseName'
-  Text ->
+-- * 'relationalDatabaseName' - The name of your database for which to get log streams.
+mkGetRelationalDatabaseLogStreams ::
+  -- | 'relationalDatabaseName'
+  Lude.Text ->
   GetRelationalDatabaseLogStreams
-getRelationalDatabaseLogStreams pRelationalDatabaseName_ =
+mkGetRelationalDatabaseLogStreams pRelationalDatabaseName_ =
   GetRelationalDatabaseLogStreams'
-    { _grdlsRelationalDatabaseName =
+    { relationalDatabaseName =
         pRelationalDatabaseName_
     }
 
 -- | The name of your database for which to get log streams.
-grdlsRelationalDatabaseName :: Lens' GetRelationalDatabaseLogStreams Text
-grdlsRelationalDatabaseName = lens _grdlsRelationalDatabaseName (\s a -> s {_grdlsRelationalDatabaseName = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdlsRelationalDatabaseName :: Lens.Lens' GetRelationalDatabaseLogStreams Lude.Text
+grdlsRelationalDatabaseName = Lens.lens (relationalDatabaseName :: GetRelationalDatabaseLogStreams -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseLogStreams)
+{-# DEPRECATED grdlsRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
-instance AWSRequest GetRelationalDatabaseLogStreams where
+instance Lude.AWSRequest GetRelationalDatabaseLogStreams where
   type
     Rs GetRelationalDatabaseLogStreams =
       GetRelationalDatabaseLogStreamsResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseLogStreamsResponse'
-            <$> (x .?> "logStreams" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "logStreams" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRelationalDatabaseLogStreams
-
-instance NFData GetRelationalDatabaseLogStreams
-
-instance ToHeaders GetRelationalDatabaseLogStreams where
+instance Lude.ToHeaders GetRelationalDatabaseLogStreams where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Lightsail_20161128.GetRelationalDatabaseLogStreams" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.GetRelationalDatabaseLogStreams" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetRelationalDatabaseLogStreams where
+instance Lude.ToJSON GetRelationalDatabaseLogStreams where
   toJSON GetRelationalDatabaseLogStreams' {..} =
-    object
-      ( catMaybes
-          [Just ("relationalDatabaseName" .= _grdlsRelationalDatabaseName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName)
+          ]
       )
 
-instance ToPath GetRelationalDatabaseLogStreams where
-  toPath = const "/"
+instance Lude.ToPath GetRelationalDatabaseLogStreams where
+  toPath = Lude.const "/"
 
-instance ToQuery GetRelationalDatabaseLogStreams where
-  toQuery = const mempty
+instance Lude.ToQuery GetRelationalDatabaseLogStreams where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getRelationalDatabaseLogStreamsResponse' smart constructor.
+-- | /See:/ 'mkGetRelationalDatabaseLogStreamsResponse' smart constructor.
 data GetRelationalDatabaseLogStreamsResponse = GetRelationalDatabaseLogStreamsResponse'
-  { _grdlsrsLogStreams ::
-      !( Maybe
-           [Text]
-       ),
-    _grdlsrsResponseStatus ::
-      !Int
+  { logStreams ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseLogStreamsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grdlsrsLogStreams' - An object describing the result of your get relational database log streams request.
---
--- * 'grdlsrsResponseStatus' - -- | The response status code.
-getRelationalDatabaseLogStreamsResponse ::
-  -- | 'grdlsrsResponseStatus'
-  Int ->
+-- * 'logStreams' - An object describing the result of your get relational database log streams request.
+-- * 'responseStatus' - The response status code.
+mkGetRelationalDatabaseLogStreamsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRelationalDatabaseLogStreamsResponse
-getRelationalDatabaseLogStreamsResponse pResponseStatus_ =
+mkGetRelationalDatabaseLogStreamsResponse pResponseStatus_ =
   GetRelationalDatabaseLogStreamsResponse'
-    { _grdlsrsLogStreams =
-        Nothing,
-      _grdlsrsResponseStatus = pResponseStatus_
+    { logStreams =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object describing the result of your get relational database log streams request.
-grdlsrsLogStreams :: Lens' GetRelationalDatabaseLogStreamsResponse [Text]
-grdlsrsLogStreams = lens _grdlsrsLogStreams (\s a -> s {_grdlsrsLogStreams = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'logStreams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdlsrsLogStreams :: Lens.Lens' GetRelationalDatabaseLogStreamsResponse (Lude.Maybe [Lude.Text])
+grdlsrsLogStreams = Lens.lens (logStreams :: GetRelationalDatabaseLogStreamsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {logStreams = a} :: GetRelationalDatabaseLogStreamsResponse)
+{-# DEPRECATED grdlsrsLogStreams "Use generic-lens or generic-optics with 'logStreams' instead." #-}
 
--- | -- | The response status code.
-grdlsrsResponseStatus :: Lens' GetRelationalDatabaseLogStreamsResponse Int
-grdlsrsResponseStatus = lens _grdlsrsResponseStatus (\s a -> s {_grdlsrsResponseStatus = a})
-
-instance NFData GetRelationalDatabaseLogStreamsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdlsrsResponseStatus :: Lens.Lens' GetRelationalDatabaseLogStreamsResponse Lude.Int
+grdlsrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseLogStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseLogStreamsResponse)
+{-# DEPRECATED grdlsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

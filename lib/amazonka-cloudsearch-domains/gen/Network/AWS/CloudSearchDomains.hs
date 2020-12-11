@@ -13,13 +13,11 @@
 --
 -- You use the AmazonCloudSearch2013 API to upload documents to a search domain and search those documents.
 --
---
 -- The endpoints for submitting @UploadDocuments@ , @Search@ , and @Suggest@ requests are domain-specific. To get the endpoints for your domain, use the Amazon CloudSearch configuration service @DescribeDomains@ action. The domain endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. You submit suggest requests to the search endpoint.
---
 -- For more information, see the <http://docs.aws.amazon.com/cloudsearch/latest/developerguide Amazon CloudSearch Developer Guide> .
 module Network.AWS.CloudSearchDomains
-  ( -- * Service Configuration
-    cloudSearchDomains,
+  ( -- * Service configuration
+    cloudSearchDomainsService,
 
     -- * Errors
     -- $errors
@@ -48,24 +46,24 @@ module Network.AWS.CloudSearchDomains
     QueryParser (..),
 
     -- ** Bucket
-    Bucket,
-    bucket,
+    Bucket (..),
+    mkBucket,
     bValue,
     bCount,
 
     -- ** BucketInfo
-    BucketInfo,
-    bucketInfo,
+    BucketInfo (..),
+    mkBucketInfo,
     biBuckets,
 
     -- ** DocumentServiceWarning
-    DocumentServiceWarning,
-    documentServiceWarning,
+    DocumentServiceWarning (..),
+    mkDocumentServiceWarning,
     dswMessage,
 
     -- ** FieldStats
-    FieldStats,
-    fieldStats,
+    FieldStats (..),
+    mkFieldStats,
     fsMax,
     fsMean,
     fsCount,
@@ -76,46 +74,57 @@ module Network.AWS.CloudSearchDomains
     fsSum,
 
     -- ** Hit
-    Hit,
-    hit,
-    hitExprs,
-    hitId,
-    hitHighlights,
-    hitFields,
+    Hit (..),
+    mkHit,
+    hExprs,
+    hId,
+    hHighlights,
+    hFields,
 
     -- ** Hits
-    Hits,
-    hits,
+    Hits (..),
+    mkHits,
     hCursor,
     hHit,
     hStart,
     hFound,
 
     -- ** SearchStatus
-    SearchStatus,
-    searchStatus,
+    SearchStatus (..),
+    mkSearchStatus,
     sRid,
     sTimems,
 
     -- ** SuggestModel
-    SuggestModel,
-    suggestModel,
+    SuggestModel (..),
+    mkSuggestModel,
     smFound,
     smSuggestions,
     smQuery,
 
     -- ** SuggestStatus
-    SuggestStatus,
-    suggestStatus,
+    SuggestStatus (..),
+    mkSuggestStatus,
     ssRid,
     ssTimems,
 
     -- ** SuggestionMatch
-    SuggestionMatch,
-    suggestionMatch,
+    SuggestionMatch (..),
+    mkSuggestionMatch,
     smSuggestion,
     smScore,
     smId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -124,6 +133,7 @@ import Network.AWS.CloudSearchDomains.Suggest
 import Network.AWS.CloudSearchDomains.Types
 import Network.AWS.CloudSearchDomains.UploadDocuments
 import Network.AWS.CloudSearchDomains.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

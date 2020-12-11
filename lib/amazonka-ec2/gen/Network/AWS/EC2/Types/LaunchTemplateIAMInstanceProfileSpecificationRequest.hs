@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateIAMInstanceProfileSpecificationRequest where
+module Network.AWS.EC2.Types.LaunchTemplateIAMInstanceProfileSpecificationRequest
+  ( LaunchTemplateIAMInstanceProfileSpecificationRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLaunchTemplateIAMInstanceProfileSpecificationRequest,
+
+    -- * Lenses
+    ltiapsrARN,
+    ltiapsrName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An IAM instance profile.
 --
---
---
--- /See:/ 'launchTemplateIAMInstanceProfileSpecificationRequest' smart constructor.
+-- /See:/ 'mkLaunchTemplateIAMInstanceProfileSpecificationRequest' smart constructor.
 data LaunchTemplateIAMInstanceProfileSpecificationRequest = LaunchTemplateIAMInstanceProfileSpecificationRequest'
-  { _ltiapsrARN ::
-      !( Maybe
-           Text
-       ),
-    _ltiapsrName ::
-      !( Maybe
-           Text
-       )
+  { arn ::
+      Lude.Maybe
+        Lude.Text,
+    name ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'LaunchTemplateIAMInstanceProfileSpecificationRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltiapsrARN' - The Amazon Resource Name (ARN) of the instance profile.
---
--- * 'ltiapsrName' - The name of the instance profile.
-launchTemplateIAMInstanceProfileSpecificationRequest ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the instance profile.
+-- * 'name' - The name of the instance profile.
+mkLaunchTemplateIAMInstanceProfileSpecificationRequest ::
   LaunchTemplateIAMInstanceProfileSpecificationRequest
-launchTemplateIAMInstanceProfileSpecificationRequest =
+mkLaunchTemplateIAMInstanceProfileSpecificationRequest =
   LaunchTemplateIAMInstanceProfileSpecificationRequest'
-    { _ltiapsrARN =
-        Nothing,
-      _ltiapsrName = Nothing
+    { arn =
+        Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-ltiapsrARN :: Lens' LaunchTemplateIAMInstanceProfileSpecificationRequest (Maybe Text)
-ltiapsrARN = lens _ltiapsrARN (\s a -> s {_ltiapsrARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltiapsrARN :: Lens.Lens' LaunchTemplateIAMInstanceProfileSpecificationRequest (Lude.Maybe Lude.Text)
+ltiapsrARN = Lens.lens (arn :: LaunchTemplateIAMInstanceProfileSpecificationRequest -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: LaunchTemplateIAMInstanceProfileSpecificationRequest)
+{-# DEPRECATED ltiapsrARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the instance profile.
-ltiapsrName :: Lens' LaunchTemplateIAMInstanceProfileSpecificationRequest (Maybe Text)
-ltiapsrName = lens _ltiapsrName (\s a -> s {_ltiapsrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltiapsrName :: Lens.Lens' LaunchTemplateIAMInstanceProfileSpecificationRequest (Lude.Maybe Lude.Text)
+ltiapsrName = Lens.lens (name :: LaunchTemplateIAMInstanceProfileSpecificationRequest -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LaunchTemplateIAMInstanceProfileSpecificationRequest)
+{-# DEPRECATED ltiapsrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance
-  Hashable
-    LaunchTemplateIAMInstanceProfileSpecificationRequest
-
-instance
-  NFData
-    LaunchTemplateIAMInstanceProfileSpecificationRequest
-
-instance
-  ToQuery
+  Lude.ToQuery
     LaunchTemplateIAMInstanceProfileSpecificationRequest
   where
   toQuery LaunchTemplateIAMInstanceProfileSpecificationRequest' {..} =
-    mconcat ["Arn" =: _ltiapsrARN, "Name" =: _ltiapsrName]
+    Lude.mconcat ["Arn" Lude.=: arn, "Name" Lude.=: name]

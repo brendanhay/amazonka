@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchListObjectAttributes where
+module Network.AWS.CloudDirectory.Types.BatchListObjectAttributes
+  ( BatchListObjectAttributes (..),
+
+    -- * Smart constructor
+    mkBatchListObjectAttributes,
+
+    -- * Lenses
+    bloaFacetFilter,
+    bloaNextToken,
+    bloaMaxResults,
+    bloaObjectReference,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.SchemaFacet
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the output of a 'ListObjectAttributes' operation.
 --
---
---
--- /See:/ 'batchListObjectAttributes' smart constructor.
+-- /See:/ 'mkBatchListObjectAttributes' smart constructor.
 data BatchListObjectAttributes = BatchListObjectAttributes'
-  { _bloaFacetFilter ::
-      !(Maybe SchemaFacet),
-    _bloaNextToken :: !(Maybe Text),
-    _bloaMaxResults :: !(Maybe Nat),
-    _bloaObjectReference ::
-      !ObjectReference
+  { facetFilter ::
+      Lude.Maybe SchemaFacet,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bloaFacetFilter' - Used to filter the list of object attributes that are associated with a certain facet.
---
--- * 'bloaNextToken' - The pagination token.
---
--- * 'bloaMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
---
--- * 'bloaObjectReference' - Reference of the object whose attributes need to be listed.
-batchListObjectAttributes ::
-  -- | 'bloaObjectReference'
+-- * 'facetFilter' - Used to filter the list of object attributes that are associated with a certain facet.
+-- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'nextToken' - The pagination token.
+-- * 'objectReference' - Reference of the object whose attributes need to be listed.
+mkBatchListObjectAttributes ::
+  -- | 'objectReference'
   ObjectReference ->
   BatchListObjectAttributes
-batchListObjectAttributes pObjectReference_ =
+mkBatchListObjectAttributes pObjectReference_ =
   BatchListObjectAttributes'
-    { _bloaFacetFilter = Nothing,
-      _bloaNextToken = Nothing,
-      _bloaMaxResults = Nothing,
-      _bloaObjectReference = pObjectReference_
+    { facetFilter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      objectReference = pObjectReference_
     }
 
 -- | Used to filter the list of object attributes that are associated with a certain facet.
-bloaFacetFilter :: Lens' BatchListObjectAttributes (Maybe SchemaFacet)
-bloaFacetFilter = lens _bloaFacetFilter (\s a -> s {_bloaFacetFilter = a})
+--
+-- /Note:/ Consider using 'facetFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloaFacetFilter :: Lens.Lens' BatchListObjectAttributes (Lude.Maybe SchemaFacet)
+bloaFacetFilter = Lens.lens (facetFilter :: BatchListObjectAttributes -> Lude.Maybe SchemaFacet) (\s a -> s {facetFilter = a} :: BatchListObjectAttributes)
+{-# DEPRECATED bloaFacetFilter "Use generic-lens or generic-optics with 'facetFilter' instead." #-}
 
 -- | The pagination token.
-bloaNextToken :: Lens' BatchListObjectAttributes (Maybe Text)
-bloaNextToken = lens _bloaNextToken (\s a -> s {_bloaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloaNextToken :: Lens.Lens' BatchListObjectAttributes (Lude.Maybe Lude.Text)
+bloaNextToken = Lens.lens (nextToken :: BatchListObjectAttributes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListObjectAttributes)
+{-# DEPRECATED bloaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
-bloaMaxResults :: Lens' BatchListObjectAttributes (Maybe Natural)
-bloaMaxResults = lens _bloaMaxResults (\s a -> s {_bloaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloaMaxResults :: Lens.Lens' BatchListObjectAttributes (Lude.Maybe Lude.Natural)
+bloaMaxResults = Lens.lens (maxResults :: BatchListObjectAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListObjectAttributes)
+{-# DEPRECATED bloaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Reference of the object whose attributes need to be listed.
-bloaObjectReference :: Lens' BatchListObjectAttributes ObjectReference
-bloaObjectReference = lens _bloaObjectReference (\s a -> s {_bloaObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloaObjectReference :: Lens.Lens' BatchListObjectAttributes ObjectReference
+bloaObjectReference = Lens.lens (objectReference :: BatchListObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: BatchListObjectAttributes)
+{-# DEPRECATED bloaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Hashable BatchListObjectAttributes
-
-instance NFData BatchListObjectAttributes
-
-instance ToJSON BatchListObjectAttributes where
+instance Lude.ToJSON BatchListObjectAttributes where
   toJSON BatchListObjectAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("FacetFilter" .=) <$> _bloaFacetFilter,
-            ("NextToken" .=) <$> _bloaNextToken,
-            ("MaxResults" .=) <$> _bloaMaxResults,
-            Just ("ObjectReference" .= _bloaObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FacetFilter" Lude..=) Lude.<$> facetFilter,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,90 +14,103 @@
 --
 -- Starts a previously stopped monitoring schedule.
 module Network.AWS.SageMaker.StartMonitoringSchedule
-  ( -- * Creating a Request
-    startMonitoringSchedule,
-    StartMonitoringSchedule,
+  ( -- * Creating a request
+    StartMonitoringSchedule (..),
+    mkStartMonitoringSchedule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sMonitoringScheduleName,
 
-    -- * Destructuring the Response
-    startMonitoringScheduleResponse,
-    StartMonitoringScheduleResponse,
+    -- * Destructuring the response
+    StartMonitoringScheduleResponse (..),
+    mkStartMonitoringScheduleResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'startMonitoringSchedule' smart constructor.
+-- | /See:/ 'mkStartMonitoringSchedule' smart constructor.
 newtype StartMonitoringSchedule = StartMonitoringSchedule'
-  { _sMonitoringScheduleName ::
-      Text
+  { monitoringScheduleName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMonitoringSchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sMonitoringScheduleName' - The name of the schedule to start.
-startMonitoringSchedule ::
-  -- | 'sMonitoringScheduleName'
-  Text ->
+-- * 'monitoringScheduleName' - The name of the schedule to start.
+mkStartMonitoringSchedule ::
+  -- | 'monitoringScheduleName'
+  Lude.Text ->
   StartMonitoringSchedule
-startMonitoringSchedule pMonitoringScheduleName_ =
+mkStartMonitoringSchedule pMonitoringScheduleName_ =
   StartMonitoringSchedule'
-    { _sMonitoringScheduleName =
+    { monitoringScheduleName =
         pMonitoringScheduleName_
     }
 
 -- | The name of the schedule to start.
-sMonitoringScheduleName :: Lens' StartMonitoringSchedule Text
-sMonitoringScheduleName = lens _sMonitoringScheduleName (\s a -> s {_sMonitoringScheduleName = a})
+--
+-- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMonitoringScheduleName :: Lens.Lens' StartMonitoringSchedule Lude.Text
+sMonitoringScheduleName = Lens.lens (monitoringScheduleName :: StartMonitoringSchedule -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: StartMonitoringSchedule)
+{-# DEPRECATED sMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
-instance AWSRequest StartMonitoringSchedule where
+instance Lude.AWSRequest StartMonitoringSchedule where
   type Rs StartMonitoringSchedule = StartMonitoringScheduleResponse
-  request = postJSON sageMaker
-  response = receiveNull StartMonitoringScheduleResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull StartMonitoringScheduleResponse'
 
-instance Hashable StartMonitoringSchedule
-
-instance NFData StartMonitoringSchedule
-
-instance ToHeaders StartMonitoringSchedule where
+instance Lude.ToHeaders StartMonitoringSchedule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.StartMonitoringSchedule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.StartMonitoringSchedule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartMonitoringSchedule where
+instance Lude.ToJSON StartMonitoringSchedule where
   toJSON StartMonitoringSchedule' {..} =
-    object
-      ( catMaybes
-          [Just ("MonitoringScheduleName" .= _sMonitoringScheduleName)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("MonitoringScheduleName" Lude..= monitoringScheduleName)
+          ]
       )
 
-instance ToPath StartMonitoringSchedule where
-  toPath = const "/"
+instance Lude.ToPath StartMonitoringSchedule where
+  toPath = Lude.const "/"
 
-instance ToQuery StartMonitoringSchedule where
-  toQuery = const mempty
+instance Lude.ToQuery StartMonitoringSchedule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startMonitoringScheduleResponse' smart constructor.
+-- | /See:/ 'mkStartMonitoringScheduleResponse' smart constructor.
 data StartMonitoringScheduleResponse = StartMonitoringScheduleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMonitoringScheduleResponse' with the minimum fields required to make a request.
-startMonitoringScheduleResponse ::
+mkStartMonitoringScheduleResponse ::
   StartMonitoringScheduleResponse
-startMonitoringScheduleResponse = StartMonitoringScheduleResponse'
-
-instance NFData StartMonitoringScheduleResponse
+mkStartMonitoringScheduleResponse =
+  StartMonitoringScheduleResponse'

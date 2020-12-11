@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.LogType where
+module Network.AWS.LexModels.Types.LogType
+  ( LogType
+      ( LogType',
+        Audio,
+        Text
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LogType
-  = Audio
-  | Text
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LogType = LogType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LogType where
-  parser =
-    takeLowerText >>= \case
-      "audio" -> pure Audio
-      "text" -> pure Text
-      e ->
-        fromTextError $
-          "Failure parsing LogType from value: '" <> e
-            <> "'. Accepted values: audio, text"
+pattern Audio :: LogType
+pattern Audio = LogType' "AUDIO"
 
-instance ToText LogType where
-  toText = \case
-    Audio -> "AUDIO"
-    Text -> "TEXT"
+pattern Text :: LogType
+pattern Text = LogType' "TEXT"
 
-instance Hashable LogType
-
-instance NFData LogType
-
-instance ToByteString LogType
-
-instance ToQuery LogType
-
-instance ToHeader LogType
-
-instance ToJSON LogType where
-  toJSON = toJSONText
-
-instance FromJSON LogType where
-  parseJSON = parseJSONText "LogType"
+{-# COMPLETE
+  Audio,
+  Text,
+  LogType'
+  #-}

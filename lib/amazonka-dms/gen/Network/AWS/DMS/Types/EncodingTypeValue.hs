@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.EncodingTypeValue where
+module Network.AWS.DMS.Types.EncodingTypeValue
+  ( EncodingTypeValue
+      ( EncodingTypeValue',
+        Plain,
+        PlainDictionary,
+        RleDictionary
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EncodingTypeValue
-  = Plain
-  | PlainDictionary
-  | RleDictionary
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EncodingTypeValue = EncodingTypeValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EncodingTypeValue where
-  parser =
-    takeLowerText >>= \case
-      "plain" -> pure Plain
-      "plain-dictionary" -> pure PlainDictionary
-      "rle-dictionary" -> pure RleDictionary
-      e ->
-        fromTextError $
-          "Failure parsing EncodingTypeValue from value: '" <> e
-            <> "'. Accepted values: plain, plain-dictionary, rle-dictionary"
+pattern Plain :: EncodingTypeValue
+pattern Plain = EncodingTypeValue' "plain"
 
-instance ToText EncodingTypeValue where
-  toText = \case
-    Plain -> "plain"
-    PlainDictionary -> "plain-dictionary"
-    RleDictionary -> "rle-dictionary"
+pattern PlainDictionary :: EncodingTypeValue
+pattern PlainDictionary = EncodingTypeValue' "plain-dictionary"
 
-instance Hashable EncodingTypeValue
+pattern RleDictionary :: EncodingTypeValue
+pattern RleDictionary = EncodingTypeValue' "rle-dictionary"
 
-instance NFData EncodingTypeValue
-
-instance ToByteString EncodingTypeValue
-
-instance ToQuery EncodingTypeValue
-
-instance ToHeader EncodingTypeValue
-
-instance ToJSON EncodingTypeValue where
-  toJSON = toJSONText
-
-instance FromJSON EncodingTypeValue where
-  parseJSON = parseJSONText "EncodingTypeValue"
+{-# COMPLETE
+  Plain,
+  PlainDictionary,
+  RleDictionary,
+  EncodingTypeValue'
+  #-}

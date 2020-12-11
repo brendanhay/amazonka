@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus where
+module Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus
+  ( EncryptionAtRestOptionsStatus (..),
+
+    -- * Smart constructor
+    mkEncryptionAtRestOptionsStatus,
+
+    -- * Lenses
+    earosOptions,
+    earosStatus,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Status of the Encryption At Rest options for the specified Elasticsearch domain.
 --
---
---
--- /See:/ 'encryptionAtRestOptionsStatus' smart constructor.
+-- /See:/ 'mkEncryptionAtRestOptionsStatus' smart constructor.
 data EncryptionAtRestOptionsStatus = EncryptionAtRestOptionsStatus'
-  { _earosOptions ::
-      !EncryptionAtRestOptions,
-    _earosStatus :: !OptionStatus
+  { options ::
+      EncryptionAtRestOptions,
+    status :: OptionStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionAtRestOptionsStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'earosOptions' - Specifies the Encryption At Rest options for the specified Elasticsearch domain.
---
--- * 'earosStatus' - Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-encryptionAtRestOptionsStatus ::
-  -- | 'earosOptions'
+-- * 'options' - Specifies the Encryption At Rest options for the specified Elasticsearch domain.
+-- * 'status' - Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
+mkEncryptionAtRestOptionsStatus ::
+  -- | 'options'
   EncryptionAtRestOptions ->
-  -- | 'earosStatus'
+  -- | 'status'
   OptionStatus ->
   EncryptionAtRestOptionsStatus
-encryptionAtRestOptionsStatus pOptions_ pStatus_ =
+mkEncryptionAtRestOptionsStatus pOptions_ pStatus_ =
   EncryptionAtRestOptionsStatus'
-    { _earosOptions = pOptions_,
-      _earosStatus = pStatus_
+    { options = pOptions_,
+      status = pStatus_
     }
 
 -- | Specifies the Encryption At Rest options for the specified Elasticsearch domain.
-earosOptions :: Lens' EncryptionAtRestOptionsStatus EncryptionAtRestOptions
-earosOptions = lens _earosOptions (\s a -> s {_earosOptions = a})
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+earosOptions :: Lens.Lens' EncryptionAtRestOptionsStatus EncryptionAtRestOptions
+earosOptions = Lens.lens (options :: EncryptionAtRestOptionsStatus -> EncryptionAtRestOptions) (\s a -> s {options = a} :: EncryptionAtRestOptionsStatus)
+{-# DEPRECATED earosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-earosStatus :: Lens' EncryptionAtRestOptionsStatus OptionStatus
-earosStatus = lens _earosStatus (\s a -> s {_earosStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+earosStatus :: Lens.Lens' EncryptionAtRestOptionsStatus OptionStatus
+earosStatus = Lens.lens (status :: EncryptionAtRestOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: EncryptionAtRestOptionsStatus)
+{-# DEPRECATED earosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON EncryptionAtRestOptionsStatus where
+instance Lude.FromJSON EncryptionAtRestOptionsStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "EncryptionAtRestOptionsStatus"
       ( \x ->
           EncryptionAtRestOptionsStatus'
-            <$> (x .: "Options") <*> (x .: "Status")
+            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
       )
-
-instance Hashable EncryptionAtRestOptionsStatus
-
-instance NFData EncryptionAtRestOptionsStatus

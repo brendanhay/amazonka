@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.H264FlickerAq where
+module Network.AWS.MediaLive.Types.H264FlickerAq
+  ( H264FlickerAq
+      ( H264FlickerAq',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | H264 Flicker Aq
-data H264FlickerAq
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype H264FlickerAq = H264FlickerAq' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText H264FlickerAq where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing H264FlickerAq from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: H264FlickerAq
+pattern Disabled = H264FlickerAq' "DISABLED"
 
-instance ToText H264FlickerAq where
-  toText = \case
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
+pattern Enabled :: H264FlickerAq
+pattern Enabled = H264FlickerAq' "ENABLED"
 
-instance Hashable H264FlickerAq
-
-instance NFData H264FlickerAq
-
-instance ToByteString H264FlickerAq
-
-instance ToQuery H264FlickerAq
-
-instance ToHeader H264FlickerAq
-
-instance ToJSON H264FlickerAq where
-  toJSON = toJSONText
-
-instance FromJSON H264FlickerAq where
-  parseJSON = parseJSONText "H264FlickerAq"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  H264FlickerAq'
+  #-}

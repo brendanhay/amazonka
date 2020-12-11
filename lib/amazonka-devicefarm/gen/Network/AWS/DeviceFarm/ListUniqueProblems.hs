@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Gets information about unique problems, such as exceptions or crashes.
 --
---
 -- Unique problems are defined as a single instance of an error across a run, job, or suite. For example, if a call in your application consistently raises an exception (@OutOfBoundsException in MyActivity.java:386@ ), @ListUniqueProblems@ returns a single entry instead of many individual entries for that exception.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListUniqueProblems
-  ( -- * Creating a Request
-    listUniqueProblems,
-    ListUniqueProblems,
+  ( -- * Creating a request
+    ListUniqueProblems (..),
+    mkListUniqueProblems,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lupNextToken,
     lupArn,
 
-    -- * Destructuring the Response
-    listUniqueProblemsResponse,
-    ListUniqueProblemsResponse,
+    -- * Destructuring the response
+    ListUniqueProblemsResponse (..),
+    mkListUniqueProblemsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     luprsNextToken,
     luprsUniqueProblems,
     luprsResponseStatus,
@@ -45,140 +38,203 @@ module Network.AWS.DeviceFarm.ListUniqueProblems
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the list unique problems operation.
 --
---
---
--- /See:/ 'listUniqueProblems' smart constructor.
+-- /See:/ 'mkListUniqueProblems' smart constructor.
 data ListUniqueProblems = ListUniqueProblems'
-  { _lupNextToken ::
-      !(Maybe Text),
-    _lupArn :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUniqueProblems' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lupNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lupArn' - The unique problems' ARNs.
-listUniqueProblems ::
-  -- | 'lupArn'
-  Text ->
+-- * 'arn' - The unique problems' ARNs.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListUniqueProblems ::
+  -- | 'arn'
+  Lude.Text ->
   ListUniqueProblems
-listUniqueProblems pArn_ =
-  ListUniqueProblems' {_lupNextToken = Nothing, _lupArn = pArn_}
+mkListUniqueProblems pArn_ =
+  ListUniqueProblems' {nextToken = Lude.Nothing, arn = pArn_}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lupNextToken :: Lens' ListUniqueProblems (Maybe Text)
-lupNextToken = lens _lupNextToken (\s a -> s {_lupNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupNextToken :: Lens.Lens' ListUniqueProblems (Lude.Maybe Lude.Text)
+lupNextToken = Lens.lens (nextToken :: ListUniqueProblems -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUniqueProblems)
+{-# DEPRECATED lupNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The unique problems' ARNs.
-lupArn :: Lens' ListUniqueProblems Text
-lupArn = lens _lupArn (\s a -> s {_lupArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupArn :: Lens.Lens' ListUniqueProblems Lude.Text
+lupArn = Lens.lens (arn :: ListUniqueProblems -> Lude.Text) (\s a -> s {arn = a} :: ListUniqueProblems)
+{-# DEPRECATED lupArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSPager ListUniqueProblems where
+instance Page.AWSPager ListUniqueProblems where
   page rq rs
-    | stop (rs ^. luprsNextToken) = Nothing
-    | stop (rs ^. luprsUniqueProblems) = Nothing
-    | otherwise = Just $ rq & lupNextToken .~ rs ^. luprsNextToken
+    | Page.stop (rs Lens.^. luprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. luprsUniqueProblems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lupNextToken Lens..~ rs Lens.^. luprsNextToken
 
-instance AWSRequest ListUniqueProblems where
+instance Lude.AWSRequest ListUniqueProblems where
   type Rs ListUniqueProblems = ListUniqueProblemsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListUniqueProblemsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "uniqueProblems" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "uniqueProblems" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListUniqueProblems
-
-instance NFData ListUniqueProblems
-
-instance ToHeaders ListUniqueProblems where
+instance Lude.ToHeaders ListUniqueProblems where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListUniqueProblems" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.ListUniqueProblems" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListUniqueProblems where
+instance Lude.ToJSON ListUniqueProblems where
   toJSON ListUniqueProblems' {..} =
-    object
-      ( catMaybes
-          [("nextToken" .=) <$> _lupNextToken, Just ("arn" .= _lupArn)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("arn" Lude..= arn)
+          ]
       )
 
-instance ToPath ListUniqueProblems where
-  toPath = const "/"
+instance Lude.ToPath ListUniqueProblems where
+  toPath = Lude.const "/"
 
-instance ToQuery ListUniqueProblems where
-  toQuery = const mempty
+instance Lude.ToQuery ListUniqueProblems where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a list unique problems request.
 --
---
---
--- /See:/ 'listUniqueProblemsResponse' smart constructor.
+-- /See:/ 'mkListUniqueProblemsResponse' smart constructor.
 data ListUniqueProblemsResponse = ListUniqueProblemsResponse'
-  { _luprsNextToken ::
-      !(Maybe Text),
-    _luprsUniqueProblems ::
-      !( Maybe
-           ( Map
-               ExecutionResult
-               ([UniqueProblem])
-           )
-       ),
-    _luprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    uniqueProblems ::
+      Lude.Maybe
+        ( Lude.HashMap
+            ExecutionResult
+            ([UniqueProblem])
+        ),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUniqueProblemsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+-- * 'uniqueProblems' - Information about the unique problems.
 --
--- * 'luprsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+-- Allowed values include:
 --
--- * 'luprsUniqueProblems' - Information about the unique problems. Allowed values include:     * PENDING     * PASSED     * WARNED     * FAILED     * SKIPPED     * ERRORED     * STOPPED
+--     * PENDING
 --
--- * 'luprsResponseStatus' - -- | The response status code.
-listUniqueProblemsResponse ::
-  -- | 'luprsResponseStatus'
-  Int ->
+--
+--     * PASSED
+--
+--
+--     * WARNED
+--
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+mkListUniqueProblemsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListUniqueProblemsResponse
-listUniqueProblemsResponse pResponseStatus_ =
+mkListUniqueProblemsResponse pResponseStatus_ =
   ListUniqueProblemsResponse'
-    { _luprsNextToken = Nothing,
-      _luprsUniqueProblems = Nothing,
-      _luprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      uniqueProblems = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
-luprsNextToken :: Lens' ListUniqueProblemsResponse (Maybe Text)
-luprsNextToken = lens _luprsNextToken (\s a -> s {_luprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprsNextToken :: Lens.Lens' ListUniqueProblemsResponse (Lude.Maybe Lude.Text)
+luprsNextToken = Lens.lens (nextToken :: ListUniqueProblemsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUniqueProblemsResponse)
+{-# DEPRECATED luprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Information about the unique problems. Allowed values include:     * PENDING     * PASSED     * WARNED     * FAILED     * SKIPPED     * ERRORED     * STOPPED
-luprsUniqueProblems :: Lens' ListUniqueProblemsResponse (HashMap ExecutionResult ([UniqueProblem]))
-luprsUniqueProblems = lens _luprsUniqueProblems (\s a -> s {_luprsUniqueProblems = a}) . _Default . _Map
+-- | Information about the unique problems.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PASSED
+--
+--
+--     * WARNED
+--
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+--
+-- /Note:/ Consider using 'uniqueProblems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprsUniqueProblems :: Lens.Lens' ListUniqueProblemsResponse (Lude.Maybe (Lude.HashMap ExecutionResult ([UniqueProblem])))
+luprsUniqueProblems = Lens.lens (uniqueProblems :: ListUniqueProblemsResponse -> Lude.Maybe (Lude.HashMap ExecutionResult ([UniqueProblem]))) (\s a -> s {uniqueProblems = a} :: ListUniqueProblemsResponse)
+{-# DEPRECATED luprsUniqueProblems "Use generic-lens or generic-optics with 'uniqueProblems' instead." #-}
 
--- | -- | The response status code.
-luprsResponseStatus :: Lens' ListUniqueProblemsResponse Int
-luprsResponseStatus = lens _luprsResponseStatus (\s a -> s {_luprsResponseStatus = a})
-
-instance NFData ListUniqueProblemsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprsResponseStatus :: Lens.Lens' ListUniqueProblemsResponse Lude.Int
+luprsResponseStatus = Lens.lens (responseStatus :: ListUniqueProblemsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUniqueProblemsResponse)
+{-# DEPRECATED luprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

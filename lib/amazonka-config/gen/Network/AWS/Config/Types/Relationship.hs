@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.Relationship where
+module Network.AWS.Config.Types.Relationship
+  ( Relationship (..),
+
+    -- * Smart constructor
+    mkRelationship,
+
+    -- * Lenses
+    rResourceId,
+    rResourceType,
+    rResourceName,
+    rRelationshipName,
+  )
+where
 
 import Network.AWS.Config.Types.ResourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The relationship of the related resource to the main resource.
 --
---
---
--- /See:/ 'relationship' smart constructor.
+-- /See:/ 'mkRelationship' smart constructor.
 data Relationship = Relationship'
-  { _rResourceId :: !(Maybe Text),
-    _rResourceType :: !(Maybe ResourceType),
-    _rResourceName :: !(Maybe Text),
-    _rRelationshipName :: !(Maybe Text)
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceType :: Lude.Maybe ResourceType,
+    resourceName :: Lude.Maybe Lude.Text,
+    relationshipName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Relationship' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rResourceId' - The ID of the related resource (for example, @sg-xxxxxx@ ).
---
--- * 'rResourceType' - The resource type of the related resource.
---
--- * 'rResourceName' - The custom name of the related resource, if available.
---
--- * 'rRelationshipName' - The type of relationship with the related resource.
-relationship ::
+-- * 'relationshipName' - The type of relationship with the related resource.
+-- * 'resourceId' - The ID of the related resource (for example, @sg-xxxxxx@ ).
+-- * 'resourceName' - The custom name of the related resource, if available.
+-- * 'resourceType' - The resource type of the related resource.
+mkRelationship ::
   Relationship
-relationship =
+mkRelationship =
   Relationship'
-    { _rResourceId = Nothing,
-      _rResourceType = Nothing,
-      _rResourceName = Nothing,
-      _rRelationshipName = Nothing
+    { resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      resourceName = Lude.Nothing,
+      relationshipName = Lude.Nothing
     }
 
 -- | The ID of the related resource (for example, @sg-xxxxxx@ ).
-rResourceId :: Lens' Relationship (Maybe Text)
-rResourceId = lens _rResourceId (\s a -> s {_rResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResourceId :: Lens.Lens' Relationship (Lude.Maybe Lude.Text)
+rResourceId = Lens.lens (resourceId :: Relationship -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: Relationship)
+{-# DEPRECATED rResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The resource type of the related resource.
-rResourceType :: Lens' Relationship (Maybe ResourceType)
-rResourceType = lens _rResourceType (\s a -> s {_rResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResourceType :: Lens.Lens' Relationship (Lude.Maybe ResourceType)
+rResourceType = Lens.lens (resourceType :: Relationship -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: Relationship)
+{-# DEPRECATED rResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The custom name of the related resource, if available.
-rResourceName :: Lens' Relationship (Maybe Text)
-rResourceName = lens _rResourceName (\s a -> s {_rResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResourceName :: Lens.Lens' Relationship (Lude.Maybe Lude.Text)
+rResourceName = Lens.lens (resourceName :: Relationship -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: Relationship)
+{-# DEPRECATED rResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The type of relationship with the related resource.
-rRelationshipName :: Lens' Relationship (Maybe Text)
-rRelationshipName = lens _rRelationshipName (\s a -> s {_rRelationshipName = a})
+--
+-- /Note:/ Consider using 'relationshipName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRelationshipName :: Lens.Lens' Relationship (Lude.Maybe Lude.Text)
+rRelationshipName = Lens.lens (relationshipName :: Relationship -> Lude.Maybe Lude.Text) (\s a -> s {relationshipName = a} :: Relationship)
+{-# DEPRECATED rRelationshipName "Use generic-lens or generic-optics with 'relationshipName' instead." #-}
 
-instance FromJSON Relationship where
+instance Lude.FromJSON Relationship where
   parseJSON =
-    withObject
+    Lude.withObject
       "Relationship"
       ( \x ->
           Relationship'
-            <$> (x .:? "resourceId")
-            <*> (x .:? "resourceType")
-            <*> (x .:? "resourceName")
-            <*> (x .:? "relationshipName")
+            Lude.<$> (x Lude..:? "resourceId")
+            Lude.<*> (x Lude..:? "resourceType")
+            Lude.<*> (x Lude..:? "resourceName")
+            Lude.<*> (x Lude..:? "relationshipName")
       )
-
-instance Hashable Relationship
-
-instance NFData Relationship

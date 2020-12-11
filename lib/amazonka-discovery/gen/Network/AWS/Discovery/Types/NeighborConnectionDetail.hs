@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,92 +7,115 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.NeighborConnectionDetail where
+module Network.AWS.Discovery.Types.NeighborConnectionDetail
+  ( NeighborConnectionDetail (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNeighborConnectionDetail,
+
+    -- * Lenses
+    ncdTransportProtocol,
+    ncdDestinationPort,
+    ncdSourceServerId,
+    ncdDestinationServerId,
+    ncdConnectionsCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about neighboring servers.
 --
---
---
--- /See:/ 'neighborConnectionDetail' smart constructor.
+-- /See:/ 'mkNeighborConnectionDetail' smart constructor.
 data NeighborConnectionDetail = NeighborConnectionDetail'
-  { _ncdTransportProtocol ::
-      !(Maybe Text),
-    _ncdDestinationPort :: !(Maybe Int),
-    _ncdSourceServerId :: !Text,
-    _ncdDestinationServerId :: !Text,
-    _ncdConnectionsCount :: !Integer
+  { transportProtocol ::
+      Lude.Maybe Lude.Text,
+    destinationPort :: Lude.Maybe Lude.Int,
+    sourceServerId :: Lude.Text,
+    destinationServerId :: Lude.Text,
+    connectionsCount :: Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NeighborConnectionDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ncdTransportProtocol' - The network protocol used for the connection.
---
--- * 'ncdDestinationPort' - The destination network port for the connection.
---
--- * 'ncdSourceServerId' - The ID of the server that opened the network connection.
---
--- * 'ncdDestinationServerId' - The ID of the server that accepted the network connection.
---
--- * 'ncdConnectionsCount' - The number of open network connections with the neighboring server.
-neighborConnectionDetail ::
-  -- | 'ncdSourceServerId'
-  Text ->
-  -- | 'ncdDestinationServerId'
-  Text ->
-  -- | 'ncdConnectionsCount'
-  Integer ->
+-- * 'connectionsCount' - The number of open network connections with the neighboring server.
+-- * 'destinationPort' - The destination network port for the connection.
+-- * 'destinationServerId' - The ID of the server that accepted the network connection.
+-- * 'sourceServerId' - The ID of the server that opened the network connection.
+-- * 'transportProtocol' - The network protocol used for the connection.
+mkNeighborConnectionDetail ::
+  -- | 'sourceServerId'
+  Lude.Text ->
+  -- | 'destinationServerId'
+  Lude.Text ->
+  -- | 'connectionsCount'
+  Lude.Integer ->
   NeighborConnectionDetail
-neighborConnectionDetail
+mkNeighborConnectionDetail
   pSourceServerId_
   pDestinationServerId_
   pConnectionsCount_ =
     NeighborConnectionDetail'
-      { _ncdTransportProtocol = Nothing,
-        _ncdDestinationPort = Nothing,
-        _ncdSourceServerId = pSourceServerId_,
-        _ncdDestinationServerId = pDestinationServerId_,
-        _ncdConnectionsCount = pConnectionsCount_
+      { transportProtocol = Lude.Nothing,
+        destinationPort = Lude.Nothing,
+        sourceServerId = pSourceServerId_,
+        destinationServerId = pDestinationServerId_,
+        connectionsCount = pConnectionsCount_
       }
 
 -- | The network protocol used for the connection.
-ncdTransportProtocol :: Lens' NeighborConnectionDetail (Maybe Text)
-ncdTransportProtocol = lens _ncdTransportProtocol (\s a -> s {_ncdTransportProtocol = a})
+--
+-- /Note:/ Consider using 'transportProtocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncdTransportProtocol :: Lens.Lens' NeighborConnectionDetail (Lude.Maybe Lude.Text)
+ncdTransportProtocol = Lens.lens (transportProtocol :: NeighborConnectionDetail -> Lude.Maybe Lude.Text) (\s a -> s {transportProtocol = a} :: NeighborConnectionDetail)
+{-# DEPRECATED ncdTransportProtocol "Use generic-lens or generic-optics with 'transportProtocol' instead." #-}
 
 -- | The destination network port for the connection.
-ncdDestinationPort :: Lens' NeighborConnectionDetail (Maybe Int)
-ncdDestinationPort = lens _ncdDestinationPort (\s a -> s {_ncdDestinationPort = a})
+--
+-- /Note:/ Consider using 'destinationPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncdDestinationPort :: Lens.Lens' NeighborConnectionDetail (Lude.Maybe Lude.Int)
+ncdDestinationPort = Lens.lens (destinationPort :: NeighborConnectionDetail -> Lude.Maybe Lude.Int) (\s a -> s {destinationPort = a} :: NeighborConnectionDetail)
+{-# DEPRECATED ncdDestinationPort "Use generic-lens or generic-optics with 'destinationPort' instead." #-}
 
 -- | The ID of the server that opened the network connection.
-ncdSourceServerId :: Lens' NeighborConnectionDetail Text
-ncdSourceServerId = lens _ncdSourceServerId (\s a -> s {_ncdSourceServerId = a})
+--
+-- /Note:/ Consider using 'sourceServerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncdSourceServerId :: Lens.Lens' NeighborConnectionDetail Lude.Text
+ncdSourceServerId = Lens.lens (sourceServerId :: NeighborConnectionDetail -> Lude.Text) (\s a -> s {sourceServerId = a} :: NeighborConnectionDetail)
+{-# DEPRECATED ncdSourceServerId "Use generic-lens or generic-optics with 'sourceServerId' instead." #-}
 
 -- | The ID of the server that accepted the network connection.
-ncdDestinationServerId :: Lens' NeighborConnectionDetail Text
-ncdDestinationServerId = lens _ncdDestinationServerId (\s a -> s {_ncdDestinationServerId = a})
+--
+-- /Note:/ Consider using 'destinationServerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncdDestinationServerId :: Lens.Lens' NeighborConnectionDetail Lude.Text
+ncdDestinationServerId = Lens.lens (destinationServerId :: NeighborConnectionDetail -> Lude.Text) (\s a -> s {destinationServerId = a} :: NeighborConnectionDetail)
+{-# DEPRECATED ncdDestinationServerId "Use generic-lens or generic-optics with 'destinationServerId' instead." #-}
 
 -- | The number of open network connections with the neighboring server.
-ncdConnectionsCount :: Lens' NeighborConnectionDetail Integer
-ncdConnectionsCount = lens _ncdConnectionsCount (\s a -> s {_ncdConnectionsCount = a})
+--
+-- /Note:/ Consider using 'connectionsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncdConnectionsCount :: Lens.Lens' NeighborConnectionDetail Lude.Integer
+ncdConnectionsCount = Lens.lens (connectionsCount :: NeighborConnectionDetail -> Lude.Integer) (\s a -> s {connectionsCount = a} :: NeighborConnectionDetail)
+{-# DEPRECATED ncdConnectionsCount "Use generic-lens or generic-optics with 'connectionsCount' instead." #-}
 
-instance FromJSON NeighborConnectionDetail where
+instance Lude.FromJSON NeighborConnectionDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "NeighborConnectionDetail"
       ( \x ->
           NeighborConnectionDetail'
-            <$> (x .:? "transportProtocol")
-            <*> (x .:? "destinationPort")
-            <*> (x .: "sourceServerId")
-            <*> (x .: "destinationServerId")
-            <*> (x .: "connectionsCount")
+            Lude.<$> (x Lude..:? "transportProtocol")
+            Lude.<*> (x Lude..:? "destinationPort")
+            Lude.<*> (x Lude..: "sourceServerId")
+            Lude.<*> (x Lude..: "destinationServerId")
+            Lude.<*> (x Lude..: "connectionsCount")
       )
-
-instance Hashable NeighborConnectionDetail
-
-instance NFData NeighborConnectionDetail

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Order where
+module Network.AWS.MediaConvert.Types.Order
+  ( Order
+      ( Order',
+        Ascending,
+        Descending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
-data Order
-  = Ascending
-  | Descending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Order = Order' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Order where
-  parser =
-    takeLowerText >>= \case
-      "ascending" -> pure Ascending
-      "descending" -> pure Descending
-      e ->
-        fromTextError $
-          "Failure parsing Order from value: '" <> e
-            <> "'. Accepted values: ascending, descending"
+pattern Ascending :: Order
+pattern Ascending = Order' "ASCENDING"
 
-instance ToText Order where
-  toText = \case
-    Ascending -> "ASCENDING"
-    Descending -> "DESCENDING"
+pattern Descending :: Order
+pattern Descending = Order' "DESCENDING"
 
-instance Hashable Order
-
-instance NFData Order
-
-instance ToByteString Order
-
-instance ToQuery Order
-
-instance ToHeader Order
-
-instance ToJSON Order where
-  toJSON = toJSONText
+{-# COMPLETE
+  Ascending,
+  Descending,
+  Order'
+  #-}

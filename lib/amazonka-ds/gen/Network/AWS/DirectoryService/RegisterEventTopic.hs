@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,142 @@
 --
 -- Associates a directory with an SNS topic. This establishes the directory as a publisher to the specified SNS topic. You can then receive email or text (SMS) messages when the status of your directory changes. You get notified if your directory goes from an Active status to an Impaired or Inoperable status. You also receive a notification when the directory returns to an Active status.
 module Network.AWS.DirectoryService.RegisterEventTopic
-  ( -- * Creating a Request
-    registerEventTopic,
-    RegisterEventTopic,
+  ( -- * Creating a request
+    RegisterEventTopic (..),
+    mkRegisterEventTopic,
 
-    -- * Request Lenses
+    -- ** Request lenses
     retDirectoryId,
     retTopicName,
 
-    -- * Destructuring the Response
-    registerEventTopicResponse,
-    RegisterEventTopicResponse,
+    -- * Destructuring the response
+    RegisterEventTopicResponse (..),
+    mkRegisterEventTopicResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     retrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Registers a new event topic.
 --
---
---
--- /See:/ 'registerEventTopic' smart constructor.
+-- /See:/ 'mkRegisterEventTopic' smart constructor.
 data RegisterEventTopic = RegisterEventTopic'
-  { _retDirectoryId ::
-      !Text,
-    _retTopicName :: !Text
+  { directoryId ::
+      Lude.Text,
+    topicName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterEventTopic' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'retDirectoryId' - The Directory ID that will publish status messages to the SNS topic.
---
--- * 'retTopicName' - The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.
-registerEventTopic ::
-  -- | 'retDirectoryId'
-  Text ->
-  -- | 'retTopicName'
-  Text ->
+-- * 'directoryId' - The Directory ID that will publish status messages to the SNS topic.
+-- * 'topicName' - The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.
+mkRegisterEventTopic ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'topicName'
+  Lude.Text ->
   RegisterEventTopic
-registerEventTopic pDirectoryId_ pTopicName_ =
+mkRegisterEventTopic pDirectoryId_ pTopicName_ =
   RegisterEventTopic'
-    { _retDirectoryId = pDirectoryId_,
-      _retTopicName = pTopicName_
+    { directoryId = pDirectoryId_,
+      topicName = pTopicName_
     }
 
 -- | The Directory ID that will publish status messages to the SNS topic.
-retDirectoryId :: Lens' RegisterEventTopic Text
-retDirectoryId = lens _retDirectoryId (\s a -> s {_retDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+retDirectoryId :: Lens.Lens' RegisterEventTopic Lude.Text
+retDirectoryId = Lens.lens (directoryId :: RegisterEventTopic -> Lude.Text) (\s a -> s {directoryId = a} :: RegisterEventTopic)
+{-# DEPRECATED retDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The SNS topic name to which the directory will publish status messages. This SNS topic must be in the same region as the specified Directory ID.
-retTopicName :: Lens' RegisterEventTopic Text
-retTopicName = lens _retTopicName (\s a -> s {_retTopicName = a})
+--
+-- /Note:/ Consider using 'topicName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+retTopicName :: Lens.Lens' RegisterEventTopic Lude.Text
+retTopicName = Lens.lens (topicName :: RegisterEventTopic -> Lude.Text) (\s a -> s {topicName = a} :: RegisterEventTopic)
+{-# DEPRECATED retTopicName "Use generic-lens or generic-optics with 'topicName' instead." #-}
 
-instance AWSRequest RegisterEventTopic where
+instance Lude.AWSRequest RegisterEventTopic where
   type Rs RegisterEventTopic = RegisterEventTopicResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveEmpty
-      (\s h x -> RegisterEventTopicResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          RegisterEventTopicResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable RegisterEventTopic
-
-instance NFData RegisterEventTopic
-
-instance ToHeaders RegisterEventTopic where
+instance Lude.ToHeaders RegisterEventTopic where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.RegisterEventTopic" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.RegisterEventTopic" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterEventTopic where
+instance Lude.ToJSON RegisterEventTopic where
   toJSON RegisterEventTopic' {..} =
-    object
-      ( catMaybes
-          [ Just ("DirectoryId" .= _retDirectoryId),
-            Just ("TopicName" .= _retTopicName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("TopicName" Lude..= topicName)
           ]
       )
 
-instance ToPath RegisterEventTopic where
-  toPath = const "/"
+instance Lude.ToPath RegisterEventTopic where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterEventTopic where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterEventTopic where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a RegisterEventTopic request.
 --
---
---
--- /See:/ 'registerEventTopicResponse' smart constructor.
+-- /See:/ 'mkRegisterEventTopicResponse' smart constructor.
 newtype RegisterEventTopicResponse = RegisterEventTopicResponse'
-  { _retrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterEventTopicResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'retrsResponseStatus' - -- | The response status code.
-registerEventTopicResponse ::
-  -- | 'retrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkRegisterEventTopicResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RegisterEventTopicResponse
-registerEventTopicResponse pResponseStatus_ =
-  RegisterEventTopicResponse'
-    { _retrsResponseStatus =
-        pResponseStatus_
-    }
+mkRegisterEventTopicResponse pResponseStatus_ =
+  RegisterEventTopicResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-retrsResponseStatus :: Lens' RegisterEventTopicResponse Int
-retrsResponseStatus = lens _retrsResponseStatus (\s a -> s {_retrsResponseStatus = a})
-
-instance NFData RegisterEventTopicResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+retrsResponseStatus :: Lens.Lens' RegisterEventTopicResponse Lude.Int
+retrsResponseStatus = Lens.lens (responseStatus :: RegisterEventTopicResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterEventTopicResponse)
+{-# DEPRECATED retrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

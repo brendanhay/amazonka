@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Types.OutputFormat where
+module Network.AWS.Polly.Types.OutputFormat
+  ( OutputFormat
+      ( OutputFormat',
+        JSON,
+        MP3,
+        OggVorbis,
+        Pcm
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OutputFormat
-  = JSON
-  | MP3
-  | OggVorbis
-  | Pcm
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OutputFormat = OutputFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OutputFormat where
-  parser =
-    takeLowerText >>= \case
-      "json" -> pure JSON
-      "mp3" -> pure MP3
-      "ogg_vorbis" -> pure OggVorbis
-      "pcm" -> pure Pcm
-      e ->
-        fromTextError $
-          "Failure parsing OutputFormat from value: '" <> e
-            <> "'. Accepted values: json, mp3, ogg_vorbis, pcm"
+pattern JSON :: OutputFormat
+pattern JSON = OutputFormat' "json"
 
-instance ToText OutputFormat where
-  toText = \case
-    JSON -> "json"
-    MP3 -> "mp3"
-    OggVorbis -> "ogg_vorbis"
-    Pcm -> "pcm"
+pattern MP3 :: OutputFormat
+pattern MP3 = OutputFormat' "mp3"
 
-instance Hashable OutputFormat
+pattern OggVorbis :: OutputFormat
+pattern OggVorbis = OutputFormat' "ogg_vorbis"
 
-instance NFData OutputFormat
+pattern Pcm :: OutputFormat
+pattern Pcm = OutputFormat' "pcm"
 
-instance ToByteString OutputFormat
-
-instance ToQuery OutputFormat
-
-instance ToHeader OutputFormat
-
-instance ToJSON OutputFormat where
-  toJSON = toJSONText
-
-instance FromJSON OutputFormat where
-  parseJSON = parseJSONText "OutputFormat"
+{-# COMPLETE
+  JSON,
+  MP3,
+  OggVorbis,
+  Pcm,
+  OutputFormat'
+  #-}

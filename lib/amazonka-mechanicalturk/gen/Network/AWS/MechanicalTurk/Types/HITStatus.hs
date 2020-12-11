@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.HITStatus where
+module Network.AWS.MechanicalTurk.Types.HITStatus
+  ( HITStatus
+      ( HITStatus',
+        HITSAssignable,
+        HITSDisposed,
+        HITSReviewable,
+        HITSReviewing,
+        HITSUnassignable
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HITStatus
-  = HITSAssignable
-  | HITSDisposed
-  | HITSReviewable
-  | HITSReviewing
-  | HITSUnassignable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HITStatus = HITStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HITStatus where
-  parser =
-    takeLowerText >>= \case
-      "assignable" -> pure HITSAssignable
-      "disposed" -> pure HITSDisposed
-      "reviewable" -> pure HITSReviewable
-      "reviewing" -> pure HITSReviewing
-      "unassignable" -> pure HITSUnassignable
-      e ->
-        fromTextError $
-          "Failure parsing HITStatus from value: '" <> e
-            <> "'. Accepted values: assignable, disposed, reviewable, reviewing, unassignable"
+pattern HITSAssignable :: HITStatus
+pattern HITSAssignable = HITStatus' "Assignable"
 
-instance ToText HITStatus where
-  toText = \case
-    HITSAssignable -> "Assignable"
-    HITSDisposed -> "Disposed"
-    HITSReviewable -> "Reviewable"
-    HITSReviewing -> "Reviewing"
-    HITSUnassignable -> "Unassignable"
+pattern HITSDisposed :: HITStatus
+pattern HITSDisposed = HITStatus' "Disposed"
 
-instance Hashable HITStatus
+pattern HITSReviewable :: HITStatus
+pattern HITSReviewable = HITStatus' "Reviewable"
 
-instance NFData HITStatus
+pattern HITSReviewing :: HITStatus
+pattern HITSReviewing = HITStatus' "Reviewing"
 
-instance ToByteString HITStatus
+pattern HITSUnassignable :: HITStatus
+pattern HITSUnassignable = HITStatus' "Unassignable"
 
-instance ToQuery HITStatus
-
-instance ToHeader HITStatus
-
-instance FromJSON HITStatus where
-  parseJSON = parseJSONText "HITStatus"
+{-# COMPLETE
+  HITSAssignable,
+  HITSDisposed,
+  HITSReviewable,
+  HITSReviewing,
+  HITSUnassignable,
+  HITStatus'
+  #-}

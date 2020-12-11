@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.IPv6SupportValue where
+module Network.AWS.EC2.Types.IPv6SupportValue
+  ( IPv6SupportValue
+      ( IPv6SupportValue',
+        ISVDisable,
+        ISVEnable
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data IPv6SupportValue
-  = ISVDisable
-  | ISVEnable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype IPv6SupportValue = IPv6SupportValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText IPv6SupportValue where
-  parser =
-    takeLowerText >>= \case
-      "disable" -> pure ISVDisable
-      "enable" -> pure ISVEnable
-      e ->
-        fromTextError $
-          "Failure parsing IPv6SupportValue from value: '" <> e
-            <> "'. Accepted values: disable, enable"
+pattern ISVDisable :: IPv6SupportValue
+pattern ISVDisable = IPv6SupportValue' "disable"
 
-instance ToText IPv6SupportValue where
-  toText = \case
-    ISVDisable -> "disable"
-    ISVEnable -> "enable"
+pattern ISVEnable :: IPv6SupportValue
+pattern ISVEnable = IPv6SupportValue' "enable"
 
-instance Hashable IPv6SupportValue
-
-instance NFData IPv6SupportValue
-
-instance ToByteString IPv6SupportValue
-
-instance ToQuery IPv6SupportValue
-
-instance ToHeader IPv6SupportValue
-
-instance FromXML IPv6SupportValue where
-  parseXML = parseXMLText "IPv6SupportValue"
+{-# COMPLETE
+  ISVDisable,
+  ISVEnable,
+  IPv6SupportValue'
+  #-}

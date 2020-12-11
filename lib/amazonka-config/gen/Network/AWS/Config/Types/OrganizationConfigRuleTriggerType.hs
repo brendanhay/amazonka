@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.OrganizationConfigRuleTriggerType where
+module Network.AWS.Config.Types.OrganizationConfigRuleTriggerType
+  ( OrganizationConfigRuleTriggerType
+      ( OrganizationConfigRuleTriggerType',
+        OCRTTConfigurationItemChangeNotification,
+        OCRTTOversizedConfigurationItemChangeNotification,
+        OCRTTScheduledNotification
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OrganizationConfigRuleTriggerType
-  = OCRTTConfigurationItemChangeNotification
-  | OCRTTOversizedConfigurationItemChangeNotification
-  | OCRTTScheduledNotification
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OrganizationConfigRuleTriggerType = OrganizationConfigRuleTriggerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OrganizationConfigRuleTriggerType where
-  parser =
-    takeLowerText >>= \case
-      "configurationitemchangenotification" -> pure OCRTTConfigurationItemChangeNotification
-      "oversizedconfigurationitemchangenotification" -> pure OCRTTOversizedConfigurationItemChangeNotification
-      "schedulednotification" -> pure OCRTTScheduledNotification
-      e ->
-        fromTextError $
-          "Failure parsing OrganizationConfigRuleTriggerType from value: '" <> e
-            <> "'. Accepted values: configurationitemchangenotification, oversizedconfigurationitemchangenotification, schedulednotification"
+pattern OCRTTConfigurationItemChangeNotification :: OrganizationConfigRuleTriggerType
+pattern OCRTTConfigurationItemChangeNotification = OrganizationConfigRuleTriggerType' "ConfigurationItemChangeNotification"
 
-instance ToText OrganizationConfigRuleTriggerType where
-  toText = \case
-    OCRTTConfigurationItemChangeNotification -> "ConfigurationItemChangeNotification"
-    OCRTTOversizedConfigurationItemChangeNotification -> "OversizedConfigurationItemChangeNotification"
-    OCRTTScheduledNotification -> "ScheduledNotification"
+pattern OCRTTOversizedConfigurationItemChangeNotification :: OrganizationConfigRuleTriggerType
+pattern OCRTTOversizedConfigurationItemChangeNotification = OrganizationConfigRuleTriggerType' "OversizedConfigurationItemChangeNotification"
 
-instance Hashable OrganizationConfigRuleTriggerType
+pattern OCRTTScheduledNotification :: OrganizationConfigRuleTriggerType
+pattern OCRTTScheduledNotification = OrganizationConfigRuleTriggerType' "ScheduledNotification"
 
-instance NFData OrganizationConfigRuleTriggerType
-
-instance ToByteString OrganizationConfigRuleTriggerType
-
-instance ToQuery OrganizationConfigRuleTriggerType
-
-instance ToHeader OrganizationConfigRuleTriggerType
-
-instance ToJSON OrganizationConfigRuleTriggerType where
-  toJSON = toJSONText
-
-instance FromJSON OrganizationConfigRuleTriggerType where
-  parseJSON = parseJSONText "OrganizationConfigRuleTriggerType"
+{-# COMPLETE
+  OCRTTConfigurationItemChangeNotification,
+  OCRTTOversizedConfigurationItemChangeNotification,
+  OCRTTScheduledNotification,
+  OrganizationConfigRuleTriggerType'
+  #-}

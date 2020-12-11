@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Retrieves the details about a specific task run as part of a maintenance window execution.
 module Network.AWS.SSM.GetMaintenanceWindowExecutionTask
-  ( -- * Creating a Request
-    getMaintenanceWindowExecutionTask,
-    GetMaintenanceWindowExecutionTask,
+  ( -- * Creating a request
+    GetMaintenanceWindowExecutionTask (..),
+    mkGetMaintenanceWindowExecutionTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gmwetWindowExecutionId,
     gmwetTaskId,
 
-    -- * Destructuring the Response
-    getMaintenanceWindowExecutionTaskResponse,
-    GetMaintenanceWindowExecutionTaskResponse,
+    -- * Destructuring the response
+    GetMaintenanceWindowExecutionTaskResponse (..),
+    mkGetMaintenanceWindowExecutionTaskResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gmwetrsStatus,
     gmwetrsTaskParameters,
     gmwetrsTaskExecutionId,
@@ -49,278 +44,304 @@ module Network.AWS.SSM.GetMaintenanceWindowExecutionTask
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getMaintenanceWindowExecutionTask' smart constructor.
+-- | /See:/ 'mkGetMaintenanceWindowExecutionTask' smart constructor.
 data GetMaintenanceWindowExecutionTask = GetMaintenanceWindowExecutionTask'
-  { _gmwetWindowExecutionId ::
-      !Text,
-    _gmwetTaskId :: !Text
+  { windowExecutionId ::
+      Lude.Text,
+    taskId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gmwetWindowExecutionId' - The ID of the maintenance window execution that includes the task.
---
--- * 'gmwetTaskId' - The ID of the specific task execution in the maintenance window task that should be retrieved.
-getMaintenanceWindowExecutionTask ::
-  -- | 'gmwetWindowExecutionId'
-  Text ->
-  -- | 'gmwetTaskId'
-  Text ->
+-- * 'taskId' - The ID of the specific task execution in the maintenance window task that should be retrieved.
+-- * 'windowExecutionId' - The ID of the maintenance window execution that includes the task.
+mkGetMaintenanceWindowExecutionTask ::
+  -- | 'windowExecutionId'
+  Lude.Text ->
+  -- | 'taskId'
+  Lude.Text ->
   GetMaintenanceWindowExecutionTask
-getMaintenanceWindowExecutionTask pWindowExecutionId_ pTaskId_ =
+mkGetMaintenanceWindowExecutionTask pWindowExecutionId_ pTaskId_ =
   GetMaintenanceWindowExecutionTask'
-    { _gmwetWindowExecutionId =
+    { windowExecutionId =
         pWindowExecutionId_,
-      _gmwetTaskId = pTaskId_
+      taskId = pTaskId_
     }
 
 -- | The ID of the maintenance window execution that includes the task.
-gmwetWindowExecutionId :: Lens' GetMaintenanceWindowExecutionTask Text
-gmwetWindowExecutionId = lens _gmwetWindowExecutionId (\s a -> s {_gmwetWindowExecutionId = a})
+--
+-- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetWindowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTask Lude.Text
+gmwetWindowExecutionId = Lens.lens (windowExecutionId :: GetMaintenanceWindowExecutionTask -> Lude.Text) (\s a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecutionTask)
+{-# DEPRECATED gmwetWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
 -- | The ID of the specific task execution in the maintenance window task that should be retrieved.
-gmwetTaskId :: Lens' GetMaintenanceWindowExecutionTask Text
-gmwetTaskId = lens _gmwetTaskId (\s a -> s {_gmwetTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetTaskId :: Lens.Lens' GetMaintenanceWindowExecutionTask Lude.Text
+gmwetTaskId = Lens.lens (taskId :: GetMaintenanceWindowExecutionTask -> Lude.Text) (\s a -> s {taskId = a} :: GetMaintenanceWindowExecutionTask)
+{-# DEPRECATED gmwetTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
-instance AWSRequest GetMaintenanceWindowExecutionTask where
+instance Lude.AWSRequest GetMaintenanceWindowExecutionTask where
   type
     Rs GetMaintenanceWindowExecutionTask =
       GetMaintenanceWindowExecutionTaskResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetMaintenanceWindowExecutionTaskResponse'
-            <$> (x .?> "Status")
-            <*> (x .?> "TaskParameters" .!@ mempty)
-            <*> (x .?> "TaskExecutionId")
-            <*> (x .?> "Priority")
-            <*> (x .?> "StartTime")
-            <*> (x .?> "TaskArn")
-            <*> (x .?> "WindowExecutionId")
-            <*> (x .?> "StatusDetails")
-            <*> (x .?> "MaxErrors")
-            <*> (x .?> "EndTime")
-            <*> (x .?> "Type")
-            <*> (x .?> "MaxConcurrency")
-            <*> (x .?> "ServiceRole")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Status")
+            Lude.<*> (x Lude..?> "TaskParameters" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "TaskExecutionId")
+            Lude.<*> (x Lude..?> "Priority")
+            Lude.<*> (x Lude..?> "StartTime")
+            Lude.<*> (x Lude..?> "TaskArn")
+            Lude.<*> (x Lude..?> "WindowExecutionId")
+            Lude.<*> (x Lude..?> "StatusDetails")
+            Lude.<*> (x Lude..?> "MaxErrors")
+            Lude.<*> (x Lude..?> "EndTime")
+            Lude.<*> (x Lude..?> "Type")
+            Lude.<*> (x Lude..?> "MaxConcurrency")
+            Lude.<*> (x Lude..?> "ServiceRole")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetMaintenanceWindowExecutionTask
-
-instance NFData GetMaintenanceWindowExecutionTask
-
-instance ToHeaders GetMaintenanceWindowExecutionTask where
+instance Lude.ToHeaders GetMaintenanceWindowExecutionTask where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.GetMaintenanceWindowExecutionTask" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.GetMaintenanceWindowExecutionTask" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetMaintenanceWindowExecutionTask where
+instance Lude.ToJSON GetMaintenanceWindowExecutionTask where
   toJSON GetMaintenanceWindowExecutionTask' {..} =
-    object
-      ( catMaybes
-          [ Just ("WindowExecutionId" .= _gmwetWindowExecutionId),
-            Just ("TaskId" .= _gmwetTaskId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("WindowExecutionId" Lude..= windowExecutionId),
+            Lude.Just ("TaskId" Lude..= taskId)
           ]
       )
 
-instance ToPath GetMaintenanceWindowExecutionTask where
-  toPath = const "/"
+instance Lude.ToPath GetMaintenanceWindowExecutionTask where
+  toPath = Lude.const "/"
 
-instance ToQuery GetMaintenanceWindowExecutionTask where
-  toQuery = const mempty
+instance Lude.ToQuery GetMaintenanceWindowExecutionTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getMaintenanceWindowExecutionTaskResponse' smart constructor.
+-- | /See:/ 'mkGetMaintenanceWindowExecutionTaskResponse' smart constructor.
 data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTaskResponse'
-  { _gmwetrsStatus ::
-      !( Maybe
-           MaintenanceWindowExecutionStatus
-       ),
-    _gmwetrsTaskParameters ::
-      !( Maybe
-           ( Sensitive
-               [ Sensitive
-                   ( Map
-                       Text
-                       ( Sensitive
-                           MaintenanceWindowTaskParameterValueExpression
-                       )
-                   )
-               ]
-           )
-       ),
-    _gmwetrsTaskExecutionId ::
-      !( Maybe
-           Text
-       ),
-    _gmwetrsPriority ::
-      !( Maybe
-           Nat
-       ),
-    _gmwetrsStartTime ::
-      !( Maybe
-           POSIX
-       ),
-    _gmwetrsTaskARN ::
-      !( Maybe
-           Text
-       ),
-    _gmwetrsWindowExecutionId ::
-      !( Maybe
-           Text
-       ),
-    _gmwetrsStatusDetails ::
-      !( Maybe
-           Text
-       ),
-    _gmwetrsMaxErrors ::
-      !( Maybe
-           Text
-       ),
-    _gmwetrsEndTime ::
-      !( Maybe
-           POSIX
-       ),
-    _gmwetrsType ::
-      !( Maybe
-           MaintenanceWindowTaskType
-       ),
-    _gmwetrsMaxConcurrency ::
-      !( Maybe
-           Text
-       ),
-    _gmwetrsServiceRole ::
-      !( Maybe
-           Text
-       ),
-    _gmwetrsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe
+        MaintenanceWindowExecutionStatus,
+    taskParameters ::
+      Lude.Maybe
+        [ Lude.HashMap
+            Lude.Text
+            (MaintenanceWindowTaskParameterValueExpression)
+        ],
+    taskExecutionId ::
+      Lude.Maybe
+        Lude.Text,
+    priority ::
+      Lude.Maybe
+        Lude.Natural,
+    startTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    taskARN ::
+      Lude.Maybe
+        Lude.Text,
+    windowExecutionId ::
+      Lude.Maybe
+        Lude.Text,
+    statusDetails ::
+      Lude.Maybe
+        Lude.Text,
+    maxErrors ::
+      Lude.Maybe
+        Lude.Text,
+    endTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    type' ::
+      Lude.Maybe
+        MaintenanceWindowTaskType,
+    maxConcurrency ::
+      Lude.Maybe
+        Lude.Text,
+    serviceRole ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionTaskResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'endTime' - The time the task execution completed.
+-- * 'maxConcurrency' - The defined maximum number of task executions that could be run in parallel.
+-- * 'maxErrors' - The defined maximum number of task execution errors allowed before scheduling of the task execution would have been stopped.
+-- * 'priority' - The priority of the task.
+-- * 'responseStatus' - The response status code.
+-- * 'serviceRole' - The role that was assumed when running the task.
+-- * 'startTime' - The time the task execution started.
+-- * 'status' - The status of the task.
+-- * 'statusDetails' - The details explaining the Status. Only available for certain status values.
+-- * 'taskARN' - The ARN of the task that ran.
+-- * 'taskExecutionId' - The ID of the specific task execution in the maintenance window task that was retrieved.
+-- * 'taskParameters' - The parameters passed to the task when it was run.
 --
--- * 'gmwetrsStatus' - The status of the task.
---
--- * 'gmwetrsTaskParameters' - The parameters passed to the task when it was run. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
---
--- * 'gmwetrsTaskExecutionId' - The ID of the specific task execution in the maintenance window task that was retrieved.
---
--- * 'gmwetrsPriority' - The priority of the task.
---
--- * 'gmwetrsStartTime' - The time the task execution started.
---
--- * 'gmwetrsTaskARN' - The ARN of the task that ran.
---
--- * 'gmwetrsWindowExecutionId' - The ID of the maintenance window execution that includes the task.
---
--- * 'gmwetrsStatusDetails' - The details explaining the Status. Only available for certain status values.
---
--- * 'gmwetrsMaxErrors' - The defined maximum number of task execution errors allowed before scheduling of the task execution would have been stopped.
---
--- * 'gmwetrsEndTime' - The time the task execution completed.
---
--- * 'gmwetrsType' - The type of task that was run.
---
--- * 'gmwetrsMaxConcurrency' - The defined maximum number of task executions that could be run in parallel.
---
--- * 'gmwetrsServiceRole' - The role that was assumed when running the task.
---
--- * 'gmwetrsResponseStatus' - -- | The response status code.
-getMaintenanceWindowExecutionTaskResponse ::
-  -- | 'gmwetrsResponseStatus'
-  Int ->
+-- The map has the following format:
+-- Key: string, between 1 and 255 characters
+-- Value: an array of strings, each string is between 1 and 255 characters
+-- * 'type'' - The type of task that was run.
+-- * 'windowExecutionId' - The ID of the maintenance window execution that includes the task.
+mkGetMaintenanceWindowExecutionTaskResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMaintenanceWindowExecutionTaskResponse
-getMaintenanceWindowExecutionTaskResponse pResponseStatus_ =
+mkGetMaintenanceWindowExecutionTaskResponse pResponseStatus_ =
   GetMaintenanceWindowExecutionTaskResponse'
-    { _gmwetrsStatus =
-        Nothing,
-      _gmwetrsTaskParameters = Nothing,
-      _gmwetrsTaskExecutionId = Nothing,
-      _gmwetrsPriority = Nothing,
-      _gmwetrsStartTime = Nothing,
-      _gmwetrsTaskARN = Nothing,
-      _gmwetrsWindowExecutionId = Nothing,
-      _gmwetrsStatusDetails = Nothing,
-      _gmwetrsMaxErrors = Nothing,
-      _gmwetrsEndTime = Nothing,
-      _gmwetrsType = Nothing,
-      _gmwetrsMaxConcurrency = Nothing,
-      _gmwetrsServiceRole = Nothing,
-      _gmwetrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      taskParameters = Lude.Nothing,
+      taskExecutionId = Lude.Nothing,
+      priority = Lude.Nothing,
+      startTime = Lude.Nothing,
+      taskARN = Lude.Nothing,
+      windowExecutionId = Lude.Nothing,
+      statusDetails = Lude.Nothing,
+      maxErrors = Lude.Nothing,
+      endTime = Lude.Nothing,
+      type' = Lude.Nothing,
+      maxConcurrency = Lude.Nothing,
+      serviceRole = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the task.
-gmwetrsStatus :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe MaintenanceWindowExecutionStatus)
-gmwetrsStatus = lens _gmwetrsStatus (\s a -> s {_gmwetrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsStatus :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe MaintenanceWindowExecutionStatus)
+gmwetrsStatus = Lens.lens (status :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe MaintenanceWindowExecutionStatus) (\s a -> s {status = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The parameters passed to the task when it was run. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
-gmwetrsTaskParameters :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe [HashMap Text (MaintenanceWindowTaskParameterValueExpression)])
-gmwetrsTaskParameters = lens _gmwetrsTaskParameters (\s a -> s {_gmwetrsTaskParameters = a}) . mapping (_Sensitive . _Coerce)
+-- | The parameters passed to the task when it was run.
+--
+-- The map has the following format:
+-- Key: string, between 1 and 255 characters
+-- Value: an array of strings, each string is between 1 and 255 characters
+--
+-- /Note:/ Consider using 'taskParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsTaskParameters :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe [Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)])
+gmwetrsTaskParameters = Lens.lens (taskParameters :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe [Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)]) (\s a -> s {taskParameters = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsTaskParameters "Use generic-lens or generic-optics with 'taskParameters' instead." #-}
 
 -- | The ID of the specific task execution in the maintenance window task that was retrieved.
-gmwetrsTaskExecutionId :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe Text)
-gmwetrsTaskExecutionId = lens _gmwetrsTaskExecutionId (\s a -> s {_gmwetrsTaskExecutionId = a})
+--
+-- /Note:/ Consider using 'taskExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsTaskExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Text)
+gmwetrsTaskExecutionId = Lens.lens (taskExecutionId :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskExecutionId = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsTaskExecutionId "Use generic-lens or generic-optics with 'taskExecutionId' instead." #-}
 
 -- | The priority of the task.
-gmwetrsPriority :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe Natural)
-gmwetrsPriority = lens _gmwetrsPriority (\s a -> s {_gmwetrsPriority = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsPriority :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Natural)
+gmwetrsPriority = Lens.lens (priority :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Natural) (\s a -> s {priority = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
 -- | The time the task execution started.
-gmwetrsStartTime :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe UTCTime)
-gmwetrsStartTime = lens _gmwetrsStartTime (\s a -> s {_gmwetrsStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsStartTime :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Timestamp)
+gmwetrsStartTime = Lens.lens (startTime :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The ARN of the task that ran.
-gmwetrsTaskARN :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe Text)
-gmwetrsTaskARN = lens _gmwetrsTaskARN (\s a -> s {_gmwetrsTaskARN = a})
+--
+-- /Note:/ Consider using 'taskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsTaskARN :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Text)
+gmwetrsTaskARN = Lens.lens (taskARN :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskARN = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsTaskARN "Use generic-lens or generic-optics with 'taskARN' instead." #-}
 
 -- | The ID of the maintenance window execution that includes the task.
-gmwetrsWindowExecutionId :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe Text)
-gmwetrsWindowExecutionId = lens _gmwetrsWindowExecutionId (\s a -> s {_gmwetrsWindowExecutionId = a})
+--
+-- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsWindowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Text)
+gmwetrsWindowExecutionId = Lens.lens (windowExecutionId :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
 -- | The details explaining the Status. Only available for certain status values.
-gmwetrsStatusDetails :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe Text)
-gmwetrsStatusDetails = lens _gmwetrsStatusDetails (\s a -> s {_gmwetrsStatusDetails = a})
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsStatusDetails :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Text)
+gmwetrsStatusDetails = Lens.lens (statusDetails :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusDetails = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | The defined maximum number of task execution errors allowed before scheduling of the task execution would have been stopped.
-gmwetrsMaxErrors :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe Text)
-gmwetrsMaxErrors = lens _gmwetrsMaxErrors (\s a -> s {_gmwetrsMaxErrors = a})
+--
+-- /Note:/ Consider using 'maxErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsMaxErrors :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Text)
+gmwetrsMaxErrors = Lens.lens (maxErrors :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {maxErrors = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsMaxErrors "Use generic-lens or generic-optics with 'maxErrors' instead." #-}
 
 -- | The time the task execution completed.
-gmwetrsEndTime :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe UTCTime)
-gmwetrsEndTime = lens _gmwetrsEndTime (\s a -> s {_gmwetrsEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsEndTime :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Timestamp)
+gmwetrsEndTime = Lens.lens (endTime :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The type of task that was run.
-gmwetrsType :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe MaintenanceWindowTaskType)
-gmwetrsType = lens _gmwetrsType (\s a -> s {_gmwetrsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsType :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe MaintenanceWindowTaskType)
+gmwetrsType = Lens.lens (type' :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe MaintenanceWindowTaskType) (\s a -> s {type' = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The defined maximum number of task executions that could be run in parallel.
-gmwetrsMaxConcurrency :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe Text)
-gmwetrsMaxConcurrency = lens _gmwetrsMaxConcurrency (\s a -> s {_gmwetrsMaxConcurrency = a})
+--
+-- /Note:/ Consider using 'maxConcurrency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsMaxConcurrency :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Text)
+gmwetrsMaxConcurrency = Lens.lens (maxConcurrency :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
 -- | The role that was assumed when running the task.
-gmwetrsServiceRole :: Lens' GetMaintenanceWindowExecutionTaskResponse (Maybe Text)
-gmwetrsServiceRole = lens _gmwetrsServiceRole (\s a -> s {_gmwetrsServiceRole = a})
+--
+-- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsServiceRole :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse (Lude.Maybe Lude.Text)
+gmwetrsServiceRole = Lens.lens (serviceRole :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
--- | -- | The response status code.
-gmwetrsResponseStatus :: Lens' GetMaintenanceWindowExecutionTaskResponse Int
-gmwetrsResponseStatus = lens _gmwetrsResponseStatus (\s a -> s {_gmwetrsResponseStatus = a})
-
-instance NFData GetMaintenanceWindowExecutionTaskResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetrsResponseStatus :: Lens.Lens' GetMaintenanceWindowExecutionTaskResponse Lude.Int
+gmwetrsResponseStatus = Lens.lens (responseStatus :: GetMaintenanceWindowExecutionTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMaintenanceWindowExecutionTaskResponse)
+{-# DEPRECATED gmwetrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

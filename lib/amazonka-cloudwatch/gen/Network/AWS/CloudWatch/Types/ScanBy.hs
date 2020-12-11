@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.ScanBy where
+module Network.AWS.CloudWatch.Types.ScanBy
+  ( ScanBy
+      ( ScanBy',
+        TimestampAscending,
+        TimestampDescending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScanBy
-  = TimestampAscending
-  | TimestampDescending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScanBy = ScanBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScanBy where
-  parser =
-    takeLowerText >>= \case
-      "timestampascending" -> pure TimestampAscending
-      "timestampdescending" -> pure TimestampDescending
-      e ->
-        fromTextError $
-          "Failure parsing ScanBy from value: '" <> e
-            <> "'. Accepted values: timestampascending, timestampdescending"
+pattern TimestampAscending :: ScanBy
+pattern TimestampAscending = ScanBy' "TimestampAscending"
 
-instance ToText ScanBy where
-  toText = \case
-    TimestampAscending -> "TimestampAscending"
-    TimestampDescending -> "TimestampDescending"
+pattern TimestampDescending :: ScanBy
+pattern TimestampDescending = ScanBy' "TimestampDescending"
 
-instance Hashable ScanBy
-
-instance NFData ScanBy
-
-instance ToByteString ScanBy
-
-instance ToQuery ScanBy
-
-instance ToHeader ScanBy
+{-# COMPLETE
+  TimestampAscending,
+  TimestampDescending,
+  ScanBy'
+  #-}

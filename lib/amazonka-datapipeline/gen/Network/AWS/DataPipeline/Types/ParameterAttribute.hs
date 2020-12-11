@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DataPipeline.Types.ParameterAttribute where
+module Network.AWS.DataPipeline.Types.ParameterAttribute
+  ( ParameterAttribute (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParameterAttribute,
+
+    -- * Lenses
+    paKey,
+    paStringValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The attributes allowed or specified with a parameter object.
 --
---
---
--- /See:/ 'parameterAttribute' smart constructor.
+-- /See:/ 'mkParameterAttribute' smart constructor.
 data ParameterAttribute = ParameterAttribute'
-  { _paKey :: !Text,
-    _paStringValue :: !Text
+  { key :: Lude.Text,
+    stringValue :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paKey' - The field identifier.
---
--- * 'paStringValue' - The field value, expressed as a String.
-parameterAttribute ::
-  -- | 'paKey'
-  Text ->
-  -- | 'paStringValue'
-  Text ->
+-- * 'key' - The field identifier.
+-- * 'stringValue' - The field value, expressed as a String.
+mkParameterAttribute ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'stringValue'
+  Lude.Text ->
   ParameterAttribute
-parameterAttribute pKey_ pStringValue_ =
-  ParameterAttribute'
-    { _paKey = pKey_,
-      _paStringValue = pStringValue_
-    }
+mkParameterAttribute pKey_ pStringValue_ =
+  ParameterAttribute' {key = pKey_, stringValue = pStringValue_}
 
 -- | The field identifier.
-paKey :: Lens' ParameterAttribute Text
-paKey = lens _paKey (\s a -> s {_paKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paKey :: Lens.Lens' ParameterAttribute Lude.Text
+paKey = Lens.lens (key :: ParameterAttribute -> Lude.Text) (\s a -> s {key = a} :: ParameterAttribute)
+{-# DEPRECATED paKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The field value, expressed as a String.
-paStringValue :: Lens' ParameterAttribute Text
-paStringValue = lens _paStringValue (\s a -> s {_paStringValue = a})
+--
+-- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paStringValue :: Lens.Lens' ParameterAttribute Lude.Text
+paStringValue = Lens.lens (stringValue :: ParameterAttribute -> Lude.Text) (\s a -> s {stringValue = a} :: ParameterAttribute)
+{-# DEPRECATED paStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
-instance FromJSON ParameterAttribute where
+instance Lude.FromJSON ParameterAttribute where
   parseJSON =
-    withObject
+    Lude.withObject
       "ParameterAttribute"
       ( \x ->
-          ParameterAttribute' <$> (x .: "key") <*> (x .: "stringValue")
+          ParameterAttribute'
+            Lude.<$> (x Lude..: "key") Lude.<*> (x Lude..: "stringValue")
       )
 
-instance Hashable ParameterAttribute
-
-instance NFData ParameterAttribute
-
-instance ToJSON ParameterAttribute where
+instance Lude.ToJSON ParameterAttribute where
   toJSON ParameterAttribute' {..} =
-    object
-      ( catMaybes
-          [Just ("key" .= _paKey), Just ("stringValue" .= _paStringValue)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("key" Lude..= key),
+            Lude.Just ("stringValue" Lude..= stringValue)
+          ]
       )

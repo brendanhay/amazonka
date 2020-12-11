@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Starts an asynchronous event detection job for a collection of documents.
 module Network.AWS.Comprehend.StartEventsDetectionJob
-  ( -- * Creating a Request
-    startEventsDetectionJob,
-    StartEventsDetectionJob,
+  ( -- * Creating a request
+    StartEventsDetectionJob (..),
+    mkStartEventsDetectionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sJobName,
     sClientRequestToken,
     sInputDataConfig,
@@ -32,11 +27,11 @@ module Network.AWS.Comprehend.StartEventsDetectionJob
     sLanguageCode,
     sTargetEventTypes,
 
-    -- * Destructuring the Response
-    startEventsDetectionJobResponse,
-    StartEventsDetectionJobResponse,
+    -- * Destructuring the response
+    StartEventsDetectionJobResponse (..),
+    mkStartEventsDetectionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     starsJobId,
     starsJobStatus,
     starsResponseStatus,
@@ -44,182 +39,210 @@ module Network.AWS.Comprehend.StartEventsDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startEventsDetectionJob' smart constructor.
+-- | /See:/ 'mkStartEventsDetectionJob' smart constructor.
 data StartEventsDetectionJob = StartEventsDetectionJob'
-  { _sJobName ::
-      !(Maybe Text),
-    _sClientRequestToken :: !(Maybe Text),
-    _sInputDataConfig :: !InputDataConfig,
-    _sOutputDataConfig :: !OutputDataConfig,
-    _sDataAccessRoleARN :: !Text,
-    _sLanguageCode :: !LanguageCode,
-    _sTargetEventTypes :: !(List1 Text)
+  { jobName ::
+      Lude.Maybe Lude.Text,
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    inputDataConfig :: InputDataConfig,
+    outputDataConfig :: OutputDataConfig,
+    dataAccessRoleARN :: Lude.Text,
+    languageCode :: LanguageCode,
+    targetEventTypes :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartEventsDetectionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sJobName' - The identifier of the events detection job.
---
--- * 'sClientRequestToken' - An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
---
--- * 'sInputDataConfig' - Specifies the format and location of the input data for the job.
---
--- * 'sOutputDataConfig' - Specifies where to send the output files.
---
--- * 'sDataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
---
--- * 'sLanguageCode' - The language code of the input documents.
---
--- * 'sTargetEventTypes' - The types of events to detect in the input documents.
-startEventsDetectionJob ::
-  -- | 'sInputDataConfig'
+-- * 'clientRequestToken' - An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+-- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
+-- * 'jobName' - The identifier of the events detection job.
+-- * 'languageCode' - The language code of the input documents.
+-- * 'outputDataConfig' - Specifies where to send the output files.
+-- * 'targetEventTypes' - The types of events to detect in the input documents.
+mkStartEventsDetectionJob ::
+  -- | 'inputDataConfig'
   InputDataConfig ->
-  -- | 'sOutputDataConfig'
+  -- | 'outputDataConfig'
   OutputDataConfig ->
-  -- | 'sDataAccessRoleARN'
-  Text ->
-  -- | 'sLanguageCode'
+  -- | 'dataAccessRoleARN'
+  Lude.Text ->
+  -- | 'languageCode'
   LanguageCode ->
-  -- | 'sTargetEventTypes'
-  NonEmpty Text ->
+  -- | 'targetEventTypes'
+  Lude.NonEmpty Lude.Text ->
   StartEventsDetectionJob
-startEventsDetectionJob
+mkStartEventsDetectionJob
   pInputDataConfig_
   pOutputDataConfig_
   pDataAccessRoleARN_
   pLanguageCode_
   pTargetEventTypes_ =
     StartEventsDetectionJob'
-      { _sJobName = Nothing,
-        _sClientRequestToken = Nothing,
-        _sInputDataConfig = pInputDataConfig_,
-        _sOutputDataConfig = pOutputDataConfig_,
-        _sDataAccessRoleARN = pDataAccessRoleARN_,
-        _sLanguageCode = pLanguageCode_,
-        _sTargetEventTypes = _List1 # pTargetEventTypes_
+      { jobName = Lude.Nothing,
+        clientRequestToken = Lude.Nothing,
+        inputDataConfig = pInputDataConfig_,
+        outputDataConfig = pOutputDataConfig_,
+        dataAccessRoleARN = pDataAccessRoleARN_,
+        languageCode = pLanguageCode_,
+        targetEventTypes = pTargetEventTypes_
       }
 
 -- | The identifier of the events detection job.
-sJobName :: Lens' StartEventsDetectionJob (Maybe Text)
-sJobName = lens _sJobName (\s a -> s {_sJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sJobName :: Lens.Lens' StartEventsDetectionJob (Lude.Maybe Lude.Text)
+sJobName = Lens.lens (jobName :: StartEventsDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: StartEventsDetectionJob)
+{-# DEPRECATED sJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
-sClientRequestToken :: Lens' StartEventsDetectionJob (Maybe Text)
-sClientRequestToken = lens _sClientRequestToken (\s a -> s {_sClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sClientRequestToken :: Lens.Lens' StartEventsDetectionJob (Lude.Maybe Lude.Text)
+sClientRequestToken = Lens.lens (clientRequestToken :: StartEventsDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartEventsDetectionJob)
+{-# DEPRECATED sClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | Specifies the format and location of the input data for the job.
-sInputDataConfig :: Lens' StartEventsDetectionJob InputDataConfig
-sInputDataConfig = lens _sInputDataConfig (\s a -> s {_sInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sInputDataConfig :: Lens.Lens' StartEventsDetectionJob InputDataConfig
+sInputDataConfig = Lens.lens (inputDataConfig :: StartEventsDetectionJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartEventsDetectionJob)
+{-# DEPRECATED sInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Specifies where to send the output files.
-sOutputDataConfig :: Lens' StartEventsDetectionJob OutputDataConfig
-sOutputDataConfig = lens _sOutputDataConfig (\s a -> s {_sOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOutputDataConfig :: Lens.Lens' StartEventsDetectionJob OutputDataConfig
+sOutputDataConfig = Lens.lens (outputDataConfig :: StartEventsDetectionJob -> OutputDataConfig) (\s a -> s {outputDataConfig = a} :: StartEventsDetectionJob)
+{-# DEPRECATED sOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
-sDataAccessRoleARN :: Lens' StartEventsDetectionJob Text
-sDataAccessRoleARN = lens _sDataAccessRoleARN (\s a -> s {_sDataAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDataAccessRoleARN :: Lens.Lens' StartEventsDetectionJob Lude.Text
+sDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: StartEventsDetectionJob -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: StartEventsDetectionJob)
+{-# DEPRECATED sDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
 -- | The language code of the input documents.
-sLanguageCode :: Lens' StartEventsDetectionJob LanguageCode
-sLanguageCode = lens _sLanguageCode (\s a -> s {_sLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sLanguageCode :: Lens.Lens' StartEventsDetectionJob LanguageCode
+sLanguageCode = Lens.lens (languageCode :: StartEventsDetectionJob -> LanguageCode) (\s a -> s {languageCode = a} :: StartEventsDetectionJob)
+{-# DEPRECATED sLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The types of events to detect in the input documents.
-sTargetEventTypes :: Lens' StartEventsDetectionJob (NonEmpty Text)
-sTargetEventTypes = lens _sTargetEventTypes (\s a -> s {_sTargetEventTypes = a}) . _List1
+--
+-- /Note:/ Consider using 'targetEventTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTargetEventTypes :: Lens.Lens' StartEventsDetectionJob (Lude.NonEmpty Lude.Text)
+sTargetEventTypes = Lens.lens (targetEventTypes :: StartEventsDetectionJob -> Lude.NonEmpty Lude.Text) (\s a -> s {targetEventTypes = a} :: StartEventsDetectionJob)
+{-# DEPRECATED sTargetEventTypes "Use generic-lens or generic-optics with 'targetEventTypes' instead." #-}
 
-instance AWSRequest StartEventsDetectionJob where
+instance Lude.AWSRequest StartEventsDetectionJob where
   type Rs StartEventsDetectionJob = StartEventsDetectionJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartEventsDetectionJobResponse'
-            <$> (x .?> "JobId") <*> (x .?> "JobStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobId")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartEventsDetectionJob
-
-instance NFData StartEventsDetectionJob
-
-instance ToHeaders StartEventsDetectionJob where
+instance Lude.ToHeaders StartEventsDetectionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.StartEventsDetectionJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.StartEventsDetectionJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartEventsDetectionJob where
+instance Lude.ToJSON StartEventsDetectionJob where
   toJSON StartEventsDetectionJob' {..} =
-    object
-      ( catMaybes
-          [ ("JobName" .=) <$> _sJobName,
-            ("ClientRequestToken" .=) <$> _sClientRequestToken,
-            Just ("InputDataConfig" .= _sInputDataConfig),
-            Just ("OutputDataConfig" .= _sOutputDataConfig),
-            Just ("DataAccessRoleArn" .= _sDataAccessRoleARN),
-            Just ("LanguageCode" .= _sLanguageCode),
-            Just ("TargetEventTypes" .= _sTargetEventTypes)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("JobName" Lude..=) Lude.<$> jobName,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
+            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
+            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN),
+            Lude.Just ("LanguageCode" Lude..= languageCode),
+            Lude.Just ("TargetEventTypes" Lude..= targetEventTypes)
           ]
       )
 
-instance ToPath StartEventsDetectionJob where
-  toPath = const "/"
+instance Lude.ToPath StartEventsDetectionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StartEventsDetectionJob where
-  toQuery = const mempty
+instance Lude.ToQuery StartEventsDetectionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startEventsDetectionJobResponse' smart constructor.
+-- | /See:/ 'mkStartEventsDetectionJobResponse' smart constructor.
 data StartEventsDetectionJobResponse = StartEventsDetectionJobResponse'
-  { _starsJobId ::
-      !(Maybe Text),
-    _starsJobStatus ::
-      !(Maybe JobStatus),
-    _starsResponseStatus ::
-      !Int
+  { jobId ::
+      Lude.Maybe Lude.Text,
+    jobStatus ::
+      Lude.Maybe JobStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartEventsDetectionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'starsJobId' - An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
---
--- * 'starsJobStatus' - The status of the events detection job.
---
--- * 'starsResponseStatus' - -- | The response status code.
-startEventsDetectionJobResponse ::
-  -- | 'starsResponseStatus'
-  Int ->
+-- * 'jobId' - An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+-- * 'jobStatus' - The status of the events detection job.
+-- * 'responseStatus' - The response status code.
+mkStartEventsDetectionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartEventsDetectionJobResponse
-startEventsDetectionJobResponse pResponseStatus_ =
+mkStartEventsDetectionJobResponse pResponseStatus_ =
   StartEventsDetectionJobResponse'
-    { _starsJobId = Nothing,
-      _starsJobStatus = Nothing,
-      _starsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
-starsJobId :: Lens' StartEventsDetectionJobResponse (Maybe Text)
-starsJobId = lens _starsJobId (\s a -> s {_starsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsJobId :: Lens.Lens' StartEventsDetectionJobResponse (Lude.Maybe Lude.Text)
+starsJobId = Lens.lens (jobId :: StartEventsDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartEventsDetectionJobResponse)
+{-# DEPRECATED starsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The status of the events detection job.
-starsJobStatus :: Lens' StartEventsDetectionJobResponse (Maybe JobStatus)
-starsJobStatus = lens _starsJobStatus (\s a -> s {_starsJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsJobStatus :: Lens.Lens' StartEventsDetectionJobResponse (Lude.Maybe JobStatus)
+starsJobStatus = Lens.lens (jobStatus :: StartEventsDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StartEventsDetectionJobResponse)
+{-# DEPRECATED starsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | -- | The response status code.
-starsResponseStatus :: Lens' StartEventsDetectionJobResponse Int
-starsResponseStatus = lens _starsResponseStatus (\s a -> s {_starsResponseStatus = a})
-
-instance NFData StartEventsDetectionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsResponseStatus :: Lens.Lens' StartEventsDetectionJobResponse Lude.Int
+starsResponseStatus = Lens.lens (responseStatus :: StartEventsDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartEventsDetectionJobResponse)
+{-# DEPRECATED starsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

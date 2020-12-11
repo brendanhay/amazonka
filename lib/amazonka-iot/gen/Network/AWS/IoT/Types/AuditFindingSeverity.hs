@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditFindingSeverity where
+module Network.AWS.IoT.Types.AuditFindingSeverity
+  ( AuditFindingSeverity
+      ( AuditFindingSeverity',
+        Critical,
+        High,
+        Low,
+        Medium
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AuditFindingSeverity
-  = Critical
-  | High
-  | Low
-  | Medium
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AuditFindingSeverity = AuditFindingSeverity' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AuditFindingSeverity where
-  parser =
-    takeLowerText >>= \case
-      "critical" -> pure Critical
-      "high" -> pure High
-      "low" -> pure Low
-      "medium" -> pure Medium
-      e ->
-        fromTextError $
-          "Failure parsing AuditFindingSeverity from value: '" <> e
-            <> "'. Accepted values: critical, high, low, medium"
+pattern Critical :: AuditFindingSeverity
+pattern Critical = AuditFindingSeverity' "CRITICAL"
 
-instance ToText AuditFindingSeverity where
-  toText = \case
-    Critical -> "CRITICAL"
-    High -> "HIGH"
-    Low -> "LOW"
-    Medium -> "MEDIUM"
+pattern High :: AuditFindingSeverity
+pattern High = AuditFindingSeverity' "HIGH"
 
-instance Hashable AuditFindingSeverity
+pattern Low :: AuditFindingSeverity
+pattern Low = AuditFindingSeverity' "LOW"
 
-instance NFData AuditFindingSeverity
+pattern Medium :: AuditFindingSeverity
+pattern Medium = AuditFindingSeverity' "MEDIUM"
 
-instance ToByteString AuditFindingSeverity
-
-instance ToQuery AuditFindingSeverity
-
-instance ToHeader AuditFindingSeverity
-
-instance FromJSON AuditFindingSeverity where
-  parseJSON = parseJSONText "AuditFindingSeverity"
+{-# COMPLETE
+  Critical,
+  High,
+  Low,
+  Medium,
+  AuditFindingSeverity'
+  #-}

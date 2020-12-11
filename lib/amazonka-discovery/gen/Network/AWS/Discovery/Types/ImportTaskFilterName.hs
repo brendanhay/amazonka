@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Discovery.Types.ImportTaskFilterName where
+module Network.AWS.Discovery.Types.ImportTaskFilterName
+  ( ImportTaskFilterName
+      ( ImportTaskFilterName',
+        ImportTaskId,
+        Name,
+        Status
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImportTaskFilterName
-  = ImportTaskId
-  | Name
-  | Status
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImportTaskFilterName = ImportTaskFilterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImportTaskFilterName where
-  parser =
-    takeLowerText >>= \case
-      "import_task_id" -> pure ImportTaskId
-      "name" -> pure Name
-      "status" -> pure Status
-      e ->
-        fromTextError $
-          "Failure parsing ImportTaskFilterName from value: '" <> e
-            <> "'. Accepted values: import_task_id, name, status"
+pattern ImportTaskId :: ImportTaskFilterName
+pattern ImportTaskId = ImportTaskFilterName' "IMPORT_TASK_ID"
 
-instance ToText ImportTaskFilterName where
-  toText = \case
-    ImportTaskId -> "IMPORT_TASK_ID"
-    Name -> "NAME"
-    Status -> "STATUS"
+pattern Name :: ImportTaskFilterName
+pattern Name = ImportTaskFilterName' "NAME"
 
-instance Hashable ImportTaskFilterName
+pattern Status :: ImportTaskFilterName
+pattern Status = ImportTaskFilterName' "STATUS"
 
-instance NFData ImportTaskFilterName
-
-instance ToByteString ImportTaskFilterName
-
-instance ToQuery ImportTaskFilterName
-
-instance ToHeader ImportTaskFilterName
-
-instance ToJSON ImportTaskFilterName where
-  toJSON = toJSONText
+{-# COMPLETE
+  ImportTaskId,
+  Name,
+  Status,
+  ImportTaskFilterName'
+  #-}

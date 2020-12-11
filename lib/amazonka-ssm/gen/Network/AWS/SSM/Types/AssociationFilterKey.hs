@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationFilterKey where
+module Network.AWS.SSM.Types.AssociationFilterKey
+  ( AssociationFilterKey
+      ( AssociationFilterKey',
+        AFKAssociationId,
+        AFKAssociationName,
+        AFKAssociationStatusName,
+        AFKInstanceId,
+        AFKLastExecutedAfter,
+        AFKLastExecutedBefore,
+        AFKName,
+        AFKResourceGroupName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssociationFilterKey
-  = AFKAssociationId
-  | AFKAssociationName
-  | AFKAssociationStatusName
-  | AFKInstanceId
-  | AFKLastExecutedAfter
-  | AFKLastExecutedBefore
-  | AFKName
-  | AFKResourceGroupName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssociationFilterKey = AssociationFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssociationFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "associationid" -> pure AFKAssociationId
-      "associationname" -> pure AFKAssociationName
-      "associationstatusname" -> pure AFKAssociationStatusName
-      "instanceid" -> pure AFKInstanceId
-      "lastexecutedafter" -> pure AFKLastExecutedAfter
-      "lastexecutedbefore" -> pure AFKLastExecutedBefore
-      "name" -> pure AFKName
-      "resourcegroupname" -> pure AFKResourceGroupName
-      e ->
-        fromTextError $
-          "Failure parsing AssociationFilterKey from value: '" <> e
-            <> "'. Accepted values: associationid, associationname, associationstatusname, instanceid, lastexecutedafter, lastexecutedbefore, name, resourcegroupname"
+pattern AFKAssociationId :: AssociationFilterKey
+pattern AFKAssociationId = AssociationFilterKey' "AssociationId"
 
-instance ToText AssociationFilterKey where
-  toText = \case
-    AFKAssociationId -> "AssociationId"
-    AFKAssociationName -> "AssociationName"
-    AFKAssociationStatusName -> "AssociationStatusName"
-    AFKInstanceId -> "InstanceId"
-    AFKLastExecutedAfter -> "LastExecutedAfter"
-    AFKLastExecutedBefore -> "LastExecutedBefore"
-    AFKName -> "Name"
-    AFKResourceGroupName -> "ResourceGroupName"
+pattern AFKAssociationName :: AssociationFilterKey
+pattern AFKAssociationName = AssociationFilterKey' "AssociationName"
 
-instance Hashable AssociationFilterKey
+pattern AFKAssociationStatusName :: AssociationFilterKey
+pattern AFKAssociationStatusName = AssociationFilterKey' "AssociationStatusName"
 
-instance NFData AssociationFilterKey
+pattern AFKInstanceId :: AssociationFilterKey
+pattern AFKInstanceId = AssociationFilterKey' "InstanceId"
 
-instance ToByteString AssociationFilterKey
+pattern AFKLastExecutedAfter :: AssociationFilterKey
+pattern AFKLastExecutedAfter = AssociationFilterKey' "LastExecutedAfter"
 
-instance ToQuery AssociationFilterKey
+pattern AFKLastExecutedBefore :: AssociationFilterKey
+pattern AFKLastExecutedBefore = AssociationFilterKey' "LastExecutedBefore"
 
-instance ToHeader AssociationFilterKey
+pattern AFKName :: AssociationFilterKey
+pattern AFKName = AssociationFilterKey' "Name"
 
-instance ToJSON AssociationFilterKey where
-  toJSON = toJSONText
+pattern AFKResourceGroupName :: AssociationFilterKey
+pattern AFKResourceGroupName = AssociationFilterKey' "ResourceGroupName"
+
+{-# COMPLETE
+  AFKAssociationId,
+  AFKAssociationName,
+  AFKAssociationStatusName,
+  AFKInstanceId,
+  AFKLastExecutedAfter,
+  AFKLastExecutedBefore,
+  AFKName,
+  AFKResourceGroupName,
+  AssociationFilterKey'
+  #-}

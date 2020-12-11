@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Returns information about the specified flow definition.
 module Network.AWS.SageMaker.DescribeFlowDefinition
-  ( -- * Creating a Request
-    describeFlowDefinition,
-    DescribeFlowDefinition,
+  ( -- * Creating a request
+    DescribeFlowDefinition (..),
+    mkDescribeFlowDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dFlowDefinitionName,
 
-    -- * Destructuring the Response
-    describeFlowDefinitionResponse,
-    DescribeFlowDefinitionResponse,
+    -- * Destructuring the response
+    DescribeFlowDefinitionResponse (..),
+    mkDescribeFlowDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfdfrsFailureReason,
     dfdfrsHumanLoopRequestSource,
     dfdfrsHumanLoopActivationConfig,
@@ -45,155 +40,156 @@ module Network.AWS.SageMaker.DescribeFlowDefinition
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'describeFlowDefinition' smart constructor.
+-- | /See:/ 'mkDescribeFlowDefinition' smart constructor.
 newtype DescribeFlowDefinition = DescribeFlowDefinition'
-  { _dFlowDefinitionName ::
-      Text
+  { flowDefinitionName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFlowDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dFlowDefinitionName' - The name of the flow definition.
-describeFlowDefinition ::
-  -- | 'dFlowDefinitionName'
-  Text ->
+-- * 'flowDefinitionName' - The name of the flow definition.
+mkDescribeFlowDefinition ::
+  -- | 'flowDefinitionName'
+  Lude.Text ->
   DescribeFlowDefinition
-describeFlowDefinition pFlowDefinitionName_ =
+mkDescribeFlowDefinition pFlowDefinitionName_ =
   DescribeFlowDefinition'
-    { _dFlowDefinitionName =
+    { flowDefinitionName =
         pFlowDefinitionName_
     }
 
 -- | The name of the flow definition.
-dFlowDefinitionName :: Lens' DescribeFlowDefinition Text
-dFlowDefinitionName = lens _dFlowDefinitionName (\s a -> s {_dFlowDefinitionName = a})
+--
+-- /Note:/ Consider using 'flowDefinitionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dFlowDefinitionName :: Lens.Lens' DescribeFlowDefinition Lude.Text
+dFlowDefinitionName = Lens.lens (flowDefinitionName :: DescribeFlowDefinition -> Lude.Text) (\s a -> s {flowDefinitionName = a} :: DescribeFlowDefinition)
+{-# DEPRECATED dFlowDefinitionName "Use generic-lens or generic-optics with 'flowDefinitionName' instead." #-}
 
-instance AWSRequest DescribeFlowDefinition where
+instance Lude.AWSRequest DescribeFlowDefinition where
   type Rs DescribeFlowDefinition = DescribeFlowDefinitionResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeFlowDefinitionResponse'
-            <$> (x .?> "FailureReason")
-            <*> (x .?> "HumanLoopRequestSource")
-            <*> (x .?> "HumanLoopActivationConfig")
-            <*> (pure (fromEnum s))
-            <*> (x .:> "FlowDefinitionArn")
-            <*> (x .:> "FlowDefinitionName")
-            <*> (x .:> "FlowDefinitionStatus")
-            <*> (x .:> "CreationTime")
-            <*> (x .:> "HumanLoopConfig")
-            <*> (x .:> "OutputConfig")
-            <*> (x .:> "RoleArn")
+            Lude.<$> (x Lude..?> "FailureReason")
+            Lude.<*> (x Lude..?> "HumanLoopRequestSource")
+            Lude.<*> (x Lude..?> "HumanLoopActivationConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "FlowDefinitionArn")
+            Lude.<*> (x Lude..:> "FlowDefinitionName")
+            Lude.<*> (x Lude..:> "FlowDefinitionStatus")
+            Lude.<*> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..:> "HumanLoopConfig")
+            Lude.<*> (x Lude..:> "OutputConfig")
+            Lude.<*> (x Lude..:> "RoleArn")
       )
 
-instance Hashable DescribeFlowDefinition
-
-instance NFData DescribeFlowDefinition
-
-instance ToHeaders DescribeFlowDefinition where
+instance Lude.ToHeaders DescribeFlowDefinition where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DescribeFlowDefinition" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.DescribeFlowDefinition" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeFlowDefinition where
+instance Lude.ToJSON DescribeFlowDefinition where
   toJSON DescribeFlowDefinition' {..} =
-    object
-      (catMaybes [Just ("FlowDefinitionName" .= _dFlowDefinitionName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("FlowDefinitionName" Lude..= flowDefinitionName)]
+      )
 
-instance ToPath DescribeFlowDefinition where
-  toPath = const "/"
+instance Lude.ToPath DescribeFlowDefinition where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeFlowDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeFlowDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeFlowDefinitionResponse' smart constructor.
+-- | /See:/ 'mkDescribeFlowDefinitionResponse' smart constructor.
 data DescribeFlowDefinitionResponse = DescribeFlowDefinitionResponse'
-  { _dfdfrsFailureReason ::
-      !(Maybe Text),
-    _dfdfrsHumanLoopRequestSource ::
-      !( Maybe
-           HumanLoopRequestSource
-       ),
-    _dfdfrsHumanLoopActivationConfig ::
-      !( Maybe
-           HumanLoopActivationConfig
-       ),
-    _dfdfrsResponseStatus :: !Int,
-    _dfdfrsFlowDefinitionARN ::
-      !Text,
-    _dfdfrsFlowDefinitionName ::
-      !Text,
-    _dfdfrsFlowDefinitionStatus ::
-      !FlowDefinitionStatus,
-    _dfdfrsCreationTime :: !POSIX,
-    _dfdfrsHumanLoopConfig ::
-      !HumanLoopConfig,
-    _dfdfrsOutputConfig ::
-      !FlowDefinitionOutputConfig,
-    _dfdfrsRoleARN :: !Text
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    humanLoopRequestSource ::
+      Lude.Maybe
+        HumanLoopRequestSource,
+    humanLoopActivationConfig ::
+      Lude.Maybe
+        HumanLoopActivationConfig,
+    responseStatus :: Lude.Int,
+    flowDefinitionARN ::
+      Lude.Text,
+    flowDefinitionName ::
+      Lude.Text,
+    flowDefinitionStatus ::
+      FlowDefinitionStatus,
+    creationTime ::
+      Lude.Timestamp,
+    humanLoopConfig ::
+      HumanLoopConfig,
+    outputConfig ::
+      FlowDefinitionOutputConfig,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFlowDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfdfrsFailureReason' - The reason your flow definition failed.
---
--- * 'dfdfrsHumanLoopRequestSource' - Container for configuring the source of human task requests. Used to specify if Amazon Rekognition or Amazon Textract is used as an integration source.
---
--- * 'dfdfrsHumanLoopActivationConfig' - An object containing information about what triggers a human review workflow.
---
--- * 'dfdfrsResponseStatus' - -- | The response status code.
---
--- * 'dfdfrsFlowDefinitionARN' - The Amazon Resource Name (ARN) of the flow defintion.
---
--- * 'dfdfrsFlowDefinitionName' - The Amazon Resource Name (ARN) of the flow definition.
---
--- * 'dfdfrsFlowDefinitionStatus' - The status of the flow definition. Valid values are listed below.
---
--- * 'dfdfrsCreationTime' - The timestamp when the flow definition was created.
---
--- * 'dfdfrsHumanLoopConfig' - An object containing information about who works on the task, the workforce task price, and other task details.
---
--- * 'dfdfrsOutputConfig' - An object containing information about the output file.
---
--- * 'dfdfrsRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) execution role for the flow definition.
-describeFlowDefinitionResponse ::
-  -- | 'dfdfrsResponseStatus'
-  Int ->
-  -- | 'dfdfrsFlowDefinitionARN'
-  Text ->
-  -- | 'dfdfrsFlowDefinitionName'
-  Text ->
-  -- | 'dfdfrsFlowDefinitionStatus'
+-- * 'creationTime' - The timestamp when the flow definition was created.
+-- * 'failureReason' - The reason your flow definition failed.
+-- * 'flowDefinitionARN' - The Amazon Resource Name (ARN) of the flow defintion.
+-- * 'flowDefinitionName' - The Amazon Resource Name (ARN) of the flow definition.
+-- * 'flowDefinitionStatus' - The status of the flow definition. Valid values are listed below.
+-- * 'humanLoopActivationConfig' - An object containing information about what triggers a human review workflow.
+-- * 'humanLoopConfig' - An object containing information about who works on the task, the workforce task price, and other task details.
+-- * 'humanLoopRequestSource' - Container for configuring the source of human task requests. Used to specify if Amazon Rekognition or Amazon Textract is used as an integration source.
+-- * 'outputConfig' - An object containing information about the output file.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) execution role for the flow definition.
+mkDescribeFlowDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'flowDefinitionARN'
+  Lude.Text ->
+  -- | 'flowDefinitionName'
+  Lude.Text ->
+  -- | 'flowDefinitionStatus'
   FlowDefinitionStatus ->
-  -- | 'dfdfrsCreationTime'
-  UTCTime ->
-  -- | 'dfdfrsHumanLoopConfig'
+  -- | 'creationTime'
+  Lude.Timestamp ->
+  -- | 'humanLoopConfig'
   HumanLoopConfig ->
-  -- | 'dfdfrsOutputConfig'
+  -- | 'outputConfig'
   FlowDefinitionOutputConfig ->
-  -- | 'dfdfrsRoleARN'
-  Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   DescribeFlowDefinitionResponse
-describeFlowDefinitionResponse
+mkDescribeFlowDefinitionResponse
   pResponseStatus_
   pFlowDefinitionARN_
   pFlowDefinitionName_
@@ -203,61 +199,92 @@ describeFlowDefinitionResponse
   pOutputConfig_
   pRoleARN_ =
     DescribeFlowDefinitionResponse'
-      { _dfdfrsFailureReason = Nothing,
-        _dfdfrsHumanLoopRequestSource = Nothing,
-        _dfdfrsHumanLoopActivationConfig = Nothing,
-        _dfdfrsResponseStatus = pResponseStatus_,
-        _dfdfrsFlowDefinitionARN = pFlowDefinitionARN_,
-        _dfdfrsFlowDefinitionName = pFlowDefinitionName_,
-        _dfdfrsFlowDefinitionStatus = pFlowDefinitionStatus_,
-        _dfdfrsCreationTime = _Time # pCreationTime_,
-        _dfdfrsHumanLoopConfig = pHumanLoopConfig_,
-        _dfdfrsOutputConfig = pOutputConfig_,
-        _dfdfrsRoleARN = pRoleARN_
+      { failureReason = Lude.Nothing,
+        humanLoopRequestSource = Lude.Nothing,
+        humanLoopActivationConfig = Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        flowDefinitionARN = pFlowDefinitionARN_,
+        flowDefinitionName = pFlowDefinitionName_,
+        flowDefinitionStatus = pFlowDefinitionStatus_,
+        creationTime = pCreationTime_,
+        humanLoopConfig = pHumanLoopConfig_,
+        outputConfig = pOutputConfig_,
+        roleARN = pRoleARN_
       }
 
 -- | The reason your flow definition failed.
-dfdfrsFailureReason :: Lens' DescribeFlowDefinitionResponse (Maybe Text)
-dfdfrsFailureReason = lens _dfdfrsFailureReason (\s a -> s {_dfdfrsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsFailureReason :: Lens.Lens' DescribeFlowDefinitionResponse (Lude.Maybe Lude.Text)
+dfdfrsFailureReason = Lens.lens (failureReason :: DescribeFlowDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | Container for configuring the source of human task requests. Used to specify if Amazon Rekognition or Amazon Textract is used as an integration source.
-dfdfrsHumanLoopRequestSource :: Lens' DescribeFlowDefinitionResponse (Maybe HumanLoopRequestSource)
-dfdfrsHumanLoopRequestSource = lens _dfdfrsHumanLoopRequestSource (\s a -> s {_dfdfrsHumanLoopRequestSource = a})
+--
+-- /Note:/ Consider using 'humanLoopRequestSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsHumanLoopRequestSource :: Lens.Lens' DescribeFlowDefinitionResponse (Lude.Maybe HumanLoopRequestSource)
+dfdfrsHumanLoopRequestSource = Lens.lens (humanLoopRequestSource :: DescribeFlowDefinitionResponse -> Lude.Maybe HumanLoopRequestSource) (\s a -> s {humanLoopRequestSource = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsHumanLoopRequestSource "Use generic-lens or generic-optics with 'humanLoopRequestSource' instead." #-}
 
 -- | An object containing information about what triggers a human review workflow.
-dfdfrsHumanLoopActivationConfig :: Lens' DescribeFlowDefinitionResponse (Maybe HumanLoopActivationConfig)
-dfdfrsHumanLoopActivationConfig = lens _dfdfrsHumanLoopActivationConfig (\s a -> s {_dfdfrsHumanLoopActivationConfig = a})
+--
+-- /Note:/ Consider using 'humanLoopActivationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsHumanLoopActivationConfig :: Lens.Lens' DescribeFlowDefinitionResponse (Lude.Maybe HumanLoopActivationConfig)
+dfdfrsHumanLoopActivationConfig = Lens.lens (humanLoopActivationConfig :: DescribeFlowDefinitionResponse -> Lude.Maybe HumanLoopActivationConfig) (\s a -> s {humanLoopActivationConfig = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsHumanLoopActivationConfig "Use generic-lens or generic-optics with 'humanLoopActivationConfig' instead." #-}
 
--- | -- | The response status code.
-dfdfrsResponseStatus :: Lens' DescribeFlowDefinitionResponse Int
-dfdfrsResponseStatus = lens _dfdfrsResponseStatus (\s a -> s {_dfdfrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsResponseStatus :: Lens.Lens' DescribeFlowDefinitionResponse Lude.Int
+dfdfrsResponseStatus = Lens.lens (responseStatus :: DescribeFlowDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the flow defintion.
-dfdfrsFlowDefinitionARN :: Lens' DescribeFlowDefinitionResponse Text
-dfdfrsFlowDefinitionARN = lens _dfdfrsFlowDefinitionARN (\s a -> s {_dfdfrsFlowDefinitionARN = a})
+--
+-- /Note:/ Consider using 'flowDefinitionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsFlowDefinitionARN :: Lens.Lens' DescribeFlowDefinitionResponse Lude.Text
+dfdfrsFlowDefinitionARN = Lens.lens (flowDefinitionARN :: DescribeFlowDefinitionResponse -> Lude.Text) (\s a -> s {flowDefinitionARN = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsFlowDefinitionARN "Use generic-lens or generic-optics with 'flowDefinitionARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the flow definition.
-dfdfrsFlowDefinitionName :: Lens' DescribeFlowDefinitionResponse Text
-dfdfrsFlowDefinitionName = lens _dfdfrsFlowDefinitionName (\s a -> s {_dfdfrsFlowDefinitionName = a})
+--
+-- /Note:/ Consider using 'flowDefinitionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsFlowDefinitionName :: Lens.Lens' DescribeFlowDefinitionResponse Lude.Text
+dfdfrsFlowDefinitionName = Lens.lens (flowDefinitionName :: DescribeFlowDefinitionResponse -> Lude.Text) (\s a -> s {flowDefinitionName = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsFlowDefinitionName "Use generic-lens or generic-optics with 'flowDefinitionName' instead." #-}
 
 -- | The status of the flow definition. Valid values are listed below.
-dfdfrsFlowDefinitionStatus :: Lens' DescribeFlowDefinitionResponse FlowDefinitionStatus
-dfdfrsFlowDefinitionStatus = lens _dfdfrsFlowDefinitionStatus (\s a -> s {_dfdfrsFlowDefinitionStatus = a})
+--
+-- /Note:/ Consider using 'flowDefinitionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsFlowDefinitionStatus :: Lens.Lens' DescribeFlowDefinitionResponse FlowDefinitionStatus
+dfdfrsFlowDefinitionStatus = Lens.lens (flowDefinitionStatus :: DescribeFlowDefinitionResponse -> FlowDefinitionStatus) (\s a -> s {flowDefinitionStatus = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsFlowDefinitionStatus "Use generic-lens or generic-optics with 'flowDefinitionStatus' instead." #-}
 
 -- | The timestamp when the flow definition was created.
-dfdfrsCreationTime :: Lens' DescribeFlowDefinitionResponse UTCTime
-dfdfrsCreationTime = lens _dfdfrsCreationTime (\s a -> s {_dfdfrsCreationTime = a}) . _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsCreationTime :: Lens.Lens' DescribeFlowDefinitionResponse Lude.Timestamp
+dfdfrsCreationTime = Lens.lens (creationTime :: DescribeFlowDefinitionResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | An object containing information about who works on the task, the workforce task price, and other task details.
-dfdfrsHumanLoopConfig :: Lens' DescribeFlowDefinitionResponse HumanLoopConfig
-dfdfrsHumanLoopConfig = lens _dfdfrsHumanLoopConfig (\s a -> s {_dfdfrsHumanLoopConfig = a})
+--
+-- /Note:/ Consider using 'humanLoopConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsHumanLoopConfig :: Lens.Lens' DescribeFlowDefinitionResponse HumanLoopConfig
+dfdfrsHumanLoopConfig = Lens.lens (humanLoopConfig :: DescribeFlowDefinitionResponse -> HumanLoopConfig) (\s a -> s {humanLoopConfig = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsHumanLoopConfig "Use generic-lens or generic-optics with 'humanLoopConfig' instead." #-}
 
 -- | An object containing information about the output file.
-dfdfrsOutputConfig :: Lens' DescribeFlowDefinitionResponse FlowDefinitionOutputConfig
-dfdfrsOutputConfig = lens _dfdfrsOutputConfig (\s a -> s {_dfdfrsOutputConfig = a})
+--
+-- /Note:/ Consider using 'outputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsOutputConfig :: Lens.Lens' DescribeFlowDefinitionResponse FlowDefinitionOutputConfig
+dfdfrsOutputConfig = Lens.lens (outputConfig :: DescribeFlowDefinitionResponse -> FlowDefinitionOutputConfig) (\s a -> s {outputConfig = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsOutputConfig "Use generic-lens or generic-optics with 'outputConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) execution role for the flow definition.
-dfdfrsRoleARN :: Lens' DescribeFlowDefinitionResponse Text
-dfdfrsRoleARN = lens _dfdfrsRoleARN (\s a -> s {_dfdfrsRoleARN = a})
-
-instance NFData DescribeFlowDefinitionResponse
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfdfrsRoleARN :: Lens.Lens' DescribeFlowDefinitionResponse Lude.Text
+dfdfrsRoleARN = Lens.lens (roleARN :: DescribeFlowDefinitionResponse -> Lude.Text) (\s a -> s {roleARN = a} :: DescribeFlowDefinitionResponse)
+{-# DEPRECATED dfdfrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}

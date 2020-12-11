@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,140 @@
 --
 -- Provides a summarized description of the specified Kinesis data stream without the shard list.
 --
---
 -- The information returned includes the stream name, Amazon Resource Name (ARN), status, record retention period, approximate creation time, monitoring, encryption details, and open shard count.
---
 -- 'DescribeStreamSummary' has a limit of 20 transactions per second per account.
 module Network.AWS.Kinesis.DescribeStreamSummary
-  ( -- * Creating a Request
-    describeStreamSummary,
-    DescribeStreamSummary,
+  ( -- * Creating a request
+    DescribeStreamSummary (..),
+    mkDescribeStreamSummary,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dssStreamName,
 
-    -- * Destructuring the Response
-    describeStreamSummaryResponse,
-    DescribeStreamSummaryResponse,
+    -- * Destructuring the response
+    DescribeStreamSummaryResponse (..),
+    mkDescribeStreamSummaryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dssrsResponseStatus,
     dssrsStreamDescriptionSummary,
   )
 where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStreamSummary' smart constructor.
+-- | /See:/ 'mkDescribeStreamSummary' smart constructor.
 newtype DescribeStreamSummary = DescribeStreamSummary'
-  { _dssStreamName ::
-      Text
+  { streamName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssStreamName' - The name of the stream to describe.
-describeStreamSummary ::
-  -- | 'dssStreamName'
-  Text ->
+-- * 'streamName' - The name of the stream to describe.
+mkDescribeStreamSummary ::
+  -- | 'streamName'
+  Lude.Text ->
   DescribeStreamSummary
-describeStreamSummary pStreamName_ =
-  DescribeStreamSummary' {_dssStreamName = pStreamName_}
+mkDescribeStreamSummary pStreamName_ =
+  DescribeStreamSummary' {streamName = pStreamName_}
 
 -- | The name of the stream to describe.
-dssStreamName :: Lens' DescribeStreamSummary Text
-dssStreamName = lens _dssStreamName (\s a -> s {_dssStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssStreamName :: Lens.Lens' DescribeStreamSummary Lude.Text
+dssStreamName = Lens.lens (streamName :: DescribeStreamSummary -> Lude.Text) (\s a -> s {streamName = a} :: DescribeStreamSummary)
+{-# DEPRECATED dssStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance AWSRequest DescribeStreamSummary where
+instance Lude.AWSRequest DescribeStreamSummary where
   type Rs DescribeStreamSummary = DescribeStreamSummaryResponse
-  request = postJSON kinesis
+  request = Req.postJSON kinesisService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeStreamSummaryResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "StreamDescriptionSummary")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "StreamDescriptionSummary")
       )
 
-instance Hashable DescribeStreamSummary
-
-instance NFData DescribeStreamSummary
-
-instance ToHeaders DescribeStreamSummary where
+instance Lude.ToHeaders DescribeStreamSummary where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Kinesis_20131202.DescribeStreamSummary" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Kinesis_20131202.DescribeStreamSummary" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeStreamSummary where
+instance Lude.ToJSON DescribeStreamSummary where
   toJSON DescribeStreamSummary' {..} =
-    object (catMaybes [Just ("StreamName" .= _dssStreamName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("StreamName" Lude..= streamName)])
 
-instance ToPath DescribeStreamSummary where
-  toPath = const "/"
+instance Lude.ToPath DescribeStreamSummary where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeStreamSummary where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeStreamSummary where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeStreamSummaryResponse' smart constructor.
+-- | /See:/ 'mkDescribeStreamSummaryResponse' smart constructor.
 data DescribeStreamSummaryResponse = DescribeStreamSummaryResponse'
-  { _dssrsResponseStatus ::
-      !Int,
-    _dssrsStreamDescriptionSummary ::
-      !StreamDescriptionSummary
+  { responseStatus ::
+      Lude.Int,
+    streamDescriptionSummary ::
+      StreamDescriptionSummary
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamSummaryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssrsResponseStatus' - -- | The response status code.
---
--- * 'dssrsStreamDescriptionSummary' - A 'StreamDescriptionSummary' containing information about the stream.
-describeStreamSummaryResponse ::
-  -- | 'dssrsResponseStatus'
-  Int ->
-  -- | 'dssrsStreamDescriptionSummary'
+-- * 'responseStatus' - The response status code.
+-- * 'streamDescriptionSummary' - A 'StreamDescriptionSummary' containing information about the stream.
+mkDescribeStreamSummaryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'streamDescriptionSummary'
   StreamDescriptionSummary ->
   DescribeStreamSummaryResponse
-describeStreamSummaryResponse
+mkDescribeStreamSummaryResponse
   pResponseStatus_
   pStreamDescriptionSummary_ =
     DescribeStreamSummaryResponse'
-      { _dssrsResponseStatus =
-          pResponseStatus_,
-        _dssrsStreamDescriptionSummary = pStreamDescriptionSummary_
+      { responseStatus = pResponseStatus_,
+        streamDescriptionSummary = pStreamDescriptionSummary_
       }
 
--- | -- | The response status code.
-dssrsResponseStatus :: Lens' DescribeStreamSummaryResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\s a -> s {_dssrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsResponseStatus :: Lens.Lens' DescribeStreamSummaryResponse Lude.Int
+dssrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamSummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamSummaryResponse)
+{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A 'StreamDescriptionSummary' containing information about the stream.
-dssrsStreamDescriptionSummary :: Lens' DescribeStreamSummaryResponse StreamDescriptionSummary
-dssrsStreamDescriptionSummary = lens _dssrsStreamDescriptionSummary (\s a -> s {_dssrsStreamDescriptionSummary = a})
-
-instance NFData DescribeStreamSummaryResponse
+--
+-- /Note:/ Consider using 'streamDescriptionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsStreamDescriptionSummary :: Lens.Lens' DescribeStreamSummaryResponse StreamDescriptionSummary
+dssrsStreamDescriptionSummary = Lens.lens (streamDescriptionSummary :: DescribeStreamSummaryResponse -> StreamDescriptionSummary) (\s a -> s {streamDescriptionSummary = a} :: DescribeStreamSummaryResponse)
+{-# DEPRECATED dssrsStreamDescriptionSummary "Use generic-lens or generic-optics with 'streamDescriptionSummary' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Updates the definition for the specified mitigation action.
 module Network.AWS.IoT.UpdateMitigationAction
-  ( -- * Creating a Request
-    updateMitigationAction,
-    UpdateMitigationAction,
+  ( -- * Creating a request
+    UpdateMitigationAction (..),
+    mkUpdateMitigationAction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     umaActionParams,
     umaRoleARN,
     umaActionName,
 
-    -- * Destructuring the Response
-    updateMitigationActionResponse,
-    UpdateMitigationActionResponse,
+    -- * Destructuring the response
+    UpdateMitigationActionResponse (..),
+    mkUpdateMitigationActionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     umarsActionId,
     umarsActionARN,
     umarsResponseStatus,
@@ -40,125 +35,146 @@ module Network.AWS.IoT.UpdateMitigationAction
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateMitigationAction' smart constructor.
+-- | /See:/ 'mkUpdateMitigationAction' smart constructor.
 data UpdateMitigationAction = UpdateMitigationAction'
-  { _umaActionParams ::
-      !(Maybe MitigationActionParams),
-    _umaRoleARN :: !(Maybe Text),
-    _umaActionName :: !Text
+  { actionParams ::
+      Lude.Maybe MitigationActionParams,
+    roleARN :: Lude.Maybe Lude.Text,
+    actionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMitigationAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umaActionParams' - Defines the type of action and the parameters for that action.
---
--- * 'umaRoleARN' - The ARN of the IAM role that is used to apply the mitigation action.
---
--- * 'umaActionName' - The friendly name for the mitigation action. You can't change the name by using @UpdateMitigationAction@ . Instead, you must delete and re-create the mitigation action with the new name.
-updateMitigationAction ::
-  -- | 'umaActionName'
-  Text ->
+-- * 'actionName' - The friendly name for the mitigation action. You can't change the name by using @UpdateMitigationAction@ . Instead, you must delete and re-create the mitigation action with the new name.
+-- * 'actionParams' - Defines the type of action and the parameters for that action.
+-- * 'roleARN' - The ARN of the IAM role that is used to apply the mitigation action.
+mkUpdateMitigationAction ::
+  -- | 'actionName'
+  Lude.Text ->
   UpdateMitigationAction
-updateMitigationAction pActionName_ =
+mkUpdateMitigationAction pActionName_ =
   UpdateMitigationAction'
-    { _umaActionParams = Nothing,
-      _umaRoleARN = Nothing,
-      _umaActionName = pActionName_
+    { actionParams = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      actionName = pActionName_
     }
 
 -- | Defines the type of action and the parameters for that action.
-umaActionParams :: Lens' UpdateMitigationAction (Maybe MitigationActionParams)
-umaActionParams = lens _umaActionParams (\s a -> s {_umaActionParams = a})
+--
+-- /Note:/ Consider using 'actionParams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umaActionParams :: Lens.Lens' UpdateMitigationAction (Lude.Maybe MitigationActionParams)
+umaActionParams = Lens.lens (actionParams :: UpdateMitigationAction -> Lude.Maybe MitigationActionParams) (\s a -> s {actionParams = a} :: UpdateMitigationAction)
+{-# DEPRECATED umaActionParams "Use generic-lens or generic-optics with 'actionParams' instead." #-}
 
 -- | The ARN of the IAM role that is used to apply the mitigation action.
-umaRoleARN :: Lens' UpdateMitigationAction (Maybe Text)
-umaRoleARN = lens _umaRoleARN (\s a -> s {_umaRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umaRoleARN :: Lens.Lens' UpdateMitigationAction (Lude.Maybe Lude.Text)
+umaRoleARN = Lens.lens (roleARN :: UpdateMitigationAction -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateMitigationAction)
+{-# DEPRECATED umaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The friendly name for the mitigation action. You can't change the name by using @UpdateMitigationAction@ . Instead, you must delete and re-create the mitigation action with the new name.
-umaActionName :: Lens' UpdateMitigationAction Text
-umaActionName = lens _umaActionName (\s a -> s {_umaActionName = a})
+--
+-- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umaActionName :: Lens.Lens' UpdateMitigationAction Lude.Text
+umaActionName = Lens.lens (actionName :: UpdateMitigationAction -> Lude.Text) (\s a -> s {actionName = a} :: UpdateMitigationAction)
+{-# DEPRECATED umaActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
-instance AWSRequest UpdateMitigationAction where
+instance Lude.AWSRequest UpdateMitigationAction where
   type Rs UpdateMitigationAction = UpdateMitigationActionResponse
-  request = patchJSON ioT
+  request = Req.patchJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateMitigationActionResponse'
-            <$> (x .?> "actionId") <*> (x .?> "actionArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "actionId")
+            Lude.<*> (x Lude..?> "actionArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateMitigationAction
+instance Lude.ToHeaders UpdateMitigationAction where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateMitigationAction
-
-instance ToHeaders UpdateMitigationAction where
-  toHeaders = const mempty
-
-instance ToJSON UpdateMitigationAction where
+instance Lude.ToJSON UpdateMitigationAction where
   toJSON UpdateMitigationAction' {..} =
-    object
-      ( catMaybes
-          [ ("actionParams" .=) <$> _umaActionParams,
-            ("roleArn" .=) <$> _umaRoleARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("actionParams" Lude..=) Lude.<$> actionParams,
+            ("roleArn" Lude..=) Lude.<$> roleARN
           ]
       )
 
-instance ToPath UpdateMitigationAction where
+instance Lude.ToPath UpdateMitigationAction where
   toPath UpdateMitigationAction' {..} =
-    mconcat ["/mitigationactions/actions/", toBS _umaActionName]
+    Lude.mconcat
+      ["/mitigationactions/actions/", Lude.toBS actionName]
 
-instance ToQuery UpdateMitigationAction where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateMitigationAction where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateMitigationActionResponse' smart constructor.
+-- | /See:/ 'mkUpdateMitigationActionResponse' smart constructor.
 data UpdateMitigationActionResponse = UpdateMitigationActionResponse'
-  { _umarsActionId ::
-      !(Maybe Text),
-    _umarsActionARN ::
-      !(Maybe Text),
-    _umarsResponseStatus :: !Int
+  { actionId ::
+      Lude.Maybe Lude.Text,
+    actionARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMitigationActionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umarsActionId' - A unique identifier for the mitigation action.
---
--- * 'umarsActionARN' - The ARN for the new mitigation action.
---
--- * 'umarsResponseStatus' - -- | The response status code.
-updateMitigationActionResponse ::
-  -- | 'umarsResponseStatus'
-  Int ->
+-- * 'actionARN' - The ARN for the new mitigation action.
+-- * 'actionId' - A unique identifier for the mitigation action.
+-- * 'responseStatus' - The response status code.
+mkUpdateMitigationActionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateMitigationActionResponse
-updateMitigationActionResponse pResponseStatus_ =
+mkUpdateMitigationActionResponse pResponseStatus_ =
   UpdateMitigationActionResponse'
-    { _umarsActionId = Nothing,
-      _umarsActionARN = Nothing,
-      _umarsResponseStatus = pResponseStatus_
+    { actionId = Lude.Nothing,
+      actionARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique identifier for the mitigation action.
-umarsActionId :: Lens' UpdateMitigationActionResponse (Maybe Text)
-umarsActionId = lens _umarsActionId (\s a -> s {_umarsActionId = a})
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umarsActionId :: Lens.Lens' UpdateMitigationActionResponse (Lude.Maybe Lude.Text)
+umarsActionId = Lens.lens (actionId :: UpdateMitigationActionResponse -> Lude.Maybe Lude.Text) (\s a -> s {actionId = a} :: UpdateMitigationActionResponse)
+{-# DEPRECATED umarsActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | The ARN for the new mitigation action.
-umarsActionARN :: Lens' UpdateMitigationActionResponse (Maybe Text)
-umarsActionARN = lens _umarsActionARN (\s a -> s {_umarsActionARN = a})
+--
+-- /Note:/ Consider using 'actionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umarsActionARN :: Lens.Lens' UpdateMitigationActionResponse (Lude.Maybe Lude.Text)
+umarsActionARN = Lens.lens (actionARN :: UpdateMitigationActionResponse -> Lude.Maybe Lude.Text) (\s a -> s {actionARN = a} :: UpdateMitigationActionResponse)
+{-# DEPRECATED umarsActionARN "Use generic-lens or generic-optics with 'actionARN' instead." #-}
 
--- | -- | The response status code.
-umarsResponseStatus :: Lens' UpdateMitigationActionResponse Int
-umarsResponseStatus = lens _umarsResponseStatus (\s a -> s {_umarsResponseStatus = a})
-
-instance NFData UpdateMitigationActionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umarsResponseStatus :: Lens.Lens' UpdateMitigationActionResponse Lude.Int
+umarsResponseStatus = Lens.lens (responseStatus :: UpdateMitigationActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMitigationActionResponse)
+{-# DEPRECATED umarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

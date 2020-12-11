@@ -14,33 +14,32 @@
 -- __Amazon Relational Database Service__
 --
 --
---
 -- Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and scale a relational database in the cloud. It provides cost-efficient, resizeable capacity for an industry-standard relational database and manages common database administration tasks, freeing up developers to focus on what makes their applications and businesses unique.
---
 -- Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, Oracle, or Amazon Aurora database server. These capabilities mean that the code, applications, and tools you already use today with your existing databases work with Amazon RDS without modification. Amazon RDS automatically backs up your database and maintains the database software that powers your DB instance. Amazon RDS is flexible: you can scale your DB instance's compute resources and storage capacity to meet your application's demand. As with all Amazon Web Services, there are no up-front investments, and you pay only for the resources you use.
---
 -- This interface reference for Amazon RDS contains documentation for a programming or command line interface you can use to manage Amazon RDS. Amazon RDS is asynchronous, which means that some interfaces might require techniques such as polling or callback functions to determine when a command has been applied. In this reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot, or during the maintenance window. The reference structure is as follows, and we list following some related topics from the user guide.
---
 -- __Amazon RDS API Reference__
 --
 --     * For the alphabetical list of API actions, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Operations.html API Actions> .
 --
+--
 --     * For the alphabetical list of data types, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Types.html Data Types> .
+--
 --
 --     * For a list of common query parameters, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonParameters.html Common Parameters> .
 --
---     * For descriptions of the error codes, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonErrors.html Common Errors> .
 --
+--     * For descriptions of the error codes, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonErrors.html Common Errors> .
 --
 --
 -- __Amazon RDS User Guide__
 --
 --     * For a summary of the Amazon RDS interfaces, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces> .
 --
+--
 --     * For more information about how to use the Query API, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html Using the Query API> .
 module Network.AWS.RDS
-  ( -- * Service Configuration
-    rds,
+  ( -- * Service configuration
+    rdsService,
 
     -- * Errors
     -- $errors
@@ -49,25 +48,25 @@ module Network.AWS.RDS
     -- $waiters
 
     -- ** DBInstanceAvailable
-    dbInstanceAvailable,
+    mkDBInstanceAvailable,
 
     -- ** DBSnapshotCompleted
-    dbSnapshotCompleted,
+    mkDBSnapshotCompleted,
 
     -- ** DBSnapshotDeleted
-    dbSnapshotDeleted,
+    mkDBSnapshotDeleted,
 
     -- ** DBInstanceDeleted
-    dbInstanceDeleted,
+    mkDBInstanceDeleted,
 
     -- ** DBClusterSnapshotDeleted
-    dbClusterSnapshotDeleted,
+    mkDBClusterSnapshotDeleted,
 
     -- ** DBSnapshotAvailable
-    dbSnapshotAvailable,
+    mkDBSnapshotAvailable,
 
     -- ** DBClusterSnapshotAvailable
-    dbClusterSnapshotAvailable,
+    mkDBClusterSnapshotAvailable,
 
     -- * Operations
     -- $operations
@@ -504,27 +503,27 @@ module Network.AWS.RDS
     WriteForwardingStatus (..),
 
     -- ** AccountQuota
-    AccountQuota,
-    accountQuota,
+    AccountQuota (..),
+    mkAccountQuota,
     aqMax,
     aqUsed,
     aqAccountQuotaName,
 
     -- ** AvailabilityZone
-    AvailabilityZone,
-    availabilityZone,
+    AvailabilityZone (..),
+    mkAvailabilityZone,
     azName,
 
     -- ** AvailableProcessorFeature
-    AvailableProcessorFeature,
-    availableProcessorFeature,
+    AvailableProcessorFeature (..),
+    mkAvailableProcessorFeature,
     apfName,
     apfDefaultValue,
     apfAllowedValues,
 
     -- ** Certificate
-    Certificate,
-    certificate,
+    Certificate (..),
+    mkCertificate,
     cCertificateType,
     cCustomerOverride,
     cCertificateARN,
@@ -535,20 +534,20 @@ module Network.AWS.RDS
     cValidFrom,
 
     -- ** CharacterSet
-    CharacterSet,
-    characterSet,
+    CharacterSet (..),
+    mkCharacterSet,
     csCharacterSetName,
     csCharacterSetDescription,
 
     -- ** CloudwatchLogsExportConfiguration
-    CloudwatchLogsExportConfiguration,
-    cloudwatchLogsExportConfiguration,
+    CloudwatchLogsExportConfiguration (..),
+    mkCloudwatchLogsExportConfiguration,
     clecDisableLogTypes,
     clecEnableLogTypes,
 
     -- ** ConnectionPoolConfiguration
-    ConnectionPoolConfiguration,
-    connectionPoolConfiguration,
+    ConnectionPoolConfiguration (..),
+    mkConnectionPoolConfiguration,
     cpcMaxIdleConnectionsPercent,
     cpcSessionPinningFilters,
     cpcMaxConnectionsPercent,
@@ -556,8 +555,8 @@ module Network.AWS.RDS
     cpcInitQuery,
 
     -- ** ConnectionPoolConfigurationInfo
-    ConnectionPoolConfigurationInfo,
-    connectionPoolConfigurationInfo,
+    ConnectionPoolConfigurationInfo (..),
+    mkConnectionPoolConfigurationInfo,
     cpciMaxIdleConnectionsPercent,
     cpciSessionPinningFilters,
     cpciMaxConnectionsPercent,
@@ -565,16 +564,16 @@ module Network.AWS.RDS
     cpciInitQuery,
 
     -- ** CustomAvailabilityZone
-    CustomAvailabilityZone,
-    customAvailabilityZone,
+    CustomAvailabilityZone (..),
+    mkCustomAvailabilityZone,
     cazVPNDetails,
     cazCustomAvailabilityZoneName,
     cazCustomAvailabilityZoneId,
     cazCustomAvailabilityZoneStatus,
 
     -- ** DBCluster
-    DBCluster,
-    dbCluster,
+    DBCluster (..),
+    mkDBCluster,
     dcBacktrackConsumedChangeRecords,
     dcEngineVersion,
     dcStatus,
@@ -632,8 +631,8 @@ module Network.AWS.RDS
     dcDBClusterOptionGroupMemberships,
 
     -- ** DBClusterBacktrack
-    DBClusterBacktrack,
-    dbClusterBacktrack,
+    DBClusterBacktrack (..),
+    mkDBClusterBacktrack,
     dcbStatus,
     dcbBacktrackIdentifier,
     dcbBacktrackTo,
@@ -642,8 +641,8 @@ module Network.AWS.RDS
     dcbBacktrackRequestCreationTime,
 
     -- ** DBClusterEndpoint
-    DBClusterEndpoint,
-    dbClusterEndpoint,
+    DBClusterEndpoint (..),
+    mkDBClusterEndpoint,
     dceStatus,
     dceDBClusterIdentifier,
     dceDBClusterEndpointARN,
@@ -656,42 +655,42 @@ module Network.AWS.RDS
     dceExcludedMembers,
 
     -- ** DBClusterMember
-    DBClusterMember,
-    dbClusterMember,
+    DBClusterMember (..),
+    mkDBClusterMember,
     dcmPromotionTier,
     dcmDBInstanceIdentifier,
     dcmIsClusterWriter,
     dcmDBClusterParameterGroupStatus,
 
     -- ** DBClusterOptionGroupStatus
-    DBClusterOptionGroupStatus,
-    dbClusterOptionGroupStatus,
+    DBClusterOptionGroupStatus (..),
+    mkDBClusterOptionGroupStatus,
     dcogsStatus,
     dcogsDBClusterOptionGroupName,
 
     -- ** DBClusterParameterGroup
-    DBClusterParameterGroup,
-    dbClusterParameterGroup,
+    DBClusterParameterGroup (..),
+    mkDBClusterParameterGroup,
     dcpgDBClusterParameterGroupARN,
     dcpgDBParameterGroupFamily,
     dcpgDBClusterParameterGroupName,
     dcpgDescription,
 
     -- ** DBClusterParameterGroupNameMessage
-    DBClusterParameterGroupNameMessage,
-    dbClusterParameterGroupNameMessage,
+    DBClusterParameterGroupNameMessage (..),
+    mkDBClusterParameterGroupNameMessage,
     dcpgnmDBClusterParameterGroupName,
 
     -- ** DBClusterRole
-    DBClusterRole,
-    dbClusterRole,
+    DBClusterRole (..),
+    mkDBClusterRole,
     dcrStatus,
     dcrFeatureName,
     dcrRoleARN,
 
     -- ** DBClusterSnapshot
-    DBClusterSnapshot,
-    dbClusterSnapshot,
+    DBClusterSnapshot (..),
+    mkDBClusterSnapshot,
     dcsEngineVersion,
     dcsStatus,
     dcsStorageEncrypted,
@@ -715,20 +714,20 @@ module Network.AWS.RDS
     dcsPort,
 
     -- ** DBClusterSnapshotAttribute
-    DBClusterSnapshotAttribute,
-    dbClusterSnapshotAttribute,
+    DBClusterSnapshotAttribute (..),
+    mkDBClusterSnapshotAttribute,
     dcsaAttributeValues,
     dcsaAttributeName,
 
     -- ** DBClusterSnapshotAttributesResult
-    DBClusterSnapshotAttributesResult,
-    dbClusterSnapshotAttributesResult,
+    DBClusterSnapshotAttributesResult (..),
+    mkDBClusterSnapshotAttributesResult,
     dcsarDBClusterSnapshotIdentifier,
     dcsarDBClusterSnapshotAttributes,
 
     -- ** DBEngineVersion
-    DBEngineVersion,
-    dbEngineVersion,
+    DBEngineVersion (..),
+    mkDBEngineVersion,
     devEngineVersion,
     devStatus,
     devDBEngineVersionDescription,
@@ -749,8 +748,8 @@ module Network.AWS.RDS
     devExportableLogTypes,
 
     -- ** DBInstance
-    DBInstance,
-    dbInstance,
+    DBInstance (..),
+    mkDBInstance,
     diEngineVersion,
     diDBSecurityGroups,
     diDeletionProtection,
@@ -814,8 +813,8 @@ module Network.AWS.RDS
     diDBName,
 
     -- ** DBInstanceAutomatedBackup
-    DBInstanceAutomatedBackup,
-    dbInstanceAutomatedBackup,
+    DBInstanceAutomatedBackup (..),
+    mkDBInstanceAutomatedBackup,
     diabRestoreWindow,
     diabEngineVersion,
     diabStatus,
@@ -841,42 +840,42 @@ module Network.AWS.RDS
     diabStorageType,
 
     -- ** DBInstanceRole
-    DBInstanceRole,
-    dbInstanceRole,
+    DBInstanceRole (..),
+    mkDBInstanceRole,
     dirStatus,
     dirFeatureName,
     dirRoleARN,
 
     -- ** DBInstanceStatusInfo
-    DBInstanceStatusInfo,
-    dbInstanceStatusInfo,
+    DBInstanceStatusInfo (..),
+    mkDBInstanceStatusInfo,
     disiStatus,
     disiNormal,
     disiStatusType,
     disiMessage,
 
     -- ** DBParameterGroup
-    DBParameterGroup,
-    dbParameterGroup,
+    DBParameterGroup (..),
+    mkDBParameterGroup,
     dpgDBParameterGroupARN,
     dpgDBParameterGroupFamily,
     dpgDBParameterGroupName,
     dpgDescription,
 
     -- ** DBParameterGroupNameMessage
-    DBParameterGroupNameMessage,
-    dbParameterGroupNameMessage,
+    DBParameterGroupNameMessage (..),
+    mkDBParameterGroupNameMessage,
     dpgnmDBParameterGroupName,
 
     -- ** DBParameterGroupStatus
-    DBParameterGroupStatus,
-    dbParameterGroupStatus,
+    DBParameterGroupStatus (..),
+    mkDBParameterGroupStatus,
     dpgsDBParameterGroupName,
     dpgsParameterApplyStatus,
 
     -- ** DBProxy
-    DBProxy,
-    dbProxy,
+    DBProxy (..),
+    mkDBProxy,
     dpStatus,
     dpDBProxyARN,
     dpDebugLogging,
@@ -893,8 +892,8 @@ module Network.AWS.RDS
     dpRoleARN,
 
     -- ** DBProxyTarget
-    DBProxyTarget,
-    dbProxyTarget,
+    DBProxyTarget (..),
+    mkDBProxyTarget,
     dptTargetARN,
     dptTargetHealth,
     dptTrackedClusterId,
@@ -904,8 +903,8 @@ module Network.AWS.RDS
     dptPort,
 
     -- ** DBProxyTargetGroup
-    DBProxyTargetGroup,
-    dbProxyTargetGroup,
+    DBProxyTargetGroup (..),
+    mkDBProxyTargetGroup,
     dptgStatus,
     dptgConnectionPoolConfig,
     dptgTargetGroupARN,
@@ -916,8 +915,8 @@ module Network.AWS.RDS
     dptgIsDefault,
 
     -- ** DBSecurityGroup
-    DBSecurityGroup,
-    dbSecurityGroup,
+    DBSecurityGroup (..),
+    mkDBSecurityGroup,
     dbsgVPCId,
     dbsgOwnerId,
     dbsgDBSecurityGroupARN,
@@ -927,14 +926,14 @@ module Network.AWS.RDS
     dbsgDBSecurityGroupDescription,
 
     -- ** DBSecurityGroupMembership
-    DBSecurityGroupMembership,
-    dbSecurityGroupMembership,
+    DBSecurityGroupMembership (..),
+    mkDBSecurityGroupMembership,
     dsgmStatus,
     dsgmDBSecurityGroupName,
 
     -- ** DBSnapshot
-    DBSnapshot,
-    dbSnapshot,
+    DBSnapshot (..),
+    mkDBSnapshot,
     dsEngineVersion,
     dsStatus,
     dsDBSnapshotARN,
@@ -966,20 +965,20 @@ module Network.AWS.RDS
     dsStorageType,
 
     -- ** DBSnapshotAttribute
-    DBSnapshotAttribute,
-    dbSnapshotAttribute,
+    DBSnapshotAttribute (..),
+    mkDBSnapshotAttribute,
     dsaAttributeValues,
     dsaAttributeName,
 
     -- ** DBSnapshotAttributesResult
-    DBSnapshotAttributesResult,
-    dbSnapshotAttributesResult,
+    DBSnapshotAttributesResult (..),
+    mkDBSnapshotAttributesResult,
     dsarDBSnapshotIdentifier,
     dsarDBSnapshotAttributes,
 
     -- ** DBSubnetGroup
-    DBSubnetGroup,
-    dbSubnetGroup,
+    DBSubnetGroup (..),
+    mkDBSubnetGroup,
     dsgDBSubnetGroupName,
     dsgVPCId,
     dsgSubnets,
@@ -988,51 +987,51 @@ module Network.AWS.RDS
     dsgSubnetGroupStatus,
 
     -- ** DescribeDBLogFilesDetails
-    DescribeDBLogFilesDetails,
-    describeDBLogFilesDetails,
+    DescribeDBLogFilesDetails (..),
+    mkDescribeDBLogFilesDetails,
     ddlfdLastWritten,
     ddlfdSize,
     ddlfdLogFileName,
 
     -- ** DomainMembership
-    DomainMembership,
-    domainMembership,
+    DomainMembership (..),
+    mkDomainMembership,
     dmStatus,
     dmFQDN,
     dmDomain,
     dmIAMRoleName,
 
     -- ** DoubleRange
-    DoubleRange,
-    doubleRange,
+    DoubleRange (..),
+    mkDoubleRange,
     drTo,
     drFrom,
 
     -- ** EC2SecurityGroup
-    EC2SecurityGroup,
-    ec2SecurityGroup,
+    EC2SecurityGroup (..),
+    mkEC2SecurityGroup,
     esgStatus,
     esgEC2SecurityGroupOwnerId,
     esgEC2SecurityGroupName,
     esgEC2SecurityGroupId,
 
     -- ** Endpoint
-    Endpoint,
-    endpoint,
+    Endpoint (..),
+    mkEndpoint,
     eHostedZoneId,
     eAddress,
     ePort,
 
     -- ** EngineDefaults
-    EngineDefaults,
-    engineDefaults,
+    EngineDefaults (..),
+    mkEngineDefaults,
     edDBParameterGroupFamily,
     edMarker,
     edParameters,
 
     -- ** Event
-    Event,
-    event,
+    Event (..),
+    mkEvent,
     eSourceType,
     eSourceARN,
     eSourceIdentifier,
@@ -1041,14 +1040,14 @@ module Network.AWS.RDS
     eMessage,
 
     -- ** EventCategoriesMap
-    EventCategoriesMap,
-    eventCategoriesMap,
+    EventCategoriesMap (..),
+    mkEventCategoriesMap,
     ecmSourceType,
     ecmEventCategories,
 
     -- ** EventSubscription
-    EventSubscription,
-    eventSubscription,
+    EventSubscription (..),
+    mkEventSubscription,
     esStatus,
     esCustomerAWSId,
     esCustSubscriptionId,
@@ -1061,8 +1060,8 @@ module Network.AWS.RDS
     esSourceIdsList,
 
     -- ** ExportTask
-    ExportTask,
-    exportTask,
+    ExportTask (..),
+    mkExportTask,
     etTotalExtractedDataInGB,
     etStatus,
     etIAMRoleARN,
@@ -1080,14 +1079,14 @@ module Network.AWS.RDS
     etFailureCause,
 
     -- ** Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fName,
     fValues,
 
     -- ** GlobalCluster
-    GlobalCluster,
-    globalCluster,
+    GlobalCluster (..),
+    mkGlobalCluster,
     gcEngineVersion,
     gcStatus,
     gcDeletionProtection,
@@ -1100,22 +1099,22 @@ module Network.AWS.RDS
     gcGlobalClusterResourceId,
 
     -- ** GlobalClusterMember
-    GlobalClusterMember,
-    globalClusterMember,
+    GlobalClusterMember (..),
+    mkGlobalClusterMember,
     gcmReaders,
     gcmDBClusterARN,
     gcmIsWriter,
     gcmGlobalWriteForwardingStatus,
 
     -- ** IPRange
-    IPRange,
-    ipRange,
+    IPRange (..),
+    mkIPRange,
     irStatus,
     irCIdRIP,
 
     -- ** InstallationMedia
-    InstallationMedia,
-    installationMedia,
+    InstallationMedia (..),
+    mkInstallationMedia,
     imEngineVersion,
     imStatus,
     imInstallationMediaId,
@@ -1126,19 +1125,19 @@ module Network.AWS.RDS
     imFailureCause,
 
     -- ** InstallationMediaFailureCause
-    InstallationMediaFailureCause,
-    installationMediaFailureCause,
+    InstallationMediaFailureCause (..),
+    mkInstallationMediaFailureCause,
     imfcMessage,
 
     -- ** MinimumEngineVersionPerAllowedValue
-    MinimumEngineVersionPerAllowedValue,
-    minimumEngineVersionPerAllowedValue,
+    MinimumEngineVersionPerAllowedValue (..),
+    mkMinimumEngineVersionPerAllowedValue,
     mevpavMinimumEngineVersion,
     mevpavAllowedValue,
 
     -- ** Option
-    Option,
-    option,
+    Option (..),
+    mkOption,
     oOptionName,
     oPermanent,
     oPersistent,
@@ -1150,8 +1149,8 @@ module Network.AWS.RDS
     oPort,
 
     -- ** OptionConfiguration
-    OptionConfiguration,
-    optionConfiguration,
+    OptionConfiguration (..),
+    mkOptionConfiguration,
     ocOptionSettings,
     ocVPCSecurityGroupMemberships,
     ocDBSecurityGroupMemberships,
@@ -1160,8 +1159,8 @@ module Network.AWS.RDS
     ocOptionName,
 
     -- ** OptionGroup
-    OptionGroup,
-    optionGroup,
+    OptionGroup (..),
+    mkOptionGroup,
     ogOptionGroupDescription,
     ogVPCId,
     ogAllowsVPCAndNonVPCInstanceMemberships,
@@ -1172,14 +1171,14 @@ module Network.AWS.RDS
     ogOptionGroupName,
 
     -- ** OptionGroupMembership
-    OptionGroupMembership,
-    optionGroupMembership,
+    OptionGroupMembership (..),
+    mkOptionGroupMembership,
     ogmStatus,
     ogmOptionGroupName,
 
     -- ** OptionGroupOption
-    OptionGroupOption,
-    optionGroupOption,
+    OptionGroupOption (..),
+    mkOptionGroupOption,
     ogoMinimumRequiredMinorEngineVersion,
     ogoOptionsConflictsWith,
     ogoPermanent,
@@ -1198,8 +1197,8 @@ module Network.AWS.RDS
     ogoVPCOnly,
 
     -- ** OptionGroupOptionSetting
-    OptionGroupOptionSetting,
-    optionGroupOptionSetting,
+    OptionGroupOptionSetting (..),
+    mkOptionGroupOptionSetting,
     ogosApplyType,
     ogosMinimumEngineVersionPerAllowedValue,
     ogosSettingName,
@@ -1210,8 +1209,8 @@ module Network.AWS.RDS
     ogosIsRequired,
 
     -- ** OptionSetting
-    OptionSetting,
-    optionSetting,
+    OptionSetting (..),
+    mkOptionSetting,
     osIsCollection,
     osApplyType,
     osValue,
@@ -1223,14 +1222,14 @@ module Network.AWS.RDS
     osDescription,
 
     -- ** OptionVersion
-    OptionVersion,
-    optionVersion,
+    OptionVersion (..),
+    mkOptionVersion,
     ovVersion,
     ovIsDefault,
 
     -- ** OrderableDBInstanceOption
-    OrderableDBInstanceOption,
-    orderableDBInstanceOption,
+    OrderableDBInstanceOption (..),
+    mkOrderableDBInstanceOption,
     odioEngineVersion,
     odioMinIOPSPerGib,
     odioSupportsIAMDatabaseAuthentication,
@@ -1260,13 +1259,13 @@ module Network.AWS.RDS
     odioStorageType,
 
     -- ** Outpost
-    Outpost,
-    outpost,
+    Outpost (..),
+    mkOutpost,
     oARN,
 
     -- ** Parameter
-    Parameter,
-    parameter,
+    Parameter (..),
+    mkParameter,
     pApplyType,
     pParameterValue,
     pSupportedEngineModes,
@@ -1280,14 +1279,14 @@ module Network.AWS.RDS
     pDescription,
 
     -- ** PendingCloudwatchLogsExports
-    PendingCloudwatchLogsExports,
-    pendingCloudwatchLogsExports,
+    PendingCloudwatchLogsExports (..),
+    mkPendingCloudwatchLogsExports,
     pcleLogTypesToEnable,
     pcleLogTypesToDisable,
 
     -- ** PendingMaintenanceAction
-    PendingMaintenanceAction,
-    pendingMaintenanceAction,
+    PendingMaintenanceAction (..),
+    mkPendingMaintenanceAction,
     pmaAutoAppliedAfterDate,
     pmaAction,
     pmaOptInStatus,
@@ -1296,8 +1295,8 @@ module Network.AWS.RDS
     pmaCurrentApplyDate,
 
     -- ** PendingModifiedValues
-    PendingModifiedValues,
-    pendingModifiedValues,
+    PendingModifiedValues (..),
+    mkPendingModifiedValues,
     pmvEngineVersion,
     pmvMasterUserPassword,
     pmvDBSubnetGroupName,
@@ -1315,27 +1314,27 @@ module Network.AWS.RDS
     pmvStorageType,
 
     -- ** ProcessorFeature
-    ProcessorFeature,
-    processorFeature,
+    ProcessorFeature (..),
+    mkProcessorFeature,
     pfValue,
     pfName,
 
     -- ** Range
-    Range,
-    range,
+    Range (..),
+    mkRange,
     rTo,
     rFrom,
     rStep,
 
     -- ** RecurringCharge
-    RecurringCharge,
-    recurringCharge,
+    RecurringCharge (..),
+    mkRecurringCharge,
     rcRecurringChargeFrequency,
     rcRecurringChargeAmount,
 
     -- ** ReservedDBInstance
-    ReservedDBInstance,
-    reservedDBInstance,
+    ReservedDBInstance (..),
+    mkReservedDBInstance,
     rdiDBInstanceCount,
     rdiState,
     rdiCurrencyCode,
@@ -1354,8 +1353,8 @@ module Network.AWS.RDS
     rdiDuration,
 
     -- ** ReservedDBInstancesOffering
-    ReservedDBInstancesOffering,
-    reservedDBInstancesOffering,
+    ReservedDBInstancesOffering (..),
+    mkReservedDBInstancesOffering,
     rdioCurrencyCode,
     rdioProductDescription,
     rdioDBInstanceClass,
@@ -1368,20 +1367,20 @@ module Network.AWS.RDS
     rdioDuration,
 
     -- ** ResourcePendingMaintenanceActions
-    ResourcePendingMaintenanceActions,
-    resourcePendingMaintenanceActions,
+    ResourcePendingMaintenanceActions (..),
+    mkResourcePendingMaintenanceActions,
     rpmaPendingMaintenanceActionDetails,
     rpmaResourceIdentifier,
 
     -- ** RestoreWindow
-    RestoreWindow,
-    restoreWindow,
+    RestoreWindow (..),
+    mkRestoreWindow,
     rwLatestTime,
     rwEarliestTime,
 
     -- ** ScalingConfiguration
-    ScalingConfiguration,
-    scalingConfiguration,
+    ScalingConfiguration (..),
+    mkScalingConfiguration,
     scSecondsUntilAutoPause,
     scTimeoutAction,
     scAutoPause,
@@ -1389,8 +1388,8 @@ module Network.AWS.RDS
     scMinCapacity,
 
     -- ** ScalingConfigurationInfo
-    ScalingConfigurationInfo,
-    scalingConfigurationInfo,
+    ScalingConfigurationInfo (..),
+    mkScalingConfigurationInfo,
     sciSecondsUntilAutoPause,
     sciTimeoutAction,
     sciAutoPause,
@@ -1398,41 +1397,41 @@ module Network.AWS.RDS
     sciMinCapacity,
 
     -- ** SourceRegion
-    SourceRegion,
-    sourceRegion,
+    SourceRegion (..),
+    mkSourceRegion,
     srStatus,
     srRegionName,
     srEndpoint,
 
     -- ** Subnet
-    Subnet,
-    subnet,
+    Subnet (..),
+    mkSubnet,
     sSubnetStatus,
     sSubnetIdentifier,
     sSubnetAvailabilityZone,
     sSubnetOutpost,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TargetHealth
-    TargetHealth,
-    targetHealth,
+    TargetHealth (..),
+    mkTargetHealth,
     thState,
     thReason,
     thDescription,
 
     -- ** Timezone
-    Timezone,
-    timezone,
+    Timezone (..),
+    mkTimezone,
     tTimezoneName,
 
     -- ** UpgradeTarget
-    UpgradeTarget,
-    upgradeTarget,
+    UpgradeTarget (..),
+    mkUpgradeTarget,
     utEngineVersion,
     utIsMajorVersionUpgrade,
     utEngine,
@@ -1440,8 +1439,8 @@ module Network.AWS.RDS
     utDescription,
 
     -- ** UserAuthConfig
-    UserAuthConfig,
-    userAuthConfig,
+    UserAuthConfig (..),
+    mkUserAuthConfig,
     uacIAMAuth,
     uacUserName,
     uacAuthScheme,
@@ -1449,8 +1448,8 @@ module Network.AWS.RDS
     uacDescription,
 
     -- ** UserAuthConfigInfo
-    UserAuthConfigInfo,
-    userAuthConfigInfo,
+    UserAuthConfigInfo (..),
+    mkUserAuthConfigInfo,
     uaciIAMAuth,
     uaciUserName,
     uaciAuthScheme,
@@ -1458,14 +1457,14 @@ module Network.AWS.RDS
     uaciDescription,
 
     -- ** VPCSecurityGroupMembership
-    VPCSecurityGroupMembership,
-    vpcSecurityGroupMembership,
+    VPCSecurityGroupMembership (..),
+    mkVPCSecurityGroupMembership,
     vsgmStatus,
     vsgmVPCSecurityGroupId,
 
     -- ** VPNDetails
-    VPNDetails,
-    vpnDetails,
+    VPNDetails (..),
+    mkVPNDetails,
     vdVPNName,
     vdVPNTunnelOriginatorIP,
     vdVPNId,
@@ -1474,22 +1473,34 @@ module Network.AWS.RDS
     vdVPNGatewayIP,
 
     -- ** ValidDBInstanceModificationsMessage
-    ValidDBInstanceModificationsMessage,
-    validDBInstanceModificationsMessage,
+    ValidDBInstanceModificationsMessage (..),
+    mkValidDBInstanceModificationsMessage,
     vdimmValidProcessorFeatures,
     vdimmStorage,
 
     -- ** ValidStorageOptions
-    ValidStorageOptions,
-    validStorageOptions,
+    ValidStorageOptions (..),
+    mkValidStorageOptions,
     vsoStorageSize,
     vsoProvisionedIOPS,
     vsoIOPSToStorageRatio,
     vsoSupportsStorageAutoscaling,
     vsoStorageType,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.AddRoleToDBCluster
 import Network.AWS.RDS.AddRoleToDBInstance
 import Network.AWS.RDS.AddSourceIdentifierToSubscription

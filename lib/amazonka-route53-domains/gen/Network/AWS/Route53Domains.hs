@@ -13,8 +13,8 @@
 --
 -- Pending
 module Network.AWS.Route53Domains
-  ( -- * Service Configuration
-    route53Domains,
+  ( -- * Service configuration
+    route53DomainsService,
 
     -- * Errors
     -- $errors
@@ -136,8 +136,8 @@ module Network.AWS.Route53Domains
     Transferable (..),
 
     -- ** BillingRecord
-    BillingRecord,
-    billingRecord,
+    BillingRecord (..),
+    mkBillingRecord,
     brOperation,
     brInvoiceId,
     brDomainName,
@@ -145,8 +145,8 @@ module Network.AWS.Route53Domains
     brPrice,
 
     -- ** ContactDetail
-    ContactDetail,
-    contactDetail,
+    ContactDetail (..),
+    mkContactDetail,
     cdOrganizationName,
     cdEmail,
     cdState,
@@ -163,52 +163,64 @@ module Network.AWS.Route53Domains
     cdContactType,
 
     -- ** DomainSuggestion
-    DomainSuggestion,
-    domainSuggestion,
+    DomainSuggestion (..),
+    mkDomainSuggestion,
     dAvailability,
     dDomainName,
 
     -- ** DomainSummary
-    DomainSummary,
-    domainSummary,
+    DomainSummary (..),
+    mkDomainSummary,
     dsExpiry,
     dsTransferLock,
     dsAutoRenew,
     dsDomainName,
 
     -- ** DomainTransferability
-    DomainTransferability,
-    domainTransferability,
+    DomainTransferability (..),
+    mkDomainTransferability,
     dtTransferable,
 
     -- ** ExtraParam
-    ExtraParam,
-    extraParam,
+    ExtraParam (..),
+    mkExtraParam,
     epName,
     epValue,
 
     -- ** Nameserver
-    Nameserver,
-    nameserver,
+    Nameserver (..),
+    mkNameserver,
     nGlueIPs,
     nName,
 
     -- ** OperationSummary
-    OperationSummary,
-    operationSummary,
+    OperationSummary (..),
+    mkOperationSummary,
     osOperationId,
     osStatus,
     osType,
     osSubmittedDate,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAWSAccount
 import Network.AWS.Route53Domains.CancelDomainTransferToAnotherAWSAccount
 import Network.AWS.Route53Domains.CheckDomainAvailability

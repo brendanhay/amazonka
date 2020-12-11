@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ReportStatusType where
+module Network.AWS.CodeBuild.Types.ReportStatusType
+  ( ReportStatusType
+      ( ReportStatusType',
+        RSTDeleting,
+        RSTFailed,
+        RSTGenerating,
+        RSTIncomplete,
+        RSTSucceeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReportStatusType
-  = RSTDeleting
-  | RSTFailed
-  | RSTGenerating
-  | RSTIncomplete
-  | RSTSucceeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReportStatusType = ReportStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReportStatusType where
-  parser =
-    takeLowerText >>= \case
-      "deleting" -> pure RSTDeleting
-      "failed" -> pure RSTFailed
-      "generating" -> pure RSTGenerating
-      "incomplete" -> pure RSTIncomplete
-      "succeeded" -> pure RSTSucceeded
-      e ->
-        fromTextError $
-          "Failure parsing ReportStatusType from value: '" <> e
-            <> "'. Accepted values: deleting, failed, generating, incomplete, succeeded"
+pattern RSTDeleting :: ReportStatusType
+pattern RSTDeleting = ReportStatusType' "DELETING"
 
-instance ToText ReportStatusType where
-  toText = \case
-    RSTDeleting -> "DELETING"
-    RSTFailed -> "FAILED"
-    RSTGenerating -> "GENERATING"
-    RSTIncomplete -> "INCOMPLETE"
-    RSTSucceeded -> "SUCCEEDED"
+pattern RSTFailed :: ReportStatusType
+pattern RSTFailed = ReportStatusType' "FAILED"
 
-instance Hashable ReportStatusType
+pattern RSTGenerating :: ReportStatusType
+pattern RSTGenerating = ReportStatusType' "GENERATING"
 
-instance NFData ReportStatusType
+pattern RSTIncomplete :: ReportStatusType
+pattern RSTIncomplete = ReportStatusType' "INCOMPLETE"
 
-instance ToByteString ReportStatusType
+pattern RSTSucceeded :: ReportStatusType
+pattern RSTSucceeded = ReportStatusType' "SUCCEEDED"
 
-instance ToQuery ReportStatusType
-
-instance ToHeader ReportStatusType
-
-instance ToJSON ReportStatusType where
-  toJSON = toJSONText
-
-instance FromJSON ReportStatusType where
-  parseJSON = parseJSONText "ReportStatusType"
+{-# COMPLETE
+  RSTDeleting,
+  RSTFailed,
+  RSTGenerating,
+  RSTIncomplete,
+  RSTSucceeded,
+  ReportStatusType'
+  #-}

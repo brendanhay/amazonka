@@ -13,8 +13,8 @@
 --
 -- The Amazon SageMaker runtime API.
 module Network.AWS.SageMakerRuntime
-  ( -- * Service Configuration
-    sageMakerRuntime,
+  ( -- * Service configuration
+    sageMakerRuntimeService,
 
     -- * Errors
     -- $errors
@@ -29,9 +29,21 @@ module Network.AWS.SageMakerRuntime
     module Network.AWS.SageMakerRuntime.InvokeEndpoint,
 
     -- * Types
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMakerRuntime.InvokeEndpoint
 import Network.AWS.SageMakerRuntime.Types
 import Network.AWS.SageMakerRuntime.Waiters

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.Locale where
+module Network.AWS.LexModels.Types.Locale
+  ( Locale
+      ( Locale',
+        DeDe,
+        EnAu,
+        EnGb,
+        EnUs,
+        Es419,
+        EsEs,
+        EsUs,
+        FrCa,
+        FrFr,
+        ItIt
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Locale
-  = DeDe
-  | EnAu
-  | EnGb
-  | EnUs
-  | Es419
-  | EsEs
-  | EsUs
-  | FrCa
-  | FrFr
-  | ItIt
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Locale = Locale' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Locale where
-  parser =
-    takeLowerText >>= \case
-      "de-de" -> pure DeDe
-      "en-au" -> pure EnAu
-      "en-gb" -> pure EnGb
-      "en-us" -> pure EnUs
-      "es-419" -> pure Es419
-      "es-es" -> pure EsEs
-      "es-us" -> pure EsUs
-      "fr-ca" -> pure FrCa
-      "fr-fr" -> pure FrFr
-      "it-it" -> pure ItIt
-      e ->
-        fromTextError $
-          "Failure parsing Locale from value: '" <> e
-            <> "'. Accepted values: de-de, en-au, en-gb, en-us, es-419, es-es, es-us, fr-ca, fr-fr, it-it"
+pattern DeDe :: Locale
+pattern DeDe = Locale' "de-DE"
 
-instance ToText Locale where
-  toText = \case
-    DeDe -> "de-DE"
-    EnAu -> "en-AU"
-    EnGb -> "en-GB"
-    EnUs -> "en-US"
-    Es419 -> "es-419"
-    EsEs -> "es-ES"
-    EsUs -> "es-US"
-    FrCa -> "fr-CA"
-    FrFr -> "fr-FR"
-    ItIt -> "it-IT"
+pattern EnAu :: Locale
+pattern EnAu = Locale' "en-AU"
 
-instance Hashable Locale
+pattern EnGb :: Locale
+pattern EnGb = Locale' "en-GB"
 
-instance NFData Locale
+pattern EnUs :: Locale
+pattern EnUs = Locale' "en-US"
 
-instance ToByteString Locale
+pattern Es419 :: Locale
+pattern Es419 = Locale' "es-419"
 
-instance ToQuery Locale
+pattern EsEs :: Locale
+pattern EsEs = Locale' "es-ES"
 
-instance ToHeader Locale
+pattern EsUs :: Locale
+pattern EsUs = Locale' "es-US"
 
-instance ToJSON Locale where
-  toJSON = toJSONText
+pattern FrCa :: Locale
+pattern FrCa = Locale' "fr-CA"
 
-instance FromJSON Locale where
-  parseJSON = parseJSONText "Locale"
+pattern FrFr :: Locale
+pattern FrFr = Locale' "fr-FR"
+
+pattern ItIt :: Locale
+pattern ItIt = Locale' "it-IT"
+
+{-# COMPLETE
+  DeDe,
+  EnAu,
+  EnGb,
+  EnUs,
+  Es419,
+  EsEs,
+  EsUs,
+  FrCa,
+  FrFr,
+  ItIt,
+  Locale'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.TagDescription where
+module Network.AWS.ELB.Types.TagDescription
+  ( TagDescription (..),
+
+    -- * Smart constructor
+    mkTagDescription,
+
+    -- * Lenses
+    tdLoadBalancerName,
+    tdTags,
+  )
+where
 
 import Network.AWS.ELB.Internal
 import Network.AWS.ELB.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The tags associated with a load balancer.
 --
---
---
--- /See:/ 'tagDescription' smart constructor.
+-- /See:/ 'mkTagDescription' smart constructor.
 data TagDescription = TagDescription'
-  { _tdLoadBalancerName ::
-      !(Maybe Text),
-    _tdTags :: !(Maybe (List1 Tag))
+  { loadBalancerName ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tdLoadBalancerName' - The name of the load balancer.
---
--- * 'tdTags' - The tags.
-tagDescription ::
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'tags' - The tags.
+mkTagDescription ::
   TagDescription
-tagDescription =
-  TagDescription' {_tdLoadBalancerName = Nothing, _tdTags = Nothing}
+mkTagDescription =
+  TagDescription'
+    { loadBalancerName = Lude.Nothing,
+      tags = Lude.Nothing
+    }
 
 -- | The name of the load balancer.
-tdLoadBalancerName :: Lens' TagDescription (Maybe Text)
-tdLoadBalancerName = lens _tdLoadBalancerName (\s a -> s {_tdLoadBalancerName = a})
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdLoadBalancerName :: Lens.Lens' TagDescription (Lude.Maybe Lude.Text)
+tdLoadBalancerName = Lens.lens (loadBalancerName :: TagDescription -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerName = a} :: TagDescription)
+{-# DEPRECATED tdLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The tags.
-tdTags :: Lens' TagDescription (Maybe (NonEmpty Tag))
-tdTags = lens _tdTags (\s a -> s {_tdTags = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdTags :: Lens.Lens' TagDescription (Lude.Maybe (Lude.NonEmpty Tag))
+tdTags = Lens.lens (tags :: TagDescription -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: TagDescription)
+{-# DEPRECATED tdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML TagDescription where
+instance Lude.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      <$> (x .@? "LoadBalancerName")
-      <*> (x .@? "Tags" .!@ mempty >>= may (parseXMLList1 "member"))
-
-instance Hashable TagDescription
-
-instance NFData TagDescription
+      Lude.<$> (x Lude..@? "LoadBalancerName")
+      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLNonEmpty "member")
+               )

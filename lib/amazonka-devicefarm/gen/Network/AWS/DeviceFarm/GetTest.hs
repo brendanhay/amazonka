@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,129 @@
 --
 -- Gets information about a test.
 module Network.AWS.DeviceFarm.GetTest
-  ( -- * Creating a Request
-    getTest,
-    GetTest,
+  ( -- * Creating a request
+    GetTest (..),
+    mkGetTest,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtArn,
 
-    -- * Destructuring the Response
-    getTestResponse,
-    GetTestResponse,
+    -- * Destructuring the response
+    GetTestResponse (..),
+    mkGetTestResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtrsTest,
     gtrsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the get test operation.
 --
---
---
--- /See:/ 'getTest' smart constructor.
-newtype GetTest = GetTest' {_gtArn :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetTest' smart constructor.
+newtype GetTest = GetTest' {arn :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtArn' - The test's ARN.
-getTest ::
-  -- | 'gtArn'
-  Text ->
+-- * 'arn' - The test's ARN.
+mkGetTest ::
+  -- | 'arn'
+  Lude.Text ->
   GetTest
-getTest pArn_ = GetTest' {_gtArn = pArn_}
+mkGetTest pArn_ = GetTest' {arn = pArn_}
 
 -- | The test's ARN.
-gtArn :: Lens' GetTest Text
-gtArn = lens _gtArn (\s a -> s {_gtArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtArn :: Lens.Lens' GetTest Lude.Text
+gtArn = Lens.lens (arn :: GetTest -> Lude.Text) (\s a -> s {arn = a} :: GetTest)
+{-# DEPRECATED gtArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest GetTest where
+instance Lude.AWSRequest GetTest where
   type Rs GetTest = GetTestResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetTestResponse' <$> (x .?> "test") <*> (pure (fromEnum s))
+          GetTestResponse'
+            Lude.<$> (x Lude..?> "test") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTest
-
-instance NFData GetTest
-
-instance ToHeaders GetTest where
+instance Lude.ToHeaders GetTest where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DeviceFarm_20150623.GetTest" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DeviceFarm_20150623.GetTest" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetTest where
-  toJSON GetTest' {..} = object (catMaybes [Just ("arn" .= _gtArn)])
+instance Lude.ToJSON GetTest where
+  toJSON GetTest' {..} =
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath GetTest where
-  toPath = const "/"
+instance Lude.ToPath GetTest where
+  toPath = Lude.const "/"
 
-instance ToQuery GetTest where
-  toQuery = const mempty
+instance Lude.ToQuery GetTest where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a get test request.
 --
---
---
--- /See:/ 'getTestResponse' smart constructor.
+-- /See:/ 'mkGetTestResponse' smart constructor.
 data GetTestResponse = GetTestResponse'
-  { _gtrsTest :: !(Maybe Test),
-    _gtrsResponseStatus :: !Int
+  { test :: Lude.Maybe Test,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTestResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtrsTest' - A test condition that is evaluated.
---
--- * 'gtrsResponseStatus' - -- | The response status code.
-getTestResponse ::
-  -- | 'gtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'test' - A test condition that is evaluated.
+mkGetTestResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTestResponse
-getTestResponse pResponseStatus_ =
+mkGetTestResponse pResponseStatus_ =
   GetTestResponse'
-    { _gtrsTest = Nothing,
-      _gtrsResponseStatus = pResponseStatus_
+    { test = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A test condition that is evaluated.
-gtrsTest :: Lens' GetTestResponse (Maybe Test)
-gtrsTest = lens _gtrsTest (\s a -> s {_gtrsTest = a})
+--
+-- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrsTest :: Lens.Lens' GetTestResponse (Lude.Maybe Test)
+gtrsTest = Lens.lens (test :: GetTestResponse -> Lude.Maybe Test) (\s a -> s {test = a} :: GetTestResponse)
+{-# DEPRECATED gtrsTest "Use generic-lens or generic-optics with 'test' instead." #-}
 
--- | -- | The response status code.
-gtrsResponseStatus :: Lens' GetTestResponse Int
-gtrsResponseStatus = lens _gtrsResponseStatus (\s a -> s {_gtrsResponseStatus = a})
-
-instance NFData GetTestResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrsResponseStatus :: Lens.Lens' GetTestResponse Lude.Int
+gtrsResponseStatus = Lens.lens (responseStatus :: GetTestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTestResponse)
+{-# DEPRECATED gtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

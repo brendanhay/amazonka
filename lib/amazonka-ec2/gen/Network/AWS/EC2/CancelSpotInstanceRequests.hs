@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,150 @@
 --
 -- Cancels one or more Spot Instance requests.
 --
---
 -- /Important:/ Canceling a Spot Instance request does not terminate running Spot Instances associated with the request.
 module Network.AWS.EC2.CancelSpotInstanceRequests
-  ( -- * Creating a Request
-    cancelSpotInstanceRequests,
-    CancelSpotInstanceRequests,
+  ( -- * Creating a request
+    CancelSpotInstanceRequests (..),
+    mkCancelSpotInstanceRequests,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csirDryRun,
     csirSpotInstanceRequestIds,
 
-    -- * Destructuring the Response
-    cancelSpotInstanceRequestsResponse,
-    CancelSpotInstanceRequestsResponse,
+    -- * Destructuring the response
+    CancelSpotInstanceRequestsResponse (..),
+    mkCancelSpotInstanceRequestsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csirrsCancelledSpotInstanceRequests,
     csirrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for CancelSpotInstanceRequests.
 --
---
---
--- /See:/ 'cancelSpotInstanceRequests' smart constructor.
+-- /See:/ 'mkCancelSpotInstanceRequests' smart constructor.
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
-  { _csirDryRun ::
-      !(Maybe Bool),
-    _csirSpotInstanceRequestIds ::
-      ![Text]
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    spotInstanceRequestIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSpotInstanceRequests' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csirDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'csirSpotInstanceRequestIds' - One or more Spot Instance request IDs.
-cancelSpotInstanceRequests ::
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'spotInstanceRequestIds' - One or more Spot Instance request IDs.
+mkCancelSpotInstanceRequests ::
   CancelSpotInstanceRequests
-cancelSpotInstanceRequests =
+mkCancelSpotInstanceRequests =
   CancelSpotInstanceRequests'
-    { _csirDryRun = Nothing,
-      _csirSpotInstanceRequestIds = mempty
+    { dryRun = Lude.Nothing,
+      spotInstanceRequestIds = Lude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
-csirDryRun = lens _csirDryRun (\s a -> s {_csirDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csirDryRun :: Lens.Lens' CancelSpotInstanceRequests (Lude.Maybe Lude.Bool)
+csirDryRun = Lens.lens (dryRun :: CancelSpotInstanceRequests -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelSpotInstanceRequests)
+{-# DEPRECATED csirDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more Spot Instance request IDs.
-csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
-csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\s a -> s {_csirSpotInstanceRequestIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'spotInstanceRequestIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csirSpotInstanceRequestIds :: Lens.Lens' CancelSpotInstanceRequests [Lude.Text]
+csirSpotInstanceRequestIds = Lens.lens (spotInstanceRequestIds :: CancelSpotInstanceRequests -> [Lude.Text]) (\s a -> s {spotInstanceRequestIds = a} :: CancelSpotInstanceRequests)
+{-# DEPRECATED csirSpotInstanceRequestIds "Use generic-lens or generic-optics with 'spotInstanceRequestIds' instead." #-}
 
-instance AWSRequest CancelSpotInstanceRequests where
+instance Lude.AWSRequest CancelSpotInstanceRequests where
   type
     Rs CancelSpotInstanceRequests =
       CancelSpotInstanceRequestsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           CancelSpotInstanceRequestsResponse'
-            <$> ( x .@? "spotInstanceRequestSet" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "spotInstanceRequestSet" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CancelSpotInstanceRequests
+instance Lude.ToHeaders CancelSpotInstanceRequests where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CancelSpotInstanceRequests
+instance Lude.ToPath CancelSpotInstanceRequests where
+  toPath = Lude.const "/"
 
-instance ToHeaders CancelSpotInstanceRequests where
-  toHeaders = const mempty
-
-instance ToPath CancelSpotInstanceRequests where
-  toPath = const "/"
-
-instance ToQuery CancelSpotInstanceRequests where
+instance Lude.ToQuery CancelSpotInstanceRequests where
   toQuery CancelSpotInstanceRequests' {..} =
-    mconcat
-      [ "Action" =: ("CancelSpotInstanceRequests" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _csirDryRun,
-        toQueryList "SpotInstanceRequestId" _csirSpotInstanceRequestIds
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("CancelSpotInstanceRequests" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "SpotInstanceRequestId" spotInstanceRequestIds
       ]
 
 -- | Contains the output of CancelSpotInstanceRequests.
 --
---
---
--- /See:/ 'cancelSpotInstanceRequestsResponse' smart constructor.
+-- /See:/ 'mkCancelSpotInstanceRequestsResponse' smart constructor.
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
-  { _csirrsCancelledSpotInstanceRequests ::
-      !( Maybe
-           [CancelledSpotInstanceRequest]
-       ),
-    _csirrsResponseStatus ::
-      !Int
+  { cancelledSpotInstanceRequests ::
+      Lude.Maybe
+        [CancelledSpotInstanceRequest],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSpotInstanceRequestsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csirrsCancelledSpotInstanceRequests' - One or more Spot Instance requests.
---
--- * 'csirrsResponseStatus' - -- | The response status code.
-cancelSpotInstanceRequestsResponse ::
-  -- | 'csirrsResponseStatus'
-  Int ->
+-- * 'cancelledSpotInstanceRequests' - One or more Spot Instance requests.
+-- * 'responseStatus' - The response status code.
+mkCancelSpotInstanceRequestsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CancelSpotInstanceRequestsResponse
-cancelSpotInstanceRequestsResponse pResponseStatus_ =
+mkCancelSpotInstanceRequestsResponse pResponseStatus_ =
   CancelSpotInstanceRequestsResponse'
-    { _csirrsCancelledSpotInstanceRequests =
-        Nothing,
-      _csirrsResponseStatus = pResponseStatus_
+    { cancelledSpotInstanceRequests =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | One or more Spot Instance requests.
-csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
-csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests (\s a -> s {_csirrsCancelledSpotInstanceRequests = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cancelledSpotInstanceRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csirrsCancelledSpotInstanceRequests :: Lens.Lens' CancelSpotInstanceRequestsResponse (Lude.Maybe [CancelledSpotInstanceRequest])
+csirrsCancelledSpotInstanceRequests = Lens.lens (cancelledSpotInstanceRequests :: CancelSpotInstanceRequestsResponse -> Lude.Maybe [CancelledSpotInstanceRequest]) (\s a -> s {cancelledSpotInstanceRequests = a} :: CancelSpotInstanceRequestsResponse)
+{-# DEPRECATED csirrsCancelledSpotInstanceRequests "Use generic-lens or generic-optics with 'cancelledSpotInstanceRequests' instead." #-}
 
--- | -- | The response status code.
-csirrsResponseStatus :: Lens' CancelSpotInstanceRequestsResponse Int
-csirrsResponseStatus = lens _csirrsResponseStatus (\s a -> s {_csirrsResponseStatus = a})
-
-instance NFData CancelSpotInstanceRequestsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csirrsResponseStatus :: Lens.Lens' CancelSpotInstanceRequestsResponse Lude.Int
+csirrsResponseStatus = Lens.lens (responseStatus :: CancelSpotInstanceRequestsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelSpotInstanceRequestsResponse)
+{-# DEPRECATED csirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

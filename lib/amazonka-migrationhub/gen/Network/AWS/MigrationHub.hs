@@ -13,11 +13,10 @@
 --
 -- The AWS Migration Hub API methods help to obtain server and application migration status and integrate your resource-specific migration tool by providing a programmatic interface to Migration Hub.
 --
---
 -- Remember that you must set your AWS Migration Hub home region before you call any of these APIs, or a @HomeRegionNotSetException@ error will be returned. Also, you must make the API calls while in your home region.
 module Network.AWS.MigrationHub
-  ( -- * Service Configuration
-    migrationHub,
+  ( -- * Service configuration
+    migrationHubService,
 
     -- * Errors
     -- $errors
@@ -91,27 +90,27 @@ module Network.AWS.MigrationHub
     ResourceAttributeType (..),
 
     -- ** ApplicationState
-    ApplicationState,
-    applicationState,
+    ApplicationState (..),
+    mkApplicationState,
     asLastUpdatedTime,
     asApplicationId,
     asApplicationStatus,
 
     -- ** CreatedArtifact
-    CreatedArtifact,
-    createdArtifact,
+    CreatedArtifact (..),
+    mkCreatedArtifact,
     caDescription,
     caName,
 
     -- ** DiscoveredResource
-    DiscoveredResource,
-    discoveredResource,
+    DiscoveredResource (..),
+    mkDiscoveredResource,
     drDescription,
     drConfigurationId,
 
     -- ** MigrationTask
-    MigrationTask,
-    migrationTask,
+    MigrationTask (..),
+    mkMigrationTask,
     mtUpdateDateTime,
     mtResourceAttributeList,
     mtTask,
@@ -119,8 +118,8 @@ module Network.AWS.MigrationHub
     mtMigrationTaskName,
 
     -- ** MigrationTaskSummary
-    MigrationTaskSummary,
-    migrationTaskSummary,
+    MigrationTaskSummary (..),
+    mkMigrationTaskSummary,
     mtsStatus,
     mtsUpdateDateTime,
     mtsProgressPercent,
@@ -129,22 +128,33 @@ module Network.AWS.MigrationHub
     mtsMigrationTaskName,
 
     -- ** ProgressUpdateStreamSummary
-    ProgressUpdateStreamSummary,
-    progressUpdateStreamSummary,
+    ProgressUpdateStreamSummary (..),
+    mkProgressUpdateStreamSummary,
     pussProgressUpdateStreamName,
 
     -- ** ResourceAttribute
-    ResourceAttribute,
-    resourceAttribute,
+    ResourceAttribute (..),
+    mkResourceAttribute,
     raType,
     raValue,
 
     -- ** Task
-    Task,
-    task,
+    Task (..),
+    mkTask,
     tProgressPercent,
     tStatusDetail,
     tStatus,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -167,6 +177,7 @@ import Network.AWS.MigrationHub.NotifyMigrationTaskState
 import Network.AWS.MigrationHub.PutResourceAttributes
 import Network.AWS.MigrationHub.Types
 import Network.AWS.MigrationHub.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

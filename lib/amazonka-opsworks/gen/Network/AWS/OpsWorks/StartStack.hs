@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,93 @@
 --
 -- Starts a stack's instances.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.StartStack
-  ( -- * Creating a Request
-    startStack,
-    StartStack,
+  ( -- * Creating a request
+    StartStack (..),
+    mkStartStack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     staStackId,
 
-    -- * Destructuring the Response
-    startStackResponse,
-    StartStackResponse,
+    -- * Destructuring the response
+    StartStackResponse (..),
+    mkStartStackResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startStack' smart constructor.
-newtype StartStack = StartStack' {_staStackId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkStartStack' smart constructor.
+newtype StartStack = StartStack' {stackId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'staStackId' - The stack ID.
-startStack ::
-  -- | 'staStackId'
-  Text ->
+-- * 'stackId' - The stack ID.
+mkStartStack ::
+  -- | 'stackId'
+  Lude.Text ->
   StartStack
-startStack pStackId_ = StartStack' {_staStackId = pStackId_}
+mkStartStack pStackId_ = StartStack' {stackId = pStackId_}
 
 -- | The stack ID.
-staStackId :: Lens' StartStack Text
-staStackId = lens _staStackId (\s a -> s {_staStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+staStackId :: Lens.Lens' StartStack Lude.Text
+staStackId = Lens.lens (stackId :: StartStack -> Lude.Text) (\s a -> s {stackId = a} :: StartStack)
+{-# DEPRECATED staStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest StartStack where
+instance Lude.AWSRequest StartStack where
   type Rs StartStack = StartStackResponse
-  request = postJSON opsWorks
-  response = receiveNull StartStackResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull StartStackResponse'
 
-instance Hashable StartStack
-
-instance NFData StartStack
-
-instance ToHeaders StartStack where
+instance Lude.ToHeaders StartStack where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.StartStack" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.StartStack" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartStack where
+instance Lude.ToJSON StartStack where
   toJSON StartStack' {..} =
-    object (catMaybes [Just ("StackId" .= _staStackId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("StackId" Lude..= stackId)])
 
-instance ToPath StartStack where
-  toPath = const "/"
+instance Lude.ToPath StartStack where
+  toPath = Lude.const "/"
 
-instance ToQuery StartStack where
-  toQuery = const mempty
+instance Lude.ToQuery StartStack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startStackResponse' smart constructor.
+-- | /See:/ 'mkStartStackResponse' smart constructor.
 data StartStackResponse = StartStackResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStackResponse' with the minimum fields required to make a request.
-startStackResponse ::
+mkStartStackResponse ::
   StartStackResponse
-startStackResponse = StartStackResponse'
-
-instance NFData StartStackResponse
+mkStartStackResponse = StartStackResponse'

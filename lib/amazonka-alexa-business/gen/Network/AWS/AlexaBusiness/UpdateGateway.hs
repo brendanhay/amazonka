@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,157 @@
 --
 -- Updates the details of a gateway. If any optional field is not provided, the existing corresponding value is left unmodified.
 module Network.AWS.AlexaBusiness.UpdateGateway
-  ( -- * Creating a Request
-    updateGateway,
-    UpdateGateway,
+  ( -- * Creating a request
+    UpdateGateway (..),
+    mkUpdateGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ugName,
     ugSoftwareVersion,
     ugDescription,
     ugGatewayARN,
 
-    -- * Destructuring the Response
-    updateGatewayResponse,
-    UpdateGatewayResponse,
+    -- * Destructuring the response
+    UpdateGatewayResponse (..),
+    mkUpdateGatewayResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateGateway' smart constructor.
+-- | /See:/ 'mkUpdateGateway' smart constructor.
 data UpdateGateway = UpdateGateway'
-  { _ugName :: !(Maybe Text),
-    _ugSoftwareVersion :: !(Maybe Text),
-    _ugDescription :: !(Maybe Text),
-    _ugGatewayARN :: !Text
+  { name :: Lude.Maybe Lude.Text,
+    softwareVersion :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    gatewayARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugName' - The updated name of the gateway.
---
--- * 'ugSoftwareVersion' - The updated software version of the gateway. The gateway automatically updates its software version during normal operation.
---
--- * 'ugDescription' - The updated description of the gateway.
---
--- * 'ugGatewayARN' - The ARN of the gateway to update.
-updateGateway ::
-  -- | 'ugGatewayARN'
-  Text ->
+-- * 'description' - The updated description of the gateway.
+-- * 'gatewayARN' - The ARN of the gateway to update.
+-- * 'name' - The updated name of the gateway.
+-- * 'softwareVersion' - The updated software version of the gateway. The gateway automatically updates its software version during normal operation.
+mkUpdateGateway ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   UpdateGateway
-updateGateway pGatewayARN_ =
+mkUpdateGateway pGatewayARN_ =
   UpdateGateway'
-    { _ugName = Nothing,
-      _ugSoftwareVersion = Nothing,
-      _ugDescription = Nothing,
-      _ugGatewayARN = pGatewayARN_
+    { name = Lude.Nothing,
+      softwareVersion = Lude.Nothing,
+      description = Lude.Nothing,
+      gatewayARN = pGatewayARN_
     }
 
 -- | The updated name of the gateway.
-ugName :: Lens' UpdateGateway (Maybe Text)
-ugName = lens _ugName (\s a -> s {_ugName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugName :: Lens.Lens' UpdateGateway (Lude.Maybe Lude.Text)
+ugName = Lens.lens (name :: UpdateGateway -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateGateway)
+{-# DEPRECATED ugName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The updated software version of the gateway. The gateway automatically updates its software version during normal operation.
-ugSoftwareVersion :: Lens' UpdateGateway (Maybe Text)
-ugSoftwareVersion = lens _ugSoftwareVersion (\s a -> s {_ugSoftwareVersion = a})
+--
+-- /Note:/ Consider using 'softwareVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugSoftwareVersion :: Lens.Lens' UpdateGateway (Lude.Maybe Lude.Text)
+ugSoftwareVersion = Lens.lens (softwareVersion :: UpdateGateway -> Lude.Maybe Lude.Text) (\s a -> s {softwareVersion = a} :: UpdateGateway)
+{-# DEPRECATED ugSoftwareVersion "Use generic-lens or generic-optics with 'softwareVersion' instead." #-}
 
 -- | The updated description of the gateway.
-ugDescription :: Lens' UpdateGateway (Maybe Text)
-ugDescription = lens _ugDescription (\s a -> s {_ugDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugDescription :: Lens.Lens' UpdateGateway (Lude.Maybe Lude.Text)
+ugDescription = Lens.lens (description :: UpdateGateway -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateGateway)
+{-# DEPRECATED ugDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ARN of the gateway to update.
-ugGatewayARN :: Lens' UpdateGateway Text
-ugGatewayARN = lens _ugGatewayARN (\s a -> s {_ugGatewayARN = a})
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugGatewayARN :: Lens.Lens' UpdateGateway Lude.Text
+ugGatewayARN = Lens.lens (gatewayARN :: UpdateGateway -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGateway)
+{-# DEPRECATED ugGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest UpdateGateway where
+instance Lude.AWSRequest UpdateGateway where
   type Rs UpdateGateway = UpdateGatewayResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveEmpty
-      (\s h x -> UpdateGatewayResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateGatewayResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateGateway
-
-instance NFData UpdateGateway
-
-instance ToHeaders UpdateGateway where
+instance Lude.ToHeaders UpdateGateway where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AlexaForBusiness.UpdateGateway" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AlexaForBusiness.UpdateGateway" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateGateway where
+instance Lude.ToJSON UpdateGateway where
   toJSON UpdateGateway' {..} =
-    object
-      ( catMaybes
-          [ ("Name" .=) <$> _ugName,
-            ("SoftwareVersion" .=) <$> _ugSoftwareVersion,
-            ("Description" .=) <$> _ugDescription,
-            Just ("GatewayArn" .= _ugGatewayARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            ("SoftwareVersion" Lude..=) Lude.<$> softwareVersion,
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("GatewayArn" Lude..= gatewayARN)
           ]
       )
 
-instance ToPath UpdateGateway where
-  toPath = const "/"
+instance Lude.ToPath UpdateGateway where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateGateway where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateGateway where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateGatewayResponse' smart constructor.
+-- | /See:/ 'mkUpdateGatewayResponse' smart constructor.
 newtype UpdateGatewayResponse = UpdateGatewayResponse'
-  { _ugrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ugrsResponseStatus' - -- | The response status code.
-updateGatewayResponse ::
-  -- | 'ugrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateGatewayResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateGatewayResponse
-updateGatewayResponse pResponseStatus_ =
-  UpdateGatewayResponse' {_ugrsResponseStatus = pResponseStatus_}
+mkUpdateGatewayResponse pResponseStatus_ =
+  UpdateGatewayResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ugrsResponseStatus :: Lens' UpdateGatewayResponse Int
-ugrsResponseStatus = lens _ugrsResponseStatus (\s a -> s {_ugrsResponseStatus = a})
-
-instance NFData UpdateGatewayResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugrsResponseStatus :: Lens.Lens' UpdateGatewayResponse Lude.Int
+ugrsResponseStatus = Lens.lens (responseStatus :: UpdateGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGatewayResponse)
+{-# DEPRECATED ugrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

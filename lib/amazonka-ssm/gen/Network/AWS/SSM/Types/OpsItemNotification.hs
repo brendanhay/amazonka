@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsItemNotification where
+module Network.AWS.SSM.Types.OpsItemNotification
+  ( OpsItemNotification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOpsItemNotification,
+
+    -- * Lenses
+    oinARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A notification about the OpsItem.
 --
---
---
--- /See:/ 'opsItemNotification' smart constructor.
+-- /See:/ 'mkOpsItemNotification' smart constructor.
 newtype OpsItemNotification = OpsItemNotification'
-  { _oinARN ::
-      Maybe Text
+  { arn ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsItemNotification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oinARN' - The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
-opsItemNotification ::
+-- * 'arn' - The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
+mkOpsItemNotification ::
   OpsItemNotification
-opsItemNotification = OpsItemNotification' {_oinARN = Nothing}
+mkOpsItemNotification = OpsItemNotification' {arn = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
-oinARN :: Lens' OpsItemNotification (Maybe Text)
-oinARN = lens _oinARN (\s a -> s {_oinARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oinARN :: Lens.Lens' OpsItemNotification (Lude.Maybe Lude.Text)
+oinARN = Lens.lens (arn :: OpsItemNotification -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: OpsItemNotification)
+{-# DEPRECATED oinARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance FromJSON OpsItemNotification where
+instance Lude.FromJSON OpsItemNotification where
   parseJSON =
-    withObject
+    Lude.withObject
       "OpsItemNotification"
-      (\x -> OpsItemNotification' <$> (x .:? "Arn"))
+      (\x -> OpsItemNotification' Lude.<$> (x Lude..:? "Arn"))
 
-instance Hashable OpsItemNotification
-
-instance NFData OpsItemNotification
-
-instance ToJSON OpsItemNotification where
+instance Lude.ToJSON OpsItemNotification where
   toJSON OpsItemNotification' {..} =
-    object (catMaybes [("Arn" .=) <$> _oinARN])
+    Lude.object (Lude.catMaybes [("Arn" Lude..=) Lude.<$> arn])

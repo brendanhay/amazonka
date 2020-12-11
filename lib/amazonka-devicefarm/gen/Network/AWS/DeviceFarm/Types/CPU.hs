@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.CPU where
+module Network.AWS.DeviceFarm.Types.CPU
+  ( CPU (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCPU,
+
+    -- * Lenses
+    cpuFrequency,
+    cpuClock,
+    cpuArchitecture,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the amount of CPU that an app is using on a physical device. Does not represent system-wide CPU usage.
 --
---
---
--- /See:/ 'cpu' smart constructor.
+-- /See:/ 'mkCPU' smart constructor.
 data CPU = CPU'
-  { _cpuFrequency :: !(Maybe Text),
-    _cpuClock :: !(Maybe Double),
-    _cpuArchitecture :: !(Maybe Text)
+  { frequency :: Lude.Maybe Lude.Text,
+    clock :: Lude.Maybe Lude.Double,
+    architecture :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CPU' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpuFrequency' - The CPU's frequency.
---
--- * 'cpuClock' - The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
---
--- * 'cpuArchitecture' - The CPU's architecture (for example, x86 or ARM).
-cpu ::
+-- * 'architecture' - The CPU's architecture (for example, x86 or ARM).
+-- * 'clock' - The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+-- * 'frequency' - The CPU's frequency.
+mkCPU ::
   CPU
-cpu =
+mkCPU =
   CPU'
-    { _cpuFrequency = Nothing,
-      _cpuClock = Nothing,
-      _cpuArchitecture = Nothing
+    { frequency = Lude.Nothing,
+      clock = Lude.Nothing,
+      architecture = Lude.Nothing
     }
 
 -- | The CPU's frequency.
-cpuFrequency :: Lens' CPU (Maybe Text)
-cpuFrequency = lens _cpuFrequency (\s a -> s {_cpuFrequency = a})
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpuFrequency :: Lens.Lens' CPU (Lude.Maybe Lude.Text)
+cpuFrequency = Lens.lens (frequency :: CPU -> Lude.Maybe Lude.Text) (\s a -> s {frequency = a} :: CPU)
+{-# DEPRECATED cpuFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
 -- | The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
-cpuClock :: Lens' CPU (Maybe Double)
-cpuClock = lens _cpuClock (\s a -> s {_cpuClock = a})
+--
+-- /Note:/ Consider using 'clock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpuClock :: Lens.Lens' CPU (Lude.Maybe Lude.Double)
+cpuClock = Lens.lens (clock :: CPU -> Lude.Maybe Lude.Double) (\s a -> s {clock = a} :: CPU)
+{-# DEPRECATED cpuClock "Use generic-lens or generic-optics with 'clock' instead." #-}
 
 -- | The CPU's architecture (for example, x86 or ARM).
-cpuArchitecture :: Lens' CPU (Maybe Text)
-cpuArchitecture = lens _cpuArchitecture (\s a -> s {_cpuArchitecture = a})
+--
+-- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpuArchitecture :: Lens.Lens' CPU (Lude.Maybe Lude.Text)
+cpuArchitecture = Lens.lens (architecture :: CPU -> Lude.Maybe Lude.Text) (\s a -> s {architecture = a} :: CPU)
+{-# DEPRECATED cpuArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
 
-instance FromJSON CPU where
+instance Lude.FromJSON CPU where
   parseJSON =
-    withObject
+    Lude.withObject
       "CPU"
       ( \x ->
           CPU'
-            <$> (x .:? "frequency") <*> (x .:? "clock") <*> (x .:? "architecture")
+            Lude.<$> (x Lude..:? "frequency")
+            Lude.<*> (x Lude..:? "clock")
+            Lude.<*> (x Lude..:? "architecture")
       )
-
-instance Hashable CPU
-
-instance NFData CPU

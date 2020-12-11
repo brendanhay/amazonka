@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,123 @@
 --
 -- Deletes a @DataSource@ object.
 module Network.AWS.AppSync.DeleteDataSource
-  ( -- * Creating a Request
-    deleteDataSource,
-    DeleteDataSource,
+  ( -- * Creating a request
+    DeleteDataSource (..),
+    mkDeleteDataSource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddsApiId,
     ddsName,
 
-    -- * Destructuring the Response
-    deleteDataSourceResponse,
-    DeleteDataSourceResponse,
+    -- * Destructuring the response
+    DeleteDataSourceResponse (..),
+    mkDeleteDataSourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddsrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDataSource' smart constructor.
+-- | /See:/ 'mkDeleteDataSource' smart constructor.
 data DeleteDataSource = DeleteDataSource'
-  { _ddsApiId :: !Text,
-    _ddsName :: !Text
+  { apiId :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddsApiId' - The API ID.
---
--- * 'ddsName' - The name of the data source.
-deleteDataSource ::
-  -- | 'ddsApiId'
-  Text ->
-  -- | 'ddsName'
-  Text ->
+-- * 'apiId' - The API ID.
+-- * 'name' - The name of the data source.
+mkDeleteDataSource ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   DeleteDataSource
-deleteDataSource pApiId_ pName_ =
-  DeleteDataSource' {_ddsApiId = pApiId_, _ddsName = pName_}
+mkDeleteDataSource pApiId_ pName_ =
+  DeleteDataSource' {apiId = pApiId_, name = pName_}
 
 -- | The API ID.
-ddsApiId :: Lens' DeleteDataSource Text
-ddsApiId = lens _ddsApiId (\s a -> s {_ddsApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsApiId :: Lens.Lens' DeleteDataSource Lude.Text
+ddsApiId = Lens.lens (apiId :: DeleteDataSource -> Lude.Text) (\s a -> s {apiId = a} :: DeleteDataSource)
+{-# DEPRECATED ddsApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The name of the data source.
-ddsName :: Lens' DeleteDataSource Text
-ddsName = lens _ddsName (\s a -> s {_ddsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsName :: Lens.Lens' DeleteDataSource Lude.Text
+ddsName = Lens.lens (name :: DeleteDataSource -> Lude.Text) (\s a -> s {name = a} :: DeleteDataSource)
+{-# DEPRECATED ddsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteDataSource where
+instance Lude.AWSRequest DeleteDataSource where
   type Rs DeleteDataSource = DeleteDataSourceResponse
-  request = delete appSync
+  request = Req.delete appSyncService
   response =
-    receiveEmpty
-      (\s h x -> DeleteDataSourceResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteDataSource
-
-instance NFData DeleteDataSource
-
-instance ToHeaders DeleteDataSource where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteDataSourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToPath DeleteDataSource where
+instance Lude.ToHeaders DeleteDataSource where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToPath DeleteDataSource where
   toPath DeleteDataSource' {..} =
-    mconcat
-      ["/v1/apis/", toBS _ddsApiId, "/datasources/", toBS _ddsName]
+    Lude.mconcat
+      ["/v1/apis/", Lude.toBS apiId, "/datasources/", Lude.toBS name]
 
-instance ToQuery DeleteDataSource where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteDataSource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteDataSourceResponse' smart constructor.
+-- | /See:/ 'mkDeleteDataSourceResponse' smart constructor.
 newtype DeleteDataSourceResponse = DeleteDataSourceResponse'
-  { _ddsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataSourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddsrsResponseStatus' - -- | The response status code.
-deleteDataSourceResponse ::
-  -- | 'ddsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteDataSourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDataSourceResponse
-deleteDataSourceResponse pResponseStatus_ =
-  DeleteDataSourceResponse'
-    { _ddsrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteDataSourceResponse pResponseStatus_ =
+  DeleteDataSourceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ddsrsResponseStatus :: Lens' DeleteDataSourceResponse Int
-ddsrsResponseStatus = lens _ddsrsResponseStatus (\s a -> s {_ddsrsResponseStatus = a})
-
-instance NFData DeleteDataSourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsrsResponseStatus :: Lens.Lens' DeleteDataSourceResponse Lude.Int
+ddsrsResponseStatus = Lens.lens (responseStatus :: DeleteDataSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDataSourceResponse)
+{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.LocaleType where
+module Network.AWS.WorkDocs.Types.LocaleType
+  ( LocaleType
+      ( LocaleType',
+        DE,
+        Default,
+        EN,
+        ES,
+        FR,
+        JA,
+        KO,
+        PtBr,
+        RU,
+        ZhCn,
+        ZhTw
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LocaleType
-  = DE
-  | Default
-  | EN
-  | ES
-  | FR
-  | JA
-  | KO
-  | PtBr
-  | RU
-  | ZhCn
-  | ZhTw
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LocaleType = LocaleType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LocaleType where
-  parser =
-    takeLowerText >>= \case
-      "de" -> pure DE
-      "default" -> pure Default
-      "en" -> pure EN
-      "es" -> pure ES
-      "fr" -> pure FR
-      "ja" -> pure JA
-      "ko" -> pure KO
-      "pt_br" -> pure PtBr
-      "ru" -> pure RU
-      "zh_cn" -> pure ZhCn
-      "zh_tw" -> pure ZhTw
-      e ->
-        fromTextError $
-          "Failure parsing LocaleType from value: '" <> e
-            <> "'. Accepted values: de, default, en, es, fr, ja, ko, pt_br, ru, zh_cn, zh_tw"
+pattern DE :: LocaleType
+pattern DE = LocaleType' "de"
 
-instance ToText LocaleType where
-  toText = \case
-    DE -> "de"
-    Default -> "default"
-    EN -> "en"
-    ES -> "es"
-    FR -> "fr"
-    JA -> "ja"
-    KO -> "ko"
-    PtBr -> "pt_BR"
-    RU -> "ru"
-    ZhCn -> "zh_CN"
-    ZhTw -> "zh_TW"
+pattern Default :: LocaleType
+pattern Default = LocaleType' "default"
 
-instance Hashable LocaleType
+pattern EN :: LocaleType
+pattern EN = LocaleType' "en"
 
-instance NFData LocaleType
+pattern ES :: LocaleType
+pattern ES = LocaleType' "es"
 
-instance ToByteString LocaleType
+pattern FR :: LocaleType
+pattern FR = LocaleType' "fr"
 
-instance ToQuery LocaleType
+pattern JA :: LocaleType
+pattern JA = LocaleType' "ja"
 
-instance ToHeader LocaleType
+pattern KO :: LocaleType
+pattern KO = LocaleType' "ko"
 
-instance ToJSON LocaleType where
-  toJSON = toJSONText
+pattern PtBr :: LocaleType
+pattern PtBr = LocaleType' "pt_BR"
 
-instance FromJSON LocaleType where
-  parseJSON = parseJSONText "LocaleType"
+pattern RU :: LocaleType
+pattern RU = LocaleType' "ru"
+
+pattern ZhCn :: LocaleType
+pattern ZhCn = LocaleType' "zh_CN"
+
+pattern ZhTw :: LocaleType
+pattern ZhTw = LocaleType' "zh_TW"
+
+{-# COMPLETE
+  DE,
+  Default,
+  EN,
+  ES,
+  FR,
+  JA,
+  KO,
+  PtBr,
+  RU,
+  ZhCn,
+  ZhTw,
+  LocaleType'
+  #-}

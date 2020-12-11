@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.PartnerEventSourceAccount where
+module Network.AWS.CloudWatchEvents.Types.PartnerEventSourceAccount
+  ( PartnerEventSourceAccount (..),
+
+    -- * Smart constructor
+    mkPartnerEventSourceAccount,
+
+    -- * Lenses
+    pesaCreationTime,
+    pesaState,
+    pesaAccount,
+    pesaExpirationTime,
+  )
+where
 
 import Network.AWS.CloudWatchEvents.Types.EventSourceState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The AWS account that a partner event source has been offered to.
 --
---
---
--- /See:/ 'partnerEventSourceAccount' smart constructor.
+-- /See:/ 'mkPartnerEventSourceAccount' smart constructor.
 data PartnerEventSourceAccount = PartnerEventSourceAccount'
-  { _pesaCreationTime ::
-      !(Maybe POSIX),
-    _pesaState :: !(Maybe EventSourceState),
-    _pesaAccount :: !(Maybe Text),
-    _pesaExpirationTime :: !(Maybe POSIX)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    state :: Lude.Maybe EventSourceState,
+    account :: Lude.Maybe Lude.Text,
+    expirationTime ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartnerEventSourceAccount' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pesaCreationTime' - The date and time the event source was created.
---
--- * 'pesaState' - The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
---
--- * 'pesaAccount' - The AWS account ID that the partner event source was offered to.
---
--- * 'pesaExpirationTime' - The date and time that the event source will expire, if the AWS account doesn't create a matching event bus for it.
-partnerEventSourceAccount ::
+-- * 'account' - The AWS account ID that the partner event source was offered to.
+-- * 'creationTime' - The date and time the event source was created.
+-- * 'expirationTime' - The date and time that the event source will expire, if the AWS account doesn't create a matching event bus for it.
+-- * 'state' - The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
+mkPartnerEventSourceAccount ::
   PartnerEventSourceAccount
-partnerEventSourceAccount =
+mkPartnerEventSourceAccount =
   PartnerEventSourceAccount'
-    { _pesaCreationTime = Nothing,
-      _pesaState = Nothing,
-      _pesaAccount = Nothing,
-      _pesaExpirationTime = Nothing
+    { creationTime = Lude.Nothing,
+      state = Lude.Nothing,
+      account = Lude.Nothing,
+      expirationTime = Lude.Nothing
     }
 
 -- | The date and time the event source was created.
-pesaCreationTime :: Lens' PartnerEventSourceAccount (Maybe UTCTime)
-pesaCreationTime = lens _pesaCreationTime (\s a -> s {_pesaCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesaCreationTime :: Lens.Lens' PartnerEventSourceAccount (Lude.Maybe Lude.Timestamp)
+pesaCreationTime = Lens.lens (creationTime :: PartnerEventSourceAccount -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: PartnerEventSourceAccount)
+{-# DEPRECATED pesaCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
-pesaState :: Lens' PartnerEventSourceAccount (Maybe EventSourceState)
-pesaState = lens _pesaState (\s a -> s {_pesaState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesaState :: Lens.Lens' PartnerEventSourceAccount (Lude.Maybe EventSourceState)
+pesaState = Lens.lens (state :: PartnerEventSourceAccount -> Lude.Maybe EventSourceState) (\s a -> s {state = a} :: PartnerEventSourceAccount)
+{-# DEPRECATED pesaState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The AWS account ID that the partner event source was offered to.
-pesaAccount :: Lens' PartnerEventSourceAccount (Maybe Text)
-pesaAccount = lens _pesaAccount (\s a -> s {_pesaAccount = a})
+--
+-- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesaAccount :: Lens.Lens' PartnerEventSourceAccount (Lude.Maybe Lude.Text)
+pesaAccount = Lens.lens (account :: PartnerEventSourceAccount -> Lude.Maybe Lude.Text) (\s a -> s {account = a} :: PartnerEventSourceAccount)
+{-# DEPRECATED pesaAccount "Use generic-lens or generic-optics with 'account' instead." #-}
 
 -- | The date and time that the event source will expire, if the AWS account doesn't create a matching event bus for it.
-pesaExpirationTime :: Lens' PartnerEventSourceAccount (Maybe UTCTime)
-pesaExpirationTime = lens _pesaExpirationTime (\s a -> s {_pesaExpirationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'expirationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesaExpirationTime :: Lens.Lens' PartnerEventSourceAccount (Lude.Maybe Lude.Timestamp)
+pesaExpirationTime = Lens.lens (expirationTime :: PartnerEventSourceAccount -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationTime = a} :: PartnerEventSourceAccount)
+{-# DEPRECATED pesaExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
 
-instance FromJSON PartnerEventSourceAccount where
+instance Lude.FromJSON PartnerEventSourceAccount where
   parseJSON =
-    withObject
+    Lude.withObject
       "PartnerEventSourceAccount"
       ( \x ->
           PartnerEventSourceAccount'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "State")
-            <*> (x .:? "Account")
-            <*> (x .:? "ExpirationTime")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "Account")
+            Lude.<*> (x Lude..:? "ExpirationTime")
       )
-
-instance Hashable PartnerEventSourceAccount
-
-instance NFData PartnerEventSourceAccount

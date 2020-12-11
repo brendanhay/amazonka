@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.HTTPDataSourceConfig where
+module Network.AWS.AppSync.Types.HTTPDataSourceConfig
+  ( HTTPDataSourceConfig (..),
+
+    -- * Smart constructor
+    mkHTTPDataSourceConfig,
+
+    -- * Lenses
+    httpdscAuthorizationConfig,
+    httpdscEndpoint,
+  )
+where
 
 import Network.AWS.AppSync.Types.AuthorizationConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an HTTP data source configuration.
 --
---
---
--- /See:/ 'hTTPDataSourceConfig' smart constructor.
+-- /See:/ 'mkHTTPDataSourceConfig' smart constructor.
 data HTTPDataSourceConfig = HTTPDataSourceConfig'
-  { _httpdscAuthorizationConfig ::
-      !(Maybe AuthorizationConfig),
-    _httpdscEndpoint :: !(Maybe Text)
+  { authorizationConfig ::
+      Lude.Maybe AuthorizationConfig,
+    endpoint :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPDataSourceConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'httpdscAuthorizationConfig' - The authorization config in case the HTTP endpoint requires authorization.
---
--- * 'httpdscEndpoint' - The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.
-hTTPDataSourceConfig ::
+-- * 'authorizationConfig' - The authorization config in case the HTTP endpoint requires authorization.
+-- * 'endpoint' - The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.
+mkHTTPDataSourceConfig ::
   HTTPDataSourceConfig
-hTTPDataSourceConfig =
+mkHTTPDataSourceConfig =
   HTTPDataSourceConfig'
-    { _httpdscAuthorizationConfig = Nothing,
-      _httpdscEndpoint = Nothing
+    { authorizationConfig = Lude.Nothing,
+      endpoint = Lude.Nothing
     }
 
 -- | The authorization config in case the HTTP endpoint requires authorization.
-httpdscAuthorizationConfig :: Lens' HTTPDataSourceConfig (Maybe AuthorizationConfig)
-httpdscAuthorizationConfig = lens _httpdscAuthorizationConfig (\s a -> s {_httpdscAuthorizationConfig = a})
+--
+-- /Note:/ Consider using 'authorizationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpdscAuthorizationConfig :: Lens.Lens' HTTPDataSourceConfig (Lude.Maybe AuthorizationConfig)
+httpdscAuthorizationConfig = Lens.lens (authorizationConfig :: HTTPDataSourceConfig -> Lude.Maybe AuthorizationConfig) (\s a -> s {authorizationConfig = a} :: HTTPDataSourceConfig)
+{-# DEPRECATED httpdscAuthorizationConfig "Use generic-lens or generic-optics with 'authorizationConfig' instead." #-}
 
 -- | The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.
-httpdscEndpoint :: Lens' HTTPDataSourceConfig (Maybe Text)
-httpdscEndpoint = lens _httpdscEndpoint (\s a -> s {_httpdscEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpdscEndpoint :: Lens.Lens' HTTPDataSourceConfig (Lude.Maybe Lude.Text)
+httpdscEndpoint = Lens.lens (endpoint :: HTTPDataSourceConfig -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: HTTPDataSourceConfig)
+{-# DEPRECATED httpdscEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance FromJSON HTTPDataSourceConfig where
+instance Lude.FromJSON HTTPDataSourceConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "HTTPDataSourceConfig"
       ( \x ->
           HTTPDataSourceConfig'
-            <$> (x .:? "authorizationConfig") <*> (x .:? "endpoint")
+            Lude.<$> (x Lude..:? "authorizationConfig")
+            Lude.<*> (x Lude..:? "endpoint")
       )
 
-instance Hashable HTTPDataSourceConfig
-
-instance NFData HTTPDataSourceConfig
-
-instance ToJSON HTTPDataSourceConfig where
+instance Lude.ToJSON HTTPDataSourceConfig where
   toJSON HTTPDataSourceConfig' {..} =
-    object
-      ( catMaybes
-          [ ("authorizationConfig" .=) <$> _httpdscAuthorizationConfig,
-            ("endpoint" .=) <$> _httpdscEndpoint
+    Lude.object
+      ( Lude.catMaybes
+          [ ("authorizationConfig" Lude..=) Lude.<$> authorizationConfig,
+            ("endpoint" Lude..=) Lude.<$> endpoint
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.HSMStatus where
+module Network.AWS.Redshift.Types.HSMStatus
+  ( HSMStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHSMStatus,
+
+    -- * Lenses
+    hsStatus,
+    hsHSMConfigurationIdentifier,
+    hsHSMClientCertificateIdentifier,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
 -- | Describes the status of changes to HSM settings.
 --
---
---
--- /See:/ 'hsmStatus' smart constructor.
+-- /See:/ 'mkHSMStatus' smart constructor.
 data HSMStatus = HSMStatus'
-  { _hsStatus :: !(Maybe Text),
-    _hsHSMConfigurationIdentifier :: !(Maybe Text),
-    _hsHSMClientCertificateIdentifier :: !(Maybe Text)
+  { status :: Lude.Maybe Lude.Text,
+    hsmConfigurationIdentifier :: Lude.Maybe Lude.Text,
+    hsmClientCertificateIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HSMStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
+-- * 'hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+-- * 'status' - Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command.
 --
--- * 'hsStatus' - Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command. Values: active, applying
---
--- * 'hsHSMConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
---
--- * 'hsHSMClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
-hsmStatus ::
+-- Values: active, applying
+mkHSMStatus ::
   HSMStatus
-hsmStatus =
+mkHSMStatus =
   HSMStatus'
-    { _hsStatus = Nothing,
-      _hsHSMConfigurationIdentifier = Nothing,
-      _hsHSMClientCertificateIdentifier = Nothing
+    { status = Lude.Nothing,
+      hsmConfigurationIdentifier = Lude.Nothing,
+      hsmClientCertificateIdentifier = Lude.Nothing
     }
 
--- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command. Values: active, applying
-hsStatus :: Lens' HSMStatus (Maybe Text)
-hsStatus = lens _hsStatus (\s a -> s {_hsStatus = a})
+-- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command.
+--
+-- Values: active, applying
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsStatus :: Lens.Lens' HSMStatus (Lude.Maybe Lude.Text)
+hsStatus = Lens.lens (status :: HSMStatus -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: HSMStatus)
+{-# DEPRECATED hsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-hsHSMConfigurationIdentifier :: Lens' HSMStatus (Maybe Text)
-hsHSMConfigurationIdentifier = lens _hsHSMConfigurationIdentifier (\s a -> s {_hsHSMConfigurationIdentifier = a})
+--
+-- /Note:/ Consider using 'hsmConfigurationIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsHSMConfigurationIdentifier :: Lens.Lens' HSMStatus (Lude.Maybe Lude.Text)
+hsHSMConfigurationIdentifier = Lens.lens (hsmConfigurationIdentifier :: HSMStatus -> Lude.Maybe Lude.Text) (\s a -> s {hsmConfigurationIdentifier = a} :: HSMStatus)
+{-# DEPRECATED hsHSMConfigurationIdentifier "Use generic-lens or generic-optics with 'hsmConfigurationIdentifier' instead." #-}
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
-hsHSMClientCertificateIdentifier :: Lens' HSMStatus (Maybe Text)
-hsHSMClientCertificateIdentifier = lens _hsHSMClientCertificateIdentifier (\s a -> s {_hsHSMClientCertificateIdentifier = a})
+--
+-- /Note:/ Consider using 'hsmClientCertificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hsHSMClientCertificateIdentifier :: Lens.Lens' HSMStatus (Lude.Maybe Lude.Text)
+hsHSMClientCertificateIdentifier = Lens.lens (hsmClientCertificateIdentifier :: HSMStatus -> Lude.Maybe Lude.Text) (\s a -> s {hsmClientCertificateIdentifier = a} :: HSMStatus)
+{-# DEPRECATED hsHSMClientCertificateIdentifier "Use generic-lens or generic-optics with 'hsmClientCertificateIdentifier' instead." #-}
 
-instance FromXML HSMStatus where
+instance Lude.FromXML HSMStatus where
   parseXML x =
     HSMStatus'
-      <$> (x .@? "Status")
-      <*> (x .@? "HsmConfigurationIdentifier")
-      <*> (x .@? "HsmClientCertificateIdentifier")
-
-instance Hashable HSMStatus
-
-instance NFData HSMStatus
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "HsmConfigurationIdentifier")
+      Lude.<*> (x Lude..@? "HsmClientCertificateIdentifier")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.ParameterApplyType where
+module Network.AWS.Redshift.Types.ParameterApplyType
+  ( ParameterApplyType
+      ( ParameterApplyType',
+        Dynamic,
+        Static
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data ParameterApplyType
-  = Dynamic
-  | Static
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ParameterApplyType = ParameterApplyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ParameterApplyType where
-  parser =
-    takeLowerText >>= \case
-      "dynamic" -> pure Dynamic
-      "static" -> pure Static
-      e ->
-        fromTextError $
-          "Failure parsing ParameterApplyType from value: '" <> e
-            <> "'. Accepted values: dynamic, static"
+pattern Dynamic :: ParameterApplyType
+pattern Dynamic = ParameterApplyType' "dynamic"
 
-instance ToText ParameterApplyType where
-  toText = \case
-    Dynamic -> "dynamic"
-    Static -> "static"
+pattern Static :: ParameterApplyType
+pattern Static = ParameterApplyType' "static"
 
-instance Hashable ParameterApplyType
-
-instance NFData ParameterApplyType
-
-instance ToByteString ParameterApplyType
-
-instance ToQuery ParameterApplyType
-
-instance ToHeader ParameterApplyType
-
-instance FromXML ParameterApplyType where
-  parseXML = parseXMLText "ParameterApplyType"
+{-# COMPLETE
+  Dynamic,
+  Static,
+  ParameterApplyType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.ProtocolsListDataSummary where
+module Network.AWS.FMS.Types.ProtocolsListDataSummary
+  ( ProtocolsListDataSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProtocolsListDataSummary,
+
+    -- * Lenses
+    pldsProtocolsList,
+    pldsListARN,
+    pldsListId,
+    pldsListName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details of the AWS Firewall Manager protocols list.
 --
---
---
--- /See:/ 'protocolsListDataSummary' smart constructor.
+-- /See:/ 'mkProtocolsListDataSummary' smart constructor.
 data ProtocolsListDataSummary = ProtocolsListDataSummary'
-  { _pldsProtocolsList ::
-      !(Maybe [Text]),
-    _pldsListARN :: !(Maybe Text),
-    _pldsListId :: !(Maybe Text),
-    _pldsListName :: !(Maybe Text)
+  { protocolsList ::
+      Lude.Maybe [Lude.Text],
+    listARN :: Lude.Maybe Lude.Text,
+    listId :: Lude.Maybe Lude.Text,
+    listName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtocolsListDataSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pldsProtocolsList' - An array of protocols in the AWS Firewall Manager protocols list.
---
--- * 'pldsListARN' - The Amazon Resource Name (ARN) of the specified protocols list.
---
--- * 'pldsListId' - The ID of the specified protocols list.
---
--- * 'pldsListName' - The name of the specified protocols list.
-protocolsListDataSummary ::
+-- * 'listARN' - The Amazon Resource Name (ARN) of the specified protocols list.
+-- * 'listId' - The ID of the specified protocols list.
+-- * 'listName' - The name of the specified protocols list.
+-- * 'protocolsList' - An array of protocols in the AWS Firewall Manager protocols list.
+mkProtocolsListDataSummary ::
   ProtocolsListDataSummary
-protocolsListDataSummary =
+mkProtocolsListDataSummary =
   ProtocolsListDataSummary'
-    { _pldsProtocolsList = Nothing,
-      _pldsListARN = Nothing,
-      _pldsListId = Nothing,
-      _pldsListName = Nothing
+    { protocolsList = Lude.Nothing,
+      listARN = Lude.Nothing,
+      listId = Lude.Nothing,
+      listName = Lude.Nothing
     }
 
 -- | An array of protocols in the AWS Firewall Manager protocols list.
-pldsProtocolsList :: Lens' ProtocolsListDataSummary [Text]
-pldsProtocolsList = lens _pldsProtocolsList (\s a -> s {_pldsProtocolsList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'protocolsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pldsProtocolsList :: Lens.Lens' ProtocolsListDataSummary (Lude.Maybe [Lude.Text])
+pldsProtocolsList = Lens.lens (protocolsList :: ProtocolsListDataSummary -> Lude.Maybe [Lude.Text]) (\s a -> s {protocolsList = a} :: ProtocolsListDataSummary)
+{-# DEPRECATED pldsProtocolsList "Use generic-lens or generic-optics with 'protocolsList' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the specified protocols list.
-pldsListARN :: Lens' ProtocolsListDataSummary (Maybe Text)
-pldsListARN = lens _pldsListARN (\s a -> s {_pldsListARN = a})
+--
+-- /Note:/ Consider using 'listARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pldsListARN :: Lens.Lens' ProtocolsListDataSummary (Lude.Maybe Lude.Text)
+pldsListARN = Lens.lens (listARN :: ProtocolsListDataSummary -> Lude.Maybe Lude.Text) (\s a -> s {listARN = a} :: ProtocolsListDataSummary)
+{-# DEPRECATED pldsListARN "Use generic-lens or generic-optics with 'listARN' instead." #-}
 
 -- | The ID of the specified protocols list.
-pldsListId :: Lens' ProtocolsListDataSummary (Maybe Text)
-pldsListId = lens _pldsListId (\s a -> s {_pldsListId = a})
+--
+-- /Note:/ Consider using 'listId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pldsListId :: Lens.Lens' ProtocolsListDataSummary (Lude.Maybe Lude.Text)
+pldsListId = Lens.lens (listId :: ProtocolsListDataSummary -> Lude.Maybe Lude.Text) (\s a -> s {listId = a} :: ProtocolsListDataSummary)
+{-# DEPRECATED pldsListId "Use generic-lens or generic-optics with 'listId' instead." #-}
 
 -- | The name of the specified protocols list.
-pldsListName :: Lens' ProtocolsListDataSummary (Maybe Text)
-pldsListName = lens _pldsListName (\s a -> s {_pldsListName = a})
+--
+-- /Note:/ Consider using 'listName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pldsListName :: Lens.Lens' ProtocolsListDataSummary (Lude.Maybe Lude.Text)
+pldsListName = Lens.lens (listName :: ProtocolsListDataSummary -> Lude.Maybe Lude.Text) (\s a -> s {listName = a} :: ProtocolsListDataSummary)
+{-# DEPRECATED pldsListName "Use generic-lens or generic-optics with 'listName' instead." #-}
 
-instance FromJSON ProtocolsListDataSummary where
+instance Lude.FromJSON ProtocolsListDataSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProtocolsListDataSummary"
       ( \x ->
           ProtocolsListDataSummary'
-            <$> (x .:? "ProtocolsList" .!= mempty)
-            <*> (x .:? "ListArn")
-            <*> (x .:? "ListId")
-            <*> (x .:? "ListName")
+            Lude.<$> (x Lude..:? "ProtocolsList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ListArn")
+            Lude.<*> (x Lude..:? "ListId")
+            Lude.<*> (x Lude..:? "ListName")
       )
-
-instance Hashable ProtocolsListDataSummary
-
-instance NFData ProtocolsListDataSummary

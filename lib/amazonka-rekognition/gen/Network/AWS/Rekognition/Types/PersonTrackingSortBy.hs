@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.PersonTrackingSortBy where
+module Network.AWS.Rekognition.Types.PersonTrackingSortBy
+  ( PersonTrackingSortBy
+      ( PersonTrackingSortBy',
+        Index,
+        Timestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PersonTrackingSortBy
-  = Index
-  | Timestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PersonTrackingSortBy = PersonTrackingSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PersonTrackingSortBy where
-  parser =
-    takeLowerText >>= \case
-      "index" -> pure Index
-      "timestamp" -> pure Timestamp
-      e ->
-        fromTextError $
-          "Failure parsing PersonTrackingSortBy from value: '" <> e
-            <> "'. Accepted values: index, timestamp"
+pattern Index :: PersonTrackingSortBy
+pattern Index = PersonTrackingSortBy' "INDEX"
 
-instance ToText PersonTrackingSortBy where
-  toText = \case
-    Index -> "INDEX"
-    Timestamp -> "TIMESTAMP"
+pattern Timestamp :: PersonTrackingSortBy
+pattern Timestamp = PersonTrackingSortBy' "TIMESTAMP"
 
-instance Hashable PersonTrackingSortBy
-
-instance NFData PersonTrackingSortBy
-
-instance ToByteString PersonTrackingSortBy
-
-instance ToQuery PersonTrackingSortBy
-
-instance ToHeader PersonTrackingSortBy
-
-instance ToJSON PersonTrackingSortBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  Index,
+  Timestamp,
+  PersonTrackingSortBy'
+  #-}

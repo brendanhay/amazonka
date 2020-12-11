@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.ApplicationState where
+module Network.AWS.MigrationHub.Types.ApplicationState
+  ( ApplicationState (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkApplicationState,
+
+    -- * Lenses
+    asLastUpdatedTime,
+    asApplicationId,
+    asApplicationStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types.ApplicationStatus
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The state of an application discovered through Migration Hub import, the AWS Agentless Discovery Connector, or the AWS Application Discovery Agent.
 --
---
---
--- /See:/ 'applicationState' smart constructor.
+-- /See:/ 'mkApplicationState' smart constructor.
 data ApplicationState = ApplicationState'
-  { _asLastUpdatedTime ::
-      !(Maybe POSIX),
-    _asApplicationId :: !(Maybe Text),
-    _asApplicationStatus :: !(Maybe ApplicationStatus)
+  { lastUpdatedTime ::
+      Lude.Maybe Lude.Timestamp,
+    applicationId :: Lude.Maybe Lude.Text,
+    applicationStatus :: Lude.Maybe ApplicationStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asLastUpdatedTime' - The timestamp when the application status was last updated.
---
--- * 'asApplicationId' - The configurationId from the Application Discovery Service that uniquely identifies an application.
---
--- * 'asApplicationStatus' - The current status of an application.
-applicationState ::
+-- * 'applicationId' - The configurationId from the Application Discovery Service that uniquely identifies an application.
+-- * 'applicationStatus' - The current status of an application.
+-- * 'lastUpdatedTime' - The timestamp when the application status was last updated.
+mkApplicationState ::
   ApplicationState
-applicationState =
+mkApplicationState =
   ApplicationState'
-    { _asLastUpdatedTime = Nothing,
-      _asApplicationId = Nothing,
-      _asApplicationStatus = Nothing
+    { lastUpdatedTime = Lude.Nothing,
+      applicationId = Lude.Nothing,
+      applicationStatus = Lude.Nothing
     }
 
 -- | The timestamp when the application status was last updated.
-asLastUpdatedTime :: Lens' ApplicationState (Maybe UTCTime)
-asLastUpdatedTime = lens _asLastUpdatedTime (\s a -> s {_asLastUpdatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asLastUpdatedTime :: Lens.Lens' ApplicationState (Lude.Maybe Lude.Timestamp)
+asLastUpdatedTime = Lens.lens (lastUpdatedTime :: ApplicationState -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedTime = a} :: ApplicationState)
+{-# DEPRECATED asLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | The configurationId from the Application Discovery Service that uniquely identifies an application.
-asApplicationId :: Lens' ApplicationState (Maybe Text)
-asApplicationId = lens _asApplicationId (\s a -> s {_asApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asApplicationId :: Lens.Lens' ApplicationState (Lude.Maybe Lude.Text)
+asApplicationId = Lens.lens (applicationId :: ApplicationState -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: ApplicationState)
+{-# DEPRECATED asApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The current status of an application.
-asApplicationStatus :: Lens' ApplicationState (Maybe ApplicationStatus)
-asApplicationStatus = lens _asApplicationStatus (\s a -> s {_asApplicationStatus = a})
+--
+-- /Note:/ Consider using 'applicationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asApplicationStatus :: Lens.Lens' ApplicationState (Lude.Maybe ApplicationStatus)
+asApplicationStatus = Lens.lens (applicationStatus :: ApplicationState -> Lude.Maybe ApplicationStatus) (\s a -> s {applicationStatus = a} :: ApplicationState)
+{-# DEPRECATED asApplicationStatus "Use generic-lens or generic-optics with 'applicationStatus' instead." #-}
 
-instance FromJSON ApplicationState where
+instance Lude.FromJSON ApplicationState where
   parseJSON =
-    withObject
+    Lude.withObject
       "ApplicationState"
       ( \x ->
           ApplicationState'
-            <$> (x .:? "LastUpdatedTime")
-            <*> (x .:? "ApplicationId")
-            <*> (x .:? "ApplicationStatus")
+            Lude.<$> (x Lude..:? "LastUpdatedTime")
+            Lude.<*> (x Lude..:? "ApplicationId")
+            Lude.<*> (x Lude..:? "ApplicationStatus")
       )
-
-instance Hashable ApplicationState
-
-instance NFData ApplicationState

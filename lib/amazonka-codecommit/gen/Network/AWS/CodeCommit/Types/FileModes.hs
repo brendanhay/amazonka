@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.FileModes where
+module Network.AWS.CodeCommit.Types.FileModes
+  ( FileModes (..),
+
+    -- * Smart constructor
+    mkFileModes,
+
+    -- * Lenses
+    fmDestination,
+    fmBase,
+    fmSource,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about file modes in a merge or pull request.
 --
---
---
--- /See:/ 'fileModes' smart constructor.
+-- /See:/ 'mkFileModes' smart constructor.
 data FileModes = FileModes'
-  { _fmDestination ::
-      !(Maybe FileModeTypeEnum),
-    _fmBase :: !(Maybe FileModeTypeEnum),
-    _fmSource :: !(Maybe FileModeTypeEnum)
+  { destination ::
+      Lude.Maybe FileModeTypeEnum,
+    base :: Lude.Maybe FileModeTypeEnum,
+    source :: Lude.Maybe FileModeTypeEnum
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileModes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fmDestination' - The file mode of a file in the destination of a merge or pull request.
---
--- * 'fmBase' - The file mode of a file in the base of a merge or pull request.
---
--- * 'fmSource' - The file mode of a file in the source of a merge or pull request.
-fileModes ::
+-- * 'base' - The file mode of a file in the base of a merge or pull request.
+-- * 'destination' - The file mode of a file in the destination of a merge or pull request.
+-- * 'source' - The file mode of a file in the source of a merge or pull request.
+mkFileModes ::
   FileModes
-fileModes =
+mkFileModes =
   FileModes'
-    { _fmDestination = Nothing,
-      _fmBase = Nothing,
-      _fmSource = Nothing
+    { destination = Lude.Nothing,
+      base = Lude.Nothing,
+      source = Lude.Nothing
     }
 
 -- | The file mode of a file in the destination of a merge or pull request.
-fmDestination :: Lens' FileModes (Maybe FileModeTypeEnum)
-fmDestination = lens _fmDestination (\s a -> s {_fmDestination = a})
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmDestination :: Lens.Lens' FileModes (Lude.Maybe FileModeTypeEnum)
+fmDestination = Lens.lens (destination :: FileModes -> Lude.Maybe FileModeTypeEnum) (\s a -> s {destination = a} :: FileModes)
+{-# DEPRECATED fmDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The file mode of a file in the base of a merge or pull request.
-fmBase :: Lens' FileModes (Maybe FileModeTypeEnum)
-fmBase = lens _fmBase (\s a -> s {_fmBase = a})
+--
+-- /Note:/ Consider using 'base' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmBase :: Lens.Lens' FileModes (Lude.Maybe FileModeTypeEnum)
+fmBase = Lens.lens (base :: FileModes -> Lude.Maybe FileModeTypeEnum) (\s a -> s {base = a} :: FileModes)
+{-# DEPRECATED fmBase "Use generic-lens or generic-optics with 'base' instead." #-}
 
 -- | The file mode of a file in the source of a merge or pull request.
-fmSource :: Lens' FileModes (Maybe FileModeTypeEnum)
-fmSource = lens _fmSource (\s a -> s {_fmSource = a})
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmSource :: Lens.Lens' FileModes (Lude.Maybe FileModeTypeEnum)
+fmSource = Lens.lens (source :: FileModes -> Lude.Maybe FileModeTypeEnum) (\s a -> s {source = a} :: FileModes)
+{-# DEPRECATED fmSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance FromJSON FileModes where
+instance Lude.FromJSON FileModes where
   parseJSON =
-    withObject
+    Lude.withObject
       "FileModes"
       ( \x ->
           FileModes'
-            <$> (x .:? "destination") <*> (x .:? "base") <*> (x .:? "source")
+            Lude.<$> (x Lude..:? "destination")
+            Lude.<*> (x Lude..:? "base")
+            Lude.<*> (x Lude..:? "source")
       )
-
-instance Hashable FileModes
-
-instance NFData FileModes

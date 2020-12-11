@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.ExecutionProperty where
+module Network.AWS.Glue.Types.ExecutionProperty
+  ( ExecutionProperty (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExecutionProperty,
+
+    -- * Lenses
+    epMaxConcurrentRuns,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An execution property of a job.
 --
---
---
--- /See:/ 'executionProperty' smart constructor.
+-- /See:/ 'mkExecutionProperty' smart constructor.
 newtype ExecutionProperty = ExecutionProperty'
-  { _epMaxConcurrentRuns ::
-      Maybe Int
+  { maxConcurrentRuns ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionProperty' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'epMaxConcurrentRuns' - The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
-executionProperty ::
+-- * 'maxConcurrentRuns' - The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+mkExecutionProperty ::
   ExecutionProperty
-executionProperty =
-  ExecutionProperty' {_epMaxConcurrentRuns = Nothing}
+mkExecutionProperty =
+  ExecutionProperty' {maxConcurrentRuns = Lude.Nothing}
 
 -- | The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
-epMaxConcurrentRuns :: Lens' ExecutionProperty (Maybe Int)
-epMaxConcurrentRuns = lens _epMaxConcurrentRuns (\s a -> s {_epMaxConcurrentRuns = a})
+--
+-- /Note:/ Consider using 'maxConcurrentRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epMaxConcurrentRuns :: Lens.Lens' ExecutionProperty (Lude.Maybe Lude.Int)
+epMaxConcurrentRuns = Lens.lens (maxConcurrentRuns :: ExecutionProperty -> Lude.Maybe Lude.Int) (\s a -> s {maxConcurrentRuns = a} :: ExecutionProperty)
+{-# DEPRECATED epMaxConcurrentRuns "Use generic-lens or generic-optics with 'maxConcurrentRuns' instead." #-}
 
-instance FromJSON ExecutionProperty where
+instance Lude.FromJSON ExecutionProperty where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExecutionProperty"
-      (\x -> ExecutionProperty' <$> (x .:? "MaxConcurrentRuns"))
+      ( \x ->
+          ExecutionProperty' Lude.<$> (x Lude..:? "MaxConcurrentRuns")
+      )
 
-instance Hashable ExecutionProperty
-
-instance NFData ExecutionProperty
-
-instance ToJSON ExecutionProperty where
+instance Lude.ToJSON ExecutionProperty where
   toJSON ExecutionProperty' {..} =
-    object
-      (catMaybes [("MaxConcurrentRuns" .=) <$> _epMaxConcurrentRuns])
+    Lude.object
+      ( Lude.catMaybes
+          [("MaxConcurrentRuns" Lude..=) Lude.<$> maxConcurrentRuns]
+      )

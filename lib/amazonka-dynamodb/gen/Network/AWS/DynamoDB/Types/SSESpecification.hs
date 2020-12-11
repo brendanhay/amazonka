@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.SSESpecification where
+module Network.AWS.DynamoDB.Types.SSESpecification
+  ( SSESpecification (..),
+
+    -- * Smart constructor
+    mkSSESpecification,
+
+    -- * Lenses
+    ssesEnabled,
+    ssesKMSMasterKeyId,
+    ssesSSEType,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.SSEType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the settings used to enable server-side encryption.
 --
---
---
--- /See:/ 'sSESpecification' smart constructor.
+-- /See:/ 'mkSSESpecification' smart constructor.
 data SSESpecification = SSESpecification'
-  { _ssesEnabled ::
-      !(Maybe Bool),
-    _ssesKMSMasterKeyId :: !(Maybe Text),
-    _ssesSSEType :: !(Maybe SSEType)
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    kmsMasterKeyId :: Lude.Maybe Lude.Text,
+    sSEType :: Lude.Maybe SSEType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSESpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'enabled' - Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK. If enabled (true), server-side encryption type is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.
+-- * 'kmsMasterKeyId' - The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB customer master key alias/aws/dynamodb.
+-- * 'sSEType' - Server-side encryption type. The only supported value is:
 --
--- * 'ssesEnabled' - Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK. If enabled (true), server-side encryption type is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.
 --
--- * 'ssesKMSMasterKeyId' - The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB customer master key alias/aws/dynamodb.
---
--- * 'ssesSSEType' - Server-side encryption type. The only supported value is:     * @KMS@ - Server-side encryption that uses AWS Key Management Service. The key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).
-sSESpecification ::
+--     * @KMS@ - Server-side encryption that uses AWS Key Management Service. The key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).
+mkSSESpecification ::
   SSESpecification
-sSESpecification =
+mkSSESpecification =
   SSESpecification'
-    { _ssesEnabled = Nothing,
-      _ssesKMSMasterKeyId = Nothing,
-      _ssesSSEType = Nothing
+    { enabled = Lude.Nothing,
+      kmsMasterKeyId = Lude.Nothing,
+      sSEType = Lude.Nothing
     }
 
 -- | Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK. If enabled (true), server-side encryption type is set to @KMS@ and an AWS managed CMK is used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.
-ssesEnabled :: Lens' SSESpecification (Maybe Bool)
-ssesEnabled = lens _ssesEnabled (\s a -> s {_ssesEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssesEnabled :: Lens.Lens' SSESpecification (Lude.Maybe Lude.Bool)
+ssesEnabled = Lens.lens (enabled :: SSESpecification -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: SSESpecification)
+{-# DEPRECATED ssesEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB customer master key alias/aws/dynamodb.
-ssesKMSMasterKeyId :: Lens' SSESpecification (Maybe Text)
-ssesKMSMasterKeyId = lens _ssesKMSMasterKeyId (\s a -> s {_ssesKMSMasterKeyId = a})
+--
+-- /Note:/ Consider using 'kmsMasterKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssesKMSMasterKeyId :: Lens.Lens' SSESpecification (Lude.Maybe Lude.Text)
+ssesKMSMasterKeyId = Lens.lens (kmsMasterKeyId :: SSESpecification -> Lude.Maybe Lude.Text) (\s a -> s {kmsMasterKeyId = a} :: SSESpecification)
+{-# DEPRECATED ssesKMSMasterKeyId "Use generic-lens or generic-optics with 'kmsMasterKeyId' instead." #-}
 
--- | Server-side encryption type. The only supported value is:     * @KMS@ - Server-side encryption that uses AWS Key Management Service. The key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).
-ssesSSEType :: Lens' SSESpecification (Maybe SSEType)
-ssesSSEType = lens _ssesSSEType (\s a -> s {_ssesSSEType = a})
+-- | Server-side encryption type. The only supported value is:
+--
+--
+--     * @KMS@ - Server-side encryption that uses AWS Key Management Service. The key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).
+--
+--
+--
+-- /Note:/ Consider using 'sSEType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssesSSEType :: Lens.Lens' SSESpecification (Lude.Maybe SSEType)
+ssesSSEType = Lens.lens (sSEType :: SSESpecification -> Lude.Maybe SSEType) (\s a -> s {sSEType = a} :: SSESpecification)
+{-# DEPRECATED ssesSSEType "Use generic-lens or generic-optics with 'sSEType' instead." #-}
 
-instance Hashable SSESpecification
-
-instance NFData SSESpecification
-
-instance ToJSON SSESpecification where
+instance Lude.ToJSON SSESpecification where
   toJSON SSESpecification' {..} =
-    object
-      ( catMaybes
-          [ ("Enabled" .=) <$> _ssesEnabled,
-            ("KMSMasterKeyId" .=) <$> _ssesKMSMasterKeyId,
-            ("SSEType" .=) <$> _ssesSSEType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Enabled" Lude..=) Lude.<$> enabled,
+            ("KMSMasterKeyId" Lude..=) Lude.<$> kmsMasterKeyId,
+            ("SSEType" Lude..=) Lude.<$> sSEType
           ]
       )

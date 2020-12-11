@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.NotebookInstanceAcceleratorType where
+module Network.AWS.SageMaker.Types.NotebookInstanceAcceleratorType
+  ( NotebookInstanceAcceleratorType
+      ( NotebookInstanceAcceleratorType',
+        Ml_EIA1_Large,
+        Ml_EIA1_Medium,
+        Ml_EIA1_XLarge,
+        Ml_EIA2_Large,
+        Ml_EIA2_Medium,
+        Ml_EIA2_XLarge
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotebookInstanceAcceleratorType
-  = Ml_EIA1_Large
-  | Ml_EIA1_Medium
-  | Ml_EIA1_XLarge
-  | Ml_EIA2_Large
-  | Ml_EIA2_Medium
-  | Ml_EIA2_XLarge
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotebookInstanceAcceleratorType = NotebookInstanceAcceleratorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotebookInstanceAcceleratorType where
-  parser =
-    takeLowerText >>= \case
-      "ml.eia1.large" -> pure Ml_EIA1_Large
-      "ml.eia1.medium" -> pure Ml_EIA1_Medium
-      "ml.eia1.xlarge" -> pure Ml_EIA1_XLarge
-      "ml.eia2.large" -> pure Ml_EIA2_Large
-      "ml.eia2.medium" -> pure Ml_EIA2_Medium
-      "ml.eia2.xlarge" -> pure Ml_EIA2_XLarge
-      e ->
-        fromTextError $
-          "Failure parsing NotebookInstanceAcceleratorType from value: '" <> e
-            <> "'. Accepted values: ml.eia1.large, ml.eia1.medium, ml.eia1.xlarge, ml.eia2.large, ml.eia2.medium, ml.eia2.xlarge"
+pattern Ml_EIA1_Large :: NotebookInstanceAcceleratorType
+pattern Ml_EIA1_Large = NotebookInstanceAcceleratorType' "ml.eia1.large"
 
-instance ToText NotebookInstanceAcceleratorType where
-  toText = \case
-    Ml_EIA1_Large -> "ml.eia1.large"
-    Ml_EIA1_Medium -> "ml.eia1.medium"
-    Ml_EIA1_XLarge -> "ml.eia1.xlarge"
-    Ml_EIA2_Large -> "ml.eia2.large"
-    Ml_EIA2_Medium -> "ml.eia2.medium"
-    Ml_EIA2_XLarge -> "ml.eia2.xlarge"
+pattern Ml_EIA1_Medium :: NotebookInstanceAcceleratorType
+pattern Ml_EIA1_Medium = NotebookInstanceAcceleratorType' "ml.eia1.medium"
 
-instance Hashable NotebookInstanceAcceleratorType
+pattern Ml_EIA1_XLarge :: NotebookInstanceAcceleratorType
+pattern Ml_EIA1_XLarge = NotebookInstanceAcceleratorType' "ml.eia1.xlarge"
 
-instance NFData NotebookInstanceAcceleratorType
+pattern Ml_EIA2_Large :: NotebookInstanceAcceleratorType
+pattern Ml_EIA2_Large = NotebookInstanceAcceleratorType' "ml.eia2.large"
 
-instance ToByteString NotebookInstanceAcceleratorType
+pattern Ml_EIA2_Medium :: NotebookInstanceAcceleratorType
+pattern Ml_EIA2_Medium = NotebookInstanceAcceleratorType' "ml.eia2.medium"
 
-instance ToQuery NotebookInstanceAcceleratorType
+pattern Ml_EIA2_XLarge :: NotebookInstanceAcceleratorType
+pattern Ml_EIA2_XLarge = NotebookInstanceAcceleratorType' "ml.eia2.xlarge"
 
-instance ToHeader NotebookInstanceAcceleratorType
-
-instance ToJSON NotebookInstanceAcceleratorType where
-  toJSON = toJSONText
-
-instance FromJSON NotebookInstanceAcceleratorType where
-  parseJSON = parseJSONText "NotebookInstanceAcceleratorType"
+{-# COMPLETE
+  Ml_EIA1_Large,
+  Ml_EIA1_Medium,
+  Ml_EIA1_XLarge,
+  Ml_EIA2_Large,
+  Ml_EIA2_Medium,
+  Ml_EIA2_XLarge,
+  NotebookInstanceAcceleratorType'
+  #-}

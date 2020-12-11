@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.ConnectionsList where
+module Network.AWS.Glue.Types.ConnectionsList
+  ( ConnectionsList (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConnectionsList,
+
+    -- * Lenses
+    clConnections,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the connections used by a job.
 --
---
---
--- /See:/ 'connectionsList' smart constructor.
+-- /See:/ 'mkConnectionsList' smart constructor.
 newtype ConnectionsList = ConnectionsList'
-  { _clConnections ::
-      Maybe [Text]
+  { connections ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionsList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'clConnections' - A list of connections used by the job.
-connectionsList ::
+-- * 'connections' - A list of connections used by the job.
+mkConnectionsList ::
   ConnectionsList
-connectionsList = ConnectionsList' {_clConnections = Nothing}
+mkConnectionsList = ConnectionsList' {connections = Lude.Nothing}
 
 -- | A list of connections used by the job.
-clConnections :: Lens' ConnectionsList [Text]
-clConnections = lens _clConnections (\s a -> s {_clConnections = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'connections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clConnections :: Lens.Lens' ConnectionsList (Lude.Maybe [Lude.Text])
+clConnections = Lens.lens (connections :: ConnectionsList -> Lude.Maybe [Lude.Text]) (\s a -> s {connections = a} :: ConnectionsList)
+{-# DEPRECATED clConnections "Use generic-lens or generic-optics with 'connections' instead." #-}
 
-instance FromJSON ConnectionsList where
+instance Lude.FromJSON ConnectionsList where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConnectionsList"
-      (\x -> ConnectionsList' <$> (x .:? "Connections" .!= mempty))
+      ( \x ->
+          ConnectionsList'
+            Lude.<$> (x Lude..:? "Connections" Lude..!= Lude.mempty)
+      )
 
-instance Hashable ConnectionsList
-
-instance NFData ConnectionsList
-
-instance ToJSON ConnectionsList where
+instance Lude.ToJSON ConnectionsList where
   toJSON ConnectionsList' {..} =
-    object (catMaybes [("Connections" .=) <$> _clConnections])
+    Lude.object
+      (Lude.catMaybes [("Connections" Lude..=) Lude.<$> connections])

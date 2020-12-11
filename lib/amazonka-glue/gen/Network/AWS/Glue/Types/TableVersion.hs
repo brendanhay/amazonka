@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TableVersion where
+module Network.AWS.Glue.Types.TableVersion
+  ( TableVersion (..),
+
+    -- * Smart constructor
+    mkTableVersion,
+
+    -- * Lenses
+    tvVersionId,
+    tvTable,
+  )
+where
 
 import Network.AWS.Glue.Types.Table
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a version of a table.
 --
---
---
--- /See:/ 'tableVersion' smart constructor.
+-- /See:/ 'mkTableVersion' smart constructor.
 data TableVersion = TableVersion'
-  { _tvVersionId :: !(Maybe Text),
-    _tvTable :: !(Maybe Table)
+  { versionId ::
+      Lude.Maybe Lude.Text,
+    table :: Lude.Maybe Table
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tvVersionId' - The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
---
--- * 'tvTable' - The table in question.
-tableVersion ::
+-- * 'table' - The table in question.
+-- * 'versionId' - The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
+mkTableVersion ::
   TableVersion
-tableVersion =
-  TableVersion' {_tvVersionId = Nothing, _tvTable = Nothing}
+mkTableVersion =
+  TableVersion' {versionId = Lude.Nothing, table = Lude.Nothing}
 
 -- | The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
-tvVersionId :: Lens' TableVersion (Maybe Text)
-tvVersionId = lens _tvVersionId (\s a -> s {_tvVersionId = a})
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvVersionId :: Lens.Lens' TableVersion (Lude.Maybe Lude.Text)
+tvVersionId = Lens.lens (versionId :: TableVersion -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: TableVersion)
+{-# DEPRECATED tvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The table in question.
-tvTable :: Lens' TableVersion (Maybe Table)
-tvTable = lens _tvTable (\s a -> s {_tvTable = a})
+--
+-- /Note:/ Consider using 'table' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvTable :: Lens.Lens' TableVersion (Lude.Maybe Table)
+tvTable = Lens.lens (table :: TableVersion -> Lude.Maybe Table) (\s a -> s {table = a} :: TableVersion)
+{-# DEPRECATED tvTable "Use generic-lens or generic-optics with 'table' instead." #-}
 
-instance FromJSON TableVersion where
+instance Lude.FromJSON TableVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "TableVersion"
-      (\x -> TableVersion' <$> (x .:? "VersionId") <*> (x .:? "Table"))
-
-instance Hashable TableVersion
-
-instance NFData TableVersion
+      ( \x ->
+          TableVersion'
+            Lude.<$> (x Lude..:? "VersionId") Lude.<*> (x Lude..:? "Table")
+      )

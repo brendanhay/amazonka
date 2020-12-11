@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,137 +17,157 @@
 --
 --     * To remove tags from a resource, you need the necessary permissions for the service that the resource belongs to as well as permissions for removing tags. For more information, see <http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html this list> .
 --
+--
 --     * You can only tag resources that are located in the specified Region for the AWS account.
 module Network.AWS.ResourceGroupsTagging.UntagResources
-  ( -- * Creating a Request
-    untagResources,
-    UntagResources,
+  ( -- * Creating a request
+    UntagResources (..),
+    mkUntagResources,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urResourceARNList,
     urTagKeys,
 
-    -- * Destructuring the Response
-    untagResourcesResponse,
-    UntagResourcesResponse,
+    -- * Destructuring the response
+    UntagResourcesResponse (..),
+    mkUntagResourcesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urrsFailedResourcesMap,
     urrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroupsTagging.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'untagResources' smart constructor.
+-- | /See:/ 'mkUntagResources' smart constructor.
 data UntagResources = UntagResources'
-  { _urResourceARNList ::
-      !(List1 Text),
-    _urTagKeys :: !(List1 Text)
+  { resourceARNList ::
+      Lude.NonEmpty Lude.Text,
+    tagKeys :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResources' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urResourceARNList' - A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- * 'urTagKeys' - A list of the tag keys that you want to remove from the specified resources.
-untagResources ::
-  -- | 'urResourceARNList'
-  NonEmpty Text ->
-  -- | 'urTagKeys'
-  NonEmpty Text ->
+-- * 'resourceARNList' - A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'tagKeys' - A list of the tag keys that you want to remove from the specified resources.
+mkUntagResources ::
+  -- | 'resourceARNList'
+  Lude.NonEmpty Lude.Text ->
+  -- | 'tagKeys'
+  Lude.NonEmpty Lude.Text ->
   UntagResources
-untagResources pResourceARNList_ pTagKeys_ =
+mkUntagResources pResourceARNList_ pTagKeys_ =
   UntagResources'
-    { _urResourceARNList = _List1 # pResourceARNList_,
-      _urTagKeys = _List1 # pTagKeys_
+    { resourceARNList = pResourceARNList_,
+      tagKeys = pTagKeys_
     }
 
 -- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-urResourceARNList :: Lens' UntagResources (NonEmpty Text)
-urResourceARNList = lens _urResourceARNList (\s a -> s {_urResourceARNList = a}) . _List1
+--
+-- /Note:/ Consider using 'resourceARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceARNList :: Lens.Lens' UntagResources (Lude.NonEmpty Lude.Text)
+urResourceARNList = Lens.lens (resourceARNList :: UntagResources -> Lude.NonEmpty Lude.Text) (\s a -> s {resourceARNList = a} :: UntagResources)
+{-# DEPRECATED urResourceARNList "Use generic-lens or generic-optics with 'resourceARNList' instead." #-}
 
 -- | A list of the tag keys that you want to remove from the specified resources.
-urTagKeys :: Lens' UntagResources (NonEmpty Text)
-urTagKeys = lens _urTagKeys (\s a -> s {_urTagKeys = a}) . _List1
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urTagKeys :: Lens.Lens' UntagResources (Lude.NonEmpty Lude.Text)
+urTagKeys = Lens.lens (tagKeys :: UntagResources -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeys = a} :: UntagResources)
+{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance AWSRequest UntagResources where
+instance Lude.AWSRequest UntagResources where
   type Rs UntagResources = UntagResourcesResponse
-  request = postJSON resourceGroupsTagging
+  request = Req.postJSON resourceGroupsTaggingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UntagResourcesResponse'
-            <$> (x .?> "FailedResourcesMap" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "FailedResourcesMap" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UntagResources
-
-instance NFData UntagResources
-
-instance ToHeaders UntagResources where
+instance Lude.ToHeaders UntagResources where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ResourceGroupsTaggingAPI_20170126.UntagResources" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ResourceGroupsTaggingAPI_20170126.UntagResources" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UntagResources where
+instance Lude.ToJSON UntagResources where
   toJSON UntagResources' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceARNList" .= _urResourceARNList),
-            Just ("TagKeys" .= _urTagKeys)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceARNList" Lude..= resourceARNList),
+            Lude.Just ("TagKeys" Lude..= tagKeys)
           ]
       )
 
-instance ToPath UntagResources where
-  toPath = const "/"
+instance Lude.ToPath UntagResources where
+  toPath = Lude.const "/"
 
-instance ToQuery UntagResources where
-  toQuery = const mempty
+instance Lude.ToQuery UntagResources where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'untagResourcesResponse' smart constructor.
+-- | /See:/ 'mkUntagResourcesResponse' smart constructor.
 data UntagResourcesResponse = UntagResourcesResponse'
-  { _urrsFailedResourcesMap ::
-      !(Maybe (Map Text (FailureInfo))),
-    _urrsResponseStatus :: !Int
+  { failedResourcesMap ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (FailureInfo)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResourcesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urrsFailedResourcesMap' - Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item.
---
--- * 'urrsResponseStatus' - -- | The response status code.
-untagResourcesResponse ::
-  -- | 'urrsResponseStatus'
-  Int ->
+-- * 'failedResourcesMap' - Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item.
+-- * 'responseStatus' - The response status code.
+mkUntagResourcesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UntagResourcesResponse
-untagResourcesResponse pResponseStatus_ =
+mkUntagResourcesResponse pResponseStatus_ =
   UntagResourcesResponse'
-    { _urrsFailedResourcesMap = Nothing,
-      _urrsResponseStatus = pResponseStatus_
+    { failedResourcesMap = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item.
-urrsFailedResourcesMap :: Lens' UntagResourcesResponse (HashMap Text (FailureInfo))
-urrsFailedResourcesMap = lens _urrsFailedResourcesMap (\s a -> s {_urrsFailedResourcesMap = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'failedResourcesMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsFailedResourcesMap :: Lens.Lens' UntagResourcesResponse (Lude.Maybe (Lude.HashMap Lude.Text (FailureInfo)))
+urrsFailedResourcesMap = Lens.lens (failedResourcesMap :: UntagResourcesResponse -> Lude.Maybe (Lude.HashMap Lude.Text (FailureInfo))) (\s a -> s {failedResourcesMap = a} :: UntagResourcesResponse)
+{-# DEPRECATED urrsFailedResourcesMap "Use generic-lens or generic-optics with 'failedResourcesMap' instead." #-}
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UntagResourcesResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\s a -> s {_urrsResponseStatus = a})
-
-instance NFData UntagResourcesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrsResponseStatus :: Lens.Lens' UntagResourcesResponse Lude.Int
+urrsResponseStatus = Lens.lens (responseStatus :: UntagResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagResourcesResponse)
+{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

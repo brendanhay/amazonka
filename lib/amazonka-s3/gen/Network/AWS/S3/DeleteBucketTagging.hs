@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,106 @@
 --
 -- Deletes the tags from the bucket.
 --
---
 -- To use this operation, you must have permission to perform the @s3:PutBucketTagging@ action. By default, the bucket owner has this permission and can grant this permission to others.
---
 -- The following operations are related to @DeleteBucketTagging@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html GetBucketTagging>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html PutBucketTagging>
 module Network.AWS.S3.DeleteBucketTagging
-  ( -- * Creating a Request
-    deleteBucketTagging,
-    DeleteBucketTagging,
+  ( -- * Creating a request
+    DeleteBucketTagging (..),
+    mkDeleteBucketTagging,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbtExpectedBucketOwner,
     dbtBucket,
 
-    -- * Destructuring the Response
-    deleteBucketTaggingResponse,
-    DeleteBucketTaggingResponse,
+    -- * Destructuring the response
+    DeleteBucketTaggingResponse (..),
+    mkDeleteBucketTaggingResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'deleteBucketTagging' smart constructor.
+-- | /See:/ 'mkDeleteBucketTagging' smart constructor.
 data DeleteBucketTagging = DeleteBucketTagging'
-  { _dbtExpectedBucketOwner ::
-      !(Maybe Text),
-    _dbtBucket :: !BucketName
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketTagging' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbtExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'dbtBucket' - The bucket that has the tag set to be removed.
-deleteBucketTagging ::
-  -- | 'dbtBucket'
+-- * 'bucket' - The bucket that has the tag set to be removed.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+mkDeleteBucketTagging ::
+  -- | 'bucket'
   BucketName ->
   DeleteBucketTagging
-deleteBucketTagging pBucket_ =
+mkDeleteBucketTagging pBucket_ =
   DeleteBucketTagging'
-    { _dbtExpectedBucketOwner = Nothing,
-      _dbtBucket = pBucket_
+    { expectedBucketOwner = Lude.Nothing,
+      bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-dbtExpectedBucketOwner :: Lens' DeleteBucketTagging (Maybe Text)
-dbtExpectedBucketOwner = lens _dbtExpectedBucketOwner (\s a -> s {_dbtExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbtExpectedBucketOwner :: Lens.Lens' DeleteBucketTagging (Lude.Maybe Lude.Text)
+dbtExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketTagging)
+{-# DEPRECATED dbtExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket that has the tag set to be removed.
-dbtBucket :: Lens' DeleteBucketTagging BucketName
-dbtBucket = lens _dbtBucket (\s a -> s {_dbtBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbtBucket :: Lens.Lens' DeleteBucketTagging BucketName
+dbtBucket = Lens.lens (bucket :: DeleteBucketTagging -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketTagging)
+{-# DEPRECATED dbtBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance AWSRequest DeleteBucketTagging where
+instance Lude.AWSRequest DeleteBucketTagging where
   type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
-  request = delete s3
-  response = receiveNull DeleteBucketTaggingResponse'
+  request = Req.delete s3Service
+  response = Res.receiveNull DeleteBucketTaggingResponse'
 
-instance Hashable DeleteBucketTagging
-
-instance NFData DeleteBucketTagging
-
-instance ToHeaders DeleteBucketTagging where
+instance Lude.ToHeaders DeleteBucketTagging where
   toHeaders DeleteBucketTagging' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _dbtExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath DeleteBucketTagging where
-  toPath DeleteBucketTagging' {..} = mconcat ["/", toBS _dbtBucket]
+instance Lude.ToPath DeleteBucketTagging where
+  toPath DeleteBucketTagging' {..} =
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery DeleteBucketTagging where
-  toQuery = const (mconcat ["tagging"])
+instance Lude.ToQuery DeleteBucketTagging where
+  toQuery = Lude.const (Lude.mconcat ["tagging"])
 
--- | /See:/ 'deleteBucketTaggingResponse' smart constructor.
+-- | /See:/ 'mkDeleteBucketTaggingResponse' smart constructor.
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketTaggingResponse' with the minimum fields required to make a request.
-deleteBucketTaggingResponse ::
+mkDeleteBucketTaggingResponse ::
   DeleteBucketTaggingResponse
-deleteBucketTaggingResponse = DeleteBucketTaggingResponse'
-
-instance NFData DeleteBucketTaggingResponse
+mkDeleteBucketTaggingResponse = DeleteBucketTaggingResponse'

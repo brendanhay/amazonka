@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.DialogState where
+module Network.AWS.LexRuntime.Types.DialogState
+  ( DialogState
+      ( DialogState',
+        ConfirmIntent,
+        ElicitIntent,
+        ElicitSlot,
+        Failed,
+        Fulfilled,
+        ReadyForFulfillment
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DialogState
-  = ConfirmIntent
-  | ElicitIntent
-  | ElicitSlot
-  | Failed
-  | Fulfilled
-  | ReadyForFulfillment
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DialogState = DialogState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DialogState where
-  parser =
-    takeLowerText >>= \case
-      "confirmintent" -> pure ConfirmIntent
-      "elicitintent" -> pure ElicitIntent
-      "elicitslot" -> pure ElicitSlot
-      "failed" -> pure Failed
-      "fulfilled" -> pure Fulfilled
-      "readyforfulfillment" -> pure ReadyForFulfillment
-      e ->
-        fromTextError $
-          "Failure parsing DialogState from value: '" <> e
-            <> "'. Accepted values: confirmintent, elicitintent, elicitslot, failed, fulfilled, readyforfulfillment"
+pattern ConfirmIntent :: DialogState
+pattern ConfirmIntent = DialogState' "ConfirmIntent"
 
-instance ToText DialogState where
-  toText = \case
-    ConfirmIntent -> "ConfirmIntent"
-    ElicitIntent -> "ElicitIntent"
-    ElicitSlot -> "ElicitSlot"
-    Failed -> "Failed"
-    Fulfilled -> "Fulfilled"
-    ReadyForFulfillment -> "ReadyForFulfillment"
+pattern ElicitIntent :: DialogState
+pattern ElicitIntent = DialogState' "ElicitIntent"
 
-instance Hashable DialogState
+pattern ElicitSlot :: DialogState
+pattern ElicitSlot = DialogState' "ElicitSlot"
 
-instance NFData DialogState
+pattern Failed :: DialogState
+pattern Failed = DialogState' "Failed"
 
-instance ToByteString DialogState
+pattern Fulfilled :: DialogState
+pattern Fulfilled = DialogState' "Fulfilled"
 
-instance ToQuery DialogState
+pattern ReadyForFulfillment :: DialogState
+pattern ReadyForFulfillment = DialogState' "ReadyForFulfillment"
 
-instance ToHeader DialogState
-
-instance FromJSON DialogState where
-  parseJSON = parseJSONText "DialogState"
+{-# COMPLETE
+  ConfirmIntent,
+  ElicitIntent,
+  ElicitSlot,
+  Failed,
+  Fulfilled,
+  ReadyForFulfillment,
+  DialogState'
+  #-}

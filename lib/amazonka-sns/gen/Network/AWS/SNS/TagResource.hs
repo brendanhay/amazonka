@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,136 @@
 --
 -- Add tags to the specified Amazon SNS topic. For an overview, see <https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html Amazon SNS Tags> in the /Amazon SNS Developer Guide/ .
 --
---
 -- When you use topic tags, keep the following guidelines in mind:
 --
 --     * Adding more than 50 tags to a topic isn't recommended.
 --
+--
 --     * Tags don't have any semantic meaning. Amazon SNS interprets tags as character strings.
+--
 --
 --     * Tags are case-sensitive.
 --
+--
 --     * A new tag with a key identical to that of an existing tag overwrites the existing tag.
+--
 --
 --     * Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your application requires a higher throughput, file a <https://console.aws.amazon.com/support/home#/case/create?issueType=technical technical support request> .
 module Network.AWS.SNS.TagResource
-  ( -- * Creating a Request
-    tagResource,
-    TagResource,
+  ( -- * Creating a request
+    TagResource (..),
+    mkTagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     trResourceARN,
     trTags,
 
-    -- * Destructuring the Response
-    tagResourceResponse,
-    TagResourceResponse,
+    -- * Destructuring the response
+    TagResourceResponse (..),
+    mkTagResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     trrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SNS.Types
 
--- | /See:/ 'tagResource' smart constructor.
+-- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trResourceARN :: !Text,
-    _trTags :: ![Tag]
+  { resourceARN :: Lude.Text,
+    tags :: [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trResourceARN' - The ARN of the topic to which to add tags.
---
--- * 'trTags' - The tags to be added to the specified topic. A tag consists of a required key and an optional value.
-tagResource ::
-  -- | 'trResourceARN'
-  Text ->
+-- * 'resourceARN' - The ARN of the topic to which to add tags.
+-- * 'tags' - The tags to be added to the specified topic. A tag consists of a required key and an optional value.
+mkTagResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   TagResource
-tagResource pResourceARN_ =
-  TagResource' {_trResourceARN = pResourceARN_, _trTags = mempty}
+mkTagResource pResourceARN_ =
+  TagResource' {resourceARN = pResourceARN_, tags = Lude.mempty}
 
 -- | The ARN of the topic to which to add tags.
-trResourceARN :: Lens' TagResource Text
-trResourceARN = lens _trResourceARN (\s a -> s {_trResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceARN :: Lens.Lens' TagResource Lude.Text
+trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
+{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The tags to be added to the specified topic. A tag consists of a required key and an optional value.
-trTags :: Lens' TagResource [Tag]
-trTags = lens _trTags (\s a -> s {_trTags = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTags :: Lens.Lens' TagResource [Tag]
+trTags = Lens.lens (tags :: TagResource -> [Tag]) (\s a -> s {tags = a} :: TagResource)
+{-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest TagResource where
+instance Lude.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = postQuery sns
+  request = Req.postQuery snsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "TagResourceResult"
-      (\s h x -> TagResourceResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          TagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable TagResource
+instance Lude.ToHeaders TagResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData TagResource
+instance Lude.ToPath TagResource where
+  toPath = Lude.const "/"
 
-instance ToHeaders TagResource where
-  toHeaders = const mempty
-
-instance ToPath TagResource where
-  toPath = const "/"
-
-instance ToQuery TagResource where
+instance Lude.ToQuery TagResource where
   toQuery TagResource' {..} =
-    mconcat
-      [ "Action" =: ("TagResource" :: ByteString),
-        "Version" =: ("2010-03-31" :: ByteString),
-        "ResourceArn" =: _trResourceARN,
-        "Tags" =: toQueryList "member" _trTags
+    Lude.mconcat
+      [ "Action" Lude.=: ("TagResource" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
+        "ResourceArn" Lude.=: resourceARN,
+        "Tags" Lude.=: Lude.toQueryList "member" tags
       ]
 
--- | /See:/ 'tagResourceResponse' smart constructor.
+-- | /See:/ 'mkTagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
-  { _trrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trrsResponseStatus' - -- | The response status code.
-tagResourceResponse ::
-  -- | 'trrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkTagResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TagResourceResponse
-tagResourceResponse pResponseStatus_ =
-  TagResourceResponse' {_trrsResponseStatus = pResponseStatus_}
+mkTagResourceResponse pResponseStatus_ =
+  TagResourceResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\s a -> s {_trrsResponseStatus = a})
-
-instance NFData TagResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trrsResponseStatus :: Lens.Lens' TagResourceResponse Lude.Int
+trrsResponseStatus = Lens.lens (responseStatus :: TagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResourceResponse)
+{-# DEPRECATED trrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

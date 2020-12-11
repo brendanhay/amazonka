@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.PortProbeDetail where
+module Network.AWS.GuardDuty.Types.PortProbeDetail
+  ( PortProbeDetail (..),
+
+    -- * Smart constructor
+    mkPortProbeDetail,
+
+    -- * Lenses
+    ppdRemoteIPDetails,
+    ppdLocalIPDetails,
+    ppdLocalPortDetails,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.LocalIPDetails
 import Network.AWS.GuardDuty.Types.LocalPortDetails
 import Network.AWS.GuardDuty.Types.RemoteIPDetails
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the port probe details.
 --
---
---
--- /See:/ 'portProbeDetail' smart constructor.
+-- /See:/ 'mkPortProbeDetail' smart constructor.
 data PortProbeDetail = PortProbeDetail'
-  { _ppdRemoteIPDetails ::
-      !(Maybe RemoteIPDetails),
-    _ppdLocalIPDetails :: !(Maybe LocalIPDetails),
-    _ppdLocalPortDetails :: !(Maybe LocalPortDetails)
+  { remoteIPDetails ::
+      Lude.Maybe RemoteIPDetails,
+    localIPDetails :: Lude.Maybe LocalIPDetails,
+    localPortDetails :: Lude.Maybe LocalPortDetails
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PortProbeDetail' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppdRemoteIPDetails' - The remote IP information of the connection.
---
--- * 'ppdLocalIPDetails' - The local IP information of the connection.
---
--- * 'ppdLocalPortDetails' - The local port information of the connection.
-portProbeDetail ::
+-- * 'localIPDetails' - The local IP information of the connection.
+-- * 'localPortDetails' - The local port information of the connection.
+-- * 'remoteIPDetails' - The remote IP information of the connection.
+mkPortProbeDetail ::
   PortProbeDetail
-portProbeDetail =
+mkPortProbeDetail =
   PortProbeDetail'
-    { _ppdRemoteIPDetails = Nothing,
-      _ppdLocalIPDetails = Nothing,
-      _ppdLocalPortDetails = Nothing
+    { remoteIPDetails = Lude.Nothing,
+      localIPDetails = Lude.Nothing,
+      localPortDetails = Lude.Nothing
     }
 
 -- | The remote IP information of the connection.
-ppdRemoteIPDetails :: Lens' PortProbeDetail (Maybe RemoteIPDetails)
-ppdRemoteIPDetails = lens _ppdRemoteIPDetails (\s a -> s {_ppdRemoteIPDetails = a})
+--
+-- /Note:/ Consider using 'remoteIPDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdRemoteIPDetails :: Lens.Lens' PortProbeDetail (Lude.Maybe RemoteIPDetails)
+ppdRemoteIPDetails = Lens.lens (remoteIPDetails :: PortProbeDetail -> Lude.Maybe RemoteIPDetails) (\s a -> s {remoteIPDetails = a} :: PortProbeDetail)
+{-# DEPRECATED ppdRemoteIPDetails "Use generic-lens or generic-optics with 'remoteIPDetails' instead." #-}
 
 -- | The local IP information of the connection.
-ppdLocalIPDetails :: Lens' PortProbeDetail (Maybe LocalIPDetails)
-ppdLocalIPDetails = lens _ppdLocalIPDetails (\s a -> s {_ppdLocalIPDetails = a})
+--
+-- /Note:/ Consider using 'localIPDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdLocalIPDetails :: Lens.Lens' PortProbeDetail (Lude.Maybe LocalIPDetails)
+ppdLocalIPDetails = Lens.lens (localIPDetails :: PortProbeDetail -> Lude.Maybe LocalIPDetails) (\s a -> s {localIPDetails = a} :: PortProbeDetail)
+{-# DEPRECATED ppdLocalIPDetails "Use generic-lens or generic-optics with 'localIPDetails' instead." #-}
 
 -- | The local port information of the connection.
-ppdLocalPortDetails :: Lens' PortProbeDetail (Maybe LocalPortDetails)
-ppdLocalPortDetails = lens _ppdLocalPortDetails (\s a -> s {_ppdLocalPortDetails = a})
+--
+-- /Note:/ Consider using 'localPortDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppdLocalPortDetails :: Lens.Lens' PortProbeDetail (Lude.Maybe LocalPortDetails)
+ppdLocalPortDetails = Lens.lens (localPortDetails :: PortProbeDetail -> Lude.Maybe LocalPortDetails) (\s a -> s {localPortDetails = a} :: PortProbeDetail)
+{-# DEPRECATED ppdLocalPortDetails "Use generic-lens or generic-optics with 'localPortDetails' instead." #-}
 
-instance FromJSON PortProbeDetail where
+instance Lude.FromJSON PortProbeDetail where
   parseJSON =
-    withObject
+    Lude.withObject
       "PortProbeDetail"
       ( \x ->
           PortProbeDetail'
-            <$> (x .:? "remoteIpDetails")
-            <*> (x .:? "localIpDetails")
-            <*> (x .:? "localPortDetails")
+            Lude.<$> (x Lude..:? "remoteIpDetails")
+            Lude.<*> (x Lude..:? "localIpDetails")
+            Lude.<*> (x Lude..:? "localPortDetails")
       )
-
-instance Hashable PortProbeDetail
-
-instance NFData PortProbeDetail

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputSpecification where
+module Network.AWS.MediaLive.Types.InputSpecification
+  ( InputSpecification (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkInputSpecification,
+
+    -- * Lenses
+    isResolution,
+    isCodec,
+    isMaximumBitrate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputCodec
 import Network.AWS.MediaLive.Types.InputMaximumBitrate
 import Network.AWS.MediaLive.Types.InputResolution
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Placeholder documentation for InputSpecification
 --
--- /See:/ 'inputSpecification' smart constructor.
+-- /See:/ 'mkInputSpecification' smart constructor.
 data InputSpecification = InputSpecification'
-  { _isResolution ::
-      !(Maybe InputResolution),
-    _isCodec :: !(Maybe InputCodec),
-    _isMaximumBitrate :: !(Maybe InputMaximumBitrate)
+  { resolution ::
+      Lude.Maybe InputResolution,
+    codec :: Lude.Maybe InputCodec,
+    maximumBitrate :: Lude.Maybe InputMaximumBitrate
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isResolution' - Input resolution, categorized coarsely
---
--- * 'isCodec' - Input codec
---
--- * 'isMaximumBitrate' - Maximum input bitrate, categorized coarsely
-inputSpecification ::
+-- * 'codec' - Input codec
+-- * 'maximumBitrate' - Maximum input bitrate, categorized coarsely
+-- * 'resolution' - Input resolution, categorized coarsely
+mkInputSpecification ::
   InputSpecification
-inputSpecification =
+mkInputSpecification =
   InputSpecification'
-    { _isResolution = Nothing,
-      _isCodec = Nothing,
-      _isMaximumBitrate = Nothing
+    { resolution = Lude.Nothing,
+      codec = Lude.Nothing,
+      maximumBitrate = Lude.Nothing
     }
 
 -- | Input resolution, categorized coarsely
-isResolution :: Lens' InputSpecification (Maybe InputResolution)
-isResolution = lens _isResolution (\s a -> s {_isResolution = a})
+--
+-- /Note:/ Consider using 'resolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isResolution :: Lens.Lens' InputSpecification (Lude.Maybe InputResolution)
+isResolution = Lens.lens (resolution :: InputSpecification -> Lude.Maybe InputResolution) (\s a -> s {resolution = a} :: InputSpecification)
+{-# DEPRECATED isResolution "Use generic-lens or generic-optics with 'resolution' instead." #-}
 
 -- | Input codec
-isCodec :: Lens' InputSpecification (Maybe InputCodec)
-isCodec = lens _isCodec (\s a -> s {_isCodec = a})
+--
+-- /Note:/ Consider using 'codec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isCodec :: Lens.Lens' InputSpecification (Lude.Maybe InputCodec)
+isCodec = Lens.lens (codec :: InputSpecification -> Lude.Maybe InputCodec) (\s a -> s {codec = a} :: InputSpecification)
+{-# DEPRECATED isCodec "Use generic-lens or generic-optics with 'codec' instead." #-}
 
 -- | Maximum input bitrate, categorized coarsely
-isMaximumBitrate :: Lens' InputSpecification (Maybe InputMaximumBitrate)
-isMaximumBitrate = lens _isMaximumBitrate (\s a -> s {_isMaximumBitrate = a})
+--
+-- /Note:/ Consider using 'maximumBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isMaximumBitrate :: Lens.Lens' InputSpecification (Lude.Maybe InputMaximumBitrate)
+isMaximumBitrate = Lens.lens (maximumBitrate :: InputSpecification -> Lude.Maybe InputMaximumBitrate) (\s a -> s {maximumBitrate = a} :: InputSpecification)
+{-# DEPRECATED isMaximumBitrate "Use generic-lens or generic-optics with 'maximumBitrate' instead." #-}
 
-instance FromJSON InputSpecification where
+instance Lude.FromJSON InputSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputSpecification"
       ( \x ->
           InputSpecification'
-            <$> (x .:? "resolution")
-            <*> (x .:? "codec")
-            <*> (x .:? "maximumBitrate")
+            Lude.<$> (x Lude..:? "resolution")
+            Lude.<*> (x Lude..:? "codec")
+            Lude.<*> (x Lude..:? "maximumBitrate")
       )
 
-instance Hashable InputSpecification
-
-instance NFData InputSpecification
-
-instance ToJSON InputSpecification where
+instance Lude.ToJSON InputSpecification where
   toJSON InputSpecification' {..} =
-    object
-      ( catMaybes
-          [ ("resolution" .=) <$> _isResolution,
-            ("codec" .=) <$> _isCodec,
-            ("maximumBitrate" .=) <$> _isMaximumBitrate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("resolution" Lude..=) Lude.<$> resolution,
+            ("codec" Lude..=) Lude.<$> codec,
+            ("maximumBitrate" Lude..=) Lude.<$> maximumBitrate
           ]
       )

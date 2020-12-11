@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IAM.Types.SAMLProviderListEntry where
+module Network.AWS.IAM.Types.SAMLProviderListEntry
+  ( SAMLProviderListEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSAMLProviderListEntry,
+
+    -- * Lenses
+    samlpleARN,
+    samlpleCreateDate,
+    samlpleValidUntil,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains the list of SAML providers for this account.
 --
---
---
--- /See:/ 'sAMLProviderListEntry' smart constructor.
+-- /See:/ 'mkSAMLProviderListEntry' smart constructor.
 data SAMLProviderListEntry = SAMLProviderListEntry'
-  { _samlpleARN ::
-      !(Maybe Text),
-    _samlpleCreateDate :: !(Maybe ISO8601),
-    _samlpleValidUntil :: !(Maybe ISO8601)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    createDate :: Lude.Maybe Lude.ISO8601,
+    validUntil :: Lude.Maybe Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SAMLProviderListEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'samlpleARN' - The Amazon Resource Name (ARN) of the SAML provider.
---
--- * 'samlpleCreateDate' - The date and time when the SAML provider was created.
---
--- * 'samlpleValidUntil' - The expiration date and time for the SAML provider.
-sAMLProviderListEntry ::
+-- * 'arn' - The Amazon Resource Name (ARN) of the SAML provider.
+-- * 'createDate' - The date and time when the SAML provider was created.
+-- * 'validUntil' - The expiration date and time for the SAML provider.
+mkSAMLProviderListEntry ::
   SAMLProviderListEntry
-sAMLProviderListEntry =
+mkSAMLProviderListEntry =
   SAMLProviderListEntry'
-    { _samlpleARN = Nothing,
-      _samlpleCreateDate = Nothing,
-      _samlpleValidUntil = Nothing
+    { arn = Lude.Nothing,
+      createDate = Lude.Nothing,
+      validUntil = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
-samlpleARN :: Lens' SAMLProviderListEntry (Maybe Text)
-samlpleARN = lens _samlpleARN (\s a -> s {_samlpleARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samlpleARN :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.Text)
+samlpleARN = Lens.lens (arn :: SAMLProviderListEntry -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: SAMLProviderListEntry)
+{-# DEPRECATED samlpleARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date and time when the SAML provider was created.
-samlpleCreateDate :: Lens' SAMLProviderListEntry (Maybe UTCTime)
-samlpleCreateDate = lens _samlpleCreateDate (\s a -> s {_samlpleCreateDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samlpleCreateDate :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.ISO8601)
+samlpleCreateDate = Lens.lens (createDate :: SAMLProviderListEntry -> Lude.Maybe Lude.ISO8601) (\s a -> s {createDate = a} :: SAMLProviderListEntry)
+{-# DEPRECATED samlpleCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The expiration date and time for the SAML provider.
-samlpleValidUntil :: Lens' SAMLProviderListEntry (Maybe UTCTime)
-samlpleValidUntil = lens _samlpleValidUntil (\s a -> s {_samlpleValidUntil = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samlpleValidUntil :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.ISO8601)
+samlpleValidUntil = Lens.lens (validUntil :: SAMLProviderListEntry -> Lude.Maybe Lude.ISO8601) (\s a -> s {validUntil = a} :: SAMLProviderListEntry)
+{-# DEPRECATED samlpleValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
-instance FromXML SAMLProviderListEntry where
+instance Lude.FromXML SAMLProviderListEntry where
   parseXML x =
     SAMLProviderListEntry'
-      <$> (x .@? "Arn") <*> (x .@? "CreateDate") <*> (x .@? "ValidUntil")
-
-instance Hashable SAMLProviderListEntry
-
-instance NFData SAMLProviderListEntry
+      Lude.<$> (x Lude..@? "Arn")
+      Lude.<*> (x Lude..@? "CreateDate")
+      Lude.<*> (x Lude..@? "ValidUntil")

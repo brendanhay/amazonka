@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists indices attached to the specified object.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListAttachedIndices
-  ( -- * Creating a Request
-    listAttachedIndices,
-    ListAttachedIndices,
+  ( -- * Creating a request
+    ListAttachedIndices (..),
+    mkListAttachedIndices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     laiConsistencyLevel,
     laiNextToken,
     laiMaxResults,
     laiDirectoryARN,
     laiTargetReference,
 
-    -- * Destructuring the Response
-    listAttachedIndicesResponse,
-    ListAttachedIndicesResponse,
+    -- * Destructuring the response
+    ListAttachedIndicesResponse (..),
+    mkListAttachedIndicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lairsIndexAttachments,
     lairsNextToken,
     lairsResponseStatus,
@@ -46,155 +39,181 @@ module Network.AWS.CloudDirectory.ListAttachedIndices
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAttachedIndices' smart constructor.
+-- | /See:/ 'mkListAttachedIndices' smart constructor.
 data ListAttachedIndices = ListAttachedIndices'
-  { _laiConsistencyLevel ::
-      !(Maybe ConsistencyLevel),
-    _laiNextToken :: !(Maybe Text),
-    _laiMaxResults :: !(Maybe Nat),
-    _laiDirectoryARN :: !Text,
-    _laiTargetReference :: !ObjectReference
+  { consistencyLevel ::
+      Lude.Maybe ConsistencyLevel,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    directoryARN :: Lude.Text,
+    targetReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAttachedIndices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'laiConsistencyLevel' - The consistency level to use for this operation.
---
--- * 'laiNextToken' - The pagination token.
---
--- * 'laiMaxResults' - The maximum number of results to retrieve.
---
--- * 'laiDirectoryARN' - The ARN of the directory.
---
--- * 'laiTargetReference' - A reference to the object that has indices attached.
-listAttachedIndices ::
-  -- | 'laiDirectoryARN'
-  Text ->
-  -- | 'laiTargetReference'
+-- * 'consistencyLevel' - The consistency level to use for this operation.
+-- * 'directoryARN' - The ARN of the directory.
+-- * 'maxResults' - The maximum number of results to retrieve.
+-- * 'nextToken' - The pagination token.
+-- * 'targetReference' - A reference to the object that has indices attached.
+mkListAttachedIndices ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'targetReference'
   ObjectReference ->
   ListAttachedIndices
-listAttachedIndices pDirectoryARN_ pTargetReference_ =
+mkListAttachedIndices pDirectoryARN_ pTargetReference_ =
   ListAttachedIndices'
-    { _laiConsistencyLevel = Nothing,
-      _laiNextToken = Nothing,
-      _laiMaxResults = Nothing,
-      _laiDirectoryARN = pDirectoryARN_,
-      _laiTargetReference = pTargetReference_
+    { consistencyLevel = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      directoryARN = pDirectoryARN_,
+      targetReference = pTargetReference_
     }
 
 -- | The consistency level to use for this operation.
-laiConsistencyLevel :: Lens' ListAttachedIndices (Maybe ConsistencyLevel)
-laiConsistencyLevel = lens _laiConsistencyLevel (\s a -> s {_laiConsistencyLevel = a})
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laiConsistencyLevel :: Lens.Lens' ListAttachedIndices (Lude.Maybe ConsistencyLevel)
+laiConsistencyLevel = Lens.lens (consistencyLevel :: ListAttachedIndices -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: ListAttachedIndices)
+{-# DEPRECATED laiConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The pagination token.
-laiNextToken :: Lens' ListAttachedIndices (Maybe Text)
-laiNextToken = lens _laiNextToken (\s a -> s {_laiNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laiNextToken :: Lens.Lens' ListAttachedIndices (Lude.Maybe Lude.Text)
+laiNextToken = Lens.lens (nextToken :: ListAttachedIndices -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAttachedIndices)
+{-# DEPRECATED laiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to retrieve.
-laiMaxResults :: Lens' ListAttachedIndices (Maybe Natural)
-laiMaxResults = lens _laiMaxResults (\s a -> s {_laiMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laiMaxResults :: Lens.Lens' ListAttachedIndices (Lude.Maybe Lude.Natural)
+laiMaxResults = Lens.lens (maxResults :: ListAttachedIndices -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAttachedIndices)
+{-# DEPRECATED laiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ARN of the directory.
-laiDirectoryARN :: Lens' ListAttachedIndices Text
-laiDirectoryARN = lens _laiDirectoryARN (\s a -> s {_laiDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laiDirectoryARN :: Lens.Lens' ListAttachedIndices Lude.Text
+laiDirectoryARN = Lens.lens (directoryARN :: ListAttachedIndices -> Lude.Text) (\s a -> s {directoryARN = a} :: ListAttachedIndices)
+{-# DEPRECATED laiDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | A reference to the object that has indices attached.
-laiTargetReference :: Lens' ListAttachedIndices ObjectReference
-laiTargetReference = lens _laiTargetReference (\s a -> s {_laiTargetReference = a})
+--
+-- /Note:/ Consider using 'targetReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laiTargetReference :: Lens.Lens' ListAttachedIndices ObjectReference
+laiTargetReference = Lens.lens (targetReference :: ListAttachedIndices -> ObjectReference) (\s a -> s {targetReference = a} :: ListAttachedIndices)
+{-# DEPRECATED laiTargetReference "Use generic-lens or generic-optics with 'targetReference' instead." #-}
 
-instance AWSPager ListAttachedIndices where
+instance Page.AWSPager ListAttachedIndices where
   page rq rs
-    | stop (rs ^. lairsNextToken) = Nothing
-    | stop (rs ^. lairsIndexAttachments) = Nothing
-    | otherwise = Just $ rq & laiNextToken .~ rs ^. lairsNextToken
+    | Page.stop (rs Lens.^. lairsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lairsIndexAttachments) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& laiNextToken Lens..~ rs Lens.^. lairsNextToken
 
-instance AWSRequest ListAttachedIndices where
+instance Lude.AWSRequest ListAttachedIndices where
   type Rs ListAttachedIndices = ListAttachedIndicesResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAttachedIndicesResponse'
-            <$> (x .?> "IndexAttachments" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "IndexAttachments" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListAttachedIndices
-
-instance NFData ListAttachedIndices
-
-instance ToHeaders ListAttachedIndices where
+instance Lude.ToHeaders ListAttachedIndices where
   toHeaders ListAttachedIndices' {..} =
-    mconcat
-      [ "x-amz-consistency-level" =# _laiConsistencyLevel,
-        "x-amz-data-partition" =# _laiDirectoryARN
+    Lude.mconcat
+      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
+        "x-amz-data-partition" Lude.=# directoryARN
       ]
 
-instance ToJSON ListAttachedIndices where
+instance Lude.ToJSON ListAttachedIndices where
   toJSON ListAttachedIndices' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _laiNextToken,
-            ("MaxResults" .=) <$> _laiMaxResults,
-            Just ("TargetReference" .= _laiTargetReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("TargetReference" Lude..= targetReference)
           ]
       )
 
-instance ToPath ListAttachedIndices where
-  toPath = const "/amazonclouddirectory/2017-01-11/object/indices"
+instance Lude.ToPath ListAttachedIndices where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/object/indices"
 
-instance ToQuery ListAttachedIndices where
-  toQuery = const mempty
+instance Lude.ToQuery ListAttachedIndices where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAttachedIndicesResponse' smart constructor.
+-- | /See:/ 'mkListAttachedIndicesResponse' smart constructor.
 data ListAttachedIndicesResponse = ListAttachedIndicesResponse'
-  { _lairsIndexAttachments ::
-      !(Maybe [IndexAttachment]),
-    _lairsNextToken :: !(Maybe Text),
-    _lairsResponseStatus :: !Int
+  { indexAttachments ::
+      Lude.Maybe [IndexAttachment],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAttachedIndicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lairsIndexAttachments' - The indices attached to the specified object.
---
--- * 'lairsNextToken' - The pagination token.
---
--- * 'lairsResponseStatus' - -- | The response status code.
-listAttachedIndicesResponse ::
-  -- | 'lairsResponseStatus'
-  Int ->
+-- * 'indexAttachments' - The indices attached to the specified object.
+-- * 'nextToken' - The pagination token.
+-- * 'responseStatus' - The response status code.
+mkListAttachedIndicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAttachedIndicesResponse
-listAttachedIndicesResponse pResponseStatus_ =
+mkListAttachedIndicesResponse pResponseStatus_ =
   ListAttachedIndicesResponse'
-    { _lairsIndexAttachments = Nothing,
-      _lairsNextToken = Nothing,
-      _lairsResponseStatus = pResponseStatus_
+    { indexAttachments = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The indices attached to the specified object.
-lairsIndexAttachments :: Lens' ListAttachedIndicesResponse [IndexAttachment]
-lairsIndexAttachments = lens _lairsIndexAttachments (\s a -> s {_lairsIndexAttachments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'indexAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lairsIndexAttachments :: Lens.Lens' ListAttachedIndicesResponse (Lude.Maybe [IndexAttachment])
+lairsIndexAttachments = Lens.lens (indexAttachments :: ListAttachedIndicesResponse -> Lude.Maybe [IndexAttachment]) (\s a -> s {indexAttachments = a} :: ListAttachedIndicesResponse)
+{-# DEPRECATED lairsIndexAttachments "Use generic-lens or generic-optics with 'indexAttachments' instead." #-}
 
 -- | The pagination token.
-lairsNextToken :: Lens' ListAttachedIndicesResponse (Maybe Text)
-lairsNextToken = lens _lairsNextToken (\s a -> s {_lairsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lairsNextToken :: Lens.Lens' ListAttachedIndicesResponse (Lude.Maybe Lude.Text)
+lairsNextToken = Lens.lens (nextToken :: ListAttachedIndicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAttachedIndicesResponse)
+{-# DEPRECATED lairsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lairsResponseStatus :: Lens' ListAttachedIndicesResponse Int
-lairsResponseStatus = lens _lairsResponseStatus (\s a -> s {_lairsResponseStatus = a})
-
-instance NFData ListAttachedIndicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lairsResponseStatus :: Lens.Lens' ListAttachedIndicesResponse Lude.Int
+lairsResponseStatus = Lens.lens (responseStatus :: ListAttachedIndicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAttachedIndicesResponse)
+{-# DEPRECATED lairsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

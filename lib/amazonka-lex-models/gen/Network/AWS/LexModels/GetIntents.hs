@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,159 +17,181 @@
 --
 --     * If you specify the @nameContains@ field, returns the @> LATEST@ version of all intents that contain the specified string.
 --
---     * If you don't specify the @nameContains@ field, returns information about the @> LATEST@ version of all intents.
 --
+--     * If you don't specify the @nameContains@ field, returns information about the @> LATEST@ version of all intents.
 --
 --
 -- The operation requires permission for the @lex:GetIntents@ action.
 --
---
 -- This operation returns paginated results.
 module Network.AWS.LexModels.GetIntents
-  ( -- * Creating a Request
-    getIntents,
-    GetIntents,
+  ( -- * Creating a request
+    GetIntents (..),
+    mkGetIntents,
 
-    -- * Request Lenses
+    -- ** Request lenses
     giNameContains,
     giNextToken,
     giMaxResults,
 
-    -- * Destructuring the Response
-    getIntentsResponse,
-    GetIntentsResponse,
+    -- * Destructuring the response
+    GetIntentsResponse (..),
+    mkGetIntentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gisrsIntents,
     gisrsNextToken,
     gisrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getIntents' smart constructor.
+-- | /See:/ 'mkGetIntents' smart constructor.
 data GetIntents = GetIntents'
-  { _giNameContains :: !(Maybe Text),
-    _giNextToken :: !(Maybe Text),
-    _giMaxResults :: !(Maybe Nat)
+  { nameContains :: Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntents' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'giNameContains' - Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
---
--- * 'giNextToken' - A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
---
--- * 'giMaxResults' - The maximum number of intents to return in the response. The default is 10.
-getIntents ::
+-- * 'maxResults' - The maximum number of intents to return in the response. The default is 10.
+-- * 'nameContains' - Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+-- * 'nextToken' - A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
+mkGetIntents ::
   GetIntents
-getIntents =
+mkGetIntents =
   GetIntents'
-    { _giNameContains = Nothing,
-      _giNextToken = Nothing,
-      _giMaxResults = Nothing
+    { nameContains = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
-giNameContains :: Lens' GetIntents (Maybe Text)
-giNameContains = lens _giNameContains (\s a -> s {_giNameContains = a})
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giNameContains :: Lens.Lens' GetIntents (Lude.Maybe Lude.Text)
+giNameContains = Lens.lens (nameContains :: GetIntents -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: GetIntents)
+{-# DEPRECATED giNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
-giNextToken :: Lens' GetIntents (Maybe Text)
-giNextToken = lens _giNextToken (\s a -> s {_giNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giNextToken :: Lens.Lens' GetIntents (Lude.Maybe Lude.Text)
+giNextToken = Lens.lens (nextToken :: GetIntents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetIntents)
+{-# DEPRECATED giNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of intents to return in the response. The default is 10.
-giMaxResults :: Lens' GetIntents (Maybe Natural)
-giMaxResults = lens _giMaxResults (\s a -> s {_giMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giMaxResults :: Lens.Lens' GetIntents (Lude.Maybe Lude.Natural)
+giMaxResults = Lens.lens (maxResults :: GetIntents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetIntents)
+{-# DEPRECATED giMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager GetIntents where
+instance Page.AWSPager GetIntents where
   page rq rs
-    | stop (rs ^. gisrsNextToken) = Nothing
-    | stop (rs ^. gisrsIntents) = Nothing
-    | otherwise = Just $ rq & giNextToken .~ rs ^. gisrsNextToken
+    | Page.stop (rs Lens.^. gisrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gisrsIntents) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& giNextToken Lens..~ rs Lens.^. gisrsNextToken
 
-instance AWSRequest GetIntents where
+instance Lude.AWSRequest GetIntents where
   type Rs GetIntents = GetIntentsResponse
-  request = get lexModels
+  request = Req.get lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetIntentsResponse'
-            <$> (x .?> "intents" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "intents" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetIntents
-
-instance NFData GetIntents
-
-instance ToHeaders GetIntents where
+instance Lude.ToHeaders GetIntents where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetIntents where
-  toPath = const "/intents/"
+instance Lude.ToPath GetIntents where
+  toPath = Lude.const "/intents/"
 
-instance ToQuery GetIntents where
+instance Lude.ToQuery GetIntents where
   toQuery GetIntents' {..} =
-    mconcat
-      [ "nameContains" =: _giNameContains,
-        "nextToken" =: _giNextToken,
-        "maxResults" =: _giMaxResults
+    Lude.mconcat
+      [ "nameContains" Lude.=: nameContains,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'getIntentsResponse' smart constructor.
+-- | /See:/ 'mkGetIntentsResponse' smart constructor.
 data GetIntentsResponse = GetIntentsResponse'
-  { _gisrsIntents ::
-      !(Maybe [IntentMetadata]),
-    _gisrsNextToken :: !(Maybe Text),
-    _gisrsResponseStatus :: !Int
+  { intents ::
+      Lude.Maybe [IntentMetadata],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gisrsIntents' - An array of @Intent@ objects. For more information, see 'PutBot' .
---
--- * 'gisrsNextToken' - If the response is truncated, the response includes a pagination token that you can specify in your next request to fetch the next page of intents.
---
--- * 'gisrsResponseStatus' - -- | The response status code.
-getIntentsResponse ::
-  -- | 'gisrsResponseStatus'
-  Int ->
+-- * 'intents' - An array of @Intent@ objects. For more information, see 'PutBot' .
+-- * 'nextToken' - If the response is truncated, the response includes a pagination token that you can specify in your next request to fetch the next page of intents.
+-- * 'responseStatus' - The response status code.
+mkGetIntentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetIntentsResponse
-getIntentsResponse pResponseStatus_ =
+mkGetIntentsResponse pResponseStatus_ =
   GetIntentsResponse'
-    { _gisrsIntents = Nothing,
-      _gisrsNextToken = Nothing,
-      _gisrsResponseStatus = pResponseStatus_
+    { intents = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of @Intent@ objects. For more information, see 'PutBot' .
-gisrsIntents :: Lens' GetIntentsResponse [IntentMetadata]
-gisrsIntents = lens _gisrsIntents (\s a -> s {_gisrsIntents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'intents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsIntents :: Lens.Lens' GetIntentsResponse (Lude.Maybe [IntentMetadata])
+gisrsIntents = Lens.lens (intents :: GetIntentsResponse -> Lude.Maybe [IntentMetadata]) (\s a -> s {intents = a} :: GetIntentsResponse)
+{-# DEPRECATED gisrsIntents "Use generic-lens or generic-optics with 'intents' instead." #-}
 
 -- | If the response is truncated, the response includes a pagination token that you can specify in your next request to fetch the next page of intents.
-gisrsNextToken :: Lens' GetIntentsResponse (Maybe Text)
-gisrsNextToken = lens _gisrsNextToken (\s a -> s {_gisrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsNextToken :: Lens.Lens' GetIntentsResponse (Lude.Maybe Lude.Text)
+gisrsNextToken = Lens.lens (nextToken :: GetIntentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetIntentsResponse)
+{-# DEPRECATED gisrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-gisrsResponseStatus :: Lens' GetIntentsResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\s a -> s {_gisrsResponseStatus = a})
-
-instance NFData GetIntentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrsResponseStatus :: Lens.Lens' GetIntentsResponse Lude.Int
+gisrsResponseStatus = Lens.lens (responseStatus :: GetIntentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIntentsResponse)
+{-# DEPRECATED gisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

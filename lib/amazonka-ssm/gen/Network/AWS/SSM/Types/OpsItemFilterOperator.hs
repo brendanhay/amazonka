@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsItemFilterOperator where
+module Network.AWS.SSM.Types.OpsItemFilterOperator
+  ( OpsItemFilterOperator
+      ( OpsItemFilterOperator',
+        OIFOContains,
+        OIFOEqual,
+        OIFOGreaterThan,
+        OIFOLessThan
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OpsItemFilterOperator
-  = OIFOContains
-  | OIFOEqual
-  | OIFOGreaterThan
-  | OIFOLessThan
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OpsItemFilterOperator = OpsItemFilterOperator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OpsItemFilterOperator where
-  parser =
-    takeLowerText >>= \case
-      "contains" -> pure OIFOContains
-      "equal" -> pure OIFOEqual
-      "greaterthan" -> pure OIFOGreaterThan
-      "lessthan" -> pure OIFOLessThan
-      e ->
-        fromTextError $
-          "Failure parsing OpsItemFilterOperator from value: '" <> e
-            <> "'. Accepted values: contains, equal, greaterthan, lessthan"
+pattern OIFOContains :: OpsItemFilterOperator
+pattern OIFOContains = OpsItemFilterOperator' "Contains"
 
-instance ToText OpsItemFilterOperator where
-  toText = \case
-    OIFOContains -> "Contains"
-    OIFOEqual -> "Equal"
-    OIFOGreaterThan -> "GreaterThan"
-    OIFOLessThan -> "LessThan"
+pattern OIFOEqual :: OpsItemFilterOperator
+pattern OIFOEqual = OpsItemFilterOperator' "Equal"
 
-instance Hashable OpsItemFilterOperator
+pattern OIFOGreaterThan :: OpsItemFilterOperator
+pattern OIFOGreaterThan = OpsItemFilterOperator' "GreaterThan"
 
-instance NFData OpsItemFilterOperator
+pattern OIFOLessThan :: OpsItemFilterOperator
+pattern OIFOLessThan = OpsItemFilterOperator' "LessThan"
 
-instance ToByteString OpsItemFilterOperator
-
-instance ToQuery OpsItemFilterOperator
-
-instance ToHeader OpsItemFilterOperator
-
-instance ToJSON OpsItemFilterOperator where
-  toJSON = toJSONText
+{-# COMPLETE
+  OIFOContains,
+  OIFOEqual,
+  OIFOGreaterThan,
+  OIFOLessThan,
+  OpsItemFilterOperator'
+  #-}

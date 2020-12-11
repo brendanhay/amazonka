@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.OperationStatus where
+module Network.AWS.Route53Domains.Types.OperationStatus
+  ( OperationStatus
+      ( OperationStatus',
+        Error,
+        Failed,
+        InProgress,
+        Submitted,
+        Successful
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationStatus
-  = Error'
-  | Failed
-  | InProgress
-  | Submitted
-  | Successful
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationStatus = OperationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationStatus where
-  parser =
-    takeLowerText >>= \case
-      "error" -> pure Error'
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      "submitted" -> pure Submitted
-      "successful" -> pure Successful
-      e ->
-        fromTextError $
-          "Failure parsing OperationStatus from value: '" <> e
-            <> "'. Accepted values: error, failed, in_progress, submitted, successful"
+pattern Error :: OperationStatus
+pattern Error = OperationStatus' "ERROR"
 
-instance ToText OperationStatus where
-  toText = \case
-    Error' -> "ERROR"
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
-    Submitted -> "SUBMITTED"
-    Successful -> "SUCCESSFUL"
+pattern Failed :: OperationStatus
+pattern Failed = OperationStatus' "FAILED"
 
-instance Hashable OperationStatus
+pattern InProgress :: OperationStatus
+pattern InProgress = OperationStatus' "IN_PROGRESS"
 
-instance NFData OperationStatus
+pattern Submitted :: OperationStatus
+pattern Submitted = OperationStatus' "SUBMITTED"
 
-instance ToByteString OperationStatus
+pattern Successful :: OperationStatus
+pattern Successful = OperationStatus' "SUCCESSFUL"
 
-instance ToQuery OperationStatus
-
-instance ToHeader OperationStatus
-
-instance FromJSON OperationStatus where
-  parseJSON = parseJSONText "OperationStatus"
+{-# COMPLETE
+  Error,
+  Failed,
+  InProgress,
+  Submitted,
+  Successful,
+  OperationStatus'
+  #-}

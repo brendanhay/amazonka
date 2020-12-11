@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,87 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.IAMActionDefinition where
+module Network.AWS.Budgets.Types.IAMActionDefinition
+  ( IAMActionDefinition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIAMActionDefinition,
+
+    -- * Lenses
+    iadGroups,
+    iadRoles,
+    iadUsers,
+    iadPolicyARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The AWS Identity and Access Management (IAM) action definition details.
 --
---
---
--- /See:/ 'iamActionDefinition' smart constructor.
+-- /See:/ 'mkIAMActionDefinition' smart constructor.
 data IAMActionDefinition = IAMActionDefinition'
-  { _iadGroups ::
-      !(Maybe (List1 Text)),
-    _iadRoles :: !(Maybe (List1 Text)),
-    _iadUsers :: !(Maybe (List1 Text)),
-    _iadPolicyARN :: !Text
+  { groups ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    roles :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    users :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    policyARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IAMActionDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iadGroups' - A list of groups to be attached. There must be at least one group.
---
--- * 'iadRoles' - A list of roles to be attached. There must be at least one role.
---
--- * 'iadUsers' - A list of users to be attached. There must be at least one user.
---
--- * 'iadPolicyARN' - The Amazon Resource Name (ARN) of the policy to be attached.
-iamActionDefinition ::
-  -- | 'iadPolicyARN'
-  Text ->
+-- * 'groups' - A list of groups to be attached. There must be at least one group.
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the policy to be attached.
+-- * 'roles' - A list of roles to be attached. There must be at least one role.
+-- * 'users' - A list of users to be attached. There must be at least one user.
+mkIAMActionDefinition ::
+  -- | 'policyARN'
+  Lude.Text ->
   IAMActionDefinition
-iamActionDefinition pPolicyARN_ =
+mkIAMActionDefinition pPolicyARN_ =
   IAMActionDefinition'
-    { _iadGroups = Nothing,
-      _iadRoles = Nothing,
-      _iadUsers = Nothing,
-      _iadPolicyARN = pPolicyARN_
+    { groups = Lude.Nothing,
+      roles = Lude.Nothing,
+      users = Lude.Nothing,
+      policyARN = pPolicyARN_
     }
 
 -- | A list of groups to be attached. There must be at least one group.
-iadGroups :: Lens' IAMActionDefinition (Maybe (NonEmpty Text))
-iadGroups = lens _iadGroups (\s a -> s {_iadGroups = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iadGroups :: Lens.Lens' IAMActionDefinition (Lude.Maybe (Lude.NonEmpty Lude.Text))
+iadGroups = Lens.lens (groups :: IAMActionDefinition -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {groups = a} :: IAMActionDefinition)
+{-# DEPRECATED iadGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | A list of roles to be attached. There must be at least one role.
-iadRoles :: Lens' IAMActionDefinition (Maybe (NonEmpty Text))
-iadRoles = lens _iadRoles (\s a -> s {_iadRoles = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'roles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iadRoles :: Lens.Lens' IAMActionDefinition (Lude.Maybe (Lude.NonEmpty Lude.Text))
+iadRoles = Lens.lens (roles :: IAMActionDefinition -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {roles = a} :: IAMActionDefinition)
+{-# DEPRECATED iadRoles "Use generic-lens or generic-optics with 'roles' instead." #-}
 
 -- | A list of users to be attached. There must be at least one user.
-iadUsers :: Lens' IAMActionDefinition (Maybe (NonEmpty Text))
-iadUsers = lens _iadUsers (\s a -> s {_iadUsers = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iadUsers :: Lens.Lens' IAMActionDefinition (Lude.Maybe (Lude.NonEmpty Lude.Text))
+iadUsers = Lens.lens (users :: IAMActionDefinition -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {users = a} :: IAMActionDefinition)
+{-# DEPRECATED iadUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the policy to be attached.
-iadPolicyARN :: Lens' IAMActionDefinition Text
-iadPolicyARN = lens _iadPolicyARN (\s a -> s {_iadPolicyARN = a})
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iadPolicyARN :: Lens.Lens' IAMActionDefinition Lude.Text
+iadPolicyARN = Lens.lens (policyARN :: IAMActionDefinition -> Lude.Text) (\s a -> s {policyARN = a} :: IAMActionDefinition)
+{-# DEPRECATED iadPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
-instance FromJSON IAMActionDefinition where
+instance Lude.FromJSON IAMActionDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "IAMActionDefinition"
       ( \x ->
           IAMActionDefinition'
-            <$> (x .:? "Groups")
-            <*> (x .:? "Roles")
-            <*> (x .:? "Users")
-            <*> (x .: "PolicyArn")
+            Lude.<$> (x Lude..:? "Groups")
+            Lude.<*> (x Lude..:? "Roles")
+            Lude.<*> (x Lude..:? "Users")
+            Lude.<*> (x Lude..: "PolicyArn")
       )
 
-instance Hashable IAMActionDefinition
-
-instance NFData IAMActionDefinition
-
-instance ToJSON IAMActionDefinition where
+instance Lude.ToJSON IAMActionDefinition where
   toJSON IAMActionDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("Groups" .=) <$> _iadGroups,
-            ("Roles" .=) <$> _iadRoles,
-            ("Users" .=) <$> _iadUsers,
-            Just ("PolicyArn" .= _iadPolicyARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Groups" Lude..=) Lude.<$> groups,
+            ("Roles" Lude..=) Lude.<$> roles,
+            ("Users" Lude..=) Lude.<$> users,
+            Lude.Just ("PolicyArn" Lude..= policyARN)
           ]
       )

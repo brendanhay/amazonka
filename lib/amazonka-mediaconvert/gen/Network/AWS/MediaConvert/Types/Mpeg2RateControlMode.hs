@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mpeg2RateControlMode where
+module Network.AWS.MediaConvert.Types.Mpeg2RateControlMode
+  ( Mpeg2RateControlMode
+      ( Mpeg2RateControlMode',
+        MRCMCbr,
+        MRCMVbr
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use Rate control mode (Mpeg2RateControlMode) to specifiy whether the bitrate is variable (vbr) or constant (cbr).
-data Mpeg2RateControlMode
-  = MRCMCbr
-  | MRCMVbr
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2RateControlMode = Mpeg2RateControlMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2RateControlMode where
-  parser =
-    takeLowerText >>= \case
-      "cbr" -> pure MRCMCbr
-      "vbr" -> pure MRCMVbr
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2RateControlMode from value: '" <> e
-            <> "'. Accepted values: cbr, vbr"
+pattern MRCMCbr :: Mpeg2RateControlMode
+pattern MRCMCbr = Mpeg2RateControlMode' "CBR"
 
-instance ToText Mpeg2RateControlMode where
-  toText = \case
-    MRCMCbr -> "CBR"
-    MRCMVbr -> "VBR"
+pattern MRCMVbr :: Mpeg2RateControlMode
+pattern MRCMVbr = Mpeg2RateControlMode' "VBR"
 
-instance Hashable Mpeg2RateControlMode
-
-instance NFData Mpeg2RateControlMode
-
-instance ToByteString Mpeg2RateControlMode
-
-instance ToQuery Mpeg2RateControlMode
-
-instance ToHeader Mpeg2RateControlMode
-
-instance ToJSON Mpeg2RateControlMode where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2RateControlMode where
-  parseJSON = parseJSONText "Mpeg2RateControlMode"
+{-# COMPLETE
+  MRCMCbr,
+  MRCMVbr,
+  Mpeg2RateControlMode'
+  #-}

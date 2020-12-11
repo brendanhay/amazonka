@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.UsageClassType where
+module Network.AWS.EC2.Types.UsageClassType
+  ( UsageClassType
+      ( UsageClassType',
+        UCTOnDemand,
+        UCTSpot
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UsageClassType
-  = UCTOnDemand
-  | UCTSpot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UsageClassType = UsageClassType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UsageClassType where
-  parser =
-    takeLowerText >>= \case
-      "on-demand" -> pure UCTOnDemand
-      "spot" -> pure UCTSpot
-      e ->
-        fromTextError $
-          "Failure parsing UsageClassType from value: '" <> e
-            <> "'. Accepted values: on-demand, spot"
+pattern UCTOnDemand :: UsageClassType
+pattern UCTOnDemand = UsageClassType' "on-demand"
 
-instance ToText UsageClassType where
-  toText = \case
-    UCTOnDemand -> "on-demand"
-    UCTSpot -> "spot"
+pattern UCTSpot :: UsageClassType
+pattern UCTSpot = UsageClassType' "spot"
 
-instance Hashable UsageClassType
-
-instance NFData UsageClassType
-
-instance ToByteString UsageClassType
-
-instance ToQuery UsageClassType
-
-instance ToHeader UsageClassType
-
-instance FromXML UsageClassType where
-  parseXML = parseXMLText "UsageClassType"
+{-# COMPLETE
+  UCTOnDemand,
+  UCTSpot,
+  UsageClassType'
+  #-}

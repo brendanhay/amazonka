@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- The @ListReviewPolicyResultsForHIT@ operation retrieves the computed results and the actions taken in the course of executing your Review Policies for a given HIT. For information about how to specify Review Policies when you call CreateHIT, see Review Policies. The ListReviewPolicyResultsForHIT operation can return results for both Assignment-level and HIT-level review results.
 module Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
-  ( -- * Creating a Request
-    listReviewPolicyResultsForHIT,
-    ListReviewPolicyResultsForHIT,
+  ( -- * Creating a request
+    ListReviewPolicyResultsForHIT (..),
+    mkListReviewPolicyResultsForHIT,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lrprfhitRetrieveResults,
     lrprfhitPolicyLevels,
     lrprfhitRetrieveActions,
@@ -31,11 +26,11 @@ module Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
     lrprfhitMaxResults,
     lrprfhitHITId,
 
-    -- * Destructuring the Response
-    listReviewPolicyResultsForHITResponse,
-    ListReviewPolicyResultsForHITResponse,
+    -- * Destructuring the response
+    ListReviewPolicyResultsForHITResponse (..),
+    mkListReviewPolicyResultsForHITResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrprfhitrsHITReviewPolicy,
     lrprfhitrsHITReviewReport,
     lrprfhitrsNextToken,
@@ -46,221 +41,251 @@ module Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listReviewPolicyResultsForHIT' smart constructor.
+-- | /See:/ 'mkListReviewPolicyResultsForHIT' smart constructor.
 data ListReviewPolicyResultsForHIT = ListReviewPolicyResultsForHIT'
-  { _lrprfhitRetrieveResults ::
-      !(Maybe Bool),
-    _lrprfhitPolicyLevels ::
-      !(Maybe [ReviewPolicyLevel]),
-    _lrprfhitRetrieveActions ::
-      !(Maybe Bool),
-    _lrprfhitNextToken ::
-      !(Maybe Text),
-    _lrprfhitMaxResults ::
-      !(Maybe Nat),
-    _lrprfhitHITId :: !Text
+  { retrieveResults ::
+      Lude.Maybe Lude.Bool,
+    policyLevels ::
+      Lude.Maybe [ReviewPolicyLevel],
+    retrieveActions ::
+      Lude.Maybe Lude.Bool,
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    hITId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReviewPolicyResultsForHIT' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrprfhitRetrieveResults' - Specify if the operation should retrieve a list of the results computed by the Review Policies.
---
--- * 'lrprfhitPolicyLevels' - The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies.
---
--- * 'lrprfhitRetrieveActions' - Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes.
---
--- * 'lrprfhitNextToken' - Pagination token
---
--- * 'lrprfhitMaxResults' - Limit the number of results returned.
---
--- * 'lrprfhitHITId' - The unique identifier of the HIT to retrieve review results for.
-listReviewPolicyResultsForHIT ::
-  -- | 'lrprfhitHITId'
-  Text ->
+-- * 'hITId' - The unique identifier of the HIT to retrieve review results for.
+-- * 'maxResults' - Limit the number of results returned.
+-- * 'nextToken' - Pagination token
+-- * 'policyLevels' - The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies.
+-- * 'retrieveActions' - Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes.
+-- * 'retrieveResults' - Specify if the operation should retrieve a list of the results computed by the Review Policies.
+mkListReviewPolicyResultsForHIT ::
+  -- | 'hITId'
+  Lude.Text ->
   ListReviewPolicyResultsForHIT
-listReviewPolicyResultsForHIT pHITId_ =
+mkListReviewPolicyResultsForHIT pHITId_ =
   ListReviewPolicyResultsForHIT'
-    { _lrprfhitRetrieveResults =
-        Nothing,
-      _lrprfhitPolicyLevels = Nothing,
-      _lrprfhitRetrieveActions = Nothing,
-      _lrprfhitNextToken = Nothing,
-      _lrprfhitMaxResults = Nothing,
-      _lrprfhitHITId = pHITId_
+    { retrieveResults = Lude.Nothing,
+      policyLevels = Lude.Nothing,
+      retrieveActions = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      hITId = pHITId_
     }
 
 -- | Specify if the operation should retrieve a list of the results computed by the Review Policies.
-lrprfhitRetrieveResults :: Lens' ListReviewPolicyResultsForHIT (Maybe Bool)
-lrprfhitRetrieveResults = lens _lrprfhitRetrieveResults (\s a -> s {_lrprfhitRetrieveResults = a})
+--
+-- /Note:/ Consider using 'retrieveResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitRetrieveResults :: Lens.Lens' ListReviewPolicyResultsForHIT (Lude.Maybe Lude.Bool)
+lrprfhitRetrieveResults = Lens.lens (retrieveResults :: ListReviewPolicyResultsForHIT -> Lude.Maybe Lude.Bool) (\s a -> s {retrieveResults = a} :: ListReviewPolicyResultsForHIT)
+{-# DEPRECATED lrprfhitRetrieveResults "Use generic-lens or generic-optics with 'retrieveResults' instead." #-}
 
 -- | The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies.
-lrprfhitPolicyLevels :: Lens' ListReviewPolicyResultsForHIT [ReviewPolicyLevel]
-lrprfhitPolicyLevels = lens _lrprfhitPolicyLevels (\s a -> s {_lrprfhitPolicyLevels = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policyLevels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitPolicyLevels :: Lens.Lens' ListReviewPolicyResultsForHIT (Lude.Maybe [ReviewPolicyLevel])
+lrprfhitPolicyLevels = Lens.lens (policyLevels :: ListReviewPolicyResultsForHIT -> Lude.Maybe [ReviewPolicyLevel]) (\s a -> s {policyLevels = a} :: ListReviewPolicyResultsForHIT)
+{-# DEPRECATED lrprfhitPolicyLevels "Use generic-lens or generic-optics with 'policyLevels' instead." #-}
 
 -- | Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes.
-lrprfhitRetrieveActions :: Lens' ListReviewPolicyResultsForHIT (Maybe Bool)
-lrprfhitRetrieveActions = lens _lrprfhitRetrieveActions (\s a -> s {_lrprfhitRetrieveActions = a})
+--
+-- /Note:/ Consider using 'retrieveActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitRetrieveActions :: Lens.Lens' ListReviewPolicyResultsForHIT (Lude.Maybe Lude.Bool)
+lrprfhitRetrieveActions = Lens.lens (retrieveActions :: ListReviewPolicyResultsForHIT -> Lude.Maybe Lude.Bool) (\s a -> s {retrieveActions = a} :: ListReviewPolicyResultsForHIT)
+{-# DEPRECATED lrprfhitRetrieveActions "Use generic-lens or generic-optics with 'retrieveActions' instead." #-}
 
 -- | Pagination token
-lrprfhitNextToken :: Lens' ListReviewPolicyResultsForHIT (Maybe Text)
-lrprfhitNextToken = lens _lrprfhitNextToken (\s a -> s {_lrprfhitNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitNextToken :: Lens.Lens' ListReviewPolicyResultsForHIT (Lude.Maybe Lude.Text)
+lrprfhitNextToken = Lens.lens (nextToken :: ListReviewPolicyResultsForHIT -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReviewPolicyResultsForHIT)
+{-# DEPRECATED lrprfhitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Limit the number of results returned.
-lrprfhitMaxResults :: Lens' ListReviewPolicyResultsForHIT (Maybe Natural)
-lrprfhitMaxResults = lens _lrprfhitMaxResults (\s a -> s {_lrprfhitMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitMaxResults :: Lens.Lens' ListReviewPolicyResultsForHIT (Lude.Maybe Lude.Natural)
+lrprfhitMaxResults = Lens.lens (maxResults :: ListReviewPolicyResultsForHIT -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListReviewPolicyResultsForHIT)
+{-# DEPRECATED lrprfhitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The unique identifier of the HIT to retrieve review results for.
-lrprfhitHITId :: Lens' ListReviewPolicyResultsForHIT Text
-lrprfhitHITId = lens _lrprfhitHITId (\s a -> s {_lrprfhitHITId = a})
+--
+-- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitHITId :: Lens.Lens' ListReviewPolicyResultsForHIT Lude.Text
+lrprfhitHITId = Lens.lens (hITId :: ListReviewPolicyResultsForHIT -> Lude.Text) (\s a -> s {hITId = a} :: ListReviewPolicyResultsForHIT)
+{-# DEPRECATED lrprfhitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
-instance AWSRequest ListReviewPolicyResultsForHIT where
+instance Lude.AWSRequest ListReviewPolicyResultsForHIT where
   type
     Rs ListReviewPolicyResultsForHIT =
       ListReviewPolicyResultsForHITResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListReviewPolicyResultsForHITResponse'
-            <$> (x .?> "HITReviewPolicy")
-            <*> (x .?> "HITReviewReport")
-            <*> (x .?> "NextToken")
-            <*> (x .?> "AssignmentReviewReport")
-            <*> (x .?> "HITId")
-            <*> (x .?> "AssignmentReviewPolicy")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "HITReviewPolicy")
+            Lude.<*> (x Lude..?> "HITReviewReport")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "AssignmentReviewReport")
+            Lude.<*> (x Lude..?> "HITId")
+            Lude.<*> (x Lude..?> "AssignmentReviewPolicy")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListReviewPolicyResultsForHIT
-
-instance NFData ListReviewPolicyResultsForHIT
-
-instance ToHeaders ListReviewPolicyResultsForHIT where
+instance Lude.ToHeaders ListReviewPolicyResultsForHIT where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListReviewPolicyResultsForHIT where
+instance Lude.ToJSON ListReviewPolicyResultsForHIT where
   toJSON ListReviewPolicyResultsForHIT' {..} =
-    object
-      ( catMaybes
-          [ ("RetrieveResults" .=) <$> _lrprfhitRetrieveResults,
-            ("PolicyLevels" .=) <$> _lrprfhitPolicyLevels,
-            ("RetrieveActions" .=) <$> _lrprfhitRetrieveActions,
-            ("NextToken" .=) <$> _lrprfhitNextToken,
-            ("MaxResults" .=) <$> _lrprfhitMaxResults,
-            Just ("HITId" .= _lrprfhitHITId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RetrieveResults" Lude..=) Lude.<$> retrieveResults,
+            ("PolicyLevels" Lude..=) Lude.<$> policyLevels,
+            ("RetrieveActions" Lude..=) Lude.<$> retrieveActions,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("HITId" Lude..= hITId)
           ]
       )
 
-instance ToPath ListReviewPolicyResultsForHIT where
-  toPath = const "/"
+instance Lude.ToPath ListReviewPolicyResultsForHIT where
+  toPath = Lude.const "/"
 
-instance ToQuery ListReviewPolicyResultsForHIT where
-  toQuery = const mempty
+instance Lude.ToQuery ListReviewPolicyResultsForHIT where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listReviewPolicyResultsForHITResponse' smart constructor.
+-- | /See:/ 'mkListReviewPolicyResultsForHITResponse' smart constructor.
 data ListReviewPolicyResultsForHITResponse = ListReviewPolicyResultsForHITResponse'
-  { _lrprfhitrsHITReviewPolicy ::
-      !( Maybe
-           ReviewPolicy
-       ),
-    _lrprfhitrsHITReviewReport ::
-      !( Maybe
-           ReviewReport
-       ),
-    _lrprfhitrsNextToken ::
-      !(Maybe Text),
-    _lrprfhitrsAssignmentReviewReport ::
-      !( Maybe
-           ReviewReport
-       ),
-    _lrprfhitrsHITId ::
-      !(Maybe Text),
-    _lrprfhitrsAssignmentReviewPolicy ::
-      !( Maybe
-           ReviewPolicy
-       ),
-    _lrprfhitrsResponseStatus ::
-      !Int
+  { hITReviewPolicy ::
+      Lude.Maybe
+        ReviewPolicy,
+    hITReviewReport ::
+      Lude.Maybe
+        ReviewReport,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    assignmentReviewReport ::
+      Lude.Maybe
+        ReviewReport,
+    hITId ::
+      Lude.Maybe
+        Lude.Text,
+    assignmentReviewPolicy ::
+      Lude.Maybe
+        ReviewPolicy,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReviewPolicyResultsForHITResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrprfhitrsHITReviewPolicy' - The name of the HIT-level Review Policy. This contains only the PolicyName element.
---
--- * 'lrprfhitrsHITReviewReport' - Contains both ReviewResult and ReviewAction elements for a particular HIT.
---
--- * 'lrprfhitrsNextToken' - Undocumented member.
---
--- * 'lrprfhitrsAssignmentReviewReport' - Contains both ReviewResult and ReviewAction elements for an Assignment.
---
--- * 'lrprfhitrsHITId' - The HITId of the HIT for which results have been returned.
---
--- * 'lrprfhitrsAssignmentReviewPolicy' - The name of the Assignment-level Review Policy. This contains only the PolicyName element.
---
--- * 'lrprfhitrsResponseStatus' - -- | The response status code.
-listReviewPolicyResultsForHITResponse ::
-  -- | 'lrprfhitrsResponseStatus'
-  Int ->
+-- * 'assignmentReviewPolicy' - The name of the Assignment-level Review Policy. This contains only the PolicyName element.
+-- * 'assignmentReviewReport' - Contains both ReviewResult and ReviewAction elements for an Assignment.
+-- * 'hITId' - The HITId of the HIT for which results have been returned.
+-- * 'hITReviewPolicy' - The name of the HIT-level Review Policy. This contains only the PolicyName element.
+-- * 'hITReviewReport' - Contains both ReviewResult and ReviewAction elements for a particular HIT.
+-- * 'nextToken' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkListReviewPolicyResultsForHITResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListReviewPolicyResultsForHITResponse
-listReviewPolicyResultsForHITResponse pResponseStatus_ =
+mkListReviewPolicyResultsForHITResponse pResponseStatus_ =
   ListReviewPolicyResultsForHITResponse'
-    { _lrprfhitrsHITReviewPolicy =
-        Nothing,
-      _lrprfhitrsHITReviewReport = Nothing,
-      _lrprfhitrsNextToken = Nothing,
-      _lrprfhitrsAssignmentReviewReport = Nothing,
-      _lrprfhitrsHITId = Nothing,
-      _lrprfhitrsAssignmentReviewPolicy = Nothing,
-      _lrprfhitrsResponseStatus = pResponseStatus_
+    { hITReviewPolicy =
+        Lude.Nothing,
+      hITReviewReport = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      assignmentReviewReport = Lude.Nothing,
+      hITId = Lude.Nothing,
+      assignmentReviewPolicy = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The name of the HIT-level Review Policy. This contains only the PolicyName element.
-lrprfhitrsHITReviewPolicy :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewPolicy)
-lrprfhitrsHITReviewPolicy = lens _lrprfhitrsHITReviewPolicy (\s a -> s {_lrprfhitrsHITReviewPolicy = a})
+--
+-- /Note:/ Consider using 'hITReviewPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitrsHITReviewPolicy :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Lude.Maybe ReviewPolicy)
+lrprfhitrsHITReviewPolicy = Lens.lens (hITReviewPolicy :: ListReviewPolicyResultsForHITResponse -> Lude.Maybe ReviewPolicy) (\s a -> s {hITReviewPolicy = a} :: ListReviewPolicyResultsForHITResponse)
+{-# DEPRECATED lrprfhitrsHITReviewPolicy "Use generic-lens or generic-optics with 'hITReviewPolicy' instead." #-}
 
 -- | Contains both ReviewResult and ReviewAction elements for a particular HIT.
-lrprfhitrsHITReviewReport :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewReport)
-lrprfhitrsHITReviewReport = lens _lrprfhitrsHITReviewReport (\s a -> s {_lrprfhitrsHITReviewReport = a})
+--
+-- /Note:/ Consider using 'hITReviewReport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitrsHITReviewReport :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Lude.Maybe ReviewReport)
+lrprfhitrsHITReviewReport = Lens.lens (hITReviewReport :: ListReviewPolicyResultsForHITResponse -> Lude.Maybe ReviewReport) (\s a -> s {hITReviewReport = a} :: ListReviewPolicyResultsForHITResponse)
+{-# DEPRECATED lrprfhitrsHITReviewReport "Use generic-lens or generic-optics with 'hITReviewReport' instead." #-}
 
--- | Undocumented member.
-lrprfhitrsNextToken :: Lens' ListReviewPolicyResultsForHITResponse (Maybe Text)
-lrprfhitrsNextToken = lens _lrprfhitrsNextToken (\s a -> s {_lrprfhitrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitrsNextToken :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Lude.Maybe Lude.Text)
+lrprfhitrsNextToken = Lens.lens (nextToken :: ListReviewPolicyResultsForHITResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReviewPolicyResultsForHITResponse)
+{-# DEPRECATED lrprfhitrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Contains both ReviewResult and ReviewAction elements for an Assignment.
-lrprfhitrsAssignmentReviewReport :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewReport)
-lrprfhitrsAssignmentReviewReport = lens _lrprfhitrsAssignmentReviewReport (\s a -> s {_lrprfhitrsAssignmentReviewReport = a})
+--
+-- /Note:/ Consider using 'assignmentReviewReport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitrsAssignmentReviewReport :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Lude.Maybe ReviewReport)
+lrprfhitrsAssignmentReviewReport = Lens.lens (assignmentReviewReport :: ListReviewPolicyResultsForHITResponse -> Lude.Maybe ReviewReport) (\s a -> s {assignmentReviewReport = a} :: ListReviewPolicyResultsForHITResponse)
+{-# DEPRECATED lrprfhitrsAssignmentReviewReport "Use generic-lens or generic-optics with 'assignmentReviewReport' instead." #-}
 
 -- | The HITId of the HIT for which results have been returned.
-lrprfhitrsHITId :: Lens' ListReviewPolicyResultsForHITResponse (Maybe Text)
-lrprfhitrsHITId = lens _lrprfhitrsHITId (\s a -> s {_lrprfhitrsHITId = a})
+--
+-- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitrsHITId :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Lude.Maybe Lude.Text)
+lrprfhitrsHITId = Lens.lens (hITId :: ListReviewPolicyResultsForHITResponse -> Lude.Maybe Lude.Text) (\s a -> s {hITId = a} :: ListReviewPolicyResultsForHITResponse)
+{-# DEPRECATED lrprfhitrsHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
 -- | The name of the Assignment-level Review Policy. This contains only the PolicyName element.
-lrprfhitrsAssignmentReviewPolicy :: Lens' ListReviewPolicyResultsForHITResponse (Maybe ReviewPolicy)
-lrprfhitrsAssignmentReviewPolicy = lens _lrprfhitrsAssignmentReviewPolicy (\s a -> s {_lrprfhitrsAssignmentReviewPolicy = a})
+--
+-- /Note:/ Consider using 'assignmentReviewPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitrsAssignmentReviewPolicy :: Lens.Lens' ListReviewPolicyResultsForHITResponse (Lude.Maybe ReviewPolicy)
+lrprfhitrsAssignmentReviewPolicy = Lens.lens (assignmentReviewPolicy :: ListReviewPolicyResultsForHITResponse -> Lude.Maybe ReviewPolicy) (\s a -> s {assignmentReviewPolicy = a} :: ListReviewPolicyResultsForHITResponse)
+{-# DEPRECATED lrprfhitrsAssignmentReviewPolicy "Use generic-lens or generic-optics with 'assignmentReviewPolicy' instead." #-}
 
--- | -- | The response status code.
-lrprfhitrsResponseStatus :: Lens' ListReviewPolicyResultsForHITResponse Int
-lrprfhitrsResponseStatus = lens _lrprfhitrsResponseStatus (\s a -> s {_lrprfhitrsResponseStatus = a})
-
-instance NFData ListReviewPolicyResultsForHITResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitrsResponseStatus :: Lens.Lens' ListReviewPolicyResultsForHITResponse Lude.Int
+lrprfhitrsResponseStatus = Lens.lens (responseStatus :: ListReviewPolicyResultsForHITResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListReviewPolicyResultsForHITResponse)
+{-# DEPRECATED lrprfhitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

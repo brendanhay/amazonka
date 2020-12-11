@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.FleetType where
+module Network.AWS.AppStream.Types.FleetType
+  ( FleetType
+      ( FleetType',
+        AlwaysOn,
+        OnDemand
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FleetType
-  = AlwaysOn
-  | OnDemand
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FleetType = FleetType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FleetType where
-  parser =
-    takeLowerText >>= \case
-      "always_on" -> pure AlwaysOn
-      "on_demand" -> pure OnDemand
-      e ->
-        fromTextError $
-          "Failure parsing FleetType from value: '" <> e
-            <> "'. Accepted values: always_on, on_demand"
+pattern AlwaysOn :: FleetType
+pattern AlwaysOn = FleetType' "ALWAYS_ON"
 
-instance ToText FleetType where
-  toText = \case
-    AlwaysOn -> "ALWAYS_ON"
-    OnDemand -> "ON_DEMAND"
+pattern OnDemand :: FleetType
+pattern OnDemand = FleetType' "ON_DEMAND"
 
-instance Hashable FleetType
-
-instance NFData FleetType
-
-instance ToByteString FleetType
-
-instance ToQuery FleetType
-
-instance ToHeader FleetType
-
-instance ToJSON FleetType where
-  toJSON = toJSONText
-
-instance FromJSON FleetType where
-  parseJSON = parseJSONText "FleetType"
+{-# COMPLETE
+  AlwaysOn,
+  OnDemand,
+  FleetType'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.RebuildRequest where
+module Network.AWS.WorkSpaces.Types.RebuildRequest
+  ( RebuildRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRebuildRequest,
+
+    -- * Lenses
+    rrWorkspaceId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the information used to rebuild a WorkSpace.
 --
---
---
--- /See:/ 'rebuildRequest' smart constructor.
-newtype RebuildRequest = RebuildRequest' {_rrWorkspaceId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkRebuildRequest' smart constructor.
+newtype RebuildRequest = RebuildRequest' {workspaceId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebuildRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrWorkspaceId' - The identifier of the WorkSpace.
-rebuildRequest ::
-  -- | 'rrWorkspaceId'
-  Text ->
+-- * 'workspaceId' - The identifier of the WorkSpace.
+mkRebuildRequest ::
+  -- | 'workspaceId'
+  Lude.Text ->
   RebuildRequest
-rebuildRequest pWorkspaceId_ =
-  RebuildRequest' {_rrWorkspaceId = pWorkspaceId_}
+mkRebuildRequest pWorkspaceId_ =
+  RebuildRequest' {workspaceId = pWorkspaceId_}
 
 -- | The identifier of the WorkSpace.
-rrWorkspaceId :: Lens' RebuildRequest Text
-rrWorkspaceId = lens _rrWorkspaceId (\s a -> s {_rrWorkspaceId = a})
+--
+-- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrWorkspaceId :: Lens.Lens' RebuildRequest Lude.Text
+rrWorkspaceId = Lens.lens (workspaceId :: RebuildRequest -> Lude.Text) (\s a -> s {workspaceId = a} :: RebuildRequest)
+{-# DEPRECATED rrWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
-instance Hashable RebuildRequest
-
-instance NFData RebuildRequest
-
-instance ToJSON RebuildRequest where
+instance Lude.ToJSON RebuildRequest where
   toJSON RebuildRequest' {..} =
-    object (catMaybes [Just ("WorkspaceId" .= _rrWorkspaceId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("WorkspaceId" Lude..= workspaceId)])

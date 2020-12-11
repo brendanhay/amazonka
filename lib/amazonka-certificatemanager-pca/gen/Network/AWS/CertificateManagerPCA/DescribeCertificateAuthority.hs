@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,141 +17,166 @@
 --
 --     * @CREATING@ - ACM Private CA is creating your private certificate authority.
 --
+--
 --     * @PENDING_CERTIFICATE@ - The certificate is pending. You must use your ACM Private CA-hosted or on-premises root or subordinate CA to sign your private CA CSR and then import it into PCA.
+--
 --
 --     * @ACTIVE@ - Your private CA is active.
 --
+--
 --     * @DISABLED@ - Your private CA has been disabled.
+--
 --
 --     * @EXPIRED@ - Your private CA certificate has expired.
 --
+--
 --     * @FAILED@ - Your private CA has failed. Your CA can fail because of problems such a network outage or backend AWS failure or other errors. A failed CA can never return to the pending state. You must create a new CA.
+--
 --
 --     * @DELETED@ - Your private CA is within the restoration period, after which it is permanently deleted. The length of time remaining in the CA's restoration period is also included in this action's output.
 module Network.AWS.CertificateManagerPCA.DescribeCertificateAuthority
-  ( -- * Creating a Request
-    describeCertificateAuthority,
-    DescribeCertificateAuthority,
+  ( -- * Creating a request
+    DescribeCertificateAuthority (..),
+    mkDescribeCertificateAuthority,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dCertificateAuthorityARN,
 
-    -- * Destructuring the Response
-    describeCertificateAuthorityResponse,
-    DescribeCertificateAuthorityResponse,
+    -- * Destructuring the response
+    DescribeCertificateAuthorityResponse (..),
+    mkDescribeCertificateAuthorityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcarsCertificateAuthority,
     dcarsResponseStatus,
   )
 where
 
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeCertificateAuthority' smart constructor.
+-- | /See:/ 'mkDescribeCertificateAuthority' smart constructor.
 newtype DescribeCertificateAuthority = DescribeCertificateAuthority'
-  { _dCertificateAuthorityARN ::
-      Text
+  { certificateAuthorityARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificateAuthority' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
 --
--- * 'dCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
-describeCertificateAuthority ::
-  -- | 'dCertificateAuthorityARN'
-  Text ->
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+mkDescribeCertificateAuthority ::
+  -- | 'certificateAuthorityARN'
+  Lude.Text ->
   DescribeCertificateAuthority
-describeCertificateAuthority pCertificateAuthorityARN_ =
+mkDescribeCertificateAuthority pCertificateAuthorityARN_ =
   DescribeCertificateAuthority'
-    { _dCertificateAuthorityARN =
+    { certificateAuthorityARN =
         pCertificateAuthorityARN_
     }
 
--- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:  @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
-dCertificateAuthorityARN :: Lens' DescribeCertificateAuthority Text
-dCertificateAuthorityARN = lens _dCertificateAuthorityARN (\s a -> s {_dCertificateAuthorityARN = a})
+-- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
+--
+-- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+--
+-- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCertificateAuthorityARN :: Lens.Lens' DescribeCertificateAuthority Lude.Text
+dCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: DescribeCertificateAuthority -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: DescribeCertificateAuthority)
+{-# DEPRECATED dCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
 
-instance AWSRequest DescribeCertificateAuthority where
+instance Lude.AWSRequest DescribeCertificateAuthority where
   type
     Rs DescribeCertificateAuthority =
       DescribeCertificateAuthorityResponse
-  request = postJSON certificateManagerPCA
+  request = Req.postJSON certificateManagerPCAService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCertificateAuthorityResponse'
-            <$> (x .?> "CertificateAuthority") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "CertificateAuthority")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCertificateAuthority
-
-instance NFData DescribeCertificateAuthority
-
-instance ToHeaders DescribeCertificateAuthority where
+instance Lude.ToHeaders DescribeCertificateAuthority where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ACMPrivateCA.DescribeCertificateAuthority" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ACMPrivateCA.DescribeCertificateAuthority" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeCertificateAuthority where
+instance Lude.ToJSON DescribeCertificateAuthority where
   toJSON DescribeCertificateAuthority' {..} =
-    object
-      ( catMaybes
-          [Just ("CertificateAuthorityArn" .= _dCertificateAuthorityARN)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
+          ]
       )
 
-instance ToPath DescribeCertificateAuthority where
-  toPath = const "/"
+instance Lude.ToPath DescribeCertificateAuthority where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeCertificateAuthority where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCertificateAuthority where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeCertificateAuthorityResponse' smart constructor.
+-- | /See:/ 'mkDescribeCertificateAuthorityResponse' smart constructor.
 data DescribeCertificateAuthorityResponse = DescribeCertificateAuthorityResponse'
-  { _dcarsCertificateAuthority ::
-      !( Maybe
-           CertificateAuthority
-       ),
-    _dcarsResponseStatus ::
-      !Int
+  { certificateAuthority ::
+      Lude.Maybe
+        CertificateAuthority,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificateAuthorityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcarsCertificateAuthority' - A <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority> structure that contains information about your private CA.
---
--- * 'dcarsResponseStatus' - -- | The response status code.
-describeCertificateAuthorityResponse ::
-  -- | 'dcarsResponseStatus'
-  Int ->
+-- * 'certificateAuthority' - A <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority> structure that contains information about your private CA.
+-- * 'responseStatus' - The response status code.
+mkDescribeCertificateAuthorityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCertificateAuthorityResponse
-describeCertificateAuthorityResponse pResponseStatus_ =
+mkDescribeCertificateAuthorityResponse pResponseStatus_ =
   DescribeCertificateAuthorityResponse'
-    { _dcarsCertificateAuthority =
-        Nothing,
-      _dcarsResponseStatus = pResponseStatus_
+    { certificateAuthority =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority> structure that contains information about your private CA.
-dcarsCertificateAuthority :: Lens' DescribeCertificateAuthorityResponse (Maybe CertificateAuthority)
-dcarsCertificateAuthority = lens _dcarsCertificateAuthority (\s a -> s {_dcarsCertificateAuthority = a})
+--
+-- /Note:/ Consider using 'certificateAuthority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcarsCertificateAuthority :: Lens.Lens' DescribeCertificateAuthorityResponse (Lude.Maybe CertificateAuthority)
+dcarsCertificateAuthority = Lens.lens (certificateAuthority :: DescribeCertificateAuthorityResponse -> Lude.Maybe CertificateAuthority) (\s a -> s {certificateAuthority = a} :: DescribeCertificateAuthorityResponse)
+{-# DEPRECATED dcarsCertificateAuthority "Use generic-lens or generic-optics with 'certificateAuthority' instead." #-}
 
--- | -- | The response status code.
-dcarsResponseStatus :: Lens' DescribeCertificateAuthorityResponse Int
-dcarsResponseStatus = lens _dcarsResponseStatus (\s a -> s {_dcarsResponseStatus = a})
-
-instance NFData DescribeCertificateAuthorityResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcarsResponseStatus :: Lens.Lens' DescribeCertificateAuthorityResponse Lude.Int
+dcarsResponseStatus = Lens.lens (responseStatus :: DescribeCertificateAuthorityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCertificateAuthorityResponse)
+{-# DEPRECATED dcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

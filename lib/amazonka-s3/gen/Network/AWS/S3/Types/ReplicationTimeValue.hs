@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ReplicationTimeValue where
+module Network.AWS.S3.Types.ReplicationTimeValue
+  ( ReplicationTimeValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkReplicationTimeValue,
+
+    -- * Lenses
+    rtvMinutes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics @EventThreshold@ .
 --
---
---
--- /See:/ 'replicationTimeValue' smart constructor.
+-- /See:/ 'mkReplicationTimeValue' smart constructor.
 newtype ReplicationTimeValue = ReplicationTimeValue'
-  { _rtvMinutes ::
-      Maybe Int
+  { minutes ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationTimeValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'minutes' - Contains an integer specifying time in minutes.
 --
--- * 'rtvMinutes' - Contains an integer specifying time in minutes.  Valid values: 15 minutes.
-replicationTimeValue ::
+-- Valid values: 15 minutes.
+mkReplicationTimeValue ::
   ReplicationTimeValue
-replicationTimeValue = ReplicationTimeValue' {_rtvMinutes = Nothing}
+mkReplicationTimeValue =
+  ReplicationTimeValue' {minutes = Lude.Nothing}
 
--- | Contains an integer specifying time in minutes.  Valid values: 15 minutes.
-rtvMinutes :: Lens' ReplicationTimeValue (Maybe Int)
-rtvMinutes = lens _rtvMinutes (\s a -> s {_rtvMinutes = a})
+-- | Contains an integer specifying time in minutes.
+--
+-- Valid values: 15 minutes.
+--
+-- /Note:/ Consider using 'minutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtvMinutes :: Lens.Lens' ReplicationTimeValue (Lude.Maybe Lude.Int)
+rtvMinutes = Lens.lens (minutes :: ReplicationTimeValue -> Lude.Maybe Lude.Int) (\s a -> s {minutes = a} :: ReplicationTimeValue)
+{-# DEPRECATED rtvMinutes "Use generic-lens or generic-optics with 'minutes' instead." #-}
 
-instance FromXML ReplicationTimeValue where
-  parseXML x = ReplicationTimeValue' <$> (x .@? "Minutes")
+instance Lude.FromXML ReplicationTimeValue where
+  parseXML x = ReplicationTimeValue' Lude.<$> (x Lude..@? "Minutes")
 
-instance Hashable ReplicationTimeValue
-
-instance NFData ReplicationTimeValue
-
-instance ToXML ReplicationTimeValue where
+instance Lude.ToXML ReplicationTimeValue where
   toXML ReplicationTimeValue' {..} =
-    mconcat ["Minutes" @= _rtvMinutes]
+    Lude.mconcat ["Minutes" Lude.@= minutes]

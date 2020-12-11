@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,159 +14,182 @@
 --
 -- Creates an index object. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html Indexing and search> for more information.
 module Network.AWS.CloudDirectory.CreateIndex
-  ( -- * Creating a Request
-    createIndex,
-    CreateIndex,
+  ( -- * Creating a request
+    CreateIndex (..),
+    mkCreateIndex,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ciParentReference,
     ciLinkName,
     ciDirectoryARN,
     ciOrderedIndexedAttributeList,
     ciIsUnique,
 
-    -- * Destructuring the Response
-    createIndexResponse,
-    CreateIndexResponse,
+    -- * Destructuring the response
+    CreateIndexResponse (..),
+    mkCreateIndexResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cirsObjectIdentifier,
     cirsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createIndex' smart constructor.
+-- | /See:/ 'mkCreateIndex' smart constructor.
 data CreateIndex = CreateIndex'
-  { _ciParentReference ::
-      !(Maybe ObjectReference),
-    _ciLinkName :: !(Maybe Text),
-    _ciDirectoryARN :: !Text,
-    _ciOrderedIndexedAttributeList :: ![AttributeKey],
-    _ciIsUnique :: !Bool
+  { parentReference ::
+      Lude.Maybe ObjectReference,
+    linkName :: Lude.Maybe Lude.Text,
+    directoryARN :: Lude.Text,
+    orderedIndexedAttributeList :: [AttributeKey],
+    isUnique :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIndex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ciParentReference' - A reference to the parent object that contains the index object.
---
--- * 'ciLinkName' - The name of the link between the parent object and the index object.
---
--- * 'ciDirectoryARN' - The ARN of the directory where the index should be created.
---
--- * 'ciOrderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
---
--- * 'ciIsUnique' - Indicates whether the attribute that is being indexed has unique values or not.
-createIndex ::
-  -- | 'ciDirectoryARN'
-  Text ->
-  -- | 'ciIsUnique'
-  Bool ->
+-- * 'directoryARN' - The ARN of the directory where the index should be created.
+-- * 'isUnique' - Indicates whether the attribute that is being indexed has unique values or not.
+-- * 'linkName' - The name of the link between the parent object and the index object.
+-- * 'orderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
+-- * 'parentReference' - A reference to the parent object that contains the index object.
+mkCreateIndex ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'isUnique'
+  Lude.Bool ->
   CreateIndex
-createIndex pDirectoryARN_ pIsUnique_ =
+mkCreateIndex pDirectoryARN_ pIsUnique_ =
   CreateIndex'
-    { _ciParentReference = Nothing,
-      _ciLinkName = Nothing,
-      _ciDirectoryARN = pDirectoryARN_,
-      _ciOrderedIndexedAttributeList = mempty,
-      _ciIsUnique = pIsUnique_
+    { parentReference = Lude.Nothing,
+      linkName = Lude.Nothing,
+      directoryARN = pDirectoryARN_,
+      orderedIndexedAttributeList = Lude.mempty,
+      isUnique = pIsUnique_
     }
 
 -- | A reference to the parent object that contains the index object.
-ciParentReference :: Lens' CreateIndex (Maybe ObjectReference)
-ciParentReference = lens _ciParentReference (\s a -> s {_ciParentReference = a})
+--
+-- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciParentReference :: Lens.Lens' CreateIndex (Lude.Maybe ObjectReference)
+ciParentReference = Lens.lens (parentReference :: CreateIndex -> Lude.Maybe ObjectReference) (\s a -> s {parentReference = a} :: CreateIndex)
+{-# DEPRECATED ciParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
 
 -- | The name of the link between the parent object and the index object.
-ciLinkName :: Lens' CreateIndex (Maybe Text)
-ciLinkName = lens _ciLinkName (\s a -> s {_ciLinkName = a})
+--
+-- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciLinkName :: Lens.Lens' CreateIndex (Lude.Maybe Lude.Text)
+ciLinkName = Lens.lens (linkName :: CreateIndex -> Lude.Maybe Lude.Text) (\s a -> s {linkName = a} :: CreateIndex)
+{-# DEPRECATED ciLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
 -- | The ARN of the directory where the index should be created.
-ciDirectoryARN :: Lens' CreateIndex Text
-ciDirectoryARN = lens _ciDirectoryARN (\s a -> s {_ciDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDirectoryARN :: Lens.Lens' CreateIndex Lude.Text
+ciDirectoryARN = Lens.lens (directoryARN :: CreateIndex -> Lude.Text) (\s a -> s {directoryARN = a} :: CreateIndex)
+{-# DEPRECATED ciDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
-ciOrderedIndexedAttributeList :: Lens' CreateIndex [AttributeKey]
-ciOrderedIndexedAttributeList = lens _ciOrderedIndexedAttributeList (\s a -> s {_ciOrderedIndexedAttributeList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'orderedIndexedAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciOrderedIndexedAttributeList :: Lens.Lens' CreateIndex [AttributeKey]
+ciOrderedIndexedAttributeList = Lens.lens (orderedIndexedAttributeList :: CreateIndex -> [AttributeKey]) (\s a -> s {orderedIndexedAttributeList = a} :: CreateIndex)
+{-# DEPRECATED ciOrderedIndexedAttributeList "Use generic-lens or generic-optics with 'orderedIndexedAttributeList' instead." #-}
 
 -- | Indicates whether the attribute that is being indexed has unique values or not.
-ciIsUnique :: Lens' CreateIndex Bool
-ciIsUnique = lens _ciIsUnique (\s a -> s {_ciIsUnique = a})
+--
+-- /Note:/ Consider using 'isUnique' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciIsUnique :: Lens.Lens' CreateIndex Lude.Bool
+ciIsUnique = Lens.lens (isUnique :: CreateIndex -> Lude.Bool) (\s a -> s {isUnique = a} :: CreateIndex)
+{-# DEPRECATED ciIsUnique "Use generic-lens or generic-optics with 'isUnique' instead." #-}
 
-instance AWSRequest CreateIndex where
+instance Lude.AWSRequest CreateIndex where
   type Rs CreateIndex = CreateIndexResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateIndexResponse'
-            <$> (x .?> "ObjectIdentifier") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ObjectIdentifier")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateIndex
-
-instance NFData CreateIndex
-
-instance ToHeaders CreateIndex where
+instance Lude.ToHeaders CreateIndex where
   toHeaders CreateIndex' {..} =
-    mconcat ["x-amz-data-partition" =# _ciDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON CreateIndex where
+instance Lude.ToJSON CreateIndex where
   toJSON CreateIndex' {..} =
-    object
-      ( catMaybes
-          [ ("ParentReference" .=) <$> _ciParentReference,
-            ("LinkName" .=) <$> _ciLinkName,
-            Just
-              ("OrderedIndexedAttributeList" .= _ciOrderedIndexedAttributeList),
-            Just ("IsUnique" .= _ciIsUnique)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ParentReference" Lude..=) Lude.<$> parentReference,
+            ("LinkName" Lude..=) Lude.<$> linkName,
+            Lude.Just
+              ( "OrderedIndexedAttributeList"
+                  Lude..= orderedIndexedAttributeList
+              ),
+            Lude.Just ("IsUnique" Lude..= isUnique)
           ]
       )
 
-instance ToPath CreateIndex where
-  toPath = const "/amazonclouddirectory/2017-01-11/index"
+instance Lude.ToPath CreateIndex where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/index"
 
-instance ToQuery CreateIndex where
-  toQuery = const mempty
+instance Lude.ToQuery CreateIndex where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createIndexResponse' smart constructor.
+-- | /See:/ 'mkCreateIndexResponse' smart constructor.
 data CreateIndexResponse = CreateIndexResponse'
-  { _cirsObjectIdentifier ::
-      !(Maybe Text),
-    _cirsResponseStatus :: !Int
+  { objectIdentifier ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIndexResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cirsObjectIdentifier' - The @ObjectIdentifier@ of the index created by this operation.
---
--- * 'cirsResponseStatus' - -- | The response status code.
-createIndexResponse ::
-  -- | 'cirsResponseStatus'
-  Int ->
+-- * 'objectIdentifier' - The @ObjectIdentifier@ of the index created by this operation.
+-- * 'responseStatus' - The response status code.
+mkCreateIndexResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateIndexResponse
-createIndexResponse pResponseStatus_ =
+mkCreateIndexResponse pResponseStatus_ =
   CreateIndexResponse'
-    { _cirsObjectIdentifier = Nothing,
-      _cirsResponseStatus = pResponseStatus_
+    { objectIdentifier = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ObjectIdentifier@ of the index created by this operation.
-cirsObjectIdentifier :: Lens' CreateIndexResponse (Maybe Text)
-cirsObjectIdentifier = lens _cirsObjectIdentifier (\s a -> s {_cirsObjectIdentifier = a})
+--
+-- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirsObjectIdentifier :: Lens.Lens' CreateIndexResponse (Lude.Maybe Lude.Text)
+cirsObjectIdentifier = Lens.lens (objectIdentifier :: CreateIndexResponse -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: CreateIndexResponse)
+{-# DEPRECATED cirsObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
--- | -- | The response status code.
-cirsResponseStatus :: Lens' CreateIndexResponse Int
-cirsResponseStatus = lens _cirsResponseStatus (\s a -> s {_cirsResponseStatus = a})
-
-instance NFData CreateIndexResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirsResponseStatus :: Lens.Lens' CreateIndexResponse Lude.Int
+cirsResponseStatus = Lens.lens (responseStatus :: CreateIndexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateIndexResponse)
+{-# DEPRECATED cirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

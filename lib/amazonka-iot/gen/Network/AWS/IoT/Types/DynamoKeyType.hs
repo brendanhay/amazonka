@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.DynamoKeyType where
+module Network.AWS.IoT.Types.DynamoKeyType
+  ( DynamoKeyType
+      ( DynamoKeyType',
+        DKTNumber,
+        DKTString
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DynamoKeyType
-  = DKTNumber
-  | DKTString
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DynamoKeyType = DynamoKeyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DynamoKeyType where
-  parser =
-    takeLowerText >>= \case
-      "number" -> pure DKTNumber
-      "string" -> pure DKTString
-      e ->
-        fromTextError $
-          "Failure parsing DynamoKeyType from value: '" <> e
-            <> "'. Accepted values: number, string"
+pattern DKTNumber :: DynamoKeyType
+pattern DKTNumber = DynamoKeyType' "NUMBER"
 
-instance ToText DynamoKeyType where
-  toText = \case
-    DKTNumber -> "NUMBER"
-    DKTString -> "STRING"
+pattern DKTString :: DynamoKeyType
+pattern DKTString = DynamoKeyType' "STRING"
 
-instance Hashable DynamoKeyType
-
-instance NFData DynamoKeyType
-
-instance ToByteString DynamoKeyType
-
-instance ToQuery DynamoKeyType
-
-instance ToHeader DynamoKeyType
-
-instance ToJSON DynamoKeyType where
-  toJSON = toJSONText
-
-instance FromJSON DynamoKeyType where
-  parseJSON = parseJSONText "DynamoKeyType"
+{-# COMPLETE
+  DKTNumber,
+  DKTString,
+  DynamoKeyType'
+  #-}

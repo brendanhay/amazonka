@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.Scope where
+module Network.AWS.ECS.Types.Scope
+  ( Scope
+      ( Scope',
+        Shared,
+        Task
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Scope
-  = Shared
-  | Task
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Scope = Scope' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Scope where
-  parser =
-    takeLowerText >>= \case
-      "shared" -> pure Shared
-      "task" -> pure Task
-      e ->
-        fromTextError $
-          "Failure parsing Scope from value: '" <> e
-            <> "'. Accepted values: shared, task"
+pattern Shared :: Scope
+pattern Shared = Scope' "shared"
 
-instance ToText Scope where
-  toText = \case
-    Shared -> "shared"
-    Task -> "task"
+pattern Task :: Scope
+pattern Task = Scope' "task"
 
-instance Hashable Scope
-
-instance NFData Scope
-
-instance ToByteString Scope
-
-instance ToQuery Scope
-
-instance ToHeader Scope
-
-instance ToJSON Scope where
-  toJSON = toJSONText
-
-instance FromJSON Scope where
-  parseJSON = parseJSONText "Scope"
+{-# COMPLETE
+  Shared,
+  Task,
+  Scope'
+  #-}

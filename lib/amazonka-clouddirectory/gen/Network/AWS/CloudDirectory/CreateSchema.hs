@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,110 +17,125 @@
 --
 --     * /Development:/ This is a mutable phase of the schema. All new schemas are in the development phase. Once the schema is finalized, it can be published.
 --
+--
 --     * /Published:/ Published schemas are immutable and have a version associated with them.
+--
 --
 --     * /Applied:/ Applied schemas are mutable in a way that allows you to add new schema facets. You can also add new, nonrequired attributes to existing schema facets. You can apply only published schemas to directories.
 module Network.AWS.CloudDirectory.CreateSchema
-  ( -- * Creating a Request
-    createSchema,
-    CreateSchema,
+  ( -- * Creating a request
+    CreateSchema (..),
+    mkCreateSchema,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csName,
 
-    -- * Destructuring the Response
-    createSchemaResponse,
-    CreateSchemaResponse,
+    -- * Destructuring the response
+    CreateSchemaResponse (..),
+    mkCreateSchemaResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csrsSchemaARN,
     csrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createSchema' smart constructor.
-newtype CreateSchema = CreateSchema' {_csName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkCreateSchema' smart constructor.
+newtype CreateSchema = CreateSchema' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSchema' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csName' - The name that is associated with the schema. This is unique to each account and in each region.
-createSchema ::
-  -- | 'csName'
-  Text ->
+-- * 'name' - The name that is associated with the schema. This is unique to each account and in each region.
+mkCreateSchema ::
+  -- | 'name'
+  Lude.Text ->
   CreateSchema
-createSchema pName_ = CreateSchema' {_csName = pName_}
+mkCreateSchema pName_ = CreateSchema' {name = pName_}
 
 -- | The name that is associated with the schema. This is unique to each account and in each region.
-csName :: Lens' CreateSchema Text
-csName = lens _csName (\s a -> s {_csName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csName :: Lens.Lens' CreateSchema Lude.Text
+csName = Lens.lens (name :: CreateSchema -> Lude.Text) (\s a -> s {name = a} :: CreateSchema)
+{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateSchema where
+instance Lude.AWSRequest CreateSchema where
   type Rs CreateSchema = CreateSchemaResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateSchemaResponse'
-            <$> (x .?> "SchemaArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SchemaArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateSchema
+instance Lude.ToHeaders CreateSchema where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateSchema
-
-instance ToHeaders CreateSchema where
-  toHeaders = const mempty
-
-instance ToJSON CreateSchema where
+instance Lude.ToJSON CreateSchema where
   toJSON CreateSchema' {..} =
-    object (catMaybes [Just ("Name" .= _csName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath CreateSchema where
-  toPath = const "/amazonclouddirectory/2017-01-11/schema/create"
+instance Lude.ToPath CreateSchema where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/schema/create"
 
-instance ToQuery CreateSchema where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSchema where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createSchemaResponse' smart constructor.
+-- | /See:/ 'mkCreateSchemaResponse' smart constructor.
 data CreateSchemaResponse = CreateSchemaResponse'
-  { _csrsSchemaARN ::
-      !(Maybe Text),
-    _csrsResponseStatus :: !Int
+  { schemaARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSchemaResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csrsSchemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
---
--- * 'csrsResponseStatus' - -- | The response status code.
-createSchemaResponse ::
-  -- | 'csrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+mkCreateSchemaResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSchemaResponse
-createSchemaResponse pResponseStatus_ =
+mkCreateSchemaResponse pResponseStatus_ =
   CreateSchemaResponse'
-    { _csrsSchemaARN = Nothing,
-      _csrsResponseStatus = pResponseStatus_
+    { schemaARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-csrsSchemaARN :: Lens' CreateSchemaResponse (Maybe Text)
-csrsSchemaARN = lens _csrsSchemaARN (\s a -> s {_csrsSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsSchemaARN :: Lens.Lens' CreateSchemaResponse (Lude.Maybe Lude.Text)
+csrsSchemaARN = Lens.lens (schemaARN :: CreateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CreateSchemaResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\s a -> s {_csrsResponseStatus = a})
-
-instance NFData CreateSchemaResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' CreateSchemaResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CreateSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSchemaResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

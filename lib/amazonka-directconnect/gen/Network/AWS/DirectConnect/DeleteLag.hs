@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active virtual interfaces or hosted connections.
 module Network.AWS.DirectConnect.DeleteLag
-  ( -- * Creating a Request
-    deleteLag,
-    DeleteLag,
+  ( -- * Creating a request
+    DeleteLag (..),
+    mkDeleteLag,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dLagId,
 
-    -- * Destructuring the Response
-    lag,
-    Lag,
+    -- * Destructuring the response
+    Lag (..),
+    mkLag,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lagLagId,
     lagConnectionsBandwidth,
     lagMinimumLinks,
@@ -52,54 +47,60 @@ module Network.AWS.DirectConnect.DeleteLag
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLag' smart constructor.
-newtype DeleteLag = DeleteLag' {_dLagId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteLag' smart constructor.
+newtype DeleteLag = DeleteLag' {lagId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dLagId' - The ID of the LAG.
-deleteLag ::
-  -- | 'dLagId'
-  Text ->
+-- * 'lagId' - The ID of the LAG.
+mkDeleteLag ::
+  -- | 'lagId'
+  Lude.Text ->
   DeleteLag
-deleteLag pLagId_ = DeleteLag' {_dLagId = pLagId_}
+mkDeleteLag pLagId_ = DeleteLag' {lagId = pLagId_}
 
 -- | The ID of the LAG.
-dLagId :: Lens' DeleteLag Text
-dLagId = lens _dLagId (\s a -> s {_dLagId = a})
+--
+-- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLagId :: Lens.Lens' DeleteLag Lude.Text
+dLagId = Lens.lens (lagId :: DeleteLag -> Lude.Text) (\s a -> s {lagId = a} :: DeleteLag)
+{-# DEPRECATED dLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
-instance AWSRequest DeleteLag where
+instance Lude.AWSRequest DeleteLag where
   type Rs DeleteLag = Lag
-  request = postJSON directConnect
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON directConnectService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable DeleteLag
-
-instance NFData DeleteLag
-
-instance ToHeaders DeleteLag where
+instance Lude.ToHeaders DeleteLag where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OvertureService.DeleteLag" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OvertureService.DeleteLag" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteLag where
+instance Lude.ToJSON DeleteLag where
   toJSON DeleteLag' {..} =
-    object (catMaybes [Just ("lagId" .= _dLagId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("lagId" Lude..= lagId)])
 
-instance ToPath DeleteLag where
-  toPath = const "/"
+instance Lude.ToPath DeleteLag where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteLag where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLag where
+  toQuery = Lude.const Lude.mempty

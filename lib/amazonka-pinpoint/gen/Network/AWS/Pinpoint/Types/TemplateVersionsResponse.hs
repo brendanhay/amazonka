@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.TemplateVersionsResponse where
+module Network.AWS.Pinpoint.Types.TemplateVersionsResponse
+  ( TemplateVersionsResponse (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkTemplateVersionsResponse,
+
+    -- * Lenses
+    tvRequestId,
+    tvNextToken,
+    tvMessage,
+    tvItem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.TemplateVersionResponse
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about all the versions of a specific message template.
 --
---
---
--- /See:/ 'templateVersionsResponse' smart constructor.
+-- /See:/ 'mkTemplateVersionsResponse' smart constructor.
 data TemplateVersionsResponse = TemplateVersionsResponse'
-  { _tvRequestId ::
-      !(Maybe Text),
-    _tvNextToken :: !(Maybe Text),
-    _tvMessage :: !(Maybe Text),
-    _tvItem :: ![TemplateVersionResponse]
+  { requestId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text,
+    item :: [TemplateVersionResponse]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemplateVersionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tvRequestId' - The unique identifier for the request to retrieve information about all the versions of the message template.
---
--- * 'tvNextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
---
--- * 'tvMessage' - The message that's returned from the API for the request to retrieve information about all the versions of the message template.
---
--- * 'tvItem' - An array of responses, one for each version of the message template.
-templateVersionsResponse ::
+-- * 'item' - An array of responses, one for each version of the message template.
+-- * 'message' - The message that's returned from the API for the request to retrieve information about all the versions of the message template.
+-- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+-- * 'requestId' - The unique identifier for the request to retrieve information about all the versions of the message template.
+mkTemplateVersionsResponse ::
   TemplateVersionsResponse
-templateVersionsResponse =
+mkTemplateVersionsResponse =
   TemplateVersionsResponse'
-    { _tvRequestId = Nothing,
-      _tvNextToken = Nothing,
-      _tvMessage = Nothing,
-      _tvItem = mempty
+    { requestId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      message = Lude.Nothing,
+      item = Lude.mempty
     }
 
 -- | The unique identifier for the request to retrieve information about all the versions of the message template.
-tvRequestId :: Lens' TemplateVersionsResponse (Maybe Text)
-tvRequestId = lens _tvRequestId (\s a -> s {_tvRequestId = a})
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvRequestId :: Lens.Lens' TemplateVersionsResponse (Lude.Maybe Lude.Text)
+tvRequestId = Lens.lens (requestId :: TemplateVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: TemplateVersionsResponse)
+{-# DEPRECATED tvRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
-tvNextToken :: Lens' TemplateVersionsResponse (Maybe Text)
-tvNextToken = lens _tvNextToken (\s a -> s {_tvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvNextToken :: Lens.Lens' TemplateVersionsResponse (Lude.Maybe Lude.Text)
+tvNextToken = Lens.lens (nextToken :: TemplateVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: TemplateVersionsResponse)
+{-# DEPRECATED tvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The message that's returned from the API for the request to retrieve information about all the versions of the message template.
-tvMessage :: Lens' TemplateVersionsResponse (Maybe Text)
-tvMessage = lens _tvMessage (\s a -> s {_tvMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvMessage :: Lens.Lens' TemplateVersionsResponse (Lude.Maybe Lude.Text)
+tvMessage = Lens.lens (message :: TemplateVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: TemplateVersionsResponse)
+{-# DEPRECATED tvMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | An array of responses, one for each version of the message template.
-tvItem :: Lens' TemplateVersionsResponse [TemplateVersionResponse]
-tvItem = lens _tvItem (\s a -> s {_tvItem = a}) . _Coerce
+--
+-- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvItem :: Lens.Lens' TemplateVersionsResponse [TemplateVersionResponse]
+tvItem = Lens.lens (item :: TemplateVersionsResponse -> [TemplateVersionResponse]) (\s a -> s {item = a} :: TemplateVersionsResponse)
+{-# DEPRECATED tvItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance FromJSON TemplateVersionsResponse where
+instance Lude.FromJSON TemplateVersionsResponse where
   parseJSON =
-    withObject
+    Lude.withObject
       "TemplateVersionsResponse"
       ( \x ->
           TemplateVersionsResponse'
-            <$> (x .:? "RequestID")
-            <*> (x .:? "NextToken")
-            <*> (x .:? "Message")
-            <*> (x .:? "Item" .!= mempty)
+            Lude.<$> (x Lude..:? "RequestID")
+            Lude.<*> (x Lude..:? "NextToken")
+            Lude.<*> (x Lude..:? "Message")
+            Lude.<*> (x Lude..:? "Item" Lude..!= Lude.mempty)
       )
-
-instance Hashable TemplateVersionsResponse
-
-instance NFData TemplateVersionsResponse

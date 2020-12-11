@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Describes the current status of a mailbox export job.
 module Network.AWS.WorkMail.DescribeMailboxExportJob
-  ( -- * Creating a Request
-    describeMailboxExportJob,
-    DescribeMailboxExportJob,
+  ( -- * Creating a request
+    DescribeMailboxExportJob (..),
+    mkDescribeMailboxExportJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dmejJobId,
     dmejOrganizationId,
 
-    -- * Destructuring the Response
-    describeMailboxExportJobResponse,
-    DescribeMailboxExportJobResponse,
+    -- * Destructuring the response
+    DescribeMailboxExportJobResponse (..),
+    mkDescribeMailboxExportJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dmejrsState,
     dmejrsKMSKeyARN,
     dmejrsStartTime,
@@ -48,231 +43,267 @@ module Network.AWS.WorkMail.DescribeMailboxExportJob
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'describeMailboxExportJob' smart constructor.
+-- | /See:/ 'mkDescribeMailboxExportJob' smart constructor.
 data DescribeMailboxExportJob = DescribeMailboxExportJob'
-  { _dmejJobId ::
-      !Text,
-    _dmejOrganizationId :: !Text
+  { jobId ::
+      Lude.Text,
+    organizationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMailboxExportJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmejJobId' - The mailbox export job ID.
---
--- * 'dmejOrganizationId' - The organization ID.
-describeMailboxExportJob ::
-  -- | 'dmejJobId'
-  Text ->
-  -- | 'dmejOrganizationId'
-  Text ->
+-- * 'jobId' - The mailbox export job ID.
+-- * 'organizationId' - The organization ID.
+mkDescribeMailboxExportJob ::
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   DescribeMailboxExportJob
-describeMailboxExportJob pJobId_ pOrganizationId_ =
+mkDescribeMailboxExportJob pJobId_ pOrganizationId_ =
   DescribeMailboxExportJob'
-    { _dmejJobId = pJobId_,
-      _dmejOrganizationId = pOrganizationId_
+    { jobId = pJobId_,
+      organizationId = pOrganizationId_
     }
 
 -- | The mailbox export job ID.
-dmejJobId :: Lens' DescribeMailboxExportJob Text
-dmejJobId = lens _dmejJobId (\s a -> s {_dmejJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejJobId :: Lens.Lens' DescribeMailboxExportJob Lude.Text
+dmejJobId = Lens.lens (jobId :: DescribeMailboxExportJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeMailboxExportJob)
+{-# DEPRECATED dmejJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The organization ID.
-dmejOrganizationId :: Lens' DescribeMailboxExportJob Text
-dmejOrganizationId = lens _dmejOrganizationId (\s a -> s {_dmejOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejOrganizationId :: Lens.Lens' DescribeMailboxExportJob Lude.Text
+dmejOrganizationId = Lens.lens (organizationId :: DescribeMailboxExportJob -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeMailboxExportJob)
+{-# DEPRECATED dmejOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance AWSRequest DescribeMailboxExportJob where
+instance Lude.AWSRequest DescribeMailboxExportJob where
   type Rs DescribeMailboxExportJob = DescribeMailboxExportJobResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeMailboxExportJobResponse'
-            <$> (x .?> "State")
-            <*> (x .?> "KmsKeyArn")
-            <*> (x .?> "StartTime")
-            <*> (x .?> "EstimatedProgress")
-            <*> (x .?> "EndTime")
-            <*> (x .?> "S3Path")
-            <*> (x .?> "S3Prefix")
-            <*> (x .?> "EntityId")
-            <*> (x .?> "Description")
-            <*> (x .?> "ErrorInfo")
-            <*> (x .?> "S3BucketName")
-            <*> (x .?> "RoleArn")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "State")
+            Lude.<*> (x Lude..?> "KmsKeyArn")
+            Lude.<*> (x Lude..?> "StartTime")
+            Lude.<*> (x Lude..?> "EstimatedProgress")
+            Lude.<*> (x Lude..?> "EndTime")
+            Lude.<*> (x Lude..?> "S3Path")
+            Lude.<*> (x Lude..?> "S3Prefix")
+            Lude.<*> (x Lude..?> "EntityId")
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (x Lude..?> "ErrorInfo")
+            Lude.<*> (x Lude..?> "S3BucketName")
+            Lude.<*> (x Lude..?> "RoleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeMailboxExportJob
-
-instance NFData DescribeMailboxExportJob
-
-instance ToHeaders DescribeMailboxExportJob where
+instance Lude.ToHeaders DescribeMailboxExportJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.DescribeMailboxExportJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.DescribeMailboxExportJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeMailboxExportJob where
+instance Lude.ToJSON DescribeMailboxExportJob where
   toJSON DescribeMailboxExportJob' {..} =
-    object
-      ( catMaybes
-          [ Just ("JobId" .= _dmejJobId),
-            Just ("OrganizationId" .= _dmejOrganizationId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("JobId" Lude..= jobId),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
-instance ToPath DescribeMailboxExportJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeMailboxExportJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeMailboxExportJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeMailboxExportJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeMailboxExportJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeMailboxExportJobResponse' smart constructor.
 data DescribeMailboxExportJobResponse = DescribeMailboxExportJobResponse'
-  { _dmejrsState ::
-      !( Maybe
-           MailboxExportJobState
-       ),
-    _dmejrsKMSKeyARN ::
-      !(Maybe Text),
-    _dmejrsStartTime ::
-      !(Maybe POSIX),
-    _dmejrsEstimatedProgress ::
-      !(Maybe Nat),
-    _dmejrsEndTime ::
-      !(Maybe POSIX),
-    _dmejrsS3Path ::
-      !(Maybe Text),
-    _dmejrsS3Prefix ::
-      !(Maybe Text),
-    _dmejrsEntityId ::
-      !(Maybe Text),
-    _dmejrsDescription ::
-      !(Maybe Text),
-    _dmejrsErrorInfo ::
-      !(Maybe Text),
-    _dmejrsS3BucketName ::
-      !(Maybe Text),
-    _dmejrsRoleARN ::
-      !(Maybe Text),
-    _dmejrsResponseStatus ::
-      !Int
+  { state ::
+      Lude.Maybe
+        MailboxExportJobState,
+    kmsKeyARN ::
+      Lude.Maybe Lude.Text,
+    startTime ::
+      Lude.Maybe Lude.Timestamp,
+    estimatedProgress ::
+      Lude.Maybe Lude.Natural,
+    endTime ::
+      Lude.Maybe Lude.Timestamp,
+    s3Path ::
+      Lude.Maybe Lude.Text,
+    s3Prefix ::
+      Lude.Maybe Lude.Text,
+    entityId ::
+      Lude.Maybe Lude.Text,
+    description ::
+      Lude.Maybe Lude.Text,
+    errorInfo ::
+      Lude.Maybe Lude.Text,
+    s3BucketName ::
+      Lude.Maybe Lude.Text,
+    roleARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMailboxExportJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmejrsState' - The state of the mailbox export job.
---
--- * 'dmejrsKMSKeyARN' - The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
---
--- * 'dmejrsStartTime' - The mailbox export job start timestamp.
---
--- * 'dmejrsEstimatedProgress' - The estimated progress of the mailbox export job, in percentage points.
---
--- * 'dmejrsEndTime' - The mailbox export job end timestamp.
---
--- * 'dmejrsS3Path' - The path to the S3 bucket and file that the mailbox export job is exporting to.
---
--- * 'dmejrsS3Prefix' - The S3 bucket prefix.
---
--- * 'dmejrsEntityId' - The identifier of the user or resource associated with the mailbox.
---
--- * 'dmejrsDescription' - The mailbox export job description.
---
--- * 'dmejrsErrorInfo' - Error information for failed mailbox export jobs.
---
--- * 'dmejrsS3BucketName' - The name of the S3 bucket.
---
--- * 'dmejrsRoleARN' - The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple Storage Service (Amazon S3) bucket.
---
--- * 'dmejrsResponseStatus' - -- | The response status code.
-describeMailboxExportJobResponse ::
-  -- | 'dmejrsResponseStatus'
-  Int ->
+-- * 'description' - The mailbox export job description.
+-- * 'endTime' - The mailbox export job end timestamp.
+-- * 'entityId' - The identifier of the user or resource associated with the mailbox.
+-- * 'errorInfo' - Error information for failed mailbox export jobs.
+-- * 'estimatedProgress' - The estimated progress of the mailbox export job, in percentage points.
+-- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
+-- * 'responseStatus' - The response status code.
+-- * 'roleARN' - The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple Storage Service (Amazon S3) bucket.
+-- * 's3BucketName' - The name of the S3 bucket.
+-- * 's3Path' - The path to the S3 bucket and file that the mailbox export job is exporting to.
+-- * 's3Prefix' - The S3 bucket prefix.
+-- * 'startTime' - The mailbox export job start timestamp.
+-- * 'state' - The state of the mailbox export job.
+mkDescribeMailboxExportJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMailboxExportJobResponse
-describeMailboxExportJobResponse pResponseStatus_ =
+mkDescribeMailboxExportJobResponse pResponseStatus_ =
   DescribeMailboxExportJobResponse'
-    { _dmejrsState = Nothing,
-      _dmejrsKMSKeyARN = Nothing,
-      _dmejrsStartTime = Nothing,
-      _dmejrsEstimatedProgress = Nothing,
-      _dmejrsEndTime = Nothing,
-      _dmejrsS3Path = Nothing,
-      _dmejrsS3Prefix = Nothing,
-      _dmejrsEntityId = Nothing,
-      _dmejrsDescription = Nothing,
-      _dmejrsErrorInfo = Nothing,
-      _dmejrsS3BucketName = Nothing,
-      _dmejrsRoleARN = Nothing,
-      _dmejrsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      kmsKeyARN = Lude.Nothing,
+      startTime = Lude.Nothing,
+      estimatedProgress = Lude.Nothing,
+      endTime = Lude.Nothing,
+      s3Path = Lude.Nothing,
+      s3Prefix = Lude.Nothing,
+      entityId = Lude.Nothing,
+      description = Lude.Nothing,
+      errorInfo = Lude.Nothing,
+      s3BucketName = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The state of the mailbox export job.
-dmejrsState :: Lens' DescribeMailboxExportJobResponse (Maybe MailboxExportJobState)
-dmejrsState = lens _dmejrsState (\s a -> s {_dmejrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsState :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe MailboxExportJobState)
+dmejrsState = Lens.lens (state :: DescribeMailboxExportJobResponse -> Lude.Maybe MailboxExportJobState) (\s a -> s {state = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
-dmejrsKMSKeyARN :: Lens' DescribeMailboxExportJobResponse (Maybe Text)
-dmejrsKMSKeyARN = lens _dmejrsKMSKeyARN (\s a -> s {_dmejrsKMSKeyARN = a})
+--
+-- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsKMSKeyARN :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Text)
+dmejrsKMSKeyARN = Lens.lens (kmsKeyARN :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
 -- | The mailbox export job start timestamp.
-dmejrsStartTime :: Lens' DescribeMailboxExportJobResponse (Maybe UTCTime)
-dmejrsStartTime = lens _dmejrsStartTime (\s a -> s {_dmejrsStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsStartTime :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Timestamp)
+dmejrsStartTime = Lens.lens (startTime :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The estimated progress of the mailbox export job, in percentage points.
-dmejrsEstimatedProgress :: Lens' DescribeMailboxExportJobResponse (Maybe Natural)
-dmejrsEstimatedProgress = lens _dmejrsEstimatedProgress (\s a -> s {_dmejrsEstimatedProgress = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'estimatedProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsEstimatedProgress :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Natural)
+dmejrsEstimatedProgress = Lens.lens (estimatedProgress :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Natural) (\s a -> s {estimatedProgress = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsEstimatedProgress "Use generic-lens or generic-optics with 'estimatedProgress' instead." #-}
 
 -- | The mailbox export job end timestamp.
-dmejrsEndTime :: Lens' DescribeMailboxExportJobResponse (Maybe UTCTime)
-dmejrsEndTime = lens _dmejrsEndTime (\s a -> s {_dmejrsEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsEndTime :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Timestamp)
+dmejrsEndTime = Lens.lens (endTime :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The path to the S3 bucket and file that the mailbox export job is exporting to.
-dmejrsS3Path :: Lens' DescribeMailboxExportJobResponse (Maybe Text)
-dmejrsS3Path = lens _dmejrsS3Path (\s a -> s {_dmejrsS3Path = a})
+--
+-- /Note:/ Consider using 's3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsS3Path :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Text)
+dmejrsS3Path = Lens.lens (s3Path :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3Path = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsS3Path "Use generic-lens or generic-optics with 's3Path' instead." #-}
 
 -- | The S3 bucket prefix.
-dmejrsS3Prefix :: Lens' DescribeMailboxExportJobResponse (Maybe Text)
-dmejrsS3Prefix = lens _dmejrsS3Prefix (\s a -> s {_dmejrsS3Prefix = a})
+--
+-- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsS3Prefix :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Text)
+dmejrsS3Prefix = Lens.lens (s3Prefix :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3Prefix = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
 
 -- | The identifier of the user or resource associated with the mailbox.
-dmejrsEntityId :: Lens' DescribeMailboxExportJobResponse (Maybe Text)
-dmejrsEntityId = lens _dmejrsEntityId (\s a -> s {_dmejrsEntityId = a})
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsEntityId :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Text)
+dmejrsEntityId = Lens.lens (entityId :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {entityId = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 -- | The mailbox export job description.
-dmejrsDescription :: Lens' DescribeMailboxExportJobResponse (Maybe Text)
-dmejrsDescription = lens _dmejrsDescription (\s a -> s {_dmejrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsDescription :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Text)
+dmejrsDescription = Lens.lens (description :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Error information for failed mailbox export jobs.
-dmejrsErrorInfo :: Lens' DescribeMailboxExportJobResponse (Maybe Text)
-dmejrsErrorInfo = lens _dmejrsErrorInfo (\s a -> s {_dmejrsErrorInfo = a})
+--
+-- /Note:/ Consider using 'errorInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsErrorInfo :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Text)
+dmejrsErrorInfo = Lens.lens (errorInfo :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {errorInfo = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsErrorInfo "Use generic-lens or generic-optics with 'errorInfo' instead." #-}
 
 -- | The name of the S3 bucket.
-dmejrsS3BucketName :: Lens' DescribeMailboxExportJobResponse (Maybe Text)
-dmejrsS3BucketName = lens _dmejrsS3BucketName (\s a -> s {_dmejrsS3BucketName = a})
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsS3BucketName :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Text)
+dmejrsS3BucketName = Lens.lens (s3BucketName :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
 -- | The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple Storage Service (Amazon S3) bucket.
-dmejrsRoleARN :: Lens' DescribeMailboxExportJobResponse (Maybe Text)
-dmejrsRoleARN = lens _dmejrsRoleARN (\s a -> s {_dmejrsRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsRoleARN :: Lens.Lens' DescribeMailboxExportJobResponse (Lude.Maybe Lude.Text)
+dmejrsRoleARN = Lens.lens (roleARN :: DescribeMailboxExportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | -- | The response status code.
-dmejrsResponseStatus :: Lens' DescribeMailboxExportJobResponse Int
-dmejrsResponseStatus = lens _dmejrsResponseStatus (\s a -> s {_dmejrsResponseStatus = a})
-
-instance NFData DescribeMailboxExportJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmejrsResponseStatus :: Lens.Lens' DescribeMailboxExportJobResponse Lude.Int
+dmejrsResponseStatus = Lens.lens (responseStatus :: DescribeMailboxExportJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMailboxExportJobResponse)
+{-# DEPRECATED dmejrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

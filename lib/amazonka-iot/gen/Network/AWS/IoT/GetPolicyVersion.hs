@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Gets information about the specified policy version.
 module Network.AWS.IoT.GetPolicyVersion
-  ( -- * Creating a Request
-    getPolicyVersion,
-    GetPolicyVersion,
+  ( -- * Creating a request
+    GetPolicyVersion (..),
+    mkGetPolicyVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpvPolicyName,
     gpvPolicyVersionId,
 
-    -- * Destructuring the Response
-    getPolicyVersionResponse,
-    GetPolicyVersionResponse,
+    -- * Destructuring the response
+    GetPolicyVersionResponse (..),
+    mkGetPolicyVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gpvrsLastModifiedDate,
     gpvrsPolicyName,
     gpvrsPolicyDocument,
@@ -45,177 +40,201 @@ module Network.AWS.IoT.GetPolicyVersion
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the GetPolicyVersion operation.
 --
---
---
--- /See:/ 'getPolicyVersion' smart constructor.
+-- /See:/ 'mkGetPolicyVersion' smart constructor.
 data GetPolicyVersion = GetPolicyVersion'
-  { _gpvPolicyName :: !Text,
-    _gpvPolicyVersionId :: !Text
+  { policyName :: Lude.Text,
+    policyVersionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpvPolicyName' - The name of the policy.
---
--- * 'gpvPolicyVersionId' - The policy version ID.
-getPolicyVersion ::
-  -- | 'gpvPolicyName'
-  Text ->
-  -- | 'gpvPolicyVersionId'
-  Text ->
+-- * 'policyName' - The name of the policy.
+-- * 'policyVersionId' - The policy version ID.
+mkGetPolicyVersion ::
+  -- | 'policyName'
+  Lude.Text ->
+  -- | 'policyVersionId'
+  Lude.Text ->
   GetPolicyVersion
-getPolicyVersion pPolicyName_ pPolicyVersionId_ =
+mkGetPolicyVersion pPolicyName_ pPolicyVersionId_ =
   GetPolicyVersion'
-    { _gpvPolicyName = pPolicyName_,
-      _gpvPolicyVersionId = pPolicyVersionId_
+    { policyName = pPolicyName_,
+      policyVersionId = pPolicyVersionId_
     }
 
 -- | The name of the policy.
-gpvPolicyName :: Lens' GetPolicyVersion Text
-gpvPolicyName = lens _gpvPolicyName (\s a -> s {_gpvPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvPolicyName :: Lens.Lens' GetPolicyVersion Lude.Text
+gpvPolicyName = Lens.lens (policyName :: GetPolicyVersion -> Lude.Text) (\s a -> s {policyName = a} :: GetPolicyVersion)
+{-# DEPRECATED gpvPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy version ID.
-gpvPolicyVersionId :: Lens' GetPolicyVersion Text
-gpvPolicyVersionId = lens _gpvPolicyVersionId (\s a -> s {_gpvPolicyVersionId = a})
+--
+-- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvPolicyVersionId :: Lens.Lens' GetPolicyVersion Lude.Text
+gpvPolicyVersionId = Lens.lens (policyVersionId :: GetPolicyVersion -> Lude.Text) (\s a -> s {policyVersionId = a} :: GetPolicyVersion)
+{-# DEPRECATED gpvPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
 
-instance AWSRequest GetPolicyVersion where
+instance Lude.AWSRequest GetPolicyVersion where
   type Rs GetPolicyVersion = GetPolicyVersionResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPolicyVersionResponse'
-            <$> (x .?> "lastModifiedDate")
-            <*> (x .?> "policyName")
-            <*> (x .?> "policyDocument")
-            <*> (x .?> "policyVersionId")
-            <*> (x .?> "policyArn")
-            <*> (x .?> "creationDate")
-            <*> (x .?> "generationId")
-            <*> (x .?> "isDefaultVersion")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "lastModifiedDate")
+            Lude.<*> (x Lude..?> "policyName")
+            Lude.<*> (x Lude..?> "policyDocument")
+            Lude.<*> (x Lude..?> "policyVersionId")
+            Lude.<*> (x Lude..?> "policyArn")
+            Lude.<*> (x Lude..?> "creationDate")
+            Lude.<*> (x Lude..?> "generationId")
+            Lude.<*> (x Lude..?> "isDefaultVersion")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPolicyVersion
+instance Lude.ToHeaders GetPolicyVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetPolicyVersion
-
-instance ToHeaders GetPolicyVersion where
-  toHeaders = const mempty
-
-instance ToPath GetPolicyVersion where
+instance Lude.ToPath GetPolicyVersion where
   toPath GetPolicyVersion' {..} =
-    mconcat
+    Lude.mconcat
       [ "/policies/",
-        toBS _gpvPolicyName,
+        Lude.toBS policyName,
         "/version/",
-        toBS _gpvPolicyVersionId
+        Lude.toBS policyVersionId
       ]
 
-instance ToQuery GetPolicyVersion where
-  toQuery = const mempty
+instance Lude.ToQuery GetPolicyVersion where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output from the GetPolicyVersion operation.
 --
---
---
--- /See:/ 'getPolicyVersionResponse' smart constructor.
+-- /See:/ 'mkGetPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-  { _gpvrsLastModifiedDate ::
-      !(Maybe POSIX),
-    _gpvrsPolicyName :: !(Maybe Text),
-    _gpvrsPolicyDocument :: !(Maybe Text),
-    _gpvrsPolicyVersionId :: !(Maybe Text),
-    _gpvrsPolicyARN :: !(Maybe Text),
-    _gpvrsCreationDate :: !(Maybe POSIX),
-    _gpvrsGenerationId :: !(Maybe Text),
-    _gpvrsIsDefaultVersion :: !(Maybe Bool),
-    _gpvrsResponseStatus :: !Int
+  { lastModifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    policyName :: Lude.Maybe Lude.Text,
+    policyDocument :: Lude.Maybe Lude.Text,
+    policyVersionId :: Lude.Maybe Lude.Text,
+    policyARN :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    generationId :: Lude.Maybe Lude.Text,
+    isDefaultVersion :: Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpvrsLastModifiedDate' - The date the policy was last modified.
---
--- * 'gpvrsPolicyName' - The policy name.
---
--- * 'gpvrsPolicyDocument' - The JSON document that describes the policy.
---
--- * 'gpvrsPolicyVersionId' - The policy version ID.
---
--- * 'gpvrsPolicyARN' - The policy ARN.
---
--- * 'gpvrsCreationDate' - The date the policy was created.
---
--- * 'gpvrsGenerationId' - The generation ID of the policy version.
---
--- * 'gpvrsIsDefaultVersion' - Specifies whether the policy version is the default.
---
--- * 'gpvrsResponseStatus' - -- | The response status code.
-getPolicyVersionResponse ::
-  -- | 'gpvrsResponseStatus'
-  Int ->
+-- * 'creationDate' - The date the policy was created.
+-- * 'generationId' - The generation ID of the policy version.
+-- * 'isDefaultVersion' - Specifies whether the policy version is the default.
+-- * 'lastModifiedDate' - The date the policy was last modified.
+-- * 'policyARN' - The policy ARN.
+-- * 'policyDocument' - The JSON document that describes the policy.
+-- * 'policyName' - The policy name.
+-- * 'policyVersionId' - The policy version ID.
+-- * 'responseStatus' - The response status code.
+mkGetPolicyVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPolicyVersionResponse
-getPolicyVersionResponse pResponseStatus_ =
+mkGetPolicyVersionResponse pResponseStatus_ =
   GetPolicyVersionResponse'
-    { _gpvrsLastModifiedDate = Nothing,
-      _gpvrsPolicyName = Nothing,
-      _gpvrsPolicyDocument = Nothing,
-      _gpvrsPolicyVersionId = Nothing,
-      _gpvrsPolicyARN = Nothing,
-      _gpvrsCreationDate = Nothing,
-      _gpvrsGenerationId = Nothing,
-      _gpvrsIsDefaultVersion = Nothing,
-      _gpvrsResponseStatus = pResponseStatus_
+    { lastModifiedDate = Lude.Nothing,
+      policyName = Lude.Nothing,
+      policyDocument = Lude.Nothing,
+      policyVersionId = Lude.Nothing,
+      policyARN = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      generationId = Lude.Nothing,
+      isDefaultVersion = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The date the policy was last modified.
-gpvrsLastModifiedDate :: Lens' GetPolicyVersionResponse (Maybe UTCTime)
-gpvrsLastModifiedDate = lens _gpvrsLastModifiedDate (\s a -> s {_gpvrsLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvrsLastModifiedDate :: Lens.Lens' GetPolicyVersionResponse (Lude.Maybe Lude.Timestamp)
+gpvrsLastModifiedDate = Lens.lens (lastModifiedDate :: GetPolicyVersionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: GetPolicyVersionResponse)
+{-# DEPRECATED gpvrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The policy name.
-gpvrsPolicyName :: Lens' GetPolicyVersionResponse (Maybe Text)
-gpvrsPolicyName = lens _gpvrsPolicyName (\s a -> s {_gpvrsPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvrsPolicyName :: Lens.Lens' GetPolicyVersionResponse (Lude.Maybe Lude.Text)
+gpvrsPolicyName = Lens.lens (policyName :: GetPolicyVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: GetPolicyVersionResponse)
+{-# DEPRECATED gpvrsPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The JSON document that describes the policy.
-gpvrsPolicyDocument :: Lens' GetPolicyVersionResponse (Maybe Text)
-gpvrsPolicyDocument = lens _gpvrsPolicyDocument (\s a -> s {_gpvrsPolicyDocument = a})
+--
+-- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvrsPolicyDocument :: Lens.Lens' GetPolicyVersionResponse (Lude.Maybe Lude.Text)
+gpvrsPolicyDocument = Lens.lens (policyDocument :: GetPolicyVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyDocument = a} :: GetPolicyVersionResponse)
+{-# DEPRECATED gpvrsPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
 -- | The policy version ID.
-gpvrsPolicyVersionId :: Lens' GetPolicyVersionResponse (Maybe Text)
-gpvrsPolicyVersionId = lens _gpvrsPolicyVersionId (\s a -> s {_gpvrsPolicyVersionId = a})
+--
+-- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvrsPolicyVersionId :: Lens.Lens' GetPolicyVersionResponse (Lude.Maybe Lude.Text)
+gpvrsPolicyVersionId = Lens.lens (policyVersionId :: GetPolicyVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyVersionId = a} :: GetPolicyVersionResponse)
+{-# DEPRECATED gpvrsPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
 
 -- | The policy ARN.
-gpvrsPolicyARN :: Lens' GetPolicyVersionResponse (Maybe Text)
-gpvrsPolicyARN = lens _gpvrsPolicyARN (\s a -> s {_gpvrsPolicyARN = a})
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvrsPolicyARN :: Lens.Lens' GetPolicyVersionResponse (Lude.Maybe Lude.Text)
+gpvrsPolicyARN = Lens.lens (policyARN :: GetPolicyVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyARN = a} :: GetPolicyVersionResponse)
+{-# DEPRECATED gpvrsPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
 -- | The date the policy was created.
-gpvrsCreationDate :: Lens' GetPolicyVersionResponse (Maybe UTCTime)
-gpvrsCreationDate = lens _gpvrsCreationDate (\s a -> s {_gpvrsCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvrsCreationDate :: Lens.Lens' GetPolicyVersionResponse (Lude.Maybe Lude.Timestamp)
+gpvrsCreationDate = Lens.lens (creationDate :: GetPolicyVersionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: GetPolicyVersionResponse)
+{-# DEPRECATED gpvrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The generation ID of the policy version.
-gpvrsGenerationId :: Lens' GetPolicyVersionResponse (Maybe Text)
-gpvrsGenerationId = lens _gpvrsGenerationId (\s a -> s {_gpvrsGenerationId = a})
+--
+-- /Note:/ Consider using 'generationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvrsGenerationId :: Lens.Lens' GetPolicyVersionResponse (Lude.Maybe Lude.Text)
+gpvrsGenerationId = Lens.lens (generationId :: GetPolicyVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {generationId = a} :: GetPolicyVersionResponse)
+{-# DEPRECATED gpvrsGenerationId "Use generic-lens or generic-optics with 'generationId' instead." #-}
 
 -- | Specifies whether the policy version is the default.
-gpvrsIsDefaultVersion :: Lens' GetPolicyVersionResponse (Maybe Bool)
-gpvrsIsDefaultVersion = lens _gpvrsIsDefaultVersion (\s a -> s {_gpvrsIsDefaultVersion = a})
+--
+-- /Note:/ Consider using 'isDefaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvrsIsDefaultVersion :: Lens.Lens' GetPolicyVersionResponse (Lude.Maybe Lude.Bool)
+gpvrsIsDefaultVersion = Lens.lens (isDefaultVersion :: GetPolicyVersionResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isDefaultVersion = a} :: GetPolicyVersionResponse)
+{-# DEPRECATED gpvrsIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
 
--- | -- | The response status code.
-gpvrsResponseStatus :: Lens' GetPolicyVersionResponse Int
-gpvrsResponseStatus = lens _gpvrsResponseStatus (\s a -> s {_gpvrsResponseStatus = a})
-
-instance NFData GetPolicyVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvrsResponseStatus :: Lens.Lens' GetPolicyVersionResponse Lude.Int
+gpvrsResponseStatus = Lens.lens (responseStatus :: GetPolicyVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPolicyVersionResponse)
+{-# DEPRECATED gpvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

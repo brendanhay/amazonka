@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState where
+module Network.AWS.WorkSpaces.Types.WorkspaceDirectoryState
+  ( WorkspaceDirectoryState
+      ( WorkspaceDirectoryState',
+        Deregistered,
+        Deregistering,
+        Error,
+        Registered,
+        Registering
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data WorkspaceDirectoryState
-  = Deregistered
-  | Deregistering
-  | Error'
-  | Registered
-  | Registering
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype WorkspaceDirectoryState = WorkspaceDirectoryState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText WorkspaceDirectoryState where
-  parser =
-    takeLowerText >>= \case
-      "deregistered" -> pure Deregistered
-      "deregistering" -> pure Deregistering
-      "error" -> pure Error'
-      "registered" -> pure Registered
-      "registering" -> pure Registering
-      e ->
-        fromTextError $
-          "Failure parsing WorkspaceDirectoryState from value: '" <> e
-            <> "'. Accepted values: deregistered, deregistering, error, registered, registering"
+pattern Deregistered :: WorkspaceDirectoryState
+pattern Deregistered = WorkspaceDirectoryState' "DEREGISTERED"
 
-instance ToText WorkspaceDirectoryState where
-  toText = \case
-    Deregistered -> "DEREGISTERED"
-    Deregistering -> "DEREGISTERING"
-    Error' -> "ERROR"
-    Registered -> "REGISTERED"
-    Registering -> "REGISTERING"
+pattern Deregistering :: WorkspaceDirectoryState
+pattern Deregistering = WorkspaceDirectoryState' "DEREGISTERING"
 
-instance Hashable WorkspaceDirectoryState
+pattern Error :: WorkspaceDirectoryState
+pattern Error = WorkspaceDirectoryState' "ERROR"
 
-instance NFData WorkspaceDirectoryState
+pattern Registered :: WorkspaceDirectoryState
+pattern Registered = WorkspaceDirectoryState' "REGISTERED"
 
-instance ToByteString WorkspaceDirectoryState
+pattern Registering :: WorkspaceDirectoryState
+pattern Registering = WorkspaceDirectoryState' "REGISTERING"
 
-instance ToQuery WorkspaceDirectoryState
-
-instance ToHeader WorkspaceDirectoryState
-
-instance FromJSON WorkspaceDirectoryState where
-  parseJSON = parseJSONText "WorkspaceDirectoryState"
+{-# COMPLETE
+  Deregistered,
+  Deregistering,
+  Error,
+  Registered,
+  Registering,
+  WorkspaceDirectoryState'
+  #-}

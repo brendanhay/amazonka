@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,196 +7,258 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceNetworkInterface where
+module Network.AWS.EC2.Types.InstanceNetworkInterface
+  ( InstanceNetworkInterface (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkInstanceNetworkInterface,
+
+    -- * Lenses
+    iniGroups,
+    iniStatus,
+    iniPrivateIPAddresses,
+    iniSourceDestCheck,
+    iniInterfaceType,
+    iniVPCId,
+    iniNetworkInterfaceId,
+    iniSubnetId,
+    iniMACAddress,
+    iniAttachment,
+    iniOwnerId,
+    iniPrivateIPAddress,
+    iniPrivateDNSName,
+    iniDescription,
+    iniAssociation,
+    iniIPv6Addresses,
+  )
+where
+
 import Network.AWS.EC2.Types.GroupIdentifier
 import Network.AWS.EC2.Types.InstanceIPv6Address
 import Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation
 import Network.AWS.EC2.Types.InstanceNetworkInterfaceAttachment
 import Network.AWS.EC2.Types.InstancePrivateIPAddress
 import Network.AWS.EC2.Types.NetworkInterfaceStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a network interface.
 --
---
---
--- /See:/ 'instanceNetworkInterface' smart constructor.
+-- /See:/ 'mkInstanceNetworkInterface' smart constructor.
 data InstanceNetworkInterface = InstanceNetworkInterface'
-  { _iniGroups ::
-      !(Maybe [GroupIdentifier]),
-    _iniStatus ::
-      !(Maybe NetworkInterfaceStatus),
-    _iniPrivateIPAddresses ::
-      !(Maybe [InstancePrivateIPAddress]),
-    _iniSourceDestCheck :: !(Maybe Bool),
-    _iniInterfaceType :: !(Maybe Text),
-    _iniVPCId :: !(Maybe Text),
-    _iniNetworkInterfaceId :: !(Maybe Text),
-    _iniSubnetId :: !(Maybe Text),
-    _iniMACAddress :: !(Maybe Text),
-    _iniAttachment ::
-      !( Maybe
-           InstanceNetworkInterfaceAttachment
-       ),
-    _iniOwnerId :: !(Maybe Text),
-    _iniPrivateIPAddress :: !(Maybe Text),
-    _iniPrivateDNSName :: !(Maybe Text),
-    _iniDescription :: !(Maybe Text),
-    _iniAssociation ::
-      !( Maybe
-           InstanceNetworkInterfaceAssociation
-       ),
-    _iniIPv6Addresses ::
-      !(Maybe [InstanceIPv6Address])
+  { groups ::
+      Lude.Maybe [GroupIdentifier],
+    status ::
+      Lude.Maybe NetworkInterfaceStatus,
+    privateIPAddresses ::
+      Lude.Maybe [InstancePrivateIPAddress],
+    sourceDestCheck :: Lude.Maybe Lude.Bool,
+    interfaceType :: Lude.Maybe Lude.Text,
+    vpcId :: Lude.Maybe Lude.Text,
+    networkInterfaceId ::
+      Lude.Maybe Lude.Text,
+    subnetId :: Lude.Maybe Lude.Text,
+    mACAddress :: Lude.Maybe Lude.Text,
+    attachment ::
+      Lude.Maybe
+        InstanceNetworkInterfaceAttachment,
+    ownerId :: Lude.Maybe Lude.Text,
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    privateDNSName :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    association ::
+      Lude.Maybe
+        InstanceNetworkInterfaceAssociation,
+    ipv6Addresses ::
+      Lude.Maybe [InstanceIPv6Address]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceNetworkInterface' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'association' - The association information for an Elastic IPv4 associated with the network interface.
+-- * 'attachment' - The network interface attachment.
+-- * 'description' - The description.
+-- * 'groups' - One or more security groups.
+-- * 'interfaceType' - Describes the type of network interface.
 --
--- * 'iniGroups' - One or more security groups.
---
--- * 'iniStatus' - The status of the network interface.
---
--- * 'iniPrivateIPAddresses' - One or more private IPv4 addresses associated with the network interface.
---
--- * 'iniSourceDestCheck' - Indicates whether to validate network traffic to or from this network interface.
---
--- * 'iniInterfaceType' - Describes the type of network interface. Valid values: @interface@ | @efa@
---
--- * 'iniVPCId' - The ID of the VPC.
---
--- * 'iniNetworkInterfaceId' - The ID of the network interface.
---
--- * 'iniSubnetId' - The ID of the subnet.
---
--- * 'iniMACAddress' - The MAC address.
---
--- * 'iniAttachment' - The network interface attachment.
---
--- * 'iniOwnerId' - The ID of the AWS account that created the network interface.
---
--- * 'iniPrivateIPAddress' - The IPv4 address of the network interface within the subnet.
---
--- * 'iniPrivateDNSName' - The private DNS name.
---
--- * 'iniDescription' - The description.
---
--- * 'iniAssociation' - The association information for an Elastic IPv4 associated with the network interface.
---
--- * 'iniIPv6Addresses' - One or more IPv6 addresses associated with the network interface.
-instanceNetworkInterface ::
+-- Valid values: @interface@ | @efa@
+-- * 'ipv6Addresses' - One or more IPv6 addresses associated with the network interface.
+-- * 'mACAddress' - The MAC address.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'ownerId' - The ID of the AWS account that created the network interface.
+-- * 'privateDNSName' - The private DNS name.
+-- * 'privateIPAddress' - The IPv4 address of the network interface within the subnet.
+-- * 'privateIPAddresses' - One or more private IPv4 addresses associated with the network interface.
+-- * 'sourceDestCheck' - Indicates whether to validate network traffic to or from this network interface.
+-- * 'status' - The status of the network interface.
+-- * 'subnetId' - The ID of the subnet.
+-- * 'vpcId' - The ID of the VPC.
+mkInstanceNetworkInterface ::
   InstanceNetworkInterface
-instanceNetworkInterface =
+mkInstanceNetworkInterface =
   InstanceNetworkInterface'
-    { _iniGroups = Nothing,
-      _iniStatus = Nothing,
-      _iniPrivateIPAddresses = Nothing,
-      _iniSourceDestCheck = Nothing,
-      _iniInterfaceType = Nothing,
-      _iniVPCId = Nothing,
-      _iniNetworkInterfaceId = Nothing,
-      _iniSubnetId = Nothing,
-      _iniMACAddress = Nothing,
-      _iniAttachment = Nothing,
-      _iniOwnerId = Nothing,
-      _iniPrivateIPAddress = Nothing,
-      _iniPrivateDNSName = Nothing,
-      _iniDescription = Nothing,
-      _iniAssociation = Nothing,
-      _iniIPv6Addresses = Nothing
+    { groups = Lude.Nothing,
+      status = Lude.Nothing,
+      privateIPAddresses = Lude.Nothing,
+      sourceDestCheck = Lude.Nothing,
+      interfaceType = Lude.Nothing,
+      vpcId = Lude.Nothing,
+      networkInterfaceId = Lude.Nothing,
+      subnetId = Lude.Nothing,
+      mACAddress = Lude.Nothing,
+      attachment = Lude.Nothing,
+      ownerId = Lude.Nothing,
+      privateIPAddress = Lude.Nothing,
+      privateDNSName = Lude.Nothing,
+      description = Lude.Nothing,
+      association = Lude.Nothing,
+      ipv6Addresses = Lude.Nothing
     }
 
 -- | One or more security groups.
-iniGroups :: Lens' InstanceNetworkInterface [GroupIdentifier]
-iniGroups = lens _iniGroups (\s a -> s {_iniGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniGroups :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe [GroupIdentifier])
+iniGroups = Lens.lens (groups :: InstanceNetworkInterface -> Lude.Maybe [GroupIdentifier]) (\s a -> s {groups = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The status of the network interface.
-iniStatus :: Lens' InstanceNetworkInterface (Maybe NetworkInterfaceStatus)
-iniStatus = lens _iniStatus (\s a -> s {_iniStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniStatus :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe NetworkInterfaceStatus)
+iniStatus = Lens.lens (status :: InstanceNetworkInterface -> Lude.Maybe NetworkInterfaceStatus) (\s a -> s {status = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | One or more private IPv4 addresses associated with the network interface.
-iniPrivateIPAddresses :: Lens' InstanceNetworkInterface [InstancePrivateIPAddress]
-iniPrivateIPAddresses = lens _iniPrivateIPAddresses (\s a -> s {_iniPrivateIPAddresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'privateIPAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniPrivateIPAddresses :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe [InstancePrivateIPAddress])
+iniPrivateIPAddresses = Lens.lens (privateIPAddresses :: InstanceNetworkInterface -> Lude.Maybe [InstancePrivateIPAddress]) (\s a -> s {privateIPAddresses = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniPrivateIPAddresses "Use generic-lens or generic-optics with 'privateIPAddresses' instead." #-}
 
 -- | Indicates whether to validate network traffic to or from this network interface.
-iniSourceDestCheck :: Lens' InstanceNetworkInterface (Maybe Bool)
-iniSourceDestCheck = lens _iniSourceDestCheck (\s a -> s {_iniSourceDestCheck = a})
+--
+-- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniSourceDestCheck :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Bool)
+iniSourceDestCheck = Lens.lens (sourceDestCheck :: InstanceNetworkInterface -> Lude.Maybe Lude.Bool) (\s a -> s {sourceDestCheck = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
 
--- | Describes the type of network interface. Valid values: @interface@ | @efa@
-iniInterfaceType :: Lens' InstanceNetworkInterface (Maybe Text)
-iniInterfaceType = lens _iniInterfaceType (\s a -> s {_iniInterfaceType = a})
+-- | Describes the type of network interface.
+--
+-- Valid values: @interface@ | @efa@
+--
+-- /Note:/ Consider using 'interfaceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniInterfaceType :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Text)
+iniInterfaceType = Lens.lens (interfaceType :: InstanceNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {interfaceType = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniInterfaceType "Use generic-lens or generic-optics with 'interfaceType' instead." #-}
 
 -- | The ID of the VPC.
-iniVPCId :: Lens' InstanceNetworkInterface (Maybe Text)
-iniVPCId = lens _iniVPCId (\s a -> s {_iniVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniVPCId :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Text)
+iniVPCId = Lens.lens (vpcId :: InstanceNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The ID of the network interface.
-iniNetworkInterfaceId :: Lens' InstanceNetworkInterface (Maybe Text)
-iniNetworkInterfaceId = lens _iniNetworkInterfaceId (\s a -> s {_iniNetworkInterfaceId = a})
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniNetworkInterfaceId :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Text)
+iniNetworkInterfaceId = Lens.lens (networkInterfaceId :: InstanceNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The ID of the subnet.
-iniSubnetId :: Lens' InstanceNetworkInterface (Maybe Text)
-iniSubnetId = lens _iniSubnetId (\s a -> s {_iniSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniSubnetId :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Text)
+iniSubnetId = Lens.lens (subnetId :: InstanceNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The MAC address.
-iniMACAddress :: Lens' InstanceNetworkInterface (Maybe Text)
-iniMACAddress = lens _iniMACAddress (\s a -> s {_iniMACAddress = a})
+--
+-- /Note:/ Consider using 'mACAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniMACAddress :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Text)
+iniMACAddress = Lens.lens (mACAddress :: InstanceNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {mACAddress = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniMACAddress "Use generic-lens or generic-optics with 'mACAddress' instead." #-}
 
 -- | The network interface attachment.
-iniAttachment :: Lens' InstanceNetworkInterface (Maybe InstanceNetworkInterfaceAttachment)
-iniAttachment = lens _iniAttachment (\s a -> s {_iniAttachment = a})
+--
+-- /Note:/ Consider using 'attachment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniAttachment :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe InstanceNetworkInterfaceAttachment)
+iniAttachment = Lens.lens (attachment :: InstanceNetworkInterface -> Lude.Maybe InstanceNetworkInterfaceAttachment) (\s a -> s {attachment = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniAttachment "Use generic-lens or generic-optics with 'attachment' instead." #-}
 
 -- | The ID of the AWS account that created the network interface.
-iniOwnerId :: Lens' InstanceNetworkInterface (Maybe Text)
-iniOwnerId = lens _iniOwnerId (\s a -> s {_iniOwnerId = a})
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniOwnerId :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Text)
+iniOwnerId = Lens.lens (ownerId :: InstanceNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The IPv4 address of the network interface within the subnet.
-iniPrivateIPAddress :: Lens' InstanceNetworkInterface (Maybe Text)
-iniPrivateIPAddress = lens _iniPrivateIPAddress (\s a -> s {_iniPrivateIPAddress = a})
+--
+-- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniPrivateIPAddress :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Text)
+iniPrivateIPAddress = Lens.lens (privateIPAddress :: InstanceNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
 
 -- | The private DNS name.
-iniPrivateDNSName :: Lens' InstanceNetworkInterface (Maybe Text)
-iniPrivateDNSName = lens _iniPrivateDNSName (\s a -> s {_iniPrivateDNSName = a})
+--
+-- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniPrivateDNSName :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Text)
+iniPrivateDNSName = Lens.lens (privateDNSName :: InstanceNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
 
 -- | The description.
-iniDescription :: Lens' InstanceNetworkInterface (Maybe Text)
-iniDescription = lens _iniDescription (\s a -> s {_iniDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniDescription :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe Lude.Text)
+iniDescription = Lens.lens (description :: InstanceNetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The association information for an Elastic IPv4 associated with the network interface.
-iniAssociation :: Lens' InstanceNetworkInterface (Maybe InstanceNetworkInterfaceAssociation)
-iniAssociation = lens _iniAssociation (\s a -> s {_iniAssociation = a})
+--
+-- /Note:/ Consider using 'association' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniAssociation :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe InstanceNetworkInterfaceAssociation)
+iniAssociation = Lens.lens (association :: InstanceNetworkInterface -> Lude.Maybe InstanceNetworkInterfaceAssociation) (\s a -> s {association = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniAssociation "Use generic-lens or generic-optics with 'association' instead." #-}
 
 -- | One or more IPv6 addresses associated with the network interface.
-iniIPv6Addresses :: Lens' InstanceNetworkInterface [InstanceIPv6Address]
-iniIPv6Addresses = lens _iniIPv6Addresses (\s a -> s {_iniIPv6Addresses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipv6Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iniIPv6Addresses :: Lens.Lens' InstanceNetworkInterface (Lude.Maybe [InstanceIPv6Address])
+iniIPv6Addresses = Lens.lens (ipv6Addresses :: InstanceNetworkInterface -> Lude.Maybe [InstanceIPv6Address]) (\s a -> s {ipv6Addresses = a} :: InstanceNetworkInterface)
+{-# DEPRECATED iniIPv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
 
-instance FromXML InstanceNetworkInterface where
+instance Lude.FromXML InstanceNetworkInterface where
   parseXML x =
     InstanceNetworkInterface'
-      <$> (x .@? "groupSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "status")
-      <*> ( x .@? "privateIpAddressesSet" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "sourceDestCheck")
-      <*> (x .@? "interfaceType")
-      <*> (x .@? "vpcId")
-      <*> (x .@? "networkInterfaceId")
-      <*> (x .@? "subnetId")
-      <*> (x .@? "macAddress")
-      <*> (x .@? "attachment")
-      <*> (x .@? "ownerId")
-      <*> (x .@? "privateIpAddress")
-      <*> (x .@? "privateDnsName")
-      <*> (x .@? "description")
-      <*> (x .@? "association")
-      <*> (x .@? "ipv6AddressesSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable InstanceNetworkInterface
-
-instance NFData InstanceNetworkInterface
+      Lude.<$> ( x Lude..@? "groupSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "status")
+      Lude.<*> ( x Lude..@? "privateIpAddressesSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "sourceDestCheck")
+      Lude.<*> (x Lude..@? "interfaceType")
+      Lude.<*> (x Lude..@? "vpcId")
+      Lude.<*> (x Lude..@? "networkInterfaceId")
+      Lude.<*> (x Lude..@? "subnetId")
+      Lude.<*> (x Lude..@? "macAddress")
+      Lude.<*> (x Lude..@? "attachment")
+      Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> (x Lude..@? "privateIpAddress")
+      Lude.<*> (x Lude..@? "privateDnsName")
+      Lude.<*> (x Lude..@? "description")
+      Lude.<*> (x Lude..@? "association")
+      Lude.<*> ( x Lude..@? "ipv6AddressesSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

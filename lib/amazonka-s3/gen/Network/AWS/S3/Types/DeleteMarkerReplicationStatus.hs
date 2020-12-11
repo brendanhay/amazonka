@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.DeleteMarkerReplicationStatus where
+module Network.AWS.S3.Types.DeleteMarkerReplicationStatus
+  ( DeleteMarkerReplicationStatus
+      ( DeleteMarkerReplicationStatus',
+        DMRSDisabled,
+        DMRSEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data DeleteMarkerReplicationStatus
-  = DMRSDisabled
-  | DMRSEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DeleteMarkerReplicationStatus = DeleteMarkerReplicationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DeleteMarkerReplicationStatus where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure DMRSDisabled
-      "enabled" -> pure DMRSEnabled
-      e ->
-        fromTextError $
-          "Failure parsing DeleteMarkerReplicationStatus from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern DMRSDisabled :: DeleteMarkerReplicationStatus
+pattern DMRSDisabled = DeleteMarkerReplicationStatus' "Disabled"
 
-instance ToText DeleteMarkerReplicationStatus where
-  toText = \case
-    DMRSDisabled -> "Disabled"
-    DMRSEnabled -> "Enabled"
+pattern DMRSEnabled :: DeleteMarkerReplicationStatus
+pattern DMRSEnabled = DeleteMarkerReplicationStatus' "Enabled"
 
-instance Hashable DeleteMarkerReplicationStatus
-
-instance NFData DeleteMarkerReplicationStatus
-
-instance ToByteString DeleteMarkerReplicationStatus
-
-instance ToQuery DeleteMarkerReplicationStatus
-
-instance ToHeader DeleteMarkerReplicationStatus
-
-instance FromXML DeleteMarkerReplicationStatus where
-  parseXML = parseXMLText "DeleteMarkerReplicationStatus"
-
-instance ToXML DeleteMarkerReplicationStatus where
-  toXML = toXMLText
+{-# COMPLETE
+  DMRSDisabled,
+  DMRSEnabled,
+  DeleteMarkerReplicationStatus'
+  #-}

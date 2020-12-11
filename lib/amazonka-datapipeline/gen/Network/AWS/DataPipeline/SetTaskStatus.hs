@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,158 +14,176 @@
 --
 -- Task runners call @SetTaskStatus@ to notify AWS Data Pipeline that a task is completed and provide information about the final status. A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call @SetTaskStatus@ for tasks that are canceled by the web service during a call to 'ReportTaskProgress' .
 module Network.AWS.DataPipeline.SetTaskStatus
-  ( -- * Creating a Request
-    setTaskStatus,
-    SetTaskStatus,
+  ( -- * Creating a request
+    SetTaskStatus (..),
+    mkSetTaskStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     stsErrorStackTrace,
     stsErrorId,
     stsErrorMessage,
     stsTaskId,
     stsTaskStatus,
 
-    -- * Destructuring the Response
-    setTaskStatusResponse,
-    SetTaskStatusResponse,
+    -- * Destructuring the response
+    SetTaskStatusResponse (..),
+    mkSetTaskStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     stsrsResponseStatus,
   )
 where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the parameters for SetTaskStatus.
 --
---
---
--- /See:/ 'setTaskStatus' smart constructor.
+-- /See:/ 'mkSetTaskStatus' smart constructor.
 data SetTaskStatus = SetTaskStatus'
-  { _stsErrorStackTrace ::
-      !(Maybe Text),
-    _stsErrorId :: !(Maybe Text),
-    _stsErrorMessage :: !(Maybe Text),
-    _stsTaskId :: !Text,
-    _stsTaskStatus :: !TaskStatus
+  { errorStackTrace ::
+      Lude.Maybe Lude.Text,
+    errorId :: Lude.Maybe Lude.Text,
+    errorMessage :: Lude.Maybe Lude.Text,
+    taskId :: Lude.Text,
+    taskStatus :: TaskStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTaskStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stsErrorStackTrace' - If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
---
--- * 'stsErrorId' - If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.
---
--- * 'stsErrorMessage' - If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
---
--- * 'stsTaskId' - The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
---
--- * 'stsTaskStatus' - If @FINISHED@ , the task successfully completed. If @FAILED@ , the task ended unsuccessfully. Preconditions use false.
-setTaskStatus ::
-  -- | 'stsTaskId'
-  Text ->
-  -- | 'stsTaskStatus'
+-- * 'errorId' - If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.
+-- * 'errorMessage' - If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
+-- * 'errorStackTrace' - If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
+-- * 'taskId' - The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
+-- * 'taskStatus' - If @FINISHED@ , the task successfully completed. If @FAILED@ , the task ended unsuccessfully. Preconditions use false.
+mkSetTaskStatus ::
+  -- | 'taskId'
+  Lude.Text ->
+  -- | 'taskStatus'
   TaskStatus ->
   SetTaskStatus
-setTaskStatus pTaskId_ pTaskStatus_ =
+mkSetTaskStatus pTaskId_ pTaskStatus_ =
   SetTaskStatus'
-    { _stsErrorStackTrace = Nothing,
-      _stsErrorId = Nothing,
-      _stsErrorMessage = Nothing,
-      _stsTaskId = pTaskId_,
-      _stsTaskStatus = pTaskStatus_
+    { errorStackTrace = Lude.Nothing,
+      errorId = Lude.Nothing,
+      errorMessage = Lude.Nothing,
+      taskId = pTaskId_,
+      taskStatus = pTaskStatus_
     }
 
 -- | If an error occurred during the task, this value specifies the stack trace associated with the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
-stsErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
-stsErrorStackTrace = lens _stsErrorStackTrace (\s a -> s {_stsErrorStackTrace = a})
+--
+-- /Note:/ Consider using 'errorStackTrace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsErrorStackTrace :: Lens.Lens' SetTaskStatus (Lude.Maybe Lude.Text)
+stsErrorStackTrace = Lens.lens (errorStackTrace :: SetTaskStatus -> Lude.Maybe Lude.Text) (\s a -> s {errorStackTrace = a} :: SetTaskStatus)
+{-# DEPRECATED stsErrorStackTrace "Use generic-lens or generic-optics with 'errorStackTrace' instead." #-}
 
 -- | If an error occurred during the task, this value specifies the error code. This value is set on the physical attempt object. It is used to display error information to the user. It should not start with string "Service_" which is reserved by the system.
-stsErrorId :: Lens' SetTaskStatus (Maybe Text)
-stsErrorId = lens _stsErrorId (\s a -> s {_stsErrorId = a})
+--
+-- /Note:/ Consider using 'errorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsErrorId :: Lens.Lens' SetTaskStatus (Lude.Maybe Lude.Text)
+stsErrorId = Lens.lens (errorId :: SetTaskStatus -> Lude.Maybe Lude.Text) (\s a -> s {errorId = a} :: SetTaskStatus)
+{-# DEPRECATED stsErrorId "Use generic-lens or generic-optics with 'errorId' instead." #-}
 
 -- | If an error occurred during the task, this value specifies a text description of the error. This value is set on the physical attempt object. It is used to display error information to the user. The web service does not parse this value.
-stsErrorMessage :: Lens' SetTaskStatus (Maybe Text)
-stsErrorMessage = lens _stsErrorMessage (\s a -> s {_stsErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsErrorMessage :: Lens.Lens' SetTaskStatus (Lude.Maybe Lude.Text)
+stsErrorMessage = Lens.lens (errorMessage :: SetTaskStatus -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: SetTaskStatus)
+{-# DEPRECATED stsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
-stsTaskId :: Lens' SetTaskStatus Text
-stsTaskId = lens _stsTaskId (\s a -> s {_stsTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsTaskId :: Lens.Lens' SetTaskStatus Lude.Text
+stsTaskId = Lens.lens (taskId :: SetTaskStatus -> Lude.Text) (\s a -> s {taskId = a} :: SetTaskStatus)
+{-# DEPRECATED stsTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | If @FINISHED@ , the task successfully completed. If @FAILED@ , the task ended unsuccessfully. Preconditions use false.
-stsTaskStatus :: Lens' SetTaskStatus TaskStatus
-stsTaskStatus = lens _stsTaskStatus (\s a -> s {_stsTaskStatus = a})
+--
+-- /Note:/ Consider using 'taskStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsTaskStatus :: Lens.Lens' SetTaskStatus TaskStatus
+stsTaskStatus = Lens.lens (taskStatus :: SetTaskStatus -> TaskStatus) (\s a -> s {taskStatus = a} :: SetTaskStatus)
+{-# DEPRECATED stsTaskStatus "Use generic-lens or generic-optics with 'taskStatus' instead." #-}
 
-instance AWSRequest SetTaskStatus where
+instance Lude.AWSRequest SetTaskStatus where
   type Rs SetTaskStatus = SetTaskStatusResponse
-  request = postJSON dataPipeline
+  request = Req.postJSON dataPipelineService
   response =
-    receiveEmpty
-      (\s h x -> SetTaskStatusResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          SetTaskStatusResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable SetTaskStatus
-
-instance NFData SetTaskStatus
-
-instance ToHeaders SetTaskStatus where
+instance Lude.ToHeaders SetTaskStatus where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("DataPipeline.SetTaskStatus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("DataPipeline.SetTaskStatus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON SetTaskStatus where
+instance Lude.ToJSON SetTaskStatus where
   toJSON SetTaskStatus' {..} =
-    object
-      ( catMaybes
-          [ ("errorStackTrace" .=) <$> _stsErrorStackTrace,
-            ("errorId" .=) <$> _stsErrorId,
-            ("errorMessage" .=) <$> _stsErrorMessage,
-            Just ("taskId" .= _stsTaskId),
-            Just ("taskStatus" .= _stsTaskStatus)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("errorStackTrace" Lude..=) Lude.<$> errorStackTrace,
+            ("errorId" Lude..=) Lude.<$> errorId,
+            ("errorMessage" Lude..=) Lude.<$> errorMessage,
+            Lude.Just ("taskId" Lude..= taskId),
+            Lude.Just ("taskStatus" Lude..= taskStatus)
           ]
       )
 
-instance ToPath SetTaskStatus where
-  toPath = const "/"
+instance Lude.ToPath SetTaskStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery SetTaskStatus where
-  toQuery = const mempty
+instance Lude.ToQuery SetTaskStatus where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of SetTaskStatus.
 --
---
---
--- /See:/ 'setTaskStatusResponse' smart constructor.
+-- /See:/ 'mkSetTaskStatusResponse' smart constructor.
 newtype SetTaskStatusResponse = SetTaskStatusResponse'
-  { _stsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTaskStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stsrsResponseStatus' - -- | The response status code.
-setTaskStatusResponse ::
-  -- | 'stsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkSetTaskStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SetTaskStatusResponse
-setTaskStatusResponse pResponseStatus_ =
-  SetTaskStatusResponse' {_stsrsResponseStatus = pResponseStatus_}
+mkSetTaskStatusResponse pResponseStatus_ =
+  SetTaskStatusResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-stsrsResponseStatus :: Lens' SetTaskStatusResponse Int
-stsrsResponseStatus = lens _stsrsResponseStatus (\s a -> s {_stsrsResponseStatus = a})
-
-instance NFData SetTaskStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsrsResponseStatus :: Lens.Lens' SetTaskStatusResponse Lude.Int
+stsrsResponseStatus = Lens.lens (responseStatus :: SetTaskStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetTaskStatusResponse)
+{-# DEPRECATED stsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

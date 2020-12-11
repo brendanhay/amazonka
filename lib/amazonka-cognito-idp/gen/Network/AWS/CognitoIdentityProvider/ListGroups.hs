@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists the groups associated with a user pool.
 --
---
 -- Calling this action requires developer credentials.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListGroups
-  ( -- * Creating a Request
-    listGroups,
-    ListGroups,
+  ( -- * Creating a request
+    ListGroups (..),
+    mkListGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgNextToken,
     lgLimit,
     lgUserPoolId,
 
-    -- * Destructuring the Response
-    listGroupsResponse,
-    ListGroupsResponse,
+    -- * Destructuring the response
+    ListGroupsResponse (..),
+    mkListGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgrsGroups,
     lgrsNextToken,
     lgrsResponseStatus,
@@ -46,139 +39,163 @@ module Network.AWS.CognitoIdentityProvider.ListGroups
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGroups' smart constructor.
+-- | /See:/ 'mkListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { _lgNextToken :: !(Maybe Text),
-    _lgLimit :: !(Maybe Nat),
-    _lgUserPoolId :: !Text
+  { nextToken :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    userPoolId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lgLimit' - The limit of the request to list groups.
---
--- * 'lgUserPoolId' - The user pool ID for the user pool.
-listGroups ::
-  -- | 'lgUserPoolId'
-  Text ->
+-- * 'limit' - The limit of the request to list groups.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'userPoolId' - The user pool ID for the user pool.
+mkListGroups ::
+  -- | 'userPoolId'
+  Lude.Text ->
   ListGroups
-listGroups pUserPoolId_ =
+mkListGroups pUserPoolId_ =
   ListGroups'
-    { _lgNextToken = Nothing,
-      _lgLimit = Nothing,
-      _lgUserPoolId = pUserPoolId_
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      userPoolId = pUserPoolId_
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lgNextToken :: Lens' ListGroups (Maybe Text)
-lgNextToken = lens _lgNextToken (\s a -> s {_lgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgNextToken :: Lens.Lens' ListGroups (Lude.Maybe Lude.Text)
+lgNextToken = Lens.lens (nextToken :: ListGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroups)
+{-# DEPRECATED lgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The limit of the request to list groups.
-lgLimit :: Lens' ListGroups (Maybe Natural)
-lgLimit = lens _lgLimit (\s a -> s {_lgLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgLimit :: Lens.Lens' ListGroups (Lude.Maybe Lude.Natural)
+lgLimit = Lens.lens (limit :: ListGroups -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListGroups)
+{-# DEPRECATED lgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The user pool ID for the user pool.
-lgUserPoolId :: Lens' ListGroups Text
-lgUserPoolId = lens _lgUserPoolId (\s a -> s {_lgUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgUserPoolId :: Lens.Lens' ListGroups Lude.Text
+lgUserPoolId = Lens.lens (userPoolId :: ListGroups -> Lude.Text) (\s a -> s {userPoolId = a} :: ListGroups)
+{-# DEPRECATED lgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance AWSPager ListGroups where
+instance Page.AWSPager ListGroups where
   page rq rs
-    | stop (rs ^. lgrsNextToken) = Nothing
-    | stop (rs ^. lgrsGroups) = Nothing
-    | otherwise = Just $ rq & lgNextToken .~ rs ^. lgrsNextToken
+    | Page.stop (rs Lens.^. lgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lgrsGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lgNextToken Lens..~ rs Lens.^. lgrsNextToken
 
-instance AWSRequest ListGroups where
+instance Lude.AWSRequest ListGroups where
   type Rs ListGroups = ListGroupsResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            <$> (x .?> "Groups" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Groups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGroups
-
-instance NFData ListGroups
-
-instance ToHeaders ListGroups where
+instance Lude.ToHeaders ListGroups where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.ListGroups" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.ListGroups" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListGroups where
+instance Lude.ToJSON ListGroups where
   toJSON ListGroups' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lgNextToken,
-            ("Limit" .=) <$> _lgLimit,
-            Just ("UserPoolId" .= _lgUserPoolId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
-instance ToPath ListGroups where
-  toPath = const "/"
+instance Lude.ToPath ListGroups where
+  toPath = Lude.const "/"
 
-instance ToQuery ListGroups where
-  toQuery = const mempty
+instance Lude.ToQuery ListGroups where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listGroupsResponse' smart constructor.
+-- | /See:/ 'mkListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { _lgrsGroups ::
-      !(Maybe [GroupType]),
-    _lgrsNextToken :: !(Maybe Text),
-    _lgrsResponseStatus :: !Int
+  { groups ::
+      Lude.Maybe [GroupType],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgrsGroups' - The group objects for the groups.
---
--- * 'lgrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lgrsResponseStatus' - -- | The response status code.
-listGroupsResponse ::
-  -- | 'lgrsResponseStatus'
-  Int ->
+-- * 'groups' - The group objects for the groups.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'responseStatus' - The response status code.
+mkListGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGroupsResponse
-listGroupsResponse pResponseStatus_ =
+mkListGroupsResponse pResponseStatus_ =
   ListGroupsResponse'
-    { _lgrsGroups = Nothing,
-      _lgrsNextToken = Nothing,
-      _lgrsResponseStatus = pResponseStatus_
+    { groups = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The group objects for the groups.
-lgrsGroups :: Lens' ListGroupsResponse [GroupType]
-lgrsGroups = lens _lgrsGroups (\s a -> s {_lgrsGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsGroups :: Lens.Lens' ListGroupsResponse (Lude.Maybe [GroupType])
+lgrsGroups = Lens.lens (groups :: ListGroupsResponse -> Lude.Maybe [GroupType]) (\s a -> s {groups = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lgrsNextToken :: Lens' ListGroupsResponse (Maybe Text)
-lgrsNextToken = lens _lgrsNextToken (\s a -> s {_lgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsNextToken :: Lens.Lens' ListGroupsResponse (Lude.Maybe Lude.Text)
+lgrsNextToken = Lens.lens (nextToken :: ListGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lgrsResponseStatus :: Lens' ListGroupsResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\s a -> s {_lgrsResponseStatus = a})
-
-instance NFData ListGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrsResponseStatus :: Lens.Lens' ListGroupsResponse Lude.Int
+lgrsResponseStatus = Lens.lens (responseStatus :: ListGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGroupsResponse)
+{-# DEPRECATED lgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

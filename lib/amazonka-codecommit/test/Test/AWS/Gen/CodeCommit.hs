@@ -28,469 +28,469 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestMergePullRequestByFastForward $
---             mergePullRequestByFastForward
+--             mkMergePullRequestByFastForward
 --
 --         , requestUpdateRepositoryName $
---             updateRepositoryName
+--             mkUpdateRepositoryName
 --
 --         , requestPostCommentForPullRequest $
---             postCommentForPullRequest
+--             mkPostCommentForPullRequest
 --
 --         , requestMergeBranchesBySquash $
---             mergeBranchesBySquash
+--             mkMergeBranchesBySquash
 --
 --         , requestGetCommit $
---             getCommit
+--             mkGetCommit
 --
 --         , requestBatchAssociateApprovalRuleTemplateWithRepositories $
---             batchAssociateApprovalRuleTemplateWithRepositories
+--             mkBatchAssociateApprovalRuleTemplateWithRepositories
 --
 --         , requestGetCommentReactions $
---             getCommentReactions
+--             mkGetCommentReactions
 --
 --         , requestGetApprovalRuleTemplate $
---             getApprovalRuleTemplate
+--             mkGetApprovalRuleTemplate
 --
 --         , requestDisassociateApprovalRuleTemplateFromRepository $
---             disassociateApprovalRuleTemplateFromRepository
+--             mkDisassociateApprovalRuleTemplateFromRepository
 --
 --         , requestGetBranch $
---             getBranch
+--             mkGetBranch
 --
 --         , requestGetDifferences $
---             getDifferences
+--             mkGetDifferences
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestGetPullRequest $
---             getPullRequest
+--             mkGetPullRequest
 --
 --         , requestOverridePullRequestApprovalRules $
---             overridePullRequestApprovalRules
+--             mkOverridePullRequestApprovalRules
 --
 --         , requestListPullRequests $
---             listPullRequests
+--             mkListPullRequests
 --
 --         , requestCreateCommit $
---             createCommit
+--             mkCreateCommit
 --
 --         , requestUpdatePullRequestApprovalState $
---             updatePullRequestApprovalState
+--             mkUpdatePullRequestApprovalState
 --
 --         , requestEvaluatePullRequestApprovalRules $
---             evaluatePullRequestApprovalRules
+--             mkEvaluatePullRequestApprovalRules
 --
 --         , requestGetComment $
---             getComment
+--             mkGetComment
 --
 --         , requestCreateApprovalRuleTemplate $
---             createApprovalRuleTemplate
+--             mkCreateApprovalRuleTemplate
 --
 --         , requestDeleteBranch $
---             deleteBranch
+--             mkDeleteBranch
 --
 --         , requestUpdateRepositoryDescription $
---             updateRepositoryDescription
+--             mkUpdateRepositoryDescription
 --
 --         , requestCreateBranch $
---             createBranch
+--             mkCreateBranch
 --
 --         , requestGetFolder $
---             getFolder
+--             mkGetFolder
 --
 --         , requestCreatePullRequest $
---             createPullRequest
+--             mkCreatePullRequest
 --
 --         , requestDeleteApprovalRuleTemplate $
---             deleteApprovalRuleTemplate
+--             mkDeleteApprovalRuleTemplate
 --
 --         , requestListBranches $
---             listBranches
+--             mkListBranches
 --
 --         , requestBatchGetCommits $
---             batchGetCommits
+--             mkBatchGetCommits
 --
 --         , requestPutCommentReaction $
---             putCommentReaction
+--             mkPutCommentReaction
 --
 --         , requestUpdatePullRequestDescription $
---             updatePullRequestDescription
+--             mkUpdatePullRequestDescription
 --
 --         , requestListRepositories $
---             listRepositories
+--             mkListRepositories
 --
 --         , requestCreateRepository $
---             createRepository
+--             mkCreateRepository
 --
 --         , requestUpdateDefaultBranch $
---             updateDefaultBranch
+--             mkUpdateDefaultBranch
 --
 --         , requestGetMergeOptions $
---             getMergeOptions
+--             mkGetMergeOptions
 --
 --         , requestCreatePullRequestApprovalRule $
---             createPullRequestApprovalRule
+--             mkCreatePullRequestApprovalRule
 --
 --         , requestPostCommentReply $
---             postCommentReply
+--             mkPostCommentReply
 --
 --         , requestUpdateApprovalRuleTemplateContent $
---             updateApprovalRuleTemplateContent
+--             mkUpdateApprovalRuleTemplateContent
 --
 --         , requestCreateUnreferencedMergeCommit $
---             createUnreferencedMergeCommit
+--             mkCreateUnreferencedMergeCommit
 --
 --         , requestListRepositoriesForApprovalRuleTemplate $
---             listRepositoriesForApprovalRuleTemplate
+--             mkListRepositoriesForApprovalRuleTemplate
 --
 --         , requestGetRepository $
---             getRepository
+--             mkGetRepository
 --
 --         , requestBatchDescribeMergeConflicts $
---             batchDescribeMergeConflicts
+--             mkBatchDescribeMergeConflicts
 --
 --         , requestDeletePullRequestApprovalRule $
---             deletePullRequestApprovalRule
+--             mkDeletePullRequestApprovalRule
 --
 --         , requestGetRepositoryTriggers $
---             getRepositoryTriggers
+--             mkGetRepositoryTriggers
 --
 --         , requestUpdateApprovalRuleTemplateName $
---             updateApprovalRuleTemplateName
+--             mkUpdateApprovalRuleTemplateName
 --
 --         , requestPutFile $
---             putFile
+--             mkPutFile
 --
 --         , requestDeleteFile $
---             deleteFile
+--             mkDeleteFile
 --
 --         , requestGetCommentsForComparedCommit $
---             getCommentsForComparedCommit
+--             mkGetCommentsForComparedCommit
 --
 --         , requestGetMergeCommit $
---             getMergeCommit
+--             mkGetMergeCommit
 --
 --         , requestTestRepositoryTriggers $
---             testRepositoryTriggers
+--             mkTestRepositoryTriggers
 --
 --         , requestMergePullRequestBySquash $
---             mergePullRequestBySquash
+--             mkMergePullRequestBySquash
 --
 --         , requestUpdateComment $
---             updateComment
+--             mkUpdateComment
 --
 --         , requestPostCommentForComparedCommit $
---             postCommentForComparedCommit
+--             mkPostCommentForComparedCommit
 --
 --         , requestMergeBranchesByFastForward $
---             mergeBranchesByFastForward
+--             mkMergeBranchesByFastForward
 --
 --         , requestUpdatePullRequestTitle $
---             updatePullRequestTitle
+--             mkUpdatePullRequestTitle
 --
 --         , requestBatchDisassociateApprovalRuleTemplateFromRepositories $
---             batchDisassociateApprovalRuleTemplateFromRepositories
+--             mkBatchDisassociateApprovalRuleTemplateFromRepositories
 --
 --         , requestUpdatePullRequestApprovalRuleContent $
---             updatePullRequestApprovalRuleContent
+--             mkUpdatePullRequestApprovalRuleContent
 --
 --         , requestGetBlob $
---             getBlob
+--             mkGetBlob
 --
 --         , requestAssociateApprovalRuleTemplateWithRepository $
---             associateApprovalRuleTemplateWithRepository
+--             mkAssociateApprovalRuleTemplateWithRepository
 --
 --         , requestPutRepositoryTriggers $
---             putRepositoryTriggers
+--             mkPutRepositoryTriggers
 --
 --         , requestListApprovalRuleTemplates $
---             listApprovalRuleTemplates
+--             mkListApprovalRuleTemplates
 --
 --         , requestDescribeMergeConflicts $
---             describeMergeConflicts
+--             mkDescribeMergeConflicts
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestMergeBranchesByThreeWay $
---             mergeBranchesByThreeWay
+--             mkMergeBranchesByThreeWay
 --
 --         , requestGetFile $
---             getFile
+--             mkGetFile
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestGetMergeConflicts $
---             getMergeConflicts
+--             mkGetMergeConflicts
 --
 --         , requestDeleteRepository $
---             deleteRepository
+--             mkDeleteRepository
 --
 --         , requestDeleteCommentContent $
---             deleteCommentContent
+--             mkDeleteCommentContent
 --
 --         , requestMergePullRequestByThreeWay $
---             mergePullRequestByThreeWay
+--             mkMergePullRequestByThreeWay
 --
 --         , requestDescribePullRequestEvents $
---             describePullRequestEvents
+--             mkDescribePullRequestEvents
 --
 --         , requestBatchGetRepositories $
---             batchGetRepositories
+--             mkBatchGetRepositories
 --
 --         , requestUpdateApprovalRuleTemplateDescription $
---             updateApprovalRuleTemplateDescription
+--             mkUpdateApprovalRuleTemplateDescription
 --
 --         , requestGetPullRequestOverrideState $
---             getPullRequestOverrideState
+--             mkGetPullRequestOverrideState
 --
 --         , requestGetPullRequestApprovalStates $
---             getPullRequestApprovalStates
+--             mkGetPullRequestApprovalStates
 --
 --         , requestGetCommentsForPullRequest $
---             getCommentsForPullRequest
+--             mkGetCommentsForPullRequest
 --
 --         , requestUpdatePullRequestStatus $
---             updatePullRequestStatus
+--             mkUpdatePullRequestStatus
 --
 --         , requestListAssociatedApprovalRuleTemplatesForRepository $
---             listAssociatedApprovalRuleTemplatesForRepository
+--             mkListAssociatedApprovalRuleTemplatesForRepository
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseMergePullRequestByFastForward $
---             mergePullRequestByFastForwardResponse
+--             mkMergePullRequestByFastForwardResponse
 --
 --         , responseUpdateRepositoryName $
---             updateRepositoryNameResponse
+--             mkUpdateRepositoryNameResponse
 --
 --         , responsePostCommentForPullRequest $
---             postCommentForPullRequestResponse
+--             mkPostCommentForPullRequestResponse
 --
 --         , responseMergeBranchesBySquash $
---             mergeBranchesBySquashResponse
+--             mkMergeBranchesBySquashResponse
 --
 --         , responseGetCommit $
---             getCommitResponse
+--             mkGetCommitResponse
 --
 --         , responseBatchAssociateApprovalRuleTemplateWithRepositories $
---             batchAssociateApprovalRuleTemplateWithRepositoriesResponse
+--             mkBatchAssociateApprovalRuleTemplateWithRepositoriesResponse
 --
 --         , responseGetCommentReactions $
---             getCommentReactionsResponse
+--             mkGetCommentReactionsResponse
 --
 --         , responseGetApprovalRuleTemplate $
---             getApprovalRuleTemplateResponse
+--             mkGetApprovalRuleTemplateResponse
 --
 --         , responseDisassociateApprovalRuleTemplateFromRepository $
---             disassociateApprovalRuleTemplateFromRepositoryResponse
+--             mkDisassociateApprovalRuleTemplateFromRepositoryResponse
 --
 --         , responseGetBranch $
---             getBranchResponse
+--             mkGetBranchResponse
 --
 --         , responseGetDifferences $
---             getDifferencesResponse
+--             mkGetDifferencesResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseGetPullRequest $
---             getPullRequestResponse
+--             mkGetPullRequestResponse
 --
 --         , responseOverridePullRequestApprovalRules $
---             overridePullRequestApprovalRulesResponse
+--             mkOverridePullRequestApprovalRulesResponse
 --
 --         , responseListPullRequests $
---             listPullRequestsResponse
+--             mkListPullRequestsResponse
 --
 --         , responseCreateCommit $
---             createCommitResponse
+--             mkCreateCommitResponse
 --
 --         , responseUpdatePullRequestApprovalState $
---             updatePullRequestApprovalStateResponse
+--             mkUpdatePullRequestApprovalStateResponse
 --
 --         , responseEvaluatePullRequestApprovalRules $
---             evaluatePullRequestApprovalRulesResponse
+--             mkEvaluatePullRequestApprovalRulesResponse
 --
 --         , responseGetComment $
---             getCommentResponse
+--             mkGetCommentResponse
 --
 --         , responseCreateApprovalRuleTemplate $
---             createApprovalRuleTemplateResponse
+--             mkCreateApprovalRuleTemplateResponse
 --
 --         , responseDeleteBranch $
---             deleteBranchResponse
+--             mkDeleteBranchResponse
 --
 --         , responseUpdateRepositoryDescription $
---             updateRepositoryDescriptionResponse
+--             mkUpdateRepositoryDescriptionResponse
 --
 --         , responseCreateBranch $
---             createBranchResponse
+--             mkCreateBranchResponse
 --
 --         , responseGetFolder $
---             getFolderResponse
+--             mkGetFolderResponse
 --
 --         , responseCreatePullRequest $
---             createPullRequestResponse
+--             mkCreatePullRequestResponse
 --
 --         , responseDeleteApprovalRuleTemplate $
---             deleteApprovalRuleTemplateResponse
+--             mkDeleteApprovalRuleTemplateResponse
 --
 --         , responseListBranches $
---             listBranchesResponse
+--             mkListBranchesResponse
 --
 --         , responseBatchGetCommits $
---             batchGetCommitsResponse
+--             mkBatchGetCommitsResponse
 --
 --         , responsePutCommentReaction $
---             putCommentReactionResponse
+--             mkPutCommentReactionResponse
 --
 --         , responseUpdatePullRequestDescription $
---             updatePullRequestDescriptionResponse
+--             mkUpdatePullRequestDescriptionResponse
 --
 --         , responseListRepositories $
---             listRepositoriesResponse
+--             mkListRepositoriesResponse
 --
 --         , responseCreateRepository $
---             createRepositoryResponse
+--             mkCreateRepositoryResponse
 --
 --         , responseUpdateDefaultBranch $
---             updateDefaultBranchResponse
+--             mkUpdateDefaultBranchResponse
 --
 --         , responseGetMergeOptions $
---             getMergeOptionsResponse
+--             mkGetMergeOptionsResponse
 --
 --         , responseCreatePullRequestApprovalRule $
---             createPullRequestApprovalRuleResponse
+--             mkCreatePullRequestApprovalRuleResponse
 --
 --         , responsePostCommentReply $
---             postCommentReplyResponse
+--             mkPostCommentReplyResponse
 --
 --         , responseUpdateApprovalRuleTemplateContent $
---             updateApprovalRuleTemplateContentResponse
+--             mkUpdateApprovalRuleTemplateContentResponse
 --
 --         , responseCreateUnreferencedMergeCommit $
---             createUnreferencedMergeCommitResponse
+--             mkCreateUnreferencedMergeCommitResponse
 --
 --         , responseListRepositoriesForApprovalRuleTemplate $
---             listRepositoriesForApprovalRuleTemplateResponse
+--             mkListRepositoriesForApprovalRuleTemplateResponse
 --
 --         , responseGetRepository $
---             getRepositoryResponse
+--             mkGetRepositoryResponse
 --
 --         , responseBatchDescribeMergeConflicts $
---             batchDescribeMergeConflictsResponse
+--             mkBatchDescribeMergeConflictsResponse
 --
 --         , responseDeletePullRequestApprovalRule $
---             deletePullRequestApprovalRuleResponse
+--             mkDeletePullRequestApprovalRuleResponse
 --
 --         , responseGetRepositoryTriggers $
---             getRepositoryTriggersResponse
+--             mkGetRepositoryTriggersResponse
 --
 --         , responseUpdateApprovalRuleTemplateName $
---             updateApprovalRuleTemplateNameResponse
+--             mkUpdateApprovalRuleTemplateNameResponse
 --
 --         , responsePutFile $
---             putFileResponse
+--             mkPutFileResponse
 --
 --         , responseDeleteFile $
---             deleteFileResponse
+--             mkDeleteFileResponse
 --
 --         , responseGetCommentsForComparedCommit $
---             getCommentsForComparedCommitResponse
+--             mkGetCommentsForComparedCommitResponse
 --
 --         , responseGetMergeCommit $
---             getMergeCommitResponse
+--             mkGetMergeCommitResponse
 --
 --         , responseTestRepositoryTriggers $
---             testRepositoryTriggersResponse
+--             mkTestRepositoryTriggersResponse
 --
 --         , responseMergePullRequestBySquash $
---             mergePullRequestBySquashResponse
+--             mkMergePullRequestBySquashResponse
 --
 --         , responseUpdateComment $
---             updateCommentResponse
+--             mkUpdateCommentResponse
 --
 --         , responsePostCommentForComparedCommit $
---             postCommentForComparedCommitResponse
+--             mkPostCommentForComparedCommitResponse
 --
 --         , responseMergeBranchesByFastForward $
---             mergeBranchesByFastForwardResponse
+--             mkMergeBranchesByFastForwardResponse
 --
 --         , responseUpdatePullRequestTitle $
---             updatePullRequestTitleResponse
+--             mkUpdatePullRequestTitleResponse
 --
 --         , responseBatchDisassociateApprovalRuleTemplateFromRepositories $
---             batchDisassociateApprovalRuleTemplateFromRepositoriesResponse
+--             mkBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse
 --
 --         , responseUpdatePullRequestApprovalRuleContent $
---             updatePullRequestApprovalRuleContentResponse
+--             mkUpdatePullRequestApprovalRuleContentResponse
 --
 --         , responseGetBlob $
---             getBlobResponse
+--             mkGetBlobResponse
 --
 --         , responseAssociateApprovalRuleTemplateWithRepository $
---             associateApprovalRuleTemplateWithRepositoryResponse
+--             mkAssociateApprovalRuleTemplateWithRepositoryResponse
 --
 --         , responsePutRepositoryTriggers $
---             putRepositoryTriggersResponse
+--             mkPutRepositoryTriggersResponse
 --
 --         , responseListApprovalRuleTemplates $
---             listApprovalRuleTemplatesResponse
+--             mkListApprovalRuleTemplatesResponse
 --
 --         , responseDescribeMergeConflicts $
---             describeMergeConflictsResponse
+--             mkDescribeMergeConflictsResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseMergeBranchesByThreeWay $
---             mergeBranchesByThreeWayResponse
+--             mkMergeBranchesByThreeWayResponse
 --
 --         , responseGetFile $
---             getFileResponse
+--             mkGetFileResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseGetMergeConflicts $
---             getMergeConflictsResponse
+--             mkGetMergeConflictsResponse
 --
 --         , responseDeleteRepository $
---             deleteRepositoryResponse
+--             mkDeleteRepositoryResponse
 --
 --         , responseDeleteCommentContent $
---             deleteCommentContentResponse
+--             mkDeleteCommentContentResponse
 --
 --         , responseMergePullRequestByThreeWay $
---             mergePullRequestByThreeWayResponse
+--             mkMergePullRequestByThreeWayResponse
 --
 --         , responseDescribePullRequestEvents $
---             describePullRequestEventsResponse
+--             mkDescribePullRequestEventsResponse
 --
 --         , responseBatchGetRepositories $
---             batchGetRepositoriesResponse
+--             mkBatchGetRepositoriesResponse
 --
 --         , responseUpdateApprovalRuleTemplateDescription $
---             updateApprovalRuleTemplateDescriptionResponse
+--             mkUpdateApprovalRuleTemplateDescriptionResponse
 --
 --         , responseGetPullRequestOverrideState $
---             getPullRequestOverrideStateResponse
+--             mkGetPullRequestOverrideStateResponse
 --
 --         , responseGetPullRequestApprovalStates $
---             getPullRequestApprovalStatesResponse
+--             mkGetPullRequestApprovalStatesResponse
 --
 --         , responseGetCommentsForPullRequest $
---             getCommentsForPullRequestResponse
+--             mkGetCommentsForPullRequestResponse
 --
 --         , responseUpdatePullRequestStatus $
---             updatePullRequestStatusResponse
+--             mkUpdatePullRequestStatusResponse
 --
 --         , responseListAssociatedApprovalRuleTemplatesForRepository $
---             listAssociatedApprovalRuleTemplatesForRepositoryResponse
+--             mkListAssociatedApprovalRuleTemplatesForRepositoryResponse
 --
 --           ]
 --     ]
@@ -966,7 +966,7 @@ responseMergePullRequestByFastForward =
   res
     "MergePullRequestByFastForwardResponse"
     "fixture/MergePullRequestByFastForwardResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy MergePullRequestByFastForward)
 
 responseUpdateRepositoryName :: UpdateRepositoryNameResponse -> TestTree
@@ -974,7 +974,7 @@ responseUpdateRepositoryName =
   res
     "UpdateRepositoryNameResponse"
     "fixture/UpdateRepositoryNameResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdateRepositoryName)
 
 responsePostCommentForPullRequest :: PostCommentForPullRequestResponse -> TestTree
@@ -982,7 +982,7 @@ responsePostCommentForPullRequest =
   res
     "PostCommentForPullRequestResponse"
     "fixture/PostCommentForPullRequestResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy PostCommentForPullRequest)
 
 responseMergeBranchesBySquash :: MergeBranchesBySquashResponse -> TestTree
@@ -990,7 +990,7 @@ responseMergeBranchesBySquash =
   res
     "MergeBranchesBySquashResponse"
     "fixture/MergeBranchesBySquashResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy MergeBranchesBySquash)
 
 responseGetCommit :: GetCommitResponse -> TestTree
@@ -998,7 +998,7 @@ responseGetCommit =
   res
     "GetCommitResponse"
     "fixture/GetCommitResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetCommit)
 
 responseBatchAssociateApprovalRuleTemplateWithRepositories :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse -> TestTree
@@ -1006,7 +1006,7 @@ responseBatchAssociateApprovalRuleTemplateWithRepositories =
   res
     "BatchAssociateApprovalRuleTemplateWithRepositoriesResponse"
     "fixture/BatchAssociateApprovalRuleTemplateWithRepositoriesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy BatchAssociateApprovalRuleTemplateWithRepositories)
 
 responseGetCommentReactions :: GetCommentReactionsResponse -> TestTree
@@ -1014,7 +1014,7 @@ responseGetCommentReactions =
   res
     "GetCommentReactionsResponse"
     "fixture/GetCommentReactionsResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetCommentReactions)
 
 responseGetApprovalRuleTemplate :: GetApprovalRuleTemplateResponse -> TestTree
@@ -1022,7 +1022,7 @@ responseGetApprovalRuleTemplate =
   res
     "GetApprovalRuleTemplateResponse"
     "fixture/GetApprovalRuleTemplateResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetApprovalRuleTemplate)
 
 responseDisassociateApprovalRuleTemplateFromRepository :: DisassociateApprovalRuleTemplateFromRepositoryResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseDisassociateApprovalRuleTemplateFromRepository =
   res
     "DisassociateApprovalRuleTemplateFromRepositoryResponse"
     "fixture/DisassociateApprovalRuleTemplateFromRepositoryResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy DisassociateApprovalRuleTemplateFromRepository)
 
 responseGetBranch :: GetBranchResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseGetBranch =
   res
     "GetBranchResponse"
     "fixture/GetBranchResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetBranch)
 
 responseGetDifferences :: GetDifferencesResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseGetDifferences =
   res
     "GetDifferencesResponse"
     "fixture/GetDifferencesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetDifferences)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1054,7 +1054,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetPullRequest :: GetPullRequestResponse -> TestTree
@@ -1062,7 +1062,7 @@ responseGetPullRequest =
   res
     "GetPullRequestResponse"
     "fixture/GetPullRequestResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetPullRequest)
 
 responseOverridePullRequestApprovalRules :: OverridePullRequestApprovalRulesResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseOverridePullRequestApprovalRules =
   res
     "OverridePullRequestApprovalRulesResponse"
     "fixture/OverridePullRequestApprovalRulesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy OverridePullRequestApprovalRules)
 
 responseListPullRequests :: ListPullRequestsResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseListPullRequests =
   res
     "ListPullRequestsResponse"
     "fixture/ListPullRequestsResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy ListPullRequests)
 
 responseCreateCommit :: CreateCommitResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseCreateCommit =
   res
     "CreateCommitResponse"
     "fixture/CreateCommitResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy CreateCommit)
 
 responseUpdatePullRequestApprovalState :: UpdatePullRequestApprovalStateResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseUpdatePullRequestApprovalState =
   res
     "UpdatePullRequestApprovalStateResponse"
     "fixture/UpdatePullRequestApprovalStateResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdatePullRequestApprovalState)
 
 responseEvaluatePullRequestApprovalRules :: EvaluatePullRequestApprovalRulesResponse -> TestTree
@@ -1102,7 +1102,7 @@ responseEvaluatePullRequestApprovalRules =
   res
     "EvaluatePullRequestApprovalRulesResponse"
     "fixture/EvaluatePullRequestApprovalRulesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy EvaluatePullRequestApprovalRules)
 
 responseGetComment :: GetCommentResponse -> TestTree
@@ -1110,7 +1110,7 @@ responseGetComment =
   res
     "GetCommentResponse"
     "fixture/GetCommentResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetComment)
 
 responseCreateApprovalRuleTemplate :: CreateApprovalRuleTemplateResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseCreateApprovalRuleTemplate =
   res
     "CreateApprovalRuleTemplateResponse"
     "fixture/CreateApprovalRuleTemplateResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy CreateApprovalRuleTemplate)
 
 responseDeleteBranch :: DeleteBranchResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseDeleteBranch =
   res
     "DeleteBranchResponse"
     "fixture/DeleteBranchResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy DeleteBranch)
 
 responseUpdateRepositoryDescription :: UpdateRepositoryDescriptionResponse -> TestTree
@@ -1134,7 +1134,7 @@ responseUpdateRepositoryDescription =
   res
     "UpdateRepositoryDescriptionResponse"
     "fixture/UpdateRepositoryDescriptionResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdateRepositoryDescription)
 
 responseCreateBranch :: CreateBranchResponse -> TestTree
@@ -1142,7 +1142,7 @@ responseCreateBranch =
   res
     "CreateBranchResponse"
     "fixture/CreateBranchResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy CreateBranch)
 
 responseGetFolder :: GetFolderResponse -> TestTree
@@ -1150,7 +1150,7 @@ responseGetFolder =
   res
     "GetFolderResponse"
     "fixture/GetFolderResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetFolder)
 
 responseCreatePullRequest :: CreatePullRequestResponse -> TestTree
@@ -1158,7 +1158,7 @@ responseCreatePullRequest =
   res
     "CreatePullRequestResponse"
     "fixture/CreatePullRequestResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy CreatePullRequest)
 
 responseDeleteApprovalRuleTemplate :: DeleteApprovalRuleTemplateResponse -> TestTree
@@ -1166,7 +1166,7 @@ responseDeleteApprovalRuleTemplate =
   res
     "DeleteApprovalRuleTemplateResponse"
     "fixture/DeleteApprovalRuleTemplateResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy DeleteApprovalRuleTemplate)
 
 responseListBranches :: ListBranchesResponse -> TestTree
@@ -1174,7 +1174,7 @@ responseListBranches =
   res
     "ListBranchesResponse"
     "fixture/ListBranchesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy ListBranches)
 
 responseBatchGetCommits :: BatchGetCommitsResponse -> TestTree
@@ -1182,7 +1182,7 @@ responseBatchGetCommits =
   res
     "BatchGetCommitsResponse"
     "fixture/BatchGetCommitsResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy BatchGetCommits)
 
 responsePutCommentReaction :: PutCommentReactionResponse -> TestTree
@@ -1190,7 +1190,7 @@ responsePutCommentReaction =
   res
     "PutCommentReactionResponse"
     "fixture/PutCommentReactionResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy PutCommentReaction)
 
 responseUpdatePullRequestDescription :: UpdatePullRequestDescriptionResponse -> TestTree
@@ -1198,7 +1198,7 @@ responseUpdatePullRequestDescription =
   res
     "UpdatePullRequestDescriptionResponse"
     "fixture/UpdatePullRequestDescriptionResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdatePullRequestDescription)
 
 responseListRepositories :: ListRepositoriesResponse -> TestTree
@@ -1206,7 +1206,7 @@ responseListRepositories =
   res
     "ListRepositoriesResponse"
     "fixture/ListRepositoriesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy ListRepositories)
 
 responseCreateRepository :: CreateRepositoryResponse -> TestTree
@@ -1214,7 +1214,7 @@ responseCreateRepository =
   res
     "CreateRepositoryResponse"
     "fixture/CreateRepositoryResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy CreateRepository)
 
 responseUpdateDefaultBranch :: UpdateDefaultBranchResponse -> TestTree
@@ -1222,7 +1222,7 @@ responseUpdateDefaultBranch =
   res
     "UpdateDefaultBranchResponse"
     "fixture/UpdateDefaultBranchResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdateDefaultBranch)
 
 responseGetMergeOptions :: GetMergeOptionsResponse -> TestTree
@@ -1230,7 +1230,7 @@ responseGetMergeOptions =
   res
     "GetMergeOptionsResponse"
     "fixture/GetMergeOptionsResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetMergeOptions)
 
 responseCreatePullRequestApprovalRule :: CreatePullRequestApprovalRuleResponse -> TestTree
@@ -1238,7 +1238,7 @@ responseCreatePullRequestApprovalRule =
   res
     "CreatePullRequestApprovalRuleResponse"
     "fixture/CreatePullRequestApprovalRuleResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy CreatePullRequestApprovalRule)
 
 responsePostCommentReply :: PostCommentReplyResponse -> TestTree
@@ -1246,7 +1246,7 @@ responsePostCommentReply =
   res
     "PostCommentReplyResponse"
     "fixture/PostCommentReplyResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy PostCommentReply)
 
 responseUpdateApprovalRuleTemplateContent :: UpdateApprovalRuleTemplateContentResponse -> TestTree
@@ -1254,7 +1254,7 @@ responseUpdateApprovalRuleTemplateContent =
   res
     "UpdateApprovalRuleTemplateContentResponse"
     "fixture/UpdateApprovalRuleTemplateContentResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdateApprovalRuleTemplateContent)
 
 responseCreateUnreferencedMergeCommit :: CreateUnreferencedMergeCommitResponse -> TestTree
@@ -1262,7 +1262,7 @@ responseCreateUnreferencedMergeCommit =
   res
     "CreateUnreferencedMergeCommitResponse"
     "fixture/CreateUnreferencedMergeCommitResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy CreateUnreferencedMergeCommit)
 
 responseListRepositoriesForApprovalRuleTemplate :: ListRepositoriesForApprovalRuleTemplateResponse -> TestTree
@@ -1270,7 +1270,7 @@ responseListRepositoriesForApprovalRuleTemplate =
   res
     "ListRepositoriesForApprovalRuleTemplateResponse"
     "fixture/ListRepositoriesForApprovalRuleTemplateResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy ListRepositoriesForApprovalRuleTemplate)
 
 responseGetRepository :: GetRepositoryResponse -> TestTree
@@ -1278,7 +1278,7 @@ responseGetRepository =
   res
     "GetRepositoryResponse"
     "fixture/GetRepositoryResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetRepository)
 
 responseBatchDescribeMergeConflicts :: BatchDescribeMergeConflictsResponse -> TestTree
@@ -1286,7 +1286,7 @@ responseBatchDescribeMergeConflicts =
   res
     "BatchDescribeMergeConflictsResponse"
     "fixture/BatchDescribeMergeConflictsResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy BatchDescribeMergeConflicts)
 
 responseDeletePullRequestApprovalRule :: DeletePullRequestApprovalRuleResponse -> TestTree
@@ -1294,7 +1294,7 @@ responseDeletePullRequestApprovalRule =
   res
     "DeletePullRequestApprovalRuleResponse"
     "fixture/DeletePullRequestApprovalRuleResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy DeletePullRequestApprovalRule)
 
 responseGetRepositoryTriggers :: GetRepositoryTriggersResponse -> TestTree
@@ -1302,7 +1302,7 @@ responseGetRepositoryTriggers =
   res
     "GetRepositoryTriggersResponse"
     "fixture/GetRepositoryTriggersResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetRepositoryTriggers)
 
 responseUpdateApprovalRuleTemplateName :: UpdateApprovalRuleTemplateNameResponse -> TestTree
@@ -1310,7 +1310,7 @@ responseUpdateApprovalRuleTemplateName =
   res
     "UpdateApprovalRuleTemplateNameResponse"
     "fixture/UpdateApprovalRuleTemplateNameResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdateApprovalRuleTemplateName)
 
 responsePutFile :: PutFileResponse -> TestTree
@@ -1318,7 +1318,7 @@ responsePutFile =
   res
     "PutFileResponse"
     "fixture/PutFileResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy PutFile)
 
 responseDeleteFile :: DeleteFileResponse -> TestTree
@@ -1326,7 +1326,7 @@ responseDeleteFile =
   res
     "DeleteFileResponse"
     "fixture/DeleteFileResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy DeleteFile)
 
 responseGetCommentsForComparedCommit :: GetCommentsForComparedCommitResponse -> TestTree
@@ -1334,7 +1334,7 @@ responseGetCommentsForComparedCommit =
   res
     "GetCommentsForComparedCommitResponse"
     "fixture/GetCommentsForComparedCommitResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetCommentsForComparedCommit)
 
 responseGetMergeCommit :: GetMergeCommitResponse -> TestTree
@@ -1342,7 +1342,7 @@ responseGetMergeCommit =
   res
     "GetMergeCommitResponse"
     "fixture/GetMergeCommitResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetMergeCommit)
 
 responseTestRepositoryTriggers :: TestRepositoryTriggersResponse -> TestTree
@@ -1350,7 +1350,7 @@ responseTestRepositoryTriggers =
   res
     "TestRepositoryTriggersResponse"
     "fixture/TestRepositoryTriggersResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy TestRepositoryTriggers)
 
 responseMergePullRequestBySquash :: MergePullRequestBySquashResponse -> TestTree
@@ -1358,7 +1358,7 @@ responseMergePullRequestBySquash =
   res
     "MergePullRequestBySquashResponse"
     "fixture/MergePullRequestBySquashResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy MergePullRequestBySquash)
 
 responseUpdateComment :: UpdateCommentResponse -> TestTree
@@ -1366,7 +1366,7 @@ responseUpdateComment =
   res
     "UpdateCommentResponse"
     "fixture/UpdateCommentResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdateComment)
 
 responsePostCommentForComparedCommit :: PostCommentForComparedCommitResponse -> TestTree
@@ -1374,7 +1374,7 @@ responsePostCommentForComparedCommit =
   res
     "PostCommentForComparedCommitResponse"
     "fixture/PostCommentForComparedCommitResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy PostCommentForComparedCommit)
 
 responseMergeBranchesByFastForward :: MergeBranchesByFastForwardResponse -> TestTree
@@ -1382,7 +1382,7 @@ responseMergeBranchesByFastForward =
   res
     "MergeBranchesByFastForwardResponse"
     "fixture/MergeBranchesByFastForwardResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy MergeBranchesByFastForward)
 
 responseUpdatePullRequestTitle :: UpdatePullRequestTitleResponse -> TestTree
@@ -1390,7 +1390,7 @@ responseUpdatePullRequestTitle =
   res
     "UpdatePullRequestTitleResponse"
     "fixture/UpdatePullRequestTitleResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdatePullRequestTitle)
 
 responseBatchDisassociateApprovalRuleTemplateFromRepositories :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse -> TestTree
@@ -1398,7 +1398,7 @@ responseBatchDisassociateApprovalRuleTemplateFromRepositories =
   res
     "BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse"
     "fixture/BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy BatchDisassociateApprovalRuleTemplateFromRepositories)
 
 responseUpdatePullRequestApprovalRuleContent :: UpdatePullRequestApprovalRuleContentResponse -> TestTree
@@ -1406,7 +1406,7 @@ responseUpdatePullRequestApprovalRuleContent =
   res
     "UpdatePullRequestApprovalRuleContentResponse"
     "fixture/UpdatePullRequestApprovalRuleContentResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdatePullRequestApprovalRuleContent)
 
 responseGetBlob :: GetBlobResponse -> TestTree
@@ -1414,7 +1414,7 @@ responseGetBlob =
   res
     "GetBlobResponse"
     "fixture/GetBlobResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetBlob)
 
 responseAssociateApprovalRuleTemplateWithRepository :: AssociateApprovalRuleTemplateWithRepositoryResponse -> TestTree
@@ -1422,7 +1422,7 @@ responseAssociateApprovalRuleTemplateWithRepository =
   res
     "AssociateApprovalRuleTemplateWithRepositoryResponse"
     "fixture/AssociateApprovalRuleTemplateWithRepositoryResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy AssociateApprovalRuleTemplateWithRepository)
 
 responsePutRepositoryTriggers :: PutRepositoryTriggersResponse -> TestTree
@@ -1430,7 +1430,7 @@ responsePutRepositoryTriggers =
   res
     "PutRepositoryTriggersResponse"
     "fixture/PutRepositoryTriggersResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy PutRepositoryTriggers)
 
 responseListApprovalRuleTemplates :: ListApprovalRuleTemplatesResponse -> TestTree
@@ -1438,7 +1438,7 @@ responseListApprovalRuleTemplates =
   res
     "ListApprovalRuleTemplatesResponse"
     "fixture/ListApprovalRuleTemplatesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy ListApprovalRuleTemplates)
 
 responseDescribeMergeConflicts :: DescribeMergeConflictsResponse -> TestTree
@@ -1446,7 +1446,7 @@ responseDescribeMergeConflicts =
   res
     "DescribeMergeConflictsResponse"
     "fixture/DescribeMergeConflictsResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy DescribeMergeConflicts)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1454,7 +1454,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy TagResource)
 
 responseMergeBranchesByThreeWay :: MergeBranchesByThreeWayResponse -> TestTree
@@ -1462,7 +1462,7 @@ responseMergeBranchesByThreeWay =
   res
     "MergeBranchesByThreeWayResponse"
     "fixture/MergeBranchesByThreeWayResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy MergeBranchesByThreeWay)
 
 responseGetFile :: GetFileResponse -> TestTree
@@ -1470,7 +1470,7 @@ responseGetFile =
   res
     "GetFileResponse"
     "fixture/GetFileResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetFile)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1478,7 +1478,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UntagResource)
 
 responseGetMergeConflicts :: GetMergeConflictsResponse -> TestTree
@@ -1486,7 +1486,7 @@ responseGetMergeConflicts =
   res
     "GetMergeConflictsResponse"
     "fixture/GetMergeConflictsResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetMergeConflicts)
 
 responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
@@ -1494,7 +1494,7 @@ responseDeleteRepository =
   res
     "DeleteRepositoryResponse"
     "fixture/DeleteRepositoryResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy DeleteRepository)
 
 responseDeleteCommentContent :: DeleteCommentContentResponse -> TestTree
@@ -1502,7 +1502,7 @@ responseDeleteCommentContent =
   res
     "DeleteCommentContentResponse"
     "fixture/DeleteCommentContentResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy DeleteCommentContent)
 
 responseMergePullRequestByThreeWay :: MergePullRequestByThreeWayResponse -> TestTree
@@ -1510,7 +1510,7 @@ responseMergePullRequestByThreeWay =
   res
     "MergePullRequestByThreeWayResponse"
     "fixture/MergePullRequestByThreeWayResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy MergePullRequestByThreeWay)
 
 responseDescribePullRequestEvents :: DescribePullRequestEventsResponse -> TestTree
@@ -1518,7 +1518,7 @@ responseDescribePullRequestEvents =
   res
     "DescribePullRequestEventsResponse"
     "fixture/DescribePullRequestEventsResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy DescribePullRequestEvents)
 
 responseBatchGetRepositories :: BatchGetRepositoriesResponse -> TestTree
@@ -1526,7 +1526,7 @@ responseBatchGetRepositories =
   res
     "BatchGetRepositoriesResponse"
     "fixture/BatchGetRepositoriesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy BatchGetRepositories)
 
 responseUpdateApprovalRuleTemplateDescription :: UpdateApprovalRuleTemplateDescriptionResponse -> TestTree
@@ -1534,7 +1534,7 @@ responseUpdateApprovalRuleTemplateDescription =
   res
     "UpdateApprovalRuleTemplateDescriptionResponse"
     "fixture/UpdateApprovalRuleTemplateDescriptionResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdateApprovalRuleTemplateDescription)
 
 responseGetPullRequestOverrideState :: GetPullRequestOverrideStateResponse -> TestTree
@@ -1542,7 +1542,7 @@ responseGetPullRequestOverrideState =
   res
     "GetPullRequestOverrideStateResponse"
     "fixture/GetPullRequestOverrideStateResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetPullRequestOverrideState)
 
 responseGetPullRequestApprovalStates :: GetPullRequestApprovalStatesResponse -> TestTree
@@ -1550,7 +1550,7 @@ responseGetPullRequestApprovalStates =
   res
     "GetPullRequestApprovalStatesResponse"
     "fixture/GetPullRequestApprovalStatesResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetPullRequestApprovalStates)
 
 responseGetCommentsForPullRequest :: GetCommentsForPullRequestResponse -> TestTree
@@ -1558,7 +1558,7 @@ responseGetCommentsForPullRequest =
   res
     "GetCommentsForPullRequestResponse"
     "fixture/GetCommentsForPullRequestResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy GetCommentsForPullRequest)
 
 responseUpdatePullRequestStatus :: UpdatePullRequestStatusResponse -> TestTree
@@ -1566,7 +1566,7 @@ responseUpdatePullRequestStatus =
   res
     "UpdatePullRequestStatusResponse"
     "fixture/UpdatePullRequestStatusResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy UpdatePullRequestStatus)
 
 responseListAssociatedApprovalRuleTemplatesForRepository :: ListAssociatedApprovalRuleTemplatesForRepositoryResponse -> TestTree
@@ -1574,5 +1574,5 @@ responseListAssociatedApprovalRuleTemplatesForRepository =
   res
     "ListAssociatedApprovalRuleTemplatesForRepositoryResponse"
     "fixture/ListAssociatedApprovalRuleTemplatesForRepositoryResponse.proto"
-    codeCommit
+    codeCommitService
     (Proxy :: Proxy ListAssociatedApprovalRuleTemplatesForRepository)

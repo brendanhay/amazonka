@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.LateDataRuleConfiguration where
+module Network.AWS.IoTAnalytics.Types.LateDataRuleConfiguration
+  ( LateDataRuleConfiguration (..),
+
+    -- * Smart constructor
+    mkLateDataRuleConfiguration,
+
+    -- * Lenses
+    ldrcDeltaTimeSessionWindowConfiguration,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.DeltaTimeSessionWindowConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The information needed to configure a delta time session window.
 --
---
---
--- /See:/ 'lateDataRuleConfiguration' smart constructor.
+-- /See:/ 'mkLateDataRuleConfiguration' smart constructor.
 newtype LateDataRuleConfiguration = LateDataRuleConfiguration'
-  { _ldrcDeltaTimeSessionWindowConfiguration ::
-      Maybe
+  { deltaTimeSessionWindowConfiguration ::
+      Lude.Maybe
         DeltaTimeSessionWindowConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LateDataRuleConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrcDeltaTimeSessionWindowConfiguration' - The information needed to configure a delta time session window.
-lateDataRuleConfiguration ::
+-- * 'deltaTimeSessionWindowConfiguration' - The information needed to configure a delta time session window.
+mkLateDataRuleConfiguration ::
   LateDataRuleConfiguration
-lateDataRuleConfiguration =
+mkLateDataRuleConfiguration =
   LateDataRuleConfiguration'
-    { _ldrcDeltaTimeSessionWindowConfiguration =
-        Nothing
+    { deltaTimeSessionWindowConfiguration =
+        Lude.Nothing
     }
 
 -- | The information needed to configure a delta time session window.
-ldrcDeltaTimeSessionWindowConfiguration :: Lens' LateDataRuleConfiguration (Maybe DeltaTimeSessionWindowConfiguration)
-ldrcDeltaTimeSessionWindowConfiguration = lens _ldrcDeltaTimeSessionWindowConfiguration (\s a -> s {_ldrcDeltaTimeSessionWindowConfiguration = a})
+--
+-- /Note:/ Consider using 'deltaTimeSessionWindowConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrcDeltaTimeSessionWindowConfiguration :: Lens.Lens' LateDataRuleConfiguration (Lude.Maybe DeltaTimeSessionWindowConfiguration)
+ldrcDeltaTimeSessionWindowConfiguration = Lens.lens (deltaTimeSessionWindowConfiguration :: LateDataRuleConfiguration -> Lude.Maybe DeltaTimeSessionWindowConfiguration) (\s a -> s {deltaTimeSessionWindowConfiguration = a} :: LateDataRuleConfiguration)
+{-# DEPRECATED ldrcDeltaTimeSessionWindowConfiguration "Use generic-lens or generic-optics with 'deltaTimeSessionWindowConfiguration' instead." #-}
 
-instance FromJSON LateDataRuleConfiguration where
+instance Lude.FromJSON LateDataRuleConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "LateDataRuleConfiguration"
       ( \x ->
           LateDataRuleConfiguration'
-            <$> (x .:? "deltaTimeSessionWindowConfiguration")
+            Lude.<$> (x Lude..:? "deltaTimeSessionWindowConfiguration")
       )
 
-instance Hashable LateDataRuleConfiguration
-
-instance NFData LateDataRuleConfiguration
-
-instance ToJSON LateDataRuleConfiguration where
+instance Lude.ToJSON LateDataRuleConfiguration where
   toJSON LateDataRuleConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("deltaTimeSessionWindowConfiguration" .=)
-              <$> _ldrcDeltaTimeSessionWindowConfiguration
+    Lude.object
+      ( Lude.catMaybes
+          [ ("deltaTimeSessionWindowConfiguration" Lude..=)
+              Lude.<$> deltaTimeSessionWindowConfiguration
           ]
       )

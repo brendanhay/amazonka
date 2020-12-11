@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.KMSEncryptionConfig where
+module Network.AWS.Firehose.Types.KMSEncryptionConfig
+  ( KMSEncryptionConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKMSEncryptionConfig,
+
+    -- * Lenses
+    kecAWSKMSKeyARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an encryption key for a destination in Amazon S3.
 --
---
---
--- /See:/ 'kmsEncryptionConfig' smart constructor.
+-- /See:/ 'mkKMSEncryptionConfig' smart constructor.
 newtype KMSEncryptionConfig = KMSEncryptionConfig'
-  { _kecAWSKMSKeyARN ::
-      Text
+  { awsKMSKeyARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KMSEncryptionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'kecAWSKMSKeyARN' - The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region as the destination Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-kmsEncryptionConfig ::
-  -- | 'kecAWSKMSKeyARN'
-  Text ->
+-- * 'awsKMSKeyARN' - The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region as the destination Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+mkKMSEncryptionConfig ::
+  -- | 'awsKMSKeyARN'
+  Lude.Text ->
   KMSEncryptionConfig
-kmsEncryptionConfig pAWSKMSKeyARN_ =
-  KMSEncryptionConfig' {_kecAWSKMSKeyARN = pAWSKMSKeyARN_}
+mkKMSEncryptionConfig pAWSKMSKeyARN_ =
+  KMSEncryptionConfig' {awsKMSKeyARN = pAWSKMSKeyARN_}
 
 -- | The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region as the destination Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-kecAWSKMSKeyARN :: Lens' KMSEncryptionConfig Text
-kecAWSKMSKeyARN = lens _kecAWSKMSKeyARN (\s a -> s {_kecAWSKMSKeyARN = a})
+--
+-- /Note:/ Consider using 'awsKMSKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kecAWSKMSKeyARN :: Lens.Lens' KMSEncryptionConfig Lude.Text
+kecAWSKMSKeyARN = Lens.lens (awsKMSKeyARN :: KMSEncryptionConfig -> Lude.Text) (\s a -> s {awsKMSKeyARN = a} :: KMSEncryptionConfig)
+{-# DEPRECATED kecAWSKMSKeyARN "Use generic-lens or generic-optics with 'awsKMSKeyARN' instead." #-}
 
-instance FromJSON KMSEncryptionConfig where
+instance Lude.FromJSON KMSEncryptionConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "KMSEncryptionConfig"
-      (\x -> KMSEncryptionConfig' <$> (x .: "AWSKMSKeyARN"))
+      (\x -> KMSEncryptionConfig' Lude.<$> (x Lude..: "AWSKMSKeyARN"))
 
-instance Hashable KMSEncryptionConfig
-
-instance NFData KMSEncryptionConfig
-
-instance ToJSON KMSEncryptionConfig where
+instance Lude.ToJSON KMSEncryptionConfig where
   toJSON KMSEncryptionConfig' {..} =
-    object (catMaybes [Just ("AWSKMSKeyARN" .= _kecAWSKMSKeyARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("AWSKMSKeyARN" Lude..= awsKMSKeyARN)])

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.DefaultAction where
+module Network.AWS.AppSync.Types.DefaultAction
+  ( DefaultAction
+      ( DefaultAction',
+        Allow,
+        Deny
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DefaultAction
-  = Allow
-  | Deny
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DefaultAction = DefaultAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DefaultAction where
-  parser =
-    takeLowerText >>= \case
-      "allow" -> pure Allow
-      "deny" -> pure Deny
-      e ->
-        fromTextError $
-          "Failure parsing DefaultAction from value: '" <> e
-            <> "'. Accepted values: allow, deny"
+pattern Allow :: DefaultAction
+pattern Allow = DefaultAction' "ALLOW"
 
-instance ToText DefaultAction where
-  toText = \case
-    Allow -> "ALLOW"
-    Deny -> "DENY"
+pattern Deny :: DefaultAction
+pattern Deny = DefaultAction' "DENY"
 
-instance Hashable DefaultAction
-
-instance NFData DefaultAction
-
-instance ToByteString DefaultAction
-
-instance ToQuery DefaultAction
-
-instance ToHeader DefaultAction
-
-instance ToJSON DefaultAction where
-  toJSON = toJSONText
-
-instance FromJSON DefaultAction where
-  parseJSON = parseJSONText "DefaultAction"
+{-# COMPLETE
+  Allow,
+  Deny,
+  DefaultAction'
+  #-}

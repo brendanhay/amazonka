@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.TriggerType where
+module Network.AWS.CodePipeline.Types.TriggerType
+  ( TriggerType
+      ( TriggerType',
+        CloudWatchEvent,
+        CreatePipeline,
+        PollForSourceChanges,
+        PutActionRevision,
+        StartPipelineExecution,
+        Webhook
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TriggerType
-  = CloudWatchEvent
-  | CreatePipeline
-  | PollForSourceChanges
-  | PutActionRevision
-  | StartPipelineExecution
-  | Webhook
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TriggerType = TriggerType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TriggerType where
-  parser =
-    takeLowerText >>= \case
-      "cloudwatchevent" -> pure CloudWatchEvent
-      "createpipeline" -> pure CreatePipeline
-      "pollforsourcechanges" -> pure PollForSourceChanges
-      "putactionrevision" -> pure PutActionRevision
-      "startpipelineexecution" -> pure StartPipelineExecution
-      "webhook" -> pure Webhook
-      e ->
-        fromTextError $
-          "Failure parsing TriggerType from value: '" <> e
-            <> "'. Accepted values: cloudwatchevent, createpipeline, pollforsourcechanges, putactionrevision, startpipelineexecution, webhook"
+pattern CloudWatchEvent :: TriggerType
+pattern CloudWatchEvent = TriggerType' "CloudWatchEvent"
 
-instance ToText TriggerType where
-  toText = \case
-    CloudWatchEvent -> "CloudWatchEvent"
-    CreatePipeline -> "CreatePipeline"
-    PollForSourceChanges -> "PollForSourceChanges"
-    PutActionRevision -> "PutActionRevision"
-    StartPipelineExecution -> "StartPipelineExecution"
-    Webhook -> "Webhook"
+pattern CreatePipeline :: TriggerType
+pattern CreatePipeline = TriggerType' "CreatePipeline"
 
-instance Hashable TriggerType
+pattern PollForSourceChanges :: TriggerType
+pattern PollForSourceChanges = TriggerType' "PollForSourceChanges"
 
-instance NFData TriggerType
+pattern PutActionRevision :: TriggerType
+pattern PutActionRevision = TriggerType' "PutActionRevision"
 
-instance ToByteString TriggerType
+pattern StartPipelineExecution :: TriggerType
+pattern StartPipelineExecution = TriggerType' "StartPipelineExecution"
 
-instance ToQuery TriggerType
+pattern Webhook :: TriggerType
+pattern Webhook = TriggerType' "Webhook"
 
-instance ToHeader TriggerType
-
-instance FromJSON TriggerType where
-  parseJSON = parseJSONText "TriggerType"
+{-# COMPLETE
+  CloudWatchEvent,
+  CreatePipeline,
+  PollForSourceChanges,
+  PutActionRevision,
+  StartPipelineExecution,
+  Webhook,
+  TriggerType'
+  #-}

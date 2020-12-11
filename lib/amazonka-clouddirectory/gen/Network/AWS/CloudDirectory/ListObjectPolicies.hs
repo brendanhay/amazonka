@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Returns policies attached to an object in pagination fashion.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListObjectPolicies
-  ( -- * Creating a Request
-    listObjectPolicies,
-    ListObjectPolicies,
+  ( -- * Creating a request
+    ListObjectPolicies (..),
+    mkListObjectPolicies,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lConsistencyLevel,
     lNextToken,
     lMaxResults,
     lDirectoryARN,
     lObjectReference,
 
-    -- * Destructuring the Response
-    listObjectPoliciesResponse,
-    ListObjectPoliciesResponse,
+    -- * Destructuring the response
+    ListObjectPoliciesResponse (..),
+    mkListObjectPoliciesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     loprsNextToken,
     loprsAttachedPolicyIds,
     loprsResponseStatus,
@@ -46,156 +39,182 @@ module Network.AWS.CloudDirectory.ListObjectPolicies
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listObjectPolicies' smart constructor.
+-- | /See:/ 'mkListObjectPolicies' smart constructor.
 data ListObjectPolicies = ListObjectPolicies'
-  { _lConsistencyLevel ::
-      !(Maybe ConsistencyLevel),
-    _lNextToken :: !(Maybe Text),
-    _lMaxResults :: !(Maybe Nat),
-    _lDirectoryARN :: !Text,
-    _lObjectReference :: !ObjectReference
+  { consistencyLevel ::
+      Lude.Maybe ConsistencyLevel,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    directoryARN :: Lude.Text,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectPolicies' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
---
--- * 'lNextToken' - The pagination token.
---
--- * 'lMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
---
--- * 'lDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
---
--- * 'lObjectReference' - Reference that identifies the object for which policies will be listed.
-listObjectPolicies ::
-  -- | 'lDirectoryARN'
-  Text ->
-  -- | 'lObjectReference'
+-- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+-- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
+-- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
+-- * 'nextToken' - The pagination token.
+-- * 'objectReference' - Reference that identifies the object for which policies will be listed.
+mkListObjectPolicies ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'objectReference'
   ObjectReference ->
   ListObjectPolicies
-listObjectPolicies pDirectoryARN_ pObjectReference_ =
+mkListObjectPolicies pDirectoryARN_ pObjectReference_ =
   ListObjectPolicies'
-    { _lConsistencyLevel = Nothing,
-      _lNextToken = Nothing,
-      _lMaxResults = Nothing,
-      _lDirectoryARN = pDirectoryARN_,
-      _lObjectReference = pObjectReference_
+    { consistencyLevel = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      directoryARN = pDirectoryARN_,
+      objectReference = pObjectReference_
     }
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
-lConsistencyLevel :: Lens' ListObjectPolicies (Maybe ConsistencyLevel)
-lConsistencyLevel = lens _lConsistencyLevel (\s a -> s {_lConsistencyLevel = a})
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lConsistencyLevel :: Lens.Lens' ListObjectPolicies (Lude.Maybe ConsistencyLevel)
+lConsistencyLevel = Lens.lens (consistencyLevel :: ListObjectPolicies -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: ListObjectPolicies)
+{-# DEPRECATED lConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
 
 -- | The pagination token.
-lNextToken :: Lens' ListObjectPolicies (Maybe Text)
-lNextToken = lens _lNextToken (\s a -> s {_lNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListObjectPolicies (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListObjectPolicies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectPolicies)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
-lMaxResults :: Lens' ListObjectPolicies (Maybe Natural)
-lMaxResults = lens _lMaxResults (\s a -> s {_lMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMaxResults :: Lens.Lens' ListObjectPolicies (Lude.Maybe Lude.Natural)
+lMaxResults = Lens.lens (maxResults :: ListObjectPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListObjectPolicies)
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where objects reside. For more information, see 'arns' .
-lDirectoryARN :: Lens' ListObjectPolicies Text
-lDirectoryARN = lens _lDirectoryARN (\s a -> s {_lDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lDirectoryARN :: Lens.Lens' ListObjectPolicies Lude.Text
+lDirectoryARN = Lens.lens (directoryARN :: ListObjectPolicies -> Lude.Text) (\s a -> s {directoryARN = a} :: ListObjectPolicies)
+{-# DEPRECATED lDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | Reference that identifies the object for which policies will be listed.
-lObjectReference :: Lens' ListObjectPolicies ObjectReference
-lObjectReference = lens _lObjectReference (\s a -> s {_lObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lObjectReference :: Lens.Lens' ListObjectPolicies ObjectReference
+lObjectReference = Lens.lens (objectReference :: ListObjectPolicies -> ObjectReference) (\s a -> s {objectReference = a} :: ListObjectPolicies)
+{-# DEPRECATED lObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance AWSPager ListObjectPolicies where
+instance Page.AWSPager ListObjectPolicies where
   page rq rs
-    | stop (rs ^. loprsNextToken) = Nothing
-    | stop (rs ^. loprsAttachedPolicyIds) = Nothing
-    | otherwise = Just $ rq & lNextToken .~ rs ^. loprsNextToken
+    | Page.stop (rs Lens.^. loprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. loprsAttachedPolicyIds) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lNextToken Lens..~ rs Lens.^. loprsNextToken
 
-instance AWSRequest ListObjectPolicies where
+instance Lude.AWSRequest ListObjectPolicies where
   type Rs ListObjectPolicies = ListObjectPoliciesResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListObjectPoliciesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "AttachedPolicyIds" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "AttachedPolicyIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListObjectPolicies
-
-instance NFData ListObjectPolicies
-
-instance ToHeaders ListObjectPolicies where
+instance Lude.ToHeaders ListObjectPolicies where
   toHeaders ListObjectPolicies' {..} =
-    mconcat
-      [ "x-amz-consistency-level" =# _lConsistencyLevel,
-        "x-amz-data-partition" =# _lDirectoryARN
+    Lude.mconcat
+      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
+        "x-amz-data-partition" Lude.=# directoryARN
       ]
 
-instance ToJSON ListObjectPolicies where
+instance Lude.ToJSON ListObjectPolicies where
   toJSON ListObjectPolicies' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _lNextToken,
-            ("MaxResults" .=) <$> _lMaxResults,
-            Just ("ObjectReference" .= _lObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )
 
-instance ToPath ListObjectPolicies where
-  toPath = const "/amazonclouddirectory/2017-01-11/object/policy"
+instance Lude.ToPath ListObjectPolicies where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/object/policy"
 
-instance ToQuery ListObjectPolicies where
-  toQuery = const mempty
+instance Lude.ToQuery ListObjectPolicies where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listObjectPoliciesResponse' smart constructor.
+-- | /See:/ 'mkListObjectPoliciesResponse' smart constructor.
 data ListObjectPoliciesResponse = ListObjectPoliciesResponse'
-  { _loprsNextToken ::
-      !(Maybe Text),
-    _loprsAttachedPolicyIds ::
-      !(Maybe [Text]),
-    _loprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    attachedPolicyIds ::
+      Lude.Maybe [Lude.Text],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectPoliciesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loprsNextToken' - The pagination token.
---
--- * 'loprsAttachedPolicyIds' - A list of policy @ObjectIdentifiers@ , that are attached to the object.
---
--- * 'loprsResponseStatus' - -- | The response status code.
-listObjectPoliciesResponse ::
-  -- | 'loprsResponseStatus'
-  Int ->
+-- * 'attachedPolicyIds' - A list of policy @ObjectIdentifiers@ , that are attached to the object.
+-- * 'nextToken' - The pagination token.
+-- * 'responseStatus' - The response status code.
+mkListObjectPoliciesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListObjectPoliciesResponse
-listObjectPoliciesResponse pResponseStatus_ =
+mkListObjectPoliciesResponse pResponseStatus_ =
   ListObjectPoliciesResponse'
-    { _loprsNextToken = Nothing,
-      _loprsAttachedPolicyIds = Nothing,
-      _loprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      attachedPolicyIds = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token.
-loprsNextToken :: Lens' ListObjectPoliciesResponse (Maybe Text)
-loprsNextToken = lens _loprsNextToken (\s a -> s {_loprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loprsNextToken :: Lens.Lens' ListObjectPoliciesResponse (Lude.Maybe Lude.Text)
+loprsNextToken = Lens.lens (nextToken :: ListObjectPoliciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectPoliciesResponse)
+{-# DEPRECATED loprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of policy @ObjectIdentifiers@ , that are attached to the object.
-loprsAttachedPolicyIds :: Lens' ListObjectPoliciesResponse [Text]
-loprsAttachedPolicyIds = lens _loprsAttachedPolicyIds (\s a -> s {_loprsAttachedPolicyIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attachedPolicyIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loprsAttachedPolicyIds :: Lens.Lens' ListObjectPoliciesResponse (Lude.Maybe [Lude.Text])
+loprsAttachedPolicyIds = Lens.lens (attachedPolicyIds :: ListObjectPoliciesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {attachedPolicyIds = a} :: ListObjectPoliciesResponse)
+{-# DEPRECATED loprsAttachedPolicyIds "Use generic-lens or generic-optics with 'attachedPolicyIds' instead." #-}
 
--- | -- | The response status code.
-loprsResponseStatus :: Lens' ListObjectPoliciesResponse Int
-loprsResponseStatus = lens _loprsResponseStatus (\s a -> s {_loprsResponseStatus = a})
-
-instance NFData ListObjectPoliciesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loprsResponseStatus :: Lens.Lens' ListObjectPoliciesResponse Lude.Int
+loprsResponseStatus = Lens.lens (responseStatus :: ListObjectPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListObjectPoliciesResponse)
+{-# DEPRECATED loprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

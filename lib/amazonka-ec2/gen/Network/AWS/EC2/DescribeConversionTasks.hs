@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,141 @@
 --
 -- Describes the specified conversion tasks or all your conversion tasks. For more information, see the <https://docs.aws.amazon.com/vm-import/latest/userguide/ VM Import/Export User Guide> .
 --
---
 -- For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
 module Network.AWS.EC2.DescribeConversionTasks
-  ( -- * Creating a Request
-    describeConversionTasks,
-    DescribeConversionTasks,
+  ( -- * Creating a request
+    DescribeConversionTasks (..),
+    mkDescribeConversionTasks,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dctConversionTaskIds,
     dctDryRun,
 
-    -- * Destructuring the Response
-    describeConversionTasksResponse,
-    DescribeConversionTasksResponse,
+    -- * Destructuring the response
+    DescribeConversionTasksResponse (..),
+    mkDescribeConversionTasksResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dctrsConversionTasks,
     dctrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeConversionTasks' smart constructor.
+-- | /See:/ 'mkDescribeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
-  { _dctConversionTaskIds ::
-      !(Maybe [Text]),
-    _dctDryRun :: !(Maybe Bool)
+  { conversionTaskIds ::
+      Lude.Maybe [Lude.Text],
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConversionTasks' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dctConversionTaskIds' - The conversion task IDs.
---
--- * 'dctDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-describeConversionTasks ::
+-- * 'conversionTaskIds' - The conversion task IDs.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+mkDescribeConversionTasks ::
   DescribeConversionTasks
-describeConversionTasks =
+mkDescribeConversionTasks =
   DescribeConversionTasks'
-    { _dctConversionTaskIds = Nothing,
-      _dctDryRun = Nothing
+    { conversionTaskIds = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | The conversion task IDs.
-dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
-dctConversionTaskIds = lens _dctConversionTaskIds (\s a -> s {_dctConversionTaskIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'conversionTaskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dctConversionTaskIds :: Lens.Lens' DescribeConversionTasks (Lude.Maybe [Lude.Text])
+dctConversionTaskIds = Lens.lens (conversionTaskIds :: DescribeConversionTasks -> Lude.Maybe [Lude.Text]) (\s a -> s {conversionTaskIds = a} :: DescribeConversionTasks)
+{-# DEPRECATED dctConversionTaskIds "Use generic-lens or generic-optics with 'conversionTaskIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
-dctDryRun = lens _dctDryRun (\s a -> s {_dctDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dctDryRun :: Lens.Lens' DescribeConversionTasks (Lude.Maybe Lude.Bool)
+dctDryRun = Lens.lens (dryRun :: DescribeConversionTasks -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeConversionTasks)
+{-# DEPRECATED dctDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance AWSRequest DescribeConversionTasks where
+instance Lude.AWSRequest DescribeConversionTasks where
   type Rs DescribeConversionTasks = DescribeConversionTasksResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeConversionTasksResponse'
-            <$> (x .@? "conversionTasks" .!@ mempty >>= may (parseXMLList "item"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "conversionTasks" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeConversionTasks
+instance Lude.ToHeaders DescribeConversionTasks where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeConversionTasks
+instance Lude.ToPath DescribeConversionTasks where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeConversionTasks where
-  toHeaders = const mempty
-
-instance ToPath DescribeConversionTasks where
-  toPath = const "/"
-
-instance ToQuery DescribeConversionTasks where
+instance Lude.ToQuery DescribeConversionTasks where
   toQuery DescribeConversionTasks' {..} =
-    mconcat
-      [ "Action" =: ("DescribeConversionTasks" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "ConversionTaskId" <$> _dctConversionTaskIds),
-        "DryRun" =: _dctDryRun
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeConversionTasks" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery
+          (Lude.toQueryList "ConversionTaskId" Lude.<$> conversionTaskIds),
+        "DryRun" Lude.=: dryRun
       ]
 
--- | /See:/ 'describeConversionTasksResponse' smart constructor.
+-- | /See:/ 'mkDescribeConversionTasksResponse' smart constructor.
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
-  { _dctrsConversionTasks ::
-      !(Maybe [ConversionTask]),
-    _dctrsResponseStatus ::
-      !Int
+  { conversionTasks ::
+      Lude.Maybe [ConversionTask],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConversionTasksResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dctrsConversionTasks' - Information about the conversion tasks.
---
--- * 'dctrsResponseStatus' - -- | The response status code.
-describeConversionTasksResponse ::
-  -- | 'dctrsResponseStatus'
-  Int ->
+-- * 'conversionTasks' - Information about the conversion tasks.
+-- * 'responseStatus' - The response status code.
+mkDescribeConversionTasksResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConversionTasksResponse
-describeConversionTasksResponse pResponseStatus_ =
+mkDescribeConversionTasksResponse pResponseStatus_ =
   DescribeConversionTasksResponse'
-    { _dctrsConversionTasks = Nothing,
-      _dctrsResponseStatus = pResponseStatus_
+    { conversionTasks = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the conversion tasks.
-dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
-dctrsConversionTasks = lens _dctrsConversionTasks (\s a -> s {_dctrsConversionTasks = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'conversionTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dctrsConversionTasks :: Lens.Lens' DescribeConversionTasksResponse (Lude.Maybe [ConversionTask])
+dctrsConversionTasks = Lens.lens (conversionTasks :: DescribeConversionTasksResponse -> Lude.Maybe [ConversionTask]) (\s a -> s {conversionTasks = a} :: DescribeConversionTasksResponse)
+{-# DEPRECATED dctrsConversionTasks "Use generic-lens or generic-optics with 'conversionTasks' instead." #-}
 
--- | -- | The response status code.
-dctrsResponseStatus :: Lens' DescribeConversionTasksResponse Int
-dctrsResponseStatus = lens _dctrsResponseStatus (\s a -> s {_dctrsResponseStatus = a})
-
-instance NFData DescribeConversionTasksResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dctrsResponseStatus :: Lens.Lens' DescribeConversionTasksResponse Lude.Int
+dctrsResponseStatus = Lens.lens (responseStatus :: DescribeConversionTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConversionTasksResponse)
+{-# DEPRECATED dctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

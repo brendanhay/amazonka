@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Create a machine learning algorithm that you can use in Amazon SageMaker and list in the AWS Marketplace.
 module Network.AWS.SageMaker.CreateAlgorithm
-  ( -- * Creating a Request
-    createAlgorithm,
-    CreateAlgorithm,
+  ( -- * Creating a request
+    CreateAlgorithm (..),
+    mkCreateAlgorithm,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caValidationSpecification,
     caInferenceSpecification,
     caAlgorithmDescription,
@@ -31,165 +26,257 @@ module Network.AWS.SageMaker.CreateAlgorithm
     caAlgorithmName,
     caTrainingSpecification,
 
-    -- * Destructuring the Response
-    createAlgorithmResponse,
-    CreateAlgorithmResponse,
+    -- * Destructuring the response
+    CreateAlgorithmResponse (..),
+    mkCreateAlgorithmResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     carsResponseStatus,
     carsAlgorithmARN,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'createAlgorithm' smart constructor.
+-- | /See:/ 'mkCreateAlgorithm' smart constructor.
 data CreateAlgorithm = CreateAlgorithm'
-  { _caValidationSpecification ::
-      !(Maybe AlgorithmValidationSpecification),
-    _caInferenceSpecification ::
-      !(Maybe InferenceSpecification),
-    _caAlgorithmDescription :: !(Maybe Text),
-    _caCertifyForMarketplace :: !(Maybe Bool),
-    _caAlgorithmName :: !Text,
-    _caTrainingSpecification :: !TrainingSpecification
+  { validationSpecification ::
+      Lude.Maybe AlgorithmValidationSpecification,
+    inferenceSpecification :: Lude.Maybe InferenceSpecification,
+    algorithmDescription :: Lude.Maybe Lude.Text,
+    certifyForMarketplace :: Lude.Maybe Lude.Bool,
+    algorithmName :: Lude.Text,
+    trainingSpecification :: TrainingSpecification
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAlgorithm' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'algorithmDescription' - A description of the algorithm.
+-- * 'algorithmName' - The name of the algorithm.
+-- * 'certifyForMarketplace' - Whether to certify the algorithm so that it can be listed in AWS Marketplace.
+-- * 'inferenceSpecification' - Specifies details about inference jobs that the algorithm runs, including the following:
 --
--- * 'caValidationSpecification' - Specifies configurations for one or more training jobs and that Amazon SageMaker runs to test the algorithm's training code and, optionally, one or more batch transform jobs that Amazon SageMaker runs to test the algorithm's inference code.
 --
--- * 'caInferenceSpecification' - Specifies details about inference jobs that the algorithm runs, including the following:     * The Amazon ECR paths of containers that contain the inference code and model artifacts.     * The instance types that the algorithm supports for transform jobs and real-time endpoints used for inference.     * The input and output content formats that the algorithm supports for inference.
+--     * The Amazon ECR paths of containers that contain the inference code and model artifacts.
 --
--- * 'caAlgorithmDescription' - A description of the algorithm.
 --
--- * 'caCertifyForMarketplace' - Whether to certify the algorithm so that it can be listed in AWS Marketplace.
+--     * The instance types that the algorithm supports for transform jobs and real-time endpoints used for inference.
 --
--- * 'caAlgorithmName' - The name of the algorithm.
 --
--- * 'caTrainingSpecification' - Specifies details about training jobs run by this algorithm, including the following:     * The Amazon ECR path of the container and the version digest of the algorithm.     * The hyperparameters that the algorithm supports.     * The instance types that the algorithm supports for training.     * Whether the algorithm supports distributed training.     * The metrics that the algorithm emits to Amazon CloudWatch.     * Which metrics that the algorithm emits can be used as the objective metric for hyperparameter tuning jobs.     * The input channels that the algorithm supports for training data. For example, an algorithm might support @train@ , @validation@ , and @test@ channels.
-createAlgorithm ::
-  -- | 'caAlgorithmName'
-  Text ->
-  -- | 'caTrainingSpecification'
+--     * The input and output content formats that the algorithm supports for inference.
+--
+--
+-- * 'trainingSpecification' - Specifies details about training jobs run by this algorithm, including the following:
+--
+--
+--     * The Amazon ECR path of the container and the version digest of the algorithm.
+--
+--
+--     * The hyperparameters that the algorithm supports.
+--
+--
+--     * The instance types that the algorithm supports for training.
+--
+--
+--     * Whether the algorithm supports distributed training.
+--
+--
+--     * The metrics that the algorithm emits to Amazon CloudWatch.
+--
+--
+--     * Which metrics that the algorithm emits can be used as the objective metric for hyperparameter tuning jobs.
+--
+--
+--     * The input channels that the algorithm supports for training data. For example, an algorithm might support @train@ , @validation@ , and @test@ channels.
+--
+--
+-- * 'validationSpecification' - Specifies configurations for one or more training jobs and that Amazon SageMaker runs to test the algorithm's training code and, optionally, one or more batch transform jobs that Amazon SageMaker runs to test the algorithm's inference code.
+mkCreateAlgorithm ::
+  -- | 'algorithmName'
+  Lude.Text ->
+  -- | 'trainingSpecification'
   TrainingSpecification ->
   CreateAlgorithm
-createAlgorithm pAlgorithmName_ pTrainingSpecification_ =
+mkCreateAlgorithm pAlgorithmName_ pTrainingSpecification_ =
   CreateAlgorithm'
-    { _caValidationSpecification = Nothing,
-      _caInferenceSpecification = Nothing,
-      _caAlgorithmDescription = Nothing,
-      _caCertifyForMarketplace = Nothing,
-      _caAlgorithmName = pAlgorithmName_,
-      _caTrainingSpecification = pTrainingSpecification_
+    { validationSpecification = Lude.Nothing,
+      inferenceSpecification = Lude.Nothing,
+      algorithmDescription = Lude.Nothing,
+      certifyForMarketplace = Lude.Nothing,
+      algorithmName = pAlgorithmName_,
+      trainingSpecification = pTrainingSpecification_
     }
 
 -- | Specifies configurations for one or more training jobs and that Amazon SageMaker runs to test the algorithm's training code and, optionally, one or more batch transform jobs that Amazon SageMaker runs to test the algorithm's inference code.
-caValidationSpecification :: Lens' CreateAlgorithm (Maybe AlgorithmValidationSpecification)
-caValidationSpecification = lens _caValidationSpecification (\s a -> s {_caValidationSpecification = a})
+--
+-- /Note:/ Consider using 'validationSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caValidationSpecification :: Lens.Lens' CreateAlgorithm (Lude.Maybe AlgorithmValidationSpecification)
+caValidationSpecification = Lens.lens (validationSpecification :: CreateAlgorithm -> Lude.Maybe AlgorithmValidationSpecification) (\s a -> s {validationSpecification = a} :: CreateAlgorithm)
+{-# DEPRECATED caValidationSpecification "Use generic-lens or generic-optics with 'validationSpecification' instead." #-}
 
--- | Specifies details about inference jobs that the algorithm runs, including the following:     * The Amazon ECR paths of containers that contain the inference code and model artifacts.     * The instance types that the algorithm supports for transform jobs and real-time endpoints used for inference.     * The input and output content formats that the algorithm supports for inference.
-caInferenceSpecification :: Lens' CreateAlgorithm (Maybe InferenceSpecification)
-caInferenceSpecification = lens _caInferenceSpecification (\s a -> s {_caInferenceSpecification = a})
+-- | Specifies details about inference jobs that the algorithm runs, including the following:
+--
+--
+--     * The Amazon ECR paths of containers that contain the inference code and model artifacts.
+--
+--
+--     * The instance types that the algorithm supports for transform jobs and real-time endpoints used for inference.
+--
+--
+--     * The input and output content formats that the algorithm supports for inference.
+--
+--
+--
+-- /Note:/ Consider using 'inferenceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caInferenceSpecification :: Lens.Lens' CreateAlgorithm (Lude.Maybe InferenceSpecification)
+caInferenceSpecification = Lens.lens (inferenceSpecification :: CreateAlgorithm -> Lude.Maybe InferenceSpecification) (\s a -> s {inferenceSpecification = a} :: CreateAlgorithm)
+{-# DEPRECATED caInferenceSpecification "Use generic-lens or generic-optics with 'inferenceSpecification' instead." #-}
 
 -- | A description of the algorithm.
-caAlgorithmDescription :: Lens' CreateAlgorithm (Maybe Text)
-caAlgorithmDescription = lens _caAlgorithmDescription (\s a -> s {_caAlgorithmDescription = a})
+--
+-- /Note:/ Consider using 'algorithmDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlgorithmDescription :: Lens.Lens' CreateAlgorithm (Lude.Maybe Lude.Text)
+caAlgorithmDescription = Lens.lens (algorithmDescription :: CreateAlgorithm -> Lude.Maybe Lude.Text) (\s a -> s {algorithmDescription = a} :: CreateAlgorithm)
+{-# DEPRECATED caAlgorithmDescription "Use generic-lens or generic-optics with 'algorithmDescription' instead." #-}
 
 -- | Whether to certify the algorithm so that it can be listed in AWS Marketplace.
-caCertifyForMarketplace :: Lens' CreateAlgorithm (Maybe Bool)
-caCertifyForMarketplace = lens _caCertifyForMarketplace (\s a -> s {_caCertifyForMarketplace = a})
+--
+-- /Note:/ Consider using 'certifyForMarketplace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caCertifyForMarketplace :: Lens.Lens' CreateAlgorithm (Lude.Maybe Lude.Bool)
+caCertifyForMarketplace = Lens.lens (certifyForMarketplace :: CreateAlgorithm -> Lude.Maybe Lude.Bool) (\s a -> s {certifyForMarketplace = a} :: CreateAlgorithm)
+{-# DEPRECATED caCertifyForMarketplace "Use generic-lens or generic-optics with 'certifyForMarketplace' instead." #-}
 
 -- | The name of the algorithm.
-caAlgorithmName :: Lens' CreateAlgorithm Text
-caAlgorithmName = lens _caAlgorithmName (\s a -> s {_caAlgorithmName = a})
+--
+-- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAlgorithmName :: Lens.Lens' CreateAlgorithm Lude.Text
+caAlgorithmName = Lens.lens (algorithmName :: CreateAlgorithm -> Lude.Text) (\s a -> s {algorithmName = a} :: CreateAlgorithm)
+{-# DEPRECATED caAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
 
--- | Specifies details about training jobs run by this algorithm, including the following:     * The Amazon ECR path of the container and the version digest of the algorithm.     * The hyperparameters that the algorithm supports.     * The instance types that the algorithm supports for training.     * Whether the algorithm supports distributed training.     * The metrics that the algorithm emits to Amazon CloudWatch.     * Which metrics that the algorithm emits can be used as the objective metric for hyperparameter tuning jobs.     * The input channels that the algorithm supports for training data. For example, an algorithm might support @train@ , @validation@ , and @test@ channels.
-caTrainingSpecification :: Lens' CreateAlgorithm TrainingSpecification
-caTrainingSpecification = lens _caTrainingSpecification (\s a -> s {_caTrainingSpecification = a})
+-- | Specifies details about training jobs run by this algorithm, including the following:
+--
+--
+--     * The Amazon ECR path of the container and the version digest of the algorithm.
+--
+--
+--     * The hyperparameters that the algorithm supports.
+--
+--
+--     * The instance types that the algorithm supports for training.
+--
+--
+--     * Whether the algorithm supports distributed training.
+--
+--
+--     * The metrics that the algorithm emits to Amazon CloudWatch.
+--
+--
+--     * Which metrics that the algorithm emits can be used as the objective metric for hyperparameter tuning jobs.
+--
+--
+--     * The input channels that the algorithm supports for training data. For example, an algorithm might support @train@ , @validation@ , and @test@ channels.
+--
+--
+--
+-- /Note:/ Consider using 'trainingSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTrainingSpecification :: Lens.Lens' CreateAlgorithm TrainingSpecification
+caTrainingSpecification = Lens.lens (trainingSpecification :: CreateAlgorithm -> TrainingSpecification) (\s a -> s {trainingSpecification = a} :: CreateAlgorithm)
+{-# DEPRECATED caTrainingSpecification "Use generic-lens or generic-optics with 'trainingSpecification' instead." #-}
 
-instance AWSRequest CreateAlgorithm where
+instance Lude.AWSRequest CreateAlgorithm where
   type Rs CreateAlgorithm = CreateAlgorithmResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateAlgorithmResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "AlgorithmArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "AlgorithmArn")
       )
 
-instance Hashable CreateAlgorithm
-
-instance NFData CreateAlgorithm
-
-instance ToHeaders CreateAlgorithm where
+instance Lude.ToHeaders CreateAlgorithm where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.CreateAlgorithm" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.CreateAlgorithm" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateAlgorithm where
+instance Lude.ToJSON CreateAlgorithm where
   toJSON CreateAlgorithm' {..} =
-    object
-      ( catMaybes
-          [ ("ValidationSpecification" .=) <$> _caValidationSpecification,
-            ("InferenceSpecification" .=) <$> _caInferenceSpecification,
-            ("AlgorithmDescription" .=) <$> _caAlgorithmDescription,
-            ("CertifyForMarketplace" .=) <$> _caCertifyForMarketplace,
-            Just ("AlgorithmName" .= _caAlgorithmName),
-            Just ("TrainingSpecification" .= _caTrainingSpecification)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ValidationSpecification" Lude..=)
+              Lude.<$> validationSpecification,
+            ("InferenceSpecification" Lude..=) Lude.<$> inferenceSpecification,
+            ("AlgorithmDescription" Lude..=) Lude.<$> algorithmDescription,
+            ("CertifyForMarketplace" Lude..=) Lude.<$> certifyForMarketplace,
+            Lude.Just ("AlgorithmName" Lude..= algorithmName),
+            Lude.Just ("TrainingSpecification" Lude..= trainingSpecification)
           ]
       )
 
-instance ToPath CreateAlgorithm where
-  toPath = const "/"
+instance Lude.ToPath CreateAlgorithm where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateAlgorithm where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAlgorithm where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAlgorithmResponse' smart constructor.
+-- | /See:/ 'mkCreateAlgorithmResponse' smart constructor.
 data CreateAlgorithmResponse = CreateAlgorithmResponse'
-  { _carsResponseStatus ::
-      !Int,
-    _carsAlgorithmARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    algorithmARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAlgorithmResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'carsResponseStatus' - -- | The response status code.
---
--- * 'carsAlgorithmARN' - The Amazon Resource Name (ARN) of the new algorithm.
-createAlgorithmResponse ::
-  -- | 'carsResponseStatus'
-  Int ->
-  -- | 'carsAlgorithmARN'
-  Text ->
+-- * 'algorithmARN' - The Amazon Resource Name (ARN) of the new algorithm.
+-- * 'responseStatus' - The response status code.
+mkCreateAlgorithmResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'algorithmARN'
+  Lude.Text ->
   CreateAlgorithmResponse
-createAlgorithmResponse pResponseStatus_ pAlgorithmARN_ =
+mkCreateAlgorithmResponse pResponseStatus_ pAlgorithmARN_ =
   CreateAlgorithmResponse'
-    { _carsResponseStatus = pResponseStatus_,
-      _carsAlgorithmARN = pAlgorithmARN_
+    { responseStatus = pResponseStatus_,
+      algorithmARN = pAlgorithmARN_
     }
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateAlgorithmResponse Int
-carsResponseStatus = lens _carsResponseStatus (\s a -> s {_carsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateAlgorithmResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateAlgorithmResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAlgorithmResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the new algorithm.
-carsAlgorithmARN :: Lens' CreateAlgorithmResponse Text
-carsAlgorithmARN = lens _carsAlgorithmARN (\s a -> s {_carsAlgorithmARN = a})
-
-instance NFData CreateAlgorithmResponse
+--
+-- /Note:/ Consider using 'algorithmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsAlgorithmARN :: Lens.Lens' CreateAlgorithmResponse Lude.Text
+carsAlgorithmARN = Lens.lens (algorithmARN :: CreateAlgorithmResponse -> Lude.Text) (\s a -> s {algorithmARN = a} :: CreateAlgorithmResponse)
+{-# DEPRECATED carsAlgorithmARN "Use generic-lens or generic-optics with 'algorithmARN' instead." #-}

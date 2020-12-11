@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,29 +14,30 @@
 --
 -- Updates a key group.
 --
---
 -- When you update a key group, all the fields are updated with the values provided in the request. You cannot update some fields independent of others. To update a key group:
 --
 --     * Get the current key group with @GetKeyGroup@ or @GetKeyGroupConfig@ .
 --
+--
 --     * Locally modify the fields in the key group that you want to update. For example, add or remove public key IDs.
+--
 --
 --     * Call @UpdateKeyGroup@ with the entire key group object, including the fields that you modified and those that you didn’t.
 module Network.AWS.CloudFront.UpdateKeyGroup
-  ( -- * Creating a Request
-    updateKeyGroup,
-    UpdateKeyGroup,
+  ( -- * Creating a request
+    UpdateKeyGroup (..),
+    mkUpdateKeyGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ukgIfMatch,
     ukgKeyGroupConfig,
     ukgId,
 
-    -- * Destructuring the Response
-    updateKeyGroupResponse,
-    UpdateKeyGroupResponse,
+    -- * Destructuring the response
+    UpdateKeyGroupResponse (..),
+    mkUpdateKeyGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ukgrsETag,
     ukgrsKeyGroup,
     ukgrsResponseStatus,
@@ -49,122 +45,144 @@ module Network.AWS.CloudFront.UpdateKeyGroup
 where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateKeyGroup' smart constructor.
+-- | /See:/ 'mkUpdateKeyGroup' smart constructor.
 data UpdateKeyGroup = UpdateKeyGroup'
-  { _ukgIfMatch :: !(Maybe Text),
-    _ukgKeyGroupConfig :: !KeyGroupConfig,
-    _ukgId :: !Text
+  { ifMatch ::
+      Lude.Maybe Lude.Text,
+    keyGroupConfig :: KeyGroupConfig,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateKeyGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ukgIfMatch' - The version of the key group that you are updating. The version is the key group’s @ETag@ value.
---
--- * 'ukgKeyGroupConfig' - The key group configuration.
---
--- * 'ukgId' - The identifier of the key group that you are updating.
-updateKeyGroup ::
-  -- | 'ukgKeyGroupConfig'
+-- * 'id' - The identifier of the key group that you are updating.
+-- * 'ifMatch' - The version of the key group that you are updating. The version is the key group’s @ETag@ value.
+-- * 'keyGroupConfig' - The key group configuration.
+mkUpdateKeyGroup ::
+  -- | 'keyGroupConfig'
   KeyGroupConfig ->
-  -- | 'ukgId'
-  Text ->
+  -- | 'id'
+  Lude.Text ->
   UpdateKeyGroup
-updateKeyGroup pKeyGroupConfig_ pId_ =
+mkUpdateKeyGroup pKeyGroupConfig_ pId_ =
   UpdateKeyGroup'
-    { _ukgIfMatch = Nothing,
-      _ukgKeyGroupConfig = pKeyGroupConfig_,
-      _ukgId = pId_
+    { ifMatch = Lude.Nothing,
+      keyGroupConfig = pKeyGroupConfig_,
+      id = pId_
     }
 
 -- | The version of the key group that you are updating. The version is the key group’s @ETag@ value.
-ukgIfMatch :: Lens' UpdateKeyGroup (Maybe Text)
-ukgIfMatch = lens _ukgIfMatch (\s a -> s {_ukgIfMatch = a})
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ukgIfMatch :: Lens.Lens' UpdateKeyGroup (Lude.Maybe Lude.Text)
+ukgIfMatch = Lens.lens (ifMatch :: UpdateKeyGroup -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: UpdateKeyGroup)
+{-# DEPRECATED ukgIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
 -- | The key group configuration.
-ukgKeyGroupConfig :: Lens' UpdateKeyGroup KeyGroupConfig
-ukgKeyGroupConfig = lens _ukgKeyGroupConfig (\s a -> s {_ukgKeyGroupConfig = a})
+--
+-- /Note:/ Consider using 'keyGroupConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ukgKeyGroupConfig :: Lens.Lens' UpdateKeyGroup KeyGroupConfig
+ukgKeyGroupConfig = Lens.lens (keyGroupConfig :: UpdateKeyGroup -> KeyGroupConfig) (\s a -> s {keyGroupConfig = a} :: UpdateKeyGroup)
+{-# DEPRECATED ukgKeyGroupConfig "Use generic-lens or generic-optics with 'keyGroupConfig' instead." #-}
 
 -- | The identifier of the key group that you are updating.
-ukgId :: Lens' UpdateKeyGroup Text
-ukgId = lens _ukgId (\s a -> s {_ukgId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ukgId :: Lens.Lens' UpdateKeyGroup Lude.Text
+ukgId = Lens.lens (id :: UpdateKeyGroup -> Lude.Text) (\s a -> s {id = a} :: UpdateKeyGroup)
+{-# DEPRECATED ukgId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest UpdateKeyGroup where
+instance Lude.AWSRequest UpdateKeyGroup where
   type Rs UpdateKeyGroup = UpdateKeyGroupResponse
-  request = putXML cloudFront
+  request = Req.putXML cloudFrontService
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           UpdateKeyGroupResponse'
-            <$> (h .#? "ETag") <*> (parseXML x) <*> (pure (fromEnum s))
+            Lude.<$> (h Lude..#? "ETag")
+            Lude.<*> (Lude.parseXML x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateKeyGroup
-
-instance NFData UpdateKeyGroup
-
-instance ToElement UpdateKeyGroup where
+instance Lude.ToElement UpdateKeyGroup where
   toElement =
-    mkElement
+    Lude.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}KeyGroupConfig"
-      . _ukgKeyGroupConfig
+      Lude.. keyGroupConfig
 
-instance ToHeaders UpdateKeyGroup where
-  toHeaders UpdateKeyGroup' {..} = mconcat ["If-Match" =# _ukgIfMatch]
+instance Lude.ToHeaders UpdateKeyGroup where
+  toHeaders UpdateKeyGroup' {..} =
+    Lude.mconcat ["If-Match" Lude.=# ifMatch]
 
-instance ToPath UpdateKeyGroup where
+instance Lude.ToPath UpdateKeyGroup where
   toPath UpdateKeyGroup' {..} =
-    mconcat ["/2020-05-31/key-group/", toBS _ukgId]
+    Lude.mconcat ["/2020-05-31/key-group/", Lude.toBS id]
 
-instance ToQuery UpdateKeyGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateKeyGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateKeyGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateKeyGroupResponse' smart constructor.
 data UpdateKeyGroupResponse = UpdateKeyGroupResponse'
-  { _ukgrsETag ::
-      !(Maybe Text),
-    _ukgrsKeyGroup :: !(Maybe KeyGroup),
-    _ukgrsResponseStatus :: !Int
+  { eTag ::
+      Lude.Maybe Lude.Text,
+    keyGroup :: Lude.Maybe KeyGroup,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateKeyGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ukgrsETag' - The identifier for this version of the key group.
---
--- * 'ukgrsKeyGroup' - The key group that was just updated.
---
--- * 'ukgrsResponseStatus' - -- | The response status code.
-updateKeyGroupResponse ::
-  -- | 'ukgrsResponseStatus'
-  Int ->
+-- * 'eTag' - The identifier for this version of the key group.
+-- * 'keyGroup' - The key group that was just updated.
+-- * 'responseStatus' - The response status code.
+mkUpdateKeyGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateKeyGroupResponse
-updateKeyGroupResponse pResponseStatus_ =
+mkUpdateKeyGroupResponse pResponseStatus_ =
   UpdateKeyGroupResponse'
-    { _ukgrsETag = Nothing,
-      _ukgrsKeyGroup = Nothing,
-      _ukgrsResponseStatus = pResponseStatus_
+    { eTag = Lude.Nothing,
+      keyGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier for this version of the key group.
-ukgrsETag :: Lens' UpdateKeyGroupResponse (Maybe Text)
-ukgrsETag = lens _ukgrsETag (\s a -> s {_ukgrsETag = a})
+--
+-- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ukgrsETag :: Lens.Lens' UpdateKeyGroupResponse (Lude.Maybe Lude.Text)
+ukgrsETag = Lens.lens (eTag :: UpdateKeyGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: UpdateKeyGroupResponse)
+{-# DEPRECATED ukgrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | The key group that was just updated.
-ukgrsKeyGroup :: Lens' UpdateKeyGroupResponse (Maybe KeyGroup)
-ukgrsKeyGroup = lens _ukgrsKeyGroup (\s a -> s {_ukgrsKeyGroup = a})
+--
+-- /Note:/ Consider using 'keyGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ukgrsKeyGroup :: Lens.Lens' UpdateKeyGroupResponse (Lude.Maybe KeyGroup)
+ukgrsKeyGroup = Lens.lens (keyGroup :: UpdateKeyGroupResponse -> Lude.Maybe KeyGroup) (\s a -> s {keyGroup = a} :: UpdateKeyGroupResponse)
+{-# DEPRECATED ukgrsKeyGroup "Use generic-lens or generic-optics with 'keyGroup' instead." #-}
 
--- | -- | The response status code.
-ukgrsResponseStatus :: Lens' UpdateKeyGroupResponse Int
-ukgrsResponseStatus = lens _ukgrsResponseStatus (\s a -> s {_ukgrsResponseStatus = a})
-
-instance NFData UpdateKeyGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ukgrsResponseStatus :: Lens.Lens' UpdateKeyGroupResponse Lude.Int
+ukgrsResponseStatus = Lens.lens (responseStatus :: UpdateKeyGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateKeyGroupResponse)
+{-# DEPRECATED ukgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

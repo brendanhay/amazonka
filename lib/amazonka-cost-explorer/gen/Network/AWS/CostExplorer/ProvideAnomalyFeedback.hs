@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,155 @@
 --
 -- Modifies the feedback property of a given cost anomaly.
 module Network.AWS.CostExplorer.ProvideAnomalyFeedback
-  ( -- * Creating a Request
-    provideAnomalyFeedback,
-    ProvideAnomalyFeedback,
+  ( -- * Creating a request
+    ProvideAnomalyFeedback (..),
+    mkProvideAnomalyFeedback,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pafAnomalyId,
     pafFeedback,
 
-    -- * Destructuring the Response
-    provideAnomalyFeedbackResponse,
-    ProvideAnomalyFeedbackResponse,
+    -- * Destructuring the response
+    ProvideAnomalyFeedbackResponse (..),
+    mkProvideAnomalyFeedbackResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pafrsResponseStatus,
     pafrsAnomalyId,
   )
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'provideAnomalyFeedback' smart constructor.
+-- | /See:/ 'mkProvideAnomalyFeedback' smart constructor.
 data ProvideAnomalyFeedback = ProvideAnomalyFeedback'
-  { _pafAnomalyId ::
-      !Text,
-    _pafFeedback :: !AnomalyFeedbackType
+  { anomalyId ::
+      Lude.Text,
+    feedback :: AnomalyFeedbackType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvideAnomalyFeedback' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pafAnomalyId' - A cost anomaly ID.
---
--- * 'pafFeedback' - Describes whether the cost anomaly was a planned activity or you considered it an anomaly.
-provideAnomalyFeedback ::
-  -- | 'pafAnomalyId'
-  Text ->
-  -- | 'pafFeedback'
+-- * 'anomalyId' - A cost anomaly ID.
+-- * 'feedback' - Describes whether the cost anomaly was a planned activity or you considered it an anomaly.
+mkProvideAnomalyFeedback ::
+  -- | 'anomalyId'
+  Lude.Text ->
+  -- | 'feedback'
   AnomalyFeedbackType ->
   ProvideAnomalyFeedback
-provideAnomalyFeedback pAnomalyId_ pFeedback_ =
+mkProvideAnomalyFeedback pAnomalyId_ pFeedback_ =
   ProvideAnomalyFeedback'
-    { _pafAnomalyId = pAnomalyId_,
-      _pafFeedback = pFeedback_
+    { anomalyId = pAnomalyId_,
+      feedback = pFeedback_
     }
 
 -- | A cost anomaly ID.
-pafAnomalyId :: Lens' ProvideAnomalyFeedback Text
-pafAnomalyId = lens _pafAnomalyId (\s a -> s {_pafAnomalyId = a})
+--
+-- /Note:/ Consider using 'anomalyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pafAnomalyId :: Lens.Lens' ProvideAnomalyFeedback Lude.Text
+pafAnomalyId = Lens.lens (anomalyId :: ProvideAnomalyFeedback -> Lude.Text) (\s a -> s {anomalyId = a} :: ProvideAnomalyFeedback)
+{-# DEPRECATED pafAnomalyId "Use generic-lens or generic-optics with 'anomalyId' instead." #-}
 
 -- | Describes whether the cost anomaly was a planned activity or you considered it an anomaly.
-pafFeedback :: Lens' ProvideAnomalyFeedback AnomalyFeedbackType
-pafFeedback = lens _pafFeedback (\s a -> s {_pafFeedback = a})
+--
+-- /Note:/ Consider using 'feedback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pafFeedback :: Lens.Lens' ProvideAnomalyFeedback AnomalyFeedbackType
+pafFeedback = Lens.lens (feedback :: ProvideAnomalyFeedback -> AnomalyFeedbackType) (\s a -> s {feedback = a} :: ProvideAnomalyFeedback)
+{-# DEPRECATED pafFeedback "Use generic-lens or generic-optics with 'feedback' instead." #-}
 
-instance AWSRequest ProvideAnomalyFeedback where
+instance Lude.AWSRequest ProvideAnomalyFeedback where
   type Rs ProvideAnomalyFeedback = ProvideAnomalyFeedbackResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ProvideAnomalyFeedbackResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "AnomalyId")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "AnomalyId")
       )
 
-instance Hashable ProvideAnomalyFeedback
-
-instance NFData ProvideAnomalyFeedback
-
-instance ToHeaders ProvideAnomalyFeedback where
+instance Lude.ToHeaders ProvideAnomalyFeedback where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSInsightsIndexService.ProvideAnomalyFeedback" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.ProvideAnomalyFeedback" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ProvideAnomalyFeedback where
+instance Lude.ToJSON ProvideAnomalyFeedback where
   toJSON ProvideAnomalyFeedback' {..} =
-    object
-      ( catMaybes
-          [ Just ("AnomalyId" .= _pafAnomalyId),
-            Just ("Feedback" .= _pafFeedback)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("AnomalyId" Lude..= anomalyId),
+            Lude.Just ("Feedback" Lude..= feedback)
           ]
       )
 
-instance ToPath ProvideAnomalyFeedback where
-  toPath = const "/"
+instance Lude.ToPath ProvideAnomalyFeedback where
+  toPath = Lude.const "/"
 
-instance ToQuery ProvideAnomalyFeedback where
-  toQuery = const mempty
+instance Lude.ToQuery ProvideAnomalyFeedback where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'provideAnomalyFeedbackResponse' smart constructor.
+-- | /See:/ 'mkProvideAnomalyFeedbackResponse' smart constructor.
 data ProvideAnomalyFeedbackResponse = ProvideAnomalyFeedbackResponse'
-  { _pafrsResponseStatus ::
-      !Int,
-    _pafrsAnomalyId :: !Text
+  { responseStatus ::
+      Lude.Int,
+    anomalyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvideAnomalyFeedbackResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pafrsResponseStatus' - -- | The response status code.
---
--- * 'pafrsAnomalyId' - The ID of the modified cost anomaly.
-provideAnomalyFeedbackResponse ::
-  -- | 'pafrsResponseStatus'
-  Int ->
-  -- | 'pafrsAnomalyId'
-  Text ->
+-- * 'anomalyId' - The ID of the modified cost anomaly.
+-- * 'responseStatus' - The response status code.
+mkProvideAnomalyFeedbackResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'anomalyId'
+  Lude.Text ->
   ProvideAnomalyFeedbackResponse
-provideAnomalyFeedbackResponse pResponseStatus_ pAnomalyId_ =
+mkProvideAnomalyFeedbackResponse pResponseStatus_ pAnomalyId_ =
   ProvideAnomalyFeedbackResponse'
-    { _pafrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _pafrsAnomalyId = pAnomalyId_
+      anomalyId = pAnomalyId_
     }
 
--- | -- | The response status code.
-pafrsResponseStatus :: Lens' ProvideAnomalyFeedbackResponse Int
-pafrsResponseStatus = lens _pafrsResponseStatus (\s a -> s {_pafrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pafrsResponseStatus :: Lens.Lens' ProvideAnomalyFeedbackResponse Lude.Int
+pafrsResponseStatus = Lens.lens (responseStatus :: ProvideAnomalyFeedbackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ProvideAnomalyFeedbackResponse)
+{-# DEPRECATED pafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ID of the modified cost anomaly.
-pafrsAnomalyId :: Lens' ProvideAnomalyFeedbackResponse Text
-pafrsAnomalyId = lens _pafrsAnomalyId (\s a -> s {_pafrsAnomalyId = a})
-
-instance NFData ProvideAnomalyFeedbackResponse
+--
+-- /Note:/ Consider using 'anomalyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pafrsAnomalyId :: Lens.Lens' ProvideAnomalyFeedbackResponse Lude.Text
+pafrsAnomalyId = Lens.lens (anomalyId :: ProvideAnomalyFeedbackResponse -> Lude.Text) (\s a -> s {anomalyId = a} :: ProvideAnomalyFeedbackResponse)
+{-# DEPRECATED pafrsAnomalyId "Use generic-lens or generic-optics with 'anomalyId' instead." #-}

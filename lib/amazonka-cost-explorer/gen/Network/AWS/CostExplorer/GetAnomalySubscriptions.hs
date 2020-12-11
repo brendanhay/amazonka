@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Retrieves the cost anomaly subscription objects for your account. You can filter using a list of cost anomaly monitor Amazon Resource Names (ARNs).
 module Network.AWS.CostExplorer.GetAnomalySubscriptions
-  ( -- * Creating a Request
-    getAnomalySubscriptions,
-    GetAnomalySubscriptions,
+  ( -- * Creating a request
+    GetAnomalySubscriptions (..),
+    mkGetAnomalySubscriptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gasSubscriptionARNList,
     gasNextPageToken,
     gasMaxResults,
     gasMonitorARN,
 
-    -- * Destructuring the Response
-    getAnomalySubscriptionsResponse,
-    GetAnomalySubscriptionsResponse,
+    -- * Destructuring the response
+    GetAnomalySubscriptionsResponse (..),
+    mkGetAnomalySubscriptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gasrsNextPageToken,
     gasrsResponseStatus,
     gasrsAnomalySubscriptions,
@@ -41,142 +36,164 @@ module Network.AWS.CostExplorer.GetAnomalySubscriptions
 where
 
 import Network.AWS.CostExplorer.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAnomalySubscriptions' smart constructor.
+-- | /See:/ 'mkGetAnomalySubscriptions' smart constructor.
 data GetAnomalySubscriptions = GetAnomalySubscriptions'
-  { _gasSubscriptionARNList ::
-      !(Maybe [Text]),
-    _gasNextPageToken :: !(Maybe Text),
-    _gasMaxResults :: !(Maybe Int),
-    _gasMonitorARN :: !(Maybe Text)
+  { subscriptionARNList ::
+      Lude.Maybe [Lude.Text],
+    nextPageToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Int,
+    monitorARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAnomalySubscriptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasSubscriptionARNList' - A list of cost anomaly subscription ARNs.
---
--- * 'gasNextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gasMaxResults' - The number of entries a paginated response contains.
---
--- * 'gasMonitorARN' - Cost anomaly monitor ARNs.
-getAnomalySubscriptions ::
+-- * 'maxResults' - The number of entries a paginated response contains.
+-- * 'monitorARN' - Cost anomaly monitor ARNs.
+-- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'subscriptionARNList' - A list of cost anomaly subscription ARNs.
+mkGetAnomalySubscriptions ::
   GetAnomalySubscriptions
-getAnomalySubscriptions =
+mkGetAnomalySubscriptions =
   GetAnomalySubscriptions'
-    { _gasSubscriptionARNList = Nothing,
-      _gasNextPageToken = Nothing,
-      _gasMaxResults = Nothing,
-      _gasMonitorARN = Nothing
+    { subscriptionARNList = Lude.Nothing,
+      nextPageToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      monitorARN = Lude.Nothing
     }
 
 -- | A list of cost anomaly subscription ARNs.
-gasSubscriptionARNList :: Lens' GetAnomalySubscriptions [Text]
-gasSubscriptionARNList = lens _gasSubscriptionARNList (\s a -> s {_gasSubscriptionARNList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subscriptionARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasSubscriptionARNList :: Lens.Lens' GetAnomalySubscriptions (Lude.Maybe [Lude.Text])
+gasSubscriptionARNList = Lens.lens (subscriptionARNList :: GetAnomalySubscriptions -> Lude.Maybe [Lude.Text]) (\s a -> s {subscriptionARNList = a} :: GetAnomalySubscriptions)
+{-# DEPRECATED gasSubscriptionARNList "Use generic-lens or generic-optics with 'subscriptionARNList' instead." #-}
 
 -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-gasNextPageToken :: Lens' GetAnomalySubscriptions (Maybe Text)
-gasNextPageToken = lens _gasNextPageToken (\s a -> s {_gasNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasNextPageToken :: Lens.Lens' GetAnomalySubscriptions (Lude.Maybe Lude.Text)
+gasNextPageToken = Lens.lens (nextPageToken :: GetAnomalySubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetAnomalySubscriptions)
+{-# DEPRECATED gasNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The number of entries a paginated response contains.
-gasMaxResults :: Lens' GetAnomalySubscriptions (Maybe Int)
-gasMaxResults = lens _gasMaxResults (\s a -> s {_gasMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasMaxResults :: Lens.Lens' GetAnomalySubscriptions (Lude.Maybe Lude.Int)
+gasMaxResults = Lens.lens (maxResults :: GetAnomalySubscriptions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetAnomalySubscriptions)
+{-# DEPRECATED gasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Cost anomaly monitor ARNs.
-gasMonitorARN :: Lens' GetAnomalySubscriptions (Maybe Text)
-gasMonitorARN = lens _gasMonitorARN (\s a -> s {_gasMonitorARN = a})
+--
+-- /Note:/ Consider using 'monitorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasMonitorARN :: Lens.Lens' GetAnomalySubscriptions (Lude.Maybe Lude.Text)
+gasMonitorARN = Lens.lens (monitorARN :: GetAnomalySubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {monitorARN = a} :: GetAnomalySubscriptions)
+{-# DEPRECATED gasMonitorARN "Use generic-lens or generic-optics with 'monitorARN' instead." #-}
 
-instance AWSRequest GetAnomalySubscriptions where
+instance Lude.AWSRequest GetAnomalySubscriptions where
   type Rs GetAnomalySubscriptions = GetAnomalySubscriptionsResponse
-  request = postJSON costExplorer
+  request = Req.postJSON costExplorerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAnomalySubscriptionsResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "AnomalySubscriptions" .!@ mempty)
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "AnomalySubscriptions" Lude..!@ Lude.mempty)
       )
 
-instance Hashable GetAnomalySubscriptions
-
-instance NFData GetAnomalySubscriptions
-
-instance ToHeaders GetAnomalySubscriptions where
+instance Lude.ToHeaders GetAnomalySubscriptions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSInsightsIndexService.GetAnomalySubscriptions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSInsightsIndexService.GetAnomalySubscriptions" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAnomalySubscriptions where
+instance Lude.ToJSON GetAnomalySubscriptions where
   toJSON GetAnomalySubscriptions' {..} =
-    object
-      ( catMaybes
-          [ ("SubscriptionArnList" .=) <$> _gasSubscriptionARNList,
-            ("NextPageToken" .=) <$> _gasNextPageToken,
-            ("MaxResults" .=) <$> _gasMaxResults,
-            ("MonitorArn" .=) <$> _gasMonitorARN
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SubscriptionArnList" Lude..=) Lude.<$> subscriptionARNList,
+            ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            ("MonitorArn" Lude..=) Lude.<$> monitorARN
           ]
       )
 
-instance ToPath GetAnomalySubscriptions where
-  toPath = const "/"
+instance Lude.ToPath GetAnomalySubscriptions where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAnomalySubscriptions where
-  toQuery = const mempty
+instance Lude.ToQuery GetAnomalySubscriptions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAnomalySubscriptionsResponse' smart constructor.
+-- | /See:/ 'mkGetAnomalySubscriptionsResponse' smart constructor.
 data GetAnomalySubscriptionsResponse = GetAnomalySubscriptionsResponse'
-  { _gasrsNextPageToken ::
-      !(Maybe Text),
-    _gasrsResponseStatus ::
-      !Int,
-    _gasrsAnomalySubscriptions ::
-      ![AnomalySubscription]
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    anomalySubscriptions ::
+      [AnomalySubscription]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAnomalySubscriptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasrsNextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- * 'gasrsResponseStatus' - -- | The response status code.
---
--- * 'gasrsAnomalySubscriptions' - A list of cost anomaly subscriptions that includes the detailed metadata for each one.
-getAnomalySubscriptionsResponse ::
-  -- | 'gasrsResponseStatus'
-  Int ->
+-- * 'anomalySubscriptions' - A list of cost anomaly subscriptions that includes the detailed metadata for each one.
+-- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'responseStatus' - The response status code.
+mkGetAnomalySubscriptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAnomalySubscriptionsResponse
-getAnomalySubscriptionsResponse pResponseStatus_ =
+mkGetAnomalySubscriptionsResponse pResponseStatus_ =
   GetAnomalySubscriptionsResponse'
-    { _gasrsNextPageToken = Nothing,
-      _gasrsResponseStatus = pResponseStatus_,
-      _gasrsAnomalySubscriptions = mempty
+    { nextPageToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      anomalySubscriptions = Lude.mempty
     }
 
 -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-gasrsNextPageToken :: Lens' GetAnomalySubscriptionsResponse (Maybe Text)
-gasrsNextPageToken = lens _gasrsNextPageToken (\s a -> s {_gasrsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsNextPageToken :: Lens.Lens' GetAnomalySubscriptionsResponse (Lude.Maybe Lude.Text)
+gasrsNextPageToken = Lens.lens (nextPageToken :: GetAnomalySubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetAnomalySubscriptionsResponse)
+{-# DEPRECATED gasrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | -- | The response status code.
-gasrsResponseStatus :: Lens' GetAnomalySubscriptionsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\s a -> s {_gasrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsResponseStatus :: Lens.Lens' GetAnomalySubscriptionsResponse Lude.Int
+gasrsResponseStatus = Lens.lens (responseStatus :: GetAnomalySubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAnomalySubscriptionsResponse)
+{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of cost anomaly subscriptions that includes the detailed metadata for each one.
-gasrsAnomalySubscriptions :: Lens' GetAnomalySubscriptionsResponse [AnomalySubscription]
-gasrsAnomalySubscriptions = lens _gasrsAnomalySubscriptions (\s a -> s {_gasrsAnomalySubscriptions = a}) . _Coerce
-
-instance NFData GetAnomalySubscriptionsResponse
+--
+-- /Note:/ Consider using 'anomalySubscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsAnomalySubscriptions :: Lens.Lens' GetAnomalySubscriptionsResponse [AnomalySubscription]
+gasrsAnomalySubscriptions = Lens.lens (anomalySubscriptions :: GetAnomalySubscriptionsResponse -> [AnomalySubscription]) (\s a -> s {anomalySubscriptions = a} :: GetAnomalySubscriptionsResponse)
+{-# DEPRECATED gasrsAnomalySubscriptions "Use generic-lens or generic-optics with 'anomalySubscriptions' instead." #-}

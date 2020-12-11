@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.VideoCodec where
+module Network.AWS.MediaConvert.Types.VideoCodec
+  ( VideoCodec
+      ( VideoCodec',
+        AV1,
+        AvcIntra,
+        FrameCapture,
+        H264,
+        H265,
+        MPEG2,
+        Prores,
+        VC3,
+        VP8,
+        VP9
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Type of video codec
-data VideoCodec
-  = AV1
-  | AvcIntra
-  | FrameCapture
-  | H264
-  | H265
-  | MPEG2
-  | Prores
-  | VC3
-  | VP8
-  | VP9
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VideoCodec = VideoCodec' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VideoCodec where
-  parser =
-    takeLowerText >>= \case
-      "av1" -> pure AV1
-      "avc_intra" -> pure AvcIntra
-      "frame_capture" -> pure FrameCapture
-      "h_264" -> pure H264
-      "h_265" -> pure H265
-      "mpeg2" -> pure MPEG2
-      "prores" -> pure Prores
-      "vc3" -> pure VC3
-      "vp8" -> pure VP8
-      "vp9" -> pure VP9
-      e ->
-        fromTextError $
-          "Failure parsing VideoCodec from value: '" <> e
-            <> "'. Accepted values: av1, avc_intra, frame_capture, h_264, h_265, mpeg2, prores, vc3, vp8, vp9"
+pattern AV1 :: VideoCodec
+pattern AV1 = VideoCodec' "AV1"
 
-instance ToText VideoCodec where
-  toText = \case
-    AV1 -> "AV1"
-    AvcIntra -> "AVC_INTRA"
-    FrameCapture -> "FRAME_CAPTURE"
-    H264 -> "H_264"
-    H265 -> "H_265"
-    MPEG2 -> "MPEG2"
-    Prores -> "PRORES"
-    VC3 -> "VC3"
-    VP8 -> "VP8"
-    VP9 -> "VP9"
+pattern AvcIntra :: VideoCodec
+pattern AvcIntra = VideoCodec' "AVC_INTRA"
 
-instance Hashable VideoCodec
+pattern FrameCapture :: VideoCodec
+pattern FrameCapture = VideoCodec' "FRAME_CAPTURE"
 
-instance NFData VideoCodec
+pattern H264 :: VideoCodec
+pattern H264 = VideoCodec' "H_264"
 
-instance ToByteString VideoCodec
+pattern H265 :: VideoCodec
+pattern H265 = VideoCodec' "H_265"
 
-instance ToQuery VideoCodec
+pattern MPEG2 :: VideoCodec
+pattern MPEG2 = VideoCodec' "MPEG2"
 
-instance ToHeader VideoCodec
+pattern Prores :: VideoCodec
+pattern Prores = VideoCodec' "PRORES"
 
-instance ToJSON VideoCodec where
-  toJSON = toJSONText
+pattern VC3 :: VideoCodec
+pattern VC3 = VideoCodec' "VC3"
 
-instance FromJSON VideoCodec where
-  parseJSON = parseJSONText "VideoCodec"
+pattern VP8 :: VideoCodec
+pattern VP8 = VideoCodec' "VP8"
+
+pattern VP9 :: VideoCodec
+pattern VP9 = VideoCodec' "VP9"
+
+{-# COMPLETE
+  AV1,
+  AvcIntra,
+  FrameCapture,
+  H264,
+  H265,
+  MPEG2,
+  Prores,
+  VC3,
+  VP8,
+  VP9,
+  VideoCodec'
+  #-}

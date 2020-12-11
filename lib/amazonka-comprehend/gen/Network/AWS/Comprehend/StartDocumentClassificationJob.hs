@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Starts an asynchronous document classification job. Use the operation to track the progress of the job.
 module Network.AWS.Comprehend.StartDocumentClassificationJob
-  ( -- * Creating a Request
-    startDocumentClassificationJob,
-    StartDocumentClassificationJob,
+  ( -- * Creating a request
+    StartDocumentClassificationJob (..),
+    mkStartDocumentClassificationJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sdcjJobName,
     sdcjVPCConfig,
     sdcjVolumeKMSKeyId,
@@ -33,11 +28,11 @@ module Network.AWS.Comprehend.StartDocumentClassificationJob
     sdcjOutputDataConfig,
     sdcjDataAccessRoleARN,
 
-    -- * Destructuring the Response
-    startDocumentClassificationJobResponse,
-    StartDocumentClassificationJobResponse,
+    -- * Destructuring the response
+    StartDocumentClassificationJobResponse (..),
+    mkStartDocumentClassificationJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sdcjrsJobId,
     sdcjrsJobStatus,
     sdcjrsResponseStatus,
@@ -45,201 +40,288 @@ module Network.AWS.Comprehend.StartDocumentClassificationJob
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startDocumentClassificationJob' smart constructor.
+-- | /See:/ 'mkStartDocumentClassificationJob' smart constructor.
 data StartDocumentClassificationJob = StartDocumentClassificationJob'
-  { _sdcjJobName ::
-      !(Maybe Text),
-    _sdcjVPCConfig ::
-      !(Maybe VPCConfig),
-    _sdcjVolumeKMSKeyId ::
-      !(Maybe Text),
-    _sdcjClientRequestToken ::
-      !(Maybe Text),
-    _sdcjDocumentClassifierARN ::
-      !Text,
-    _sdcjInputDataConfig ::
-      !InputDataConfig,
-    _sdcjOutputDataConfig ::
-      !OutputDataConfig,
-    _sdcjDataAccessRoleARN ::
-      !Text
+  { jobName ::
+      Lude.Maybe Lude.Text,
+    vpcConfig ::
+      Lude.Maybe VPCConfig,
+    volumeKMSKeyId ::
+      Lude.Maybe Lude.Text,
+    clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    documentClassifierARN ::
+      Lude.Text,
+    inputDataConfig ::
+      InputDataConfig,
+    outputDataConfig ::
+      OutputDataConfig,
+    dataAccessRoleARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDocumentClassificationJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientRequestToken' - A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+-- * 'documentClassifierARN' - The Amazon Resource Name (ARN) of the document classifier to use to process the job.
+-- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
+-- * 'jobName' - The identifier of the job.
+-- * 'outputDataConfig' - Specifies where to send the output files.
+-- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
--- * 'sdcjJobName' - The identifier of the job.
 --
--- * 'sdcjVPCConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'sdcjVolumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'sdcjClientRequestToken' - A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'sdcjDocumentClassifierARN' - The Amazon Resource Name (ARN) of the document classifier to use to process the job.
 --
--- * 'sdcjInputDataConfig' - Specifies the format and location of the input data for the job.
---
--- * 'sdcjOutputDataConfig' - Specifies where to send the output files.
---
--- * 'sdcjDataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
-startDocumentClassificationJob ::
-  -- | 'sdcjDocumentClassifierARN'
-  Text ->
-  -- | 'sdcjInputDataConfig'
+-- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+mkStartDocumentClassificationJob ::
+  -- | 'documentClassifierARN'
+  Lude.Text ->
+  -- | 'inputDataConfig'
   InputDataConfig ->
-  -- | 'sdcjOutputDataConfig'
+  -- | 'outputDataConfig'
   OutputDataConfig ->
-  -- | 'sdcjDataAccessRoleARN'
-  Text ->
+  -- | 'dataAccessRoleARN'
+  Lude.Text ->
   StartDocumentClassificationJob
-startDocumentClassificationJob
+mkStartDocumentClassificationJob
   pDocumentClassifierARN_
   pInputDataConfig_
   pOutputDataConfig_
   pDataAccessRoleARN_ =
     StartDocumentClassificationJob'
-      { _sdcjJobName = Nothing,
-        _sdcjVPCConfig = Nothing,
-        _sdcjVolumeKMSKeyId = Nothing,
-        _sdcjClientRequestToken = Nothing,
-        _sdcjDocumentClassifierARN = pDocumentClassifierARN_,
-        _sdcjInputDataConfig = pInputDataConfig_,
-        _sdcjOutputDataConfig = pOutputDataConfig_,
-        _sdcjDataAccessRoleARN = pDataAccessRoleARN_
+      { jobName = Lude.Nothing,
+        vpcConfig = Lude.Nothing,
+        volumeKMSKeyId = Lude.Nothing,
+        clientRequestToken = Lude.Nothing,
+        documentClassifierARN = pDocumentClassifierARN_,
+        inputDataConfig = pInputDataConfig_,
+        outputDataConfig = pOutputDataConfig_,
+        dataAccessRoleARN = pDataAccessRoleARN_
       }
 
 -- | The identifier of the job.
-sdcjJobName :: Lens' StartDocumentClassificationJob (Maybe Text)
-sdcjJobName = lens _sdcjJobName (\s a -> s {_sdcjJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjJobName :: Lens.Lens' StartDocumentClassificationJob (Lude.Maybe Lude.Text)
+sdcjJobName = Lens.lens (jobName :: StartDocumentClassificationJob -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: StartDocumentClassificationJob)
+{-# DEPRECATED sdcjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
-sdcjVPCConfig :: Lens' StartDocumentClassificationJob (Maybe VPCConfig)
-sdcjVPCConfig = lens _sdcjVPCConfig (\s a -> s {_sdcjVPCConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjVPCConfig :: Lens.Lens' StartDocumentClassificationJob (Lude.Maybe VPCConfig)
+sdcjVPCConfig = Lens.lens (vpcConfig :: StartDocumentClassificationJob -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: StartDocumentClassificationJob)
+{-# DEPRECATED sdcjVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-sdcjVolumeKMSKeyId :: Lens' StartDocumentClassificationJob (Maybe Text)
-sdcjVolumeKMSKeyId = lens _sdcjVolumeKMSKeyId (\s a -> s {_sdcjVolumeKMSKeyId = a})
+-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+--
+--
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--
+-- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjVolumeKMSKeyId :: Lens.Lens' StartDocumentClassificationJob (Lude.Maybe Lude.Text)
+sdcjVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: StartDocumentClassificationJob -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: StartDocumentClassificationJob)
+{-# DEPRECATED sdcjVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
 -- | A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
-sdcjClientRequestToken :: Lens' StartDocumentClassificationJob (Maybe Text)
-sdcjClientRequestToken = lens _sdcjClientRequestToken (\s a -> s {_sdcjClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjClientRequestToken :: Lens.Lens' StartDocumentClassificationJob (Lude.Maybe Lude.Text)
+sdcjClientRequestToken = Lens.lens (clientRequestToken :: StartDocumentClassificationJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartDocumentClassificationJob)
+{-# DEPRECATED sdcjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the document classifier to use to process the job.
-sdcjDocumentClassifierARN :: Lens' StartDocumentClassificationJob Text
-sdcjDocumentClassifierARN = lens _sdcjDocumentClassifierARN (\s a -> s {_sdcjDocumentClassifierARN = a})
+--
+-- /Note:/ Consider using 'documentClassifierARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjDocumentClassifierARN :: Lens.Lens' StartDocumentClassificationJob Lude.Text
+sdcjDocumentClassifierARN = Lens.lens (documentClassifierARN :: StartDocumentClassificationJob -> Lude.Text) (\s a -> s {documentClassifierARN = a} :: StartDocumentClassificationJob)
+{-# DEPRECATED sdcjDocumentClassifierARN "Use generic-lens or generic-optics with 'documentClassifierARN' instead." #-}
 
 -- | Specifies the format and location of the input data for the job.
-sdcjInputDataConfig :: Lens' StartDocumentClassificationJob InputDataConfig
-sdcjInputDataConfig = lens _sdcjInputDataConfig (\s a -> s {_sdcjInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjInputDataConfig :: Lens.Lens' StartDocumentClassificationJob InputDataConfig
+sdcjInputDataConfig = Lens.lens (inputDataConfig :: StartDocumentClassificationJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartDocumentClassificationJob)
+{-# DEPRECATED sdcjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Specifies where to send the output files.
-sdcjOutputDataConfig :: Lens' StartDocumentClassificationJob OutputDataConfig
-sdcjOutputDataConfig = lens _sdcjOutputDataConfig (\s a -> s {_sdcjOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjOutputDataConfig :: Lens.Lens' StartDocumentClassificationJob OutputDataConfig
+sdcjOutputDataConfig = Lens.lens (outputDataConfig :: StartDocumentClassificationJob -> OutputDataConfig) (\s a -> s {outputDataConfig = a} :: StartDocumentClassificationJob)
+{-# DEPRECATED sdcjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
-sdcjDataAccessRoleARN :: Lens' StartDocumentClassificationJob Text
-sdcjDataAccessRoleARN = lens _sdcjDataAccessRoleARN (\s a -> s {_sdcjDataAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjDataAccessRoleARN :: Lens.Lens' StartDocumentClassificationJob Lude.Text
+sdcjDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: StartDocumentClassificationJob -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: StartDocumentClassificationJob)
+{-# DEPRECATED sdcjDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
-instance AWSRequest StartDocumentClassificationJob where
+instance Lude.AWSRequest StartDocumentClassificationJob where
   type
     Rs StartDocumentClassificationJob =
       StartDocumentClassificationJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartDocumentClassificationJobResponse'
-            <$> (x .?> "JobId") <*> (x .?> "JobStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobId")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartDocumentClassificationJob
-
-instance NFData StartDocumentClassificationJob
-
-instance ToHeaders StartDocumentClassificationJob where
+instance Lude.ToHeaders StartDocumentClassificationJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Comprehend_20171127.StartDocumentClassificationJob" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.StartDocumentClassificationJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartDocumentClassificationJob where
+instance Lude.ToJSON StartDocumentClassificationJob where
   toJSON StartDocumentClassificationJob' {..} =
-    object
-      ( catMaybes
-          [ ("JobName" .=) <$> _sdcjJobName,
-            ("VpcConfig" .=) <$> _sdcjVPCConfig,
-            ("VolumeKmsKeyId" .=) <$> _sdcjVolumeKMSKeyId,
-            ("ClientRequestToken" .=) <$> _sdcjClientRequestToken,
-            Just ("DocumentClassifierArn" .= _sdcjDocumentClassifierARN),
-            Just ("InputDataConfig" .= _sdcjInputDataConfig),
-            Just ("OutputDataConfig" .= _sdcjOutputDataConfig),
-            Just ("DataAccessRoleArn" .= _sdcjDataAccessRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("JobName" Lude..=) Lude.<$> jobName,
+            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("DocumentClassifierArn" Lude..= documentClassifierARN),
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
+            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
+            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN)
           ]
       )
 
-instance ToPath StartDocumentClassificationJob where
-  toPath = const "/"
+instance Lude.ToPath StartDocumentClassificationJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StartDocumentClassificationJob where
-  toQuery = const mempty
+instance Lude.ToQuery StartDocumentClassificationJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startDocumentClassificationJobResponse' smart constructor.
+-- | /See:/ 'mkStartDocumentClassificationJobResponse' smart constructor.
 data StartDocumentClassificationJobResponse = StartDocumentClassificationJobResponse'
-  { _sdcjrsJobId ::
-      !(Maybe Text),
-    _sdcjrsJobStatus ::
-      !( Maybe
-           JobStatus
-       ),
-    _sdcjrsResponseStatus ::
-      !Int
+  { jobId ::
+      Lude.Maybe
+        Lude.Text,
+    jobStatus ::
+      Lude.Maybe
+        JobStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDocumentClassificationJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'jobId' - The identifier generated for the job. To get the status of the job, use this identifier with the operation.
+-- * 'jobStatus' - The status of the job:
 --
--- * 'sdcjrsJobId' - The identifier generated for the job. To get the status of the job, use this identifier with the operation.
 --
--- * 'sdcjrsJobStatus' - The status of the job:     * SUBMITTED - The job has been received and queued for processing.     * IN_PROGRESS - Amazon Comprehend is processing the job.     * COMPLETED - The job was successfully completed and the output is available.     * FAILED - The job did not complete. For details, use the operation.     * STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.     * STOPPED - The job was successfully stopped without completing.
+--     * SUBMITTED - The job has been received and queued for processing.
 --
--- * 'sdcjrsResponseStatus' - -- | The response status code.
-startDocumentClassificationJobResponse ::
-  -- | 'sdcjrsResponseStatus'
-  Int ->
+--
+--     * IN_PROGRESS - Amazon Comprehend is processing the job.
+--
+--
+--     * COMPLETED - The job was successfully completed and the output is available.
+--
+--
+--     * FAILED - The job did not complete. For details, use the operation.
+--
+--
+--     * STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+--
+--
+--     * STOPPED - The job was successfully stopped without completing.
+--
+--
+-- * 'responseStatus' - The response status code.
+mkStartDocumentClassificationJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartDocumentClassificationJobResponse
-startDocumentClassificationJobResponse pResponseStatus_ =
+mkStartDocumentClassificationJobResponse pResponseStatus_ =
   StartDocumentClassificationJobResponse'
-    { _sdcjrsJobId = Nothing,
-      _sdcjrsJobStatus = Nothing,
-      _sdcjrsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier generated for the job. To get the status of the job, use this identifier with the operation.
-sdcjrsJobId :: Lens' StartDocumentClassificationJobResponse (Maybe Text)
-sdcjrsJobId = lens _sdcjrsJobId (\s a -> s {_sdcjrsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjrsJobId :: Lens.Lens' StartDocumentClassificationJobResponse (Lude.Maybe Lude.Text)
+sdcjrsJobId = Lens.lens (jobId :: StartDocumentClassificationJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartDocumentClassificationJobResponse)
+{-# DEPRECATED sdcjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | The status of the job:     * SUBMITTED - The job has been received and queued for processing.     * IN_PROGRESS - Amazon Comprehend is processing the job.     * COMPLETED - The job was successfully completed and the output is available.     * FAILED - The job did not complete. For details, use the operation.     * STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.     * STOPPED - The job was successfully stopped without completing.
-sdcjrsJobStatus :: Lens' StartDocumentClassificationJobResponse (Maybe JobStatus)
-sdcjrsJobStatus = lens _sdcjrsJobStatus (\s a -> s {_sdcjrsJobStatus = a})
+-- | The status of the job:
+--
+--
+--     * SUBMITTED - The job has been received and queued for processing.
+--
+--
+--     * IN_PROGRESS - Amazon Comprehend is processing the job.
+--
+--
+--     * COMPLETED - The job was successfully completed and the output is available.
+--
+--
+--     * FAILED - The job did not complete. For details, use the operation.
+--
+--
+--     * STOP_REQUESTED - Amazon Comprehend has received a stop request for the job and is processing the request.
+--
+--
+--     * STOPPED - The job was successfully stopped without completing.
+--
+--
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjrsJobStatus :: Lens.Lens' StartDocumentClassificationJobResponse (Lude.Maybe JobStatus)
+sdcjrsJobStatus = Lens.lens (jobStatus :: StartDocumentClassificationJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StartDocumentClassificationJobResponse)
+{-# DEPRECATED sdcjrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | -- | The response status code.
-sdcjrsResponseStatus :: Lens' StartDocumentClassificationJobResponse Int
-sdcjrsResponseStatus = lens _sdcjrsResponseStatus (\s a -> s {_sdcjrsResponseStatus = a})
-
-instance NFData StartDocumentClassificationJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcjrsResponseStatus :: Lens.Lens' StartDocumentClassificationJobResponse Lude.Int
+sdcjrsResponseStatus = Lens.lens (responseStatus :: StartDocumentClassificationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartDocumentClassificationJobResponse)
+{-# DEPRECATED sdcjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

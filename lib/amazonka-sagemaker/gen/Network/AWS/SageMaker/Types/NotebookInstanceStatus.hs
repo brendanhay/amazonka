@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.NotebookInstanceStatus where
+module Network.AWS.SageMaker.Types.NotebookInstanceStatus
+  ( NotebookInstanceStatus
+      ( NotebookInstanceStatus',
+        NISDeleting,
+        NISFailed,
+        NISInService,
+        NISPending,
+        NISStopped,
+        NISStopping,
+        NISUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotebookInstanceStatus
-  = NISDeleting
-  | NISFailed
-  | NISInService
-  | NISPending
-  | NISStopped
-  | NISStopping
-  | NISUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotebookInstanceStatus = NotebookInstanceStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotebookInstanceStatus where
-  parser =
-    takeLowerText >>= \case
-      "deleting" -> pure NISDeleting
-      "failed" -> pure NISFailed
-      "inservice" -> pure NISInService
-      "pending" -> pure NISPending
-      "stopped" -> pure NISStopped
-      "stopping" -> pure NISStopping
-      "updating" -> pure NISUpdating
-      e ->
-        fromTextError $
-          "Failure parsing NotebookInstanceStatus from value: '" <> e
-            <> "'. Accepted values: deleting, failed, inservice, pending, stopped, stopping, updating"
+pattern NISDeleting :: NotebookInstanceStatus
+pattern NISDeleting = NotebookInstanceStatus' "Deleting"
 
-instance ToText NotebookInstanceStatus where
-  toText = \case
-    NISDeleting -> "Deleting"
-    NISFailed -> "Failed"
-    NISInService -> "InService"
-    NISPending -> "Pending"
-    NISStopped -> "Stopped"
-    NISStopping -> "Stopping"
-    NISUpdating -> "Updating"
+pattern NISFailed :: NotebookInstanceStatus
+pattern NISFailed = NotebookInstanceStatus' "Failed"
 
-instance Hashable NotebookInstanceStatus
+pattern NISInService :: NotebookInstanceStatus
+pattern NISInService = NotebookInstanceStatus' "InService"
 
-instance NFData NotebookInstanceStatus
+pattern NISPending :: NotebookInstanceStatus
+pattern NISPending = NotebookInstanceStatus' "Pending"
 
-instance ToByteString NotebookInstanceStatus
+pattern NISStopped :: NotebookInstanceStatus
+pattern NISStopped = NotebookInstanceStatus' "Stopped"
 
-instance ToQuery NotebookInstanceStatus
+pattern NISStopping :: NotebookInstanceStatus
+pattern NISStopping = NotebookInstanceStatus' "Stopping"
 
-instance ToHeader NotebookInstanceStatus
+pattern NISUpdating :: NotebookInstanceStatus
+pattern NISUpdating = NotebookInstanceStatus' "Updating"
 
-instance ToJSON NotebookInstanceStatus where
-  toJSON = toJSONText
-
-instance FromJSON NotebookInstanceStatus where
-  parseJSON = parseJSONText "NotebookInstanceStatus"
+{-# COMPLETE
+  NISDeleting,
+  NISFailed,
+  NISInService,
+  NISPending,
+  NISStopped,
+  NISStopping,
+  NISUpdating,
+  NotebookInstanceStatus'
+  #-}

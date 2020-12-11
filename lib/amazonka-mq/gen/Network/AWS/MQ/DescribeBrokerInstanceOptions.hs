@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Describe available broker instance options.
 module Network.AWS.MQ.DescribeBrokerInstanceOptions
-  ( -- * Creating a Request
-    describeBrokerInstanceOptions,
-    DescribeBrokerInstanceOptions,
+  ( -- * Creating a request
+    DescribeBrokerInstanceOptions (..),
+    mkDescribeBrokerInstanceOptions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbioNextToken,
     dbioEngineType,
     dbioMaxResults,
     dbioHostInstanceType,
     dbioStorageType,
 
-    -- * Destructuring the Response
-    describeBrokerInstanceOptionsResponse,
-    DescribeBrokerInstanceOptionsResponse,
+    -- * Destructuring the response
+    DescribeBrokerInstanceOptionsResponse (..),
+    mkDescribeBrokerInstanceOptionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dbiorsNextToken,
     dbiorsBrokerInstanceOptions,
     dbiorsMaxResults,
@@ -42,162 +37,189 @@ module Network.AWS.MQ.DescribeBrokerInstanceOptions
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeBrokerInstanceOptions' smart constructor.
+-- | /See:/ 'mkDescribeBrokerInstanceOptions' smart constructor.
 data DescribeBrokerInstanceOptions = DescribeBrokerInstanceOptions'
-  { _dbioNextToken ::
-      !(Maybe Text),
-    _dbioEngineType ::
-      !(Maybe Text),
-    _dbioMaxResults :: !(Maybe Nat),
-    _dbioHostInstanceType ::
-      !(Maybe Text),
-    _dbioStorageType ::
-      !(Maybe Text)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    engineType ::
+      Lude.Maybe Lude.Text,
+    maxResults ::
+      Lude.Maybe Lude.Natural,
+    hostInstanceType ::
+      Lude.Maybe Lude.Text,
+    storageType ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBrokerInstanceOptions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbioNextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
---
--- * 'dbioEngineType' - Filter response by engine type.
---
--- * 'dbioMaxResults' - The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
---
--- * 'dbioHostInstanceType' - Filter response by host instance type.
---
--- * 'dbioStorageType' - Filter response by storage type.
-describeBrokerInstanceOptions ::
+-- * 'engineType' - Filter response by engine type.
+-- * 'hostInstanceType' - Filter response by host instance type.
+-- * 'maxResults' - The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+-- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- * 'storageType' - Filter response by storage type.
+mkDescribeBrokerInstanceOptions ::
   DescribeBrokerInstanceOptions
-describeBrokerInstanceOptions =
+mkDescribeBrokerInstanceOptions =
   DescribeBrokerInstanceOptions'
-    { _dbioNextToken = Nothing,
-      _dbioEngineType = Nothing,
-      _dbioMaxResults = Nothing,
-      _dbioHostInstanceType = Nothing,
-      _dbioStorageType = Nothing
+    { nextToken = Lude.Nothing,
+      engineType = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      hostInstanceType = Lude.Nothing,
+      storageType = Lude.Nothing
     }
 
 -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-dbioNextToken :: Lens' DescribeBrokerInstanceOptions (Maybe Text)
-dbioNextToken = lens _dbioNextToken (\s a -> s {_dbioNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbioNextToken :: Lens.Lens' DescribeBrokerInstanceOptions (Lude.Maybe Lude.Text)
+dbioNextToken = Lens.lens (nextToken :: DescribeBrokerInstanceOptions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBrokerInstanceOptions)
+{-# DEPRECATED dbioNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filter response by engine type.
-dbioEngineType :: Lens' DescribeBrokerInstanceOptions (Maybe Text)
-dbioEngineType = lens _dbioEngineType (\s a -> s {_dbioEngineType = a})
+--
+-- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbioEngineType :: Lens.Lens' DescribeBrokerInstanceOptions (Lude.Maybe Lude.Text)
+dbioEngineType = Lens.lens (engineType :: DescribeBrokerInstanceOptions -> Lude.Maybe Lude.Text) (\s a -> s {engineType = a} :: DescribeBrokerInstanceOptions)
+{-# DEPRECATED dbioEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
 
 -- | The maximum number of instance options that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
-dbioMaxResults :: Lens' DescribeBrokerInstanceOptions (Maybe Natural)
-dbioMaxResults = lens _dbioMaxResults (\s a -> s {_dbioMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbioMaxResults :: Lens.Lens' DescribeBrokerInstanceOptions (Lude.Maybe Lude.Natural)
+dbioMaxResults = Lens.lens (maxResults :: DescribeBrokerInstanceOptions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBrokerInstanceOptions)
+{-# DEPRECATED dbioMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Filter response by host instance type.
-dbioHostInstanceType :: Lens' DescribeBrokerInstanceOptions (Maybe Text)
-dbioHostInstanceType = lens _dbioHostInstanceType (\s a -> s {_dbioHostInstanceType = a})
+--
+-- /Note:/ Consider using 'hostInstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbioHostInstanceType :: Lens.Lens' DescribeBrokerInstanceOptions (Lude.Maybe Lude.Text)
+dbioHostInstanceType = Lens.lens (hostInstanceType :: DescribeBrokerInstanceOptions -> Lude.Maybe Lude.Text) (\s a -> s {hostInstanceType = a} :: DescribeBrokerInstanceOptions)
+{-# DEPRECATED dbioHostInstanceType "Use generic-lens or generic-optics with 'hostInstanceType' instead." #-}
 
 -- | Filter response by storage type.
-dbioStorageType :: Lens' DescribeBrokerInstanceOptions (Maybe Text)
-dbioStorageType = lens _dbioStorageType (\s a -> s {_dbioStorageType = a})
+--
+-- /Note:/ Consider using 'storageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbioStorageType :: Lens.Lens' DescribeBrokerInstanceOptions (Lude.Maybe Lude.Text)
+dbioStorageType = Lens.lens (storageType :: DescribeBrokerInstanceOptions -> Lude.Maybe Lude.Text) (\s a -> s {storageType = a} :: DescribeBrokerInstanceOptions)
+{-# DEPRECATED dbioStorageType "Use generic-lens or generic-optics with 'storageType' instead." #-}
 
-instance AWSRequest DescribeBrokerInstanceOptions where
+instance Lude.AWSRequest DescribeBrokerInstanceOptions where
   type
     Rs DescribeBrokerInstanceOptions =
       DescribeBrokerInstanceOptionsResponse
-  request = get mq
+  request = Req.get mqService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeBrokerInstanceOptionsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "brokerInstanceOptions" .!@ mempty)
-            <*> (x .?> "maxResults")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "brokerInstanceOptions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "maxResults")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeBrokerInstanceOptions
-
-instance NFData DescribeBrokerInstanceOptions
-
-instance ToHeaders DescribeBrokerInstanceOptions where
+instance Lude.ToHeaders DescribeBrokerInstanceOptions where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeBrokerInstanceOptions where
-  toPath = const "/v1/broker-instance-options"
+instance Lude.ToPath DescribeBrokerInstanceOptions where
+  toPath = Lude.const "/v1/broker-instance-options"
 
-instance ToQuery DescribeBrokerInstanceOptions where
+instance Lude.ToQuery DescribeBrokerInstanceOptions where
   toQuery DescribeBrokerInstanceOptions' {..} =
-    mconcat
-      [ "nextToken" =: _dbioNextToken,
-        "engineType" =: _dbioEngineType,
-        "maxResults" =: _dbioMaxResults,
-        "hostInstanceType" =: _dbioHostInstanceType,
-        "storageType" =: _dbioStorageType
+    Lude.mconcat
+      [ "nextToken" Lude.=: nextToken,
+        "engineType" Lude.=: engineType,
+        "maxResults" Lude.=: maxResults,
+        "hostInstanceType" Lude.=: hostInstanceType,
+        "storageType" Lude.=: storageType
       ]
 
--- | /See:/ 'describeBrokerInstanceOptionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeBrokerInstanceOptionsResponse' smart constructor.
 data DescribeBrokerInstanceOptionsResponse = DescribeBrokerInstanceOptionsResponse'
-  { _dbiorsNextToken ::
-      !(Maybe Text),
-    _dbiorsBrokerInstanceOptions ::
-      !( Maybe
-           [BrokerInstanceOption]
-       ),
-    _dbiorsMaxResults ::
-      !(Maybe Nat),
-    _dbiorsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    brokerInstanceOptions ::
+      Lude.Maybe
+        [BrokerInstanceOption],
+    maxResults ::
+      Lude.Maybe
+        Lude.Natural,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBrokerInstanceOptionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbiorsNextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
---
--- * 'dbiorsBrokerInstanceOptions' - List of available broker instance options.
---
--- * 'dbiorsMaxResults' - Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.
---
--- * 'dbiorsResponseStatus' - -- | The response status code.
-describeBrokerInstanceOptionsResponse ::
-  -- | 'dbiorsResponseStatus'
-  Int ->
+-- * 'brokerInstanceOptions' - List of available broker instance options.
+-- * 'maxResults' - Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+-- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- * 'responseStatus' - The response status code.
+mkDescribeBrokerInstanceOptionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBrokerInstanceOptionsResponse
-describeBrokerInstanceOptionsResponse pResponseStatus_ =
+mkDescribeBrokerInstanceOptionsResponse pResponseStatus_ =
   DescribeBrokerInstanceOptionsResponse'
-    { _dbiorsNextToken =
-        Nothing,
-      _dbiorsBrokerInstanceOptions = Nothing,
-      _dbiorsMaxResults = Nothing,
-      _dbiorsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      brokerInstanceOptions = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-dbiorsNextToken :: Lens' DescribeBrokerInstanceOptionsResponse (Maybe Text)
-dbiorsNextToken = lens _dbiorsNextToken (\s a -> s {_dbiorsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbiorsNextToken :: Lens.Lens' DescribeBrokerInstanceOptionsResponse (Lude.Maybe Lude.Text)
+dbiorsNextToken = Lens.lens (nextToken :: DescribeBrokerInstanceOptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBrokerInstanceOptionsResponse)
+{-# DEPRECATED dbiorsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of available broker instance options.
-dbiorsBrokerInstanceOptions :: Lens' DescribeBrokerInstanceOptionsResponse [BrokerInstanceOption]
-dbiorsBrokerInstanceOptions = lens _dbiorsBrokerInstanceOptions (\s a -> s {_dbiorsBrokerInstanceOptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'brokerInstanceOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbiorsBrokerInstanceOptions :: Lens.Lens' DescribeBrokerInstanceOptionsResponse (Lude.Maybe [BrokerInstanceOption])
+dbiorsBrokerInstanceOptions = Lens.lens (brokerInstanceOptions :: DescribeBrokerInstanceOptionsResponse -> Lude.Maybe [BrokerInstanceOption]) (\s a -> s {brokerInstanceOptions = a} :: DescribeBrokerInstanceOptionsResponse)
+{-# DEPRECATED dbiorsBrokerInstanceOptions "Use generic-lens or generic-optics with 'brokerInstanceOptions' instead." #-}
 
 -- | Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.
-dbiorsMaxResults :: Lens' DescribeBrokerInstanceOptionsResponse (Maybe Natural)
-dbiorsMaxResults = lens _dbiorsMaxResults (\s a -> s {_dbiorsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbiorsMaxResults :: Lens.Lens' DescribeBrokerInstanceOptionsResponse (Lude.Maybe Lude.Natural)
+dbiorsMaxResults = Lens.lens (maxResults :: DescribeBrokerInstanceOptionsResponse -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBrokerInstanceOptionsResponse)
+{-# DEPRECATED dbiorsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | -- | The response status code.
-dbiorsResponseStatus :: Lens' DescribeBrokerInstanceOptionsResponse Int
-dbiorsResponseStatus = lens _dbiorsResponseStatus (\s a -> s {_dbiorsResponseStatus = a})
-
-instance NFData DescribeBrokerInstanceOptionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbiorsResponseStatus :: Lens.Lens' DescribeBrokerInstanceOptionsResponse Lude.Int
+dbiorsResponseStatus = Lens.lens (responseStatus :: DescribeBrokerInstanceOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBrokerInstanceOptionsResponse)
+{-# DEPRECATED dbiorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

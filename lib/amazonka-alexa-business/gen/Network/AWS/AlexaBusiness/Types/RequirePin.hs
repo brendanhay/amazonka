@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.RequirePin where
+module Network.AWS.AlexaBusiness.Types.RequirePin
+  ( RequirePin
+      ( RequirePin',
+        NO,
+        Optional,
+        Yes
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RequirePin
-  = NO
-  | Optional
-  | Yes
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RequirePin = RequirePin' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RequirePin where
-  parser =
-    takeLowerText >>= \case
-      "no" -> pure NO
-      "optional" -> pure Optional
-      "yes" -> pure Yes
-      e ->
-        fromTextError $
-          "Failure parsing RequirePin from value: '" <> e
-            <> "'. Accepted values: no, optional, yes"
+pattern NO :: RequirePin
+pattern NO = RequirePin' "NO"
 
-instance ToText RequirePin where
-  toText = \case
-    NO -> "NO"
-    Optional -> "OPTIONAL"
-    Yes -> "YES"
+pattern Optional :: RequirePin
+pattern Optional = RequirePin' "OPTIONAL"
 
-instance Hashable RequirePin
+pattern Yes :: RequirePin
+pattern Yes = RequirePin' "YES"
 
-instance NFData RequirePin
-
-instance ToByteString RequirePin
-
-instance ToQuery RequirePin
-
-instance ToHeader RequirePin
-
-instance ToJSON RequirePin where
-  toJSON = toJSONText
-
-instance FromJSON RequirePin where
-  parseJSON = parseJSONText "RequirePin"
+{-# COMPLETE
+  NO,
+  Optional,
+  Yes,
+  RequirePin'
+  #-}

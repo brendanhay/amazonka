@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Adds a new access control rule for the specified organization. The rule allows or denies access to the organization for the specified IPv4 addresses, access protocol actions, and user IDs. Adding a new rule with the same name as an existing rule replaces the older rule.
 module Network.AWS.WorkMail.PutAccessControlRule
-  ( -- * Creating a Request
-    putAccessControlRule,
-    PutAccessControlRule,
+  ( -- * Creating a request
+    PutAccessControlRule (..),
+    mkPutAccessControlRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pacrUserIds,
     pacrActions,
     pacrNotUserIds,
@@ -35,192 +30,225 @@ module Network.AWS.WorkMail.PutAccessControlRule
     pacrDescription,
     pacrOrganizationId,
 
-    -- * Destructuring the Response
-    putAccessControlRuleResponse,
-    PutAccessControlRuleResponse,
+    -- * Destructuring the response
+    PutAccessControlRuleResponse (..),
+    mkPutAccessControlRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pacrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'putAccessControlRule' smart constructor.
+-- | /See:/ 'mkPutAccessControlRule' smart constructor.
 data PutAccessControlRule = PutAccessControlRule'
-  { _pacrUserIds ::
-      !(Maybe [Text]),
-    _pacrActions :: !(Maybe [Text]),
-    _pacrNotUserIds :: !(Maybe [Text]),
-    _pacrIPRanges :: !(Maybe [Text]),
-    _pacrNotIPRanges :: !(Maybe [Text]),
-    _pacrNotActions :: !(Maybe [Text]),
-    _pacrName :: !Text,
-    _pacrEffect :: !AccessControlRuleEffect,
-    _pacrDescription :: !Text,
-    _pacrOrganizationId :: !Text
+  { userIds ::
+      Lude.Maybe [Lude.Text],
+    actions :: Lude.Maybe [Lude.Text],
+    notUserIds :: Lude.Maybe [Lude.Text],
+    ipRanges :: Lude.Maybe [Lude.Text],
+    notIPRanges :: Lude.Maybe [Lude.Text],
+    notActions :: Lude.Maybe [Lude.Text],
+    name :: Lude.Text,
+    effect :: AccessControlRuleEffect,
+    description :: Lude.Text,
+    organizationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccessControlRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pacrUserIds' - User IDs to include in the rule.
---
--- * 'pacrActions' - Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
---
--- * 'pacrNotUserIds' - User IDs to exclude from the rule.
---
--- * 'pacrIPRanges' - IPv4 CIDR ranges to include in the rule.
---
--- * 'pacrNotIPRanges' - IPv4 CIDR ranges to exclude from the rule.
---
--- * 'pacrNotActions' - Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
---
--- * 'pacrName' - The rule name.
---
--- * 'pacrEffect' - The rule effect.
---
--- * 'pacrDescription' - The rule description.
---
--- * 'pacrOrganizationId' - The identifier of the organization.
-putAccessControlRule ::
-  -- | 'pacrName'
-  Text ->
-  -- | 'pacrEffect'
+-- * 'actions' - Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+-- * 'description' - The rule description.
+-- * 'effect' - The rule effect.
+-- * 'ipRanges' - IPv4 CIDR ranges to include in the rule.
+-- * 'name' - The rule name.
+-- * 'notActions' - Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+-- * 'notIPRanges' - IPv4 CIDR ranges to exclude from the rule.
+-- * 'notUserIds' - User IDs to exclude from the rule.
+-- * 'organizationId' - The identifier of the organization.
+-- * 'userIds' - User IDs to include in the rule.
+mkPutAccessControlRule ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'effect'
   AccessControlRuleEffect ->
-  -- | 'pacrDescription'
-  Text ->
-  -- | 'pacrOrganizationId'
-  Text ->
+  -- | 'description'
+  Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   PutAccessControlRule
-putAccessControlRule pName_ pEffect_ pDescription_ pOrganizationId_ =
-  PutAccessControlRule'
-    { _pacrUserIds = Nothing,
-      _pacrActions = Nothing,
-      _pacrNotUserIds = Nothing,
-      _pacrIPRanges = Nothing,
-      _pacrNotIPRanges = Nothing,
-      _pacrNotActions = Nothing,
-      _pacrName = pName_,
-      _pacrEffect = pEffect_,
-      _pacrDescription = pDescription_,
-      _pacrOrganizationId = pOrganizationId_
-    }
+mkPutAccessControlRule
+  pName_
+  pEffect_
+  pDescription_
+  pOrganizationId_ =
+    PutAccessControlRule'
+      { userIds = Lude.Nothing,
+        actions = Lude.Nothing,
+        notUserIds = Lude.Nothing,
+        ipRanges = Lude.Nothing,
+        notIPRanges = Lude.Nothing,
+        notActions = Lude.Nothing,
+        name = pName_,
+        effect = pEffect_,
+        description = pDescription_,
+        organizationId = pOrganizationId_
+      }
 
 -- | User IDs to include in the rule.
-pacrUserIds :: Lens' PutAccessControlRule [Text]
-pacrUserIds = lens _pacrUserIds (\s a -> s {_pacrUserIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrUserIds :: Lens.Lens' PutAccessControlRule (Lude.Maybe [Lude.Text])
+pacrUserIds = Lens.lens (userIds :: PutAccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {userIds = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
 
 -- | Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
-pacrActions :: Lens' PutAccessControlRule [Text]
-pacrActions = lens _pacrActions (\s a -> s {_pacrActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrActions :: Lens.Lens' PutAccessControlRule (Lude.Maybe [Lude.Text])
+pacrActions = Lens.lens (actions :: PutAccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {actions = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | User IDs to exclude from the rule.
-pacrNotUserIds :: Lens' PutAccessControlRule [Text]
-pacrNotUserIds = lens _pacrNotUserIds (\s a -> s {_pacrNotUserIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notUserIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrNotUserIds :: Lens.Lens' PutAccessControlRule (Lude.Maybe [Lude.Text])
+pacrNotUserIds = Lens.lens (notUserIds :: PutAccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {notUserIds = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrNotUserIds "Use generic-lens or generic-optics with 'notUserIds' instead." #-}
 
 -- | IPv4 CIDR ranges to include in the rule.
-pacrIPRanges :: Lens' PutAccessControlRule [Text]
-pacrIPRanges = lens _pacrIPRanges (\s a -> s {_pacrIPRanges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ipRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrIPRanges :: Lens.Lens' PutAccessControlRule (Lude.Maybe [Lude.Text])
+pacrIPRanges = Lens.lens (ipRanges :: PutAccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {ipRanges = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrIPRanges "Use generic-lens or generic-optics with 'ipRanges' instead." #-}
 
 -- | IPv4 CIDR ranges to exclude from the rule.
-pacrNotIPRanges :: Lens' PutAccessControlRule [Text]
-pacrNotIPRanges = lens _pacrNotIPRanges (\s a -> s {_pacrNotIPRanges = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notIPRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrNotIPRanges :: Lens.Lens' PutAccessControlRule (Lude.Maybe [Lude.Text])
+pacrNotIPRanges = Lens.lens (notIPRanges :: PutAccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {notIPRanges = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrNotIPRanges "Use generic-lens or generic-optics with 'notIPRanges' instead." #-}
 
 -- | Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
-pacrNotActions :: Lens' PutAccessControlRule [Text]
-pacrNotActions = lens _pacrNotActions (\s a -> s {_pacrNotActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'notActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrNotActions :: Lens.Lens' PutAccessControlRule (Lude.Maybe [Lude.Text])
+pacrNotActions = Lens.lens (notActions :: PutAccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {notActions = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrNotActions "Use generic-lens or generic-optics with 'notActions' instead." #-}
 
 -- | The rule name.
-pacrName :: Lens' PutAccessControlRule Text
-pacrName = lens _pacrName (\s a -> s {_pacrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrName :: Lens.Lens' PutAccessControlRule Lude.Text
+pacrName = Lens.lens (name :: PutAccessControlRule -> Lude.Text) (\s a -> s {name = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The rule effect.
-pacrEffect :: Lens' PutAccessControlRule AccessControlRuleEffect
-pacrEffect = lens _pacrEffect (\s a -> s {_pacrEffect = a})
+--
+-- /Note:/ Consider using 'effect' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrEffect :: Lens.Lens' PutAccessControlRule AccessControlRuleEffect
+pacrEffect = Lens.lens (effect :: PutAccessControlRule -> AccessControlRuleEffect) (\s a -> s {effect = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrEffect "Use generic-lens or generic-optics with 'effect' instead." #-}
 
 -- | The rule description.
-pacrDescription :: Lens' PutAccessControlRule Text
-pacrDescription = lens _pacrDescription (\s a -> s {_pacrDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrDescription :: Lens.Lens' PutAccessControlRule Lude.Text
+pacrDescription = Lens.lens (description :: PutAccessControlRule -> Lude.Text) (\s a -> s {description = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The identifier of the organization.
-pacrOrganizationId :: Lens' PutAccessControlRule Text
-pacrOrganizationId = lens _pacrOrganizationId (\s a -> s {_pacrOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrOrganizationId :: Lens.Lens' PutAccessControlRule Lude.Text
+pacrOrganizationId = Lens.lens (organizationId :: PutAccessControlRule -> Lude.Text) (\s a -> s {organizationId = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance AWSRequest PutAccessControlRule where
+instance Lude.AWSRequest PutAccessControlRule where
   type Rs PutAccessControlRule = PutAccessControlRuleResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveEmpty
-      (\s h x -> PutAccessControlRuleResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          PutAccessControlRuleResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable PutAccessControlRule
-
-instance NFData PutAccessControlRule
-
-instance ToHeaders PutAccessControlRule where
+instance Lude.ToHeaders PutAccessControlRule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.PutAccessControlRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.PutAccessControlRule" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutAccessControlRule where
+instance Lude.ToJSON PutAccessControlRule where
   toJSON PutAccessControlRule' {..} =
-    object
-      ( catMaybes
-          [ ("UserIds" .=) <$> _pacrUserIds,
-            ("Actions" .=) <$> _pacrActions,
-            ("NotUserIds" .=) <$> _pacrNotUserIds,
-            ("IpRanges" .=) <$> _pacrIPRanges,
-            ("NotIpRanges" .=) <$> _pacrNotIPRanges,
-            ("NotActions" .=) <$> _pacrNotActions,
-            Just ("Name" .= _pacrName),
-            Just ("Effect" .= _pacrEffect),
-            Just ("Description" .= _pacrDescription),
-            Just ("OrganizationId" .= _pacrOrganizationId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("UserIds" Lude..=) Lude.<$> userIds,
+            ("Actions" Lude..=) Lude.<$> actions,
+            ("NotUserIds" Lude..=) Lude.<$> notUserIds,
+            ("IpRanges" Lude..=) Lude.<$> ipRanges,
+            ("NotIpRanges" Lude..=) Lude.<$> notIPRanges,
+            ("NotActions" Lude..=) Lude.<$> notActions,
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Effect" Lude..= effect),
+            Lude.Just ("Description" Lude..= description),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
-instance ToPath PutAccessControlRule where
-  toPath = const "/"
+instance Lude.ToPath PutAccessControlRule where
+  toPath = Lude.const "/"
 
-instance ToQuery PutAccessControlRule where
-  toQuery = const mempty
+instance Lude.ToQuery PutAccessControlRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putAccessControlRuleResponse' smart constructor.
+-- | /See:/ 'mkPutAccessControlRuleResponse' smart constructor.
 newtype PutAccessControlRuleResponse = PutAccessControlRuleResponse'
-  { _pacrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccessControlRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pacrrsResponseStatus' - -- | The response status code.
-putAccessControlRuleResponse ::
-  -- | 'pacrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutAccessControlRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutAccessControlRuleResponse
-putAccessControlRuleResponse pResponseStatus_ =
-  PutAccessControlRuleResponse'
-    { _pacrrsResponseStatus =
-        pResponseStatus_
-    }
+mkPutAccessControlRuleResponse pResponseStatus_ =
+  PutAccessControlRuleResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-pacrrsResponseStatus :: Lens' PutAccessControlRuleResponse Int
-pacrrsResponseStatus = lens _pacrrsResponseStatus (\s a -> s {_pacrrsResponseStatus = a})
-
-instance NFData PutAccessControlRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrrsResponseStatus :: Lens.Lens' PutAccessControlRuleResponse Lude.Int
+pacrrsResponseStatus = Lens.lens (responseStatus :: PutAccessControlRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAccessControlRuleResponse)
+{-# DEPRECATED pacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

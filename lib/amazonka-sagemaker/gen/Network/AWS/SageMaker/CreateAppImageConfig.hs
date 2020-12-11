@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,162 @@
 --
 -- Creates a configuration for running a SageMaker image as a KernelGateway app. The configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the kernels in the image.
 module Network.AWS.SageMaker.CreateAppImageConfig
-  ( -- * Creating a Request
-    createAppImageConfig,
-    CreateAppImageConfig,
+  ( -- * Creating a request
+    CreateAppImageConfig (..),
+    mkCreateAppImageConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     caicKernelGatewayImageConfig,
     caicTags,
     caicAppImageConfigName,
 
-    -- * Destructuring the Response
-    createAppImageConfigResponse,
-    CreateAppImageConfigResponse,
+    -- * Destructuring the response
+    CreateAppImageConfigResponse (..),
+    mkCreateAppImageConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     caicrsAppImageConfigARN,
     caicrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'createAppImageConfig' smart constructor.
+-- | /See:/ 'mkCreateAppImageConfig' smart constructor.
 data CreateAppImageConfig = CreateAppImageConfig'
-  { _caicKernelGatewayImageConfig ::
-      !(Maybe KernelGatewayImageConfig),
-    _caicTags :: !(Maybe [Tag]),
-    _caicAppImageConfigName :: !Text
+  { kernelGatewayImageConfig ::
+      Lude.Maybe KernelGatewayImageConfig,
+    tags :: Lude.Maybe [Tag],
+    appImageConfigName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppImageConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caicKernelGatewayImageConfig' - The KernelGatewayImageConfig.
---
--- * 'caicTags' - A list of tags to apply to the AppImageConfig.
---
--- * 'caicAppImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
-createAppImageConfig ::
-  -- | 'caicAppImageConfigName'
-  Text ->
+-- * 'appImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
+-- * 'kernelGatewayImageConfig' - The KernelGatewayImageConfig.
+-- * 'tags' - A list of tags to apply to the AppImageConfig.
+mkCreateAppImageConfig ::
+  -- | 'appImageConfigName'
+  Lude.Text ->
   CreateAppImageConfig
-createAppImageConfig pAppImageConfigName_ =
+mkCreateAppImageConfig pAppImageConfigName_ =
   CreateAppImageConfig'
-    { _caicKernelGatewayImageConfig = Nothing,
-      _caicTags = Nothing,
-      _caicAppImageConfigName = pAppImageConfigName_
+    { kernelGatewayImageConfig = Lude.Nothing,
+      tags = Lude.Nothing,
+      appImageConfigName = pAppImageConfigName_
     }
 
 -- | The KernelGatewayImageConfig.
-caicKernelGatewayImageConfig :: Lens' CreateAppImageConfig (Maybe KernelGatewayImageConfig)
-caicKernelGatewayImageConfig = lens _caicKernelGatewayImageConfig (\s a -> s {_caicKernelGatewayImageConfig = a})
+--
+-- /Note:/ Consider using 'kernelGatewayImageConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caicKernelGatewayImageConfig :: Lens.Lens' CreateAppImageConfig (Lude.Maybe KernelGatewayImageConfig)
+caicKernelGatewayImageConfig = Lens.lens (kernelGatewayImageConfig :: CreateAppImageConfig -> Lude.Maybe KernelGatewayImageConfig) (\s a -> s {kernelGatewayImageConfig = a} :: CreateAppImageConfig)
+{-# DEPRECATED caicKernelGatewayImageConfig "Use generic-lens or generic-optics with 'kernelGatewayImageConfig' instead." #-}
 
 -- | A list of tags to apply to the AppImageConfig.
-caicTags :: Lens' CreateAppImageConfig [Tag]
-caicTags = lens _caicTags (\s a -> s {_caicTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caicTags :: Lens.Lens' CreateAppImageConfig (Lude.Maybe [Tag])
+caicTags = Lens.lens (tags :: CreateAppImageConfig -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAppImageConfig)
+{-# DEPRECATED caicTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the AppImageConfig. Must be unique to your account.
-caicAppImageConfigName :: Lens' CreateAppImageConfig Text
-caicAppImageConfigName = lens _caicAppImageConfigName (\s a -> s {_caicAppImageConfigName = a})
+--
+-- /Note:/ Consider using 'appImageConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caicAppImageConfigName :: Lens.Lens' CreateAppImageConfig Lude.Text
+caicAppImageConfigName = Lens.lens (appImageConfigName :: CreateAppImageConfig -> Lude.Text) (\s a -> s {appImageConfigName = a} :: CreateAppImageConfig)
+{-# DEPRECATED caicAppImageConfigName "Use generic-lens or generic-optics with 'appImageConfigName' instead." #-}
 
-instance AWSRequest CreateAppImageConfig where
+instance Lude.AWSRequest CreateAppImageConfig where
   type Rs CreateAppImageConfig = CreateAppImageConfigResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateAppImageConfigResponse'
-            <$> (x .?> "AppImageConfigArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AppImageConfigArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateAppImageConfig
-
-instance NFData CreateAppImageConfig
-
-instance ToHeaders CreateAppImageConfig where
+instance Lude.ToHeaders CreateAppImageConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.CreateAppImageConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("SageMaker.CreateAppImageConfig" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateAppImageConfig where
+instance Lude.ToJSON CreateAppImageConfig where
   toJSON CreateAppImageConfig' {..} =
-    object
-      ( catMaybes
-          [ ("KernelGatewayImageConfig" .=) <$> _caicKernelGatewayImageConfig,
-            ("Tags" .=) <$> _caicTags,
-            Just ("AppImageConfigName" .= _caicAppImageConfigName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KernelGatewayImageConfig" Lude..=)
+              Lude.<$> kernelGatewayImageConfig,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("AppImageConfigName" Lude..= appImageConfigName)
           ]
       )
 
-instance ToPath CreateAppImageConfig where
-  toPath = const "/"
+instance Lude.ToPath CreateAppImageConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateAppImageConfig where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAppImageConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createAppImageConfigResponse' smart constructor.
+-- | /See:/ 'mkCreateAppImageConfigResponse' smart constructor.
 data CreateAppImageConfigResponse = CreateAppImageConfigResponse'
-  { _caicrsAppImageConfigARN ::
-      !(Maybe Text),
-    _caicrsResponseStatus :: !Int
+  { appImageConfigARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppImageConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caicrsAppImageConfigARN' - The Amazon Resource Name (ARN) of the AppImageConfig.
---
--- * 'caicrsResponseStatus' - -- | The response status code.
-createAppImageConfigResponse ::
-  -- | 'caicrsResponseStatus'
-  Int ->
+-- * 'appImageConfigARN' - The Amazon Resource Name (ARN) of the AppImageConfig.
+-- * 'responseStatus' - The response status code.
+mkCreateAppImageConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAppImageConfigResponse
-createAppImageConfigResponse pResponseStatus_ =
+mkCreateAppImageConfigResponse pResponseStatus_ =
   CreateAppImageConfigResponse'
-    { _caicrsAppImageConfigARN = Nothing,
-      _caicrsResponseStatus = pResponseStatus_
+    { appImageConfigARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the AppImageConfig.
-caicrsAppImageConfigARN :: Lens' CreateAppImageConfigResponse (Maybe Text)
-caicrsAppImageConfigARN = lens _caicrsAppImageConfigARN (\s a -> s {_caicrsAppImageConfigARN = a})
+--
+-- /Note:/ Consider using 'appImageConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caicrsAppImageConfigARN :: Lens.Lens' CreateAppImageConfigResponse (Lude.Maybe Lude.Text)
+caicrsAppImageConfigARN = Lens.lens (appImageConfigARN :: CreateAppImageConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {appImageConfigARN = a} :: CreateAppImageConfigResponse)
+{-# DEPRECATED caicrsAppImageConfigARN "Use generic-lens or generic-optics with 'appImageConfigARN' instead." #-}
 
--- | -- | The response status code.
-caicrsResponseStatus :: Lens' CreateAppImageConfigResponse Int
-caicrsResponseStatus = lens _caicrsResponseStatus (\s a -> s {_caicrsResponseStatus = a})
-
-instance NFData CreateAppImageConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caicrsResponseStatus :: Lens.Lens' CreateAppImageConfigResponse Lude.Int
+caicrsResponseStatus = Lens.lens (responseStatus :: CreateAppImageConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppImageConfigResponse)
+{-# DEPRECATED caicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

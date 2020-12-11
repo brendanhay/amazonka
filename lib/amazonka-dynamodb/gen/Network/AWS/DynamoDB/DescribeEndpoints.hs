@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,112 @@
 --
 -- Returns the regional endpoint information.
 module Network.AWS.DynamoDB.DescribeEndpoints
-  ( -- * Creating a Request
-    describeEndpoints,
-    DescribeEndpoints,
+  ( -- * Creating a request
+    DescribeEndpoints (..),
+    mkDescribeEndpoints,
 
-    -- * Destructuring the Response
-    describeEndpointsResponse,
-    DescribeEndpointsResponse,
+    -- * Destructuring the response
+    DescribeEndpointsResponse (..),
+    mkDescribeEndpointsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dersResponseStatus,
     dersEndpoints,
   )
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEndpoints' smart constructor.
+-- | /See:/ 'mkDescribeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpoints' with the minimum fields required to make a request.
-describeEndpoints ::
+mkDescribeEndpoints ::
   DescribeEndpoints
-describeEndpoints = DescribeEndpoints'
+mkDescribeEndpoints = DescribeEndpoints'
 
-instance AWSRequest DescribeEndpoints where
+instance Lude.AWSRequest DescribeEndpoints where
   type Rs DescribeEndpoints = DescribeEndpointsResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEndpointsResponse'
-            <$> (pure (fromEnum s)) <*> (x .?> "Endpoints" .!@ mempty)
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "Endpoints" Lude..!@ Lude.mempty)
       )
 
-instance Hashable DescribeEndpoints
-
-instance NFData DescribeEndpoints
-
-instance ToHeaders DescribeEndpoints where
+instance Lude.ToHeaders DescribeEndpoints where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDB_20120810.DescribeEndpoints" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDB_20120810.DescribeEndpoints" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEndpoints where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeEndpoints where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeEndpoints where
-  toPath = const "/"
+instance Lude.ToPath DescribeEndpoints where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEndpoints where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEndpoints where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEndpointsResponse' smart constructor.
+-- | /See:/ 'mkDescribeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
-  { _dersResponseStatus ::
-      !Int,
-    _dersEndpoints :: ![Endpoint]
+  { responseStatus ::
+      Lude.Int,
+    endpoints :: [Endpoint]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dersResponseStatus' - -- | The response status code.
---
--- * 'dersEndpoints' - List of endpoints.
-describeEndpointsResponse ::
-  -- | 'dersResponseStatus'
-  Int ->
+-- * 'endpoints' - List of endpoints.
+-- * 'responseStatus' - The response status code.
+mkDescribeEndpointsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEndpointsResponse
-describeEndpointsResponse pResponseStatus_ =
+mkDescribeEndpointsResponse pResponseStatus_ =
   DescribeEndpointsResponse'
-    { _dersResponseStatus =
-        pResponseStatus_,
-      _dersEndpoints = mempty
+    { responseStatus = pResponseStatus_,
+      endpoints = Lude.mempty
     }
 
--- | -- | The response status code.
-dersResponseStatus :: Lens' DescribeEndpointsResponse Int
-dersResponseStatus = lens _dersResponseStatus (\s a -> s {_dersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersResponseStatus :: Lens.Lens' DescribeEndpointsResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DescribeEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEndpointsResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | List of endpoints.
-dersEndpoints :: Lens' DescribeEndpointsResponse [Endpoint]
-dersEndpoints = lens _dersEndpoints (\s a -> s {_dersEndpoints = a}) . _Coerce
-
-instance NFData DescribeEndpointsResponse
+--
+-- /Note:/ Consider using 'endpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersEndpoints :: Lens.Lens' DescribeEndpointsResponse [Endpoint]
+dersEndpoints = Lens.lens (endpoints :: DescribeEndpointsResponse -> [Endpoint]) (\s a -> s {endpoints = a} :: DescribeEndpointsResponse)
+{-# DEPRECATED dersEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}

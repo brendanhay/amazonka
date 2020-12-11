@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,125 +7,165 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.RelationalDatabaseParameter where
+module Network.AWS.Lightsail.Types.RelationalDatabaseParameter
+  ( RelationalDatabaseParameter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRelationalDatabaseParameter,
+
+    -- * Lenses
+    rdpApplyType,
+    rdpParameterValue,
+    rdpApplyMethod,
+    rdpDataType,
+    rdpIsModifiable,
+    rdpAllowedValues,
+    rdpParameterName,
+    rdpDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the parameters of a database.
 --
---
---
--- /See:/ 'relationalDatabaseParameter' smart constructor.
+-- /See:/ 'mkRelationalDatabaseParameter' smart constructor.
 data RelationalDatabaseParameter = RelationalDatabaseParameter'
-  { _rdpApplyType ::
-      !(Maybe Text),
-    _rdpParameterValue :: !(Maybe Text),
-    _rdpApplyMethod :: !(Maybe Text),
-    _rdpDataType :: !(Maybe Text),
-    _rdpIsModifiable :: !(Maybe Bool),
-    _rdpAllowedValues :: !(Maybe Text),
-    _rdpParameterName :: !(Maybe Text),
-    _rdpDescription :: !(Maybe Text)
+  { applyType ::
+      Lude.Maybe Lude.Text,
+    parameterValue ::
+      Lude.Maybe Lude.Text,
+    applyMethod :: Lude.Maybe Lude.Text,
+    dataType :: Lude.Maybe Lude.Text,
+    isModifiable ::
+      Lude.Maybe Lude.Bool,
+    allowedValues ::
+      Lude.Maybe Lude.Text,
+    parameterName ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseParameter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allowedValues' - Specifies the valid range of values for the parameter.
+-- * 'applyMethod' - Indicates when parameter updates are applied.
 --
--- * 'rdpApplyType' - Specifies the engine-specific parameter type.
---
--- * 'rdpParameterValue' - Specifies the value of the parameter.
---
--- * 'rdpApplyMethod' - Indicates when parameter updates are applied. Can be @immediate@ or @pending-reboot@ .
---
--- * 'rdpDataType' - Specifies the valid data type for the parameter.
---
--- * 'rdpIsModifiable' - A Boolean value indicating whether the parameter can be modified.
---
--- * 'rdpAllowedValues' - Specifies the valid range of values for the parameter.
---
--- * 'rdpParameterName' - Specifies the name of the parameter.
---
--- * 'rdpDescription' - Provides a description of the parameter.
-relationalDatabaseParameter ::
+-- Can be @immediate@ or @pending-reboot@ .
+-- * 'applyType' - Specifies the engine-specific parameter type.
+-- * 'dataType' - Specifies the valid data type for the parameter.
+-- * 'description' - Provides a description of the parameter.
+-- * 'isModifiable' - A Boolean value indicating whether the parameter can be modified.
+-- * 'parameterName' - Specifies the name of the parameter.
+-- * 'parameterValue' - Specifies the value of the parameter.
+mkRelationalDatabaseParameter ::
   RelationalDatabaseParameter
-relationalDatabaseParameter =
+mkRelationalDatabaseParameter =
   RelationalDatabaseParameter'
-    { _rdpApplyType = Nothing,
-      _rdpParameterValue = Nothing,
-      _rdpApplyMethod = Nothing,
-      _rdpDataType = Nothing,
-      _rdpIsModifiable = Nothing,
-      _rdpAllowedValues = Nothing,
-      _rdpParameterName = Nothing,
-      _rdpDescription = Nothing
+    { applyType = Lude.Nothing,
+      parameterValue = Lude.Nothing,
+      applyMethod = Lude.Nothing,
+      dataType = Lude.Nothing,
+      isModifiable = Lude.Nothing,
+      allowedValues = Lude.Nothing,
+      parameterName = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | Specifies the engine-specific parameter type.
-rdpApplyType :: Lens' RelationalDatabaseParameter (Maybe Text)
-rdpApplyType = lens _rdpApplyType (\s a -> s {_rdpApplyType = a})
+--
+-- /Note:/ Consider using 'applyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpApplyType :: Lens.Lens' RelationalDatabaseParameter (Lude.Maybe Lude.Text)
+rdpApplyType = Lens.lens (applyType :: RelationalDatabaseParameter -> Lude.Maybe Lude.Text) (\s a -> s {applyType = a} :: RelationalDatabaseParameter)
+{-# DEPRECATED rdpApplyType "Use generic-lens or generic-optics with 'applyType' instead." #-}
 
 -- | Specifies the value of the parameter.
-rdpParameterValue :: Lens' RelationalDatabaseParameter (Maybe Text)
-rdpParameterValue = lens _rdpParameterValue (\s a -> s {_rdpParameterValue = a})
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpParameterValue :: Lens.Lens' RelationalDatabaseParameter (Lude.Maybe Lude.Text)
+rdpParameterValue = Lens.lens (parameterValue :: RelationalDatabaseParameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterValue = a} :: RelationalDatabaseParameter)
+{-# DEPRECATED rdpParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
--- | Indicates when parameter updates are applied. Can be @immediate@ or @pending-reboot@ .
-rdpApplyMethod :: Lens' RelationalDatabaseParameter (Maybe Text)
-rdpApplyMethod = lens _rdpApplyMethod (\s a -> s {_rdpApplyMethod = a})
+-- | Indicates when parameter updates are applied.
+--
+-- Can be @immediate@ or @pending-reboot@ .
+--
+-- /Note:/ Consider using 'applyMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpApplyMethod :: Lens.Lens' RelationalDatabaseParameter (Lude.Maybe Lude.Text)
+rdpApplyMethod = Lens.lens (applyMethod :: RelationalDatabaseParameter -> Lude.Maybe Lude.Text) (\s a -> s {applyMethod = a} :: RelationalDatabaseParameter)
+{-# DEPRECATED rdpApplyMethod "Use generic-lens or generic-optics with 'applyMethod' instead." #-}
 
 -- | Specifies the valid data type for the parameter.
-rdpDataType :: Lens' RelationalDatabaseParameter (Maybe Text)
-rdpDataType = lens _rdpDataType (\s a -> s {_rdpDataType = a})
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpDataType :: Lens.Lens' RelationalDatabaseParameter (Lude.Maybe Lude.Text)
+rdpDataType = Lens.lens (dataType :: RelationalDatabaseParameter -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: RelationalDatabaseParameter)
+{-# DEPRECATED rdpDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | A Boolean value indicating whether the parameter can be modified.
-rdpIsModifiable :: Lens' RelationalDatabaseParameter (Maybe Bool)
-rdpIsModifiable = lens _rdpIsModifiable (\s a -> s {_rdpIsModifiable = a})
+--
+-- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpIsModifiable :: Lens.Lens' RelationalDatabaseParameter (Lude.Maybe Lude.Bool)
+rdpIsModifiable = Lens.lens (isModifiable :: RelationalDatabaseParameter -> Lude.Maybe Lude.Bool) (\s a -> s {isModifiable = a} :: RelationalDatabaseParameter)
+{-# DEPRECATED rdpIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
 
 -- | Specifies the valid range of values for the parameter.
-rdpAllowedValues :: Lens' RelationalDatabaseParameter (Maybe Text)
-rdpAllowedValues = lens _rdpAllowedValues (\s a -> s {_rdpAllowedValues = a})
+--
+-- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpAllowedValues :: Lens.Lens' RelationalDatabaseParameter (Lude.Maybe Lude.Text)
+rdpAllowedValues = Lens.lens (allowedValues :: RelationalDatabaseParameter -> Lude.Maybe Lude.Text) (\s a -> s {allowedValues = a} :: RelationalDatabaseParameter)
+{-# DEPRECATED rdpAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
 -- | Specifies the name of the parameter.
-rdpParameterName :: Lens' RelationalDatabaseParameter (Maybe Text)
-rdpParameterName = lens _rdpParameterName (\s a -> s {_rdpParameterName = a})
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpParameterName :: Lens.Lens' RelationalDatabaseParameter (Lude.Maybe Lude.Text)
+rdpParameterName = Lens.lens (parameterName :: RelationalDatabaseParameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: RelationalDatabaseParameter)
+{-# DEPRECATED rdpParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
 -- | Provides a description of the parameter.
-rdpDescription :: Lens' RelationalDatabaseParameter (Maybe Text)
-rdpDescription = lens _rdpDescription (\s a -> s {_rdpDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpDescription :: Lens.Lens' RelationalDatabaseParameter (Lude.Maybe Lude.Text)
+rdpDescription = Lens.lens (description :: RelationalDatabaseParameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RelationalDatabaseParameter)
+{-# DEPRECATED rdpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON RelationalDatabaseParameter where
+instance Lude.FromJSON RelationalDatabaseParameter where
   parseJSON =
-    withObject
+    Lude.withObject
       "RelationalDatabaseParameter"
       ( \x ->
           RelationalDatabaseParameter'
-            <$> (x .:? "applyType")
-            <*> (x .:? "parameterValue")
-            <*> (x .:? "applyMethod")
-            <*> (x .:? "dataType")
-            <*> (x .:? "isModifiable")
-            <*> (x .:? "allowedValues")
-            <*> (x .:? "parameterName")
-            <*> (x .:? "description")
+            Lude.<$> (x Lude..:? "applyType")
+            Lude.<*> (x Lude..:? "parameterValue")
+            Lude.<*> (x Lude..:? "applyMethod")
+            Lude.<*> (x Lude..:? "dataType")
+            Lude.<*> (x Lude..:? "isModifiable")
+            Lude.<*> (x Lude..:? "allowedValues")
+            Lude.<*> (x Lude..:? "parameterName")
+            Lude.<*> (x Lude..:? "description")
       )
 
-instance Hashable RelationalDatabaseParameter
-
-instance NFData RelationalDatabaseParameter
-
-instance ToJSON RelationalDatabaseParameter where
+instance Lude.ToJSON RelationalDatabaseParameter where
   toJSON RelationalDatabaseParameter' {..} =
-    object
-      ( catMaybes
-          [ ("applyType" .=) <$> _rdpApplyType,
-            ("parameterValue" .=) <$> _rdpParameterValue,
-            ("applyMethod" .=) <$> _rdpApplyMethod,
-            ("dataType" .=) <$> _rdpDataType,
-            ("isModifiable" .=) <$> _rdpIsModifiable,
-            ("allowedValues" .=) <$> _rdpAllowedValues,
-            ("parameterName" .=) <$> _rdpParameterName,
-            ("description" .=) <$> _rdpDescription
+    Lude.object
+      ( Lude.catMaybes
+          [ ("applyType" Lude..=) Lude.<$> applyType,
+            ("parameterValue" Lude..=) Lude.<$> parameterValue,
+            ("applyMethod" Lude..=) Lude.<$> applyMethod,
+            ("dataType" Lude..=) Lude.<$> dataType,
+            ("isModifiable" Lude..=) Lude.<$> isModifiable,
+            ("allowedValues" Lude..=) Lude.<$> allowedValues,
+            ("parameterName" Lude..=) Lude.<$> parameterName,
+            ("description" Lude..=) Lude.<$> description
           ]
       )

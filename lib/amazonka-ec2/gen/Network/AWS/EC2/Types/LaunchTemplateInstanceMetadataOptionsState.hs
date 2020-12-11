@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsState where
+module Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsState
+  ( LaunchTemplateInstanceMetadataOptionsState
+      ( LaunchTemplateInstanceMetadataOptionsState',
+        LTIMOSApplied,
+        LTIMOSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LaunchTemplateInstanceMetadataOptionsState
-  = LTIMOSApplied
-  | LTIMOSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LaunchTemplateInstanceMetadataOptionsState = LaunchTemplateInstanceMetadataOptionsState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LaunchTemplateInstanceMetadataOptionsState where
-  parser =
-    takeLowerText >>= \case
-      "applied" -> pure LTIMOSApplied
-      "pending" -> pure LTIMOSPending
-      e ->
-        fromTextError $
-          "Failure parsing LaunchTemplateInstanceMetadataOptionsState from value: '" <> e
-            <> "'. Accepted values: applied, pending"
+pattern LTIMOSApplied :: LaunchTemplateInstanceMetadataOptionsState
+pattern LTIMOSApplied = LaunchTemplateInstanceMetadataOptionsState' "applied"
 
-instance ToText LaunchTemplateInstanceMetadataOptionsState where
-  toText = \case
-    LTIMOSApplied -> "applied"
-    LTIMOSPending -> "pending"
+pattern LTIMOSPending :: LaunchTemplateInstanceMetadataOptionsState
+pattern LTIMOSPending = LaunchTemplateInstanceMetadataOptionsState' "pending"
 
-instance Hashable LaunchTemplateInstanceMetadataOptionsState
-
-instance NFData LaunchTemplateInstanceMetadataOptionsState
-
-instance ToByteString LaunchTemplateInstanceMetadataOptionsState
-
-instance ToQuery LaunchTemplateInstanceMetadataOptionsState
-
-instance ToHeader LaunchTemplateInstanceMetadataOptionsState
-
-instance FromXML LaunchTemplateInstanceMetadataOptionsState where
-  parseXML = parseXMLText "LaunchTemplateInstanceMetadataOptionsState"
+{-# COMPLETE
+  LTIMOSApplied,
+  LTIMOSPending,
+  LaunchTemplateInstanceMetadataOptionsState'
+  #-}

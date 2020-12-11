@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Organizations.Types.HandshakeResourceType where
+module Network.AWS.Organizations.Types.HandshakeResourceType
+  ( HandshakeResourceType
+      ( HandshakeResourceType',
+        Account,
+        Email,
+        MasterEmail,
+        MasterName,
+        Notes,
+        Organization,
+        OrganizationFeatureSet,
+        ParentHandshake
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data HandshakeResourceType
-  = Account
-  | Email
-  | MasterEmail
-  | MasterName
-  | Notes
-  | Organization
-  | OrganizationFeatureSet
-  | ParentHandshake
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype HandshakeResourceType = HandshakeResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText HandshakeResourceType where
-  parser =
-    takeLowerText >>= \case
-      "account" -> pure Account
-      "email" -> pure Email
-      "master_email" -> pure MasterEmail
-      "master_name" -> pure MasterName
-      "notes" -> pure Notes
-      "organization" -> pure Organization
-      "organization_feature_set" -> pure OrganizationFeatureSet
-      "parent_handshake" -> pure ParentHandshake
-      e ->
-        fromTextError $
-          "Failure parsing HandshakeResourceType from value: '" <> e
-            <> "'. Accepted values: account, email, master_email, master_name, notes, organization, organization_feature_set, parent_handshake"
+pattern Account :: HandshakeResourceType
+pattern Account = HandshakeResourceType' "ACCOUNT"
 
-instance ToText HandshakeResourceType where
-  toText = \case
-    Account -> "ACCOUNT"
-    Email -> "EMAIL"
-    MasterEmail -> "MASTER_EMAIL"
-    MasterName -> "MASTER_NAME"
-    Notes -> "NOTES"
-    Organization -> "ORGANIZATION"
-    OrganizationFeatureSet -> "ORGANIZATION_FEATURE_SET"
-    ParentHandshake -> "PARENT_HANDSHAKE"
+pattern Email :: HandshakeResourceType
+pattern Email = HandshakeResourceType' "EMAIL"
 
-instance Hashable HandshakeResourceType
+pattern MasterEmail :: HandshakeResourceType
+pattern MasterEmail = HandshakeResourceType' "MASTER_EMAIL"
 
-instance NFData HandshakeResourceType
+pattern MasterName :: HandshakeResourceType
+pattern MasterName = HandshakeResourceType' "MASTER_NAME"
 
-instance ToByteString HandshakeResourceType
+pattern Notes :: HandshakeResourceType
+pattern Notes = HandshakeResourceType' "NOTES"
 
-instance ToQuery HandshakeResourceType
+pattern Organization :: HandshakeResourceType
+pattern Organization = HandshakeResourceType' "ORGANIZATION"
 
-instance ToHeader HandshakeResourceType
+pattern OrganizationFeatureSet :: HandshakeResourceType
+pattern OrganizationFeatureSet = HandshakeResourceType' "ORGANIZATION_FEATURE_SET"
 
-instance FromJSON HandshakeResourceType where
-  parseJSON = parseJSONText "HandshakeResourceType"
+pattern ParentHandshake :: HandshakeResourceType
+pattern ParentHandshake = HandshakeResourceType' "PARENT_HANDSHAKE"
+
+{-# COMPLETE
+  Account,
+  Email,
+  MasterEmail,
+  MasterName,
+  Notes,
+  Organization,
+  OrganizationFeatureSet,
+  ParentHandshake,
+  HandshakeResourceType'
+  #-}

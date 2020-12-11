@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,122 @@
 --
 -- Creates a temporary set of log in credentials that you can use to log in to the Docker process on your local machine. After you're logged in, you can use the native Docker commands to push your local container images to the container image registry of your Amazon Lightsail account so that you can use them with your Lightsail container service. The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials.
 --
---
 -- After you push your container images to the container image registry of your Lightsail account, use the @RegisterContainerImage@ action to register the pushed images to a specific Lightsail container service.
 module Network.AWS.Lightsail.CreateContainerServiceRegistryLogin
-  ( -- * Creating a Request
-    createContainerServiceRegistryLogin,
-    CreateContainerServiceRegistryLogin,
+  ( -- * Creating a request
+    CreateContainerServiceRegistryLogin (..),
+    mkCreateContainerServiceRegistryLogin,
 
-    -- * Destructuring the Response
-    createContainerServiceRegistryLoginResponse,
-    CreateContainerServiceRegistryLoginResponse,
+    -- * Destructuring the response
+    CreateContainerServiceRegistryLoginResponse (..),
+    mkCreateContainerServiceRegistryLoginResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccsrlrsRegistryLogin,
     ccsrlrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createContainerServiceRegistryLogin' smart constructor.
+-- | /See:/ 'mkCreateContainerServiceRegistryLogin' smart constructor.
 data CreateContainerServiceRegistryLogin = CreateContainerServiceRegistryLogin'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContainerServiceRegistryLogin' with the minimum fields required to make a request.
-createContainerServiceRegistryLogin ::
+mkCreateContainerServiceRegistryLogin ::
   CreateContainerServiceRegistryLogin
-createContainerServiceRegistryLogin =
+mkCreateContainerServiceRegistryLogin =
   CreateContainerServiceRegistryLogin'
 
-instance AWSRequest CreateContainerServiceRegistryLogin where
+instance Lude.AWSRequest CreateContainerServiceRegistryLogin where
   type
     Rs CreateContainerServiceRegistryLogin =
       CreateContainerServiceRegistryLoginResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateContainerServiceRegistryLoginResponse'
-            <$> (x .?> "registryLogin") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "registryLogin")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateContainerServiceRegistryLogin
-
-instance NFData CreateContainerServiceRegistryLogin
-
-instance ToHeaders CreateContainerServiceRegistryLogin where
+instance Lude.ToHeaders CreateContainerServiceRegistryLogin where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Lightsail_20161128.CreateContainerServiceRegistryLogin" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.CreateContainerServiceRegistryLogin" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateContainerServiceRegistryLogin where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON CreateContainerServiceRegistryLogin where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath CreateContainerServiceRegistryLogin where
-  toPath = const "/"
+instance Lude.ToPath CreateContainerServiceRegistryLogin where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateContainerServiceRegistryLogin where
-  toQuery = const mempty
+instance Lude.ToQuery CreateContainerServiceRegistryLogin where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createContainerServiceRegistryLoginResponse' smart constructor.
+-- | /See:/ 'mkCreateContainerServiceRegistryLoginResponse' smart constructor.
 data CreateContainerServiceRegistryLoginResponse = CreateContainerServiceRegistryLoginResponse'
-  { _ccsrlrsRegistryLogin ::
-      !( Maybe
-           ContainerServiceRegistryLogin
-       ),
-    _ccsrlrsResponseStatus ::
-      !Int
+  { registryLogin ::
+      Lude.Maybe
+        ContainerServiceRegistryLogin,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContainerServiceRegistryLoginResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccsrlrsRegistryLogin' - An object that describes the log in information for the container service registry of your Lightsail account.
---
--- * 'ccsrlrsResponseStatus' - -- | The response status code.
-createContainerServiceRegistryLoginResponse ::
-  -- | 'ccsrlrsResponseStatus'
-  Int ->
+-- * 'registryLogin' - An object that describes the log in information for the container service registry of your Lightsail account.
+-- * 'responseStatus' - The response status code.
+mkCreateContainerServiceRegistryLoginResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateContainerServiceRegistryLoginResponse
-createContainerServiceRegistryLoginResponse pResponseStatus_ =
+mkCreateContainerServiceRegistryLoginResponse pResponseStatus_ =
   CreateContainerServiceRegistryLoginResponse'
-    { _ccsrlrsRegistryLogin =
-        Nothing,
-      _ccsrlrsResponseStatus = pResponseStatus_
+    { registryLogin =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that describes the log in information for the container service registry of your Lightsail account.
-ccsrlrsRegistryLogin :: Lens' CreateContainerServiceRegistryLoginResponse (Maybe ContainerServiceRegistryLogin)
-ccsrlrsRegistryLogin = lens _ccsrlrsRegistryLogin (\s a -> s {_ccsrlrsRegistryLogin = a})
+--
+-- /Note:/ Consider using 'registryLogin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsrlrsRegistryLogin :: Lens.Lens' CreateContainerServiceRegistryLoginResponse (Lude.Maybe ContainerServiceRegistryLogin)
+ccsrlrsRegistryLogin = Lens.lens (registryLogin :: CreateContainerServiceRegistryLoginResponse -> Lude.Maybe ContainerServiceRegistryLogin) (\s a -> s {registryLogin = a} :: CreateContainerServiceRegistryLoginResponse)
+{-# DEPRECATED ccsrlrsRegistryLogin "Use generic-lens or generic-optics with 'registryLogin' instead." #-}
 
--- | -- | The response status code.
-ccsrlrsResponseStatus :: Lens' CreateContainerServiceRegistryLoginResponse Int
-ccsrlrsResponseStatus = lens _ccsrlrsResponseStatus (\s a -> s {_ccsrlrsResponseStatus = a})
-
-instance NFData CreateContainerServiceRegistryLoginResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsrlrsResponseStatus :: Lens.Lens' CreateContainerServiceRegistryLoginResponse Lude.Int
+ccsrlrsResponseStatus = Lens.lens (responseStatus :: CreateContainerServiceRegistryLoginResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateContainerServiceRegistryLoginResponse)
+{-# DEPRECATED ccsrlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

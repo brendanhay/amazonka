@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.UserFilterType where
+module Network.AWS.WorkDocs.Types.UserFilterType
+  ( UserFilterType
+      ( UserFilterType',
+        ActivePending,
+        All
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UserFilterType
-  = ActivePending
-  | All
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UserFilterType = UserFilterType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UserFilterType where
-  parser =
-    takeLowerText >>= \case
-      "active_pending" -> pure ActivePending
-      "all" -> pure All
-      e ->
-        fromTextError $
-          "Failure parsing UserFilterType from value: '" <> e
-            <> "'. Accepted values: active_pending, all"
+pattern ActivePending :: UserFilterType
+pattern ActivePending = UserFilterType' "ACTIVE_PENDING"
 
-instance ToText UserFilterType where
-  toText = \case
-    ActivePending -> "ACTIVE_PENDING"
-    All -> "ALL"
+pattern All :: UserFilterType
+pattern All = UserFilterType' "ALL"
 
-instance Hashable UserFilterType
-
-instance NFData UserFilterType
-
-instance ToByteString UserFilterType
-
-instance ToQuery UserFilterType
-
-instance ToHeader UserFilterType
-
-instance ToJSON UserFilterType where
-  toJSON = toJSONText
+{-# COMPLETE
+  ActivePending,
+  All,
+  UserFilterType'
+  #-}

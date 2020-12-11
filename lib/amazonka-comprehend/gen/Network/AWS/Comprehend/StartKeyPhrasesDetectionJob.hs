@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Starts an asynchronous key phrase detection job for a collection of documents. Use the operation to track the status of a job.
 module Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
-  ( -- * Creating a Request
-    startKeyPhrasesDetectionJob,
-    StartKeyPhrasesDetectionJob,
+  ( -- * Creating a request
+    StartKeyPhrasesDetectionJob (..),
+    mkStartKeyPhrasesDetectionJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     skpdjJobName,
     skpdjVPCConfig,
     skpdjVolumeKMSKeyId,
@@ -33,11 +28,11 @@ module Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
     skpdjDataAccessRoleARN,
     skpdjLanguageCode,
 
-    -- * Destructuring the Response
-    startKeyPhrasesDetectionJobResponse,
-    StartKeyPhrasesDetectionJobResponse,
+    -- * Destructuring the response
+    StartKeyPhrasesDetectionJobResponse (..),
+    mkStartKeyPhrasesDetectionJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     skpdjkrsJobId,
     skpdjkrsJobStatus,
     skpdjkrsResponseStatus,
@@ -45,195 +40,272 @@ module Network.AWS.Comprehend.StartKeyPhrasesDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startKeyPhrasesDetectionJob' smart constructor.
+-- | /See:/ 'mkStartKeyPhrasesDetectionJob' smart constructor.
 data StartKeyPhrasesDetectionJob = StartKeyPhrasesDetectionJob'
-  { _skpdjJobName ::
-      !(Maybe Text),
-    _skpdjVPCConfig ::
-      !(Maybe VPCConfig),
-    _skpdjVolumeKMSKeyId ::
-      !(Maybe Text),
-    _skpdjClientRequestToken ::
-      !(Maybe Text),
-    _skpdjInputDataConfig ::
-      !InputDataConfig,
-    _skpdjOutputDataConfig ::
-      !OutputDataConfig,
-    _skpdjDataAccessRoleARN :: !Text,
-    _skpdjLanguageCode :: !LanguageCode
+  { jobName ::
+      Lude.Maybe Lude.Text,
+    vpcConfig :: Lude.Maybe VPCConfig,
+    volumeKMSKeyId ::
+      Lude.Maybe Lude.Text,
+    clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    inputDataConfig :: InputDataConfig,
+    outputDataConfig ::
+      OutputDataConfig,
+    dataAccessRoleARN :: Lude.Text,
+    languageCode :: LanguageCode
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartKeyPhrasesDetectionJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clientRequestToken' - A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
+-- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
+-- * 'jobName' - The identifier of the job.
+-- * 'languageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+-- * 'outputDataConfig' - Specifies where to send the output files.
+-- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
--- * 'skpdjJobName' - The identifier of the job.
 --
--- * 'skpdjVPCConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'skpdjVolumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'skpdjClientRequestToken' - A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'skpdjInputDataConfig' - Specifies the format and location of the input data for the job.
 --
--- * 'skpdjOutputDataConfig' - Specifies where to send the output files.
---
--- * 'skpdjDataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
---
--- * 'skpdjLanguageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-startKeyPhrasesDetectionJob ::
-  -- | 'skpdjInputDataConfig'
+-- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+mkStartKeyPhrasesDetectionJob ::
+  -- | 'inputDataConfig'
   InputDataConfig ->
-  -- | 'skpdjOutputDataConfig'
+  -- | 'outputDataConfig'
   OutputDataConfig ->
-  -- | 'skpdjDataAccessRoleARN'
-  Text ->
-  -- | 'skpdjLanguageCode'
+  -- | 'dataAccessRoleARN'
+  Lude.Text ->
+  -- | 'languageCode'
   LanguageCode ->
   StartKeyPhrasesDetectionJob
-startKeyPhrasesDetectionJob
+mkStartKeyPhrasesDetectionJob
   pInputDataConfig_
   pOutputDataConfig_
   pDataAccessRoleARN_
   pLanguageCode_ =
     StartKeyPhrasesDetectionJob'
-      { _skpdjJobName = Nothing,
-        _skpdjVPCConfig = Nothing,
-        _skpdjVolumeKMSKeyId = Nothing,
-        _skpdjClientRequestToken = Nothing,
-        _skpdjInputDataConfig = pInputDataConfig_,
-        _skpdjOutputDataConfig = pOutputDataConfig_,
-        _skpdjDataAccessRoleARN = pDataAccessRoleARN_,
-        _skpdjLanguageCode = pLanguageCode_
+      { jobName = Lude.Nothing,
+        vpcConfig = Lude.Nothing,
+        volumeKMSKeyId = Lude.Nothing,
+        clientRequestToken = Lude.Nothing,
+        inputDataConfig = pInputDataConfig_,
+        outputDataConfig = pOutputDataConfig_,
+        dataAccessRoleARN = pDataAccessRoleARN_,
+        languageCode = pLanguageCode_
       }
 
 -- | The identifier of the job.
-skpdjJobName :: Lens' StartKeyPhrasesDetectionJob (Maybe Text)
-skpdjJobName = lens _skpdjJobName (\s a -> s {_skpdjJobName = a})
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjJobName :: Lens.Lens' StartKeyPhrasesDetectionJob (Lude.Maybe Lude.Text)
+skpdjJobName = Lens.lens (jobName :: StartKeyPhrasesDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: StartKeyPhrasesDetectionJob)
+{-# DEPRECATED skpdjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
-skpdjVPCConfig :: Lens' StartKeyPhrasesDetectionJob (Maybe VPCConfig)
-skpdjVPCConfig = lens _skpdjVPCConfig (\s a -> s {_skpdjVPCConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjVPCConfig :: Lens.Lens' StartKeyPhrasesDetectionJob (Lude.Maybe VPCConfig)
+skpdjVPCConfig = Lens.lens (vpcConfig :: StartKeyPhrasesDetectionJob -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: StartKeyPhrasesDetectionJob)
+{-# DEPRECATED skpdjVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-skpdjVolumeKMSKeyId :: Lens' StartKeyPhrasesDetectionJob (Maybe Text)
-skpdjVolumeKMSKeyId = lens _skpdjVolumeKMSKeyId (\s a -> s {_skpdjVolumeKMSKeyId = a})
+-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+--
+--
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--
+-- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjVolumeKMSKeyId :: Lens.Lens' StartKeyPhrasesDetectionJob (Lude.Maybe Lude.Text)
+skpdjVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: StartKeyPhrasesDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: StartKeyPhrasesDetectionJob)
+{-# DEPRECATED skpdjVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
 -- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
-skpdjClientRequestToken :: Lens' StartKeyPhrasesDetectionJob (Maybe Text)
-skpdjClientRequestToken = lens _skpdjClientRequestToken (\s a -> s {_skpdjClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjClientRequestToken :: Lens.Lens' StartKeyPhrasesDetectionJob (Lude.Maybe Lude.Text)
+skpdjClientRequestToken = Lens.lens (clientRequestToken :: StartKeyPhrasesDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartKeyPhrasesDetectionJob)
+{-# DEPRECATED skpdjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | Specifies the format and location of the input data for the job.
-skpdjInputDataConfig :: Lens' StartKeyPhrasesDetectionJob InputDataConfig
-skpdjInputDataConfig = lens _skpdjInputDataConfig (\s a -> s {_skpdjInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjInputDataConfig :: Lens.Lens' StartKeyPhrasesDetectionJob InputDataConfig
+skpdjInputDataConfig = Lens.lens (inputDataConfig :: StartKeyPhrasesDetectionJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartKeyPhrasesDetectionJob)
+{-# DEPRECATED skpdjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Specifies where to send the output files.
-skpdjOutputDataConfig :: Lens' StartKeyPhrasesDetectionJob OutputDataConfig
-skpdjOutputDataConfig = lens _skpdjOutputDataConfig (\s a -> s {_skpdjOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjOutputDataConfig :: Lens.Lens' StartKeyPhrasesDetectionJob OutputDataConfig
+skpdjOutputDataConfig = Lens.lens (outputDataConfig :: StartKeyPhrasesDetectionJob -> OutputDataConfig) (\s a -> s {outputDataConfig = a} :: StartKeyPhrasesDetectionJob)
+{-# DEPRECATED skpdjOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
-skpdjDataAccessRoleARN :: Lens' StartKeyPhrasesDetectionJob Text
-skpdjDataAccessRoleARN = lens _skpdjDataAccessRoleARN (\s a -> s {_skpdjDataAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjDataAccessRoleARN :: Lens.Lens' StartKeyPhrasesDetectionJob Lude.Text
+skpdjDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: StartKeyPhrasesDetectionJob -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: StartKeyPhrasesDetectionJob)
+{-# DEPRECATED skpdjDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
 -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-skpdjLanguageCode :: Lens' StartKeyPhrasesDetectionJob LanguageCode
-skpdjLanguageCode = lens _skpdjLanguageCode (\s a -> s {_skpdjLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjLanguageCode :: Lens.Lens' StartKeyPhrasesDetectionJob LanguageCode
+skpdjLanguageCode = Lens.lens (languageCode :: StartKeyPhrasesDetectionJob -> LanguageCode) (\s a -> s {languageCode = a} :: StartKeyPhrasesDetectionJob)
+{-# DEPRECATED skpdjLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
-instance AWSRequest StartKeyPhrasesDetectionJob where
+instance Lude.AWSRequest StartKeyPhrasesDetectionJob where
   type
     Rs StartKeyPhrasesDetectionJob =
       StartKeyPhrasesDetectionJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartKeyPhrasesDetectionJobResponse'
-            <$> (x .?> "JobId") <*> (x .?> "JobStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "JobId")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartKeyPhrasesDetectionJob
-
-instance NFData StartKeyPhrasesDetectionJob
-
-instance ToHeaders StartKeyPhrasesDetectionJob where
+instance Lude.ToHeaders StartKeyPhrasesDetectionJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.StartKeyPhrasesDetectionJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.StartKeyPhrasesDetectionJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartKeyPhrasesDetectionJob where
+instance Lude.ToJSON StartKeyPhrasesDetectionJob where
   toJSON StartKeyPhrasesDetectionJob' {..} =
-    object
-      ( catMaybes
-          [ ("JobName" .=) <$> _skpdjJobName,
-            ("VpcConfig" .=) <$> _skpdjVPCConfig,
-            ("VolumeKmsKeyId" .=) <$> _skpdjVolumeKMSKeyId,
-            ("ClientRequestToken" .=) <$> _skpdjClientRequestToken,
-            Just ("InputDataConfig" .= _skpdjInputDataConfig),
-            Just ("OutputDataConfig" .= _skpdjOutputDataConfig),
-            Just ("DataAccessRoleArn" .= _skpdjDataAccessRoleARN),
-            Just ("LanguageCode" .= _skpdjLanguageCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("JobName" Lude..=) Lude.<$> jobName,
+            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
+            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
+            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN),
+            Lude.Just ("LanguageCode" Lude..= languageCode)
           ]
       )
 
-instance ToPath StartKeyPhrasesDetectionJob where
-  toPath = const "/"
+instance Lude.ToPath StartKeyPhrasesDetectionJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StartKeyPhrasesDetectionJob where
-  toQuery = const mempty
+instance Lude.ToQuery StartKeyPhrasesDetectionJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startKeyPhrasesDetectionJobResponse' smart constructor.
+-- | /See:/ 'mkStartKeyPhrasesDetectionJobResponse' smart constructor.
 data StartKeyPhrasesDetectionJobResponse = StartKeyPhrasesDetectionJobResponse'
-  { _skpdjkrsJobId ::
-      !(Maybe Text),
-    _skpdjkrsJobStatus ::
-      !(Maybe JobStatus),
-    _skpdjkrsResponseStatus ::
-      !Int
+  { jobId ::
+      Lude.Maybe
+        Lude.Text,
+    jobStatus ::
+      Lude.Maybe
+        JobStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartKeyPhrasesDetectionJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'jobId' - The identifier generated for the job. To get the status of a job, use this identifier with the operation.
+-- * 'jobStatus' - The status of the job.
 --
--- * 'skpdjkrsJobId' - The identifier generated for the job. To get the status of a job, use this identifier with the operation.
 --
--- * 'skpdjkrsJobStatus' - The status of the job.      * SUBMITTED - The job has been received and is queued for processing.     * IN_PROGRESS - Amazon Comprehend is processing the job.     * COMPLETED - The job was successfully completed and the output is available.     * FAILED - The job did not complete. To get details, use the operation.
+--     * SUBMITTED - The job has been received and is queued for processing.
 --
--- * 'skpdjkrsResponseStatus' - -- | The response status code.
-startKeyPhrasesDetectionJobResponse ::
-  -- | 'skpdjkrsResponseStatus'
-  Int ->
+--
+--     * IN_PROGRESS - Amazon Comprehend is processing the job.
+--
+--
+--     * COMPLETED - The job was successfully completed and the output is available.
+--
+--
+--     * FAILED - The job did not complete. To get details, use the operation.
+--
+--
+-- * 'responseStatus' - The response status code.
+mkStartKeyPhrasesDetectionJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartKeyPhrasesDetectionJobResponse
-startKeyPhrasesDetectionJobResponse pResponseStatus_ =
+mkStartKeyPhrasesDetectionJobResponse pResponseStatus_ =
   StartKeyPhrasesDetectionJobResponse'
-    { _skpdjkrsJobId = Nothing,
-      _skpdjkrsJobStatus = Nothing,
-      _skpdjkrsResponseStatus = pResponseStatus_
+    { jobId = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier generated for the job. To get the status of a job, use this identifier with the operation.
-skpdjkrsJobId :: Lens' StartKeyPhrasesDetectionJobResponse (Maybe Text)
-skpdjkrsJobId = lens _skpdjkrsJobId (\s a -> s {_skpdjkrsJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjkrsJobId :: Lens.Lens' StartKeyPhrasesDetectionJobResponse (Lude.Maybe Lude.Text)
+skpdjkrsJobId = Lens.lens (jobId :: StartKeyPhrasesDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartKeyPhrasesDetectionJobResponse)
+{-# DEPRECATED skpdjkrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | The status of the job.      * SUBMITTED - The job has been received and is queued for processing.     * IN_PROGRESS - Amazon Comprehend is processing the job.     * COMPLETED - The job was successfully completed and the output is available.     * FAILED - The job did not complete. To get details, use the operation.
-skpdjkrsJobStatus :: Lens' StartKeyPhrasesDetectionJobResponse (Maybe JobStatus)
-skpdjkrsJobStatus = lens _skpdjkrsJobStatus (\s a -> s {_skpdjkrsJobStatus = a})
+-- | The status of the job.
+--
+--
+--     * SUBMITTED - The job has been received and is queued for processing.
+--
+--
+--     * IN_PROGRESS - Amazon Comprehend is processing the job.
+--
+--
+--     * COMPLETED - The job was successfully completed and the output is available.
+--
+--
+--     * FAILED - The job did not complete. To get details, use the operation.
+--
+--
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjkrsJobStatus :: Lens.Lens' StartKeyPhrasesDetectionJobResponse (Lude.Maybe JobStatus)
+skpdjkrsJobStatus = Lens.lens (jobStatus :: StartKeyPhrasesDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StartKeyPhrasesDetectionJobResponse)
+{-# DEPRECATED skpdjkrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | -- | The response status code.
-skpdjkrsResponseStatus :: Lens' StartKeyPhrasesDetectionJobResponse Int
-skpdjkrsResponseStatus = lens _skpdjkrsResponseStatus (\s a -> s {_skpdjkrsResponseStatus = a})
-
-instance NFData StartKeyPhrasesDetectionJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skpdjkrsResponseStatus :: Lens.Lens' StartKeyPhrasesDetectionJobResponse Lude.Int
+skpdjkrsResponseStatus = Lens.lens (responseStatus :: StartKeyPhrasesDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartKeyPhrasesDetectionJobResponse)
+{-# DEPRECATED skpdjkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

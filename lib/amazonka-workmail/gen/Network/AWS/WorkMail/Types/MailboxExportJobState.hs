@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.MailboxExportJobState where
+module Network.AWS.WorkMail.Types.MailboxExportJobState
+  ( MailboxExportJobState
+      ( MailboxExportJobState',
+        Cancelled,
+        Completed,
+        Failed,
+        Running
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MailboxExportJobState
-  = Cancelled
-  | Completed
-  | Failed
-  | Running
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MailboxExportJobState = MailboxExportJobState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MailboxExportJobState where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure Cancelled
-      "completed" -> pure Completed
-      "failed" -> pure Failed
-      "running" -> pure Running
-      e ->
-        fromTextError $
-          "Failure parsing MailboxExportJobState from value: '" <> e
-            <> "'. Accepted values: cancelled, completed, failed, running"
+pattern Cancelled :: MailboxExportJobState
+pattern Cancelled = MailboxExportJobState' "CANCELLED"
 
-instance ToText MailboxExportJobState where
-  toText = \case
-    Cancelled -> "CANCELLED"
-    Completed -> "COMPLETED"
-    Failed -> "FAILED"
-    Running -> "RUNNING"
+pattern Completed :: MailboxExportJobState
+pattern Completed = MailboxExportJobState' "COMPLETED"
 
-instance Hashable MailboxExportJobState
+pattern Failed :: MailboxExportJobState
+pattern Failed = MailboxExportJobState' "FAILED"
 
-instance NFData MailboxExportJobState
+pattern Running :: MailboxExportJobState
+pattern Running = MailboxExportJobState' "RUNNING"
 
-instance ToByteString MailboxExportJobState
-
-instance ToQuery MailboxExportJobState
-
-instance ToHeader MailboxExportJobState
-
-instance FromJSON MailboxExportJobState where
-  parseJSON = parseJSONText "MailboxExportJobState"
+{-# COMPLETE
+  Cancelled,
+  Completed,
+  Failed,
+  Running,
+  MailboxExportJobState'
+  #-}

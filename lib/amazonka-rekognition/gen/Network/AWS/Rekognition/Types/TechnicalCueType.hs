@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.TechnicalCueType where
+module Network.AWS.Rekognition.Types.TechnicalCueType
+  ( TechnicalCueType
+      ( TechnicalCueType',
+        BlackFrames,
+        ColorBars,
+        EndCredits
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TechnicalCueType
-  = BlackFrames
-  | ColorBars
-  | EndCredits
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TechnicalCueType = TechnicalCueType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TechnicalCueType where
-  parser =
-    takeLowerText >>= \case
-      "blackframes" -> pure BlackFrames
-      "colorbars" -> pure ColorBars
-      "endcredits" -> pure EndCredits
-      e ->
-        fromTextError $
-          "Failure parsing TechnicalCueType from value: '" <> e
-            <> "'. Accepted values: blackframes, colorbars, endcredits"
+pattern BlackFrames :: TechnicalCueType
+pattern BlackFrames = TechnicalCueType' "BlackFrames"
 
-instance ToText TechnicalCueType where
-  toText = \case
-    BlackFrames -> "BlackFrames"
-    ColorBars -> "ColorBars"
-    EndCredits -> "EndCredits"
+pattern ColorBars :: TechnicalCueType
+pattern ColorBars = TechnicalCueType' "ColorBars"
 
-instance Hashable TechnicalCueType
+pattern EndCredits :: TechnicalCueType
+pattern EndCredits = TechnicalCueType' "EndCredits"
 
-instance NFData TechnicalCueType
-
-instance ToByteString TechnicalCueType
-
-instance ToQuery TechnicalCueType
-
-instance ToHeader TechnicalCueType
-
-instance FromJSON TechnicalCueType where
-  parseJSON = parseJSONText "TechnicalCueType"
+{-# COMPLETE
+  BlackFrames,
+  ColorBars,
+  EndCredits,
+  TechnicalCueType'
+  #-}

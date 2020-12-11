@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ExecutionEngineType where
+module Network.AWS.EMR.Types.ExecutionEngineType
+  ( ExecutionEngineType
+      ( ExecutionEngineType',
+        Emr
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExecutionEngineType = Emr
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExecutionEngineType = ExecutionEngineType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExecutionEngineType where
-  parser =
-    takeLowerText >>= \case
-      "emr" -> pure Emr
-      e ->
-        fromTextError $
-          "Failure parsing ExecutionEngineType from value: '" <> e
-            <> "'. Accepted values: emr"
+pattern Emr :: ExecutionEngineType
+pattern Emr = ExecutionEngineType' "EMR"
 
-instance ToText ExecutionEngineType where
-  toText = \case
-    Emr -> "EMR"
-
-instance Hashable ExecutionEngineType
-
-instance NFData ExecutionEngineType
-
-instance ToByteString ExecutionEngineType
-
-instance ToQuery ExecutionEngineType
-
-instance ToHeader ExecutionEngineType
-
-instance ToJSON ExecutionEngineType where
-  toJSON = toJSONText
-
-instance FromJSON ExecutionEngineType where
-  parseJSON = parseJSONText "ExecutionEngineType"
+{-# COMPLETE
+  Emr,
+  ExecutionEngineType'
+  #-}

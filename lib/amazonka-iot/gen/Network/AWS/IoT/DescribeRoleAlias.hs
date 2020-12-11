@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,120 @@
 --
 -- Describes a role alias.
 module Network.AWS.IoT.DescribeRoleAlias
-  ( -- * Creating a Request
-    describeRoleAlias,
-    DescribeRoleAlias,
+  ( -- * Creating a request
+    DescribeRoleAlias (..),
+    mkDescribeRoleAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     draRoleAlias,
 
-    -- * Destructuring the Response
-    describeRoleAliasResponse,
-    DescribeRoleAliasResponse,
+    -- * Destructuring the response
+    DescribeRoleAliasResponse (..),
+    mkDescribeRoleAliasResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drarsRoleAliasDescription,
     drarsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeRoleAlias' smart constructor.
+-- | /See:/ 'mkDescribeRoleAlias' smart constructor.
 newtype DescribeRoleAlias = DescribeRoleAlias'
-  { _draRoleAlias ::
-      Text
+  { roleAlias ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRoleAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'draRoleAlias' - The role alias to describe.
-describeRoleAlias ::
-  -- | 'draRoleAlias'
-  Text ->
+-- * 'roleAlias' - The role alias to describe.
+mkDescribeRoleAlias ::
+  -- | 'roleAlias'
+  Lude.Text ->
   DescribeRoleAlias
-describeRoleAlias pRoleAlias_ =
-  DescribeRoleAlias' {_draRoleAlias = pRoleAlias_}
+mkDescribeRoleAlias pRoleAlias_ =
+  DescribeRoleAlias' {roleAlias = pRoleAlias_}
 
 -- | The role alias to describe.
-draRoleAlias :: Lens' DescribeRoleAlias Text
-draRoleAlias = lens _draRoleAlias (\s a -> s {_draRoleAlias = a})
+--
+-- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+draRoleAlias :: Lens.Lens' DescribeRoleAlias Lude.Text
+draRoleAlias = Lens.lens (roleAlias :: DescribeRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: DescribeRoleAlias)
+{-# DEPRECATED draRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
-instance AWSRequest DescribeRoleAlias where
+instance Lude.AWSRequest DescribeRoleAlias where
   type Rs DescribeRoleAlias = DescribeRoleAliasResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRoleAliasResponse'
-            <$> (x .?> "roleAliasDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "roleAliasDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRoleAlias
+instance Lude.ToHeaders DescribeRoleAlias where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeRoleAlias
-
-instance ToHeaders DescribeRoleAlias where
-  toHeaders = const mempty
-
-instance ToPath DescribeRoleAlias where
+instance Lude.ToPath DescribeRoleAlias where
   toPath DescribeRoleAlias' {..} =
-    mconcat ["/role-aliases/", toBS _draRoleAlias]
+    Lude.mconcat ["/role-aliases/", Lude.toBS roleAlias]
 
-instance ToQuery DescribeRoleAlias where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeRoleAlias where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeRoleAliasResponse' smart constructor.
+-- | /See:/ 'mkDescribeRoleAliasResponse' smart constructor.
 data DescribeRoleAliasResponse = DescribeRoleAliasResponse'
-  { _drarsRoleAliasDescription ::
-      !(Maybe RoleAliasDescription),
-    _drarsResponseStatus :: !Int
+  { roleAliasDescription ::
+      Lude.Maybe RoleAliasDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRoleAliasResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drarsRoleAliasDescription' - The role alias description.
---
--- * 'drarsResponseStatus' - -- | The response status code.
-describeRoleAliasResponse ::
-  -- | 'drarsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'roleAliasDescription' - The role alias description.
+mkDescribeRoleAliasResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRoleAliasResponse
-describeRoleAliasResponse pResponseStatus_ =
+mkDescribeRoleAliasResponse pResponseStatus_ =
   DescribeRoleAliasResponse'
-    { _drarsRoleAliasDescription = Nothing,
-      _drarsResponseStatus = pResponseStatus_
+    { roleAliasDescription = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The role alias description.
-drarsRoleAliasDescription :: Lens' DescribeRoleAliasResponse (Maybe RoleAliasDescription)
-drarsRoleAliasDescription = lens _drarsRoleAliasDescription (\s a -> s {_drarsRoleAliasDescription = a})
+--
+-- /Note:/ Consider using 'roleAliasDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drarsRoleAliasDescription :: Lens.Lens' DescribeRoleAliasResponse (Lude.Maybe RoleAliasDescription)
+drarsRoleAliasDescription = Lens.lens (roleAliasDescription :: DescribeRoleAliasResponse -> Lude.Maybe RoleAliasDescription) (\s a -> s {roleAliasDescription = a} :: DescribeRoleAliasResponse)
+{-# DEPRECATED drarsRoleAliasDescription "Use generic-lens or generic-optics with 'roleAliasDescription' instead." #-}
 
--- | -- | The response status code.
-drarsResponseStatus :: Lens' DescribeRoleAliasResponse Int
-drarsResponseStatus = lens _drarsResponseStatus (\s a -> s {_drarsResponseStatus = a})
-
-instance NFData DescribeRoleAliasResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drarsResponseStatus :: Lens.Lens' DescribeRoleAliasResponse Lude.Int
+drarsResponseStatus = Lens.lens (responseStatus :: DescribeRoleAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRoleAliasResponse)
+{-# DEPRECATED drarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

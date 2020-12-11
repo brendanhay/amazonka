@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,143 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.DefinitionInformation where
+module Network.AWS.Greengrass.Types.DefinitionInformation
+  ( DefinitionInformation (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDefinitionInformation,
+
+    -- * Lenses
+    diLatestVersionARN,
+    diARN,
+    diName,
+    diCreationTimestamp,
+    diId,
+    diTags,
+    diLatestVersion,
+    diLastUpdatedTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a definition.
 --
--- /See:/ 'definitionInformation' smart constructor.
+-- /See:/ 'mkDefinitionInformation' smart constructor.
 data DefinitionInformation = DefinitionInformation'
-  { _diLatestVersionARN ::
-      !(Maybe Text),
-    _diARN :: !(Maybe Text),
-    _diName :: !(Maybe Text),
-    _diCreationTimestamp :: !(Maybe Text),
-    _diId :: !(Maybe Text),
-    _diTags :: !(Maybe (Map Text (Text))),
-    _diLatestVersion :: !(Maybe Text),
-    _diLastUpdatedTimestamp :: !(Maybe Text)
+  { latestVersionARN ::
+      Lude.Maybe Lude.Text,
+    arn :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    latestVersion :: Lude.Maybe Lude.Text,
+    lastUpdatedTimestamp :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefinitionInformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diLatestVersionARN' - The ARN of the latest version associated with the definition.
---
--- * 'diARN' - The ARN of the definition.
---
--- * 'diName' - The name of the definition.
---
--- * 'diCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
---
--- * 'diId' - The ID of the definition.
---
--- * 'diTags' - Tag(s) attached to the resource arn.
---
--- * 'diLatestVersion' - The ID of the latest version associated with the definition.
---
--- * 'diLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
-definitionInformation ::
+-- * 'arn' - The ARN of the definition.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
+-- * 'id' - The ID of the definition.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
+-- * 'latestVersion' - The ID of the latest version associated with the definition.
+-- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
+-- * 'name' - The name of the definition.
+-- * 'tags' - Tag(s) attached to the resource arn.
+mkDefinitionInformation ::
   DefinitionInformation
-definitionInformation =
+mkDefinitionInformation =
   DefinitionInformation'
-    { _diLatestVersionARN = Nothing,
-      _diARN = Nothing,
-      _diName = Nothing,
-      _diCreationTimestamp = Nothing,
-      _diId = Nothing,
-      _diTags = Nothing,
-      _diLatestVersion = Nothing,
-      _diLastUpdatedTimestamp = Nothing
+    { latestVersionARN = Lude.Nothing,
+      arn = Lude.Nothing,
+      name = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      id = Lude.Nothing,
+      tags = Lude.Nothing,
+      latestVersion = Lude.Nothing,
+      lastUpdatedTimestamp = Lude.Nothing
     }
 
 -- | The ARN of the latest version associated with the definition.
-diLatestVersionARN :: Lens' DefinitionInformation (Maybe Text)
-diLatestVersionARN = lens _diLatestVersionARN (\s a -> s {_diLatestVersionARN = a})
+--
+-- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diLatestVersionARN :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
+diLatestVersionARN = Lens.lens (latestVersionARN :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: DefinitionInformation)
+{-# DEPRECATED diLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
-diARN :: Lens' DefinitionInformation (Maybe Text)
-diARN = lens _diARN (\s a -> s {_diARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diARN :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
+diARN = Lens.lens (arn :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DefinitionInformation)
+{-# DEPRECATED diARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the definition.
-diName :: Lens' DefinitionInformation (Maybe Text)
-diName = lens _diName (\s a -> s {_diName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diName :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
+diName = Lens.lens (name :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DefinitionInformation)
+{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
-diCreationTimestamp :: Lens' DefinitionInformation (Maybe Text)
-diCreationTimestamp = lens _diCreationTimestamp (\s a -> s {_diCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diCreationTimestamp :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
+diCreationTimestamp = Lens.lens (creationTimestamp :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: DefinitionInformation)
+{-# DEPRECATED diCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
-diId :: Lens' DefinitionInformation (Maybe Text)
-diId = lens _diId (\s a -> s {_diId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diId :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
+diId = Lens.lens (id :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DefinitionInformation)
+{-# DEPRECATED diId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Tag(s) attached to the resource arn.
-diTags :: Lens' DefinitionInformation (HashMap Text (Text))
-diTags = lens _diTags (\s a -> s {_diTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diTags :: Lens.Lens' DefinitionInformation (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+diTags = Lens.lens (tags :: DefinitionInformation -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DefinitionInformation)
+{-# DEPRECATED diTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the latest version associated with the definition.
-diLatestVersion :: Lens' DefinitionInformation (Maybe Text)
-diLatestVersion = lens _diLatestVersion (\s a -> s {_diLatestVersion = a})
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diLatestVersion :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
+diLatestVersion = Lens.lens (latestVersion :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: DefinitionInformation)
+{-# DEPRECATED diLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
-diLastUpdatedTimestamp :: Lens' DefinitionInformation (Maybe Text)
-diLastUpdatedTimestamp = lens _diLastUpdatedTimestamp (\s a -> s {_diLastUpdatedTimestamp = a})
+--
+-- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diLastUpdatedTimestamp :: Lens.Lens' DefinitionInformation (Lude.Maybe Lude.Text)
+diLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: DefinitionInformation -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: DefinitionInformation)
+{-# DEPRECATED diLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
 
-instance FromJSON DefinitionInformation where
+instance Lude.FromJSON DefinitionInformation where
   parseJSON =
-    withObject
+    Lude.withObject
       "DefinitionInformation"
       ( \x ->
           DefinitionInformation'
-            <$> (x .:? "LatestVersionArn")
-            <*> (x .:? "Arn")
-            <*> (x .:? "Name")
-            <*> (x .:? "CreationTimestamp")
-            <*> (x .:? "Id")
-            <*> (x .:? "tags" .!= mempty)
-            <*> (x .:? "LatestVersion")
-            <*> (x .:? "LastUpdatedTimestamp")
+            Lude.<$> (x Lude..:? "LatestVersionArn")
+            Lude.<*> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "CreationTimestamp")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "LatestVersion")
+            Lude.<*> (x Lude..:? "LastUpdatedTimestamp")
       )
-
-instance Hashable DefinitionInformation
-
-instance NFData DefinitionInformation

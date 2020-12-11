@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,166 @@
 --
 -- Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes for an endpoint. If an update includes one or more values for a custom attribute, Amazon Pinpoint replaces (overwrites) any existing values with the new values.
 module Network.AWS.Pinpoint.UpdateEndpoint
-  ( -- * Creating a Request
-    updateEndpoint,
-    UpdateEndpoint,
+  ( -- * Creating a request
+    UpdateEndpoint (..),
+    mkUpdateEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ueApplicationId,
     ueEndpointId,
     ueEndpointRequest,
 
-    -- * Destructuring the Response
-    updateEndpointResponse,
-    UpdateEndpointResponse,
+    -- * Destructuring the response
+    UpdateEndpointResponse (..),
+    mkUpdateEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uersResponseStatus,
     uersMessageBody,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateEndpoint' smart constructor.
+-- | /See:/ 'mkUpdateEndpoint' smart constructor.
 data UpdateEndpoint = UpdateEndpoint'
-  { _ueApplicationId :: !Text,
-    _ueEndpointId :: !Text,
-    _ueEndpointRequest :: !EndpointRequest
+  { applicationId :: Lude.Text,
+    endpointId :: Lude.Text,
+    endpointRequest :: EndpointRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ueApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'ueEndpointId' - The unique identifier for the endpoint.
---
--- * 'ueEndpointRequest' - Undocumented member.
-updateEndpoint ::
-  -- | 'ueApplicationId'
-  Text ->
-  -- | 'ueEndpointId'
-  Text ->
-  -- | 'ueEndpointRequest'
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'endpointId' - The unique identifier for the endpoint.
+-- * 'endpointRequest' - Undocumented field.
+mkUpdateEndpoint ::
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'endpointId'
+  Lude.Text ->
+  -- | 'endpointRequest'
   EndpointRequest ->
   UpdateEndpoint
-updateEndpoint pApplicationId_ pEndpointId_ pEndpointRequest_ =
+mkUpdateEndpoint pApplicationId_ pEndpointId_ pEndpointRequest_ =
   UpdateEndpoint'
-    { _ueApplicationId = pApplicationId_,
-      _ueEndpointId = pEndpointId_,
-      _ueEndpointRequest = pEndpointRequest_
+    { applicationId = pApplicationId_,
+      endpointId = pEndpointId_,
+      endpointRequest = pEndpointRequest_
     }
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-ueApplicationId :: Lens' UpdateEndpoint Text
-ueApplicationId = lens _ueApplicationId (\s a -> s {_ueApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueApplicationId :: Lens.Lens' UpdateEndpoint Lude.Text
+ueApplicationId = Lens.lens (applicationId :: UpdateEndpoint -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateEndpoint)
+{-# DEPRECATED ueApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The unique identifier for the endpoint.
-ueEndpointId :: Lens' UpdateEndpoint Text
-ueEndpointId = lens _ueEndpointId (\s a -> s {_ueEndpointId = a})
+--
+-- /Note:/ Consider using 'endpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueEndpointId :: Lens.Lens' UpdateEndpoint Lude.Text
+ueEndpointId = Lens.lens (endpointId :: UpdateEndpoint -> Lude.Text) (\s a -> s {endpointId = a} :: UpdateEndpoint)
+{-# DEPRECATED ueEndpointId "Use generic-lens or generic-optics with 'endpointId' instead." #-}
 
--- | Undocumented member.
-ueEndpointRequest :: Lens' UpdateEndpoint EndpointRequest
-ueEndpointRequest = lens _ueEndpointRequest (\s a -> s {_ueEndpointRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'endpointRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueEndpointRequest :: Lens.Lens' UpdateEndpoint EndpointRequest
+ueEndpointRequest = Lens.lens (endpointRequest :: UpdateEndpoint -> EndpointRequest) (\s a -> s {endpointRequest = a} :: UpdateEndpoint)
+{-# DEPRECATED ueEndpointRequest "Use generic-lens or generic-optics with 'endpointRequest' instead." #-}
 
-instance AWSRequest UpdateEndpoint where
+instance Lude.AWSRequest UpdateEndpoint where
   type Rs UpdateEndpoint = UpdateEndpointResponse
-  request = putJSON pinpoint
+  request = Req.putJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateEndpointResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable UpdateEndpoint
-
-instance NFData UpdateEndpoint
-
-instance ToHeaders UpdateEndpoint where
+instance Lude.ToHeaders UpdateEndpoint where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateEndpoint where
+instance Lude.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
-    object
-      (catMaybes [Just ("EndpointRequest" .= _ueEndpointRequest)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("EndpointRequest" Lude..= endpointRequest)]
+      )
 
-instance ToPath UpdateEndpoint where
+instance Lude.ToPath UpdateEndpoint where
   toPath UpdateEndpoint' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _ueApplicationId,
+        Lude.toBS applicationId,
         "/endpoints/",
-        toBS _ueEndpointId
+        Lude.toBS endpointId
       ]
 
-instance ToQuery UpdateEndpoint where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateEndpoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateEndpointResponse' smart constructor.
+-- | /See:/ 'mkUpdateEndpointResponse' smart constructor.
 data UpdateEndpointResponse = UpdateEndpointResponse'
-  { _uersResponseStatus ::
-      !Int,
-    _uersMessageBody :: !MessageBody
+  { responseStatus ::
+      Lude.Int,
+    messageBody :: MessageBody
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uersResponseStatus' - -- | The response status code.
---
--- * 'uersMessageBody' - Undocumented member.
-updateEndpointResponse ::
-  -- | 'uersResponseStatus'
-  Int ->
-  -- | 'uersMessageBody'
+-- * 'messageBody' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'messageBody'
   MessageBody ->
   UpdateEndpointResponse
-updateEndpointResponse pResponseStatus_ pMessageBody_ =
+mkUpdateEndpointResponse pResponseStatus_ pMessageBody_ =
   UpdateEndpointResponse'
-    { _uersResponseStatus = pResponseStatus_,
-      _uersMessageBody = pMessageBody_
+    { responseStatus = pResponseStatus_,
+      messageBody = pMessageBody_
     }
 
--- | -- | The response status code.
-uersResponseStatus :: Lens' UpdateEndpointResponse Int
-uersResponseStatus = lens _uersResponseStatus (\s a -> s {_uersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uersResponseStatus :: Lens.Lens' UpdateEndpointResponse Lude.Int
+uersResponseStatus = Lens.lens (responseStatus :: UpdateEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEndpointResponse)
+{-# DEPRECATED uersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-uersMessageBody :: Lens' UpdateEndpointResponse MessageBody
-uersMessageBody = lens _uersMessageBody (\s a -> s {_uersMessageBody = a})
-
-instance NFData UpdateEndpointResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uersMessageBody :: Lens.Lens' UpdateEndpointResponse MessageBody
+uersMessageBody = Lens.lens (messageBody :: UpdateEndpointResponse -> MessageBody) (\s a -> s {messageBody = a} :: UpdateEndpointResponse)
+{-# DEPRECATED uersMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}

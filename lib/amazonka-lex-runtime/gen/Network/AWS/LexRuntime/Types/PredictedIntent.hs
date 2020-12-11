@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.PredictedIntent where
+module Network.AWS.LexRuntime.Types.PredictedIntent
+  ( PredictedIntent (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkPredictedIntent,
+
+    -- * Lenses
+    piNluIntentConfidence,
+    piSlots,
+    piIntentName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types.IntentConfidence
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | An intent that Amazon Lex suggests satisfies the user's intent. Includes the name of the intent, the confidence that Amazon Lex has that the user's intent is satisfied, and the slots defined for the intent.
 --
---
---
--- /See:/ 'predictedIntent' smart constructor.
+-- /See:/ 'mkPredictedIntent' smart constructor.
 data PredictedIntent = PredictedIntent'
-  { _piNluIntentConfidence ::
-      !(Maybe IntentConfidence),
-    _piSlots :: !(Maybe (Sensitive (Map Text (Text)))),
-    _piIntentName :: !(Maybe Text)
+  { nluIntentConfidence ::
+      Lude.Maybe IntentConfidence,
+    slots :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    intentName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PredictedIntent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'piNluIntentConfidence' - Indicates how confident Amazon Lex is that an intent satisfies the user's intent.
---
--- * 'piSlots' - The slot and slot values associated with the predicted intent.
---
--- * 'piIntentName' - The name of the intent that Amazon Lex suggests satisfies the user's intent.
-predictedIntent ::
+-- * 'intentName' - The name of the intent that Amazon Lex suggests satisfies the user's intent.
+-- * 'nluIntentConfidence' - Indicates how confident Amazon Lex is that an intent satisfies the user's intent.
+-- * 'slots' - The slot and slot values associated with the predicted intent.
+mkPredictedIntent ::
   PredictedIntent
-predictedIntent =
+mkPredictedIntent =
   PredictedIntent'
-    { _piNluIntentConfidence = Nothing,
-      _piSlots = Nothing,
-      _piIntentName = Nothing
+    { nluIntentConfidence = Lude.Nothing,
+      slots = Lude.Nothing,
+      intentName = Lude.Nothing
     }
 
 -- | Indicates how confident Amazon Lex is that an intent satisfies the user's intent.
-piNluIntentConfidence :: Lens' PredictedIntent (Maybe IntentConfidence)
-piNluIntentConfidence = lens _piNluIntentConfidence (\s a -> s {_piNluIntentConfidence = a})
+--
+-- /Note:/ Consider using 'nluIntentConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piNluIntentConfidence :: Lens.Lens' PredictedIntent (Lude.Maybe IntentConfidence)
+piNluIntentConfidence = Lens.lens (nluIntentConfidence :: PredictedIntent -> Lude.Maybe IntentConfidence) (\s a -> s {nluIntentConfidence = a} :: PredictedIntent)
+{-# DEPRECATED piNluIntentConfidence "Use generic-lens or generic-optics with 'nluIntentConfidence' instead." #-}
 
 -- | The slot and slot values associated with the predicted intent.
-piSlots :: Lens' PredictedIntent (Maybe (HashMap Text (Text)))
-piSlots = lens _piSlots (\s a -> s {_piSlots = a}) . mapping (_Sensitive . _Map)
+--
+-- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piSlots :: Lens.Lens' PredictedIntent (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+piSlots = Lens.lens (slots :: PredictedIntent -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {slots = a} :: PredictedIntent)
+{-# DEPRECATED piSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
 -- | The name of the intent that Amazon Lex suggests satisfies the user's intent.
-piIntentName :: Lens' PredictedIntent (Maybe Text)
-piIntentName = lens _piIntentName (\s a -> s {_piIntentName = a})
+--
+-- /Note:/ Consider using 'intentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piIntentName :: Lens.Lens' PredictedIntent (Lude.Maybe Lude.Text)
+piIntentName = Lens.lens (intentName :: PredictedIntent -> Lude.Maybe Lude.Text) (\s a -> s {intentName = a} :: PredictedIntent)
+{-# DEPRECATED piIntentName "Use generic-lens or generic-optics with 'intentName' instead." #-}
 
-instance FromJSON PredictedIntent where
+instance Lude.FromJSON PredictedIntent where
   parseJSON =
-    withObject
+    Lude.withObject
       "PredictedIntent"
       ( \x ->
           PredictedIntent'
-            <$> (x .:? "nluIntentConfidence")
-            <*> (x .:? "slots" .!= mempty)
-            <*> (x .:? "intentName")
+            Lude.<$> (x Lude..:? "nluIntentConfidence")
+            Lude.<*> (x Lude..:? "slots" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "intentName")
       )
-
-instance Hashable PredictedIntent
-
-instance NFData PredictedIntent

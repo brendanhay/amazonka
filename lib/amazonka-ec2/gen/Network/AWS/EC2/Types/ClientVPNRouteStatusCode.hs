@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNRouteStatusCode where
+module Network.AWS.EC2.Types.ClientVPNRouteStatusCode
+  ( ClientVPNRouteStatusCode
+      ( ClientVPNRouteStatusCode',
+        CVRSCActive,
+        CVRSCCreating,
+        CVRSCDeleting,
+        CVRSCFailed
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClientVPNRouteStatusCode
-  = CVRSCActive
-  | CVRSCCreating
-  | CVRSCDeleting
-  | CVRSCFailed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClientVPNRouteStatusCode = ClientVPNRouteStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClientVPNRouteStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CVRSCActive
-      "creating" -> pure CVRSCCreating
-      "deleting" -> pure CVRSCDeleting
-      "failed" -> pure CVRSCFailed
-      e ->
-        fromTextError $
-          "Failure parsing ClientVPNRouteStatusCode from value: '" <> e
-            <> "'. Accepted values: active, creating, deleting, failed"
+pattern CVRSCActive :: ClientVPNRouteStatusCode
+pattern CVRSCActive = ClientVPNRouteStatusCode' "active"
 
-instance ToText ClientVPNRouteStatusCode where
-  toText = \case
-    CVRSCActive -> "active"
-    CVRSCCreating -> "creating"
-    CVRSCDeleting -> "deleting"
-    CVRSCFailed -> "failed"
+pattern CVRSCCreating :: ClientVPNRouteStatusCode
+pattern CVRSCCreating = ClientVPNRouteStatusCode' "creating"
 
-instance Hashable ClientVPNRouteStatusCode
+pattern CVRSCDeleting :: ClientVPNRouteStatusCode
+pattern CVRSCDeleting = ClientVPNRouteStatusCode' "deleting"
 
-instance NFData ClientVPNRouteStatusCode
+pattern CVRSCFailed :: ClientVPNRouteStatusCode
+pattern CVRSCFailed = ClientVPNRouteStatusCode' "failed"
 
-instance ToByteString ClientVPNRouteStatusCode
-
-instance ToQuery ClientVPNRouteStatusCode
-
-instance ToHeader ClientVPNRouteStatusCode
-
-instance FromXML ClientVPNRouteStatusCode where
-  parseXML = parseXMLText "ClientVPNRouteStatusCode"
+{-# COMPLETE
+  CVRSCActive,
+  CVRSCCreating,
+  CVRSCDeleting,
+  CVRSCFailed,
+  ClientVPNRouteStatusCode'
+  #-}

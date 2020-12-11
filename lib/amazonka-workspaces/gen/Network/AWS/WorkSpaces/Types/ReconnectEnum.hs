@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.ReconnectEnum where
+module Network.AWS.WorkSpaces.Types.ReconnectEnum
+  ( ReconnectEnum
+      ( ReconnectEnum',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReconnectEnum
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReconnectEnum = ReconnectEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReconnectEnum where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing ReconnectEnum from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: ReconnectEnum
+pattern Disabled = ReconnectEnum' "DISABLED"
 
-instance ToText ReconnectEnum where
-  toText = \case
-    Disabled -> "DISABLED"
-    Enabled -> "ENABLED"
+pattern Enabled :: ReconnectEnum
+pattern Enabled = ReconnectEnum' "ENABLED"
 
-instance Hashable ReconnectEnum
-
-instance NFData ReconnectEnum
-
-instance ToByteString ReconnectEnum
-
-instance ToQuery ReconnectEnum
-
-instance ToHeader ReconnectEnum
-
-instance ToJSON ReconnectEnum where
-  toJSON = toJSONText
-
-instance FromJSON ReconnectEnum where
-  parseJSON = parseJSONText "ReconnectEnum"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  ReconnectEnum'
+  #-}

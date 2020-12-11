@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.DayOfWeek where
+module Network.AWS.MQ.Types.DayOfWeek
+  ( DayOfWeek
+      ( DayOfWeek',
+        Friday,
+        Monday,
+        Saturday,
+        Sunday,
+        Thursday,
+        Tuesday,
+        Wednesday
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DayOfWeek
-  = Friday
-  | Monday
-  | Saturday
-  | Sunday
-  | Thursday
-  | Tuesday
-  | Wednesday
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DayOfWeek = DayOfWeek' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DayOfWeek where
-  parser =
-    takeLowerText >>= \case
-      "friday" -> pure Friday
-      "monday" -> pure Monday
-      "saturday" -> pure Saturday
-      "sunday" -> pure Sunday
-      "thursday" -> pure Thursday
-      "tuesday" -> pure Tuesday
-      "wednesday" -> pure Wednesday
-      e ->
-        fromTextError $
-          "Failure parsing DayOfWeek from value: '" <> e
-            <> "'. Accepted values: friday, monday, saturday, sunday, thursday, tuesday, wednesday"
+pattern Friday :: DayOfWeek
+pattern Friday = DayOfWeek' "FRIDAY"
 
-instance ToText DayOfWeek where
-  toText = \case
-    Friday -> "FRIDAY"
-    Monday -> "MONDAY"
-    Saturday -> "SATURDAY"
-    Sunday -> "SUNDAY"
-    Thursday -> "THURSDAY"
-    Tuesday -> "TUESDAY"
-    Wednesday -> "WEDNESDAY"
+pattern Monday :: DayOfWeek
+pattern Monday = DayOfWeek' "MONDAY"
 
-instance Hashable DayOfWeek
+pattern Saturday :: DayOfWeek
+pattern Saturday = DayOfWeek' "SATURDAY"
 
-instance NFData DayOfWeek
+pattern Sunday :: DayOfWeek
+pattern Sunday = DayOfWeek' "SUNDAY"
 
-instance ToByteString DayOfWeek
+pattern Thursday :: DayOfWeek
+pattern Thursday = DayOfWeek' "THURSDAY"
 
-instance ToQuery DayOfWeek
+pattern Tuesday :: DayOfWeek
+pattern Tuesday = DayOfWeek' "TUESDAY"
 
-instance ToHeader DayOfWeek
+pattern Wednesday :: DayOfWeek
+pattern Wednesday = DayOfWeek' "WEDNESDAY"
 
-instance ToJSON DayOfWeek where
-  toJSON = toJSONText
-
-instance FromJSON DayOfWeek where
-  parseJSON = parseJSONText "DayOfWeek"
+{-# COMPLETE
+  Friday,
+  Monday,
+  Saturday,
+  Sunday,
+  Thursday,
+  Tuesday,
+  Wednesday,
+  DayOfWeek'
+  #-}

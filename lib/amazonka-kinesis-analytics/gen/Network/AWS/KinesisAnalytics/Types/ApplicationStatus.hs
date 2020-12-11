@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.ApplicationStatus where
+module Network.AWS.KinesisAnalytics.Types.ApplicationStatus
+  ( ApplicationStatus
+      ( ApplicationStatus',
+        Deleting,
+        Ready,
+        Running,
+        Starting,
+        Stopping,
+        Updating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ApplicationStatus
-  = Deleting
-  | Ready
-  | Running
-  | Starting
-  | Stopping
-  | Updating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ApplicationStatus = ApplicationStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ApplicationStatus where
-  parser =
-    takeLowerText >>= \case
-      "deleting" -> pure Deleting
-      "ready" -> pure Ready
-      "running" -> pure Running
-      "starting" -> pure Starting
-      "stopping" -> pure Stopping
-      "updating" -> pure Updating
-      e ->
-        fromTextError $
-          "Failure parsing ApplicationStatus from value: '" <> e
-            <> "'. Accepted values: deleting, ready, running, starting, stopping, updating"
+pattern Deleting :: ApplicationStatus
+pattern Deleting = ApplicationStatus' "DELETING"
 
-instance ToText ApplicationStatus where
-  toText = \case
-    Deleting -> "DELETING"
-    Ready -> "READY"
-    Running -> "RUNNING"
-    Starting -> "STARTING"
-    Stopping -> "STOPPING"
-    Updating -> "UPDATING"
+pattern Ready :: ApplicationStatus
+pattern Ready = ApplicationStatus' "READY"
 
-instance Hashable ApplicationStatus
+pattern Running :: ApplicationStatus
+pattern Running = ApplicationStatus' "RUNNING"
 
-instance NFData ApplicationStatus
+pattern Starting :: ApplicationStatus
+pattern Starting = ApplicationStatus' "STARTING"
 
-instance ToByteString ApplicationStatus
+pattern Stopping :: ApplicationStatus
+pattern Stopping = ApplicationStatus' "STOPPING"
 
-instance ToQuery ApplicationStatus
+pattern Updating :: ApplicationStatus
+pattern Updating = ApplicationStatus' "UPDATING"
 
-instance ToHeader ApplicationStatus
-
-instance FromJSON ApplicationStatus where
-  parseJSON = parseJSONText "ApplicationStatus"
+{-# COMPLETE
+  Deleting,
+  Ready,
+  Running,
+  Starting,
+  Stopping,
+  Updating,
+  ApplicationStatus'
+  #-}

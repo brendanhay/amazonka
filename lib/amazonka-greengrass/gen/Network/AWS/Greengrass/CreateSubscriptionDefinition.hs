@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.
 module Network.AWS.Greengrass.CreateSubscriptionDefinition
-  ( -- * Creating a Request
-    createSubscriptionDefinition,
-    CreateSubscriptionDefinition,
+  ( -- * Creating a request
+    CreateSubscriptionDefinition (..),
+    mkCreateSubscriptionDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     csdAmznClientToken,
     csdInitialVersion,
     csdName,
     csdTags,
 
-    -- * Destructuring the Response
-    createSubscriptionDefinitionResponse,
-    CreateSubscriptionDefinitionResponse,
+    -- * Destructuring the response
+    CreateSubscriptionDefinitionResponse (..),
+    mkCreateSubscriptionDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csdrsLatestVersionARN,
     csdrsARN,
     csdrsName,
@@ -46,195 +41,236 @@ module Network.AWS.Greengrass.CreateSubscriptionDefinition
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createSubscriptionDefinition' smart constructor.
+-- | /See:/ 'mkCreateSubscriptionDefinition' smart constructor.
 data CreateSubscriptionDefinition = CreateSubscriptionDefinition'
-  { _csdAmznClientToken ::
-      !(Maybe Text),
-    _csdInitialVersion ::
-      !( Maybe
-           SubscriptionDefinitionVersion
-       ),
-    _csdName :: !(Maybe Text),
-    _csdTags ::
-      !(Maybe (Map Text (Text)))
+  { amznClientToken ::
+      Lude.Maybe Lude.Text,
+    initialVersion ::
+      Lude.Maybe
+        SubscriptionDefinitionVersion,
+    name :: Lude.Maybe Lude.Text,
+    tags ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        )
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubscriptionDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csdAmznClientToken' - A client token used to correlate requests and responses.
---
--- * 'csdInitialVersion' - Information about the initial version of the subscription definition.
---
--- * 'csdName' - The name of the subscription definition.
---
--- * 'csdTags' - Tag(s) to add to the new resource.
-createSubscriptionDefinition ::
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
+-- * 'initialVersion' - Information about the initial version of the subscription definition.
+-- * 'name' - The name of the subscription definition.
+-- * 'tags' - Tag(s) to add to the new resource.
+mkCreateSubscriptionDefinition ::
   CreateSubscriptionDefinition
-createSubscriptionDefinition =
+mkCreateSubscriptionDefinition =
   CreateSubscriptionDefinition'
-    { _csdAmznClientToken = Nothing,
-      _csdInitialVersion = Nothing,
-      _csdName = Nothing,
-      _csdTags = Nothing
+    { amznClientToken = Lude.Nothing,
+      initialVersion = Lude.Nothing,
+      name = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
-csdAmznClientToken :: Lens' CreateSubscriptionDefinition (Maybe Text)
-csdAmznClientToken = lens _csdAmznClientToken (\s a -> s {_csdAmznClientToken = a})
+--
+-- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdAmznClientToken :: Lens.Lens' CreateSubscriptionDefinition (Lude.Maybe Lude.Text)
+csdAmznClientToken = Lens.lens (amznClientToken :: CreateSubscriptionDefinition -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateSubscriptionDefinition)
+{-# DEPRECATED csdAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | Information about the initial version of the subscription definition.
-csdInitialVersion :: Lens' CreateSubscriptionDefinition (Maybe SubscriptionDefinitionVersion)
-csdInitialVersion = lens _csdInitialVersion (\s a -> s {_csdInitialVersion = a})
+--
+-- /Note:/ Consider using 'initialVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdInitialVersion :: Lens.Lens' CreateSubscriptionDefinition (Lude.Maybe SubscriptionDefinitionVersion)
+csdInitialVersion = Lens.lens (initialVersion :: CreateSubscriptionDefinition -> Lude.Maybe SubscriptionDefinitionVersion) (\s a -> s {initialVersion = a} :: CreateSubscriptionDefinition)
+{-# DEPRECATED csdInitialVersion "Use generic-lens or generic-optics with 'initialVersion' instead." #-}
 
 -- | The name of the subscription definition.
-csdName :: Lens' CreateSubscriptionDefinition (Maybe Text)
-csdName = lens _csdName (\s a -> s {_csdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdName :: Lens.Lens' CreateSubscriptionDefinition (Lude.Maybe Lude.Text)
+csdName = Lens.lens (name :: CreateSubscriptionDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateSubscriptionDefinition)
+{-# DEPRECATED csdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Tag(s) to add to the new resource.
-csdTags :: Lens' CreateSubscriptionDefinition (HashMap Text (Text))
-csdTags = lens _csdTags (\s a -> s {_csdTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdTags :: Lens.Lens' CreateSubscriptionDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+csdTags = Lens.lens (tags :: CreateSubscriptionDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateSubscriptionDefinition)
+{-# DEPRECATED csdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest CreateSubscriptionDefinition where
+instance Lude.AWSRequest CreateSubscriptionDefinition where
   type
     Rs CreateSubscriptionDefinition =
       CreateSubscriptionDefinitionResponse
-  request = postJSON greengrass
+  request = Req.postJSON greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateSubscriptionDefinitionResponse'
-            <$> (x .?> "LatestVersionArn")
-            <*> (x .?> "Arn")
-            <*> (x .?> "Name")
-            <*> (x .?> "CreationTimestamp")
-            <*> (x .?> "Id")
-            <*> (x .?> "LatestVersion")
-            <*> (x .?> "LastUpdatedTimestamp")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LatestVersionArn")
+            Lude.<*> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "CreationTimestamp")
+            Lude.<*> (x Lude..?> "Id")
+            Lude.<*> (x Lude..?> "LatestVersion")
+            Lude.<*> (x Lude..?> "LastUpdatedTimestamp")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateSubscriptionDefinition
-
-instance NFData CreateSubscriptionDefinition
-
-instance ToHeaders CreateSubscriptionDefinition where
+instance Lude.ToHeaders CreateSubscriptionDefinition where
   toHeaders CreateSubscriptionDefinition' {..} =
-    mconcat
-      [ "X-Amzn-Client-Token" =# _csdAmznClientToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToJSON CreateSubscriptionDefinition where
+instance Lude.ToJSON CreateSubscriptionDefinition where
   toJSON CreateSubscriptionDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("InitialVersion" .=) <$> _csdInitialVersion,
-            ("Name" .=) <$> _csdName,
-            ("tags" .=) <$> _csdTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InitialVersion" Lude..=) Lude.<$> initialVersion,
+            ("Name" Lude..=) Lude.<$> name,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath CreateSubscriptionDefinition where
-  toPath = const "/greengrass/definition/subscriptions"
+instance Lude.ToPath CreateSubscriptionDefinition where
+  toPath = Lude.const "/greengrass/definition/subscriptions"
 
-instance ToQuery CreateSubscriptionDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSubscriptionDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createSubscriptionDefinitionResponse' smart constructor.
+-- | /See:/ 'mkCreateSubscriptionDefinitionResponse' smart constructor.
 data CreateSubscriptionDefinitionResponse = CreateSubscriptionDefinitionResponse'
-  { _csdrsLatestVersionARN ::
-      !(Maybe Text),
-    _csdrsARN ::
-      !(Maybe Text),
-    _csdrsName ::
-      !(Maybe Text),
-    _csdrsCreationTimestamp ::
-      !(Maybe Text),
-    _csdrsId ::
-      !(Maybe Text),
-    _csdrsLatestVersion ::
-      !(Maybe Text),
-    _csdrsLastUpdatedTimestamp ::
-      !(Maybe Text),
-    _csdrsResponseStatus ::
-      !Int
+  { latestVersionARN ::
+      Lude.Maybe
+        Lude.Text,
+    arn ::
+      Lude.Maybe
+        Lude.Text,
+    name ::
+      Lude.Maybe
+        Lude.Text,
+    creationTimestamp ::
+      Lude.Maybe
+        Lude.Text,
+    id ::
+      Lude.Maybe
+        Lude.Text,
+    latestVersion ::
+      Lude.Maybe
+        Lude.Text,
+    lastUpdatedTimestamp ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubscriptionDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csdrsLatestVersionARN' - The ARN of the latest version associated with the definition.
---
--- * 'csdrsARN' - The ARN of the definition.
---
--- * 'csdrsName' - The name of the definition.
---
--- * 'csdrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
---
--- * 'csdrsId' - The ID of the definition.
---
--- * 'csdrsLatestVersion' - The ID of the latest version associated with the definition.
---
--- * 'csdrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
---
--- * 'csdrsResponseStatus' - -- | The response status code.
-createSubscriptionDefinitionResponse ::
-  -- | 'csdrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the definition.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
+-- * 'id' - The ID of the definition.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
+-- * 'latestVersion' - The ID of the latest version associated with the definition.
+-- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
+-- * 'name' - The name of the definition.
+-- * 'responseStatus' - The response status code.
+mkCreateSubscriptionDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSubscriptionDefinitionResponse
-createSubscriptionDefinitionResponse pResponseStatus_ =
+mkCreateSubscriptionDefinitionResponse pResponseStatus_ =
   CreateSubscriptionDefinitionResponse'
-    { _csdrsLatestVersionARN =
-        Nothing,
-      _csdrsARN = Nothing,
-      _csdrsName = Nothing,
-      _csdrsCreationTimestamp = Nothing,
-      _csdrsId = Nothing,
-      _csdrsLatestVersion = Nothing,
-      _csdrsLastUpdatedTimestamp = Nothing,
-      _csdrsResponseStatus = pResponseStatus_
+    { latestVersionARN =
+        Lude.Nothing,
+      arn = Lude.Nothing,
+      name = Lude.Nothing,
+      creationTimestamp = Lude.Nothing,
+      id = Lude.Nothing,
+      latestVersion = Lude.Nothing,
+      lastUpdatedTimestamp = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the latest version associated with the definition.
-csdrsLatestVersionARN :: Lens' CreateSubscriptionDefinitionResponse (Maybe Text)
-csdrsLatestVersionARN = lens _csdrsLatestVersionARN (\s a -> s {_csdrsLatestVersionARN = a})
+--
+-- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsLatestVersionARN :: Lens.Lens' CreateSubscriptionDefinitionResponse (Lude.Maybe Lude.Text)
+csdrsLatestVersionARN = Lens.lens (latestVersionARN :: CreateSubscriptionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: CreateSubscriptionDefinitionResponse)
+{-# DEPRECATED csdrsLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
-csdrsARN :: Lens' CreateSubscriptionDefinitionResponse (Maybe Text)
-csdrsARN = lens _csdrsARN (\s a -> s {_csdrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsARN :: Lens.Lens' CreateSubscriptionDefinitionResponse (Lude.Maybe Lude.Text)
+csdrsARN = Lens.lens (arn :: CreateSubscriptionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateSubscriptionDefinitionResponse)
+{-# DEPRECATED csdrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the definition.
-csdrsName :: Lens' CreateSubscriptionDefinitionResponse (Maybe Text)
-csdrsName = lens _csdrsName (\s a -> s {_csdrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsName :: Lens.Lens' CreateSubscriptionDefinitionResponse (Lude.Maybe Lude.Text)
+csdrsName = Lens.lens (name :: CreateSubscriptionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateSubscriptionDefinitionResponse)
+{-# DEPRECATED csdrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
-csdrsCreationTimestamp :: Lens' CreateSubscriptionDefinitionResponse (Maybe Text)
-csdrsCreationTimestamp = lens _csdrsCreationTimestamp (\s a -> s {_csdrsCreationTimestamp = a})
+--
+-- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsCreationTimestamp :: Lens.Lens' CreateSubscriptionDefinitionResponse (Lude.Maybe Lude.Text)
+csdrsCreationTimestamp = Lens.lens (creationTimestamp :: CreateSubscriptionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: CreateSubscriptionDefinitionResponse)
+{-# DEPRECATED csdrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
-csdrsId :: Lens' CreateSubscriptionDefinitionResponse (Maybe Text)
-csdrsId = lens _csdrsId (\s a -> s {_csdrsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsId :: Lens.Lens' CreateSubscriptionDefinitionResponse (Lude.Maybe Lude.Text)
+csdrsId = Lens.lens (id :: CreateSubscriptionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateSubscriptionDefinitionResponse)
+{-# DEPRECATED csdrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ID of the latest version associated with the definition.
-csdrsLatestVersion :: Lens' CreateSubscriptionDefinitionResponse (Maybe Text)
-csdrsLatestVersion = lens _csdrsLatestVersion (\s a -> s {_csdrsLatestVersion = a})
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsLatestVersion :: Lens.Lens' CreateSubscriptionDefinitionResponse (Lude.Maybe Lude.Text)
+csdrsLatestVersion = Lens.lens (latestVersion :: CreateSubscriptionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: CreateSubscriptionDefinitionResponse)
+{-# DEPRECATED csdrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
-csdrsLastUpdatedTimestamp :: Lens' CreateSubscriptionDefinitionResponse (Maybe Text)
-csdrsLastUpdatedTimestamp = lens _csdrsLastUpdatedTimestamp (\s a -> s {_csdrsLastUpdatedTimestamp = a})
+--
+-- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsLastUpdatedTimestamp :: Lens.Lens' CreateSubscriptionDefinitionResponse (Lude.Maybe Lude.Text)
+csdrsLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: CreateSubscriptionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: CreateSubscriptionDefinitionResponse)
+{-# DEPRECATED csdrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
 
--- | -- | The response status code.
-csdrsResponseStatus :: Lens' CreateSubscriptionDefinitionResponse Int
-csdrsResponseStatus = lens _csdrsResponseStatus (\s a -> s {_csdrsResponseStatus = a})
-
-instance NFData CreateSubscriptionDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdrsResponseStatus :: Lens.Lens' CreateSubscriptionDefinitionResponse Lude.Int
+csdrsResponseStatus = Lens.lens (responseStatus :: CreateSubscriptionDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSubscriptionDefinitionResponse)
+{-# DEPRECATED csdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

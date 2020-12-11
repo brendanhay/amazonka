@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,142 @@
 --
 -- Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.
 --
---
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut
-  ( -- * Creating a Request
-    adminUserGlobalSignOut,
-    AdminUserGlobalSignOut,
+  ( -- * Creating a request
+    AdminUserGlobalSignOut (..),
+    mkAdminUserGlobalSignOut,
 
-    -- * Request Lenses
+    -- ** Request lenses
     augsoUserPoolId,
     augsoUsername,
 
-    -- * Destructuring the Response
-    adminUserGlobalSignOutResponse,
-    AdminUserGlobalSignOutResponse,
+    -- * Destructuring the response
+    AdminUserGlobalSignOutResponse (..),
+    mkAdminUserGlobalSignOutResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     augsorsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to sign out of all devices, as an administrator.
 --
---
---
--- /See:/ 'adminUserGlobalSignOut' smart constructor.
+-- /See:/ 'mkAdminUserGlobalSignOut' smart constructor.
 data AdminUserGlobalSignOut = AdminUserGlobalSignOut'
-  { _augsoUserPoolId ::
-      !Text,
-    _augsoUsername :: !(Sensitive Text)
+  { userPoolId ::
+      Lude.Text,
+    username :: Lude.Sensitive Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminUserGlobalSignOut' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'augsoUserPoolId' - The user pool ID.
---
--- * 'augsoUsername' - The user name.
-adminUserGlobalSignOut ::
-  -- | 'augsoUserPoolId'
-  Text ->
-  -- | 'augsoUsername'
-  Text ->
+-- * 'userPoolId' - The user pool ID.
+-- * 'username' - The user name.
+mkAdminUserGlobalSignOut ::
+  -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   AdminUserGlobalSignOut
-adminUserGlobalSignOut pUserPoolId_ pUsername_ =
+mkAdminUserGlobalSignOut pUserPoolId_ pUsername_ =
   AdminUserGlobalSignOut'
-    { _augsoUserPoolId = pUserPoolId_,
-      _augsoUsername = _Sensitive # pUsername_
+    { userPoolId = pUserPoolId_,
+      username = pUsername_
     }
 
 -- | The user pool ID.
-augsoUserPoolId :: Lens' AdminUserGlobalSignOut Text
-augsoUserPoolId = lens _augsoUserPoolId (\s a -> s {_augsoUserPoolId = a})
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+augsoUserPoolId :: Lens.Lens' AdminUserGlobalSignOut Lude.Text
+augsoUserPoolId = Lens.lens (userPoolId :: AdminUserGlobalSignOut -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminUserGlobalSignOut)
+{-# DEPRECATED augsoUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name.
-augsoUsername :: Lens' AdminUserGlobalSignOut Text
-augsoUsername = lens _augsoUsername (\s a -> s {_augsoUsername = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+augsoUsername :: Lens.Lens' AdminUserGlobalSignOut (Lude.Sensitive Lude.Text)
+augsoUsername = Lens.lens (username :: AdminUserGlobalSignOut -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminUserGlobalSignOut)
+{-# DEPRECATED augsoUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
-instance AWSRequest AdminUserGlobalSignOut where
+instance Lude.AWSRequest AdminUserGlobalSignOut where
   type Rs AdminUserGlobalSignOut = AdminUserGlobalSignOutResponse
-  request = postJSON cognitoIdentityProvider
+  request = Req.postJSON cognitoIdentityProviderService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          AdminUserGlobalSignOutResponse' <$> (pure (fromEnum s))
+          AdminUserGlobalSignOutResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AdminUserGlobalSignOut
-
-instance NFData AdminUserGlobalSignOut
-
-instance ToHeaders AdminUserGlobalSignOut where
+instance Lude.ToHeaders AdminUserGlobalSignOut where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AdminUserGlobalSignOut where
+instance Lude.ToJSON AdminUserGlobalSignOut where
   toJSON AdminUserGlobalSignOut' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPoolId" .= _augsoUserPoolId),
-            Just ("Username" .= _augsoUsername)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("Username" Lude..= username)
           ]
       )
 
-instance ToPath AdminUserGlobalSignOut where
-  toPath = const "/"
+instance Lude.ToPath AdminUserGlobalSignOut where
+  toPath = Lude.const "/"
 
-instance ToQuery AdminUserGlobalSignOut where
-  toQuery = const mempty
+instance Lude.ToQuery AdminUserGlobalSignOut where
+  toQuery = Lude.const Lude.mempty
 
 -- | The global sign-out response, as an administrator.
 --
---
---
--- /See:/ 'adminUserGlobalSignOutResponse' smart constructor.
+-- /See:/ 'mkAdminUserGlobalSignOutResponse' smart constructor.
 newtype AdminUserGlobalSignOutResponse = AdminUserGlobalSignOutResponse'
-  { _augsorsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminUserGlobalSignOutResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'augsorsResponseStatus' - -- | The response status code.
-adminUserGlobalSignOutResponse ::
-  -- | 'augsorsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAdminUserGlobalSignOutResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AdminUserGlobalSignOutResponse
-adminUserGlobalSignOutResponse pResponseStatus_ =
+mkAdminUserGlobalSignOutResponse pResponseStatus_ =
   AdminUserGlobalSignOutResponse'
-    { _augsorsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-augsorsResponseStatus :: Lens' AdminUserGlobalSignOutResponse Int
-augsorsResponseStatus = lens _augsorsResponseStatus (\s a -> s {_augsorsResponseStatus = a})
-
-instance NFData AdminUserGlobalSignOutResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+augsorsResponseStatus :: Lens.Lens' AdminUserGlobalSignOutResponse Lude.Int
+augsorsResponseStatus = Lens.lens (responseStatus :: AdminUserGlobalSignOutResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminUserGlobalSignOutResponse)
+{-# DEPRECATED augsorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

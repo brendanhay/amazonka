@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.EnvironmentVariableType where
+module Network.AWS.CodeBuild.Types.EnvironmentVariableType
+  ( EnvironmentVariableType
+      ( EnvironmentVariableType',
+        EVTParameterStore,
+        EVTPlaintext,
+        EVTSecretsManager
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnvironmentVariableType
-  = EVTParameterStore
-  | EVTPlaintext
-  | EVTSecretsManager
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnvironmentVariableType = EnvironmentVariableType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnvironmentVariableType where
-  parser =
-    takeLowerText >>= \case
-      "parameter_store" -> pure EVTParameterStore
-      "plaintext" -> pure EVTPlaintext
-      "secrets_manager" -> pure EVTSecretsManager
-      e ->
-        fromTextError $
-          "Failure parsing EnvironmentVariableType from value: '" <> e
-            <> "'. Accepted values: parameter_store, plaintext, secrets_manager"
+pattern EVTParameterStore :: EnvironmentVariableType
+pattern EVTParameterStore = EnvironmentVariableType' "PARAMETER_STORE"
 
-instance ToText EnvironmentVariableType where
-  toText = \case
-    EVTParameterStore -> "PARAMETER_STORE"
-    EVTPlaintext -> "PLAINTEXT"
-    EVTSecretsManager -> "SECRETS_MANAGER"
+pattern EVTPlaintext :: EnvironmentVariableType
+pattern EVTPlaintext = EnvironmentVariableType' "PLAINTEXT"
 
-instance Hashable EnvironmentVariableType
+pattern EVTSecretsManager :: EnvironmentVariableType
+pattern EVTSecretsManager = EnvironmentVariableType' "SECRETS_MANAGER"
 
-instance NFData EnvironmentVariableType
-
-instance ToByteString EnvironmentVariableType
-
-instance ToQuery EnvironmentVariableType
-
-instance ToHeader EnvironmentVariableType
-
-instance ToJSON EnvironmentVariableType where
-  toJSON = toJSONText
-
-instance FromJSON EnvironmentVariableType where
-  parseJSON = parseJSONText "EnvironmentVariableType"
+{-# COMPLETE
+  EVTParameterStore,
+  EVTPlaintext,
+  EVTSecretsManager,
+  EnvironmentVariableType'
+  #-}

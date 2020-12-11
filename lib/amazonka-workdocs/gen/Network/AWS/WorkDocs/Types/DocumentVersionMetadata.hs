@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,171 +7,212 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.DocumentVersionMetadata where
+module Network.AWS.WorkDocs.Types.DocumentVersionMetadata
+  ( DocumentVersionMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDocumentVersionMetadata,
+
+    -- * Lenses
+    dvmThumbnail,
+    dvmStatus,
+    dvmSignature,
+    dvmContentCreatedTimestamp,
+    dvmSize,
+    dvmName,
+    dvmModifiedTimestamp,
+    dvmSource,
+    dvmId,
+    dvmCreatedTimestamp,
+    dvmContentModifiedTimestamp,
+    dvmCreatorId,
+    dvmContentType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkDocs.Types.DocumentSourceType
 import Network.AWS.WorkDocs.Types.DocumentStatusType
 import Network.AWS.WorkDocs.Types.DocumentThumbnailType
 
 -- | Describes a version of a document.
 --
---
---
--- /See:/ 'documentVersionMetadata' smart constructor.
+-- /See:/ 'mkDocumentVersionMetadata' smart constructor.
 data DocumentVersionMetadata = DocumentVersionMetadata'
-  { _dvmThumbnail ::
-      !( Maybe
-           ( Map
-               DocumentThumbnailType
-               (Sensitive Text)
-           )
-       ),
-    _dvmStatus :: !(Maybe DocumentStatusType),
-    _dvmSignature :: !(Maybe Text),
-    _dvmContentCreatedTimestamp ::
-      !(Maybe POSIX),
-    _dvmSize :: !(Maybe Integer),
-    _dvmName :: !(Maybe Text),
-    _dvmModifiedTimestamp :: !(Maybe POSIX),
-    _dvmSource ::
-      !( Maybe
-           ( Map
-               DocumentSourceType
-               (Sensitive Text)
-           )
-       ),
-    _dvmId :: !(Maybe Text),
-    _dvmCreatedTimestamp :: !(Maybe POSIX),
-    _dvmContentModifiedTimestamp ::
-      !(Maybe POSIX),
-    _dvmCreatorId :: !(Maybe Text),
-    _dvmContentType :: !(Maybe Text)
+  { thumbnail ::
+      Lude.Maybe
+        ( Lude.HashMap
+            DocumentThumbnailType
+            (Lude.Sensitive Lude.Text)
+        ),
+    status :: Lude.Maybe DocumentStatusType,
+    signature :: Lude.Maybe Lude.Text,
+    contentCreatedTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    size :: Lude.Maybe Lude.Integer,
+    name :: Lude.Maybe Lude.Text,
+    modifiedTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    source ::
+      Lude.Maybe
+        ( Lude.HashMap
+            DocumentSourceType
+            (Lude.Sensitive Lude.Text)
+        ),
+    id :: Lude.Maybe Lude.Text,
+    createdTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    contentModifiedTimestamp ::
+      Lude.Maybe Lude.Timestamp,
+    creatorId :: Lude.Maybe Lude.Text,
+    contentType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentVersionMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvmThumbnail' - The thumbnail of the document.
---
--- * 'dvmStatus' - The status of the document.
---
--- * 'dvmSignature' - The signature of the document.
---
--- * 'dvmContentCreatedTimestamp' - The timestamp when the content of the document was originally created.
---
--- * 'dvmSize' - The size of the document, in bytes.
---
--- * 'dvmName' - The name of the version.
---
--- * 'dvmModifiedTimestamp' - The timestamp when the document was last uploaded.
---
--- * 'dvmSource' - The source of the document.
---
--- * 'dvmId' - The ID of the version.
---
--- * 'dvmCreatedTimestamp' - The timestamp when the document was first uploaded.
---
--- * 'dvmContentModifiedTimestamp' - The timestamp when the content of the document was modified.
---
--- * 'dvmCreatorId' - The ID of the creator.
---
--- * 'dvmContentType' - The content type of the document.
-documentVersionMetadata ::
+-- * 'contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
+-- * 'contentModifiedTimestamp' - The timestamp when the content of the document was modified.
+-- * 'contentType' - The content type of the document.
+-- * 'createdTimestamp' - The timestamp when the document was first uploaded.
+-- * 'creatorId' - The ID of the creator.
+-- * 'id' - The ID of the version.
+-- * 'modifiedTimestamp' - The timestamp when the document was last uploaded.
+-- * 'name' - The name of the version.
+-- * 'signature' - The signature of the document.
+-- * 'size' - The size of the document, in bytes.
+-- * 'source' - The source of the document.
+-- * 'status' - The status of the document.
+-- * 'thumbnail' - The thumbnail of the document.
+mkDocumentVersionMetadata ::
   DocumentVersionMetadata
-documentVersionMetadata =
+mkDocumentVersionMetadata =
   DocumentVersionMetadata'
-    { _dvmThumbnail = Nothing,
-      _dvmStatus = Nothing,
-      _dvmSignature = Nothing,
-      _dvmContentCreatedTimestamp = Nothing,
-      _dvmSize = Nothing,
-      _dvmName = Nothing,
-      _dvmModifiedTimestamp = Nothing,
-      _dvmSource = Nothing,
-      _dvmId = Nothing,
-      _dvmCreatedTimestamp = Nothing,
-      _dvmContentModifiedTimestamp = Nothing,
-      _dvmCreatorId = Nothing,
-      _dvmContentType = Nothing
+    { thumbnail = Lude.Nothing,
+      status = Lude.Nothing,
+      signature = Lude.Nothing,
+      contentCreatedTimestamp = Lude.Nothing,
+      size = Lude.Nothing,
+      name = Lude.Nothing,
+      modifiedTimestamp = Lude.Nothing,
+      source = Lude.Nothing,
+      id = Lude.Nothing,
+      createdTimestamp = Lude.Nothing,
+      contentModifiedTimestamp = Lude.Nothing,
+      creatorId = Lude.Nothing,
+      contentType = Lude.Nothing
     }
 
 -- | The thumbnail of the document.
-dvmThumbnail :: Lens' DocumentVersionMetadata (HashMap DocumentThumbnailType (Text))
-dvmThumbnail = lens _dvmThumbnail (\s a -> s {_dvmThumbnail = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'thumbnail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmThumbnail :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe (Lude.HashMap DocumentThumbnailType (Lude.Sensitive Lude.Text)))
+dvmThumbnail = Lens.lens (thumbnail :: DocumentVersionMetadata -> Lude.Maybe (Lude.HashMap DocumentThumbnailType (Lude.Sensitive Lude.Text))) (\s a -> s {thumbnail = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmThumbnail "Use generic-lens or generic-optics with 'thumbnail' instead." #-}
 
 -- | The status of the document.
-dvmStatus :: Lens' DocumentVersionMetadata (Maybe DocumentStatusType)
-dvmStatus = lens _dvmStatus (\s a -> s {_dvmStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmStatus :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe DocumentStatusType)
+dvmStatus = Lens.lens (status :: DocumentVersionMetadata -> Lude.Maybe DocumentStatusType) (\s a -> s {status = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The signature of the document.
-dvmSignature :: Lens' DocumentVersionMetadata (Maybe Text)
-dvmSignature = lens _dvmSignature (\s a -> s {_dvmSignature = a})
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmSignature :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Text)
+dvmSignature = Lens.lens (signature :: DocumentVersionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | The timestamp when the content of the document was originally created.
-dvmContentCreatedTimestamp :: Lens' DocumentVersionMetadata (Maybe UTCTime)
-dvmContentCreatedTimestamp = lens _dvmContentCreatedTimestamp (\s a -> s {_dvmContentCreatedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'contentCreatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmContentCreatedTimestamp :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Timestamp)
+dvmContentCreatedTimestamp = Lens.lens (contentCreatedTimestamp :: DocumentVersionMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {contentCreatedTimestamp = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmContentCreatedTimestamp "Use generic-lens or generic-optics with 'contentCreatedTimestamp' instead." #-}
 
 -- | The size of the document, in bytes.
-dvmSize :: Lens' DocumentVersionMetadata (Maybe Integer)
-dvmSize = lens _dvmSize (\s a -> s {_dvmSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmSize :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Integer)
+dvmSize = Lens.lens (size :: DocumentVersionMetadata -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The name of the version.
-dvmName :: Lens' DocumentVersionMetadata (Maybe Text)
-dvmName = lens _dvmName (\s a -> s {_dvmName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmName :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Text)
+dvmName = Lens.lens (name :: DocumentVersionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The timestamp when the document was last uploaded.
-dvmModifiedTimestamp :: Lens' DocumentVersionMetadata (Maybe UTCTime)
-dvmModifiedTimestamp = lens _dvmModifiedTimestamp (\s a -> s {_dvmModifiedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'modifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmModifiedTimestamp :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Timestamp)
+dvmModifiedTimestamp = Lens.lens (modifiedTimestamp :: DocumentVersionMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {modifiedTimestamp = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmModifiedTimestamp "Use generic-lens or generic-optics with 'modifiedTimestamp' instead." #-}
 
 -- | The source of the document.
-dvmSource :: Lens' DocumentVersionMetadata (HashMap DocumentSourceType (Text))
-dvmSource = lens _dvmSource (\s a -> s {_dvmSource = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmSource :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe (Lude.HashMap DocumentSourceType (Lude.Sensitive Lude.Text)))
+dvmSource = Lens.lens (source :: DocumentVersionMetadata -> Lude.Maybe (Lude.HashMap DocumentSourceType (Lude.Sensitive Lude.Text))) (\s a -> s {source = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | The ID of the version.
-dvmId :: Lens' DocumentVersionMetadata (Maybe Text)
-dvmId = lens _dvmId (\s a -> s {_dvmId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmId :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Text)
+dvmId = Lens.lens (id :: DocumentVersionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The timestamp when the document was first uploaded.
-dvmCreatedTimestamp :: Lens' DocumentVersionMetadata (Maybe UTCTime)
-dvmCreatedTimestamp = lens _dvmCreatedTimestamp (\s a -> s {_dvmCreatedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmCreatedTimestamp :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Timestamp)
+dvmCreatedTimestamp = Lens.lens (createdTimestamp :: DocumentVersionMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTimestamp = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
 -- | The timestamp when the content of the document was modified.
-dvmContentModifiedTimestamp :: Lens' DocumentVersionMetadata (Maybe UTCTime)
-dvmContentModifiedTimestamp = lens _dvmContentModifiedTimestamp (\s a -> s {_dvmContentModifiedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'contentModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmContentModifiedTimestamp :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Timestamp)
+dvmContentModifiedTimestamp = Lens.lens (contentModifiedTimestamp :: DocumentVersionMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {contentModifiedTimestamp = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmContentModifiedTimestamp "Use generic-lens or generic-optics with 'contentModifiedTimestamp' instead." #-}
 
 -- | The ID of the creator.
-dvmCreatorId :: Lens' DocumentVersionMetadata (Maybe Text)
-dvmCreatorId = lens _dvmCreatorId (\s a -> s {_dvmCreatorId = a})
+--
+-- /Note:/ Consider using 'creatorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmCreatorId :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Text)
+dvmCreatorId = Lens.lens (creatorId :: DocumentVersionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {creatorId = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmCreatorId "Use generic-lens or generic-optics with 'creatorId' instead." #-}
 
 -- | The content type of the document.
-dvmContentType :: Lens' DocumentVersionMetadata (Maybe Text)
-dvmContentType = lens _dvmContentType (\s a -> s {_dvmContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvmContentType :: Lens.Lens' DocumentVersionMetadata (Lude.Maybe Lude.Text)
+dvmContentType = Lens.lens (contentType :: DocumentVersionMetadata -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: DocumentVersionMetadata)
+{-# DEPRECATED dvmContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
-instance FromJSON DocumentVersionMetadata where
+instance Lude.FromJSON DocumentVersionMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "DocumentVersionMetadata"
       ( \x ->
           DocumentVersionMetadata'
-            <$> (x .:? "Thumbnail" .!= mempty)
-            <*> (x .:? "Status")
-            <*> (x .:? "Signature")
-            <*> (x .:? "ContentCreatedTimestamp")
-            <*> (x .:? "Size")
-            <*> (x .:? "Name")
-            <*> (x .:? "ModifiedTimestamp")
-            <*> (x .:? "Source" .!= mempty)
-            <*> (x .:? "Id")
-            <*> (x .:? "CreatedTimestamp")
-            <*> (x .:? "ContentModifiedTimestamp")
-            <*> (x .:? "CreatorId")
-            <*> (x .:? "ContentType")
+            Lude.<$> (x Lude..:? "Thumbnail" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "Signature")
+            Lude.<*> (x Lude..:? "ContentCreatedTimestamp")
+            Lude.<*> (x Lude..:? "Size")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "ModifiedTimestamp")
+            Lude.<*> (x Lude..:? "Source" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "CreatedTimestamp")
+            Lude.<*> (x Lude..:? "ContentModifiedTimestamp")
+            Lude.<*> (x Lude..:? "CreatorId")
+            Lude.<*> (x Lude..:? "ContentType")
       )
-
-instance Hashable DocumentVersionMetadata
-
-instance NFData DocumentVersionMetadata

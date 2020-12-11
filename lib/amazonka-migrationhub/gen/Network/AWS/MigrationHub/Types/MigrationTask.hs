@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MigrationHub.Types.MigrationTask where
+module Network.AWS.MigrationHub.Types.MigrationTask
+  ( MigrationTask (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMigrationTask,
+
+    -- * Lenses
+    mtUpdateDateTime,
+    mtResourceAttributeList,
+    mtTask,
+    mtProgressUpdateStream,
+    mtMigrationTaskName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types.ResourceAttribute
 import Network.AWS.MigrationHub.Types.Task
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents a migration task in a migration tool.
 --
---
---
--- /See:/ 'migrationTask' smart constructor.
+-- /See:/ 'mkMigrationTask' smart constructor.
 data MigrationTask = MigrationTask'
-  { _mtUpdateDateTime ::
-      !(Maybe POSIX),
-    _mtResourceAttributeList :: !(Maybe [ResourceAttribute]),
-    _mtTask :: !(Maybe Task),
-    _mtProgressUpdateStream :: !(Maybe Text),
-    _mtMigrationTaskName :: !(Maybe Text)
+  { updateDateTime ::
+      Lude.Maybe Lude.Timestamp,
+    resourceAttributeList :: Lude.Maybe [ResourceAttribute],
+    task :: Lude.Maybe Task,
+    progressUpdateStream :: Lude.Maybe Lude.Text,
+    migrationTaskName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MigrationTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mtUpdateDateTime' - The timestamp when the task was gathered.
---
--- * 'mtResourceAttributeList' - Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
---
--- * 'mtTask' - Task object encapsulating task information.
---
--- * 'mtProgressUpdateStream' - A name that identifies the vendor of the migration tool being used.
---
--- * 'mtMigrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
-migrationTask ::
+-- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
+-- * 'progressUpdateStream' - A name that identifies the vendor of the migration tool being used.
+-- * 'resourceAttributeList' - Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
+-- * 'task' - Task object encapsulating task information.
+-- * 'updateDateTime' - The timestamp when the task was gathered.
+mkMigrationTask ::
   MigrationTask
-migrationTask =
+mkMigrationTask =
   MigrationTask'
-    { _mtUpdateDateTime = Nothing,
-      _mtResourceAttributeList = Nothing,
-      _mtTask = Nothing,
-      _mtProgressUpdateStream = Nothing,
-      _mtMigrationTaskName = Nothing
+    { updateDateTime = Lude.Nothing,
+      resourceAttributeList = Lude.Nothing,
+      task = Lude.Nothing,
+      progressUpdateStream = Lude.Nothing,
+      migrationTaskName = Lude.Nothing
     }
 
 -- | The timestamp when the task was gathered.
-mtUpdateDateTime :: Lens' MigrationTask (Maybe UTCTime)
-mtUpdateDateTime = lens _mtUpdateDateTime (\s a -> s {_mtUpdateDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'updateDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtUpdateDateTime :: Lens.Lens' MigrationTask (Lude.Maybe Lude.Timestamp)
+mtUpdateDateTime = Lens.lens (updateDateTime :: MigrationTask -> Lude.Maybe Lude.Timestamp) (\s a -> s {updateDateTime = a} :: MigrationTask)
+{-# DEPRECATED mtUpdateDateTime "Use generic-lens or generic-optics with 'updateDateTime' instead." #-}
 
 -- | Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
-mtResourceAttributeList :: Lens' MigrationTask [ResourceAttribute]
-mtResourceAttributeList = lens _mtResourceAttributeList (\s a -> s {_mtResourceAttributeList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resourceAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtResourceAttributeList :: Lens.Lens' MigrationTask (Lude.Maybe [ResourceAttribute])
+mtResourceAttributeList = Lens.lens (resourceAttributeList :: MigrationTask -> Lude.Maybe [ResourceAttribute]) (\s a -> s {resourceAttributeList = a} :: MigrationTask)
+{-# DEPRECATED mtResourceAttributeList "Use generic-lens or generic-optics with 'resourceAttributeList' instead." #-}
 
 -- | Task object encapsulating task information.
-mtTask :: Lens' MigrationTask (Maybe Task)
-mtTask = lens _mtTask (\s a -> s {_mtTask = a})
+--
+-- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtTask :: Lens.Lens' MigrationTask (Lude.Maybe Task)
+mtTask = Lens.lens (task :: MigrationTask -> Lude.Maybe Task) (\s a -> s {task = a} :: MigrationTask)
+{-# DEPRECATED mtTask "Use generic-lens or generic-optics with 'task' instead." #-}
 
 -- | A name that identifies the vendor of the migration tool being used.
-mtProgressUpdateStream :: Lens' MigrationTask (Maybe Text)
-mtProgressUpdateStream = lens _mtProgressUpdateStream (\s a -> s {_mtProgressUpdateStream = a})
+--
+-- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtProgressUpdateStream :: Lens.Lens' MigrationTask (Lude.Maybe Lude.Text)
+mtProgressUpdateStream = Lens.lens (progressUpdateStream :: MigrationTask -> Lude.Maybe Lude.Text) (\s a -> s {progressUpdateStream = a} :: MigrationTask)
+{-# DEPRECATED mtProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
 
 -- | Unique identifier that references the migration task. /Do not store personal data in this field./
-mtMigrationTaskName :: Lens' MigrationTask (Maybe Text)
-mtMigrationTaskName = lens _mtMigrationTaskName (\s a -> s {_mtMigrationTaskName = a})
+--
+-- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtMigrationTaskName :: Lens.Lens' MigrationTask (Lude.Maybe Lude.Text)
+mtMigrationTaskName = Lens.lens (migrationTaskName :: MigrationTask -> Lude.Maybe Lude.Text) (\s a -> s {migrationTaskName = a} :: MigrationTask)
+{-# DEPRECATED mtMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
 
-instance FromJSON MigrationTask where
+instance Lude.FromJSON MigrationTask where
   parseJSON =
-    withObject
+    Lude.withObject
       "MigrationTask"
       ( \x ->
           MigrationTask'
-            <$> (x .:? "UpdateDateTime")
-            <*> (x .:? "ResourceAttributeList" .!= mempty)
-            <*> (x .:? "Task")
-            <*> (x .:? "ProgressUpdateStream")
-            <*> (x .:? "MigrationTaskName")
+            Lude.<$> (x Lude..:? "UpdateDateTime")
+            Lude.<*> (x Lude..:? "ResourceAttributeList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Task")
+            Lude.<*> (x Lude..:? "ProgressUpdateStream")
+            Lude.<*> (x Lude..:? "MigrationTaskName")
       )
-
-instance Hashable MigrationTask
-
-instance NFData MigrationTask

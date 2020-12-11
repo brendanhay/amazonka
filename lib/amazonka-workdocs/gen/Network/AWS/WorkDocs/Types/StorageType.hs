@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.StorageType where
+module Network.AWS.WorkDocs.Types.StorageType
+  ( StorageType
+      ( StorageType',
+        Quota,
+        Unlimited
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StorageType
-  = Quota
-  | Unlimited
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StorageType = StorageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StorageType where
-  parser =
-    takeLowerText >>= \case
-      "quota" -> pure Quota
-      "unlimited" -> pure Unlimited
-      e ->
-        fromTextError $
-          "Failure parsing StorageType from value: '" <> e
-            <> "'. Accepted values: quota, unlimited"
+pattern Quota :: StorageType
+pattern Quota = StorageType' "QUOTA"
 
-instance ToText StorageType where
-  toText = \case
-    Quota -> "QUOTA"
-    Unlimited -> "UNLIMITED"
+pattern Unlimited :: StorageType
+pattern Unlimited = StorageType' "UNLIMITED"
 
-instance Hashable StorageType
-
-instance NFData StorageType
-
-instance ToByteString StorageType
-
-instance ToQuery StorageType
-
-instance ToHeader StorageType
-
-instance ToJSON StorageType where
-  toJSON = toJSONText
-
-instance FromJSON StorageType where
-  parseJSON = parseJSONText "StorageType"
+{-# COMPLETE
+  Quota,
+  Unlimited,
+  StorageType'
+  #-}

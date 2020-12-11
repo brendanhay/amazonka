@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateHibernationOptionsRequest where
+module Network.AWS.EC2.Types.LaunchTemplateHibernationOptionsRequest
+  ( LaunchTemplateHibernationOptionsRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLaunchTemplateHibernationOptionsRequest,
+
+    -- * Lenses
+    lthorConfigured,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates whether the instance is configured for hibernation. This parameter is valid only if the instance meets the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites> .
 --
---
---
--- /See:/ 'launchTemplateHibernationOptionsRequest' smart constructor.
+-- /See:/ 'mkLaunchTemplateHibernationOptionsRequest' smart constructor.
 newtype LaunchTemplateHibernationOptionsRequest = LaunchTemplateHibernationOptionsRequest'
-  { _lthorConfigured ::
-      Maybe
-        Bool
+  { configured ::
+      Lude.Maybe
+        Lude.Bool
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateHibernationOptionsRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'configured' - If you set this parameter to @true@ , the instance is enabled for hibernation.
 --
--- * 'lthorConfigured' - If you set this parameter to @true@ , the instance is enabled for hibernation. Default: @false@
-launchTemplateHibernationOptionsRequest ::
+-- Default: @false@
+mkLaunchTemplateHibernationOptionsRequest ::
   LaunchTemplateHibernationOptionsRequest
-launchTemplateHibernationOptionsRequest =
+mkLaunchTemplateHibernationOptionsRequest =
   LaunchTemplateHibernationOptionsRequest'
-    { _lthorConfigured =
-        Nothing
+    { configured =
+        Lude.Nothing
     }
 
--- | If you set this parameter to @true@ , the instance is enabled for hibernation. Default: @false@
-lthorConfigured :: Lens' LaunchTemplateHibernationOptionsRequest (Maybe Bool)
-lthorConfigured = lens _lthorConfigured (\s a -> s {_lthorConfigured = a})
+-- | If you set this parameter to @true@ , the instance is enabled for hibernation.
+--
+-- Default: @false@
+--
+-- /Note:/ Consider using 'configured' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lthorConfigured :: Lens.Lens' LaunchTemplateHibernationOptionsRequest (Lude.Maybe Lude.Bool)
+lthorConfigured = Lens.lens (configured :: LaunchTemplateHibernationOptionsRequest -> Lude.Maybe Lude.Bool) (\s a -> s {configured = a} :: LaunchTemplateHibernationOptionsRequest)
+{-# DEPRECATED lthorConfigured "Use generic-lens or generic-optics with 'configured' instead." #-}
 
-instance Hashable LaunchTemplateHibernationOptionsRequest
-
-instance NFData LaunchTemplateHibernationOptionsRequest
-
-instance ToQuery LaunchTemplateHibernationOptionsRequest where
+instance Lude.ToQuery LaunchTemplateHibernationOptionsRequest where
   toQuery LaunchTemplateHibernationOptionsRequest' {..} =
-    mconcat ["Configured" =: _lthorConfigured]
+    Lude.mconcat ["Configured" Lude.=: configured]

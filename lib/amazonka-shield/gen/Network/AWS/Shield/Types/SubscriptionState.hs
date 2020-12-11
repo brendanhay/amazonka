@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Shield.Types.SubscriptionState where
+module Network.AWS.Shield.Types.SubscriptionState
+  ( SubscriptionState
+      ( SubscriptionState',
+        Active,
+        Inactive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SubscriptionState
-  = Active
-  | Inactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SubscriptionState = SubscriptionState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SubscriptionState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "inactive" -> pure Inactive
-      e ->
-        fromTextError $
-          "Failure parsing SubscriptionState from value: '" <> e
-            <> "'. Accepted values: active, inactive"
+pattern Active :: SubscriptionState
+pattern Active = SubscriptionState' "ACTIVE"
 
-instance ToText SubscriptionState where
-  toText = \case
-    Active -> "ACTIVE"
-    Inactive -> "INACTIVE"
+pattern Inactive :: SubscriptionState
+pattern Inactive = SubscriptionState' "INACTIVE"
 
-instance Hashable SubscriptionState
-
-instance NFData SubscriptionState
-
-instance ToByteString SubscriptionState
-
-instance ToQuery SubscriptionState
-
-instance ToHeader SubscriptionState
-
-instance FromJSON SubscriptionState where
-  parseJSON = parseJSONText "SubscriptionState"
+{-# COMPLETE
+  Active,
+  Inactive,
+  SubscriptionState'
+  #-}

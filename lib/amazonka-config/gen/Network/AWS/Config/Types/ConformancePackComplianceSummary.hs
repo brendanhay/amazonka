@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConformancePackComplianceSummary where
+module Network.AWS.Config.Types.ConformancePackComplianceSummary
+  ( ConformancePackComplianceSummary (..),
+
+    -- * Smart constructor
+    mkConformancePackComplianceSummary,
+
+    -- * Lenses
+    cpcsConformancePackName,
+    cpcsConformancePackComplianceStatus,
+  )
+where
 
 import Network.AWS.Config.Types.ConformancePackComplianceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Summary includes the name and status of the conformance pack.
 --
---
---
--- /See:/ 'conformancePackComplianceSummary' smart constructor.
+-- /See:/ 'mkConformancePackComplianceSummary' smart constructor.
 data ConformancePackComplianceSummary = ConformancePackComplianceSummary'
-  { _cpcsConformancePackName ::
-      !Text,
-    _cpcsConformancePackComplianceStatus ::
-      !ConformancePackComplianceType
+  { conformancePackName ::
+      Lude.Text,
+    conformancePackComplianceStatus ::
+      ConformancePackComplianceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConformancePackComplianceSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpcsConformancePackName' - The name of the conformance pack name.
---
--- * 'cpcsConformancePackComplianceStatus' - The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT.
-conformancePackComplianceSummary ::
-  -- | 'cpcsConformancePackName'
-  Text ->
-  -- | 'cpcsConformancePackComplianceStatus'
+-- * 'conformancePackComplianceStatus' - The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT.
+-- * 'conformancePackName' - The name of the conformance pack name.
+mkConformancePackComplianceSummary ::
+  -- | 'conformancePackName'
+  Lude.Text ->
+  -- | 'conformancePackComplianceStatus'
   ConformancePackComplianceType ->
   ConformancePackComplianceSummary
-conformancePackComplianceSummary
+mkConformancePackComplianceSummary
   pConformancePackName_
   pConformancePackComplianceStatus_ =
     ConformancePackComplianceSummary'
-      { _cpcsConformancePackName =
+      { conformancePackName =
           pConformancePackName_,
-        _cpcsConformancePackComplianceStatus =
+        conformancePackComplianceStatus =
           pConformancePackComplianceStatus_
       }
 
 -- | The name of the conformance pack name.
-cpcsConformancePackName :: Lens' ConformancePackComplianceSummary Text
-cpcsConformancePackName = lens _cpcsConformancePackName (\s a -> s {_cpcsConformancePackName = a})
+--
+-- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcsConformancePackName :: Lens.Lens' ConformancePackComplianceSummary Lude.Text
+cpcsConformancePackName = Lens.lens (conformancePackName :: ConformancePackComplianceSummary -> Lude.Text) (\s a -> s {conformancePackName = a} :: ConformancePackComplianceSummary)
+{-# DEPRECATED cpcsConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
 -- | The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT.
-cpcsConformancePackComplianceStatus :: Lens' ConformancePackComplianceSummary ConformancePackComplianceType
-cpcsConformancePackComplianceStatus = lens _cpcsConformancePackComplianceStatus (\s a -> s {_cpcsConformancePackComplianceStatus = a})
+--
+-- /Note:/ Consider using 'conformancePackComplianceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcsConformancePackComplianceStatus :: Lens.Lens' ConformancePackComplianceSummary ConformancePackComplianceType
+cpcsConformancePackComplianceStatus = Lens.lens (conformancePackComplianceStatus :: ConformancePackComplianceSummary -> ConformancePackComplianceType) (\s a -> s {conformancePackComplianceStatus = a} :: ConformancePackComplianceSummary)
+{-# DEPRECATED cpcsConformancePackComplianceStatus "Use generic-lens or generic-optics with 'conformancePackComplianceStatus' instead." #-}
 
-instance FromJSON ConformancePackComplianceSummary where
+instance Lude.FromJSON ConformancePackComplianceSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "ConformancePackComplianceSummary"
       ( \x ->
           ConformancePackComplianceSummary'
-            <$> (x .: "ConformancePackName")
-            <*> (x .: "ConformancePackComplianceStatus")
+            Lude.<$> (x Lude..: "ConformancePackName")
+            Lude.<*> (x Lude..: "ConformancePackComplianceStatus")
       )
-
-instance Hashable ConformancePackComplianceSummary
-
-instance NFData ConformancePackComplianceSummary

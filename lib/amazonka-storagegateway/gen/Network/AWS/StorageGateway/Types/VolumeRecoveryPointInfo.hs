@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.VolumeRecoveryPointInfo where
+module Network.AWS.StorageGateway.Types.VolumeRecoveryPointInfo
+  ( VolumeRecoveryPointInfo (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVolumeRecoveryPointInfo,
+
+    -- * Lenses
+    vrpiVolumeRecoveryPointTime,
+    vrpiVolumeARN,
+    vrpiVolumeSizeInBytes,
+    vrpiVolumeUsageInBytes,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a storage volume recovery point object.
 --
---
---
--- /See:/ 'volumeRecoveryPointInfo' smart constructor.
+-- /See:/ 'mkVolumeRecoveryPointInfo' smart constructor.
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
-  { _vrpiVolumeRecoveryPointTime ::
-      !(Maybe Text),
-    _vrpiVolumeARN :: !(Maybe Text),
-    _vrpiVolumeSizeInBytes :: !(Maybe Integer),
-    _vrpiVolumeUsageInBytes :: !(Maybe Integer)
+  { volumeRecoveryPointTime ::
+      Lude.Maybe Lude.Text,
+    volumeARN :: Lude.Maybe Lude.Text,
+    volumeSizeInBytes ::
+      Lude.Maybe Lude.Integer,
+    volumeUsageInBytes ::
+      Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeRecoveryPointInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vrpiVolumeRecoveryPointTime' - The time the recovery point was taken.
---
--- * 'vrpiVolumeARN' - The Amazon Resource Name (ARN) of the volume target.
---
--- * 'vrpiVolumeSizeInBytes' - The size of the volume in bytes.
---
--- * 'vrpiVolumeUsageInBytes' - The size of the data stored on the volume in bytes.
-volumeRecoveryPointInfo ::
+-- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume target.
+-- * 'volumeRecoveryPointTime' - The time the recovery point was taken.
+-- * 'volumeSizeInBytes' - The size of the volume in bytes.
+-- * 'volumeUsageInBytes' - The size of the data stored on the volume in bytes.
+mkVolumeRecoveryPointInfo ::
   VolumeRecoveryPointInfo
-volumeRecoveryPointInfo =
+mkVolumeRecoveryPointInfo =
   VolumeRecoveryPointInfo'
-    { _vrpiVolumeRecoveryPointTime = Nothing,
-      _vrpiVolumeARN = Nothing,
-      _vrpiVolumeSizeInBytes = Nothing,
-      _vrpiVolumeUsageInBytes = Nothing
+    { volumeRecoveryPointTime = Lude.Nothing,
+      volumeARN = Lude.Nothing,
+      volumeSizeInBytes = Lude.Nothing,
+      volumeUsageInBytes = Lude.Nothing
     }
 
 -- | The time the recovery point was taken.
-vrpiVolumeRecoveryPointTime :: Lens' VolumeRecoveryPointInfo (Maybe Text)
-vrpiVolumeRecoveryPointTime = lens _vrpiVolumeRecoveryPointTime (\s a -> s {_vrpiVolumeRecoveryPointTime = a})
+--
+-- /Note:/ Consider using 'volumeRecoveryPointTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vrpiVolumeRecoveryPointTime :: Lens.Lens' VolumeRecoveryPointInfo (Lude.Maybe Lude.Text)
+vrpiVolumeRecoveryPointTime = Lens.lens (volumeRecoveryPointTime :: VolumeRecoveryPointInfo -> Lude.Maybe Lude.Text) (\s a -> s {volumeRecoveryPointTime = a} :: VolumeRecoveryPointInfo)
+{-# DEPRECATED vrpiVolumeRecoveryPointTime "Use generic-lens or generic-optics with 'volumeRecoveryPointTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the volume target.
-vrpiVolumeARN :: Lens' VolumeRecoveryPointInfo (Maybe Text)
-vrpiVolumeARN = lens _vrpiVolumeARN (\s a -> s {_vrpiVolumeARN = a})
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vrpiVolumeARN :: Lens.Lens' VolumeRecoveryPointInfo (Lude.Maybe Lude.Text)
+vrpiVolumeARN = Lens.lens (volumeARN :: VolumeRecoveryPointInfo -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: VolumeRecoveryPointInfo)
+{-# DEPRECATED vrpiVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | The size of the volume in bytes.
-vrpiVolumeSizeInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
-vrpiVolumeSizeInBytes = lens _vrpiVolumeSizeInBytes (\s a -> s {_vrpiVolumeSizeInBytes = a})
+--
+-- /Note:/ Consider using 'volumeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vrpiVolumeSizeInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Lude.Maybe Lude.Integer)
+vrpiVolumeSizeInBytes = Lens.lens (volumeSizeInBytes :: VolumeRecoveryPointInfo -> Lude.Maybe Lude.Integer) (\s a -> s {volumeSizeInBytes = a} :: VolumeRecoveryPointInfo)
+{-# DEPRECATED vrpiVolumeSizeInBytes "Use generic-lens or generic-optics with 'volumeSizeInBytes' instead." #-}
 
 -- | The size of the data stored on the volume in bytes.
-vrpiVolumeUsageInBytes :: Lens' VolumeRecoveryPointInfo (Maybe Integer)
-vrpiVolumeUsageInBytes = lens _vrpiVolumeUsageInBytes (\s a -> s {_vrpiVolumeUsageInBytes = a})
+--
+-- /Note:/ Consider using 'volumeUsageInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vrpiVolumeUsageInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Lude.Maybe Lude.Integer)
+vrpiVolumeUsageInBytes = Lens.lens (volumeUsageInBytes :: VolumeRecoveryPointInfo -> Lude.Maybe Lude.Integer) (\s a -> s {volumeUsageInBytes = a} :: VolumeRecoveryPointInfo)
+{-# DEPRECATED vrpiVolumeUsageInBytes "Use generic-lens or generic-optics with 'volumeUsageInBytes' instead." #-}
 
-instance FromJSON VolumeRecoveryPointInfo where
+instance Lude.FromJSON VolumeRecoveryPointInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "VolumeRecoveryPointInfo"
       ( \x ->
           VolumeRecoveryPointInfo'
-            <$> (x .:? "VolumeRecoveryPointTime")
-            <*> (x .:? "VolumeARN")
-            <*> (x .:? "VolumeSizeInBytes")
-            <*> (x .:? "VolumeUsageInBytes")
+            Lude.<$> (x Lude..:? "VolumeRecoveryPointTime")
+            Lude.<*> (x Lude..:? "VolumeARN")
+            Lude.<*> (x Lude..:? "VolumeSizeInBytes")
+            Lude.<*> (x Lude..:? "VolumeUsageInBytes")
       )
-
-instance Hashable VolumeRecoveryPointInfo
-
-instance NFData VolumeRecoveryPointInfo

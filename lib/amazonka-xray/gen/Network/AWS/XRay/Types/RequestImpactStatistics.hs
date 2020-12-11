@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.RequestImpactStatistics where
+module Network.AWS.XRay.Types.RequestImpactStatistics
+  ( RequestImpactStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRequestImpactStatistics,
+
+    -- * Lenses
+    risOKCount,
+    risFaultCount,
+    risTotalCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Statistics that describe how the incident has impacted a service.
 --
---
---
--- /See:/ 'requestImpactStatistics' smart constructor.
+-- /See:/ 'mkRequestImpactStatistics' smart constructor.
 data RequestImpactStatistics = RequestImpactStatistics'
-  { _risOKCount ::
-      !(Maybe Integer),
-    _risFaultCount :: !(Maybe Integer),
-    _risTotalCount :: !(Maybe Integer)
+  { okCount ::
+      Lude.Maybe Lude.Integer,
+    faultCount :: Lude.Maybe Lude.Integer,
+    totalCount :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestImpactStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'risOKCount' - The number of successful requests.
---
--- * 'risFaultCount' - The number of requests that have resulted in a fault,
---
--- * 'risTotalCount' - The total number of requests to the service.
-requestImpactStatistics ::
+-- * 'faultCount' - The number of requests that have resulted in a fault,
+-- * 'okCount' - The number of successful requests.
+-- * 'totalCount' - The total number of requests to the service.
+mkRequestImpactStatistics ::
   RequestImpactStatistics
-requestImpactStatistics =
+mkRequestImpactStatistics =
   RequestImpactStatistics'
-    { _risOKCount = Nothing,
-      _risFaultCount = Nothing,
-      _risTotalCount = Nothing
+    { okCount = Lude.Nothing,
+      faultCount = Lude.Nothing,
+      totalCount = Lude.Nothing
     }
 
 -- | The number of successful requests.
-risOKCount :: Lens' RequestImpactStatistics (Maybe Integer)
-risOKCount = lens _risOKCount (\s a -> s {_risOKCount = a})
+--
+-- /Note:/ Consider using 'okCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+risOKCount :: Lens.Lens' RequestImpactStatistics (Lude.Maybe Lude.Integer)
+risOKCount = Lens.lens (okCount :: RequestImpactStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {okCount = a} :: RequestImpactStatistics)
+{-# DEPRECATED risOKCount "Use generic-lens or generic-optics with 'okCount' instead." #-}
 
 -- | The number of requests that have resulted in a fault,
-risFaultCount :: Lens' RequestImpactStatistics (Maybe Integer)
-risFaultCount = lens _risFaultCount (\s a -> s {_risFaultCount = a})
+--
+-- /Note:/ Consider using 'faultCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+risFaultCount :: Lens.Lens' RequestImpactStatistics (Lude.Maybe Lude.Integer)
+risFaultCount = Lens.lens (faultCount :: RequestImpactStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {faultCount = a} :: RequestImpactStatistics)
+{-# DEPRECATED risFaultCount "Use generic-lens or generic-optics with 'faultCount' instead." #-}
 
 -- | The total number of requests to the service.
-risTotalCount :: Lens' RequestImpactStatistics (Maybe Integer)
-risTotalCount = lens _risTotalCount (\s a -> s {_risTotalCount = a})
+--
+-- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+risTotalCount :: Lens.Lens' RequestImpactStatistics (Lude.Maybe Lude.Integer)
+risTotalCount = Lens.lens (totalCount :: RequestImpactStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalCount = a} :: RequestImpactStatistics)
+{-# DEPRECATED risTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance FromJSON RequestImpactStatistics where
+instance Lude.FromJSON RequestImpactStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "RequestImpactStatistics"
       ( \x ->
           RequestImpactStatistics'
-            <$> (x .:? "OkCount")
-            <*> (x .:? "FaultCount")
-            <*> (x .:? "TotalCount")
+            Lude.<$> (x Lude..:? "OkCount")
+            Lude.<*> (x Lude..:? "FaultCount")
+            Lude.<*> (x Lude..:? "TotalCount")
       )
-
-instance Hashable RequestImpactStatistics
-
-instance NFData RequestImpactStatistics

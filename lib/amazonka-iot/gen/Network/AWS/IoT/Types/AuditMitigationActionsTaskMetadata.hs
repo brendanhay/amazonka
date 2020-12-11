@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AuditMitigationActionsTaskMetadata where
+module Network.AWS.IoT.Types.AuditMitigationActionsTaskMetadata
+  ( AuditMitigationActionsTaskMetadata (..),
+
+    -- * Smart constructor
+    mkAuditMitigationActionsTaskMetadata,
+
+    -- * Lenses
+    amatmStartTime,
+    amatmTaskId,
+    amatmTaskStatus,
+  )
+where
 
 import Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an audit mitigation actions task that is returned by @ListAuditMitigationActionsTasks@ .
 --
---
---
--- /See:/ 'auditMitigationActionsTaskMetadata' smart constructor.
+-- /See:/ 'mkAuditMitigationActionsTaskMetadata' smart constructor.
 data AuditMitigationActionsTaskMetadata = AuditMitigationActionsTaskMetadata'
-  { _amatmStartTime ::
-      !(Maybe POSIX),
-    _amatmTaskId ::
-      !(Maybe Text),
-    _amatmTaskStatus ::
-      !( Maybe
-           AuditMitigationActionsTaskStatus
-       )
+  { startTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    taskId ::
+      Lude.Maybe Lude.Text,
+    taskStatus ::
+      Lude.Maybe
+        AuditMitigationActionsTaskStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditMitigationActionsTaskMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amatmStartTime' - The time at which the audit mitigation actions task was started.
---
--- * 'amatmTaskId' - The unique identifier for the task.
---
--- * 'amatmTaskStatus' - The current state of the audit mitigation actions task.
-auditMitigationActionsTaskMetadata ::
+-- * 'startTime' - The time at which the audit mitigation actions task was started.
+-- * 'taskId' - The unique identifier for the task.
+-- * 'taskStatus' - The current state of the audit mitigation actions task.
+mkAuditMitigationActionsTaskMetadata ::
   AuditMitigationActionsTaskMetadata
-auditMitigationActionsTaskMetadata =
+mkAuditMitigationActionsTaskMetadata =
   AuditMitigationActionsTaskMetadata'
-    { _amatmStartTime = Nothing,
-      _amatmTaskId = Nothing,
-      _amatmTaskStatus = Nothing
+    { startTime = Lude.Nothing,
+      taskId = Lude.Nothing,
+      taskStatus = Lude.Nothing
     }
 
 -- | The time at which the audit mitigation actions task was started.
-amatmStartTime :: Lens' AuditMitigationActionsTaskMetadata (Maybe UTCTime)
-amatmStartTime = lens _amatmStartTime (\s a -> s {_amatmStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amatmStartTime :: Lens.Lens' AuditMitigationActionsTaskMetadata (Lude.Maybe Lude.Timestamp)
+amatmStartTime = Lens.lens (startTime :: AuditMitigationActionsTaskMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: AuditMitigationActionsTaskMetadata)
+{-# DEPRECATED amatmStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The unique identifier for the task.
-amatmTaskId :: Lens' AuditMitigationActionsTaskMetadata (Maybe Text)
-amatmTaskId = lens _amatmTaskId (\s a -> s {_amatmTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amatmTaskId :: Lens.Lens' AuditMitigationActionsTaskMetadata (Lude.Maybe Lude.Text)
+amatmTaskId = Lens.lens (taskId :: AuditMitigationActionsTaskMetadata -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: AuditMitigationActionsTaskMetadata)
+{-# DEPRECATED amatmTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | The current state of the audit mitigation actions task.
-amatmTaskStatus :: Lens' AuditMitigationActionsTaskMetadata (Maybe AuditMitigationActionsTaskStatus)
-amatmTaskStatus = lens _amatmTaskStatus (\s a -> s {_amatmTaskStatus = a})
+--
+-- /Note:/ Consider using 'taskStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amatmTaskStatus :: Lens.Lens' AuditMitigationActionsTaskMetadata (Lude.Maybe AuditMitigationActionsTaskStatus)
+amatmTaskStatus = Lens.lens (taskStatus :: AuditMitigationActionsTaskMetadata -> Lude.Maybe AuditMitigationActionsTaskStatus) (\s a -> s {taskStatus = a} :: AuditMitigationActionsTaskMetadata)
+{-# DEPRECATED amatmTaskStatus "Use generic-lens or generic-optics with 'taskStatus' instead." #-}
 
-instance FromJSON AuditMitigationActionsTaskMetadata where
+instance Lude.FromJSON AuditMitigationActionsTaskMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "AuditMitigationActionsTaskMetadata"
       ( \x ->
           AuditMitigationActionsTaskMetadata'
-            <$> (x .:? "startTime") <*> (x .:? "taskId") <*> (x .:? "taskStatus")
+            Lude.<$> (x Lude..:? "startTime")
+            Lude.<*> (x Lude..:? "taskId")
+            Lude.<*> (x Lude..:? "taskStatus")
       )
-
-instance Hashable AuditMitigationActionsTaskMetadata
-
-instance NFData AuditMitigationActionsTaskMetadata

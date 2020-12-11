@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.DebugSession where
+module Network.AWS.CodeBuild.Types.DebugSession
+  ( DebugSession (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDebugSession,
+
+    -- * Lenses
+    dsSessionEnabled,
+    dsSessionTarget,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the debug session for a build. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager> .
 --
---
---
--- /See:/ 'debugSession' smart constructor.
+-- /See:/ 'mkDebugSession' smart constructor.
 data DebugSession = DebugSession'
-  { _dsSessionEnabled ::
-      !(Maybe Bool),
-    _dsSessionTarget :: !(Maybe Text)
+  { sessionEnabled ::
+      Lude.Maybe Lude.Bool,
+    sessionTarget :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DebugSession' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsSessionEnabled' - Specifies if session debugging is enabled for this build.
---
--- * 'dsSessionTarget' - Contains the identifier of the Session Manager session used for the build. To work with the paused build, you open this session to examine, control, and resume the build.
-debugSession ::
+-- * 'sessionEnabled' - Specifies if session debugging is enabled for this build.
+-- * 'sessionTarget' - Contains the identifier of the Session Manager session used for the build. To work with the paused build, you open this session to examine, control, and resume the build.
+mkDebugSession ::
   DebugSession
-debugSession =
+mkDebugSession =
   DebugSession'
-    { _dsSessionEnabled = Nothing,
-      _dsSessionTarget = Nothing
+    { sessionEnabled = Lude.Nothing,
+      sessionTarget = Lude.Nothing
     }
 
 -- | Specifies if session debugging is enabled for this build.
-dsSessionEnabled :: Lens' DebugSession (Maybe Bool)
-dsSessionEnabled = lens _dsSessionEnabled (\s a -> s {_dsSessionEnabled = a})
+--
+-- /Note:/ Consider using 'sessionEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsSessionEnabled :: Lens.Lens' DebugSession (Lude.Maybe Lude.Bool)
+dsSessionEnabled = Lens.lens (sessionEnabled :: DebugSession -> Lude.Maybe Lude.Bool) (\s a -> s {sessionEnabled = a} :: DebugSession)
+{-# DEPRECATED dsSessionEnabled "Use generic-lens or generic-optics with 'sessionEnabled' instead." #-}
 
 -- | Contains the identifier of the Session Manager session used for the build. To work with the paused build, you open this session to examine, control, and resume the build.
-dsSessionTarget :: Lens' DebugSession (Maybe Text)
-dsSessionTarget = lens _dsSessionTarget (\s a -> s {_dsSessionTarget = a})
+--
+-- /Note:/ Consider using 'sessionTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsSessionTarget :: Lens.Lens' DebugSession (Lude.Maybe Lude.Text)
+dsSessionTarget = Lens.lens (sessionTarget :: DebugSession -> Lude.Maybe Lude.Text) (\s a -> s {sessionTarget = a} :: DebugSession)
+{-# DEPRECATED dsSessionTarget "Use generic-lens or generic-optics with 'sessionTarget' instead." #-}
 
-instance FromJSON DebugSession where
+instance Lude.FromJSON DebugSession where
   parseJSON =
-    withObject
+    Lude.withObject
       "DebugSession"
       ( \x ->
           DebugSession'
-            <$> (x .:? "sessionEnabled") <*> (x .:? "sessionTarget")
+            Lude.<$> (x Lude..:? "sessionEnabled")
+            Lude.<*> (x Lude..:? "sessionTarget")
       )
-
-instance Hashable DebugSession
-
-instance NFData DebugSession

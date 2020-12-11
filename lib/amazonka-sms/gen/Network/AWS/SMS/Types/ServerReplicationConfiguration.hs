@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ServerReplicationConfiguration where
+module Network.AWS.SMS.Types.ServerReplicationConfiguration
+  ( ServerReplicationConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServerReplicationConfiguration,
+
+    -- * Lenses
+    srcServerReplicationParameters,
+    srcServer,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SMS.Types.Server
 import Network.AWS.SMS.Types.ServerReplicationParameters
 
 -- | Replication configuration of a server.
 --
---
---
--- /See:/ 'serverReplicationConfiguration' smart constructor.
+-- /See:/ 'mkServerReplicationConfiguration' smart constructor.
 data ServerReplicationConfiguration = ServerReplicationConfiguration'
-  { _srcServerReplicationParameters ::
-      !( Maybe
-           ServerReplicationParameters
-       ),
-    _srcServer :: !(Maybe Server)
+  { serverReplicationParameters ::
+      Lude.Maybe
+        ServerReplicationParameters,
+    server :: Lude.Maybe Server
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerReplicationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srcServerReplicationParameters' - The parameters for replicating the server.
---
--- * 'srcServer' - The ID of the server with which this replication configuration is associated.
-serverReplicationConfiguration ::
+-- * 'server' - The ID of the server with which this replication configuration is associated.
+-- * 'serverReplicationParameters' - The parameters for replicating the server.
+mkServerReplicationConfiguration ::
   ServerReplicationConfiguration
-serverReplicationConfiguration =
+mkServerReplicationConfiguration =
   ServerReplicationConfiguration'
-    { _srcServerReplicationParameters =
-        Nothing,
-      _srcServer = Nothing
+    { serverReplicationParameters =
+        Lude.Nothing,
+      server = Lude.Nothing
     }
 
 -- | The parameters for replicating the server.
-srcServerReplicationParameters :: Lens' ServerReplicationConfiguration (Maybe ServerReplicationParameters)
-srcServerReplicationParameters = lens _srcServerReplicationParameters (\s a -> s {_srcServerReplicationParameters = a})
+--
+-- /Note:/ Consider using 'serverReplicationParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcServerReplicationParameters :: Lens.Lens' ServerReplicationConfiguration (Lude.Maybe ServerReplicationParameters)
+srcServerReplicationParameters = Lens.lens (serverReplicationParameters :: ServerReplicationConfiguration -> Lude.Maybe ServerReplicationParameters) (\s a -> s {serverReplicationParameters = a} :: ServerReplicationConfiguration)
+{-# DEPRECATED srcServerReplicationParameters "Use generic-lens or generic-optics with 'serverReplicationParameters' instead." #-}
 
 -- | The ID of the server with which this replication configuration is associated.
-srcServer :: Lens' ServerReplicationConfiguration (Maybe Server)
-srcServer = lens _srcServer (\s a -> s {_srcServer = a})
+--
+-- /Note:/ Consider using 'server' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcServer :: Lens.Lens' ServerReplicationConfiguration (Lude.Maybe Server)
+srcServer = Lens.lens (server :: ServerReplicationConfiguration -> Lude.Maybe Server) (\s a -> s {server = a} :: ServerReplicationConfiguration)
+{-# DEPRECATED srcServer "Use generic-lens or generic-optics with 'server' instead." #-}
 
-instance FromJSON ServerReplicationConfiguration where
+instance Lude.FromJSON ServerReplicationConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServerReplicationConfiguration"
       ( \x ->
           ServerReplicationConfiguration'
-            <$> (x .:? "serverReplicationParameters") <*> (x .:? "server")
+            Lude.<$> (x Lude..:? "serverReplicationParameters")
+            Lude.<*> (x Lude..:? "server")
       )
 
-instance Hashable ServerReplicationConfiguration
-
-instance NFData ServerReplicationConfiguration
-
-instance ToJSON ServerReplicationConfiguration where
+instance Lude.ToJSON ServerReplicationConfiguration where
   toJSON ServerReplicationConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("serverReplicationParameters" .=)
-              <$> _srcServerReplicationParameters,
-            ("server" .=) <$> _srcServer
+    Lude.object
+      ( Lude.catMaybes
+          [ ("serverReplicationParameters" Lude..=)
+              Lude.<$> serverReplicationParameters,
+            ("server" Lude..=) Lude.<$> server
           ]
       )

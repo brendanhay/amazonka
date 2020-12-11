@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrainingJobEarlyStoppingType where
+module Network.AWS.SageMaker.Types.TrainingJobEarlyStoppingType
+  ( TrainingJobEarlyStoppingType
+      ( TrainingJobEarlyStoppingType',
+        TJESTAuto,
+        TJESTOff
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrainingJobEarlyStoppingType
-  = TJESTAuto
-  | TJESTOff
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrainingJobEarlyStoppingType = TrainingJobEarlyStoppingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrainingJobEarlyStoppingType where
-  parser =
-    takeLowerText >>= \case
-      "auto" -> pure TJESTAuto
-      "off" -> pure TJESTOff
-      e ->
-        fromTextError $
-          "Failure parsing TrainingJobEarlyStoppingType from value: '" <> e
-            <> "'. Accepted values: auto, off"
+pattern TJESTAuto :: TrainingJobEarlyStoppingType
+pattern TJESTAuto = TrainingJobEarlyStoppingType' "Auto"
 
-instance ToText TrainingJobEarlyStoppingType where
-  toText = \case
-    TJESTAuto -> "Auto"
-    TJESTOff -> "Off"
+pattern TJESTOff :: TrainingJobEarlyStoppingType
+pattern TJESTOff = TrainingJobEarlyStoppingType' "Off"
 
-instance Hashable TrainingJobEarlyStoppingType
-
-instance NFData TrainingJobEarlyStoppingType
-
-instance ToByteString TrainingJobEarlyStoppingType
-
-instance ToQuery TrainingJobEarlyStoppingType
-
-instance ToHeader TrainingJobEarlyStoppingType
-
-instance ToJSON TrainingJobEarlyStoppingType where
-  toJSON = toJSONText
-
-instance FromJSON TrainingJobEarlyStoppingType where
-  parseJSON = parseJSONText "TrainingJobEarlyStoppingType"
+{-# COMPLETE
+  TJESTAuto,
+  TJESTOff,
+  TrainingJobEarlyStoppingType'
+  #-}

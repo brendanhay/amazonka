@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.SqlInjectionMatchSetSummary where
+module Network.AWS.WAFRegional.Types.SqlInjectionMatchSetSummary
+  ( SqlInjectionMatchSetSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSqlInjectionMatchSetSummary,
+
+    -- * Lenses
+    simssSqlInjectionMatchSetId,
+    simssName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The @Id@ and @Name@ of a @SqlInjectionMatchSet@ .
 --
---
---
--- /See:/ 'sqlInjectionMatchSetSummary' smart constructor.
+-- /See:/ 'mkSqlInjectionMatchSetSummary' smart constructor.
 data SqlInjectionMatchSetSummary = SqlInjectionMatchSetSummary'
-  { _simssSqlInjectionMatchSetId ::
-      !Text,
-    _simssName :: !Text
+  { sqlInjectionMatchSetId ::
+      Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SqlInjectionMatchSetSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The name of the @SqlInjectionMatchSet@ , if any, specified by @Id@ .
+-- * 'sqlInjectionMatchSetId' - A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ).
 --
--- * 'simssSqlInjectionMatchSetId' - A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ). @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
---
--- * 'simssName' - The name of the @SqlInjectionMatchSet@ , if any, specified by @Id@ .
-sqlInjectionMatchSetSummary ::
-  -- | 'simssSqlInjectionMatchSetId'
-  Text ->
-  -- | 'simssName'
-  Text ->
+-- @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
+mkSqlInjectionMatchSetSummary ::
+  -- | 'sqlInjectionMatchSetId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   SqlInjectionMatchSetSummary
-sqlInjectionMatchSetSummary pSqlInjectionMatchSetId_ pName_ =
+mkSqlInjectionMatchSetSummary pSqlInjectionMatchSetId_ pName_ =
   SqlInjectionMatchSetSummary'
-    { _simssSqlInjectionMatchSetId =
+    { sqlInjectionMatchSetId =
         pSqlInjectionMatchSetId_,
-      _simssName = pName_
+      name = pName_
     }
 
--- | A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ). @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
-simssSqlInjectionMatchSetId :: Lens' SqlInjectionMatchSetSummary Text
-simssSqlInjectionMatchSetId = lens _simssSqlInjectionMatchSetId (\s a -> s {_simssSqlInjectionMatchSetId = a})
+-- | A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ).
+--
+-- @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
+--
+-- /Note:/ Consider using 'sqlInjectionMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+simssSqlInjectionMatchSetId :: Lens.Lens' SqlInjectionMatchSetSummary Lude.Text
+simssSqlInjectionMatchSetId = Lens.lens (sqlInjectionMatchSetId :: SqlInjectionMatchSetSummary -> Lude.Text) (\s a -> s {sqlInjectionMatchSetId = a} :: SqlInjectionMatchSetSummary)
+{-# DEPRECATED simssSqlInjectionMatchSetId "Use generic-lens or generic-optics with 'sqlInjectionMatchSetId' instead." #-}
 
 -- | The name of the @SqlInjectionMatchSet@ , if any, specified by @Id@ .
-simssName :: Lens' SqlInjectionMatchSetSummary Text
-simssName = lens _simssName (\s a -> s {_simssName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+simssName :: Lens.Lens' SqlInjectionMatchSetSummary Lude.Text
+simssName = Lens.lens (name :: SqlInjectionMatchSetSummary -> Lude.Text) (\s a -> s {name = a} :: SqlInjectionMatchSetSummary)
+{-# DEPRECATED simssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON SqlInjectionMatchSetSummary where
+instance Lude.FromJSON SqlInjectionMatchSetSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "SqlInjectionMatchSetSummary"
       ( \x ->
           SqlInjectionMatchSetSummary'
-            <$> (x .: "SqlInjectionMatchSetId") <*> (x .: "Name")
+            Lude.<$> (x Lude..: "SqlInjectionMatchSetId") Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable SqlInjectionMatchSetSummary
-
-instance NFData SqlInjectionMatchSetSummary

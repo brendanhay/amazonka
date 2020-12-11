@@ -28,145 +28,145 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestListServices $
---             listServices
+--             mkListServices
 --
 --         , requestDeleteService $
---             deleteService
+--             mkDeleteService
 --
 --         , requestUpdateService $
---             updateService
+--             mkUpdateService
 --
 --         , requestListOperations $
---             listOperations
+--             mkListOperations
 --
 --         , requestCreateHTTPNamespace $
---             createHTTPNamespace
+--             mkCreateHTTPNamespace
 --
 --         , requestCreatePublicDNSNamespace $
---             createPublicDNSNamespace
+--             mkCreatePublicDNSNamespace
 --
 --         , requestGetInstance $
---             getInstance
+--             mkGetInstance
 --
 --         , requestListNamespaces $
---             listNamespaces
+--             mkListNamespaces
 --
 --         , requestDeleteNamespace $
---             deleteNamespace
+--             mkDeleteNamespace
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestDiscoverInstances $
---             discoverInstances
+--             mkDiscoverInstances
 --
 --         , requestGetInstancesHealthStatus $
---             getInstancesHealthStatus
+--             mkGetInstancesHealthStatus
 --
 --         , requestGetNamespace $
---             getNamespace
+--             mkGetNamespace
 --
 --         , requestRegisterInstance $
---             registerInstance
+--             mkRegisterInstance
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestListInstances $
---             listInstances
+--             mkListInstances
 --
 --         , requestGetOperation $
---             getOperation
+--             mkGetOperation
 --
 --         , requestUpdateInstanceCustomHealthStatus $
---             updateInstanceCustomHealthStatus
+--             mkUpdateInstanceCustomHealthStatus
 --
 --         , requestGetService $
---             getService
+--             mkGetService
 --
 --         , requestCreatePrivateDNSNamespace $
---             createPrivateDNSNamespace
+--             mkCreatePrivateDNSNamespace
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestCreateService $
---             createService
+--             mkCreateService
 --
 --         , requestDeregisterInstance $
---             deregisterInstance
+--             mkDeregisterInstance
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListServices $
---             listServicesResponse
+--             mkListServicesResponse
 --
 --         , responseDeleteService $
---             deleteServiceResponse
+--             mkDeleteServiceResponse
 --
 --         , responseUpdateService $
---             updateServiceResponse
+--             mkUpdateServiceResponse
 --
 --         , responseListOperations $
---             listOperationsResponse
+--             mkListOperationsResponse
 --
 --         , responseCreateHTTPNamespace $
---             createHTTPNamespaceResponse
+--             mkCreateHTTPNamespaceResponse
 --
 --         , responseCreatePublicDNSNamespace $
---             createPublicDNSNamespaceResponse
+--             mkCreatePublicDNSNamespaceResponse
 --
 --         , responseGetInstance $
---             getInstanceResponse
+--             mkGetInstanceResponse
 --
 --         , responseListNamespaces $
---             listNamespacesResponse
+--             mkListNamespacesResponse
 --
 --         , responseDeleteNamespace $
---             deleteNamespaceResponse
+--             mkDeleteNamespaceResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseDiscoverInstances $
---             discoverInstancesResponse
+--             mkDiscoverInstancesResponse
 --
 --         , responseGetInstancesHealthStatus $
---             getInstancesHealthStatusResponse
+--             mkGetInstancesHealthStatusResponse
 --
 --         , responseGetNamespace $
---             getNamespaceResponse
+--             mkGetNamespaceResponse
 --
 --         , responseRegisterInstance $
---             registerInstanceResponse
+--             mkRegisterInstanceResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseListInstances $
---             listInstancesResponse
+--             mkListInstancesResponse
 --
 --         , responseGetOperation $
---             getOperationResponse
+--             mkGetOperationResponse
 --
 --         , responseUpdateInstanceCustomHealthStatus $
---             updateInstanceCustomHealthStatusResponse
+--             mkUpdateInstanceCustomHealthStatusResponse
 --
 --         , responseGetService $
---             getServiceResponse
+--             mkGetServiceResponse
 --
 --         , responseCreatePrivateDNSNamespace $
---             createPrivateDNSNamespaceResponse
+--             mkCreatePrivateDNSNamespaceResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseCreateService $
---             createServiceResponse
+--             mkCreateServiceResponse
 --
 --         , responseDeregisterInstance $
---             deregisterInstanceResponse
+--             mkDeregisterInstanceResponse
 --
 --           ]
 --     ]
@@ -318,7 +318,7 @@ responseListServices =
   res
     "ListServicesResponse"
     "fixture/ListServicesResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy ListServices)
 
 responseDeleteService :: DeleteServiceResponse -> TestTree
@@ -326,7 +326,7 @@ responseDeleteService =
   res
     "DeleteServiceResponse"
     "fixture/DeleteServiceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy DeleteService)
 
 responseUpdateService :: UpdateServiceResponse -> TestTree
@@ -334,7 +334,7 @@ responseUpdateService =
   res
     "UpdateServiceResponse"
     "fixture/UpdateServiceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy UpdateService)
 
 responseListOperations :: ListOperationsResponse -> TestTree
@@ -342,7 +342,7 @@ responseListOperations =
   res
     "ListOperationsResponse"
     "fixture/ListOperationsResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy ListOperations)
 
 responseCreateHTTPNamespace :: CreateHTTPNamespaceResponse -> TestTree
@@ -350,7 +350,7 @@ responseCreateHTTPNamespace =
   res
     "CreateHTTPNamespaceResponse"
     "fixture/CreateHTTPNamespaceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy CreateHTTPNamespace)
 
 responseCreatePublicDNSNamespace :: CreatePublicDNSNamespaceResponse -> TestTree
@@ -358,7 +358,7 @@ responseCreatePublicDNSNamespace =
   res
     "CreatePublicDNSNamespaceResponse"
     "fixture/CreatePublicDNSNamespaceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy CreatePublicDNSNamespace)
 
 responseGetInstance :: GetInstanceResponse -> TestTree
@@ -366,7 +366,7 @@ responseGetInstance =
   res
     "GetInstanceResponse"
     "fixture/GetInstanceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy GetInstance)
 
 responseListNamespaces :: ListNamespacesResponse -> TestTree
@@ -374,7 +374,7 @@ responseListNamespaces =
   res
     "ListNamespacesResponse"
     "fixture/ListNamespacesResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy ListNamespaces)
 
 responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
@@ -382,7 +382,7 @@ responseDeleteNamespace =
   res
     "DeleteNamespaceResponse"
     "fixture/DeleteNamespaceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy DeleteNamespace)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -390,7 +390,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy ListTagsForResource)
 
 responseDiscoverInstances :: DiscoverInstancesResponse -> TestTree
@@ -398,7 +398,7 @@ responseDiscoverInstances =
   res
     "DiscoverInstancesResponse"
     "fixture/DiscoverInstancesResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy DiscoverInstances)
 
 responseGetInstancesHealthStatus :: GetInstancesHealthStatusResponse -> TestTree
@@ -406,7 +406,7 @@ responseGetInstancesHealthStatus =
   res
     "GetInstancesHealthStatusResponse"
     "fixture/GetInstancesHealthStatusResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy GetInstancesHealthStatus)
 
 responseGetNamespace :: GetNamespaceResponse -> TestTree
@@ -414,7 +414,7 @@ responseGetNamespace =
   res
     "GetNamespaceResponse"
     "fixture/GetNamespaceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy GetNamespace)
 
 responseRegisterInstance :: RegisterInstanceResponse -> TestTree
@@ -422,7 +422,7 @@ responseRegisterInstance =
   res
     "RegisterInstanceResponse"
     "fixture/RegisterInstanceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy RegisterInstance)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -430,7 +430,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy TagResource)
 
 responseListInstances :: ListInstancesResponse -> TestTree
@@ -438,7 +438,7 @@ responseListInstances =
   res
     "ListInstancesResponse"
     "fixture/ListInstancesResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy ListInstances)
 
 responseGetOperation :: GetOperationResponse -> TestTree
@@ -446,7 +446,7 @@ responseGetOperation =
   res
     "GetOperationResponse"
     "fixture/GetOperationResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy GetOperation)
 
 responseUpdateInstanceCustomHealthStatus :: UpdateInstanceCustomHealthStatusResponse -> TestTree
@@ -454,7 +454,7 @@ responseUpdateInstanceCustomHealthStatus =
   res
     "UpdateInstanceCustomHealthStatusResponse"
     "fixture/UpdateInstanceCustomHealthStatusResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy UpdateInstanceCustomHealthStatus)
 
 responseGetService :: GetServiceResponse -> TestTree
@@ -462,7 +462,7 @@ responseGetService =
   res
     "GetServiceResponse"
     "fixture/GetServiceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy GetService)
 
 responseCreatePrivateDNSNamespace :: CreatePrivateDNSNamespaceResponse -> TestTree
@@ -470,7 +470,7 @@ responseCreatePrivateDNSNamespace =
   res
     "CreatePrivateDNSNamespaceResponse"
     "fixture/CreatePrivateDNSNamespaceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy CreatePrivateDNSNamespace)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -478,7 +478,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy UntagResource)
 
 responseCreateService :: CreateServiceResponse -> TestTree
@@ -486,7 +486,7 @@ responseCreateService =
   res
     "CreateServiceResponse"
     "fixture/CreateServiceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy CreateService)
 
 responseDeregisterInstance :: DeregisterInstanceResponse -> TestTree
@@ -494,5 +494,5 @@ responseDeregisterInstance =
   res
     "DeregisterInstanceResponse"
     "fixture/DeregisterInstanceResponse.proto"
-    route53AutoNaming
+    route53AutoNamingService
     (Proxy :: Proxy DeregisterInstance)

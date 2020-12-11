@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,39 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.DeleteFileEntry where
+module Network.AWS.CodeCommit.Types.DeleteFileEntry
+  ( DeleteFileEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeleteFileEntry,
+
+    -- * Lenses
+    dfeFilePath,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A file that is deleted as part of a commit.
 --
---
---
--- /See:/ 'deleteFileEntry' smart constructor.
-newtype DeleteFileEntry = DeleteFileEntry' {_dfeFilePath :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteFileEntry' smart constructor.
+newtype DeleteFileEntry = DeleteFileEntry' {filePath :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFileEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfeFilePath' - The full path of the file to be deleted, including the name of the file.
-deleteFileEntry ::
-  -- | 'dfeFilePath'
-  Text ->
+-- * 'filePath' - The full path of the file to be deleted, including the name of the file.
+mkDeleteFileEntry ::
+  -- | 'filePath'
+  Lude.Text ->
   DeleteFileEntry
-deleteFileEntry pFilePath_ =
-  DeleteFileEntry' {_dfeFilePath = pFilePath_}
+mkDeleteFileEntry pFilePath_ =
+  DeleteFileEntry' {filePath = pFilePath_}
 
 -- | The full path of the file to be deleted, including the name of the file.
-dfeFilePath :: Lens' DeleteFileEntry Text
-dfeFilePath = lens _dfeFilePath (\s a -> s {_dfeFilePath = a})
+--
+-- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfeFilePath :: Lens.Lens' DeleteFileEntry Lude.Text
+dfeFilePath = Lens.lens (filePath :: DeleteFileEntry -> Lude.Text) (\s a -> s {filePath = a} :: DeleteFileEntry)
+{-# DEPRECATED dfeFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
 
-instance Hashable DeleteFileEntry
-
-instance NFData DeleteFileEntry
-
-instance ToJSON DeleteFileEntry where
+instance Lude.ToJSON DeleteFileEntry where
   toJSON DeleteFileEntry' {..} =
-    object (catMaybes [Just ("filePath" .= _dfeFilePath)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("filePath" Lude..= filePath)])

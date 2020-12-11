@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ExistingObjectReplication where
+module Network.AWS.S3.Types.ExistingObjectReplication
+  ( ExistingObjectReplication (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExistingObjectReplication,
+
+    -- * Lenses
+    eorStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ExistingObjectReplicationStatus
 
 -- | Optional configuration to replicate existing source bucket objects. For more information, see < https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-what-is-isnot-replicated.html#existing-object-replication Replicating Existing Objects> in the /Amazon S3 Developer Guide/ .
 --
---
---
--- /See:/ 'existingObjectReplication' smart constructor.
+-- /See:/ 'mkExistingObjectReplication' smart constructor.
 newtype ExistingObjectReplication = ExistingObjectReplication'
-  { _eorStatus ::
+  { status ::
       ExistingObjectReplicationStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExistingObjectReplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eorStatus' -
-existingObjectReplication ::
-  -- | 'eorStatus'
+-- * 'status' -
+mkExistingObjectReplication ::
+  -- | 'status'
   ExistingObjectReplicationStatus ->
   ExistingObjectReplication
-existingObjectReplication pStatus_ =
-  ExistingObjectReplication' {_eorStatus = pStatus_}
+mkExistingObjectReplication pStatus_ =
+  ExistingObjectReplication' {status = pStatus_}
 
 -- |
-eorStatus :: Lens' ExistingObjectReplication ExistingObjectReplicationStatus
-eorStatus = lens _eorStatus (\s a -> s {_eorStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eorStatus :: Lens.Lens' ExistingObjectReplication ExistingObjectReplicationStatus
+eorStatus = Lens.lens (status :: ExistingObjectReplication -> ExistingObjectReplicationStatus) (\s a -> s {status = a} :: ExistingObjectReplication)
+{-# DEPRECATED eorStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromXML ExistingObjectReplication where
-  parseXML x = ExistingObjectReplication' <$> (x .@ "Status")
+instance Lude.FromXML ExistingObjectReplication where
+  parseXML x =
+    ExistingObjectReplication' Lude.<$> (x Lude..@ "Status")
 
-instance Hashable ExistingObjectReplication
-
-instance NFData ExistingObjectReplication
-
-instance ToXML ExistingObjectReplication where
+instance Lude.ToXML ExistingObjectReplication where
   toXML ExistingObjectReplication' {..} =
-    mconcat ["Status" @= _eorStatus]
+    Lude.mconcat ["Status" Lude.@= status]

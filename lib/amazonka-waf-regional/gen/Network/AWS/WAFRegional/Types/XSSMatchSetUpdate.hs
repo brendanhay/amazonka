@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAFRegional.Types.XSSMatchSetUpdate where
+module Network.AWS.WAFRegional.Types.XSSMatchSetUpdate
+  ( XSSMatchSetUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkXSSMatchSetUpdate,
+
+    -- * Lenses
+    xmsuAction,
+    xmsuXSSMatchTuple,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WAFRegional.Types.ChangeAction
 import Network.AWS.WAFRegional.Types.XSSMatchTuple
 
 -- | Specifies the part of a web request that you want to inspect for cross-site scripting attacks and indicates whether you want to add the specification to an 'XssMatchSet' or delete it from an @XssMatchSet@ .
 --
---
---
--- /See:/ 'xssMatchSetUpdate' smart constructor.
+-- /See:/ 'mkXSSMatchSetUpdate' smart constructor.
 data XSSMatchSetUpdate = XSSMatchSetUpdate'
-  { _xmsuAction ::
-      !ChangeAction,
-    _xmsuXSSMatchTuple :: !XSSMatchTuple
+  { action :: ChangeAction,
+    xssMatchTuple :: XSSMatchTuple
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'XSSMatchSetUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'xmsuAction' - Specify @INSERT@ to add an 'XssMatchSetUpdate' to an 'XssMatchSet' . Use @DELETE@ to remove an @XssMatchSetUpdate@ from an @XssMatchSet@ .
---
--- * 'xmsuXSSMatchTuple' - Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.
-xssMatchSetUpdate ::
-  -- | 'xmsuAction'
+-- * 'action' - Specify @INSERT@ to add an 'XssMatchSetUpdate' to an 'XssMatchSet' . Use @DELETE@ to remove an @XssMatchSetUpdate@ from an @XssMatchSet@ .
+-- * 'xssMatchTuple' - Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.
+mkXSSMatchSetUpdate ::
+  -- | 'action'
   ChangeAction ->
-  -- | 'xmsuXSSMatchTuple'
+  -- | 'xssMatchTuple'
   XSSMatchTuple ->
   XSSMatchSetUpdate
-xssMatchSetUpdate pAction_ pXSSMatchTuple_ =
+mkXSSMatchSetUpdate pAction_ pXSSMatchTuple_ =
   XSSMatchSetUpdate'
-    { _xmsuAction = pAction_,
-      _xmsuXSSMatchTuple = pXSSMatchTuple_
+    { action = pAction_,
+      xssMatchTuple = pXSSMatchTuple_
     }
 
 -- | Specify @INSERT@ to add an 'XssMatchSetUpdate' to an 'XssMatchSet' . Use @DELETE@ to remove an @XssMatchSetUpdate@ from an @XssMatchSet@ .
-xmsuAction :: Lens' XSSMatchSetUpdate ChangeAction
-xmsuAction = lens _xmsuAction (\s a -> s {_xmsuAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xmsuAction :: Lens.Lens' XSSMatchSetUpdate ChangeAction
+xmsuAction = Lens.lens (action :: XSSMatchSetUpdate -> ChangeAction) (\s a -> s {action = a} :: XSSMatchSetUpdate)
+{-# DEPRECATED xmsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.
-xmsuXSSMatchTuple :: Lens' XSSMatchSetUpdate XSSMatchTuple
-xmsuXSSMatchTuple = lens _xmsuXSSMatchTuple (\s a -> s {_xmsuXSSMatchTuple = a})
+--
+-- /Note:/ Consider using 'xssMatchTuple' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xmsuXSSMatchTuple :: Lens.Lens' XSSMatchSetUpdate XSSMatchTuple
+xmsuXSSMatchTuple = Lens.lens (xssMatchTuple :: XSSMatchSetUpdate -> XSSMatchTuple) (\s a -> s {xssMatchTuple = a} :: XSSMatchSetUpdate)
+{-# DEPRECATED xmsuXSSMatchTuple "Use generic-lens or generic-optics with 'xssMatchTuple' instead." #-}
 
-instance Hashable XSSMatchSetUpdate
-
-instance NFData XSSMatchSetUpdate
-
-instance ToJSON XSSMatchSetUpdate where
+instance Lude.ToJSON XSSMatchSetUpdate where
   toJSON XSSMatchSetUpdate' {..} =
-    object
-      ( catMaybes
-          [ Just ("Action" .= _xmsuAction),
-            Just ("XssMatchTuple" .= _xmsuXSSMatchTuple)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Action" Lude..= action),
+            Lude.Just ("XssMatchTuple" Lude..= xssMatchTuple)
           ]
       )

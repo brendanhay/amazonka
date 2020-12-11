@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,122 +7,157 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.SegmentDetection where
+module Network.AWS.Rekognition.Types.SegmentDetection
+  ( SegmentDetection (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSegmentDetection,
+
+    -- * Lenses
+    sdTechnicalCueSegment,
+    sdDurationSMPTE,
+    sdEndTimestampMillis,
+    sdStartTimecodeSMPTE,
+    sdEndTimecodeSMPTE,
+    sdDurationMillis,
+    sdStartTimestampMillis,
+    sdType,
+    sdShotSegment,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.SegmentType
 import Network.AWS.Rekognition.Types.ShotSegment
 import Network.AWS.Rekognition.Types.TechnicalCueSegment
 
 -- | A technical cue or shot detection segment detected in a video. An array of @SegmentDetection@ objects containing all segments detected in a stored video is returned by 'GetSegmentDetection' .
 --
---
---
--- /See:/ 'segmentDetection' smart constructor.
+-- /See:/ 'mkSegmentDetection' smart constructor.
 data SegmentDetection = SegmentDetection'
-  { _sdTechnicalCueSegment ::
-      !(Maybe TechnicalCueSegment),
-    _sdDurationSMPTE :: !(Maybe Text),
-    _sdEndTimestampMillis :: !(Maybe Integer),
-    _sdStartTimecodeSMPTE :: !(Maybe Text),
-    _sdEndTimecodeSMPTE :: !(Maybe Text),
-    _sdDurationMillis :: !(Maybe Nat),
-    _sdStartTimestampMillis :: !(Maybe Integer),
-    _sdType :: !(Maybe SegmentType),
-    _sdShotSegment :: !(Maybe ShotSegment)
+  { technicalCueSegment ::
+      Lude.Maybe TechnicalCueSegment,
+    durationSMPTE :: Lude.Maybe Lude.Text,
+    endTimestampMillis :: Lude.Maybe Lude.Integer,
+    startTimecodeSMPTE :: Lude.Maybe Lude.Text,
+    endTimecodeSMPTE :: Lude.Maybe Lude.Text,
+    durationMillis :: Lude.Maybe Lude.Natural,
+    startTimestampMillis :: Lude.Maybe Lude.Integer,
+    type' :: Lude.Maybe SegmentType,
+    shotSegment :: Lude.Maybe ShotSegment
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentDetection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sdTechnicalCueSegment' - If the segment is a technical cue, contains information about the technical cue.
---
--- * 'sdDurationSMPTE' - The duration of the timecode for the detected segment in SMPTE format.
---
--- * 'sdEndTimestampMillis' - The end time of the detected segment, in milliseconds, from the start of the video. This value is rounded down.
---
--- * 'sdStartTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. @StartTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
---
--- * 'sdEndTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
---
--- * 'sdDurationMillis' - The duration of the detected segment in milliseconds.
---
--- * 'sdStartTimestampMillis' - The start time of the detected segment in milliseconds from the start of the video. This value is rounded down. For example, if the actual timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a value of 100 millis.
---
--- * 'sdType' - The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@ .
---
--- * 'sdShotSegment' - If the segment is a shot detection, contains information about the shot detection.
-segmentDetection ::
+-- * 'durationMillis' - The duration of the detected segment in milliseconds.
+-- * 'durationSMPTE' - The duration of the timecode for the detected segment in SMPTE format.
+-- * 'endTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
+-- * 'endTimestampMillis' - The end time of the detected segment, in milliseconds, from the start of the video. This value is rounded down.
+-- * 'shotSegment' - If the segment is a shot detection, contains information about the shot detection.
+-- * 'startTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. @StartTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
+-- * 'startTimestampMillis' - The start time of the detected segment in milliseconds from the start of the video. This value is rounded down. For example, if the actual timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a value of 100 millis.
+-- * 'technicalCueSegment' - If the segment is a technical cue, contains information about the technical cue.
+-- * 'type'' - The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@ .
+mkSegmentDetection ::
   SegmentDetection
-segmentDetection =
+mkSegmentDetection =
   SegmentDetection'
-    { _sdTechnicalCueSegment = Nothing,
-      _sdDurationSMPTE = Nothing,
-      _sdEndTimestampMillis = Nothing,
-      _sdStartTimecodeSMPTE = Nothing,
-      _sdEndTimecodeSMPTE = Nothing,
-      _sdDurationMillis = Nothing,
-      _sdStartTimestampMillis = Nothing,
-      _sdType = Nothing,
-      _sdShotSegment = Nothing
+    { technicalCueSegment = Lude.Nothing,
+      durationSMPTE = Lude.Nothing,
+      endTimestampMillis = Lude.Nothing,
+      startTimecodeSMPTE = Lude.Nothing,
+      endTimecodeSMPTE = Lude.Nothing,
+      durationMillis = Lude.Nothing,
+      startTimestampMillis = Lude.Nothing,
+      type' = Lude.Nothing,
+      shotSegment = Lude.Nothing
     }
 
 -- | If the segment is a technical cue, contains information about the technical cue.
-sdTechnicalCueSegment :: Lens' SegmentDetection (Maybe TechnicalCueSegment)
-sdTechnicalCueSegment = lens _sdTechnicalCueSegment (\s a -> s {_sdTechnicalCueSegment = a})
+--
+-- /Note:/ Consider using 'technicalCueSegment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdTechnicalCueSegment :: Lens.Lens' SegmentDetection (Lude.Maybe TechnicalCueSegment)
+sdTechnicalCueSegment = Lens.lens (technicalCueSegment :: SegmentDetection -> Lude.Maybe TechnicalCueSegment) (\s a -> s {technicalCueSegment = a} :: SegmentDetection)
+{-# DEPRECATED sdTechnicalCueSegment "Use generic-lens or generic-optics with 'technicalCueSegment' instead." #-}
 
 -- | The duration of the timecode for the detected segment in SMPTE format.
-sdDurationSMPTE :: Lens' SegmentDetection (Maybe Text)
-sdDurationSMPTE = lens _sdDurationSMPTE (\s a -> s {_sdDurationSMPTE = a})
+--
+-- /Note:/ Consider using 'durationSMPTE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdDurationSMPTE :: Lens.Lens' SegmentDetection (Lude.Maybe Lude.Text)
+sdDurationSMPTE = Lens.lens (durationSMPTE :: SegmentDetection -> Lude.Maybe Lude.Text) (\s a -> s {durationSMPTE = a} :: SegmentDetection)
+{-# DEPRECATED sdDurationSMPTE "Use generic-lens or generic-optics with 'durationSMPTE' instead." #-}
 
 -- | The end time of the detected segment, in milliseconds, from the start of the video. This value is rounded down.
-sdEndTimestampMillis :: Lens' SegmentDetection (Maybe Integer)
-sdEndTimestampMillis = lens _sdEndTimestampMillis (\s a -> s {_sdEndTimestampMillis = a})
+--
+-- /Note:/ Consider using 'endTimestampMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdEndTimestampMillis :: Lens.Lens' SegmentDetection (Lude.Maybe Lude.Integer)
+sdEndTimestampMillis = Lens.lens (endTimestampMillis :: SegmentDetection -> Lude.Maybe Lude.Integer) (\s a -> s {endTimestampMillis = a} :: SegmentDetection)
+{-# DEPRECATED sdEndTimestampMillis "Use generic-lens or generic-optics with 'endTimestampMillis' instead." #-}
 
 -- | The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. @StartTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
-sdStartTimecodeSMPTE :: Lens' SegmentDetection (Maybe Text)
-sdStartTimecodeSMPTE = lens _sdStartTimecodeSMPTE (\s a -> s {_sdStartTimecodeSMPTE = a})
+--
+-- /Note:/ Consider using 'startTimecodeSMPTE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdStartTimecodeSMPTE :: Lens.Lens' SegmentDetection (Lude.Maybe Lude.Text)
+sdStartTimecodeSMPTE = Lens.lens (startTimecodeSMPTE :: SegmentDetection -> Lude.Maybe Lude.Text) (\s a -> s {startTimecodeSMPTE = a} :: SegmentDetection)
+{-# DEPRECATED sdStartTimecodeSMPTE "Use generic-lens or generic-optics with 'startTimecodeSMPTE' instead." #-}
 
 -- | The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and /;fr/ for drop frame-rates).
-sdEndTimecodeSMPTE :: Lens' SegmentDetection (Maybe Text)
-sdEndTimecodeSMPTE = lens _sdEndTimecodeSMPTE (\s a -> s {_sdEndTimecodeSMPTE = a})
+--
+-- /Note:/ Consider using 'endTimecodeSMPTE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdEndTimecodeSMPTE :: Lens.Lens' SegmentDetection (Lude.Maybe Lude.Text)
+sdEndTimecodeSMPTE = Lens.lens (endTimecodeSMPTE :: SegmentDetection -> Lude.Maybe Lude.Text) (\s a -> s {endTimecodeSMPTE = a} :: SegmentDetection)
+{-# DEPRECATED sdEndTimecodeSMPTE "Use generic-lens or generic-optics with 'endTimecodeSMPTE' instead." #-}
 
 -- | The duration of the detected segment in milliseconds.
-sdDurationMillis :: Lens' SegmentDetection (Maybe Natural)
-sdDurationMillis = lens _sdDurationMillis (\s a -> s {_sdDurationMillis = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'durationMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdDurationMillis :: Lens.Lens' SegmentDetection (Lude.Maybe Lude.Natural)
+sdDurationMillis = Lens.lens (durationMillis :: SegmentDetection -> Lude.Maybe Lude.Natural) (\s a -> s {durationMillis = a} :: SegmentDetection)
+{-# DEPRECATED sdDurationMillis "Use generic-lens or generic-optics with 'durationMillis' instead." #-}
 
 -- | The start time of the detected segment in milliseconds from the start of the video. This value is rounded down. For example, if the actual timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a value of 100 millis.
-sdStartTimestampMillis :: Lens' SegmentDetection (Maybe Integer)
-sdStartTimestampMillis = lens _sdStartTimestampMillis (\s a -> s {_sdStartTimestampMillis = a})
+--
+-- /Note:/ Consider using 'startTimestampMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdStartTimestampMillis :: Lens.Lens' SegmentDetection (Lude.Maybe Lude.Integer)
+sdStartTimestampMillis = Lens.lens (startTimestampMillis :: SegmentDetection -> Lude.Maybe Lude.Integer) (\s a -> s {startTimestampMillis = a} :: SegmentDetection)
+{-# DEPRECATED sdStartTimestampMillis "Use generic-lens or generic-optics with 'startTimestampMillis' instead." #-}
 
 -- | The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@ .
-sdType :: Lens' SegmentDetection (Maybe SegmentType)
-sdType = lens _sdType (\s a -> s {_sdType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdType :: Lens.Lens' SegmentDetection (Lude.Maybe SegmentType)
+sdType = Lens.lens (type' :: SegmentDetection -> Lude.Maybe SegmentType) (\s a -> s {type' = a} :: SegmentDetection)
+{-# DEPRECATED sdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | If the segment is a shot detection, contains information about the shot detection.
-sdShotSegment :: Lens' SegmentDetection (Maybe ShotSegment)
-sdShotSegment = lens _sdShotSegment (\s a -> s {_sdShotSegment = a})
+--
+-- /Note:/ Consider using 'shotSegment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdShotSegment :: Lens.Lens' SegmentDetection (Lude.Maybe ShotSegment)
+sdShotSegment = Lens.lens (shotSegment :: SegmentDetection -> Lude.Maybe ShotSegment) (\s a -> s {shotSegment = a} :: SegmentDetection)
+{-# DEPRECATED sdShotSegment "Use generic-lens or generic-optics with 'shotSegment' instead." #-}
 
-instance FromJSON SegmentDetection where
+instance Lude.FromJSON SegmentDetection where
   parseJSON =
-    withObject
+    Lude.withObject
       "SegmentDetection"
       ( \x ->
           SegmentDetection'
-            <$> (x .:? "TechnicalCueSegment")
-            <*> (x .:? "DurationSMPTE")
-            <*> (x .:? "EndTimestampMillis")
-            <*> (x .:? "StartTimecodeSMPTE")
-            <*> (x .:? "EndTimecodeSMPTE")
-            <*> (x .:? "DurationMillis")
-            <*> (x .:? "StartTimestampMillis")
-            <*> (x .:? "Type")
-            <*> (x .:? "ShotSegment")
+            Lude.<$> (x Lude..:? "TechnicalCueSegment")
+            Lude.<*> (x Lude..:? "DurationSMPTE")
+            Lude.<*> (x Lude..:? "EndTimestampMillis")
+            Lude.<*> (x Lude..:? "StartTimecodeSMPTE")
+            Lude.<*> (x Lude..:? "EndTimecodeSMPTE")
+            Lude.<*> (x Lude..:? "DurationMillis")
+            Lude.<*> (x Lude..:? "StartTimestampMillis")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "ShotSegment")
       )
-
-instance Hashable SegmentDetection
-
-instance NFData SegmentDetection

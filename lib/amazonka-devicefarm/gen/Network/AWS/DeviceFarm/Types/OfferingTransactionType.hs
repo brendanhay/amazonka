@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.OfferingTransactionType where
+module Network.AWS.DeviceFarm.Types.OfferingTransactionType
+  ( OfferingTransactionType
+      ( OfferingTransactionType',
+        Purchase,
+        Renew,
+        System
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OfferingTransactionType
-  = Purchase
-  | Renew
-  | System
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OfferingTransactionType = OfferingTransactionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OfferingTransactionType where
-  parser =
-    takeLowerText >>= \case
-      "purchase" -> pure Purchase
-      "renew" -> pure Renew
-      "system" -> pure System
-      e ->
-        fromTextError $
-          "Failure parsing OfferingTransactionType from value: '" <> e
-            <> "'. Accepted values: purchase, renew, system"
+pattern Purchase :: OfferingTransactionType
+pattern Purchase = OfferingTransactionType' "PURCHASE"
 
-instance ToText OfferingTransactionType where
-  toText = \case
-    Purchase -> "PURCHASE"
-    Renew -> "RENEW"
-    System -> "SYSTEM"
+pattern Renew :: OfferingTransactionType
+pattern Renew = OfferingTransactionType' "RENEW"
 
-instance Hashable OfferingTransactionType
+pattern System :: OfferingTransactionType
+pattern System = OfferingTransactionType' "SYSTEM"
 
-instance NFData OfferingTransactionType
-
-instance ToByteString OfferingTransactionType
-
-instance ToQuery OfferingTransactionType
-
-instance ToHeader OfferingTransactionType
-
-instance FromJSON OfferingTransactionType where
-  parseJSON = parseJSONText "OfferingTransactionType"
+{-# COMPLETE
+  Purchase,
+  Renew,
+  System,
+  OfferingTransactionType'
+  #-}

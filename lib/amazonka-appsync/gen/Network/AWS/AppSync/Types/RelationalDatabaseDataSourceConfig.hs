@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,74 +7,94 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig where
+module Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig
+  ( RelationalDatabaseDataSourceConfig (..),
+
+    -- * Smart constructor
+    mkRelationalDatabaseDataSourceConfig,
+
+    -- * Lenses
+    rddscRelationalDatabaseSourceType,
+    rddscRdsHTTPEndpointConfig,
+  )
+where
 
 import Network.AWS.AppSync.Types.RDSHTTPEndpointConfig
 import Network.AWS.AppSync.Types.RelationalDatabaseSourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a relational database data source configuration.
 --
---
---
--- /See:/ 'relationalDatabaseDataSourceConfig' smart constructor.
+-- /See:/ 'mkRelationalDatabaseDataSourceConfig' smart constructor.
 data RelationalDatabaseDataSourceConfig = RelationalDatabaseDataSourceConfig'
-  { _rddscRelationalDatabaseSourceType ::
-      !( Maybe
-           RelationalDatabaseSourceType
-       ),
-    _rddscRdsHTTPEndpointConfig ::
-      !( Maybe
-           RDSHTTPEndpointConfig
-       )
+  { relationalDatabaseSourceType ::
+      Lude.Maybe
+        RelationalDatabaseSourceType,
+    rdsHTTPEndpointConfig ::
+      Lude.Maybe
+        RDSHTTPEndpointConfig
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseDataSourceConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'rdsHTTPEndpointConfig' - Amazon RDS HTTP endpoint settings.
+-- * 'relationalDatabaseSourceType' - Source type for the relational database.
 --
--- * 'rddscRelationalDatabaseSourceType' - Source type for the relational database.     * __RDS_HTTP_ENDPOINT__ : The relational database source type is an Amazon RDS HTTP endpoint.
 --
--- * 'rddscRdsHTTPEndpointConfig' - Amazon RDS HTTP endpoint settings.
-relationalDatabaseDataSourceConfig ::
+--     * __RDS_HTTP_ENDPOINT__ : The relational database source type is an Amazon RDS HTTP endpoint.
+mkRelationalDatabaseDataSourceConfig ::
   RelationalDatabaseDataSourceConfig
-relationalDatabaseDataSourceConfig =
+mkRelationalDatabaseDataSourceConfig =
   RelationalDatabaseDataSourceConfig'
-    { _rddscRelationalDatabaseSourceType =
-        Nothing,
-      _rddscRdsHTTPEndpointConfig = Nothing
+    { relationalDatabaseSourceType =
+        Lude.Nothing,
+      rdsHTTPEndpointConfig = Lude.Nothing
     }
 
--- | Source type for the relational database.     * __RDS_HTTP_ENDPOINT__ : The relational database source type is an Amazon RDS HTTP endpoint.
-rddscRelationalDatabaseSourceType :: Lens' RelationalDatabaseDataSourceConfig (Maybe RelationalDatabaseSourceType)
-rddscRelationalDatabaseSourceType = lens _rddscRelationalDatabaseSourceType (\s a -> s {_rddscRelationalDatabaseSourceType = a})
+-- | Source type for the relational database.
+--
+--
+--     * __RDS_HTTP_ENDPOINT__ : The relational database source type is an Amazon RDS HTTP endpoint.
+--
+--
+--
+-- /Note:/ Consider using 'relationalDatabaseSourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rddscRelationalDatabaseSourceType :: Lens.Lens' RelationalDatabaseDataSourceConfig (Lude.Maybe RelationalDatabaseSourceType)
+rddscRelationalDatabaseSourceType = Lens.lens (relationalDatabaseSourceType :: RelationalDatabaseDataSourceConfig -> Lude.Maybe RelationalDatabaseSourceType) (\s a -> s {relationalDatabaseSourceType = a} :: RelationalDatabaseDataSourceConfig)
+{-# DEPRECATED rddscRelationalDatabaseSourceType "Use generic-lens or generic-optics with 'relationalDatabaseSourceType' instead." #-}
 
 -- | Amazon RDS HTTP endpoint settings.
-rddscRdsHTTPEndpointConfig :: Lens' RelationalDatabaseDataSourceConfig (Maybe RDSHTTPEndpointConfig)
-rddscRdsHTTPEndpointConfig = lens _rddscRdsHTTPEndpointConfig (\s a -> s {_rddscRdsHTTPEndpointConfig = a})
+--
+-- /Note:/ Consider using 'rdsHTTPEndpointConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rddscRdsHTTPEndpointConfig :: Lens.Lens' RelationalDatabaseDataSourceConfig (Lude.Maybe RDSHTTPEndpointConfig)
+rddscRdsHTTPEndpointConfig = Lens.lens (rdsHTTPEndpointConfig :: RelationalDatabaseDataSourceConfig -> Lude.Maybe RDSHTTPEndpointConfig) (\s a -> s {rdsHTTPEndpointConfig = a} :: RelationalDatabaseDataSourceConfig)
+{-# DEPRECATED rddscRdsHTTPEndpointConfig "Use generic-lens or generic-optics with 'rdsHTTPEndpointConfig' instead." #-}
 
-instance FromJSON RelationalDatabaseDataSourceConfig where
+instance Lude.FromJSON RelationalDatabaseDataSourceConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "RelationalDatabaseDataSourceConfig"
       ( \x ->
           RelationalDatabaseDataSourceConfig'
-            <$> (x .:? "relationalDatabaseSourceType")
-            <*> (x .:? "rdsHttpEndpointConfig")
+            Lude.<$> (x Lude..:? "relationalDatabaseSourceType")
+            Lude.<*> (x Lude..:? "rdsHttpEndpointConfig")
       )
 
-instance Hashable RelationalDatabaseDataSourceConfig
-
-instance NFData RelationalDatabaseDataSourceConfig
-
-instance ToJSON RelationalDatabaseDataSourceConfig where
+instance Lude.ToJSON RelationalDatabaseDataSourceConfig where
   toJSON RelationalDatabaseDataSourceConfig' {..} =
-    object
-      ( catMaybes
-          [ ("relationalDatabaseSourceType" .=)
-              <$> _rddscRelationalDatabaseSourceType,
-            ("rdsHttpEndpointConfig" .=) <$> _rddscRdsHTTPEndpointConfig
+    Lude.object
+      ( Lude.catMaybes
+          [ ("relationalDatabaseSourceType" Lude..=)
+              Lude.<$> relationalDatabaseSourceType,
+            ("rdsHttpEndpointConfig" Lude..=) Lude.<$> rdsHTTPEndpointConfig
           ]
       )

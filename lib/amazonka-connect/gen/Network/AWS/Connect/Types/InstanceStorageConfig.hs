@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,115 +7,142 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.InstanceStorageConfig where
+module Network.AWS.Connect.Types.InstanceStorageConfig
+  ( InstanceStorageConfig (..),
+
+    -- * Smart constructor
+    mkInstanceStorageConfig,
+
+    -- * Lenses
+    iscAssociationId,
+    iscKinesisStreamConfig,
+    iscKinesisVideoStreamConfig,
+    iscS3Config,
+    iscKinesisFirehoseConfig,
+    iscStorageType,
+  )
+where
 
 import Network.AWS.Connect.Types.KinesisFirehoseConfig
 import Network.AWS.Connect.Types.KinesisStreamConfig
 import Network.AWS.Connect.Types.KinesisVideoStreamConfig
 import Network.AWS.Connect.Types.S3Config
 import Network.AWS.Connect.Types.StorageType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The storage configuration for the instance.
 --
---
---
--- /See:/ 'instanceStorageConfig' smart constructor.
+-- /See:/ 'mkInstanceStorageConfig' smart constructor.
 data InstanceStorageConfig = InstanceStorageConfig'
-  { _iscAssociationId ::
-      !(Maybe Text),
-    _iscKinesisStreamConfig ::
-      !(Maybe KinesisStreamConfig),
-    _iscKinesisVideoStreamConfig ::
-      !(Maybe KinesisVideoStreamConfig),
-    _iscS3Config :: !(Maybe S3Config),
-    _iscKinesisFirehoseConfig ::
-      !(Maybe KinesisFirehoseConfig),
-    _iscStorageType :: !StorageType
+  { associationId ::
+      Lude.Maybe Lude.Text,
+    kinesisStreamConfig ::
+      Lude.Maybe KinesisStreamConfig,
+    kinesisVideoStreamConfig ::
+      Lude.Maybe KinesisVideoStreamConfig,
+    s3Config :: Lude.Maybe S3Config,
+    kinesisFirehoseConfig ::
+      Lude.Maybe KinesisFirehoseConfig,
+    storageType :: StorageType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStorageConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iscAssociationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
---
--- * 'iscKinesisStreamConfig' - The configuration of the Kinesis data stream.
---
--- * 'iscKinesisVideoStreamConfig' - The configuration of the Kinesis video stream.
---
--- * 'iscS3Config' - The S3 configuration.
---
--- * 'iscKinesisFirehoseConfig' - The configuration of the Kinesis Firehose delivery stream.
---
--- * 'iscStorageType' - A valid storage type.
-instanceStorageConfig ::
-  -- | 'iscStorageType'
+-- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+-- * 'kinesisFirehoseConfig' - The configuration of the Kinesis Firehose delivery stream.
+-- * 'kinesisStreamConfig' - The configuration of the Kinesis data stream.
+-- * 'kinesisVideoStreamConfig' - The configuration of the Kinesis video stream.
+-- * 's3Config' - The S3 configuration.
+-- * 'storageType' - A valid storage type.
+mkInstanceStorageConfig ::
+  -- | 'storageType'
   StorageType ->
   InstanceStorageConfig
-instanceStorageConfig pStorageType_ =
+mkInstanceStorageConfig pStorageType_ =
   InstanceStorageConfig'
-    { _iscAssociationId = Nothing,
-      _iscKinesisStreamConfig = Nothing,
-      _iscKinesisVideoStreamConfig = Nothing,
-      _iscS3Config = Nothing,
-      _iscKinesisFirehoseConfig = Nothing,
-      _iscStorageType = pStorageType_
+    { associationId = Lude.Nothing,
+      kinesisStreamConfig = Lude.Nothing,
+      kinesisVideoStreamConfig = Lude.Nothing,
+      s3Config = Lude.Nothing,
+      kinesisFirehoseConfig = Lude.Nothing,
+      storageType = pStorageType_
     }
 
 -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-iscAssociationId :: Lens' InstanceStorageConfig (Maybe Text)
-iscAssociationId = lens _iscAssociationId (\s a -> s {_iscAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscAssociationId :: Lens.Lens' InstanceStorageConfig (Lude.Maybe Lude.Text)
+iscAssociationId = Lens.lens (associationId :: InstanceStorageConfig -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: InstanceStorageConfig)
+{-# DEPRECATED iscAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The configuration of the Kinesis data stream.
-iscKinesisStreamConfig :: Lens' InstanceStorageConfig (Maybe KinesisStreamConfig)
-iscKinesisStreamConfig = lens _iscKinesisStreamConfig (\s a -> s {_iscKinesisStreamConfig = a})
+--
+-- /Note:/ Consider using 'kinesisStreamConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscKinesisStreamConfig :: Lens.Lens' InstanceStorageConfig (Lude.Maybe KinesisStreamConfig)
+iscKinesisStreamConfig = Lens.lens (kinesisStreamConfig :: InstanceStorageConfig -> Lude.Maybe KinesisStreamConfig) (\s a -> s {kinesisStreamConfig = a} :: InstanceStorageConfig)
+{-# DEPRECATED iscKinesisStreamConfig "Use generic-lens or generic-optics with 'kinesisStreamConfig' instead." #-}
 
 -- | The configuration of the Kinesis video stream.
-iscKinesisVideoStreamConfig :: Lens' InstanceStorageConfig (Maybe KinesisVideoStreamConfig)
-iscKinesisVideoStreamConfig = lens _iscKinesisVideoStreamConfig (\s a -> s {_iscKinesisVideoStreamConfig = a})
+--
+-- /Note:/ Consider using 'kinesisVideoStreamConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscKinesisVideoStreamConfig :: Lens.Lens' InstanceStorageConfig (Lude.Maybe KinesisVideoStreamConfig)
+iscKinesisVideoStreamConfig = Lens.lens (kinesisVideoStreamConfig :: InstanceStorageConfig -> Lude.Maybe KinesisVideoStreamConfig) (\s a -> s {kinesisVideoStreamConfig = a} :: InstanceStorageConfig)
+{-# DEPRECATED iscKinesisVideoStreamConfig "Use generic-lens or generic-optics with 'kinesisVideoStreamConfig' instead." #-}
 
 -- | The S3 configuration.
-iscS3Config :: Lens' InstanceStorageConfig (Maybe S3Config)
-iscS3Config = lens _iscS3Config (\s a -> s {_iscS3Config = a})
+--
+-- /Note:/ Consider using 's3Config' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscS3Config :: Lens.Lens' InstanceStorageConfig (Lude.Maybe S3Config)
+iscS3Config = Lens.lens (s3Config :: InstanceStorageConfig -> Lude.Maybe S3Config) (\s a -> s {s3Config = a} :: InstanceStorageConfig)
+{-# DEPRECATED iscS3Config "Use generic-lens or generic-optics with 's3Config' instead." #-}
 
 -- | The configuration of the Kinesis Firehose delivery stream.
-iscKinesisFirehoseConfig :: Lens' InstanceStorageConfig (Maybe KinesisFirehoseConfig)
-iscKinesisFirehoseConfig = lens _iscKinesisFirehoseConfig (\s a -> s {_iscKinesisFirehoseConfig = a})
+--
+-- /Note:/ Consider using 'kinesisFirehoseConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscKinesisFirehoseConfig :: Lens.Lens' InstanceStorageConfig (Lude.Maybe KinesisFirehoseConfig)
+iscKinesisFirehoseConfig = Lens.lens (kinesisFirehoseConfig :: InstanceStorageConfig -> Lude.Maybe KinesisFirehoseConfig) (\s a -> s {kinesisFirehoseConfig = a} :: InstanceStorageConfig)
+{-# DEPRECATED iscKinesisFirehoseConfig "Use generic-lens or generic-optics with 'kinesisFirehoseConfig' instead." #-}
 
 -- | A valid storage type.
-iscStorageType :: Lens' InstanceStorageConfig StorageType
-iscStorageType = lens _iscStorageType (\s a -> s {_iscStorageType = a})
+--
+-- /Note:/ Consider using 'storageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscStorageType :: Lens.Lens' InstanceStorageConfig StorageType
+iscStorageType = Lens.lens (storageType :: InstanceStorageConfig -> StorageType) (\s a -> s {storageType = a} :: InstanceStorageConfig)
+{-# DEPRECATED iscStorageType "Use generic-lens or generic-optics with 'storageType' instead." #-}
 
-instance FromJSON InstanceStorageConfig where
+instance Lude.FromJSON InstanceStorageConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceStorageConfig"
       ( \x ->
           InstanceStorageConfig'
-            <$> (x .:? "AssociationId")
-            <*> (x .:? "KinesisStreamConfig")
-            <*> (x .:? "KinesisVideoStreamConfig")
-            <*> (x .:? "S3Config")
-            <*> (x .:? "KinesisFirehoseConfig")
-            <*> (x .: "StorageType")
+            Lude.<$> (x Lude..:? "AssociationId")
+            Lude.<*> (x Lude..:? "KinesisStreamConfig")
+            Lude.<*> (x Lude..:? "KinesisVideoStreamConfig")
+            Lude.<*> (x Lude..:? "S3Config")
+            Lude.<*> (x Lude..:? "KinesisFirehoseConfig")
+            Lude.<*> (x Lude..: "StorageType")
       )
 
-instance Hashable InstanceStorageConfig
-
-instance NFData InstanceStorageConfig
-
-instance ToJSON InstanceStorageConfig where
+instance Lude.ToJSON InstanceStorageConfig where
   toJSON InstanceStorageConfig' {..} =
-    object
-      ( catMaybes
-          [ ("AssociationId" .=) <$> _iscAssociationId,
-            ("KinesisStreamConfig" .=) <$> _iscKinesisStreamConfig,
-            ("KinesisVideoStreamConfig" .=) <$> _iscKinesisVideoStreamConfig,
-            ("S3Config" .=) <$> _iscS3Config,
-            ("KinesisFirehoseConfig" .=) <$> _iscKinesisFirehoseConfig,
-            Just ("StorageType" .= _iscStorageType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AssociationId" Lude..=) Lude.<$> associationId,
+            ("KinesisStreamConfig" Lude..=) Lude.<$> kinesisStreamConfig,
+            ("KinesisVideoStreamConfig" Lude..=)
+              Lude.<$> kinesisVideoStreamConfig,
+            ("S3Config" Lude..=) Lude.<$> s3Config,
+            ("KinesisFirehoseConfig" Lude..=) Lude.<$> kinesisFirehoseConfig,
+            Lude.Just ("StorageType" Lude..= storageType)
           ]
       )

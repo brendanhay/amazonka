@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.LabelingJobOutput where
+module Network.AWS.SageMaker.Types.LabelingJobOutput
+  ( LabelingJobOutput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLabelingJobOutput,
+
+    -- * Lenses
+    ljoFinalActiveLearningModelARN,
+    ljoOutputDatasetS3URI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the location of the output produced by the labeling job.
 --
---
---
--- /See:/ 'labelingJobOutput' smart constructor.
+-- /See:/ 'mkLabelingJobOutput' smart constructor.
 data LabelingJobOutput = LabelingJobOutput'
-  { _ljoFinalActiveLearningModelARN ::
-      !(Maybe Text),
-    _ljoOutputDatasetS3URI :: !Text
+  { finalActiveLearningModelARN ::
+      Lude.Maybe Lude.Text,
+    outputDatasetS3URI :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobOutput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ljoFinalActiveLearningModelARN' - The Amazon Resource Name (ARN) for the most recent Amazon SageMaker model trained as part of automated data labeling.
---
--- * 'ljoOutputDatasetS3URI' - The Amazon S3 bucket location of the manifest file for labeled data.
-labelingJobOutput ::
-  -- | 'ljoOutputDatasetS3URI'
-  Text ->
+-- * 'finalActiveLearningModelARN' - The Amazon Resource Name (ARN) for the most recent Amazon SageMaker model trained as part of automated data labeling.
+-- * 'outputDatasetS3URI' - The Amazon S3 bucket location of the manifest file for labeled data.
+mkLabelingJobOutput ::
+  -- | 'outputDatasetS3URI'
+  Lude.Text ->
   LabelingJobOutput
-labelingJobOutput pOutputDatasetS3URI_ =
+mkLabelingJobOutput pOutputDatasetS3URI_ =
   LabelingJobOutput'
-    { _ljoFinalActiveLearningModelARN = Nothing,
-      _ljoOutputDatasetS3URI = pOutputDatasetS3URI_
+    { finalActiveLearningModelARN = Lude.Nothing,
+      outputDatasetS3URI = pOutputDatasetS3URI_
     }
 
 -- | The Amazon Resource Name (ARN) for the most recent Amazon SageMaker model trained as part of automated data labeling.
-ljoFinalActiveLearningModelARN :: Lens' LabelingJobOutput (Maybe Text)
-ljoFinalActiveLearningModelARN = lens _ljoFinalActiveLearningModelARN (\s a -> s {_ljoFinalActiveLearningModelARN = a})
+--
+-- /Note:/ Consider using 'finalActiveLearningModelARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljoFinalActiveLearningModelARN :: Lens.Lens' LabelingJobOutput (Lude.Maybe Lude.Text)
+ljoFinalActiveLearningModelARN = Lens.lens (finalActiveLearningModelARN :: LabelingJobOutput -> Lude.Maybe Lude.Text) (\s a -> s {finalActiveLearningModelARN = a} :: LabelingJobOutput)
+{-# DEPRECATED ljoFinalActiveLearningModelARN "Use generic-lens or generic-optics with 'finalActiveLearningModelARN' instead." #-}
 
 -- | The Amazon S3 bucket location of the manifest file for labeled data.
-ljoOutputDatasetS3URI :: Lens' LabelingJobOutput Text
-ljoOutputDatasetS3URI = lens _ljoOutputDatasetS3URI (\s a -> s {_ljoOutputDatasetS3URI = a})
+--
+-- /Note:/ Consider using 'outputDatasetS3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljoOutputDatasetS3URI :: Lens.Lens' LabelingJobOutput Lude.Text
+ljoOutputDatasetS3URI = Lens.lens (outputDatasetS3URI :: LabelingJobOutput -> Lude.Text) (\s a -> s {outputDatasetS3URI = a} :: LabelingJobOutput)
+{-# DEPRECATED ljoOutputDatasetS3URI "Use generic-lens or generic-optics with 'outputDatasetS3URI' instead." #-}
 
-instance FromJSON LabelingJobOutput where
+instance Lude.FromJSON LabelingJobOutput where
   parseJSON =
-    withObject
+    Lude.withObject
       "LabelingJobOutput"
       ( \x ->
           LabelingJobOutput'
-            <$> (x .:? "FinalActiveLearningModelArn")
-            <*> (x .: "OutputDatasetS3Uri")
+            Lude.<$> (x Lude..:? "FinalActiveLearningModelArn")
+            Lude.<*> (x Lude..: "OutputDatasetS3Uri")
       )
-
-instance Hashable LabelingJobOutput
-
-instance NFData LabelingJobOutput

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,22 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.IntelligentTieringConfiguration where
+module Network.AWS.S3.Types.IntelligentTieringConfiguration
+  ( IntelligentTieringConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIntelligentTieringConfiguration,
+
+    -- * Lenses
+    itcFilter,
+    itcId,
+    itcStatus,
+    itcTierings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.IntelligentTieringFilter
 import Network.AWS.S3.Types.IntelligentTieringStatus
@@ -24,81 +30,88 @@ import Network.AWS.S3.Types.Tiering
 
 -- | Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
 --
---
 -- For information about the S3 Intelligent-Tiering storage class, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access Storage class for automatically optimizing frequently and infrequently accessed objects> .
 --
---
--- /See:/ 'intelligentTieringConfiguration' smart constructor.
+-- /See:/ 'mkIntelligentTieringConfiguration' smart constructor.
 data IntelligentTieringConfiguration = IntelligentTieringConfiguration'
-  { _itcFilter ::
-      !( Maybe
-           IntelligentTieringFilter
-       ),
-    _itcId :: !Text,
-    _itcStatus ::
-      !IntelligentTieringStatus,
-    _itcTierings :: ![Tiering]
+  { filter ::
+      Lude.Maybe
+        IntelligentTieringFilter,
+    id :: Lude.Text,
+    status ::
+      IntelligentTieringStatus,
+    tierings :: [Tiering]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IntelligentTieringConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'itcFilter' - Specifies a bucket filter. The configuration only includes objects that meet the filter's criteria.
---
--- * 'itcId' - The ID used to identify the S3 Intelligent-Tiering configuration.
---
--- * 'itcStatus' - Specifies the status of the configuration.
---
--- * 'itcTierings' - Specifies the S3 Intelligent-Tiering storage class tier of the configuration.
-intelligentTieringConfiguration ::
-  -- | 'itcId'
-  Text ->
-  -- | 'itcStatus'
+-- * 'filter' - Specifies a bucket filter. The configuration only includes objects that meet the filter's criteria.
+-- * 'id' - The ID used to identify the S3 Intelligent-Tiering configuration.
+-- * 'status' - Specifies the status of the configuration.
+-- * 'tierings' - Specifies the S3 Intelligent-Tiering storage class tier of the configuration.
+mkIntelligentTieringConfiguration ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'status'
   IntelligentTieringStatus ->
   IntelligentTieringConfiguration
-intelligentTieringConfiguration pId_ pStatus_ =
+mkIntelligentTieringConfiguration pId_ pStatus_ =
   IntelligentTieringConfiguration'
-    { _itcFilter = Nothing,
-      _itcId = pId_,
-      _itcStatus = pStatus_,
-      _itcTierings = mempty
+    { filter = Lude.Nothing,
+      id = pId_,
+      status = pStatus_,
+      tierings = Lude.mempty
     }
 
 -- | Specifies a bucket filter. The configuration only includes objects that meet the filter's criteria.
-itcFilter :: Lens' IntelligentTieringConfiguration (Maybe IntelligentTieringFilter)
-itcFilter = lens _itcFilter (\s a -> s {_itcFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itcFilter :: Lens.Lens' IntelligentTieringConfiguration (Lude.Maybe IntelligentTieringFilter)
+itcFilter = Lens.lens (filter :: IntelligentTieringConfiguration -> Lude.Maybe IntelligentTieringFilter) (\s a -> s {filter = a} :: IntelligentTieringConfiguration)
+{-# DEPRECATED itcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-itcId :: Lens' IntelligentTieringConfiguration Text
-itcId = lens _itcId (\s a -> s {_itcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itcId :: Lens.Lens' IntelligentTieringConfiguration Lude.Text
+itcId = Lens.lens (id :: IntelligentTieringConfiguration -> Lude.Text) (\s a -> s {id = a} :: IntelligentTieringConfiguration)
+{-# DEPRECATED itcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Specifies the status of the configuration.
-itcStatus :: Lens' IntelligentTieringConfiguration IntelligentTieringStatus
-itcStatus = lens _itcStatus (\s a -> s {_itcStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itcStatus :: Lens.Lens' IntelligentTieringConfiguration IntelligentTieringStatus
+itcStatus = Lens.lens (status :: IntelligentTieringConfiguration -> IntelligentTieringStatus) (\s a -> s {status = a} :: IntelligentTieringConfiguration)
+{-# DEPRECATED itcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies the S3 Intelligent-Tiering storage class tier of the configuration.
-itcTierings :: Lens' IntelligentTieringConfiguration [Tiering]
-itcTierings = lens _itcTierings (\s a -> s {_itcTierings = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tierings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itcTierings :: Lens.Lens' IntelligentTieringConfiguration [Tiering]
+itcTierings = Lens.lens (tierings :: IntelligentTieringConfiguration -> [Tiering]) (\s a -> s {tierings = a} :: IntelligentTieringConfiguration)
+{-# DEPRECATED itcTierings "Use generic-lens or generic-optics with 'tierings' instead." #-}
 
-instance FromXML IntelligentTieringConfiguration where
+instance Lude.FromXML IntelligentTieringConfiguration where
   parseXML x =
     IntelligentTieringConfiguration'
-      <$> (x .@? "Filter")
-      <*> (x .@ "Id")
-      <*> (x .@ "Status")
-      <*> (parseXMLList "Tiering" x)
+      Lude.<$> (x Lude..@? "Filter")
+      Lude.<*> (x Lude..@ "Id")
+      Lude.<*> (x Lude..@ "Status")
+      Lude.<*> (Lude.parseXMLList "Tiering" x)
 
-instance Hashable IntelligentTieringConfiguration
-
-instance NFData IntelligentTieringConfiguration
-
-instance ToXML IntelligentTieringConfiguration where
+instance Lude.ToXML IntelligentTieringConfiguration where
   toXML IntelligentTieringConfiguration' {..} =
-    mconcat
-      [ "Filter" @= _itcFilter,
-        "Id" @= _itcId,
-        "Status" @= _itcStatus,
-        toXMLList "Tiering" _itcTierings
+    Lude.mconcat
+      [ "Filter" Lude.@= filter,
+        "Id" Lude.@= id,
+        "Status" Lude.@= status,
+        Lude.toXMLList "Tiering" tierings
       ]

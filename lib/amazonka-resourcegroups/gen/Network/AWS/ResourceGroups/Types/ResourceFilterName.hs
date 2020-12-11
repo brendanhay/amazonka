@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ResourceGroups.Types.ResourceFilterName where
+module Network.AWS.ResourceGroups.Types.ResourceFilterName
+  ( ResourceFilterName
+      ( ResourceFilterName',
+        ResourceType
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceFilterName = ResourceType
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceFilterName = ResourceFilterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceFilterName where
-  parser =
-    takeLowerText >>= \case
-      "resource-type" -> pure ResourceType
-      e ->
-        fromTextError $
-          "Failure parsing ResourceFilterName from value: '" <> e
-            <> "'. Accepted values: resource-type"
+pattern ResourceType :: ResourceFilterName
+pattern ResourceType = ResourceFilterName' "resource-type"
 
-instance ToText ResourceFilterName where
-  toText = \case
-    ResourceType -> "resource-type"
-
-instance Hashable ResourceFilterName
-
-instance NFData ResourceFilterName
-
-instance ToByteString ResourceFilterName
-
-instance ToQuery ResourceFilterName
-
-instance ToHeader ResourceFilterName
-
-instance ToJSON ResourceFilterName where
-  toJSON = toJSONText
+{-# COMPLETE
+  ResourceType,
+  ResourceFilterName'
+  #-}

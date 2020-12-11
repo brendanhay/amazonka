@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.SnapshotSortingEntity where
+module Network.AWS.Redshift.Types.SnapshotSortingEntity
+  ( SnapshotSortingEntity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSnapshotSortingEntity,
+
+    -- * Lenses
+    sseSortOrder,
+    sseAttribute,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.SnapshotAttributeToSortBy
 import Network.AWS.Redshift.Types.SortByOrder
 
 -- | Describes a sorting entity
 --
---
---
--- /See:/ 'snapshotSortingEntity' smart constructor.
+-- /See:/ 'mkSnapshotSortingEntity' smart constructor.
 data SnapshotSortingEntity = SnapshotSortingEntity'
-  { _sseSortOrder ::
-      !(Maybe SortByOrder),
-    _sseAttribute :: !SnapshotAttributeToSortBy
+  { sortOrder ::
+      Lude.Maybe SortByOrder,
+    attribute :: SnapshotAttributeToSortBy
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotSortingEntity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sseSortOrder' - The order for listing the attributes.
---
--- * 'sseAttribute' - The category for sorting the snapshots.
-snapshotSortingEntity ::
-  -- | 'sseAttribute'
+-- * 'attribute' - The category for sorting the snapshots.
+-- * 'sortOrder' - The order for listing the attributes.
+mkSnapshotSortingEntity ::
+  -- | 'attribute'
   SnapshotAttributeToSortBy ->
   SnapshotSortingEntity
-snapshotSortingEntity pAttribute_ =
+mkSnapshotSortingEntity pAttribute_ =
   SnapshotSortingEntity'
-    { _sseSortOrder = Nothing,
-      _sseAttribute = pAttribute_
+    { sortOrder = Lude.Nothing,
+      attribute = pAttribute_
     }
 
 -- | The order for listing the attributes.
-sseSortOrder :: Lens' SnapshotSortingEntity (Maybe SortByOrder)
-sseSortOrder = lens _sseSortOrder (\s a -> s {_sseSortOrder = a})
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseSortOrder :: Lens.Lens' SnapshotSortingEntity (Lude.Maybe SortByOrder)
+sseSortOrder = Lens.lens (sortOrder :: SnapshotSortingEntity -> Lude.Maybe SortByOrder) (\s a -> s {sortOrder = a} :: SnapshotSortingEntity)
+{-# DEPRECATED sseSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | The category for sorting the snapshots.
-sseAttribute :: Lens' SnapshotSortingEntity SnapshotAttributeToSortBy
-sseAttribute = lens _sseAttribute (\s a -> s {_sseAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseAttribute :: Lens.Lens' SnapshotSortingEntity SnapshotAttributeToSortBy
+sseAttribute = Lens.lens (attribute :: SnapshotSortingEntity -> SnapshotAttributeToSortBy) (\s a -> s {attribute = a} :: SnapshotSortingEntity)
+{-# DEPRECATED sseAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
-instance Hashable SnapshotSortingEntity
-
-instance NFData SnapshotSortingEntity
-
-instance ToQuery SnapshotSortingEntity where
+instance Lude.ToQuery SnapshotSortingEntity where
   toQuery SnapshotSortingEntity' {..} =
-    mconcat
-      ["SortOrder" =: _sseSortOrder, "Attribute" =: _sseAttribute]
+    Lude.mconcat
+      ["SortOrder" Lude.=: sortOrder, "Attribute" Lude.=: attribute]

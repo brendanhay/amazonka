@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.PolicyComplianceStatusType where
+module Network.AWS.FMS.Types.PolicyComplianceStatusType
+  ( PolicyComplianceStatusType
+      ( PolicyComplianceStatusType',
+        Compliant,
+        NonCompliant
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PolicyComplianceStatusType
-  = Compliant
-  | NonCompliant
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PolicyComplianceStatusType = PolicyComplianceStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PolicyComplianceStatusType where
-  parser =
-    takeLowerText >>= \case
-      "compliant" -> pure Compliant
-      "non_compliant" -> pure NonCompliant
-      e ->
-        fromTextError $
-          "Failure parsing PolicyComplianceStatusType from value: '" <> e
-            <> "'. Accepted values: compliant, non_compliant"
+pattern Compliant :: PolicyComplianceStatusType
+pattern Compliant = PolicyComplianceStatusType' "COMPLIANT"
 
-instance ToText PolicyComplianceStatusType where
-  toText = \case
-    Compliant -> "COMPLIANT"
-    NonCompliant -> "NON_COMPLIANT"
+pattern NonCompliant :: PolicyComplianceStatusType
+pattern NonCompliant = PolicyComplianceStatusType' "NON_COMPLIANT"
 
-instance Hashable PolicyComplianceStatusType
-
-instance NFData PolicyComplianceStatusType
-
-instance ToByteString PolicyComplianceStatusType
-
-instance ToQuery PolicyComplianceStatusType
-
-instance ToHeader PolicyComplianceStatusType
-
-instance FromJSON PolicyComplianceStatusType where
-  parseJSON = parseJSONText "PolicyComplianceStatusType"
+{-# COMPLETE
+  Compliant,
+  NonCompliant,
+  PolicyComplianceStatusType'
+  #-}

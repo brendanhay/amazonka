@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SecretsManager.Types
-  ( -- * Service Configuration
-    secretsManager,
+  ( -- * Service configuration
+    secretsManagerService,
 
     -- * Errors
 
@@ -22,19 +20,19 @@ module Network.AWS.SecretsManager.Types
     SortOrderType (..),
 
     -- * Filter
-    Filter,
-    filter',
+    Filter (..),
+    mkFilter,
     fValues,
     fKey,
 
     -- * RotationRulesType
-    RotationRulesType,
-    rotationRulesType,
+    RotationRulesType (..),
+    mkRotationRulesType,
     rrtAutomaticallyAfterDays,
 
     -- * SecretListEntry
-    SecretListEntry,
-    secretListEntry,
+    SecretListEntry (..),
+    mkSecretListEntry,
     sleLastChangedDate,
     sleARN,
     sleSecretVersionsToStages,
@@ -52,29 +50,29 @@ module Network.AWS.SecretsManager.Types
     sleTags,
 
     -- * SecretVersionsListEntry
-    SecretVersionsListEntry,
-    secretVersionsListEntry,
+    SecretVersionsListEntry (..),
+    mkSecretVersionsListEntry,
     svleVersionId,
     svleVersionStages,
     svleCreatedDate,
     svleLastAccessedDate,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * ValidationErrorsEntry
-    ValidationErrorsEntry,
-    validationErrorsEntry,
+    ValidationErrorsEntry (..),
+    mkValidationErrorsEntry,
     veeCheckName,
     veeErrorMessage,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SecretsManager.Types.Filter
 import Network.AWS.SecretsManager.Types.FilterNameStringType
 import Network.AWS.SecretsManager.Types.RotationRulesType
@@ -83,46 +81,58 @@ import Network.AWS.SecretsManager.Types.SecretVersionsListEntry
 import Network.AWS.SecretsManager.Types.SortOrderType
 import Network.AWS.SecretsManager.Types.Tag
 import Network.AWS.SecretsManager.Types.ValidationErrorsEntry
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-10-17@ of the Amazon Secrets Manager SDK configuration.
-secretsManager :: Service
-secretsManager =
-  Service
-    { _svcAbbrev = "SecretsManager",
-      _svcSigner = v4,
-      _svcPrefix = "secretsmanager",
-      _svcVersion = "2017-10-17",
-      _svcEndpoint = defaultEndpoint secretsManager,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "SecretsManager",
-      _svcRetry = retry
+secretsManagerService :: Lude.Service
+secretsManagerService =
+  Lude.Service
+    { Lude._svcAbbrev = "SecretsManager",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "secretsmanager",
+      Lude._svcVersion = "2017-10-17",
+      Lude._svcEndpoint = Lude.defaultEndpoint secretsManagerService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "SecretsManager",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

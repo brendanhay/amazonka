@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.CSVHeaderOption where
+module Network.AWS.Glue.Types.CSVHeaderOption
+  ( CSVHeaderOption
+      ( CSVHeaderOption',
+        Absent,
+        Present,
+        Unknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CSVHeaderOption
-  = Absent
-  | Present
-  | Unknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CSVHeaderOption = CSVHeaderOption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CSVHeaderOption where
-  parser =
-    takeLowerText >>= \case
-      "absent" -> pure Absent
-      "present" -> pure Present
-      "unknown" -> pure Unknown
-      e ->
-        fromTextError $
-          "Failure parsing CSVHeaderOption from value: '" <> e
-            <> "'. Accepted values: absent, present, unknown"
+pattern Absent :: CSVHeaderOption
+pattern Absent = CSVHeaderOption' "ABSENT"
 
-instance ToText CSVHeaderOption where
-  toText = \case
-    Absent -> "ABSENT"
-    Present -> "PRESENT"
-    Unknown -> "UNKNOWN"
+pattern Present :: CSVHeaderOption
+pattern Present = CSVHeaderOption' "PRESENT"
 
-instance Hashable CSVHeaderOption
+pattern Unknown :: CSVHeaderOption
+pattern Unknown = CSVHeaderOption' "UNKNOWN"
 
-instance NFData CSVHeaderOption
-
-instance ToByteString CSVHeaderOption
-
-instance ToQuery CSVHeaderOption
-
-instance ToHeader CSVHeaderOption
-
-instance ToJSON CSVHeaderOption where
-  toJSON = toJSONText
-
-instance FromJSON CSVHeaderOption where
-  parseJSON = parseJSONText "CSVHeaderOption"
+{-# COMPLETE
+  Absent,
+  Present,
+  Unknown,
+  CSVHeaderOption'
+  #-}

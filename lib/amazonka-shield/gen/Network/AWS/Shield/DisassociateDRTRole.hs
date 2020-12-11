@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,100 @@
 --
 -- Removes the DDoS Response Team's (DRT) access to your AWS account.
 --
---
 -- To make a @DisassociateDRTRole@ request, you must be subscribed to the <https://aws.amazon.com/premiumsupport/business-support/ Business Support plan> or the <https://aws.amazon.com/premiumsupport/enterprise-support/ Enterprise Support plan> . However, if you are not subscribed to one of these support plans, but had been previously and had granted the DRT access to your account, you can submit a @DisassociateDRTRole@ request to remove this access.
 module Network.AWS.Shield.DisassociateDRTRole
-  ( -- * Creating a Request
-    disassociateDRTRole,
-    DisassociateDRTRole,
+  ( -- * Creating a request
+    DisassociateDRTRole (..),
+    mkDisassociateDRTRole,
 
-    -- * Destructuring the Response
-    disassociateDRTRoleResponse,
-    DisassociateDRTRoleResponse,
+    -- * Destructuring the response
+    DisassociateDRTRoleResponse (..),
+    mkDisassociateDRTRoleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrtrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'disassociateDRTRole' smart constructor.
+-- | /See:/ 'mkDisassociateDRTRole' smart constructor.
 data DisassociateDRTRole = DisassociateDRTRole'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateDRTRole' with the minimum fields required to make a request.
-disassociateDRTRole ::
+mkDisassociateDRTRole ::
   DisassociateDRTRole
-disassociateDRTRole = DisassociateDRTRole'
+mkDisassociateDRTRole = DisassociateDRTRole'
 
-instance AWSRequest DisassociateDRTRole where
+instance Lude.AWSRequest DisassociateDRTRole where
   type Rs DisassociateDRTRole = DisassociateDRTRoleResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveEmpty
-      (\s h x -> DisassociateDRTRoleResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DisassociateDRTRoleResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DisassociateDRTRole
-
-instance NFData DisassociateDRTRole
-
-instance ToHeaders DisassociateDRTRole where
+instance Lude.ToHeaders DisassociateDRTRole where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.DisassociateDRTRole" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.DisassociateDRTRole" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateDRTRole where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DisassociateDRTRole where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DisassociateDRTRole where
-  toPath = const "/"
+instance Lude.ToPath DisassociateDRTRole where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateDRTRole where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateDRTRole where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateDRTRoleResponse' smart constructor.
+-- | /See:/ 'mkDisassociateDRTRoleResponse' smart constructor.
 newtype DisassociateDRTRoleResponse = DisassociateDRTRoleResponse'
-  { _ddrtrrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateDRTRoleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrtrrsResponseStatus' - -- | The response status code.
-disassociateDRTRoleResponse ::
-  -- | 'ddrtrrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateDRTRoleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateDRTRoleResponse
-disassociateDRTRoleResponse pResponseStatus_ =
-  DisassociateDRTRoleResponse'
-    { _ddrtrrsResponseStatus =
-        pResponseStatus_
-    }
+mkDisassociateDRTRoleResponse pResponseStatus_ =
+  DisassociateDRTRoleResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ddrtrrsResponseStatus :: Lens' DisassociateDRTRoleResponse Int
-ddrtrrsResponseStatus = lens _ddrtrrsResponseStatus (\s a -> s {_ddrtrrsResponseStatus = a})
-
-instance NFData DisassociateDRTRoleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrtrrsResponseStatus :: Lens.Lens' DisassociateDRTRoleResponse Lude.Int
+ddrtrrsResponseStatus = Lens.lens (responseStatus :: DisassociateDRTRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateDRTRoleResponse)
+{-# DEPRECATED ddrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

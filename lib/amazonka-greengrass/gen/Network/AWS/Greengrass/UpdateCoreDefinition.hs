@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,130 @@
 --
 -- Updates a core definition.
 module Network.AWS.Greengrass.UpdateCoreDefinition
-  ( -- * Creating a Request
-    updateCoreDefinition,
-    UpdateCoreDefinition,
+  ( -- * Creating a request
+    UpdateCoreDefinition (..),
+    mkUpdateCoreDefinition,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ucdName,
     ucdCoreDefinitionId,
 
-    -- * Destructuring the Response
-    updateCoreDefinitionResponse,
-    UpdateCoreDefinitionResponse,
+    -- * Destructuring the response
+    UpdateCoreDefinitionResponse (..),
+    mkUpdateCoreDefinitionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ursResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateCoreDefinition' smart constructor.
+-- | /See:/ 'mkUpdateCoreDefinition' smart constructor.
 data UpdateCoreDefinition = UpdateCoreDefinition'
-  { _ucdName ::
-      !(Maybe Text),
-    _ucdCoreDefinitionId :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    coreDefinitionId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCoreDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucdName' - The name of the definition.
---
--- * 'ucdCoreDefinitionId' - The ID of the core definition.
-updateCoreDefinition ::
-  -- | 'ucdCoreDefinitionId'
-  Text ->
+-- * 'coreDefinitionId' - The ID of the core definition.
+-- * 'name' - The name of the definition.
+mkUpdateCoreDefinition ::
+  -- | 'coreDefinitionId'
+  Lude.Text ->
   UpdateCoreDefinition
-updateCoreDefinition pCoreDefinitionId_ =
+mkUpdateCoreDefinition pCoreDefinitionId_ =
   UpdateCoreDefinition'
-    { _ucdName = Nothing,
-      _ucdCoreDefinitionId = pCoreDefinitionId_
+    { name = Lude.Nothing,
+      coreDefinitionId = pCoreDefinitionId_
     }
 
 -- | The name of the definition.
-ucdName :: Lens' UpdateCoreDefinition (Maybe Text)
-ucdName = lens _ucdName (\s a -> s {_ucdName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucdName :: Lens.Lens' UpdateCoreDefinition (Lude.Maybe Lude.Text)
+ucdName = Lens.lens (name :: UpdateCoreDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateCoreDefinition)
+{-# DEPRECATED ucdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the core definition.
-ucdCoreDefinitionId :: Lens' UpdateCoreDefinition Text
-ucdCoreDefinitionId = lens _ucdCoreDefinitionId (\s a -> s {_ucdCoreDefinitionId = a})
+--
+-- /Note:/ Consider using 'coreDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucdCoreDefinitionId :: Lens.Lens' UpdateCoreDefinition Lude.Text
+ucdCoreDefinitionId = Lens.lens (coreDefinitionId :: UpdateCoreDefinition -> Lude.Text) (\s a -> s {coreDefinitionId = a} :: UpdateCoreDefinition)
+{-# DEPRECATED ucdCoreDefinitionId "Use generic-lens or generic-optics with 'coreDefinitionId' instead." #-}
 
-instance AWSRequest UpdateCoreDefinition where
+instance Lude.AWSRequest UpdateCoreDefinition where
   type Rs UpdateCoreDefinition = UpdateCoreDefinitionResponse
-  request = putJSON greengrass
+  request = Req.putJSON greengrassService
   response =
-    receiveEmpty
-      (\s h x -> UpdateCoreDefinitionResponse' <$> (pure (fromEnum s)))
-
-instance Hashable UpdateCoreDefinition
-
-instance NFData UpdateCoreDefinition
-
-instance ToHeaders UpdateCoreDefinition where
-  toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateCoreDefinitionResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance ToJSON UpdateCoreDefinition where
+instance Lude.ToHeaders UpdateCoreDefinition where
+  toHeaders =
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
+      )
+
+instance Lude.ToJSON UpdateCoreDefinition where
   toJSON UpdateCoreDefinition' {..} =
-    object (catMaybes [("Name" .=) <$> _ucdName])
+    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
 
-instance ToPath UpdateCoreDefinition where
+instance Lude.ToPath UpdateCoreDefinition where
   toPath UpdateCoreDefinition' {..} =
-    mconcat
-      ["/greengrass/definition/cores/", toBS _ucdCoreDefinitionId]
+    Lude.mconcat
+      ["/greengrass/definition/cores/", Lude.toBS coreDefinitionId]
 
-instance ToQuery UpdateCoreDefinition where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateCoreDefinition where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateCoreDefinitionResponse' smart constructor.
+-- | /See:/ 'mkUpdateCoreDefinitionResponse' smart constructor.
 newtype UpdateCoreDefinitionResponse = UpdateCoreDefinitionResponse'
-  { _ursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCoreDefinitionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ursResponseStatus' - -- | The response status code.
-updateCoreDefinitionResponse ::
-  -- | 'ursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateCoreDefinitionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateCoreDefinitionResponse
-updateCoreDefinitionResponse pResponseStatus_ =
-  UpdateCoreDefinitionResponse'
-    { _ursResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateCoreDefinitionResponse pResponseStatus_ =
+  UpdateCoreDefinitionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ursResponseStatus :: Lens' UpdateCoreDefinitionResponse Int
-ursResponseStatus = lens _ursResponseStatus (\s a -> s {_ursResponseStatus = a})
-
-instance NFData UpdateCoreDefinitionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursResponseStatus :: Lens.Lens' UpdateCoreDefinitionResponse Lude.Int
+ursResponseStatus = Lens.lens (responseStatus :: UpdateCoreDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCoreDefinitionResponse)
+{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

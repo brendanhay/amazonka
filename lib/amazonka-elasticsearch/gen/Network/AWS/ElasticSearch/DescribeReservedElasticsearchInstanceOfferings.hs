@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists available reserved Elasticsearch instance offerings.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
-  ( -- * Creating a Request
-    describeReservedElasticsearchInstanceOfferings,
-    DescribeReservedElasticsearchInstanceOfferings,
+  ( -- * Creating a request
+    DescribeReservedElasticsearchInstanceOfferings (..),
+    mkDescribeReservedElasticsearchInstanceOfferings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dreioReservedElasticsearchInstanceOfferingId,
     dreioNextToken,
     dreioMaxResults,
 
-    -- * Destructuring the Response
-    describeReservedElasticsearchInstanceOfferingsResponse,
-    DescribeReservedElasticsearchInstanceOfferingsResponse,
+    -- * Destructuring the response
+    DescribeReservedElasticsearchInstanceOfferingsResponse (..),
+    mkDescribeReservedElasticsearchInstanceOfferingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dreiorsReservedElasticsearchInstanceOfferings,
     dreiorsNextToken,
     dreiorsResponseStatus,
@@ -44,171 +37,187 @@ module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
 where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Container for parameters to @DescribeReservedElasticsearchInstanceOfferings@
 --
---
---
--- /See:/ 'describeReservedElasticsearchInstanceOfferings' smart constructor.
+-- /See:/ 'mkDescribeReservedElasticsearchInstanceOfferings' smart constructor.
 data DescribeReservedElasticsearchInstanceOfferings = DescribeReservedElasticsearchInstanceOfferings'
-  { _dreioReservedElasticsearchInstanceOfferingId ::
-      !( Maybe
-           Text
-       ),
-    _dreioNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dreioMaxResults ::
-      !( Maybe
-           Int
-       )
+  { reservedElasticsearchInstanceOfferingId ::
+      Lude.Maybe
+        Lude.Text,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    maxResults ::
+      Lude.Maybe
+        Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeReservedElasticsearchInstanceOfferings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dreioReservedElasticsearchInstanceOfferingId' - The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.
---
--- * 'dreioNextToken' - NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
---
--- * 'dreioMaxResults' - Set this value to limit the number of results returned. If not specified, defaults to 100.
-describeReservedElasticsearchInstanceOfferings ::
+-- * 'maxResults' - Set this value to limit the number of results returned. If not specified, defaults to 100.
+-- * 'nextToken' - NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
+-- * 'reservedElasticsearchInstanceOfferingId' - The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.
+mkDescribeReservedElasticsearchInstanceOfferings ::
   DescribeReservedElasticsearchInstanceOfferings
-describeReservedElasticsearchInstanceOfferings =
+mkDescribeReservedElasticsearchInstanceOfferings =
   DescribeReservedElasticsearchInstanceOfferings'
-    { _dreioReservedElasticsearchInstanceOfferingId =
-        Nothing,
-      _dreioNextToken = Nothing,
-      _dreioMaxResults = Nothing
+    { reservedElasticsearchInstanceOfferingId =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.
-dreioReservedElasticsearchInstanceOfferingId :: Lens' DescribeReservedElasticsearchInstanceOfferings (Maybe Text)
-dreioReservedElasticsearchInstanceOfferingId = lens _dreioReservedElasticsearchInstanceOfferingId (\s a -> s {_dreioReservedElasticsearchInstanceOfferingId = a})
+--
+-- /Note:/ Consider using 'reservedElasticsearchInstanceOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreioReservedElasticsearchInstanceOfferingId :: Lens.Lens' DescribeReservedElasticsearchInstanceOfferings (Lude.Maybe Lude.Text)
+dreioReservedElasticsearchInstanceOfferingId = Lens.lens (reservedElasticsearchInstanceOfferingId :: DescribeReservedElasticsearchInstanceOfferings -> Lude.Maybe Lude.Text) (\s a -> s {reservedElasticsearchInstanceOfferingId = a} :: DescribeReservedElasticsearchInstanceOfferings)
+{-# DEPRECATED dreioReservedElasticsearchInstanceOfferingId "Use generic-lens or generic-optics with 'reservedElasticsearchInstanceOfferingId' instead." #-}
 
 -- | NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
-dreioNextToken :: Lens' DescribeReservedElasticsearchInstanceOfferings (Maybe Text)
-dreioNextToken = lens _dreioNextToken (\s a -> s {_dreioNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreioNextToken :: Lens.Lens' DescribeReservedElasticsearchInstanceOfferings (Lude.Maybe Lude.Text)
+dreioNextToken = Lens.lens (nextToken :: DescribeReservedElasticsearchInstanceOfferings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeReservedElasticsearchInstanceOfferings)
+{-# DEPRECATED dreioNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Set this value to limit the number of results returned. If not specified, defaults to 100.
-dreioMaxResults :: Lens' DescribeReservedElasticsearchInstanceOfferings (Maybe Int)
-dreioMaxResults = lens _dreioMaxResults (\s a -> s {_dreioMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreioMaxResults :: Lens.Lens' DescribeReservedElasticsearchInstanceOfferings (Lude.Maybe Lude.Int)
+dreioMaxResults = Lens.lens (maxResults :: DescribeReservedElasticsearchInstanceOfferings -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeReservedElasticsearchInstanceOfferings)
+{-# DEPRECATED dreioMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager DescribeReservedElasticsearchInstanceOfferings where
+instance
+  Page.AWSPager
+    DescribeReservedElasticsearchInstanceOfferings
+  where
   page rq rs
-    | stop (rs ^. dreiorsNextToken) = Nothing
-    | stop (rs ^. dreiorsReservedElasticsearchInstanceOfferings) =
-      Nothing
-    | otherwise = Just $ rq & dreioNextToken .~ rs ^. dreiorsNextToken
+    | Page.stop (rs Lens.^. dreiorsNextToken) = Lude.Nothing
+    | Page.stop
+        (rs Lens.^. dreiorsReservedElasticsearchInstanceOfferings) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dreioNextToken Lens..~ rs Lens.^. dreiorsNextToken
 
-instance AWSRequest DescribeReservedElasticsearchInstanceOfferings where
+instance
+  Lude.AWSRequest
+    DescribeReservedElasticsearchInstanceOfferings
+  where
   type
     Rs DescribeReservedElasticsearchInstanceOfferings =
       DescribeReservedElasticsearchInstanceOfferingsResponse
-  request = get elasticSearch
+  request = Req.get elasticSearchService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeReservedElasticsearchInstanceOfferingsResponse'
-            <$> (x .?> "ReservedElasticsearchInstanceOfferings" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "ReservedElasticsearchInstanceOfferings"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeReservedElasticsearchInstanceOfferings
+instance
+  Lude.ToHeaders
+    DescribeReservedElasticsearchInstanceOfferings
+  where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeReservedElasticsearchInstanceOfferings
+instance Lude.ToPath DescribeReservedElasticsearchInstanceOfferings where
+  toPath = Lude.const "/2015-01-01/es/reservedInstanceOfferings"
 
-instance ToHeaders DescribeReservedElasticsearchInstanceOfferings where
-  toHeaders = const mempty
-
-instance ToPath DescribeReservedElasticsearchInstanceOfferings where
-  toPath = const "/2015-01-01/es/reservedInstanceOfferings"
-
-instance ToQuery DescribeReservedElasticsearchInstanceOfferings where
+instance
+  Lude.ToQuery
+    DescribeReservedElasticsearchInstanceOfferings
+  where
   toQuery DescribeReservedElasticsearchInstanceOfferings' {..} =
-    mconcat
-      [ "offeringId" =: _dreioReservedElasticsearchInstanceOfferingId,
-        "nextToken" =: _dreioNextToken,
-        "maxResults" =: _dreioMaxResults
+    Lude.mconcat
+      [ "offeringId" Lude.=: reservedElasticsearchInstanceOfferingId,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
 -- | Container for results from @DescribeReservedElasticsearchInstanceOfferings@
 --
---
---
--- /See:/ 'describeReservedElasticsearchInstanceOfferingsResponse' smart constructor.
+-- /See:/ 'mkDescribeReservedElasticsearchInstanceOfferingsResponse' smart constructor.
 data DescribeReservedElasticsearchInstanceOfferingsResponse = DescribeReservedElasticsearchInstanceOfferingsResponse'
-  { _dreiorsReservedElasticsearchInstanceOfferings ::
-      !( Maybe
-           [ReservedElasticsearchInstanceOffering]
-       ),
-    _dreiorsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dreiorsResponseStatus ::
-      !Int
+  { reservedElasticsearchInstanceOfferings ::
+      Lude.Maybe
+        [ReservedElasticsearchInstanceOffering],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeReservedElasticsearchInstanceOfferingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dreiorsReservedElasticsearchInstanceOfferings' - List of reserved Elasticsearch instance offerings
---
--- * 'dreiorsNextToken' - Provides an identifier to allow retrieval of paginated results.
---
--- * 'dreiorsResponseStatus' - -- | The response status code.
-describeReservedElasticsearchInstanceOfferingsResponse ::
-  -- | 'dreiorsResponseStatus'
-  Int ->
+-- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
+-- * 'reservedElasticsearchInstanceOfferings' - List of reserved Elasticsearch instance offerings
+-- * 'responseStatus' - The response status code.
+mkDescribeReservedElasticsearchInstanceOfferingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeReservedElasticsearchInstanceOfferingsResponse
-describeReservedElasticsearchInstanceOfferingsResponse
+mkDescribeReservedElasticsearchInstanceOfferingsResponse
   pResponseStatus_ =
     DescribeReservedElasticsearchInstanceOfferingsResponse'
-      { _dreiorsReservedElasticsearchInstanceOfferings =
-          Nothing,
-        _dreiorsNextToken = Nothing,
-        _dreiorsResponseStatus =
-          pResponseStatus_
+      { reservedElasticsearchInstanceOfferings =
+          Lude.Nothing,
+        nextToken = Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | List of reserved Elasticsearch instance offerings
-dreiorsReservedElasticsearchInstanceOfferings :: Lens' DescribeReservedElasticsearchInstanceOfferingsResponse [ReservedElasticsearchInstanceOffering]
-dreiorsReservedElasticsearchInstanceOfferings = lens _dreiorsReservedElasticsearchInstanceOfferings (\s a -> s {_dreiorsReservedElasticsearchInstanceOfferings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'reservedElasticsearchInstanceOfferings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreiorsReservedElasticsearchInstanceOfferings :: Lens.Lens' DescribeReservedElasticsearchInstanceOfferingsResponse (Lude.Maybe [ReservedElasticsearchInstanceOffering])
+dreiorsReservedElasticsearchInstanceOfferings = Lens.lens (reservedElasticsearchInstanceOfferings :: DescribeReservedElasticsearchInstanceOfferingsResponse -> Lude.Maybe [ReservedElasticsearchInstanceOffering]) (\s a -> s {reservedElasticsearchInstanceOfferings = a} :: DescribeReservedElasticsearchInstanceOfferingsResponse)
+{-# DEPRECATED dreiorsReservedElasticsearchInstanceOfferings "Use generic-lens or generic-optics with 'reservedElasticsearchInstanceOfferings' instead." #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dreiorsNextToken :: Lens' DescribeReservedElasticsearchInstanceOfferingsResponse (Maybe Text)
-dreiorsNextToken = lens _dreiorsNextToken (\s a -> s {_dreiorsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreiorsNextToken :: Lens.Lens' DescribeReservedElasticsearchInstanceOfferingsResponse (Lude.Maybe Lude.Text)
+dreiorsNextToken = Lens.lens (nextToken :: DescribeReservedElasticsearchInstanceOfferingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeReservedElasticsearchInstanceOfferingsResponse)
+{-# DEPRECATED dreiorsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dreiorsResponseStatus :: Lens' DescribeReservedElasticsearchInstanceOfferingsResponse Int
-dreiorsResponseStatus = lens _dreiorsResponseStatus (\s a -> s {_dreiorsResponseStatus = a})
-
-instance
-  NFData
-    DescribeReservedElasticsearchInstanceOfferingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreiorsResponseStatus :: Lens.Lens' DescribeReservedElasticsearchInstanceOfferingsResponse Lude.Int
+dreiorsResponseStatus = Lens.lens (responseStatus :: DescribeReservedElasticsearchInstanceOfferingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReservedElasticsearchInstanceOfferingsResponse)
+{-# DEPRECATED dreiorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

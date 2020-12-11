@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,24 @@
 --
 -- Describe an existing 'Authorizers' resource.
 --
---
 -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
 --
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetAuthorizers
-  ( -- * Creating a Request
-    getAuthorizers,
-    GetAuthorizers,
+  ( -- * Creating a request
+    GetAuthorizers (..),
+    mkGetAuthorizers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaLimit,
     gaPosition,
     gaRestAPIId,
 
-    -- * Destructuring the Response
-    getAuthorizersResponse,
-    GetAuthorizersResponse,
+    -- * Destructuring the response
+    GetAuthorizersResponse (..),
+    mkGetAuthorizersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     garsItems,
     garsPosition,
     garsResponseStatus,
@@ -45,134 +39,155 @@ module Network.AWS.APIGateway.GetAuthorizers
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to describe an existing 'Authorizers' resource.
 --
---
---
--- /See:/ 'getAuthorizers' smart constructor.
+-- /See:/ 'mkGetAuthorizers' smart constructor.
 data GetAuthorizers = GetAuthorizers'
-  { _gaLimit :: !(Maybe Int),
-    _gaPosition :: !(Maybe Text),
-    _gaRestAPIId :: !Text
+  { limit :: Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text,
+    restAPIId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAuthorizers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gaPosition' - The current pagination position in the paged result set.
---
--- * 'gaRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-getAuthorizers ::
-  -- | 'gaRestAPIId'
-  Text ->
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'position' - The current pagination position in the paged result set.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetAuthorizers ::
+  -- | 'restAPIId'
+  Lude.Text ->
   GetAuthorizers
-getAuthorizers pRestAPIId_ =
+mkGetAuthorizers pRestAPIId_ =
   GetAuthorizers'
-    { _gaLimit = Nothing,
-      _gaPosition = Nothing,
-      _gaRestAPIId = pRestAPIId_
+    { limit = Lude.Nothing,
+      position = Lude.Nothing,
+      restAPIId = pRestAPIId_
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gaLimit :: Lens' GetAuthorizers (Maybe Int)
-gaLimit = lens _gaLimit (\s a -> s {_gaLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaLimit :: Lens.Lens' GetAuthorizers (Lude.Maybe Lude.Int)
+gaLimit = Lens.lens (limit :: GetAuthorizers -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetAuthorizers)
+{-# DEPRECATED gaLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gaPosition :: Lens' GetAuthorizers (Maybe Text)
-gaPosition = lens _gaPosition (\s a -> s {_gaPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaPosition :: Lens.Lens' GetAuthorizers (Lude.Maybe Lude.Text)
+gaPosition = Lens.lens (position :: GetAuthorizers -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetAuthorizers)
+{-# DEPRECATED gaPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-gaRestAPIId :: Lens' GetAuthorizers Text
-gaRestAPIId = lens _gaRestAPIId (\s a -> s {_gaRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaRestAPIId :: Lens.Lens' GetAuthorizers Lude.Text
+gaRestAPIId = Lens.lens (restAPIId :: GetAuthorizers -> Lude.Text) (\s a -> s {restAPIId = a} :: GetAuthorizers)
+{-# DEPRECATED gaRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
-instance AWSPager GetAuthorizers where
+instance Page.AWSPager GetAuthorizers where
   page rq rs
-    | stop (rs ^. garsPosition) = Nothing
-    | stop (rs ^. garsItems) = Nothing
-    | otherwise = Just $ rq & gaPosition .~ rs ^. garsPosition
+    | Page.stop (rs Lens.^. garsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. garsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gaPosition Lens..~ rs Lens.^. garsPosition
 
-instance AWSRequest GetAuthorizers where
+instance Lude.AWSRequest GetAuthorizers where
   type Rs GetAuthorizers = GetAuthorizersResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAuthorizersResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAuthorizers
-
-instance NFData GetAuthorizers
-
-instance ToHeaders GetAuthorizers where
+instance Lude.ToHeaders GetAuthorizers where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetAuthorizers where
+instance Lude.ToPath GetAuthorizers where
   toPath GetAuthorizers' {..} =
-    mconcat ["/restapis/", toBS _gaRestAPIId, "/authorizers"]
+    Lude.mconcat ["/restapis/", Lude.toBS restAPIId, "/authorizers"]
 
-instance ToQuery GetAuthorizers where
+instance Lude.ToQuery GetAuthorizers where
   toQuery GetAuthorizers' {..} =
-    mconcat ["limit" =: _gaLimit, "position" =: _gaPosition]
+    Lude.mconcat ["limit" Lude.=: limit, "position" Lude.=: position]
 
 -- | Represents a collection of 'Authorizer' resources.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html Use Lambda Function as Authorizer> <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html Use Cognito User Pool as Authorizer>
 --
--- /See:/ 'getAuthorizersResponse' smart constructor.
+-- /See:/ 'mkGetAuthorizersResponse' smart constructor.
 data GetAuthorizersResponse = GetAuthorizersResponse'
-  { _garsItems ::
-      !(Maybe [Authorizer]),
-    _garsPosition :: !(Maybe Text),
-    _garsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [Authorizer],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAuthorizersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garsItems' - The current page of elements from this collection.
---
--- * 'garsPosition' - Undocumented member.
---
--- * 'garsResponseStatus' - -- | The response status code.
-getAuthorizersResponse ::
-  -- | 'garsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetAuthorizersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAuthorizersResponse
-getAuthorizersResponse pResponseStatus_ =
+mkGetAuthorizersResponse pResponseStatus_ =
   GetAuthorizersResponse'
-    { _garsItems = Nothing,
-      _garsPosition = Nothing,
-      _garsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-garsItems :: Lens' GetAuthorizersResponse [Authorizer]
-garsItems = lens _garsItems (\s a -> s {_garsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsItems :: Lens.Lens' GetAuthorizersResponse (Lude.Maybe [Authorizer])
+garsItems = Lens.lens (items :: GetAuthorizersResponse -> Lude.Maybe [Authorizer]) (\s a -> s {items = a} :: GetAuthorizersResponse)
+{-# DEPRECATED garsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-garsPosition :: Lens' GetAuthorizersResponse (Maybe Text)
-garsPosition = lens _garsPosition (\s a -> s {_garsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsPosition :: Lens.Lens' GetAuthorizersResponse (Lude.Maybe Lude.Text)
+garsPosition = Lens.lens (position :: GetAuthorizersResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetAuthorizersResponse)
+{-# DEPRECATED garsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-garsResponseStatus :: Lens' GetAuthorizersResponse Int
-garsResponseStatus = lens _garsResponseStatus (\s a -> s {_garsResponseStatus = a})
-
-instance NFData GetAuthorizersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsResponseStatus :: Lens.Lens' GetAuthorizersResponse Lude.Int
+garsResponseStatus = Lens.lens (responseStatus :: GetAuthorizersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAuthorizersResponse)
+{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

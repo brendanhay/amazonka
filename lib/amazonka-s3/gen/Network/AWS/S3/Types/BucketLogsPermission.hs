@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.BucketLogsPermission where
+module Network.AWS.S3.Types.BucketLogsPermission
+  ( BucketLogsPermission
+      ( BucketLogsPermission',
+        FullControl,
+        Read,
+        Write
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data BucketLogsPermission
-  = FullControl
-  | Read
-  | Write
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BucketLogsPermission = BucketLogsPermission' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BucketLogsPermission where
-  parser =
-    takeLowerText >>= \case
-      "full_control" -> pure FullControl
-      "read" -> pure Read
-      "write" -> pure Write
-      e ->
-        fromTextError $
-          "Failure parsing BucketLogsPermission from value: '" <> e
-            <> "'. Accepted values: full_control, read, write"
+pattern FullControl :: BucketLogsPermission
+pattern FullControl = BucketLogsPermission' "FULL_CONTROL"
 
-instance ToText BucketLogsPermission where
-  toText = \case
-    FullControl -> "FULL_CONTROL"
-    Read -> "READ"
-    Write -> "WRITE"
+pattern Read :: BucketLogsPermission
+pattern Read = BucketLogsPermission' "READ"
 
-instance Hashable BucketLogsPermission
+pattern Write :: BucketLogsPermission
+pattern Write = BucketLogsPermission' "WRITE"
 
-instance NFData BucketLogsPermission
-
-instance ToByteString BucketLogsPermission
-
-instance ToQuery BucketLogsPermission
-
-instance ToHeader BucketLogsPermission
-
-instance FromXML BucketLogsPermission where
-  parseXML = parseXMLText "BucketLogsPermission"
-
-instance ToXML BucketLogsPermission where
-  toXML = toXMLText
+{-# COMPLETE
+  FullControl,
+  Read,
+  Write,
+  BucketLogsPermission'
+  #-}

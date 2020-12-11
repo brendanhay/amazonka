@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrainingInputMode where
+module Network.AWS.SageMaker.Types.TrainingInputMode
+  ( TrainingInputMode
+      ( TrainingInputMode',
+        File,
+        Pipe
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TrainingInputMode
-  = File
-  | Pipe
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TrainingInputMode = TrainingInputMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TrainingInputMode where
-  parser =
-    takeLowerText >>= \case
-      "file" -> pure File
-      "pipe" -> pure Pipe
-      e ->
-        fromTextError $
-          "Failure parsing TrainingInputMode from value: '" <> e
-            <> "'. Accepted values: file, pipe"
+pattern File :: TrainingInputMode
+pattern File = TrainingInputMode' "File"
 
-instance ToText TrainingInputMode where
-  toText = \case
-    File -> "File"
-    Pipe -> "Pipe"
+pattern Pipe :: TrainingInputMode
+pattern Pipe = TrainingInputMode' "Pipe"
 
-instance Hashable TrainingInputMode
-
-instance NFData TrainingInputMode
-
-instance ToByteString TrainingInputMode
-
-instance ToQuery TrainingInputMode
-
-instance ToHeader TrainingInputMode
-
-instance ToJSON TrainingInputMode where
-  toJSON = toJSONText
-
-instance FromJSON TrainingInputMode where
-  parseJSON = parseJSONText "TrainingInputMode"
+{-# COMPLETE
+  File,
+  Pipe,
+  TrainingInputMode'
+  #-}

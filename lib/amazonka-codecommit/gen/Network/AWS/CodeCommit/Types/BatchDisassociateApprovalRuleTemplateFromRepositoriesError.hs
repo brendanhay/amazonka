@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.BatchDisassociateApprovalRuleTemplateFromRepositoriesError where
+module Network.AWS.CodeCommit.Types.BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+  ( BatchDisassociateApprovalRuleTemplateFromRepositoriesError (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError,
+
+    -- * Lenses
+    bdartfreErrorCode,
+    bdartfreRepositoryName,
+    bdartfreErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about errors in a BatchDisassociateApprovalRuleTemplateFromRepositories operation.
 --
---
---
--- /See:/ 'batchDisassociateApprovalRuleTemplateFromRepositoriesError' smart constructor.
+-- /See:/ 'mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError' smart constructor.
 data BatchDisassociateApprovalRuleTemplateFromRepositoriesError = BatchDisassociateApprovalRuleTemplateFromRepositoriesError'
-  { _bdartfreErrorCode ::
-      !( Maybe
-           Text
-       ),
-    _bdartfreRepositoryName ::
-      !( Maybe
-           Text
-       ),
-    _bdartfreErrorMessage ::
-      !( Maybe
-           Text
-       )
+  { errorCode ::
+      Lude.Maybe
+        Lude.Text,
+    repositoryName ::
+      Lude.Maybe
+        Lude.Text,
+    errorMessage ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'BatchDisassociateApprovalRuleTemplateFromRepositoriesError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdartfreErrorCode' - An error code that specifies whether the repository name was not valid or not found.
---
--- * 'bdartfreRepositoryName' - The name of the repository where the association with the template was not able to be removed.
---
--- * 'bdartfreErrorMessage' - An error message that provides details about why the repository name was either not found or not valid.
-batchDisassociateApprovalRuleTemplateFromRepositoriesError ::
+-- * 'errorCode' - An error code that specifies whether the repository name was not valid or not found.
+-- * 'errorMessage' - An error message that provides details about why the repository name was either not found or not valid.
+-- * 'repositoryName' - The name of the repository where the association with the template was not able to be removed.
+mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError ::
   BatchDisassociateApprovalRuleTemplateFromRepositoriesError
-batchDisassociateApprovalRuleTemplateFromRepositoriesError =
+mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError =
   BatchDisassociateApprovalRuleTemplateFromRepositoriesError'
-    { _bdartfreErrorCode =
-        Nothing,
-      _bdartfreRepositoryName = Nothing,
-      _bdartfreErrorMessage = Nothing
+    { errorCode =
+        Lude.Nothing,
+      repositoryName = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | An error code that specifies whether the repository name was not valid or not found.
-bdartfreErrorCode :: Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesError (Maybe Text)
-bdartfreErrorCode = lens _bdartfreErrorCode (\s a -> s {_bdartfreErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdartfreErrorCode :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesError (Lude.Maybe Lude.Text)
+bdartfreErrorCode = Lens.lens (errorCode :: BatchDisassociateApprovalRuleTemplateFromRepositoriesError -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesError)
+{-# DEPRECATED bdartfreErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The name of the repository where the association with the template was not able to be removed.
-bdartfreRepositoryName :: Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesError (Maybe Text)
-bdartfreRepositoryName = lens _bdartfreRepositoryName (\s a -> s {_bdartfreRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdartfreRepositoryName :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesError (Lude.Maybe Lude.Text)
+bdartfreRepositoryName = Lens.lens (repositoryName :: BatchDisassociateApprovalRuleTemplateFromRepositoriesError -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesError)
+{-# DEPRECATED bdartfreRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | An error message that provides details about why the repository name was either not found or not valid.
-bdartfreErrorMessage :: Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesError (Maybe Text)
-bdartfreErrorMessage = lens _bdartfreErrorMessage (\s a -> s {_bdartfreErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdartfreErrorMessage :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesError (Lude.Maybe Lude.Text)
+bdartfreErrorMessage = Lens.lens (errorMessage :: BatchDisassociateApprovalRuleTemplateFromRepositoriesError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesError)
+{-# DEPRECATED bdartfreErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 instance
-  FromJSON
+  Lude.FromJSON
     BatchDisassociateApprovalRuleTemplateFromRepositoriesError
   where
   parseJSON =
-    withObject
+    Lude.withObject
       "BatchDisassociateApprovalRuleTemplateFromRepositoriesError"
       ( \x ->
           BatchDisassociateApprovalRuleTemplateFromRepositoriesError'
-            <$> (x .:? "errorCode")
-            <*> (x .:? "repositoryName")
-            <*> (x .:? "errorMessage")
+            Lude.<$> (x Lude..:? "errorCode") Lude.<*> (x Lude..:? "repositoryName")
+              Lude.<*> (x Lude..:? "errorMessage")
       )
-
-instance
-  Hashable
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesError
-
-instance
-  NFData
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesError

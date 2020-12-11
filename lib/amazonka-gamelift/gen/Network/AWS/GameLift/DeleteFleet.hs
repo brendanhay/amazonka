@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,116 @@
 --
 -- Deletes everything related to a fleet. Before deleting a fleet, you must set the fleet's desired capacity to zero. See 'UpdateFleetCapacity' .
 --
---
 -- If the fleet being deleted has a VPC peering connection, you first need to get a valid authorization (good for 24 hours) by calling 'CreateVpcPeeringAuthorization' . You do not need to explicitly delete the VPC peering connection--this is done as part of the delete fleet process.
---
 -- This operation removes the fleet and its resources. Once a fleet is deleted, you can no longer use any of the resource in that fleet.
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
---
 -- __Related operations__
 --
 --     * 'CreateFleet'
 --
+--
 --     * 'ListFleets'
+--
 --
 --     * 'DeleteFleet'
 --
+--
 --     * 'DescribeFleetAttributes'
+--
 --
 --     * 'UpdateFleetAttributes'
 --
+--
 --     * 'StartFleetActions' or 'StopFleetActions'
 module Network.AWS.GameLift.DeleteFleet
-  ( -- * Creating a Request
-    deleteFleet,
-    DeleteFleet,
+  ( -- * Creating a request
+    DeleteFleet (..),
+    mkDeleteFleet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfFleetId,
 
-    -- * Destructuring the Response
-    deleteFleetResponse,
-    DeleteFleetResponse,
+    -- * Destructuring the response
+    DeleteFleetResponse (..),
+    mkDeleteFleetResponse,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'deleteFleet' smart constructor.
-newtype DeleteFleet = DeleteFleet' {_dfFleetId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteFleet' smart constructor.
+newtype DeleteFleet = DeleteFleet' {fleetId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFleet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfFleetId' - A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
-deleteFleet ::
-  -- | 'dfFleetId'
-  Text ->
+-- * 'fleetId' - A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
+mkDeleteFleet ::
+  -- | 'fleetId'
+  Lude.Text ->
   DeleteFleet
-deleteFleet pFleetId_ = DeleteFleet' {_dfFleetId = pFleetId_}
+mkDeleteFleet pFleetId_ = DeleteFleet' {fleetId = pFleetId_}
 
 -- | A unique identifier for a fleet to be deleted. You can use either the fleet ID or ARN value.
-dfFleetId :: Lens' DeleteFleet Text
-dfFleetId = lens _dfFleetId (\s a -> s {_dfFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfFleetId :: Lens.Lens' DeleteFleet Lude.Text
+dfFleetId = Lens.lens (fleetId :: DeleteFleet -> Lude.Text) (\s a -> s {fleetId = a} :: DeleteFleet)
+{-# DEPRECATED dfFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance AWSRequest DeleteFleet where
+instance Lude.AWSRequest DeleteFleet where
   type Rs DeleteFleet = DeleteFleetResponse
-  request = postJSON gameLift
-  response = receiveNull DeleteFleetResponse'
+  request = Req.postJSON gameLiftService
+  response = Res.receiveNull DeleteFleetResponse'
 
-instance Hashable DeleteFleet
-
-instance NFData DeleteFleet
-
-instance ToHeaders DeleteFleet where
+instance Lude.ToHeaders DeleteFleet where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.DeleteFleet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.DeleteFleet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteFleet where
+instance Lude.ToJSON DeleteFleet where
   toJSON DeleteFleet' {..} =
-    object (catMaybes [Just ("FleetId" .= _dfFleetId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("FleetId" Lude..= fleetId)])
 
-instance ToPath DeleteFleet where
-  toPath = const "/"
+instance Lude.ToPath DeleteFleet where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteFleet where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteFleet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteFleetResponse' smart constructor.
+-- | /See:/ 'mkDeleteFleetResponse' smart constructor.
 data DeleteFleetResponse = DeleteFleetResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFleetResponse' with the minimum fields required to make a request.
-deleteFleetResponse ::
+mkDeleteFleetResponse ::
   DeleteFleetResponse
-deleteFleetResponse = DeleteFleetResponse'
-
-instance NFData DeleteFleetResponse
+mkDeleteFleetResponse = DeleteFleetResponse'

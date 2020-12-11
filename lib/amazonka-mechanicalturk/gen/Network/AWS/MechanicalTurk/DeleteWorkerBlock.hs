@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,133 @@
 --
 -- The @DeleteWorkerBlock@ operation allows you to reinstate a blocked Worker to work on your HITs. This operation reverses the effects of the CreateWorkerBlock operation. You need the Worker ID to use this operation. If the Worker ID is missing or invalid, this operation fails and returns the message “WorkerId is invalid.” If the specified Worker is not blocked, this operation returns successfully.
 module Network.AWS.MechanicalTurk.DeleteWorkerBlock
-  ( -- * Creating a Request
-    deleteWorkerBlock,
-    DeleteWorkerBlock,
+  ( -- * Creating a request
+    DeleteWorkerBlock (..),
+    mkDeleteWorkerBlock,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dwbReason,
     dwbWorkerId,
 
-    -- * Destructuring the Response
-    deleteWorkerBlockResponse,
-    DeleteWorkerBlockResponse,
+    -- * Destructuring the response
+    DeleteWorkerBlockResponse (..),
+    mkDeleteWorkerBlockResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dwbrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteWorkerBlock' smart constructor.
+-- | /See:/ 'mkDeleteWorkerBlock' smart constructor.
 data DeleteWorkerBlock = DeleteWorkerBlock'
-  { _dwbReason ::
-      !(Maybe Text),
-    _dwbWorkerId :: !Text
+  { reason ::
+      Lude.Maybe Lude.Text,
+    workerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkerBlock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwbReason' - A message that explains the reason for unblocking the Worker. The Worker does not see this message.
---
--- * 'dwbWorkerId' - The ID of the Worker to unblock.
-deleteWorkerBlock ::
-  -- | 'dwbWorkerId'
-  Text ->
+-- * 'reason' - A message that explains the reason for unblocking the Worker. The Worker does not see this message.
+-- * 'workerId' - The ID of the Worker to unblock.
+mkDeleteWorkerBlock ::
+  -- | 'workerId'
+  Lude.Text ->
   DeleteWorkerBlock
-deleteWorkerBlock pWorkerId_ =
-  DeleteWorkerBlock'
-    { _dwbReason = Nothing,
-      _dwbWorkerId = pWorkerId_
-    }
+mkDeleteWorkerBlock pWorkerId_ =
+  DeleteWorkerBlock' {reason = Lude.Nothing, workerId = pWorkerId_}
 
 -- | A message that explains the reason for unblocking the Worker. The Worker does not see this message.
-dwbReason :: Lens' DeleteWorkerBlock (Maybe Text)
-dwbReason = lens _dwbReason (\s a -> s {_dwbReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwbReason :: Lens.Lens' DeleteWorkerBlock (Lude.Maybe Lude.Text)
+dwbReason = Lens.lens (reason :: DeleteWorkerBlock -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: DeleteWorkerBlock)
+{-# DEPRECATED dwbReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The ID of the Worker to unblock.
-dwbWorkerId :: Lens' DeleteWorkerBlock Text
-dwbWorkerId = lens _dwbWorkerId (\s a -> s {_dwbWorkerId = a})
+--
+-- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwbWorkerId :: Lens.Lens' DeleteWorkerBlock Lude.Text
+dwbWorkerId = Lens.lens (workerId :: DeleteWorkerBlock -> Lude.Text) (\s a -> s {workerId = a} :: DeleteWorkerBlock)
+{-# DEPRECATED dwbWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
-instance AWSRequest DeleteWorkerBlock where
+instance Lude.AWSRequest DeleteWorkerBlock where
   type Rs DeleteWorkerBlock = DeleteWorkerBlockResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveEmpty
-      (\s h x -> DeleteWorkerBlockResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteWorkerBlockResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteWorkerBlock
-
-instance NFData DeleteWorkerBlock
-
-instance ToHeaders DeleteWorkerBlock where
+instance Lude.ToHeaders DeleteWorkerBlock where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("MTurkRequesterServiceV20170117.DeleteWorkerBlock" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.DeleteWorkerBlock" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteWorkerBlock where
+instance Lude.ToJSON DeleteWorkerBlock where
   toJSON DeleteWorkerBlock' {..} =
-    object
-      ( catMaybes
-          [("Reason" .=) <$> _dwbReason, Just ("WorkerId" .= _dwbWorkerId)]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Reason" Lude..=) Lude.<$> reason,
+            Lude.Just ("WorkerId" Lude..= workerId)
+          ]
       )
 
-instance ToPath DeleteWorkerBlock where
-  toPath = const "/"
+instance Lude.ToPath DeleteWorkerBlock where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteWorkerBlock where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteWorkerBlock where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteWorkerBlockResponse' smart constructor.
+-- | /See:/ 'mkDeleteWorkerBlockResponse' smart constructor.
 newtype DeleteWorkerBlockResponse = DeleteWorkerBlockResponse'
-  { _dwbrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteWorkerBlockResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwbrsResponseStatus' - -- | The response status code.
-deleteWorkerBlockResponse ::
-  -- | 'dwbrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteWorkerBlockResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteWorkerBlockResponse
-deleteWorkerBlockResponse pResponseStatus_ =
-  DeleteWorkerBlockResponse'
-    { _dwbrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteWorkerBlockResponse pResponseStatus_ =
+  DeleteWorkerBlockResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dwbrsResponseStatus :: Lens' DeleteWorkerBlockResponse Int
-dwbrsResponseStatus = lens _dwbrsResponseStatus (\s a -> s {_dwbrsResponseStatus = a})
-
-instance NFData DeleteWorkerBlockResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwbrsResponseStatus :: Lens.Lens' DeleteWorkerBlockResponse Lude.Int
+dwbrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkerBlockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkerBlockResponse)
+{-# DEPRECATED dwbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

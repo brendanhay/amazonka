@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,99 @@
 --
 -- Activates AWS Shield Advanced for an account.
 --
---
 -- When you initally create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period. You can change this by submitting an @UpdateSubscription@ request.
 module Network.AWS.Shield.CreateSubscription
-  ( -- * Creating a Request
-    createSubscription,
-    CreateSubscription,
+  ( -- * Creating a request
+    CreateSubscription (..),
+    mkCreateSubscription,
 
-    -- * Destructuring the Response
-    createSubscriptionResponse,
-    CreateSubscriptionResponse,
+    -- * Destructuring the response
+    CreateSubscriptionResponse (..),
+    mkCreateSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'createSubscription' smart constructor.
+-- | /See:/ 'mkCreateSubscription' smart constructor.
 data CreateSubscription = CreateSubscription'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubscription' with the minimum fields required to make a request.
-createSubscription ::
+mkCreateSubscription ::
   CreateSubscription
-createSubscription = CreateSubscription'
+mkCreateSubscription = CreateSubscription'
 
-instance AWSRequest CreateSubscription where
+instance Lude.AWSRequest CreateSubscription where
   type Rs CreateSubscription = CreateSubscriptionResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveEmpty
-      (\s h x -> CreateSubscriptionResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreateSubscriptionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreateSubscription
-
-instance NFData CreateSubscription
-
-instance ToHeaders CreateSubscription where
+instance Lude.ToHeaders CreateSubscription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.CreateSubscription" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.CreateSubscription" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateSubscription where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON CreateSubscription where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath CreateSubscription where
-  toPath = const "/"
+instance Lude.ToPath CreateSubscription where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSubscription where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createSubscriptionResponse' smart constructor.
+-- | /See:/ 'mkCreateSubscriptionResponse' smart constructor.
 newtype CreateSubscriptionResponse = CreateSubscriptionResponse'
-  { _csrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csrsResponseStatus' - -- | The response status code.
-createSubscriptionResponse ::
-  -- | 'csrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSubscriptionResponse
-createSubscriptionResponse pResponseStatus_ =
-  CreateSubscriptionResponse'
-    { _csrsResponseStatus =
-        pResponseStatus_
-    }
+mkCreateSubscriptionResponse pResponseStatus_ =
+  CreateSubscriptionResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CreateSubscriptionResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\s a -> s {_csrsResponseStatus = a})
-
-instance NFData CreateSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' CreateSubscriptionResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CreateSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSubscriptionResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

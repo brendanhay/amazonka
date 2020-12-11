@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ClusterStateChangeReason where
+module Network.AWS.EMR.Types.ClusterStateChangeReason
+  ( ClusterStateChangeReason (..),
+
+    -- * Smart constructor
+    mkClusterStateChangeReason,
+
+    -- * Lenses
+    cscrCode,
+    cscrMessage,
+  )
+where
 
 import Network.AWS.EMR.Types.ClusterStateChangeReasonCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The reason that the cluster changed to its current state.
 --
---
---
--- /See:/ 'clusterStateChangeReason' smart constructor.
+-- /See:/ 'mkClusterStateChangeReason' smart constructor.
 data ClusterStateChangeReason = ClusterStateChangeReason'
-  { _cscrCode ::
-      !(Maybe ClusterStateChangeReasonCode),
-    _cscrMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe ClusterStateChangeReasonCode,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterStateChangeReason' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cscrCode' - The programmatic code for the state change reason.
---
--- * 'cscrMessage' - The descriptive message for the state change reason.
-clusterStateChangeReason ::
+-- * 'code' - The programmatic code for the state change reason.
+-- * 'message' - The descriptive message for the state change reason.
+mkClusterStateChangeReason ::
   ClusterStateChangeReason
-clusterStateChangeReason =
+mkClusterStateChangeReason =
   ClusterStateChangeReason'
-    { _cscrCode = Nothing,
-      _cscrMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The programmatic code for the state change reason.
-cscrCode :: Lens' ClusterStateChangeReason (Maybe ClusterStateChangeReasonCode)
-cscrCode = lens _cscrCode (\s a -> s {_cscrCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscrCode :: Lens.Lens' ClusterStateChangeReason (Lude.Maybe ClusterStateChangeReasonCode)
+cscrCode = Lens.lens (code :: ClusterStateChangeReason -> Lude.Maybe ClusterStateChangeReasonCode) (\s a -> s {code = a} :: ClusterStateChangeReason)
+{-# DEPRECATED cscrCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The descriptive message for the state change reason.
-cscrMessage :: Lens' ClusterStateChangeReason (Maybe Text)
-cscrMessage = lens _cscrMessage (\s a -> s {_cscrMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscrMessage :: Lens.Lens' ClusterStateChangeReason (Lude.Maybe Lude.Text)
+cscrMessage = Lens.lens (message :: ClusterStateChangeReason -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ClusterStateChangeReason)
+{-# DEPRECATED cscrMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON ClusterStateChangeReason where
+instance Lude.FromJSON ClusterStateChangeReason where
   parseJSON =
-    withObject
+    Lude.withObject
       "ClusterStateChangeReason"
       ( \x ->
-          ClusterStateChangeReason' <$> (x .:? "Code") <*> (x .:? "Message")
+          ClusterStateChangeReason'
+            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable ClusterStateChangeReason
-
-instance NFData ClusterStateChangeReason

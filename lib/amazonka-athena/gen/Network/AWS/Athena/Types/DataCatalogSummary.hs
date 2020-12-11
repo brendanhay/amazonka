@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.DataCatalogSummary where
+module Network.AWS.Athena.Types.DataCatalogSummary
+  ( DataCatalogSummary (..),
+
+    -- * Smart constructor
+    mkDataCatalogSummary,
+
+    -- * Lenses
+    dcsCatalogName,
+    dcsType,
+  )
+where
 
 import Network.AWS.Athena.Types.DataCatalogType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The summary information for the data catalog, which includes its name and type.
 --
---
---
--- /See:/ 'dataCatalogSummary' smart constructor.
+-- /See:/ 'mkDataCatalogSummary' smart constructor.
 data DataCatalogSummary = DataCatalogSummary'
-  { _dcsCatalogName ::
-      !(Maybe Text),
-    _dcsType :: !(Maybe DataCatalogType)
+  { catalogName ::
+      Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe DataCatalogType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataCatalogSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsCatalogName' - The name of the data catalog.
---
--- * 'dcsType' - The data catalog type.
-dataCatalogSummary ::
+-- * 'catalogName' - The name of the data catalog.
+-- * 'type'' - The data catalog type.
+mkDataCatalogSummary ::
   DataCatalogSummary
-dataCatalogSummary =
+mkDataCatalogSummary =
   DataCatalogSummary'
-    { _dcsCatalogName = Nothing,
-      _dcsType = Nothing
+    { catalogName = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The name of the data catalog.
-dcsCatalogName :: Lens' DataCatalogSummary (Maybe Text)
-dcsCatalogName = lens _dcsCatalogName (\s a -> s {_dcsCatalogName = a})
+--
+-- /Note:/ Consider using 'catalogName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsCatalogName :: Lens.Lens' DataCatalogSummary (Lude.Maybe Lude.Text)
+dcsCatalogName = Lens.lens (catalogName :: DataCatalogSummary -> Lude.Maybe Lude.Text) (\s a -> s {catalogName = a} :: DataCatalogSummary)
+{-# DEPRECATED dcsCatalogName "Use generic-lens or generic-optics with 'catalogName' instead." #-}
 
 -- | The data catalog type.
-dcsType :: Lens' DataCatalogSummary (Maybe DataCatalogType)
-dcsType = lens _dcsType (\s a -> s {_dcsType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsType :: Lens.Lens' DataCatalogSummary (Lude.Maybe DataCatalogType)
+dcsType = Lens.lens (type' :: DataCatalogSummary -> Lude.Maybe DataCatalogType) (\s a -> s {type' = a} :: DataCatalogSummary)
+{-# DEPRECATED dcsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON DataCatalogSummary where
+instance Lude.FromJSON DataCatalogSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "DataCatalogSummary"
       ( \x ->
-          DataCatalogSummary' <$> (x .:? "CatalogName") <*> (x .:? "Type")
+          DataCatalogSummary'
+            Lude.<$> (x Lude..:? "CatalogName") Lude.<*> (x Lude..:? "Type")
       )
-
-instance Hashable DataCatalogSummary
-
-instance NFData DataCatalogSummary

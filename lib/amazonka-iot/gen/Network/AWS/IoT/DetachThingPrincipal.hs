@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,126 @@
 --
 -- Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.
 module Network.AWS.IoT.DetachThingPrincipal
-  ( -- * Creating a Request
-    detachThingPrincipal,
-    DetachThingPrincipal,
+  ( -- * Creating a request
+    DetachThingPrincipal (..),
+    mkDetachThingPrincipal,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtpThingName,
     dtpPrincipal,
 
-    -- * Destructuring the Response
-    detachThingPrincipalResponse,
-    DetachThingPrincipalResponse,
+    -- * Destructuring the response
+    DetachThingPrincipalResponse (..),
+    mkDetachThingPrincipalResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtprsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the DetachThingPrincipal operation.
 --
---
---
--- /See:/ 'detachThingPrincipal' smart constructor.
+-- /See:/ 'mkDetachThingPrincipal' smart constructor.
 data DetachThingPrincipal = DetachThingPrincipal'
-  { _dtpThingName ::
-      !Text,
-    _dtpPrincipal :: !Text
+  { thingName ::
+      Lude.Text,
+    principal :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachThingPrincipal' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtpThingName' - The name of the thing.
---
--- * 'dtpPrincipal' - If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
-detachThingPrincipal ::
-  -- | 'dtpThingName'
-  Text ->
-  -- | 'dtpPrincipal'
-  Text ->
+-- * 'principal' - If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
+-- * 'thingName' - The name of the thing.
+mkDetachThingPrincipal ::
+  -- | 'thingName'
+  Lude.Text ->
+  -- | 'principal'
+  Lude.Text ->
   DetachThingPrincipal
-detachThingPrincipal pThingName_ pPrincipal_ =
+mkDetachThingPrincipal pThingName_ pPrincipal_ =
   DetachThingPrincipal'
-    { _dtpThingName = pThingName_,
-      _dtpPrincipal = pPrincipal_
+    { thingName = pThingName_,
+      principal = pPrincipal_
     }
 
 -- | The name of the thing.
-dtpThingName :: Lens' DetachThingPrincipal Text
-dtpThingName = lens _dtpThingName (\s a -> s {_dtpThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtpThingName :: Lens.Lens' DetachThingPrincipal Lude.Text
+dtpThingName = Lens.lens (thingName :: DetachThingPrincipal -> Lude.Text) (\s a -> s {thingName = a} :: DetachThingPrincipal)
+{-# DEPRECATED dtpThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.
-dtpPrincipal :: Lens' DetachThingPrincipal Text
-dtpPrincipal = lens _dtpPrincipal (\s a -> s {_dtpPrincipal = a})
+--
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtpPrincipal :: Lens.Lens' DetachThingPrincipal Lude.Text
+dtpPrincipal = Lens.lens (principal :: DetachThingPrincipal -> Lude.Text) (\s a -> s {principal = a} :: DetachThingPrincipal)
+{-# DEPRECATED dtpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
-instance AWSRequest DetachThingPrincipal where
+instance Lude.AWSRequest DetachThingPrincipal where
   type Rs DetachThingPrincipal = DetachThingPrincipalResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DetachThingPrincipalResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DetachThingPrincipalResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DetachThingPrincipal
-
-instance NFData DetachThingPrincipal
-
-instance ToHeaders DetachThingPrincipal where
+instance Lude.ToHeaders DetachThingPrincipal where
   toHeaders DetachThingPrincipal' {..} =
-    mconcat ["x-amzn-principal" =# _dtpPrincipal]
+    Lude.mconcat ["x-amzn-principal" Lude.=# principal]
 
-instance ToPath DetachThingPrincipal where
+instance Lude.ToPath DetachThingPrincipal where
   toPath DetachThingPrincipal' {..} =
-    mconcat ["/things/", toBS _dtpThingName, "/principals"]
+    Lude.mconcat ["/things/", Lude.toBS thingName, "/principals"]
 
-instance ToQuery DetachThingPrincipal where
-  toQuery = const mempty
+instance Lude.ToQuery DetachThingPrincipal where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output from the DetachThingPrincipal operation.
 --
---
---
--- /See:/ 'detachThingPrincipalResponse' smart constructor.
+-- /See:/ 'mkDetachThingPrincipalResponse' smart constructor.
 newtype DetachThingPrincipalResponse = DetachThingPrincipalResponse'
-  { _dtprsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachThingPrincipalResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtprsResponseStatus' - -- | The response status code.
-detachThingPrincipalResponse ::
-  -- | 'dtprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDetachThingPrincipalResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DetachThingPrincipalResponse
-detachThingPrincipalResponse pResponseStatus_ =
-  DetachThingPrincipalResponse'
-    { _dtprsResponseStatus =
-        pResponseStatus_
-    }
+mkDetachThingPrincipalResponse pResponseStatus_ =
+  DetachThingPrincipalResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dtprsResponseStatus :: Lens' DetachThingPrincipalResponse Int
-dtprsResponseStatus = lens _dtprsResponseStatus (\s a -> s {_dtprsResponseStatus = a})
-
-instance NFData DetachThingPrincipalResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtprsResponseStatus :: Lens.Lens' DetachThingPrincipalResponse Lude.Int
+dtprsResponseStatus = Lens.lens (responseStatus :: DetachThingPrincipalResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachThingPrincipalResponse)
+{-# DEPRECATED dtprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ImageScanningConfiguration where
+module Network.AWS.ECR.Types.ImageScanningConfiguration
+  ( ImageScanningConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkImageScanningConfiguration,
+
+    -- * Lenses
+    iscScanOnPush,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The image scanning configuration for a repository.
 --
---
---
--- /See:/ 'imageScanningConfiguration' smart constructor.
+-- /See:/ 'mkImageScanningConfiguration' smart constructor.
 newtype ImageScanningConfiguration = ImageScanningConfiguration'
-  { _iscScanOnPush ::
-      Maybe Bool
+  { scanOnPush ::
+      Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageScanningConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iscScanOnPush' - The setting that determines whether images are scanned after being pushed to a repository. If set to @true@ , images will be scanned after being pushed. If this parameter is not specified, it will default to @false@ and images will not be scanned unless a scan is manually started with the 'StartImageScan' API.
-imageScanningConfiguration ::
+-- * 'scanOnPush' - The setting that determines whether images are scanned after being pushed to a repository. If set to @true@ , images will be scanned after being pushed. If this parameter is not specified, it will default to @false@ and images will not be scanned unless a scan is manually started with the 'StartImageScan' API.
+mkImageScanningConfiguration ::
   ImageScanningConfiguration
-imageScanningConfiguration =
-  ImageScanningConfiguration' {_iscScanOnPush = Nothing}
+mkImageScanningConfiguration =
+  ImageScanningConfiguration' {scanOnPush = Lude.Nothing}
 
 -- | The setting that determines whether images are scanned after being pushed to a repository. If set to @true@ , images will be scanned after being pushed. If this parameter is not specified, it will default to @false@ and images will not be scanned unless a scan is manually started with the 'StartImageScan' API.
-iscScanOnPush :: Lens' ImageScanningConfiguration (Maybe Bool)
-iscScanOnPush = lens _iscScanOnPush (\s a -> s {_iscScanOnPush = a})
+--
+-- /Note:/ Consider using 'scanOnPush' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscScanOnPush :: Lens.Lens' ImageScanningConfiguration (Lude.Maybe Lude.Bool)
+iscScanOnPush = Lens.lens (scanOnPush :: ImageScanningConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {scanOnPush = a} :: ImageScanningConfiguration)
+{-# DEPRECATED iscScanOnPush "Use generic-lens or generic-optics with 'scanOnPush' instead." #-}
 
-instance FromJSON ImageScanningConfiguration where
+instance Lude.FromJSON ImageScanningConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImageScanningConfiguration"
-      (\x -> ImageScanningConfiguration' <$> (x .:? "scanOnPush"))
+      ( \x ->
+          ImageScanningConfiguration' Lude.<$> (x Lude..:? "scanOnPush")
+      )
 
-instance Hashable ImageScanningConfiguration
-
-instance NFData ImageScanningConfiguration
-
-instance ToJSON ImageScanningConfiguration where
+instance Lude.ToJSON ImageScanningConfiguration where
   toJSON ImageScanningConfiguration' {..} =
-    object (catMaybes [("scanOnPush" .=) <$> _iscScanOnPush])
+    Lude.object
+      (Lude.catMaybes [("scanOnPush" Lude..=) Lude.<$> scanOnPush])

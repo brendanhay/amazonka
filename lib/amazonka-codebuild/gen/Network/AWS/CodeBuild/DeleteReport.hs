@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,112 @@
 --
 -- Deletes a report.
 module Network.AWS.CodeBuild.DeleteReport
-  ( -- * Creating a Request
-    deleteReport,
-    DeleteReport,
+  ( -- * Creating a request
+    DeleteReport (..),
+    mkDeleteReport,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drArn,
 
-    -- * Destructuring the Response
-    deleteReportResponse,
-    DeleteReportResponse,
+    -- * Destructuring the response
+    DeleteReportResponse (..),
+    mkDeleteReportResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteReport' smart constructor.
-newtype DeleteReport = DeleteReport' {_drArn :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteReport' smart constructor.
+newtype DeleteReport = DeleteReport' {arn :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReport' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drArn' - The ARN of the report to delete.
-deleteReport ::
-  -- | 'drArn'
-  Text ->
+-- * 'arn' - The ARN of the report to delete.
+mkDeleteReport ::
+  -- | 'arn'
+  Lude.Text ->
   DeleteReport
-deleteReport pArn_ = DeleteReport' {_drArn = pArn_}
+mkDeleteReport pArn_ = DeleteReport' {arn = pArn_}
 
 -- | The ARN of the report to delete.
-drArn :: Lens' DeleteReport Text
-drArn = lens _drArn (\s a -> s {_drArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drArn :: Lens.Lens' DeleteReport Lude.Text
+drArn = Lens.lens (arn :: DeleteReport -> Lude.Text) (\s a -> s {arn = a} :: DeleteReport)
+{-# DEPRECATED drArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest DeleteReport where
+instance Lude.AWSRequest DeleteReport where
   type Rs DeleteReport = DeleteReportResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveEmpty
-      (\s h x -> DeleteReportResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteReportResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteReport
-
-instance NFData DeleteReport
-
-instance ToHeaders DeleteReport where
+instance Lude.ToHeaders DeleteReport where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.DeleteReport" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.DeleteReport" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteReport where
+instance Lude.ToJSON DeleteReport where
   toJSON DeleteReport' {..} =
-    object (catMaybes [Just ("arn" .= _drArn)])
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath DeleteReport where
-  toPath = const "/"
+instance Lude.ToPath DeleteReport where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteReport where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteReport where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteReportResponse' smart constructor.
+-- | /See:/ 'mkDeleteReportResponse' smart constructor.
 newtype DeleteReportResponse = DeleteReportResponse'
-  { _drrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReportResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drrsResponseStatus' - -- | The response status code.
-deleteReportResponse ::
-  -- | 'drrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteReportResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteReportResponse
-deleteReportResponse pResponseStatus_ =
-  DeleteReportResponse' {_drrsResponseStatus = pResponseStatus_}
+mkDeleteReportResponse pResponseStatus_ =
+  DeleteReportResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drrsResponseStatus :: Lens' DeleteReportResponse Int
-drrsResponseStatus = lens _drrsResponseStatus (\s a -> s {_drrsResponseStatus = a})
-
-instance NFData DeleteReportResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drrsResponseStatus :: Lens.Lens' DeleteReportResponse Lude.Int
+drrsResponseStatus = Lens.lens (responseStatus :: DeleteReportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReportResponse)
+{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

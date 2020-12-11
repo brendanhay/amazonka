@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ExportTaskS3LocationRequest where
+module Network.AWS.EC2.Types.ExportTaskS3LocationRequest
+  ( ExportTaskS3LocationRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkExportTaskS3LocationRequest,
+
+    -- * Lenses
+    etslrS3Prefix,
+    etslrS3Bucket,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the destination for an export image task.
 --
---
---
--- /See:/ 'exportTaskS3LocationRequest' smart constructor.
+-- /See:/ 'mkExportTaskS3LocationRequest' smart constructor.
 data ExportTaskS3LocationRequest = ExportTaskS3LocationRequest'
-  { _etslrS3Prefix ::
-      !(Maybe Text),
-    _etslrS3Bucket :: !Text
+  { s3Prefix ::
+      Lude.Maybe Lude.Text,
+    s3Bucket :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTaskS3LocationRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'etslrS3Prefix' - The prefix (logical hierarchy) in the bucket.
---
--- * 'etslrS3Bucket' - The destination Amazon S3 bucket.
-exportTaskS3LocationRequest ::
-  -- | 'etslrS3Bucket'
-  Text ->
+-- * 's3Bucket' - The destination Amazon S3 bucket.
+-- * 's3Prefix' - The prefix (logical hierarchy) in the bucket.
+mkExportTaskS3LocationRequest ::
+  -- | 's3Bucket'
+  Lude.Text ->
   ExportTaskS3LocationRequest
-exportTaskS3LocationRequest pS3Bucket_ =
+mkExportTaskS3LocationRequest pS3Bucket_ =
   ExportTaskS3LocationRequest'
-    { _etslrS3Prefix = Nothing,
-      _etslrS3Bucket = pS3Bucket_
+    { s3Prefix = Lude.Nothing,
+      s3Bucket = pS3Bucket_
     }
 
 -- | The prefix (logical hierarchy) in the bucket.
-etslrS3Prefix :: Lens' ExportTaskS3LocationRequest (Maybe Text)
-etslrS3Prefix = lens _etslrS3Prefix (\s a -> s {_etslrS3Prefix = a})
+--
+-- /Note:/ Consider using 's3Prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etslrS3Prefix :: Lens.Lens' ExportTaskS3LocationRequest (Lude.Maybe Lude.Text)
+etslrS3Prefix = Lens.lens (s3Prefix :: ExportTaskS3LocationRequest -> Lude.Maybe Lude.Text) (\s a -> s {s3Prefix = a} :: ExportTaskS3LocationRequest)
+{-# DEPRECATED etslrS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
 
 -- | The destination Amazon S3 bucket.
-etslrS3Bucket :: Lens' ExportTaskS3LocationRequest Text
-etslrS3Bucket = lens _etslrS3Bucket (\s a -> s {_etslrS3Bucket = a})
+--
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etslrS3Bucket :: Lens.Lens' ExportTaskS3LocationRequest Lude.Text
+etslrS3Bucket = Lens.lens (s3Bucket :: ExportTaskS3LocationRequest -> Lude.Text) (\s a -> s {s3Bucket = a} :: ExportTaskS3LocationRequest)
+{-# DEPRECATED etslrS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance Hashable ExportTaskS3LocationRequest
-
-instance NFData ExportTaskS3LocationRequest
-
-instance ToQuery ExportTaskS3LocationRequest where
+instance Lude.ToQuery ExportTaskS3LocationRequest where
   toQuery ExportTaskS3LocationRequest' {..} =
-    mconcat
-      ["S3Prefix" =: _etslrS3Prefix, "S3Bucket" =: _etslrS3Bucket]
+    Lude.mconcat
+      ["S3Prefix" Lude.=: s3Prefix, "S3Bucket" Lude.=: s3Bucket]

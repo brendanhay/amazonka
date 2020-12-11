@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization where
+module Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization
+  ( Av1AdaptiveQuantization
+      ( Av1AdaptiveQuantization',
+        High,
+        Higher,
+        Low,
+        Max,
+        Medium,
+        Off
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specify the strength of any adaptive quantization filters that you enable. The value that you choose here applies to Spatial adaptive quantization (spatialAdaptiveQuantization).
-data Av1AdaptiveQuantization
-  = High
-  | Higher
-  | Low
-  | Max
-  | Medium
-  | Off
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Av1AdaptiveQuantization = Av1AdaptiveQuantization' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Av1AdaptiveQuantization where
-  parser =
-    takeLowerText >>= \case
-      "high" -> pure High
-      "higher" -> pure Higher
-      "low" -> pure Low
-      "max" -> pure Max
-      "medium" -> pure Medium
-      "off" -> pure Off
-      e ->
-        fromTextError $
-          "Failure parsing Av1AdaptiveQuantization from value: '" <> e
-            <> "'. Accepted values: high, higher, low, max, medium, off"
+pattern High :: Av1AdaptiveQuantization
+pattern High = Av1AdaptiveQuantization' "HIGH"
 
-instance ToText Av1AdaptiveQuantization where
-  toText = \case
-    High -> "HIGH"
-    Higher -> "HIGHER"
-    Low -> "LOW"
-    Max -> "MAX"
-    Medium -> "MEDIUM"
-    Off -> "OFF"
+pattern Higher :: Av1AdaptiveQuantization
+pattern Higher = Av1AdaptiveQuantization' "HIGHER"
 
-instance Hashable Av1AdaptiveQuantization
+pattern Low :: Av1AdaptiveQuantization
+pattern Low = Av1AdaptiveQuantization' "LOW"
 
-instance NFData Av1AdaptiveQuantization
+pattern Max :: Av1AdaptiveQuantization
+pattern Max = Av1AdaptiveQuantization' "MAX"
 
-instance ToByteString Av1AdaptiveQuantization
+pattern Medium :: Av1AdaptiveQuantization
+pattern Medium = Av1AdaptiveQuantization' "MEDIUM"
 
-instance ToQuery Av1AdaptiveQuantization
+pattern Off :: Av1AdaptiveQuantization
+pattern Off = Av1AdaptiveQuantization' "OFF"
 
-instance ToHeader Av1AdaptiveQuantization
-
-instance ToJSON Av1AdaptiveQuantization where
-  toJSON = toJSONText
-
-instance FromJSON Av1AdaptiveQuantization where
-  parseJSON = parseJSONText "Av1AdaptiveQuantization"
+{-# COMPLETE
+  High,
+  Higher,
+  Low,
+  Max,
+  Medium,
+  Off,
+  Av1AdaptiveQuantization'
+  #-}

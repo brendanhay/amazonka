@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Displays details about an event bus in your account. This can include the external AWS accounts that are permitted to write events to your default event bus, and the associated policy. For custom event buses and partner event buses, it displays the name, ARN, policy, state, and creation time.
 --
---
 -- To enable your account to receive events from other accounts on its default event bus, use 'PutPermission' .
---
 -- For more information about partner event buses, see 'CreateEventBus' .
 module Network.AWS.CloudWatchEvents.DescribeEventBus
-  ( -- * Creating a Request
-    describeEventBus,
-    DescribeEventBus,
+  ( -- * Creating a request
+    DescribeEventBus (..),
+    mkDescribeEventBus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     debName,
 
-    -- * Destructuring the Response
-    describeEventBusResponse,
-    DescribeEventBusResponse,
+    -- * Destructuring the response
+    DescribeEventBusResponse (..),
+    mkDescribeEventBusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     debrsARN,
     debrsName,
     debrsPolicy,
@@ -44,114 +37,132 @@ module Network.AWS.CloudWatchEvents.DescribeEventBus
 where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEventBus' smart constructor.
+-- | /See:/ 'mkDescribeEventBus' smart constructor.
 newtype DescribeEventBus = DescribeEventBus'
-  { _debName ::
-      Maybe Text
+  { name ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventBus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'debName' - The name or ARN of the event bus to show details for. If you omit this, the default event bus is displayed.
-describeEventBus ::
+-- * 'name' - The name or ARN of the event bus to show details for. If you omit this, the default event bus is displayed.
+mkDescribeEventBus ::
   DescribeEventBus
-describeEventBus = DescribeEventBus' {_debName = Nothing}
+mkDescribeEventBus = DescribeEventBus' {name = Lude.Nothing}
 
 -- | The name or ARN of the event bus to show details for. If you omit this, the default event bus is displayed.
-debName :: Lens' DescribeEventBus (Maybe Text)
-debName = lens _debName (\s a -> s {_debName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+debName :: Lens.Lens' DescribeEventBus (Lude.Maybe Lude.Text)
+debName = Lens.lens (name :: DescribeEventBus -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeEventBus)
+{-# DEPRECATED debName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DescribeEventBus where
+instance Lude.AWSRequest DescribeEventBus where
   type Rs DescribeEventBus = DescribeEventBusResponse
-  request = postJSON cloudWatchEvents
+  request = Req.postJSON cloudWatchEventsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEventBusResponse'
-            <$> (x .?> "Arn")
-            <*> (x .?> "Name")
-            <*> (x .?> "Policy")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "Policy")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEventBus
-
-instance NFData DescribeEventBus
-
-instance ToHeaders DescribeEventBus where
+instance Lude.ToHeaders DescribeEventBus where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSEvents.DescribeEventBus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSEvents.DescribeEventBus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEventBus where
+instance Lude.ToJSON DescribeEventBus where
   toJSON DescribeEventBus' {..} =
-    object (catMaybes [("Name" .=) <$> _debName])
+    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
 
-instance ToPath DescribeEventBus where
-  toPath = const "/"
+instance Lude.ToPath DescribeEventBus where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEventBus where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEventBus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEventBusResponse' smart constructor.
+-- | /See:/ 'mkDescribeEventBusResponse' smart constructor.
 data DescribeEventBusResponse = DescribeEventBusResponse'
-  { _debrsARN ::
-      !(Maybe Text),
-    _debrsName :: !(Maybe Text),
-    _debrsPolicy :: !(Maybe Text),
-    _debrsResponseStatus :: !Int
+  { arn ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    policy :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventBusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'debrsARN' - The Amazon Resource Name (ARN) of the account permitted to write events to the current account.
---
--- * 'debrsName' - The name of the event bus. Currently, this is always @default@ .
---
--- * 'debrsPolicy' - The policy that enables the external account to send events to your account.
---
--- * 'debrsResponseStatus' - -- | The response status code.
-describeEventBusResponse ::
-  -- | 'debrsResponseStatus'
-  Int ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the account permitted to write events to the current account.
+-- * 'name' - The name of the event bus. Currently, this is always @default@ .
+-- * 'policy' - The policy that enables the external account to send events to your account.
+-- * 'responseStatus' - The response status code.
+mkDescribeEventBusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEventBusResponse
-describeEventBusResponse pResponseStatus_ =
+mkDescribeEventBusResponse pResponseStatus_ =
   DescribeEventBusResponse'
-    { _debrsARN = Nothing,
-      _debrsName = Nothing,
-      _debrsPolicy = Nothing,
-      _debrsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      policy = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the account permitted to write events to the current account.
-debrsARN :: Lens' DescribeEventBusResponse (Maybe Text)
-debrsARN = lens _debrsARN (\s a -> s {_debrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+debrsARN :: Lens.Lens' DescribeEventBusResponse (Lude.Maybe Lude.Text)
+debrsARN = Lens.lens (arn :: DescribeEventBusResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeEventBusResponse)
+{-# DEPRECATED debrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the event bus. Currently, this is always @default@ .
-debrsName :: Lens' DescribeEventBusResponse (Maybe Text)
-debrsName = lens _debrsName (\s a -> s {_debrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+debrsName :: Lens.Lens' DescribeEventBusResponse (Lude.Maybe Lude.Text)
+debrsName = Lens.lens (name :: DescribeEventBusResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeEventBusResponse)
+{-# DEPRECATED debrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The policy that enables the external account to send events to your account.
-debrsPolicy :: Lens' DescribeEventBusResponse (Maybe Text)
-debrsPolicy = lens _debrsPolicy (\s a -> s {_debrsPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+debrsPolicy :: Lens.Lens' DescribeEventBusResponse (Lude.Maybe Lude.Text)
+debrsPolicy = Lens.lens (policy :: DescribeEventBusResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: DescribeEventBusResponse)
+{-# DEPRECATED debrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | -- | The response status code.
-debrsResponseStatus :: Lens' DescribeEventBusResponse Int
-debrsResponseStatus = lens _debrsResponseStatus (\s a -> s {_debrsResponseStatus = a})
-
-instance NFData DescribeEventBusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+debrsResponseStatus :: Lens.Lens' DescribeEventBusResponse Lude.Int
+debrsResponseStatus = Lens.lens (responseStatus :: DescribeEventBusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventBusResponse)
+{-# DEPRECATED debrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

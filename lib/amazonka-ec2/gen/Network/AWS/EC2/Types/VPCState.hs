@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPCState where
+module Network.AWS.EC2.Types.VPCState
+  ( VPCState
+      ( VPCState',
+        VPCSAvailable,
+        VPCSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VPCState
-  = VPCSAvailable
-  | VPCSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VPCState = VPCState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VPCState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure VPCSAvailable
-      "pending" -> pure VPCSPending
-      e ->
-        fromTextError $
-          "Failure parsing VPCState from value: '" <> e
-            <> "'. Accepted values: available, pending"
+pattern VPCSAvailable :: VPCState
+pattern VPCSAvailable = VPCState' "available"
 
-instance ToText VPCState where
-  toText = \case
-    VPCSAvailable -> "available"
-    VPCSPending -> "pending"
+pattern VPCSPending :: VPCState
+pattern VPCSPending = VPCState' "pending"
 
-instance Hashable VPCState
-
-instance NFData VPCState
-
-instance ToByteString VPCState
-
-instance ToQuery VPCState
-
-instance ToHeader VPCState
-
-instance FromXML VPCState where
-  parseXML = parseXMLText "VPCState"
+{-# COMPLETE
+  VPCSAvailable,
+  VPCSPending,
+  VPCState'
+  #-}

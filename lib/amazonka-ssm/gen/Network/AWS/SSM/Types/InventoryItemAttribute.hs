@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.InventoryItemAttribute where
+module Network.AWS.SSM.Types.InventoryItemAttribute
+  ( InventoryItemAttribute (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInventoryItemAttribute,
+
+    -- * Lenses
+    iiaName,
+    iiaDataType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.InventoryAttributeDataType
 
 -- | Attributes are the entries within the inventory item content. It contains name and value.
 --
---
---
--- /See:/ 'inventoryItemAttribute' smart constructor.
+-- /See:/ 'mkInventoryItemAttribute' smart constructor.
 data InventoryItemAttribute = InventoryItemAttribute'
-  { _iiaName ::
-      !Text,
-    _iiaDataType :: !InventoryAttributeDataType
+  { name ::
+      Lude.Text,
+    dataType :: InventoryAttributeDataType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryItemAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iiaName' - Name of the inventory item attribute.
---
--- * 'iiaDataType' - The data type of the inventory item attribute.
-inventoryItemAttribute ::
-  -- | 'iiaName'
-  Text ->
-  -- | 'iiaDataType'
+-- * 'dataType' - The data type of the inventory item attribute.
+-- * 'name' - Name of the inventory item attribute.
+mkInventoryItemAttribute ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'dataType'
   InventoryAttributeDataType ->
   InventoryItemAttribute
-inventoryItemAttribute pName_ pDataType_ =
-  InventoryItemAttribute'
-    { _iiaName = pName_,
-      _iiaDataType = pDataType_
-    }
+mkInventoryItemAttribute pName_ pDataType_ =
+  InventoryItemAttribute' {name = pName_, dataType = pDataType_}
 
 -- | Name of the inventory item attribute.
-iiaName :: Lens' InventoryItemAttribute Text
-iiaName = lens _iiaName (\s a -> s {_iiaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiaName :: Lens.Lens' InventoryItemAttribute Lude.Text
+iiaName = Lens.lens (name :: InventoryItemAttribute -> Lude.Text) (\s a -> s {name = a} :: InventoryItemAttribute)
+{-# DEPRECATED iiaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The data type of the inventory item attribute.
-iiaDataType :: Lens' InventoryItemAttribute InventoryAttributeDataType
-iiaDataType = lens _iiaDataType (\s a -> s {_iiaDataType = a})
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiaDataType :: Lens.Lens' InventoryItemAttribute InventoryAttributeDataType
+iiaDataType = Lens.lens (dataType :: InventoryItemAttribute -> InventoryAttributeDataType) (\s a -> s {dataType = a} :: InventoryItemAttribute)
+{-# DEPRECATED iiaDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
-instance FromJSON InventoryItemAttribute where
+instance Lude.FromJSON InventoryItemAttribute where
   parseJSON =
-    withObject
+    Lude.withObject
       "InventoryItemAttribute"
       ( \x ->
-          InventoryItemAttribute' <$> (x .: "Name") <*> (x .: "DataType")
+          InventoryItemAttribute'
+            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "DataType")
       )
-
-instance Hashable InventoryItemAttribute
-
-instance NFData InventoryItemAttribute

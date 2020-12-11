@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SMS.Types.ConnectorStatus where
+module Network.AWS.SMS.Types.ConnectorStatus
+  ( ConnectorStatus
+      ( ConnectorStatus',
+        Healthy,
+        Unhealthy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConnectorStatus
-  = Healthy
-  | Unhealthy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConnectorStatus = ConnectorStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConnectorStatus where
-  parser =
-    takeLowerText >>= \case
-      "healthy" -> pure Healthy
-      "unhealthy" -> pure Unhealthy
-      e ->
-        fromTextError $
-          "Failure parsing ConnectorStatus from value: '" <> e
-            <> "'. Accepted values: healthy, unhealthy"
+pattern Healthy :: ConnectorStatus
+pattern Healthy = ConnectorStatus' "HEALTHY"
 
-instance ToText ConnectorStatus where
-  toText = \case
-    Healthy -> "HEALTHY"
-    Unhealthy -> "UNHEALTHY"
+pattern Unhealthy :: ConnectorStatus
+pattern Unhealthy = ConnectorStatus' "UNHEALTHY"
 
-instance Hashable ConnectorStatus
-
-instance NFData ConnectorStatus
-
-instance ToByteString ConnectorStatus
-
-instance ToQuery ConnectorStatus
-
-instance ToHeader ConnectorStatus
-
-instance FromJSON ConnectorStatus where
-  parseJSON = parseJSONText "ConnectorStatus"
+{-# COMPLETE
+  Healthy,
+  Unhealthy,
+  ConnectorStatus'
+  #-}

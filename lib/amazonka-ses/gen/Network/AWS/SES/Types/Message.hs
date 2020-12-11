@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.Message where
+module Network.AWS.SES.Types.Message
+  ( Message (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMessage,
+
+    -- * Lenses
+    mSubject,
+    mBody,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.Body
 import Network.AWS.SES.Types.Content
 
 -- | Represents the message to be sent, composed of a subject and a body.
 --
---
---
--- /See:/ 'message' smart constructor.
-data Message = Message' {_mSubject :: !Content, _mBody :: !Body}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkMessage' smart constructor.
+data Message = Message' {subject :: Content, body :: Body}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mSubject' - The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
---
--- * 'mBody' - The message body.
-message ::
-  -- | 'mSubject'
+-- * 'body' - The message body.
+-- * 'subject' - The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
+mkMessage ::
+  -- | 'subject'
   Content ->
-  -- | 'mBody'
+  -- | 'body'
   Body ->
   Message
-message pSubject_ pBody_ =
-  Message' {_mSubject = pSubject_, _mBody = pBody_}
+mkMessage pSubject_ pBody_ =
+  Message' {subject = pSubject_, body = pBody_}
 
 -- | The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
-mSubject :: Lens' Message Content
-mSubject = lens _mSubject (\s a -> s {_mSubject = a})
+--
+-- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mSubject :: Lens.Lens' Message Content
+mSubject = Lens.lens (subject :: Message -> Content) (\s a -> s {subject = a} :: Message)
+{-# DEPRECATED mSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The message body.
-mBody :: Lens' Message Body
-mBody = lens _mBody (\s a -> s {_mBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mBody :: Lens.Lens' Message Body
+mBody = Lens.lens (body :: Message -> Body) (\s a -> s {body = a} :: Message)
+{-# DEPRECATED mBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
-instance Hashable Message
-
-instance NFData Message
-
-instance ToQuery Message where
+instance Lude.ToQuery Message where
   toQuery Message' {..} =
-    mconcat ["Subject" =: _mSubject, "Body" =: _mBody]
+    Lude.mconcat ["Subject" Lude.=: subject, "Body" Lude.=: body]

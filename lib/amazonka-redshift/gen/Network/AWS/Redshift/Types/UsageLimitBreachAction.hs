@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Redshift.Types.UsageLimitBreachAction where
+module Network.AWS.Redshift.Types.UsageLimitBreachAction
+  ( UsageLimitBreachAction
+      ( UsageLimitBreachAction',
+        Disable,
+        EmitMetric,
+        Log
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Internal
 
-data UsageLimitBreachAction
-  = Disable
-  | EmitMetric
-  | Log
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UsageLimitBreachAction = UsageLimitBreachAction' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UsageLimitBreachAction where
-  parser =
-    takeLowerText >>= \case
-      "disable" -> pure Disable
-      "emit-metric" -> pure EmitMetric
-      "log" -> pure Log
-      e ->
-        fromTextError $
-          "Failure parsing UsageLimitBreachAction from value: '" <> e
-            <> "'. Accepted values: disable, emit-metric, log"
+pattern Disable :: UsageLimitBreachAction
+pattern Disable = UsageLimitBreachAction' "disable"
 
-instance ToText UsageLimitBreachAction where
-  toText = \case
-    Disable -> "disable"
-    EmitMetric -> "emit-metric"
-    Log -> "log"
+pattern EmitMetric :: UsageLimitBreachAction
+pattern EmitMetric = UsageLimitBreachAction' "emit-metric"
 
-instance Hashable UsageLimitBreachAction
+pattern Log :: UsageLimitBreachAction
+pattern Log = UsageLimitBreachAction' "log"
 
-instance NFData UsageLimitBreachAction
-
-instance ToByteString UsageLimitBreachAction
-
-instance ToQuery UsageLimitBreachAction
-
-instance ToHeader UsageLimitBreachAction
-
-instance FromXML UsageLimitBreachAction where
-  parseXML = parseXMLText "UsageLimitBreachAction"
+{-# COMPLETE
+  Disable,
+  EmitMetric,
+  Log,
+  UsageLimitBreachAction'
+  #-}

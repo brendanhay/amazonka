@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ModelPackageStatusDetails where
+module Network.AWS.SageMaker.Types.ModelPackageStatusDetails
+  ( ModelPackageStatusDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkModelPackageStatusDetails,
+
+    -- * Lenses
+    mpsdImageScanStatuses,
+    mpsdValidationStatuses,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ModelPackageStatusItem
 
 -- | Specifies the validation and image scan statuses of the model package.
 --
---
---
--- /See:/ 'modelPackageStatusDetails' smart constructor.
+-- /See:/ 'mkModelPackageStatusDetails' smart constructor.
 data ModelPackageStatusDetails = ModelPackageStatusDetails'
-  { _mpsdImageScanStatuses ::
-      !(Maybe [ModelPackageStatusItem]),
-    _mpsdValidationStatuses ::
-      ![ModelPackageStatusItem]
+  { imageScanStatuses ::
+      Lude.Maybe [ModelPackageStatusItem],
+    validationStatuses ::
+      [ModelPackageStatusItem]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelPackageStatusDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mpsdImageScanStatuses' - The status of the scan of the Docker image container for the model package.
---
--- * 'mpsdValidationStatuses' - The validation status of the model package.
-modelPackageStatusDetails ::
+-- * 'imageScanStatuses' - The status of the scan of the Docker image container for the model package.
+-- * 'validationStatuses' - The validation status of the model package.
+mkModelPackageStatusDetails ::
   ModelPackageStatusDetails
-modelPackageStatusDetails =
+mkModelPackageStatusDetails =
   ModelPackageStatusDetails'
-    { _mpsdImageScanStatuses = Nothing,
-      _mpsdValidationStatuses = mempty
+    { imageScanStatuses = Lude.Nothing,
+      validationStatuses = Lude.mempty
     }
 
 -- | The status of the scan of the Docker image container for the model package.
-mpsdImageScanStatuses :: Lens' ModelPackageStatusDetails [ModelPackageStatusItem]
-mpsdImageScanStatuses = lens _mpsdImageScanStatuses (\s a -> s {_mpsdImageScanStatuses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'imageScanStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsdImageScanStatuses :: Lens.Lens' ModelPackageStatusDetails (Lude.Maybe [ModelPackageStatusItem])
+mpsdImageScanStatuses = Lens.lens (imageScanStatuses :: ModelPackageStatusDetails -> Lude.Maybe [ModelPackageStatusItem]) (\s a -> s {imageScanStatuses = a} :: ModelPackageStatusDetails)
+{-# DEPRECATED mpsdImageScanStatuses "Use generic-lens or generic-optics with 'imageScanStatuses' instead." #-}
 
 -- | The validation status of the model package.
-mpsdValidationStatuses :: Lens' ModelPackageStatusDetails [ModelPackageStatusItem]
-mpsdValidationStatuses = lens _mpsdValidationStatuses (\s a -> s {_mpsdValidationStatuses = a}) . _Coerce
+--
+-- /Note:/ Consider using 'validationStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsdValidationStatuses :: Lens.Lens' ModelPackageStatusDetails [ModelPackageStatusItem]
+mpsdValidationStatuses = Lens.lens (validationStatuses :: ModelPackageStatusDetails -> [ModelPackageStatusItem]) (\s a -> s {validationStatuses = a} :: ModelPackageStatusDetails)
+{-# DEPRECATED mpsdValidationStatuses "Use generic-lens or generic-optics with 'validationStatuses' instead." #-}
 
-instance FromJSON ModelPackageStatusDetails where
+instance Lude.FromJSON ModelPackageStatusDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ModelPackageStatusDetails"
       ( \x ->
           ModelPackageStatusDetails'
-            <$> (x .:? "ImageScanStatuses" .!= mempty)
-            <*> (x .:? "ValidationStatuses" .!= mempty)
+            Lude.<$> (x Lude..:? "ImageScanStatuses" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ValidationStatuses" Lude..!= Lude.mempty)
       )
-
-instance Hashable ModelPackageStatusDetails
-
-instance NFData ModelPackageStatusDetails

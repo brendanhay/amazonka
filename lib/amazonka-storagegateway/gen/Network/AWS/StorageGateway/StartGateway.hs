@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,134 @@
 --
 -- Starts a gateway that you previously shut down (see 'ShutdownGateway' ). After the gateway starts, you can then make other API calls, your applications can read from or write to the gateway's storage volumes and you will be able to take snapshot backups.
 --
---
 -- To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway in your request.
 module Network.AWS.StorageGateway.StartGateway
-  ( -- * Creating a Request
-    startGateway,
-    StartGateway,
+  ( -- * Creating a request
+    StartGateway (..),
+    mkStartGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sgGatewayARN,
 
-    -- * Destructuring the Response
-    startGatewayResponse,
-    StartGatewayResponse,
+    -- * Destructuring the response
+    StartGatewayResponse (..),
+    mkStartGatewayResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sgrsGatewayARN,
     sgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway to start.
 --
---
---
--- /See:/ 'startGateway' smart constructor.
-newtype StartGateway = StartGateway' {_sgGatewayARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkStartGateway' smart constructor.
+newtype StartGateway = StartGateway' {gatewayARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgGatewayARN' - Undocumented member.
-startGateway ::
-  -- | 'sgGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+mkStartGateway ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   StartGateway
-startGateway pGatewayARN_ =
-  StartGateway' {_sgGatewayARN = pGatewayARN_}
+mkStartGateway pGatewayARN_ =
+  StartGateway' {gatewayARN = pGatewayARN_}
 
--- | Undocumented member.
-sgGatewayARN :: Lens' StartGateway Text
-sgGatewayARN = lens _sgGatewayARN (\s a -> s {_sgGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgGatewayARN :: Lens.Lens' StartGateway Lude.Text
+sgGatewayARN = Lens.lens (gatewayARN :: StartGateway -> Lude.Text) (\s a -> s {gatewayARN = a} :: StartGateway)
+{-# DEPRECATED sgGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest StartGateway where
+instance Lude.AWSRequest StartGateway where
   type Rs StartGateway = StartGatewayResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartGatewayResponse'
-            <$> (x .?> "GatewayARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartGateway
-
-instance NFData StartGateway
-
-instance ToHeaders StartGateway where
+instance Lude.ToHeaders StartGateway where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.StartGateway" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.StartGateway" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartGateway where
+instance Lude.ToJSON StartGateway where
   toJSON StartGateway' {..} =
-    object (catMaybes [Just ("GatewayARN" .= _sgGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
 
-instance ToPath StartGateway where
-  toPath = const "/"
+instance Lude.ToPath StartGateway where
+  toPath = Lude.const "/"
 
-instance ToQuery StartGateway where
-  toQuery = const mempty
+instance Lude.ToQuery StartGateway where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway that was restarted.
 --
---
---
--- /See:/ 'startGatewayResponse' smart constructor.
+-- /See:/ 'mkStartGatewayResponse' smart constructor.
 data StartGatewayResponse = StartGatewayResponse'
-  { _sgrsGatewayARN ::
-      !(Maybe Text),
-    _sgrsResponseStatus :: !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sgrsGatewayARN' - Undocumented member.
---
--- * 'sgrsResponseStatus' - -- | The response status code.
-startGatewayResponse ::
-  -- | 'sgrsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkStartGatewayResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartGatewayResponse
-startGatewayResponse pResponseStatus_ =
+mkStartGatewayResponse pResponseStatus_ =
   StartGatewayResponse'
-    { _sgrsGatewayARN = Nothing,
-      _sgrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-sgrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
-sgrsGatewayARN = lens _sgrsGatewayARN (\s a -> s {_sgrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrsGatewayARN :: Lens.Lens' StartGatewayResponse (Lude.Maybe Lude.Text)
+sgrsGatewayARN = Lens.lens (gatewayARN :: StartGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: StartGatewayResponse)
+{-# DEPRECATED sgrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | -- | The response status code.
-sgrsResponseStatus :: Lens' StartGatewayResponse Int
-sgrsResponseStatus = lens _sgrsResponseStatus (\s a -> s {_sgrsResponseStatus = a})
-
-instance NFData StartGatewayResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgrsResponseStatus :: Lens.Lens' StartGatewayResponse Lude.Int
+sgrsResponseStatus = Lens.lens (responseStatus :: StartGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartGatewayResponse)
+{-# DEPRECATED sgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

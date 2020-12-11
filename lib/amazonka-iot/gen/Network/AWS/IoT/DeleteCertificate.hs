@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,93 +14,101 @@
 --
 -- Deletes the specified certificate.
 --
---
 -- A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the 'DetachPrincipalPolicy' API to detach all policies. Next, use the 'UpdateCertificate' API to set the certificate to the INACTIVE status.
 module Network.AWS.IoT.DeleteCertificate
-  ( -- * Creating a Request
-    deleteCertificate,
-    DeleteCertificate,
+  ( -- * Creating a request
+    DeleteCertificate (..),
+    mkDeleteCertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcForceDelete,
     dcCertificateId,
 
-    -- * Destructuring the Response
-    deleteCertificateResponse,
-    DeleteCertificateResponse,
+    -- * Destructuring the response
+    DeleteCertificateResponse (..),
+    mkDeleteCertificateResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the DeleteCertificate operation.
 --
---
---
--- /See:/ 'deleteCertificate' smart constructor.
+-- /See:/ 'mkDeleteCertificate' smart constructor.
 data DeleteCertificate = DeleteCertificate'
-  { _dcForceDelete ::
-      !(Maybe Bool),
-    _dcCertificateId :: !Text
+  { forceDelete ::
+      Lude.Maybe Lude.Bool,
+    certificateId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcForceDelete' - Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.
---
--- * 'dcCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-deleteCertificate ::
-  -- | 'dcCertificateId'
-  Text ->
+-- * 'certificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+-- * 'forceDelete' - Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.
+mkDeleteCertificate ::
+  -- | 'certificateId'
+  Lude.Text ->
   DeleteCertificate
-deleteCertificate pCertificateId_ =
+mkDeleteCertificate pCertificateId_ =
   DeleteCertificate'
-    { _dcForceDelete = Nothing,
-      _dcCertificateId = pCertificateId_
+    { forceDelete = Lude.Nothing,
+      certificateId = pCertificateId_
     }
 
 -- | Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.
-dcForceDelete :: Lens' DeleteCertificate (Maybe Bool)
-dcForceDelete = lens _dcForceDelete (\s a -> s {_dcForceDelete = a})
+--
+-- /Note:/ Consider using 'forceDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcForceDelete :: Lens.Lens' DeleteCertificate (Lude.Maybe Lude.Bool)
+dcForceDelete = Lens.lens (forceDelete :: DeleteCertificate -> Lude.Maybe Lude.Bool) (\s a -> s {forceDelete = a} :: DeleteCertificate)
+{-# DEPRECATED dcForceDelete "Use generic-lens or generic-optics with 'forceDelete' instead." #-}
 
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-dcCertificateId :: Lens' DeleteCertificate Text
-dcCertificateId = lens _dcCertificateId (\s a -> s {_dcCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcCertificateId :: Lens.Lens' DeleteCertificate Lude.Text
+dcCertificateId = Lens.lens (certificateId :: DeleteCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DeleteCertificate)
+{-# DEPRECATED dcCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
-instance AWSRequest DeleteCertificate where
+instance Lude.AWSRequest DeleteCertificate where
   type Rs DeleteCertificate = DeleteCertificateResponse
-  request = delete ioT
-  response = receiveNull DeleteCertificateResponse'
+  request = Req.delete ioTService
+  response = Res.receiveNull DeleteCertificateResponse'
 
-instance Hashable DeleteCertificate
+instance Lude.ToHeaders DeleteCertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteCertificate
-
-instance ToHeaders DeleteCertificate where
-  toHeaders = const mempty
-
-instance ToPath DeleteCertificate where
+instance Lude.ToPath DeleteCertificate where
   toPath DeleteCertificate' {..} =
-    mconcat ["/certificates/", toBS _dcCertificateId]
+    Lude.mconcat ["/certificates/", Lude.toBS certificateId]
 
-instance ToQuery DeleteCertificate where
+instance Lude.ToQuery DeleteCertificate where
   toQuery DeleteCertificate' {..} =
-    mconcat ["forceDelete" =: _dcForceDelete]
+    Lude.mconcat ["forceDelete" Lude.=: forceDelete]
 
--- | /See:/ 'deleteCertificateResponse' smart constructor.
+-- | /See:/ 'mkDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificateResponse' with the minimum fields required to make a request.
-deleteCertificateResponse ::
+mkDeleteCertificateResponse ::
   DeleteCertificateResponse
-deleteCertificateResponse = DeleteCertificateResponse'
-
-instance NFData DeleteCertificateResponse
+mkDeleteCertificateResponse = DeleteCertificateResponse'

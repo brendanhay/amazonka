@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types
-  ( -- * Service Configuration
-    costExplorer,
+  ( -- * Service configuration
+    costExplorerService,
 
     -- * Errors
 
@@ -88,8 +86,8 @@ module Network.AWS.CostExplorer.Types
     TermInYears (..),
 
     -- * Anomaly
-    Anomaly,
-    anomaly,
+    Anomaly (..),
+    mkAnomaly,
     aAnomalyStartDate,
     aDimensionValue,
     aRootCauses,
@@ -101,14 +99,14 @@ module Network.AWS.CostExplorer.Types
     aMonitorARN,
 
     -- * AnomalyDateInterval
-    AnomalyDateInterval,
-    anomalyDateInterval,
+    AnomalyDateInterval (..),
+    mkAnomalyDateInterval,
     adiEndDate,
     adiStartDate,
 
     -- * AnomalyMonitor
-    AnomalyMonitor,
-    anomalyMonitor,
+    AnomalyMonitor (..),
+    mkAnomalyMonitor,
     amDimensionalValueCount,
     amMonitorSpecification,
     amMonitorDimension,
@@ -120,14 +118,14 @@ module Network.AWS.CostExplorer.Types
     amMonitorType,
 
     -- * AnomalyScore
-    AnomalyScore,
-    anomalyScore,
+    AnomalyScore (..),
+    mkAnomalyScore,
     asMaxScore,
     asCurrentScore,
 
     -- * AnomalySubscription
-    AnomalySubscription,
-    anomalySubscription,
+    AnomalySubscription (..),
+    mkAnomalySubscription,
     asAccountId,
     asSubscriptionARN,
     asMonitorARNList,
@@ -137,8 +135,8 @@ module Network.AWS.CostExplorer.Types
     asSubscriptionName,
 
     -- * CostCategory
-    CostCategory,
-    costCategory,
+    CostCategory (..),
+    mkCostCategory,
     ccProcessingStatus,
     ccEffectiveEnd,
     ccCostCategoryARN,
@@ -148,14 +146,14 @@ module Network.AWS.CostExplorer.Types
     ccRules,
 
     -- * CostCategoryProcessingStatus
-    CostCategoryProcessingStatus,
-    costCategoryProcessingStatus,
+    CostCategoryProcessingStatus (..),
+    mkCostCategoryProcessingStatus,
     ccpsStatus,
     ccpsComponent,
 
     -- * CostCategoryReference
-    CostCategoryReference,
-    costCategoryReference,
+    CostCategoryReference (..),
+    mkCostCategoryReference,
     ccrEffectiveStart,
     ccrValues,
     ccrCostCategoryARN,
@@ -165,56 +163,56 @@ module Network.AWS.CostExplorer.Types
     ccrEffectiveEnd,
 
     -- * CostCategoryRule
-    CostCategoryRule,
-    costCategoryRule,
+    CostCategoryRule (..),
+    mkCostCategoryRule,
     ccrValue,
     ccrRule,
 
     -- * CostCategoryValues
-    CostCategoryValues,
-    costCategoryValues,
+    CostCategoryValues (..),
+    mkCostCategoryValues,
     ccvValues,
     ccvKey,
     ccvMatchOptions,
 
     -- * Coverage
-    Coverage,
-    coverage,
+    Coverage (..),
+    mkCoverage,
     cCoverageNormalizedUnits,
     cCoverageHours,
     cCoverageCost,
 
     -- * CoverageByTime
-    CoverageByTime,
-    coverageByTime,
+    CoverageByTime (..),
+    mkCoverageByTime,
     cbtGroups,
     cbtTimePeriod,
     cbtTotal,
 
     -- * CoverageCost
-    CoverageCost,
-    coverageCost,
+    CoverageCost (..),
+    mkCoverageCost,
     ccOnDemandCost,
 
     -- * CoverageHours
-    CoverageHours,
-    coverageHours,
+    CoverageHours (..),
+    mkCoverageHours,
     chCoverageHoursPercentage,
     chOnDemandHours,
     chTotalRunningHours,
     chReservedHours,
 
     -- * CoverageNormalizedUnits
-    CoverageNormalizedUnits,
-    coverageNormalizedUnits,
+    CoverageNormalizedUnits (..),
+    mkCoverageNormalizedUnits,
     cnuReservedNormalizedUnits,
     cnuTotalRunningNormalizedUnits,
     cnuCoverageNormalizedUnitsPercentage,
     cnuOnDemandNormalizedUnits,
 
     -- * CurrentInstance
-    CurrentInstance,
-    currentInstance,
+    CurrentInstance (..),
+    mkCurrentInstance,
     ciResourceId,
     ciCurrencyCode,
     ciResourceUtilization,
@@ -228,35 +226,35 @@ module Network.AWS.CostExplorer.Types
     ciTags,
 
     -- * DateInterval
-    DateInterval,
-    dateInterval,
+    DateInterval (..),
+    mkDateInterval,
     diStart,
     diEnd,
 
     -- * DimensionValues
-    DimensionValues,
-    dimensionValues,
+    DimensionValues (..),
+    mkDimensionValues,
     dvValues,
     dvKey,
     dvMatchOptions,
 
     -- * DimensionValuesWithAttributes
-    DimensionValuesWithAttributes,
-    dimensionValuesWithAttributes,
+    DimensionValuesWithAttributes (..),
+    mkDimensionValuesWithAttributes,
     dvwaValue,
     dvwaAttributes,
 
     -- * EBSResourceUtilization
-    EBSResourceUtilization,
-    ebsResourceUtilization,
+    EBSResourceUtilization (..),
+    mkEBSResourceUtilization,
     eruEBSWriteBytesPerSecond,
     eruEBSWriteOpsPerSecond,
     eruEBSReadOpsPerSecond,
     eruEBSReadBytesPerSecond,
 
     -- * EC2InstanceDetails
-    EC2InstanceDetails,
-    ec2InstanceDetails,
+    EC2InstanceDetails (..),
+    mkEC2InstanceDetails,
     eidCurrentGeneration,
     eidPlatform,
     eidFamily,
@@ -267,8 +265,8 @@ module Network.AWS.CostExplorer.Types
     eidRegion,
 
     -- * EC2ResourceDetails
-    EC2ResourceDetails,
-    ec2ResourceDetails,
+    EC2ResourceDetails (..),
+    mkEC2ResourceDetails,
     erdPlatform,
     erdVcpu,
     erdNetworkPerformance,
@@ -280,21 +278,21 @@ module Network.AWS.CostExplorer.Types
     erdHourlyOnDemandRate,
 
     -- * EC2ResourceUtilization
-    EC2ResourceUtilization,
-    ec2ResourceUtilization,
+    EC2ResourceUtilization (..),
+    mkEC2ResourceUtilization,
     eruMaxCPUUtilizationPercentage,
     eruEBSResourceUtilization,
     eruMaxStorageUtilizationPercentage,
     eruMaxMemoryUtilizationPercentage,
 
     -- * EC2Specification
-    EC2Specification,
-    ec2Specification,
+    EC2Specification (..),
+    mkEC2Specification,
     esOfferingClass,
 
     -- * ESInstanceDetails
-    ESInstanceDetails,
-    eSInstanceDetails,
+    ESInstanceDetails (..),
+    mkESInstanceDetails,
     esidCurrentGeneration,
     esidInstanceClass,
     esidInstanceSize,
@@ -302,8 +300,8 @@ module Network.AWS.CostExplorer.Types
     esidRegion,
 
     -- * ElastiCacheInstanceDetails
-    ElastiCacheInstanceDetails,
-    elastiCacheInstanceDetails,
+    ElastiCacheInstanceDetails (..),
+    mkElastiCacheInstanceDetails,
     ecidCurrentGeneration,
     ecidProductDescription,
     ecidFamily,
@@ -312,8 +310,8 @@ module Network.AWS.CostExplorer.Types
     ecidNodeType,
 
     -- * Expression
-    Expression,
-    expression,
+    Expression (..),
+    mkExpression,
     eNot,
     eAnd,
     eOr,
@@ -322,34 +320,34 @@ module Network.AWS.CostExplorer.Types
     eTags,
 
     -- * ForecastResult
-    ForecastResult,
-    forecastResult,
+    ForecastResult (..),
+    mkForecastResult,
     frTimePeriod,
     frMeanValue,
     frPredictionIntervalUpperBound,
     frPredictionIntervalLowerBound,
 
     -- * Group
-    Group,
-    group',
+    Group (..),
+    mkGroup,
     gMetrics,
     gKeys,
 
     -- * GroupDefinition
-    GroupDefinition,
-    groupDefinition,
+    GroupDefinition (..),
+    mkGroupDefinition,
     gdKey,
     gdType,
 
     -- * Impact
-    Impact,
-    impact,
+    Impact (..),
+    mkImpact,
     iTotalImpact,
     iMaxImpact,
 
     -- * InstanceDetails
-    InstanceDetails,
-    instanceDetails,
+    InstanceDetails (..),
+    mkInstanceDetails,
     idESInstanceDetails,
     idRDSInstanceDetails,
     idElastiCacheInstanceDetails,
@@ -357,19 +355,19 @@ module Network.AWS.CostExplorer.Types
     idRedshiftInstanceDetails,
 
     -- * MetricValue
-    MetricValue,
-    metricValue,
+    MetricValue (..),
+    mkMetricValue,
     mvAmount,
     mvUnit,
 
     -- * ModifyRecommendationDetail
-    ModifyRecommendationDetail,
-    modifyRecommendationDetail,
+    ModifyRecommendationDetail (..),
+    mkModifyRecommendationDetail,
     mrdTargetInstances,
 
     -- * RDSInstanceDetails
-    RDSInstanceDetails,
-    rdsInstanceDetails,
+    RDSInstanceDetails (..),
+    mkRDSInstanceDetails,
     ridCurrentGeneration,
     ridDeploymentOption,
     ridFamily,
@@ -381,8 +379,8 @@ module Network.AWS.CostExplorer.Types
     ridDatabaseEdition,
 
     -- * RedshiftInstanceDetails
-    RedshiftInstanceDetails,
-    redshiftInstanceDetails,
+    RedshiftInstanceDetails (..),
+    mkRedshiftInstanceDetails,
     rCurrentGeneration,
     rFamily,
     rSizeFlexEligible,
@@ -390,8 +388,8 @@ module Network.AWS.CostExplorer.Types
     rNodeType,
 
     -- * ReservationAggregates
-    ReservationAggregates,
-    reservationAggregates,
+    ReservationAggregates (..),
+    mkReservationAggregates,
     raPurchasedHours,
     raTotalActualHours,
     raUtilizationPercentage,
@@ -408,14 +406,14 @@ module Network.AWS.CostExplorer.Types
     raTotalActualUnits,
 
     -- * ReservationCoverageGroup
-    ReservationCoverageGroup,
-    reservationCoverageGroup,
+    ReservationCoverageGroup (..),
+    mkReservationCoverageGroup,
     rcgCoverage,
     rcgAttributes,
 
     -- * ReservationPurchaseRecommendation
-    ReservationPurchaseRecommendation,
-    reservationPurchaseRecommendation,
+    ReservationPurchaseRecommendation (..),
+    mkReservationPurchaseRecommendation,
     rprTermInYears,
     rprRecommendationSummary,
     rprServiceSpecification,
@@ -425,8 +423,8 @@ module Network.AWS.CostExplorer.Types
     rprPaymentOption,
 
     -- * ReservationPurchaseRecommendationDetail
-    ReservationPurchaseRecommendationDetail,
-    reservationPurchaseRecommendationDetail,
+    ReservationPurchaseRecommendationDetail (..),
+    mkReservationPurchaseRecommendationDetail,
     rprdMaximumNormalizedUnitsUsedPerHour,
     rprdRecurringStandardMonthlyCost,
     rprdAverageNormalizedUnitsUsedPerHour,
@@ -448,47 +446,47 @@ module Network.AWS.CostExplorer.Types
     rprdEstimatedBreakEvenInMonths,
 
     -- * ReservationPurchaseRecommendationMetadata
-    ReservationPurchaseRecommendationMetadata,
-    reservationPurchaseRecommendationMetadata,
+    ReservationPurchaseRecommendationMetadata (..),
+    mkReservationPurchaseRecommendationMetadata,
     rprmRecommendationId,
     rprmGenerationTimestamp,
 
     -- * ReservationPurchaseRecommendationSummary
-    ReservationPurchaseRecommendationSummary,
-    reservationPurchaseRecommendationSummary,
+    ReservationPurchaseRecommendationSummary (..),
+    mkReservationPurchaseRecommendationSummary,
     rprsCurrencyCode,
     rprsTotalEstimatedMonthlySavingsPercentage,
     rprsTotalEstimatedMonthlySavingsAmount,
 
     -- * ReservationUtilizationGroup
-    ReservationUtilizationGroup,
-    reservationUtilizationGroup,
+    ReservationUtilizationGroup (..),
+    mkReservationUtilizationGroup,
     rugValue,
     rugKey,
     rugAttributes,
     rugUtilization,
 
     -- * ResourceDetails
-    ResourceDetails,
-    resourceDetails,
+    ResourceDetails (..),
+    mkResourceDetails,
     rdEC2ResourceDetails,
 
     -- * ResourceUtilization
-    ResourceUtilization,
-    resourceUtilization,
+    ResourceUtilization (..),
+    mkResourceUtilization,
     ruEC2ResourceUtilization,
 
     -- * ResultByTime
-    ResultByTime,
-    resultByTime,
+    ResultByTime (..),
+    mkResultByTime,
     rbtGroups,
     rbtTimePeriod,
     rbtTotal,
     rbtEstimated,
 
     -- * RightsizingRecommendation
-    RightsizingRecommendation,
-    rightsizingRecommendation,
+    RightsizingRecommendation (..),
+    mkRightsizingRecommendation,
     rrAccountId,
     rrModifyRecommendationDetail,
     rrCurrentInstance,
@@ -496,66 +494,66 @@ module Network.AWS.CostExplorer.Types
     rrTerminateRecommendationDetail,
 
     -- * RightsizingRecommendationConfiguration
-    RightsizingRecommendationConfiguration,
-    rightsizingRecommendationConfiguration,
+    RightsizingRecommendationConfiguration (..),
+    mkRightsizingRecommendationConfiguration,
     rrcRecommendationTarget,
     rrcBenefitsConsidered,
 
     -- * RightsizingRecommendationMetadata
-    RightsizingRecommendationMetadata,
-    rightsizingRecommendationMetadata,
+    RightsizingRecommendationMetadata (..),
+    mkRightsizingRecommendationMetadata,
     rrmRecommendationId,
     rrmGenerationTimestamp,
     rrmLookbackPeriodInDays,
 
     -- * RightsizingRecommendationSummary
-    RightsizingRecommendationSummary,
-    rightsizingRecommendationSummary,
+    RightsizingRecommendationSummary (..),
+    mkRightsizingRecommendationSummary,
     rrsSavingsPercentage,
     rrsSavingsCurrencyCode,
     rrsTotalRecommendationCount,
     rrsEstimatedTotalMonthlySavingsAmount,
 
     -- * RootCause
-    RootCause,
-    rootCause,
+    RootCause (..),
+    mkRootCause,
     rcService,
     rcUsageType,
     rcLinkedAccount,
     rcRegion,
 
     -- * SavingsPlansAmortizedCommitment
-    SavingsPlansAmortizedCommitment,
-    savingsPlansAmortizedCommitment,
+    SavingsPlansAmortizedCommitment (..),
+    mkSavingsPlansAmortizedCommitment,
     spacAmortizedUpfrontCommitment,
     spacTotalAmortizedCommitment,
     spacAmortizedRecurringCommitment,
 
     -- * SavingsPlansCoverage
-    SavingsPlansCoverage,
-    savingsPlansCoverage,
+    SavingsPlansCoverage (..),
+    mkSavingsPlansCoverage,
     spcTimePeriod,
     spcCoverage,
     spcAttributes,
 
     -- * SavingsPlansCoverageData
-    SavingsPlansCoverageData,
-    savingsPlansCoverageData,
+    SavingsPlansCoverageData (..),
+    mkSavingsPlansCoverageData,
     spcdOnDemandCost,
     spcdSpendCoveredBySavingsPlans,
     spcdCoveragePercentage,
     spcdTotalCost,
 
     -- * SavingsPlansDetails
-    SavingsPlansDetails,
-    savingsPlansDetails,
+    SavingsPlansDetails (..),
+    mkSavingsPlansDetails,
     spdInstanceFamily,
     spdOfferingId,
     spdRegion,
 
     -- * SavingsPlansPurchaseRecommendation
-    SavingsPlansPurchaseRecommendation,
-    savingsPlansPurchaseRecommendation,
+    SavingsPlansPurchaseRecommendation (..),
+    mkSavingsPlansPurchaseRecommendation,
     spprSavingsPlansPurchaseRecommendationDetails,
     spprTermInYears,
     spprAccountScope,
@@ -565,8 +563,8 @@ module Network.AWS.CostExplorer.Types
     spprSavingsPlansPurchaseRecommendationSummary,
 
     -- * SavingsPlansPurchaseRecommendationDetail
-    SavingsPlansPurchaseRecommendationDetail,
-    savingsPlansPurchaseRecommendationDetail,
+    SavingsPlansPurchaseRecommendationDetail (..),
+    mkSavingsPlansPurchaseRecommendationDetail,
     spprdCurrencyCode,
     spprdCurrentAverageHourlyOnDemandSpend,
     spprdSavingsPlansDetails,
@@ -585,15 +583,15 @@ module Network.AWS.CostExplorer.Types
     spprdHourlyCommitmentToPurchase,
 
     -- * SavingsPlansPurchaseRecommendationMetadata
-    SavingsPlansPurchaseRecommendationMetadata,
-    savingsPlansPurchaseRecommendationMetadata,
+    SavingsPlansPurchaseRecommendationMetadata (..),
+    mkSavingsPlansPurchaseRecommendationMetadata,
     spprmRecommendationId,
     spprmGenerationTimestamp,
     spprmAdditionalMetadata,
 
     -- * SavingsPlansPurchaseRecommendationSummary
-    SavingsPlansPurchaseRecommendationSummary,
-    savingsPlansPurchaseRecommendationSummary,
+    SavingsPlansPurchaseRecommendationSummary (..),
+    mkSavingsPlansPurchaseRecommendationSummary,
     spprsCurrencyCode,
     spprsDailyCommitmentToPurchase,
     spprsEstimatedTotalCost,
@@ -607,37 +605,37 @@ module Network.AWS.CostExplorer.Types
     spprsHourlyCommitmentToPurchase,
 
     -- * SavingsPlansSavings
-    SavingsPlansSavings,
-    savingsPlansSavings,
+    SavingsPlansSavings (..),
+    mkSavingsPlansSavings,
     spsNetSavings,
     spsOnDemandCostEquivalent,
 
     -- * SavingsPlansUtilization
-    SavingsPlansUtilization,
-    savingsPlansUtilization,
+    SavingsPlansUtilization (..),
+    mkSavingsPlansUtilization,
     spuUnusedCommitment,
     spuUtilizationPercentage,
     spuTotalCommitment,
     spuUsedCommitment,
 
     -- * SavingsPlansUtilizationAggregates
-    SavingsPlansUtilizationAggregates,
-    savingsPlansUtilizationAggregates,
+    SavingsPlansUtilizationAggregates (..),
+    mkSavingsPlansUtilizationAggregates,
     spuaAmortizedCommitment,
     spuaSavings,
     spuaUtilization,
 
     -- * SavingsPlansUtilizationByTime
-    SavingsPlansUtilizationByTime,
-    savingsPlansUtilizationByTime,
+    SavingsPlansUtilizationByTime (..),
+    mkSavingsPlansUtilizationByTime,
     spubtAmortizedCommitment,
     spubtSavings,
     spubtTimePeriod,
     spubtUtilization,
 
     -- * SavingsPlansUtilizationDetail
-    SavingsPlansUtilizationDetail,
-    savingsPlansUtilizationDetail,
+    SavingsPlansUtilizationDetail (..),
+    mkSavingsPlansUtilizationDetail,
     spudAmortizedCommitment,
     spudSavings,
     spudAttributes,
@@ -645,27 +643,27 @@ module Network.AWS.CostExplorer.Types
     spudSavingsPlanARN,
 
     -- * ServiceSpecification
-    ServiceSpecification,
-    serviceSpecification,
+    ServiceSpecification (..),
+    mkServiceSpecification,
     ssEC2Specification,
 
     -- * Subscriber
-    Subscriber,
-    subscriber,
+    Subscriber (..),
+    mkSubscriber,
     sStatus,
     sAddress,
     sType,
 
     -- * TagValues
-    TagValues,
-    tagValues,
+    TagValues (..),
+    mkTagValues,
     tvValues,
     tvKey,
     tvMatchOptions,
 
     -- * TargetInstance
-    TargetInstance,
-    targetInstance,
+    TargetInstance (..),
+    mkTargetInstance,
     tiCurrencyCode,
     tiResourceDetails,
     tiDefaultTargetInstance,
@@ -674,21 +672,21 @@ module Network.AWS.CostExplorer.Types
     tiExpectedResourceUtilization,
 
     -- * TerminateRecommendationDetail
-    TerminateRecommendationDetail,
-    terminateRecommendationDetail,
+    TerminateRecommendationDetail (..),
+    mkTerminateRecommendationDetail,
     trdCurrencyCode,
     trdEstimatedMonthlySavings,
 
     -- * TotalImpactFilter
-    TotalImpactFilter,
-    totalImpactFilter,
+    TotalImpactFilter (..),
+    mkTotalImpactFilter,
     tifEndValue,
     tifNumericOperator,
     tifStartValue,
 
     -- * UtilizationByTime
-    UtilizationByTime,
-    utilizationByTime,
+    UtilizationByTime (..),
+    mkUtilizationByTime,
     ubtGroups,
     ubtTimePeriod,
     ubtTotal,
@@ -790,48 +788,60 @@ import Network.AWS.CostExplorer.Types.TermInYears
 import Network.AWS.CostExplorer.Types.TerminateRecommendationDetail
 import Network.AWS.CostExplorer.Types.TotalImpactFilter
 import Network.AWS.CostExplorer.Types.UtilizationByTime
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-10-25@ of the Amazon Cost Explorer Service SDK configuration.
-costExplorer :: Service
-costExplorer =
-  Service
-    { _svcAbbrev = "CostExplorer",
-      _svcSigner = v4,
-      _svcPrefix = "ce",
-      _svcVersion = "2017-10-25",
-      _svcEndpoint = defaultEndpoint costExplorer,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "CostExplorer",
-      _svcRetry = retry
+costExplorerService :: Lude.Service
+costExplorerService =
+  Lude.Service
+    { Lude._svcAbbrev = "CostExplorer",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "ce",
+      Lude._svcVersion = "2017-10-25",
+      Lude._svcEndpoint = Lude.defaultEndpoint costExplorerService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "CostExplorer",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

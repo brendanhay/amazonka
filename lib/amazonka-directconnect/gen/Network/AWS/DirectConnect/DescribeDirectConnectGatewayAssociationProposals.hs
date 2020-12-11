@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway.
 module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociationProposals
-  ( -- * Creating a Request
-    describeDirectConnectGatewayAssociationProposals,
-    DescribeDirectConnectGatewayAssociationProposals,
+  ( -- * Creating a request
+    DescribeDirectConnectGatewayAssociationProposals (..),
+    mkDescribeDirectConnectGatewayAssociationProposals,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcgapsAssociatedGatewayId,
     ddcgapsDirectConnectGatewayId,
     ddcgapsProposalId,
     ddcgapsNextToken,
     ddcgapsMaxResults,
 
-    -- * Destructuring the Response
-    describeDirectConnectGatewayAssociationProposalsResponse,
-    DescribeDirectConnectGatewayAssociationProposalsResponse,
+    -- * Destructuring the response
+    DescribeDirectConnectGatewayAssociationProposalsResponse (..),
+    mkDescribeDirectConnectGatewayAssociationProposalsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcgapsrsDirectConnectGatewayAssociationProposals,
     ddcgapsrsNextToken,
     ddcgapsrsResponseStatus,
@@ -42,196 +37,219 @@ module Network.AWS.DirectConnect.DescribeDirectConnectGatewayAssociationProposal
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDirectConnectGatewayAssociationProposals' smart constructor.
+-- | /See:/ 'mkDescribeDirectConnectGatewayAssociationProposals' smart constructor.
 data DescribeDirectConnectGatewayAssociationProposals = DescribeDirectConnectGatewayAssociationProposals'
-  { _ddcgapsAssociatedGatewayId ::
-      !( Maybe
-           Text
-       ),
-    _ddcgapsDirectConnectGatewayId ::
-      !( Maybe
-           Text
-       ),
-    _ddcgapsProposalId ::
-      !( Maybe
-           Text
-       ),
-    _ddcgapsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _ddcgapsMaxResults ::
-      !( Maybe
-           Int
-       )
+  { associatedGatewayId ::
+      Lude.Maybe
+        Lude.Text,
+    directConnectGatewayId ::
+      Lude.Maybe
+        Lude.Text,
+    proposalId ::
+      Lude.Maybe
+        Lude.Text,
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    maxResults ::
+      Lude.Maybe
+        Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeDirectConnectGatewayAssociationProposals' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'associatedGatewayId' - The ID of the associated gateway.
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
--- * 'ddcgapsAssociatedGatewayId' - The ID of the associated gateway.
---
--- * 'ddcgapsDirectConnectGatewayId' - The ID of the Direct Connect gateway.
---
--- * 'ddcgapsProposalId' - The ID of the proposal.
---
--- * 'ddcgapsNextToken' - The token for the next page of results.
---
--- * 'ddcgapsMaxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value. If @MaxResults@ is given a value larger than 100, only 100 results are returned.
-describeDirectConnectGatewayAssociationProposals ::
+-- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'proposalId' - The ID of the proposal.
+mkDescribeDirectConnectGatewayAssociationProposals ::
   DescribeDirectConnectGatewayAssociationProposals
-describeDirectConnectGatewayAssociationProposals =
+mkDescribeDirectConnectGatewayAssociationProposals =
   DescribeDirectConnectGatewayAssociationProposals'
-    { _ddcgapsAssociatedGatewayId =
-        Nothing,
-      _ddcgapsDirectConnectGatewayId = Nothing,
-      _ddcgapsProposalId = Nothing,
-      _ddcgapsNextToken = Nothing,
-      _ddcgapsMaxResults = Nothing
+    { associatedGatewayId =
+        Lude.Nothing,
+      directConnectGatewayId = Lude.Nothing,
+      proposalId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The ID of the associated gateway.
-ddcgapsAssociatedGatewayId :: Lens' DescribeDirectConnectGatewayAssociationProposals (Maybe Text)
-ddcgapsAssociatedGatewayId = lens _ddcgapsAssociatedGatewayId (\s a -> s {_ddcgapsAssociatedGatewayId = a})
+--
+-- /Note:/ Consider using 'associatedGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgapsAssociatedGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAssociationProposals (Lude.Maybe Lude.Text)
+ddcgapsAssociatedGatewayId = Lens.lens (associatedGatewayId :: DescribeDirectConnectGatewayAssociationProposals -> Lude.Maybe Lude.Text) (\s a -> s {associatedGatewayId = a} :: DescribeDirectConnectGatewayAssociationProposals)
+{-# DEPRECATED ddcgapsAssociatedGatewayId "Use generic-lens or generic-optics with 'associatedGatewayId' instead." #-}
 
 -- | The ID of the Direct Connect gateway.
-ddcgapsDirectConnectGatewayId :: Lens' DescribeDirectConnectGatewayAssociationProposals (Maybe Text)
-ddcgapsDirectConnectGatewayId = lens _ddcgapsDirectConnectGatewayId (\s a -> s {_ddcgapsDirectConnectGatewayId = a})
+--
+-- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgapsDirectConnectGatewayId :: Lens.Lens' DescribeDirectConnectGatewayAssociationProposals (Lude.Maybe Lude.Text)
+ddcgapsDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: DescribeDirectConnectGatewayAssociationProposals -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayId = a} :: DescribeDirectConnectGatewayAssociationProposals)
+{-# DEPRECATED ddcgapsDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
 
 -- | The ID of the proposal.
-ddcgapsProposalId :: Lens' DescribeDirectConnectGatewayAssociationProposals (Maybe Text)
-ddcgapsProposalId = lens _ddcgapsProposalId (\s a -> s {_ddcgapsProposalId = a})
+--
+-- /Note:/ Consider using 'proposalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgapsProposalId :: Lens.Lens' DescribeDirectConnectGatewayAssociationProposals (Lude.Maybe Lude.Text)
+ddcgapsProposalId = Lens.lens (proposalId :: DescribeDirectConnectGatewayAssociationProposals -> Lude.Maybe Lude.Text) (\s a -> s {proposalId = a} :: DescribeDirectConnectGatewayAssociationProposals)
+{-# DEPRECATED ddcgapsProposalId "Use generic-lens or generic-optics with 'proposalId' instead." #-}
 
 -- | The token for the next page of results.
-ddcgapsNextToken :: Lens' DescribeDirectConnectGatewayAssociationProposals (Maybe Text)
-ddcgapsNextToken = lens _ddcgapsNextToken (\s a -> s {_ddcgapsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgapsNextToken :: Lens.Lens' DescribeDirectConnectGatewayAssociationProposals (Lude.Maybe Lude.Text)
+ddcgapsNextToken = Lens.lens (nextToken :: DescribeDirectConnectGatewayAssociationProposals -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDirectConnectGatewayAssociationProposals)
+{-# DEPRECATED ddcgapsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value. If @MaxResults@ is given a value larger than 100, only 100 results are returned.
-ddcgapsMaxResults :: Lens' DescribeDirectConnectGatewayAssociationProposals (Maybe Int)
-ddcgapsMaxResults = lens _ddcgapsMaxResults (\s a -> s {_ddcgapsMaxResults = a})
+-- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+--
+-- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgapsMaxResults :: Lens.Lens' DescribeDirectConnectGatewayAssociationProposals (Lude.Maybe Lude.Int)
+ddcgapsMaxResults = Lens.lens (maxResults :: DescribeDirectConnectGatewayAssociationProposals -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeDirectConnectGatewayAssociationProposals)
+{-# DEPRECATED ddcgapsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance
-  AWSRequest
+  Lude.AWSRequest
     DescribeDirectConnectGatewayAssociationProposals
   where
   type
     Rs DescribeDirectConnectGatewayAssociationProposals =
       DescribeDirectConnectGatewayAssociationProposalsResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewayAssociationProposalsResponse'
-            <$> (x .?> "directConnectGatewayAssociationProposals" .!@ mempty)
-            <*> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..?> "directConnectGatewayAssociationProposals"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDirectConnectGatewayAssociationProposals
-
-instance NFData DescribeDirectConnectGatewayAssociationProposals
-
-instance ToHeaders DescribeDirectConnectGatewayAssociationProposals where
+instance
+  Lude.ToHeaders
+    DescribeDirectConnectGatewayAssociationProposals
+  where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "OvertureService.DescribeDirectConnectGatewayAssociationProposals" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "OvertureService.DescribeDirectConnectGatewayAssociationProposals" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDirectConnectGatewayAssociationProposals where
+instance
+  Lude.ToJSON
+    DescribeDirectConnectGatewayAssociationProposals
+  where
   toJSON DescribeDirectConnectGatewayAssociationProposals' {..} =
-    object
-      ( catMaybes
-          [ ("associatedGatewayId" .=) <$> _ddcgapsAssociatedGatewayId,
-            ("directConnectGatewayId" .=) <$> _ddcgapsDirectConnectGatewayId,
-            ("proposalId" .=) <$> _ddcgapsProposalId,
-            ("nextToken" .=) <$> _ddcgapsNextToken,
-            ("maxResults" .=) <$> _ddcgapsMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("associatedGatewayId" Lude..=) Lude.<$> associatedGatewayId,
+            ("directConnectGatewayId" Lude..=) Lude.<$> directConnectGatewayId,
+            ("proposalId" Lude..=) Lude.<$> proposalId,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath DescribeDirectConnectGatewayAssociationProposals where
-  toPath = const "/"
+instance
+  Lude.ToPath
+    DescribeDirectConnectGatewayAssociationProposals
+  where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDirectConnectGatewayAssociationProposals where
-  toQuery = const mempty
+instance
+  Lude.ToQuery
+    DescribeDirectConnectGatewayAssociationProposals
+  where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeDirectConnectGatewayAssociationProposalsResponse' smart constructor.
+-- | /See:/ 'mkDescribeDirectConnectGatewayAssociationProposalsResponse' smart constructor.
 data DescribeDirectConnectGatewayAssociationProposalsResponse = DescribeDirectConnectGatewayAssociationProposalsResponse'
-  { _ddcgapsrsDirectConnectGatewayAssociationProposals ::
-      !( Maybe
-           [DirectConnectGatewayAssociationProposal]
-       ),
-    _ddcgapsrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _ddcgapsrsResponseStatus ::
-      !Int
+  { directConnectGatewayAssociationProposals ::
+      Lude.Maybe
+        [DirectConnectGatewayAssociationProposal],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeDirectConnectGatewayAssociationProposalsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcgapsrsDirectConnectGatewayAssociationProposals' - Describes the Direct Connect gateway association proposals.
---
--- * 'ddcgapsrsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'ddcgapsrsResponseStatus' - -- | The response status code.
-describeDirectConnectGatewayAssociationProposalsResponse ::
-  -- | 'ddcgapsrsResponseStatus'
-  Int ->
+-- * 'directConnectGatewayAssociationProposals' - Describes the Direct Connect gateway association proposals.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeDirectConnectGatewayAssociationProposalsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDirectConnectGatewayAssociationProposalsResponse
-describeDirectConnectGatewayAssociationProposalsResponse
+mkDescribeDirectConnectGatewayAssociationProposalsResponse
   pResponseStatus_ =
     DescribeDirectConnectGatewayAssociationProposalsResponse'
-      { _ddcgapsrsDirectConnectGatewayAssociationProposals =
-          Nothing,
-        _ddcgapsrsNextToken = Nothing,
-        _ddcgapsrsResponseStatus =
-          pResponseStatus_
+      { directConnectGatewayAssociationProposals =
+          Lude.Nothing,
+        nextToken = Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
 
 -- | Describes the Direct Connect gateway association proposals.
-ddcgapsrsDirectConnectGatewayAssociationProposals :: Lens' DescribeDirectConnectGatewayAssociationProposalsResponse [DirectConnectGatewayAssociationProposal]
-ddcgapsrsDirectConnectGatewayAssociationProposals = lens _ddcgapsrsDirectConnectGatewayAssociationProposals (\s a -> s {_ddcgapsrsDirectConnectGatewayAssociationProposals = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'directConnectGatewayAssociationProposals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgapsrsDirectConnectGatewayAssociationProposals :: Lens.Lens' DescribeDirectConnectGatewayAssociationProposalsResponse (Lude.Maybe [DirectConnectGatewayAssociationProposal])
+ddcgapsrsDirectConnectGatewayAssociationProposals = Lens.lens (directConnectGatewayAssociationProposals :: DescribeDirectConnectGatewayAssociationProposalsResponse -> Lude.Maybe [DirectConnectGatewayAssociationProposal]) (\s a -> s {directConnectGatewayAssociationProposals = a} :: DescribeDirectConnectGatewayAssociationProposalsResponse)
+{-# DEPRECATED ddcgapsrsDirectConnectGatewayAssociationProposals "Use generic-lens or generic-optics with 'directConnectGatewayAssociationProposals' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-ddcgapsrsNextToken :: Lens' DescribeDirectConnectGatewayAssociationProposalsResponse (Maybe Text)
-ddcgapsrsNextToken = lens _ddcgapsrsNextToken (\s a -> s {_ddcgapsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgapsrsNextToken :: Lens.Lens' DescribeDirectConnectGatewayAssociationProposalsResponse (Lude.Maybe Lude.Text)
+ddcgapsrsNextToken = Lens.lens (nextToken :: DescribeDirectConnectGatewayAssociationProposalsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDirectConnectGatewayAssociationProposalsResponse)
+{-# DEPRECATED ddcgapsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-ddcgapsrsResponseStatus :: Lens' DescribeDirectConnectGatewayAssociationProposalsResponse Int
-ddcgapsrsResponseStatus = lens _ddcgapsrsResponseStatus (\s a -> s {_ddcgapsrsResponseStatus = a})
-
-instance
-  NFData
-    DescribeDirectConnectGatewayAssociationProposalsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcgapsrsResponseStatus :: Lens.Lens' DescribeDirectConnectGatewayAssociationProposalsResponse Lude.Int
+ddcgapsrsResponseStatus = Lens.lens (responseStatus :: DescribeDirectConnectGatewayAssociationProposalsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDirectConnectGatewayAssociationProposalsResponse)
+{-# DEPRECATED ddcgapsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

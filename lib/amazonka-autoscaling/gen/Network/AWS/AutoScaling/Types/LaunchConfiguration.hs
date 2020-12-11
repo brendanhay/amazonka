@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,236 +7,326 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScaling.Types.LaunchConfiguration where
+module Network.AWS.AutoScaling.Types.LaunchConfiguration
+  ( LaunchConfiguration (..),
+
+    -- * Smart constructor
+    mkLaunchConfiguration,
+
+    -- * Lenses
+    lcAssociatePublicIPAddress,
+    lcSecurityGroups,
+    lcSpotPrice,
+    lcInstanceMonitoring,
+    lcKeyName,
+    lcClassicLinkVPCSecurityGroups,
+    lcRAMDiskId,
+    lcKernelId,
+    lcEBSOptimized,
+    lcUserData,
+    lcClassicLinkVPCId,
+    lcIAMInstanceProfile,
+    lcMetadataOptions,
+    lcLaunchConfigurationARN,
+    lcPlacementTenancy,
+    lcBlockDeviceMappings,
+    lcLaunchConfigurationName,
+    lcImageId,
+    lcInstanceType,
+    lcCreatedTime,
+  )
+where
 
 import Network.AWS.AutoScaling.Types.BlockDeviceMapping
 import Network.AWS.AutoScaling.Types.InstanceMetadataOptions
 import Network.AWS.AutoScaling.Types.InstanceMonitoring
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a launch configuration.
 --
---
---
--- /See:/ 'launchConfiguration' smart constructor.
+-- /See:/ 'mkLaunchConfiguration' smart constructor.
 data LaunchConfiguration = LaunchConfiguration'
-  { _lcAssociatePublicIPAddress ::
-      !(Maybe Bool),
-    _lcSecurityGroups :: !(Maybe [Text]),
-    _lcSpotPrice :: !(Maybe Text),
-    _lcInstanceMonitoring ::
-      !(Maybe InstanceMonitoring),
-    _lcKeyName :: !(Maybe Text),
-    _lcClassicLinkVPCSecurityGroups :: !(Maybe [Text]),
-    _lcRAMDiskId :: !(Maybe Text),
-    _lcKernelId :: !(Maybe Text),
-    _lcEBSOptimized :: !(Maybe Bool),
-    _lcUserData :: !(Maybe Text),
-    _lcClassicLinkVPCId :: !(Maybe Text),
-    _lcIAMInstanceProfile :: !(Maybe Text),
-    _lcMetadataOptions ::
-      !(Maybe InstanceMetadataOptions),
-    _lcLaunchConfigurationARN :: !(Maybe Text),
-    _lcPlacementTenancy :: !(Maybe Text),
-    _lcBlockDeviceMappings ::
-      !(Maybe [BlockDeviceMapping]),
-    _lcLaunchConfigurationName :: !Text,
-    _lcImageId :: !Text,
-    _lcInstanceType :: !Text,
-    _lcCreatedTime :: !ISO8601
+  { associatePublicIPAddress ::
+      Lude.Maybe Lude.Bool,
+    securityGroups :: Lude.Maybe [Lude.Text],
+    spotPrice :: Lude.Maybe Lude.Text,
+    instanceMonitoring :: Lude.Maybe InstanceMonitoring,
+    keyName :: Lude.Maybe Lude.Text,
+    classicLinkVPCSecurityGroups ::
+      Lude.Maybe [Lude.Text],
+    ramdiskId :: Lude.Maybe Lude.Text,
+    kernelId :: Lude.Maybe Lude.Text,
+    ebsOptimized :: Lude.Maybe Lude.Bool,
+    userData :: Lude.Maybe Lude.Text,
+    classicLinkVPCId :: Lude.Maybe Lude.Text,
+    iamInstanceProfile :: Lude.Maybe Lude.Text,
+    metadataOptions ::
+      Lude.Maybe InstanceMetadataOptions,
+    launchConfigurationARN :: Lude.Maybe Lude.Text,
+    placementTenancy :: Lude.Maybe Lude.Text,
+    blockDeviceMappings ::
+      Lude.Maybe [BlockDeviceMapping],
+    launchConfigurationName :: Lude.Text,
+    imageId :: Lude.Text,
+    instanceType :: Lude.Text,
+    createdTime :: Lude.ISO8601
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'associatePublicIPAddress' - For Auto Scaling groups that are running in a VPC, specifies whether to assign a public IP address to the group's instances. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html Launching Auto Scaling instances in a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'blockDeviceMappings' - A block device mapping, which specifies the block devices for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'classicLinkVPCId' - The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'classicLinkVPCSecurityGroups' - The IDs of one or more security groups for the VPC specified in @ClassicLinkVPCId@ .
 --
--- * 'lcAssociatePublicIPAddress' - For Auto Scaling groups that are running in a VPC, specifies whether to assign a public IP address to the group's instances. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html Launching Auto Scaling instances in a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'createdTime' - The creation date and time for the launch configuration.
+-- * 'ebsOptimized' - Specifies whether the launch configuration is optimized for EBS I/O (@true@ ) or not (@false@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'iamInstanceProfile' - The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'imageId' - The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'instanceMonitoring' - Controls whether instances in this group are launched with detailed (@true@ ) or basic (@false@ ) monitoring.
 --
--- * 'lcSecurityGroups' - A list that contains the security groups to assign to the instances in the Auto Scaling group. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html Configure Monitoring for Auto Scaling Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'instanceType' - The instance type for the instances.
 --
--- * 'lcSpotPrice' - The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html Requesting Spot Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- For information about available instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types> in the /Amazon EC2 User Guide for Linux Instances./
+-- * 'kernelId' - The ID of the kernel associated with the AMI.
+-- * 'keyName' - The name of the key pair.
 --
--- * 'lcInstanceMonitoring' - Controls whether instances in this group are launched with detailed (@true@ ) or basic (@false@ ) monitoring. For more information, see <https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html Configure Monitoring for Auto Scaling Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'launchConfigurationARN' - The Amazon Resource Name (ARN) of the launch configuration.
+-- * 'launchConfigurationName' - The name of the launch configuration.
+-- * 'metadataOptions' - The metadata options for the instances. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'placementTenancy' - The tenancy of the instance, either @default@ or @dedicated@ . An instance with @dedicated@ tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC.
 --
--- * 'lcKeyName' - The name of the key pair. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs> in the /Amazon EC2 User Guide for Linux Instances/ .
---
--- * 'lcClassicLinkVPCSecurityGroups' - The IDs of one or more security groups for the VPC specified in @ClassicLinkVPCId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- * 'lcRAMDiskId' - The ID of the RAM disk associated with the AMI.
---
--- * 'lcKernelId' - The ID of the kernel associated with the AMI.
---
--- * 'lcEBSOptimized' - Specifies whether the launch configuration is optimized for EBS I/O (@true@ ) or not (@false@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
---
--- * 'lcUserData' - The Base64-encoded user data to make available to the launched EC2 instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data> in the /Amazon EC2 User Guide for Linux Instances/ .
---
--- * 'lcClassicLinkVPCId' - The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- * 'lcIAMInstanceProfile' - The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- * 'lcMetadataOptions' - The metadata options for the instances. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- * 'lcLaunchConfigurationARN' - The Amazon Resource Name (ARN) of the launch configuration.
---
--- * 'lcPlacementTenancy' - The tenancy of the instance, either @default@ or @dedicated@ . An instance with @dedicated@ tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html Configuring instance tenancy with Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
---
--- * 'lcBlockDeviceMappings' - A block device mapping, which specifies the block devices for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping> in the /Amazon EC2 User Guide for Linux Instances/ .
---
--- * 'lcLaunchConfigurationName' - The name of the launch configuration.
---
--- * 'lcImageId' - The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI> in the /Amazon EC2 User Guide for Linux Instances/ .
---
--- * 'lcInstanceType' - The instance type for the instances. For information about available instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types> in the /Amazon EC2 User Guide for Linux Instances./
---
--- * 'lcCreatedTime' - The creation date and time for the launch configuration.
-launchConfiguration ::
-  -- | 'lcLaunchConfigurationName'
-  Text ->
-  -- | 'lcImageId'
-  Text ->
-  -- | 'lcInstanceType'
-  Text ->
-  -- | 'lcCreatedTime'
-  UTCTime ->
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html Configuring instance tenancy with Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'ramdiskId' - The ID of the RAM disk associated with the AMI.
+-- * 'securityGroups' - A list that contains the security groups to assign to the instances in the Auto Scaling group. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+-- * 'spotPrice' - The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html Requesting Spot Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'userData' - The Base64-encoded user data to make available to the launched EC2 instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data> in the /Amazon EC2 User Guide for Linux Instances/ .
+mkLaunchConfiguration ::
+  -- | 'launchConfigurationName'
+  Lude.Text ->
+  -- | 'imageId'
+  Lude.Text ->
+  -- | 'instanceType'
+  Lude.Text ->
+  -- | 'createdTime'
+  Lude.ISO8601 ->
   LaunchConfiguration
-launchConfiguration
+mkLaunchConfiguration
   pLaunchConfigurationName_
   pImageId_
   pInstanceType_
   pCreatedTime_ =
     LaunchConfiguration'
-      { _lcAssociatePublicIPAddress = Nothing,
-        _lcSecurityGroups = Nothing,
-        _lcSpotPrice = Nothing,
-        _lcInstanceMonitoring = Nothing,
-        _lcKeyName = Nothing,
-        _lcClassicLinkVPCSecurityGroups = Nothing,
-        _lcRAMDiskId = Nothing,
-        _lcKernelId = Nothing,
-        _lcEBSOptimized = Nothing,
-        _lcUserData = Nothing,
-        _lcClassicLinkVPCId = Nothing,
-        _lcIAMInstanceProfile = Nothing,
-        _lcMetadataOptions = Nothing,
-        _lcLaunchConfigurationARN = Nothing,
-        _lcPlacementTenancy = Nothing,
-        _lcBlockDeviceMappings = Nothing,
-        _lcLaunchConfigurationName = pLaunchConfigurationName_,
-        _lcImageId = pImageId_,
-        _lcInstanceType = pInstanceType_,
-        _lcCreatedTime = _Time # pCreatedTime_
+      { associatePublicIPAddress = Lude.Nothing,
+        securityGroups = Lude.Nothing,
+        spotPrice = Lude.Nothing,
+        instanceMonitoring = Lude.Nothing,
+        keyName = Lude.Nothing,
+        classicLinkVPCSecurityGroups = Lude.Nothing,
+        ramdiskId = Lude.Nothing,
+        kernelId = Lude.Nothing,
+        ebsOptimized = Lude.Nothing,
+        userData = Lude.Nothing,
+        classicLinkVPCId = Lude.Nothing,
+        iamInstanceProfile = Lude.Nothing,
+        metadataOptions = Lude.Nothing,
+        launchConfigurationARN = Lude.Nothing,
+        placementTenancy = Lude.Nothing,
+        blockDeviceMappings = Lude.Nothing,
+        launchConfigurationName = pLaunchConfigurationName_,
+        imageId = pImageId_,
+        instanceType = pInstanceType_,
+        createdTime = pCreatedTime_
       }
 
 -- | For Auto Scaling groups that are running in a VPC, specifies whether to assign a public IP address to the group's instances. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html Launching Auto Scaling instances in a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
-lcAssociatePublicIPAddress :: Lens' LaunchConfiguration (Maybe Bool)
-lcAssociatePublicIPAddress = lens _lcAssociatePublicIPAddress (\s a -> s {_lcAssociatePublicIPAddress = a})
+--
+-- /Note:/ Consider using 'associatePublicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcAssociatePublicIPAddress :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Bool)
+lcAssociatePublicIPAddress = Lens.lens (associatePublicIPAddress :: LaunchConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {associatePublicIPAddress = a} :: LaunchConfiguration)
+{-# DEPRECATED lcAssociatePublicIPAddress "Use generic-lens or generic-optics with 'associatePublicIPAddress' instead." #-}
 
 -- | A list that contains the security groups to assign to the instances in the Auto Scaling group. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
-lcSecurityGroups :: Lens' LaunchConfiguration [Text]
-lcSecurityGroups = lens _lcSecurityGroups (\s a -> s {_lcSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcSecurityGroups :: Lens.Lens' LaunchConfiguration (Lude.Maybe [Lude.Text])
+lcSecurityGroups = Lens.lens (securityGroups :: LaunchConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: LaunchConfiguration)
+{-# DEPRECATED lcSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html Requesting Spot Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
-lcSpotPrice :: Lens' LaunchConfiguration (Maybe Text)
-lcSpotPrice = lens _lcSpotPrice (\s a -> s {_lcSpotPrice = a})
+--
+-- /Note:/ Consider using 'spotPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcSpotPrice :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcSpotPrice = Lens.lens (spotPrice :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {spotPrice = a} :: LaunchConfiguration)
+{-# DEPRECATED lcSpotPrice "Use generic-lens or generic-optics with 'spotPrice' instead." #-}
 
--- | Controls whether instances in this group are launched with detailed (@true@ ) or basic (@false@ ) monitoring. For more information, see <https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html Configure Monitoring for Auto Scaling Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
-lcInstanceMonitoring :: Lens' LaunchConfiguration (Maybe InstanceMonitoring)
-lcInstanceMonitoring = lens _lcInstanceMonitoring (\s a -> s {_lcInstanceMonitoring = a})
+-- | Controls whether instances in this group are launched with detailed (@true@ ) or basic (@false@ ) monitoring.
+--
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html Configure Monitoring for Auto Scaling Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- /Note:/ Consider using 'instanceMonitoring' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcInstanceMonitoring :: Lens.Lens' LaunchConfiguration (Lude.Maybe InstanceMonitoring)
+lcInstanceMonitoring = Lens.lens (instanceMonitoring :: LaunchConfiguration -> Lude.Maybe InstanceMonitoring) (\s a -> s {instanceMonitoring = a} :: LaunchConfiguration)
+{-# DEPRECATED lcInstanceMonitoring "Use generic-lens or generic-optics with 'instanceMonitoring' instead." #-}
 
--- | The name of the key pair. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs> in the /Amazon EC2 User Guide for Linux Instances/ .
-lcKeyName :: Lens' LaunchConfiguration (Maybe Text)
-lcKeyName = lens _lcKeyName (\s a -> s {_lcKeyName = a})
+-- | The name of the key pair.
+--
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs> in the /Amazon EC2 User Guide for Linux Instances/ .
+--
+-- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcKeyName :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcKeyName = Lens.lens (keyName :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {keyName = a} :: LaunchConfiguration)
+{-# DEPRECATED lcKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
 
--- | The IDs of one or more security groups for the VPC specified in @ClassicLinkVPCId@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
-lcClassicLinkVPCSecurityGroups :: Lens' LaunchConfiguration [Text]
-lcClassicLinkVPCSecurityGroups = lens _lcClassicLinkVPCSecurityGroups (\s a -> s {_lcClassicLinkVPCSecurityGroups = a}) . _Default . _Coerce
+-- | The IDs of one or more security groups for the VPC specified in @ClassicLinkVPCId@ .
+--
+-- For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- /Note:/ Consider using 'classicLinkVPCSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcClassicLinkVPCSecurityGroups :: Lens.Lens' LaunchConfiguration (Lude.Maybe [Lude.Text])
+lcClassicLinkVPCSecurityGroups = Lens.lens (classicLinkVPCSecurityGroups :: LaunchConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {classicLinkVPCSecurityGroups = a} :: LaunchConfiguration)
+{-# DEPRECATED lcClassicLinkVPCSecurityGroups "Use generic-lens or generic-optics with 'classicLinkVPCSecurityGroups' instead." #-}
 
 -- | The ID of the RAM disk associated with the AMI.
-lcRAMDiskId :: Lens' LaunchConfiguration (Maybe Text)
-lcRAMDiskId = lens _lcRAMDiskId (\s a -> s {_lcRAMDiskId = a})
+--
+-- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcRAMDiskId :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcRAMDiskId = Lens.lens (ramdiskId :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {ramdiskId = a} :: LaunchConfiguration)
+{-# DEPRECATED lcRAMDiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
 
 -- | The ID of the kernel associated with the AMI.
-lcKernelId :: Lens' LaunchConfiguration (Maybe Text)
-lcKernelId = lens _lcKernelId (\s a -> s {_lcKernelId = a})
+--
+-- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcKernelId :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcKernelId = Lens.lens (kernelId :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {kernelId = a} :: LaunchConfiguration)
+{-# DEPRECATED lcKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
 
 -- | Specifies whether the launch configuration is optimized for EBS I/O (@true@ ) or not (@false@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
-lcEBSOptimized :: Lens' LaunchConfiguration (Maybe Bool)
-lcEBSOptimized = lens _lcEBSOptimized (\s a -> s {_lcEBSOptimized = a})
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcEBSOptimized :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Bool)
+lcEBSOptimized = Lens.lens (ebsOptimized :: LaunchConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {ebsOptimized = a} :: LaunchConfiguration)
+{-# DEPRECATED lcEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
 
 -- | The Base64-encoded user data to make available to the launched EC2 instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data> in the /Amazon EC2 User Guide for Linux Instances/ .
-lcUserData :: Lens' LaunchConfiguration (Maybe Text)
-lcUserData = lens _lcUserData (\s a -> s {_lcUserData = a})
+--
+-- /Note:/ Consider using 'userData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcUserData :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcUserData = Lens.lens (userData :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {userData = a} :: LaunchConfiguration)
+{-# DEPRECATED lcUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
 
 -- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
-lcClassicLinkVPCId :: Lens' LaunchConfiguration (Maybe Text)
-lcClassicLinkVPCId = lens _lcClassicLinkVPCId (\s a -> s {_lcClassicLinkVPCId = a})
+--
+-- /Note:/ Consider using 'classicLinkVPCId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcClassicLinkVPCId :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcClassicLinkVPCId = Lens.lens (classicLinkVPCId :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {classicLinkVPCId = a} :: LaunchConfiguration)
+{-# DEPRECATED lcClassicLinkVPCId "Use generic-lens or generic-optics with 'classicLinkVPCId' instead." #-}
 
 -- | The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances> in the /Amazon EC2 Auto Scaling User Guide/ .
-lcIAMInstanceProfile :: Lens' LaunchConfiguration (Maybe Text)
-lcIAMInstanceProfile = lens _lcIAMInstanceProfile (\s a -> s {_lcIAMInstanceProfile = a})
+--
+-- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcIAMInstanceProfile :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcIAMInstanceProfile = Lens.lens (iamInstanceProfile :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {iamInstanceProfile = a} :: LaunchConfiguration)
+{-# DEPRECATED lcIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
 -- | The metadata options for the instances. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options> in the /Amazon EC2 Auto Scaling User Guide/ .
-lcMetadataOptions :: Lens' LaunchConfiguration (Maybe InstanceMetadataOptions)
-lcMetadataOptions = lens _lcMetadataOptions (\s a -> s {_lcMetadataOptions = a})
+--
+-- /Note:/ Consider using 'metadataOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcMetadataOptions :: Lens.Lens' LaunchConfiguration (Lude.Maybe InstanceMetadataOptions)
+lcMetadataOptions = Lens.lens (metadataOptions :: LaunchConfiguration -> Lude.Maybe InstanceMetadataOptions) (\s a -> s {metadataOptions = a} :: LaunchConfiguration)
+{-# DEPRECATED lcMetadataOptions "Use generic-lens or generic-optics with 'metadataOptions' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the launch configuration.
-lcLaunchConfigurationARN :: Lens' LaunchConfiguration (Maybe Text)
-lcLaunchConfigurationARN = lens _lcLaunchConfigurationARN (\s a -> s {_lcLaunchConfigurationARN = a})
+--
+-- /Note:/ Consider using 'launchConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcLaunchConfigurationARN :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcLaunchConfigurationARN = Lens.lens (launchConfigurationARN :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {launchConfigurationARN = a} :: LaunchConfiguration)
+{-# DEPRECATED lcLaunchConfigurationARN "Use generic-lens or generic-optics with 'launchConfigurationARN' instead." #-}
 
--- | The tenancy of the instance, either @default@ or @dedicated@ . An instance with @dedicated@ tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html Configuring instance tenancy with Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
-lcPlacementTenancy :: Lens' LaunchConfiguration (Maybe Text)
-lcPlacementTenancy = lens _lcPlacementTenancy (\s a -> s {_lcPlacementTenancy = a})
+-- | The tenancy of the instance, either @default@ or @dedicated@ . An instance with @dedicated@ tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC.
+--
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html Configuring instance tenancy with Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- /Note:/ Consider using 'placementTenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcPlacementTenancy :: Lens.Lens' LaunchConfiguration (Lude.Maybe Lude.Text)
+lcPlacementTenancy = Lens.lens (placementTenancy :: LaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {placementTenancy = a} :: LaunchConfiguration)
+{-# DEPRECATED lcPlacementTenancy "Use generic-lens or generic-optics with 'placementTenancy' instead." #-}
 
 -- | A block device mapping, which specifies the block devices for the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping> in the /Amazon EC2 User Guide for Linux Instances/ .
-lcBlockDeviceMappings :: Lens' LaunchConfiguration [BlockDeviceMapping]
-lcBlockDeviceMappings = lens _lcBlockDeviceMappings (\s a -> s {_lcBlockDeviceMappings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcBlockDeviceMappings :: Lens.Lens' LaunchConfiguration (Lude.Maybe [BlockDeviceMapping])
+lcBlockDeviceMappings = Lens.lens (blockDeviceMappings :: LaunchConfiguration -> Lude.Maybe [BlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: LaunchConfiguration)
+{-# DEPRECATED lcBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
 
 -- | The name of the launch configuration.
-lcLaunchConfigurationName :: Lens' LaunchConfiguration Text
-lcLaunchConfigurationName = lens _lcLaunchConfigurationName (\s a -> s {_lcLaunchConfigurationName = a})
+--
+-- /Note:/ Consider using 'launchConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcLaunchConfigurationName :: Lens.Lens' LaunchConfiguration Lude.Text
+lcLaunchConfigurationName = Lens.lens (launchConfigurationName :: LaunchConfiguration -> Lude.Text) (\s a -> s {launchConfigurationName = a} :: LaunchConfiguration)
+{-# DEPRECATED lcLaunchConfigurationName "Use generic-lens or generic-optics with 'launchConfigurationName' instead." #-}
 
 -- | The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI> in the /Amazon EC2 User Guide for Linux Instances/ .
-lcImageId :: Lens' LaunchConfiguration Text
-lcImageId = lens _lcImageId (\s a -> s {_lcImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcImageId :: Lens.Lens' LaunchConfiguration Lude.Text
+lcImageId = Lens.lens (imageId :: LaunchConfiguration -> Lude.Text) (\s a -> s {imageId = a} :: LaunchConfiguration)
+{-# DEPRECATED lcImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
--- | The instance type for the instances. For information about available instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types> in the /Amazon EC2 User Guide for Linux Instances./
-lcInstanceType :: Lens' LaunchConfiguration Text
-lcInstanceType = lens _lcInstanceType (\s a -> s {_lcInstanceType = a})
+-- | The instance type for the instances.
+--
+-- For information about available instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types> in the /Amazon EC2 User Guide for Linux Instances./
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcInstanceType :: Lens.Lens' LaunchConfiguration Lude.Text
+lcInstanceType = Lens.lens (instanceType :: LaunchConfiguration -> Lude.Text) (\s a -> s {instanceType = a} :: LaunchConfiguration)
+{-# DEPRECATED lcInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The creation date and time for the launch configuration.
-lcCreatedTime :: Lens' LaunchConfiguration UTCTime
-lcCreatedTime = lens _lcCreatedTime (\s a -> s {_lcCreatedTime = a}) . _Time
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcCreatedTime :: Lens.Lens' LaunchConfiguration Lude.ISO8601
+lcCreatedTime = Lens.lens (createdTime :: LaunchConfiguration -> Lude.ISO8601) (\s a -> s {createdTime = a} :: LaunchConfiguration)
+{-# DEPRECATED lcCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
-instance FromXML LaunchConfiguration where
+instance Lude.FromXML LaunchConfiguration where
   parseXML x =
     LaunchConfiguration'
-      <$> (x .@? "AssociatePublicIpAddress")
-      <*> (x .@? "SecurityGroups" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "SpotPrice")
-      <*> (x .@? "InstanceMonitoring")
-      <*> (x .@? "KeyName")
-      <*> ( x .@? "ClassicLinkVPCSecurityGroups" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> (x .@? "RamdiskId")
-      <*> (x .@? "KernelId")
-      <*> (x .@? "EbsOptimized")
-      <*> (x .@? "UserData")
-      <*> (x .@? "ClassicLinkVPCId")
-      <*> (x .@? "IamInstanceProfile")
-      <*> (x .@? "MetadataOptions")
-      <*> (x .@? "LaunchConfigurationARN")
-      <*> (x .@? "PlacementTenancy")
-      <*> ( x .@? "BlockDeviceMappings" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> (x .@ "LaunchConfigurationName")
-      <*> (x .@ "ImageId")
-      <*> (x .@ "InstanceType")
-      <*> (x .@ "CreatedTime")
-
-instance Hashable LaunchConfiguration
-
-instance NFData LaunchConfiguration
+      Lude.<$> (x Lude..@? "AssociatePublicIpAddress")
+      Lude.<*> ( x Lude..@? "SecurityGroups" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "SpotPrice")
+      Lude.<*> (x Lude..@? "InstanceMonitoring")
+      Lude.<*> (x Lude..@? "KeyName")
+      Lude.<*> ( x Lude..@? "ClassicLinkVPCSecurityGroups" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "RamdiskId")
+      Lude.<*> (x Lude..@? "KernelId")
+      Lude.<*> (x Lude..@? "EbsOptimized")
+      Lude.<*> (x Lude..@? "UserData")
+      Lude.<*> (x Lude..@? "ClassicLinkVPCId")
+      Lude.<*> (x Lude..@? "IamInstanceProfile")
+      Lude.<*> (x Lude..@? "MetadataOptions")
+      Lude.<*> (x Lude..@? "LaunchConfigurationARN")
+      Lude.<*> (x Lude..@? "PlacementTenancy")
+      Lude.<*> ( x Lude..@? "BlockDeviceMappings" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@ "LaunchConfigurationName")
+      Lude.<*> (x Lude..@ "ImageId")
+      Lude.<*> (x Lude..@ "InstanceType")
+      Lude.<*> (x Lude..@ "CreatedTime")

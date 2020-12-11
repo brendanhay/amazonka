@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53.Types.ResettableElementName where
+module Network.AWS.Route53.Types.ResettableElementName
+  ( ResettableElementName
+      ( ResettableElementName',
+        ChildHealthChecks,
+        FullyQualifiedDomainName,
+        Regions,
+        ResourcePath
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Route53.Internal
 
-data ResettableElementName
-  = ChildHealthChecks
-  | FullyQualifiedDomainName
-  | Regions
-  | ResourcePath
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResettableElementName = ResettableElementName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResettableElementName where
-  parser =
-    takeLowerText >>= \case
-      "childhealthchecks" -> pure ChildHealthChecks
-      "fullyqualifieddomainname" -> pure FullyQualifiedDomainName
-      "regions" -> pure Regions
-      "resourcepath" -> pure ResourcePath
-      e ->
-        fromTextError $
-          "Failure parsing ResettableElementName from value: '" <> e
-            <> "'. Accepted values: childhealthchecks, fullyqualifieddomainname, regions, resourcepath"
+pattern ChildHealthChecks :: ResettableElementName
+pattern ChildHealthChecks = ResettableElementName' "ChildHealthChecks"
 
-instance ToText ResettableElementName where
-  toText = \case
-    ChildHealthChecks -> "ChildHealthChecks"
-    FullyQualifiedDomainName -> "FullyQualifiedDomainName"
-    Regions -> "Regions"
-    ResourcePath -> "ResourcePath"
+pattern FullyQualifiedDomainName :: ResettableElementName
+pattern FullyQualifiedDomainName = ResettableElementName' "FullyQualifiedDomainName"
 
-instance Hashable ResettableElementName
+pattern Regions :: ResettableElementName
+pattern Regions = ResettableElementName' "Regions"
 
-instance NFData ResettableElementName
+pattern ResourcePath :: ResettableElementName
+pattern ResourcePath = ResettableElementName' "ResourcePath"
 
-instance ToByteString ResettableElementName
-
-instance ToQuery ResettableElementName
-
-instance ToHeader ResettableElementName
-
-instance ToXML ResettableElementName where
-  toXML = toXMLText
+{-# COMPLETE
+  ChildHealthChecks,
+  FullyQualifiedDomainName,
+  Regions,
+  ResourcePath,
+  ResettableElementName'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ExecutionControls where
+module Network.AWS.Config.Types.ExecutionControls
+  ( ExecutionControls (..),
+
+    -- * Smart constructor
+    mkExecutionControls,
+
+    -- * Lenses
+    ecSsmControls,
+  )
+where
 
 import Network.AWS.Config.Types.SsmControls
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The controls that AWS Config uses for executing remediations.
 --
---
---
--- /See:/ 'executionControls' smart constructor.
+-- /See:/ 'mkExecutionControls' smart constructor.
 newtype ExecutionControls = ExecutionControls'
-  { _ecSsmControls ::
-      Maybe SsmControls
+  { ssmControls ::
+      Lude.Maybe SsmControls
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionControls' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecSsmControls' - A SsmControls object.
-executionControls ::
+-- * 'ssmControls' - A SsmControls object.
+mkExecutionControls ::
   ExecutionControls
-executionControls = ExecutionControls' {_ecSsmControls = Nothing}
+mkExecutionControls =
+  ExecutionControls' {ssmControls = Lude.Nothing}
 
 -- | A SsmControls object.
-ecSsmControls :: Lens' ExecutionControls (Maybe SsmControls)
-ecSsmControls = lens _ecSsmControls (\s a -> s {_ecSsmControls = a})
+--
+-- /Note:/ Consider using 'ssmControls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecSsmControls :: Lens.Lens' ExecutionControls (Lude.Maybe SsmControls)
+ecSsmControls = Lens.lens (ssmControls :: ExecutionControls -> Lude.Maybe SsmControls) (\s a -> s {ssmControls = a} :: ExecutionControls)
+{-# DEPRECATED ecSsmControls "Use generic-lens or generic-optics with 'ssmControls' instead." #-}
 
-instance FromJSON ExecutionControls where
+instance Lude.FromJSON ExecutionControls where
   parseJSON =
-    withObject
+    Lude.withObject
       "ExecutionControls"
-      (\x -> ExecutionControls' <$> (x .:? "SsmControls"))
+      (\x -> ExecutionControls' Lude.<$> (x Lude..:? "SsmControls"))
 
-instance Hashable ExecutionControls
-
-instance NFData ExecutionControls
-
-instance ToJSON ExecutionControls where
+instance Lude.ToJSON ExecutionControls where
   toJSON ExecutionControls' {..} =
-    object (catMaybes [("SsmControls" .=) <$> _ecSsmControls])
+    Lude.object
+      (Lude.catMaybes [("SsmControls" Lude..=) Lude.<$> ssmControls])

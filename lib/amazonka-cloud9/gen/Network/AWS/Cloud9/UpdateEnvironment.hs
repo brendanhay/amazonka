@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,142 @@
 --
 -- Changes the settings of an existing AWS Cloud9 development environment.
 module Network.AWS.Cloud9.UpdateEnvironment
-  ( -- * Creating a Request
-    updateEnvironment,
-    UpdateEnvironment,
+  ( -- * Creating a request
+    UpdateEnvironment (..),
+    mkUpdateEnvironment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ueName,
     ueDescription,
     ueEnvironmentId,
 
-    -- * Destructuring the Response
-    updateEnvironmentResponse,
-    UpdateEnvironmentResponse,
+    -- * Destructuring the response
+    UpdateEnvironmentResponse (..),
+    mkUpdateEnvironmentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uersResponseStatus,
   )
 where
 
 import Network.AWS.Cloud9.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateEnvironment' smart constructor.
+-- | /See:/ 'mkUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { _ueName ::
-      !(Maybe Text),
-    _ueDescription :: !(Maybe (Sensitive Text)),
-    _ueEnvironmentId :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    environmentId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEnvironment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ueName' - A replacement name for the environment.
---
--- * 'ueDescription' - Any new or replacement description for the environment.
---
--- * 'ueEnvironmentId' - The ID of the environment to change settings.
-updateEnvironment ::
-  -- | 'ueEnvironmentId'
-  Text ->
+-- * 'description' - Any new or replacement description for the environment.
+-- * 'environmentId' - The ID of the environment to change settings.
+-- * 'name' - A replacement name for the environment.
+mkUpdateEnvironment ::
+  -- | 'environmentId'
+  Lude.Text ->
   UpdateEnvironment
-updateEnvironment pEnvironmentId_ =
+mkUpdateEnvironment pEnvironmentId_ =
   UpdateEnvironment'
-    { _ueName = Nothing,
-      _ueDescription = Nothing,
-      _ueEnvironmentId = pEnvironmentId_
+    { name = Lude.Nothing,
+      description = Lude.Nothing,
+      environmentId = pEnvironmentId_
     }
 
 -- | A replacement name for the environment.
-ueName :: Lens' UpdateEnvironment (Maybe Text)
-ueName = lens _ueName (\s a -> s {_ueName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueName :: Lens.Lens' UpdateEnvironment (Lude.Maybe Lude.Text)
+ueName = Lens.lens (name :: UpdateEnvironment -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateEnvironment)
+{-# DEPRECATED ueName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Any new or replacement description for the environment.
-ueDescription :: Lens' UpdateEnvironment (Maybe Text)
-ueDescription = lens _ueDescription (\s a -> s {_ueDescription = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueDescription :: Lens.Lens' UpdateEnvironment (Lude.Maybe (Lude.Sensitive Lude.Text))
+ueDescription = Lens.lens (description :: UpdateEnvironment -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateEnvironment)
+{-# DEPRECATED ueDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the environment to change settings.
-ueEnvironmentId :: Lens' UpdateEnvironment Text
-ueEnvironmentId = lens _ueEnvironmentId (\s a -> s {_ueEnvironmentId = a})
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueEnvironmentId :: Lens.Lens' UpdateEnvironment Lude.Text
+ueEnvironmentId = Lens.lens (environmentId :: UpdateEnvironment -> Lude.Text) (\s a -> s {environmentId = a} :: UpdateEnvironment)
+{-# DEPRECATED ueEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance AWSRequest UpdateEnvironment where
+instance Lude.AWSRequest UpdateEnvironment where
   type Rs UpdateEnvironment = UpdateEnvironmentResponse
-  request = postJSON cloud9
+  request = Req.postJSON cloud9Service
   response =
-    receiveEmpty
-      (\s h x -> UpdateEnvironmentResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateEnvironmentResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateEnvironment
-
-instance NFData UpdateEnvironment
-
-instance ToHeaders UpdateEnvironment where
+instance Lude.ToHeaders UpdateEnvironment where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCloud9WorkspaceManagementService.UpdateEnvironment" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCloud9WorkspaceManagementService.UpdateEnvironment" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateEnvironment where
+instance Lude.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
-    object
-      ( catMaybes
-          [ ("name" .=) <$> _ueName,
-            ("description" .=) <$> _ueDescription,
-            Just ("environmentId" .= _ueEnvironmentId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("name" Lude..=) Lude.<$> name,
+            ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("environmentId" Lude..= environmentId)
           ]
       )
 
-instance ToPath UpdateEnvironment where
-  toPath = const "/"
+instance Lude.ToPath UpdateEnvironment where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateEnvironment where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateEnvironment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateEnvironmentResponse' smart constructor.
+-- | /See:/ 'mkUpdateEnvironmentResponse' smart constructor.
 newtype UpdateEnvironmentResponse = UpdateEnvironmentResponse'
-  { _uersResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEnvironmentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uersResponseStatus' - -- | The response status code.
-updateEnvironmentResponse ::
-  -- | 'uersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateEnvironmentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateEnvironmentResponse
-updateEnvironmentResponse pResponseStatus_ =
-  UpdateEnvironmentResponse'
-    { _uersResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateEnvironmentResponse pResponseStatus_ =
+  UpdateEnvironmentResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-uersResponseStatus :: Lens' UpdateEnvironmentResponse Int
-uersResponseStatus = lens _uersResponseStatus (\s a -> s {_uersResponseStatus = a})
-
-instance NFData UpdateEnvironmentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uersResponseStatus :: Lens.Lens' UpdateEnvironmentResponse Lude.Int
+uersResponseStatus = Lens.lens (responseStatus :: UpdateEnvironmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEnvironmentResponse)
+{-# DEPRECATED uersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

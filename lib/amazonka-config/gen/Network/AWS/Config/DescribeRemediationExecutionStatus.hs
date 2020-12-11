@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Provides a detailed view of a Remediation Execution for a set of resources including state, timestamps for when steps for the remediation execution occur, and any error messages for steps that have failed. When you specify the limit and the next token, you receive a paginated response.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeRemediationExecutionStatus
-  ( -- * Creating a Request
-    describeRemediationExecutionStatus,
-    DescribeRemediationExecutionStatus,
+  ( -- * Creating a request
+    DescribeRemediationExecutionStatus (..),
+    mkDescribeRemediationExecutionStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dresNextToken,
     dresLimit,
     dresResourceKeys,
     dresConfigRuleName,
 
-    -- * Destructuring the Response
-    describeRemediationExecutionStatusResponse,
-    DescribeRemediationExecutionStatusResponse,
+    -- * Destructuring the response
+    DescribeRemediationExecutionStatusResponse (..),
+    mkDescribeRemediationExecutionStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dresrsRemediationExecutionStatuses,
     dresrsNextToken,
     dresrsResponseStatus,
@@ -45,174 +38,190 @@ module Network.AWS.Config.DescribeRemediationExecutionStatus
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeRemediationExecutionStatus' smart constructor.
+-- | /See:/ 'mkDescribeRemediationExecutionStatus' smart constructor.
 data DescribeRemediationExecutionStatus = DescribeRemediationExecutionStatus'
-  { _dresNextToken ::
-      !(Maybe Text),
-    _dresLimit ::
-      !(Maybe Nat),
-    _dresResourceKeys ::
-      !( Maybe
-           ( List1
-               ResourceKey
-           )
-       ),
-    _dresConfigRuleName ::
-      !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    limit ::
+      Lude.Maybe
+        Lude.Natural,
+    resourceKeys ::
+      Lude.Maybe
+        ( Lude.NonEmpty
+            ResourceKey
+        ),
+    configRuleName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRemediationExecutionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dresNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dresLimit' - The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
---
--- * 'dresResourceKeys' - A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
---
--- * 'dresConfigRuleName' - A list of AWS Config rule names.
-describeRemediationExecutionStatus ::
-  -- | 'dresConfigRuleName'
-  Text ->
+-- * 'configRuleName' - A list of AWS Config rule names.
+-- * 'limit' - The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'resourceKeys' - A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+mkDescribeRemediationExecutionStatus ::
+  -- | 'configRuleName'
+  Lude.Text ->
   DescribeRemediationExecutionStatus
-describeRemediationExecutionStatus pConfigRuleName_ =
+mkDescribeRemediationExecutionStatus pConfigRuleName_ =
   DescribeRemediationExecutionStatus'
-    { _dresNextToken = Nothing,
-      _dresLimit = Nothing,
-      _dresResourceKeys = Nothing,
-      _dresConfigRuleName = pConfigRuleName_
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing,
+      resourceKeys = Lude.Nothing,
+      configRuleName = pConfigRuleName_
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dresNextToken :: Lens' DescribeRemediationExecutionStatus (Maybe Text)
-dresNextToken = lens _dresNextToken (\s a -> s {_dresNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresNextToken :: Lens.Lens' DescribeRemediationExecutionStatus (Lude.Maybe Lude.Text)
+dresNextToken = Lens.lens (nextToken :: DescribeRemediationExecutionStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeRemediationExecutionStatus)
+{-# DEPRECATED dresNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-dresLimit :: Lens' DescribeRemediationExecutionStatus (Maybe Natural)
-dresLimit = lens _dresLimit (\s a -> s {_dresLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresLimit :: Lens.Lens' DescribeRemediationExecutionStatus (Lude.Maybe Lude.Natural)
+dresLimit = Lens.lens (limit :: DescribeRemediationExecutionStatus -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeRemediationExecutionStatus)
+{-# DEPRECATED dresLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
-dresResourceKeys :: Lens' DescribeRemediationExecutionStatus (Maybe (NonEmpty ResourceKey))
-dresResourceKeys = lens _dresResourceKeys (\s a -> s {_dresResourceKeys = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'resourceKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresResourceKeys :: Lens.Lens' DescribeRemediationExecutionStatus (Lude.Maybe (Lude.NonEmpty ResourceKey))
+dresResourceKeys = Lens.lens (resourceKeys :: DescribeRemediationExecutionStatus -> Lude.Maybe (Lude.NonEmpty ResourceKey)) (\s a -> s {resourceKeys = a} :: DescribeRemediationExecutionStatus)
+{-# DEPRECATED dresResourceKeys "Use generic-lens or generic-optics with 'resourceKeys' instead." #-}
 
 -- | A list of AWS Config rule names.
-dresConfigRuleName :: Lens' DescribeRemediationExecutionStatus Text
-dresConfigRuleName = lens _dresConfigRuleName (\s a -> s {_dresConfigRuleName = a})
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresConfigRuleName :: Lens.Lens' DescribeRemediationExecutionStatus Lude.Text
+dresConfigRuleName = Lens.lens (configRuleName :: DescribeRemediationExecutionStatus -> Lude.Text) (\s a -> s {configRuleName = a} :: DescribeRemediationExecutionStatus)
+{-# DEPRECATED dresConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
-instance AWSPager DescribeRemediationExecutionStatus where
+instance Page.AWSPager DescribeRemediationExecutionStatus where
   page rq rs
-    | stop (rs ^. dresrsNextToken) = Nothing
-    | stop (rs ^. dresrsRemediationExecutionStatuses) = Nothing
-    | otherwise = Just $ rq & dresNextToken .~ rs ^. dresrsNextToken
+    | Page.stop (rs Lens.^. dresrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dresrsRemediationExecutionStatuses) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dresNextToken Lens..~ rs Lens.^. dresrsNextToken
 
-instance AWSRequest DescribeRemediationExecutionStatus where
+instance Lude.AWSRequest DescribeRemediationExecutionStatus where
   type
     Rs DescribeRemediationExecutionStatus =
       DescribeRemediationExecutionStatusResponse
-  request = postJSON config
+  request = Req.postJSON configService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeRemediationExecutionStatusResponse'
-            <$> (x .?> "RemediationExecutionStatuses" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RemediationExecutionStatuses" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeRemediationExecutionStatus
-
-instance NFData DescribeRemediationExecutionStatus
-
-instance ToHeaders DescribeRemediationExecutionStatus where
+instance Lude.ToHeaders DescribeRemediationExecutionStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "StarlingDoveService.DescribeRemediationExecutionStatus" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "StarlingDoveService.DescribeRemediationExecutionStatus" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeRemediationExecutionStatus where
+instance Lude.ToJSON DescribeRemediationExecutionStatus where
   toJSON DescribeRemediationExecutionStatus' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _dresNextToken,
-            ("Limit" .=) <$> _dresLimit,
-            ("ResourceKeys" .=) <$> _dresResourceKeys,
-            Just ("ConfigRuleName" .= _dresConfigRuleName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit,
+            ("ResourceKeys" Lude..=) Lude.<$> resourceKeys,
+            Lude.Just ("ConfigRuleName" Lude..= configRuleName)
           ]
       )
 
-instance ToPath DescribeRemediationExecutionStatus where
-  toPath = const "/"
+instance Lude.ToPath DescribeRemediationExecutionStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeRemediationExecutionStatus where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeRemediationExecutionStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeRemediationExecutionStatusResponse' smart constructor.
+-- | /See:/ 'mkDescribeRemediationExecutionStatusResponse' smart constructor.
 data DescribeRemediationExecutionStatusResponse = DescribeRemediationExecutionStatusResponse'
-  { _dresrsRemediationExecutionStatuses ::
-      !( Maybe
-           [RemediationExecutionStatus]
-       ),
-    _dresrsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dresrsResponseStatus ::
-      !Int
+  { remediationExecutionStatuses ::
+      Lude.Maybe
+        [RemediationExecutionStatus],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRemediationExecutionStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dresrsRemediationExecutionStatuses' - Returns a list of remediation execution statuses objects.
---
--- * 'dresrsNextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'dresrsResponseStatus' - -- | The response status code.
-describeRemediationExecutionStatusResponse ::
-  -- | 'dresrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'remediationExecutionStatuses' - Returns a list of remediation execution statuses objects.
+-- * 'responseStatus' - The response status code.
+mkDescribeRemediationExecutionStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeRemediationExecutionStatusResponse
-describeRemediationExecutionStatusResponse pResponseStatus_ =
+mkDescribeRemediationExecutionStatusResponse pResponseStatus_ =
   DescribeRemediationExecutionStatusResponse'
-    { _dresrsRemediationExecutionStatuses =
-        Nothing,
-      _dresrsNextToken = Nothing,
-      _dresrsResponseStatus = pResponseStatus_
+    { remediationExecutionStatuses =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns a list of remediation execution statuses objects.
-dresrsRemediationExecutionStatuses :: Lens' DescribeRemediationExecutionStatusResponse [RemediationExecutionStatus]
-dresrsRemediationExecutionStatuses = lens _dresrsRemediationExecutionStatuses (\s a -> s {_dresrsRemediationExecutionStatuses = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'remediationExecutionStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresrsRemediationExecutionStatuses :: Lens.Lens' DescribeRemediationExecutionStatusResponse (Lude.Maybe [RemediationExecutionStatus])
+dresrsRemediationExecutionStatuses = Lens.lens (remediationExecutionStatuses :: DescribeRemediationExecutionStatusResponse -> Lude.Maybe [RemediationExecutionStatus]) (\s a -> s {remediationExecutionStatuses = a} :: DescribeRemediationExecutionStatusResponse)
+{-# DEPRECATED dresrsRemediationExecutionStatuses "Use generic-lens or generic-optics with 'remediationExecutionStatuses' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-dresrsNextToken :: Lens' DescribeRemediationExecutionStatusResponse (Maybe Text)
-dresrsNextToken = lens _dresrsNextToken (\s a -> s {_dresrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresrsNextToken :: Lens.Lens' DescribeRemediationExecutionStatusResponse (Lude.Maybe Lude.Text)
+dresrsNextToken = Lens.lens (nextToken :: DescribeRemediationExecutionStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeRemediationExecutionStatusResponse)
+{-# DEPRECATED dresrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-dresrsResponseStatus :: Lens' DescribeRemediationExecutionStatusResponse Int
-dresrsResponseStatus = lens _dresrsResponseStatus (\s a -> s {_dresrsResponseStatus = a})
-
-instance NFData DescribeRemediationExecutionStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dresrsResponseStatus :: Lens.Lens' DescribeRemediationExecutionStatusResponse Lude.Int
+dresrsResponseStatus = Lens.lens (responseStatus :: DescribeRemediationExecutionStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRemediationExecutionStatusResponse)
+{-# DEPRECATED dresrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

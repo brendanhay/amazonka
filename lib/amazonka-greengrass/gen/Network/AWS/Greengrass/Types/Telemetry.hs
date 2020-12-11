@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.Telemetry where
+module Network.AWS.Greengrass.Types.Telemetry
+  ( Telemetry
+      ( Telemetry',
+        ON,
+        Off
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Telemetry
-  = ON
-  | Off
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Telemetry = Telemetry' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Telemetry where
-  parser =
-    takeLowerText >>= \case
-      "on" -> pure ON
-      "off" -> pure Off
-      e ->
-        fromTextError $
-          "Failure parsing Telemetry from value: '" <> e
-            <> "'. Accepted values: on, off"
+pattern ON :: Telemetry
+pattern ON = Telemetry' "On"
 
-instance ToText Telemetry where
-  toText = \case
-    ON -> "On"
-    Off -> "Off"
+pattern Off :: Telemetry
+pattern Off = Telemetry' "Off"
 
-instance Hashable Telemetry
-
-instance NFData Telemetry
-
-instance ToByteString Telemetry
-
-instance ToQuery Telemetry
-
-instance ToHeader Telemetry
-
-instance ToJSON Telemetry where
-  toJSON = toJSONText
-
-instance FromJSON Telemetry where
-  parseJSON = parseJSONText "Telemetry"
+{-# COMPLETE
+  ON,
+  Off,
+  Telemetry'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Returns details of the service updates
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeServiceUpdates
-  ( -- * Creating a Request
-    describeServiceUpdates,
-    DescribeServiceUpdates,
+  ( -- * Creating a request
+    DescribeServiceUpdates (..),
+    mkDescribeServiceUpdates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsuServiceUpdateName,
     dsuMarker,
     dsuMaxRecords,
     dsuServiceUpdateStatus,
 
-    -- * Destructuring the Response
-    describeServiceUpdatesResponse,
-    DescribeServiceUpdatesResponse,
+    -- * Destructuring the response
+    DescribeServiceUpdatesResponse (..),
+    mkDescribeServiceUpdatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsursServiceUpdates,
     dsursMarker,
     dsursResponseStatus,
@@ -45,142 +38,165 @@ module Network.AWS.ElastiCache.DescribeServiceUpdates
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeServiceUpdates' smart constructor.
+-- | /See:/ 'mkDescribeServiceUpdates' smart constructor.
 data DescribeServiceUpdates = DescribeServiceUpdates'
-  { _dsuServiceUpdateName ::
-      !(Maybe Text),
-    _dsuMarker :: !(Maybe Text),
-    _dsuMaxRecords :: !(Maybe Int),
-    _dsuServiceUpdateStatus ::
-      !(Maybe [ServiceUpdateStatus])
+  { serviceUpdateName ::
+      Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int,
+    serviceUpdateStatus ::
+      Lude.Maybe [ServiceUpdateStatus]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceUpdates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsuServiceUpdateName' - The unique ID of the service update
---
--- * 'dsuMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dsuMaxRecords' - The maximum number of records to include in the response
---
--- * 'dsuServiceUpdateStatus' - The status of the service update
-describeServiceUpdates ::
+-- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response
+-- * 'serviceUpdateName' - The unique ID of the service update
+-- * 'serviceUpdateStatus' - The status of the service update
+mkDescribeServiceUpdates ::
   DescribeServiceUpdates
-describeServiceUpdates =
+mkDescribeServiceUpdates =
   DescribeServiceUpdates'
-    { _dsuServiceUpdateName = Nothing,
-      _dsuMarker = Nothing,
-      _dsuMaxRecords = Nothing,
-      _dsuServiceUpdateStatus = Nothing
+    { serviceUpdateName = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing,
+      serviceUpdateStatus = Lude.Nothing
     }
 
 -- | The unique ID of the service update
-dsuServiceUpdateName :: Lens' DescribeServiceUpdates (Maybe Text)
-dsuServiceUpdateName = lens _dsuServiceUpdateName (\s a -> s {_dsuServiceUpdateName = a})
+--
+-- /Note:/ Consider using 'serviceUpdateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsuServiceUpdateName :: Lens.Lens' DescribeServiceUpdates (Lude.Maybe Lude.Text)
+dsuServiceUpdateName = Lens.lens (serviceUpdateName :: DescribeServiceUpdates -> Lude.Maybe Lude.Text) (\s a -> s {serviceUpdateName = a} :: DescribeServiceUpdates)
+{-# DEPRECATED dsuServiceUpdateName "Use generic-lens or generic-optics with 'serviceUpdateName' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dsuMarker :: Lens' DescribeServiceUpdates (Maybe Text)
-dsuMarker = lens _dsuMarker (\s a -> s {_dsuMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsuMarker :: Lens.Lens' DescribeServiceUpdates (Lude.Maybe Lude.Text)
+dsuMarker = Lens.lens (marker :: DescribeServiceUpdates -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeServiceUpdates)
+{-# DEPRECATED dsuMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response
-dsuMaxRecords :: Lens' DescribeServiceUpdates (Maybe Int)
-dsuMaxRecords = lens _dsuMaxRecords (\s a -> s {_dsuMaxRecords = a})
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsuMaxRecords :: Lens.Lens' DescribeServiceUpdates (Lude.Maybe Lude.Int)
+dsuMaxRecords = Lens.lens (maxRecords :: DescribeServiceUpdates -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeServiceUpdates)
+{-# DEPRECATED dsuMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The status of the service update
-dsuServiceUpdateStatus :: Lens' DescribeServiceUpdates [ServiceUpdateStatus]
-dsuServiceUpdateStatus = lens _dsuServiceUpdateStatus (\s a -> s {_dsuServiceUpdateStatus = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsuServiceUpdateStatus :: Lens.Lens' DescribeServiceUpdates (Lude.Maybe [ServiceUpdateStatus])
+dsuServiceUpdateStatus = Lens.lens (serviceUpdateStatus :: DescribeServiceUpdates -> Lude.Maybe [ServiceUpdateStatus]) (\s a -> s {serviceUpdateStatus = a} :: DescribeServiceUpdates)
+{-# DEPRECATED dsuServiceUpdateStatus "Use generic-lens or generic-optics with 'serviceUpdateStatus' instead." #-}
 
-instance AWSPager DescribeServiceUpdates where
+instance Page.AWSPager DescribeServiceUpdates where
   page rq rs
-    | stop (rs ^. dsursMarker) = Nothing
-    | stop (rs ^. dsursServiceUpdates) = Nothing
-    | otherwise = Just $ rq & dsuMarker .~ rs ^. dsursMarker
+    | Page.stop (rs Lens.^. dsursMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dsursServiceUpdates) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& dsuMarker Lens..~ rs Lens.^. dsursMarker
 
-instance AWSRequest DescribeServiceUpdates where
+instance Lude.AWSRequest DescribeServiceUpdates where
   type Rs DescribeServiceUpdates = DescribeServiceUpdatesResponse
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeServiceUpdatesResult"
       ( \s h x ->
           DescribeServiceUpdatesResponse'
-            <$> ( x .@? "ServiceUpdates" .!@ mempty
-                    >>= may (parseXMLList "ServiceUpdate")
-                )
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "ServiceUpdates" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "ServiceUpdate")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeServiceUpdates
+instance Lude.ToHeaders DescribeServiceUpdates where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeServiceUpdates
+instance Lude.ToPath DescribeServiceUpdates where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeServiceUpdates where
-  toHeaders = const mempty
-
-instance ToPath DescribeServiceUpdates where
-  toPath = const "/"
-
-instance ToQuery DescribeServiceUpdates where
+instance Lude.ToQuery DescribeServiceUpdates where
   toQuery DescribeServiceUpdates' {..} =
-    mconcat
-      [ "Action" =: ("DescribeServiceUpdates" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "ServiceUpdateName" =: _dsuServiceUpdateName,
-        "Marker" =: _dsuMarker,
-        "MaxRecords" =: _dsuMaxRecords,
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeServiceUpdates" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "ServiceUpdateName" Lude.=: serviceUpdateName,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords,
         "ServiceUpdateStatus"
-          =: toQuery (toQueryList "member" <$> _dsuServiceUpdateStatus)
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> serviceUpdateStatus)
       ]
 
--- | /See:/ 'describeServiceUpdatesResponse' smart constructor.
+-- | /See:/ 'mkDescribeServiceUpdatesResponse' smart constructor.
 data DescribeServiceUpdatesResponse = DescribeServiceUpdatesResponse'
-  { _dsursServiceUpdates ::
-      !(Maybe [ServiceUpdate]),
-    _dsursMarker :: !(Maybe Text),
-    _dsursResponseStatus :: !Int
+  { serviceUpdates ::
+      Lude.Maybe [ServiceUpdate],
+    marker ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceUpdatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsursServiceUpdates' - A list of service updates
---
--- * 'dsursMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dsursResponseStatus' - -- | The response status code.
-describeServiceUpdatesResponse ::
-  -- | 'dsursResponseStatus'
-  Int ->
+-- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+-- * 'serviceUpdates' - A list of service updates
+mkDescribeServiceUpdatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeServiceUpdatesResponse
-describeServiceUpdatesResponse pResponseStatus_ =
+mkDescribeServiceUpdatesResponse pResponseStatus_ =
   DescribeServiceUpdatesResponse'
-    { _dsursServiceUpdates = Nothing,
-      _dsursMarker = Nothing,
-      _dsursResponseStatus = pResponseStatus_
+    { serviceUpdates = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of service updates
-dsursServiceUpdates :: Lens' DescribeServiceUpdatesResponse [ServiceUpdate]
-dsursServiceUpdates = lens _dsursServiceUpdates (\s a -> s {_dsursServiceUpdates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsursServiceUpdates :: Lens.Lens' DescribeServiceUpdatesResponse (Lude.Maybe [ServiceUpdate])
+dsursServiceUpdates = Lens.lens (serviceUpdates :: DescribeServiceUpdatesResponse -> Lude.Maybe [ServiceUpdate]) (\s a -> s {serviceUpdates = a} :: DescribeServiceUpdatesResponse)
+{-# DEPRECATED dsursServiceUpdates "Use generic-lens or generic-optics with 'serviceUpdates' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dsursMarker :: Lens' DescribeServiceUpdatesResponse (Maybe Text)
-dsursMarker = lens _dsursMarker (\s a -> s {_dsursMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsursMarker :: Lens.Lens' DescribeServiceUpdatesResponse (Lude.Maybe Lude.Text)
+dsursMarker = Lens.lens (marker :: DescribeServiceUpdatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeServiceUpdatesResponse)
+{-# DEPRECATED dsursMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dsursResponseStatus :: Lens' DescribeServiceUpdatesResponse Int
-dsursResponseStatus = lens _dsursResponseStatus (\s a -> s {_dsursResponseStatus = a})
-
-instance NFData DescribeServiceUpdatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsursResponseStatus :: Lens.Lens' DescribeServiceUpdatesResponse Lude.Int
+dsursResponseStatus = Lens.lens (responseStatus :: DescribeServiceUpdatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeServiceUpdatesResponse)
+{-# DEPRECATED dsursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

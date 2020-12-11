@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,113 +14,127 @@
 --
 -- Sets the priorities of the specified rules.
 --
---
 -- You can reorder the rules as long as there are no priority conflicts in the new order. Any existing rules that you do not specify retain their current priority.
 module Network.AWS.ELBv2.SetRulePriorities
-  ( -- * Creating a Request
-    setRulePriorities,
-    SetRulePriorities,
+  ( -- * Creating a request
+    SetRulePriorities (..),
+    mkSetRulePriorities,
 
-    -- * Request Lenses
+    -- ** Request lenses
     srpRulePriorities,
 
-    -- * Destructuring the Response
-    setRulePrioritiesResponse,
-    SetRulePrioritiesResponse,
+    -- * Destructuring the response
+    SetRulePrioritiesResponse (..),
+    mkSetRulePrioritiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srprsRules,
     srprsResponseStatus,
   )
 where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'setRulePriorities' smart constructor.
+-- | /See:/ 'mkSetRulePriorities' smart constructor.
 newtype SetRulePriorities = SetRulePriorities'
-  { _srpRulePriorities ::
+  { rulePriorities ::
       [RulePriorityPair]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetRulePriorities' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srpRulePriorities' - The rule priorities.
-setRulePriorities ::
+-- * 'rulePriorities' - The rule priorities.
+mkSetRulePriorities ::
   SetRulePriorities
-setRulePriorities = SetRulePriorities' {_srpRulePriorities = mempty}
+mkSetRulePriorities =
+  SetRulePriorities' {rulePriorities = Lude.mempty}
 
 -- | The rule priorities.
-srpRulePriorities :: Lens' SetRulePriorities [RulePriorityPair]
-srpRulePriorities = lens _srpRulePriorities (\s a -> s {_srpRulePriorities = a}) . _Coerce
+--
+-- /Note:/ Consider using 'rulePriorities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpRulePriorities :: Lens.Lens' SetRulePriorities [RulePriorityPair]
+srpRulePriorities = Lens.lens (rulePriorities :: SetRulePriorities -> [RulePriorityPair]) (\s a -> s {rulePriorities = a} :: SetRulePriorities)
+{-# DEPRECATED srpRulePriorities "Use generic-lens or generic-optics with 'rulePriorities' instead." #-}
 
-instance AWSRequest SetRulePriorities where
+instance Lude.AWSRequest SetRulePriorities where
   type Rs SetRulePriorities = SetRulePrioritiesResponse
-  request = postQuery eLBv2
+  request = Req.postQuery eLBv2Service
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "SetRulePrioritiesResult"
       ( \s h x ->
           SetRulePrioritiesResponse'
-            <$> (x .@? "Rules" .!@ mempty >>= may (parseXMLList "member"))
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Rules" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SetRulePriorities
+instance Lude.ToHeaders SetRulePriorities where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData SetRulePriorities
+instance Lude.ToPath SetRulePriorities where
+  toPath = Lude.const "/"
 
-instance ToHeaders SetRulePriorities where
-  toHeaders = const mempty
-
-instance ToPath SetRulePriorities where
-  toPath = const "/"
-
-instance ToQuery SetRulePriorities where
+instance Lude.ToQuery SetRulePriorities where
   toQuery SetRulePriorities' {..} =
-    mconcat
-      [ "Action" =: ("SetRulePriorities" :: ByteString),
-        "Version" =: ("2015-12-01" :: ByteString),
-        "RulePriorities" =: toQueryList "member" _srpRulePriorities
+    Lude.mconcat
+      [ "Action" Lude.=: ("SetRulePriorities" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "RulePriorities" Lude.=: Lude.toQueryList "member" rulePriorities
       ]
 
--- | /See:/ 'setRulePrioritiesResponse' smart constructor.
+-- | /See:/ 'mkSetRulePrioritiesResponse' smart constructor.
 data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
-  { _srprsRules ::
-      !(Maybe [Rule]),
-    _srprsResponseStatus :: !Int
+  { rules ::
+      Lude.Maybe [Rule],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetRulePrioritiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srprsRules' - Information about the rules.
---
--- * 'srprsResponseStatus' - -- | The response status code.
-setRulePrioritiesResponse ::
-  -- | 'srprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'rules' - Information about the rules.
+mkSetRulePrioritiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SetRulePrioritiesResponse
-setRulePrioritiesResponse pResponseStatus_ =
+mkSetRulePrioritiesResponse pResponseStatus_ =
   SetRulePrioritiesResponse'
-    { _srprsRules = Nothing,
-      _srprsResponseStatus = pResponseStatus_
+    { rules = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the rules.
-srprsRules :: Lens' SetRulePrioritiesResponse [Rule]
-srprsRules = lens _srprsRules (\s a -> s {_srprsRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srprsRules :: Lens.Lens' SetRulePrioritiesResponse (Lude.Maybe [Rule])
+srprsRules = Lens.lens (rules :: SetRulePrioritiesResponse -> Lude.Maybe [Rule]) (\s a -> s {rules = a} :: SetRulePrioritiesResponse)
+{-# DEPRECATED srprsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
--- | -- | The response status code.
-srprsResponseStatus :: Lens' SetRulePrioritiesResponse Int
-srprsResponseStatus = lens _srprsResponseStatus (\s a -> s {_srprsResponseStatus = a})
-
-instance NFData SetRulePrioritiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srprsResponseStatus :: Lens.Lens' SetRulePrioritiesResponse Lude.Int
+srprsResponseStatus = Lens.lens (responseStatus :: SetRulePrioritiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetRulePrioritiesResponse)
+{-# DEPRECATED srprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

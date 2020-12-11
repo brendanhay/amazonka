@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,167 @@
 --
 -- Returns information about any jobs for AWS CodePipeline to act on. @PollForJobs@ is valid only for action types with "Custom" in the owner field. If the action type contains "AWS" or "ThirdParty" in the owner field, the @PollForJobs@ action returns an error.
 --
---
 -- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the S3 bucket used to store artifacts for the pipeline, if the action requires access to that S3 bucket for input or output artifacts. This API also returns any secret values defined for the action.
 module Network.AWS.CodePipeline.PollForJobs
-  ( -- * Creating a Request
-    pollForJobs,
-    PollForJobs,
+  ( -- * Creating a request
+    PollForJobs (..),
+    mkPollForJobs,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pfjMaxBatchSize,
     pfjQueryParam,
     pfjActionTypeId,
 
-    -- * Destructuring the Response
-    pollForJobsResponse,
-    PollForJobsResponse,
+    -- * Destructuring the response
+    PollForJobsResponse (..),
+    mkPollForJobsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pfjrsJobs,
     pfjrsResponseStatus,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @PollForJobs@ action.
 --
---
---
--- /See:/ 'pollForJobs' smart constructor.
+-- /See:/ 'mkPollForJobs' smart constructor.
 data PollForJobs = PollForJobs'
-  { _pfjMaxBatchSize :: !(Maybe Nat),
-    _pfjQueryParam :: !(Maybe (Map Text (Text))),
-    _pfjActionTypeId :: !ActionTypeId
+  { maxBatchSize ::
+      Lude.Maybe Lude.Natural,
+    queryParam :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    actionTypeId :: ActionTypeId
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForJobs' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pfjMaxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
---
--- * 'pfjQueryParam' - A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value are returned.
---
--- * 'pfjActionTypeId' - Represents information about an action type.
-pollForJobs ::
-  -- | 'pfjActionTypeId'
+-- * 'actionTypeId' - Represents information about an action type.
+-- * 'maxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
+-- * 'queryParam' - A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value are returned.
+mkPollForJobs ::
+  -- | 'actionTypeId'
   ActionTypeId ->
   PollForJobs
-pollForJobs pActionTypeId_ =
+mkPollForJobs pActionTypeId_ =
   PollForJobs'
-    { _pfjMaxBatchSize = Nothing,
-      _pfjQueryParam = Nothing,
-      _pfjActionTypeId = pActionTypeId_
+    { maxBatchSize = Lude.Nothing,
+      queryParam = Lude.Nothing,
+      actionTypeId = pActionTypeId_
     }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
-pfjMaxBatchSize :: Lens' PollForJobs (Maybe Natural)
-pfjMaxBatchSize = lens _pfjMaxBatchSize (\s a -> s {_pfjMaxBatchSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxBatchSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfjMaxBatchSize :: Lens.Lens' PollForJobs (Lude.Maybe Lude.Natural)
+pfjMaxBatchSize = Lens.lens (maxBatchSize :: PollForJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxBatchSize = a} :: PollForJobs)
+{-# DEPRECATED pfjMaxBatchSize "Use generic-lens or generic-optics with 'maxBatchSize' instead." #-}
 
 -- | A map of property names and values. For an action type with no queryable properties, this value must be null or an empty map. For an action type with a queryable property, you must supply that property as a key in the map. Only jobs whose action configuration matches the mapped value are returned.
-pfjQueryParam :: Lens' PollForJobs (HashMap Text (Text))
-pfjQueryParam = lens _pfjQueryParam (\s a -> s {_pfjQueryParam = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'queryParam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfjQueryParam :: Lens.Lens' PollForJobs (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+pfjQueryParam = Lens.lens (queryParam :: PollForJobs -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {queryParam = a} :: PollForJobs)
+{-# DEPRECATED pfjQueryParam "Use generic-lens or generic-optics with 'queryParam' instead." #-}
 
 -- | Represents information about an action type.
-pfjActionTypeId :: Lens' PollForJobs ActionTypeId
-pfjActionTypeId = lens _pfjActionTypeId (\s a -> s {_pfjActionTypeId = a})
+--
+-- /Note:/ Consider using 'actionTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfjActionTypeId :: Lens.Lens' PollForJobs ActionTypeId
+pfjActionTypeId = Lens.lens (actionTypeId :: PollForJobs -> ActionTypeId) (\s a -> s {actionTypeId = a} :: PollForJobs)
+{-# DEPRECATED pfjActionTypeId "Use generic-lens or generic-optics with 'actionTypeId' instead." #-}
 
-instance AWSRequest PollForJobs where
+instance Lude.AWSRequest PollForJobs where
   type Rs PollForJobs = PollForJobsResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PollForJobsResponse'
-            <$> (x .?> "jobs" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "jobs" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PollForJobs
-
-instance NFData PollForJobs
-
-instance ToHeaders PollForJobs where
+instance Lude.ToHeaders PollForJobs where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.PollForJobs" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodePipeline_20150709.PollForJobs" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PollForJobs where
+instance Lude.ToJSON PollForJobs where
   toJSON PollForJobs' {..} =
-    object
-      ( catMaybes
-          [ ("maxBatchSize" .=) <$> _pfjMaxBatchSize,
-            ("queryParam" .=) <$> _pfjQueryParam,
-            Just ("actionTypeId" .= _pfjActionTypeId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("maxBatchSize" Lude..=) Lude.<$> maxBatchSize,
+            ("queryParam" Lude..=) Lude.<$> queryParam,
+            Lude.Just ("actionTypeId" Lude..= actionTypeId)
           ]
       )
 
-instance ToPath PollForJobs where
-  toPath = const "/"
+instance Lude.ToPath PollForJobs where
+  toPath = Lude.const "/"
 
-instance ToQuery PollForJobs where
-  toQuery = const mempty
+instance Lude.ToQuery PollForJobs where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @PollForJobs@ action.
 --
---
---
--- /See:/ 'pollForJobsResponse' smart constructor.
+-- /See:/ 'mkPollForJobsResponse' smart constructor.
 data PollForJobsResponse = PollForJobsResponse'
-  { _pfjrsJobs ::
-      !(Maybe [Job]),
-    _pfjrsResponseStatus :: !Int
+  { jobs ::
+      Lude.Maybe [Job],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForJobsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pfjrsJobs' - Information about the jobs to take action on.
---
--- * 'pfjrsResponseStatus' - -- | The response status code.
-pollForJobsResponse ::
-  -- | 'pfjrsResponseStatus'
-  Int ->
+-- * 'jobs' - Information about the jobs to take action on.
+-- * 'responseStatus' - The response status code.
+mkPollForJobsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PollForJobsResponse
-pollForJobsResponse pResponseStatus_ =
+mkPollForJobsResponse pResponseStatus_ =
   PollForJobsResponse'
-    { _pfjrsJobs = Nothing,
-      _pfjrsResponseStatus = pResponseStatus_
+    { jobs = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the jobs to take action on.
-pfjrsJobs :: Lens' PollForJobsResponse [Job]
-pfjrsJobs = lens _pfjrsJobs (\s a -> s {_pfjrsJobs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfjrsJobs :: Lens.Lens' PollForJobsResponse (Lude.Maybe [Job])
+pfjrsJobs = Lens.lens (jobs :: PollForJobsResponse -> Lude.Maybe [Job]) (\s a -> s {jobs = a} :: PollForJobsResponse)
+{-# DEPRECATED pfjrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
--- | -- | The response status code.
-pfjrsResponseStatus :: Lens' PollForJobsResponse Int
-pfjrsResponseStatus = lens _pfjrsResponseStatus (\s a -> s {_pfjrsResponseStatus = a})
-
-instance NFData PollForJobsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfjrsResponseStatus :: Lens.Lens' PollForJobsResponse Lude.Int
+pfjrsResponseStatus = Lens.lens (responseStatus :: PollForJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PollForJobsResponse)
+{-# DEPRECATED pfjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

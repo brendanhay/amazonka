@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.IdFormat where
+module Network.AWS.EC2.Types.IdFormat
+  ( IdFormat (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIdFormat,
+
+    -- * Lenses
+    ifUseLongIds,
+    ifDeadline,
+    ifResource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the ID format for a resource.
 --
---
---
--- /See:/ 'idFormat' smart constructor.
+-- /See:/ 'mkIdFormat' smart constructor.
 data IdFormat = IdFormat'
-  { _ifUseLongIds :: !(Maybe Bool),
-    _ifDeadline :: !(Maybe ISO8601),
-    _ifResource :: !(Maybe Text)
+  { useLongIds :: Lude.Maybe Lude.Bool,
+    deadline :: Lude.Maybe Lude.ISO8601,
+    resource :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdFormat' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ifUseLongIds' - Indicates whether longer IDs (17-character IDs) are enabled for the resource.
---
--- * 'ifDeadline' - The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.
---
--- * 'ifResource' - The type of resource.
-idFormat ::
+-- * 'deadline' - The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.
+-- * 'resource' - The type of resource.
+-- * 'useLongIds' - Indicates whether longer IDs (17-character IDs) are enabled for the resource.
+mkIdFormat ::
   IdFormat
-idFormat =
+mkIdFormat =
   IdFormat'
-    { _ifUseLongIds = Nothing,
-      _ifDeadline = Nothing,
-      _ifResource = Nothing
+    { useLongIds = Lude.Nothing,
+      deadline = Lude.Nothing,
+      resource = Lude.Nothing
     }
 
 -- | Indicates whether longer IDs (17-character IDs) are enabled for the resource.
-ifUseLongIds :: Lens' IdFormat (Maybe Bool)
-ifUseLongIds = lens _ifUseLongIds (\s a -> s {_ifUseLongIds = a})
+--
+-- /Note:/ Consider using 'useLongIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifUseLongIds :: Lens.Lens' IdFormat (Lude.Maybe Lude.Bool)
+ifUseLongIds = Lens.lens (useLongIds :: IdFormat -> Lude.Maybe Lude.Bool) (\s a -> s {useLongIds = a} :: IdFormat)
+{-# DEPRECATED ifUseLongIds "Use generic-lens or generic-optics with 'useLongIds' instead." #-}
 
 -- | The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.
-ifDeadline :: Lens' IdFormat (Maybe UTCTime)
-ifDeadline = lens _ifDeadline (\s a -> s {_ifDeadline = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deadline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifDeadline :: Lens.Lens' IdFormat (Lude.Maybe Lude.ISO8601)
+ifDeadline = Lens.lens (deadline :: IdFormat -> Lude.Maybe Lude.ISO8601) (\s a -> s {deadline = a} :: IdFormat)
+{-# DEPRECATED ifDeadline "Use generic-lens or generic-optics with 'deadline' instead." #-}
 
 -- | The type of resource.
-ifResource :: Lens' IdFormat (Maybe Text)
-ifResource = lens _ifResource (\s a -> s {_ifResource = a})
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifResource :: Lens.Lens' IdFormat (Lude.Maybe Lude.Text)
+ifResource = Lens.lens (resource :: IdFormat -> Lude.Maybe Lude.Text) (\s a -> s {resource = a} :: IdFormat)
+{-# DEPRECATED ifResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance FromXML IdFormat where
+instance Lude.FromXML IdFormat where
   parseXML x =
     IdFormat'
-      <$> (x .@? "useLongIds") <*> (x .@? "deadline") <*> (x .@? "resource")
-
-instance Hashable IdFormat
-
-instance NFData IdFormat
+      Lude.<$> (x Lude..@? "useLongIds")
+      Lude.<*> (x Lude..@? "deadline")
+      Lude.<*> (x Lude..@? "resource")

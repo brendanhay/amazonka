@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,53 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.DatastoreStatistics where
+module Network.AWS.IoTAnalytics.Types.DatastoreStatistics
+  ( DatastoreStatistics (..),
+
+    -- * Smart constructor
+    mkDatastoreStatistics,
+
+    -- * Lenses
+    dsSize,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Statistical information about the data store.
 --
---
---
--- /See:/ 'datastoreStatistics' smart constructor.
+-- /See:/ 'mkDatastoreStatistics' smart constructor.
 newtype DatastoreStatistics = DatastoreStatistics'
-  { _dsSize ::
-      Maybe EstimatedResourceSize
+  { size ::
+      Lude.Maybe EstimatedResourceSize
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatastoreStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsSize' - The estimated size of the data store.
-datastoreStatistics ::
+-- * 'size' - The estimated size of the data store.
+mkDatastoreStatistics ::
   DatastoreStatistics
-datastoreStatistics = DatastoreStatistics' {_dsSize = Nothing}
+mkDatastoreStatistics = DatastoreStatistics' {size = Lude.Nothing}
 
 -- | The estimated size of the data store.
-dsSize :: Lens' DatastoreStatistics (Maybe EstimatedResourceSize)
-dsSize = lens _dsSize (\s a -> s {_dsSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsSize :: Lens.Lens' DatastoreStatistics (Lude.Maybe EstimatedResourceSize)
+dsSize = Lens.lens (size :: DatastoreStatistics -> Lude.Maybe EstimatedResourceSize) (\s a -> s {size = a} :: DatastoreStatistics)
+{-# DEPRECATED dsSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
-instance FromJSON DatastoreStatistics where
+instance Lude.FromJSON DatastoreStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "DatastoreStatistics"
-      (\x -> DatastoreStatistics' <$> (x .:? "size"))
-
-instance Hashable DatastoreStatistics
-
-instance NFData DatastoreStatistics
+      (\x -> DatastoreStatistics' Lude.<$> (x Lude..:? "size"))

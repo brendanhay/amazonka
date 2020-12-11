@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,143 +14,161 @@
 --
 -- Updates information about a private device instance.
 module Network.AWS.DeviceFarm.UpdateDeviceInstance
-  ( -- * Creating a Request
-    updateDeviceInstance,
-    UpdateDeviceInstance,
+  ( -- * Creating a request
+    UpdateDeviceInstance (..),
+    mkUpdateDeviceInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udiProfileARN,
     udiLabels,
     udiArn,
 
-    -- * Destructuring the Response
-    updateDeviceInstanceResponse,
-    UpdateDeviceInstanceResponse,
+    -- * Destructuring the response
+    UpdateDeviceInstanceResponse (..),
+    mkUpdateDeviceInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udirsDeviceInstance,
     udirsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDeviceInstance' smart constructor.
+-- | /See:/ 'mkUpdateDeviceInstance' smart constructor.
 data UpdateDeviceInstance = UpdateDeviceInstance'
-  { _udiProfileARN ::
-      !(Maybe Text),
-    _udiLabels :: !(Maybe [Text]),
-    _udiArn :: !Text
+  { profileARN ::
+      Lude.Maybe Lude.Text,
+    labels :: Lude.Maybe [Lude.Text],
+    arn :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeviceInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udiProfileARN' - The ARN of the profile that you want to associate with the device instance.
---
--- * 'udiLabels' - An array of strings that you want to associate with the device instance.
---
--- * 'udiArn' - The Amazon Resource Name (ARN) of the device instance.
-updateDeviceInstance ::
-  -- | 'udiArn'
-  Text ->
+-- * 'arn' - The Amazon Resource Name (ARN) of the device instance.
+-- * 'labels' - An array of strings that you want to associate with the device instance.
+-- * 'profileARN' - The ARN of the profile that you want to associate with the device instance.
+mkUpdateDeviceInstance ::
+  -- | 'arn'
+  Lude.Text ->
   UpdateDeviceInstance
-updateDeviceInstance pArn_ =
+mkUpdateDeviceInstance pArn_ =
   UpdateDeviceInstance'
-    { _udiProfileARN = Nothing,
-      _udiLabels = Nothing,
-      _udiArn = pArn_
+    { profileARN = Lude.Nothing,
+      labels = Lude.Nothing,
+      arn = pArn_
     }
 
 -- | The ARN of the profile that you want to associate with the device instance.
-udiProfileARN :: Lens' UpdateDeviceInstance (Maybe Text)
-udiProfileARN = lens _udiProfileARN (\s a -> s {_udiProfileARN = a})
+--
+-- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udiProfileARN :: Lens.Lens' UpdateDeviceInstance (Lude.Maybe Lude.Text)
+udiProfileARN = Lens.lens (profileARN :: UpdateDeviceInstance -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: UpdateDeviceInstance)
+{-# DEPRECATED udiProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
 
 -- | An array of strings that you want to associate with the device instance.
-udiLabels :: Lens' UpdateDeviceInstance [Text]
-udiLabels = lens _udiLabels (\s a -> s {_udiLabels = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udiLabels :: Lens.Lens' UpdateDeviceInstance (Lude.Maybe [Lude.Text])
+udiLabels = Lens.lens (labels :: UpdateDeviceInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: UpdateDeviceInstance)
+{-# DEPRECATED udiLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the device instance.
-udiArn :: Lens' UpdateDeviceInstance Text
-udiArn = lens _udiArn (\s a -> s {_udiArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udiArn :: Lens.Lens' UpdateDeviceInstance Lude.Text
+udiArn = Lens.lens (arn :: UpdateDeviceInstance -> Lude.Text) (\s a -> s {arn = a} :: UpdateDeviceInstance)
+{-# DEPRECATED udiArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest UpdateDeviceInstance where
+instance Lude.AWSRequest UpdateDeviceInstance where
   type Rs UpdateDeviceInstance = UpdateDeviceInstanceResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateDeviceInstanceResponse'
-            <$> (x .?> "deviceInstance") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "deviceInstance")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateDeviceInstance
-
-instance NFData UpdateDeviceInstance
-
-instance ToHeaders UpdateDeviceInstance where
+instance Lude.ToHeaders UpdateDeviceInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.UpdateDeviceInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.UpdateDeviceInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDeviceInstance where
+instance Lude.ToJSON UpdateDeviceInstance where
   toJSON UpdateDeviceInstance' {..} =
-    object
-      ( catMaybes
-          [ ("profileArn" .=) <$> _udiProfileARN,
-            ("labels" .=) <$> _udiLabels,
-            Just ("arn" .= _udiArn)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("profileArn" Lude..=) Lude.<$> profileARN,
+            ("labels" Lude..=) Lude.<$> labels,
+            Lude.Just ("arn" Lude..= arn)
           ]
       )
 
-instance ToPath UpdateDeviceInstance where
-  toPath = const "/"
+instance Lude.ToPath UpdateDeviceInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDeviceInstance where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDeviceInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDeviceInstanceResponse' smart constructor.
+-- | /See:/ 'mkUpdateDeviceInstanceResponse' smart constructor.
 data UpdateDeviceInstanceResponse = UpdateDeviceInstanceResponse'
-  { _udirsDeviceInstance ::
-      !(Maybe DeviceInstance),
-    _udirsResponseStatus :: !Int
+  { deviceInstance ::
+      Lude.Maybe DeviceInstance,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeviceInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udirsDeviceInstance' - An object that contains information about your device instance.
---
--- * 'udirsResponseStatus' - -- | The response status code.
-updateDeviceInstanceResponse ::
-  -- | 'udirsResponseStatus'
-  Int ->
+-- * 'deviceInstance' - An object that contains information about your device instance.
+-- * 'responseStatus' - The response status code.
+mkUpdateDeviceInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDeviceInstanceResponse
-updateDeviceInstanceResponse pResponseStatus_ =
+mkUpdateDeviceInstanceResponse pResponseStatus_ =
   UpdateDeviceInstanceResponse'
-    { _udirsDeviceInstance = Nothing,
-      _udirsResponseStatus = pResponseStatus_
+    { deviceInstance = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that contains information about your device instance.
-udirsDeviceInstance :: Lens' UpdateDeviceInstanceResponse (Maybe DeviceInstance)
-udirsDeviceInstance = lens _udirsDeviceInstance (\s a -> s {_udirsDeviceInstance = a})
+--
+-- /Note:/ Consider using 'deviceInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udirsDeviceInstance :: Lens.Lens' UpdateDeviceInstanceResponse (Lude.Maybe DeviceInstance)
+udirsDeviceInstance = Lens.lens (deviceInstance :: UpdateDeviceInstanceResponse -> Lude.Maybe DeviceInstance) (\s a -> s {deviceInstance = a} :: UpdateDeviceInstanceResponse)
+{-# DEPRECATED udirsDeviceInstance "Use generic-lens or generic-optics with 'deviceInstance' instead." #-}
 
--- | -- | The response status code.
-udirsResponseStatus :: Lens' UpdateDeviceInstanceResponse Int
-udirsResponseStatus = lens _udirsResponseStatus (\s a -> s {_udirsResponseStatus = a})
-
-instance NFData UpdateDeviceInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udirsResponseStatus :: Lens.Lens' UpdateDeviceInstanceResponse Lude.Int
+udirsResponseStatus = Lens.lens (responseStatus :: UpdateDeviceInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDeviceInstanceResponse)
+{-# DEPRECATED udirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

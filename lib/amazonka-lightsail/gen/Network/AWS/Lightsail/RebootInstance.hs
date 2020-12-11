@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,131 @@
 --
 -- Restarts a specific instance.
 --
---
 -- The @reboot instance@ operation supports tag-based access control via resource tags applied to the resource identified by @instance name@ . For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.RebootInstance
-  ( -- * Creating a Request
-    rebootInstance,
-    RebootInstance,
+  ( -- * Creating a request
+    RebootInstance (..),
+    mkRebootInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     riInstanceName,
 
-    -- * Destructuring the Response
-    rebootInstanceResponse,
-    RebootInstanceResponse,
+    -- * Destructuring the response
+    RebootInstanceResponse (..),
+    mkRebootInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rirsOperations,
     rirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'rebootInstance' smart constructor.
-newtype RebootInstance = RebootInstance' {_riInstanceName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkRebootInstance' smart constructor.
+newtype RebootInstance = RebootInstance' {instanceName :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'riInstanceName' - The name of the instance to reboot.
-rebootInstance ::
-  -- | 'riInstanceName'
-  Text ->
+-- * 'instanceName' - The name of the instance to reboot.
+mkRebootInstance ::
+  -- | 'instanceName'
+  Lude.Text ->
   RebootInstance
-rebootInstance pInstanceName_ =
-  RebootInstance' {_riInstanceName = pInstanceName_}
+mkRebootInstance pInstanceName_ =
+  RebootInstance' {instanceName = pInstanceName_}
 
 -- | The name of the instance to reboot.
-riInstanceName :: Lens' RebootInstance Text
-riInstanceName = lens _riInstanceName (\s a -> s {_riInstanceName = a})
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riInstanceName :: Lens.Lens' RebootInstance Lude.Text
+riInstanceName = Lens.lens (instanceName :: RebootInstance -> Lude.Text) (\s a -> s {instanceName = a} :: RebootInstance)
+{-# DEPRECATED riInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance AWSRequest RebootInstance where
+instance Lude.AWSRequest RebootInstance where
   type Rs RebootInstance = RebootInstanceResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           RebootInstanceResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable RebootInstance
-
-instance NFData RebootInstance
-
-instance ToHeaders RebootInstance where
+instance Lude.ToHeaders RebootInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.RebootInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.RebootInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RebootInstance where
+instance Lude.ToJSON RebootInstance where
   toJSON RebootInstance' {..} =
-    object (catMaybes [Just ("instanceName" .= _riInstanceName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("instanceName" Lude..= instanceName)])
 
-instance ToPath RebootInstance where
-  toPath = const "/"
+instance Lude.ToPath RebootInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery RebootInstance where
-  toQuery = const mempty
+instance Lude.ToQuery RebootInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'rebootInstanceResponse' smart constructor.
+-- | /See:/ 'mkRebootInstanceResponse' smart constructor.
 data RebootInstanceResponse = RebootInstanceResponse'
-  { _rirsOperations ::
-      !(Maybe [Operation]),
-    _rirsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rirsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'rirsResponseStatus' - -- | The response status code.
-rebootInstanceResponse ::
-  -- | 'rirsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkRebootInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   RebootInstanceResponse
-rebootInstanceResponse pResponseStatus_ =
+mkRebootInstanceResponse pResponseStatus_ =
   RebootInstanceResponse'
-    { _rirsOperations = Nothing,
-      _rirsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-rirsOperations :: Lens' RebootInstanceResponse [Operation]
-rirsOperations = lens _rirsOperations (\s a -> s {_rirsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirsOperations :: Lens.Lens' RebootInstanceResponse (Lude.Maybe [Operation])
+rirsOperations = Lens.lens (operations :: RebootInstanceResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: RebootInstanceResponse)
+{-# DEPRECATED rirsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-rirsResponseStatus :: Lens' RebootInstanceResponse Int
-rirsResponseStatus = lens _rirsResponseStatus (\s a -> s {_rirsResponseStatus = a})
-
-instance NFData RebootInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rirsResponseStatus :: Lens.Lens' RebootInstanceResponse Lude.Int
+rirsResponseStatus = Lens.lens (responseStatus :: RebootInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebootInstanceResponse)
+{-# DEPRECATED rirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

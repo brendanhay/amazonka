@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CaptionSourceFramerate where
+module Network.AWS.MediaConvert.Types.CaptionSourceFramerate
+  ( CaptionSourceFramerate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCaptionSourceFramerate,
+
+    -- * Lenses
+    csfFramerateDenominator,
+    csfFramerateNumerator,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction, using the settings Framerate numerator (framerateNumerator) and Framerate denominator (framerateDenominator). For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
 --
--- /See:/ 'captionSourceFramerate' smart constructor.
+-- /See:/ 'mkCaptionSourceFramerate' smart constructor.
 data CaptionSourceFramerate = CaptionSourceFramerate'
-  { _csfFramerateDenominator ::
-      !(Maybe Nat),
-    _csfFramerateNumerator :: !(Maybe Nat)
+  { framerateDenominator ::
+      Lude.Maybe Lude.Natural,
+    framerateNumerator :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionSourceFramerate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csfFramerateDenominator' - Specify the denominator of the fraction that represents the frame rate for the setting Caption source frame rate (CaptionSourceFramerate). Use this setting along with the setting Framerate numerator (framerateNumerator).
---
--- * 'csfFramerateNumerator' - Specify the numerator of the fraction that represents the frame rate for the setting Caption source frame rate (CaptionSourceFramerate). Use this setting along with the setting Framerate denominator (framerateDenominator).
-captionSourceFramerate ::
+-- * 'framerateDenominator' - Specify the denominator of the fraction that represents the frame rate for the setting Caption source frame rate (CaptionSourceFramerate). Use this setting along with the setting Framerate numerator (framerateNumerator).
+-- * 'framerateNumerator' - Specify the numerator of the fraction that represents the frame rate for the setting Caption source frame rate (CaptionSourceFramerate). Use this setting along with the setting Framerate denominator (framerateDenominator).
+mkCaptionSourceFramerate ::
   CaptionSourceFramerate
-captionSourceFramerate =
+mkCaptionSourceFramerate =
   CaptionSourceFramerate'
-    { _csfFramerateDenominator = Nothing,
-      _csfFramerateNumerator = Nothing
+    { framerateDenominator = Lude.Nothing,
+      framerateNumerator = Lude.Nothing
     }
 
 -- | Specify the denominator of the fraction that represents the frame rate for the setting Caption source frame rate (CaptionSourceFramerate). Use this setting along with the setting Framerate numerator (framerateNumerator).
-csfFramerateDenominator :: Lens' CaptionSourceFramerate (Maybe Natural)
-csfFramerateDenominator = lens _csfFramerateDenominator (\s a -> s {_csfFramerateDenominator = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'framerateDenominator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfFramerateDenominator :: Lens.Lens' CaptionSourceFramerate (Lude.Maybe Lude.Natural)
+csfFramerateDenominator = Lens.lens (framerateDenominator :: CaptionSourceFramerate -> Lude.Maybe Lude.Natural) (\s a -> s {framerateDenominator = a} :: CaptionSourceFramerate)
+{-# DEPRECATED csfFramerateDenominator "Use generic-lens or generic-optics with 'framerateDenominator' instead." #-}
 
 -- | Specify the numerator of the fraction that represents the frame rate for the setting Caption source frame rate (CaptionSourceFramerate). Use this setting along with the setting Framerate denominator (framerateDenominator).
-csfFramerateNumerator :: Lens' CaptionSourceFramerate (Maybe Natural)
-csfFramerateNumerator = lens _csfFramerateNumerator (\s a -> s {_csfFramerateNumerator = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'framerateNumerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfFramerateNumerator :: Lens.Lens' CaptionSourceFramerate (Lude.Maybe Lude.Natural)
+csfFramerateNumerator = Lens.lens (framerateNumerator :: CaptionSourceFramerate -> Lude.Maybe Lude.Natural) (\s a -> s {framerateNumerator = a} :: CaptionSourceFramerate)
+{-# DEPRECATED csfFramerateNumerator "Use generic-lens or generic-optics with 'framerateNumerator' instead." #-}
 
-instance FromJSON CaptionSourceFramerate where
+instance Lude.FromJSON CaptionSourceFramerate where
   parseJSON =
-    withObject
+    Lude.withObject
       "CaptionSourceFramerate"
       ( \x ->
           CaptionSourceFramerate'
-            <$> (x .:? "framerateDenominator") <*> (x .:? "framerateNumerator")
+            Lude.<$> (x Lude..:? "framerateDenominator")
+            Lude.<*> (x Lude..:? "framerateNumerator")
       )
 
-instance Hashable CaptionSourceFramerate
-
-instance NFData CaptionSourceFramerate
-
-instance ToJSON CaptionSourceFramerate where
+instance Lude.ToJSON CaptionSourceFramerate where
   toJSON CaptionSourceFramerate' {..} =
-    object
-      ( catMaybes
-          [ ("framerateDenominator" .=) <$> _csfFramerateDenominator,
-            ("framerateNumerator" .=) <$> _csfFramerateNumerator
+    Lude.object
+      ( Lude.catMaybes
+          [ ("framerateDenominator" Lude..=) Lude.<$> framerateDenominator,
+            ("framerateNumerator" Lude..=) Lude.<$> framerateNumerator
           ]
       )

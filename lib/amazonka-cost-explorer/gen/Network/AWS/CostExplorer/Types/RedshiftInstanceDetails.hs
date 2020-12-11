@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.RedshiftInstanceDetails where
+module Network.AWS.CostExplorer.Types.RedshiftInstanceDetails
+  ( RedshiftInstanceDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRedshiftInstanceDetails,
+
+    -- * Lenses
+    rCurrentGeneration,
+    rFamily,
+    rSizeFlexEligible,
+    rRegion,
+    rNodeType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details about the Amazon Redshift instances that AWS recommends that you purchase.
 --
---
---
--- /See:/ 'redshiftInstanceDetails' smart constructor.
+-- /See:/ 'mkRedshiftInstanceDetails' smart constructor.
 data RedshiftInstanceDetails = RedshiftInstanceDetails'
-  { _rCurrentGeneration ::
-      !(Maybe Bool),
-    _rFamily :: !(Maybe Text),
-    _rSizeFlexEligible :: !(Maybe Bool),
-    _rRegion :: !(Maybe Text),
-    _rNodeType :: !(Maybe Text)
+  { currentGeneration ::
+      Lude.Maybe Lude.Bool,
+    family :: Lude.Maybe Lude.Text,
+    sizeFlexEligible :: Lude.Maybe Lude.Bool,
+    region :: Lude.Maybe Lude.Text,
+    nodeType :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RedshiftInstanceDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rCurrentGeneration' - Whether the recommendation is for a current-generation instance.
---
--- * 'rFamily' - The instance family of the recommended reservation.
---
--- * 'rSizeFlexEligible' - Whether the recommended reservation is size flexible.
---
--- * 'rRegion' - The AWS Region of the recommended reservation.
---
--- * 'rNodeType' - The type of node that AWS recommends.
-redshiftInstanceDetails ::
+-- * 'currentGeneration' - Whether the recommendation is for a current-generation instance.
+-- * 'family' - The instance family of the recommended reservation.
+-- * 'nodeType' - The type of node that AWS recommends.
+-- * 'region' - The AWS Region of the recommended reservation.
+-- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
+mkRedshiftInstanceDetails ::
   RedshiftInstanceDetails
-redshiftInstanceDetails =
+mkRedshiftInstanceDetails =
   RedshiftInstanceDetails'
-    { _rCurrentGeneration = Nothing,
-      _rFamily = Nothing,
-      _rSizeFlexEligible = Nothing,
-      _rRegion = Nothing,
-      _rNodeType = Nothing
+    { currentGeneration = Lude.Nothing,
+      family = Lude.Nothing,
+      sizeFlexEligible = Lude.Nothing,
+      region = Lude.Nothing,
+      nodeType = Lude.Nothing
     }
 
 -- | Whether the recommendation is for a current-generation instance.
-rCurrentGeneration :: Lens' RedshiftInstanceDetails (Maybe Bool)
-rCurrentGeneration = lens _rCurrentGeneration (\s a -> s {_rCurrentGeneration = a})
+--
+-- /Note:/ Consider using 'currentGeneration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rCurrentGeneration :: Lens.Lens' RedshiftInstanceDetails (Lude.Maybe Lude.Bool)
+rCurrentGeneration = Lens.lens (currentGeneration :: RedshiftInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {currentGeneration = a} :: RedshiftInstanceDetails)
+{-# DEPRECATED rCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
 
 -- | The instance family of the recommended reservation.
-rFamily :: Lens' RedshiftInstanceDetails (Maybe Text)
-rFamily = lens _rFamily (\s a -> s {_rFamily = a})
+--
+-- /Note:/ Consider using 'family' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rFamily :: Lens.Lens' RedshiftInstanceDetails (Lude.Maybe Lude.Text)
+rFamily = Lens.lens (family :: RedshiftInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {family = a} :: RedshiftInstanceDetails)
+{-# DEPRECATED rFamily "Use generic-lens or generic-optics with 'family' instead." #-}
 
 -- | Whether the recommended reservation is size flexible.
-rSizeFlexEligible :: Lens' RedshiftInstanceDetails (Maybe Bool)
-rSizeFlexEligible = lens _rSizeFlexEligible (\s a -> s {_rSizeFlexEligible = a})
+--
+-- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSizeFlexEligible :: Lens.Lens' RedshiftInstanceDetails (Lude.Maybe Lude.Bool)
+rSizeFlexEligible = Lens.lens (sizeFlexEligible :: RedshiftInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {sizeFlexEligible = a} :: RedshiftInstanceDetails)
+{-# DEPRECATED rSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
 
 -- | The AWS Region of the recommended reservation.
-rRegion :: Lens' RedshiftInstanceDetails (Maybe Text)
-rRegion = lens _rRegion (\s a -> s {_rRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRegion :: Lens.Lens' RedshiftInstanceDetails (Lude.Maybe Lude.Text)
+rRegion = Lens.lens (region :: RedshiftInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: RedshiftInstanceDetails)
+{-# DEPRECATED rRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The type of node that AWS recommends.
-rNodeType :: Lens' RedshiftInstanceDetails (Maybe Text)
-rNodeType = lens _rNodeType (\s a -> s {_rNodeType = a})
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rNodeType :: Lens.Lens' RedshiftInstanceDetails (Lude.Maybe Lude.Text)
+rNodeType = Lens.lens (nodeType :: RedshiftInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: RedshiftInstanceDetails)
+{-# DEPRECATED rNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
-instance FromJSON RedshiftInstanceDetails where
+instance Lude.FromJSON RedshiftInstanceDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "RedshiftInstanceDetails"
       ( \x ->
           RedshiftInstanceDetails'
-            <$> (x .:? "CurrentGeneration")
-            <*> (x .:? "Family")
-            <*> (x .:? "SizeFlexEligible")
-            <*> (x .:? "Region")
-            <*> (x .:? "NodeType")
+            Lude.<$> (x Lude..:? "CurrentGeneration")
+            Lude.<*> (x Lude..:? "Family")
+            Lude.<*> (x Lude..:? "SizeFlexEligible")
+            Lude.<*> (x Lude..:? "Region")
+            Lude.<*> (x Lude..:? "NodeType")
       )
-
-instance Hashable RedshiftInstanceDetails
-
-instance NFData RedshiftInstanceDetails

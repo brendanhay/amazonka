@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,98 +7,126 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.PatchRule where
+module Network.AWS.SSM.Types.PatchRule
+  ( PatchRule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPatchRule,
+
+    -- * Lenses
+    prApproveAfterDays,
+    prApproveUntilDate,
+    prEnableNonSecurity,
+    prComplianceLevel,
+    prPatchFilterGroup,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.PatchComplianceLevel
 import Network.AWS.SSM.Types.PatchFilterGroup
 
 -- | Defines an approval rule for a patch baseline.
 --
---
---
--- /See:/ 'patchRule' smart constructor.
+-- /See:/ 'mkPatchRule' smart constructor.
 data PatchRule = PatchRule'
-  { _prApproveAfterDays :: !(Maybe Nat),
-    _prApproveUntilDate :: !(Maybe Text),
-    _prEnableNonSecurity :: !(Maybe Bool),
-    _prComplianceLevel :: !(Maybe PatchComplianceLevel),
-    _prPatchFilterGroup :: !PatchFilterGroup
+  { approveAfterDays ::
+      Lude.Maybe Lude.Natural,
+    approveUntilDate :: Lude.Maybe Lude.Text,
+    enableNonSecurity :: Lude.Maybe Lude.Bool,
+    complianceLevel :: Lude.Maybe PatchComplianceLevel,
+    patchFilterGroup :: PatchFilterGroup
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'approveAfterDays' - The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of @7@ means that patches are approved seven days after they are released. Not supported on Ubuntu Server.
+-- * 'approveUntilDate' - The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Ubuntu Server.
 --
--- * 'prApproveAfterDays' - The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of @7@ means that patches are approved seven days after they are released. Not supported on Ubuntu Server.
---
--- * 'prApproveUntilDate' - The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Ubuntu Server. Enter dates in the format @YYYY-MM-DD@ . For example, @2020-12-31@ .
---
--- * 'prEnableNonSecurity' - For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is 'false'. Applies to Linux instances only.
---
--- * 'prComplianceLevel' - A compliance severity level for all approved patches in a patch baseline.
---
--- * 'prPatchFilterGroup' - The patch filter group that defines the criteria for the rule.
-patchRule ::
-  -- | 'prPatchFilterGroup'
+-- Enter dates in the format @YYYY-MM-DD@ . For example, @2020-12-31@ .
+-- * 'complianceLevel' - A compliance severity level for all approved patches in a patch baseline.
+-- * 'enableNonSecurity' - For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is 'false'. Applies to Linux instances only.
+-- * 'patchFilterGroup' - The patch filter group that defines the criteria for the rule.
+mkPatchRule ::
+  -- | 'patchFilterGroup'
   PatchFilterGroup ->
   PatchRule
-patchRule pPatchFilterGroup_ =
+mkPatchRule pPatchFilterGroup_ =
   PatchRule'
-    { _prApproveAfterDays = Nothing,
-      _prApproveUntilDate = Nothing,
-      _prEnableNonSecurity = Nothing,
-      _prComplianceLevel = Nothing,
-      _prPatchFilterGroup = pPatchFilterGroup_
+    { approveAfterDays = Lude.Nothing,
+      approveUntilDate = Lude.Nothing,
+      enableNonSecurity = Lude.Nothing,
+      complianceLevel = Lude.Nothing,
+      patchFilterGroup = pPatchFilterGroup_
     }
 
 -- | The number of days after the release date of each patch matched by the rule that the patch is marked as approved in the patch baseline. For example, a value of @7@ means that patches are approved seven days after they are released. Not supported on Ubuntu Server.
-prApproveAfterDays :: Lens' PatchRule (Maybe Natural)
-prApproveAfterDays = lens _prApproveAfterDays (\s a -> s {_prApproveAfterDays = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'approveAfterDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prApproveAfterDays :: Lens.Lens' PatchRule (Lude.Maybe Lude.Natural)
+prApproveAfterDays = Lens.lens (approveAfterDays :: PatchRule -> Lude.Maybe Lude.Natural) (\s a -> s {approveAfterDays = a} :: PatchRule)
+{-# DEPRECATED prApproveAfterDays "Use generic-lens or generic-optics with 'approveAfterDays' instead." #-}
 
--- | The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Ubuntu Server. Enter dates in the format @YYYY-MM-DD@ . For example, @2020-12-31@ .
-prApproveUntilDate :: Lens' PatchRule (Maybe Text)
-prApproveUntilDate = lens _prApproveUntilDate (\s a -> s {_prApproveUntilDate = a})
+-- | The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Not supported on Ubuntu Server.
+--
+-- Enter dates in the format @YYYY-MM-DD@ . For example, @2020-12-31@ .
+--
+-- /Note:/ Consider using 'approveUntilDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prApproveUntilDate :: Lens.Lens' PatchRule (Lude.Maybe Lude.Text)
+prApproveUntilDate = Lens.lens (approveUntilDate :: PatchRule -> Lude.Maybe Lude.Text) (\s a -> s {approveUntilDate = a} :: PatchRule)
+{-# DEPRECATED prApproveUntilDate "Use generic-lens or generic-optics with 'approveUntilDate' instead." #-}
 
 -- | For instances identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is 'false'. Applies to Linux instances only.
-prEnableNonSecurity :: Lens' PatchRule (Maybe Bool)
-prEnableNonSecurity = lens _prEnableNonSecurity (\s a -> s {_prEnableNonSecurity = a})
+--
+-- /Note:/ Consider using 'enableNonSecurity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prEnableNonSecurity :: Lens.Lens' PatchRule (Lude.Maybe Lude.Bool)
+prEnableNonSecurity = Lens.lens (enableNonSecurity :: PatchRule -> Lude.Maybe Lude.Bool) (\s a -> s {enableNonSecurity = a} :: PatchRule)
+{-# DEPRECATED prEnableNonSecurity "Use generic-lens or generic-optics with 'enableNonSecurity' instead." #-}
 
 -- | A compliance severity level for all approved patches in a patch baseline.
-prComplianceLevel :: Lens' PatchRule (Maybe PatchComplianceLevel)
-prComplianceLevel = lens _prComplianceLevel (\s a -> s {_prComplianceLevel = a})
+--
+-- /Note:/ Consider using 'complianceLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prComplianceLevel :: Lens.Lens' PatchRule (Lude.Maybe PatchComplianceLevel)
+prComplianceLevel = Lens.lens (complianceLevel :: PatchRule -> Lude.Maybe PatchComplianceLevel) (\s a -> s {complianceLevel = a} :: PatchRule)
+{-# DEPRECATED prComplianceLevel "Use generic-lens or generic-optics with 'complianceLevel' instead." #-}
 
 -- | The patch filter group that defines the criteria for the rule.
-prPatchFilterGroup :: Lens' PatchRule PatchFilterGroup
-prPatchFilterGroup = lens _prPatchFilterGroup (\s a -> s {_prPatchFilterGroup = a})
+--
+-- /Note:/ Consider using 'patchFilterGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prPatchFilterGroup :: Lens.Lens' PatchRule PatchFilterGroup
+prPatchFilterGroup = Lens.lens (patchFilterGroup :: PatchRule -> PatchFilterGroup) (\s a -> s {patchFilterGroup = a} :: PatchRule)
+{-# DEPRECATED prPatchFilterGroup "Use generic-lens or generic-optics with 'patchFilterGroup' instead." #-}
 
-instance FromJSON PatchRule where
+instance Lude.FromJSON PatchRule where
   parseJSON =
-    withObject
+    Lude.withObject
       "PatchRule"
       ( \x ->
           PatchRule'
-            <$> (x .:? "ApproveAfterDays")
-            <*> (x .:? "ApproveUntilDate")
-            <*> (x .:? "EnableNonSecurity")
-            <*> (x .:? "ComplianceLevel")
-            <*> (x .: "PatchFilterGroup")
+            Lude.<$> (x Lude..:? "ApproveAfterDays")
+            Lude.<*> (x Lude..:? "ApproveUntilDate")
+            Lude.<*> (x Lude..:? "EnableNonSecurity")
+            Lude.<*> (x Lude..:? "ComplianceLevel")
+            Lude.<*> (x Lude..: "PatchFilterGroup")
       )
 
-instance Hashable PatchRule
-
-instance NFData PatchRule
-
-instance ToJSON PatchRule where
+instance Lude.ToJSON PatchRule where
   toJSON PatchRule' {..} =
-    object
-      ( catMaybes
-          [ ("ApproveAfterDays" .=) <$> _prApproveAfterDays,
-            ("ApproveUntilDate" .=) <$> _prApproveUntilDate,
-            ("EnableNonSecurity" .=) <$> _prEnableNonSecurity,
-            ("ComplianceLevel" .=) <$> _prComplianceLevel,
-            Just ("PatchFilterGroup" .= _prPatchFilterGroup)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ApproveAfterDays" Lude..=) Lude.<$> approveAfterDays,
+            ("ApproveUntilDate" Lude..=) Lude.<$> approveUntilDate,
+            ("EnableNonSecurity" Lude..=) Lude.<$> enableNonSecurity,
+            ("ComplianceLevel" Lude..=) Lude.<$> complianceLevel,
+            Lude.Just ("PatchFilterGroup" Lude..= patchFilterGroup)
           ]
       )

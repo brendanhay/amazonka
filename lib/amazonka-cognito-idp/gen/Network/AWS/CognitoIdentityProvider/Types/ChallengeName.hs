@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.ChallengeName where
+module Network.AWS.CognitoIdentityProvider.Types.ChallengeName
+  ( ChallengeName
+      ( ChallengeName',
+        MFA,
+        Password
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ChallengeName
-  = MFA
-  | Password
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ChallengeName = ChallengeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ChallengeName where
-  parser =
-    takeLowerText >>= \case
-      "mfa" -> pure MFA
-      "password" -> pure Password
-      e ->
-        fromTextError $
-          "Failure parsing ChallengeName from value: '" <> e
-            <> "'. Accepted values: mfa, password"
+pattern MFA :: ChallengeName
+pattern MFA = ChallengeName' "Mfa"
 
-instance ToText ChallengeName where
-  toText = \case
-    MFA -> "Mfa"
-    Password -> "Password"
+pattern Password :: ChallengeName
+pattern Password = ChallengeName' "Password"
 
-instance Hashable ChallengeName
-
-instance NFData ChallengeName
-
-instance ToByteString ChallengeName
-
-instance ToQuery ChallengeName
-
-instance ToHeader ChallengeName
-
-instance FromJSON ChallengeName where
-  parseJSON = parseJSONText "ChallengeName"
+{-# COMPLETE
+  MFA,
+  Password,
+  ChallengeName'
+  #-}

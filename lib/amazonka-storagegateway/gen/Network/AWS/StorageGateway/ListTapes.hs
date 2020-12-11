@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,37 +14,35 @@
 --
 -- Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both your VTL and VTS.
 --
---
 -- This operation supports pagination. By default, the operation returns a maximum of up to 100 tapes. You can optionally specify the @Limit@ parameter in the body to limit the number of tapes in the response. If the number of tapes returned in the response is truncated, the response includes a @Marker@ element that you can use in your subsequent request to retrieve the next set of tapes. This operation is only supported in the tape gateway type.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListTapes
-  ( -- * Creating a Request
-    listTapes,
-    ListTapes,
+  ( -- * Creating a request
+    ListTapes (..),
+    mkListTapes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ltMarker,
     ltLimit,
     ltTapeARNs,
 
-    -- * Destructuring the Response
-    listTapesResponse,
-    ListTapesResponse,
+    -- * Destructuring the response
+    ListTapesResponse (..),
+    mkListTapesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ltrsMarker,
     ltrsTapeInfos,
     ltrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | A JSON object that contains one or more of the following fields:
@@ -57,148 +50,169 @@ import Network.AWS.StorageGateway.Types
 --
 --     * 'ListTapesInput$Limit'
 --
+--
 --     * 'ListTapesInput$Marker'
+--
 --
 --     * 'ListTapesInput$TapeARNs'
 --
 --
 --
---
--- /See:/ 'listTapes' smart constructor.
+-- /See:/ 'mkListTapes' smart constructor.
 data ListTapes = ListTapes'
-  { _ltMarker :: !(Maybe Text),
-    _ltLimit :: !(Maybe Nat),
-    _ltTapeARNs :: !(Maybe [Text])
+  { marker :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    tapeARNs :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTapes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltMarker' - A string that indicates the position at which to begin the returned list of tapes.
---
--- * 'ltLimit' - An optional number limit for the tapes in the list returned by this call.
---
--- * 'ltTapeARNs' - Undocumented member.
-listTapes ::
+-- * 'limit' - An optional number limit for the tapes in the list returned by this call.
+-- * 'marker' - A string that indicates the position at which to begin the returned list of tapes.
+-- * 'tapeARNs' - Undocumented field.
+mkListTapes ::
   ListTapes
-listTapes =
+mkListTapes =
   ListTapes'
-    { _ltMarker = Nothing,
-      _ltLimit = Nothing,
-      _ltTapeARNs = Nothing
+    { marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      tapeARNs = Lude.Nothing
     }
 
 -- | A string that indicates the position at which to begin the returned list of tapes.
-ltMarker :: Lens' ListTapes (Maybe Text)
-ltMarker = lens _ltMarker (\s a -> s {_ltMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMarker :: Lens.Lens' ListTapes (Lude.Maybe Lude.Text)
+ltMarker = Lens.lens (marker :: ListTapes -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListTapes)
+{-# DEPRECATED ltMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | An optional number limit for the tapes in the list returned by this call.
-ltLimit :: Lens' ListTapes (Maybe Natural)
-ltLimit = lens _ltLimit (\s a -> s {_ltLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltLimit :: Lens.Lens' ListTapes (Lude.Maybe Lude.Natural)
+ltLimit = Lens.lens (limit :: ListTapes -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTapes)
+{-# DEPRECATED ltLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | Undocumented member.
-ltTapeARNs :: Lens' ListTapes [Text]
-ltTapeARNs = lens _ltTapeARNs (\s a -> s {_ltTapeARNs = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tapeARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltTapeARNs :: Lens.Lens' ListTapes (Lude.Maybe [Lude.Text])
+ltTapeARNs = Lens.lens (tapeARNs :: ListTapes -> Lude.Maybe [Lude.Text]) (\s a -> s {tapeARNs = a} :: ListTapes)
+{-# DEPRECATED ltTapeARNs "Use generic-lens or generic-optics with 'tapeARNs' instead." #-}
 
-instance AWSPager ListTapes where
+instance Page.AWSPager ListTapes where
   page rq rs
-    | stop (rs ^. ltrsMarker) = Nothing
-    | stop (rs ^. ltrsTapeInfos) = Nothing
-    | otherwise = Just $ rq & ltMarker .~ rs ^. ltrsMarker
+    | Page.stop (rs Lens.^. ltrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ltrsTapeInfos) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& ltMarker Lens..~ rs Lens.^. ltrsMarker
 
-instance AWSRequest ListTapes where
+instance Lude.AWSRequest ListTapes where
   type Rs ListTapes = ListTapesResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListTapesResponse'
-            <$> (x .?> "Marker")
-            <*> (x .?> "TapeInfos" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Marker")
+            Lude.<*> (x Lude..?> "TapeInfos" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListTapes
-
-instance NFData ListTapes
-
-instance ToHeaders ListTapes where
+instance Lude.ToHeaders ListTapes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.ListTapes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.ListTapes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListTapes where
+instance Lude.ToJSON ListTapes where
   toJSON ListTapes' {..} =
-    object
-      ( catMaybes
-          [ ("Marker" .=) <$> _ltMarker,
-            ("Limit" .=) <$> _ltLimit,
-            ("TapeARNs" .=) <$> _ltTapeARNs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit,
+            ("TapeARNs" Lude..=) Lude.<$> tapeARNs
           ]
       )
 
-instance ToPath ListTapes where
-  toPath = const "/"
+instance Lude.ToPath ListTapes where
+  toPath = Lude.const "/"
 
-instance ToQuery ListTapes where
-  toQuery = const mempty
+instance Lude.ToQuery ListTapes where
+  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
 --
 --     * 'ListTapesOutput$Marker'
 --
+--
 --     * 'ListTapesOutput$VolumeInfos'
 --
 --
 --
---
--- /See:/ 'listTapesResponse' smart constructor.
+-- /See:/ 'mkListTapesResponse' smart constructor.
 data ListTapesResponse = ListTapesResponse'
-  { _ltrsMarker ::
-      !(Maybe Text),
-    _ltrsTapeInfos :: !(Maybe [TapeInfo]),
-    _ltrsResponseStatus :: !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    tapeInfos :: Lude.Maybe [TapeInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTapesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltrsMarker' - A string that indicates the position at which to begin returning the next list of tapes. Use the marker in your next request to continue pagination of tapes. If there are no more tapes to list, this element does not appear in the response body.
---
--- * 'ltrsTapeInfos' - Undocumented member.
---
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTapesResponse ::
-  -- | 'ltrsResponseStatus'
-  Int ->
+-- * 'marker' - A string that indicates the position at which to begin returning the next list of tapes. Use the marker in your next request to continue pagination of tapes. If there are no more tapes to list, this element does not appear in the response body.
+-- * 'responseStatus' - The response status code.
+-- * 'tapeInfos' - Undocumented field.
+mkListTapesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTapesResponse
-listTapesResponse pResponseStatus_ =
+mkListTapesResponse pResponseStatus_ =
   ListTapesResponse'
-    { _ltrsMarker = Nothing,
-      _ltrsTapeInfos = Nothing,
-      _ltrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      tapeInfos = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A string that indicates the position at which to begin returning the next list of tapes. Use the marker in your next request to continue pagination of tapes. If there are no more tapes to list, this element does not appear in the response body.
-ltrsMarker :: Lens' ListTapesResponse (Maybe Text)
-ltrsMarker = lens _ltrsMarker (\s a -> s {_ltrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsMarker :: Lens.Lens' ListTapesResponse (Lude.Maybe Lude.Text)
+ltrsMarker = Lens.lens (marker :: ListTapesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListTapesResponse)
+{-# DEPRECATED ltrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | Undocumented member.
-ltrsTapeInfos :: Lens' ListTapesResponse [TapeInfo]
-ltrsTapeInfos = lens _ltrsTapeInfos (\s a -> s {_ltrsTapeInfos = a}) . _Default . _Coerce
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tapeInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsTapeInfos :: Lens.Lens' ListTapesResponse (Lude.Maybe [TapeInfo])
+ltrsTapeInfos = Lens.lens (tapeInfos :: ListTapesResponse -> Lude.Maybe [TapeInfo]) (\s a -> s {tapeInfos = a} :: ListTapesResponse)
+{-# DEPRECATED ltrsTapeInfos "Use generic-lens or generic-optics with 'tapeInfos' instead." #-}
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTapesResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\s a -> s {_ltrsResponseStatus = a})
-
-instance NFData ListTapesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrsResponseStatus :: Lens.Lens' ListTapesResponse Lude.Int
+ltrsResponseStatus = Lens.lens (responseStatus :: ListTapesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTapesResponse)
+{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

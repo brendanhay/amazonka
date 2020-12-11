@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy where
+module Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy
+  ( ApplicationRevisionSortBy
+      ( ApplicationRevisionSortBy',
+        FirstUsedTime,
+        LastUsedTime,
+        RegisterTime
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ApplicationRevisionSortBy
-  = FirstUsedTime
-  | LastUsedTime
-  | RegisterTime
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ApplicationRevisionSortBy = ApplicationRevisionSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ApplicationRevisionSortBy where
-  parser =
-    takeLowerText >>= \case
-      "firstusedtime" -> pure FirstUsedTime
-      "lastusedtime" -> pure LastUsedTime
-      "registertime" -> pure RegisterTime
-      e ->
-        fromTextError $
-          "Failure parsing ApplicationRevisionSortBy from value: '" <> e
-            <> "'. Accepted values: firstusedtime, lastusedtime, registertime"
+pattern FirstUsedTime :: ApplicationRevisionSortBy
+pattern FirstUsedTime = ApplicationRevisionSortBy' "firstUsedTime"
 
-instance ToText ApplicationRevisionSortBy where
-  toText = \case
-    FirstUsedTime -> "firstUsedTime"
-    LastUsedTime -> "lastUsedTime"
-    RegisterTime -> "registerTime"
+pattern LastUsedTime :: ApplicationRevisionSortBy
+pattern LastUsedTime = ApplicationRevisionSortBy' "lastUsedTime"
 
-instance Hashable ApplicationRevisionSortBy
+pattern RegisterTime :: ApplicationRevisionSortBy
+pattern RegisterTime = ApplicationRevisionSortBy' "registerTime"
 
-instance NFData ApplicationRevisionSortBy
-
-instance ToByteString ApplicationRevisionSortBy
-
-instance ToQuery ApplicationRevisionSortBy
-
-instance ToHeader ApplicationRevisionSortBy
-
-instance ToJSON ApplicationRevisionSortBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  FirstUsedTime,
+  LastUsedTime,
+  RegisterTime,
+  ApplicationRevisionSortBy'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,139 @@
 --
 -- Adds health-based detection to the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your AWS resource to improve responsiveness and accuracy in attack detection and mitigation.
 --
---
 -- You define the health check in Route 53 and then associate it with your Shield Advanced protection. For more information, see <https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html#ddos-advanced-health-check-option Shield Advanced Health-Based Detection> in the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF and AWS Shield Developer Guide> .
 module Network.AWS.Shield.AssociateHealthCheck
-  ( -- * Creating a Request
-    associateHealthCheck,
-    AssociateHealthCheck,
+  ( -- * Creating a request
+    AssociateHealthCheck (..),
+    mkAssociateHealthCheck,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ahcProtectionId,
     ahcHealthCheckARN,
 
-    -- * Destructuring the Response
-    associateHealthCheckResponse,
-    AssociateHealthCheckResponse,
+    -- * Destructuring the response
+    AssociateHealthCheckResponse (..),
+    mkAssociateHealthCheckResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ahcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Shield.Types
 
--- | /See:/ 'associateHealthCheck' smart constructor.
+-- | /See:/ 'mkAssociateHealthCheck' smart constructor.
 data AssociateHealthCheck = AssociateHealthCheck'
-  { _ahcProtectionId ::
-      !Text,
-    _ahcHealthCheckARN :: !Text
+  { protectionId ::
+      Lude.Text,
+    healthCheckARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateHealthCheck' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ahcProtectionId' - The unique identifier (ID) for the 'Protection' object to add the health check association to.
---
--- * 'ahcHealthCheckARN' - The Amazon Resource Name (ARN) of the health check to associate with the protection.
-associateHealthCheck ::
-  -- | 'ahcProtectionId'
-  Text ->
-  -- | 'ahcHealthCheckARN'
-  Text ->
+-- * 'healthCheckARN' - The Amazon Resource Name (ARN) of the health check to associate with the protection.
+-- * 'protectionId' - The unique identifier (ID) for the 'Protection' object to add the health check association to.
+mkAssociateHealthCheck ::
+  -- | 'protectionId'
+  Lude.Text ->
+  -- | 'healthCheckARN'
+  Lude.Text ->
   AssociateHealthCheck
-associateHealthCheck pProtectionId_ pHealthCheckARN_ =
+mkAssociateHealthCheck pProtectionId_ pHealthCheckARN_ =
   AssociateHealthCheck'
-    { _ahcProtectionId = pProtectionId_,
-      _ahcHealthCheckARN = pHealthCheckARN_
+    { protectionId = pProtectionId_,
+      healthCheckARN = pHealthCheckARN_
     }
 
 -- | The unique identifier (ID) for the 'Protection' object to add the health check association to.
-ahcProtectionId :: Lens' AssociateHealthCheck Text
-ahcProtectionId = lens _ahcProtectionId (\s a -> s {_ahcProtectionId = a})
+--
+-- /Note:/ Consider using 'protectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcProtectionId :: Lens.Lens' AssociateHealthCheck Lude.Text
+ahcProtectionId = Lens.lens (protectionId :: AssociateHealthCheck -> Lude.Text) (\s a -> s {protectionId = a} :: AssociateHealthCheck)
+{-# DEPRECATED ahcProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the health check to associate with the protection.
-ahcHealthCheckARN :: Lens' AssociateHealthCheck Text
-ahcHealthCheckARN = lens _ahcHealthCheckARN (\s a -> s {_ahcHealthCheckARN = a})
+--
+-- /Note:/ Consider using 'healthCheckARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcHealthCheckARN :: Lens.Lens' AssociateHealthCheck Lude.Text
+ahcHealthCheckARN = Lens.lens (healthCheckARN :: AssociateHealthCheck -> Lude.Text) (\s a -> s {healthCheckARN = a} :: AssociateHealthCheck)
+{-# DEPRECATED ahcHealthCheckARN "Use generic-lens or generic-optics with 'healthCheckARN' instead." #-}
 
-instance AWSRequest AssociateHealthCheck where
+instance Lude.AWSRequest AssociateHealthCheck where
   type Rs AssociateHealthCheck = AssociateHealthCheckResponse
-  request = postJSON shield
+  request = Req.postJSON shieldService
   response =
-    receiveEmpty
-      (\s h x -> AssociateHealthCheckResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          AssociateHealthCheckResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable AssociateHealthCheck
-
-instance NFData AssociateHealthCheck
-
-instance ToHeaders AssociateHealthCheck where
+instance Lude.ToHeaders AssociateHealthCheck where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSShield_20160616.AssociateHealthCheck" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSShield_20160616.AssociateHealthCheck" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AssociateHealthCheck where
+instance Lude.ToJSON AssociateHealthCheck where
   toJSON AssociateHealthCheck' {..} =
-    object
-      ( catMaybes
-          [ Just ("ProtectionId" .= _ahcProtectionId),
-            Just ("HealthCheckArn" .= _ahcHealthCheckARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ProtectionId" Lude..= protectionId),
+            Lude.Just ("HealthCheckArn" Lude..= healthCheckARN)
           ]
       )
 
-instance ToPath AssociateHealthCheck where
-  toPath = const "/"
+instance Lude.ToPath AssociateHealthCheck where
+  toPath = Lude.const "/"
 
-instance ToQuery AssociateHealthCheck where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateHealthCheck where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateHealthCheckResponse' smart constructor.
+-- | /See:/ 'mkAssociateHealthCheckResponse' smart constructor.
 newtype AssociateHealthCheckResponse = AssociateHealthCheckResponse'
-  { _ahcrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateHealthCheckResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ahcrsResponseStatus' - -- | The response status code.
-associateHealthCheckResponse ::
-  -- | 'ahcrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAssociateHealthCheckResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AssociateHealthCheckResponse
-associateHealthCheckResponse pResponseStatus_ =
-  AssociateHealthCheckResponse'
-    { _ahcrsResponseStatus =
-        pResponseStatus_
-    }
+mkAssociateHealthCheckResponse pResponseStatus_ =
+  AssociateHealthCheckResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ahcrsResponseStatus :: Lens' AssociateHealthCheckResponse Int
-ahcrsResponseStatus = lens _ahcrsResponseStatus (\s a -> s {_ahcrsResponseStatus = a})
-
-instance NFData AssociateHealthCheckResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcrsResponseStatus :: Lens.Lens' AssociateHealthCheckResponse Lude.Int
+ahcrsResponseStatus = Lens.lens (responseStatus :: AssociateHealthCheckResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateHealthCheckResponse)
+{-# DEPRECATED ahcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

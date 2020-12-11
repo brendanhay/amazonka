@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ResourceComplianceSummaryItem where
+module Network.AWS.SSM.Types.ResourceComplianceSummaryItem
+  ( ResourceComplianceSummaryItem (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceComplianceSummaryItem,
+
+    -- * Lenses
+    rcsiNonCompliantSummary,
+    rcsiStatus,
+    rcsiResourceId,
+    rcsiResourceType,
+    rcsiCompliantSummary,
+    rcsiExecutionSummary,
+    rcsiOverallSeverity,
+    rcsiComplianceType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.ComplianceExecutionSummary
 import Network.AWS.SSM.Types.ComplianceSeverity
 import Network.AWS.SSM.Types.ComplianceStatus
@@ -25,113 +35,128 @@ import Network.AWS.SSM.Types.NonCompliantSummary
 
 -- | Compliance summary information for a specific resource.
 --
---
---
--- /See:/ 'resourceComplianceSummaryItem' smart constructor.
+-- /See:/ 'mkResourceComplianceSummaryItem' smart constructor.
 data ResourceComplianceSummaryItem = ResourceComplianceSummaryItem'
-  { _rcsiNonCompliantSummary ::
-      !(Maybe NonCompliantSummary),
-    _rcsiStatus ::
-      !(Maybe ComplianceStatus),
-    _rcsiResourceId ::
-      !(Maybe Text),
-    _rcsiResourceType ::
-      !(Maybe Text),
-    _rcsiCompliantSummary ::
-      !(Maybe CompliantSummary),
-    _rcsiExecutionSummary ::
-      !( Maybe
-           ComplianceExecutionSummary
-       ),
-    _rcsiOverallSeverity ::
-      !(Maybe ComplianceSeverity),
-    _rcsiComplianceType ::
-      !(Maybe Text)
+  { nonCompliantSummary ::
+      Lude.Maybe NonCompliantSummary,
+    status ::
+      Lude.Maybe ComplianceStatus,
+    resourceId ::
+      Lude.Maybe Lude.Text,
+    resourceType ::
+      Lude.Maybe Lude.Text,
+    compliantSummary ::
+      Lude.Maybe CompliantSummary,
+    executionSummary ::
+      Lude.Maybe
+        ComplianceExecutionSummary,
+    overallSeverity ::
+      Lude.Maybe ComplianceSeverity,
+    complianceType ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceComplianceSummaryItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcsiNonCompliantSummary' - A list of items that aren't compliant for the resource.
---
--- * 'rcsiStatus' - The compliance status for the resource.
---
--- * 'rcsiResourceId' - The resource ID.
---
--- * 'rcsiResourceType' - The resource type.
---
--- * 'rcsiCompliantSummary' - A list of items that are compliant for the resource.
---
--- * 'rcsiExecutionSummary' - Information about the execution.
---
--- * 'rcsiOverallSeverity' - The highest severity item found for the resource. The resource is compliant for this item.
---
--- * 'rcsiComplianceType' - The compliance type.
-resourceComplianceSummaryItem ::
+-- * 'complianceType' - The compliance type.
+-- * 'compliantSummary' - A list of items that are compliant for the resource.
+-- * 'executionSummary' - Information about the execution.
+-- * 'nonCompliantSummary' - A list of items that aren't compliant for the resource.
+-- * 'overallSeverity' - The highest severity item found for the resource. The resource is compliant for this item.
+-- * 'resourceId' - The resource ID.
+-- * 'resourceType' - The resource type.
+-- * 'status' - The compliance status for the resource.
+mkResourceComplianceSummaryItem ::
   ResourceComplianceSummaryItem
-resourceComplianceSummaryItem =
+mkResourceComplianceSummaryItem =
   ResourceComplianceSummaryItem'
-    { _rcsiNonCompliantSummary =
-        Nothing,
-      _rcsiStatus = Nothing,
-      _rcsiResourceId = Nothing,
-      _rcsiResourceType = Nothing,
-      _rcsiCompliantSummary = Nothing,
-      _rcsiExecutionSummary = Nothing,
-      _rcsiOverallSeverity = Nothing,
-      _rcsiComplianceType = Nothing
+    { nonCompliantSummary =
+        Lude.Nothing,
+      status = Lude.Nothing,
+      resourceId = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      compliantSummary = Lude.Nothing,
+      executionSummary = Lude.Nothing,
+      overallSeverity = Lude.Nothing,
+      complianceType = Lude.Nothing
     }
 
 -- | A list of items that aren't compliant for the resource.
-rcsiNonCompliantSummary :: Lens' ResourceComplianceSummaryItem (Maybe NonCompliantSummary)
-rcsiNonCompliantSummary = lens _rcsiNonCompliantSummary (\s a -> s {_rcsiNonCompliantSummary = a})
+--
+-- /Note:/ Consider using 'nonCompliantSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsiNonCompliantSummary :: Lens.Lens' ResourceComplianceSummaryItem (Lude.Maybe NonCompliantSummary)
+rcsiNonCompliantSummary = Lens.lens (nonCompliantSummary :: ResourceComplianceSummaryItem -> Lude.Maybe NonCompliantSummary) (\s a -> s {nonCompliantSummary = a} :: ResourceComplianceSummaryItem)
+{-# DEPRECATED rcsiNonCompliantSummary "Use generic-lens or generic-optics with 'nonCompliantSummary' instead." #-}
 
 -- | The compliance status for the resource.
-rcsiStatus :: Lens' ResourceComplianceSummaryItem (Maybe ComplianceStatus)
-rcsiStatus = lens _rcsiStatus (\s a -> s {_rcsiStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsiStatus :: Lens.Lens' ResourceComplianceSummaryItem (Lude.Maybe ComplianceStatus)
+rcsiStatus = Lens.lens (status :: ResourceComplianceSummaryItem -> Lude.Maybe ComplianceStatus) (\s a -> s {status = a} :: ResourceComplianceSummaryItem)
+{-# DEPRECATED rcsiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The resource ID.
-rcsiResourceId :: Lens' ResourceComplianceSummaryItem (Maybe Text)
-rcsiResourceId = lens _rcsiResourceId (\s a -> s {_rcsiResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsiResourceId :: Lens.Lens' ResourceComplianceSummaryItem (Lude.Maybe Lude.Text)
+rcsiResourceId = Lens.lens (resourceId :: ResourceComplianceSummaryItem -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ResourceComplianceSummaryItem)
+{-# DEPRECATED rcsiResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The resource type.
-rcsiResourceType :: Lens' ResourceComplianceSummaryItem (Maybe Text)
-rcsiResourceType = lens _rcsiResourceType (\s a -> s {_rcsiResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsiResourceType :: Lens.Lens' ResourceComplianceSummaryItem (Lude.Maybe Lude.Text)
+rcsiResourceType = Lens.lens (resourceType :: ResourceComplianceSummaryItem -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ResourceComplianceSummaryItem)
+{-# DEPRECATED rcsiResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | A list of items that are compliant for the resource.
-rcsiCompliantSummary :: Lens' ResourceComplianceSummaryItem (Maybe CompliantSummary)
-rcsiCompliantSummary = lens _rcsiCompliantSummary (\s a -> s {_rcsiCompliantSummary = a})
+--
+-- /Note:/ Consider using 'compliantSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsiCompliantSummary :: Lens.Lens' ResourceComplianceSummaryItem (Lude.Maybe CompliantSummary)
+rcsiCompliantSummary = Lens.lens (compliantSummary :: ResourceComplianceSummaryItem -> Lude.Maybe CompliantSummary) (\s a -> s {compliantSummary = a} :: ResourceComplianceSummaryItem)
+{-# DEPRECATED rcsiCompliantSummary "Use generic-lens or generic-optics with 'compliantSummary' instead." #-}
 
 -- | Information about the execution.
-rcsiExecutionSummary :: Lens' ResourceComplianceSummaryItem (Maybe ComplianceExecutionSummary)
-rcsiExecutionSummary = lens _rcsiExecutionSummary (\s a -> s {_rcsiExecutionSummary = a})
+--
+-- /Note:/ Consider using 'executionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsiExecutionSummary :: Lens.Lens' ResourceComplianceSummaryItem (Lude.Maybe ComplianceExecutionSummary)
+rcsiExecutionSummary = Lens.lens (executionSummary :: ResourceComplianceSummaryItem -> Lude.Maybe ComplianceExecutionSummary) (\s a -> s {executionSummary = a} :: ResourceComplianceSummaryItem)
+{-# DEPRECATED rcsiExecutionSummary "Use generic-lens or generic-optics with 'executionSummary' instead." #-}
 
 -- | The highest severity item found for the resource. The resource is compliant for this item.
-rcsiOverallSeverity :: Lens' ResourceComplianceSummaryItem (Maybe ComplianceSeverity)
-rcsiOverallSeverity = lens _rcsiOverallSeverity (\s a -> s {_rcsiOverallSeverity = a})
+--
+-- /Note:/ Consider using 'overallSeverity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsiOverallSeverity :: Lens.Lens' ResourceComplianceSummaryItem (Lude.Maybe ComplianceSeverity)
+rcsiOverallSeverity = Lens.lens (overallSeverity :: ResourceComplianceSummaryItem -> Lude.Maybe ComplianceSeverity) (\s a -> s {overallSeverity = a} :: ResourceComplianceSummaryItem)
+{-# DEPRECATED rcsiOverallSeverity "Use generic-lens or generic-optics with 'overallSeverity' instead." #-}
 
 -- | The compliance type.
-rcsiComplianceType :: Lens' ResourceComplianceSummaryItem (Maybe Text)
-rcsiComplianceType = lens _rcsiComplianceType (\s a -> s {_rcsiComplianceType = a})
+--
+-- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcsiComplianceType :: Lens.Lens' ResourceComplianceSummaryItem (Lude.Maybe Lude.Text)
+rcsiComplianceType = Lens.lens (complianceType :: ResourceComplianceSummaryItem -> Lude.Maybe Lude.Text) (\s a -> s {complianceType = a} :: ResourceComplianceSummaryItem)
+{-# DEPRECATED rcsiComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
-instance FromJSON ResourceComplianceSummaryItem where
+instance Lude.FromJSON ResourceComplianceSummaryItem where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceComplianceSummaryItem"
       ( \x ->
           ResourceComplianceSummaryItem'
-            <$> (x .:? "NonCompliantSummary")
-            <*> (x .:? "Status")
-            <*> (x .:? "ResourceId")
-            <*> (x .:? "ResourceType")
-            <*> (x .:? "CompliantSummary")
-            <*> (x .:? "ExecutionSummary")
-            <*> (x .:? "OverallSeverity")
-            <*> (x .:? "ComplianceType")
+            Lude.<$> (x Lude..:? "NonCompliantSummary")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "ResourceId")
+            Lude.<*> (x Lude..:? "ResourceType")
+            Lude.<*> (x Lude..:? "CompliantSummary")
+            Lude.<*> (x Lude..:? "ExecutionSummary")
+            Lude.<*> (x Lude..:? "OverallSeverity")
+            Lude.<*> (x Lude..:? "ComplianceType")
       )
-
-instance Hashable ResourceComplianceSummaryItem
-
-instance NFData ResourceComplianceSummaryItem

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.EdgeStatistics where
+module Network.AWS.XRay.Types.EdgeStatistics
+  ( EdgeStatistics (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEdgeStatistics,
+
+    -- * Lenses
+    esFaultStatistics,
+    esOKCount,
+    esTotalResponseTime,
+    esErrorStatistics,
+    esTotalCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.ErrorStatistics
 import Network.AWS.XRay.Types.FaultStatistics
 
 -- | Response statistics for an edge.
 --
---
---
--- /See:/ 'edgeStatistics' smart constructor.
+-- /See:/ 'mkEdgeStatistics' smart constructor.
 data EdgeStatistics = EdgeStatistics'
-  { _esFaultStatistics ::
-      !(Maybe FaultStatistics),
-    _esOKCount :: !(Maybe Integer),
-    _esTotalResponseTime :: !(Maybe Double),
-    _esErrorStatistics :: !(Maybe ErrorStatistics),
-    _esTotalCount :: !(Maybe Integer)
+  { faultStatistics ::
+      Lude.Maybe FaultStatistics,
+    okCount :: Lude.Maybe Lude.Integer,
+    totalResponseTime :: Lude.Maybe Lude.Double,
+    errorStatistics :: Lude.Maybe ErrorStatistics,
+    totalCount :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EdgeStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'esFaultStatistics' - Information about requests that failed with a 5xx Server Error status code.
---
--- * 'esOKCount' - The number of requests that completed with a 2xx Success status code.
---
--- * 'esTotalResponseTime' - The aggregate response time of completed requests.
---
--- * 'esErrorStatistics' - Information about requests that failed with a 4xx Client Error status code.
---
--- * 'esTotalCount' - The total number of completed requests.
-edgeStatistics ::
+-- * 'errorStatistics' - Information about requests that failed with a 4xx Client Error status code.
+-- * 'faultStatistics' - Information about requests that failed with a 5xx Server Error status code.
+-- * 'okCount' - The number of requests that completed with a 2xx Success status code.
+-- * 'totalCount' - The total number of completed requests.
+-- * 'totalResponseTime' - The aggregate response time of completed requests.
+mkEdgeStatistics ::
   EdgeStatistics
-edgeStatistics =
+mkEdgeStatistics =
   EdgeStatistics'
-    { _esFaultStatistics = Nothing,
-      _esOKCount = Nothing,
-      _esTotalResponseTime = Nothing,
-      _esErrorStatistics = Nothing,
-      _esTotalCount = Nothing
+    { faultStatistics = Lude.Nothing,
+      okCount = Lude.Nothing,
+      totalResponseTime = Lude.Nothing,
+      errorStatistics = Lude.Nothing,
+      totalCount = Lude.Nothing
     }
 
 -- | Information about requests that failed with a 5xx Server Error status code.
-esFaultStatistics :: Lens' EdgeStatistics (Maybe FaultStatistics)
-esFaultStatistics = lens _esFaultStatistics (\s a -> s {_esFaultStatistics = a})
+--
+-- /Note:/ Consider using 'faultStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esFaultStatistics :: Lens.Lens' EdgeStatistics (Lude.Maybe FaultStatistics)
+esFaultStatistics = Lens.lens (faultStatistics :: EdgeStatistics -> Lude.Maybe FaultStatistics) (\s a -> s {faultStatistics = a} :: EdgeStatistics)
+{-# DEPRECATED esFaultStatistics "Use generic-lens or generic-optics with 'faultStatistics' instead." #-}
 
 -- | The number of requests that completed with a 2xx Success status code.
-esOKCount :: Lens' EdgeStatistics (Maybe Integer)
-esOKCount = lens _esOKCount (\s a -> s {_esOKCount = a})
+--
+-- /Note:/ Consider using 'okCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esOKCount :: Lens.Lens' EdgeStatistics (Lude.Maybe Lude.Integer)
+esOKCount = Lens.lens (okCount :: EdgeStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {okCount = a} :: EdgeStatistics)
+{-# DEPRECATED esOKCount "Use generic-lens or generic-optics with 'okCount' instead." #-}
 
 -- | The aggregate response time of completed requests.
-esTotalResponseTime :: Lens' EdgeStatistics (Maybe Double)
-esTotalResponseTime = lens _esTotalResponseTime (\s a -> s {_esTotalResponseTime = a})
+--
+-- /Note:/ Consider using 'totalResponseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esTotalResponseTime :: Lens.Lens' EdgeStatistics (Lude.Maybe Lude.Double)
+esTotalResponseTime = Lens.lens (totalResponseTime :: EdgeStatistics -> Lude.Maybe Lude.Double) (\s a -> s {totalResponseTime = a} :: EdgeStatistics)
+{-# DEPRECATED esTotalResponseTime "Use generic-lens or generic-optics with 'totalResponseTime' instead." #-}
 
 -- | Information about requests that failed with a 4xx Client Error status code.
-esErrorStatistics :: Lens' EdgeStatistics (Maybe ErrorStatistics)
-esErrorStatistics = lens _esErrorStatistics (\s a -> s {_esErrorStatistics = a})
+--
+-- /Note:/ Consider using 'errorStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esErrorStatistics :: Lens.Lens' EdgeStatistics (Lude.Maybe ErrorStatistics)
+esErrorStatistics = Lens.lens (errorStatistics :: EdgeStatistics -> Lude.Maybe ErrorStatistics) (\s a -> s {errorStatistics = a} :: EdgeStatistics)
+{-# DEPRECATED esErrorStatistics "Use generic-lens or generic-optics with 'errorStatistics' instead." #-}
 
 -- | The total number of completed requests.
-esTotalCount :: Lens' EdgeStatistics (Maybe Integer)
-esTotalCount = lens _esTotalCount (\s a -> s {_esTotalCount = a})
+--
+-- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esTotalCount :: Lens.Lens' EdgeStatistics (Lude.Maybe Lude.Integer)
+esTotalCount = Lens.lens (totalCount :: EdgeStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalCount = a} :: EdgeStatistics)
+{-# DEPRECATED esTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance FromJSON EdgeStatistics where
+instance Lude.FromJSON EdgeStatistics where
   parseJSON =
-    withObject
+    Lude.withObject
       "EdgeStatistics"
       ( \x ->
           EdgeStatistics'
-            <$> (x .:? "FaultStatistics")
-            <*> (x .:? "OkCount")
-            <*> (x .:? "TotalResponseTime")
-            <*> (x .:? "ErrorStatistics")
-            <*> (x .:? "TotalCount")
+            Lude.<$> (x Lude..:? "FaultStatistics")
+            Lude.<*> (x Lude..:? "OkCount")
+            Lude.<*> (x Lude..:? "TotalResponseTime")
+            Lude.<*> (x Lude..:? "ErrorStatistics")
+            Lude.<*> (x Lude..:? "TotalCount")
       )
-
-instance Hashable EdgeStatistics
-
-instance NFData EdgeStatistics

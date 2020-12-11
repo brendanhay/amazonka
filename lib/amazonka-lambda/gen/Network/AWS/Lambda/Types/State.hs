@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.State where
+module Network.AWS.Lambda.Types.State
+  ( State
+      ( State',
+        Active,
+        Failed,
+        Inactive,
+        Pending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data State
-  = Active
-  | Failed
-  | Inactive
-  | Pending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype State = State' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText State where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "failed" -> pure Failed
-      "inactive" -> pure Inactive
-      "pending" -> pure Pending
-      e ->
-        fromTextError $
-          "Failure parsing State from value: '" <> e
-            <> "'. Accepted values: active, failed, inactive, pending"
+pattern Active :: State
+pattern Active = State' "Active"
 
-instance ToText State where
-  toText = \case
-    Active -> "Active"
-    Failed -> "Failed"
-    Inactive -> "Inactive"
-    Pending -> "Pending"
+pattern Failed :: State
+pattern Failed = State' "Failed"
 
-instance Hashable State
+pattern Inactive :: State
+pattern Inactive = State' "Inactive"
 
-instance NFData State
+pattern Pending :: State
+pattern Pending = State' "Pending"
 
-instance ToByteString State
-
-instance ToQuery State
-
-instance ToHeader State
-
-instance FromJSON State where
-  parseJSON = parseJSONText "State"
+{-# COMPLETE
+  Active,
+  Failed,
+  Inactive,
+  Pending,
+  State'
+  #-}

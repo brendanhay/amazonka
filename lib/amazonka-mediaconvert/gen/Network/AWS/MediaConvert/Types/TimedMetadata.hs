@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.TimedMetadata where
+module Network.AWS.MediaConvert.Types.TimedMetadata
+  ( TimedMetadata
+      ( TimedMetadata',
+        TMNone,
+        TMPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
-data TimedMetadata
-  = TMNone
-  | TMPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TimedMetadata = TimedMetadata' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TimedMetadata where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure TMNone
-      "passthrough" -> pure TMPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing TimedMetadata from value: '" <> e
-            <> "'. Accepted values: none, passthrough"
+pattern TMNone :: TimedMetadata
+pattern TMNone = TimedMetadata' "NONE"
 
-instance ToText TimedMetadata where
-  toText = \case
-    TMNone -> "NONE"
-    TMPassthrough -> "PASSTHROUGH"
+pattern TMPassthrough :: TimedMetadata
+pattern TMPassthrough = TimedMetadata' "PASSTHROUGH"
 
-instance Hashable TimedMetadata
-
-instance NFData TimedMetadata
-
-instance ToByteString TimedMetadata
-
-instance ToQuery TimedMetadata
-
-instance ToHeader TimedMetadata
-
-instance ToJSON TimedMetadata where
-  toJSON = toJSONText
-
-instance FromJSON TimedMetadata where
-  parseJSON = parseJSONText "TimedMetadata"
+{-# COMPLETE
+  TMNone,
+  TMPassthrough,
+  TimedMetadata'
+  #-}

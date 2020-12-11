@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,140 +14,158 @@
 --
 -- When a contact is being recorded, this API suspends recording the call. For example, you might suspend the call recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording.
 --
---
 -- The period of time that the recording is suspended is filled with silence in the final recording.
---
 -- Only voice recordings are supported at this time.
 module Network.AWS.Connect.SuspendContactRecording
-  ( -- * Creating a Request
-    suspendContactRecording,
-    SuspendContactRecording,
+  ( -- * Creating a request
+    SuspendContactRecording (..),
+    mkSuspendContactRecording,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sInstanceId,
     sContactId,
     sInitialContactId,
 
-    -- * Destructuring the Response
-    suspendContactRecordingResponse,
-    SuspendContactRecordingResponse,
+    -- * Destructuring the response
+    SuspendContactRecordingResponse (..),
+    mkSuspendContactRecordingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsResponseStatus,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'suspendContactRecording' smart constructor.
+-- | /See:/ 'mkSuspendContactRecording' smart constructor.
 data SuspendContactRecording = SuspendContactRecording'
-  { _sInstanceId ::
-      !Text,
-    _sContactId :: !Text,
-    _sInitialContactId :: !Text
+  { instanceId ::
+      Lude.Text,
+    contactId :: Lude.Text,
+    initialContactId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuspendContactRecording' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'sContactId' - The identifier of the contact.
---
--- * 'sInitialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
-suspendContactRecording ::
-  -- | 'sInstanceId'
-  Text ->
-  -- | 'sContactId'
-  Text ->
-  -- | 'sInitialContactId'
-  Text ->
+-- * 'contactId' - The identifier of the contact.
+-- * 'initialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+mkSuspendContactRecording ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'contactId'
+  Lude.Text ->
+  -- | 'initialContactId'
+  Lude.Text ->
   SuspendContactRecording
-suspendContactRecording pInstanceId_ pContactId_ pInitialContactId_ =
-  SuspendContactRecording'
-    { _sInstanceId = pInstanceId_,
-      _sContactId = pContactId_,
-      _sInitialContactId = pInitialContactId_
-    }
+mkSuspendContactRecording
+  pInstanceId_
+  pContactId_
+  pInitialContactId_ =
+    SuspendContactRecording'
+      { instanceId = pInstanceId_,
+        contactId = pContactId_,
+        initialContactId = pInitialContactId_
+      }
 
 -- | The identifier of the Amazon Connect instance.
-sInstanceId :: Lens' SuspendContactRecording Text
-sInstanceId = lens _sInstanceId (\s a -> s {_sInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sInstanceId :: Lens.Lens' SuspendContactRecording Lude.Text
+sInstanceId = Lens.lens (instanceId :: SuspendContactRecording -> Lude.Text) (\s a -> s {instanceId = a} :: SuspendContactRecording)
+{-# DEPRECATED sInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the contact.
-sContactId :: Lens' SuspendContactRecording Text
-sContactId = lens _sContactId (\s a -> s {_sContactId = a})
+--
+-- /Note:/ Consider using 'contactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sContactId :: Lens.Lens' SuspendContactRecording Lude.Text
+sContactId = Lens.lens (contactId :: SuspendContactRecording -> Lude.Text) (\s a -> s {contactId = a} :: SuspendContactRecording)
+{-# DEPRECATED sContactId "Use generic-lens or generic-optics with 'contactId' instead." #-}
 
 -- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
-sInitialContactId :: Lens' SuspendContactRecording Text
-sInitialContactId = lens _sInitialContactId (\s a -> s {_sInitialContactId = a})
+--
+-- /Note:/ Consider using 'initialContactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sInitialContactId :: Lens.Lens' SuspendContactRecording Lude.Text
+sInitialContactId = Lens.lens (initialContactId :: SuspendContactRecording -> Lude.Text) (\s a -> s {initialContactId = a} :: SuspendContactRecording)
+{-# DEPRECATED sInitialContactId "Use generic-lens or generic-optics with 'initialContactId' instead." #-}
 
-instance AWSRequest SuspendContactRecording where
+instance Lude.AWSRequest SuspendContactRecording where
   type Rs SuspendContactRecording = SuspendContactRecordingResponse
-  request = postJSON connect
+  request = Req.postJSON connectService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          SuspendContactRecordingResponse' <$> (pure (fromEnum s))
+          SuspendContactRecordingResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable SuspendContactRecording
-
-instance NFData SuspendContactRecording
-
-instance ToHeaders SuspendContactRecording where
+instance Lude.ToHeaders SuspendContactRecording where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON SuspendContactRecording where
-  toJSON SuspendContactRecording' {..} =
-    object
-      ( catMaybes
-          [ Just ("InstanceId" .= _sInstanceId),
-            Just ("ContactId" .= _sContactId),
-            Just ("InitialContactId" .= _sInitialContactId)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath SuspendContactRecording where
-  toPath = const "/contact/suspend-recording"
+instance Lude.ToJSON SuspendContactRecording where
+  toJSON SuspendContactRecording' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("ContactId" Lude..= contactId),
+            Lude.Just ("InitialContactId" Lude..= initialContactId)
+          ]
+      )
 
-instance ToQuery SuspendContactRecording where
-  toQuery = const mempty
+instance Lude.ToPath SuspendContactRecording where
+  toPath = Lude.const "/contact/suspend-recording"
 
--- | /See:/ 'suspendContactRecordingResponse' smart constructor.
+instance Lude.ToQuery SuspendContactRecording where
+  toQuery = Lude.const Lude.mempty
+
+-- | /See:/ 'mkSuspendContactRecordingResponse' smart constructor.
 newtype SuspendContactRecordingResponse = SuspendContactRecordingResponse'
-  { _srsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuspendContactRecordingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsResponseStatus' - -- | The response status code.
-suspendContactRecordingResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkSuspendContactRecordingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   SuspendContactRecordingResponse
-suspendContactRecordingResponse pResponseStatus_ =
+mkSuspendContactRecordingResponse pResponseStatus_ =
   SuspendContactRecordingResponse'
-    { _srsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' SuspendContactRecordingResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData SuspendContactRecordingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' SuspendContactRecordingResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: SuspendContactRecordingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SuspendContactRecordingResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

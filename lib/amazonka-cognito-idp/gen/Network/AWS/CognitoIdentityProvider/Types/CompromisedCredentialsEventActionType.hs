@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType where
+module Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType
+  ( CompromisedCredentialsEventActionType
+      ( CompromisedCredentialsEventActionType',
+        CCEATBlock,
+        CCEATNoAction
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CompromisedCredentialsEventActionType
-  = CCEATBlock
-  | CCEATNoAction
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CompromisedCredentialsEventActionType = CompromisedCredentialsEventActionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CompromisedCredentialsEventActionType where
-  parser =
-    takeLowerText >>= \case
-      "block" -> pure CCEATBlock
-      "no_action" -> pure CCEATNoAction
-      e ->
-        fromTextError $
-          "Failure parsing CompromisedCredentialsEventActionType from value: '" <> e
-            <> "'. Accepted values: block, no_action"
+pattern CCEATBlock :: CompromisedCredentialsEventActionType
+pattern CCEATBlock = CompromisedCredentialsEventActionType' "BLOCK"
 
-instance ToText CompromisedCredentialsEventActionType where
-  toText = \case
-    CCEATBlock -> "BLOCK"
-    CCEATNoAction -> "NO_ACTION"
+pattern CCEATNoAction :: CompromisedCredentialsEventActionType
+pattern CCEATNoAction = CompromisedCredentialsEventActionType' "NO_ACTION"
 
-instance Hashable CompromisedCredentialsEventActionType
-
-instance NFData CompromisedCredentialsEventActionType
-
-instance ToByteString CompromisedCredentialsEventActionType
-
-instance ToQuery CompromisedCredentialsEventActionType
-
-instance ToHeader CompromisedCredentialsEventActionType
-
-instance ToJSON CompromisedCredentialsEventActionType where
-  toJSON = toJSONText
-
-instance FromJSON CompromisedCredentialsEventActionType where
-  parseJSON = parseJSONText "CompromisedCredentialsEventActionType"
+{-# COMPLETE
+  CCEATBlock,
+  CCEATNoAction,
+  CompromisedCredentialsEventActionType'
+  #-}

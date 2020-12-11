@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,170 +14,188 @@
 --
 -- Returns the list of voices that are available for use when requesting speech synthesis. Each voice speaks a specified language, is either male or female, and is identified by an ID, which is the ASCII version of the voice name.
 --
---
 -- When synthesizing speech ( @SynthesizeSpeech@ ), you provide the voice ID for the voice you want from the list of voices returned by @DescribeVoices@ .
---
 -- For example, you want your news reader application to read news in a specific language, but giving a user the option to choose the voice. Using the @DescribeVoices@ operation you can provide the user with a list of available voices to select from.
---
 -- You can optionally specify a language code to filter the available voices. For example, if you specify @en-US@ , the operation returns a list of all available US English voices.
---
 -- This operation requires permissions to perform the @polly:DescribeVoices@ action.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Polly.DescribeVoices
-  ( -- * Creating a Request
-    describeVoices,
-    DescribeVoices,
+  ( -- * Creating a request
+    DescribeVoices (..),
+    mkDescribeVoices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvLanguageCode,
     dvEngine,
     dvNextToken,
     dvIncludeAdditionalLanguageCodes,
 
-    -- * Destructuring the Response
-    describeVoicesResponse,
-    DescribeVoicesResponse,
+    -- * Destructuring the response
+    DescribeVoicesResponse (..),
+    mkDescribeVoicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvrsNextToken,
     dvrsVoices,
     dvrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
 import Network.AWS.Polly.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVoices' smart constructor.
+-- | /See:/ 'mkDescribeVoices' smart constructor.
 data DescribeVoices = DescribeVoices'
-  { _dvLanguageCode ::
-      !(Maybe LanguageCode),
-    _dvEngine :: !(Maybe Engine),
-    _dvNextToken :: !(Maybe Text),
-    _dvIncludeAdditionalLanguageCodes :: !(Maybe Bool)
+  { languageCode ::
+      Lude.Maybe LanguageCode,
+    engine :: Lude.Maybe Engine,
+    nextToken :: Lude.Maybe Lude.Text,
+    includeAdditionalLanguageCodes :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVoices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvLanguageCode' - The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.
---
--- * 'dvEngine' - Specifies the engine (@standard@ or @neural@ ) used by Amazon Polly when processing input text for speech synthesis.
---
--- * 'dvNextToken' - An opaque pagination token returned from the previous @DescribeVoices@ operation. If present, this indicates where to continue the listing.
---
--- * 'dvIncludeAdditionalLanguageCodes' - Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify @yes@ but not if you specify @no@ .
-describeVoices ::
+-- * 'engine' - Specifies the engine (@standard@ or @neural@ ) used by Amazon Polly when processing input text for speech synthesis.
+-- * 'includeAdditionalLanguageCodes' - Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify @yes@ but not if you specify @no@ .
+-- * 'languageCode' - The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.
+-- * 'nextToken' - An opaque pagination token returned from the previous @DescribeVoices@ operation. If present, this indicates where to continue the listing.
+mkDescribeVoices ::
   DescribeVoices
-describeVoices =
+mkDescribeVoices =
   DescribeVoices'
-    { _dvLanguageCode = Nothing,
-      _dvEngine = Nothing,
-      _dvNextToken = Nothing,
-      _dvIncludeAdditionalLanguageCodes = Nothing
+    { languageCode = Lude.Nothing,
+      engine = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      includeAdditionalLanguageCodes = Lude.Nothing
     }
 
 -- | The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned.
-dvLanguageCode :: Lens' DescribeVoices (Maybe LanguageCode)
-dvLanguageCode = lens _dvLanguageCode (\s a -> s {_dvLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvLanguageCode :: Lens.Lens' DescribeVoices (Lude.Maybe LanguageCode)
+dvLanguageCode = Lens.lens (languageCode :: DescribeVoices -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: DescribeVoices)
+{-# DEPRECATED dvLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | Specifies the engine (@standard@ or @neural@ ) used by Amazon Polly when processing input text for speech synthesis.
-dvEngine :: Lens' DescribeVoices (Maybe Engine)
-dvEngine = lens _dvEngine (\s a -> s {_dvEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvEngine :: Lens.Lens' DescribeVoices (Lude.Maybe Engine)
+dvEngine = Lens.lens (engine :: DescribeVoices -> Lude.Maybe Engine) (\s a -> s {engine = a} :: DescribeVoices)
+{-# DEPRECATED dvEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | An opaque pagination token returned from the previous @DescribeVoices@ operation. If present, this indicates where to continue the listing.
-dvNextToken :: Lens' DescribeVoices (Maybe Text)
-dvNextToken = lens _dvNextToken (\s a -> s {_dvNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvNextToken :: Lens.Lens' DescribeVoices (Lude.Maybe Lude.Text)
+dvNextToken = Lens.lens (nextToken :: DescribeVoices -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVoices)
+{-# DEPRECATED dvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify @yes@ but not if you specify @no@ .
-dvIncludeAdditionalLanguageCodes :: Lens' DescribeVoices (Maybe Bool)
-dvIncludeAdditionalLanguageCodes = lens _dvIncludeAdditionalLanguageCodes (\s a -> s {_dvIncludeAdditionalLanguageCodes = a})
+--
+-- /Note:/ Consider using 'includeAdditionalLanguageCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvIncludeAdditionalLanguageCodes :: Lens.Lens' DescribeVoices (Lude.Maybe Lude.Bool)
+dvIncludeAdditionalLanguageCodes = Lens.lens (includeAdditionalLanguageCodes :: DescribeVoices -> Lude.Maybe Lude.Bool) (\s a -> s {includeAdditionalLanguageCodes = a} :: DescribeVoices)
+{-# DEPRECATED dvIncludeAdditionalLanguageCodes "Use generic-lens or generic-optics with 'includeAdditionalLanguageCodes' instead." #-}
 
-instance AWSPager DescribeVoices where
+instance Page.AWSPager DescribeVoices where
   page rq rs
-    | stop (rs ^. dvrsNextToken) = Nothing
-    | stop (rs ^. dvrsVoices) = Nothing
-    | otherwise = Just $ rq & dvNextToken .~ rs ^. dvrsNextToken
+    | Page.stop (rs Lens.^. dvrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dvrsVoices) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dvNextToken Lens..~ rs Lens.^. dvrsNextToken
 
-instance AWSRequest DescribeVoices where
+instance Lude.AWSRequest DescribeVoices where
   type Rs DescribeVoices = DescribeVoicesResponse
-  request = get polly
+  request = Req.get pollyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeVoicesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Voices" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Voices" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVoices
+instance Lude.ToHeaders DescribeVoices where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVoices
+instance Lude.ToPath DescribeVoices where
+  toPath = Lude.const "/v1/voices"
 
-instance ToHeaders DescribeVoices where
-  toHeaders = const mempty
-
-instance ToPath DescribeVoices where
-  toPath = const "/v1/voices"
-
-instance ToQuery DescribeVoices where
+instance Lude.ToQuery DescribeVoices where
   toQuery DescribeVoices' {..} =
-    mconcat
-      [ "LanguageCode" =: _dvLanguageCode,
-        "Engine" =: _dvEngine,
-        "NextToken" =: _dvNextToken,
+    Lude.mconcat
+      [ "LanguageCode" Lude.=: languageCode,
+        "Engine" Lude.=: engine,
+        "NextToken" Lude.=: nextToken,
         "IncludeAdditionalLanguageCodes"
-          =: _dvIncludeAdditionalLanguageCodes
+          Lude.=: includeAdditionalLanguageCodes
       ]
 
--- | /See:/ 'describeVoicesResponse' smart constructor.
+-- | /See:/ 'mkDescribeVoicesResponse' smart constructor.
 data DescribeVoicesResponse = DescribeVoicesResponse'
-  { _dvrsNextToken ::
-      !(Maybe Text),
-    _dvrsVoices :: !(Maybe [Voice]),
-    _dvrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    voices :: Lude.Maybe [Voice],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVoicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvrsNextToken' - The pagination token to use in the next request to continue the listing of voices. @NextToken@ is returned only if the response is truncated.
---
--- * 'dvrsVoices' - A list of voices with their properties.
---
--- * 'dvrsResponseStatus' - -- | The response status code.
-describeVoicesResponse ::
-  -- | 'dvrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The pagination token to use in the next request to continue the listing of voices. @NextToken@ is returned only if the response is truncated.
+-- * 'responseStatus' - The response status code.
+-- * 'voices' - A list of voices with their properties.
+mkDescribeVoicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVoicesResponse
-describeVoicesResponse pResponseStatus_ =
+mkDescribeVoicesResponse pResponseStatus_ =
   DescribeVoicesResponse'
-    { _dvrsNextToken = Nothing,
-      _dvrsVoices = Nothing,
-      _dvrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      voices = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token to use in the next request to continue the listing of voices. @NextToken@ is returned only if the response is truncated.
-dvrsNextToken :: Lens' DescribeVoicesResponse (Maybe Text)
-dvrsNextToken = lens _dvrsNextToken (\s a -> s {_dvrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvrsNextToken :: Lens.Lens' DescribeVoicesResponse (Lude.Maybe Lude.Text)
+dvrsNextToken = Lens.lens (nextToken :: DescribeVoicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVoicesResponse)
+{-# DEPRECATED dvrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of voices with their properties.
-dvrsVoices :: Lens' DescribeVoicesResponse [Voice]
-dvrsVoices = lens _dvrsVoices (\s a -> s {_dvrsVoices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'voices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvrsVoices :: Lens.Lens' DescribeVoicesResponse (Lude.Maybe [Voice])
+dvrsVoices = Lens.lens (voices :: DescribeVoicesResponse -> Lude.Maybe [Voice]) (\s a -> s {voices = a} :: DescribeVoicesResponse)
+{-# DEPRECATED dvrsVoices "Use generic-lens or generic-optics with 'voices' instead." #-}
 
--- | -- | The response status code.
-dvrsResponseStatus :: Lens' DescribeVoicesResponse Int
-dvrsResponseStatus = lens _dvrsResponseStatus (\s a -> s {_dvrsResponseStatus = a})
-
-instance NFData DescribeVoicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvrsResponseStatus :: Lens.Lens' DescribeVoicesResponse Lude.Int
+dvrsResponseStatus = Lens.lens (responseStatus :: DescribeVoicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVoicesResponse)
+{-# DEPRECATED dvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,127 @@
 --
 -- Describes a platform version. Provides full details. Compare to 'ListPlatformVersions' , which provides summary information about a list of platform versions.
 --
---
 -- For definitions of platform version and other platform-related terms, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html AWS Elastic Beanstalk Platforms Glossary> .
 module Network.AWS.ElasticBeanstalk.DescribePlatformVersion
-  ( -- * Creating a Request
-    describePlatformVersion,
-    DescribePlatformVersion,
+  ( -- * Creating a request
+    DescribePlatformVersion (..),
+    mkDescribePlatformVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dPlatformARN,
 
-    -- * Destructuring the Response
-    describePlatformVersionResponse,
-    DescribePlatformVersionResponse,
+    -- * Destructuring the response
+    DescribePlatformVersionResponse (..),
+    mkDescribePlatformVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsPlatformDescription,
     drsResponseStatus,
   )
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describePlatformVersion' smart constructor.
+-- | /See:/ 'mkDescribePlatformVersion' smart constructor.
 newtype DescribePlatformVersion = DescribePlatformVersion'
-  { _dPlatformARN ::
-      Maybe Text
+  { platformARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePlatformVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dPlatformARN' - The ARN of the platform version.
-describePlatformVersion ::
+-- * 'platformARN' - The ARN of the platform version.
+mkDescribePlatformVersion ::
   DescribePlatformVersion
-describePlatformVersion =
-  DescribePlatformVersion' {_dPlatformARN = Nothing}
+mkDescribePlatformVersion =
+  DescribePlatformVersion' {platformARN = Lude.Nothing}
 
 -- | The ARN of the platform version.
-dPlatformARN :: Lens' DescribePlatformVersion (Maybe Text)
-dPlatformARN = lens _dPlatformARN (\s a -> s {_dPlatformARN = a})
+--
+-- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPlatformARN :: Lens.Lens' DescribePlatformVersion (Lude.Maybe Lude.Text)
+dPlatformARN = Lens.lens (platformARN :: DescribePlatformVersion -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: DescribePlatformVersion)
+{-# DEPRECATED dPlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
 
-instance AWSRequest DescribePlatformVersion where
+instance Lude.AWSRequest DescribePlatformVersion where
   type Rs DescribePlatformVersion = DescribePlatformVersionResponse
-  request = postQuery elasticBeanstalk
+  request = Req.postQuery elasticBeanstalkService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribePlatformVersionResult"
       ( \s h x ->
           DescribePlatformVersionResponse'
-            <$> (x .@? "PlatformDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "PlatformDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribePlatformVersion
+instance Lude.ToHeaders DescribePlatformVersion where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribePlatformVersion
+instance Lude.ToPath DescribePlatformVersion where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribePlatformVersion where
-  toHeaders = const mempty
-
-instance ToPath DescribePlatformVersion where
-  toPath = const "/"
-
-instance ToQuery DescribePlatformVersion where
+instance Lude.ToQuery DescribePlatformVersion where
   toQuery DescribePlatformVersion' {..} =
-    mconcat
-      [ "Action" =: ("DescribePlatformVersion" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "PlatformArn" =: _dPlatformARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribePlatformVersion" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "PlatformArn" Lude.=: platformARN
       ]
 
--- | /See:/ 'describePlatformVersionResponse' smart constructor.
+-- | /See:/ 'mkDescribePlatformVersionResponse' smart constructor.
 data DescribePlatformVersionResponse = DescribePlatformVersionResponse'
-  { _drsPlatformDescription ::
-      !( Maybe
-           PlatformDescription
-       ),
-    _drsResponseStatus :: !Int
+  { platformDescription ::
+      Lude.Maybe
+        PlatformDescription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePlatformVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsPlatformDescription' - Detailed information about the platform version.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describePlatformVersionResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'platformDescription' - Detailed information about the platform version.
+-- * 'responseStatus' - The response status code.
+mkDescribePlatformVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribePlatformVersionResponse
-describePlatformVersionResponse pResponseStatus_ =
+mkDescribePlatformVersionResponse pResponseStatus_ =
   DescribePlatformVersionResponse'
-    { _drsPlatformDescription =
-        Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { platformDescription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Detailed information about the platform version.
-drsPlatformDescription :: Lens' DescribePlatformVersionResponse (Maybe PlatformDescription)
-drsPlatformDescription = lens _drsPlatformDescription (\s a -> s {_drsPlatformDescription = a})
+--
+-- /Note:/ Consider using 'platformDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsPlatformDescription :: Lens.Lens' DescribePlatformVersionResponse (Lude.Maybe PlatformDescription)
+drsPlatformDescription = Lens.lens (platformDescription :: DescribePlatformVersionResponse -> Lude.Maybe PlatformDescription) (\s a -> s {platformDescription = a} :: DescribePlatformVersionResponse)
+{-# DEPRECATED drsPlatformDescription "Use generic-lens or generic-optics with 'platformDescription' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribePlatformVersionResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribePlatformVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribePlatformVersionResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribePlatformVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePlatformVersionResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

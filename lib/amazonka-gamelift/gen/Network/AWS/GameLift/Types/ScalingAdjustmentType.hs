@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.ScalingAdjustmentType where
+module Network.AWS.GameLift.Types.ScalingAdjustmentType
+  ( ScalingAdjustmentType
+      ( ScalingAdjustmentType',
+        ChangeInCapacity,
+        ExactCapacity,
+        PercentChangeInCapacity
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScalingAdjustmentType
-  = ChangeInCapacity
-  | ExactCapacity
-  | PercentChangeInCapacity
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScalingAdjustmentType = ScalingAdjustmentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScalingAdjustmentType where
-  parser =
-    takeLowerText >>= \case
-      "changeincapacity" -> pure ChangeInCapacity
-      "exactcapacity" -> pure ExactCapacity
-      "percentchangeincapacity" -> pure PercentChangeInCapacity
-      e ->
-        fromTextError $
-          "Failure parsing ScalingAdjustmentType from value: '" <> e
-            <> "'. Accepted values: changeincapacity, exactcapacity, percentchangeincapacity"
+pattern ChangeInCapacity :: ScalingAdjustmentType
+pattern ChangeInCapacity = ScalingAdjustmentType' "ChangeInCapacity"
 
-instance ToText ScalingAdjustmentType where
-  toText = \case
-    ChangeInCapacity -> "ChangeInCapacity"
-    ExactCapacity -> "ExactCapacity"
-    PercentChangeInCapacity -> "PercentChangeInCapacity"
+pattern ExactCapacity :: ScalingAdjustmentType
+pattern ExactCapacity = ScalingAdjustmentType' "ExactCapacity"
 
-instance Hashable ScalingAdjustmentType
+pattern PercentChangeInCapacity :: ScalingAdjustmentType
+pattern PercentChangeInCapacity = ScalingAdjustmentType' "PercentChangeInCapacity"
 
-instance NFData ScalingAdjustmentType
-
-instance ToByteString ScalingAdjustmentType
-
-instance ToQuery ScalingAdjustmentType
-
-instance ToHeader ScalingAdjustmentType
-
-instance ToJSON ScalingAdjustmentType where
-  toJSON = toJSONText
-
-instance FromJSON ScalingAdjustmentType where
-  parseJSON = parseJSONText "ScalingAdjustmentType"
+{-# COMPLETE
+  ChangeInCapacity,
+  ExactCapacity,
+  PercentChangeInCapacity,
+  ScalingAdjustmentType'
+  #-}

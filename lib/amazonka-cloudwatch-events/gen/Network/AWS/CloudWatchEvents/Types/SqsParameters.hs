@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.SqsParameters where
+module Network.AWS.CloudWatchEvents.Types.SqsParameters
+  ( SqsParameters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSqsParameters,
+
+    -- * Lenses
+    spMessageGroupId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
 --
---
---
--- /See:/ 'sqsParameters' smart constructor.
+-- /See:/ 'mkSqsParameters' smart constructor.
 newtype SqsParameters = SqsParameters'
-  { _spMessageGroupId ::
-      Maybe Text
+  { messageGroupId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SqsParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'spMessageGroupId' - The FIFO message group ID to use as the target.
-sqsParameters ::
+-- * 'messageGroupId' - The FIFO message group ID to use as the target.
+mkSqsParameters ::
   SqsParameters
-sqsParameters = SqsParameters' {_spMessageGroupId = Nothing}
+mkSqsParameters = SqsParameters' {messageGroupId = Lude.Nothing}
 
 -- | The FIFO message group ID to use as the target.
-spMessageGroupId :: Lens' SqsParameters (Maybe Text)
-spMessageGroupId = lens _spMessageGroupId (\s a -> s {_spMessageGroupId = a})
+--
+-- /Note:/ Consider using 'messageGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spMessageGroupId :: Lens.Lens' SqsParameters (Lude.Maybe Lude.Text)
+spMessageGroupId = Lens.lens (messageGroupId :: SqsParameters -> Lude.Maybe Lude.Text) (\s a -> s {messageGroupId = a} :: SqsParameters)
+{-# DEPRECATED spMessageGroupId "Use generic-lens or generic-optics with 'messageGroupId' instead." #-}
 
-instance FromJSON SqsParameters where
+instance Lude.FromJSON SqsParameters where
   parseJSON =
-    withObject
+    Lude.withObject
       "SqsParameters"
-      (\x -> SqsParameters' <$> (x .:? "MessageGroupId"))
+      (\x -> SqsParameters' Lude.<$> (x Lude..:? "MessageGroupId"))
 
-instance Hashable SqsParameters
-
-instance NFData SqsParameters
-
-instance ToJSON SqsParameters where
+instance Lude.ToJSON SqsParameters where
   toJSON SqsParameters' {..} =
-    object (catMaybes [("MessageGroupId" .=) <$> _spMessageGroupId])
+    Lude.object
+      ( Lude.catMaybes
+          [("MessageGroupId" Lude..=) Lude.<$> messageGroupId]
+      )

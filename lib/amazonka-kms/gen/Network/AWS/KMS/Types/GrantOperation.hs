@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.GrantOperation where
+module Network.AWS.KMS.Types.GrantOperation
+  ( GrantOperation
+      ( GrantOperation',
+        CreateGrant,
+        Decrypt,
+        DescribeKey,
+        Encrypt,
+        GenerateDataKey,
+        GenerateDataKeyPair,
+        GenerateDataKeyPairWithoutPlaintext,
+        GenerateDataKeyWithoutPlaintext,
+        GetPublicKey,
+        ReEncryptFrom,
+        ReEncryptTo,
+        RetireGrant,
+        Sign,
+        Verify
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data GrantOperation
-  = CreateGrant
-  | Decrypt
-  | DescribeKey
-  | Encrypt
-  | GenerateDataKey
-  | GenerateDataKeyPair
-  | GenerateDataKeyPairWithoutPlaintext
-  | GenerateDataKeyWithoutPlaintext
-  | GetPublicKey
-  | ReEncryptFrom
-  | ReEncryptTo
-  | RetireGrant
-  | Sign
-  | Verify
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype GrantOperation = GrantOperation' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText GrantOperation where
-  parser =
-    takeLowerText >>= \case
-      "creategrant" -> pure CreateGrant
-      "decrypt" -> pure Decrypt
-      "describekey" -> pure DescribeKey
-      "encrypt" -> pure Encrypt
-      "generatedatakey" -> pure GenerateDataKey
-      "generatedatakeypair" -> pure GenerateDataKeyPair
-      "generatedatakeypairwithoutplaintext" -> pure GenerateDataKeyPairWithoutPlaintext
-      "generatedatakeywithoutplaintext" -> pure GenerateDataKeyWithoutPlaintext
-      "getpublickey" -> pure GetPublicKey
-      "reencryptfrom" -> pure ReEncryptFrom
-      "reencryptto" -> pure ReEncryptTo
-      "retiregrant" -> pure RetireGrant
-      "sign" -> pure Sign
-      "verify" -> pure Verify
-      e ->
-        fromTextError $
-          "Failure parsing GrantOperation from value: '" <> e
-            <> "'. Accepted values: creategrant, decrypt, describekey, encrypt, generatedatakey, generatedatakeypair, generatedatakeypairwithoutplaintext, generatedatakeywithoutplaintext, getpublickey, reencryptfrom, reencryptto, retiregrant, sign, verify"
+pattern CreateGrant :: GrantOperation
+pattern CreateGrant = GrantOperation' "CreateGrant"
 
-instance ToText GrantOperation where
-  toText = \case
-    CreateGrant -> "CreateGrant"
-    Decrypt -> "Decrypt"
-    DescribeKey -> "DescribeKey"
-    Encrypt -> "Encrypt"
-    GenerateDataKey -> "GenerateDataKey"
-    GenerateDataKeyPair -> "GenerateDataKeyPair"
-    GenerateDataKeyPairWithoutPlaintext -> "GenerateDataKeyPairWithoutPlaintext"
-    GenerateDataKeyWithoutPlaintext -> "GenerateDataKeyWithoutPlaintext"
-    GetPublicKey -> "GetPublicKey"
-    ReEncryptFrom -> "ReEncryptFrom"
-    ReEncryptTo -> "ReEncryptTo"
-    RetireGrant -> "RetireGrant"
-    Sign -> "Sign"
-    Verify -> "Verify"
+pattern Decrypt :: GrantOperation
+pattern Decrypt = GrantOperation' "Decrypt"
 
-instance Hashable GrantOperation
+pattern DescribeKey :: GrantOperation
+pattern DescribeKey = GrantOperation' "DescribeKey"
 
-instance NFData GrantOperation
+pattern Encrypt :: GrantOperation
+pattern Encrypt = GrantOperation' "Encrypt"
 
-instance ToByteString GrantOperation
+pattern GenerateDataKey :: GrantOperation
+pattern GenerateDataKey = GrantOperation' "GenerateDataKey"
 
-instance ToQuery GrantOperation
+pattern GenerateDataKeyPair :: GrantOperation
+pattern GenerateDataKeyPair = GrantOperation' "GenerateDataKeyPair"
 
-instance ToHeader GrantOperation
+pattern GenerateDataKeyPairWithoutPlaintext :: GrantOperation
+pattern GenerateDataKeyPairWithoutPlaintext = GrantOperation' "GenerateDataKeyPairWithoutPlaintext"
 
-instance ToJSON GrantOperation where
-  toJSON = toJSONText
+pattern GenerateDataKeyWithoutPlaintext :: GrantOperation
+pattern GenerateDataKeyWithoutPlaintext = GrantOperation' "GenerateDataKeyWithoutPlaintext"
 
-instance FromJSON GrantOperation where
-  parseJSON = parseJSONText "GrantOperation"
+pattern GetPublicKey :: GrantOperation
+pattern GetPublicKey = GrantOperation' "GetPublicKey"
+
+pattern ReEncryptFrom :: GrantOperation
+pattern ReEncryptFrom = GrantOperation' "ReEncryptFrom"
+
+pattern ReEncryptTo :: GrantOperation
+pattern ReEncryptTo = GrantOperation' "ReEncryptTo"
+
+pattern RetireGrant :: GrantOperation
+pattern RetireGrant = GrantOperation' "RetireGrant"
+
+pattern Sign :: GrantOperation
+pattern Sign = GrantOperation' "Sign"
+
+pattern Verify :: GrantOperation
+pattern Verify = GrantOperation' "Verify"
+
+{-# COMPLETE
+  CreateGrant,
+  Decrypt,
+  DescribeKey,
+  Encrypt,
+  GenerateDataKey,
+  GenerateDataKeyPair,
+  GenerateDataKeyPairWithoutPlaintext,
+  GenerateDataKeyWithoutPlaintext,
+  GetPublicKey,
+  ReEncryptFrom,
+  ReEncryptTo,
+  RetireGrant,
+  Sign,
+  Verify,
+  GrantOperation'
+  #-}

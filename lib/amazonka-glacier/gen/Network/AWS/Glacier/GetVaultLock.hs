@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,31 +17,32 @@
 --
 --     * The vault lock policy set on the vault.
 --
+--
 --     * The state of the vault lock, which is either @InProgess@ or @Locked@ .
 --
+--
 --     * When the lock ID expires. The lock ID is used to complete the vault locking process.
+--
 --
 --     * When the vault lock was initiated and put into the @InProgress@ state.
 --
 --
---
 -- A vault lock is put into the @InProgress@ state by calling 'InitiateVaultLock' . A vault lock is put into the @Locked@ state by calling 'CompleteVaultLock' . You can abort the vault locking process by calling 'AbortVaultLock' . For more information about the vault locking process, <https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock> .
---
 -- If there is no vault lock policy set on the vault, the operation returns a @404 Not found@ error. For more information about vault lock policies, <https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies> .
 module Network.AWS.Glacier.GetVaultLock
-  ( -- * Creating a Request
-    getVaultLock,
-    GetVaultLock,
+  ( -- * Creating a request
+    GetVaultLock (..),
+    mkGetVaultLock,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gvlAccountId,
     gvlVaultName,
 
-    -- * Destructuring the Response
-    getVaultLockResponse,
-    GetVaultLockResponse,
+    -- * Destructuring the response
+    GetVaultLockResponse (..),
+    mkGetVaultLockResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gvlrsState,
     gvlrsExpirationDate,
     gvlrsCreationDate,
@@ -56,142 +52,155 @@ module Network.AWS.Glacier.GetVaultLock
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input values for @GetVaultLock@ .
 --
---
---
--- /See:/ 'getVaultLock' smart constructor.
+-- /See:/ 'mkGetVaultLock' smart constructor.
 data GetVaultLock = GetVaultLock'
-  { _gvlAccountId :: !Text,
-    _gvlVaultName :: !Text
+  { accountId :: Lude.Text,
+    vaultName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVaultLock' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gvlAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- * 'gvlVaultName' - The name of the vault.
-getVaultLock ::
-  -- | 'gvlAccountId'
-  Text ->
-  -- | 'gvlVaultName'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'vaultName' - The name of the vault.
+mkGetVaultLock ::
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'vaultName'
+  Lude.Text ->
   GetVaultLock
-getVaultLock pAccountId_ pVaultName_ =
-  GetVaultLock'
-    { _gvlAccountId = pAccountId_,
-      _gvlVaultName = pVaultName_
-    }
+mkGetVaultLock pAccountId_ pVaultName_ =
+  GetVaultLock' {accountId = pAccountId_, vaultName = pVaultName_}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-gvlAccountId :: Lens' GetVaultLock Text
-gvlAccountId = lens _gvlAccountId (\s a -> s {_gvlAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlAccountId :: Lens.Lens' GetVaultLock Lude.Text
+gvlAccountId = Lens.lens (accountId :: GetVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: GetVaultLock)
+{-# DEPRECATED gvlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
-gvlVaultName :: Lens' GetVaultLock Text
-gvlVaultName = lens _gvlVaultName (\s a -> s {_gvlVaultName = a})
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlVaultName :: Lens.Lens' GetVaultLock Lude.Text
+gvlVaultName = Lens.lens (vaultName :: GetVaultLock -> Lude.Text) (\s a -> s {vaultName = a} :: GetVaultLock)
+{-# DEPRECATED gvlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance AWSRequest GetVaultLock where
+instance Lude.AWSRequest GetVaultLock where
   type Rs GetVaultLock = GetVaultLockResponse
-  request = get glacier
+  request = Req.get glacierService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetVaultLockResponse'
-            <$> (x .?> "State")
-            <*> (x .?> "ExpirationDate")
-            <*> (x .?> "CreationDate")
-            <*> (x .?> "Policy")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "State")
+            Lude.<*> (x Lude..?> "ExpirationDate")
+            Lude.<*> (x Lude..?> "CreationDate")
+            Lude.<*> (x Lude..?> "Policy")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetVaultLock
+instance Lude.ToHeaders GetVaultLock where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetVaultLock
-
-instance ToHeaders GetVaultLock where
-  toHeaders = const mempty
-
-instance ToPath GetVaultLock where
+instance Lude.ToPath GetVaultLock where
   toPath GetVaultLock' {..} =
-    mconcat
+    Lude.mconcat
       [ "/",
-        toBS _gvlAccountId,
+        Lude.toBS accountId,
         "/vaults/",
-        toBS _gvlVaultName,
+        Lude.toBS vaultName,
         "/lock-policy"
       ]
 
-instance ToQuery GetVaultLock where
-  toQuery = const mempty
+instance Lude.ToQuery GetVaultLock where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
---
---
--- /See:/ 'getVaultLockResponse' smart constructor.
+-- /See:/ 'mkGetVaultLockResponse' smart constructor.
 data GetVaultLockResponse = GetVaultLockResponse'
-  { _gvlrsState ::
-      !(Maybe Text),
-    _gvlrsExpirationDate :: !(Maybe Text),
-    _gvlrsCreationDate :: !(Maybe Text),
-    _gvlrsPolicy :: !(Maybe Text),
-    _gvlrsResponseStatus :: !Int
+  { state ::
+      Lude.Maybe Lude.Text,
+    expirationDate :: Lude.Maybe Lude.Text,
+    creationDate :: Lude.Maybe Lude.Text,
+    policy :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVaultLockResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gvlrsState' - The state of the vault lock. @InProgress@ or @Locked@ .
---
--- * 'gvlrsExpirationDate' - The UTC date and time at which the lock ID expires. This value can be @null@ if the vault lock is in a @Locked@ state.
---
--- * 'gvlrsCreationDate' - The UTC date and time at which the vault lock was put into the @InProgress@ state.
---
--- * 'gvlrsPolicy' - The vault lock policy as a JSON string, which uses "\" as an escape character.
---
--- * 'gvlrsResponseStatus' - -- | The response status code.
-getVaultLockResponse ::
-  -- | 'gvlrsResponseStatus'
-  Int ->
+-- * 'creationDate' - The UTC date and time at which the vault lock was put into the @InProgress@ state.
+-- * 'expirationDate' - The UTC date and time at which the lock ID expires. This value can be @null@ if the vault lock is in a @Locked@ state.
+-- * 'policy' - The vault lock policy as a JSON string, which uses "\" as an escape character.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The state of the vault lock. @InProgress@ or @Locked@ .
+mkGetVaultLockResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetVaultLockResponse
-getVaultLockResponse pResponseStatus_ =
+mkGetVaultLockResponse pResponseStatus_ =
   GetVaultLockResponse'
-    { _gvlrsState = Nothing,
-      _gvlrsExpirationDate = Nothing,
-      _gvlrsCreationDate = Nothing,
-      _gvlrsPolicy = Nothing,
-      _gvlrsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      expirationDate = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      policy = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The state of the vault lock. @InProgress@ or @Locked@ .
-gvlrsState :: Lens' GetVaultLockResponse (Maybe Text)
-gvlrsState = lens _gvlrsState (\s a -> s {_gvlrsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlrsState :: Lens.Lens' GetVaultLockResponse (Lude.Maybe Lude.Text)
+gvlrsState = Lens.lens (state :: GetVaultLockResponse -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: GetVaultLockResponse)
+{-# DEPRECATED gvlrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The UTC date and time at which the lock ID expires. This value can be @null@ if the vault lock is in a @Locked@ state.
-gvlrsExpirationDate :: Lens' GetVaultLockResponse (Maybe Text)
-gvlrsExpirationDate = lens _gvlrsExpirationDate (\s a -> s {_gvlrsExpirationDate = a})
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlrsExpirationDate :: Lens.Lens' GetVaultLockResponse (Lude.Maybe Lude.Text)
+gvlrsExpirationDate = Lens.lens (expirationDate :: GetVaultLockResponse -> Lude.Maybe Lude.Text) (\s a -> s {expirationDate = a} :: GetVaultLockResponse)
+{-# DEPRECATED gvlrsExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | The UTC date and time at which the vault lock was put into the @InProgress@ state.
-gvlrsCreationDate :: Lens' GetVaultLockResponse (Maybe Text)
-gvlrsCreationDate = lens _gvlrsCreationDate (\s a -> s {_gvlrsCreationDate = a})
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlrsCreationDate :: Lens.Lens' GetVaultLockResponse (Lude.Maybe Lude.Text)
+gvlrsCreationDate = Lens.lens (creationDate :: GetVaultLockResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: GetVaultLockResponse)
+{-# DEPRECATED gvlrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The vault lock policy as a JSON string, which uses "\" as an escape character.
-gvlrsPolicy :: Lens' GetVaultLockResponse (Maybe Text)
-gvlrsPolicy = lens _gvlrsPolicy (\s a -> s {_gvlrsPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlrsPolicy :: Lens.Lens' GetVaultLockResponse (Lude.Maybe Lude.Text)
+gvlrsPolicy = Lens.lens (policy :: GetVaultLockResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: GetVaultLockResponse)
+{-# DEPRECATED gvlrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | -- | The response status code.
-gvlrsResponseStatus :: Lens' GetVaultLockResponse Int
-gvlrsResponseStatus = lens _gvlrsResponseStatus (\s a -> s {_gvlrsResponseStatus = a})
-
-instance NFData GetVaultLockResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlrsResponseStatus :: Lens.Lens' GetVaultLockResponse Lude.Int
+gvlrsResponseStatus = Lens.lens (responseStatus :: GetVaultLockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetVaultLockResponse)
+{-# DEPRECATED gvlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

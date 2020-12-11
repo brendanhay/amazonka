@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,61 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.UserPoolPolicyType where
+module Network.AWS.CognitoIdentityProvider.Types.UserPoolPolicyType
+  ( UserPoolPolicyType (..),
+
+    -- * Smart constructor
+    mkUserPoolPolicyType,
+
+    -- * Lenses
+    upptPasswordPolicy,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.PasswordPolicyType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The policy associated with a user pool.
 --
---
---
--- /See:/ 'userPoolPolicyType' smart constructor.
+-- /See:/ 'mkUserPoolPolicyType' smart constructor.
 newtype UserPoolPolicyType = UserPoolPolicyType'
-  { _upptPasswordPolicy ::
-      Maybe PasswordPolicyType
+  { passwordPolicy ::
+      Lude.Maybe PasswordPolicyType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPoolPolicyType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'upptPasswordPolicy' - The password policy.
-userPoolPolicyType ::
+-- * 'passwordPolicy' - The password policy.
+mkUserPoolPolicyType ::
   UserPoolPolicyType
-userPoolPolicyType =
-  UserPoolPolicyType' {_upptPasswordPolicy = Nothing}
+mkUserPoolPolicyType =
+  UserPoolPolicyType' {passwordPolicy = Lude.Nothing}
 
 -- | The password policy.
-upptPasswordPolicy :: Lens' UserPoolPolicyType (Maybe PasswordPolicyType)
-upptPasswordPolicy = lens _upptPasswordPolicy (\s a -> s {_upptPasswordPolicy = a})
+--
+-- /Note:/ Consider using 'passwordPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upptPasswordPolicy :: Lens.Lens' UserPoolPolicyType (Lude.Maybe PasswordPolicyType)
+upptPasswordPolicy = Lens.lens (passwordPolicy :: UserPoolPolicyType -> Lude.Maybe PasswordPolicyType) (\s a -> s {passwordPolicy = a} :: UserPoolPolicyType)
+{-# DEPRECATED upptPasswordPolicy "Use generic-lens or generic-optics with 'passwordPolicy' instead." #-}
 
-instance FromJSON UserPoolPolicyType where
+instance Lude.FromJSON UserPoolPolicyType where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserPoolPolicyType"
-      (\x -> UserPoolPolicyType' <$> (x .:? "PasswordPolicy"))
+      (\x -> UserPoolPolicyType' Lude.<$> (x Lude..:? "PasswordPolicy"))
 
-instance Hashable UserPoolPolicyType
-
-instance NFData UserPoolPolicyType
-
-instance ToJSON UserPoolPolicyType where
+instance Lude.ToJSON UserPoolPolicyType where
   toJSON UserPoolPolicyType' {..} =
-    object
-      (catMaybes [("PasswordPolicy" .=) <$> _upptPasswordPolicy])
+    Lude.object
+      ( Lude.catMaybes
+          [("PasswordPolicy" Lude..=) Lude.<$> passwordPolicy]
+      )

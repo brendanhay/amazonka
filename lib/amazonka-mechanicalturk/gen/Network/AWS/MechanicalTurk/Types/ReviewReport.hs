@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.ReviewReport where
+module Network.AWS.MechanicalTurk.Types.ReviewReport
+  ( ReviewReport (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkReviewReport,
+
+    -- * Lenses
+    rrReviewActions,
+    rrReviewResults,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.ReviewActionDetail
 import Network.AWS.MechanicalTurk.Types.ReviewResultDetail
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains both ReviewResult and ReviewAction elements for a particular HIT.
 --
---
---
--- /See:/ 'reviewReport' smart constructor.
+-- /See:/ 'mkReviewReport' smart constructor.
 data ReviewReport = ReviewReport'
-  { _rrReviewActions ::
-      !(Maybe [ReviewActionDetail]),
-    _rrReviewResults :: !(Maybe [ReviewResultDetail])
+  { reviewActions ::
+      Lude.Maybe [ReviewActionDetail],
+    reviewResults :: Lude.Maybe [ReviewResultDetail]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReviewReport' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrReviewActions' - A list of ReviewAction objects for each action specified in the Review Policy.
---
--- * 'rrReviewResults' - A list of ReviewResults objects for each action specified in the Review Policy.
-reviewReport ::
+-- * 'reviewActions' - A list of ReviewAction objects for each action specified in the Review Policy.
+-- * 'reviewResults' - A list of ReviewResults objects for each action specified in the Review Policy.
+mkReviewReport ::
   ReviewReport
-reviewReport =
+mkReviewReport =
   ReviewReport'
-    { _rrReviewActions = Nothing,
-      _rrReviewResults = Nothing
+    { reviewActions = Lude.Nothing,
+      reviewResults = Lude.Nothing
     }
 
 -- | A list of ReviewAction objects for each action specified in the Review Policy.
-rrReviewActions :: Lens' ReviewReport [ReviewActionDetail]
-rrReviewActions = lens _rrReviewActions (\s a -> s {_rrReviewActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'reviewActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrReviewActions :: Lens.Lens' ReviewReport (Lude.Maybe [ReviewActionDetail])
+rrReviewActions = Lens.lens (reviewActions :: ReviewReport -> Lude.Maybe [ReviewActionDetail]) (\s a -> s {reviewActions = a} :: ReviewReport)
+{-# DEPRECATED rrReviewActions "Use generic-lens or generic-optics with 'reviewActions' instead." #-}
 
 -- | A list of ReviewResults objects for each action specified in the Review Policy.
-rrReviewResults :: Lens' ReviewReport [ReviewResultDetail]
-rrReviewResults = lens _rrReviewResults (\s a -> s {_rrReviewResults = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'reviewResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrReviewResults :: Lens.Lens' ReviewReport (Lude.Maybe [ReviewResultDetail])
+rrReviewResults = Lens.lens (reviewResults :: ReviewReport -> Lude.Maybe [ReviewResultDetail]) (\s a -> s {reviewResults = a} :: ReviewReport)
+{-# DEPRECATED rrReviewResults "Use generic-lens or generic-optics with 'reviewResults' instead." #-}
 
-instance FromJSON ReviewReport where
+instance Lude.FromJSON ReviewReport where
   parseJSON =
-    withObject
+    Lude.withObject
       "ReviewReport"
       ( \x ->
           ReviewReport'
-            <$> (x .:? "ReviewActions" .!= mempty)
-            <*> (x .:? "ReviewResults" .!= mempty)
+            Lude.<$> (x Lude..:? "ReviewActions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ReviewResults" Lude..!= Lude.mempty)
       )
-
-instance Hashable ReviewReport
-
-instance NFData ReviewReport

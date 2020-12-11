@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TaskStatus where
+module Network.AWS.IoT.Types.TaskStatus
+  ( TaskStatus
+      ( TaskStatus',
+        TSCancelled,
+        TSCancelling,
+        TSCompleted,
+        TSFailed,
+        TSInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskStatus
-  = TSCancelled
-  | TSCancelling
-  | TSCompleted
-  | TSFailed
-  | TSInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskStatus = TaskStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelled" -> pure TSCancelled
-      "cancelling" -> pure TSCancelling
-      "completed" -> pure TSCompleted
-      "failed" -> pure TSFailed
-      "inprogress" -> pure TSInProgress
-      e ->
-        fromTextError $
-          "Failure parsing TaskStatus from value: '" <> e
-            <> "'. Accepted values: cancelled, cancelling, completed, failed, inprogress"
+pattern TSCancelled :: TaskStatus
+pattern TSCancelled = TaskStatus' "Cancelled"
 
-instance ToText TaskStatus where
-  toText = \case
-    TSCancelled -> "Cancelled"
-    TSCancelling -> "Cancelling"
-    TSCompleted -> "Completed"
-    TSFailed -> "Failed"
-    TSInProgress -> "InProgress"
+pattern TSCancelling :: TaskStatus
+pattern TSCancelling = TaskStatus' "Cancelling"
 
-instance Hashable TaskStatus
+pattern TSCompleted :: TaskStatus
+pattern TSCompleted = TaskStatus' "Completed"
 
-instance NFData TaskStatus
+pattern TSFailed :: TaskStatus
+pattern TSFailed = TaskStatus' "Failed"
 
-instance ToByteString TaskStatus
+pattern TSInProgress :: TaskStatus
+pattern TSInProgress = TaskStatus' "InProgress"
 
-instance ToQuery TaskStatus
-
-instance ToHeader TaskStatus
-
-instance ToJSON TaskStatus where
-  toJSON = toJSONText
-
-instance FromJSON TaskStatus where
-  parseJSON = parseJSONText "TaskStatus"
+{-# COMPLETE
+  TSCancelled,
+  TSCancelling,
+  TSCompleted,
+  TSFailed,
+  TSInProgress,
+  TaskStatus'
+  #-}

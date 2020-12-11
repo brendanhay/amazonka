@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Returns information about the last resize operation for the specified cluster. If no resize operation has ever been initiated for the specified cluster, a @HTTP 404@ error is returned. If a resize operation was initiated and completed, the status of the resize remains as @SUCCEEDED@ until the next resize.
 --
---
 -- A resize operation can be requested using 'ModifyCluster' and specifying a different number or type of nodes for the cluster.
 module Network.AWS.Redshift.DescribeResize
-  ( -- * Creating a Request
-    describeResize,
-    DescribeResize,
+  ( -- * Creating a request
+    DescribeResize (..),
+    mkDescribeResize,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drClusterIdentifier,
 
-    -- * Destructuring the Response
-    resizeProgressMessage,
-    ResizeProgressMessage,
+    -- * Destructuring the response
+    ResizeProgressMessage (..),
+    mkResizeProgressMessage,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rpmImportTablesNotStarted,
     rpmStatus,
     rpmEstimatedTimeToCompletionInSeconds,
@@ -53,59 +47,67 @@ module Network.AWS.Redshift.DescribeResize
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Redshift.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeResize' smart constructor.
+-- /See:/ 'mkDescribeResize' smart constructor.
 newtype DescribeResize = DescribeResize'
-  { _drClusterIdentifier ::
-      Text
+  { clusterIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeResize' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'clusterIdentifier' - The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive.
 --
--- * 'drClusterIdentifier' - The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive. By default, resize operations for all clusters defined for an AWS account are returned.
-describeResize ::
-  -- | 'drClusterIdentifier'
-  Text ->
+-- By default, resize operations for all clusters defined for an AWS account are returned.
+mkDescribeResize ::
+  -- | 'clusterIdentifier'
+  Lude.Text ->
   DescribeResize
-describeResize pClusterIdentifier_ =
-  DescribeResize' {_drClusterIdentifier = pClusterIdentifier_}
+mkDescribeResize pClusterIdentifier_ =
+  DescribeResize' {clusterIdentifier = pClusterIdentifier_}
 
--- | The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive. By default, resize operations for all clusters defined for an AWS account are returned.
-drClusterIdentifier :: Lens' DescribeResize Text
-drClusterIdentifier = lens _drClusterIdentifier (\s a -> s {_drClusterIdentifier = a})
+-- | The unique identifier of a cluster whose resize progress you are requesting. This parameter is case-sensitive.
+--
+-- By default, resize operations for all clusters defined for an AWS account are returned.
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drClusterIdentifier :: Lens.Lens' DescribeResize Lude.Text
+drClusterIdentifier = Lens.lens (clusterIdentifier :: DescribeResize -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: DescribeResize)
+{-# DEPRECATED drClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance AWSRequest DescribeResize where
+instance Lude.AWSRequest DescribeResize where
   type Rs DescribeResize = ResizeProgressMessage
-  request = postQuery redshift
+  request = Req.postQuery redshiftService
   response =
-    receiveXMLWrapper "DescribeResizeResult" (\s h x -> parseXML x)
+    Res.receiveXMLWrapper
+      "DescribeResizeResult"
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable DescribeResize
+instance Lude.ToHeaders DescribeResize where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeResize
+instance Lude.ToPath DescribeResize where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeResize where
-  toHeaders = const mempty
-
-instance ToPath DescribeResize where
-  toPath = const "/"
-
-instance ToQuery DescribeResize where
+instance Lude.ToQuery DescribeResize where
   toQuery DescribeResize' {..} =
-    mconcat
-      [ "Action" =: ("DescribeResize" :: ByteString),
-        "Version" =: ("2012-12-01" :: ByteString),
-        "ClusterIdentifier" =: _drClusterIdentifier
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeResize" :: Lude.ByteString),
+        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier
       ]

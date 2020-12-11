@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,131 +14,135 @@
 --
 -- Deletes the shadow for the specified thing.
 --
---
 -- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html DeleteThingShadow> in the AWS IoT Developer Guide.
 module Network.AWS.IoTData.DeleteThingShadow
-  ( -- * Creating a Request
-    deleteThingShadow,
-    DeleteThingShadow,
+  ( -- * Creating a request
+    DeleteThingShadow (..),
+    mkDeleteThingShadow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtsShadowName,
     dtsThingName,
 
-    -- * Destructuring the Response
-    deleteThingShadowResponse,
-    DeleteThingShadowResponse,
+    -- * Destructuring the response
+    DeleteThingShadowResponse (..),
+    mkDeleteThingShadowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtsrsResponseStatus,
     dtsrsPayload,
   )
 where
 
 import Network.AWS.IoTData.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the DeleteThingShadow operation.
 --
---
---
--- /See:/ 'deleteThingShadow' smart constructor.
+-- /See:/ 'mkDeleteThingShadow' smart constructor.
 data DeleteThingShadow = DeleteThingShadow'
-  { _dtsShadowName ::
-      !(Maybe Text),
-    _dtsThingName :: !Text
+  { shadowName ::
+      Lude.Maybe Lude.Text,
+    thingName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteThingShadow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtsShadowName' - The name of the shadow.
---
--- * 'dtsThingName' - The name of the thing.
-deleteThingShadow ::
-  -- | 'dtsThingName'
-  Text ->
+-- * 'shadowName' - The name of the shadow.
+-- * 'thingName' - The name of the thing.
+mkDeleteThingShadow ::
+  -- | 'thingName'
+  Lude.Text ->
   DeleteThingShadow
-deleteThingShadow pThingName_ =
+mkDeleteThingShadow pThingName_ =
   DeleteThingShadow'
-    { _dtsShadowName = Nothing,
-      _dtsThingName = pThingName_
+    { shadowName = Lude.Nothing,
+      thingName = pThingName_
     }
 
 -- | The name of the shadow.
-dtsShadowName :: Lens' DeleteThingShadow (Maybe Text)
-dtsShadowName = lens _dtsShadowName (\s a -> s {_dtsShadowName = a})
+--
+-- /Note:/ Consider using 'shadowName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsShadowName :: Lens.Lens' DeleteThingShadow (Lude.Maybe Lude.Text)
+dtsShadowName = Lens.lens (shadowName :: DeleteThingShadow -> Lude.Maybe Lude.Text) (\s a -> s {shadowName = a} :: DeleteThingShadow)
+{-# DEPRECATED dtsShadowName "Use generic-lens or generic-optics with 'shadowName' instead." #-}
 
 -- | The name of the thing.
-dtsThingName :: Lens' DeleteThingShadow Text
-dtsThingName = lens _dtsThingName (\s a -> s {_dtsThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsThingName :: Lens.Lens' DeleteThingShadow Lude.Text
+dtsThingName = Lens.lens (thingName :: DeleteThingShadow -> Lude.Text) (\s a -> s {thingName = a} :: DeleteThingShadow)
+{-# DEPRECATED dtsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance AWSRequest DeleteThingShadow where
+instance Lude.AWSRequest DeleteThingShadow where
   type Rs DeleteThingShadow = DeleteThingShadowResponse
-  request = delete ioTData
+  request = Req.delete ioTDataService
   response =
-    receiveBytes
+    Res.receiveBytes
       ( \s h x ->
-          DeleteThingShadowResponse' <$> (pure (fromEnum s)) <*> (pure x)
+          DeleteThingShadowResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.pure x)
       )
 
-instance Hashable DeleteThingShadow
+instance Lude.ToHeaders DeleteThingShadow where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteThingShadow
-
-instance ToHeaders DeleteThingShadow where
-  toHeaders = const mempty
-
-instance ToPath DeleteThingShadow where
+instance Lude.ToPath DeleteThingShadow where
   toPath DeleteThingShadow' {..} =
-    mconcat ["/things/", toBS _dtsThingName, "/shadow"]
+    Lude.mconcat ["/things/", Lude.toBS thingName, "/shadow"]
 
-instance ToQuery DeleteThingShadow where
-  toQuery DeleteThingShadow' {..} = mconcat ["name" =: _dtsShadowName]
+instance Lude.ToQuery DeleteThingShadow where
+  toQuery DeleteThingShadow' {..} =
+    Lude.mconcat ["name" Lude.=: shadowName]
 
 -- | The output from the DeleteThingShadow operation.
 --
---
---
--- /See:/ 'deleteThingShadowResponse' smart constructor.
+-- /See:/ 'mkDeleteThingShadowResponse' smart constructor.
 data DeleteThingShadowResponse = DeleteThingShadowResponse'
-  { _dtsrsResponseStatus ::
-      !Int,
-    _dtsrsPayload :: !ByteString
+  { responseStatus ::
+      Lude.Int,
+    payload :: Lude.ByteString
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteThingShadowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtsrsResponseStatus' - -- | The response status code.
---
--- * 'dtsrsPayload' - The state information, in JSON format.
-deleteThingShadowResponse ::
-  -- | 'dtsrsResponseStatus'
-  Int ->
-  -- | 'dtsrsPayload'
-  ByteString ->
+-- * 'payload' - The state information, in JSON format.
+-- * 'responseStatus' - The response status code.
+mkDeleteThingShadowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'payload'
+  Lude.ByteString ->
   DeleteThingShadowResponse
-deleteThingShadowResponse pResponseStatus_ pPayload_ =
+mkDeleteThingShadowResponse pResponseStatus_ pPayload_ =
   DeleteThingShadowResponse'
-    { _dtsrsResponseStatus =
-        pResponseStatus_,
-      _dtsrsPayload = pPayload_
+    { responseStatus = pResponseStatus_,
+      payload = pPayload_
     }
 
--- | -- | The response status code.
-dtsrsResponseStatus :: Lens' DeleteThingShadowResponse Int
-dtsrsResponseStatus = lens _dtsrsResponseStatus (\s a -> s {_dtsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsrsResponseStatus :: Lens.Lens' DeleteThingShadowResponse Lude.Int
+dtsrsResponseStatus = Lens.lens (responseStatus :: DeleteThingShadowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteThingShadowResponse)
+{-# DEPRECATED dtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The state information, in JSON format.
-dtsrsPayload :: Lens' DeleteThingShadowResponse ByteString
-dtsrsPayload = lens _dtsrsPayload (\s a -> s {_dtsrsPayload = a})
-
-instance NFData DeleteThingShadowResponse
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsrsPayload :: Lens.Lens' DeleteThingShadowResponse Lude.ByteString
+dtsrsPayload = Lens.lens (payload :: DeleteThingShadowResponse -> Lude.ByteString) (\s a -> s {payload = a} :: DeleteThingShadowResponse)
+{-# DEPRECATED dtsrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}

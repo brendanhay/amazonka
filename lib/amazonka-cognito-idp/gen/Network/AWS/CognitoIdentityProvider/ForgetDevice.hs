@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,104 +14,110 @@
 --
 -- Forgets the specified device.
 module Network.AWS.CognitoIdentityProvider.ForgetDevice
-  ( -- * Creating a Request
-    forgetDevice,
-    ForgetDevice,
+  ( -- * Creating a request
+    ForgetDevice (..),
+    mkForgetDevice,
 
-    -- * Request Lenses
+    -- ** Request lenses
     fdAccessToken,
     fdDeviceKey,
 
-    -- * Destructuring the Response
-    forgetDeviceResponse,
-    ForgetDeviceResponse,
+    -- * Destructuring the response
+    ForgetDeviceResponse (..),
+    mkForgetDeviceResponse,
   )
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the request to forget the device.
 --
---
---
--- /See:/ 'forgetDevice' smart constructor.
+-- /See:/ 'mkForgetDevice' smart constructor.
 data ForgetDevice = ForgetDevice'
-  { _fdAccessToken ::
-      !(Maybe (Sensitive Text)),
-    _fdDeviceKey :: !Text
+  { accessToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    deviceKey :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForgetDevice' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fdAccessToken' - The access token for the forgotten device request.
---
--- * 'fdDeviceKey' - The device key.
-forgetDevice ::
-  -- | 'fdDeviceKey'
-  Text ->
+-- * 'accessToken' - The access token for the forgotten device request.
+-- * 'deviceKey' - The device key.
+mkForgetDevice ::
+  -- | 'deviceKey'
+  Lude.Text ->
   ForgetDevice
-forgetDevice pDeviceKey_ =
+mkForgetDevice pDeviceKey_ =
   ForgetDevice'
-    { _fdAccessToken = Nothing,
-      _fdDeviceKey = pDeviceKey_
+    { accessToken = Lude.Nothing,
+      deviceKey = pDeviceKey_
     }
 
 -- | The access token for the forgotten device request.
-fdAccessToken :: Lens' ForgetDevice (Maybe Text)
-fdAccessToken = lens _fdAccessToken (\s a -> s {_fdAccessToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdAccessToken :: Lens.Lens' ForgetDevice (Lude.Maybe (Lude.Sensitive Lude.Text))
+fdAccessToken = Lens.lens (accessToken :: ForgetDevice -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {accessToken = a} :: ForgetDevice)
+{-# DEPRECATED fdAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | The device key.
-fdDeviceKey :: Lens' ForgetDevice Text
-fdDeviceKey = lens _fdDeviceKey (\s a -> s {_fdDeviceKey = a})
+--
+-- /Note:/ Consider using 'deviceKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdDeviceKey :: Lens.Lens' ForgetDevice Lude.Text
+fdDeviceKey = Lens.lens (deviceKey :: ForgetDevice -> Lude.Text) (\s a -> s {deviceKey = a} :: ForgetDevice)
+{-# DEPRECATED fdDeviceKey "Use generic-lens or generic-optics with 'deviceKey' instead." #-}
 
-instance AWSRequest ForgetDevice where
+instance Lude.AWSRequest ForgetDevice where
   type Rs ForgetDevice = ForgetDeviceResponse
-  request = postJSON cognitoIdentityProvider
-  response = receiveNull ForgetDeviceResponse'
+  request = Req.postJSON cognitoIdentityProviderService
+  response = Res.receiveNull ForgetDeviceResponse'
 
-instance Hashable ForgetDevice
-
-instance NFData ForgetDevice
-
-instance ToHeaders ForgetDevice where
+instance Lude.ToHeaders ForgetDevice where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityProviderService.ForgetDevice" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityProviderService.ForgetDevice" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ForgetDevice where
+instance Lude.ToJSON ForgetDevice where
   toJSON ForgetDevice' {..} =
-    object
-      ( catMaybes
-          [ ("AccessToken" .=) <$> _fdAccessToken,
-            Just ("DeviceKey" .= _fdDeviceKey)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AccessToken" Lude..=) Lude.<$> accessToken,
+            Lude.Just ("DeviceKey" Lude..= deviceKey)
           ]
       )
 
-instance ToPath ForgetDevice where
-  toPath = const "/"
+instance Lude.ToPath ForgetDevice where
+  toPath = Lude.const "/"
 
-instance ToQuery ForgetDevice where
-  toQuery = const mempty
+instance Lude.ToQuery ForgetDevice where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'forgetDeviceResponse' smart constructor.
+-- | /See:/ 'mkForgetDeviceResponse' smart constructor.
 data ForgetDeviceResponse = ForgetDeviceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForgetDeviceResponse' with the minimum fields required to make a request.
-forgetDeviceResponse ::
+mkForgetDeviceResponse ::
   ForgetDeviceResponse
-forgetDeviceResponse = ForgetDeviceResponse'
-
-instance NFData ForgetDeviceResponse
+mkForgetDeviceResponse = ForgetDeviceResponse'

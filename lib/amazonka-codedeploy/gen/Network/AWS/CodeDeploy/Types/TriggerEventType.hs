@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.TriggerEventType where
+module Network.AWS.CodeDeploy.Types.TriggerEventType
+  ( TriggerEventType
+      ( TriggerEventType',
+        DeploymentFailure,
+        DeploymentReady,
+        DeploymentRollback,
+        DeploymentStart,
+        DeploymentStop,
+        DeploymentSuccess,
+        InstanceFailure,
+        InstanceReady,
+        InstanceStart,
+        InstanceSuccess
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TriggerEventType
-  = DeploymentFailure
-  | DeploymentReady
-  | DeploymentRollback
-  | DeploymentStart
-  | DeploymentStop
-  | DeploymentSuccess
-  | InstanceFailure
-  | InstanceReady
-  | InstanceStart
-  | InstanceSuccess
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TriggerEventType = TriggerEventType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TriggerEventType where
-  parser =
-    takeLowerText >>= \case
-      "deploymentfailure" -> pure DeploymentFailure
-      "deploymentready" -> pure DeploymentReady
-      "deploymentrollback" -> pure DeploymentRollback
-      "deploymentstart" -> pure DeploymentStart
-      "deploymentstop" -> pure DeploymentStop
-      "deploymentsuccess" -> pure DeploymentSuccess
-      "instancefailure" -> pure InstanceFailure
-      "instanceready" -> pure InstanceReady
-      "instancestart" -> pure InstanceStart
-      "instancesuccess" -> pure InstanceSuccess
-      e ->
-        fromTextError $
-          "Failure parsing TriggerEventType from value: '" <> e
-            <> "'. Accepted values: deploymentfailure, deploymentready, deploymentrollback, deploymentstart, deploymentstop, deploymentsuccess, instancefailure, instanceready, instancestart, instancesuccess"
+pattern DeploymentFailure :: TriggerEventType
+pattern DeploymentFailure = TriggerEventType' "DeploymentFailure"
 
-instance ToText TriggerEventType where
-  toText = \case
-    DeploymentFailure -> "DeploymentFailure"
-    DeploymentReady -> "DeploymentReady"
-    DeploymentRollback -> "DeploymentRollback"
-    DeploymentStart -> "DeploymentStart"
-    DeploymentStop -> "DeploymentStop"
-    DeploymentSuccess -> "DeploymentSuccess"
-    InstanceFailure -> "InstanceFailure"
-    InstanceReady -> "InstanceReady"
-    InstanceStart -> "InstanceStart"
-    InstanceSuccess -> "InstanceSuccess"
+pattern DeploymentReady :: TriggerEventType
+pattern DeploymentReady = TriggerEventType' "DeploymentReady"
 
-instance Hashable TriggerEventType
+pattern DeploymentRollback :: TriggerEventType
+pattern DeploymentRollback = TriggerEventType' "DeploymentRollback"
 
-instance NFData TriggerEventType
+pattern DeploymentStart :: TriggerEventType
+pattern DeploymentStart = TriggerEventType' "DeploymentStart"
 
-instance ToByteString TriggerEventType
+pattern DeploymentStop :: TriggerEventType
+pattern DeploymentStop = TriggerEventType' "DeploymentStop"
 
-instance ToQuery TriggerEventType
+pattern DeploymentSuccess :: TriggerEventType
+pattern DeploymentSuccess = TriggerEventType' "DeploymentSuccess"
 
-instance ToHeader TriggerEventType
+pattern InstanceFailure :: TriggerEventType
+pattern InstanceFailure = TriggerEventType' "InstanceFailure"
 
-instance ToJSON TriggerEventType where
-  toJSON = toJSONText
+pattern InstanceReady :: TriggerEventType
+pattern InstanceReady = TriggerEventType' "InstanceReady"
 
-instance FromJSON TriggerEventType where
-  parseJSON = parseJSONText "TriggerEventType"
+pattern InstanceStart :: TriggerEventType
+pattern InstanceStart = TriggerEventType' "InstanceStart"
+
+pattern InstanceSuccess :: TriggerEventType
+pattern InstanceSuccess = TriggerEventType' "InstanceSuccess"
+
+{-# COMPLETE
+  DeploymentFailure,
+  DeploymentReady,
+  DeploymentRollback,
+  DeploymentStart,
+  DeploymentStop,
+  DeploymentSuccess,
+  InstanceFailure,
+  InstanceReady,
+  InstanceStart,
+  InstanceSuccess,
+  TriggerEventType'
+  #-}

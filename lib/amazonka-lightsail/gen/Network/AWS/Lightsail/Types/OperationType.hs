@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,256 +7,394 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.OperationType where
+module Network.AWS.Lightsail.Types.OperationType
+  ( OperationType
+      ( OperationType',
+        AllocateStaticIP,
+        AttachCertificateToDistribution,
+        AttachDisk,
+        AttachInstancesToLoadBalancer,
+        AttachLoadBalancerTLSCertificate,
+        AttachStaticIP,
+        CloseInstancePublicPorts,
+        CreateCertificate,
+        CreateContactMethod,
+        CreateContainerService,
+        CreateContainerServiceDeployment,
+        CreateContainerServiceRegistryLogin,
+        CreateDisk,
+        CreateDiskFromSnapshot,
+        CreateDiskSnapshot,
+        CreateDistribution,
+        CreateDomain,
+        CreateInstance,
+        CreateInstanceSnapshot,
+        CreateInstancesFromSnapshot,
+        CreateLoadBalancer,
+        CreateLoadBalancerTLSCertificate,
+        CreateRelationalDatabase,
+        CreateRelationalDatabaseFromSnapshot,
+        CreateRelationalDatabaseSnapshot,
+        DeleteAlarm,
+        DeleteCertificate,
+        DeleteContactMethod,
+        DeleteContainerImage,
+        DeleteContainerService,
+        DeleteDisk,
+        DeleteDiskSnapshot,
+        DeleteDistribution,
+        DeleteDomain,
+        DeleteDomainEntry,
+        DeleteInstance,
+        DeleteInstanceSnapshot,
+        DeleteKnownHostKeys,
+        DeleteLoadBalancer,
+        DeleteLoadBalancerTLSCertificate,
+        DeleteRelationalDatabase,
+        DeleteRelationalDatabaseSnapshot,
+        DetachCertificateFromDistribution,
+        DetachDisk,
+        DetachInstancesFromLoadBalancer,
+        DetachStaticIP,
+        DisableAddOn,
+        EnableAddOn,
+        GetAlarms,
+        GetContactMethods,
+        OpenInstancePublicPorts,
+        PutAlarm,
+        PutInstancePublicPorts,
+        RebootInstance,
+        RebootRelationalDatabase,
+        RegisterContainerImage,
+        ReleaseStaticIP,
+        ResetDistributionCache,
+        SendContactMethodVerification,
+        StartInstance,
+        StartRelationalDatabase,
+        StopInstance,
+        StopRelationalDatabase,
+        TestAlarm,
+        UpdateContainerService,
+        UpdateDistribution,
+        UpdateDistributionBundle,
+        UpdateDomainEntry,
+        UpdateLoadBalancerAttribute,
+        UpdateRelationalDatabase,
+        UpdateRelationalDatabaseParameters
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationType
-  = AllocateStaticIP
-  | AttachCertificateToDistribution
-  | AttachDisk
-  | AttachInstancesToLoadBalancer
-  | AttachLoadBalancerTLSCertificate
-  | AttachStaticIP
-  | CloseInstancePublicPorts
-  | CreateCertificate
-  | CreateContactMethod
-  | CreateContainerService
-  | CreateContainerServiceDeployment
-  | CreateContainerServiceRegistryLogin
-  | CreateDisk
-  | CreateDiskFromSnapshot
-  | CreateDiskSnapshot
-  | CreateDistribution
-  | CreateDomain
-  | CreateInstance
-  | CreateInstanceSnapshot
-  | CreateInstancesFromSnapshot
-  | CreateLoadBalancer
-  | CreateLoadBalancerTLSCertificate
-  | CreateRelationalDatabase
-  | CreateRelationalDatabaseFromSnapshot
-  | CreateRelationalDatabaseSnapshot
-  | DeleteAlarm
-  | DeleteCertificate
-  | DeleteContactMethod
-  | DeleteContainerImage
-  | DeleteContainerService
-  | DeleteDisk
-  | DeleteDiskSnapshot
-  | DeleteDistribution
-  | DeleteDomain
-  | DeleteDomainEntry
-  | DeleteInstance
-  | DeleteInstanceSnapshot
-  | DeleteKnownHostKeys
-  | DeleteLoadBalancer
-  | DeleteLoadBalancerTLSCertificate
-  | DeleteRelationalDatabase
-  | DeleteRelationalDatabaseSnapshot
-  | DetachCertificateFromDistribution
-  | DetachDisk
-  | DetachInstancesFromLoadBalancer
-  | DetachStaticIP
-  | DisableAddOn
-  | EnableAddOn
-  | GetAlarms
-  | GetContactMethods
-  | OpenInstancePublicPorts
-  | PutAlarm
-  | PutInstancePublicPorts
-  | RebootInstance
-  | RebootRelationalDatabase
-  | RegisterContainerImage
-  | ReleaseStaticIP
-  | ResetDistributionCache
-  | SendContactMethodVerification
-  | StartInstance
-  | StartRelationalDatabase
-  | StopInstance
-  | StopRelationalDatabase
-  | TestAlarm
-  | UpdateContainerService
-  | UpdateDistribution
-  | UpdateDistributionBundle
-  | UpdateDomainEntry
-  | UpdateLoadBalancerAttribute
-  | UpdateRelationalDatabase
-  | UpdateRelationalDatabaseParameters
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationType = OperationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationType where
-  parser =
-    takeLowerText >>= \case
-      "allocatestaticip" -> pure AllocateStaticIP
-      "attachcertificatetodistribution" -> pure AttachCertificateToDistribution
-      "attachdisk" -> pure AttachDisk
-      "attachinstancestoloadbalancer" -> pure AttachInstancesToLoadBalancer
-      "attachloadbalancertlscertificate" -> pure AttachLoadBalancerTLSCertificate
-      "attachstaticip" -> pure AttachStaticIP
-      "closeinstancepublicports" -> pure CloseInstancePublicPorts
-      "createcertificate" -> pure CreateCertificate
-      "createcontactmethod" -> pure CreateContactMethod
-      "createcontainerservice" -> pure CreateContainerService
-      "createcontainerservicedeployment" -> pure CreateContainerServiceDeployment
-      "createcontainerserviceregistrylogin" -> pure CreateContainerServiceRegistryLogin
-      "createdisk" -> pure CreateDisk
-      "creatediskfromsnapshot" -> pure CreateDiskFromSnapshot
-      "createdisksnapshot" -> pure CreateDiskSnapshot
-      "createdistribution" -> pure CreateDistribution
-      "createdomain" -> pure CreateDomain
-      "createinstance" -> pure CreateInstance
-      "createinstancesnapshot" -> pure CreateInstanceSnapshot
-      "createinstancesfromsnapshot" -> pure CreateInstancesFromSnapshot
-      "createloadbalancer" -> pure CreateLoadBalancer
-      "createloadbalancertlscertificate" -> pure CreateLoadBalancerTLSCertificate
-      "createrelationaldatabase" -> pure CreateRelationalDatabase
-      "createrelationaldatabasefromsnapshot" -> pure CreateRelationalDatabaseFromSnapshot
-      "createrelationaldatabasesnapshot" -> pure CreateRelationalDatabaseSnapshot
-      "deletealarm" -> pure DeleteAlarm
-      "deletecertificate" -> pure DeleteCertificate
-      "deletecontactmethod" -> pure DeleteContactMethod
-      "deletecontainerimage" -> pure DeleteContainerImage
-      "deletecontainerservice" -> pure DeleteContainerService
-      "deletedisk" -> pure DeleteDisk
-      "deletedisksnapshot" -> pure DeleteDiskSnapshot
-      "deletedistribution" -> pure DeleteDistribution
-      "deletedomain" -> pure DeleteDomain
-      "deletedomainentry" -> pure DeleteDomainEntry
-      "deleteinstance" -> pure DeleteInstance
-      "deleteinstancesnapshot" -> pure DeleteInstanceSnapshot
-      "deleteknownhostkeys" -> pure DeleteKnownHostKeys
-      "deleteloadbalancer" -> pure DeleteLoadBalancer
-      "deleteloadbalancertlscertificate" -> pure DeleteLoadBalancerTLSCertificate
-      "deleterelationaldatabase" -> pure DeleteRelationalDatabase
-      "deleterelationaldatabasesnapshot" -> pure DeleteRelationalDatabaseSnapshot
-      "detachcertificatefromdistribution" -> pure DetachCertificateFromDistribution
-      "detachdisk" -> pure DetachDisk
-      "detachinstancesfromloadbalancer" -> pure DetachInstancesFromLoadBalancer
-      "detachstaticip" -> pure DetachStaticIP
-      "disableaddon" -> pure DisableAddOn
-      "enableaddon" -> pure EnableAddOn
-      "getalarms" -> pure GetAlarms
-      "getcontactmethods" -> pure GetContactMethods
-      "openinstancepublicports" -> pure OpenInstancePublicPorts
-      "putalarm" -> pure PutAlarm
-      "putinstancepublicports" -> pure PutInstancePublicPorts
-      "rebootinstance" -> pure RebootInstance
-      "rebootrelationaldatabase" -> pure RebootRelationalDatabase
-      "registercontainerimage" -> pure RegisterContainerImage
-      "releasestaticip" -> pure ReleaseStaticIP
-      "resetdistributioncache" -> pure ResetDistributionCache
-      "sendcontactmethodverification" -> pure SendContactMethodVerification
-      "startinstance" -> pure StartInstance
-      "startrelationaldatabase" -> pure StartRelationalDatabase
-      "stopinstance" -> pure StopInstance
-      "stoprelationaldatabase" -> pure StopRelationalDatabase
-      "testalarm" -> pure TestAlarm
-      "updatecontainerservice" -> pure UpdateContainerService
-      "updatedistribution" -> pure UpdateDistribution
-      "updatedistributionbundle" -> pure UpdateDistributionBundle
-      "updatedomainentry" -> pure UpdateDomainEntry
-      "updateloadbalancerattribute" -> pure UpdateLoadBalancerAttribute
-      "updaterelationaldatabase" -> pure UpdateRelationalDatabase
-      "updaterelationaldatabaseparameters" -> pure UpdateRelationalDatabaseParameters
-      e ->
-        fromTextError $
-          "Failure parsing OperationType from value: '" <> e
-            <> "'. Accepted values: allocatestaticip, attachcertificatetodistribution, attachdisk, attachinstancestoloadbalancer, attachloadbalancertlscertificate, attachstaticip, closeinstancepublicports, createcertificate, createcontactmethod, createcontainerservice, createcontainerservicedeployment, createcontainerserviceregistrylogin, createdisk, creatediskfromsnapshot, createdisksnapshot, createdistribution, createdomain, createinstance, createinstancesnapshot, createinstancesfromsnapshot, createloadbalancer, createloadbalancertlscertificate, createrelationaldatabase, createrelationaldatabasefromsnapshot, createrelationaldatabasesnapshot, deletealarm, deletecertificate, deletecontactmethod, deletecontainerimage, deletecontainerservice, deletedisk, deletedisksnapshot, deletedistribution, deletedomain, deletedomainentry, deleteinstance, deleteinstancesnapshot, deleteknownhostkeys, deleteloadbalancer, deleteloadbalancertlscertificate, deleterelationaldatabase, deleterelationaldatabasesnapshot, detachcertificatefromdistribution, detachdisk, detachinstancesfromloadbalancer, detachstaticip, disableaddon, enableaddon, getalarms, getcontactmethods, openinstancepublicports, putalarm, putinstancepublicports, rebootinstance, rebootrelationaldatabase, registercontainerimage, releasestaticip, resetdistributioncache, sendcontactmethodverification, startinstance, startrelationaldatabase, stopinstance, stoprelationaldatabase, testalarm, updatecontainerservice, updatedistribution, updatedistributionbundle, updatedomainentry, updateloadbalancerattribute, updaterelationaldatabase, updaterelationaldatabaseparameters"
+pattern AllocateStaticIP :: OperationType
+pattern AllocateStaticIP = OperationType' "AllocateStaticIp"
 
-instance ToText OperationType where
-  toText = \case
-    AllocateStaticIP -> "AllocateStaticIp"
-    AttachCertificateToDistribution -> "AttachCertificateToDistribution"
-    AttachDisk -> "AttachDisk"
-    AttachInstancesToLoadBalancer -> "AttachInstancesToLoadBalancer"
-    AttachLoadBalancerTLSCertificate -> "AttachLoadBalancerTlsCertificate"
-    AttachStaticIP -> "AttachStaticIp"
-    CloseInstancePublicPorts -> "CloseInstancePublicPorts"
-    CreateCertificate -> "CreateCertificate"
-    CreateContactMethod -> "CreateContactMethod"
-    CreateContainerService -> "CreateContainerService"
-    CreateContainerServiceDeployment -> "CreateContainerServiceDeployment"
-    CreateContainerServiceRegistryLogin -> "CreateContainerServiceRegistryLogin"
-    CreateDisk -> "CreateDisk"
-    CreateDiskFromSnapshot -> "CreateDiskFromSnapshot"
-    CreateDiskSnapshot -> "CreateDiskSnapshot"
-    CreateDistribution -> "CreateDistribution"
-    CreateDomain -> "CreateDomain"
-    CreateInstance -> "CreateInstance"
-    CreateInstanceSnapshot -> "CreateInstanceSnapshot"
-    CreateInstancesFromSnapshot -> "CreateInstancesFromSnapshot"
-    CreateLoadBalancer -> "CreateLoadBalancer"
-    CreateLoadBalancerTLSCertificate -> "CreateLoadBalancerTlsCertificate"
-    CreateRelationalDatabase -> "CreateRelationalDatabase"
-    CreateRelationalDatabaseFromSnapshot -> "CreateRelationalDatabaseFromSnapshot"
-    CreateRelationalDatabaseSnapshot -> "CreateRelationalDatabaseSnapshot"
-    DeleteAlarm -> "DeleteAlarm"
-    DeleteCertificate -> "DeleteCertificate"
-    DeleteContactMethod -> "DeleteContactMethod"
-    DeleteContainerImage -> "DeleteContainerImage"
-    DeleteContainerService -> "DeleteContainerService"
-    DeleteDisk -> "DeleteDisk"
-    DeleteDiskSnapshot -> "DeleteDiskSnapshot"
-    DeleteDistribution -> "DeleteDistribution"
-    DeleteDomain -> "DeleteDomain"
-    DeleteDomainEntry -> "DeleteDomainEntry"
-    DeleteInstance -> "DeleteInstance"
-    DeleteInstanceSnapshot -> "DeleteInstanceSnapshot"
-    DeleteKnownHostKeys -> "DeleteKnownHostKeys"
-    DeleteLoadBalancer -> "DeleteLoadBalancer"
-    DeleteLoadBalancerTLSCertificate -> "DeleteLoadBalancerTlsCertificate"
-    DeleteRelationalDatabase -> "DeleteRelationalDatabase"
-    DeleteRelationalDatabaseSnapshot -> "DeleteRelationalDatabaseSnapshot"
-    DetachCertificateFromDistribution -> "DetachCertificateFromDistribution"
-    DetachDisk -> "DetachDisk"
-    DetachInstancesFromLoadBalancer -> "DetachInstancesFromLoadBalancer"
-    DetachStaticIP -> "DetachStaticIp"
-    DisableAddOn -> "DisableAddOn"
-    EnableAddOn -> "EnableAddOn"
-    GetAlarms -> "GetAlarms"
-    GetContactMethods -> "GetContactMethods"
-    OpenInstancePublicPorts -> "OpenInstancePublicPorts"
-    PutAlarm -> "PutAlarm"
-    PutInstancePublicPorts -> "PutInstancePublicPorts"
-    RebootInstance -> "RebootInstance"
-    RebootRelationalDatabase -> "RebootRelationalDatabase"
-    RegisterContainerImage -> "RegisterContainerImage"
-    ReleaseStaticIP -> "ReleaseStaticIp"
-    ResetDistributionCache -> "ResetDistributionCache"
-    SendContactMethodVerification -> "SendContactMethodVerification"
-    StartInstance -> "StartInstance"
-    StartRelationalDatabase -> "StartRelationalDatabase"
-    StopInstance -> "StopInstance"
-    StopRelationalDatabase -> "StopRelationalDatabase"
-    TestAlarm -> "TestAlarm"
-    UpdateContainerService -> "UpdateContainerService"
-    UpdateDistribution -> "UpdateDistribution"
-    UpdateDistributionBundle -> "UpdateDistributionBundle"
-    UpdateDomainEntry -> "UpdateDomainEntry"
-    UpdateLoadBalancerAttribute -> "UpdateLoadBalancerAttribute"
-    UpdateRelationalDatabase -> "UpdateRelationalDatabase"
-    UpdateRelationalDatabaseParameters -> "UpdateRelationalDatabaseParameters"
+pattern AttachCertificateToDistribution :: OperationType
+pattern AttachCertificateToDistribution = OperationType' "AttachCertificateToDistribution"
 
-instance Hashable OperationType
+pattern AttachDisk :: OperationType
+pattern AttachDisk = OperationType' "AttachDisk"
 
-instance NFData OperationType
+pattern AttachInstancesToLoadBalancer :: OperationType
+pattern AttachInstancesToLoadBalancer = OperationType' "AttachInstancesToLoadBalancer"
 
-instance ToByteString OperationType
+pattern AttachLoadBalancerTLSCertificate :: OperationType
+pattern AttachLoadBalancerTLSCertificate = OperationType' "AttachLoadBalancerTlsCertificate"
 
-instance ToQuery OperationType
+pattern AttachStaticIP :: OperationType
+pattern AttachStaticIP = OperationType' "AttachStaticIp"
 
-instance ToHeader OperationType
+pattern CloseInstancePublicPorts :: OperationType
+pattern CloseInstancePublicPorts = OperationType' "CloseInstancePublicPorts"
 
-instance FromJSON OperationType where
-  parseJSON = parseJSONText "OperationType"
+pattern CreateCertificate :: OperationType
+pattern CreateCertificate = OperationType' "CreateCertificate"
+
+pattern CreateContactMethod :: OperationType
+pattern CreateContactMethod = OperationType' "CreateContactMethod"
+
+pattern CreateContainerService :: OperationType
+pattern CreateContainerService = OperationType' "CreateContainerService"
+
+pattern CreateContainerServiceDeployment :: OperationType
+pattern CreateContainerServiceDeployment = OperationType' "CreateContainerServiceDeployment"
+
+pattern CreateContainerServiceRegistryLogin :: OperationType
+pattern CreateContainerServiceRegistryLogin = OperationType' "CreateContainerServiceRegistryLogin"
+
+pattern CreateDisk :: OperationType
+pattern CreateDisk = OperationType' "CreateDisk"
+
+pattern CreateDiskFromSnapshot :: OperationType
+pattern CreateDiskFromSnapshot = OperationType' "CreateDiskFromSnapshot"
+
+pattern CreateDiskSnapshot :: OperationType
+pattern CreateDiskSnapshot = OperationType' "CreateDiskSnapshot"
+
+pattern CreateDistribution :: OperationType
+pattern CreateDistribution = OperationType' "CreateDistribution"
+
+pattern CreateDomain :: OperationType
+pattern CreateDomain = OperationType' "CreateDomain"
+
+pattern CreateInstance :: OperationType
+pattern CreateInstance = OperationType' "CreateInstance"
+
+pattern CreateInstanceSnapshot :: OperationType
+pattern CreateInstanceSnapshot = OperationType' "CreateInstanceSnapshot"
+
+pattern CreateInstancesFromSnapshot :: OperationType
+pattern CreateInstancesFromSnapshot = OperationType' "CreateInstancesFromSnapshot"
+
+pattern CreateLoadBalancer :: OperationType
+pattern CreateLoadBalancer = OperationType' "CreateLoadBalancer"
+
+pattern CreateLoadBalancerTLSCertificate :: OperationType
+pattern CreateLoadBalancerTLSCertificate = OperationType' "CreateLoadBalancerTlsCertificate"
+
+pattern CreateRelationalDatabase :: OperationType
+pattern CreateRelationalDatabase = OperationType' "CreateRelationalDatabase"
+
+pattern CreateRelationalDatabaseFromSnapshot :: OperationType
+pattern CreateRelationalDatabaseFromSnapshot = OperationType' "CreateRelationalDatabaseFromSnapshot"
+
+pattern CreateRelationalDatabaseSnapshot :: OperationType
+pattern CreateRelationalDatabaseSnapshot = OperationType' "CreateRelationalDatabaseSnapshot"
+
+pattern DeleteAlarm :: OperationType
+pattern DeleteAlarm = OperationType' "DeleteAlarm"
+
+pattern DeleteCertificate :: OperationType
+pattern DeleteCertificate = OperationType' "DeleteCertificate"
+
+pattern DeleteContactMethod :: OperationType
+pattern DeleteContactMethod = OperationType' "DeleteContactMethod"
+
+pattern DeleteContainerImage :: OperationType
+pattern DeleteContainerImage = OperationType' "DeleteContainerImage"
+
+pattern DeleteContainerService :: OperationType
+pattern DeleteContainerService = OperationType' "DeleteContainerService"
+
+pattern DeleteDisk :: OperationType
+pattern DeleteDisk = OperationType' "DeleteDisk"
+
+pattern DeleteDiskSnapshot :: OperationType
+pattern DeleteDiskSnapshot = OperationType' "DeleteDiskSnapshot"
+
+pattern DeleteDistribution :: OperationType
+pattern DeleteDistribution = OperationType' "DeleteDistribution"
+
+pattern DeleteDomain :: OperationType
+pattern DeleteDomain = OperationType' "DeleteDomain"
+
+pattern DeleteDomainEntry :: OperationType
+pattern DeleteDomainEntry = OperationType' "DeleteDomainEntry"
+
+pattern DeleteInstance :: OperationType
+pattern DeleteInstance = OperationType' "DeleteInstance"
+
+pattern DeleteInstanceSnapshot :: OperationType
+pattern DeleteInstanceSnapshot = OperationType' "DeleteInstanceSnapshot"
+
+pattern DeleteKnownHostKeys :: OperationType
+pattern DeleteKnownHostKeys = OperationType' "DeleteKnownHostKeys"
+
+pattern DeleteLoadBalancer :: OperationType
+pattern DeleteLoadBalancer = OperationType' "DeleteLoadBalancer"
+
+pattern DeleteLoadBalancerTLSCertificate :: OperationType
+pattern DeleteLoadBalancerTLSCertificate = OperationType' "DeleteLoadBalancerTlsCertificate"
+
+pattern DeleteRelationalDatabase :: OperationType
+pattern DeleteRelationalDatabase = OperationType' "DeleteRelationalDatabase"
+
+pattern DeleteRelationalDatabaseSnapshot :: OperationType
+pattern DeleteRelationalDatabaseSnapshot = OperationType' "DeleteRelationalDatabaseSnapshot"
+
+pattern DetachCertificateFromDistribution :: OperationType
+pattern DetachCertificateFromDistribution = OperationType' "DetachCertificateFromDistribution"
+
+pattern DetachDisk :: OperationType
+pattern DetachDisk = OperationType' "DetachDisk"
+
+pattern DetachInstancesFromLoadBalancer :: OperationType
+pattern DetachInstancesFromLoadBalancer = OperationType' "DetachInstancesFromLoadBalancer"
+
+pattern DetachStaticIP :: OperationType
+pattern DetachStaticIP = OperationType' "DetachStaticIp"
+
+pattern DisableAddOn :: OperationType
+pattern DisableAddOn = OperationType' "DisableAddOn"
+
+pattern EnableAddOn :: OperationType
+pattern EnableAddOn = OperationType' "EnableAddOn"
+
+pattern GetAlarms :: OperationType
+pattern GetAlarms = OperationType' "GetAlarms"
+
+pattern GetContactMethods :: OperationType
+pattern GetContactMethods = OperationType' "GetContactMethods"
+
+pattern OpenInstancePublicPorts :: OperationType
+pattern OpenInstancePublicPorts = OperationType' "OpenInstancePublicPorts"
+
+pattern PutAlarm :: OperationType
+pattern PutAlarm = OperationType' "PutAlarm"
+
+pattern PutInstancePublicPorts :: OperationType
+pattern PutInstancePublicPorts = OperationType' "PutInstancePublicPorts"
+
+pattern RebootInstance :: OperationType
+pattern RebootInstance = OperationType' "RebootInstance"
+
+pattern RebootRelationalDatabase :: OperationType
+pattern RebootRelationalDatabase = OperationType' "RebootRelationalDatabase"
+
+pattern RegisterContainerImage :: OperationType
+pattern RegisterContainerImage = OperationType' "RegisterContainerImage"
+
+pattern ReleaseStaticIP :: OperationType
+pattern ReleaseStaticIP = OperationType' "ReleaseStaticIp"
+
+pattern ResetDistributionCache :: OperationType
+pattern ResetDistributionCache = OperationType' "ResetDistributionCache"
+
+pattern SendContactMethodVerification :: OperationType
+pattern SendContactMethodVerification = OperationType' "SendContactMethodVerification"
+
+pattern StartInstance :: OperationType
+pattern StartInstance = OperationType' "StartInstance"
+
+pattern StartRelationalDatabase :: OperationType
+pattern StartRelationalDatabase = OperationType' "StartRelationalDatabase"
+
+pattern StopInstance :: OperationType
+pattern StopInstance = OperationType' "StopInstance"
+
+pattern StopRelationalDatabase :: OperationType
+pattern StopRelationalDatabase = OperationType' "StopRelationalDatabase"
+
+pattern TestAlarm :: OperationType
+pattern TestAlarm = OperationType' "TestAlarm"
+
+pattern UpdateContainerService :: OperationType
+pattern UpdateContainerService = OperationType' "UpdateContainerService"
+
+pattern UpdateDistribution :: OperationType
+pattern UpdateDistribution = OperationType' "UpdateDistribution"
+
+pattern UpdateDistributionBundle :: OperationType
+pattern UpdateDistributionBundle = OperationType' "UpdateDistributionBundle"
+
+pattern UpdateDomainEntry :: OperationType
+pattern UpdateDomainEntry = OperationType' "UpdateDomainEntry"
+
+pattern UpdateLoadBalancerAttribute :: OperationType
+pattern UpdateLoadBalancerAttribute = OperationType' "UpdateLoadBalancerAttribute"
+
+pattern UpdateRelationalDatabase :: OperationType
+pattern UpdateRelationalDatabase = OperationType' "UpdateRelationalDatabase"
+
+pattern UpdateRelationalDatabaseParameters :: OperationType
+pattern UpdateRelationalDatabaseParameters = OperationType' "UpdateRelationalDatabaseParameters"
+
+{-# COMPLETE
+  AllocateStaticIP,
+  AttachCertificateToDistribution,
+  AttachDisk,
+  AttachInstancesToLoadBalancer,
+  AttachLoadBalancerTLSCertificate,
+  AttachStaticIP,
+  CloseInstancePublicPorts,
+  CreateCertificate,
+  CreateContactMethod,
+  CreateContainerService,
+  CreateContainerServiceDeployment,
+  CreateContainerServiceRegistryLogin,
+  CreateDisk,
+  CreateDiskFromSnapshot,
+  CreateDiskSnapshot,
+  CreateDistribution,
+  CreateDomain,
+  CreateInstance,
+  CreateInstanceSnapshot,
+  CreateInstancesFromSnapshot,
+  CreateLoadBalancer,
+  CreateLoadBalancerTLSCertificate,
+  CreateRelationalDatabase,
+  CreateRelationalDatabaseFromSnapshot,
+  CreateRelationalDatabaseSnapshot,
+  DeleteAlarm,
+  DeleteCertificate,
+  DeleteContactMethod,
+  DeleteContainerImage,
+  DeleteContainerService,
+  DeleteDisk,
+  DeleteDiskSnapshot,
+  DeleteDistribution,
+  DeleteDomain,
+  DeleteDomainEntry,
+  DeleteInstance,
+  DeleteInstanceSnapshot,
+  DeleteKnownHostKeys,
+  DeleteLoadBalancer,
+  DeleteLoadBalancerTLSCertificate,
+  DeleteRelationalDatabase,
+  DeleteRelationalDatabaseSnapshot,
+  DetachCertificateFromDistribution,
+  DetachDisk,
+  DetachInstancesFromLoadBalancer,
+  DetachStaticIP,
+  DisableAddOn,
+  EnableAddOn,
+  GetAlarms,
+  GetContactMethods,
+  OpenInstancePublicPorts,
+  PutAlarm,
+  PutInstancePublicPorts,
+  RebootInstance,
+  RebootRelationalDatabase,
+  RegisterContainerImage,
+  ReleaseStaticIP,
+  ResetDistributionCache,
+  SendContactMethodVerification,
+  StartInstance,
+  StartRelationalDatabase,
+  StopInstance,
+  StopRelationalDatabase,
+  TestAlarm,
+  UpdateContainerService,
+  UpdateDistribution,
+  UpdateDistributionBundle,
+  UpdateDomainEntry,
+  UpdateLoadBalancerAttribute,
+  UpdateRelationalDatabase,
+  UpdateRelationalDatabaseParameters,
+  OperationType'
+  #-}

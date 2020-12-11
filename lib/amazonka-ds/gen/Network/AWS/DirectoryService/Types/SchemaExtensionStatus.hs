@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.SchemaExtensionStatus where
+module Network.AWS.DirectoryService.Types.SchemaExtensionStatus
+  ( SchemaExtensionStatus
+      ( SchemaExtensionStatus',
+        SESCancelInProgress,
+        SESCancelled,
+        SESCompleted,
+        SESCreatingSnapshot,
+        SESFailed,
+        SESInitializing,
+        SESReplicating,
+        SESRollbackInProgress,
+        SESUpdatingSchema
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SchemaExtensionStatus
-  = SESCancelInProgress
-  | SESCancelled
-  | SESCompleted
-  | SESCreatingSnapshot
-  | SESFailed
-  | SESInitializing
-  | SESReplicating
-  | SESRollbackInProgress
-  | SESUpdatingSchema
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SchemaExtensionStatus = SchemaExtensionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SchemaExtensionStatus where
-  parser =
-    takeLowerText >>= \case
-      "cancelinprogress" -> pure SESCancelInProgress
-      "cancelled" -> pure SESCancelled
-      "completed" -> pure SESCompleted
-      "creatingsnapshot" -> pure SESCreatingSnapshot
-      "failed" -> pure SESFailed
-      "initializing" -> pure SESInitializing
-      "replicating" -> pure SESReplicating
-      "rollbackinprogress" -> pure SESRollbackInProgress
-      "updatingschema" -> pure SESUpdatingSchema
-      e ->
-        fromTextError $
-          "Failure parsing SchemaExtensionStatus from value: '" <> e
-            <> "'. Accepted values: cancelinprogress, cancelled, completed, creatingsnapshot, failed, initializing, replicating, rollbackinprogress, updatingschema"
+pattern SESCancelInProgress :: SchemaExtensionStatus
+pattern SESCancelInProgress = SchemaExtensionStatus' "CancelInProgress"
 
-instance ToText SchemaExtensionStatus where
-  toText = \case
-    SESCancelInProgress -> "CancelInProgress"
-    SESCancelled -> "Cancelled"
-    SESCompleted -> "Completed"
-    SESCreatingSnapshot -> "CreatingSnapshot"
-    SESFailed -> "Failed"
-    SESInitializing -> "Initializing"
-    SESReplicating -> "Replicating"
-    SESRollbackInProgress -> "RollbackInProgress"
-    SESUpdatingSchema -> "UpdatingSchema"
+pattern SESCancelled :: SchemaExtensionStatus
+pattern SESCancelled = SchemaExtensionStatus' "Cancelled"
 
-instance Hashable SchemaExtensionStatus
+pattern SESCompleted :: SchemaExtensionStatus
+pattern SESCompleted = SchemaExtensionStatus' "Completed"
 
-instance NFData SchemaExtensionStatus
+pattern SESCreatingSnapshot :: SchemaExtensionStatus
+pattern SESCreatingSnapshot = SchemaExtensionStatus' "CreatingSnapshot"
 
-instance ToByteString SchemaExtensionStatus
+pattern SESFailed :: SchemaExtensionStatus
+pattern SESFailed = SchemaExtensionStatus' "Failed"
 
-instance ToQuery SchemaExtensionStatus
+pattern SESInitializing :: SchemaExtensionStatus
+pattern SESInitializing = SchemaExtensionStatus' "Initializing"
 
-instance ToHeader SchemaExtensionStatus
+pattern SESReplicating :: SchemaExtensionStatus
+pattern SESReplicating = SchemaExtensionStatus' "Replicating"
 
-instance FromJSON SchemaExtensionStatus where
-  parseJSON = parseJSONText "SchemaExtensionStatus"
+pattern SESRollbackInProgress :: SchemaExtensionStatus
+pattern SESRollbackInProgress = SchemaExtensionStatus' "RollbackInProgress"
+
+pattern SESUpdatingSchema :: SchemaExtensionStatus
+pattern SESUpdatingSchema = SchemaExtensionStatus' "UpdatingSchema"
+
+{-# COMPLETE
+  SESCancelInProgress,
+  SESCancelled,
+  SESCompleted,
+  SESCreatingSnapshot,
+  SESFailed,
+  SESInitializing,
+  SESReplicating,
+  SESRollbackInProgress,
+  SESUpdatingSchema,
+  SchemaExtensionStatus'
+  #-}

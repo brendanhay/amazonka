@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,139 @@
 --
 -- @ServiceSetting@ is an account-level setting for an AWS service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the account based on feature or service usage, then the AWS service team might create a default setting of "false". This means the user can't use this feature unless they change the setting to "true" and intentionally opt in for a paid feature.
 --
---
 -- Services map a @SettingId@ object to a setting value. AWS services teams define the default value for a @SettingId@ . You can't create a new @SettingId@ , but you can overwrite the default value if you have the @ssm:UpdateServiceSetting@ permission for the setting. Use the 'UpdateServiceSetting' API action to change the default setting. Or use the 'ResetServiceSetting' to change the value back to the original value defined by the AWS service team.
---
 -- Query the current service setting for the account.
 module Network.AWS.SSM.GetServiceSetting
-  ( -- * Creating a Request
-    getServiceSetting,
-    GetServiceSetting,
+  ( -- * Creating a request
+    GetServiceSetting (..),
+    mkGetServiceSetting,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gssSettingId,
 
-    -- * Destructuring the Response
-    getServiceSettingResponse,
-    GetServiceSettingResponse,
+    -- * Destructuring the response
+    GetServiceSettingResponse (..),
+    mkGetServiceSettingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gssrsServiceSetting,
     gssrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
 -- | The request body of the GetServiceSetting API action.
 --
---
---
--- /See:/ 'getServiceSetting' smart constructor.
+-- /See:/ 'mkGetServiceSetting' smart constructor.
 newtype GetServiceSetting = GetServiceSetting'
-  { _gssSettingId ::
-      Text
+  { settingId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceSetting' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gssSettingId' - The ID of the service setting to get. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ .
-getServiceSetting ::
-  -- | 'gssSettingId'
-  Text ->
+-- * 'settingId' - The ID of the service setting to get. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ .
+mkGetServiceSetting ::
+  -- | 'settingId'
+  Lude.Text ->
   GetServiceSetting
-getServiceSetting pSettingId_ =
-  GetServiceSetting' {_gssSettingId = pSettingId_}
+mkGetServiceSetting pSettingId_ =
+  GetServiceSetting' {settingId = pSettingId_}
 
 -- | The ID of the service setting to get. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ .
-gssSettingId :: Lens' GetServiceSetting Text
-gssSettingId = lens _gssSettingId (\s a -> s {_gssSettingId = a})
+--
+-- /Note:/ Consider using 'settingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssSettingId :: Lens.Lens' GetServiceSetting Lude.Text
+gssSettingId = Lens.lens (settingId :: GetServiceSetting -> Lude.Text) (\s a -> s {settingId = a} :: GetServiceSetting)
+{-# DEPRECATED gssSettingId "Use generic-lens or generic-optics with 'settingId' instead." #-}
 
-instance AWSRequest GetServiceSetting where
+instance Lude.AWSRequest GetServiceSetting where
   type Rs GetServiceSetting = GetServiceSettingResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetServiceSettingResponse'
-            <$> (x .?> "ServiceSetting") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ServiceSetting")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetServiceSetting
-
-instance NFData GetServiceSetting
-
-instance ToHeaders GetServiceSetting where
+instance Lude.ToHeaders GetServiceSetting where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AmazonSSM.GetServiceSetting" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AmazonSSM.GetServiceSetting" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetServiceSetting where
+instance Lude.ToJSON GetServiceSetting where
   toJSON GetServiceSetting' {..} =
-    object (catMaybes [Just ("SettingId" .= _gssSettingId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("SettingId" Lude..= settingId)])
 
-instance ToPath GetServiceSetting where
-  toPath = const "/"
+instance Lude.ToPath GetServiceSetting where
+  toPath = Lude.const "/"
 
-instance ToQuery GetServiceSetting where
-  toQuery = const mempty
+instance Lude.ToQuery GetServiceSetting where
+  toQuery = Lude.const Lude.mempty
 
 -- | The query result body of the GetServiceSetting API action.
 --
---
---
--- /See:/ 'getServiceSettingResponse' smart constructor.
+-- /See:/ 'mkGetServiceSettingResponse' smart constructor.
 data GetServiceSettingResponse = GetServiceSettingResponse'
-  { _gssrsServiceSetting ::
-      !(Maybe ServiceSetting),
-    _gssrsResponseStatus :: !Int
+  { serviceSetting ::
+      Lude.Maybe ServiceSetting,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceSettingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gssrsServiceSetting' - The query result of the current service setting.
---
--- * 'gssrsResponseStatus' - -- | The response status code.
-getServiceSettingResponse ::
-  -- | 'gssrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'serviceSetting' - The query result of the current service setting.
+mkGetServiceSettingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetServiceSettingResponse
-getServiceSettingResponse pResponseStatus_ =
+mkGetServiceSettingResponse pResponseStatus_ =
   GetServiceSettingResponse'
-    { _gssrsServiceSetting = Nothing,
-      _gssrsResponseStatus = pResponseStatus_
+    { serviceSetting = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The query result of the current service setting.
-gssrsServiceSetting :: Lens' GetServiceSettingResponse (Maybe ServiceSetting)
-gssrsServiceSetting = lens _gssrsServiceSetting (\s a -> s {_gssrsServiceSetting = a})
+--
+-- /Note:/ Consider using 'serviceSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssrsServiceSetting :: Lens.Lens' GetServiceSettingResponse (Lude.Maybe ServiceSetting)
+gssrsServiceSetting = Lens.lens (serviceSetting :: GetServiceSettingResponse -> Lude.Maybe ServiceSetting) (\s a -> s {serviceSetting = a} :: GetServiceSettingResponse)
+{-# DEPRECATED gssrsServiceSetting "Use generic-lens or generic-optics with 'serviceSetting' instead." #-}
 
--- | -- | The response status code.
-gssrsResponseStatus :: Lens' GetServiceSettingResponse Int
-gssrsResponseStatus = lens _gssrsResponseStatus (\s a -> s {_gssrsResponseStatus = a})
-
-instance NFData GetServiceSettingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssrsResponseStatus :: Lens.Lens' GetServiceSettingResponse Lude.Int
+gssrsResponseStatus = Lens.lens (responseStatus :: GetServiceSettingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServiceSettingResponse)
+{-# DEPRECATED gssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

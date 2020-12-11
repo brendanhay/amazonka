@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType where
+module Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
+  ( ClipFragmentSelectorType
+      ( ClipFragmentSelectorType',
+        CFSTProducerTimestamp,
+        CFSTServerTimestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClipFragmentSelectorType
-  = CFSTProducerTimestamp
-  | CFSTServerTimestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClipFragmentSelectorType = ClipFragmentSelectorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClipFragmentSelectorType where
-  parser =
-    takeLowerText >>= \case
-      "producer_timestamp" -> pure CFSTProducerTimestamp
-      "server_timestamp" -> pure CFSTServerTimestamp
-      e ->
-        fromTextError $
-          "Failure parsing ClipFragmentSelectorType from value: '" <> e
-            <> "'. Accepted values: producer_timestamp, server_timestamp"
+pattern CFSTProducerTimestamp :: ClipFragmentSelectorType
+pattern CFSTProducerTimestamp = ClipFragmentSelectorType' "PRODUCER_TIMESTAMP"
 
-instance ToText ClipFragmentSelectorType where
-  toText = \case
-    CFSTProducerTimestamp -> "PRODUCER_TIMESTAMP"
-    CFSTServerTimestamp -> "SERVER_TIMESTAMP"
+pattern CFSTServerTimestamp :: ClipFragmentSelectorType
+pattern CFSTServerTimestamp = ClipFragmentSelectorType' "SERVER_TIMESTAMP"
 
-instance Hashable ClipFragmentSelectorType
-
-instance NFData ClipFragmentSelectorType
-
-instance ToByteString ClipFragmentSelectorType
-
-instance ToQuery ClipFragmentSelectorType
-
-instance ToHeader ClipFragmentSelectorType
-
-instance ToJSON ClipFragmentSelectorType where
-  toJSON = toJSONText
+{-# COMPLETE
+  CFSTProducerTimestamp,
+  CFSTServerTimestamp,
+  ClipFragmentSelectorType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,134 @@
 --
 -- Returns information about a single execution of a query if you have access to the workgroup in which the query ran. Each time a query executes, information about the query execution is saved with a unique ID.
 module Network.AWS.Athena.GetQueryExecution
-  ( -- * Creating a Request
-    getQueryExecution,
-    GetQueryExecution,
+  ( -- * Creating a request
+    GetQueryExecution (..),
+    mkGetQueryExecution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gqeQueryExecutionId,
 
-    -- * Destructuring the Response
-    getQueryExecutionResponse,
-    GetQueryExecutionResponse,
+    -- * Destructuring the response
+    GetQueryExecutionResponse (..),
+    mkGetQueryExecutionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gqersQueryExecution,
     gqersResponseStatus,
   )
 where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getQueryExecution' smart constructor.
+-- | /See:/ 'mkGetQueryExecution' smart constructor.
 newtype GetQueryExecution = GetQueryExecution'
-  { _gqeQueryExecutionId ::
-      Text
+  { queryExecutionId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQueryExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gqeQueryExecutionId' - The unique ID of the query execution.
-getQueryExecution ::
-  -- | 'gqeQueryExecutionId'
-  Text ->
+-- * 'queryExecutionId' - The unique ID of the query execution.
+mkGetQueryExecution ::
+  -- | 'queryExecutionId'
+  Lude.Text ->
   GetQueryExecution
-getQueryExecution pQueryExecutionId_ =
-  GetQueryExecution' {_gqeQueryExecutionId = pQueryExecutionId_}
+mkGetQueryExecution pQueryExecutionId_ =
+  GetQueryExecution' {queryExecutionId = pQueryExecutionId_}
 
 -- | The unique ID of the query execution.
-gqeQueryExecutionId :: Lens' GetQueryExecution Text
-gqeQueryExecutionId = lens _gqeQueryExecutionId (\s a -> s {_gqeQueryExecutionId = a})
+--
+-- /Note:/ Consider using 'queryExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqeQueryExecutionId :: Lens.Lens' GetQueryExecution Lude.Text
+gqeQueryExecutionId = Lens.lens (queryExecutionId :: GetQueryExecution -> Lude.Text) (\s a -> s {queryExecutionId = a} :: GetQueryExecution)
+{-# DEPRECATED gqeQueryExecutionId "Use generic-lens or generic-optics with 'queryExecutionId' instead." #-}
 
-instance AWSRequest GetQueryExecution where
+instance Lude.AWSRequest GetQueryExecution where
   type Rs GetQueryExecution = GetQueryExecutionResponse
-  request = postJSON athena
+  request = Req.postJSON athenaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetQueryExecutionResponse'
-            <$> (x .?> "QueryExecution") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "QueryExecution")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetQueryExecution
-
-instance NFData GetQueryExecution
-
-instance ToHeaders GetQueryExecution where
+instance Lude.ToHeaders GetQueryExecution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonAthena.GetQueryExecution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonAthena.GetQueryExecution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetQueryExecution where
+instance Lude.ToJSON GetQueryExecution where
   toJSON GetQueryExecution' {..} =
-    object
-      (catMaybes [Just ("QueryExecutionId" .= _gqeQueryExecutionId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("QueryExecutionId" Lude..= queryExecutionId)]
+      )
 
-instance ToPath GetQueryExecution where
-  toPath = const "/"
+instance Lude.ToPath GetQueryExecution where
+  toPath = Lude.const "/"
 
-instance ToQuery GetQueryExecution where
-  toQuery = const mempty
+instance Lude.ToQuery GetQueryExecution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getQueryExecutionResponse' smart constructor.
+-- | /See:/ 'mkGetQueryExecutionResponse' smart constructor.
 data GetQueryExecutionResponse = GetQueryExecutionResponse'
-  { _gqersQueryExecution ::
-      !(Maybe QueryExecution),
-    _gqersResponseStatus :: !Int
+  { queryExecution ::
+      Lude.Maybe QueryExecution,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQueryExecutionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gqersQueryExecution' - Information about the query execution.
---
--- * 'gqersResponseStatus' - -- | The response status code.
-getQueryExecutionResponse ::
-  -- | 'gqersResponseStatus'
-  Int ->
+-- * 'queryExecution' - Information about the query execution.
+-- * 'responseStatus' - The response status code.
+mkGetQueryExecutionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetQueryExecutionResponse
-getQueryExecutionResponse pResponseStatus_ =
+mkGetQueryExecutionResponse pResponseStatus_ =
   GetQueryExecutionResponse'
-    { _gqersQueryExecution = Nothing,
-      _gqersResponseStatus = pResponseStatus_
+    { queryExecution = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the query execution.
-gqersQueryExecution :: Lens' GetQueryExecutionResponse (Maybe QueryExecution)
-gqersQueryExecution = lens _gqersQueryExecution (\s a -> s {_gqersQueryExecution = a})
+--
+-- /Note:/ Consider using 'queryExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqersQueryExecution :: Lens.Lens' GetQueryExecutionResponse (Lude.Maybe QueryExecution)
+gqersQueryExecution = Lens.lens (queryExecution :: GetQueryExecutionResponse -> Lude.Maybe QueryExecution) (\s a -> s {queryExecution = a} :: GetQueryExecutionResponse)
+{-# DEPRECATED gqersQueryExecution "Use generic-lens or generic-optics with 'queryExecution' instead." #-}
 
--- | -- | The response status code.
-gqersResponseStatus :: Lens' GetQueryExecutionResponse Int
-gqersResponseStatus = lens _gqersResponseStatus (\s a -> s {_gqersResponseStatus = a})
-
-instance NFData GetQueryExecutionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gqersResponseStatus :: Lens.Lens' GetQueryExecutionResponse Lude.Int
+gqersResponseStatus = Lens.lens (responseStatus :: GetQueryExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetQueryExecutionResponse)
+{-# DEPRECATED gqersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

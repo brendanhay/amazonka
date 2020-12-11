@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Undocumented operation.
 module Network.AWS.APIGateway.ImportDocumentationParts
-  ( -- * Creating a Request
-    importDocumentationParts,
-    ImportDocumentationParts,
+  ( -- * Creating a request
+    ImportDocumentationParts (..),
+    mkImportDocumentationParts,
 
-    -- * Request Lenses
+    -- ** Request lenses
     idpMode,
     idpFailOnWarnings,
     idpRestAPIId,
     idpBody,
 
-    -- * Destructuring the Response
-    importDocumentationPartsResponse,
-    ImportDocumentationPartsResponse,
+    -- * Destructuring the response
+    ImportDocumentationPartsResponse (..),
+    mkImportDocumentationPartsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     idprsIds,
     idprsWarnings,
     idprsResponseStatus,
@@ -41,145 +36,159 @@ module Network.AWS.APIGateway.ImportDocumentationParts
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Import documentation parts from an external (e.g., OpenAPI) definition file.
 --
---
---
--- /See:/ 'importDocumentationParts' smart constructor.
+-- /See:/ 'mkImportDocumentationParts' smart constructor.
 data ImportDocumentationParts = ImportDocumentationParts'
-  { _idpMode ::
-      !(Maybe PutMode),
-    _idpFailOnWarnings :: !(Maybe Bool),
-    _idpRestAPIId :: !Text,
-    _idpBody :: !ByteString
+  { mode ::
+      Lude.Maybe PutMode,
+    failOnWarnings :: Lude.Maybe Lude.Bool,
+    restAPIId :: Lude.Text,
+    body :: Lude.ByteString
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportDocumentationParts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idpMode' - A query parameter to indicate whether to overwrite (@OVERWRITE@ ) any existing 'DocumentationParts' definition or to merge (@MERGE@ ) the new definition into the existing one. The default value is @MERGE@ .
---
--- * 'idpFailOnWarnings' - A query parameter to specify whether to rollback the documentation importation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
---
--- * 'idpRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'idpBody' - [Required] Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.
-importDocumentationParts ::
-  -- | 'idpRestAPIId'
-  Text ->
-  -- | 'idpBody'
-  ByteString ->
+-- * 'body' - [Required] Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.
+-- * 'failOnWarnings' - A query parameter to specify whether to rollback the documentation importation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
+-- * 'mode' - A query parameter to indicate whether to overwrite (@OVERWRITE@ ) any existing 'DocumentationParts' definition or to merge (@MERGE@ ) the new definition into the existing one. The default value is @MERGE@ .
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkImportDocumentationParts ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'body'
+  Lude.ByteString ->
   ImportDocumentationParts
-importDocumentationParts pRestAPIId_ pBody_ =
+mkImportDocumentationParts pRestAPIId_ pBody_ =
   ImportDocumentationParts'
-    { _idpMode = Nothing,
-      _idpFailOnWarnings = Nothing,
-      _idpRestAPIId = pRestAPIId_,
-      _idpBody = pBody_
+    { mode = Lude.Nothing,
+      failOnWarnings = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      body = pBody_
     }
 
 -- | A query parameter to indicate whether to overwrite (@OVERWRITE@ ) any existing 'DocumentationParts' definition or to merge (@MERGE@ ) the new definition into the existing one. The default value is @MERGE@ .
-idpMode :: Lens' ImportDocumentationParts (Maybe PutMode)
-idpMode = lens _idpMode (\s a -> s {_idpMode = a})
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idpMode :: Lens.Lens' ImportDocumentationParts (Lude.Maybe PutMode)
+idpMode = Lens.lens (mode :: ImportDocumentationParts -> Lude.Maybe PutMode) (\s a -> s {mode = a} :: ImportDocumentationParts)
+{-# DEPRECATED idpMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
 -- | A query parameter to specify whether to rollback the documentation importation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
-idpFailOnWarnings :: Lens' ImportDocumentationParts (Maybe Bool)
-idpFailOnWarnings = lens _idpFailOnWarnings (\s a -> s {_idpFailOnWarnings = a})
+--
+-- /Note:/ Consider using 'failOnWarnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idpFailOnWarnings :: Lens.Lens' ImportDocumentationParts (Lude.Maybe Lude.Bool)
+idpFailOnWarnings = Lens.lens (failOnWarnings :: ImportDocumentationParts -> Lude.Maybe Lude.Bool) (\s a -> s {failOnWarnings = a} :: ImportDocumentationParts)
+{-# DEPRECATED idpFailOnWarnings "Use generic-lens or generic-optics with 'failOnWarnings' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-idpRestAPIId :: Lens' ImportDocumentationParts Text
-idpRestAPIId = lens _idpRestAPIId (\s a -> s {_idpRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idpRestAPIId :: Lens.Lens' ImportDocumentationParts Lude.Text
+idpRestAPIId = Lens.lens (restAPIId :: ImportDocumentationParts -> Lude.Text) (\s a -> s {restAPIId = a} :: ImportDocumentationParts)
+{-# DEPRECATED idpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.
-idpBody :: Lens' ImportDocumentationParts ByteString
-idpBody = lens _idpBody (\s a -> s {_idpBody = a})
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idpBody :: Lens.Lens' ImportDocumentationParts Lude.ByteString
+idpBody = Lens.lens (body :: ImportDocumentationParts -> Lude.ByteString) (\s a -> s {body = a} :: ImportDocumentationParts)
+{-# DEPRECATED idpBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
-instance AWSRequest ImportDocumentationParts where
+instance Lude.AWSRequest ImportDocumentationParts where
   type Rs ImportDocumentationParts = ImportDocumentationPartsResponse
-  request = putBody apiGateway
+  request = Req.putBody apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ImportDocumentationPartsResponse'
-            <$> (x .?> "ids" .!@ mempty)
-            <*> (x .?> "warnings" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ids" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "warnings" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ImportDocumentationParts
+instance Lude.ToBody ImportDocumentationParts where
+  toBody = Lude.toBody Lude.. body
 
-instance NFData ImportDocumentationParts
-
-instance ToBody ImportDocumentationParts where
-  toBody = toBody . _idpBody
-
-instance ToHeaders ImportDocumentationParts where
+instance Lude.ToHeaders ImportDocumentationParts where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath ImportDocumentationParts where
+instance Lude.ToPath ImportDocumentationParts where
   toPath ImportDocumentationParts' {..} =
-    mconcat
-      ["/restapis/", toBS _idpRestAPIId, "/documentation/parts"]
+    Lude.mconcat
+      ["/restapis/", Lude.toBS restAPIId, "/documentation/parts"]
 
-instance ToQuery ImportDocumentationParts where
+instance Lude.ToQuery ImportDocumentationParts where
   toQuery ImportDocumentationParts' {..} =
-    mconcat
-      ["mode" =: _idpMode, "failonwarnings" =: _idpFailOnWarnings]
+    Lude.mconcat
+      ["mode" Lude.=: mode, "failonwarnings" Lude.=: failOnWarnings]
 
 -- | A collection of the imported 'DocumentationPart' identifiers.
 --
---
 -- This is used to return the result when documentation parts in an external (e.g., OpenAPI) file are imported into API Gateway<https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API> , <https://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/ documentationpart:import> , 'DocumentationPart'
 --
--- /See:/ 'importDocumentationPartsResponse' smart constructor.
+-- /See:/ 'mkImportDocumentationPartsResponse' smart constructor.
 data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
-  { _idprsIds ::
-      !(Maybe [Text]),
-    _idprsWarnings ::
-      !(Maybe [Text]),
-    _idprsResponseStatus ::
-      !Int
+  { ids ::
+      Lude.Maybe [Lude.Text],
+    warnings ::
+      Lude.Maybe [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportDocumentationPartsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idprsIds' - A list of the returned documentation part identifiers.
---
--- * 'idprsWarnings' - A list of warning messages reported during import of documentation parts.
---
--- * 'idprsResponseStatus' - -- | The response status code.
-importDocumentationPartsResponse ::
-  -- | 'idprsResponseStatus'
-  Int ->
+-- * 'ids' - A list of the returned documentation part identifiers.
+-- * 'responseStatus' - The response status code.
+-- * 'warnings' - A list of warning messages reported during import of documentation parts.
+mkImportDocumentationPartsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ImportDocumentationPartsResponse
-importDocumentationPartsResponse pResponseStatus_ =
+mkImportDocumentationPartsResponse pResponseStatus_ =
   ImportDocumentationPartsResponse'
-    { _idprsIds = Nothing,
-      _idprsWarnings = Nothing,
-      _idprsResponseStatus = pResponseStatus_
+    { ids = Lude.Nothing,
+      warnings = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of the returned documentation part identifiers.
-idprsIds :: Lens' ImportDocumentationPartsResponse [Text]
-idprsIds = lens _idprsIds (\s a -> s {_idprsIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idprsIds :: Lens.Lens' ImportDocumentationPartsResponse (Lude.Maybe [Lude.Text])
+idprsIds = Lens.lens (ids :: ImportDocumentationPartsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {ids = a} :: ImportDocumentationPartsResponse)
+{-# DEPRECATED idprsIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
 -- | A list of warning messages reported during import of documentation parts.
-idprsWarnings :: Lens' ImportDocumentationPartsResponse [Text]
-idprsWarnings = lens _idprsWarnings (\s a -> s {_idprsWarnings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'warnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idprsWarnings :: Lens.Lens' ImportDocumentationPartsResponse (Lude.Maybe [Lude.Text])
+idprsWarnings = Lens.lens (warnings :: ImportDocumentationPartsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {warnings = a} :: ImportDocumentationPartsResponse)
+{-# DEPRECATED idprsWarnings "Use generic-lens or generic-optics with 'warnings' instead." #-}
 
--- | -- | The response status code.
-idprsResponseStatus :: Lens' ImportDocumentationPartsResponse Int
-idprsResponseStatus = lens _idprsResponseStatus (\s a -> s {_idprsResponseStatus = a})
-
-instance NFData ImportDocumentationPartsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idprsResponseStatus :: Lens.Lens' ImportDocumentationPartsResponse Lude.Int
+idprsResponseStatus = Lens.lens (responseStatus :: ImportDocumentationPartsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportDocumentationPartsResponse)
+{-# DEPRECATED idprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

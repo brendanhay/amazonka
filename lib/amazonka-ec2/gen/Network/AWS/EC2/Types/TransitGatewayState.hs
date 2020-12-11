@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.TransitGatewayState where
+module Network.AWS.EC2.Types.TransitGatewayState
+  ( TransitGatewayState
+      ( TransitGatewayState',
+        TGSAvailable,
+        TGSDeleted,
+        TGSDeleting,
+        TGSModifying,
+        TGSPending
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TransitGatewayState
-  = TGSAvailable
-  | TGSDeleted
-  | TGSDeleting
-  | TGSModifying
-  | TGSPending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TransitGatewayState = TransitGatewayState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TransitGatewayState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure TGSAvailable
-      "deleted" -> pure TGSDeleted
-      "deleting" -> pure TGSDeleting
-      "modifying" -> pure TGSModifying
-      "pending" -> pure TGSPending
-      e ->
-        fromTextError $
-          "Failure parsing TransitGatewayState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, modifying, pending"
+pattern TGSAvailable :: TransitGatewayState
+pattern TGSAvailable = TransitGatewayState' "available"
 
-instance ToText TransitGatewayState where
-  toText = \case
-    TGSAvailable -> "available"
-    TGSDeleted -> "deleted"
-    TGSDeleting -> "deleting"
-    TGSModifying -> "modifying"
-    TGSPending -> "pending"
+pattern TGSDeleted :: TransitGatewayState
+pattern TGSDeleted = TransitGatewayState' "deleted"
 
-instance Hashable TransitGatewayState
+pattern TGSDeleting :: TransitGatewayState
+pattern TGSDeleting = TransitGatewayState' "deleting"
 
-instance NFData TransitGatewayState
+pattern TGSModifying :: TransitGatewayState
+pattern TGSModifying = TransitGatewayState' "modifying"
 
-instance ToByteString TransitGatewayState
+pattern TGSPending :: TransitGatewayState
+pattern TGSPending = TransitGatewayState' "pending"
 
-instance ToQuery TransitGatewayState
-
-instance ToHeader TransitGatewayState
-
-instance FromXML TransitGatewayState where
-  parseXML = parseXMLText "TransitGatewayState"
+{-# COMPLETE
+  TGSAvailable,
+  TGSDeleted,
+  TGSDeleting,
+  TGSModifying,
+  TGSPending,
+  TransitGatewayState'
+  #-}

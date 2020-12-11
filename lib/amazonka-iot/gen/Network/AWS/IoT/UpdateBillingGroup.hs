@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,155 @@
 --
 -- Updates information about the billing group.
 module Network.AWS.IoT.UpdateBillingGroup
-  ( -- * Creating a Request
-    updateBillingGroup,
-    UpdateBillingGroup,
+  ( -- * Creating a request
+    UpdateBillingGroup (..),
+    mkUpdateBillingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ubgExpectedVersion,
     ubgBillingGroupName,
     ubgBillingGroupProperties,
 
-    -- * Destructuring the Response
-    updateBillingGroupResponse,
-    UpdateBillingGroupResponse,
+    -- * Destructuring the response
+    UpdateBillingGroupResponse (..),
+    mkUpdateBillingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ubgrsVersion,
     ubgrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateBillingGroup' smart constructor.
+-- | /See:/ 'mkUpdateBillingGroup' smart constructor.
 data UpdateBillingGroup = UpdateBillingGroup'
-  { _ubgExpectedVersion ::
-      !(Maybe Integer),
-    _ubgBillingGroupName :: !Text,
-    _ubgBillingGroupProperties :: !BillingGroupProperties
+  { expectedVersion ::
+      Lude.Maybe Lude.Integer,
+    billingGroupName :: Lude.Text,
+    billingGroupProperties :: BillingGroupProperties
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBillingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubgExpectedVersion' - The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @UpdateBillingGroup@ request is rejected with a @VersionConflictException@ .
---
--- * 'ubgBillingGroupName' - The name of the billing group.
---
--- * 'ubgBillingGroupProperties' - The properties of the billing group.
-updateBillingGroup ::
-  -- | 'ubgBillingGroupName'
-  Text ->
-  -- | 'ubgBillingGroupProperties'
+-- * 'billingGroupName' - The name of the billing group.
+-- * 'billingGroupProperties' - The properties of the billing group.
+-- * 'expectedVersion' - The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @UpdateBillingGroup@ request is rejected with a @VersionConflictException@ .
+mkUpdateBillingGroup ::
+  -- | 'billingGroupName'
+  Lude.Text ->
+  -- | 'billingGroupProperties'
   BillingGroupProperties ->
   UpdateBillingGroup
-updateBillingGroup pBillingGroupName_ pBillingGroupProperties_ =
+mkUpdateBillingGroup pBillingGroupName_ pBillingGroupProperties_ =
   UpdateBillingGroup'
-    { _ubgExpectedVersion = Nothing,
-      _ubgBillingGroupName = pBillingGroupName_,
-      _ubgBillingGroupProperties = pBillingGroupProperties_
+    { expectedVersion = Lude.Nothing,
+      billingGroupName = pBillingGroupName_,
+      billingGroupProperties = pBillingGroupProperties_
     }
 
 -- | The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @UpdateBillingGroup@ request is rejected with a @VersionConflictException@ .
-ubgExpectedVersion :: Lens' UpdateBillingGroup (Maybe Integer)
-ubgExpectedVersion = lens _ubgExpectedVersion (\s a -> s {_ubgExpectedVersion = a})
+--
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubgExpectedVersion :: Lens.Lens' UpdateBillingGroup (Lude.Maybe Lude.Integer)
+ubgExpectedVersion = Lens.lens (expectedVersion :: UpdateBillingGroup -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: UpdateBillingGroup)
+{-# DEPRECATED ubgExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
 
 -- | The name of the billing group.
-ubgBillingGroupName :: Lens' UpdateBillingGroup Text
-ubgBillingGroupName = lens _ubgBillingGroupName (\s a -> s {_ubgBillingGroupName = a})
+--
+-- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubgBillingGroupName :: Lens.Lens' UpdateBillingGroup Lude.Text
+ubgBillingGroupName = Lens.lens (billingGroupName :: UpdateBillingGroup -> Lude.Text) (\s a -> s {billingGroupName = a} :: UpdateBillingGroup)
+{-# DEPRECATED ubgBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
 -- | The properties of the billing group.
-ubgBillingGroupProperties :: Lens' UpdateBillingGroup BillingGroupProperties
-ubgBillingGroupProperties = lens _ubgBillingGroupProperties (\s a -> s {_ubgBillingGroupProperties = a})
+--
+-- /Note:/ Consider using 'billingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubgBillingGroupProperties :: Lens.Lens' UpdateBillingGroup BillingGroupProperties
+ubgBillingGroupProperties = Lens.lens (billingGroupProperties :: UpdateBillingGroup -> BillingGroupProperties) (\s a -> s {billingGroupProperties = a} :: UpdateBillingGroup)
+{-# DEPRECATED ubgBillingGroupProperties "Use generic-lens or generic-optics with 'billingGroupProperties' instead." #-}
 
-instance AWSRequest UpdateBillingGroup where
+instance Lude.AWSRequest UpdateBillingGroup where
   type Rs UpdateBillingGroup = UpdateBillingGroupResponse
-  request = patchJSON ioT
+  request = Req.patchJSON ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateBillingGroupResponse'
-            <$> (x .?> "version") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "version") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateBillingGroup
+instance Lude.ToHeaders UpdateBillingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateBillingGroup
-
-instance ToHeaders UpdateBillingGroup where
-  toHeaders = const mempty
-
-instance ToJSON UpdateBillingGroup where
+instance Lude.ToJSON UpdateBillingGroup where
   toJSON UpdateBillingGroup' {..} =
-    object
-      ( catMaybes
-          [ ("expectedVersion" .=) <$> _ubgExpectedVersion,
-            Just ("billingGroupProperties" .= _ubgBillingGroupProperties)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("expectedVersion" Lude..=) Lude.<$> expectedVersion,
+            Lude.Just
+              ("billingGroupProperties" Lude..= billingGroupProperties)
           ]
       )
 
-instance ToPath UpdateBillingGroup where
+instance Lude.ToPath UpdateBillingGroup where
   toPath UpdateBillingGroup' {..} =
-    mconcat ["/billing-groups/", toBS _ubgBillingGroupName]
+    Lude.mconcat ["/billing-groups/", Lude.toBS billingGroupName]
 
-instance ToQuery UpdateBillingGroup where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateBillingGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateBillingGroupResponse' smart constructor.
+-- | /See:/ 'mkUpdateBillingGroupResponse' smart constructor.
 data UpdateBillingGroupResponse = UpdateBillingGroupResponse'
-  { _ubgrsVersion ::
-      !(Maybe Integer),
-    _ubgrsResponseStatus :: !Int
+  { version ::
+      Lude.Maybe Lude.Integer,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBillingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ubgrsVersion' - The latest version of the billing group.
---
--- * 'ubgrsResponseStatus' - -- | The response status code.
-updateBillingGroupResponse ::
-  -- | 'ubgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'version' - The latest version of the billing group.
+mkUpdateBillingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateBillingGroupResponse
-updateBillingGroupResponse pResponseStatus_ =
+mkUpdateBillingGroupResponse pResponseStatus_ =
   UpdateBillingGroupResponse'
-    { _ubgrsVersion = Nothing,
-      _ubgrsResponseStatus = pResponseStatus_
+    { version = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The latest version of the billing group.
-ubgrsVersion :: Lens' UpdateBillingGroupResponse (Maybe Integer)
-ubgrsVersion = lens _ubgrsVersion (\s a -> s {_ubgrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubgrsVersion :: Lens.Lens' UpdateBillingGroupResponse (Lude.Maybe Lude.Integer)
+ubgrsVersion = Lens.lens (version :: UpdateBillingGroupResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: UpdateBillingGroupResponse)
+{-# DEPRECATED ubgrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | -- | The response status code.
-ubgrsResponseStatus :: Lens' UpdateBillingGroupResponse Int
-ubgrsResponseStatus = lens _ubgrsResponseStatus (\s a -> s {_ubgrsResponseStatus = a})
-
-instance NFData UpdateBillingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubgrsResponseStatus :: Lens.Lens' UpdateBillingGroupResponse Lude.Int
+ubgrsResponseStatus = Lens.lens (responseStatus :: UpdateBillingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateBillingGroupResponse)
+{-# DEPRECATED ubgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

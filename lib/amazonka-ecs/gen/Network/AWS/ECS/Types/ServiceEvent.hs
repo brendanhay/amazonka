@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ServiceEvent where
+module Network.AWS.ECS.Types.ServiceEvent
+  ( ServiceEvent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceEvent,
+
+    -- * Lenses
+    seCreatedAt,
+    seId,
+    seMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details on an event associated with a service.
 --
---
---
--- /See:/ 'serviceEvent' smart constructor.
+-- /See:/ 'mkServiceEvent' smart constructor.
 data ServiceEvent = ServiceEvent'
-  { _seCreatedAt :: !(Maybe POSIX),
-    _seId :: !(Maybe Text),
-    _seMessage :: !(Maybe Text)
+  { createdAt ::
+      Lude.Maybe Lude.Timestamp,
+    id :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceEvent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'seCreatedAt' - The Unix timestamp for when the event was triggered.
---
--- * 'seId' - The ID string of the event.
---
--- * 'seMessage' - The event message.
-serviceEvent ::
+-- * 'createdAt' - The Unix timestamp for when the event was triggered.
+-- * 'id' - The ID string of the event.
+-- * 'message' - The event message.
+mkServiceEvent ::
   ServiceEvent
-serviceEvent =
+mkServiceEvent =
   ServiceEvent'
-    { _seCreatedAt = Nothing,
-      _seId = Nothing,
-      _seMessage = Nothing
+    { createdAt = Lude.Nothing,
+      id = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The Unix timestamp for when the event was triggered.
-seCreatedAt :: Lens' ServiceEvent (Maybe UTCTime)
-seCreatedAt = lens _seCreatedAt (\s a -> s {_seCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seCreatedAt :: Lens.Lens' ServiceEvent (Lude.Maybe Lude.Timestamp)
+seCreatedAt = Lens.lens (createdAt :: ServiceEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ServiceEvent)
+{-# DEPRECATED seCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The ID string of the event.
-seId :: Lens' ServiceEvent (Maybe Text)
-seId = lens _seId (\s a -> s {_seId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seId :: Lens.Lens' ServiceEvent (Lude.Maybe Lude.Text)
+seId = Lens.lens (id :: ServiceEvent -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ServiceEvent)
+{-# DEPRECATED seId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The event message.
-seMessage :: Lens' ServiceEvent (Maybe Text)
-seMessage = lens _seMessage (\s a -> s {_seMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seMessage :: Lens.Lens' ServiceEvent (Lude.Maybe Lude.Text)
+seMessage = Lens.lens (message :: ServiceEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ServiceEvent)
+{-# DEPRECATED seMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON ServiceEvent where
+instance Lude.FromJSON ServiceEvent where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceEvent"
       ( \x ->
           ServiceEvent'
-            <$> (x .:? "createdAt") <*> (x .:? "id") <*> (x .:? "message")
+            Lude.<$> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "message")
       )
-
-instance Hashable ServiceEvent
-
-instance NFData ServiceEvent

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,101 +7,133 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPNGateway where
+module Network.AWS.EC2.Types.VPNGateway
+  ( VPNGateway (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkVPNGateway,
+
+    -- * Lenses
+    vgState,
+    vgVPCAttachments,
+    vgVPNGatewayId,
+    vgAmazonSideASN,
+    vgAvailabilityZone,
+    vgType,
+    vgTags,
+  )
+where
+
 import Network.AWS.EC2.Types.GatewayType
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.VPCAttachment
 import Network.AWS.EC2.Types.VPNState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a virtual private gateway.
 --
---
---
--- /See:/ 'vpnGateway' smart constructor.
+-- /See:/ 'mkVPNGateway' smart constructor.
 data VPNGateway = VPNGateway'
-  { _vgState :: !(Maybe VPNState),
-    _vgVPCAttachments :: !(Maybe [VPCAttachment]),
-    _vgVPNGatewayId :: !(Maybe Text),
-    _vgAmazonSideASN :: !(Maybe Integer),
-    _vgAvailabilityZone :: !(Maybe Text),
-    _vgType :: !(Maybe GatewayType),
-    _vgTags :: !(Maybe [Tag])
+  { state :: Lude.Maybe VPNState,
+    vpcAttachments :: Lude.Maybe [VPCAttachment],
+    vpnGatewayId :: Lude.Maybe Lude.Text,
+    amazonSideASN :: Lude.Maybe Lude.Integer,
+    availabilityZone :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe GatewayType,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPNGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vgState' - The current state of the virtual private gateway.
---
--- * 'vgVPCAttachments' - Any VPCs attached to the virtual private gateway.
---
--- * 'vgVPNGatewayId' - The ID of the virtual private gateway.
---
--- * 'vgAmazonSideASN' - The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
---
--- * 'vgAvailabilityZone' - The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.
---
--- * 'vgType' - The type of VPN connection the virtual private gateway supports.
---
--- * 'vgTags' - Any tags assigned to the virtual private gateway.
-vpnGateway ::
+-- * 'amazonSideASN' - The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+-- * 'availabilityZone' - The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.
+-- * 'state' - The current state of the virtual private gateway.
+-- * 'tags' - Any tags assigned to the virtual private gateway.
+-- * 'type'' - The type of VPN connection the virtual private gateway supports.
+-- * 'vpcAttachments' - Any VPCs attached to the virtual private gateway.
+-- * 'vpnGatewayId' - The ID of the virtual private gateway.
+mkVPNGateway ::
   VPNGateway
-vpnGateway =
+mkVPNGateway =
   VPNGateway'
-    { _vgState = Nothing,
-      _vgVPCAttachments = Nothing,
-      _vgVPNGatewayId = Nothing,
-      _vgAmazonSideASN = Nothing,
-      _vgAvailabilityZone = Nothing,
-      _vgType = Nothing,
-      _vgTags = Nothing
+    { state = Lude.Nothing,
+      vpcAttachments = Lude.Nothing,
+      vpnGatewayId = Lude.Nothing,
+      amazonSideASN = Lude.Nothing,
+      availabilityZone = Lude.Nothing,
+      type' = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The current state of the virtual private gateway.
-vgState :: Lens' VPNGateway (Maybe VPNState)
-vgState = lens _vgState (\s a -> s {_vgState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vgState :: Lens.Lens' VPNGateway (Lude.Maybe VPNState)
+vgState = Lens.lens (state :: VPNGateway -> Lude.Maybe VPNState) (\s a -> s {state = a} :: VPNGateway)
+{-# DEPRECATED vgState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Any VPCs attached to the virtual private gateway.
-vgVPCAttachments :: Lens' VPNGateway [VPCAttachment]
-vgVPCAttachments = lens _vgVPCAttachments (\s a -> s {_vgVPCAttachments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vgVPCAttachments :: Lens.Lens' VPNGateway (Lude.Maybe [VPCAttachment])
+vgVPCAttachments = Lens.lens (vpcAttachments :: VPNGateway -> Lude.Maybe [VPCAttachment]) (\s a -> s {vpcAttachments = a} :: VPNGateway)
+{-# DEPRECATED vgVPCAttachments "Use generic-lens or generic-optics with 'vpcAttachments' instead." #-}
 
 -- | The ID of the virtual private gateway.
-vgVPNGatewayId :: Lens' VPNGateway (Maybe Text)
-vgVPNGatewayId = lens _vgVPNGatewayId (\s a -> s {_vgVPNGatewayId = a})
+--
+-- /Note:/ Consider using 'vpnGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vgVPNGatewayId :: Lens.Lens' VPNGateway (Lude.Maybe Lude.Text)
+vgVPNGatewayId = Lens.lens (vpnGatewayId :: VPNGateway -> Lude.Maybe Lude.Text) (\s a -> s {vpnGatewayId = a} :: VPNGateway)
+{-# DEPRECATED vgVPNGatewayId "Use generic-lens or generic-optics with 'vpnGatewayId' instead." #-}
 
 -- | The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-vgAmazonSideASN :: Lens' VPNGateway (Maybe Integer)
-vgAmazonSideASN = lens _vgAmazonSideASN (\s a -> s {_vgAmazonSideASN = a})
+--
+-- /Note:/ Consider using 'amazonSideASN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vgAmazonSideASN :: Lens.Lens' VPNGateway (Lude.Maybe Lude.Integer)
+vgAmazonSideASN = Lens.lens (amazonSideASN :: VPNGateway -> Lude.Maybe Lude.Integer) (\s a -> s {amazonSideASN = a} :: VPNGateway)
+{-# DEPRECATED vgAmazonSideASN "Use generic-lens or generic-optics with 'amazonSideASN' instead." #-}
 
 -- | The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.
-vgAvailabilityZone :: Lens' VPNGateway (Maybe Text)
-vgAvailabilityZone = lens _vgAvailabilityZone (\s a -> s {_vgAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vgAvailabilityZone :: Lens.Lens' VPNGateway (Lude.Maybe Lude.Text)
+vgAvailabilityZone = Lens.lens (availabilityZone :: VPNGateway -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: VPNGateway)
+{-# DEPRECATED vgAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The type of VPN connection the virtual private gateway supports.
-vgType :: Lens' VPNGateway (Maybe GatewayType)
-vgType = lens _vgType (\s a -> s {_vgType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vgType :: Lens.Lens' VPNGateway (Lude.Maybe GatewayType)
+vgType = Lens.lens (type' :: VPNGateway -> Lude.Maybe GatewayType) (\s a -> s {type' = a} :: VPNGateway)
+{-# DEPRECATED vgType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Any tags assigned to the virtual private gateway.
-vgTags :: Lens' VPNGateway [Tag]
-vgTags = lens _vgTags (\s a -> s {_vgTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vgTags :: Lens.Lens' VPNGateway (Lude.Maybe [Tag])
+vgTags = Lens.lens (tags :: VPNGateway -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: VPNGateway)
+{-# DEPRECATED vgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML VPNGateway where
+instance Lude.FromXML VPNGateway where
   parseXML x =
     VPNGateway'
-      <$> (x .@? "state")
-      <*> (x .@? "attachments" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "vpnGatewayId")
-      <*> (x .@? "amazonSideAsn")
-      <*> (x .@? "availabilityZone")
-      <*> (x .@? "type")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable VPNGateway
-
-instance NFData VPNGateway
+      Lude.<$> (x Lude..@? "state")
+      Lude.<*> ( x Lude..@? "attachments" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "vpnGatewayId")
+      Lude.<*> (x Lude..@? "amazonSideAsn")
+      Lude.<*> (x Lude..@? "availabilityZone")
+      Lude.<*> (x Lude..@? "type")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

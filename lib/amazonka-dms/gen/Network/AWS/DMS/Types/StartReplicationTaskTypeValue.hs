@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.StartReplicationTaskTypeValue where
+module Network.AWS.DMS.Types.StartReplicationTaskTypeValue
+  ( StartReplicationTaskTypeValue
+      ( StartReplicationTaskTypeValue',
+        ReloadTarget,
+        ResumeProcessing,
+        StartReplication
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StartReplicationTaskTypeValue
-  = ReloadTarget
-  | ResumeProcessing
-  | StartReplication
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StartReplicationTaskTypeValue = StartReplicationTaskTypeValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StartReplicationTaskTypeValue where
-  parser =
-    takeLowerText >>= \case
-      "reload-target" -> pure ReloadTarget
-      "resume-processing" -> pure ResumeProcessing
-      "start-replication" -> pure StartReplication
-      e ->
-        fromTextError $
-          "Failure parsing StartReplicationTaskTypeValue from value: '" <> e
-            <> "'. Accepted values: reload-target, resume-processing, start-replication"
+pattern ReloadTarget :: StartReplicationTaskTypeValue
+pattern ReloadTarget = StartReplicationTaskTypeValue' "reload-target"
 
-instance ToText StartReplicationTaskTypeValue where
-  toText = \case
-    ReloadTarget -> "reload-target"
-    ResumeProcessing -> "resume-processing"
-    StartReplication -> "start-replication"
+pattern ResumeProcessing :: StartReplicationTaskTypeValue
+pattern ResumeProcessing = StartReplicationTaskTypeValue' "resume-processing"
 
-instance Hashable StartReplicationTaskTypeValue
+pattern StartReplication :: StartReplicationTaskTypeValue
+pattern StartReplication = StartReplicationTaskTypeValue' "start-replication"
 
-instance NFData StartReplicationTaskTypeValue
-
-instance ToByteString StartReplicationTaskTypeValue
-
-instance ToQuery StartReplicationTaskTypeValue
-
-instance ToHeader StartReplicationTaskTypeValue
-
-instance ToJSON StartReplicationTaskTypeValue where
-  toJSON = toJSONText
+{-# COMPLETE
+  ReloadTarget,
+  ResumeProcessing,
+  StartReplication,
+  StartReplicationTaskTypeValue'
+  #-}

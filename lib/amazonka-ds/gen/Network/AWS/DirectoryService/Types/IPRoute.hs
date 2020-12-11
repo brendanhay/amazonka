@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.IPRoute where
+module Network.AWS.DirectoryService.Types.IPRoute
+  ( IPRoute (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIPRoute,
+
+    -- * Lenses
+    irCidrIP,
+    irDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | IP address block. This is often the address block of the DNS server used for your on-premises domain.
 --
---
---
--- /See:/ 'ipRoute' smart constructor.
+-- /See:/ 'mkIPRoute' smart constructor.
 data IPRoute = IPRoute'
-  { _irCidrIP :: !(Maybe Text),
-    _irDescription :: !(Maybe Text)
+  { cidrIP :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRoute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'irCidrIP' - IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
---
--- * 'irDescription' - Description of the address block.
-ipRoute ::
+-- * 'cidrIP' - IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
+-- * 'description' - Description of the address block.
+mkIPRoute ::
   IPRoute
-ipRoute = IPRoute' {_irCidrIP = Nothing, _irDescription = Nothing}
+mkIPRoute =
+  IPRoute' {cidrIP = Lude.Nothing, description = Lude.Nothing}
 
 -- | IP address block using CIDR format, for example 10.0.0.0/24. This is often the address block of the DNS server used for your on-premises domain. For a single IP address use a CIDR address block with /32. For example 10.0.0.0/32.
-irCidrIP :: Lens' IPRoute (Maybe Text)
-irCidrIP = lens _irCidrIP (\s a -> s {_irCidrIP = a})
+--
+-- /Note:/ Consider using 'cidrIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irCidrIP :: Lens.Lens' IPRoute (Lude.Maybe Lude.Text)
+irCidrIP = Lens.lens (cidrIP :: IPRoute -> Lude.Maybe Lude.Text) (\s a -> s {cidrIP = a} :: IPRoute)
+{-# DEPRECATED irCidrIP "Use generic-lens or generic-optics with 'cidrIP' instead." #-}
 
 -- | Description of the address block.
-irDescription :: Lens' IPRoute (Maybe Text)
-irDescription = lens _irDescription (\s a -> s {_irDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irDescription :: Lens.Lens' IPRoute (Lude.Maybe Lude.Text)
+irDescription = Lens.lens (description :: IPRoute -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: IPRoute)
+{-# DEPRECATED irDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Hashable IPRoute
-
-instance NFData IPRoute
-
-instance ToJSON IPRoute where
+instance Lude.ToJSON IPRoute where
   toJSON IPRoute' {..} =
-    object
-      ( catMaybes
-          [ ("CidrIp" .=) <$> _irCidrIP,
-            ("Description" .=) <$> _irDescription
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CidrIp" Lude..=) Lude.<$> cidrIP,
+            ("Description" Lude..=) Lude.<$> description
           ]
       )

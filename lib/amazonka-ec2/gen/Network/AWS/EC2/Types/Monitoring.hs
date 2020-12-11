@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,37 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Monitoring where
+module Network.AWS.EC2.Types.Monitoring
+  ( Monitoring (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkMonitoring,
+
+    -- * Lenses
+    mState,
+  )
+where
+
 import Network.AWS.EC2.Types.MonitoringState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the monitoring of an instance.
 --
---
---
--- /See:/ 'monitoring' smart constructor.
-newtype Monitoring = Monitoring' {_mState :: Maybe MonitoringState}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkMonitoring' smart constructor.
+newtype Monitoring = Monitoring'
+  { state ::
+      Lude.Maybe MonitoringState
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Monitoring' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mState' - Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-monitoring ::
+-- * 'state' - Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
+mkMonitoring ::
   Monitoring
-monitoring = Monitoring' {_mState = Nothing}
+mkMonitoring = Monitoring' {state = Lude.Nothing}
 
 -- | Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-mState :: Lens' Monitoring (Maybe MonitoringState)
-mState = lens _mState (\s a -> s {_mState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mState :: Lens.Lens' Monitoring (Lude.Maybe MonitoringState)
+mState = Lens.lens (state :: Monitoring -> Lude.Maybe MonitoringState) (\s a -> s {state = a} :: Monitoring)
+{-# DEPRECATED mState "Use generic-lens or generic-optics with 'state' instead." #-}
 
-instance FromXML Monitoring where
-  parseXML x = Monitoring' <$> (x .@? "state")
-
-instance Hashable Monitoring
-
-instance NFData Monitoring
+instance Lude.FromXML Monitoring where
+  parseXML x = Monitoring' Lude.<$> (x Lude..@? "state")

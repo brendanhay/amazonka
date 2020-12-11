@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.RenewalEligibility where
+module Network.AWS.CertificateManager.Types.RenewalEligibility
+  ( RenewalEligibility
+      ( RenewalEligibility',
+        Eligible,
+        Ineligible
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RenewalEligibility
-  = Eligible
-  | Ineligible
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RenewalEligibility = RenewalEligibility' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RenewalEligibility where
-  parser =
-    takeLowerText >>= \case
-      "eligible" -> pure Eligible
-      "ineligible" -> pure Ineligible
-      e ->
-        fromTextError $
-          "Failure parsing RenewalEligibility from value: '" <> e
-            <> "'. Accepted values: eligible, ineligible"
+pattern Eligible :: RenewalEligibility
+pattern Eligible = RenewalEligibility' "ELIGIBLE"
 
-instance ToText RenewalEligibility where
-  toText = \case
-    Eligible -> "ELIGIBLE"
-    Ineligible -> "INELIGIBLE"
+pattern Ineligible :: RenewalEligibility
+pattern Ineligible = RenewalEligibility' "INELIGIBLE"
 
-instance Hashable RenewalEligibility
-
-instance NFData RenewalEligibility
-
-instance ToByteString RenewalEligibility
-
-instance ToQuery RenewalEligibility
-
-instance ToHeader RenewalEligibility
-
-instance FromJSON RenewalEligibility where
-  parseJSON = parseJSONText "RenewalEligibility"
+{-# COMPLETE
+  Eligible,
+  Ineligible,
+  RenewalEligibility'
+  #-}

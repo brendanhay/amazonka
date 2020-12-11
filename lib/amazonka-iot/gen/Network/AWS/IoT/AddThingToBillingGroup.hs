@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,152 @@
 --
 -- Adds a thing to a billing group.
 module Network.AWS.IoT.AddThingToBillingGroup
-  ( -- * Creating a Request
-    addThingToBillingGroup,
-    AddThingToBillingGroup,
+  ( -- * Creating a request
+    AddThingToBillingGroup (..),
+    mkAddThingToBillingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     attbgThingARN,
     attbgBillingGroupARN,
     attbgThingName,
     attbgBillingGroupName,
 
-    -- * Destructuring the Response
-    addThingToBillingGroupResponse,
-    AddThingToBillingGroupResponse,
+    -- * Destructuring the response
+    AddThingToBillingGroupResponse (..),
+    mkAddThingToBillingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     attbgrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'addThingToBillingGroup' smart constructor.
+-- | /See:/ 'mkAddThingToBillingGroup' smart constructor.
 data AddThingToBillingGroup = AddThingToBillingGroup'
-  { _attbgThingARN ::
-      !(Maybe Text),
-    _attbgBillingGroupARN :: !(Maybe Text),
-    _attbgThingName :: !(Maybe Text),
-    _attbgBillingGroupName :: !(Maybe Text)
+  { thingARN ::
+      Lude.Maybe Lude.Text,
+    billingGroupARN :: Lude.Maybe Lude.Text,
+    thingName :: Lude.Maybe Lude.Text,
+    billingGroupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddThingToBillingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'attbgThingARN' - The ARN of the thing to be added to the billing group.
---
--- * 'attbgBillingGroupARN' - The ARN of the billing group.
---
--- * 'attbgThingName' - The name of the thing to be added to the billing group.
---
--- * 'attbgBillingGroupName' - The name of the billing group.
-addThingToBillingGroup ::
+-- * 'billingGroupARN' - The ARN of the billing group.
+-- * 'billingGroupName' - The name of the billing group.
+-- * 'thingARN' - The ARN of the thing to be added to the billing group.
+-- * 'thingName' - The name of the thing to be added to the billing group.
+mkAddThingToBillingGroup ::
   AddThingToBillingGroup
-addThingToBillingGroup =
+mkAddThingToBillingGroup =
   AddThingToBillingGroup'
-    { _attbgThingARN = Nothing,
-      _attbgBillingGroupARN = Nothing,
-      _attbgThingName = Nothing,
-      _attbgBillingGroupName = Nothing
+    { thingARN = Lude.Nothing,
+      billingGroupARN = Lude.Nothing,
+      thingName = Lude.Nothing,
+      billingGroupName = Lude.Nothing
     }
 
 -- | The ARN of the thing to be added to the billing group.
-attbgThingARN :: Lens' AddThingToBillingGroup (Maybe Text)
-attbgThingARN = lens _attbgThingARN (\s a -> s {_attbgThingARN = a})
+--
+-- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attbgThingARN :: Lens.Lens' AddThingToBillingGroup (Lude.Maybe Lude.Text)
+attbgThingARN = Lens.lens (thingARN :: AddThingToBillingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingARN = a} :: AddThingToBillingGroup)
+{-# DEPRECATED attbgThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
 
 -- | The ARN of the billing group.
-attbgBillingGroupARN :: Lens' AddThingToBillingGroup (Maybe Text)
-attbgBillingGroupARN = lens _attbgBillingGroupARN (\s a -> s {_attbgBillingGroupARN = a})
+--
+-- /Note:/ Consider using 'billingGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attbgBillingGroupARN :: Lens.Lens' AddThingToBillingGroup (Lude.Maybe Lude.Text)
+attbgBillingGroupARN = Lens.lens (billingGroupARN :: AddThingToBillingGroup -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupARN = a} :: AddThingToBillingGroup)
+{-# DEPRECATED attbgBillingGroupARN "Use generic-lens or generic-optics with 'billingGroupARN' instead." #-}
 
 -- | The name of the thing to be added to the billing group.
-attbgThingName :: Lens' AddThingToBillingGroup (Maybe Text)
-attbgThingName = lens _attbgThingName (\s a -> s {_attbgThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attbgThingName :: Lens.Lens' AddThingToBillingGroup (Lude.Maybe Lude.Text)
+attbgThingName = Lens.lens (thingName :: AddThingToBillingGroup -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: AddThingToBillingGroup)
+{-# DEPRECATED attbgThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | The name of the billing group.
-attbgBillingGroupName :: Lens' AddThingToBillingGroup (Maybe Text)
-attbgBillingGroupName = lens _attbgBillingGroupName (\s a -> s {_attbgBillingGroupName = a})
+--
+-- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attbgBillingGroupName :: Lens.Lens' AddThingToBillingGroup (Lude.Maybe Lude.Text)
+attbgBillingGroupName = Lens.lens (billingGroupName :: AddThingToBillingGroup -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: AddThingToBillingGroup)
+{-# DEPRECATED attbgBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
-instance AWSRequest AddThingToBillingGroup where
+instance Lude.AWSRequest AddThingToBillingGroup where
   type Rs AddThingToBillingGroup = AddThingToBillingGroupResponse
-  request = putJSON ioT
+  request = Req.putJSON ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          AddThingToBillingGroupResponse' <$> (pure (fromEnum s))
+          AddThingToBillingGroupResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AddThingToBillingGroup
+instance Lude.ToHeaders AddThingToBillingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AddThingToBillingGroup
-
-instance ToHeaders AddThingToBillingGroup where
-  toHeaders = const mempty
-
-instance ToJSON AddThingToBillingGroup where
+instance Lude.ToJSON AddThingToBillingGroup where
   toJSON AddThingToBillingGroup' {..} =
-    object
-      ( catMaybes
-          [ ("thingArn" .=) <$> _attbgThingARN,
-            ("billingGroupArn" .=) <$> _attbgBillingGroupARN,
-            ("thingName" .=) <$> _attbgThingName,
-            ("billingGroupName" .=) <$> _attbgBillingGroupName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("thingArn" Lude..=) Lude.<$> thingARN,
+            ("billingGroupArn" Lude..=) Lude.<$> billingGroupARN,
+            ("thingName" Lude..=) Lude.<$> thingName,
+            ("billingGroupName" Lude..=) Lude.<$> billingGroupName
           ]
       )
 
-instance ToPath AddThingToBillingGroup where
-  toPath = const "/billing-groups/addThingToBillingGroup"
+instance Lude.ToPath AddThingToBillingGroup where
+  toPath = Lude.const "/billing-groups/addThingToBillingGroup"
 
-instance ToQuery AddThingToBillingGroup where
-  toQuery = const mempty
+instance Lude.ToQuery AddThingToBillingGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'addThingToBillingGroupResponse' smart constructor.
+-- | /See:/ 'mkAddThingToBillingGroupResponse' smart constructor.
 newtype AddThingToBillingGroupResponse = AddThingToBillingGroupResponse'
-  { _attbgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddThingToBillingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'attbgrsResponseStatus' - -- | The response status code.
-addThingToBillingGroupResponse ::
-  -- | 'attbgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkAddThingToBillingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AddThingToBillingGroupResponse
-addThingToBillingGroupResponse pResponseStatus_ =
+mkAddThingToBillingGroupResponse pResponseStatus_ =
   AddThingToBillingGroupResponse'
-    { _attbgrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-attbgrsResponseStatus :: Lens' AddThingToBillingGroupResponse Int
-attbgrsResponseStatus = lens _attbgrsResponseStatus (\s a -> s {_attbgrsResponseStatus = a})
-
-instance NFData AddThingToBillingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attbgrsResponseStatus :: Lens.Lens' AddThingToBillingGroupResponse Lude.Int
+attbgrsResponseStatus = Lens.lens (responseStatus :: AddThingToBillingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddThingToBillingGroupResponse)
+{-# DEPRECATED attbgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

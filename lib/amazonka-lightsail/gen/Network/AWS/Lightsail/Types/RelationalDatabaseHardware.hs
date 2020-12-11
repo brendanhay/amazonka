@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.RelationalDatabaseHardware where
+module Network.AWS.Lightsail.Types.RelationalDatabaseHardware
+  ( RelationalDatabaseHardware (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRelationalDatabaseHardware,
+
+    -- * Lenses
+    rdhCpuCount,
+    rdhDiskSizeInGb,
+    rdhRamSizeInGb,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the hardware of a database.
 --
---
---
--- /See:/ 'relationalDatabaseHardware' smart constructor.
+-- /See:/ 'mkRelationalDatabaseHardware' smart constructor.
 data RelationalDatabaseHardware = RelationalDatabaseHardware'
-  { _rdhCpuCount ::
-      !(Maybe Int),
-    _rdhDiskSizeInGb :: !(Maybe Int),
-    _rdhRamSizeInGb :: !(Maybe Double)
+  { cpuCount ::
+      Lude.Maybe Lude.Int,
+    diskSizeInGb :: Lude.Maybe Lude.Int,
+    ramSizeInGb :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseHardware' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdhCpuCount' - The number of vCPUs for the database.
---
--- * 'rdhDiskSizeInGb' - The size of the disk for the database.
---
--- * 'rdhRamSizeInGb' - The amount of RAM in GB for the database.
-relationalDatabaseHardware ::
+-- * 'cpuCount' - The number of vCPUs for the database.
+-- * 'diskSizeInGb' - The size of the disk for the database.
+-- * 'ramSizeInGb' - The amount of RAM in GB for the database.
+mkRelationalDatabaseHardware ::
   RelationalDatabaseHardware
-relationalDatabaseHardware =
+mkRelationalDatabaseHardware =
   RelationalDatabaseHardware'
-    { _rdhCpuCount = Nothing,
-      _rdhDiskSizeInGb = Nothing,
-      _rdhRamSizeInGb = Nothing
+    { cpuCount = Lude.Nothing,
+      diskSizeInGb = Lude.Nothing,
+      ramSizeInGb = Lude.Nothing
     }
 
 -- | The number of vCPUs for the database.
-rdhCpuCount :: Lens' RelationalDatabaseHardware (Maybe Int)
-rdhCpuCount = lens _rdhCpuCount (\s a -> s {_rdhCpuCount = a})
+--
+-- /Note:/ Consider using 'cpuCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdhCpuCount :: Lens.Lens' RelationalDatabaseHardware (Lude.Maybe Lude.Int)
+rdhCpuCount = Lens.lens (cpuCount :: RelationalDatabaseHardware -> Lude.Maybe Lude.Int) (\s a -> s {cpuCount = a} :: RelationalDatabaseHardware)
+{-# DEPRECATED rdhCpuCount "Use generic-lens or generic-optics with 'cpuCount' instead." #-}
 
 -- | The size of the disk for the database.
-rdhDiskSizeInGb :: Lens' RelationalDatabaseHardware (Maybe Int)
-rdhDiskSizeInGb = lens _rdhDiskSizeInGb (\s a -> s {_rdhDiskSizeInGb = a})
+--
+-- /Note:/ Consider using 'diskSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdhDiskSizeInGb :: Lens.Lens' RelationalDatabaseHardware (Lude.Maybe Lude.Int)
+rdhDiskSizeInGb = Lens.lens (diskSizeInGb :: RelationalDatabaseHardware -> Lude.Maybe Lude.Int) (\s a -> s {diskSizeInGb = a} :: RelationalDatabaseHardware)
+{-# DEPRECATED rdhDiskSizeInGb "Use generic-lens or generic-optics with 'diskSizeInGb' instead." #-}
 
 -- | The amount of RAM in GB for the database.
-rdhRamSizeInGb :: Lens' RelationalDatabaseHardware (Maybe Double)
-rdhRamSizeInGb = lens _rdhRamSizeInGb (\s a -> s {_rdhRamSizeInGb = a})
+--
+-- /Note:/ Consider using 'ramSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdhRamSizeInGb :: Lens.Lens' RelationalDatabaseHardware (Lude.Maybe Lude.Double)
+rdhRamSizeInGb = Lens.lens (ramSizeInGb :: RelationalDatabaseHardware -> Lude.Maybe Lude.Double) (\s a -> s {ramSizeInGb = a} :: RelationalDatabaseHardware)
+{-# DEPRECATED rdhRamSizeInGb "Use generic-lens or generic-optics with 'ramSizeInGb' instead." #-}
 
-instance FromJSON RelationalDatabaseHardware where
+instance Lude.FromJSON RelationalDatabaseHardware where
   parseJSON =
-    withObject
+    Lude.withObject
       "RelationalDatabaseHardware"
       ( \x ->
           RelationalDatabaseHardware'
-            <$> (x .:? "cpuCount")
-            <*> (x .:? "diskSizeInGb")
-            <*> (x .:? "ramSizeInGb")
+            Lude.<$> (x Lude..:? "cpuCount")
+            Lude.<*> (x Lude..:? "diskSizeInGb")
+            Lude.<*> (x Lude..:? "ramSizeInGb")
       )
-
-instance Hashable RelationalDatabaseHardware
-
-instance NFData RelationalDatabaseHardware

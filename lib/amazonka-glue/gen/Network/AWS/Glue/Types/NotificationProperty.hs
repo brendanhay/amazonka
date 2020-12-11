@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.NotificationProperty where
+module Network.AWS.Glue.Types.NotificationProperty
+  ( NotificationProperty (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNotificationProperty,
+
+    -- * Lenses
+    npNotifyDelayAfter,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies configuration properties of a notification.
 --
---
---
--- /See:/ 'notificationProperty' smart constructor.
+-- /See:/ 'mkNotificationProperty' smart constructor.
 newtype NotificationProperty = NotificationProperty'
-  { _npNotifyDelayAfter ::
-      Maybe Nat
+  { notifyDelayAfter ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationProperty' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'npNotifyDelayAfter' - After a job run starts, the number of minutes to wait before sending a job run delay notification.
-notificationProperty ::
+-- * 'notifyDelayAfter' - After a job run starts, the number of minutes to wait before sending a job run delay notification.
+mkNotificationProperty ::
   NotificationProperty
-notificationProperty =
-  NotificationProperty' {_npNotifyDelayAfter = Nothing}
+mkNotificationProperty =
+  NotificationProperty' {notifyDelayAfter = Lude.Nothing}
 
 -- | After a job run starts, the number of minutes to wait before sending a job run delay notification.
-npNotifyDelayAfter :: Lens' NotificationProperty (Maybe Natural)
-npNotifyDelayAfter = lens _npNotifyDelayAfter (\s a -> s {_npNotifyDelayAfter = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'notifyDelayAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+npNotifyDelayAfter :: Lens.Lens' NotificationProperty (Lude.Maybe Lude.Natural)
+npNotifyDelayAfter = Lens.lens (notifyDelayAfter :: NotificationProperty -> Lude.Maybe Lude.Natural) (\s a -> s {notifyDelayAfter = a} :: NotificationProperty)
+{-# DEPRECATED npNotifyDelayAfter "Use generic-lens or generic-optics with 'notifyDelayAfter' instead." #-}
 
-instance FromJSON NotificationProperty where
+instance Lude.FromJSON NotificationProperty where
   parseJSON =
-    withObject
+    Lude.withObject
       "NotificationProperty"
-      (\x -> NotificationProperty' <$> (x .:? "NotifyDelayAfter"))
+      ( \x ->
+          NotificationProperty' Lude.<$> (x Lude..:? "NotifyDelayAfter")
+      )
 
-instance Hashable NotificationProperty
-
-instance NFData NotificationProperty
-
-instance ToJSON NotificationProperty where
+instance Lude.ToJSON NotificationProperty where
   toJSON NotificationProperty' {..} =
-    object
-      (catMaybes [("NotifyDelayAfter" .=) <$> _npNotifyDelayAfter])
+    Lude.object
+      ( Lude.catMaybes
+          [("NotifyDelayAfter" Lude..=) Lude.<$> notifyDelayAfter]
+      )

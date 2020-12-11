@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure where
+module Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure
+  ( RepositoryTriggerExecutionFailure (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRepositoryTriggerExecutionFailure,
+
+    -- * Lenses
+    rtefFailureMessage,
+    rtefTrigger,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A trigger failed to run.
 --
---
---
--- /See:/ 'repositoryTriggerExecutionFailure' smart constructor.
+-- /See:/ 'mkRepositoryTriggerExecutionFailure' smart constructor.
 data RepositoryTriggerExecutionFailure = RepositoryTriggerExecutionFailure'
-  { _rtefFailureMessage ::
-      !(Maybe Text),
-    _rtefTrigger ::
-      !(Maybe Text)
+  { failureMessage ::
+      Lude.Maybe Lude.Text,
+    trigger ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RepositoryTriggerExecutionFailure' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtefFailureMessage' - Message information about the trigger that did not run.
---
--- * 'rtefTrigger' - The name of the trigger that did not run.
-repositoryTriggerExecutionFailure ::
+-- * 'failureMessage' - Message information about the trigger that did not run.
+-- * 'trigger' - The name of the trigger that did not run.
+mkRepositoryTriggerExecutionFailure ::
   RepositoryTriggerExecutionFailure
-repositoryTriggerExecutionFailure =
+mkRepositoryTriggerExecutionFailure =
   RepositoryTriggerExecutionFailure'
-    { _rtefFailureMessage = Nothing,
-      _rtefTrigger = Nothing
+    { failureMessage = Lude.Nothing,
+      trigger = Lude.Nothing
     }
 
 -- | Message information about the trigger that did not run.
-rtefFailureMessage :: Lens' RepositoryTriggerExecutionFailure (Maybe Text)
-rtefFailureMessage = lens _rtefFailureMessage (\s a -> s {_rtefFailureMessage = a})
+--
+-- /Note:/ Consider using 'failureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtefFailureMessage :: Lens.Lens' RepositoryTriggerExecutionFailure (Lude.Maybe Lude.Text)
+rtefFailureMessage = Lens.lens (failureMessage :: RepositoryTriggerExecutionFailure -> Lude.Maybe Lude.Text) (\s a -> s {failureMessage = a} :: RepositoryTriggerExecutionFailure)
+{-# DEPRECATED rtefFailureMessage "Use generic-lens or generic-optics with 'failureMessage' instead." #-}
 
 -- | The name of the trigger that did not run.
-rtefTrigger :: Lens' RepositoryTriggerExecutionFailure (Maybe Text)
-rtefTrigger = lens _rtefTrigger (\s a -> s {_rtefTrigger = a})
+--
+-- /Note:/ Consider using 'trigger' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtefTrigger :: Lens.Lens' RepositoryTriggerExecutionFailure (Lude.Maybe Lude.Text)
+rtefTrigger = Lens.lens (trigger :: RepositoryTriggerExecutionFailure -> Lude.Maybe Lude.Text) (\s a -> s {trigger = a} :: RepositoryTriggerExecutionFailure)
+{-# DEPRECATED rtefTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
 
-instance FromJSON RepositoryTriggerExecutionFailure where
+instance Lude.FromJSON RepositoryTriggerExecutionFailure where
   parseJSON =
-    withObject
+    Lude.withObject
       "RepositoryTriggerExecutionFailure"
       ( \x ->
           RepositoryTriggerExecutionFailure'
-            <$> (x .:? "failureMessage") <*> (x .:? "trigger")
+            Lude.<$> (x Lude..:? "failureMessage") Lude.<*> (x Lude..:? "trigger")
       )
-
-instance Hashable RepositoryTriggerExecutionFailure
-
-instance NFData RepositoryTriggerExecutionFailure

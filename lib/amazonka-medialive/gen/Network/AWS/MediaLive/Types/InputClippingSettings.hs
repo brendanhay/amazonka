@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,78 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputClippingSettings where
+module Network.AWS.MediaLive.Types.InputClippingSettings
+  ( InputClippingSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkInputClippingSettings,
+
+    -- * Lenses
+    icsStopTimecode,
+    icsStartTimecode,
+    icsInputTimecodeSource,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputTimecodeSource
 import Network.AWS.MediaLive.Types.StartTimecode
 import Network.AWS.MediaLive.Types.StopTimecode
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
 --
--- /See:/ 'inputClippingSettings' smart constructor.
+-- /See:/ 'mkInputClippingSettings' smart constructor.
 data InputClippingSettings = InputClippingSettings'
-  { _icsStopTimecode ::
-      !(Maybe StopTimecode),
-    _icsStartTimecode :: !(Maybe StartTimecode),
-    _icsInputTimecodeSource :: !InputTimecodeSource
+  { stopTimecode ::
+      Lude.Maybe StopTimecode,
+    startTimecode :: Lude.Maybe StartTimecode,
+    inputTimecodeSource :: InputTimecodeSource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputClippingSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'icsStopTimecode' - Settings to identify the end of the clip.
---
--- * 'icsStartTimecode' - Settings to identify the start of the clip.
---
--- * 'icsInputTimecodeSource' - The source of the timecodes in the source being clipped.
-inputClippingSettings ::
-  -- | 'icsInputTimecodeSource'
+-- * 'inputTimecodeSource' - The source of the timecodes in the source being clipped.
+-- * 'startTimecode' - Settings to identify the start of the clip.
+-- * 'stopTimecode' - Settings to identify the end of the clip.
+mkInputClippingSettings ::
+  -- | 'inputTimecodeSource'
   InputTimecodeSource ->
   InputClippingSettings
-inputClippingSettings pInputTimecodeSource_ =
+mkInputClippingSettings pInputTimecodeSource_ =
   InputClippingSettings'
-    { _icsStopTimecode = Nothing,
-      _icsStartTimecode = Nothing,
-      _icsInputTimecodeSource = pInputTimecodeSource_
+    { stopTimecode = Lude.Nothing,
+      startTimecode = Lude.Nothing,
+      inputTimecodeSource = pInputTimecodeSource_
     }
 
 -- | Settings to identify the end of the clip.
-icsStopTimecode :: Lens' InputClippingSettings (Maybe StopTimecode)
-icsStopTimecode = lens _icsStopTimecode (\s a -> s {_icsStopTimecode = a})
+--
+-- /Note:/ Consider using 'stopTimecode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icsStopTimecode :: Lens.Lens' InputClippingSettings (Lude.Maybe StopTimecode)
+icsStopTimecode = Lens.lens (stopTimecode :: InputClippingSettings -> Lude.Maybe StopTimecode) (\s a -> s {stopTimecode = a} :: InputClippingSettings)
+{-# DEPRECATED icsStopTimecode "Use generic-lens or generic-optics with 'stopTimecode' instead." #-}
 
 -- | Settings to identify the start of the clip.
-icsStartTimecode :: Lens' InputClippingSettings (Maybe StartTimecode)
-icsStartTimecode = lens _icsStartTimecode (\s a -> s {_icsStartTimecode = a})
+--
+-- /Note:/ Consider using 'startTimecode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icsStartTimecode :: Lens.Lens' InputClippingSettings (Lude.Maybe StartTimecode)
+icsStartTimecode = Lens.lens (startTimecode :: InputClippingSettings -> Lude.Maybe StartTimecode) (\s a -> s {startTimecode = a} :: InputClippingSettings)
+{-# DEPRECATED icsStartTimecode "Use generic-lens or generic-optics with 'startTimecode' instead." #-}
 
 -- | The source of the timecodes in the source being clipped.
-icsInputTimecodeSource :: Lens' InputClippingSettings InputTimecodeSource
-icsInputTimecodeSource = lens _icsInputTimecodeSource (\s a -> s {_icsInputTimecodeSource = a})
+--
+-- /Note:/ Consider using 'inputTimecodeSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icsInputTimecodeSource :: Lens.Lens' InputClippingSettings InputTimecodeSource
+icsInputTimecodeSource = Lens.lens (inputTimecodeSource :: InputClippingSettings -> InputTimecodeSource) (\s a -> s {inputTimecodeSource = a} :: InputClippingSettings)
+{-# DEPRECATED icsInputTimecodeSource "Use generic-lens or generic-optics with 'inputTimecodeSource' instead." #-}
 
-instance FromJSON InputClippingSettings where
+instance Lude.FromJSON InputClippingSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputClippingSettings"
       ( \x ->
           InputClippingSettings'
-            <$> (x .:? "stopTimecode")
-            <*> (x .:? "startTimecode")
-            <*> (x .: "inputTimecodeSource")
+            Lude.<$> (x Lude..:? "stopTimecode")
+            Lude.<*> (x Lude..:? "startTimecode")
+            Lude.<*> (x Lude..: "inputTimecodeSource")
       )
 
-instance Hashable InputClippingSettings
-
-instance NFData InputClippingSettings
-
-instance ToJSON InputClippingSettings where
+instance Lude.ToJSON InputClippingSettings where
   toJSON InputClippingSettings' {..} =
-    object
-      ( catMaybes
-          [ ("stopTimecode" .=) <$> _icsStopTimecode,
-            ("startTimecode" .=) <$> _icsStartTimecode,
-            Just ("inputTimecodeSource" .= _icsInputTimecodeSource)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("stopTimecode" Lude..=) Lude.<$> stopTimecode,
+            ("startTimecode" Lude..=) Lude.<$> startTimecode,
+            Lude.Just ("inputTimecodeSource" Lude..= inputTimecodeSource)
           ]
       )

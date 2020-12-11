@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,113 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.Redirect where
+module Network.AWS.S3.Types.Redirect
+  ( Redirect (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRedirect,
+
+    -- * Lenses
+    rHostName,
+    rProtocol,
+    rHTTPRedirectCode,
+    rReplaceKeyWith,
+    rReplaceKeyPrefixWith,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Protocol
 
 -- | Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.
 --
---
---
--- /See:/ 'redirect' smart constructor.
+-- /See:/ 'mkRedirect' smart constructor.
 data Redirect = Redirect'
-  { _rHostName :: !(Maybe Text),
-    _rProtocol :: !(Maybe Protocol),
-    _rHTTPRedirectCode :: !(Maybe Text),
-    _rReplaceKeyWith :: !(Maybe Text),
-    _rReplaceKeyPrefixWith :: !(Maybe Text)
+  { hostName :: Lude.Maybe Lude.Text,
+    protocol :: Lude.Maybe Protocol,
+    hTTPRedirectCode :: Lude.Maybe Lude.Text,
+    replaceKeyWith :: Lude.Maybe Lude.Text,
+    replaceKeyPrefixWith :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Redirect' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rHostName' - The host name to use in the redirect request.
---
--- * 'rProtocol' - Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
---
--- * 'rHTTPRedirectCode' - The HTTP redirect code to use on the response. Not required if one of the siblings is present.
---
--- * 'rReplaceKeyWith' - The specific object key to use in the redirect request. For example, redirect request to @error.html@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
---
--- * 'rReplaceKeyPrefixWith' - The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix @docs/@ (objects in the @docs/@ folder) to @documents/@ , you can set a condition block with @KeyPrefixEquals@ set to @docs/@ and in the Redirect set @ReplaceKeyPrefixWith@ to @/documents@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyWith@ is not provided.
-redirect ::
+-- * 'hTTPRedirectCode' - The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+-- * 'hostName' - The host name to use in the redirect request.
+-- * 'protocol' - Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+-- * 'replaceKeyPrefixWith' - The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix @docs/@ (objects in the @docs/@ folder) to @documents/@ , you can set a condition block with @KeyPrefixEquals@ set to @docs/@ and in the Redirect set @ReplaceKeyPrefixWith@ to @/documents@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyWith@ is not provided.
+-- * 'replaceKeyWith' - The specific object key to use in the redirect request. For example, redirect request to @error.html@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
+mkRedirect ::
   Redirect
-redirect =
+mkRedirect =
   Redirect'
-    { _rHostName = Nothing,
-      _rProtocol = Nothing,
-      _rHTTPRedirectCode = Nothing,
-      _rReplaceKeyWith = Nothing,
-      _rReplaceKeyPrefixWith = Nothing
+    { hostName = Lude.Nothing,
+      protocol = Lude.Nothing,
+      hTTPRedirectCode = Lude.Nothing,
+      replaceKeyWith = Lude.Nothing,
+      replaceKeyPrefixWith = Lude.Nothing
     }
 
 -- | The host name to use in the redirect request.
-rHostName :: Lens' Redirect (Maybe Text)
-rHostName = lens _rHostName (\s a -> s {_rHostName = a})
+--
+-- /Note:/ Consider using 'hostName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rHostName :: Lens.Lens' Redirect (Lude.Maybe Lude.Text)
+rHostName = Lens.lens (hostName :: Redirect -> Lude.Maybe Lude.Text) (\s a -> s {hostName = a} :: Redirect)
+{-# DEPRECATED rHostName "Use generic-lens or generic-optics with 'hostName' instead." #-}
 
 -- | Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
-rProtocol :: Lens' Redirect (Maybe Protocol)
-rProtocol = lens _rProtocol (\s a -> s {_rProtocol = a})
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rProtocol :: Lens.Lens' Redirect (Lude.Maybe Protocol)
+rProtocol = Lens.lens (protocol :: Redirect -> Lude.Maybe Protocol) (\s a -> s {protocol = a} :: Redirect)
+{-# DEPRECATED rProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The HTTP redirect code to use on the response. Not required if one of the siblings is present.
-rHTTPRedirectCode :: Lens' Redirect (Maybe Text)
-rHTTPRedirectCode = lens _rHTTPRedirectCode (\s a -> s {_rHTTPRedirectCode = a})
+--
+-- /Note:/ Consider using 'hTTPRedirectCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rHTTPRedirectCode :: Lens.Lens' Redirect (Lude.Maybe Lude.Text)
+rHTTPRedirectCode = Lens.lens (hTTPRedirectCode :: Redirect -> Lude.Maybe Lude.Text) (\s a -> s {hTTPRedirectCode = a} :: Redirect)
+{-# DEPRECATED rHTTPRedirectCode "Use generic-lens or generic-optics with 'hTTPRedirectCode' instead." #-}
 
 -- | The specific object key to use in the redirect request. For example, redirect request to @error.html@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
-rReplaceKeyWith :: Lens' Redirect (Maybe Text)
-rReplaceKeyWith = lens _rReplaceKeyWith (\s a -> s {_rReplaceKeyWith = a})
+--
+-- /Note:/ Consider using 'replaceKeyWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rReplaceKeyWith :: Lens.Lens' Redirect (Lude.Maybe Lude.Text)
+rReplaceKeyWith = Lens.lens (replaceKeyWith :: Redirect -> Lude.Maybe Lude.Text) (\s a -> s {replaceKeyWith = a} :: Redirect)
+{-# DEPRECATED rReplaceKeyWith "Use generic-lens or generic-optics with 'replaceKeyWith' instead." #-}
 
 -- | The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix @docs/@ (objects in the @docs/@ folder) to @documents/@ , you can set a condition block with @KeyPrefixEquals@ set to @docs/@ and in the Redirect set @ReplaceKeyPrefixWith@ to @/documents@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyWith@ is not provided.
-rReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
-rReplaceKeyPrefixWith = lens _rReplaceKeyPrefixWith (\s a -> s {_rReplaceKeyPrefixWith = a})
+--
+-- /Note:/ Consider using 'replaceKeyPrefixWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rReplaceKeyPrefixWith :: Lens.Lens' Redirect (Lude.Maybe Lude.Text)
+rReplaceKeyPrefixWith = Lens.lens (replaceKeyPrefixWith :: Redirect -> Lude.Maybe Lude.Text) (\s a -> s {replaceKeyPrefixWith = a} :: Redirect)
+{-# DEPRECATED rReplaceKeyPrefixWith "Use generic-lens or generic-optics with 'replaceKeyPrefixWith' instead." #-}
 
-instance FromXML Redirect where
+instance Lude.FromXML Redirect where
   parseXML x =
     Redirect'
-      <$> (x .@? "HostName")
-      <*> (x .@? "Protocol")
-      <*> (x .@? "HttpRedirectCode")
-      <*> (x .@? "ReplaceKeyWith")
-      <*> (x .@? "ReplaceKeyPrefixWith")
+      Lude.<$> (x Lude..@? "HostName")
+      Lude.<*> (x Lude..@? "Protocol")
+      Lude.<*> (x Lude..@? "HttpRedirectCode")
+      Lude.<*> (x Lude..@? "ReplaceKeyWith")
+      Lude.<*> (x Lude..@? "ReplaceKeyPrefixWith")
 
-instance Hashable Redirect
-
-instance NFData Redirect
-
-instance ToXML Redirect where
+instance Lude.ToXML Redirect where
   toXML Redirect' {..} =
-    mconcat
-      [ "HostName" @= _rHostName,
-        "Protocol" @= _rProtocol,
-        "HttpRedirectCode" @= _rHTTPRedirectCode,
-        "ReplaceKeyWith" @= _rReplaceKeyWith,
-        "ReplaceKeyPrefixWith" @= _rReplaceKeyPrefixWith
+    Lude.mconcat
+      [ "HostName" Lude.@= hostName,
+        "Protocol" Lude.@= protocol,
+        "HttpRedirectCode" Lude.@= hTTPRedirectCode,
+        "ReplaceKeyWith" Lude.@= replaceKeyWith,
+        "ReplaceKeyPrefixWith" Lude.@= replaceKeyPrefixWith
       ]

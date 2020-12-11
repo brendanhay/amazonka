@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ReservationState where
+module Network.AWS.EC2.Types.ReservationState
+  ( ReservationState
+      ( ReservationState',
+        RSActive,
+        RSPaymentFailed,
+        RSPaymentPending,
+        RSRetired
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ReservationState
-  = RSActive
-  | RSPaymentFailed
-  | RSPaymentPending
-  | RSRetired
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ReservationState = ReservationState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ReservationState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure RSActive
-      "payment-failed" -> pure RSPaymentFailed
-      "payment-pending" -> pure RSPaymentPending
-      "retired" -> pure RSRetired
-      e ->
-        fromTextError $
-          "Failure parsing ReservationState from value: '" <> e
-            <> "'. Accepted values: active, payment-failed, payment-pending, retired"
+pattern RSActive :: ReservationState
+pattern RSActive = ReservationState' "active"
 
-instance ToText ReservationState where
-  toText = \case
-    RSActive -> "active"
-    RSPaymentFailed -> "payment-failed"
-    RSPaymentPending -> "payment-pending"
-    RSRetired -> "retired"
+pattern RSPaymentFailed :: ReservationState
+pattern RSPaymentFailed = ReservationState' "payment-failed"
 
-instance Hashable ReservationState
+pattern RSPaymentPending :: ReservationState
+pattern RSPaymentPending = ReservationState' "payment-pending"
 
-instance NFData ReservationState
+pattern RSRetired :: ReservationState
+pattern RSRetired = ReservationState' "retired"
 
-instance ToByteString ReservationState
-
-instance ToQuery ReservationState
-
-instance ToHeader ReservationState
-
-instance FromXML ReservationState where
-  parseXML = parseXMLText "ReservationState"
+{-# COMPLETE
+  RSActive,
+  RSPaymentFailed,
+  RSPaymentPending,
+  RSRetired,
+  ReservationState'
+  #-}

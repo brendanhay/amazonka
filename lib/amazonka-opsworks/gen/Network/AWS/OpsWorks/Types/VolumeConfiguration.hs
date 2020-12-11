@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,121 +7,182 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.VolumeConfiguration where
+module Network.AWS.OpsWorks.Types.VolumeConfiguration
+  ( VolumeConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVolumeConfiguration,
+
+    -- * Lenses
+    vcIOPS,
+    vcRAIDLevel,
+    vcEncrypted,
+    vcVolumeType,
+    vcMountPoint,
+    vcNumberOfDisks,
+    vcSize,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an Amazon EBS volume configuration.
 --
---
---
--- /See:/ 'volumeConfiguration' smart constructor.
+-- /See:/ 'mkVolumeConfiguration' smart constructor.
 data VolumeConfiguration = VolumeConfiguration'
-  { _vcIOPS ::
-      !(Maybe Int),
-    _vcRAIdLevel :: !(Maybe Int),
-    _vcEncrypted :: !(Maybe Bool),
-    _vcVolumeType :: !(Maybe Text),
-    _vcMountPoint :: !Text,
-    _vcNumberOfDisks :: !Int,
-    _vcSize :: !Int
+  { iops ::
+      Lude.Maybe Lude.Int,
+    raidLevel :: Lude.Maybe Lude.Int,
+    encrypted :: Lude.Maybe Lude.Bool,
+    volumeType :: Lude.Maybe Lude.Text,
+    mountPoint :: Lude.Text,
+    numberOfDisks :: Lude.Int,
+    size :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'encrypted' - Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
+-- * 'iops' - For PIOPS volumes, the IOPS per disk.
+-- * 'mountPoint' - The volume mount point. For example "/dev/sdh".
+-- * 'numberOfDisks' - The number of disks in the volume.
+-- * 'raidLevel' - The volume <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
+-- * 'size' - The volume size.
+-- * 'volumeType' - The volume type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
 --
--- * 'vcIOPS' - For PIOPS volumes, the IOPS per disk.
 --
--- * 'vcRAIdLevel' - The volume <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
+--     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.
 --
--- * 'vcEncrypted' - Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
 --
--- * 'vcVolumeType' - The volume type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
+--     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.
 --
--- * 'vcMountPoint' - The volume mount point. For example "/dev/sdh".
 --
--- * 'vcNumberOfDisks' - The number of disks in the volume.
+--     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.
 --
--- * 'vcSize' - The volume size.
-volumeConfiguration ::
-  -- | 'vcMountPoint'
-  Text ->
-  -- | 'vcNumberOfDisks'
-  Int ->
-  -- | 'vcSize'
-  Int ->
+--
+--     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
+--
+--
+--     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
+mkVolumeConfiguration ::
+  -- | 'mountPoint'
+  Lude.Text ->
+  -- | 'numberOfDisks'
+  Lude.Int ->
+  -- | 'size'
+  Lude.Int ->
   VolumeConfiguration
-volumeConfiguration pMountPoint_ pNumberOfDisks_ pSize_ =
+mkVolumeConfiguration pMountPoint_ pNumberOfDisks_ pSize_ =
   VolumeConfiguration'
-    { _vcIOPS = Nothing,
-      _vcRAIdLevel = Nothing,
-      _vcEncrypted = Nothing,
-      _vcVolumeType = Nothing,
-      _vcMountPoint = pMountPoint_,
-      _vcNumberOfDisks = pNumberOfDisks_,
-      _vcSize = pSize_
+    { iops = Lude.Nothing,
+      raidLevel = Lude.Nothing,
+      encrypted = Lude.Nothing,
+      volumeType = Lude.Nothing,
+      mountPoint = pMountPoint_,
+      numberOfDisks = pNumberOfDisks_,
+      size = pSize_
     }
 
 -- | For PIOPS volumes, the IOPS per disk.
-vcIOPS :: Lens' VolumeConfiguration (Maybe Int)
-vcIOPS = lens _vcIOPS (\s a -> s {_vcIOPS = a})
+--
+-- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcIOPS :: Lens.Lens' VolumeConfiguration (Lude.Maybe Lude.Int)
+vcIOPS = Lens.lens (iops :: VolumeConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: VolumeConfiguration)
+{-# DEPRECATED vcIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
 
 -- | The volume <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
-vcRAIdLevel :: Lens' VolumeConfiguration (Maybe Int)
-vcRAIdLevel = lens _vcRAIdLevel (\s a -> s {_vcRAIdLevel = a})
+--
+-- /Note:/ Consider using 'raidLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcRAIDLevel :: Lens.Lens' VolumeConfiguration (Lude.Maybe Lude.Int)
+vcRAIDLevel = Lens.lens (raidLevel :: VolumeConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {raidLevel = a} :: VolumeConfiguration)
+{-# DEPRECATED vcRAIDLevel "Use generic-lens or generic-optics with 'raidLevel' instead." #-}
 
 -- | Specifies whether an Amazon EBS volume is encrypted. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> .
-vcEncrypted :: Lens' VolumeConfiguration (Maybe Bool)
-vcEncrypted = lens _vcEncrypted (\s a -> s {_vcEncrypted = a})
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcEncrypted :: Lens.Lens' VolumeConfiguration (Lude.Maybe Lude.Bool)
+vcEncrypted = Lens.lens (encrypted :: VolumeConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: VolumeConfiguration)
+{-# DEPRECATED vcEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
--- | The volume type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
-vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
-vcVolumeType = lens _vcVolumeType (\s a -> s {_vcVolumeType = a})
+-- | The volume type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> .
+--
+--
+--     * @standard@ - Magnetic. Magnetic volumes must have a minimum size of 1 GiB and a maximum size of 1024 GiB.
+--
+--
+--     * @io1@ - Provisioned IOPS (SSD). PIOPS volumes must have a minimum size of 4 GiB and a maximum size of 16384 GiB.
+--
+--
+--     * @gp2@ - General Purpose (SSD). General purpose volumes must have a minimum size of 1 GiB and a maximum size of 16384 GiB.
+--
+--
+--     * @st1@ - Throughput Optimized hard disk drive (HDD). Throughput optimized HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
+--
+--
+--     * @sc1@ - Cold HDD. Cold HDD volumes must have a minimum size of 500 GiB and a maximum size of 16384 GiB.
+--
+--
+--
+-- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcVolumeType :: Lens.Lens' VolumeConfiguration (Lude.Maybe Lude.Text)
+vcVolumeType = Lens.lens (volumeType :: VolumeConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {volumeType = a} :: VolumeConfiguration)
+{-# DEPRECATED vcVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
 -- | The volume mount point. For example "/dev/sdh".
-vcMountPoint :: Lens' VolumeConfiguration Text
-vcMountPoint = lens _vcMountPoint (\s a -> s {_vcMountPoint = a})
+--
+-- /Note:/ Consider using 'mountPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcMountPoint :: Lens.Lens' VolumeConfiguration Lude.Text
+vcMountPoint = Lens.lens (mountPoint :: VolumeConfiguration -> Lude.Text) (\s a -> s {mountPoint = a} :: VolumeConfiguration)
+{-# DEPRECATED vcMountPoint "Use generic-lens or generic-optics with 'mountPoint' instead." #-}
 
 -- | The number of disks in the volume.
-vcNumberOfDisks :: Lens' VolumeConfiguration Int
-vcNumberOfDisks = lens _vcNumberOfDisks (\s a -> s {_vcNumberOfDisks = a})
+--
+-- /Note:/ Consider using 'numberOfDisks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcNumberOfDisks :: Lens.Lens' VolumeConfiguration Lude.Int
+vcNumberOfDisks = Lens.lens (numberOfDisks :: VolumeConfiguration -> Lude.Int) (\s a -> s {numberOfDisks = a} :: VolumeConfiguration)
+{-# DEPRECATED vcNumberOfDisks "Use generic-lens or generic-optics with 'numberOfDisks' instead." #-}
 
 -- | The volume size.
-vcSize :: Lens' VolumeConfiguration Int
-vcSize = lens _vcSize (\s a -> s {_vcSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcSize :: Lens.Lens' VolumeConfiguration Lude.Int
+vcSize = Lens.lens (size :: VolumeConfiguration -> Lude.Int) (\s a -> s {size = a} :: VolumeConfiguration)
+{-# DEPRECATED vcSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
-instance FromJSON VolumeConfiguration where
+instance Lude.FromJSON VolumeConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "VolumeConfiguration"
       ( \x ->
           VolumeConfiguration'
-            <$> (x .:? "Iops")
-            <*> (x .:? "RaidLevel")
-            <*> (x .:? "Encrypted")
-            <*> (x .:? "VolumeType")
-            <*> (x .: "MountPoint")
-            <*> (x .: "NumberOfDisks")
-            <*> (x .: "Size")
+            Lude.<$> (x Lude..:? "Iops")
+            Lude.<*> (x Lude..:? "RaidLevel")
+            Lude.<*> (x Lude..:? "Encrypted")
+            Lude.<*> (x Lude..:? "VolumeType")
+            Lude.<*> (x Lude..: "MountPoint")
+            Lude.<*> (x Lude..: "NumberOfDisks")
+            Lude.<*> (x Lude..: "Size")
       )
 
-instance Hashable VolumeConfiguration
-
-instance NFData VolumeConfiguration
-
-instance ToJSON VolumeConfiguration where
+instance Lude.ToJSON VolumeConfiguration where
   toJSON VolumeConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("Iops" .=) <$> _vcIOPS,
-            ("RaidLevel" .=) <$> _vcRAIdLevel,
-            ("Encrypted" .=) <$> _vcEncrypted,
-            ("VolumeType" .=) <$> _vcVolumeType,
-            Just ("MountPoint" .= _vcMountPoint),
-            Just ("NumberOfDisks" .= _vcNumberOfDisks),
-            Just ("Size" .= _vcSize)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Iops" Lude..=) Lude.<$> iops,
+            ("RaidLevel" Lude..=) Lude.<$> raidLevel,
+            ("Encrypted" Lude..=) Lude.<$> encrypted,
+            ("VolumeType" Lude..=) Lude.<$> volumeType,
+            Lude.Just ("MountPoint" Lude..= mountPoint),
+            Lude.Just ("NumberOfDisks" Lude..= numberOfDisks),
+            Lude.Just ("Size" Lude..= size)
           ]
       )

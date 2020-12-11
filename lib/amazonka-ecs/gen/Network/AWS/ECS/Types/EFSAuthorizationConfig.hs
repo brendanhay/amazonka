@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.EFSAuthorizationConfig where
+module Network.AWS.ECS.Types.EFSAuthorizationConfig
+  ( EFSAuthorizationConfig (..),
+
+    -- * Smart constructor
+    mkEFSAuthorizationConfig,
+
+    -- * Lenses
+    efsacAccessPointId,
+    efsacIam,
+  )
+where
 
 import Network.AWS.ECS.Types.EFSAuthorizationConfigIAM
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The authorization configuration details for the Amazon EFS file system.
 --
---
---
--- /See:/ 'eFSAuthorizationConfig' smart constructor.
+-- /See:/ 'mkEFSAuthorizationConfig' smart constructor.
 data EFSAuthorizationConfig = EFSAuthorizationConfig'
-  { _efsacAccessPointId ::
-      !(Maybe Text),
-    _efsacIam ::
-      !(Maybe EFSAuthorizationConfigIAM)
+  { accessPointId ::
+      Lude.Maybe Lude.Text,
+    iam :: Lude.Maybe EFSAuthorizationConfigIAM
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EFSAuthorizationConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'efsacAccessPointId' - The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the @EFSVolumeConfiguration@ must either be omitted or set to @/@ which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the @EFSVolumeConfiguration@ . For more information, see <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points> in the /Amazon Elastic File System User Guide/ .
---
--- * 'efsacIam' - Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the @EFSVolumeConfiguration@ . If this parameter is omitted, the default value of @DISABLED@ is used. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points> in the /Amazon Elastic Container Service Developer Guide/ .
-eFSAuthorizationConfig ::
+-- * 'accessPointId' - The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the @EFSVolumeConfiguration@ must either be omitted or set to @/@ which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the @EFSVolumeConfiguration@ . For more information, see <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points> in the /Amazon Elastic File System User Guide/ .
+-- * 'iam' - Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the @EFSVolumeConfiguration@ . If this parameter is omitted, the default value of @DISABLED@ is used. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points> in the /Amazon Elastic Container Service Developer Guide/ .
+mkEFSAuthorizationConfig ::
   EFSAuthorizationConfig
-eFSAuthorizationConfig =
+mkEFSAuthorizationConfig =
   EFSAuthorizationConfig'
-    { _efsacAccessPointId = Nothing,
-      _efsacIam = Nothing
+    { accessPointId = Lude.Nothing,
+      iam = Lude.Nothing
     }
 
 -- | The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the @EFSVolumeConfiguration@ must either be omitted or set to @/@ which will enforce the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the @EFSVolumeConfiguration@ . For more information, see <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points> in the /Amazon Elastic File System User Guide/ .
-efsacAccessPointId :: Lens' EFSAuthorizationConfig (Maybe Text)
-efsacAccessPointId = lens _efsacAccessPointId (\s a -> s {_efsacAccessPointId = a})
+--
+-- /Note:/ Consider using 'accessPointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsacAccessPointId :: Lens.Lens' EFSAuthorizationConfig (Lude.Maybe Lude.Text)
+efsacAccessPointId = Lens.lens (accessPointId :: EFSAuthorizationConfig -> Lude.Maybe Lude.Text) (\s a -> s {accessPointId = a} :: EFSAuthorizationConfig)
+{-# DEPRECATED efsacAccessPointId "Use generic-lens or generic-optics with 'accessPointId' instead." #-}
 
 -- | Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the @EFSVolumeConfiguration@ . If this parameter is omitted, the default value of @DISABLED@ is used. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points> in the /Amazon Elastic Container Service Developer Guide/ .
-efsacIam :: Lens' EFSAuthorizationConfig (Maybe EFSAuthorizationConfigIAM)
-efsacIam = lens _efsacIam (\s a -> s {_efsacIam = a})
+--
+-- /Note:/ Consider using 'iam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsacIam :: Lens.Lens' EFSAuthorizationConfig (Lude.Maybe EFSAuthorizationConfigIAM)
+efsacIam = Lens.lens (iam :: EFSAuthorizationConfig -> Lude.Maybe EFSAuthorizationConfigIAM) (\s a -> s {iam = a} :: EFSAuthorizationConfig)
+{-# DEPRECATED efsacIam "Use generic-lens or generic-optics with 'iam' instead." #-}
 
-instance FromJSON EFSAuthorizationConfig where
+instance Lude.FromJSON EFSAuthorizationConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "EFSAuthorizationConfig"
       ( \x ->
           EFSAuthorizationConfig'
-            <$> (x .:? "accessPointId") <*> (x .:? "iam")
+            Lude.<$> (x Lude..:? "accessPointId") Lude.<*> (x Lude..:? "iam")
       )
 
-instance Hashable EFSAuthorizationConfig
-
-instance NFData EFSAuthorizationConfig
-
-instance ToJSON EFSAuthorizationConfig where
+instance Lude.ToJSON EFSAuthorizationConfig where
   toJSON EFSAuthorizationConfig' {..} =
-    object
-      ( catMaybes
-          [ ("accessPointId" .=) <$> _efsacAccessPointId,
-            ("iam" .=) <$> _efsacIam
+    Lude.object
+      ( Lude.catMaybes
+          [ ("accessPointId" Lude..=) Lude.<$> accessPointId,
+            ("iam" Lude..=) Lude.<$> iam
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,86 +7,109 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.BusinessReport where
+module Network.AWS.AlexaBusiness.Types.BusinessReport
+  ( BusinessReport (..),
+
+    -- * Smart constructor
+    mkBusinessReport,
+
+    -- * Lenses
+    brStatus,
+    brFailureCode,
+    brDeliveryTime,
+    brDownloadURL,
+    brS3Location,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode
 import Network.AWS.AlexaBusiness.Types.BusinessReportS3Location
 import Network.AWS.AlexaBusiness.Types.BusinessReportStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Usage report with specified parameters.
 --
---
---
--- /See:/ 'businessReport' smart constructor.
+-- /See:/ 'mkBusinessReport' smart constructor.
 data BusinessReport = BusinessReport'
-  { _brStatus ::
-      !(Maybe BusinessReportStatus),
-    _brFailureCode :: !(Maybe BusinessReportFailureCode),
-    _brDeliveryTime :: !(Maybe POSIX),
-    _brDownloadURL :: !(Maybe Text),
-    _brS3Location :: !(Maybe BusinessReportS3Location)
+  { status ::
+      Lude.Maybe BusinessReportStatus,
+    failureCode :: Lude.Maybe BusinessReportFailureCode,
+    deliveryTime :: Lude.Maybe Lude.Timestamp,
+    downloadURL :: Lude.Maybe Lude.Text,
+    s3Location :: Lude.Maybe BusinessReportS3Location
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BusinessReport' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'brStatus' - The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).
---
--- * 'brFailureCode' - The failure code.
---
--- * 'brDeliveryTime' - The time of report delivery.
---
--- * 'brDownloadURL' - The download link where a user can download the report.
---
--- * 'brS3Location' - The S3 location of the output reports.
-businessReport ::
+-- * 'deliveryTime' - The time of report delivery.
+-- * 'downloadURL' - The download link where a user can download the report.
+-- * 'failureCode' - The failure code.
+-- * 's3Location' - The S3 location of the output reports.
+-- * 'status' - The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).
+mkBusinessReport ::
   BusinessReport
-businessReport =
+mkBusinessReport =
   BusinessReport'
-    { _brStatus = Nothing,
-      _brFailureCode = Nothing,
-      _brDeliveryTime = Nothing,
-      _brDownloadURL = Nothing,
-      _brS3Location = Nothing
+    { status = Lude.Nothing,
+      failureCode = Lude.Nothing,
+      deliveryTime = Lude.Nothing,
+      downloadURL = Lude.Nothing,
+      s3Location = Lude.Nothing
     }
 
 -- | The status of the report generation execution (RUNNING, SUCCEEDED, or FAILED).
-brStatus :: Lens' BusinessReport (Maybe BusinessReportStatus)
-brStatus = lens _brStatus (\s a -> s {_brStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brStatus :: Lens.Lens' BusinessReport (Lude.Maybe BusinessReportStatus)
+brStatus = Lens.lens (status :: BusinessReport -> Lude.Maybe BusinessReportStatus) (\s a -> s {status = a} :: BusinessReport)
+{-# DEPRECATED brStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The failure code.
-brFailureCode :: Lens' BusinessReport (Maybe BusinessReportFailureCode)
-brFailureCode = lens _brFailureCode (\s a -> s {_brFailureCode = a})
+--
+-- /Note:/ Consider using 'failureCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brFailureCode :: Lens.Lens' BusinessReport (Lude.Maybe BusinessReportFailureCode)
+brFailureCode = Lens.lens (failureCode :: BusinessReport -> Lude.Maybe BusinessReportFailureCode) (\s a -> s {failureCode = a} :: BusinessReport)
+{-# DEPRECATED brFailureCode "Use generic-lens or generic-optics with 'failureCode' instead." #-}
 
 -- | The time of report delivery.
-brDeliveryTime :: Lens' BusinessReport (Maybe UTCTime)
-brDeliveryTime = lens _brDeliveryTime (\s a -> s {_brDeliveryTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'deliveryTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brDeliveryTime :: Lens.Lens' BusinessReport (Lude.Maybe Lude.Timestamp)
+brDeliveryTime = Lens.lens (deliveryTime :: BusinessReport -> Lude.Maybe Lude.Timestamp) (\s a -> s {deliveryTime = a} :: BusinessReport)
+{-# DEPRECATED brDeliveryTime "Use generic-lens or generic-optics with 'deliveryTime' instead." #-}
 
 -- | The download link where a user can download the report.
-brDownloadURL :: Lens' BusinessReport (Maybe Text)
-brDownloadURL = lens _brDownloadURL (\s a -> s {_brDownloadURL = a})
+--
+-- /Note:/ Consider using 'downloadURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brDownloadURL :: Lens.Lens' BusinessReport (Lude.Maybe Lude.Text)
+brDownloadURL = Lens.lens (downloadURL :: BusinessReport -> Lude.Maybe Lude.Text) (\s a -> s {downloadURL = a} :: BusinessReport)
+{-# DEPRECATED brDownloadURL "Use generic-lens or generic-optics with 'downloadURL' instead." #-}
 
 -- | The S3 location of the output reports.
-brS3Location :: Lens' BusinessReport (Maybe BusinessReportS3Location)
-brS3Location = lens _brS3Location (\s a -> s {_brS3Location = a})
+--
+-- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brS3Location :: Lens.Lens' BusinessReport (Lude.Maybe BusinessReportS3Location)
+brS3Location = Lens.lens (s3Location :: BusinessReport -> Lude.Maybe BusinessReportS3Location) (\s a -> s {s3Location = a} :: BusinessReport)
+{-# DEPRECATED brS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
-instance FromJSON BusinessReport where
+instance Lude.FromJSON BusinessReport where
   parseJSON =
-    withObject
+    Lude.withObject
       "BusinessReport"
       ( \x ->
           BusinessReport'
-            <$> (x .:? "Status")
-            <*> (x .:? "FailureCode")
-            <*> (x .:? "DeliveryTime")
-            <*> (x .:? "DownloadUrl")
-            <*> (x .:? "S3Location")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "FailureCode")
+            Lude.<*> (x Lude..:? "DeliveryTime")
+            Lude.<*> (x Lude..:? "DownloadUrl")
+            Lude.<*> (x Lude..:? "S3Location")
       )
-
-instance Hashable BusinessReport
-
-instance NFData BusinessReport

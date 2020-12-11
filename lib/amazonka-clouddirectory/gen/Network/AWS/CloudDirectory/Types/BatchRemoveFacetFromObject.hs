@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,75 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject where
+module Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject
+  ( BatchRemoveFacetFromObject (..),
+
+    -- * Smart constructor
+    mkBatchRemoveFacetFromObject,
+
+    -- * Lenses
+    brffoSchemaFacet,
+    brffoObjectReference,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.SchemaFacet
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A batch operation to remove a facet from an object.
 --
---
---
--- /See:/ 'batchRemoveFacetFromObject' smart constructor.
+-- /See:/ 'mkBatchRemoveFacetFromObject' smart constructor.
 data BatchRemoveFacetFromObject = BatchRemoveFacetFromObject'
-  { _brffoSchemaFacet ::
-      !SchemaFacet,
-    _brffoObjectReference ::
-      !ObjectReference
+  { schemaFacet ::
+      SchemaFacet,
+    objectReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchRemoveFacetFromObject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'brffoSchemaFacet' - The facet to remove from the object.
---
--- * 'brffoObjectReference' - A reference to the object whose facet will be removed.
-batchRemoveFacetFromObject ::
-  -- | 'brffoSchemaFacet'
+-- * 'objectReference' - A reference to the object whose facet will be removed.
+-- * 'schemaFacet' - The facet to remove from the object.
+mkBatchRemoveFacetFromObject ::
+  -- | 'schemaFacet'
   SchemaFacet ->
-  -- | 'brffoObjectReference'
+  -- | 'objectReference'
   ObjectReference ->
   BatchRemoveFacetFromObject
-batchRemoveFacetFromObject pSchemaFacet_ pObjectReference_ =
+mkBatchRemoveFacetFromObject pSchemaFacet_ pObjectReference_ =
   BatchRemoveFacetFromObject'
-    { _brffoSchemaFacet = pSchemaFacet_,
-      _brffoObjectReference = pObjectReference_
+    { schemaFacet = pSchemaFacet_,
+      objectReference = pObjectReference_
     }
 
 -- | The facet to remove from the object.
-brffoSchemaFacet :: Lens' BatchRemoveFacetFromObject SchemaFacet
-brffoSchemaFacet = lens _brffoSchemaFacet (\s a -> s {_brffoSchemaFacet = a})
+--
+-- /Note:/ Consider using 'schemaFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brffoSchemaFacet :: Lens.Lens' BatchRemoveFacetFromObject SchemaFacet
+brffoSchemaFacet = Lens.lens (schemaFacet :: BatchRemoveFacetFromObject -> SchemaFacet) (\s a -> s {schemaFacet = a} :: BatchRemoveFacetFromObject)
+{-# DEPRECATED brffoSchemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead." #-}
 
 -- | A reference to the object whose facet will be removed.
-brffoObjectReference :: Lens' BatchRemoveFacetFromObject ObjectReference
-brffoObjectReference = lens _brffoObjectReference (\s a -> s {_brffoObjectReference = a})
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brffoObjectReference :: Lens.Lens' BatchRemoveFacetFromObject ObjectReference
+brffoObjectReference = Lens.lens (objectReference :: BatchRemoveFacetFromObject -> ObjectReference) (\s a -> s {objectReference = a} :: BatchRemoveFacetFromObject)
+{-# DEPRECATED brffoObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Hashable BatchRemoveFacetFromObject
-
-instance NFData BatchRemoveFacetFromObject
-
-instance ToJSON BatchRemoveFacetFromObject where
+instance Lude.ToJSON BatchRemoveFacetFromObject where
   toJSON BatchRemoveFacetFromObject' {..} =
-    object
-      ( catMaybes
-          [ Just ("SchemaFacet" .= _brffoSchemaFacet),
-            Just ("ObjectReference" .= _brffoObjectReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("SchemaFacet" Lude..= schemaFacet),
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )

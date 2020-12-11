@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Describes an existing model defined for a 'RestApi' resource.
 module Network.AWS.APIGateway.GetModel
-  ( -- * Creating a Request
-    getModel,
-    GetModel,
+  ( -- * Creating a request
+    GetModel (..),
+    mkGetModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggFlatten,
     ggRestAPIId,
     ggModelName,
 
-    -- * Destructuring the Response
-    model,
-    Model,
+    -- * Destructuring the response
+    Model (..),
+    mkModel,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mSchema,
     mName,
     mId,
@@ -42,74 +37,87 @@ module Network.AWS.APIGateway.GetModel
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to list information about a model in an existing 'RestApi' resource.
 --
---
---
--- /See:/ 'getModel' smart constructor.
+-- /See:/ 'mkGetModel' smart constructor.
 data GetModel = GetModel'
-  { _ggFlatten :: !(Maybe Bool),
-    _ggRestAPIId :: !Text,
-    _ggModelName :: !Text
+  { flatten :: Lude.Maybe Lude.Bool,
+    restAPIId :: Lude.Text,
+    modelName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggFlatten' - A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
---
--- * 'ggRestAPIId' - [Required] The 'RestApi' identifier under which the 'Model' exists.
---
--- * 'ggModelName' - [Required] The name of the model as an identifier.
-getModel ::
-  -- | 'ggRestAPIId'
-  Text ->
-  -- | 'ggModelName'
-  Text ->
+-- * 'flatten' - A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
+-- * 'modelName' - [Required] The name of the model as an identifier.
+-- * 'restAPIId' - [Required] The 'RestApi' identifier under which the 'Model' exists.
+mkGetModel ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'modelName'
+  Lude.Text ->
   GetModel
-getModel pRestAPIId_ pModelName_ =
+mkGetModel pRestAPIId_ pModelName_ =
   GetModel'
-    { _ggFlatten = Nothing,
-      _ggRestAPIId = pRestAPIId_,
-      _ggModelName = pModelName_
+    { flatten = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      modelName = pModelName_
     }
 
 -- | A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
-ggFlatten :: Lens' GetModel (Maybe Bool)
-ggFlatten = lens _ggFlatten (\s a -> s {_ggFlatten = a})
+--
+-- /Note:/ Consider using 'flatten' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggFlatten :: Lens.Lens' GetModel (Lude.Maybe Lude.Bool)
+ggFlatten = Lens.lens (flatten :: GetModel -> Lude.Maybe Lude.Bool) (\s a -> s {flatten = a} :: GetModel)
+{-# DEPRECATED ggFlatten "Use generic-lens or generic-optics with 'flatten' instead." #-}
 
 -- | [Required] The 'RestApi' identifier under which the 'Model' exists.
-ggRestAPIId :: Lens' GetModel Text
-ggRestAPIId = lens _ggRestAPIId (\s a -> s {_ggRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggRestAPIId :: Lens.Lens' GetModel Lude.Text
+ggRestAPIId = Lens.lens (restAPIId :: GetModel -> Lude.Text) (\s a -> s {restAPIId = a} :: GetModel)
+{-# DEPRECATED ggRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the model as an identifier.
-ggModelName :: Lens' GetModel Text
-ggModelName = lens _ggModelName (\s a -> s {_ggModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggModelName :: Lens.Lens' GetModel Lude.Text
+ggModelName = Lens.lens (modelName :: GetModel -> Lude.Text) (\s a -> s {modelName = a} :: GetModel)
+{-# DEPRECATED ggModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
-instance AWSRequest GetModel where
+instance Lude.AWSRequest GetModel where
   type Rs GetModel = Model
-  request = get apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetModel
-
-instance NFData GetModel
-
-instance ToHeaders GetModel where
+instance Lude.ToHeaders GetModel where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetModel where
+instance Lude.ToPath GetModel where
   toPath GetModel' {..} =
-    mconcat
-      ["/restapis/", toBS _ggRestAPIId, "/models/", toBS _ggModelName]
+    Lude.mconcat
+      [ "/restapis/",
+        Lude.toBS restAPIId,
+        "/models/",
+        Lude.toBS modelName
+      ]
 
-instance ToQuery GetModel where
-  toQuery GetModel' {..} = mconcat ["flatten" =: _ggFlatten]
+instance Lude.ToQuery GetModel where
+  toQuery GetModel' {..} = Lude.mconcat ["flatten" Lude.=: flatten]

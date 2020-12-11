@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,145 @@
 --
 -- Returns the identity attribute order for a specific 'TypedLinkFacet' . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
 module Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
-  ( -- * Creating a Request
-    getTypedLinkFacetInformation,
-    GetTypedLinkFacetInformation,
+  ( -- * Creating a request
+    GetTypedLinkFacetInformation (..),
+    mkGetTypedLinkFacetInformation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtlfiSchemaARN,
     gtlfiName,
 
-    -- * Destructuring the Response
-    getTypedLinkFacetInformationResponse,
-    GetTypedLinkFacetInformationResponse,
+    -- * Destructuring the response
+    GetTypedLinkFacetInformationResponse (..),
+    mkGetTypedLinkFacetInformationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtlfirsIdentityAttributeOrder,
     gtlfirsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getTypedLinkFacetInformation' smart constructor.
+-- | /See:/ 'mkGetTypedLinkFacetInformation' smart constructor.
 data GetTypedLinkFacetInformation = GetTypedLinkFacetInformation'
-  { _gtlfiSchemaARN ::
-      !Text,
-    _gtlfiName :: !Text
+  { schemaARN ::
+      Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTypedLinkFacetInformation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtlfiSchemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
---
--- * 'gtlfiName' - The unique name of the typed link facet.
-getTypedLinkFacetInformation ::
-  -- | 'gtlfiSchemaARN'
-  Text ->
-  -- | 'gtlfiName'
-  Text ->
+-- * 'name' - The unique name of the typed link facet.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+mkGetTypedLinkFacetInformation ::
+  -- | 'schemaARN'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   GetTypedLinkFacetInformation
-getTypedLinkFacetInformation pSchemaARN_ pName_ =
+mkGetTypedLinkFacetInformation pSchemaARN_ pName_ =
   GetTypedLinkFacetInformation'
-    { _gtlfiSchemaARN = pSchemaARN_,
-      _gtlfiName = pName_
+    { schemaARN = pSchemaARN_,
+      name = pName_
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-gtlfiSchemaARN :: Lens' GetTypedLinkFacetInformation Text
-gtlfiSchemaARN = lens _gtlfiSchemaARN (\s a -> s {_gtlfiSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtlfiSchemaARN :: Lens.Lens' GetTypedLinkFacetInformation Lude.Text
+gtlfiSchemaARN = Lens.lens (schemaARN :: GetTypedLinkFacetInformation -> Lude.Text) (\s a -> s {schemaARN = a} :: GetTypedLinkFacetInformation)
+{-# DEPRECATED gtlfiSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The unique name of the typed link facet.
-gtlfiName :: Lens' GetTypedLinkFacetInformation Text
-gtlfiName = lens _gtlfiName (\s a -> s {_gtlfiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtlfiName :: Lens.Lens' GetTypedLinkFacetInformation Lude.Text
+gtlfiName = Lens.lens (name :: GetTypedLinkFacetInformation -> Lude.Text) (\s a -> s {name = a} :: GetTypedLinkFacetInformation)
+{-# DEPRECATED gtlfiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetTypedLinkFacetInformation where
+instance Lude.AWSRequest GetTypedLinkFacetInformation where
   type
     Rs GetTypedLinkFacetInformation =
       GetTypedLinkFacetInformationResponse
-  request = postJSON cloudDirectory
+  request = Req.postJSON cloudDirectoryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetTypedLinkFacetInformationResponse'
-            <$> (x .?> "IdentityAttributeOrder" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "IdentityAttributeOrder" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTypedLinkFacetInformation
-
-instance NFData GetTypedLinkFacetInformation
-
-instance ToHeaders GetTypedLinkFacetInformation where
+instance Lude.ToHeaders GetTypedLinkFacetInformation where
   toHeaders GetTypedLinkFacetInformation' {..} =
-    mconcat ["x-amz-data-partition" =# _gtlfiSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON GetTypedLinkFacetInformation where
+instance Lude.ToJSON GetTypedLinkFacetInformation where
   toJSON GetTypedLinkFacetInformation' {..} =
-    object (catMaybes [Just ("Name" .= _gtlfiName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath GetTypedLinkFacetInformation where
+instance Lude.ToPath GetTypedLinkFacetInformation where
   toPath =
-    const "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
+    Lude.const "/amazonclouddirectory/2017-01-11/typedlink/facet/get"
 
-instance ToQuery GetTypedLinkFacetInformation where
-  toQuery = const mempty
+instance Lude.ToQuery GetTypedLinkFacetInformation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getTypedLinkFacetInformationResponse' smart constructor.
+-- | /See:/ 'mkGetTypedLinkFacetInformationResponse' smart constructor.
 data GetTypedLinkFacetInformationResponse = GetTypedLinkFacetInformationResponse'
-  { _gtlfirsIdentityAttributeOrder ::
-      !(Maybe [Text]),
-    _gtlfirsResponseStatus ::
-      !Int
+  { identityAttributeOrder ::
+      Lude.Maybe
+        [Lude.Text],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTypedLinkFacetInformationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtlfirsIdentityAttributeOrder' - The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
---
--- * 'gtlfirsResponseStatus' - -- | The response status code.
-getTypedLinkFacetInformationResponse ::
-  -- | 'gtlfirsResponseStatus'
-  Int ->
+-- * 'identityAttributeOrder' - The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'responseStatus' - The response status code.
+mkGetTypedLinkFacetInformationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTypedLinkFacetInformationResponse
-getTypedLinkFacetInformationResponse pResponseStatus_ =
+mkGetTypedLinkFacetInformationResponse pResponseStatus_ =
   GetTypedLinkFacetInformationResponse'
-    { _gtlfirsIdentityAttributeOrder =
-        Nothing,
-      _gtlfirsResponseStatus = pResponseStatus_
+    { identityAttributeOrder =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
-gtlfirsIdentityAttributeOrder :: Lens' GetTypedLinkFacetInformationResponse [Text]
-gtlfirsIdentityAttributeOrder = lens _gtlfirsIdentityAttributeOrder (\s a -> s {_gtlfirsIdentityAttributeOrder = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'identityAttributeOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtlfirsIdentityAttributeOrder :: Lens.Lens' GetTypedLinkFacetInformationResponse (Lude.Maybe [Lude.Text])
+gtlfirsIdentityAttributeOrder = Lens.lens (identityAttributeOrder :: GetTypedLinkFacetInformationResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {identityAttributeOrder = a} :: GetTypedLinkFacetInformationResponse)
+{-# DEPRECATED gtlfirsIdentityAttributeOrder "Use generic-lens or generic-optics with 'identityAttributeOrder' instead." #-}
 
--- | -- | The response status code.
-gtlfirsResponseStatus :: Lens' GetTypedLinkFacetInformationResponse Int
-gtlfirsResponseStatus = lens _gtlfirsResponseStatus (\s a -> s {_gtlfirsResponseStatus = a})
-
-instance NFData GetTypedLinkFacetInformationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtlfirsResponseStatus :: Lens.Lens' GetTypedLinkFacetInformationResponse Lude.Int
+gtlfirsResponseStatus = Lens.lens (responseStatus :: GetTypedLinkFacetInformationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTypedLinkFacetInformationResponse)
+{-# DEPRECATED gtlfirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

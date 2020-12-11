@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.Serializer where
+module Network.AWS.Firehose.Types.Serializer
+  ( Serializer (..),
+
+    -- * Smart constructor
+    mkSerializer,
+
+    -- * Lenses
+    sOrcSerDe,
+    sParquetSerDe,
+  )
+where
 
 import Network.AWS.Firehose.Types.OrcSerDe
 import Network.AWS.Firehose.Types.ParquetSerDe
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The serializer that you want Kinesis Data Firehose to use to convert data to the target format before writing it to Amazon S3. Kinesis Data Firehose supports two types of serializers: the <https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html ORC SerDe> and the <https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html Parquet SerDe> .
 --
---
---
--- /See:/ 'serializer' smart constructor.
+-- /See:/ 'mkSerializer' smart constructor.
 data Serializer = Serializer'
-  { _sOrcSerDe :: !(Maybe OrcSerDe),
-    _sParquetSerDe :: !(Maybe ParquetSerDe)
+  { orcSerDe :: Lude.Maybe OrcSerDe,
+    parquetSerDe :: Lude.Maybe ParquetSerDe
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Serializer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sOrcSerDe' - A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <https://orc.apache.org/docs/ Apache ORC> .
---
--- * 'sParquetSerDe' - A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <https://parquet.apache.org/documentation/latest/ Apache Parquet> .
-serializer ::
+-- * 'orcSerDe' - A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <https://orc.apache.org/docs/ Apache ORC> .
+-- * 'parquetSerDe' - A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <https://parquet.apache.org/documentation/latest/ Apache Parquet> .
+mkSerializer ::
   Serializer
-serializer =
-  Serializer' {_sOrcSerDe = Nothing, _sParquetSerDe = Nothing}
+mkSerializer =
+  Serializer' {orcSerDe = Lude.Nothing, parquetSerDe = Lude.Nothing}
 
 -- | A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <https://orc.apache.org/docs/ Apache ORC> .
-sOrcSerDe :: Lens' Serializer (Maybe OrcSerDe)
-sOrcSerDe = lens _sOrcSerDe (\s a -> s {_sOrcSerDe = a})
+--
+-- /Note:/ Consider using 'orcSerDe' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOrcSerDe :: Lens.Lens' Serializer (Lude.Maybe OrcSerDe)
+sOrcSerDe = Lens.lens (orcSerDe :: Serializer -> Lude.Maybe OrcSerDe) (\s a -> s {orcSerDe = a} :: Serializer)
+{-# DEPRECATED sOrcSerDe "Use generic-lens or generic-optics with 'orcSerDe' instead." #-}
 
 -- | A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <https://parquet.apache.org/documentation/latest/ Apache Parquet> .
-sParquetSerDe :: Lens' Serializer (Maybe ParquetSerDe)
-sParquetSerDe = lens _sParquetSerDe (\s a -> s {_sParquetSerDe = a})
+--
+-- /Note:/ Consider using 'parquetSerDe' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sParquetSerDe :: Lens.Lens' Serializer (Lude.Maybe ParquetSerDe)
+sParquetSerDe = Lens.lens (parquetSerDe :: Serializer -> Lude.Maybe ParquetSerDe) (\s a -> s {parquetSerDe = a} :: Serializer)
+{-# DEPRECATED sParquetSerDe "Use generic-lens or generic-optics with 'parquetSerDe' instead." #-}
 
-instance FromJSON Serializer where
+instance Lude.FromJSON Serializer where
   parseJSON =
-    withObject
+    Lude.withObject
       "Serializer"
       ( \x ->
-          Serializer' <$> (x .:? "OrcSerDe") <*> (x .:? "ParquetSerDe")
+          Serializer'
+            Lude.<$> (x Lude..:? "OrcSerDe") Lude.<*> (x Lude..:? "ParquetSerDe")
       )
 
-instance Hashable Serializer
-
-instance NFData Serializer
-
-instance ToJSON Serializer where
+instance Lude.ToJSON Serializer where
   toJSON Serializer' {..} =
-    object
-      ( catMaybes
-          [ ("OrcSerDe" .=) <$> _sOrcSerDe,
-            ("ParquetSerDe" .=) <$> _sParquetSerDe
+    Lude.object
+      ( Lude.catMaybes
+          [ ("OrcSerDe" Lude..=) Lude.<$> orcSerDe,
+            ("ParquetSerDe" Lude..=) Lude.<$> parquetSerDe
           ]
       )

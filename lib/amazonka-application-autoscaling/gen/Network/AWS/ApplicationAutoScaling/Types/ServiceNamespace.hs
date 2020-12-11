@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace where
+module Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
+  ( ServiceNamespace
+      ( ServiceNamespace',
+        Appstream,
+        Cassandra,
+        Comprehend,
+        CustomResource,
+        Dynamodb,
+        EC2,
+        Ecs,
+        Elasticmapreduce,
+        Kafka,
+        Lambda,
+        RDS,
+        Sagemaker
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServiceNamespace
-  = Appstream
-  | Cassandra
-  | Comprehend
-  | CustomResource
-  | Dynamodb
-  | EC2
-  | Ecs
-  | Elasticmapreduce
-  | Kafka
-  | Lambda
-  | RDS
-  | Sagemaker
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServiceNamespace = ServiceNamespace' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServiceNamespace where
-  parser =
-    takeLowerText >>= \case
-      "appstream" -> pure Appstream
-      "cassandra" -> pure Cassandra
-      "comprehend" -> pure Comprehend
-      "custom-resource" -> pure CustomResource
-      "dynamodb" -> pure Dynamodb
-      "ec2" -> pure EC2
-      "ecs" -> pure Ecs
-      "elasticmapreduce" -> pure Elasticmapreduce
-      "kafka" -> pure Kafka
-      "lambda" -> pure Lambda
-      "rds" -> pure RDS
-      "sagemaker" -> pure Sagemaker
-      e ->
-        fromTextError $
-          "Failure parsing ServiceNamespace from value: '" <> e
-            <> "'. Accepted values: appstream, cassandra, comprehend, custom-resource, dynamodb, ec2, ecs, elasticmapreduce, kafka, lambda, rds, sagemaker"
+pattern Appstream :: ServiceNamespace
+pattern Appstream = ServiceNamespace' "appstream"
 
-instance ToText ServiceNamespace where
-  toText = \case
-    Appstream -> "appstream"
-    Cassandra -> "cassandra"
-    Comprehend -> "comprehend"
-    CustomResource -> "custom-resource"
-    Dynamodb -> "dynamodb"
-    EC2 -> "ec2"
-    Ecs -> "ecs"
-    Elasticmapreduce -> "elasticmapreduce"
-    Kafka -> "kafka"
-    Lambda -> "lambda"
-    RDS -> "rds"
-    Sagemaker -> "sagemaker"
+pattern Cassandra :: ServiceNamespace
+pattern Cassandra = ServiceNamespace' "cassandra"
 
-instance Hashable ServiceNamespace
+pattern Comprehend :: ServiceNamespace
+pattern Comprehend = ServiceNamespace' "comprehend"
 
-instance NFData ServiceNamespace
+pattern CustomResource :: ServiceNamespace
+pattern CustomResource = ServiceNamespace' "custom-resource"
 
-instance ToByteString ServiceNamespace
+pattern Dynamodb :: ServiceNamespace
+pattern Dynamodb = ServiceNamespace' "dynamodb"
 
-instance ToQuery ServiceNamespace
+pattern EC2 :: ServiceNamespace
+pattern EC2 = ServiceNamespace' "ec2"
 
-instance ToHeader ServiceNamespace
+pattern Ecs :: ServiceNamespace
+pattern Ecs = ServiceNamespace' "ecs"
 
-instance ToJSON ServiceNamespace where
-  toJSON = toJSONText
+pattern Elasticmapreduce :: ServiceNamespace
+pattern Elasticmapreduce = ServiceNamespace' "elasticmapreduce"
 
-instance FromJSON ServiceNamespace where
-  parseJSON = parseJSONText "ServiceNamespace"
+pattern Kafka :: ServiceNamespace
+pattern Kafka = ServiceNamespace' "kafka"
+
+pattern Lambda :: ServiceNamespace
+pattern Lambda = ServiceNamespace' "lambda"
+
+pattern RDS :: ServiceNamespace
+pattern RDS = ServiceNamespace' "rds"
+
+pattern Sagemaker :: ServiceNamespace
+pattern Sagemaker = ServiceNamespace' "sagemaker"
+
+{-# COMPLETE
+  Appstream,
+  Cassandra,
+  Comprehend,
+  CustomResource,
+  Dynamodb,
+  EC2,
+  Ecs,
+  Elasticmapreduce,
+  Kafka,
+  Lambda,
+  RDS,
+  Sagemaker,
+  ServiceNamespace'
+  #-}

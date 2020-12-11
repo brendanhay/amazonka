@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,112 @@
 --
 -- Stops the assessment run that is specified by the ARN of the assessment run.
 module Network.AWS.Inspector.StopAssessmentRun
-  ( -- * Creating a Request
-    stopAssessmentRun,
-    StopAssessmentRun,
+  ( -- * Creating a request
+    StopAssessmentRun (..),
+    mkStopAssessmentRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sarStopAction,
     sarAssessmentRunARN,
 
-    -- * Destructuring the Response
-    stopAssessmentRunResponse,
-    StopAssessmentRunResponse,
+    -- * Destructuring the response
+    StopAssessmentRunResponse (..),
+    mkStopAssessmentRunResponse,
   )
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'stopAssessmentRun' smart constructor.
+-- | /See:/ 'mkStopAssessmentRun' smart constructor.
 data StopAssessmentRun = StopAssessmentRun'
-  { _sarStopAction ::
-      !(Maybe StopAction),
-    _sarAssessmentRunARN :: !Text
+  { stopAction ::
+      Lude.Maybe StopAction,
+    assessmentRunARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAssessmentRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sarStopAction' - An input option that can be set to either START_EVALUATION or SKIP_EVALUATION. START_EVALUATION (the default value), stops the AWS agent from collecting data and begins the results evaluation and the findings generation process. SKIP_EVALUATION cancels the assessment run immediately, after which no findings are generated.
---
--- * 'sarAssessmentRunARN' - The ARN of the assessment run that you want to stop.
-stopAssessmentRun ::
-  -- | 'sarAssessmentRunARN'
-  Text ->
+-- * 'assessmentRunARN' - The ARN of the assessment run that you want to stop.
+-- * 'stopAction' - An input option that can be set to either START_EVALUATION or SKIP_EVALUATION. START_EVALUATION (the default value), stops the AWS agent from collecting data and begins the results evaluation and the findings generation process. SKIP_EVALUATION cancels the assessment run immediately, after which no findings are generated.
+mkStopAssessmentRun ::
+  -- | 'assessmentRunARN'
+  Lude.Text ->
   StopAssessmentRun
-stopAssessmentRun pAssessmentRunARN_ =
+mkStopAssessmentRun pAssessmentRunARN_ =
   StopAssessmentRun'
-    { _sarStopAction = Nothing,
-      _sarAssessmentRunARN = pAssessmentRunARN_
+    { stopAction = Lude.Nothing,
+      assessmentRunARN = pAssessmentRunARN_
     }
 
 -- | An input option that can be set to either START_EVALUATION or SKIP_EVALUATION. START_EVALUATION (the default value), stops the AWS agent from collecting data and begins the results evaluation and the findings generation process. SKIP_EVALUATION cancels the assessment run immediately, after which no findings are generated.
-sarStopAction :: Lens' StopAssessmentRun (Maybe StopAction)
-sarStopAction = lens _sarStopAction (\s a -> s {_sarStopAction = a})
+--
+-- /Note:/ Consider using 'stopAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarStopAction :: Lens.Lens' StopAssessmentRun (Lude.Maybe StopAction)
+sarStopAction = Lens.lens (stopAction :: StopAssessmentRun -> Lude.Maybe StopAction) (\s a -> s {stopAction = a} :: StopAssessmentRun)
+{-# DEPRECATED sarStopAction "Use generic-lens or generic-optics with 'stopAction' instead." #-}
 
 -- | The ARN of the assessment run that you want to stop.
-sarAssessmentRunARN :: Lens' StopAssessmentRun Text
-sarAssessmentRunARN = lens _sarAssessmentRunARN (\s a -> s {_sarAssessmentRunARN = a})
+--
+-- /Note:/ Consider using 'assessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarAssessmentRunARN :: Lens.Lens' StopAssessmentRun Lude.Text
+sarAssessmentRunARN = Lens.lens (assessmentRunARN :: StopAssessmentRun -> Lude.Text) (\s a -> s {assessmentRunARN = a} :: StopAssessmentRun)
+{-# DEPRECATED sarAssessmentRunARN "Use generic-lens or generic-optics with 'assessmentRunARN' instead." #-}
 
-instance AWSRequest StopAssessmentRun where
+instance Lude.AWSRequest StopAssessmentRun where
   type Rs StopAssessmentRun = StopAssessmentRunResponse
-  request = postJSON inspector
-  response = receiveNull StopAssessmentRunResponse'
+  request = Req.postJSON inspectorService
+  response = Res.receiveNull StopAssessmentRunResponse'
 
-instance Hashable StopAssessmentRun
-
-instance NFData StopAssessmentRun
-
-instance ToHeaders StopAssessmentRun where
+instance Lude.ToHeaders StopAssessmentRun where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.StopAssessmentRun" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.StopAssessmentRun" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopAssessmentRun where
+instance Lude.ToJSON StopAssessmentRun where
   toJSON StopAssessmentRun' {..} =
-    object
-      ( catMaybes
-          [ ("stopAction" .=) <$> _sarStopAction,
-            Just ("assessmentRunArn" .= _sarAssessmentRunARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("stopAction" Lude..=) Lude.<$> stopAction,
+            Lude.Just ("assessmentRunArn" Lude..= assessmentRunARN)
           ]
       )
 
-instance ToPath StopAssessmentRun where
-  toPath = const "/"
+instance Lude.ToPath StopAssessmentRun where
+  toPath = Lude.const "/"
 
-instance ToQuery StopAssessmentRun where
-  toQuery = const mempty
+instance Lude.ToQuery StopAssessmentRun where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopAssessmentRunResponse' smart constructor.
+-- | /See:/ 'mkStopAssessmentRunResponse' smart constructor.
 data StopAssessmentRunResponse = StopAssessmentRunResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAssessmentRunResponse' with the minimum fields required to make a request.
-stopAssessmentRunResponse ::
+mkStopAssessmentRunResponse ::
   StopAssessmentRunResponse
-stopAssessmentRunResponse = StopAssessmentRunResponse'
-
-instance NFData StopAssessmentRunResponse
+mkStopAssessmentRunResponse = StopAssessmentRunResponse'

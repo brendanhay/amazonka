@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VolumeState where
+module Network.AWS.EC2.Types.VolumeState
+  ( VolumeState
+      ( VolumeState',
+        VAvailable,
+        VCreating,
+        VDeleted,
+        VDeleting,
+        VError,
+        VInUse
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VolumeState
-  = VAvailable
-  | VCreating
-  | VDeleted
-  | VDeleting
-  | VError'
-  | VInUse
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VolumeState = VolumeState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VolumeState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure VAvailable
-      "creating" -> pure VCreating
-      "deleted" -> pure VDeleted
-      "deleting" -> pure VDeleting
-      "error" -> pure VError'
-      "in-use" -> pure VInUse
-      e ->
-        fromTextError $
-          "Failure parsing VolumeState from value: '" <> e
-            <> "'. Accepted values: available, creating, deleted, deleting, error, in-use"
+pattern VAvailable :: VolumeState
+pattern VAvailable = VolumeState' "available"
 
-instance ToText VolumeState where
-  toText = \case
-    VAvailable -> "available"
-    VCreating -> "creating"
-    VDeleted -> "deleted"
-    VDeleting -> "deleting"
-    VError' -> "error"
-    VInUse -> "in-use"
+pattern VCreating :: VolumeState
+pattern VCreating = VolumeState' "creating"
 
-instance Hashable VolumeState
+pattern VDeleted :: VolumeState
+pattern VDeleted = VolumeState' "deleted"
 
-instance NFData VolumeState
+pattern VDeleting :: VolumeState
+pattern VDeleting = VolumeState' "deleting"
 
-instance ToByteString VolumeState
+pattern VError :: VolumeState
+pattern VError = VolumeState' "error"
 
-instance ToQuery VolumeState
+pattern VInUse :: VolumeState
+pattern VInUse = VolumeState' "in-use"
 
-instance ToHeader VolumeState
-
-instance FromXML VolumeState where
-  parseXML = parseXMLText "VolumeState"
+{-# COMPLETE
+  VAvailable,
+  VCreating,
+  VDeleted,
+  VDeleting,
+  VError,
+  VInUse,
+  VolumeState'
+  #-}

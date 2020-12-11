@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,81 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig where
+module Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig
+  ( ApplicationResourceLifecycleConfig (..),
+
+    -- * Smart constructor
+    mkApplicationResourceLifecycleConfig,
+
+    -- * Lenses
+    arlcVersionLifecycleConfig,
+    arlcServiceRole,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The resource lifecycle configuration for an application. Defines lifecycle settings for resources that belong to the application, and the service role that AWS Elastic Beanstalk assumes in order to apply lifecycle settings. The version lifecycle configuration defines lifecycle settings for application versions.
 --
---
---
--- /See:/ 'applicationResourceLifecycleConfig' smart constructor.
+-- /See:/ 'mkApplicationResourceLifecycleConfig' smart constructor.
 data ApplicationResourceLifecycleConfig = ApplicationResourceLifecycleConfig'
-  { _arlcVersionLifecycleConfig ::
-      !( Maybe
-           ApplicationVersionLifecycleConfig
-       ),
-    _arlcServiceRole ::
-      !(Maybe Text)
+  { versionLifecycleConfig ::
+      Lude.Maybe
+        ApplicationVersionLifecycleConfig,
+    serviceRole ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationResourceLifecycleConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'serviceRole' - The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
 --
--- * 'arlcVersionLifecycleConfig' - Defines lifecycle settings for application versions.
---
--- * 'arlcServiceRole' - The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The @ServiceRole@ property is required the first time that you provide a @VersionLifecycleConfig@ for the application in one of the supporting calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@ ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent @UpdateApplicationResourceLifecycle@ calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
-applicationResourceLifecycleConfig ::
+-- The @ServiceRole@ property is required the first time that you provide a @VersionLifecycleConfig@ for the application in one of the supporting calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@ ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent @UpdateApplicationResourceLifecycle@ calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
+-- * 'versionLifecycleConfig' - Defines lifecycle settings for application versions.
+mkApplicationResourceLifecycleConfig ::
   ApplicationResourceLifecycleConfig
-applicationResourceLifecycleConfig =
+mkApplicationResourceLifecycleConfig =
   ApplicationResourceLifecycleConfig'
-    { _arlcVersionLifecycleConfig =
-        Nothing,
-      _arlcServiceRole = Nothing
+    { versionLifecycleConfig =
+        Lude.Nothing,
+      serviceRole = Lude.Nothing
     }
 
 -- | Defines lifecycle settings for application versions.
-arlcVersionLifecycleConfig :: Lens' ApplicationResourceLifecycleConfig (Maybe ApplicationVersionLifecycleConfig)
-arlcVersionLifecycleConfig = lens _arlcVersionLifecycleConfig (\s a -> s {_arlcVersionLifecycleConfig = a})
+--
+-- /Note:/ Consider using 'versionLifecycleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arlcVersionLifecycleConfig :: Lens.Lens' ApplicationResourceLifecycleConfig (Lude.Maybe ApplicationVersionLifecycleConfig)
+arlcVersionLifecycleConfig = Lens.lens (versionLifecycleConfig :: ApplicationResourceLifecycleConfig -> Lude.Maybe ApplicationVersionLifecycleConfig) (\s a -> s {versionLifecycleConfig = a} :: ApplicationResourceLifecycleConfig)
+{-# DEPRECATED arlcVersionLifecycleConfig "Use generic-lens or generic-optics with 'versionLifecycleConfig' instead." #-}
 
--- | The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The @ServiceRole@ property is required the first time that you provide a @VersionLifecycleConfig@ for the application in one of the supporting calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@ ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent @UpdateApplicationResourceLifecycle@ calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
-arlcServiceRole :: Lens' ApplicationResourceLifecycleConfig (Maybe Text)
-arlcServiceRole = lens _arlcServiceRole (\s a -> s {_arlcServiceRole = a})
+-- | The ARN of an IAM service role that Elastic Beanstalk has permission to assume.
+--
+-- The @ServiceRole@ property is required the first time that you provide a @VersionLifecycleConfig@ for the application in one of the supporting calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@ ). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent @UpdateApplicationResourceLifecycle@ calls. You can, however, specify it in subsequent calls to change the Service Role to another value.
+--
+-- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arlcServiceRole :: Lens.Lens' ApplicationResourceLifecycleConfig (Lude.Maybe Lude.Text)
+arlcServiceRole = Lens.lens (serviceRole :: ApplicationResourceLifecycleConfig -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: ApplicationResourceLifecycleConfig)
+{-# DEPRECATED arlcServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
-instance FromXML ApplicationResourceLifecycleConfig where
+instance Lude.FromXML ApplicationResourceLifecycleConfig where
   parseXML x =
     ApplicationResourceLifecycleConfig'
-      <$> (x .@? "VersionLifecycleConfig") <*> (x .@? "ServiceRole")
+      Lude.<$> (x Lude..@? "VersionLifecycleConfig")
+      Lude.<*> (x Lude..@? "ServiceRole")
 
-instance Hashable ApplicationResourceLifecycleConfig
-
-instance NFData ApplicationResourceLifecycleConfig
-
-instance ToQuery ApplicationResourceLifecycleConfig where
+instance Lude.ToQuery ApplicationResourceLifecycleConfig where
   toQuery ApplicationResourceLifecycleConfig' {..} =
-    mconcat
-      [ "VersionLifecycleConfig" =: _arlcVersionLifecycleConfig,
-        "ServiceRole" =: _arlcServiceRole
+    Lude.mconcat
+      [ "VersionLifecycleConfig" Lude.=: versionLifecycleConfig,
+        "ServiceRole" Lude.=: serviceRole
       ]

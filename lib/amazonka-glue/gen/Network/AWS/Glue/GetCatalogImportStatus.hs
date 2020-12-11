@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,115 +14,130 @@
 --
 -- Retrieves the status of a migration operation.
 module Network.AWS.Glue.GetCatalogImportStatus
-  ( -- * Creating a Request
-    getCatalogImportStatus,
-    GetCatalogImportStatus,
+  ( -- * Creating a request
+    GetCatalogImportStatus (..),
+    mkGetCatalogImportStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gcisCatalogId,
 
-    -- * Destructuring the Response
-    getCatalogImportStatusResponse,
-    GetCatalogImportStatusResponse,
+    -- * Destructuring the response
+    GetCatalogImportStatusResponse (..),
+    mkGetCatalogImportStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gcisrsImportStatus,
     gcisrsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getCatalogImportStatus' smart constructor.
+-- | /See:/ 'mkGetCatalogImportStatus' smart constructor.
 newtype GetCatalogImportStatus = GetCatalogImportStatus'
-  { _gcisCatalogId ::
-      Maybe Text
+  { catalogId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCatalogImportStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcisCatalogId' - The ID of the catalog to migrate. Currently, this should be the AWS account ID.
-getCatalogImportStatus ::
+-- * 'catalogId' - The ID of the catalog to migrate. Currently, this should be the AWS account ID.
+mkGetCatalogImportStatus ::
   GetCatalogImportStatus
-getCatalogImportStatus =
-  GetCatalogImportStatus' {_gcisCatalogId = Nothing}
+mkGetCatalogImportStatus =
+  GetCatalogImportStatus' {catalogId = Lude.Nothing}
 
 -- | The ID of the catalog to migrate. Currently, this should be the AWS account ID.
-gcisCatalogId :: Lens' GetCatalogImportStatus (Maybe Text)
-gcisCatalogId = lens _gcisCatalogId (\s a -> s {_gcisCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcisCatalogId :: Lens.Lens' GetCatalogImportStatus (Lude.Maybe Lude.Text)
+gcisCatalogId = Lens.lens (catalogId :: GetCatalogImportStatus -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetCatalogImportStatus)
+{-# DEPRECATED gcisCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
-instance AWSRequest GetCatalogImportStatus where
+instance Lude.AWSRequest GetCatalogImportStatus where
   type Rs GetCatalogImportStatus = GetCatalogImportStatusResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetCatalogImportStatusResponse'
-            <$> (x .?> "ImportStatus") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ImportStatus") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetCatalogImportStatus
-
-instance NFData GetCatalogImportStatus
-
-instance ToHeaders GetCatalogImportStatus where
+instance Lude.ToHeaders GetCatalogImportStatus where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSGlue.GetCatalogImportStatus" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSGlue.GetCatalogImportStatus" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetCatalogImportStatus where
+instance Lude.ToJSON GetCatalogImportStatus where
   toJSON GetCatalogImportStatus' {..} =
-    object (catMaybes [("CatalogId" .=) <$> _gcisCatalogId])
+    Lude.object
+      (Lude.catMaybes [("CatalogId" Lude..=) Lude.<$> catalogId])
 
-instance ToPath GetCatalogImportStatus where
-  toPath = const "/"
+instance Lude.ToPath GetCatalogImportStatus where
+  toPath = Lude.const "/"
 
-instance ToQuery GetCatalogImportStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetCatalogImportStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getCatalogImportStatusResponse' smart constructor.
+-- | /See:/ 'mkGetCatalogImportStatusResponse' smart constructor.
 data GetCatalogImportStatusResponse = GetCatalogImportStatusResponse'
-  { _gcisrsImportStatus ::
-      !(Maybe CatalogImportStatus),
-    _gcisrsResponseStatus :: !Int
+  { importStatus ::
+      Lude.Maybe
+        CatalogImportStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCatalogImportStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcisrsImportStatus' - The status of the specified catalog migration.
---
--- * 'gcisrsResponseStatus' - -- | The response status code.
-getCatalogImportStatusResponse ::
-  -- | 'gcisrsResponseStatus'
-  Int ->
+-- * 'importStatus' - The status of the specified catalog migration.
+-- * 'responseStatus' - The response status code.
+mkGetCatalogImportStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCatalogImportStatusResponse
-getCatalogImportStatusResponse pResponseStatus_ =
+mkGetCatalogImportStatusResponse pResponseStatus_ =
   GetCatalogImportStatusResponse'
-    { _gcisrsImportStatus = Nothing,
-      _gcisrsResponseStatus = pResponseStatus_
+    { importStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The status of the specified catalog migration.
-gcisrsImportStatus :: Lens' GetCatalogImportStatusResponse (Maybe CatalogImportStatus)
-gcisrsImportStatus = lens _gcisrsImportStatus (\s a -> s {_gcisrsImportStatus = a})
+--
+-- /Note:/ Consider using 'importStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcisrsImportStatus :: Lens.Lens' GetCatalogImportStatusResponse (Lude.Maybe CatalogImportStatus)
+gcisrsImportStatus = Lens.lens (importStatus :: GetCatalogImportStatusResponse -> Lude.Maybe CatalogImportStatus) (\s a -> s {importStatus = a} :: GetCatalogImportStatusResponse)
+{-# DEPRECATED gcisrsImportStatus "Use generic-lens or generic-optics with 'importStatus' instead." #-}
 
--- | -- | The response status code.
-gcisrsResponseStatus :: Lens' GetCatalogImportStatusResponse Int
-gcisrsResponseStatus = lens _gcisrsResponseStatus (\s a -> s {_gcisrsResponseStatus = a})
-
-instance NFData GetCatalogImportStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcisrsResponseStatus :: Lens.Lens' GetCatalogImportStatusResponse Lude.Int
+gcisrsResponseStatus = Lens.lens (responseStatus :: GetCatalogImportStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCatalogImportStatusResponse)
+{-# DEPRECATED gcisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

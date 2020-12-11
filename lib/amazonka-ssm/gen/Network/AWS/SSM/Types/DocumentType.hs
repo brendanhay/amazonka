@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.DocumentType where
+module Network.AWS.SSM.Types.DocumentType
+  ( DocumentType
+      ( DocumentType',
+        DTApplicationConfiguration,
+        DTApplicationConfigurationSchema,
+        DTAutomation,
+        DTChangeCalendar,
+        DTCommand,
+        DTDeploymentStrategy,
+        DTPackage,
+        DTPolicy,
+        DTSession
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DocumentType
-  = DTApplicationConfiguration
-  | DTApplicationConfigurationSchema
-  | DTAutomation
-  | DTChangeCalendar
-  | DTCommand
-  | DTDeploymentStrategy
-  | DTPackage
-  | DTPolicy
-  | DTSession
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DocumentType = DocumentType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DocumentType where
-  parser =
-    takeLowerText >>= \case
-      "applicationconfiguration" -> pure DTApplicationConfiguration
-      "applicationconfigurationschema" -> pure DTApplicationConfigurationSchema
-      "automation" -> pure DTAutomation
-      "changecalendar" -> pure DTChangeCalendar
-      "command" -> pure DTCommand
-      "deploymentstrategy" -> pure DTDeploymentStrategy
-      "package" -> pure DTPackage
-      "policy" -> pure DTPolicy
-      "session" -> pure DTSession
-      e ->
-        fromTextError $
-          "Failure parsing DocumentType from value: '" <> e
-            <> "'. Accepted values: applicationconfiguration, applicationconfigurationschema, automation, changecalendar, command, deploymentstrategy, package, policy, session"
+pattern DTApplicationConfiguration :: DocumentType
+pattern DTApplicationConfiguration = DocumentType' "ApplicationConfiguration"
 
-instance ToText DocumentType where
-  toText = \case
-    DTApplicationConfiguration -> "ApplicationConfiguration"
-    DTApplicationConfigurationSchema -> "ApplicationConfigurationSchema"
-    DTAutomation -> "Automation"
-    DTChangeCalendar -> "ChangeCalendar"
-    DTCommand -> "Command"
-    DTDeploymentStrategy -> "DeploymentStrategy"
-    DTPackage -> "Package"
-    DTPolicy -> "Policy"
-    DTSession -> "Session"
+pattern DTApplicationConfigurationSchema :: DocumentType
+pattern DTApplicationConfigurationSchema = DocumentType' "ApplicationConfigurationSchema"
 
-instance Hashable DocumentType
+pattern DTAutomation :: DocumentType
+pattern DTAutomation = DocumentType' "Automation"
 
-instance NFData DocumentType
+pattern DTChangeCalendar :: DocumentType
+pattern DTChangeCalendar = DocumentType' "ChangeCalendar"
 
-instance ToByteString DocumentType
+pattern DTCommand :: DocumentType
+pattern DTCommand = DocumentType' "Command"
 
-instance ToQuery DocumentType
+pattern DTDeploymentStrategy :: DocumentType
+pattern DTDeploymentStrategy = DocumentType' "DeploymentStrategy"
 
-instance ToHeader DocumentType
+pattern DTPackage :: DocumentType
+pattern DTPackage = DocumentType' "Package"
 
-instance ToJSON DocumentType where
-  toJSON = toJSONText
+pattern DTPolicy :: DocumentType
+pattern DTPolicy = DocumentType' "Policy"
 
-instance FromJSON DocumentType where
-  parseJSON = parseJSONText "DocumentType"
+pattern DTSession :: DocumentType
+pattern DTSession = DocumentType' "Session"
+
+{-# COMPLETE
+  DTApplicationConfiguration,
+  DTApplicationConfigurationSchema,
+  DTAutomation,
+  DTChangeCalendar,
+  DTCommand,
+  DTDeploymentStrategy,
+  DTPackage,
+  DTPolicy,
+  DTSession,
+  DocumentType'
+  #-}

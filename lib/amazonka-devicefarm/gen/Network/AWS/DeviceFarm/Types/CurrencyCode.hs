@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.CurrencyCode where
+module Network.AWS.DeviceFarm.Types.CurrencyCode
+  ( CurrencyCode
+      ( CurrencyCode',
+        Usd
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CurrencyCode = Usd
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CurrencyCode = CurrencyCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CurrencyCode where
-  parser =
-    takeLowerText >>= \case
-      "usd" -> pure Usd
-      e ->
-        fromTextError $
-          "Failure parsing CurrencyCode from value: '" <> e
-            <> "'. Accepted values: usd"
+pattern Usd :: CurrencyCode
+pattern Usd = CurrencyCode' "USD"
 
-instance ToText CurrencyCode where
-  toText = \case
-    Usd -> "USD"
-
-instance Hashable CurrencyCode
-
-instance NFData CurrencyCode
-
-instance ToByteString CurrencyCode
-
-instance ToQuery CurrencyCode
-
-instance ToHeader CurrencyCode
-
-instance FromJSON CurrencyCode where
-  parseJSON = parseJSONText "CurrencyCode"
+{-# COMPLETE
+  Usd,
+  CurrencyCode'
+  #-}

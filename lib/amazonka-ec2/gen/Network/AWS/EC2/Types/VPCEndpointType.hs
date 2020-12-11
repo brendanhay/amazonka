@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPCEndpointType where
+module Network.AWS.EC2.Types.VPCEndpointType
+  ( VPCEndpointType
+      ( VPCEndpointType',
+        VETGateway,
+        VETGatewayLoadBalancer,
+        VETInterface
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VPCEndpointType
-  = VETGateway
-  | VETGatewayLoadBalancer
-  | VETInterface
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VPCEndpointType = VPCEndpointType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VPCEndpointType where
-  parser =
-    takeLowerText >>= \case
-      "gateway" -> pure VETGateway
-      "gatewayloadbalancer" -> pure VETGatewayLoadBalancer
-      "interface" -> pure VETInterface
-      e ->
-        fromTextError $
-          "Failure parsing VPCEndpointType from value: '" <> e
-            <> "'. Accepted values: gateway, gatewayloadbalancer, interface"
+pattern VETGateway :: VPCEndpointType
+pattern VETGateway = VPCEndpointType' "Gateway"
 
-instance ToText VPCEndpointType where
-  toText = \case
-    VETGateway -> "Gateway"
-    VETGatewayLoadBalancer -> "GatewayLoadBalancer"
-    VETInterface -> "Interface"
+pattern VETGatewayLoadBalancer :: VPCEndpointType
+pattern VETGatewayLoadBalancer = VPCEndpointType' "GatewayLoadBalancer"
 
-instance Hashable VPCEndpointType
+pattern VETInterface :: VPCEndpointType
+pattern VETInterface = VPCEndpointType' "Interface"
 
-instance NFData VPCEndpointType
-
-instance ToByteString VPCEndpointType
-
-instance ToQuery VPCEndpointType
-
-instance ToHeader VPCEndpointType
-
-instance FromXML VPCEndpointType where
-  parseXML = parseXMLText "VPCEndpointType"
+{-# COMPLETE
+  VETGateway,
+  VETGatewayLoadBalancer,
+  VETInterface,
+  VPCEndpointType'
+  #-}

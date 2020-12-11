@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodePipeline.Types.StageTransitionType where
+module Network.AWS.CodePipeline.Types.StageTransitionType
+  ( StageTransitionType
+      ( StageTransitionType',
+        Inbound,
+        Outbound
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StageTransitionType
-  = Inbound
-  | Outbound
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StageTransitionType = StageTransitionType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StageTransitionType where
-  parser =
-    takeLowerText >>= \case
-      "inbound" -> pure Inbound
-      "outbound" -> pure Outbound
-      e ->
-        fromTextError $
-          "Failure parsing StageTransitionType from value: '" <> e
-            <> "'. Accepted values: inbound, outbound"
+pattern Inbound :: StageTransitionType
+pattern Inbound = StageTransitionType' "Inbound"
 
-instance ToText StageTransitionType where
-  toText = \case
-    Inbound -> "Inbound"
-    Outbound -> "Outbound"
+pattern Outbound :: StageTransitionType
+pattern Outbound = StageTransitionType' "Outbound"
 
-instance Hashable StageTransitionType
-
-instance NFData StageTransitionType
-
-instance ToByteString StageTransitionType
-
-instance ToQuery StageTransitionType
-
-instance ToHeader StageTransitionType
-
-instance ToJSON StageTransitionType where
-  toJSON = toJSONText
+{-# COMPLETE
+  Inbound,
+  Outbound,
+  StageTransitionType'
+  #-}

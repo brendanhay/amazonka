@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ThingAttribute where
+module Network.AWS.IoT.Types.ThingAttribute
+  ( ThingAttribute (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkThingAttribute,
+
+    -- * Lenses
+    taThingTypeName,
+    taThingARN,
+    taAttributes,
+    taVersion,
+    taThingName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The properties of the thing, including thing name, thing type name, and a list of thing attributes.
 --
---
---
--- /See:/ 'thingAttribute' smart constructor.
+-- /See:/ 'mkThingAttribute' smart constructor.
 data ThingAttribute = ThingAttribute'
-  { _taThingTypeName ::
-      !(Maybe Text),
-    _taThingARN :: !(Maybe Text),
-    _taAttributes :: !(Maybe (Map Text (Text))),
-    _taVersion :: !(Maybe Integer),
-    _taThingName :: !(Maybe Text)
+  { thingTypeName ::
+      Lude.Maybe Lude.Text,
+    thingARN :: Lude.Maybe Lude.Text,
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    version :: Lude.Maybe Lude.Integer,
+    thingName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'taThingTypeName' - The name of the thing type, if the thing has been associated with a type.
---
--- * 'taThingARN' - The thing ARN.
---
--- * 'taAttributes' - A list of thing attributes which are name-value pairs.
---
--- * 'taVersion' - The version of the thing record in the registry.
---
--- * 'taThingName' - The name of the thing.
-thingAttribute ::
+-- * 'attributes' - A list of thing attributes which are name-value pairs.
+-- * 'thingARN' - The thing ARN.
+-- * 'thingName' - The name of the thing.
+-- * 'thingTypeName' - The name of the thing type, if the thing has been associated with a type.
+-- * 'version' - The version of the thing record in the registry.
+mkThingAttribute ::
   ThingAttribute
-thingAttribute =
+mkThingAttribute =
   ThingAttribute'
-    { _taThingTypeName = Nothing,
-      _taThingARN = Nothing,
-      _taAttributes = Nothing,
-      _taVersion = Nothing,
-      _taThingName = Nothing
+    { thingTypeName = Lude.Nothing,
+      thingARN = Lude.Nothing,
+      attributes = Lude.Nothing,
+      version = Lude.Nothing,
+      thingName = Lude.Nothing
     }
 
 -- | The name of the thing type, if the thing has been associated with a type.
-taThingTypeName :: Lens' ThingAttribute (Maybe Text)
-taThingTypeName = lens _taThingTypeName (\s a -> s {_taThingTypeName = a})
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taThingTypeName :: Lens.Lens' ThingAttribute (Lude.Maybe Lude.Text)
+taThingTypeName = Lens.lens (thingTypeName :: ThingAttribute -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: ThingAttribute)
+{-# DEPRECATED taThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
 -- | The thing ARN.
-taThingARN :: Lens' ThingAttribute (Maybe Text)
-taThingARN = lens _taThingARN (\s a -> s {_taThingARN = a})
+--
+-- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taThingARN :: Lens.Lens' ThingAttribute (Lude.Maybe Lude.Text)
+taThingARN = Lens.lens (thingARN :: ThingAttribute -> Lude.Maybe Lude.Text) (\s a -> s {thingARN = a} :: ThingAttribute)
+{-# DEPRECATED taThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
 
 -- | A list of thing attributes which are name-value pairs.
-taAttributes :: Lens' ThingAttribute (HashMap Text (Text))
-taAttributes = lens _taAttributes (\s a -> s {_taAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taAttributes :: Lens.Lens' ThingAttribute (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+taAttributes = Lens.lens (attributes :: ThingAttribute -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: ThingAttribute)
+{-# DEPRECATED taAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The version of the thing record in the registry.
-taVersion :: Lens' ThingAttribute (Maybe Integer)
-taVersion = lens _taVersion (\s a -> s {_taVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taVersion :: Lens.Lens' ThingAttribute (Lude.Maybe Lude.Integer)
+taVersion = Lens.lens (version :: ThingAttribute -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: ThingAttribute)
+{-# DEPRECATED taVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the thing.
-taThingName :: Lens' ThingAttribute (Maybe Text)
-taThingName = lens _taThingName (\s a -> s {_taThingName = a})
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taThingName :: Lens.Lens' ThingAttribute (Lude.Maybe Lude.Text)
+taThingName = Lens.lens (thingName :: ThingAttribute -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: ThingAttribute)
+{-# DEPRECATED taThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance FromJSON ThingAttribute where
+instance Lude.FromJSON ThingAttribute where
   parseJSON =
-    withObject
+    Lude.withObject
       "ThingAttribute"
       ( \x ->
           ThingAttribute'
-            <$> (x .:? "thingTypeName")
-            <*> (x .:? "thingArn")
-            <*> (x .:? "attributes" .!= mempty)
-            <*> (x .:? "version")
-            <*> (x .:? "thingName")
+            Lude.<$> (x Lude..:? "thingTypeName")
+            Lude.<*> (x Lude..:? "thingArn")
+            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "version")
+            Lude.<*> (x Lude..:? "thingName")
       )
-
-instance Hashable ThingAttribute
-
-instance NFData ThingAttribute

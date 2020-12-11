@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,43 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.OwnershipControls where
+module Network.AWS.S3.Types.OwnershipControls
+  ( OwnershipControls (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOwnershipControls,
+
+    -- * Lenses
+    ocRules,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.OwnershipControlsRule
 
 -- | The container element for a bucket's ownership controls.
 --
---
---
--- /See:/ 'ownershipControls' smart constructor.
+-- /See:/ 'mkOwnershipControls' smart constructor.
 newtype OwnershipControls = OwnershipControls'
-  { _ocRules ::
+  { rules ::
       [OwnershipControlsRule]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OwnershipControls' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ocRules' - The container element for an ownership control rule.
-ownershipControls ::
+-- * 'rules' - The container element for an ownership control rule.
+mkOwnershipControls ::
   OwnershipControls
-ownershipControls = OwnershipControls' {_ocRules = mempty}
+mkOwnershipControls = OwnershipControls' {rules = Lude.mempty}
 
 -- | The container element for an ownership control rule.
-ocRules :: Lens' OwnershipControls [OwnershipControlsRule]
-ocRules = lens _ocRules (\s a -> s {_ocRules = a}) . _Coerce
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocRules :: Lens.Lens' OwnershipControls [OwnershipControlsRule]
+ocRules = Lens.lens (rules :: OwnershipControls -> [OwnershipControlsRule]) (\s a -> s {rules = a} :: OwnershipControls)
+{-# DEPRECATED ocRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance FromXML OwnershipControls where
-  parseXML x = OwnershipControls' <$> (parseXMLList "Rule" x)
+instance Lude.FromXML OwnershipControls where
+  parseXML x =
+    OwnershipControls' Lude.<$> (Lude.parseXMLList "Rule" x)
 
-instance Hashable OwnershipControls
-
-instance NFData OwnershipControls
-
-instance ToXML OwnershipControls where
-  toXML OwnershipControls' {..} = mconcat [toXMLList "Rule" _ocRules]
+instance Lude.ToXML OwnershipControls where
+  toXML OwnershipControls' {..} =
+    Lude.mconcat [Lude.toXMLList "Rule" rules]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,140 @@
 --
 -- Removes a user from a project. Removing a user from a project also removes the IAM policies from that user that allowed access to the project and its resources. Disassociating a team member does not remove that user's profile from AWS CodeStar. It does not remove the user from IAM.
 module Network.AWS.CodeStar.DisassociateTeamMember
-  ( -- * Creating a Request
-    disassociateTeamMember,
-    DisassociateTeamMember,
+  ( -- * Creating a request
+    DisassociateTeamMember (..),
+    mkDisassociateTeamMember,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtmProjectId,
     dtmUserARN,
 
-    -- * Destructuring the Response
-    disassociateTeamMemberResponse,
-    DisassociateTeamMemberResponse,
+    -- * Destructuring the response
+    DisassociateTeamMemberResponse (..),
+    mkDisassociateTeamMemberResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtmrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disassociateTeamMember' smart constructor.
+-- | /See:/ 'mkDisassociateTeamMember' smart constructor.
 data DisassociateTeamMember = DisassociateTeamMember'
-  { _dtmProjectId ::
-      !Text,
-    _dtmUserARN :: !Text
+  { projectId ::
+      Lude.Text,
+    userARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTeamMember' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtmProjectId' - The ID of the AWS CodeStar project from which you want to remove a team member.
---
--- * 'dtmUserARN' - The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
-disassociateTeamMember ::
-  -- | 'dtmProjectId'
-  Text ->
-  -- | 'dtmUserARN'
-  Text ->
+-- * 'projectId' - The ID of the AWS CodeStar project from which you want to remove a team member.
+-- * 'userARN' - The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
+mkDisassociateTeamMember ::
+  -- | 'projectId'
+  Lude.Text ->
+  -- | 'userARN'
+  Lude.Text ->
   DisassociateTeamMember
-disassociateTeamMember pProjectId_ pUserARN_ =
+mkDisassociateTeamMember pProjectId_ pUserARN_ =
   DisassociateTeamMember'
-    { _dtmProjectId = pProjectId_,
-      _dtmUserARN = pUserARN_
+    { projectId = pProjectId_,
+      userARN = pUserARN_
     }
 
 -- | The ID of the AWS CodeStar project from which you want to remove a team member.
-dtmProjectId :: Lens' DisassociateTeamMember Text
-dtmProjectId = lens _dtmProjectId (\s a -> s {_dtmProjectId = a})
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmProjectId :: Lens.Lens' DisassociateTeamMember Lude.Text
+dtmProjectId = Lens.lens (projectId :: DisassociateTeamMember -> Lude.Text) (\s a -> s {projectId = a} :: DisassociateTeamMember)
+{-# DEPRECATED dtmProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
-dtmUserARN :: Lens' DisassociateTeamMember Text
-dtmUserARN = lens _dtmUserARN (\s a -> s {_dtmUserARN = a})
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmUserARN :: Lens.Lens' DisassociateTeamMember Lude.Text
+dtmUserARN = Lens.lens (userARN :: DisassociateTeamMember -> Lude.Text) (\s a -> s {userARN = a} :: DisassociateTeamMember)
+{-# DEPRECATED dtmUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
-instance AWSRequest DisassociateTeamMember where
+instance Lude.AWSRequest DisassociateTeamMember where
   type Rs DisassociateTeamMember = DisassociateTeamMemberResponse
-  request = postJSON codeStar
+  request = Req.postJSON codeStarService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DisassociateTeamMemberResponse' <$> (pure (fromEnum s))
+          DisassociateTeamMemberResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisassociateTeamMember
-
-instance NFData DisassociateTeamMember
-
-instance ToHeaders DisassociateTeamMember where
+instance Lude.ToHeaders DisassociateTeamMember where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeStar_20170419.DisassociateTeamMember" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeStar_20170419.DisassociateTeamMember" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisassociateTeamMember where
+instance Lude.ToJSON DisassociateTeamMember where
   toJSON DisassociateTeamMember' {..} =
-    object
-      ( catMaybes
-          [ Just ("projectId" .= _dtmProjectId),
-            Just ("userArn" .= _dtmUserARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("projectId" Lude..= projectId),
+            Lude.Just ("userArn" Lude..= userARN)
           ]
       )
 
-instance ToPath DisassociateTeamMember where
-  toPath = const "/"
+instance Lude.ToPath DisassociateTeamMember where
+  toPath = Lude.const "/"
 
-instance ToQuery DisassociateTeamMember where
-  toQuery = const mempty
+instance Lude.ToQuery DisassociateTeamMember where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disassociateTeamMemberResponse' smart constructor.
+-- | /See:/ 'mkDisassociateTeamMemberResponse' smart constructor.
 newtype DisassociateTeamMemberResponse = DisassociateTeamMemberResponse'
-  { _dtmrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTeamMemberResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtmrsResponseStatus' - -- | The response status code.
-disassociateTeamMemberResponse ::
-  -- | 'dtmrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDisassociateTeamMemberResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateTeamMemberResponse
-disassociateTeamMemberResponse pResponseStatus_ =
+mkDisassociateTeamMemberResponse pResponseStatus_ =
   DisassociateTeamMemberResponse'
-    { _dtmrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-dtmrsResponseStatus :: Lens' DisassociateTeamMemberResponse Int
-dtmrsResponseStatus = lens _dtmrsResponseStatus (\s a -> s {_dtmrsResponseStatus = a})
-
-instance NFData DisassociateTeamMemberResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmrsResponseStatus :: Lens.Lens' DisassociateTeamMemberResponse Lude.Int
+dtmrsResponseStatus = Lens.lens (responseStatus :: DisassociateTeamMemberResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateTeamMemberResponse)
+{-# DEPRECATED dtmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

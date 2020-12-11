@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,113 @@
 --
 -- Deletes a user profile. When a user profile is deleted, the user loses access to their EFS volume, including data, notebooks, and other artifacts.
 module Network.AWS.SageMaker.DeleteUserProfile
-  ( -- * Creating a Request
-    deleteUserProfile,
-    DeleteUserProfile,
+  ( -- * Creating a request
+    DeleteUserProfile (..),
+    mkDeleteUserProfile,
 
-    -- * Request Lenses
+    -- ** Request lenses
     delDomainId,
     delUserProfileName,
 
-    -- * Destructuring the Response
-    deleteUserProfileResponse,
-    DeleteUserProfileResponse,
+    -- * Destructuring the response
+    DeleteUserProfileResponse (..),
+    mkDeleteUserProfileResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteUserProfile' smart constructor.
+-- | /See:/ 'mkDeleteUserProfile' smart constructor.
 data DeleteUserProfile = DeleteUserProfile'
-  { _delDomainId :: !Text,
-    _delUserProfileName :: !Text
+  { domainId :: Lude.Text,
+    userProfileName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delDomainId' - The domain ID.
---
--- * 'delUserProfileName' - The user profile name.
-deleteUserProfile ::
-  -- | 'delDomainId'
-  Text ->
-  -- | 'delUserProfileName'
-  Text ->
+-- * 'domainId' - The domain ID.
+-- * 'userProfileName' - The user profile name.
+mkDeleteUserProfile ::
+  -- | 'domainId'
+  Lude.Text ->
+  -- | 'userProfileName'
+  Lude.Text ->
   DeleteUserProfile
-deleteUserProfile pDomainId_ pUserProfileName_ =
+mkDeleteUserProfile pDomainId_ pUserProfileName_ =
   DeleteUserProfile'
-    { _delDomainId = pDomainId_,
-      _delUserProfileName = pUserProfileName_
+    { domainId = pDomainId_,
+      userProfileName = pUserProfileName_
     }
 
 -- | The domain ID.
-delDomainId :: Lens' DeleteUserProfile Text
-delDomainId = lens _delDomainId (\s a -> s {_delDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delDomainId :: Lens.Lens' DeleteUserProfile Lude.Text
+delDomainId = Lens.lens (domainId :: DeleteUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: DeleteUserProfile)
+{-# DEPRECATED delDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The user profile name.
-delUserProfileName :: Lens' DeleteUserProfile Text
-delUserProfileName = lens _delUserProfileName (\s a -> s {_delUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delUserProfileName :: Lens.Lens' DeleteUserProfile Lude.Text
+delUserProfileName = Lens.lens (userProfileName :: DeleteUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: DeleteUserProfile)
+{-# DEPRECATED delUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
-instance AWSRequest DeleteUserProfile where
+instance Lude.AWSRequest DeleteUserProfile where
   type Rs DeleteUserProfile = DeleteUserProfileResponse
-  request = postJSON sageMaker
-  response = receiveNull DeleteUserProfileResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull DeleteUserProfileResponse'
 
-instance Hashable DeleteUserProfile
-
-instance NFData DeleteUserProfile
-
-instance ToHeaders DeleteUserProfile where
+instance Lude.ToHeaders DeleteUserProfile where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DeleteUserProfile" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DeleteUserProfile" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteUserProfile where
+instance Lude.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
-    object
-      ( catMaybes
-          [ Just ("DomainId" .= _delDomainId),
-            Just ("UserProfileName" .= _delUserProfileName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("DomainId" Lude..= domainId),
+            Lude.Just ("UserProfileName" Lude..= userProfileName)
           ]
       )
 
-instance ToPath DeleteUserProfile where
-  toPath = const "/"
+instance Lude.ToPath DeleteUserProfile where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteUserProfile where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteUserProfile where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteUserProfileResponse' smart constructor.
+-- | /See:/ 'mkDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.
-deleteUserProfileResponse ::
+mkDeleteUserProfileResponse ::
   DeleteUserProfileResponse
-deleteUserProfileResponse = DeleteUserProfileResponse'
-
-instance NFData DeleteUserProfileResponse
+mkDeleteUserProfileResponse = DeleteUserProfileResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.DirectoryType where
+module Network.AWS.DirectoryService.Types.DirectoryType
+  ( DirectoryType
+      ( DirectoryType',
+        ADConnector,
+        MicrosoftAD,
+        SharedMicrosoftAD,
+        SimpleAD
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DirectoryType
-  = ADConnector
-  | MicrosoftAD
-  | SharedMicrosoftAD
-  | SimpleAD
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DirectoryType = DirectoryType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DirectoryType where
-  parser =
-    takeLowerText >>= \case
-      "adconnector" -> pure ADConnector
-      "microsoftad" -> pure MicrosoftAD
-      "sharedmicrosoftad" -> pure SharedMicrosoftAD
-      "simplead" -> pure SimpleAD
-      e ->
-        fromTextError $
-          "Failure parsing DirectoryType from value: '" <> e
-            <> "'. Accepted values: adconnector, microsoftad, sharedmicrosoftad, simplead"
+pattern ADConnector :: DirectoryType
+pattern ADConnector = DirectoryType' "ADConnector"
 
-instance ToText DirectoryType where
-  toText = \case
-    ADConnector -> "ADConnector"
-    MicrosoftAD -> "MicrosoftAD"
-    SharedMicrosoftAD -> "SharedMicrosoftAD"
-    SimpleAD -> "SimpleAD"
+pattern MicrosoftAD :: DirectoryType
+pattern MicrosoftAD = DirectoryType' "MicrosoftAD"
 
-instance Hashable DirectoryType
+pattern SharedMicrosoftAD :: DirectoryType
+pattern SharedMicrosoftAD = DirectoryType' "SharedMicrosoftAD"
 
-instance NFData DirectoryType
+pattern SimpleAD :: DirectoryType
+pattern SimpleAD = DirectoryType' "SimpleAD"
 
-instance ToByteString DirectoryType
-
-instance ToQuery DirectoryType
-
-instance ToHeader DirectoryType
-
-instance FromJSON DirectoryType where
-  parseJSON = parseJSONText "DirectoryType"
+{-# COMPLETE
+  ADConnector,
+  MicrosoftAD,
+  SharedMicrosoftAD,
+  SimpleAD,
+  DirectoryType'
+  #-}

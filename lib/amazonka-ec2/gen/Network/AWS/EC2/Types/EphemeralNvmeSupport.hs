@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.EphemeralNvmeSupport where
+module Network.AWS.EC2.Types.EphemeralNvmeSupport
+  ( EphemeralNvmeSupport
+      ( EphemeralNvmeSupport',
+        ERequired,
+        ESupported,
+        EUnsupported
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EphemeralNvmeSupport
-  = ERequired
-  | ESupported
-  | EUnsupported
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EphemeralNvmeSupport = EphemeralNvmeSupport' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EphemeralNvmeSupport where
-  parser =
-    takeLowerText >>= \case
-      "required" -> pure ERequired
-      "supported" -> pure ESupported
-      "unsupported" -> pure EUnsupported
-      e ->
-        fromTextError $
-          "Failure parsing EphemeralNvmeSupport from value: '" <> e
-            <> "'. Accepted values: required, supported, unsupported"
+pattern ERequired :: EphemeralNvmeSupport
+pattern ERequired = EphemeralNvmeSupport' "required"
 
-instance ToText EphemeralNvmeSupport where
-  toText = \case
-    ERequired -> "required"
-    ESupported -> "supported"
-    EUnsupported -> "unsupported"
+pattern ESupported :: EphemeralNvmeSupport
+pattern ESupported = EphemeralNvmeSupport' "supported"
 
-instance Hashable EphemeralNvmeSupport
+pattern EUnsupported :: EphemeralNvmeSupport
+pattern EUnsupported = EphemeralNvmeSupport' "unsupported"
 
-instance NFData EphemeralNvmeSupport
-
-instance ToByteString EphemeralNvmeSupport
-
-instance ToQuery EphemeralNvmeSupport
-
-instance ToHeader EphemeralNvmeSupport
-
-instance FromXML EphemeralNvmeSupport where
-  parseXML = parseXMLText "EphemeralNvmeSupport"
+{-# COMPLETE
+  ERequired,
+  ESupported,
+  EUnsupported,
+  EphemeralNvmeSupport'
+  #-}

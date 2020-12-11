@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,82 +14,93 @@
 --
 -- Deletes a specified layer. You must first stop and then delete all associated instances or unassign registered instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html How to Delete a Layer> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DeleteLayer
-  ( -- * Creating a Request
-    deleteLayer,
-    DeleteLayer,
+  ( -- * Creating a request
+    DeleteLayer (..),
+    mkDeleteLayer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlLayerId,
 
-    -- * Destructuring the Response
-    deleteLayerResponse,
-    DeleteLayerResponse,
+    -- * Destructuring the response
+    DeleteLayerResponse (..),
+    mkDeleteLayerResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteLayer' smart constructor.
-newtype DeleteLayer = DeleteLayer' {_dlLayerId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteLayer' smart constructor.
+newtype DeleteLayer = DeleteLayer' {layerId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLayer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlLayerId' - The layer ID.
-deleteLayer ::
-  -- | 'dlLayerId'
-  Text ->
+-- * 'layerId' - The layer ID.
+mkDeleteLayer ::
+  -- | 'layerId'
+  Lude.Text ->
   DeleteLayer
-deleteLayer pLayerId_ = DeleteLayer' {_dlLayerId = pLayerId_}
+mkDeleteLayer pLayerId_ = DeleteLayer' {layerId = pLayerId_}
 
 -- | The layer ID.
-dlLayerId :: Lens' DeleteLayer Text
-dlLayerId = lens _dlLayerId (\s a -> s {_dlLayerId = a})
+--
+-- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlLayerId :: Lens.Lens' DeleteLayer Lude.Text
+dlLayerId = Lens.lens (layerId :: DeleteLayer -> Lude.Text) (\s a -> s {layerId = a} :: DeleteLayer)
+{-# DEPRECATED dlLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
 
-instance AWSRequest DeleteLayer where
+instance Lude.AWSRequest DeleteLayer where
   type Rs DeleteLayer = DeleteLayerResponse
-  request = postJSON opsWorks
-  response = receiveNull DeleteLayerResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DeleteLayerResponse'
 
-instance Hashable DeleteLayer
-
-instance NFData DeleteLayer
-
-instance ToHeaders DeleteLayer where
+instance Lude.ToHeaders DeleteLayer where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OpsWorks_20130218.DeleteLayer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OpsWorks_20130218.DeleteLayer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteLayer where
+instance Lude.ToJSON DeleteLayer where
   toJSON DeleteLayer' {..} =
-    object (catMaybes [Just ("LayerId" .= _dlLayerId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("LayerId" Lude..= layerId)])
 
-instance ToPath DeleteLayer where
-  toPath = const "/"
+instance Lude.ToPath DeleteLayer where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteLayer where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLayer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteLayerResponse' smart constructor.
+-- | /See:/ 'mkDeleteLayerResponse' smart constructor.
 data DeleteLayerResponse = DeleteLayerResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLayerResponse' with the minimum fields required to make a request.
-deleteLayerResponse ::
+mkDeleteLayerResponse ::
   DeleteLayerResponse
-deleteLayerResponse = DeleteLayerResponse'
-
-instance NFData DeleteLayerResponse
+mkDeleteLayerResponse = DeleteLayerResponse'

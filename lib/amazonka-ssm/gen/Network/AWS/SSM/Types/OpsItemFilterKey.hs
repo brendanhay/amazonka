@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,114 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.OpsItemFilterKey where
+module Network.AWS.SSM.Types.OpsItemFilterKey
+  ( OpsItemFilterKey
+      ( OpsItemFilterKey',
+        OIFKAutomationId,
+        OIFKCategory,
+        OIFKCreatedBy,
+        OIFKCreatedTime,
+        OIFKLastModifiedTime,
+        OIFKOperationalData,
+        OIFKOperationalDataKey,
+        OIFKOperationalDataValue,
+        OIFKOpsItemId,
+        OIFKPriority,
+        OIFKResourceId,
+        OIFKSeverity,
+        OIFKSource,
+        OIFKStatus,
+        OIFKTitle
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OpsItemFilterKey
-  = OIFKAutomationId
-  | OIFKCategory
-  | OIFKCreatedBy
-  | OIFKCreatedTime
-  | OIFKLastModifiedTime
-  | OIFKOperationalData
-  | OIFKOperationalDataKey
-  | OIFKOperationalDataValue
-  | OIFKOpsItemId
-  | OIFKPriority
-  | OIFKResourceId
-  | OIFKSeverity
-  | OIFKSource
-  | OIFKStatus
-  | OIFKTitle
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OpsItemFilterKey = OpsItemFilterKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OpsItemFilterKey where
-  parser =
-    takeLowerText >>= \case
-      "automationid" -> pure OIFKAutomationId
-      "category" -> pure OIFKCategory
-      "createdby" -> pure OIFKCreatedBy
-      "createdtime" -> pure OIFKCreatedTime
-      "lastmodifiedtime" -> pure OIFKLastModifiedTime
-      "operationaldata" -> pure OIFKOperationalData
-      "operationaldatakey" -> pure OIFKOperationalDataKey
-      "operationaldatavalue" -> pure OIFKOperationalDataValue
-      "opsitemid" -> pure OIFKOpsItemId
-      "priority" -> pure OIFKPriority
-      "resourceid" -> pure OIFKResourceId
-      "severity" -> pure OIFKSeverity
-      "source" -> pure OIFKSource
-      "status" -> pure OIFKStatus
-      "title" -> pure OIFKTitle
-      e ->
-        fromTextError $
-          "Failure parsing OpsItemFilterKey from value: '" <> e
-            <> "'. Accepted values: automationid, category, createdby, createdtime, lastmodifiedtime, operationaldata, operationaldatakey, operationaldatavalue, opsitemid, priority, resourceid, severity, source, status, title"
+pattern OIFKAutomationId :: OpsItemFilterKey
+pattern OIFKAutomationId = OpsItemFilterKey' "AutomationId"
 
-instance ToText OpsItemFilterKey where
-  toText = \case
-    OIFKAutomationId -> "AutomationId"
-    OIFKCategory -> "Category"
-    OIFKCreatedBy -> "CreatedBy"
-    OIFKCreatedTime -> "CreatedTime"
-    OIFKLastModifiedTime -> "LastModifiedTime"
-    OIFKOperationalData -> "OperationalData"
-    OIFKOperationalDataKey -> "OperationalDataKey"
-    OIFKOperationalDataValue -> "OperationalDataValue"
-    OIFKOpsItemId -> "OpsItemId"
-    OIFKPriority -> "Priority"
-    OIFKResourceId -> "ResourceId"
-    OIFKSeverity -> "Severity"
-    OIFKSource -> "Source"
-    OIFKStatus -> "Status"
-    OIFKTitle -> "Title"
+pattern OIFKCategory :: OpsItemFilterKey
+pattern OIFKCategory = OpsItemFilterKey' "Category"
 
-instance Hashable OpsItemFilterKey
+pattern OIFKCreatedBy :: OpsItemFilterKey
+pattern OIFKCreatedBy = OpsItemFilterKey' "CreatedBy"
 
-instance NFData OpsItemFilterKey
+pattern OIFKCreatedTime :: OpsItemFilterKey
+pattern OIFKCreatedTime = OpsItemFilterKey' "CreatedTime"
 
-instance ToByteString OpsItemFilterKey
+pattern OIFKLastModifiedTime :: OpsItemFilterKey
+pattern OIFKLastModifiedTime = OpsItemFilterKey' "LastModifiedTime"
 
-instance ToQuery OpsItemFilterKey
+pattern OIFKOperationalData :: OpsItemFilterKey
+pattern OIFKOperationalData = OpsItemFilterKey' "OperationalData"
 
-instance ToHeader OpsItemFilterKey
+pattern OIFKOperationalDataKey :: OpsItemFilterKey
+pattern OIFKOperationalDataKey = OpsItemFilterKey' "OperationalDataKey"
 
-instance ToJSON OpsItemFilterKey where
-  toJSON = toJSONText
+pattern OIFKOperationalDataValue :: OpsItemFilterKey
+pattern OIFKOperationalDataValue = OpsItemFilterKey' "OperationalDataValue"
+
+pattern OIFKOpsItemId :: OpsItemFilterKey
+pattern OIFKOpsItemId = OpsItemFilterKey' "OpsItemId"
+
+pattern OIFKPriority :: OpsItemFilterKey
+pattern OIFKPriority = OpsItemFilterKey' "Priority"
+
+pattern OIFKResourceId :: OpsItemFilterKey
+pattern OIFKResourceId = OpsItemFilterKey' "ResourceId"
+
+pattern OIFKSeverity :: OpsItemFilterKey
+pattern OIFKSeverity = OpsItemFilterKey' "Severity"
+
+pattern OIFKSource :: OpsItemFilterKey
+pattern OIFKSource = OpsItemFilterKey' "Source"
+
+pattern OIFKStatus :: OpsItemFilterKey
+pattern OIFKStatus = OpsItemFilterKey' "Status"
+
+pattern OIFKTitle :: OpsItemFilterKey
+pattern OIFKTitle = OpsItemFilterKey' "Title"
+
+{-# COMPLETE
+  OIFKAutomationId,
+  OIFKCategory,
+  OIFKCreatedBy,
+  OIFKCreatedTime,
+  OIFKLastModifiedTime,
+  OIFKOperationalData,
+  OIFKOperationalDataKey,
+  OIFKOperationalDataValue,
+  OIFKOpsItemId,
+  OIFKPriority,
+  OIFKResourceId,
+  OIFKSeverity,
+  OIFKSource,
+  OIFKStatus,
+  OIFKTitle,
+  OpsItemFilterKey'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.InsightCategory where
+module Network.AWS.XRay.Types.InsightCategory
+  ( InsightCategory
+      ( InsightCategory',
+        Fault
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InsightCategory = Fault
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InsightCategory = InsightCategory' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InsightCategory where
-  parser =
-    takeLowerText >>= \case
-      "fault" -> pure Fault
-      e ->
-        fromTextError $
-          "Failure parsing InsightCategory from value: '" <> e
-            <> "'. Accepted values: fault"
+pattern Fault :: InsightCategory
+pattern Fault = InsightCategory' "FAULT"
 
-instance ToText InsightCategory where
-  toText = \case
-    Fault -> "FAULT"
-
-instance Hashable InsightCategory
-
-instance NFData InsightCategory
-
-instance ToByteString InsightCategory
-
-instance ToQuery InsightCategory
-
-instance ToHeader InsightCategory
-
-instance FromJSON InsightCategory where
-  parseJSON = parseJSONText "InsightCategory"
+{-# COMPLETE
+  Fault,
+  InsightCategory'
+  #-}

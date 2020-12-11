@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringOutputConfig where
+module Network.AWS.SageMaker.Types.MonitoringOutputConfig
+  ( MonitoringOutputConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMonitoringOutputConfig,
+
+    -- * Lenses
+    mocKMSKeyId,
+    mocMonitoringOutputs,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.MonitoringOutput
 
 -- | The output configuration for monitoring jobs.
 --
---
---
--- /See:/ 'monitoringOutputConfig' smart constructor.
+-- /See:/ 'mkMonitoringOutputConfig' smart constructor.
 data MonitoringOutputConfig = MonitoringOutputConfig'
-  { _mocKMSKeyId ::
-      !(Maybe Text),
-    _mocMonitoringOutputs ::
-      !(List1 MonitoringOutput)
+  { kmsKeyId ::
+      Lude.Maybe Lude.Text,
+    monitoringOutputs ::
+      Lude.NonEmpty MonitoringOutput
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringOutputConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mocKMSKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
---
--- * 'mocMonitoringOutputs' - Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-monitoringOutputConfig ::
-  -- | 'mocMonitoringOutputs'
-  NonEmpty MonitoringOutput ->
+-- * 'kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+-- * 'monitoringOutputs' - Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
+mkMonitoringOutputConfig ::
+  -- | 'monitoringOutputs'
+  Lude.NonEmpty MonitoringOutput ->
   MonitoringOutputConfig
-monitoringOutputConfig pMonitoringOutputs_ =
+mkMonitoringOutputConfig pMonitoringOutputs_ =
   MonitoringOutputConfig'
-    { _mocKMSKeyId = Nothing,
-      _mocMonitoringOutputs = _List1 # pMonitoringOutputs_
+    { kmsKeyId = Lude.Nothing,
+      monitoringOutputs = pMonitoringOutputs_
     }
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-mocKMSKeyId :: Lens' MonitoringOutputConfig (Maybe Text)
-mocKMSKeyId = lens _mocKMSKeyId (\s a -> s {_mocKMSKeyId = a})
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mocKMSKeyId :: Lens.Lens' MonitoringOutputConfig (Lude.Maybe Lude.Text)
+mocKMSKeyId = Lens.lens (kmsKeyId :: MonitoringOutputConfig -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: MonitoringOutputConfig)
+{-# DEPRECATED mocKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
-mocMonitoringOutputs :: Lens' MonitoringOutputConfig (NonEmpty MonitoringOutput)
-mocMonitoringOutputs = lens _mocMonitoringOutputs (\s a -> s {_mocMonitoringOutputs = a}) . _List1
+--
+-- /Note:/ Consider using 'monitoringOutputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mocMonitoringOutputs :: Lens.Lens' MonitoringOutputConfig (Lude.NonEmpty MonitoringOutput)
+mocMonitoringOutputs = Lens.lens (monitoringOutputs :: MonitoringOutputConfig -> Lude.NonEmpty MonitoringOutput) (\s a -> s {monitoringOutputs = a} :: MonitoringOutputConfig)
+{-# DEPRECATED mocMonitoringOutputs "Use generic-lens or generic-optics with 'monitoringOutputs' instead." #-}
 
-instance FromJSON MonitoringOutputConfig where
+instance Lude.FromJSON MonitoringOutputConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonitoringOutputConfig"
       ( \x ->
           MonitoringOutputConfig'
-            <$> (x .:? "KmsKeyId") <*> (x .: "MonitoringOutputs")
+            Lude.<$> (x Lude..:? "KmsKeyId") Lude.<*> (x Lude..: "MonitoringOutputs")
       )
 
-instance Hashable MonitoringOutputConfig
-
-instance NFData MonitoringOutputConfig
-
-instance ToJSON MonitoringOutputConfig where
+instance Lude.ToJSON MonitoringOutputConfig where
   toJSON MonitoringOutputConfig' {..} =
-    object
-      ( catMaybes
-          [ ("KmsKeyId" .=) <$> _mocKMSKeyId,
-            Just ("MonitoringOutputs" .= _mocMonitoringOutputs)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            Lude.Just ("MonitoringOutputs" Lude..= monitoringOutputs)
           ]
       )

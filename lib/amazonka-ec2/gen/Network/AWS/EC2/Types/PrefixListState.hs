@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PrefixListState where
+module Network.AWS.EC2.Types.PrefixListState
+  ( PrefixListState
+      ( PrefixListState',
+        CreateComplete,
+        CreateFailed,
+        CreateInProgress,
+        DeleteComplete,
+        DeleteFailed,
+        DeleteInProgress,
+        ModifyComplete,
+        ModifyFailed,
+        ModifyInProgress,
+        RestoreComplete,
+        RestoreFailed,
+        RestoreInProgress
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PrefixListState
-  = CreateComplete
-  | CreateFailed
-  | CreateInProgress
-  | DeleteComplete
-  | DeleteFailed
-  | DeleteInProgress
-  | ModifyComplete
-  | ModifyFailed
-  | ModifyInProgress
-  | RestoreComplete
-  | RestoreFailed
-  | RestoreInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PrefixListState = PrefixListState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PrefixListState where
-  parser =
-    takeLowerText >>= \case
-      "create-complete" -> pure CreateComplete
-      "create-failed" -> pure CreateFailed
-      "create-in-progress" -> pure CreateInProgress
-      "delete-complete" -> pure DeleteComplete
-      "delete-failed" -> pure DeleteFailed
-      "delete-in-progress" -> pure DeleteInProgress
-      "modify-complete" -> pure ModifyComplete
-      "modify-failed" -> pure ModifyFailed
-      "modify-in-progress" -> pure ModifyInProgress
-      "restore-complete" -> pure RestoreComplete
-      "restore-failed" -> pure RestoreFailed
-      "restore-in-progress" -> pure RestoreInProgress
-      e ->
-        fromTextError $
-          "Failure parsing PrefixListState from value: '" <> e
-            <> "'. Accepted values: create-complete, create-failed, create-in-progress, delete-complete, delete-failed, delete-in-progress, modify-complete, modify-failed, modify-in-progress, restore-complete, restore-failed, restore-in-progress"
+pattern CreateComplete :: PrefixListState
+pattern CreateComplete = PrefixListState' "create-complete"
 
-instance ToText PrefixListState where
-  toText = \case
-    CreateComplete -> "create-complete"
-    CreateFailed -> "create-failed"
-    CreateInProgress -> "create-in-progress"
-    DeleteComplete -> "delete-complete"
-    DeleteFailed -> "delete-failed"
-    DeleteInProgress -> "delete-in-progress"
-    ModifyComplete -> "modify-complete"
-    ModifyFailed -> "modify-failed"
-    ModifyInProgress -> "modify-in-progress"
-    RestoreComplete -> "restore-complete"
-    RestoreFailed -> "restore-failed"
-    RestoreInProgress -> "restore-in-progress"
+pattern CreateFailed :: PrefixListState
+pattern CreateFailed = PrefixListState' "create-failed"
 
-instance Hashable PrefixListState
+pattern CreateInProgress :: PrefixListState
+pattern CreateInProgress = PrefixListState' "create-in-progress"
 
-instance NFData PrefixListState
+pattern DeleteComplete :: PrefixListState
+pattern DeleteComplete = PrefixListState' "delete-complete"
 
-instance ToByteString PrefixListState
+pattern DeleteFailed :: PrefixListState
+pattern DeleteFailed = PrefixListState' "delete-failed"
 
-instance ToQuery PrefixListState
+pattern DeleteInProgress :: PrefixListState
+pattern DeleteInProgress = PrefixListState' "delete-in-progress"
 
-instance ToHeader PrefixListState
+pattern ModifyComplete :: PrefixListState
+pattern ModifyComplete = PrefixListState' "modify-complete"
 
-instance FromXML PrefixListState where
-  parseXML = parseXMLText "PrefixListState"
+pattern ModifyFailed :: PrefixListState
+pattern ModifyFailed = PrefixListState' "modify-failed"
+
+pattern ModifyInProgress :: PrefixListState
+pattern ModifyInProgress = PrefixListState' "modify-in-progress"
+
+pattern RestoreComplete :: PrefixListState
+pattern RestoreComplete = PrefixListState' "restore-complete"
+
+pattern RestoreFailed :: PrefixListState
+pattern RestoreFailed = PrefixListState' "restore-failed"
+
+pattern RestoreInProgress :: PrefixListState
+pattern RestoreInProgress = PrefixListState' "restore-in-progress"
+
+{-# COMPLETE
+  CreateComplete,
+  CreateFailed,
+  CreateInProgress,
+  DeleteComplete,
+  DeleteFailed,
+  DeleteInProgress,
+  ModifyComplete,
+  ModifyFailed,
+  ModifyInProgress,
+  RestoreComplete,
+  RestoreFailed,
+  RestoreInProgress,
+  PrefixListState'
+  #-}

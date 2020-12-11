@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Batch.Types.CRAllocationStrategy where
+module Network.AWS.Batch.Types.CRAllocationStrategy
+  ( CRAllocationStrategy
+      ( CRAllocationStrategy',
+        BestFit,
+        BestFitProgressive,
+        SpotCapacityOptimized
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CRAllocationStrategy
-  = BestFit
-  | BestFitProgressive
-  | SpotCapacityOptimized
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CRAllocationStrategy = CRAllocationStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CRAllocationStrategy where
-  parser =
-    takeLowerText >>= \case
-      "best_fit" -> pure BestFit
-      "best_fit_progressive" -> pure BestFitProgressive
-      "spot_capacity_optimized" -> pure SpotCapacityOptimized
-      e ->
-        fromTextError $
-          "Failure parsing CRAllocationStrategy from value: '" <> e
-            <> "'. Accepted values: best_fit, best_fit_progressive, spot_capacity_optimized"
+pattern BestFit :: CRAllocationStrategy
+pattern BestFit = CRAllocationStrategy' "BEST_FIT"
 
-instance ToText CRAllocationStrategy where
-  toText = \case
-    BestFit -> "BEST_FIT"
-    BestFitProgressive -> "BEST_FIT_PROGRESSIVE"
-    SpotCapacityOptimized -> "SPOT_CAPACITY_OPTIMIZED"
+pattern BestFitProgressive :: CRAllocationStrategy
+pattern BestFitProgressive = CRAllocationStrategy' "BEST_FIT_PROGRESSIVE"
 
-instance Hashable CRAllocationStrategy
+pattern SpotCapacityOptimized :: CRAllocationStrategy
+pattern SpotCapacityOptimized = CRAllocationStrategy' "SPOT_CAPACITY_OPTIMIZED"
 
-instance NFData CRAllocationStrategy
-
-instance ToByteString CRAllocationStrategy
-
-instance ToQuery CRAllocationStrategy
-
-instance ToHeader CRAllocationStrategy
-
-instance ToJSON CRAllocationStrategy where
-  toJSON = toJSONText
-
-instance FromJSON CRAllocationStrategy where
-  parseJSON = parseJSONText "CRAllocationStrategy"
+{-# COMPLETE
+  BestFit,
+  BestFitProgressive,
+  SpotCapacityOptimized,
+  CRAllocationStrategy'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.M2tsScte35Control where
+module Network.AWS.MediaLive.Types.M2tsScte35Control
+  ( M2tsScte35Control
+      ( M2tsScte35Control',
+        MSCNone,
+        MSCPassthrough
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | M2ts Scte35 Control
-data M2tsScte35Control
-  = MSCNone
-  | MSCPassthrough
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsScte35Control = M2tsScte35Control' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsScte35Control where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure MSCNone
-      "passthrough" -> pure MSCPassthrough
-      e ->
-        fromTextError $
-          "Failure parsing M2tsScte35Control from value: '" <> e
-            <> "'. Accepted values: none, passthrough"
+pattern MSCNone :: M2tsScte35Control
+pattern MSCNone = M2tsScte35Control' "NONE"
 
-instance ToText M2tsScte35Control where
-  toText = \case
-    MSCNone -> "NONE"
-    MSCPassthrough -> "PASSTHROUGH"
+pattern MSCPassthrough :: M2tsScte35Control
+pattern MSCPassthrough = M2tsScte35Control' "PASSTHROUGH"
 
-instance Hashable M2tsScte35Control
-
-instance NFData M2tsScte35Control
-
-instance ToByteString M2tsScte35Control
-
-instance ToQuery M2tsScte35Control
-
-instance ToHeader M2tsScte35Control
-
-instance ToJSON M2tsScte35Control where
-  toJSON = toJSONText
-
-instance FromJSON M2tsScte35Control where
-  parseJSON = parseJSONText "M2tsScte35Control"
+{-# COMPLETE
+  MSCNone,
+  MSCPassthrough,
+  M2tsScte35Control'
+  #-}

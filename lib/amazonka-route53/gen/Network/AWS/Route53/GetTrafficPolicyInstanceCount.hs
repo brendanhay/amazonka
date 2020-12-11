@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,114 @@
 --
 -- Gets the number of traffic policy instances that are associated with the current AWS account.
 module Network.AWS.Route53.GetTrafficPolicyInstanceCount
-  ( -- * Creating a Request
-    getTrafficPolicyInstanceCount,
-    GetTrafficPolicyInstanceCount,
+  ( -- * Creating a request
+    GetTrafficPolicyInstanceCount (..),
+    mkGetTrafficPolicyInstanceCount,
 
-    -- * Destructuring the Response
-    getTrafficPolicyInstanceCountResponse,
-    GetTrafficPolicyInstanceCountResponse,
+    -- * Destructuring the response
+    GetTrafficPolicyInstanceCountResponse (..),
+    mkGetTrafficPolicyInstanceCountResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtpicrsResponseStatus,
     gtpicrsTrafficPolicyInstanceCount,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53.Types
 
 -- | Request to get the number of traffic policy instances that are associated with the current AWS account.
 --
---
---
--- /See:/ 'getTrafficPolicyInstanceCount' smart constructor.
+-- /See:/ 'mkGetTrafficPolicyInstanceCount' smart constructor.
 data GetTrafficPolicyInstanceCount = GetTrafficPolicyInstanceCount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrafficPolicyInstanceCount' with the minimum fields required to make a request.
-getTrafficPolicyInstanceCount ::
+mkGetTrafficPolicyInstanceCount ::
   GetTrafficPolicyInstanceCount
-getTrafficPolicyInstanceCount = GetTrafficPolicyInstanceCount'
+mkGetTrafficPolicyInstanceCount = GetTrafficPolicyInstanceCount'
 
-instance AWSRequest GetTrafficPolicyInstanceCount where
+instance Lude.AWSRequest GetTrafficPolicyInstanceCount where
   type
     Rs GetTrafficPolicyInstanceCount =
       GetTrafficPolicyInstanceCountResponse
-  request = get route53
+  request = Req.get route53Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           GetTrafficPolicyInstanceCountResponse'
-            <$> (pure (fromEnum s)) <*> (x .@ "TrafficPolicyInstanceCount")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "TrafficPolicyInstanceCount")
       )
 
-instance Hashable GetTrafficPolicyInstanceCount
+instance Lude.ToHeaders GetTrafficPolicyInstanceCount where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetTrafficPolicyInstanceCount
+instance Lude.ToPath GetTrafficPolicyInstanceCount where
+  toPath = Lude.const "/2013-04-01/trafficpolicyinstancecount"
 
-instance ToHeaders GetTrafficPolicyInstanceCount where
-  toHeaders = const mempty
-
-instance ToPath GetTrafficPolicyInstanceCount where
-  toPath = const "/2013-04-01/trafficpolicyinstancecount"
-
-instance ToQuery GetTrafficPolicyInstanceCount where
-  toQuery = const mempty
+instance Lude.ToQuery GetTrafficPolicyInstanceCount where
+  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
 --
---
---
--- /See:/ 'getTrafficPolicyInstanceCountResponse' smart constructor.
+-- /See:/ 'mkGetTrafficPolicyInstanceCountResponse' smart constructor.
 data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountResponse'
-  { _gtpicrsResponseStatus ::
-      !Int,
-    _gtpicrsTrafficPolicyInstanceCount ::
-      !Int
+  { responseStatus ::
+      Lude.Int,
+    trafficPolicyInstanceCount ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrafficPolicyInstanceCountResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtpicrsResponseStatus' - -- | The response status code.
---
--- * 'gtpicrsTrafficPolicyInstanceCount' - The number of traffic policy instances that are associated with the current AWS account.
-getTrafficPolicyInstanceCountResponse ::
-  -- | 'gtpicrsResponseStatus'
-  Int ->
-  -- | 'gtpicrsTrafficPolicyInstanceCount'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'trafficPolicyInstanceCount' - The number of traffic policy instances that are associated with the current AWS account.
+mkGetTrafficPolicyInstanceCountResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'trafficPolicyInstanceCount'
+  Lude.Int ->
   GetTrafficPolicyInstanceCountResponse
-getTrafficPolicyInstanceCountResponse
+mkGetTrafficPolicyInstanceCountResponse
   pResponseStatus_
   pTrafficPolicyInstanceCount_ =
     GetTrafficPolicyInstanceCountResponse'
-      { _gtpicrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _gtpicrsTrafficPolicyInstanceCount =
+        trafficPolicyInstanceCount =
           pTrafficPolicyInstanceCount_
       }
 
--- | -- | The response status code.
-gtpicrsResponseStatus :: Lens' GetTrafficPolicyInstanceCountResponse Int
-gtpicrsResponseStatus = lens _gtpicrsResponseStatus (\s a -> s {_gtpicrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpicrsResponseStatus :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Lude.Int
+gtpicrsResponseStatus = Lens.lens (responseStatus :: GetTrafficPolicyInstanceCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTrafficPolicyInstanceCountResponse)
+{-# DEPRECATED gtpicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The number of traffic policy instances that are associated with the current AWS account.
-gtpicrsTrafficPolicyInstanceCount :: Lens' GetTrafficPolicyInstanceCountResponse Int
-gtpicrsTrafficPolicyInstanceCount = lens _gtpicrsTrafficPolicyInstanceCount (\s a -> s {_gtpicrsTrafficPolicyInstanceCount = a})
-
-instance NFData GetTrafficPolicyInstanceCountResponse
+--
+-- /Note:/ Consider using 'trafficPolicyInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpicrsTrafficPolicyInstanceCount :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Lude.Int
+gtpicrsTrafficPolicyInstanceCount = Lens.lens (trafficPolicyInstanceCount :: GetTrafficPolicyInstanceCountResponse -> Lude.Int) (\s a -> s {trafficPolicyInstanceCount = a} :: GetTrafficPolicyInstanceCountResponse)
+{-# DEPRECATED gtpicrsTrafficPolicyInstanceCount "Use generic-lens or generic-optics with 'trafficPolicyInstanceCount' instead." #-}

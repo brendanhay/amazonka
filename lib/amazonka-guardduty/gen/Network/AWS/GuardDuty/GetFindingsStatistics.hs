@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,165 @@
 --
 -- Lists Amazon GuardDuty findings statistics for the specified detector ID.
 module Network.AWS.GuardDuty.GetFindingsStatistics
-  ( -- * Creating a Request
-    getFindingsStatistics,
-    GetFindingsStatistics,
+  ( -- * Creating a request
+    GetFindingsStatistics (..),
+    mkGetFindingsStatistics,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gfsFindingCriteria,
     gfsDetectorId,
     gfsFindingStatisticTypes,
 
-    -- * Destructuring the Response
-    getFindingsStatisticsResponse,
-    GetFindingsStatisticsResponse,
+    -- * Destructuring the response
+    GetFindingsStatisticsResponse (..),
+    mkGetFindingsStatisticsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gfsrsResponseStatus,
     gfsrsFindingStatistics,
   )
 where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getFindingsStatistics' smart constructor.
+-- | /See:/ 'mkGetFindingsStatistics' smart constructor.
 data GetFindingsStatistics = GetFindingsStatistics'
-  { _gfsFindingCriteria ::
-      !(Maybe FindingCriteria),
-    _gfsDetectorId :: !Text,
-    _gfsFindingStatisticTypes ::
-      ![FindingStatisticType]
+  { findingCriteria ::
+      Lude.Maybe FindingCriteria,
+    detectorId :: Lude.Text,
+    findingStatisticTypes :: [FindingStatisticType]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFindingsStatistics' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfsFindingCriteria' - Represents the criteria that is used for querying findings.
---
--- * 'gfsDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings' statistics you want to retrieve.
---
--- * 'gfsFindingStatisticTypes' - The types of finding statistics to retrieve.
-getFindingsStatistics ::
-  -- | 'gfsDetectorId'
-  Text ->
+-- * 'detectorId' - The ID of the detector that specifies the GuardDuty service whose findings' statistics you want to retrieve.
+-- * 'findingCriteria' - Represents the criteria that is used for querying findings.
+-- * 'findingStatisticTypes' - The types of finding statistics to retrieve.
+mkGetFindingsStatistics ::
+  -- | 'detectorId'
+  Lude.Text ->
   GetFindingsStatistics
-getFindingsStatistics pDetectorId_ =
+mkGetFindingsStatistics pDetectorId_ =
   GetFindingsStatistics'
-    { _gfsFindingCriteria = Nothing,
-      _gfsDetectorId = pDetectorId_,
-      _gfsFindingStatisticTypes = mempty
+    { findingCriteria = Lude.Nothing,
+      detectorId = pDetectorId_,
+      findingStatisticTypes = Lude.mempty
     }
 
 -- | Represents the criteria that is used for querying findings.
-gfsFindingCriteria :: Lens' GetFindingsStatistics (Maybe FindingCriteria)
-gfsFindingCriteria = lens _gfsFindingCriteria (\s a -> s {_gfsFindingCriteria = a})
+--
+-- /Note:/ Consider using 'findingCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsFindingCriteria :: Lens.Lens' GetFindingsStatistics (Lude.Maybe FindingCriteria)
+gfsFindingCriteria = Lens.lens (findingCriteria :: GetFindingsStatistics -> Lude.Maybe FindingCriteria) (\s a -> s {findingCriteria = a} :: GetFindingsStatistics)
+{-# DEPRECATED gfsFindingCriteria "Use generic-lens or generic-optics with 'findingCriteria' instead." #-}
 
 -- | The ID of the detector that specifies the GuardDuty service whose findings' statistics you want to retrieve.
-gfsDetectorId :: Lens' GetFindingsStatistics Text
-gfsDetectorId = lens _gfsDetectorId (\s a -> s {_gfsDetectorId = a})
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsDetectorId :: Lens.Lens' GetFindingsStatistics Lude.Text
+gfsDetectorId = Lens.lens (detectorId :: GetFindingsStatistics -> Lude.Text) (\s a -> s {detectorId = a} :: GetFindingsStatistics)
+{-# DEPRECATED gfsDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The types of finding statistics to retrieve.
-gfsFindingStatisticTypes :: Lens' GetFindingsStatistics [FindingStatisticType]
-gfsFindingStatisticTypes = lens _gfsFindingStatisticTypes (\s a -> s {_gfsFindingStatisticTypes = a}) . _Coerce
+--
+-- /Note:/ Consider using 'findingStatisticTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsFindingStatisticTypes :: Lens.Lens' GetFindingsStatistics [FindingStatisticType]
+gfsFindingStatisticTypes = Lens.lens (findingStatisticTypes :: GetFindingsStatistics -> [FindingStatisticType]) (\s a -> s {findingStatisticTypes = a} :: GetFindingsStatistics)
+{-# DEPRECATED gfsFindingStatisticTypes "Use generic-lens or generic-optics with 'findingStatisticTypes' instead." #-}
 
-instance AWSRequest GetFindingsStatistics where
+instance Lude.AWSRequest GetFindingsStatistics where
   type Rs GetFindingsStatistics = GetFindingsStatisticsResponse
-  request = postJSON guardDuty
+  request = Req.postJSON guardDutyService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetFindingsStatisticsResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "findingStatistics")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "findingStatistics")
       )
 
-instance Hashable GetFindingsStatistics
-
-instance NFData GetFindingsStatistics
-
-instance ToHeaders GetFindingsStatistics where
+instance Lude.ToHeaders GetFindingsStatistics where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON GetFindingsStatistics where
-  toJSON GetFindingsStatistics' {..} =
-    object
-      ( catMaybes
-          [ ("findingCriteria" .=) <$> _gfsFindingCriteria,
-            Just ("findingStatisticTypes" .= _gfsFindingStatisticTypes)
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath GetFindingsStatistics where
+instance Lude.ToJSON GetFindingsStatistics where
+  toJSON GetFindingsStatistics' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("findingCriteria" Lude..=) Lude.<$> findingCriteria,
+            Lude.Just ("findingStatisticTypes" Lude..= findingStatisticTypes)
+          ]
+      )
+
+instance Lude.ToPath GetFindingsStatistics where
   toPath GetFindingsStatistics' {..} =
-    mconcat
-      ["/detector/", toBS _gfsDetectorId, "/findings/statistics"]
+    Lude.mconcat
+      ["/detector/", Lude.toBS detectorId, "/findings/statistics"]
 
-instance ToQuery GetFindingsStatistics where
-  toQuery = const mempty
+instance Lude.ToQuery GetFindingsStatistics where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getFindingsStatisticsResponse' smart constructor.
+-- | /See:/ 'mkGetFindingsStatisticsResponse' smart constructor.
 data GetFindingsStatisticsResponse = GetFindingsStatisticsResponse'
-  { _gfsrsResponseStatus ::
-      !Int,
-    _gfsrsFindingStatistics ::
-      !FindingStatistics
+  { responseStatus ::
+      Lude.Int,
+    findingStatistics ::
+      FindingStatistics
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFindingsStatisticsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gfsrsResponseStatus' - -- | The response status code.
---
--- * 'gfsrsFindingStatistics' - The finding statistics object.
-getFindingsStatisticsResponse ::
-  -- | 'gfsrsResponseStatus'
-  Int ->
-  -- | 'gfsrsFindingStatistics'
+-- * 'findingStatistics' - The finding statistics object.
+-- * 'responseStatus' - The response status code.
+mkGetFindingsStatisticsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'findingStatistics'
   FindingStatistics ->
   GetFindingsStatisticsResponse
-getFindingsStatisticsResponse pResponseStatus_ pFindingStatistics_ =
-  GetFindingsStatisticsResponse'
-    { _gfsrsResponseStatus =
-        pResponseStatus_,
-      _gfsrsFindingStatistics = pFindingStatistics_
-    }
+mkGetFindingsStatisticsResponse
+  pResponseStatus_
+  pFindingStatistics_ =
+    GetFindingsStatisticsResponse'
+      { responseStatus = pResponseStatus_,
+        findingStatistics = pFindingStatistics_
+      }
 
--- | -- | The response status code.
-gfsrsResponseStatus :: Lens' GetFindingsStatisticsResponse Int
-gfsrsResponseStatus = lens _gfsrsResponseStatus (\s a -> s {_gfsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsrsResponseStatus :: Lens.Lens' GetFindingsStatisticsResponse Lude.Int
+gfsrsResponseStatus = Lens.lens (responseStatus :: GetFindingsStatisticsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFindingsStatisticsResponse)
+{-# DEPRECATED gfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The finding statistics object.
-gfsrsFindingStatistics :: Lens' GetFindingsStatisticsResponse FindingStatistics
-gfsrsFindingStatistics = lens _gfsrsFindingStatistics (\s a -> s {_gfsrsFindingStatistics = a})
-
-instance NFData GetFindingsStatisticsResponse
+--
+-- /Note:/ Consider using 'findingStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsrsFindingStatistics :: Lens.Lens' GetFindingsStatisticsResponse FindingStatistics
+gfsrsFindingStatistics = Lens.lens (findingStatistics :: GetFindingsStatisticsResponse -> FindingStatistics) (\s a -> s {findingStatistics = a} :: GetFindingsStatisticsResponse)
+{-# DEPRECATED gfsrsFindingStatistics "Use generic-lens or generic-optics with 'findingStatistics' instead." #-}

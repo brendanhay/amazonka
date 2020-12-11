@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.ContentModerationSortBy where
+module Network.AWS.Rekognition.Types.ContentModerationSortBy
+  ( ContentModerationSortBy
+      ( ContentModerationSortBy',
+        CMSBName,
+        CMSBTimestamp
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContentModerationSortBy
-  = CMSBName
-  | CMSBTimestamp
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContentModerationSortBy = ContentModerationSortBy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContentModerationSortBy where
-  parser =
-    takeLowerText >>= \case
-      "name" -> pure CMSBName
-      "timestamp" -> pure CMSBTimestamp
-      e ->
-        fromTextError $
-          "Failure parsing ContentModerationSortBy from value: '" <> e
-            <> "'. Accepted values: name, timestamp"
+pattern CMSBName :: ContentModerationSortBy
+pattern CMSBName = ContentModerationSortBy' "NAME"
 
-instance ToText ContentModerationSortBy where
-  toText = \case
-    CMSBName -> "NAME"
-    CMSBTimestamp -> "TIMESTAMP"
+pattern CMSBTimestamp :: ContentModerationSortBy
+pattern CMSBTimestamp = ContentModerationSortBy' "TIMESTAMP"
 
-instance Hashable ContentModerationSortBy
-
-instance NFData ContentModerationSortBy
-
-instance ToByteString ContentModerationSortBy
-
-instance ToQuery ContentModerationSortBy
-
-instance ToHeader ContentModerationSortBy
-
-instance ToJSON ContentModerationSortBy where
-  toJSON = toJSONText
+{-# COMPLETE
+  CMSBName,
+  CMSBTimestamp,
+  ContentModerationSortBy'
+  #-}

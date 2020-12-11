@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.ThingGroupDocument where
+module Network.AWS.IoT.Types.ThingGroupDocument
+  ( ThingGroupDocument (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkThingGroupDocument,
+
+    -- * Lenses
+    tgdParentGroupNames,
+    tgdThingGroupId,
+    tgdThingGroupName,
+    tgdAttributes,
+    tgdThingGroupDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The thing group search index document.
 --
---
---
--- /See:/ 'thingGroupDocument' smart constructor.
+-- /See:/ 'mkThingGroupDocument' smart constructor.
 data ThingGroupDocument = ThingGroupDocument'
-  { _tgdParentGroupNames ::
-      !(Maybe [Text]),
-    _tgdThingGroupId :: !(Maybe Text),
-    _tgdThingGroupName :: !(Maybe Text),
-    _tgdAttributes :: !(Maybe (Map Text (Text))),
-    _tgdThingGroupDescription :: !(Maybe Text)
+  { parentGroupNames ::
+      Lude.Maybe [Lude.Text],
+    thingGroupId :: Lude.Maybe Lude.Text,
+    thingGroupName :: Lude.Maybe Lude.Text,
+    attributes ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    thingGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingGroupDocument' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgdParentGroupNames' - Parent group names.
---
--- * 'tgdThingGroupId' - The thing group ID.
---
--- * 'tgdThingGroupName' - The thing group name.
---
--- * 'tgdAttributes' - The thing group attributes.
---
--- * 'tgdThingGroupDescription' - The thing group description.
-thingGroupDocument ::
+-- * 'attributes' - The thing group attributes.
+-- * 'parentGroupNames' - Parent group names.
+-- * 'thingGroupDescription' - The thing group description.
+-- * 'thingGroupId' - The thing group ID.
+-- * 'thingGroupName' - The thing group name.
+mkThingGroupDocument ::
   ThingGroupDocument
-thingGroupDocument =
+mkThingGroupDocument =
   ThingGroupDocument'
-    { _tgdParentGroupNames = Nothing,
-      _tgdThingGroupId = Nothing,
-      _tgdThingGroupName = Nothing,
-      _tgdAttributes = Nothing,
-      _tgdThingGroupDescription = Nothing
+    { parentGroupNames = Lude.Nothing,
+      thingGroupId = Lude.Nothing,
+      thingGroupName = Lude.Nothing,
+      attributes = Lude.Nothing,
+      thingGroupDescription = Lude.Nothing
     }
 
 -- | Parent group names.
-tgdParentGroupNames :: Lens' ThingGroupDocument [Text]
-tgdParentGroupNames = lens _tgdParentGroupNames (\s a -> s {_tgdParentGroupNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'parentGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgdParentGroupNames :: Lens.Lens' ThingGroupDocument (Lude.Maybe [Lude.Text])
+tgdParentGroupNames = Lens.lens (parentGroupNames :: ThingGroupDocument -> Lude.Maybe [Lude.Text]) (\s a -> s {parentGroupNames = a} :: ThingGroupDocument)
+{-# DEPRECATED tgdParentGroupNames "Use generic-lens or generic-optics with 'parentGroupNames' instead." #-}
 
 -- | The thing group ID.
-tgdThingGroupId :: Lens' ThingGroupDocument (Maybe Text)
-tgdThingGroupId = lens _tgdThingGroupId (\s a -> s {_tgdThingGroupId = a})
+--
+-- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgdThingGroupId :: Lens.Lens' ThingGroupDocument (Lude.Maybe Lude.Text)
+tgdThingGroupId = Lens.lens (thingGroupId :: ThingGroupDocument -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupId = a} :: ThingGroupDocument)
+{-# DEPRECATED tgdThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
 
 -- | The thing group name.
-tgdThingGroupName :: Lens' ThingGroupDocument (Maybe Text)
-tgdThingGroupName = lens _tgdThingGroupName (\s a -> s {_tgdThingGroupName = a})
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgdThingGroupName :: Lens.Lens' ThingGroupDocument (Lude.Maybe Lude.Text)
+tgdThingGroupName = Lens.lens (thingGroupName :: ThingGroupDocument -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupName = a} :: ThingGroupDocument)
+{-# DEPRECATED tgdThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | The thing group attributes.
-tgdAttributes :: Lens' ThingGroupDocument (HashMap Text (Text))
-tgdAttributes = lens _tgdAttributes (\s a -> s {_tgdAttributes = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgdAttributes :: Lens.Lens' ThingGroupDocument (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+tgdAttributes = Lens.lens (attributes :: ThingGroupDocument -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: ThingGroupDocument)
+{-# DEPRECATED tgdAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The thing group description.
-tgdThingGroupDescription :: Lens' ThingGroupDocument (Maybe Text)
-tgdThingGroupDescription = lens _tgdThingGroupDescription (\s a -> s {_tgdThingGroupDescription = a})
+--
+-- /Note:/ Consider using 'thingGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgdThingGroupDescription :: Lens.Lens' ThingGroupDocument (Lude.Maybe Lude.Text)
+tgdThingGroupDescription = Lens.lens (thingGroupDescription :: ThingGroupDocument -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupDescription = a} :: ThingGroupDocument)
+{-# DEPRECATED tgdThingGroupDescription "Use generic-lens or generic-optics with 'thingGroupDescription' instead." #-}
 
-instance FromJSON ThingGroupDocument where
+instance Lude.FromJSON ThingGroupDocument where
   parseJSON =
-    withObject
+    Lude.withObject
       "ThingGroupDocument"
       ( \x ->
           ThingGroupDocument'
-            <$> (x .:? "parentGroupNames" .!= mempty)
-            <*> (x .:? "thingGroupId")
-            <*> (x .:? "thingGroupName")
-            <*> (x .:? "attributes" .!= mempty)
-            <*> (x .:? "thingGroupDescription")
+            Lude.<$> (x Lude..:? "parentGroupNames" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "thingGroupId")
+            Lude.<*> (x Lude..:? "thingGroupName")
+            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "thingGroupDescription")
       )
-
-instance Hashable ThingGroupDocument
-
-instance NFData ThingGroupDocument

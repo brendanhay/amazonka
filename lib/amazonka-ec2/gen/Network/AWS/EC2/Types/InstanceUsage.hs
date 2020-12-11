@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceUsage where
+module Network.AWS.EC2.Types.InstanceUsage
+  ( InstanceUsage (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInstanceUsage,
+
+    -- * Lenses
+    iuAccountId,
+    iuUsedInstanceCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the Capacity Reservation usage.
 --
---
---
--- /See:/ 'instanceUsage' smart constructor.
+-- /See:/ 'mkInstanceUsage' smart constructor.
 data InstanceUsage = InstanceUsage'
-  { _iuAccountId :: !(Maybe Text),
-    _iuUsedInstanceCount :: !(Maybe Int)
+  { accountId ::
+      Lude.Maybe Lude.Text,
+    usedInstanceCount :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceUsage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iuAccountId' - The ID of the AWS account that is making use of the Capacity Reservation.
---
--- * 'iuUsedInstanceCount' - The number of instances the AWS account currently has in the Capacity Reservation.
-instanceUsage ::
+-- * 'accountId' - The ID of the AWS account that is making use of the Capacity Reservation.
+-- * 'usedInstanceCount' - The number of instances the AWS account currently has in the Capacity Reservation.
+mkInstanceUsage ::
   InstanceUsage
-instanceUsage =
+mkInstanceUsage =
   InstanceUsage'
-    { _iuAccountId = Nothing,
-      _iuUsedInstanceCount = Nothing
+    { accountId = Lude.Nothing,
+      usedInstanceCount = Lude.Nothing
     }
 
 -- | The ID of the AWS account that is making use of the Capacity Reservation.
-iuAccountId :: Lens' InstanceUsage (Maybe Text)
-iuAccountId = lens _iuAccountId (\s a -> s {_iuAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iuAccountId :: Lens.Lens' InstanceUsage (Lude.Maybe Lude.Text)
+iuAccountId = Lens.lens (accountId :: InstanceUsage -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: InstanceUsage)
+{-# DEPRECATED iuAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The number of instances the AWS account currently has in the Capacity Reservation.
-iuUsedInstanceCount :: Lens' InstanceUsage (Maybe Int)
-iuUsedInstanceCount = lens _iuUsedInstanceCount (\s a -> s {_iuUsedInstanceCount = a})
+--
+-- /Note:/ Consider using 'usedInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iuUsedInstanceCount :: Lens.Lens' InstanceUsage (Lude.Maybe Lude.Int)
+iuUsedInstanceCount = Lens.lens (usedInstanceCount :: InstanceUsage -> Lude.Maybe Lude.Int) (\s a -> s {usedInstanceCount = a} :: InstanceUsage)
+{-# DEPRECATED iuUsedInstanceCount "Use generic-lens or generic-optics with 'usedInstanceCount' instead." #-}
 
-instance FromXML InstanceUsage where
+instance Lude.FromXML InstanceUsage where
   parseXML x =
     InstanceUsage'
-      <$> (x .@? "accountId") <*> (x .@? "usedInstanceCount")
-
-instance Hashable InstanceUsage
-
-instance NFData InstanceUsage
+      Lude.<$> (x Lude..@? "accountId") Lude.<*> (x Lude..@? "usedInstanceCount")

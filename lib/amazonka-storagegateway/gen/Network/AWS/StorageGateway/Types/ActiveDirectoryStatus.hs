@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StorageGateway.Types.ActiveDirectoryStatus where
+module Network.AWS.StorageGateway.Types.ActiveDirectoryStatus
+  ( ActiveDirectoryStatus
+      ( ActiveDirectoryStatus',
+        AccessDenied,
+        Detached,
+        Joined,
+        Joining,
+        NetworkError,
+        Timeout,
+        UnknownError
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ActiveDirectoryStatus
-  = AccessDenied
-  | Detached
-  | Joined
-  | Joining
-  | NetworkError
-  | Timeout
-  | UnknownError
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ActiveDirectoryStatus = ActiveDirectoryStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ActiveDirectoryStatus where
-  parser =
-    takeLowerText >>= \case
-      "access_denied" -> pure AccessDenied
-      "detached" -> pure Detached
-      "joined" -> pure Joined
-      "joining" -> pure Joining
-      "network_error" -> pure NetworkError
-      "timeout" -> pure Timeout
-      "unknown_error" -> pure UnknownError
-      e ->
-        fromTextError $
-          "Failure parsing ActiveDirectoryStatus from value: '" <> e
-            <> "'. Accepted values: access_denied, detached, joined, joining, network_error, timeout, unknown_error"
+pattern AccessDenied :: ActiveDirectoryStatus
+pattern AccessDenied = ActiveDirectoryStatus' "ACCESS_DENIED"
 
-instance ToText ActiveDirectoryStatus where
-  toText = \case
-    AccessDenied -> "ACCESS_DENIED"
-    Detached -> "DETACHED"
-    Joined -> "JOINED"
-    Joining -> "JOINING"
-    NetworkError -> "NETWORK_ERROR"
-    Timeout -> "TIMEOUT"
-    UnknownError -> "UNKNOWN_ERROR"
+pattern Detached :: ActiveDirectoryStatus
+pattern Detached = ActiveDirectoryStatus' "DETACHED"
 
-instance Hashable ActiveDirectoryStatus
+pattern Joined :: ActiveDirectoryStatus
+pattern Joined = ActiveDirectoryStatus' "JOINED"
 
-instance NFData ActiveDirectoryStatus
+pattern Joining :: ActiveDirectoryStatus
+pattern Joining = ActiveDirectoryStatus' "JOINING"
 
-instance ToByteString ActiveDirectoryStatus
+pattern NetworkError :: ActiveDirectoryStatus
+pattern NetworkError = ActiveDirectoryStatus' "NETWORK_ERROR"
 
-instance ToQuery ActiveDirectoryStatus
+pattern Timeout :: ActiveDirectoryStatus
+pattern Timeout = ActiveDirectoryStatus' "TIMEOUT"
 
-instance ToHeader ActiveDirectoryStatus
+pattern UnknownError :: ActiveDirectoryStatus
+pattern UnknownError = ActiveDirectoryStatus' "UNKNOWN_ERROR"
 
-instance FromJSON ActiveDirectoryStatus where
-  parseJSON = parseJSONText "ActiveDirectoryStatus"
+{-# COMPLETE
+  AccessDenied,
+  Detached,
+  Joined,
+  Joining,
+  NetworkError,
+  Timeout,
+  UnknownError,
+  ActiveDirectoryStatus'
+  #-}

@@ -13,17 +13,18 @@
 --
 -- You can use Amazon CloudWatch Logs to monitor, store, and access your log files from EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.
 --
---
 -- You can use CloudWatch Logs to:
 --
 --     * __Monitor logs from EC2 instances in real-time__ : You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring so no code changes are required. For example, you can monitor application logs for specific literal terms (such as "NullReferenceException") or count the number of occurrences of a literal term at a particular position in log data (such as "404" status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.
 --
+--
 --     * __Monitor AWS CloudTrail logged events__ : You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail. You can use the notification to perform troubleshooting.
+--
 --
 --     * __Archive log data__ : You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.
 module Network.AWS.CloudWatchLogs
-  ( -- * Service Configuration
-    cloudWatchLogs,
+  ( -- * Service configuration
+    cloudWatchLogsService,
 
     -- * Errors
     -- $errors
@@ -175,8 +176,8 @@ module Network.AWS.CloudWatchLogs
     QueryStatus (..),
 
     -- ** Destination
-    Destination,
-    destination,
+    Destination (..),
+    mkDestination,
     dTargetARN,
     dCreationTime,
     dArn,
@@ -185,8 +186,8 @@ module Network.AWS.CloudWatchLogs
     dRoleARN,
 
     -- ** ExportTask
-    ExportTask,
-    exportTask,
+    ExportTask (..),
+    mkExportTask,
     etDestinationPrefix,
     etDestination,
     etStatus,
@@ -198,20 +199,20 @@ module Network.AWS.CloudWatchLogs
     etExecutionInfo,
 
     -- ** ExportTaskExecutionInfo
-    ExportTaskExecutionInfo,
-    exportTaskExecutionInfo,
+    ExportTaskExecutionInfo (..),
+    mkExportTaskExecutionInfo,
     eteiCreationTime,
     eteiCompletionTime,
 
     -- ** ExportTaskStatus
-    ExportTaskStatus,
-    exportTaskStatus,
+    ExportTaskStatus (..),
+    mkExportTaskStatus,
     etsCode,
     etsMessage,
 
     -- ** FilteredLogEvent
-    FilteredLogEvent,
-    filteredLogEvent,
+    FilteredLogEvent (..),
+    mkFilteredLogEvent,
     fleIngestionTime,
     fleLogStreamName,
     fleMessage,
@@ -219,14 +220,14 @@ module Network.AWS.CloudWatchLogs
     fleEventId,
 
     -- ** InputLogEvent
-    InputLogEvent,
-    inputLogEvent,
+    InputLogEvent (..),
+    mkInputLogEvent,
     ileTimestamp,
     ileMessage,
 
     -- ** LogGroup
-    LogGroup,
-    logGroup,
+    LogGroup (..),
+    mkLogGroup,
     lgCreationTime,
     lgMetricFilterCount,
     lgArn,
@@ -236,14 +237,14 @@ module Network.AWS.CloudWatchLogs
     lgStoredBytes,
 
     -- ** LogGroupField
-    LogGroupField,
-    logGroupField,
+    LogGroupField (..),
+    mkLogGroupField,
     lgfPercent,
     lgfName,
 
     -- ** LogStream
-    LogStream,
-    logStream,
+    LogStream (..),
+    mkLogStream,
     lsCreationTime,
     lsUploadSequenceToken,
     lsArn,
@@ -254,8 +255,8 @@ module Network.AWS.CloudWatchLogs
     lsLastEventTimestamp,
 
     -- ** MetricFilter
-    MetricFilter,
-    metricFilter,
+    MetricFilter (..),
+    mkMetricFilter,
     mfCreationTime,
     mfFilterName,
     mfLogGroupName,
@@ -263,30 +264,30 @@ module Network.AWS.CloudWatchLogs
     mfMetricTransformations,
 
     -- ** MetricFilterMatchRecord
-    MetricFilterMatchRecord,
-    metricFilterMatchRecord,
+    MetricFilterMatchRecord (..),
+    mkMetricFilterMatchRecord,
     mfmrExtractedValues,
     mfmrEventNumber,
     mfmrEventMessage,
 
     -- ** MetricTransformation
-    MetricTransformation,
-    metricTransformation,
+    MetricTransformation (..),
+    mkMetricTransformation,
     mtDefaultValue,
     mtMetricName,
     mtMetricNamespace,
     mtMetricValue,
 
     -- ** OutputLogEvent
-    OutputLogEvent,
-    outputLogEvent,
+    OutputLogEvent (..),
+    mkOutputLogEvent,
     oleIngestionTime,
     oleMessage,
     oleTimestamp,
 
     -- ** QueryDefinition
-    QueryDefinition,
-    queryDefinition,
+    QueryDefinition (..),
+    mkQueryDefinition,
     qdLogGroupNames,
     qdQueryDefinitionId,
     qdName,
@@ -294,8 +295,8 @@ module Network.AWS.CloudWatchLogs
     qdLastModified,
 
     -- ** QueryInfo
-    QueryInfo,
-    queryInfo,
+    QueryInfo (..),
+    mkQueryInfo,
     qiStatus,
     qiQueryId,
     qiLogGroupName,
@@ -303,41 +304,41 @@ module Network.AWS.CloudWatchLogs
     qiCreateTime,
 
     -- ** QueryStatistics
-    QueryStatistics,
-    queryStatistics,
+    QueryStatistics (..),
+    mkQueryStatistics,
     qsRecordsScanned,
     qsBytesScanned,
     qsRecordsMatched,
 
     -- ** RejectedLogEventsInfo
-    RejectedLogEventsInfo,
-    rejectedLogEventsInfo,
+    RejectedLogEventsInfo (..),
+    mkRejectedLogEventsInfo,
     rleiTooOldLogEventEndIndex,
     rleiTooNewLogEventStartIndex,
     rleiExpiredLogEventEndIndex,
 
     -- ** ResourcePolicy
-    ResourcePolicy,
-    resourcePolicy,
+    ResourcePolicy (..),
+    mkResourcePolicy,
     rpPolicyName,
     rpPolicyDocument,
     rpLastUpdatedTime,
 
     -- ** ResultField
-    ResultField,
-    resultField,
+    ResultField (..),
+    mkResultField,
     rfField,
     rfValue,
 
     -- ** SearchedLogStream
-    SearchedLogStream,
-    searchedLogStream,
+    SearchedLogStream (..),
+    mkSearchedLogStream,
     slsLogStreamName,
     slsSearchedCompletely,
 
     -- ** SubscriptionFilter
-    SubscriptionFilter,
-    subscriptionFilter,
+    SubscriptionFilter (..),
+    mkSubscriptionFilter,
     sfCreationTime,
     sfFilterName,
     sfDistribution,
@@ -345,6 +346,17 @@ module Network.AWS.CloudWatchLogs
     sfLogGroupName,
     sfFilterPattern,
     sfRoleARN,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -392,6 +404,7 @@ import Network.AWS.CloudWatchLogs.TestMetricFilter
 import Network.AWS.CloudWatchLogs.Types
 import Network.AWS.CloudWatchLogs.UntagLogGroup
 import Network.AWS.CloudWatchLogs.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

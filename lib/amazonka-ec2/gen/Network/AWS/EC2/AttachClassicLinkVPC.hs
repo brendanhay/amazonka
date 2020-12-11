@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,150 +14,166 @@
 --
 -- Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You can only link an instance that's in the @running@ state. An instance is automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when you restart it.
 --
---
 -- After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
---
 -- Linking your instance to a VPC is sometimes referred to as /attaching/ your instance.
 module Network.AWS.EC2.AttachClassicLinkVPC
-  ( -- * Creating a Request
-    attachClassicLinkVPC,
-    AttachClassicLinkVPC,
+  ( -- * Creating a request
+    AttachClassicLinkVPC (..),
+    mkAttachClassicLinkVPC,
 
-    -- * Request Lenses
+    -- ** Request lenses
     aclvDryRun,
     aclvGroups,
     aclvInstanceId,
     aclvVPCId,
 
-    -- * Destructuring the Response
-    attachClassicLinkVPCResponse,
-    AttachClassicLinkVPCResponse,
+    -- * Destructuring the response
+    AttachClassicLinkVPCResponse (..),
+    mkAttachClassicLinkVPCResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     aclvrsReturn,
     aclvrsResponseStatus,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachClassicLinkVPC' smart constructor.
+-- | /See:/ 'mkAttachClassicLinkVPC' smart constructor.
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
-  { _aclvDryRun ::
-      !(Maybe Bool),
-    _aclvGroups :: ![Text],
-    _aclvInstanceId :: !Text,
-    _aclvVPCId :: !Text
+  { dryRun ::
+      Lude.Maybe Lude.Bool,
+    groups :: [Lude.Text],
+    instanceId :: Lude.Text,
+    vpcId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachClassicLinkVPC' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aclvDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'aclvGroups' - The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
---
--- * 'aclvInstanceId' - The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
---
--- * 'aclvVPCId' - The ID of a ClassicLink-enabled VPC.
-attachClassicLinkVPC ::
-  -- | 'aclvInstanceId'
-  Text ->
-  -- | 'aclvVPCId'
-  Text ->
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'groups' - The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
+-- * 'instanceId' - The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
+-- * 'vpcId' - The ID of a ClassicLink-enabled VPC.
+mkAttachClassicLinkVPC ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'vpcId'
+  Lude.Text ->
   AttachClassicLinkVPC
-attachClassicLinkVPC pInstanceId_ pVPCId_ =
+mkAttachClassicLinkVPC pInstanceId_ pVPCId_ =
   AttachClassicLinkVPC'
-    { _aclvDryRun = Nothing,
-      _aclvGroups = mempty,
-      _aclvInstanceId = pInstanceId_,
-      _aclvVPCId = pVPCId_
+    { dryRun = Lude.Nothing,
+      groups = Lude.mempty,
+      instanceId = pInstanceId_,
+      vpcId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-aclvDryRun :: Lens' AttachClassicLinkVPC (Maybe Bool)
-aclvDryRun = lens _aclvDryRun (\s a -> s {_aclvDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclvDryRun :: Lens.Lens' AttachClassicLinkVPC (Lude.Maybe Lude.Bool)
+aclvDryRun = Lens.lens (dryRun :: AttachClassicLinkVPC -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AttachClassicLinkVPC)
+{-# DEPRECATED aclvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of one or more of the VPC's security groups. You cannot specify security groups from a different VPC.
-aclvGroups :: Lens' AttachClassicLinkVPC [Text]
-aclvGroups = lens _aclvGroups (\s a -> s {_aclvGroups = a}) . _Coerce
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclvGroups :: Lens.Lens' AttachClassicLinkVPC [Lude.Text]
+aclvGroups = Lens.lens (groups :: AttachClassicLinkVPC -> [Lude.Text]) (\s a -> s {groups = a} :: AttachClassicLinkVPC)
+{-# DEPRECATED aclvGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.
-aclvInstanceId :: Lens' AttachClassicLinkVPC Text
-aclvInstanceId = lens _aclvInstanceId (\s a -> s {_aclvInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclvInstanceId :: Lens.Lens' AttachClassicLinkVPC Lude.Text
+aclvInstanceId = Lens.lens (instanceId :: AttachClassicLinkVPC -> Lude.Text) (\s a -> s {instanceId = a} :: AttachClassicLinkVPC)
+{-# DEPRECATED aclvInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The ID of a ClassicLink-enabled VPC.
-aclvVPCId :: Lens' AttachClassicLinkVPC Text
-aclvVPCId = lens _aclvVPCId (\s a -> s {_aclvVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclvVPCId :: Lens.Lens' AttachClassicLinkVPC Lude.Text
+aclvVPCId = Lens.lens (vpcId :: AttachClassicLinkVPC -> Lude.Text) (\s a -> s {vpcId = a} :: AttachClassicLinkVPC)
+{-# DEPRECATED aclvVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
-instance AWSRequest AttachClassicLinkVPC where
+instance Lude.AWSRequest AttachClassicLinkVPC where
   type Rs AttachClassicLinkVPC = AttachClassicLinkVPCResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           AttachClassicLinkVPCResponse'
-            <$> (x .@? "return") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AttachClassicLinkVPC
+instance Lude.ToHeaders AttachClassicLinkVPC where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AttachClassicLinkVPC
+instance Lude.ToPath AttachClassicLinkVPC where
+  toPath = Lude.const "/"
 
-instance ToHeaders AttachClassicLinkVPC where
-  toHeaders = const mempty
-
-instance ToPath AttachClassicLinkVPC where
-  toPath = const "/"
-
-instance ToQuery AttachClassicLinkVPC where
+instance Lude.ToQuery AttachClassicLinkVPC where
   toQuery AttachClassicLinkVPC' {..} =
-    mconcat
-      [ "Action" =: ("AttachClassicLinkVpc" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _aclvDryRun,
-        toQueryList "SecurityGroupId" _aclvGroups,
-        "InstanceId" =: _aclvInstanceId,
-        "VpcId" =: _aclvVPCId
+    Lude.mconcat
+      [ "Action" Lude.=: ("AttachClassicLinkVpc" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "SecurityGroupId" groups,
+        "InstanceId" Lude.=: instanceId,
+        "VpcId" Lude.=: vpcId
       ]
 
--- | /See:/ 'attachClassicLinkVPCResponse' smart constructor.
+-- | /See:/ 'mkAttachClassicLinkVPCResponse' smart constructor.
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
-  { _aclvrsReturn ::
-      !(Maybe Bool),
-    _aclvrsResponseStatus :: !Int
+  { return ::
+      Lude.Maybe Lude.Bool,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachClassicLinkVPCResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aclvrsReturn' - Returns @true@ if the request succeeds; otherwise, it returns an error.
---
--- * 'aclvrsResponseStatus' - -- | The response status code.
-attachClassicLinkVPCResponse ::
-  -- | 'aclvrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+mkAttachClassicLinkVPCResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AttachClassicLinkVPCResponse
-attachClassicLinkVPCResponse pResponseStatus_ =
+mkAttachClassicLinkVPCResponse pResponseStatus_ =
   AttachClassicLinkVPCResponse'
-    { _aclvrsReturn = Nothing,
-      _aclvrsResponseStatus = pResponseStatus_
+    { return = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-aclvrsReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
-aclvrsReturn = lens _aclvrsReturn (\s a -> s {_aclvrsReturn = a})
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclvrsReturn :: Lens.Lens' AttachClassicLinkVPCResponse (Lude.Maybe Lude.Bool)
+aclvrsReturn = Lens.lens (return :: AttachClassicLinkVPCResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: AttachClassicLinkVPCResponse)
+{-# DEPRECATED aclvrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
--- | -- | The response status code.
-aclvrsResponseStatus :: Lens' AttachClassicLinkVPCResponse Int
-aclvrsResponseStatus = lens _aclvrsResponseStatus (\s a -> s {_aclvrsResponseStatus = a})
-
-instance NFData AttachClassicLinkVPCResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aclvrsResponseStatus :: Lens.Lens' AttachClassicLinkVPCResponse Lude.Int
+aclvrsResponseStatus = Lens.lens (responseStatus :: AttachClassicLinkVPCResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachClassicLinkVPCResponse)
+{-# DEPRECATED aclvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

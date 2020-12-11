@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringConstraintsResource where
+module Network.AWS.SageMaker.Types.MonitoringConstraintsResource
+  ( MonitoringConstraintsResource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMonitoringConstraintsResource,
+
+    -- * Lenses
+    mcrS3URI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The constraints resource for a monitoring job.
 --
---
---
--- /See:/ 'monitoringConstraintsResource' smart constructor.
+-- /See:/ 'mkMonitoringConstraintsResource' smart constructor.
 newtype MonitoringConstraintsResource = MonitoringConstraintsResource'
-  { _mcrS3URI ::
-      Maybe Text
+  { s3URI ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringConstraintsResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mcrS3URI' - The Amazon S3 URI for the constraints resource.
-monitoringConstraintsResource ::
+-- * 's3URI' - The Amazon S3 URI for the constraints resource.
+mkMonitoringConstraintsResource ::
   MonitoringConstraintsResource
-monitoringConstraintsResource =
-  MonitoringConstraintsResource' {_mcrS3URI = Nothing}
+mkMonitoringConstraintsResource =
+  MonitoringConstraintsResource' {s3URI = Lude.Nothing}
 
 -- | The Amazon S3 URI for the constraints resource.
-mcrS3URI :: Lens' MonitoringConstraintsResource (Maybe Text)
-mcrS3URI = lens _mcrS3URI (\s a -> s {_mcrS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcrS3URI :: Lens.Lens' MonitoringConstraintsResource (Lude.Maybe Lude.Text)
+mcrS3URI = Lens.lens (s3URI :: MonitoringConstraintsResource -> Lude.Maybe Lude.Text) (\s a -> s {s3URI = a} :: MonitoringConstraintsResource)
+{-# DEPRECATED mcrS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
-instance FromJSON MonitoringConstraintsResource where
+instance Lude.FromJSON MonitoringConstraintsResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonitoringConstraintsResource"
-      (\x -> MonitoringConstraintsResource' <$> (x .:? "S3Uri"))
+      ( \x ->
+          MonitoringConstraintsResource' Lude.<$> (x Lude..:? "S3Uri")
+      )
 
-instance Hashable MonitoringConstraintsResource
-
-instance NFData MonitoringConstraintsResource
-
-instance ToJSON MonitoringConstraintsResource where
+instance Lude.ToJSON MonitoringConstraintsResource where
   toJSON MonitoringConstraintsResource' {..} =
-    object (catMaybes [("S3Uri" .=) <$> _mcrS3URI])
+    Lude.object (Lude.catMaybes [("S3Uri" Lude..=) Lude.<$> s3URI])

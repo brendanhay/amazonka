@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.M2tsEbpPlacement where
+module Network.AWS.MediaConvert.Types.M2tsEbpPlacement
+  ( M2tsEbpPlacement
+      ( M2tsEbpPlacement',
+        VideoAndAudioPids,
+        VideoPid
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Selects which PIDs to place EBP markers on. They can either be placed only on the video PID, or on both the video PID and all audio PIDs. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
-data M2tsEbpPlacement
-  = VideoAndAudioPids
-  | VideoPid
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype M2tsEbpPlacement = M2tsEbpPlacement' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText M2tsEbpPlacement where
-  parser =
-    takeLowerText >>= \case
-      "video_and_audio_pids" -> pure VideoAndAudioPids
-      "video_pid" -> pure VideoPid
-      e ->
-        fromTextError $
-          "Failure parsing M2tsEbpPlacement from value: '" <> e
-            <> "'. Accepted values: video_and_audio_pids, video_pid"
+pattern VideoAndAudioPids :: M2tsEbpPlacement
+pattern VideoAndAudioPids = M2tsEbpPlacement' "VIDEO_AND_AUDIO_PIDS"
 
-instance ToText M2tsEbpPlacement where
-  toText = \case
-    VideoAndAudioPids -> "VIDEO_AND_AUDIO_PIDS"
-    VideoPid -> "VIDEO_PID"
+pattern VideoPid :: M2tsEbpPlacement
+pattern VideoPid = M2tsEbpPlacement' "VIDEO_PID"
 
-instance Hashable M2tsEbpPlacement
-
-instance NFData M2tsEbpPlacement
-
-instance ToByteString M2tsEbpPlacement
-
-instance ToQuery M2tsEbpPlacement
-
-instance ToHeader M2tsEbpPlacement
-
-instance ToJSON M2tsEbpPlacement where
-  toJSON = toJSONText
-
-instance FromJSON M2tsEbpPlacement where
-  parseJSON = parseJSONText "M2tsEbpPlacement"
+{-# COMPLETE
+  VideoAndAudioPids,
+  VideoPid,
+  M2tsEbpPlacement'
+  #-}

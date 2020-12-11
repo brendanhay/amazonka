@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LoadPermissionModifications where
+module Network.AWS.EC2.Types.LoadPermissionModifications
+  ( LoadPermissionModifications (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLoadPermissionModifications,
+
+    -- * Lenses
+    lpmRemove,
+    lpmAdd,
+  )
+where
+
 import Network.AWS.EC2.Types.LoadPermissionRequest
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes modifications to the load permissions of an Amazon FPGA image (AFI).
 --
---
---
--- /See:/ 'loadPermissionModifications' smart constructor.
+-- /See:/ 'mkLoadPermissionModifications' smart constructor.
 data LoadPermissionModifications = LoadPermissionModifications'
-  { _lpmRemove ::
-      !(Maybe [LoadPermissionRequest]),
-    _lpmAdd ::
-      !(Maybe [LoadPermissionRequest])
+  { remove ::
+      Lude.Maybe [LoadPermissionRequest],
+    add ::
+      Lude.Maybe [LoadPermissionRequest]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadPermissionModifications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpmRemove' - The load permissions to remove.
---
--- * 'lpmAdd' - The load permissions to add.
-loadPermissionModifications ::
+-- * 'add' - The load permissions to add.
+-- * 'remove' - The load permissions to remove.
+mkLoadPermissionModifications ::
   LoadPermissionModifications
-loadPermissionModifications =
+mkLoadPermissionModifications =
   LoadPermissionModifications'
-    { _lpmRemove = Nothing,
-      _lpmAdd = Nothing
+    { remove = Lude.Nothing,
+      add = Lude.Nothing
     }
 
 -- | The load permissions to remove.
-lpmRemove :: Lens' LoadPermissionModifications [LoadPermissionRequest]
-lpmRemove = lens _lpmRemove (\s a -> s {_lpmRemove = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'remove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpmRemove :: Lens.Lens' LoadPermissionModifications (Lude.Maybe [LoadPermissionRequest])
+lpmRemove = Lens.lens (remove :: LoadPermissionModifications -> Lude.Maybe [LoadPermissionRequest]) (\s a -> s {remove = a} :: LoadPermissionModifications)
+{-# DEPRECATED lpmRemove "Use generic-lens or generic-optics with 'remove' instead." #-}
 
 -- | The load permissions to add.
-lpmAdd :: Lens' LoadPermissionModifications [LoadPermissionRequest]
-lpmAdd = lens _lpmAdd (\s a -> s {_lpmAdd = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'add' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpmAdd :: Lens.Lens' LoadPermissionModifications (Lude.Maybe [LoadPermissionRequest])
+lpmAdd = Lens.lens (add :: LoadPermissionModifications -> Lude.Maybe [LoadPermissionRequest]) (\s a -> s {add = a} :: LoadPermissionModifications)
+{-# DEPRECATED lpmAdd "Use generic-lens or generic-optics with 'add' instead." #-}
 
-instance Hashable LoadPermissionModifications
-
-instance NFData LoadPermissionModifications
-
-instance ToQuery LoadPermissionModifications where
+instance Lude.ToQuery LoadPermissionModifications where
   toQuery LoadPermissionModifications' {..} =
-    mconcat
-      [ toQuery (toQueryList "Remove" <$> _lpmRemove),
-        toQuery (toQueryList "Add" <$> _lpmAdd)
+    Lude.mconcat
+      [ Lude.toQuery (Lude.toQueryList "Remove" Lude.<$> remove),
+        Lude.toQuery (Lude.toQueryList "Add" Lude.<$> add)
       ]

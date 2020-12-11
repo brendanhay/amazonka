@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -11,185 +10,256 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Waiters where
+module Network.AWS.ElastiCache.Waiters
+  ( -- * CacheClusterAvailable
+    mkCacheClusterAvailable,
+
+    -- * CacheClusterDeleted
+    mkCacheClusterDeleted,
+
+    -- * ReplicationGroupDeleted
+    mkReplicationGroupDeleted,
+
+    -- * ReplicationGroupAvailable
+    mkReplicationGroupAvailable,
+  )
+where
 
 import Network.AWS.ElastiCache.DescribeCacheClusters
 import Network.AWS.ElastiCache.DescribeReplicationGroups
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Waiter as Wait
 
 -- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-cacheClusterAvailable :: Wait DescribeCacheClusters
-cacheClusterAvailable =
-  Wait
-    { _waitName = "CacheClusterAvailable",
-      _waitAttempts = 40,
-      _waitDelay = 15,
-      _waitAcceptors =
-        [ matchAll
+mkCacheClusterAvailable :: Wait.Wait DescribeCacheClusters
+mkCacheClusterAvailable =
+  Wait.Wait
+    { Wait._waitName = "CacheClusterAvailable",
+      Wait._waitAttempts = 40,
+      Wait._waitDelay = 15,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "available"
-            AcceptSuccess
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "deleted"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "deleting"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "incompatible-network"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "restore-failed"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-cacheClusterDeleted :: Wait DescribeCacheClusters
-cacheClusterDeleted =
-  Wait
-    { _waitName = "CacheClusterDeleted",
-      _waitAttempts = 40,
-      _waitDelay = 15,
-      _waitAcceptors =
-        [ matchAll
+mkCacheClusterDeleted :: Wait.Wait DescribeCacheClusters
+mkCacheClusterDeleted =
+  Wait.Wait
+    { Wait._waitName = "CacheClusterDeleted",
+      Wait._waitAttempts = 40,
+      Wait._waitDelay = 15,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "deleted"
-            AcceptSuccess
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchError "CacheClusterNotFound" AcceptSuccess,
-          matchAny
+          Wait.matchError "CacheClusterNotFound" Wait.AcceptSuccess,
+          Wait.matchAny
             "available"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "creating"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "incompatible-network"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "modifying"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "restore-failed"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "snapshotting"
-            AcceptFailure
-            ( folding (concatOf (drsCacheClusters . to toList))
-                . ccCacheClusterStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                )
+                Lude.. ccCacheClusterStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-replicationGroupDeleted :: Wait DescribeReplicationGroups
-replicationGroupDeleted =
-  Wait
-    { _waitName = "ReplicationGroupDeleted",
-      _waitAttempts = 40,
-      _waitDelay = 15,
-      _waitAcceptors =
-        [ matchAll
+mkReplicationGroupDeleted :: Wait.Wait DescribeReplicationGroups
+mkReplicationGroupDeleted =
+  Wait.Wait
+    { Wait._waitName = "ReplicationGroupDeleted",
+      Wait._waitAttempts = 40,
+      Wait._waitDelay = 15,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "deleted"
-            AcceptSuccess
-            ( folding (concatOf (drgrsReplicationGroups . to toList))
-                . rgStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( drgrsReplicationGroups Lude.. Lens._Just
+                        Lude.. Lens.to Lude.toList
+                    )
+                )
+                Lude.. rgStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "available"
-            AcceptFailure
-            ( folding (concatOf (drgrsReplicationGroups . to toList))
-                . rgStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( drgrsReplicationGroups Lude.. Lens._Just
+                        Lude.. Lens.to Lude.toList
+                    )
+                )
+                Lude.. rgStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchError "ReplicationGroupNotFoundFault" AcceptSuccess
+          Wait.matchError
+            "ReplicationGroupNotFoundFault"
+            Wait.AcceptSuccess
         ]
     }
 
 -- | Polls 'Network.AWS.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-replicationGroupAvailable :: Wait DescribeReplicationGroups
-replicationGroupAvailable =
-  Wait
-    { _waitName = "ReplicationGroupAvailable",
-      _waitAttempts = 40,
-      _waitDelay = 15,
-      _waitAcceptors =
-        [ matchAll
+mkReplicationGroupAvailable :: Wait.Wait DescribeReplicationGroups
+mkReplicationGroupAvailable =
+  Wait.Wait
+    { Wait._waitName = "ReplicationGroupAvailable",
+      Wait._waitAttempts = 40,
+      Wait._waitDelay = 15,
+      Wait._waitAcceptors =
+        [ Wait.matchAll
             "available"
-            AcceptSuccess
-            ( folding (concatOf (drgrsReplicationGroups . to toList))
-                . rgStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( drgrsReplicationGroups Lude.. Lens._Just
+                        Lude.. Lens.to Lude.toList
+                    )
+                )
+                Lude.. rgStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             ),
-          matchAny
+          Wait.matchAny
             "deleted"
-            AcceptFailure
-            ( folding (concatOf (drgrsReplicationGroups . to toList))
-                . rgStatus
-                . _Just
-                . to toTextCI
+            Wait.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( drgrsReplicationGroups Lude.. Lens._Just
+                        Lude.. Lens.to Lude.toList
+                    )
+                )
+                Lude.. rgStatus
+                Lude.. Lens._Just
+                Lude.. Lens.to Lude.toText
             )
         ]
     }

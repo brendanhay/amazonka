@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.RelationalDatabaseEndpoint where
+module Network.AWS.Lightsail.Types.RelationalDatabaseEndpoint
+  ( RelationalDatabaseEndpoint (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRelationalDatabaseEndpoint,
+
+    -- * Lenses
+    rdeAddress,
+    rdePort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an endpoint for a database.
 --
---
---
--- /See:/ 'relationalDatabaseEndpoint' smart constructor.
+-- /See:/ 'mkRelationalDatabaseEndpoint' smart constructor.
 data RelationalDatabaseEndpoint = RelationalDatabaseEndpoint'
-  { _rdeAddress ::
-      !(Maybe Text),
-    _rdePort :: !(Maybe Int)
+  { address ::
+      Lude.Maybe Lude.Text,
+    port :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdeAddress' - Specifies the DNS address of the database.
---
--- * 'rdePort' - Specifies the port that the database is listening on.
-relationalDatabaseEndpoint ::
+-- * 'address' - Specifies the DNS address of the database.
+-- * 'port' - Specifies the port that the database is listening on.
+mkRelationalDatabaseEndpoint ::
   RelationalDatabaseEndpoint
-relationalDatabaseEndpoint =
+mkRelationalDatabaseEndpoint =
   RelationalDatabaseEndpoint'
-    { _rdeAddress = Nothing,
-      _rdePort = Nothing
+    { address = Lude.Nothing,
+      port = Lude.Nothing
     }
 
 -- | Specifies the DNS address of the database.
-rdeAddress :: Lens' RelationalDatabaseEndpoint (Maybe Text)
-rdeAddress = lens _rdeAddress (\s a -> s {_rdeAddress = a})
+--
+-- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdeAddress :: Lens.Lens' RelationalDatabaseEndpoint (Lude.Maybe Lude.Text)
+rdeAddress = Lens.lens (address :: RelationalDatabaseEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: RelationalDatabaseEndpoint)
+{-# DEPRECATED rdeAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | Specifies the port that the database is listening on.
-rdePort :: Lens' RelationalDatabaseEndpoint (Maybe Int)
-rdePort = lens _rdePort (\s a -> s {_rdePort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdePort :: Lens.Lens' RelationalDatabaseEndpoint (Lude.Maybe Lude.Int)
+rdePort = Lens.lens (port :: RelationalDatabaseEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: RelationalDatabaseEndpoint)
+{-# DEPRECATED rdePort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromJSON RelationalDatabaseEndpoint where
+instance Lude.FromJSON RelationalDatabaseEndpoint where
   parseJSON =
-    withObject
+    Lude.withObject
       "RelationalDatabaseEndpoint"
       ( \x ->
           RelationalDatabaseEndpoint'
-            <$> (x .:? "address") <*> (x .:? "port")
+            Lude.<$> (x Lude..:? "address") Lude.<*> (x Lude..:? "port")
       )
-
-instance Hashable RelationalDatabaseEndpoint
-
-instance NFData RelationalDatabaseEndpoint

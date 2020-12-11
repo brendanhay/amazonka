@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,116 @@
 --
 -- Deletes an upload given the upload ARN.
 module Network.AWS.DeviceFarm.DeleteUpload
-  ( -- * Creating a Request
-    deleteUpload,
-    DeleteUpload,
+  ( -- * Creating a request
+    DeleteUpload (..),
+    mkDeleteUpload,
 
-    -- * Request Lenses
+    -- ** Request lenses
     duArn,
 
-    -- * Destructuring the Response
-    deleteUploadResponse,
-    DeleteUploadResponse,
+    -- * Destructuring the response
+    DeleteUploadResponse (..),
+    mkDeleteUploadResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dursResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the delete upload operation.
 --
---
---
--- /See:/ 'deleteUpload' smart constructor.
-newtype DeleteUpload = DeleteUpload' {_duArn :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeleteUpload' smart constructor.
+newtype DeleteUpload = DeleteUpload' {arn :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUpload' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'duArn' - Represents the Amazon Resource Name (ARN) of the Device Farm upload to delete.
-deleteUpload ::
-  -- | 'duArn'
-  Text ->
+-- * 'arn' - Represents the Amazon Resource Name (ARN) of the Device Farm upload to delete.
+mkDeleteUpload ::
+  -- | 'arn'
+  Lude.Text ->
   DeleteUpload
-deleteUpload pArn_ = DeleteUpload' {_duArn = pArn_}
+mkDeleteUpload pArn_ = DeleteUpload' {arn = pArn_}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm upload to delete.
-duArn :: Lens' DeleteUpload Text
-duArn = lens _duArn (\s a -> s {_duArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duArn :: Lens.Lens' DeleteUpload Lude.Text
+duArn = Lens.lens (arn :: DeleteUpload -> Lude.Text) (\s a -> s {arn = a} :: DeleteUpload)
+{-# DEPRECATED duArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest DeleteUpload where
+instance Lude.AWSRequest DeleteUpload where
   type Rs DeleteUpload = DeleteUploadResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveEmpty
-      (\s h x -> DeleteUploadResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteUploadResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteUpload
-
-instance NFData DeleteUpload
-
-instance ToHeaders DeleteUpload where
+instance Lude.ToHeaders DeleteUpload where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.DeleteUpload" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.DeleteUpload" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteUpload where
+instance Lude.ToJSON DeleteUpload where
   toJSON DeleteUpload' {..} =
-    object (catMaybes [Just ("arn" .= _duArn)])
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath DeleteUpload where
-  toPath = const "/"
+instance Lude.ToPath DeleteUpload where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteUpload where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteUpload where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a delete upload request.
 --
---
---
--- /See:/ 'deleteUploadResponse' smart constructor.
+-- /See:/ 'mkDeleteUploadResponse' smart constructor.
 newtype DeleteUploadResponse = DeleteUploadResponse'
-  { _dursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUploadResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dursResponseStatus' - -- | The response status code.
-deleteUploadResponse ::
-  -- | 'dursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteUploadResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteUploadResponse
-deleteUploadResponse pResponseStatus_ =
-  DeleteUploadResponse' {_dursResponseStatus = pResponseStatus_}
+mkDeleteUploadResponse pResponseStatus_ =
+  DeleteUploadResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dursResponseStatus :: Lens' DeleteUploadResponse Int
-dursResponseStatus = lens _dursResponseStatus (\s a -> s {_dursResponseStatus = a})
-
-instance NFData DeleteUploadResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dursResponseStatus :: Lens.Lens' DeleteUploadResponse Lude.Int
+dursResponseStatus = Lens.lens (responseStatus :: DeleteUploadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUploadResponse)
+{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

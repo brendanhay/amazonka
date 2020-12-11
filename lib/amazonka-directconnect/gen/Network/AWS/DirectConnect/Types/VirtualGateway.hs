@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.VirtualGateway where
+module Network.AWS.DirectConnect.Types.VirtualGateway
+  ( VirtualGateway (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkVirtualGateway,
+
+    -- * Lenses
+    vgVirtualGatewayId,
+    vgVirtualGatewayState,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a virtual private gateway for a private virtual interface.
 --
---
---
--- /See:/ 'virtualGateway' smart constructor.
+-- /See:/ 'mkVirtualGateway' smart constructor.
 data VirtualGateway = VirtualGateway'
-  { _vgVirtualGatewayId ::
-      !(Maybe Text),
-    _vgVirtualGatewayState :: !(Maybe Text)
+  { virtualGatewayId ::
+      Lude.Maybe Lude.Text,
+    virtualGatewayState :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VirtualGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'virtualGatewayId' - The ID of the virtual private gateway.
+-- * 'virtualGatewayState' - The state of the virtual private gateway. The following are the possible values:
 --
--- * 'vgVirtualGatewayId' - The ID of the virtual private gateway.
 --
--- * 'vgVirtualGatewayState' - The state of the virtual private gateway. The following are the possible values:     * @pending@ : Initial state after creating the virtual private gateway.     * @available@ : Ready for use by a private virtual interface.     * @deleting@ : Initial state after deleting the virtual private gateway.     * @deleted@ : The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
-virtualGateway ::
+--     * @pending@ : Initial state after creating the virtual private gateway.
+--
+--
+--     * @available@ : Ready for use by a private virtual interface.
+--
+--
+--     * @deleting@ : Initial state after deleting the virtual private gateway.
+--
+--
+--     * @deleted@ : The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
+mkVirtualGateway ::
   VirtualGateway
-virtualGateway =
+mkVirtualGateway =
   VirtualGateway'
-    { _vgVirtualGatewayId = Nothing,
-      _vgVirtualGatewayState = Nothing
+    { virtualGatewayId = Lude.Nothing,
+      virtualGatewayState = Lude.Nothing
     }
 
 -- | The ID of the virtual private gateway.
-vgVirtualGatewayId :: Lens' VirtualGateway (Maybe Text)
-vgVirtualGatewayId = lens _vgVirtualGatewayId (\s a -> s {_vgVirtualGatewayId = a})
+--
+-- /Note:/ Consider using 'virtualGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vgVirtualGatewayId :: Lens.Lens' VirtualGateway (Lude.Maybe Lude.Text)
+vgVirtualGatewayId = Lens.lens (virtualGatewayId :: VirtualGateway -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayId = a} :: VirtualGateway)
+{-# DEPRECATED vgVirtualGatewayId "Use generic-lens or generic-optics with 'virtualGatewayId' instead." #-}
 
--- | The state of the virtual private gateway. The following are the possible values:     * @pending@ : Initial state after creating the virtual private gateway.     * @available@ : Ready for use by a private virtual interface.     * @deleting@ : Initial state after deleting the virtual private gateway.     * @deleted@ : The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
-vgVirtualGatewayState :: Lens' VirtualGateway (Maybe Text)
-vgVirtualGatewayState = lens _vgVirtualGatewayState (\s a -> s {_vgVirtualGatewayState = a})
+-- | The state of the virtual private gateway. The following are the possible values:
+--
+--
+--     * @pending@ : Initial state after creating the virtual private gateway.
+--
+--
+--     * @available@ : Ready for use by a private virtual interface.
+--
+--
+--     * @deleting@ : Initial state after deleting the virtual private gateway.
+--
+--
+--     * @deleted@ : The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
+--
+--
+--
+-- /Note:/ Consider using 'virtualGatewayState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vgVirtualGatewayState :: Lens.Lens' VirtualGateway (Lude.Maybe Lude.Text)
+vgVirtualGatewayState = Lens.lens (virtualGatewayState :: VirtualGateway -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayState = a} :: VirtualGateway)
+{-# DEPRECATED vgVirtualGatewayState "Use generic-lens or generic-optics with 'virtualGatewayState' instead." #-}
 
-instance FromJSON VirtualGateway where
+instance Lude.FromJSON VirtualGateway where
   parseJSON =
-    withObject
+    Lude.withObject
       "VirtualGateway"
       ( \x ->
           VirtualGateway'
-            <$> (x .:? "virtualGatewayId") <*> (x .:? "virtualGatewayState")
+            Lude.<$> (x Lude..:? "virtualGatewayId")
+            Lude.<*> (x Lude..:? "virtualGatewayState")
       )
-
-instance Hashable VirtualGateway
-
-instance NFData VirtualGateway

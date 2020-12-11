@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,165 +14,209 @@
 --
 -- Returns a shard iterator. A shard iterator provides information about how to retrieve the stream records from within a shard. Use the shard iterator in a subsequent @GetRecords@ request to read the stream records from the shard.
 module Network.AWS.DynamoDBStreams.GetShardIterator
-  ( -- * Creating a Request
-    getShardIterator,
-    GetShardIterator,
+  ( -- * Creating a request
+    GetShardIterator (..),
+    mkGetShardIterator,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsiSequenceNumber,
     gsiStreamARN,
     gsiShardId,
     gsiShardIteratorType,
 
-    -- * Destructuring the Response
-    getShardIteratorResponse,
-    GetShardIteratorResponse,
+    -- * Destructuring the response
+    GetShardIteratorResponse (..),
+    mkGetShardIteratorResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsirsShardIterator,
     gsirsResponseStatus,
   )
 where
 
 import Network.AWS.DynamoDBStreams.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a @GetShardIterator@ operation.
 --
---
---
--- /See:/ 'getShardIterator' smart constructor.
+-- /See:/ 'mkGetShardIterator' smart constructor.
 data GetShardIterator = GetShardIterator'
-  { _gsiSequenceNumber ::
-      !(Maybe Text),
-    _gsiStreamARN :: !Text,
-    _gsiShardId :: !Text,
-    _gsiShardIteratorType :: !ShardIteratorType
+  { sequenceNumber ::
+      Lude.Maybe Lude.Text,
+    streamARN :: Lude.Text,
+    shardId :: Lude.Text,
+    shardIteratorType :: ShardIteratorType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetShardIterator' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'sequenceNumber' - The sequence number of a stream record in the shard from which to start reading.
+-- * 'shardId' - The identifier of the shard. The iterator will be returned for this shard ID.
+-- * 'shardIteratorType' - Determines how the shard iterator is used to start reading stream records from the shard:
 --
--- * 'gsiSequenceNumber' - The sequence number of a stream record in the shard from which to start reading.
 --
--- * 'gsiStreamARN' - The Amazon Resource Name (ARN) for the stream.
+--     * @AT_SEQUENCE_NUMBER@ - Start reading exactly from the position denoted by a specific sequence number.
 --
--- * 'gsiShardId' - The identifier of the shard. The iterator will be returned for this shard ID.
 --
--- * 'gsiShardIteratorType' - Determines how the shard iterator is used to start reading stream records from the shard:     * @AT_SEQUENCE_NUMBER@ - Start reading exactly from the position denoted by a specific sequence number.     * @AFTER_SEQUENCE_NUMBER@ - Start reading right after the position denoted by a specific sequence number.     * @TRIM_HORIZON@ - Start reading at the last (untrimmed) stream record, which is the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream.     * @LATEST@ - Start reading just after the most recent stream record in the shard, so that you always read the most recent data in the shard.
-getShardIterator ::
-  -- | 'gsiStreamARN'
-  Text ->
-  -- | 'gsiShardId'
-  Text ->
-  -- | 'gsiShardIteratorType'
+--     * @AFTER_SEQUENCE_NUMBER@ - Start reading right after the position denoted by a specific sequence number.
+--
+--
+--     * @TRIM_HORIZON@ - Start reading at the last (untrimmed) stream record, which is the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream.
+--
+--
+--     * @LATEST@ - Start reading just after the most recent stream record in the shard, so that you always read the most recent data in the shard.
+--
+--
+-- * 'streamARN' - The Amazon Resource Name (ARN) for the stream.
+mkGetShardIterator ::
+  -- | 'streamARN'
+  Lude.Text ->
+  -- | 'shardId'
+  Lude.Text ->
+  -- | 'shardIteratorType'
   ShardIteratorType ->
   GetShardIterator
-getShardIterator pStreamARN_ pShardId_ pShardIteratorType_ =
+mkGetShardIterator pStreamARN_ pShardId_ pShardIteratorType_ =
   GetShardIterator'
-    { _gsiSequenceNumber = Nothing,
-      _gsiStreamARN = pStreamARN_,
-      _gsiShardId = pShardId_,
-      _gsiShardIteratorType = pShardIteratorType_
+    { sequenceNumber = Lude.Nothing,
+      streamARN = pStreamARN_,
+      shardId = pShardId_,
+      shardIteratorType = pShardIteratorType_
     }
 
 -- | The sequence number of a stream record in the shard from which to start reading.
-gsiSequenceNumber :: Lens' GetShardIterator (Maybe Text)
-gsiSequenceNumber = lens _gsiSequenceNumber (\s a -> s {_gsiSequenceNumber = a})
+--
+-- /Note:/ Consider using 'sequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiSequenceNumber :: Lens.Lens' GetShardIterator (Lude.Maybe Lude.Text)
+gsiSequenceNumber = Lens.lens (sequenceNumber :: GetShardIterator -> Lude.Maybe Lude.Text) (\s a -> s {sequenceNumber = a} :: GetShardIterator)
+{-# DEPRECATED gsiSequenceNumber "Use generic-lens or generic-optics with 'sequenceNumber' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the stream.
-gsiStreamARN :: Lens' GetShardIterator Text
-gsiStreamARN = lens _gsiStreamARN (\s a -> s {_gsiStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiStreamARN :: Lens.Lens' GetShardIterator Lude.Text
+gsiStreamARN = Lens.lens (streamARN :: GetShardIterator -> Lude.Text) (\s a -> s {streamARN = a} :: GetShardIterator)
+{-# DEPRECATED gsiStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The identifier of the shard. The iterator will be returned for this shard ID.
-gsiShardId :: Lens' GetShardIterator Text
-gsiShardId = lens _gsiShardId (\s a -> s {_gsiShardId = a})
+--
+-- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiShardId :: Lens.Lens' GetShardIterator Lude.Text
+gsiShardId = Lens.lens (shardId :: GetShardIterator -> Lude.Text) (\s a -> s {shardId = a} :: GetShardIterator)
+{-# DEPRECATED gsiShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
 
--- | Determines how the shard iterator is used to start reading stream records from the shard:     * @AT_SEQUENCE_NUMBER@ - Start reading exactly from the position denoted by a specific sequence number.     * @AFTER_SEQUENCE_NUMBER@ - Start reading right after the position denoted by a specific sequence number.     * @TRIM_HORIZON@ - Start reading at the last (untrimmed) stream record, which is the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream.     * @LATEST@ - Start reading just after the most recent stream record in the shard, so that you always read the most recent data in the shard.
-gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
-gsiShardIteratorType = lens _gsiShardIteratorType (\s a -> s {_gsiShardIteratorType = a})
+-- | Determines how the shard iterator is used to start reading stream records from the shard:
+--
+--
+--     * @AT_SEQUENCE_NUMBER@ - Start reading exactly from the position denoted by a specific sequence number.
+--
+--
+--     * @AFTER_SEQUENCE_NUMBER@ - Start reading right after the position denoted by a specific sequence number.
+--
+--
+--     * @TRIM_HORIZON@ - Start reading at the last (untrimmed) stream record, which is the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream.
+--
+--
+--     * @LATEST@ - Start reading just after the most recent stream record in the shard, so that you always read the most recent data in the shard.
+--
+--
+--
+-- /Note:/ Consider using 'shardIteratorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiShardIteratorType :: Lens.Lens' GetShardIterator ShardIteratorType
+gsiShardIteratorType = Lens.lens (shardIteratorType :: GetShardIterator -> ShardIteratorType) (\s a -> s {shardIteratorType = a} :: GetShardIterator)
+{-# DEPRECATED gsiShardIteratorType "Use generic-lens or generic-optics with 'shardIteratorType' instead." #-}
 
-instance AWSRequest GetShardIterator where
+instance Lude.AWSRequest GetShardIterator where
   type Rs GetShardIterator = GetShardIteratorResponse
-  request = postJSON dynamoDBStreams
+  request = Req.postJSON dynamoDBStreamsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetShardIteratorResponse'
-            <$> (x .?> "ShardIterator") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ShardIterator")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetShardIterator
-
-instance NFData GetShardIterator
-
-instance ToHeaders GetShardIterator where
+instance Lude.ToHeaders GetShardIterator where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DynamoDBStreams_20120810.GetShardIterator" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("DynamoDBStreams_20120810.GetShardIterator" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetShardIterator where
+instance Lude.ToJSON GetShardIterator where
   toJSON GetShardIterator' {..} =
-    object
-      ( catMaybes
-          [ ("SequenceNumber" .=) <$> _gsiSequenceNumber,
-            Just ("StreamArn" .= _gsiStreamARN),
-            Just ("ShardId" .= _gsiShardId),
-            Just ("ShardIteratorType" .= _gsiShardIteratorType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SequenceNumber" Lude..=) Lude.<$> sequenceNumber,
+            Lude.Just ("StreamArn" Lude..= streamARN),
+            Lude.Just ("ShardId" Lude..= shardId),
+            Lude.Just ("ShardIteratorType" Lude..= shardIteratorType)
           ]
       )
 
-instance ToPath GetShardIterator where
-  toPath = const "/"
+instance Lude.ToPath GetShardIterator where
+  toPath = Lude.const "/"
 
-instance ToQuery GetShardIterator where
-  toQuery = const mempty
+instance Lude.ToQuery GetShardIterator where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetShardIterator@ operation.
 --
---
---
--- /See:/ 'getShardIteratorResponse' smart constructor.
+-- /See:/ 'mkGetShardIteratorResponse' smart constructor.
 data GetShardIteratorResponse = GetShardIteratorResponse'
-  { _gsirsShardIterator ::
-      !(Maybe Text),
-    _gsirsResponseStatus :: !Int
+  { shardIterator ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetShardIteratorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsirsShardIterator' - The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.
---
--- * 'gsirsResponseStatus' - -- | The response status code.
-getShardIteratorResponse ::
-  -- | 'gsirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'shardIterator' - The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.
+mkGetShardIteratorResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetShardIteratorResponse
-getShardIteratorResponse pResponseStatus_ =
+mkGetShardIteratorResponse pResponseStatus_ =
   GetShardIteratorResponse'
-    { _gsirsShardIterator = Nothing,
-      _gsirsResponseStatus = pResponseStatus_
+    { shardIterator = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.
-gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
-gsirsShardIterator = lens _gsirsShardIterator (\s a -> s {_gsirsShardIterator = a})
+--
+-- /Note:/ Consider using 'shardIterator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsirsShardIterator :: Lens.Lens' GetShardIteratorResponse (Lude.Maybe Lude.Text)
+gsirsShardIterator = Lens.lens (shardIterator :: GetShardIteratorResponse -> Lude.Maybe Lude.Text) (\s a -> s {shardIterator = a} :: GetShardIteratorResponse)
+{-# DEPRECATED gsirsShardIterator "Use generic-lens or generic-optics with 'shardIterator' instead." #-}
 
--- | -- | The response status code.
-gsirsResponseStatus :: Lens' GetShardIteratorResponse Int
-gsirsResponseStatus = lens _gsirsResponseStatus (\s a -> s {_gsirsResponseStatus = a})
-
-instance NFData GetShardIteratorResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsirsResponseStatus :: Lens.Lens' GetShardIteratorResponse Lude.Int
+gsirsResponseStatus = Lens.lens (responseStatus :: GetShardIteratorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetShardIteratorResponse)
+{-# DEPRECATED gsirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

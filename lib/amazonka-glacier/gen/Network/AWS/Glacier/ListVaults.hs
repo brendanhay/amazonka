@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,30 +14,26 @@
 --
 -- This operation lists all vaults owned by the calling user's account. The list returned in the response is ASCII-sorted by vault name.
 --
---
 -- By default, this operation returns up to 10 items. If there are more vaults to list, the response @marker@ field contains the vault Amazon Resource Name (ARN) at which to continue the list with a new List Vaults request; otherwise, the @marker@ field is @null@ . To return a list of vaults that begins at a specific vault, set the @marker@ request parameter to the vault ARN you obtained from a previous List Vaults request. You can also limit the number of vaults returned in the response by specifying the @limit@ parameter in the request.
---
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
---
 -- For conceptual information and underlying REST API, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html Retrieving Vault Metadata in Amazon S3 Glacier> and <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html List Vaults > in the /Amazon Glacier Developer Guide/ .
---
 --
 -- This operation returns paginated results.
 module Network.AWS.Glacier.ListVaults
-  ( -- * Creating a Request
-    listVaults,
-    ListVaults,
+  ( -- * Creating a request
+    ListVaults (..),
+    mkListVaults,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lvMarker,
     lvLimit,
     lvAccountId,
 
-    -- * Destructuring the Response
-    listVaultsResponse,
-    ListVaultsResponse,
+    -- * Destructuring the response
+    ListVaultsResponse (..),
+    mkListVaultsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lvrsMarker,
     lvrsVaultList,
     lvrsResponseStatus,
@@ -50,132 +41,147 @@ module Network.AWS.Glacier.ListVaults
 where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Provides options to retrieve the vault list owned by the calling user's account. The list provides metadata information for each vault.
 --
---
---
--- /See:/ 'listVaults' smart constructor.
+-- /See:/ 'mkListVaults' smart constructor.
 data ListVaults = ListVaults'
-  { _lvMarker :: !(Maybe Text),
-    _lvLimit :: !(Maybe Text),
-    _lvAccountId :: !Text
+  { marker :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Text,
+    accountId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVaults' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvMarker' - A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.
---
--- * 'lvLimit' - The maximum number of vaults to be returned. The default limit is 10. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.
---
--- * 'lvAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
-listVaults ::
-  -- | 'lvAccountId'
-  Text ->
+-- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+-- * 'limit' - The maximum number of vaults to be returned. The default limit is 10. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.
+-- * 'marker' - A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.
+mkListVaults ::
+  -- | 'accountId'
+  Lude.Text ->
   ListVaults
-listVaults pAccountId_ =
+mkListVaults pAccountId_ =
   ListVaults'
-    { _lvMarker = Nothing,
-      _lvLimit = Nothing,
-      _lvAccountId = pAccountId_
+    { marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      accountId = pAccountId_
     }
 
 -- | A string used for pagination. The marker specifies the vault ARN after which the listing of vaults should begin.
-lvMarker :: Lens' ListVaults (Maybe Text)
-lvMarker = lens _lvMarker (\s a -> s {_lvMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvMarker :: Lens.Lens' ListVaults (Lude.Maybe Lude.Text)
+lvMarker = Lens.lens (marker :: ListVaults -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListVaults)
+{-# DEPRECATED lvMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of vaults to be returned. The default limit is 10. The number of vaults returned might be fewer than the specified limit, but the number of returned vaults never exceeds the limit.
-lvLimit :: Lens' ListVaults (Maybe Text)
-lvLimit = lens _lvLimit (\s a -> s {_lvLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvLimit :: Lens.Lens' ListVaults (Lude.Maybe Lude.Text)
+lvLimit = Lens.lens (limit :: ListVaults -> Lude.Maybe Lude.Text) (\s a -> s {limit = a} :: ListVaults)
+{-# DEPRECATED lvLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
-lvAccountId :: Lens' ListVaults Text
-lvAccountId = lens _lvAccountId (\s a -> s {_lvAccountId = a})
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvAccountId :: Lens.Lens' ListVaults Lude.Text
+lvAccountId = Lens.lens (accountId :: ListVaults -> Lude.Text) (\s a -> s {accountId = a} :: ListVaults)
+{-# DEPRECATED lvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance AWSPager ListVaults where
+instance Page.AWSPager ListVaults where
   page rq rs
-    | stop (rs ^. lvrsMarker) = Nothing
-    | stop (rs ^. lvrsVaultList) = Nothing
-    | otherwise = Just $ rq & lvMarker .~ rs ^. lvrsMarker
+    | Page.stop (rs Lens.^. lvrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lvrsVaultList) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& lvMarker Lens..~ rs Lens.^. lvrsMarker
 
-instance AWSRequest ListVaults where
+instance Lude.AWSRequest ListVaults where
   type Rs ListVaults = ListVaultsResponse
-  request = get glacier
+  request = Req.get glacierService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListVaultsResponse'
-            <$> (x .?> "Marker")
-            <*> (x .?> "VaultList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Marker")
+            Lude.<*> (x Lude..?> "VaultList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListVaults
+instance Lude.ToHeaders ListVaults where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListVaults
-
-instance ToHeaders ListVaults where
-  toHeaders = const mempty
-
-instance ToPath ListVaults where
+instance Lude.ToPath ListVaults where
   toPath ListVaults' {..} =
-    mconcat ["/", toBS _lvAccountId, "/vaults"]
+    Lude.mconcat ["/", Lude.toBS accountId, "/vaults"]
 
-instance ToQuery ListVaults where
+instance Lude.ToQuery ListVaults where
   toQuery ListVaults' {..} =
-    mconcat ["marker" =: _lvMarker, "limit" =: _lvLimit]
+    Lude.mconcat ["marker" Lude.=: marker, "limit" Lude.=: limit]
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
---
---
--- /See:/ 'listVaultsResponse' smart constructor.
+-- /See:/ 'mkListVaultsResponse' smart constructor.
 data ListVaultsResponse = ListVaultsResponse'
-  { _lvrsMarker ::
-      !(Maybe Text),
-    _lvrsVaultList :: !(Maybe [DescribeVaultOutput]),
-    _lvrsResponseStatus :: !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    vaultList :: Lude.Maybe [DescribeVaultOutput],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVaultsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvrsMarker' - The vault ARN at which to continue pagination of the results. You use the marker in another List Vaults request to obtain more vaults in the list.
---
--- * 'lvrsVaultList' - List of vaults.
---
--- * 'lvrsResponseStatus' - -- | The response status code.
-listVaultsResponse ::
-  -- | 'lvrsResponseStatus'
-  Int ->
+-- * 'marker' - The vault ARN at which to continue pagination of the results. You use the marker in another List Vaults request to obtain more vaults in the list.
+-- * 'responseStatus' - The response status code.
+-- * 'vaultList' - List of vaults.
+mkListVaultsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListVaultsResponse
-listVaultsResponse pResponseStatus_ =
+mkListVaultsResponse pResponseStatus_ =
   ListVaultsResponse'
-    { _lvrsMarker = Nothing,
-      _lvrsVaultList = Nothing,
-      _lvrsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      vaultList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The vault ARN at which to continue pagination of the results. You use the marker in another List Vaults request to obtain more vaults in the list.
-lvrsMarker :: Lens' ListVaultsResponse (Maybe Text)
-lvrsMarker = lens _lvrsMarker (\s a -> s {_lvrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsMarker :: Lens.Lens' ListVaultsResponse (Lude.Maybe Lude.Text)
+lvrsMarker = Lens.lens (marker :: ListVaultsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListVaultsResponse)
+{-# DEPRECATED lvrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | List of vaults.
-lvrsVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
-lvrsVaultList = lens _lvrsVaultList (\s a -> s {_lvrsVaultList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vaultList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsVaultList :: Lens.Lens' ListVaultsResponse (Lude.Maybe [DescribeVaultOutput])
+lvrsVaultList = Lens.lens (vaultList :: ListVaultsResponse -> Lude.Maybe [DescribeVaultOutput]) (\s a -> s {vaultList = a} :: ListVaultsResponse)
+{-# DEPRECATED lvrsVaultList "Use generic-lens or generic-optics with 'vaultList' instead." #-}
 
--- | -- | The response status code.
-lvrsResponseStatus :: Lens' ListVaultsResponse Int
-lvrsResponseStatus = lens _lvrsResponseStatus (\s a -> s {_lvrsResponseStatus = a})
-
-instance NFData ListVaultsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrsResponseStatus :: Lens.Lens' ListVaultsResponse Lude.Int
+lvrsResponseStatus = Lens.lens (responseStatus :: ListVaultsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVaultsResponse)
+{-# DEPRECATED lvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

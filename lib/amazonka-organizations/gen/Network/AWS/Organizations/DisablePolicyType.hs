@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,182 @@
 --
 -- Disables an organizational policy type in a root. A policy of a certain type can be attached to entities in a root only if that type is enabled in the root. After you perform this operation, you no longer can attach policies of the specified type to that root or to any organizational unit (OU) or account in that root. You can undo this by using the 'EnablePolicyType' operation.
 --
---
 -- This is an asynchronous request that AWS performs in the background. If you disable a policy type for a root, it still appears enabled for the organization if <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html all features> are enabled for the organization. AWS recommends that you first use 'ListRoots' to see the status of policy types for a specified root, and then use this operation.
---
 -- This operation can be called only from the organization's management account.
---
 -- To view the status of available policy types in the organization, use 'DescribeOrganization' .
 module Network.AWS.Organizations.DisablePolicyType
-  ( -- * Creating a Request
-    disablePolicyType,
-    DisablePolicyType,
+  ( -- * Creating a request
+    DisablePolicyType (..),
+    mkDisablePolicyType,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dptRootId,
     dptPolicyType,
 
-    -- * Destructuring the Response
-    disablePolicyTypeResponse,
-    DisablePolicyTypeResponse,
+    -- * Destructuring the response
+    DisablePolicyTypeResponse (..),
+    mkDisablePolicyTypeResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dptrsRoot,
     dptrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disablePolicyType' smart constructor.
+-- | /See:/ 'mkDisablePolicyType' smart constructor.
 data DisablePolicyType = DisablePolicyType'
-  { _dptRootId :: !Text,
-    _dptPolicyType :: !PolicyType
+  { rootId :: Lude.Text,
+    policyType :: PolicyType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisablePolicyType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'policyType' - The policy type that you want to disable in this root. You can specify one of the following values:
 --
--- * 'dptRootId' - The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListRoots' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
 --
--- * 'dptPolicyType' - The policy type that you want to disable in this root. You can specify one of the following values:     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
-disablePolicyType ::
-  -- | 'dptRootId'
-  Text ->
-  -- | 'dptPolicyType'
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+--
+--
+-- * 'rootId' - The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListRoots' operation.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
+mkDisablePolicyType ::
+  -- | 'rootId'
+  Lude.Text ->
+  -- | 'policyType'
   PolicyType ->
   DisablePolicyType
-disablePolicyType pRootId_ pPolicyType_ =
-  DisablePolicyType'
-    { _dptRootId = pRootId_,
-      _dptPolicyType = pPolicyType_
-    }
+mkDisablePolicyType pRootId_ pPolicyType_ =
+  DisablePolicyType' {rootId = pRootId_, policyType = pPolicyType_}
 
--- | The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListRoots' operation. The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
-dptRootId :: Lens' DisablePolicyType Text
-dptRootId = lens _dptRootId (\s a -> s {_dptRootId = a})
+-- | The unique identifier (ID) of the root in which you want to disable a policy type. You can get the ID from the 'ListRoots' operation.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
+--
+-- /Note:/ Consider using 'rootId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptRootId :: Lens.Lens' DisablePolicyType Lude.Text
+dptRootId = Lens.lens (rootId :: DisablePolicyType -> Lude.Text) (\s a -> s {rootId = a} :: DisablePolicyType)
+{-# DEPRECATED dptRootId "Use generic-lens or generic-optics with 'rootId' instead." #-}
 
--- | The policy type that you want to disable in this root. You can specify one of the following values:     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>      * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
-dptPolicyType :: Lens' DisablePolicyType PolicyType
-dptPolicyType = lens _dptPolicyType (\s a -> s {_dptPolicyType = a})
+-- | The policy type that you want to disable in this root. You can specify one of the following values:
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>
+--
+--
+--     * <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+--
+--
+--
+-- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptPolicyType :: Lens.Lens' DisablePolicyType PolicyType
+dptPolicyType = Lens.lens (policyType :: DisablePolicyType -> PolicyType) (\s a -> s {policyType = a} :: DisablePolicyType)
+{-# DEPRECATED dptPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
 
-instance AWSRequest DisablePolicyType where
+instance Lude.AWSRequest DisablePolicyType where
   type Rs DisablePolicyType = DisablePolicyTypeResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DisablePolicyTypeResponse'
-            <$> (x .?> "Root") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Root") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DisablePolicyType
-
-instance NFData DisablePolicyType
-
-instance ToHeaders DisablePolicyType where
+instance Lude.ToHeaders DisablePolicyType where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.DisablePolicyType" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSOrganizationsV20161128.DisablePolicyType" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DisablePolicyType where
+instance Lude.ToJSON DisablePolicyType where
   toJSON DisablePolicyType' {..} =
-    object
-      ( catMaybes
-          [ Just ("RootId" .= _dptRootId),
-            Just ("PolicyType" .= _dptPolicyType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("RootId" Lude..= rootId),
+            Lude.Just ("PolicyType" Lude..= policyType)
           ]
       )
 
-instance ToPath DisablePolicyType where
-  toPath = const "/"
+instance Lude.ToPath DisablePolicyType where
+  toPath = Lude.const "/"
 
-instance ToQuery DisablePolicyType where
-  toQuery = const mempty
+instance Lude.ToQuery DisablePolicyType where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'disablePolicyTypeResponse' smart constructor.
+-- | /See:/ 'mkDisablePolicyTypeResponse' smart constructor.
 data DisablePolicyTypeResponse = DisablePolicyTypeResponse'
-  { _dptrsRoot ::
-      !(Maybe Root),
-    _dptrsResponseStatus :: !Int
+  { root ::
+      Lude.Maybe Root,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisablePolicyTypeResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dptrsRoot' - A structure that shows the root with the updated list of enabled policy types.
---
--- * 'dptrsResponseStatus' - -- | The response status code.
-disablePolicyTypeResponse ::
-  -- | 'dptrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'root' - A structure that shows the root with the updated list of enabled policy types.
+mkDisablePolicyTypeResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DisablePolicyTypeResponse
-disablePolicyTypeResponse pResponseStatus_ =
+mkDisablePolicyTypeResponse pResponseStatus_ =
   DisablePolicyTypeResponse'
-    { _dptrsRoot = Nothing,
-      _dptrsResponseStatus = pResponseStatus_
+    { root = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure that shows the root with the updated list of enabled policy types.
-dptrsRoot :: Lens' DisablePolicyTypeResponse (Maybe Root)
-dptrsRoot = lens _dptrsRoot (\s a -> s {_dptrsRoot = a})
+--
+-- /Note:/ Consider using 'root' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsRoot :: Lens.Lens' DisablePolicyTypeResponse (Lude.Maybe Root)
+dptrsRoot = Lens.lens (root :: DisablePolicyTypeResponse -> Lude.Maybe Root) (\s a -> s {root = a} :: DisablePolicyTypeResponse)
+{-# DEPRECATED dptrsRoot "Use generic-lens or generic-optics with 'root' instead." #-}
 
--- | -- | The response status code.
-dptrsResponseStatus :: Lens' DisablePolicyTypeResponse Int
-dptrsResponseStatus = lens _dptrsResponseStatus (\s a -> s {_dptrsResponseStatus = a})
-
-instance NFData DisablePolicyTypeResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dptrsResponseStatus :: Lens.Lens' DisablePolicyTypeResponse Lude.Int
+dptrsResponseStatus = Lens.lens (responseStatus :: DisablePolicyTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisablePolicyTypeResponse)
+{-# DEPRECATED dptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

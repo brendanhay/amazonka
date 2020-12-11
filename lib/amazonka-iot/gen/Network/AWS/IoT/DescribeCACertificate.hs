@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Describes a registered CA certificate.
 module Network.AWS.IoT.DescribeCACertificate
-  ( -- * Creating a Request
-    describeCACertificate,
-    DescribeCACertificate,
+  ( -- * Creating a request
+    DescribeCACertificate (..),
+    mkDescribeCACertificate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dCertificateId,
 
-    -- * Destructuring the Response
-    describeCACertificateResponse,
-    DescribeCACertificateResponse,
+    -- * Destructuring the response
+    DescribeCACertificateResponse (..),
+    mkDescribeCACertificateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcaccrsCertificateDescription,
     dcaccrsRegistrationConfig,
     dcaccrsResponseStatus,
@@ -38,111 +33,120 @@ module Network.AWS.IoT.DescribeCACertificate
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The input for the DescribeCACertificate operation.
 --
---
---
--- /See:/ 'describeCACertificate' smart constructor.
+-- /See:/ 'mkDescribeCACertificate' smart constructor.
 newtype DescribeCACertificate = DescribeCACertificate'
-  { _dCertificateId ::
-      Text
+  { certificateId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCACertificate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dCertificateId' - The CA certificate identifier.
-describeCACertificate ::
-  -- | 'dCertificateId'
-  Text ->
+-- * 'certificateId' - The CA certificate identifier.
+mkDescribeCACertificate ::
+  -- | 'certificateId'
+  Lude.Text ->
   DescribeCACertificate
-describeCACertificate pCertificateId_ =
-  DescribeCACertificate' {_dCertificateId = pCertificateId_}
+mkDescribeCACertificate pCertificateId_ =
+  DescribeCACertificate' {certificateId = pCertificateId_}
 
 -- | The CA certificate identifier.
-dCertificateId :: Lens' DescribeCACertificate Text
-dCertificateId = lens _dCertificateId (\s a -> s {_dCertificateId = a})
+--
+-- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCertificateId :: Lens.Lens' DescribeCACertificate Lude.Text
+dCertificateId = Lens.lens (certificateId :: DescribeCACertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DescribeCACertificate)
+{-# DEPRECATED dCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
-instance AWSRequest DescribeCACertificate where
+instance Lude.AWSRequest DescribeCACertificate where
   type Rs DescribeCACertificate = DescribeCACertificateResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeCACertificateResponse'
-            <$> (x .?> "certificateDescription")
-            <*> (x .?> "registrationConfig")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "certificateDescription")
+            Lude.<*> (x Lude..?> "registrationConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCACertificate
+instance Lude.ToHeaders DescribeCACertificate where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeCACertificate
-
-instance ToHeaders DescribeCACertificate where
-  toHeaders = const mempty
-
-instance ToPath DescribeCACertificate where
+instance Lude.ToPath DescribeCACertificate where
   toPath DescribeCACertificate' {..} =
-    mconcat ["/cacertificate/", toBS _dCertificateId]
+    Lude.mconcat ["/cacertificate/", Lude.toBS certificateId]
 
-instance ToQuery DescribeCACertificate where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeCACertificate where
+  toQuery = Lude.const Lude.mempty
 
 -- | The output from the DescribeCACertificate operation.
 --
---
---
--- /See:/ 'describeCACertificateResponse' smart constructor.
+-- /See:/ 'mkDescribeCACertificateResponse' smart constructor.
 data DescribeCACertificateResponse = DescribeCACertificateResponse'
-  { _dcaccrsCertificateDescription ::
-      !( Maybe
-           CACertificateDescription
-       ),
-    _dcaccrsRegistrationConfig ::
-      !(Maybe RegistrationConfig),
-    _dcaccrsResponseStatus :: !Int
+  { certificateDescription ::
+      Lude.Maybe
+        CACertificateDescription,
+    registrationConfig ::
+      Lude.Maybe RegistrationConfig,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCACertificateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcaccrsCertificateDescription' - The CA certificate description.
---
--- * 'dcaccrsRegistrationConfig' - Information about the registration configuration.
---
--- * 'dcaccrsResponseStatus' - -- | The response status code.
-describeCACertificateResponse ::
-  -- | 'dcaccrsResponseStatus'
-  Int ->
+-- * 'certificateDescription' - The CA certificate description.
+-- * 'registrationConfig' - Information about the registration configuration.
+-- * 'responseStatus' - The response status code.
+mkDescribeCACertificateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCACertificateResponse
-describeCACertificateResponse pResponseStatus_ =
+mkDescribeCACertificateResponse pResponseStatus_ =
   DescribeCACertificateResponse'
-    { _dcaccrsCertificateDescription =
-        Nothing,
-      _dcaccrsRegistrationConfig = Nothing,
-      _dcaccrsResponseStatus = pResponseStatus_
+    { certificateDescription =
+        Lude.Nothing,
+      registrationConfig = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The CA certificate description.
-dcaccrsCertificateDescription :: Lens' DescribeCACertificateResponse (Maybe CACertificateDescription)
-dcaccrsCertificateDescription = lens _dcaccrsCertificateDescription (\s a -> s {_dcaccrsCertificateDescription = a})
+--
+-- /Note:/ Consider using 'certificateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaccrsCertificateDescription :: Lens.Lens' DescribeCACertificateResponse (Lude.Maybe CACertificateDescription)
+dcaccrsCertificateDescription = Lens.lens (certificateDescription :: DescribeCACertificateResponse -> Lude.Maybe CACertificateDescription) (\s a -> s {certificateDescription = a} :: DescribeCACertificateResponse)
+{-# DEPRECATED dcaccrsCertificateDescription "Use generic-lens or generic-optics with 'certificateDescription' instead." #-}
 
 -- | Information about the registration configuration.
-dcaccrsRegistrationConfig :: Lens' DescribeCACertificateResponse (Maybe RegistrationConfig)
-dcaccrsRegistrationConfig = lens _dcaccrsRegistrationConfig (\s a -> s {_dcaccrsRegistrationConfig = a})
+--
+-- /Note:/ Consider using 'registrationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaccrsRegistrationConfig :: Lens.Lens' DescribeCACertificateResponse (Lude.Maybe RegistrationConfig)
+dcaccrsRegistrationConfig = Lens.lens (registrationConfig :: DescribeCACertificateResponse -> Lude.Maybe RegistrationConfig) (\s a -> s {registrationConfig = a} :: DescribeCACertificateResponse)
+{-# DEPRECATED dcaccrsRegistrationConfig "Use generic-lens or generic-optics with 'registrationConfig' instead." #-}
 
--- | -- | The response status code.
-dcaccrsResponseStatus :: Lens' DescribeCACertificateResponse Int
-dcaccrsResponseStatus = lens _dcaccrsResponseStatus (\s a -> s {_dcaccrsResponseStatus = a})
-
-instance NFData DescribeCACertificateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaccrsResponseStatus :: Lens.Lens' DescribeCACertificateResponse Lude.Int
+dcaccrsResponseStatus = Lens.lens (responseStatus :: DescribeCACertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCACertificateResponse)
+{-# DEPRECATED dcaccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

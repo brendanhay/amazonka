@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.WebACLUpdate where
+module Network.AWS.WAF.Types.WebACLUpdate
+  ( WebACLUpdate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWebACLUpdate,
+
+    -- * Lenses
+    wauAction,
+    wauActivatedRule,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WAF.Types.ActivatedRule
 import Network.AWS.WAF.Types.ChangeAction
 
 -- | Specifies whether to insert a @Rule@ into or delete a @Rule@ from a @WebACL@ .
 --
---
---
--- /See:/ 'webACLUpdate' smart constructor.
+-- /See:/ 'mkWebACLUpdate' smart constructor.
 data WebACLUpdate = WebACLUpdate'
-  { _wauAction :: !ChangeAction,
-    _wauActivatedRule :: !ActivatedRule
+  { action :: ChangeAction,
+    activatedRule :: ActivatedRule
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WebACLUpdate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wauAction' - Specifies whether to insert a @Rule@ into or delete a @Rule@ from a @WebACL@ .
---
--- * 'wauActivatedRule' - The @ActivatedRule@ object in an 'UpdateWebACL' request specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
-webACLUpdate ::
-  -- | 'wauAction'
+-- * 'action' - Specifies whether to insert a @Rule@ into or delete a @Rule@ from a @WebACL@ .
+-- * 'activatedRule' - The @ActivatedRule@ object in an 'UpdateWebACL' request specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
+mkWebACLUpdate ::
+  -- | 'action'
   ChangeAction ->
-  -- | 'wauActivatedRule'
+  -- | 'activatedRule'
   ActivatedRule ->
   WebACLUpdate
-webACLUpdate pAction_ pActivatedRule_ =
-  WebACLUpdate'
-    { _wauAction = pAction_,
-      _wauActivatedRule = pActivatedRule_
-    }
+mkWebACLUpdate pAction_ pActivatedRule_ =
+  WebACLUpdate' {action = pAction_, activatedRule = pActivatedRule_}
 
 -- | Specifies whether to insert a @Rule@ into or delete a @Rule@ from a @WebACL@ .
-wauAction :: Lens' WebACLUpdate ChangeAction
-wauAction = lens _wauAction (\s a -> s {_wauAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wauAction :: Lens.Lens' WebACLUpdate ChangeAction
+wauAction = Lens.lens (action :: WebACLUpdate -> ChangeAction) (\s a -> s {action = a} :: WebACLUpdate)
+{-# DEPRECATED wauAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The @ActivatedRule@ object in an 'UpdateWebACL' request specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
-wauActivatedRule :: Lens' WebACLUpdate ActivatedRule
-wauActivatedRule = lens _wauActivatedRule (\s a -> s {_wauActivatedRule = a})
+--
+-- /Note:/ Consider using 'activatedRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wauActivatedRule :: Lens.Lens' WebACLUpdate ActivatedRule
+wauActivatedRule = Lens.lens (activatedRule :: WebACLUpdate -> ActivatedRule) (\s a -> s {activatedRule = a} :: WebACLUpdate)
+{-# DEPRECATED wauActivatedRule "Use generic-lens or generic-optics with 'activatedRule' instead." #-}
 
-instance Hashable WebACLUpdate
-
-instance NFData WebACLUpdate
-
-instance ToJSON WebACLUpdate where
+instance Lude.ToJSON WebACLUpdate where
   toJSON WebACLUpdate' {..} =
-    object
-      ( catMaybes
-          [ Just ("Action" .= _wauAction),
-            Just ("ActivatedRule" .= _wauActivatedRule)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Action" Lude..= action),
+            Lude.Just ("ActivatedRule" Lude..= activatedRule)
           ]
       )

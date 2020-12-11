@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.AvailabilityZoneState where
+module Network.AWS.EC2.Types.AvailabilityZoneState
+  ( AvailabilityZoneState
+      ( AvailabilityZoneState',
+        AZSAvailable,
+        AZSImpaired,
+        AZSInformation,
+        AZSUnavailable
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AvailabilityZoneState
-  = AZSAvailable
-  | AZSImpaired
-  | AZSInformation
-  | AZSUnavailable
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AvailabilityZoneState = AvailabilityZoneState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AvailabilityZoneState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure AZSAvailable
-      "impaired" -> pure AZSImpaired
-      "information" -> pure AZSInformation
-      "unavailable" -> pure AZSUnavailable
-      e ->
-        fromTextError $
-          "Failure parsing AvailabilityZoneState from value: '" <> e
-            <> "'. Accepted values: available, impaired, information, unavailable"
+pattern AZSAvailable :: AvailabilityZoneState
+pattern AZSAvailable = AvailabilityZoneState' "available"
 
-instance ToText AvailabilityZoneState where
-  toText = \case
-    AZSAvailable -> "available"
-    AZSImpaired -> "impaired"
-    AZSInformation -> "information"
-    AZSUnavailable -> "unavailable"
+pattern AZSImpaired :: AvailabilityZoneState
+pattern AZSImpaired = AvailabilityZoneState' "impaired"
 
-instance Hashable AvailabilityZoneState
+pattern AZSInformation :: AvailabilityZoneState
+pattern AZSInformation = AvailabilityZoneState' "information"
 
-instance NFData AvailabilityZoneState
+pattern AZSUnavailable :: AvailabilityZoneState
+pattern AZSUnavailable = AvailabilityZoneState' "unavailable"
 
-instance ToByteString AvailabilityZoneState
-
-instance ToQuery AvailabilityZoneState
-
-instance ToHeader AvailabilityZoneState
-
-instance FromXML AvailabilityZoneState where
-  parseXML = parseXMLText "AvailabilityZoneState"
+{-# COMPLETE
+  AZSAvailable,
+  AZSImpaired,
+  AZSInformation,
+  AZSUnavailable,
+  AvailabilityZoneState'
+  #-}

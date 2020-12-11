@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.TestingDataResult where
+module Network.AWS.Rekognition.Types.TestingDataResult
+  ( TestingDataResult (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTestingDataResult,
+
+    -- * Lenses
+    tdrInput,
+    tdrOutput,
+    tdrValidation,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.TestingData
 import Network.AWS.Rekognition.Types.ValidationData
 
 -- | Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.
 --
---
---
--- /See:/ 'testingDataResult' smart constructor.
+-- /See:/ 'mkTestingDataResult' smart constructor.
 data TestingDataResult = TestingDataResult'
-  { _tdrInput ::
-      !(Maybe TestingData),
-    _tdrOutput :: !(Maybe TestingData),
-    _tdrValidation :: !(Maybe ValidationData)
+  { input ::
+      Lude.Maybe TestingData,
+    output :: Lude.Maybe TestingData,
+    validation :: Lude.Maybe ValidationData
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestingDataResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tdrInput' - The testing dataset that was supplied for training.
---
--- * 'tdrOutput' - The subset of the dataset that was actually tested. Some images (assets) might not be tested due to file formatting and other issues.
---
--- * 'tdrValidation' - The location of the data validation manifest. The data validation manifest is created for the test dataset during model training.
-testingDataResult ::
+-- * 'input' - The testing dataset that was supplied for training.
+-- * 'output' - The subset of the dataset that was actually tested. Some images (assets) might not be tested due to file formatting and other issues.
+-- * 'validation' - The location of the data validation manifest. The data validation manifest is created for the test dataset during model training.
+mkTestingDataResult ::
   TestingDataResult
-testingDataResult =
+mkTestingDataResult =
   TestingDataResult'
-    { _tdrInput = Nothing,
-      _tdrOutput = Nothing,
-      _tdrValidation = Nothing
+    { input = Lude.Nothing,
+      output = Lude.Nothing,
+      validation = Lude.Nothing
     }
 
 -- | The testing dataset that was supplied for training.
-tdrInput :: Lens' TestingDataResult (Maybe TestingData)
-tdrInput = lens _tdrInput (\s a -> s {_tdrInput = a})
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdrInput :: Lens.Lens' TestingDataResult (Lude.Maybe TestingData)
+tdrInput = Lens.lens (input :: TestingDataResult -> Lude.Maybe TestingData) (\s a -> s {input = a} :: TestingDataResult)
+{-# DEPRECATED tdrInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | The subset of the dataset that was actually tested. Some images (assets) might not be tested due to file formatting and other issues.
-tdrOutput :: Lens' TestingDataResult (Maybe TestingData)
-tdrOutput = lens _tdrOutput (\s a -> s {_tdrOutput = a})
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdrOutput :: Lens.Lens' TestingDataResult (Lude.Maybe TestingData)
+tdrOutput = Lens.lens (output :: TestingDataResult -> Lude.Maybe TestingData) (\s a -> s {output = a} :: TestingDataResult)
+{-# DEPRECATED tdrOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | The location of the data validation manifest. The data validation manifest is created for the test dataset during model training.
-tdrValidation :: Lens' TestingDataResult (Maybe ValidationData)
-tdrValidation = lens _tdrValidation (\s a -> s {_tdrValidation = a})
+--
+-- /Note:/ Consider using 'validation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdrValidation :: Lens.Lens' TestingDataResult (Lude.Maybe ValidationData)
+tdrValidation = Lens.lens (validation :: TestingDataResult -> Lude.Maybe ValidationData) (\s a -> s {validation = a} :: TestingDataResult)
+{-# DEPRECATED tdrValidation "Use generic-lens or generic-optics with 'validation' instead." #-}
 
-instance FromJSON TestingDataResult where
+instance Lude.FromJSON TestingDataResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "TestingDataResult"
       ( \x ->
           TestingDataResult'
-            <$> (x .:? "Input") <*> (x .:? "Output") <*> (x .:? "Validation")
+            Lude.<$> (x Lude..:? "Input")
+            Lude.<*> (x Lude..:? "Output")
+            Lude.<*> (x Lude..:? "Validation")
       )
-
-instance Hashable TestingDataResult
-
-instance NFData TestingDataResult

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.RuleType where
+module Network.AWS.CloudDirectory.Types.RuleType
+  ( RuleType
+      ( RuleType',
+        BinaryLength,
+        NumberComparison,
+        StringFromSet,
+        StringLength
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RuleType
-  = BinaryLength
-  | NumberComparison
-  | StringFromSet
-  | StringLength
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RuleType = RuleType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RuleType where
-  parser =
-    takeLowerText >>= \case
-      "binary_length" -> pure BinaryLength
-      "number_comparison" -> pure NumberComparison
-      "string_from_set" -> pure StringFromSet
-      "string_length" -> pure StringLength
-      e ->
-        fromTextError $
-          "Failure parsing RuleType from value: '" <> e
-            <> "'. Accepted values: binary_length, number_comparison, string_from_set, string_length"
+pattern BinaryLength :: RuleType
+pattern BinaryLength = RuleType' "BINARY_LENGTH"
 
-instance ToText RuleType where
-  toText = \case
-    BinaryLength -> "BINARY_LENGTH"
-    NumberComparison -> "NUMBER_COMPARISON"
-    StringFromSet -> "STRING_FROM_SET"
-    StringLength -> "STRING_LENGTH"
+pattern NumberComparison :: RuleType
+pattern NumberComparison = RuleType' "NUMBER_COMPARISON"
 
-instance Hashable RuleType
+pattern StringFromSet :: RuleType
+pattern StringFromSet = RuleType' "STRING_FROM_SET"
 
-instance NFData RuleType
+pattern StringLength :: RuleType
+pattern StringLength = RuleType' "STRING_LENGTH"
 
-instance ToByteString RuleType
-
-instance ToQuery RuleType
-
-instance ToHeader RuleType
-
-instance ToJSON RuleType where
-  toJSON = toJSONText
-
-instance FromJSON RuleType where
-  parseJSON = parseJSONText "RuleType"
+{-# COMPLETE
+  BinaryLength,
+  NumberComparison,
+  StringFromSet,
+  StringLength,
+  RuleType'
+  #-}

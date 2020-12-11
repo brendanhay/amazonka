@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Records the configuration state for the resource provided in the request. The configuration state of a resource is represented in AWS Config as Configuration Items. Once this API records the configuration item, you can retrieve the list of configuration items for the custom resource type using existing AWS Config APIs.
 module Network.AWS.Config.PutResourceConfig
-  ( -- * Creating a Request
-    putResourceConfig,
-    PutResourceConfig,
+  ( -- * Creating a request
+    PutResourceConfig (..),
+    mkPutResourceConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     prcResourceName,
     prcTags,
     prcResourceType,
@@ -31,138 +26,158 @@ module Network.AWS.Config.PutResourceConfig
     prcResourceId,
     prcConfiguration,
 
-    -- * Destructuring the Response
-    putResourceConfigResponse,
-    PutResourceConfigResponse,
+    -- * Destructuring the response
+    PutResourceConfigResponse (..),
+    mkPutResourceConfigResponse,
   )
 where
 
 import Network.AWS.Config.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putResourceConfig' smart constructor.
+-- | /See:/ 'mkPutResourceConfig' smart constructor.
 data PutResourceConfig = PutResourceConfig'
-  { _prcResourceName ::
-      !(Maybe Text),
-    _prcTags :: !(Maybe (Map Text (Text))),
-    _prcResourceType :: !Text,
-    _prcSchemaVersionId :: !Text,
-    _prcResourceId :: !Text,
-    _prcConfiguration :: !Text
+  { resourceName ::
+      Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    resourceType :: Lude.Text,
+    schemaVersionId :: Lude.Text,
+    resourceId :: Lude.Text,
+    configuration :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourceConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prcResourceName' - Name of the resource.
---
--- * 'prcTags' - Tags associated with the resource.
---
--- * 'prcResourceType' - The type of the resource. The custom resource type must be registered with AWS CloudFormation.
---
--- * 'prcSchemaVersionId' - Version of the schema registered for the ResourceType in AWS CloudFormation.
---
--- * 'prcResourceId' - Unique identifier of the resource.
---
--- * 'prcConfiguration' - The configuration object of the resource in valid JSON format. It must match the schema registered with AWS CloudFormation.
-putResourceConfig ::
-  -- | 'prcResourceType'
-  Text ->
-  -- | 'prcSchemaVersionId'
-  Text ->
-  -- | 'prcResourceId'
-  Text ->
-  -- | 'prcConfiguration'
-  Text ->
+-- * 'configuration' - The configuration object of the resource in valid JSON format. It must match the schema registered with AWS CloudFormation.
+-- * 'resourceId' - Unique identifier of the resource.
+-- * 'resourceName' - Name of the resource.
+-- * 'resourceType' - The type of the resource. The custom resource type must be registered with AWS CloudFormation.
+-- * 'schemaVersionId' - Version of the schema registered for the ResourceType in AWS CloudFormation.
+-- * 'tags' - Tags associated with the resource.
+mkPutResourceConfig ::
+  -- | 'resourceType'
+  Lude.Text ->
+  -- | 'schemaVersionId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'configuration'
+  Lude.Text ->
   PutResourceConfig
-putResourceConfig
+mkPutResourceConfig
   pResourceType_
   pSchemaVersionId_
   pResourceId_
   pConfiguration_ =
     PutResourceConfig'
-      { _prcResourceName = Nothing,
-        _prcTags = Nothing,
-        _prcResourceType = pResourceType_,
-        _prcSchemaVersionId = pSchemaVersionId_,
-        _prcResourceId = pResourceId_,
-        _prcConfiguration = pConfiguration_
+      { resourceName = Lude.Nothing,
+        tags = Lude.Nothing,
+        resourceType = pResourceType_,
+        schemaVersionId = pSchemaVersionId_,
+        resourceId = pResourceId_,
+        configuration = pConfiguration_
       }
 
 -- | Name of the resource.
-prcResourceName :: Lens' PutResourceConfig (Maybe Text)
-prcResourceName = lens _prcResourceName (\s a -> s {_prcResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcResourceName :: Lens.Lens' PutResourceConfig (Lude.Maybe Lude.Text)
+prcResourceName = Lens.lens (resourceName :: PutResourceConfig -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: PutResourceConfig)
+{-# DEPRECATED prcResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | Tags associated with the resource.
-prcTags :: Lens' PutResourceConfig (HashMap Text (Text))
-prcTags = lens _prcTags (\s a -> s {_prcTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcTags :: Lens.Lens' PutResourceConfig (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+prcTags = Lens.lens (tags :: PutResourceConfig -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: PutResourceConfig)
+{-# DEPRECATED prcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The type of the resource. The custom resource type must be registered with AWS CloudFormation.
-prcResourceType :: Lens' PutResourceConfig Text
-prcResourceType = lens _prcResourceType (\s a -> s {_prcResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcResourceType :: Lens.Lens' PutResourceConfig Lude.Text
+prcResourceType = Lens.lens (resourceType :: PutResourceConfig -> Lude.Text) (\s a -> s {resourceType = a} :: PutResourceConfig)
+{-# DEPRECATED prcResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Version of the schema registered for the ResourceType in AWS CloudFormation.
-prcSchemaVersionId :: Lens' PutResourceConfig Text
-prcSchemaVersionId = lens _prcSchemaVersionId (\s a -> s {_prcSchemaVersionId = a})
+--
+-- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcSchemaVersionId :: Lens.Lens' PutResourceConfig Lude.Text
+prcSchemaVersionId = Lens.lens (schemaVersionId :: PutResourceConfig -> Lude.Text) (\s a -> s {schemaVersionId = a} :: PutResourceConfig)
+{-# DEPRECATED prcSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
 
 -- | Unique identifier of the resource.
-prcResourceId :: Lens' PutResourceConfig Text
-prcResourceId = lens _prcResourceId (\s a -> s {_prcResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcResourceId :: Lens.Lens' PutResourceConfig Lude.Text
+prcResourceId = Lens.lens (resourceId :: PutResourceConfig -> Lude.Text) (\s a -> s {resourceId = a} :: PutResourceConfig)
+{-# DEPRECATED prcResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The configuration object of the resource in valid JSON format. It must match the schema registered with AWS CloudFormation.
-prcConfiguration :: Lens' PutResourceConfig Text
-prcConfiguration = lens _prcConfiguration (\s a -> s {_prcConfiguration = a})
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcConfiguration :: Lens.Lens' PutResourceConfig Lude.Text
+prcConfiguration = Lens.lens (configuration :: PutResourceConfig -> Lude.Text) (\s a -> s {configuration = a} :: PutResourceConfig)
+{-# DEPRECATED prcConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
-instance AWSRequest PutResourceConfig where
+instance Lude.AWSRequest PutResourceConfig where
   type Rs PutResourceConfig = PutResourceConfigResponse
-  request = postJSON config
-  response = receiveNull PutResourceConfigResponse'
+  request = Req.postJSON configService
+  response = Res.receiveNull PutResourceConfigResponse'
 
-instance Hashable PutResourceConfig
-
-instance NFData PutResourceConfig
-
-instance ToHeaders PutResourceConfig where
+instance Lude.ToHeaders PutResourceConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StarlingDoveService.PutResourceConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StarlingDoveService.PutResourceConfig" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutResourceConfig where
+instance Lude.ToJSON PutResourceConfig where
   toJSON PutResourceConfig' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceName" .=) <$> _prcResourceName,
-            ("Tags" .=) <$> _prcTags,
-            Just ("ResourceType" .= _prcResourceType),
-            Just ("SchemaVersionId" .= _prcSchemaVersionId),
-            Just ("ResourceId" .= _prcResourceId),
-            Just ("Configuration" .= _prcConfiguration)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceName" Lude..=) Lude.<$> resourceName,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("ResourceType" Lude..= resourceType),
+            Lude.Just ("SchemaVersionId" Lude..= schemaVersionId),
+            Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("Configuration" Lude..= configuration)
           ]
       )
 
-instance ToPath PutResourceConfig where
-  toPath = const "/"
+instance Lude.ToPath PutResourceConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery PutResourceConfig where
-  toQuery = const mempty
+instance Lude.ToQuery PutResourceConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putResourceConfigResponse' smart constructor.
+-- | /See:/ 'mkPutResourceConfigResponse' smart constructor.
 data PutResourceConfigResponse = PutResourceConfigResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutResourceConfigResponse' with the minimum fields required to make a request.
-putResourceConfigResponse ::
+mkPutResourceConfigResponse ::
   PutResourceConfigResponse
-putResourceConfigResponse = PutResourceConfigResponse'
-
-instance NFData PutResourceConfigResponse
+mkPutResourceConfigResponse = PutResourceConfigResponse'

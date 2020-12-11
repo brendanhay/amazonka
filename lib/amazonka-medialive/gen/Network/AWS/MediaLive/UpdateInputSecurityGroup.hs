@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,168 @@
 --
 -- Update an Input Security Group's Whilelists.
 module Network.AWS.MediaLive.UpdateInputSecurityGroup
-  ( -- * Creating a Request
-    updateInputSecurityGroup,
-    UpdateInputSecurityGroup,
+  ( -- * Creating a request
+    UpdateInputSecurityGroup (..),
+    mkUpdateInputSecurityGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uisgWhitelistRules,
     uisgTags,
     uisgInputSecurityGroupId,
 
-    -- * Destructuring the Response
-    updateInputSecurityGroupResponse,
-    UpdateInputSecurityGroupResponse,
+    -- * Destructuring the response
+    UpdateInputSecurityGroupResponse (..),
+    mkUpdateInputSecurityGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uisgrsSecurityGroup,
     uisgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The request to update some combination of the Input Security Group name and the IPv4 CIDRs the Input Security Group should allow.
 --
--- /See:/ 'updateInputSecurityGroup' smart constructor.
+-- /See:/ 'mkUpdateInputSecurityGroup' smart constructor.
 data UpdateInputSecurityGroup = UpdateInputSecurityGroup'
-  { _uisgWhitelistRules ::
-      !(Maybe [InputWhitelistRuleCidr]),
-    _uisgTags :: !(Maybe (Map Text (Text))),
-    _uisgInputSecurityGroupId :: !Text
+  { whitelistRules ::
+      Lude.Maybe [InputWhitelistRuleCidr],
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    inputSecurityGroupId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInputSecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uisgWhitelistRules' - List of IPv4 CIDR addresses to whitelist
---
--- * 'uisgTags' - A collection of key-value pairs.
---
--- * 'uisgInputSecurityGroupId' - The id of the Input Security Group to update.
-updateInputSecurityGroup ::
-  -- | 'uisgInputSecurityGroupId'
-  Text ->
+-- * 'inputSecurityGroupId' - The id of the Input Security Group to update.
+-- * 'tags' - A collection of key-value pairs.
+-- * 'whitelistRules' - List of IPv4 CIDR addresses to whitelist
+mkUpdateInputSecurityGroup ::
+  -- | 'inputSecurityGroupId'
+  Lude.Text ->
   UpdateInputSecurityGroup
-updateInputSecurityGroup pInputSecurityGroupId_ =
+mkUpdateInputSecurityGroup pInputSecurityGroupId_ =
   UpdateInputSecurityGroup'
-    { _uisgWhitelistRules = Nothing,
-      _uisgTags = Nothing,
-      _uisgInputSecurityGroupId = pInputSecurityGroupId_
+    { whitelistRules = Lude.Nothing,
+      tags = Lude.Nothing,
+      inputSecurityGroupId = pInputSecurityGroupId_
     }
 
 -- | List of IPv4 CIDR addresses to whitelist
-uisgWhitelistRules :: Lens' UpdateInputSecurityGroup [InputWhitelistRuleCidr]
-uisgWhitelistRules = lens _uisgWhitelistRules (\s a -> s {_uisgWhitelistRules = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'whitelistRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uisgWhitelistRules :: Lens.Lens' UpdateInputSecurityGroup (Lude.Maybe [InputWhitelistRuleCidr])
+uisgWhitelistRules = Lens.lens (whitelistRules :: UpdateInputSecurityGroup -> Lude.Maybe [InputWhitelistRuleCidr]) (\s a -> s {whitelistRules = a} :: UpdateInputSecurityGroup)
+{-# DEPRECATED uisgWhitelistRules "Use generic-lens or generic-optics with 'whitelistRules' instead." #-}
 
 -- | A collection of key-value pairs.
-uisgTags :: Lens' UpdateInputSecurityGroup (HashMap Text (Text))
-uisgTags = lens _uisgTags (\s a -> s {_uisgTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uisgTags :: Lens.Lens' UpdateInputSecurityGroup (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+uisgTags = Lens.lens (tags :: UpdateInputSecurityGroup -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: UpdateInputSecurityGroup)
+{-# DEPRECATED uisgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The id of the Input Security Group to update.
-uisgInputSecurityGroupId :: Lens' UpdateInputSecurityGroup Text
-uisgInputSecurityGroupId = lens _uisgInputSecurityGroupId (\s a -> s {_uisgInputSecurityGroupId = a})
+--
+-- /Note:/ Consider using 'inputSecurityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uisgInputSecurityGroupId :: Lens.Lens' UpdateInputSecurityGroup Lude.Text
+uisgInputSecurityGroupId = Lens.lens (inputSecurityGroupId :: UpdateInputSecurityGroup -> Lude.Text) (\s a -> s {inputSecurityGroupId = a} :: UpdateInputSecurityGroup)
+{-# DEPRECATED uisgInputSecurityGroupId "Use generic-lens or generic-optics with 'inputSecurityGroupId' instead." #-}
 
-instance AWSRequest UpdateInputSecurityGroup where
+instance Lude.AWSRequest UpdateInputSecurityGroup where
   type Rs UpdateInputSecurityGroup = UpdateInputSecurityGroupResponse
-  request = putJSON mediaLive
+  request = Req.putJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateInputSecurityGroupResponse'
-            <$> (x .?> "securityGroup") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "securityGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateInputSecurityGroup
-
-instance NFData UpdateInputSecurityGroup
-
-instance ToHeaders UpdateInputSecurityGroup where
+instance Lude.ToHeaders UpdateInputSecurityGroup where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON UpdateInputSecurityGroup where
-  toJSON UpdateInputSecurityGroup' {..} =
-    object
-      ( catMaybes
-          [ ("whitelistRules" .=) <$> _uisgWhitelistRules,
-            ("tags" .=) <$> _uisgTags
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath UpdateInputSecurityGroup where
-  toPath UpdateInputSecurityGroup' {..} =
-    mconcat
-      ["/prod/inputSecurityGroups/", toBS _uisgInputSecurityGroupId]
+instance Lude.ToJSON UpdateInputSecurityGroup where
+  toJSON UpdateInputSecurityGroup' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("whitelistRules" Lude..=) Lude.<$> whitelistRules,
+            ("tags" Lude..=) Lude.<$> tags
+          ]
+      )
 
-instance ToQuery UpdateInputSecurityGroup where
-  toQuery = const mempty
+instance Lude.ToPath UpdateInputSecurityGroup where
+  toPath UpdateInputSecurityGroup' {..} =
+    Lude.mconcat
+      ["/prod/inputSecurityGroups/", Lude.toBS inputSecurityGroupId]
+
+instance Lude.ToQuery UpdateInputSecurityGroup where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for UpdateInputSecurityGroupResponse
 --
--- /See:/ 'updateInputSecurityGroupResponse' smart constructor.
+-- /See:/ 'mkUpdateInputSecurityGroupResponse' smart constructor.
 data UpdateInputSecurityGroupResponse = UpdateInputSecurityGroupResponse'
-  { _uisgrsSecurityGroup ::
-      !( Maybe
-           InputSecurityGroup
-       ),
-    _uisgrsResponseStatus ::
-      !Int
+  { securityGroup ::
+      Lude.Maybe
+        InputSecurityGroup,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInputSecurityGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uisgrsSecurityGroup' - Undocumented member.
---
--- * 'uisgrsResponseStatus' - -- | The response status code.
-updateInputSecurityGroupResponse ::
-  -- | 'uisgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'securityGroup' - Undocumented field.
+mkUpdateInputSecurityGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateInputSecurityGroupResponse
-updateInputSecurityGroupResponse pResponseStatus_ =
+mkUpdateInputSecurityGroupResponse pResponseStatus_ =
   UpdateInputSecurityGroupResponse'
-    { _uisgrsSecurityGroup = Nothing,
-      _uisgrsResponseStatus = pResponseStatus_
+    { securityGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-uisgrsSecurityGroup :: Lens' UpdateInputSecurityGroupResponse (Maybe InputSecurityGroup)
-uisgrsSecurityGroup = lens _uisgrsSecurityGroup (\s a -> s {_uisgrsSecurityGroup = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'securityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uisgrsSecurityGroup :: Lens.Lens' UpdateInputSecurityGroupResponse (Lude.Maybe InputSecurityGroup)
+uisgrsSecurityGroup = Lens.lens (securityGroup :: UpdateInputSecurityGroupResponse -> Lude.Maybe InputSecurityGroup) (\s a -> s {securityGroup = a} :: UpdateInputSecurityGroupResponse)
+{-# DEPRECATED uisgrsSecurityGroup "Use generic-lens or generic-optics with 'securityGroup' instead." #-}
 
--- | -- | The response status code.
-uisgrsResponseStatus :: Lens' UpdateInputSecurityGroupResponse Int
-uisgrsResponseStatus = lens _uisgrsResponseStatus (\s a -> s {_uisgrsResponseStatus = a})
-
-instance NFData UpdateInputSecurityGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uisgrsResponseStatus :: Lens.Lens' UpdateInputSecurityGroupResponse Lude.Int
+uisgrsResponseStatus = Lens.lens (responseStatus :: UpdateInputSecurityGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateInputSecurityGroupResponse)
+{-# DEPRECATED uisgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

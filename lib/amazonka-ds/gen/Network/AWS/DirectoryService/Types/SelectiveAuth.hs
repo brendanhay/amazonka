@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectoryService.Types.SelectiveAuth where
+module Network.AWS.DirectoryService.Types.SelectiveAuth
+  ( SelectiveAuth
+      ( SelectiveAuth',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SelectiveAuth
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SelectiveAuth = SelectiveAuth' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SelectiveAuth where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing SelectiveAuth from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: SelectiveAuth
+pattern Disabled = SelectiveAuth' "Disabled"
 
-instance ToText SelectiveAuth where
-  toText = \case
-    Disabled -> "Disabled"
-    Enabled -> "Enabled"
+pattern Enabled :: SelectiveAuth
+pattern Enabled = SelectiveAuth' "Enabled"
 
-instance Hashable SelectiveAuth
-
-instance NFData SelectiveAuth
-
-instance ToByteString SelectiveAuth
-
-instance ToQuery SelectiveAuth
-
-instance ToHeader SelectiveAuth
-
-instance ToJSON SelectiveAuth where
-  toJSON = toJSONText
-
-instance FromJSON SelectiveAuth where
-  parseJSON = parseJSONText "SelectiveAuth"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  SelectiveAuth'
+  #-}

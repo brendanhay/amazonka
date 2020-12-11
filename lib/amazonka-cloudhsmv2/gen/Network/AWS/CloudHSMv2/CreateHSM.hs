@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,160 @@
 --
 -- Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster.
 module Network.AWS.CloudHSMv2.CreateHSM
-  ( -- * Creating a Request
-    createHSM,
-    CreateHSM,
+  ( -- * Creating a request
+    CreateHSM (..),
+    mkCreateHSM,
 
-    -- * Request Lenses
+    -- ** Request lenses
     chIPAddress,
     chClusterId,
     chAvailabilityZone,
 
-    -- * Destructuring the Response
-    createHSMResponse,
-    CreateHSMResponse,
+    -- * Destructuring the response
+    CreateHSMResponse (..),
+    mkCreateHSMResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     chrsHSM,
     chrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudHSMv2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createHSM' smart constructor.
+-- | /See:/ 'mkCreateHSM' smart constructor.
 data CreateHSM = CreateHSM'
-  { _chIPAddress :: !(Maybe Text),
-    _chClusterId :: !Text,
-    _chAvailabilityZone :: !Text
+  { ipAddress :: Lude.Maybe Lude.Text,
+    clusterId :: Lude.Text,
+    availabilityZone :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSM' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chIPAddress' - The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet.
---
--- * 'chClusterId' - The identifier (ID) of the HSM's cluster. To find the cluster ID, use 'DescribeClusters' .
---
--- * 'chAvailabilityZone' - The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use 'DescribeClusters' .
-createHSM ::
-  -- | 'chClusterId'
-  Text ->
-  -- | 'chAvailabilityZone'
-  Text ->
+-- * 'availabilityZone' - The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use 'DescribeClusters' .
+-- * 'clusterId' - The identifier (ID) of the HSM's cluster. To find the cluster ID, use 'DescribeClusters' .
+-- * 'ipAddress' - The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet.
+mkCreateHSM ::
+  -- | 'clusterId'
+  Lude.Text ->
+  -- | 'availabilityZone'
+  Lude.Text ->
   CreateHSM
-createHSM pClusterId_ pAvailabilityZone_ =
+mkCreateHSM pClusterId_ pAvailabilityZone_ =
   CreateHSM'
-    { _chIPAddress = Nothing,
-      _chClusterId = pClusterId_,
-      _chAvailabilityZone = pAvailabilityZone_
+    { ipAddress = Lude.Nothing,
+      clusterId = pClusterId_,
+      availabilityZone = pAvailabilityZone_
     }
 
 -- | The HSM's IP address. If you specify an IP address, use an available address from the subnet that maps to the Availability Zone where you are creating the HSM. If you don't specify an IP address, one is chosen for you from that subnet.
-chIPAddress :: Lens' CreateHSM (Maybe Text)
-chIPAddress = lens _chIPAddress (\s a -> s {_chIPAddress = a})
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chIPAddress :: Lens.Lens' CreateHSM (Lude.Maybe Lude.Text)
+chIPAddress = Lens.lens (ipAddress :: CreateHSM -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: CreateHSM)
+{-# DEPRECATED chIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
 -- | The identifier (ID) of the HSM's cluster. To find the cluster ID, use 'DescribeClusters' .
-chClusterId :: Lens' CreateHSM Text
-chClusterId = lens _chClusterId (\s a -> s {_chClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chClusterId :: Lens.Lens' CreateHSM Lude.Text
+chClusterId = Lens.lens (clusterId :: CreateHSM -> Lude.Text) (\s a -> s {clusterId = a} :: CreateHSM)
+{-# DEPRECATED chClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The Availability Zone where you are creating the HSM. To find the cluster's Availability Zones, use 'DescribeClusters' .
-chAvailabilityZone :: Lens' CreateHSM Text
-chAvailabilityZone = lens _chAvailabilityZone (\s a -> s {_chAvailabilityZone = a})
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chAvailabilityZone :: Lens.Lens' CreateHSM Lude.Text
+chAvailabilityZone = Lens.lens (availabilityZone :: CreateHSM -> Lude.Text) (\s a -> s {availabilityZone = a} :: CreateHSM)
+{-# DEPRECATED chAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
-instance AWSRequest CreateHSM where
+instance Lude.AWSRequest CreateHSM where
   type Rs CreateHSM = CreateHSMResponse
-  request = postJSON cloudHSMv2
+  request = Req.postJSON cloudHSMv2Service
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateHSMResponse' <$> (x .?> "Hsm") <*> (pure (fromEnum s))
+          CreateHSMResponse'
+            Lude.<$> (x Lude..?> "Hsm") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateHSM
-
-instance NFData CreateHSM
-
-instance ToHeaders CreateHSM where
+instance Lude.ToHeaders CreateHSM where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("BaldrApiService.CreateHsm" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("BaldrApiService.CreateHsm" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateHSM where
+instance Lude.ToJSON CreateHSM where
   toJSON CreateHSM' {..} =
-    object
-      ( catMaybes
-          [ ("IpAddress" .=) <$> _chIPAddress,
-            Just ("ClusterId" .= _chClusterId),
-            Just ("AvailabilityZone" .= _chAvailabilityZone)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IpAddress" Lude..=) Lude.<$> ipAddress,
+            Lude.Just ("ClusterId" Lude..= clusterId),
+            Lude.Just ("AvailabilityZone" Lude..= availabilityZone)
           ]
       )
 
-instance ToPath CreateHSM where
-  toPath = const "/"
+instance Lude.ToPath CreateHSM where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateHSM where
-  toQuery = const mempty
+instance Lude.ToQuery CreateHSM where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createHSMResponse' smart constructor.
+-- | /See:/ 'mkCreateHSMResponse' smart constructor.
 data CreateHSMResponse = CreateHSMResponse'
-  { _chrsHSM ::
-      !(Maybe HSM),
-    _chrsResponseStatus :: !Int
+  { hsm :: Lude.Maybe HSM,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSMResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'chrsHSM' - Information about the HSM that was created.
---
--- * 'chrsResponseStatus' - -- | The response status code.
-createHSMResponse ::
-  -- | 'chrsResponseStatus'
-  Int ->
+-- * 'hsm' - Information about the HSM that was created.
+-- * 'responseStatus' - The response status code.
+mkCreateHSMResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateHSMResponse
-createHSMResponse pResponseStatus_ =
+mkCreateHSMResponse pResponseStatus_ =
   CreateHSMResponse'
-    { _chrsHSM = Nothing,
-      _chrsResponseStatus = pResponseStatus_
+    { hsm = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the HSM that was created.
-chrsHSM :: Lens' CreateHSMResponse (Maybe HSM)
-chrsHSM = lens _chrsHSM (\s a -> s {_chrsHSM = a})
+--
+-- /Note:/ Consider using 'hsm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chrsHSM :: Lens.Lens' CreateHSMResponse (Lude.Maybe HSM)
+chrsHSM = Lens.lens (hsm :: CreateHSMResponse -> Lude.Maybe HSM) (\s a -> s {hsm = a} :: CreateHSMResponse)
+{-# DEPRECATED chrsHSM "Use generic-lens or generic-optics with 'hsm' instead." #-}
 
--- | -- | The response status code.
-chrsResponseStatus :: Lens' CreateHSMResponse Int
-chrsResponseStatus = lens _chrsResponseStatus (\s a -> s {_chrsResponseStatus = a})
-
-instance NFData CreateHSMResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chrsResponseStatus :: Lens.Lens' CreateHSMResponse Lude.Int
+chrsResponseStatus = Lens.lens (responseStatus :: CreateHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHSMResponse)
+{-# DEPRECATED chrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

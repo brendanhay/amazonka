@@ -15,8 +15,8 @@
 --
 -- Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide> .
 module Network.AWS.Inspector
-  ( -- * Service Configuration
-    inspector,
+  ( -- * Service configuration
+    inspectorService,
 
     -- * Errors
     -- $errors
@@ -186,14 +186,14 @@ module Network.AWS.Inspector
     StopAction (..),
 
     -- ** AgentFilter
-    AgentFilter,
-    agentFilter,
+    AgentFilter (..),
+    mkAgentFilter,
     afAgentHealths,
     afAgentHealthCodes,
 
     -- ** AgentPreview
-    AgentPreview,
-    agentPreview,
+    AgentPreview (..),
+    mkAgentPreview,
     apHostname,
     apAutoScalingGroup,
     apOperatingSystem,
@@ -204,8 +204,8 @@ module Network.AWS.Inspector
     apAgentId,
 
     -- ** AssessmentRun
-    AssessmentRun,
-    assessmentRun,
+    AssessmentRun (..),
+    mkAssessmentRun,
     arStartedAt,
     arCompletedAt,
     arArn,
@@ -223,8 +223,8 @@ module Network.AWS.Inspector
     arFindingCounts,
 
     -- ** AssessmentRunAgent
-    AssessmentRunAgent,
-    assessmentRunAgent,
+    AssessmentRunAgent (..),
+    mkAssessmentRunAgent,
     araAutoScalingGroup,
     araAgentHealthDetails,
     araAgentId,
@@ -234,8 +234,8 @@ module Network.AWS.Inspector
     araTelemetryMetadata,
 
     -- ** AssessmentRunFilter
-    AssessmentRunFilter,
-    assessmentRunFilter,
+    AssessmentRunFilter (..),
+    mkAssessmentRunFilter,
     arfStates,
     arfNamePattern,
     arfStartTimeRange,
@@ -245,8 +245,8 @@ module Network.AWS.Inspector
     arfDurationRange,
 
     -- ** AssessmentRunNotification
-    AssessmentRunNotification,
-    assessmentRunNotification,
+    AssessmentRunNotification (..),
+    mkAssessmentRunNotification,
     arnSnsTopicARN,
     arnSnsPublishStatusCode,
     arnMessage,
@@ -255,14 +255,14 @@ module Network.AWS.Inspector
     arnError,
 
     -- ** AssessmentRunStateChange
-    AssessmentRunStateChange,
-    assessmentRunStateChange,
+    AssessmentRunStateChange (..),
+    mkAssessmentRunStateChange,
     arscStateChangedAt,
     arscState,
 
     -- ** AssessmentTarget
-    AssessmentTarget,
-    assessmentTarget,
+    AssessmentTarget (..),
+    mkAssessmentTarget,
     aResourceGroupARN,
     aArn,
     aName,
@@ -270,13 +270,13 @@ module Network.AWS.Inspector
     aUpdatedAt,
 
     -- ** AssessmentTargetFilter
-    AssessmentTargetFilter,
-    assessmentTargetFilter,
+    AssessmentTargetFilter (..),
+    mkAssessmentTargetFilter,
     atfAssessmentTargetNamePattern,
 
     -- ** AssessmentTemplate
-    AssessmentTemplate,
-    assessmentTemplate,
+    AssessmentTemplate (..),
+    mkAssessmentTemplate,
     atLastAssessmentRunARN,
     atArn,
     atName,
@@ -288,15 +288,15 @@ module Network.AWS.Inspector
     atCreatedAt,
 
     -- ** AssessmentTemplateFilter
-    AssessmentTemplateFilter,
-    assessmentTemplateFilter,
+    AssessmentTemplateFilter (..),
+    mkAssessmentTemplateFilter,
     atfNamePattern,
     atfRulesPackageARNs,
     atfDurationRange,
 
     -- ** AssetAttributes
-    AssetAttributes,
-    assetAttributes,
+    AssetAttributes (..),
+    mkAssetAttributes,
     aaHostname,
     aaAutoScalingGroup,
     aaNetworkInterfaces,
@@ -307,26 +307,26 @@ module Network.AWS.Inspector
     aaSchemaVersion,
 
     -- ** Attribute
-    Attribute,
-    attribute,
+    Attribute (..),
+    mkAttribute,
     aValue,
     aKey,
 
     -- ** DurationRange
-    DurationRange,
-    durationRange,
+    DurationRange (..),
+    mkDurationRange,
     drMinSeconds,
     drMaxSeconds,
 
     -- ** EventSubscription
-    EventSubscription,
-    eventSubscription,
+    EventSubscription (..),
+    mkEventSubscription,
     esEvent,
     esSubscribedAt,
 
     -- ** Exclusion
-    Exclusion,
-    exclusion,
+    Exclusion (..),
+    mkExclusion,
     eAttributes,
     eArn,
     eTitle,
@@ -335,8 +335,8 @@ module Network.AWS.Inspector
     eScopes,
 
     -- ** ExclusionPreview
-    ExclusionPreview,
-    exclusionPreview,
+    ExclusionPreview (..),
+    mkExclusionPreview,
     epAttributes,
     epTitle,
     epDescription,
@@ -344,14 +344,14 @@ module Network.AWS.Inspector
     epScopes,
 
     -- ** FailedItemDetails
-    FailedItemDetails,
-    failedItemDetails,
+    FailedItemDetails (..),
+    mkFailedItemDetails,
     fidFailureCode,
     fidRetryable,
 
     -- ** Finding
-    Finding,
-    finding,
+    Finding (..),
+    mkFinding,
     fService,
     fSeverity,
     fSchemaVersion,
@@ -372,8 +372,8 @@ module Network.AWS.Inspector
     fUpdatedAt,
 
     -- ** FindingFilter
-    FindingFilter,
-    findingFilter,
+    FindingFilter (..),
+    mkFindingFilter,
     ffAgentIds,
     ffRuleNames,
     ffUserAttributes,
@@ -384,15 +384,15 @@ module Network.AWS.Inspector
     ffAutoScalingGroups,
 
     -- ** InspectorServiceAttributes
-    InspectorServiceAttributes,
-    inspectorServiceAttributes,
+    InspectorServiceAttributes (..),
+    mkInspectorServiceAttributes,
     isaRulesPackageARN,
     isaAssessmentRunARN,
     isaSchemaVersion,
 
     -- ** NetworkInterface
-    NetworkInterface,
-    networkInterface,
+    NetworkInterface (..),
+    mkNetworkInterface,
     niPrivateIPAddresses,
     niPublicDNSName,
     niSecurityGroups,
@@ -405,27 +405,27 @@ module Network.AWS.Inspector
     niIpv6Addresses,
 
     -- ** PrivateIP
-    PrivateIP,
-    privateIP,
+    PrivateIP (..),
+    mkPrivateIP,
     piPrivateIPAddress,
     piPrivateDNSName,
 
     -- ** ResourceGroup
-    ResourceGroup,
-    resourceGroup,
+    ResourceGroup (..),
+    mkResourceGroup,
     rgArn,
     rgTags,
     rgCreatedAt,
 
     -- ** ResourceGroupTag
-    ResourceGroupTag,
-    resourceGroupTag,
+    ResourceGroupTag (..),
+    mkResourceGroupTag,
     rgtValue,
     rgtKey,
 
     -- ** RulesPackage
-    RulesPackage,
-    rulesPackage,
+    RulesPackage (..),
+    mkRulesPackage,
     rpDescription,
     rpArn,
     rpName,
@@ -433,42 +433,53 @@ module Network.AWS.Inspector
     rpProvider,
 
     -- ** Scope
-    Scope,
-    scope,
+    Scope (..),
+    mkScope,
     sValue,
     sKey,
 
     -- ** SecurityGroup
-    SecurityGroup,
-    securityGroup,
+    SecurityGroup (..),
+    mkSecurityGroup,
     sgGroupId,
     sgGroupName,
 
     -- ** Subscription
-    Subscription,
-    subscription,
+    Subscription (..),
+    mkSubscription,
     sResourceARN,
     sTopicARN,
     sEventSubscriptions,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** TelemetryMetadata
-    TelemetryMetadata,
-    telemetryMetadata,
+    TelemetryMetadata (..),
+    mkTelemetryMetadata,
     tmDataSize,
     tmMessageType,
     tmCount,
 
     -- ** TimestampRange
-    TimestampRange,
-    timestampRange,
+    TimestampRange (..),
+    mkTimestampRange,
     trEndDate,
     trBeginDate,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -511,6 +522,7 @@ import Network.AWS.Inspector.Types
 import Network.AWS.Inspector.UnsubscribeFromEvent
 import Network.AWS.Inspector.UpdateAssessmentTarget
 import Network.AWS.Inspector.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

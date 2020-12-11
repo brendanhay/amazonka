@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,29 +7,42 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.AribSourceSettings where
+module Network.AWS.MediaLive.Types.AribSourceSettings
+  ( AribSourceSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAribSourceSettings,
+
+    -- * Lenses
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Arib Source Settings
 --
--- /See:/ 'aribSourceSettings' smart constructor.
+-- /See:/ 'mkAribSourceSettings' smart constructor.
 data AribSourceSettings = AribSourceSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AribSourceSettings' with the minimum fields required to make a request.
-aribSourceSettings ::
+mkAribSourceSettings ::
   AribSourceSettings
-aribSourceSettings = AribSourceSettings'
+mkAribSourceSettings = AribSourceSettings'
 
-instance FromJSON AribSourceSettings where
+instance Lude.FromJSON AribSourceSettings where
   parseJSON =
-    withObject "AribSourceSettings" (\x -> pure AribSourceSettings')
+    Lude.withObject
+      "AribSourceSettings"
+      (\x -> Lude.pure AribSourceSettings')
 
-instance Hashable AribSourceSettings
-
-instance NFData AribSourceSettings
-
-instance ToJSON AribSourceSettings where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON AribSourceSettings where
+  toJSON = Lude.const (Lude.Object Lude.mempty)

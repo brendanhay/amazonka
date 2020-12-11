@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Create an 'ApiKey' resource.
 --
---
 -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-api-key.html AWS CLI>
 module Network.AWS.APIGateway.CreateAPIKey
-  ( -- * Creating a Request
-    createAPIKey,
-    CreateAPIKey,
+  ( -- * Creating a request
+    CreateAPIKey (..),
+    mkCreateAPIKey,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cakEnabled,
     cakValue,
     cakCustomerId,
@@ -36,11 +30,11 @@ module Network.AWS.APIGateway.CreateAPIKey
     cakDescription,
     cakTags,
 
-    -- * Destructuring the Response
-    apiKey,
-    APIKey,
+    -- * Destructuring the response
+    APIKey (..),
+    mkAPIKey,
 
-    -- * Response Lenses
+    -- ** Response lenses
     akEnabled,
     akValue,
     akCustomerId,
@@ -55,123 +49,142 @@ module Network.AWS.APIGateway.CreateAPIKey
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to create an 'ApiKey' resource.
 --
---
---
--- /See:/ 'createAPIKey' smart constructor.
+-- /See:/ 'mkCreateAPIKey' smart constructor.
 data CreateAPIKey = CreateAPIKey'
-  { _cakEnabled :: !(Maybe Bool),
-    _cakValue :: !(Maybe Text),
-    _cakCustomerId :: !(Maybe Text),
-    _cakGenerateDistinctId :: !(Maybe Bool),
-    _cakName :: !(Maybe Text),
-    _cakStageKeys :: !(Maybe [StageKey]),
-    _cakDescription :: !(Maybe Text),
-    _cakTags :: !(Maybe (Map Text (Text)))
+  { enabled :: Lude.Maybe Lude.Bool,
+    value :: Lude.Maybe Lude.Text,
+    customerId :: Lude.Maybe Lude.Text,
+    generateDistinctId :: Lude.Maybe Lude.Bool,
+    name :: Lude.Maybe Lude.Text,
+    stageKeys :: Lude.Maybe [StageKey],
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAPIKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cakEnabled' - Specifies whether the 'ApiKey' can be used by callers.
---
--- * 'cakValue' - Specifies a value of the API key.
---
--- * 'cakCustomerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
---
--- * 'cakGenerateDistinctId' - Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
---
--- * 'cakName' - The name of the 'ApiKey' .
---
--- * 'cakStageKeys' - DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
---
--- * 'cakDescription' - The description of the 'ApiKey' .
---
--- * 'cakTags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
-createAPIKey ::
+-- * 'customerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
+-- * 'description' - The description of the 'ApiKey' .
+-- * 'enabled' - Specifies whether the 'ApiKey' can be used by callers.
+-- * 'generateDistinctId' - Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+-- * 'name' - The name of the 'ApiKey' .
+-- * 'stageKeys' - DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
+-- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+-- * 'value' - Specifies a value of the API key.
+mkCreateAPIKey ::
   CreateAPIKey
-createAPIKey =
+mkCreateAPIKey =
   CreateAPIKey'
-    { _cakEnabled = Nothing,
-      _cakValue = Nothing,
-      _cakCustomerId = Nothing,
-      _cakGenerateDistinctId = Nothing,
-      _cakName = Nothing,
-      _cakStageKeys = Nothing,
-      _cakDescription = Nothing,
-      _cakTags = Nothing
+    { enabled = Lude.Nothing,
+      value = Lude.Nothing,
+      customerId = Lude.Nothing,
+      generateDistinctId = Lude.Nothing,
+      name = Lude.Nothing,
+      stageKeys = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | Specifies whether the 'ApiKey' can be used by callers.
-cakEnabled :: Lens' CreateAPIKey (Maybe Bool)
-cakEnabled = lens _cakEnabled (\s a -> s {_cakEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakEnabled :: Lens.Lens' CreateAPIKey (Lude.Maybe Lude.Bool)
+cakEnabled = Lens.lens (enabled :: CreateAPIKey -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: CreateAPIKey)
+{-# DEPRECATED cakEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Specifies a value of the API key.
-cakValue :: Lens' CreateAPIKey (Maybe Text)
-cakValue = lens _cakValue (\s a -> s {_cakValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakValue :: Lens.Lens' CreateAPIKey (Lude.Maybe Lude.Text)
+cakValue = Lens.lens (value :: CreateAPIKey -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: CreateAPIKey)
+{-# DEPRECATED cakValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
-cakCustomerId :: Lens' CreateAPIKey (Maybe Text)
-cakCustomerId = lens _cakCustomerId (\s a -> s {_cakCustomerId = a})
+--
+-- /Note:/ Consider using 'customerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakCustomerId :: Lens.Lens' CreateAPIKey (Lude.Maybe Lude.Text)
+cakCustomerId = Lens.lens (customerId :: CreateAPIKey -> Lude.Maybe Lude.Text) (\s a -> s {customerId = a} :: CreateAPIKey)
+{-# DEPRECATED cakCustomerId "Use generic-lens or generic-optics with 'customerId' instead." #-}
 
 -- | Specifies whether (@true@ ) or not (@false@ ) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
-cakGenerateDistinctId :: Lens' CreateAPIKey (Maybe Bool)
-cakGenerateDistinctId = lens _cakGenerateDistinctId (\s a -> s {_cakGenerateDistinctId = a})
+--
+-- /Note:/ Consider using 'generateDistinctId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakGenerateDistinctId :: Lens.Lens' CreateAPIKey (Lude.Maybe Lude.Bool)
+cakGenerateDistinctId = Lens.lens (generateDistinctId :: CreateAPIKey -> Lude.Maybe Lude.Bool) (\s a -> s {generateDistinctId = a} :: CreateAPIKey)
+{-# DEPRECATED cakGenerateDistinctId "Use generic-lens or generic-optics with 'generateDistinctId' instead." #-}
 
 -- | The name of the 'ApiKey' .
-cakName :: Lens' CreateAPIKey (Maybe Text)
-cakName = lens _cakName (\s a -> s {_cakName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakName :: Lens.Lens' CreateAPIKey (Lude.Maybe Lude.Text)
+cakName = Lens.lens (name :: CreateAPIKey -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateAPIKey)
+{-# DEPRECATED cakName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
-cakStageKeys :: Lens' CreateAPIKey [StageKey]
-cakStageKeys = lens _cakStageKeys (\s a -> s {_cakStageKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stageKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakStageKeys :: Lens.Lens' CreateAPIKey (Lude.Maybe [StageKey])
+cakStageKeys = Lens.lens (stageKeys :: CreateAPIKey -> Lude.Maybe [StageKey]) (\s a -> s {stageKeys = a} :: CreateAPIKey)
+{-# DEPRECATED cakStageKeys "Use generic-lens or generic-optics with 'stageKeys' instead." #-}
 
 -- | The description of the 'ApiKey' .
-cakDescription :: Lens' CreateAPIKey (Maybe Text)
-cakDescription = lens _cakDescription (\s a -> s {_cakDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakDescription :: Lens.Lens' CreateAPIKey (Lude.Maybe Lude.Text)
+cakDescription = Lens.lens (description :: CreateAPIKey -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateAPIKey)
+{-# DEPRECATED cakDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
-cakTags :: Lens' CreateAPIKey (HashMap Text (Text))
-cakTags = lens _cakTags (\s a -> s {_cakTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakTags :: Lens.Lens' CreateAPIKey (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cakTags = Lens.lens (tags :: CreateAPIKey -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateAPIKey)
+{-# DEPRECATED cakTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest CreateAPIKey where
+instance Lude.AWSRequest CreateAPIKey where
   type Rs CreateAPIKey = APIKey
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateAPIKey
-
-instance NFData CreateAPIKey
-
-instance ToHeaders CreateAPIKey where
+instance Lude.ToHeaders CreateAPIKey where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON CreateAPIKey where
+instance Lude.ToJSON CreateAPIKey where
   toJSON CreateAPIKey' {..} =
-    object
-      ( catMaybes
-          [ ("enabled" .=) <$> _cakEnabled,
-            ("value" .=) <$> _cakValue,
-            ("customerId" .=) <$> _cakCustomerId,
-            ("generateDistinctId" .=) <$> _cakGenerateDistinctId,
-            ("name" .=) <$> _cakName,
-            ("stageKeys" .=) <$> _cakStageKeys,
-            ("description" .=) <$> _cakDescription,
-            ("tags" .=) <$> _cakTags
+    Lude.object
+      ( Lude.catMaybes
+          [ ("enabled" Lude..=) Lude.<$> enabled,
+            ("value" Lude..=) Lude.<$> value,
+            ("customerId" Lude..=) Lude.<$> customerId,
+            ("generateDistinctId" Lude..=) Lude.<$> generateDistinctId,
+            ("name" Lude..=) Lude.<$> name,
+            ("stageKeys" Lude..=) Lude.<$> stageKeys,
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
-instance ToPath CreateAPIKey where
-  toPath = const "/apikeys"
+instance Lude.ToPath CreateAPIKey where
+  toPath = Lude.const "/apikeys"
 
-instance ToQuery CreateAPIKey where
-  toQuery = const mempty
+instance Lude.ToQuery CreateAPIKey where
+  toQuery = Lude.const Lude.mempty

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,145 @@
 --
 -- Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
 --
---
 -- /Important:/ Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data.
 module Network.AWS.ResourceGroups.Tag
-  ( -- * Creating a Request
-    tag,
-    Tag,
+  ( -- * Creating a request
+    Tag (..),
+    mkTag,
 
-    -- * Request Lenses
-    tagARN,
-    tagTags,
+    -- ** Request lenses
+    tARN,
+    tTags,
 
-    -- * Destructuring the Response
-    tagResponse,
-    TagResponse,
+    -- * Destructuring the response
+    TagResponse (..),
+    mkTagResponse,
 
-    -- * Response Lenses
-    tagrsARN,
-    tagrsTags,
-    tagrsResponseStatus,
+    -- ** Response lenses
+    trsARN,
+    trsTags,
+    trsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.Response
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'tag' smart constructor.
-data Tag = Tag' {_tagARN :: !Text, _tagTags :: !(Map Text (Text))}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkTag' smart constructor.
+data Tag = Tag'
+  { arn :: Lude.Text,
+    tags :: Lude.HashMap Lude.Text (Lude.Text)
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tagARN' - The ARN of the resource group to which to add tags.
---
--- * 'tagTags' - The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.
-tag ::
-  -- | 'tagARN'
-  Text ->
+-- * 'arn' - The ARN of the resource group to which to add tags.
+-- * 'tags' - The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.
+mkTag ::
+  -- | 'arn'
+  Lude.Text ->
   Tag
-tag pARN_ = Tag' {_tagARN = pARN_, _tagTags = mempty}
+mkTag pARN_ = Tag' {arn = pARN_, tags = Lude.mempty}
 
 -- | The ARN of the resource group to which to add tags.
-tagARN :: Lens' Tag Text
-tagARN = lens _tagARN (\s a -> s {_tagARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tARN :: Lens.Lens' Tag Lude.Text
+tARN = Lens.lens (arn :: Tag -> Lude.Text) (\s a -> s {arn = a} :: Tag)
+{-# DEPRECATED tARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs.
-tagTags :: Lens' Tag (HashMap Text (Text))
-tagTags = lens _tagTags (\s a -> s {_tagTags = a}) . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTags :: Lens.Lens' Tag (Lude.HashMap Lude.Text (Lude.Text))
+tTags = Lens.lens (tags :: Tag -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: Tag)
+{-# DEPRECATED tTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest Tag where
+instance Lude.AWSRequest Tag where
   type Rs Tag = TagResponse
-  request = putJSON resourceGroups
+  request = Req.putJSON resourceGroupsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           TagResponse'
-            <$> (x .?> "Arn")
-            <*> (x .?> "Tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Arn")
+            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable Tag
+instance Lude.ToHeaders Tag where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData Tag
+instance Lude.ToJSON Tag where
+  toJSON Tag' {..} =
+    Lude.object (Lude.catMaybes [Lude.Just ("Tags" Lude..= tags)])
 
-instance ToHeaders Tag where
-  toHeaders = const mempty
+instance Lude.ToPath Tag where
+  toPath Tag' {..} =
+    Lude.mconcat ["/resources/", Lude.toBS arn, "/tags"]
 
-instance ToJSON Tag where
-  toJSON Tag' {..} = object (catMaybes [Just ("Tags" .= _tagTags)])
+instance Lude.ToQuery Tag where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath Tag where
-  toPath Tag' {..} = mconcat ["/resources/", toBS _tagARN, "/tags"]
-
-instance ToQuery Tag where
-  toQuery = const mempty
-
--- | /See:/ 'tagResponse' smart constructor.
+-- | /See:/ 'mkTagResponse' smart constructor.
 data TagResponse = TagResponse'
-  { _tagrsARN :: !(Maybe Text),
-    _tagrsTags :: !(Maybe (Map Text (Text))),
-    _tagrsResponseStatus :: !Int
+  { arn :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tagrsARN' - The ARN of the tagged resource.
---
--- * 'tagrsTags' - The tags that have been added to the specified resource group.
---
--- * 'tagrsResponseStatus' - -- | The response status code.
-tagResponse ::
-  -- | 'tagrsResponseStatus'
-  Int ->
+-- * 'arn' - The ARN of the tagged resource.
+-- * 'responseStatus' - The response status code.
+-- * 'tags' - The tags that have been added to the specified resource group.
+mkTagResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TagResponse
-tagResponse pResponseStatus_ =
+mkTagResponse pResponseStatus_ =
   TagResponse'
-    { _tagrsARN = Nothing,
-      _tagrsTags = Nothing,
-      _tagrsResponseStatus = pResponseStatus_
+    { arn = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ARN of the tagged resource.
-tagrsARN :: Lens' TagResponse (Maybe Text)
-tagrsARN = lens _tagrsARN (\s a -> s {_tagrsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trsARN :: Lens.Lens' TagResponse (Lude.Maybe Lude.Text)
+trsARN = Lens.lens (arn :: TagResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: TagResponse)
+{-# DEPRECATED trsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The tags that have been added to the specified resource group.
-tagrsTags :: Lens' TagResponse (HashMap Text (Text))
-tagrsTags = lens _tagrsTags (\s a -> s {_tagrsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trsTags :: Lens.Lens' TagResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+trsTags = Lens.lens (tags :: TagResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: TagResponse)
+{-# DEPRECATED trsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-tagrsResponseStatus :: Lens' TagResponse Int
-tagrsResponseStatus = lens _tagrsResponseStatus (\s a -> s {_tagrsResponseStatus = a})
-
-instance NFData TagResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trsResponseStatus :: Lens.Lens' TagResponse Lude.Int
+trsResponseStatus = Lens.lens (responseStatus :: TagResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResponse)
+{-# DEPRECATED trsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

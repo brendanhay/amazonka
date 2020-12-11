@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.CognitoConfig where
+module Network.AWS.SageMaker.Types.CognitoConfig
+  ( CognitoConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCognitoConfig,
+
+    -- * Lenses
+    ccUserPool,
+    ccClientId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Use this parameter to configure your Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool> .
 --
---
---
--- /See:/ 'cognitoConfig' smart constructor.
+-- /See:/ 'mkCognitoConfig' smart constructor.
 data CognitoConfig = CognitoConfig'
-  { _ccUserPool :: !Text,
-    _ccClientId :: !Text
+  { userPool :: Lude.Text,
+    clientId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CognitoConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccUserPool' - A <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html user pool> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.
---
--- * 'ccClientId' - The client ID for your Amazon Cognito user pool.
-cognitoConfig ::
-  -- | 'ccUserPool'
-  Text ->
-  -- | 'ccClientId'
-  Text ->
+-- * 'clientId' - The client ID for your Amazon Cognito user pool.
+-- * 'userPool' - A <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html user pool> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.
+mkCognitoConfig ::
+  -- | 'userPool'
+  Lude.Text ->
+  -- | 'clientId'
+  Lude.Text ->
   CognitoConfig
-cognitoConfig pUserPool_ pClientId_ =
-  CognitoConfig'
-    { _ccUserPool = pUserPool_,
-      _ccClientId = pClientId_
-    }
+mkCognitoConfig pUserPool_ pClientId_ =
+  CognitoConfig' {userPool = pUserPool_, clientId = pClientId_}
 
 -- | A <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html user pool> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.
-ccUserPool :: Lens' CognitoConfig Text
-ccUserPool = lens _ccUserPool (\s a -> s {_ccUserPool = a})
+--
+-- /Note:/ Consider using 'userPool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccUserPool :: Lens.Lens' CognitoConfig Lude.Text
+ccUserPool = Lens.lens (userPool :: CognitoConfig -> Lude.Text) (\s a -> s {userPool = a} :: CognitoConfig)
+{-# DEPRECATED ccUserPool "Use generic-lens or generic-optics with 'userPool' instead." #-}
 
 -- | The client ID for your Amazon Cognito user pool.
-ccClientId :: Lens' CognitoConfig Text
-ccClientId = lens _ccClientId (\s a -> s {_ccClientId = a})
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccClientId :: Lens.Lens' CognitoConfig Lude.Text
+ccClientId = Lens.lens (clientId :: CognitoConfig -> Lude.Text) (\s a -> s {clientId = a} :: CognitoConfig)
+{-# DEPRECATED ccClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
-instance FromJSON CognitoConfig where
+instance Lude.FromJSON CognitoConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "CognitoConfig"
-      (\x -> CognitoConfig' <$> (x .: "UserPool") <*> (x .: "ClientId"))
+      ( \x ->
+          CognitoConfig'
+            Lude.<$> (x Lude..: "UserPool") Lude.<*> (x Lude..: "ClientId")
+      )
 
-instance Hashable CognitoConfig
-
-instance NFData CognitoConfig
-
-instance ToJSON CognitoConfig where
+instance Lude.ToJSON CognitoConfig where
   toJSON CognitoConfig' {..} =
-    object
-      ( catMaybes
-          [ Just ("UserPool" .= _ccUserPool),
-            Just ("ClientId" .= _ccClientId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("UserPool" Lude..= userPool),
+            Lude.Just ("ClientId" Lude..= clientId)
           ]
       )

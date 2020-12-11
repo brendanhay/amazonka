@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,121 @@
 --
 -- Retrieve the JSON for a specific preset.
 module Network.AWS.MediaConvert.GetPreset
-  ( -- * Creating a Request
-    getPreset,
-    GetPreset,
+  ( -- * Creating a request
+    GetPreset (..),
+    mkGetPreset,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpName,
 
-    -- * Destructuring the Response
-    getPresetResponse,
-    GetPresetResponse,
+    -- * Destructuring the response
+    GetPresetResponse (..),
+    mkGetPresetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gprsPreset,
     gprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getPreset' smart constructor.
-newtype GetPreset = GetPreset' {_gpName :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetPreset' smart constructor.
+newtype GetPreset = GetPreset' {name :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPreset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpName' - The name of the preset.
-getPreset ::
-  -- | 'gpName'
-  Text ->
+-- * 'name' - The name of the preset.
+mkGetPreset ::
+  -- | 'name'
+  Lude.Text ->
   GetPreset
-getPreset pName_ = GetPreset' {_gpName = pName_}
+mkGetPreset pName_ = GetPreset' {name = pName_}
 
 -- | The name of the preset.
-gpName :: Lens' GetPreset Text
-gpName = lens _gpName (\s a -> s {_gpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpName :: Lens.Lens' GetPreset Lude.Text
+gpName = Lens.lens (name :: GetPreset -> Lude.Text) (\s a -> s {name = a} :: GetPreset)
+{-# DEPRECATED gpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetPreset where
+instance Lude.AWSRequest GetPreset where
   type Rs GetPreset = GetPresetResponse
-  request = get mediaConvert
+  request = Req.get mediaConvertService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetPresetResponse' <$> (x .?> "preset") <*> (pure (fromEnum s))
+          GetPresetResponse'
+            Lude.<$> (x Lude..?> "preset") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPreset
-
-instance NFData GetPreset
-
-instance ToHeaders GetPreset where
+instance Lude.ToHeaders GetPreset where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetPreset where
+instance Lude.ToPath GetPreset where
   toPath GetPreset' {..} =
-    mconcat ["/2017-08-29/presets/", toBS _gpName]
+    Lude.mconcat ["/2017-08-29/presets/", Lude.toBS name]
 
-instance ToQuery GetPreset where
-  toQuery = const mempty
+instance Lude.ToQuery GetPreset where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getPresetResponse' smart constructor.
+-- | /See:/ 'mkGetPresetResponse' smart constructor.
 data GetPresetResponse = GetPresetResponse'
-  { _gprsPreset ::
-      !(Maybe Preset),
-    _gprsResponseStatus :: !Int
+  { preset ::
+      Lude.Maybe Preset,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPresetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gprsPreset' - A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
---
--- * 'gprsResponseStatus' - -- | The response status code.
-getPresetResponse ::
-  -- | 'gprsResponseStatus'
-  Int ->
+-- * 'preset' - A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+-- * 'responseStatus' - The response status code.
+mkGetPresetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPresetResponse
-getPresetResponse pResponseStatus_ =
+mkGetPresetResponse pResponseStatus_ =
   GetPresetResponse'
-    { _gprsPreset = Nothing,
-      _gprsResponseStatus = pResponseStatus_
+    { preset = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
-gprsPreset :: Lens' GetPresetResponse (Maybe Preset)
-gprsPreset = lens _gprsPreset (\s a -> s {_gprsPreset = a})
+--
+-- /Note:/ Consider using 'preset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsPreset :: Lens.Lens' GetPresetResponse (Lude.Maybe Preset)
+gprsPreset = Lens.lens (preset :: GetPresetResponse -> Lude.Maybe Preset) (\s a -> s {preset = a} :: GetPresetResponse)
+{-# DEPRECATED gprsPreset "Use generic-lens or generic-optics with 'preset' instead." #-}
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetPresetResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\s a -> s {_gprsResponseStatus = a})
-
-instance NFData GetPresetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsResponseStatus :: Lens.Lens' GetPresetResponse Lude.Int
+gprsResponseStatus = Lens.lens (responseStatus :: GetPresetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPresetResponse)
+{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,94 +14,103 @@
 --
 -- Deletes the specified application along with all associated versions and configurations. The application versions will not be deleted from your Amazon S3 bucket.
 module Network.AWS.ElasticBeanstalk.DeleteApplication
-  ( -- * Creating a Request
-    deleteApplication,
-    DeleteApplication,
+  ( -- * Creating a request
+    DeleteApplication (..),
+    mkDeleteApplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daTerminateEnvByForce,
     daApplicationName,
 
-    -- * Destructuring the Response
-    deleteApplicationResponse,
-    DeleteApplicationResponse,
+    -- * Destructuring the response
+    DeleteApplicationResponse (..),
+    mkDeleteApplicationResponse,
   )
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request to delete an application.
 --
---
---
--- /See:/ 'deleteApplication' smart constructor.
+-- /See:/ 'mkDeleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
-  { _daTerminateEnvByForce ::
-      !(Maybe Bool),
-    _daApplicationName :: !Text
+  { terminateEnvByForce ::
+      Lude.Maybe Lude.Bool,
+    applicationName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daTerminateEnvByForce' - When set to true, running environments will be terminated before deleting the application.
---
--- * 'daApplicationName' - The name of the application to delete.
-deleteApplication ::
-  -- | 'daApplicationName'
-  Text ->
+-- * 'applicationName' - The name of the application to delete.
+-- * 'terminateEnvByForce' - When set to true, running environments will be terminated before deleting the application.
+mkDeleteApplication ::
+  -- | 'applicationName'
+  Lude.Text ->
   DeleteApplication
-deleteApplication pApplicationName_ =
+mkDeleteApplication pApplicationName_ =
   DeleteApplication'
-    { _daTerminateEnvByForce = Nothing,
-      _daApplicationName = pApplicationName_
+    { terminateEnvByForce = Lude.Nothing,
+      applicationName = pApplicationName_
     }
 
 -- | When set to true, running environments will be terminated before deleting the application.
-daTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
-daTerminateEnvByForce = lens _daTerminateEnvByForce (\s a -> s {_daTerminateEnvByForce = a})
+--
+-- /Note:/ Consider using 'terminateEnvByForce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daTerminateEnvByForce :: Lens.Lens' DeleteApplication (Lude.Maybe Lude.Bool)
+daTerminateEnvByForce = Lens.lens (terminateEnvByForce :: DeleteApplication -> Lude.Maybe Lude.Bool) (\s a -> s {terminateEnvByForce = a} :: DeleteApplication)
+{-# DEPRECATED daTerminateEnvByForce "Use generic-lens or generic-optics with 'terminateEnvByForce' instead." #-}
 
 -- | The name of the application to delete.
-daApplicationName :: Lens' DeleteApplication Text
-daApplicationName = lens _daApplicationName (\s a -> s {_daApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daApplicationName :: Lens.Lens' DeleteApplication Lude.Text
+daApplicationName = Lens.lens (applicationName :: DeleteApplication -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteApplication)
+{-# DEPRECATED daApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance AWSRequest DeleteApplication where
+instance Lude.AWSRequest DeleteApplication where
   type Rs DeleteApplication = DeleteApplicationResponse
-  request = postQuery elasticBeanstalk
-  response = receiveNull DeleteApplicationResponse'
+  request = Req.postQuery elasticBeanstalkService
+  response = Res.receiveNull DeleteApplicationResponse'
 
-instance Hashable DeleteApplication
+instance Lude.ToHeaders DeleteApplication where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteApplication
+instance Lude.ToPath DeleteApplication where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteApplication where
-  toHeaders = const mempty
-
-instance ToPath DeleteApplication where
-  toPath = const "/"
-
-instance ToQuery DeleteApplication where
+instance Lude.ToQuery DeleteApplication where
   toQuery DeleteApplication' {..} =
-    mconcat
-      [ "Action" =: ("DeleteApplication" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "TerminateEnvByForce" =: _daTerminateEnvByForce,
-        "ApplicationName" =: _daApplicationName
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteApplication" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "TerminateEnvByForce" Lude.=: terminateEnvByForce,
+        "ApplicationName" Lude.=: applicationName
       ]
 
--- | /See:/ 'deleteApplicationResponse' smart constructor.
+-- | /See:/ 'mkDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
-deleteApplicationResponse ::
+mkDeleteApplicationResponse ::
   DeleteApplicationResponse
-deleteApplicationResponse = DeleteApplicationResponse'
-
-instance NFData DeleteApplicationResponse
+mkDeleteApplicationResponse = DeleteApplicationResponse'

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,138 @@
 --
 -- __This operation is used with the Amazon GameLift FleetIQ solution and game server groups.__
 --
---
 -- Removes the game server from a game server group. As a result of this operation, the deregistered game server can no longer be claimed and will not be returned in a list of active game servers.
---
 -- To deregister a game server, specify the game server group and game server ID. If successful, this operation emits a CloudWatch event with termination timestamp and reason.
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
 -- __Related operations__
 --
 --     * 'RegisterGameServer'
 --
+--
 --     * 'ListGameServers'
+--
 --
 --     * 'ClaimGameServer'
 --
+--
 --     * 'DescribeGameServer'
+--
 --
 --     * 'UpdateGameServer'
 --
+--
 --     * 'DeregisterGameServer'
 module Network.AWS.GameLift.DeregisterGameServer
-  ( -- * Creating a Request
-    deregisterGameServer,
-    DeregisterGameServer,
+  ( -- * Creating a request
+    DeregisterGameServer (..),
+    mkDeregisterGameServer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dgsGameServerGroupName,
     dgsGameServerId,
 
-    -- * Destructuring the Response
-    deregisterGameServerResponse,
-    DeregisterGameServerResponse,
+    -- * Destructuring the response
+    DeregisterGameServerResponse (..),
+    mkDeregisterGameServerResponse,
   )
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterGameServer' smart constructor.
+-- | /See:/ 'mkDeregisterGameServer' smart constructor.
 data DeregisterGameServer = DeregisterGameServer'
-  { _dgsGameServerGroupName ::
-      !Text,
-    _dgsGameServerId :: !Text
+  { gameServerGroupName ::
+      Lude.Text,
+    gameServerId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterGameServer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgsGameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
---
--- * 'dgsGameServerId' - A custom string that uniquely identifies the game server to deregister.
-deregisterGameServer ::
-  -- | 'dgsGameServerGroupName'
-  Text ->
-  -- | 'dgsGameServerId'
-  Text ->
+-- * 'gameServerGroupName' - A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
+-- * 'gameServerId' - A custom string that uniquely identifies the game server to deregister.
+mkDeregisterGameServer ::
+  -- | 'gameServerGroupName'
+  Lude.Text ->
+  -- | 'gameServerId'
+  Lude.Text ->
   DeregisterGameServer
-deregisterGameServer pGameServerGroupName_ pGameServerId_ =
+mkDeregisterGameServer pGameServerGroupName_ pGameServerId_ =
   DeregisterGameServer'
-    { _dgsGameServerGroupName =
+    { gameServerGroupName =
         pGameServerGroupName_,
-      _dgsGameServerId = pGameServerId_
+      gameServerId = pGameServerId_
     }
 
 -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
-dgsGameServerGroupName :: Lens' DeregisterGameServer Text
-dgsGameServerGroupName = lens _dgsGameServerGroupName (\s a -> s {_dgsGameServerGroupName = a})
+--
+-- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsGameServerGroupName :: Lens.Lens' DeregisterGameServer Lude.Text
+dgsGameServerGroupName = Lens.lens (gameServerGroupName :: DeregisterGameServer -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DeregisterGameServer)
+{-# DEPRECATED dgsGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 -- | A custom string that uniquely identifies the game server to deregister.
-dgsGameServerId :: Lens' DeregisterGameServer Text
-dgsGameServerId = lens _dgsGameServerId (\s a -> s {_dgsGameServerId = a})
+--
+-- /Note:/ Consider using 'gameServerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgsGameServerId :: Lens.Lens' DeregisterGameServer Lude.Text
+dgsGameServerId = Lens.lens (gameServerId :: DeregisterGameServer -> Lude.Text) (\s a -> s {gameServerId = a} :: DeregisterGameServer)
+{-# DEPRECATED dgsGameServerId "Use generic-lens or generic-optics with 'gameServerId' instead." #-}
 
-instance AWSRequest DeregisterGameServer where
+instance Lude.AWSRequest DeregisterGameServer where
   type Rs DeregisterGameServer = DeregisterGameServerResponse
-  request = postJSON gameLift
-  response = receiveNull DeregisterGameServerResponse'
+  request = Req.postJSON gameLiftService
+  response = Res.receiveNull DeregisterGameServerResponse'
 
-instance Hashable DeregisterGameServer
-
-instance NFData DeregisterGameServer
-
-instance ToHeaders DeregisterGameServer where
+instance Lude.ToHeaders DeregisterGameServer where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.DeregisterGameServer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.DeregisterGameServer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterGameServer where
+instance Lude.ToJSON DeregisterGameServer where
   toJSON DeregisterGameServer' {..} =
-    object
-      ( catMaybes
-          [ Just ("GameServerGroupName" .= _dgsGameServerGroupName),
-            Just ("GameServerId" .= _dgsGameServerId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
+            Lude.Just ("GameServerId" Lude..= gameServerId)
           ]
       )
 
-instance ToPath DeregisterGameServer where
-  toPath = const "/"
+instance Lude.ToPath DeregisterGameServer where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterGameServer where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterGameServer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterGameServerResponse' smart constructor.
+-- | /See:/ 'mkDeregisterGameServerResponse' smart constructor.
 data DeregisterGameServerResponse = DeregisterGameServerResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterGameServerResponse' with the minimum fields required to make a request.
-deregisterGameServerResponse ::
+mkDeregisterGameServerResponse ::
   DeregisterGameServerResponse
-deregisterGameServerResponse = DeregisterGameServerResponse'
-
-instance NFData DeregisterGameServerResponse
+mkDeregisterGameServerResponse = DeregisterGameServerResponse'

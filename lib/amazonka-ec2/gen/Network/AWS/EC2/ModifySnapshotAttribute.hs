@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Adds or removes permission settings for the specified snapshot. You may add or remove specified AWS account IDs from a snapshot's list of create volume permissions, but you cannot do both in a single operation. If you need to both add and remove account IDs for a snapshot, you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.
 --
---
 -- Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made public. Snapshots encrypted with your default CMK cannot be shared with other accounts.
---
 -- For more information about modifying snapshot permissions, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing snapshots> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.ModifySnapshotAttribute
-  ( -- * Creating a Request
-    modifySnapshotAttribute,
-    ModifySnapshotAttribute,
+  ( -- * Creating a request
+    ModifySnapshotAttribute (..),
+    mkModifySnapshotAttribute,
 
-    -- * Request Lenses
+    -- ** Request lenses
     msaAttribute,
     msaCreateVolumePermission,
     msaUserIds,
@@ -37,130 +30,151 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     msaDryRun,
     msaSnapshotId,
 
-    -- * Destructuring the Response
-    modifySnapshotAttributeResponse,
-    ModifySnapshotAttributeResponse,
+    -- * Destructuring the response
+    ModifySnapshotAttributeResponse (..),
+    mkModifySnapshotAttributeResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'modifySnapshotAttribute' smart constructor.
+-- | /See:/ 'mkModifySnapshotAttribute' smart constructor.
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-  { _msaAttribute ::
-      !(Maybe SnapshotAttributeName),
-    _msaCreateVolumePermission ::
-      !( Maybe
-           CreateVolumePermissionModifications
-       ),
-    _msaUserIds :: !(Maybe [Text]),
-    _msaGroupNames :: !(Maybe [Text]),
-    _msaOperationType :: !(Maybe OperationType),
-    _msaDryRun :: !(Maybe Bool),
-    _msaSnapshotId :: !Text
+  { attribute ::
+      Lude.Maybe SnapshotAttributeName,
+    createVolumePermission ::
+      Lude.Maybe
+        CreateVolumePermissionModifications,
+    userIds :: Lude.Maybe [Lude.Text],
+    groupNames :: Lude.Maybe [Lude.Text],
+    operationType :: Lude.Maybe OperationType,
+    dryRun :: Lude.Maybe Lude.Bool,
+    snapshotId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifySnapshotAttribute' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'msaAttribute' - The snapshot attribute to modify. Only volume creation permissions can be modified.
---
--- * 'msaCreateVolumePermission' - A JSON representation of the snapshot attribute modification.
---
--- * 'msaUserIds' - The account ID to modify for the snapshot.
---
--- * 'msaGroupNames' - The group to modify for the snapshot.
---
--- * 'msaOperationType' - The type of operation to perform to the attribute.
---
--- * 'msaDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'msaSnapshotId' - The ID of the snapshot.
-modifySnapshotAttribute ::
-  -- | 'msaSnapshotId'
-  Text ->
+-- * 'attribute' - The snapshot attribute to modify. Only volume creation permissions can be modified.
+-- * 'createVolumePermission' - A JSON representation of the snapshot attribute modification.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'groupNames' - The group to modify for the snapshot.
+-- * 'operationType' - The type of operation to perform to the attribute.
+-- * 'snapshotId' - The ID of the snapshot.
+-- * 'userIds' - The account ID to modify for the snapshot.
+mkModifySnapshotAttribute ::
+  -- | 'snapshotId'
+  Lude.Text ->
   ModifySnapshotAttribute
-modifySnapshotAttribute pSnapshotId_ =
+mkModifySnapshotAttribute pSnapshotId_ =
   ModifySnapshotAttribute'
-    { _msaAttribute = Nothing,
-      _msaCreateVolumePermission = Nothing,
-      _msaUserIds = Nothing,
-      _msaGroupNames = Nothing,
-      _msaOperationType = Nothing,
-      _msaDryRun = Nothing,
-      _msaSnapshotId = pSnapshotId_
+    { attribute = Lude.Nothing,
+      createVolumePermission = Lude.Nothing,
+      userIds = Lude.Nothing,
+      groupNames = Lude.Nothing,
+      operationType = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      snapshotId = pSnapshotId_
     }
 
 -- | The snapshot attribute to modify. Only volume creation permissions can be modified.
-msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
-msaAttribute = lens _msaAttribute (\s a -> s {_msaAttribute = a})
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaAttribute :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe SnapshotAttributeName)
+msaAttribute = Lens.lens (attribute :: ModifySnapshotAttribute -> Lude.Maybe SnapshotAttributeName) (\s a -> s {attribute = a} :: ModifySnapshotAttribute)
+{-# DEPRECATED msaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | A JSON representation of the snapshot attribute modification.
-msaCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
-msaCreateVolumePermission = lens _msaCreateVolumePermission (\s a -> s {_msaCreateVolumePermission = a})
+--
+-- /Note:/ Consider using 'createVolumePermission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaCreateVolumePermission :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe CreateVolumePermissionModifications)
+msaCreateVolumePermission = Lens.lens (createVolumePermission :: ModifySnapshotAttribute -> Lude.Maybe CreateVolumePermissionModifications) (\s a -> s {createVolumePermission = a} :: ModifySnapshotAttribute)
+{-# DEPRECATED msaCreateVolumePermission "Use generic-lens or generic-optics with 'createVolumePermission' instead." #-}
 
 -- | The account ID to modify for the snapshot.
-msaUserIds :: Lens' ModifySnapshotAttribute [Text]
-msaUserIds = lens _msaUserIds (\s a -> s {_msaUserIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaUserIds :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe [Lude.Text])
+msaUserIds = Lens.lens (userIds :: ModifySnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {userIds = a} :: ModifySnapshotAttribute)
+{-# DEPRECATED msaUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
 
 -- | The group to modify for the snapshot.
-msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
-msaGroupNames = lens _msaGroupNames (\s a -> s {_msaGroupNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaGroupNames :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe [Lude.Text])
+msaGroupNames = Lens.lens (groupNames :: ModifySnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {groupNames = a} :: ModifySnapshotAttribute)
+{-# DEPRECATED msaGroupNames "Use generic-lens or generic-optics with 'groupNames' instead." #-}
 
 -- | The type of operation to perform to the attribute.
-msaOperationType :: Lens' ModifySnapshotAttribute (Maybe OperationType)
-msaOperationType = lens _msaOperationType (\s a -> s {_msaOperationType = a})
+--
+-- /Note:/ Consider using 'operationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaOperationType :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe OperationType)
+msaOperationType = Lens.lens (operationType :: ModifySnapshotAttribute -> Lude.Maybe OperationType) (\s a -> s {operationType = a} :: ModifySnapshotAttribute)
+{-# DEPRECATED msaOperationType "Use generic-lens or generic-optics with 'operationType' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-msaDryRun :: Lens' ModifySnapshotAttribute (Maybe Bool)
-msaDryRun = lens _msaDryRun (\s a -> s {_msaDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaDryRun :: Lens.Lens' ModifySnapshotAttribute (Lude.Maybe Lude.Bool)
+msaDryRun = Lens.lens (dryRun :: ModifySnapshotAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifySnapshotAttribute)
+{-# DEPRECATED msaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the snapshot.
-msaSnapshotId :: Lens' ModifySnapshotAttribute Text
-msaSnapshotId = lens _msaSnapshotId (\s a -> s {_msaSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msaSnapshotId :: Lens.Lens' ModifySnapshotAttribute Lude.Text
+msaSnapshotId = Lens.lens (snapshotId :: ModifySnapshotAttribute -> Lude.Text) (\s a -> s {snapshotId = a} :: ModifySnapshotAttribute)
+{-# DEPRECATED msaSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance AWSRequest ModifySnapshotAttribute where
+instance Lude.AWSRequest ModifySnapshotAttribute where
   type Rs ModifySnapshotAttribute = ModifySnapshotAttributeResponse
-  request = postQuery ec2
-  response = receiveNull ModifySnapshotAttributeResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull ModifySnapshotAttributeResponse'
 
-instance Hashable ModifySnapshotAttribute
+instance Lude.ToHeaders ModifySnapshotAttribute where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ModifySnapshotAttribute
+instance Lude.ToPath ModifySnapshotAttribute where
+  toPath = Lude.const "/"
 
-instance ToHeaders ModifySnapshotAttribute where
-  toHeaders = const mempty
-
-instance ToPath ModifySnapshotAttribute where
-  toPath = const "/"
-
-instance ToQuery ModifySnapshotAttribute where
+instance Lude.ToQuery ModifySnapshotAttribute where
   toQuery ModifySnapshotAttribute' {..} =
-    mconcat
-      [ "Action" =: ("ModifySnapshotAttribute" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "Attribute" =: _msaAttribute,
-        "CreateVolumePermission" =: _msaCreateVolumePermission,
-        toQuery (toQueryList "UserId" <$> _msaUserIds),
-        toQuery (toQueryList "UserGroup" <$> _msaGroupNames),
-        "OperationType" =: _msaOperationType,
-        "DryRun" =: _msaDryRun,
-        "SnapshotId" =: _msaSnapshotId
+    Lude.mconcat
+      [ "Action" Lude.=: ("ModifySnapshotAttribute" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Attribute" Lude.=: attribute,
+        "CreateVolumePermission" Lude.=: createVolumePermission,
+        Lude.toQuery (Lude.toQueryList "UserId" Lude.<$> userIds),
+        Lude.toQuery (Lude.toQueryList "UserGroup" Lude.<$> groupNames),
+        "OperationType" Lude.=: operationType,
+        "DryRun" Lude.=: dryRun,
+        "SnapshotId" Lude.=: snapshotId
       ]
 
--- | /See:/ 'modifySnapshotAttributeResponse' smart constructor.
+-- | /See:/ 'mkModifySnapshotAttributeResponse' smart constructor.
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifySnapshotAttributeResponse' with the minimum fields required to make a request.
-modifySnapshotAttributeResponse ::
+mkModifySnapshotAttributeResponse ::
   ModifySnapshotAttributeResponse
-modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'
-
-instance NFData ModifySnapshotAttributeResponse
+mkModifySnapshotAttributeResponse =
+  ModifySnapshotAttributeResponse'

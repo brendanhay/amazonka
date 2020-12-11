@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMapping where
+module Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMapping
+  ( LaunchTemplateBlockDeviceMapping (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchTemplateBlockDeviceMapping,
+
+    -- * Lenses
+    ltbdmVirtualName,
+    ltbdmNoDevice,
+    ltbdmEBS,
+    ltbdmDeviceName,
+  )
+where
+
 import Network.AWS.EC2.Types.LaunchTemplateEBSBlockDevice
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a block device mapping.
 --
---
---
--- /See:/ 'launchTemplateBlockDeviceMapping' smart constructor.
+-- /See:/ 'mkLaunchTemplateBlockDeviceMapping' smart constructor.
 data LaunchTemplateBlockDeviceMapping = LaunchTemplateBlockDeviceMapping'
-  { _ltbdmVirtualName ::
-      !(Maybe Text),
-    _ltbdmNoDevice ::
-      !(Maybe Text),
-    _ltbdmEBS ::
-      !( Maybe
-           LaunchTemplateEBSBlockDevice
-       ),
-    _ltbdmDeviceName ::
-      !(Maybe Text)
+  { virtualName ::
+      Lude.Maybe Lude.Text,
+    noDevice ::
+      Lude.Maybe Lude.Text,
+    ebs ::
+      Lude.Maybe
+        LaunchTemplateEBSBlockDevice,
+    deviceName ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateBlockDeviceMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ltbdmVirtualName' - The virtual device name (ephemeralN).
---
--- * 'ltbdmNoDevice' - Suppresses the specified device included in the block device mapping of the AMI.
---
--- * 'ltbdmEBS' - Information about the block device for an EBS volume.
---
--- * 'ltbdmDeviceName' - The device name.
-launchTemplateBlockDeviceMapping ::
+-- * 'deviceName' - The device name.
+-- * 'ebs' - Information about the block device for an EBS volume.
+-- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
+-- * 'virtualName' - The virtual device name (ephemeralN).
+mkLaunchTemplateBlockDeviceMapping ::
   LaunchTemplateBlockDeviceMapping
-launchTemplateBlockDeviceMapping =
+mkLaunchTemplateBlockDeviceMapping =
   LaunchTemplateBlockDeviceMapping'
-    { _ltbdmVirtualName = Nothing,
-      _ltbdmNoDevice = Nothing,
-      _ltbdmEBS = Nothing,
-      _ltbdmDeviceName = Nothing
+    { virtualName = Lude.Nothing,
+      noDevice = Lude.Nothing,
+      ebs = Lude.Nothing,
+      deviceName = Lude.Nothing
     }
 
 -- | The virtual device name (ephemeralN).
-ltbdmVirtualName :: Lens' LaunchTemplateBlockDeviceMapping (Maybe Text)
-ltbdmVirtualName = lens _ltbdmVirtualName (\s a -> s {_ltbdmVirtualName = a})
+--
+-- /Note:/ Consider using 'virtualName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbdmVirtualName :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Lude.Maybe Lude.Text)
+ltbdmVirtualName = Lens.lens (virtualName :: LaunchTemplateBlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {virtualName = a} :: LaunchTemplateBlockDeviceMapping)
+{-# DEPRECATED ltbdmVirtualName "Use generic-lens or generic-optics with 'virtualName' instead." #-}
 
 -- | Suppresses the specified device included in the block device mapping of the AMI.
-ltbdmNoDevice :: Lens' LaunchTemplateBlockDeviceMapping (Maybe Text)
-ltbdmNoDevice = lens _ltbdmNoDevice (\s a -> s {_ltbdmNoDevice = a})
+--
+-- /Note:/ Consider using 'noDevice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbdmNoDevice :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Lude.Maybe Lude.Text)
+ltbdmNoDevice = Lens.lens (noDevice :: LaunchTemplateBlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {noDevice = a} :: LaunchTemplateBlockDeviceMapping)
+{-# DEPRECATED ltbdmNoDevice "Use generic-lens or generic-optics with 'noDevice' instead." #-}
 
 -- | Information about the block device for an EBS volume.
-ltbdmEBS :: Lens' LaunchTemplateBlockDeviceMapping (Maybe LaunchTemplateEBSBlockDevice)
-ltbdmEBS = lens _ltbdmEBS (\s a -> s {_ltbdmEBS = a})
+--
+-- /Note:/ Consider using 'ebs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbdmEBS :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Lude.Maybe LaunchTemplateEBSBlockDevice)
+ltbdmEBS = Lens.lens (ebs :: LaunchTemplateBlockDeviceMapping -> Lude.Maybe LaunchTemplateEBSBlockDevice) (\s a -> s {ebs = a} :: LaunchTemplateBlockDeviceMapping)
+{-# DEPRECATED ltbdmEBS "Use generic-lens or generic-optics with 'ebs' instead." #-}
 
 -- | The device name.
-ltbdmDeviceName :: Lens' LaunchTemplateBlockDeviceMapping (Maybe Text)
-ltbdmDeviceName = lens _ltbdmDeviceName (\s a -> s {_ltbdmDeviceName = a})
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbdmDeviceName :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Lude.Maybe Lude.Text)
+ltbdmDeviceName = Lens.lens (deviceName :: LaunchTemplateBlockDeviceMapping -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: LaunchTemplateBlockDeviceMapping)
+{-# DEPRECATED ltbdmDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
-instance FromXML LaunchTemplateBlockDeviceMapping where
+instance Lude.FromXML LaunchTemplateBlockDeviceMapping where
   parseXML x =
     LaunchTemplateBlockDeviceMapping'
-      <$> (x .@? "virtualName")
-      <*> (x .@? "noDevice")
-      <*> (x .@? "ebs")
-      <*> (x .@? "deviceName")
-
-instance Hashable LaunchTemplateBlockDeviceMapping
-
-instance NFData LaunchTemplateBlockDeviceMapping
+      Lude.<$> (x Lude..@? "virtualName")
+      Lude.<*> (x Lude..@? "noDevice")
+      Lude.<*> (x Lude..@? "ebs")
+      Lude.<*> (x Lude..@? "deviceName")

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,172 +7,233 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EntityRecognizerProperties where
+module Network.AWS.Comprehend.Types.EntityRecognizerProperties
+  ( EntityRecognizerProperties (..),
+
+    -- * Smart constructor
+    mkEntityRecognizerProperties,
+
+    -- * Lenses
+    erpStatus,
+    erpLanguageCode,
+    erpTrainingEndTime,
+    erpEntityRecognizerARN,
+    erpInputDataConfig,
+    erpVPCConfig,
+    erpVolumeKMSKeyId,
+    erpEndTime,
+    erpTrainingStartTime,
+    erpDataAccessRoleARN,
+    erpRecognizerMetadata,
+    erpMessage,
+    erpSubmitTime,
+  )
+where
 
 import Network.AWS.Comprehend.Types.EntityRecognizerInputDataConfig
 import Network.AWS.Comprehend.Types.EntityRecognizerMetadata
 import Network.AWS.Comprehend.Types.LanguageCode
 import Network.AWS.Comprehend.Types.ModelStatus
 import Network.AWS.Comprehend.Types.VPCConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes information about an entity recognizer.
 --
---
---
--- /See:/ 'entityRecognizerProperties' smart constructor.
+-- /See:/ 'mkEntityRecognizerProperties' smart constructor.
 data EntityRecognizerProperties = EntityRecognizerProperties'
-  { _erpStatus ::
-      !(Maybe ModelStatus),
-    _erpLanguageCode ::
-      !(Maybe LanguageCode),
-    _erpTrainingEndTime :: !(Maybe POSIX),
-    _erpEntityRecognizerARN ::
-      !(Maybe Text),
-    _erpInputDataConfig ::
-      !( Maybe
-           EntityRecognizerInputDataConfig
-       ),
-    _erpVPCConfig :: !(Maybe VPCConfig),
-    _erpVolumeKMSKeyId :: !(Maybe Text),
-    _erpEndTime :: !(Maybe POSIX),
-    _erpTrainingStartTime ::
-      !(Maybe POSIX),
-    _erpDataAccessRoleARN ::
-      !(Maybe Text),
-    _erpRecognizerMetadata ::
-      !( Maybe
-           ( Sensitive
-               EntityRecognizerMetadata
-           )
-       ),
-    _erpMessage :: !(Maybe Text),
-    _erpSubmitTime :: !(Maybe POSIX)
+  { status ::
+      Lude.Maybe ModelStatus,
+    languageCode ::
+      Lude.Maybe LanguageCode,
+    trainingEndTime ::
+      Lude.Maybe Lude.Timestamp,
+    entityRecognizerARN ::
+      Lude.Maybe Lude.Text,
+    inputDataConfig ::
+      Lude.Maybe
+        EntityRecognizerInputDataConfig,
+    vpcConfig :: Lude.Maybe VPCConfig,
+    volumeKMSKeyId ::
+      Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    trainingStartTime ::
+      Lude.Maybe Lude.Timestamp,
+    dataAccessRoleARN ::
+      Lude.Maybe Lude.Text,
+    recognizerMetadata ::
+      Lude.Maybe EntityRecognizerMetadata,
+    message :: Lude.Maybe Lude.Text,
+    submitTime ::
+      Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerProperties' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
+-- * 'endTime' - The time that the recognizer creation completed.
+-- * 'entityRecognizerARN' - The Amazon Resource Name (ARN) that identifies the entity recognizer.
+-- * 'inputDataConfig' - The input data properties of an entity recognizer.
+-- * 'languageCode' - The language of the input documents. All documents must be in the same language. Only English ("en") is currently supported.
+-- * 'message' - A description of the status of the recognizer.
+-- * 'recognizerMetadata' - Provides information about an entity recognizer.
+-- * 'status' - Provides the status of the entity recognizer.
+-- * 'submitTime' - The time that the recognizer was submitted for processing.
+-- * 'trainingEndTime' - The time that training of the entity recognizer was completed.
+-- * 'trainingStartTime' - The time that training of the entity recognizer started.
+-- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
--- * 'erpStatus' - Provides the status of the entity recognizer.
 --
--- * 'erpLanguageCode' - The language of the input documents. All documents must be in the same language. Only English ("en") is currently supported.
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'erpTrainingEndTime' - The time that training of the entity recognizer was completed.
 --
--- * 'erpEntityRecognizerARN' - The Amazon Resource Name (ARN) that identifies the entity recognizer.
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
--- * 'erpInputDataConfig' - The input data properties of an entity recognizer.
 --
--- * 'erpVPCConfig' - Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
---
--- * 'erpVolumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
---
--- * 'erpEndTime' - The time that the recognizer creation completed.
---
--- * 'erpTrainingStartTime' - The time that training of the entity recognizer started.
---
--- * 'erpDataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
---
--- * 'erpRecognizerMetadata' - Provides information about an entity recognizer.
---
--- * 'erpMessage' - A description of the status of the recognizer.
---
--- * 'erpSubmitTime' - The time that the recognizer was submitted for processing.
-entityRecognizerProperties ::
+-- * 'vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+mkEntityRecognizerProperties ::
   EntityRecognizerProperties
-entityRecognizerProperties =
+mkEntityRecognizerProperties =
   EntityRecognizerProperties'
-    { _erpStatus = Nothing,
-      _erpLanguageCode = Nothing,
-      _erpTrainingEndTime = Nothing,
-      _erpEntityRecognizerARN = Nothing,
-      _erpInputDataConfig = Nothing,
-      _erpVPCConfig = Nothing,
-      _erpVolumeKMSKeyId = Nothing,
-      _erpEndTime = Nothing,
-      _erpTrainingStartTime = Nothing,
-      _erpDataAccessRoleARN = Nothing,
-      _erpRecognizerMetadata = Nothing,
-      _erpMessage = Nothing,
-      _erpSubmitTime = Nothing
+    { status = Lude.Nothing,
+      languageCode = Lude.Nothing,
+      trainingEndTime = Lude.Nothing,
+      entityRecognizerARN = Lude.Nothing,
+      inputDataConfig = Lude.Nothing,
+      vpcConfig = Lude.Nothing,
+      volumeKMSKeyId = Lude.Nothing,
+      endTime = Lude.Nothing,
+      trainingStartTime = Lude.Nothing,
+      dataAccessRoleARN = Lude.Nothing,
+      recognizerMetadata = Lude.Nothing,
+      message = Lude.Nothing,
+      submitTime = Lude.Nothing
     }
 
 -- | Provides the status of the entity recognizer.
-erpStatus :: Lens' EntityRecognizerProperties (Maybe ModelStatus)
-erpStatus = lens _erpStatus (\s a -> s {_erpStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpStatus :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe ModelStatus)
+erpStatus = Lens.lens (status :: EntityRecognizerProperties -> Lude.Maybe ModelStatus) (\s a -> s {status = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The language of the input documents. All documents must be in the same language. Only English ("en") is currently supported.
-erpLanguageCode :: Lens' EntityRecognizerProperties (Maybe LanguageCode)
-erpLanguageCode = lens _erpLanguageCode (\s a -> s {_erpLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpLanguageCode :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe LanguageCode)
+erpLanguageCode = Lens.lens (languageCode :: EntityRecognizerProperties -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The time that training of the entity recognizer was completed.
-erpTrainingEndTime :: Lens' EntityRecognizerProperties (Maybe UTCTime)
-erpTrainingEndTime = lens _erpTrainingEndTime (\s a -> s {_erpTrainingEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'trainingEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpTrainingEndTime :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe Lude.Timestamp)
+erpTrainingEndTime = Lens.lens (trainingEndTime :: EntityRecognizerProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {trainingEndTime = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpTrainingEndTime "Use generic-lens or generic-optics with 'trainingEndTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-erpEntityRecognizerARN :: Lens' EntityRecognizerProperties (Maybe Text)
-erpEntityRecognizerARN = lens _erpEntityRecognizerARN (\s a -> s {_erpEntityRecognizerARN = a})
+--
+-- /Note:/ Consider using 'entityRecognizerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpEntityRecognizerARN :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe Lude.Text)
+erpEntityRecognizerARN = Lens.lens (entityRecognizerARN :: EntityRecognizerProperties -> Lude.Maybe Lude.Text) (\s a -> s {entityRecognizerARN = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpEntityRecognizerARN "Use generic-lens or generic-optics with 'entityRecognizerARN' instead." #-}
 
 -- | The input data properties of an entity recognizer.
-erpInputDataConfig :: Lens' EntityRecognizerProperties (Maybe EntityRecognizerInputDataConfig)
-erpInputDataConfig = lens _erpInputDataConfig (\s a -> s {_erpInputDataConfig = a})
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpInputDataConfig :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe EntityRecognizerInputDataConfig)
+erpInputDataConfig = Lens.lens (inputDataConfig :: EntityRecognizerProperties -> Lude.Maybe EntityRecognizerInputDataConfig) (\s a -> s {inputDataConfig = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
-erpVPCConfig :: Lens' EntityRecognizerProperties (Maybe VPCConfig)
-erpVPCConfig = lens _erpVPCConfig (\s a -> s {_erpVPCConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpVPCConfig :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe VPCConfig)
+erpVPCConfig = Lens.lens (vpcConfig :: EntityRecognizerProperties -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@      * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-erpVolumeKMSKeyId :: Lens' EntityRecognizerProperties (Maybe Text)
-erpVolumeKMSKeyId = lens _erpVolumeKMSKeyId (\s a -> s {_erpVolumeKMSKeyId = a})
+-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+--
+--
+--     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+--
+--
+--
+-- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpVolumeKMSKeyId :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe Lude.Text)
+erpVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: EntityRecognizerProperties -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
 -- | The time that the recognizer creation completed.
-erpEndTime :: Lens' EntityRecognizerProperties (Maybe UTCTime)
-erpEndTime = lens _erpEndTime (\s a -> s {_erpEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpEndTime :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe Lude.Timestamp)
+erpEndTime = Lens.lens (endTime :: EntityRecognizerProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The time that training of the entity recognizer started.
-erpTrainingStartTime :: Lens' EntityRecognizerProperties (Maybe UTCTime)
-erpTrainingStartTime = lens _erpTrainingStartTime (\s a -> s {_erpTrainingStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'trainingStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpTrainingStartTime :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe Lude.Timestamp)
+erpTrainingStartTime = Lens.lens (trainingStartTime :: EntityRecognizerProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {trainingStartTime = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpTrainingStartTime "Use generic-lens or generic-optics with 'trainingStartTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
-erpDataAccessRoleARN :: Lens' EntityRecognizerProperties (Maybe Text)
-erpDataAccessRoleARN = lens _erpDataAccessRoleARN (\s a -> s {_erpDataAccessRoleARN = a})
+--
+-- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpDataAccessRoleARN :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe Lude.Text)
+erpDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: EntityRecognizerProperties -> Lude.Maybe Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
 -- | Provides information about an entity recognizer.
-erpRecognizerMetadata :: Lens' EntityRecognizerProperties (Maybe EntityRecognizerMetadata)
-erpRecognizerMetadata = lens _erpRecognizerMetadata (\s a -> s {_erpRecognizerMetadata = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'recognizerMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpRecognizerMetadata :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe EntityRecognizerMetadata)
+erpRecognizerMetadata = Lens.lens (recognizerMetadata :: EntityRecognizerProperties -> Lude.Maybe EntityRecognizerMetadata) (\s a -> s {recognizerMetadata = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpRecognizerMetadata "Use generic-lens or generic-optics with 'recognizerMetadata' instead." #-}
 
 -- | A description of the status of the recognizer.
-erpMessage :: Lens' EntityRecognizerProperties (Maybe Text)
-erpMessage = lens _erpMessage (\s a -> s {_erpMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpMessage :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe Lude.Text)
+erpMessage = Lens.lens (message :: EntityRecognizerProperties -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The time that the recognizer was submitted for processing.
-erpSubmitTime :: Lens' EntityRecognizerProperties (Maybe UTCTime)
-erpSubmitTime = lens _erpSubmitTime (\s a -> s {_erpSubmitTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'submitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erpSubmitTime :: Lens.Lens' EntityRecognizerProperties (Lude.Maybe Lude.Timestamp)
+erpSubmitTime = Lens.lens (submitTime :: EntityRecognizerProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTime = a} :: EntityRecognizerProperties)
+{-# DEPRECATED erpSubmitTime "Use generic-lens or generic-optics with 'submitTime' instead." #-}
 
-instance FromJSON EntityRecognizerProperties where
+instance Lude.FromJSON EntityRecognizerProperties where
   parseJSON =
-    withObject
+    Lude.withObject
       "EntityRecognizerProperties"
       ( \x ->
           EntityRecognizerProperties'
-            <$> (x .:? "Status")
-            <*> (x .:? "LanguageCode")
-            <*> (x .:? "TrainingEndTime")
-            <*> (x .:? "EntityRecognizerArn")
-            <*> (x .:? "InputDataConfig")
-            <*> (x .:? "VpcConfig")
-            <*> (x .:? "VolumeKmsKeyId")
-            <*> (x .:? "EndTime")
-            <*> (x .:? "TrainingStartTime")
-            <*> (x .:? "DataAccessRoleArn")
-            <*> (x .:? "RecognizerMetadata")
-            <*> (x .:? "Message")
-            <*> (x .:? "SubmitTime")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "LanguageCode")
+            Lude.<*> (x Lude..:? "TrainingEndTime")
+            Lude.<*> (x Lude..:? "EntityRecognizerArn")
+            Lude.<*> (x Lude..:? "InputDataConfig")
+            Lude.<*> (x Lude..:? "VpcConfig")
+            Lude.<*> (x Lude..:? "VolumeKmsKeyId")
+            Lude.<*> (x Lude..:? "EndTime")
+            Lude.<*> (x Lude..:? "TrainingStartTime")
+            Lude.<*> (x Lude..:? "DataAccessRoleArn")
+            Lude.<*> (x Lude..:? "RecognizerMetadata")
+            Lude.<*> (x Lude..:? "Message")
+            Lude.<*> (x Lude..:? "SubmitTime")
       )
-
-instance Hashable EntityRecognizerProperties
-
-instance NFData EntityRecognizerProperties

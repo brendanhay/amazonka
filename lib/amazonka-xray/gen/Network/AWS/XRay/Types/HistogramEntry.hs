@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.HistogramEntry where
+module Network.AWS.XRay.Types.HistogramEntry
+  ( HistogramEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkHistogramEntry,
+
+    -- * Lenses
+    heCount,
+    heValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An entry in a histogram for a statistic. A histogram maps the range of observed values on the X axis, and the prevalence of each value on the Y axis.
 --
---
---
--- /See:/ 'histogramEntry' smart constructor.
+-- /See:/ 'mkHistogramEntry' smart constructor.
 data HistogramEntry = HistogramEntry'
-  { _heCount :: !(Maybe Int),
-    _heValue :: !(Maybe Double)
+  { count :: Lude.Maybe Lude.Int,
+    value :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistogramEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'heCount' - The prevalence of the entry.
---
--- * 'heValue' - The value of the entry.
-histogramEntry ::
+-- * 'count' - The prevalence of the entry.
+-- * 'value' - The value of the entry.
+mkHistogramEntry ::
   HistogramEntry
-histogramEntry =
-  HistogramEntry' {_heCount = Nothing, _heValue = Nothing}
+mkHistogramEntry =
+  HistogramEntry' {count = Lude.Nothing, value = Lude.Nothing}
 
 -- | The prevalence of the entry.
-heCount :: Lens' HistogramEntry (Maybe Int)
-heCount = lens _heCount (\s a -> s {_heCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heCount :: Lens.Lens' HistogramEntry (Lude.Maybe Lude.Int)
+heCount = Lens.lens (count :: HistogramEntry -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: HistogramEntry)
+{-# DEPRECATED heCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The value of the entry.
-heValue :: Lens' HistogramEntry (Maybe Double)
-heValue = lens _heValue (\s a -> s {_heValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heValue :: Lens.Lens' HistogramEntry (Lude.Maybe Lude.Double)
+heValue = Lens.lens (value :: HistogramEntry -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: HistogramEntry)
+{-# DEPRECATED heValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromJSON HistogramEntry where
+instance Lude.FromJSON HistogramEntry where
   parseJSON =
-    withObject
+    Lude.withObject
       "HistogramEntry"
-      (\x -> HistogramEntry' <$> (x .:? "Count") <*> (x .:? "Value"))
-
-instance Hashable HistogramEntry
-
-instance NFData HistogramEntry
+      ( \x ->
+          HistogramEntry'
+            Lude.<$> (x Lude..:? "Count") Lude.<*> (x Lude..:? "Value")
+      )

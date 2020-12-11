@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTAnalytics.Types.Message where
+module Network.AWS.IoTAnalytics.Types.Message
+  ( Message (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMessage,
+
+    -- * Lenses
+    mMessageId,
+    mPayload,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a message.
 --
---
---
--- /See:/ 'message' smart constructor.
-data Message = Message' {_mMessageId :: !Text, _mPayload :: !Base64}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkMessage' smart constructor.
+data Message = Message'
+  { messageId :: Lude.Text,
+    payload :: Lude.Base64
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mMessageId' - The ID you want to assign to the message. Each @messageId@ must be unique within each batch sent.
---
--- * 'mPayload' - The payload of the message. This can be a JSON string or a base64-encoded string representing binary data, in which case you must decode it by means of a pipeline activity.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-message ::
-  -- | 'mMessageId'
-  Text ->
-  -- | 'mPayload'
-  ByteString ->
+-- * 'messageId' - The ID you want to assign to the message. Each @messageId@ must be unique within each batch sent.
+-- * 'payload' - The payload of the message. This can be a JSON string or a base64-encoded string representing binary data, in which case you must decode it by means of a pipeline activity.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+mkMessage ::
+  -- | 'messageId'
+  Lude.Text ->
+  -- | 'payload'
+  Lude.Base64 ->
   Message
-message pMessageId_ pPayload_ =
-  Message'
-    { _mMessageId = pMessageId_,
-      _mPayload = _Base64 # pPayload_
-    }
+mkMessage pMessageId_ pPayload_ =
+  Message' {messageId = pMessageId_, payload = pPayload_}
 
 -- | The ID you want to assign to the message. Each @messageId@ must be unique within each batch sent.
-mMessageId :: Lens' Message Text
-mMessageId = lens _mMessageId (\s a -> s {_mMessageId = a})
+--
+-- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mMessageId :: Lens.Lens' Message Lude.Text
+mMessageId = Lens.lens (messageId :: Message -> Lude.Text) (\s a -> s {messageId = a} :: Message)
+{-# DEPRECATED mMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
 
--- | The payload of the message. This can be a JSON string or a base64-encoded string representing binary data, in which case you must decode it by means of a pipeline activity.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-mPayload :: Lens' Message ByteString
-mPayload = lens _mPayload (\s a -> s {_mPayload = a}) . _Base64
+-- | The payload of the message. This can be a JSON string or a base64-encoded string representing binary data, in which case you must decode it by means of a pipeline activity.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mPayload :: Lens.Lens' Message Lude.Base64
+mPayload = Lens.lens (payload :: Message -> Lude.Base64) (\s a -> s {payload = a} :: Message)
+{-# DEPRECATED mPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
-instance Hashable Message
-
-instance NFData Message
-
-instance ToJSON Message where
+instance Lude.ToJSON Message where
   toJSON Message' {..} =
-    object
-      ( catMaybes
-          [Just ("messageId" .= _mMessageId), Just ("payload" .= _mPayload)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("messageId" Lude..= messageId),
+            Lude.Just ("payload" Lude..= payload)
+          ]
       )

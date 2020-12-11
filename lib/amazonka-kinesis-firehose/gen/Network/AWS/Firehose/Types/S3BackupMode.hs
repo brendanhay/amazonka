@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.S3BackupMode where
+module Network.AWS.Firehose.Types.S3BackupMode
+  ( S3BackupMode
+      ( S3BackupMode',
+        SBMDisabled,
+        SBMEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data S3BackupMode
-  = SBMDisabled
-  | SBMEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype S3BackupMode = S3BackupMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText S3BackupMode where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure SBMDisabled
-      "enabled" -> pure SBMEnabled
-      e ->
-        fromTextError $
-          "Failure parsing S3BackupMode from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern SBMDisabled :: S3BackupMode
+pattern SBMDisabled = S3BackupMode' "Disabled"
 
-instance ToText S3BackupMode where
-  toText = \case
-    SBMDisabled -> "Disabled"
-    SBMEnabled -> "Enabled"
+pattern SBMEnabled :: S3BackupMode
+pattern SBMEnabled = S3BackupMode' "Enabled"
 
-instance Hashable S3BackupMode
-
-instance NFData S3BackupMode
-
-instance ToByteString S3BackupMode
-
-instance ToQuery S3BackupMode
-
-instance ToHeader S3BackupMode
-
-instance ToJSON S3BackupMode where
-  toJSON = toJSONText
-
-instance FromJSON S3BackupMode where
-  parseJSON = parseJSONText "S3BackupMode"
+{-# COMPLETE
+  SBMDisabled,
+  SBMEnabled,
+  S3BackupMode'
+  #-}

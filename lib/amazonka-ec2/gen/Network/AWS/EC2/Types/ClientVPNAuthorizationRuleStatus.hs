@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,68 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNAuthorizationRuleStatus where
+module Network.AWS.EC2.Types.ClientVPNAuthorizationRuleStatus
+  ( ClientVPNAuthorizationRuleStatus (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkClientVPNAuthorizationRuleStatus,
+
+    -- * Lenses
+    cvarsCode,
+    cvarsMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.ClientVPNAuthorizationRuleStatusCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the state of an authorization rule.
 --
---
---
--- /See:/ 'clientVPNAuthorizationRuleStatus' smart constructor.
+-- /See:/ 'mkClientVPNAuthorizationRuleStatus' smart constructor.
 data ClientVPNAuthorizationRuleStatus = ClientVPNAuthorizationRuleStatus'
-  { _cvarsCode ::
-      !( Maybe
-           ClientVPNAuthorizationRuleStatusCode
-       ),
-    _cvarsMessage ::
-      !(Maybe Text)
+  { code ::
+      Lude.Maybe
+        ClientVPNAuthorizationRuleStatusCode,
+    message ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNAuthorizationRuleStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvarsCode' - The state of the authorization rule.
---
--- * 'cvarsMessage' - A message about the status of the authorization rule, if applicable.
-clientVPNAuthorizationRuleStatus ::
+-- * 'code' - The state of the authorization rule.
+-- * 'message' - A message about the status of the authorization rule, if applicable.
+mkClientVPNAuthorizationRuleStatus ::
   ClientVPNAuthorizationRuleStatus
-clientVPNAuthorizationRuleStatus =
+mkClientVPNAuthorizationRuleStatus =
   ClientVPNAuthorizationRuleStatus'
-    { _cvarsCode = Nothing,
-      _cvarsMessage = Nothing
+    { code = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The state of the authorization rule.
-cvarsCode :: Lens' ClientVPNAuthorizationRuleStatus (Maybe ClientVPNAuthorizationRuleStatusCode)
-cvarsCode = lens _cvarsCode (\s a -> s {_cvarsCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvarsCode :: Lens.Lens' ClientVPNAuthorizationRuleStatus (Lude.Maybe ClientVPNAuthorizationRuleStatusCode)
+cvarsCode = Lens.lens (code :: ClientVPNAuthorizationRuleStatus -> Lude.Maybe ClientVPNAuthorizationRuleStatusCode) (\s a -> s {code = a} :: ClientVPNAuthorizationRuleStatus)
+{-# DEPRECATED cvarsCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | A message about the status of the authorization rule, if applicable.
-cvarsMessage :: Lens' ClientVPNAuthorizationRuleStatus (Maybe Text)
-cvarsMessage = lens _cvarsMessage (\s a -> s {_cvarsMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvarsMessage :: Lens.Lens' ClientVPNAuthorizationRuleStatus (Lude.Maybe Lude.Text)
+cvarsMessage = Lens.lens (message :: ClientVPNAuthorizationRuleStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ClientVPNAuthorizationRuleStatus)
+{-# DEPRECATED cvarsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML ClientVPNAuthorizationRuleStatus where
+instance Lude.FromXML ClientVPNAuthorizationRuleStatus where
   parseXML x =
     ClientVPNAuthorizationRuleStatus'
-      <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable ClientVPNAuthorizationRuleStatus
-
-instance NFData ClientVPNAuthorizationRuleStatus
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

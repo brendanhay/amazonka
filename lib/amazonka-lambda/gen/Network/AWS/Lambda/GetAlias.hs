@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns details about a Lambda function <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html alias> .
 module Network.AWS.Lambda.GetAlias
-  ( -- * Creating a Request
-    getAlias,
-    GetAlias,
+  ( -- * Creating a request
+    GetAlias (..),
+    mkGetAlias,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaFunctionName,
     gaName,
 
-    -- * Destructuring the Response
-    aliasConfiguration,
-    AliasConfiguration,
+    -- * Destructuring the response
+    AliasConfiguration (..),
+    mkAliasConfiguration,
 
-    -- * Response Lenses
+    -- ** Response lenses
     acRoutingConfig,
     acName,
     acFunctionVersion,
@@ -42,62 +37,94 @@ module Network.AWS.Lambda.GetAlias
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAlias' smart constructor.
+-- | /See:/ 'mkGetAlias' smart constructor.
 data GetAlias = GetAlias'
-  { _gaFunctionName :: !Text,
-    _gaName :: !Text
+  { functionName :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAlias' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'functionName' - The name of the Lambda function.
 --
--- * 'gaFunctionName' - The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- __Name formats__
 --
--- * 'gaName' - The name of the alias.
-getAlias ::
-  -- | 'gaFunctionName'
-  Text ->
-  -- | 'gaName'
-  Text ->
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- * 'name' - The name of the alias.
+mkGetAlias ::
+  -- | 'functionName'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   GetAlias
-getAlias pFunctionName_ pName_ =
-  GetAlias' {_gaFunctionName = pFunctionName_, _gaName = pName_}
+mkGetAlias pFunctionName_ pName_ =
+  GetAlias' {functionName = pFunctionName_, name = pName_}
 
--- | The name of the Lambda function. __Name formats__      * __Function name__ - @MyFunction@ .     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .     * __Partial ARN__ - @123456789012:function:MyFunction@ . The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-gaFunctionName :: Lens' GetAlias Text
-gaFunctionName = lens _gaFunctionName (\s a -> s {_gaFunctionName = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+--     * __Function name__ - @MyFunction@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+--
+-- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaFunctionName :: Lens.Lens' GetAlias Lude.Text
+gaFunctionName = Lens.lens (functionName :: GetAlias -> Lude.Text) (\s a -> s {functionName = a} :: GetAlias)
+{-# DEPRECATED gaFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | The name of the alias.
-gaName :: Lens' GetAlias Text
-gaName = lens _gaName (\s a -> s {_gaName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaName :: Lens.Lens' GetAlias Lude.Text
+gaName = Lens.lens (name :: GetAlias -> Lude.Text) (\s a -> s {name = a} :: GetAlias)
+{-# DEPRECATED gaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetAlias where
+instance Lude.AWSRequest GetAlias where
   type Rs GetAlias = AliasConfiguration
-  request = get lambda
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.get lambdaService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable GetAlias
+instance Lude.ToHeaders GetAlias where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetAlias
-
-instance ToHeaders GetAlias where
-  toHeaders = const mempty
-
-instance ToPath GetAlias where
+instance Lude.ToPath GetAlias where
   toPath GetAlias' {..} =
-    mconcat
+    Lude.mconcat
       [ "/2015-03-31/functions/",
-        toBS _gaFunctionName,
+        Lude.toBS functionName,
         "/aliases/",
-        toBS _gaName
+        Lude.toBS name
       ]
 
-instance ToQuery GetAlias where
-  toQuery = const mempty
+instance Lude.ToQuery GetAlias where
+  toQuery = Lude.const Lude.mempty

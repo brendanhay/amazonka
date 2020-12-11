@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.AlarmType where
+module Network.AWS.CloudWatch.Types.AlarmType
+  ( AlarmType
+      ( AlarmType',
+        CompositeAlarm,
+        MetricAlarm
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AlarmType
-  = CompositeAlarm
-  | MetricAlarm
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AlarmType = AlarmType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AlarmType where
-  parser =
-    takeLowerText >>= \case
-      "compositealarm" -> pure CompositeAlarm
-      "metricalarm" -> pure MetricAlarm
-      e ->
-        fromTextError $
-          "Failure parsing AlarmType from value: '" <> e
-            <> "'. Accepted values: compositealarm, metricalarm"
+pattern CompositeAlarm :: AlarmType
+pattern CompositeAlarm = AlarmType' "CompositeAlarm"
 
-instance ToText AlarmType where
-  toText = \case
-    CompositeAlarm -> "CompositeAlarm"
-    MetricAlarm -> "MetricAlarm"
+pattern MetricAlarm :: AlarmType
+pattern MetricAlarm = AlarmType' "MetricAlarm"
 
-instance Hashable AlarmType
-
-instance NFData AlarmType
-
-instance ToByteString AlarmType
-
-instance ToQuery AlarmType
-
-instance ToHeader AlarmType
-
-instance FromXML AlarmType where
-  parseXML = parseXMLText "AlarmType"
+{-# COMPLETE
+  CompositeAlarm,
+  MetricAlarm,
+  AlarmType'
+  #-}

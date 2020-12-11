@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.UpdateActionResultsMessage where
+module Network.AWS.ElastiCache.Types.UpdateActionResultsMessage
+  ( UpdateActionResultsMessage (..),
+
+    -- * Smart constructor
+    mkUpdateActionResultsMessage,
+
+    -- * Lenses
+    uarmUnprocessedUpdateActions,
+    uarmProcessedUpdateActions,
+  )
+where
 
 import Network.AWS.ElastiCache.Types.ProcessedUpdateAction
 import Network.AWS.ElastiCache.Types.UnprocessedUpdateAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
--- | /See:/ 'updateActionResultsMessage' smart constructor.
+-- | /See:/ 'mkUpdateActionResultsMessage' smart constructor.
 data UpdateActionResultsMessage = UpdateActionResultsMessage'
-  { _uarmUnprocessedUpdateActions ::
-      !(Maybe [UnprocessedUpdateAction]),
-    _uarmProcessedUpdateActions ::
-      !(Maybe [ProcessedUpdateAction])
+  { unprocessedUpdateActions ::
+      Lude.Maybe [UnprocessedUpdateAction],
+    processedUpdateActions ::
+      Lude.Maybe [ProcessedUpdateAction]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateActionResultsMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uarmUnprocessedUpdateActions' - Update actions that haven't been processed successfully
---
--- * 'uarmProcessedUpdateActions' - Update actions that have been processed successfully
-updateActionResultsMessage ::
+-- * 'processedUpdateActions' - Update actions that have been processed successfully
+-- * 'unprocessedUpdateActions' - Update actions that haven't been processed successfully
+mkUpdateActionResultsMessage ::
   UpdateActionResultsMessage
-updateActionResultsMessage =
+mkUpdateActionResultsMessage =
   UpdateActionResultsMessage'
-    { _uarmUnprocessedUpdateActions =
-        Nothing,
-      _uarmProcessedUpdateActions = Nothing
+    { unprocessedUpdateActions =
+        Lude.Nothing,
+      processedUpdateActions = Lude.Nothing
     }
 
 -- | Update actions that haven't been processed successfully
-uarmUnprocessedUpdateActions :: Lens' UpdateActionResultsMessage [UnprocessedUpdateAction]
-uarmUnprocessedUpdateActions = lens _uarmUnprocessedUpdateActions (\s a -> s {_uarmUnprocessedUpdateActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'unprocessedUpdateActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarmUnprocessedUpdateActions :: Lens.Lens' UpdateActionResultsMessage (Lude.Maybe [UnprocessedUpdateAction])
+uarmUnprocessedUpdateActions = Lens.lens (unprocessedUpdateActions :: UpdateActionResultsMessage -> Lude.Maybe [UnprocessedUpdateAction]) (\s a -> s {unprocessedUpdateActions = a} :: UpdateActionResultsMessage)
+{-# DEPRECATED uarmUnprocessedUpdateActions "Use generic-lens or generic-optics with 'unprocessedUpdateActions' instead." #-}
 
 -- | Update actions that have been processed successfully
-uarmProcessedUpdateActions :: Lens' UpdateActionResultsMessage [ProcessedUpdateAction]
-uarmProcessedUpdateActions = lens _uarmProcessedUpdateActions (\s a -> s {_uarmProcessedUpdateActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'processedUpdateActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarmProcessedUpdateActions :: Lens.Lens' UpdateActionResultsMessage (Lude.Maybe [ProcessedUpdateAction])
+uarmProcessedUpdateActions = Lens.lens (processedUpdateActions :: UpdateActionResultsMessage -> Lude.Maybe [ProcessedUpdateAction]) (\s a -> s {processedUpdateActions = a} :: UpdateActionResultsMessage)
+{-# DEPRECATED uarmProcessedUpdateActions "Use generic-lens or generic-optics with 'processedUpdateActions' instead." #-}
 
-instance FromXML UpdateActionResultsMessage where
+instance Lude.FromXML UpdateActionResultsMessage where
   parseXML x =
     UpdateActionResultsMessage'
-      <$> ( x .@? "UnprocessedUpdateActions" .!@ mempty
-              >>= may (parseXMLList "UnprocessedUpdateAction")
-          )
-      <*> ( x .@? "ProcessedUpdateActions" .!@ mempty
-              >>= may (parseXMLList "ProcessedUpdateAction")
-          )
-
-instance Hashable UpdateActionResultsMessage
-
-instance NFData UpdateActionResultsMessage
+      Lude.<$> ( x Lude..@? "UnprocessedUpdateActions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "UnprocessedUpdateAction")
+               )
+      Lude.<*> ( x Lude..@? "ProcessedUpdateActions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "ProcessedUpdateAction")
+               )

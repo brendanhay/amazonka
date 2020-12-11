@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MechanicalTurk.Types.QualificationTypeStatus where
+module Network.AWS.MechanicalTurk.Types.QualificationTypeStatus
+  ( QualificationTypeStatus
+      ( QualificationTypeStatus',
+        Active,
+        Inactive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QualificationTypeStatus
-  = Active
-  | Inactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QualificationTypeStatus = QualificationTypeStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QualificationTypeStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "inactive" -> pure Inactive
-      e ->
-        fromTextError $
-          "Failure parsing QualificationTypeStatus from value: '" <> e
-            <> "'. Accepted values: active, inactive"
+pattern Active :: QualificationTypeStatus
+pattern Active = QualificationTypeStatus' "Active"
 
-instance ToText QualificationTypeStatus where
-  toText = \case
-    Active -> "Active"
-    Inactive -> "Inactive"
+pattern Inactive :: QualificationTypeStatus
+pattern Inactive = QualificationTypeStatus' "Inactive"
 
-instance Hashable QualificationTypeStatus
-
-instance NFData QualificationTypeStatus
-
-instance ToByteString QualificationTypeStatus
-
-instance ToQuery QualificationTypeStatus
-
-instance ToHeader QualificationTypeStatus
-
-instance ToJSON QualificationTypeStatus where
-  toJSON = toJSONText
-
-instance FromJSON QualificationTypeStatus where
-  parseJSON = parseJSONText "QualificationTypeStatus"
+{-# COMPLETE
+  Active,
+  Inactive,
+  QualificationTypeStatus'
+  #-}

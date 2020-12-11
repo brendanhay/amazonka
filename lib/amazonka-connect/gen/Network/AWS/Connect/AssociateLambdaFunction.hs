@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,111 @@
 --
 -- Allows the specified Amazon Connect instance to access the specified Lambda function.
 module Network.AWS.Connect.AssociateLambdaFunction
-  ( -- * Creating a Request
-    associateLambdaFunction,
-    AssociateLambdaFunction,
+  ( -- * Creating a request
+    AssociateLambdaFunction (..),
+    mkAssociateLambdaFunction,
 
-    -- * Request Lenses
+    -- ** Request lenses
     alfInstanceId,
     alfFunctionARN,
 
-    -- * Destructuring the Response
-    associateLambdaFunctionResponse,
-    AssociateLambdaFunctionResponse,
+    -- * Destructuring the response
+    AssociateLambdaFunctionResponse (..),
+    mkAssociateLambdaFunctionResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'associateLambdaFunction' smart constructor.
+-- | /See:/ 'mkAssociateLambdaFunction' smart constructor.
 data AssociateLambdaFunction = AssociateLambdaFunction'
-  { _alfInstanceId ::
-      !Text,
-    _alfFunctionARN :: !Text
+  { instanceId ::
+      Lude.Text,
+    functionARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateLambdaFunction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'alfInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'alfFunctionARN' - The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is 140.
-associateLambdaFunction ::
-  -- | 'alfInstanceId'
-  Text ->
-  -- | 'alfFunctionARN'
-  Text ->
+-- * 'functionARN' - The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is 140.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+mkAssociateLambdaFunction ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'functionARN'
+  Lude.Text ->
   AssociateLambdaFunction
-associateLambdaFunction pInstanceId_ pFunctionARN_ =
+mkAssociateLambdaFunction pInstanceId_ pFunctionARN_ =
   AssociateLambdaFunction'
-    { _alfInstanceId = pInstanceId_,
-      _alfFunctionARN = pFunctionARN_
+    { instanceId = pInstanceId_,
+      functionARN = pFunctionARN_
     }
 
 -- | The identifier of the Amazon Connect instance.
-alfInstanceId :: Lens' AssociateLambdaFunction Text
-alfInstanceId = lens _alfInstanceId (\s a -> s {_alfInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alfInstanceId :: Lens.Lens' AssociateLambdaFunction Lude.Text
+alfInstanceId = Lens.lens (instanceId :: AssociateLambdaFunction -> Lude.Text) (\s a -> s {instanceId = a} :: AssociateLambdaFunction)
+{-# DEPRECATED alfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is 140.
-alfFunctionARN :: Lens' AssociateLambdaFunction Text
-alfFunctionARN = lens _alfFunctionARN (\s a -> s {_alfFunctionARN = a})
+--
+-- /Note:/ Consider using 'functionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alfFunctionARN :: Lens.Lens' AssociateLambdaFunction Lude.Text
+alfFunctionARN = Lens.lens (functionARN :: AssociateLambdaFunction -> Lude.Text) (\s a -> s {functionARN = a} :: AssociateLambdaFunction)
+{-# DEPRECATED alfFunctionARN "Use generic-lens or generic-optics with 'functionARN' instead." #-}
 
-instance AWSRequest AssociateLambdaFunction where
+instance Lude.AWSRequest AssociateLambdaFunction where
   type Rs AssociateLambdaFunction = AssociateLambdaFunctionResponse
-  request = putJSON connect
-  response = receiveNull AssociateLambdaFunctionResponse'
+  request = Req.putJSON connectService
+  response = Res.receiveNull AssociateLambdaFunctionResponse'
 
-instance Hashable AssociateLambdaFunction
-
-instance NFData AssociateLambdaFunction
-
-instance ToHeaders AssociateLambdaFunction where
+instance Lude.ToHeaders AssociateLambdaFunction where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON AssociateLambdaFunction where
+instance Lude.ToJSON AssociateLambdaFunction where
   toJSON AssociateLambdaFunction' {..} =
-    object (catMaybes [Just ("FunctionArn" .= _alfFunctionARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("FunctionArn" Lude..= functionARN)])
 
-instance ToPath AssociateLambdaFunction where
+instance Lude.ToPath AssociateLambdaFunction where
   toPath AssociateLambdaFunction' {..} =
-    mconcat ["/instance/", toBS _alfInstanceId, "/lambda-function"]
+    Lude.mconcat
+      ["/instance/", Lude.toBS instanceId, "/lambda-function"]
 
-instance ToQuery AssociateLambdaFunction where
-  toQuery = const mempty
+instance Lude.ToQuery AssociateLambdaFunction where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'associateLambdaFunctionResponse' smart constructor.
+-- | /See:/ 'mkAssociateLambdaFunctionResponse' smart constructor.
 data AssociateLambdaFunctionResponse = AssociateLambdaFunctionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateLambdaFunctionResponse' with the minimum fields required to make a request.
-associateLambdaFunctionResponse ::
+mkAssociateLambdaFunctionResponse ::
   AssociateLambdaFunctionResponse
-associateLambdaFunctionResponse = AssociateLambdaFunctionResponse'
-
-instance NFData AssociateLambdaFunctionResponse
+mkAssociateLambdaFunctionResponse =
+  AssociateLambdaFunctionResponse'

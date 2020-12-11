@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentity.Types.RoleMapping where
+module Network.AWS.CognitoIdentity.Types.RoleMapping
+  ( RoleMapping (..),
+
+    -- * Smart constructor
+    mkRoleMapping,
+
+    -- * Lenses
+    rmRulesConfiguration,
+    rmAmbiguousRoleResolution,
+    rmType,
+  )
+where
 
 import Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType
 import Network.AWS.CognitoIdentity.Types.RoleMappingType
 import Network.AWS.CognitoIdentity.Types.RulesConfigurationType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A role mapping.
 --
---
---
--- /See:/ 'roleMapping' smart constructor.
+-- /See:/ 'mkRoleMapping' smart constructor.
 data RoleMapping = RoleMapping'
-  { _rmRulesConfiguration ::
-      !(Maybe RulesConfigurationType),
-    _rmAmbiguousRoleResolution :: !(Maybe AmbiguousRoleResolutionType),
-    _rmType :: !RoleMappingType
+  { rulesConfiguration ::
+      Lude.Maybe RulesConfigurationType,
+    ambiguousRoleResolution :: Lude.Maybe AmbiguousRoleResolutionType,
+    type' :: RoleMappingType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoleMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'ambiguousRoleResolution' - If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required.
 --
--- * 'rmRulesConfiguration' - The rules to be used for mapping users to roles. If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
+-- Specifies the action to be taken if either no rules match the claim value for the @Rules@ type, or there is no @cognito:preferred_role@ claim and there are multiple @cognito:roles@ matches for the @Token@ type.
+-- * 'rulesConfiguration' - The rules to be used for mapping users to roles.
 --
--- * 'rmAmbiguousRoleResolution' - If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required. Specifies the action to be taken if either no rules match the claim value for the @Rules@ type, or there is no @cognito:preferred_role@ claim and there are multiple @cognito:roles@ matches for the @Token@ type.
---
--- * 'rmType' - The role mapping type. Token will use @cognito:roles@ and @cognito:preferred_role@ claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.
-roleMapping ::
-  -- | 'rmType'
+-- If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
+-- * 'type'' - The role mapping type. Token will use @cognito:roles@ and @cognito:preferred_role@ claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.
+mkRoleMapping ::
+  -- | 'type''
   RoleMappingType ->
   RoleMapping
-roleMapping pType_ =
+mkRoleMapping pType_ =
   RoleMapping'
-    { _rmRulesConfiguration = Nothing,
-      _rmAmbiguousRoleResolution = Nothing,
-      _rmType = pType_
+    { rulesConfiguration = Lude.Nothing,
+      ambiguousRoleResolution = Lude.Nothing,
+      type' = pType_
     }
 
--- | The rules to be used for mapping users to roles. If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
-rmRulesConfiguration :: Lens' RoleMapping (Maybe RulesConfigurationType)
-rmRulesConfiguration = lens _rmRulesConfiguration (\s a -> s {_rmRulesConfiguration = a})
+-- | The rules to be used for mapping users to roles.
+--
+-- If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
+--
+-- /Note:/ Consider using 'rulesConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmRulesConfiguration :: Lens.Lens' RoleMapping (Lude.Maybe RulesConfigurationType)
+rmRulesConfiguration = Lens.lens (rulesConfiguration :: RoleMapping -> Lude.Maybe RulesConfigurationType) (\s a -> s {rulesConfiguration = a} :: RoleMapping)
+{-# DEPRECATED rmRulesConfiguration "Use generic-lens or generic-optics with 'rulesConfiguration' instead." #-}
 
--- | If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required. Specifies the action to be taken if either no rules match the claim value for the @Rules@ type, or there is no @cognito:preferred_role@ claim and there are multiple @cognito:roles@ matches for the @Token@ type.
-rmAmbiguousRoleResolution :: Lens' RoleMapping (Maybe AmbiguousRoleResolutionType)
-rmAmbiguousRoleResolution = lens _rmAmbiguousRoleResolution (\s a -> s {_rmAmbiguousRoleResolution = a})
+-- | If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required.
+--
+-- Specifies the action to be taken if either no rules match the claim value for the @Rules@ type, or there is no @cognito:preferred_role@ claim and there are multiple @cognito:roles@ matches for the @Token@ type.
+--
+-- /Note:/ Consider using 'ambiguousRoleResolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmAmbiguousRoleResolution :: Lens.Lens' RoleMapping (Lude.Maybe AmbiguousRoleResolutionType)
+rmAmbiguousRoleResolution = Lens.lens (ambiguousRoleResolution :: RoleMapping -> Lude.Maybe AmbiguousRoleResolutionType) (\s a -> s {ambiguousRoleResolution = a} :: RoleMapping)
+{-# DEPRECATED rmAmbiguousRoleResolution "Use generic-lens or generic-optics with 'ambiguousRoleResolution' instead." #-}
 
 -- | The role mapping type. Token will use @cognito:roles@ and @cognito:preferred_role@ claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.
-rmType :: Lens' RoleMapping RoleMappingType
-rmType = lens _rmType (\s a -> s {_rmType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmType :: Lens.Lens' RoleMapping RoleMappingType
+rmType = Lens.lens (type' :: RoleMapping -> RoleMappingType) (\s a -> s {type' = a} :: RoleMapping)
+{-# DEPRECATED rmType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON RoleMapping where
+instance Lude.FromJSON RoleMapping where
   parseJSON =
-    withObject
+    Lude.withObject
       "RoleMapping"
       ( \x ->
           RoleMapping'
-            <$> (x .:? "RulesConfiguration")
-            <*> (x .:? "AmbiguousRoleResolution")
-            <*> (x .: "Type")
+            Lude.<$> (x Lude..:? "RulesConfiguration")
+            Lude.<*> (x Lude..:? "AmbiguousRoleResolution")
+            Lude.<*> (x Lude..: "Type")
       )
 
-instance Hashable RoleMapping
-
-instance NFData RoleMapping
-
-instance ToJSON RoleMapping where
+instance Lude.ToJSON RoleMapping where
   toJSON RoleMapping' {..} =
-    object
-      ( catMaybes
-          [ ("RulesConfiguration" .=) <$> _rmRulesConfiguration,
-            ("AmbiguousRoleResolution" .=) <$> _rmAmbiguousRoleResolution,
-            Just ("Type" .= _rmType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RulesConfiguration" Lude..=) Lude.<$> rulesConfiguration,
+            ("AmbiguousRoleResolution" Lude..=)
+              Lude.<$> ambiguousRoleResolution,
+            Lude.Just ("Type" Lude..= type')
           ]
       )

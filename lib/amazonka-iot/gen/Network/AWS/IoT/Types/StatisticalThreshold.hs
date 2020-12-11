@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.StatisticalThreshold where
+module Network.AWS.IoT.Types.StatisticalThreshold
+  ( StatisticalThreshold (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStatisticalThreshold,
+
+    -- * Lenses
+    stStatistic,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 --
---
---
--- /See:/ 'statisticalThreshold' smart constructor.
+-- /See:/ 'mkStatisticalThreshold' smart constructor.
 newtype StatisticalThreshold = StatisticalThreshold'
-  { _stStatistic ::
-      Maybe Text
+  { statistic ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatisticalThreshold' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'stStatistic' - The percentile which resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (@durationSeconds@ ) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (@comparisonOperator@ ) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
-statisticalThreshold ::
+-- * 'statistic' - The percentile which resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (@durationSeconds@ ) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (@comparisonOperator@ ) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
+mkStatisticalThreshold ::
   StatisticalThreshold
-statisticalThreshold =
-  StatisticalThreshold' {_stStatistic = Nothing}
+mkStatisticalThreshold =
+  StatisticalThreshold' {statistic = Lude.Nothing}
 
 -- | The percentile which resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (@durationSeconds@ ) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (@comparisonOperator@ ) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.
-stStatistic :: Lens' StatisticalThreshold (Maybe Text)
-stStatistic = lens _stStatistic (\s a -> s {_stStatistic = a})
+--
+-- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stStatistic :: Lens.Lens' StatisticalThreshold (Lude.Maybe Lude.Text)
+stStatistic = Lens.lens (statistic :: StatisticalThreshold -> Lude.Maybe Lude.Text) (\s a -> s {statistic = a} :: StatisticalThreshold)
+{-# DEPRECATED stStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
 
-instance FromJSON StatisticalThreshold where
+instance Lude.FromJSON StatisticalThreshold where
   parseJSON =
-    withObject
+    Lude.withObject
       "StatisticalThreshold"
-      (\x -> StatisticalThreshold' <$> (x .:? "statistic"))
+      (\x -> StatisticalThreshold' Lude.<$> (x Lude..:? "statistic"))
 
-instance Hashable StatisticalThreshold
-
-instance NFData StatisticalThreshold
-
-instance ToJSON StatisticalThreshold where
+instance Lude.ToJSON StatisticalThreshold where
   toJSON StatisticalThreshold' {..} =
-    object (catMaybes [("statistic" .=) <$> _stStatistic])
+    Lude.object
+      (Lude.catMaybes [("statistic" Lude..=) Lude.<$> statistic])

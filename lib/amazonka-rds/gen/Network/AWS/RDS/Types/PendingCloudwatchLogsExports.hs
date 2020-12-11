@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.PendingCloudwatchLogsExports where
+module Network.AWS.RDS.Types.PendingCloudwatchLogsExports
+  ( PendingCloudwatchLogsExports (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPendingCloudwatchLogsExports,
+
+    -- * Lenses
+    pcleLogTypesToEnable,
+    pcleLogTypesToDisable,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A list of the log types whose configuration is still pending. In other words, these log types are in the process of being activated or deactivated.
 --
---
---
--- /See:/ 'pendingCloudwatchLogsExports' smart constructor.
+-- /See:/ 'mkPendingCloudwatchLogsExports' smart constructor.
 data PendingCloudwatchLogsExports = PendingCloudwatchLogsExports'
-  { _pcleLogTypesToEnable ::
-      !(Maybe [Text]),
-    _pcleLogTypesToDisable ::
-      !(Maybe [Text])
+  { logTypesToEnable ::
+      Lude.Maybe [Lude.Text],
+    logTypesToDisable ::
+      Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingCloudwatchLogsExports' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcleLogTypesToEnable' - Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
---
--- * 'pcleLogTypesToDisable' - Log types that are in the process of being enabled. After they are enabled, these log types are exported to CloudWatch Logs.
-pendingCloudwatchLogsExports ::
+-- * 'logTypesToDisable' - Log types that are in the process of being enabled. After they are enabled, these log types are exported to CloudWatch Logs.
+-- * 'logTypesToEnable' - Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
+mkPendingCloudwatchLogsExports ::
   PendingCloudwatchLogsExports
-pendingCloudwatchLogsExports =
+mkPendingCloudwatchLogsExports =
   PendingCloudwatchLogsExports'
-    { _pcleLogTypesToEnable = Nothing,
-      _pcleLogTypesToDisable = Nothing
+    { logTypesToEnable = Lude.Nothing,
+      logTypesToDisable = Lude.Nothing
     }
 
 -- | Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
-pcleLogTypesToEnable :: Lens' PendingCloudwatchLogsExports [Text]
-pcleLogTypesToEnable = lens _pcleLogTypesToEnable (\s a -> s {_pcleLogTypesToEnable = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'logTypesToEnable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcleLogTypesToEnable :: Lens.Lens' PendingCloudwatchLogsExports (Lude.Maybe [Lude.Text])
+pcleLogTypesToEnable = Lens.lens (logTypesToEnable :: PendingCloudwatchLogsExports -> Lude.Maybe [Lude.Text]) (\s a -> s {logTypesToEnable = a} :: PendingCloudwatchLogsExports)
+{-# DEPRECATED pcleLogTypesToEnable "Use generic-lens or generic-optics with 'logTypesToEnable' instead." #-}
 
 -- | Log types that are in the process of being enabled. After they are enabled, these log types are exported to CloudWatch Logs.
-pcleLogTypesToDisable :: Lens' PendingCloudwatchLogsExports [Text]
-pcleLogTypesToDisable = lens _pcleLogTypesToDisable (\s a -> s {_pcleLogTypesToDisable = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'logTypesToDisable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcleLogTypesToDisable :: Lens.Lens' PendingCloudwatchLogsExports (Lude.Maybe [Lude.Text])
+pcleLogTypesToDisable = Lens.lens (logTypesToDisable :: PendingCloudwatchLogsExports -> Lude.Maybe [Lude.Text]) (\s a -> s {logTypesToDisable = a} :: PendingCloudwatchLogsExports)
+{-# DEPRECATED pcleLogTypesToDisable "Use generic-lens or generic-optics with 'logTypesToDisable' instead." #-}
 
-instance FromXML PendingCloudwatchLogsExports where
+instance Lude.FromXML PendingCloudwatchLogsExports where
   parseXML x =
     PendingCloudwatchLogsExports'
-      <$> ( x .@? "LogTypesToEnable" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-      <*> ( x .@? "LogTypesToDisable" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-
-instance Hashable PendingCloudwatchLogsExports
-
-instance NFData PendingCloudwatchLogsExports
+      Lude.<$> ( x Lude..@? "LogTypesToEnable" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> ( x Lude..@? "LogTypesToDisable" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

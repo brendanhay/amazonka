@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.StateReasonCode where
+module Network.AWS.Lambda.Types.StateReasonCode
+  ( StateReasonCode
+      ( StateReasonCode',
+        Creating,
+        EniLimitExceeded,
+        Idle,
+        InsufficientRolePermissions,
+        InternalError,
+        InvalidConfiguration,
+        InvalidSecurityGroup,
+        InvalidSubnet,
+        Restoring,
+        SubnetOutOfIPAddresses
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StateReasonCode
-  = Creating
-  | EniLimitExceeded
-  | Idle
-  | InsufficientRolePermissions
-  | InternalError
-  | InvalidConfiguration
-  | InvalidSecurityGroup
-  | InvalidSubnet
-  | Restoring
-  | SubnetOutOfIPAddresses
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StateReasonCode = StateReasonCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StateReasonCode where
-  parser =
-    takeLowerText >>= \case
-      "creating" -> pure Creating
-      "enilimitexceeded" -> pure EniLimitExceeded
-      "idle" -> pure Idle
-      "insufficientrolepermissions" -> pure InsufficientRolePermissions
-      "internalerror" -> pure InternalError
-      "invalidconfiguration" -> pure InvalidConfiguration
-      "invalidsecuritygroup" -> pure InvalidSecurityGroup
-      "invalidsubnet" -> pure InvalidSubnet
-      "restoring" -> pure Restoring
-      "subnetoutofipaddresses" -> pure SubnetOutOfIPAddresses
-      e ->
-        fromTextError $
-          "Failure parsing StateReasonCode from value: '" <> e
-            <> "'. Accepted values: creating, enilimitexceeded, idle, insufficientrolepermissions, internalerror, invalidconfiguration, invalidsecuritygroup, invalidsubnet, restoring, subnetoutofipaddresses"
+pattern Creating :: StateReasonCode
+pattern Creating = StateReasonCode' "Creating"
 
-instance ToText StateReasonCode where
-  toText = \case
-    Creating -> "Creating"
-    EniLimitExceeded -> "EniLimitExceeded"
-    Idle -> "Idle"
-    InsufficientRolePermissions -> "InsufficientRolePermissions"
-    InternalError -> "InternalError"
-    InvalidConfiguration -> "InvalidConfiguration"
-    InvalidSecurityGroup -> "InvalidSecurityGroup"
-    InvalidSubnet -> "InvalidSubnet"
-    Restoring -> "Restoring"
-    SubnetOutOfIPAddresses -> "SubnetOutOfIPAddresses"
+pattern EniLimitExceeded :: StateReasonCode
+pattern EniLimitExceeded = StateReasonCode' "EniLimitExceeded"
 
-instance Hashable StateReasonCode
+pattern Idle :: StateReasonCode
+pattern Idle = StateReasonCode' "Idle"
 
-instance NFData StateReasonCode
+pattern InsufficientRolePermissions :: StateReasonCode
+pattern InsufficientRolePermissions = StateReasonCode' "InsufficientRolePermissions"
 
-instance ToByteString StateReasonCode
+pattern InternalError :: StateReasonCode
+pattern InternalError = StateReasonCode' "InternalError"
 
-instance ToQuery StateReasonCode
+pattern InvalidConfiguration :: StateReasonCode
+pattern InvalidConfiguration = StateReasonCode' "InvalidConfiguration"
 
-instance ToHeader StateReasonCode
+pattern InvalidSecurityGroup :: StateReasonCode
+pattern InvalidSecurityGroup = StateReasonCode' "InvalidSecurityGroup"
 
-instance FromJSON StateReasonCode where
-  parseJSON = parseJSONText "StateReasonCode"
+pattern InvalidSubnet :: StateReasonCode
+pattern InvalidSubnet = StateReasonCode' "InvalidSubnet"
+
+pattern Restoring :: StateReasonCode
+pattern Restoring = StateReasonCode' "Restoring"
+
+pattern SubnetOutOfIPAddresses :: StateReasonCode
+pattern SubnetOutOfIPAddresses = StateReasonCode' "SubnetOutOfIPAddresses"
+
+{-# COMPLETE
+  Creating,
+  EniLimitExceeded,
+  Idle,
+  InsufficientRolePermissions,
+  InternalError,
+  InvalidConfiguration,
+  InvalidSecurityGroup,
+  InvalidSubnet,
+  Restoring,
+  SubnetOutOfIPAddresses,
+  StateReasonCode'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.RemixSettings where
+module Network.AWS.MediaLive.Types.RemixSettings
+  ( RemixSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkRemixSettings,
+
+    -- * Lenses
+    rsChannelsIn,
+    rsChannelsOut,
+    rsChannelMappings,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioChannelMapping
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Remix Settings
 --
--- /See:/ 'remixSettings' smart constructor.
+-- /See:/ 'mkRemixSettings' smart constructor.
 data RemixSettings = RemixSettings'
-  { _rsChannelsIn :: !(Maybe Nat),
-    _rsChannelsOut :: !(Maybe Nat),
-    _rsChannelMappings :: ![AudioChannelMapping]
+  { channelsIn ::
+      Lude.Maybe Lude.Natural,
+    channelsOut :: Lude.Maybe Lude.Natural,
+    channelMappings :: [AudioChannelMapping]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemixSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'channelMappings' - Mapping of input channels to output channels, with appropriate gain adjustments.
+-- * 'channelsIn' - Number of input channels to be used.
+-- * 'channelsOut' - Number of output channels to be produced.
 --
--- * 'rsChannelsIn' - Number of input channels to be used.
---
--- * 'rsChannelsOut' - Number of output channels to be produced. Valid values: 1, 2, 4, 6, 8
---
--- * 'rsChannelMappings' - Mapping of input channels to output channels, with appropriate gain adjustments.
-remixSettings ::
+-- Valid values: 1, 2, 4, 6, 8
+mkRemixSettings ::
   RemixSettings
-remixSettings =
+mkRemixSettings =
   RemixSettings'
-    { _rsChannelsIn = Nothing,
-      _rsChannelsOut = Nothing,
-      _rsChannelMappings = mempty
+    { channelsIn = Lude.Nothing,
+      channelsOut = Lude.Nothing,
+      channelMappings = Lude.mempty
     }
 
 -- | Number of input channels to be used.
-rsChannelsIn :: Lens' RemixSettings (Maybe Natural)
-rsChannelsIn = lens _rsChannelsIn (\s a -> s {_rsChannelsIn = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'channelsIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsChannelsIn :: Lens.Lens' RemixSettings (Lude.Maybe Lude.Natural)
+rsChannelsIn = Lens.lens (channelsIn :: RemixSettings -> Lude.Maybe Lude.Natural) (\s a -> s {channelsIn = a} :: RemixSettings)
+{-# DEPRECATED rsChannelsIn "Use generic-lens or generic-optics with 'channelsIn' instead." #-}
 
--- | Number of output channels to be produced. Valid values: 1, 2, 4, 6, 8
-rsChannelsOut :: Lens' RemixSettings (Maybe Natural)
-rsChannelsOut = lens _rsChannelsOut (\s a -> s {_rsChannelsOut = a}) . mapping _Nat
+-- | Number of output channels to be produced.
+--
+-- Valid values: 1, 2, 4, 6, 8
+--
+-- /Note:/ Consider using 'channelsOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsChannelsOut :: Lens.Lens' RemixSettings (Lude.Maybe Lude.Natural)
+rsChannelsOut = Lens.lens (channelsOut :: RemixSettings -> Lude.Maybe Lude.Natural) (\s a -> s {channelsOut = a} :: RemixSettings)
+{-# DEPRECATED rsChannelsOut "Use generic-lens or generic-optics with 'channelsOut' instead." #-}
 
 -- | Mapping of input channels to output channels, with appropriate gain adjustments.
-rsChannelMappings :: Lens' RemixSettings [AudioChannelMapping]
-rsChannelMappings = lens _rsChannelMappings (\s a -> s {_rsChannelMappings = a}) . _Coerce
+--
+-- /Note:/ Consider using 'channelMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsChannelMappings :: Lens.Lens' RemixSettings [AudioChannelMapping]
+rsChannelMappings = Lens.lens (channelMappings :: RemixSettings -> [AudioChannelMapping]) (\s a -> s {channelMappings = a} :: RemixSettings)
+{-# DEPRECATED rsChannelMappings "Use generic-lens or generic-optics with 'channelMappings' instead." #-}
 
-instance FromJSON RemixSettings where
+instance Lude.FromJSON RemixSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "RemixSettings"
       ( \x ->
           RemixSettings'
-            <$> (x .:? "channelsIn")
-            <*> (x .:? "channelsOut")
-            <*> (x .:? "channelMappings" .!= mempty)
+            Lude.<$> (x Lude..:? "channelsIn")
+            Lude.<*> (x Lude..:? "channelsOut")
+            Lude.<*> (x Lude..:? "channelMappings" Lude..!= Lude.mempty)
       )
 
-instance Hashable RemixSettings
-
-instance NFData RemixSettings
-
-instance ToJSON RemixSettings where
+instance Lude.ToJSON RemixSettings where
   toJSON RemixSettings' {..} =
-    object
-      ( catMaybes
-          [ ("channelsIn" .=) <$> _rsChannelsIn,
-            ("channelsOut" .=) <$> _rsChannelsOut,
-            Just ("channelMappings" .= _rsChannelMappings)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("channelsIn" Lude..=) Lude.<$> channelsIn,
+            ("channelsOut" Lude..=) Lude.<$> channelsOut,
+            Lude.Just ("channelMappings" Lude..= channelMappings)
           ]
       )

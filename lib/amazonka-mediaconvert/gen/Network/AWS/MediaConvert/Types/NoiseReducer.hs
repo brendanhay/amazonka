@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,88 +7,111 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.NoiseReducer where
+module Network.AWS.MediaConvert.Types.NoiseReducer
+  ( NoiseReducer (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkNoiseReducer,
+
+    -- * Lenses
+    nrTemporalFilterSettings,
+    nrSpatialFilterSettings,
+    nrFilterSettings,
+    nrFilter,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.NoiseReducerFilter
 import Network.AWS.MediaConvert.Types.NoiseReducerFilterSettings
 import Network.AWS.MediaConvert.Types.NoiseReducerSpatialFilterSettings
 import Network.AWS.MediaConvert.Types.NoiseReducerTemporalFilterSettings
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default. When you enable Noise reducer (NoiseReducer), you must also select a value for Noise reducer filter (NoiseReducerFilter).
 --
--- /See:/ 'noiseReducer' smart constructor.
+-- /See:/ 'mkNoiseReducer' smart constructor.
 data NoiseReducer = NoiseReducer'
-  { _nrTemporalFilterSettings ::
-      !(Maybe NoiseReducerTemporalFilterSettings),
-    _nrSpatialFilterSettings ::
-      !(Maybe NoiseReducerSpatialFilterSettings),
-    _nrFilterSettings :: !(Maybe NoiseReducerFilterSettings),
-    _nrFilter :: !(Maybe NoiseReducerFilter)
+  { temporalFilterSettings ::
+      Lude.Maybe NoiseReducerTemporalFilterSettings,
+    spatialFilterSettings ::
+      Lude.Maybe NoiseReducerSpatialFilterSettings,
+    filterSettings :: Lude.Maybe NoiseReducerFilterSettings,
+    filter :: Lude.Maybe NoiseReducerFilter
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NoiseReducer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'nrTemporalFilterSettings' - Noise reducer filter settings for temporal filter.
---
--- * 'nrSpatialFilterSettings' - Noise reducer filter settings for spatial filter.
---
--- * 'nrFilterSettings' - Settings for a noise reducer filter
---
--- * 'nrFilter' - Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
-noiseReducer ::
+-- * 'filter' - Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
+-- * 'filterSettings' - Settings for a noise reducer filter
+-- * 'spatialFilterSettings' - Noise reducer filter settings for spatial filter.
+-- * 'temporalFilterSettings' - Noise reducer filter settings for temporal filter.
+mkNoiseReducer ::
   NoiseReducer
-noiseReducer =
+mkNoiseReducer =
   NoiseReducer'
-    { _nrTemporalFilterSettings = Nothing,
-      _nrSpatialFilterSettings = Nothing,
-      _nrFilterSettings = Nothing,
-      _nrFilter = Nothing
+    { temporalFilterSettings = Lude.Nothing,
+      spatialFilterSettings = Lude.Nothing,
+      filterSettings = Lude.Nothing,
+      filter = Lude.Nothing
     }
 
 -- | Noise reducer filter settings for temporal filter.
-nrTemporalFilterSettings :: Lens' NoiseReducer (Maybe NoiseReducerTemporalFilterSettings)
-nrTemporalFilterSettings = lens _nrTemporalFilterSettings (\s a -> s {_nrTemporalFilterSettings = a})
+--
+-- /Note:/ Consider using 'temporalFilterSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nrTemporalFilterSettings :: Lens.Lens' NoiseReducer (Lude.Maybe NoiseReducerTemporalFilterSettings)
+nrTemporalFilterSettings = Lens.lens (temporalFilterSettings :: NoiseReducer -> Lude.Maybe NoiseReducerTemporalFilterSettings) (\s a -> s {temporalFilterSettings = a} :: NoiseReducer)
+{-# DEPRECATED nrTemporalFilterSettings "Use generic-lens or generic-optics with 'temporalFilterSettings' instead." #-}
 
 -- | Noise reducer filter settings for spatial filter.
-nrSpatialFilterSettings :: Lens' NoiseReducer (Maybe NoiseReducerSpatialFilterSettings)
-nrSpatialFilterSettings = lens _nrSpatialFilterSettings (\s a -> s {_nrSpatialFilterSettings = a})
+--
+-- /Note:/ Consider using 'spatialFilterSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nrSpatialFilterSettings :: Lens.Lens' NoiseReducer (Lude.Maybe NoiseReducerSpatialFilterSettings)
+nrSpatialFilterSettings = Lens.lens (spatialFilterSettings :: NoiseReducer -> Lude.Maybe NoiseReducerSpatialFilterSettings) (\s a -> s {spatialFilterSettings = a} :: NoiseReducer)
+{-# DEPRECATED nrSpatialFilterSettings "Use generic-lens or generic-optics with 'spatialFilterSettings' instead." #-}
 
 -- | Settings for a noise reducer filter
-nrFilterSettings :: Lens' NoiseReducer (Maybe NoiseReducerFilterSettings)
-nrFilterSettings = lens _nrFilterSettings (\s a -> s {_nrFilterSettings = a})
+--
+-- /Note:/ Consider using 'filterSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nrFilterSettings :: Lens.Lens' NoiseReducer (Lude.Maybe NoiseReducerFilterSettings)
+nrFilterSettings = Lens.lens (filterSettings :: NoiseReducer -> Lude.Maybe NoiseReducerFilterSettings) (\s a -> s {filterSettings = a} :: NoiseReducer)
+{-# DEPRECATED nrFilterSettings "Use generic-lens or generic-optics with 'filterSettings' instead." #-}
 
 -- | Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
-nrFilter :: Lens' NoiseReducer (Maybe NoiseReducerFilter)
-nrFilter = lens _nrFilter (\s a -> s {_nrFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nrFilter :: Lens.Lens' NoiseReducer (Lude.Maybe NoiseReducerFilter)
+nrFilter = Lens.lens (filter :: NoiseReducer -> Lude.Maybe NoiseReducerFilter) (\s a -> s {filter = a} :: NoiseReducer)
+{-# DEPRECATED nrFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
-instance FromJSON NoiseReducer where
+instance Lude.FromJSON NoiseReducer where
   parseJSON =
-    withObject
+    Lude.withObject
       "NoiseReducer"
       ( \x ->
           NoiseReducer'
-            <$> (x .:? "temporalFilterSettings")
-            <*> (x .:? "spatialFilterSettings")
-            <*> (x .:? "filterSettings")
-            <*> (x .:? "filter")
+            Lude.<$> (x Lude..:? "temporalFilterSettings")
+            Lude.<*> (x Lude..:? "spatialFilterSettings")
+            Lude.<*> (x Lude..:? "filterSettings")
+            Lude.<*> (x Lude..:? "filter")
       )
 
-instance Hashable NoiseReducer
-
-instance NFData NoiseReducer
-
-instance ToJSON NoiseReducer where
+instance Lude.ToJSON NoiseReducer where
   toJSON NoiseReducer' {..} =
-    object
-      ( catMaybes
-          [ ("temporalFilterSettings" .=) <$> _nrTemporalFilterSettings,
-            ("spatialFilterSettings" .=) <$> _nrSpatialFilterSettings,
-            ("filterSettings" .=) <$> _nrFilterSettings,
-            ("filter" .=) <$> _nrFilter
+    Lude.object
+      ( Lude.catMaybes
+          [ ("temporalFilterSettings" Lude..=)
+              Lude.<$> temporalFilterSettings,
+            ("spatialFilterSettings" Lude..=) Lude.<$> spatialFilterSettings,
+            ("filterSettings" Lude..=) Lude.<$> filterSettings,
+            ("filter" Lude..=) Lude.<$> filter
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.InputDeblockFilter where
+module Network.AWS.MediaConvert.Types.InputDeblockFilter
+  ( InputDeblockFilter
+      ( InputDeblockFilter',
+        IDFDisabled,
+        IDFEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Enable Deblock (InputDeblockFilter) to produce smoother motion in the output. Default is disabled. Only manually controllable for MPEG2 and uncompressed video inputs.
-data InputDeblockFilter
-  = IDFDisabled
-  | IDFEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputDeblockFilter = InputDeblockFilter' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputDeblockFilter where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure IDFDisabled
-      "enabled" -> pure IDFEnabled
-      e ->
-        fromTextError $
-          "Failure parsing InputDeblockFilter from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern IDFDisabled :: InputDeblockFilter
+pattern IDFDisabled = InputDeblockFilter' "DISABLED"
 
-instance ToText InputDeblockFilter where
-  toText = \case
-    IDFDisabled -> "DISABLED"
-    IDFEnabled -> "ENABLED"
+pattern IDFEnabled :: InputDeblockFilter
+pattern IDFEnabled = InputDeblockFilter' "ENABLED"
 
-instance Hashable InputDeblockFilter
-
-instance NFData InputDeblockFilter
-
-instance ToByteString InputDeblockFilter
-
-instance ToQuery InputDeblockFilter
-
-instance ToHeader InputDeblockFilter
-
-instance ToJSON InputDeblockFilter where
-  toJSON = toJSONText
-
-instance FromJSON InputDeblockFilter where
-  parseJSON = parseJSONText "InputDeblockFilter"
+{-# COMPLETE
+  IDFDisabled,
+  IDFEnabled,
+  InputDeblockFilter'
+  #-}

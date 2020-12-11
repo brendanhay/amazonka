@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.ServiceFilterName where
+module Network.AWS.Route53AutoNaming.Types.ServiceFilterName
+  ( ServiceFilterName
+      ( ServiceFilterName',
+        NamespaceId
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ServiceFilterName = NamespaceId
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ServiceFilterName = ServiceFilterName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ServiceFilterName where
-  parser =
-    takeLowerText >>= \case
-      "namespace_id" -> pure NamespaceId
-      e ->
-        fromTextError $
-          "Failure parsing ServiceFilterName from value: '" <> e
-            <> "'. Accepted values: namespace_id"
+pattern NamespaceId :: ServiceFilterName
+pattern NamespaceId = ServiceFilterName' "NAMESPACE_ID"
 
-instance ToText ServiceFilterName where
-  toText = \case
-    NamespaceId -> "NAMESPACE_ID"
-
-instance Hashable ServiceFilterName
-
-instance NFData ServiceFilterName
-
-instance ToByteString ServiceFilterName
-
-instance ToQuery ServiceFilterName
-
-instance ToHeader ServiceFilterName
-
-instance ToJSON ServiceFilterName where
-  toJSON = toJSONText
+{-# COMPLETE
+  NamespaceId,
+  ServiceFilterName'
+  #-}

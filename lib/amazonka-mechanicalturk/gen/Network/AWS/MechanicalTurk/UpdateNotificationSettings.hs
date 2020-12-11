@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,154 @@
 --
 -- The @UpdateNotificationSettings@ operation creates, updates, disables or re-enables notifications for a HIT type. If you call the UpdateNotificationSettings operation for a HIT type that already has a notification specification, the operation replaces the old specification with a new one. You can call the UpdateNotificationSettings operation to enable or disable notifications for the HIT type, without having to modify the notification specification itself by providing updates to the Active status without specifying a new notification specification. To change the Active status of a HIT type's notifications, the HIT type must already have a notification specification, or one must be provided in the same call to @UpdateNotificationSettings@ .
 module Network.AWS.MechanicalTurk.UpdateNotificationSettings
-  ( -- * Creating a Request
-    updateNotificationSettings,
-    UpdateNotificationSettings,
+  ( -- * Creating a request
+    UpdateNotificationSettings (..),
+    mkUpdateNotificationSettings,
 
-    -- * Request Lenses
+    -- ** Request lenses
     unsNotification,
     unsActive,
     unsHITTypeId,
 
-    -- * Destructuring the Response
-    updateNotificationSettingsResponse,
-    UpdateNotificationSettingsResponse,
+    -- * Destructuring the response
+    UpdateNotificationSettingsResponse (..),
+    mkUpdateNotificationSettingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     unsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateNotificationSettings' smart constructor.
+-- | /See:/ 'mkUpdateNotificationSettings' smart constructor.
 data UpdateNotificationSettings = UpdateNotificationSettings'
-  { _unsNotification ::
-      !(Maybe NotificationSpecification),
-    _unsActive :: !(Maybe Bool),
-    _unsHITTypeId :: !Text
+  { notification ::
+      Lude.Maybe NotificationSpecification,
+    active :: Lude.Maybe Lude.Bool,
+    hITTypeId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotificationSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'unsNotification' - The notification specification for the HIT type.
---
--- * 'unsActive' - Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed.
---
--- * 'unsHITTypeId' - The ID of the HIT type whose notification specification is being updated.
-updateNotificationSettings ::
-  -- | 'unsHITTypeId'
-  Text ->
+-- * 'active' - Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed.
+-- * 'hITTypeId' - The ID of the HIT type whose notification specification is being updated.
+-- * 'notification' - The notification specification for the HIT type.
+mkUpdateNotificationSettings ::
+  -- | 'hITTypeId'
+  Lude.Text ->
   UpdateNotificationSettings
-updateNotificationSettings pHITTypeId_ =
+mkUpdateNotificationSettings pHITTypeId_ =
   UpdateNotificationSettings'
-    { _unsNotification = Nothing,
-      _unsActive = Nothing,
-      _unsHITTypeId = pHITTypeId_
+    { notification = Lude.Nothing,
+      active = Lude.Nothing,
+      hITTypeId = pHITTypeId_
     }
 
 -- | The notification specification for the HIT type.
-unsNotification :: Lens' UpdateNotificationSettings (Maybe NotificationSpecification)
-unsNotification = lens _unsNotification (\s a -> s {_unsNotification = a})
+--
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unsNotification :: Lens.Lens' UpdateNotificationSettings (Lude.Maybe NotificationSpecification)
+unsNotification = Lens.lens (notification :: UpdateNotificationSettings -> Lude.Maybe NotificationSpecification) (\s a -> s {notification = a} :: UpdateNotificationSettings)
+{-# DEPRECATED unsNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
 -- | Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed.
-unsActive :: Lens' UpdateNotificationSettings (Maybe Bool)
-unsActive = lens _unsActive (\s a -> s {_unsActive = a})
+--
+-- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unsActive :: Lens.Lens' UpdateNotificationSettings (Lude.Maybe Lude.Bool)
+unsActive = Lens.lens (active :: UpdateNotificationSettings -> Lude.Maybe Lude.Bool) (\s a -> s {active = a} :: UpdateNotificationSettings)
+{-# DEPRECATED unsActive "Use generic-lens or generic-optics with 'active' instead." #-}
 
 -- | The ID of the HIT type whose notification specification is being updated.
-unsHITTypeId :: Lens' UpdateNotificationSettings Text
-unsHITTypeId = lens _unsHITTypeId (\s a -> s {_unsHITTypeId = a})
+--
+-- /Note:/ Consider using 'hITTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unsHITTypeId :: Lens.Lens' UpdateNotificationSettings Lude.Text
+unsHITTypeId = Lens.lens (hITTypeId :: UpdateNotificationSettings -> Lude.Text) (\s a -> s {hITTypeId = a} :: UpdateNotificationSettings)
+{-# DEPRECATED unsHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
 
-instance AWSRequest UpdateNotificationSettings where
+instance Lude.AWSRequest UpdateNotificationSettings where
   type
     Rs UpdateNotificationSettings =
       UpdateNotificationSettingsResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateNotificationSettingsResponse' <$> (pure (fromEnum s))
+          UpdateNotificationSettingsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateNotificationSettings
-
-instance NFData UpdateNotificationSettings
-
-instance ToHeaders UpdateNotificationSettings where
+instance Lude.ToHeaders UpdateNotificationSettings where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "MTurkRequesterServiceV20170117.UpdateNotificationSettings" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.UpdateNotificationSettings" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateNotificationSettings where
+instance Lude.ToJSON UpdateNotificationSettings where
   toJSON UpdateNotificationSettings' {..} =
-    object
-      ( catMaybes
-          [ ("Notification" .=) <$> _unsNotification,
-            ("Active" .=) <$> _unsActive,
-            Just ("HITTypeId" .= _unsHITTypeId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Notification" Lude..=) Lude.<$> notification,
+            ("Active" Lude..=) Lude.<$> active,
+            Lude.Just ("HITTypeId" Lude..= hITTypeId)
           ]
       )
 
-instance ToPath UpdateNotificationSettings where
-  toPath = const "/"
+instance Lude.ToPath UpdateNotificationSettings where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateNotificationSettings where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateNotificationSettings where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateNotificationSettingsResponse' smart constructor.
+-- | /See:/ 'mkUpdateNotificationSettingsResponse' smart constructor.
 newtype UpdateNotificationSettingsResponse = UpdateNotificationSettingsResponse'
-  { _unsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotificationSettingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'unsrsResponseStatus' - -- | The response status code.
-updateNotificationSettingsResponse ::
-  -- | 'unsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateNotificationSettingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateNotificationSettingsResponse
-updateNotificationSettingsResponse pResponseStatus_ =
+mkUpdateNotificationSettingsResponse pResponseStatus_ =
   UpdateNotificationSettingsResponse'
-    { _unsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-unsrsResponseStatus :: Lens' UpdateNotificationSettingsResponse Int
-unsrsResponseStatus = lens _unsrsResponseStatus (\s a -> s {_unsrsResponseStatus = a})
-
-instance NFData UpdateNotificationSettingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unsrsResponseStatus :: Lens.Lens' UpdateNotificationSettingsResponse Lude.Int
+unsrsResponseStatus = Lens.lens (responseStatus :: UpdateNotificationSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateNotificationSettingsResponse)
+{-# DEPRECATED unsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

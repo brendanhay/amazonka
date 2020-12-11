@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.ErrorDetails where
+module Network.AWS.Glue.Types.ErrorDetails
+  ( ErrorDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkErrorDetails,
+
+    -- * Lenses
+    eErrorCode,
+    eErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object containing error details.
 --
---
---
--- /See:/ 'errorDetails' smart constructor.
+-- /See:/ 'mkErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
-  { _eErrorCode :: !(Maybe Text),
-    _eErrorMessage :: !(Maybe Text)
+  { errorCode ::
+      Lude.Maybe Lude.Text,
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ErrorDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eErrorCode' - The error code for an error.
---
--- * 'eErrorMessage' - The error message for an error.
-errorDetails ::
+-- * 'errorCode' - The error code for an error.
+-- * 'errorMessage' - The error message for an error.
+mkErrorDetails ::
   ErrorDetails
-errorDetails =
-  ErrorDetails' {_eErrorCode = Nothing, _eErrorMessage = Nothing}
+mkErrorDetails =
+  ErrorDetails'
+    { errorCode = Lude.Nothing,
+      errorMessage = Lude.Nothing
+    }
 
 -- | The error code for an error.
-eErrorCode :: Lens' ErrorDetails (Maybe Text)
-eErrorCode = lens _eErrorCode (\s a -> s {_eErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eErrorCode :: Lens.Lens' ErrorDetails (Lude.Maybe Lude.Text)
+eErrorCode = Lens.lens (errorCode :: ErrorDetails -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: ErrorDetails)
+{-# DEPRECATED eErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message for an error.
-eErrorMessage :: Lens' ErrorDetails (Maybe Text)
-eErrorMessage = lens _eErrorMessage (\s a -> s {_eErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eErrorMessage :: Lens.Lens' ErrorDetails (Lude.Maybe Lude.Text)
+eErrorMessage = Lens.lens (errorMessage :: ErrorDetails -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: ErrorDetails)
+{-# DEPRECATED eErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON ErrorDetails where
+instance Lude.FromJSON ErrorDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "ErrorDetails"
       ( \x ->
-          ErrorDetails' <$> (x .:? "ErrorCode") <*> (x .:? "ErrorMessage")
+          ErrorDetails'
+            Lude.<$> (x Lude..:? "ErrorCode") Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable ErrorDetails
-
-instance NFData ErrorDetails

@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types
-  ( -- * Service Configuration
-    serviceCatalog,
+  ( -- * Service configuration
+    serviceCatalogService,
 
     -- * Errors
 
@@ -115,24 +113,24 @@ module Network.AWS.ServiceCatalog.Types
     StackSetOperationType (..),
 
     -- * AccessLevelFilter
-    AccessLevelFilter,
-    accessLevelFilter,
+    AccessLevelFilter (..),
+    mkAccessLevelFilter,
     alfValue,
     alfKey,
 
     -- * BudgetDetail
-    BudgetDetail,
-    budgetDetail,
+    BudgetDetail (..),
+    mkBudgetDetail,
     bdBudgetName,
 
     -- * CloudWatchDashboard
-    CloudWatchDashboard,
-    cloudWatchDashboard,
+    CloudWatchDashboard (..),
+    mkCloudWatchDashboard,
     cwdName,
 
     -- * ConstraintDetail
-    ConstraintDetail,
-    constraintDetail,
+    ConstraintDetail (..),
+    mkConstraintDetail,
     cdPortfolioId,
     cdConstraintId,
     cdOwner,
@@ -141,21 +139,21 @@ module Network.AWS.ServiceCatalog.Types
     cdProductId,
 
     -- * ConstraintSummary
-    ConstraintSummary,
-    constraintSummary,
+    ConstraintSummary (..),
+    mkConstraintSummary,
     csType,
     csDescription,
 
     -- * ExecutionParameter
-    ExecutionParameter,
-    executionParameter,
+    ExecutionParameter (..),
+    mkExecutionParameter,
     epDefaultValues,
     epName,
     epType,
 
     -- * FailedServiceActionAssociation
-    FailedServiceActionAssociation,
-    failedServiceActionAssociation,
+    FailedServiceActionAssociation (..),
+    mkFailedServiceActionAssociation,
     fsaaProvisioningArtifactId,
     fsaaErrorCode,
     fsaaErrorMessage,
@@ -163,46 +161,46 @@ module Network.AWS.ServiceCatalog.Types
     fsaaProductId,
 
     -- * LaunchPath
-    LaunchPath,
-    launchPath,
+    LaunchPath (..),
+    mkLaunchPath,
     lpName,
     lpId,
 
     -- * LaunchPathSummary
-    LaunchPathSummary,
-    launchPathSummary,
+    LaunchPathSummary (..),
+    mkLaunchPathSummary,
     lpsConstraintSummaries,
     lpsName,
     lpsId,
     lpsTags,
 
     -- * ListRecordHistorySearchFilter
-    ListRecordHistorySearchFilter,
-    listRecordHistorySearchFilter,
+    ListRecordHistorySearchFilter (..),
+    mkListRecordHistorySearchFilter,
     lrhsfValue,
     lrhsfKey,
 
     -- * ListTagOptionsFilters
-    ListTagOptionsFilters,
-    listTagOptionsFilters,
+    ListTagOptionsFilters (..),
+    mkListTagOptionsFilters,
     ltofValue,
     ltofActive,
     ltofKey,
 
     -- * OrganizationNode
-    OrganizationNode,
-    organizationNode,
+    OrganizationNode (..),
+    mkOrganizationNode,
     onValue,
     onType,
 
     -- * ParameterConstraints
-    ParameterConstraints,
-    parameterConstraints,
+    ParameterConstraints (..),
+    mkParameterConstraints,
     pcAllowedValues,
 
     -- * PortfolioDetail
-    PortfolioDetail,
-    portfolioDetail,
+    PortfolioDetail (..),
+    mkPortfolioDetail,
     pdARN,
     pdCreatedTime,
     pdId,
@@ -211,28 +209,28 @@ module Network.AWS.ServiceCatalog.Types
     pdProviderName,
 
     -- * Principal
-    Principal,
-    principal,
+    Principal (..),
+    mkPrincipal,
     pPrincipalType,
     pPrincipalARN,
 
     -- * ProductViewAggregationValue
-    ProductViewAggregationValue,
-    productViewAggregationValue,
+    ProductViewAggregationValue (..),
+    mkProductViewAggregationValue,
     pvavValue,
     pvavApproximateCount,
 
     -- * ProductViewDetail
-    ProductViewDetail,
-    productViewDetail,
+    ProductViewDetail (..),
+    mkProductViewDetail,
     pvdStatus,
     pvdProductViewSummary,
     pvdCreatedTime,
     pvdProductARN,
 
     -- * ProductViewSummary
-    ProductViewSummary,
-    productViewSummary,
+    ProductViewSummary (..),
+    mkProductViewSummary,
     pvsOwner,
     pvsSupportURL,
     pvsShortDescription,
@@ -246,8 +244,8 @@ module Network.AWS.ServiceCatalog.Types
     pvsSupportDescription,
 
     -- * ProvisionedProductAttribute
-    ProvisionedProductAttribute,
-    provisionedProductAttribute,
+    ProvisionedProductAttribute (..),
+    mkProvisionedProductAttribute,
     ppaIdempotencyToken,
     ppaStatus,
     ppaProductName,
@@ -269,8 +267,8 @@ module Network.AWS.ServiceCatalog.Types
     ppaTags,
 
     -- * ProvisionedProductDetail
-    ProvisionedProductDetail,
-    provisionedProductDetail,
+    ProvisionedProductDetail (..),
+    mkProvisionedProductDetail,
     ppdLaunchRoleARN,
     ppdIdempotencyToken,
     ppdStatus,
@@ -287,8 +285,8 @@ module Network.AWS.ServiceCatalog.Types
     ppdProductId,
 
     -- * ProvisionedProductPlanDetails
-    ProvisionedProductPlanDetails,
-    provisionedProductPlanDetails,
+    ProvisionedProductPlanDetails (..),
+    mkProvisionedProductPlanDetails,
     pppdStatus,
     pppdProvisionProductId,
     pppdProvisioningArtifactId,
@@ -306,8 +304,8 @@ module Network.AWS.ServiceCatalog.Types
     pppdTags,
 
     -- * ProvisionedProductPlanSummary
-    ProvisionedProductPlanSummary,
-    provisionedProductPlanSummary,
+    ProvisionedProductPlanSummary (..),
+    mkProvisionedProductPlanSummary,
     pppsProvisionProductId,
     pppsProvisioningArtifactId,
     pppsProvisionProductName,
@@ -316,8 +314,8 @@ module Network.AWS.ServiceCatalog.Types
     pppsPlanType,
 
     -- * ProvisioningArtifact
-    ProvisioningArtifact,
-    provisioningArtifact,
+    ProvisioningArtifact (..),
+    mkProvisioningArtifact,
     paCreatedTime,
     paName,
     paId,
@@ -325,8 +323,8 @@ module Network.AWS.ServiceCatalog.Types
     paDescription,
 
     -- * ProvisioningArtifactDetail
-    ProvisioningArtifactDetail,
-    provisioningArtifactDetail,
+    ProvisioningArtifactDetail (..),
+    mkProvisioningArtifactDetail,
     padCreatedTime,
     padActive,
     padName,
@@ -336,14 +334,14 @@ module Network.AWS.ServiceCatalog.Types
     padDescription,
 
     -- * ProvisioningArtifactOutput
-    ProvisioningArtifactOutput,
-    provisioningArtifactOutput,
+    ProvisioningArtifactOutput (..),
+    mkProvisioningArtifactOutput,
     paoKey,
     paoDescription,
 
     -- * ProvisioningArtifactParameter
-    ProvisioningArtifactParameter,
-    provisioningArtifactParameter,
+    ProvisioningArtifactParameter (..),
+    mkProvisioningArtifactParameter,
     pIsNoEcho,
     pParameterKey,
     pParameterType,
@@ -352,14 +350,14 @@ module Network.AWS.ServiceCatalog.Types
     pDescription,
 
     -- * ProvisioningArtifactPreferences
-    ProvisioningArtifactPreferences,
-    provisioningArtifactPreferences,
+    ProvisioningArtifactPreferences (..),
+    mkProvisioningArtifactPreferences,
     papStackSetRegions,
     papStackSetAccounts,
 
     -- * ProvisioningArtifactProperties
-    ProvisioningArtifactProperties,
-    provisioningArtifactProperties,
+    ProvisioningArtifactProperties (..),
+    mkProvisioningArtifactProperties,
     papDisableTemplateValidation,
     papName,
     papType,
@@ -367,8 +365,8 @@ module Network.AWS.ServiceCatalog.Types
     papInfo,
 
     -- * ProvisioningArtifactSummary
-    ProvisioningArtifactSummary,
-    provisioningArtifactSummary,
+    ProvisioningArtifactSummary (..),
+    mkProvisioningArtifactSummary,
     pasProvisioningArtifactMetadata,
     pasCreatedTime,
     pasName,
@@ -376,20 +374,20 @@ module Network.AWS.ServiceCatalog.Types
     pasDescription,
 
     -- * ProvisioningArtifactView
-    ProvisioningArtifactView,
-    provisioningArtifactView,
+    ProvisioningArtifactView (..),
+    mkProvisioningArtifactView,
     pavProductViewSummary,
     pavProvisioningArtifact,
 
     -- * ProvisioningParameter
-    ProvisioningParameter,
-    provisioningParameter,
+    ProvisioningParameter (..),
+    mkProvisioningParameter,
     ppValue,
     ppKey,
 
     -- * ProvisioningPreferences
-    ProvisioningPreferences,
-    provisioningPreferences,
+    ProvisioningPreferences (..),
+    mkProvisioningPreferences,
     ppStackSetRegions,
     ppStackSetMaxConcurrencyPercentage,
     ppStackSetFailureToleranceCount,
@@ -398,8 +396,8 @@ module Network.AWS.ServiceCatalog.Types
     ppStackSetMaxConcurrencyCount,
 
     -- * RecordDetail
-    RecordDetail,
-    recordDetail,
+    RecordDetail (..),
+    mkRecordDetail,
     rdLaunchRoleARN,
     rdStatus,
     rdRecordTags,
@@ -416,27 +414,27 @@ module Network.AWS.ServiceCatalog.Types
     rdProductId,
 
     -- * RecordError
-    RecordError,
-    recordError,
+    RecordError (..),
+    mkRecordError,
     reCode,
     reDescription,
 
     -- * RecordOutput
-    RecordOutput,
-    recordOutput,
+    RecordOutput (..),
+    mkRecordOutput,
     roOutputValue,
     roOutputKey,
     roDescription,
 
     -- * RecordTag
-    RecordTag,
-    recordTag,
+    RecordTag (..),
+    mkRecordTag,
     rtValue,
     rtKey,
 
     -- * ResourceChange
-    ResourceChange,
-    resourceChange,
+    ResourceChange (..),
+    mkResourceChange,
     rcLogicalResourceId,
     rcPhysicalResourceId,
     rcResourceType,
@@ -446,15 +444,15 @@ module Network.AWS.ServiceCatalog.Types
     rcReplacement,
 
     -- * ResourceChangeDetail
-    ResourceChangeDetail,
-    resourceChangeDetail,
+    ResourceChangeDetail (..),
+    mkResourceChangeDetail,
     rcdCausingEntity,
     rcdEvaluation,
     rcdTarget,
 
     -- * ResourceDetail
-    ResourceDetail,
-    resourceDetail,
+    ResourceDetail (..),
+    mkResourceDetail,
     rARN,
     rCreatedTime,
     rName,
@@ -462,83 +460,83 @@ module Network.AWS.ServiceCatalog.Types
     rDescription,
 
     -- * ResourceTargetDefinition
-    ResourceTargetDefinition,
-    resourceTargetDefinition,
+    ResourceTargetDefinition (..),
+    mkResourceTargetDefinition,
     rtdAttribute,
     rtdRequiresRecreation,
     rtdName,
 
     -- * ServiceActionAssociation
-    ServiceActionAssociation,
-    serviceActionAssociation,
+    ServiceActionAssociation (..),
+    mkServiceActionAssociation,
     saaServiceActionId,
     saaProductId,
     saaProvisioningArtifactId,
 
     -- * ServiceActionDetail
-    ServiceActionDetail,
-    serviceActionDetail,
+    ServiceActionDetail (..),
+    mkServiceActionDetail,
     sadServiceActionSummary,
     sadDefinition,
 
     -- * ServiceActionSummary
-    ServiceActionSummary,
-    serviceActionSummary,
+    ServiceActionSummary (..),
+    mkServiceActionSummary,
     sasName,
     sasId,
     sasDefinitionType,
     sasDescription,
 
     -- * ShareDetails
-    ShareDetails,
-    shareDetails,
+    ShareDetails (..),
+    mkShareDetails,
     sdShareErrors,
     sdSuccessfulShares,
 
     -- * ShareError
-    ShareError,
-    shareError,
+    ShareError (..),
+    mkShareError,
     seAccounts,
     seError,
     seMessage,
 
     -- * StackInstance
-    StackInstance,
-    stackInstance,
+    StackInstance (..),
+    mkStackInstance,
     siAccount,
     siRegion,
     siStackInstanceStatus,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- * TagOptionDetail
-    TagOptionDetail,
-    tagOptionDetail,
+    TagOptionDetail (..),
+    mkTagOptionDetail,
     todValue,
     todActive,
     todKey,
     todId,
 
     -- * TagOptionSummary
-    TagOptionSummary,
-    tagOptionSummary,
+    TagOptionSummary (..),
+    mkTagOptionSummary,
     tosValues,
     tosKey,
 
     -- * UpdateProvisioningParameter
-    UpdateProvisioningParameter,
-    updateProvisioningParameter,
+    UpdateProvisioningParameter (..),
+    mkUpdateProvisioningParameter,
     uppValue,
     uppKey,
     uppUsePreviousValue,
 
     -- * UpdateProvisioningPreferences
-    UpdateProvisioningPreferences,
-    updateProvisioningPreferences,
+    UpdateProvisioningPreferences (..),
+    mkUpdateProvisioningPreferences,
     uppStackSetRegions,
     uppStackSetMaxConcurrencyPercentage,
     uppStackSetFailureToleranceCount,
@@ -548,15 +546,15 @@ module Network.AWS.ServiceCatalog.Types
     uppStackSetOperationType,
 
     -- * UsageInstruction
-    UsageInstruction,
-    usageInstruction,
+    UsageInstruction (..),
+    mkUsageInstruction,
     uiValue,
     uiType,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.AccessLevelFilter
 import Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
 import Network.AWS.ServiceCatalog.Types.AccessStatus
@@ -642,46 +640,58 @@ import Network.AWS.ServiceCatalog.Types.TagOptionSummary
 import Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter
 import Network.AWS.ServiceCatalog.Types.UpdateProvisioningPreferences
 import Network.AWS.ServiceCatalog.Types.UsageInstruction
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-12-10@ of the Amazon Service Catalog SDK configuration.
-serviceCatalog :: Service
-serviceCatalog =
-  Service
-    { _svcAbbrev = "ServiceCatalog",
-      _svcSigner = v4,
-      _svcPrefix = "servicecatalog",
-      _svcVersion = "2015-12-10",
-      _svcEndpoint = defaultEndpoint serviceCatalog,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "ServiceCatalog",
-      _svcRetry = retry
+serviceCatalogService :: Lude.Service
+serviceCatalogService =
+  Lude.Service
+    { Lude._svcAbbrev = "ServiceCatalog",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "servicecatalog",
+      Lude._svcVersion = "2015-12-10",
+      Lude._svcEndpoint = Lude.defaultEndpoint serviceCatalogService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "ServiceCatalog",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

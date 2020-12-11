@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.LaunchTemplateTagSpecification where
+module Network.AWS.EC2.Types.LaunchTemplateTagSpecification
+  ( LaunchTemplateTagSpecification (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkLaunchTemplateTagSpecification,
+
+    -- * Lenses
+    lttsResourceType,
+    lttsTags,
+  )
+where
+
 import Network.AWS.EC2.Types.ResourceType
 import Network.AWS.EC2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The tag specification for the launch template.
 --
---
---
--- /See:/ 'launchTemplateTagSpecification' smart constructor.
+-- /See:/ 'mkLaunchTemplateTagSpecification' smart constructor.
 data LaunchTemplateTagSpecification = LaunchTemplateTagSpecification'
-  { _lttsResourceType ::
-      !(Maybe ResourceType),
-    _lttsTags :: !(Maybe [Tag])
+  { resourceType ::
+      Lude.Maybe ResourceType,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateTagSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lttsResourceType' - The type of resource.
---
--- * 'lttsTags' - The tags for the resource.
-launchTemplateTagSpecification ::
+-- * 'resourceType' - The type of resource.
+-- * 'tags' - The tags for the resource.
+mkLaunchTemplateTagSpecification ::
   LaunchTemplateTagSpecification
-launchTemplateTagSpecification =
+mkLaunchTemplateTagSpecification =
   LaunchTemplateTagSpecification'
-    { _lttsResourceType = Nothing,
-      _lttsTags = Nothing
+    { resourceType = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The type of resource.
-lttsResourceType :: Lens' LaunchTemplateTagSpecification (Maybe ResourceType)
-lttsResourceType = lens _lttsResourceType (\s a -> s {_lttsResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lttsResourceType :: Lens.Lens' LaunchTemplateTagSpecification (Lude.Maybe ResourceType)
+lttsResourceType = Lens.lens (resourceType :: LaunchTemplateTagSpecification -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: LaunchTemplateTagSpecification)
+{-# DEPRECATED lttsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The tags for the resource.
-lttsTags :: Lens' LaunchTemplateTagSpecification [Tag]
-lttsTags = lens _lttsTags (\s a -> s {_lttsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lttsTags :: Lens.Lens' LaunchTemplateTagSpecification (Lude.Maybe [Tag])
+lttsTags = Lens.lens (tags :: LaunchTemplateTagSpecification -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LaunchTemplateTagSpecification)
+{-# DEPRECATED lttsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromXML LaunchTemplateTagSpecification where
+instance Lude.FromXML LaunchTemplateTagSpecification where
   parseXML x =
     LaunchTemplateTagSpecification'
-      <$> (x .@? "resourceType")
-      <*> (x .@? "tagSet" .!@ mempty >>= may (parseXMLList "item"))
-
-instance Hashable LaunchTemplateTagSpecification
-
-instance NFData LaunchTemplateTagSpecification
+      Lude.<$> (x Lude..@? "resourceType")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

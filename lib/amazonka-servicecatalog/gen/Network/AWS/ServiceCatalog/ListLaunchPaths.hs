@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,176 +14,220 @@
 --
 -- Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListLaunchPaths
-  ( -- * Creating a Request
-    listLaunchPaths,
-    ListLaunchPaths,
+  ( -- * Creating a request
+    ListLaunchPaths (..),
+    mkListLaunchPaths,
 
-    -- * Request Lenses
+    -- ** Request lenses
     llpAcceptLanguage,
     llpPageToken,
     llpPageSize,
     llpProductId,
 
-    -- * Destructuring the Response
-    listLaunchPathsResponse,
-    ListLaunchPathsResponse,
+    -- * Destructuring the response
+    ListLaunchPathsResponse (..),
+    mkListLaunchPathsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     llprsNextPageToken,
     llprsLaunchPathSummaries,
     llprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'listLaunchPaths' smart constructor.
+-- | /See:/ 'mkListLaunchPaths' smart constructor.
 data ListLaunchPaths = ListLaunchPaths'
-  { _llpAcceptLanguage ::
-      !(Maybe Text),
-    _llpPageToken :: !(Maybe Text),
-    _llpPageSize :: !(Maybe Nat),
-    _llpProductId :: !Text
+  { acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    pageToken :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Natural,
+    productId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLaunchPaths' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'llpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'llpPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+--     * @en@ - English (default)
 --
--- * 'llpPageSize' - The maximum number of items to return with this call.
 --
--- * 'llpProductId' - The product identifier.
-listLaunchPaths ::
-  -- | 'llpProductId'
-  Text ->
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+-- * 'pageSize' - The maximum number of items to return with this call.
+-- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'productId' - The product identifier.
+mkListLaunchPaths ::
+  -- | 'productId'
+  Lude.Text ->
   ListLaunchPaths
-listLaunchPaths pProductId_ =
+mkListLaunchPaths pProductId_ =
   ListLaunchPaths'
-    { _llpAcceptLanguage = Nothing,
-      _llpPageToken = Nothing,
-      _llpPageSize = Nothing,
-      _llpProductId = pProductId_
+    { acceptLanguage = Lude.Nothing,
+      pageToken = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      productId = pProductId_
     }
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-llpAcceptLanguage :: Lens' ListLaunchPaths (Maybe Text)
-llpAcceptLanguage = lens _llpAcceptLanguage (\s a -> s {_llpAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llpAcceptLanguage :: Lens.Lens' ListLaunchPaths (Lude.Maybe Lude.Text)
+llpAcceptLanguage = Lens.lens (acceptLanguage :: ListLaunchPaths -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListLaunchPaths)
+{-# DEPRECATED llpAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
-llpPageToken :: Lens' ListLaunchPaths (Maybe Text)
-llpPageToken = lens _llpPageToken (\s a -> s {_llpPageToken = a})
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llpPageToken :: Lens.Lens' ListLaunchPaths (Lude.Maybe Lude.Text)
+llpPageToken = Lens.lens (pageToken :: ListLaunchPaths -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListLaunchPaths)
+{-# DEPRECATED llpPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
-llpPageSize :: Lens' ListLaunchPaths (Maybe Natural)
-llpPageSize = lens _llpPageSize (\s a -> s {_llpPageSize = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llpPageSize :: Lens.Lens' ListLaunchPaths (Lude.Maybe Lude.Natural)
+llpPageSize = Lens.lens (pageSize :: ListLaunchPaths -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListLaunchPaths)
+{-# DEPRECATED llpPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The product identifier.
-llpProductId :: Lens' ListLaunchPaths Text
-llpProductId = lens _llpProductId (\s a -> s {_llpProductId = a})
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llpProductId :: Lens.Lens' ListLaunchPaths Lude.Text
+llpProductId = Lens.lens (productId :: ListLaunchPaths -> Lude.Text) (\s a -> s {productId = a} :: ListLaunchPaths)
+{-# DEPRECATED llpProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
-instance AWSPager ListLaunchPaths where
+instance Page.AWSPager ListLaunchPaths where
   page rq rs
-    | stop (rs ^. llprsNextPageToken) = Nothing
-    | stop (rs ^. llprsLaunchPathSummaries) = Nothing
-    | otherwise = Just $ rq & llpPageToken .~ rs ^. llprsNextPageToken
+    | Page.stop (rs Lens.^. llprsNextPageToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. llprsLaunchPathSummaries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& llpPageToken Lens..~ rs Lens.^. llprsNextPageToken
 
-instance AWSRequest ListLaunchPaths where
+instance Lude.AWSRequest ListLaunchPaths where
   type Rs ListLaunchPaths = ListLaunchPathsResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListLaunchPathsResponse'
-            <$> (x .?> "NextPageToken")
-            <*> (x .?> "LaunchPathSummaries" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextPageToken")
+            Lude.<*> (x Lude..?> "LaunchPathSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListLaunchPaths
-
-instance NFData ListLaunchPaths
-
-instance ToHeaders ListLaunchPaths where
+instance Lude.ToHeaders ListLaunchPaths where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWS242ServiceCatalogService.ListLaunchPaths" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWS242ServiceCatalogService.ListLaunchPaths" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListLaunchPaths where
+instance Lude.ToJSON ListLaunchPaths where
   toJSON ListLaunchPaths' {..} =
-    object
-      ( catMaybes
-          [ ("AcceptLanguage" .=) <$> _llpAcceptLanguage,
-            ("PageToken" .=) <$> _llpPageToken,
-            ("PageSize" .=) <$> _llpPageSize,
-            Just ("ProductId" .= _llpProductId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("PageToken" Lude..=) Lude.<$> pageToken,
+            ("PageSize" Lude..=) Lude.<$> pageSize,
+            Lude.Just ("ProductId" Lude..= productId)
           ]
       )
 
-instance ToPath ListLaunchPaths where
-  toPath = const "/"
+instance Lude.ToPath ListLaunchPaths where
+  toPath = Lude.const "/"
 
-instance ToQuery ListLaunchPaths where
-  toQuery = const mempty
+instance Lude.ToQuery ListLaunchPaths where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listLaunchPathsResponse' smart constructor.
+-- | /See:/ 'mkListLaunchPathsResponse' smart constructor.
 data ListLaunchPathsResponse = ListLaunchPathsResponse'
-  { _llprsNextPageToken ::
-      !(Maybe Text),
-    _llprsLaunchPathSummaries ::
-      !(Maybe [LaunchPathSummary]),
-    _llprsResponseStatus :: !Int
+  { nextPageToken ::
+      Lude.Maybe Lude.Text,
+    launchPathSummaries ::
+      Lude.Maybe [LaunchPathSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLaunchPathsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'llprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
---
--- * 'llprsLaunchPathSummaries' - Information about the launch path.
---
--- * 'llprsResponseStatus' - -- | The response status code.
-listLaunchPathsResponse ::
-  -- | 'llprsResponseStatus'
-  Int ->
+-- * 'launchPathSummaries' - Information about the launch path.
+-- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'responseStatus' - The response status code.
+mkListLaunchPathsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListLaunchPathsResponse
-listLaunchPathsResponse pResponseStatus_ =
+mkListLaunchPathsResponse pResponseStatus_ =
   ListLaunchPathsResponse'
-    { _llprsNextPageToken = Nothing,
-      _llprsLaunchPathSummaries = Nothing,
-      _llprsResponseStatus = pResponseStatus_
+    { nextPageToken = Lude.Nothing,
+      launchPathSummaries = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-llprsNextPageToken :: Lens' ListLaunchPathsResponse (Maybe Text)
-llprsNextPageToken = lens _llprsNextPageToken (\s a -> s {_llprsNextPageToken = a})
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llprsNextPageToken :: Lens.Lens' ListLaunchPathsResponse (Lude.Maybe Lude.Text)
+llprsNextPageToken = Lens.lens (nextPageToken :: ListLaunchPathsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListLaunchPathsResponse)
+{-# DEPRECATED llprsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the launch path.
-llprsLaunchPathSummaries :: Lens' ListLaunchPathsResponse [LaunchPathSummary]
-llprsLaunchPathSummaries = lens _llprsLaunchPathSummaries (\s a -> s {_llprsLaunchPathSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'launchPathSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llprsLaunchPathSummaries :: Lens.Lens' ListLaunchPathsResponse (Lude.Maybe [LaunchPathSummary])
+llprsLaunchPathSummaries = Lens.lens (launchPathSummaries :: ListLaunchPathsResponse -> Lude.Maybe [LaunchPathSummary]) (\s a -> s {launchPathSummaries = a} :: ListLaunchPathsResponse)
+{-# DEPRECATED llprsLaunchPathSummaries "Use generic-lens or generic-optics with 'launchPathSummaries' instead." #-}
 
--- | -- | The response status code.
-llprsResponseStatus :: Lens' ListLaunchPathsResponse Int
-llprsResponseStatus = lens _llprsResponseStatus (\s a -> s {_llprsResponseStatus = a})
-
-instance NFData ListLaunchPathsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llprsResponseStatus :: Lens.Lens' ListLaunchPathsResponse Lude.Int
+llprsResponseStatus = Lens.lens (responseStatus :: ListLaunchPathsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLaunchPathsResponse)
+{-# DEPRECATED llprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

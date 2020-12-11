@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,117 +14,132 @@
 --
 -- Deletes a specific static IP from your account.
 module Network.AWS.Lightsail.ReleaseStaticIP
-  ( -- * Creating a Request
-    releaseStaticIP,
-    ReleaseStaticIP,
+  ( -- * Creating a request
+    ReleaseStaticIP (..),
+    mkReleaseStaticIP,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rsiStaticIPName,
 
-    -- * Destructuring the Response
-    releaseStaticIPResponse,
-    ReleaseStaticIPResponse,
+    -- * Destructuring the response
+    ReleaseStaticIPResponse (..),
+    mkReleaseStaticIPResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rsirsOperations,
     rsirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'releaseStaticIP' smart constructor.
+-- | /See:/ 'mkReleaseStaticIP' smart constructor.
 newtype ReleaseStaticIP = ReleaseStaticIP'
-  { _rsiStaticIPName ::
-      Text
+  { staticIPName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReleaseStaticIP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsiStaticIPName' - The name of the static IP to delete.
-releaseStaticIP ::
-  -- | 'rsiStaticIPName'
-  Text ->
+-- * 'staticIPName' - The name of the static IP to delete.
+mkReleaseStaticIP ::
+  -- | 'staticIPName'
+  Lude.Text ->
   ReleaseStaticIP
-releaseStaticIP pStaticIPName_ =
-  ReleaseStaticIP' {_rsiStaticIPName = pStaticIPName_}
+mkReleaseStaticIP pStaticIPName_ =
+  ReleaseStaticIP' {staticIPName = pStaticIPName_}
 
 -- | The name of the static IP to delete.
-rsiStaticIPName :: Lens' ReleaseStaticIP Text
-rsiStaticIPName = lens _rsiStaticIPName (\s a -> s {_rsiStaticIPName = a})
+--
+-- /Note:/ Consider using 'staticIPName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsiStaticIPName :: Lens.Lens' ReleaseStaticIP Lude.Text
+rsiStaticIPName = Lens.lens (staticIPName :: ReleaseStaticIP -> Lude.Text) (\s a -> s {staticIPName = a} :: ReleaseStaticIP)
+{-# DEPRECATED rsiStaticIPName "Use generic-lens or generic-optics with 'staticIPName' instead." #-}
 
-instance AWSRequest ReleaseStaticIP where
+instance Lude.AWSRequest ReleaseStaticIP where
   type Rs ReleaseStaticIP = ReleaseStaticIPResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ReleaseStaticIPResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ReleaseStaticIP
-
-instance NFData ReleaseStaticIP
-
-instance ToHeaders ReleaseStaticIP where
+instance Lude.ToHeaders ReleaseStaticIP where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.ReleaseStaticIp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.ReleaseStaticIp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ReleaseStaticIP where
+instance Lude.ToJSON ReleaseStaticIP where
   toJSON ReleaseStaticIP' {..} =
-    object (catMaybes [Just ("staticIpName" .= _rsiStaticIPName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("staticIpName" Lude..= staticIPName)])
 
-instance ToPath ReleaseStaticIP where
-  toPath = const "/"
+instance Lude.ToPath ReleaseStaticIP where
+  toPath = Lude.const "/"
 
-instance ToQuery ReleaseStaticIP where
-  toQuery = const mempty
+instance Lude.ToQuery ReleaseStaticIP where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'releaseStaticIPResponse' smart constructor.
+-- | /See:/ 'mkReleaseStaticIPResponse' smart constructor.
 data ReleaseStaticIPResponse = ReleaseStaticIPResponse'
-  { _rsirsOperations ::
-      !(Maybe [Operation]),
-    _rsirsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReleaseStaticIPResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsirsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'rsirsResponseStatus' - -- | The response status code.
-releaseStaticIPResponse ::
-  -- | 'rsirsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkReleaseStaticIPResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ReleaseStaticIPResponse
-releaseStaticIPResponse pResponseStatus_ =
+mkReleaseStaticIPResponse pResponseStatus_ =
   ReleaseStaticIPResponse'
-    { _rsirsOperations = Nothing,
-      _rsirsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-rsirsOperations :: Lens' ReleaseStaticIPResponse [Operation]
-rsirsOperations = lens _rsirsOperations (\s a -> s {_rsirsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsirsOperations :: Lens.Lens' ReleaseStaticIPResponse (Lude.Maybe [Operation])
+rsirsOperations = Lens.lens (operations :: ReleaseStaticIPResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: ReleaseStaticIPResponse)
+{-# DEPRECATED rsirsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-rsirsResponseStatus :: Lens' ReleaseStaticIPResponse Int
-rsirsResponseStatus = lens _rsirsResponseStatus (\s a -> s {_rsirsResponseStatus = a})
-
-instance NFData ReleaseStaticIPResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsirsResponseStatus :: Lens.Lens' ReleaseStaticIPResponse Lude.Int
+rsirsResponseStatus = Lens.lens (responseStatus :: ReleaseStaticIPResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReleaseStaticIPResponse)
+{-# DEPRECATED rsirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

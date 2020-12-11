@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.ContainerService where
+module Network.AWS.ECS.Types.ContainerService
+  ( ContainerService (..),
+
+    -- * Smart constructor
+    mkContainerService,
+
+    -- * Lenses
+    csTaskSets,
+    csRunningCount,
+    csStatus,
+    csClusterARN,
+    csPropagateTags,
+    csCreatedAt,
+    csPlatformVersion,
+    csEnableECSManagedTags,
+    csCreatedBy,
+    csDesiredCount,
+    csLoadBalancers,
+    csPendingCount,
+    csPlacementConstraints,
+    csEvents,
+    csPlacementStrategy,
+    csDeployments,
+    csServiceName,
+    csDeploymentController,
+    csLaunchType,
+    csServiceARN,
+    csTaskDefinition,
+    csSchedulingStrategy,
+    csHealthCheckGracePeriodSeconds,
+    csNetworkConfiguration,
+    csServiceRegistries,
+    csCapacityProviderStrategy,
+    csTags,
+    csRoleARN,
+    csDeploymentConfiguration,
+  )
+where
 
 import Network.AWS.ECS.Types.CapacityProviderStrategyItem
 import Network.AWS.ECS.Types.Deployment
@@ -30,299 +61,423 @@ import Network.AWS.ECS.Types.ServiceEvent
 import Network.AWS.ECS.Types.ServiceRegistry
 import Network.AWS.ECS.Types.Tag
 import Network.AWS.ECS.Types.TaskSet
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details on a service within a cluster
 --
---
---
--- /See:/ 'containerService' smart constructor.
+-- /See:/ 'mkContainerService' smart constructor.
 data ContainerService = ContainerService'
-  { _csTaskSets ::
-      !(Maybe [TaskSet]),
-    _csRunningCount :: !(Maybe Int),
-    _csStatus :: !(Maybe Text),
-    _csClusterARN :: !(Maybe Text),
-    _csPropagateTags :: !(Maybe PropagateTags),
-    _csCreatedAt :: !(Maybe POSIX),
-    _csPlatformVersion :: !(Maybe Text),
-    _csEnableECSManagedTags :: !(Maybe Bool),
-    _csCreatedBy :: !(Maybe Text),
-    _csDesiredCount :: !(Maybe Int),
-    _csLoadBalancers :: !(Maybe [LoadBalancer]),
-    _csPendingCount :: !(Maybe Int),
-    _csPlacementConstraints :: !(Maybe [PlacementConstraint]),
-    _csEvents :: !(Maybe [ServiceEvent]),
-    _csPlacementStrategy :: !(Maybe [PlacementStrategy]),
-    _csDeployments :: !(Maybe [Deployment]),
-    _csServiceName :: !(Maybe Text),
-    _csDeploymentController :: !(Maybe DeploymentController),
-    _csLaunchType :: !(Maybe LaunchType),
-    _csServiceARN :: !(Maybe Text),
-    _csTaskDefinition :: !(Maybe Text),
-    _csSchedulingStrategy :: !(Maybe SchedulingStrategy),
-    _csHealthCheckGracePeriodSeconds :: !(Maybe Int),
-    _csNetworkConfiguration :: !(Maybe NetworkConfiguration),
-    _csServiceRegistries :: !(Maybe [ServiceRegistry]),
-    _csCapacityProviderStrategy ::
-      !(Maybe [CapacityProviderStrategyItem]),
-    _csTags :: !(Maybe [Tag]),
-    _csRoleARN :: !(Maybe Text),
-    _csDeploymentConfiguration ::
-      !(Maybe DeploymentConfiguration)
+  { taskSets ::
+      Lude.Maybe [TaskSet],
+    runningCount :: Lude.Maybe Lude.Int,
+    status :: Lude.Maybe Lude.Text,
+    clusterARN :: Lude.Maybe Lude.Text,
+    propagateTags :: Lude.Maybe PropagateTags,
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    platformVersion :: Lude.Maybe Lude.Text,
+    enableECSManagedTags :: Lude.Maybe Lude.Bool,
+    createdBy :: Lude.Maybe Lude.Text,
+    desiredCount :: Lude.Maybe Lude.Int,
+    loadBalancers :: Lude.Maybe [LoadBalancer],
+    pendingCount :: Lude.Maybe Lude.Int,
+    placementConstraints :: Lude.Maybe [PlacementConstraint],
+    events :: Lude.Maybe [ServiceEvent],
+    placementStrategy :: Lude.Maybe [PlacementStrategy],
+    deployments :: Lude.Maybe [Deployment],
+    serviceName :: Lude.Maybe Lude.Text,
+    deploymentController :: Lude.Maybe DeploymentController,
+    launchType :: Lude.Maybe LaunchType,
+    serviceARN :: Lude.Maybe Lude.Text,
+    taskDefinition :: Lude.Maybe Lude.Text,
+    schedulingStrategy :: Lude.Maybe SchedulingStrategy,
+    healthCheckGracePeriodSeconds :: Lude.Maybe Lude.Int,
+    networkConfiguration :: Lude.Maybe NetworkConfiguration,
+    serviceRegistries :: Lude.Maybe [ServiceRegistry],
+    capacityProviderStrategy ::
+      Lude.Maybe [CapacityProviderStrategyItem],
+    tags :: Lude.Maybe [Tag],
+    roleARN :: Lude.Maybe Lude.Text,
+    deploymentConfiguration ::
+      Lude.Maybe DeploymentConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerService' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'capacityProviderStrategy' - The capacity provider strategy associated with the service.
+-- * 'clusterARN' - The Amazon Resource Name (ARN) of the cluster that hosts the service.
+-- * 'createdAt' - The Unix timestamp for when the service was created.
+-- * 'createdBy' - The principal that created the service.
+-- * 'deploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+-- * 'deploymentController' - The deployment controller type the service is using. When using the DescribeServices API, this field is omitted if the service is using the @ECS@ deployment controller type.
+-- * 'deployments' - The current state of deployments for the service.
+-- * 'desiredCount' - The desired number of instantiations of the task definition to keep running on the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
+-- * 'enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'events' - The event stream for your service. A maximum of 100 of the latest events are displayed.
+-- * 'healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+-- * 'launchType' - The launch type on which your service is running. If no value is specified, it will default to @EC2@ . Valid values include @EC2@ and @FARGATE@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'loadBalancers' - A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
+-- * 'networkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
+-- * 'pendingCount' - The number of tasks in the cluster that are in the @PENDING@ state.
+-- * 'placementConstraints' - The placement constraints for the tasks in the service.
+-- * 'placementStrategy' - The placement strategy that determines how tasks for the service are placed.
+-- * 'platformVersion' - The platform version on which to run your service. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'propagateTags' - Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
+-- * 'roleARN' - The ARN of the IAM role associated with the service that allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.
+-- * 'runningCount' - The number of tasks in the cluster that are in the @RUNNING@ state.
+-- * 'schedulingStrategy' - The scheduling strategy to use for the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services> .
 --
--- * 'csTaskSets' - Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an @EXTERNAL@ deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+-- There are two service scheduler strategies available:
 --
--- * 'csRunningCount' - The number of tasks in the cluster that are in the @RUNNING@ state.
+--     * @REPLICA@ -The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions.
 --
--- * 'csStatus' - The status of the service. The valid values are @ACTIVE@ , @DRAINING@ , or @INACTIVE@ .
 --
--- * 'csClusterARN' - The Amazon Resource Name (ARN) of the cluster that hosts the service.
+--     * @DAEMON@ -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that do not meet the placement constraints.
 --
--- * 'csPropagateTags' - Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
 --
--- * 'csCreatedAt' - The Unix timestamp for when the service was created.
+-- * 'serviceARN' - The ARN that identifies the service. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the service, the AWS account ID of the service owner, the @service@ namespace, and then the service name. For example, @arn:aws:ecs:region:012345678910:service/my-service@ .
+-- * 'serviceName' - The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
+-- * 'serviceRegistries' - The details of the service discovery registries to assign to this service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
+-- * 'status' - The status of the service. The valid values are @ACTIVE@ , @DRAINING@ , or @INACTIVE@ .
+-- * 'tags' - The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 --
--- * 'csPlatformVersion' - The platform version on which to run your service. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+-- The following basic restrictions apply to tags:
 --
--- * 'csEnableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
+--     * Maximum number of tags per resource - 50
 --
--- * 'csCreatedBy' - The principal that created the service.
 --
--- * 'csDesiredCount' - The desired number of instantiations of the task definition to keep running on the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
 --
--- * 'csLoadBalancers' - A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
 --
--- * 'csPendingCount' - The number of tasks in the cluster that are in the @PENDING@ state.
+--     * Maximum key length - 128 Unicode characters in UTF-8
 --
--- * 'csPlacementConstraints' - The placement constraints for the tasks in the service.
 --
--- * 'csEvents' - The event stream for your service. A maximum of 100 of the latest events are displayed.
+--     * Maximum value length - 256 Unicode characters in UTF-8
 --
--- * 'csPlacementStrategy' - The placement strategy that determines how tasks for the service are placed.
 --
--- * 'csDeployments' - The current state of deployments for the service.
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
 --
--- * 'csServiceName' - The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
 --
--- * 'csDeploymentController' - The deployment controller type the service is using. When using the DescribeServices API, this field is omitted if the service is using the @ECS@ deployment controller type.
+--     * Tag keys and values are case-sensitive.
 --
--- * 'csLaunchType' - The launch type on which your service is running. If no value is specified, it will default to @EC2@ . Valid values include @EC2@ and @FARGATE@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
 --
--- * 'csServiceARN' - The ARN that identifies the service. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the service, the AWS account ID of the service owner, the @service@ namespace, and then the service name. For example, @arn:aws:ecs:region:012345678910:service/my-service@ .
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 --
--- * 'csTaskDefinition' - The task definition to use for tasks in the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
 --
--- * 'csSchedulingStrategy' - The scheduling strategy to use for the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services> . There are two service scheduler strategies available:     * @REPLICA@ -The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions.     * @DAEMON@ -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that do not meet the placement constraints.
---
--- * 'csHealthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
---
--- * 'csNetworkConfiguration' - The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
---
--- * 'csServiceRegistries' - The details of the service discovery registries to assign to this service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
---
--- * 'csCapacityProviderStrategy' - The capacity provider strategy associated with the service.
---
--- * 'csTags' - The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
---
--- * 'csRoleARN' - The ARN of the IAM role associated with the service that allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.
---
--- * 'csDeploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
-containerService ::
+-- * 'taskDefinition' - The task definition to use for tasks in the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
+-- * 'taskSets' - Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an @EXTERNAL@ deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
+mkContainerService ::
   ContainerService
-containerService =
+mkContainerService =
   ContainerService'
-    { _csTaskSets = Nothing,
-      _csRunningCount = Nothing,
-      _csStatus = Nothing,
-      _csClusterARN = Nothing,
-      _csPropagateTags = Nothing,
-      _csCreatedAt = Nothing,
-      _csPlatformVersion = Nothing,
-      _csEnableECSManagedTags = Nothing,
-      _csCreatedBy = Nothing,
-      _csDesiredCount = Nothing,
-      _csLoadBalancers = Nothing,
-      _csPendingCount = Nothing,
-      _csPlacementConstraints = Nothing,
-      _csEvents = Nothing,
-      _csPlacementStrategy = Nothing,
-      _csDeployments = Nothing,
-      _csServiceName = Nothing,
-      _csDeploymentController = Nothing,
-      _csLaunchType = Nothing,
-      _csServiceARN = Nothing,
-      _csTaskDefinition = Nothing,
-      _csSchedulingStrategy = Nothing,
-      _csHealthCheckGracePeriodSeconds = Nothing,
-      _csNetworkConfiguration = Nothing,
-      _csServiceRegistries = Nothing,
-      _csCapacityProviderStrategy = Nothing,
-      _csTags = Nothing,
-      _csRoleARN = Nothing,
-      _csDeploymentConfiguration = Nothing
+    { taskSets = Lude.Nothing,
+      runningCount = Lude.Nothing,
+      status = Lude.Nothing,
+      clusterARN = Lude.Nothing,
+      propagateTags = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      platformVersion = Lude.Nothing,
+      enableECSManagedTags = Lude.Nothing,
+      createdBy = Lude.Nothing,
+      desiredCount = Lude.Nothing,
+      loadBalancers = Lude.Nothing,
+      pendingCount = Lude.Nothing,
+      placementConstraints = Lude.Nothing,
+      events = Lude.Nothing,
+      placementStrategy = Lude.Nothing,
+      deployments = Lude.Nothing,
+      serviceName = Lude.Nothing,
+      deploymentController = Lude.Nothing,
+      launchType = Lude.Nothing,
+      serviceARN = Lude.Nothing,
+      taskDefinition = Lude.Nothing,
+      schedulingStrategy = Lude.Nothing,
+      healthCheckGracePeriodSeconds = Lude.Nothing,
+      networkConfiguration = Lude.Nothing,
+      serviceRegistries = Lude.Nothing,
+      capacityProviderStrategy = Lude.Nothing,
+      tags = Lude.Nothing,
+      roleARN = Lude.Nothing,
+      deploymentConfiguration = Lude.Nothing
     }
 
 -- | Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an @EXTERNAL@ deployment. An Amazon ECS task set includes details such as the desired number of tasks, how many tasks are running, and whether the task set serves production traffic.
-csTaskSets :: Lens' ContainerService [TaskSet]
-csTaskSets = lens _csTaskSets (\s a -> s {_csTaskSets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'taskSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTaskSets :: Lens.Lens' ContainerService (Lude.Maybe [TaskSet])
+csTaskSets = Lens.lens (taskSets :: ContainerService -> Lude.Maybe [TaskSet]) (\s a -> s {taskSets = a} :: ContainerService)
+{-# DEPRECATED csTaskSets "Use generic-lens or generic-optics with 'taskSets' instead." #-}
 
 -- | The number of tasks in the cluster that are in the @RUNNING@ state.
-csRunningCount :: Lens' ContainerService (Maybe Int)
-csRunningCount = lens _csRunningCount (\s a -> s {_csRunningCount = a})
+--
+-- /Note:/ Consider using 'runningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csRunningCount :: Lens.Lens' ContainerService (Lude.Maybe Lude.Int)
+csRunningCount = Lens.lens (runningCount :: ContainerService -> Lude.Maybe Lude.Int) (\s a -> s {runningCount = a} :: ContainerService)
+{-# DEPRECATED csRunningCount "Use generic-lens or generic-optics with 'runningCount' instead." #-}
 
 -- | The status of the service. The valid values are @ACTIVE@ , @DRAINING@ , or @INACTIVE@ .
-csStatus :: Lens' ContainerService (Maybe Text)
-csStatus = lens _csStatus (\s a -> s {_csStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStatus :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
+csStatus = Lens.lens (status :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ContainerService)
+{-# DEPRECATED csStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the cluster that hosts the service.
-csClusterARN :: Lens' ContainerService (Maybe Text)
-csClusterARN = lens _csClusterARN (\s a -> s {_csClusterARN = a})
+--
+-- /Note:/ Consider using 'clusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csClusterARN :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
+csClusterARN = Lens.lens (clusterARN :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {clusterARN = a} :: ContainerService)
+{-# DEPRECATED csClusterARN "Use generic-lens or generic-optics with 'clusterARN' instead." #-}
 
 -- | Specifies whether to propagate the tags from the task definition or the service to the task. If no value is specified, the tags are not propagated.
-csPropagateTags :: Lens' ContainerService (Maybe PropagateTags)
-csPropagateTags = lens _csPropagateTags (\s a -> s {_csPropagateTags = a})
+--
+-- /Note:/ Consider using 'propagateTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPropagateTags :: Lens.Lens' ContainerService (Lude.Maybe PropagateTags)
+csPropagateTags = Lens.lens (propagateTags :: ContainerService -> Lude.Maybe PropagateTags) (\s a -> s {propagateTags = a} :: ContainerService)
+{-# DEPRECATED csPropagateTags "Use generic-lens or generic-optics with 'propagateTags' instead." #-}
 
 -- | The Unix timestamp for when the service was created.
-csCreatedAt :: Lens' ContainerService (Maybe UTCTime)
-csCreatedAt = lens _csCreatedAt (\s a -> s {_csCreatedAt = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCreatedAt :: Lens.Lens' ContainerService (Lude.Maybe Lude.Timestamp)
+csCreatedAt = Lens.lens (createdAt :: ContainerService -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ContainerService)
+{-# DEPRECATED csCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The platform version on which to run your service. A platform version is only specified for tasks using the Fargate launch type. If one is not specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
-csPlatformVersion :: Lens' ContainerService (Maybe Text)
-csPlatformVersion = lens _csPlatformVersion (\s a -> s {_csPlatformVersion = a})
+--
+-- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPlatformVersion :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
+csPlatformVersion = Lens.lens (platformVersion :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {platformVersion = a} :: ContainerService)
+{-# DEPRECATED csPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
 
 -- | Specifies whether to enable Amazon ECS managed tags for the tasks in the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
-csEnableECSManagedTags :: Lens' ContainerService (Maybe Bool)
-csEnableECSManagedTags = lens _csEnableECSManagedTags (\s a -> s {_csEnableECSManagedTags = a})
+--
+-- /Note:/ Consider using 'enableECSManagedTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csEnableECSManagedTags :: Lens.Lens' ContainerService (Lude.Maybe Lude.Bool)
+csEnableECSManagedTags = Lens.lens (enableECSManagedTags :: ContainerService -> Lude.Maybe Lude.Bool) (\s a -> s {enableECSManagedTags = a} :: ContainerService)
+{-# DEPRECATED csEnableECSManagedTags "Use generic-lens or generic-optics with 'enableECSManagedTags' instead." #-}
 
 -- | The principal that created the service.
-csCreatedBy :: Lens' ContainerService (Maybe Text)
-csCreatedBy = lens _csCreatedBy (\s a -> s {_csCreatedBy = a})
+--
+-- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCreatedBy :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
+csCreatedBy = Lens.lens (createdBy :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {createdBy = a} :: ContainerService)
+{-# DEPRECATED csCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
 -- | The desired number of instantiations of the task definition to keep running on the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
-csDesiredCount :: Lens' ContainerService (Maybe Int)
-csDesiredCount = lens _csDesiredCount (\s a -> s {_csDesiredCount = a})
+--
+-- /Note:/ Consider using 'desiredCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDesiredCount :: Lens.Lens' ContainerService (Lude.Maybe Lude.Int)
+csDesiredCount = Lens.lens (desiredCount :: ContainerService -> Lude.Maybe Lude.Int) (\s a -> s {desiredCount = a} :: ContainerService)
+{-# DEPRECATED csDesiredCount "Use generic-lens or generic-optics with 'desiredCount' instead." #-}
 
 -- | A list of Elastic Load Balancing load balancer objects, containing the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer.
-csLoadBalancers :: Lens' ContainerService [LoadBalancer]
-csLoadBalancers = lens _csLoadBalancers (\s a -> s {_csLoadBalancers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'loadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csLoadBalancers :: Lens.Lens' ContainerService (Lude.Maybe [LoadBalancer])
+csLoadBalancers = Lens.lens (loadBalancers :: ContainerService -> Lude.Maybe [LoadBalancer]) (\s a -> s {loadBalancers = a} :: ContainerService)
+{-# DEPRECATED csLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
 
 -- | The number of tasks in the cluster that are in the @PENDING@ state.
-csPendingCount :: Lens' ContainerService (Maybe Int)
-csPendingCount = lens _csPendingCount (\s a -> s {_csPendingCount = a})
+--
+-- /Note:/ Consider using 'pendingCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPendingCount :: Lens.Lens' ContainerService (Lude.Maybe Lude.Int)
+csPendingCount = Lens.lens (pendingCount :: ContainerService -> Lude.Maybe Lude.Int) (\s a -> s {pendingCount = a} :: ContainerService)
+{-# DEPRECATED csPendingCount "Use generic-lens or generic-optics with 'pendingCount' instead." #-}
 
 -- | The placement constraints for the tasks in the service.
-csPlacementConstraints :: Lens' ContainerService [PlacementConstraint]
-csPlacementConstraints = lens _csPlacementConstraints (\s a -> s {_csPlacementConstraints = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'placementConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPlacementConstraints :: Lens.Lens' ContainerService (Lude.Maybe [PlacementConstraint])
+csPlacementConstraints = Lens.lens (placementConstraints :: ContainerService -> Lude.Maybe [PlacementConstraint]) (\s a -> s {placementConstraints = a} :: ContainerService)
+{-# DEPRECATED csPlacementConstraints "Use generic-lens or generic-optics with 'placementConstraints' instead." #-}
 
 -- | The event stream for your service. A maximum of 100 of the latest events are displayed.
-csEvents :: Lens' ContainerService [ServiceEvent]
-csEvents = lens _csEvents (\s a -> s {_csEvents = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csEvents :: Lens.Lens' ContainerService (Lude.Maybe [ServiceEvent])
+csEvents = Lens.lens (events :: ContainerService -> Lude.Maybe [ServiceEvent]) (\s a -> s {events = a} :: ContainerService)
+{-# DEPRECATED csEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | The placement strategy that determines how tasks for the service are placed.
-csPlacementStrategy :: Lens' ContainerService [PlacementStrategy]
-csPlacementStrategy = lens _csPlacementStrategy (\s a -> s {_csPlacementStrategy = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'placementStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csPlacementStrategy :: Lens.Lens' ContainerService (Lude.Maybe [PlacementStrategy])
+csPlacementStrategy = Lens.lens (placementStrategy :: ContainerService -> Lude.Maybe [PlacementStrategy]) (\s a -> s {placementStrategy = a} :: ContainerService)
+{-# DEPRECATED csPlacementStrategy "Use generic-lens or generic-optics with 'placementStrategy' instead." #-}
 
 -- | The current state of deployments for the service.
-csDeployments :: Lens' ContainerService [Deployment]
-csDeployments = lens _csDeployments (\s a -> s {_csDeployments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'deployments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDeployments :: Lens.Lens' ContainerService (Lude.Maybe [Deployment])
+csDeployments = Lens.lens (deployments :: ContainerService -> Lude.Maybe [Deployment]) (\s a -> s {deployments = a} :: ContainerService)
+{-# DEPRECATED csDeployments "Use generic-lens or generic-optics with 'deployments' instead." #-}
 
 -- | The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
-csServiceName :: Lens' ContainerService (Maybe Text)
-csServiceName = lens _csServiceName (\s a -> s {_csServiceName = a})
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csServiceName :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
+csServiceName = Lens.lens (serviceName :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: ContainerService)
+{-# DEPRECATED csServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The deployment controller type the service is using. When using the DescribeServices API, this field is omitted if the service is using the @ECS@ deployment controller type.
-csDeploymentController :: Lens' ContainerService (Maybe DeploymentController)
-csDeploymentController = lens _csDeploymentController (\s a -> s {_csDeploymentController = a})
+--
+-- /Note:/ Consider using 'deploymentController' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDeploymentController :: Lens.Lens' ContainerService (Lude.Maybe DeploymentController)
+csDeploymentController = Lens.lens (deploymentController :: ContainerService -> Lude.Maybe DeploymentController) (\s a -> s {deploymentController = a} :: ContainerService)
+{-# DEPRECATED csDeploymentController "Use generic-lens or generic-optics with 'deploymentController' instead." #-}
 
 -- | The launch type on which your service is running. If no value is specified, it will default to @EC2@ . Valid values include @EC2@ and @FARGATE@ . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
-csLaunchType :: Lens' ContainerService (Maybe LaunchType)
-csLaunchType = lens _csLaunchType (\s a -> s {_csLaunchType = a})
+--
+-- /Note:/ Consider using 'launchType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csLaunchType :: Lens.Lens' ContainerService (Lude.Maybe LaunchType)
+csLaunchType = Lens.lens (launchType :: ContainerService -> Lude.Maybe LaunchType) (\s a -> s {launchType = a} :: ContainerService)
+{-# DEPRECATED csLaunchType "Use generic-lens or generic-optics with 'launchType' instead." #-}
 
 -- | The ARN that identifies the service. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the service, the AWS account ID of the service owner, the @service@ namespace, and then the service name. For example, @arn:aws:ecs:region:012345678910:service/my-service@ .
-csServiceARN :: Lens' ContainerService (Maybe Text)
-csServiceARN = lens _csServiceARN (\s a -> s {_csServiceARN = a})
+--
+-- /Note:/ Consider using 'serviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csServiceARN :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
+csServiceARN = Lens.lens (serviceARN :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {serviceARN = a} :: ContainerService)
+{-# DEPRECATED csServiceARN "Use generic-lens or generic-optics with 'serviceARN' instead." #-}
 
 -- | The task definition to use for tasks in the service. This value is specified when the service is created with 'CreateService' , and it can be modified with 'UpdateService' .
-csTaskDefinition :: Lens' ContainerService (Maybe Text)
-csTaskDefinition = lens _csTaskDefinition (\s a -> s {_csTaskDefinition = a})
+--
+-- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTaskDefinition :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
+csTaskDefinition = Lens.lens (taskDefinition :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {taskDefinition = a} :: ContainerService)
+{-# DEPRECATED csTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
 
--- | The scheduling strategy to use for the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services> . There are two service scheduler strategies available:     * @REPLICA@ -The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions.     * @DAEMON@ -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that do not meet the placement constraints.
-csSchedulingStrategy :: Lens' ContainerService (Maybe SchedulingStrategy)
-csSchedulingStrategy = lens _csSchedulingStrategy (\s a -> s {_csSchedulingStrategy = a})
+-- | The scheduling strategy to use for the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services> .
+--
+-- There are two service scheduler strategies available:
+--
+--     * @REPLICA@ -The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions.
+--
+--
+--     * @DAEMON@ -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that do not meet the placement constraints.
+--
+--
+--
+-- /Note:/ Consider using 'schedulingStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSchedulingStrategy :: Lens.Lens' ContainerService (Lude.Maybe SchedulingStrategy)
+csSchedulingStrategy = Lens.lens (schedulingStrategy :: ContainerService -> Lude.Maybe SchedulingStrategy) (\s a -> s {schedulingStrategy = a} :: ContainerService)
+{-# DEPRECATED csSchedulingStrategy "Use generic-lens or generic-optics with 'schedulingStrategy' instead." #-}
 
 -- | The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
-csHealthCheckGracePeriodSeconds :: Lens' ContainerService (Maybe Int)
-csHealthCheckGracePeriodSeconds = lens _csHealthCheckGracePeriodSeconds (\s a -> s {_csHealthCheckGracePeriodSeconds = a})
+--
+-- /Note:/ Consider using 'healthCheckGracePeriodSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csHealthCheckGracePeriodSeconds :: Lens.Lens' ContainerService (Lude.Maybe Lude.Int)
+csHealthCheckGracePeriodSeconds = Lens.lens (healthCheckGracePeriodSeconds :: ContainerService -> Lude.Maybe Lude.Int) (\s a -> s {healthCheckGracePeriodSeconds = a} :: ContainerService)
+{-# DEPRECATED csHealthCheckGracePeriodSeconds "Use generic-lens or generic-optics with 'healthCheckGracePeriodSeconds' instead." #-}
 
 -- | The VPC subnet and security group configuration for tasks that receive their own elastic network interface by using the @awsvpc@ networking mode.
-csNetworkConfiguration :: Lens' ContainerService (Maybe NetworkConfiguration)
-csNetworkConfiguration = lens _csNetworkConfiguration (\s a -> s {_csNetworkConfiguration = a})
+--
+-- /Note:/ Consider using 'networkConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csNetworkConfiguration :: Lens.Lens' ContainerService (Lude.Maybe NetworkConfiguration)
+csNetworkConfiguration = Lens.lens (networkConfiguration :: ContainerService -> Lude.Maybe NetworkConfiguration) (\s a -> s {networkConfiguration = a} :: ContainerService)
+{-# DEPRECATED csNetworkConfiguration "Use generic-lens or generic-optics with 'networkConfiguration' instead." #-}
 
 -- | The details of the service discovery registries to assign to this service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
-csServiceRegistries :: Lens' ContainerService [ServiceRegistry]
-csServiceRegistries = lens _csServiceRegistries (\s a -> s {_csServiceRegistries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceRegistries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csServiceRegistries :: Lens.Lens' ContainerService (Lude.Maybe [ServiceRegistry])
+csServiceRegistries = Lens.lens (serviceRegistries :: ContainerService -> Lude.Maybe [ServiceRegistry]) (\s a -> s {serviceRegistries = a} :: ContainerService)
+{-# DEPRECATED csServiceRegistries "Use generic-lens or generic-optics with 'serviceRegistries' instead." #-}
 
 -- | The capacity provider strategy associated with the service.
-csCapacityProviderStrategy :: Lens' ContainerService [CapacityProviderStrategyItem]
-csCapacityProviderStrategy = lens _csCapacityProviderStrategy (\s a -> s {_csCapacityProviderStrategy = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'capacityProviderStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csCapacityProviderStrategy :: Lens.Lens' ContainerService (Lude.Maybe [CapacityProviderStrategyItem])
+csCapacityProviderStrategy = Lens.lens (capacityProviderStrategy :: ContainerService -> Lude.Maybe [CapacityProviderStrategyItem]) (\s a -> s {capacityProviderStrategy = a} :: ContainerService)
+{-# DEPRECATED csCapacityProviderStrategy "Use generic-lens or generic-optics with 'capacityProviderStrategy' instead." #-}
 
--- | The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. The following basic restrictions apply to tags:     * Maximum number of tags per resource - 50     * For each resource, each tag key must be unique, and each tag key can have only one value.     * Maximum key length - 128 Unicode characters in UTF-8     * Maximum value length - 256 Unicode characters in UTF-8     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.     * Tag keys and values are case-sensitive.     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
-csTags :: Lens' ContainerService [Tag]
-csTags = lens _csTags (\s a -> s {_csTags = a}) . _Default . _Coerce
+-- | The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+--
+-- The following basic restrictions apply to tags:
+--
+--     * Maximum number of tags per resource - 50
+--
+--
+--     * For each resource, each tag key must be unique, and each tag key can have only one value.
+--
+--
+--     * Maximum key length - 128 Unicode characters in UTF-8
+--
+--
+--     * Maximum value length - 256 Unicode characters in UTF-8
+--
+--
+--     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+--
+--
+--     * Tag keys and values are case-sensitive.
+--
+--
+--     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+--
+--
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTags :: Lens.Lens' ContainerService (Lude.Maybe [Tag])
+csTags = Lens.lens (tags :: ContainerService -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ContainerService)
+{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ARN of the IAM role associated with the service that allows the Amazon ECS container agent to register container instances with an Elastic Load Balancing load balancer.
-csRoleARN :: Lens' ContainerService (Maybe Text)
-csRoleARN = lens _csRoleARN (\s a -> s {_csRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csRoleARN :: Lens.Lens' ContainerService (Lude.Maybe Lude.Text)
+csRoleARN = Lens.lens (roleARN :: ContainerService -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: ContainerService)
+{-# DEPRECATED csRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
-csDeploymentConfiguration :: Lens' ContainerService (Maybe DeploymentConfiguration)
-csDeploymentConfiguration = lens _csDeploymentConfiguration (\s a -> s {_csDeploymentConfiguration = a})
+--
+-- /Note:/ Consider using 'deploymentConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDeploymentConfiguration :: Lens.Lens' ContainerService (Lude.Maybe DeploymentConfiguration)
+csDeploymentConfiguration = Lens.lens (deploymentConfiguration :: ContainerService -> Lude.Maybe DeploymentConfiguration) (\s a -> s {deploymentConfiguration = a} :: ContainerService)
+{-# DEPRECATED csDeploymentConfiguration "Use generic-lens or generic-optics with 'deploymentConfiguration' instead." #-}
 
-instance FromJSON ContainerService where
+instance Lude.FromJSON ContainerService where
   parseJSON =
-    withObject
+    Lude.withObject
       "ContainerService"
       ( \x ->
           ContainerService'
-            <$> (x .:? "taskSets" .!= mempty)
-            <*> (x .:? "runningCount")
-            <*> (x .:? "status")
-            <*> (x .:? "clusterArn")
-            <*> (x .:? "propagateTags")
-            <*> (x .:? "createdAt")
-            <*> (x .:? "platformVersion")
-            <*> (x .:? "enableECSManagedTags")
-            <*> (x .:? "createdBy")
-            <*> (x .:? "desiredCount")
-            <*> (x .:? "loadBalancers" .!= mempty)
-            <*> (x .:? "pendingCount")
-            <*> (x .:? "placementConstraints" .!= mempty)
-            <*> (x .:? "events" .!= mempty)
-            <*> (x .:? "placementStrategy" .!= mempty)
-            <*> (x .:? "deployments" .!= mempty)
-            <*> (x .:? "serviceName")
-            <*> (x .:? "deploymentController")
-            <*> (x .:? "launchType")
-            <*> (x .:? "serviceArn")
-            <*> (x .:? "taskDefinition")
-            <*> (x .:? "schedulingStrategy")
-            <*> (x .:? "healthCheckGracePeriodSeconds")
-            <*> (x .:? "networkConfiguration")
-            <*> (x .:? "serviceRegistries" .!= mempty)
-            <*> (x .:? "capacityProviderStrategy" .!= mempty)
-            <*> (x .:? "tags" .!= mempty)
-            <*> (x .:? "roleArn")
-            <*> (x .:? "deploymentConfiguration")
+            Lude.<$> (x Lude..:? "taskSets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "runningCount")
+            Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..:? "clusterArn")
+            Lude.<*> (x Lude..:? "propagateTags")
+            Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..:? "platformVersion")
+            Lude.<*> (x Lude..:? "enableECSManagedTags")
+            Lude.<*> (x Lude..:? "createdBy")
+            Lude.<*> (x Lude..:? "desiredCount")
+            Lude.<*> (x Lude..:? "loadBalancers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "pendingCount")
+            Lude.<*> (x Lude..:? "placementConstraints" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "events" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "placementStrategy" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "deployments" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "serviceName")
+            Lude.<*> (x Lude..:? "deploymentController")
+            Lude.<*> (x Lude..:? "launchType")
+            Lude.<*> (x Lude..:? "serviceArn")
+            Lude.<*> (x Lude..:? "taskDefinition")
+            Lude.<*> (x Lude..:? "schedulingStrategy")
+            Lude.<*> (x Lude..:? "healthCheckGracePeriodSeconds")
+            Lude.<*> (x Lude..:? "networkConfiguration")
+            Lude.<*> (x Lude..:? "serviceRegistries" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "capacityProviderStrategy" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "roleArn")
+            Lude.<*> (x Lude..:? "deploymentConfiguration")
       )
-
-instance Hashable ContainerService
-
-instance NFData ContainerService

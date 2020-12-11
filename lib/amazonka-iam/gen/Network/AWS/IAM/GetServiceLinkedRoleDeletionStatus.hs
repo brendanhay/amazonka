@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves the status of your service-linked role deletion. After you use the 'DeleteServiceLinkedRole' API operation to submit a service-linked role for deletion, you can use the @DeletionTaskId@ parameter in @GetServiceLinkedRoleDeletionStatus@ to check the status of the deletion. If the deletion fails, this operation returns the reason that it failed, if that information is returned by the service.
 module Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
-  ( -- * Creating a Request
-    getServiceLinkedRoleDeletionStatus,
-    GetServiceLinkedRoleDeletionStatus,
+  ( -- * Creating a request
+    GetServiceLinkedRoleDeletionStatus (..),
+    mkGetServiceLinkedRoleDeletionStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gslrdsDeletionTaskId,
 
-    -- * Destructuring the Response
-    getServiceLinkedRoleDeletionStatusResponse,
-    GetServiceLinkedRoleDeletionStatusResponse,
+    -- * Destructuring the response
+    GetServiceLinkedRoleDeletionStatusResponse (..),
+    mkGetServiceLinkedRoleDeletionStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gslrdsrsReason,
     gslrdsrsResponseStatus,
     gslrdsrsStatus,
@@ -38,123 +33,132 @@ module Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getServiceLinkedRoleDeletionStatus' smart constructor.
+-- | /See:/ 'mkGetServiceLinkedRoleDeletionStatus' smart constructor.
 newtype GetServiceLinkedRoleDeletionStatus = GetServiceLinkedRoleDeletionStatus'
-  { _gslrdsDeletionTaskId ::
-      Text
+  { deletionTaskId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceLinkedRoleDeletionStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gslrdsDeletionTaskId' - The deletion task identifier. This identifier is returned by the 'DeleteServiceLinkedRole' operation in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
-getServiceLinkedRoleDeletionStatus ::
-  -- | 'gslrdsDeletionTaskId'
-  Text ->
+-- * 'deletionTaskId' - The deletion task identifier. This identifier is returned by the 'DeleteServiceLinkedRole' operation in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
+mkGetServiceLinkedRoleDeletionStatus ::
+  -- | 'deletionTaskId'
+  Lude.Text ->
   GetServiceLinkedRoleDeletionStatus
-getServiceLinkedRoleDeletionStatus pDeletionTaskId_ =
+mkGetServiceLinkedRoleDeletionStatus pDeletionTaskId_ =
   GetServiceLinkedRoleDeletionStatus'
-    { _gslrdsDeletionTaskId =
+    { deletionTaskId =
         pDeletionTaskId_
     }
 
 -- | The deletion task identifier. This identifier is returned by the 'DeleteServiceLinkedRole' operation in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
-gslrdsDeletionTaskId :: Lens' GetServiceLinkedRoleDeletionStatus Text
-gslrdsDeletionTaskId = lens _gslrdsDeletionTaskId (\s a -> s {_gslrdsDeletionTaskId = a})
+--
+-- /Note:/ Consider using 'deletionTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslrdsDeletionTaskId :: Lens.Lens' GetServiceLinkedRoleDeletionStatus Lude.Text
+gslrdsDeletionTaskId = Lens.lens (deletionTaskId :: GetServiceLinkedRoleDeletionStatus -> Lude.Text) (\s a -> s {deletionTaskId = a} :: GetServiceLinkedRoleDeletionStatus)
+{-# DEPRECATED gslrdsDeletionTaskId "Use generic-lens or generic-optics with 'deletionTaskId' instead." #-}
 
-instance AWSRequest GetServiceLinkedRoleDeletionStatus where
+instance Lude.AWSRequest GetServiceLinkedRoleDeletionStatus where
   type
     Rs GetServiceLinkedRoleDeletionStatus =
       GetServiceLinkedRoleDeletionStatusResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "GetServiceLinkedRoleDeletionStatusResult"
       ( \s h x ->
           GetServiceLinkedRoleDeletionStatusResponse'
-            <$> (x .@? "Reason") <*> (pure (fromEnum s)) <*> (x .@ "Status")
+            Lude.<$> (x Lude..@? "Reason")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..@ "Status")
       )
 
-instance Hashable GetServiceLinkedRoleDeletionStatus
+instance Lude.ToHeaders GetServiceLinkedRoleDeletionStatus where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetServiceLinkedRoleDeletionStatus
+instance Lude.ToPath GetServiceLinkedRoleDeletionStatus where
+  toPath = Lude.const "/"
 
-instance ToHeaders GetServiceLinkedRoleDeletionStatus where
-  toHeaders = const mempty
-
-instance ToPath GetServiceLinkedRoleDeletionStatus where
-  toPath = const "/"
-
-instance ToQuery GetServiceLinkedRoleDeletionStatus where
+instance Lude.ToQuery GetServiceLinkedRoleDeletionStatus where
   toQuery GetServiceLinkedRoleDeletionStatus' {..} =
-    mconcat
-      [ "Action" =: ("GetServiceLinkedRoleDeletionStatus" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "DeletionTaskId" =: _gslrdsDeletionTaskId
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("GetServiceLinkedRoleDeletionStatus" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "DeletionTaskId" Lude.=: deletionTaskId
       ]
 
--- | /See:/ 'getServiceLinkedRoleDeletionStatusResponse' smart constructor.
+-- | /See:/ 'mkGetServiceLinkedRoleDeletionStatusResponse' smart constructor.
 data GetServiceLinkedRoleDeletionStatusResponse = GetServiceLinkedRoleDeletionStatusResponse'
-  { _gslrdsrsReason ::
-      !( Maybe
-           DeletionTaskFailureReasonType
-       ),
-    _gslrdsrsResponseStatus ::
-      !Int,
-    _gslrdsrsStatus ::
-      !DeletionTaskStatusType
+  { reason ::
+      Lude.Maybe
+        DeletionTaskFailureReasonType,
+    responseStatus ::
+      Lude.Int,
+    status ::
+      DeletionTaskStatusType
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceLinkedRoleDeletionStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gslrdsrsReason' - An object that contains details about the reason the deletion failed.
---
--- * 'gslrdsrsResponseStatus' - -- | The response status code.
---
--- * 'gslrdsrsStatus' - The status of the deletion.
-getServiceLinkedRoleDeletionStatusResponse ::
-  -- | 'gslrdsrsResponseStatus'
-  Int ->
-  -- | 'gslrdsrsStatus'
+-- * 'reason' - An object that contains details about the reason the deletion failed.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The status of the deletion.
+mkGetServiceLinkedRoleDeletionStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'status'
   DeletionTaskStatusType ->
   GetServiceLinkedRoleDeletionStatusResponse
-getServiceLinkedRoleDeletionStatusResponse
+mkGetServiceLinkedRoleDeletionStatusResponse
   pResponseStatus_
   pStatus_ =
     GetServiceLinkedRoleDeletionStatusResponse'
-      { _gslrdsrsReason =
-          Nothing,
-        _gslrdsrsResponseStatus = pResponseStatus_,
-        _gslrdsrsStatus = pStatus_
+      { reason =
+          Lude.Nothing,
+        responseStatus = pResponseStatus_,
+        status = pStatus_
       }
 
 -- | An object that contains details about the reason the deletion failed.
-gslrdsrsReason :: Lens' GetServiceLinkedRoleDeletionStatusResponse (Maybe DeletionTaskFailureReasonType)
-gslrdsrsReason = lens _gslrdsrsReason (\s a -> s {_gslrdsrsReason = a})
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslrdsrsReason :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse (Lude.Maybe DeletionTaskFailureReasonType)
+gslrdsrsReason = Lens.lens (reason :: GetServiceLinkedRoleDeletionStatusResponse -> Lude.Maybe DeletionTaskFailureReasonType) (\s a -> s {reason = a} :: GetServiceLinkedRoleDeletionStatusResponse)
+{-# DEPRECATED gslrdsrsReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
--- | -- | The response status code.
-gslrdsrsResponseStatus :: Lens' GetServiceLinkedRoleDeletionStatusResponse Int
-gslrdsrsResponseStatus = lens _gslrdsrsResponseStatus (\s a -> s {_gslrdsrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslrdsrsResponseStatus :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse Lude.Int
+gslrdsrsResponseStatus = Lens.lens (responseStatus :: GetServiceLinkedRoleDeletionStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServiceLinkedRoleDeletionStatusResponse)
+{-# DEPRECATED gslrdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the deletion.
-gslrdsrsStatus :: Lens' GetServiceLinkedRoleDeletionStatusResponse DeletionTaskStatusType
-gslrdsrsStatus = lens _gslrdsrsStatus (\s a -> s {_gslrdsrsStatus = a})
-
-instance NFData GetServiceLinkedRoleDeletionStatusResponse
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslrdsrsStatus :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse DeletionTaskStatusType
+gslrdsrsStatus = Lens.lens (status :: GetServiceLinkedRoleDeletionStatusResponse -> DeletionTaskStatusType) (\s a -> s {status = a} :: GetServiceLinkedRoleDeletionStatusResponse)
+{-# DEPRECATED gslrdsrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}

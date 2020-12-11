@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,90 +7,136 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.ApplicationSettingsResource where
+module Network.AWS.Pinpoint.Types.ApplicationSettingsResource
+  ( ApplicationSettingsResource (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkApplicationSettingsResource,
+
+    -- * Lenses
+    asrLastModifiedDate,
+    asrLimits,
+    asrQuietTime,
+    asrCampaignHook,
+    asrApplicationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.CampaignHook
 import Network.AWS.Pinpoint.Types.CampaignLimits
 import Network.AWS.Pinpoint.Types.QuietTime
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides information about an application, including the default settings for an application.
 --
---
---
--- /See:/ 'applicationSettingsResource' smart constructor.
+-- /See:/ 'mkApplicationSettingsResource' smart constructor.
 data ApplicationSettingsResource = ApplicationSettingsResource'
-  { _asrLastModifiedDate ::
-      !(Maybe Text),
-    _asrLimits ::
-      !(Maybe CampaignLimits),
-    _asrQuietTime :: !(Maybe QuietTime),
-    _asrCampaignHook ::
-      !(Maybe CampaignHook),
-    _asrApplicationId :: !Text
+  { lastModifiedDate ::
+      Lude.Maybe Lude.Text,
+    limits :: Lude.Maybe CampaignLimits,
+    quietTime :: Lude.Maybe QuietTime,
+    campaignHook ::
+      Lude.Maybe CampaignHook,
+    applicationId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationSettingsResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'campaignHook' - The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
+-- * 'lastModifiedDate' - The date and time, in ISO 8601 format, when the application's settings were last modified.
+-- * 'limits' - The default sending limits for campaigns in the application.
+-- * 'quietTime' - The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:
 --
--- * 'asrLastModifiedDate' - The date and time, in ISO 8601 format, when the application's settings were last modified.
 --
--- * 'asrLimits' - The default sending limits for campaigns in the application.
+--     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.
 --
--- * 'asrQuietTime' - The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings). If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.
 --
--- * 'asrCampaignHook' - The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
+--     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).
 --
--- * 'asrApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-applicationSettingsResource ::
-  -- | 'asrApplicationId'
-  Text ->
+--
+--     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).
+--
+--
+-- If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.
+mkApplicationSettingsResource ::
+  -- | 'applicationId'
+  Lude.Text ->
   ApplicationSettingsResource
-applicationSettingsResource pApplicationId_ =
+mkApplicationSettingsResource pApplicationId_ =
   ApplicationSettingsResource'
-    { _asrLastModifiedDate = Nothing,
-      _asrLimits = Nothing,
-      _asrQuietTime = Nothing,
-      _asrCampaignHook = Nothing,
-      _asrApplicationId = pApplicationId_
+    { lastModifiedDate = Lude.Nothing,
+      limits = Lude.Nothing,
+      quietTime = Lude.Nothing,
+      campaignHook = Lude.Nothing,
+      applicationId = pApplicationId_
     }
 
 -- | The date and time, in ISO 8601 format, when the application's settings were last modified.
-asrLastModifiedDate :: Lens' ApplicationSettingsResource (Maybe Text)
-asrLastModifiedDate = lens _asrLastModifiedDate (\s a -> s {_asrLastModifiedDate = a})
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrLastModifiedDate :: Lens.Lens' ApplicationSettingsResource (Lude.Maybe Lude.Text)
+asrLastModifiedDate = Lens.lens (lastModifiedDate :: ApplicationSettingsResource -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedDate = a} :: ApplicationSettingsResource)
+{-# DEPRECATED asrLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The default sending limits for campaigns in the application.
-asrLimits :: Lens' ApplicationSettingsResource (Maybe CampaignLimits)
-asrLimits = lens _asrLimits (\s a -> s {_asrLimits = a})
+--
+-- /Note:/ Consider using 'limits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrLimits :: Lens.Lens' ApplicationSettingsResource (Lude.Maybe CampaignLimits)
+asrLimits = Lens.lens (limits :: ApplicationSettingsResource -> Lude.Maybe CampaignLimits) (\s a -> s {limits = a} :: ApplicationSettingsResource)
+{-# DEPRECATED asrLimits "Use generic-lens or generic-optics with 'limits' instead." #-}
 
--- | The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings). If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.
-asrQuietTime :: Lens' ApplicationSettingsResource (Maybe QuietTime)
-asrQuietTime = lens _asrQuietTime (\s a -> s {_asrQuietTime = a})
+-- | The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:
+--
+--
+--     * The EndpointDemographic.Timezone property of the endpoint is set to a valid value.
+--
+--
+--     * The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).
+--
+--
+--     * The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).
+--
+--
+-- If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.
+--
+-- /Note:/ Consider using 'quietTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrQuietTime :: Lens.Lens' ApplicationSettingsResource (Lude.Maybe QuietTime)
+asrQuietTime = Lens.lens (quietTime :: ApplicationSettingsResource -> Lude.Maybe QuietTime) (\s a -> s {quietTime = a} :: ApplicationSettingsResource)
+{-# DEPRECATED asrQuietTime "Use generic-lens or generic-optics with 'quietTime' instead." #-}
 
 -- | The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.
-asrCampaignHook :: Lens' ApplicationSettingsResource (Maybe CampaignHook)
-asrCampaignHook = lens _asrCampaignHook (\s a -> s {_asrCampaignHook = a})
+--
+-- /Note:/ Consider using 'campaignHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrCampaignHook :: Lens.Lens' ApplicationSettingsResource (Lude.Maybe CampaignHook)
+asrCampaignHook = Lens.lens (campaignHook :: ApplicationSettingsResource -> Lude.Maybe CampaignHook) (\s a -> s {campaignHook = a} :: ApplicationSettingsResource)
+{-# DEPRECATED asrCampaignHook "Use generic-lens or generic-optics with 'campaignHook' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-asrApplicationId :: Lens' ApplicationSettingsResource Text
-asrApplicationId = lens _asrApplicationId (\s a -> s {_asrApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrApplicationId :: Lens.Lens' ApplicationSettingsResource Lude.Text
+asrApplicationId = Lens.lens (applicationId :: ApplicationSettingsResource -> Lude.Text) (\s a -> s {applicationId = a} :: ApplicationSettingsResource)
+{-# DEPRECATED asrApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance FromJSON ApplicationSettingsResource where
+instance Lude.FromJSON ApplicationSettingsResource where
   parseJSON =
-    withObject
+    Lude.withObject
       "ApplicationSettingsResource"
       ( \x ->
           ApplicationSettingsResource'
-            <$> (x .:? "LastModifiedDate")
-            <*> (x .:? "Limits")
-            <*> (x .:? "QuietTime")
-            <*> (x .:? "CampaignHook")
-            <*> (x .: "ApplicationId")
+            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..:? "Limits")
+            Lude.<*> (x Lude..:? "QuietTime")
+            Lude.<*> (x Lude..:? "CampaignHook")
+            Lude.<*> (x Lude..: "ApplicationId")
       )
-
-instance Hashable ApplicationSettingsResource
-
-instance NFData ApplicationSettingsResource

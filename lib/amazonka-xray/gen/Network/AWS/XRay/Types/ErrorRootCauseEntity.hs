@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ErrorRootCauseEntity where
+module Network.AWS.XRay.Types.ErrorRootCauseEntity
+  ( ErrorRootCauseEntity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkErrorRootCauseEntity,
+
+    -- * Lenses
+    erceExceptions,
+    erceRemote,
+    erceName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.RootCauseException
 
 -- | A collection of segments and corresponding subsegments associated to a trace summary error.
 --
---
---
--- /See:/ 'errorRootCauseEntity' smart constructor.
+-- /See:/ 'mkErrorRootCauseEntity' smart constructor.
 data ErrorRootCauseEntity = ErrorRootCauseEntity'
-  { _erceExceptions ::
-      !(Maybe [RootCauseException]),
-    _erceRemote :: !(Maybe Bool),
-    _erceName :: !(Maybe Text)
+  { exceptions ::
+      Lude.Maybe [RootCauseException],
+    remote :: Lude.Maybe Lude.Bool,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ErrorRootCauseEntity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'erceExceptions' - The types and messages of the exceptions.
---
--- * 'erceRemote' - A flag that denotes a remote subsegment.
---
--- * 'erceName' - The name of the entity.
-errorRootCauseEntity ::
+-- * 'exceptions' - The types and messages of the exceptions.
+-- * 'name' - The name of the entity.
+-- * 'remote' - A flag that denotes a remote subsegment.
+mkErrorRootCauseEntity ::
   ErrorRootCauseEntity
-errorRootCauseEntity =
+mkErrorRootCauseEntity =
   ErrorRootCauseEntity'
-    { _erceExceptions = Nothing,
-      _erceRemote = Nothing,
-      _erceName = Nothing
+    { exceptions = Lude.Nothing,
+      remote = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The types and messages of the exceptions.
-erceExceptions :: Lens' ErrorRootCauseEntity [RootCauseException]
-erceExceptions = lens _erceExceptions (\s a -> s {_erceExceptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'exceptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erceExceptions :: Lens.Lens' ErrorRootCauseEntity (Lude.Maybe [RootCauseException])
+erceExceptions = Lens.lens (exceptions :: ErrorRootCauseEntity -> Lude.Maybe [RootCauseException]) (\s a -> s {exceptions = a} :: ErrorRootCauseEntity)
+{-# DEPRECATED erceExceptions "Use generic-lens or generic-optics with 'exceptions' instead." #-}
 
 -- | A flag that denotes a remote subsegment.
-erceRemote :: Lens' ErrorRootCauseEntity (Maybe Bool)
-erceRemote = lens _erceRemote (\s a -> s {_erceRemote = a})
+--
+-- /Note:/ Consider using 'remote' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erceRemote :: Lens.Lens' ErrorRootCauseEntity (Lude.Maybe Lude.Bool)
+erceRemote = Lens.lens (remote :: ErrorRootCauseEntity -> Lude.Maybe Lude.Bool) (\s a -> s {remote = a} :: ErrorRootCauseEntity)
+{-# DEPRECATED erceRemote "Use generic-lens or generic-optics with 'remote' instead." #-}
 
 -- | The name of the entity.
-erceName :: Lens' ErrorRootCauseEntity (Maybe Text)
-erceName = lens _erceName (\s a -> s {_erceName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erceName :: Lens.Lens' ErrorRootCauseEntity (Lude.Maybe Lude.Text)
+erceName = Lens.lens (name :: ErrorRootCauseEntity -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ErrorRootCauseEntity)
+{-# DEPRECATED erceName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON ErrorRootCauseEntity where
+instance Lude.FromJSON ErrorRootCauseEntity where
   parseJSON =
-    withObject
+    Lude.withObject
       "ErrorRootCauseEntity"
       ( \x ->
           ErrorRootCauseEntity'
-            <$> (x .:? "Exceptions" .!= mempty)
-            <*> (x .:? "Remote")
-            <*> (x .:? "Name")
+            Lude.<$> (x Lude..:? "Exceptions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Remote")
+            Lude.<*> (x Lude..:? "Name")
       )
-
-instance Hashable ErrorRootCauseEntity
-
-instance NFData ErrorRootCauseEntity

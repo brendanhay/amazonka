@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.Queue where
+module Network.AWS.ElasticBeanstalk.Types.Queue
+  ( Queue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkQueue,
+
+    -- * Lenses
+    qURL,
+    qName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a queue.
 --
---
---
--- /See:/ 'queue' smart constructor.
+-- /See:/ 'mkQueue' smart constructor.
 data Queue = Queue'
-  { _qURL :: !(Maybe Text),
-    _qName :: !(Maybe Text)
+  { url :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Queue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qURL' - The URL of the queue.
---
--- * 'qName' - The name of the queue.
-queue ::
+-- * 'name' - The name of the queue.
+-- * 'url' - The URL of the queue.
+mkQueue ::
   Queue
-queue = Queue' {_qURL = Nothing, _qName = Nothing}
+mkQueue = Queue' {url = Lude.Nothing, name = Lude.Nothing}
 
 -- | The URL of the queue.
-qURL :: Lens' Queue (Maybe Text)
-qURL = lens _qURL (\s a -> s {_qURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qURL :: Lens.Lens' Queue (Lude.Maybe Lude.Text)
+qURL = Lens.lens (url :: Queue -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: Queue)
+{-# DEPRECATED qURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The name of the queue.
-qName :: Lens' Queue (Maybe Text)
-qName = lens _qName (\s a -> s {_qName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qName :: Lens.Lens' Queue (Lude.Maybe Lude.Text)
+qName = Lens.lens (name :: Queue -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Queue)
+{-# DEPRECATED qName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML Queue where
-  parseXML x = Queue' <$> (x .@? "URL") <*> (x .@? "Name")
-
-instance Hashable Queue
-
-instance NFData Queue
+instance Lude.FromXML Queue where
+  parseXML x =
+    Queue' Lude.<$> (x Lude..@? "URL") Lude.<*> (x Lude..@? "Name")

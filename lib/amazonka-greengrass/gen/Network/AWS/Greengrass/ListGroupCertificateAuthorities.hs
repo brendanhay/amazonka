@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,135 @@
 --
 -- Retrieves the current CAs for a group.
 module Network.AWS.Greengrass.ListGroupCertificateAuthorities
-  ( -- * Creating a Request
-    listGroupCertificateAuthorities,
-    ListGroupCertificateAuthorities,
+  ( -- * Creating a request
+    ListGroupCertificateAuthorities (..),
+    mkListGroupCertificateAuthorities,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgcaGroupId,
 
-    -- * Destructuring the Response
-    listGroupCertificateAuthoritiesResponse,
-    ListGroupCertificateAuthoritiesResponse,
+    -- * Destructuring the response
+    ListGroupCertificateAuthoritiesResponse (..),
+    mkListGroupCertificateAuthoritiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgcarsGroupCertificateAuthorities,
     lgcarsResponseStatus,
   )
 where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGroupCertificateAuthorities' smart constructor.
+-- | /See:/ 'mkListGroupCertificateAuthorities' smart constructor.
 newtype ListGroupCertificateAuthorities = ListGroupCertificateAuthorities'
-  { _lgcaGroupId ::
-      Text
+  { groupId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupCertificateAuthorities' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgcaGroupId' - The ID of the Greengrass group.
-listGroupCertificateAuthorities ::
-  -- | 'lgcaGroupId'
-  Text ->
+-- * 'groupId' - The ID of the Greengrass group.
+mkListGroupCertificateAuthorities ::
+  -- | 'groupId'
+  Lude.Text ->
   ListGroupCertificateAuthorities
-listGroupCertificateAuthorities pGroupId_ =
-  ListGroupCertificateAuthorities' {_lgcaGroupId = pGroupId_}
+mkListGroupCertificateAuthorities pGroupId_ =
+  ListGroupCertificateAuthorities' {groupId = pGroupId_}
 
 -- | The ID of the Greengrass group.
-lgcaGroupId :: Lens' ListGroupCertificateAuthorities Text
-lgcaGroupId = lens _lgcaGroupId (\s a -> s {_lgcaGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgcaGroupId :: Lens.Lens' ListGroupCertificateAuthorities Lude.Text
+lgcaGroupId = Lens.lens (groupId :: ListGroupCertificateAuthorities -> Lude.Text) (\s a -> s {groupId = a} :: ListGroupCertificateAuthorities)
+{-# DEPRECATED lgcaGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest ListGroupCertificateAuthorities where
+instance Lude.AWSRequest ListGroupCertificateAuthorities where
   type
     Rs ListGroupCertificateAuthorities =
       ListGroupCertificateAuthoritiesResponse
-  request = get greengrass
+  request = Req.get greengrassService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGroupCertificateAuthoritiesResponse'
-            <$> (x .?> "GroupCertificateAuthorities" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GroupCertificateAuthorities" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGroupCertificateAuthorities
-
-instance NFData ListGroupCertificateAuthorities
-
-instance ToHeaders ListGroupCertificateAuthorities where
+instance Lude.ToHeaders ListGroupCertificateAuthorities where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath ListGroupCertificateAuthorities where
+instance Lude.ToPath ListGroupCertificateAuthorities where
   toPath ListGroupCertificateAuthorities' {..} =
-    mconcat
+    Lude.mconcat
       [ "/greengrass/groups/",
-        toBS _lgcaGroupId,
+        Lude.toBS groupId,
         "/certificateauthorities"
       ]
 
-instance ToQuery ListGroupCertificateAuthorities where
-  toQuery = const mempty
+instance Lude.ToQuery ListGroupCertificateAuthorities where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listGroupCertificateAuthoritiesResponse' smart constructor.
+-- | /See:/ 'mkListGroupCertificateAuthoritiesResponse' smart constructor.
 data ListGroupCertificateAuthoritiesResponse = ListGroupCertificateAuthoritiesResponse'
-  { _lgcarsGroupCertificateAuthorities ::
-      !( Maybe
-           [GroupCertificateAuthorityProperties]
-       ),
-    _lgcarsResponseStatus ::
-      !Int
+  { groupCertificateAuthorities ::
+      Lude.Maybe
+        [GroupCertificateAuthorityProperties],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupCertificateAuthoritiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgcarsGroupCertificateAuthorities' - A list of certificate authorities associated with the group.
---
--- * 'lgcarsResponseStatus' - -- | The response status code.
-listGroupCertificateAuthoritiesResponse ::
-  -- | 'lgcarsResponseStatus'
-  Int ->
+-- * 'groupCertificateAuthorities' - A list of certificate authorities associated with the group.
+-- * 'responseStatus' - The response status code.
+mkListGroupCertificateAuthoritiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGroupCertificateAuthoritiesResponse
-listGroupCertificateAuthoritiesResponse pResponseStatus_ =
+mkListGroupCertificateAuthoritiesResponse pResponseStatus_ =
   ListGroupCertificateAuthoritiesResponse'
-    { _lgcarsGroupCertificateAuthorities =
-        Nothing,
-      _lgcarsResponseStatus = pResponseStatus_
+    { groupCertificateAuthorities =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of certificate authorities associated with the group.
-lgcarsGroupCertificateAuthorities :: Lens' ListGroupCertificateAuthoritiesResponse [GroupCertificateAuthorityProperties]
-lgcarsGroupCertificateAuthorities = lens _lgcarsGroupCertificateAuthorities (\s a -> s {_lgcarsGroupCertificateAuthorities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'groupCertificateAuthorities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgcarsGroupCertificateAuthorities :: Lens.Lens' ListGroupCertificateAuthoritiesResponse (Lude.Maybe [GroupCertificateAuthorityProperties])
+lgcarsGroupCertificateAuthorities = Lens.lens (groupCertificateAuthorities :: ListGroupCertificateAuthoritiesResponse -> Lude.Maybe [GroupCertificateAuthorityProperties]) (\s a -> s {groupCertificateAuthorities = a} :: ListGroupCertificateAuthoritiesResponse)
+{-# DEPRECATED lgcarsGroupCertificateAuthorities "Use generic-lens or generic-optics with 'groupCertificateAuthorities' instead." #-}
 
--- | -- | The response status code.
-lgcarsResponseStatus :: Lens' ListGroupCertificateAuthoritiesResponse Int
-lgcarsResponseStatus = lens _lgcarsResponseStatus (\s a -> s {_lgcarsResponseStatus = a})
-
-instance NFData ListGroupCertificateAuthoritiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgcarsResponseStatus :: Lens.Lens' ListGroupCertificateAuthoritiesResponse Lude.Int
+lgcarsResponseStatus = Lens.lens (responseStatus :: ListGroupCertificateAuthoritiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGroupCertificateAuthoritiesResponse)
+{-# DEPRECATED lgcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

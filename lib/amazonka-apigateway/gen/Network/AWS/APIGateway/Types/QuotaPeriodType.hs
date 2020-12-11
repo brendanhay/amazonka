@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.QuotaPeriodType where
+module Network.AWS.APIGateway.Types.QuotaPeriodType
+  ( QuotaPeriodType
+      ( QuotaPeriodType',
+        Day,
+        Month,
+        Week
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data QuotaPeriodType
-  = Day
-  | Month
-  | Week
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype QuotaPeriodType = QuotaPeriodType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText QuotaPeriodType where
-  parser =
-    takeLowerText >>= \case
-      "day" -> pure Day
-      "month" -> pure Month
-      "week" -> pure Week
-      e ->
-        fromTextError $
-          "Failure parsing QuotaPeriodType from value: '" <> e
-            <> "'. Accepted values: day, month, week"
+pattern Day :: QuotaPeriodType
+pattern Day = QuotaPeriodType' "DAY"
 
-instance ToText QuotaPeriodType where
-  toText = \case
-    Day -> "DAY"
-    Month -> "MONTH"
-    Week -> "WEEK"
+pattern Month :: QuotaPeriodType
+pattern Month = QuotaPeriodType' "MONTH"
 
-instance Hashable QuotaPeriodType
+pattern Week :: QuotaPeriodType
+pattern Week = QuotaPeriodType' "WEEK"
 
-instance NFData QuotaPeriodType
-
-instance ToByteString QuotaPeriodType
-
-instance ToQuery QuotaPeriodType
-
-instance ToHeader QuotaPeriodType
-
-instance ToJSON QuotaPeriodType where
-  toJSON = toJSONText
-
-instance FromJSON QuotaPeriodType where
-  parseJSON = parseJSONText "QuotaPeriodType"
+{-# COMPLETE
+  Day,
+  Month,
+  Week,
+  QuotaPeriodType'
+  #-}

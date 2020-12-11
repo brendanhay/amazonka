@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus where
+module Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus
+  ( LifecyclePolicyPreviewStatus
+      ( LifecyclePolicyPreviewStatus',
+        LPPSComplete,
+        LPPSExpired,
+        LPPSFailed,
+        LPPSInProgress
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LifecyclePolicyPreviewStatus
-  = LPPSComplete
-  | LPPSExpired
-  | LPPSFailed
-  | LPPSInProgress
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LifecyclePolicyPreviewStatus = LifecyclePolicyPreviewStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LifecyclePolicyPreviewStatus where
-  parser =
-    takeLowerText >>= \case
-      "complete" -> pure LPPSComplete
-      "expired" -> pure LPPSExpired
-      "failed" -> pure LPPSFailed
-      "in_progress" -> pure LPPSInProgress
-      e ->
-        fromTextError $
-          "Failure parsing LifecyclePolicyPreviewStatus from value: '" <> e
-            <> "'. Accepted values: complete, expired, failed, in_progress"
+pattern LPPSComplete :: LifecyclePolicyPreviewStatus
+pattern LPPSComplete = LifecyclePolicyPreviewStatus' "COMPLETE"
 
-instance ToText LifecyclePolicyPreviewStatus where
-  toText = \case
-    LPPSComplete -> "COMPLETE"
-    LPPSExpired -> "EXPIRED"
-    LPPSFailed -> "FAILED"
-    LPPSInProgress -> "IN_PROGRESS"
+pattern LPPSExpired :: LifecyclePolicyPreviewStatus
+pattern LPPSExpired = LifecyclePolicyPreviewStatus' "EXPIRED"
 
-instance Hashable LifecyclePolicyPreviewStatus
+pattern LPPSFailed :: LifecyclePolicyPreviewStatus
+pattern LPPSFailed = LifecyclePolicyPreviewStatus' "FAILED"
 
-instance NFData LifecyclePolicyPreviewStatus
+pattern LPPSInProgress :: LifecyclePolicyPreviewStatus
+pattern LPPSInProgress = LifecyclePolicyPreviewStatus' "IN_PROGRESS"
 
-instance ToByteString LifecyclePolicyPreviewStatus
-
-instance ToQuery LifecyclePolicyPreviewStatus
-
-instance ToHeader LifecyclePolicyPreviewStatus
-
-instance FromJSON LifecyclePolicyPreviewStatus where
-  parseJSON = parseJSONText "LifecyclePolicyPreviewStatus"
+{-# COMPLETE
+  LPPSComplete,
+  LPPSExpired,
+  LPPSFailed,
+  LPPSInProgress,
+  LifecyclePolicyPreviewStatus'
+  #-}

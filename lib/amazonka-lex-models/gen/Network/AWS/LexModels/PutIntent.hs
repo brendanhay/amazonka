@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,42 +14,41 @@
 --
 -- Creates an intent or replaces an existing intent.
 --
---
 -- To define the interaction between the user and your bot, you use one or more intents. For a pizza ordering bot, for example, you would create an @OrderPizza@ intent.
---
 -- To create an intent or replace an existing intent, you must provide the following:
 --
 --     * Intent name. For example, @OrderPizza@ .
 --
+--
 --     * Sample utterances. For example, "Can I order a pizza, please." and "I want to order a pizza."
+--
 --
 --     * Information to be gathered. You specify slot types for the information that your bot will request from the user. You can specify standard slot types, such as a date or a time, or custom slot types such as the size and crust of a pizza.
 --
---     * How the intent will be fulfilled. You can provide a Lambda function or configure the intent to return the intent information to the client application. If you use a Lambda function, when all of the intent information is available, Amazon Lex invokes your Lambda function. If you configure your intent to return the intent information to the client application.
 --
+--     * How the intent will be fulfilled. You can provide a Lambda function or configure the intent to return the intent information to the client application. If you use a Lambda function, when all of the intent information is available, Amazon Lex invokes your Lambda function. If you configure your intent to return the intent information to the client application.
 --
 --
 -- You can specify other optional information in the request, such as:
 --
 --     * A confirmation prompt to ask the user to confirm an intent. For example, "Shall I order your pizza?"
 --
+--
 --     * A conclusion statement to send to the user after the intent has been fulfilled. For example, "I placed your pizza order."
+--
 --
 --     * A follow-up prompt that asks the user for additional activity. For example, asking "Do you want to order a drink with your pizza?"
 --
 --
---
 -- If you specify an existing intent name to update the intent, Amazon Lex replaces the values in the @> LATEST@ version of the intent with the values in the request. Amazon Lex removes fields that you don't provide in the request. If you don't specify the required fields, Amazon Lex throws an exception. When you update the @> LATEST@ version of an intent, the @status@ field of any bot that uses the @> LATEST@ version of the intent is set to @NOT_BUILT@ .
---
 -- For more information, see 'how-it-works' .
---
 -- This operation requires permissions for the @lex:PutIntent@ action.
 module Network.AWS.LexModels.PutIntent
-  ( -- * Creating a Request
-    putIntent,
-    PutIntent,
+  ( -- * Creating a request
+    PutIntent (..),
+    mkPutIntent,
 
-    -- * Request Lenses
+    -- ** Request lenses
     piFulfillmentActivity,
     piSlots,
     piRejectionStatement,
@@ -72,11 +66,11 @@ module Network.AWS.LexModels.PutIntent
     piDescription,
     piName,
 
-    -- * Destructuring the Response
-    putIntentResponse,
-    PutIntentResponse,
+    -- * Destructuring the response
+    PutIntentResponse (..),
+    mkPutIntentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pirsFulfillmentActivity,
     pirsSlots,
     pirsRejectionStatement,
@@ -100,402 +94,545 @@ module Network.AWS.LexModels.PutIntent
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putIntent' smart constructor.
+-- | /See:/ 'mkPutIntent' smart constructor.
 data PutIntent = PutIntent'
-  { _piFulfillmentActivity ::
-      !(Maybe FulfillmentActivity),
-    _piSlots :: !(Maybe [Slot]),
-    _piRejectionStatement :: !(Maybe Statement),
-    _piChecksum :: !(Maybe Text),
-    _piConclusionStatement :: !(Maybe Statement),
-    _piSampleUtterances :: !(Maybe [Text]),
-    _piParentIntentSignature :: !(Maybe Text),
-    _piKendraConfiguration :: !(Maybe KendraConfiguration),
-    _piInputContexts :: !(Maybe [InputContext]),
-    _piFollowUpPrompt :: !(Maybe FollowUpPrompt),
-    _piOutputContexts :: !(Maybe [OutputContext]),
-    _piConfirmationPrompt :: !(Maybe Prompt),
-    _piCreateVersion :: !(Maybe Bool),
-    _piDialogCodeHook :: !(Maybe CodeHook),
-    _piDescription :: !(Maybe Text),
-    _piName :: !Text
+  { fulfillmentActivity ::
+      Lude.Maybe FulfillmentActivity,
+    slots :: Lude.Maybe [Slot],
+    rejectionStatement :: Lude.Maybe Statement,
+    checksum :: Lude.Maybe Lude.Text,
+    conclusionStatement :: Lude.Maybe Statement,
+    sampleUtterances :: Lude.Maybe [Lude.Text],
+    parentIntentSignature :: Lude.Maybe Lude.Text,
+    kendraConfiguration :: Lude.Maybe KendraConfiguration,
+    inputContexts :: Lude.Maybe [InputContext],
+    followUpPrompt :: Lude.Maybe FollowUpPrompt,
+    outputContexts :: Lude.Maybe [OutputContext],
+    confirmationPrompt :: Lude.Maybe Prompt,
+    createVersion :: Lude.Maybe Lude.Bool,
+    dialogCodeHook :: Lude.Maybe CodeHook,
+    description :: Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutIntent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'checksum' - Identifies a specific revision of the @> LATEST@ version.
 --
--- * 'piFulfillmentActivity' - Required. Describes how the intent is fulfilled. For example, after a user provides all of the information for a pizza order, @fulfillmentActivity@ defines how the bot places an order with a local pizza store.  You might configure Amazon Lex to return all of the intent information to the client application, or direct it to invoke a Lambda function that can process the intent (for example, place an order with a pizzeria).
+-- When you create a new intent, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception.
+-- When you want to update a intent, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
+-- * 'conclusionStatement' - The statement that you want Amazon Lex to convey to the user after the intent is successfully fulfilled by the Lambda function.
 --
--- * 'piSlots' - An array of intent slots. At runtime, Amazon Lex elicits required slot values from the user using prompts defined in the slots. For more information, see 'how-it-works' .
+-- This element is relevant only if you provide a Lambda function in the @fulfillmentActivity@ . If you return the intent to the client application, you can't specify this element.
+-- * 'confirmationPrompt' - Prompts the user to confirm the intent. This question should have a yes or no answer.
 --
--- * 'piRejectionStatement' - When the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
+-- Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the @OrderPizza@ intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
+-- * 'createVersion' - When set to @true@ a new numbered version of the intent is created. This is the same as calling the @CreateIntentVersion@ operation. If you do not specify @createVersion@ , the default is @false@ .
+-- * 'description' - A description of the intent.
+-- * 'dialogCodeHook' - Specifies a Lambda function to invoke for each user input. You can invoke this Lambda function to personalize user interaction.
 --
--- * 'piChecksum' - Identifies a specific revision of the @> LATEST@ version. When you create a new intent, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception. When you want to update a intent, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
+-- For example, suppose your bot determines that the user is John. Your Lambda function might retrieve John's information from a backend database and prepopulate some of the values. For example, if you find that John is gluten intolerant, you might set the corresponding intent slot, @GlutenIntolerant@ , to true. You might find John's phone number and set the corresponding session attribute.
+-- * 'followUpPrompt' - Amazon Lex uses this prompt to solicit additional activity after fulfilling an intent. For example, after the @OrderPizza@ intent is fulfilled, you might prompt the user to order a drink.
 --
--- * 'piConclusionStatement' - The statement that you want Amazon Lex to convey to the user after the intent is successfully fulfilled by the Lambda function.  This element is relevant only if you provide a Lambda function in the @fulfillmentActivity@ . If you return the intent to the client application, you can't specify this element.
+-- The action that Amazon Lex takes depends on the user's response, as follows:
 --
--- * 'piSampleUtterances' - An array of utterances (strings) that a user might say to signal the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".  In each utterance, a slot name is enclosed in curly braces.
+--     * If the user says "Yes" it responds with the clarification prompt that is configured for the bot.
 --
--- * 'piParentIntentSignature' - A unique identifier for the built-in intent to base this intent on. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
 --
--- * 'piKendraConfiguration' - Configuration information required to use the @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/built-in-intent-kendra-search.html AMAZON.KendraSearchIntent> .
+--     * if the user says "Yes" and continues with an utterance that triggers an intent it starts a conversation for the intent.
 --
--- * 'piInputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
 --
--- * 'piFollowUpPrompt' - Amazon Lex uses this prompt to solicit additional activity after fulfilling an intent. For example, after the @OrderPizza@ intent is fulfilled, you might prompt the user to order a drink. The action that Amazon Lex takes depends on the user's response, as follows:     * If the user says "Yes" it responds with the clarification prompt that is configured for the bot.     * if the user says "Yes" and continues with an utterance that triggers an intent it starts a conversation for the intent.     * If the user says "No" it responds with the rejection statement configured for the the follow-up prompt.     * If it doesn't recognize the utterance it repeats the follow-up prompt again. The @followUpPrompt@ field and the @conclusionStatement@ field are mutually exclusive. You can specify only one.
+--     * If the user says "No" it responds with the rejection statement configured for the the follow-up prompt.
 --
--- * 'piOutputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
 --
--- * 'piConfirmationPrompt' - Prompts the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the @OrderPizza@ intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
+--     * If it doesn't recognize the utterance it repeats the follow-up prompt again.
 --
--- * 'piCreateVersion' - When set to @true@ a new numbered version of the intent is created. This is the same as calling the @CreateIntentVersion@ operation. If you do not specify @createVersion@ , the default is @false@ .
 --
--- * 'piDialogCodeHook' - Specifies a Lambda function to invoke for each user input. You can invoke this Lambda function to personalize user interaction.  For example, suppose your bot determines that the user is John. Your Lambda function might retrieve John's information from a backend database and prepopulate some of the values. For example, if you find that John is gluten intolerant, you might set the corresponding intent slot, @GlutenIntolerant@ , to true. You might find John's phone number and set the corresponding session attribute.
+-- The @followUpPrompt@ field and the @conclusionStatement@ field are mutually exclusive. You can specify only one.
+-- * 'fulfillmentActivity' - Required. Describes how the intent is fulfilled. For example, after a user provides all of the information for a pizza order, @fulfillmentActivity@ defines how the bot places an order with a local pizza store.
 --
--- * 'piDescription' - A description of the intent.
+-- You might configure Amazon Lex to return all of the intent information to the client application, or direct it to invoke a Lambda function that can process the intent (for example, place an order with a pizzeria).
+-- * 'inputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
+-- * 'kendraConfiguration' - Configuration information required to use the @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/built-in-intent-kendra-search.html AMAZON.KendraSearchIntent> .
+-- * 'name' - The name of the intent. The name is /not/ case sensitive.
 --
--- * 'piName' - The name of the intent. The name is /not/ case sensitive.  The name can't match a built-in intent name, or a built-in intent name with "AMAZON." removed. For example, because there is a built-in intent called @AMAZON.HelpIntent@ , you can't create a custom intent called @HelpIntent@ . For a list of built-in intents, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
-putIntent ::
-  -- | 'piName'
-  Text ->
+-- The name can't match a built-in intent name, or a built-in intent name with "AMAZON." removed. For example, because there is a built-in intent called @AMAZON.HelpIntent@ , you can't create a custom intent called @HelpIntent@ .
+-- For a list of built-in intents, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
+-- * 'outputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
+-- * 'parentIntentSignature' - A unique identifier for the built-in intent to base this intent on. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
+-- * 'rejectionStatement' - When the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
+-- * 'sampleUtterances' - An array of utterances (strings) that a user might say to signal the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
+--
+-- In each utterance, a slot name is enclosed in curly braces.
+-- * 'slots' - An array of intent slots. At runtime, Amazon Lex elicits required slot values from the user using prompts defined in the slots. For more information, see 'how-it-works' .
+mkPutIntent ::
+  -- | 'name'
+  Lude.Text ->
   PutIntent
-putIntent pName_ =
+mkPutIntent pName_ =
   PutIntent'
-    { _piFulfillmentActivity = Nothing,
-      _piSlots = Nothing,
-      _piRejectionStatement = Nothing,
-      _piChecksum = Nothing,
-      _piConclusionStatement = Nothing,
-      _piSampleUtterances = Nothing,
-      _piParentIntentSignature = Nothing,
-      _piKendraConfiguration = Nothing,
-      _piInputContexts = Nothing,
-      _piFollowUpPrompt = Nothing,
-      _piOutputContexts = Nothing,
-      _piConfirmationPrompt = Nothing,
-      _piCreateVersion = Nothing,
-      _piDialogCodeHook = Nothing,
-      _piDescription = Nothing,
-      _piName = pName_
+    { fulfillmentActivity = Lude.Nothing,
+      slots = Lude.Nothing,
+      rejectionStatement = Lude.Nothing,
+      checksum = Lude.Nothing,
+      conclusionStatement = Lude.Nothing,
+      sampleUtterances = Lude.Nothing,
+      parentIntentSignature = Lude.Nothing,
+      kendraConfiguration = Lude.Nothing,
+      inputContexts = Lude.Nothing,
+      followUpPrompt = Lude.Nothing,
+      outputContexts = Lude.Nothing,
+      confirmationPrompt = Lude.Nothing,
+      createVersion = Lude.Nothing,
+      dialogCodeHook = Lude.Nothing,
+      description = Lude.Nothing,
+      name = pName_
     }
 
--- | Required. Describes how the intent is fulfilled. For example, after a user provides all of the information for a pizza order, @fulfillmentActivity@ defines how the bot places an order with a local pizza store.  You might configure Amazon Lex to return all of the intent information to the client application, or direct it to invoke a Lambda function that can process the intent (for example, place an order with a pizzeria).
-piFulfillmentActivity :: Lens' PutIntent (Maybe FulfillmentActivity)
-piFulfillmentActivity = lens _piFulfillmentActivity (\s a -> s {_piFulfillmentActivity = a})
+-- | Required. Describes how the intent is fulfilled. For example, after a user provides all of the information for a pizza order, @fulfillmentActivity@ defines how the bot places an order with a local pizza store.
+--
+-- You might configure Amazon Lex to return all of the intent information to the client application, or direct it to invoke a Lambda function that can process the intent (for example, place an order with a pizzeria).
+--
+-- /Note:/ Consider using 'fulfillmentActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piFulfillmentActivity :: Lens.Lens' PutIntent (Lude.Maybe FulfillmentActivity)
+piFulfillmentActivity = Lens.lens (fulfillmentActivity :: PutIntent -> Lude.Maybe FulfillmentActivity) (\s a -> s {fulfillmentActivity = a} :: PutIntent)
+{-# DEPRECATED piFulfillmentActivity "Use generic-lens or generic-optics with 'fulfillmentActivity' instead." #-}
 
 -- | An array of intent slots. At runtime, Amazon Lex elicits required slot values from the user using prompts defined in the slots. For more information, see 'how-it-works' .
-piSlots :: Lens' PutIntent [Slot]
-piSlots = lens _piSlots (\s a -> s {_piSlots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piSlots :: Lens.Lens' PutIntent (Lude.Maybe [Slot])
+piSlots = Lens.lens (slots :: PutIntent -> Lude.Maybe [Slot]) (\s a -> s {slots = a} :: PutIntent)
+{-# DEPRECATED piSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
 -- | When the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
-piRejectionStatement :: Lens' PutIntent (Maybe Statement)
-piRejectionStatement = lens _piRejectionStatement (\s a -> s {_piRejectionStatement = a})
+--
+-- /Note:/ Consider using 'rejectionStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piRejectionStatement :: Lens.Lens' PutIntent (Lude.Maybe Statement)
+piRejectionStatement = Lens.lens (rejectionStatement :: PutIntent -> Lude.Maybe Statement) (\s a -> s {rejectionStatement = a} :: PutIntent)
+{-# DEPRECATED piRejectionStatement "Use generic-lens or generic-optics with 'rejectionStatement' instead." #-}
 
--- | Identifies a specific revision of the @> LATEST@ version. When you create a new intent, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception. When you want to update a intent, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
-piChecksum :: Lens' PutIntent (Maybe Text)
-piChecksum = lens _piChecksum (\s a -> s {_piChecksum = a})
+-- | Identifies a specific revision of the @> LATEST@ version.
+--
+-- When you create a new intent, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception.
+-- When you want to update a intent, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piChecksum :: Lens.Lens' PutIntent (Lude.Maybe Lude.Text)
+piChecksum = Lens.lens (checksum :: PutIntent -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: PutIntent)
+{-# DEPRECATED piChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
--- | The statement that you want Amazon Lex to convey to the user after the intent is successfully fulfilled by the Lambda function.  This element is relevant only if you provide a Lambda function in the @fulfillmentActivity@ . If you return the intent to the client application, you can't specify this element.
-piConclusionStatement :: Lens' PutIntent (Maybe Statement)
-piConclusionStatement = lens _piConclusionStatement (\s a -> s {_piConclusionStatement = a})
+-- | The statement that you want Amazon Lex to convey to the user after the intent is successfully fulfilled by the Lambda function.
+--
+-- This element is relevant only if you provide a Lambda function in the @fulfillmentActivity@ . If you return the intent to the client application, you can't specify this element.
+--
+-- /Note:/ Consider using 'conclusionStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piConclusionStatement :: Lens.Lens' PutIntent (Lude.Maybe Statement)
+piConclusionStatement = Lens.lens (conclusionStatement :: PutIntent -> Lude.Maybe Statement) (\s a -> s {conclusionStatement = a} :: PutIntent)
+{-# DEPRECATED piConclusionStatement "Use generic-lens or generic-optics with 'conclusionStatement' instead." #-}
 
--- | An array of utterances (strings) that a user might say to signal the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".  In each utterance, a slot name is enclosed in curly braces.
-piSampleUtterances :: Lens' PutIntent [Text]
-piSampleUtterances = lens _piSampleUtterances (\s a -> s {_piSampleUtterances = a}) . _Default . _Coerce
+-- | An array of utterances (strings) that a user might say to signal the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity} {PizzaSize} pizzas".
+--
+-- In each utterance, a slot name is enclosed in curly braces.
+--
+-- /Note:/ Consider using 'sampleUtterances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piSampleUtterances :: Lens.Lens' PutIntent (Lude.Maybe [Lude.Text])
+piSampleUtterances = Lens.lens (sampleUtterances :: PutIntent -> Lude.Maybe [Lude.Text]) (\s a -> s {sampleUtterances = a} :: PutIntent)
+{-# DEPRECATED piSampleUtterances "Use generic-lens or generic-optics with 'sampleUtterances' instead." #-}
 
 -- | A unique identifier for the built-in intent to base this intent on. To find the signature for an intent, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
-piParentIntentSignature :: Lens' PutIntent (Maybe Text)
-piParentIntentSignature = lens _piParentIntentSignature (\s a -> s {_piParentIntentSignature = a})
+--
+-- /Note:/ Consider using 'parentIntentSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piParentIntentSignature :: Lens.Lens' PutIntent (Lude.Maybe Lude.Text)
+piParentIntentSignature = Lens.lens (parentIntentSignature :: PutIntent -> Lude.Maybe Lude.Text) (\s a -> s {parentIntentSignature = a} :: PutIntent)
+{-# DEPRECATED piParentIntentSignature "Use generic-lens or generic-optics with 'parentIntentSignature' instead." #-}
 
 -- | Configuration information required to use the @AMAZON.KendraSearchIntent@ intent to connect to an Amazon Kendra index. For more information, see <http://docs.aws.amazon.com/lex/latest/dg/built-in-intent-kendra-search.html AMAZON.KendraSearchIntent> .
-piKendraConfiguration :: Lens' PutIntent (Maybe KendraConfiguration)
-piKendraConfiguration = lens _piKendraConfiguration (\s a -> s {_piKendraConfiguration = a})
+--
+-- /Note:/ Consider using 'kendraConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piKendraConfiguration :: Lens.Lens' PutIntent (Lude.Maybe KendraConfiguration)
+piKendraConfiguration = Lens.lens (kendraConfiguration :: PutIntent -> Lude.Maybe KendraConfiguration) (\s a -> s {kendraConfiguration = a} :: PutIntent)
+{-# DEPRECATED piKendraConfiguration "Use generic-lens or generic-optics with 'kendraConfiguration' instead." #-}
 
 -- | An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
-piInputContexts :: Lens' PutIntent [InputContext]
-piInputContexts = lens _piInputContexts (\s a -> s {_piInputContexts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piInputContexts :: Lens.Lens' PutIntent (Lude.Maybe [InputContext])
+piInputContexts = Lens.lens (inputContexts :: PutIntent -> Lude.Maybe [InputContext]) (\s a -> s {inputContexts = a} :: PutIntent)
+{-# DEPRECATED piInputContexts "Use generic-lens or generic-optics with 'inputContexts' instead." #-}
 
--- | Amazon Lex uses this prompt to solicit additional activity after fulfilling an intent. For example, after the @OrderPizza@ intent is fulfilled, you might prompt the user to order a drink. The action that Amazon Lex takes depends on the user's response, as follows:     * If the user says "Yes" it responds with the clarification prompt that is configured for the bot.     * if the user says "Yes" and continues with an utterance that triggers an intent it starts a conversation for the intent.     * If the user says "No" it responds with the rejection statement configured for the the follow-up prompt.     * If it doesn't recognize the utterance it repeats the follow-up prompt again. The @followUpPrompt@ field and the @conclusionStatement@ field are mutually exclusive. You can specify only one.
-piFollowUpPrompt :: Lens' PutIntent (Maybe FollowUpPrompt)
-piFollowUpPrompt = lens _piFollowUpPrompt (\s a -> s {_piFollowUpPrompt = a})
+-- | Amazon Lex uses this prompt to solicit additional activity after fulfilling an intent. For example, after the @OrderPizza@ intent is fulfilled, you might prompt the user to order a drink.
+--
+-- The action that Amazon Lex takes depends on the user's response, as follows:
+--
+--     * If the user says "Yes" it responds with the clarification prompt that is configured for the bot.
+--
+--
+--     * if the user says "Yes" and continues with an utterance that triggers an intent it starts a conversation for the intent.
+--
+--
+--     * If the user says "No" it responds with the rejection statement configured for the the follow-up prompt.
+--
+--
+--     * If it doesn't recognize the utterance it repeats the follow-up prompt again.
+--
+--
+-- The @followUpPrompt@ field and the @conclusionStatement@ field are mutually exclusive. You can specify only one.
+--
+-- /Note:/ Consider using 'followUpPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piFollowUpPrompt :: Lens.Lens' PutIntent (Lude.Maybe FollowUpPrompt)
+piFollowUpPrompt = Lens.lens (followUpPrompt :: PutIntent -> Lude.Maybe FollowUpPrompt) (\s a -> s {followUpPrompt = a} :: PutIntent)
+{-# DEPRECATED piFollowUpPrompt "Use generic-lens or generic-optics with 'followUpPrompt' instead." #-}
 
 -- | An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
-piOutputContexts :: Lens' PutIntent [OutputContext]
-piOutputContexts = lens _piOutputContexts (\s a -> s {_piOutputContexts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'outputContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piOutputContexts :: Lens.Lens' PutIntent (Lude.Maybe [OutputContext])
+piOutputContexts = Lens.lens (outputContexts :: PutIntent -> Lude.Maybe [OutputContext]) (\s a -> s {outputContexts = a} :: PutIntent)
+{-# DEPRECATED piOutputContexts "Use generic-lens or generic-optics with 'outputContexts' instead." #-}
 
--- | Prompts the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the @OrderPizza@ intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
-piConfirmationPrompt :: Lens' PutIntent (Maybe Prompt)
-piConfirmationPrompt = lens _piConfirmationPrompt (\s a -> s {_piConfirmationPrompt = a})
+-- | Prompts the user to confirm the intent. This question should have a yes or no answer.
+--
+-- Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. For example, with the @OrderPizza@ intent, you might want to confirm that the order is correct before placing it. For other intents, such as intents that simply respond to user questions, you might not need to ask the user for confirmation before providing the information.
+--
+-- /Note:/ Consider using 'confirmationPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piConfirmationPrompt :: Lens.Lens' PutIntent (Lude.Maybe Prompt)
+piConfirmationPrompt = Lens.lens (confirmationPrompt :: PutIntent -> Lude.Maybe Prompt) (\s a -> s {confirmationPrompt = a} :: PutIntent)
+{-# DEPRECATED piConfirmationPrompt "Use generic-lens or generic-optics with 'confirmationPrompt' instead." #-}
 
 -- | When set to @true@ a new numbered version of the intent is created. This is the same as calling the @CreateIntentVersion@ operation. If you do not specify @createVersion@ , the default is @false@ .
-piCreateVersion :: Lens' PutIntent (Maybe Bool)
-piCreateVersion = lens _piCreateVersion (\s a -> s {_piCreateVersion = a})
+--
+-- /Note:/ Consider using 'createVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piCreateVersion :: Lens.Lens' PutIntent (Lude.Maybe Lude.Bool)
+piCreateVersion = Lens.lens (createVersion :: PutIntent -> Lude.Maybe Lude.Bool) (\s a -> s {createVersion = a} :: PutIntent)
+{-# DEPRECATED piCreateVersion "Use generic-lens or generic-optics with 'createVersion' instead." #-}
 
--- | Specifies a Lambda function to invoke for each user input. You can invoke this Lambda function to personalize user interaction.  For example, suppose your bot determines that the user is John. Your Lambda function might retrieve John's information from a backend database and prepopulate some of the values. For example, if you find that John is gluten intolerant, you might set the corresponding intent slot, @GlutenIntolerant@ , to true. You might find John's phone number and set the corresponding session attribute.
-piDialogCodeHook :: Lens' PutIntent (Maybe CodeHook)
-piDialogCodeHook = lens _piDialogCodeHook (\s a -> s {_piDialogCodeHook = a})
+-- | Specifies a Lambda function to invoke for each user input. You can invoke this Lambda function to personalize user interaction.
+--
+-- For example, suppose your bot determines that the user is John. Your Lambda function might retrieve John's information from a backend database and prepopulate some of the values. For example, if you find that John is gluten intolerant, you might set the corresponding intent slot, @GlutenIntolerant@ , to true. You might find John's phone number and set the corresponding session attribute.
+--
+-- /Note:/ Consider using 'dialogCodeHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piDialogCodeHook :: Lens.Lens' PutIntent (Lude.Maybe CodeHook)
+piDialogCodeHook = Lens.lens (dialogCodeHook :: PutIntent -> Lude.Maybe CodeHook) (\s a -> s {dialogCodeHook = a} :: PutIntent)
+{-# DEPRECATED piDialogCodeHook "Use generic-lens or generic-optics with 'dialogCodeHook' instead." #-}
 
 -- | A description of the intent.
-piDescription :: Lens' PutIntent (Maybe Text)
-piDescription = lens _piDescription (\s a -> s {_piDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piDescription :: Lens.Lens' PutIntent (Lude.Maybe Lude.Text)
+piDescription = Lens.lens (description :: PutIntent -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PutIntent)
+{-# DEPRECATED piDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The name of the intent. The name is /not/ case sensitive.  The name can't match a built-in intent name, or a built-in intent name with "AMAZON." removed. For example, because there is a built-in intent called @AMAZON.HelpIntent@ , you can't create a custom intent called @HelpIntent@ . For a list of built-in intents, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
-piName :: Lens' PutIntent Text
-piName = lens _piName (\s a -> s {_piName = a})
+-- | The name of the intent. The name is /not/ case sensitive.
+--
+-- The name can't match a built-in intent name, or a built-in intent name with "AMAZON." removed. For example, because there is a built-in intent called @AMAZON.HelpIntent@ , you can't create a custom intent called @HelpIntent@ .
+-- For a list of built-in intents, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents> in the /Alexa Skills Kit/ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+piName :: Lens.Lens' PutIntent Lude.Text
+piName = Lens.lens (name :: PutIntent -> Lude.Text) (\s a -> s {name = a} :: PutIntent)
+{-# DEPRECATED piName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest PutIntent where
+instance Lude.AWSRequest PutIntent where
   type Rs PutIntent = PutIntentResponse
-  request = putJSON lexModels
+  request = Req.putJSON lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutIntentResponse'
-            <$> (x .?> "fulfillmentActivity")
-            <*> (x .?> "slots" .!@ mempty)
-            <*> (x .?> "rejectionStatement")
-            <*> (x .?> "checksum")
-            <*> (x .?> "conclusionStatement")
-            <*> (x .?> "sampleUtterances" .!@ mempty)
-            <*> (x .?> "parentIntentSignature")
-            <*> (x .?> "createdDate")
-            <*> (x .?> "kendraConfiguration")
-            <*> (x .?> "name")
-            <*> (x .?> "version")
-            <*> (x .?> "inputContexts" .!@ mempty)
-            <*> (x .?> "followUpPrompt")
-            <*> (x .?> "lastUpdatedDate")
-            <*> (x .?> "outputContexts" .!@ mempty)
-            <*> (x .?> "confirmationPrompt")
-            <*> (x .?> "createVersion")
-            <*> (x .?> "dialogCodeHook")
-            <*> (x .?> "description")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "fulfillmentActivity")
+            Lude.<*> (x Lude..?> "slots" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "rejectionStatement")
+            Lude.<*> (x Lude..?> "checksum")
+            Lude.<*> (x Lude..?> "conclusionStatement")
+            Lude.<*> (x Lude..?> "sampleUtterances" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "parentIntentSignature")
+            Lude.<*> (x Lude..?> "createdDate")
+            Lude.<*> (x Lude..?> "kendraConfiguration")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "version")
+            Lude.<*> (x Lude..?> "inputContexts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "followUpPrompt")
+            Lude.<*> (x Lude..?> "lastUpdatedDate")
+            Lude.<*> (x Lude..?> "outputContexts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "confirmationPrompt")
+            Lude.<*> (x Lude..?> "createVersion")
+            Lude.<*> (x Lude..?> "dialogCodeHook")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutIntent
-
-instance NFData PutIntent
-
-instance ToHeaders PutIntent where
+instance Lude.ToHeaders PutIntent where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON PutIntent where
-  toJSON PutIntent' {..} =
-    object
-      ( catMaybes
-          [ ("fulfillmentActivity" .=) <$> _piFulfillmentActivity,
-            ("slots" .=) <$> _piSlots,
-            ("rejectionStatement" .=) <$> _piRejectionStatement,
-            ("checksum" .=) <$> _piChecksum,
-            ("conclusionStatement" .=) <$> _piConclusionStatement,
-            ("sampleUtterances" .=) <$> _piSampleUtterances,
-            ("parentIntentSignature" .=) <$> _piParentIntentSignature,
-            ("kendraConfiguration" .=) <$> _piKendraConfiguration,
-            ("inputContexts" .=) <$> _piInputContexts,
-            ("followUpPrompt" .=) <$> _piFollowUpPrompt,
-            ("outputContexts" .=) <$> _piOutputContexts,
-            ("confirmationPrompt" .=) <$> _piConfirmationPrompt,
-            ("createVersion" .=) <$> _piCreateVersion,
-            ("dialogCodeHook" .=) <$> _piDialogCodeHook,
-            ("description" .=) <$> _piDescription
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath PutIntent where
+instance Lude.ToJSON PutIntent where
+  toJSON PutIntent' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("fulfillmentActivity" Lude..=) Lude.<$> fulfillmentActivity,
+            ("slots" Lude..=) Lude.<$> slots,
+            ("rejectionStatement" Lude..=) Lude.<$> rejectionStatement,
+            ("checksum" Lude..=) Lude.<$> checksum,
+            ("conclusionStatement" Lude..=) Lude.<$> conclusionStatement,
+            ("sampleUtterances" Lude..=) Lude.<$> sampleUtterances,
+            ("parentIntentSignature" Lude..=) Lude.<$> parentIntentSignature,
+            ("kendraConfiguration" Lude..=) Lude.<$> kendraConfiguration,
+            ("inputContexts" Lude..=) Lude.<$> inputContexts,
+            ("followUpPrompt" Lude..=) Lude.<$> followUpPrompt,
+            ("outputContexts" Lude..=) Lude.<$> outputContexts,
+            ("confirmationPrompt" Lude..=) Lude.<$> confirmationPrompt,
+            ("createVersion" Lude..=) Lude.<$> createVersion,
+            ("dialogCodeHook" Lude..=) Lude.<$> dialogCodeHook,
+            ("description" Lude..=) Lude.<$> description
+          ]
+      )
+
+instance Lude.ToPath PutIntent where
   toPath PutIntent' {..} =
-    mconcat ["/intents/", toBS _piName, "/versions/$LATEST"]
+    Lude.mconcat ["/intents/", Lude.toBS name, "/versions/$LATEST"]
 
-instance ToQuery PutIntent where
-  toQuery = const mempty
+instance Lude.ToQuery PutIntent where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putIntentResponse' smart constructor.
+-- | /See:/ 'mkPutIntentResponse' smart constructor.
 data PutIntentResponse = PutIntentResponse'
-  { _pirsFulfillmentActivity ::
-      !(Maybe FulfillmentActivity),
-    _pirsSlots :: !(Maybe [Slot]),
-    _pirsRejectionStatement :: !(Maybe Statement),
-    _pirsChecksum :: !(Maybe Text),
-    _pirsConclusionStatement :: !(Maybe Statement),
-    _pirsSampleUtterances :: !(Maybe [Text]),
-    _pirsParentIntentSignature :: !(Maybe Text),
-    _pirsCreatedDate :: !(Maybe POSIX),
-    _pirsKendraConfiguration ::
-      !(Maybe KendraConfiguration),
-    _pirsName :: !(Maybe Text),
-    _pirsVersion :: !(Maybe Text),
-    _pirsInputContexts :: !(Maybe [InputContext]),
-    _pirsFollowUpPrompt :: !(Maybe FollowUpPrompt),
-    _pirsLastUpdatedDate :: !(Maybe POSIX),
-    _pirsOutputContexts :: !(Maybe [OutputContext]),
-    _pirsConfirmationPrompt :: !(Maybe Prompt),
-    _pirsCreateVersion :: !(Maybe Bool),
-    _pirsDialogCodeHook :: !(Maybe CodeHook),
-    _pirsDescription :: !(Maybe Text),
-    _pirsResponseStatus :: !Int
+  { fulfillmentActivity ::
+      Lude.Maybe FulfillmentActivity,
+    slots :: Lude.Maybe [Slot],
+    rejectionStatement :: Lude.Maybe Statement,
+    checksum :: Lude.Maybe Lude.Text,
+    conclusionStatement :: Lude.Maybe Statement,
+    sampleUtterances :: Lude.Maybe [Lude.Text],
+    parentIntentSignature :: Lude.Maybe Lude.Text,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    kendraConfiguration :: Lude.Maybe KendraConfiguration,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    inputContexts :: Lude.Maybe [InputContext],
+    followUpPrompt :: Lude.Maybe FollowUpPrompt,
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    outputContexts :: Lude.Maybe [OutputContext],
+    confirmationPrompt :: Lude.Maybe Prompt,
+    createVersion :: Lude.Maybe Lude.Bool,
+    dialogCodeHook :: Lude.Maybe CodeHook,
+    description :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutIntentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pirsFulfillmentActivity' - If defined in the intent, Amazon Lex invokes this Lambda function to fulfill the intent after the user provides all of the information required by the intent.
---
--- * 'pirsSlots' - An array of intent slots that are configured for the intent.
---
--- * 'pirsRejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ Amazon Lex responds with this statement to acknowledge that the intent was canceled.
---
--- * 'pirsChecksum' - Checksum of the @> LATEST@ version of the intent created or updated.
---
--- * 'pirsConclusionStatement' - After the Lambda function specified in the@fulfillmentActivity@ intent fulfills the intent, Amazon Lex conveys this statement to the user.
---
--- * 'pirsSampleUtterances' - An array of sample utterances that are configured for the intent.
---
--- * 'pirsParentIntentSignature' - A unique identifier for the built-in intent that this intent is based on.
---
--- * 'pirsCreatedDate' - The date that the intent was created.
---
--- * 'pirsKendraConfiguration' - Configuration information, if any, required to connect to an Amazon Kendra index and use the @AMAZON.KendraSearchIntent@ intent.
---
--- * 'pirsName' - The name of the intent.
---
--- * 'pirsVersion' - The version of the intent. For a new intent, the version is always @> LATEST@ .
---
--- * 'pirsInputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
---
--- * 'pirsFollowUpPrompt' - If defined in the intent, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
---
--- * 'pirsLastUpdatedDate' - The date that the intent was updated. When you create a resource, the creation date and last update dates are the same.
---
--- * 'pirsOutputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
---
--- * 'pirsConfirmationPrompt' - If defined in the intent, Amazon Lex prompts the user to confirm the intent before fulfilling it.
---
--- * 'pirsCreateVersion' - @True@ if a new version of the intent was created. If the @createVersion@ field was not specified in the request, the @createVersion@ field is set to false in the response.
---
--- * 'pirsDialogCodeHook' - If defined in the intent, Amazon Lex invokes this Lambda function for each user input.
---
--- * 'pirsDescription' - A description of the intent.
---
--- * 'pirsResponseStatus' - -- | The response status code.
-putIntentResponse ::
-  -- | 'pirsResponseStatus'
-  Int ->
+-- * 'checksum' - Checksum of the @> LATEST@ version of the intent created or updated.
+-- * 'conclusionStatement' - After the Lambda function specified in the@fulfillmentActivity@ intent fulfills the intent, Amazon Lex conveys this statement to the user.
+-- * 'confirmationPrompt' - If defined in the intent, Amazon Lex prompts the user to confirm the intent before fulfilling it.
+-- * 'createVersion' - @True@ if a new version of the intent was created. If the @createVersion@ field was not specified in the request, the @createVersion@ field is set to false in the response.
+-- * 'createdDate' - The date that the intent was created.
+-- * 'description' - A description of the intent.
+-- * 'dialogCodeHook' - If defined in the intent, Amazon Lex invokes this Lambda function for each user input.
+-- * 'followUpPrompt' - If defined in the intent, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
+-- * 'fulfillmentActivity' - If defined in the intent, Amazon Lex invokes this Lambda function to fulfill the intent after the user provides all of the information required by the intent.
+-- * 'inputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
+-- * 'kendraConfiguration' - Configuration information, if any, required to connect to an Amazon Kendra index and use the @AMAZON.KendraSearchIntent@ intent.
+-- * 'lastUpdatedDate' - The date that the intent was updated. When you create a resource, the creation date and last update dates are the same.
+-- * 'name' - The name of the intent.
+-- * 'outputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
+-- * 'parentIntentSignature' - A unique identifier for the built-in intent that this intent is based on.
+-- * 'rejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ Amazon Lex responds with this statement to acknowledge that the intent was canceled.
+-- * 'responseStatus' - The response status code.
+-- * 'sampleUtterances' - An array of sample utterances that are configured for the intent.
+-- * 'slots' - An array of intent slots that are configured for the intent.
+-- * 'version' - The version of the intent. For a new intent, the version is always @> LATEST@ .
+mkPutIntentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutIntentResponse
-putIntentResponse pResponseStatus_ =
+mkPutIntentResponse pResponseStatus_ =
   PutIntentResponse'
-    { _pirsFulfillmentActivity = Nothing,
-      _pirsSlots = Nothing,
-      _pirsRejectionStatement = Nothing,
-      _pirsChecksum = Nothing,
-      _pirsConclusionStatement = Nothing,
-      _pirsSampleUtterances = Nothing,
-      _pirsParentIntentSignature = Nothing,
-      _pirsCreatedDate = Nothing,
-      _pirsKendraConfiguration = Nothing,
-      _pirsName = Nothing,
-      _pirsVersion = Nothing,
-      _pirsInputContexts = Nothing,
-      _pirsFollowUpPrompt = Nothing,
-      _pirsLastUpdatedDate = Nothing,
-      _pirsOutputContexts = Nothing,
-      _pirsConfirmationPrompt = Nothing,
-      _pirsCreateVersion = Nothing,
-      _pirsDialogCodeHook = Nothing,
-      _pirsDescription = Nothing,
-      _pirsResponseStatus = pResponseStatus_
+    { fulfillmentActivity = Lude.Nothing,
+      slots = Lude.Nothing,
+      rejectionStatement = Lude.Nothing,
+      checksum = Lude.Nothing,
+      conclusionStatement = Lude.Nothing,
+      sampleUtterances = Lude.Nothing,
+      parentIntentSignature = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      kendraConfiguration = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      inputContexts = Lude.Nothing,
+      followUpPrompt = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      outputContexts = Lude.Nothing,
+      confirmationPrompt = Lude.Nothing,
+      createVersion = Lude.Nothing,
+      dialogCodeHook = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If defined in the intent, Amazon Lex invokes this Lambda function to fulfill the intent after the user provides all of the information required by the intent.
-pirsFulfillmentActivity :: Lens' PutIntentResponse (Maybe FulfillmentActivity)
-pirsFulfillmentActivity = lens _pirsFulfillmentActivity (\s a -> s {_pirsFulfillmentActivity = a})
+--
+-- /Note:/ Consider using 'fulfillmentActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsFulfillmentActivity :: Lens.Lens' PutIntentResponse (Lude.Maybe FulfillmentActivity)
+pirsFulfillmentActivity = Lens.lens (fulfillmentActivity :: PutIntentResponse -> Lude.Maybe FulfillmentActivity) (\s a -> s {fulfillmentActivity = a} :: PutIntentResponse)
+{-# DEPRECATED pirsFulfillmentActivity "Use generic-lens or generic-optics with 'fulfillmentActivity' instead." #-}
 
 -- | An array of intent slots that are configured for the intent.
-pirsSlots :: Lens' PutIntentResponse [Slot]
-pirsSlots = lens _pirsSlots (\s a -> s {_pirsSlots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsSlots :: Lens.Lens' PutIntentResponse (Lude.Maybe [Slot])
+pirsSlots = Lens.lens (slots :: PutIntentResponse -> Lude.Maybe [Slot]) (\s a -> s {slots = a} :: PutIntentResponse)
+{-# DEPRECATED pirsSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
 -- | If the user answers "no" to the question defined in @confirmationPrompt@ Amazon Lex responds with this statement to acknowledge that the intent was canceled.
-pirsRejectionStatement :: Lens' PutIntentResponse (Maybe Statement)
-pirsRejectionStatement = lens _pirsRejectionStatement (\s a -> s {_pirsRejectionStatement = a})
+--
+-- /Note:/ Consider using 'rejectionStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsRejectionStatement :: Lens.Lens' PutIntentResponse (Lude.Maybe Statement)
+pirsRejectionStatement = Lens.lens (rejectionStatement :: PutIntentResponse -> Lude.Maybe Statement) (\s a -> s {rejectionStatement = a} :: PutIntentResponse)
+{-# DEPRECATED pirsRejectionStatement "Use generic-lens or generic-optics with 'rejectionStatement' instead." #-}
 
 -- | Checksum of the @> LATEST@ version of the intent created or updated.
-pirsChecksum :: Lens' PutIntentResponse (Maybe Text)
-pirsChecksum = lens _pirsChecksum (\s a -> s {_pirsChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsChecksum :: Lens.Lens' PutIntentResponse (Lude.Maybe Lude.Text)
+pirsChecksum = Lens.lens (checksum :: PutIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: PutIntentResponse)
+{-# DEPRECATED pirsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | After the Lambda function specified in the@fulfillmentActivity@ intent fulfills the intent, Amazon Lex conveys this statement to the user.
-pirsConclusionStatement :: Lens' PutIntentResponse (Maybe Statement)
-pirsConclusionStatement = lens _pirsConclusionStatement (\s a -> s {_pirsConclusionStatement = a})
+--
+-- /Note:/ Consider using 'conclusionStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsConclusionStatement :: Lens.Lens' PutIntentResponse (Lude.Maybe Statement)
+pirsConclusionStatement = Lens.lens (conclusionStatement :: PutIntentResponse -> Lude.Maybe Statement) (\s a -> s {conclusionStatement = a} :: PutIntentResponse)
+{-# DEPRECATED pirsConclusionStatement "Use generic-lens or generic-optics with 'conclusionStatement' instead." #-}
 
 -- | An array of sample utterances that are configured for the intent.
-pirsSampleUtterances :: Lens' PutIntentResponse [Text]
-pirsSampleUtterances = lens _pirsSampleUtterances (\s a -> s {_pirsSampleUtterances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sampleUtterances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsSampleUtterances :: Lens.Lens' PutIntentResponse (Lude.Maybe [Lude.Text])
+pirsSampleUtterances = Lens.lens (sampleUtterances :: PutIntentResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {sampleUtterances = a} :: PutIntentResponse)
+{-# DEPRECATED pirsSampleUtterances "Use generic-lens or generic-optics with 'sampleUtterances' instead." #-}
 
 -- | A unique identifier for the built-in intent that this intent is based on.
-pirsParentIntentSignature :: Lens' PutIntentResponse (Maybe Text)
-pirsParentIntentSignature = lens _pirsParentIntentSignature (\s a -> s {_pirsParentIntentSignature = a})
+--
+-- /Note:/ Consider using 'parentIntentSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsParentIntentSignature :: Lens.Lens' PutIntentResponse (Lude.Maybe Lude.Text)
+pirsParentIntentSignature = Lens.lens (parentIntentSignature :: PutIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {parentIntentSignature = a} :: PutIntentResponse)
+{-# DEPRECATED pirsParentIntentSignature "Use generic-lens or generic-optics with 'parentIntentSignature' instead." #-}
 
 -- | The date that the intent was created.
-pirsCreatedDate :: Lens' PutIntentResponse (Maybe UTCTime)
-pirsCreatedDate = lens _pirsCreatedDate (\s a -> s {_pirsCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsCreatedDate :: Lens.Lens' PutIntentResponse (Lude.Maybe Lude.Timestamp)
+pirsCreatedDate = Lens.lens (createdDate :: PutIntentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: PutIntentResponse)
+{-# DEPRECATED pirsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | Configuration information, if any, required to connect to an Amazon Kendra index and use the @AMAZON.KendraSearchIntent@ intent.
-pirsKendraConfiguration :: Lens' PutIntentResponse (Maybe KendraConfiguration)
-pirsKendraConfiguration = lens _pirsKendraConfiguration (\s a -> s {_pirsKendraConfiguration = a})
+--
+-- /Note:/ Consider using 'kendraConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsKendraConfiguration :: Lens.Lens' PutIntentResponse (Lude.Maybe KendraConfiguration)
+pirsKendraConfiguration = Lens.lens (kendraConfiguration :: PutIntentResponse -> Lude.Maybe KendraConfiguration) (\s a -> s {kendraConfiguration = a} :: PutIntentResponse)
+{-# DEPRECATED pirsKendraConfiguration "Use generic-lens or generic-optics with 'kendraConfiguration' instead." #-}
 
 -- | The name of the intent.
-pirsName :: Lens' PutIntentResponse (Maybe Text)
-pirsName = lens _pirsName (\s a -> s {_pirsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsName :: Lens.Lens' PutIntentResponse (Lude.Maybe Lude.Text)
+pirsName = Lens.lens (name :: PutIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PutIntentResponse)
+{-# DEPRECATED pirsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the intent. For a new intent, the version is always @> LATEST@ .
-pirsVersion :: Lens' PutIntentResponse (Maybe Text)
-pirsVersion = lens _pirsVersion (\s a -> s {_pirsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsVersion :: Lens.Lens' PutIntentResponse (Lude.Maybe Lude.Text)
+pirsVersion = Lens.lens (version :: PutIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: PutIntentResponse)
+{-# DEPRECATED pirsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
-pirsInputContexts :: Lens' PutIntentResponse [InputContext]
-pirsInputContexts = lens _pirsInputContexts (\s a -> s {_pirsInputContexts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsInputContexts :: Lens.Lens' PutIntentResponse (Lude.Maybe [InputContext])
+pirsInputContexts = Lens.lens (inputContexts :: PutIntentResponse -> Lude.Maybe [InputContext]) (\s a -> s {inputContexts = a} :: PutIntentResponse)
+{-# DEPRECATED pirsInputContexts "Use generic-lens or generic-optics with 'inputContexts' instead." #-}
 
 -- | If defined in the intent, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
-pirsFollowUpPrompt :: Lens' PutIntentResponse (Maybe FollowUpPrompt)
-pirsFollowUpPrompt = lens _pirsFollowUpPrompt (\s a -> s {_pirsFollowUpPrompt = a})
+--
+-- /Note:/ Consider using 'followUpPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsFollowUpPrompt :: Lens.Lens' PutIntentResponse (Lude.Maybe FollowUpPrompt)
+pirsFollowUpPrompt = Lens.lens (followUpPrompt :: PutIntentResponse -> Lude.Maybe FollowUpPrompt) (\s a -> s {followUpPrompt = a} :: PutIntentResponse)
+{-# DEPRECATED pirsFollowUpPrompt "Use generic-lens or generic-optics with 'followUpPrompt' instead." #-}
 
 -- | The date that the intent was updated. When you create a resource, the creation date and last update dates are the same.
-pirsLastUpdatedDate :: Lens' PutIntentResponse (Maybe UTCTime)
-pirsLastUpdatedDate = lens _pirsLastUpdatedDate (\s a -> s {_pirsLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsLastUpdatedDate :: Lens.Lens' PutIntentResponse (Lude.Maybe Lude.Timestamp)
+pirsLastUpdatedDate = Lens.lens (lastUpdatedDate :: PutIntentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: PutIntentResponse)
+{-# DEPRECATED pirsLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
-pirsOutputContexts :: Lens' PutIntentResponse [OutputContext]
-pirsOutputContexts = lens _pirsOutputContexts (\s a -> s {_pirsOutputContexts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'outputContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsOutputContexts :: Lens.Lens' PutIntentResponse (Lude.Maybe [OutputContext])
+pirsOutputContexts = Lens.lens (outputContexts :: PutIntentResponse -> Lude.Maybe [OutputContext]) (\s a -> s {outputContexts = a} :: PutIntentResponse)
+{-# DEPRECATED pirsOutputContexts "Use generic-lens or generic-optics with 'outputContexts' instead." #-}
 
 -- | If defined in the intent, Amazon Lex prompts the user to confirm the intent before fulfilling it.
-pirsConfirmationPrompt :: Lens' PutIntentResponse (Maybe Prompt)
-pirsConfirmationPrompt = lens _pirsConfirmationPrompt (\s a -> s {_pirsConfirmationPrompt = a})
+--
+-- /Note:/ Consider using 'confirmationPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsConfirmationPrompt :: Lens.Lens' PutIntentResponse (Lude.Maybe Prompt)
+pirsConfirmationPrompt = Lens.lens (confirmationPrompt :: PutIntentResponse -> Lude.Maybe Prompt) (\s a -> s {confirmationPrompt = a} :: PutIntentResponse)
+{-# DEPRECATED pirsConfirmationPrompt "Use generic-lens or generic-optics with 'confirmationPrompt' instead." #-}
 
 -- | @True@ if a new version of the intent was created. If the @createVersion@ field was not specified in the request, the @createVersion@ field is set to false in the response.
-pirsCreateVersion :: Lens' PutIntentResponse (Maybe Bool)
-pirsCreateVersion = lens _pirsCreateVersion (\s a -> s {_pirsCreateVersion = a})
+--
+-- /Note:/ Consider using 'createVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsCreateVersion :: Lens.Lens' PutIntentResponse (Lude.Maybe Lude.Bool)
+pirsCreateVersion = Lens.lens (createVersion :: PutIntentResponse -> Lude.Maybe Lude.Bool) (\s a -> s {createVersion = a} :: PutIntentResponse)
+{-# DEPRECATED pirsCreateVersion "Use generic-lens or generic-optics with 'createVersion' instead." #-}
 
 -- | If defined in the intent, Amazon Lex invokes this Lambda function for each user input.
-pirsDialogCodeHook :: Lens' PutIntentResponse (Maybe CodeHook)
-pirsDialogCodeHook = lens _pirsDialogCodeHook (\s a -> s {_pirsDialogCodeHook = a})
+--
+-- /Note:/ Consider using 'dialogCodeHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsDialogCodeHook :: Lens.Lens' PutIntentResponse (Lude.Maybe CodeHook)
+pirsDialogCodeHook = Lens.lens (dialogCodeHook :: PutIntentResponse -> Lude.Maybe CodeHook) (\s a -> s {dialogCodeHook = a} :: PutIntentResponse)
+{-# DEPRECATED pirsDialogCodeHook "Use generic-lens or generic-optics with 'dialogCodeHook' instead." #-}
 
 -- | A description of the intent.
-pirsDescription :: Lens' PutIntentResponse (Maybe Text)
-pirsDescription = lens _pirsDescription (\s a -> s {_pirsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsDescription :: Lens.Lens' PutIntentResponse (Lude.Maybe Lude.Text)
+pirsDescription = Lens.lens (description :: PutIntentResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PutIntentResponse)
+{-# DEPRECATED pirsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-pirsResponseStatus :: Lens' PutIntentResponse Int
-pirsResponseStatus = lens _pirsResponseStatus (\s a -> s {_pirsResponseStatus = a})
-
-instance NFData PutIntentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pirsResponseStatus :: Lens.Lens' PutIntentResponse Lude.Int
+pirsResponseStatus = Lens.lens (responseStatus :: PutIntentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutIntentResponse)
+{-# DEPRECATED pirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

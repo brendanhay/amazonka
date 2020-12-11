@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,160 @@
 --
 -- Starts existing resources
 module Network.AWS.MediaLive.BatchStart
-  ( -- * Creating a Request
-    batchStart,
-    BatchStart,
+  ( -- * Creating a request
+    BatchStart (..),
+    mkBatchStart,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bsChannelIds,
     bsMultiplexIds,
 
-    -- * Destructuring the Response
-    batchStartResponse,
-    BatchStartResponse,
+    -- * Destructuring the response
+    BatchStartResponse (..),
+    mkBatchStartResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bsrsSuccessful,
     bsrsFailed,
     bsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to start resources
 --
--- /See:/ 'batchStart' smart constructor.
+-- /See:/ 'mkBatchStart' smart constructor.
 data BatchStart = BatchStart'
-  { _bsChannelIds :: !(Maybe [Text]),
-    _bsMultiplexIds :: !(Maybe [Text])
+  { channelIds :: Lude.Maybe [Lude.Text],
+    multiplexIds :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStart' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsChannelIds' - List of channel IDs
---
--- * 'bsMultiplexIds' - List of multiplex IDs
-batchStart ::
+-- * 'channelIds' - List of channel IDs
+-- * 'multiplexIds' - List of multiplex IDs
+mkBatchStart ::
   BatchStart
-batchStart =
-  BatchStart' {_bsChannelIds = Nothing, _bsMultiplexIds = Nothing}
+mkBatchStart =
+  BatchStart'
+    { channelIds = Lude.Nothing,
+      multiplexIds = Lude.Nothing
+    }
 
 -- | List of channel IDs
-bsChannelIds :: Lens' BatchStart [Text]
-bsChannelIds = lens _bsChannelIds (\s a -> s {_bsChannelIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'channelIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsChannelIds :: Lens.Lens' BatchStart (Lude.Maybe [Lude.Text])
+bsChannelIds = Lens.lens (channelIds :: BatchStart -> Lude.Maybe [Lude.Text]) (\s a -> s {channelIds = a} :: BatchStart)
+{-# DEPRECATED bsChannelIds "Use generic-lens or generic-optics with 'channelIds' instead." #-}
 
 -- | List of multiplex IDs
-bsMultiplexIds :: Lens' BatchStart [Text]
-bsMultiplexIds = lens _bsMultiplexIds (\s a -> s {_bsMultiplexIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'multiplexIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsMultiplexIds :: Lens.Lens' BatchStart (Lude.Maybe [Lude.Text])
+bsMultiplexIds = Lens.lens (multiplexIds :: BatchStart -> Lude.Maybe [Lude.Text]) (\s a -> s {multiplexIds = a} :: BatchStart)
+{-# DEPRECATED bsMultiplexIds "Use generic-lens or generic-optics with 'multiplexIds' instead." #-}
 
-instance AWSRequest BatchStart where
+instance Lude.AWSRequest BatchStart where
   type Rs BatchStart = BatchStartResponse
-  request = postJSON mediaLive
+  request = Req.postJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchStartResponse'
-            <$> (x .?> "successful" .!@ mempty)
-            <*> (x .?> "failed" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "successful" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "failed" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchStart
-
-instance NFData BatchStart
-
-instance ToHeaders BatchStart where
+instance Lude.ToHeaders BatchStart where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON BatchStart where
-  toJSON BatchStart' {..} =
-    object
-      ( catMaybes
-          [ ("channelIds" .=) <$> _bsChannelIds,
-            ("multiplexIds" .=) <$> _bsMultiplexIds
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath BatchStart where
-  toPath = const "/prod/batch/start"
+instance Lude.ToJSON BatchStart where
+  toJSON BatchStart' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("channelIds" Lude..=) Lude.<$> channelIds,
+            ("multiplexIds" Lude..=) Lude.<$> multiplexIds
+          ]
+      )
 
-instance ToQuery BatchStart where
-  toQuery = const mempty
+instance Lude.ToPath BatchStart where
+  toPath = Lude.const "/prod/batch/start"
+
+instance Lude.ToQuery BatchStart where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for BatchStartResponse
 --
--- /See:/ 'batchStartResponse' smart constructor.
+-- /See:/ 'mkBatchStartResponse' smart constructor.
 data BatchStartResponse = BatchStartResponse'
-  { _bsrsSuccessful ::
-      !(Maybe [BatchSuccessfulResultModel]),
-    _bsrsFailed :: !(Maybe [BatchFailedResultModel]),
-    _bsrsResponseStatus :: !Int
+  { successful ::
+      Lude.Maybe [BatchSuccessfulResultModel],
+    failed :: Lude.Maybe [BatchFailedResultModel],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStartResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bsrsSuccessful' - List of successful operations
---
--- * 'bsrsFailed' - List of failed operations
---
--- * 'bsrsResponseStatus' - -- | The response status code.
-batchStartResponse ::
-  -- | 'bsrsResponseStatus'
-  Int ->
+-- * 'failed' - List of failed operations
+-- * 'responseStatus' - The response status code.
+-- * 'successful' - List of successful operations
+mkBatchStartResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchStartResponse
-batchStartResponse pResponseStatus_ =
+mkBatchStartResponse pResponseStatus_ =
   BatchStartResponse'
-    { _bsrsSuccessful = Nothing,
-      _bsrsFailed = Nothing,
-      _bsrsResponseStatus = pResponseStatus_
+    { successful = Lude.Nothing,
+      failed = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | List of successful operations
-bsrsSuccessful :: Lens' BatchStartResponse [BatchSuccessfulResultModel]
-bsrsSuccessful = lens _bsrsSuccessful (\s a -> s {_bsrsSuccessful = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'successful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrsSuccessful :: Lens.Lens' BatchStartResponse (Lude.Maybe [BatchSuccessfulResultModel])
+bsrsSuccessful = Lens.lens (successful :: BatchStartResponse -> Lude.Maybe [BatchSuccessfulResultModel]) (\s a -> s {successful = a} :: BatchStartResponse)
+{-# DEPRECATED bsrsSuccessful "Use generic-lens or generic-optics with 'successful' instead." #-}
 
 -- | List of failed operations
-bsrsFailed :: Lens' BatchStartResponse [BatchFailedResultModel]
-bsrsFailed = lens _bsrsFailed (\s a -> s {_bsrsFailed = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrsFailed :: Lens.Lens' BatchStartResponse (Lude.Maybe [BatchFailedResultModel])
+bsrsFailed = Lens.lens (failed :: BatchStartResponse -> Lude.Maybe [BatchFailedResultModel]) (\s a -> s {failed = a} :: BatchStartResponse)
+{-# DEPRECATED bsrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
 
--- | -- | The response status code.
-bsrsResponseStatus :: Lens' BatchStartResponse Int
-bsrsResponseStatus = lens _bsrsResponseStatus (\s a -> s {_bsrsResponseStatus = a})
-
-instance NFData BatchStartResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsrsResponseStatus :: Lens.Lens' BatchStartResponse Lude.Int
+bsrsResponseStatus = Lens.lens (responseStatus :: BatchStartResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchStartResponse)
+{-# DEPRECATED bsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

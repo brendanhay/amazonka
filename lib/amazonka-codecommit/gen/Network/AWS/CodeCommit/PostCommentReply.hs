@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,162 @@
 --
 -- Posts a comment in reply to an existing comment on a comparison between commits or a pull request.
 module Network.AWS.CodeCommit.PostCommentReply
-  ( -- * Creating a Request
-    postCommentReply,
-    PostCommentReply,
+  ( -- * Creating a request
+    PostCommentReply (..),
+    mkPostCommentReply,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pcrClientRequestToken,
     pcrInReplyTo,
     pcrContent,
 
-    -- * Destructuring the Response
-    postCommentReplyResponse,
-    PostCommentReplyResponse,
+    -- * Destructuring the response
+    PostCommentReplyResponse (..),
+    mkPostCommentReplyResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pcrrsComment,
     pcrrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'postCommentReply' smart constructor.
+-- | /See:/ 'mkPostCommentReply' smart constructor.
 data PostCommentReply = PostCommentReply'
-  { _pcrClientRequestToken ::
-      !(Maybe Text),
-    _pcrInReplyTo :: !Text,
-    _pcrContent :: !Text
+  { clientRequestToken ::
+      Lude.Maybe Lude.Text,
+    inReplyTo :: Lude.Text,
+    content :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostCommentReply' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcrClientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
---
--- * 'pcrInReplyTo' - The system-generated ID of the comment to which you want to reply. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
---
--- * 'pcrContent' - The contents of your reply to a comment.
-postCommentReply ::
-  -- | 'pcrInReplyTo'
-  Text ->
-  -- | 'pcrContent'
-  Text ->
+-- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+-- * 'content' - The contents of your reply to a comment.
+-- * 'inReplyTo' - The system-generated ID of the comment to which you want to reply. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+mkPostCommentReply ::
+  -- | 'inReplyTo'
+  Lude.Text ->
+  -- | 'content'
+  Lude.Text ->
   PostCommentReply
-postCommentReply pInReplyTo_ pContent_ =
+mkPostCommentReply pInReplyTo_ pContent_ =
   PostCommentReply'
-    { _pcrClientRequestToken = Nothing,
-      _pcrInReplyTo = pInReplyTo_,
-      _pcrContent = pContent_
+    { clientRequestToken = Lude.Nothing,
+      inReplyTo = pInReplyTo_,
+      content = pContent_
     }
 
 -- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
-pcrClientRequestToken :: Lens' PostCommentReply (Maybe Text)
-pcrClientRequestToken = lens _pcrClientRequestToken (\s a -> s {_pcrClientRequestToken = a})
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrClientRequestToken :: Lens.Lens' PostCommentReply (Lude.Maybe Lude.Text)
+pcrClientRequestToken = Lens.lens (clientRequestToken :: PostCommentReply -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: PostCommentReply)
+{-# DEPRECATED pcrClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The system-generated ID of the comment to which you want to reply. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
-pcrInReplyTo :: Lens' PostCommentReply Text
-pcrInReplyTo = lens _pcrInReplyTo (\s a -> s {_pcrInReplyTo = a})
+--
+-- /Note:/ Consider using 'inReplyTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrInReplyTo :: Lens.Lens' PostCommentReply Lude.Text
+pcrInReplyTo = Lens.lens (inReplyTo :: PostCommentReply -> Lude.Text) (\s a -> s {inReplyTo = a} :: PostCommentReply)
+{-# DEPRECATED pcrInReplyTo "Use generic-lens or generic-optics with 'inReplyTo' instead." #-}
 
 -- | The contents of your reply to a comment.
-pcrContent :: Lens' PostCommentReply Text
-pcrContent = lens _pcrContent (\s a -> s {_pcrContent = a})
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrContent :: Lens.Lens' PostCommentReply Lude.Text
+pcrContent = Lens.lens (content :: PostCommentReply -> Lude.Text) (\s a -> s {content = a} :: PostCommentReply)
+{-# DEPRECATED pcrContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance AWSRequest PostCommentReply where
+instance Lude.AWSRequest PostCommentReply where
   type Rs PostCommentReply = PostCommentReplyResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PostCommentReplyResponse'
-            <$> (x .?> "comment") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "comment") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PostCommentReply
-
-instance NFData PostCommentReply
-
-instance ToHeaders PostCommentReply where
+instance Lude.ToHeaders PostCommentReply where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.PostCommentReply" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.PostCommentReply" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PostCommentReply where
+instance Lude.ToJSON PostCommentReply where
   toJSON PostCommentReply' {..} =
-    object
-      ( catMaybes
-          [ ("clientRequestToken" .=) <$> _pcrClientRequestToken,
-            Just ("inReplyTo" .= _pcrInReplyTo),
-            Just ("content" .= _pcrContent)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("inReplyTo" Lude..= inReplyTo),
+            Lude.Just ("content" Lude..= content)
           ]
       )
 
-instance ToPath PostCommentReply where
-  toPath = const "/"
+instance Lude.ToPath PostCommentReply where
+  toPath = Lude.const "/"
 
-instance ToQuery PostCommentReply where
-  toQuery = const mempty
+instance Lude.ToQuery PostCommentReply where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'postCommentReplyResponse' smart constructor.
+-- | /See:/ 'mkPostCommentReplyResponse' smart constructor.
 data PostCommentReplyResponse = PostCommentReplyResponse'
-  { _pcrrsComment ::
-      !(Maybe Comment),
-    _pcrrsResponseStatus :: !Int
+  { comment ::
+      Lude.Maybe Comment,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostCommentReplyResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcrrsComment' - Information about the reply to a comment.
---
--- * 'pcrrsResponseStatus' - -- | The response status code.
-postCommentReplyResponse ::
-  -- | 'pcrrsResponseStatus'
-  Int ->
+-- * 'comment' - Information about the reply to a comment.
+-- * 'responseStatus' - The response status code.
+mkPostCommentReplyResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PostCommentReplyResponse
-postCommentReplyResponse pResponseStatus_ =
+mkPostCommentReplyResponse pResponseStatus_ =
   PostCommentReplyResponse'
-    { _pcrrsComment = Nothing,
-      _pcrrsResponseStatus = pResponseStatus_
+    { comment = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the reply to a comment.
-pcrrsComment :: Lens' PostCommentReplyResponse (Maybe Comment)
-pcrrsComment = lens _pcrrsComment (\s a -> s {_pcrrsComment = a})
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrrsComment :: Lens.Lens' PostCommentReplyResponse (Lude.Maybe Comment)
+pcrrsComment = Lens.lens (comment :: PostCommentReplyResponse -> Lude.Maybe Comment) (\s a -> s {comment = a} :: PostCommentReplyResponse)
+{-# DEPRECATED pcrrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
--- | -- | The response status code.
-pcrrsResponseStatus :: Lens' PostCommentReplyResponse Int
-pcrrsResponseStatus = lens _pcrrsResponseStatus (\s a -> s {_pcrrsResponseStatus = a})
-
-instance NFData PostCommentReplyResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrrsResponseStatus :: Lens.Lens' PostCommentReplyResponse Lude.Int
+pcrrsResponseStatus = Lens.lens (responseStatus :: PostCommentReplyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PostCommentReplyResponse)
+{-# DEPRECATED pcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

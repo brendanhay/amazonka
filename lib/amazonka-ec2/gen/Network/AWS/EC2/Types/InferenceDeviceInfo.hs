@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InferenceDeviceInfo where
+module Network.AWS.EC2.Types.InferenceDeviceInfo
+  ( InferenceDeviceInfo (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInferenceDeviceInfo,
+
+    -- * Lenses
+    idiManufacturer,
+    idiCount,
+    idiName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the Inference accelerators for the instance type.
 --
---
---
--- /See:/ 'inferenceDeviceInfo' smart constructor.
+-- /See:/ 'mkInferenceDeviceInfo' smart constructor.
 data InferenceDeviceInfo = InferenceDeviceInfo'
-  { _idiManufacturer ::
-      !(Maybe Text),
-    _idiCount :: !(Maybe Int),
-    _idiName :: !(Maybe Text)
+  { manufacturer ::
+      Lude.Maybe Lude.Text,
+    count :: Lude.Maybe Lude.Int,
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InferenceDeviceInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idiManufacturer' - The manufacturer of the Inference accelerator.
---
--- * 'idiCount' - The number of Inference accelerators for the instance type.
---
--- * 'idiName' - The name of the Inference accelerator.
-inferenceDeviceInfo ::
+-- * 'count' - The number of Inference accelerators for the instance type.
+-- * 'manufacturer' - The manufacturer of the Inference accelerator.
+-- * 'name' - The name of the Inference accelerator.
+mkInferenceDeviceInfo ::
   InferenceDeviceInfo
-inferenceDeviceInfo =
+mkInferenceDeviceInfo =
   InferenceDeviceInfo'
-    { _idiManufacturer = Nothing,
-      _idiCount = Nothing,
-      _idiName = Nothing
+    { manufacturer = Lude.Nothing,
+      count = Lude.Nothing,
+      name = Lude.Nothing
     }
 
 -- | The manufacturer of the Inference accelerator.
-idiManufacturer :: Lens' InferenceDeviceInfo (Maybe Text)
-idiManufacturer = lens _idiManufacturer (\s a -> s {_idiManufacturer = a})
+--
+-- /Note:/ Consider using 'manufacturer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idiManufacturer :: Lens.Lens' InferenceDeviceInfo (Lude.Maybe Lude.Text)
+idiManufacturer = Lens.lens (manufacturer :: InferenceDeviceInfo -> Lude.Maybe Lude.Text) (\s a -> s {manufacturer = a} :: InferenceDeviceInfo)
+{-# DEPRECATED idiManufacturer "Use generic-lens or generic-optics with 'manufacturer' instead." #-}
 
 -- | The number of Inference accelerators for the instance type.
-idiCount :: Lens' InferenceDeviceInfo (Maybe Int)
-idiCount = lens _idiCount (\s a -> s {_idiCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idiCount :: Lens.Lens' InferenceDeviceInfo (Lude.Maybe Lude.Int)
+idiCount = Lens.lens (count :: InferenceDeviceInfo -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: InferenceDeviceInfo)
+{-# DEPRECATED idiCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The name of the Inference accelerator.
-idiName :: Lens' InferenceDeviceInfo (Maybe Text)
-idiName = lens _idiName (\s a -> s {_idiName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idiName :: Lens.Lens' InferenceDeviceInfo (Lude.Maybe Lude.Text)
+idiName = Lens.lens (name :: InferenceDeviceInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InferenceDeviceInfo)
+{-# DEPRECATED idiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromXML InferenceDeviceInfo where
+instance Lude.FromXML InferenceDeviceInfo where
   parseXML x =
     InferenceDeviceInfo'
-      <$> (x .@? "manufacturer") <*> (x .@? "count") <*> (x .@? "name")
-
-instance Hashable InferenceDeviceInfo
-
-instance NFData InferenceDeviceInfo
+      Lude.<$> (x Lude..@? "manufacturer")
+      Lude.<*> (x Lude..@? "count")
+      Lude.<*> (x Lude..@? "name")

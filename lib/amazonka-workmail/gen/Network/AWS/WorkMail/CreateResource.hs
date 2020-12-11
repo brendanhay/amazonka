@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,146 +14,163 @@
 --
 -- Creates a new Amazon WorkMail resource.
 module Network.AWS.WorkMail.CreateResource
-  ( -- * Creating a Request
-    createResource,
-    CreateResource,
+  ( -- * Creating a request
+    CreateResource (..),
+    mkCreateResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     crOrganizationId,
     crName,
     crType,
 
-    -- * Destructuring the Response
-    createResourceResponse,
-    CreateResourceResponse,
+    -- * Destructuring the response
+    CreateResourceResponse (..),
+    mkCreateResourceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crrsResourceId,
     crrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'createResource' smart constructor.
+-- | /See:/ 'mkCreateResource' smart constructor.
 data CreateResource = CreateResource'
-  { _crOrganizationId :: !Text,
-    _crName :: !Text,
-    _crType :: !ResourceType
+  { organizationId :: Lude.Text,
+    name :: Lude.Text,
+    type' :: ResourceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crOrganizationId' - The identifier associated with the organization for which the resource is created.
---
--- * 'crName' - The name of the new resource.
---
--- * 'crType' - The type of the new resource. The available types are @equipment@ and @room@ .
-createResource ::
-  -- | 'crOrganizationId'
-  Text ->
-  -- | 'crName'
-  Text ->
-  -- | 'crType'
+-- * 'name' - The name of the new resource.
+-- * 'organizationId' - The identifier associated with the organization for which the resource is created.
+-- * 'type'' - The type of the new resource. The available types are @equipment@ and @room@ .
+mkCreateResource ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'type''
   ResourceType ->
   CreateResource
-createResource pOrganizationId_ pName_ pType_ =
+mkCreateResource pOrganizationId_ pName_ pType_ =
   CreateResource'
-    { _crOrganizationId = pOrganizationId_,
-      _crName = pName_,
-      _crType = pType_
+    { organizationId = pOrganizationId_,
+      name = pName_,
+      type' = pType_
     }
 
 -- | The identifier associated with the organization for which the resource is created.
-crOrganizationId :: Lens' CreateResource Text
-crOrganizationId = lens _crOrganizationId (\s a -> s {_crOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crOrganizationId :: Lens.Lens' CreateResource Lude.Text
+crOrganizationId = Lens.lens (organizationId :: CreateResource -> Lude.Text) (\s a -> s {organizationId = a} :: CreateResource)
+{-# DEPRECATED crOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The name of the new resource.
-crName :: Lens' CreateResource Text
-crName = lens _crName (\s a -> s {_crName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crName :: Lens.Lens' CreateResource Lude.Text
+crName = Lens.lens (name :: CreateResource -> Lude.Text) (\s a -> s {name = a} :: CreateResource)
+{-# DEPRECATED crName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of the new resource. The available types are @equipment@ and @room@ .
-crType :: Lens' CreateResource ResourceType
-crType = lens _crType (\s a -> s {_crType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crType :: Lens.Lens' CreateResource ResourceType
+crType = Lens.lens (type' :: CreateResource -> ResourceType) (\s a -> s {type' = a} :: CreateResource)
+{-# DEPRECATED crType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance AWSRequest CreateResource where
+instance Lude.AWSRequest CreateResource where
   type Rs CreateResource = CreateResourceResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateResourceResponse'
-            <$> (x .?> "ResourceId") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ResourceId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateResource
-
-instance NFData CreateResource
-
-instance ToHeaders CreateResource where
+instance Lude.ToHeaders CreateResource where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkMailService.CreateResource" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkMailService.CreateResource" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateResource where
+instance Lude.ToJSON CreateResource where
   toJSON CreateResource' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _crOrganizationId),
-            Just ("Name" .= _crName),
-            Just ("Type" .= _crType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Type" Lude..= type')
           ]
       )
 
-instance ToPath CreateResource where
-  toPath = const "/"
+instance Lude.ToPath CreateResource where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateResource where
-  toQuery = const mempty
+instance Lude.ToQuery CreateResource where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createResourceResponse' smart constructor.
+-- | /See:/ 'mkCreateResourceResponse' smart constructor.
 data CreateResourceResponse = CreateResourceResponse'
-  { _crrsResourceId ::
-      !(Maybe Text),
-    _crrsResponseStatus :: !Int
+  { resourceId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crrsResourceId' - The identifier of the new resource.
---
--- * 'crrsResponseStatus' - -- | The response status code.
-createResourceResponse ::
-  -- | 'crrsResponseStatus'
-  Int ->
+-- * 'resourceId' - The identifier of the new resource.
+-- * 'responseStatus' - The response status code.
+mkCreateResourceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateResourceResponse
-createResourceResponse pResponseStatus_ =
+mkCreateResourceResponse pResponseStatus_ =
   CreateResourceResponse'
-    { _crrsResourceId = Nothing,
-      _crrsResponseStatus = pResponseStatus_
+    { resourceId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the new resource.
-crrsResourceId :: Lens' CreateResourceResponse (Maybe Text)
-crrsResourceId = lens _crrsResourceId (\s a -> s {_crrsResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsResourceId :: Lens.Lens' CreateResourceResponse (Lude.Maybe Lude.Text)
+crrsResourceId = Lens.lens (resourceId :: CreateResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: CreateResourceResponse)
+{-# DEPRECATED crrsResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
--- | -- | The response status code.
-crrsResponseStatus :: Lens' CreateResourceResponse Int
-crrsResponseStatus = lens _crrsResponseStatus (\s a -> s {_crrsResponseStatus = a})
-
-instance NFData CreateResourceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crrsResponseStatus :: Lens.Lens' CreateResourceResponse Lude.Int
+crrsResponseStatus = Lens.lens (responseStatus :: CreateResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateResourceResponse)
+{-# DEPRECATED crrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

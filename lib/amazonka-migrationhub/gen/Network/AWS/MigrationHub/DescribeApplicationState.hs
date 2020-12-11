@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,149 @@
 --
 -- Gets the migration status of an application.
 module Network.AWS.MigrationHub.DescribeApplicationState
-  ( -- * Creating a Request
-    describeApplicationState,
-    DescribeApplicationState,
+  ( -- * Creating a request
+    DescribeApplicationState (..),
+    mkDescribeApplicationState,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dasApplicationId,
 
-    -- * Destructuring the Response
-    describeApplicationStateResponse,
-    DescribeApplicationStateResponse,
+    -- * Destructuring the response
+    DescribeApplicationStateResponse (..),
+    mkDescribeApplicationStateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dasrsLastUpdatedTime,
     dasrsApplicationStatus,
     dasrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeApplicationState' smart constructor.
+-- | /See:/ 'mkDescribeApplicationState' smart constructor.
 newtype DescribeApplicationState = DescribeApplicationState'
-  { _dasApplicationId ::
-      Text
+  { applicationId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplicationState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dasApplicationId' - The configurationId in Application Discovery Service that uniquely identifies the grouped application.
-describeApplicationState ::
-  -- | 'dasApplicationId'
-  Text ->
+-- * 'applicationId' - The configurationId in Application Discovery Service that uniquely identifies the grouped application.
+mkDescribeApplicationState ::
+  -- | 'applicationId'
+  Lude.Text ->
   DescribeApplicationState
-describeApplicationState pApplicationId_ =
-  DescribeApplicationState' {_dasApplicationId = pApplicationId_}
+mkDescribeApplicationState pApplicationId_ =
+  DescribeApplicationState' {applicationId = pApplicationId_}
 
 -- | The configurationId in Application Discovery Service that uniquely identifies the grouped application.
-dasApplicationId :: Lens' DescribeApplicationState Text
-dasApplicationId = lens _dasApplicationId (\s a -> s {_dasApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasApplicationId :: Lens.Lens' DescribeApplicationState Lude.Text
+dasApplicationId = Lens.lens (applicationId :: DescribeApplicationState -> Lude.Text) (\s a -> s {applicationId = a} :: DescribeApplicationState)
+{-# DEPRECATED dasApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance AWSRequest DescribeApplicationState where
+instance Lude.AWSRequest DescribeApplicationState where
   type Rs DescribeApplicationState = DescribeApplicationStateResponse
-  request = postJSON migrationHub
+  request = Req.postJSON migrationHubService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeApplicationStateResponse'
-            <$> (x .?> "LastUpdatedTime")
-            <*> (x .?> "ApplicationStatus")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "LastUpdatedTime")
+            Lude.<*> (x Lude..?> "ApplicationStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeApplicationState
-
-instance NFData DescribeApplicationState
-
-instance ToHeaders DescribeApplicationState where
+instance Lude.ToHeaders DescribeApplicationState where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSMigrationHub.DescribeApplicationState" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSMigrationHub.DescribeApplicationState" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeApplicationState where
+instance Lude.ToJSON DescribeApplicationState where
   toJSON DescribeApplicationState' {..} =
-    object (catMaybes [Just ("ApplicationId" .= _dasApplicationId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ApplicationId" Lude..= applicationId)]
+      )
 
-instance ToPath DescribeApplicationState where
-  toPath = const "/"
+instance Lude.ToPath DescribeApplicationState where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeApplicationState where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeApplicationState where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeApplicationStateResponse' smart constructor.
+-- | /See:/ 'mkDescribeApplicationStateResponse' smart constructor.
 data DescribeApplicationStateResponse = DescribeApplicationStateResponse'
-  { _dasrsLastUpdatedTime ::
-      !(Maybe POSIX),
-    _dasrsApplicationStatus ::
-      !( Maybe
-           ApplicationStatus
-       ),
-    _dasrsResponseStatus ::
-      !Int
+  { lastUpdatedTime ::
+      Lude.Maybe Lude.Timestamp,
+    applicationStatus ::
+      Lude.Maybe
+        ApplicationStatus,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplicationStateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dasrsLastUpdatedTime' - The timestamp when the application status was last updated.
---
--- * 'dasrsApplicationStatus' - Status of the application - Not Started, In-Progress, Complete.
---
--- * 'dasrsResponseStatus' - -- | The response status code.
-describeApplicationStateResponse ::
-  -- | 'dasrsResponseStatus'
-  Int ->
+-- * 'applicationStatus' - Status of the application - Not Started, In-Progress, Complete.
+-- * 'lastUpdatedTime' - The timestamp when the application status was last updated.
+-- * 'responseStatus' - The response status code.
+mkDescribeApplicationStateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeApplicationStateResponse
-describeApplicationStateResponse pResponseStatus_ =
+mkDescribeApplicationStateResponse pResponseStatus_ =
   DescribeApplicationStateResponse'
-    { _dasrsLastUpdatedTime =
-        Nothing,
-      _dasrsApplicationStatus = Nothing,
-      _dasrsResponseStatus = pResponseStatus_
+    { lastUpdatedTime = Lude.Nothing,
+      applicationStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The timestamp when the application status was last updated.
-dasrsLastUpdatedTime :: Lens' DescribeApplicationStateResponse (Maybe UTCTime)
-dasrsLastUpdatedTime = lens _dasrsLastUpdatedTime (\s a -> s {_dasrsLastUpdatedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasrsLastUpdatedTime :: Lens.Lens' DescribeApplicationStateResponse (Lude.Maybe Lude.Timestamp)
+dasrsLastUpdatedTime = Lens.lens (lastUpdatedTime :: DescribeApplicationStateResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedTime = a} :: DescribeApplicationStateResponse)
+{-# DEPRECATED dasrsLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | Status of the application - Not Started, In-Progress, Complete.
-dasrsApplicationStatus :: Lens' DescribeApplicationStateResponse (Maybe ApplicationStatus)
-dasrsApplicationStatus = lens _dasrsApplicationStatus (\s a -> s {_dasrsApplicationStatus = a})
+--
+-- /Note:/ Consider using 'applicationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasrsApplicationStatus :: Lens.Lens' DescribeApplicationStateResponse (Lude.Maybe ApplicationStatus)
+dasrsApplicationStatus = Lens.lens (applicationStatus :: DescribeApplicationStateResponse -> Lude.Maybe ApplicationStatus) (\s a -> s {applicationStatus = a} :: DescribeApplicationStateResponse)
+{-# DEPRECATED dasrsApplicationStatus "Use generic-lens or generic-optics with 'applicationStatus' instead." #-}
 
--- | -- | The response status code.
-dasrsResponseStatus :: Lens' DescribeApplicationStateResponse Int
-dasrsResponseStatus = lens _dasrsResponseStatus (\s a -> s {_dasrsResponseStatus = a})
-
-instance NFData DescribeApplicationStateResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasrsResponseStatus :: Lens.Lens' DescribeApplicationStateResponse Lude.Int
+dasrsResponseStatus = Lens.lens (responseStatus :: DescribeApplicationStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeApplicationStateResponse)
+{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

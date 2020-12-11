@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.PolicyTypeDescription where
+module Network.AWS.ELB.Types.PolicyTypeDescription
+  ( PolicyTypeDescription (..),
+
+    -- * Smart constructor
+    mkPolicyTypeDescription,
+
+    -- * Lenses
+    ptdPolicyTypeName,
+    ptdDescription,
+    ptdPolicyAttributeTypeDescriptions,
+  )
+where
 
 import Network.AWS.ELB.Internal
 import Network.AWS.ELB.Types.PolicyAttributeTypeDescription
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a policy type.
 --
---
---
--- /See:/ 'policyTypeDescription' smart constructor.
+-- /See:/ 'mkPolicyTypeDescription' smart constructor.
 data PolicyTypeDescription = PolicyTypeDescription'
-  { _ptdPolicyTypeName ::
-      !(Maybe Text),
-    _ptdDescription :: !(Maybe Text),
-    _ptdPolicyAttributeTypeDescriptions ::
-      !(Maybe [PolicyAttributeTypeDescription])
+  { policyTypeName ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    policyAttributeTypeDescriptions ::
+      Lude.Maybe [PolicyAttributeTypeDescription]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyTypeDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ptdPolicyTypeName' - The name of the policy type.
---
--- * 'ptdDescription' - A description of the policy type.
---
--- * 'ptdPolicyAttributeTypeDescriptions' - The description of the policy attributes associated with the policies defined by Elastic Load Balancing.
-policyTypeDescription ::
+-- * 'description' - A description of the policy type.
+-- * 'policyAttributeTypeDescriptions' - The description of the policy attributes associated with the policies defined by Elastic Load Balancing.
+-- * 'policyTypeName' - The name of the policy type.
+mkPolicyTypeDescription ::
   PolicyTypeDescription
-policyTypeDescription =
+mkPolicyTypeDescription =
   PolicyTypeDescription'
-    { _ptdPolicyTypeName = Nothing,
-      _ptdDescription = Nothing,
-      _ptdPolicyAttributeTypeDescriptions = Nothing
+    { policyTypeName = Lude.Nothing,
+      description = Lude.Nothing,
+      policyAttributeTypeDescriptions = Lude.Nothing
     }
 
 -- | The name of the policy type.
-ptdPolicyTypeName :: Lens' PolicyTypeDescription (Maybe Text)
-ptdPolicyTypeName = lens _ptdPolicyTypeName (\s a -> s {_ptdPolicyTypeName = a})
+--
+-- /Note:/ Consider using 'policyTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptdPolicyTypeName :: Lens.Lens' PolicyTypeDescription (Lude.Maybe Lude.Text)
+ptdPolicyTypeName = Lens.lens (policyTypeName :: PolicyTypeDescription -> Lude.Maybe Lude.Text) (\s a -> s {policyTypeName = a} :: PolicyTypeDescription)
+{-# DEPRECATED ptdPolicyTypeName "Use generic-lens or generic-optics with 'policyTypeName' instead." #-}
 
 -- | A description of the policy type.
-ptdDescription :: Lens' PolicyTypeDescription (Maybe Text)
-ptdDescription = lens _ptdDescription (\s a -> s {_ptdDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptdDescription :: Lens.Lens' PolicyTypeDescription (Lude.Maybe Lude.Text)
+ptdDescription = Lens.lens (description :: PolicyTypeDescription -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: PolicyTypeDescription)
+{-# DEPRECATED ptdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The description of the policy attributes associated with the policies defined by Elastic Load Balancing.
-ptdPolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription [PolicyAttributeTypeDescription]
-ptdPolicyAttributeTypeDescriptions = lens _ptdPolicyAttributeTypeDescriptions (\s a -> s {_ptdPolicyAttributeTypeDescriptions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'policyAttributeTypeDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptdPolicyAttributeTypeDescriptions :: Lens.Lens' PolicyTypeDescription (Lude.Maybe [PolicyAttributeTypeDescription])
+ptdPolicyAttributeTypeDescriptions = Lens.lens (policyAttributeTypeDescriptions :: PolicyTypeDescription -> Lude.Maybe [PolicyAttributeTypeDescription]) (\s a -> s {policyAttributeTypeDescriptions = a} :: PolicyTypeDescription)
+{-# DEPRECATED ptdPolicyAttributeTypeDescriptions "Use generic-lens or generic-optics with 'policyAttributeTypeDescriptions' instead." #-}
 
-instance FromXML PolicyTypeDescription where
+instance Lude.FromXML PolicyTypeDescription where
   parseXML x =
     PolicyTypeDescription'
-      <$> (x .@? "PolicyTypeName")
-      <*> (x .@? "Description")
-      <*> ( x .@? "PolicyAttributeTypeDescriptions" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-
-instance Hashable PolicyTypeDescription
-
-instance NFData PolicyTypeDescription
+      Lude.<$> (x Lude..@? "PolicyTypeName")
+      Lude.<*> (x Lude..@? "Description")
+      Lude.<*> ( x Lude..@? "PolicyAttributeTypeDescriptions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ResourceValueType where
+module Network.AWS.Config.Types.ResourceValueType
+  ( ResourceValueType
+      ( ResourceValueType',
+        ResourceId
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceValueType = ResourceId
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceValueType = ResourceValueType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceValueType where
-  parser =
-    takeLowerText >>= \case
-      "resource_id" -> pure ResourceId
-      e ->
-        fromTextError $
-          "Failure parsing ResourceValueType from value: '" <> e
-            <> "'. Accepted values: resource_id"
+pattern ResourceId :: ResourceValueType
+pattern ResourceId = ResourceValueType' "RESOURCE_ID"
 
-instance ToText ResourceValueType where
-  toText = \case
-    ResourceId -> "RESOURCE_ID"
-
-instance Hashable ResourceValueType
-
-instance NFData ResourceValueType
-
-instance ToByteString ResourceValueType
-
-instance ToQuery ResourceValueType
-
-instance ToHeader ResourceValueType
-
-instance ToJSON ResourceValueType where
-  toJSON = toJSONText
-
-instance FromJSON ResourceValueType where
-  parseJSON = parseJSONText "ResourceValueType"
+{-# COMPLETE
+  ResourceId,
+  ResourceValueType'
+  #-}

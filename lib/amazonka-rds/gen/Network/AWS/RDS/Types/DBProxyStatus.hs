@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBProxyStatus where
+module Network.AWS.RDS.Types.DBProxyStatus
+  ( DBProxyStatus
+      ( DBProxyStatus',
+        Available,
+        Creating,
+        Deleting,
+        IncompatibleNetwork,
+        InsufficientResourceLimits,
+        Modifying,
+        Reactivating,
+        Suspended,
+        Suspending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DBProxyStatus
-  = Available
-  | Creating
-  | Deleting
-  | IncompatibleNetwork
-  | InsufficientResourceLimits
-  | Modifying
-  | Reactivating
-  | Suspended
-  | Suspending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DBProxyStatus = DBProxyStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DBProxyStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure Available
-      "creating" -> pure Creating
-      "deleting" -> pure Deleting
-      "incompatible-network" -> pure IncompatibleNetwork
-      "insufficient-resource-limits" -> pure InsufficientResourceLimits
-      "modifying" -> pure Modifying
-      "reactivating" -> pure Reactivating
-      "suspended" -> pure Suspended
-      "suspending" -> pure Suspending
-      e ->
-        fromTextError $
-          "Failure parsing DBProxyStatus from value: '" <> e
-            <> "'. Accepted values: available, creating, deleting, incompatible-network, insufficient-resource-limits, modifying, reactivating, suspended, suspending"
+pattern Available :: DBProxyStatus
+pattern Available = DBProxyStatus' "available"
 
-instance ToText DBProxyStatus where
-  toText = \case
-    Available -> "available"
-    Creating -> "creating"
-    Deleting -> "deleting"
-    IncompatibleNetwork -> "incompatible-network"
-    InsufficientResourceLimits -> "insufficient-resource-limits"
-    Modifying -> "modifying"
-    Reactivating -> "reactivating"
-    Suspended -> "suspended"
-    Suspending -> "suspending"
+pattern Creating :: DBProxyStatus
+pattern Creating = DBProxyStatus' "creating"
 
-instance Hashable DBProxyStatus
+pattern Deleting :: DBProxyStatus
+pattern Deleting = DBProxyStatus' "deleting"
 
-instance NFData DBProxyStatus
+pattern IncompatibleNetwork :: DBProxyStatus
+pattern IncompatibleNetwork = DBProxyStatus' "incompatible-network"
 
-instance ToByteString DBProxyStatus
+pattern InsufficientResourceLimits :: DBProxyStatus
+pattern InsufficientResourceLimits = DBProxyStatus' "insufficient-resource-limits"
 
-instance ToQuery DBProxyStatus
+pattern Modifying :: DBProxyStatus
+pattern Modifying = DBProxyStatus' "modifying"
 
-instance ToHeader DBProxyStatus
+pattern Reactivating :: DBProxyStatus
+pattern Reactivating = DBProxyStatus' "reactivating"
 
-instance FromXML DBProxyStatus where
-  parseXML = parseXMLText "DBProxyStatus"
+pattern Suspended :: DBProxyStatus
+pattern Suspended = DBProxyStatus' "suspended"
+
+pattern Suspending :: DBProxyStatus
+pattern Suspending = DBProxyStatus' "suspending"
+
+{-# COMPLETE
+  Available,
+  Creating,
+  Deleting,
+  IncompatibleNetwork,
+  InsufficientResourceLimits,
+  Modifying,
+  Reactivating,
+  Suspended,
+  Suspending,
+  DBProxyStatus'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,127 @@
 --
 -- Retrieves the details of a gateway.
 module Network.AWS.AlexaBusiness.GetGateway
-  ( -- * Creating a Request
-    getGateway,
-    GetGateway,
+  ( -- * Creating a request
+    GetGateway (..),
+    mkGetGateway,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ggGatewayARN,
 
-    -- * Destructuring the Response
-    getGatewayResponse,
-    GetGatewayResponse,
+    -- * Destructuring the response
+    GetGatewayResponse (..),
+    mkGetGatewayResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ggrsGateway,
     ggrsResponseStatus,
   )
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getGateway' smart constructor.
-newtype GetGateway = GetGateway' {_ggGatewayARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetGateway' smart constructor.
+newtype GetGateway = GetGateway' {gatewayARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGateway' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggGatewayARN' - The ARN of the gateway to get.
-getGateway ::
-  -- | 'ggGatewayARN'
-  Text ->
+-- * 'gatewayARN' - The ARN of the gateway to get.
+mkGetGateway ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   GetGateway
-getGateway pGatewayARN_ = GetGateway' {_ggGatewayARN = pGatewayARN_}
+mkGetGateway pGatewayARN_ = GetGateway' {gatewayARN = pGatewayARN_}
 
 -- | The ARN of the gateway to get.
-ggGatewayARN :: Lens' GetGateway Text
-ggGatewayARN = lens _ggGatewayARN (\s a -> s {_ggGatewayARN = a})
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggGatewayARN :: Lens.Lens' GetGateway Lude.Text
+ggGatewayARN = Lens.lens (gatewayARN :: GetGateway -> Lude.Text) (\s a -> s {gatewayARN = a} :: GetGateway)
+{-# DEPRECATED ggGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest GetGateway where
+instance Lude.AWSRequest GetGateway where
   type Rs GetGateway = GetGatewayResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetGatewayResponse' <$> (x .?> "Gateway") <*> (pure (fromEnum s))
+          GetGatewayResponse'
+            Lude.<$> (x Lude..?> "Gateway") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetGateway
-
-instance NFData GetGateway
-
-instance ToHeaders GetGateway where
+instance Lude.ToHeaders GetGateway where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.GetGateway" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.GetGateway" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetGateway where
+instance Lude.ToJSON GetGateway where
   toJSON GetGateway' {..} =
-    object (catMaybes [Just ("GatewayArn" .= _ggGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayArn" Lude..= gatewayARN)])
 
-instance ToPath GetGateway where
-  toPath = const "/"
+instance Lude.ToPath GetGateway where
+  toPath = Lude.const "/"
 
-instance ToQuery GetGateway where
-  toQuery = const mempty
+instance Lude.ToQuery GetGateway where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getGatewayResponse' smart constructor.
+-- | /See:/ 'mkGetGatewayResponse' smart constructor.
 data GetGatewayResponse = GetGatewayResponse'
-  { _ggrsGateway ::
-      !(Maybe Gateway),
-    _ggrsResponseStatus :: !Int
+  { gateway ::
+      Lude.Maybe Gateway,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGatewayResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggrsGateway' - The details of the gateway.
---
--- * 'ggrsResponseStatus' - -- | The response status code.
-getGatewayResponse ::
-  -- | 'ggrsResponseStatus'
-  Int ->
+-- * 'gateway' - The details of the gateway.
+-- * 'responseStatus' - The response status code.
+mkGetGatewayResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetGatewayResponse
-getGatewayResponse pResponseStatus_ =
+mkGetGatewayResponse pResponseStatus_ =
   GetGatewayResponse'
-    { _ggrsGateway = Nothing,
-      _ggrsResponseStatus = pResponseStatus_
+    { gateway = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The details of the gateway.
-ggrsGateway :: Lens' GetGatewayResponse (Maybe Gateway)
-ggrsGateway = lens _ggrsGateway (\s a -> s {_ggrsGateway = a})
+--
+-- /Note:/ Consider using 'gateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsGateway :: Lens.Lens' GetGatewayResponse (Lude.Maybe Gateway)
+ggrsGateway = Lens.lens (gateway :: GetGatewayResponse -> Lude.Maybe Gateway) (\s a -> s {gateway = a} :: GetGatewayResponse)
+{-# DEPRECATED ggrsGateway "Use generic-lens or generic-optics with 'gateway' instead." #-}
 
--- | -- | The response status code.
-ggrsResponseStatus :: Lens' GetGatewayResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\s a -> s {_ggrsResponseStatus = a})
-
-instance NFData GetGatewayResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrsResponseStatus :: Lens.Lens' GetGatewayResponse Lude.Int
+ggrsResponseStatus = Lens.lens (responseStatus :: GetGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGatewayResponse)
+{-# DEPRECATED ggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

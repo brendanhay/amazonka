@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Updates an existing maintenance window. Only specified parameters are modified.
 module Network.AWS.SSM.UpdateMaintenanceWindow
-  ( -- * Creating a Request
-    updateMaintenanceWindow,
-    UpdateMaintenanceWindow,
+  ( -- * Creating a request
+    UpdateMaintenanceWindow (..),
+    mkUpdateMaintenanceWindow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     umwReplace,
     umwEnabled,
     umwSchedule,
@@ -38,11 +33,11 @@ module Network.AWS.SSM.UpdateMaintenanceWindow
     umwDuration,
     umwWindowId,
 
-    -- * Destructuring the Response
-    updateMaintenanceWindowResponse,
-    UpdateMaintenanceWindowResponse,
+    -- * Destructuring the response
+    UpdateMaintenanceWindowResponse (..),
+    mkUpdateMaintenanceWindowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     umwrsEnabled,
     umwrsSchedule,
     umwrsScheduleOffset,
@@ -59,327 +54,386 @@ module Network.AWS.SSM.UpdateMaintenanceWindow
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'updateMaintenanceWindow' smart constructor.
+-- | /See:/ 'mkUpdateMaintenanceWindow' smart constructor.
 data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
-  { _umwReplace ::
-      !(Maybe Bool),
-    _umwEnabled :: !(Maybe Bool),
-    _umwSchedule :: !(Maybe Text),
-    _umwScheduleOffset :: !(Maybe Nat),
-    _umwEndDate :: !(Maybe Text),
-    _umwScheduleTimezone :: !(Maybe Text),
-    _umwStartDate :: !(Maybe Text),
-    _umwName :: !(Maybe Text),
-    _umwCutoff :: !(Maybe Nat),
-    _umwAllowUnassociatedTargets ::
-      !(Maybe Bool),
-    _umwDescription ::
-      !(Maybe (Sensitive Text)),
-    _umwDuration :: !(Maybe Nat),
-    _umwWindowId :: !Text
+  { replace ::
+      Lude.Maybe Lude.Bool,
+    enabled :: Lude.Maybe Lude.Bool,
+    schedule :: Lude.Maybe Lude.Text,
+    scheduleOffset :: Lude.Maybe Lude.Natural,
+    endDate :: Lude.Maybe Lude.Text,
+    scheduleTimezone :: Lude.Maybe Lude.Text,
+    startDate :: Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    cutoff :: Lude.Maybe Lude.Natural,
+    allowUnassociatedTargets ::
+      Lude.Maybe Lude.Bool,
+    description ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    duration :: Lude.Maybe Lude.Natural,
+    windowId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMaintenanceWindow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allowUnassociatedTargets' - Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
+-- * 'cutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
+-- * 'description' - An optional description for the update request.
+-- * 'duration' - The duration of the maintenance window in hours.
+-- * 'enabled' - Whether the maintenance window is enabled.
+-- * 'endDate' - The date and time, in ISO-8601 Extended format, for when you want the maintenance window to become inactive. EndDate allows you to set a date and time in the future when the maintenance window will no longer run.
+-- * 'name' - The name of the maintenance window.
+-- * 'replace' - If True, then all fields that are required by the CreateMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
+-- * 'schedule' - The schedule of the maintenance window in the form of a cron or rate expression.
+-- * 'scheduleOffset' - The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
 --
--- * 'umwReplace' - If True, then all fields that are required by the CreateMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
---
--- * 'umwEnabled' - Whether the maintenance window is enabled.
---
--- * 'umwSchedule' - The schedule of the maintenance window in the form of a cron or rate expression.
---
--- * 'umwScheduleOffset' - The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. For example, the following cron expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM. @cron(0 30 23 ? * TUE#3 *)@  If the schedule offset is @2@ , the maintenance window won't run until two days later.
---
--- * 'umwEndDate' - The date and time, in ISO-8601 Extended format, for when you want the maintenance window to become inactive. EndDate allows you to set a date and time in the future when the maintenance window will no longer run.
---
--- * 'umwScheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
---
--- * 'umwStartDate' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
---
--- * 'umwName' - The name of the maintenance window.
---
--- * 'umwCutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
---
--- * 'umwAllowUnassociatedTargets' - Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
---
--- * 'umwDescription' - An optional description for the update request.
---
--- * 'umwDuration' - The duration of the maintenance window in hours.
---
--- * 'umwWindowId' - The ID of the maintenance window to update.
-updateMaintenanceWindow ::
-  -- | 'umwWindowId'
-  Text ->
+-- For example, the following cron expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM.
+-- @cron(0 30 23 ? * TUE#3 *)@
+-- If the schedule offset is @2@ , the maintenance window won't run until two days later.
+-- * 'scheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+-- * 'startDate' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+-- * 'windowId' - The ID of the maintenance window to update.
+mkUpdateMaintenanceWindow ::
+  -- | 'windowId'
+  Lude.Text ->
   UpdateMaintenanceWindow
-updateMaintenanceWindow pWindowId_ =
+mkUpdateMaintenanceWindow pWindowId_ =
   UpdateMaintenanceWindow'
-    { _umwReplace = Nothing,
-      _umwEnabled = Nothing,
-      _umwSchedule = Nothing,
-      _umwScheduleOffset = Nothing,
-      _umwEndDate = Nothing,
-      _umwScheduleTimezone = Nothing,
-      _umwStartDate = Nothing,
-      _umwName = Nothing,
-      _umwCutoff = Nothing,
-      _umwAllowUnassociatedTargets = Nothing,
-      _umwDescription = Nothing,
-      _umwDuration = Nothing,
-      _umwWindowId = pWindowId_
+    { replace = Lude.Nothing,
+      enabled = Lude.Nothing,
+      schedule = Lude.Nothing,
+      scheduleOffset = Lude.Nothing,
+      endDate = Lude.Nothing,
+      scheduleTimezone = Lude.Nothing,
+      startDate = Lude.Nothing,
+      name = Lude.Nothing,
+      cutoff = Lude.Nothing,
+      allowUnassociatedTargets = Lude.Nothing,
+      description = Lude.Nothing,
+      duration = Lude.Nothing,
+      windowId = pWindowId_
     }
 
 -- | If True, then all fields that are required by the CreateMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
-umwReplace :: Lens' UpdateMaintenanceWindow (Maybe Bool)
-umwReplace = lens _umwReplace (\s a -> s {_umwReplace = a})
+--
+-- /Note:/ Consider using 'replace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwReplace :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Bool)
+umwReplace = Lens.lens (replace :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Bool) (\s a -> s {replace = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwReplace "Use generic-lens or generic-optics with 'replace' instead." #-}
 
 -- | Whether the maintenance window is enabled.
-umwEnabled :: Lens' UpdateMaintenanceWindow (Maybe Bool)
-umwEnabled = lens _umwEnabled (\s a -> s {_umwEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwEnabled :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Bool)
+umwEnabled = Lens.lens (enabled :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The schedule of the maintenance window in the form of a cron or rate expression.
-umwSchedule :: Lens' UpdateMaintenanceWindow (Maybe Text)
-umwSchedule = lens _umwSchedule (\s a -> s {_umwSchedule = a})
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwSchedule :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Text)
+umwSchedule = Lens.lens (schedule :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Text) (\s a -> s {schedule = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
--- | The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. For example, the following cron expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM. @cron(0 30 23 ? * TUE#3 *)@  If the schedule offset is @2@ , the maintenance window won't run until two days later.
-umwScheduleOffset :: Lens' UpdateMaintenanceWindow (Maybe Natural)
-umwScheduleOffset = lens _umwScheduleOffset (\s a -> s {_umwScheduleOffset = a}) . mapping _Nat
+-- | The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
+--
+-- For example, the following cron expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM.
+-- @cron(0 30 23 ? * TUE#3 *)@
+-- If the schedule offset is @2@ , the maintenance window won't run until two days later.
+--
+-- /Note:/ Consider using 'scheduleOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwScheduleOffset :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Natural)
+umwScheduleOffset = Lens.lens (scheduleOffset :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Natural) (\s a -> s {scheduleOffset = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwScheduleOffset "Use generic-lens or generic-optics with 'scheduleOffset' instead." #-}
 
 -- | The date and time, in ISO-8601 Extended format, for when you want the maintenance window to become inactive. EndDate allows you to set a date and time in the future when the maintenance window will no longer run.
-umwEndDate :: Lens' UpdateMaintenanceWindow (Maybe Text)
-umwEndDate = lens _umwEndDate (\s a -> s {_umwEndDate = a})
+--
+-- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwEndDate :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Text)
+umwEndDate = Lens.lens (endDate :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Text) (\s a -> s {endDate = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
 -- | The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
-umwScheduleTimezone :: Lens' UpdateMaintenanceWindow (Maybe Text)
-umwScheduleTimezone = lens _umwScheduleTimezone (\s a -> s {_umwScheduleTimezone = a})
+--
+-- /Note:/ Consider using 'scheduleTimezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwScheduleTimezone :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Text)
+umwScheduleTimezone = Lens.lens (scheduleTimezone :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Text) (\s a -> s {scheduleTimezone = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwScheduleTimezone "Use generic-lens or generic-optics with 'scheduleTimezone' instead." #-}
 
 -- | The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
-umwStartDate :: Lens' UpdateMaintenanceWindow (Maybe Text)
-umwStartDate = lens _umwStartDate (\s a -> s {_umwStartDate = a})
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwStartDate :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Text)
+umwStartDate = Lens.lens (startDate :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Text) (\s a -> s {startDate = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
 -- | The name of the maintenance window.
-umwName :: Lens' UpdateMaintenanceWindow (Maybe Text)
-umwName = lens _umwName (\s a -> s {_umwName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwName :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Text)
+umwName = Lens.lens (name :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
-umwCutoff :: Lens' UpdateMaintenanceWindow (Maybe Natural)
-umwCutoff = lens _umwCutoff (\s a -> s {_umwCutoff = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'cutoff' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwCutoff :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Natural)
+umwCutoff = Lens.lens (cutoff :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Natural) (\s a -> s {cutoff = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwCutoff "Use generic-lens or generic-optics with 'cutoff' instead." #-}
 
 -- | Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
-umwAllowUnassociatedTargets :: Lens' UpdateMaintenanceWindow (Maybe Bool)
-umwAllowUnassociatedTargets = lens _umwAllowUnassociatedTargets (\s a -> s {_umwAllowUnassociatedTargets = a})
+--
+-- /Note:/ Consider using 'allowUnassociatedTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwAllowUnassociatedTargets :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Bool)
+umwAllowUnassociatedTargets = Lens.lens (allowUnassociatedTargets :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Bool) (\s a -> s {allowUnassociatedTargets = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwAllowUnassociatedTargets "Use generic-lens or generic-optics with 'allowUnassociatedTargets' instead." #-}
 
 -- | An optional description for the update request.
-umwDescription :: Lens' UpdateMaintenanceWindow (Maybe Text)
-umwDescription = lens _umwDescription (\s a -> s {_umwDescription = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwDescription :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe (Lude.Sensitive Lude.Text))
+umwDescription = Lens.lens (description :: UpdateMaintenanceWindow -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The duration of the maintenance window in hours.
-umwDuration :: Lens' UpdateMaintenanceWindow (Maybe Natural)
-umwDuration = lens _umwDuration (\s a -> s {_umwDuration = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwDuration :: Lens.Lens' UpdateMaintenanceWindow (Lude.Maybe Lude.Natural)
+umwDuration = Lens.lens (duration :: UpdateMaintenanceWindow -> Lude.Maybe Lude.Natural) (\s a -> s {duration = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | The ID of the maintenance window to update.
-umwWindowId :: Lens' UpdateMaintenanceWindow Text
-umwWindowId = lens _umwWindowId (\s a -> s {_umwWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwWindowId :: Lens.Lens' UpdateMaintenanceWindow Lude.Text
+umwWindowId = Lens.lens (windowId :: UpdateMaintenanceWindow -> Lude.Text) (\s a -> s {windowId = a} :: UpdateMaintenanceWindow)
+{-# DEPRECATED umwWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance AWSRequest UpdateMaintenanceWindow where
+instance Lude.AWSRequest UpdateMaintenanceWindow where
   type Rs UpdateMaintenanceWindow = UpdateMaintenanceWindowResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateMaintenanceWindowResponse'
-            <$> (x .?> "Enabled")
-            <*> (x .?> "Schedule")
-            <*> (x .?> "ScheduleOffset")
-            <*> (x .?> "EndDate")
-            <*> (x .?> "ScheduleTimezone")
-            <*> (x .?> "StartDate")
-            <*> (x .?> "Name")
-            <*> (x .?> "Cutoff")
-            <*> (x .?> "AllowUnassociatedTargets")
-            <*> (x .?> "Description")
-            <*> (x .?> "Duration")
-            <*> (x .?> "WindowId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Enabled")
+            Lude.<*> (x Lude..?> "Schedule")
+            Lude.<*> (x Lude..?> "ScheduleOffset")
+            Lude.<*> (x Lude..?> "EndDate")
+            Lude.<*> (x Lude..?> "ScheduleTimezone")
+            Lude.<*> (x Lude..?> "StartDate")
+            Lude.<*> (x Lude..?> "Name")
+            Lude.<*> (x Lude..?> "Cutoff")
+            Lude.<*> (x Lude..?> "AllowUnassociatedTargets")
+            Lude.<*> (x Lude..?> "Description")
+            Lude.<*> (x Lude..?> "Duration")
+            Lude.<*> (x Lude..?> "WindowId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateMaintenanceWindow
-
-instance NFData UpdateMaintenanceWindow
-
-instance ToHeaders UpdateMaintenanceWindow where
+instance Lude.ToHeaders UpdateMaintenanceWindow where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.UpdateMaintenanceWindow" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.UpdateMaintenanceWindow" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateMaintenanceWindow where
+instance Lude.ToJSON UpdateMaintenanceWindow where
   toJSON UpdateMaintenanceWindow' {..} =
-    object
-      ( catMaybes
-          [ ("Replace" .=) <$> _umwReplace,
-            ("Enabled" .=) <$> _umwEnabled,
-            ("Schedule" .=) <$> _umwSchedule,
-            ("ScheduleOffset" .=) <$> _umwScheduleOffset,
-            ("EndDate" .=) <$> _umwEndDate,
-            ("ScheduleTimezone" .=) <$> _umwScheduleTimezone,
-            ("StartDate" .=) <$> _umwStartDate,
-            ("Name" .=) <$> _umwName,
-            ("Cutoff" .=) <$> _umwCutoff,
-            ("AllowUnassociatedTargets" .=) <$> _umwAllowUnassociatedTargets,
-            ("Description" .=) <$> _umwDescription,
-            ("Duration" .=) <$> _umwDuration,
-            Just ("WindowId" .= _umwWindowId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Replace" Lude..=) Lude.<$> replace,
+            ("Enabled" Lude..=) Lude.<$> enabled,
+            ("Schedule" Lude..=) Lude.<$> schedule,
+            ("ScheduleOffset" Lude..=) Lude.<$> scheduleOffset,
+            ("EndDate" Lude..=) Lude.<$> endDate,
+            ("ScheduleTimezone" Lude..=) Lude.<$> scheduleTimezone,
+            ("StartDate" Lude..=) Lude.<$> startDate,
+            ("Name" Lude..=) Lude.<$> name,
+            ("Cutoff" Lude..=) Lude.<$> cutoff,
+            ("AllowUnassociatedTargets" Lude..=)
+              Lude.<$> allowUnassociatedTargets,
+            ("Description" Lude..=) Lude.<$> description,
+            ("Duration" Lude..=) Lude.<$> duration,
+            Lude.Just ("WindowId" Lude..= windowId)
           ]
       )
 
-instance ToPath UpdateMaintenanceWindow where
-  toPath = const "/"
+instance Lude.ToPath UpdateMaintenanceWindow where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateMaintenanceWindow where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateMaintenanceWindow where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateMaintenanceWindowResponse' smart constructor.
+-- | /See:/ 'mkUpdateMaintenanceWindowResponse' smart constructor.
 data UpdateMaintenanceWindowResponse = UpdateMaintenanceWindowResponse'
-  { _umwrsEnabled ::
-      !(Maybe Bool),
-    _umwrsSchedule ::
-      !(Maybe Text),
-    _umwrsScheduleOffset ::
-      !(Maybe Nat),
-    _umwrsEndDate ::
-      !(Maybe Text),
-    _umwrsScheduleTimezone ::
-      !(Maybe Text),
-    _umwrsStartDate ::
-      !(Maybe Text),
-    _umwrsName :: !(Maybe Text),
-    _umwrsCutoff ::
-      !(Maybe Nat),
-    _umwrsAllowUnassociatedTargets ::
-      !(Maybe Bool),
-    _umwrsDescription ::
-      !(Maybe (Sensitive Text)),
-    _umwrsDuration ::
-      !(Maybe Nat),
-    _umwrsWindowId ::
-      !(Maybe Text),
-    _umwrsResponseStatus ::
-      !Int
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    schedule ::
+      Lude.Maybe Lude.Text,
+    scheduleOffset ::
+      Lude.Maybe Lude.Natural,
+    endDate ::
+      Lude.Maybe Lude.Text,
+    scheduleTimezone ::
+      Lude.Maybe Lude.Text,
+    startDate ::
+      Lude.Maybe Lude.Text,
+    name ::
+      Lude.Maybe Lude.Text,
+    cutoff ::
+      Lude.Maybe Lude.Natural,
+    allowUnassociatedTargets ::
+      Lude.Maybe Lude.Bool,
+    description ::
+      Lude.Maybe
+        ( Lude.Sensitive
+            Lude.Text
+        ),
+    duration ::
+      Lude.Maybe Lude.Natural,
+    windowId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umwrsEnabled' - Whether the maintenance window is enabled.
---
--- * 'umwrsSchedule' - The schedule of the maintenance window in the form of a cron or rate expression.
---
--- * 'umwrsScheduleOffset' - The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
---
--- * 'umwrsEndDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive. The maintenance window will not run after this specified time.
---
--- * 'umwrsScheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
---
--- * 'umwrsStartDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. The maintenance window will not run before this specified time.
---
--- * 'umwrsName' - The name of the maintenance window.
---
--- * 'umwrsCutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
---
--- * 'umwrsAllowUnassociatedTargets' - Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
---
--- * 'umwrsDescription' - An optional description of the update.
---
--- * 'umwrsDuration' - The duration of the maintenance window in hours.
---
--- * 'umwrsWindowId' - The ID of the created maintenance window.
---
--- * 'umwrsResponseStatus' - -- | The response status code.
-updateMaintenanceWindowResponse ::
-  -- | 'umwrsResponseStatus'
-  Int ->
+-- * 'allowUnassociatedTargets' - Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
+-- * 'cutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
+-- * 'description' - An optional description of the update.
+-- * 'duration' - The duration of the maintenance window in hours.
+-- * 'enabled' - Whether the maintenance window is enabled.
+-- * 'endDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive. The maintenance window will not run after this specified time.
+-- * 'name' - The name of the maintenance window.
+-- * 'responseStatus' - The response status code.
+-- * 'schedule' - The schedule of the maintenance window in the form of a cron or rate expression.
+-- * 'scheduleOffset' - The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
+-- * 'scheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+-- * 'startDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. The maintenance window will not run before this specified time.
+-- * 'windowId' - The ID of the created maintenance window.
+mkUpdateMaintenanceWindowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateMaintenanceWindowResponse
-updateMaintenanceWindowResponse pResponseStatus_ =
+mkUpdateMaintenanceWindowResponse pResponseStatus_ =
   UpdateMaintenanceWindowResponse'
-    { _umwrsEnabled = Nothing,
-      _umwrsSchedule = Nothing,
-      _umwrsScheduleOffset = Nothing,
-      _umwrsEndDate = Nothing,
-      _umwrsScheduleTimezone = Nothing,
-      _umwrsStartDate = Nothing,
-      _umwrsName = Nothing,
-      _umwrsCutoff = Nothing,
-      _umwrsAllowUnassociatedTargets = Nothing,
-      _umwrsDescription = Nothing,
-      _umwrsDuration = Nothing,
-      _umwrsWindowId = Nothing,
-      _umwrsResponseStatus = pResponseStatus_
+    { enabled = Lude.Nothing,
+      schedule = Lude.Nothing,
+      scheduleOffset = Lude.Nothing,
+      endDate = Lude.Nothing,
+      scheduleTimezone = Lude.Nothing,
+      startDate = Lude.Nothing,
+      name = Lude.Nothing,
+      cutoff = Lude.Nothing,
+      allowUnassociatedTargets = Lude.Nothing,
+      description = Lude.Nothing,
+      duration = Lude.Nothing,
+      windowId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Whether the maintenance window is enabled.
-umwrsEnabled :: Lens' UpdateMaintenanceWindowResponse (Maybe Bool)
-umwrsEnabled = lens _umwrsEnabled (\s a -> s {_umwrsEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsEnabled :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Bool)
+umwrsEnabled = Lens.lens (enabled :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The schedule of the maintenance window in the form of a cron or rate expression.
-umwrsSchedule :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsSchedule = lens _umwrsSchedule (\s a -> s {_umwrsSchedule = a})
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsSchedule :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+umwrsSchedule = Lens.lens (schedule :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {schedule = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
-umwrsScheduleOffset :: Lens' UpdateMaintenanceWindowResponse (Maybe Natural)
-umwrsScheduleOffset = lens _umwrsScheduleOffset (\s a -> s {_umwrsScheduleOffset = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'scheduleOffset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsScheduleOffset :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Natural)
+umwrsScheduleOffset = Lens.lens (scheduleOffset :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Natural) (\s a -> s {scheduleOffset = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsScheduleOffset "Use generic-lens or generic-optics with 'scheduleOffset' instead." #-}
 
 -- | The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive. The maintenance window will not run after this specified time.
-umwrsEndDate :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsEndDate = lens _umwrsEndDate (\s a -> s {_umwrsEndDate = a})
+--
+-- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsEndDate :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+umwrsEndDate = Lens.lens (endDate :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {endDate = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
 -- | The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
-umwrsScheduleTimezone :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsScheduleTimezone = lens _umwrsScheduleTimezone (\s a -> s {_umwrsScheduleTimezone = a})
+--
+-- /Note:/ Consider using 'scheduleTimezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsScheduleTimezone :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+umwrsScheduleTimezone = Lens.lens (scheduleTimezone :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduleTimezone = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsScheduleTimezone "Use generic-lens or generic-optics with 'scheduleTimezone' instead." #-}
 
 -- | The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. The maintenance window will not run before this specified time.
-umwrsStartDate :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsStartDate = lens _umwrsStartDate (\s a -> s {_umwrsStartDate = a})
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsStartDate :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+umwrsStartDate = Lens.lens (startDate :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {startDate = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
 -- | The name of the maintenance window.
-umwrsName :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsName = lens _umwrsName (\s a -> s {_umwrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsName :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+umwrsName = Lens.lens (name :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
-umwrsCutoff :: Lens' UpdateMaintenanceWindowResponse (Maybe Natural)
-umwrsCutoff = lens _umwrsCutoff (\s a -> s {_umwrsCutoff = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'cutoff' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsCutoff :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Natural)
+umwrsCutoff = Lens.lens (cutoff :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Natural) (\s a -> s {cutoff = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsCutoff "Use generic-lens or generic-optics with 'cutoff' instead." #-}
 
 -- | Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
-umwrsAllowUnassociatedTargets :: Lens' UpdateMaintenanceWindowResponse (Maybe Bool)
-umwrsAllowUnassociatedTargets = lens _umwrsAllowUnassociatedTargets (\s a -> s {_umwrsAllowUnassociatedTargets = a})
+--
+-- /Note:/ Consider using 'allowUnassociatedTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsAllowUnassociatedTargets :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Bool)
+umwrsAllowUnassociatedTargets = Lens.lens (allowUnassociatedTargets :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Bool) (\s a -> s {allowUnassociatedTargets = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsAllowUnassociatedTargets "Use generic-lens or generic-optics with 'allowUnassociatedTargets' instead." #-}
 
 -- | An optional description of the update.
-umwrsDescription :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsDescription = lens _umwrsDescription (\s a -> s {_umwrsDescription = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsDescription :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+umwrsDescription = Lens.lens (description :: UpdateMaintenanceWindowResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The duration of the maintenance window in hours.
-umwrsDuration :: Lens' UpdateMaintenanceWindowResponse (Maybe Natural)
-umwrsDuration = lens _umwrsDuration (\s a -> s {_umwrsDuration = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsDuration :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Natural)
+umwrsDuration = Lens.lens (duration :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Natural) (\s a -> s {duration = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | The ID of the created maintenance window.
-umwrsWindowId :: Lens' UpdateMaintenanceWindowResponse (Maybe Text)
-umwrsWindowId = lens _umwrsWindowId (\s a -> s {_umwrsWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsWindowId :: Lens.Lens' UpdateMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+umwrsWindowId = Lens.lens (windowId :: UpdateMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
--- | -- | The response status code.
-umwrsResponseStatus :: Lens' UpdateMaintenanceWindowResponse Int
-umwrsResponseStatus = lens _umwrsResponseStatus (\s a -> s {_umwrsResponseStatus = a})
-
-instance NFData UpdateMaintenanceWindowResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umwrsResponseStatus :: Lens.Lens' UpdateMaintenanceWindowResponse Lude.Int
+umwrsResponseStatus = Lens.lens (responseStatus :: UpdateMaintenanceWindowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMaintenanceWindowResponse)
+{-# DEPRECATED umwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

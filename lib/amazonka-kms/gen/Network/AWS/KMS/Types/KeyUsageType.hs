@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.KeyUsageType where
+module Network.AWS.KMS.Types.KeyUsageType
+  ( KeyUsageType
+      ( KeyUsageType',
+        EncryptDecrypt,
+        SignVerify
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data KeyUsageType
-  = EncryptDecrypt
-  | SignVerify
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype KeyUsageType = KeyUsageType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText KeyUsageType where
-  parser =
-    takeLowerText >>= \case
-      "encrypt_decrypt" -> pure EncryptDecrypt
-      "sign_verify" -> pure SignVerify
-      e ->
-        fromTextError $
-          "Failure parsing KeyUsageType from value: '" <> e
-            <> "'. Accepted values: encrypt_decrypt, sign_verify"
+pattern EncryptDecrypt :: KeyUsageType
+pattern EncryptDecrypt = KeyUsageType' "ENCRYPT_DECRYPT"
 
-instance ToText KeyUsageType where
-  toText = \case
-    EncryptDecrypt -> "ENCRYPT_DECRYPT"
-    SignVerify -> "SIGN_VERIFY"
+pattern SignVerify :: KeyUsageType
+pattern SignVerify = KeyUsageType' "SIGN_VERIFY"
 
-instance Hashable KeyUsageType
-
-instance NFData KeyUsageType
-
-instance ToByteString KeyUsageType
-
-instance ToQuery KeyUsageType
-
-instance ToHeader KeyUsageType
-
-instance ToJSON KeyUsageType where
-  toJSON = toJSONText
-
-instance FromJSON KeyUsageType where
-  parseJSON = parseJSONText "KeyUsageType"
+{-# COMPLETE
+  EncryptDecrypt,
+  SignVerify,
+  KeyUsageType'
+  #-}

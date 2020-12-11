@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KMS.Types.AlgorithmSpec where
+module Network.AWS.KMS.Types.AlgorithmSpec
+  ( AlgorithmSpec
+      ( AlgorithmSpec',
+        ASRsaesOaepSha1,
+        ASRsaesOaepSha256,
+        ASRsaesPKCS1V15
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AlgorithmSpec
-  = ASRsaesOaepSha1
-  | ASRsaesOaepSha256
-  | ASRsaesPKCS1V15
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AlgorithmSpec = AlgorithmSpec' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AlgorithmSpec where
-  parser =
-    takeLowerText >>= \case
-      "rsaes_oaep_sha_1" -> pure ASRsaesOaepSha1
-      "rsaes_oaep_sha_256" -> pure ASRsaesOaepSha256
-      "rsaes_pkcs1_v1_5" -> pure ASRsaesPKCS1V15
-      e ->
-        fromTextError $
-          "Failure parsing AlgorithmSpec from value: '" <> e
-            <> "'. Accepted values: rsaes_oaep_sha_1, rsaes_oaep_sha_256, rsaes_pkcs1_v1_5"
+pattern ASRsaesOaepSha1 :: AlgorithmSpec
+pattern ASRsaesOaepSha1 = AlgorithmSpec' "RSAES_OAEP_SHA_1"
 
-instance ToText AlgorithmSpec where
-  toText = \case
-    ASRsaesOaepSha1 -> "RSAES_OAEP_SHA_1"
-    ASRsaesOaepSha256 -> "RSAES_OAEP_SHA_256"
-    ASRsaesPKCS1V15 -> "RSAES_PKCS1_V1_5"
+pattern ASRsaesOaepSha256 :: AlgorithmSpec
+pattern ASRsaesOaepSha256 = AlgorithmSpec' "RSAES_OAEP_SHA_256"
 
-instance Hashable AlgorithmSpec
+pattern ASRsaesPKCS1V15 :: AlgorithmSpec
+pattern ASRsaesPKCS1V15 = AlgorithmSpec' "RSAES_PKCS1_V1_5"
 
-instance NFData AlgorithmSpec
-
-instance ToByteString AlgorithmSpec
-
-instance ToQuery AlgorithmSpec
-
-instance ToHeader AlgorithmSpec
-
-instance ToJSON AlgorithmSpec where
-  toJSON = toJSONText
+{-# COMPLETE
+  ASRsaesOaepSha1,
+  ASRsaesOaepSha256,
+  ASRsaesPKCS1V15,
+  AlgorithmSpec'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.TransformParameters where
+module Network.AWS.Glue.Types.TransformParameters
+  ( TransformParameters (..),
+
+    -- * Smart constructor
+    mkTransformParameters,
+
+    -- * Lenses
+    tpFindMatchesParameters,
+    tpTransformType,
+  )
+where
 
 import Network.AWS.Glue.Types.FindMatchesParameters
 import Network.AWS.Glue.Types.TransformType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The algorithm-specific parameters that are associated with the machine learning transform.
 --
---
---
--- /See:/ 'transformParameters' smart constructor.
+-- /See:/ 'mkTransformParameters' smart constructor.
 data TransformParameters = TransformParameters'
-  { _tpFindMatchesParameters ::
-      !(Maybe FindMatchesParameters),
-    _tpTransformType :: !TransformType
+  { findMatchesParameters ::
+      Lude.Maybe FindMatchesParameters,
+    transformType :: TransformType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'findMatchesParameters' - The parameters for the find matches algorithm.
+-- * 'transformType' - The type of machine learning transform.
 --
--- * 'tpFindMatchesParameters' - The parameters for the find matches algorithm.
---
--- * 'tpTransformType' - The type of machine learning transform. For information about the types of machine learning transforms, see <https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms> .
-transformParameters ::
-  -- | 'tpTransformType'
+-- For information about the types of machine learning transforms, see <https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms> .
+mkTransformParameters ::
+  -- | 'transformType'
   TransformType ->
   TransformParameters
-transformParameters pTransformType_ =
+mkTransformParameters pTransformType_ =
   TransformParameters'
-    { _tpFindMatchesParameters = Nothing,
-      _tpTransformType = pTransformType_
+    { findMatchesParameters = Lude.Nothing,
+      transformType = pTransformType_
     }
 
 -- | The parameters for the find matches algorithm.
-tpFindMatchesParameters :: Lens' TransformParameters (Maybe FindMatchesParameters)
-tpFindMatchesParameters = lens _tpFindMatchesParameters (\s a -> s {_tpFindMatchesParameters = a})
+--
+-- /Note:/ Consider using 'findMatchesParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpFindMatchesParameters :: Lens.Lens' TransformParameters (Lude.Maybe FindMatchesParameters)
+tpFindMatchesParameters = Lens.lens (findMatchesParameters :: TransformParameters -> Lude.Maybe FindMatchesParameters) (\s a -> s {findMatchesParameters = a} :: TransformParameters)
+{-# DEPRECATED tpFindMatchesParameters "Use generic-lens or generic-optics with 'findMatchesParameters' instead." #-}
 
--- | The type of machine learning transform. For information about the types of machine learning transforms, see <https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms> .
-tpTransformType :: Lens' TransformParameters TransformType
-tpTransformType = lens _tpTransformType (\s a -> s {_tpTransformType = a})
+-- | The type of machine learning transform.
+--
+-- For information about the types of machine learning transforms, see <https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms> .
+--
+-- /Note:/ Consider using 'transformType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpTransformType :: Lens.Lens' TransformParameters TransformType
+tpTransformType = Lens.lens (transformType :: TransformParameters -> TransformType) (\s a -> s {transformType = a} :: TransformParameters)
+{-# DEPRECATED tpTransformType "Use generic-lens or generic-optics with 'transformType' instead." #-}
 
-instance FromJSON TransformParameters where
+instance Lude.FromJSON TransformParameters where
   parseJSON =
-    withObject
+    Lude.withObject
       "TransformParameters"
       ( \x ->
           TransformParameters'
-            <$> (x .:? "FindMatchesParameters") <*> (x .: "TransformType")
+            Lude.<$> (x Lude..:? "FindMatchesParameters")
+            Lude.<*> (x Lude..: "TransformType")
       )
 
-instance Hashable TransformParameters
-
-instance NFData TransformParameters
-
-instance ToJSON TransformParameters where
+instance Lude.ToJSON TransformParameters where
   toJSON TransformParameters' {..} =
-    object
-      ( catMaybes
-          [ ("FindMatchesParameters" .=) <$> _tpFindMatchesParameters,
-            Just ("TransformType" .= _tpTransformType)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FindMatchesParameters" Lude..=) Lude.<$> findMatchesParameters,
+            Lude.Just ("TransformType" Lude..= transformType)
           ]
       )

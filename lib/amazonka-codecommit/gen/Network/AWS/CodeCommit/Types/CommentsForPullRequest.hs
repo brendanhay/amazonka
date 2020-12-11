@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,112 +7,144 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.CommentsForPullRequest where
+module Network.AWS.CodeCommit.Types.CommentsForPullRequest
+  ( CommentsForPullRequest (..),
+
+    -- * Smart constructor
+    mkCommentsForPullRequest,
+
+    -- * Lenses
+    cfprBeforeBlobId,
+    cfprLocation,
+    cfprAfterCommitId,
+    cfprPullRequestId,
+    cfprAfterBlobId,
+    cfprBeforeCommitId,
+    cfprRepositoryName,
+    cfprComments,
+  )
+where
 
 import Network.AWS.CodeCommit.Types.Comment
 import Network.AWS.CodeCommit.Types.Location
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Returns information about comments on a pull request.
 --
---
---
--- /See:/ 'commentsForPullRequest' smart constructor.
+-- /See:/ 'mkCommentsForPullRequest' smart constructor.
 data CommentsForPullRequest = CommentsForPullRequest'
-  { _cfprBeforeBlobId ::
-      !(Maybe Text),
-    _cfprLocation :: !(Maybe Location),
-    _cfprAfterCommitId :: !(Maybe Text),
-    _cfprPullRequestId :: !(Maybe Text),
-    _cfprAfterBlobId :: !(Maybe Text),
-    _cfprBeforeCommitId :: !(Maybe Text),
-    _cfprRepositoryName :: !(Maybe Text),
-    _cfprComments :: !(Maybe [Comment])
+  { beforeBlobId ::
+      Lude.Maybe Lude.Text,
+    location :: Lude.Maybe Location,
+    afterCommitId :: Lude.Maybe Lude.Text,
+    pullRequestId :: Lude.Maybe Lude.Text,
+    afterBlobId :: Lude.Maybe Lude.Text,
+    beforeCommitId :: Lude.Maybe Lude.Text,
+    repositoryName :: Lude.Maybe Lude.Text,
+    comments :: Lude.Maybe [Comment]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CommentsForPullRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cfprBeforeBlobId' - The full blob ID of the file on which you want to comment on the destination commit.
---
--- * 'cfprLocation' - Location information about the comment on the pull request, including the file name, line number, and whether the version of the file where the comment was made is BEFORE (destination branch) or AFTER (source branch).
---
--- * 'cfprAfterCommitId' - The full commit ID of the commit that was the tip of the source branch at the time the comment was made.
---
--- * 'cfprPullRequestId' - The system-generated ID of the pull request.
---
--- * 'cfprAfterBlobId' - The full blob ID of the file on which you want to comment on the source commit.
---
--- * 'cfprBeforeCommitId' - The full commit ID of the commit that was the tip of the destination branch when the pull request was created. This commit is superceded by the after commit in the source branch when and if you merge the source branch into the destination branch.
---
--- * 'cfprRepositoryName' - The name of the repository that contains the pull request.
---
--- * 'cfprComments' - An array of comment objects. Each comment object contains information about a comment on the pull request.
-commentsForPullRequest ::
+-- * 'afterBlobId' - The full blob ID of the file on which you want to comment on the source commit.
+-- * 'afterCommitId' - The full commit ID of the commit that was the tip of the source branch at the time the comment was made.
+-- * 'beforeBlobId' - The full blob ID of the file on which you want to comment on the destination commit.
+-- * 'beforeCommitId' - The full commit ID of the commit that was the tip of the destination branch when the pull request was created. This commit is superceded by the after commit in the source branch when and if you merge the source branch into the destination branch.
+-- * 'comments' - An array of comment objects. Each comment object contains information about a comment on the pull request.
+-- * 'location' - Location information about the comment on the pull request, including the file name, line number, and whether the version of the file where the comment was made is BEFORE (destination branch) or AFTER (source branch).
+-- * 'pullRequestId' - The system-generated ID of the pull request.
+-- * 'repositoryName' - The name of the repository that contains the pull request.
+mkCommentsForPullRequest ::
   CommentsForPullRequest
-commentsForPullRequest =
+mkCommentsForPullRequest =
   CommentsForPullRequest'
-    { _cfprBeforeBlobId = Nothing,
-      _cfprLocation = Nothing,
-      _cfprAfterCommitId = Nothing,
-      _cfprPullRequestId = Nothing,
-      _cfprAfterBlobId = Nothing,
-      _cfprBeforeCommitId = Nothing,
-      _cfprRepositoryName = Nothing,
-      _cfprComments = Nothing
+    { beforeBlobId = Lude.Nothing,
+      location = Lude.Nothing,
+      afterCommitId = Lude.Nothing,
+      pullRequestId = Lude.Nothing,
+      afterBlobId = Lude.Nothing,
+      beforeCommitId = Lude.Nothing,
+      repositoryName = Lude.Nothing,
+      comments = Lude.Nothing
     }
 
 -- | The full blob ID of the file on which you want to comment on the destination commit.
-cfprBeforeBlobId :: Lens' CommentsForPullRequest (Maybe Text)
-cfprBeforeBlobId = lens _cfprBeforeBlobId (\s a -> s {_cfprBeforeBlobId = a})
+--
+-- /Note:/ Consider using 'beforeBlobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfprBeforeBlobId :: Lens.Lens' CommentsForPullRequest (Lude.Maybe Lude.Text)
+cfprBeforeBlobId = Lens.lens (beforeBlobId :: CommentsForPullRequest -> Lude.Maybe Lude.Text) (\s a -> s {beforeBlobId = a} :: CommentsForPullRequest)
+{-# DEPRECATED cfprBeforeBlobId "Use generic-lens or generic-optics with 'beforeBlobId' instead." #-}
 
 -- | Location information about the comment on the pull request, including the file name, line number, and whether the version of the file where the comment was made is BEFORE (destination branch) or AFTER (source branch).
-cfprLocation :: Lens' CommentsForPullRequest (Maybe Location)
-cfprLocation = lens _cfprLocation (\s a -> s {_cfprLocation = a})
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfprLocation :: Lens.Lens' CommentsForPullRequest (Lude.Maybe Location)
+cfprLocation = Lens.lens (location :: CommentsForPullRequest -> Lude.Maybe Location) (\s a -> s {location = a} :: CommentsForPullRequest)
+{-# DEPRECATED cfprLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The full commit ID of the commit that was the tip of the source branch at the time the comment was made.
-cfprAfterCommitId :: Lens' CommentsForPullRequest (Maybe Text)
-cfprAfterCommitId = lens _cfprAfterCommitId (\s a -> s {_cfprAfterCommitId = a})
+--
+-- /Note:/ Consider using 'afterCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfprAfterCommitId :: Lens.Lens' CommentsForPullRequest (Lude.Maybe Lude.Text)
+cfprAfterCommitId = Lens.lens (afterCommitId :: CommentsForPullRequest -> Lude.Maybe Lude.Text) (\s a -> s {afterCommitId = a} :: CommentsForPullRequest)
+{-# DEPRECATED cfprAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
 
 -- | The system-generated ID of the pull request.
-cfprPullRequestId :: Lens' CommentsForPullRequest (Maybe Text)
-cfprPullRequestId = lens _cfprPullRequestId (\s a -> s {_cfprPullRequestId = a})
+--
+-- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfprPullRequestId :: Lens.Lens' CommentsForPullRequest (Lude.Maybe Lude.Text)
+cfprPullRequestId = Lens.lens (pullRequestId :: CommentsForPullRequest -> Lude.Maybe Lude.Text) (\s a -> s {pullRequestId = a} :: CommentsForPullRequest)
+{-# DEPRECATED cfprPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The full blob ID of the file on which you want to comment on the source commit.
-cfprAfterBlobId :: Lens' CommentsForPullRequest (Maybe Text)
-cfprAfterBlobId = lens _cfprAfterBlobId (\s a -> s {_cfprAfterBlobId = a})
+--
+-- /Note:/ Consider using 'afterBlobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfprAfterBlobId :: Lens.Lens' CommentsForPullRequest (Lude.Maybe Lude.Text)
+cfprAfterBlobId = Lens.lens (afterBlobId :: CommentsForPullRequest -> Lude.Maybe Lude.Text) (\s a -> s {afterBlobId = a} :: CommentsForPullRequest)
+{-# DEPRECATED cfprAfterBlobId "Use generic-lens or generic-optics with 'afterBlobId' instead." #-}
 
 -- | The full commit ID of the commit that was the tip of the destination branch when the pull request was created. This commit is superceded by the after commit in the source branch when and if you merge the source branch into the destination branch.
-cfprBeforeCommitId :: Lens' CommentsForPullRequest (Maybe Text)
-cfprBeforeCommitId = lens _cfprBeforeCommitId (\s a -> s {_cfprBeforeCommitId = a})
+--
+-- /Note:/ Consider using 'beforeCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfprBeforeCommitId :: Lens.Lens' CommentsForPullRequest (Lude.Maybe Lude.Text)
+cfprBeforeCommitId = Lens.lens (beforeCommitId :: CommentsForPullRequest -> Lude.Maybe Lude.Text) (\s a -> s {beforeCommitId = a} :: CommentsForPullRequest)
+{-# DEPRECATED cfprBeforeCommitId "Use generic-lens or generic-optics with 'beforeCommitId' instead." #-}
 
 -- | The name of the repository that contains the pull request.
-cfprRepositoryName :: Lens' CommentsForPullRequest (Maybe Text)
-cfprRepositoryName = lens _cfprRepositoryName (\s a -> s {_cfprRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfprRepositoryName :: Lens.Lens' CommentsForPullRequest (Lude.Maybe Lude.Text)
+cfprRepositoryName = Lens.lens (repositoryName :: CommentsForPullRequest -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: CommentsForPullRequest)
+{-# DEPRECATED cfprRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | An array of comment objects. Each comment object contains information about a comment on the pull request.
-cfprComments :: Lens' CommentsForPullRequest [Comment]
-cfprComments = lens _cfprComments (\s a -> s {_cfprComments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'comments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfprComments :: Lens.Lens' CommentsForPullRequest (Lude.Maybe [Comment])
+cfprComments = Lens.lens (comments :: CommentsForPullRequest -> Lude.Maybe [Comment]) (\s a -> s {comments = a} :: CommentsForPullRequest)
+{-# DEPRECATED cfprComments "Use generic-lens or generic-optics with 'comments' instead." #-}
 
-instance FromJSON CommentsForPullRequest where
+instance Lude.FromJSON CommentsForPullRequest where
   parseJSON =
-    withObject
+    Lude.withObject
       "CommentsForPullRequest"
       ( \x ->
           CommentsForPullRequest'
-            <$> (x .:? "beforeBlobId")
-            <*> (x .:? "location")
-            <*> (x .:? "afterCommitId")
-            <*> (x .:? "pullRequestId")
-            <*> (x .:? "afterBlobId")
-            <*> (x .:? "beforeCommitId")
-            <*> (x .:? "repositoryName")
-            <*> (x .:? "comments" .!= mempty)
+            Lude.<$> (x Lude..:? "beforeBlobId")
+            Lude.<*> (x Lude..:? "location")
+            Lude.<*> (x Lude..:? "afterCommitId")
+            Lude.<*> (x Lude..:? "pullRequestId")
+            Lude.<*> (x Lude..:? "afterBlobId")
+            Lude.<*> (x Lude..:? "beforeCommitId")
+            Lude.<*> (x Lude..:? "repositoryName")
+            Lude.<*> (x Lude..:? "comments" Lude..!= Lude.mempty)
       )
-
-instance Hashable CommentsForPullRequest
-
-instance NFData CommentsForPullRequest

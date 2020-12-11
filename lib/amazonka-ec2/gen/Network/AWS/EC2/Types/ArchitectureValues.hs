@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ArchitectureValues where
+module Network.AWS.EC2.Types.ArchitectureValues
+  ( ArchitectureValues
+      ( ArchitectureValues',
+        ARM64,
+        I386,
+        X86_64
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ArchitectureValues
-  = ARM64
-  | I386
-  | X86_64
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ArchitectureValues = ArchitectureValues' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ArchitectureValues where
-  parser =
-    takeLowerText >>= \case
-      "arm64" -> pure ARM64
-      "i386" -> pure I386
-      "x86_64" -> pure X86_64
-      e ->
-        fromTextError $
-          "Failure parsing ArchitectureValues from value: '" <> e
-            <> "'. Accepted values: arm64, i386, x86_64"
+pattern ARM64 :: ArchitectureValues
+pattern ARM64 = ArchitectureValues' "arm64"
 
-instance ToText ArchitectureValues where
-  toText = \case
-    ARM64 -> "arm64"
-    I386 -> "i386"
-    X86_64 -> "x86_64"
+pattern I386 :: ArchitectureValues
+pattern I386 = ArchitectureValues' "i386"
 
-instance Hashable ArchitectureValues
+pattern X86_64 :: ArchitectureValues
+pattern X86_64 = ArchitectureValues' "x86_64"
 
-instance NFData ArchitectureValues
-
-instance ToByteString ArchitectureValues
-
-instance ToQuery ArchitectureValues
-
-instance ToHeader ArchitectureValues
-
-instance FromXML ArchitectureValues where
-  parseXML = parseXMLText "ArchitectureValues"
+{-# COMPLETE
+  ARM64,
+  I386,
+  X86_64,
+  ArchitectureValues'
+  #-}

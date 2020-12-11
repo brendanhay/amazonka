@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.AudioMetadata where
+module Network.AWS.Rekognition.Types.AudioMetadata
+  ( AudioMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAudioMetadata,
+
+    -- * Lenses
+    amCodec,
+    amSampleRate,
+    amNumberOfChannels,
+    amDurationMillis,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Metadata information about an audio stream. An array of @AudioMetadata@ objects for the audio streams found in a stored video is returned by 'GetSegmentDetection' .
 --
---
---
--- /See:/ 'audioMetadata' smart constructor.
+-- /See:/ 'mkAudioMetadata' smart constructor.
 data AudioMetadata = AudioMetadata'
-  { _amCodec :: !(Maybe Text),
-    _amSampleRate :: !(Maybe Nat),
-    _amNumberOfChannels :: !(Maybe Nat),
-    _amDurationMillis :: !(Maybe Nat)
+  { codec :: Lude.Maybe Lude.Text,
+    sampleRate :: Lude.Maybe Lude.Natural,
+    numberOfChannels :: Lude.Maybe Lude.Natural,
+    durationMillis :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'amCodec' - The audio codec used to encode or decode the audio stream.
---
--- * 'amSampleRate' - The sample rate for the audio stream.
---
--- * 'amNumberOfChannels' - The number of audio channels in the segment.
---
--- * 'amDurationMillis' - The duration of the audio stream in milliseconds.
-audioMetadata ::
+-- * 'codec' - The audio codec used to encode or decode the audio stream.
+-- * 'durationMillis' - The duration of the audio stream in milliseconds.
+-- * 'numberOfChannels' - The number of audio channels in the segment.
+-- * 'sampleRate' - The sample rate for the audio stream.
+mkAudioMetadata ::
   AudioMetadata
-audioMetadata =
+mkAudioMetadata =
   AudioMetadata'
-    { _amCodec = Nothing,
-      _amSampleRate = Nothing,
-      _amNumberOfChannels = Nothing,
-      _amDurationMillis = Nothing
+    { codec = Lude.Nothing,
+      sampleRate = Lude.Nothing,
+      numberOfChannels = Lude.Nothing,
+      durationMillis = Lude.Nothing
     }
 
 -- | The audio codec used to encode or decode the audio stream.
-amCodec :: Lens' AudioMetadata (Maybe Text)
-amCodec = lens _amCodec (\s a -> s {_amCodec = a})
+--
+-- /Note:/ Consider using 'codec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amCodec :: Lens.Lens' AudioMetadata (Lude.Maybe Lude.Text)
+amCodec = Lens.lens (codec :: AudioMetadata -> Lude.Maybe Lude.Text) (\s a -> s {codec = a} :: AudioMetadata)
+{-# DEPRECATED amCodec "Use generic-lens or generic-optics with 'codec' instead." #-}
 
 -- | The sample rate for the audio stream.
-amSampleRate :: Lens' AudioMetadata (Maybe Natural)
-amSampleRate = lens _amSampleRate (\s a -> s {_amSampleRate = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amSampleRate :: Lens.Lens' AudioMetadata (Lude.Maybe Lude.Natural)
+amSampleRate = Lens.lens (sampleRate :: AudioMetadata -> Lude.Maybe Lude.Natural) (\s a -> s {sampleRate = a} :: AudioMetadata)
+{-# DEPRECATED amSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
 -- | The number of audio channels in the segment.
-amNumberOfChannels :: Lens' AudioMetadata (Maybe Natural)
-amNumberOfChannels = lens _amNumberOfChannels (\s a -> s {_amNumberOfChannels = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'numberOfChannels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amNumberOfChannels :: Lens.Lens' AudioMetadata (Lude.Maybe Lude.Natural)
+amNumberOfChannels = Lens.lens (numberOfChannels :: AudioMetadata -> Lude.Maybe Lude.Natural) (\s a -> s {numberOfChannels = a} :: AudioMetadata)
+{-# DEPRECATED amNumberOfChannels "Use generic-lens or generic-optics with 'numberOfChannels' instead." #-}
 
 -- | The duration of the audio stream in milliseconds.
-amDurationMillis :: Lens' AudioMetadata (Maybe Natural)
-amDurationMillis = lens _amDurationMillis (\s a -> s {_amDurationMillis = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'durationMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amDurationMillis :: Lens.Lens' AudioMetadata (Lude.Maybe Lude.Natural)
+amDurationMillis = Lens.lens (durationMillis :: AudioMetadata -> Lude.Maybe Lude.Natural) (\s a -> s {durationMillis = a} :: AudioMetadata)
+{-# DEPRECATED amDurationMillis "Use generic-lens or generic-optics with 'durationMillis' instead." #-}
 
-instance FromJSON AudioMetadata where
+instance Lude.FromJSON AudioMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "AudioMetadata"
       ( \x ->
           AudioMetadata'
-            <$> (x .:? "Codec")
-            <*> (x .:? "SampleRate")
-            <*> (x .:? "NumberOfChannels")
-            <*> (x .:? "DurationMillis")
+            Lude.<$> (x Lude..:? "Codec")
+            Lude.<*> (x Lude..:? "SampleRate")
+            Lude.<*> (x Lude..:? "NumberOfChannels")
+            Lude.<*> (x Lude..:? "DurationMillis")
       )
-
-instance Hashable AudioMetadata
-
-instance NFData AudioMetadata

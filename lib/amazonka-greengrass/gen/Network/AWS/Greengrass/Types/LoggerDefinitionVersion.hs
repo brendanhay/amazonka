@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.LoggerDefinitionVersion where
+module Network.AWS.Greengrass.Types.LoggerDefinitionVersion
+  ( LoggerDefinitionVersion (..),
+
+    -- * Smart constructor
+    mkLoggerDefinitionVersion,
+
+    -- * Lenses
+    ldvLoggers,
+  )
+where
 
 import Network.AWS.Greengrass.Types.GreengrassLogger
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a logger definition version.
 --
--- /See:/ 'loggerDefinitionVersion' smart constructor.
+-- /See:/ 'mkLoggerDefinitionVersion' smart constructor.
 newtype LoggerDefinitionVersion = LoggerDefinitionVersion'
-  { _ldvLoggers ::
-      Maybe [GreengrassLogger]
+  { loggers ::
+      Lude.Maybe [GreengrassLogger]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoggerDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldvLoggers' - A list of loggers.
-loggerDefinitionVersion ::
+-- * 'loggers' - A list of loggers.
+mkLoggerDefinitionVersion ::
   LoggerDefinitionVersion
-loggerDefinitionVersion =
-  LoggerDefinitionVersion' {_ldvLoggers = Nothing}
+mkLoggerDefinitionVersion =
+  LoggerDefinitionVersion' {loggers = Lude.Nothing}
 
 -- | A list of loggers.
-ldvLoggers :: Lens' LoggerDefinitionVersion [GreengrassLogger]
-ldvLoggers = lens _ldvLoggers (\s a -> s {_ldvLoggers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'loggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldvLoggers :: Lens.Lens' LoggerDefinitionVersion (Lude.Maybe [GreengrassLogger])
+ldvLoggers = Lens.lens (loggers :: LoggerDefinitionVersion -> Lude.Maybe [GreengrassLogger]) (\s a -> s {loggers = a} :: LoggerDefinitionVersion)
+{-# DEPRECATED ldvLoggers "Use generic-lens or generic-optics with 'loggers' instead." #-}
 
-instance FromJSON LoggerDefinitionVersion where
+instance Lude.FromJSON LoggerDefinitionVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "LoggerDefinitionVersion"
-      (\x -> LoggerDefinitionVersion' <$> (x .:? "Loggers" .!= mempty))
+      ( \x ->
+          LoggerDefinitionVersion'
+            Lude.<$> (x Lude..:? "Loggers" Lude..!= Lude.mempty)
+      )
 
-instance Hashable LoggerDefinitionVersion
-
-instance NFData LoggerDefinitionVersion
-
-instance ToJSON LoggerDefinitionVersion where
+instance Lude.ToJSON LoggerDefinitionVersion where
   toJSON LoggerDefinitionVersion' {..} =
-    object (catMaybes [("Loggers" .=) <$> _ldvLoggers])
+    Lude.object
+      (Lude.catMaybes [("Loggers" Lude..=) Lude.<$> loggers])

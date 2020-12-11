@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Gets detailed information for an image. Images are specified with either an @imageTag@ or @imageDigest@ .
 --
---
 -- When an image is pulled, the BatchGetImage API is called once to retrieve the image manifest.
 module Network.AWS.ECR.BatchGetImage
-  ( -- * Creating a Request
-    batchGetImage,
-    BatchGetImage,
+  ( -- * Creating a request
+    BatchGetImage (..),
+    mkBatchGetImage,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgiRegistryId,
     bgiAcceptedMediaTypes,
     bgiRepositoryName,
     bgiImageIds,
 
-    -- * Destructuring the Response
-    batchGetImageResponse,
-    BatchGetImageResponse,
+    -- * Destructuring the response
+    BatchGetImageResponse (..),
+    mkBatchGetImageResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgirsImages,
     bgirsFailures,
     bgirsResponseStatus,
@@ -44,144 +38,169 @@ module Network.AWS.ECR.BatchGetImage
 where
 
 import Network.AWS.ECR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetImage' smart constructor.
+-- | /See:/ 'mkBatchGetImage' smart constructor.
 data BatchGetImage = BatchGetImage'
-  { _bgiRegistryId ::
-      !(Maybe Text),
-    _bgiAcceptedMediaTypes :: !(Maybe (List1 Text)),
-    _bgiRepositoryName :: !Text,
-    _bgiImageIds :: ![ImageIdentifier]
+  { registryId ::
+      Lude.Maybe Lude.Text,
+    acceptedMediaTypes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    repositoryName :: Lude.Text,
+    imageIds :: [ImageIdentifier]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetImage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptedMediaTypes' - The accepted media types for the request.
 --
--- * 'bgiRegistryId' - The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
---
--- * 'bgiAcceptedMediaTypes' - The accepted media types for the request. Valid values: @application/vnd.docker.distribution.manifest.v1+json@ | @application/vnd.docker.distribution.manifest.v2+json@ | @application/vnd.oci.image.manifest.v1+json@
---
--- * 'bgiRepositoryName' - The repository that contains the images to describe.
---
--- * 'bgiImageIds' - A list of image ID references that correspond to images to describe. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
-batchGetImage ::
-  -- | 'bgiRepositoryName'
-  Text ->
+-- Valid values: @application/vnd.docker.distribution.manifest.v1+json@ | @application/vnd.docker.distribution.manifest.v2+json@ | @application/vnd.oci.image.manifest.v1+json@
+-- * 'imageIds' - A list of image ID references that correspond to images to describe. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
+-- * 'registryId' - The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
+-- * 'repositoryName' - The repository that contains the images to describe.
+mkBatchGetImage ::
+  -- | 'repositoryName'
+  Lude.Text ->
   BatchGetImage
-batchGetImage pRepositoryName_ =
+mkBatchGetImage pRepositoryName_ =
   BatchGetImage'
-    { _bgiRegistryId = Nothing,
-      _bgiAcceptedMediaTypes = Nothing,
-      _bgiRepositoryName = pRepositoryName_,
-      _bgiImageIds = mempty
+    { registryId = Lude.Nothing,
+      acceptedMediaTypes = Lude.Nothing,
+      repositoryName = pRepositoryName_,
+      imageIds = Lude.mempty
     }
 
 -- | The AWS account ID associated with the registry that contains the images to describe. If you do not specify a registry, the default registry is assumed.
-bgiRegistryId :: Lens' BatchGetImage (Maybe Text)
-bgiRegistryId = lens _bgiRegistryId (\s a -> s {_bgiRegistryId = a})
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgiRegistryId :: Lens.Lens' BatchGetImage (Lude.Maybe Lude.Text)
+bgiRegistryId = Lens.lens (registryId :: BatchGetImage -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: BatchGetImage)
+{-# DEPRECATED bgiRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
--- | The accepted media types for the request. Valid values: @application/vnd.docker.distribution.manifest.v1+json@ | @application/vnd.docker.distribution.manifest.v2+json@ | @application/vnd.oci.image.manifest.v1+json@
-bgiAcceptedMediaTypes :: Lens' BatchGetImage (Maybe (NonEmpty Text))
-bgiAcceptedMediaTypes = lens _bgiAcceptedMediaTypes (\s a -> s {_bgiAcceptedMediaTypes = a}) . mapping _List1
+-- | The accepted media types for the request.
+--
+-- Valid values: @application/vnd.docker.distribution.manifest.v1+json@ | @application/vnd.docker.distribution.manifest.v2+json@ | @application/vnd.oci.image.manifest.v1+json@
+--
+-- /Note:/ Consider using 'acceptedMediaTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgiAcceptedMediaTypes :: Lens.Lens' BatchGetImage (Lude.Maybe (Lude.NonEmpty Lude.Text))
+bgiAcceptedMediaTypes = Lens.lens (acceptedMediaTypes :: BatchGetImage -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {acceptedMediaTypes = a} :: BatchGetImage)
+{-# DEPRECATED bgiAcceptedMediaTypes "Use generic-lens or generic-optics with 'acceptedMediaTypes' instead." #-}
 
 -- | The repository that contains the images to describe.
-bgiRepositoryName :: Lens' BatchGetImage Text
-bgiRepositoryName = lens _bgiRepositoryName (\s a -> s {_bgiRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgiRepositoryName :: Lens.Lens' BatchGetImage Lude.Text
+bgiRepositoryName = Lens.lens (repositoryName :: BatchGetImage -> Lude.Text) (\s a -> s {repositoryName = a} :: BatchGetImage)
+{-# DEPRECATED bgiRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | A list of image ID references that correspond to images to describe. The format of the @imageIds@ reference is @imageTag=tag@ or @imageDigest=digest@ .
-bgiImageIds :: Lens' BatchGetImage [ImageIdentifier]
-bgiImageIds = lens _bgiImageIds (\s a -> s {_bgiImageIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'imageIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgiImageIds :: Lens.Lens' BatchGetImage [ImageIdentifier]
+bgiImageIds = Lens.lens (imageIds :: BatchGetImage -> [ImageIdentifier]) (\s a -> s {imageIds = a} :: BatchGetImage)
+{-# DEPRECATED bgiImageIds "Use generic-lens or generic-optics with 'imageIds' instead." #-}
 
-instance AWSRequest BatchGetImage where
+instance Lude.AWSRequest BatchGetImage where
   type Rs BatchGetImage = BatchGetImageResponse
-  request = postJSON ecr
+  request = Req.postJSON ecrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetImageResponse'
-            <$> (x .?> "images" .!@ mempty)
-            <*> (x .?> "failures" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "images" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "failures" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetImage
-
-instance NFData BatchGetImage
-
-instance ToHeaders BatchGetImage where
+instance Lude.ToHeaders BatchGetImage where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AmazonEC2ContainerRegistry_V20150921.BatchGetImage" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.BatchGetImage" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetImage where
+instance Lude.ToJSON BatchGetImage where
   toJSON BatchGetImage' {..} =
-    object
-      ( catMaybes
-          [ ("registryId" .=) <$> _bgiRegistryId,
-            ("acceptedMediaTypes" .=) <$> _bgiAcceptedMediaTypes,
-            Just ("repositoryName" .= _bgiRepositoryName),
-            Just ("imageIds" .= _bgiImageIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("registryId" Lude..=) Lude.<$> registryId,
+            ("acceptedMediaTypes" Lude..=) Lude.<$> acceptedMediaTypes,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("imageIds" Lude..= imageIds)
           ]
       )
 
-instance ToPath BatchGetImage where
-  toPath = const "/"
+instance Lude.ToPath BatchGetImage where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetImage where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetImage where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetImageResponse' smart constructor.
+-- | /See:/ 'mkBatchGetImageResponse' smart constructor.
 data BatchGetImageResponse = BatchGetImageResponse'
-  { _bgirsImages ::
-      !(Maybe [Image]),
-    _bgirsFailures :: !(Maybe [ImageFailure]),
-    _bgirsResponseStatus :: !Int
+  { images ::
+      Lude.Maybe [Image],
+    failures :: Lude.Maybe [ImageFailure],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetImageResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgirsImages' - A list of image objects corresponding to the image references in the request.
---
--- * 'bgirsFailures' - Any failures associated with the call.
---
--- * 'bgirsResponseStatus' - -- | The response status code.
-batchGetImageResponse ::
-  -- | 'bgirsResponseStatus'
-  Int ->
+-- * 'failures' - Any failures associated with the call.
+-- * 'images' - A list of image objects corresponding to the image references in the request.
+-- * 'responseStatus' - The response status code.
+mkBatchGetImageResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetImageResponse
-batchGetImageResponse pResponseStatus_ =
+mkBatchGetImageResponse pResponseStatus_ =
   BatchGetImageResponse'
-    { _bgirsImages = Nothing,
-      _bgirsFailures = Nothing,
-      _bgirsResponseStatus = pResponseStatus_
+    { images = Lude.Nothing,
+      failures = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of image objects corresponding to the image references in the request.
-bgirsImages :: Lens' BatchGetImageResponse [Image]
-bgirsImages = lens _bgirsImages (\s a -> s {_bgirsImages = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'images' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgirsImages :: Lens.Lens' BatchGetImageResponse (Lude.Maybe [Image])
+bgirsImages = Lens.lens (images :: BatchGetImageResponse -> Lude.Maybe [Image]) (\s a -> s {images = a} :: BatchGetImageResponse)
+{-# DEPRECATED bgirsImages "Use generic-lens or generic-optics with 'images' instead." #-}
 
 -- | Any failures associated with the call.
-bgirsFailures :: Lens' BatchGetImageResponse [ImageFailure]
-bgirsFailures = lens _bgirsFailures (\s a -> s {_bgirsFailures = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgirsFailures :: Lens.Lens' BatchGetImageResponse (Lude.Maybe [ImageFailure])
+bgirsFailures = Lens.lens (failures :: BatchGetImageResponse -> Lude.Maybe [ImageFailure]) (\s a -> s {failures = a} :: BatchGetImageResponse)
+{-# DEPRECATED bgirsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
--- | -- | The response status code.
-bgirsResponseStatus :: Lens' BatchGetImageResponse Int
-bgirsResponseStatus = lens _bgirsResponseStatus (\s a -> s {_bgirsResponseStatus = a})
-
-instance NFData BatchGetImageResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgirsResponseStatus :: Lens.Lens' BatchGetImageResponse Lude.Int
+bgirsResponseStatus = Lens.lens (responseStatus :: BatchGetImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetImageResponse)
+{-# DEPRECATED bgirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

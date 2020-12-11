@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,125 +7,160 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.Option where
+module Network.AWS.RDS.Types.Option
+  ( Option (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOption,
+
+    -- * Lenses
+    oOptionName,
+    oPermanent,
+    oPersistent,
+    oOptionDescription,
+    oOptionSettings,
+    oVPCSecurityGroupMemberships,
+    oDBSecurityGroupMemberships,
+    oOptionVersion,
+    oPort,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.DBSecurityGroupMembership
 import Network.AWS.RDS.Types.OptionSetting
 import Network.AWS.RDS.Types.VPCSecurityGroupMembership
 
 -- | Option details.
 --
---
---
--- /See:/ 'option' smart constructor.
+-- /See:/ 'mkOption' smart constructor.
 data Option = Option'
-  { _oOptionName :: !(Maybe Text),
-    _oPermanent :: !(Maybe Bool),
-    _oPersistent :: !(Maybe Bool),
-    _oOptionDescription :: !(Maybe Text),
-    _oOptionSettings :: !(Maybe [OptionSetting]),
-    _oVPCSecurityGroupMemberships ::
-      !(Maybe [VPCSecurityGroupMembership]),
-    _oDBSecurityGroupMemberships ::
-      !(Maybe [DBSecurityGroupMembership]),
-    _oOptionVersion :: !(Maybe Text),
-    _oPort :: !(Maybe Int)
+  { optionName :: Lude.Maybe Lude.Text,
+    permanent :: Lude.Maybe Lude.Bool,
+    persistent :: Lude.Maybe Lude.Bool,
+    optionDescription :: Lude.Maybe Lude.Text,
+    optionSettings :: Lude.Maybe [OptionSetting],
+    vpcSecurityGroupMemberships ::
+      Lude.Maybe [VPCSecurityGroupMembership],
+    dbSecurityGroupMemberships ::
+      Lude.Maybe [DBSecurityGroupMembership],
+    optionVersion :: Lude.Maybe Lude.Text,
+    port :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Option' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oOptionName' - The name of the option.
---
--- * 'oPermanent' - Indicate if this option is permanent.
---
--- * 'oPersistent' - Indicate if this option is persistent.
---
--- * 'oOptionDescription' - The description of the option.
---
--- * 'oOptionSettings' - The option settings for this option.
---
--- * 'oVPCSecurityGroupMemberships' - If the option requires access to a port, then this VPC security group allows access to the port.
---
--- * 'oDBSecurityGroupMemberships' - If the option requires access to a port, then this DB security group allows access to the port.
---
--- * 'oOptionVersion' - The version of the option.
---
--- * 'oPort' - If required, the port configured for this option to use.
-option ::
+-- * 'dbSecurityGroupMemberships' - If the option requires access to a port, then this DB security group allows access to the port.
+-- * 'optionDescription' - The description of the option.
+-- * 'optionName' - The name of the option.
+-- * 'optionSettings' - The option settings for this option.
+-- * 'optionVersion' - The version of the option.
+-- * 'permanent' - Indicate if this option is permanent.
+-- * 'persistent' - Indicate if this option is persistent.
+-- * 'port' - If required, the port configured for this option to use.
+-- * 'vpcSecurityGroupMemberships' - If the option requires access to a port, then this VPC security group allows access to the port.
+mkOption ::
   Option
-option =
+mkOption =
   Option'
-    { _oOptionName = Nothing,
-      _oPermanent = Nothing,
-      _oPersistent = Nothing,
-      _oOptionDescription = Nothing,
-      _oOptionSettings = Nothing,
-      _oVPCSecurityGroupMemberships = Nothing,
-      _oDBSecurityGroupMemberships = Nothing,
-      _oOptionVersion = Nothing,
-      _oPort = Nothing
+    { optionName = Lude.Nothing,
+      permanent = Lude.Nothing,
+      persistent = Lude.Nothing,
+      optionDescription = Lude.Nothing,
+      optionSettings = Lude.Nothing,
+      vpcSecurityGroupMemberships = Lude.Nothing,
+      dbSecurityGroupMemberships = Lude.Nothing,
+      optionVersion = Lude.Nothing,
+      port = Lude.Nothing
     }
 
 -- | The name of the option.
-oOptionName :: Lens' Option (Maybe Text)
-oOptionName = lens _oOptionName (\s a -> s {_oOptionName = a})
+--
+-- /Note:/ Consider using 'optionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOptionName :: Lens.Lens' Option (Lude.Maybe Lude.Text)
+oOptionName = Lens.lens (optionName :: Option -> Lude.Maybe Lude.Text) (\s a -> s {optionName = a} :: Option)
+{-# DEPRECATED oOptionName "Use generic-lens or generic-optics with 'optionName' instead." #-}
 
 -- | Indicate if this option is permanent.
-oPermanent :: Lens' Option (Maybe Bool)
-oPermanent = lens _oPermanent (\s a -> s {_oPermanent = a})
+--
+-- /Note:/ Consider using 'permanent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oPermanent :: Lens.Lens' Option (Lude.Maybe Lude.Bool)
+oPermanent = Lens.lens (permanent :: Option -> Lude.Maybe Lude.Bool) (\s a -> s {permanent = a} :: Option)
+{-# DEPRECATED oPermanent "Use generic-lens or generic-optics with 'permanent' instead." #-}
 
 -- | Indicate if this option is persistent.
-oPersistent :: Lens' Option (Maybe Bool)
-oPersistent = lens _oPersistent (\s a -> s {_oPersistent = a})
+--
+-- /Note:/ Consider using 'persistent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oPersistent :: Lens.Lens' Option (Lude.Maybe Lude.Bool)
+oPersistent = Lens.lens (persistent :: Option -> Lude.Maybe Lude.Bool) (\s a -> s {persistent = a} :: Option)
+{-# DEPRECATED oPersistent "Use generic-lens or generic-optics with 'persistent' instead." #-}
 
 -- | The description of the option.
-oOptionDescription :: Lens' Option (Maybe Text)
-oOptionDescription = lens _oOptionDescription (\s a -> s {_oOptionDescription = a})
+--
+-- /Note:/ Consider using 'optionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOptionDescription :: Lens.Lens' Option (Lude.Maybe Lude.Text)
+oOptionDescription = Lens.lens (optionDescription :: Option -> Lude.Maybe Lude.Text) (\s a -> s {optionDescription = a} :: Option)
+{-# DEPRECATED oOptionDescription "Use generic-lens or generic-optics with 'optionDescription' instead." #-}
 
 -- | The option settings for this option.
-oOptionSettings :: Lens' Option [OptionSetting]
-oOptionSettings = lens _oOptionSettings (\s a -> s {_oOptionSettings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOptionSettings :: Lens.Lens' Option (Lude.Maybe [OptionSetting])
+oOptionSettings = Lens.lens (optionSettings :: Option -> Lude.Maybe [OptionSetting]) (\s a -> s {optionSettings = a} :: Option)
+{-# DEPRECATED oOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
 
 -- | If the option requires access to a port, then this VPC security group allows access to the port.
-oVPCSecurityGroupMemberships :: Lens' Option [VPCSecurityGroupMembership]
-oVPCSecurityGroupMemberships = lens _oVPCSecurityGroupMemberships (\s a -> s {_oVPCSecurityGroupMemberships = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcSecurityGroupMemberships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oVPCSecurityGroupMemberships :: Lens.Lens' Option (Lude.Maybe [VPCSecurityGroupMembership])
+oVPCSecurityGroupMemberships = Lens.lens (vpcSecurityGroupMemberships :: Option -> Lude.Maybe [VPCSecurityGroupMembership]) (\s a -> s {vpcSecurityGroupMemberships = a} :: Option)
+{-# DEPRECATED oVPCSecurityGroupMemberships "Use generic-lens or generic-optics with 'vpcSecurityGroupMemberships' instead." #-}
 
 -- | If the option requires access to a port, then this DB security group allows access to the port.
-oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
-oDBSecurityGroupMemberships = lens _oDBSecurityGroupMemberships (\s a -> s {_oDBSecurityGroupMemberships = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbSecurityGroupMemberships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oDBSecurityGroupMemberships :: Lens.Lens' Option (Lude.Maybe [DBSecurityGroupMembership])
+oDBSecurityGroupMemberships = Lens.lens (dbSecurityGroupMemberships :: Option -> Lude.Maybe [DBSecurityGroupMembership]) (\s a -> s {dbSecurityGroupMemberships = a} :: Option)
+{-# DEPRECATED oDBSecurityGroupMemberships "Use generic-lens or generic-optics with 'dbSecurityGroupMemberships' instead." #-}
 
 -- | The version of the option.
-oOptionVersion :: Lens' Option (Maybe Text)
-oOptionVersion = lens _oOptionVersion (\s a -> s {_oOptionVersion = a})
+--
+-- /Note:/ Consider using 'optionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOptionVersion :: Lens.Lens' Option (Lude.Maybe Lude.Text)
+oOptionVersion = Lens.lens (optionVersion :: Option -> Lude.Maybe Lude.Text) (\s a -> s {optionVersion = a} :: Option)
+{-# DEPRECATED oOptionVersion "Use generic-lens or generic-optics with 'optionVersion' instead." #-}
 
 -- | If required, the port configured for this option to use.
-oPort :: Lens' Option (Maybe Int)
-oPort = lens _oPort (\s a -> s {_oPort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oPort :: Lens.Lens' Option (Lude.Maybe Lude.Int)
+oPort = Lens.lens (port :: Option -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: Option)
+{-# DEPRECATED oPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance FromXML Option where
+instance Lude.FromXML Option where
   parseXML x =
     Option'
-      <$> (x .@? "OptionName")
-      <*> (x .@? "Permanent")
-      <*> (x .@? "Persistent")
-      <*> (x .@? "OptionDescription")
-      <*> ( x .@? "OptionSettings" .!@ mempty
-              >>= may (parseXMLList "OptionSetting")
-          )
-      <*> ( x .@? "VpcSecurityGroupMemberships" .!@ mempty
-              >>= may (parseXMLList "VpcSecurityGroupMembership")
-          )
-      <*> ( x .@? "DBSecurityGroupMemberships" .!@ mempty
-              >>= may (parseXMLList "DBSecurityGroup")
-          )
-      <*> (x .@? "OptionVersion")
-      <*> (x .@? "Port")
-
-instance Hashable Option
-
-instance NFData Option
+      Lude.<$> (x Lude..@? "OptionName")
+      Lude.<*> (x Lude..@? "Permanent")
+      Lude.<*> (x Lude..@? "Persistent")
+      Lude.<*> (x Lude..@? "OptionDescription")
+      Lude.<*> ( x Lude..@? "OptionSettings" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "OptionSetting")
+               )
+      Lude.<*> ( x Lude..@? "VpcSecurityGroupMemberships" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "VpcSecurityGroupMembership")
+               )
+      Lude.<*> ( x Lude..@? "DBSecurityGroupMemberships" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "DBSecurityGroup")
+               )
+      Lude.<*> (x Lude..@? "OptionVersion")
+      Lude.<*> (x Lude..@? "Port")

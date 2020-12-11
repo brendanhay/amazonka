@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ResourceKey where
+module Network.AWS.Config.Types.ResourceKey
+  ( ResourceKey (..),
+
+    -- * Smart constructor
+    mkResourceKey,
+
+    -- * Lenses
+    rkResourceType,
+    rkResourceId,
+  )
+where
 
 import Network.AWS.Config.Types.ResourceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The details that identify a resource within AWS Config, including the resource type and resource ID.
 --
---
---
--- /See:/ 'resourceKey' smart constructor.
+-- /See:/ 'mkResourceKey' smart constructor.
 data ResourceKey = ResourceKey'
-  { _rkResourceType :: !ResourceType,
-    _rkResourceId :: !Text
+  { resourceType :: ResourceType,
+    resourceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rkResourceType' - The resource type.
---
--- * 'rkResourceId' - The ID of the resource (for example., sg-xxxxxx).
-resourceKey ::
-  -- | 'rkResourceType'
+-- * 'resourceId' - The ID of the resource (for example., sg-xxxxxx).
+-- * 'resourceType' - The resource type.
+mkResourceKey ::
+  -- | 'resourceType'
   ResourceType ->
-  -- | 'rkResourceId'
-  Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   ResourceKey
-resourceKey pResourceType_ pResourceId_ =
+mkResourceKey pResourceType_ pResourceId_ =
   ResourceKey'
-    { _rkResourceType = pResourceType_,
-      _rkResourceId = pResourceId_
+    { resourceType = pResourceType_,
+      resourceId = pResourceId_
     }
 
 -- | The resource type.
-rkResourceType :: Lens' ResourceKey ResourceType
-rkResourceType = lens _rkResourceType (\s a -> s {_rkResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rkResourceType :: Lens.Lens' ResourceKey ResourceType
+rkResourceType = Lens.lens (resourceType :: ResourceKey -> ResourceType) (\s a -> s {resourceType = a} :: ResourceKey)
+{-# DEPRECATED rkResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ID of the resource (for example., sg-xxxxxx).
-rkResourceId :: Lens' ResourceKey Text
-rkResourceId = lens _rkResourceId (\s a -> s {_rkResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rkResourceId :: Lens.Lens' ResourceKey Lude.Text
+rkResourceId = Lens.lens (resourceId :: ResourceKey -> Lude.Text) (\s a -> s {resourceId = a} :: ResourceKey)
+{-# DEPRECATED rkResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance FromJSON ResourceKey where
+instance Lude.FromJSON ResourceKey where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceKey"
       ( \x ->
-          ResourceKey' <$> (x .: "resourceType") <*> (x .: "resourceId")
+          ResourceKey'
+            Lude.<$> (x Lude..: "resourceType") Lude.<*> (x Lude..: "resourceId")
       )
 
-instance Hashable ResourceKey
-
-instance NFData ResourceKey
-
-instance ToJSON ResourceKey where
+instance Lude.ToJSON ResourceKey where
   toJSON ResourceKey' {..} =
-    object
-      ( catMaybes
-          [ Just ("resourceType" .= _rkResourceType),
-            Just ("resourceId" .= _rkResourceId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("resourceType" Lude..= resourceType),
+            Lude.Just ("resourceId" Lude..= resourceId)
           ]
       )

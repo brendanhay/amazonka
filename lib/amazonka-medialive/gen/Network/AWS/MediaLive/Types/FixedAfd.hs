@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.FixedAfd where
+module Network.AWS.MediaLive.Types.FixedAfd
+  ( FixedAfd
+      ( FixedAfd',
+        Afd0000,
+        Afd0010,
+        Afd0011,
+        Afd0100,
+        Afd1000,
+        Afd1001,
+        Afd1010,
+        Afd1011,
+        Afd1101,
+        Afd1110,
+        Afd1111
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Fixed Afd
-data FixedAfd
-  = Afd0000
-  | Afd0010
-  | Afd0011
-  | Afd0100
-  | Afd1000
-  | Afd1001
-  | Afd1010
-  | Afd1011
-  | Afd1101
-  | Afd1110
-  | Afd1111
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FixedAfd = FixedAfd' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FixedAfd where
-  parser =
-    takeLowerText >>= \case
-      "afd_0000" -> pure Afd0000
-      "afd_0010" -> pure Afd0010
-      "afd_0011" -> pure Afd0011
-      "afd_0100" -> pure Afd0100
-      "afd_1000" -> pure Afd1000
-      "afd_1001" -> pure Afd1001
-      "afd_1010" -> pure Afd1010
-      "afd_1011" -> pure Afd1011
-      "afd_1101" -> pure Afd1101
-      "afd_1110" -> pure Afd1110
-      "afd_1111" -> pure Afd1111
-      e ->
-        fromTextError $
-          "Failure parsing FixedAfd from value: '" <> e
-            <> "'. Accepted values: afd_0000, afd_0010, afd_0011, afd_0100, afd_1000, afd_1001, afd_1010, afd_1011, afd_1101, afd_1110, afd_1111"
+pattern Afd0000 :: FixedAfd
+pattern Afd0000 = FixedAfd' "AFD_0000"
 
-instance ToText FixedAfd where
-  toText = \case
-    Afd0000 -> "AFD_0000"
-    Afd0010 -> "AFD_0010"
-    Afd0011 -> "AFD_0011"
-    Afd0100 -> "AFD_0100"
-    Afd1000 -> "AFD_1000"
-    Afd1001 -> "AFD_1001"
-    Afd1010 -> "AFD_1010"
-    Afd1011 -> "AFD_1011"
-    Afd1101 -> "AFD_1101"
-    Afd1110 -> "AFD_1110"
-    Afd1111 -> "AFD_1111"
+pattern Afd0010 :: FixedAfd
+pattern Afd0010 = FixedAfd' "AFD_0010"
 
-instance Hashable FixedAfd
+pattern Afd0011 :: FixedAfd
+pattern Afd0011 = FixedAfd' "AFD_0011"
 
-instance NFData FixedAfd
+pattern Afd0100 :: FixedAfd
+pattern Afd0100 = FixedAfd' "AFD_0100"
 
-instance ToByteString FixedAfd
+pattern Afd1000 :: FixedAfd
+pattern Afd1000 = FixedAfd' "AFD_1000"
 
-instance ToQuery FixedAfd
+pattern Afd1001 :: FixedAfd
+pattern Afd1001 = FixedAfd' "AFD_1001"
 
-instance ToHeader FixedAfd
+pattern Afd1010 :: FixedAfd
+pattern Afd1010 = FixedAfd' "AFD_1010"
 
-instance ToJSON FixedAfd where
-  toJSON = toJSONText
+pattern Afd1011 :: FixedAfd
+pattern Afd1011 = FixedAfd' "AFD_1011"
 
-instance FromJSON FixedAfd where
-  parseJSON = parseJSONText "FixedAfd"
+pattern Afd1101 :: FixedAfd
+pattern Afd1101 = FixedAfd' "AFD_1101"
+
+pattern Afd1110 :: FixedAfd
+pattern Afd1110 = FixedAfd' "AFD_1110"
+
+pattern Afd1111 :: FixedAfd
+pattern Afd1111 = FixedAfd' "AFD_1111"
+
+{-# COMPLETE
+  Afd0000,
+  Afd0010,
+  Afd0011,
+  Afd0100,
+  Afd1000,
+  Afd1001,
+  Afd1010,
+  Afd1011,
+  Afd1101,
+  Afd1110,
+  Afd1111,
+  FixedAfd'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,40 +14,36 @@
 --
 -- Creates or updates an alarm and associates it with the specified metric, metric math expression, or anomaly detection model.
 --
---
 -- Alarms based on anomaly detection models cannot have Auto Scaling actions.
---
 -- When this operation creates an alarm, the alarm state is immediately set to @INSUFFICIENT_DATA@ . The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
---
 -- When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
---
 -- If you are an IAM user, you must have Amazon EC2 permissions for some alarm operations:
 --
 --     * @iam:CreateServiceLinkedRole@ for all alarms with EC2 actions
 --
+--
 --     * @ec2:DescribeInstanceStatus@ and @ec2:DescribeInstances@ for all alarms on EC2 instance status metrics
+--
 --
 --     * @ec2:StopInstances@ for alarms with stop actions
 --
+--
 --     * @ec2:TerminateInstances@ for alarms with terminate actions
+--
 --
 --     * No specific permissions are needed for alarms with recover actions
 --
 --
---
 -- If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2, you can still create an alarm, but the stop or terminate actions are not performed. However, if you are later granted the required permissions, the alarm actions that you created earlier are performed.
---
 -- If you are using an IAM role (for example, an EC2 instance profile), you cannot stop or terminate the instance using alarm actions. However, you can still see the alarm state and perform any other actions such as Amazon SNS notifications or Auto Scaling policies.
---
 -- If you are using temporary security credentials granted using AWS STS, you cannot stop or terminate an EC2 instance using alarm actions.
---
 -- The first time you create an alarm in the AWS Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates the necessary service-linked role for you. The service-linked role is called @AWSServiceRoleForCloudWatchEvents@ . For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role AWS service-linked role> .
 module Network.AWS.CloudWatch.PutMetricAlarm
-  ( -- * Creating a Request
-    putMetricAlarm,
-    PutMetricAlarm,
+  ( -- * Creating a request
+    PutMetricAlarm (..),
+    mkPutMetricAlarm,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pmaMetrics,
     pmaTreatMissingData,
     pmaPeriod,
@@ -76,269 +67,404 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     pmaEvaluationPeriods,
     pmaComparisonOperator,
 
-    -- * Destructuring the Response
-    putMetricAlarmResponse,
-    PutMetricAlarmResponse,
+    -- * Destructuring the response
+    PutMetricAlarmResponse (..),
+    mkPutMetricAlarmResponse,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putMetricAlarm' smart constructor.
+-- | /See:/ 'mkPutMetricAlarm' smart constructor.
 data PutMetricAlarm = PutMetricAlarm'
-  { _pmaMetrics ::
-      !(Maybe [MetricDataQuery]),
-    _pmaTreatMissingData :: !(Maybe Text),
-    _pmaPeriod :: !(Maybe Nat),
-    _pmaAlarmDescription :: !(Maybe Text),
-    _pmaMetricName :: !(Maybe Text),
-    _pmaNamespace :: !(Maybe Text),
-    _pmaThresholdMetricId :: !(Maybe Text),
-    _pmaOKActions :: !(Maybe [Text]),
-    _pmaEvaluateLowSampleCountPercentile :: !(Maybe Text),
-    _pmaDatapointsToAlarm :: !(Maybe Nat),
-    _pmaThreshold :: !(Maybe Double),
-    _pmaActionsEnabled :: !(Maybe Bool),
-    _pmaInsufficientDataActions :: !(Maybe [Text]),
-    _pmaDimensions :: !(Maybe [Dimension]),
-    _pmaAlarmActions :: !(Maybe [Text]),
-    _pmaUnit :: !(Maybe StandardUnit),
-    _pmaStatistic :: !(Maybe Statistic),
-    _pmaTags :: !(Maybe [Tag]),
-    _pmaExtendedStatistic :: !(Maybe Text),
-    _pmaAlarmName :: !Text,
-    _pmaEvaluationPeriods :: !Nat,
-    _pmaComparisonOperator :: !ComparisonOperator
+  { metrics ::
+      Lude.Maybe [MetricDataQuery],
+    treatMissingData :: Lude.Maybe Lude.Text,
+    period :: Lude.Maybe Lude.Natural,
+    alarmDescription :: Lude.Maybe Lude.Text,
+    metricName :: Lude.Maybe Lude.Text,
+    namespace :: Lude.Maybe Lude.Text,
+    thresholdMetricId :: Lude.Maybe Lude.Text,
+    okActions :: Lude.Maybe [Lude.Text],
+    evaluateLowSampleCountPercentile :: Lude.Maybe Lude.Text,
+    datapointsToAlarm :: Lude.Maybe Lude.Natural,
+    threshold :: Lude.Maybe Lude.Double,
+    actionsEnabled :: Lude.Maybe Lude.Bool,
+    insufficientDataActions :: Lude.Maybe [Lude.Text],
+    dimensions :: Lude.Maybe [Dimension],
+    alarmActions :: Lude.Maybe [Lude.Text],
+    unit :: Lude.Maybe StandardUnit,
+    statistic :: Lude.Maybe Statistic,
+    tags :: Lude.Maybe [Tag],
+    extendedStatistic :: Lude.Maybe Lude.Text,
+    alarmName :: Lude.Text,
+    evaluationPeriods :: Lude.Natural,
+    comparisonOperator :: ComparisonOperator
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutMetricAlarm' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'actionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state. The default is @TRUE@ .
+-- * 'alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 --
--- * 'pmaMetrics' - An array of @MetricDataQuery@ structures that enable you to create an alarm based on the result of a metric math expression. For each @PutMetricAlarm@ operation, you must specify either @MetricName@ or a @Metrics@ array. Each item in the @Metrics@ array either retrieves a metric or performs a math expression. One item in the @Metrics@ array is the expression that the alarm watches. You designate this expression by setting @ReturnData@ to true for this object in the array. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery> . If you use the @Metrics@ parameter, you cannot include the @MetricName@ , @Dimensions@ , @Period@ , @Namespace@ , @Statistic@ , or @ExtendedStatistic@ parameters of @PutMetricAlarm@ in the same operation. Instead, you retrieve the metrics you are using in your math expression as part of the @Metrics@ array.
+-- Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @
+-- Valid Values (for use with IAM roles): @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
+-- * 'alarmDescription' - The description for the alarm.
+-- * 'alarmName' - The name for the alarm. This name must be unique within the Region.
+-- * 'comparisonOperator' - The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
 --
--- * 'pmaTreatMissingData' - Sets how this alarm is to handle missing data points. If @TreatMissingData@ is omitted, the default behavior of @missing@ is used. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data> . Valid Values: @breaching | notBreaching | ignore | missing@
+-- The values @LessThanLowerOrGreaterThanUpperThreshold@ , @LessThanLowerThreshold@ , and @GreaterThanUpperThreshold@ are used only for alarms based on anomaly detection models.
+-- * 'datapointsToAlarm' - The number of data points that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation Evaluating an Alarm> in the /Amazon CloudWatch User Guide/ .
+-- * 'dimensions' - The dimensions for the metric specified in @MetricName@ .
+-- * 'evaluateLowSampleCountPercentile' - Used only for alarms based on percentiles. If you specify @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If you specify @evaluate@ or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples> .
 --
--- * 'pmaPeriod' - The length, in seconds, used each time the metric specified in @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of 60. @Period@ is required for alarms based on static thresholds. If you are creating an alarm based on a metric math expression, you specify the period for each metric within the objects in the @Metrics@ array. Be sure to specify 10 or 30 only for metrics that are stored by a @PutMetricData@ call with a @StorageResolution@ of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing> . An alarm's total current evaluation period can be no longer than one day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than 86,400 seconds.
+-- Valid Values: @evaluate | ignore@
+-- * 'evaluationPeriods' - The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N.
 --
--- * 'pmaAlarmDescription' - The description for the alarm.
+-- An alarm's total current evaluation period can be no longer than one day, so this number multiplied by @Period@ cannot be more than 86,400 seconds.
+-- * 'extendedStatistic' - The percentile statistic for the metric specified in @MetricName@ . Specify a value between p0.0 and p100. When you call @PutMetricAlarm@ and specify a @MetricName@ , you must specify either @Statistic@ or @ExtendedStatistic,@ but not both.
+-- * 'insufficientDataActions' - The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 --
--- * 'pmaMetricName' - The name for the metric associated with the alarm. For each @PutMetricAlarm@ operation, you must specify either @MetricName@ or a @Metrics@ array. If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the @Dimensions@ , @Period@ , @Namespace@ , @Statistic@ , or @ExtendedStatistic@ parameters. Instead, you specify all this information in the @Metrics@ array.
+-- Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @
+-- Valid Values (for use with IAM roles): @>arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
+-- * 'metricName' - The name for the metric associated with the alarm. For each @PutMetricAlarm@ operation, you must specify either @MetricName@ or a @Metrics@ array.
 --
--- * 'pmaNamespace' - The namespace for the metric associated specified in @MetricName@ .
+-- If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the @Dimensions@ , @Period@ , @Namespace@ , @Statistic@ , or @ExtendedStatistic@ parameters. Instead, you specify all this information in the @Metrics@ array.
+-- * 'metrics' - An array of @MetricDataQuery@ structures that enable you to create an alarm based on the result of a metric math expression. For each @PutMetricAlarm@ operation, you must specify either @MetricName@ or a @Metrics@ array.
 --
--- * 'pmaThresholdMetricId' - If this is an alarm based on an anomaly detection model, make this value match the ID of the @ANOMALY_DETECTION_BAND@ function. For an example of how to use this parameter, see the __Anomaly Detection Model Alarm__ example on this page. If your alarm uses this parameter, it cannot have Auto Scaling actions.
+-- Each item in the @Metrics@ array either retrieves a metric or performs a math expression.
+-- One item in the @Metrics@ array is the expression that the alarm watches. You designate this expression by setting @ReturnData@ to true for this object in the array. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery> .
+-- If you use the @Metrics@ parameter, you cannot include the @MetricName@ , @Dimensions@ , @Period@ , @Namespace@ , @Statistic@ , or @ExtendedStatistic@ parameters of @PutMetricAlarm@ in the same operation. Instead, you retrieve the metrics you are using in your math expression as part of the @Metrics@ array.
+-- * 'namespace' - The namespace for the metric associated specified in @MetricName@ .
+-- * 'okActions' - The actions to execute when this alarm transitions to an @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 --
--- * 'pmaOKActions' - The actions to execute when this alarm transitions to an @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @  Valid Values (for use with IAM roles): @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
+-- Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @
+-- Valid Values (for use with IAM roles): @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
+-- * 'period' - The length, in seconds, used each time the metric specified in @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of 60.
 --
--- * 'pmaEvaluateLowSampleCountPercentile' - Used only for alarms based on percentiles. If you specify @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If you specify @evaluate@ or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples> . Valid Values: @evaluate | ignore@
+-- @Period@ is required for alarms based on static thresholds. If you are creating an alarm based on a metric math expression, you specify the period for each metric within the objects in the @Metrics@ array.
+-- Be sure to specify 10 or 30 only for metrics that are stored by a @PutMetricData@ call with a @StorageResolution@ of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing> .
+-- An alarm's total current evaluation period can be no longer than one day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than 86,400 seconds.
+-- * 'statistic' - The statistic for the metric specified in @MetricName@ , other than percentile. For percentile statistics, use @ExtendedStatistic@ . When you call @PutMetricAlarm@ and specify a @MetricName@ , you must specify either @Statistic@ or @ExtendedStatistic,@ but not both.
+-- * 'tags' - A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.
 --
--- * 'pmaDatapointsToAlarm' - The number of data points that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation Evaluating an Alarm> in the /Amazon CloudWatch User Guide/ .
+-- Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+-- * 'threshold' - The value against which the specified statistic is compared.
 --
--- * 'pmaThreshold' - The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
+-- This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
+-- * 'thresholdMetricId' - If this is an alarm based on an anomaly detection model, make this value match the ID of the @ANOMALY_DETECTION_BAND@ function.
 --
--- * 'pmaActionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state. The default is @TRUE@ .
+-- For an example of how to use this parameter, see the __Anomaly Detection Model Alarm__ example on this page.
+-- If your alarm uses this parameter, it cannot have Auto Scaling actions.
+-- * 'treatMissingData' - Sets how this alarm is to handle missing data points. If @TreatMissingData@ is omitted, the default behavior of @missing@ is used. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data> .
 --
--- * 'pmaInsufficientDataActions' - The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @  Valid Values (for use with IAM roles): @>arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
+-- Valid Values: @breaching | notBreaching | ignore | missing@
+-- * 'unit' - The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately.
 --
--- * 'pmaDimensions' - The dimensions for the metric specified in @MetricName@ .
---
--- * 'pmaAlarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @  Valid Values (for use with IAM roles): @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
---
--- * 'pmaUnit' - The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately. If you don't specify @Unit@ , CloudWatch retrieves all unit types that have been published for the metric and attempts to evaluate the alarm. Usually, metrics are published with only one unit, so the alarm works as intended. However, if the metric is published with multiple types of units and you don't specify a unit, the alarm's behavior is not defined and it behaves predictably. We recommend omitting @Unit@ so that you don't inadvertently specify an incorrect unit that is not published for this metric. Doing so causes the alarm to be stuck in the @INSUFFICIENT DATA@ state.
---
--- * 'pmaStatistic' - The statistic for the metric specified in @MetricName@ , other than percentile. For percentile statistics, use @ExtendedStatistic@ . When you call @PutMetricAlarm@ and specify a @MetricName@ , you must specify either @Statistic@ or @ExtendedStatistic,@ but not both.
---
--- * 'pmaTags' - A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
---
--- * 'pmaExtendedStatistic' - The percentile statistic for the metric specified in @MetricName@ . Specify a value between p0.0 and p100. When you call @PutMetricAlarm@ and specify a @MetricName@ , you must specify either @Statistic@ or @ExtendedStatistic,@ but not both.
---
--- * 'pmaAlarmName' - The name for the alarm. This name must be unique within the Region.
---
--- * 'pmaEvaluationPeriods' - The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N. An alarm's total current evaluation period can be no longer than one day, so this number multiplied by @Period@ cannot be more than 86,400 seconds.
---
--- * 'pmaComparisonOperator' - The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand. The values @LessThanLowerOrGreaterThanUpperThreshold@ , @LessThanLowerThreshold@ , and @GreaterThanUpperThreshold@ are used only for alarms based on anomaly detection models.
-putMetricAlarm ::
-  -- | 'pmaAlarmName'
-  Text ->
-  -- | 'pmaEvaluationPeriods'
-  Natural ->
-  -- | 'pmaComparisonOperator'
+-- If you don't specify @Unit@ , CloudWatch retrieves all unit types that have been published for the metric and attempts to evaluate the alarm. Usually, metrics are published with only one unit, so the alarm works as intended.
+-- However, if the metric is published with multiple types of units and you don't specify a unit, the alarm's behavior is not defined and it behaves predictably.
+-- We recommend omitting @Unit@ so that you don't inadvertently specify an incorrect unit that is not published for this metric. Doing so causes the alarm to be stuck in the @INSUFFICIENT DATA@ state.
+mkPutMetricAlarm ::
+  -- | 'alarmName'
+  Lude.Text ->
+  -- | 'evaluationPeriods'
+  Lude.Natural ->
+  -- | 'comparisonOperator'
   ComparisonOperator ->
   PutMetricAlarm
-putMetricAlarm pAlarmName_ pEvaluationPeriods_ pComparisonOperator_ =
-  PutMetricAlarm'
-    { _pmaMetrics = Nothing,
-      _pmaTreatMissingData = Nothing,
-      _pmaPeriod = Nothing,
-      _pmaAlarmDescription = Nothing,
-      _pmaMetricName = Nothing,
-      _pmaNamespace = Nothing,
-      _pmaThresholdMetricId = Nothing,
-      _pmaOKActions = Nothing,
-      _pmaEvaluateLowSampleCountPercentile = Nothing,
-      _pmaDatapointsToAlarm = Nothing,
-      _pmaThreshold = Nothing,
-      _pmaActionsEnabled = Nothing,
-      _pmaInsufficientDataActions = Nothing,
-      _pmaDimensions = Nothing,
-      _pmaAlarmActions = Nothing,
-      _pmaUnit = Nothing,
-      _pmaStatistic = Nothing,
-      _pmaTags = Nothing,
-      _pmaExtendedStatistic = Nothing,
-      _pmaAlarmName = pAlarmName_,
-      _pmaEvaluationPeriods = _Nat # pEvaluationPeriods_,
-      _pmaComparisonOperator = pComparisonOperator_
-    }
+mkPutMetricAlarm
+  pAlarmName_
+  pEvaluationPeriods_
+  pComparisonOperator_ =
+    PutMetricAlarm'
+      { metrics = Lude.Nothing,
+        treatMissingData = Lude.Nothing,
+        period = Lude.Nothing,
+        alarmDescription = Lude.Nothing,
+        metricName = Lude.Nothing,
+        namespace = Lude.Nothing,
+        thresholdMetricId = Lude.Nothing,
+        okActions = Lude.Nothing,
+        evaluateLowSampleCountPercentile = Lude.Nothing,
+        datapointsToAlarm = Lude.Nothing,
+        threshold = Lude.Nothing,
+        actionsEnabled = Lude.Nothing,
+        insufficientDataActions = Lude.Nothing,
+        dimensions = Lude.Nothing,
+        alarmActions = Lude.Nothing,
+        unit = Lude.Nothing,
+        statistic = Lude.Nothing,
+        tags = Lude.Nothing,
+        extendedStatistic = Lude.Nothing,
+        alarmName = pAlarmName_,
+        evaluationPeriods = pEvaluationPeriods_,
+        comparisonOperator = pComparisonOperator_
+      }
 
--- | An array of @MetricDataQuery@ structures that enable you to create an alarm based on the result of a metric math expression. For each @PutMetricAlarm@ operation, you must specify either @MetricName@ or a @Metrics@ array. Each item in the @Metrics@ array either retrieves a metric or performs a math expression. One item in the @Metrics@ array is the expression that the alarm watches. You designate this expression by setting @ReturnData@ to true for this object in the array. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery> . If you use the @Metrics@ parameter, you cannot include the @MetricName@ , @Dimensions@ , @Period@ , @Namespace@ , @Statistic@ , or @ExtendedStatistic@ parameters of @PutMetricAlarm@ in the same operation. Instead, you retrieve the metrics you are using in your math expression as part of the @Metrics@ array.
-pmaMetrics :: Lens' PutMetricAlarm [MetricDataQuery]
-pmaMetrics = lens _pmaMetrics (\s a -> s {_pmaMetrics = a}) . _Default . _Coerce
+-- | An array of @MetricDataQuery@ structures that enable you to create an alarm based on the result of a metric math expression. For each @PutMetricAlarm@ operation, you must specify either @MetricName@ or a @Metrics@ array.
+--
+-- Each item in the @Metrics@ array either retrieves a metric or performs a math expression.
+-- One item in the @Metrics@ array is the expression that the alarm watches. You designate this expression by setting @ReturnData@ to true for this object in the array. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html MetricDataQuery> .
+-- If you use the @Metrics@ parameter, you cannot include the @MetricName@ , @Dimensions@ , @Period@ , @Namespace@ , @Statistic@ , or @ExtendedStatistic@ parameters of @PutMetricAlarm@ in the same operation. Instead, you retrieve the metrics you are using in your math expression as part of the @Metrics@ array.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaMetrics :: Lens.Lens' PutMetricAlarm (Lude.Maybe [MetricDataQuery])
+pmaMetrics = Lens.lens (metrics :: PutMetricAlarm -> Lude.Maybe [MetricDataQuery]) (\s a -> s {metrics = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
--- | Sets how this alarm is to handle missing data points. If @TreatMissingData@ is omitted, the default behavior of @missing@ is used. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data> . Valid Values: @breaching | notBreaching | ignore | missing@
-pmaTreatMissingData :: Lens' PutMetricAlarm (Maybe Text)
-pmaTreatMissingData = lens _pmaTreatMissingData (\s a -> s {_pmaTreatMissingData = a})
+-- | Sets how this alarm is to handle missing data points. If @TreatMissingData@ is omitted, the default behavior of @missing@ is used. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring How CloudWatch Alarms Treats Missing Data> .
+--
+-- Valid Values: @breaching | notBreaching | ignore | missing@
+--
+-- /Note:/ Consider using 'treatMissingData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaTreatMissingData :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Text)
+pmaTreatMissingData = Lens.lens (treatMissingData :: PutMetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {treatMissingData = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaTreatMissingData "Use generic-lens or generic-optics with 'treatMissingData' instead." #-}
 
--- | The length, in seconds, used each time the metric specified in @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of 60. @Period@ is required for alarms based on static thresholds. If you are creating an alarm based on a metric math expression, you specify the period for each metric within the objects in the @Metrics@ array. Be sure to specify 10 or 30 only for metrics that are stored by a @PutMetricData@ call with a @StorageResolution@ of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing> . An alarm's total current evaluation period can be no longer than one day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than 86,400 seconds.
-pmaPeriod :: Lens' PutMetricAlarm (Maybe Natural)
-pmaPeriod = lens _pmaPeriod (\s a -> s {_pmaPeriod = a}) . mapping _Nat
+-- | The length, in seconds, used each time the metric specified in @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of 60.
+--
+-- @Period@ is required for alarms based on static thresholds. If you are creating an alarm based on a metric math expression, you specify the period for each metric within the objects in the @Metrics@ array.
+-- Be sure to specify 10 or 30 only for metrics that are stored by a @PutMetricData@ call with a @StorageResolution@ of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing> .
+-- An alarm's total current evaluation period can be no longer than one day, so @Period@ multiplied by @EvaluationPeriods@ cannot be more than 86,400 seconds.
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaPeriod :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Natural)
+pmaPeriod = Lens.lens (period :: PutMetricAlarm -> Lude.Maybe Lude.Natural) (\s a -> s {period = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The description for the alarm.
-pmaAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
-pmaAlarmDescription = lens _pmaAlarmDescription (\s a -> s {_pmaAlarmDescription = a})
+--
+-- /Note:/ Consider using 'alarmDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaAlarmDescription :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Text)
+pmaAlarmDescription = Lens.lens (alarmDescription :: PutMetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmDescription = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaAlarmDescription "Use generic-lens or generic-optics with 'alarmDescription' instead." #-}
 
--- | The name for the metric associated with the alarm. For each @PutMetricAlarm@ operation, you must specify either @MetricName@ or a @Metrics@ array. If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the @Dimensions@ , @Period@ , @Namespace@ , @Statistic@ , or @ExtendedStatistic@ parameters. Instead, you specify all this information in the @Metrics@ array.
-pmaMetricName :: Lens' PutMetricAlarm (Maybe Text)
-pmaMetricName = lens _pmaMetricName (\s a -> s {_pmaMetricName = a})
+-- | The name for the metric associated with the alarm. For each @PutMetricAlarm@ operation, you must specify either @MetricName@ or a @Metrics@ array.
+--
+-- If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the @Dimensions@ , @Period@ , @Namespace@ , @Statistic@ , or @ExtendedStatistic@ parameters. Instead, you specify all this information in the @Metrics@ array.
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaMetricName :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Text)
+pmaMetricName = Lens.lens (metricName :: PutMetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The namespace for the metric associated specified in @MetricName@ .
-pmaNamespace :: Lens' PutMetricAlarm (Maybe Text)
-pmaNamespace = lens _pmaNamespace (\s a -> s {_pmaNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaNamespace :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Text)
+pmaNamespace = Lens.lens (namespace :: PutMetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
--- | If this is an alarm based on an anomaly detection model, make this value match the ID of the @ANOMALY_DETECTION_BAND@ function. For an example of how to use this parameter, see the __Anomaly Detection Model Alarm__ example on this page. If your alarm uses this parameter, it cannot have Auto Scaling actions.
-pmaThresholdMetricId :: Lens' PutMetricAlarm (Maybe Text)
-pmaThresholdMetricId = lens _pmaThresholdMetricId (\s a -> s {_pmaThresholdMetricId = a})
+-- | If this is an alarm based on an anomaly detection model, make this value match the ID of the @ANOMALY_DETECTION_BAND@ function.
+--
+-- For an example of how to use this parameter, see the __Anomaly Detection Model Alarm__ example on this page.
+-- If your alarm uses this parameter, it cannot have Auto Scaling actions.
+--
+-- /Note:/ Consider using 'thresholdMetricId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaThresholdMetricId :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Text)
+pmaThresholdMetricId = Lens.lens (thresholdMetricId :: PutMetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {thresholdMetricId = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaThresholdMetricId "Use generic-lens or generic-optics with 'thresholdMetricId' instead." #-}
 
--- | The actions to execute when this alarm transitions to an @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @  Valid Values (for use with IAM roles): @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
-pmaOKActions :: Lens' PutMetricAlarm [Text]
-pmaOKActions = lens _pmaOKActions (\s a -> s {_pmaOKActions = a}) . _Default . _Coerce
+-- | The actions to execute when this alarm transitions to an @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+--
+-- Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @
+-- Valid Values (for use with IAM roles): @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
+--
+-- /Note:/ Consider using 'okActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaOKActions :: Lens.Lens' PutMetricAlarm (Lude.Maybe [Lude.Text])
+pmaOKActions = Lens.lens (okActions :: PutMetricAlarm -> Lude.Maybe [Lude.Text]) (\s a -> s {okActions = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaOKActions "Use generic-lens or generic-optics with 'okActions' instead." #-}
 
--- | Used only for alarms based on percentiles. If you specify @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If you specify @evaluate@ or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples> . Valid Values: @evaluate | ignore@
-pmaEvaluateLowSampleCountPercentile :: Lens' PutMetricAlarm (Maybe Text)
-pmaEvaluateLowSampleCountPercentile = lens _pmaEvaluateLowSampleCountPercentile (\s a -> s {_pmaEvaluateLowSampleCountPercentile = a})
+-- | Used only for alarms based on percentiles. If you specify @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If you specify @evaluate@ or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples Percentile-Based CloudWatch Alarms and Low Data Samples> .
+--
+-- Valid Values: @evaluate | ignore@
+--
+-- /Note:/ Consider using 'evaluateLowSampleCountPercentile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaEvaluateLowSampleCountPercentile :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Text)
+pmaEvaluateLowSampleCountPercentile = Lens.lens (evaluateLowSampleCountPercentile :: PutMetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {evaluateLowSampleCountPercentile = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaEvaluateLowSampleCountPercentile "Use generic-lens or generic-optics with 'evaluateLowSampleCountPercentile' instead." #-}
 
 -- | The number of data points that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation Evaluating an Alarm> in the /Amazon CloudWatch User Guide/ .
-pmaDatapointsToAlarm :: Lens' PutMetricAlarm (Maybe Natural)
-pmaDatapointsToAlarm = lens _pmaDatapointsToAlarm (\s a -> s {_pmaDatapointsToAlarm = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'datapointsToAlarm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaDatapointsToAlarm :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Natural)
+pmaDatapointsToAlarm = Lens.lens (datapointsToAlarm :: PutMetricAlarm -> Lude.Maybe Lude.Natural) (\s a -> s {datapointsToAlarm = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaDatapointsToAlarm "Use generic-lens or generic-optics with 'datapointsToAlarm' instead." #-}
 
--- | The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
-pmaThreshold :: Lens' PutMetricAlarm (Maybe Double)
-pmaThreshold = lens _pmaThreshold (\s a -> s {_pmaThreshold = a})
+-- | The value against which the specified statistic is compared.
+--
+-- This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
+--
+-- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaThreshold :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Double)
+pmaThreshold = Lens.lens (threshold :: PutMetricAlarm -> Lude.Maybe Lude.Double) (\s a -> s {threshold = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
 
 -- | Indicates whether actions should be executed during any changes to the alarm state. The default is @TRUE@ .
-pmaActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
-pmaActionsEnabled = lens _pmaActionsEnabled (\s a -> s {_pmaActionsEnabled = a})
+--
+-- /Note:/ Consider using 'actionsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaActionsEnabled :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Bool)
+pmaActionsEnabled = Lens.lens (actionsEnabled :: PutMetricAlarm -> Lude.Maybe Lude.Bool) (\s a -> s {actionsEnabled = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaActionsEnabled "Use generic-lens or generic-optics with 'actionsEnabled' instead." #-}
 
--- | The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @  Valid Values (for use with IAM roles): @>arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
-pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
-pmaInsufficientDataActions = lens _pmaInsufficientDataActions (\s a -> s {_pmaInsufficientDataActions = a}) . _Default . _Coerce
+-- | The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+--
+-- Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @
+-- Valid Values (for use with IAM roles): @>arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
+--
+-- /Note:/ Consider using 'insufficientDataActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaInsufficientDataActions :: Lens.Lens' PutMetricAlarm (Lude.Maybe [Lude.Text])
+pmaInsufficientDataActions = Lens.lens (insufficientDataActions :: PutMetricAlarm -> Lude.Maybe [Lude.Text]) (\s a -> s {insufficientDataActions = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaInsufficientDataActions "Use generic-lens or generic-optics with 'insufficientDataActions' instead." #-}
 
 -- | The dimensions for the metric specified in @MetricName@ .
-pmaDimensions :: Lens' PutMetricAlarm [Dimension]
-pmaDimensions = lens _pmaDimensions (\s a -> s {_pmaDimensions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaDimensions :: Lens.Lens' PutMetricAlarm (Lude.Maybe [Dimension])
+pmaDimensions = Lens.lens (dimensions :: PutMetricAlarm -> Lude.Maybe [Dimension]) (\s a -> s {dimensions = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
--- | The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @  Valid Values (for use with IAM roles): @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
-pmaAlarmActions :: Lens' PutMetricAlarm [Text]
-pmaAlarmActions = lens _pmaAlarmActions (\s a -> s {_pmaAlarmActions = a}) . _Default . _Coerce
+-- | The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+--
+-- Valid Values: @arn:aws:automate:/region/ :ec2:stop@ | @arn:aws:automate:/region/ :ec2:terminate@ | @arn:aws:automate:/region/ :ec2:recover@ | @arn:aws:automate:/region/ :ec2:reboot@ | @arn:aws:sns:/region/ :/account-id/ :/sns-topic-name/ @ | @arn:aws:autoscaling:/region/ :/account-id/ :scalingPolicy:/policy-id/ :autoScalingGroupName//group-friendly-name/ :policyName//policy-friendly-name/ @
+-- Valid Values (for use with IAM roles): @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Stop/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Terminate/1.0@ | @arn:aws:swf:/region/ :/account-id/ :action/actions/AWS_EC2.InstanceId.Reboot/1.0@
+--
+-- /Note:/ Consider using 'alarmActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaAlarmActions :: Lens.Lens' PutMetricAlarm (Lude.Maybe [Lude.Text])
+pmaAlarmActions = Lens.lens (alarmActions :: PutMetricAlarm -> Lude.Maybe [Lude.Text]) (\s a -> s {alarmActions = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaAlarmActions "Use generic-lens or generic-optics with 'alarmActions' instead." #-}
 
--- | The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately. If you don't specify @Unit@ , CloudWatch retrieves all unit types that have been published for the metric and attempts to evaluate the alarm. Usually, metrics are published with only one unit, so the alarm works as intended. However, if the metric is published with multiple types of units and you don't specify a unit, the alarm's behavior is not defined and it behaves predictably. We recommend omitting @Unit@ so that you don't inadvertently specify an incorrect unit that is not published for this metric. Doing so causes the alarm to be stuck in the @INSUFFICIENT DATA@ state.
-pmaUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
-pmaUnit = lens _pmaUnit (\s a -> s {_pmaUnit = a})
+-- | The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately.
+--
+-- If you don't specify @Unit@ , CloudWatch retrieves all unit types that have been published for the metric and attempts to evaluate the alarm. Usually, metrics are published with only one unit, so the alarm works as intended.
+-- However, if the metric is published with multiple types of units and you don't specify a unit, the alarm's behavior is not defined and it behaves predictably.
+-- We recommend omitting @Unit@ so that you don't inadvertently specify an incorrect unit that is not published for this metric. Doing so causes the alarm to be stuck in the @INSUFFICIENT DATA@ state.
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaUnit :: Lens.Lens' PutMetricAlarm (Lude.Maybe StandardUnit)
+pmaUnit = Lens.lens (unit :: PutMetricAlarm -> Lude.Maybe StandardUnit) (\s a -> s {unit = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | The statistic for the metric specified in @MetricName@ , other than percentile. For percentile statistics, use @ExtendedStatistic@ . When you call @PutMetricAlarm@ and specify a @MetricName@ , you must specify either @Statistic@ or @ExtendedStatistic,@ but not both.
-pmaStatistic :: Lens' PutMetricAlarm (Maybe Statistic)
-pmaStatistic = lens _pmaStatistic (\s a -> s {_pmaStatistic = a})
+--
+-- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaStatistic :: Lens.Lens' PutMetricAlarm (Lude.Maybe Statistic)
+pmaStatistic = Lens.lens (statistic :: PutMetricAlarm -> Lude.Maybe Statistic) (\s a -> s {statistic = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
 
--- | A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
-pmaTags :: Lens' PutMetricAlarm [Tag]
-pmaTags = lens _pmaTags (\s a -> s {_pmaTags = a}) . _Default . _Coerce
+-- | A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm.
+--
+-- Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaTags :: Lens.Lens' PutMetricAlarm (Lude.Maybe [Tag])
+pmaTags = Lens.lens (tags :: PutMetricAlarm -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The percentile statistic for the metric specified in @MetricName@ . Specify a value between p0.0 and p100. When you call @PutMetricAlarm@ and specify a @MetricName@ , you must specify either @Statistic@ or @ExtendedStatistic,@ but not both.
-pmaExtendedStatistic :: Lens' PutMetricAlarm (Maybe Text)
-pmaExtendedStatistic = lens _pmaExtendedStatistic (\s a -> s {_pmaExtendedStatistic = a})
+--
+-- /Note:/ Consider using 'extendedStatistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaExtendedStatistic :: Lens.Lens' PutMetricAlarm (Lude.Maybe Lude.Text)
+pmaExtendedStatistic = Lens.lens (extendedStatistic :: PutMetricAlarm -> Lude.Maybe Lude.Text) (\s a -> s {extendedStatistic = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaExtendedStatistic "Use generic-lens or generic-optics with 'extendedStatistic' instead." #-}
 
 -- | The name for the alarm. This name must be unique within the Region.
-pmaAlarmName :: Lens' PutMetricAlarm Text
-pmaAlarmName = lens _pmaAlarmName (\s a -> s {_pmaAlarmName = a})
+--
+-- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaAlarmName :: Lens.Lens' PutMetricAlarm Lude.Text
+pmaAlarmName = Lens.lens (alarmName :: PutMetricAlarm -> Lude.Text) (\s a -> s {alarmName = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
--- | The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N. An alarm's total current evaluation period can be no longer than one day, so this number multiplied by @Period@ cannot be more than 86,400 seconds.
-pmaEvaluationPeriods :: Lens' PutMetricAlarm Natural
-pmaEvaluationPeriods = lens _pmaEvaluationPeriods (\s a -> s {_pmaEvaluationPeriods = a}) . _Nat
+-- | The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N.
+--
+-- An alarm's total current evaluation period can be no longer than one day, so this number multiplied by @Period@ cannot be more than 86,400 seconds.
+--
+-- /Note:/ Consider using 'evaluationPeriods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaEvaluationPeriods :: Lens.Lens' PutMetricAlarm Lude.Natural
+pmaEvaluationPeriods = Lens.lens (evaluationPeriods :: PutMetricAlarm -> Lude.Natural) (\s a -> s {evaluationPeriods = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaEvaluationPeriods "Use generic-lens or generic-optics with 'evaluationPeriods' instead." #-}
 
--- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand. The values @LessThanLowerOrGreaterThanUpperThreshold@ , @LessThanLowerThreshold@ , and @GreaterThanUpperThreshold@ are used only for alarms based on anomaly detection models.
-pmaComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
-pmaComparisonOperator = lens _pmaComparisonOperator (\s a -> s {_pmaComparisonOperator = a})
+-- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
+--
+-- The values @LessThanLowerOrGreaterThanUpperThreshold@ , @LessThanLowerThreshold@ , and @GreaterThanUpperThreshold@ are used only for alarms based on anomaly detection models.
+--
+-- /Note:/ Consider using 'comparisonOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmaComparisonOperator :: Lens.Lens' PutMetricAlarm ComparisonOperator
+pmaComparisonOperator = Lens.lens (comparisonOperator :: PutMetricAlarm -> ComparisonOperator) (\s a -> s {comparisonOperator = a} :: PutMetricAlarm)
+{-# DEPRECATED pmaComparisonOperator "Use generic-lens or generic-optics with 'comparisonOperator' instead." #-}
 
-instance AWSRequest PutMetricAlarm where
+instance Lude.AWSRequest PutMetricAlarm where
   type Rs PutMetricAlarm = PutMetricAlarmResponse
-  request = postQuery cloudWatch
-  response = receiveNull PutMetricAlarmResponse'
+  request = Req.postQuery cloudWatchService
+  response = Res.receiveNull PutMetricAlarmResponse'
 
-instance Hashable PutMetricAlarm
+instance Lude.ToHeaders PutMetricAlarm where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData PutMetricAlarm
+instance Lude.ToPath PutMetricAlarm where
+  toPath = Lude.const "/"
 
-instance ToHeaders PutMetricAlarm where
-  toHeaders = const mempty
-
-instance ToPath PutMetricAlarm where
-  toPath = const "/"
-
-instance ToQuery PutMetricAlarm where
+instance Lude.ToQuery PutMetricAlarm where
   toQuery PutMetricAlarm' {..} =
-    mconcat
-      [ "Action" =: ("PutMetricAlarm" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "Metrics" =: toQuery (toQueryList "member" <$> _pmaMetrics),
-        "TreatMissingData" =: _pmaTreatMissingData,
-        "Period" =: _pmaPeriod,
-        "AlarmDescription" =: _pmaAlarmDescription,
-        "MetricName" =: _pmaMetricName,
-        "Namespace" =: _pmaNamespace,
-        "ThresholdMetricId" =: _pmaThresholdMetricId,
-        "OKActions" =: toQuery (toQueryList "member" <$> _pmaOKActions),
+    Lude.mconcat
+      [ "Action" Lude.=: ("PutMetricAlarm" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "Metrics"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> metrics),
+        "TreatMissingData" Lude.=: treatMissingData,
+        "Period" Lude.=: period,
+        "AlarmDescription" Lude.=: alarmDescription,
+        "MetricName" Lude.=: metricName,
+        "Namespace" Lude.=: namespace,
+        "ThresholdMetricId" Lude.=: thresholdMetricId,
+        "OKActions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> okActions),
         "EvaluateLowSampleCountPercentile"
-          =: _pmaEvaluateLowSampleCountPercentile,
-        "DatapointsToAlarm" =: _pmaDatapointsToAlarm,
-        "Threshold" =: _pmaThreshold,
-        "ActionsEnabled" =: _pmaActionsEnabled,
+          Lude.=: evaluateLowSampleCountPercentile,
+        "DatapointsToAlarm" Lude.=: datapointsToAlarm,
+        "Threshold" Lude.=: threshold,
+        "ActionsEnabled" Lude.=: actionsEnabled,
         "InsufficientDataActions"
-          =: toQuery (toQueryList "member" <$> _pmaInsufficientDataActions),
-        "Dimensions" =: toQuery (toQueryList "member" <$> _pmaDimensions),
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "member" Lude.<$> insufficientDataActions),
+        "Dimensions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions),
         "AlarmActions"
-          =: toQuery (toQueryList "member" <$> _pmaAlarmActions),
-        "Unit" =: _pmaUnit,
-        "Statistic" =: _pmaStatistic,
-        "Tags" =: toQuery (toQueryList "member" <$> _pmaTags),
-        "ExtendedStatistic" =: _pmaExtendedStatistic,
-        "AlarmName" =: _pmaAlarmName,
-        "EvaluationPeriods" =: _pmaEvaluationPeriods,
-        "ComparisonOperator" =: _pmaComparisonOperator
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> alarmActions),
+        "Unit" Lude.=: unit,
+        "Statistic" Lude.=: statistic,
+        "Tags"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
+        "ExtendedStatistic" Lude.=: extendedStatistic,
+        "AlarmName" Lude.=: alarmName,
+        "EvaluationPeriods" Lude.=: evaluationPeriods,
+        "ComparisonOperator" Lude.=: comparisonOperator
       ]
 
--- | /See:/ 'putMetricAlarmResponse' smart constructor.
+-- | /See:/ 'mkPutMetricAlarmResponse' smart constructor.
 data PutMetricAlarmResponse = PutMetricAlarmResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutMetricAlarmResponse' with the minimum fields required to make a request.
-putMetricAlarmResponse ::
+mkPutMetricAlarmResponse ::
   PutMetricAlarmResponse
-putMetricAlarmResponse = PutMetricAlarmResponse'
-
-instance NFData PutMetricAlarmResponse
+mkPutMetricAlarmResponse = PutMetricAlarmResponse'

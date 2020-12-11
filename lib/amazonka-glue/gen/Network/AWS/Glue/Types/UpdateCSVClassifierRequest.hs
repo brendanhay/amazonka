@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,106 +7,135 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.UpdateCSVClassifierRequest where
+module Network.AWS.Glue.Types.UpdateCSVClassifierRequest
+  ( UpdateCSVClassifierRequest (..),
+
+    -- * Smart constructor
+    mkUpdateCSVClassifierRequest,
+
+    -- * Lenses
+    uccrQuoteSymbol,
+    uccrContainsHeader,
+    uccrDisableValueTrimming,
+    uccrHeader,
+    uccrAllowSingleColumn,
+    uccrDelimiter,
+    uccrName,
+  )
+where
 
 import Network.AWS.Glue.Types.CSVHeaderOption
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies a custom CSV classifier to be updated.
 --
---
---
--- /See:/ 'updateCSVClassifierRequest' smart constructor.
+-- /See:/ 'mkUpdateCSVClassifierRequest' smart constructor.
 data UpdateCSVClassifierRequest = UpdateCSVClassifierRequest'
-  { _uccrQuoteSymbol ::
-      !(Maybe Text),
-    _uccrContainsHeader ::
-      !(Maybe CSVHeaderOption),
-    _uccrDisableValueTrimming ::
-      !(Maybe Bool),
-    _uccrHeader :: !(Maybe [Text]),
-    _uccrAllowSingleColumn ::
-      !(Maybe Bool),
-    _uccrDelimiter :: !(Maybe Text),
-    _uccrName :: !Text
+  { quoteSymbol ::
+      Lude.Maybe Lude.Text,
+    containsHeader ::
+      Lude.Maybe CSVHeaderOption,
+    disableValueTrimming ::
+      Lude.Maybe Lude.Bool,
+    header :: Lude.Maybe [Lude.Text],
+    allowSingleColumn ::
+      Lude.Maybe Lude.Bool,
+    delimiter :: Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCSVClassifierRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uccrQuoteSymbol' - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
---
--- * 'uccrContainsHeader' - Indicates whether the CSV file contains a header.
---
--- * 'uccrDisableValueTrimming' - Specifies not to trim values before identifying the type of column values. The default value is true.
---
--- * 'uccrHeader' - A list of strings representing column names.
---
--- * 'uccrAllowSingleColumn' - Enables the processing of files that contain only one column.
---
--- * 'uccrDelimiter' - A custom symbol to denote what separates each column entry in the row.
---
--- * 'uccrName' - The name of the classifier.
-updateCSVClassifierRequest ::
-  -- | 'uccrName'
-  Text ->
+-- * 'allowSingleColumn' - Enables the processing of files that contain only one column.
+-- * 'containsHeader' - Indicates whether the CSV file contains a header.
+-- * 'delimiter' - A custom symbol to denote what separates each column entry in the row.
+-- * 'disableValueTrimming' - Specifies not to trim values before identifying the type of column values. The default value is true.
+-- * 'header' - A list of strings representing column names.
+-- * 'name' - The name of the classifier.
+-- * 'quoteSymbol' - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+mkUpdateCSVClassifierRequest ::
+  -- | 'name'
+  Lude.Text ->
   UpdateCSVClassifierRequest
-updateCSVClassifierRequest pName_ =
+mkUpdateCSVClassifierRequest pName_ =
   UpdateCSVClassifierRequest'
-    { _uccrQuoteSymbol = Nothing,
-      _uccrContainsHeader = Nothing,
-      _uccrDisableValueTrimming = Nothing,
-      _uccrHeader = Nothing,
-      _uccrAllowSingleColumn = Nothing,
-      _uccrDelimiter = Nothing,
-      _uccrName = pName_
+    { quoteSymbol = Lude.Nothing,
+      containsHeader = Lude.Nothing,
+      disableValueTrimming = Lude.Nothing,
+      header = Lude.Nothing,
+      allowSingleColumn = Lude.Nothing,
+      delimiter = Lude.Nothing,
+      name = pName_
     }
 
 -- | A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
-uccrQuoteSymbol :: Lens' UpdateCSVClassifierRequest (Maybe Text)
-uccrQuoteSymbol = lens _uccrQuoteSymbol (\s a -> s {_uccrQuoteSymbol = a})
+--
+-- /Note:/ Consider using 'quoteSymbol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccrQuoteSymbol :: Lens.Lens' UpdateCSVClassifierRequest (Lude.Maybe Lude.Text)
+uccrQuoteSymbol = Lens.lens (quoteSymbol :: UpdateCSVClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {quoteSymbol = a} :: UpdateCSVClassifierRequest)
+{-# DEPRECATED uccrQuoteSymbol "Use generic-lens or generic-optics with 'quoteSymbol' instead." #-}
 
 -- | Indicates whether the CSV file contains a header.
-uccrContainsHeader :: Lens' UpdateCSVClassifierRequest (Maybe CSVHeaderOption)
-uccrContainsHeader = lens _uccrContainsHeader (\s a -> s {_uccrContainsHeader = a})
+--
+-- /Note:/ Consider using 'containsHeader' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccrContainsHeader :: Lens.Lens' UpdateCSVClassifierRequest (Lude.Maybe CSVHeaderOption)
+uccrContainsHeader = Lens.lens (containsHeader :: UpdateCSVClassifierRequest -> Lude.Maybe CSVHeaderOption) (\s a -> s {containsHeader = a} :: UpdateCSVClassifierRequest)
+{-# DEPRECATED uccrContainsHeader "Use generic-lens or generic-optics with 'containsHeader' instead." #-}
 
 -- | Specifies not to trim values before identifying the type of column values. The default value is true.
-uccrDisableValueTrimming :: Lens' UpdateCSVClassifierRequest (Maybe Bool)
-uccrDisableValueTrimming = lens _uccrDisableValueTrimming (\s a -> s {_uccrDisableValueTrimming = a})
+--
+-- /Note:/ Consider using 'disableValueTrimming' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccrDisableValueTrimming :: Lens.Lens' UpdateCSVClassifierRequest (Lude.Maybe Lude.Bool)
+uccrDisableValueTrimming = Lens.lens (disableValueTrimming :: UpdateCSVClassifierRequest -> Lude.Maybe Lude.Bool) (\s a -> s {disableValueTrimming = a} :: UpdateCSVClassifierRequest)
+{-# DEPRECATED uccrDisableValueTrimming "Use generic-lens or generic-optics with 'disableValueTrimming' instead." #-}
 
 -- | A list of strings representing column names.
-uccrHeader :: Lens' UpdateCSVClassifierRequest [Text]
-uccrHeader = lens _uccrHeader (\s a -> s {_uccrHeader = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'header' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccrHeader :: Lens.Lens' UpdateCSVClassifierRequest (Lude.Maybe [Lude.Text])
+uccrHeader = Lens.lens (header :: UpdateCSVClassifierRequest -> Lude.Maybe [Lude.Text]) (\s a -> s {header = a} :: UpdateCSVClassifierRequest)
+{-# DEPRECATED uccrHeader "Use generic-lens or generic-optics with 'header' instead." #-}
 
 -- | Enables the processing of files that contain only one column.
-uccrAllowSingleColumn :: Lens' UpdateCSVClassifierRequest (Maybe Bool)
-uccrAllowSingleColumn = lens _uccrAllowSingleColumn (\s a -> s {_uccrAllowSingleColumn = a})
+--
+-- /Note:/ Consider using 'allowSingleColumn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccrAllowSingleColumn :: Lens.Lens' UpdateCSVClassifierRequest (Lude.Maybe Lude.Bool)
+uccrAllowSingleColumn = Lens.lens (allowSingleColumn :: UpdateCSVClassifierRequest -> Lude.Maybe Lude.Bool) (\s a -> s {allowSingleColumn = a} :: UpdateCSVClassifierRequest)
+{-# DEPRECATED uccrAllowSingleColumn "Use generic-lens or generic-optics with 'allowSingleColumn' instead." #-}
 
 -- | A custom symbol to denote what separates each column entry in the row.
-uccrDelimiter :: Lens' UpdateCSVClassifierRequest (Maybe Text)
-uccrDelimiter = lens _uccrDelimiter (\s a -> s {_uccrDelimiter = a})
+--
+-- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccrDelimiter :: Lens.Lens' UpdateCSVClassifierRequest (Lude.Maybe Lude.Text)
+uccrDelimiter = Lens.lens (delimiter :: UpdateCSVClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {delimiter = a} :: UpdateCSVClassifierRequest)
+{-# DEPRECATED uccrDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
 
 -- | The name of the classifier.
-uccrName :: Lens' UpdateCSVClassifierRequest Text
-uccrName = lens _uccrName (\s a -> s {_uccrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccrName :: Lens.Lens' UpdateCSVClassifierRequest Lude.Text
+uccrName = Lens.lens (name :: UpdateCSVClassifierRequest -> Lude.Text) (\s a -> s {name = a} :: UpdateCSVClassifierRequest)
+{-# DEPRECATED uccrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Hashable UpdateCSVClassifierRequest
-
-instance NFData UpdateCSVClassifierRequest
-
-instance ToJSON UpdateCSVClassifierRequest where
+instance Lude.ToJSON UpdateCSVClassifierRequest where
   toJSON UpdateCSVClassifierRequest' {..} =
-    object
-      ( catMaybes
-          [ ("QuoteSymbol" .=) <$> _uccrQuoteSymbol,
-            ("ContainsHeader" .=) <$> _uccrContainsHeader,
-            ("DisableValueTrimming" .=) <$> _uccrDisableValueTrimming,
-            ("Header" .=) <$> _uccrHeader,
-            ("AllowSingleColumn" .=) <$> _uccrAllowSingleColumn,
-            ("Delimiter" .=) <$> _uccrDelimiter,
-            Just ("Name" .= _uccrName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("QuoteSymbol" Lude..=) Lude.<$> quoteSymbol,
+            ("ContainsHeader" Lude..=) Lude.<$> containsHeader,
+            ("DisableValueTrimming" Lude..=) Lude.<$> disableValueTrimming,
+            ("Header" Lude..=) Lude.<$> header,
+            ("AllowSingleColumn" Lude..=) Lude.<$> allowSingleColumn,
+            ("Delimiter" Lude..=) Lude.<$> delimiter,
+            Lude.Just ("Name" Lude..= name)
           ]
       )

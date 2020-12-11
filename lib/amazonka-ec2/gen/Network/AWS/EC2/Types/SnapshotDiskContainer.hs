@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.SnapshotDiskContainer where
+module Network.AWS.EC2.Types.SnapshotDiskContainer
+  ( SnapshotDiskContainer (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkSnapshotDiskContainer,
+
+    -- * Lenses
+    sdcFormat,
+    sdcURL,
+    sdcUserBucket,
+    sdcDescription,
+  )
+where
+
 import Network.AWS.EC2.Types.UserBucket
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The disk container object for the import snapshot request.
 --
---
---
--- /See:/ 'snapshotDiskContainer' smart constructor.
+-- /See:/ 'mkSnapshotDiskContainer' smart constructor.
 data SnapshotDiskContainer = SnapshotDiskContainer'
-  { _sdcFormat ::
-      !(Maybe Text),
-    _sdcURL :: !(Maybe Text),
-    _sdcUserBucket :: !(Maybe UserBucket),
-    _sdcDescription :: !(Maybe Text)
+  { format ::
+      Lude.Maybe Lude.Text,
+    url :: Lude.Maybe Lude.Text,
+    userBucket :: Lude.Maybe UserBucket,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotDiskContainer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'description' - The description of the disk image being imported.
+-- * 'format' - The format of the disk image being imported.
 --
--- * 'sdcFormat' - The format of the disk image being imported. Valid values: @VHD@ | @VMDK@
---
--- * 'sdcURL' - The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).
---
--- * 'sdcUserBucket' - The Amazon S3 bucket for the disk image.
---
--- * 'sdcDescription' - The description of the disk image being imported.
-snapshotDiskContainer ::
+-- Valid values: @VHD@ | @VMDK@
+-- * 'url' - The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).
+-- * 'userBucket' - The Amazon S3 bucket for the disk image.
+mkSnapshotDiskContainer ::
   SnapshotDiskContainer
-snapshotDiskContainer =
+mkSnapshotDiskContainer =
   SnapshotDiskContainer'
-    { _sdcFormat = Nothing,
-      _sdcURL = Nothing,
-      _sdcUserBucket = Nothing,
-      _sdcDescription = Nothing
+    { format = Lude.Nothing,
+      url = Lude.Nothing,
+      userBucket = Lude.Nothing,
+      description = Lude.Nothing
     }
 
--- | The format of the disk image being imported. Valid values: @VHD@ | @VMDK@
-sdcFormat :: Lens' SnapshotDiskContainer (Maybe Text)
-sdcFormat = lens _sdcFormat (\s a -> s {_sdcFormat = a})
+-- | The format of the disk image being imported.
+--
+-- Valid values: @VHD@ | @VMDK@
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcFormat :: Lens.Lens' SnapshotDiskContainer (Lude.Maybe Lude.Text)
+sdcFormat = Lens.lens (format :: SnapshotDiskContainer -> Lude.Maybe Lude.Text) (\s a -> s {format = a} :: SnapshotDiskContainer)
+{-# DEPRECATED sdcFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).
-sdcURL :: Lens' SnapshotDiskContainer (Maybe Text)
-sdcURL = lens _sdcURL (\s a -> s {_sdcURL = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcURL :: Lens.Lens' SnapshotDiskContainer (Lude.Maybe Lude.Text)
+sdcURL = Lens.lens (url :: SnapshotDiskContainer -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: SnapshotDiskContainer)
+{-# DEPRECATED sdcURL "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The Amazon S3 bucket for the disk image.
-sdcUserBucket :: Lens' SnapshotDiskContainer (Maybe UserBucket)
-sdcUserBucket = lens _sdcUserBucket (\s a -> s {_sdcUserBucket = a})
+--
+-- /Note:/ Consider using 'userBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcUserBucket :: Lens.Lens' SnapshotDiskContainer (Lude.Maybe UserBucket)
+sdcUserBucket = Lens.lens (userBucket :: SnapshotDiskContainer -> Lude.Maybe UserBucket) (\s a -> s {userBucket = a} :: SnapshotDiskContainer)
+{-# DEPRECATED sdcUserBucket "Use generic-lens or generic-optics with 'userBucket' instead." #-}
 
 -- | The description of the disk image being imported.
-sdcDescription :: Lens' SnapshotDiskContainer (Maybe Text)
-sdcDescription = lens _sdcDescription (\s a -> s {_sdcDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcDescription :: Lens.Lens' SnapshotDiskContainer (Lude.Maybe Lude.Text)
+sdcDescription = Lens.lens (description :: SnapshotDiskContainer -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SnapshotDiskContainer)
+{-# DEPRECATED sdcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Hashable SnapshotDiskContainer
-
-instance NFData SnapshotDiskContainer
-
-instance ToQuery SnapshotDiskContainer where
+instance Lude.ToQuery SnapshotDiskContainer where
   toQuery SnapshotDiskContainer' {..} =
-    mconcat
-      [ "Format" =: _sdcFormat,
-        "Url" =: _sdcURL,
-        "UserBucket" =: _sdcUserBucket,
-        "Description" =: _sdcDescription
+    Lude.mconcat
+      [ "Format" Lude.=: format,
+        "Url" Lude.=: url,
+        "UserBucket" Lude.=: userBucket,
+        "Description" Lude.=: description
       ]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets a list of build project names, with each build project name representing a single build project.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListProjects
-  ( -- * Creating a Request
-    listProjects,
-    ListProjects,
+  ( -- * Creating a request
+    ListProjects (..),
+    mkListProjects,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lpSortOrder,
     lpNextToken,
     lpSortBy,
 
-    -- * Destructuring the Response
-    listProjectsResponse,
-    ListProjectsResponse,
+    -- * Destructuring the response
+    ListProjectsResponse (..),
+    mkListProjectsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lprsNextToken,
     lprsProjects,
     lprsResponseStatus,
@@ -44,136 +37,202 @@ module Network.AWS.CodeBuild.ListProjects
 where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listProjects' smart constructor.
+-- | /See:/ 'mkListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { _lpSortOrder ::
-      !(Maybe SortOrderType),
-    _lpNextToken :: !(Maybe Text),
-    _lpSortBy :: !(Maybe ProjectSortByType)
+  { sortOrder ::
+      Lude.Maybe SortOrderType,
+    nextToken :: Lude.Maybe Lude.Text,
+    sortBy :: Lude.Maybe ProjectSortByType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'nextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'sortBy' - The criterion to be used to list build project names. Valid values include:
 --
--- * 'lpSortOrder' - The order in which to list build projects. Valid values include:     * @ASCENDING@ : List in ascending order.     * @DESCENDING@ : List in descending order. Use @sortBy@ to specify the criterion to be used to list build project names.
 --
--- * 'lpNextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+--     * @CREATED_TIME@ : List based on when each build project was created.
 --
--- * 'lpSortBy' - The criterion to be used to list build project names. Valid values include:     * @CREATED_TIME@ : List based on when each build project was created.     * @LAST_MODIFIED_TIME@ : List based on when information about each build project was last changed.     * @NAME@ : List based on each build project's name. Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
-listProjects ::
+--
+--     * @LAST_MODIFIED_TIME@ : List based on when information about each build project was last changed.
+--
+--
+--     * @NAME@ : List based on each build project's name.
+--
+--
+-- Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
+-- * 'sortOrder' - The order in which to list build projects. Valid values include:
+--
+--
+--     * @ASCENDING@ : List in ascending order.
+--
+--
+--     * @DESCENDING@ : List in descending order.
+--
+--
+-- Use @sortBy@ to specify the criterion to be used to list build project names.
+mkListProjects ::
   ListProjects
-listProjects =
+mkListProjects =
   ListProjects'
-    { _lpSortOrder = Nothing,
-      _lpNextToken = Nothing,
-      _lpSortBy = Nothing
+    { sortOrder = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      sortBy = Lude.Nothing
     }
 
--- | The order in which to list build projects. Valid values include:     * @ASCENDING@ : List in ascending order.     * @DESCENDING@ : List in descending order. Use @sortBy@ to specify the criterion to be used to list build project names.
-lpSortOrder :: Lens' ListProjects (Maybe SortOrderType)
-lpSortOrder = lens _lpSortOrder (\s a -> s {_lpSortOrder = a})
+-- | The order in which to list build projects. Valid values include:
+--
+--
+--     * @ASCENDING@ : List in ascending order.
+--
+--
+--     * @DESCENDING@ : List in descending order.
+--
+--
+-- Use @sortBy@ to specify the criterion to be used to list build project names.
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpSortOrder :: Lens.Lens' ListProjects (Lude.Maybe SortOrderType)
+lpSortOrder = Lens.lens (sortOrder :: ListProjects -> Lude.Maybe SortOrderType) (\s a -> s {sortOrder = a} :: ListProjects)
+{-# DEPRECATED lpSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-lpNextToken :: Lens' ListProjects (Maybe Text)
-lpNextToken = lens _lpNextToken (\s a -> s {_lpNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpNextToken :: Lens.Lens' ListProjects (Lude.Maybe Lude.Text)
+lpNextToken = Lens.lens (nextToken :: ListProjects -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProjects)
+{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The criterion to be used to list build project names. Valid values include:     * @CREATED_TIME@ : List based on when each build project was created.     * @LAST_MODIFIED_TIME@ : List based on when information about each build project was last changed.     * @NAME@ : List based on each build project's name. Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
-lpSortBy :: Lens' ListProjects (Maybe ProjectSortByType)
-lpSortBy = lens _lpSortBy (\s a -> s {_lpSortBy = a})
+-- | The criterion to be used to list build project names. Valid values include:
+--
+--
+--     * @CREATED_TIME@ : List based on when each build project was created.
+--
+--
+--     * @LAST_MODIFIED_TIME@ : List based on when information about each build project was last changed.
+--
+--
+--     * @NAME@ : List based on each build project's name.
+--
+--
+-- Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
+--
+-- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpSortBy :: Lens.Lens' ListProjects (Lude.Maybe ProjectSortByType)
+lpSortBy = Lens.lens (sortBy :: ListProjects -> Lude.Maybe ProjectSortByType) (\s a -> s {sortBy = a} :: ListProjects)
+{-# DEPRECATED lpSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance AWSPager ListProjects where
+instance Page.AWSPager ListProjects where
   page rq rs
-    | stop (rs ^. lprsNextToken) = Nothing
-    | stop (rs ^. lprsProjects) = Nothing
-    | otherwise = Just $ rq & lpNextToken .~ rs ^. lprsNextToken
+    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lprsProjects) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
 
-instance AWSRequest ListProjects where
+instance Lude.AWSRequest ListProjects where
   type Rs ListProjects = ListProjectsResponse
-  request = postJSON codeBuild
+  request = Req.postJSON codeBuildService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            <$> (x .?> "nextToken") <*> (x .?> "projects") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "projects")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListProjects
-
-instance NFData ListProjects
-
-instance ToHeaders ListProjects where
+instance Lude.ToHeaders ListProjects where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeBuild_20161006.ListProjects" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeBuild_20161006.ListProjects" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListProjects where
+instance Lude.ToJSON ListProjects where
   toJSON ListProjects' {..} =
-    object
-      ( catMaybes
-          [ ("sortOrder" .=) <$> _lpSortOrder,
-            ("nextToken" .=) <$> _lpNextToken,
-            ("sortBy" .=) <$> _lpSortBy
+    Lude.object
+      ( Lude.catMaybes
+          [ ("sortOrder" Lude..=) Lude.<$> sortOrder,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("sortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
-instance ToPath ListProjects where
-  toPath = const "/"
+instance Lude.ToPath ListProjects where
+  toPath = Lude.const "/"
 
-instance ToQuery ListProjects where
-  toQuery = const mempty
+instance Lude.ToQuery ListProjects where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listProjectsResponse' smart constructor.
+-- | /See:/ 'mkListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { _lprsNextToken ::
-      !(Maybe Text),
-    _lprsProjects :: !(Maybe (List1 Text)),
-    _lprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    projects :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lprsNextToken' - If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
---
--- * 'lprsProjects' - The list of build project names, with each build project name representing a single build project.
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listProjectsResponse ::
-  -- | 'lprsResponseStatus'
-  Int ->
+-- * 'nextToken' - If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
+-- * 'projects' - The list of build project names, with each build project name representing a single build project.
+-- * 'responseStatus' - The response status code.
+mkListProjectsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListProjectsResponse
-listProjectsResponse pResponseStatus_ =
+mkListProjectsResponse pResponseStatus_ =
   ListProjectsResponse'
-    { _lprsNextToken = Nothing,
-      _lprsProjects = Nothing,
-      _lprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      projects = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
-lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\s a -> s {_lprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsNextToken :: Lens.Lens' ListProjectsResponse (Lude.Maybe Lude.Text)
+lprsNextToken = Lens.lens (nextToken :: ListProjectsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProjectsResponse)
+{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of build project names, with each build project name representing a single build project.
-lprsProjects :: Lens' ListProjectsResponse (Maybe (NonEmpty Text))
-lprsProjects = lens _lprsProjects (\s a -> s {_lprsProjects = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'projects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsProjects :: Lens.Lens' ListProjectsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+lprsProjects = Lens.lens (projects :: ListProjectsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {projects = a} :: ListProjectsResponse)
+{-# DEPRECATED lprsProjects "Use generic-lens or generic-optics with 'projects' instead." #-}
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListProjectsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\s a -> s {_lprsResponseStatus = a})
-
-instance NFData ListProjectsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprsResponseStatus :: Lens.Lens' ListProjectsResponse Lude.Int
+lprsResponseStatus = Lens.lens (responseStatus :: ListProjectsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProjectsResponse)
+{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

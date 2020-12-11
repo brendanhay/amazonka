@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,70 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor where
+module Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
+  ( BurninSubtitleOutlineColor
+      ( BurninSubtitleOutlineColor',
+        BSOCBlack,
+        BSOCBlue,
+        BSOCGreen,
+        BSOCRed,
+        BSOCWhite,
+        BSOCYellow
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-data BurninSubtitleOutlineColor
-  = BSOCBlack
-  | BSOCBlue
-  | BSOCGreen
-  | BSOCRed
-  | BSOCWhite
-  | BSOCYellow
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BurninSubtitleOutlineColor = BurninSubtitleOutlineColor' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BurninSubtitleOutlineColor where
-  parser =
-    takeLowerText >>= \case
-      "black" -> pure BSOCBlack
-      "blue" -> pure BSOCBlue
-      "green" -> pure BSOCGreen
-      "red" -> pure BSOCRed
-      "white" -> pure BSOCWhite
-      "yellow" -> pure BSOCYellow
-      e ->
-        fromTextError $
-          "Failure parsing BurninSubtitleOutlineColor from value: '" <> e
-            <> "'. Accepted values: black, blue, green, red, white, yellow"
+pattern BSOCBlack :: BurninSubtitleOutlineColor
+pattern BSOCBlack = BurninSubtitleOutlineColor' "BLACK"
 
-instance ToText BurninSubtitleOutlineColor where
-  toText = \case
-    BSOCBlack -> "BLACK"
-    BSOCBlue -> "BLUE"
-    BSOCGreen -> "GREEN"
-    BSOCRed -> "RED"
-    BSOCWhite -> "WHITE"
-    BSOCYellow -> "YELLOW"
+pattern BSOCBlue :: BurninSubtitleOutlineColor
+pattern BSOCBlue = BurninSubtitleOutlineColor' "BLUE"
 
-instance Hashable BurninSubtitleOutlineColor
+pattern BSOCGreen :: BurninSubtitleOutlineColor
+pattern BSOCGreen = BurninSubtitleOutlineColor' "GREEN"
 
-instance NFData BurninSubtitleOutlineColor
+pattern BSOCRed :: BurninSubtitleOutlineColor
+pattern BSOCRed = BurninSubtitleOutlineColor' "RED"
 
-instance ToByteString BurninSubtitleOutlineColor
+pattern BSOCWhite :: BurninSubtitleOutlineColor
+pattern BSOCWhite = BurninSubtitleOutlineColor' "WHITE"
 
-instance ToQuery BurninSubtitleOutlineColor
+pattern BSOCYellow :: BurninSubtitleOutlineColor
+pattern BSOCYellow = BurninSubtitleOutlineColor' "YELLOW"
 
-instance ToHeader BurninSubtitleOutlineColor
-
-instance ToJSON BurninSubtitleOutlineColor where
-  toJSON = toJSONText
-
-instance FromJSON BurninSubtitleOutlineColor where
-  parseJSON = parseJSONText "BurninSubtitleOutlineColor"
+{-# COMPLETE
+  BSOCBlack,
+  BSOCBlue,
+  BSOCGreen,
+  BSOCRed,
+  BSOCWhite,
+  BSOCYellow,
+  BurninSubtitleOutlineColor'
+  #-}

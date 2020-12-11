@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,130 +14,151 @@
 --
 -- Adds a new schema to your GraphQL API.
 --
---
 -- This operation is asynchronous. Use to determine when it has completed.
 module Network.AWS.AppSync.StartSchemaCreation
-  ( -- * Creating a Request
-    startSchemaCreation,
-    StartSchemaCreation,
+  ( -- * Creating a request
+    StartSchemaCreation (..),
+    mkStartSchemaCreation,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sscApiId,
     sscDefinition,
 
-    -- * Destructuring the Response
-    startSchemaCreationResponse,
-    StartSchemaCreationResponse,
+    -- * Destructuring the response
+    StartSchemaCreationResponse (..),
+    mkStartSchemaCreationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     sscrsStatus,
     sscrsResponseStatus,
   )
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'startSchemaCreation' smart constructor.
+-- | /See:/ 'mkStartSchemaCreation' smart constructor.
 data StartSchemaCreation = StartSchemaCreation'
-  { _sscApiId :: !Text,
-    _sscDefinition :: !Base64
+  { apiId :: Lude.Text,
+    definition :: Lude.Base64
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSchemaCreation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sscApiId' - The API ID.
---
--- * 'sscDefinition' - The schema definition, in GraphQL schema language format.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-startSchemaCreation ::
-  -- | 'sscApiId'
-  Text ->
-  -- | 'sscDefinition'
-  ByteString ->
+-- * 'apiId' - The API ID.
+-- * 'definition' - The schema definition, in GraphQL schema language format.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+mkStartSchemaCreation ::
+  -- | 'apiId'
+  Lude.Text ->
+  -- | 'definition'
+  Lude.Base64 ->
   StartSchemaCreation
-startSchemaCreation pApiId_ pDefinition_ =
-  StartSchemaCreation'
-    { _sscApiId = pApiId_,
-      _sscDefinition = _Base64 # pDefinition_
-    }
+mkStartSchemaCreation pApiId_ pDefinition_ =
+  StartSchemaCreation' {apiId = pApiId_, definition = pDefinition_}
 
 -- | The API ID.
-sscApiId :: Lens' StartSchemaCreation Text
-sscApiId = lens _sscApiId (\s a -> s {_sscApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscApiId :: Lens.Lens' StartSchemaCreation Lude.Text
+sscApiId = Lens.lens (apiId :: StartSchemaCreation -> Lude.Text) (\s a -> s {apiId = a} :: StartSchemaCreation)
+{-# DEPRECATED sscApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
--- | The schema definition, in GraphQL schema language format.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-sscDefinition :: Lens' StartSchemaCreation ByteString
-sscDefinition = lens _sscDefinition (\s a -> s {_sscDefinition = a}) . _Base64
+-- | The schema definition, in GraphQL schema language format.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscDefinition :: Lens.Lens' StartSchemaCreation Lude.Base64
+sscDefinition = Lens.lens (definition :: StartSchemaCreation -> Lude.Base64) (\s a -> s {definition = a} :: StartSchemaCreation)
+{-# DEPRECATED sscDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
-instance AWSRequest StartSchemaCreation where
+instance Lude.AWSRequest StartSchemaCreation where
   type Rs StartSchemaCreation = StartSchemaCreationResponse
-  request = postJSON appSync
+  request = Req.postJSON appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartSchemaCreationResponse'
-            <$> (x .?> "status") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartSchemaCreation
-
-instance NFData StartSchemaCreation
-
-instance ToHeaders StartSchemaCreation where
+instance Lude.ToHeaders StartSchemaCreation where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON StartSchemaCreation where
+instance Lude.ToJSON StartSchemaCreation where
   toJSON StartSchemaCreation' {..} =
-    object (catMaybes [Just ("definition" .= _sscDefinition)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("definition" Lude..= definition)])
 
-instance ToPath StartSchemaCreation where
+instance Lude.ToPath StartSchemaCreation where
   toPath StartSchemaCreation' {..} =
-    mconcat ["/v1/apis/", toBS _sscApiId, "/schemacreation"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/schemacreation"]
 
-instance ToQuery StartSchemaCreation where
-  toQuery = const mempty
+instance Lude.ToQuery StartSchemaCreation where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startSchemaCreationResponse' smart constructor.
+-- | /See:/ 'mkStartSchemaCreationResponse' smart constructor.
 data StartSchemaCreationResponse = StartSchemaCreationResponse'
-  { _sscrsStatus ::
-      !(Maybe SchemaStatus),
-    _sscrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe SchemaStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSchemaCreationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sscrsStatus' - The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
---
--- * 'sscrsResponseStatus' - -- | The response status code.
-startSchemaCreationResponse ::
-  -- | 'sscrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
+mkStartSchemaCreationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartSchemaCreationResponse
-startSchemaCreationResponse pResponseStatus_ =
+mkStartSchemaCreationResponse pResponseStatus_ =
   StartSchemaCreationResponse'
-    { _sscrsStatus = Nothing,
-      _sscrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
-sscrsStatus :: Lens' StartSchemaCreationResponse (Maybe SchemaStatus)
-sscrsStatus = lens _sscrsStatus (\s a -> s {_sscrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscrsStatus :: Lens.Lens' StartSchemaCreationResponse (Lude.Maybe SchemaStatus)
+sscrsStatus = Lens.lens (status :: StartSchemaCreationResponse -> Lude.Maybe SchemaStatus) (\s a -> s {status = a} :: StartSchemaCreationResponse)
+{-# DEPRECATED sscrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | -- | The response status code.
-sscrsResponseStatus :: Lens' StartSchemaCreationResponse Int
-sscrsResponseStatus = lens _sscrsResponseStatus (\s a -> s {_sscrsResponseStatus = a})
-
-instance NFData StartSchemaCreationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sscrsResponseStatus :: Lens.Lens' StartSchemaCreationResponse Lude.Int
+sscrsResponseStatus = Lens.lens (responseStatus :: StartSchemaCreationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartSchemaCreationResponse)
+{-# DEPRECATED sscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

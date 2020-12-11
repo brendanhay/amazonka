@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Returns a list of resource metadata for a given list of workflow names. After calling the @ListWorkflows@ operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.
 module Network.AWS.Glue.BatchGetWorkflows
-  ( -- * Creating a Request
-    batchGetWorkflows,
-    BatchGetWorkflows,
+  ( -- * Creating a request
+    BatchGetWorkflows (..),
+    mkBatchGetWorkflows,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgwIncludeGraph,
     bgwNames,
 
-    -- * Destructuring the Response
-    batchGetWorkflowsResponse,
-    BatchGetWorkflowsResponse,
+    -- * Destructuring the response
+    BatchGetWorkflowsResponse (..),
+    mkBatchGetWorkflowsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgwrsMissingWorkflows,
     bgwrsWorkflows,
     bgwrsResponseStatus,
@@ -39,124 +34,139 @@ module Network.AWS.Glue.BatchGetWorkflows
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetWorkflows' smart constructor.
+-- | /See:/ 'mkBatchGetWorkflows' smart constructor.
 data BatchGetWorkflows = BatchGetWorkflows'
-  { _bgwIncludeGraph ::
-      !(Maybe Bool),
-    _bgwNames :: !(List1 Text)
+  { includeGraph ::
+      Lude.Maybe Lude.Bool,
+    names :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetWorkflows' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgwIncludeGraph' - Specifies whether to include a graph when returning the workflow resource metadata.
---
--- * 'bgwNames' - A list of workflow names, which may be the names returned from the @ListWorkflows@ operation.
-batchGetWorkflows ::
-  -- | 'bgwNames'
-  NonEmpty Text ->
+-- * 'includeGraph' - Specifies whether to include a graph when returning the workflow resource metadata.
+-- * 'names' - A list of workflow names, which may be the names returned from the @ListWorkflows@ operation.
+mkBatchGetWorkflows ::
+  -- | 'names'
+  Lude.NonEmpty Lude.Text ->
   BatchGetWorkflows
-batchGetWorkflows pNames_ =
-  BatchGetWorkflows'
-    { _bgwIncludeGraph = Nothing,
-      _bgwNames = _List1 # pNames_
-    }
+mkBatchGetWorkflows pNames_ =
+  BatchGetWorkflows' {includeGraph = Lude.Nothing, names = pNames_}
 
 -- | Specifies whether to include a graph when returning the workflow resource metadata.
-bgwIncludeGraph :: Lens' BatchGetWorkflows (Maybe Bool)
-bgwIncludeGraph = lens _bgwIncludeGraph (\s a -> s {_bgwIncludeGraph = a})
+--
+-- /Note:/ Consider using 'includeGraph' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgwIncludeGraph :: Lens.Lens' BatchGetWorkflows (Lude.Maybe Lude.Bool)
+bgwIncludeGraph = Lens.lens (includeGraph :: BatchGetWorkflows -> Lude.Maybe Lude.Bool) (\s a -> s {includeGraph = a} :: BatchGetWorkflows)
+{-# DEPRECATED bgwIncludeGraph "Use generic-lens or generic-optics with 'includeGraph' instead." #-}
 
 -- | A list of workflow names, which may be the names returned from the @ListWorkflows@ operation.
-bgwNames :: Lens' BatchGetWorkflows (NonEmpty Text)
-bgwNames = lens _bgwNames (\s a -> s {_bgwNames = a}) . _List1
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgwNames :: Lens.Lens' BatchGetWorkflows (Lude.NonEmpty Lude.Text)
+bgwNames = Lens.lens (names :: BatchGetWorkflows -> Lude.NonEmpty Lude.Text) (\s a -> s {names = a} :: BatchGetWorkflows)
+{-# DEPRECATED bgwNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
-instance AWSRequest BatchGetWorkflows where
+instance Lude.AWSRequest BatchGetWorkflows where
   type Rs BatchGetWorkflows = BatchGetWorkflowsResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetWorkflowsResponse'
-            <$> (x .?> "MissingWorkflows")
-            <*> (x .?> "Workflows")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "MissingWorkflows")
+            Lude.<*> (x Lude..?> "Workflows")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetWorkflows
-
-instance NFData BatchGetWorkflows
-
-instance ToHeaders BatchGetWorkflows where
+instance Lude.ToHeaders BatchGetWorkflows where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.BatchGetWorkflows" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.BatchGetWorkflows" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetWorkflows where
+instance Lude.ToJSON BatchGetWorkflows where
   toJSON BatchGetWorkflows' {..} =
-    object
-      ( catMaybes
-          [ ("IncludeGraph" .=) <$> _bgwIncludeGraph,
-            Just ("Names" .= _bgwNames)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IncludeGraph" Lude..=) Lude.<$> includeGraph,
+            Lude.Just ("Names" Lude..= names)
           ]
       )
 
-instance ToPath BatchGetWorkflows where
-  toPath = const "/"
+instance Lude.ToPath BatchGetWorkflows where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetWorkflows where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetWorkflows where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetWorkflowsResponse' smart constructor.
+-- | /See:/ 'mkBatchGetWorkflowsResponse' smart constructor.
 data BatchGetWorkflowsResponse = BatchGetWorkflowsResponse'
-  { _bgwrsMissingWorkflows ::
-      !(Maybe (List1 Text)),
-    _bgwrsWorkflows ::
-      !(Maybe (List1 Workflow)),
-    _bgwrsResponseStatus :: !Int
+  { missingWorkflows ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    workflows ::
+      Lude.Maybe (Lude.NonEmpty Workflow),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetWorkflowsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgwrsMissingWorkflows' - A list of names of workflows not found.
---
--- * 'bgwrsWorkflows' - A list of workflow resource metadata.
---
--- * 'bgwrsResponseStatus' - -- | The response status code.
-batchGetWorkflowsResponse ::
-  -- | 'bgwrsResponseStatus'
-  Int ->
+-- * 'missingWorkflows' - A list of names of workflows not found.
+-- * 'responseStatus' - The response status code.
+-- * 'workflows' - A list of workflow resource metadata.
+mkBatchGetWorkflowsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetWorkflowsResponse
-batchGetWorkflowsResponse pResponseStatus_ =
+mkBatchGetWorkflowsResponse pResponseStatus_ =
   BatchGetWorkflowsResponse'
-    { _bgwrsMissingWorkflows = Nothing,
-      _bgwrsWorkflows = Nothing,
-      _bgwrsResponseStatus = pResponseStatus_
+    { missingWorkflows = Lude.Nothing,
+      workflows = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of names of workflows not found.
-bgwrsMissingWorkflows :: Lens' BatchGetWorkflowsResponse (Maybe (NonEmpty Text))
-bgwrsMissingWorkflows = lens _bgwrsMissingWorkflows (\s a -> s {_bgwrsMissingWorkflows = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'missingWorkflows' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgwrsMissingWorkflows :: Lens.Lens' BatchGetWorkflowsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+bgwrsMissingWorkflows = Lens.lens (missingWorkflows :: BatchGetWorkflowsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {missingWorkflows = a} :: BatchGetWorkflowsResponse)
+{-# DEPRECATED bgwrsMissingWorkflows "Use generic-lens or generic-optics with 'missingWorkflows' instead." #-}
 
 -- | A list of workflow resource metadata.
-bgwrsWorkflows :: Lens' BatchGetWorkflowsResponse (Maybe (NonEmpty Workflow))
-bgwrsWorkflows = lens _bgwrsWorkflows (\s a -> s {_bgwrsWorkflows = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'workflows' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgwrsWorkflows :: Lens.Lens' BatchGetWorkflowsResponse (Lude.Maybe (Lude.NonEmpty Workflow))
+bgwrsWorkflows = Lens.lens (workflows :: BatchGetWorkflowsResponse -> Lude.Maybe (Lude.NonEmpty Workflow)) (\s a -> s {workflows = a} :: BatchGetWorkflowsResponse)
+{-# DEPRECATED bgwrsWorkflows "Use generic-lens or generic-optics with 'workflows' instead." #-}
 
--- | -- | The response status code.
-bgwrsResponseStatus :: Lens' BatchGetWorkflowsResponse Int
-bgwrsResponseStatus = lens _bgwrsResponseStatus (\s a -> s {_bgwrsResponseStatus = a})
-
-instance NFData BatchGetWorkflowsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgwrsResponseStatus :: Lens.Lens' BatchGetWorkflowsResponse Lude.Int
+bgwrsResponseStatus = Lens.lens (responseStatus :: BatchGetWorkflowsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetWorkflowsResponse)
+{-# DEPRECATED bgwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

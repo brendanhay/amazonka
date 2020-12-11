@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,29 +14,25 @@
 --
 -- Gets the text detection results of a Amazon Rekognition Video analysis started by 'StartTextDetection' .
 --
---
 -- Text detection with Amazon Rekognition Video is an asynchronous operation. You start text detection by calling 'StartTextDetection' which returns a job identifier (@JobId@ ) When the text detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartTextDetection@ . To get the results of the text detection operation, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . if so, call @GetTextDetection@ and pass the job identifier (@JobId@ ) from the initial call of @StartLabelDetection@ .
---
 -- @GetTextDetection@ returns an array of detected text (@TextDetections@ ) sorted by the time the text was detected, up to 50 words per frame of video.
---
 -- Each element of the array includes the detected text, the precentage confidence in the acuracy of the detected text, the time the text was detected, bounding box information for where the text was located, and unique identifiers for words and their lines.
---
 -- Use MaxResults parameter to limit the number of text detections returned. If there are more results than specified in @MaxResults@ , the value of @NextToken@ in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call @GetTextDetection@ and populate the @NextToken@ request parameter with the token value returned from the previous call to @GetTextDetection@ .
 module Network.AWS.Rekognition.GetTextDetection
-  ( -- * Creating a Request
-    getTextDetection,
-    GetTextDetection,
+  ( -- * Creating a request
+    GetTextDetection (..),
+    mkGetTextDetection,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gtdNextToken,
     gtdMaxResults,
     gtdJobId,
 
-    -- * Destructuring the Response
-    getTextDetectionResponse,
-    GetTextDetectionResponse,
+    -- * Destructuring the response
+    GetTextDetectionResponse (..),
+    mkGetTextDetectionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gtdrsTextDetections,
     gtdrsNextToken,
     gtdrsVideoMetadata,
@@ -52,172 +43,197 @@ module Network.AWS.Rekognition.GetTextDetection
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getTextDetection' smart constructor.
+-- | /See:/ 'mkGetTextDetection' smart constructor.
 data GetTextDetection = GetTextDetection'
-  { _gtdNextToken ::
-      !(Maybe Text),
-    _gtdMaxResults :: !(Maybe Nat),
-    _gtdJobId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTextDetection' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtdNextToken' - If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.
---
--- * 'gtdMaxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000.
---
--- * 'gtdJobId' - Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartTextDetection@ .
-getTextDetection ::
-  -- | 'gtdJobId'
-  Text ->
+-- * 'jobId' - Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartTextDetection@ .
+-- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000.
+-- * 'nextToken' - If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.
+mkGetTextDetection ::
+  -- | 'jobId'
+  Lude.Text ->
   GetTextDetection
-getTextDetection pJobId_ =
+mkGetTextDetection pJobId_ =
   GetTextDetection'
-    { _gtdNextToken = Nothing,
-      _gtdMaxResults = Nothing,
-      _gtdJobId = pJobId_
+    { nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      jobId = pJobId_
     }
 
 -- | If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.
-gtdNextToken :: Lens' GetTextDetection (Maybe Text)
-gtdNextToken = lens _gtdNextToken (\s a -> s {_gtdNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdNextToken :: Lens.Lens' GetTextDetection (Lude.Maybe Lude.Text)
+gtdNextToken = Lens.lens (nextToken :: GetTextDetection -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTextDetection)
+{-# DEPRECATED gtdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000.
-gtdMaxResults :: Lens' GetTextDetection (Maybe Natural)
-gtdMaxResults = lens _gtdMaxResults (\s a -> s {_gtdMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdMaxResults :: Lens.Lens' GetTextDetection (Lude.Maybe Lude.Natural)
+gtdMaxResults = Lens.lens (maxResults :: GetTextDetection -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTextDetection)
+{-# DEPRECATED gtdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to @StartTextDetection@ .
-gtdJobId :: Lens' GetTextDetection Text
-gtdJobId = lens _gtdJobId (\s a -> s {_gtdJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdJobId :: Lens.Lens' GetTextDetection Lude.Text
+gtdJobId = Lens.lens (jobId :: GetTextDetection -> Lude.Text) (\s a -> s {jobId = a} :: GetTextDetection)
+{-# DEPRECATED gtdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest GetTextDetection where
+instance Lude.AWSRequest GetTextDetection where
   type Rs GetTextDetection = GetTextDetectionResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetTextDetectionResponse'
-            <$> (x .?> "TextDetections" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "VideoMetadata")
-            <*> (x .?> "StatusMessage")
-            <*> (x .?> "TextModelVersion")
-            <*> (x .?> "JobStatus")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TextDetections" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "VideoMetadata")
+            Lude.<*> (x Lude..?> "StatusMessage")
+            Lude.<*> (x Lude..?> "TextModelVersion")
+            Lude.<*> (x Lude..?> "JobStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTextDetection
-
-instance NFData GetTextDetection
-
-instance ToHeaders GetTextDetection where
+instance Lude.ToHeaders GetTextDetection where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.GetTextDetection" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.GetTextDetection" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetTextDetection where
+instance Lude.ToJSON GetTextDetection where
   toJSON GetTextDetection' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gtdNextToken,
-            ("MaxResults" .=) <$> _gtdMaxResults,
-            Just ("JobId" .= _gtdJobId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("JobId" Lude..= jobId)
           ]
       )
 
-instance ToPath GetTextDetection where
-  toPath = const "/"
+instance Lude.ToPath GetTextDetection where
+  toPath = Lude.const "/"
 
-instance ToQuery GetTextDetection where
-  toQuery = const mempty
+instance Lude.ToQuery GetTextDetection where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getTextDetectionResponse' smart constructor.
+-- | /See:/ 'mkGetTextDetectionResponse' smart constructor.
 data GetTextDetectionResponse = GetTextDetectionResponse'
-  { _gtdrsTextDetections ::
-      !(Maybe [TextDetectionResult]),
-    _gtdrsNextToken :: !(Maybe Text),
-    _gtdrsVideoMetadata ::
-      !(Maybe VideoMetadata),
-    _gtdrsStatusMessage :: !(Maybe Text),
-    _gtdrsTextModelVersion :: !(Maybe Text),
-    _gtdrsJobStatus ::
-      !(Maybe VideoJobStatus),
-    _gtdrsResponseStatus :: !Int
+  { textDetections ::
+      Lude.Maybe [TextDetectionResult],
+    nextToken :: Lude.Maybe Lude.Text,
+    videoMetadata :: Lude.Maybe VideoMetadata,
+    statusMessage :: Lude.Maybe Lude.Text,
+    textModelVersion :: Lude.Maybe Lude.Text,
+    jobStatus :: Lude.Maybe VideoJobStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTextDetectionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtdrsTextDetections' - An array of text detected in the video. Each element contains the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.
---
--- * 'gtdrsNextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.
---
--- * 'gtdrsVideoMetadata' - Undocumented member.
---
--- * 'gtdrsStatusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
---
--- * 'gtdrsTextModelVersion' - Version number of the text detection model that was used to detect text.
---
--- * 'gtdrsJobStatus' - Current status of the text detection job.
---
--- * 'gtdrsResponseStatus' - -- | The response status code.
-getTextDetectionResponse ::
-  -- | 'gtdrsResponseStatus'
-  Int ->
+-- * 'jobStatus' - Current status of the text detection job.
+-- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.
+-- * 'responseStatus' - The response status code.
+-- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- * 'textDetections' - An array of text detected in the video. Each element contains the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.
+-- * 'textModelVersion' - Version number of the text detection model that was used to detect text.
+-- * 'videoMetadata' - Undocumented field.
+mkGetTextDetectionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTextDetectionResponse
-getTextDetectionResponse pResponseStatus_ =
+mkGetTextDetectionResponse pResponseStatus_ =
   GetTextDetectionResponse'
-    { _gtdrsTextDetections = Nothing,
-      _gtdrsNextToken = Nothing,
-      _gtdrsVideoMetadata = Nothing,
-      _gtdrsStatusMessage = Nothing,
-      _gtdrsTextModelVersion = Nothing,
-      _gtdrsJobStatus = Nothing,
-      _gtdrsResponseStatus = pResponseStatus_
+    { textDetections = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      videoMetadata = Lude.Nothing,
+      statusMessage = Lude.Nothing,
+      textModelVersion = Lude.Nothing,
+      jobStatus = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of text detected in the video. Each element contains the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.
-gtdrsTextDetections :: Lens' GetTextDetectionResponse [TextDetectionResult]
-gtdrsTextDetections = lens _gtdrsTextDetections (\s a -> s {_gtdrsTextDetections = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'textDetections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdrsTextDetections :: Lens.Lens' GetTextDetectionResponse (Lude.Maybe [TextDetectionResult])
+gtdrsTextDetections = Lens.lens (textDetections :: GetTextDetectionResponse -> Lude.Maybe [TextDetectionResult]) (\s a -> s {textDetections = a} :: GetTextDetectionResponse)
+{-# DEPRECATED gtdrsTextDetections "Use generic-lens or generic-optics with 'textDetections' instead." #-}
 
 -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.
-gtdrsNextToken :: Lens' GetTextDetectionResponse (Maybe Text)
-gtdrsNextToken = lens _gtdrsNextToken (\s a -> s {_gtdrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdrsNextToken :: Lens.Lens' GetTextDetectionResponse (Lude.Maybe Lude.Text)
+gtdrsNextToken = Lens.lens (nextToken :: GetTextDetectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTextDetectionResponse)
+{-# DEPRECATED gtdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Undocumented member.
-gtdrsVideoMetadata :: Lens' GetTextDetectionResponse (Maybe VideoMetadata)
-gtdrsVideoMetadata = lens _gtdrsVideoMetadata (\s a -> s {_gtdrsVideoMetadata = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'videoMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdrsVideoMetadata :: Lens.Lens' GetTextDetectionResponse (Lude.Maybe VideoMetadata)
+gtdrsVideoMetadata = Lens.lens (videoMetadata :: GetTextDetectionResponse -> Lude.Maybe VideoMetadata) (\s a -> s {videoMetadata = a} :: GetTextDetectionResponse)
+{-# DEPRECATED gtdrsVideoMetadata "Use generic-lens or generic-optics with 'videoMetadata' instead." #-}
 
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-gtdrsStatusMessage :: Lens' GetTextDetectionResponse (Maybe Text)
-gtdrsStatusMessage = lens _gtdrsStatusMessage (\s a -> s {_gtdrsStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdrsStatusMessage :: Lens.Lens' GetTextDetectionResponse (Lude.Maybe Lude.Text)
+gtdrsStatusMessage = Lens.lens (statusMessage :: GetTextDetectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: GetTextDetectionResponse)
+{-# DEPRECATED gtdrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | Version number of the text detection model that was used to detect text.
-gtdrsTextModelVersion :: Lens' GetTextDetectionResponse (Maybe Text)
-gtdrsTextModelVersion = lens _gtdrsTextModelVersion (\s a -> s {_gtdrsTextModelVersion = a})
+--
+-- /Note:/ Consider using 'textModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdrsTextModelVersion :: Lens.Lens' GetTextDetectionResponse (Lude.Maybe Lude.Text)
+gtdrsTextModelVersion = Lens.lens (textModelVersion :: GetTextDetectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {textModelVersion = a} :: GetTextDetectionResponse)
+{-# DEPRECATED gtdrsTextModelVersion "Use generic-lens or generic-optics with 'textModelVersion' instead." #-}
 
 -- | Current status of the text detection job.
-gtdrsJobStatus :: Lens' GetTextDetectionResponse (Maybe VideoJobStatus)
-gtdrsJobStatus = lens _gtdrsJobStatus (\s a -> s {_gtdrsJobStatus = a})
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdrsJobStatus :: Lens.Lens' GetTextDetectionResponse (Lude.Maybe VideoJobStatus)
+gtdrsJobStatus = Lens.lens (jobStatus :: GetTextDetectionResponse -> Lude.Maybe VideoJobStatus) (\s a -> s {jobStatus = a} :: GetTextDetectionResponse)
+{-# DEPRECATED gtdrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | -- | The response status code.
-gtdrsResponseStatus :: Lens' GetTextDetectionResponse Int
-gtdrsResponseStatus = lens _gtdrsResponseStatus (\s a -> s {_gtdrsResponseStatus = a})
-
-instance NFData GetTextDetectionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtdrsResponseStatus :: Lens.Lens' GetTextDetectionResponse Lude.Int
+gtdrsResponseStatus = Lens.lens (responseStatus :: GetTextDetectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTextDetectionResponse)
+{-# DEPRECATED gtdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

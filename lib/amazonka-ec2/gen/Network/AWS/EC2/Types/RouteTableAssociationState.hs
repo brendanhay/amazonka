@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,67 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.RouteTableAssociationState where
+module Network.AWS.EC2.Types.RouteTableAssociationState
+  ( RouteTableAssociationState (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkRouteTableAssociationState,
+
+    -- * Lenses
+    rtasState,
+    rtasStatusMessage,
+  )
+where
+
 import Network.AWS.EC2.Types.RouteTableAssociationStateCode
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the state of an association between a route table and a subnet or gateway.
 --
---
---
--- /See:/ 'routeTableAssociationState' smart constructor.
+-- /See:/ 'mkRouteTableAssociationState' smart constructor.
 data RouteTableAssociationState = RouteTableAssociationState'
-  { _rtasState ::
-      !( Maybe
-           RouteTableAssociationStateCode
-       ),
-    _rtasStatusMessage :: !(Maybe Text)
+  { state ::
+      Lude.Maybe
+        RouteTableAssociationStateCode,
+    statusMessage :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RouteTableAssociationState' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtasState' - The state of the association.
---
--- * 'rtasStatusMessage' - The status message, if applicable.
-routeTableAssociationState ::
+-- * 'state' - The state of the association.
+-- * 'statusMessage' - The status message, if applicable.
+mkRouteTableAssociationState ::
   RouteTableAssociationState
-routeTableAssociationState =
+mkRouteTableAssociationState =
   RouteTableAssociationState'
-    { _rtasState = Nothing,
-      _rtasStatusMessage = Nothing
+    { state = Lude.Nothing,
+      statusMessage = Lude.Nothing
     }
 
 -- | The state of the association.
-rtasState :: Lens' RouteTableAssociationState (Maybe RouteTableAssociationStateCode)
-rtasState = lens _rtasState (\s a -> s {_rtasState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtasState :: Lens.Lens' RouteTableAssociationState (Lude.Maybe RouteTableAssociationStateCode)
+rtasState = Lens.lens (state :: RouteTableAssociationState -> Lude.Maybe RouteTableAssociationStateCode) (\s a -> s {state = a} :: RouteTableAssociationState)
+{-# DEPRECATED rtasState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The status message, if applicable.
-rtasStatusMessage :: Lens' RouteTableAssociationState (Maybe Text)
-rtasStatusMessage = lens _rtasStatusMessage (\s a -> s {_rtasStatusMessage = a})
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtasStatusMessage :: Lens.Lens' RouteTableAssociationState (Lude.Maybe Lude.Text)
+rtasStatusMessage = Lens.lens (statusMessage :: RouteTableAssociationState -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: RouteTableAssociationState)
+{-# DEPRECATED rtasStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
-instance FromXML RouteTableAssociationState where
+instance Lude.FromXML RouteTableAssociationState where
   parseXML x =
     RouteTableAssociationState'
-      <$> (x .@? "state") <*> (x .@? "statusMessage")
-
-instance Hashable RouteTableAssociationState
-
-instance NFData RouteTableAssociationState
+      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "statusMessage")

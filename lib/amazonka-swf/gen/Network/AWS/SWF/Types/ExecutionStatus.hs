@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.ExecutionStatus where
+module Network.AWS.SWF.Types.ExecutionStatus
+  ( ExecutionStatus
+      ( ExecutionStatus',
+        Closed,
+        Open
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ExecutionStatus
-  = Closed
-  | Open
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ExecutionStatus = ExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "closed" -> pure Closed
-      "open" -> pure Open
-      e ->
-        fromTextError $
-          "Failure parsing ExecutionStatus from value: '" <> e
-            <> "'. Accepted values: closed, open"
+pattern Closed :: ExecutionStatus
+pattern Closed = ExecutionStatus' "CLOSED"
 
-instance ToText ExecutionStatus where
-  toText = \case
-    Closed -> "CLOSED"
-    Open -> "OPEN"
+pattern Open :: ExecutionStatus
+pattern Open = ExecutionStatus' "OPEN"
 
-instance Hashable ExecutionStatus
-
-instance NFData ExecutionStatus
-
-instance ToByteString ExecutionStatus
-
-instance ToQuery ExecutionStatus
-
-instance ToHeader ExecutionStatus
-
-instance FromJSON ExecutionStatus where
-  parseJSON = parseJSONText "ExecutionStatus"
+{-# COMPLETE
+  Closed,
+  Open,
+  ExecutionStatus'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,102 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.UsageReportSubscription where
+module Network.AWS.AppStream.Types.UsageReportSubscription
+  ( UsageReportSubscription (..),
+
+    -- * Smart constructor
+    mkUsageReportSubscription,
+
+    -- * Lenses
+    ursLastGeneratedReportDate,
+    ursSchedule,
+    ursSubscriptionErrors,
+    ursS3BucketName,
+  )
+where
 
 import Network.AWS.AppStream.Types.LastReportGenerationExecutionError
 import Network.AWS.AppStream.Types.UsageReportSchedule
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes information about the usage report subscription.
 --
---
---
--- /See:/ 'usageReportSubscription' smart constructor.
+-- /See:/ 'mkUsageReportSubscription' smart constructor.
 data UsageReportSubscription = UsageReportSubscription'
-  { _ursLastGeneratedReportDate ::
-      !(Maybe POSIX),
-    _ursSchedule ::
-      !(Maybe UsageReportSchedule),
-    _ursSubscriptionErrors ::
-      !( Maybe
-           [LastReportGenerationExecutionError]
-       ),
-    _ursS3BucketName :: !(Maybe Text)
+  { lastGeneratedReportDate ::
+      Lude.Maybe Lude.Timestamp,
+    schedule :: Lude.Maybe UsageReportSchedule,
+    subscriptionErrors ::
+      Lude.Maybe
+        [LastReportGenerationExecutionError],
+    s3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageReportSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'lastGeneratedReportDate' - The time when the last usage report was generated.
+-- * 's3BucketName' - The Amazon S3 bucket where generated reports are stored.
 --
--- * 'ursLastGeneratedReportDate' - The time when the last usage report was generated.
---
--- * 'ursSchedule' - The schedule for generating usage reports.
---
--- * 'ursSubscriptionErrors' - The errors that were returned if usage reports couldn't be generated.
---
--- * 'ursS3BucketName' - The Amazon S3 bucket where generated reports are stored. If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
-usageReportSubscription ::
+-- If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
+-- * 'schedule' - The schedule for generating usage reports.
+-- * 'subscriptionErrors' - The errors that were returned if usage reports couldn't be generated.
+mkUsageReportSubscription ::
   UsageReportSubscription
-usageReportSubscription =
+mkUsageReportSubscription =
   UsageReportSubscription'
-    { _ursLastGeneratedReportDate = Nothing,
-      _ursSchedule = Nothing,
-      _ursSubscriptionErrors = Nothing,
-      _ursS3BucketName = Nothing
+    { lastGeneratedReportDate = Lude.Nothing,
+      schedule = Lude.Nothing,
+      subscriptionErrors = Lude.Nothing,
+      s3BucketName = Lude.Nothing
     }
 
 -- | The time when the last usage report was generated.
-ursLastGeneratedReportDate :: Lens' UsageReportSubscription (Maybe UTCTime)
-ursLastGeneratedReportDate = lens _ursLastGeneratedReportDate (\s a -> s {_ursLastGeneratedReportDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastGeneratedReportDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursLastGeneratedReportDate :: Lens.Lens' UsageReportSubscription (Lude.Maybe Lude.Timestamp)
+ursLastGeneratedReportDate = Lens.lens (lastGeneratedReportDate :: UsageReportSubscription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastGeneratedReportDate = a} :: UsageReportSubscription)
+{-# DEPRECATED ursLastGeneratedReportDate "Use generic-lens or generic-optics with 'lastGeneratedReportDate' instead." #-}
 
 -- | The schedule for generating usage reports.
-ursSchedule :: Lens' UsageReportSubscription (Maybe UsageReportSchedule)
-ursSchedule = lens _ursSchedule (\s a -> s {_ursSchedule = a})
+--
+-- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursSchedule :: Lens.Lens' UsageReportSubscription (Lude.Maybe UsageReportSchedule)
+ursSchedule = Lens.lens (schedule :: UsageReportSubscription -> Lude.Maybe UsageReportSchedule) (\s a -> s {schedule = a} :: UsageReportSubscription)
+{-# DEPRECATED ursSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
 -- | The errors that were returned if usage reports couldn't be generated.
-ursSubscriptionErrors :: Lens' UsageReportSubscription [LastReportGenerationExecutionError]
-ursSubscriptionErrors = lens _ursSubscriptionErrors (\s a -> s {_ursSubscriptionErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'subscriptionErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursSubscriptionErrors :: Lens.Lens' UsageReportSubscription (Lude.Maybe [LastReportGenerationExecutionError])
+ursSubscriptionErrors = Lens.lens (subscriptionErrors :: UsageReportSubscription -> Lude.Maybe [LastReportGenerationExecutionError]) (\s a -> s {subscriptionErrors = a} :: UsageReportSubscription)
+{-# DEPRECATED ursSubscriptionErrors "Use generic-lens or generic-optics with 'subscriptionErrors' instead." #-}
 
--- | The Amazon S3 bucket where generated reports are stored. If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
-ursS3BucketName :: Lens' UsageReportSubscription (Maybe Text)
-ursS3BucketName = lens _ursS3BucketName (\s a -> s {_ursS3BucketName = a})
+-- | The Amazon S3 bucket where generated reports are stored.
+--
+-- If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursS3BucketName :: Lens.Lens' UsageReportSubscription (Lude.Maybe Lude.Text)
+ursS3BucketName = Lens.lens (s3BucketName :: UsageReportSubscription -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: UsageReportSubscription)
+{-# DEPRECATED ursS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
-instance FromJSON UsageReportSubscription where
+instance Lude.FromJSON UsageReportSubscription where
   parseJSON =
-    withObject
+    Lude.withObject
       "UsageReportSubscription"
       ( \x ->
           UsageReportSubscription'
-            <$> (x .:? "LastGeneratedReportDate")
-            <*> (x .:? "Schedule")
-            <*> (x .:? "SubscriptionErrors" .!= mempty)
-            <*> (x .:? "S3BucketName")
+            Lude.<$> (x Lude..:? "LastGeneratedReportDate")
+            Lude.<*> (x Lude..:? "Schedule")
+            Lude.<*> (x Lude..:? "SubscriptionErrors" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "S3BucketName")
       )
-
-instance Hashable UsageReportSubscription
-
-instance NFData UsageReportSubscription

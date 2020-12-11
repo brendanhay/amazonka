@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EntityType where
+module Network.AWS.Comprehend.Types.EntityType
+  ( EntityType
+      ( EntityType',
+        CommercialItem,
+        Date,
+        Event,
+        Location,
+        Organization,
+        Other,
+        Person,
+        Quantity,
+        Title
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EntityType
-  = CommercialItem
-  | Date
-  | Event
-  | Location
-  | Organization
-  | Other
-  | Person
-  | Quantity
-  | Title
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EntityType = EntityType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EntityType where
-  parser =
-    takeLowerText >>= \case
-      "commercial_item" -> pure CommercialItem
-      "date" -> pure Date
-      "event" -> pure Event
-      "location" -> pure Location
-      "organization" -> pure Organization
-      "other" -> pure Other
-      "person" -> pure Person
-      "quantity" -> pure Quantity
-      "title" -> pure Title
-      e ->
-        fromTextError $
-          "Failure parsing EntityType from value: '" <> e
-            <> "'. Accepted values: commercial_item, date, event, location, organization, other, person, quantity, title"
+pattern CommercialItem :: EntityType
+pattern CommercialItem = EntityType' "COMMERCIAL_ITEM"
 
-instance ToText EntityType where
-  toText = \case
-    CommercialItem -> "COMMERCIAL_ITEM"
-    Date -> "DATE"
-    Event -> "EVENT"
-    Location -> "LOCATION"
-    Organization -> "ORGANIZATION"
-    Other -> "OTHER"
-    Person -> "PERSON"
-    Quantity -> "QUANTITY"
-    Title -> "TITLE"
+pattern Date :: EntityType
+pattern Date = EntityType' "DATE"
 
-instance Hashable EntityType
+pattern Event :: EntityType
+pattern Event = EntityType' "EVENT"
 
-instance NFData EntityType
+pattern Location :: EntityType
+pattern Location = EntityType' "LOCATION"
 
-instance ToByteString EntityType
+pattern Organization :: EntityType
+pattern Organization = EntityType' "ORGANIZATION"
 
-instance ToQuery EntityType
+pattern Other :: EntityType
+pattern Other = EntityType' "OTHER"
 
-instance ToHeader EntityType
+pattern Person :: EntityType
+pattern Person = EntityType' "PERSON"
 
-instance FromJSON EntityType where
-  parseJSON = parseJSONText "EntityType"
+pattern Quantity :: EntityType
+pattern Quantity = EntityType' "QUANTITY"
+
+pattern Title :: EntityType
+pattern Title = EntityType' "TITLE"
+
+{-# COMPLETE
+  CommercialItem,
+  Date,
+  Event,
+  Location,
+  Organization,
+  Other,
+  Person,
+  Quantity,
+  Title,
+  EntityType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,132 @@
 --
 -- Deletes a metrics configuration for the Amazon CloudWatch request metrics (specified by the metrics configuration ID) from the bucket. Note that this doesn't include the daily storage metrics.
 --
---
 -- To use this operation, you must have permissions to perform the @s3:PutMetricsConfiguration@ action. The bucket owner has this permission by default. The bucket owner can grant this permission to others. For more information about permissions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources> .
---
 -- For information about CloudWatch request metrics for Amazon S3, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html Monitoring Metrics with Amazon CloudWatch> .
---
 -- The following operations are related to @DeleteBucketMetricsConfiguration@ :
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetricsConfiguration.html GetBucketMetricsConfiguration>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html PutBucketMetricsConfiguration>
+--
 --
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html ListBucketMetricsConfigurations>
 --
+--
 --     * <https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html Monitoring Metrics with Amazon CloudWatch>
 module Network.AWS.S3.DeleteBucketMetricsConfiguration
-  ( -- * Creating a Request
-    deleteBucketMetricsConfiguration,
-    DeleteBucketMetricsConfiguration,
+  ( -- * Creating a request
+    DeleteBucketMetricsConfiguration (..),
+    mkDeleteBucketMetricsConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dbmcExpectedBucketOwner,
     dbmcBucket,
     dbmcId,
 
-    -- * Destructuring the Response
-    deleteBucketMetricsConfigurationResponse,
-    DeleteBucketMetricsConfigurationResponse,
+    -- * Destructuring the response
+    DeleteBucketMetricsConfigurationResponse (..),
+    mkDeleteBucketMetricsConfigurationResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.S3.Types
 
--- | /See:/ 'deleteBucketMetricsConfiguration' smart constructor.
+-- | /See:/ 'mkDeleteBucketMetricsConfiguration' smart constructor.
 data DeleteBucketMetricsConfiguration = DeleteBucketMetricsConfiguration'
-  { _dbmcExpectedBucketOwner ::
-      !(Maybe Text),
-    _dbmcBucket ::
-      !BucketName,
-    _dbmcId :: !Text
+  { expectedBucketOwner ::
+      Lude.Maybe Lude.Text,
+    bucket :: BucketName,
+    id :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketMetricsConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dbmcExpectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- * 'dbmcBucket' - The name of the bucket containing the metrics configuration to delete.
---
--- * 'dbmcId' - The ID used to identify the metrics configuration.
-deleteBucketMetricsConfiguration ::
-  -- | 'dbmcBucket'
+-- * 'bucket' - The name of the bucket containing the metrics configuration to delete.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'id' - The ID used to identify the metrics configuration.
+mkDeleteBucketMetricsConfiguration ::
+  -- | 'bucket'
   BucketName ->
-  -- | 'dbmcId'
-  Text ->
+  -- | 'id'
+  Lude.Text ->
   DeleteBucketMetricsConfiguration
-deleteBucketMetricsConfiguration pBucket_ pId_ =
+mkDeleteBucketMetricsConfiguration pBucket_ pId_ =
   DeleteBucketMetricsConfiguration'
-    { _dbmcExpectedBucketOwner =
-        Nothing,
-      _dbmcBucket = pBucket_,
-      _dbmcId = pId_
+    { expectedBucketOwner =
+        Lude.Nothing,
+      bucket = pBucket_,
+      id = pId_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-dbmcExpectedBucketOwner :: Lens' DeleteBucketMetricsConfiguration (Maybe Text)
-dbmcExpectedBucketOwner = lens _dbmcExpectedBucketOwner (\s a -> s {_dbmcExpectedBucketOwner = a})
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbmcExpectedBucketOwner :: Lens.Lens' DeleteBucketMetricsConfiguration (Lude.Maybe Lude.Text)
+dbmcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketMetricsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketMetricsConfiguration)
+{-# DEPRECATED dbmcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket containing the metrics configuration to delete.
-dbmcBucket :: Lens' DeleteBucketMetricsConfiguration BucketName
-dbmcBucket = lens _dbmcBucket (\s a -> s {_dbmcBucket = a})
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbmcBucket :: Lens.Lens' DeleteBucketMetricsConfiguration BucketName
+dbmcBucket = Lens.lens (bucket :: DeleteBucketMetricsConfiguration -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketMetricsConfiguration)
+{-# DEPRECATED dbmcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID used to identify the metrics configuration.
-dbmcId :: Lens' DeleteBucketMetricsConfiguration Text
-dbmcId = lens _dbmcId (\s a -> s {_dbmcId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbmcId :: Lens.Lens' DeleteBucketMetricsConfiguration Lude.Text
+dbmcId = Lens.lens (id :: DeleteBucketMetricsConfiguration -> Lude.Text) (\s a -> s {id = a} :: DeleteBucketMetricsConfiguration)
+{-# DEPRECATED dbmcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest DeleteBucketMetricsConfiguration where
+instance Lude.AWSRequest DeleteBucketMetricsConfiguration where
   type
     Rs DeleteBucketMetricsConfiguration =
       DeleteBucketMetricsConfigurationResponse
-  request = delete s3
-  response = receiveNull DeleteBucketMetricsConfigurationResponse'
+  request = Req.delete s3Service
+  response =
+    Res.receiveNull DeleteBucketMetricsConfigurationResponse'
 
-instance Hashable DeleteBucketMetricsConfiguration
-
-instance NFData DeleteBucketMetricsConfiguration
-
-instance ToHeaders DeleteBucketMetricsConfiguration where
+instance Lude.ToHeaders DeleteBucketMetricsConfiguration where
   toHeaders DeleteBucketMetricsConfiguration' {..} =
-    mconcat
-      ["x-amz-expected-bucket-owner" =# _dbmcExpectedBucketOwner]
+    Lude.mconcat
+      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
 
-instance ToPath DeleteBucketMetricsConfiguration where
+instance Lude.ToPath DeleteBucketMetricsConfiguration where
   toPath DeleteBucketMetricsConfiguration' {..} =
-    mconcat ["/", toBS _dbmcBucket]
+    Lude.mconcat ["/", Lude.toBS bucket]
 
-instance ToQuery DeleteBucketMetricsConfiguration where
+instance Lude.ToQuery DeleteBucketMetricsConfiguration where
   toQuery DeleteBucketMetricsConfiguration' {..} =
-    mconcat ["id" =: _dbmcId, "metrics"]
+    Lude.mconcat ["id" Lude.=: id, "metrics"]
 
--- | /See:/ 'deleteBucketMetricsConfigurationResponse' smart constructor.
+-- | /See:/ 'mkDeleteBucketMetricsConfigurationResponse' smart constructor.
 data DeleteBucketMetricsConfigurationResponse = DeleteBucketMetricsConfigurationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketMetricsConfigurationResponse' with the minimum fields required to make a request.
-deleteBucketMetricsConfigurationResponse ::
+mkDeleteBucketMetricsConfigurationResponse ::
   DeleteBucketMetricsConfigurationResponse
-deleteBucketMetricsConfigurationResponse =
+mkDeleteBucketMetricsConfigurationResponse =
   DeleteBucketMetricsConfigurationResponse'
-
-instance NFData DeleteBucketMetricsConfigurationResponse

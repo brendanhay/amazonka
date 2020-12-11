@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,103 +7,133 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.TableMetadata where
+module Network.AWS.Athena.Types.TableMetadata
+  ( TableMetadata (..),
+
+    -- * Smart constructor
+    mkTableMetadata,
+
+    -- * Lenses
+    tmTableType,
+    tmParameters,
+    tmColumns,
+    tmLastAccessTime,
+    tmPartitionKeys,
+    tmCreateTime,
+    tmName,
+  )
+where
 
 import Network.AWS.Athena.Types.Column
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains metadata for a table.
 --
---
---
--- /See:/ 'tableMetadata' smart constructor.
+-- /See:/ 'mkTableMetadata' smart constructor.
 data TableMetadata = TableMetadata'
-  { _tmTableType :: !(Maybe Text),
-    _tmParameters :: !(Maybe (Map Text (Text))),
-    _tmColumns :: !(Maybe [Column]),
-    _tmLastAccessTime :: !(Maybe POSIX),
-    _tmPartitionKeys :: !(Maybe [Column]),
-    _tmCreateTime :: !(Maybe POSIX),
-    _tmName :: !Text
+  { tableType ::
+      Lude.Maybe Lude.Text,
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    columns :: Lude.Maybe [Column],
+    lastAccessTime :: Lude.Maybe Lude.Timestamp,
+    partitionKeys :: Lude.Maybe [Column],
+    createTime :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tmTableType' - The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.
---
--- * 'tmParameters' - A set of custom key/value pairs for table properties.
---
--- * 'tmColumns' - A list of the columns in the table.
---
--- * 'tmLastAccessTime' - The last time the table was accessed.
---
--- * 'tmPartitionKeys' - A list of the partition keys in the table.
---
--- * 'tmCreateTime' - The time that the table was created.
---
--- * 'tmName' - The name of the table.
-tableMetadata ::
-  -- | 'tmName'
-  Text ->
+-- * 'columns' - A list of the columns in the table.
+-- * 'createTime' - The time that the table was created.
+-- * 'lastAccessTime' - The last time the table was accessed.
+-- * 'name' - The name of the table.
+-- * 'parameters' - A set of custom key/value pairs for table properties.
+-- * 'partitionKeys' - A list of the partition keys in the table.
+-- * 'tableType' - The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.
+mkTableMetadata ::
+  -- | 'name'
+  Lude.Text ->
   TableMetadata
-tableMetadata pName_ =
+mkTableMetadata pName_ =
   TableMetadata'
-    { _tmTableType = Nothing,
-      _tmParameters = Nothing,
-      _tmColumns = Nothing,
-      _tmLastAccessTime = Nothing,
-      _tmPartitionKeys = Nothing,
-      _tmCreateTime = Nothing,
-      _tmName = pName_
+    { tableType = Lude.Nothing,
+      parameters = Lude.Nothing,
+      columns = Lude.Nothing,
+      lastAccessTime = Lude.Nothing,
+      partitionKeys = Lude.Nothing,
+      createTime = Lude.Nothing,
+      name = pName_
     }
 
 -- | The type of table. In Athena, only @EXTERNAL_TABLE@ is supported.
-tmTableType :: Lens' TableMetadata (Maybe Text)
-tmTableType = lens _tmTableType (\s a -> s {_tmTableType = a})
+--
+-- /Note:/ Consider using 'tableType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmTableType :: Lens.Lens' TableMetadata (Lude.Maybe Lude.Text)
+tmTableType = Lens.lens (tableType :: TableMetadata -> Lude.Maybe Lude.Text) (\s a -> s {tableType = a} :: TableMetadata)
+{-# DEPRECATED tmTableType "Use generic-lens or generic-optics with 'tableType' instead." #-}
 
 -- | A set of custom key/value pairs for table properties.
-tmParameters :: Lens' TableMetadata (HashMap Text (Text))
-tmParameters = lens _tmParameters (\s a -> s {_tmParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmParameters :: Lens.Lens' TableMetadata (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+tmParameters = Lens.lens (parameters :: TableMetadata -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: TableMetadata)
+{-# DEPRECATED tmParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | A list of the columns in the table.
-tmColumns :: Lens' TableMetadata [Column]
-tmColumns = lens _tmColumns (\s a -> s {_tmColumns = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'columns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmColumns :: Lens.Lens' TableMetadata (Lude.Maybe [Column])
+tmColumns = Lens.lens (columns :: TableMetadata -> Lude.Maybe [Column]) (\s a -> s {columns = a} :: TableMetadata)
+{-# DEPRECATED tmColumns "Use generic-lens or generic-optics with 'columns' instead." #-}
 
 -- | The last time the table was accessed.
-tmLastAccessTime :: Lens' TableMetadata (Maybe UTCTime)
-tmLastAccessTime = lens _tmLastAccessTime (\s a -> s {_tmLastAccessTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastAccessTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmLastAccessTime :: Lens.Lens' TableMetadata (Lude.Maybe Lude.Timestamp)
+tmLastAccessTime = Lens.lens (lastAccessTime :: TableMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastAccessTime = a} :: TableMetadata)
+{-# DEPRECATED tmLastAccessTime "Use generic-lens or generic-optics with 'lastAccessTime' instead." #-}
 
 -- | A list of the partition keys in the table.
-tmPartitionKeys :: Lens' TableMetadata [Column]
-tmPartitionKeys = lens _tmPartitionKeys (\s a -> s {_tmPartitionKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partitionKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmPartitionKeys :: Lens.Lens' TableMetadata (Lude.Maybe [Column])
+tmPartitionKeys = Lens.lens (partitionKeys :: TableMetadata -> Lude.Maybe [Column]) (\s a -> s {partitionKeys = a} :: TableMetadata)
+{-# DEPRECATED tmPartitionKeys "Use generic-lens or generic-optics with 'partitionKeys' instead." #-}
 
 -- | The time that the table was created.
-tmCreateTime :: Lens' TableMetadata (Maybe UTCTime)
-tmCreateTime = lens _tmCreateTime (\s a -> s {_tmCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmCreateTime :: Lens.Lens' TableMetadata (Lude.Maybe Lude.Timestamp)
+tmCreateTime = Lens.lens (createTime :: TableMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: TableMetadata)
+{-# DEPRECATED tmCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
 -- | The name of the table.
-tmName :: Lens' TableMetadata Text
-tmName = lens _tmName (\s a -> s {_tmName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmName :: Lens.Lens' TableMetadata Lude.Text
+tmName = Lens.lens (name :: TableMetadata -> Lude.Text) (\s a -> s {name = a} :: TableMetadata)
+{-# DEPRECATED tmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON TableMetadata where
+instance Lude.FromJSON TableMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "TableMetadata"
       ( \x ->
           TableMetadata'
-            <$> (x .:? "TableType")
-            <*> (x .:? "Parameters" .!= mempty)
-            <*> (x .:? "Columns" .!= mempty)
-            <*> (x .:? "LastAccessTime")
-            <*> (x .:? "PartitionKeys" .!= mempty)
-            <*> (x .:? "CreateTime")
-            <*> (x .: "Name")
+            Lude.<$> (x Lude..:? "TableType")
+            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Columns" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "LastAccessTime")
+            Lude.<*> (x Lude..:? "PartitionKeys" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "CreateTime")
+            Lude.<*> (x Lude..: "Name")
       )
-
-instance Hashable TableMetadata
-
-instance NFData TableMetadata

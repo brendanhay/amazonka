@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDBStreams.Types.Identity where
+module Network.AWS.DynamoDBStreams.Types.Identity
+  ( Identity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIdentity,
+
+    -- * Lenses
+    iPrincipalId,
+    iType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details about the type of identity that made the request.
 --
---
---
--- /See:/ 'identity' smart constructor.
+-- /See:/ 'mkIdentity' smart constructor.
 data Identity = Identity'
-  { _iPrincipalId :: !(Maybe Text),
-    _iType :: !(Maybe Text)
+  { principalId :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Identity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iPrincipalId' - A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
---
--- * 'iType' - The type of the identity. For Time To Live, the type is "Service".
-identity ::
+-- * 'principalId' - A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
+-- * 'type'' - The type of the identity. For Time To Live, the type is "Service".
+mkIdentity ::
   Identity
-identity = Identity' {_iPrincipalId = Nothing, _iType = Nothing}
+mkIdentity =
+  Identity' {principalId = Lude.Nothing, type' = Lude.Nothing}
 
 -- | A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
-iPrincipalId :: Lens' Identity (Maybe Text)
-iPrincipalId = lens _iPrincipalId (\s a -> s {_iPrincipalId = a})
+--
+-- /Note:/ Consider using 'principalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPrincipalId :: Lens.Lens' Identity (Lude.Maybe Lude.Text)
+iPrincipalId = Lens.lens (principalId :: Identity -> Lude.Maybe Lude.Text) (\s a -> s {principalId = a} :: Identity)
+{-# DEPRECATED iPrincipalId "Use generic-lens or generic-optics with 'principalId' instead." #-}
 
 -- | The type of the identity. For Time To Live, the type is "Service".
-iType :: Lens' Identity (Maybe Text)
-iType = lens _iType (\s a -> s {_iType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iType :: Lens.Lens' Identity (Lude.Maybe Lude.Text)
+iType = Lens.lens (type' :: Identity -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Identity)
+{-# DEPRECATED iType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON Identity where
+instance Lude.FromJSON Identity where
   parseJSON =
-    withObject
+    Lude.withObject
       "Identity"
-      (\x -> Identity' <$> (x .:? "PrincipalId") <*> (x .:? "Type"))
-
-instance Hashable Identity
-
-instance NFData Identity
+      ( \x ->
+          Identity'
+            Lude.<$> (x Lude..:? "PrincipalId") Lude.<*> (x Lude..:? "Type")
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.MemberType where
+module Network.AWS.WorkMail.Types.MemberType
+  ( MemberType
+      ( MemberType',
+        Group,
+        User
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MemberType
-  = Group
-  | User
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MemberType = MemberType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MemberType where
-  parser =
-    takeLowerText >>= \case
-      "group" -> pure Group
-      "user" -> pure User
-      e ->
-        fromTextError $
-          "Failure parsing MemberType from value: '" <> e
-            <> "'. Accepted values: group, user"
+pattern Group :: MemberType
+pattern Group = MemberType' "GROUP"
 
-instance ToText MemberType where
-  toText = \case
-    Group -> "GROUP"
-    User -> "USER"
+pattern User :: MemberType
+pattern User = MemberType' "USER"
 
-instance Hashable MemberType
-
-instance NFData MemberType
-
-instance ToByteString MemberType
-
-instance ToQuery MemberType
-
-instance ToHeader MemberType
-
-instance FromJSON MemberType where
-  parseJSON = parseJSONText "MemberType"
+{-# COMPLETE
+  Group,
+  User,
+  MemberType'
+  #-}

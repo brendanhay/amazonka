@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,88 +14,102 @@
 --
 -- Removes tags for a resource
 module Network.AWS.MediaLive.DeleteTags
-  ( -- * Creating a Request
-    deleteTags,
-    DeleteTags,
+  ( -- * Creating a request
+    DeleteTags (..),
+    mkDeleteTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtTagKeys,
     dtResourceARN,
 
-    -- * Destructuring the Response
-    deleteTagsResponse,
-    DeleteTagsResponse,
+    -- * Destructuring the response
+    DeleteTagsResponse (..),
+    mkDeleteTagsResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for DeleteTagsRequest
 --
--- /See:/ 'deleteTags' smart constructor.
+-- /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { _dtTagKeys :: ![Text],
-    _dtResourceARN :: !Text
+  { tagKeys :: [Lude.Text],
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtTagKeys' - An array of tag keys to delete
---
--- * 'dtResourceARN' - Undocumented member.
-deleteTags ::
-  -- | 'dtResourceARN'
-  Text ->
+-- * 'resourceARN' - Undocumented field.
+-- * 'tagKeys' - An array of tag keys to delete
+mkDeleteTags ::
+  -- | 'resourceARN'
+  Lude.Text ->
   DeleteTags
-deleteTags pResourceARN_ =
-  DeleteTags' {_dtTagKeys = mempty, _dtResourceARN = pResourceARN_}
+mkDeleteTags pResourceARN_ =
+  DeleteTags' {tagKeys = Lude.mempty, resourceARN = pResourceARN_}
 
 -- | An array of tag keys to delete
-dtTagKeys :: Lens' DeleteTags [Text]
-dtTagKeys = lens _dtTagKeys (\s a -> s {_dtTagKeys = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTagKeys :: Lens.Lens' DeleteTags [Lude.Text]
+dtTagKeys = Lens.lens (tagKeys :: DeleteTags -> [Lude.Text]) (\s a -> s {tagKeys = a} :: DeleteTags)
+{-# DEPRECATED dtTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
--- | Undocumented member.
-dtResourceARN :: Lens' DeleteTags Text
-dtResourceARN = lens _dtResourceARN (\s a -> s {_dtResourceARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtResourceARN :: Lens.Lens' DeleteTags Lude.Text
+dtResourceARN = Lens.lens (resourceARN :: DeleteTags -> Lude.Text) (\s a -> s {resourceARN = a} :: DeleteTags)
+{-# DEPRECATED dtResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest DeleteTags where
+instance Lude.AWSRequest DeleteTags where
   type Rs DeleteTags = DeleteTagsResponse
-  request = delete mediaLive
-  response = receiveNull DeleteTagsResponse'
+  request = Req.delete mediaLiveService
+  response = Res.receiveNull DeleteTagsResponse'
 
-instance Hashable DeleteTags
-
-instance NFData DeleteTags
-
-instance ToHeaders DeleteTags where
+instance Lude.ToHeaders DeleteTags where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteTags where
+instance Lude.ToPath DeleteTags where
   toPath DeleteTags' {..} =
-    mconcat ["/prod/tags/", toBS _dtResourceARN]
+    Lude.mconcat ["/prod/tags/", Lude.toBS resourceARN]
 
-instance ToQuery DeleteTags where
+instance Lude.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
-    mconcat ["tagKeys" =: toQueryList "member" _dtTagKeys]
+    Lude.mconcat
+      ["tagKeys" Lude.=: Lude.toQueryList "member" tagKeys]
 
--- | /See:/ 'deleteTagsResponse' smart constructor.
+-- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
-deleteTagsResponse ::
+mkDeleteTagsResponse ::
   DeleteTagsResponse
-deleteTagsResponse = DeleteTagsResponse'
-
-instance NFData DeleteTagsResponse
+mkDeleteTagsResponse = DeleteTagsResponse'

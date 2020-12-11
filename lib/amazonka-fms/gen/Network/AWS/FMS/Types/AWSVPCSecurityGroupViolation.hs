@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,103 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.AWSVPCSecurityGroupViolation where
+module Network.AWS.FMS.Types.AWSVPCSecurityGroupViolation
+  ( AWSVPCSecurityGroupViolation (..),
+
+    -- * Smart constructor
+    mkAWSVPCSecurityGroupViolation,
+
+    -- * Lenses
+    avsgvViolationTargetDescription,
+    avsgvPossibleSecurityGroupRemediationActions,
+    avsgvViolationTarget,
+    avsgvPartialMatches,
+  )
+where
 
 import Network.AWS.FMS.Types.PartialMatch
 import Network.AWS.FMS.Types.SecurityGroupRemediationAction
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Details of the rule violation in a security group when compared to the master security group of the AWS Firewall Manager policy.
 --
---
---
--- /See:/ 'awsVPCSecurityGroupViolation' smart constructor.
+-- /See:/ 'mkAWSVPCSecurityGroupViolation' smart constructor.
 data AWSVPCSecurityGroupViolation = AWSVPCSecurityGroupViolation'
-  { _avsgvViolationTargetDescription ::
-      !(Maybe Text),
-    _avsgvPossibleSecurityGroupRemediationActions ::
-      !( Maybe
-           [SecurityGroupRemediationAction]
-       ),
-    _avsgvViolationTarget ::
-      !(Maybe Text),
-    _avsgvPartialMatches ::
-      !(Maybe [PartialMatch])
+  { violationTargetDescription ::
+      Lude.Maybe Lude.Text,
+    possibleSecurityGroupRemediationActions ::
+      Lude.Maybe
+        [SecurityGroupRemediationAction],
+    violationTarget ::
+      Lude.Maybe Lude.Text,
+    partialMatches ::
+      Lude.Maybe [PartialMatch]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSVPCSecurityGroupViolation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avsgvViolationTargetDescription' - A description of the security group that violates the policy.
---
--- * 'avsgvPossibleSecurityGroupRemediationActions' - Remediation options for the rule specified in the @ViolationTarget@ .
---
--- * 'avsgvViolationTarget' - The security group rule that is being evaluated.
---
--- * 'avsgvPartialMatches' - List of rules specified in the security group of the AWS Firewall Manager policy that partially match the @ViolationTarget@ rule.
-awsVPCSecurityGroupViolation ::
+-- * 'partialMatches' - List of rules specified in the security group of the AWS Firewall Manager policy that partially match the @ViolationTarget@ rule.
+-- * 'possibleSecurityGroupRemediationActions' - Remediation options for the rule specified in the @ViolationTarget@ .
+-- * 'violationTarget' - The security group rule that is being evaluated.
+-- * 'violationTargetDescription' - A description of the security group that violates the policy.
+mkAWSVPCSecurityGroupViolation ::
   AWSVPCSecurityGroupViolation
-awsVPCSecurityGroupViolation =
+mkAWSVPCSecurityGroupViolation =
   AWSVPCSecurityGroupViolation'
-    { _avsgvViolationTargetDescription =
-        Nothing,
-      _avsgvPossibleSecurityGroupRemediationActions = Nothing,
-      _avsgvViolationTarget = Nothing,
-      _avsgvPartialMatches = Nothing
+    { violationTargetDescription =
+        Lude.Nothing,
+      possibleSecurityGroupRemediationActions = Lude.Nothing,
+      violationTarget = Lude.Nothing,
+      partialMatches = Lude.Nothing
     }
 
 -- | A description of the security group that violates the policy.
-avsgvViolationTargetDescription :: Lens' AWSVPCSecurityGroupViolation (Maybe Text)
-avsgvViolationTargetDescription = lens _avsgvViolationTargetDescription (\s a -> s {_avsgvViolationTargetDescription = a})
+--
+-- /Note:/ Consider using 'violationTargetDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avsgvViolationTargetDescription :: Lens.Lens' AWSVPCSecurityGroupViolation (Lude.Maybe Lude.Text)
+avsgvViolationTargetDescription = Lens.lens (violationTargetDescription :: AWSVPCSecurityGroupViolation -> Lude.Maybe Lude.Text) (\s a -> s {violationTargetDescription = a} :: AWSVPCSecurityGroupViolation)
+{-# DEPRECATED avsgvViolationTargetDescription "Use generic-lens or generic-optics with 'violationTargetDescription' instead." #-}
 
 -- | Remediation options for the rule specified in the @ViolationTarget@ .
-avsgvPossibleSecurityGroupRemediationActions :: Lens' AWSVPCSecurityGroupViolation [SecurityGroupRemediationAction]
-avsgvPossibleSecurityGroupRemediationActions = lens _avsgvPossibleSecurityGroupRemediationActions (\s a -> s {_avsgvPossibleSecurityGroupRemediationActions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'possibleSecurityGroupRemediationActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avsgvPossibleSecurityGroupRemediationActions :: Lens.Lens' AWSVPCSecurityGroupViolation (Lude.Maybe [SecurityGroupRemediationAction])
+avsgvPossibleSecurityGroupRemediationActions = Lens.lens (possibleSecurityGroupRemediationActions :: AWSVPCSecurityGroupViolation -> Lude.Maybe [SecurityGroupRemediationAction]) (\s a -> s {possibleSecurityGroupRemediationActions = a} :: AWSVPCSecurityGroupViolation)
+{-# DEPRECATED avsgvPossibleSecurityGroupRemediationActions "Use generic-lens or generic-optics with 'possibleSecurityGroupRemediationActions' instead." #-}
 
 -- | The security group rule that is being evaluated.
-avsgvViolationTarget :: Lens' AWSVPCSecurityGroupViolation (Maybe Text)
-avsgvViolationTarget = lens _avsgvViolationTarget (\s a -> s {_avsgvViolationTarget = a})
+--
+-- /Note:/ Consider using 'violationTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avsgvViolationTarget :: Lens.Lens' AWSVPCSecurityGroupViolation (Lude.Maybe Lude.Text)
+avsgvViolationTarget = Lens.lens (violationTarget :: AWSVPCSecurityGroupViolation -> Lude.Maybe Lude.Text) (\s a -> s {violationTarget = a} :: AWSVPCSecurityGroupViolation)
+{-# DEPRECATED avsgvViolationTarget "Use generic-lens or generic-optics with 'violationTarget' instead." #-}
 
 -- | List of rules specified in the security group of the AWS Firewall Manager policy that partially match the @ViolationTarget@ rule.
-avsgvPartialMatches :: Lens' AWSVPCSecurityGroupViolation [PartialMatch]
-avsgvPartialMatches = lens _avsgvPartialMatches (\s a -> s {_avsgvPartialMatches = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'partialMatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avsgvPartialMatches :: Lens.Lens' AWSVPCSecurityGroupViolation (Lude.Maybe [PartialMatch])
+avsgvPartialMatches = Lens.lens (partialMatches :: AWSVPCSecurityGroupViolation -> Lude.Maybe [PartialMatch]) (\s a -> s {partialMatches = a} :: AWSVPCSecurityGroupViolation)
+{-# DEPRECATED avsgvPartialMatches "Use generic-lens or generic-optics with 'partialMatches' instead." #-}
 
-instance FromJSON AWSVPCSecurityGroupViolation where
+instance Lude.FromJSON AWSVPCSecurityGroupViolation where
   parseJSON =
-    withObject
+    Lude.withObject
       "AWSVPCSecurityGroupViolation"
       ( \x ->
           AWSVPCSecurityGroupViolation'
-            <$> (x .:? "ViolationTargetDescription")
-            <*> (x .:? "PossibleSecurityGroupRemediationActions" .!= mempty)
-            <*> (x .:? "ViolationTarget")
-            <*> (x .:? "PartialMatches" .!= mempty)
+            Lude.<$> (x Lude..:? "ViolationTargetDescription")
+            Lude.<*> ( x Lude..:? "PossibleSecurityGroupRemediationActions"
+                         Lude..!= Lude.mempty
+                     )
+            Lude.<*> (x Lude..:? "ViolationTarget")
+            Lude.<*> (x Lude..:? "PartialMatches" Lude..!= Lude.mempty)
       )
-
-instance Hashable AWSVPCSecurityGroupViolation
-
-instance NFData AWSVPCSecurityGroupViolation

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,61 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53Domains.Types.ContactType where
+module Network.AWS.Route53Domains.Types.ContactType
+  ( ContactType
+      ( ContactType',
+        Association,
+        Company,
+        Person,
+        PublicBody,
+        Reseller
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContactType
-  = Association
-  | Company
-  | Person
-  | PublicBody
-  | Reseller
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContactType = ContactType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContactType where
-  parser =
-    takeLowerText >>= \case
-      "association" -> pure Association
-      "company" -> pure Company
-      "person" -> pure Person
-      "public_body" -> pure PublicBody
-      "reseller" -> pure Reseller
-      e ->
-        fromTextError $
-          "Failure parsing ContactType from value: '" <> e
-            <> "'. Accepted values: association, company, person, public_body, reseller"
+pattern Association :: ContactType
+pattern Association = ContactType' "ASSOCIATION"
 
-instance ToText ContactType where
-  toText = \case
-    Association -> "ASSOCIATION"
-    Company -> "COMPANY"
-    Person -> "PERSON"
-    PublicBody -> "PUBLIC_BODY"
-    Reseller -> "RESELLER"
+pattern Company :: ContactType
+pattern Company = ContactType' "COMPANY"
 
-instance Hashable ContactType
+pattern Person :: ContactType
+pattern Person = ContactType' "PERSON"
 
-instance NFData ContactType
+pattern PublicBody :: ContactType
+pattern PublicBody = ContactType' "PUBLIC_BODY"
 
-instance ToByteString ContactType
+pattern Reseller :: ContactType
+pattern Reseller = ContactType' "RESELLER"
 
-instance ToQuery ContactType
-
-instance ToHeader ContactType
-
-instance ToJSON ContactType where
-  toJSON = toJSONText
-
-instance FromJSON ContactType where
-  parseJSON = parseJSONText "ContactType"
+{-# COMPLETE
+  Association,
+  Company,
+  Person,
+  PublicBody,
+  Reseller,
+  ContactType'
+  #-}

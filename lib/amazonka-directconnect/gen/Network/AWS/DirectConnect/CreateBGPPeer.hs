@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,152 @@
 --
 -- Creates a BGP peer on the specified virtual interface.
 --
---
 -- You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access AWS resources that also use that address family.
---
 -- If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot be in the same address family as an existing BGP peer on the virtual interface.
---
 -- When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
---
 -- For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.
 module Network.AWS.DirectConnect.CreateBGPPeer
-  ( -- * Creating a Request
-    createBGPPeer,
-    CreateBGPPeer,
+  ( -- * Creating a request
+    CreateBGPPeer (..),
+    mkCreateBGPPeer,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cbpNewBGPPeer,
     cbpVirtualInterfaceId,
 
-    -- * Destructuring the Response
-    createBGPPeerResponse,
-    CreateBGPPeerResponse,
+    -- * Destructuring the response
+    CreateBGPPeerResponse (..),
+    mkCreateBGPPeerResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cbprsVirtualInterface,
     cbprsResponseStatus,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createBGPPeer' smart constructor.
+-- | /See:/ 'mkCreateBGPPeer' smart constructor.
 data CreateBGPPeer = CreateBGPPeer'
-  { _cbpNewBGPPeer ::
-      !(Maybe NewBGPPeer),
-    _cbpVirtualInterfaceId :: !(Maybe Text)
+  { newBGPPeer ::
+      Lude.Maybe NewBGPPeer,
+    virtualInterfaceId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBGPPeer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbpNewBGPPeer' - Information about the BGP peer.
---
--- * 'cbpVirtualInterfaceId' - The ID of the virtual interface.
-createBGPPeer ::
+-- * 'newBGPPeer' - Information about the BGP peer.
+-- * 'virtualInterfaceId' - The ID of the virtual interface.
+mkCreateBGPPeer ::
   CreateBGPPeer
-createBGPPeer =
+mkCreateBGPPeer =
   CreateBGPPeer'
-    { _cbpNewBGPPeer = Nothing,
-      _cbpVirtualInterfaceId = Nothing
+    { newBGPPeer = Lude.Nothing,
+      virtualInterfaceId = Lude.Nothing
     }
 
 -- | Information about the BGP peer.
-cbpNewBGPPeer :: Lens' CreateBGPPeer (Maybe NewBGPPeer)
-cbpNewBGPPeer = lens _cbpNewBGPPeer (\s a -> s {_cbpNewBGPPeer = a})
+--
+-- /Note:/ Consider using 'newBGPPeer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpNewBGPPeer :: Lens.Lens' CreateBGPPeer (Lude.Maybe NewBGPPeer)
+cbpNewBGPPeer = Lens.lens (newBGPPeer :: CreateBGPPeer -> Lude.Maybe NewBGPPeer) (\s a -> s {newBGPPeer = a} :: CreateBGPPeer)
+{-# DEPRECATED cbpNewBGPPeer "Use generic-lens or generic-optics with 'newBGPPeer' instead." #-}
 
 -- | The ID of the virtual interface.
-cbpVirtualInterfaceId :: Lens' CreateBGPPeer (Maybe Text)
-cbpVirtualInterfaceId = lens _cbpVirtualInterfaceId (\s a -> s {_cbpVirtualInterfaceId = a})
+--
+-- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpVirtualInterfaceId :: Lens.Lens' CreateBGPPeer (Lude.Maybe Lude.Text)
+cbpVirtualInterfaceId = Lens.lens (virtualInterfaceId :: CreateBGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceId = a} :: CreateBGPPeer)
+{-# DEPRECATED cbpVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance AWSRequest CreateBGPPeer where
+instance Lude.AWSRequest CreateBGPPeer where
   type Rs CreateBGPPeer = CreateBGPPeerResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateBGPPeerResponse'
-            <$> (x .?> "virtualInterface") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "virtualInterface")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateBGPPeer
-
-instance NFData CreateBGPPeer
-
-instance ToHeaders CreateBGPPeer where
+instance Lude.ToHeaders CreateBGPPeer where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("OvertureService.CreateBGPPeer" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("OvertureService.CreateBGPPeer" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateBGPPeer where
+instance Lude.ToJSON CreateBGPPeer where
   toJSON CreateBGPPeer' {..} =
-    object
-      ( catMaybes
-          [ ("newBGPPeer" .=) <$> _cbpNewBGPPeer,
-            ("virtualInterfaceId" .=) <$> _cbpVirtualInterfaceId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("newBGPPeer" Lude..=) Lude.<$> newBGPPeer,
+            ("virtualInterfaceId" Lude..=) Lude.<$> virtualInterfaceId
           ]
       )
 
-instance ToPath CreateBGPPeer where
-  toPath = const "/"
+instance Lude.ToPath CreateBGPPeer where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateBGPPeer where
-  toQuery = const mempty
+instance Lude.ToQuery CreateBGPPeer where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createBGPPeerResponse' smart constructor.
+-- | /See:/ 'mkCreateBGPPeerResponse' smart constructor.
 data CreateBGPPeerResponse = CreateBGPPeerResponse'
-  { _cbprsVirtualInterface ::
-      !(Maybe VirtualInterface),
-    _cbprsResponseStatus :: !Int
+  { virtualInterface ::
+      Lude.Maybe VirtualInterface,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBGPPeerResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cbprsVirtualInterface' - The virtual interface.
---
--- * 'cbprsResponseStatus' - -- | The response status code.
-createBGPPeerResponse ::
-  -- | 'cbprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'virtualInterface' - The virtual interface.
+mkCreateBGPPeerResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateBGPPeerResponse
-createBGPPeerResponse pResponseStatus_ =
+mkCreateBGPPeerResponse pResponseStatus_ =
   CreateBGPPeerResponse'
-    { _cbprsVirtualInterface = Nothing,
-      _cbprsResponseStatus = pResponseStatus_
+    { virtualInterface = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The virtual interface.
-cbprsVirtualInterface :: Lens' CreateBGPPeerResponse (Maybe VirtualInterface)
-cbprsVirtualInterface = lens _cbprsVirtualInterface (\s a -> s {_cbprsVirtualInterface = a})
+--
+-- /Note:/ Consider using 'virtualInterface' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbprsVirtualInterface :: Lens.Lens' CreateBGPPeerResponse (Lude.Maybe VirtualInterface)
+cbprsVirtualInterface = Lens.lens (virtualInterface :: CreateBGPPeerResponse -> Lude.Maybe VirtualInterface) (\s a -> s {virtualInterface = a} :: CreateBGPPeerResponse)
+{-# DEPRECATED cbprsVirtualInterface "Use generic-lens or generic-optics with 'virtualInterface' instead." #-}
 
--- | -- | The response status code.
-cbprsResponseStatus :: Lens' CreateBGPPeerResponse Int
-cbprsResponseStatus = lens _cbprsResponseStatus (\s a -> s {_cbprsResponseStatus = a})
-
-instance NFData CreateBGPPeerResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbprsResponseStatus :: Lens.Lens' CreateBGPPeerResponse Lude.Int
+cbprsResponseStatus = Lens.lens (responseStatus :: CreateBGPPeerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBGPPeerResponse)
+{-# DEPRECATED cbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

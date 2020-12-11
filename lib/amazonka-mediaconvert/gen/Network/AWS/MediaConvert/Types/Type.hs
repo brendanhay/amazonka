@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Type where
+module Network.AWS.MediaConvert.Types.Type
+  ( Type
+      ( Type',
+        Custom,
+        System
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Type
-  = Custom
-  | System
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Type = Type' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Type where
-  parser =
-    takeLowerText >>= \case
-      "custom" -> pure Custom
-      "system" -> pure System
-      e ->
-        fromTextError $
-          "Failure parsing Type from value: '" <> e
-            <> "'. Accepted values: custom, system"
+pattern Custom :: Type
+pattern Custom = Type' "CUSTOM"
 
-instance ToText Type where
-  toText = \case
-    Custom -> "CUSTOM"
-    System -> "SYSTEM"
+pattern System :: Type
+pattern System = Type' "SYSTEM"
 
-instance Hashable Type
-
-instance NFData Type
-
-instance ToByteString Type
-
-instance ToQuery Type
-
-instance ToHeader Type
-
-instance FromJSON Type where
-  parseJSON = parseJSONText "Type"
+{-# COMPLETE
+  Custom,
+  System,
+  Type'
+  #-}

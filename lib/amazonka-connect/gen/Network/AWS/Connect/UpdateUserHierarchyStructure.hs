@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,115 @@
 --
 -- Updates the user hierarchy structure: add, remove, and rename user hierarchy levels.
 module Network.AWS.Connect.UpdateUserHierarchyStructure
-  ( -- * Creating a Request
-    updateUserHierarchyStructure,
-    UpdateUserHierarchyStructure,
+  ( -- * Creating a request
+    UpdateUserHierarchyStructure (..),
+    mkUpdateUserHierarchyStructure,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uuhsHierarchyStructure,
     uuhsInstanceId,
 
-    -- * Destructuring the Response
-    updateUserHierarchyStructureResponse,
-    UpdateUserHierarchyStructureResponse,
+    -- * Destructuring the response
+    UpdateUserHierarchyStructureResponse (..),
+    mkUpdateUserHierarchyStructureResponse,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateUserHierarchyStructure' smart constructor.
+-- | /See:/ 'mkUpdateUserHierarchyStructure' smart constructor.
 data UpdateUserHierarchyStructure = UpdateUserHierarchyStructure'
-  { _uuhsHierarchyStructure ::
-      !HierarchyStructureUpdate,
-    _uuhsInstanceId :: !Text
+  { hierarchyStructure ::
+      HierarchyStructureUpdate,
+    instanceId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserHierarchyStructure' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uuhsHierarchyStructure' - The hierarchy levels to update.
---
--- * 'uuhsInstanceId' - The identifier of the Amazon Connect instance.
-updateUserHierarchyStructure ::
-  -- | 'uuhsHierarchyStructure'
+-- * 'hierarchyStructure' - The hierarchy levels to update.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+mkUpdateUserHierarchyStructure ::
+  -- | 'hierarchyStructure'
   HierarchyStructureUpdate ->
-  -- | 'uuhsInstanceId'
-  Text ->
+  -- | 'instanceId'
+  Lude.Text ->
   UpdateUserHierarchyStructure
-updateUserHierarchyStructure pHierarchyStructure_ pInstanceId_ =
+mkUpdateUserHierarchyStructure pHierarchyStructure_ pInstanceId_ =
   UpdateUserHierarchyStructure'
-    { _uuhsHierarchyStructure =
+    { hierarchyStructure =
         pHierarchyStructure_,
-      _uuhsInstanceId = pInstanceId_
+      instanceId = pInstanceId_
     }
 
 -- | The hierarchy levels to update.
-uuhsHierarchyStructure :: Lens' UpdateUserHierarchyStructure HierarchyStructureUpdate
-uuhsHierarchyStructure = lens _uuhsHierarchyStructure (\s a -> s {_uuhsHierarchyStructure = a})
+--
+-- /Note:/ Consider using 'hierarchyStructure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuhsHierarchyStructure :: Lens.Lens' UpdateUserHierarchyStructure HierarchyStructureUpdate
+uuhsHierarchyStructure = Lens.lens (hierarchyStructure :: UpdateUserHierarchyStructure -> HierarchyStructureUpdate) (\s a -> s {hierarchyStructure = a} :: UpdateUserHierarchyStructure)
+{-# DEPRECATED uuhsHierarchyStructure "Use generic-lens or generic-optics with 'hierarchyStructure' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
-uuhsInstanceId :: Lens' UpdateUserHierarchyStructure Text
-uuhsInstanceId = lens _uuhsInstanceId (\s a -> s {_uuhsInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuhsInstanceId :: Lens.Lens' UpdateUserHierarchyStructure Lude.Text
+uuhsInstanceId = Lens.lens (instanceId :: UpdateUserHierarchyStructure -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserHierarchyStructure)
+{-# DEPRECATED uuhsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance AWSRequest UpdateUserHierarchyStructure where
+instance Lude.AWSRequest UpdateUserHierarchyStructure where
   type
     Rs UpdateUserHierarchyStructure =
       UpdateUserHierarchyStructureResponse
-  request = postJSON connect
-  response = receiveNull UpdateUserHierarchyStructureResponse'
+  request = Req.postJSON connectService
+  response = Res.receiveNull UpdateUserHierarchyStructureResponse'
 
-instance Hashable UpdateUserHierarchyStructure
-
-instance NFData UpdateUserHierarchyStructure
-
-instance ToHeaders UpdateUserHierarchyStructure where
+instance Lude.ToHeaders UpdateUserHierarchyStructure where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateUserHierarchyStructure where
+instance Lude.ToJSON UpdateUserHierarchyStructure where
   toJSON UpdateUserHierarchyStructure' {..} =
-    object
-      ( catMaybes
-          [Just ("HierarchyStructure" .= _uuhsHierarchyStructure)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("HierarchyStructure" Lude..= hierarchyStructure)]
       )
 
-instance ToPath UpdateUserHierarchyStructure where
+instance Lude.ToPath UpdateUserHierarchyStructure where
   toPath UpdateUserHierarchyStructure' {..} =
-    mconcat ["/user-hierarchy-structure/", toBS _uuhsInstanceId]
+    Lude.mconcat ["/user-hierarchy-structure/", Lude.toBS instanceId]
 
-instance ToQuery UpdateUserHierarchyStructure where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateUserHierarchyStructure where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateUserHierarchyStructureResponse' smart constructor.
+-- | /See:/ 'mkUpdateUserHierarchyStructureResponse' smart constructor.
 data UpdateUserHierarchyStructureResponse = UpdateUserHierarchyStructureResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserHierarchyStructureResponse' with the minimum fields required to make a request.
-updateUserHierarchyStructureResponse ::
+mkUpdateUserHierarchyStructureResponse ::
   UpdateUserHierarchyStructureResponse
-updateUserHierarchyStructureResponse =
+mkUpdateUserHierarchyStructureResponse =
   UpdateUserHierarchyStructureResponse'
-
-instance NFData UpdateUserHierarchyStructureResponse

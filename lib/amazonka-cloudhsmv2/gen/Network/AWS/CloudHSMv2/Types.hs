@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudHSMv2.Types
-  ( -- * Service Configuration
-    cloudHSMv2,
+  ( -- * Service configuration
+    cloudHSMv2Service,
 
     -- * Errors
 
@@ -31,8 +29,8 @@ module Network.AWS.CloudHSMv2.Types
     HSMState (..),
 
     -- * Backup
-    Backup,
-    backup,
+    Backup (..),
+    mkBackup,
     bDeleteTimestamp,
     bSourceCluster,
     bNeverExpires,
@@ -46,14 +44,14 @@ module Network.AWS.CloudHSMv2.Types
     bBackupId,
 
     -- * BackupRetentionPolicy
-    BackupRetentionPolicy,
-    backupRetentionPolicy,
+    BackupRetentionPolicy (..),
+    mkBackupRetentionPolicy,
     brpValue,
     brpType,
 
     -- * Certificates
-    Certificates,
-    certificates,
+    Certificates (..),
+    mkCertificates,
     cManufacturerHardwareCertificate,
     cClusterCSR,
     cHSMCertificate,
@@ -61,8 +59,8 @@ module Network.AWS.CloudHSMv2.Types
     cAWSHardwareCertificate,
 
     -- * Cluster
-    Cluster,
-    cluster,
+    Cluster (..),
+    mkCluster,
     cPreCoPassword,
     cStateMessage,
     cState,
@@ -80,16 +78,16 @@ module Network.AWS.CloudHSMv2.Types
     cHSMType,
 
     -- * DestinationBackup
-    DestinationBackup,
-    destinationBackup,
+    DestinationBackup (..),
+    mkDestinationBackup,
     dbSourceCluster,
     dbSourceRegion,
     dbSourceBackup,
     dbCreateTimestamp,
 
     -- * HSM
-    HSM,
-    hsm,
+    HSM (..),
+    mkHSM,
     hsmStateMessage,
     hsmState,
     hsmEniId,
@@ -100,10 +98,10 @@ module Network.AWS.CloudHSMv2.Types
     hsmHSMId,
 
     -- * Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
   )
 where
 
@@ -119,48 +117,60 @@ import Network.AWS.CloudHSMv2.Types.DestinationBackup
 import Network.AWS.CloudHSMv2.Types.HSM
 import Network.AWS.CloudHSMv2.Types.HSMState
 import Network.AWS.CloudHSMv2.Types.Tag
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-04-28@ of the Amazon CloudHSM V2 SDK configuration.
-cloudHSMv2 :: Service
-cloudHSMv2 =
-  Service
-    { _svcAbbrev = "CloudHSMv2",
-      _svcSigner = v4,
-      _svcPrefix = "cloudhsmv2",
-      _svcVersion = "2017-04-28",
-      _svcEndpoint = defaultEndpoint cloudHSMv2,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "CloudHSMv2",
-      _svcRetry = retry
+cloudHSMv2Service :: Lude.Service
+cloudHSMv2Service =
+  Lude.Service
+    { Lude._svcAbbrev = "CloudHSMv2",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "cloudhsmv2",
+      Lude._svcVersion = "2017-04-28",
+      Lude._svcEndpoint = Lude.defaultEndpoint cloudHSMv2Service,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "CloudHSMv2",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

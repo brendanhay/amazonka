@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,78 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.KinesisStreamConfig where
+module Network.AWS.CloudFront.Types.KinesisStreamConfig
+  ( KinesisStreamConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkKinesisStreamConfig,
+
+    -- * Lenses
+    kscRoleARN,
+    kscStreamARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
 --
---
---
--- /See:/ 'kinesisStreamConfig' smart constructor.
+-- /See:/ 'mkKinesisStreamConfig' smart constructor.
 data KinesisStreamConfig = KinesisStreamConfig'
-  { _kscRoleARN ::
-      !Text,
-    _kscStreamARN :: !Text
+  { roleARN ::
+      Lude.Text,
+    streamARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisStreamConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'roleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
 --
--- * 'kscRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream. For more information the IAM role, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role Real-time log configuration IAM role> in the /Amazon CloudFront Developer Guide/ .
---
--- * 'kscStreamARN' - The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
-kinesisStreamConfig ::
-  -- | 'kscRoleARN'
-  Text ->
-  -- | 'kscStreamARN'
-  Text ->
+-- For more information the IAM role, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role Real-time log configuration IAM role> in the /Amazon CloudFront Developer Guide/ .
+-- * 'streamARN' - The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
+mkKinesisStreamConfig ::
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'streamARN'
+  Lude.Text ->
   KinesisStreamConfig
-kinesisStreamConfig pRoleARN_ pStreamARN_ =
+mkKinesisStreamConfig pRoleARN_ pStreamARN_ =
   KinesisStreamConfig'
-    { _kscRoleARN = pRoleARN_,
-      _kscStreamARN = pStreamARN_
+    { roleARN = pRoleARN_,
+      streamARN = pStreamARN_
     }
 
--- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream. For more information the IAM role, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role Real-time log configuration IAM role> in the /Amazon CloudFront Developer Guide/ .
-kscRoleARN :: Lens' KinesisStreamConfig Text
-kscRoleARN = lens _kscRoleARN (\s a -> s {_kscRoleARN = a})
+-- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
+--
+-- For more information the IAM role, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role Real-time log configuration IAM role> in the /Amazon CloudFront Developer Guide/ .
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kscRoleARN :: Lens.Lens' KinesisStreamConfig Lude.Text
+kscRoleARN = Lens.lens (roleARN :: KinesisStreamConfig -> Lude.Text) (\s a -> s {roleARN = a} :: KinesisStreamConfig)
+{-# DEPRECATED kscRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
-kscStreamARN :: Lens' KinesisStreamConfig Text
-kscStreamARN = lens _kscStreamARN (\s a -> s {_kscStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kscStreamARN :: Lens.Lens' KinesisStreamConfig Lude.Text
+kscStreamARN = Lens.lens (streamARN :: KinesisStreamConfig -> Lude.Text) (\s a -> s {streamARN = a} :: KinesisStreamConfig)
+{-# DEPRECATED kscStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
-instance FromXML KinesisStreamConfig where
+instance Lude.FromXML KinesisStreamConfig where
   parseXML x =
-    KinesisStreamConfig' <$> (x .@ "RoleARN") <*> (x .@ "StreamARN")
+    KinesisStreamConfig'
+      Lude.<$> (x Lude..@ "RoleARN") Lude.<*> (x Lude..@ "StreamARN")
 
-instance Hashable KinesisStreamConfig
-
-instance NFData KinesisStreamConfig
-
-instance ToXML KinesisStreamConfig where
+instance Lude.ToXML KinesisStreamConfig where
   toXML KinesisStreamConfig' {..} =
-    mconcat ["RoleARN" @= _kscRoleARN, "StreamARN" @= _kscStreamARN]
+    Lude.mconcat
+      ["RoleARN" Lude.@= roleARN, "StreamARN" Lude.@= streamARN]

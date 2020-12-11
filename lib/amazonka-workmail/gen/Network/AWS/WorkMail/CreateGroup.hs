@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,132 +14,146 @@
 --
 -- Creates a group that can be used in Amazon WorkMail by calling the 'RegisterToWorkMail' operation.
 module Network.AWS.WorkMail.CreateGroup
-  ( -- * Creating a Request
-    createGroup,
-    CreateGroup,
+  ( -- * Creating a request
+    CreateGroup (..),
+    mkCreateGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cgOrganizationId,
     cgName,
 
-    -- * Destructuring the Response
-    createGroupResponse,
-    CreateGroupResponse,
+    -- * Destructuring the response
+    CreateGroupResponse (..),
+    mkCreateGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cgrsGroupId,
     cgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkMail.Types
 
--- | /See:/ 'createGroup' smart constructor.
+-- | /See:/ 'mkCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { _cgOrganizationId :: !Text,
-    _cgName :: !Text
+  { organizationId :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cgOrganizationId' - The organization under which the group is to be created.
---
--- * 'cgName' - The name of the group.
-createGroup ::
-  -- | 'cgOrganizationId'
-  Text ->
-  -- | 'cgName'
-  Text ->
+-- * 'name' - The name of the group.
+-- * 'organizationId' - The organization under which the group is to be created.
+mkCreateGroup ::
+  -- | 'organizationId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateGroup
-createGroup pOrganizationId_ pName_ =
-  CreateGroup'
-    { _cgOrganizationId = pOrganizationId_,
-      _cgName = pName_
-    }
+mkCreateGroup pOrganizationId_ pName_ =
+  CreateGroup' {organizationId = pOrganizationId_, name = pName_}
 
 -- | The organization under which the group is to be created.
-cgOrganizationId :: Lens' CreateGroup Text
-cgOrganizationId = lens _cgOrganizationId (\s a -> s {_cgOrganizationId = a})
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgOrganizationId :: Lens.Lens' CreateGroup Lude.Text
+cgOrganizationId = Lens.lens (organizationId :: CreateGroup -> Lude.Text) (\s a -> s {organizationId = a} :: CreateGroup)
+{-# DEPRECATED cgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The name of the group.
-cgName :: Lens' CreateGroup Text
-cgName = lens _cgName (\s a -> s {_cgName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgName :: Lens.Lens' CreateGroup Lude.Text
+cgName = Lens.lens (name :: CreateGroup -> Lude.Text) (\s a -> s {name = a} :: CreateGroup)
+{-# DEPRECATED cgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateGroup where
+instance Lude.AWSRequest CreateGroup where
   type Rs CreateGroup = CreateGroupResponse
-  request = postJSON workMail
+  request = Req.postJSON workMailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateGroupResponse' <$> (x .?> "GroupId") <*> (pure (fromEnum s))
+          CreateGroupResponse'
+            Lude.<$> (x Lude..?> "GroupId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateGroup
-
-instance NFData CreateGroup
-
-instance ToHeaders CreateGroup where
+instance Lude.ToHeaders CreateGroup where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("WorkMailService.CreateGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("WorkMailService.CreateGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateGroup where
+instance Lude.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
-    object
-      ( catMaybes
-          [ Just ("OrganizationId" .= _cgOrganizationId),
-            Just ("Name" .= _cgName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath CreateGroup where
-  toPath = const "/"
+instance Lude.ToPath CreateGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateGroup where
-  toQuery = const mempty
+instance Lude.ToQuery CreateGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createGroupResponse' smart constructor.
+-- | /See:/ 'mkCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { _cgrsGroupId ::
-      !(Maybe Text),
-    _cgrsResponseStatus :: !Int
+  { groupId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cgrsGroupId' - The identifier of the group.
---
--- * 'cgrsResponseStatus' - -- | The response status code.
-createGroupResponse ::
-  -- | 'cgrsResponseStatus'
-  Int ->
+-- * 'groupId' - The identifier of the group.
+-- * 'responseStatus' - The response status code.
+mkCreateGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateGroupResponse
-createGroupResponse pResponseStatus_ =
+mkCreateGroupResponse pResponseStatus_ =
   CreateGroupResponse'
-    { _cgrsGroupId = Nothing,
-      _cgrsResponseStatus = pResponseStatus_
+    { groupId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The identifier of the group.
-cgrsGroupId :: Lens' CreateGroupResponse (Maybe Text)
-cgrsGroupId = lens _cgrsGroupId (\s a -> s {_cgrsGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrsGroupId :: Lens.Lens' CreateGroupResponse (Lude.Maybe Lude.Text)
+cgrsGroupId = Lens.lens (groupId :: CreateGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: CreateGroupResponse)
+{-# DEPRECATED cgrsGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
--- | -- | The response status code.
-cgrsResponseStatus :: Lens' CreateGroupResponse Int
-cgrsResponseStatus = lens _cgrsResponseStatus (\s a -> s {_cgrsResponseStatus = a})
-
-instance NFData CreateGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrsResponseStatus :: Lens.Lens' CreateGroupResponse Lude.Int
+cgrsResponseStatus = Lens.lens (responseStatus :: CreateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGroupResponse)
+{-# DEPRECATED cgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

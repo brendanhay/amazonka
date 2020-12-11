@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your AWS Managed Microsoft AD directory, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.
 --
---
 -- This action initiates the creation of the AWS side of a trust relationship between an AWS Managed Microsoft AD directory and an external domain. You can create either a forest trust or an external trust.
 module Network.AWS.DirectoryService.CreateTrust
-  ( -- * Creating a Request
-    createTrust,
-    CreateTrust,
+  ( -- * Creating a request
+    CreateTrust (..),
+    mkCreateTrust,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctConditionalForwarderIPAddrs,
     ctTrustType,
     ctSelectiveAuth,
@@ -35,190 +29,206 @@ module Network.AWS.DirectoryService.CreateTrust
     ctTrustPassword,
     ctTrustDirection,
 
-    -- * Destructuring the Response
-    createTrustResponse,
-    CreateTrustResponse,
+    -- * Destructuring the response
+    CreateTrustResponse (..),
+    mkCreateTrustResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctrsTrustId,
     ctrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | AWS Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your AWS Managed Microsoft AD directory, and your existing on-premises Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.
 --
---
 -- This action initiates the creation of the AWS side of a trust relationship between an AWS Managed Microsoft AD directory and an external domain.
 --
---
--- /See:/ 'createTrust' smart constructor.
+-- /See:/ 'mkCreateTrust' smart constructor.
 data CreateTrust = CreateTrust'
-  { _ctConditionalForwarderIPAddrs ::
-      !(Maybe [Text]),
-    _ctTrustType :: !(Maybe TrustType),
-    _ctSelectiveAuth :: !(Maybe SelectiveAuth),
-    _ctDirectoryId :: !Text,
-    _ctRemoteDomainName :: !Text,
-    _ctTrustPassword :: !(Sensitive Text),
-    _ctTrustDirection :: !TrustDirection
+  { conditionalForwarderIPAddrs ::
+      Lude.Maybe [Lude.Text],
+    trustType :: Lude.Maybe TrustType,
+    selectiveAuth :: Lude.Maybe SelectiveAuth,
+    directoryId :: Lude.Text,
+    remoteDomainName :: Lude.Text,
+    trustPassword :: Lude.Sensitive Lude.Text,
+    trustDirection :: TrustDirection
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrust' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctConditionalForwarderIPAddrs' - The IP addresses of the remote DNS server associated with RemoteDomainName.
---
--- * 'ctTrustType' - The trust relationship type. @Forest@ is the default.
---
--- * 'ctSelectiveAuth' - Optional parameter to enable selective authentication for the trust.
---
--- * 'ctDirectoryId' - The Directory ID of the AWS Managed Microsoft AD directory for which to establish the trust relationship.
---
--- * 'ctRemoteDomainName' - The Fully Qualified Domain Name (FQDN) of the external domain for which to create the trust relationship.
---
--- * 'ctTrustPassword' - The trust password. The must be the same password that was used when creating the trust relationship on the external domain.
---
--- * 'ctTrustDirection' - The direction of the trust relationship.
-createTrust ::
-  -- | 'ctDirectoryId'
-  Text ->
-  -- | 'ctRemoteDomainName'
-  Text ->
-  -- | 'ctTrustPassword'
-  Text ->
-  -- | 'ctTrustDirection'
+-- * 'conditionalForwarderIPAddrs' - The IP addresses of the remote DNS server associated with RemoteDomainName.
+-- * 'directoryId' - The Directory ID of the AWS Managed Microsoft AD directory for which to establish the trust relationship.
+-- * 'remoteDomainName' - The Fully Qualified Domain Name (FQDN) of the external domain for which to create the trust relationship.
+-- * 'selectiveAuth' - Optional parameter to enable selective authentication for the trust.
+-- * 'trustDirection' - The direction of the trust relationship.
+-- * 'trustPassword' - The trust password. The must be the same password that was used when creating the trust relationship on the external domain.
+-- * 'trustType' - The trust relationship type. @Forest@ is the default.
+mkCreateTrust ::
+  -- | 'directoryId'
+  Lude.Text ->
+  -- | 'remoteDomainName'
+  Lude.Text ->
+  -- | 'trustPassword'
+  Lude.Sensitive Lude.Text ->
+  -- | 'trustDirection'
   TrustDirection ->
   CreateTrust
-createTrust
+mkCreateTrust
   pDirectoryId_
   pRemoteDomainName_
   pTrustPassword_
   pTrustDirection_ =
     CreateTrust'
-      { _ctConditionalForwarderIPAddrs = Nothing,
-        _ctTrustType = Nothing,
-        _ctSelectiveAuth = Nothing,
-        _ctDirectoryId = pDirectoryId_,
-        _ctRemoteDomainName = pRemoteDomainName_,
-        _ctTrustPassword = _Sensitive # pTrustPassword_,
-        _ctTrustDirection = pTrustDirection_
+      { conditionalForwarderIPAddrs = Lude.Nothing,
+        trustType = Lude.Nothing,
+        selectiveAuth = Lude.Nothing,
+        directoryId = pDirectoryId_,
+        remoteDomainName = pRemoteDomainName_,
+        trustPassword = pTrustPassword_,
+        trustDirection = pTrustDirection_
       }
 
 -- | The IP addresses of the remote DNS server associated with RemoteDomainName.
-ctConditionalForwarderIPAddrs :: Lens' CreateTrust [Text]
-ctConditionalForwarderIPAddrs = lens _ctConditionalForwarderIPAddrs (\s a -> s {_ctConditionalForwarderIPAddrs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'conditionalForwarderIPAddrs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctConditionalForwarderIPAddrs :: Lens.Lens' CreateTrust (Lude.Maybe [Lude.Text])
+ctConditionalForwarderIPAddrs = Lens.lens (conditionalForwarderIPAddrs :: CreateTrust -> Lude.Maybe [Lude.Text]) (\s a -> s {conditionalForwarderIPAddrs = a} :: CreateTrust)
+{-# DEPRECATED ctConditionalForwarderIPAddrs "Use generic-lens or generic-optics with 'conditionalForwarderIPAddrs' instead." #-}
 
 -- | The trust relationship type. @Forest@ is the default.
-ctTrustType :: Lens' CreateTrust (Maybe TrustType)
-ctTrustType = lens _ctTrustType (\s a -> s {_ctTrustType = a})
+--
+-- /Note:/ Consider using 'trustType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTrustType :: Lens.Lens' CreateTrust (Lude.Maybe TrustType)
+ctTrustType = Lens.lens (trustType :: CreateTrust -> Lude.Maybe TrustType) (\s a -> s {trustType = a} :: CreateTrust)
+{-# DEPRECATED ctTrustType "Use generic-lens or generic-optics with 'trustType' instead." #-}
 
 -- | Optional parameter to enable selective authentication for the trust.
-ctSelectiveAuth :: Lens' CreateTrust (Maybe SelectiveAuth)
-ctSelectiveAuth = lens _ctSelectiveAuth (\s a -> s {_ctSelectiveAuth = a})
+--
+-- /Note:/ Consider using 'selectiveAuth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctSelectiveAuth :: Lens.Lens' CreateTrust (Lude.Maybe SelectiveAuth)
+ctSelectiveAuth = Lens.lens (selectiveAuth :: CreateTrust -> Lude.Maybe SelectiveAuth) (\s a -> s {selectiveAuth = a} :: CreateTrust)
+{-# DEPRECATED ctSelectiveAuth "Use generic-lens or generic-optics with 'selectiveAuth' instead." #-}
 
 -- | The Directory ID of the AWS Managed Microsoft AD directory for which to establish the trust relationship.
-ctDirectoryId :: Lens' CreateTrust Text
-ctDirectoryId = lens _ctDirectoryId (\s a -> s {_ctDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctDirectoryId :: Lens.Lens' CreateTrust Lude.Text
+ctDirectoryId = Lens.lens (directoryId :: CreateTrust -> Lude.Text) (\s a -> s {directoryId = a} :: CreateTrust)
+{-# DEPRECATED ctDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The Fully Qualified Domain Name (FQDN) of the external domain for which to create the trust relationship.
-ctRemoteDomainName :: Lens' CreateTrust Text
-ctRemoteDomainName = lens _ctRemoteDomainName (\s a -> s {_ctRemoteDomainName = a})
+--
+-- /Note:/ Consider using 'remoteDomainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctRemoteDomainName :: Lens.Lens' CreateTrust Lude.Text
+ctRemoteDomainName = Lens.lens (remoteDomainName :: CreateTrust -> Lude.Text) (\s a -> s {remoteDomainName = a} :: CreateTrust)
+{-# DEPRECATED ctRemoteDomainName "Use generic-lens or generic-optics with 'remoteDomainName' instead." #-}
 
 -- | The trust password. The must be the same password that was used when creating the trust relationship on the external domain.
-ctTrustPassword :: Lens' CreateTrust Text
-ctTrustPassword = lens _ctTrustPassword (\s a -> s {_ctTrustPassword = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'trustPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTrustPassword :: Lens.Lens' CreateTrust (Lude.Sensitive Lude.Text)
+ctTrustPassword = Lens.lens (trustPassword :: CreateTrust -> Lude.Sensitive Lude.Text) (\s a -> s {trustPassword = a} :: CreateTrust)
+{-# DEPRECATED ctTrustPassword "Use generic-lens or generic-optics with 'trustPassword' instead." #-}
 
 -- | The direction of the trust relationship.
-ctTrustDirection :: Lens' CreateTrust TrustDirection
-ctTrustDirection = lens _ctTrustDirection (\s a -> s {_ctTrustDirection = a})
+--
+-- /Note:/ Consider using 'trustDirection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTrustDirection :: Lens.Lens' CreateTrust TrustDirection
+ctTrustDirection = Lens.lens (trustDirection :: CreateTrust -> TrustDirection) (\s a -> s {trustDirection = a} :: CreateTrust)
+{-# DEPRECATED ctTrustDirection "Use generic-lens or generic-optics with 'trustDirection' instead." #-}
 
-instance AWSRequest CreateTrust where
+instance Lude.AWSRequest CreateTrust where
   type Rs CreateTrust = CreateTrustResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateTrustResponse' <$> (x .?> "TrustId") <*> (pure (fromEnum s))
+          CreateTrustResponse'
+            Lude.<$> (x Lude..?> "TrustId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateTrust
-
-instance NFData CreateTrust
-
-instance ToHeaders CreateTrust where
+instance Lude.ToHeaders CreateTrust where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.CreateTrust" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.CreateTrust" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateTrust where
+instance Lude.ToJSON CreateTrust where
   toJSON CreateTrust' {..} =
-    object
-      ( catMaybes
-          [ ("ConditionalForwarderIpAddrs" .=)
-              <$> _ctConditionalForwarderIPAddrs,
-            ("TrustType" .=) <$> _ctTrustType,
-            ("SelectiveAuth" .=) <$> _ctSelectiveAuth,
-            Just ("DirectoryId" .= _ctDirectoryId),
-            Just ("RemoteDomainName" .= _ctRemoteDomainName),
-            Just ("TrustPassword" .= _ctTrustPassword),
-            Just ("TrustDirection" .= _ctTrustDirection)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ConditionalForwarderIpAddrs" Lude..=)
+              Lude.<$> conditionalForwarderIPAddrs,
+            ("TrustType" Lude..=) Lude.<$> trustType,
+            ("SelectiveAuth" Lude..=) Lude.<$> selectiveAuth,
+            Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("RemoteDomainName" Lude..= remoteDomainName),
+            Lude.Just ("TrustPassword" Lude..= trustPassword),
+            Lude.Just ("TrustDirection" Lude..= trustDirection)
           ]
       )
 
-instance ToPath CreateTrust where
-  toPath = const "/"
+instance Lude.ToPath CreateTrust where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateTrust where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTrust where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a CreateTrust request.
 --
---
---
--- /See:/ 'createTrustResponse' smart constructor.
+-- /See:/ 'mkCreateTrustResponse' smart constructor.
 data CreateTrustResponse = CreateTrustResponse'
-  { _ctrsTrustId ::
-      !(Maybe Text),
-    _ctrsResponseStatus :: !Int
+  { trustId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrustResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctrsTrustId' - A unique identifier for the trust relationship that was created.
---
--- * 'ctrsResponseStatus' - -- | The response status code.
-createTrustResponse ::
-  -- | 'ctrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'trustId' - A unique identifier for the trust relationship that was created.
+mkCreateTrustResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateTrustResponse
-createTrustResponse pResponseStatus_ =
+mkCreateTrustResponse pResponseStatus_ =
   CreateTrustResponse'
-    { _ctrsTrustId = Nothing,
-      _ctrsResponseStatus = pResponseStatus_
+    { trustId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A unique identifier for the trust relationship that was created.
-ctrsTrustId :: Lens' CreateTrustResponse (Maybe Text)
-ctrsTrustId = lens _ctrsTrustId (\s a -> s {_ctrsTrustId = a})
+--
+-- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrsTrustId :: Lens.Lens' CreateTrustResponse (Lude.Maybe Lude.Text)
+ctrsTrustId = Lens.lens (trustId :: CreateTrustResponse -> Lude.Maybe Lude.Text) (\s a -> s {trustId = a} :: CreateTrustResponse)
+{-# DEPRECATED ctrsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
--- | -- | The response status code.
-ctrsResponseStatus :: Lens' CreateTrustResponse Int
-ctrsResponseStatus = lens _ctrsResponseStatus (\s a -> s {_ctrsResponseStatus = a})
-
-instance NFData CreateTrustResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrsResponseStatus :: Lens.Lens' CreateTrustResponse Lude.Int
+ctrsResponseStatus = Lens.lens (responseStatus :: CreateTrustResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTrustResponse)
+{-# DEPRECATED ctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

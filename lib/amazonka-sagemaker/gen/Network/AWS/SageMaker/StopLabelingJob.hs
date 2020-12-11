@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,97 @@
 --
 -- Stops a running labeling job. A job that is stopped cannot be restarted. Any results obtained before the job is stopped are placed in the Amazon S3 output bucket.
 module Network.AWS.SageMaker.StopLabelingJob
-  ( -- * Creating a Request
-    stopLabelingJob,
-    StopLabelingJob,
+  ( -- * Creating a request
+    StopLabelingJob (..),
+    mkStopLabelingJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sljLabelingJobName,
 
-    -- * Destructuring the Response
-    stopLabelingJobResponse,
-    StopLabelingJobResponse,
+    -- * Destructuring the response
+    StopLabelingJobResponse (..),
+    mkStopLabelingJobResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'stopLabelingJob' smart constructor.
+-- | /See:/ 'mkStopLabelingJob' smart constructor.
 newtype StopLabelingJob = StopLabelingJob'
-  { _sljLabelingJobName ::
-      Text
+  { labelingJobName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopLabelingJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sljLabelingJobName' - The name of the labeling job to stop.
-stopLabelingJob ::
-  -- | 'sljLabelingJobName'
-  Text ->
+-- * 'labelingJobName' - The name of the labeling job to stop.
+mkStopLabelingJob ::
+  -- | 'labelingJobName'
+  Lude.Text ->
   StopLabelingJob
-stopLabelingJob pLabelingJobName_ =
-  StopLabelingJob' {_sljLabelingJobName = pLabelingJobName_}
+mkStopLabelingJob pLabelingJobName_ =
+  StopLabelingJob' {labelingJobName = pLabelingJobName_}
 
 -- | The name of the labeling job to stop.
-sljLabelingJobName :: Lens' StopLabelingJob Text
-sljLabelingJobName = lens _sljLabelingJobName (\s a -> s {_sljLabelingJobName = a})
+--
+-- /Note:/ Consider using 'labelingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sljLabelingJobName :: Lens.Lens' StopLabelingJob Lude.Text
+sljLabelingJobName = Lens.lens (labelingJobName :: StopLabelingJob -> Lude.Text) (\s a -> s {labelingJobName = a} :: StopLabelingJob)
+{-# DEPRECATED sljLabelingJobName "Use generic-lens or generic-optics with 'labelingJobName' instead." #-}
 
-instance AWSRequest StopLabelingJob where
+instance Lude.AWSRequest StopLabelingJob where
   type Rs StopLabelingJob = StopLabelingJobResponse
-  request = postJSON sageMaker
-  response = receiveNull StopLabelingJobResponse'
+  request = Req.postJSON sageMakerService
+  response = Res.receiveNull StopLabelingJobResponse'
 
-instance Hashable StopLabelingJob
-
-instance NFData StopLabelingJob
-
-instance ToHeaders StopLabelingJob where
+instance Lude.ToHeaders StopLabelingJob where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.StopLabelingJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.StopLabelingJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StopLabelingJob where
+instance Lude.ToJSON StopLabelingJob where
   toJSON StopLabelingJob' {..} =
-    object
-      (catMaybes [Just ("LabelingJobName" .= _sljLabelingJobName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("LabelingJobName" Lude..= labelingJobName)]
+      )
 
-instance ToPath StopLabelingJob where
-  toPath = const "/"
+instance Lude.ToPath StopLabelingJob where
+  toPath = Lude.const "/"
 
-instance ToQuery StopLabelingJob where
-  toQuery = const mempty
+instance Lude.ToQuery StopLabelingJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'stopLabelingJobResponse' smart constructor.
+-- | /See:/ 'mkStopLabelingJobResponse' smart constructor.
 data StopLabelingJobResponse = StopLabelingJobResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopLabelingJobResponse' with the minimum fields required to make a request.
-stopLabelingJobResponse ::
+mkStopLabelingJobResponse ::
   StopLabelingJobResponse
-stopLabelingJobResponse = StopLabelingJobResponse'
-
-instance NFData StopLabelingJobResponse
+mkStopLabelingJobResponse = StopLabelingJobResponse'

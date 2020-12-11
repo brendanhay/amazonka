@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ComputeLimitsUnitType where
+module Network.AWS.EMR.Types.ComputeLimitsUnitType
+  ( ComputeLimitsUnitType
+      ( ComputeLimitsUnitType',
+        InstanceFleetUnits,
+        Instances,
+        Vcpu
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComputeLimitsUnitType
-  = InstanceFleetUnits
-  | Instances
-  | Vcpu
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComputeLimitsUnitType = ComputeLimitsUnitType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComputeLimitsUnitType where
-  parser =
-    takeLowerText >>= \case
-      "instancefleetunits" -> pure InstanceFleetUnits
-      "instances" -> pure Instances
-      "vcpu" -> pure Vcpu
-      e ->
-        fromTextError $
-          "Failure parsing ComputeLimitsUnitType from value: '" <> e
-            <> "'. Accepted values: instancefleetunits, instances, vcpu"
+pattern InstanceFleetUnits :: ComputeLimitsUnitType
+pattern InstanceFleetUnits = ComputeLimitsUnitType' "InstanceFleetUnits"
 
-instance ToText ComputeLimitsUnitType where
-  toText = \case
-    InstanceFleetUnits -> "InstanceFleetUnits"
-    Instances -> "Instances"
-    Vcpu -> "VCPU"
+pattern Instances :: ComputeLimitsUnitType
+pattern Instances = ComputeLimitsUnitType' "Instances"
 
-instance Hashable ComputeLimitsUnitType
+pattern Vcpu :: ComputeLimitsUnitType
+pattern Vcpu = ComputeLimitsUnitType' "VCPU"
 
-instance NFData ComputeLimitsUnitType
-
-instance ToByteString ComputeLimitsUnitType
-
-instance ToQuery ComputeLimitsUnitType
-
-instance ToHeader ComputeLimitsUnitType
-
-instance ToJSON ComputeLimitsUnitType where
-  toJSON = toJSONText
-
-instance FromJSON ComputeLimitsUnitType where
-  parseJSON = parseJSONText "ComputeLimitsUnitType"
+{-# COMPLETE
+  InstanceFleetUnits,
+  Instances,
+  Vcpu,
+  ComputeLimitsUnitType'
+  #-}

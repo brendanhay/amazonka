@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.InstanceStateName where
+module Network.AWS.EC2.Types.InstanceStateName
+  ( InstanceStateName
+      ( InstanceStateName',
+        ISNPending,
+        ISNRunning,
+        ISNShuttingDown,
+        ISNStopped,
+        ISNStopping,
+        ISNTerminated
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InstanceStateName
-  = ISNPending
-  | ISNRunning
-  | ISNShuttingDown
-  | ISNStopped
-  | ISNStopping
-  | ISNTerminated
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InstanceStateName = InstanceStateName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InstanceStateName where
-  parser =
-    takeLowerText >>= \case
-      "pending" -> pure ISNPending
-      "running" -> pure ISNRunning
-      "shutting-down" -> pure ISNShuttingDown
-      "stopped" -> pure ISNStopped
-      "stopping" -> pure ISNStopping
-      "terminated" -> pure ISNTerminated
-      e ->
-        fromTextError $
-          "Failure parsing InstanceStateName from value: '" <> e
-            <> "'. Accepted values: pending, running, shutting-down, stopped, stopping, terminated"
+pattern ISNPending :: InstanceStateName
+pattern ISNPending = InstanceStateName' "pending"
 
-instance ToText InstanceStateName where
-  toText = \case
-    ISNPending -> "pending"
-    ISNRunning -> "running"
-    ISNShuttingDown -> "shutting-down"
-    ISNStopped -> "stopped"
-    ISNStopping -> "stopping"
-    ISNTerminated -> "terminated"
+pattern ISNRunning :: InstanceStateName
+pattern ISNRunning = InstanceStateName' "running"
 
-instance Hashable InstanceStateName
+pattern ISNShuttingDown :: InstanceStateName
+pattern ISNShuttingDown = InstanceStateName' "shutting-down"
 
-instance NFData InstanceStateName
+pattern ISNStopped :: InstanceStateName
+pattern ISNStopped = InstanceStateName' "stopped"
 
-instance ToByteString InstanceStateName
+pattern ISNStopping :: InstanceStateName
+pattern ISNStopping = InstanceStateName' "stopping"
 
-instance ToQuery InstanceStateName
+pattern ISNTerminated :: InstanceStateName
+pattern ISNTerminated = InstanceStateName' "terminated"
 
-instance ToHeader InstanceStateName
-
-instance FromXML InstanceStateName where
-  parseXML = parseXMLText "InstanceStateName"
+{-# COMPLETE
+  ISNPending,
+  ISNRunning,
+  ISNShuttingDown,
+  ISNStopped,
+  ISNStopping,
+  ISNTerminated,
+  InstanceStateName'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,30 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Transcribe.Types.TranscriptionJobSummary where
+module Network.AWS.Transcribe.Types.TranscriptionJobSummary
+  ( TranscriptionJobSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTranscriptionJobSummary,
+
+    -- * Lenses
+    tjsCreationTime,
+    tjsFailureReason,
+    tjsContentRedaction,
+    tjsIdentifiedLanguageScore,
+    tjsLanguageCode,
+    tjsOutputLocationType,
+    tjsStartTime,
+    tjsCompletionTime,
+    tjsModelSettings,
+    tjsTranscriptionJobStatus,
+    tjsTranscriptionJobName,
+    tjsIdentifyLanguage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Transcribe.Types.ContentRedaction
 import Network.AWS.Transcribe.Types.LanguageCode
 import Network.AWS.Transcribe.Types.ModelSettings
@@ -25,143 +39,174 @@ import Network.AWS.Transcribe.Types.TranscriptionJobStatus
 
 -- | Provides a summary of information about a transcription job.
 --
---
---
--- /See:/ 'transcriptionJobSummary' smart constructor.
+-- /See:/ 'mkTranscriptionJobSummary' smart constructor.
 data TranscriptionJobSummary = TranscriptionJobSummary'
-  { _tjsCreationTime ::
-      !(Maybe POSIX),
-    _tjsFailureReason :: !(Maybe Text),
-    _tjsContentRedaction ::
-      !(Maybe ContentRedaction),
-    _tjsIdentifiedLanguageScore ::
-      !(Maybe Double),
-    _tjsLanguageCode :: !(Maybe LanguageCode),
-    _tjsOutputLocationType ::
-      !(Maybe OutputLocationType),
-    _tjsStartTime :: !(Maybe POSIX),
-    _tjsCompletionTime :: !(Maybe POSIX),
-    _tjsModelSettings :: !(Maybe ModelSettings),
-    _tjsTranscriptionJobStatus ::
-      !(Maybe TranscriptionJobStatus),
-    _tjsTranscriptionJobName :: !(Maybe Text),
-    _tjsIdentifyLanguage :: !(Maybe Bool)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    failureReason :: Lude.Maybe Lude.Text,
+    contentRedaction ::
+      Lude.Maybe ContentRedaction,
+    identifiedLanguageScore ::
+      Lude.Maybe Lude.Double,
+    languageCode :: Lude.Maybe LanguageCode,
+    outputLocationType ::
+      Lude.Maybe OutputLocationType,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    completionTime :: Lude.Maybe Lude.Timestamp,
+    modelSettings :: Lude.Maybe ModelSettings,
+    transcriptionJobStatus ::
+      Lude.Maybe TranscriptionJobStatus,
+    transcriptionJobName ::
+      Lude.Maybe Lude.Text,
+    identifyLanguage :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TranscriptionJobSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'completionTime' - A timestamp that shows when the job was completed.
+-- * 'contentRedaction' - The content redaction settings of the transcription job.
+-- * 'creationTime' - A timestamp that shows when the job was created.
+-- * 'failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , a description of the error.
+-- * 'identifiedLanguageScore' - A value between zero and one that Amazon Transcribe assigned to the language it identified in the source audio. A higher score indicates that Amazon Transcribe is more confident in the language it identified.
+-- * 'identifyLanguage' - Whether automatic language identification was enabled for a transcription job.
+-- * 'languageCode' - The language code for the input speech.
+-- * 'modelSettings' - Undocumented field.
+-- * 'outputLocationType' - Indicates the location of the output of the transcription job.
 --
--- * 'tjsCreationTime' - A timestamp that shows when the job was created.
---
--- * 'tjsFailureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , a description of the error.
---
--- * 'tjsContentRedaction' - The content redaction settings of the transcription job.
---
--- * 'tjsIdentifiedLanguageScore' - A value between zero and one that Amazon Transcribe assigned to the language it identified in the source audio. A higher score indicates that Amazon Transcribe is more confident in the language it identified.
---
--- * 'tjsLanguageCode' - The language code for the input speech.
---
--- * 'tjsOutputLocationType' - Indicates the location of the output of the transcription job. If the value is @CUSTOMER_BUCKET@ then the location is the S3 bucket specified in the @outputBucketName@ field when the transcription job was started with the @StartTranscriptionJob@ operation. If the value is @SERVICE_BUCKET@ then the output is stored by Amazon Transcribe and can be retrieved using the URI in the @GetTranscriptionJob@ response's @TranscriptFileUri@ field.
---
--- * 'tjsStartTime' - A timestamp that shows when the job started processing.
---
--- * 'tjsCompletionTime' - A timestamp that shows when the job was completed.
---
--- * 'tjsModelSettings' - Undocumented member.
---
--- * 'tjsTranscriptionJobStatus' - The status of the transcription job. When the status is @COMPLETED@ , use the @GetTranscriptionJob@ operation to get the results of the transcription.
---
--- * 'tjsTranscriptionJobName' - The name of the transcription job.
---
--- * 'tjsIdentifyLanguage' - Whether automatic language identification was enabled for a transcription job.
-transcriptionJobSummary ::
+-- If the value is @CUSTOMER_BUCKET@ then the location is the S3 bucket specified in the @outputBucketName@ field when the transcription job was started with the @StartTranscriptionJob@ operation.
+-- If the value is @SERVICE_BUCKET@ then the output is stored by Amazon Transcribe and can be retrieved using the URI in the @GetTranscriptionJob@ response's @TranscriptFileUri@ field.
+-- * 'startTime' - A timestamp that shows when the job started processing.
+-- * 'transcriptionJobName' - The name of the transcription job.
+-- * 'transcriptionJobStatus' - The status of the transcription job. When the status is @COMPLETED@ , use the @GetTranscriptionJob@ operation to get the results of the transcription.
+mkTranscriptionJobSummary ::
   TranscriptionJobSummary
-transcriptionJobSummary =
+mkTranscriptionJobSummary =
   TranscriptionJobSummary'
-    { _tjsCreationTime = Nothing,
-      _tjsFailureReason = Nothing,
-      _tjsContentRedaction = Nothing,
-      _tjsIdentifiedLanguageScore = Nothing,
-      _tjsLanguageCode = Nothing,
-      _tjsOutputLocationType = Nothing,
-      _tjsStartTime = Nothing,
-      _tjsCompletionTime = Nothing,
-      _tjsModelSettings = Nothing,
-      _tjsTranscriptionJobStatus = Nothing,
-      _tjsTranscriptionJobName = Nothing,
-      _tjsIdentifyLanguage = Nothing
+    { creationTime = Lude.Nothing,
+      failureReason = Lude.Nothing,
+      contentRedaction = Lude.Nothing,
+      identifiedLanguageScore = Lude.Nothing,
+      languageCode = Lude.Nothing,
+      outputLocationType = Lude.Nothing,
+      startTime = Lude.Nothing,
+      completionTime = Lude.Nothing,
+      modelSettings = Lude.Nothing,
+      transcriptionJobStatus = Lude.Nothing,
+      transcriptionJobName = Lude.Nothing,
+      identifyLanguage = Lude.Nothing
     }
 
 -- | A timestamp that shows when the job was created.
-tjsCreationTime :: Lens' TranscriptionJobSummary (Maybe UTCTime)
-tjsCreationTime = lens _tjsCreationTime (\s a -> s {_tjsCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsCreationTime :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe Lude.Timestamp)
+tjsCreationTime = Lens.lens (creationTime :: TranscriptionJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | If the @TranscriptionJobStatus@ field is @FAILED@ , a description of the error.
-tjsFailureReason :: Lens' TranscriptionJobSummary (Maybe Text)
-tjsFailureReason = lens _tjsFailureReason (\s a -> s {_tjsFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsFailureReason :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe Lude.Text)
+tjsFailureReason = Lens.lens (failureReason :: TranscriptionJobSummary -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The content redaction settings of the transcription job.
-tjsContentRedaction :: Lens' TranscriptionJobSummary (Maybe ContentRedaction)
-tjsContentRedaction = lens _tjsContentRedaction (\s a -> s {_tjsContentRedaction = a})
+--
+-- /Note:/ Consider using 'contentRedaction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsContentRedaction :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe ContentRedaction)
+tjsContentRedaction = Lens.lens (contentRedaction :: TranscriptionJobSummary -> Lude.Maybe ContentRedaction) (\s a -> s {contentRedaction = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsContentRedaction "Use generic-lens or generic-optics with 'contentRedaction' instead." #-}
 
 -- | A value between zero and one that Amazon Transcribe assigned to the language it identified in the source audio. A higher score indicates that Amazon Transcribe is more confident in the language it identified.
-tjsIdentifiedLanguageScore :: Lens' TranscriptionJobSummary (Maybe Double)
-tjsIdentifiedLanguageScore = lens _tjsIdentifiedLanguageScore (\s a -> s {_tjsIdentifiedLanguageScore = a})
+--
+-- /Note:/ Consider using 'identifiedLanguageScore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsIdentifiedLanguageScore :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe Lude.Double)
+tjsIdentifiedLanguageScore = Lens.lens (identifiedLanguageScore :: TranscriptionJobSummary -> Lude.Maybe Lude.Double) (\s a -> s {identifiedLanguageScore = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsIdentifiedLanguageScore "Use generic-lens or generic-optics with 'identifiedLanguageScore' instead." #-}
 
 -- | The language code for the input speech.
-tjsLanguageCode :: Lens' TranscriptionJobSummary (Maybe LanguageCode)
-tjsLanguageCode = lens _tjsLanguageCode (\s a -> s {_tjsLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsLanguageCode :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe LanguageCode)
+tjsLanguageCode = Lens.lens (languageCode :: TranscriptionJobSummary -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
--- | Indicates the location of the output of the transcription job. If the value is @CUSTOMER_BUCKET@ then the location is the S3 bucket specified in the @outputBucketName@ field when the transcription job was started with the @StartTranscriptionJob@ operation. If the value is @SERVICE_BUCKET@ then the output is stored by Amazon Transcribe and can be retrieved using the URI in the @GetTranscriptionJob@ response's @TranscriptFileUri@ field.
-tjsOutputLocationType :: Lens' TranscriptionJobSummary (Maybe OutputLocationType)
-tjsOutputLocationType = lens _tjsOutputLocationType (\s a -> s {_tjsOutputLocationType = a})
+-- | Indicates the location of the output of the transcription job.
+--
+-- If the value is @CUSTOMER_BUCKET@ then the location is the S3 bucket specified in the @outputBucketName@ field when the transcription job was started with the @StartTranscriptionJob@ operation.
+-- If the value is @SERVICE_BUCKET@ then the output is stored by Amazon Transcribe and can be retrieved using the URI in the @GetTranscriptionJob@ response's @TranscriptFileUri@ field.
+--
+-- /Note:/ Consider using 'outputLocationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsOutputLocationType :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe OutputLocationType)
+tjsOutputLocationType = Lens.lens (outputLocationType :: TranscriptionJobSummary -> Lude.Maybe OutputLocationType) (\s a -> s {outputLocationType = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsOutputLocationType "Use generic-lens or generic-optics with 'outputLocationType' instead." #-}
 
 -- | A timestamp that shows when the job started processing.
-tjsStartTime :: Lens' TranscriptionJobSummary (Maybe UTCTime)
-tjsStartTime = lens _tjsStartTime (\s a -> s {_tjsStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsStartTime :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe Lude.Timestamp)
+tjsStartTime = Lens.lens (startTime :: TranscriptionJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | A timestamp that shows when the job was completed.
-tjsCompletionTime :: Lens' TranscriptionJobSummary (Maybe UTCTime)
-tjsCompletionTime = lens _tjsCompletionTime (\s a -> s {_tjsCompletionTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'completionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsCompletionTime :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe Lude.Timestamp)
+tjsCompletionTime = Lens.lens (completionTime :: TranscriptionJobSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {completionTime = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsCompletionTime "Use generic-lens or generic-optics with 'completionTime' instead." #-}
 
--- | Undocumented member.
-tjsModelSettings :: Lens' TranscriptionJobSummary (Maybe ModelSettings)
-tjsModelSettings = lens _tjsModelSettings (\s a -> s {_tjsModelSettings = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'modelSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsModelSettings :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe ModelSettings)
+tjsModelSettings = Lens.lens (modelSettings :: TranscriptionJobSummary -> Lude.Maybe ModelSettings) (\s a -> s {modelSettings = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsModelSettings "Use generic-lens or generic-optics with 'modelSettings' instead." #-}
 
 -- | The status of the transcription job. When the status is @COMPLETED@ , use the @GetTranscriptionJob@ operation to get the results of the transcription.
-tjsTranscriptionJobStatus :: Lens' TranscriptionJobSummary (Maybe TranscriptionJobStatus)
-tjsTranscriptionJobStatus = lens _tjsTranscriptionJobStatus (\s a -> s {_tjsTranscriptionJobStatus = a})
+--
+-- /Note:/ Consider using 'transcriptionJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsTranscriptionJobStatus :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe TranscriptionJobStatus)
+tjsTranscriptionJobStatus = Lens.lens (transcriptionJobStatus :: TranscriptionJobSummary -> Lude.Maybe TranscriptionJobStatus) (\s a -> s {transcriptionJobStatus = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsTranscriptionJobStatus "Use generic-lens or generic-optics with 'transcriptionJobStatus' instead." #-}
 
 -- | The name of the transcription job.
-tjsTranscriptionJobName :: Lens' TranscriptionJobSummary (Maybe Text)
-tjsTranscriptionJobName = lens _tjsTranscriptionJobName (\s a -> s {_tjsTranscriptionJobName = a})
+--
+-- /Note:/ Consider using 'transcriptionJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsTranscriptionJobName :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe Lude.Text)
+tjsTranscriptionJobName = Lens.lens (transcriptionJobName :: TranscriptionJobSummary -> Lude.Maybe Lude.Text) (\s a -> s {transcriptionJobName = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsTranscriptionJobName "Use generic-lens or generic-optics with 'transcriptionJobName' instead." #-}
 
 -- | Whether automatic language identification was enabled for a transcription job.
-tjsIdentifyLanguage :: Lens' TranscriptionJobSummary (Maybe Bool)
-tjsIdentifyLanguage = lens _tjsIdentifyLanguage (\s a -> s {_tjsIdentifyLanguage = a})
+--
+-- /Note:/ Consider using 'identifyLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjsIdentifyLanguage :: Lens.Lens' TranscriptionJobSummary (Lude.Maybe Lude.Bool)
+tjsIdentifyLanguage = Lens.lens (identifyLanguage :: TranscriptionJobSummary -> Lude.Maybe Lude.Bool) (\s a -> s {identifyLanguage = a} :: TranscriptionJobSummary)
+{-# DEPRECATED tjsIdentifyLanguage "Use generic-lens or generic-optics with 'identifyLanguage' instead." #-}
 
-instance FromJSON TranscriptionJobSummary where
+instance Lude.FromJSON TranscriptionJobSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "TranscriptionJobSummary"
       ( \x ->
           TranscriptionJobSummary'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "FailureReason")
-            <*> (x .:? "ContentRedaction")
-            <*> (x .:? "IdentifiedLanguageScore")
-            <*> (x .:? "LanguageCode")
-            <*> (x .:? "OutputLocationType")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "CompletionTime")
-            <*> (x .:? "ModelSettings")
-            <*> (x .:? "TranscriptionJobStatus")
-            <*> (x .:? "TranscriptionJobName")
-            <*> (x .:? "IdentifyLanguage")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "FailureReason")
+            Lude.<*> (x Lude..:? "ContentRedaction")
+            Lude.<*> (x Lude..:? "IdentifiedLanguageScore")
+            Lude.<*> (x Lude..:? "LanguageCode")
+            Lude.<*> (x Lude..:? "OutputLocationType")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "CompletionTime")
+            Lude.<*> (x Lude..:? "ModelSettings")
+            Lude.<*> (x Lude..:? "TranscriptionJobStatus")
+            Lude.<*> (x Lude..:? "TranscriptionJobName")
+            Lude.<*> (x Lude..:? "IdentifyLanguage")
       )
-
-instance Hashable TranscriptionJobSummary
-
-instance NFData TranscriptionJobSummary

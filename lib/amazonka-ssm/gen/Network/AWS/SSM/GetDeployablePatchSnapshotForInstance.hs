@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-RunPatchBaseline Systems Manager document.
 module Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
-  ( -- * Creating a Request
-    getDeployablePatchSnapshotForInstance,
-    GetDeployablePatchSnapshotForInstance,
+  ( -- * Creating a request
+    GetDeployablePatchSnapshotForInstance (..),
+    mkGetDeployablePatchSnapshotForInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdpsfiInstanceId,
     gdpsfiSnapshotId,
 
-    -- * Destructuring the Response
-    getDeployablePatchSnapshotForInstanceResponse,
-    GetDeployablePatchSnapshotForInstanceResponse,
+    -- * Destructuring the response
+    GetDeployablePatchSnapshotForInstanceResponse (..),
+    mkGetDeployablePatchSnapshotForInstanceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdpsfirsInstanceId,
     gdpsfirsProduct,
     gdpsfirsSnapshotDownloadURL,
@@ -40,169 +35,183 @@ module Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getDeployablePatchSnapshotForInstance' smart constructor.
+-- | /See:/ 'mkGetDeployablePatchSnapshotForInstance' smart constructor.
 data GetDeployablePatchSnapshotForInstance = GetDeployablePatchSnapshotForInstance'
-  { _gdpsfiInstanceId ::
-      !Text,
-    _gdpsfiSnapshotId ::
-      !Text
+  { instanceId ::
+      Lude.Text,
+    snapshotId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeployablePatchSnapshotForInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdpsfiInstanceId' - The ID of the instance for which the appropriate patch snapshot should be retrieved.
---
--- * 'gdpsfiSnapshotId' - The user-defined snapshot ID.
-getDeployablePatchSnapshotForInstance ::
-  -- | 'gdpsfiInstanceId'
-  Text ->
-  -- | 'gdpsfiSnapshotId'
-  Text ->
+-- * 'instanceId' - The ID of the instance for which the appropriate patch snapshot should be retrieved.
+-- * 'snapshotId' - The user-defined snapshot ID.
+mkGetDeployablePatchSnapshotForInstance ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'snapshotId'
+  Lude.Text ->
   GetDeployablePatchSnapshotForInstance
-getDeployablePatchSnapshotForInstance pInstanceId_ pSnapshotId_ =
+mkGetDeployablePatchSnapshotForInstance pInstanceId_ pSnapshotId_ =
   GetDeployablePatchSnapshotForInstance'
-    { _gdpsfiInstanceId =
-        pInstanceId_,
-      _gdpsfiSnapshotId = pSnapshotId_
+    { instanceId = pInstanceId_,
+      snapshotId = pSnapshotId_
     }
 
 -- | The ID of the instance for which the appropriate patch snapshot should be retrieved.
-gdpsfiInstanceId :: Lens' GetDeployablePatchSnapshotForInstance Text
-gdpsfiInstanceId = lens _gdpsfiInstanceId (\s a -> s {_gdpsfiInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpsfiInstanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstance Lude.Text
+gdpsfiInstanceId = Lens.lens (instanceId :: GetDeployablePatchSnapshotForInstance -> Lude.Text) (\s a -> s {instanceId = a} :: GetDeployablePatchSnapshotForInstance)
+{-# DEPRECATED gdpsfiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The user-defined snapshot ID.
-gdpsfiSnapshotId :: Lens' GetDeployablePatchSnapshotForInstance Text
-gdpsfiSnapshotId = lens _gdpsfiSnapshotId (\s a -> s {_gdpsfiSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpsfiSnapshotId :: Lens.Lens' GetDeployablePatchSnapshotForInstance Lude.Text
+gdpsfiSnapshotId = Lens.lens (snapshotId :: GetDeployablePatchSnapshotForInstance -> Lude.Text) (\s a -> s {snapshotId = a} :: GetDeployablePatchSnapshotForInstance)
+{-# DEPRECATED gdpsfiSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance AWSRequest GetDeployablePatchSnapshotForInstance where
+instance Lude.AWSRequest GetDeployablePatchSnapshotForInstance where
   type
     Rs GetDeployablePatchSnapshotForInstance =
       GetDeployablePatchSnapshotForInstanceResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDeployablePatchSnapshotForInstanceResponse'
-            <$> (x .?> "InstanceId")
-            <*> (x .?> "Product")
-            <*> (x .?> "SnapshotDownloadUrl")
-            <*> (x .?> "SnapshotId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "InstanceId")
+            Lude.<*> (x Lude..?> "Product")
+            Lude.<*> (x Lude..?> "SnapshotDownloadUrl")
+            Lude.<*> (x Lude..?> "SnapshotId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDeployablePatchSnapshotForInstance
-
-instance NFData GetDeployablePatchSnapshotForInstance
-
-instance ToHeaders GetDeployablePatchSnapshotForInstance where
+instance Lude.ToHeaders GetDeployablePatchSnapshotForInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.GetDeployablePatchSnapshotForInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonSSM.GetDeployablePatchSnapshotForInstance" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDeployablePatchSnapshotForInstance where
+instance Lude.ToJSON GetDeployablePatchSnapshotForInstance where
   toJSON GetDeployablePatchSnapshotForInstance' {..} =
-    object
-      ( catMaybes
-          [ Just ("InstanceId" .= _gdpsfiInstanceId),
-            Just ("SnapshotId" .= _gdpsfiSnapshotId)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("SnapshotId" Lude..= snapshotId)
           ]
       )
 
-instance ToPath GetDeployablePatchSnapshotForInstance where
-  toPath = const "/"
+instance Lude.ToPath GetDeployablePatchSnapshotForInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDeployablePatchSnapshotForInstance where
-  toQuery = const mempty
+instance Lude.ToQuery GetDeployablePatchSnapshotForInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getDeployablePatchSnapshotForInstanceResponse' smart constructor.
+-- | /See:/ 'mkGetDeployablePatchSnapshotForInstanceResponse' smart constructor.
 data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotForInstanceResponse'
-  { _gdpsfirsInstanceId ::
-      !( Maybe
-           Text
-       ),
-    _gdpsfirsProduct ::
-      !( Maybe
-           Text
-       ),
-    _gdpsfirsSnapshotDownloadURL ::
-      !( Maybe
-           Text
-       ),
-    _gdpsfirsSnapshotId ::
-      !( Maybe
-           Text
-       ),
-    _gdpsfirsResponseStatus ::
-      !Int
+  { instanceId ::
+      Lude.Maybe
+        Lude.Text,
+    product ::
+      Lude.Maybe
+        Lude.Text,
+    snapshotDownloadURL ::
+      Lude.Maybe
+        Lude.Text,
+    snapshotId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'GetDeployablePatchSnapshotForInstanceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdpsfirsInstanceId' - The ID of the instance.
---
--- * 'gdpsfirsProduct' - Returns the specific operating system (for example Windows Server 2012 or Amazon Linux 2015.09) on the instance for the specified patch snapshot.
---
--- * 'gdpsfirsSnapshotDownloadURL' - A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
---
--- * 'gdpsfirsSnapshotId' - The user-defined snapshot ID.
---
--- * 'gdpsfirsResponseStatus' - -- | The response status code.
-getDeployablePatchSnapshotForInstanceResponse ::
-  -- | 'gdpsfirsResponseStatus'
-  Int ->
+-- * 'instanceId' - The ID of the instance.
+-- * 'product' - Returns the specific operating system (for example Windows Server 2012 or Amazon Linux 2015.09) on the instance for the specified patch snapshot.
+-- * 'responseStatus' - The response status code.
+-- * 'snapshotDownloadURL' - A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
+-- * 'snapshotId' - The user-defined snapshot ID.
+mkGetDeployablePatchSnapshotForInstanceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDeployablePatchSnapshotForInstanceResponse
-getDeployablePatchSnapshotForInstanceResponse pResponseStatus_ =
+mkGetDeployablePatchSnapshotForInstanceResponse pResponseStatus_ =
   GetDeployablePatchSnapshotForInstanceResponse'
-    { _gdpsfirsInstanceId =
-        Nothing,
-      _gdpsfirsProduct = Nothing,
-      _gdpsfirsSnapshotDownloadURL = Nothing,
-      _gdpsfirsSnapshotId = Nothing,
-      _gdpsfirsResponseStatus = pResponseStatus_
+    { instanceId =
+        Lude.Nothing,
+      product = Lude.Nothing,
+      snapshotDownloadURL = Lude.Nothing,
+      snapshotId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the instance.
-gdpsfirsInstanceId :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
-gdpsfirsInstanceId = lens _gdpsfirsInstanceId (\s a -> s {_gdpsfirsInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpsfirsInstanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Lude.Maybe Lude.Text)
+gdpsfirsInstanceId = Lens.lens (instanceId :: GetDeployablePatchSnapshotForInstanceResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
+{-# DEPRECATED gdpsfirsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Returns the specific operating system (for example Windows Server 2012 or Amazon Linux 2015.09) on the instance for the specified patch snapshot.
-gdpsfirsProduct :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
-gdpsfirsProduct = lens _gdpsfirsProduct (\s a -> s {_gdpsfirsProduct = a})
+--
+-- /Note:/ Consider using 'product' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpsfirsProduct :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Lude.Maybe Lude.Text)
+gdpsfirsProduct = Lens.lens (product :: GetDeployablePatchSnapshotForInstanceResponse -> Lude.Maybe Lude.Text) (\s a -> s {product = a} :: GetDeployablePatchSnapshotForInstanceResponse)
+{-# DEPRECATED gdpsfirsProduct "Use generic-lens or generic-optics with 'product' instead." #-}
 
 -- | A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
-gdpsfirsSnapshotDownloadURL :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
-gdpsfirsSnapshotDownloadURL = lens _gdpsfirsSnapshotDownloadURL (\s a -> s {_gdpsfirsSnapshotDownloadURL = a})
+--
+-- /Note:/ Consider using 'snapshotDownloadURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpsfirsSnapshotDownloadURL :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Lude.Maybe Lude.Text)
+gdpsfirsSnapshotDownloadURL = Lens.lens (snapshotDownloadURL :: GetDeployablePatchSnapshotForInstanceResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotDownloadURL = a} :: GetDeployablePatchSnapshotForInstanceResponse)
+{-# DEPRECATED gdpsfirsSnapshotDownloadURL "Use generic-lens or generic-optics with 'snapshotDownloadURL' instead." #-}
 
 -- | The user-defined snapshot ID.
-gdpsfirsSnapshotId :: Lens' GetDeployablePatchSnapshotForInstanceResponse (Maybe Text)
-gdpsfirsSnapshotId = lens _gdpsfirsSnapshotId (\s a -> s {_gdpsfirsSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpsfirsSnapshotId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Lude.Maybe Lude.Text)
+gdpsfirsSnapshotId = Lens.lens (snapshotId :: GetDeployablePatchSnapshotForInstanceResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
+{-# DEPRECATED gdpsfirsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
--- | -- | The response status code.
-gdpsfirsResponseStatus :: Lens' GetDeployablePatchSnapshotForInstanceResponse Int
-gdpsfirsResponseStatus = lens _gdpsfirsResponseStatus (\s a -> s {_gdpsfirsResponseStatus = a})
-
-instance NFData GetDeployablePatchSnapshotForInstanceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpsfirsResponseStatus :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse Lude.Int
+gdpsfirsResponseStatus = Lens.lens (responseStatus :: GetDeployablePatchSnapshotForInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeployablePatchSnapshotForInstanceResponse)
+{-# DEPRECATED gdpsfirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

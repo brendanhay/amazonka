@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.CustomHealthStatus where
+module Network.AWS.Route53AutoNaming.Types.CustomHealthStatus
+  ( CustomHealthStatus
+      ( CustomHealthStatus',
+        CHSHealthy,
+        CHSUnhealthy
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CustomHealthStatus
-  = CHSHealthy
-  | CHSUnhealthy
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CustomHealthStatus = CustomHealthStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CustomHealthStatus where
-  parser =
-    takeLowerText >>= \case
-      "healthy" -> pure CHSHealthy
-      "unhealthy" -> pure CHSUnhealthy
-      e ->
-        fromTextError $
-          "Failure parsing CustomHealthStatus from value: '" <> e
-            <> "'. Accepted values: healthy, unhealthy"
+pattern CHSHealthy :: CustomHealthStatus
+pattern CHSHealthy = CustomHealthStatus' "HEALTHY"
 
-instance ToText CustomHealthStatus where
-  toText = \case
-    CHSHealthy -> "HEALTHY"
-    CHSUnhealthy -> "UNHEALTHY"
+pattern CHSUnhealthy :: CustomHealthStatus
+pattern CHSUnhealthy = CustomHealthStatus' "UNHEALTHY"
 
-instance Hashable CustomHealthStatus
-
-instance NFData CustomHealthStatus
-
-instance ToByteString CustomHealthStatus
-
-instance ToQuery CustomHealthStatus
-
-instance ToHeader CustomHealthStatus
-
-instance ToJSON CustomHealthStatus where
-  toJSON = toJSONText
+{-# COMPLETE
+  CHSHealthy,
+  CHSUnhealthy,
+  CustomHealthStatus'
+  #-}

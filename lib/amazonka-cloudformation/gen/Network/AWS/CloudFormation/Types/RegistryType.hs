@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.RegistryType where
+module Network.AWS.CloudFormation.Types.RegistryType
+  ( RegistryType
+      ( RegistryType',
+        Module,
+        Resource
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RegistryType
-  = Module
-  | Resource
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RegistryType = RegistryType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RegistryType where
-  parser =
-    takeLowerText >>= \case
-      "module" -> pure Module
-      "resource" -> pure Resource
-      e ->
-        fromTextError $
-          "Failure parsing RegistryType from value: '" <> e
-            <> "'. Accepted values: module, resource"
+pattern Module :: RegistryType
+pattern Module = RegistryType' "MODULE"
 
-instance ToText RegistryType where
-  toText = \case
-    Module -> "MODULE"
-    Resource -> "RESOURCE"
+pattern Resource :: RegistryType
+pattern Resource = RegistryType' "RESOURCE"
 
-instance Hashable RegistryType
-
-instance NFData RegistryType
-
-instance ToByteString RegistryType
-
-instance ToQuery RegistryType
-
-instance ToHeader RegistryType
-
-instance FromXML RegistryType where
-  parseXML = parseXMLText "RegistryType"
+{-# COMPLETE
+  Module,
+  Resource,
+  RegistryType'
+  #-}

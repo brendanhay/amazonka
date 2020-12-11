@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,139 @@
 --
 -- Describes auto scaling settings across replicas of the global table at once.
 module Network.AWS.DynamoDB.DescribeTableReplicaAutoScaling
-  ( -- * Creating a Request
-    describeTableReplicaAutoScaling,
-    DescribeTableReplicaAutoScaling,
+  ( -- * Creating a request
+    DescribeTableReplicaAutoScaling (..),
+    mkDescribeTableReplicaAutoScaling,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtrasTableName,
 
-    -- * Destructuring the Response
-    describeTableReplicaAutoScalingResponse,
-    DescribeTableReplicaAutoScalingResponse,
+    -- * Destructuring the response
+    DescribeTableReplicaAutoScalingResponse (..),
+    mkDescribeTableReplicaAutoScalingResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtrasrsTableAutoScalingDescription,
     dtrasrsResponseStatus,
   )
 where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeTableReplicaAutoScaling' smart constructor.
+-- | /See:/ 'mkDescribeTableReplicaAutoScaling' smart constructor.
 newtype DescribeTableReplicaAutoScaling = DescribeTableReplicaAutoScaling'
-  { _dtrasTableName ::
-      Text
+  { tableName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTableReplicaAutoScaling' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrasTableName' - The name of the table.
-describeTableReplicaAutoScaling ::
-  -- | 'dtrasTableName'
-  Text ->
+-- * 'tableName' - The name of the table.
+mkDescribeTableReplicaAutoScaling ::
+  -- | 'tableName'
+  Lude.Text ->
   DescribeTableReplicaAutoScaling
-describeTableReplicaAutoScaling pTableName_ =
-  DescribeTableReplicaAutoScaling' {_dtrasTableName = pTableName_}
+mkDescribeTableReplicaAutoScaling pTableName_ =
+  DescribeTableReplicaAutoScaling' {tableName = pTableName_}
 
 -- | The name of the table.
-dtrasTableName :: Lens' DescribeTableReplicaAutoScaling Text
-dtrasTableName = lens _dtrasTableName (\s a -> s {_dtrasTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrasTableName :: Lens.Lens' DescribeTableReplicaAutoScaling Lude.Text
+dtrasTableName = Lens.lens (tableName :: DescribeTableReplicaAutoScaling -> Lude.Text) (\s a -> s {tableName = a} :: DescribeTableReplicaAutoScaling)
+{-# DEPRECATED dtrasTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance AWSRequest DescribeTableReplicaAutoScaling where
+instance Lude.AWSRequest DescribeTableReplicaAutoScaling where
   type
     Rs DescribeTableReplicaAutoScaling =
       DescribeTableReplicaAutoScalingResponse
-  request = postJSON dynamoDB
+  request = Req.postJSON dynamoDBService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTableReplicaAutoScalingResponse'
-            <$> (x .?> "TableAutoScalingDescription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TableAutoScalingDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTableReplicaAutoScaling
-
-instance NFData DescribeTableReplicaAutoScaling
-
-instance ToHeaders DescribeTableReplicaAutoScaling where
+instance Lude.ToHeaders DescribeTableReplicaAutoScaling where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "DynamoDB_20120810.DescribeTableReplicaAutoScaling" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ( "DynamoDB_20120810.DescribeTableReplicaAutoScaling" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTableReplicaAutoScaling where
+instance Lude.ToJSON DescribeTableReplicaAutoScaling where
   toJSON DescribeTableReplicaAutoScaling' {..} =
-    object (catMaybes [Just ("TableName" .= _dtrasTableName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("TableName" Lude..= tableName)])
 
-instance ToPath DescribeTableReplicaAutoScaling where
-  toPath = const "/"
+instance Lude.ToPath DescribeTableReplicaAutoScaling where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTableReplicaAutoScaling where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTableReplicaAutoScaling where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeTableReplicaAutoScalingResponse' smart constructor.
+-- | /See:/ 'mkDescribeTableReplicaAutoScalingResponse' smart constructor.
 data DescribeTableReplicaAutoScalingResponse = DescribeTableReplicaAutoScalingResponse'
-  { _dtrasrsTableAutoScalingDescription ::
-      !( Maybe
-           TableAutoScalingDescription
-       ),
-    _dtrasrsResponseStatus ::
-      !Int
+  { tableAutoScalingDescription ::
+      Lude.Maybe
+        TableAutoScalingDescription,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTableReplicaAutoScalingResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtrasrsTableAutoScalingDescription' - Represents the auto scaling properties of the table.
---
--- * 'dtrasrsResponseStatus' - -- | The response status code.
-describeTableReplicaAutoScalingResponse ::
-  -- | 'dtrasrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'tableAutoScalingDescription' - Represents the auto scaling properties of the table.
+mkDescribeTableReplicaAutoScalingResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTableReplicaAutoScalingResponse
-describeTableReplicaAutoScalingResponse pResponseStatus_ =
+mkDescribeTableReplicaAutoScalingResponse pResponseStatus_ =
   DescribeTableReplicaAutoScalingResponse'
-    { _dtrasrsTableAutoScalingDescription =
-        Nothing,
-      _dtrasrsResponseStatus = pResponseStatus_
+    { tableAutoScalingDescription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Represents the auto scaling properties of the table.
-dtrasrsTableAutoScalingDescription :: Lens' DescribeTableReplicaAutoScalingResponse (Maybe TableAutoScalingDescription)
-dtrasrsTableAutoScalingDescription = lens _dtrasrsTableAutoScalingDescription (\s a -> s {_dtrasrsTableAutoScalingDescription = a})
+--
+-- /Note:/ Consider using 'tableAutoScalingDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrasrsTableAutoScalingDescription :: Lens.Lens' DescribeTableReplicaAutoScalingResponse (Lude.Maybe TableAutoScalingDescription)
+dtrasrsTableAutoScalingDescription = Lens.lens (tableAutoScalingDescription :: DescribeTableReplicaAutoScalingResponse -> Lude.Maybe TableAutoScalingDescription) (\s a -> s {tableAutoScalingDescription = a} :: DescribeTableReplicaAutoScalingResponse)
+{-# DEPRECATED dtrasrsTableAutoScalingDescription "Use generic-lens or generic-optics with 'tableAutoScalingDescription' instead." #-}
 
--- | -- | The response status code.
-dtrasrsResponseStatus :: Lens' DescribeTableReplicaAutoScalingResponse Int
-dtrasrsResponseStatus = lens _dtrasrsResponseStatus (\s a -> s {_dtrasrsResponseStatus = a})
-
-instance NFData DescribeTableReplicaAutoScalingResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrasrsResponseStatus :: Lens.Lens' DescribeTableReplicaAutoScalingResponse Lude.Int
+dtrasrsResponseStatus = Lens.lens (responseStatus :: DescribeTableReplicaAutoScalingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTableReplicaAutoScalingResponse)
+{-# DEPRECATED dtrasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

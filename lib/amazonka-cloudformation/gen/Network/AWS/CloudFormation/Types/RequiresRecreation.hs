@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.RequiresRecreation where
+module Network.AWS.CloudFormation.Types.RequiresRecreation
+  ( RequiresRecreation
+      ( RequiresRecreation',
+        Always,
+        Conditionally,
+        Never
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RequiresRecreation
-  = Always
-  | Conditionally
-  | Never
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RequiresRecreation = RequiresRecreation' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RequiresRecreation where
-  parser =
-    takeLowerText >>= \case
-      "always" -> pure Always
-      "conditionally" -> pure Conditionally
-      "never" -> pure Never
-      e ->
-        fromTextError $
-          "Failure parsing RequiresRecreation from value: '" <> e
-            <> "'. Accepted values: always, conditionally, never"
+pattern Always :: RequiresRecreation
+pattern Always = RequiresRecreation' "Always"
 
-instance ToText RequiresRecreation where
-  toText = \case
-    Always -> "Always"
-    Conditionally -> "Conditionally"
-    Never -> "Never"
+pattern Conditionally :: RequiresRecreation
+pattern Conditionally = RequiresRecreation' "Conditionally"
 
-instance Hashable RequiresRecreation
+pattern Never :: RequiresRecreation
+pattern Never = RequiresRecreation' "Never"
 
-instance NFData RequiresRecreation
-
-instance ToByteString RequiresRecreation
-
-instance ToQuery RequiresRecreation
-
-instance ToHeader RequiresRecreation
-
-instance FromXML RequiresRecreation where
-  parseXML = parseXMLText "RequiresRecreation"
+{-# COMPLETE
+  Always,
+  Conditionally,
+  Never,
+  RequiresRecreation'
+  #-}

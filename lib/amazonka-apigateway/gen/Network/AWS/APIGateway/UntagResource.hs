@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,89 +14,103 @@
 --
 -- Removes a tag from a given resource.
 module Network.AWS.APIGateway.UntagResource
-  ( -- * Creating a Request
-    untagResource,
-    UntagResource,
+  ( -- * Creating a request
+    UntagResource (..),
+    mkUntagResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urResourceARN,
     urTagKeys,
 
-    -- * Destructuring the Response
-    untagResourceResponse,
-    UntagResourceResponse,
+    -- * Destructuring the response
+    UntagResourceResponse (..),
+    mkUntagResourceResponse,
   )
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Removes a tag from a given resource.
 --
---
---
--- /See:/ 'untagResource' smart constructor.
+-- /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { _urResourceARN :: !Text,
-    _urTagKeys :: ![Text]
+  { resourceARN :: Lude.Text,
+    tagKeys :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urResourceARN' - [Required] The ARN of a resource that can be tagged.
---
--- * 'urTagKeys' - [Required] The Tag keys to delete.
-untagResource ::
-  -- | 'urResourceARN'
-  Text ->
+-- * 'resourceARN' - [Required] The ARN of a resource that can be tagged.
+-- * 'tagKeys' - [Required] The Tag keys to delete.
+mkUntagResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   UntagResource
-untagResource pResourceARN_ =
+mkUntagResource pResourceARN_ =
   UntagResource'
-    { _urResourceARN = pResourceARN_,
-      _urTagKeys = mempty
+    { resourceARN = pResourceARN_,
+      tagKeys = Lude.mempty
     }
 
 -- | [Required] The ARN of a resource that can be tagged.
-urResourceARN :: Lens' UntagResource Text
-urResourceARN = lens _urResourceARN (\s a -> s {_urResourceARN = a})
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceARN :: Lens.Lens' UntagResource Lude.Text
+urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
+{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | [Required] The Tag keys to delete.
-urTagKeys :: Lens' UntagResource [Text]
-urTagKeys = lens _urTagKeys (\s a -> s {_urTagKeys = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urTagKeys :: Lens.Lens' UntagResource [Lude.Text]
+urTagKeys = Lens.lens (tagKeys :: UntagResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagResource)
+{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance AWSRequest UntagResource where
+instance Lude.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = delete apiGateway
-  response = receiveNull UntagResourceResponse'
+  request = Req.delete apiGatewayService
+  response = Res.receiveNull UntagResourceResponse'
 
-instance Hashable UntagResource
-
-instance NFData UntagResource
-
-instance ToHeaders UntagResource where
+instance Lude.ToHeaders UntagResource where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath UntagResource where
-  toPath UntagResource' {..} = mconcat ["/tags/", toBS _urResourceARN]
+instance Lude.ToPath UntagResource where
+  toPath UntagResource' {..} =
+    Lude.mconcat ["/tags/", Lude.toBS resourceARN]
 
-instance ToQuery UntagResource where
+instance Lude.ToQuery UntagResource where
   toQuery UntagResource' {..} =
-    mconcat ["tagKeys" =: toQueryList "member" _urTagKeys]
+    Lude.mconcat
+      ["tagKeys" Lude.=: Lude.toQueryList "member" tagKeys]
 
--- | /See:/ 'untagResourceResponse' smart constructor.
+-- | /See:/ 'mkUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
-untagResourceResponse ::
+mkUntagResourceResponse ::
   UntagResourceResponse
-untagResourceResponse = UntagResourceResponse'
-
-instance NFData UntagResourceResponse
+mkUntagResourceResponse = UntagResourceResponse'

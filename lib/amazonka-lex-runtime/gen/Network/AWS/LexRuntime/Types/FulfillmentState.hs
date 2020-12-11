@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexRuntime.Types.FulfillmentState where
+module Network.AWS.LexRuntime.Types.FulfillmentState
+  ( FulfillmentState
+      ( FulfillmentState',
+        FSFailed,
+        FSFulfilled,
+        FSReadyForFulfillment
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data FulfillmentState
-  = FSFailed
-  | FSFulfilled
-  | FSReadyForFulfillment
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype FulfillmentState = FulfillmentState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText FulfillmentState where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure FSFailed
-      "fulfilled" -> pure FSFulfilled
-      "readyforfulfillment" -> pure FSReadyForFulfillment
-      e ->
-        fromTextError $
-          "Failure parsing FulfillmentState from value: '" <> e
-            <> "'. Accepted values: failed, fulfilled, readyforfulfillment"
+pattern FSFailed :: FulfillmentState
+pattern FSFailed = FulfillmentState' "Failed"
 
-instance ToText FulfillmentState where
-  toText = \case
-    FSFailed -> "Failed"
-    FSFulfilled -> "Fulfilled"
-    FSReadyForFulfillment -> "ReadyForFulfillment"
+pattern FSFulfilled :: FulfillmentState
+pattern FSFulfilled = FulfillmentState' "Fulfilled"
 
-instance Hashable FulfillmentState
+pattern FSReadyForFulfillment :: FulfillmentState
+pattern FSReadyForFulfillment = FulfillmentState' "ReadyForFulfillment"
 
-instance NFData FulfillmentState
-
-instance ToByteString FulfillmentState
-
-instance ToQuery FulfillmentState
-
-instance ToHeader FulfillmentState
-
-instance ToJSON FulfillmentState where
-  toJSON = toJSONText
-
-instance FromJSON FulfillmentState where
-  parseJSON = parseJSONText "FulfillmentState"
+{-# COMPLETE
+  FSFailed,
+  FSFulfilled,
+  FSReadyForFulfillment,
+  FulfillmentState'
+  #-}

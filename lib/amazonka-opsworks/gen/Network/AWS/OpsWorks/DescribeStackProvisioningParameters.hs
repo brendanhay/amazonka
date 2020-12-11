@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,160 @@
 --
 -- Requests a description of a stack's provisioning parameters.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
-  ( -- * Creating a Request
-    describeStackProvisioningParameters,
-    DescribeStackProvisioningParameters,
+  ( -- * Creating a request
+    DescribeStackProvisioningParameters (..),
+    mkDescribeStackProvisioningParameters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsppStackId,
 
-    -- * Destructuring the Response
-    describeStackProvisioningParametersResponse,
-    DescribeStackProvisioningParametersResponse,
+    -- * Destructuring the response
+    DescribeStackProvisioningParametersResponse (..),
+    mkDescribeStackProvisioningParametersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dspprsAgentInstallerURL,
     dspprsParameters,
     dspprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStackProvisioningParameters' smart constructor.
+-- | /See:/ 'mkDescribeStackProvisioningParameters' smart constructor.
 newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameters'
-  { _dsppStackId ::
-      Text
+  { stackId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackProvisioningParameters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsppStackId' - The stack ID.
-describeStackProvisioningParameters ::
-  -- | 'dsppStackId'
-  Text ->
+-- * 'stackId' - The stack ID.
+mkDescribeStackProvisioningParameters ::
+  -- | 'stackId'
+  Lude.Text ->
   DescribeStackProvisioningParameters
-describeStackProvisioningParameters pStackId_ =
-  DescribeStackProvisioningParameters' {_dsppStackId = pStackId_}
+mkDescribeStackProvisioningParameters pStackId_ =
+  DescribeStackProvisioningParameters' {stackId = pStackId_}
 
 -- | The stack ID.
-dsppStackId :: Lens' DescribeStackProvisioningParameters Text
-dsppStackId = lens _dsppStackId (\s a -> s {_dsppStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsppStackId :: Lens.Lens' DescribeStackProvisioningParameters Lude.Text
+dsppStackId = Lens.lens (stackId :: DescribeStackProvisioningParameters -> Lude.Text) (\s a -> s {stackId = a} :: DescribeStackProvisioningParameters)
+{-# DEPRECATED dsppStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest DescribeStackProvisioningParameters where
+instance Lude.AWSRequest DescribeStackProvisioningParameters where
   type
     Rs DescribeStackProvisioningParameters =
       DescribeStackProvisioningParametersResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeStackProvisioningParametersResponse'
-            <$> (x .?> "AgentInstallerUrl")
-            <*> (x .?> "Parameters" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AgentInstallerUrl")
+            Lude.<*> (x Lude..?> "Parameters" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStackProvisioningParameters
-
-instance NFData DescribeStackProvisioningParameters
-
-instance ToHeaders DescribeStackProvisioningParameters where
+instance Lude.ToHeaders DescribeStackProvisioningParameters where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "OpsWorks_20130218.DescribeStackProvisioningParameters" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "OpsWorks_20130218.DescribeStackProvisioningParameters" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeStackProvisioningParameters where
+instance Lude.ToJSON DescribeStackProvisioningParameters where
   toJSON DescribeStackProvisioningParameters' {..} =
-    object (catMaybes [Just ("StackId" .= _dsppStackId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("StackId" Lude..= stackId)])
 
-instance ToPath DescribeStackProvisioningParameters where
-  toPath = const "/"
+instance Lude.ToPath DescribeStackProvisioningParameters where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeStackProvisioningParameters where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeStackProvisioningParameters where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeStackProvisioningParameters@ request.
 --
---
---
--- /See:/ 'describeStackProvisioningParametersResponse' smart constructor.
+-- /See:/ 'mkDescribeStackProvisioningParametersResponse' smart constructor.
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
-  { _dspprsAgentInstallerURL ::
-      !( Maybe
-           Text
-       ),
-    _dspprsParameters ::
-      !( Maybe
-           ( Map
-               Text
-               (Text)
-           )
-       ),
-    _dspprsResponseStatus ::
-      !Int
+  { agentInstallerURL ::
+      Lude.Maybe
+        Lude.Text,
+    parameters ::
+      Lude.Maybe
+        ( Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ),
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackProvisioningParametersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dspprsAgentInstallerURL' - The AWS OpsWorks Stacks agent installer's URL.
---
--- * 'dspprsParameters' - An embedded object that contains the provisioning parameters.
---
--- * 'dspprsResponseStatus' - -- | The response status code.
-describeStackProvisioningParametersResponse ::
-  -- | 'dspprsResponseStatus'
-  Int ->
+-- * 'agentInstallerURL' - The AWS OpsWorks Stacks agent installer's URL.
+-- * 'parameters' - An embedded object that contains the provisioning parameters.
+-- * 'responseStatus' - The response status code.
+mkDescribeStackProvisioningParametersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStackProvisioningParametersResponse
-describeStackProvisioningParametersResponse pResponseStatus_ =
+mkDescribeStackProvisioningParametersResponse pResponseStatus_ =
   DescribeStackProvisioningParametersResponse'
-    { _dspprsAgentInstallerURL =
-        Nothing,
-      _dspprsParameters = Nothing,
-      _dspprsResponseStatus = pResponseStatus_
+    { agentInstallerURL =
+        Lude.Nothing,
+      parameters = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The AWS OpsWorks Stacks agent installer's URL.
-dspprsAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
-dspprsAgentInstallerURL = lens _dspprsAgentInstallerURL (\s a -> s {_dspprsAgentInstallerURL = a})
+--
+-- /Note:/ Consider using 'agentInstallerURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspprsAgentInstallerURL :: Lens.Lens' DescribeStackProvisioningParametersResponse (Lude.Maybe Lude.Text)
+dspprsAgentInstallerURL = Lens.lens (agentInstallerURL :: DescribeStackProvisioningParametersResponse -> Lude.Maybe Lude.Text) (\s a -> s {agentInstallerURL = a} :: DescribeStackProvisioningParametersResponse)
+{-# DEPRECATED dspprsAgentInstallerURL "Use generic-lens or generic-optics with 'agentInstallerURL' instead." #-}
 
 -- | An embedded object that contains the provisioning parameters.
-dspprsParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text (Text))
-dspprsParameters = lens _dspprsParameters (\s a -> s {_dspprsParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspprsParameters :: Lens.Lens' DescribeStackProvisioningParametersResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dspprsParameters = Lens.lens (parameters :: DescribeStackProvisioningParametersResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: DescribeStackProvisioningParametersResponse)
+{-# DEPRECATED dspprsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | -- | The response status code.
-dspprsResponseStatus :: Lens' DescribeStackProvisioningParametersResponse Int
-dspprsResponseStatus = lens _dspprsResponseStatus (\s a -> s {_dspprsResponseStatus = a})
-
-instance NFData DescribeStackProvisioningParametersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dspprsResponseStatus :: Lens.Lens' DescribeStackProvisioningParametersResponse Lude.Int
+dspprsResponseStatus = Lens.lens (responseStatus :: DescribeStackProvisioningParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackProvisioningParametersResponse)
+{-# DEPRECATED dspprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

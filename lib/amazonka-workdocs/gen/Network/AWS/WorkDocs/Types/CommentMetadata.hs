@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,85 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.CommentMetadata where
+module Network.AWS.WorkDocs.Types.CommentMetadata
+  ( CommentMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCommentMetadata,
+
+    -- * Lenses
+    cmCommentStatus,
+    cmContributor,
+    cmCommentId,
+    cmCreatedTimestamp,
+    cmRecipientId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkDocs.Types.CommentStatusType
 import Network.AWS.WorkDocs.Types.User
 
 -- | Describes the metadata of a comment.
 --
---
---
--- /See:/ 'commentMetadata' smart constructor.
+-- /See:/ 'mkCommentMetadata' smart constructor.
 data CommentMetadata = CommentMetadata'
-  { _cmCommentStatus ::
-      !(Maybe CommentStatusType),
-    _cmContributor :: !(Maybe User),
-    _cmCommentId :: !(Maybe Text),
-    _cmCreatedTimestamp :: !(Maybe POSIX),
-    _cmRecipientId :: !(Maybe Text)
+  { commentStatus ::
+      Lude.Maybe CommentStatusType,
+    contributor :: Lude.Maybe User,
+    commentId :: Lude.Maybe Lude.Text,
+    createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    recipientId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CommentMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cmCommentStatus' - The status of the comment.
---
--- * 'cmContributor' - The user who made the comment.
---
--- * 'cmCommentId' - The ID of the comment.
---
--- * 'cmCreatedTimestamp' - The timestamp that the comment was created.
---
--- * 'cmRecipientId' - The ID of the user being replied to.
-commentMetadata ::
+-- * 'commentId' - The ID of the comment.
+-- * 'commentStatus' - The status of the comment.
+-- * 'contributor' - The user who made the comment.
+-- * 'createdTimestamp' - The timestamp that the comment was created.
+-- * 'recipientId' - The ID of the user being replied to.
+mkCommentMetadata ::
   CommentMetadata
-commentMetadata =
+mkCommentMetadata =
   CommentMetadata'
-    { _cmCommentStatus = Nothing,
-      _cmContributor = Nothing,
-      _cmCommentId = Nothing,
-      _cmCreatedTimestamp = Nothing,
-      _cmRecipientId = Nothing
+    { commentStatus = Lude.Nothing,
+      contributor = Lude.Nothing,
+      commentId = Lude.Nothing,
+      createdTimestamp = Lude.Nothing,
+      recipientId = Lude.Nothing
     }
 
 -- | The status of the comment.
-cmCommentStatus :: Lens' CommentMetadata (Maybe CommentStatusType)
-cmCommentStatus = lens _cmCommentStatus (\s a -> s {_cmCommentStatus = a})
+--
+-- /Note:/ Consider using 'commentStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmCommentStatus :: Lens.Lens' CommentMetadata (Lude.Maybe CommentStatusType)
+cmCommentStatus = Lens.lens (commentStatus :: CommentMetadata -> Lude.Maybe CommentStatusType) (\s a -> s {commentStatus = a} :: CommentMetadata)
+{-# DEPRECATED cmCommentStatus "Use generic-lens or generic-optics with 'commentStatus' instead." #-}
 
 -- | The user who made the comment.
-cmContributor :: Lens' CommentMetadata (Maybe User)
-cmContributor = lens _cmContributor (\s a -> s {_cmContributor = a})
+--
+-- /Note:/ Consider using 'contributor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmContributor :: Lens.Lens' CommentMetadata (Lude.Maybe User)
+cmContributor = Lens.lens (contributor :: CommentMetadata -> Lude.Maybe User) (\s a -> s {contributor = a} :: CommentMetadata)
+{-# DEPRECATED cmContributor "Use generic-lens or generic-optics with 'contributor' instead." #-}
 
 -- | The ID of the comment.
-cmCommentId :: Lens' CommentMetadata (Maybe Text)
-cmCommentId = lens _cmCommentId (\s a -> s {_cmCommentId = a})
+--
+-- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmCommentId :: Lens.Lens' CommentMetadata (Lude.Maybe Lude.Text)
+cmCommentId = Lens.lens (commentId :: CommentMetadata -> Lude.Maybe Lude.Text) (\s a -> s {commentId = a} :: CommentMetadata)
+{-# DEPRECATED cmCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
 
 -- | The timestamp that the comment was created.
-cmCreatedTimestamp :: Lens' CommentMetadata (Maybe UTCTime)
-cmCreatedTimestamp = lens _cmCreatedTimestamp (\s a -> s {_cmCreatedTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmCreatedTimestamp :: Lens.Lens' CommentMetadata (Lude.Maybe Lude.Timestamp)
+cmCreatedTimestamp = Lens.lens (createdTimestamp :: CommentMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTimestamp = a} :: CommentMetadata)
+{-# DEPRECATED cmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
 -- | The ID of the user being replied to.
-cmRecipientId :: Lens' CommentMetadata (Maybe Text)
-cmRecipientId = lens _cmRecipientId (\s a -> s {_cmRecipientId = a})
+--
+-- /Note:/ Consider using 'recipientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmRecipientId :: Lens.Lens' CommentMetadata (Lude.Maybe Lude.Text)
+cmRecipientId = Lens.lens (recipientId :: CommentMetadata -> Lude.Maybe Lude.Text) (\s a -> s {recipientId = a} :: CommentMetadata)
+{-# DEPRECATED cmRecipientId "Use generic-lens or generic-optics with 'recipientId' instead." #-}
 
-instance FromJSON CommentMetadata where
+instance Lude.FromJSON CommentMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "CommentMetadata"
       ( \x ->
           CommentMetadata'
-            <$> (x .:? "CommentStatus")
-            <*> (x .:? "Contributor")
-            <*> (x .:? "CommentId")
-            <*> (x .:? "CreatedTimestamp")
-            <*> (x .:? "RecipientId")
+            Lude.<$> (x Lude..:? "CommentStatus")
+            Lude.<*> (x Lude..:? "Contributor")
+            Lude.<*> (x Lude..:? "CommentId")
+            Lude.<*> (x Lude..:? "CreatedTimestamp")
+            Lude.<*> (x Lude..:? "RecipientId")
       )
-
-instance Hashable CommentMetadata
-
-instance NFData CommentMetadata

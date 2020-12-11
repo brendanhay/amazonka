@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,165 @@
 --
 -- Deletes a message template for messages that were sent through the SMS channel.
 module Network.AWS.Pinpoint.DeleteSmsTemplate
-  ( -- * Creating a Request
-    deleteSmsTemplate,
-    DeleteSmsTemplate,
+  ( -- * Creating a request
+    DeleteSmsTemplate (..),
+    mkDeleteSmsTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dstVersion,
     dstTemplateName,
 
-    -- * Destructuring the Response
-    deleteSmsTemplateResponse,
-    DeleteSmsTemplateResponse,
+    -- * Destructuring the response
+    DeleteSmsTemplateResponse (..),
+    mkDeleteSmsTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dstrsResponseStatus,
     dstrsMessageBody,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteSmsTemplate' smart constructor.
+-- | /See:/ 'mkDeleteSmsTemplate' smart constructor.
 data DeleteSmsTemplate = DeleteSmsTemplate'
-  { _dstVersion ::
-      !(Maybe Text),
-    _dstTemplateName :: !Text
+  { version ::
+      Lude.Maybe Lude.Text,
+    templateName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSmsTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+-- * 'version' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
 --
--- * 'dstVersion' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
 --
--- * 'dstTemplateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-deleteSmsTemplate ::
-  -- | 'dstTemplateName'
-  Text ->
+--     * For a get operation, retrieves information about the active version of the template.
+--
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+mkDeleteSmsTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
   DeleteSmsTemplate
-deleteSmsTemplate pTemplateName_ =
+mkDeleteSmsTemplate pTemplateName_ =
   DeleteSmsTemplate'
-    { _dstVersion = Nothing,
-      _dstTemplateName = pTemplateName_
+    { version = Lude.Nothing,
+      templateName = pTemplateName_
     }
 
--- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
-dstVersion :: Lens' DeleteSmsTemplate (Maybe Text)
-dstVersion = lens _dstVersion (\s a -> s {_dstVersion = a})
+-- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
+--
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
+--
+--     * For a get operation, retrieves information about the active version of the template.
+--
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+--
+--
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstVersion :: Lens.Lens' DeleteSmsTemplate (Lude.Maybe Lude.Text)
+dstVersion = Lens.lens (version :: DeleteSmsTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: DeleteSmsTemplate)
+{-# DEPRECATED dstVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-dstTemplateName :: Lens' DeleteSmsTemplate Text
-dstTemplateName = lens _dstTemplateName (\s a -> s {_dstTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstTemplateName :: Lens.Lens' DeleteSmsTemplate Lude.Text
+dstTemplateName = Lens.lens (templateName :: DeleteSmsTemplate -> Lude.Text) (\s a -> s {templateName = a} :: DeleteSmsTemplate)
+{-# DEPRECATED dstTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance AWSRequest DeleteSmsTemplate where
+instance Lude.AWSRequest DeleteSmsTemplate where
   type Rs DeleteSmsTemplate = DeleteSmsTemplateResponse
-  request = delete pinpoint
+  request = Req.delete pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteSmsTemplateResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable DeleteSmsTemplate
-
-instance NFData DeleteSmsTemplate
-
-instance ToHeaders DeleteSmsTemplate where
+instance Lude.ToHeaders DeleteSmsTemplate where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DeleteSmsTemplate where
+instance Lude.ToPath DeleteSmsTemplate where
   toPath DeleteSmsTemplate' {..} =
-    mconcat ["/v1/templates/", toBS _dstTemplateName, "/sms"]
+    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/sms"]
 
-instance ToQuery DeleteSmsTemplate where
-  toQuery DeleteSmsTemplate' {..} = mconcat ["version" =: _dstVersion]
+instance Lude.ToQuery DeleteSmsTemplate where
+  toQuery DeleteSmsTemplate' {..} =
+    Lude.mconcat ["version" Lude.=: version]
 
--- | /See:/ 'deleteSmsTemplateResponse' smart constructor.
+-- | /See:/ 'mkDeleteSmsTemplateResponse' smart constructor.
 data DeleteSmsTemplateResponse = DeleteSmsTemplateResponse'
-  { _dstrsResponseStatus ::
-      !Int,
-    _dstrsMessageBody :: !MessageBody
+  { responseStatus ::
+      Lude.Int,
+    messageBody :: MessageBody
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSmsTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dstrsResponseStatus' - -- | The response status code.
---
--- * 'dstrsMessageBody' - Undocumented member.
-deleteSmsTemplateResponse ::
-  -- | 'dstrsResponseStatus'
-  Int ->
-  -- | 'dstrsMessageBody'
+-- * 'messageBody' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkDeleteSmsTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'messageBody'
   MessageBody ->
   DeleteSmsTemplateResponse
-deleteSmsTemplateResponse pResponseStatus_ pMessageBody_ =
+mkDeleteSmsTemplateResponse pResponseStatus_ pMessageBody_ =
   DeleteSmsTemplateResponse'
-    { _dstrsResponseStatus =
-        pResponseStatus_,
-      _dstrsMessageBody = pMessageBody_
+    { responseStatus = pResponseStatus_,
+      messageBody = pMessageBody_
     }
 
--- | -- | The response status code.
-dstrsResponseStatus :: Lens' DeleteSmsTemplateResponse Int
-dstrsResponseStatus = lens _dstrsResponseStatus (\s a -> s {_dstrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstrsResponseStatus :: Lens.Lens' DeleteSmsTemplateResponse Lude.Int
+dstrsResponseStatus = Lens.lens (responseStatus :: DeleteSmsTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSmsTemplateResponse)
+{-# DEPRECATED dstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-dstrsMessageBody :: Lens' DeleteSmsTemplateResponse MessageBody
-dstrsMessageBody = lens _dstrsMessageBody (\s a -> s {_dstrsMessageBody = a})
-
-instance NFData DeleteSmsTemplateResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dstrsMessageBody :: Lens.Lens' DeleteSmsTemplateResponse MessageBody
+dstrsMessageBody = Lens.lens (messageBody :: DeleteSmsTemplateResponse -> MessageBody) (\s a -> s {messageBody = a} :: DeleteSmsTemplateResponse)
+{-# DEPRECATED dstrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFormation.Types.PermissionModels where
+module Network.AWS.CloudFormation.Types.PermissionModels
+  ( PermissionModels
+      ( PermissionModels',
+        SelfManaged,
+        ServiceManaged
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PermissionModels
-  = SelfManaged
-  | ServiceManaged
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PermissionModels = PermissionModels' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PermissionModels where
-  parser =
-    takeLowerText >>= \case
-      "self_managed" -> pure SelfManaged
-      "service_managed" -> pure ServiceManaged
-      e ->
-        fromTextError $
-          "Failure parsing PermissionModels from value: '" <> e
-            <> "'. Accepted values: self_managed, service_managed"
+pattern SelfManaged :: PermissionModels
+pattern SelfManaged = PermissionModels' "SELF_MANAGED"
 
-instance ToText PermissionModels where
-  toText = \case
-    SelfManaged -> "SELF_MANAGED"
-    ServiceManaged -> "SERVICE_MANAGED"
+pattern ServiceManaged :: PermissionModels
+pattern ServiceManaged = PermissionModels' "SERVICE_MANAGED"
 
-instance Hashable PermissionModels
-
-instance NFData PermissionModels
-
-instance ToByteString PermissionModels
-
-instance ToQuery PermissionModels
-
-instance ToHeader PermissionModels
-
-instance FromXML PermissionModels where
-  parseXML = parseXMLText "PermissionModels"
+{-# COMPLETE
+  SelfManaged,
+  ServiceManaged,
+  PermissionModels'
+  #-}

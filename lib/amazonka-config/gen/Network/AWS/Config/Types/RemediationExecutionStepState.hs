@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.RemediationExecutionStepState where
+module Network.AWS.Config.Types.RemediationExecutionStepState
+  ( RemediationExecutionStepState
+      ( RemediationExecutionStepState',
+        Failed,
+        Pending,
+        Succeeded
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RemediationExecutionStepState
-  = Failed
-  | Pending
-  | Succeeded
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RemediationExecutionStepState = RemediationExecutionStepState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RemediationExecutionStepState where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure Failed
-      "pending" -> pure Pending
-      "succeeded" -> pure Succeeded
-      e ->
-        fromTextError $
-          "Failure parsing RemediationExecutionStepState from value: '" <> e
-            <> "'. Accepted values: failed, pending, succeeded"
+pattern Failed :: RemediationExecutionStepState
+pattern Failed = RemediationExecutionStepState' "FAILED"
 
-instance ToText RemediationExecutionStepState where
-  toText = \case
-    Failed -> "FAILED"
-    Pending -> "PENDING"
-    Succeeded -> "SUCCEEDED"
+pattern Pending :: RemediationExecutionStepState
+pattern Pending = RemediationExecutionStepState' "PENDING"
 
-instance Hashable RemediationExecutionStepState
+pattern Succeeded :: RemediationExecutionStepState
+pattern Succeeded = RemediationExecutionStepState' "SUCCEEDED"
 
-instance NFData RemediationExecutionStepState
-
-instance ToByteString RemediationExecutionStepState
-
-instance ToQuery RemediationExecutionStepState
-
-instance ToHeader RemediationExecutionStepState
-
-instance FromJSON RemediationExecutionStepState where
-  parseJSON = parseJSONText "RemediationExecutionStepState"
+{-# COMPLETE
+  Failed,
+  Pending,
+  Succeeded,
+  RemediationExecutionStepState'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,127 +14,146 @@
 --
 -- Create or update an attribute on an Amazon ECS resource. If the attribute does not exist, it is created. If the attribute exists, its value is replaced with the specified value. To delete an attribute, use 'DeleteAttributes' . For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes Attributes> in the /Amazon Elastic Container Service Developer Guide/ .
 module Network.AWS.ECS.PutAttributes
-  ( -- * Creating a Request
-    putAttributes,
-    PutAttributes,
+  ( -- * Creating a request
+    PutAttributes (..),
+    mkPutAttributes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     paCluster,
     paAttributes,
 
-    -- * Destructuring the Response
-    putAttributesResponse,
-    PutAttributesResponse,
+    -- * Destructuring the response
+    PutAttributesResponse (..),
+    mkPutAttributesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     parsAttributes,
     parsResponseStatus,
   )
 where
 
 import Network.AWS.ECS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putAttributes' smart constructor.
+-- | /See:/ 'mkPutAttributes' smart constructor.
 data PutAttributes = PutAttributes'
-  { _paCluster :: !(Maybe Text),
-    _paAttributes :: ![Attribute]
+  { cluster ::
+      Lude.Maybe Lude.Text,
+    attributes :: [Attribute]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'paCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply attributes. If you do not specify a cluster, the default cluster is assumed.
---
--- * 'paAttributes' - The attributes to apply to your resource. You can specify up to 10 custom attributes per resource. You can specify up to 10 attributes in a single call.
-putAttributes ::
+-- * 'attributes' - The attributes to apply to your resource. You can specify up to 10 custom attributes per resource. You can specify up to 10 attributes in a single call.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply attributes. If you do not specify a cluster, the default cluster is assumed.
+mkPutAttributes ::
   PutAttributes
-putAttributes =
-  PutAttributes' {_paCluster = Nothing, _paAttributes = mempty}
+mkPutAttributes =
+  PutAttributes' {cluster = Lude.Nothing, attributes = Lude.mempty}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply attributes. If you do not specify a cluster, the default cluster is assumed.
-paCluster :: Lens' PutAttributes (Maybe Text)
-paCluster = lens _paCluster (\s a -> s {_paCluster = a})
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paCluster :: Lens.Lens' PutAttributes (Lude.Maybe Lude.Text)
+paCluster = Lens.lens (cluster :: PutAttributes -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: PutAttributes)
+{-# DEPRECATED paCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The attributes to apply to your resource. You can specify up to 10 custom attributes per resource. You can specify up to 10 attributes in a single call.
-paAttributes :: Lens' PutAttributes [Attribute]
-paAttributes = lens _paAttributes (\s a -> s {_paAttributes = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paAttributes :: Lens.Lens' PutAttributes [Attribute]
+paAttributes = Lens.lens (attributes :: PutAttributes -> [Attribute]) (\s a -> s {attributes = a} :: PutAttributes)
+{-# DEPRECATED paAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance AWSRequest PutAttributes where
+instance Lude.AWSRequest PutAttributes where
   type Rs PutAttributes = PutAttributesResponse
-  request = postJSON ecs
+  request = Req.postJSON ecsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           PutAttributesResponse'
-            <$> (x .?> "attributes" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "attributes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutAttributes
-
-instance NFData PutAttributes
-
-instance ToHeaders PutAttributes where
+instance Lude.ToHeaders PutAttributes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonEC2ContainerServiceV20141113.PutAttributes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonEC2ContainerServiceV20141113.PutAttributes" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutAttributes where
+instance Lude.ToJSON PutAttributes where
   toJSON PutAttributes' {..} =
-    object
-      ( catMaybes
-          [ ("cluster" .=) <$> _paCluster,
-            Just ("attributes" .= _paAttributes)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("cluster" Lude..=) Lude.<$> cluster,
+            Lude.Just ("attributes" Lude..= attributes)
           ]
       )
 
-instance ToPath PutAttributes where
-  toPath = const "/"
+instance Lude.ToPath PutAttributes where
+  toPath = Lude.const "/"
 
-instance ToQuery PutAttributes where
-  toQuery = const mempty
+instance Lude.ToQuery PutAttributes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putAttributesResponse' smart constructor.
+-- | /See:/ 'mkPutAttributesResponse' smart constructor.
 data PutAttributesResponse = PutAttributesResponse'
-  { _parsAttributes ::
-      !(Maybe [Attribute]),
-    _parsResponseStatus :: !Int
+  { attributes ::
+      Lude.Maybe [Attribute],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAttributesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'parsAttributes' - The attributes applied to your resource.
---
--- * 'parsResponseStatus' - -- | The response status code.
-putAttributesResponse ::
-  -- | 'parsResponseStatus'
-  Int ->
+-- * 'attributes' - The attributes applied to your resource.
+-- * 'responseStatus' - The response status code.
+mkPutAttributesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutAttributesResponse
-putAttributesResponse pResponseStatus_ =
+mkPutAttributesResponse pResponseStatus_ =
   PutAttributesResponse'
-    { _parsAttributes = Nothing,
-      _parsResponseStatus = pResponseStatus_
+    { attributes = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The attributes applied to your resource.
-parsAttributes :: Lens' PutAttributesResponse [Attribute]
-parsAttributes = lens _parsAttributes (\s a -> s {_parsAttributes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parsAttributes :: Lens.Lens' PutAttributesResponse (Lude.Maybe [Attribute])
+parsAttributes = Lens.lens (attributes :: PutAttributesResponse -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: PutAttributesResponse)
+{-# DEPRECATED parsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | -- | The response status code.
-parsResponseStatus :: Lens' PutAttributesResponse Int
-parsResponseStatus = lens _parsResponseStatus (\s a -> s {_parsResponseStatus = a})
-
-instance NFData PutAttributesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+parsResponseStatus :: Lens.Lens' PutAttributesResponse Lude.Int
+parsResponseStatus = Lens.lens (responseStatus :: PutAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutAttributesResponse)
+{-# DEPRECATED parsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

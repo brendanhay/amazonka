@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.RetentionPolicy where
+module Network.AWS.SageMaker.Types.RetentionPolicy
+  ( RetentionPolicy (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRetentionPolicy,
+
+    -- * Lenses
+    rpHomeEfsFileSystem,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.RetentionType
 
 -- | The retention policy for data stored on an Amazon Elastic File System (EFS) volume.
 --
---
---
--- /See:/ 'retentionPolicy' smart constructor.
+-- /See:/ 'mkRetentionPolicy' smart constructor.
 newtype RetentionPolicy = RetentionPolicy'
-  { _rpHomeEfsFileSystem ::
-      Maybe RetentionType
+  { homeEfsFileSystem ::
+      Lude.Maybe RetentionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetentionPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'homeEfsFileSystem' - The default is @Retain@ , which specifies to keep the data stored on the EFS volume.
 --
--- * 'rpHomeEfsFileSystem' - The default is @Retain@ , which specifies to keep the data stored on the EFS volume. Specify @Delete@ to delete the data stored on the EFS volume.
-retentionPolicy ::
+-- Specify @Delete@ to delete the data stored on the EFS volume.
+mkRetentionPolicy ::
   RetentionPolicy
-retentionPolicy = RetentionPolicy' {_rpHomeEfsFileSystem = Nothing}
+mkRetentionPolicy =
+  RetentionPolicy' {homeEfsFileSystem = Lude.Nothing}
 
--- | The default is @Retain@ , which specifies to keep the data stored on the EFS volume. Specify @Delete@ to delete the data stored on the EFS volume.
-rpHomeEfsFileSystem :: Lens' RetentionPolicy (Maybe RetentionType)
-rpHomeEfsFileSystem = lens _rpHomeEfsFileSystem (\s a -> s {_rpHomeEfsFileSystem = a})
+-- | The default is @Retain@ , which specifies to keep the data stored on the EFS volume.
+--
+-- Specify @Delete@ to delete the data stored on the EFS volume.
+--
+-- /Note:/ Consider using 'homeEfsFileSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpHomeEfsFileSystem :: Lens.Lens' RetentionPolicy (Lude.Maybe RetentionType)
+rpHomeEfsFileSystem = Lens.lens (homeEfsFileSystem :: RetentionPolicy -> Lude.Maybe RetentionType) (\s a -> s {homeEfsFileSystem = a} :: RetentionPolicy)
+{-# DEPRECATED rpHomeEfsFileSystem "Use generic-lens or generic-optics with 'homeEfsFileSystem' instead." #-}
 
-instance Hashable RetentionPolicy
-
-instance NFData RetentionPolicy
-
-instance ToJSON RetentionPolicy where
+instance Lude.ToJSON RetentionPolicy where
   toJSON RetentionPolicy' {..} =
-    object
-      (catMaybes [("HomeEfsFileSystem" .=) <$> _rpHomeEfsFileSystem])
+    Lude.object
+      ( Lude.catMaybes
+          [("HomeEfsFileSystem" Lude..=) Lude.<$> homeEfsFileSystem]
+      )

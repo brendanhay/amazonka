@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.BatchAttachToIndex where
+module Network.AWS.CloudDirectory.Types.BatchAttachToIndex
+  ( BatchAttachToIndex (..),
+
+    -- * Smart constructor
+    mkBatchAttachToIndex,
+
+    -- * Lenses
+    batiIndexReference,
+    batiTargetReference,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Attaches the specified object to the specified index inside a 'BatchRead' operation. For more information, see 'AttachToIndex' and 'BatchReadRequest$Operations' .
 --
---
---
--- /See:/ 'batchAttachToIndex' smart constructor.
+-- /See:/ 'mkBatchAttachToIndex' smart constructor.
 data BatchAttachToIndex = BatchAttachToIndex'
-  { _batiIndexReference ::
-      !ObjectReference,
-    _batiTargetReference :: !ObjectReference
+  { indexReference ::
+      ObjectReference,
+    targetReference :: ObjectReference
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachToIndex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'batiIndexReference' - A reference to the index that you are attaching the object to.
---
--- * 'batiTargetReference' - A reference to the object that you are attaching to the index.
-batchAttachToIndex ::
-  -- | 'batiIndexReference'
+-- * 'indexReference' - A reference to the index that you are attaching the object to.
+-- * 'targetReference' - A reference to the object that you are attaching to the index.
+mkBatchAttachToIndex ::
+  -- | 'indexReference'
   ObjectReference ->
-  -- | 'batiTargetReference'
+  -- | 'targetReference'
   ObjectReference ->
   BatchAttachToIndex
-batchAttachToIndex pIndexReference_ pTargetReference_ =
+mkBatchAttachToIndex pIndexReference_ pTargetReference_ =
   BatchAttachToIndex'
-    { _batiIndexReference = pIndexReference_,
-      _batiTargetReference = pTargetReference_
+    { indexReference = pIndexReference_,
+      targetReference = pTargetReference_
     }
 
 -- | A reference to the index that you are attaching the object to.
-batiIndexReference :: Lens' BatchAttachToIndex ObjectReference
-batiIndexReference = lens _batiIndexReference (\s a -> s {_batiIndexReference = a})
+--
+-- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+batiIndexReference :: Lens.Lens' BatchAttachToIndex ObjectReference
+batiIndexReference = Lens.lens (indexReference :: BatchAttachToIndex -> ObjectReference) (\s a -> s {indexReference = a} :: BatchAttachToIndex)
+{-# DEPRECATED batiIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
 
 -- | A reference to the object that you are attaching to the index.
-batiTargetReference :: Lens' BatchAttachToIndex ObjectReference
-batiTargetReference = lens _batiTargetReference (\s a -> s {_batiTargetReference = a})
+--
+-- /Note:/ Consider using 'targetReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+batiTargetReference :: Lens.Lens' BatchAttachToIndex ObjectReference
+batiTargetReference = Lens.lens (targetReference :: BatchAttachToIndex -> ObjectReference) (\s a -> s {targetReference = a} :: BatchAttachToIndex)
+{-# DEPRECATED batiTargetReference "Use generic-lens or generic-optics with 'targetReference' instead." #-}
 
-instance Hashable BatchAttachToIndex
-
-instance NFData BatchAttachToIndex
-
-instance ToJSON BatchAttachToIndex where
+instance Lude.ToJSON BatchAttachToIndex where
   toJSON BatchAttachToIndex' {..} =
-    object
-      ( catMaybes
-          [ Just ("IndexReference" .= _batiIndexReference),
-            Just ("TargetReference" .= _batiTargetReference)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("IndexReference" Lude..= indexReference),
+            Lude.Just ("TargetReference" Lude..= targetReference)
           ]
       )

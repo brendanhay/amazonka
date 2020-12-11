@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,120 @@
 --
 -- Deletes a given 'Facet' . All attributes and 'Rule' s that are associated with the facet will be deleted. Only development schema facets are allowed deletion.
 module Network.AWS.CloudDirectory.DeleteFacet
-  ( -- * Creating a Request
-    deleteFacet,
-    DeleteFacet,
+  ( -- * Creating a request
+    DeleteFacet (..),
+    mkDeleteFacet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dfSchemaARN,
     dfName,
 
-    -- * Destructuring the Response
-    deleteFacetResponse,
-    DeleteFacetResponse,
+    -- * Destructuring the response
+    DeleteFacetResponse (..),
+    mkDeleteFacetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dfrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteFacet' smart constructor.
+-- | /See:/ 'mkDeleteFacet' smart constructor.
 data DeleteFacet = DeleteFacet'
-  { _dfSchemaARN :: !Text,
-    _dfName :: !Text
+  { schemaARN :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFacet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfSchemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
---
--- * 'dfName' - The name of the facet to delete.
-deleteFacet ::
-  -- | 'dfSchemaARN'
-  Text ->
-  -- | 'dfName'
-  Text ->
+-- * 'name' - The name of the facet to delete.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
+mkDeleteFacet ::
+  -- | 'schemaARN'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   DeleteFacet
-deleteFacet pSchemaARN_ pName_ =
-  DeleteFacet' {_dfSchemaARN = pSchemaARN_, _dfName = pName_}
+mkDeleteFacet pSchemaARN_ pName_ =
+  DeleteFacet' {schemaARN = pSchemaARN_, name = pName_}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
-dfSchemaARN :: Lens' DeleteFacet Text
-dfSchemaARN = lens _dfSchemaARN (\s a -> s {_dfSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfSchemaARN :: Lens.Lens' DeleteFacet Lude.Text
+dfSchemaARN = Lens.lens (schemaARN :: DeleteFacet -> Lude.Text) (\s a -> s {schemaARN = a} :: DeleteFacet)
+{-# DEPRECATED dfSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The name of the facet to delete.
-dfName :: Lens' DeleteFacet Text
-dfName = lens _dfName (\s a -> s {_dfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfName :: Lens.Lens' DeleteFacet Lude.Text
+dfName = Lens.lens (name :: DeleteFacet -> Lude.Text) (\s a -> s {name = a} :: DeleteFacet)
+{-# DEPRECATED dfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest DeleteFacet where
+instance Lude.AWSRequest DeleteFacet where
   type Rs DeleteFacet = DeleteFacetResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveEmpty
-      (\s h x -> DeleteFacetResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteFacetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteFacet
-
-instance NFData DeleteFacet
-
-instance ToHeaders DeleteFacet where
+instance Lude.ToHeaders DeleteFacet where
   toHeaders DeleteFacet' {..} =
-    mconcat ["x-amz-data-partition" =# _dfSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON DeleteFacet where
+instance Lude.ToJSON DeleteFacet where
   toJSON DeleteFacet' {..} =
-    object (catMaybes [Just ("Name" .= _dfName)])
+    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
 
-instance ToPath DeleteFacet where
-  toPath = const "/amazonclouddirectory/2017-01-11/facet/delete"
+instance Lude.ToPath DeleteFacet where
+  toPath = Lude.const "/amazonclouddirectory/2017-01-11/facet/delete"
 
-instance ToQuery DeleteFacet where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteFacet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteFacetResponse' smart constructor.
+-- | /See:/ 'mkDeleteFacetResponse' smart constructor.
 newtype DeleteFacetResponse = DeleteFacetResponse'
-  { _dfrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFacetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfrsResponseStatus' - -- | The response status code.
-deleteFacetResponse ::
-  -- | 'dfrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteFacetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteFacetResponse
-deleteFacetResponse pResponseStatus_ =
-  DeleteFacetResponse' {_dfrsResponseStatus = pResponseStatus_}
+mkDeleteFacetResponse pResponseStatus_ =
+  DeleteFacetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dfrsResponseStatus :: Lens' DeleteFacetResponse Int
-dfrsResponseStatus = lens _dfrsResponseStatus (\s a -> s {_dfrsResponseStatus = a})
-
-instance NFData DeleteFacetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfrsResponseStatus :: Lens.Lens' DeleteFacetResponse Lude.Int
+dfrsResponseStatus = Lens.lens (responseStatus :: DeleteFacetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFacetResponse)
+{-# DEPRECATED dfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

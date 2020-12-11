@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.DeviceDefinitionVersion where
+module Network.AWS.Greengrass.Types.DeviceDefinitionVersion
+  ( DeviceDefinitionVersion (..),
+
+    -- * Smart constructor
+    mkDeviceDefinitionVersion,
+
+    -- * Lenses
+    ddvDevices,
+  )
+where
 
 import Network.AWS.Greengrass.Types.Device
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a device definition version.
 --
--- /See:/ 'deviceDefinitionVersion' smart constructor.
+-- /See:/ 'mkDeviceDefinitionVersion' smart constructor.
 newtype DeviceDefinitionVersion = DeviceDefinitionVersion'
-  { _ddvDevices ::
-      Maybe [Device]
+  { devices ::
+      Lude.Maybe [Device]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceDefinitionVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddvDevices' - A list of devices in the definition version.
-deviceDefinitionVersion ::
+-- * 'devices' - A list of devices in the definition version.
+mkDeviceDefinitionVersion ::
   DeviceDefinitionVersion
-deviceDefinitionVersion =
-  DeviceDefinitionVersion' {_ddvDevices = Nothing}
+mkDeviceDefinitionVersion =
+  DeviceDefinitionVersion' {devices = Lude.Nothing}
 
 -- | A list of devices in the definition version.
-ddvDevices :: Lens' DeviceDefinitionVersion [Device]
-ddvDevices = lens _ddvDevices (\s a -> s {_ddvDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'devices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvDevices :: Lens.Lens' DeviceDefinitionVersion (Lude.Maybe [Device])
+ddvDevices = Lens.lens (devices :: DeviceDefinitionVersion -> Lude.Maybe [Device]) (\s a -> s {devices = a} :: DeviceDefinitionVersion)
+{-# DEPRECATED ddvDevices "Use generic-lens or generic-optics with 'devices' instead." #-}
 
-instance FromJSON DeviceDefinitionVersion where
+instance Lude.FromJSON DeviceDefinitionVersion where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeviceDefinitionVersion"
-      (\x -> DeviceDefinitionVersion' <$> (x .:? "Devices" .!= mempty))
+      ( \x ->
+          DeviceDefinitionVersion'
+            Lude.<$> (x Lude..:? "Devices" Lude..!= Lude.mempty)
+      )
 
-instance Hashable DeviceDefinitionVersion
-
-instance NFData DeviceDefinitionVersion
-
-instance ToJSON DeviceDefinitionVersion where
+instance Lude.ToJSON DeviceDefinitionVersion where
   toJSON DeviceDefinitionVersion' {..} =
-    object (catMaybes [("Devices" .=) <$> _ddvDevices])
+    Lude.object
+      (Lude.catMaybes [("Devices" Lude..=) Lude.<$> devices])

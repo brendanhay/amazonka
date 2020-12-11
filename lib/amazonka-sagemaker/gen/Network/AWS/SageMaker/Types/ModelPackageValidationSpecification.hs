@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ModelPackageValidationSpecification where
+module Network.AWS.SageMaker.Types.ModelPackageValidationSpecification
+  ( ModelPackageValidationSpecification (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkModelPackageValidationSpecification,
+
+    -- * Lenses
+    mpvsValidationRole,
+    mpvsValidationProfiles,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.ModelPackageValidationProfile
 
 -- | Specifies batch transform jobs that Amazon SageMaker runs to validate your model package.
 --
---
---
--- /See:/ 'modelPackageValidationSpecification' smart constructor.
+-- /See:/ 'mkModelPackageValidationSpecification' smart constructor.
 data ModelPackageValidationSpecification = ModelPackageValidationSpecification'
-  { _mpvsValidationRole ::
-      !Text,
-    _mpvsValidationProfiles ::
-      !( List1
-           ModelPackageValidationProfile
-       )
+  { validationRole ::
+      Lude.Text,
+    validationProfiles ::
+      Lude.NonEmpty
+        ModelPackageValidationProfile
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelPackageValidationSpecification' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mpvsValidationRole' - The IAM roles to be used for the validation of the model package.
---
--- * 'mpvsValidationProfiles' - An array of @ModelPackageValidationProfile@ objects, each of which specifies a batch transform job that Amazon SageMaker runs to validate your model package.
-modelPackageValidationSpecification ::
-  -- | 'mpvsValidationRole'
-  Text ->
-  -- | 'mpvsValidationProfiles'
-  NonEmpty ModelPackageValidationProfile ->
+-- * 'validationProfiles' - An array of @ModelPackageValidationProfile@ objects, each of which specifies a batch transform job that Amazon SageMaker runs to validate your model package.
+-- * 'validationRole' - The IAM roles to be used for the validation of the model package.
+mkModelPackageValidationSpecification ::
+  -- | 'validationRole'
+  Lude.Text ->
+  -- | 'validationProfiles'
+  Lude.NonEmpty ModelPackageValidationProfile ->
   ModelPackageValidationSpecification
-modelPackageValidationSpecification
+mkModelPackageValidationSpecification
   pValidationRole_
   pValidationProfiles_ =
     ModelPackageValidationSpecification'
-      { _mpvsValidationRole =
+      { validationRole =
           pValidationRole_,
-        _mpvsValidationProfiles = _List1 # pValidationProfiles_
+        validationProfiles = pValidationProfiles_
       }
 
 -- | The IAM roles to be used for the validation of the model package.
-mpvsValidationRole :: Lens' ModelPackageValidationSpecification Text
-mpvsValidationRole = lens _mpvsValidationRole (\s a -> s {_mpvsValidationRole = a})
+--
+-- /Note:/ Consider using 'validationRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpvsValidationRole :: Lens.Lens' ModelPackageValidationSpecification Lude.Text
+mpvsValidationRole = Lens.lens (validationRole :: ModelPackageValidationSpecification -> Lude.Text) (\s a -> s {validationRole = a} :: ModelPackageValidationSpecification)
+{-# DEPRECATED mpvsValidationRole "Use generic-lens or generic-optics with 'validationRole' instead." #-}
 
 -- | An array of @ModelPackageValidationProfile@ objects, each of which specifies a batch transform job that Amazon SageMaker runs to validate your model package.
-mpvsValidationProfiles :: Lens' ModelPackageValidationSpecification (NonEmpty ModelPackageValidationProfile)
-mpvsValidationProfiles = lens _mpvsValidationProfiles (\s a -> s {_mpvsValidationProfiles = a}) . _List1
+--
+-- /Note:/ Consider using 'validationProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpvsValidationProfiles :: Lens.Lens' ModelPackageValidationSpecification (Lude.NonEmpty ModelPackageValidationProfile)
+mpvsValidationProfiles = Lens.lens (validationProfiles :: ModelPackageValidationSpecification -> Lude.NonEmpty ModelPackageValidationProfile) (\s a -> s {validationProfiles = a} :: ModelPackageValidationSpecification)
+{-# DEPRECATED mpvsValidationProfiles "Use generic-lens or generic-optics with 'validationProfiles' instead." #-}
 
-instance FromJSON ModelPackageValidationSpecification where
+instance Lude.FromJSON ModelPackageValidationSpecification where
   parseJSON =
-    withObject
+    Lude.withObject
       "ModelPackageValidationSpecification"
       ( \x ->
           ModelPackageValidationSpecification'
-            <$> (x .: "ValidationRole") <*> (x .: "ValidationProfiles")
+            Lude.<$> (x Lude..: "ValidationRole")
+            Lude.<*> (x Lude..: "ValidationProfiles")
       )
 
-instance Hashable ModelPackageValidationSpecification
-
-instance NFData ModelPackageValidationSpecification
-
-instance ToJSON ModelPackageValidationSpecification where
+instance Lude.ToJSON ModelPackageValidationSpecification where
   toJSON ModelPackageValidationSpecification' {..} =
-    object
-      ( catMaybes
-          [ Just ("ValidationRole" .= _mpvsValidationRole),
-            Just ("ValidationProfiles" .= _mpvsValidationProfiles)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ValidationRole" Lude..= validationRole),
+            Lude.Just ("ValidationProfiles" Lude..= validationProfiles)
           ]
       )

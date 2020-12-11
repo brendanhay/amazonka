@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,49 +14,51 @@
 --
 -- __This operation is used with the Amazon GameLift FleetIQ solution and game server groups.__
 --
---
 -- Retrieves information on all game servers groups that exist in the current AWS account for the selected Region. Use the pagination parameters to retrieve results in a set of sequential segments.
---
 -- __Learn more__
---
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
---
 -- __Related operations__
 --
 --     * 'CreateGameServerGroup'
 --
+--
 --     * 'ListGameServerGroups'
+--
 --
 --     * 'DescribeGameServerGroup'
 --
+--
 --     * 'UpdateGameServerGroup'
+--
 --
 --     * 'DeleteGameServerGroup'
 --
+--
 --     * 'ResumeGameServerGroup'
 --
+--
 --     * 'SuspendGameServerGroup'
+--
 --
 --     * 'DescribeGameServerInstances'
 --
 --
 --
---
 -- This operation returns paginated results.
 module Network.AWS.GameLift.ListGameServerGroups
-  ( -- * Creating a Request
-    listGameServerGroups,
-    ListGameServerGroups,
+  ( -- * Creating a request
+    ListGameServerGroups (..),
+    mkListGameServerGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lgsgNextToken,
     lgsgLimit,
 
-    -- * Destructuring the Response
-    listGameServerGroupsResponse,
-    ListGameServerGroupsResponse,
+    -- * Destructuring the response
+    ListGameServerGroupsResponse (..),
+    mkListGameServerGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lgsgrsGameServerGroups,
     lgsgrsNextToken,
     lgsgrsResponseStatus,
@@ -69,126 +66,149 @@ module Network.AWS.GameLift.ListGameServerGroups
 where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listGameServerGroups' smart constructor.
+-- | /See:/ 'mkListGameServerGroups' smart constructor.
 data ListGameServerGroups = ListGameServerGroups'
-  { _lgsgNextToken ::
-      !(Maybe Text),
-    _lgsgLimit :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGameServerGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgsgNextToken' - A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
---
--- * 'lgsgLimit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential segments.
-listGameServerGroups ::
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential segments.
+-- * 'nextToken' - A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
+mkListGameServerGroups ::
   ListGameServerGroups
-listGameServerGroups =
+mkListGameServerGroups =
   ListGameServerGroups'
-    { _lgsgNextToken = Nothing,
-      _lgsgLimit = Nothing
+    { nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | A token that indicates the start of the next sequential segment of results. Use the token returned with the previous call to this operation. To start at the beginning of the result set, do not specify a value.
-lgsgNextToken :: Lens' ListGameServerGroups (Maybe Text)
-lgsgNextToken = lens _lgsgNextToken (\s a -> s {_lgsgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgsgNextToken :: Lens.Lens' ListGameServerGroups (Lude.Maybe Lude.Text)
+lgsgNextToken = Lens.lens (nextToken :: ListGameServerGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGameServerGroups)
+{-# DEPRECATED lgsgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential segments.
-lgsgLimit :: Lens' ListGameServerGroups (Maybe Natural)
-lgsgLimit = lens _lgsgLimit (\s a -> s {_lgsgLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgsgLimit :: Lens.Lens' ListGameServerGroups (Lude.Maybe Lude.Natural)
+lgsgLimit = Lens.lens (limit :: ListGameServerGroups -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListGameServerGroups)
+{-# DEPRECATED lgsgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance AWSPager ListGameServerGroups where
+instance Page.AWSPager ListGameServerGroups where
   page rq rs
-    | stop (rs ^. lgsgrsNextToken) = Nothing
-    | stop (rs ^. lgsgrsGameServerGroups) = Nothing
-    | otherwise = Just $ rq & lgsgNextToken .~ rs ^. lgsgrsNextToken
+    | Page.stop (rs Lens.^. lgsgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lgsgrsGameServerGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lgsgNextToken Lens..~ rs Lens.^. lgsgrsNextToken
 
-instance AWSRequest ListGameServerGroups where
+instance Lude.AWSRequest ListGameServerGroups where
   type Rs ListGameServerGroups = ListGameServerGroupsResponse
-  request = postJSON gameLift
+  request = Req.postJSON gameLiftService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListGameServerGroupsResponse'
-            <$> (x .?> "GameServerGroups" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GameServerGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListGameServerGroups
-
-instance NFData ListGameServerGroups
-
-instance ToHeaders ListGameServerGroups where
+instance Lude.ToHeaders ListGameServerGroups where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("GameLift.ListGameServerGroups" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("GameLift.ListGameServerGroups" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListGameServerGroups where
+instance Lude.ToJSON ListGameServerGroups where
   toJSON ListGameServerGroups' {..} =
-    object
-      ( catMaybes
-          [("NextToken" .=) <$> _lgsgNextToken, ("Limit" .=) <$> _lgsgLimit]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
+          ]
       )
 
-instance ToPath ListGameServerGroups where
-  toPath = const "/"
+instance Lude.ToPath ListGameServerGroups where
+  toPath = Lude.const "/"
 
-instance ToQuery ListGameServerGroups where
-  toQuery = const mempty
+instance Lude.ToQuery ListGameServerGroups where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listGameServerGroupsResponse' smart constructor.
+-- | /See:/ 'mkListGameServerGroupsResponse' smart constructor.
 data ListGameServerGroupsResponse = ListGameServerGroupsResponse'
-  { _lgsgrsGameServerGroups ::
-      !(Maybe [GameServerGroup]),
-    _lgsgrsNextToken :: !(Maybe Text),
-    _lgsgrsResponseStatus :: !Int
+  { gameServerGroups ::
+      Lude.Maybe [GameServerGroup],
+    nextToken :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGameServerGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lgsgrsGameServerGroups' - A collection of game server group objects that match the request.
---
--- * 'lgsgrsNextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
---
--- * 'lgsgrsResponseStatus' - -- | The response status code.
-listGameServerGroupsResponse ::
-  -- | 'lgsgrsResponseStatus'
-  Int ->
+-- * 'gameServerGroups' - A collection of game server group objects that match the request.
+-- * 'nextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+-- * 'responseStatus' - The response status code.
+mkListGameServerGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListGameServerGroupsResponse
-listGameServerGroupsResponse pResponseStatus_ =
+mkListGameServerGroupsResponse pResponseStatus_ =
   ListGameServerGroupsResponse'
-    { _lgsgrsGameServerGroups = Nothing,
-      _lgsgrsNextToken = Nothing,
-      _lgsgrsResponseStatus = pResponseStatus_
+    { gameServerGroups = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A collection of game server group objects that match the request.
-lgsgrsGameServerGroups :: Lens' ListGameServerGroupsResponse [GameServerGroup]
-lgsgrsGameServerGroups = lens _lgsgrsGameServerGroups (\s a -> s {_lgsgrsGameServerGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'gameServerGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgsgrsGameServerGroups :: Lens.Lens' ListGameServerGroupsResponse (Lude.Maybe [GameServerGroup])
+lgsgrsGameServerGroups = Lens.lens (gameServerGroups :: ListGameServerGroupsResponse -> Lude.Maybe [GameServerGroup]) (\s a -> s {gameServerGroups = a} :: ListGameServerGroupsResponse)
+{-# DEPRECATED lgsgrsGameServerGroups "Use generic-lens or generic-optics with 'gameServerGroups' instead." #-}
 
 -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-lgsgrsNextToken :: Lens' ListGameServerGroupsResponse (Maybe Text)
-lgsgrsNextToken = lens _lgsgrsNextToken (\s a -> s {_lgsgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgsgrsNextToken :: Lens.Lens' ListGameServerGroupsResponse (Lude.Maybe Lude.Text)
+lgsgrsNextToken = Lens.lens (nextToken :: ListGameServerGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGameServerGroupsResponse)
+{-# DEPRECATED lgsgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lgsgrsResponseStatus :: Lens' ListGameServerGroupsResponse Int
-lgsgrsResponseStatus = lens _lgsgrsResponseStatus (\s a -> s {_lgsgrsResponseStatus = a})
-
-instance NFData ListGameServerGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgsgrsResponseStatus :: Lens.Lens' ListGameServerGroupsResponse Lude.Int
+lgsgrsResponseStatus = Lens.lens (responseStatus :: ListGameServerGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGameServerGroupsResponse)
+{-# DEPRECATED lgsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

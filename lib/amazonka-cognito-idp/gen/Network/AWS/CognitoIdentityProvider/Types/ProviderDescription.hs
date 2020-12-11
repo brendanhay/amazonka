@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.ProviderDescription where
+module Network.AWS.CognitoIdentityProvider.Types.ProviderDescription
+  ( ProviderDescription (..),
+
+    -- * Smart constructor
+    mkProviderDescription,
+
+    -- * Lenses
+    pdLastModifiedDate,
+    pdProviderType,
+    pdCreationDate,
+    pdProviderName,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types.IdentityProviderTypeType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A container for identity provider details.
 --
---
---
--- /See:/ 'providerDescription' smart constructor.
+-- /See:/ 'mkProviderDescription' smart constructor.
 data ProviderDescription = ProviderDescription'
-  { _pdLastModifiedDate ::
-      !(Maybe POSIX),
-    _pdProviderType ::
-      !(Maybe IdentityProviderTypeType),
-    _pdCreationDate :: !(Maybe POSIX),
-    _pdProviderName :: !(Maybe Text)
+  { lastModifiedDate ::
+      Lude.Maybe Lude.Timestamp,
+    providerType :: Lude.Maybe IdentityProviderTypeType,
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    providerName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProviderDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pdLastModifiedDate' - The date the provider was last modified.
---
--- * 'pdProviderType' - The identity provider type.
---
--- * 'pdCreationDate' - The date the provider was added to the user pool.
---
--- * 'pdProviderName' - The identity provider name.
-providerDescription ::
+-- * 'creationDate' - The date the provider was added to the user pool.
+-- * 'lastModifiedDate' - The date the provider was last modified.
+-- * 'providerName' - The identity provider name.
+-- * 'providerType' - The identity provider type.
+mkProviderDescription ::
   ProviderDescription
-providerDescription =
+mkProviderDescription =
   ProviderDescription'
-    { _pdLastModifiedDate = Nothing,
-      _pdProviderType = Nothing,
-      _pdCreationDate = Nothing,
-      _pdProviderName = Nothing
+    { lastModifiedDate = Lude.Nothing,
+      providerType = Lude.Nothing,
+      creationDate = Lude.Nothing,
+      providerName = Lude.Nothing
     }
 
 -- | The date the provider was last modified.
-pdLastModifiedDate :: Lens' ProviderDescription (Maybe UTCTime)
-pdLastModifiedDate = lens _pdLastModifiedDate (\s a -> s {_pdLastModifiedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdLastModifiedDate :: Lens.Lens' ProviderDescription (Lude.Maybe Lude.Timestamp)
+pdLastModifiedDate = Lens.lens (lastModifiedDate :: ProviderDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: ProviderDescription)
+{-# DEPRECATED pdLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The identity provider type.
-pdProviderType :: Lens' ProviderDescription (Maybe IdentityProviderTypeType)
-pdProviderType = lens _pdProviderType (\s a -> s {_pdProviderType = a})
+--
+-- /Note:/ Consider using 'providerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdProviderType :: Lens.Lens' ProviderDescription (Lude.Maybe IdentityProviderTypeType)
+pdProviderType = Lens.lens (providerType :: ProviderDescription -> Lude.Maybe IdentityProviderTypeType) (\s a -> s {providerType = a} :: ProviderDescription)
+{-# DEPRECATED pdProviderType "Use generic-lens or generic-optics with 'providerType' instead." #-}
 
 -- | The date the provider was added to the user pool.
-pdCreationDate :: Lens' ProviderDescription (Maybe UTCTime)
-pdCreationDate = lens _pdCreationDate (\s a -> s {_pdCreationDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdCreationDate :: Lens.Lens' ProviderDescription (Lude.Maybe Lude.Timestamp)
+pdCreationDate = Lens.lens (creationDate :: ProviderDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: ProviderDescription)
+{-# DEPRECATED pdCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The identity provider name.
-pdProviderName :: Lens' ProviderDescription (Maybe Text)
-pdProviderName = lens _pdProviderName (\s a -> s {_pdProviderName = a})
+--
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdProviderName :: Lens.Lens' ProviderDescription (Lude.Maybe Lude.Text)
+pdProviderName = Lens.lens (providerName :: ProviderDescription -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: ProviderDescription)
+{-# DEPRECATED pdProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
-instance FromJSON ProviderDescription where
+instance Lude.FromJSON ProviderDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProviderDescription"
       ( \x ->
           ProviderDescription'
-            <$> (x .:? "LastModifiedDate")
-            <*> (x .:? "ProviderType")
-            <*> (x .:? "CreationDate")
-            <*> (x .:? "ProviderName")
+            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..:? "ProviderType")
+            Lude.<*> (x Lude..:? "CreationDate")
+            Lude.<*> (x Lude..:? "ProviderName")
       )
-
-instance Hashable ProviderDescription
-
-instance NFData ProviderDescription

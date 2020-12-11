@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,114 @@
 --
 -- Deletes a notebook instance lifecycle configuration.
 module Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig
-  ( -- * Creating a Request
-    deleteNotebookInstanceLifecycleConfig,
-    DeleteNotebookInstanceLifecycleConfig,
+  ( -- * Creating a request
+    DeleteNotebookInstanceLifecycleConfig (..),
+    mkDeleteNotebookInstanceLifecycleConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dnilcNotebookInstanceLifecycleConfigName,
 
-    -- * Destructuring the Response
-    deleteNotebookInstanceLifecycleConfigResponse,
-    DeleteNotebookInstanceLifecycleConfigResponse,
+    -- * Destructuring the response
+    DeleteNotebookInstanceLifecycleConfigResponse (..),
+    mkDeleteNotebookInstanceLifecycleConfigResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteNotebookInstanceLifecycleConfig' smart constructor.
+-- | /See:/ 'mkDeleteNotebookInstanceLifecycleConfig' smart constructor.
 newtype DeleteNotebookInstanceLifecycleConfig = DeleteNotebookInstanceLifecycleConfig'
-  { _dnilcNotebookInstanceLifecycleConfigName ::
-      Text
+  { notebookInstanceLifecycleConfigName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotebookInstanceLifecycleConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnilcNotebookInstanceLifecycleConfigName' - The name of the lifecycle configuration to delete.
-deleteNotebookInstanceLifecycleConfig ::
-  -- | 'dnilcNotebookInstanceLifecycleConfigName'
-  Text ->
+-- * 'notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration to delete.
+mkDeleteNotebookInstanceLifecycleConfig ::
+  -- | 'notebookInstanceLifecycleConfigName'
+  Lude.Text ->
   DeleteNotebookInstanceLifecycleConfig
-deleteNotebookInstanceLifecycleConfig
+mkDeleteNotebookInstanceLifecycleConfig
   pNotebookInstanceLifecycleConfigName_ =
     DeleteNotebookInstanceLifecycleConfig'
-      { _dnilcNotebookInstanceLifecycleConfigName =
+      { notebookInstanceLifecycleConfigName =
           pNotebookInstanceLifecycleConfigName_
       }
 
 -- | The name of the lifecycle configuration to delete.
-dnilcNotebookInstanceLifecycleConfigName :: Lens' DeleteNotebookInstanceLifecycleConfig Text
-dnilcNotebookInstanceLifecycleConfigName = lens _dnilcNotebookInstanceLifecycleConfigName (\s a -> s {_dnilcNotebookInstanceLifecycleConfigName = a})
+--
+-- /Note:/ Consider using 'notebookInstanceLifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnilcNotebookInstanceLifecycleConfigName :: Lens.Lens' DeleteNotebookInstanceLifecycleConfig Lude.Text
+dnilcNotebookInstanceLifecycleConfigName = Lens.lens (notebookInstanceLifecycleConfigName :: DeleteNotebookInstanceLifecycleConfig -> Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigName = a} :: DeleteNotebookInstanceLifecycleConfig)
+{-# DEPRECATED dnilcNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
 
-instance AWSRequest DeleteNotebookInstanceLifecycleConfig where
+instance Lude.AWSRequest DeleteNotebookInstanceLifecycleConfig where
   type
     Rs DeleteNotebookInstanceLifecycleConfig =
       DeleteNotebookInstanceLifecycleConfigResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveNull DeleteNotebookInstanceLifecycleConfigResponse'
+    Res.receiveNull DeleteNotebookInstanceLifecycleConfigResponse'
 
-instance Hashable DeleteNotebookInstanceLifecycleConfig
-
-instance NFData DeleteNotebookInstanceLifecycleConfig
-
-instance ToHeaders DeleteNotebookInstanceLifecycleConfig where
+instance Lude.ToHeaders DeleteNotebookInstanceLifecycleConfig where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("SageMaker.DeleteNotebookInstanceLifecycleConfig" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "SageMaker.DeleteNotebookInstanceLifecycleConfig" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteNotebookInstanceLifecycleConfig where
+instance Lude.ToJSON DeleteNotebookInstanceLifecycleConfig where
   toJSON DeleteNotebookInstanceLifecycleConfig' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "NotebookInstanceLifecycleConfigName"
-                  .= _dnilcNotebookInstanceLifecycleConfigName
+                  Lude..= notebookInstanceLifecycleConfigName
               )
           ]
       )
 
-instance ToPath DeleteNotebookInstanceLifecycleConfig where
-  toPath = const "/"
+instance Lude.ToPath DeleteNotebookInstanceLifecycleConfig where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteNotebookInstanceLifecycleConfig where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteNotebookInstanceLifecycleConfig where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteNotebookInstanceLifecycleConfigResponse' smart constructor.
+-- | /See:/ 'mkDeleteNotebookInstanceLifecycleConfigResponse' smart constructor.
 data DeleteNotebookInstanceLifecycleConfigResponse = DeleteNotebookInstanceLifecycleConfigResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeleteNotebookInstanceLifecycleConfigResponse' with the minimum fields required to make a request.
-deleteNotebookInstanceLifecycleConfigResponse ::
+mkDeleteNotebookInstanceLifecycleConfigResponse ::
   DeleteNotebookInstanceLifecycleConfigResponse
-deleteNotebookInstanceLifecycleConfigResponse =
+mkDeleteNotebookInstanceLifecycleConfigResponse =
   DeleteNotebookInstanceLifecycleConfigResponse'
-
-instance NFData DeleteNotebookInstanceLifecycleConfigResponse

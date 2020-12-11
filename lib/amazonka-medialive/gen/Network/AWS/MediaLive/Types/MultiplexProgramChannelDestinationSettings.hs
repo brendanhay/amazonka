@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.MultiplexProgramChannelDestinationSettings where
+module Network.AWS.MediaLive.Types.MultiplexProgramChannelDestinationSettings
+  ( MultiplexProgramChannelDestinationSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMultiplexProgramChannelDestinationSettings,
+
+    -- * Lenses
+    mpcdsMultiplexId,
+    mpcdsProgramName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Multiplex Program Input Destination Settings for outputting a Channel to a Multiplex
 --
--- /See:/ 'multiplexProgramChannelDestinationSettings' smart constructor.
+-- /See:/ 'mkMultiplexProgramChannelDestinationSettings' smart constructor.
 data MultiplexProgramChannelDestinationSettings = MultiplexProgramChannelDestinationSettings'
-  { _mpcdsMultiplexId ::
-      !( Maybe
-           Text
-       ),
-    _mpcdsProgramName ::
-      !( Maybe
-           Text
-       )
+  { multiplexId ::
+      Lude.Maybe
+        Lude.Text,
+    programName ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexProgramChannelDestinationSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'multiplexId' - The ID of the Multiplex that the encoder is providing output to. You do not need to specify the individual inputs to the Multiplex; MediaLive will handle the connection of the two MediaLive pipelines to the two Multiplex instances.
 --
--- * 'mpcdsMultiplexId' - The ID of the Multiplex that the encoder is providing output to. You do not need to specify the individual inputs to the Multiplex; MediaLive will handle the connection of the two MediaLive pipelines to the two Multiplex instances. The Multiplex must be in the same region as the Channel.
---
--- * 'mpcdsProgramName' - The program name of the Multiplex program that the encoder is providing output to.
-multiplexProgramChannelDestinationSettings ::
+-- The Multiplex must be in the same region as the Channel.
+-- * 'programName' - The program name of the Multiplex program that the encoder is providing output to.
+mkMultiplexProgramChannelDestinationSettings ::
   MultiplexProgramChannelDestinationSettings
-multiplexProgramChannelDestinationSettings =
+mkMultiplexProgramChannelDestinationSettings =
   MultiplexProgramChannelDestinationSettings'
-    { _mpcdsMultiplexId =
-        Nothing,
-      _mpcdsProgramName = Nothing
+    { multiplexId =
+        Lude.Nothing,
+      programName = Lude.Nothing
     }
 
--- | The ID of the Multiplex that the encoder is providing output to. You do not need to specify the individual inputs to the Multiplex; MediaLive will handle the connection of the two MediaLive pipelines to the two Multiplex instances. The Multiplex must be in the same region as the Channel.
-mpcdsMultiplexId :: Lens' MultiplexProgramChannelDestinationSettings (Maybe Text)
-mpcdsMultiplexId = lens _mpcdsMultiplexId (\s a -> s {_mpcdsMultiplexId = a})
+-- | The ID of the Multiplex that the encoder is providing output to. You do not need to specify the individual inputs to the Multiplex; MediaLive will handle the connection of the two MediaLive pipelines to the two Multiplex instances.
+--
+-- The Multiplex must be in the same region as the Channel.
+--
+-- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpcdsMultiplexId :: Lens.Lens' MultiplexProgramChannelDestinationSettings (Lude.Maybe Lude.Text)
+mpcdsMultiplexId = Lens.lens (multiplexId :: MultiplexProgramChannelDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {multiplexId = a} :: MultiplexProgramChannelDestinationSettings)
+{-# DEPRECATED mpcdsMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
 -- | The program name of the Multiplex program that the encoder is providing output to.
-mpcdsProgramName :: Lens' MultiplexProgramChannelDestinationSettings (Maybe Text)
-mpcdsProgramName = lens _mpcdsProgramName (\s a -> s {_mpcdsProgramName = a})
+--
+-- /Note:/ Consider using 'programName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpcdsProgramName :: Lens.Lens' MultiplexProgramChannelDestinationSettings (Lude.Maybe Lude.Text)
+mpcdsProgramName = Lens.lens (programName :: MultiplexProgramChannelDestinationSettings -> Lude.Maybe Lude.Text) (\s a -> s {programName = a} :: MultiplexProgramChannelDestinationSettings)
+{-# DEPRECATED mpcdsProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
 
-instance FromJSON MultiplexProgramChannelDestinationSettings where
+instance Lude.FromJSON MultiplexProgramChannelDestinationSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "MultiplexProgramChannelDestinationSettings"
       ( \x ->
           MultiplexProgramChannelDestinationSettings'
-            <$> (x .:? "multiplexId") <*> (x .:? "programName")
+            Lude.<$> (x Lude..:? "multiplexId") Lude.<*> (x Lude..:? "programName")
       )
 
-instance Hashable MultiplexProgramChannelDestinationSettings
-
-instance NFData MultiplexProgramChannelDestinationSettings
-
-instance ToJSON MultiplexProgramChannelDestinationSettings where
+instance Lude.ToJSON MultiplexProgramChannelDestinationSettings where
   toJSON MultiplexProgramChannelDestinationSettings' {..} =
-    object
-      ( catMaybes
-          [ ("multiplexId" .=) <$> _mpcdsMultiplexId,
-            ("programName" .=) <$> _mpcdsProgramName
+    Lude.object
+      ( Lude.catMaybes
+          [ ("multiplexId" Lude..=) Lude.<$> multiplexId,
+            ("programName" Lude..=) Lude.<$> programName
           ]
       )

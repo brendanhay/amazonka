@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- The @ListQualificationTypes@ operation returns a list of Qualification types, filtered by an optional search term.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListQualificationTypes
-  ( -- * Creating a Request
-    listQualificationTypes,
-    ListQualificationTypes,
+  ( -- * Creating a request
+    ListQualificationTypes (..),
+    mkListQualificationTypes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lqtMustBeOwnedByCaller,
     lqtNextToken,
     lqtQuery,
     lqtMaxResults,
     lqtMustBeRequestable,
 
-    -- * Destructuring the Response
-    listQualificationTypesResponse,
-    ListQualificationTypesResponse,
+    -- * Destructuring the response
+    ListQualificationTypesResponse (..),
+    mkListQualificationTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lqtrsQualificationTypes,
     lqtrsNextToken,
     lqtrsNumResults,
@@ -46,173 +39,202 @@ module Network.AWS.MechanicalTurk.ListQualificationTypes
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listQualificationTypes' smart constructor.
+-- | /See:/ 'mkListQualificationTypes' smart constructor.
 data ListQualificationTypes = ListQualificationTypes'
-  { _lqtMustBeOwnedByCaller ::
-      !(Maybe Bool),
-    _lqtNextToken :: !(Maybe Text),
-    _lqtQuery :: !(Maybe Text),
-    _lqtMaxResults :: !(Maybe Nat),
-    _lqtMustBeRequestable :: !Bool
+  { mustBeOwnedByCaller ::
+      Lude.Maybe Lude.Bool,
+    nextToken :: Lude.Maybe Lude.Text,
+    query :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    mustBeRequestable :: Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQualificationTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lqtMustBeOwnedByCaller' - Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types.
---
--- * 'lqtNextToken' - Undocumented member.
---
--- * 'lqtQuery' - A text query against all of the searchable attributes of Qualification types.
---
--- * 'lqtMaxResults' - The maximum number of results to return in a single call.
---
--- * 'lqtMustBeRequestable' - Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False.
-listQualificationTypes ::
-  -- | 'lqtMustBeRequestable'
-  Bool ->
+-- * 'maxResults' - The maximum number of results to return in a single call.
+-- * 'mustBeOwnedByCaller' - Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types.
+-- * 'mustBeRequestable' - Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False.
+-- * 'nextToken' - Undocumented field.
+-- * 'query' - A text query against all of the searchable attributes of Qualification types.
+mkListQualificationTypes ::
+  -- | 'mustBeRequestable'
+  Lude.Bool ->
   ListQualificationTypes
-listQualificationTypes pMustBeRequestable_ =
+mkListQualificationTypes pMustBeRequestable_ =
   ListQualificationTypes'
-    { _lqtMustBeOwnedByCaller = Nothing,
-      _lqtNextToken = Nothing,
-      _lqtQuery = Nothing,
-      _lqtMaxResults = Nothing,
-      _lqtMustBeRequestable = pMustBeRequestable_
+    { mustBeOwnedByCaller = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      query = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      mustBeRequestable = pMustBeRequestable_
     }
 
 -- | Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types.
-lqtMustBeOwnedByCaller :: Lens' ListQualificationTypes (Maybe Bool)
-lqtMustBeOwnedByCaller = lens _lqtMustBeOwnedByCaller (\s a -> s {_lqtMustBeOwnedByCaller = a})
+--
+-- /Note:/ Consider using 'mustBeOwnedByCaller' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtMustBeOwnedByCaller :: Lens.Lens' ListQualificationTypes (Lude.Maybe Lude.Bool)
+lqtMustBeOwnedByCaller = Lens.lens (mustBeOwnedByCaller :: ListQualificationTypes -> Lude.Maybe Lude.Bool) (\s a -> s {mustBeOwnedByCaller = a} :: ListQualificationTypes)
+{-# DEPRECATED lqtMustBeOwnedByCaller "Use generic-lens or generic-optics with 'mustBeOwnedByCaller' instead." #-}
 
--- | Undocumented member.
-lqtNextToken :: Lens' ListQualificationTypes (Maybe Text)
-lqtNextToken = lens _lqtNextToken (\s a -> s {_lqtNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtNextToken :: Lens.Lens' ListQualificationTypes (Lude.Maybe Lude.Text)
+lqtNextToken = Lens.lens (nextToken :: ListQualificationTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQualificationTypes)
+{-# DEPRECATED lqtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A text query against all of the searchable attributes of Qualification types.
-lqtQuery :: Lens' ListQualificationTypes (Maybe Text)
-lqtQuery = lens _lqtQuery (\s a -> s {_lqtQuery = a})
+--
+-- /Note:/ Consider using 'query' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtQuery :: Lens.Lens' ListQualificationTypes (Lude.Maybe Lude.Text)
+lqtQuery = Lens.lens (query :: ListQualificationTypes -> Lude.Maybe Lude.Text) (\s a -> s {query = a} :: ListQualificationTypes)
+{-# DEPRECATED lqtQuery "Use generic-lens or generic-optics with 'query' instead." #-}
 
 -- | The maximum number of results to return in a single call.
-lqtMaxResults :: Lens' ListQualificationTypes (Maybe Natural)
-lqtMaxResults = lens _lqtMaxResults (\s a -> s {_lqtMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtMaxResults :: Lens.Lens' ListQualificationTypes (Lude.Maybe Lude.Natural)
+lqtMaxResults = Lens.lens (maxResults :: ListQualificationTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListQualificationTypes)
+{-# DEPRECATED lqtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False.
-lqtMustBeRequestable :: Lens' ListQualificationTypes Bool
-lqtMustBeRequestable = lens _lqtMustBeRequestable (\s a -> s {_lqtMustBeRequestable = a})
+--
+-- /Note:/ Consider using 'mustBeRequestable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtMustBeRequestable :: Lens.Lens' ListQualificationTypes Lude.Bool
+lqtMustBeRequestable = Lens.lens (mustBeRequestable :: ListQualificationTypes -> Lude.Bool) (\s a -> s {mustBeRequestable = a} :: ListQualificationTypes)
+{-# DEPRECATED lqtMustBeRequestable "Use generic-lens or generic-optics with 'mustBeRequestable' instead." #-}
 
-instance AWSPager ListQualificationTypes where
+instance Page.AWSPager ListQualificationTypes where
   page rq rs
-    | stop (rs ^. lqtrsNextToken) = Nothing
-    | stop (rs ^. lqtrsQualificationTypes) = Nothing
-    | otherwise = Just $ rq & lqtNextToken .~ rs ^. lqtrsNextToken
+    | Page.stop (rs Lens.^. lqtrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lqtrsQualificationTypes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lqtNextToken Lens..~ rs Lens.^. lqtrsNextToken
 
-instance AWSRequest ListQualificationTypes where
+instance Lude.AWSRequest ListQualificationTypes where
   type Rs ListQualificationTypes = ListQualificationTypesResponse
-  request = postJSON mechanicalTurk
+  request = Req.postJSON mechanicalTurkService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListQualificationTypesResponse'
-            <$> (x .?> "QualificationTypes" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (x .?> "NumResults")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "QualificationTypes" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "NumResults")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListQualificationTypes
-
-instance NFData ListQualificationTypes
-
-instance ToHeaders ListQualificationTypes where
+instance Lude.ToHeaders ListQualificationTypes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "MTurkRequesterServiceV20170117.ListQualificationTypes" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "MTurkRequesterServiceV20170117.ListQualificationTypes" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListQualificationTypes where
+instance Lude.ToJSON ListQualificationTypes where
   toJSON ListQualificationTypes' {..} =
-    object
-      ( catMaybes
-          [ ("MustBeOwnedByCaller" .=) <$> _lqtMustBeOwnedByCaller,
-            ("NextToken" .=) <$> _lqtNextToken,
-            ("Query" .=) <$> _lqtQuery,
-            ("MaxResults" .=) <$> _lqtMaxResults,
-            Just ("MustBeRequestable" .= _lqtMustBeRequestable)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("MustBeOwnedByCaller" Lude..=) Lude.<$> mustBeOwnedByCaller,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Query" Lude..=) Lude.<$> query,
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("MustBeRequestable" Lude..= mustBeRequestable)
           ]
       )
 
-instance ToPath ListQualificationTypes where
-  toPath = const "/"
+instance Lude.ToPath ListQualificationTypes where
+  toPath = Lude.const "/"
 
-instance ToQuery ListQualificationTypes where
-  toQuery = const mempty
+instance Lude.ToQuery ListQualificationTypes where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listQualificationTypesResponse' smart constructor.
+-- | /See:/ 'mkListQualificationTypesResponse' smart constructor.
 data ListQualificationTypesResponse = ListQualificationTypesResponse'
-  { _lqtrsQualificationTypes ::
-      !(Maybe [QualificationType]),
-    _lqtrsNextToken ::
-      !(Maybe Text),
-    _lqtrsNumResults ::
-      !(Maybe Int),
-    _lqtrsResponseStatus :: !Int
+  { qualificationTypes ::
+      Lude.Maybe
+        [QualificationType],
+    nextToken ::
+      Lude.Maybe Lude.Text,
+    numResults ::
+      Lude.Maybe Lude.Int,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQualificationTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lqtrsQualificationTypes' - The list of QualificationType elements returned by the query.
---
--- * 'lqtrsNextToken' - Undocumented member.
---
--- * 'lqtrsNumResults' - The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns.
---
--- * 'lqtrsResponseStatus' - -- | The response status code.
-listQualificationTypesResponse ::
-  -- | 'lqtrsResponseStatus'
-  Int ->
+-- * 'nextToken' - Undocumented field.
+-- * 'numResults' - The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns.
+-- * 'qualificationTypes' - The list of QualificationType elements returned by the query.
+-- * 'responseStatus' - The response status code.
+mkListQualificationTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListQualificationTypesResponse
-listQualificationTypesResponse pResponseStatus_ =
+mkListQualificationTypesResponse pResponseStatus_ =
   ListQualificationTypesResponse'
-    { _lqtrsQualificationTypes =
-        Nothing,
-      _lqtrsNextToken = Nothing,
-      _lqtrsNumResults = Nothing,
-      _lqtrsResponseStatus = pResponseStatus_
+    { qualificationTypes =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      numResults = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of QualificationType elements returned by the query.
-lqtrsQualificationTypes :: Lens' ListQualificationTypesResponse [QualificationType]
-lqtrsQualificationTypes = lens _lqtrsQualificationTypes (\s a -> s {_lqtrsQualificationTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'qualificationTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtrsQualificationTypes :: Lens.Lens' ListQualificationTypesResponse (Lude.Maybe [QualificationType])
+lqtrsQualificationTypes = Lens.lens (qualificationTypes :: ListQualificationTypesResponse -> Lude.Maybe [QualificationType]) (\s a -> s {qualificationTypes = a} :: ListQualificationTypesResponse)
+{-# DEPRECATED lqtrsQualificationTypes "Use generic-lens or generic-optics with 'qualificationTypes' instead." #-}
 
--- | Undocumented member.
-lqtrsNextToken :: Lens' ListQualificationTypesResponse (Maybe Text)
-lqtrsNextToken = lens _lqtrsNextToken (\s a -> s {_lqtrsNextToken = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtrsNextToken :: Lens.Lens' ListQualificationTypesResponse (Lude.Maybe Lude.Text)
+lqtrsNextToken = Lens.lens (nextToken :: ListQualificationTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQualificationTypesResponse)
+{-# DEPRECATED lqtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns.
-lqtrsNumResults :: Lens' ListQualificationTypesResponse (Maybe Int)
-lqtrsNumResults = lens _lqtrsNumResults (\s a -> s {_lqtrsNumResults = a})
+--
+-- /Note:/ Consider using 'numResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtrsNumResults :: Lens.Lens' ListQualificationTypesResponse (Lude.Maybe Lude.Int)
+lqtrsNumResults = Lens.lens (numResults :: ListQualificationTypesResponse -> Lude.Maybe Lude.Int) (\s a -> s {numResults = a} :: ListQualificationTypesResponse)
+{-# DEPRECATED lqtrsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
 
--- | -- | The response status code.
-lqtrsResponseStatus :: Lens' ListQualificationTypesResponse Int
-lqtrsResponseStatus = lens _lqtrsResponseStatus (\s a -> s {_lqtrsResponseStatus = a})
-
-instance NFData ListQualificationTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtrsResponseStatus :: Lens.Lens' ListQualificationTypesResponse Lude.Int
+lqtrsResponseStatus = Lens.lens (responseStatus :: ListQualificationTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListQualificationTypesResponse)
+{-# DEPRECATED lqtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

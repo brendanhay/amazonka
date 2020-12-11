@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,95 +14,103 @@
 --
 -- Enables the integration of an AWS service (the service that is specified by @ServicePrincipal@ ) with AWS Organizations. When you enable integration, you allow the specified service to create a <http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html service-linked role> in all the accounts in your organization. This allows the service to perform operations on your behalf in your organization and its accounts.
 --
---
 -- /Important:/ We recommend that you enable integration between AWS Organizations and the specified AWS service by using the console or commands that are provided by the specified service. Doing so ensures that the service is aware that it can create the resources that are required for the integration. How the service creates those resources in the organization's accounts depends on that service. For more information, see the documentation for the other AWS service.
---
 -- For more information about enabling services to integrate with AWS Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html Integrating AWS Organizations with Other AWS Services> in the /AWS Organizations User Guide./
---
 -- This operation can be called only from the organization's management account and only if the organization has <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html enabled all features> .
 module Network.AWS.Organizations.EnableAWSServiceAccess
-  ( -- * Creating a Request
-    enableAWSServiceAccess,
-    EnableAWSServiceAccess,
+  ( -- * Creating a request
+    EnableAWSServiceAccess (..),
+    mkEnableAWSServiceAccess,
 
-    -- * Request Lenses
+    -- ** Request lenses
     easaServicePrincipal,
 
-    -- * Destructuring the Response
-    enableAWSServiceAccessResponse,
-    EnableAWSServiceAccessResponse,
+    -- * Destructuring the response
+    EnableAWSServiceAccessResponse (..),
+    mkEnableAWSServiceAccessResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'enableAWSServiceAccess' smart constructor.
+-- | /See:/ 'mkEnableAWSServiceAccess' smart constructor.
 newtype EnableAWSServiceAccess = EnableAWSServiceAccess'
-  { _easaServicePrincipal ::
-      Text
+  { servicePrincipal ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableAWSServiceAccess' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'easaServicePrincipal' - The service principal name of the AWS service for which you want to enable integration with your organization. This is typically in the form of a URL, such as @/service-abbreviation/ .amazonaws.com@ .
-enableAWSServiceAccess ::
-  -- | 'easaServicePrincipal'
-  Text ->
+-- * 'servicePrincipal' - The service principal name of the AWS service for which you want to enable integration with your organization. This is typically in the form of a URL, such as @/service-abbreviation/ .amazonaws.com@ .
+mkEnableAWSServiceAccess ::
+  -- | 'servicePrincipal'
+  Lude.Text ->
   EnableAWSServiceAccess
-enableAWSServiceAccess pServicePrincipal_ =
-  EnableAWSServiceAccess'
-    { _easaServicePrincipal =
-        pServicePrincipal_
-    }
+mkEnableAWSServiceAccess pServicePrincipal_ =
+  EnableAWSServiceAccess' {servicePrincipal = pServicePrincipal_}
 
 -- | The service principal name of the AWS service for which you want to enable integration with your organization. This is typically in the form of a URL, such as @/service-abbreviation/ .amazonaws.com@ .
-easaServicePrincipal :: Lens' EnableAWSServiceAccess Text
-easaServicePrincipal = lens _easaServicePrincipal (\s a -> s {_easaServicePrincipal = a})
+--
+-- /Note:/ Consider using 'servicePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+easaServicePrincipal :: Lens.Lens' EnableAWSServiceAccess Lude.Text
+easaServicePrincipal = Lens.lens (servicePrincipal :: EnableAWSServiceAccess -> Lude.Text) (\s a -> s {servicePrincipal = a} :: EnableAWSServiceAccess)
+{-# DEPRECATED easaServicePrincipal "Use generic-lens or generic-optics with 'servicePrincipal' instead." #-}
 
-instance AWSRequest EnableAWSServiceAccess where
+instance Lude.AWSRequest EnableAWSServiceAccess where
   type Rs EnableAWSServiceAccess = EnableAWSServiceAccessResponse
-  request = postJSON organizations
-  response = receiveNull EnableAWSServiceAccessResponse'
+  request = Req.postJSON organizationsService
+  response = Res.receiveNull EnableAWSServiceAccessResponse'
 
-instance Hashable EnableAWSServiceAccess
-
-instance NFData EnableAWSServiceAccess
-
-instance ToHeaders EnableAWSServiceAccess where
+instance Lude.ToHeaders EnableAWSServiceAccess where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.EnableAWSServiceAccess" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSOrganizationsV20161128.EnableAWSServiceAccess" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EnableAWSServiceAccess where
+instance Lude.ToJSON EnableAWSServiceAccess where
   toJSON EnableAWSServiceAccess' {..} =
-    object
-      (catMaybes [Just ("ServicePrincipal" .= _easaServicePrincipal)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ServicePrincipal" Lude..= servicePrincipal)]
+      )
 
-instance ToPath EnableAWSServiceAccess where
-  toPath = const "/"
+instance Lude.ToPath EnableAWSServiceAccess where
+  toPath = Lude.const "/"
 
-instance ToQuery EnableAWSServiceAccess where
-  toQuery = const mempty
+instance Lude.ToQuery EnableAWSServiceAccess where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'enableAWSServiceAccessResponse' smart constructor.
+-- | /See:/ 'mkEnableAWSServiceAccessResponse' smart constructor.
 data EnableAWSServiceAccessResponse = EnableAWSServiceAccessResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableAWSServiceAccessResponse' with the minimum fields required to make a request.
-enableAWSServiceAccessResponse ::
+mkEnableAWSServiceAccessResponse ::
   EnableAWSServiceAccessResponse
-enableAWSServiceAccessResponse = EnableAWSServiceAccessResponse'
-
-instance NFData EnableAWSServiceAccessResponse
+mkEnableAWSServiceAccessResponse = EnableAWSServiceAccessResponse'

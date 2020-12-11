@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,139 @@
 --
 -- Removes one or more tags from a stream. In the request, specify only a tag key or keys; don't specify the value. If you specify a tag key that does not exist, it's ignored.
 --
---
 -- In the request, you must provide the @StreamName@ or @StreamARN@ .
 module Network.AWS.KinesisVideo.UntagStream
-  ( -- * Creating a Request
-    untagStream,
-    UntagStream,
+  ( -- * Creating a request
+    UntagStream (..),
+    mkUntagStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     usStreamARN,
     usStreamName,
     usTagKeyList,
 
-    -- * Destructuring the Response
-    untagStreamResponse,
-    UntagStreamResponse,
+    -- * Destructuring the response
+    UntagStreamResponse (..),
+    mkUntagStreamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ursResponseStatus,
   )
 where
 
 import Network.AWS.KinesisVideo.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'untagStream' smart constructor.
+-- | /See:/ 'mkUntagStream' smart constructor.
 data UntagStream = UntagStream'
-  { _usStreamARN :: !(Maybe Text),
-    _usStreamName :: !(Maybe Text),
-    _usTagKeyList :: !(List1 Text)
+  { streamARN :: Lude.Maybe Lude.Text,
+    streamName :: Lude.Maybe Lude.Text,
+    tagKeyList :: Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'usStreamARN' - The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
---
--- * 'usStreamName' - The name of the stream that you want to remove tags from.
---
--- * 'usTagKeyList' - A list of the keys of the tags that you want to remove.
-untagStream ::
-  -- | 'usTagKeyList'
-  NonEmpty Text ->
+-- * 'streamARN' - The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
+-- * 'streamName' - The name of the stream that you want to remove tags from.
+-- * 'tagKeyList' - A list of the keys of the tags that you want to remove.
+mkUntagStream ::
+  -- | 'tagKeyList'
+  Lude.NonEmpty Lude.Text ->
   UntagStream
-untagStream pTagKeyList_ =
+mkUntagStream pTagKeyList_ =
   UntagStream'
-    { _usStreamARN = Nothing,
-      _usStreamName = Nothing,
-      _usTagKeyList = _List1 # pTagKeyList_
+    { streamARN = Lude.Nothing,
+      streamName = Lude.Nothing,
+      tagKeyList = pTagKeyList_
     }
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
-usStreamARN :: Lens' UntagStream (Maybe Text)
-usStreamARN = lens _usStreamARN (\s a -> s {_usStreamARN = a})
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usStreamARN :: Lens.Lens' UntagStream (Lude.Maybe Lude.Text)
+usStreamARN = Lens.lens (streamARN :: UntagStream -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: UntagStream)
+{-# DEPRECATED usStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name of the stream that you want to remove tags from.
-usStreamName :: Lens' UntagStream (Maybe Text)
-usStreamName = lens _usStreamName (\s a -> s {_usStreamName = a})
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usStreamName :: Lens.Lens' UntagStream (Lude.Maybe Lude.Text)
+usStreamName = Lens.lens (streamName :: UntagStream -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: UntagStream)
+{-# DEPRECATED usStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | A list of the keys of the tags that you want to remove.
-usTagKeyList :: Lens' UntagStream (NonEmpty Text)
-usTagKeyList = lens _usTagKeyList (\s a -> s {_usTagKeyList = a}) . _List1
+--
+-- /Note:/ Consider using 'tagKeyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usTagKeyList :: Lens.Lens' UntagStream (Lude.NonEmpty Lude.Text)
+usTagKeyList = Lens.lens (tagKeyList :: UntagStream -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeyList = a} :: UntagStream)
+{-# DEPRECATED usTagKeyList "Use generic-lens or generic-optics with 'tagKeyList' instead." #-}
 
-instance AWSRequest UntagStream where
+instance Lude.AWSRequest UntagStream where
   type Rs UntagStream = UntagStreamResponse
-  request = postJSON kinesisVideo
+  request = Req.postJSON kinesisVideoService
   response =
-    receiveEmpty
-      (\s h x -> UntagStreamResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UntagStreamResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UntagStream
+instance Lude.ToHeaders UntagStream where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UntagStream
-
-instance ToHeaders UntagStream where
-  toHeaders = const mempty
-
-instance ToJSON UntagStream where
+instance Lude.ToJSON UntagStream where
   toJSON UntagStream' {..} =
-    object
-      ( catMaybes
-          [ ("StreamARN" .=) <$> _usStreamARN,
-            ("StreamName" .=) <$> _usStreamName,
-            Just ("TagKeyList" .= _usTagKeyList)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("StreamARN" Lude..=) Lude.<$> streamARN,
+            ("StreamName" Lude..=) Lude.<$> streamName,
+            Lude.Just ("TagKeyList" Lude..= tagKeyList)
           ]
       )
 
-instance ToPath UntagStream where
-  toPath = const "/untagStream"
+instance Lude.ToPath UntagStream where
+  toPath = Lude.const "/untagStream"
 
-instance ToQuery UntagStream where
-  toQuery = const mempty
+instance Lude.ToQuery UntagStream where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'untagStreamResponse' smart constructor.
+-- | /See:/ 'mkUntagStreamResponse' smart constructor.
 newtype UntagStreamResponse = UntagStreamResponse'
-  { _ursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagStreamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ursResponseStatus' - -- | The response status code.
-untagStreamResponse ::
-  -- | 'ursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUntagStreamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UntagStreamResponse
-untagStreamResponse pResponseStatus_ =
-  UntagStreamResponse' {_ursResponseStatus = pResponseStatus_}
+mkUntagStreamResponse pResponseStatus_ =
+  UntagStreamResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ursResponseStatus :: Lens' UntagStreamResponse Int
-ursResponseStatus = lens _ursResponseStatus (\s a -> s {_ursResponseStatus = a})
-
-instance NFData UntagStreamResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursResponseStatus :: Lens.Lens' UntagStreamResponse Lude.Int
+ursResponseStatus = Lens.lens (responseStatus :: UntagStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagStreamResponse)
+{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

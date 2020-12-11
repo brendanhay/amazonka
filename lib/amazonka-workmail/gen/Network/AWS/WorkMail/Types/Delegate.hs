@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkMail.Types.Delegate where
+module Network.AWS.WorkMail.Types.Delegate
+  ( Delegate (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDelegate,
+
+    -- * Lenses
+    dId,
+    dType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.WorkMail.Types.MemberType
 
 -- | The name of the attribute, which is one of the values defined in the UserAttribute enumeration.
 --
---
---
--- /See:/ 'delegate' smart constructor.
-data Delegate = Delegate' {_dId :: !Text, _dType :: !MemberType}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDelegate' smart constructor.
+data Delegate = Delegate' {id :: Lude.Text, type' :: MemberType}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Delegate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dId' - The identifier for the user or group associated as the resource's delegate.
---
--- * 'dType' - The type of the delegate: user or group.
-delegate ::
-  -- | 'dId'
-  Text ->
-  -- | 'dType'
+-- * 'id' - The identifier for the user or group associated as the resource's delegate.
+-- * 'type'' - The type of the delegate: user or group.
+mkDelegate ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'type''
   MemberType ->
   Delegate
-delegate pId_ pType_ = Delegate' {_dId = pId_, _dType = pType_}
+mkDelegate pId_ pType_ = Delegate' {id = pId_, type' = pType_}
 
 -- | The identifier for the user or group associated as the resource's delegate.
-dId :: Lens' Delegate Text
-dId = lens _dId (\s a -> s {_dId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dId :: Lens.Lens' Delegate Lude.Text
+dId = Lens.lens (id :: Delegate -> Lude.Text) (\s a -> s {id = a} :: Delegate)
+{-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of the delegate: user or group.
-dType :: Lens' Delegate MemberType
-dType = lens _dType (\s a -> s {_dType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dType :: Lens.Lens' Delegate MemberType
+dType = Lens.lens (type' :: Delegate -> MemberType) (\s a -> s {type' = a} :: Delegate)
+{-# DEPRECATED dType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON Delegate where
+instance Lude.FromJSON Delegate where
   parseJSON =
-    withObject
+    Lude.withObject
       "Delegate"
-      (\x -> Delegate' <$> (x .: "Id") <*> (x .: "Type"))
-
-instance Hashable Delegate
-
-instance NFData Delegate
+      ( \x ->
+          Delegate' Lude.<$> (x Lude..: "Id") Lude.<*> (x Lude..: "Type")
+      )

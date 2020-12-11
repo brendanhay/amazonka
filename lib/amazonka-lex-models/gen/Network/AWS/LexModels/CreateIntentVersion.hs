@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Creates a new version of an intent based on the @> LATEST@ version of the intent. If the @> LATEST@ version of this intent hasn't changed since you last updated it, Amazon Lex doesn't create a new version. It returns the last version you created.
 --
---
 -- When you create a version of an intent, Amazon Lex sets the version to 1. Subsequent versions increment by 1. For more information, see 'versioning-intro' .
---
 -- This operation requires permissions to perform the @lex:CreateIntentVersion@ action.
 module Network.AWS.LexModels.CreateIntentVersion
-  ( -- * Creating a Request
-    createIntentVersion,
-    CreateIntentVersion,
+  ( -- * Creating a request
+    CreateIntentVersion (..),
+    mkCreateIntentVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     civChecksum,
     civName,
 
-    -- * Destructuring the Response
-    createIntentVersionResponse,
-    CreateIntentVersionResponse,
+    -- * Destructuring the response
+    CreateIntentVersionResponse (..),
+    mkCreateIntentVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     civrsFulfillmentActivity,
     civrsSlots,
     civrsRejectionStatement,
@@ -59,270 +52,322 @@ module Network.AWS.LexModels.CreateIntentVersion
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createIntentVersion' smart constructor.
+-- | /See:/ 'mkCreateIntentVersion' smart constructor.
 data CreateIntentVersion = CreateIntentVersion'
-  { _civChecksum ::
-      !(Maybe Text),
-    _civName :: !Text
+  { checksum ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIntentVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'civChecksum' - Checksum of the @> LATEST@ version of the intent that should be used to create the new version. If you specify a checksum and the @> LATEST@ version of the intent has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
---
--- * 'civName' - The name of the intent that you want to create a new version of. The name is case sensitive.
-createIntentVersion ::
-  -- | 'civName'
-  Text ->
+-- * 'checksum' - Checksum of the @> LATEST@ version of the intent that should be used to create the new version. If you specify a checksum and the @> LATEST@ version of the intent has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
+-- * 'name' - The name of the intent that you want to create a new version of. The name is case sensitive.
+mkCreateIntentVersion ::
+  -- | 'name'
+  Lude.Text ->
   CreateIntentVersion
-createIntentVersion pName_ =
-  CreateIntentVersion' {_civChecksum = Nothing, _civName = pName_}
+mkCreateIntentVersion pName_ =
+  CreateIntentVersion' {checksum = Lude.Nothing, name = pName_}
 
 -- | Checksum of the @> LATEST@ version of the intent that should be used to create the new version. If you specify a checksum and the @> LATEST@ version of the intent has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
-civChecksum :: Lens' CreateIntentVersion (Maybe Text)
-civChecksum = lens _civChecksum (\s a -> s {_civChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civChecksum :: Lens.Lens' CreateIntentVersion (Lude.Maybe Lude.Text)
+civChecksum = Lens.lens (checksum :: CreateIntentVersion -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: CreateIntentVersion)
+{-# DEPRECATED civChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The name of the intent that you want to create a new version of. The name is case sensitive.
-civName :: Lens' CreateIntentVersion Text
-civName = lens _civName (\s a -> s {_civName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civName :: Lens.Lens' CreateIntentVersion Lude.Text
+civName = Lens.lens (name :: CreateIntentVersion -> Lude.Text) (\s a -> s {name = a} :: CreateIntentVersion)
+{-# DEPRECATED civName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateIntentVersion where
+instance Lude.AWSRequest CreateIntentVersion where
   type Rs CreateIntentVersion = CreateIntentVersionResponse
-  request = postJSON lexModels
+  request = Req.postJSON lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateIntentVersionResponse'
-            <$> (x .?> "fulfillmentActivity")
-            <*> (x .?> "slots" .!@ mempty)
-            <*> (x .?> "rejectionStatement")
-            <*> (x .?> "checksum")
-            <*> (x .?> "conclusionStatement")
-            <*> (x .?> "sampleUtterances" .!@ mempty)
-            <*> (x .?> "parentIntentSignature")
-            <*> (x .?> "createdDate")
-            <*> (x .?> "kendraConfiguration")
-            <*> (x .?> "name")
-            <*> (x .?> "version")
-            <*> (x .?> "inputContexts" .!@ mempty)
-            <*> (x .?> "followUpPrompt")
-            <*> (x .?> "lastUpdatedDate")
-            <*> (x .?> "outputContexts" .!@ mempty)
-            <*> (x .?> "confirmationPrompt")
-            <*> (x .?> "dialogCodeHook")
-            <*> (x .?> "description")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "fulfillmentActivity")
+            Lude.<*> (x Lude..?> "slots" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "rejectionStatement")
+            Lude.<*> (x Lude..?> "checksum")
+            Lude.<*> (x Lude..?> "conclusionStatement")
+            Lude.<*> (x Lude..?> "sampleUtterances" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "parentIntentSignature")
+            Lude.<*> (x Lude..?> "createdDate")
+            Lude.<*> (x Lude..?> "kendraConfiguration")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "version")
+            Lude.<*> (x Lude..?> "inputContexts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "followUpPrompt")
+            Lude.<*> (x Lude..?> "lastUpdatedDate")
+            Lude.<*> (x Lude..?> "outputContexts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "confirmationPrompt")
+            Lude.<*> (x Lude..?> "dialogCodeHook")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateIntentVersion
-
-instance NFData CreateIntentVersion
-
-instance ToHeaders CreateIntentVersion where
+instance Lude.ToHeaders CreateIntentVersion where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON CreateIntentVersion where
+instance Lude.ToJSON CreateIntentVersion where
   toJSON CreateIntentVersion' {..} =
-    object (catMaybes [("checksum" .=) <$> _civChecksum])
+    Lude.object
+      (Lude.catMaybes [("checksum" Lude..=) Lude.<$> checksum])
 
-instance ToPath CreateIntentVersion where
+instance Lude.ToPath CreateIntentVersion where
   toPath CreateIntentVersion' {..} =
-    mconcat ["/intents/", toBS _civName, "/versions"]
+    Lude.mconcat ["/intents/", Lude.toBS name, "/versions"]
 
-instance ToQuery CreateIntentVersion where
-  toQuery = const mempty
+instance Lude.ToQuery CreateIntentVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createIntentVersionResponse' smart constructor.
+-- | /See:/ 'mkCreateIntentVersionResponse' smart constructor.
 data CreateIntentVersionResponse = CreateIntentVersionResponse'
-  { _civrsFulfillmentActivity ::
-      !(Maybe FulfillmentActivity),
-    _civrsSlots :: !(Maybe [Slot]),
-    _civrsRejectionStatement ::
-      !(Maybe Statement),
-    _civrsChecksum :: !(Maybe Text),
-    _civrsConclusionStatement ::
-      !(Maybe Statement),
-    _civrsSampleUtterances ::
-      !(Maybe [Text]),
-    _civrsParentIntentSignature ::
-      !(Maybe Text),
-    _civrsCreatedDate :: !(Maybe POSIX),
-    _civrsKendraConfiguration ::
-      !(Maybe KendraConfiguration),
-    _civrsName :: !(Maybe Text),
-    _civrsVersion :: !(Maybe Text),
-    _civrsInputContexts ::
-      !(Maybe [InputContext]),
-    _civrsFollowUpPrompt ::
-      !(Maybe FollowUpPrompt),
-    _civrsLastUpdatedDate ::
-      !(Maybe POSIX),
-    _civrsOutputContexts ::
-      !(Maybe [OutputContext]),
-    _civrsConfirmationPrompt ::
-      !(Maybe Prompt),
-    _civrsDialogCodeHook ::
-      !(Maybe CodeHook),
-    _civrsDescription :: !(Maybe Text),
-    _civrsResponseStatus :: !Int
+  { fulfillmentActivity ::
+      Lude.Maybe FulfillmentActivity,
+    slots :: Lude.Maybe [Slot],
+    rejectionStatement ::
+      Lude.Maybe Statement,
+    checksum :: Lude.Maybe Lude.Text,
+    conclusionStatement ::
+      Lude.Maybe Statement,
+    sampleUtterances ::
+      Lude.Maybe [Lude.Text],
+    parentIntentSignature ::
+      Lude.Maybe Lude.Text,
+    createdDate ::
+      Lude.Maybe Lude.Timestamp,
+    kendraConfiguration ::
+      Lude.Maybe KendraConfiguration,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    inputContexts ::
+      Lude.Maybe [InputContext],
+    followUpPrompt ::
+      Lude.Maybe FollowUpPrompt,
+    lastUpdatedDate ::
+      Lude.Maybe Lude.Timestamp,
+    outputContexts ::
+      Lude.Maybe [OutputContext],
+    confirmationPrompt ::
+      Lude.Maybe Prompt,
+    dialogCodeHook ::
+      Lude.Maybe CodeHook,
+    description :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIntentVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'civrsFulfillmentActivity' - Describes how the intent is fulfilled.
---
--- * 'civrsSlots' - An array of slot types that defines the information required to fulfill the intent.
---
--- * 'civrsRejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
---
--- * 'civrsChecksum' - Checksum of the intent version created.
---
--- * 'civrsConclusionStatement' - After the Lambda function specified in the @fulfillmentActivity@ field fulfills the intent, Amazon Lex conveys this statement to the user.
---
--- * 'civrsSampleUtterances' - An array of sample utterances configured for the intent.
---
--- * 'civrsParentIntentSignature' - A unique identifier for a built-in intent.
---
--- * 'civrsCreatedDate' - The date that the intent was created.
---
--- * 'civrsKendraConfiguration' - Configuration information, if any, for connecting an Amazon Kendra index with the @AMAZON.KendraSearchIntent@ intent.
---
--- * 'civrsName' - The name of the intent.
---
--- * 'civrsVersion' - The version number assigned to the new version of the intent.
---
--- * 'civrsInputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
---
--- * 'civrsFollowUpPrompt' - If defined, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
---
--- * 'civrsLastUpdatedDate' - The date that the intent was updated.
---
--- * 'civrsOutputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
---
--- * 'civrsConfirmationPrompt' - If defined, the prompt that Amazon Lex uses to confirm the user's intent before fulfilling it.
---
--- * 'civrsDialogCodeHook' - If defined, Amazon Lex invokes this Lambda function for each user input.
---
--- * 'civrsDescription' - A description of the intent.
---
--- * 'civrsResponseStatus' - -- | The response status code.
-createIntentVersionResponse ::
-  -- | 'civrsResponseStatus'
-  Int ->
+-- * 'checksum' - Checksum of the intent version created.
+-- * 'conclusionStatement' - After the Lambda function specified in the @fulfillmentActivity@ field fulfills the intent, Amazon Lex conveys this statement to the user.
+-- * 'confirmationPrompt' - If defined, the prompt that Amazon Lex uses to confirm the user's intent before fulfilling it.
+-- * 'createdDate' - The date that the intent was created.
+-- * 'description' - A description of the intent.
+-- * 'dialogCodeHook' - If defined, Amazon Lex invokes this Lambda function for each user input.
+-- * 'followUpPrompt' - If defined, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
+-- * 'fulfillmentActivity' - Describes how the intent is fulfilled.
+-- * 'inputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
+-- * 'kendraConfiguration' - Configuration information, if any, for connecting an Amazon Kendra index with the @AMAZON.KendraSearchIntent@ intent.
+-- * 'lastUpdatedDate' - The date that the intent was updated.
+-- * 'name' - The name of the intent.
+-- * 'outputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
+-- * 'parentIntentSignature' - A unique identifier for a built-in intent.
+-- * 'rejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
+-- * 'responseStatus' - The response status code.
+-- * 'sampleUtterances' - An array of sample utterances configured for the intent.
+-- * 'slots' - An array of slot types that defines the information required to fulfill the intent.
+-- * 'version' - The version number assigned to the new version of the intent.
+mkCreateIntentVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateIntentVersionResponse
-createIntentVersionResponse pResponseStatus_ =
+mkCreateIntentVersionResponse pResponseStatus_ =
   CreateIntentVersionResponse'
-    { _civrsFulfillmentActivity = Nothing,
-      _civrsSlots = Nothing,
-      _civrsRejectionStatement = Nothing,
-      _civrsChecksum = Nothing,
-      _civrsConclusionStatement = Nothing,
-      _civrsSampleUtterances = Nothing,
-      _civrsParentIntentSignature = Nothing,
-      _civrsCreatedDate = Nothing,
-      _civrsKendraConfiguration = Nothing,
-      _civrsName = Nothing,
-      _civrsVersion = Nothing,
-      _civrsInputContexts = Nothing,
-      _civrsFollowUpPrompt = Nothing,
-      _civrsLastUpdatedDate = Nothing,
-      _civrsOutputContexts = Nothing,
-      _civrsConfirmationPrompt = Nothing,
-      _civrsDialogCodeHook = Nothing,
-      _civrsDescription = Nothing,
-      _civrsResponseStatus = pResponseStatus_
+    { fulfillmentActivity = Lude.Nothing,
+      slots = Lude.Nothing,
+      rejectionStatement = Lude.Nothing,
+      checksum = Lude.Nothing,
+      conclusionStatement = Lude.Nothing,
+      sampleUtterances = Lude.Nothing,
+      parentIntentSignature = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      kendraConfiguration = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      inputContexts = Lude.Nothing,
+      followUpPrompt = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      outputContexts = Lude.Nothing,
+      confirmationPrompt = Lude.Nothing,
+      dialogCodeHook = Lude.Nothing,
+      description = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Describes how the intent is fulfilled.
-civrsFulfillmentActivity :: Lens' CreateIntentVersionResponse (Maybe FulfillmentActivity)
-civrsFulfillmentActivity = lens _civrsFulfillmentActivity (\s a -> s {_civrsFulfillmentActivity = a})
+--
+-- /Note:/ Consider using 'fulfillmentActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsFulfillmentActivity :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe FulfillmentActivity)
+civrsFulfillmentActivity = Lens.lens (fulfillmentActivity :: CreateIntentVersionResponse -> Lude.Maybe FulfillmentActivity) (\s a -> s {fulfillmentActivity = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsFulfillmentActivity "Use generic-lens or generic-optics with 'fulfillmentActivity' instead." #-}
 
 -- | An array of slot types that defines the information required to fulfill the intent.
-civrsSlots :: Lens' CreateIntentVersionResponse [Slot]
-civrsSlots = lens _civrsSlots (\s a -> s {_civrsSlots = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsSlots :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe [Slot])
+civrsSlots = Lens.lens (slots :: CreateIntentVersionResponse -> Lude.Maybe [Slot]) (\s a -> s {slots = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
 -- | If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
-civrsRejectionStatement :: Lens' CreateIntentVersionResponse (Maybe Statement)
-civrsRejectionStatement = lens _civrsRejectionStatement (\s a -> s {_civrsRejectionStatement = a})
+--
+-- /Note:/ Consider using 'rejectionStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsRejectionStatement :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Statement)
+civrsRejectionStatement = Lens.lens (rejectionStatement :: CreateIntentVersionResponse -> Lude.Maybe Statement) (\s a -> s {rejectionStatement = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsRejectionStatement "Use generic-lens or generic-optics with 'rejectionStatement' instead." #-}
 
 -- | Checksum of the intent version created.
-civrsChecksum :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsChecksum = lens _civrsChecksum (\s a -> s {_civrsChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsChecksum :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Lude.Text)
+civrsChecksum = Lens.lens (checksum :: CreateIntentVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | After the Lambda function specified in the @fulfillmentActivity@ field fulfills the intent, Amazon Lex conveys this statement to the user.
-civrsConclusionStatement :: Lens' CreateIntentVersionResponse (Maybe Statement)
-civrsConclusionStatement = lens _civrsConclusionStatement (\s a -> s {_civrsConclusionStatement = a})
+--
+-- /Note:/ Consider using 'conclusionStatement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsConclusionStatement :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Statement)
+civrsConclusionStatement = Lens.lens (conclusionStatement :: CreateIntentVersionResponse -> Lude.Maybe Statement) (\s a -> s {conclusionStatement = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsConclusionStatement "Use generic-lens or generic-optics with 'conclusionStatement' instead." #-}
 
 -- | An array of sample utterances configured for the intent.
-civrsSampleUtterances :: Lens' CreateIntentVersionResponse [Text]
-civrsSampleUtterances = lens _civrsSampleUtterances (\s a -> s {_civrsSampleUtterances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sampleUtterances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsSampleUtterances :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe [Lude.Text])
+civrsSampleUtterances = Lens.lens (sampleUtterances :: CreateIntentVersionResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {sampleUtterances = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsSampleUtterances "Use generic-lens or generic-optics with 'sampleUtterances' instead." #-}
 
 -- | A unique identifier for a built-in intent.
-civrsParentIntentSignature :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsParentIntentSignature = lens _civrsParentIntentSignature (\s a -> s {_civrsParentIntentSignature = a})
+--
+-- /Note:/ Consider using 'parentIntentSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsParentIntentSignature :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Lude.Text)
+civrsParentIntentSignature = Lens.lens (parentIntentSignature :: CreateIntentVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {parentIntentSignature = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsParentIntentSignature "Use generic-lens or generic-optics with 'parentIntentSignature' instead." #-}
 
 -- | The date that the intent was created.
-civrsCreatedDate :: Lens' CreateIntentVersionResponse (Maybe UTCTime)
-civrsCreatedDate = lens _civrsCreatedDate (\s a -> s {_civrsCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsCreatedDate :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Lude.Timestamp)
+civrsCreatedDate = Lens.lens (createdDate :: CreateIntentVersionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | Configuration information, if any, for connecting an Amazon Kendra index with the @AMAZON.KendraSearchIntent@ intent.
-civrsKendraConfiguration :: Lens' CreateIntentVersionResponse (Maybe KendraConfiguration)
-civrsKendraConfiguration = lens _civrsKendraConfiguration (\s a -> s {_civrsKendraConfiguration = a})
+--
+-- /Note:/ Consider using 'kendraConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsKendraConfiguration :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe KendraConfiguration)
+civrsKendraConfiguration = Lens.lens (kendraConfiguration :: CreateIntentVersionResponse -> Lude.Maybe KendraConfiguration) (\s a -> s {kendraConfiguration = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsKendraConfiguration "Use generic-lens or generic-optics with 'kendraConfiguration' instead." #-}
 
 -- | The name of the intent.
-civrsName :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsName = lens _civrsName (\s a -> s {_civrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsName :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Lude.Text)
+civrsName = Lens.lens (name :: CreateIntentVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version number assigned to the new version of the intent.
-civrsVersion :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsVersion = lens _civrsVersion (\s a -> s {_civrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsVersion :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Lude.Text)
+civrsVersion = Lens.lens (version :: CreateIntentVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
-civrsInputContexts :: Lens' CreateIntentVersionResponse [InputContext]
-civrsInputContexts = lens _civrsInputContexts (\s a -> s {_civrsInputContexts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsInputContexts :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe [InputContext])
+civrsInputContexts = Lens.lens (inputContexts :: CreateIntentVersionResponse -> Lude.Maybe [InputContext]) (\s a -> s {inputContexts = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsInputContexts "Use generic-lens or generic-optics with 'inputContexts' instead." #-}
 
 -- | If defined, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
-civrsFollowUpPrompt :: Lens' CreateIntentVersionResponse (Maybe FollowUpPrompt)
-civrsFollowUpPrompt = lens _civrsFollowUpPrompt (\s a -> s {_civrsFollowUpPrompt = a})
+--
+-- /Note:/ Consider using 'followUpPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsFollowUpPrompt :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe FollowUpPrompt)
+civrsFollowUpPrompt = Lens.lens (followUpPrompt :: CreateIntentVersionResponse -> Lude.Maybe FollowUpPrompt) (\s a -> s {followUpPrompt = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsFollowUpPrompt "Use generic-lens or generic-optics with 'followUpPrompt' instead." #-}
 
 -- | The date that the intent was updated.
-civrsLastUpdatedDate :: Lens' CreateIntentVersionResponse (Maybe UTCTime)
-civrsLastUpdatedDate = lens _civrsLastUpdatedDate (\s a -> s {_civrsLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsLastUpdatedDate :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Lude.Timestamp)
+civrsLastUpdatedDate = Lens.lens (lastUpdatedDate :: CreateIntentVersionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
-civrsOutputContexts :: Lens' CreateIntentVersionResponse [OutputContext]
-civrsOutputContexts = lens _civrsOutputContexts (\s a -> s {_civrsOutputContexts = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'outputContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsOutputContexts :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe [OutputContext])
+civrsOutputContexts = Lens.lens (outputContexts :: CreateIntentVersionResponse -> Lude.Maybe [OutputContext]) (\s a -> s {outputContexts = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsOutputContexts "Use generic-lens or generic-optics with 'outputContexts' instead." #-}
 
 -- | If defined, the prompt that Amazon Lex uses to confirm the user's intent before fulfilling it.
-civrsConfirmationPrompt :: Lens' CreateIntentVersionResponse (Maybe Prompt)
-civrsConfirmationPrompt = lens _civrsConfirmationPrompt (\s a -> s {_civrsConfirmationPrompt = a})
+--
+-- /Note:/ Consider using 'confirmationPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsConfirmationPrompt :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Prompt)
+civrsConfirmationPrompt = Lens.lens (confirmationPrompt :: CreateIntentVersionResponse -> Lude.Maybe Prompt) (\s a -> s {confirmationPrompt = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsConfirmationPrompt "Use generic-lens or generic-optics with 'confirmationPrompt' instead." #-}
 
 -- | If defined, Amazon Lex invokes this Lambda function for each user input.
-civrsDialogCodeHook :: Lens' CreateIntentVersionResponse (Maybe CodeHook)
-civrsDialogCodeHook = lens _civrsDialogCodeHook (\s a -> s {_civrsDialogCodeHook = a})
+--
+-- /Note:/ Consider using 'dialogCodeHook' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsDialogCodeHook :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe CodeHook)
+civrsDialogCodeHook = Lens.lens (dialogCodeHook :: CreateIntentVersionResponse -> Lude.Maybe CodeHook) (\s a -> s {dialogCodeHook = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsDialogCodeHook "Use generic-lens or generic-optics with 'dialogCodeHook' instead." #-}
 
 -- | A description of the intent.
-civrsDescription :: Lens' CreateIntentVersionResponse (Maybe Text)
-civrsDescription = lens _civrsDescription (\s a -> s {_civrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsDescription :: Lens.Lens' CreateIntentVersionResponse (Lude.Maybe Lude.Text)
+civrsDescription = Lens.lens (description :: CreateIntentVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | -- | The response status code.
-civrsResponseStatus :: Lens' CreateIntentVersionResponse Int
-civrsResponseStatus = lens _civrsResponseStatus (\s a -> s {_civrsResponseStatus = a})
-
-instance NFData CreateIntentVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrsResponseStatus :: Lens.Lens' CreateIntentVersionResponse Lude.Int
+civrsResponseStatus = Lens.lens (responseStatus :: CreateIntentVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateIntentVersionResponse)
+{-# DEPRECATED civrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

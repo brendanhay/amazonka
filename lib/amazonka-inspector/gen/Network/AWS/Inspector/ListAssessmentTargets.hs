@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists the ARNs of the assessment targets within this AWS account. For more information about assessment targets, see <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html Amazon Inspector Assessment Targets> .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Inspector.ListAssessmentTargets
-  ( -- * Creating a Request
-    listAssessmentTargets,
-    ListAssessmentTargets,
+  ( -- * Creating a request
+    ListAssessmentTargets (..),
+    mkListAssessmentTargets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lNextToken,
     lFilter,
     lMaxResults,
 
-    -- * Destructuring the Response
-    listAssessmentTargetsResponse,
-    ListAssessmentTargetsResponse,
+    -- * Destructuring the response
+    ListAssessmentTargetsResponse (..),
+    mkListAssessmentTargetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lrsNextToken,
     lrsResponseStatus,
     lrsAssessmentTargetARNs,
@@ -44,139 +37,165 @@ module Network.AWS.Inspector.ListAssessmentTargets
 where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listAssessmentTargets' smart constructor.
+-- | /See:/ 'mkListAssessmentTargets' smart constructor.
 data ListAssessmentTargets = ListAssessmentTargets'
-  { _lNextToken ::
-      !(Maybe Text),
-    _lFilter :: !(Maybe AssessmentTargetFilter),
-    _lMaxResults :: !(Maybe Int)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe AssessmentTargetFilter,
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssessmentTargets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filter' - You can use this parameter to specify a subset of data to be included in the action's response.
 --
--- * 'lNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTargets__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
---
--- * 'lFilter' - You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
---
--- * 'lMaxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
-listAssessmentTargets ::
+-- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
+-- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
+-- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTargets__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+mkListAssessmentTargets ::
   ListAssessmentTargets
-listAssessmentTargets =
+mkListAssessmentTargets =
   ListAssessmentTargets'
-    { _lNextToken = Nothing,
-      _lFilter = Nothing,
-      _lMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListAssessmentTargets__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
-lNextToken :: Lens' ListAssessmentTargets (Maybe Text)
-lNextToken = lens _lNextToken (\s a -> s {_lNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListAssessmentTargets (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListAssessmentTargets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssessmentTargets)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | You can use this parameter to specify a subset of data to be included in the action's response. For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
-lFilter :: Lens' ListAssessmentTargets (Maybe AssessmentTargetFilter)
-lFilter = lens _lFilter (\s a -> s {_lFilter = a})
+-- | You can use this parameter to specify a subset of data to be included in the action's response.
+--
+-- For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lFilter :: Lens.Lens' ListAssessmentTargets (Lude.Maybe AssessmentTargetFilter)
+lFilter = Lens.lens (filter :: ListAssessmentTargets -> Lude.Maybe AssessmentTargetFilter) (\s a -> s {filter = a} :: ListAssessmentTargets)
+{-# DEPRECATED lFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
-lMaxResults :: Lens' ListAssessmentTargets (Maybe Int)
-lMaxResults = lens _lMaxResults (\s a -> s {_lMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMaxResults :: Lens.Lens' ListAssessmentTargets (Lude.Maybe Lude.Int)
+lMaxResults = Lens.lens (maxResults :: ListAssessmentTargets -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListAssessmentTargets)
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListAssessmentTargets where
+instance Page.AWSPager ListAssessmentTargets where
   page rq rs
-    | stop (rs ^. lrsNextToken) = Nothing
-    | stop (rs ^. lrsAssessmentTargetARNs) = Nothing
-    | otherwise = Just $ rq & lNextToken .~ rs ^. lrsNextToken
+    | Page.stop (rs Lens.^. lrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrsAssessmentTargetARNs) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lNextToken Lens..~ rs Lens.^. lrsNextToken
 
-instance AWSRequest ListAssessmentTargets where
+instance Lude.AWSRequest ListAssessmentTargets where
   type Rs ListAssessmentTargets = ListAssessmentTargetsResponse
-  request = postJSON inspector
+  request = Req.postJSON inspectorService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListAssessmentTargetsResponse'
-            <$> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "assessmentTargetArns" .!@ mempty)
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "assessmentTargetArns" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListAssessmentTargets
-
-instance NFData ListAssessmentTargets
-
-instance ToHeaders ListAssessmentTargets where
+instance Lude.ToHeaders ListAssessmentTargets where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("InspectorService.ListAssessmentTargets" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("InspectorService.ListAssessmentTargets" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListAssessmentTargets where
+instance Lude.ToJSON ListAssessmentTargets where
   toJSON ListAssessmentTargets' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _lNextToken,
-            ("filter" .=) <$> _lFilter,
-            ("maxResults" .=) <$> _lMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("filter" Lude..=) Lude.<$> filter,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListAssessmentTargets where
-  toPath = const "/"
+instance Lude.ToPath ListAssessmentTargets where
+  toPath = Lude.const "/"
 
-instance ToQuery ListAssessmentTargets where
-  toQuery = const mempty
+instance Lude.ToQuery ListAssessmentTargets where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listAssessmentTargetsResponse' smart constructor.
+-- | /See:/ 'mkListAssessmentTargetsResponse' smart constructor.
 data ListAssessmentTargetsResponse = ListAssessmentTargetsResponse'
-  { _lrsNextToken ::
-      !(Maybe Text),
-    _lrsResponseStatus :: !Int,
-    _lrsAssessmentTargetARNs ::
-      ![Text]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    assessmentTargetARNs ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssessmentTargetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrsNextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
---
--- * 'lrsResponseStatus' - -- | The response status code.
---
--- * 'lrsAssessmentTargetARNs' - A list of ARNs that specifies the assessment targets that are returned by the action.
-listAssessmentTargetsResponse ::
-  -- | 'lrsResponseStatus'
-  Int ->
+-- * 'assessmentTargetARNs' - A list of ARNs that specifies the assessment targets that are returned by the action.
+-- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+-- * 'responseStatus' - The response status code.
+mkListAssessmentTargetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListAssessmentTargetsResponse
-listAssessmentTargetsResponse pResponseStatus_ =
+mkListAssessmentTargetsResponse pResponseStatus_ =
   ListAssessmentTargetsResponse'
-    { _lrsNextToken = Nothing,
-      _lrsResponseStatus = pResponseStatus_,
-      _lrsAssessmentTargetARNs = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      assessmentTargetARNs = Lude.mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
-lrsNextToken :: Lens' ListAssessmentTargetsResponse (Maybe Text)
-lrsNextToken = lens _lrsNextToken (\s a -> s {_lrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsNextToken :: Lens.Lens' ListAssessmentTargetsResponse (Lude.Maybe Lude.Text)
+lrsNextToken = Lens.lens (nextToken :: ListAssessmentTargetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssessmentTargetsResponse)
+{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lrsResponseStatus :: Lens' ListAssessmentTargetsResponse Int
-lrsResponseStatus = lens _lrsResponseStatus (\s a -> s {_lrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsResponseStatus :: Lens.Lens' ListAssessmentTargetsResponse Lude.Int
+lrsResponseStatus = Lens.lens (responseStatus :: ListAssessmentTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssessmentTargetsResponse)
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of ARNs that specifies the assessment targets that are returned by the action.
-lrsAssessmentTargetARNs :: Lens' ListAssessmentTargetsResponse [Text]
-lrsAssessmentTargetARNs = lens _lrsAssessmentTargetARNs (\s a -> s {_lrsAssessmentTargetARNs = a}) . _Coerce
-
-instance NFData ListAssessmentTargetsResponse
+--
+-- /Note:/ Consider using 'assessmentTargetARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsAssessmentTargetARNs :: Lens.Lens' ListAssessmentTargetsResponse [Lude.Text]
+lrsAssessmentTargetARNs = Lens.lens (assessmentTargetARNs :: ListAssessmentTargetsResponse -> [Lude.Text]) (\s a -> s {assessmentTargetARNs = a} :: ListAssessmentTargetsResponse)
+{-# DEPRECATED lrsAssessmentTargetARNs "Use generic-lens or generic-optics with 'assessmentTargetARNs' instead." #-}

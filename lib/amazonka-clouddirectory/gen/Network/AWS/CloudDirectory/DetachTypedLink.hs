@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,105 @@
 --
 -- Detaches a typed link from a specified source and target object. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
 module Network.AWS.CloudDirectory.DetachTypedLink
-  ( -- * Creating a Request
-    detachTypedLink,
-    DetachTypedLink,
+  ( -- * Creating a request
+    DetachTypedLink (..),
+    mkDetachTypedLink,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtlDirectoryARN,
     dtlTypedLinkSpecifier,
 
-    -- * Destructuring the Response
-    detachTypedLinkResponse,
-    DetachTypedLinkResponse,
+    -- * Destructuring the response
+    DetachTypedLinkResponse (..),
+    mkDetachTypedLinkResponse,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detachTypedLink' smart constructor.
+-- | /See:/ 'mkDetachTypedLink' smart constructor.
 data DetachTypedLink = DetachTypedLink'
-  { _dtlDirectoryARN :: !Text,
-    _dtlTypedLinkSpecifier :: !TypedLinkSpecifier
+  { directoryARN :: Lude.Text,
+    typedLinkSpecifier :: TypedLinkSpecifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachTypedLink' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtlDirectoryARN' - The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.
---
--- * 'dtlTypedLinkSpecifier' - Used to accept a typed link specifier as input.
-detachTypedLink ::
-  -- | 'dtlDirectoryARN'
-  Text ->
-  -- | 'dtlTypedLinkSpecifier'
+-- * 'directoryARN' - The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.
+-- * 'typedLinkSpecifier' - Used to accept a typed link specifier as input.
+mkDetachTypedLink ::
+  -- | 'directoryARN'
+  Lude.Text ->
+  -- | 'typedLinkSpecifier'
   TypedLinkSpecifier ->
   DetachTypedLink
-detachTypedLink pDirectoryARN_ pTypedLinkSpecifier_ =
+mkDetachTypedLink pDirectoryARN_ pTypedLinkSpecifier_ =
   DetachTypedLink'
-    { _dtlDirectoryARN = pDirectoryARN_,
-      _dtlTypedLinkSpecifier = pTypedLinkSpecifier_
+    { directoryARN = pDirectoryARN_,
+      typedLinkSpecifier = pTypedLinkSpecifier_
     }
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.
-dtlDirectoryARN :: Lens' DetachTypedLink Text
-dtlDirectoryARN = lens _dtlDirectoryARN (\s a -> s {_dtlDirectoryARN = a})
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtlDirectoryARN :: Lens.Lens' DetachTypedLink Lude.Text
+dtlDirectoryARN = Lens.lens (directoryARN :: DetachTypedLink -> Lude.Text) (\s a -> s {directoryARN = a} :: DetachTypedLink)
+{-# DEPRECATED dtlDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | Used to accept a typed link specifier as input.
-dtlTypedLinkSpecifier :: Lens' DetachTypedLink TypedLinkSpecifier
-dtlTypedLinkSpecifier = lens _dtlTypedLinkSpecifier (\s a -> s {_dtlTypedLinkSpecifier = a})
+--
+-- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtlTypedLinkSpecifier :: Lens.Lens' DetachTypedLink TypedLinkSpecifier
+dtlTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: DetachTypedLink -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: DetachTypedLink)
+{-# DEPRECATED dtlTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
-instance AWSRequest DetachTypedLink where
+instance Lude.AWSRequest DetachTypedLink where
   type Rs DetachTypedLink = DetachTypedLinkResponse
-  request = putJSON cloudDirectory
-  response = receiveNull DetachTypedLinkResponse'
+  request = Req.putJSON cloudDirectoryService
+  response = Res.receiveNull DetachTypedLinkResponse'
 
-instance Hashable DetachTypedLink
-
-instance NFData DetachTypedLink
-
-instance ToHeaders DetachTypedLink where
+instance Lude.ToHeaders DetachTypedLink where
   toHeaders DetachTypedLink' {..} =
-    mconcat ["x-amz-data-partition" =# _dtlDirectoryARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
 
-instance ToJSON DetachTypedLink where
+instance Lude.ToJSON DetachTypedLink where
   toJSON DetachTypedLink' {..} =
-    object
-      (catMaybes [Just ("TypedLinkSpecifier" .= _dtlTypedLinkSpecifier)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier)]
+      )
 
-instance ToPath DetachTypedLink where
-  toPath = const "/amazonclouddirectory/2017-01-11/typedlink/detach"
+instance Lude.ToPath DetachTypedLink where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/typedlink/detach"
 
-instance ToQuery DetachTypedLink where
-  toQuery = const mempty
+instance Lude.ToQuery DetachTypedLink where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'detachTypedLinkResponse' smart constructor.
+-- | /See:/ 'mkDetachTypedLinkResponse' smart constructor.
 data DetachTypedLinkResponse = DetachTypedLinkResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachTypedLinkResponse' with the minimum fields required to make a request.
-detachTypedLinkResponse ::
+mkDetachTypedLinkResponse ::
   DetachTypedLinkResponse
-detachTypedLinkResponse = DetachTypedLinkResponse'
-
-instance NFData DetachTypedLinkResponse
+mkDetachTypedLinkResponse = DetachTypedLinkResponse'

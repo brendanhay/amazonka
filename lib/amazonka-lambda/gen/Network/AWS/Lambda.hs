@@ -14,11 +14,10 @@
 -- __AWS Lambda__
 --
 -- __Overview__
---
 -- This is the /AWS Lambda API Reference/ . The AWS Lambda Developer Guide provides additional information. For the service overview, see <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda> , and for information about how the service works, see <https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the __AWS Lambda Developer Guide__ .
 module Network.AWS.Lambda
-  ( -- * Service Configuration
-    lambda,
+  ( -- * Service configuration
+    lambdaService,
 
     -- * Errors
     -- $errors
@@ -27,13 +26,13 @@ module Network.AWS.Lambda
     -- $waiters
 
     -- ** FunctionExists
-    functionExists,
+    mkFunctionExists,
 
     -- ** FunctionActive
-    functionActive,
+    mkFunctionActive,
 
     -- ** FunctionUpdated
-    functionUpdated,
+    mkFunctionUpdated,
 
     -- * Operations
     -- $operations
@@ -251,8 +250,8 @@ module Network.AWS.Lambda
     TracingMode (..),
 
     -- ** AccountLimit
-    AccountLimit,
-    accountLimit,
+    AccountLimit (..),
+    mkAccountLimit,
     alConcurrentExecutions,
     alTotalCodeSize,
     alUnreservedConcurrentExecutions,
@@ -260,14 +259,14 @@ module Network.AWS.Lambda
     alCodeSizeZipped,
 
     -- ** AccountUsage
-    AccountUsage,
-    accountUsage,
+    AccountUsage (..),
+    mkAccountUsage,
     auTotalCodeSize,
     auFunctionCount,
 
     -- ** AliasConfiguration
-    AliasConfiguration,
-    aliasConfiguration,
+    AliasConfiguration (..),
+    mkAliasConfiguration,
     acRoutingConfig,
     acName,
     acFunctionVersion,
@@ -276,18 +275,18 @@ module Network.AWS.Lambda
     acRevisionId,
 
     -- ** AliasRoutingConfiguration
-    AliasRoutingConfiguration,
-    aliasRoutingConfiguration,
+    AliasRoutingConfiguration (..),
+    mkAliasRoutingConfiguration,
     arcAdditionalVersionWeights,
 
     -- ** AllowedPublishers
-    AllowedPublishers,
-    allowedPublishers,
+    AllowedPublishers (..),
+    mkAllowedPublishers,
     apSigningProfileVersionARNs,
 
     -- ** CodeSigningConfig
-    CodeSigningConfig,
-    codeSigningConfig,
+    CodeSigningConfig (..),
+    mkCodeSigningConfig,
     cscDescription,
     cscCodeSigningConfigId,
     cscCodeSigningConfigARN,
@@ -296,46 +295,46 @@ module Network.AWS.Lambda
     cscLastModified,
 
     -- ** CodeSigningPolicies
-    CodeSigningPolicies,
-    codeSigningPolicies,
+    CodeSigningPolicies (..),
+    mkCodeSigningPolicies,
     cspUntrustedArtifactOnDeployment,
 
     -- ** Concurrency
-    Concurrency,
-    concurrency,
+    Concurrency (..),
+    mkConcurrency,
     cReservedConcurrentExecutions,
 
     -- ** DeadLetterConfig
-    DeadLetterConfig,
-    deadLetterConfig,
+    DeadLetterConfig (..),
+    mkDeadLetterConfig,
     dlcTargetARN,
 
     -- ** DestinationConfig
-    DestinationConfig,
-    destinationConfig,
+    DestinationConfig (..),
+    mkDestinationConfig,
     dcOnSuccess,
     dcOnFailure,
 
     -- ** Environment
-    Environment,
-    environment,
+    Environment (..),
+    mkEnvironment,
     eVariables,
 
     -- ** EnvironmentError
-    EnvironmentError,
-    environmentError,
+    EnvironmentError (..),
+    mkEnvironmentError,
     eeErrorCode,
     eeMessage,
 
     -- ** EnvironmentResponse
-    EnvironmentResponse,
-    environmentResponse,
+    EnvironmentResponse (..),
+    mkEnvironmentResponse,
     envVariables,
     envError,
 
     -- ** EventSourceMappingConfiguration
-    EventSourceMappingConfiguration,
-    eventSourceMappingConfiguration,
+    EventSourceMappingConfiguration (..),
+    mkEventSourceMappingConfiguration,
     esmcEventSourceARN,
     esmcState,
     esmcStartingPositionTimestamp,
@@ -357,28 +356,28 @@ module Network.AWS.Lambda
     esmcStartingPosition,
 
     -- ** FileSystemConfig
-    FileSystemConfig,
-    fileSystemConfig,
+    FileSystemConfig (..),
+    mkFileSystemConfig,
     fscARN,
     fscLocalMountPath,
 
     -- ** FunctionCode
-    FunctionCode,
-    functionCode,
+    FunctionCode (..),
+    mkFunctionCode,
     fcS3ObjectVersion,
     fcS3Key,
     fcZipFile,
     fcS3Bucket,
 
     -- ** FunctionCodeLocation
-    FunctionCodeLocation,
-    functionCodeLocation,
+    FunctionCodeLocation (..),
+    mkFunctionCodeLocation,
     fclLocation,
     fclRepositoryType,
 
     -- ** FunctionConfiguration
-    FunctionConfiguration,
-    functionConfiguration,
+    FunctionConfiguration (..),
+    mkFunctionConfiguration,
     fcMemorySize,
     fcRuntime,
     fcState,
@@ -410,8 +409,8 @@ module Network.AWS.Lambda
     fcMasterARN,
 
     -- ** FunctionEventInvokeConfig
-    FunctionEventInvokeConfig,
-    functionEventInvokeConfig,
+    FunctionEventInvokeConfig (..),
+    mkFunctionEventInvokeConfig,
     feicFunctionARN,
     feicMaximumEventAgeInSeconds,
     feicMaximumRetryAttempts,
@@ -419,8 +418,8 @@ module Network.AWS.Lambda
     feicDestinationConfig,
 
     -- ** GetLayerVersionResponse
-    GetLayerVersionResponse,
-    getLayerVersionResponse,
+    GetLayerVersionResponse (..),
+    mkGetLayerVersionResponse,
     glvLayerVersionARN,
     glvContent,
     glvCreatedDate,
@@ -431,24 +430,24 @@ module Network.AWS.Lambda
     glvCompatibleRuntimes,
 
     -- ** Layer
-    Layer,
-    layer,
+    Layer (..),
+    mkLayer,
     lSigningProfileVersionARN,
     lARN,
     lSigningJobARN,
     lCodeSize,
 
     -- ** LayerVersionContentInput
-    LayerVersionContentInput,
-    layerVersionContentInput,
+    LayerVersionContentInput (..),
+    mkLayerVersionContentInput,
     lvciS3ObjectVersion,
     lvciS3Key,
     lvciZipFile,
     lvciS3Bucket,
 
     -- ** LayerVersionContentOutput
-    LayerVersionContentOutput,
-    layerVersionContentOutput,
+    LayerVersionContentOutput (..),
+    mkLayerVersionContentOutput,
     lvcoSigningProfileVersionARN,
     lvcoLocation,
     lvcoSigningJobARN,
@@ -456,8 +455,8 @@ module Network.AWS.Lambda
     lvcoCodeSha256,
 
     -- ** LayerVersionsListItem
-    LayerVersionsListItem,
-    layerVersionsListItem,
+    LayerVersionsListItem (..),
+    mkLayerVersionsListItem,
     lvliLayerVersionARN,
     lvliCreatedDate,
     lvliVersion,
@@ -466,25 +465,25 @@ module Network.AWS.Lambda
     lvliCompatibleRuntimes,
 
     -- ** LayersListItem
-    LayersListItem,
-    layersListItem,
+    LayersListItem (..),
+    mkLayersListItem,
     lliLayerName,
     lliLatestMatchingVersion,
     lliLayerARN,
 
     -- ** OnFailure
-    OnFailure,
-    onFailure,
+    OnFailure (..),
+    mkOnFailure,
     ofDestination,
 
     -- ** OnSuccess
-    OnSuccess,
-    onSuccess,
+    OnSuccess (..),
+    mkOnSuccess,
     osDestination,
 
     -- ** ProvisionedConcurrencyConfigListItem
-    ProvisionedConcurrencyConfigListItem,
-    provisionedConcurrencyConfigListItem,
+    ProvisionedConcurrencyConfigListItem (..),
+    mkProvisionedConcurrencyConfigListItem,
     pccliStatus,
     pccliFunctionARN,
     pccliRequestedProvisionedConcurrentExecutions,
@@ -494,33 +493,44 @@ module Network.AWS.Lambda
     pccliLastModified,
 
     -- ** SourceAccessConfiguration
-    SourceAccessConfiguration,
-    sourceAccessConfiguration,
+    SourceAccessConfiguration (..),
+    mkSourceAccessConfiguration,
     sacURI,
     sacType,
 
     -- ** TracingConfig
-    TracingConfig,
-    tracingConfig,
+    TracingConfig (..),
+    mkTracingConfig,
     tMode,
 
     -- ** TracingConfigResponse
-    TracingConfigResponse,
-    tracingConfigResponse,
+    TracingConfigResponse (..),
+    mkTracingConfigResponse,
     tcMode,
 
     -- ** VPCConfig
-    VPCConfig,
-    vpcConfig,
+    VPCConfig (..),
+    mkVPCConfig,
     vpccSecurityGroupIds,
     vpccSubnetIds,
 
     -- ** VPCConfigResponse
-    VPCConfigResponse,
-    vpcConfigResponse,
+    VPCConfigResponse (..),
+    mkVPCConfigResponse,
     vcSecurityGroupIds,
     vcSubnetIds,
     vcVPCId,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -583,6 +593,7 @@ import Network.AWS.Lambda.UpdateFunctionCode
 import Network.AWS.Lambda.UpdateFunctionConfiguration
 import Network.AWS.Lambda.UpdateFunctionEventInvokeConfig
 import Network.AWS.Lambda.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

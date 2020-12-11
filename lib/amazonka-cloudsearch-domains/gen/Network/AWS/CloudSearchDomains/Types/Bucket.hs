@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudSearchDomains.Types.Bucket where
+module Network.AWS.CloudSearchDomains.Types.Bucket
+  ( Bucket (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkBucket,
+
+    -- * Lenses
+    bValue,
+    bCount,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A container for facet information.
 --
---
---
--- /See:/ 'bucket' smart constructor.
+-- /See:/ 'mkBucket' smart constructor.
 data Bucket = Bucket'
-  { _bValue :: !(Maybe Text),
-    _bCount :: !(Maybe Integer)
+  { value :: Lude.Maybe Lude.Text,
+    count :: Lude.Maybe Lude.Integer
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Bucket' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bValue' - The facet value being counted.
---
--- * 'bCount' - The number of hits that contain the facet value in the specified facet field.
-bucket ::
+-- * 'count' - The number of hits that contain the facet value in the specified facet field.
+-- * 'value' - The facet value being counted.
+mkBucket ::
   Bucket
-bucket = Bucket' {_bValue = Nothing, _bCount = Nothing}
+mkBucket = Bucket' {value = Lude.Nothing, count = Lude.Nothing}
 
 -- | The facet value being counted.
-bValue :: Lens' Bucket (Maybe Text)
-bValue = lens _bValue (\s a -> s {_bValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bValue :: Lens.Lens' Bucket (Lude.Maybe Lude.Text)
+bValue = Lens.lens (value :: Bucket -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Bucket)
+{-# DEPRECATED bValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The number of hits that contain the facet value in the specified facet field.
-bCount :: Lens' Bucket (Maybe Integer)
-bCount = lens _bCount (\s a -> s {_bCount = a})
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bCount :: Lens.Lens' Bucket (Lude.Maybe Lude.Integer)
+bCount = Lens.lens (count :: Bucket -> Lude.Maybe Lude.Integer) (\s a -> s {count = a} :: Bucket)
+{-# DEPRECATED bCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
-instance FromJSON Bucket where
+instance Lude.FromJSON Bucket where
   parseJSON =
-    withObject
+    Lude.withObject
       "Bucket"
-      (\x -> Bucket' <$> (x .:? "value") <*> (x .:? "count"))
-
-instance Hashable Bucket
-
-instance NFData Bucket
+      ( \x ->
+          Bucket'
+            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "count")
+      )

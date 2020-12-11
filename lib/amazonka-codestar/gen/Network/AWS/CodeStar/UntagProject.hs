@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,106 +14,127 @@
 --
 -- Removes tags from a project.
 module Network.AWS.CodeStar.UntagProject
-  ( -- * Creating a Request
-    untagProject,
-    UntagProject,
+  ( -- * Creating a request
+    UntagProject (..),
+    mkUntagProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uId,
     uTags,
 
-    -- * Destructuring the Response
-    untagProjectResponse,
-    UntagProjectResponse,
+    -- * Destructuring the response
+    UntagProjectResponse (..),
+    mkUntagProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ursResponseStatus,
   )
 where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'untagProject' smart constructor.
-data UntagProject = UntagProject' {_uId :: !Text, _uTags :: ![Text]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkUntagProject' smart constructor.
+data UntagProject = UntagProject'
+  { id :: Lude.Text,
+    tags :: [Lude.Text]
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uId' - The ID of the project to remove tags from.
---
--- * 'uTags' - The tags to remove from the project.
-untagProject ::
-  -- | 'uId'
-  Text ->
+-- * 'id' - The ID of the project to remove tags from.
+-- * 'tags' - The tags to remove from the project.
+mkUntagProject ::
+  -- | 'id'
+  Lude.Text ->
   UntagProject
-untagProject pId_ = UntagProject' {_uId = pId_, _uTags = mempty}
+mkUntagProject pId_ = UntagProject' {id = pId_, tags = Lude.mempty}
 
 -- | The ID of the project to remove tags from.
-uId :: Lens' UntagProject Text
-uId = lens _uId (\s a -> s {_uId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uId :: Lens.Lens' UntagProject Lude.Text
+uId = Lens.lens (id :: UntagProject -> Lude.Text) (\s a -> s {id = a} :: UntagProject)
+{-# DEPRECATED uId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The tags to remove from the project.
-uTags :: Lens' UntagProject [Text]
-uTags = lens _uTags (\s a -> s {_uTags = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uTags :: Lens.Lens' UntagProject [Lude.Text]
+uTags = Lens.lens (tags :: UntagProject -> [Lude.Text]) (\s a -> s {tags = a} :: UntagProject)
+{-# DEPRECATED uTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest UntagProject where
+instance Lude.AWSRequest UntagProject where
   type Rs UntagProject = UntagProjectResponse
-  request = postJSON codeStar
+  request = Req.postJSON codeStarService
   response =
-    receiveEmpty
-      (\s h x -> UntagProjectResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UntagProjectResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UntagProject
-
-instance NFData UntagProject
-
-instance ToHeaders UntagProject where
+instance Lude.ToHeaders UntagProject where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeStar_20170419.UntagProject" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeStar_20170419.UntagProject" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UntagProject where
+instance Lude.ToJSON UntagProject where
   toJSON UntagProject' {..} =
-    object (catMaybes [Just ("id" .= _uId), Just ("tags" .= _uTags)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("id" Lude..= id), Lude.Just ("tags" Lude..= tags)]
+      )
 
-instance ToPath UntagProject where
-  toPath = const "/"
+instance Lude.ToPath UntagProject where
+  toPath = Lude.const "/"
 
-instance ToQuery UntagProject where
-  toQuery = const mempty
+instance Lude.ToQuery UntagProject where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'untagProjectResponse' smart constructor.
+-- | /See:/ 'mkUntagProjectResponse' smart constructor.
 newtype UntagProjectResponse = UntagProjectResponse'
-  { _ursResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ursResponseStatus' - -- | The response status code.
-untagProjectResponse ::
-  -- | 'ursResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUntagProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UntagProjectResponse
-untagProjectResponse pResponseStatus_ =
-  UntagProjectResponse' {_ursResponseStatus = pResponseStatus_}
+mkUntagProjectResponse pResponseStatus_ =
+  UntagProjectResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-ursResponseStatus :: Lens' UntagProjectResponse Int
-ursResponseStatus = lens _ursResponseStatus (\s a -> s {_ursResponseStatus = a})
-
-instance NFData UntagProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursResponseStatus :: Lens.Lens' UntagProjectResponse Lude.Int
+ursResponseStatus = Lens.lens (responseStatus :: UntagProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagProjectResponse)
+{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

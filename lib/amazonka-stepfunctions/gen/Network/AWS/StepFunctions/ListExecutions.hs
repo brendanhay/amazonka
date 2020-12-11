@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,179 +14,204 @@
 --
 -- Lists the executions of a state machine that meet the filtering criteria. Results are sorted by time, with the most recent execution first.
 --
---
 -- If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
---
 -- This API action is not supported by @EXPRESS@ state machines.
---
 --
 -- This operation returns paginated results.
 module Network.AWS.StepFunctions.ListExecutions
-  ( -- * Creating a Request
-    listExecutions,
-    ListExecutions,
+  ( -- * Creating a request
+    ListExecutions (..),
+    mkListExecutions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     leStatusFilter,
     leNextToken,
     leMaxResults,
     leStateMachineARN,
 
-    -- * Destructuring the Response
-    listExecutionsResponse,
-    ListExecutionsResponse,
+    -- * Destructuring the response
+    ListExecutionsResponse (..),
+    mkListExecutionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lersNextToken,
     lersResponseStatus,
     lersExecutions,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StepFunctions.Types
 
--- | /See:/ 'listExecutions' smart constructor.
+-- | /See:/ 'mkListExecutions' smart constructor.
 data ListExecutions = ListExecutions'
-  { _leStatusFilter ::
-      !(Maybe ExecutionStatus),
-    _leNextToken :: !(Maybe Text),
-    _leMaxResults :: !(Maybe Nat),
-    _leStateMachineARN :: !Text
+  { statusFilter ::
+      Lude.Maybe ExecutionStatus,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural,
+    stateMachineARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExecutions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'maxResults' - The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.
 --
--- * 'leStatusFilter' - If specified, only list the executions whose current execution status matches the given filter.
---
--- * 'leNextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
---
--- * 'leMaxResults' - The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
---
--- * 'leStateMachineARN' - The Amazon Resource Name (ARN) of the state machine whose executions is listed.
-listExecutions ::
-  -- | 'leStateMachineARN'
-  Text ->
+-- This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
+-- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
+-- * 'stateMachineARN' - The Amazon Resource Name (ARN) of the state machine whose executions is listed.
+-- * 'statusFilter' - If specified, only list the executions whose current execution status matches the given filter.
+mkListExecutions ::
+  -- | 'stateMachineARN'
+  Lude.Text ->
   ListExecutions
-listExecutions pStateMachineARN_ =
+mkListExecutions pStateMachineARN_ =
   ListExecutions'
-    { _leStatusFilter = Nothing,
-      _leNextToken = Nothing,
-      _leMaxResults = Nothing,
-      _leStateMachineARN = pStateMachineARN_
+    { statusFilter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      stateMachineARN = pStateMachineARN_
     }
 
 -- | If specified, only list the executions whose current execution status matches the given filter.
-leStatusFilter :: Lens' ListExecutions (Maybe ExecutionStatus)
-leStatusFilter = lens _leStatusFilter (\s a -> s {_leStatusFilter = a})
+--
+-- /Note:/ Consider using 'statusFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leStatusFilter :: Lens.Lens' ListExecutions (Lude.Maybe ExecutionStatus)
+leStatusFilter = Lens.lens (statusFilter :: ListExecutions -> Lude.Maybe ExecutionStatus) (\s a -> s {statusFilter = a} :: ListExecutions)
+{-# DEPRECATED leStatusFilter "Use generic-lens or generic-optics with 'statusFilter' instead." #-}
 
 -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
-leNextToken :: Lens' ListExecutions (Maybe Text)
-leNextToken = lens _leNextToken (\s a -> s {_leNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leNextToken :: Lens.Lens' ListExecutions (Lude.Maybe Lude.Text)
+leNextToken = Lens.lens (nextToken :: ListExecutions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExecutions)
+{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default. This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
-leMaxResults :: Lens' ListExecutions (Maybe Natural)
-leMaxResults = lens _leMaxResults (\s a -> s {_leMaxResults = a}) . mapping _Nat
+-- | The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.
+--
+-- This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leMaxResults :: Lens.Lens' ListExecutions (Lude.Maybe Lude.Natural)
+leMaxResults = Lens.lens (maxResults :: ListExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListExecutions)
+{-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the state machine whose executions is listed.
-leStateMachineARN :: Lens' ListExecutions Text
-leStateMachineARN = lens _leStateMachineARN (\s a -> s {_leStateMachineARN = a})
+--
+-- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leStateMachineARN :: Lens.Lens' ListExecutions Lude.Text
+leStateMachineARN = Lens.lens (stateMachineARN :: ListExecutions -> Lude.Text) (\s a -> s {stateMachineARN = a} :: ListExecutions)
+{-# DEPRECATED leStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
 
-instance AWSPager ListExecutions where
+instance Page.AWSPager ListExecutions where
   page rq rs
-    | stop (rs ^. lersNextToken) = Nothing
-    | stop (rs ^. lersExecutions) = Nothing
-    | otherwise = Just $ rq & leNextToken .~ rs ^. lersNextToken
+    | Page.stop (rs Lens.^. lersNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lersExecutions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& leNextToken Lens..~ rs Lens.^. lersNextToken
 
-instance AWSRequest ListExecutions where
+instance Lude.AWSRequest ListExecutions where
   type Rs ListExecutions = ListExecutionsResponse
-  request = postJSON stepFunctions
+  request = Req.postJSON stepFunctionsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListExecutionsResponse'
-            <$> (x .?> "nextToken")
-            <*> (pure (fromEnum s))
-            <*> (x .?> "executions" .!@ mempty)
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..?> "executions" Lude..!@ Lude.mempty)
       )
 
-instance Hashable ListExecutions
-
-instance NFData ListExecutions
-
-instance ToHeaders ListExecutions where
+instance Lude.ToHeaders ListExecutions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSStepFunctions.ListExecutions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.0" :: ByteString)
+              Lude.=# ("AWSStepFunctions.ListExecutions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListExecutions where
+instance Lude.ToJSON ListExecutions where
   toJSON ListExecutions' {..} =
-    object
-      ( catMaybes
-          [ ("statusFilter" .=) <$> _leStatusFilter,
-            ("nextToken" .=) <$> _leNextToken,
-            ("maxResults" .=) <$> _leMaxResults,
-            Just ("stateMachineArn" .= _leStateMachineARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("statusFilter" Lude..=) Lude.<$> statusFilter,
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("stateMachineArn" Lude..= stateMachineARN)
           ]
       )
 
-instance ToPath ListExecutions where
-  toPath = const "/"
+instance Lude.ToPath ListExecutions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListExecutions where
-  toQuery = const mempty
+instance Lude.ToQuery ListExecutions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listExecutionsResponse' smart constructor.
+-- | /See:/ 'mkListExecutionsResponse' smart constructor.
 data ListExecutionsResponse = ListExecutionsResponse'
-  { _lersNextToken ::
-      !(Maybe Text),
-    _lersResponseStatus :: !Int,
-    _lersExecutions :: ![ExecutionListItem]
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    executions :: [ExecutionListItem]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExecutionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lersNextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
---
--- * 'lersResponseStatus' - -- | The response status code.
---
--- * 'lersExecutions' - The list of matching executions.
-listExecutionsResponse ::
-  -- | 'lersResponseStatus'
-  Int ->
+-- * 'executions' - The list of matching executions.
+-- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
+-- * 'responseStatus' - The response status code.
+mkListExecutionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListExecutionsResponse
-listExecutionsResponse pResponseStatus_ =
+mkListExecutionsResponse pResponseStatus_ =
   ListExecutionsResponse'
-    { _lersNextToken = Nothing,
-      _lersResponseStatus = pResponseStatus_,
-      _lersExecutions = mempty
+    { nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      executions = Lude.mempty
     }
 
 -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
-lersNextToken :: Lens' ListExecutionsResponse (Maybe Text)
-lersNextToken = lens _lersNextToken (\s a -> s {_lersNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersNextToken :: Lens.Lens' ListExecutionsResponse (Lude.Maybe Lude.Text)
+lersNextToken = Lens.lens (nextToken :: ListExecutionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExecutionsResponse)
+{-# DEPRECATED lersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-lersResponseStatus :: Lens' ListExecutionsResponse Int
-lersResponseStatus = lens _lersResponseStatus (\s a -> s {_lersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersResponseStatus :: Lens.Lens' ListExecutionsResponse Lude.Int
+lersResponseStatus = Lens.lens (responseStatus :: ListExecutionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListExecutionsResponse)
+{-# DEPRECATED lersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The list of matching executions.
-lersExecutions :: Lens' ListExecutionsResponse [ExecutionListItem]
-lersExecutions = lens _lersExecutions (\s a -> s {_lersExecutions = a}) . _Coerce
-
-instance NFData ListExecutionsResponse
+--
+-- /Note:/ Consider using 'executions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersExecutions :: Lens.Lens' ListExecutionsResponse [ExecutionListItem]
+lersExecutions = Lens.lens (executions :: ListExecutionsResponse -> [ExecutionListItem]) (\s a -> s {executions = a} :: ListExecutionsResponse)
+{-# DEPRECATED lersExecutions "Use generic-lens or generic-optics with 'executions' instead." #-}

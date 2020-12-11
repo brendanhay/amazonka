@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.NonCompliantSummary where
+module Network.AWS.SSM.Types.NonCompliantSummary
+  ( NonCompliantSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkNonCompliantSummary,
+
+    -- * Lenses
+    ncsNonCompliantCount,
+    ncsSeveritySummary,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.SeveritySummary
 
 -- | A summary of resources that are not compliant. The summary is organized according to resource type.
 --
---
---
--- /See:/ 'nonCompliantSummary' smart constructor.
+-- /See:/ 'mkNonCompliantSummary' smart constructor.
 data NonCompliantSummary = NonCompliantSummary'
-  { _ncsNonCompliantCount ::
-      !(Maybe Int),
-    _ncsSeveritySummary :: !(Maybe SeveritySummary)
+  { nonCompliantCount ::
+      Lude.Maybe Lude.Int,
+    severitySummary :: Lude.Maybe SeveritySummary
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NonCompliantSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ncsNonCompliantCount' - The total number of compliance items that are not compliant.
---
--- * 'ncsSeveritySummary' - A summary of the non-compliance severity by compliance type
-nonCompliantSummary ::
+-- * 'nonCompliantCount' - The total number of compliance items that are not compliant.
+-- * 'severitySummary' - A summary of the non-compliance severity by compliance type
+mkNonCompliantSummary ::
   NonCompliantSummary
-nonCompliantSummary =
+mkNonCompliantSummary =
   NonCompliantSummary'
-    { _ncsNonCompliantCount = Nothing,
-      _ncsSeveritySummary = Nothing
+    { nonCompliantCount = Lude.Nothing,
+      severitySummary = Lude.Nothing
     }
 
 -- | The total number of compliance items that are not compliant.
-ncsNonCompliantCount :: Lens' NonCompliantSummary (Maybe Int)
-ncsNonCompliantCount = lens _ncsNonCompliantCount (\s a -> s {_ncsNonCompliantCount = a})
+--
+-- /Note:/ Consider using 'nonCompliantCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncsNonCompliantCount :: Lens.Lens' NonCompliantSummary (Lude.Maybe Lude.Int)
+ncsNonCompliantCount = Lens.lens (nonCompliantCount :: NonCompliantSummary -> Lude.Maybe Lude.Int) (\s a -> s {nonCompliantCount = a} :: NonCompliantSummary)
+{-# DEPRECATED ncsNonCompliantCount "Use generic-lens or generic-optics with 'nonCompliantCount' instead." #-}
 
 -- | A summary of the non-compliance severity by compliance type
-ncsSeveritySummary :: Lens' NonCompliantSummary (Maybe SeveritySummary)
-ncsSeveritySummary = lens _ncsSeveritySummary (\s a -> s {_ncsSeveritySummary = a})
+--
+-- /Note:/ Consider using 'severitySummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncsSeveritySummary :: Lens.Lens' NonCompliantSummary (Lude.Maybe SeveritySummary)
+ncsSeveritySummary = Lens.lens (severitySummary :: NonCompliantSummary -> Lude.Maybe SeveritySummary) (\s a -> s {severitySummary = a} :: NonCompliantSummary)
+{-# DEPRECATED ncsSeveritySummary "Use generic-lens or generic-optics with 'severitySummary' instead." #-}
 
-instance FromJSON NonCompliantSummary where
+instance Lude.FromJSON NonCompliantSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "NonCompliantSummary"
       ( \x ->
           NonCompliantSummary'
-            <$> (x .:? "NonCompliantCount") <*> (x .:? "SeveritySummary")
+            Lude.<$> (x Lude..:? "NonCompliantCount")
+            Lude.<*> (x Lude..:? "SeveritySummary")
       )
-
-instance Hashable NonCompliantSummary
-
-instance NFData NonCompliantSummary

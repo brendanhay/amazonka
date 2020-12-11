@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,133 @@
 --
 -- Retrieves information about all the applications that are associated with your Amazon Pinpoint account.
 module Network.AWS.Pinpoint.GetApps
-  ( -- * Creating a Request
-    getApps,
-    GetApps,
+  ( -- * Creating a request
+    GetApps (..),
+    mkGetApps,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gaToken,
     gaPageSize,
 
-    -- * Destructuring the Response
-    getAppsResponse,
-    GetAppsResponse,
+    -- * Destructuring the response
+    GetAppsResponse (..),
+    mkGetAppsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gasrsResponseStatus,
     gasrsApplicationsResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getApps' smart constructor.
+-- | /See:/ 'mkGetApps' smart constructor.
 data GetApps = GetApps'
-  { _gaToken :: !(Maybe Text),
-    _gaPageSize :: !(Maybe Text)
+  { token :: Lude.Maybe Lude.Text,
+    pageSize :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApps' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gaToken' - The NextToken string that specifies which page of results to return in a paginated response.
---
--- * 'gaPageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-getApps ::
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
+mkGetApps ::
   GetApps
-getApps = GetApps' {_gaToken = Nothing, _gaPageSize = Nothing}
+mkGetApps = GetApps' {token = Lude.Nothing, pageSize = Lude.Nothing}
 
 -- | The NextToken string that specifies which page of results to return in a paginated response.
-gaToken :: Lens' GetApps (Maybe Text)
-gaToken = lens _gaToken (\s a -> s {_gaToken = a})
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaToken :: Lens.Lens' GetApps (Lude.Maybe Lude.Text)
+gaToken = Lens.lens (token :: GetApps -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetApps)
+{-# DEPRECATED gaToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-gaPageSize :: Lens' GetApps (Maybe Text)
-gaPageSize = lens _gaPageSize (\s a -> s {_gaPageSize = a})
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaPageSize :: Lens.Lens' GetApps (Lude.Maybe Lude.Text)
+gaPageSize = Lens.lens (pageSize :: GetApps -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetApps)
+{-# DEPRECATED gaPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance AWSRequest GetApps where
+instance Lude.AWSRequest GetApps where
   type Rs GetApps = GetAppsResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetAppsResponse' <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+          GetAppsResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetApps
-
-instance NFData GetApps
-
-instance ToHeaders GetApps where
+instance Lude.ToHeaders GetApps where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetApps where
-  toPath = const "/v1/apps"
+instance Lude.ToPath GetApps where
+  toPath = Lude.const "/v1/apps"
 
-instance ToQuery GetApps where
+instance Lude.ToQuery GetApps where
   toQuery GetApps' {..} =
-    mconcat ["token" =: _gaToken, "page-size" =: _gaPageSize]
+    Lude.mconcat
+      ["token" Lude.=: token, "page-size" Lude.=: pageSize]
 
--- | /See:/ 'getAppsResponse' smart constructor.
+-- | /See:/ 'mkGetAppsResponse' smart constructor.
 data GetAppsResponse = GetAppsResponse'
-  { _gasrsResponseStatus ::
-      !Int,
-    _gasrsApplicationsResponse :: !ApplicationsResponse
+  { responseStatus :: Lude.Int,
+    applicationsResponse :: ApplicationsResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasrsResponseStatus' - -- | The response status code.
---
--- * 'gasrsApplicationsResponse' - Undocumented member.
-getAppsResponse ::
-  -- | 'gasrsResponseStatus'
-  Int ->
-  -- | 'gasrsApplicationsResponse'
+-- * 'applicationsResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetAppsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'applicationsResponse'
   ApplicationsResponse ->
   GetAppsResponse
-getAppsResponse pResponseStatus_ pApplicationsResponse_ =
+mkGetAppsResponse pResponseStatus_ pApplicationsResponse_ =
   GetAppsResponse'
-    { _gasrsResponseStatus = pResponseStatus_,
-      _gasrsApplicationsResponse = pApplicationsResponse_
+    { responseStatus = pResponseStatus_,
+      applicationsResponse = pApplicationsResponse_
     }
 
--- | -- | The response status code.
-gasrsResponseStatus :: Lens' GetAppsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\s a -> s {_gasrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsResponseStatus :: Lens.Lens' GetAppsResponse Lude.Int
+gasrsResponseStatus = Lens.lens (responseStatus :: GetAppsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppsResponse)
+{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gasrsApplicationsResponse :: Lens' GetAppsResponse ApplicationsResponse
-gasrsApplicationsResponse = lens _gasrsApplicationsResponse (\s a -> s {_gasrsApplicationsResponse = a})
-
-instance NFData GetAppsResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'applicationsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsApplicationsResponse :: Lens.Lens' GetAppsResponse ApplicationsResponse
+gasrsApplicationsResponse = Lens.lens (applicationsResponse :: GetAppsResponse -> ApplicationsResponse) (\s a -> s {applicationsResponse = a} :: GetAppsResponse)
+{-# DEPRECATED gasrsApplicationsResponse "Use generic-lens or generic-optics with 'applicationsResponse' instead." #-}

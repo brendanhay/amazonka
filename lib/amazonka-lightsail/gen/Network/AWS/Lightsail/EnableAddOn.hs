@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,150 @@
 --
 -- Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Lightsail Dev Guide> .
 module Network.AWS.Lightsail.EnableAddOn
-  ( -- * Creating a Request
-    enableAddOn,
-    EnableAddOn,
+  ( -- * Creating a request
+    EnableAddOn (..),
+    mkEnableAddOn,
 
-    -- * Request Lenses
+    -- ** Request lenses
     eaoResourceName,
     eaoAddOnRequest,
 
-    -- * Destructuring the Response
-    enableAddOnResponse,
-    EnableAddOnResponse,
+    -- * Destructuring the response
+    EnableAddOnResponse (..),
+    mkEnableAddOnResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     eaorsOperations,
     eaorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'enableAddOn' smart constructor.
+-- | /See:/ 'mkEnableAddOn' smart constructor.
 data EnableAddOn = EnableAddOn'
-  { _eaoResourceName :: !Text,
-    _eaoAddOnRequest :: !AddOnRequest
+  { resourceName :: Lude.Text,
+    addOnRequest :: AddOnRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableAddOn' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eaoResourceName' - The name of the source resource for which to enable or modify the add-on.
---
--- * 'eaoAddOnRequest' - An array of strings representing the add-on to enable or modify.
-enableAddOn ::
-  -- | 'eaoResourceName'
-  Text ->
-  -- | 'eaoAddOnRequest'
+-- * 'addOnRequest' - An array of strings representing the add-on to enable or modify.
+-- * 'resourceName' - The name of the source resource for which to enable or modify the add-on.
+mkEnableAddOn ::
+  -- | 'resourceName'
+  Lude.Text ->
+  -- | 'addOnRequest'
   AddOnRequest ->
   EnableAddOn
-enableAddOn pResourceName_ pAddOnRequest_ =
+mkEnableAddOn pResourceName_ pAddOnRequest_ =
   EnableAddOn'
-    { _eaoResourceName = pResourceName_,
-      _eaoAddOnRequest = pAddOnRequest_
+    { resourceName = pResourceName_,
+      addOnRequest = pAddOnRequest_
     }
 
 -- | The name of the source resource for which to enable or modify the add-on.
-eaoResourceName :: Lens' EnableAddOn Text
-eaoResourceName = lens _eaoResourceName (\s a -> s {_eaoResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaoResourceName :: Lens.Lens' EnableAddOn Lude.Text
+eaoResourceName = Lens.lens (resourceName :: EnableAddOn -> Lude.Text) (\s a -> s {resourceName = a} :: EnableAddOn)
+{-# DEPRECATED eaoResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | An array of strings representing the add-on to enable or modify.
-eaoAddOnRequest :: Lens' EnableAddOn AddOnRequest
-eaoAddOnRequest = lens _eaoAddOnRequest (\s a -> s {_eaoAddOnRequest = a})
+--
+-- /Note:/ Consider using 'addOnRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaoAddOnRequest :: Lens.Lens' EnableAddOn AddOnRequest
+eaoAddOnRequest = Lens.lens (addOnRequest :: EnableAddOn -> AddOnRequest) (\s a -> s {addOnRequest = a} :: EnableAddOn)
+{-# DEPRECATED eaoAddOnRequest "Use generic-lens or generic-optics with 'addOnRequest' instead." #-}
 
-instance AWSRequest EnableAddOn where
+instance Lude.AWSRequest EnableAddOn where
   type Rs EnableAddOn = EnableAddOnResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           EnableAddOnResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable EnableAddOn
-
-instance NFData EnableAddOn
-
-instance ToHeaders EnableAddOn where
+instance Lude.ToHeaders EnableAddOn where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.EnableAddOn" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.EnableAddOn" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON EnableAddOn where
+instance Lude.ToJSON EnableAddOn where
   toJSON EnableAddOn' {..} =
-    object
-      ( catMaybes
-          [ Just ("resourceName" .= _eaoResourceName),
-            Just ("addOnRequest" .= _eaoAddOnRequest)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("resourceName" Lude..= resourceName),
+            Lude.Just ("addOnRequest" Lude..= addOnRequest)
           ]
       )
 
-instance ToPath EnableAddOn where
-  toPath = const "/"
+instance Lude.ToPath EnableAddOn where
+  toPath = Lude.const "/"
 
-instance ToQuery EnableAddOn where
-  toQuery = const mempty
+instance Lude.ToQuery EnableAddOn where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'enableAddOnResponse' smart constructor.
+-- | /See:/ 'mkEnableAddOnResponse' smart constructor.
 data EnableAddOnResponse = EnableAddOnResponse'
-  { _eaorsOperations ::
-      !(Maybe [Operation]),
-    _eaorsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableAddOnResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eaorsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'eaorsResponseStatus' - -- | The response status code.
-enableAddOnResponse ::
-  -- | 'eaorsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkEnableAddOnResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   EnableAddOnResponse
-enableAddOnResponse pResponseStatus_ =
+mkEnableAddOnResponse pResponseStatus_ =
   EnableAddOnResponse'
-    { _eaorsOperations = Nothing,
-      _eaorsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-eaorsOperations :: Lens' EnableAddOnResponse [Operation]
-eaorsOperations = lens _eaorsOperations (\s a -> s {_eaorsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaorsOperations :: Lens.Lens' EnableAddOnResponse (Lude.Maybe [Operation])
+eaorsOperations = Lens.lens (operations :: EnableAddOnResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: EnableAddOnResponse)
+{-# DEPRECATED eaorsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-eaorsResponseStatus :: Lens' EnableAddOnResponse Int
-eaorsResponseStatus = lens _eaorsResponseStatus (\s a -> s {_eaorsResponseStatus = a})
-
-instance NFData EnableAddOnResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaorsResponseStatus :: Lens.Lens' EnableAddOnResponse Lude.Int
+eaorsResponseStatus = Lens.lens (responseStatus :: EnableAddOnResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableAddOnResponse)
+{-# DEPRECATED eaorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

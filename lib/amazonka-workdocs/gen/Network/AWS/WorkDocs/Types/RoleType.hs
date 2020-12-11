@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.RoleType where
+module Network.AWS.WorkDocs.Types.RoleType
+  ( RoleType
+      ( RoleType',
+        Contributor,
+        Coowner,
+        Owner,
+        Viewer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RoleType
-  = Contributor
-  | Coowner
-  | Owner
-  | Viewer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RoleType = RoleType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RoleType where
-  parser =
-    takeLowerText >>= \case
-      "contributor" -> pure Contributor
-      "coowner" -> pure Coowner
-      "owner" -> pure Owner
-      "viewer" -> pure Viewer
-      e ->
-        fromTextError $
-          "Failure parsing RoleType from value: '" <> e
-            <> "'. Accepted values: contributor, coowner, owner, viewer"
+pattern Contributor :: RoleType
+pattern Contributor = RoleType' "CONTRIBUTOR"
 
-instance ToText RoleType where
-  toText = \case
-    Contributor -> "CONTRIBUTOR"
-    Coowner -> "COOWNER"
-    Owner -> "OWNER"
-    Viewer -> "VIEWER"
+pattern Coowner :: RoleType
+pattern Coowner = RoleType' "COOWNER"
 
-instance Hashable RoleType
+pattern Owner :: RoleType
+pattern Owner = RoleType' "OWNER"
 
-instance NFData RoleType
+pattern Viewer :: RoleType
+pattern Viewer = RoleType' "VIEWER"
 
-instance ToByteString RoleType
-
-instance ToQuery RoleType
-
-instance ToHeader RoleType
-
-instance ToJSON RoleType where
-  toJSON = toJSONText
-
-instance FromJSON RoleType where
-  parseJSON = parseJSONText "RoleType"
+{-# COMPLETE
+  Contributor,
+  Coowner,
+  Owner,
+  Viewer,
+  RoleType'
+  #-}

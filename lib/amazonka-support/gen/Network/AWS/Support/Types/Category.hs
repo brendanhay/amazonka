@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Support.Types.Category where
+module Network.AWS.Support.Types.Category
+  ( Category (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCategory,
+
+    -- * Lenses
+    cName,
+    cCode,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A JSON-formatted name/value pair that represents the category name and category code of the problem, selected from the 'DescribeServices' response for each AWS service.
 --
---
---
--- /See:/ 'category' smart constructor.
+-- /See:/ 'mkCategory' smart constructor.
 data Category = Category'
-  { _cName :: !(Maybe Text),
-    _cCode :: !(Maybe Text)
+  { name :: Lude.Maybe Lude.Text,
+    code :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Category' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cName' - The category name for the support case.
---
--- * 'cCode' - The category code for the support case.
-category ::
+-- * 'code' - The category code for the support case.
+-- * 'name' - The category name for the support case.
+mkCategory ::
   Category
-category = Category' {_cName = Nothing, _cCode = Nothing}
+mkCategory = Category' {name = Lude.Nothing, code = Lude.Nothing}
 
 -- | The category name for the support case.
-cName :: Lens' Category (Maybe Text)
-cName = lens _cName (\s a -> s {_cName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cName :: Lens.Lens' Category (Lude.Maybe Lude.Text)
+cName = Lens.lens (name :: Category -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Category)
+{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The category code for the support case.
-cCode :: Lens' Category (Maybe Text)
-cCode = lens _cCode (\s a -> s {_cCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCode :: Lens.Lens' Category (Lude.Maybe Lude.Text)
+cCode = Lens.lens (code :: Category -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: Category)
+{-# DEPRECATED cCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance FromJSON Category where
+instance Lude.FromJSON Category where
   parseJSON =
-    withObject
+    Lude.withObject
       "Category"
-      (\x -> Category' <$> (x .:? "name") <*> (x .:? "code"))
-
-instance Hashable Category
-
-instance NFData Category
+      ( \x ->
+          Category'
+            Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "code")
+      )

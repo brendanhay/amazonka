@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,122 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.GlobalSecondaryIndex where
+module Network.AWS.DynamoDB.Types.GlobalSecondaryIndex
+  ( GlobalSecondaryIndex (..),
+
+    -- * Smart constructor
+    mkGlobalSecondaryIndex,
+
+    -- * Lenses
+    gsiProvisionedThroughput,
+    gsiIndexName,
+    gsiKeySchema,
+    gsiProjection,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
 import Network.AWS.DynamoDB.Types.ProvisionedThroughput
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents the properties of a global secondary index.
 --
---
---
--- /See:/ 'globalSecondaryIndex' smart constructor.
+-- /See:/ 'mkGlobalSecondaryIndex' smart constructor.
 data GlobalSecondaryIndex = GlobalSecondaryIndex'
-  { _gsiProvisionedThroughput ::
-      !(Maybe ProvisionedThroughput),
-    _gsiIndexName :: !Text,
-    _gsiKeySchema :: !(List1 KeySchemaElement),
-    _gsiProjection :: !Projection
+  { provisionedThroughput ::
+      Lude.Maybe ProvisionedThroughput,
+    indexName :: Lude.Text,
+    keySchema :: Lude.NonEmpty KeySchemaElement,
+    projection :: Projection
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalSecondaryIndex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
+-- * 'keySchema' - The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 --
--- * 'gsiProvisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
 --
--- * 'gsiIndexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
+--     * @HASH@ - partition key
 --
--- * 'gsiKeySchema' - The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:     * @HASH@ - partition key     * @RANGE@ - sort key
 --
--- * 'gsiProjection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-globalSecondaryIndex ::
-  -- | 'gsiIndexName'
-  Text ->
-  -- | 'gsiKeySchema'
-  NonEmpty KeySchemaElement ->
-  -- | 'gsiProjection'
+--     * @RANGE@ - sort key
+--
+--
+-- * 'projection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+-- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
+--
+-- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+mkGlobalSecondaryIndex ::
+  -- | 'indexName'
+  Lude.Text ->
+  -- | 'keySchema'
+  Lude.NonEmpty KeySchemaElement ->
+  -- | 'projection'
   Projection ->
   GlobalSecondaryIndex
-globalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
+mkGlobalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
   GlobalSecondaryIndex'
-    { _gsiProvisionedThroughput = Nothing,
-      _gsiIndexName = pIndexName_,
-      _gsiKeySchema = _List1 # pKeySchema_,
-      _gsiProjection = pProjection_
+    { provisionedThroughput = Lude.Nothing,
+      indexName = pIndexName_,
+      keySchema = pKeySchema_,
+      projection = pProjection_
     }
 
--- | Represents the provisioned throughput settings for the specified global secondary index. For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
-gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex (Maybe ProvisionedThroughput)
-gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\s a -> s {_gsiProvisionedThroughput = a})
+-- | Represents the provisioned throughput settings for the specified global secondary index.
+--
+-- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+--
+-- /Note:/ Consider using 'provisionedThroughput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiProvisionedThroughput :: Lens.Lens' GlobalSecondaryIndex (Lude.Maybe ProvisionedThroughput)
+gsiProvisionedThroughput = Lens.lens (provisionedThroughput :: GlobalSecondaryIndex -> Lude.Maybe ProvisionedThroughput) (\s a -> s {provisionedThroughput = a} :: GlobalSecondaryIndex)
+{-# DEPRECATED gsiProvisionedThroughput "Use generic-lens or generic-optics with 'provisionedThroughput' instead." #-}
 
 -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
-gsiIndexName :: Lens' GlobalSecondaryIndex Text
-gsiIndexName = lens _gsiIndexName (\s a -> s {_gsiIndexName = a})
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiIndexName :: Lens.Lens' GlobalSecondaryIndex Lude.Text
+gsiIndexName = Lens.lens (indexName :: GlobalSecondaryIndex -> Lude.Text) (\s a -> s {indexName = a} :: GlobalSecondaryIndex)
+{-# DEPRECATED gsiIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
--- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:     * @HASH@ - partition key     * @RANGE@ - sort key
-gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
-gsiKeySchema = lens _gsiKeySchema (\s a -> s {_gsiKeySchema = a}) . _List1
+-- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+--
+--
+--     * @HASH@ - partition key
+--
+--
+--     * @RANGE@ - sort key
+--
+--
+--
+-- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiKeySchema :: Lens.Lens' GlobalSecondaryIndex (Lude.NonEmpty KeySchemaElement)
+gsiKeySchema = Lens.lens (keySchema :: GlobalSecondaryIndex -> Lude.NonEmpty KeySchemaElement) (\s a -> s {keySchema = a} :: GlobalSecondaryIndex)
+{-# DEPRECATED gsiKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
 
 -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-gsiProjection :: Lens' GlobalSecondaryIndex Projection
-gsiProjection = lens _gsiProjection (\s a -> s {_gsiProjection = a})
+--
+-- /Note:/ Consider using 'projection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiProjection :: Lens.Lens' GlobalSecondaryIndex Projection
+gsiProjection = Lens.lens (projection :: GlobalSecondaryIndex -> Projection) (\s a -> s {projection = a} :: GlobalSecondaryIndex)
+{-# DEPRECATED gsiProjection "Use generic-lens or generic-optics with 'projection' instead." #-}
 
-instance Hashable GlobalSecondaryIndex
-
-instance NFData GlobalSecondaryIndex
-
-instance ToJSON GlobalSecondaryIndex where
+instance Lude.ToJSON GlobalSecondaryIndex where
   toJSON GlobalSecondaryIndex' {..} =
-    object
-      ( catMaybes
-          [ ("ProvisionedThroughput" .=) <$> _gsiProvisionedThroughput,
-            Just ("IndexName" .= _gsiIndexName),
-            Just ("KeySchema" .= _gsiKeySchema),
-            Just ("Projection" .= _gsiProjection)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ProvisionedThroughput" Lude..=) Lude.<$> provisionedThroughput,
+            Lude.Just ("IndexName" Lude..= indexName),
+            Lude.Just ("KeySchema" Lude..= keySchema),
+            Lude.Just ("Projection" Lude..= projection)
           ]
       )

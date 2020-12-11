@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,176 +7,259 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ResourceType where
+module Network.AWS.EC2.Types.ResourceType
+  ( ResourceType
+      ( ResourceType',
+        RTClientVPNEndpoint,
+        RTCustomerGateway,
+        RTDHCPOptions,
+        RTDedicatedHost,
+        RTEgressOnlyInternetGateway,
+        RTElasticGpu,
+        RTElasticIP,
+        RTExportImageTask,
+        RTExportInstanceTask,
+        RTFleet,
+        RTFpgaImage,
+        RTHostReservation,
+        RTImage,
+        RTImportImageTask,
+        RTImportSnapshotTask,
+        RTInstance,
+        RTInternetGateway,
+        RTKeyPair,
+        RTLaunchTemplate,
+        RTLocalGatewayRouteTableVPCAssociation,
+        RTNatgateway,
+        RTNetworkACL,
+        RTNetworkInterface,
+        RTPlacementGroup,
+        RTReservedInstances,
+        RTRouteTable,
+        RTSecurityGroup,
+        RTSnapshot,
+        RTSpotFleetRequest,
+        RTSpotInstancesRequest,
+        RTSubnet,
+        RTTrafficMirrorFilter,
+        RTTrafficMirrorSession,
+        RTTrafficMirrorTarget,
+        RTTransitGateway,
+        RTTransitGatewayAttachment,
+        RTTransitGatewayMulticastDomain,
+        RTTransitGatewayRouteTable,
+        RTVPC,
+        RTVPCFlowLog,
+        RTVPCPeeringConnection,
+        RTVPNConnection,
+        RTVPNGateway,
+        RTVolume
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ResourceType
-  = RTClientVPNEndpoint
-  | RTCustomerGateway
-  | RTDHCPOptions
-  | RTDedicatedHost
-  | RTEgressOnlyInternetGateway
-  | RTElasticGpu
-  | RTElasticIP
-  | RTExportImageTask
-  | RTExportInstanceTask
-  | RTFleet
-  | RTFpgaImage
-  | RTHostReservation
-  | RTImage
-  | RTImportImageTask
-  | RTImportSnapshotTask
-  | RTInstance
-  | RTInternetGateway
-  | RTKeyPair
-  | RTLaunchTemplate
-  | RTLocalGatewayRouteTableVPCAssociation
-  | RTNatgateway
-  | RTNetworkACL
-  | RTNetworkInterface
-  | RTPlacementGroup
-  | RTReservedInstances
-  | RTRouteTable
-  | RTSecurityGroup
-  | RTSnapshot
-  | RTSpotFleetRequest
-  | RTSpotInstancesRequest
-  | RTSubnet
-  | RTTrafficMirrorFilter
-  | RTTrafficMirrorSession
-  | RTTrafficMirrorTarget
-  | RTTransitGateway
-  | RTTransitGatewayAttachment
-  | RTTransitGatewayMulticastDomain
-  | RTTransitGatewayRouteTable
-  | RTVPC
-  | RTVPCFlowLog
-  | RTVPCPeeringConnection
-  | RTVPNConnection
-  | RTVPNGateway
-  | RTVolume
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ResourceType = ResourceType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ResourceType where
-  parser =
-    takeLowerText >>= \case
-      "client-vpn-endpoint" -> pure RTClientVPNEndpoint
-      "customer-gateway" -> pure RTCustomerGateway
-      "dhcp-options" -> pure RTDHCPOptions
-      "dedicated-host" -> pure RTDedicatedHost
-      "egress-only-internet-gateway" -> pure RTEgressOnlyInternetGateway
-      "elastic-gpu" -> pure RTElasticGpu
-      "elastic-ip" -> pure RTElasticIP
-      "export-image-task" -> pure RTExportImageTask
-      "export-instance-task" -> pure RTExportInstanceTask
-      "fleet" -> pure RTFleet
-      "fpga-image" -> pure RTFpgaImage
-      "host-reservation" -> pure RTHostReservation
-      "image" -> pure RTImage
-      "import-image-task" -> pure RTImportImageTask
-      "import-snapshot-task" -> pure RTImportSnapshotTask
-      "instance" -> pure RTInstance
-      "internet-gateway" -> pure RTInternetGateway
-      "key-pair" -> pure RTKeyPair
-      "launch-template" -> pure RTLaunchTemplate
-      "local-gateway-route-table-vpc-association" -> pure RTLocalGatewayRouteTableVPCAssociation
-      "natgateway" -> pure RTNatgateway
-      "network-acl" -> pure RTNetworkACL
-      "network-interface" -> pure RTNetworkInterface
-      "placement-group" -> pure RTPlacementGroup
-      "reserved-instances" -> pure RTReservedInstances
-      "route-table" -> pure RTRouteTable
-      "security-group" -> pure RTSecurityGroup
-      "snapshot" -> pure RTSnapshot
-      "spot-fleet-request" -> pure RTSpotFleetRequest
-      "spot-instances-request" -> pure RTSpotInstancesRequest
-      "subnet" -> pure RTSubnet
-      "traffic-mirror-filter" -> pure RTTrafficMirrorFilter
-      "traffic-mirror-session" -> pure RTTrafficMirrorSession
-      "traffic-mirror-target" -> pure RTTrafficMirrorTarget
-      "transit-gateway" -> pure RTTransitGateway
-      "transit-gateway-attachment" -> pure RTTransitGatewayAttachment
-      "transit-gateway-multicast-domain" -> pure RTTransitGatewayMulticastDomain
-      "transit-gateway-route-table" -> pure RTTransitGatewayRouteTable
-      "vpc" -> pure RTVPC
-      "vpc-flow-log" -> pure RTVPCFlowLog
-      "vpc-peering-connection" -> pure RTVPCPeeringConnection
-      "vpn-connection" -> pure RTVPNConnection
-      "vpn-gateway" -> pure RTVPNGateway
-      "volume" -> pure RTVolume
-      e ->
-        fromTextError $
-          "Failure parsing ResourceType from value: '" <> e
-            <> "'. Accepted values: client-vpn-endpoint, customer-gateway, dhcp-options, dedicated-host, egress-only-internet-gateway, elastic-gpu, elastic-ip, export-image-task, export-instance-task, fleet, fpga-image, host-reservation, image, import-image-task, import-snapshot-task, instance, internet-gateway, key-pair, launch-template, local-gateway-route-table-vpc-association, natgateway, network-acl, network-interface, placement-group, reserved-instances, route-table, security-group, snapshot, spot-fleet-request, spot-instances-request, subnet, traffic-mirror-filter, traffic-mirror-session, traffic-mirror-target, transit-gateway, transit-gateway-attachment, transit-gateway-multicast-domain, transit-gateway-route-table, vpc, vpc-flow-log, vpc-peering-connection, vpn-connection, vpn-gateway, volume"
+pattern RTClientVPNEndpoint :: ResourceType
+pattern RTClientVPNEndpoint = ResourceType' "client-vpn-endpoint"
 
-instance ToText ResourceType where
-  toText = \case
-    RTClientVPNEndpoint -> "client-vpn-endpoint"
-    RTCustomerGateway -> "customer-gateway"
-    RTDHCPOptions -> "dhcp-options"
-    RTDedicatedHost -> "dedicated-host"
-    RTEgressOnlyInternetGateway -> "egress-only-internet-gateway"
-    RTElasticGpu -> "elastic-gpu"
-    RTElasticIP -> "elastic-ip"
-    RTExportImageTask -> "export-image-task"
-    RTExportInstanceTask -> "export-instance-task"
-    RTFleet -> "fleet"
-    RTFpgaImage -> "fpga-image"
-    RTHostReservation -> "host-reservation"
-    RTImage -> "image"
-    RTImportImageTask -> "import-image-task"
-    RTImportSnapshotTask -> "import-snapshot-task"
-    RTInstance -> "instance"
-    RTInternetGateway -> "internet-gateway"
-    RTKeyPair -> "key-pair"
-    RTLaunchTemplate -> "launch-template"
-    RTLocalGatewayRouteTableVPCAssociation -> "local-gateway-route-table-vpc-association"
-    RTNatgateway -> "natgateway"
-    RTNetworkACL -> "network-acl"
-    RTNetworkInterface -> "network-interface"
-    RTPlacementGroup -> "placement-group"
-    RTReservedInstances -> "reserved-instances"
-    RTRouteTable -> "route-table"
-    RTSecurityGroup -> "security-group"
-    RTSnapshot -> "snapshot"
-    RTSpotFleetRequest -> "spot-fleet-request"
-    RTSpotInstancesRequest -> "spot-instances-request"
-    RTSubnet -> "subnet"
-    RTTrafficMirrorFilter -> "traffic-mirror-filter"
-    RTTrafficMirrorSession -> "traffic-mirror-session"
-    RTTrafficMirrorTarget -> "traffic-mirror-target"
-    RTTransitGateway -> "transit-gateway"
-    RTTransitGatewayAttachment -> "transit-gateway-attachment"
-    RTTransitGatewayMulticastDomain -> "transit-gateway-multicast-domain"
-    RTTransitGatewayRouteTable -> "transit-gateway-route-table"
-    RTVPC -> "vpc"
-    RTVPCFlowLog -> "vpc-flow-log"
-    RTVPCPeeringConnection -> "vpc-peering-connection"
-    RTVPNConnection -> "vpn-connection"
-    RTVPNGateway -> "vpn-gateway"
-    RTVolume -> "volume"
+pattern RTCustomerGateway :: ResourceType
+pattern RTCustomerGateway = ResourceType' "customer-gateway"
 
-instance Hashable ResourceType
+pattern RTDHCPOptions :: ResourceType
+pattern RTDHCPOptions = ResourceType' "dhcp-options"
 
-instance NFData ResourceType
+pattern RTDedicatedHost :: ResourceType
+pattern RTDedicatedHost = ResourceType' "dedicated-host"
 
-instance ToByteString ResourceType
+pattern RTEgressOnlyInternetGateway :: ResourceType
+pattern RTEgressOnlyInternetGateway = ResourceType' "egress-only-internet-gateway"
 
-instance ToQuery ResourceType
+pattern RTElasticGpu :: ResourceType
+pattern RTElasticGpu = ResourceType' "elastic-gpu"
 
-instance ToHeader ResourceType
+pattern RTElasticIP :: ResourceType
+pattern RTElasticIP = ResourceType' "elastic-ip"
 
-instance FromXML ResourceType where
-  parseXML = parseXMLText "ResourceType"
+pattern RTExportImageTask :: ResourceType
+pattern RTExportImageTask = ResourceType' "export-image-task"
+
+pattern RTExportInstanceTask :: ResourceType
+pattern RTExportInstanceTask = ResourceType' "export-instance-task"
+
+pattern RTFleet :: ResourceType
+pattern RTFleet = ResourceType' "fleet"
+
+pattern RTFpgaImage :: ResourceType
+pattern RTFpgaImage = ResourceType' "fpga-image"
+
+pattern RTHostReservation :: ResourceType
+pattern RTHostReservation = ResourceType' "host-reservation"
+
+pattern RTImage :: ResourceType
+pattern RTImage = ResourceType' "image"
+
+pattern RTImportImageTask :: ResourceType
+pattern RTImportImageTask = ResourceType' "import-image-task"
+
+pattern RTImportSnapshotTask :: ResourceType
+pattern RTImportSnapshotTask = ResourceType' "import-snapshot-task"
+
+pattern RTInstance :: ResourceType
+pattern RTInstance = ResourceType' "instance"
+
+pattern RTInternetGateway :: ResourceType
+pattern RTInternetGateway = ResourceType' "internet-gateway"
+
+pattern RTKeyPair :: ResourceType
+pattern RTKeyPair = ResourceType' "key-pair"
+
+pattern RTLaunchTemplate :: ResourceType
+pattern RTLaunchTemplate = ResourceType' "launch-template"
+
+pattern RTLocalGatewayRouteTableVPCAssociation :: ResourceType
+pattern RTLocalGatewayRouteTableVPCAssociation = ResourceType' "local-gateway-route-table-vpc-association"
+
+pattern RTNatgateway :: ResourceType
+pattern RTNatgateway = ResourceType' "natgateway"
+
+pattern RTNetworkACL :: ResourceType
+pattern RTNetworkACL = ResourceType' "network-acl"
+
+pattern RTNetworkInterface :: ResourceType
+pattern RTNetworkInterface = ResourceType' "network-interface"
+
+pattern RTPlacementGroup :: ResourceType
+pattern RTPlacementGroup = ResourceType' "placement-group"
+
+pattern RTReservedInstances :: ResourceType
+pattern RTReservedInstances = ResourceType' "reserved-instances"
+
+pattern RTRouteTable :: ResourceType
+pattern RTRouteTable = ResourceType' "route-table"
+
+pattern RTSecurityGroup :: ResourceType
+pattern RTSecurityGroup = ResourceType' "security-group"
+
+pattern RTSnapshot :: ResourceType
+pattern RTSnapshot = ResourceType' "snapshot"
+
+pattern RTSpotFleetRequest :: ResourceType
+pattern RTSpotFleetRequest = ResourceType' "spot-fleet-request"
+
+pattern RTSpotInstancesRequest :: ResourceType
+pattern RTSpotInstancesRequest = ResourceType' "spot-instances-request"
+
+pattern RTSubnet :: ResourceType
+pattern RTSubnet = ResourceType' "subnet"
+
+pattern RTTrafficMirrorFilter :: ResourceType
+pattern RTTrafficMirrorFilter = ResourceType' "traffic-mirror-filter"
+
+pattern RTTrafficMirrorSession :: ResourceType
+pattern RTTrafficMirrorSession = ResourceType' "traffic-mirror-session"
+
+pattern RTTrafficMirrorTarget :: ResourceType
+pattern RTTrafficMirrorTarget = ResourceType' "traffic-mirror-target"
+
+pattern RTTransitGateway :: ResourceType
+pattern RTTransitGateway = ResourceType' "transit-gateway"
+
+pattern RTTransitGatewayAttachment :: ResourceType
+pattern RTTransitGatewayAttachment = ResourceType' "transit-gateway-attachment"
+
+pattern RTTransitGatewayMulticastDomain :: ResourceType
+pattern RTTransitGatewayMulticastDomain = ResourceType' "transit-gateway-multicast-domain"
+
+pattern RTTransitGatewayRouteTable :: ResourceType
+pattern RTTransitGatewayRouteTable = ResourceType' "transit-gateway-route-table"
+
+pattern RTVPC :: ResourceType
+pattern RTVPC = ResourceType' "vpc"
+
+pattern RTVPCFlowLog :: ResourceType
+pattern RTVPCFlowLog = ResourceType' "vpc-flow-log"
+
+pattern RTVPCPeeringConnection :: ResourceType
+pattern RTVPCPeeringConnection = ResourceType' "vpc-peering-connection"
+
+pattern RTVPNConnection :: ResourceType
+pattern RTVPNConnection = ResourceType' "vpn-connection"
+
+pattern RTVPNGateway :: ResourceType
+pattern RTVPNGateway = ResourceType' "vpn-gateway"
+
+pattern RTVolume :: ResourceType
+pattern RTVolume = ResourceType' "volume"
+
+{-# COMPLETE
+  RTClientVPNEndpoint,
+  RTCustomerGateway,
+  RTDHCPOptions,
+  RTDedicatedHost,
+  RTEgressOnlyInternetGateway,
+  RTElasticGpu,
+  RTElasticIP,
+  RTExportImageTask,
+  RTExportInstanceTask,
+  RTFleet,
+  RTFpgaImage,
+  RTHostReservation,
+  RTImage,
+  RTImportImageTask,
+  RTImportSnapshotTask,
+  RTInstance,
+  RTInternetGateway,
+  RTKeyPair,
+  RTLaunchTemplate,
+  RTLocalGatewayRouteTableVPCAssociation,
+  RTNatgateway,
+  RTNetworkACL,
+  RTNetworkInterface,
+  RTPlacementGroup,
+  RTReservedInstances,
+  RTRouteTable,
+  RTSecurityGroup,
+  RTSnapshot,
+  RTSpotFleetRequest,
+  RTSpotInstancesRequest,
+  RTSubnet,
+  RTTrafficMirrorFilter,
+  RTTrafficMirrorSession,
+  RTTrafficMirrorTarget,
+  RTTransitGateway,
+  RTTransitGatewayAttachment,
+  RTTransitGatewayMulticastDomain,
+  RTTransitGatewayRouteTable,
+  RTVPC,
+  RTVPCFlowLog,
+  RTVPCPeeringConnection,
+  RTVPNConnection,
+  RTVPNGateway,
+  RTVolume,
+  ResourceType'
+  #-}

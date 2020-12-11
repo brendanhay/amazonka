@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,154 @@
 --
 -- Deletes the specified anomaly detection model from your account.
 module Network.AWS.CloudWatch.DeleteAnomalyDetector
-  ( -- * Creating a Request
-    deleteAnomalyDetector,
-    DeleteAnomalyDetector,
+  ( -- * Creating a request
+    DeleteAnomalyDetector (..),
+    mkDeleteAnomalyDetector,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dadDimensions,
     dadNamespace,
     dadMetricName,
     dadStat,
 
-    -- * Destructuring the Response
-    deleteAnomalyDetectorResponse,
-    DeleteAnomalyDetectorResponse,
+    -- * Destructuring the response
+    DeleteAnomalyDetectorResponse (..),
+    mkDeleteAnomalyDetectorResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteAnomalyDetector' smart constructor.
+-- | /See:/ 'mkDeleteAnomalyDetector' smart constructor.
 data DeleteAnomalyDetector = DeleteAnomalyDetector'
-  { _dadDimensions ::
-      !(Maybe [Dimension]),
-    _dadNamespace :: !Text,
-    _dadMetricName :: !Text,
-    _dadStat :: !Text
+  { dimensions ::
+      Lude.Maybe [Dimension],
+    namespace :: Lude.Text,
+    metricName :: Lude.Text,
+    stat :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAnomalyDetector' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dadDimensions' - The metric dimensions associated with the anomaly detection model to delete.
---
--- * 'dadNamespace' - The namespace associated with the anomaly detection model to delete.
---
--- * 'dadMetricName' - The metric name associated with the anomaly detection model to delete.
---
--- * 'dadStat' - The statistic associated with the anomaly detection model to delete.
-deleteAnomalyDetector ::
-  -- | 'dadNamespace'
-  Text ->
-  -- | 'dadMetricName'
-  Text ->
-  -- | 'dadStat'
-  Text ->
+-- * 'dimensions' - The metric dimensions associated with the anomaly detection model to delete.
+-- * 'metricName' - The metric name associated with the anomaly detection model to delete.
+-- * 'namespace' - The namespace associated with the anomaly detection model to delete.
+-- * 'stat' - The statistic associated with the anomaly detection model to delete.
+mkDeleteAnomalyDetector ::
+  -- | 'namespace'
+  Lude.Text ->
+  -- | 'metricName'
+  Lude.Text ->
+  -- | 'stat'
+  Lude.Text ->
   DeleteAnomalyDetector
-deleteAnomalyDetector pNamespace_ pMetricName_ pStat_ =
+mkDeleteAnomalyDetector pNamespace_ pMetricName_ pStat_ =
   DeleteAnomalyDetector'
-    { _dadDimensions = Nothing,
-      _dadNamespace = pNamespace_,
-      _dadMetricName = pMetricName_,
-      _dadStat = pStat_
+    { dimensions = Lude.Nothing,
+      namespace = pNamespace_,
+      metricName = pMetricName_,
+      stat = pStat_
     }
 
 -- | The metric dimensions associated with the anomaly detection model to delete.
-dadDimensions :: Lens' DeleteAnomalyDetector [Dimension]
-dadDimensions = lens _dadDimensions (\s a -> s {_dadDimensions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadDimensions :: Lens.Lens' DeleteAnomalyDetector (Lude.Maybe [Dimension])
+dadDimensions = Lens.lens (dimensions :: DeleteAnomalyDetector -> Lude.Maybe [Dimension]) (\s a -> s {dimensions = a} :: DeleteAnomalyDetector)
+{-# DEPRECATED dadDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | The namespace associated with the anomaly detection model to delete.
-dadNamespace :: Lens' DeleteAnomalyDetector Text
-dadNamespace = lens _dadNamespace (\s a -> s {_dadNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadNamespace :: Lens.Lens' DeleteAnomalyDetector Lude.Text
+dadNamespace = Lens.lens (namespace :: DeleteAnomalyDetector -> Lude.Text) (\s a -> s {namespace = a} :: DeleteAnomalyDetector)
+{-# DEPRECATED dadNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The metric name associated with the anomaly detection model to delete.
-dadMetricName :: Lens' DeleteAnomalyDetector Text
-dadMetricName = lens _dadMetricName (\s a -> s {_dadMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadMetricName :: Lens.Lens' DeleteAnomalyDetector Lude.Text
+dadMetricName = Lens.lens (metricName :: DeleteAnomalyDetector -> Lude.Text) (\s a -> s {metricName = a} :: DeleteAnomalyDetector)
+{-# DEPRECATED dadMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The statistic associated with the anomaly detection model to delete.
-dadStat :: Lens' DeleteAnomalyDetector Text
-dadStat = lens _dadStat (\s a -> s {_dadStat = a})
+--
+-- /Note:/ Consider using 'stat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadStat :: Lens.Lens' DeleteAnomalyDetector Lude.Text
+dadStat = Lens.lens (stat :: DeleteAnomalyDetector -> Lude.Text) (\s a -> s {stat = a} :: DeleteAnomalyDetector)
+{-# DEPRECATED dadStat "Use generic-lens or generic-optics with 'stat' instead." #-}
 
-instance AWSRequest DeleteAnomalyDetector where
+instance Lude.AWSRequest DeleteAnomalyDetector where
   type Rs DeleteAnomalyDetector = DeleteAnomalyDetectorResponse
-  request = postQuery cloudWatch
+  request = Req.postQuery cloudWatchService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DeleteAnomalyDetectorResult"
-      (\s h x -> DeleteAnomalyDetectorResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          DeleteAnomalyDetectorResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteAnomalyDetector
+instance Lude.ToHeaders DeleteAnomalyDetector where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteAnomalyDetector
+instance Lude.ToPath DeleteAnomalyDetector where
+  toPath = Lude.const "/"
 
-instance ToHeaders DeleteAnomalyDetector where
-  toHeaders = const mempty
-
-instance ToPath DeleteAnomalyDetector where
-  toPath = const "/"
-
-instance ToQuery DeleteAnomalyDetector where
+instance Lude.ToQuery DeleteAnomalyDetector where
   toQuery DeleteAnomalyDetector' {..} =
-    mconcat
-      [ "Action" =: ("DeleteAnomalyDetector" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "Dimensions" =: toQuery (toQueryList "member" <$> _dadDimensions),
-        "Namespace" =: _dadNamespace,
-        "MetricName" =: _dadMetricName,
-        "Stat" =: _dadStat
+    Lude.mconcat
+      [ "Action" Lude.=: ("DeleteAnomalyDetector" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "Dimensions"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> dimensions),
+        "Namespace" Lude.=: namespace,
+        "MetricName" Lude.=: metricName,
+        "Stat" Lude.=: stat
       ]
 
--- | /See:/ 'deleteAnomalyDetectorResponse' smart constructor.
+-- | /See:/ 'mkDeleteAnomalyDetectorResponse' smart constructor.
 newtype DeleteAnomalyDetectorResponse = DeleteAnomalyDetectorResponse'
-  { _delrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAnomalyDetectorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delrsResponseStatus' - -- | The response status code.
-deleteAnomalyDetectorResponse ::
-  -- | 'delrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteAnomalyDetectorResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAnomalyDetectorResponse
-deleteAnomalyDetectorResponse pResponseStatus_ =
-  DeleteAnomalyDetectorResponse'
-    { _delrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteAnomalyDetectorResponse pResponseStatus_ =
+  DeleteAnomalyDetectorResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteAnomalyDetectorResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\s a -> s {_delrsResponseStatus = a})
-
-instance NFData DeleteAnomalyDetectorResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delrsResponseStatus :: Lens.Lens' DeleteAnomalyDetectorResponse Lude.Int
+delrsResponseStatus = Lens.lens (responseStatus :: DeleteAnomalyDetectorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAnomalyDetectorResponse)
+{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

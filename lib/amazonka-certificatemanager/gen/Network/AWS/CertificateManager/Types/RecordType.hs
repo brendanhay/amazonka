@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CertificateManager.Types.RecordType where
+module Network.AWS.CertificateManager.Types.RecordType
+  ( RecordType
+      ( RecordType',
+        Cname
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data RecordType = Cname
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RecordType = RecordType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RecordType where
-  parser =
-    takeLowerText >>= \case
-      "cname" -> pure Cname
-      e ->
-        fromTextError $
-          "Failure parsing RecordType from value: '" <> e
-            <> "'. Accepted values: cname"
+pattern Cname :: RecordType
+pattern Cname = RecordType' "CNAME"
 
-instance ToText RecordType where
-  toText = \case
-    Cname -> "CNAME"
-
-instance Hashable RecordType
-
-instance NFData RecordType
-
-instance ToByteString RecordType
-
-instance ToQuery RecordType
-
-instance ToHeader RecordType
-
-instance FromJSON RecordType where
-  parseJSON = parseJSONText "RecordType"
+{-# COMPLETE
+  Cname,
+  RecordType'
+  #-}

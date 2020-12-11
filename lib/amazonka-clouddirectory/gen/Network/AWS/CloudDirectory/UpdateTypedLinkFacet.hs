@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,156 @@
 --
 -- Updates a 'TypedLinkFacet' . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
 module Network.AWS.CloudDirectory.UpdateTypedLinkFacet
-  ( -- * Creating a Request
-    updateTypedLinkFacet,
-    UpdateTypedLinkFacet,
+  ( -- * Creating a request
+    UpdateTypedLinkFacet (..),
+    mkUpdateTypedLinkFacet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utlfSchemaARN,
     utlfName,
     utlfAttributeUpdates,
     utlfIdentityAttributeOrder,
 
-    -- * Destructuring the Response
-    updateTypedLinkFacetResponse,
-    UpdateTypedLinkFacetResponse,
+    -- * Destructuring the response
+    UpdateTypedLinkFacetResponse (..),
+    mkUpdateTypedLinkFacetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     utlfrsResponseStatus,
   )
 where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateTypedLinkFacet' smart constructor.
+-- | /See:/ 'mkUpdateTypedLinkFacet' smart constructor.
 data UpdateTypedLinkFacet = UpdateTypedLinkFacet'
-  { _utlfSchemaARN ::
-      !Text,
-    _utlfName :: !Text,
-    _utlfAttributeUpdates ::
-      ![TypedLinkFacetAttributeUpdate],
-    _utlfIdentityAttributeOrder :: ![Text]
+  { schemaARN ::
+      Lude.Text,
+    name :: Lude.Text,
+    attributeUpdates ::
+      [TypedLinkFacetAttributeUpdate],
+    identityAttributeOrder :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTypedLinkFacet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utlfSchemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
---
--- * 'utlfName' - The unique name of the typed link facet.
---
--- * 'utlfAttributeUpdates' - Attributes update structure.
---
--- * 'utlfIdentityAttributeOrder' - The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
-updateTypedLinkFacet ::
-  -- | 'utlfSchemaARN'
-  Text ->
-  -- | 'utlfName'
-  Text ->
+-- * 'attributeUpdates' - Attributes update structure.
+-- * 'identityAttributeOrder' - The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'name' - The unique name of the typed link facet.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+mkUpdateTypedLinkFacet ::
+  -- | 'schemaARN'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   UpdateTypedLinkFacet
-updateTypedLinkFacet pSchemaARN_ pName_ =
+mkUpdateTypedLinkFacet pSchemaARN_ pName_ =
   UpdateTypedLinkFacet'
-    { _utlfSchemaARN = pSchemaARN_,
-      _utlfName = pName_,
-      _utlfAttributeUpdates = mempty,
-      _utlfIdentityAttributeOrder = mempty
+    { schemaARN = pSchemaARN_,
+      name = pName_,
+      attributeUpdates = Lude.mempty,
+      identityAttributeOrder = Lude.mempty
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-utlfSchemaARN :: Lens' UpdateTypedLinkFacet Text
-utlfSchemaARN = lens _utlfSchemaARN (\s a -> s {_utlfSchemaARN = a})
+--
+-- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utlfSchemaARN :: Lens.Lens' UpdateTypedLinkFacet Lude.Text
+utlfSchemaARN = Lens.lens (schemaARN :: UpdateTypedLinkFacet -> Lude.Text) (\s a -> s {schemaARN = a} :: UpdateTypedLinkFacet)
+{-# DEPRECATED utlfSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
 
 -- | The unique name of the typed link facet.
-utlfName :: Lens' UpdateTypedLinkFacet Text
-utlfName = lens _utlfName (\s a -> s {_utlfName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utlfName :: Lens.Lens' UpdateTypedLinkFacet Lude.Text
+utlfName = Lens.lens (name :: UpdateTypedLinkFacet -> Lude.Text) (\s a -> s {name = a} :: UpdateTypedLinkFacet)
+{-# DEPRECATED utlfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Attributes update structure.
-utlfAttributeUpdates :: Lens' UpdateTypedLinkFacet [TypedLinkFacetAttributeUpdate]
-utlfAttributeUpdates = lens _utlfAttributeUpdates (\s a -> s {_utlfAttributeUpdates = a}) . _Coerce
+--
+-- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utlfAttributeUpdates :: Lens.Lens' UpdateTypedLinkFacet [TypedLinkFacetAttributeUpdate]
+utlfAttributeUpdates = Lens.lens (attributeUpdates :: UpdateTypedLinkFacet -> [TypedLinkFacetAttributeUpdate]) (\s a -> s {attributeUpdates = a} :: UpdateTypedLinkFacet)
+{-# DEPRECATED utlfAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
 
 -- | The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
-utlfIdentityAttributeOrder :: Lens' UpdateTypedLinkFacet [Text]
-utlfIdentityAttributeOrder = lens _utlfIdentityAttributeOrder (\s a -> s {_utlfIdentityAttributeOrder = a}) . _Coerce
+--
+-- /Note:/ Consider using 'identityAttributeOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utlfIdentityAttributeOrder :: Lens.Lens' UpdateTypedLinkFacet [Lude.Text]
+utlfIdentityAttributeOrder = Lens.lens (identityAttributeOrder :: UpdateTypedLinkFacet -> [Lude.Text]) (\s a -> s {identityAttributeOrder = a} :: UpdateTypedLinkFacet)
+{-# DEPRECATED utlfIdentityAttributeOrder "Use generic-lens or generic-optics with 'identityAttributeOrder' instead." #-}
 
-instance AWSRequest UpdateTypedLinkFacet where
+instance Lude.AWSRequest UpdateTypedLinkFacet where
   type Rs UpdateTypedLinkFacet = UpdateTypedLinkFacetResponse
-  request = putJSON cloudDirectory
+  request = Req.putJSON cloudDirectoryService
   response =
-    receiveEmpty
-      (\s h x -> UpdateTypedLinkFacetResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          UpdateTypedLinkFacetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable UpdateTypedLinkFacet
-
-instance NFData UpdateTypedLinkFacet
-
-instance ToHeaders UpdateTypedLinkFacet where
+instance Lude.ToHeaders UpdateTypedLinkFacet where
   toHeaders UpdateTypedLinkFacet' {..} =
-    mconcat ["x-amz-data-partition" =# _utlfSchemaARN]
+    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
 
-instance ToJSON UpdateTypedLinkFacet where
+instance Lude.ToJSON UpdateTypedLinkFacet where
   toJSON UpdateTypedLinkFacet' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _utlfName),
-            Just ("AttributeUpdates" .= _utlfAttributeUpdates),
-            Just ("IdentityAttributeOrder" .= _utlfIdentityAttributeOrder)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("AttributeUpdates" Lude..= attributeUpdates),
+            Lude.Just
+              ("IdentityAttributeOrder" Lude..= identityAttributeOrder)
           ]
       )
 
-instance ToPath UpdateTypedLinkFacet where
-  toPath = const "/amazonclouddirectory/2017-01-11/typedlink/facet"
+instance Lude.ToPath UpdateTypedLinkFacet where
+  toPath =
+    Lude.const "/amazonclouddirectory/2017-01-11/typedlink/facet"
 
-instance ToQuery UpdateTypedLinkFacet where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateTypedLinkFacet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateTypedLinkFacetResponse' smart constructor.
+-- | /See:/ 'mkUpdateTypedLinkFacetResponse' smart constructor.
 newtype UpdateTypedLinkFacetResponse = UpdateTypedLinkFacetResponse'
-  { _utlfrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTypedLinkFacetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utlfrsResponseStatus' - -- | The response status code.
-updateTypedLinkFacetResponse ::
-  -- | 'utlfrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateTypedLinkFacetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateTypedLinkFacetResponse
-updateTypedLinkFacetResponse pResponseStatus_ =
-  UpdateTypedLinkFacetResponse'
-    { _utlfrsResponseStatus =
-        pResponseStatus_
-    }
+mkUpdateTypedLinkFacetResponse pResponseStatus_ =
+  UpdateTypedLinkFacetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-utlfrsResponseStatus :: Lens' UpdateTypedLinkFacetResponse Int
-utlfrsResponseStatus = lens _utlfrsResponseStatus (\s a -> s {_utlfrsResponseStatus = a})
-
-instance NFData UpdateTypedLinkFacetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utlfrsResponseStatus :: Lens.Lens' UpdateTypedLinkFacetResponse Lude.Int
+utlfrsResponseStatus = Lens.lens (responseStatus :: UpdateTypedLinkFacetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTypedLinkFacetResponse)
+{-# DEPRECATED utlfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

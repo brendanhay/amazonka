@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,152 +14,162 @@
 --
 -- Obtains information about the conditional forwarders for this account.
 --
---
 -- If no input parameters are provided for RemoteDomainNames, this request describes all conditional forwarders for the specified directory ID.
 module Network.AWS.DirectoryService.DescribeConditionalForwarders
-  ( -- * Creating a Request
-    describeConditionalForwarders,
-    DescribeConditionalForwarders,
+  ( -- * Creating a request
+    DescribeConditionalForwarders (..),
+    mkDescribeConditionalForwarders,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcfRemoteDomainNames,
     dcfDirectoryId,
 
-    -- * Destructuring the Response
-    describeConditionalForwardersResponse,
-    DescribeConditionalForwardersResponse,
+    -- * Destructuring the response
+    DescribeConditionalForwardersResponse (..),
+    mkDescribeConditionalForwardersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcfrsConditionalForwarders,
     dcfrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Describes a conditional forwarder.
 --
---
---
--- /See:/ 'describeConditionalForwarders' smart constructor.
+-- /See:/ 'mkDescribeConditionalForwarders' smart constructor.
 data DescribeConditionalForwarders = DescribeConditionalForwarders'
-  { _dcfRemoteDomainNames ::
-      !(Maybe [Text]),
-    _dcfDirectoryId :: !Text
+  { remoteDomainNames ::
+      Lude.Maybe [Lude.Text],
+    directoryId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConditionalForwarders' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcfRemoteDomainNames' - The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.
---
--- * 'dcfDirectoryId' - The directory ID for which to get the list of associated conditional forwarders.
-describeConditionalForwarders ::
-  -- | 'dcfDirectoryId'
-  Text ->
+-- * 'directoryId' - The directory ID for which to get the list of associated conditional forwarders.
+-- * 'remoteDomainNames' - The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.
+mkDescribeConditionalForwarders ::
+  -- | 'directoryId'
+  Lude.Text ->
   DescribeConditionalForwarders
-describeConditionalForwarders pDirectoryId_ =
+mkDescribeConditionalForwarders pDirectoryId_ =
   DescribeConditionalForwarders'
-    { _dcfRemoteDomainNames = Nothing,
-      _dcfDirectoryId = pDirectoryId_
+    { remoteDomainNames = Lude.Nothing,
+      directoryId = pDirectoryId_
     }
 
 -- | The fully qualified domain names (FQDN) of the remote domains for which to get the list of associated conditional forwarders. If this member is null, all conditional forwarders are returned.
-dcfRemoteDomainNames :: Lens' DescribeConditionalForwarders [Text]
-dcfRemoteDomainNames = lens _dcfRemoteDomainNames (\s a -> s {_dcfRemoteDomainNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'remoteDomainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfRemoteDomainNames :: Lens.Lens' DescribeConditionalForwarders (Lude.Maybe [Lude.Text])
+dcfRemoteDomainNames = Lens.lens (remoteDomainNames :: DescribeConditionalForwarders -> Lude.Maybe [Lude.Text]) (\s a -> s {remoteDomainNames = a} :: DescribeConditionalForwarders)
+{-# DEPRECATED dcfRemoteDomainNames "Use generic-lens or generic-optics with 'remoteDomainNames' instead." #-}
 
 -- | The directory ID for which to get the list of associated conditional forwarders.
-dcfDirectoryId :: Lens' DescribeConditionalForwarders Text
-dcfDirectoryId = lens _dcfDirectoryId (\s a -> s {_dcfDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfDirectoryId :: Lens.Lens' DescribeConditionalForwarders Lude.Text
+dcfDirectoryId = Lens.lens (directoryId :: DescribeConditionalForwarders -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeConditionalForwarders)
+{-# DEPRECATED dcfDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance AWSRequest DescribeConditionalForwarders where
+instance Lude.AWSRequest DescribeConditionalForwarders where
   type
     Rs DescribeConditionalForwarders =
       DescribeConditionalForwardersResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeConditionalForwardersResponse'
-            <$> (x .?> "ConditionalForwarders" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ConditionalForwarders" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeConditionalForwarders
-
-instance NFData DescribeConditionalForwarders
-
-instance ToHeaders DescribeConditionalForwarders where
+instance Lude.ToHeaders DescribeConditionalForwarders where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "DirectoryService_20150416.DescribeConditionalForwarders" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.DescribeConditionalForwarders" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeConditionalForwarders where
+instance Lude.ToJSON DescribeConditionalForwarders where
   toJSON DescribeConditionalForwarders' {..} =
-    object
-      ( catMaybes
-          [ ("RemoteDomainNames" .=) <$> _dcfRemoteDomainNames,
-            Just ("DirectoryId" .= _dcfDirectoryId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RemoteDomainNames" Lude..=) Lude.<$> remoteDomainNames,
+            Lude.Just ("DirectoryId" Lude..= directoryId)
           ]
       )
 
-instance ToPath DescribeConditionalForwarders where
-  toPath = const "/"
+instance Lude.ToPath DescribeConditionalForwarders where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeConditionalForwarders where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeConditionalForwarders where
+  toQuery = Lude.const Lude.mempty
 
 -- | The result of a DescribeConditionalForwarder request.
 --
---
---
--- /See:/ 'describeConditionalForwardersResponse' smart constructor.
+-- /See:/ 'mkDescribeConditionalForwardersResponse' smart constructor.
 data DescribeConditionalForwardersResponse = DescribeConditionalForwardersResponse'
-  { _dcfrsConditionalForwarders ::
-      !( Maybe
-           [ConditionalForwarder]
-       ),
-    _dcfrsResponseStatus ::
-      !Int
+  { conditionalForwarders ::
+      Lude.Maybe
+        [ConditionalForwarder],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConditionalForwardersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcfrsConditionalForwarders' - The list of conditional forwarders that have been created.
---
--- * 'dcfrsResponseStatus' - -- | The response status code.
-describeConditionalForwardersResponse ::
-  -- | 'dcfrsResponseStatus'
-  Int ->
+-- * 'conditionalForwarders' - The list of conditional forwarders that have been created.
+-- * 'responseStatus' - The response status code.
+mkDescribeConditionalForwardersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConditionalForwardersResponse
-describeConditionalForwardersResponse pResponseStatus_ =
+mkDescribeConditionalForwardersResponse pResponseStatus_ =
   DescribeConditionalForwardersResponse'
-    { _dcfrsConditionalForwarders =
-        Nothing,
-      _dcfrsResponseStatus = pResponseStatus_
+    { conditionalForwarders =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of conditional forwarders that have been created.
-dcfrsConditionalForwarders :: Lens' DescribeConditionalForwardersResponse [ConditionalForwarder]
-dcfrsConditionalForwarders = lens _dcfrsConditionalForwarders (\s a -> s {_dcfrsConditionalForwarders = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'conditionalForwarders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfrsConditionalForwarders :: Lens.Lens' DescribeConditionalForwardersResponse (Lude.Maybe [ConditionalForwarder])
+dcfrsConditionalForwarders = Lens.lens (conditionalForwarders :: DescribeConditionalForwardersResponse -> Lude.Maybe [ConditionalForwarder]) (\s a -> s {conditionalForwarders = a} :: DescribeConditionalForwardersResponse)
+{-# DEPRECATED dcfrsConditionalForwarders "Use generic-lens or generic-optics with 'conditionalForwarders' instead." #-}
 
--- | -- | The response status code.
-dcfrsResponseStatus :: Lens' DescribeConditionalForwardersResponse Int
-dcfrsResponseStatus = lens _dcfrsResponseStatus (\s a -> s {_dcfrsResponseStatus = a})
-
-instance NFData DescribeConditionalForwardersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcfrsResponseStatus :: Lens.Lens' DescribeConditionalForwardersResponse Lude.Int
+dcfrsResponseStatus = Lens.lens (responseStatus :: DescribeConditionalForwardersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConditionalForwardersResponse)
+{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

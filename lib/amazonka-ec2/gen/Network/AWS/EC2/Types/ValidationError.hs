@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ValidationError where
+module Network.AWS.EC2.Types.ValidationError
+  ( ValidationError (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkValidationError,
+
+    -- * Lenses
+    veCode,
+    veMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The error code and error message that is returned for a parameter or parameter combination that is not valid when a new launch template or new version of a launch template is created.
 --
---
---
--- /See:/ 'validationError' smart constructor.
+-- /See:/ 'mkValidationError' smart constructor.
 data ValidationError = ValidationError'
-  { _veCode :: !(Maybe Text),
-    _veMessage :: !(Maybe Text)
+  { code ::
+      Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'veCode' - The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
---
--- * 'veMessage' - The error message that describes why the parameter or parameter combination is not valid. For more information about error messages, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
-validationError ::
+-- * 'code' - The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+-- * 'message' - The error message that describes why the parameter or parameter combination is not valid. For more information about error messages, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
+mkValidationError ::
   ValidationError
-validationError =
-  ValidationError' {_veCode = Nothing, _veMessage = Nothing}
+mkValidationError =
+  ValidationError' {code = Lude.Nothing, message = Lude.Nothing}
 
 -- | The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
-veCode :: Lens' ValidationError (Maybe Text)
-veCode = lens _veCode (\s a -> s {_veCode = a})
+--
+-- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veCode :: Lens.Lens' ValidationError (Lude.Maybe Lude.Text)
+veCode = Lens.lens (code :: ValidationError -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: ValidationError)
+{-# DEPRECATED veCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The error message that describes why the parameter or parameter combination is not valid. For more information about error messages, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes> .
-veMessage :: Lens' ValidationError (Maybe Text)
-veMessage = lens _veMessage (\s a -> s {_veMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+veMessage :: Lens.Lens' ValidationError (Lude.Maybe Lude.Text)
+veMessage = Lens.lens (message :: ValidationError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ValidationError)
+{-# DEPRECATED veMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromXML ValidationError where
+instance Lude.FromXML ValidationError where
   parseXML x =
-    ValidationError' <$> (x .@? "code") <*> (x .@? "message")
-
-instance Hashable ValidationError
-
-instance NFData ValidationError
+    ValidationError'
+      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")

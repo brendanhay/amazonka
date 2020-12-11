@@ -13,8 +13,8 @@
 --
 -- For more information about AWS CloudHSM, see <http://aws.amazon.com/cloudhsm/ AWS CloudHSM> and the <https://docs.aws.amazon.com/cloudhsm/latest/userguide/ AWS CloudHSM User Guide> .
 module Network.AWS.CloudHSMv2
-  ( -- * Service Configuration
-    cloudHSMv2,
+  ( -- * Service configuration
+    cloudHSMv2Service,
 
     -- * Errors
     -- $errors
@@ -88,8 +88,8 @@ module Network.AWS.CloudHSMv2
     HSMState (..),
 
     -- ** Backup
-    Backup,
-    backup,
+    Backup (..),
+    mkBackup,
     bDeleteTimestamp,
     bSourceCluster,
     bNeverExpires,
@@ -103,14 +103,14 @@ module Network.AWS.CloudHSMv2
     bBackupId,
 
     -- ** BackupRetentionPolicy
-    BackupRetentionPolicy,
-    backupRetentionPolicy,
+    BackupRetentionPolicy (..),
+    mkBackupRetentionPolicy,
     brpValue,
     brpType,
 
     -- ** Certificates
-    Certificates,
-    certificates,
+    Certificates (..),
+    mkCertificates,
     cManufacturerHardwareCertificate,
     cClusterCSR,
     cHSMCertificate,
@@ -118,8 +118,8 @@ module Network.AWS.CloudHSMv2
     cAWSHardwareCertificate,
 
     -- ** Cluster
-    Cluster,
-    cluster,
+    Cluster (..),
+    mkCluster,
     cPreCoPassword,
     cStateMessage,
     cState,
@@ -137,16 +137,16 @@ module Network.AWS.CloudHSMv2
     cHSMType,
 
     -- ** DestinationBackup
-    DestinationBackup,
-    destinationBackup,
+    DestinationBackup (..),
+    mkDestinationBackup,
     dbSourceCluster,
     dbSourceRegion,
     dbSourceBackup,
     dbCreateTimestamp,
 
     -- ** HSM
-    HSM,
-    hsm,
+    HSM (..),
+    mkHSM,
     hsmStateMessage,
     hsmState,
     hsmEniId,
@@ -157,10 +157,21 @@ module Network.AWS.CloudHSMv2
     hsmHSMId,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -181,6 +192,7 @@ import Network.AWS.CloudHSMv2.TagResource
 import Network.AWS.CloudHSMv2.Types
 import Network.AWS.CloudHSMv2.UntagResource
 import Network.AWS.CloudHSMv2.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EMR.Types.ScaleDownBehavior where
+module Network.AWS.EMR.Types.ScaleDownBehavior
+  ( ScaleDownBehavior
+      ( ScaleDownBehavior',
+        TerminateAtInstanceHour,
+        TerminateAtTaskCompletion
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScaleDownBehavior
-  = TerminateAtInstanceHour
-  | TerminateAtTaskCompletion
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScaleDownBehavior = ScaleDownBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScaleDownBehavior where
-  parser =
-    takeLowerText >>= \case
-      "terminate_at_instance_hour" -> pure TerminateAtInstanceHour
-      "terminate_at_task_completion" -> pure TerminateAtTaskCompletion
-      e ->
-        fromTextError $
-          "Failure parsing ScaleDownBehavior from value: '" <> e
-            <> "'. Accepted values: terminate_at_instance_hour, terminate_at_task_completion"
+pattern TerminateAtInstanceHour :: ScaleDownBehavior
+pattern TerminateAtInstanceHour = ScaleDownBehavior' "TERMINATE_AT_INSTANCE_HOUR"
 
-instance ToText ScaleDownBehavior where
-  toText = \case
-    TerminateAtInstanceHour -> "TERMINATE_AT_INSTANCE_HOUR"
-    TerminateAtTaskCompletion -> "TERMINATE_AT_TASK_COMPLETION"
+pattern TerminateAtTaskCompletion :: ScaleDownBehavior
+pattern TerminateAtTaskCompletion = ScaleDownBehavior' "TERMINATE_AT_TASK_COMPLETION"
 
-instance Hashable ScaleDownBehavior
-
-instance NFData ScaleDownBehavior
-
-instance ToByteString ScaleDownBehavior
-
-instance ToQuery ScaleDownBehavior
-
-instance ToHeader ScaleDownBehavior
-
-instance ToJSON ScaleDownBehavior where
-  toJSON = toJSONText
-
-instance FromJSON ScaleDownBehavior where
-  parseJSON = parseJSONText "ScaleDownBehavior"
+{-# COMPLETE
+  TerminateAtInstanceHour,
+  TerminateAtTaskCompletion,
+  ScaleDownBehavior'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,100 +14,116 @@
 --
 -- Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.
 --
---
 -- For more information about tags, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /Amazon Elastic Compute Cloud User Guide/ . For more information about creating IAM policies that control users' access to resources based on tags, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html Supported Resource-Level Permissions for Amazon EC2 API Actions> in the /Amazon Elastic Compute Cloud User Guide/ .
 module Network.AWS.EC2.CreateTags
-  ( -- * Creating a Request
-    createTags,
-    CreateTags,
+  ( -- * Creating a request
+    CreateTags (..),
+    mkCreateTags,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cDryRun,
     cResources,
     cTags,
 
-    -- * Destructuring the Response
-    createTagsResponse,
-    CreateTagsResponse,
+    -- * Destructuring the response
+    CreateTagsResponse (..),
+    mkCreateTagsResponse,
   )
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createTags' smart constructor.
+-- | /See:/ 'mkCreateTags' smart constructor.
 data CreateTags = CreateTags'
-  { _cDryRun :: !(Maybe Bool),
-    _cResources :: ![Text],
-    _cTags :: ![Tag]
+  { dryRun :: Lude.Maybe Lude.Bool,
+    resources :: [Lude.Text],
+    tags :: [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'resources' - The IDs of the resources, separated by spaces.
 --
--- * 'cDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- * 'cResources' - The IDs of the resources, separated by spaces. Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
---
--- * 'cTags' - The tags. The @value@ parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
-createTags ::
+-- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+-- * 'tags' - The tags. The @value@ parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
+mkCreateTags ::
   CreateTags
-createTags =
+mkCreateTags =
   CreateTags'
-    { _cDryRun = Nothing,
-      _cResources = mempty,
-      _cTags = mempty
+    { dryRun = Lude.Nothing,
+      resources = Lude.mempty,
+      tags = Lude.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cDryRun :: Lens' CreateTags (Maybe Bool)
-cDryRun = lens _cDryRun (\s a -> s {_cDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDryRun :: Lens.Lens' CreateTags (Lude.Maybe Lude.Bool)
+cDryRun = Lens.lens (dryRun :: CreateTags -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTags)
+{-# DEPRECATED cDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The IDs of the resources, separated by spaces. Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
-cResources :: Lens' CreateTags [Text]
-cResources = lens _cResources (\s a -> s {_cResources = a}) . _Coerce
+-- | The IDs of the resources, separated by spaces.
+--
+-- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cResources :: Lens.Lens' CreateTags [Lude.Text]
+cResources = Lens.lens (resources :: CreateTags -> [Lude.Text]) (\s a -> s {resources = a} :: CreateTags)
+{-# DEPRECATED cResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The tags. The @value@ parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
-cTags :: Lens' CreateTags [Tag]
-cTags = lens _cTags (\s a -> s {_cTags = a}) . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTags :: Lens.Lens' CreateTags [Tag]
+cTags = Lens.lens (tags :: CreateTags -> [Tag]) (\s a -> s {tags = a} :: CreateTags)
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance AWSRequest CreateTags where
+instance Lude.AWSRequest CreateTags where
   type Rs CreateTags = CreateTagsResponse
-  request = postQuery ec2
-  response = receiveNull CreateTagsResponse'
+  request = Req.postQuery ec2Service
+  response = Res.receiveNull CreateTagsResponse'
 
-instance Hashable CreateTags
+instance Lude.ToHeaders CreateTags where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateTags
+instance Lude.ToPath CreateTags where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateTags where
-  toHeaders = const mempty
-
-instance ToPath CreateTags where
-  toPath = const "/"
-
-instance ToQuery CreateTags where
+instance Lude.ToQuery CreateTags where
   toQuery CreateTags' {..} =
-    mconcat
-      [ "Action" =: ("CreateTags" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        "DryRun" =: _cDryRun,
-        toQueryList "ResourceId" _cResources,
-        toQueryList "Tag" _cTags
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateTags" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "ResourceId" resources,
+        Lude.toQueryList "Tag" tags
       ]
 
--- | /See:/ 'createTagsResponse' smart constructor.
+-- | /See:/ 'mkCreateTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
-createTagsResponse ::
+mkCreateTagsResponse ::
   CreateTagsResponse
-createTagsResponse = CreateTagsResponse'
-
-instance NFData CreateTagsResponse
+mkCreateTagsResponse = CreateTagsResponse'

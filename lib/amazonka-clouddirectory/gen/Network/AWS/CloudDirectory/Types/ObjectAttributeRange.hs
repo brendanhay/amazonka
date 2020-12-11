@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudDirectory.Types.ObjectAttributeRange where
+module Network.AWS.CloudDirectory.Types.ObjectAttributeRange
+  ( ObjectAttributeRange (..),
+
+    -- * Smart constructor
+    mkObjectAttributeRange,
+
+    -- * Lenses
+    oarRange,
+    oarAttributeKey,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A range of attributes.
 --
---
---
--- /See:/ 'objectAttributeRange' smart constructor.
+-- /See:/ 'mkObjectAttributeRange' smart constructor.
 data ObjectAttributeRange = ObjectAttributeRange'
-  { _oarRange ::
-      !(Maybe TypedAttributeValueRange),
-    _oarAttributeKey :: !(Maybe AttributeKey)
+  { range ::
+      Lude.Maybe TypedAttributeValueRange,
+    attributeKey :: Lude.Maybe AttributeKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectAttributeRange' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'oarRange' - The range of attribute values being selected.
---
--- * 'oarAttributeKey' - The key of the attribute that the attribute range covers.
-objectAttributeRange ::
+-- * 'attributeKey' - The key of the attribute that the attribute range covers.
+-- * 'range' - The range of attribute values being selected.
+mkObjectAttributeRange ::
   ObjectAttributeRange
-objectAttributeRange =
+mkObjectAttributeRange =
   ObjectAttributeRange'
-    { _oarRange = Nothing,
-      _oarAttributeKey = Nothing
+    { range = Lude.Nothing,
+      attributeKey = Lude.Nothing
     }
 
 -- | The range of attribute values being selected.
-oarRange :: Lens' ObjectAttributeRange (Maybe TypedAttributeValueRange)
-oarRange = lens _oarRange (\s a -> s {_oarRange = a})
+--
+-- /Note:/ Consider using 'range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oarRange :: Lens.Lens' ObjectAttributeRange (Lude.Maybe TypedAttributeValueRange)
+oarRange = Lens.lens (range :: ObjectAttributeRange -> Lude.Maybe TypedAttributeValueRange) (\s a -> s {range = a} :: ObjectAttributeRange)
+{-# DEPRECATED oarRange "Use generic-lens or generic-optics with 'range' instead." #-}
 
 -- | The key of the attribute that the attribute range covers.
-oarAttributeKey :: Lens' ObjectAttributeRange (Maybe AttributeKey)
-oarAttributeKey = lens _oarAttributeKey (\s a -> s {_oarAttributeKey = a})
+--
+-- /Note:/ Consider using 'attributeKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oarAttributeKey :: Lens.Lens' ObjectAttributeRange (Lude.Maybe AttributeKey)
+oarAttributeKey = Lens.lens (attributeKey :: ObjectAttributeRange -> Lude.Maybe AttributeKey) (\s a -> s {attributeKey = a} :: ObjectAttributeRange)
+{-# DEPRECATED oarAttributeKey "Use generic-lens or generic-optics with 'attributeKey' instead." #-}
 
-instance Hashable ObjectAttributeRange
-
-instance NFData ObjectAttributeRange
-
-instance ToJSON ObjectAttributeRange where
+instance Lude.ToJSON ObjectAttributeRange where
   toJSON ObjectAttributeRange' {..} =
-    object
-      ( catMaybes
-          [ ("Range" .=) <$> _oarRange,
-            ("AttributeKey" .=) <$> _oarAttributeKey
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Range" Lude..=) Lude.<$> range,
+            ("AttributeKey" Lude..=) Lude.<$> attributeKey
           ]
       )

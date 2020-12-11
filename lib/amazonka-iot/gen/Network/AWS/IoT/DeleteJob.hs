@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,98 +14,120 @@
 --
 -- Deletes a job and its related job executions.
 --
---
 -- Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as "DELETION_IN_PROGRESS". Attempting to delete or cancel a job whose status is already "DELETION_IN_PROGRESS" will result in an error.
---
 -- Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or a LimitExceededException will occur.
 module Network.AWS.IoT.DeleteJob
-  ( -- * Creating a Request
-    deleteJob,
-    DeleteJob,
+  ( -- * Creating a request
+    DeleteJob (..),
+    mkDeleteJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     djForce,
     djNamespaceId,
     djJobId,
 
-    -- * Destructuring the Response
-    deleteJobResponse,
-    DeleteJobResponse,
+    -- * Destructuring the response
+    DeleteJobResponse (..),
+    mkDeleteJobResponse,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteJob' smart constructor.
+-- | /See:/ 'mkDeleteJob' smart constructor.
 data DeleteJob = DeleteJob'
-  { _djForce :: !(Maybe Bool),
-    _djNamespaceId :: !(Maybe Text),
-    _djJobId :: !Text
+  { force :: Lude.Maybe Lude.Bool,
+    namespaceId :: Lude.Maybe Lude.Text,
+    jobId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'force' - (Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception will occur. The default is false.
+-- * 'jobId' - The ID of the job to be deleted.
 --
--- * 'djForce' - (Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception will occur. The default is false.
+-- After a job deletion is completed, you may reuse this jobId when you create a new job. However, this is not recommended, and you must ensure that your devices are not using the jobId to refer to the deleted job.
+-- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
--- * 'djNamespaceId' - The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
---
--- * 'djJobId' - The ID of the job to be deleted. After a job deletion is completed, you may reuse this jobId when you create a new job. However, this is not recommended, and you must ensure that your devices are not using the jobId to refer to the deleted job.
-deleteJob ::
-  -- | 'djJobId'
-  Text ->
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+mkDeleteJob ::
+  -- | 'jobId'
+  Lude.Text ->
   DeleteJob
-deleteJob pJobId_ =
+mkDeleteJob pJobId_ =
   DeleteJob'
-    { _djForce = Nothing,
-      _djNamespaceId = Nothing,
-      _djJobId = pJobId_
+    { force = Lude.Nothing,
+      namespaceId = Lude.Nothing,
+      jobId = pJobId_
     }
 
 -- | (Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception will occur. The default is false.
-djForce :: Lens' DeleteJob (Maybe Bool)
-djForce = lens _djForce (\s a -> s {_djForce = a})
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djForce :: Lens.Lens' DeleteJob (Lude.Maybe Lude.Bool)
+djForce = Lens.lens (force :: DeleteJob -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteJob)
+{-# DEPRECATED djForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
--- | The namespace used to indicate that a job is a customer-managed job. When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format. @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
-djNamespaceId :: Lens' DeleteJob (Maybe Text)
-djNamespaceId = lens _djNamespaceId (\s a -> s {_djNamespaceId = a})
+-- | The namespace used to indicate that a job is a customer-managed job.
+--
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+--
+-- /Note:/ Consider using 'namespaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djNamespaceId :: Lens.Lens' DeleteJob (Lude.Maybe Lude.Text)
+djNamespaceId = Lens.lens (namespaceId :: DeleteJob -> Lude.Maybe Lude.Text) (\s a -> s {namespaceId = a} :: DeleteJob)
+{-# DEPRECATED djNamespaceId "Use generic-lens or generic-optics with 'namespaceId' instead." #-}
 
--- | The ID of the job to be deleted. After a job deletion is completed, you may reuse this jobId when you create a new job. However, this is not recommended, and you must ensure that your devices are not using the jobId to refer to the deleted job.
-djJobId :: Lens' DeleteJob Text
-djJobId = lens _djJobId (\s a -> s {_djJobId = a})
+-- | The ID of the job to be deleted.
+--
+-- After a job deletion is completed, you may reuse this jobId when you create a new job. However, this is not recommended, and you must ensure that your devices are not using the jobId to refer to the deleted job.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djJobId :: Lens.Lens' DeleteJob Lude.Text
+djJobId = Lens.lens (jobId :: DeleteJob -> Lude.Text) (\s a -> s {jobId = a} :: DeleteJob)
+{-# DEPRECATED djJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest DeleteJob where
+instance Lude.AWSRequest DeleteJob where
   type Rs DeleteJob = DeleteJobResponse
-  request = delete ioT
-  response = receiveNull DeleteJobResponse'
+  request = Req.delete ioTService
+  response = Res.receiveNull DeleteJobResponse'
 
-instance Hashable DeleteJob
+instance Lude.ToHeaders DeleteJob where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteJob
+instance Lude.ToPath DeleteJob where
+  toPath DeleteJob' {..} = Lude.mconcat ["/jobs/", Lude.toBS jobId]
 
-instance ToHeaders DeleteJob where
-  toHeaders = const mempty
-
-instance ToPath DeleteJob where
-  toPath DeleteJob' {..} = mconcat ["/jobs/", toBS _djJobId]
-
-instance ToQuery DeleteJob where
+instance Lude.ToQuery DeleteJob where
   toQuery DeleteJob' {..} =
-    mconcat ["force" =: _djForce, "namespaceId" =: _djNamespaceId]
+    Lude.mconcat
+      ["force" Lude.=: force, "namespaceId" Lude.=: namespaceId]
 
--- | /See:/ 'deleteJobResponse' smart constructor.
+-- | /See:/ 'mkDeleteJobResponse' smart constructor.
 data DeleteJobResponse = DeleteJobResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteJobResponse' with the minimum fields required to make a request.
-deleteJobResponse ::
+mkDeleteJobResponse ::
   DeleteJobResponse
-deleteJobResponse = DeleteJobResponse'
-
-instance NFData DeleteJobResponse
+mkDeleteJobResponse = DeleteJobResponse'

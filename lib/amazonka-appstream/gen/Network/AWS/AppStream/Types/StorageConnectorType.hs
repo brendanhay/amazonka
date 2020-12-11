@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,55 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.StorageConnectorType where
+module Network.AWS.AppStream.Types.StorageConnectorType
+  ( StorageConnectorType
+      ( StorageConnectorType',
+        GoogleDrive,
+        Homefolders,
+        OneDrive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The type of storage connector.
-data StorageConnectorType
-  = GoogleDrive
-  | Homefolders
-  | OneDrive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StorageConnectorType = StorageConnectorType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StorageConnectorType where
-  parser =
-    takeLowerText >>= \case
-      "google_drive" -> pure GoogleDrive
-      "homefolders" -> pure Homefolders
-      "one_drive" -> pure OneDrive
-      e ->
-        fromTextError $
-          "Failure parsing StorageConnectorType from value: '" <> e
-            <> "'. Accepted values: google_drive, homefolders, one_drive"
+pattern GoogleDrive :: StorageConnectorType
+pattern GoogleDrive = StorageConnectorType' "GOOGLE_DRIVE"
 
-instance ToText StorageConnectorType where
-  toText = \case
-    GoogleDrive -> "GOOGLE_DRIVE"
-    Homefolders -> "HOMEFOLDERS"
-    OneDrive -> "ONE_DRIVE"
+pattern Homefolders :: StorageConnectorType
+pattern Homefolders = StorageConnectorType' "HOMEFOLDERS"
 
-instance Hashable StorageConnectorType
+pattern OneDrive :: StorageConnectorType
+pattern OneDrive = StorageConnectorType' "ONE_DRIVE"
 
-instance NFData StorageConnectorType
-
-instance ToByteString StorageConnectorType
-
-instance ToQuery StorageConnectorType
-
-instance ToHeader StorageConnectorType
-
-instance ToJSON StorageConnectorType where
-  toJSON = toJSONText
-
-instance FromJSON StorageConnectorType where
-  parseJSON = parseJSONText "StorageConnectorType"
+{-# COMPLETE
+  GoogleDrive,
+  Homefolders,
+  OneDrive,
+  StorageConnectorType'
+  #-}

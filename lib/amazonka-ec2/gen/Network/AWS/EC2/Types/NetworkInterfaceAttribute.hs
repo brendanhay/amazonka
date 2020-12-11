@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.NetworkInterfaceAttribute where
+module Network.AWS.EC2.Types.NetworkInterfaceAttribute
+  ( NetworkInterfaceAttribute
+      ( NetworkInterfaceAttribute',
+        NIAAttachment,
+        NIADescription,
+        NIAGroupSet,
+        NIASourceDestCheck
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NetworkInterfaceAttribute
-  = NIAAttachment
-  | NIADescription
-  | NIAGroupSet
-  | NIASourceDestCheck
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NetworkInterfaceAttribute = NetworkInterfaceAttribute' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NetworkInterfaceAttribute where
-  parser =
-    takeLowerText >>= \case
-      "attachment" -> pure NIAAttachment
-      "description" -> pure NIADescription
-      "groupset" -> pure NIAGroupSet
-      "sourcedestcheck" -> pure NIASourceDestCheck
-      e ->
-        fromTextError $
-          "Failure parsing NetworkInterfaceAttribute from value: '" <> e
-            <> "'. Accepted values: attachment, description, groupset, sourcedestcheck"
+pattern NIAAttachment :: NetworkInterfaceAttribute
+pattern NIAAttachment = NetworkInterfaceAttribute' "attachment"
 
-instance ToText NetworkInterfaceAttribute where
-  toText = \case
-    NIAAttachment -> "attachment"
-    NIADescription -> "description"
-    NIAGroupSet -> "groupSet"
-    NIASourceDestCheck -> "sourceDestCheck"
+pattern NIADescription :: NetworkInterfaceAttribute
+pattern NIADescription = NetworkInterfaceAttribute' "description"
 
-instance Hashable NetworkInterfaceAttribute
+pattern NIAGroupSet :: NetworkInterfaceAttribute
+pattern NIAGroupSet = NetworkInterfaceAttribute' "groupSet"
 
-instance NFData NetworkInterfaceAttribute
+pattern NIASourceDestCheck :: NetworkInterfaceAttribute
+pattern NIASourceDestCheck = NetworkInterfaceAttribute' "sourceDestCheck"
 
-instance ToByteString NetworkInterfaceAttribute
-
-instance ToQuery NetworkInterfaceAttribute
-
-instance ToHeader NetworkInterfaceAttribute
+{-# COMPLETE
+  NIAAttachment,
+  NIADescription,
+  NIAGroupSet,
+  NIASourceDestCheck,
+  NetworkInterfaceAttribute'
+  #-}

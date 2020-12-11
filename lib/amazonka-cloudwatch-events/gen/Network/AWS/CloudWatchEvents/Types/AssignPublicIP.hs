@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.AssignPublicIP where
+module Network.AWS.CloudWatchEvents.Types.AssignPublicIP
+  ( AssignPublicIP
+      ( AssignPublicIP',
+        APIDisabled,
+        APIEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AssignPublicIP
-  = APIDisabled
-  | APIEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AssignPublicIP = AssignPublicIP' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AssignPublicIP where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure APIDisabled
-      "enabled" -> pure APIEnabled
-      e ->
-        fromTextError $
-          "Failure parsing AssignPublicIP from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern APIDisabled :: AssignPublicIP
+pattern APIDisabled = AssignPublicIP' "DISABLED"
 
-instance ToText AssignPublicIP where
-  toText = \case
-    APIDisabled -> "DISABLED"
-    APIEnabled -> "ENABLED"
+pattern APIEnabled :: AssignPublicIP
+pattern APIEnabled = AssignPublicIP' "ENABLED"
 
-instance Hashable AssignPublicIP
-
-instance NFData AssignPublicIP
-
-instance ToByteString AssignPublicIP
-
-instance ToQuery AssignPublicIP
-
-instance ToHeader AssignPublicIP
-
-instance ToJSON AssignPublicIP where
-  toJSON = toJSONText
-
-instance FromJSON AssignPublicIP where
-  parseJSON = parseJSONText "AssignPublicIP"
+{-# COMPLETE
+  APIDisabled,
+  APIEnabled,
+  AssignPublicIP'
+  #-}

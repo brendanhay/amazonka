@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,106 +7,133 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.PasswordPolicyType where
+module Network.AWS.CognitoIdentityProvider.Types.PasswordPolicyType
+  ( PasswordPolicyType (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPasswordPolicyType,
+
+    -- * Lenses
+    pptRequireNumbers,
+    pptRequireUppercase,
+    pptRequireLowercase,
+    pptMinimumLength,
+    pptRequireSymbols,
+    pptTemporaryPasswordValidityDays,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The password policy type.
 --
---
---
--- /See:/ 'passwordPolicyType' smart constructor.
+-- /See:/ 'mkPasswordPolicyType' smart constructor.
 data PasswordPolicyType = PasswordPolicyType'
-  { _pptRequireNumbers ::
-      !(Maybe Bool),
-    _pptRequireUppercase :: !(Maybe Bool),
-    _pptRequireLowercase :: !(Maybe Bool),
-    _pptMinimumLength :: !(Maybe Nat),
-    _pptRequireSymbols :: !(Maybe Bool),
-    _pptTemporaryPasswordValidityDays :: !(Maybe Nat)
+  { requireNumbers ::
+      Lude.Maybe Lude.Bool,
+    requireUppercase :: Lude.Maybe Lude.Bool,
+    requireLowercase :: Lude.Maybe Lude.Bool,
+    minimumLength :: Lude.Maybe Lude.Natural,
+    requireSymbols :: Lude.Maybe Lude.Bool,
+    temporaryPasswordValidityDays ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PasswordPolicyType' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pptRequireNumbers' - In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
---
--- * 'pptRequireUppercase' - In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
---
--- * 'pptRequireLowercase' - In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
---
--- * 'pptMinimumLength' - The minimum length of the password policy that you have set. Cannot be less than 6.
---
--- * 'pptRequireSymbols' - In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
---
--- * 'pptTemporaryPasswordValidityDays' - In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-passwordPolicyType ::
+-- * 'minimumLength' - The minimum length of the password policy that you have set. Cannot be less than 6.
+-- * 'requireLowercase' - In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
+-- * 'requireNumbers' - In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
+-- * 'requireSymbols' - In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
+-- * 'requireUppercase' - In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+-- * 'temporaryPasswordValidityDays' - In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+mkPasswordPolicyType ::
   PasswordPolicyType
-passwordPolicyType =
+mkPasswordPolicyType =
   PasswordPolicyType'
-    { _pptRequireNumbers = Nothing,
-      _pptRequireUppercase = Nothing,
-      _pptRequireLowercase = Nothing,
-      _pptMinimumLength = Nothing,
-      _pptRequireSymbols = Nothing,
-      _pptTemporaryPasswordValidityDays = Nothing
+    { requireNumbers = Lude.Nothing,
+      requireUppercase = Lude.Nothing,
+      requireLowercase = Lude.Nothing,
+      minimumLength = Lude.Nothing,
+      requireSymbols = Lude.Nothing,
+      temporaryPasswordValidityDays = Lude.Nothing
     }
 
 -- | In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
-pptRequireNumbers :: Lens' PasswordPolicyType (Maybe Bool)
-pptRequireNumbers = lens _pptRequireNumbers (\s a -> s {_pptRequireNumbers = a})
+--
+-- /Note:/ Consider using 'requireNumbers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pptRequireNumbers :: Lens.Lens' PasswordPolicyType (Lude.Maybe Lude.Bool)
+pptRequireNumbers = Lens.lens (requireNumbers :: PasswordPolicyType -> Lude.Maybe Lude.Bool) (\s a -> s {requireNumbers = a} :: PasswordPolicyType)
+{-# DEPRECATED pptRequireNumbers "Use generic-lens or generic-optics with 'requireNumbers' instead." #-}
 
 -- | In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
-pptRequireUppercase :: Lens' PasswordPolicyType (Maybe Bool)
-pptRequireUppercase = lens _pptRequireUppercase (\s a -> s {_pptRequireUppercase = a})
+--
+-- /Note:/ Consider using 'requireUppercase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pptRequireUppercase :: Lens.Lens' PasswordPolicyType (Lude.Maybe Lude.Bool)
+pptRequireUppercase = Lens.lens (requireUppercase :: PasswordPolicyType -> Lude.Maybe Lude.Bool) (\s a -> s {requireUppercase = a} :: PasswordPolicyType)
+{-# DEPRECATED pptRequireUppercase "Use generic-lens or generic-optics with 'requireUppercase' instead." #-}
 
 -- | In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
-pptRequireLowercase :: Lens' PasswordPolicyType (Maybe Bool)
-pptRequireLowercase = lens _pptRequireLowercase (\s a -> s {_pptRequireLowercase = a})
+--
+-- /Note:/ Consider using 'requireLowercase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pptRequireLowercase :: Lens.Lens' PasswordPolicyType (Lude.Maybe Lude.Bool)
+pptRequireLowercase = Lens.lens (requireLowercase :: PasswordPolicyType -> Lude.Maybe Lude.Bool) (\s a -> s {requireLowercase = a} :: PasswordPolicyType)
+{-# DEPRECATED pptRequireLowercase "Use generic-lens or generic-optics with 'requireLowercase' instead." #-}
 
 -- | The minimum length of the password policy that you have set. Cannot be less than 6.
-pptMinimumLength :: Lens' PasswordPolicyType (Maybe Natural)
-pptMinimumLength = lens _pptMinimumLength (\s a -> s {_pptMinimumLength = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'minimumLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pptMinimumLength :: Lens.Lens' PasswordPolicyType (Lude.Maybe Lude.Natural)
+pptMinimumLength = Lens.lens (minimumLength :: PasswordPolicyType -> Lude.Maybe Lude.Natural) (\s a -> s {minimumLength = a} :: PasswordPolicyType)
+{-# DEPRECATED pptMinimumLength "Use generic-lens or generic-optics with 'minimumLength' instead." #-}
 
 -- | In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
-pptRequireSymbols :: Lens' PasswordPolicyType (Maybe Bool)
-pptRequireSymbols = lens _pptRequireSymbols (\s a -> s {_pptRequireSymbols = a})
+--
+-- /Note:/ Consider using 'requireSymbols' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pptRequireSymbols :: Lens.Lens' PasswordPolicyType (Lude.Maybe Lude.Bool)
+pptRequireSymbols = Lens.lens (requireSymbols :: PasswordPolicyType -> Lude.Maybe Lude.Bool) (\s a -> s {requireSymbols = a} :: PasswordPolicyType)
+{-# DEPRECATED pptRequireSymbols "Use generic-lens or generic-optics with 'requireSymbols' instead." #-}
 
 -- | In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
-pptTemporaryPasswordValidityDays :: Lens' PasswordPolicyType (Maybe Natural)
-pptTemporaryPasswordValidityDays = lens _pptTemporaryPasswordValidityDays (\s a -> s {_pptTemporaryPasswordValidityDays = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'temporaryPasswordValidityDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pptTemporaryPasswordValidityDays :: Lens.Lens' PasswordPolicyType (Lude.Maybe Lude.Natural)
+pptTemporaryPasswordValidityDays = Lens.lens (temporaryPasswordValidityDays :: PasswordPolicyType -> Lude.Maybe Lude.Natural) (\s a -> s {temporaryPasswordValidityDays = a} :: PasswordPolicyType)
+{-# DEPRECATED pptTemporaryPasswordValidityDays "Use generic-lens or generic-optics with 'temporaryPasswordValidityDays' instead." #-}
 
-instance FromJSON PasswordPolicyType where
+instance Lude.FromJSON PasswordPolicyType where
   parseJSON =
-    withObject
+    Lude.withObject
       "PasswordPolicyType"
       ( \x ->
           PasswordPolicyType'
-            <$> (x .:? "RequireNumbers")
-            <*> (x .:? "RequireUppercase")
-            <*> (x .:? "RequireLowercase")
-            <*> (x .:? "MinimumLength")
-            <*> (x .:? "RequireSymbols")
-            <*> (x .:? "TemporaryPasswordValidityDays")
+            Lude.<$> (x Lude..:? "RequireNumbers")
+            Lude.<*> (x Lude..:? "RequireUppercase")
+            Lude.<*> (x Lude..:? "RequireLowercase")
+            Lude.<*> (x Lude..:? "MinimumLength")
+            Lude.<*> (x Lude..:? "RequireSymbols")
+            Lude.<*> (x Lude..:? "TemporaryPasswordValidityDays")
       )
 
-instance Hashable PasswordPolicyType
-
-instance NFData PasswordPolicyType
-
-instance ToJSON PasswordPolicyType where
+instance Lude.ToJSON PasswordPolicyType where
   toJSON PasswordPolicyType' {..} =
-    object
-      ( catMaybes
-          [ ("RequireNumbers" .=) <$> _pptRequireNumbers,
-            ("RequireUppercase" .=) <$> _pptRequireUppercase,
-            ("RequireLowercase" .=) <$> _pptRequireLowercase,
-            ("MinimumLength" .=) <$> _pptMinimumLength,
-            ("RequireSymbols" .=) <$> _pptRequireSymbols,
-            ("TemporaryPasswordValidityDays" .=)
-              <$> _pptTemporaryPasswordValidityDays
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RequireNumbers" Lude..=) Lude.<$> requireNumbers,
+            ("RequireUppercase" Lude..=) Lude.<$> requireUppercase,
+            ("RequireLowercase" Lude..=) Lude.<$> requireLowercase,
+            ("MinimumLength" Lude..=) Lude.<$> minimumLength,
+            ("RequireSymbols" Lude..=) Lude.<$> requireSymbols,
+            ("TemporaryPasswordValidityDays" Lude..=)
+              Lude.<$> temporaryPasswordValidityDays
           ]
       )

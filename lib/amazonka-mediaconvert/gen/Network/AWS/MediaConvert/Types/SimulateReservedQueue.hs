@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.SimulateReservedQueue where
+module Network.AWS.MediaConvert.Types.SimulateReservedQueue
+  ( SimulateReservedQueue
+      ( SimulateReservedQueue',
+        SRQDisabled,
+        SRQEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
-data SimulateReservedQueue
-  = SRQDisabled
-  | SRQEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SimulateReservedQueue = SimulateReservedQueue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SimulateReservedQueue where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure SRQDisabled
-      "enabled" -> pure SRQEnabled
-      e ->
-        fromTextError $
-          "Failure parsing SimulateReservedQueue from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern SRQDisabled :: SimulateReservedQueue
+pattern SRQDisabled = SimulateReservedQueue' "DISABLED"
 
-instance ToText SimulateReservedQueue where
-  toText = \case
-    SRQDisabled -> "DISABLED"
-    SRQEnabled -> "ENABLED"
+pattern SRQEnabled :: SimulateReservedQueue
+pattern SRQEnabled = SimulateReservedQueue' "ENABLED"
 
-instance Hashable SimulateReservedQueue
-
-instance NFData SimulateReservedQueue
-
-instance ToByteString SimulateReservedQueue
-
-instance ToQuery SimulateReservedQueue
-
-instance ToHeader SimulateReservedQueue
-
-instance ToJSON SimulateReservedQueue where
-  toJSON = toJSONText
-
-instance FromJSON SimulateReservedQueue where
-  parseJSON = parseJSONText "SimulateReservedQueue"
+{-# COMPLETE
+  SRQDisabled,
+  SRQEnabled,
+  SimulateReservedQueue'
+  #-}

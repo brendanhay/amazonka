@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,163 +14,191 @@
 --
 -- Lists summary information for all the services that are associated with one or more specified namespaces.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Route53AutoNaming.ListServices
-  ( -- * Creating a Request
-    listServices,
-    ListServices,
+  ( -- * Creating a request
+    ListServices (..),
+    mkListServices,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsFilters,
     lsNextToken,
     lsMaxResults,
 
-    -- * Destructuring the Response
-    listServicesResponse,
-    ListServicesResponse,
+    -- * Destructuring the response
+    ListServicesResponse (..),
+    mkListServicesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsrsNextToken,
     lsrsServices,
     lsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53AutoNaming.Types
 
--- | /See:/ 'listServices' smart constructor.
+-- | /See:/ 'mkListServices' smart constructor.
 data ListServices = ListServices'
-  { _lsFilters ::
-      !(Maybe [ServiceFilter]),
-    _lsNextToken :: !(Maybe Text),
-    _lsMaxResults :: !(Maybe Nat)
+  { filters ::
+      Lude.Maybe [ServiceFilter],
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServices' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - A complex type that contains specifications for the namespaces that you want to list services for.
 --
--- * 'lsFilters' - A complex type that contains specifications for the namespaces that you want to list services for.  If you specify more than one filter, an operation must match all filters to be returned by @ListServices@ .
+-- If you specify more than one filter, an operation must match all filters to be returned by @ListServices@ .
+-- * 'maxResults' - The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
+-- * 'nextToken' - For the first @ListServices@ request, omit this value.
 --
--- * 'lsNextToken' - For the first @ListServices@ request, omit this value. If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
---
--- * 'lsMaxResults' - The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
-listServices ::
+-- If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+mkListServices ::
   ListServices
-listServices =
+mkListServices =
   ListServices'
-    { _lsFilters = Nothing,
-      _lsNextToken = Nothing,
-      _lsMaxResults = Nothing
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
--- | A complex type that contains specifications for the namespaces that you want to list services for.  If you specify more than one filter, an operation must match all filters to be returned by @ListServices@ .
-lsFilters :: Lens' ListServices [ServiceFilter]
-lsFilters = lens _lsFilters (\s a -> s {_lsFilters = a}) . _Default . _Coerce
+-- | A complex type that contains specifications for the namespaces that you want to list services for.
+--
+-- If you specify more than one filter, an operation must match all filters to be returned by @ListServices@ .
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsFilters :: Lens.Lens' ListServices (Lude.Maybe [ServiceFilter])
+lsFilters = Lens.lens (filters :: ListServices -> Lude.Maybe [ServiceFilter]) (\s a -> s {filters = a} :: ListServices)
+{-# DEPRECATED lsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | For the first @ListServices@ request, omit this value. If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-lsNextToken :: Lens' ListServices (Maybe Text)
-lsNextToken = lens _lsNextToken (\s a -> s {_lsNextToken = a})
+-- | For the first @ListServices@ request, omit this value.
+--
+-- If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsNextToken :: Lens.Lens' ListServices (Lude.Maybe Lude.Text)
+lsNextToken = Lens.lens (nextToken :: ListServices -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListServices)
+{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
-lsMaxResults :: Lens' ListServices (Maybe Natural)
-lsMaxResults = lens _lsMaxResults (\s a -> s {_lsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsMaxResults :: Lens.Lens' ListServices (Lude.Maybe Lude.Natural)
+lsMaxResults = Lens.lens (maxResults :: ListServices -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListServices)
+{-# DEPRECATED lsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListServices where
+instance Page.AWSPager ListServices where
   page rq rs
-    | stop (rs ^. lsrsNextToken) = Nothing
-    | stop (rs ^. lsrsServices) = Nothing
-    | otherwise = Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
+    | Page.stop (rs Lens.^. lsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsrsServices) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lsNextToken Lens..~ rs Lens.^. lsrsNextToken
 
-instance AWSRequest ListServices where
+instance Lude.AWSRequest ListServices where
   type Rs ListServices = ListServicesResponse
-  request = postJSON route53AutoNaming
+  request = Req.postJSON route53AutoNamingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListServicesResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "Services" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Services" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListServices
-
-instance NFData ListServices
-
-instance ToHeaders ListServices where
+instance Lude.ToHeaders ListServices where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53AutoNaming_v20170314.ListServices" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Route53AutoNaming_v20170314.ListServices" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListServices where
+instance Lude.ToJSON ListServices where
   toJSON ListServices' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _lsFilters,
-            ("NextToken" .=) <$> _lsNextToken,
-            ("MaxResults" .=) <$> _lsMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListServices where
-  toPath = const "/"
+instance Lude.ToPath ListServices where
+  toPath = Lude.const "/"
 
-instance ToQuery ListServices where
-  toQuery = const mempty
+instance Lude.ToQuery ListServices where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listServicesResponse' smart constructor.
+-- | /See:/ 'mkListServicesResponse' smart constructor.
 data ListServicesResponse = ListServicesResponse'
-  { _lsrsNextToken ::
-      !(Maybe Text),
-    _lsrsServices :: !(Maybe [ServiceSummary]),
-    _lsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    services :: Lude.Maybe [ServiceSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServicesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsrsNextToken' - If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
---
--- * 'lsrsServices' - An array that contains one @ServiceSummary@ object for each service that matches the specified filter criteria.
---
--- * 'lsrsResponseStatus' - -- | The response status code.
-listServicesResponse ::
-  -- | 'lsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- * 'responseStatus' - The response status code.
+-- * 'services' - An array that contains one @ServiceSummary@ object for each service that matches the specified filter criteria.
+mkListServicesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListServicesResponse
-listServicesResponse pResponseStatus_ =
+mkListServicesResponse pResponseStatus_ =
   ListServicesResponse'
-    { _lsrsNextToken = Nothing,
-      _lsrsServices = Nothing,
-      _lsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      services = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-lsrsNextToken :: Lens' ListServicesResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\s a -> s {_lsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsNextToken :: Lens.Lens' ListServicesResponse (Lude.Maybe Lude.Text)
+lsrsNextToken = Lens.lens (nextToken :: ListServicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListServicesResponse)
+{-# DEPRECATED lsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array that contains one @ServiceSummary@ object for each service that matches the specified filter criteria.
-lsrsServices :: Lens' ListServicesResponse [ServiceSummary]
-lsrsServices = lens _lsrsServices (\s a -> s {_lsrsServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsServices :: Lens.Lens' ListServicesResponse (Lude.Maybe [ServiceSummary])
+lsrsServices = Lens.lens (services :: ListServicesResponse -> Lude.Maybe [ServiceSummary]) (\s a -> s {services = a} :: ListServicesResponse)
+{-# DEPRECATED lsrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
--- | -- | The response status code.
-lsrsResponseStatus :: Lens' ListServicesResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\s a -> s {_lsrsResponseStatus = a})
-
-instance NFData ListServicesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsResponseStatus :: Lens.Lens' ListServicesResponse Lude.Int
+lsrsResponseStatus = Lens.lens (responseStatus :: ListServicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListServicesResponse)
+{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

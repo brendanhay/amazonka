@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,174 +14,208 @@
 --
 -- Lists the set of CA certificates provided by Amazon RDS for this AWS account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeCertificates
-  ( -- * Creating a Request
-    describeCertificates,
-    DescribeCertificates,
+  ( -- * Creating a request
+    DescribeCertificates (..),
+    mkDescribeCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcFilters,
     dcCertificateIdentifier,
     dcMarker,
     dcMaxRecords,
 
-    -- * Destructuring the Response
-    describeCertificatesResponse,
-    DescribeCertificatesResponse,
+    -- * Destructuring the response
+    DescribeCertificatesResponse (..),
+    mkDescribeCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsCertificates,
     dcrsMarker,
     dcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeCertificates' smart constructor.
+-- /See:/ 'mkDescribeCertificates' smart constructor.
 data DescribeCertificates = DescribeCertificates'
-  { _dcFilters ::
-      !(Maybe [Filter]),
-    _dcCertificateIdentifier :: !(Maybe Text),
-    _dcMarker :: !(Maybe Text),
-    _dcMaxRecords :: !(Maybe Int)
+  { filters ::
+      Lude.Maybe [Filter],
+    certificateIdentifier :: Lude.Maybe Lude.Text,
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'certificateIdentifier' - The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn't case-sensitive.
 --
--- * 'dcFilters' - This parameter isn't currently supported.
+-- Constraints:
 --
--- * 'dcCertificateIdentifier' - The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn't case-sensitive. Constraints:     * Must match an existing CertificateIdentifier.
+--     * Must match an existing CertificateIdentifier.
 --
--- * 'dcMarker' - An optional pagination token provided by a previous @DescribeCertificates@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
--- * 'dcMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-describeCertificates ::
+-- * 'filters' - This parameter isn't currently supported.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeCertificates@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+mkDescribeCertificates ::
   DescribeCertificates
-describeCertificates =
+mkDescribeCertificates =
   DescribeCertificates'
-    { _dcFilters = Nothing,
-      _dcCertificateIdentifier = Nothing,
-      _dcMarker = Nothing,
-      _dcMaxRecords = Nothing
+    { filters = Lude.Nothing,
+      certificateIdentifier = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
 -- | This parameter isn't currently supported.
-dcFilters :: Lens' DescribeCertificates [Filter]
-dcFilters = lens _dcFilters (\s a -> s {_dcFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcFilters :: Lens.Lens' DescribeCertificates (Lude.Maybe [Filter])
+dcFilters = Lens.lens (filters :: DescribeCertificates -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeCertificates)
+{-# DEPRECATED dcFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn't case-sensitive. Constraints:     * Must match an existing CertificateIdentifier.
-dcCertificateIdentifier :: Lens' DescribeCertificates (Maybe Text)
-dcCertificateIdentifier = lens _dcCertificateIdentifier (\s a -> s {_dcCertificateIdentifier = a})
+-- | The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * Must match an existing CertificateIdentifier.
+--
+--
+--
+-- /Note:/ Consider using 'certificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcCertificateIdentifier :: Lens.Lens' DescribeCertificates (Lude.Maybe Lude.Text)
+dcCertificateIdentifier = Lens.lens (certificateIdentifier :: DescribeCertificates -> Lude.Maybe Lude.Text) (\s a -> s {certificateIdentifier = a} :: DescribeCertificates)
+{-# DEPRECATED dcCertificateIdentifier "Use generic-lens or generic-optics with 'certificateIdentifier' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeCertificates@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dcMarker :: Lens' DescribeCertificates (Maybe Text)
-dcMarker = lens _dcMarker (\s a -> s {_dcMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcMarker :: Lens.Lens' DescribeCertificates (Lude.Maybe Lude.Text)
+dcMarker = Lens.lens (marker :: DescribeCertificates -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCertificates)
+{-# DEPRECATED dcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-dcMaxRecords :: Lens' DescribeCertificates (Maybe Int)
-dcMaxRecords = lens _dcMaxRecords (\s a -> s {_dcMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcMaxRecords :: Lens.Lens' DescribeCertificates (Lude.Maybe Lude.Int)
+dcMaxRecords = Lens.lens (maxRecords :: DescribeCertificates -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeCertificates)
+{-# DEPRECATED dcMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeCertificates where
+instance Page.AWSPager DescribeCertificates where
   page rq rs
-    | stop (rs ^. dcrsMarker) = Nothing
-    | stop (rs ^. dcrsCertificates) = Nothing
-    | otherwise = Just $ rq & dcMarker .~ rs ^. dcrsMarker
+    | Page.stop (rs Lens.^. dcrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcrsCertificates) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& dcMarker Lens..~ rs Lens.^. dcrsMarker
 
-instance AWSRequest DescribeCertificates where
+instance Lude.AWSRequest DescribeCertificates where
   type Rs DescribeCertificates = DescribeCertificatesResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeCertificatesResult"
       ( \s h x ->
           DescribeCertificatesResponse'
-            <$> ( x .@? "Certificates" .!@ mempty
-                    >>= may (parseXMLList "Certificate")
-                )
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "Certificates" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "Certificate")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeCertificates
+instance Lude.ToHeaders DescribeCertificates where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeCertificates
+instance Lude.ToPath DescribeCertificates where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeCertificates where
-  toHeaders = const mempty
-
-instance ToPath DescribeCertificates where
-  toPath = const "/"
-
-instance ToQuery DescribeCertificates where
+instance Lude.ToQuery DescribeCertificates where
   toQuery DescribeCertificates' {..} =
-    mconcat
-      [ "Action" =: ("DescribeCertificates" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "Filters" =: toQuery (toQueryList "Filter" <$> _dcFilters),
-        "CertificateIdentifier" =: _dcCertificateIdentifier,
-        "Marker" =: _dcMarker,
-        "MaxRecords" =: _dcMaxRecords
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeCertificates" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "CertificateIdentifier" Lude.=: certificateIdentifier,
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | Data returned by the __DescribeCertificates__ action.
 --
---
---
--- /See:/ 'describeCertificatesResponse' smart constructor.
+-- /See:/ 'mkDescribeCertificatesResponse' smart constructor.
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
-  { _dcrsCertificates ::
-      !(Maybe [Certificate]),
-    _dcrsMarker :: !(Maybe Text),
-    _dcrsResponseStatus :: !Int
+  { certificates ::
+      Lude.Maybe [Certificate],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsCertificates' - The list of @Certificate@ objects for the AWS account.
---
--- * 'dcrsMarker' - An optional pagination token provided by a previous @DescribeCertificates@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeCertificatesResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
+-- * 'certificates' - The list of @Certificate@ objects for the AWS account.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeCertificates@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+mkDescribeCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCertificatesResponse
-describeCertificatesResponse pResponseStatus_ =
+mkDescribeCertificatesResponse pResponseStatus_ =
   DescribeCertificatesResponse'
-    { _dcrsCertificates = Nothing,
-      _dcrsMarker = Nothing,
-      _dcrsResponseStatus = pResponseStatus_
+    { certificates = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of @Certificate@ objects for the AWS account.
-dcrsCertificates :: Lens' DescribeCertificatesResponse [Certificate]
-dcrsCertificates = lens _dcrsCertificates (\s a -> s {_dcrsCertificates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsCertificates :: Lens.Lens' DescribeCertificatesResponse (Lude.Maybe [Certificate])
+dcrsCertificates = Lens.lens (certificates :: DescribeCertificatesResponse -> Lude.Maybe [Certificate]) (\s a -> s {certificates = a} :: DescribeCertificatesResponse)
+{-# DEPRECATED dcrsCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeCertificates@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dcrsMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
-dcrsMarker = lens _dcrsMarker (\s a -> s {_dcrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsMarker :: Lens.Lens' DescribeCertificatesResponse (Lude.Maybe Lude.Text)
+dcrsMarker = Lens.lens (marker :: DescribeCertificatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCertificatesResponse)
+{-# DEPRECATED dcrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeCertificatesResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
-
-instance NFData DescribeCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DescribeCertificatesResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCertificatesResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

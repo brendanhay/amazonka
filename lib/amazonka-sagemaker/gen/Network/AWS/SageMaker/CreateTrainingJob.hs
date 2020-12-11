@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,17 @@
 --
 -- Starts a model training job. After training completes, Amazon SageMaker saves the resulting model artifacts to an Amazon S3 location that you specify.
 --
---
 -- If you choose to host your model using Amazon SageMaker hosting services, you can use the resulting model artifacts as part of the model. You can also use the artifacts in a machine learning service other than Amazon SageMaker, provided that you know how to use them for inferences.
---
 -- In the request body, you provide the following:
 --
 --     * @AlgorithmSpecification@ - Identifies the training algorithm to use.
 --
+--
 --     * @HyperParameters@ - Specify these algorithm-specific parameters to enable the estimation of model parameters during training. Hyperparameters can be tuned to optimize this learning process. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> .
 --
+--
 --     * @InputDataConfig@ - Describes the training dataset and the Amazon S3, EFS, or FSx location where it is stored.
+--
 --
 --     * @OutputDataConfig@ - Identifies the Amazon S3 bucket where you want Amazon SageMaker to save the results of model training.
 --
@@ -36,21 +32,23 @@
 --
 --     * @ResourceConfig@ - Identifies the resources, ML compute instances, and ML storage volumes to deploy for model training. In distributed training, you specify more than one instance.
 --
+--
 --     * @EnableManagedSpotTraining@ - Optimize the cost of training machine learning models by up to 80% by using Amazon EC2 Spot instances. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html Managed Spot Training> .
 --
+--
 --     * @RoleARN@ - The Amazon Resource Number (ARN) that Amazon SageMaker assumes to perform tasks on your behalf during model training. You must grant this role the necessary permissions so that Amazon SageMaker can successfully complete model training.
+--
 --
 --     * @StoppingCondition@ - To help cap training costs, use @MaxRuntimeInSeconds@ to set a time limit for training. Use @MaxWaitTimeInSeconds@ to specify how long you are willing to wait for a managed spot training job to complete.
 --
 --
---
 -- For more information about Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html How It Works> .
 module Network.AWS.SageMaker.CreateTrainingJob
-  ( -- * Creating a Request
-    createTrainingJob,
-    CreateTrainingJob,
+  ( -- * Creating a request
+    CreateTrainingJob (..),
+    mkCreateTrainingJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ctjtDebugHookConfig,
     ctjtCheckpointConfig,
     ctjtEnableNetworkIsolation,
@@ -70,103 +68,105 @@ module Network.AWS.SageMaker.CreateTrainingJob
     ctjtResourceConfig,
     ctjtStoppingCondition,
 
-    -- * Destructuring the Response
-    createTrainingJobResponse,
-    CreateTrainingJobResponse,
+    -- * Destructuring the response
+    CreateTrainingJobResponse (..),
+    mkCreateTrainingJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ctjtrsResponseStatus,
     ctjtrsTrainingJobARN,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'createTrainingJob' smart constructor.
+-- | /See:/ 'mkCreateTrainingJob' smart constructor.
 data CreateTrainingJob = CreateTrainingJob'
-  { _ctjtDebugHookConfig ::
-      !(Maybe DebugHookConfig),
-    _ctjtCheckpointConfig :: !(Maybe CheckpointConfig),
-    _ctjtEnableNetworkIsolation :: !(Maybe Bool),
-    _ctjtExperimentConfig :: !(Maybe ExperimentConfig),
-    _ctjtDebugRuleConfigurations ::
-      !(Maybe [DebugRuleConfiguration]),
-    _ctjtEnableManagedSpotTraining :: !(Maybe Bool),
-    _ctjtHyperParameters :: !(Maybe (Map Text (Text))),
-    _ctjtInputDataConfig :: !(Maybe (List1 Channel)),
-    _ctjtVPCConfig :: !(Maybe VPCConfig),
-    _ctjtEnableInterContainerTrafficEncryption ::
-      !(Maybe Bool),
-    _ctjtTensorBoardOutputConfig ::
-      !(Maybe TensorBoardOutputConfig),
-    _ctjtTags :: !(Maybe [Tag]),
-    _ctjtTrainingJobName :: !Text,
-    _ctjtAlgorithmSpecification :: !AlgorithmSpecification,
-    _ctjtRoleARN :: !Text,
-    _ctjtOutputDataConfig :: !OutputDataConfig,
-    _ctjtResourceConfig :: !ResourceConfig,
-    _ctjtStoppingCondition :: !StoppingCondition
+  { debugHookConfig ::
+      Lude.Maybe DebugHookConfig,
+    checkpointConfig :: Lude.Maybe CheckpointConfig,
+    enableNetworkIsolation :: Lude.Maybe Lude.Bool,
+    experimentConfig :: Lude.Maybe ExperimentConfig,
+    debugRuleConfigurations ::
+      Lude.Maybe [DebugRuleConfiguration],
+    enableManagedSpotTraining :: Lude.Maybe Lude.Bool,
+    hyperParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    inputDataConfig :: Lude.Maybe (Lude.NonEmpty Channel),
+    vpcConfig :: Lude.Maybe VPCConfig,
+    enableInterContainerTrafficEncryption ::
+      Lude.Maybe Lude.Bool,
+    tensorBoardOutputConfig ::
+      Lude.Maybe TensorBoardOutputConfig,
+    tags :: Lude.Maybe [Tag],
+    trainingJobName :: Lude.Text,
+    algorithmSpecification :: AlgorithmSpecification,
+    roleARN :: Lude.Text,
+    outputDataConfig :: OutputDataConfig,
+    resourceConfig :: ResourceConfig,
+    stoppingCondition :: StoppingCondition
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrainingJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'algorithmSpecification' - The registry path of the Docker image that contains the training algorithm and algorithm-specific metadata, including the input mode. For more information about algorithms provided by Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> . For information about providing your own algorithms, see <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker> .
+-- * 'checkpointConfig' - Contains information about the output location for managed spot training checkpoint data.
+-- * 'debugHookConfig' - Undocumented field.
+-- * 'debugRuleConfigurations' - Configuration information for debugging rules.
+-- * 'enableInterContainerTrafficEncryption' - To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html Protect Communications Between ML Compute Instances in a Distributed Training Job> .
+-- * 'enableManagedSpotTraining' - To train models using managed spot training, choose @True@ . Managed spot training provides a fully managed and scalable infrastructure for training machine learning models. this option is useful when training jobs can be interrupted and when there is flexibility when the training job is run.
 --
--- * 'ctjtDebugHookConfig' - Undocumented member.
+-- The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and can be used as a starting point to train models incrementally. Amazon SageMaker provides metrics and logs in CloudWatch. They can be used to see when managed spot training jobs are running, interrupted, resumed, or completed.
+-- * 'enableNetworkIsolation' - Isolates the training container. No inbound or outbound network calls can be made, except for calls between peers within a training cluster for distributed training. If you enable network isolation for training jobs that are configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the specified VPC, but the training container does not have network access.
+-- * 'experimentConfig' - Undocumented field.
+-- * 'hyperParameters' - Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> .
 --
--- * 'ctjtCheckpointConfig' - Contains information about the output location for managed spot training checkpoint data.
+-- You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value pair. Each key and value is limited to 256 characters, as specified by the @Length Constraint@ .
+-- * 'inputDataConfig' - An array of @Channel@ objects. Each channel is a named input source. @InputDataConfig@ describes the input data and its location.
 --
--- * 'ctjtEnableNetworkIsolation' - Isolates the training container. No inbound or outbound network calls can be made, except for calls between peers within a training cluster for distributed training. If you enable network isolation for training jobs that are configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the specified VPC, but the training container does not have network access.
+-- Algorithms can accept input data from one or more channels. For example, an algorithm might have two channels of input data, @training_data@ and @validation_data@ . The configuration for each channel provides the S3, EFS, or FSx location where the input data is stored. It also provides information about the stored data: the MIME type, compression method, and whether the data is wrapped in RecordIO format.
+-- Depending on the input mode that the algorithm supports, Amazon SageMaker either copies input data files from an S3 bucket to a local directory in the Docker container, or makes it available as input streams. For example, if you specify an EFS location, input data files will be made available as input streams. They do not need to be downloaded.
+-- * 'outputDataConfig' - Specifies the path to the S3 location where you want to store model artifacts. Amazon SageMaker creates subfolders for the artifacts.
+-- * 'resourceConfig' - The resources, including the ML compute instances and ML storage volumes, to use for model training.
 --
--- * 'ctjtExperimentConfig' - Undocumented member.
+-- ML storage volumes store model artifacts and incremental states. Training algorithms might also use ML storage volumes for scratch space. If you want Amazon SageMaker to use the ML storage volume to store the training data, choose @File@ as the @TrainingInputMode@ in the algorithm specification. For distributed training algorithms, specify an instance count greater than 1.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 --
--- * 'ctjtDebugRuleConfigurations' - Configuration information for debugging rules.
+-- During model training, Amazon SageMaker needs your permission to read input data from an S3 bucket, download a Docker image that contains training code, write model artifacts to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant permissions for all of these tasks to an IAM role. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+-- * 'stoppingCondition' - Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
 --
--- * 'ctjtEnableManagedSpotTraining' - To train models using managed spot training, choose @True@ . Managed spot training provides a fully managed and scalable infrastructure for training machine learning models. this option is useful when training jobs can be interrupted and when there is flexibility when the training job is run.  The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and can be used as a starting point to train models incrementally. Amazon SageMaker provides metrics and logs in CloudWatch. They can be used to see when managed spot training jobs are running, interrupted, resumed, or completed.
---
--- * 'ctjtHyperParameters' - Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> .  You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value pair. Each key and value is limited to 256 characters, as specified by the @Length Constraint@ .
---
--- * 'ctjtInputDataConfig' - An array of @Channel@ objects. Each channel is a named input source. @InputDataConfig@ describes the input data and its location.  Algorithms can accept input data from one or more channels. For example, an algorithm might have two channels of input data, @training_data@ and @validation_data@ . The configuration for each channel provides the S3, EFS, or FSx location where the input data is stored. It also provides information about the stored data: the MIME type, compression method, and whether the data is wrapped in RecordIO format.  Depending on the input mode that the algorithm supports, Amazon SageMaker either copies input data files from an S3 bucket to a local directory in the Docker container, or makes it available as input streams. For example, if you specify an EFS location, input data files will be made available as input streams. They do not need to be downloaded.
---
--- * 'ctjtVPCConfig' - A 'VpcConfig' object that specifies the VPC that you want your training job to connect to. Control access to and from your training container by configuring the VPC. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
---
--- * 'ctjtEnableInterContainerTrafficEncryption' - To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html Protect Communications Between ML Compute Instances in a Distributed Training Job> .
---
--- * 'ctjtTensorBoardOutputConfig' - Undocumented member.
---
--- * 'ctjtTags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
---
--- * 'ctjtTrainingJobName' - The name of the training job. The name must be unique within an AWS Region in an AWS account.
---
--- * 'ctjtAlgorithmSpecification' - The registry path of the Docker image that contains the training algorithm and algorithm-specific metadata, including the input mode. For more information about algorithms provided by Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> . For information about providing your own algorithms, see <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker> .
---
--- * 'ctjtRoleARN' - The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.  During model training, Amazon SageMaker needs your permission to read input data from an S3 bucket, download a Docker image that contains training code, write model artifacts to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant permissions for all of these tasks to an IAM role. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
---
--- * 'ctjtOutputDataConfig' - Specifies the path to the S3 location where you want to store model artifacts. Amazon SageMaker creates subfolders for the artifacts.
---
--- * 'ctjtResourceConfig' - The resources, including the ML compute instances and ML storage volumes, to use for model training.  ML storage volumes store model artifacts and incremental states. Training algorithms might also use ML storage volumes for scratch space. If you want Amazon SageMaker to use the ML storage volume to store the training data, choose @File@ as the @TrainingInputMode@ in the algorithm specification. For distributed training algorithms, specify an instance count greater than 1.
---
--- * 'ctjtStoppingCondition' - Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs. To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-createTrainingJob ::
-  -- | 'ctjtTrainingJobName'
-  Text ->
-  -- | 'ctjtAlgorithmSpecification'
+-- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+-- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- * 'tensorBoardOutputConfig' - Undocumented field.
+-- * 'trainingJobName' - The name of the training job. The name must be unique within an AWS Region in an AWS account.
+-- * 'vpcConfig' - A 'VpcConfig' object that specifies the VPC that you want your training job to connect to. Control access to and from your training container by configuring the VPC. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
+mkCreateTrainingJob ::
+  -- | 'trainingJobName'
+  Lude.Text ->
+  -- | 'algorithmSpecification'
   AlgorithmSpecification ->
-  -- | 'ctjtRoleARN'
-  Text ->
-  -- | 'ctjtOutputDataConfig'
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'outputDataConfig'
   OutputDataConfig ->
-  -- | 'ctjtResourceConfig'
+  -- | 'resourceConfig'
   ResourceConfig ->
-  -- | 'ctjtStoppingCondition'
+  -- | 'stoppingCondition'
   StoppingCondition ->
   CreateTrainingJob
-createTrainingJob
+mkCreateTrainingJob
   pTrainingJobName_
   pAlgorithmSpecification_
   pRoleARN_
@@ -174,188 +174,264 @@ createTrainingJob
   pResourceConfig_
   pStoppingCondition_ =
     CreateTrainingJob'
-      { _ctjtDebugHookConfig = Nothing,
-        _ctjtCheckpointConfig = Nothing,
-        _ctjtEnableNetworkIsolation = Nothing,
-        _ctjtExperimentConfig = Nothing,
-        _ctjtDebugRuleConfigurations = Nothing,
-        _ctjtEnableManagedSpotTraining = Nothing,
-        _ctjtHyperParameters = Nothing,
-        _ctjtInputDataConfig = Nothing,
-        _ctjtVPCConfig = Nothing,
-        _ctjtEnableInterContainerTrafficEncryption = Nothing,
-        _ctjtTensorBoardOutputConfig = Nothing,
-        _ctjtTags = Nothing,
-        _ctjtTrainingJobName = pTrainingJobName_,
-        _ctjtAlgorithmSpecification = pAlgorithmSpecification_,
-        _ctjtRoleARN = pRoleARN_,
-        _ctjtOutputDataConfig = pOutputDataConfig_,
-        _ctjtResourceConfig = pResourceConfig_,
-        _ctjtStoppingCondition = pStoppingCondition_
+      { debugHookConfig = Lude.Nothing,
+        checkpointConfig = Lude.Nothing,
+        enableNetworkIsolation = Lude.Nothing,
+        experimentConfig = Lude.Nothing,
+        debugRuleConfigurations = Lude.Nothing,
+        enableManagedSpotTraining = Lude.Nothing,
+        hyperParameters = Lude.Nothing,
+        inputDataConfig = Lude.Nothing,
+        vpcConfig = Lude.Nothing,
+        enableInterContainerTrafficEncryption = Lude.Nothing,
+        tensorBoardOutputConfig = Lude.Nothing,
+        tags = Lude.Nothing,
+        trainingJobName = pTrainingJobName_,
+        algorithmSpecification = pAlgorithmSpecification_,
+        roleARN = pRoleARN_,
+        outputDataConfig = pOutputDataConfig_,
+        resourceConfig = pResourceConfig_,
+        stoppingCondition = pStoppingCondition_
       }
 
--- | Undocumented member.
-ctjtDebugHookConfig :: Lens' CreateTrainingJob (Maybe DebugHookConfig)
-ctjtDebugHookConfig = lens _ctjtDebugHookConfig (\s a -> s {_ctjtDebugHookConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'debugHookConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtDebugHookConfig :: Lens.Lens' CreateTrainingJob (Lude.Maybe DebugHookConfig)
+ctjtDebugHookConfig = Lens.lens (debugHookConfig :: CreateTrainingJob -> Lude.Maybe DebugHookConfig) (\s a -> s {debugHookConfig = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtDebugHookConfig "Use generic-lens or generic-optics with 'debugHookConfig' instead." #-}
 
 -- | Contains information about the output location for managed spot training checkpoint data.
-ctjtCheckpointConfig :: Lens' CreateTrainingJob (Maybe CheckpointConfig)
-ctjtCheckpointConfig = lens _ctjtCheckpointConfig (\s a -> s {_ctjtCheckpointConfig = a})
+--
+-- /Note:/ Consider using 'checkpointConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtCheckpointConfig :: Lens.Lens' CreateTrainingJob (Lude.Maybe CheckpointConfig)
+ctjtCheckpointConfig = Lens.lens (checkpointConfig :: CreateTrainingJob -> Lude.Maybe CheckpointConfig) (\s a -> s {checkpointConfig = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtCheckpointConfig "Use generic-lens or generic-optics with 'checkpointConfig' instead." #-}
 
 -- | Isolates the training container. No inbound or outbound network calls can be made, except for calls between peers within a training cluster for distributed training. If you enable network isolation for training jobs that are configured to use a VPC, Amazon SageMaker downloads and uploads customer data and model artifacts through the specified VPC, but the training container does not have network access.
-ctjtEnableNetworkIsolation :: Lens' CreateTrainingJob (Maybe Bool)
-ctjtEnableNetworkIsolation = lens _ctjtEnableNetworkIsolation (\s a -> s {_ctjtEnableNetworkIsolation = a})
+--
+-- /Note:/ Consider using 'enableNetworkIsolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtEnableNetworkIsolation :: Lens.Lens' CreateTrainingJob (Lude.Maybe Lude.Bool)
+ctjtEnableNetworkIsolation = Lens.lens (enableNetworkIsolation :: CreateTrainingJob -> Lude.Maybe Lude.Bool) (\s a -> s {enableNetworkIsolation = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtEnableNetworkIsolation "Use generic-lens or generic-optics with 'enableNetworkIsolation' instead." #-}
 
--- | Undocumented member.
-ctjtExperimentConfig :: Lens' CreateTrainingJob (Maybe ExperimentConfig)
-ctjtExperimentConfig = lens _ctjtExperimentConfig (\s a -> s {_ctjtExperimentConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'experimentConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtExperimentConfig :: Lens.Lens' CreateTrainingJob (Lude.Maybe ExperimentConfig)
+ctjtExperimentConfig = Lens.lens (experimentConfig :: CreateTrainingJob -> Lude.Maybe ExperimentConfig) (\s a -> s {experimentConfig = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtExperimentConfig "Use generic-lens or generic-optics with 'experimentConfig' instead." #-}
 
 -- | Configuration information for debugging rules.
-ctjtDebugRuleConfigurations :: Lens' CreateTrainingJob [DebugRuleConfiguration]
-ctjtDebugRuleConfigurations = lens _ctjtDebugRuleConfigurations (\s a -> s {_ctjtDebugRuleConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'debugRuleConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtDebugRuleConfigurations :: Lens.Lens' CreateTrainingJob (Lude.Maybe [DebugRuleConfiguration])
+ctjtDebugRuleConfigurations = Lens.lens (debugRuleConfigurations :: CreateTrainingJob -> Lude.Maybe [DebugRuleConfiguration]) (\s a -> s {debugRuleConfigurations = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtDebugRuleConfigurations "Use generic-lens or generic-optics with 'debugRuleConfigurations' instead." #-}
 
--- | To train models using managed spot training, choose @True@ . Managed spot training provides a fully managed and scalable infrastructure for training machine learning models. this option is useful when training jobs can be interrupted and when there is flexibility when the training job is run.  The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and can be used as a starting point to train models incrementally. Amazon SageMaker provides metrics and logs in CloudWatch. They can be used to see when managed spot training jobs are running, interrupted, resumed, or completed.
-ctjtEnableManagedSpotTraining :: Lens' CreateTrainingJob (Maybe Bool)
-ctjtEnableManagedSpotTraining = lens _ctjtEnableManagedSpotTraining (\s a -> s {_ctjtEnableManagedSpotTraining = a})
+-- | To train models using managed spot training, choose @True@ . Managed spot training provides a fully managed and scalable infrastructure for training machine learning models. this option is useful when training jobs can be interrupted and when there is flexibility when the training job is run.
+--
+-- The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and can be used as a starting point to train models incrementally. Amazon SageMaker provides metrics and logs in CloudWatch. They can be used to see when managed spot training jobs are running, interrupted, resumed, or completed.
+--
+-- /Note:/ Consider using 'enableManagedSpotTraining' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtEnableManagedSpotTraining :: Lens.Lens' CreateTrainingJob (Lude.Maybe Lude.Bool)
+ctjtEnableManagedSpotTraining = Lens.lens (enableManagedSpotTraining :: CreateTrainingJob -> Lude.Maybe Lude.Bool) (\s a -> s {enableManagedSpotTraining = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtEnableManagedSpotTraining "Use generic-lens or generic-optics with 'enableManagedSpotTraining' instead." #-}
 
--- | Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> .  You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value pair. Each key and value is limited to 256 characters, as specified by the @Length Constraint@ .
-ctjtHyperParameters :: Lens' CreateTrainingJob (HashMap Text (Text))
-ctjtHyperParameters = lens _ctjtHyperParameters (\s a -> s {_ctjtHyperParameters = a}) . _Default . _Map
+-- | Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process. For a list of hyperparameters for each training algorithm provided by Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> .
+--
+-- You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value pair. Each key and value is limited to 256 characters, as specified by the @Length Constraint@ .
+--
+-- /Note:/ Consider using 'hyperParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtHyperParameters :: Lens.Lens' CreateTrainingJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ctjtHyperParameters = Lens.lens (hyperParameters :: CreateTrainingJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {hyperParameters = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtHyperParameters "Use generic-lens or generic-optics with 'hyperParameters' instead." #-}
 
--- | An array of @Channel@ objects. Each channel is a named input source. @InputDataConfig@ describes the input data and its location.  Algorithms can accept input data from one or more channels. For example, an algorithm might have two channels of input data, @training_data@ and @validation_data@ . The configuration for each channel provides the S3, EFS, or FSx location where the input data is stored. It also provides information about the stored data: the MIME type, compression method, and whether the data is wrapped in RecordIO format.  Depending on the input mode that the algorithm supports, Amazon SageMaker either copies input data files from an S3 bucket to a local directory in the Docker container, or makes it available as input streams. For example, if you specify an EFS location, input data files will be made available as input streams. They do not need to be downloaded.
-ctjtInputDataConfig :: Lens' CreateTrainingJob (Maybe (NonEmpty Channel))
-ctjtInputDataConfig = lens _ctjtInputDataConfig (\s a -> s {_ctjtInputDataConfig = a}) . mapping _List1
+-- | An array of @Channel@ objects. Each channel is a named input source. @InputDataConfig@ describes the input data and its location.
+--
+-- Algorithms can accept input data from one or more channels. For example, an algorithm might have two channels of input data, @training_data@ and @validation_data@ . The configuration for each channel provides the S3, EFS, or FSx location where the input data is stored. It also provides information about the stored data: the MIME type, compression method, and whether the data is wrapped in RecordIO format.
+-- Depending on the input mode that the algorithm supports, Amazon SageMaker either copies input data files from an S3 bucket to a local directory in the Docker container, or makes it available as input streams. For example, if you specify an EFS location, input data files will be made available as input streams. They do not need to be downloaded.
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtInputDataConfig :: Lens.Lens' CreateTrainingJob (Lude.Maybe (Lude.NonEmpty Channel))
+ctjtInputDataConfig = Lens.lens (inputDataConfig :: CreateTrainingJob -> Lude.Maybe (Lude.NonEmpty Channel)) (\s a -> s {inputDataConfig = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | A 'VpcConfig' object that specifies the VPC that you want your training job to connect to. Control access to and from your training container by configuring the VPC. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud> .
-ctjtVPCConfig :: Lens' CreateTrainingJob (Maybe VPCConfig)
-ctjtVPCConfig = lens _ctjtVPCConfig (\s a -> s {_ctjtVPCConfig = a})
+--
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtVPCConfig :: Lens.Lens' CreateTrainingJob (Lude.Maybe VPCConfig)
+ctjtVPCConfig = Lens.lens (vpcConfig :: CreateTrainingJob -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
 -- | To encrypt all communications between ML compute instances in distributed training, choose @True@ . Encryption provides greater security for distributed training, but training might take longer. How long it takes depends on the amount of communication between compute instances, especially if you use a deep learning algorithm in distributed training. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/train-encrypt.html Protect Communications Between ML Compute Instances in a Distributed Training Job> .
-ctjtEnableInterContainerTrafficEncryption :: Lens' CreateTrainingJob (Maybe Bool)
-ctjtEnableInterContainerTrafficEncryption = lens _ctjtEnableInterContainerTrafficEncryption (\s a -> s {_ctjtEnableInterContainerTrafficEncryption = a})
+--
+-- /Note:/ Consider using 'enableInterContainerTrafficEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtEnableInterContainerTrafficEncryption :: Lens.Lens' CreateTrainingJob (Lude.Maybe Lude.Bool)
+ctjtEnableInterContainerTrafficEncryption = Lens.lens (enableInterContainerTrafficEncryption :: CreateTrainingJob -> Lude.Maybe Lude.Bool) (\s a -> s {enableInterContainerTrafficEncryption = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtEnableInterContainerTrafficEncryption "Use generic-lens or generic-optics with 'enableInterContainerTrafficEncryption' instead." #-}
 
--- | Undocumented member.
-ctjtTensorBoardOutputConfig :: Lens' CreateTrainingJob (Maybe TensorBoardOutputConfig)
-ctjtTensorBoardOutputConfig = lens _ctjtTensorBoardOutputConfig (\s a -> s {_ctjtTensorBoardOutputConfig = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'tensorBoardOutputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtTensorBoardOutputConfig :: Lens.Lens' CreateTrainingJob (Lude.Maybe TensorBoardOutputConfig)
+ctjtTensorBoardOutputConfig = Lens.lens (tensorBoardOutputConfig :: CreateTrainingJob -> Lude.Maybe TensorBoardOutputConfig) (\s a -> s {tensorBoardOutputConfig = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtTensorBoardOutputConfig "Use generic-lens or generic-optics with 'tensorBoardOutputConfig' instead." #-}
 
 -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-ctjtTags :: Lens' CreateTrainingJob [Tag]
-ctjtTags = lens _ctjtTags (\s a -> s {_ctjtTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtTags :: Lens.Lens' CreateTrainingJob (Lude.Maybe [Tag])
+ctjtTags = Lens.lens (tags :: CreateTrainingJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the training job. The name must be unique within an AWS Region in an AWS account.
-ctjtTrainingJobName :: Lens' CreateTrainingJob Text
-ctjtTrainingJobName = lens _ctjtTrainingJobName (\s a -> s {_ctjtTrainingJobName = a})
+--
+-- /Note:/ Consider using 'trainingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtTrainingJobName :: Lens.Lens' CreateTrainingJob Lude.Text
+ctjtTrainingJobName = Lens.lens (trainingJobName :: CreateTrainingJob -> Lude.Text) (\s a -> s {trainingJobName = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtTrainingJobName "Use generic-lens or generic-optics with 'trainingJobName' instead." #-}
 
 -- | The registry path of the Docker image that contains the training algorithm and algorithm-specific metadata, including the input mode. For more information about algorithms provided by Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> . For information about providing your own algorithms, see <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker> .
-ctjtAlgorithmSpecification :: Lens' CreateTrainingJob AlgorithmSpecification
-ctjtAlgorithmSpecification = lens _ctjtAlgorithmSpecification (\s a -> s {_ctjtAlgorithmSpecification = a})
+--
+-- /Note:/ Consider using 'algorithmSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtAlgorithmSpecification :: Lens.Lens' CreateTrainingJob AlgorithmSpecification
+ctjtAlgorithmSpecification = Lens.lens (algorithmSpecification :: CreateTrainingJob -> AlgorithmSpecification) (\s a -> s {algorithmSpecification = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtAlgorithmSpecification "Use generic-lens or generic-optics with 'algorithmSpecification' instead." #-}
 
--- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.  During model training, Amazon SageMaker needs your permission to read input data from an S3 bucket, download a Docker image that contains training code, write model artifacts to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant permissions for all of these tasks to an IAM role. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
-ctjtRoleARN :: Lens' CreateTrainingJob Text
-ctjtRoleARN = lens _ctjtRoleARN (\s a -> s {_ctjtRoleARN = a})
+-- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+--
+-- During model training, Amazon SageMaker needs your permission to read input data from an S3 bucket, download a Docker image that contains training code, write model artifacts to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant permissions for all of these tasks to an IAM role. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtRoleARN :: Lens.Lens' CreateTrainingJob Lude.Text
+ctjtRoleARN = Lens.lens (roleARN :: CreateTrainingJob -> Lude.Text) (\s a -> s {roleARN = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | Specifies the path to the S3 location where you want to store model artifacts. Amazon SageMaker creates subfolders for the artifacts.
-ctjtOutputDataConfig :: Lens' CreateTrainingJob OutputDataConfig
-ctjtOutputDataConfig = lens _ctjtOutputDataConfig (\s a -> s {_ctjtOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtOutputDataConfig :: Lens.Lens' CreateTrainingJob OutputDataConfig
+ctjtOutputDataConfig = Lens.lens (outputDataConfig :: CreateTrainingJob -> OutputDataConfig) (\s a -> s {outputDataConfig = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
--- | The resources, including the ML compute instances and ML storage volumes, to use for model training.  ML storage volumes store model artifacts and incremental states. Training algorithms might also use ML storage volumes for scratch space. If you want Amazon SageMaker to use the ML storage volume to store the training data, choose @File@ as the @TrainingInputMode@ in the algorithm specification. For distributed training algorithms, specify an instance count greater than 1.
-ctjtResourceConfig :: Lens' CreateTrainingJob ResourceConfig
-ctjtResourceConfig = lens _ctjtResourceConfig (\s a -> s {_ctjtResourceConfig = a})
+-- | The resources, including the ML compute instances and ML storage volumes, to use for model training.
+--
+-- ML storage volumes store model artifacts and incremental states. Training algorithms might also use ML storage volumes for scratch space. If you want Amazon SageMaker to use the ML storage volume to store the training data, choose @File@ as the @TrainingInputMode@ in the algorithm specification. For distributed training algorithms, specify an instance count greater than 1.
+--
+-- /Note:/ Consider using 'resourceConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtResourceConfig :: Lens.Lens' CreateTrainingJob ResourceConfig
+ctjtResourceConfig = Lens.lens (resourceConfig :: CreateTrainingJob -> ResourceConfig) (\s a -> s {resourceConfig = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtResourceConfig "Use generic-lens or generic-optics with 'resourceConfig' instead." #-}
 
--- | Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs. To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-ctjtStoppingCondition :: Lens' CreateTrainingJob StoppingCondition
-ctjtStoppingCondition = lens _ctjtStoppingCondition (\s a -> s {_ctjtStoppingCondition = a})
+-- | Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
+--
+-- To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
+--
+-- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtStoppingCondition :: Lens.Lens' CreateTrainingJob StoppingCondition
+ctjtStoppingCondition = Lens.lens (stoppingCondition :: CreateTrainingJob -> StoppingCondition) (\s a -> s {stoppingCondition = a} :: CreateTrainingJob)
+{-# DEPRECATED ctjtStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
 
-instance AWSRequest CreateTrainingJob where
+instance Lude.AWSRequest CreateTrainingJob where
   type Rs CreateTrainingJob = CreateTrainingJobResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateTrainingJobResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "TrainingJobArn")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "TrainingJobArn")
       )
 
-instance Hashable CreateTrainingJob
-
-instance NFData CreateTrainingJob
-
-instance ToHeaders CreateTrainingJob where
+instance Lude.ToHeaders CreateTrainingJob where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.CreateTrainingJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.CreateTrainingJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateTrainingJob where
+instance Lude.ToJSON CreateTrainingJob where
   toJSON CreateTrainingJob' {..} =
-    object
-      ( catMaybes
-          [ ("DebugHookConfig" .=) <$> _ctjtDebugHookConfig,
-            ("CheckpointConfig" .=) <$> _ctjtCheckpointConfig,
-            ("EnableNetworkIsolation" .=) <$> _ctjtEnableNetworkIsolation,
-            ("ExperimentConfig" .=) <$> _ctjtExperimentConfig,
-            ("DebugRuleConfigurations" .=) <$> _ctjtDebugRuleConfigurations,
-            ("EnableManagedSpotTraining" .=)
-              <$> _ctjtEnableManagedSpotTraining,
-            ("HyperParameters" .=) <$> _ctjtHyperParameters,
-            ("InputDataConfig" .=) <$> _ctjtInputDataConfig,
-            ("VpcConfig" .=) <$> _ctjtVPCConfig,
-            ("EnableInterContainerTrafficEncryption" .=)
-              <$> _ctjtEnableInterContainerTrafficEncryption,
-            ("TensorBoardOutputConfig" .=) <$> _ctjtTensorBoardOutputConfig,
-            ("Tags" .=) <$> _ctjtTags,
-            Just ("TrainingJobName" .= _ctjtTrainingJobName),
-            Just ("AlgorithmSpecification" .= _ctjtAlgorithmSpecification),
-            Just ("RoleArn" .= _ctjtRoleARN),
-            Just ("OutputDataConfig" .= _ctjtOutputDataConfig),
-            Just ("ResourceConfig" .= _ctjtResourceConfig),
-            Just ("StoppingCondition" .= _ctjtStoppingCondition)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DebugHookConfig" Lude..=) Lude.<$> debugHookConfig,
+            ("CheckpointConfig" Lude..=) Lude.<$> checkpointConfig,
+            ("EnableNetworkIsolation" Lude..=) Lude.<$> enableNetworkIsolation,
+            ("ExperimentConfig" Lude..=) Lude.<$> experimentConfig,
+            ("DebugRuleConfigurations" Lude..=)
+              Lude.<$> debugRuleConfigurations,
+            ("EnableManagedSpotTraining" Lude..=)
+              Lude.<$> enableManagedSpotTraining,
+            ("HyperParameters" Lude..=) Lude.<$> hyperParameters,
+            ("InputDataConfig" Lude..=) Lude.<$> inputDataConfig,
+            ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
+            ("EnableInterContainerTrafficEncryption" Lude..=)
+              Lude.<$> enableInterContainerTrafficEncryption,
+            ("TensorBoardOutputConfig" Lude..=)
+              Lude.<$> tensorBoardOutputConfig,
+            ("Tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("TrainingJobName" Lude..= trainingJobName),
+            Lude.Just
+              ("AlgorithmSpecification" Lude..= algorithmSpecification),
+            Lude.Just ("RoleArn" Lude..= roleARN),
+            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
+            Lude.Just ("ResourceConfig" Lude..= resourceConfig),
+            Lude.Just ("StoppingCondition" Lude..= stoppingCondition)
           ]
       )
 
-instance ToPath CreateTrainingJob where
-  toPath = const "/"
+instance Lude.ToPath CreateTrainingJob where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateTrainingJob where
-  toQuery = const mempty
+instance Lude.ToQuery CreateTrainingJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createTrainingJobResponse' smart constructor.
+-- | /See:/ 'mkCreateTrainingJobResponse' smart constructor.
 data CreateTrainingJobResponse = CreateTrainingJobResponse'
-  { _ctjtrsResponseStatus ::
-      !Int,
-    _ctjtrsTrainingJobARN :: !Text
+  { responseStatus ::
+      Lude.Int,
+    trainingJobARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrainingJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ctjtrsResponseStatus' - -- | The response status code.
---
--- * 'ctjtrsTrainingJobARN' - The Amazon Resource Name (ARN) of the training job.
-createTrainingJobResponse ::
-  -- | 'ctjtrsResponseStatus'
-  Int ->
-  -- | 'ctjtrsTrainingJobARN'
-  Text ->
+-- * 'responseStatus' - The response status code.
+-- * 'trainingJobARN' - The Amazon Resource Name (ARN) of the training job.
+mkCreateTrainingJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'trainingJobARN'
+  Lude.Text ->
   CreateTrainingJobResponse
-createTrainingJobResponse pResponseStatus_ pTrainingJobARN_ =
+mkCreateTrainingJobResponse pResponseStatus_ pTrainingJobARN_ =
   CreateTrainingJobResponse'
-    { _ctjtrsResponseStatus =
-        pResponseStatus_,
-      _ctjtrsTrainingJobARN = pTrainingJobARN_
+    { responseStatus = pResponseStatus_,
+      trainingJobARN = pTrainingJobARN_
     }
 
--- | -- | The response status code.
-ctjtrsResponseStatus :: Lens' CreateTrainingJobResponse Int
-ctjtrsResponseStatus = lens _ctjtrsResponseStatus (\s a -> s {_ctjtrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtrsResponseStatus :: Lens.Lens' CreateTrainingJobResponse Lude.Int
+ctjtrsResponseStatus = Lens.lens (responseStatus :: CreateTrainingJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTrainingJobResponse)
+{-# DEPRECATED ctjtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the training job.
-ctjtrsTrainingJobARN :: Lens' CreateTrainingJobResponse Text
-ctjtrsTrainingJobARN = lens _ctjtrsTrainingJobARN (\s a -> s {_ctjtrsTrainingJobARN = a})
-
-instance NFData CreateTrainingJobResponse
+--
+-- /Note:/ Consider using 'trainingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctjtrsTrainingJobARN :: Lens.Lens' CreateTrainingJobResponse Lude.Text
+ctjtrsTrainingJobARN = Lens.lens (trainingJobARN :: CreateTrainingJobResponse -> Lude.Text) (\s a -> s {trainingJobARN = a} :: CreateTrainingJobResponse)
+{-# DEPRECATED ctjtrsTrainingJobARN "Use generic-lens or generic-optics with 'trainingJobARN' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,121 @@
 --
 -- Creates a configuration set.
 --
---
 -- Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.CreateConfigurationSet
-  ( -- * Creating a Request
-    createConfigurationSet,
-    CreateConfigurationSet,
+  ( -- * Creating a request
+    CreateConfigurationSet (..),
+    mkCreateConfigurationSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ccsConfigurationSet,
 
-    -- * Destructuring the Response
-    createConfigurationSetResponse,
-    CreateConfigurationSetResponse,
+    -- * Destructuring the response
+    CreateConfigurationSetResponse (..),
+    mkCreateConfigurationSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ccsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to create a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'createConfigurationSet' smart constructor.
+-- /See:/ 'mkCreateConfigurationSet' smart constructor.
 newtype CreateConfigurationSet = CreateConfigurationSet'
-  { _ccsConfigurationSet ::
+  { configurationSet ::
       ConfigurationSet
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConfigurationSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccsConfigurationSet' - A data structure that contains the name of the configuration set.
-createConfigurationSet ::
-  -- | 'ccsConfigurationSet'
+-- * 'configurationSet' - A data structure that contains the name of the configuration set.
+mkCreateConfigurationSet ::
+  -- | 'configurationSet'
   ConfigurationSet ->
   CreateConfigurationSet
-createConfigurationSet pConfigurationSet_ =
-  CreateConfigurationSet'
-    { _ccsConfigurationSet =
-        pConfigurationSet_
-    }
+mkCreateConfigurationSet pConfigurationSet_ =
+  CreateConfigurationSet' {configurationSet = pConfigurationSet_}
 
 -- | A data structure that contains the name of the configuration set.
-ccsConfigurationSet :: Lens' CreateConfigurationSet ConfigurationSet
-ccsConfigurationSet = lens _ccsConfigurationSet (\s a -> s {_ccsConfigurationSet = a})
+--
+-- /Note:/ Consider using 'configurationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsConfigurationSet :: Lens.Lens' CreateConfigurationSet ConfigurationSet
+ccsConfigurationSet = Lens.lens (configurationSet :: CreateConfigurationSet -> ConfigurationSet) (\s a -> s {configurationSet = a} :: CreateConfigurationSet)
+{-# DEPRECATED ccsConfigurationSet "Use generic-lens or generic-optics with 'configurationSet' instead." #-}
 
-instance AWSRequest CreateConfigurationSet where
+instance Lude.AWSRequest CreateConfigurationSet where
   type Rs CreateConfigurationSet = CreateConfigurationSetResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CreateConfigurationSetResult"
       ( \s h x ->
-          CreateConfigurationSetResponse' <$> (pure (fromEnum s))
+          CreateConfigurationSetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateConfigurationSet
+instance Lude.ToHeaders CreateConfigurationSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateConfigurationSet
+instance Lude.ToPath CreateConfigurationSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateConfigurationSet where
-  toHeaders = const mempty
-
-instance ToPath CreateConfigurationSet where
-  toPath = const "/"
-
-instance ToQuery CreateConfigurationSet where
+instance Lude.ToQuery CreateConfigurationSet where
   toQuery CreateConfigurationSet' {..} =
-    mconcat
-      [ "Action" =: ("CreateConfigurationSet" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "ConfigurationSet" =: _ccsConfigurationSet
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateConfigurationSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "ConfigurationSet" Lude.=: configurationSet
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'createConfigurationSetResponse' smart constructor.
+-- /See:/ 'mkCreateConfigurationSetResponse' smart constructor.
 newtype CreateConfigurationSetResponse = CreateConfigurationSetResponse'
-  { _ccsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConfigurationSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccsrsResponseStatus' - -- | The response status code.
-createConfigurationSetResponse ::
-  -- | 'ccsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreateConfigurationSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateConfigurationSetResponse
-createConfigurationSetResponse pResponseStatus_ =
+mkCreateConfigurationSetResponse pResponseStatus_ =
   CreateConfigurationSetResponse'
-    { _ccsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ccsrsResponseStatus :: Lens' CreateConfigurationSetResponse Int
-ccsrsResponseStatus = lens _ccsrsResponseStatus (\s a -> s {_ccsrsResponseStatus = a})
-
-instance NFData CreateConfigurationSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsrsResponseStatus :: Lens.Lens' CreateConfigurationSetResponse Lude.Int
+ccsrsResponseStatus = Lens.lens (responseStatus :: CreateConfigurationSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateConfigurationSetResponse)
+{-# DEPRECATED ccsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

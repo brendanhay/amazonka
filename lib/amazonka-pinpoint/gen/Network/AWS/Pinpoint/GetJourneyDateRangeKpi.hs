@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Retrieves (queries) pre-aggregated data for a standard engagement metric that applies to a journey.
 module Network.AWS.Pinpoint.GetJourneyDateRangeKpi
-  ( -- * Creating a Request
-    getJourneyDateRangeKpi,
-    GetJourneyDateRangeKpi,
+  ( -- * Creating a request
+    GetJourneyDateRangeKpi (..),
+    mkGetJourneyDateRangeKpi,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gjdrkStartTime,
     gjdrkNextToken,
     gjdrkEndTime,
@@ -32,178 +27,203 @@ module Network.AWS.Pinpoint.GetJourneyDateRangeKpi
     gjdrkApplicationId,
     gjdrkKpiName,
 
-    -- * Destructuring the Response
-    getJourneyDateRangeKpiResponse,
-    GetJourneyDateRangeKpiResponse,
+    -- * Destructuring the response
+    GetJourneyDateRangeKpiResponse (..),
+    mkGetJourneyDateRangeKpiResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gjdrkrsResponseStatus,
     gjdrkrsJourneyDateRangeKpiResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getJourneyDateRangeKpi' smart constructor.
+-- | /See:/ 'mkGetJourneyDateRangeKpi' smart constructor.
 data GetJourneyDateRangeKpi = GetJourneyDateRangeKpi'
-  { _gjdrkStartTime ::
-      !(Maybe POSIX),
-    _gjdrkNextToken :: !(Maybe Text),
-    _gjdrkEndTime :: !(Maybe POSIX),
-    _gjdrkPageSize :: !(Maybe Text),
-    _gjdrkJourneyId :: !Text,
-    _gjdrkApplicationId :: !Text,
-    _gjdrkKpiName :: !Text
+  { startTime ::
+      Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    pageSize :: Lude.Maybe Lude.Text,
+    journeyId :: Lude.Text,
+    applicationId :: Lude.Text,
+    kpiName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJourneyDateRangeKpi' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjdrkStartTime' - The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
---
--- * 'gjdrkNextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- * 'gjdrkEndTime' - The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
---
--- * 'gjdrkPageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- * 'gjdrkJourneyId' - The unique identifier for the journey.
---
--- * 'gjdrkApplicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- * 'gjdrkKpiName' - The name of the metric, also referred to as a /key performance indicator (KPI)/ , to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
-getJourneyDateRangeKpi ::
-  -- | 'gjdrkJourneyId'
-  Text ->
-  -- | 'gjdrkApplicationId'
-  Text ->
-  -- | 'gjdrkKpiName'
-  Text ->
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'endTime' - The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+-- * 'journeyId' - The unique identifier for the journey.
+-- * 'kpiName' - The name of the metric, also referred to as a /key performance indicator (KPI)/ , to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
+-- * 'nextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- * 'startTime' - The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
+mkGetJourneyDateRangeKpi ::
+  -- | 'journeyId'
+  Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'kpiName'
+  Lude.Text ->
   GetJourneyDateRangeKpi
-getJourneyDateRangeKpi pJourneyId_ pApplicationId_ pKpiName_ =
+mkGetJourneyDateRangeKpi pJourneyId_ pApplicationId_ pKpiName_ =
   GetJourneyDateRangeKpi'
-    { _gjdrkStartTime = Nothing,
-      _gjdrkNextToken = Nothing,
-      _gjdrkEndTime = Nothing,
-      _gjdrkPageSize = Nothing,
-      _gjdrkJourneyId = pJourneyId_,
-      _gjdrkApplicationId = pApplicationId_,
-      _gjdrkKpiName = pKpiName_
+    { startTime = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      endTime = Lude.Nothing,
+      pageSize = Lude.Nothing,
+      journeyId = pJourneyId_,
+      applicationId = pApplicationId_,
+      kpiName = pKpiName_
     }
 
 -- | The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
-gjdrkStartTime :: Lens' GetJourneyDateRangeKpi (Maybe UTCTime)
-gjdrkStartTime = lens _gjdrkStartTime (\s a -> s {_gjdrkStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrkStartTime :: Lens.Lens' GetJourneyDateRangeKpi (Lude.Maybe Lude.Timestamp)
+gjdrkStartTime = Lens.lens (startTime :: GetJourneyDateRangeKpi -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: GetJourneyDateRangeKpi)
+{-# DEPRECATED gjdrkStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-gjdrkNextToken :: Lens' GetJourneyDateRangeKpi (Maybe Text)
-gjdrkNextToken = lens _gjdrkNextToken (\s a -> s {_gjdrkNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrkNextToken :: Lens.Lens' GetJourneyDateRangeKpi (Lude.Maybe Lude.Text)
+gjdrkNextToken = Lens.lens (nextToken :: GetJourneyDateRangeKpi -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetJourneyDateRangeKpi)
+{-# DEPRECATED gjdrkNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-gjdrkEndTime :: Lens' GetJourneyDateRangeKpi (Maybe UTCTime)
-gjdrkEndTime = lens _gjdrkEndTime (\s a -> s {_gjdrkEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrkEndTime :: Lens.Lens' GetJourneyDateRangeKpi (Lude.Maybe Lude.Timestamp)
+gjdrkEndTime = Lens.lens (endTime :: GetJourneyDateRangeKpi -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: GetJourneyDateRangeKpi)
+{-# DEPRECATED gjdrkEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-gjdrkPageSize :: Lens' GetJourneyDateRangeKpi (Maybe Text)
-gjdrkPageSize = lens _gjdrkPageSize (\s a -> s {_gjdrkPageSize = a})
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrkPageSize :: Lens.Lens' GetJourneyDateRangeKpi (Lude.Maybe Lude.Text)
+gjdrkPageSize = Lens.lens (pageSize :: GetJourneyDateRangeKpi -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetJourneyDateRangeKpi)
+{-# DEPRECATED gjdrkPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 -- | The unique identifier for the journey.
-gjdrkJourneyId :: Lens' GetJourneyDateRangeKpi Text
-gjdrkJourneyId = lens _gjdrkJourneyId (\s a -> s {_gjdrkJourneyId = a})
+--
+-- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrkJourneyId :: Lens.Lens' GetJourneyDateRangeKpi Lude.Text
+gjdrkJourneyId = Lens.lens (journeyId :: GetJourneyDateRangeKpi -> Lude.Text) (\s a -> s {journeyId = a} :: GetJourneyDateRangeKpi)
+{-# DEPRECATED gjdrkJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-gjdrkApplicationId :: Lens' GetJourneyDateRangeKpi Text
-gjdrkApplicationId = lens _gjdrkApplicationId (\s a -> s {_gjdrkApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrkApplicationId :: Lens.Lens' GetJourneyDateRangeKpi Lude.Text
+gjdrkApplicationId = Lens.lens (applicationId :: GetJourneyDateRangeKpi -> Lude.Text) (\s a -> s {applicationId = a} :: GetJourneyDateRangeKpi)
+{-# DEPRECATED gjdrkApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The name of the metric, also referred to as a /key performance indicator (KPI)/ , to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
-gjdrkKpiName :: Lens' GetJourneyDateRangeKpi Text
-gjdrkKpiName = lens _gjdrkKpiName (\s a -> s {_gjdrkKpiName = a})
+--
+-- /Note:/ Consider using 'kpiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrkKpiName :: Lens.Lens' GetJourneyDateRangeKpi Lude.Text
+gjdrkKpiName = Lens.lens (kpiName :: GetJourneyDateRangeKpi -> Lude.Text) (\s a -> s {kpiName = a} :: GetJourneyDateRangeKpi)
+{-# DEPRECATED gjdrkKpiName "Use generic-lens or generic-optics with 'kpiName' instead." #-}
 
-instance AWSRequest GetJourneyDateRangeKpi where
+instance Lude.AWSRequest GetJourneyDateRangeKpi where
   type Rs GetJourneyDateRangeKpi = GetJourneyDateRangeKpiResponse
-  request = get pinpoint
+  request = Req.get pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetJourneyDateRangeKpiResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable GetJourneyDateRangeKpi
-
-instance NFData GetJourneyDateRangeKpi
-
-instance ToHeaders GetJourneyDateRangeKpi where
+instance Lude.ToHeaders GetJourneyDateRangeKpi where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetJourneyDateRangeKpi where
+instance Lude.ToPath GetJourneyDateRangeKpi where
   toPath GetJourneyDateRangeKpi' {..} =
-    mconcat
+    Lude.mconcat
       [ "/v1/apps/",
-        toBS _gjdrkApplicationId,
+        Lude.toBS applicationId,
         "/journeys/",
-        toBS _gjdrkJourneyId,
+        Lude.toBS journeyId,
         "/kpis/daterange/",
-        toBS _gjdrkKpiName
+        Lude.toBS kpiName
       ]
 
-instance ToQuery GetJourneyDateRangeKpi where
+instance Lude.ToQuery GetJourneyDateRangeKpi where
   toQuery GetJourneyDateRangeKpi' {..} =
-    mconcat
-      [ "start-time" =: _gjdrkStartTime,
-        "next-token" =: _gjdrkNextToken,
-        "end-time" =: _gjdrkEndTime,
-        "page-size" =: _gjdrkPageSize
+    Lude.mconcat
+      [ "start-time" Lude.=: startTime,
+        "next-token" Lude.=: nextToken,
+        "end-time" Lude.=: endTime,
+        "page-size" Lude.=: pageSize
       ]
 
--- | /See:/ 'getJourneyDateRangeKpiResponse' smart constructor.
+-- | /See:/ 'mkGetJourneyDateRangeKpiResponse' smart constructor.
 data GetJourneyDateRangeKpiResponse = GetJourneyDateRangeKpiResponse'
-  { _gjdrkrsResponseStatus ::
-      !Int,
-    _gjdrkrsJourneyDateRangeKpiResponse ::
-      !JourneyDateRangeKpiResponse
+  { responseStatus ::
+      Lude.Int,
+    journeyDateRangeKpiResponse ::
+      JourneyDateRangeKpiResponse
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJourneyDateRangeKpiResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gjdrkrsResponseStatus' - -- | The response status code.
---
--- * 'gjdrkrsJourneyDateRangeKpiResponse' - Undocumented member.
-getJourneyDateRangeKpiResponse ::
-  -- | 'gjdrkrsResponseStatus'
-  Int ->
-  -- | 'gjdrkrsJourneyDateRangeKpiResponse'
+-- * 'journeyDateRangeKpiResponse' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetJourneyDateRangeKpiResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'journeyDateRangeKpiResponse'
   JourneyDateRangeKpiResponse ->
   GetJourneyDateRangeKpiResponse
-getJourneyDateRangeKpiResponse
+mkGetJourneyDateRangeKpiResponse
   pResponseStatus_
   pJourneyDateRangeKpiResponse_ =
     GetJourneyDateRangeKpiResponse'
-      { _gjdrkrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _gjdrkrsJourneyDateRangeKpiResponse =
-          pJourneyDateRangeKpiResponse_
+        journeyDateRangeKpiResponse = pJourneyDateRangeKpiResponse_
       }
 
--- | -- | The response status code.
-gjdrkrsResponseStatus :: Lens' GetJourneyDateRangeKpiResponse Int
-gjdrkrsResponseStatus = lens _gjdrkrsResponseStatus (\s a -> s {_gjdrkrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrkrsResponseStatus :: Lens.Lens' GetJourneyDateRangeKpiResponse Lude.Int
+gjdrkrsResponseStatus = Lens.lens (responseStatus :: GetJourneyDateRangeKpiResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJourneyDateRangeKpiResponse)
+{-# DEPRECATED gjdrkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-gjdrkrsJourneyDateRangeKpiResponse :: Lens' GetJourneyDateRangeKpiResponse JourneyDateRangeKpiResponse
-gjdrkrsJourneyDateRangeKpiResponse = lens _gjdrkrsJourneyDateRangeKpiResponse (\s a -> s {_gjdrkrsJourneyDateRangeKpiResponse = a})
-
-instance NFData GetJourneyDateRangeKpiResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'journeyDateRangeKpiResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjdrkrsJourneyDateRangeKpiResponse :: Lens.Lens' GetJourneyDateRangeKpiResponse JourneyDateRangeKpiResponse
+gjdrkrsJourneyDateRangeKpiResponse = Lens.lens (journeyDateRangeKpiResponse :: GetJourneyDateRangeKpiResponse -> JourneyDateRangeKpiResponse) (\s a -> s {journeyDateRangeKpiResponse = a} :: GetJourneyDateRangeKpiResponse)
+{-# DEPRECATED gjdrkrsJourneyDateRangeKpiResponse "Use generic-lens or generic-optics with 'journeyDateRangeKpiResponse' instead." #-}

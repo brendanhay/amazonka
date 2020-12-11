@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.RequestPayer where
+module Network.AWS.S3.Types.RequestPayer
+  ( RequestPayer
+      ( RequestPayer',
+        RPRequester
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html Downloading Objects in Requestor Pays Buckets> in the /Amazon S3 Developer Guide/ .
-data RequestPayer = RPRequester
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RequestPayer = RequestPayer' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RequestPayer where
-  parser =
-    takeLowerText >>= \case
-      "requester" -> pure RPRequester
-      e ->
-        fromTextError $
-          "Failure parsing RequestPayer from value: '" <> e
-            <> "'. Accepted values: requester"
+pattern RPRequester :: RequestPayer
+pattern RPRequester = RequestPayer' "requester"
 
-instance ToText RequestPayer where
-  toText = \case
-    RPRequester -> "requester"
-
-instance Hashable RequestPayer
-
-instance NFData RequestPayer
-
-instance ToByteString RequestPayer
-
-instance ToQuery RequestPayer
-
-instance ToHeader RequestPayer
-
-instance ToXML RequestPayer where
-  toXML = toXMLText
+{-# COMPLETE
+  RPRequester,
+  RequestPayer'
+  #-}

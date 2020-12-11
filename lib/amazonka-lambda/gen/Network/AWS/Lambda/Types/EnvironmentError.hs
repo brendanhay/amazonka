@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,51 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.EnvironmentError where
+module Network.AWS.Lambda.Types.EnvironmentError
+  ( EnvironmentError (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEnvironmentError,
+
+    -- * Lenses
+    eeErrorCode,
+    eeMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Error messages for environment variables that couldn't be applied.
 --
---
---
--- /See:/ 'environmentError' smart constructor.
+-- /See:/ 'mkEnvironmentError' smart constructor.
 data EnvironmentError = EnvironmentError'
-  { _eeErrorCode ::
-      !(Maybe Text),
-    _eeMessage :: !(Maybe (Sensitive Text))
+  { errorCode ::
+      Lude.Maybe Lude.Text,
+    message :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentError' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'eeErrorCode' - The error code.
---
--- * 'eeMessage' - The error message.
-environmentError ::
+-- * 'errorCode' - The error code.
+-- * 'message' - The error message.
+mkEnvironmentError ::
   EnvironmentError
-environmentError =
-  EnvironmentError' {_eeErrorCode = Nothing, _eeMessage = Nothing}
+mkEnvironmentError =
+  EnvironmentError'
+    { errorCode = Lude.Nothing,
+      message = Lude.Nothing
+    }
 
 -- | The error code.
-eeErrorCode :: Lens' EnvironmentError (Maybe Text)
-eeErrorCode = lens _eeErrorCode (\s a -> s {_eeErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eeErrorCode :: Lens.Lens' EnvironmentError (Lude.Maybe Lude.Text)
+eeErrorCode = Lens.lens (errorCode :: EnvironmentError -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: EnvironmentError)
+{-# DEPRECATED eeErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message.
-eeMessage :: Lens' EnvironmentError (Maybe Text)
-eeMessage = lens _eeMessage (\s a -> s {_eeMessage = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eeMessage :: Lens.Lens' EnvironmentError (Lude.Maybe (Lude.Sensitive Lude.Text))
+eeMessage = Lens.lens (message :: EnvironmentError -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {message = a} :: EnvironmentError)
+{-# DEPRECATED eeMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON EnvironmentError where
+instance Lude.FromJSON EnvironmentError where
   parseJSON =
-    withObject
+    Lude.withObject
       "EnvironmentError"
       ( \x ->
-          EnvironmentError' <$> (x .:? "ErrorCode") <*> (x .:? "Message")
+          EnvironmentError'
+            Lude.<$> (x Lude..:? "ErrorCode") Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable EnvironmentError
-
-instance NFData EnvironmentError

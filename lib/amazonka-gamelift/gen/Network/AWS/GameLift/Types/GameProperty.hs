@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.GameProperty where
+module Network.AWS.GameLift.Types.GameProperty
+  ( GameProperty (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGameProperty,
+
+    -- * Lenses
+    gpKey,
+    gpValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Set of key-value pairs that contain information about a game session. When included in a game session request, these properties communicate details to be used when setting up the new game session. For example, a game property might specify a game mode, level, or map. Game properties are passed to the game server process when initiating a new game session. For more information, see the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create Amazon GameLift Developer Guide> .
 --
---
---
--- /See:/ 'gameProperty' smart constructor.
+-- /See:/ 'mkGameProperty' smart constructor.
 data GameProperty = GameProperty'
-  { _gpKey :: !Text,
-    _gpValue :: !Text
+  { key :: Lude.Text,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameProperty' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpKey' - The game property identifier.
---
--- * 'gpValue' - The game property value.
-gameProperty ::
-  -- | 'gpKey'
-  Text ->
-  -- | 'gpValue'
-  Text ->
+-- * 'key' - The game property identifier.
+-- * 'value' - The game property value.
+mkGameProperty ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'value'
+  Lude.Text ->
   GameProperty
-gameProperty pKey_ pValue_ =
-  GameProperty' {_gpKey = pKey_, _gpValue = pValue_}
+mkGameProperty pKey_ pValue_ =
+  GameProperty' {key = pKey_, value = pValue_}
 
 -- | The game property identifier.
-gpKey :: Lens' GameProperty Text
-gpKey = lens _gpKey (\s a -> s {_gpKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpKey :: Lens.Lens' GameProperty Lude.Text
+gpKey = Lens.lens (key :: GameProperty -> Lude.Text) (\s a -> s {key = a} :: GameProperty)
+{-# DEPRECATED gpKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The game property value.
-gpValue :: Lens' GameProperty Text
-gpValue = lens _gpValue (\s a -> s {_gpValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpValue :: Lens.Lens' GameProperty Lude.Text
+gpValue = Lens.lens (value :: GameProperty -> Lude.Text) (\s a -> s {value = a} :: GameProperty)
+{-# DEPRECATED gpValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromJSON GameProperty where
+instance Lude.FromJSON GameProperty where
   parseJSON =
-    withObject
+    Lude.withObject
       "GameProperty"
-      (\x -> GameProperty' <$> (x .: "Key") <*> (x .: "Value"))
+      ( \x ->
+          GameProperty'
+            Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Value")
+      )
 
-instance Hashable GameProperty
-
-instance NFData GameProperty
-
-instance ToJSON GameProperty where
+instance Lude.ToJSON GameProperty where
   toJSON GameProperty' {..} =
-    object
-      (catMaybes [Just ("Key" .= _gpKey), Just ("Value" .= _gpValue)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("Key" Lude..= key), Lude.Just ("Value" Lude..= value)]
+      )

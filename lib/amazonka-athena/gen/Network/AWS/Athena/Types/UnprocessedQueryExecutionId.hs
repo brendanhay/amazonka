@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,66 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Athena.Types.UnprocessedQueryExecutionId where
+module Network.AWS.Athena.Types.UnprocessedQueryExecutionId
+  ( UnprocessedQueryExecutionId (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUnprocessedQueryExecutionId,
+
+    -- * Lenses
+    uqeiErrorCode,
+    uqeiQueryExecutionId,
+    uqeiErrorMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a query execution that failed to process.
 --
---
---
--- /See:/ 'unprocessedQueryExecutionId' smart constructor.
+-- /See:/ 'mkUnprocessedQueryExecutionId' smart constructor.
 data UnprocessedQueryExecutionId = UnprocessedQueryExecutionId'
-  { _uqeiErrorCode ::
-      !(Maybe Text),
-    _uqeiQueryExecutionId ::
-      !(Maybe Text),
-    _uqeiErrorMessage :: !(Maybe Text)
+  { errorCode ::
+      Lude.Maybe Lude.Text,
+    queryExecutionId ::
+      Lude.Maybe Lude.Text,
+    errorMessage ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnprocessedQueryExecutionId' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uqeiErrorCode' - The error code returned when the query execution failed to process, if applicable.
---
--- * 'uqeiQueryExecutionId' - The unique identifier of the query execution.
---
--- * 'uqeiErrorMessage' - The error message returned when the query execution failed to process, if applicable.
-unprocessedQueryExecutionId ::
+-- * 'errorCode' - The error code returned when the query execution failed to process, if applicable.
+-- * 'errorMessage' - The error message returned when the query execution failed to process, if applicable.
+-- * 'queryExecutionId' - The unique identifier of the query execution.
+mkUnprocessedQueryExecutionId ::
   UnprocessedQueryExecutionId
-unprocessedQueryExecutionId =
+mkUnprocessedQueryExecutionId =
   UnprocessedQueryExecutionId'
-    { _uqeiErrorCode = Nothing,
-      _uqeiQueryExecutionId = Nothing,
-      _uqeiErrorMessage = Nothing
+    { errorCode = Lude.Nothing,
+      queryExecutionId = Lude.Nothing,
+      errorMessage = Lude.Nothing
     }
 
 -- | The error code returned when the query execution failed to process, if applicable.
-uqeiErrorCode :: Lens' UnprocessedQueryExecutionId (Maybe Text)
-uqeiErrorCode = lens _uqeiErrorCode (\s a -> s {_uqeiErrorCode = a})
+--
+-- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqeiErrorCode :: Lens.Lens' UnprocessedQueryExecutionId (Lude.Maybe Lude.Text)
+uqeiErrorCode = Lens.lens (errorCode :: UnprocessedQueryExecutionId -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: UnprocessedQueryExecutionId)
+{-# DEPRECATED uqeiErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The unique identifier of the query execution.
-uqeiQueryExecutionId :: Lens' UnprocessedQueryExecutionId (Maybe Text)
-uqeiQueryExecutionId = lens _uqeiQueryExecutionId (\s a -> s {_uqeiQueryExecutionId = a})
+--
+-- /Note:/ Consider using 'queryExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqeiQueryExecutionId :: Lens.Lens' UnprocessedQueryExecutionId (Lude.Maybe Lude.Text)
+uqeiQueryExecutionId = Lens.lens (queryExecutionId :: UnprocessedQueryExecutionId -> Lude.Maybe Lude.Text) (\s a -> s {queryExecutionId = a} :: UnprocessedQueryExecutionId)
+{-# DEPRECATED uqeiQueryExecutionId "Use generic-lens or generic-optics with 'queryExecutionId' instead." #-}
 
 -- | The error message returned when the query execution failed to process, if applicable.
-uqeiErrorMessage :: Lens' UnprocessedQueryExecutionId (Maybe Text)
-uqeiErrorMessage = lens _uqeiErrorMessage (\s a -> s {_uqeiErrorMessage = a})
+--
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqeiErrorMessage :: Lens.Lens' UnprocessedQueryExecutionId (Lude.Maybe Lude.Text)
+uqeiErrorMessage = Lens.lens (errorMessage :: UnprocessedQueryExecutionId -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: UnprocessedQueryExecutionId)
+{-# DEPRECATED uqeiErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance FromJSON UnprocessedQueryExecutionId where
+instance Lude.FromJSON UnprocessedQueryExecutionId where
   parseJSON =
-    withObject
+    Lude.withObject
       "UnprocessedQueryExecutionId"
       ( \x ->
           UnprocessedQueryExecutionId'
-            <$> (x .:? "ErrorCode")
-            <*> (x .:? "QueryExecutionId")
-            <*> (x .:? "ErrorMessage")
+            Lude.<$> (x Lude..:? "ErrorCode")
+            Lude.<*> (x Lude..:? "QueryExecutionId")
+            Lude.<*> (x Lude..:? "ErrorMessage")
       )
-
-instance Hashable UnprocessedQueryExecutionId
-
-instance NFData UnprocessedQueryExecutionId

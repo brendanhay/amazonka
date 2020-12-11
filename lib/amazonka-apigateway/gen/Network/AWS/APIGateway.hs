@@ -15,8 +15,8 @@
 --
 -- Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
 module Network.AWS.APIGateway
-  ( -- * Service Configuration
-    apiGateway,
+  ( -- * Service configuration
+    apiGatewayService,
 
     -- * Errors
     -- $errors
@@ -447,8 +447,8 @@ module Network.AWS.APIGateway
     VPCLinkStatus (..),
 
     -- ** APIKey
-    APIKey,
-    apiKey,
+    APIKey (..),
+    mkAPIKey,
     akEnabled,
     akValue,
     akCustomerId,
@@ -461,29 +461,29 @@ module Network.AWS.APIGateway
     akTags,
 
     -- ** APIStage
-    APIStage,
-    apiStage,
+    APIStage (..),
+    mkAPIStage,
     asStage,
     asApiId,
     asThrottle,
 
     -- ** AccessLogSettings
-    AccessLogSettings,
-    accessLogSettings,
+    AccessLogSettings (..),
+    mkAccessLogSettings,
     alsFormat,
     alsDestinationARN,
 
     -- ** Account
-    Account,
-    account,
+    Account (..),
+    mkAccount,
     aApiKeyVersion,
     aCloudwatchRoleARN,
     aFeatures,
     aThrottleSettings,
 
     -- ** Authorizer
-    Authorizer,
-    authorizer,
+    Authorizer (..),
+    mkAuthorizer,
     aAuthorizerURI,
     aIdentityValidationExpression,
     aProviderARNs,
@@ -496,23 +496,23 @@ module Network.AWS.APIGateway
     aAuthorizerCredentials,
 
     -- ** BasePathMapping
-    BasePathMapping,
-    basePathMapping,
+    BasePathMapping (..),
+    mkBasePathMapping,
     bpmStage,
     bpmBasePath,
     bpmRestAPIId,
 
     -- ** CanarySettings
-    CanarySettings,
-    canarySettings,
+    CanarySettings (..),
+    mkCanarySettings,
     csDeploymentId,
     csStageVariableOverrides,
     csUseStageCache,
     csPercentTraffic,
 
     -- ** ClientCertificate
-    ClientCertificate,
-    clientCertificate,
+    ClientCertificate (..),
+    mkClientCertificate,
     ccPemEncodedCertificate,
     ccClientCertificateId,
     ccCreatedDate,
@@ -521,30 +521,30 @@ module Network.AWS.APIGateway
     ccTags,
 
     -- ** Deployment
-    Deployment,
-    deployment,
+    Deployment (..),
+    mkDeployment,
     dApiSummary,
     dCreatedDate,
     dId,
     dDescription,
 
     -- ** DeploymentCanarySettings
-    DeploymentCanarySettings,
-    deploymentCanarySettings,
+    DeploymentCanarySettings (..),
+    mkDeploymentCanarySettings,
     dcsStageVariableOverrides,
     dcsUseStageCache,
     dcsPercentTraffic,
 
     -- ** DocumentationPart
-    DocumentationPart,
-    documentationPart,
+    DocumentationPart (..),
+    mkDocumentationPart,
     dpLocation,
     dpId,
     dpProperties,
 
     -- ** DocumentationPartLocation
-    DocumentationPartLocation,
-    documentationPartLocation,
+    DocumentationPartLocation (..),
+    mkDocumentationPartLocation,
     dplPath,
     dplName,
     dplMethod,
@@ -552,15 +552,15 @@ module Network.AWS.APIGateway
     dplType,
 
     -- ** DocumentationVersion
-    DocumentationVersion,
-    documentationVersion,
+    DocumentationVersion (..),
+    mkDocumentationVersion,
     dvCreatedDate,
     dvVersion,
     dvDescription,
 
     -- ** DomainName
-    DomainName,
-    domainName,
+    DomainName (..),
+    mkDomainName,
     dnRegionalHostedZoneId,
     dnCertificateName,
     dnRegionalCertificateARN,
@@ -579,14 +579,14 @@ module Network.AWS.APIGateway
     dnTags,
 
     -- ** EndpointConfiguration
-    EndpointConfiguration,
-    endpointConfiguration,
+    EndpointConfiguration (..),
+    mkEndpointConfiguration,
     ecTypes,
     ecVpcEndpointIds,
 
     -- ** GatewayResponse
-    GatewayResponse,
-    gatewayResponse,
+    GatewayResponse (..),
+    mkGatewayResponse,
     gDefaultResponse,
     gResponseTemplates,
     gResponseType,
@@ -594,8 +594,8 @@ module Network.AWS.APIGateway
     gResponseParameters,
 
     -- ** Integration
-    Integration,
-    integration,
+    Integration (..),
+    mkIntegration,
     iHttpMethod,
     iRequestTemplates,
     iCredentials,
@@ -613,8 +613,8 @@ module Network.AWS.APIGateway
     iCacheKeyParameters,
 
     -- ** IntegrationResponse
-    IntegrationResponse,
-    integrationResponse,
+    IntegrationResponse (..),
+    mkIntegrationResponse,
     intContentHandling,
     intResponseTemplates,
     intSelectionPattern,
@@ -622,8 +622,8 @@ module Network.AWS.APIGateway
     intResponseParameters,
 
     -- ** Method
-    Method,
-    method,
+    Method (..),
+    mkMethod,
     mMethodResponses,
     mHttpMethod,
     mAuthorizationScopes,
@@ -637,15 +637,15 @@ module Network.AWS.APIGateway
     mMethodIntegration,
 
     -- ** MethodResponse
-    MethodResponse,
-    methodResponse,
+    MethodResponse (..),
+    mkMethodResponse,
     mResponseModels,
     mStatusCode,
     mResponseParameters,
 
     -- ** MethodSetting
-    MethodSetting,
-    methodSetting,
+    MethodSetting (..),
+    mkMethodSetting,
     msCacheTtlInSeconds,
     msDataTraceEnabled,
     msThrottlingBurstLimit,
@@ -658,14 +658,14 @@ module Network.AWS.APIGateway
     msUnauthorizedCacheControlHeaderStrategy,
 
     -- ** MethodSnapshot
-    MethodSnapshot,
-    methodSnapshot,
+    MethodSnapshot (..),
+    mkMethodSnapshot,
     msAuthorizationType,
     msApiKeyRequired,
 
     -- ** Model
-    Model,
-    model,
+    Model (..),
+    mkModel,
     mSchema,
     mName,
     mId,
@@ -673,44 +673,44 @@ module Network.AWS.APIGateway
     mContentType,
 
     -- ** MutualTLSAuthentication
-    MutualTLSAuthentication,
-    mutualTLSAuthentication,
+    MutualTLSAuthentication (..),
+    mkMutualTLSAuthentication,
     mtaTruststoreWarnings,
     mtaTruststoreURI,
     mtaTruststoreVersion,
 
     -- ** MutualTLSAuthenticationInput
-    MutualTLSAuthenticationInput,
-    mutualTLSAuthenticationInput,
+    MutualTLSAuthenticationInput (..),
+    mkMutualTLSAuthenticationInput,
     mtaiTruststoreURI,
     mtaiTruststoreVersion,
 
     -- ** PatchOperation
-    PatchOperation,
-    patchOperation,
+    PatchOperation (..),
+    mkPatchOperation,
     poOp,
     poPath,
     poValue,
     poFrom,
 
     -- ** QuotaSettings
-    QuotaSettings,
-    quotaSettings,
+    QuotaSettings (..),
+    mkQuotaSettings,
     qsOffset,
     qsPeriod,
     qsLimit,
 
     -- ** RequestValidator
-    RequestValidator,
-    requestValidator,
+    RequestValidator (..),
+    mkRequestValidator,
     rvValidateRequestParameters,
     rvName,
     rvValidateRequestBody,
     rvId,
 
     -- ** Resource
-    Resource,
-    resource,
+    Resource (..),
+    mkResource,
     rPathPart,
     rPath,
     rId,
@@ -718,8 +718,8 @@ module Network.AWS.APIGateway
     rParentId,
 
     -- ** RestAPI
-    RestAPI,
-    restAPI,
+    RestAPI (..),
+    mkRestAPI,
     raMinimumCompressionSize,
     raDisableExecuteAPIEndpoint,
     raBinaryMediaTypes,
@@ -735,8 +735,8 @@ module Network.AWS.APIGateway
     raTags,
 
     -- ** SDKConfigurationProperty
-    SDKConfigurationProperty,
-    sdkConfigurationProperty,
+    SDKConfigurationProperty (..),
+    mkSDKConfigurationProperty,
     scpFriendlyName,
     scpRequired,
     scpName,
@@ -744,16 +744,16 @@ module Network.AWS.APIGateway
     scpDescription,
 
     -- ** SDKType
-    SDKType,
-    sdkType,
+    SDKType (..),
+    mkSDKType,
     stFriendlyName,
     stConfigurationProperties,
     stId,
     stDescription,
 
     -- ** Stage
-    Stage,
-    stage,
+    Stage (..),
+    mkStage,
     sDeploymentId,
     sVariables,
     sAccessLogSettings,
@@ -773,25 +773,25 @@ module Network.AWS.APIGateway
     sTags,
 
     -- ** StageKey
-    StageKey,
-    stageKey,
+    StageKey (..),
+    mkStageKey,
     skRestAPIId,
     skStageName,
 
     -- ** TLSConfig
-    TLSConfig,
-    tlsConfig,
+    TLSConfig (..),
+    mkTLSConfig,
     tcInsecureSkipVerification,
 
     -- ** ThrottleSettings
-    ThrottleSettings,
-    throttleSettings,
+    ThrottleSettings (..),
+    mkThrottleSettings,
     tsBurstLimit,
     tsRateLimit,
 
     -- ** Usage
-    Usage,
-    usage,
+    Usage (..),
+    mkUsage,
     uUsagePlanId,
     uEndDate,
     uItems,
@@ -799,8 +799,8 @@ module Network.AWS.APIGateway
     uPosition,
 
     -- ** UsagePlan
-    UsagePlan,
-    usagePlan,
+    UsagePlan (..),
+    mkUsagePlan,
     upApiStages,
     upName,
     upId,
@@ -811,16 +811,16 @@ module Network.AWS.APIGateway
     upTags,
 
     -- ** UsagePlanKey
-    UsagePlanKey,
-    usagePlanKey,
+    UsagePlanKey (..),
+    mkUsagePlanKey,
     upkValue,
     upkName,
     upkId,
     upkType,
 
     -- ** VPCLink
-    VPCLink,
-    vpcLink,
+    VPCLink (..),
+    mkVPCLink,
     vlStatus,
     vlTargetARNs,
     vlName,
@@ -828,6 +828,17 @@ module Network.AWS.APIGateway
     vlId,
     vlDescription,
     vlTags,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -953,6 +964,7 @@ import Network.AWS.APIGateway.UpdateUsage
 import Network.AWS.APIGateway.UpdateUsagePlan
 import Network.AWS.APIGateway.UpdateVPCLink
 import Network.AWS.APIGateway.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -15,8 +15,8 @@
 --
 -- AWS Directory Service is a web service that makes it easy for you to setup and run directories in the AWS cloud, or connect your AWS resources with an existing on-premises Microsoft Active Directory. This guide provides detailed information about AWS Directory Service operations, data types, parameters, and errors. For information about AWS Directory Services features, see <https://aws.amazon.com/directoryservice/ AWS Directory Service> and the <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html AWS Directory Service Administration Guide> .
 module Network.AWS.DirectoryService
-  ( -- * Service Configuration
-    directoryService,
+  ( -- * Service configuration
+    directoryServiceService,
 
     -- * Errors
     -- $errors
@@ -282,14 +282,14 @@ module Network.AWS.DirectoryService
     TrustType (..),
 
     -- ** Attribute
-    Attribute,
-    attribute,
+    Attribute (..),
+    mkAttribute,
     aValue,
     aName,
 
     -- ** Certificate
-    Certificate,
-    certificate,
+    Certificate (..),
+    mkCertificate,
     cState,
     cCommonName,
     cCertificateId,
@@ -298,38 +298,38 @@ module Network.AWS.DirectoryService
     cStateReason,
 
     -- ** CertificateInfo
-    CertificateInfo,
-    certificateInfo,
+    CertificateInfo (..),
+    mkCertificateInfo,
     ciState,
     ciCommonName,
     ciCertificateId,
     ciExpiryDateTime,
 
     -- ** Computer
-    Computer,
-    computer,
+    Computer (..),
+    mkComputer,
     cComputerId,
     cComputerAttributes,
     cComputerName,
 
     -- ** ConditionalForwarder
-    ConditionalForwarder,
-    conditionalForwarder,
+    ConditionalForwarder (..),
+    mkConditionalForwarder,
     cfDNSIPAddrs,
     cfRemoteDomainName,
     cfReplicationScope,
 
     -- ** DirectoryConnectSettings
-    DirectoryConnectSettings,
-    directoryConnectSettings,
+    DirectoryConnectSettings (..),
+    mkDirectoryConnectSettings,
     dcsVPCId,
     dcsSubnetIds,
     dcsCustomerDNSIPs,
     dcsCustomerUserName,
 
     -- ** DirectoryConnectSettingsDescription
-    DirectoryConnectSettingsDescription,
-    directoryConnectSettingsDescription,
+    DirectoryConnectSettingsDescription (..),
+    mkDirectoryConnectSettingsDescription,
     dcsdCustomerUserName,
     dcsdSubnetIds,
     dcsdVPCId,
@@ -338,8 +338,8 @@ module Network.AWS.DirectoryService
     dcsdAvailabilityZones,
 
     -- ** DirectoryDescription
-    DirectoryDescription,
-    directoryDescription,
+    DirectoryDescription (..),
+    mkDirectoryDescription,
     ddEdition,
     ddRadiusStatus,
     ddStage,
@@ -367,8 +367,8 @@ module Network.AWS.DirectoryService
     ddShareNotes,
 
     -- ** DirectoryLimits
-    DirectoryLimits,
-    directoryLimits,
+    DirectoryLimits (..),
+    mkDirectoryLimits,
     dlConnectedDirectoriesCurrentCount,
     dlCloudOnlyMicrosoftADLimitReached,
     dlConnectedDirectoriesLimit,
@@ -380,22 +380,22 @@ module Network.AWS.DirectoryService
     dlCloudOnlyMicrosoftADCurrentCount,
 
     -- ** DirectoryVPCSettings
-    DirectoryVPCSettings,
-    directoryVPCSettings,
+    DirectoryVPCSettings (..),
+    mkDirectoryVPCSettings,
     dvsVPCId,
     dvsSubnetIds,
 
     -- ** DirectoryVPCSettingsDescription
-    DirectoryVPCSettingsDescription,
-    directoryVPCSettingsDescription,
+    DirectoryVPCSettingsDescription (..),
+    mkDirectoryVPCSettingsDescription,
     dvsdSubnetIds,
     dvsdVPCId,
     dvsdSecurityGroupId,
     dvsdAvailabilityZones,
 
     -- ** DomainController
-    DomainController,
-    domainController,
+    DomainController (..),
+    mkDomainController,
     dcStatus,
     dcDirectoryId,
     dcVPCId,
@@ -408,8 +408,8 @@ module Network.AWS.DirectoryService
     dcDomainControllerId,
 
     -- ** EventTopic
-    EventTopic,
-    eventTopic,
+    EventTopic (..),
+    mkEventTopic,
     etStatus,
     etDirectoryId,
     etTopicName,
@@ -417,14 +417,14 @@ module Network.AWS.DirectoryService
     etCreatedDateTime,
 
     -- ** IPRoute
-    IPRoute,
-    ipRoute,
+    IPRoute (..),
+    mkIPRoute,
     irCidrIP,
     irDescription,
 
     -- ** IPRouteInfo
-    IPRouteInfo,
-    ipRouteInfo,
+    IPRouteInfo (..),
+    mkIPRouteInfo,
     iriDirectoryId,
     iriIPRouteStatusReason,
     iriAddedDateTime,
@@ -433,22 +433,22 @@ module Network.AWS.DirectoryService
     iriDescription,
 
     -- ** LDAPSSettingInfo
-    LDAPSSettingInfo,
-    lDAPSSettingInfo,
+    LDAPSSettingInfo (..),
+    mkLDAPSSettingInfo,
     ldapssiLastUpdatedDateTime,
     ldapssiLDAPSStatusReason,
     ldapssiLDAPSStatus,
 
     -- ** LogSubscription
-    LogSubscription,
-    logSubscription,
+    LogSubscription (..),
+    mkLogSubscription,
     lsDirectoryId,
     lsLogGroupName,
     lsSubscriptionCreatedDateTime,
 
     -- ** OwnerDirectoryDescription
-    OwnerDirectoryDescription,
-    ownerDirectoryDescription,
+    OwnerDirectoryDescription (..),
+    mkOwnerDirectoryDescription,
     oddRadiusStatus,
     oddDirectoryId,
     oddRadiusSettings,
@@ -457,8 +457,8 @@ module Network.AWS.DirectoryService
     oddVPCSettings,
 
     -- ** RadiusSettings
-    RadiusSettings,
-    radiusSettings,
+    RadiusSettings (..),
+    mkRadiusSettings,
     rsDisplayLabel,
     rsRadiusRetries,
     rsAuthenticationProtocol,
@@ -469,8 +469,8 @@ module Network.AWS.DirectoryService
     rsRadiusPort,
 
     -- ** RegionDescription
-    RegionDescription,
-    regionDescription,
+    RegionDescription (..),
+    mkRegionDescription,
     rdStatus,
     rdDirectoryId,
     rdRegionName,
@@ -482,14 +482,14 @@ module Network.AWS.DirectoryService
     rdVPCSettings,
 
     -- ** RegionsInfo
-    RegionsInfo,
-    regionsInfo,
+    RegionsInfo (..),
+    mkRegionsInfo,
     riPrimaryRegion,
     riAdditionalRegions,
 
     -- ** SchemaExtensionInfo
-    SchemaExtensionInfo,
-    schemaExtensionInfo,
+    SchemaExtensionInfo (..),
+    mkSchemaExtensionInfo,
     seiDirectoryId,
     seiSchemaExtensionId,
     seiSchemaExtensionStatusReason,
@@ -499,14 +499,14 @@ module Network.AWS.DirectoryService
     seiStartDateTime,
 
     -- ** ShareTarget
-    ShareTarget,
-    shareTarget,
+    ShareTarget (..),
+    mkShareTarget,
     stId,
     stType,
 
     -- ** SharedDirectory
-    SharedDirectory,
-    sharedDirectory,
+    SharedDirectory (..),
+    mkSharedDirectory,
     sSharedAccountId,
     sOwnerAccountId,
     sLastUpdatedDateTime,
@@ -518,8 +518,8 @@ module Network.AWS.DirectoryService
     sCreatedDateTime,
 
     -- ** Snapshot
-    Snapshot,
-    snapshot,
+    Snapshot (..),
+    mkSnapshot,
     sStatus,
     sDirectoryId,
     sStartTime,
@@ -528,21 +528,21 @@ module Network.AWS.DirectoryService
     sSnapshotId,
 
     -- ** SnapshotLimits
-    SnapshotLimits,
-    snapshotLimits,
+    SnapshotLimits (..),
+    mkSnapshotLimits,
     slManualSnapshotsLimitReached,
     slManualSnapshotsCurrentCount,
     slManualSnapshotsLimit,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** Trust
-    Trust,
-    trust,
+    Trust (..),
+    mkTrust,
     tDirectoryId,
     tTrustState,
     tLastUpdatedDateTime,
@@ -556,10 +556,21 @@ module Network.AWS.DirectoryService
     tCreatedDateTime,
 
     -- ** UnshareTarget
-    UnshareTarget,
-    unshareTarget,
+    UnshareTarget (..),
+    mkUnshareTarget,
     utId,
     utType,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -625,6 +636,7 @@ import Network.AWS.DirectoryService.UpdateRadius
 import Network.AWS.DirectoryService.UpdateTrust
 import Network.AWS.DirectoryService.VerifyTrust
 import Network.AWS.DirectoryService.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

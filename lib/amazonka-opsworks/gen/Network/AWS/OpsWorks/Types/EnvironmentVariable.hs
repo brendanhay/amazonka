@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,77 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.EnvironmentVariable where
+module Network.AWS.OpsWorks.Types.EnvironmentVariable
+  ( EnvironmentVariable (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEnvironmentVariable,
+
+    -- * Lenses
+    evSecure,
+    evKey,
+    evValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Represents an app's environment variable.
 --
---
---
--- /See:/ 'environmentVariable' smart constructor.
+-- /See:/ 'mkEnvironmentVariable' smart constructor.
 data EnvironmentVariable = EnvironmentVariable'
-  { _evSecure ::
-      !(Maybe Bool),
-    _evKey :: !Text,
-    _evValue :: !Text
+  { secure ::
+      Lude.Maybe Lude.Bool,
+    key :: Lude.Text,
+    value :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentVariable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'evSecure' - (Optional) Whether the variable's value will be returned by the 'DescribeApps' action. To conceal an environment variable's value, set @Secure@ to @true@ . @DescribeApps@ then returns @*****FILTERED*****@ instead of the actual value. The default value for @Secure@ is @false@ .
---
--- * 'evKey' - (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
---
--- * 'evValue' - (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
-environmentVariable ::
-  -- | 'evKey'
-  Text ->
-  -- | 'evValue'
-  Text ->
+-- * 'key' - (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
+-- * 'secure' - (Optional) Whether the variable's value will be returned by the 'DescribeApps' action. To conceal an environment variable's value, set @Secure@ to @true@ . @DescribeApps@ then returns @*****FILTERED*****@ instead of the actual value. The default value for @Secure@ is @false@ .
+-- * 'value' - (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
+mkEnvironmentVariable ::
+  -- | 'key'
+  Lude.Text ->
+  -- | 'value'
+  Lude.Text ->
   EnvironmentVariable
-environmentVariable pKey_ pValue_ =
+mkEnvironmentVariable pKey_ pValue_ =
   EnvironmentVariable'
-    { _evSecure = Nothing,
-      _evKey = pKey_,
-      _evValue = pValue_
+    { secure = Lude.Nothing,
+      key = pKey_,
+      value = pValue_
     }
 
 -- | (Optional) Whether the variable's value will be returned by the 'DescribeApps' action. To conceal an environment variable's value, set @Secure@ to @true@ . @DescribeApps@ then returns @*****FILTERED*****@ instead of the actual value. The default value for @Secure@ is @false@ .
-evSecure :: Lens' EnvironmentVariable (Maybe Bool)
-evSecure = lens _evSecure (\s a -> s {_evSecure = a})
+--
+-- /Note:/ Consider using 'secure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evSecure :: Lens.Lens' EnvironmentVariable (Lude.Maybe Lude.Bool)
+evSecure = Lens.lens (secure :: EnvironmentVariable -> Lude.Maybe Lude.Bool) (\s a -> s {secure = a} :: EnvironmentVariable)
+{-# DEPRECATED evSecure "Use generic-lens or generic-optics with 'secure' instead." #-}
 
 -- | (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
-evKey :: Lens' EnvironmentVariable Text
-evKey = lens _evKey (\s a -> s {_evKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evKey :: Lens.Lens' EnvironmentVariable Lude.Text
+evKey = Lens.lens (key :: EnvironmentVariable -> Lude.Text) (\s a -> s {key = a} :: EnvironmentVariable)
+{-# DEPRECATED evKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
-evValue :: Lens' EnvironmentVariable Text
-evValue = lens _evValue (\s a -> s {_evValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evValue :: Lens.Lens' EnvironmentVariable Lude.Text
+evValue = Lens.lens (value :: EnvironmentVariable -> Lude.Text) (\s a -> s {value = a} :: EnvironmentVariable)
+{-# DEPRECATED evValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromJSON EnvironmentVariable where
+instance Lude.FromJSON EnvironmentVariable where
   parseJSON =
-    withObject
+    Lude.withObject
       "EnvironmentVariable"
       ( \x ->
           EnvironmentVariable'
-            <$> (x .:? "Secure") <*> (x .: "Key") <*> (x .: "Value")
+            Lude.<$> (x Lude..:? "Secure")
+            Lude.<*> (x Lude..: "Key")
+            Lude.<*> (x Lude..: "Value")
       )
 
-instance Hashable EnvironmentVariable
-
-instance NFData EnvironmentVariable
-
-instance ToJSON EnvironmentVariable where
+instance Lude.ToJSON EnvironmentVariable where
   toJSON EnvironmentVariable' {..} =
-    object
-      ( catMaybes
-          [ ("Secure" .=) <$> _evSecure,
-            Just ("Key" .= _evKey),
-            Just ("Value" .= _evValue)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Secure" Lude..=) Lude.<$> secure,
+            Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Value" Lude..= value)
           ]
       )

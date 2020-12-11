@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoSync.Types.Platform where
+module Network.AWS.CognitoSync.Types.Platform
+  ( Platform
+      ( Platform',
+        ADM,
+        APNS,
+        APNSSandbox,
+        GCM
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Platform
-  = ADM
-  | APNS
-  | APNSSandbox
-  | GCM
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Platform = Platform' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Platform where
-  parser =
-    takeLowerText >>= \case
-      "adm" -> pure ADM
-      "apns" -> pure APNS
-      "apns_sandbox" -> pure APNSSandbox
-      "gcm" -> pure GCM
-      e ->
-        fromTextError $
-          "Failure parsing Platform from value: '" <> e
-            <> "'. Accepted values: adm, apns, apns_sandbox, gcm"
+pattern ADM :: Platform
+pattern ADM = Platform' "ADM"
 
-instance ToText Platform where
-  toText = \case
-    ADM -> "ADM"
-    APNS -> "APNS"
-    APNSSandbox -> "APNS_SANDBOX"
-    GCM -> "GCM"
+pattern APNS :: Platform
+pattern APNS = Platform' "APNS"
 
-instance Hashable Platform
+pattern APNSSandbox :: Platform
+pattern APNSSandbox = Platform' "APNS_SANDBOX"
 
-instance NFData Platform
+pattern GCM :: Platform
+pattern GCM = Platform' "GCM"
 
-instance ToByteString Platform
-
-instance ToQuery Platform
-
-instance ToHeader Platform
-
-instance ToJSON Platform where
-  toJSON = toJSONText
+{-# COMPLETE
+  ADM,
+  APNS,
+  APNSSandbox,
+  GCM,
+  Platform'
+  #-}

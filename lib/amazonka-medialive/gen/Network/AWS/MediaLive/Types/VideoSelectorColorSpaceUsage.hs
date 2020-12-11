@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage where
+module Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage
+  ( VideoSelectorColorSpaceUsage
+      ( VideoSelectorColorSpaceUsage',
+        Fallback,
+        Force
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Video Selector Color Space Usage
-data VideoSelectorColorSpaceUsage
-  = Fallback
-  | Force
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VideoSelectorColorSpaceUsage = VideoSelectorColorSpaceUsage' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VideoSelectorColorSpaceUsage where
-  parser =
-    takeLowerText >>= \case
-      "fallback" -> pure Fallback
-      "force" -> pure Force
-      e ->
-        fromTextError $
-          "Failure parsing VideoSelectorColorSpaceUsage from value: '" <> e
-            <> "'. Accepted values: fallback, force"
+pattern Fallback :: VideoSelectorColorSpaceUsage
+pattern Fallback = VideoSelectorColorSpaceUsage' "FALLBACK"
 
-instance ToText VideoSelectorColorSpaceUsage where
-  toText = \case
-    Fallback -> "FALLBACK"
-    Force -> "FORCE"
+pattern Force :: VideoSelectorColorSpaceUsage
+pattern Force = VideoSelectorColorSpaceUsage' "FORCE"
 
-instance Hashable VideoSelectorColorSpaceUsage
-
-instance NFData VideoSelectorColorSpaceUsage
-
-instance ToByteString VideoSelectorColorSpaceUsage
-
-instance ToQuery VideoSelectorColorSpaceUsage
-
-instance ToHeader VideoSelectorColorSpaceUsage
-
-instance ToJSON VideoSelectorColorSpaceUsage where
-  toJSON = toJSONText
-
-instance FromJSON VideoSelectorColorSpaceUsage where
-  parseJSON = parseJSONText "VideoSelectorColorSpaceUsage"
+{-# COMPLETE
+  Fallback,
+  Force,
+  VideoSelectorColorSpaceUsage'
+  #-}

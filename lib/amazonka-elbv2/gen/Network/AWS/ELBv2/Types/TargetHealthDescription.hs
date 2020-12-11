@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.TargetHealthDescription where
+module Network.AWS.ELBv2.Types.TargetHealthDescription
+  ( TargetHealthDescription (..),
+
+    -- * Smart constructor
+    mkTargetHealthDescription,
+
+    -- * Lenses
+    thdTargetHealth,
+    thdHealthCheckPort,
+    thdTarget,
+  )
+where
 
 import Network.AWS.ELBv2.Types.TargetDescription
 import Network.AWS.ELBv2.Types.TargetHealth
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the health of a target.
 --
---
---
--- /See:/ 'targetHealthDescription' smart constructor.
+-- /See:/ 'mkTargetHealthDescription' smart constructor.
 data TargetHealthDescription = TargetHealthDescription'
-  { _thdTargetHealth ::
-      !(Maybe TargetHealth),
-    _thdHealthCheckPort :: !(Maybe Text),
-    _thdTarget :: !(Maybe TargetDescription)
+  { targetHealth ::
+      Lude.Maybe TargetHealth,
+    healthCheckPort :: Lude.Maybe Lude.Text,
+    target :: Lude.Maybe TargetDescription
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetHealthDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'thdTargetHealth' - The health information for the target.
---
--- * 'thdHealthCheckPort' - The port to use to connect with the target.
---
--- * 'thdTarget' - The description of the target.
-targetHealthDescription ::
+-- * 'healthCheckPort' - The port to use to connect with the target.
+-- * 'target' - The description of the target.
+-- * 'targetHealth' - The health information for the target.
+mkTargetHealthDescription ::
   TargetHealthDescription
-targetHealthDescription =
+mkTargetHealthDescription =
   TargetHealthDescription'
-    { _thdTargetHealth = Nothing,
-      _thdHealthCheckPort = Nothing,
-      _thdTarget = Nothing
+    { targetHealth = Lude.Nothing,
+      healthCheckPort = Lude.Nothing,
+      target = Lude.Nothing
     }
 
 -- | The health information for the target.
-thdTargetHealth :: Lens' TargetHealthDescription (Maybe TargetHealth)
-thdTargetHealth = lens _thdTargetHealth (\s a -> s {_thdTargetHealth = a})
+--
+-- /Note:/ Consider using 'targetHealth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+thdTargetHealth :: Lens.Lens' TargetHealthDescription (Lude.Maybe TargetHealth)
+thdTargetHealth = Lens.lens (targetHealth :: TargetHealthDescription -> Lude.Maybe TargetHealth) (\s a -> s {targetHealth = a} :: TargetHealthDescription)
+{-# DEPRECATED thdTargetHealth "Use generic-lens or generic-optics with 'targetHealth' instead." #-}
 
 -- | The port to use to connect with the target.
-thdHealthCheckPort :: Lens' TargetHealthDescription (Maybe Text)
-thdHealthCheckPort = lens _thdHealthCheckPort (\s a -> s {_thdHealthCheckPort = a})
+--
+-- /Note:/ Consider using 'healthCheckPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+thdHealthCheckPort :: Lens.Lens' TargetHealthDescription (Lude.Maybe Lude.Text)
+thdHealthCheckPort = Lens.lens (healthCheckPort :: TargetHealthDescription -> Lude.Maybe Lude.Text) (\s a -> s {healthCheckPort = a} :: TargetHealthDescription)
+{-# DEPRECATED thdHealthCheckPort "Use generic-lens or generic-optics with 'healthCheckPort' instead." #-}
 
 -- | The description of the target.
-thdTarget :: Lens' TargetHealthDescription (Maybe TargetDescription)
-thdTarget = lens _thdTarget (\s a -> s {_thdTarget = a})
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+thdTarget :: Lens.Lens' TargetHealthDescription (Lude.Maybe TargetDescription)
+thdTarget = Lens.lens (target :: TargetHealthDescription -> Lude.Maybe TargetDescription) (\s a -> s {target = a} :: TargetHealthDescription)
+{-# DEPRECATED thdTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance FromXML TargetHealthDescription where
+instance Lude.FromXML TargetHealthDescription where
   parseXML x =
     TargetHealthDescription'
-      <$> (x .@? "TargetHealth")
-      <*> (x .@? "HealthCheckPort")
-      <*> (x .@? "Target")
-
-instance Hashable TargetHealthDescription
-
-instance NFData TargetHealthDescription
+      Lude.<$> (x Lude..@? "TargetHealth")
+      Lude.<*> (x Lude..@? "HealthCheckPort")
+      Lude.<*> (x Lude..@? "Target")

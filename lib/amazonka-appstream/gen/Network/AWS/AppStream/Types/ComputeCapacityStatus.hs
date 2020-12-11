@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppStream.Types.ComputeCapacityStatus where
+module Network.AWS.AppStream.Types.ComputeCapacityStatus
+  ( ComputeCapacityStatus (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkComputeCapacityStatus,
+
+    -- * Lenses
+    ccsInUse,
+    ccsRunning,
+    ccsAvailable,
+    ccsDesired,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the capacity status for a fleet.
 --
---
---
--- /See:/ 'computeCapacityStatus' smart constructor.
+-- /See:/ 'mkComputeCapacityStatus' smart constructor.
 data ComputeCapacityStatus = ComputeCapacityStatus'
-  { _ccsInUse ::
-      !(Maybe Int),
-    _ccsRunning :: !(Maybe Int),
-    _ccsAvailable :: !(Maybe Int),
-    _ccsDesired :: !Int
+  { inUse ::
+      Lude.Maybe Lude.Int,
+    running :: Lude.Maybe Lude.Int,
+    available :: Lude.Maybe Lude.Int,
+    desired :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComputeCapacityStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ccsInUse' - The number of instances in use for streaming.
---
--- * 'ccsRunning' - The total number of simultaneous streaming instances that are running.
---
--- * 'ccsAvailable' - The number of currently available instances that can be used to stream sessions.
---
--- * 'ccsDesired' - The desired number of streaming instances.
-computeCapacityStatus ::
-  -- | 'ccsDesired'
-  Int ->
+-- * 'available' - The number of currently available instances that can be used to stream sessions.
+-- * 'desired' - The desired number of streaming instances.
+-- * 'inUse' - The number of instances in use for streaming.
+-- * 'running' - The total number of simultaneous streaming instances that are running.
+mkComputeCapacityStatus ::
+  -- | 'desired'
+  Lude.Int ->
   ComputeCapacityStatus
-computeCapacityStatus pDesired_ =
+mkComputeCapacityStatus pDesired_ =
   ComputeCapacityStatus'
-    { _ccsInUse = Nothing,
-      _ccsRunning = Nothing,
-      _ccsAvailable = Nothing,
-      _ccsDesired = pDesired_
+    { inUse = Lude.Nothing,
+      running = Lude.Nothing,
+      available = Lude.Nothing,
+      desired = pDesired_
     }
 
 -- | The number of instances in use for streaming.
-ccsInUse :: Lens' ComputeCapacityStatus (Maybe Int)
-ccsInUse = lens _ccsInUse (\s a -> s {_ccsInUse = a})
+--
+-- /Note:/ Consider using 'inUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsInUse :: Lens.Lens' ComputeCapacityStatus (Lude.Maybe Lude.Int)
+ccsInUse = Lens.lens (inUse :: ComputeCapacityStatus -> Lude.Maybe Lude.Int) (\s a -> s {inUse = a} :: ComputeCapacityStatus)
+{-# DEPRECATED ccsInUse "Use generic-lens or generic-optics with 'inUse' instead." #-}
 
 -- | The total number of simultaneous streaming instances that are running.
-ccsRunning :: Lens' ComputeCapacityStatus (Maybe Int)
-ccsRunning = lens _ccsRunning (\s a -> s {_ccsRunning = a})
+--
+-- /Note:/ Consider using 'running' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsRunning :: Lens.Lens' ComputeCapacityStatus (Lude.Maybe Lude.Int)
+ccsRunning = Lens.lens (running :: ComputeCapacityStatus -> Lude.Maybe Lude.Int) (\s a -> s {running = a} :: ComputeCapacityStatus)
+{-# DEPRECATED ccsRunning "Use generic-lens or generic-optics with 'running' instead." #-}
 
 -- | The number of currently available instances that can be used to stream sessions.
-ccsAvailable :: Lens' ComputeCapacityStatus (Maybe Int)
-ccsAvailable = lens _ccsAvailable (\s a -> s {_ccsAvailable = a})
+--
+-- /Note:/ Consider using 'available' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsAvailable :: Lens.Lens' ComputeCapacityStatus (Lude.Maybe Lude.Int)
+ccsAvailable = Lens.lens (available :: ComputeCapacityStatus -> Lude.Maybe Lude.Int) (\s a -> s {available = a} :: ComputeCapacityStatus)
+{-# DEPRECATED ccsAvailable "Use generic-lens or generic-optics with 'available' instead." #-}
 
 -- | The desired number of streaming instances.
-ccsDesired :: Lens' ComputeCapacityStatus Int
-ccsDesired = lens _ccsDesired (\s a -> s {_ccsDesired = a})
+--
+-- /Note:/ Consider using 'desired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsDesired :: Lens.Lens' ComputeCapacityStatus Lude.Int
+ccsDesired = Lens.lens (desired :: ComputeCapacityStatus -> Lude.Int) (\s a -> s {desired = a} :: ComputeCapacityStatus)
+{-# DEPRECATED ccsDesired "Use generic-lens or generic-optics with 'desired' instead." #-}
 
-instance FromJSON ComputeCapacityStatus where
+instance Lude.FromJSON ComputeCapacityStatus where
   parseJSON =
-    withObject
+    Lude.withObject
       "ComputeCapacityStatus"
       ( \x ->
           ComputeCapacityStatus'
-            <$> (x .:? "InUse")
-            <*> (x .:? "Running")
-            <*> (x .:? "Available")
-            <*> (x .: "Desired")
+            Lude.<$> (x Lude..:? "InUse")
+            Lude.<*> (x Lude..:? "Running")
+            Lude.<*> (x Lude..:? "Available")
+            Lude.<*> (x Lude..: "Desired")
       )
-
-instance Hashable ComputeCapacityStatus
-
-instance NFData ComputeCapacityStatus

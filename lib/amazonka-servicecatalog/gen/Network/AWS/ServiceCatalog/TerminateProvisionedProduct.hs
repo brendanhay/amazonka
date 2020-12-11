@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +14,14 @@
 --
 -- Terminates the specified provisioned product.
 --
---
 -- This operation does not delete any records associated with the provisioned product.
---
 -- You can check the status of this request using 'DescribeRecord' .
 module Network.AWS.ServiceCatalog.TerminateProvisionedProduct
-  ( -- * Creating a Request
-    terminateProvisionedProduct,
-    TerminateProvisionedProduct,
+  ( -- * Creating a request
+    TerminateProvisionedProduct (..),
+    mkTerminateProvisionedProduct,
 
-    -- * Request Lenses
+    -- ** Request lenses
     tppProvisionedProductName,
     tppRetainPhysicalResources,
     tppAcceptLanguage,
@@ -36,172 +29,219 @@ module Network.AWS.ServiceCatalog.TerminateProvisionedProduct
     tppProvisionedProductId,
     tppTerminateToken,
 
-    -- * Destructuring the Response
-    terminateProvisionedProductResponse,
-    TerminateProvisionedProductResponse,
+    -- * Destructuring the response
+    TerminateProvisionedProductResponse (..),
+    mkTerminateProvisionedProductResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     tpprsRecordDetail,
     tpprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
--- | /See:/ 'terminateProvisionedProduct' smart constructor.
+-- | /See:/ 'mkTerminateProvisionedProduct' smart constructor.
 data TerminateProvisionedProduct = TerminateProvisionedProduct'
-  { _tppProvisionedProductName ::
-      !(Maybe Text),
-    _tppRetainPhysicalResources ::
-      !(Maybe Bool),
-    _tppAcceptLanguage :: !(Maybe Text),
-    _tppIgnoreErrors :: !(Maybe Bool),
-    _tppProvisionedProductId ::
-      !(Maybe Text),
-    _tppTerminateToken :: !Text
+  { provisionedProductName ::
+      Lude.Maybe Lude.Text,
+    retainPhysicalResources ::
+      Lude.Maybe Lude.Bool,
+    acceptLanguage ::
+      Lude.Maybe Lude.Text,
+    ignoreErrors ::
+      Lude.Maybe Lude.Bool,
+    provisionedProductId ::
+      Lude.Maybe Lude.Text,
+    terminateToken :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateProvisionedProduct' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'acceptLanguage' - The language code.
 --
--- * 'tppProvisionedProductName' - The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
 --
--- * 'tppRetainPhysicalResources' - When this boolean parameter is set to true, the TerminateProvisionedProduct API deletes the Service Catalog provisioned product. However, it does not remove the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is false.
+--     * @en@ - English (default)
 --
--- * 'tppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
 --
--- * 'tppIgnoreErrors' - If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
+--     * @jp@ - Japanese
 --
--- * 'tppProvisionedProductId' - The identifier of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
 --
--- * 'tppTerminateToken' - An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the provisioned product is terminated, subsequent requests to terminate the same provisioned product always return __ResourceNotFound__ .
-terminateProvisionedProduct ::
-  -- | 'tppTerminateToken'
-  Text ->
+--     * @zh@ - Chinese
+--
+--
+-- * 'ignoreErrors' - If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
+-- * 'provisionedProductId' - The identifier of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
+-- * 'provisionedProductName' - The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
+-- * 'retainPhysicalResources' - When this boolean parameter is set to true, the TerminateProvisionedProduct API deletes the Service Catalog provisioned product. However, it does not remove the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is false.
+-- * 'terminateToken' - An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the provisioned product is terminated, subsequent requests to terminate the same provisioned product always return __ResourceNotFound__ .
+mkTerminateProvisionedProduct ::
+  -- | 'terminateToken'
+  Lude.Text ->
   TerminateProvisionedProduct
-terminateProvisionedProduct pTerminateToken_ =
+mkTerminateProvisionedProduct pTerminateToken_ =
   TerminateProvisionedProduct'
-    { _tppProvisionedProductName =
-        Nothing,
-      _tppRetainPhysicalResources = Nothing,
-      _tppAcceptLanguage = Nothing,
-      _tppIgnoreErrors = Nothing,
-      _tppProvisionedProductId = Nothing,
-      _tppTerminateToken = pTerminateToken_
+    { provisionedProductName =
+        Lude.Nothing,
+      retainPhysicalResources = Lude.Nothing,
+      acceptLanguage = Lude.Nothing,
+      ignoreErrors = Lude.Nothing,
+      provisionedProductId = Lude.Nothing,
+      terminateToken = pTerminateToken_
     }
 
 -- | The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
-tppProvisionedProductName :: Lens' TerminateProvisionedProduct (Maybe Text)
-tppProvisionedProductName = lens _tppProvisionedProductName (\s a -> s {_tppProvisionedProductName = a})
+--
+-- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tppProvisionedProductName :: Lens.Lens' TerminateProvisionedProduct (Lude.Maybe Lude.Text)
+tppProvisionedProductName = Lens.lens (provisionedProductName :: TerminateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisionedProductName = a} :: TerminateProvisionedProduct)
+{-# DEPRECATED tppProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
 
 -- | When this boolean parameter is set to true, the TerminateProvisionedProduct API deletes the Service Catalog provisioned product. However, it does not remove the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is false.
-tppRetainPhysicalResources :: Lens' TerminateProvisionedProduct (Maybe Bool)
-tppRetainPhysicalResources = lens _tppRetainPhysicalResources (\s a -> s {_tppRetainPhysicalResources = a})
+--
+-- /Note:/ Consider using 'retainPhysicalResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tppRetainPhysicalResources :: Lens.Lens' TerminateProvisionedProduct (Lude.Maybe Lude.Bool)
+tppRetainPhysicalResources = Lens.lens (retainPhysicalResources :: TerminateProvisionedProduct -> Lude.Maybe Lude.Bool) (\s a -> s {retainPhysicalResources = a} :: TerminateProvisionedProduct)
+{-# DEPRECATED tppRetainPhysicalResources "Use generic-lens or generic-optics with 'retainPhysicalResources' instead." #-}
 
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-tppAcceptLanguage :: Lens' TerminateProvisionedProduct (Maybe Text)
-tppAcceptLanguage = lens _tppAcceptLanguage (\s a -> s {_tppAcceptLanguage = a})
+-- | The language code.
+--
+--
+--     * @en@ - English (default)
+--
+--
+--     * @jp@ - Japanese
+--
+--
+--     * @zh@ - Chinese
+--
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tppAcceptLanguage :: Lens.Lens' TerminateProvisionedProduct (Lude.Maybe Lude.Text)
+tppAcceptLanguage = Lens.lens (acceptLanguage :: TerminateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: TerminateProvisionedProduct)
+{-# DEPRECATED tppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | If set to true, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
-tppIgnoreErrors :: Lens' TerminateProvisionedProduct (Maybe Bool)
-tppIgnoreErrors = lens _tppIgnoreErrors (\s a -> s {_tppIgnoreErrors = a})
+--
+-- /Note:/ Consider using 'ignoreErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tppIgnoreErrors :: Lens.Lens' TerminateProvisionedProduct (Lude.Maybe Lude.Bool)
+tppIgnoreErrors = Lens.lens (ignoreErrors :: TerminateProvisionedProduct -> Lude.Maybe Lude.Bool) (\s a -> s {ignoreErrors = a} :: TerminateProvisionedProduct)
+{-# DEPRECATED tppIgnoreErrors "Use generic-lens or generic-optics with 'ignoreErrors' instead." #-}
 
 -- | The identifier of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
-tppProvisionedProductId :: Lens' TerminateProvisionedProduct (Maybe Text)
-tppProvisionedProductId = lens _tppProvisionedProductId (\s a -> s {_tppProvisionedProductId = a})
+--
+-- /Note:/ Consider using 'provisionedProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tppProvisionedProductId :: Lens.Lens' TerminateProvisionedProduct (Lude.Maybe Lude.Text)
+tppProvisionedProductId = Lens.lens (provisionedProductId :: TerminateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisionedProductId = a} :: TerminateProvisionedProduct)
+{-# DEPRECATED tppProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
 
 -- | An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the provisioned product is terminated, subsequent requests to terminate the same provisioned product always return __ResourceNotFound__ .
-tppTerminateToken :: Lens' TerminateProvisionedProduct Text
-tppTerminateToken = lens _tppTerminateToken (\s a -> s {_tppTerminateToken = a})
+--
+-- /Note:/ Consider using 'terminateToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tppTerminateToken :: Lens.Lens' TerminateProvisionedProduct Lude.Text
+tppTerminateToken = Lens.lens (terminateToken :: TerminateProvisionedProduct -> Lude.Text) (\s a -> s {terminateToken = a} :: TerminateProvisionedProduct)
+{-# DEPRECATED tppTerminateToken "Use generic-lens or generic-optics with 'terminateToken' instead." #-}
 
-instance AWSRequest TerminateProvisionedProduct where
+instance Lude.AWSRequest TerminateProvisionedProduct where
   type
     Rs TerminateProvisionedProduct =
       TerminateProvisionedProductResponse
-  request = postJSON serviceCatalog
+  request = Req.postJSON serviceCatalogService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           TerminateProvisionedProductResponse'
-            <$> (x .?> "RecordDetail") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "RecordDetail") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable TerminateProvisionedProduct
-
-instance NFData TerminateProvisionedProduct
-
-instance ToHeaders TerminateProvisionedProduct where
+instance Lude.ToHeaders TerminateProvisionedProduct where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWS242ServiceCatalogService.TerminateProvisionedProduct" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWS242ServiceCatalogService.TerminateProvisionedProduct" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON TerminateProvisionedProduct where
+instance Lude.ToJSON TerminateProvisionedProduct where
   toJSON TerminateProvisionedProduct' {..} =
-    object
-      ( catMaybes
-          [ ("ProvisionedProductName" .=) <$> _tppProvisionedProductName,
-            ("RetainPhysicalResources" .=) <$> _tppRetainPhysicalResources,
-            ("AcceptLanguage" .=) <$> _tppAcceptLanguage,
-            ("IgnoreErrors" .=) <$> _tppIgnoreErrors,
-            ("ProvisionedProductId" .=) <$> _tppProvisionedProductId,
-            Just ("TerminateToken" .= _tppTerminateToken)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ProvisionedProductName" Lude..=)
+              Lude.<$> provisionedProductName,
+            ("RetainPhysicalResources" Lude..=)
+              Lude.<$> retainPhysicalResources,
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            ("IgnoreErrors" Lude..=) Lude.<$> ignoreErrors,
+            ("ProvisionedProductId" Lude..=) Lude.<$> provisionedProductId,
+            Lude.Just ("TerminateToken" Lude..= terminateToken)
           ]
       )
 
-instance ToPath TerminateProvisionedProduct where
-  toPath = const "/"
+instance Lude.ToPath TerminateProvisionedProduct where
+  toPath = Lude.const "/"
 
-instance ToQuery TerminateProvisionedProduct where
-  toQuery = const mempty
+instance Lude.ToQuery TerminateProvisionedProduct where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'terminateProvisionedProductResponse' smart constructor.
+-- | /See:/ 'mkTerminateProvisionedProductResponse' smart constructor.
 data TerminateProvisionedProductResponse = TerminateProvisionedProductResponse'
-  { _tpprsRecordDetail ::
-      !( Maybe
-           RecordDetail
-       ),
-    _tpprsResponseStatus ::
-      !Int
+  { recordDetail ::
+      Lude.Maybe
+        RecordDetail,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateProvisionedProductResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tpprsRecordDetail' - Information about the result of this request.
---
--- * 'tpprsResponseStatus' - -- | The response status code.
-terminateProvisionedProductResponse ::
-  -- | 'tpprsResponseStatus'
-  Int ->
+-- * 'recordDetail' - Information about the result of this request.
+-- * 'responseStatus' - The response status code.
+mkTerminateProvisionedProductResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TerminateProvisionedProductResponse
-terminateProvisionedProductResponse pResponseStatus_ =
+mkTerminateProvisionedProductResponse pResponseStatus_ =
   TerminateProvisionedProductResponse'
-    { _tpprsRecordDetail =
-        Nothing,
-      _tpprsResponseStatus = pResponseStatus_
+    { recordDetail = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the result of this request.
-tpprsRecordDetail :: Lens' TerminateProvisionedProductResponse (Maybe RecordDetail)
-tpprsRecordDetail = lens _tpprsRecordDetail (\s a -> s {_tpprsRecordDetail = a})
+--
+-- /Note:/ Consider using 'recordDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpprsRecordDetail :: Lens.Lens' TerminateProvisionedProductResponse (Lude.Maybe RecordDetail)
+tpprsRecordDetail = Lens.lens (recordDetail :: TerminateProvisionedProductResponse -> Lude.Maybe RecordDetail) (\s a -> s {recordDetail = a} :: TerminateProvisionedProductResponse)
+{-# DEPRECATED tpprsRecordDetail "Use generic-lens or generic-optics with 'recordDetail' instead." #-}
 
--- | -- | The response status code.
-tpprsResponseStatus :: Lens' TerminateProvisionedProductResponse Int
-tpprsResponseStatus = lens _tpprsResponseStatus (\s a -> s {_tpprsResponseStatus = a})
-
-instance NFData TerminateProvisionedProductResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpprsResponseStatus :: Lens.Lens' TerminateProvisionedProductResponse Lude.Int
+tpprsResponseStatus = Lens.lens (responseStatus :: TerminateProvisionedProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TerminateProvisionedProductResponse)
+{-# DEPRECATED tpprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

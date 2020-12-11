@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,103 +7,132 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.OperatingSystem where
+module Network.AWS.OpsWorks.Types.OperatingSystem
+  ( OperatingSystem (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkOperatingSystem,
+
+    -- * Lenses
+    osReportedVersion,
+    osSupported,
+    osName,
+    osId,
+    osConfigurationManagers,
+    osType,
+    osReportedName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.OperatingSystemConfigurationManager
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes supported operating systems in AWS OpsWorks Stacks.
 --
---
---
--- /See:/ 'operatingSystem' smart constructor.
+-- /See:/ 'mkOperatingSystem' smart constructor.
 data OperatingSystem = OperatingSystem'
-  { _osReportedVersion ::
-      !(Maybe Text),
-    _osSupported :: !(Maybe Bool),
-    _osName :: !(Maybe Text),
-    _osId :: !(Maybe Text),
-    _osConfigurationManagers ::
-      !(Maybe [OperatingSystemConfigurationManager]),
-    _osType :: !(Maybe Text),
-    _osReportedName :: !(Maybe Text)
+  { reportedVersion ::
+      Lude.Maybe Lude.Text,
+    supported :: Lude.Maybe Lude.Bool,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    configurationManagers ::
+      Lude.Maybe [OperatingSystemConfigurationManager],
+    type' :: Lude.Maybe Lude.Text,
+    reportedName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OperatingSystem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'osReportedVersion' - The version of the operating system, including the release and edition, if applicable.
---
--- * 'osSupported' - Indicates that an operating system is not supported for new instances.
---
--- * 'osName' - The name of the operating system, such as @Amazon Linux 2018.03@ .
---
--- * 'osId' - The ID of a supported operating system, such as @Amazon Linux 2018.03@ .
---
--- * 'osConfigurationManagers' - Supported configuration manager name and versions for an AWS OpsWorks Stacks operating system.
---
--- * 'osType' - The type of a supported operating system, either @Linux@ or @Windows@ .
---
--- * 'osReportedName' - A short name for the operating system manufacturer.
-operatingSystem ::
+-- * 'configurationManagers' - Supported configuration manager name and versions for an AWS OpsWorks Stacks operating system.
+-- * 'id' - The ID of a supported operating system, such as @Amazon Linux 2018.03@ .
+-- * 'name' - The name of the operating system, such as @Amazon Linux 2018.03@ .
+-- * 'reportedName' - A short name for the operating system manufacturer.
+-- * 'reportedVersion' - The version of the operating system, including the release and edition, if applicable.
+-- * 'supported' - Indicates that an operating system is not supported for new instances.
+-- * 'type'' - The type of a supported operating system, either @Linux@ or @Windows@ .
+mkOperatingSystem ::
   OperatingSystem
-operatingSystem =
+mkOperatingSystem =
   OperatingSystem'
-    { _osReportedVersion = Nothing,
-      _osSupported = Nothing,
-      _osName = Nothing,
-      _osId = Nothing,
-      _osConfigurationManagers = Nothing,
-      _osType = Nothing,
-      _osReportedName = Nothing
+    { reportedVersion = Lude.Nothing,
+      supported = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      configurationManagers = Lude.Nothing,
+      type' = Lude.Nothing,
+      reportedName = Lude.Nothing
     }
 
 -- | The version of the operating system, including the release and edition, if applicable.
-osReportedVersion :: Lens' OperatingSystem (Maybe Text)
-osReportedVersion = lens _osReportedVersion (\s a -> s {_osReportedVersion = a})
+--
+-- /Note:/ Consider using 'reportedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osReportedVersion :: Lens.Lens' OperatingSystem (Lude.Maybe Lude.Text)
+osReportedVersion = Lens.lens (reportedVersion :: OperatingSystem -> Lude.Maybe Lude.Text) (\s a -> s {reportedVersion = a} :: OperatingSystem)
+{-# DEPRECATED osReportedVersion "Use generic-lens or generic-optics with 'reportedVersion' instead." #-}
 
 -- | Indicates that an operating system is not supported for new instances.
-osSupported :: Lens' OperatingSystem (Maybe Bool)
-osSupported = lens _osSupported (\s a -> s {_osSupported = a})
+--
+-- /Note:/ Consider using 'supported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osSupported :: Lens.Lens' OperatingSystem (Lude.Maybe Lude.Bool)
+osSupported = Lens.lens (supported :: OperatingSystem -> Lude.Maybe Lude.Bool) (\s a -> s {supported = a} :: OperatingSystem)
+{-# DEPRECATED osSupported "Use generic-lens or generic-optics with 'supported' instead." #-}
 
 -- | The name of the operating system, such as @Amazon Linux 2018.03@ .
-osName :: Lens' OperatingSystem (Maybe Text)
-osName = lens _osName (\s a -> s {_osName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osName :: Lens.Lens' OperatingSystem (Lude.Maybe Lude.Text)
+osName = Lens.lens (name :: OperatingSystem -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: OperatingSystem)
+{-# DEPRECATED osName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of a supported operating system, such as @Amazon Linux 2018.03@ .
-osId :: Lens' OperatingSystem (Maybe Text)
-osId = lens _osId (\s a -> s {_osId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osId :: Lens.Lens' OperatingSystem (Lude.Maybe Lude.Text)
+osId = Lens.lens (id :: OperatingSystem -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: OperatingSystem)
+{-# DEPRECATED osId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Supported configuration manager name and versions for an AWS OpsWorks Stacks operating system.
-osConfigurationManagers :: Lens' OperatingSystem [OperatingSystemConfigurationManager]
-osConfigurationManagers = lens _osConfigurationManagers (\s a -> s {_osConfigurationManagers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurationManagers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osConfigurationManagers :: Lens.Lens' OperatingSystem (Lude.Maybe [OperatingSystemConfigurationManager])
+osConfigurationManagers = Lens.lens (configurationManagers :: OperatingSystem -> Lude.Maybe [OperatingSystemConfigurationManager]) (\s a -> s {configurationManagers = a} :: OperatingSystem)
+{-# DEPRECATED osConfigurationManagers "Use generic-lens or generic-optics with 'configurationManagers' instead." #-}
 
 -- | The type of a supported operating system, either @Linux@ or @Windows@ .
-osType :: Lens' OperatingSystem (Maybe Text)
-osType = lens _osType (\s a -> s {_osType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osType :: Lens.Lens' OperatingSystem (Lude.Maybe Lude.Text)
+osType = Lens.lens (type' :: OperatingSystem -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: OperatingSystem)
+{-# DEPRECATED osType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A short name for the operating system manufacturer.
-osReportedName :: Lens' OperatingSystem (Maybe Text)
-osReportedName = lens _osReportedName (\s a -> s {_osReportedName = a})
+--
+-- /Note:/ Consider using 'reportedName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osReportedName :: Lens.Lens' OperatingSystem (Lude.Maybe Lude.Text)
+osReportedName = Lens.lens (reportedName :: OperatingSystem -> Lude.Maybe Lude.Text) (\s a -> s {reportedName = a} :: OperatingSystem)
+{-# DEPRECATED osReportedName "Use generic-lens or generic-optics with 'reportedName' instead." #-}
 
-instance FromJSON OperatingSystem where
+instance Lude.FromJSON OperatingSystem where
   parseJSON =
-    withObject
+    Lude.withObject
       "OperatingSystem"
       ( \x ->
           OperatingSystem'
-            <$> (x .:? "ReportedVersion")
-            <*> (x .:? "Supported")
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "ConfigurationManagers" .!= mempty)
-            <*> (x .:? "Type")
-            <*> (x .:? "ReportedName")
+            Lude.<$> (x Lude..:? "ReportedVersion")
+            Lude.<*> (x Lude..:? "Supported")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "ConfigurationManagers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "ReportedName")
       )
-
-instance Hashable OperatingSystem
-
-instance NFData OperatingSystem

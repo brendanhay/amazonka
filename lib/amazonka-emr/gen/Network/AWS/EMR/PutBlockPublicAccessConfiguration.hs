@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,129 +14,135 @@
 --
 -- Creates or updates an Amazon EMR block public access configuration for your AWS account in the current Region. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html Configure Block Public Access for Amazon EMR> in the /Amazon EMR Management Guide/ .
 module Network.AWS.EMR.PutBlockPublicAccessConfiguration
-  ( -- * Creating a Request
-    putBlockPublicAccessConfiguration,
-    PutBlockPublicAccessConfiguration,
+  ( -- * Creating a request
+    PutBlockPublicAccessConfiguration (..),
+    mkPutBlockPublicAccessConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     pbpacBlockPublicAccessConfiguration,
 
-    -- * Destructuring the Response
-    putBlockPublicAccessConfigurationResponse,
-    PutBlockPublicAccessConfigurationResponse,
+    -- * Destructuring the response
+    PutBlockPublicAccessConfigurationResponse (..),
+    mkPutBlockPublicAccessConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     pbpacrsResponseStatus,
   )
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putBlockPublicAccessConfiguration' smart constructor.
+-- | /See:/ 'mkPutBlockPublicAccessConfiguration' smart constructor.
 newtype PutBlockPublicAccessConfiguration = PutBlockPublicAccessConfiguration'
-  { _pbpacBlockPublicAccessConfiguration ::
+  { blockPublicAccessConfiguration ::
       BlockPublicAccessConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBlockPublicAccessConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pbpacBlockPublicAccessConfiguration' - A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ in the @BlockPublicAccessConfiguration@ . By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating @BlockPublicSecurityGroupRules@ to remove the exception.
-putBlockPublicAccessConfiguration ::
-  -- | 'pbpacBlockPublicAccessConfiguration'
+-- * 'blockPublicAccessConfiguration' - A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ in the @BlockPublicAccessConfiguration@ . By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating @BlockPublicSecurityGroupRules@ to remove the exception.
+mkPutBlockPublicAccessConfiguration ::
+  -- | 'blockPublicAccessConfiguration'
   BlockPublicAccessConfiguration ->
   PutBlockPublicAccessConfiguration
-putBlockPublicAccessConfiguration pBlockPublicAccessConfiguration_ =
-  PutBlockPublicAccessConfiguration'
-    { _pbpacBlockPublicAccessConfiguration =
-        pBlockPublicAccessConfiguration_
-    }
+mkPutBlockPublicAccessConfiguration
+  pBlockPublicAccessConfiguration_ =
+    PutBlockPublicAccessConfiguration'
+      { blockPublicAccessConfiguration =
+          pBlockPublicAccessConfiguration_
+      }
 
 -- | A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ in the @BlockPublicAccessConfiguration@ . By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating @BlockPublicSecurityGroupRules@ to remove the exception.
-pbpacBlockPublicAccessConfiguration :: Lens' PutBlockPublicAccessConfiguration BlockPublicAccessConfiguration
-pbpacBlockPublicAccessConfiguration = lens _pbpacBlockPublicAccessConfiguration (\s a -> s {_pbpacBlockPublicAccessConfiguration = a})
+--
+-- /Note:/ Consider using 'blockPublicAccessConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbpacBlockPublicAccessConfiguration :: Lens.Lens' PutBlockPublicAccessConfiguration BlockPublicAccessConfiguration
+pbpacBlockPublicAccessConfiguration = Lens.lens (blockPublicAccessConfiguration :: PutBlockPublicAccessConfiguration -> BlockPublicAccessConfiguration) (\s a -> s {blockPublicAccessConfiguration = a} :: PutBlockPublicAccessConfiguration)
+{-# DEPRECATED pbpacBlockPublicAccessConfiguration "Use generic-lens or generic-optics with 'blockPublicAccessConfiguration' instead." #-}
 
-instance AWSRequest PutBlockPublicAccessConfiguration where
+instance Lude.AWSRequest PutBlockPublicAccessConfiguration where
   type
     Rs PutBlockPublicAccessConfiguration =
       PutBlockPublicAccessConfigurationResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          PutBlockPublicAccessConfigurationResponse' <$> (pure (fromEnum s))
+          PutBlockPublicAccessConfigurationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable PutBlockPublicAccessConfiguration
-
-instance NFData PutBlockPublicAccessConfiguration
-
-instance ToHeaders PutBlockPublicAccessConfiguration where
+instance Lude.ToHeaders PutBlockPublicAccessConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "ElasticMapReduce.PutBlockPublicAccessConfiguration" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "ElasticMapReduce.PutBlockPublicAccessConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutBlockPublicAccessConfiguration where
+instance Lude.ToJSON PutBlockPublicAccessConfiguration where
   toJSON PutBlockPublicAccessConfiguration' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "BlockPublicAccessConfiguration"
-                  .= _pbpacBlockPublicAccessConfiguration
+                  Lude..= blockPublicAccessConfiguration
               )
           ]
       )
 
-instance ToPath PutBlockPublicAccessConfiguration where
-  toPath = const "/"
+instance Lude.ToPath PutBlockPublicAccessConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery PutBlockPublicAccessConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery PutBlockPublicAccessConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putBlockPublicAccessConfigurationResponse' smart constructor.
+-- | /See:/ 'mkPutBlockPublicAccessConfigurationResponse' smart constructor.
 newtype PutBlockPublicAccessConfigurationResponse = PutBlockPublicAccessConfigurationResponse'
-  { _pbpacrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBlockPublicAccessConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pbpacrsResponseStatus' - -- | The response status code.
-putBlockPublicAccessConfigurationResponse ::
-  -- | 'pbpacrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkPutBlockPublicAccessConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   PutBlockPublicAccessConfigurationResponse
-putBlockPublicAccessConfigurationResponse pResponseStatus_ =
+mkPutBlockPublicAccessConfigurationResponse pResponseStatus_ =
   PutBlockPublicAccessConfigurationResponse'
-    { _pbpacrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-pbpacrsResponseStatus :: Lens' PutBlockPublicAccessConfigurationResponse Int
-pbpacrsResponseStatus = lens _pbpacrsResponseStatus (\s a -> s {_pbpacrsResponseStatus = a})
-
-instance NFData PutBlockPublicAccessConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbpacrsResponseStatus :: Lens.Lens' PutBlockPublicAccessConfigurationResponse Lude.Int
+pbpacrsResponseStatus = Lens.lens (responseStatus :: PutBlockPublicAccessConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutBlockPublicAccessConfigurationResponse)
+{-# DEPRECATED pbpacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

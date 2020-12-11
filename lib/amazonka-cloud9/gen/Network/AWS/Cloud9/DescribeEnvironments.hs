@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,122 +14,130 @@
 --
 -- Gets information about AWS Cloud9 development environments.
 module Network.AWS.Cloud9.DescribeEnvironments
-  ( -- * Creating a Request
-    describeEnvironments,
-    DescribeEnvironments,
+  ( -- * Creating a request
+    DescribeEnvironments (..),
+    mkDescribeEnvironments,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deEnvironmentIds,
 
-    -- * Destructuring the Response
-    describeEnvironmentsResponse,
-    DescribeEnvironmentsResponse,
+    -- * Destructuring the response
+    DescribeEnvironmentsResponse (..),
+    mkDescribeEnvironmentsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     deersEnvironments,
     deersResponseStatus,
   )
 where
 
 import Network.AWS.Cloud9.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEnvironments' smart constructor.
+-- | /See:/ 'mkDescribeEnvironments' smart constructor.
 newtype DescribeEnvironments = DescribeEnvironments'
-  { _deEnvironmentIds ::
-      List1 Text
+  { environmentIds ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deEnvironmentIds' - The IDs of individual environments to get information about.
-describeEnvironments ::
-  -- | 'deEnvironmentIds'
-  NonEmpty Text ->
+-- * 'environmentIds' - The IDs of individual environments to get information about.
+mkDescribeEnvironments ::
+  -- | 'environmentIds'
+  Lude.NonEmpty Lude.Text ->
   DescribeEnvironments
-describeEnvironments pEnvironmentIds_ =
-  DescribeEnvironments'
-    { _deEnvironmentIds =
-        _List1 # pEnvironmentIds_
-    }
+mkDescribeEnvironments pEnvironmentIds_ =
+  DescribeEnvironments' {environmentIds = pEnvironmentIds_}
 
 -- | The IDs of individual environments to get information about.
-deEnvironmentIds :: Lens' DescribeEnvironments (NonEmpty Text)
-deEnvironmentIds = lens _deEnvironmentIds (\s a -> s {_deEnvironmentIds = a}) . _List1
+--
+-- /Note:/ Consider using 'environmentIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEnvironmentIds :: Lens.Lens' DescribeEnvironments (Lude.NonEmpty Lude.Text)
+deEnvironmentIds = Lens.lens (environmentIds :: DescribeEnvironments -> Lude.NonEmpty Lude.Text) (\s a -> s {environmentIds = a} :: DescribeEnvironments)
+{-# DEPRECATED deEnvironmentIds "Use generic-lens or generic-optics with 'environmentIds' instead." #-}
 
-instance AWSRequest DescribeEnvironments where
+instance Lude.AWSRequest DescribeEnvironments where
   type Rs DescribeEnvironments = DescribeEnvironmentsResponse
-  request = postJSON cloud9
+  request = Req.postJSON cloud9Service
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEnvironmentsResponse'
-            <$> (x .?> "environments" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "environments" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEnvironments
-
-instance NFData DescribeEnvironments
-
-instance ToHeaders DescribeEnvironments where
+instance Lude.ToHeaders DescribeEnvironments where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironments" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCloud9WorkspaceManagementService.DescribeEnvironments" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEnvironments where
+instance Lude.ToJSON DescribeEnvironments where
   toJSON DescribeEnvironments' {..} =
-    object (catMaybes [Just ("environmentIds" .= _deEnvironmentIds)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("environmentIds" Lude..= environmentIds)]
+      )
 
-instance ToPath DescribeEnvironments where
-  toPath = const "/"
+instance Lude.ToPath DescribeEnvironments where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEnvironments where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEnvironments where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEnvironmentsResponse' smart constructor.
+-- | /See:/ 'mkDescribeEnvironmentsResponse' smart constructor.
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
-  { _deersEnvironments ::
-      !(Maybe [Environment]),
-    _deersResponseStatus :: !Int
+  { environments ::
+      Lude.Maybe [Environment],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deersEnvironments' - Information about the environments that are returned.
---
--- * 'deersResponseStatus' - -- | The response status code.
-describeEnvironmentsResponse ::
-  -- | 'deersResponseStatus'
-  Int ->
+-- * 'environments' - Information about the environments that are returned.
+-- * 'responseStatus' - The response status code.
+mkDescribeEnvironmentsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEnvironmentsResponse
-describeEnvironmentsResponse pResponseStatus_ =
+mkDescribeEnvironmentsResponse pResponseStatus_ =
   DescribeEnvironmentsResponse'
-    { _deersEnvironments = Nothing,
-      _deersResponseStatus = pResponseStatus_
+    { environments = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the environments that are returned.
-deersEnvironments :: Lens' DescribeEnvironmentsResponse [Environment]
-deersEnvironments = lens _deersEnvironments (\s a -> s {_deersEnvironments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'environments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deersEnvironments :: Lens.Lens' DescribeEnvironmentsResponse (Lude.Maybe [Environment])
+deersEnvironments = Lens.lens (environments :: DescribeEnvironmentsResponse -> Lude.Maybe [Environment]) (\s a -> s {environments = a} :: DescribeEnvironmentsResponse)
+{-# DEPRECATED deersEnvironments "Use generic-lens or generic-optics with 'environments' instead." #-}
 
--- | -- | The response status code.
-deersResponseStatus :: Lens' DescribeEnvironmentsResponse Int
-deersResponseStatus = lens _deersResponseStatus (\s a -> s {_deersResponseStatus = a})
-
-instance NFData DescribeEnvironmentsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deersResponseStatus :: Lens.Lens' DescribeEnvironmentsResponse Lude.Int
+deersResponseStatus = Lens.lens (responseStatus :: DescribeEnvironmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEnvironmentsResponse)
+{-# DEPRECATED deersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

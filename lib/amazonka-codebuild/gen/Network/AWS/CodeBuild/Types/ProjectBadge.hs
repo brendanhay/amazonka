@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeBuild.Types.ProjectBadge where
+module Network.AWS.CodeBuild.Types.ProjectBadge
+  ( ProjectBadge (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProjectBadge,
+
+    -- * Lenses
+    pbBadgeEnabled,
+    pbBadgeRequestURL,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the build badge for the build project.
 --
---
---
--- /See:/ 'projectBadge' smart constructor.
+-- /See:/ 'mkProjectBadge' smart constructor.
 data ProjectBadge = ProjectBadge'
-  { _pbBadgeEnabled :: !(Maybe Bool),
-    _pbBadgeRequestURL :: !(Maybe Text)
+  { badgeEnabled ::
+      Lude.Maybe Lude.Bool,
+    badgeRequestURL :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectBadge' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'badgeEnabled' - Set this to true to generate a publicly accessible URL for your project's build badge.
+-- * 'badgeRequestURL' - The publicly-accessible URL through which you can access the build badge for your project.
 --
--- * 'pbBadgeEnabled' - Set this to true to generate a publicly accessible URL for your project's build badge.
---
--- * 'pbBadgeRequestURL' - The publicly-accessible URL through which you can access the build badge for your project.  The publicly accessible URL through which you can access the build badge for your project.
-projectBadge ::
+-- The publicly accessible URL through which you can access the build badge for your project.
+mkProjectBadge ::
   ProjectBadge
-projectBadge =
+mkProjectBadge =
   ProjectBadge'
-    { _pbBadgeEnabled = Nothing,
-      _pbBadgeRequestURL = Nothing
+    { badgeEnabled = Lude.Nothing,
+      badgeRequestURL = Lude.Nothing
     }
 
 -- | Set this to true to generate a publicly accessible URL for your project's build badge.
-pbBadgeEnabled :: Lens' ProjectBadge (Maybe Bool)
-pbBadgeEnabled = lens _pbBadgeEnabled (\s a -> s {_pbBadgeEnabled = a})
+--
+-- /Note:/ Consider using 'badgeEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbBadgeEnabled :: Lens.Lens' ProjectBadge (Lude.Maybe Lude.Bool)
+pbBadgeEnabled = Lens.lens (badgeEnabled :: ProjectBadge -> Lude.Maybe Lude.Bool) (\s a -> s {badgeEnabled = a} :: ProjectBadge)
+{-# DEPRECATED pbBadgeEnabled "Use generic-lens or generic-optics with 'badgeEnabled' instead." #-}
 
--- | The publicly-accessible URL through which you can access the build badge for your project.  The publicly accessible URL through which you can access the build badge for your project.
-pbBadgeRequestURL :: Lens' ProjectBadge (Maybe Text)
-pbBadgeRequestURL = lens _pbBadgeRequestURL (\s a -> s {_pbBadgeRequestURL = a})
+-- | The publicly-accessible URL through which you can access the build badge for your project.
+--
+-- The publicly accessible URL through which you can access the build badge for your project.
+--
+-- /Note:/ Consider using 'badgeRequestURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbBadgeRequestURL :: Lens.Lens' ProjectBadge (Lude.Maybe Lude.Text)
+pbBadgeRequestURL = Lens.lens (badgeRequestURL :: ProjectBadge -> Lude.Maybe Lude.Text) (\s a -> s {badgeRequestURL = a} :: ProjectBadge)
+{-# DEPRECATED pbBadgeRequestURL "Use generic-lens or generic-optics with 'badgeRequestURL' instead." #-}
 
-instance FromJSON ProjectBadge where
+instance Lude.FromJSON ProjectBadge where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProjectBadge"
       ( \x ->
           ProjectBadge'
-            <$> (x .:? "badgeEnabled") <*> (x .:? "badgeRequestUrl")
+            Lude.<$> (x Lude..:? "badgeEnabled")
+            Lude.<*> (x Lude..:? "badgeRequestUrl")
       )
-
-instance Hashable ProjectBadge
-
-instance NFData ProjectBadge

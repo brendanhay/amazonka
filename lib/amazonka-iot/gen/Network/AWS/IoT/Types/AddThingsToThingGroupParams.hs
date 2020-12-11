@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,68 +7,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.AddThingsToThingGroupParams where
+module Network.AWS.IoT.Types.AddThingsToThingGroupParams
+  ( AddThingsToThingGroupParams (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAddThingsToThingGroupParams,
+
+    -- * Lenses
+    atttgpOverrideDynamicGroups,
+    atttgpThingGroupNames,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Parameters used when defining a mitigation action that move a set of things to a thing group.
 --
---
---
--- /See:/ 'addThingsToThingGroupParams' smart constructor.
+-- /See:/ 'mkAddThingsToThingGroupParams' smart constructor.
 data AddThingsToThingGroupParams = AddThingsToThingGroupParams'
-  { _atttgpOverrideDynamicGroups ::
-      !(Maybe Bool),
-    _atttgpThingGroupNames ::
-      !(List1 Text)
+  { overrideDynamicGroups ::
+      Lude.Maybe Lude.Bool,
+    thingGroupNames ::
+      Lude.NonEmpty Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddThingsToThingGroupParams' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atttgpOverrideDynamicGroups' - Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.
---
--- * 'atttgpThingGroupNames' - The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.
-addThingsToThingGroupParams ::
-  -- | 'atttgpThingGroupNames'
-  NonEmpty Text ->
+-- * 'overrideDynamicGroups' - Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.
+-- * 'thingGroupNames' - The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.
+mkAddThingsToThingGroupParams ::
+  -- | 'thingGroupNames'
+  Lude.NonEmpty Lude.Text ->
   AddThingsToThingGroupParams
-addThingsToThingGroupParams pThingGroupNames_ =
+mkAddThingsToThingGroupParams pThingGroupNames_ =
   AddThingsToThingGroupParams'
-    { _atttgpOverrideDynamicGroups =
-        Nothing,
-      _atttgpThingGroupNames = _List1 # pThingGroupNames_
+    { overrideDynamicGroups =
+        Lude.Nothing,
+      thingGroupNames = pThingGroupNames_
     }
 
 -- | Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.
-atttgpOverrideDynamicGroups :: Lens' AddThingsToThingGroupParams (Maybe Bool)
-atttgpOverrideDynamicGroups = lens _atttgpOverrideDynamicGroups (\s a -> s {_atttgpOverrideDynamicGroups = a})
+--
+-- /Note:/ Consider using 'overrideDynamicGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atttgpOverrideDynamicGroups :: Lens.Lens' AddThingsToThingGroupParams (Lude.Maybe Lude.Bool)
+atttgpOverrideDynamicGroups = Lens.lens (overrideDynamicGroups :: AddThingsToThingGroupParams -> Lude.Maybe Lude.Bool) (\s a -> s {overrideDynamicGroups = a} :: AddThingsToThingGroupParams)
+{-# DEPRECATED atttgpOverrideDynamicGroups "Use generic-lens or generic-optics with 'overrideDynamicGroups' instead." #-}
 
 -- | The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.
-atttgpThingGroupNames :: Lens' AddThingsToThingGroupParams (NonEmpty Text)
-atttgpThingGroupNames = lens _atttgpThingGroupNames (\s a -> s {_atttgpThingGroupNames = a}) . _List1
+--
+-- /Note:/ Consider using 'thingGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atttgpThingGroupNames :: Lens.Lens' AddThingsToThingGroupParams (Lude.NonEmpty Lude.Text)
+atttgpThingGroupNames = Lens.lens (thingGroupNames :: AddThingsToThingGroupParams -> Lude.NonEmpty Lude.Text) (\s a -> s {thingGroupNames = a} :: AddThingsToThingGroupParams)
+{-# DEPRECATED atttgpThingGroupNames "Use generic-lens or generic-optics with 'thingGroupNames' instead." #-}
 
-instance FromJSON AddThingsToThingGroupParams where
+instance Lude.FromJSON AddThingsToThingGroupParams where
   parseJSON =
-    withObject
+    Lude.withObject
       "AddThingsToThingGroupParams"
       ( \x ->
           AddThingsToThingGroupParams'
-            <$> (x .:? "overrideDynamicGroups") <*> (x .: "thingGroupNames")
+            Lude.<$> (x Lude..:? "overrideDynamicGroups")
+            Lude.<*> (x Lude..: "thingGroupNames")
       )
 
-instance Hashable AddThingsToThingGroupParams
-
-instance NFData AddThingsToThingGroupParams
-
-instance ToJSON AddThingsToThingGroupParams where
+instance Lude.ToJSON AddThingsToThingGroupParams where
   toJSON AddThingsToThingGroupParams' {..} =
-    object
-      ( catMaybes
-          [ ("overrideDynamicGroups" .=) <$> _atttgpOverrideDynamicGroups,
-            Just ("thingGroupNames" .= _atttgpThingGroupNames)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("overrideDynamicGroups" Lude..=) Lude.<$> overrideDynamicGroups,
+            Lude.Just ("thingGroupNames" Lude..= thingGroupNames)
           ]
       )

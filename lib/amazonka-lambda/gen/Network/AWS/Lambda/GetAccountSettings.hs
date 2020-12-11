@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,15 @@
 --
 -- Retrieves details about your account's <https://docs.aws.amazon.com/lambda/latest/dg/limits.html limits> and usage in an AWS Region.
 module Network.AWS.Lambda.GetAccountSettings
-  ( -- * Creating a Request
-    getAccountSettings,
-    GetAccountSettings,
+  ( -- * Creating a request
+    GetAccountSettings (..),
+    mkGetAccountSettings,
 
-    -- * Destructuring the Response
-    getAccountSettingsResponse,
-    GetAccountSettingsResponse,
+    -- * Destructuring the response
+    GetAccountSettingsResponse (..),
+    mkGetAccountSettingsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gasrsAccountLimit,
     gasrsAccountUsage,
     gasrsResponseStatus,
@@ -35,85 +30,98 @@ module Network.AWS.Lambda.GetAccountSettings
 where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getAccountSettings' smart constructor.
+-- | /See:/ 'mkGetAccountSettings' smart constructor.
 data GetAccountSettings = GetAccountSettings'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountSettings' with the minimum fields required to make a request.
-getAccountSettings ::
+mkGetAccountSettings ::
   GetAccountSettings
-getAccountSettings = GetAccountSettings'
+mkGetAccountSettings = GetAccountSettings'
 
-instance AWSRequest GetAccountSettings where
+instance Lude.AWSRequest GetAccountSettings where
   type Rs GetAccountSettings = GetAccountSettingsResponse
-  request = get lambda
+  request = Req.get lambdaService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAccountSettingsResponse'
-            <$> (x .?> "AccountLimit")
-            <*> (x .?> "AccountUsage")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AccountLimit")
+            Lude.<*> (x Lude..?> "AccountUsage")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAccountSettings
+instance Lude.ToHeaders GetAccountSettings where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetAccountSettings
+instance Lude.ToPath GetAccountSettings where
+  toPath = Lude.const "/2016-08-19/account-settings/"
 
-instance ToHeaders GetAccountSettings where
-  toHeaders = const mempty
+instance Lude.ToQuery GetAccountSettings where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath GetAccountSettings where
-  toPath = const "/2016-08-19/account-settings/"
-
-instance ToQuery GetAccountSettings where
-  toQuery = const mempty
-
--- | /See:/ 'getAccountSettingsResponse' smart constructor.
+-- | /See:/ 'mkGetAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
-  { _gasrsAccountLimit ::
-      !(Maybe AccountLimit),
-    _gasrsAccountUsage ::
-      !(Maybe AccountUsage),
-    _gasrsResponseStatus :: !Int
+  { accountLimit ::
+      Lude.Maybe AccountLimit,
+    accountUsage ::
+      Lude.Maybe AccountUsage,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountSettingsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gasrsAccountLimit' - Limits that are related to concurrency and code storage.
---
--- * 'gasrsAccountUsage' - The number of functions and amount of storage in use.
---
--- * 'gasrsResponseStatus' - -- | The response status code.
-getAccountSettingsResponse ::
-  -- | 'gasrsResponseStatus'
-  Int ->
+-- * 'accountLimit' - Limits that are related to concurrency and code storage.
+-- * 'accountUsage' - The number of functions and amount of storage in use.
+-- * 'responseStatus' - The response status code.
+mkGetAccountSettingsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAccountSettingsResponse
-getAccountSettingsResponse pResponseStatus_ =
+mkGetAccountSettingsResponse pResponseStatus_ =
   GetAccountSettingsResponse'
-    { _gasrsAccountLimit = Nothing,
-      _gasrsAccountUsage = Nothing,
-      _gasrsResponseStatus = pResponseStatus_
+    { accountLimit = Lude.Nothing,
+      accountUsage = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Limits that are related to concurrency and code storage.
-gasrsAccountLimit :: Lens' GetAccountSettingsResponse (Maybe AccountLimit)
-gasrsAccountLimit = lens _gasrsAccountLimit (\s a -> s {_gasrsAccountLimit = a})
+--
+-- /Note:/ Consider using 'accountLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsAccountLimit :: Lens.Lens' GetAccountSettingsResponse (Lude.Maybe AccountLimit)
+gasrsAccountLimit = Lens.lens (accountLimit :: GetAccountSettingsResponse -> Lude.Maybe AccountLimit) (\s a -> s {accountLimit = a} :: GetAccountSettingsResponse)
+{-# DEPRECATED gasrsAccountLimit "Use generic-lens or generic-optics with 'accountLimit' instead." #-}
 
 -- | The number of functions and amount of storage in use.
-gasrsAccountUsage :: Lens' GetAccountSettingsResponse (Maybe AccountUsage)
-gasrsAccountUsage = lens _gasrsAccountUsage (\s a -> s {_gasrsAccountUsage = a})
+--
+-- /Note:/ Consider using 'accountUsage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsAccountUsage :: Lens.Lens' GetAccountSettingsResponse (Lude.Maybe AccountUsage)
+gasrsAccountUsage = Lens.lens (accountUsage :: GetAccountSettingsResponse -> Lude.Maybe AccountUsage) (\s a -> s {accountUsage = a} :: GetAccountSettingsResponse)
+{-# DEPRECATED gasrsAccountUsage "Use generic-lens or generic-optics with 'accountUsage' instead." #-}
 
--- | -- | The response status code.
-gasrsResponseStatus :: Lens' GetAccountSettingsResponse Int
-gasrsResponseStatus = lens _gasrsResponseStatus (\s a -> s {_gasrsResponseStatus = a})
-
-instance NFData GetAccountSettingsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsResponseStatus :: Lens.Lens' GetAccountSettingsResponse Lude.Int
+gasrsResponseStatus = Lens.lens (responseStatus :: GetAccountSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountSettingsResponse)
+{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.WorkflowExecutionFilter where
+module Network.AWS.SWF.Types.WorkflowExecutionFilter
+  ( WorkflowExecutionFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkWorkflowExecutionFilter,
+
+    -- * Lenses
+    wefWorkflowId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Used to filter the workflow executions in visibility APIs by their @workflowId@ .
 --
---
---
--- /See:/ 'workflowExecutionFilter' smart constructor.
+-- /See:/ 'mkWorkflowExecutionFilter' smart constructor.
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter'
-  { _wefWorkflowId ::
-      Text
+  { workflowId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wefWorkflowId' - The workflowId to pass of match the criteria of this filter.
-workflowExecutionFilter ::
-  -- | 'wefWorkflowId'
-  Text ->
+-- * 'workflowId' - The workflowId to pass of match the criteria of this filter.
+mkWorkflowExecutionFilter ::
+  -- | 'workflowId'
+  Lude.Text ->
   WorkflowExecutionFilter
-workflowExecutionFilter pWorkflowId_ =
-  WorkflowExecutionFilter' {_wefWorkflowId = pWorkflowId_}
+mkWorkflowExecutionFilter pWorkflowId_ =
+  WorkflowExecutionFilter' {workflowId = pWorkflowId_}
 
 -- | The workflowId to pass of match the criteria of this filter.
-wefWorkflowId :: Lens' WorkflowExecutionFilter Text
-wefWorkflowId = lens _wefWorkflowId (\s a -> s {_wefWorkflowId = a})
+--
+-- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wefWorkflowId :: Lens.Lens' WorkflowExecutionFilter Lude.Text
+wefWorkflowId = Lens.lens (workflowId :: WorkflowExecutionFilter -> Lude.Text) (\s a -> s {workflowId = a} :: WorkflowExecutionFilter)
+{-# DEPRECATED wefWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
 
-instance Hashable WorkflowExecutionFilter
-
-instance NFData WorkflowExecutionFilter
-
-instance ToJSON WorkflowExecutionFilter where
+instance Lude.ToJSON WorkflowExecutionFilter where
   toJSON WorkflowExecutionFilter' {..} =
-    object (catMaybes [Just ("workflowId" .= _wefWorkflowId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("workflowId" Lude..= workflowId)])

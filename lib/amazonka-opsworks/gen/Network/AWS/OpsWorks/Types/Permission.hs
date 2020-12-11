@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,141 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.Permission where
+module Network.AWS.OpsWorks.Types.Permission
+  ( Permission (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPermission,
+
+    -- * Lenses
+    pIAMUserARN,
+    pAllowSudo,
+    pStackId,
+    pLevel,
+    pAllowSSH,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes stack or user permissions.
 --
---
---
--- /See:/ 'permission' smart constructor.
+-- /See:/ 'mkPermission' smart constructor.
 data Permission = Permission'
-  { _pIAMUserARN :: !(Maybe Text),
-    _pAllowSudo :: !(Maybe Bool),
-    _pStackId :: !(Maybe Text),
-    _pLevel :: !(Maybe Text),
-    _pAllowSSH :: !(Maybe Bool)
+  { iamUserARN :: Lude.Maybe Lude.Text,
+    allowSudo :: Lude.Maybe Lude.Bool,
+    stackId :: Lude.Maybe Lude.Text,
+    level :: Lude.Maybe Lude.Text,
+    allowSSH :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Permission' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'allowSSH' - Whether the user can use SSH.
+-- * 'allowSudo' - Whether the user can use __sudo__ .
+-- * 'iamUserARN' - The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- * 'level' - The user's permission level, which must be the following:
 --
--- * 'pIAMUserARN' - The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- * 'pAllowSudo' - Whether the user can use __sudo__ .
+--     * @deny@
 --
--- * 'pStackId' - A stack ID.
 --
--- * 'pLevel' - The user's permission level, which must be the following:     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information on the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
+--     * @show@
 --
--- * 'pAllowSSH' - Whether the user can use SSH.
-permission ::
+--
+--     * @deploy@
+--
+--
+--     * @manage@
+--
+--
+--     * @iam_only@
+--
+--
+-- For more information on the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
+-- * 'stackId' - A stack ID.
+mkPermission ::
   Permission
-permission =
+mkPermission =
   Permission'
-    { _pIAMUserARN = Nothing,
-      _pAllowSudo = Nothing,
-      _pStackId = Nothing,
-      _pLevel = Nothing,
-      _pAllowSSH = Nothing
+    { iamUserARN = Lude.Nothing,
+      allowSudo = Lude.Nothing,
+      stackId = Lude.Nothing,
+      level = Lude.Nothing,
+      allowSSH = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
-pIAMUserARN :: Lens' Permission (Maybe Text)
-pIAMUserARN = lens _pIAMUserARN (\s a -> s {_pIAMUserARN = a})
+--
+-- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pIAMUserARN :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
+pIAMUserARN = Lens.lens (iamUserARN :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: Permission)
+{-# DEPRECATED pIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
 
 -- | Whether the user can use __sudo__ .
-pAllowSudo :: Lens' Permission (Maybe Bool)
-pAllowSudo = lens _pAllowSudo (\s a -> s {_pAllowSudo = a})
+--
+-- /Note:/ Consider using 'allowSudo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pAllowSudo :: Lens.Lens' Permission (Lude.Maybe Lude.Bool)
+pAllowSudo = Lens.lens (allowSudo :: Permission -> Lude.Maybe Lude.Bool) (\s a -> s {allowSudo = a} :: Permission)
+{-# DEPRECATED pAllowSudo "Use generic-lens or generic-optics with 'allowSudo' instead." #-}
 
 -- | A stack ID.
-pStackId :: Lens' Permission (Maybe Text)
-pStackId = lens _pStackId (\s a -> s {_pStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pStackId :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
+pStackId = Lens.lens (stackId :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: Permission)
+{-# DEPRECATED pStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
--- | The user's permission level, which must be the following:     * @deny@      * @show@      * @deploy@      * @manage@      * @iam_only@  For more information on the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
-pLevel :: Lens' Permission (Maybe Text)
-pLevel = lens _pLevel (\s a -> s {_pLevel = a})
+-- | The user's permission level, which must be the following:
+--
+--
+--     * @deny@
+--
+--
+--     * @show@
+--
+--
+--     * @deploy@
+--
+--
+--     * @manage@
+--
+--
+--     * @iam_only@
+--
+--
+-- For more information on the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
+--
+-- /Note:/ Consider using 'level' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pLevel :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
+pLevel = Lens.lens (level :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {level = a} :: Permission)
+{-# DEPRECATED pLevel "Use generic-lens or generic-optics with 'level' instead." #-}
 
 -- | Whether the user can use SSH.
-pAllowSSH :: Lens' Permission (Maybe Bool)
-pAllowSSH = lens _pAllowSSH (\s a -> s {_pAllowSSH = a})
+--
+-- /Note:/ Consider using 'allowSSH' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pAllowSSH :: Lens.Lens' Permission (Lude.Maybe Lude.Bool)
+pAllowSSH = Lens.lens (allowSSH :: Permission -> Lude.Maybe Lude.Bool) (\s a -> s {allowSSH = a} :: Permission)
+{-# DEPRECATED pAllowSSH "Use generic-lens or generic-optics with 'allowSSH' instead." #-}
 
-instance FromJSON Permission where
+instance Lude.FromJSON Permission where
   parseJSON =
-    withObject
+    Lude.withObject
       "Permission"
       ( \x ->
           Permission'
-            <$> (x .:? "IamUserArn")
-            <*> (x .:? "AllowSudo")
-            <*> (x .:? "StackId")
-            <*> (x .:? "Level")
-            <*> (x .:? "AllowSsh")
+            Lude.<$> (x Lude..:? "IamUserArn")
+            Lude.<*> (x Lude..:? "AllowSudo")
+            Lude.<*> (x Lude..:? "StackId")
+            Lude.<*> (x Lude..:? "Level")
+            Lude.<*> (x Lude..:? "AllowSsh")
       )
-
-instance Hashable Permission
-
-instance NFData Permission

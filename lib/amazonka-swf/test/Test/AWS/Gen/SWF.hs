@@ -28,229 +28,229 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestListOpenWorkflowExecutions $
---             listOpenWorkflowExecutions
+--             mkListOpenWorkflowExecutions
 --
 --         , requestRegisterActivityType $
---             registerActivityType
+--             mkRegisterActivityType
 --
 --         , requestListActivityTypes $
---             listActivityTypes
+--             mkListActivityTypes
 --
 --         , requestCountPendingActivityTasks $
---             countPendingActivityTasks
+--             mkCountPendingActivityTasks
 --
 --         , requestRegisterWorkflowType $
---             registerWorkflowType
+--             mkRegisterWorkflowType
 --
 --         , requestListWorkflowTypes $
---             listWorkflowTypes
+--             mkListWorkflowTypes
 --
 --         , requestListTagsForResource $
---             listTagsForResource
+--             mkListTagsForResource
 --
 --         , requestRespondActivityTaskFailed $
---             respondActivityTaskFailed
+--             mkRespondActivityTaskFailed
 --
 --         , requestCountOpenWorkflowExecutions $
---             countOpenWorkflowExecutions
+--             mkCountOpenWorkflowExecutions
 --
 --         , requestUndeprecateDomain $
---             undeprecateDomain
+--             mkUndeprecateDomain
 --
 --         , requestDescribeWorkflowType $
---             describeWorkflowType
+--             mkDescribeWorkflowType
 --
 --         , requestDeprecateWorkflowType $
---             deprecateWorkflowType
+--             mkDeprecateWorkflowType
 --
 --         , requestRequestCancelWorkflowExecution $
---             requestCancelWorkflowExecution
+--             mkRequestCancelWorkflowExecution
 --
 --         , requestRegisterDomain $
---             registerDomain
+--             mkRegisterDomain
 --
 --         , requestRespondDecisionTaskCompleted $
---             respondDecisionTaskCompleted
+--             mkRespondDecisionTaskCompleted
 --
 --         , requestPollForActivityTask $
---             pollForActivityTask
+--             mkPollForActivityTask
 --
 --         , requestRespondActivityTaskCompleted $
---             respondActivityTaskCompleted
+--             mkRespondActivityTaskCompleted
 --
 --         , requestDescribeWorkflowExecution $
---             describeWorkflowExecution
+--             mkDescribeWorkflowExecution
 --
 --         , requestSignalWorkflowExecution $
---             signalWorkflowExecution
+--             mkSignalWorkflowExecution
 --
 --         , requestCountPendingDecisionTasks $
---             countPendingDecisionTasks
+--             mkCountPendingDecisionTasks
 --
 --         , requestListClosedWorkflowExecutions $
---             listClosedWorkflowExecutions
+--             mkListClosedWorkflowExecutions
 --
 --         , requestRecordActivityTaskHeartbeat $
---             recordActivityTaskHeartbeat
+--             mkRecordActivityTaskHeartbeat
 --
 --         , requestDescribeDomain $
---             describeDomain
+--             mkDescribeDomain
 --
 --         , requestGetWorkflowExecutionHistory $
---             getWorkflowExecutionHistory
+--             mkGetWorkflowExecutionHistory
 --
 --         , requestDeprecateDomain $
---             deprecateDomain
+--             mkDeprecateDomain
 --
 --         , requestUndeprecateWorkflowType $
---             undeprecateWorkflowType
+--             mkUndeprecateWorkflowType
 --
 --         , requestTerminateWorkflowExecution $
---             terminateWorkflowExecution
+--             mkTerminateWorkflowExecution
 --
 --         , requestDescribeActivityType $
---             describeActivityType
+--             mkDescribeActivityType
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestDeprecateActivityType $
---             deprecateActivityType
+--             mkDeprecateActivityType
 --
 --         , requestUndeprecateActivityType $
---             undeprecateActivityType
+--             mkUndeprecateActivityType
 --
 --         , requestCountClosedWorkflowExecutions $
---             countClosedWorkflowExecutions
+--             mkCountClosedWorkflowExecutions
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestRespondActivityTaskCanceled $
---             respondActivityTaskCanceled
+--             mkRespondActivityTaskCanceled
 --
 --         , requestStartWorkflowExecution $
---             startWorkflowExecution
+--             mkStartWorkflowExecution
 --
 --         , requestPollForDecisionTask $
---             pollForDecisionTask
+--             mkPollForDecisionTask
 --
 --         , requestListDomains $
---             listDomains
+--             mkListDomains
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListOpenWorkflowExecutions $
---             workflowExecutionInfos
+--             mkWorkflowExecutionInfos
 --
 --         , responseRegisterActivityType $
---             registerActivityTypeResponse
+--             mkRegisterActivityTypeResponse
 --
 --         , responseListActivityTypes $
---             listActivityTypesResponse
+--             mkListActivityTypesResponse
 --
 --         , responseCountPendingActivityTasks $
---             pendingTaskCount
+--             mkPendingTaskCount
 --
 --         , responseRegisterWorkflowType $
---             registerWorkflowTypeResponse
+--             mkRegisterWorkflowTypeResponse
 --
 --         , responseListWorkflowTypes $
---             listWorkflowTypesResponse
+--             mkListWorkflowTypesResponse
 --
 --         , responseListTagsForResource $
---             listTagsForResourceResponse
+--             mkListTagsForResourceResponse
 --
 --         , responseRespondActivityTaskFailed $
---             respondActivityTaskFailedResponse
+--             mkRespondActivityTaskFailedResponse
 --
 --         , responseCountOpenWorkflowExecutions $
---             workflowExecutionCount
+--             mkWorkflowExecutionCount
 --
 --         , responseUndeprecateDomain $
---             undeprecateDomainResponse
+--             mkUndeprecateDomainResponse
 --
 --         , responseDescribeWorkflowType $
---             describeWorkflowTypeResponse
+--             mkDescribeWorkflowTypeResponse
 --
 --         , responseDeprecateWorkflowType $
---             deprecateWorkflowTypeResponse
+--             mkDeprecateWorkflowTypeResponse
 --
 --         , responseRequestCancelWorkflowExecution $
---             requestCancelWorkflowExecutionResponse
+--             mkRequestCancelWorkflowExecutionResponse
 --
 --         , responseRegisterDomain $
---             registerDomainResponse
+--             mkRegisterDomainResponse
 --
 --         , responseRespondDecisionTaskCompleted $
---             respondDecisionTaskCompletedResponse
+--             mkRespondDecisionTaskCompletedResponse
 --
 --         , responsePollForActivityTask $
---             pollForActivityTaskResponse
+--             mkPollForActivityTaskResponse
 --
 --         , responseRespondActivityTaskCompleted $
---             respondActivityTaskCompletedResponse
+--             mkRespondActivityTaskCompletedResponse
 --
 --         , responseDescribeWorkflowExecution $
---             describeWorkflowExecutionResponse
+--             mkDescribeWorkflowExecutionResponse
 --
 --         , responseSignalWorkflowExecution $
---             signalWorkflowExecutionResponse
+--             mkSignalWorkflowExecutionResponse
 --
 --         , responseCountPendingDecisionTasks $
---             pendingTaskCount
+--             mkPendingTaskCount
 --
 --         , responseListClosedWorkflowExecutions $
---             workflowExecutionInfos
+--             mkWorkflowExecutionInfos
 --
 --         , responseRecordActivityTaskHeartbeat $
---             recordActivityTaskHeartbeatResponse
+--             mkRecordActivityTaskHeartbeatResponse
 --
 --         , responseDescribeDomain $
---             describeDomainResponse
+--             mkDescribeDomainResponse
 --
 --         , responseGetWorkflowExecutionHistory $
---             getWorkflowExecutionHistoryResponse
+--             mkGetWorkflowExecutionHistoryResponse
 --
 --         , responseDeprecateDomain $
---             deprecateDomainResponse
+--             mkDeprecateDomainResponse
 --
 --         , responseUndeprecateWorkflowType $
---             undeprecateWorkflowTypeResponse
+--             mkUndeprecateWorkflowTypeResponse
 --
 --         , responseTerminateWorkflowExecution $
---             terminateWorkflowExecutionResponse
+--             mkTerminateWorkflowExecutionResponse
 --
 --         , responseDescribeActivityType $
---             describeActivityTypeResponse
+--             mkDescribeActivityTypeResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseDeprecateActivityType $
---             deprecateActivityTypeResponse
+--             mkDeprecateActivityTypeResponse
 --
 --         , responseUndeprecateActivityType $
---             undeprecateActivityTypeResponse
+--             mkUndeprecateActivityTypeResponse
 --
 --         , responseCountClosedWorkflowExecutions $
---             workflowExecutionCount
+--             mkWorkflowExecutionCount
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responseRespondActivityTaskCanceled $
---             respondActivityTaskCanceledResponse
+--             mkRespondActivityTaskCanceledResponse
 --
 --         , responseStartWorkflowExecution $
---             startWorkflowExecutionResponse
+--             mkStartWorkflowExecutionResponse
 --
 --         , responsePollForDecisionTask $
---             pollForDecisionTaskResponse
+--             mkPollForDecisionTaskResponse
 --
 --         , responseListDomains $
---             listDomainsResponse
+--             mkListDomainsResponse
 --
 --           ]
 --     ]
@@ -486,7 +486,7 @@ responseListOpenWorkflowExecutions =
   res
     "ListOpenWorkflowExecutionsResponse"
     "fixture/ListOpenWorkflowExecutionsResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy ListOpenWorkflowExecutions)
 
 responseRegisterActivityType :: RegisterActivityTypeResponse -> TestTree
@@ -494,7 +494,7 @@ responseRegisterActivityType =
   res
     "RegisterActivityTypeResponse"
     "fixture/RegisterActivityTypeResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy RegisterActivityType)
 
 responseListActivityTypes :: ListActivityTypesResponse -> TestTree
@@ -502,7 +502,7 @@ responseListActivityTypes =
   res
     "ListActivityTypesResponse"
     "fixture/ListActivityTypesResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy ListActivityTypes)
 
 responseCountPendingActivityTasks :: PendingTaskCount -> TestTree
@@ -510,7 +510,7 @@ responseCountPendingActivityTasks =
   res
     "CountPendingActivityTasksResponse"
     "fixture/CountPendingActivityTasksResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy CountPendingActivityTasks)
 
 responseRegisterWorkflowType :: RegisterWorkflowTypeResponse -> TestTree
@@ -518,7 +518,7 @@ responseRegisterWorkflowType =
   res
     "RegisterWorkflowTypeResponse"
     "fixture/RegisterWorkflowTypeResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy RegisterWorkflowType)
 
 responseListWorkflowTypes :: ListWorkflowTypesResponse -> TestTree
@@ -526,7 +526,7 @@ responseListWorkflowTypes =
   res
     "ListWorkflowTypesResponse"
     "fixture/ListWorkflowTypesResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy ListWorkflowTypes)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -534,7 +534,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy ListTagsForResource)
 
 responseRespondActivityTaskFailed :: RespondActivityTaskFailedResponse -> TestTree
@@ -542,7 +542,7 @@ responseRespondActivityTaskFailed =
   res
     "RespondActivityTaskFailedResponse"
     "fixture/RespondActivityTaskFailedResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy RespondActivityTaskFailed)
 
 responseCountOpenWorkflowExecutions :: WorkflowExecutionCount -> TestTree
@@ -550,7 +550,7 @@ responseCountOpenWorkflowExecutions =
   res
     "CountOpenWorkflowExecutionsResponse"
     "fixture/CountOpenWorkflowExecutionsResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy CountOpenWorkflowExecutions)
 
 responseUndeprecateDomain :: UndeprecateDomainResponse -> TestTree
@@ -558,7 +558,7 @@ responseUndeprecateDomain =
   res
     "UndeprecateDomainResponse"
     "fixture/UndeprecateDomainResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy UndeprecateDomain)
 
 responseDescribeWorkflowType :: DescribeWorkflowTypeResponse -> TestTree
@@ -566,7 +566,7 @@ responseDescribeWorkflowType =
   res
     "DescribeWorkflowTypeResponse"
     "fixture/DescribeWorkflowTypeResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy DescribeWorkflowType)
 
 responseDeprecateWorkflowType :: DeprecateWorkflowTypeResponse -> TestTree
@@ -574,7 +574,7 @@ responseDeprecateWorkflowType =
   res
     "DeprecateWorkflowTypeResponse"
     "fixture/DeprecateWorkflowTypeResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy DeprecateWorkflowType)
 
 responseRequestCancelWorkflowExecution :: RequestCancelWorkflowExecutionResponse -> TestTree
@@ -582,7 +582,7 @@ responseRequestCancelWorkflowExecution =
   res
     "RequestCancelWorkflowExecutionResponse"
     "fixture/RequestCancelWorkflowExecutionResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy RequestCancelWorkflowExecution)
 
 responseRegisterDomain :: RegisterDomainResponse -> TestTree
@@ -590,7 +590,7 @@ responseRegisterDomain =
   res
     "RegisterDomainResponse"
     "fixture/RegisterDomainResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy RegisterDomain)
 
 responseRespondDecisionTaskCompleted :: RespondDecisionTaskCompletedResponse -> TestTree
@@ -598,7 +598,7 @@ responseRespondDecisionTaskCompleted =
   res
     "RespondDecisionTaskCompletedResponse"
     "fixture/RespondDecisionTaskCompletedResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy RespondDecisionTaskCompleted)
 
 responsePollForActivityTask :: PollForActivityTaskResponse -> TestTree
@@ -606,7 +606,7 @@ responsePollForActivityTask =
   res
     "PollForActivityTaskResponse"
     "fixture/PollForActivityTaskResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy PollForActivityTask)
 
 responseRespondActivityTaskCompleted :: RespondActivityTaskCompletedResponse -> TestTree
@@ -614,7 +614,7 @@ responseRespondActivityTaskCompleted =
   res
     "RespondActivityTaskCompletedResponse"
     "fixture/RespondActivityTaskCompletedResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy RespondActivityTaskCompleted)
 
 responseDescribeWorkflowExecution :: DescribeWorkflowExecutionResponse -> TestTree
@@ -622,7 +622,7 @@ responseDescribeWorkflowExecution =
   res
     "DescribeWorkflowExecutionResponse"
     "fixture/DescribeWorkflowExecutionResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy DescribeWorkflowExecution)
 
 responseSignalWorkflowExecution :: SignalWorkflowExecutionResponse -> TestTree
@@ -630,7 +630,7 @@ responseSignalWorkflowExecution =
   res
     "SignalWorkflowExecutionResponse"
     "fixture/SignalWorkflowExecutionResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy SignalWorkflowExecution)
 
 responseCountPendingDecisionTasks :: PendingTaskCount -> TestTree
@@ -638,7 +638,7 @@ responseCountPendingDecisionTasks =
   res
     "CountPendingDecisionTasksResponse"
     "fixture/CountPendingDecisionTasksResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy CountPendingDecisionTasks)
 
 responseListClosedWorkflowExecutions :: WorkflowExecutionInfos -> TestTree
@@ -646,7 +646,7 @@ responseListClosedWorkflowExecutions =
   res
     "ListClosedWorkflowExecutionsResponse"
     "fixture/ListClosedWorkflowExecutionsResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy ListClosedWorkflowExecutions)
 
 responseRecordActivityTaskHeartbeat :: RecordActivityTaskHeartbeatResponse -> TestTree
@@ -654,7 +654,7 @@ responseRecordActivityTaskHeartbeat =
   res
     "RecordActivityTaskHeartbeatResponse"
     "fixture/RecordActivityTaskHeartbeatResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy RecordActivityTaskHeartbeat)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
@@ -662,7 +662,7 @@ responseDescribeDomain =
   res
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy DescribeDomain)
 
 responseGetWorkflowExecutionHistory :: GetWorkflowExecutionHistoryResponse -> TestTree
@@ -670,7 +670,7 @@ responseGetWorkflowExecutionHistory =
   res
     "GetWorkflowExecutionHistoryResponse"
     "fixture/GetWorkflowExecutionHistoryResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy GetWorkflowExecutionHistory)
 
 responseDeprecateDomain :: DeprecateDomainResponse -> TestTree
@@ -678,7 +678,7 @@ responseDeprecateDomain =
   res
     "DeprecateDomainResponse"
     "fixture/DeprecateDomainResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy DeprecateDomain)
 
 responseUndeprecateWorkflowType :: UndeprecateWorkflowTypeResponse -> TestTree
@@ -686,7 +686,7 @@ responseUndeprecateWorkflowType =
   res
     "UndeprecateWorkflowTypeResponse"
     "fixture/UndeprecateWorkflowTypeResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy UndeprecateWorkflowType)
 
 responseTerminateWorkflowExecution :: TerminateWorkflowExecutionResponse -> TestTree
@@ -694,7 +694,7 @@ responseTerminateWorkflowExecution =
   res
     "TerminateWorkflowExecutionResponse"
     "fixture/TerminateWorkflowExecutionResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy TerminateWorkflowExecution)
 
 responseDescribeActivityType :: DescribeActivityTypeResponse -> TestTree
@@ -702,7 +702,7 @@ responseDescribeActivityType =
   res
     "DescribeActivityTypeResponse"
     "fixture/DescribeActivityTypeResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy DescribeActivityType)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -710,7 +710,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy TagResource)
 
 responseDeprecateActivityType :: DeprecateActivityTypeResponse -> TestTree
@@ -718,7 +718,7 @@ responseDeprecateActivityType =
   res
     "DeprecateActivityTypeResponse"
     "fixture/DeprecateActivityTypeResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy DeprecateActivityType)
 
 responseUndeprecateActivityType :: UndeprecateActivityTypeResponse -> TestTree
@@ -726,7 +726,7 @@ responseUndeprecateActivityType =
   res
     "UndeprecateActivityTypeResponse"
     "fixture/UndeprecateActivityTypeResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy UndeprecateActivityType)
 
 responseCountClosedWorkflowExecutions :: WorkflowExecutionCount -> TestTree
@@ -734,7 +734,7 @@ responseCountClosedWorkflowExecutions =
   res
     "CountClosedWorkflowExecutionsResponse"
     "fixture/CountClosedWorkflowExecutionsResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy CountClosedWorkflowExecutions)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -742,7 +742,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy UntagResource)
 
 responseRespondActivityTaskCanceled :: RespondActivityTaskCanceledResponse -> TestTree
@@ -750,7 +750,7 @@ responseRespondActivityTaskCanceled =
   res
     "RespondActivityTaskCanceledResponse"
     "fixture/RespondActivityTaskCanceledResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy RespondActivityTaskCanceled)
 
 responseStartWorkflowExecution :: StartWorkflowExecutionResponse -> TestTree
@@ -758,7 +758,7 @@ responseStartWorkflowExecution =
   res
     "StartWorkflowExecutionResponse"
     "fixture/StartWorkflowExecutionResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy StartWorkflowExecution)
 
 responsePollForDecisionTask :: PollForDecisionTaskResponse -> TestTree
@@ -766,7 +766,7 @@ responsePollForDecisionTask =
   res
     "PollForDecisionTaskResponse"
     "fixture/PollForDecisionTaskResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy PollForDecisionTask)
 
 responseListDomains :: ListDomainsResponse -> TestTree
@@ -774,5 +774,5 @@ responseListDomains =
   res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
-    swf
+    swfService
     (Proxy :: Proxy ListDomains)

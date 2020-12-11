@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Creates a new version of a slot type based on the @> LATEST@ version of the specified slot type. If the @> LATEST@ version of this resource has not changed since the last version that you created, Amazon Lex doesn't create a new version. It returns the last version that you created.
 --
---
 -- When you create a version of a slot type, Amazon Lex sets the version to 1. Subsequent versions increment by 1. For more information, see 'versioning-intro' .
---
 -- This operation requires permissions for the @lex:CreateSlotTypeVersion@ action.
 module Network.AWS.LexModels.CreateSlotTypeVersion
-  ( -- * Creating a Request
-    createSlotTypeVersion,
-    CreateSlotTypeVersion,
+  ( -- * Creating a request
+    CreateSlotTypeVersion (..),
+    mkCreateSlotTypeVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cstvChecksum,
     cstvName,
 
-    -- * Destructuring the Response
-    createSlotTypeVersionResponse,
-    CreateSlotTypeVersionResponse,
+    -- * Destructuring the response
+    CreateSlotTypeVersionResponse (..),
+    mkCreateSlotTypeVersionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cstvrsParentSlotTypeSignature,
     cstvrsSlotTypeConfigurations,
     cstvrsChecksum,
@@ -51,202 +44,232 @@ module Network.AWS.LexModels.CreateSlotTypeVersion
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createSlotTypeVersion' smart constructor.
+-- | /See:/ 'mkCreateSlotTypeVersion' smart constructor.
 data CreateSlotTypeVersion = CreateSlotTypeVersion'
-  { _cstvChecksum ::
-      !(Maybe Text),
-    _cstvName :: !Text
+  { checksum ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSlotTypeVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cstvChecksum' - Checksum for the @> LATEST@ version of the slot type that you want to publish. If you specify a checksum and the @> LATEST@ version of the slot type has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish the new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
---
--- * 'cstvName' - The name of the slot type that you want to create a new version for. The name is case sensitive.
-createSlotTypeVersion ::
-  -- | 'cstvName'
-  Text ->
+-- * 'checksum' - Checksum for the @> LATEST@ version of the slot type that you want to publish. If you specify a checksum and the @> LATEST@ version of the slot type has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish the new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
+-- * 'name' - The name of the slot type that you want to create a new version for. The name is case sensitive.
+mkCreateSlotTypeVersion ::
+  -- | 'name'
+  Lude.Text ->
   CreateSlotTypeVersion
-createSlotTypeVersion pName_ =
-  CreateSlotTypeVersion'
-    { _cstvChecksum = Nothing,
-      _cstvName = pName_
-    }
+mkCreateSlotTypeVersion pName_ =
+  CreateSlotTypeVersion' {checksum = Lude.Nothing, name = pName_}
 
 -- | Checksum for the @> LATEST@ version of the slot type that you want to publish. If you specify a checksum and the @> LATEST@ version of the slot type has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish the new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
-cstvChecksum :: Lens' CreateSlotTypeVersion (Maybe Text)
-cstvChecksum = lens _cstvChecksum (\s a -> s {_cstvChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvChecksum :: Lens.Lens' CreateSlotTypeVersion (Lude.Maybe Lude.Text)
+cstvChecksum = Lens.lens (checksum :: CreateSlotTypeVersion -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: CreateSlotTypeVersion)
+{-# DEPRECATED cstvChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The name of the slot type that you want to create a new version for. The name is case sensitive.
-cstvName :: Lens' CreateSlotTypeVersion Text
-cstvName = lens _cstvName (\s a -> s {_cstvName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvName :: Lens.Lens' CreateSlotTypeVersion Lude.Text
+cstvName = Lens.lens (name :: CreateSlotTypeVersion -> Lude.Text) (\s a -> s {name = a} :: CreateSlotTypeVersion)
+{-# DEPRECATED cstvName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest CreateSlotTypeVersion where
+instance Lude.AWSRequest CreateSlotTypeVersion where
   type Rs CreateSlotTypeVersion = CreateSlotTypeVersionResponse
-  request = postJSON lexModels
+  request = Req.postJSON lexModelsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateSlotTypeVersionResponse'
-            <$> (x .?> "parentSlotTypeSignature")
-            <*> (x .?> "slotTypeConfigurations" .!@ mempty)
-            <*> (x .?> "checksum")
-            <*> (x .?> "valueSelectionStrategy")
-            <*> (x .?> "createdDate")
-            <*> (x .?> "name")
-            <*> (x .?> "version")
-            <*> (x .?> "lastUpdatedDate")
-            <*> (x .?> "description")
-            <*> (x .?> "enumerationValues" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "parentSlotTypeSignature")
+            Lude.<*> (x Lude..?> "slotTypeConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "checksum")
+            Lude.<*> (x Lude..?> "valueSelectionStrategy")
+            Lude.<*> (x Lude..?> "createdDate")
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "version")
+            Lude.<*> (x Lude..?> "lastUpdatedDate")
+            Lude.<*> (x Lude..?> "description")
+            Lude.<*> (x Lude..?> "enumerationValues" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateSlotTypeVersion
-
-instance NFData CreateSlotTypeVersion
-
-instance ToHeaders CreateSlotTypeVersion where
+instance Lude.ToHeaders CreateSlotTypeVersion where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON CreateSlotTypeVersion where
+instance Lude.ToJSON CreateSlotTypeVersion where
   toJSON CreateSlotTypeVersion' {..} =
-    object (catMaybes [("checksum" .=) <$> _cstvChecksum])
+    Lude.object
+      (Lude.catMaybes [("checksum" Lude..=) Lude.<$> checksum])
 
-instance ToPath CreateSlotTypeVersion where
+instance Lude.ToPath CreateSlotTypeVersion where
   toPath CreateSlotTypeVersion' {..} =
-    mconcat ["/slottypes/", toBS _cstvName, "/versions"]
+    Lude.mconcat ["/slottypes/", Lude.toBS name, "/versions"]
 
-instance ToQuery CreateSlotTypeVersion where
-  toQuery = const mempty
+instance Lude.ToQuery CreateSlotTypeVersion where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createSlotTypeVersionResponse' smart constructor.
+-- | /See:/ 'mkCreateSlotTypeVersionResponse' smart constructor.
 data CreateSlotTypeVersionResponse = CreateSlotTypeVersionResponse'
-  { _cstvrsParentSlotTypeSignature ::
-      !(Maybe Text),
-    _cstvrsSlotTypeConfigurations ::
-      !( Maybe
-           [SlotTypeConfiguration]
-       ),
-    _cstvrsChecksum ::
-      !(Maybe Text),
-    _cstvrsValueSelectionStrategy ::
-      !( Maybe
-           SlotValueSelectionStrategy
-       ),
-    _cstvrsCreatedDate ::
-      !(Maybe POSIX),
-    _cstvrsName :: !(Maybe Text),
-    _cstvrsVersion :: !(Maybe Text),
-    _cstvrsLastUpdatedDate ::
-      !(Maybe POSIX),
-    _cstvrsDescription ::
-      !(Maybe Text),
-    _cstvrsEnumerationValues ::
-      !(Maybe [EnumerationValue]),
-    _cstvrsResponseStatus :: !Int
+  { parentSlotTypeSignature ::
+      Lude.Maybe Lude.Text,
+    slotTypeConfigurations ::
+      Lude.Maybe
+        [SlotTypeConfiguration],
+    checksum ::
+      Lude.Maybe Lude.Text,
+    valueSelectionStrategy ::
+      Lude.Maybe
+        SlotValueSelectionStrategy,
+    createdDate ::
+      Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    version :: Lude.Maybe Lude.Text,
+    lastUpdatedDate ::
+      Lude.Maybe Lude.Timestamp,
+    description ::
+      Lude.Maybe Lude.Text,
+    enumerationValues ::
+      Lude.Maybe [EnumerationValue],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSlotTypeVersionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cstvrsParentSlotTypeSignature' - The built-in slot type used a the parent of the slot type.
---
--- * 'cstvrsSlotTypeConfigurations' - Configuration information that extends the parent built-in slot type.
---
--- * 'cstvrsChecksum' - Checksum of the @> LATEST@ version of the slot type.
---
--- * 'cstvrsValueSelectionStrategy' - The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
---
--- * 'cstvrsCreatedDate' - The date that the slot type was created.
---
--- * 'cstvrsName' - The name of the slot type.
---
--- * 'cstvrsVersion' - The version assigned to the new slot type version.
---
--- * 'cstvrsLastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
---
--- * 'cstvrsDescription' - A description of the slot type.
---
--- * 'cstvrsEnumerationValues' - A list of @EnumerationValue@ objects that defines the values that the slot type can take.
---
--- * 'cstvrsResponseStatus' - -- | The response status code.
-createSlotTypeVersionResponse ::
-  -- | 'cstvrsResponseStatus'
-  Int ->
+-- * 'checksum' - Checksum of the @> LATEST@ version of the slot type.
+-- * 'createdDate' - The date that the slot type was created.
+-- * 'description' - A description of the slot type.
+-- * 'enumerationValues' - A list of @EnumerationValue@ objects that defines the values that the slot type can take.
+-- * 'lastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
+-- * 'name' - The name of the slot type.
+-- * 'parentSlotTypeSignature' - The built-in slot type used a the parent of the slot type.
+-- * 'responseStatus' - The response status code.
+-- * 'slotTypeConfigurations' - Configuration information that extends the parent built-in slot type.
+-- * 'valueSelectionStrategy' - The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
+-- * 'version' - The version assigned to the new slot type version.
+mkCreateSlotTypeVersionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSlotTypeVersionResponse
-createSlotTypeVersionResponse pResponseStatus_ =
+mkCreateSlotTypeVersionResponse pResponseStatus_ =
   CreateSlotTypeVersionResponse'
-    { _cstvrsParentSlotTypeSignature =
-        Nothing,
-      _cstvrsSlotTypeConfigurations = Nothing,
-      _cstvrsChecksum = Nothing,
-      _cstvrsValueSelectionStrategy = Nothing,
-      _cstvrsCreatedDate = Nothing,
-      _cstvrsName = Nothing,
-      _cstvrsVersion = Nothing,
-      _cstvrsLastUpdatedDate = Nothing,
-      _cstvrsDescription = Nothing,
-      _cstvrsEnumerationValues = Nothing,
-      _cstvrsResponseStatus = pResponseStatus_
+    { parentSlotTypeSignature =
+        Lude.Nothing,
+      slotTypeConfigurations = Lude.Nothing,
+      checksum = Lude.Nothing,
+      valueSelectionStrategy = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      name = Lude.Nothing,
+      version = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      description = Lude.Nothing,
+      enumerationValues = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The built-in slot type used a the parent of the slot type.
-cstvrsParentSlotTypeSignature :: Lens' CreateSlotTypeVersionResponse (Maybe Text)
-cstvrsParentSlotTypeSignature = lens _cstvrsParentSlotTypeSignature (\s a -> s {_cstvrsParentSlotTypeSignature = a})
+--
+-- /Note:/ Consider using 'parentSlotTypeSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsParentSlotTypeSignature :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe Lude.Text)
+cstvrsParentSlotTypeSignature = Lens.lens (parentSlotTypeSignature :: CreateSlotTypeVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {parentSlotTypeSignature = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsParentSlotTypeSignature "Use generic-lens or generic-optics with 'parentSlotTypeSignature' instead." #-}
 
 -- | Configuration information that extends the parent built-in slot type.
-cstvrsSlotTypeConfigurations :: Lens' CreateSlotTypeVersionResponse [SlotTypeConfiguration]
-cstvrsSlotTypeConfigurations = lens _cstvrsSlotTypeConfigurations (\s a -> s {_cstvrsSlotTypeConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'slotTypeConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsSlotTypeConfigurations :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe [SlotTypeConfiguration])
+cstvrsSlotTypeConfigurations = Lens.lens (slotTypeConfigurations :: CreateSlotTypeVersionResponse -> Lude.Maybe [SlotTypeConfiguration]) (\s a -> s {slotTypeConfigurations = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsSlotTypeConfigurations "Use generic-lens or generic-optics with 'slotTypeConfigurations' instead." #-}
 
 -- | Checksum of the @> LATEST@ version of the slot type.
-cstvrsChecksum :: Lens' CreateSlotTypeVersionResponse (Maybe Text)
-cstvrsChecksum = lens _cstvrsChecksum (\s a -> s {_cstvrsChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsChecksum :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe Lude.Text)
+cstvrsChecksum = Lens.lens (checksum :: CreateSlotTypeVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
-cstvrsValueSelectionStrategy :: Lens' CreateSlotTypeVersionResponse (Maybe SlotValueSelectionStrategy)
-cstvrsValueSelectionStrategy = lens _cstvrsValueSelectionStrategy (\s a -> s {_cstvrsValueSelectionStrategy = a})
+--
+-- /Note:/ Consider using 'valueSelectionStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsValueSelectionStrategy :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe SlotValueSelectionStrategy)
+cstvrsValueSelectionStrategy = Lens.lens (valueSelectionStrategy :: CreateSlotTypeVersionResponse -> Lude.Maybe SlotValueSelectionStrategy) (\s a -> s {valueSelectionStrategy = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsValueSelectionStrategy "Use generic-lens or generic-optics with 'valueSelectionStrategy' instead." #-}
 
 -- | The date that the slot type was created.
-cstvrsCreatedDate :: Lens' CreateSlotTypeVersionResponse (Maybe UTCTime)
-cstvrsCreatedDate = lens _cstvrsCreatedDate (\s a -> s {_cstvrsCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsCreatedDate :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe Lude.Timestamp)
+cstvrsCreatedDate = Lens.lens (createdDate :: CreateSlotTypeVersionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The name of the slot type.
-cstvrsName :: Lens' CreateSlotTypeVersionResponse (Maybe Text)
-cstvrsName = lens _cstvrsName (\s a -> s {_cstvrsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsName :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe Lude.Text)
+cstvrsName = Lens.lens (name :: CreateSlotTypeVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version assigned to the new slot type version.
-cstvrsVersion :: Lens' CreateSlotTypeVersionResponse (Maybe Text)
-cstvrsVersion = lens _cstvrsVersion (\s a -> s {_cstvrsVersion = a})
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsVersion :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe Lude.Text)
+cstvrsVersion = Lens.lens (version :: CreateSlotTypeVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
-cstvrsLastUpdatedDate :: Lens' CreateSlotTypeVersionResponse (Maybe UTCTime)
-cstvrsLastUpdatedDate = lens _cstvrsLastUpdatedDate (\s a -> s {_cstvrsLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsLastUpdatedDate :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe Lude.Timestamp)
+cstvrsLastUpdatedDate = Lens.lens (lastUpdatedDate :: CreateSlotTypeVersionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | A description of the slot type.
-cstvrsDescription :: Lens' CreateSlotTypeVersionResponse (Maybe Text)
-cstvrsDescription = lens _cstvrsDescription (\s a -> s {_cstvrsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsDescription :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe Lude.Text)
+cstvrsDescription = Lens.lens (description :: CreateSlotTypeVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of @EnumerationValue@ objects that defines the values that the slot type can take.
-cstvrsEnumerationValues :: Lens' CreateSlotTypeVersionResponse [EnumerationValue]
-cstvrsEnumerationValues = lens _cstvrsEnumerationValues (\s a -> s {_cstvrsEnumerationValues = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'enumerationValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsEnumerationValues :: Lens.Lens' CreateSlotTypeVersionResponse (Lude.Maybe [EnumerationValue])
+cstvrsEnumerationValues = Lens.lens (enumerationValues :: CreateSlotTypeVersionResponse -> Lude.Maybe [EnumerationValue]) (\s a -> s {enumerationValues = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsEnumerationValues "Use generic-lens or generic-optics with 'enumerationValues' instead." #-}
 
--- | -- | The response status code.
-cstvrsResponseStatus :: Lens' CreateSlotTypeVersionResponse Int
-cstvrsResponseStatus = lens _cstvrsResponseStatus (\s a -> s {_cstvrsResponseStatus = a})
-
-instance NFData CreateSlotTypeVersionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cstvrsResponseStatus :: Lens.Lens' CreateSlotTypeVersionResponse Lude.Int
+cstvrsResponseStatus = Lens.lens (responseStatus :: CreateSlotTypeVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSlotTypeVersionResponse)
+{-# DEPRECATED cstvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

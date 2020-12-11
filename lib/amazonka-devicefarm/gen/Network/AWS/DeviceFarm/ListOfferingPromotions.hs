@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,20 @@
 --
 -- Returns a list of offering promotions. Each offering promotion record contains the ID and description of the promotion. The API returns a @NotEligible@ error if the caller is not permitted to invoke the operation. Contact <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support@amazon.com> if you must be able to invoke this operation.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListOfferingPromotions
-  ( -- * Creating a Request
-    listOfferingPromotions,
-    ListOfferingPromotions,
+  ( -- * Creating a request
+    ListOfferingPromotions (..),
+    mkListOfferingPromotions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lopNextToken,
 
-    -- * Destructuring the Response
-    listOfferingPromotionsResponse,
-    ListOfferingPromotionsResponse,
+    -- * Destructuring the response
+    ListOfferingPromotionsResponse (..),
+    mkListOfferingPromotionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     loprsNextToken,
     loprsOfferingPromotions,
     loprsResponseStatus,
@@ -42,115 +35,135 @@ module Network.AWS.DeviceFarm.ListOfferingPromotions
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listOfferingPromotions' smart constructor.
+-- | /See:/ 'mkListOfferingPromotions' smart constructor.
 newtype ListOfferingPromotions = ListOfferingPromotions'
-  { _lopNextToken ::
-      Maybe Text
+  { nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOfferingPromotions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lopNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-listOfferingPromotions ::
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+mkListOfferingPromotions ::
   ListOfferingPromotions
-listOfferingPromotions =
-  ListOfferingPromotions' {_lopNextToken = Nothing}
+mkListOfferingPromotions =
+  ListOfferingPromotions' {nextToken = Lude.Nothing}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lopNextToken :: Lens' ListOfferingPromotions (Maybe Text)
-lopNextToken = lens _lopNextToken (\s a -> s {_lopNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopNextToken :: Lens.Lens' ListOfferingPromotions (Lude.Maybe Lude.Text)
+lopNextToken = Lens.lens (nextToken :: ListOfferingPromotions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOfferingPromotions)
+{-# DEPRECATED lopNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager ListOfferingPromotions where
+instance Page.AWSPager ListOfferingPromotions where
   page rq rs
-    | stop (rs ^. loprsNextToken) = Nothing
-    | stop (rs ^. loprsOfferingPromotions) = Nothing
-    | otherwise = Just $ rq & lopNextToken .~ rs ^. loprsNextToken
+    | Page.stop (rs Lens.^. loprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. loprsOfferingPromotions) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lopNextToken Lens..~ rs Lens.^. loprsNextToken
 
-instance AWSRequest ListOfferingPromotions where
+instance Lude.AWSRequest ListOfferingPromotions where
   type Rs ListOfferingPromotions = ListOfferingPromotionsResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListOfferingPromotionsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "offeringPromotions" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "offeringPromotions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListOfferingPromotions
-
-instance NFData ListOfferingPromotions
-
-instance ToHeaders ListOfferingPromotions where
+instance Lude.ToHeaders ListOfferingPromotions where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.ListOfferingPromotions" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.ListOfferingPromotions" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListOfferingPromotions where
+instance Lude.ToJSON ListOfferingPromotions where
   toJSON ListOfferingPromotions' {..} =
-    object (catMaybes [("nextToken" .=) <$> _lopNextToken])
+    Lude.object
+      (Lude.catMaybes [("nextToken" Lude..=) Lude.<$> nextToken])
 
-instance ToPath ListOfferingPromotions where
-  toPath = const "/"
+instance Lude.ToPath ListOfferingPromotions where
+  toPath = Lude.const "/"
 
-instance ToQuery ListOfferingPromotions where
-  toQuery = const mempty
+instance Lude.ToQuery ListOfferingPromotions where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listOfferingPromotionsResponse' smart constructor.
+-- | /See:/ 'mkListOfferingPromotionsResponse' smart constructor.
 data ListOfferingPromotionsResponse = ListOfferingPromotionsResponse'
-  { _loprsNextToken ::
-      !(Maybe Text),
-    _loprsOfferingPromotions ::
-      !(Maybe [OfferingPromotion]),
-    _loprsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    offeringPromotions ::
+      Lude.Maybe
+        [OfferingPromotion],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOfferingPromotionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'loprsNextToken' - An identifier to be used in the next call to this operation, to return the next set of items in the list.
---
--- * 'loprsOfferingPromotions' - Information about the offering promotions.
---
--- * 'loprsResponseStatus' - -- | The response status code.
-listOfferingPromotionsResponse ::
-  -- | 'loprsResponseStatus'
-  Int ->
+-- * 'nextToken' - An identifier to be used in the next call to this operation, to return the next set of items in the list.
+-- * 'offeringPromotions' - Information about the offering promotions.
+-- * 'responseStatus' - The response status code.
+mkListOfferingPromotionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListOfferingPromotionsResponse
-listOfferingPromotionsResponse pResponseStatus_ =
+mkListOfferingPromotionsResponse pResponseStatus_ =
   ListOfferingPromotionsResponse'
-    { _loprsNextToken = Nothing,
-      _loprsOfferingPromotions = Nothing,
-      _loprsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      offeringPromotions = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An identifier to be used in the next call to this operation, to return the next set of items in the list.
-loprsNextToken :: Lens' ListOfferingPromotionsResponse (Maybe Text)
-loprsNextToken = lens _loprsNextToken (\s a -> s {_loprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loprsNextToken :: Lens.Lens' ListOfferingPromotionsResponse (Lude.Maybe Lude.Text)
+loprsNextToken = Lens.lens (nextToken :: ListOfferingPromotionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOfferingPromotionsResponse)
+{-# DEPRECATED loprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the offering promotions.
-loprsOfferingPromotions :: Lens' ListOfferingPromotionsResponse [OfferingPromotion]
-loprsOfferingPromotions = lens _loprsOfferingPromotions (\s a -> s {_loprsOfferingPromotions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'offeringPromotions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loprsOfferingPromotions :: Lens.Lens' ListOfferingPromotionsResponse (Lude.Maybe [OfferingPromotion])
+loprsOfferingPromotions = Lens.lens (offeringPromotions :: ListOfferingPromotionsResponse -> Lude.Maybe [OfferingPromotion]) (\s a -> s {offeringPromotions = a} :: ListOfferingPromotionsResponse)
+{-# DEPRECATED loprsOfferingPromotions "Use generic-lens or generic-optics with 'offeringPromotions' instead." #-}
 
--- | -- | The response status code.
-loprsResponseStatus :: Lens' ListOfferingPromotionsResponse Int
-loprsResponseStatus = lens _loprsResponseStatus (\s a -> s {_loprsResponseStatus = a})
-
-instance NFData ListOfferingPromotionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loprsResponseStatus :: Lens.Lens' ListOfferingPromotionsResponse Lude.Int
+loprsResponseStatus = Lens.lens (responseStatus :: ListOfferingPromotionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOfferingPromotionsResponse)
+{-# DEPRECATED loprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

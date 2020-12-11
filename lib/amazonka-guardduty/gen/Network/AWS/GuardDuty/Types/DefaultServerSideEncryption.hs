@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.DefaultServerSideEncryption where
+module Network.AWS.GuardDuty.Types.DefaultServerSideEncryption
+  ( DefaultServerSideEncryption (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDefaultServerSideEncryption,
+
+    -- * Lenses
+    dsseEncryptionType,
+    dsseKMSMasterKeyARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information on the server side encryption method used in the S3 bucket. See <https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html S3 Server-Side Encryption> for more information.
 --
---
---
--- /See:/ 'defaultServerSideEncryption' smart constructor.
+-- /See:/ 'mkDefaultServerSideEncryption' smart constructor.
 data DefaultServerSideEncryption = DefaultServerSideEncryption'
-  { _dsseEncryptionType ::
-      !(Maybe Text),
-    _dsseKMSMasterKeyARN ::
-      !(Maybe Text)
+  { encryptionType ::
+      Lude.Maybe Lude.Text,
+    kmsMasterKeyARN ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefaultServerSideEncryption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsseEncryptionType' - The type of encryption used for objects within the S3 bucket.
---
--- * 'dsseKMSMasterKeyARN' - The Amazon Resource Name (ARN) of the KMS encryption key. Only available if the bucket @EncryptionType@ is @aws:kms@ .
-defaultServerSideEncryption ::
+-- * 'encryptionType' - The type of encryption used for objects within the S3 bucket.
+-- * 'kmsMasterKeyARN' - The Amazon Resource Name (ARN) of the KMS encryption key. Only available if the bucket @EncryptionType@ is @aws:kms@ .
+mkDefaultServerSideEncryption ::
   DefaultServerSideEncryption
-defaultServerSideEncryption =
+mkDefaultServerSideEncryption =
   DefaultServerSideEncryption'
-    { _dsseEncryptionType = Nothing,
-      _dsseKMSMasterKeyARN = Nothing
+    { encryptionType = Lude.Nothing,
+      kmsMasterKeyARN = Lude.Nothing
     }
 
 -- | The type of encryption used for objects within the S3 bucket.
-dsseEncryptionType :: Lens' DefaultServerSideEncryption (Maybe Text)
-dsseEncryptionType = lens _dsseEncryptionType (\s a -> s {_dsseEncryptionType = a})
+--
+-- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsseEncryptionType :: Lens.Lens' DefaultServerSideEncryption (Lude.Maybe Lude.Text)
+dsseEncryptionType = Lens.lens (encryptionType :: DefaultServerSideEncryption -> Lude.Maybe Lude.Text) (\s a -> s {encryptionType = a} :: DefaultServerSideEncryption)
+{-# DEPRECATED dsseEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the KMS encryption key. Only available if the bucket @EncryptionType@ is @aws:kms@ .
-dsseKMSMasterKeyARN :: Lens' DefaultServerSideEncryption (Maybe Text)
-dsseKMSMasterKeyARN = lens _dsseKMSMasterKeyARN (\s a -> s {_dsseKMSMasterKeyARN = a})
+--
+-- /Note:/ Consider using 'kmsMasterKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsseKMSMasterKeyARN :: Lens.Lens' DefaultServerSideEncryption (Lude.Maybe Lude.Text)
+dsseKMSMasterKeyARN = Lens.lens (kmsMasterKeyARN :: DefaultServerSideEncryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsMasterKeyARN = a} :: DefaultServerSideEncryption)
+{-# DEPRECATED dsseKMSMasterKeyARN "Use generic-lens or generic-optics with 'kmsMasterKeyARN' instead." #-}
 
-instance FromJSON DefaultServerSideEncryption where
+instance Lude.FromJSON DefaultServerSideEncryption where
   parseJSON =
-    withObject
+    Lude.withObject
       "DefaultServerSideEncryption"
       ( \x ->
           DefaultServerSideEncryption'
-            <$> (x .:? "encryptionType") <*> (x .:? "kmsMasterKeyArn")
+            Lude.<$> (x Lude..:? "encryptionType")
+            Lude.<*> (x Lude..:? "kmsMasterKeyArn")
       )
-
-instance Hashable DefaultServerSideEncryption
-
-instance NFData DefaultServerSideEncryption

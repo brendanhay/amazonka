@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,173 +14,195 @@
 --
 -- Modifies an existing AWS DMS event notification subscription.
 module Network.AWS.DMS.ModifyEventSubscription
-  ( -- * Creating a Request
-    modifyEventSubscription,
-    ModifyEventSubscription,
+  ( -- * Creating a request
+    ModifyEventSubscription (..),
+    mkModifyEventSubscription,
 
-    -- * Request Lenses
+    -- ** Request lenses
     mesSNSTopicARN,
     mesEnabled,
     mesSourceType,
     mesEventCategories,
     mesSubscriptionName,
 
-    -- * Destructuring the Response
-    modifyEventSubscriptionResponse,
-    ModifyEventSubscriptionResponse,
+    -- * Destructuring the response
+    ModifyEventSubscriptionResponse (..),
+    mkModifyEventSubscriptionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mesrsEventSubscription,
     mesrsResponseStatus,
   )
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'modifyEventSubscription' smart constructor.
+-- /See:/ 'mkModifyEventSubscription' smart constructor.
 data ModifyEventSubscription = ModifyEventSubscription'
-  { _mesSNSTopicARN ::
-      !(Maybe Text),
-    _mesEnabled :: !(Maybe Bool),
-    _mesSourceType :: !(Maybe Text),
-    _mesEventCategories :: !(Maybe [Text]),
-    _mesSubscriptionName :: !Text
+  { snsTopicARN ::
+      Lude.Maybe Lude.Text,
+    enabled :: Lude.Maybe Lude.Bool,
+    sourceType :: Lude.Maybe Lude.Text,
+    eventCategories :: Lude.Maybe [Lude.Text],
+    subscriptionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyEventSubscription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'enabled' - A Boolean value; set to __true__ to activate the subscription.
+-- * 'eventCategories' - A list of event categories for a source type that you want to subscribe to. Use the @DescribeEventCategories@ action to see a list of event categories.
+-- * 'snsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
+-- * 'sourceType' - The type of AWS DMS resource that generates the events you want to subscribe to.
 --
--- * 'mesSNSTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
---
--- * 'mesEnabled' - A Boolean value; set to __true__ to activate the subscription.
---
--- * 'mesSourceType' - The type of AWS DMS resource that generates the events you want to subscribe to.  Valid values: replication-instance | replication-task
---
--- * 'mesEventCategories' - A list of event categories for a source type that you want to subscribe to. Use the @DescribeEventCategories@ action to see a list of event categories.
---
--- * 'mesSubscriptionName' - The name of the AWS DMS event notification subscription to be modified.
-modifyEventSubscription ::
-  -- | 'mesSubscriptionName'
-  Text ->
+-- Valid values: replication-instance | replication-task
+-- * 'subscriptionName' - The name of the AWS DMS event notification subscription to be modified.
+mkModifyEventSubscription ::
+  -- | 'subscriptionName'
+  Lude.Text ->
   ModifyEventSubscription
-modifyEventSubscription pSubscriptionName_ =
+mkModifyEventSubscription pSubscriptionName_ =
   ModifyEventSubscription'
-    { _mesSNSTopicARN = Nothing,
-      _mesEnabled = Nothing,
-      _mesSourceType = Nothing,
-      _mesEventCategories = Nothing,
-      _mesSubscriptionName = pSubscriptionName_
+    { snsTopicARN = Lude.Nothing,
+      enabled = Lude.Nothing,
+      sourceType = Lude.Nothing,
+      eventCategories = Lude.Nothing,
+      subscriptionName = pSubscriptionName_
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
-mesSNSTopicARN :: Lens' ModifyEventSubscription (Maybe Text)
-mesSNSTopicARN = lens _mesSNSTopicARN (\s a -> s {_mesSNSTopicARN = a})
+--
+-- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesSNSTopicARN :: Lens.Lens' ModifyEventSubscription (Lude.Maybe Lude.Text)
+mesSNSTopicARN = Lens.lens (snsTopicARN :: ModifyEventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {snsTopicARN = a} :: ModifyEventSubscription)
+{-# DEPRECATED mesSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
 
 -- | A Boolean value; set to __true__ to activate the subscription.
-mesEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
-mesEnabled = lens _mesEnabled (\s a -> s {_mesEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesEnabled :: Lens.Lens' ModifyEventSubscription (Lude.Maybe Lude.Bool)
+mesEnabled = Lens.lens (enabled :: ModifyEventSubscription -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ModifyEventSubscription)
+{-# DEPRECATED mesEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
--- | The type of AWS DMS resource that generates the events you want to subscribe to.  Valid values: replication-instance | replication-task
-mesSourceType :: Lens' ModifyEventSubscription (Maybe Text)
-mesSourceType = lens _mesSourceType (\s a -> s {_mesSourceType = a})
+-- | The type of AWS DMS resource that generates the events you want to subscribe to.
+--
+-- Valid values: replication-instance | replication-task
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesSourceType :: Lens.Lens' ModifyEventSubscription (Lude.Maybe Lude.Text)
+mesSourceType = Lens.lens (sourceType :: ModifyEventSubscription -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: ModifyEventSubscription)
+{-# DEPRECATED mesSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | A list of event categories for a source type that you want to subscribe to. Use the @DescribeEventCategories@ action to see a list of event categories.
-mesEventCategories :: Lens' ModifyEventSubscription [Text]
-mesEventCategories = lens _mesEventCategories (\s a -> s {_mesEventCategories = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesEventCategories :: Lens.Lens' ModifyEventSubscription (Lude.Maybe [Lude.Text])
+mesEventCategories = Lens.lens (eventCategories :: ModifyEventSubscription -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: ModifyEventSubscription)
+{-# DEPRECATED mesEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
 
 -- | The name of the AWS DMS event notification subscription to be modified.
-mesSubscriptionName :: Lens' ModifyEventSubscription Text
-mesSubscriptionName = lens _mesSubscriptionName (\s a -> s {_mesSubscriptionName = a})
+--
+-- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesSubscriptionName :: Lens.Lens' ModifyEventSubscription Lude.Text
+mesSubscriptionName = Lens.lens (subscriptionName :: ModifyEventSubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: ModifyEventSubscription)
+{-# DEPRECATED mesSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
-instance AWSRequest ModifyEventSubscription where
+instance Lude.AWSRequest ModifyEventSubscription where
   type Rs ModifyEventSubscription = ModifyEventSubscriptionResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ModifyEventSubscriptionResponse'
-            <$> (x .?> "EventSubscription") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "EventSubscription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ModifyEventSubscription
-
-instance NFData ModifyEventSubscription
-
-instance ToHeaders ModifyEventSubscription where
+instance Lude.ToHeaders ModifyEventSubscription where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.ModifyEventSubscription" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.ModifyEventSubscription" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ModifyEventSubscription where
+instance Lude.ToJSON ModifyEventSubscription where
   toJSON ModifyEventSubscription' {..} =
-    object
-      ( catMaybes
-          [ ("SnsTopicArn" .=) <$> _mesSNSTopicARN,
-            ("Enabled" .=) <$> _mesEnabled,
-            ("SourceType" .=) <$> _mesSourceType,
-            ("EventCategories" .=) <$> _mesEventCategories,
-            Just ("SubscriptionName" .= _mesSubscriptionName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SnsTopicArn" Lude..=) Lude.<$> snsTopicARN,
+            ("Enabled" Lude..=) Lude.<$> enabled,
+            ("SourceType" Lude..=) Lude.<$> sourceType,
+            ("EventCategories" Lude..=) Lude.<$> eventCategories,
+            Lude.Just ("SubscriptionName" Lude..= subscriptionName)
           ]
       )
 
-instance ToPath ModifyEventSubscription where
-  toPath = const "/"
+instance Lude.ToPath ModifyEventSubscription where
+  toPath = Lude.const "/"
 
-instance ToQuery ModifyEventSubscription where
-  toQuery = const mempty
+instance Lude.ToQuery ModifyEventSubscription where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'modifyEventSubscriptionResponse' smart constructor.
+-- /See:/ 'mkModifyEventSubscriptionResponse' smart constructor.
 data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
-  { _mesrsEventSubscription ::
-      !(Maybe EventSubscription),
-    _mesrsResponseStatus ::
-      !Int
+  { eventSubscription ::
+      Lude.Maybe
+        EventSubscription,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyEventSubscriptionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mesrsEventSubscription' - The modified event subscription.
---
--- * 'mesrsResponseStatus' - -- | The response status code.
-modifyEventSubscriptionResponse ::
-  -- | 'mesrsResponseStatus'
-  Int ->
+-- * 'eventSubscription' - The modified event subscription.
+-- * 'responseStatus' - The response status code.
+mkModifyEventSubscriptionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ModifyEventSubscriptionResponse
-modifyEventSubscriptionResponse pResponseStatus_ =
+mkModifyEventSubscriptionResponse pResponseStatus_ =
   ModifyEventSubscriptionResponse'
-    { _mesrsEventSubscription =
-        Nothing,
-      _mesrsResponseStatus = pResponseStatus_
+    { eventSubscription =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The modified event subscription.
-mesrsEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
-mesrsEventSubscription = lens _mesrsEventSubscription (\s a -> s {_mesrsEventSubscription = a})
+--
+-- /Note:/ Consider using 'eventSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesrsEventSubscription :: Lens.Lens' ModifyEventSubscriptionResponse (Lude.Maybe EventSubscription)
+mesrsEventSubscription = Lens.lens (eventSubscription :: ModifyEventSubscriptionResponse -> Lude.Maybe EventSubscription) (\s a -> s {eventSubscription = a} :: ModifyEventSubscriptionResponse)
+{-# DEPRECATED mesrsEventSubscription "Use generic-lens or generic-optics with 'eventSubscription' instead." #-}
 
--- | -- | The response status code.
-mesrsResponseStatus :: Lens' ModifyEventSubscriptionResponse Int
-mesrsResponseStatus = lens _mesrsResponseStatus (\s a -> s {_mesrsResponseStatus = a})
-
-instance NFData ModifyEventSubscriptionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mesrsResponseStatus :: Lens.Lens' ModifyEventSubscriptionResponse Lude.Int
+mesrsResponseStatus = Lens.lens (responseStatus :: ModifyEventSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyEventSubscriptionResponse)
+{-# DEPRECATED mesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,41 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ErrorDocument where
+module Network.AWS.S3.Types.ErrorDocument
+  ( ErrorDocument (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkErrorDocument,
+
+    -- * Lenses
+    edKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | The error information.
 --
---
---
--- /See:/ 'errorDocument' smart constructor.
-newtype ErrorDocument = ErrorDocument' {_edKey :: ObjectKey}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkErrorDocument' smart constructor.
+newtype ErrorDocument = ErrorDocument' {key :: ObjectKey}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ErrorDocument' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edKey' - The object key name to use when a 4XX class error occurs.
-errorDocument ::
-  -- | 'edKey'
+-- * 'key' - The object key name to use when a 4XX class error occurs.
+mkErrorDocument ::
+  -- | 'key'
   ObjectKey ->
   ErrorDocument
-errorDocument pKey_ = ErrorDocument' {_edKey = pKey_}
+mkErrorDocument pKey_ = ErrorDocument' {key = pKey_}
 
 -- | The object key name to use when a 4XX class error occurs.
-edKey :: Lens' ErrorDocument ObjectKey
-edKey = lens _edKey (\s a -> s {_edKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edKey :: Lens.Lens' ErrorDocument ObjectKey
+edKey = Lens.lens (key :: ErrorDocument -> ObjectKey) (\s a -> s {key = a} :: ErrorDocument)
+{-# DEPRECATED edKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance FromXML ErrorDocument where
-  parseXML x = ErrorDocument' <$> (x .@ "Key")
+instance Lude.FromXML ErrorDocument where
+  parseXML x = ErrorDocument' Lude.<$> (x Lude..@ "Key")
 
-instance Hashable ErrorDocument
-
-instance NFData ErrorDocument
-
-instance ToXML ErrorDocument where
-  toXML ErrorDocument' {..} = mconcat ["Key" @= _edKey]
+instance Lude.ToXML ErrorDocument where
+  toXML ErrorDocument' {..} = Lude.mconcat ["Key" Lude.@= key]

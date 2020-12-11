@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,16 @@
 --
 -- After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint.
 --
---
 -- For an overview of Amazon SageMaker, see <https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html How It Works> .
---
 -- Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax.
---
 -- Calls to @InvokeEndpoint@ are authenticated by using AWS Signature Version 4. For information, see <http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html Authenticating Requests (AWS Signature Version 4)> in the /Amazon S3 API Reference/ .
---
 -- A customer's model containers must respond to requests within 60 seconds. The model itself can have a maximum processing time of 60 seconds before responding to the /invocations. If your model is going to take 50-60 seconds of processing time, the SDK socket timeout should be set to be 70 seconds.
 module Network.AWS.SageMakerRuntime.InvokeEndpoint
-  ( -- * Creating a Request
-    invokeEndpoint,
-    InvokeEndpoint,
+  ( -- * Creating a request
+    InvokeEndpoint (..),
+    mkInvokeEndpoint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ieAccept,
     ieTargetModel,
     ieCustomAttributes,
@@ -41,11 +32,11 @@ module Network.AWS.SageMakerRuntime.InvokeEndpoint
     ieEndpointName,
     ieBody,
 
-    -- * Destructuring the Response
-    invokeEndpointResponse,
-    InvokeEndpointResponse,
+    -- * Destructuring the response
+    InvokeEndpointResponse (..),
+    mkInvokeEndpointResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     iersInvokedProductionVariant,
     iersCustomAttributes,
     iersContentType,
@@ -54,182 +45,214 @@ module Network.AWS.SageMakerRuntime.InvokeEndpoint
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMakerRuntime.Types
 
--- | /See:/ 'invokeEndpoint' smart constructor.
+-- | /See:/ 'mkInvokeEndpoint' smart constructor.
 data InvokeEndpoint = InvokeEndpoint'
-  { _ieAccept :: !(Maybe Text),
-    _ieTargetModel :: !(Maybe Text),
-    _ieCustomAttributes :: !(Maybe (Sensitive Text)),
-    _ieTargetVariant :: !(Maybe Text),
-    _ieContentType :: !(Maybe Text),
-    _ieEndpointName :: !Text,
-    _ieBody :: !ByteString
+  { accept ::
+      Lude.Maybe Lude.Text,
+    targetModel :: Lude.Maybe Lude.Text,
+    customAttributes :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    targetVariant :: Lude.Maybe Lude.Text,
+    contentType :: Lude.Maybe Lude.Text,
+    endpointName :: Lude.Text,
+    body :: ByteString
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InvokeEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'accept' - The desired MIME type of the inference in the response.
+-- * 'body' - Provides input data, in the format specified in the @ContentType@ request header. Amazon SageMaker passes all of the data in the body to the model.
 --
--- * 'ieAccept' - The desired MIME type of the inference in the response.
---
--- * 'ieTargetModel' - The model to request for inference when invoking a multi-model endpoint.
---
--- * 'ieCustomAttributes' - Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components> of the Hypertext Transfer Protocol (HTTP/1.1). This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.
---
--- * 'ieTargetVariant' - Specify the production variant to send the inference request to when invoking an endpoint that is running two or more variants. Note that this parameter overrides the default behavior for the endpoint, which is to distribute the invocation traffic based on the variant weights.
---
--- * 'ieContentType' - The MIME type of the input data in the request body.
---
--- * 'ieEndpointName' - The name of the endpoint that you specified when you created the endpoint using the <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> API.
---
--- * 'ieBody' - Provides input data, in the format specified in the @ContentType@ request header. Amazon SageMaker passes all of the data in the body to the model.  For information about the format of the request body, see <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference> .
-invokeEndpoint ::
-  -- | 'ieEndpointName'
-  Text ->
-  -- | 'ieBody'
+-- For information about the format of the request body, see <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference> .
+-- * 'contentType' - The MIME type of the input data in the request body.
+-- * 'customAttributes' - Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components> of the Hypertext Transfer Protocol (HTTP/1.1). This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.
+-- * 'endpointName' - The name of the endpoint that you specified when you created the endpoint using the <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> API.
+-- * 'targetModel' - The model to request for inference when invoking a multi-model endpoint.
+-- * 'targetVariant' - Specify the production variant to send the inference request to when invoking an endpoint that is running two or more variants. Note that this parameter overrides the default behavior for the endpoint, which is to distribute the invocation traffic based on the variant weights.
+mkInvokeEndpoint ::
+  -- | 'endpointName'
+  Lude.Text ->
+  -- | 'body'
   ByteString ->
   InvokeEndpoint
-invokeEndpoint pEndpointName_ pBody_ =
+mkInvokeEndpoint pEndpointName_ pBody_ =
   InvokeEndpoint'
-    { _ieAccept = Nothing,
-      _ieTargetModel = Nothing,
-      _ieCustomAttributes = Nothing,
-      _ieTargetVariant = Nothing,
-      _ieContentType = Nothing,
-      _ieEndpointName = pEndpointName_,
-      _ieBody = pBody_
+    { accept = Lude.Nothing,
+      targetModel = Lude.Nothing,
+      customAttributes = Lude.Nothing,
+      targetVariant = Lude.Nothing,
+      contentType = Lude.Nothing,
+      endpointName = pEndpointName_,
+      body = pBody_
     }
 
 -- | The desired MIME type of the inference in the response.
-ieAccept :: Lens' InvokeEndpoint (Maybe Text)
-ieAccept = lens _ieAccept (\s a -> s {_ieAccept = a})
+--
+-- /Note:/ Consider using 'accept' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieAccept :: Lens.Lens' InvokeEndpoint (Lude.Maybe Lude.Text)
+ieAccept = Lens.lens (accept :: InvokeEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {accept = a} :: InvokeEndpoint)
+{-# DEPRECATED ieAccept "Use generic-lens or generic-optics with 'accept' instead." #-}
 
 -- | The model to request for inference when invoking a multi-model endpoint.
-ieTargetModel :: Lens' InvokeEndpoint (Maybe Text)
-ieTargetModel = lens _ieTargetModel (\s a -> s {_ieTargetModel = a})
+--
+-- /Note:/ Consider using 'targetModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieTargetModel :: Lens.Lens' InvokeEndpoint (Lude.Maybe Lude.Text)
+ieTargetModel = Lens.lens (targetModel :: InvokeEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {targetModel = a} :: InvokeEndpoint)
+{-# DEPRECATED ieTargetModel "Use generic-lens or generic-optics with 'targetModel' instead." #-}
 
 -- | Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components> of the Hypertext Transfer Protocol (HTTP/1.1). This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.
-ieCustomAttributes :: Lens' InvokeEndpoint (Maybe Text)
-ieCustomAttributes = lens _ieCustomAttributes (\s a -> s {_ieCustomAttributes = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'customAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieCustomAttributes :: Lens.Lens' InvokeEndpoint (Lude.Maybe (Lude.Sensitive Lude.Text))
+ieCustomAttributes = Lens.lens (customAttributes :: InvokeEndpoint -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {customAttributes = a} :: InvokeEndpoint)
+{-# DEPRECATED ieCustomAttributes "Use generic-lens or generic-optics with 'customAttributes' instead." #-}
 
 -- | Specify the production variant to send the inference request to when invoking an endpoint that is running two or more variants. Note that this parameter overrides the default behavior for the endpoint, which is to distribute the invocation traffic based on the variant weights.
-ieTargetVariant :: Lens' InvokeEndpoint (Maybe Text)
-ieTargetVariant = lens _ieTargetVariant (\s a -> s {_ieTargetVariant = a})
+--
+-- /Note:/ Consider using 'targetVariant' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieTargetVariant :: Lens.Lens' InvokeEndpoint (Lude.Maybe Lude.Text)
+ieTargetVariant = Lens.lens (targetVariant :: InvokeEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {targetVariant = a} :: InvokeEndpoint)
+{-# DEPRECATED ieTargetVariant "Use generic-lens or generic-optics with 'targetVariant' instead." #-}
 
 -- | The MIME type of the input data in the request body.
-ieContentType :: Lens' InvokeEndpoint (Maybe Text)
-ieContentType = lens _ieContentType (\s a -> s {_ieContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieContentType :: Lens.Lens' InvokeEndpoint (Lude.Maybe Lude.Text)
+ieContentType = Lens.lens (contentType :: InvokeEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: InvokeEndpoint)
+{-# DEPRECATED ieContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
 -- | The name of the endpoint that you specified when you created the endpoint using the <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> API.
-ieEndpointName :: Lens' InvokeEndpoint Text
-ieEndpointName = lens _ieEndpointName (\s a -> s {_ieEndpointName = a})
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieEndpointName :: Lens.Lens' InvokeEndpoint Lude.Text
+ieEndpointName = Lens.lens (endpointName :: InvokeEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: InvokeEndpoint)
+{-# DEPRECATED ieEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
--- | Provides input data, in the format specified in the @ContentType@ request header. Amazon SageMaker passes all of the data in the body to the model.  For information about the format of the request body, see <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference> .
-ieBody :: Lens' InvokeEndpoint ByteString
-ieBody = lens _ieBody (\s a -> s {_ieBody = a})
+-- | Provides input data, in the format specified in the @ContentType@ request header. Amazon SageMaker passes all of the data in the body to the model.
+--
+-- For information about the format of the request body, see <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference> .
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieBody :: Lens.Lens' InvokeEndpoint ByteString
+ieBody = Lens.lens (body :: InvokeEndpoint -> ByteString) (\s a -> s {body = a} :: InvokeEndpoint)
+{-# DEPRECATED ieBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
-instance AWSRequest InvokeEndpoint where
+instance Lude.AWSRequest InvokeEndpoint where
   type Rs InvokeEndpoint = InvokeEndpointResponse
-  request = postBody sageMakerRuntime
+  request = Req.postBody sageMakerRuntimeService
   response =
-    receiveBytes
+    Res.receiveBytes
       ( \s h x ->
           InvokeEndpointResponse'
-            <$> (h .#? "x-Amzn-Invoked-Production-Variant")
-            <*> (h .#? "X-Amzn-SageMaker-Custom-Attributes")
-            <*> (h .#? "Content-Type")
-            <*> (pure (fromEnum s))
-            <*> (pure x)
+            Lude.<$> (h Lude..#? "x-Amzn-Invoked-Production-Variant")
+            Lude.<*> (h Lude..#? "X-Amzn-SageMaker-Custom-Attributes")
+            Lude.<*> (h Lude..#? "Content-Type")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (Lude.pure x)
       )
 
-instance Hashable InvokeEndpoint
+instance Lude.ToBody InvokeEndpoint where
+  toBody = Lude.toBody Lude.. body
 
-instance NFData InvokeEndpoint
-
-instance ToBody InvokeEndpoint where
-  toBody = toBody . _ieBody
-
-instance ToHeaders InvokeEndpoint where
+instance Lude.ToHeaders InvokeEndpoint where
   toHeaders InvokeEndpoint' {..} =
-    mconcat
-      [ "Accept" =# _ieAccept,
-        "X-Amzn-SageMaker-Target-Model" =# _ieTargetModel,
-        "X-Amzn-SageMaker-Custom-Attributes" =# _ieCustomAttributes,
-        "X-Amzn-SageMaker-Target-Variant" =# _ieTargetVariant,
-        "Content-Type" =# _ieContentType
+    Lude.mconcat
+      [ "Accept" Lude.=# accept,
+        "X-Amzn-SageMaker-Target-Model" Lude.=# targetModel,
+        "X-Amzn-SageMaker-Custom-Attributes" Lude.=# customAttributes,
+        "X-Amzn-SageMaker-Target-Variant" Lude.=# targetVariant,
+        "Content-Type" Lude.=# contentType
       ]
 
-instance ToPath InvokeEndpoint where
+instance Lude.ToPath InvokeEndpoint where
   toPath InvokeEndpoint' {..} =
-    mconcat ["/endpoints/", toBS _ieEndpointName, "/invocations"]
+    Lude.mconcat
+      ["/endpoints/", Lude.toBS endpointName, "/invocations"]
 
-instance ToQuery InvokeEndpoint where
-  toQuery = const mempty
+instance Lude.ToQuery InvokeEndpoint where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'invokeEndpointResponse' smart constructor.
+-- | /See:/ 'mkInvokeEndpointResponse' smart constructor.
 data InvokeEndpointResponse = InvokeEndpointResponse'
-  { _iersInvokedProductionVariant ::
-      !(Maybe Text),
-    _iersCustomAttributes ::
-      !(Maybe (Sensitive Text)),
-    _iersContentType :: !(Maybe Text),
-    _iersResponseStatus :: !Int,
-    _iersBody :: !ByteString
+  { invokedProductionVariant ::
+      Lude.Maybe Lude.Text,
+    customAttributes ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    contentType :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int,
+    body :: ByteString
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InvokeEndpointResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'body' - Includes the inference provided by the model.
 --
--- * 'iersInvokedProductionVariant' - Identifies the production variant that was invoked.
+-- For information about the format of the response body, see <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference> .
+-- * 'contentType' - The MIME type of the inference returned in the response body.
+-- * 'customAttributes' - Provides additional information in the response about the inference returned by a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to return an ID received in the @CustomAttributes@ header of a request or other metadata that a service endpoint was programmed to produce. The value must consist of no more than 1024 visible US-ASCII characters as specified in <https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer wants the custom attribute returned, the model must set the custom attribute to be included on the way back.
 --
--- * 'iersCustomAttributes' - Provides additional information in the response about the inference returned by a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to return an ID received in the @CustomAttributes@ header of a request or other metadata that a service endpoint was programmed to produce. The value must consist of no more than 1024 visible US-ASCII characters as specified in <https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer wants the custom attribute returned, the model must set the custom attribute to be included on the way back.  This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.
---
--- * 'iersContentType' - The MIME type of the inference returned in the response body.
---
--- * 'iersResponseStatus' - -- | The response status code.
---
--- * 'iersBody' - Includes the inference provided by the model. For information about the format of the response body, see <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference> .
-invokeEndpointResponse ::
-  -- | 'iersResponseStatus'
-  Int ->
-  -- | 'iersBody'
+-- This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.
+-- * 'invokedProductionVariant' - Identifies the production variant that was invoked.
+-- * 'responseStatus' - The response status code.
+mkInvokeEndpointResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'body'
   ByteString ->
   InvokeEndpointResponse
-invokeEndpointResponse pResponseStatus_ pBody_ =
+mkInvokeEndpointResponse pResponseStatus_ pBody_ =
   InvokeEndpointResponse'
-    { _iersInvokedProductionVariant = Nothing,
-      _iersCustomAttributes = Nothing,
-      _iersContentType = Nothing,
-      _iersResponseStatus = pResponseStatus_,
-      _iersBody = pBody_
+    { invokedProductionVariant = Lude.Nothing,
+      customAttributes = Lude.Nothing,
+      contentType = Lude.Nothing,
+      responseStatus = pResponseStatus_,
+      body = pBody_
     }
 
 -- | Identifies the production variant that was invoked.
-iersInvokedProductionVariant :: Lens' InvokeEndpointResponse (Maybe Text)
-iersInvokedProductionVariant = lens _iersInvokedProductionVariant (\s a -> s {_iersInvokedProductionVariant = a})
+--
+-- /Note:/ Consider using 'invokedProductionVariant' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iersInvokedProductionVariant :: Lens.Lens' InvokeEndpointResponse (Lude.Maybe Lude.Text)
+iersInvokedProductionVariant = Lens.lens (invokedProductionVariant :: InvokeEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {invokedProductionVariant = a} :: InvokeEndpointResponse)
+{-# DEPRECATED iersInvokedProductionVariant "Use generic-lens or generic-optics with 'invokedProductionVariant' instead." #-}
 
--- | Provides additional information in the response about the inference returned by a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to return an ID received in the @CustomAttributes@ header of a request or other metadata that a service endpoint was programmed to produce. The value must consist of no more than 1024 visible US-ASCII characters as specified in <https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer wants the custom attribute returned, the model must set the custom attribute to be included on the way back.  This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.
-iersCustomAttributes :: Lens' InvokeEndpointResponse (Maybe Text)
-iersCustomAttributes = lens _iersCustomAttributes (\s a -> s {_iersCustomAttributes = a}) . mapping _Sensitive
+-- | Provides additional information in the response about the inference returned by a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to return an ID received in the @CustomAttributes@ header of a request or other metadata that a service endpoint was programmed to produce. The value must consist of no more than 1024 visible US-ASCII characters as specified in <https://tools.ietf.org/html/rfc7230#section-3.2.6 Section 3.3.6. Field Value Components> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer wants the custom attribute returned, the model must set the custom attribute to be included on the way back.
+--
+-- This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.
+--
+-- /Note:/ Consider using 'customAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iersCustomAttributes :: Lens.Lens' InvokeEndpointResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+iersCustomAttributes = Lens.lens (customAttributes :: InvokeEndpointResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {customAttributes = a} :: InvokeEndpointResponse)
+{-# DEPRECATED iersCustomAttributes "Use generic-lens or generic-optics with 'customAttributes' instead." #-}
 
 -- | The MIME type of the inference returned in the response body.
-iersContentType :: Lens' InvokeEndpointResponse (Maybe Text)
-iersContentType = lens _iersContentType (\s a -> s {_iersContentType = a})
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iersContentType :: Lens.Lens' InvokeEndpointResponse (Lude.Maybe Lude.Text)
+iersContentType = Lens.lens (contentType :: InvokeEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: InvokeEndpointResponse)
+{-# DEPRECATED iersContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
--- | -- | The response status code.
-iersResponseStatus :: Lens' InvokeEndpointResponse Int
-iersResponseStatus = lens _iersResponseStatus (\s a -> s {_iersResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iersResponseStatus :: Lens.Lens' InvokeEndpointResponse Lude.Int
+iersResponseStatus = Lens.lens (responseStatus :: InvokeEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InvokeEndpointResponse)
+{-# DEPRECATED iersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Includes the inference provided by the model. For information about the format of the response body, see <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference> .
-iersBody :: Lens' InvokeEndpointResponse ByteString
-iersBody = lens _iersBody (\s a -> s {_iersBody = a})
-
-instance NFData InvokeEndpointResponse
+-- | Includes the inference provided by the model.
+--
+-- For information about the format of the response body, see <https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html Common Data Formats-Inference> .
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iersBody :: Lens.Lens' InvokeEndpointResponse ByteString
+iersBody = Lens.lens (body :: InvokeEndpointResponse -> ByteString) (\s a -> s {body = a} :: InvokeEndpointResponse)
+{-# DEPRECATED iersBody "Use generic-lens or generic-optics with 'body' instead." #-}

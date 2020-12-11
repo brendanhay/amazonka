@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,124 +14,135 @@
 --
 -- Describes the number of layers and apps in a specified stack, and the number of instances in each state, such as @running_setup@ or @online@ .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DescribeStackSummary
-  ( -- * Creating a Request
-    describeStackSummary,
-    DescribeStackSummary,
+  ( -- * Creating a request
+    DescribeStackSummary (..),
+    mkDescribeStackSummary,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dssStackId,
 
-    -- * Destructuring the Response
-    describeStackSummaryResponse,
-    DescribeStackSummaryResponse,
+    -- * Destructuring the response
+    DescribeStackSummaryResponse (..),
+    mkDescribeStackSummaryResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dssrsStackSummary,
     dssrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeStackSummary' smart constructor.
+-- | /See:/ 'mkDescribeStackSummary' smart constructor.
 newtype DescribeStackSummary = DescribeStackSummary'
-  { _dssStackId ::
-      Text
+  { stackId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssStackId' - The stack ID.
-describeStackSummary ::
-  -- | 'dssStackId'
-  Text ->
+-- * 'stackId' - The stack ID.
+mkDescribeStackSummary ::
+  -- | 'stackId'
+  Lude.Text ->
   DescribeStackSummary
-describeStackSummary pStackId_ =
-  DescribeStackSummary' {_dssStackId = pStackId_}
+mkDescribeStackSummary pStackId_ =
+  DescribeStackSummary' {stackId = pStackId_}
 
 -- | The stack ID.
-dssStackId :: Lens' DescribeStackSummary Text
-dssStackId = lens _dssStackId (\s a -> s {_dssStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssStackId :: Lens.Lens' DescribeStackSummary Lude.Text
+dssStackId = Lens.lens (stackId :: DescribeStackSummary -> Lude.Text) (\s a -> s {stackId = a} :: DescribeStackSummary)
+{-# DEPRECATED dssStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance AWSRequest DescribeStackSummary where
+instance Lude.AWSRequest DescribeStackSummary where
   type Rs DescribeStackSummary = DescribeStackSummaryResponse
-  request = postJSON opsWorks
+  request = Req.postJSON opsWorksService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeStackSummaryResponse'
-            <$> (x .?> "StackSummary") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "StackSummary") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeStackSummary
-
-instance NFData DescribeStackSummary
-
-instance ToHeaders DescribeStackSummary where
+instance Lude.ToHeaders DescribeStackSummary where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DescribeStackSummary" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DescribeStackSummary" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeStackSummary where
+instance Lude.ToJSON DescribeStackSummary where
   toJSON DescribeStackSummary' {..} =
-    object (catMaybes [Just ("StackId" .= _dssStackId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("StackId" Lude..= stackId)])
 
-instance ToPath DescribeStackSummary where
-  toPath = const "/"
+instance Lude.ToPath DescribeStackSummary where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeStackSummary where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeStackSummary where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeStackSummary@ request.
 --
---
---
--- /See:/ 'describeStackSummaryResponse' smart constructor.
+-- /See:/ 'mkDescribeStackSummaryResponse' smart constructor.
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
-  { _dssrsStackSummary ::
-      !(Maybe StackSummary),
-    _dssrsResponseStatus :: !Int
+  { stackSummary ::
+      Lude.Maybe StackSummary,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackSummaryResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dssrsStackSummary' - A @StackSummary@ object that contains the results.
---
--- * 'dssrsResponseStatus' - -- | The response status code.
-describeStackSummaryResponse ::
-  -- | 'dssrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'stackSummary' - A @StackSummary@ object that contains the results.
+mkDescribeStackSummaryResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStackSummaryResponse
-describeStackSummaryResponse pResponseStatus_ =
+mkDescribeStackSummaryResponse pResponseStatus_ =
   DescribeStackSummaryResponse'
-    { _dssrsStackSummary = Nothing,
-      _dssrsResponseStatus = pResponseStatus_
+    { stackSummary = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A @StackSummary@ object that contains the results.
-dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
-dssrsStackSummary = lens _dssrsStackSummary (\s a -> s {_dssrsStackSummary = a})
+--
+-- /Note:/ Consider using 'stackSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsStackSummary :: Lens.Lens' DescribeStackSummaryResponse (Lude.Maybe StackSummary)
+dssrsStackSummary = Lens.lens (stackSummary :: DescribeStackSummaryResponse -> Lude.Maybe StackSummary) (\s a -> s {stackSummary = a} :: DescribeStackSummaryResponse)
+{-# DEPRECATED dssrsStackSummary "Use generic-lens or generic-optics with 'stackSummary' instead." #-}
 
--- | -- | The response status code.
-dssrsResponseStatus :: Lens' DescribeStackSummaryResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\s a -> s {_dssrsResponseStatus = a})
-
-instance NFData DescribeStackSummaryResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsResponseStatus :: Lens.Lens' DescribeStackSummaryResponse Lude.Int
+dssrsResponseStatus = Lens.lens (responseStatus :: DescribeStackSummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackSummaryResponse)
+{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

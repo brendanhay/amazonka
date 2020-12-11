@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.Mpeg2SceneChangeDetect where
+module Network.AWS.MediaConvert.Types.Mpeg2SceneChangeDetect
+  ( Mpeg2SceneChangeDetect
+      ( Mpeg2SceneChangeDetect',
+        MSCDDisabled,
+        MSCDEnabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Enable this setting to insert I-frames at scene changes that the service automatically detects. This improves video quality and is enabled by default.
-data Mpeg2SceneChangeDetect
-  = MSCDDisabled
-  | MSCDEnabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Mpeg2SceneChangeDetect = Mpeg2SceneChangeDetect' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Mpeg2SceneChangeDetect where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure MSCDDisabled
-      "enabled" -> pure MSCDEnabled
-      e ->
-        fromTextError $
-          "Failure parsing Mpeg2SceneChangeDetect from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern MSCDDisabled :: Mpeg2SceneChangeDetect
+pattern MSCDDisabled = Mpeg2SceneChangeDetect' "DISABLED"
 
-instance ToText Mpeg2SceneChangeDetect where
-  toText = \case
-    MSCDDisabled -> "DISABLED"
-    MSCDEnabled -> "ENABLED"
+pattern MSCDEnabled :: Mpeg2SceneChangeDetect
+pattern MSCDEnabled = Mpeg2SceneChangeDetect' "ENABLED"
 
-instance Hashable Mpeg2SceneChangeDetect
-
-instance NFData Mpeg2SceneChangeDetect
-
-instance ToByteString Mpeg2SceneChangeDetect
-
-instance ToQuery Mpeg2SceneChangeDetect
-
-instance ToHeader Mpeg2SceneChangeDetect
-
-instance ToJSON Mpeg2SceneChangeDetect where
-  toJSON = toJSONText
-
-instance FromJSON Mpeg2SceneChangeDetect where
-  parseJSON = parseJSONText "Mpeg2SceneChangeDetect"
+{-# COMPLETE
+  MSCDDisabled,
+  MSCDEnabled,
+  Mpeg2SceneChangeDetect'
+  #-}

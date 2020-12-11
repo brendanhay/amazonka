@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,90 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.AssociationExecutionFilter where
+module Network.AWS.SSM.Types.AssociationExecutionFilter
+  ( AssociationExecutionFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAssociationExecutionFilter,
+
+    -- * Lenses
+    aefKey,
+    aefValue,
+    aefType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.AssociationExecutionFilterKey
 import Network.AWS.SSM.Types.AssociationFilterOperatorType
 
 -- | Filters used in the request.
 --
---
---
--- /See:/ 'associationExecutionFilter' smart constructor.
+-- /See:/ 'mkAssociationExecutionFilter' smart constructor.
 data AssociationExecutionFilter = AssociationExecutionFilter'
-  { _aefKey ::
-      !AssociationExecutionFilterKey,
-    _aefValue :: !Text,
-    _aefType ::
-      !AssociationFilterOperatorType
+  { key ::
+      AssociationExecutionFilterKey,
+    value :: Lude.Text,
+    type' ::
+      AssociationFilterOperatorType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationExecutionFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aefKey' - The key value used in the request.
---
--- * 'aefValue' - The value specified for the key.
---
--- * 'aefType' - The filter type specified in the request.
-associationExecutionFilter ::
-  -- | 'aefKey'
+-- * 'key' - The key value used in the request.
+-- * 'type'' - The filter type specified in the request.
+-- * 'value' - The value specified for the key.
+mkAssociationExecutionFilter ::
+  -- | 'key'
   AssociationExecutionFilterKey ->
-  -- | 'aefValue'
-  Text ->
-  -- | 'aefType'
+  -- | 'value'
+  Lude.Text ->
+  -- | 'type''
   AssociationFilterOperatorType ->
   AssociationExecutionFilter
-associationExecutionFilter pKey_ pValue_ pType_ =
+mkAssociationExecutionFilter pKey_ pValue_ pType_ =
   AssociationExecutionFilter'
-    { _aefKey = pKey_,
-      _aefValue = pValue_,
-      _aefType = pType_
+    { key = pKey_,
+      value = pValue_,
+      type' = pType_
     }
 
 -- | The key value used in the request.
-aefKey :: Lens' AssociationExecutionFilter AssociationExecutionFilterKey
-aefKey = lens _aefKey (\s a -> s {_aefKey = a})
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aefKey :: Lens.Lens' AssociationExecutionFilter AssociationExecutionFilterKey
+aefKey = Lens.lens (key :: AssociationExecutionFilter -> AssociationExecutionFilterKey) (\s a -> s {key = a} :: AssociationExecutionFilter)
+{-# DEPRECATED aefKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The value specified for the key.
-aefValue :: Lens' AssociationExecutionFilter Text
-aefValue = lens _aefValue (\s a -> s {_aefValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aefValue :: Lens.Lens' AssociationExecutionFilter Lude.Text
+aefValue = Lens.lens (value :: AssociationExecutionFilter -> Lude.Text) (\s a -> s {value = a} :: AssociationExecutionFilter)
+{-# DEPRECATED aefValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The filter type specified in the request.
-aefType :: Lens' AssociationExecutionFilter AssociationFilterOperatorType
-aefType = lens _aefType (\s a -> s {_aefType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aefType :: Lens.Lens' AssociationExecutionFilter AssociationFilterOperatorType
+aefType = Lens.lens (type' :: AssociationExecutionFilter -> AssociationFilterOperatorType) (\s a -> s {type' = a} :: AssociationExecutionFilter)
+{-# DEPRECATED aefType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Hashable AssociationExecutionFilter
-
-instance NFData AssociationExecutionFilter
-
-instance ToJSON AssociationExecutionFilter where
+instance Lude.ToJSON AssociationExecutionFilter where
   toJSON AssociationExecutionFilter' {..} =
-    object
-      ( catMaybes
-          [ Just ("Key" .= _aefKey),
-            Just ("Value" .= _aefValue),
-            Just ("Type" .= _aefType)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Key" Lude..= key),
+            Lude.Just ("Value" Lude..= value),
+            Lude.Just ("Type" Lude..= type')
           ]
       )

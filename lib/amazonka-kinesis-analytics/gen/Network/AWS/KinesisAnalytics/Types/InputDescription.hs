@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,24 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.KinesisAnalytics.Types.InputDescription where
+module Network.AWS.KinesisAnalytics.Types.InputDescription
+  ( InputDescription (..),
+
+    -- * Smart constructor
+    mkInputDescription,
+
+    -- * Lenses
+    idInputStartingPositionConfiguration,
+    idInputParallelism,
+    idInputId,
+    idInAppStreamNames,
+    idKinesisFirehoseInputDescription,
+    idInputSchema,
+    idKinesisStreamsInputDescription,
+    idNamePrefix,
+    idInputProcessingConfigurationDescription,
+  )
+where
 
 import Network.AWS.KinesisAnalytics.Types.InputParallelism
 import Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescription
@@ -21,121 +32,139 @@ import Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration
 import Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputDescription
 import Network.AWS.KinesisAnalytics.Types.KinesisStreamsInputDescription
 import Network.AWS.KinesisAnalytics.Types.SourceSchema
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the application input configuration. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 --
---
---
--- /See:/ 'inputDescription' smart constructor.
+-- /See:/ 'mkInputDescription' smart constructor.
 data InputDescription = InputDescription'
-  { _idInputStartingPositionConfiguration ::
-      !(Maybe InputStartingPositionConfiguration),
-    _idInputParallelism :: !(Maybe InputParallelism),
-    _idInputId :: !(Maybe Text),
-    _idInAppStreamNames :: !(Maybe [Text]),
-    _idKinesisFirehoseInputDescription ::
-      !(Maybe KinesisFirehoseInputDescription),
-    _idInputSchema :: !(Maybe SourceSchema),
-    _idKinesisStreamsInputDescription ::
-      !(Maybe KinesisStreamsInputDescription),
-    _idNamePrefix :: !(Maybe Text),
-    _idInputProcessingConfigurationDescription ::
-      !(Maybe InputProcessingConfigurationDescription)
+  { inputStartingPositionConfiguration ::
+      Lude.Maybe InputStartingPositionConfiguration,
+    inputParallelism :: Lude.Maybe InputParallelism,
+    inputId :: Lude.Maybe Lude.Text,
+    inAppStreamNames :: Lude.Maybe [Lude.Text],
+    kinesisFirehoseInputDescription ::
+      Lude.Maybe KinesisFirehoseInputDescription,
+    inputSchema :: Lude.Maybe SourceSchema,
+    kinesisStreamsInputDescription ::
+      Lude.Maybe KinesisStreamsInputDescription,
+    namePrefix :: Lude.Maybe Lude.Text,
+    inputProcessingConfigurationDescription ::
+      Lude.Maybe InputProcessingConfigurationDescription
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'idInputStartingPositionConfiguration' - Point at which the application is configured to read from the input stream.
---
--- * 'idInputParallelism' - Describes the configured parallelism (number of in-application streams mapped to the streaming source).
---
--- * 'idInputId' - Input ID associated with the application input. This is the ID that Amazon Kinesis Analytics assigns to each input configuration you add to your application.
---
--- * 'idInAppStreamNames' - Returns the in-application stream names that are mapped to the stream source.
---
--- * 'idKinesisFirehoseInputDescription' - If an Amazon Kinesis Firehose delivery stream is configured as a streaming source, provides the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
---
--- * 'idInputSchema' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
---
--- * 'idKinesisStreamsInputDescription' - If an Amazon Kinesis stream is configured as streaming source, provides Amazon Kinesis stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
---
--- * 'idNamePrefix' - In-application name prefix.
---
--- * 'idInputProcessingConfigurationDescription' - The description of the preprocessor that executes on records in this input before the application's code is run.
-inputDescription ::
+-- * 'inAppStreamNames' - Returns the in-application stream names that are mapped to the stream source.
+-- * 'inputId' - Input ID associated with the application input. This is the ID that Amazon Kinesis Analytics assigns to each input configuration you add to your application.
+-- * 'inputParallelism' - Describes the configured parallelism (number of in-application streams mapped to the streaming source).
+-- * 'inputProcessingConfigurationDescription' - The description of the preprocessor that executes on records in this input before the application's code is run.
+-- * 'inputSchema' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+-- * 'inputStartingPositionConfiguration' - Point at which the application is configured to read from the input stream.
+-- * 'kinesisFirehoseInputDescription' - If an Amazon Kinesis Firehose delivery stream is configured as a streaming source, provides the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+-- * 'kinesisStreamsInputDescription' - If an Amazon Kinesis stream is configured as streaming source, provides Amazon Kinesis stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+-- * 'namePrefix' - In-application name prefix.
+mkInputDescription ::
   InputDescription
-inputDescription =
+mkInputDescription =
   InputDescription'
-    { _idInputStartingPositionConfiguration =
-        Nothing,
-      _idInputParallelism = Nothing,
-      _idInputId = Nothing,
-      _idInAppStreamNames = Nothing,
-      _idKinesisFirehoseInputDescription = Nothing,
-      _idInputSchema = Nothing,
-      _idKinesisStreamsInputDescription = Nothing,
-      _idNamePrefix = Nothing,
-      _idInputProcessingConfigurationDescription = Nothing
+    { inputStartingPositionConfiguration =
+        Lude.Nothing,
+      inputParallelism = Lude.Nothing,
+      inputId = Lude.Nothing,
+      inAppStreamNames = Lude.Nothing,
+      kinesisFirehoseInputDescription = Lude.Nothing,
+      inputSchema = Lude.Nothing,
+      kinesisStreamsInputDescription = Lude.Nothing,
+      namePrefix = Lude.Nothing,
+      inputProcessingConfigurationDescription = Lude.Nothing
     }
 
 -- | Point at which the application is configured to read from the input stream.
-idInputStartingPositionConfiguration :: Lens' InputDescription (Maybe InputStartingPositionConfiguration)
-idInputStartingPositionConfiguration = lens _idInputStartingPositionConfiguration (\s a -> s {_idInputStartingPositionConfiguration = a})
+--
+-- /Note:/ Consider using 'inputStartingPositionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idInputStartingPositionConfiguration :: Lens.Lens' InputDescription (Lude.Maybe InputStartingPositionConfiguration)
+idInputStartingPositionConfiguration = Lens.lens (inputStartingPositionConfiguration :: InputDescription -> Lude.Maybe InputStartingPositionConfiguration) (\s a -> s {inputStartingPositionConfiguration = a} :: InputDescription)
+{-# DEPRECATED idInputStartingPositionConfiguration "Use generic-lens or generic-optics with 'inputStartingPositionConfiguration' instead." #-}
 
 -- | Describes the configured parallelism (number of in-application streams mapped to the streaming source).
-idInputParallelism :: Lens' InputDescription (Maybe InputParallelism)
-idInputParallelism = lens _idInputParallelism (\s a -> s {_idInputParallelism = a})
+--
+-- /Note:/ Consider using 'inputParallelism' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idInputParallelism :: Lens.Lens' InputDescription (Lude.Maybe InputParallelism)
+idInputParallelism = Lens.lens (inputParallelism :: InputDescription -> Lude.Maybe InputParallelism) (\s a -> s {inputParallelism = a} :: InputDescription)
+{-# DEPRECATED idInputParallelism "Use generic-lens or generic-optics with 'inputParallelism' instead." #-}
 
 -- | Input ID associated with the application input. This is the ID that Amazon Kinesis Analytics assigns to each input configuration you add to your application.
-idInputId :: Lens' InputDescription (Maybe Text)
-idInputId = lens _idInputId (\s a -> s {_idInputId = a})
+--
+-- /Note:/ Consider using 'inputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idInputId :: Lens.Lens' InputDescription (Lude.Maybe Lude.Text)
+idInputId = Lens.lens (inputId :: InputDescription -> Lude.Maybe Lude.Text) (\s a -> s {inputId = a} :: InputDescription)
+{-# DEPRECATED idInputId "Use generic-lens or generic-optics with 'inputId' instead." #-}
 
 -- | Returns the in-application stream names that are mapped to the stream source.
-idInAppStreamNames :: Lens' InputDescription [Text]
-idInAppStreamNames = lens _idInAppStreamNames (\s a -> s {_idInAppStreamNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inAppStreamNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idInAppStreamNames :: Lens.Lens' InputDescription (Lude.Maybe [Lude.Text])
+idInAppStreamNames = Lens.lens (inAppStreamNames :: InputDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {inAppStreamNames = a} :: InputDescription)
+{-# DEPRECATED idInAppStreamNames "Use generic-lens or generic-optics with 'inAppStreamNames' instead." #-}
 
 -- | If an Amazon Kinesis Firehose delivery stream is configured as a streaming source, provides the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
-idKinesisFirehoseInputDescription :: Lens' InputDescription (Maybe KinesisFirehoseInputDescription)
-idKinesisFirehoseInputDescription = lens _idKinesisFirehoseInputDescription (\s a -> s {_idKinesisFirehoseInputDescription = a})
+--
+-- /Note:/ Consider using 'kinesisFirehoseInputDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idKinesisFirehoseInputDescription :: Lens.Lens' InputDescription (Lude.Maybe KinesisFirehoseInputDescription)
+idKinesisFirehoseInputDescription = Lens.lens (kinesisFirehoseInputDescription :: InputDescription -> Lude.Maybe KinesisFirehoseInputDescription) (\s a -> s {kinesisFirehoseInputDescription = a} :: InputDescription)
+{-# DEPRECATED idKinesisFirehoseInputDescription "Use generic-lens or generic-optics with 'kinesisFirehoseInputDescription' instead." #-}
 
 -- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-idInputSchema :: Lens' InputDescription (Maybe SourceSchema)
-idInputSchema = lens _idInputSchema (\s a -> s {_idInputSchema = a})
+--
+-- /Note:/ Consider using 'inputSchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idInputSchema :: Lens.Lens' InputDescription (Lude.Maybe SourceSchema)
+idInputSchema = Lens.lens (inputSchema :: InputDescription -> Lude.Maybe SourceSchema) (\s a -> s {inputSchema = a} :: InputDescription)
+{-# DEPRECATED idInputSchema "Use generic-lens or generic-optics with 'inputSchema' instead." #-}
 
 -- | If an Amazon Kinesis stream is configured as streaming source, provides Amazon Kinesis stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
-idKinesisStreamsInputDescription :: Lens' InputDescription (Maybe KinesisStreamsInputDescription)
-idKinesisStreamsInputDescription = lens _idKinesisStreamsInputDescription (\s a -> s {_idKinesisStreamsInputDescription = a})
+--
+-- /Note:/ Consider using 'kinesisStreamsInputDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idKinesisStreamsInputDescription :: Lens.Lens' InputDescription (Lude.Maybe KinesisStreamsInputDescription)
+idKinesisStreamsInputDescription = Lens.lens (kinesisStreamsInputDescription :: InputDescription -> Lude.Maybe KinesisStreamsInputDescription) (\s a -> s {kinesisStreamsInputDescription = a} :: InputDescription)
+{-# DEPRECATED idKinesisStreamsInputDescription "Use generic-lens or generic-optics with 'kinesisStreamsInputDescription' instead." #-}
 
 -- | In-application name prefix.
-idNamePrefix :: Lens' InputDescription (Maybe Text)
-idNamePrefix = lens _idNamePrefix (\s a -> s {_idNamePrefix = a})
+--
+-- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idNamePrefix :: Lens.Lens' InputDescription (Lude.Maybe Lude.Text)
+idNamePrefix = Lens.lens (namePrefix :: InputDescription -> Lude.Maybe Lude.Text) (\s a -> s {namePrefix = a} :: InputDescription)
+{-# DEPRECATED idNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
 
 -- | The description of the preprocessor that executes on records in this input before the application's code is run.
-idInputProcessingConfigurationDescription :: Lens' InputDescription (Maybe InputProcessingConfigurationDescription)
-idInputProcessingConfigurationDescription = lens _idInputProcessingConfigurationDescription (\s a -> s {_idInputProcessingConfigurationDescription = a})
+--
+-- /Note:/ Consider using 'inputProcessingConfigurationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idInputProcessingConfigurationDescription :: Lens.Lens' InputDescription (Lude.Maybe InputProcessingConfigurationDescription)
+idInputProcessingConfigurationDescription = Lens.lens (inputProcessingConfigurationDescription :: InputDescription -> Lude.Maybe InputProcessingConfigurationDescription) (\s a -> s {inputProcessingConfigurationDescription = a} :: InputDescription)
+{-# DEPRECATED idInputProcessingConfigurationDescription "Use generic-lens or generic-optics with 'inputProcessingConfigurationDescription' instead." #-}
 
-instance FromJSON InputDescription where
+instance Lude.FromJSON InputDescription where
   parseJSON =
-    withObject
+    Lude.withObject
       "InputDescription"
       ( \x ->
           InputDescription'
-            <$> (x .:? "InputStartingPositionConfiguration")
-            <*> (x .:? "InputParallelism")
-            <*> (x .:? "InputId")
-            <*> (x .:? "InAppStreamNames" .!= mempty)
-            <*> (x .:? "KinesisFirehoseInputDescription")
-            <*> (x .:? "InputSchema")
-            <*> (x .:? "KinesisStreamsInputDescription")
-            <*> (x .:? "NamePrefix")
-            <*> (x .:? "InputProcessingConfigurationDescription")
+            Lude.<$> (x Lude..:? "InputStartingPositionConfiguration")
+            Lude.<*> (x Lude..:? "InputParallelism")
+            Lude.<*> (x Lude..:? "InputId")
+            Lude.<*> (x Lude..:? "InAppStreamNames" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "KinesisFirehoseInputDescription")
+            Lude.<*> (x Lude..:? "InputSchema")
+            Lude.<*> (x Lude..:? "KinesisStreamsInputDescription")
+            Lude.<*> (x Lude..:? "NamePrefix")
+            Lude.<*> (x Lude..:? "InputProcessingConfigurationDescription")
       )
-
-instance Hashable InputDescription
-
-instance NFData InputDescription

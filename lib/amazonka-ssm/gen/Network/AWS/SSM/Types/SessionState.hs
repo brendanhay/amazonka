@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.SessionState where
+module Network.AWS.SSM.Types.SessionState
+  ( SessionState
+      ( SessionState',
+        Active,
+        History
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data SessionState
-  = Active
-  | History
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SessionState = SessionState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SessionState where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "history" -> pure History
-      e ->
-        fromTextError $
-          "Failure parsing SessionState from value: '" <> e
-            <> "'. Accepted values: active, history"
+pattern Active :: SessionState
+pattern Active = SessionState' "Active"
 
-instance ToText SessionState where
-  toText = \case
-    Active -> "Active"
-    History -> "History"
+pattern History :: SessionState
+pattern History = SessionState' "History"
 
-instance Hashable SessionState
-
-instance NFData SessionState
-
-instance ToByteString SessionState
-
-instance ToQuery SessionState
-
-instance ToHeader SessionState
-
-instance ToJSON SessionState where
-  toJSON = toJSONText
+{-# COMPLETE
+  Active,
+  History,
+  SessionState'
+  #-}

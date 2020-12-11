@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,83 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ProgressCounters where
+module Network.AWS.SSM.Types.ProgressCounters
+  ( ProgressCounters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkProgressCounters,
+
+    -- * Lenses
+    pcFailedSteps,
+    pcCancelledSteps,
+    pcSuccessSteps,
+    pcTotalSteps,
+    pcTimedOutSteps,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and multi-account Automation execution.
 --
---
---
--- /See:/ 'progressCounters' smart constructor.
+-- /See:/ 'mkProgressCounters' smart constructor.
 data ProgressCounters = ProgressCounters'
-  { _pcFailedSteps ::
-      !(Maybe Int),
-    _pcCancelledSteps :: !(Maybe Int),
-    _pcSuccessSteps :: !(Maybe Int),
-    _pcTotalSteps :: !(Maybe Int),
-    _pcTimedOutSteps :: !(Maybe Int)
+  { failedSteps ::
+      Lude.Maybe Lude.Int,
+    cancelledSteps :: Lude.Maybe Lude.Int,
+    successSteps :: Lude.Maybe Lude.Int,
+    totalSteps :: Lude.Maybe Lude.Int,
+    timedOutSteps :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProgressCounters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pcFailedSteps' - The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
---
--- * 'pcCancelledSteps' - The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
---
--- * 'pcSuccessSteps' - The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
---
--- * 'pcTotalSteps' - The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
---
--- * 'pcTimedOutSteps' - The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
-progressCounters ::
+-- * 'cancelledSteps' - The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
+-- * 'failedSteps' - The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
+-- * 'successSteps' - The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
+-- * 'timedOutSteps' - The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
+-- * 'totalSteps' - The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
+mkProgressCounters ::
   ProgressCounters
-progressCounters =
+mkProgressCounters =
   ProgressCounters'
-    { _pcFailedSteps = Nothing,
-      _pcCancelledSteps = Nothing,
-      _pcSuccessSteps = Nothing,
-      _pcTotalSteps = Nothing,
-      _pcTimedOutSteps = Nothing
+    { failedSteps = Lude.Nothing,
+      cancelledSteps = Lude.Nothing,
+      successSteps = Lude.Nothing,
+      totalSteps = Lude.Nothing,
+      timedOutSteps = Lude.Nothing
     }
 
 -- | The total number of steps that failed to run in all specified AWS Regions and accounts for the current Automation execution.
-pcFailedSteps :: Lens' ProgressCounters (Maybe Int)
-pcFailedSteps = lens _pcFailedSteps (\s a -> s {_pcFailedSteps = a})
+--
+-- /Note:/ Consider using 'failedSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcFailedSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
+pcFailedSteps = Lens.lens (failedSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {failedSteps = a} :: ProgressCounters)
+{-# DEPRECATED pcFailedSteps "Use generic-lens or generic-optics with 'failedSteps' instead." #-}
 
 -- | The total number of steps that the system cancelled in all specified AWS Regions and accounts for the current Automation execution.
-pcCancelledSteps :: Lens' ProgressCounters (Maybe Int)
-pcCancelledSteps = lens _pcCancelledSteps (\s a -> s {_pcCancelledSteps = a})
+--
+-- /Note:/ Consider using 'cancelledSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcCancelledSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
+pcCancelledSteps = Lens.lens (cancelledSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {cancelledSteps = a} :: ProgressCounters)
+{-# DEPRECATED pcCancelledSteps "Use generic-lens or generic-optics with 'cancelledSteps' instead." #-}
 
 -- | The total number of steps that successfully completed in all specified AWS Regions and accounts for the current Automation execution.
-pcSuccessSteps :: Lens' ProgressCounters (Maybe Int)
-pcSuccessSteps = lens _pcSuccessSteps (\s a -> s {_pcSuccessSteps = a})
+--
+-- /Note:/ Consider using 'successSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcSuccessSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
+pcSuccessSteps = Lens.lens (successSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {successSteps = a} :: ProgressCounters)
+{-# DEPRECATED pcSuccessSteps "Use generic-lens or generic-optics with 'successSteps' instead." #-}
 
 -- | The total number of steps run in all specified AWS Regions and accounts for the current Automation execution.
-pcTotalSteps :: Lens' ProgressCounters (Maybe Int)
-pcTotalSteps = lens _pcTotalSteps (\s a -> s {_pcTotalSteps = a})
+--
+-- /Note:/ Consider using 'totalSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcTotalSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
+pcTotalSteps = Lens.lens (totalSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {totalSteps = a} :: ProgressCounters)
+{-# DEPRECATED pcTotalSteps "Use generic-lens or generic-optics with 'totalSteps' instead." #-}
 
 -- | The total number of steps that timed out in all specified AWS Regions and accounts for the current Automation execution.
-pcTimedOutSteps :: Lens' ProgressCounters (Maybe Int)
-pcTimedOutSteps = lens _pcTimedOutSteps (\s a -> s {_pcTimedOutSteps = a})
+--
+-- /Note:/ Consider using 'timedOutSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcTimedOutSteps :: Lens.Lens' ProgressCounters (Lude.Maybe Lude.Int)
+pcTimedOutSteps = Lens.lens (timedOutSteps :: ProgressCounters -> Lude.Maybe Lude.Int) (\s a -> s {timedOutSteps = a} :: ProgressCounters)
+{-# DEPRECATED pcTimedOutSteps "Use generic-lens or generic-optics with 'timedOutSteps' instead." #-}
 
-instance FromJSON ProgressCounters where
+instance Lude.FromJSON ProgressCounters where
   parseJSON =
-    withObject
+    Lude.withObject
       "ProgressCounters"
       ( \x ->
           ProgressCounters'
-            <$> (x .:? "FailedSteps")
-            <*> (x .:? "CancelledSteps")
-            <*> (x .:? "SuccessSteps")
-            <*> (x .:? "TotalSteps")
-            <*> (x .:? "TimedOutSteps")
+            Lude.<$> (x Lude..:? "FailedSteps")
+            Lude.<*> (x Lude..:? "CancelledSteps")
+            Lude.<*> (x Lude..:? "SuccessSteps")
+            Lude.<*> (x Lude..:? "TotalSteps")
+            Lude.<*> (x Lude..:? "TimedOutSteps")
       )
-
-instance Hashable ProgressCounters
-
-instance NFData ProgressCounters

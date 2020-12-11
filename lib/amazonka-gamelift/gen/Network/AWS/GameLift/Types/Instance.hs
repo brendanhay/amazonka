@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,112 +7,185 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.Instance where
+module Network.AWS.GameLift.Types.Instance
+  ( Instance (..),
+
+    -- * Smart constructor
+    mkInstance,
+
+    -- * Lenses
+    iCreationTime,
+    iInstanceId,
+    iStatus,
+    iIPAddress,
+    iOperatingSystem,
+    iType,
+    iFleetId,
+    iDNSName,
+  )
+where
 
 import Network.AWS.GameLift.Types.EC2InstanceType
 import Network.AWS.GameLift.Types.InstanceStatus
 import Network.AWS.GameLift.Types.OperatingSystem
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Properties that describe an instance of a virtual computing resource that hosts one or more game servers. A fleet may contain zero or more instances.
 --
---
---
--- /See:/ 'instance'' smart constructor.
+-- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { _iCreationTime :: !(Maybe POSIX),
-    _iInstanceId :: !(Maybe Text),
-    _iStatus :: !(Maybe InstanceStatus),
-    _iIPAddress :: !(Maybe Text),
-    _iOperatingSystem :: !(Maybe OperatingSystem),
-    _iType :: !(Maybe EC2InstanceType),
-    _iFleetId :: !(Maybe Text),
-    _iDNSName :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    instanceId :: Lude.Maybe Lude.Text,
+    status :: Lude.Maybe InstanceStatus,
+    ipAddress :: Lude.Maybe Lude.Text,
+    operatingSystem :: Lude.Maybe OperatingSystem,
+    type' :: Lude.Maybe EC2InstanceType,
+    fleetId :: Lude.Maybe Lude.Text,
+    dnsName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'creationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
 --
--- * 'iCreationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 --
--- * 'iInstanceId' - A unique identifier for an instance.
+--     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
 --
--- * 'iStatus' - Current status of the instance. Possible statuses include the following:     * __PENDING__ -- The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.      * __ACTIVE__ -- The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ -- The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
 --
--- * 'iIPAddress' - IP address that is assigned to the instance.
+--     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
 --
--- * 'iOperatingSystem' - Operating system that is running on this instance.
 --
--- * 'iType' - EC2 instance type that defines the computing resources of this instance.
+-- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
+-- * 'fleetId' - A unique identifier for a fleet that the instance is in.
+-- * 'instanceId' - A unique identifier for an instance.
+-- * 'ipAddress' - IP address that is assigned to the instance.
+-- * 'operatingSystem' - Operating system that is running on this instance.
+-- * 'status' - Current status of the instance. Possible statuses include the following:
 --
--- * 'iFleetId' - A unique identifier for a fleet that the instance is in.
 --
--- * 'iDNSName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .) When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
-instance' ::
+--     * __PENDING__ -- The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.
+--
+--
+--     * __ACTIVE__ -- The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.
+--
+--
+--     * __TERMINATING__ -- The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
+--
+--
+-- * 'type'' - EC2 instance type that defines the computing resources of this instance.
+mkInstance ::
   Instance
-instance' =
+mkInstance =
   Instance'
-    { _iCreationTime = Nothing,
-      _iInstanceId = Nothing,
-      _iStatus = Nothing,
-      _iIPAddress = Nothing,
-      _iOperatingSystem = Nothing,
-      _iType = Nothing,
-      _iFleetId = Nothing,
-      _iDNSName = Nothing
+    { creationTime = Lude.Nothing,
+      instanceId = Lude.Nothing,
+      status = Lude.Nothing,
+      ipAddress = Lude.Nothing,
+      operatingSystem = Lude.Nothing,
+      type' = Lude.Nothing,
+      fleetId = Lude.Nothing,
+      dnsName = Lude.Nothing
     }
 
 -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-iCreationTime :: Lens' Instance (Maybe UTCTime)
-iCreationTime = lens _iCreationTime (\s a -> s {_iCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iCreationTime :: Lens.Lens' Instance (Lude.Maybe Lude.Timestamp)
+iCreationTime = Lens.lens (creationTime :: Instance -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Instance)
+{-# DEPRECATED iCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | A unique identifier for an instance.
-iInstanceId :: Lens' Instance (Maybe Text)
-iInstanceId = lens _iInstanceId (\s a -> s {_iInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
+iInstanceId = Lens.lens (instanceId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: Instance)
+{-# DEPRECATED iInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
--- | Current status of the instance. Possible statuses include the following:     * __PENDING__ -- The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.      * __ACTIVE__ -- The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.      * __TERMINATING__ -- The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
-iStatus :: Lens' Instance (Maybe InstanceStatus)
-iStatus = lens _iStatus (\s a -> s {_iStatus = a})
+-- | Current status of the instance. Possible statuses include the following:
+--
+--
+--     * __PENDING__ -- The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.
+--
+--
+--     * __ACTIVE__ -- The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.
+--
+--
+--     * __TERMINATING__ -- The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iStatus :: Lens.Lens' Instance (Lude.Maybe InstanceStatus)
+iStatus = Lens.lens (status :: Instance -> Lude.Maybe InstanceStatus) (\s a -> s {status = a} :: Instance)
+{-# DEPRECATED iStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | IP address that is assigned to the instance.
-iIPAddress :: Lens' Instance (Maybe Text)
-iIPAddress = lens _iIPAddress (\s a -> s {_iIPAddress = a})
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iIPAddress :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
+iIPAddress = Lens.lens (ipAddress :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: Instance)
+{-# DEPRECATED iIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
 -- | Operating system that is running on this instance.
-iOperatingSystem :: Lens' Instance (Maybe OperatingSystem)
-iOperatingSystem = lens _iOperatingSystem (\s a -> s {_iOperatingSystem = a})
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iOperatingSystem :: Lens.Lens' Instance (Lude.Maybe OperatingSystem)
+iOperatingSystem = Lens.lens (operatingSystem :: Instance -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: Instance)
+{-# DEPRECATED iOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
 -- | EC2 instance type that defines the computing resources of this instance.
-iType :: Lens' Instance (Maybe EC2InstanceType)
-iType = lens _iType (\s a -> s {_iType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iType :: Lens.Lens' Instance (Lude.Maybe EC2InstanceType)
+iType = Lens.lens (type' :: Instance -> Lude.Maybe EC2InstanceType) (\s a -> s {type' = a} :: Instance)
+{-# DEPRECATED iType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | A unique identifier for a fleet that the instance is in.
-iFleetId :: Lens' Instance (Maybe Text)
-iFleetId = lens _iFleetId (\s a -> s {_iFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iFleetId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
+iFleetId = Lens.lens (fleetId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: Instance)
+{-# DEPRECATED iFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
--- | DNS identifier assigned to the instance that is running the game session. Values have the following format:     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .) When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
-iDNSName :: Lens' Instance (Maybe Text)
-iDNSName = lens _iDNSName (\s a -> s {_iDNSName = a})
+-- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
+--
+--
+--     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+--
+--
+--     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+--
+--
+-- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
+--
+-- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iDNSName :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
+iDNSName = Lens.lens (dnsName :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: Instance)
+{-# DEPRECATED iDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
 
-instance FromJSON Instance where
+instance Lude.FromJSON Instance where
   parseJSON =
-    withObject
+    Lude.withObject
       "Instance"
       ( \x ->
           Instance'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "InstanceId")
-            <*> (x .:? "Status")
-            <*> (x .:? "IpAddress")
-            <*> (x .:? "OperatingSystem")
-            <*> (x .:? "Type")
-            <*> (x .:? "FleetId")
-            <*> (x .:? "DnsName")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "IpAddress")
+            Lude.<*> (x Lude..:? "OperatingSystem")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "FleetId")
+            Lude.<*> (x Lude..:? "DnsName")
       )
-
-instance Hashable Instance
-
-instance NFData Instance

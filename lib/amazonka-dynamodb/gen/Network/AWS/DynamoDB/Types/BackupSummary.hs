@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,130 +7,190 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.BackupSummary where
+module Network.AWS.DynamoDB.Types.BackupSummary
+  ( BackupSummary (..),
+
+    -- * Smart constructor
+    mkBackupSummary,
+
+    -- * Lenses
+    bsBackupExpiryDateTime,
+    bsTableARN,
+    bsBackupName,
+    bsBackupStatus,
+    bsBackupSizeBytes,
+    bsBackupARN,
+    bsTableId,
+    bsBackupCreationDateTime,
+    bsBackupType,
+    bsTableName,
+  )
+where
 
 import Network.AWS.DynamoDB.Types.BackupStatus
 import Network.AWS.DynamoDB.Types.BackupType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains details for the backup.
 --
---
---
--- /See:/ 'backupSummary' smart constructor.
+-- /See:/ 'mkBackupSummary' smart constructor.
 data BackupSummary = BackupSummary'
-  { _bsBackupExpiryDateTime ::
-      !(Maybe POSIX),
-    _bsTableARN :: !(Maybe Text),
-    _bsBackupName :: !(Maybe Text),
-    _bsBackupStatus :: !(Maybe BackupStatus),
-    _bsBackupSizeBytes :: !(Maybe Nat),
-    _bsBackupARN :: !(Maybe Text),
-    _bsTableId :: !(Maybe Text),
-    _bsBackupCreationDateTime :: !(Maybe POSIX),
-    _bsBackupType :: !(Maybe BackupType),
-    _bsTableName :: !(Maybe Text)
+  { backupExpiryDateTime ::
+      Lude.Maybe Lude.Timestamp,
+    tableARN :: Lude.Maybe Lude.Text,
+    backupName :: Lude.Maybe Lude.Text,
+    backupStatus :: Lude.Maybe BackupStatus,
+    backupSizeBytes :: Lude.Maybe Lude.Natural,
+    backupARN :: Lude.Maybe Lude.Text,
+    tableId :: Lude.Maybe Lude.Text,
+    backupCreationDateTime :: Lude.Maybe Lude.Timestamp,
+    backupType :: Lude.Maybe BackupType,
+    tableName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackupSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'backupARN' - ARN associated with the backup.
+-- * 'backupCreationDateTime' - Time at which the backup was created.
+-- * 'backupExpiryDateTime' - Time at which the automatic on-demand backup created by DynamoDB will expire. This @SYSTEM@ on-demand backup expires automatically 35 days after its creation.
+-- * 'backupName' - Name of the specified backup.
+-- * 'backupSizeBytes' - Size of the backup in bytes.
+-- * 'backupStatus' - Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
+-- * 'backupType' - BackupType:
 --
--- * 'bsBackupExpiryDateTime' - Time at which the automatic on-demand backup created by DynamoDB will expire. This @SYSTEM@ on-demand backup expires automatically 35 days after its creation.
 --
--- * 'bsTableARN' - ARN associated with the table.
+--     * @USER@ - You create and manage these using the on-demand backup feature.
 --
--- * 'bsBackupName' - Name of the specified backup.
 --
--- * 'bsBackupStatus' - Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
+--     * @SYSTEM@ - If you delete a table with point-in-time recovery enabled, a @SYSTEM@ backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.
 --
--- * 'bsBackupSizeBytes' - Size of the backup in bytes.
 --
--- * 'bsBackupARN' - ARN associated with the backup.
+--     * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
 --
--- * 'bsTableId' - Unique identifier for the table.
 --
--- * 'bsBackupCreationDateTime' - Time at which the backup was created.
---
--- * 'bsBackupType' - BackupType:     * @USER@ - You create and manage these using the on-demand backup feature.     * @SYSTEM@ - If you delete a table with point-in-time recovery enabled, a @SYSTEM@ backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.      * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
---
--- * 'bsTableName' - Name of the table.
-backupSummary ::
+-- * 'tableARN' - ARN associated with the table.
+-- * 'tableId' - Unique identifier for the table.
+-- * 'tableName' - Name of the table.
+mkBackupSummary ::
   BackupSummary
-backupSummary =
+mkBackupSummary =
   BackupSummary'
-    { _bsBackupExpiryDateTime = Nothing,
-      _bsTableARN = Nothing,
-      _bsBackupName = Nothing,
-      _bsBackupStatus = Nothing,
-      _bsBackupSizeBytes = Nothing,
-      _bsBackupARN = Nothing,
-      _bsTableId = Nothing,
-      _bsBackupCreationDateTime = Nothing,
-      _bsBackupType = Nothing,
-      _bsTableName = Nothing
+    { backupExpiryDateTime = Lude.Nothing,
+      tableARN = Lude.Nothing,
+      backupName = Lude.Nothing,
+      backupStatus = Lude.Nothing,
+      backupSizeBytes = Lude.Nothing,
+      backupARN = Lude.Nothing,
+      tableId = Lude.Nothing,
+      backupCreationDateTime = Lude.Nothing,
+      backupType = Lude.Nothing,
+      tableName = Lude.Nothing
     }
 
 -- | Time at which the automatic on-demand backup created by DynamoDB will expire. This @SYSTEM@ on-demand backup expires automatically 35 days after its creation.
-bsBackupExpiryDateTime :: Lens' BackupSummary (Maybe UTCTime)
-bsBackupExpiryDateTime = lens _bsBackupExpiryDateTime (\s a -> s {_bsBackupExpiryDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'backupExpiryDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBackupExpiryDateTime :: Lens.Lens' BackupSummary (Lude.Maybe Lude.Timestamp)
+bsBackupExpiryDateTime = Lens.lens (backupExpiryDateTime :: BackupSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {backupExpiryDateTime = a} :: BackupSummary)
+{-# DEPRECATED bsBackupExpiryDateTime "Use generic-lens or generic-optics with 'backupExpiryDateTime' instead." #-}
 
 -- | ARN associated with the table.
-bsTableARN :: Lens' BackupSummary (Maybe Text)
-bsTableARN = lens _bsTableARN (\s a -> s {_bsTableARN = a})
+--
+-- /Note:/ Consider using 'tableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsTableARN :: Lens.Lens' BackupSummary (Lude.Maybe Lude.Text)
+bsTableARN = Lens.lens (tableARN :: BackupSummary -> Lude.Maybe Lude.Text) (\s a -> s {tableARN = a} :: BackupSummary)
+{-# DEPRECATED bsTableARN "Use generic-lens or generic-optics with 'tableARN' instead." #-}
 
 -- | Name of the specified backup.
-bsBackupName :: Lens' BackupSummary (Maybe Text)
-bsBackupName = lens _bsBackupName (\s a -> s {_bsBackupName = a})
+--
+-- /Note:/ Consider using 'backupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBackupName :: Lens.Lens' BackupSummary (Lude.Maybe Lude.Text)
+bsBackupName = Lens.lens (backupName :: BackupSummary -> Lude.Maybe Lude.Text) (\s a -> s {backupName = a} :: BackupSummary)
+{-# DEPRECATED bsBackupName "Use generic-lens or generic-optics with 'backupName' instead." #-}
 
 -- | Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
-bsBackupStatus :: Lens' BackupSummary (Maybe BackupStatus)
-bsBackupStatus = lens _bsBackupStatus (\s a -> s {_bsBackupStatus = a})
+--
+-- /Note:/ Consider using 'backupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBackupStatus :: Lens.Lens' BackupSummary (Lude.Maybe BackupStatus)
+bsBackupStatus = Lens.lens (backupStatus :: BackupSummary -> Lude.Maybe BackupStatus) (\s a -> s {backupStatus = a} :: BackupSummary)
+{-# DEPRECATED bsBackupStatus "Use generic-lens or generic-optics with 'backupStatus' instead." #-}
 
 -- | Size of the backup in bytes.
-bsBackupSizeBytes :: Lens' BackupSummary (Maybe Natural)
-bsBackupSizeBytes = lens _bsBackupSizeBytes (\s a -> s {_bsBackupSizeBytes = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'backupSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBackupSizeBytes :: Lens.Lens' BackupSummary (Lude.Maybe Lude.Natural)
+bsBackupSizeBytes = Lens.lens (backupSizeBytes :: BackupSummary -> Lude.Maybe Lude.Natural) (\s a -> s {backupSizeBytes = a} :: BackupSummary)
+{-# DEPRECATED bsBackupSizeBytes "Use generic-lens or generic-optics with 'backupSizeBytes' instead." #-}
 
 -- | ARN associated with the backup.
-bsBackupARN :: Lens' BackupSummary (Maybe Text)
-bsBackupARN = lens _bsBackupARN (\s a -> s {_bsBackupARN = a})
+--
+-- /Note:/ Consider using 'backupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBackupARN :: Lens.Lens' BackupSummary (Lude.Maybe Lude.Text)
+bsBackupARN = Lens.lens (backupARN :: BackupSummary -> Lude.Maybe Lude.Text) (\s a -> s {backupARN = a} :: BackupSummary)
+{-# DEPRECATED bsBackupARN "Use generic-lens or generic-optics with 'backupARN' instead." #-}
 
 -- | Unique identifier for the table.
-bsTableId :: Lens' BackupSummary (Maybe Text)
-bsTableId = lens _bsTableId (\s a -> s {_bsTableId = a})
+--
+-- /Note:/ Consider using 'tableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsTableId :: Lens.Lens' BackupSummary (Lude.Maybe Lude.Text)
+bsTableId = Lens.lens (tableId :: BackupSummary -> Lude.Maybe Lude.Text) (\s a -> s {tableId = a} :: BackupSummary)
+{-# DEPRECATED bsTableId "Use generic-lens or generic-optics with 'tableId' instead." #-}
 
 -- | Time at which the backup was created.
-bsBackupCreationDateTime :: Lens' BackupSummary (Maybe UTCTime)
-bsBackupCreationDateTime = lens _bsBackupCreationDateTime (\s a -> s {_bsBackupCreationDateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'backupCreationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBackupCreationDateTime :: Lens.Lens' BackupSummary (Lude.Maybe Lude.Timestamp)
+bsBackupCreationDateTime = Lens.lens (backupCreationDateTime :: BackupSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {backupCreationDateTime = a} :: BackupSummary)
+{-# DEPRECATED bsBackupCreationDateTime "Use generic-lens or generic-optics with 'backupCreationDateTime' instead." #-}
 
--- | BackupType:     * @USER@ - You create and manage these using the on-demand backup feature.     * @SYSTEM@ - If you delete a table with point-in-time recovery enabled, a @SYSTEM@ backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.      * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
-bsBackupType :: Lens' BackupSummary (Maybe BackupType)
-bsBackupType = lens _bsBackupType (\s a -> s {_bsBackupType = a})
+-- | BackupType:
+--
+--
+--     * @USER@ - You create and manage these using the on-demand backup feature.
+--
+--
+--     * @SYSTEM@ - If you delete a table with point-in-time recovery enabled, a @SYSTEM@ backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.
+--
+--
+--     * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
+--
+--
+--
+-- /Note:/ Consider using 'backupType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsBackupType :: Lens.Lens' BackupSummary (Lude.Maybe BackupType)
+bsBackupType = Lens.lens (backupType :: BackupSummary -> Lude.Maybe BackupType) (\s a -> s {backupType = a} :: BackupSummary)
+{-# DEPRECATED bsBackupType "Use generic-lens or generic-optics with 'backupType' instead." #-}
 
 -- | Name of the table.
-bsTableName :: Lens' BackupSummary (Maybe Text)
-bsTableName = lens _bsTableName (\s a -> s {_bsTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsTableName :: Lens.Lens' BackupSummary (Lude.Maybe Lude.Text)
+bsTableName = Lens.lens (tableName :: BackupSummary -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: BackupSummary)
+{-# DEPRECATED bsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance FromJSON BackupSummary where
+instance Lude.FromJSON BackupSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "BackupSummary"
       ( \x ->
           BackupSummary'
-            <$> (x .:? "BackupExpiryDateTime")
-            <*> (x .:? "TableArn")
-            <*> (x .:? "BackupName")
-            <*> (x .:? "BackupStatus")
-            <*> (x .:? "BackupSizeBytes")
-            <*> (x .:? "BackupArn")
-            <*> (x .:? "TableId")
-            <*> (x .:? "BackupCreationDateTime")
-            <*> (x .:? "BackupType")
-            <*> (x .:? "TableName")
+            Lude.<$> (x Lude..:? "BackupExpiryDateTime")
+            Lude.<*> (x Lude..:? "TableArn")
+            Lude.<*> (x Lude..:? "BackupName")
+            Lude.<*> (x Lude..:? "BackupStatus")
+            Lude.<*> (x Lude..:? "BackupSizeBytes")
+            Lude.<*> (x Lude..:? "BackupArn")
+            Lude.<*> (x Lude..:? "TableId")
+            Lude.<*> (x Lude..:? "BackupCreationDateTime")
+            Lude.<*> (x Lude..:? "BackupType")
+            Lude.<*> (x Lude..:? "TableName")
       )
-
-instance Hashable BackupSummary
-
-instance NFData BackupSummary

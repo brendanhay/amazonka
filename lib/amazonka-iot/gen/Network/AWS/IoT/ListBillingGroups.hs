@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Lists the billing groups you have created.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListBillingGroups
-  ( -- * Creating a Request
-    listBillingGroups,
-    ListBillingGroups,
+  ( -- * Creating a request
+    ListBillingGroups (..),
+    mkListBillingGroups,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lbgNamePrefixFilter,
     lbgNextToken,
     lbgMaxResults,
 
-    -- * Destructuring the Response
-    listBillingGroupsResponse,
-    ListBillingGroupsResponse,
+    -- * Destructuring the response
+    ListBillingGroupsResponse (..),
+    mkListBillingGroupsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lbgrsNextToken,
     lbgrsBillingGroups,
     lbgrsResponseStatus,
@@ -44,127 +37,148 @@ module Network.AWS.IoT.ListBillingGroups
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listBillingGroups' smart constructor.
+-- | /See:/ 'mkListBillingGroups' smart constructor.
 data ListBillingGroups = ListBillingGroups'
-  { _lbgNamePrefixFilter ::
-      !(Maybe Text),
-    _lbgNextToken :: !(Maybe Text),
-    _lbgMaxResults :: !(Maybe Nat)
+  { namePrefixFilter ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBillingGroups' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbgNamePrefixFilter' - Limit the results to billing groups whose names have the given prefix.
---
--- * 'lbgNextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
---
--- * 'lbgMaxResults' - The maximum number of results to return per request.
-listBillingGroups ::
+-- * 'maxResults' - The maximum number of results to return per request.
+-- * 'namePrefixFilter' - Limit the results to billing groups whose names have the given prefix.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+mkListBillingGroups ::
   ListBillingGroups
-listBillingGroups =
+mkListBillingGroups =
   ListBillingGroups'
-    { _lbgNamePrefixFilter = Nothing,
-      _lbgNextToken = Nothing,
-      _lbgMaxResults = Nothing
+    { namePrefixFilter = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Limit the results to billing groups whose names have the given prefix.
-lbgNamePrefixFilter :: Lens' ListBillingGroups (Maybe Text)
-lbgNamePrefixFilter = lens _lbgNamePrefixFilter (\s a -> s {_lbgNamePrefixFilter = a})
+--
+-- /Note:/ Consider using 'namePrefixFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbgNamePrefixFilter :: Lens.Lens' ListBillingGroups (Lude.Maybe Lude.Text)
+lbgNamePrefixFilter = Lens.lens (namePrefixFilter :: ListBillingGroups -> Lude.Maybe Lude.Text) (\s a -> s {namePrefixFilter = a} :: ListBillingGroups)
+{-# DEPRECATED lbgNamePrefixFilter "Use generic-lens or generic-optics with 'namePrefixFilter' instead." #-}
 
 -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
-lbgNextToken :: Lens' ListBillingGroups (Maybe Text)
-lbgNextToken = lens _lbgNextToken (\s a -> s {_lbgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbgNextToken :: Lens.Lens' ListBillingGroups (Lude.Maybe Lude.Text)
+lbgNextToken = Lens.lens (nextToken :: ListBillingGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBillingGroups)
+{-# DEPRECATED lbgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return per request.
-lbgMaxResults :: Lens' ListBillingGroups (Maybe Natural)
-lbgMaxResults = lens _lbgMaxResults (\s a -> s {_lbgMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbgMaxResults :: Lens.Lens' ListBillingGroups (Lude.Maybe Lude.Natural)
+lbgMaxResults = Lens.lens (maxResults :: ListBillingGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListBillingGroups)
+{-# DEPRECATED lbgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListBillingGroups where
+instance Page.AWSPager ListBillingGroups where
   page rq rs
-    | stop (rs ^. lbgrsNextToken) = Nothing
-    | stop (rs ^. lbgrsBillingGroups) = Nothing
-    | otherwise = Just $ rq & lbgNextToken .~ rs ^. lbgrsNextToken
+    | Page.stop (rs Lens.^. lbgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lbgrsBillingGroups) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lbgNextToken Lens..~ rs Lens.^. lbgrsNextToken
 
-instance AWSRequest ListBillingGroups where
+instance Lude.AWSRequest ListBillingGroups where
   type Rs ListBillingGroups = ListBillingGroupsResponse
-  request = get ioT
+  request = Req.get ioTService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListBillingGroupsResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "billingGroups" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "billingGroups" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListBillingGroups
+instance Lude.ToHeaders ListBillingGroups where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData ListBillingGroups
+instance Lude.ToPath ListBillingGroups where
+  toPath = Lude.const "/billing-groups"
 
-instance ToHeaders ListBillingGroups where
-  toHeaders = const mempty
-
-instance ToPath ListBillingGroups where
-  toPath = const "/billing-groups"
-
-instance ToQuery ListBillingGroups where
+instance Lude.ToQuery ListBillingGroups where
   toQuery ListBillingGroups' {..} =
-    mconcat
-      [ "namePrefixFilter" =: _lbgNamePrefixFilter,
-        "nextToken" =: _lbgNextToken,
-        "maxResults" =: _lbgMaxResults
+    Lude.mconcat
+      [ "namePrefixFilter" Lude.=: namePrefixFilter,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
--- | /See:/ 'listBillingGroupsResponse' smart constructor.
+-- | /See:/ 'mkListBillingGroupsResponse' smart constructor.
 data ListBillingGroupsResponse = ListBillingGroupsResponse'
-  { _lbgrsNextToken ::
-      !(Maybe Text),
-    _lbgrsBillingGroups ::
-      !(Maybe [GroupNameAndARN]),
-    _lbgrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    billingGroups ::
+      Lude.Maybe [GroupNameAndARN],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBillingGroupsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbgrsNextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
---
--- * 'lbgrsBillingGroups' - The list of billing groups.
---
--- * 'lbgrsResponseStatus' - -- | The response status code.
-listBillingGroupsResponse ::
-  -- | 'lbgrsResponseStatus'
-  Int ->
+-- * 'billingGroups' - The list of billing groups.
+-- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
+-- * 'responseStatus' - The response status code.
+mkListBillingGroupsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListBillingGroupsResponse
-listBillingGroupsResponse pResponseStatus_ =
+mkListBillingGroupsResponse pResponseStatus_ =
   ListBillingGroupsResponse'
-    { _lbgrsNextToken = Nothing,
-      _lbgrsBillingGroups = Nothing,
-      _lbgrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      billingGroups = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to get the next set of results, or __null__ if there are no additional results.
-lbgrsNextToken :: Lens' ListBillingGroupsResponse (Maybe Text)
-lbgrsNextToken = lens _lbgrsNextToken (\s a -> s {_lbgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbgrsNextToken :: Lens.Lens' ListBillingGroupsResponse (Lude.Maybe Lude.Text)
+lbgrsNextToken = Lens.lens (nextToken :: ListBillingGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBillingGroupsResponse)
+{-# DEPRECATED lbgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of billing groups.
-lbgrsBillingGroups :: Lens' ListBillingGroupsResponse [GroupNameAndARN]
-lbgrsBillingGroups = lens _lbgrsBillingGroups (\s a -> s {_lbgrsBillingGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'billingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbgrsBillingGroups :: Lens.Lens' ListBillingGroupsResponse (Lude.Maybe [GroupNameAndARN])
+lbgrsBillingGroups = Lens.lens (billingGroups :: ListBillingGroupsResponse -> Lude.Maybe [GroupNameAndARN]) (\s a -> s {billingGroups = a} :: ListBillingGroupsResponse)
+{-# DEPRECATED lbgrsBillingGroups "Use generic-lens or generic-optics with 'billingGroups' instead." #-}
 
--- | -- | The response status code.
-lbgrsResponseStatus :: Lens' ListBillingGroupsResponse Int
-lbgrsResponseStatus = lens _lbgrsResponseStatus (\s a -> s {_lbgrsResponseStatus = a})
-
-instance NFData ListBillingGroupsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbgrsResponseStatus :: Lens.Lens' ListBillingGroupsResponse Lude.Int
+lbgrsResponseStatus = Lens.lens (responseStatus :: ListBillingGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBillingGroupsResponse)
+{-# DEPRECATED lbgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

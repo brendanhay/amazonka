@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,98 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.ResourceDataSyncSource where
+module Network.AWS.SSM.Types.ResourceDataSyncSource
+  ( ResourceDataSyncSource (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResourceDataSyncSource,
+
+    -- * Lenses
+    rdssIncludeFutureRegions,
+    rdssAWSOrganizationsSource,
+    rdssSourceType,
+    rdssSourceRegions,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.ResourceDataSyncAWSOrganizationsSource
 
 -- | Information about the source of the data included in the resource data sync.
 --
---
---
--- /See:/ 'resourceDataSyncSource' smart constructor.
+-- /See:/ 'mkResourceDataSyncSource' smart constructor.
 data ResourceDataSyncSource = ResourceDataSyncSource'
-  { _rdssIncludeFutureRegions ::
-      !(Maybe Bool),
-    _rdssAWSOrganizationsSource ::
-      !( Maybe
-           ResourceDataSyncAWSOrganizationsSource
-       ),
-    _rdssSourceType :: !Text,
-    _rdssSourceRegions :: ![Text]
+  { includeFutureRegions ::
+      Lude.Maybe Lude.Bool,
+    awsOrganizationsSource ::
+      Lude.Maybe
+        ResourceDataSyncAWSOrganizationsSource,
+    sourceType :: Lude.Text,
+    sourceRegions :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDataSyncSource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdssIncludeFutureRegions' - Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
---
--- * 'rdssAWSOrganizationsSource' - Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations.
---
--- * 'rdssSourceType' - The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
---
--- * 'rdssSourceRegions' - The @SyncSource@ AWS Regions included in the resource data sync.
-resourceDataSyncSource ::
-  -- | 'rdssSourceType'
-  Text ->
+-- * 'awsOrganizationsSource' - Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations.
+-- * 'includeFutureRegions' - Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+-- * 'sourceRegions' - The @SyncSource@ AWS Regions included in the resource data sync.
+-- * 'sourceType' - The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
+mkResourceDataSyncSource ::
+  -- | 'sourceType'
+  Lude.Text ->
   ResourceDataSyncSource
-resourceDataSyncSource pSourceType_ =
+mkResourceDataSyncSource pSourceType_ =
   ResourceDataSyncSource'
-    { _rdssIncludeFutureRegions = Nothing,
-      _rdssAWSOrganizationsSource = Nothing,
-      _rdssSourceType = pSourceType_,
-      _rdssSourceRegions = mempty
+    { includeFutureRegions = Lude.Nothing,
+      awsOrganizationsSource = Lude.Nothing,
+      sourceType = pSourceType_,
+      sourceRegions = Lude.mempty
     }
 
 -- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
-rdssIncludeFutureRegions :: Lens' ResourceDataSyncSource (Maybe Bool)
-rdssIncludeFutureRegions = lens _rdssIncludeFutureRegions (\s a -> s {_rdssIncludeFutureRegions = a})
+--
+-- /Note:/ Consider using 'includeFutureRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssIncludeFutureRegions :: Lens.Lens' ResourceDataSyncSource (Lude.Maybe Lude.Bool)
+rdssIncludeFutureRegions = Lens.lens (includeFutureRegions :: ResourceDataSyncSource -> Lude.Maybe Lude.Bool) (\s a -> s {includeFutureRegions = a} :: ResourceDataSyncSource)
+{-# DEPRECATED rdssIncludeFutureRegions "Use generic-lens or generic-optics with 'includeFutureRegions' instead." #-}
 
 -- | Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations.
-rdssAWSOrganizationsSource :: Lens' ResourceDataSyncSource (Maybe ResourceDataSyncAWSOrganizationsSource)
-rdssAWSOrganizationsSource = lens _rdssAWSOrganizationsSource (\s a -> s {_rdssAWSOrganizationsSource = a})
+--
+-- /Note:/ Consider using 'awsOrganizationsSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssAWSOrganizationsSource :: Lens.Lens' ResourceDataSyncSource (Lude.Maybe ResourceDataSyncAWSOrganizationsSource)
+rdssAWSOrganizationsSource = Lens.lens (awsOrganizationsSource :: ResourceDataSyncSource -> Lude.Maybe ResourceDataSyncAWSOrganizationsSource) (\s a -> s {awsOrganizationsSource = a} :: ResourceDataSyncSource)
+{-# DEPRECATED rdssAWSOrganizationsSource "Use generic-lens or generic-optics with 'awsOrganizationsSource' instead." #-}
 
 -- | The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
-rdssSourceType :: Lens' ResourceDataSyncSource Text
-rdssSourceType = lens _rdssSourceType (\s a -> s {_rdssSourceType = a})
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssSourceType :: Lens.Lens' ResourceDataSyncSource Lude.Text
+rdssSourceType = Lens.lens (sourceType :: ResourceDataSyncSource -> Lude.Text) (\s a -> s {sourceType = a} :: ResourceDataSyncSource)
+{-# DEPRECATED rdssSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | The @SyncSource@ AWS Regions included in the resource data sync.
-rdssSourceRegions :: Lens' ResourceDataSyncSource [Text]
-rdssSourceRegions = lens _rdssSourceRegions (\s a -> s {_rdssSourceRegions = a}) . _Coerce
+--
+-- /Note:/ Consider using 'sourceRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssSourceRegions :: Lens.Lens' ResourceDataSyncSource [Lude.Text]
+rdssSourceRegions = Lens.lens (sourceRegions :: ResourceDataSyncSource -> [Lude.Text]) (\s a -> s {sourceRegions = a} :: ResourceDataSyncSource)
+{-# DEPRECATED rdssSourceRegions "Use generic-lens or generic-optics with 'sourceRegions' instead." #-}
 
-instance Hashable ResourceDataSyncSource
-
-instance NFData ResourceDataSyncSource
-
-instance ToJSON ResourceDataSyncSource where
+instance Lude.ToJSON ResourceDataSyncSource where
   toJSON ResourceDataSyncSource' {..} =
-    object
-      ( catMaybes
-          [ ("IncludeFutureRegions" .=) <$> _rdssIncludeFutureRegions,
-            ("AwsOrganizationsSource" .=) <$> _rdssAWSOrganizationsSource,
-            Just ("SourceType" .= _rdssSourceType),
-            Just ("SourceRegions" .= _rdssSourceRegions)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("IncludeFutureRegions" Lude..=) Lude.<$> includeFutureRegions,
+            ("AwsOrganizationsSource" Lude..=) Lude.<$> awsOrganizationsSource,
+            Lude.Just ("SourceType" Lude..= sourceType),
+            Lude.Just ("SourceRegions" Lude..= sourceRegions)
           ]
       )

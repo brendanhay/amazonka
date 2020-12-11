@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Route53AutoNaming.Types.OperationType where
+module Network.AWS.Route53AutoNaming.Types.OperationType
+  ( OperationType
+      ( OperationType',
+        CreateNamespace,
+        DeleteNamespace,
+        DeregisterInstance,
+        RegisterInstance,
+        UpdateService
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OperationType
-  = CreateNamespace
-  | DeleteNamespace
-  | DeregisterInstance
-  | RegisterInstance
-  | UpdateService
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OperationType = OperationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OperationType where
-  parser =
-    takeLowerText >>= \case
-      "create_namespace" -> pure CreateNamespace
-      "delete_namespace" -> pure DeleteNamespace
-      "deregister_instance" -> pure DeregisterInstance
-      "register_instance" -> pure RegisterInstance
-      "update_service" -> pure UpdateService
-      e ->
-        fromTextError $
-          "Failure parsing OperationType from value: '" <> e
-            <> "'. Accepted values: create_namespace, delete_namespace, deregister_instance, register_instance, update_service"
+pattern CreateNamespace :: OperationType
+pattern CreateNamespace = OperationType' "CREATE_NAMESPACE"
 
-instance ToText OperationType where
-  toText = \case
-    CreateNamespace -> "CREATE_NAMESPACE"
-    DeleteNamespace -> "DELETE_NAMESPACE"
-    DeregisterInstance -> "DEREGISTER_INSTANCE"
-    RegisterInstance -> "REGISTER_INSTANCE"
-    UpdateService -> "UPDATE_SERVICE"
+pattern DeleteNamespace :: OperationType
+pattern DeleteNamespace = OperationType' "DELETE_NAMESPACE"
 
-instance Hashable OperationType
+pattern DeregisterInstance :: OperationType
+pattern DeregisterInstance = OperationType' "DEREGISTER_INSTANCE"
 
-instance NFData OperationType
+pattern RegisterInstance :: OperationType
+pattern RegisterInstance = OperationType' "REGISTER_INSTANCE"
 
-instance ToByteString OperationType
+pattern UpdateService :: OperationType
+pattern UpdateService = OperationType' "UPDATE_SERVICE"
 
-instance ToQuery OperationType
-
-instance ToHeader OperationType
-
-instance FromJSON OperationType where
-  parseJSON = parseJSONText "OperationType"
+{-# COMPLETE
+  CreateNamespace,
+  DeleteNamespace,
+  DeregisterInstance,
+  RegisterInstance,
+  UpdateService,
+  OperationType'
+  #-}

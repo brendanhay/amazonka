@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ClientVPNEndpointStatusCode where
+module Network.AWS.EC2.Types.ClientVPNEndpointStatusCode
+  ( ClientVPNEndpointStatusCode
+      ( ClientVPNEndpointStatusCode',
+        CVESCAvailable,
+        CVESCDeleted,
+        CVESCDeleting,
+        CVESCPendingAssociate
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ClientVPNEndpointStatusCode
-  = CVESCAvailable
-  | CVESCDeleted
-  | CVESCDeleting
-  | CVESCPendingAssociate
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ClientVPNEndpointStatusCode = ClientVPNEndpointStatusCode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ClientVPNEndpointStatusCode where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure CVESCAvailable
-      "deleted" -> pure CVESCDeleted
-      "deleting" -> pure CVESCDeleting
-      "pending-associate" -> pure CVESCPendingAssociate
-      e ->
-        fromTextError $
-          "Failure parsing ClientVPNEndpointStatusCode from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, pending-associate"
+pattern CVESCAvailable :: ClientVPNEndpointStatusCode
+pattern CVESCAvailable = ClientVPNEndpointStatusCode' "available"
 
-instance ToText ClientVPNEndpointStatusCode where
-  toText = \case
-    CVESCAvailable -> "available"
-    CVESCDeleted -> "deleted"
-    CVESCDeleting -> "deleting"
-    CVESCPendingAssociate -> "pending-associate"
+pattern CVESCDeleted :: ClientVPNEndpointStatusCode
+pattern CVESCDeleted = ClientVPNEndpointStatusCode' "deleted"
 
-instance Hashable ClientVPNEndpointStatusCode
+pattern CVESCDeleting :: ClientVPNEndpointStatusCode
+pattern CVESCDeleting = ClientVPNEndpointStatusCode' "deleting"
 
-instance NFData ClientVPNEndpointStatusCode
+pattern CVESCPendingAssociate :: ClientVPNEndpointStatusCode
+pattern CVESCPendingAssociate = ClientVPNEndpointStatusCode' "pending-associate"
 
-instance ToByteString ClientVPNEndpointStatusCode
-
-instance ToQuery ClientVPNEndpointStatusCode
-
-instance ToHeader ClientVPNEndpointStatusCode
-
-instance FromXML ClientVPNEndpointStatusCode where
-  parseXML = parseXMLText "ClientVPNEndpointStatusCode"
+{-# COMPLETE
+  CVESCAvailable,
+  CVESCDeleted,
+  CVESCDeleting,
+  CVESCPendingAssociate,
+  ClientVPNEndpointStatusCode'
+  #-}

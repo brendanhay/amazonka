@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,133 +14,138 @@
 --
 -- Gets the properties associated with a document classification job. Use this operation to get the status of a classification job.
 module Network.AWS.Comprehend.DescribeDocumentClassificationJob
-  ( -- * Creating a Request
-    describeDocumentClassificationJob,
-    DescribeDocumentClassificationJob,
+  ( -- * Creating a request
+    DescribeDocumentClassificationJob (..),
+    mkDescribeDocumentClassificationJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcjJobId,
 
-    -- * Destructuring the Response
-    describeDocumentClassificationJobResponse,
-    DescribeDocumentClassificationJobResponse,
+    -- * Destructuring the response
+    DescribeDocumentClassificationJobResponse (..),
+    mkDescribeDocumentClassificationJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcjrsDocumentClassificationJobProperties,
     ddcjrsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDocumentClassificationJob' smart constructor.
+-- | /See:/ 'mkDescribeDocumentClassificationJob' smart constructor.
 newtype DescribeDocumentClassificationJob = DescribeDocumentClassificationJob'
-  { _ddcjJobId ::
-      Text
+  { jobId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentClassificationJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcjJobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-describeDocumentClassificationJob ::
-  -- | 'ddcjJobId'
-  Text ->
+-- * 'jobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+mkDescribeDocumentClassificationJob ::
+  -- | 'jobId'
+  Lude.Text ->
   DescribeDocumentClassificationJob
-describeDocumentClassificationJob pJobId_ =
-  DescribeDocumentClassificationJob' {_ddcjJobId = pJobId_}
+mkDescribeDocumentClassificationJob pJobId_ =
+  DescribeDocumentClassificationJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-ddcjJobId :: Lens' DescribeDocumentClassificationJob Text
-ddcjJobId = lens _ddcjJobId (\s a -> s {_ddcjJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcjJobId :: Lens.Lens' DescribeDocumentClassificationJob Lude.Text
+ddcjJobId = Lens.lens (jobId :: DescribeDocumentClassificationJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeDocumentClassificationJob)
+{-# DEPRECATED ddcjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest DescribeDocumentClassificationJob where
+instance Lude.AWSRequest DescribeDocumentClassificationJob where
   type
     Rs DescribeDocumentClassificationJob =
       DescribeDocumentClassificationJobResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDocumentClassificationJobResponse'
-            <$> (x .?> "DocumentClassificationJobProperties")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DocumentClassificationJobProperties")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDocumentClassificationJob
-
-instance NFData DescribeDocumentClassificationJob
-
-instance ToHeaders DescribeDocumentClassificationJob where
+instance Lude.ToHeaders DescribeDocumentClassificationJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Comprehend_20171127.DescribeDocumentClassificationJob" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Comprehend_20171127.DescribeDocumentClassificationJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDocumentClassificationJob where
+instance Lude.ToJSON DescribeDocumentClassificationJob where
   toJSON DescribeDocumentClassificationJob' {..} =
-    object (catMaybes [Just ("JobId" .= _ddcjJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
 
-instance ToPath DescribeDocumentClassificationJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeDocumentClassificationJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDocumentClassificationJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDocumentClassificationJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeDocumentClassificationJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeDocumentClassificationJobResponse' smart constructor.
 data DescribeDocumentClassificationJobResponse = DescribeDocumentClassificationJobResponse'
-  { _ddcjrsDocumentClassificationJobProperties ::
-      !( Maybe
-           DocumentClassificationJobProperties
-       ),
-    _ddcjrsResponseStatus ::
-      !Int
+  { documentClassificationJobProperties ::
+      Lude.Maybe
+        DocumentClassificationJobProperties,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentClassificationJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcjrsDocumentClassificationJobProperties' - An object that describes the properties associated with the document classification job.
---
--- * 'ddcjrsResponseStatus' - -- | The response status code.
-describeDocumentClassificationJobResponse ::
-  -- | 'ddcjrsResponseStatus'
-  Int ->
+-- * 'documentClassificationJobProperties' - An object that describes the properties associated with the document classification job.
+-- * 'responseStatus' - The response status code.
+mkDescribeDocumentClassificationJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDocumentClassificationJobResponse
-describeDocumentClassificationJobResponse pResponseStatus_ =
+mkDescribeDocumentClassificationJobResponse pResponseStatus_ =
   DescribeDocumentClassificationJobResponse'
-    { _ddcjrsDocumentClassificationJobProperties =
-        Nothing,
-      _ddcjrsResponseStatus = pResponseStatus_
+    { documentClassificationJobProperties =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that describes the properties associated with the document classification job.
-ddcjrsDocumentClassificationJobProperties :: Lens' DescribeDocumentClassificationJobResponse (Maybe DocumentClassificationJobProperties)
-ddcjrsDocumentClassificationJobProperties = lens _ddcjrsDocumentClassificationJobProperties (\s a -> s {_ddcjrsDocumentClassificationJobProperties = a})
+--
+-- /Note:/ Consider using 'documentClassificationJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcjrsDocumentClassificationJobProperties :: Lens.Lens' DescribeDocumentClassificationJobResponse (Lude.Maybe DocumentClassificationJobProperties)
+ddcjrsDocumentClassificationJobProperties = Lens.lens (documentClassificationJobProperties :: DescribeDocumentClassificationJobResponse -> Lude.Maybe DocumentClassificationJobProperties) (\s a -> s {documentClassificationJobProperties = a} :: DescribeDocumentClassificationJobResponse)
+{-# DEPRECATED ddcjrsDocumentClassificationJobProperties "Use generic-lens or generic-optics with 'documentClassificationJobProperties' instead." #-}
 
--- | -- | The response status code.
-ddcjrsResponseStatus :: Lens' DescribeDocumentClassificationJobResponse Int
-ddcjrsResponseStatus = lens _ddcjrsResponseStatus (\s a -> s {_ddcjrsResponseStatus = a})
-
-instance NFData DescribeDocumentClassificationJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcjrsResponseStatus :: Lens.Lens' DescribeDocumentClassificationJobResponse Lude.Int
+ddcjrsResponseStatus = Lens.lens (responseStatus :: DescribeDocumentClassificationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDocumentClassificationJobResponse)
+{-# DEPRECATED ddcjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

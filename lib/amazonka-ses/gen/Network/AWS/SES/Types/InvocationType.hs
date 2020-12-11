@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.InvocationType where
+module Network.AWS.SES.Types.InvocationType
+  ( InvocationType
+      ( InvocationType',
+        Event,
+        RequestResponse
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data InvocationType
-  = Event
-  | RequestResponse
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InvocationType = InvocationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InvocationType where
-  parser =
-    takeLowerText >>= \case
-      "event" -> pure Event
-      "requestresponse" -> pure RequestResponse
-      e ->
-        fromTextError $
-          "Failure parsing InvocationType from value: '" <> e
-            <> "'. Accepted values: event, requestresponse"
+pattern Event :: InvocationType
+pattern Event = InvocationType' "Event"
 
-instance ToText InvocationType where
-  toText = \case
-    Event -> "Event"
-    RequestResponse -> "RequestResponse"
+pattern RequestResponse :: InvocationType
+pattern RequestResponse = InvocationType' "RequestResponse"
 
-instance Hashable InvocationType
-
-instance NFData InvocationType
-
-instance ToByteString InvocationType
-
-instance ToQuery InvocationType
-
-instance ToHeader InvocationType
-
-instance FromXML InvocationType where
-  parseXML = parseXMLText "InvocationType"
+{-# COMPLETE
+  Event,
+  RequestResponse,
+  InvocationType'
+  #-}

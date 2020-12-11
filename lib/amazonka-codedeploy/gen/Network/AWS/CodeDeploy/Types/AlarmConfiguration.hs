@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.AlarmConfiguration where
+module Network.AWS.CodeDeploy.Types.AlarmConfiguration
+  ( AlarmConfiguration (..),
+
+    -- * Smart constructor
+    mkAlarmConfiguration,
+
+    -- * Lenses
+    acIgnorePollAlarmFailure,
+    acEnabled,
+    acAlarms,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.Alarm
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about alarms associated with the deployment group.
 --
---
---
--- /See:/ 'alarmConfiguration' smart constructor.
+-- /See:/ 'mkAlarmConfiguration' smart constructor.
 data AlarmConfiguration = AlarmConfiguration'
-  { _acIgnorePollAlarmFailure ::
-      !(Maybe Bool),
-    _acEnabled :: !(Maybe Bool),
-    _acAlarms :: !(Maybe [Alarm])
+  { ignorePollAlarmFailure ::
+      Lude.Maybe Lude.Bool,
+    enabled :: Lude.Maybe Lude.Bool,
+    alarms :: Lude.Maybe [Alarm]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlarmConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'alarms' - A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.
+-- * 'enabled' - Indicates whether the alarm configuration is enabled.
+-- * 'ignorePollAlarmFailure' - Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
 --
--- * 'acIgnorePollAlarmFailure' - Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.     * @true@ : The deployment proceeds even if alarm status information can't be retrieved from Amazon CloudWatch.     * @false@ : The deployment stops if alarm status information can't be retrieved from Amazon CloudWatch.
 --
--- * 'acEnabled' - Indicates whether the alarm configuration is enabled.
+--     * @true@ : The deployment proceeds even if alarm status information can't be retrieved from Amazon CloudWatch.
 --
--- * 'acAlarms' - A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.
-alarmConfiguration ::
+--
+--     * @false@ : The deployment stops if alarm status information can't be retrieved from Amazon CloudWatch.
+mkAlarmConfiguration ::
   AlarmConfiguration
-alarmConfiguration =
+mkAlarmConfiguration =
   AlarmConfiguration'
-    { _acIgnorePollAlarmFailure = Nothing,
-      _acEnabled = Nothing,
-      _acAlarms = Nothing
+    { ignorePollAlarmFailure = Lude.Nothing,
+      enabled = Lude.Nothing,
+      alarms = Lude.Nothing
     }
 
--- | Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.     * @true@ : The deployment proceeds even if alarm status information can't be retrieved from Amazon CloudWatch.     * @false@ : The deployment stops if alarm status information can't be retrieved from Amazon CloudWatch.
-acIgnorePollAlarmFailure :: Lens' AlarmConfiguration (Maybe Bool)
-acIgnorePollAlarmFailure = lens _acIgnorePollAlarmFailure (\s a -> s {_acIgnorePollAlarmFailure = a})
+-- | Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
+--
+--
+--     * @true@ : The deployment proceeds even if alarm status information can't be retrieved from Amazon CloudWatch.
+--
+--
+--     * @false@ : The deployment stops if alarm status information can't be retrieved from Amazon CloudWatch.
+--
+--
+--
+-- /Note:/ Consider using 'ignorePollAlarmFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acIgnorePollAlarmFailure :: Lens.Lens' AlarmConfiguration (Lude.Maybe Lude.Bool)
+acIgnorePollAlarmFailure = Lens.lens (ignorePollAlarmFailure :: AlarmConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {ignorePollAlarmFailure = a} :: AlarmConfiguration)
+{-# DEPRECATED acIgnorePollAlarmFailure "Use generic-lens or generic-optics with 'ignorePollAlarmFailure' instead." #-}
 
 -- | Indicates whether the alarm configuration is enabled.
-acEnabled :: Lens' AlarmConfiguration (Maybe Bool)
-acEnabled = lens _acEnabled (\s a -> s {_acEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acEnabled :: Lens.Lens' AlarmConfiguration (Lude.Maybe Lude.Bool)
+acEnabled = Lens.lens (enabled :: AlarmConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: AlarmConfiguration)
+{-# DEPRECATED acEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.
-acAlarms :: Lens' AlarmConfiguration [Alarm]
-acAlarms = lens _acAlarms (\s a -> s {_acAlarms = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'alarms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acAlarms :: Lens.Lens' AlarmConfiguration (Lude.Maybe [Alarm])
+acAlarms = Lens.lens (alarms :: AlarmConfiguration -> Lude.Maybe [Alarm]) (\s a -> s {alarms = a} :: AlarmConfiguration)
+{-# DEPRECATED acAlarms "Use generic-lens or generic-optics with 'alarms' instead." #-}
 
-instance FromJSON AlarmConfiguration where
+instance Lude.FromJSON AlarmConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "AlarmConfiguration"
       ( \x ->
           AlarmConfiguration'
-            <$> (x .:? "ignorePollAlarmFailure")
-            <*> (x .:? "enabled")
-            <*> (x .:? "alarms" .!= mempty)
+            Lude.<$> (x Lude..:? "ignorePollAlarmFailure")
+            Lude.<*> (x Lude..:? "enabled")
+            Lude.<*> (x Lude..:? "alarms" Lude..!= Lude.mempty)
       )
 
-instance Hashable AlarmConfiguration
-
-instance NFData AlarmConfiguration
-
-instance ToJSON AlarmConfiguration where
+instance Lude.ToJSON AlarmConfiguration where
   toJSON AlarmConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("ignorePollAlarmFailure" .=) <$> _acIgnorePollAlarmFailure,
-            ("enabled" .=) <$> _acEnabled,
-            ("alarms" .=) <$> _acAlarms
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ignorePollAlarmFailure" Lude..=)
+              Lude.<$> ignorePollAlarmFailure,
+            ("enabled" Lude..=) Lude.<$> enabled,
+            ("alarms" Lude..=) Lude.<$> alarms
           ]
       )

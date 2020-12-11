@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.CharLengthSemantics where
+module Network.AWS.DMS.Types.CharLengthSemantics
+  ( CharLengthSemantics
+      ( CharLengthSemantics',
+        Byte,
+        Char,
+        Default
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CharLengthSemantics
-  = Byte
-  | Char
-  | Default
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CharLengthSemantics = CharLengthSemantics' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CharLengthSemantics where
-  parser =
-    takeLowerText >>= \case
-      "byte" -> pure Byte
-      "char" -> pure Char
-      "default" -> pure Default
-      e ->
-        fromTextError $
-          "Failure parsing CharLengthSemantics from value: '" <> e
-            <> "'. Accepted values: byte, char, default"
+pattern Byte :: CharLengthSemantics
+pattern Byte = CharLengthSemantics' "byte"
 
-instance ToText CharLengthSemantics where
-  toText = \case
-    Byte -> "byte"
-    Char -> "char"
-    Default -> "default"
+pattern Char :: CharLengthSemantics
+pattern Char = CharLengthSemantics' "char"
 
-instance Hashable CharLengthSemantics
+pattern Default :: CharLengthSemantics
+pattern Default = CharLengthSemantics' "default"
 
-instance NFData CharLengthSemantics
-
-instance ToByteString CharLengthSemantics
-
-instance ToQuery CharLengthSemantics
-
-instance ToHeader CharLengthSemantics
-
-instance ToJSON CharLengthSemantics where
-  toJSON = toJSONText
-
-instance FromJSON CharLengthSemantics where
-  parseJSON = parseJSONText "CharLengthSemantics"
+{-# COMPLETE
+  Byte,
+  Char,
+  Default,
+  CharLengthSemantics'
+  #-}

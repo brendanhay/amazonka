@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,66 +14,77 @@
 --
 -- Deletes the organization. You can delete an organization only by using credentials from the management account. The organization must be empty of member accounts.
 module Network.AWS.Organizations.DeleteOrganization
-  ( -- * Creating a Request
-    deleteOrganization,
-    DeleteOrganization,
+  ( -- * Creating a request
+    DeleteOrganization (..),
+    mkDeleteOrganization,
 
-    -- * Destructuring the Response
-    deleteOrganizationResponse,
-    DeleteOrganizationResponse,
+    -- * Destructuring the response
+    DeleteOrganizationResponse (..),
+    mkDeleteOrganizationResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteOrganization' smart constructor.
+-- | /See:/ 'mkDeleteOrganization' smart constructor.
 data DeleteOrganization = DeleteOrganization'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOrganization' with the minimum fields required to make a request.
-deleteOrganization ::
+mkDeleteOrganization ::
   DeleteOrganization
-deleteOrganization = DeleteOrganization'
+mkDeleteOrganization = DeleteOrganization'
 
-instance AWSRequest DeleteOrganization where
+instance Lude.AWSRequest DeleteOrganization where
   type Rs DeleteOrganization = DeleteOrganizationResponse
-  request = postJSON organizations
-  response = receiveNull DeleteOrganizationResponse'
+  request = Req.postJSON organizationsService
+  response = Res.receiveNull DeleteOrganizationResponse'
 
-instance Hashable DeleteOrganization
-
-instance NFData DeleteOrganization
-
-instance ToHeaders DeleteOrganization where
+instance Lude.ToHeaders DeleteOrganization where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.DeleteOrganization" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSOrganizationsV20161128.DeleteOrganization" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteOrganization where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DeleteOrganization where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DeleteOrganization where
-  toPath = const "/"
+instance Lude.ToPath DeleteOrganization where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteOrganization where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteOrganization where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteOrganizationResponse' smart constructor.
+-- | /See:/ 'mkDeleteOrganizationResponse' smart constructor.
 data DeleteOrganizationResponse = DeleteOrganizationResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOrganizationResponse' with the minimum fields required to make a request.
-deleteOrganizationResponse ::
+mkDeleteOrganizationResponse ::
   DeleteOrganizationResponse
-deleteOrganizationResponse = DeleteOrganizationResponse'
-
-instance NFData DeleteOrganizationResponse
+mkDeleteOrganizationResponse = DeleteOrganizationResponse'

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,22 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.FMS.Types.ResourceViolation where
+module Network.AWS.FMS.Types.ResourceViolation
+  ( ResourceViolation (..),
+
+    -- * Smart constructor
+    mkResourceViolation,
+
+    -- * Lenses
+    rvNetworkFirewallMissingExpectedRTViolation,
+    rvNetworkFirewallMissingFirewallViolation,
+    rvNetworkFirewallMissingSubnetViolation,
+    rvAWSEC2InstanceViolation,
+    rvAWSVPCSecurityGroupViolation,
+    rvNetworkFirewallPolicyModifiedViolation,
+    rvAWSEC2NetworkInterfaceViolation,
+  )
+where
 
 import Network.AWS.FMS.Types.AWSEC2InstanceViolation
 import Network.AWS.FMS.Types.AWSEC2NetworkInterfaceViolation
@@ -22,106 +31,120 @@ import Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation
 import Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
 import Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation
 import Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Violation detail based on resource type.
 --
---
---
--- /See:/ 'resourceViolation' smart constructor.
+-- /See:/ 'mkResourceViolation' smart constructor.
 data ResourceViolation = ResourceViolation'
-  { _rvNetworkFirewallMissingExpectedRTViolation ::
-      !(Maybe NetworkFirewallMissingExpectedRTViolation),
-    _rvNetworkFirewallMissingFirewallViolation ::
-      !(Maybe NetworkFirewallMissingFirewallViolation),
-    _rvNetworkFirewallMissingSubnetViolation ::
-      !(Maybe NetworkFirewallMissingSubnetViolation),
-    _rvAWSEC2InstanceViolation ::
-      !(Maybe AWSEC2InstanceViolation),
-    _rvAWSVPCSecurityGroupViolation ::
-      !(Maybe AWSVPCSecurityGroupViolation),
-    _rvNetworkFirewallPolicyModifiedViolation ::
-      !(Maybe NetworkFirewallPolicyModifiedViolation),
-    _rvAWSEC2NetworkInterfaceViolation ::
-      !(Maybe AWSEC2NetworkInterfaceViolation)
+  { networkFirewallMissingExpectedRTViolation ::
+      Lude.Maybe NetworkFirewallMissingExpectedRTViolation,
+    networkFirewallMissingFirewallViolation ::
+      Lude.Maybe NetworkFirewallMissingFirewallViolation,
+    networkFirewallMissingSubnetViolation ::
+      Lude.Maybe NetworkFirewallMissingSubnetViolation,
+    awsEC2InstanceViolation ::
+      Lude.Maybe AWSEC2InstanceViolation,
+    awsVPCSecurityGroupViolation ::
+      Lude.Maybe AWSVPCSecurityGroupViolation,
+    networkFirewallPolicyModifiedViolation ::
+      Lude.Maybe NetworkFirewallPolicyModifiedViolation,
+    awsEC2NetworkInterfaceViolation ::
+      Lude.Maybe AWSEC2NetworkInterfaceViolation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceViolation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rvNetworkFirewallMissingExpectedRTViolation' - Violation detail for an Network Firewall policy that indicates that a subnet is not associated with the expected Firewall Manager managed route table.
---
--- * 'rvNetworkFirewallMissingFirewallViolation' - Violation detail for an Network Firewall policy that indicates that a subnet has no Firewall Manager managed firewall in its VPC.
---
--- * 'rvNetworkFirewallMissingSubnetViolation' - Violation detail for an Network Firewall policy that indicates that an Availability Zone is missing the expected Firewall Manager managed subnet.
---
--- * 'rvAWSEC2InstanceViolation' - Violation details for an EC2 instance.
---
--- * 'rvAWSVPCSecurityGroupViolation' - Violation details for security groups.
---
--- * 'rvNetworkFirewallPolicyModifiedViolation' - Violation detail for an Network Firewall policy that indicates that a firewall policy in an individual account has been modified in a way that makes it noncompliant. For example, the individual account owner might have deleted a rule group, changed the priority of a stateless rule group, or changed a policy default action.
---
--- * 'rvAWSEC2NetworkInterfaceViolation' - Violation details for network interface.
-resourceViolation ::
+-- * 'awsEC2InstanceViolation' - Violation details for an EC2 instance.
+-- * 'awsEC2NetworkInterfaceViolation' - Violation details for network interface.
+-- * 'awsVPCSecurityGroupViolation' - Violation details for security groups.
+-- * 'networkFirewallMissingExpectedRTViolation' - Violation detail for an Network Firewall policy that indicates that a subnet is not associated with the expected Firewall Manager managed route table.
+-- * 'networkFirewallMissingFirewallViolation' - Violation detail for an Network Firewall policy that indicates that a subnet has no Firewall Manager managed firewall in its VPC.
+-- * 'networkFirewallMissingSubnetViolation' - Violation detail for an Network Firewall policy that indicates that an Availability Zone is missing the expected Firewall Manager managed subnet.
+-- * 'networkFirewallPolicyModifiedViolation' - Violation detail for an Network Firewall policy that indicates that a firewall policy in an individual account has been modified in a way that makes it noncompliant. For example, the individual account owner might have deleted a rule group, changed the priority of a stateless rule group, or changed a policy default action.
+mkResourceViolation ::
   ResourceViolation
-resourceViolation =
+mkResourceViolation =
   ResourceViolation'
-    { _rvNetworkFirewallMissingExpectedRTViolation =
-        Nothing,
-      _rvNetworkFirewallMissingFirewallViolation = Nothing,
-      _rvNetworkFirewallMissingSubnetViolation = Nothing,
-      _rvAWSEC2InstanceViolation = Nothing,
-      _rvAWSVPCSecurityGroupViolation = Nothing,
-      _rvNetworkFirewallPolicyModifiedViolation = Nothing,
-      _rvAWSEC2NetworkInterfaceViolation = Nothing
+    { networkFirewallMissingExpectedRTViolation =
+        Lude.Nothing,
+      networkFirewallMissingFirewallViolation = Lude.Nothing,
+      networkFirewallMissingSubnetViolation = Lude.Nothing,
+      awsEC2InstanceViolation = Lude.Nothing,
+      awsVPCSecurityGroupViolation = Lude.Nothing,
+      networkFirewallPolicyModifiedViolation = Lude.Nothing,
+      awsEC2NetworkInterfaceViolation = Lude.Nothing
     }
 
 -- | Violation detail for an Network Firewall policy that indicates that a subnet is not associated with the expected Firewall Manager managed route table.
-rvNetworkFirewallMissingExpectedRTViolation :: Lens' ResourceViolation (Maybe NetworkFirewallMissingExpectedRTViolation)
-rvNetworkFirewallMissingExpectedRTViolation = lens _rvNetworkFirewallMissingExpectedRTViolation (\s a -> s {_rvNetworkFirewallMissingExpectedRTViolation = a})
+--
+-- /Note:/ Consider using 'networkFirewallMissingExpectedRTViolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvNetworkFirewallMissingExpectedRTViolation :: Lens.Lens' ResourceViolation (Lude.Maybe NetworkFirewallMissingExpectedRTViolation)
+rvNetworkFirewallMissingExpectedRTViolation = Lens.lens (networkFirewallMissingExpectedRTViolation :: ResourceViolation -> Lude.Maybe NetworkFirewallMissingExpectedRTViolation) (\s a -> s {networkFirewallMissingExpectedRTViolation = a} :: ResourceViolation)
+{-# DEPRECATED rvNetworkFirewallMissingExpectedRTViolation "Use generic-lens or generic-optics with 'networkFirewallMissingExpectedRTViolation' instead." #-}
 
 -- | Violation detail for an Network Firewall policy that indicates that a subnet has no Firewall Manager managed firewall in its VPC.
-rvNetworkFirewallMissingFirewallViolation :: Lens' ResourceViolation (Maybe NetworkFirewallMissingFirewallViolation)
-rvNetworkFirewallMissingFirewallViolation = lens _rvNetworkFirewallMissingFirewallViolation (\s a -> s {_rvNetworkFirewallMissingFirewallViolation = a})
+--
+-- /Note:/ Consider using 'networkFirewallMissingFirewallViolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvNetworkFirewallMissingFirewallViolation :: Lens.Lens' ResourceViolation (Lude.Maybe NetworkFirewallMissingFirewallViolation)
+rvNetworkFirewallMissingFirewallViolation = Lens.lens (networkFirewallMissingFirewallViolation :: ResourceViolation -> Lude.Maybe NetworkFirewallMissingFirewallViolation) (\s a -> s {networkFirewallMissingFirewallViolation = a} :: ResourceViolation)
+{-# DEPRECATED rvNetworkFirewallMissingFirewallViolation "Use generic-lens or generic-optics with 'networkFirewallMissingFirewallViolation' instead." #-}
 
 -- | Violation detail for an Network Firewall policy that indicates that an Availability Zone is missing the expected Firewall Manager managed subnet.
-rvNetworkFirewallMissingSubnetViolation :: Lens' ResourceViolation (Maybe NetworkFirewallMissingSubnetViolation)
-rvNetworkFirewallMissingSubnetViolation = lens _rvNetworkFirewallMissingSubnetViolation (\s a -> s {_rvNetworkFirewallMissingSubnetViolation = a})
+--
+-- /Note:/ Consider using 'networkFirewallMissingSubnetViolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvNetworkFirewallMissingSubnetViolation :: Lens.Lens' ResourceViolation (Lude.Maybe NetworkFirewallMissingSubnetViolation)
+rvNetworkFirewallMissingSubnetViolation = Lens.lens (networkFirewallMissingSubnetViolation :: ResourceViolation -> Lude.Maybe NetworkFirewallMissingSubnetViolation) (\s a -> s {networkFirewallMissingSubnetViolation = a} :: ResourceViolation)
+{-# DEPRECATED rvNetworkFirewallMissingSubnetViolation "Use generic-lens or generic-optics with 'networkFirewallMissingSubnetViolation' instead." #-}
 
 -- | Violation details for an EC2 instance.
-rvAWSEC2InstanceViolation :: Lens' ResourceViolation (Maybe AWSEC2InstanceViolation)
-rvAWSEC2InstanceViolation = lens _rvAWSEC2InstanceViolation (\s a -> s {_rvAWSEC2InstanceViolation = a})
+--
+-- /Note:/ Consider using 'awsEC2InstanceViolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvAWSEC2InstanceViolation :: Lens.Lens' ResourceViolation (Lude.Maybe AWSEC2InstanceViolation)
+rvAWSEC2InstanceViolation = Lens.lens (awsEC2InstanceViolation :: ResourceViolation -> Lude.Maybe AWSEC2InstanceViolation) (\s a -> s {awsEC2InstanceViolation = a} :: ResourceViolation)
+{-# DEPRECATED rvAWSEC2InstanceViolation "Use generic-lens or generic-optics with 'awsEC2InstanceViolation' instead." #-}
 
 -- | Violation details for security groups.
-rvAWSVPCSecurityGroupViolation :: Lens' ResourceViolation (Maybe AWSVPCSecurityGroupViolation)
-rvAWSVPCSecurityGroupViolation = lens _rvAWSVPCSecurityGroupViolation (\s a -> s {_rvAWSVPCSecurityGroupViolation = a})
+--
+-- /Note:/ Consider using 'awsVPCSecurityGroupViolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvAWSVPCSecurityGroupViolation :: Lens.Lens' ResourceViolation (Lude.Maybe AWSVPCSecurityGroupViolation)
+rvAWSVPCSecurityGroupViolation = Lens.lens (awsVPCSecurityGroupViolation :: ResourceViolation -> Lude.Maybe AWSVPCSecurityGroupViolation) (\s a -> s {awsVPCSecurityGroupViolation = a} :: ResourceViolation)
+{-# DEPRECATED rvAWSVPCSecurityGroupViolation "Use generic-lens or generic-optics with 'awsVPCSecurityGroupViolation' instead." #-}
 
 -- | Violation detail for an Network Firewall policy that indicates that a firewall policy in an individual account has been modified in a way that makes it noncompliant. For example, the individual account owner might have deleted a rule group, changed the priority of a stateless rule group, or changed a policy default action.
-rvNetworkFirewallPolicyModifiedViolation :: Lens' ResourceViolation (Maybe NetworkFirewallPolicyModifiedViolation)
-rvNetworkFirewallPolicyModifiedViolation = lens _rvNetworkFirewallPolicyModifiedViolation (\s a -> s {_rvNetworkFirewallPolicyModifiedViolation = a})
+--
+-- /Note:/ Consider using 'networkFirewallPolicyModifiedViolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvNetworkFirewallPolicyModifiedViolation :: Lens.Lens' ResourceViolation (Lude.Maybe NetworkFirewallPolicyModifiedViolation)
+rvNetworkFirewallPolicyModifiedViolation = Lens.lens (networkFirewallPolicyModifiedViolation :: ResourceViolation -> Lude.Maybe NetworkFirewallPolicyModifiedViolation) (\s a -> s {networkFirewallPolicyModifiedViolation = a} :: ResourceViolation)
+{-# DEPRECATED rvNetworkFirewallPolicyModifiedViolation "Use generic-lens or generic-optics with 'networkFirewallPolicyModifiedViolation' instead." #-}
 
 -- | Violation details for network interface.
-rvAWSEC2NetworkInterfaceViolation :: Lens' ResourceViolation (Maybe AWSEC2NetworkInterfaceViolation)
-rvAWSEC2NetworkInterfaceViolation = lens _rvAWSEC2NetworkInterfaceViolation (\s a -> s {_rvAWSEC2NetworkInterfaceViolation = a})
+--
+-- /Note:/ Consider using 'awsEC2NetworkInterfaceViolation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvAWSEC2NetworkInterfaceViolation :: Lens.Lens' ResourceViolation (Lude.Maybe AWSEC2NetworkInterfaceViolation)
+rvAWSEC2NetworkInterfaceViolation = Lens.lens (awsEC2NetworkInterfaceViolation :: ResourceViolation -> Lude.Maybe AWSEC2NetworkInterfaceViolation) (\s a -> s {awsEC2NetworkInterfaceViolation = a} :: ResourceViolation)
+{-# DEPRECATED rvAWSEC2NetworkInterfaceViolation "Use generic-lens or generic-optics with 'awsEC2NetworkInterfaceViolation' instead." #-}
 
-instance FromJSON ResourceViolation where
+instance Lude.FromJSON ResourceViolation where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceViolation"
       ( \x ->
           ResourceViolation'
-            <$> (x .:? "NetworkFirewallMissingExpectedRTViolation")
-            <*> (x .:? "NetworkFirewallMissingFirewallViolation")
-            <*> (x .:? "NetworkFirewallMissingSubnetViolation")
-            <*> (x .:? "AwsEc2InstanceViolation")
-            <*> (x .:? "AwsVPCSecurityGroupViolation")
-            <*> (x .:? "NetworkFirewallPolicyModifiedViolation")
-            <*> (x .:? "AwsEc2NetworkInterfaceViolation")
+            Lude.<$> (x Lude..:? "NetworkFirewallMissingExpectedRTViolation")
+            Lude.<*> (x Lude..:? "NetworkFirewallMissingFirewallViolation")
+            Lude.<*> (x Lude..:? "NetworkFirewallMissingSubnetViolation")
+            Lude.<*> (x Lude..:? "AwsEc2InstanceViolation")
+            Lude.<*> (x Lude..:? "AwsVPCSecurityGroupViolation")
+            Lude.<*> (x Lude..:? "NetworkFirewallPolicyModifiedViolation")
+            Lude.<*> (x Lude..:? "AwsEc2NetworkInterfaceViolation")
       )
-
-instance Hashable ResourceViolation
-
-instance NFData ResourceViolation

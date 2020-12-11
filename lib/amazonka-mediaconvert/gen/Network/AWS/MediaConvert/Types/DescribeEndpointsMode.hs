@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.DescribeEndpointsMode where
+module Network.AWS.MediaConvert.Types.DescribeEndpointsMode
+  ( DescribeEndpointsMode
+      ( DescribeEndpointsMode',
+        DEMDefault,
+        DEMGetOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
-data DescribeEndpointsMode
-  = DEMDefault
-  | DEMGetOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DescribeEndpointsMode = DescribeEndpointsMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DescribeEndpointsMode where
-  parser =
-    takeLowerText >>= \case
-      "default" -> pure DEMDefault
-      "get_only" -> pure DEMGetOnly
-      e ->
-        fromTextError $
-          "Failure parsing DescribeEndpointsMode from value: '" <> e
-            <> "'. Accepted values: default, get_only"
+pattern DEMDefault :: DescribeEndpointsMode
+pattern DEMDefault = DescribeEndpointsMode' "DEFAULT"
 
-instance ToText DescribeEndpointsMode where
-  toText = \case
-    DEMDefault -> "DEFAULT"
-    DEMGetOnly -> "GET_ONLY"
+pattern DEMGetOnly :: DescribeEndpointsMode
+pattern DEMGetOnly = DescribeEndpointsMode' "GET_ONLY"
 
-instance Hashable DescribeEndpointsMode
-
-instance NFData DescribeEndpointsMode
-
-instance ToByteString DescribeEndpointsMode
-
-instance ToQuery DescribeEndpointsMode
-
-instance ToHeader DescribeEndpointsMode
-
-instance ToJSON DescribeEndpointsMode where
-  toJSON = toJSONText
+{-# COMPLETE
+  DEMDefault,
+  DEMGetOnly,
+  DescribeEndpointsMode'
+  #-}

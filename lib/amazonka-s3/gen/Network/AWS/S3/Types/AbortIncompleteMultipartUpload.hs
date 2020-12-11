@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.AbortIncompleteMultipartUpload where
+module Network.AWS.S3.Types.AbortIncompleteMultipartUpload
+  ( AbortIncompleteMultipartUpload (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAbortIncompleteMultipartUpload,
+
+    -- * Lenses
+    aimuDaysAfterInitiation,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy> in the /Amazon Simple Storage Service Developer Guide/ .
 --
---
---
--- /See:/ 'abortIncompleteMultipartUpload' smart constructor.
+-- /See:/ 'mkAbortIncompleteMultipartUpload' smart constructor.
 newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
-  { _aimuDaysAfterInitiation ::
-      Maybe Int
+  { daysAfterInitiation ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortIncompleteMultipartUpload' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aimuDaysAfterInitiation' - Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
-abortIncompleteMultipartUpload ::
+-- * 'daysAfterInitiation' - Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+mkAbortIncompleteMultipartUpload ::
   AbortIncompleteMultipartUpload
-abortIncompleteMultipartUpload =
+mkAbortIncompleteMultipartUpload =
   AbortIncompleteMultipartUpload'
-    { _aimuDaysAfterInitiation =
-        Nothing
+    { daysAfterInitiation =
+        Lude.Nothing
     }
 
 -- | Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
-aimuDaysAfterInitiation :: Lens' AbortIncompleteMultipartUpload (Maybe Int)
-aimuDaysAfterInitiation = lens _aimuDaysAfterInitiation (\s a -> s {_aimuDaysAfterInitiation = a})
+--
+-- /Note:/ Consider using 'daysAfterInitiation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aimuDaysAfterInitiation :: Lens.Lens' AbortIncompleteMultipartUpload (Lude.Maybe Lude.Int)
+aimuDaysAfterInitiation = Lens.lens (daysAfterInitiation :: AbortIncompleteMultipartUpload -> Lude.Maybe Lude.Int) (\s a -> s {daysAfterInitiation = a} :: AbortIncompleteMultipartUpload)
+{-# DEPRECATED aimuDaysAfterInitiation "Use generic-lens or generic-optics with 'daysAfterInitiation' instead." #-}
 
-instance FromXML AbortIncompleteMultipartUpload where
+instance Lude.FromXML AbortIncompleteMultipartUpload where
   parseXML x =
-    AbortIncompleteMultipartUpload' <$> (x .@? "DaysAfterInitiation")
+    AbortIncompleteMultipartUpload'
+      Lude.<$> (x Lude..@? "DaysAfterInitiation")
 
-instance Hashable AbortIncompleteMultipartUpload
-
-instance NFData AbortIncompleteMultipartUpload
-
-instance ToXML AbortIncompleteMultipartUpload where
+instance Lude.ToXML AbortIncompleteMultipartUpload where
   toXML AbortIncompleteMultipartUpload' {..} =
-    mconcat ["DaysAfterInitiation" @= _aimuDaysAfterInitiation]
+    Lude.mconcat ["DaysAfterInitiation" Lude.@= daysAfterInitiation]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,136 @@
 --
 -- You can call @DescribeValidDBInstanceModifications@ to learn what modifications you can make to your DB instance. You can use this information when you call @ModifyDBInstance@ .
 module Network.AWS.RDS.DescribeValidDBInstanceModifications
-  ( -- * Creating a Request
-    describeValidDBInstanceModifications,
-    DescribeValidDBInstanceModifications,
+  ( -- * Creating a request
+    DescribeValidDBInstanceModifications (..),
+    mkDescribeValidDBInstanceModifications,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvdimDBInstanceIdentifier,
 
-    -- * Destructuring the Response
-    describeValidDBInstanceModificationsResponse,
-    DescribeValidDBInstanceModificationsResponse,
+    -- * Destructuring the response
+    DescribeValidDBInstanceModificationsResponse (..),
+    mkDescribeValidDBInstanceModificationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvdimrsValidDBInstanceModificationsMessage,
     dvdimrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeValidDBInstanceModifications' smart constructor.
+-- /See:/ 'mkDescribeValidDBInstanceModifications' smart constructor.
 newtype DescribeValidDBInstanceModifications = DescribeValidDBInstanceModifications'
-  { _dvdimDBInstanceIdentifier ::
-      Text
+  { dbInstanceIdentifier ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeValidDBInstanceModifications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvdimDBInstanceIdentifier' - The customer identifier or the ARN of your DB instance.
-describeValidDBInstanceModifications ::
-  -- | 'dvdimDBInstanceIdentifier'
-  Text ->
+-- * 'dbInstanceIdentifier' - The customer identifier or the ARN of your DB instance.
+mkDescribeValidDBInstanceModifications ::
+  -- | 'dbInstanceIdentifier'
+  Lude.Text ->
   DescribeValidDBInstanceModifications
-describeValidDBInstanceModifications pDBInstanceIdentifier_ =
+mkDescribeValidDBInstanceModifications pDBInstanceIdentifier_ =
   DescribeValidDBInstanceModifications'
-    { _dvdimDBInstanceIdentifier =
+    { dbInstanceIdentifier =
         pDBInstanceIdentifier_
     }
 
 -- | The customer identifier or the ARN of your DB instance.
-dvdimDBInstanceIdentifier :: Lens' DescribeValidDBInstanceModifications Text
-dvdimDBInstanceIdentifier = lens _dvdimDBInstanceIdentifier (\s a -> s {_dvdimDBInstanceIdentifier = a})
+--
+-- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvdimDBInstanceIdentifier :: Lens.Lens' DescribeValidDBInstanceModifications Lude.Text
+dvdimDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DescribeValidDBInstanceModifications -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DescribeValidDBInstanceModifications)
+{-# DEPRECATED dvdimDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
-instance AWSRequest DescribeValidDBInstanceModifications where
+instance Lude.AWSRequest DescribeValidDBInstanceModifications where
   type
     Rs DescribeValidDBInstanceModifications =
       DescribeValidDBInstanceModificationsResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeValidDBInstanceModificationsResult"
       ( \s h x ->
           DescribeValidDBInstanceModificationsResponse'
-            <$> (x .@? "ValidDBInstanceModificationsMessage")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "ValidDBInstanceModificationsMessage")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeValidDBInstanceModifications
+instance Lude.ToHeaders DescribeValidDBInstanceModifications where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeValidDBInstanceModifications
+instance Lude.ToPath DescribeValidDBInstanceModifications where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeValidDBInstanceModifications where
-  toHeaders = const mempty
-
-instance ToPath DescribeValidDBInstanceModifications where
-  toPath = const "/"
-
-instance ToQuery DescribeValidDBInstanceModifications where
+instance Lude.ToQuery DescribeValidDBInstanceModifications where
   toQuery DescribeValidDBInstanceModifications' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DescribeValidDBInstanceModifications" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DBInstanceIdentifier" =: _dvdimDBInstanceIdentifier
+          Lude.=: ("DescribeValidDBInstanceModifications" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier
       ]
 
--- | /See:/ 'describeValidDBInstanceModificationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeValidDBInstanceModificationsResponse' smart constructor.
 data DescribeValidDBInstanceModificationsResponse = DescribeValidDBInstanceModificationsResponse'
-  { _dvdimrsValidDBInstanceModificationsMessage ::
-      !( Maybe
-           ValidDBInstanceModificationsMessage
-       ),
-    _dvdimrsResponseStatus ::
-      !Int
+  { validDBInstanceModificationsMessage ::
+      Lude.Maybe
+        ValidDBInstanceModificationsMessage,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeValidDBInstanceModificationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvdimrsValidDBInstanceModificationsMessage' - Undocumented member.
---
--- * 'dvdimrsResponseStatus' - -- | The response status code.
-describeValidDBInstanceModificationsResponse ::
-  -- | 'dvdimrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'validDBInstanceModificationsMessage' - Undocumented field.
+mkDescribeValidDBInstanceModificationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeValidDBInstanceModificationsResponse
-describeValidDBInstanceModificationsResponse pResponseStatus_ =
+mkDescribeValidDBInstanceModificationsResponse pResponseStatus_ =
   DescribeValidDBInstanceModificationsResponse'
-    { _dvdimrsValidDBInstanceModificationsMessage =
-        Nothing,
-      _dvdimrsResponseStatus = pResponseStatus_
+    { validDBInstanceModificationsMessage =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-dvdimrsValidDBInstanceModificationsMessage :: Lens' DescribeValidDBInstanceModificationsResponse (Maybe ValidDBInstanceModificationsMessage)
-dvdimrsValidDBInstanceModificationsMessage = lens _dvdimrsValidDBInstanceModificationsMessage (\s a -> s {_dvdimrsValidDBInstanceModificationsMessage = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'validDBInstanceModificationsMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvdimrsValidDBInstanceModificationsMessage :: Lens.Lens' DescribeValidDBInstanceModificationsResponse (Lude.Maybe ValidDBInstanceModificationsMessage)
+dvdimrsValidDBInstanceModificationsMessage = Lens.lens (validDBInstanceModificationsMessage :: DescribeValidDBInstanceModificationsResponse -> Lude.Maybe ValidDBInstanceModificationsMessage) (\s a -> s {validDBInstanceModificationsMessage = a} :: DescribeValidDBInstanceModificationsResponse)
+{-# DEPRECATED dvdimrsValidDBInstanceModificationsMessage "Use generic-lens or generic-optics with 'validDBInstanceModificationsMessage' instead." #-}
 
--- | -- | The response status code.
-dvdimrsResponseStatus :: Lens' DescribeValidDBInstanceModificationsResponse Int
-dvdimrsResponseStatus = lens _dvdimrsResponseStatus (\s a -> s {_dvdimrsResponseStatus = a})
-
-instance NFData DescribeValidDBInstanceModificationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvdimrsResponseStatus :: Lens.Lens' DescribeValidDBInstanceModificationsResponse Lude.Int
+dvdimrsResponseStatus = Lens.lens (responseStatus :: DescribeValidDBInstanceModificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeValidDBInstanceModificationsResponse)
+{-# DEPRECATED dvdimrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

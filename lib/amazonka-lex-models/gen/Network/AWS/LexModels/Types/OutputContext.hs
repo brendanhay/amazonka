@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,80 +7,97 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.LexModels.Types.OutputContext where
+module Network.AWS.LexModels.Types.OutputContext
+  ( OutputContext (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOutputContext,
+
+    -- * Lenses
+    ocName,
+    ocTimeToLiveInSeconds,
+    ocTurnsToLive,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The specification of an output context that is set when an intent is fulfilled.
 --
---
---
--- /See:/ 'outputContext' smart constructor.
+-- /See:/ 'mkOutputContext' smart constructor.
 data OutputContext = OutputContext'
-  { _ocName :: !Text,
-    _ocTimeToLiveInSeconds :: !Nat,
-    _ocTurnsToLive :: !Nat
+  { name :: Lude.Text,
+    timeToLiveInSeconds :: Lude.Natural,
+    turnsToLive :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputContext' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ocName' - The name of the context.
---
--- * 'ocTimeToLiveInSeconds' - The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
---
--- * 'ocTurnsToLive' - The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
-outputContext ::
-  -- | 'ocName'
-  Text ->
-  -- | 'ocTimeToLiveInSeconds'
-  Natural ->
-  -- | 'ocTurnsToLive'
-  Natural ->
+-- * 'name' - The name of the context.
+-- * 'timeToLiveInSeconds' - The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
+-- * 'turnsToLive' - The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
+mkOutputContext ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'timeToLiveInSeconds'
+  Lude.Natural ->
+  -- | 'turnsToLive'
+  Lude.Natural ->
   OutputContext
-outputContext pName_ pTimeToLiveInSeconds_ pTurnsToLive_ =
+mkOutputContext pName_ pTimeToLiveInSeconds_ pTurnsToLive_ =
   OutputContext'
-    { _ocName = pName_,
-      _ocTimeToLiveInSeconds = _Nat # pTimeToLiveInSeconds_,
-      _ocTurnsToLive = _Nat # pTurnsToLive_
+    { name = pName_,
+      timeToLiveInSeconds = pTimeToLiveInSeconds_,
+      turnsToLive = pTurnsToLive_
     }
 
 -- | The name of the context.
-ocName :: Lens' OutputContext Text
-ocName = lens _ocName (\s a -> s {_ocName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocName :: Lens.Lens' OutputContext Lude.Text
+ocName = Lens.lens (name :: OutputContext -> Lude.Text) (\s a -> s {name = a} :: OutputContext)
+{-# DEPRECATED ocName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The number of seconds that the context should be active after it is first sent in a @PostContent@ or @PostText@ response. You can set the value between 5 and 86,400 seconds (24 hours).
-ocTimeToLiveInSeconds :: Lens' OutputContext Natural
-ocTimeToLiveInSeconds = lens _ocTimeToLiveInSeconds (\s a -> s {_ocTimeToLiveInSeconds = a}) . _Nat
+--
+-- /Note:/ Consider using 'timeToLiveInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocTimeToLiveInSeconds :: Lens.Lens' OutputContext Lude.Natural
+ocTimeToLiveInSeconds = Lens.lens (timeToLiveInSeconds :: OutputContext -> Lude.Natural) (\s a -> s {timeToLiveInSeconds = a} :: OutputContext)
+{-# DEPRECATED ocTimeToLiveInSeconds "Use generic-lens or generic-optics with 'timeToLiveInSeconds' instead." #-}
 
 -- | The number of conversation turns that the context should be active. A conversation turn is one @PostContent@ or @PostText@ request and the corresponding response from Amazon Lex.
-ocTurnsToLive :: Lens' OutputContext Natural
-ocTurnsToLive = lens _ocTurnsToLive (\s a -> s {_ocTurnsToLive = a}) . _Nat
+--
+-- /Note:/ Consider using 'turnsToLive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocTurnsToLive :: Lens.Lens' OutputContext Lude.Natural
+ocTurnsToLive = Lens.lens (turnsToLive :: OutputContext -> Lude.Natural) (\s a -> s {turnsToLive = a} :: OutputContext)
+{-# DEPRECATED ocTurnsToLive "Use generic-lens or generic-optics with 'turnsToLive' instead." #-}
 
-instance FromJSON OutputContext where
+instance Lude.FromJSON OutputContext where
   parseJSON =
-    withObject
+    Lude.withObject
       "OutputContext"
       ( \x ->
           OutputContext'
-            <$> (x .: "name")
-            <*> (x .: "timeToLiveInSeconds")
-            <*> (x .: "turnsToLive")
+            Lude.<$> (x Lude..: "name")
+            Lude.<*> (x Lude..: "timeToLiveInSeconds")
+            Lude.<*> (x Lude..: "turnsToLive")
       )
 
-instance Hashable OutputContext
-
-instance NFData OutputContext
-
-instance ToJSON OutputContext where
+instance Lude.ToJSON OutputContext where
   toJSON OutputContext' {..} =
-    object
-      ( catMaybes
-          [ Just ("name" .= _ocName),
-            Just ("timeToLiveInSeconds" .= _ocTimeToLiveInSeconds),
-            Just ("turnsToLive" .= _ocTurnsToLive)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("name" Lude..= name),
+            Lude.Just ("timeToLiveInSeconds" Lude..= timeToLiveInSeconds),
+            Lude.Just ("turnsToLive" Lude..= turnsToLive)
           ]
       )

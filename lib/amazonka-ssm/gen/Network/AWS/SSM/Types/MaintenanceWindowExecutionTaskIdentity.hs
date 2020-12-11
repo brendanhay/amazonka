@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,127 +7,159 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskIdentity where
+module Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskIdentity
+  ( MaintenanceWindowExecutionTaskIdentity (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMaintenanceWindowExecutionTaskIdentity,
+
+    -- * Lenses
+    mwetiStatus,
+    mwetiTaskExecutionId,
+    mwetiStartTime,
+    mwetiTaskType,
+    mwetiTaskARN,
+    mwetiWindowExecutionId,
+    mwetiStatusDetails,
+    mwetiEndTime,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
 import Network.AWS.SSM.Types.MaintenanceWindowTaskType
 
 -- | Information about a task execution performed as part of a maintenance window execution.
 --
---
---
--- /See:/ 'maintenanceWindowExecutionTaskIdentity' smart constructor.
+-- /See:/ 'mkMaintenanceWindowExecutionTaskIdentity' smart constructor.
 data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIdentity'
-  { _mwetiStatus ::
-      !( Maybe
-           MaintenanceWindowExecutionStatus
-       ),
-    _mwetiTaskExecutionId ::
-      !(Maybe Text),
-    _mwetiStartTime ::
-      !( Maybe
-           POSIX
-       ),
-    _mwetiTaskType ::
-      !( Maybe
-           MaintenanceWindowTaskType
-       ),
-    _mwetiTaskARN ::
-      !(Maybe Text),
-    _mwetiWindowExecutionId ::
-      !(Maybe Text),
-    _mwetiStatusDetails ::
-      !(Maybe Text),
-    _mwetiEndTime ::
-      !( Maybe
-           POSIX
-       )
+  { status ::
+      Lude.Maybe
+        MaintenanceWindowExecutionStatus,
+    taskExecutionId ::
+      Lude.Maybe
+        Lude.Text,
+    startTime ::
+      Lude.Maybe
+        Lude.Timestamp,
+    taskType ::
+      Lude.Maybe
+        MaintenanceWindowTaskType,
+    taskARN ::
+      Lude.Maybe
+        Lude.Text,
+    windowExecutionId ::
+      Lude.Maybe
+        Lude.Text,
+    statusDetails ::
+      Lude.Maybe
+        Lude.Text,
+    endTime ::
+      Lude.Maybe
+        Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowExecutionTaskIdentity' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mwetiStatus' - The status of the task execution.
---
--- * 'mwetiTaskExecutionId' - The ID of the specific task execution in the maintenance window execution.
---
--- * 'mwetiStartTime' - The time the task execution started.
---
--- * 'mwetiTaskType' - The type of task that ran.
---
--- * 'mwetiTaskARN' - The ARN of the task that ran.
---
--- * 'mwetiWindowExecutionId' - The ID of the maintenance window execution that ran the task.
---
--- * 'mwetiStatusDetails' - The details explaining the status of the task execution. Only available for certain status values.
---
--- * 'mwetiEndTime' - The time the task execution finished.
-maintenanceWindowExecutionTaskIdentity ::
+-- * 'endTime' - The time the task execution finished.
+-- * 'startTime' - The time the task execution started.
+-- * 'status' - The status of the task execution.
+-- * 'statusDetails' - The details explaining the status of the task execution. Only available for certain status values.
+-- * 'taskARN' - The ARN of the task that ran.
+-- * 'taskExecutionId' - The ID of the specific task execution in the maintenance window execution.
+-- * 'taskType' - The type of task that ran.
+-- * 'windowExecutionId' - The ID of the maintenance window execution that ran the task.
+mkMaintenanceWindowExecutionTaskIdentity ::
   MaintenanceWindowExecutionTaskIdentity
-maintenanceWindowExecutionTaskIdentity =
+mkMaintenanceWindowExecutionTaskIdentity =
   MaintenanceWindowExecutionTaskIdentity'
-    { _mwetiStatus = Nothing,
-      _mwetiTaskExecutionId = Nothing,
-      _mwetiStartTime = Nothing,
-      _mwetiTaskType = Nothing,
-      _mwetiTaskARN = Nothing,
-      _mwetiWindowExecutionId = Nothing,
-      _mwetiStatusDetails = Nothing,
-      _mwetiEndTime = Nothing
+    { status = Lude.Nothing,
+      taskExecutionId = Lude.Nothing,
+      startTime = Lude.Nothing,
+      taskType = Lude.Nothing,
+      taskARN = Lude.Nothing,
+      windowExecutionId = Lude.Nothing,
+      statusDetails = Lude.Nothing,
+      endTime = Lude.Nothing
     }
 
 -- | The status of the task execution.
-mwetiStatus :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe MaintenanceWindowExecutionStatus)
-mwetiStatus = lens _mwetiStatus (\s a -> s {_mwetiStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwetiStatus :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Lude.Maybe MaintenanceWindowExecutionStatus)
+mwetiStatus = Lens.lens (status :: MaintenanceWindowExecutionTaskIdentity -> Lude.Maybe MaintenanceWindowExecutionStatus) (\s a -> s {status = a} :: MaintenanceWindowExecutionTaskIdentity)
+{-# DEPRECATED mwetiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID of the specific task execution in the maintenance window execution.
-mwetiTaskExecutionId :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe Text)
-mwetiTaskExecutionId = lens _mwetiTaskExecutionId (\s a -> s {_mwetiTaskExecutionId = a})
+--
+-- /Note:/ Consider using 'taskExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwetiTaskExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Lude.Maybe Lude.Text)
+mwetiTaskExecutionId = Lens.lens (taskExecutionId :: MaintenanceWindowExecutionTaskIdentity -> Lude.Maybe Lude.Text) (\s a -> s {taskExecutionId = a} :: MaintenanceWindowExecutionTaskIdentity)
+{-# DEPRECATED mwetiTaskExecutionId "Use generic-lens or generic-optics with 'taskExecutionId' instead." #-}
 
 -- | The time the task execution started.
-mwetiStartTime :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe UTCTime)
-mwetiStartTime = lens _mwetiStartTime (\s a -> s {_mwetiStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwetiStartTime :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Lude.Maybe Lude.Timestamp)
+mwetiStartTime = Lens.lens (startTime :: MaintenanceWindowExecutionTaskIdentity -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: MaintenanceWindowExecutionTaskIdentity)
+{-# DEPRECATED mwetiStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The type of task that ran.
-mwetiTaskType :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe MaintenanceWindowTaskType)
-mwetiTaskType = lens _mwetiTaskType (\s a -> s {_mwetiTaskType = a})
+--
+-- /Note:/ Consider using 'taskType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwetiTaskType :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Lude.Maybe MaintenanceWindowTaskType)
+mwetiTaskType = Lens.lens (taskType :: MaintenanceWindowExecutionTaskIdentity -> Lude.Maybe MaintenanceWindowTaskType) (\s a -> s {taskType = a} :: MaintenanceWindowExecutionTaskIdentity)
+{-# DEPRECATED mwetiTaskType "Use generic-lens or generic-optics with 'taskType' instead." #-}
 
 -- | The ARN of the task that ran.
-mwetiTaskARN :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe Text)
-mwetiTaskARN = lens _mwetiTaskARN (\s a -> s {_mwetiTaskARN = a})
+--
+-- /Note:/ Consider using 'taskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwetiTaskARN :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Lude.Maybe Lude.Text)
+mwetiTaskARN = Lens.lens (taskARN :: MaintenanceWindowExecutionTaskIdentity -> Lude.Maybe Lude.Text) (\s a -> s {taskARN = a} :: MaintenanceWindowExecutionTaskIdentity)
+{-# DEPRECATED mwetiTaskARN "Use generic-lens or generic-optics with 'taskARN' instead." #-}
 
 -- | The ID of the maintenance window execution that ran the task.
-mwetiWindowExecutionId :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe Text)
-mwetiWindowExecutionId = lens _mwetiWindowExecutionId (\s a -> s {_mwetiWindowExecutionId = a})
+--
+-- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwetiWindowExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Lude.Maybe Lude.Text)
+mwetiWindowExecutionId = Lens.lens (windowExecutionId :: MaintenanceWindowExecutionTaskIdentity -> Lude.Maybe Lude.Text) (\s a -> s {windowExecutionId = a} :: MaintenanceWindowExecutionTaskIdentity)
+{-# DEPRECATED mwetiWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
 -- | The details explaining the status of the task execution. Only available for certain status values.
-mwetiStatusDetails :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe Text)
-mwetiStatusDetails = lens _mwetiStatusDetails (\s a -> s {_mwetiStatusDetails = a})
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwetiStatusDetails :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Lude.Maybe Lude.Text)
+mwetiStatusDetails = Lens.lens (statusDetails :: MaintenanceWindowExecutionTaskIdentity -> Lude.Maybe Lude.Text) (\s a -> s {statusDetails = a} :: MaintenanceWindowExecutionTaskIdentity)
+{-# DEPRECATED mwetiStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | The time the task execution finished.
-mwetiEndTime :: Lens' MaintenanceWindowExecutionTaskIdentity (Maybe UTCTime)
-mwetiEndTime = lens _mwetiEndTime (\s a -> s {_mwetiEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwetiEndTime :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Lude.Maybe Lude.Timestamp)
+mwetiEndTime = Lens.lens (endTime :: MaintenanceWindowExecutionTaskIdentity -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: MaintenanceWindowExecutionTaskIdentity)
+{-# DEPRECATED mwetiEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance FromJSON MaintenanceWindowExecutionTaskIdentity where
+instance Lude.FromJSON MaintenanceWindowExecutionTaskIdentity where
   parseJSON =
-    withObject
+    Lude.withObject
       "MaintenanceWindowExecutionTaskIdentity"
       ( \x ->
           MaintenanceWindowExecutionTaskIdentity'
-            <$> (x .:? "Status")
-            <*> (x .:? "TaskExecutionId")
-            <*> (x .:? "StartTime")
-            <*> (x .:? "TaskType")
-            <*> (x .:? "TaskArn")
-            <*> (x .:? "WindowExecutionId")
-            <*> (x .:? "StatusDetails")
-            <*> (x .:? "EndTime")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "TaskExecutionId")
+            Lude.<*> (x Lude..:? "StartTime")
+            Lude.<*> (x Lude..:? "TaskType")
+            Lude.<*> (x Lude..:? "TaskArn")
+            Lude.<*> (x Lude..:? "WindowExecutionId")
+            Lude.<*> (x Lude..:? "StatusDetails")
+            Lude.<*> (x Lude..:? "EndTime")
       )
-
-instance Hashable MaintenanceWindowExecutionTaskIdentity
-
-instance NFData MaintenanceWindowExecutionTaskIdentity

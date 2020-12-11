@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.NotificationType where
+module Network.AWS.SES.Types.NotificationType
+  ( NotificationType
+      ( NotificationType',
+        Bounce,
+        Complaint,
+        Delivery
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data NotificationType
-  = Bounce
-  | Complaint
-  | Delivery
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype NotificationType = NotificationType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText NotificationType where
-  parser =
-    takeLowerText >>= \case
-      "bounce" -> pure Bounce
-      "complaint" -> pure Complaint
-      "delivery" -> pure Delivery
-      e ->
-        fromTextError $
-          "Failure parsing NotificationType from value: '" <> e
-            <> "'. Accepted values: bounce, complaint, delivery"
+pattern Bounce :: NotificationType
+pattern Bounce = NotificationType' "Bounce"
 
-instance ToText NotificationType where
-  toText = \case
-    Bounce -> "Bounce"
-    Complaint -> "Complaint"
-    Delivery -> "Delivery"
+pattern Complaint :: NotificationType
+pattern Complaint = NotificationType' "Complaint"
 
-instance Hashable NotificationType
+pattern Delivery :: NotificationType
+pattern Delivery = NotificationType' "Delivery"
 
-instance NFData NotificationType
-
-instance ToByteString NotificationType
-
-instance ToQuery NotificationType
-
-instance ToHeader NotificationType
+{-# COMPLETE
+  Bounce,
+  Complaint,
+  Delivery,
+  NotificationType'
+  #-}

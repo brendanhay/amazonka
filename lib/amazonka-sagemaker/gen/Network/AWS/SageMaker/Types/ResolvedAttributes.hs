@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,86 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ResolvedAttributes where
+module Network.AWS.SageMaker.Types.ResolvedAttributes
+  ( ResolvedAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkResolvedAttributes,
+
+    -- * Lenses
+    raProblemType,
+    raAutoMLJobObjective,
+    raCompletionCriteria,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.AutoMLJobCompletionCriteria
 import Network.AWS.SageMaker.Types.AutoMLJobObjective
 import Network.AWS.SageMaker.Types.ProblemType
 
 -- | The resolved attributes.
 --
---
---
--- /See:/ 'resolvedAttributes' smart constructor.
+-- /See:/ 'mkResolvedAttributes' smart constructor.
 data ResolvedAttributes = ResolvedAttributes'
-  { _raProblemType ::
-      !(Maybe ProblemType),
-    _raAutoMLJobObjective :: !(Maybe AutoMLJobObjective),
-    _raCompletionCriteria ::
-      !(Maybe AutoMLJobCompletionCriteria)
+  { problemType ::
+      Lude.Maybe ProblemType,
+    autoMLJobObjective :: Lude.Maybe AutoMLJobObjective,
+    completionCriteria ::
+      Lude.Maybe AutoMLJobCompletionCriteria
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolvedAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'raProblemType' - The problem type.
---
--- * 'raAutoMLJobObjective' - Undocumented member.
---
--- * 'raCompletionCriteria' - Undocumented member.
-resolvedAttributes ::
+-- * 'autoMLJobObjective' - Undocumented field.
+-- * 'completionCriteria' - Undocumented field.
+-- * 'problemType' - The problem type.
+mkResolvedAttributes ::
   ResolvedAttributes
-resolvedAttributes =
+mkResolvedAttributes =
   ResolvedAttributes'
-    { _raProblemType = Nothing,
-      _raAutoMLJobObjective = Nothing,
-      _raCompletionCriteria = Nothing
+    { problemType = Lude.Nothing,
+      autoMLJobObjective = Lude.Nothing,
+      completionCriteria = Lude.Nothing
     }
 
 -- | The problem type.
-raProblemType :: Lens' ResolvedAttributes (Maybe ProblemType)
-raProblemType = lens _raProblemType (\s a -> s {_raProblemType = a})
+--
+-- /Note:/ Consider using 'problemType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raProblemType :: Lens.Lens' ResolvedAttributes (Lude.Maybe ProblemType)
+raProblemType = Lens.lens (problemType :: ResolvedAttributes -> Lude.Maybe ProblemType) (\s a -> s {problemType = a} :: ResolvedAttributes)
+{-# DEPRECATED raProblemType "Use generic-lens or generic-optics with 'problemType' instead." #-}
 
--- | Undocumented member.
-raAutoMLJobObjective :: Lens' ResolvedAttributes (Maybe AutoMLJobObjective)
-raAutoMLJobObjective = lens _raAutoMLJobObjective (\s a -> s {_raAutoMLJobObjective = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'autoMLJobObjective' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raAutoMLJobObjective :: Lens.Lens' ResolvedAttributes (Lude.Maybe AutoMLJobObjective)
+raAutoMLJobObjective = Lens.lens (autoMLJobObjective :: ResolvedAttributes -> Lude.Maybe AutoMLJobObjective) (\s a -> s {autoMLJobObjective = a} :: ResolvedAttributes)
+{-# DEPRECATED raAutoMLJobObjective "Use generic-lens or generic-optics with 'autoMLJobObjective' instead." #-}
 
--- | Undocumented member.
-raCompletionCriteria :: Lens' ResolvedAttributes (Maybe AutoMLJobCompletionCriteria)
-raCompletionCriteria = lens _raCompletionCriteria (\s a -> s {_raCompletionCriteria = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'completionCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raCompletionCriteria :: Lens.Lens' ResolvedAttributes (Lude.Maybe AutoMLJobCompletionCriteria)
+raCompletionCriteria = Lens.lens (completionCriteria :: ResolvedAttributes -> Lude.Maybe AutoMLJobCompletionCriteria) (\s a -> s {completionCriteria = a} :: ResolvedAttributes)
+{-# DEPRECATED raCompletionCriteria "Use generic-lens or generic-optics with 'completionCriteria' instead." #-}
 
-instance FromJSON ResolvedAttributes where
+instance Lude.FromJSON ResolvedAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResolvedAttributes"
       ( \x ->
           ResolvedAttributes'
-            <$> (x .:? "ProblemType")
-            <*> (x .:? "AutoMLJobObjective")
-            <*> (x .:? "CompletionCriteria")
+            Lude.<$> (x Lude..:? "ProblemType")
+            Lude.<*> (x Lude..:? "AutoMLJobObjective")
+            Lude.<*> (x Lude..:? "CompletionCriteria")
       )
-
-instance Hashable ResolvedAttributes
-
-instance NFData ResolvedAttributes

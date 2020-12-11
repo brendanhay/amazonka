@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,125 +14,138 @@
 --
 -- Gets the properties associated with an asycnhronous batch translation job including name, ID, status, source and target languages, input/output S3 buckets, and so on.
 module Network.AWS.Translate.DescribeTextTranslationJob
-  ( -- * Creating a Request
-    describeTextTranslationJob,
-    DescribeTextTranslationJob,
+  ( -- * Creating a request
+    DescribeTextTranslationJob (..),
+    mkDescribeTextTranslationJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dttjJobId,
 
-    -- * Destructuring the Response
-    describeTextTranslationJobResponse,
-    DescribeTextTranslationJobResponse,
+    -- * Destructuring the response
+    DescribeTextTranslationJobResponse (..),
+    mkDescribeTextTranslationJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dttjrsTextTranslationJobProperties,
     dttjrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Translate.Types
 
--- | /See:/ 'describeTextTranslationJob' smart constructor.
+-- | /See:/ 'mkDescribeTextTranslationJob' smart constructor.
 newtype DescribeTextTranslationJob = DescribeTextTranslationJob'
-  { _dttjJobId ::
-      Text
+  { jobId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTextTranslationJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dttjJobId' - The identifier that Amazon Translate generated for the job. The 'StartTextTranslationJob' operation returns this identifier in its response.
-describeTextTranslationJob ::
-  -- | 'dttjJobId'
-  Text ->
+-- * 'jobId' - The identifier that Amazon Translate generated for the job. The 'StartTextTranslationJob' operation returns this identifier in its response.
+mkDescribeTextTranslationJob ::
+  -- | 'jobId'
+  Lude.Text ->
   DescribeTextTranslationJob
-describeTextTranslationJob pJobId_ =
-  DescribeTextTranslationJob' {_dttjJobId = pJobId_}
+mkDescribeTextTranslationJob pJobId_ =
+  DescribeTextTranslationJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Translate generated for the job. The 'StartTextTranslationJob' operation returns this identifier in its response.
-dttjJobId :: Lens' DescribeTextTranslationJob Text
-dttjJobId = lens _dttjJobId (\s a -> s {_dttjJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttjJobId :: Lens.Lens' DescribeTextTranslationJob Lude.Text
+dttjJobId = Lens.lens (jobId :: DescribeTextTranslationJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeTextTranslationJob)
+{-# DEPRECATED dttjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance AWSRequest DescribeTextTranslationJob where
+instance Lude.AWSRequest DescribeTextTranslationJob where
   type
     Rs DescribeTextTranslationJob =
       DescribeTextTranslationJobResponse
-  request = postJSON translate
+  request = Req.postJSON translateService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeTextTranslationJobResponse'
-            <$> (x .?> "TextTranslationJobProperties") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "TextTranslationJobProperties")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeTextTranslationJob
-
-instance NFData DescribeTextTranslationJob
-
-instance ToHeaders DescribeTextTranslationJob where
+instance Lude.ToHeaders DescribeTextTranslationJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSShineFrontendService_20170701.DescribeTextTranslationJob" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSShineFrontendService_20170701.DescribeTextTranslationJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeTextTranslationJob where
+instance Lude.ToJSON DescribeTextTranslationJob where
   toJSON DescribeTextTranslationJob' {..} =
-    object (catMaybes [Just ("JobId" .= _dttjJobId)])
+    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
 
-instance ToPath DescribeTextTranslationJob where
-  toPath = const "/"
+instance Lude.ToPath DescribeTextTranslationJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeTextTranslationJob where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeTextTranslationJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeTextTranslationJobResponse' smart constructor.
+-- | /See:/ 'mkDescribeTextTranslationJobResponse' smart constructor.
 data DescribeTextTranslationJobResponse = DescribeTextTranslationJobResponse'
-  { _dttjrsTextTranslationJobProperties ::
-      !( Maybe
-           TextTranslationJobProperties
-       ),
-    _dttjrsResponseStatus ::
-      !Int
+  { textTranslationJobProperties ::
+      Lude.Maybe
+        TextTranslationJobProperties,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTextTranslationJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dttjrsTextTranslationJobProperties' - An object that contains the properties associated with an asynchronous batch translation job.
---
--- * 'dttjrsResponseStatus' - -- | The response status code.
-describeTextTranslationJobResponse ::
-  -- | 'dttjrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'textTranslationJobProperties' - An object that contains the properties associated with an asynchronous batch translation job.
+mkDescribeTextTranslationJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeTextTranslationJobResponse
-describeTextTranslationJobResponse pResponseStatus_ =
+mkDescribeTextTranslationJobResponse pResponseStatus_ =
   DescribeTextTranslationJobResponse'
-    { _dttjrsTextTranslationJobProperties =
-        Nothing,
-      _dttjrsResponseStatus = pResponseStatus_
+    { textTranslationJobProperties =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An object that contains the properties associated with an asynchronous batch translation job.
-dttjrsTextTranslationJobProperties :: Lens' DescribeTextTranslationJobResponse (Maybe TextTranslationJobProperties)
-dttjrsTextTranslationJobProperties = lens _dttjrsTextTranslationJobProperties (\s a -> s {_dttjrsTextTranslationJobProperties = a})
+--
+-- /Note:/ Consider using 'textTranslationJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttjrsTextTranslationJobProperties :: Lens.Lens' DescribeTextTranslationJobResponse (Lude.Maybe TextTranslationJobProperties)
+dttjrsTextTranslationJobProperties = Lens.lens (textTranslationJobProperties :: DescribeTextTranslationJobResponse -> Lude.Maybe TextTranslationJobProperties) (\s a -> s {textTranslationJobProperties = a} :: DescribeTextTranslationJobResponse)
+{-# DEPRECATED dttjrsTextTranslationJobProperties "Use generic-lens or generic-optics with 'textTranslationJobProperties' instead." #-}
 
--- | -- | The response status code.
-dttjrsResponseStatus :: Lens' DescribeTextTranslationJobResponse Int
-dttjrsResponseStatus = lens _dttjrsResponseStatus (\s a -> s {_dttjrsResponseStatus = a})
-
-instance NFData DescribeTextTranslationJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dttjrsResponseStatus :: Lens.Lens' DescribeTextTranslationJobResponse Lude.Int
+dttjrsResponseStatus = Lens.lens (responseStatus :: DescribeTextTranslationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTextTranslationJobResponse)
+{-# DEPRECATED dttjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

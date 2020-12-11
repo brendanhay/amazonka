@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,156 +14,205 @@
 --
 -- Updates an existing message template for messages that are sent through the voice channel.
 module Network.AWS.Pinpoint.UpdateVoiceTemplate
-  ( -- * Creating a Request
-    updateVoiceTemplate,
-    UpdateVoiceTemplate,
+  ( -- * Creating a request
+    UpdateVoiceTemplate (..),
+    mkUpdateVoiceTemplate,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uvtVersion,
     uvtCreateNewVersion,
     uvtTemplateName,
     uvtVoiceTemplateRequest,
 
-    -- * Destructuring the Response
-    updateVoiceTemplateResponse,
-    UpdateVoiceTemplateResponse,
+    -- * Destructuring the response
+    UpdateVoiceTemplateResponse (..),
+    mkUpdateVoiceTemplateResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uvtrsResponseStatus,
     uvtrsMessageBody,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateVoiceTemplate' smart constructor.
+-- | /See:/ 'mkUpdateVoiceTemplate' smart constructor.
 data UpdateVoiceTemplate = UpdateVoiceTemplate'
-  { _uvtVersion ::
-      !(Maybe Text),
-    _uvtCreateNewVersion :: !(Maybe Bool),
-    _uvtTemplateName :: !Text,
-    _uvtVoiceTemplateRequest :: !VoiceTemplateRequest
+  { version ::
+      Lude.Maybe Lude.Text,
+    createNewVersion :: Lude.Maybe Lude.Bool,
+    templateName :: Lude.Text,
+    voiceTemplateRequest :: VoiceTemplateRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVoiceTemplate' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'createNewVersion' - Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
 --
--- * 'uvtVersion' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
+-- If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
+-- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+-- * 'version' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
 --
--- * 'uvtCreateNewVersion' - Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template. If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
 --
--- * 'uvtTemplateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+--     * For a get operation, retrieves information about the active version of the template.
 --
--- * 'uvtVoiceTemplateRequest' - Undocumented member.
-updateVoiceTemplate ::
-  -- | 'uvtTemplateName'
-  Text ->
-  -- | 'uvtVoiceTemplateRequest'
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+--
+--
+-- * 'voiceTemplateRequest' - Undocumented field.
+mkUpdateVoiceTemplate ::
+  -- | 'templateName'
+  Lude.Text ->
+  -- | 'voiceTemplateRequest'
   VoiceTemplateRequest ->
   UpdateVoiceTemplate
-updateVoiceTemplate pTemplateName_ pVoiceTemplateRequest_ =
+mkUpdateVoiceTemplate pTemplateName_ pVoiceTemplateRequest_ =
   UpdateVoiceTemplate'
-    { _uvtVersion = Nothing,
-      _uvtCreateNewVersion = Nothing,
-      _uvtTemplateName = pTemplateName_,
-      _uvtVoiceTemplateRequest = pVoiceTemplateRequest_
+    { version = Lude.Nothing,
+      createNewVersion = Lude.Nothing,
+      templateName = pTemplateName_,
+      voiceTemplateRequest = pVoiceTemplateRequest_
     }
 
--- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource. If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur. If you don't specify a value for this parameter, Amazon Pinpoint does the following:     * For a get operation, retrieves information about the active version of the template.     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.     * For a delete operation, deletes the template, including all versions of the template.
-uvtVersion :: Lens' UpdateVoiceTemplate (Maybe Text)
-uvtVersion = lens _uvtVersion (\s a -> s {_uvtVersion = a})
+-- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
+--
+-- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+-- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
+--
+--     * For a get operation, retrieves information about the active version of the template.
+--
+--
+--     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+--
+--
+--     * For a delete operation, deletes the template, including all versions of the template.
+--
+--
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtVersion :: Lens.Lens' UpdateVoiceTemplate (Lude.Maybe Lude.Text)
+uvtVersion = Lens.lens (version :: UpdateVoiceTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: UpdateVoiceTemplate)
+{-# DEPRECATED uvtVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template. If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
-uvtCreateNewVersion :: Lens' UpdateVoiceTemplate (Maybe Bool)
-uvtCreateNewVersion = lens _uvtCreateNewVersion (\s a -> s {_uvtCreateNewVersion = a})
+-- | Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
+--
+-- If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
+--
+-- /Note:/ Consider using 'createNewVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtCreateNewVersion :: Lens.Lens' UpdateVoiceTemplate (Lude.Maybe Lude.Bool)
+uvtCreateNewVersion = Lens.lens (createNewVersion :: UpdateVoiceTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {createNewVersion = a} :: UpdateVoiceTemplate)
+{-# DEPRECATED uvtCreateNewVersion "Use generic-lens or generic-optics with 'createNewVersion' instead." #-}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-uvtTemplateName :: Lens' UpdateVoiceTemplate Text
-uvtTemplateName = lens _uvtTemplateName (\s a -> s {_uvtTemplateName = a})
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtTemplateName :: Lens.Lens' UpdateVoiceTemplate Lude.Text
+uvtTemplateName = Lens.lens (templateName :: UpdateVoiceTemplate -> Lude.Text) (\s a -> s {templateName = a} :: UpdateVoiceTemplate)
+{-# DEPRECATED uvtTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
--- | Undocumented member.
-uvtVoiceTemplateRequest :: Lens' UpdateVoiceTemplate VoiceTemplateRequest
-uvtVoiceTemplateRequest = lens _uvtVoiceTemplateRequest (\s a -> s {_uvtVoiceTemplateRequest = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'voiceTemplateRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtVoiceTemplateRequest :: Lens.Lens' UpdateVoiceTemplate VoiceTemplateRequest
+uvtVoiceTemplateRequest = Lens.lens (voiceTemplateRequest :: UpdateVoiceTemplate -> VoiceTemplateRequest) (\s a -> s {voiceTemplateRequest = a} :: UpdateVoiceTemplate)
+{-# DEPRECATED uvtVoiceTemplateRequest "Use generic-lens or generic-optics with 'voiceTemplateRequest' instead." #-}
 
-instance AWSRequest UpdateVoiceTemplate where
+instance Lude.AWSRequest UpdateVoiceTemplate where
   type Rs UpdateVoiceTemplate = UpdateVoiceTemplateResponse
-  request = putJSON pinpoint
+  request = Req.putJSON pinpointService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateVoiceTemplateResponse'
-            <$> (pure (fromEnum s)) <*> (eitherParseJSON x)
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
       )
 
-instance Hashable UpdateVoiceTemplate
-
-instance NFData UpdateVoiceTemplate
-
-instance ToHeaders UpdateVoiceTemplate where
+instance Lude.ToHeaders UpdateVoiceTemplate where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON UpdateVoiceTemplate where
+instance Lude.ToJSON UpdateVoiceTemplate where
   toJSON UpdateVoiceTemplate' {..} =
-    object
-      ( catMaybes
-          [Just ("VoiceTemplateRequest" .= _uvtVoiceTemplateRequest)]
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("VoiceTemplateRequest" Lude..= voiceTemplateRequest)]
       )
 
-instance ToPath UpdateVoiceTemplate where
+instance Lude.ToPath UpdateVoiceTemplate where
   toPath UpdateVoiceTemplate' {..} =
-    mconcat ["/v1/templates/", toBS _uvtTemplateName, "/voice"]
+    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/voice"]
 
-instance ToQuery UpdateVoiceTemplate where
+instance Lude.ToQuery UpdateVoiceTemplate where
   toQuery UpdateVoiceTemplate' {..} =
-    mconcat
-      [ "version" =: _uvtVersion,
-        "create-new-version" =: _uvtCreateNewVersion
+    Lude.mconcat
+      [ "version" Lude.=: version,
+        "create-new-version" Lude.=: createNewVersion
       ]
 
--- | /See:/ 'updateVoiceTemplateResponse' smart constructor.
+-- | /See:/ 'mkUpdateVoiceTemplateResponse' smart constructor.
 data UpdateVoiceTemplateResponse = UpdateVoiceTemplateResponse'
-  { _uvtrsResponseStatus ::
-      !Int,
-    _uvtrsMessageBody :: !MessageBody
+  { responseStatus ::
+      Lude.Int,
+    messageBody :: MessageBody
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVoiceTemplateResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uvtrsResponseStatus' - -- | The response status code.
---
--- * 'uvtrsMessageBody' - Undocumented member.
-updateVoiceTemplateResponse ::
-  -- | 'uvtrsResponseStatus'
-  Int ->
-  -- | 'uvtrsMessageBody'
+-- * 'messageBody' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkUpdateVoiceTemplateResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'messageBody'
   MessageBody ->
   UpdateVoiceTemplateResponse
-updateVoiceTemplateResponse pResponseStatus_ pMessageBody_ =
+mkUpdateVoiceTemplateResponse pResponseStatus_ pMessageBody_ =
   UpdateVoiceTemplateResponse'
-    { _uvtrsResponseStatus =
-        pResponseStatus_,
-      _uvtrsMessageBody = pMessageBody_
+    { responseStatus = pResponseStatus_,
+      messageBody = pMessageBody_
     }
 
--- | -- | The response status code.
-uvtrsResponseStatus :: Lens' UpdateVoiceTemplateResponse Int
-uvtrsResponseStatus = lens _uvtrsResponseStatus (\s a -> s {_uvtrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtrsResponseStatus :: Lens.Lens' UpdateVoiceTemplateResponse Lude.Int
+uvtrsResponseStatus = Lens.lens (responseStatus :: UpdateVoiceTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateVoiceTemplateResponse)
+{-# DEPRECATED uvtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
--- | Undocumented member.
-uvtrsMessageBody :: Lens' UpdateVoiceTemplateResponse MessageBody
-uvtrsMessageBody = lens _uvtrsMessageBody (\s a -> s {_uvtrsMessageBody = a})
-
-instance NFData UpdateVoiceTemplateResponse
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtrsMessageBody :: Lens.Lens' UpdateVoiceTemplateResponse MessageBody
+uvtrsMessageBody = Lens.lens (messageBody :: UpdateVoiceTemplateResponse -> MessageBody) (\s a -> s {messageBody = a} :: UpdateVoiceTemplateResponse)
+{-# DEPRECATED uvtrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}

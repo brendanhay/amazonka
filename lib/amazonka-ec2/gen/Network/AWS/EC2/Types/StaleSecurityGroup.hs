@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,96 +7,120 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.StaleSecurityGroup where
+module Network.AWS.EC2.Types.StaleSecurityGroup
+  ( StaleSecurityGroup (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkStaleSecurityGroup,
+
+    -- * Lenses
+    ssgVPCId,
+    ssgGroupId,
+    ssgGroupName,
+    ssgStaleIPPermissionsEgress,
+    ssgStaleIPPermissions,
+    ssgDescription,
+  )
+where
+
 import Network.AWS.EC2.Types.StaleIPPermission
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a stale security group (a security group that contains stale rules).
 --
---
---
--- /See:/ 'staleSecurityGroup' smart constructor.
+-- /See:/ 'mkStaleSecurityGroup' smart constructor.
 data StaleSecurityGroup = StaleSecurityGroup'
-  { _ssgVPCId ::
-      !(Maybe Text),
-    _ssgGroupId :: !(Maybe Text),
-    _ssgGroupName :: !(Maybe Text),
-    _ssgStaleIPPermissionsEgress ::
-      !(Maybe [StaleIPPermission]),
-    _ssgStaleIPPermissions ::
-      !(Maybe [StaleIPPermission]),
-    _ssgDescription :: !(Maybe Text)
+  { vpcId ::
+      Lude.Maybe Lude.Text,
+    groupId :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text,
+    staleIPPermissionsEgress ::
+      Lude.Maybe [StaleIPPermission],
+    staleIPPermissions :: Lude.Maybe [StaleIPPermission],
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaleSecurityGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ssgVPCId' - The ID of the VPC for the security group.
---
--- * 'ssgGroupId' - The ID of the security group.
---
--- * 'ssgGroupName' - The name of the security group.
---
--- * 'ssgStaleIPPermissionsEgress' - Information about the stale outbound rules in the security group.
---
--- * 'ssgStaleIPPermissions' - Information about the stale inbound rules in the security group.
---
--- * 'ssgDescription' - The description of the security group.
-staleSecurityGroup ::
+-- * 'description' - The description of the security group.
+-- * 'groupId' - The ID of the security group.
+-- * 'groupName' - The name of the security group.
+-- * 'staleIPPermissions' - Information about the stale inbound rules in the security group.
+-- * 'staleIPPermissionsEgress' - Information about the stale outbound rules in the security group.
+-- * 'vpcId' - The ID of the VPC for the security group.
+mkStaleSecurityGroup ::
   StaleSecurityGroup
-staleSecurityGroup =
+mkStaleSecurityGroup =
   StaleSecurityGroup'
-    { _ssgVPCId = Nothing,
-      _ssgGroupId = Nothing,
-      _ssgGroupName = Nothing,
-      _ssgStaleIPPermissionsEgress = Nothing,
-      _ssgStaleIPPermissions = Nothing,
-      _ssgDescription = Nothing
+    { vpcId = Lude.Nothing,
+      groupId = Lude.Nothing,
+      groupName = Lude.Nothing,
+      staleIPPermissionsEgress = Lude.Nothing,
+      staleIPPermissions = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The ID of the VPC for the security group.
-ssgVPCId :: Lens' StaleSecurityGroup (Maybe Text)
-ssgVPCId = lens _ssgVPCId (\s a -> s {_ssgVPCId = a})
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgVPCId :: Lens.Lens' StaleSecurityGroup (Lude.Maybe Lude.Text)
+ssgVPCId = Lens.lens (vpcId :: StaleSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: StaleSecurityGroup)
+{-# DEPRECATED ssgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The ID of the security group.
-ssgGroupId :: Lens' StaleSecurityGroup (Maybe Text)
-ssgGroupId = lens _ssgGroupId (\s a -> s {_ssgGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgGroupId :: Lens.Lens' StaleSecurityGroup (Lude.Maybe Lude.Text)
+ssgGroupId = Lens.lens (groupId :: StaleSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: StaleSecurityGroup)
+{-# DEPRECATED ssgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The name of the security group.
-ssgGroupName :: Lens' StaleSecurityGroup (Maybe Text)
-ssgGroupName = lens _ssgGroupName (\s a -> s {_ssgGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgGroupName :: Lens.Lens' StaleSecurityGroup (Lude.Maybe Lude.Text)
+ssgGroupName = Lens.lens (groupName :: StaleSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: StaleSecurityGroup)
+{-# DEPRECATED ssgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | Information about the stale outbound rules in the security group.
-ssgStaleIPPermissionsEgress :: Lens' StaleSecurityGroup [StaleIPPermission]
-ssgStaleIPPermissionsEgress = lens _ssgStaleIPPermissionsEgress (\s a -> s {_ssgStaleIPPermissionsEgress = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'staleIPPermissionsEgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgStaleIPPermissionsEgress :: Lens.Lens' StaleSecurityGroup (Lude.Maybe [StaleIPPermission])
+ssgStaleIPPermissionsEgress = Lens.lens (staleIPPermissionsEgress :: StaleSecurityGroup -> Lude.Maybe [StaleIPPermission]) (\s a -> s {staleIPPermissionsEgress = a} :: StaleSecurityGroup)
+{-# DEPRECATED ssgStaleIPPermissionsEgress "Use generic-lens or generic-optics with 'staleIPPermissionsEgress' instead." #-}
 
 -- | Information about the stale inbound rules in the security group.
-ssgStaleIPPermissions :: Lens' StaleSecurityGroup [StaleIPPermission]
-ssgStaleIPPermissions = lens _ssgStaleIPPermissions (\s a -> s {_ssgStaleIPPermissions = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'staleIPPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgStaleIPPermissions :: Lens.Lens' StaleSecurityGroup (Lude.Maybe [StaleIPPermission])
+ssgStaleIPPermissions = Lens.lens (staleIPPermissions :: StaleSecurityGroup -> Lude.Maybe [StaleIPPermission]) (\s a -> s {staleIPPermissions = a} :: StaleSecurityGroup)
+{-# DEPRECATED ssgStaleIPPermissions "Use generic-lens or generic-optics with 'staleIPPermissions' instead." #-}
 
 -- | The description of the security group.
-ssgDescription :: Lens' StaleSecurityGroup (Maybe Text)
-ssgDescription = lens _ssgDescription (\s a -> s {_ssgDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgDescription :: Lens.Lens' StaleSecurityGroup (Lude.Maybe Lude.Text)
+ssgDescription = Lens.lens (description :: StaleSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StaleSecurityGroup)
+{-# DEPRECATED ssgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromXML StaleSecurityGroup where
+instance Lude.FromXML StaleSecurityGroup where
   parseXML x =
     StaleSecurityGroup'
-      <$> (x .@? "vpcId")
-      <*> (x .@? "groupId")
-      <*> (x .@? "groupName")
-      <*> ( x .@? "staleIpPermissionsEgress" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> ( x .@? "staleIpPermissions" .!@ mempty
-              >>= may (parseXMLList "item")
-          )
-      <*> (x .@? "description")
-
-instance Hashable StaleSecurityGroup
-
-instance NFData StaleSecurityGroup
+      Lude.<$> (x Lude..@? "vpcId")
+      Lude.<*> (x Lude..@? "groupId")
+      Lude.<*> (x Lude..@? "groupName")
+      Lude.<*> ( x Lude..@? "staleIpPermissionsEgress" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> ( x Lude..@? "staleIpPermissions" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "description")

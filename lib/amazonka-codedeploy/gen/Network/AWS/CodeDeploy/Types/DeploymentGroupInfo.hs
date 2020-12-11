@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,7 +7,36 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.DeploymentGroupInfo where
+module Network.AWS.CodeDeploy.Types.DeploymentGroupInfo
+  ( DeploymentGroupInfo (..),
+
+    -- * Smart constructor
+    mkDeploymentGroupInfo,
+
+    -- * Lenses
+    dgiServiceRoleARN,
+    dgiEc2TagSet,
+    dgiDeploymentConfigName,
+    dgiLastAttemptedDeployment,
+    dgiOnPremisesTagSet,
+    dgiComputePlatform,
+    dgiTargetRevision,
+    dgiEc2TagFilters,
+    dgiEcsServices,
+    dgiBlueGreenDeploymentConfiguration,
+    dgiLoadBalancerInfo,
+    dgiOnPremisesInstanceTagFilters,
+    dgiLastSuccessfulDeployment,
+    dgiApplicationName,
+    dgiAlarmConfiguration,
+    dgiTriggerConfigurations,
+    dgiDeploymentGroupId,
+    dgiAutoScalingGroups,
+    dgiDeploymentStyle,
+    dgiAutoRollbackConfiguration,
+    dgiDeploymentGroupName,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.AlarmConfiguration
 import Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration
@@ -30,233 +53,272 @@ import Network.AWS.CodeDeploy.Types.OnPremisesTagSet
 import Network.AWS.CodeDeploy.Types.RevisionLocation
 import Network.AWS.CodeDeploy.Types.TagFilter
 import Network.AWS.CodeDeploy.Types.TriggerConfig
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a deployment group.
 --
---
---
--- /See:/ 'deploymentGroupInfo' smart constructor.
+-- /See:/ 'mkDeploymentGroupInfo' smart constructor.
 data DeploymentGroupInfo = DeploymentGroupInfo'
-  { _dgiServiceRoleARN ::
-      !(Maybe Text),
-    _dgiEc2TagSet :: !(Maybe EC2TagSet),
-    _dgiDeploymentConfigName :: !(Maybe Text),
-    _dgiLastAttemptedDeployment ::
-      !(Maybe LastDeploymentInfo),
-    _dgiOnPremisesTagSet :: !(Maybe OnPremisesTagSet),
-    _dgiComputePlatform :: !(Maybe ComputePlatform),
-    _dgiTargetRevision :: !(Maybe RevisionLocation),
-    _dgiEc2TagFilters :: !(Maybe [EC2TagFilter]),
-    _dgiEcsServices :: !(Maybe [ECSService]),
-    _dgiBlueGreenDeploymentConfiguration ::
-      !(Maybe BlueGreenDeploymentConfiguration),
-    _dgiLoadBalancerInfo :: !(Maybe LoadBalancerInfo),
-    _dgiOnPremisesInstanceTagFilters ::
-      !(Maybe [TagFilter]),
-    _dgiLastSuccessfulDeployment ::
-      !(Maybe LastDeploymentInfo),
-    _dgiApplicationName :: !(Maybe Text),
-    _dgiAlarmConfiguration ::
-      !(Maybe AlarmConfiguration),
-    _dgiTriggerConfigurations ::
-      !(Maybe [TriggerConfig]),
-    _dgiDeploymentGroupId :: !(Maybe Text),
-    _dgiAutoScalingGroups ::
-      !(Maybe [AutoScalingGroup]),
-    _dgiDeploymentStyle :: !(Maybe DeploymentStyle),
-    _dgiAutoRollbackConfiguration ::
-      !(Maybe AutoRollbackConfiguration),
-    _dgiDeploymentGroupName :: !(Maybe Text)
+  { serviceRoleARN ::
+      Lude.Maybe Lude.Text,
+    ec2TagSet :: Lude.Maybe EC2TagSet,
+    deploymentConfigName :: Lude.Maybe Lude.Text,
+    lastAttemptedDeployment ::
+      Lude.Maybe LastDeploymentInfo,
+    onPremisesTagSet :: Lude.Maybe OnPremisesTagSet,
+    computePlatform :: Lude.Maybe ComputePlatform,
+    targetRevision :: Lude.Maybe RevisionLocation,
+    ec2TagFilters :: Lude.Maybe [EC2TagFilter],
+    ecsServices :: Lude.Maybe [ECSService],
+    blueGreenDeploymentConfiguration ::
+      Lude.Maybe BlueGreenDeploymentConfiguration,
+    loadBalancerInfo :: Lude.Maybe LoadBalancerInfo,
+    onPremisesInstanceTagFilters ::
+      Lude.Maybe [TagFilter],
+    lastSuccessfulDeployment ::
+      Lude.Maybe LastDeploymentInfo,
+    applicationName :: Lude.Maybe Lude.Text,
+    alarmConfiguration :: Lude.Maybe AlarmConfiguration,
+    triggerConfigurations :: Lude.Maybe [TriggerConfig],
+    deploymentGroupId :: Lude.Maybe Lude.Text,
+    autoScalingGroups :: Lude.Maybe [AutoScalingGroup],
+    deploymentStyle :: Lude.Maybe DeploymentStyle,
+    autoRollbackConfiguration ::
+      Lude.Maybe AutoRollbackConfiguration,
+    deploymentGroupName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentGroupInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dgiServiceRoleARN' - A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for AWS CodeDeploy> in the /AWS CodeDeploy User Guide/ .
---
--- * 'dgiEc2TagSet' - Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all of the tag groups. Cannot be used in the same call as ec2TagFilters.
---
--- * 'dgiDeploymentConfigName' - The deployment configuration name.
---
--- * 'dgiLastAttemptedDeployment' - Information about the most recent attempted deployment to the deployment group.
---
--- * 'dgiOnPremisesTagSet' - Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
---
--- * 'dgiComputePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
---
--- * 'dgiTargetRevision' - Information about the deployment group's target revision, including type and location.
---
--- * 'dgiEc2TagFilters' - The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags.
---
--- * 'dgiEcsServices' - The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
---
--- * 'dgiBlueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
---
--- * 'dgiLoadBalancerInfo' - Information about the load balancer to use in a deployment.
---
--- * 'dgiOnPremisesInstanceTagFilters' - The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags.
---
--- * 'dgiLastSuccessfulDeployment' - Information about the most recent successful deployment to the deployment group.
---
--- * 'dgiApplicationName' - The application name.
---
--- * 'dgiAlarmConfiguration' - A list of alarms associated with the deployment group.
---
--- * 'dgiTriggerConfigurations' - Information about triggers associated with the deployment group.
---
--- * 'dgiDeploymentGroupId' - The deployment group ID.
---
--- * 'dgiAutoScalingGroups' - A list of associated Auto Scaling groups.
---
--- * 'dgiDeploymentStyle' - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
---
--- * 'dgiAutoRollbackConfiguration' - Information about the automatic rollback configuration associated with the deployment group.
---
--- * 'dgiDeploymentGroupName' - The deployment group name.
-deploymentGroupInfo ::
+-- * 'alarmConfiguration' - A list of alarms associated with the deployment group.
+-- * 'applicationName' - The application name.
+-- * 'autoRollbackConfiguration' - Information about the automatic rollback configuration associated with the deployment group.
+-- * 'autoScalingGroups' - A list of associated Auto Scaling groups.
+-- * 'blueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
+-- * 'computePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
+-- * 'deploymentConfigName' - The deployment configuration name.
+-- * 'deploymentGroupId' - The deployment group ID.
+-- * 'deploymentGroupName' - The deployment group name.
+-- * 'deploymentStyle' - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- * 'ec2TagFilters' - The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags.
+-- * 'ec2TagSet' - Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all of the tag groups. Cannot be used in the same call as ec2TagFilters.
+-- * 'ecsServices' - The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
+-- * 'lastAttemptedDeployment' - Information about the most recent attempted deployment to the deployment group.
+-- * 'lastSuccessfulDeployment' - Information about the most recent successful deployment to the deployment group.
+-- * 'loadBalancerInfo' - Information about the load balancer to use in a deployment.
+-- * 'onPremisesInstanceTagFilters' - The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags.
+-- * 'onPremisesTagSet' - Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
+-- * 'serviceRoleARN' - A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for AWS CodeDeploy> in the /AWS CodeDeploy User Guide/ .
+-- * 'targetRevision' - Information about the deployment group's target revision, including type and location.
+-- * 'triggerConfigurations' - Information about triggers associated with the deployment group.
+mkDeploymentGroupInfo ::
   DeploymentGroupInfo
-deploymentGroupInfo =
+mkDeploymentGroupInfo =
   DeploymentGroupInfo'
-    { _dgiServiceRoleARN = Nothing,
-      _dgiEc2TagSet = Nothing,
-      _dgiDeploymentConfigName = Nothing,
-      _dgiLastAttemptedDeployment = Nothing,
-      _dgiOnPremisesTagSet = Nothing,
-      _dgiComputePlatform = Nothing,
-      _dgiTargetRevision = Nothing,
-      _dgiEc2TagFilters = Nothing,
-      _dgiEcsServices = Nothing,
-      _dgiBlueGreenDeploymentConfiguration = Nothing,
-      _dgiLoadBalancerInfo = Nothing,
-      _dgiOnPremisesInstanceTagFilters = Nothing,
-      _dgiLastSuccessfulDeployment = Nothing,
-      _dgiApplicationName = Nothing,
-      _dgiAlarmConfiguration = Nothing,
-      _dgiTriggerConfigurations = Nothing,
-      _dgiDeploymentGroupId = Nothing,
-      _dgiAutoScalingGroups = Nothing,
-      _dgiDeploymentStyle = Nothing,
-      _dgiAutoRollbackConfiguration = Nothing,
-      _dgiDeploymentGroupName = Nothing
+    { serviceRoleARN = Lude.Nothing,
+      ec2TagSet = Lude.Nothing,
+      deploymentConfigName = Lude.Nothing,
+      lastAttemptedDeployment = Lude.Nothing,
+      onPremisesTagSet = Lude.Nothing,
+      computePlatform = Lude.Nothing,
+      targetRevision = Lude.Nothing,
+      ec2TagFilters = Lude.Nothing,
+      ecsServices = Lude.Nothing,
+      blueGreenDeploymentConfiguration = Lude.Nothing,
+      loadBalancerInfo = Lude.Nothing,
+      onPremisesInstanceTagFilters = Lude.Nothing,
+      lastSuccessfulDeployment = Lude.Nothing,
+      applicationName = Lude.Nothing,
+      alarmConfiguration = Lude.Nothing,
+      triggerConfigurations = Lude.Nothing,
+      deploymentGroupId = Lude.Nothing,
+      autoScalingGroups = Lude.Nothing,
+      deploymentStyle = Lude.Nothing,
+      autoRollbackConfiguration = Lude.Nothing,
+      deploymentGroupName = Lude.Nothing
     }
 
 -- | A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for AWS CodeDeploy> in the /AWS CodeDeploy User Guide/ .
-dgiServiceRoleARN :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiServiceRoleARN = lens _dgiServiceRoleARN (\s a -> s {_dgiServiceRoleARN = a})
+--
+-- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiServiceRoleARN :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe Lude.Text)
+dgiServiceRoleARN = Lens.lens (serviceRoleARN :: DeploymentGroupInfo -> Lude.Maybe Lude.Text) (\s a -> s {serviceRoleARN = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
 
 -- | Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all of the tag groups. Cannot be used in the same call as ec2TagFilters.
-dgiEc2TagSet :: Lens' DeploymentGroupInfo (Maybe EC2TagSet)
-dgiEc2TagSet = lens _dgiEc2TagSet (\s a -> s {_dgiEc2TagSet = a})
+--
+-- /Note:/ Consider using 'ec2TagSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiEc2TagSet :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe EC2TagSet)
+dgiEc2TagSet = Lens.lens (ec2TagSet :: DeploymentGroupInfo -> Lude.Maybe EC2TagSet) (\s a -> s {ec2TagSet = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiEc2TagSet "Use generic-lens or generic-optics with 'ec2TagSet' instead." #-}
 
 -- | The deployment configuration name.
-dgiDeploymentConfigName :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiDeploymentConfigName = lens _dgiDeploymentConfigName (\s a -> s {_dgiDeploymentConfigName = a})
+--
+-- /Note:/ Consider using 'deploymentConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiDeploymentConfigName :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe Lude.Text)
+dgiDeploymentConfigName = Lens.lens (deploymentConfigName :: DeploymentGroupInfo -> Lude.Maybe Lude.Text) (\s a -> s {deploymentConfigName = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiDeploymentConfigName "Use generic-lens or generic-optics with 'deploymentConfigName' instead." #-}
 
 -- | Information about the most recent attempted deployment to the deployment group.
-dgiLastAttemptedDeployment :: Lens' DeploymentGroupInfo (Maybe LastDeploymentInfo)
-dgiLastAttemptedDeployment = lens _dgiLastAttemptedDeployment (\s a -> s {_dgiLastAttemptedDeployment = a})
+--
+-- /Note:/ Consider using 'lastAttemptedDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiLastAttemptedDeployment :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe LastDeploymentInfo)
+dgiLastAttemptedDeployment = Lens.lens (lastAttemptedDeployment :: DeploymentGroupInfo -> Lude.Maybe LastDeploymentInfo) (\s a -> s {lastAttemptedDeployment = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiLastAttemptedDeployment "Use generic-lens or generic-optics with 'lastAttemptedDeployment' instead." #-}
 
 -- | Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
-dgiOnPremisesTagSet :: Lens' DeploymentGroupInfo (Maybe OnPremisesTagSet)
-dgiOnPremisesTagSet = lens _dgiOnPremisesTagSet (\s a -> s {_dgiOnPremisesTagSet = a})
+--
+-- /Note:/ Consider using 'onPremisesTagSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiOnPremisesTagSet :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe OnPremisesTagSet)
+dgiOnPremisesTagSet = Lens.lens (onPremisesTagSet :: DeploymentGroupInfo -> Lude.Maybe OnPremisesTagSet) (\s a -> s {onPremisesTagSet = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiOnPremisesTagSet "Use generic-lens or generic-optics with 'onPremisesTagSet' instead." #-}
 
 -- | The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
-dgiComputePlatform :: Lens' DeploymentGroupInfo (Maybe ComputePlatform)
-dgiComputePlatform = lens _dgiComputePlatform (\s a -> s {_dgiComputePlatform = a})
+--
+-- /Note:/ Consider using 'computePlatform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiComputePlatform :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe ComputePlatform)
+dgiComputePlatform = Lens.lens (computePlatform :: DeploymentGroupInfo -> Lude.Maybe ComputePlatform) (\s a -> s {computePlatform = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiComputePlatform "Use generic-lens or generic-optics with 'computePlatform' instead." #-}
 
 -- | Information about the deployment group's target revision, including type and location.
-dgiTargetRevision :: Lens' DeploymentGroupInfo (Maybe RevisionLocation)
-dgiTargetRevision = lens _dgiTargetRevision (\s a -> s {_dgiTargetRevision = a})
+--
+-- /Note:/ Consider using 'targetRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiTargetRevision :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe RevisionLocation)
+dgiTargetRevision = Lens.lens (targetRevision :: DeploymentGroupInfo -> Lude.Maybe RevisionLocation) (\s a -> s {targetRevision = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiTargetRevision "Use generic-lens or generic-optics with 'targetRevision' instead." #-}
 
 -- | The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags.
-dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
-dgiEc2TagFilters = lens _dgiEc2TagFilters (\s a -> s {_dgiEc2TagFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ec2TagFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiEc2TagFilters :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe [EC2TagFilter])
+dgiEc2TagFilters = Lens.lens (ec2TagFilters :: DeploymentGroupInfo -> Lude.Maybe [EC2TagFilter]) (\s a -> s {ec2TagFilters = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiEc2TagFilters "Use generic-lens or generic-optics with 'ec2TagFilters' instead." #-}
 
 -- | The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
-dgiEcsServices :: Lens' DeploymentGroupInfo [ECSService]
-dgiEcsServices = lens _dgiEcsServices (\s a -> s {_dgiEcsServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'ecsServices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiEcsServices :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe [ECSService])
+dgiEcsServices = Lens.lens (ecsServices :: DeploymentGroupInfo -> Lude.Maybe [ECSService]) (\s a -> s {ecsServices = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiEcsServices "Use generic-lens or generic-optics with 'ecsServices' instead." #-}
 
 -- | Information about blue/green deployment options for a deployment group.
-dgiBlueGreenDeploymentConfiguration :: Lens' DeploymentGroupInfo (Maybe BlueGreenDeploymentConfiguration)
-dgiBlueGreenDeploymentConfiguration = lens _dgiBlueGreenDeploymentConfiguration (\s a -> s {_dgiBlueGreenDeploymentConfiguration = a})
+--
+-- /Note:/ Consider using 'blueGreenDeploymentConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiBlueGreenDeploymentConfiguration :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe BlueGreenDeploymentConfiguration)
+dgiBlueGreenDeploymentConfiguration = Lens.lens (blueGreenDeploymentConfiguration :: DeploymentGroupInfo -> Lude.Maybe BlueGreenDeploymentConfiguration) (\s a -> s {blueGreenDeploymentConfiguration = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiBlueGreenDeploymentConfiguration "Use generic-lens or generic-optics with 'blueGreenDeploymentConfiguration' instead." #-}
 
 -- | Information about the load balancer to use in a deployment.
-dgiLoadBalancerInfo :: Lens' DeploymentGroupInfo (Maybe LoadBalancerInfo)
-dgiLoadBalancerInfo = lens _dgiLoadBalancerInfo (\s a -> s {_dgiLoadBalancerInfo = a})
+--
+-- /Note:/ Consider using 'loadBalancerInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiLoadBalancerInfo :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe LoadBalancerInfo)
+dgiLoadBalancerInfo = Lens.lens (loadBalancerInfo :: DeploymentGroupInfo -> Lude.Maybe LoadBalancerInfo) (\s a -> s {loadBalancerInfo = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiLoadBalancerInfo "Use generic-lens or generic-optics with 'loadBalancerInfo' instead." #-}
 
 -- | The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags.
-dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo [TagFilter]
-dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\s a -> s {_dgiOnPremisesInstanceTagFilters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'onPremisesInstanceTagFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiOnPremisesInstanceTagFilters :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe [TagFilter])
+dgiOnPremisesInstanceTagFilters = Lens.lens (onPremisesInstanceTagFilters :: DeploymentGroupInfo -> Lude.Maybe [TagFilter]) (\s a -> s {onPremisesInstanceTagFilters = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiOnPremisesInstanceTagFilters "Use generic-lens or generic-optics with 'onPremisesInstanceTagFilters' instead." #-}
 
 -- | Information about the most recent successful deployment to the deployment group.
-dgiLastSuccessfulDeployment :: Lens' DeploymentGroupInfo (Maybe LastDeploymentInfo)
-dgiLastSuccessfulDeployment = lens _dgiLastSuccessfulDeployment (\s a -> s {_dgiLastSuccessfulDeployment = a})
+--
+-- /Note:/ Consider using 'lastSuccessfulDeployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiLastSuccessfulDeployment :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe LastDeploymentInfo)
+dgiLastSuccessfulDeployment = Lens.lens (lastSuccessfulDeployment :: DeploymentGroupInfo -> Lude.Maybe LastDeploymentInfo) (\s a -> s {lastSuccessfulDeployment = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiLastSuccessfulDeployment "Use generic-lens or generic-optics with 'lastSuccessfulDeployment' instead." #-}
 
 -- | The application name.
-dgiApplicationName :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiApplicationName = lens _dgiApplicationName (\s a -> s {_dgiApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiApplicationName :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe Lude.Text)
+dgiApplicationName = Lens.lens (applicationName :: DeploymentGroupInfo -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | A list of alarms associated with the deployment group.
-dgiAlarmConfiguration :: Lens' DeploymentGroupInfo (Maybe AlarmConfiguration)
-dgiAlarmConfiguration = lens _dgiAlarmConfiguration (\s a -> s {_dgiAlarmConfiguration = a})
+--
+-- /Note:/ Consider using 'alarmConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiAlarmConfiguration :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe AlarmConfiguration)
+dgiAlarmConfiguration = Lens.lens (alarmConfiguration :: DeploymentGroupInfo -> Lude.Maybe AlarmConfiguration) (\s a -> s {alarmConfiguration = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiAlarmConfiguration "Use generic-lens or generic-optics with 'alarmConfiguration' instead." #-}
 
 -- | Information about triggers associated with the deployment group.
-dgiTriggerConfigurations :: Lens' DeploymentGroupInfo [TriggerConfig]
-dgiTriggerConfigurations = lens _dgiTriggerConfigurations (\s a -> s {_dgiTriggerConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'triggerConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiTriggerConfigurations :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe [TriggerConfig])
+dgiTriggerConfigurations = Lens.lens (triggerConfigurations :: DeploymentGroupInfo -> Lude.Maybe [TriggerConfig]) (\s a -> s {triggerConfigurations = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiTriggerConfigurations "Use generic-lens or generic-optics with 'triggerConfigurations' instead." #-}
 
 -- | The deployment group ID.
-dgiDeploymentGroupId :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiDeploymentGroupId = lens _dgiDeploymentGroupId (\s a -> s {_dgiDeploymentGroupId = a})
+--
+-- /Note:/ Consider using 'deploymentGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiDeploymentGroupId :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe Lude.Text)
+dgiDeploymentGroupId = Lens.lens (deploymentGroupId :: DeploymentGroupInfo -> Lude.Maybe Lude.Text) (\s a -> s {deploymentGroupId = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiDeploymentGroupId "Use generic-lens or generic-optics with 'deploymentGroupId' instead." #-}
 
 -- | A list of associated Auto Scaling groups.
-dgiAutoScalingGroups :: Lens' DeploymentGroupInfo [AutoScalingGroup]
-dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\s a -> s {_dgiAutoScalingGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'autoScalingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiAutoScalingGroups :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe [AutoScalingGroup])
+dgiAutoScalingGroups = Lens.lens (autoScalingGroups :: DeploymentGroupInfo -> Lude.Maybe [AutoScalingGroup]) (\s a -> s {autoScalingGroups = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiAutoScalingGroups "Use generic-lens or generic-optics with 'autoScalingGroups' instead." #-}
 
 -- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
-dgiDeploymentStyle :: Lens' DeploymentGroupInfo (Maybe DeploymentStyle)
-dgiDeploymentStyle = lens _dgiDeploymentStyle (\s a -> s {_dgiDeploymentStyle = a})
+--
+-- /Note:/ Consider using 'deploymentStyle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiDeploymentStyle :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe DeploymentStyle)
+dgiDeploymentStyle = Lens.lens (deploymentStyle :: DeploymentGroupInfo -> Lude.Maybe DeploymentStyle) (\s a -> s {deploymentStyle = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiDeploymentStyle "Use generic-lens or generic-optics with 'deploymentStyle' instead." #-}
 
 -- | Information about the automatic rollback configuration associated with the deployment group.
-dgiAutoRollbackConfiguration :: Lens' DeploymentGroupInfo (Maybe AutoRollbackConfiguration)
-dgiAutoRollbackConfiguration = lens _dgiAutoRollbackConfiguration (\s a -> s {_dgiAutoRollbackConfiguration = a})
+--
+-- /Note:/ Consider using 'autoRollbackConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiAutoRollbackConfiguration :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe AutoRollbackConfiguration)
+dgiAutoRollbackConfiguration = Lens.lens (autoRollbackConfiguration :: DeploymentGroupInfo -> Lude.Maybe AutoRollbackConfiguration) (\s a -> s {autoRollbackConfiguration = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiAutoRollbackConfiguration "Use generic-lens or generic-optics with 'autoRollbackConfiguration' instead." #-}
 
 -- | The deployment group name.
-dgiDeploymentGroupName :: Lens' DeploymentGroupInfo (Maybe Text)
-dgiDeploymentGroupName = lens _dgiDeploymentGroupName (\s a -> s {_dgiDeploymentGroupName = a})
+--
+-- /Note:/ Consider using 'deploymentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgiDeploymentGroupName :: Lens.Lens' DeploymentGroupInfo (Lude.Maybe Lude.Text)
+dgiDeploymentGroupName = Lens.lens (deploymentGroupName :: DeploymentGroupInfo -> Lude.Maybe Lude.Text) (\s a -> s {deploymentGroupName = a} :: DeploymentGroupInfo)
+{-# DEPRECATED dgiDeploymentGroupName "Use generic-lens or generic-optics with 'deploymentGroupName' instead." #-}
 
-instance FromJSON DeploymentGroupInfo where
+instance Lude.FromJSON DeploymentGroupInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeploymentGroupInfo"
       ( \x ->
           DeploymentGroupInfo'
-            <$> (x .:? "serviceRoleArn")
-            <*> (x .:? "ec2TagSet")
-            <*> (x .:? "deploymentConfigName")
-            <*> (x .:? "lastAttemptedDeployment")
-            <*> (x .:? "onPremisesTagSet")
-            <*> (x .:? "computePlatform")
-            <*> (x .:? "targetRevision")
-            <*> (x .:? "ec2TagFilters" .!= mempty)
-            <*> (x .:? "ecsServices" .!= mempty)
-            <*> (x .:? "blueGreenDeploymentConfiguration")
-            <*> (x .:? "loadBalancerInfo")
-            <*> (x .:? "onPremisesInstanceTagFilters" .!= mempty)
-            <*> (x .:? "lastSuccessfulDeployment")
-            <*> (x .:? "applicationName")
-            <*> (x .:? "alarmConfiguration")
-            <*> (x .:? "triggerConfigurations" .!= mempty)
-            <*> (x .:? "deploymentGroupId")
-            <*> (x .:? "autoScalingGroups" .!= mempty)
-            <*> (x .:? "deploymentStyle")
-            <*> (x .:? "autoRollbackConfiguration")
-            <*> (x .:? "deploymentGroupName")
+            Lude.<$> (x Lude..:? "serviceRoleArn")
+            Lude.<*> (x Lude..:? "ec2TagSet")
+            Lude.<*> (x Lude..:? "deploymentConfigName")
+            Lude.<*> (x Lude..:? "lastAttemptedDeployment")
+            Lude.<*> (x Lude..:? "onPremisesTagSet")
+            Lude.<*> (x Lude..:? "computePlatform")
+            Lude.<*> (x Lude..:? "targetRevision")
+            Lude.<*> (x Lude..:? "ec2TagFilters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ecsServices" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "blueGreenDeploymentConfiguration")
+            Lude.<*> (x Lude..:? "loadBalancerInfo")
+            Lude.<*> (x Lude..:? "onPremisesInstanceTagFilters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "lastSuccessfulDeployment")
+            Lude.<*> (x Lude..:? "applicationName")
+            Lude.<*> (x Lude..:? "alarmConfiguration")
+            Lude.<*> (x Lude..:? "triggerConfigurations" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "deploymentGroupId")
+            Lude.<*> (x Lude..:? "autoScalingGroups" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "deploymentStyle")
+            Lude.<*> (x Lude..:? "autoRollbackConfiguration")
+            Lude.<*> (x Lude..:? "deploymentGroupName")
       )
-
-instance Hashable DeploymentGroupInfo
-
-instance NFData DeploymentGroupInfo

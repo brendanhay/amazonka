@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,93 @@
 --
 -- Cancels the specified export task.
 --
---
 -- The task must be in the @PENDING@ or @RUNNING@ state.
 module Network.AWS.CloudWatchLogs.CancelExportTask
-  ( -- * Creating a Request
-    cancelExportTask,
-    CancelExportTask,
+  ( -- * Creating a request
+    CancelExportTask (..),
+    mkCancelExportTask,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cetTaskId,
 
-    -- * Destructuring the Response
-    cancelExportTaskResponse,
-    CancelExportTaskResponse,
+    -- * Destructuring the response
+    CancelExportTaskResponse (..),
+    mkCancelExportTaskResponse,
   )
 where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'cancelExportTask' smart constructor.
-newtype CancelExportTask = CancelExportTask' {_cetTaskId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkCancelExportTask' smart constructor.
+newtype CancelExportTask = CancelExportTask' {taskId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelExportTask' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cetTaskId' - The ID of the export task.
-cancelExportTask ::
-  -- | 'cetTaskId'
-  Text ->
+-- * 'taskId' - The ID of the export task.
+mkCancelExportTask ::
+  -- | 'taskId'
+  Lude.Text ->
   CancelExportTask
-cancelExportTask pTaskId_ =
-  CancelExportTask' {_cetTaskId = pTaskId_}
+mkCancelExportTask pTaskId_ = CancelExportTask' {taskId = pTaskId_}
 
 -- | The ID of the export task.
-cetTaskId :: Lens' CancelExportTask Text
-cetTaskId = lens _cetTaskId (\s a -> s {_cetTaskId = a})
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetTaskId :: Lens.Lens' CancelExportTask Lude.Text
+cetTaskId = Lens.lens (taskId :: CancelExportTask -> Lude.Text) (\s a -> s {taskId = a} :: CancelExportTask)
+{-# DEPRECATED cetTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
-instance AWSRequest CancelExportTask where
+instance Lude.AWSRequest CancelExportTask where
   type Rs CancelExportTask = CancelExportTaskResponse
-  request = postJSON cloudWatchLogs
-  response = receiveNull CancelExportTaskResponse'
+  request = Req.postJSON cloudWatchLogsService
+  response = Res.receiveNull CancelExportTaskResponse'
 
-instance Hashable CancelExportTask
-
-instance NFData CancelExportTask
-
-instance ToHeaders CancelExportTask where
+instance Lude.ToHeaders CancelExportTask where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Logs_20140328.CancelExportTask" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Logs_20140328.CancelExportTask" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CancelExportTask where
+instance Lude.ToJSON CancelExportTask where
   toJSON CancelExportTask' {..} =
-    object (catMaybes [Just ("taskId" .= _cetTaskId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("taskId" Lude..= taskId)])
 
-instance ToPath CancelExportTask where
-  toPath = const "/"
+instance Lude.ToPath CancelExportTask where
+  toPath = Lude.const "/"
 
-instance ToQuery CancelExportTask where
-  toQuery = const mempty
+instance Lude.ToQuery CancelExportTask where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'cancelExportTaskResponse' smart constructor.
+-- | /See:/ 'mkCancelExportTaskResponse' smart constructor.
 data CancelExportTaskResponse = CancelExportTaskResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelExportTaskResponse' with the minimum fields required to make a request.
-cancelExportTaskResponse ::
+mkCancelExportTaskResponse ::
   CancelExportTaskResponse
-cancelExportTaskResponse = CancelExportTaskResponse'
-
-instance NFData CancelExportTaskResponse
+mkCancelExportTaskResponse = CancelExportTaskResponse'

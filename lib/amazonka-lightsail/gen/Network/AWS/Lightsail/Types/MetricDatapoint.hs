@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,102 +7,131 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.MetricDatapoint where
+module Network.AWS.Lightsail.Types.MetricDatapoint
+  ( MetricDatapoint (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkMetricDatapoint,
+
+    -- * Lenses
+    mdSampleCount,
+    mdMaximum,
+    mdAverage,
+    mdMinimum,
+    mdSum,
+    mdTimestamp,
+    mdUnit,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.MetricUnit
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the metric data point.
 --
---
---
--- /See:/ 'metricDatapoint' smart constructor.
+-- /See:/ 'mkMetricDatapoint' smart constructor.
 data MetricDatapoint = MetricDatapoint'
-  { _mdSampleCount ::
-      !(Maybe Double),
-    _mdMaximum :: !(Maybe Double),
-    _mdAverage :: !(Maybe Double),
-    _mdMinimum :: !(Maybe Double),
-    _mdSum :: !(Maybe Double),
-    _mdTimestamp :: !(Maybe POSIX),
-    _mdUnit :: !(Maybe MetricUnit)
+  { sampleCount ::
+      Lude.Maybe Lude.Double,
+    maximum :: Lude.Maybe Lude.Double,
+    average :: Lude.Maybe Lude.Double,
+    minimum :: Lude.Maybe Lude.Double,
+    sum :: Lude.Maybe Lude.Double,
+    timestamp :: Lude.Maybe Lude.Timestamp,
+    unit :: Lude.Maybe MetricUnit
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricDatapoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'mdSampleCount' - The sample count.
---
--- * 'mdMaximum' - The maximum.
---
--- * 'mdAverage' - The average.
---
--- * 'mdMinimum' - The minimum.
---
--- * 'mdSum' - The sum.
---
--- * 'mdTimestamp' - The timestamp (e.g., @1479816991.349@ ).
---
--- * 'mdUnit' - The unit.
-metricDatapoint ::
+-- * 'average' - The average.
+-- * 'maximum' - The maximum.
+-- * 'minimum' - The minimum.
+-- * 'sampleCount' - The sample count.
+-- * 'sum' - The sum.
+-- * 'timestamp' - The timestamp (e.g., @1479816991.349@ ).
+-- * 'unit' - The unit.
+mkMetricDatapoint ::
   MetricDatapoint
-metricDatapoint =
+mkMetricDatapoint =
   MetricDatapoint'
-    { _mdSampleCount = Nothing,
-      _mdMaximum = Nothing,
-      _mdAverage = Nothing,
-      _mdMinimum = Nothing,
-      _mdSum = Nothing,
-      _mdTimestamp = Nothing,
-      _mdUnit = Nothing
+    { sampleCount = Lude.Nothing,
+      maximum = Lude.Nothing,
+      average = Lude.Nothing,
+      minimum = Lude.Nothing,
+      sum = Lude.Nothing,
+      timestamp = Lude.Nothing,
+      unit = Lude.Nothing
     }
 
 -- | The sample count.
-mdSampleCount :: Lens' MetricDatapoint (Maybe Double)
-mdSampleCount = lens _mdSampleCount (\s a -> s {_mdSampleCount = a})
+--
+-- /Note:/ Consider using 'sampleCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdSampleCount :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
+mdSampleCount = Lens.lens (sampleCount :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {sampleCount = a} :: MetricDatapoint)
+{-# DEPRECATED mdSampleCount "Use generic-lens or generic-optics with 'sampleCount' instead." #-}
 
 -- | The maximum.
-mdMaximum :: Lens' MetricDatapoint (Maybe Double)
-mdMaximum = lens _mdMaximum (\s a -> s {_mdMaximum = a})
+--
+-- /Note:/ Consider using 'maximum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdMaximum :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
+mdMaximum = Lens.lens (maximum :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {maximum = a} :: MetricDatapoint)
+{-# DEPRECATED mdMaximum "Use generic-lens or generic-optics with 'maximum' instead." #-}
 
 -- | The average.
-mdAverage :: Lens' MetricDatapoint (Maybe Double)
-mdAverage = lens _mdAverage (\s a -> s {_mdAverage = a})
+--
+-- /Note:/ Consider using 'average' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdAverage :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
+mdAverage = Lens.lens (average :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {average = a} :: MetricDatapoint)
+{-# DEPRECATED mdAverage "Use generic-lens or generic-optics with 'average' instead." #-}
 
 -- | The minimum.
-mdMinimum :: Lens' MetricDatapoint (Maybe Double)
-mdMinimum = lens _mdMinimum (\s a -> s {_mdMinimum = a})
+--
+-- /Note:/ Consider using 'minimum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdMinimum :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
+mdMinimum = Lens.lens (minimum :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {minimum = a} :: MetricDatapoint)
+{-# DEPRECATED mdMinimum "Use generic-lens or generic-optics with 'minimum' instead." #-}
 
 -- | The sum.
-mdSum :: Lens' MetricDatapoint (Maybe Double)
-mdSum = lens _mdSum (\s a -> s {_mdSum = a})
+--
+-- /Note:/ Consider using 'sum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdSum :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Double)
+mdSum = Lens.lens (sum :: MetricDatapoint -> Lude.Maybe Lude.Double) (\s a -> s {sum = a} :: MetricDatapoint)
+{-# DEPRECATED mdSum "Use generic-lens or generic-optics with 'sum' instead." #-}
 
 -- | The timestamp (e.g., @1479816991.349@ ).
-mdTimestamp :: Lens' MetricDatapoint (Maybe UTCTime)
-mdTimestamp = lens _mdTimestamp (\s a -> s {_mdTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdTimestamp :: Lens.Lens' MetricDatapoint (Lude.Maybe Lude.Timestamp)
+mdTimestamp = Lens.lens (timestamp :: MetricDatapoint -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: MetricDatapoint)
+{-# DEPRECATED mdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The unit.
-mdUnit :: Lens' MetricDatapoint (Maybe MetricUnit)
-mdUnit = lens _mdUnit (\s a -> s {_mdUnit = a})
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdUnit :: Lens.Lens' MetricDatapoint (Lude.Maybe MetricUnit)
+mdUnit = Lens.lens (unit :: MetricDatapoint -> Lude.Maybe MetricUnit) (\s a -> s {unit = a} :: MetricDatapoint)
+{-# DEPRECATED mdUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance FromJSON MetricDatapoint where
+instance Lude.FromJSON MetricDatapoint where
   parseJSON =
-    withObject
+    Lude.withObject
       "MetricDatapoint"
       ( \x ->
           MetricDatapoint'
-            <$> (x .:? "sampleCount")
-            <*> (x .:? "maximum")
-            <*> (x .:? "average")
-            <*> (x .:? "minimum")
-            <*> (x .:? "sum")
-            <*> (x .:? "timestamp")
-            <*> (x .:? "unit")
+            Lude.<$> (x Lude..:? "sampleCount")
+            Lude.<*> (x Lude..:? "maximum")
+            Lude.<*> (x Lude..:? "average")
+            Lude.<*> (x Lude..:? "minimum")
+            Lude.<*> (x Lude..:? "sum")
+            Lude.<*> (x Lude..:? "timestamp")
+            Lude.<*> (x Lude..:? "unit")
       )
-
-instance Hashable MetricDatapoint
-
-instance NFData MetricDatapoint

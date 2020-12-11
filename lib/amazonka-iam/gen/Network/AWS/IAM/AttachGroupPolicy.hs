@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,96 +14,113 @@
 --
 -- Attaches the specified managed policy to the specified IAM group.
 --
---
 -- You use this API to attach a managed policy to a group. To embed an inline policy in a group, use 'PutGroupPolicy' .
---
 -- For more information about policies, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
 module Network.AWS.IAM.AttachGroupPolicy
-  ( -- * Creating a Request
-    attachGroupPolicy,
-    AttachGroupPolicy,
+  ( -- * Creating a request
+    AttachGroupPolicy (..),
+    mkAttachGroupPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     agpGroupName,
     agpPolicyARN,
 
-    -- * Destructuring the Response
-    attachGroupPolicyResponse,
-    AttachGroupPolicyResponse,
+    -- * Destructuring the response
+    AttachGroupPolicyResponse (..),
+    mkAttachGroupPolicyResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachGroupPolicy' smart constructor.
+-- | /See:/ 'mkAttachGroupPolicy' smart constructor.
 data AttachGroupPolicy = AttachGroupPolicy'
-  { _agpGroupName :: !Text,
-    _agpPolicyARN :: !Text
+  { groupName :: Lude.Text,
+    policyARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachGroupPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'groupName' - The name (friendly name, not ARN) of the group to attach the policy to.
 --
--- * 'agpGroupName' - The name (friendly name, not ARN) of the group to attach the policy to. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach.
 --
--- * 'agpPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-attachGroupPolicy ::
-  -- | 'agpGroupName'
-  Text ->
-  -- | 'agpPolicyARN'
-  Text ->
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+mkAttachGroupPolicy ::
+  -- | 'groupName'
+  Lude.Text ->
+  -- | 'policyARN'
+  Lude.Text ->
   AttachGroupPolicy
-attachGroupPolicy pGroupName_ pPolicyARN_ =
+mkAttachGroupPolicy pGroupName_ pPolicyARN_ =
   AttachGroupPolicy'
-    { _agpGroupName = pGroupName_,
-      _agpPolicyARN = pPolicyARN_
+    { groupName = pGroupName_,
+      policyARN = pPolicyARN_
     }
 
--- | The name (friendly name, not ARN) of the group to attach the policy to. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-agpGroupName :: Lens' AttachGroupPolicy Text
-agpGroupName = lens _agpGroupName (\s a -> s {_agpGroupName = a})
+-- | The name (friendly name, not ARN) of the group to attach the policy to.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agpGroupName :: Lens.Lens' AttachGroupPolicy Lude.Text
+agpGroupName = Lens.lens (groupName :: AttachGroupPolicy -> Lude.Text) (\s a -> s {groupName = a} :: AttachGroupPolicy)
+{-# DEPRECATED agpGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM policy you want to attach. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-agpPolicyARN :: Lens' AttachGroupPolicy Text
-agpPolicyARN = lens _agpPolicyARN (\s a -> s {_agpPolicyARN = a})
+-- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agpPolicyARN :: Lens.Lens' AttachGroupPolicy Lude.Text
+agpPolicyARN = Lens.lens (policyARN :: AttachGroupPolicy -> Lude.Text) (\s a -> s {policyARN = a} :: AttachGroupPolicy)
+{-# DEPRECATED agpPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
-instance AWSRequest AttachGroupPolicy where
+instance Lude.AWSRequest AttachGroupPolicy where
   type Rs AttachGroupPolicy = AttachGroupPolicyResponse
-  request = postQuery iam
-  response = receiveNull AttachGroupPolicyResponse'
+  request = Req.postQuery iamService
+  response = Res.receiveNull AttachGroupPolicyResponse'
 
-instance Hashable AttachGroupPolicy
+instance Lude.ToHeaders AttachGroupPolicy where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData AttachGroupPolicy
+instance Lude.ToPath AttachGroupPolicy where
+  toPath = Lude.const "/"
 
-instance ToHeaders AttachGroupPolicy where
-  toHeaders = const mempty
-
-instance ToPath AttachGroupPolicy where
-  toPath = const "/"
-
-instance ToQuery AttachGroupPolicy where
+instance Lude.ToQuery AttachGroupPolicy where
   toQuery AttachGroupPolicy' {..} =
-    mconcat
-      [ "Action" =: ("AttachGroupPolicy" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "GroupName" =: _agpGroupName,
-        "PolicyArn" =: _agpPolicyARN
+    Lude.mconcat
+      [ "Action" Lude.=: ("AttachGroupPolicy" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "GroupName" Lude.=: groupName,
+        "PolicyArn" Lude.=: policyARN
       ]
 
--- | /See:/ 'attachGroupPolicyResponse' smart constructor.
+-- | /See:/ 'mkAttachGroupPolicyResponse' smart constructor.
 data AttachGroupPolicyResponse = AttachGroupPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachGroupPolicyResponse' with the minimum fields required to make a request.
-attachGroupPolicyResponse ::
+mkAttachGroupPolicyResponse ::
   AttachGroupPolicyResponse
-attachGroupPolicyResponse = AttachGroupPolicyResponse'
-
-instance NFData AttachGroupPolicyResponse
+mkAttachGroupPolicyResponse = AttachGroupPolicyResponse'

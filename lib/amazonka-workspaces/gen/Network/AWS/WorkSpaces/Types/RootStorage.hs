@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,38 +7,52 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.RootStorage where
+module Network.AWS.WorkSpaces.Types.RootStorage
+  ( RootStorage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkRootStorage,
+
+    -- * Lenses
+    rsCapacity,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the root volume for a WorkSpace bundle.
 --
---
---
--- /See:/ 'rootStorage' smart constructor.
-newtype RootStorage = RootStorage' {_rsCapacity :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkRootStorage' smart constructor.
+newtype RootStorage = RootStorage'
+  { capacity ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RootStorage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rsCapacity' - The size of the root volume.
-rootStorage ::
+-- * 'capacity' - The size of the root volume.
+mkRootStorage ::
   RootStorage
-rootStorage = RootStorage' {_rsCapacity = Nothing}
+mkRootStorage = RootStorage' {capacity = Lude.Nothing}
 
 -- | The size of the root volume.
-rsCapacity :: Lens' RootStorage (Maybe Text)
-rsCapacity = lens _rsCapacity (\s a -> s {_rsCapacity = a})
+--
+-- /Note:/ Consider using 'capacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsCapacity :: Lens.Lens' RootStorage (Lude.Maybe Lude.Text)
+rsCapacity = Lens.lens (capacity :: RootStorage -> Lude.Maybe Lude.Text) (\s a -> s {capacity = a} :: RootStorage)
+{-# DEPRECATED rsCapacity "Use generic-lens or generic-optics with 'capacity' instead." #-}
 
-instance FromJSON RootStorage where
+instance Lude.FromJSON RootStorage where
   parseJSON =
-    withObject
+    Lude.withObject
       "RootStorage"
-      (\x -> RootStorage' <$> (x .:? "Capacity"))
-
-instance Hashable RootStorage
-
-instance NFData RootStorage
+      (\x -> RootStorage' Lude.<$> (x Lude..:? "Capacity"))

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.ContainerServicePowerName where
+module Network.AWS.Lightsail.Types.ContainerServicePowerName
+  ( ContainerServicePowerName
+      ( ContainerServicePowerName',
+        Large,
+        Medium,
+        Micro,
+        Nano,
+        Small,
+        XLarge
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContainerServicePowerName
-  = Large
-  | Medium
-  | Micro
-  | Nano
-  | Small
-  | XLarge
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContainerServicePowerName = ContainerServicePowerName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContainerServicePowerName where
-  parser =
-    takeLowerText >>= \case
-      "large" -> pure Large
-      "medium" -> pure Medium
-      "micro" -> pure Micro
-      "nano" -> pure Nano
-      "small" -> pure Small
-      "xlarge" -> pure XLarge
-      e ->
-        fromTextError $
-          "Failure parsing ContainerServicePowerName from value: '" <> e
-            <> "'. Accepted values: large, medium, micro, nano, small, xlarge"
+pattern Large :: ContainerServicePowerName
+pattern Large = ContainerServicePowerName' "large"
 
-instance ToText ContainerServicePowerName where
-  toText = \case
-    Large -> "large"
-    Medium -> "medium"
-    Micro -> "micro"
-    Nano -> "nano"
-    Small -> "small"
-    XLarge -> "xlarge"
+pattern Medium :: ContainerServicePowerName
+pattern Medium = ContainerServicePowerName' "medium"
 
-instance Hashable ContainerServicePowerName
+pattern Micro :: ContainerServicePowerName
+pattern Micro = ContainerServicePowerName' "micro"
 
-instance NFData ContainerServicePowerName
+pattern Nano :: ContainerServicePowerName
+pattern Nano = ContainerServicePowerName' "nano"
 
-instance ToByteString ContainerServicePowerName
+pattern Small :: ContainerServicePowerName
+pattern Small = ContainerServicePowerName' "small"
 
-instance ToQuery ContainerServicePowerName
+pattern XLarge :: ContainerServicePowerName
+pattern XLarge = ContainerServicePowerName' "xlarge"
 
-instance ToHeader ContainerServicePowerName
-
-instance ToJSON ContainerServicePowerName where
-  toJSON = toJSONText
-
-instance FromJSON ContainerServicePowerName where
-  parseJSON = parseJSONText "ContainerServicePowerName"
+{-# COMPLETE
+  Large,
+  Medium,
+  Micro,
+  Nano,
+  Small,
+  XLarge,
+  ContainerServicePowerName'
+  #-}

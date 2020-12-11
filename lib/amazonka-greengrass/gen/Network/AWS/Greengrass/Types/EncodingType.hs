@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.EncodingType where
+module Network.AWS.Greengrass.Types.EncodingType
+  ( EncodingType
+      ( EncodingType',
+        Binary,
+        JSON
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EncodingType
-  = Binary
-  | JSON
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EncodingType = EncodingType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EncodingType where
-  parser =
-    takeLowerText >>= \case
-      "binary" -> pure Binary
-      "json" -> pure JSON
-      e ->
-        fromTextError $
-          "Failure parsing EncodingType from value: '" <> e
-            <> "'. Accepted values: binary, json"
+pattern Binary :: EncodingType
+pattern Binary = EncodingType' "binary"
 
-instance ToText EncodingType where
-  toText = \case
-    Binary -> "binary"
-    JSON -> "json"
+pattern JSON :: EncodingType
+pattern JSON = EncodingType' "json"
 
-instance Hashable EncodingType
-
-instance NFData EncodingType
-
-instance ToByteString EncodingType
-
-instance ToQuery EncodingType
-
-instance ToHeader EncodingType
-
-instance ToJSON EncodingType where
-  toJSON = toJSONText
-
-instance FromJSON EncodingType where
-  parseJSON = parseJSONText "EncodingType"
+{-# COMPLETE
+  Binary,
+  JSON,
+  EncodingType'
+  #-}

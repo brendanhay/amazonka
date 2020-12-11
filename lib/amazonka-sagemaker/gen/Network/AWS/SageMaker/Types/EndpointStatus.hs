@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.EndpointStatus where
+module Network.AWS.SageMaker.Types.EndpointStatus
+  ( EndpointStatus
+      ( EndpointStatus',
+        ESCreating,
+        ESDeleting,
+        ESFailed,
+        ESInService,
+        ESOutOfService,
+        ESRollingBack,
+        ESSystemUpdating,
+        ESUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EndpointStatus
-  = ESCreating
-  | ESDeleting
-  | ESFailed
-  | ESInService
-  | ESOutOfService
-  | ESRollingBack
-  | ESSystemUpdating
-  | ESUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EndpointStatus = EndpointStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EndpointStatus where
-  parser =
-    takeLowerText >>= \case
-      "creating" -> pure ESCreating
-      "deleting" -> pure ESDeleting
-      "failed" -> pure ESFailed
-      "inservice" -> pure ESInService
-      "outofservice" -> pure ESOutOfService
-      "rollingback" -> pure ESRollingBack
-      "systemupdating" -> pure ESSystemUpdating
-      "updating" -> pure ESUpdating
-      e ->
-        fromTextError $
-          "Failure parsing EndpointStatus from value: '" <> e
-            <> "'. Accepted values: creating, deleting, failed, inservice, outofservice, rollingback, systemupdating, updating"
+pattern ESCreating :: EndpointStatus
+pattern ESCreating = EndpointStatus' "Creating"
 
-instance ToText EndpointStatus where
-  toText = \case
-    ESCreating -> "Creating"
-    ESDeleting -> "Deleting"
-    ESFailed -> "Failed"
-    ESInService -> "InService"
-    ESOutOfService -> "OutOfService"
-    ESRollingBack -> "RollingBack"
-    ESSystemUpdating -> "SystemUpdating"
-    ESUpdating -> "Updating"
+pattern ESDeleting :: EndpointStatus
+pattern ESDeleting = EndpointStatus' "Deleting"
 
-instance Hashable EndpointStatus
+pattern ESFailed :: EndpointStatus
+pattern ESFailed = EndpointStatus' "Failed"
 
-instance NFData EndpointStatus
+pattern ESInService :: EndpointStatus
+pattern ESInService = EndpointStatus' "InService"
 
-instance ToByteString EndpointStatus
+pattern ESOutOfService :: EndpointStatus
+pattern ESOutOfService = EndpointStatus' "OutOfService"
 
-instance ToQuery EndpointStatus
+pattern ESRollingBack :: EndpointStatus
+pattern ESRollingBack = EndpointStatus' "RollingBack"
 
-instance ToHeader EndpointStatus
+pattern ESSystemUpdating :: EndpointStatus
+pattern ESSystemUpdating = EndpointStatus' "SystemUpdating"
 
-instance ToJSON EndpointStatus where
-  toJSON = toJSONText
+pattern ESUpdating :: EndpointStatus
+pattern ESUpdating = EndpointStatus' "Updating"
 
-instance FromJSON EndpointStatus where
-  parseJSON = parseJSONText "EndpointStatus"
+{-# COMPLETE
+  ESCreating,
+  ESDeleting,
+  ESFailed,
+  ESInService,
+  ESOutOfService,
+  ESRollingBack,
+  ESSystemUpdating,
+  ESUpdating,
+  EndpointStatus'
+  #-}

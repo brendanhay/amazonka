@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus where
+module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus
+  ( EnvironmentHealthStatus
+      ( EnvironmentHealthStatus',
+        EHSDegraded,
+        EHSInfo,
+        EHSNoData,
+        EHSOK,
+        EHSPending,
+        EHSSevere,
+        EHSSuspended,
+        EHSUnknown,
+        EHSWarning
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnvironmentHealthStatus
-  = EHSDegraded
-  | EHSInfo
-  | EHSNoData
-  | EHSOK
-  | EHSPending
-  | EHSSevere
-  | EHSSuspended
-  | EHSUnknown
-  | EHSWarning
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnvironmentHealthStatus = EnvironmentHealthStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnvironmentHealthStatus where
-  parser =
-    takeLowerText >>= \case
-      "degraded" -> pure EHSDegraded
-      "info" -> pure EHSInfo
-      "nodata" -> pure EHSNoData
-      "ok" -> pure EHSOK
-      "pending" -> pure EHSPending
-      "severe" -> pure EHSSevere
-      "suspended" -> pure EHSSuspended
-      "unknown" -> pure EHSUnknown
-      "warning" -> pure EHSWarning
-      e ->
-        fromTextError $
-          "Failure parsing EnvironmentHealthStatus from value: '" <> e
-            <> "'. Accepted values: degraded, info, nodata, ok, pending, severe, suspended, unknown, warning"
+pattern EHSDegraded :: EnvironmentHealthStatus
+pattern EHSDegraded = EnvironmentHealthStatus' "Degraded"
 
-instance ToText EnvironmentHealthStatus where
-  toText = \case
-    EHSDegraded -> "Degraded"
-    EHSInfo -> "Info"
-    EHSNoData -> "NoData"
-    EHSOK -> "Ok"
-    EHSPending -> "Pending"
-    EHSSevere -> "Severe"
-    EHSSuspended -> "Suspended"
-    EHSUnknown -> "Unknown"
-    EHSWarning -> "Warning"
+pattern EHSInfo :: EnvironmentHealthStatus
+pattern EHSInfo = EnvironmentHealthStatus' "Info"
 
-instance Hashable EnvironmentHealthStatus
+pattern EHSNoData :: EnvironmentHealthStatus
+pattern EHSNoData = EnvironmentHealthStatus' "NoData"
 
-instance NFData EnvironmentHealthStatus
+pattern EHSOK :: EnvironmentHealthStatus
+pattern EHSOK = EnvironmentHealthStatus' "Ok"
 
-instance ToByteString EnvironmentHealthStatus
+pattern EHSPending :: EnvironmentHealthStatus
+pattern EHSPending = EnvironmentHealthStatus' "Pending"
 
-instance ToQuery EnvironmentHealthStatus
+pattern EHSSevere :: EnvironmentHealthStatus
+pattern EHSSevere = EnvironmentHealthStatus' "Severe"
 
-instance ToHeader EnvironmentHealthStatus
+pattern EHSSuspended :: EnvironmentHealthStatus
+pattern EHSSuspended = EnvironmentHealthStatus' "Suspended"
 
-instance FromXML EnvironmentHealthStatus where
-  parseXML = parseXMLText "EnvironmentHealthStatus"
+pattern EHSUnknown :: EnvironmentHealthStatus
+pattern EHSUnknown = EnvironmentHealthStatus' "Unknown"
+
+pattern EHSWarning :: EnvironmentHealthStatus
+pattern EHSWarning = EnvironmentHealthStatus' "Warning"
+
+{-# COMPLETE
+  EHSDegraded,
+  EHSInfo,
+  EHSNoData,
+  EHSOK,
+  EHSPending,
+  EHSSevere,
+  EHSSuspended,
+  EHSUnknown,
+  EHSWarning,
+  EnvironmentHealthStatus'
+  #-}

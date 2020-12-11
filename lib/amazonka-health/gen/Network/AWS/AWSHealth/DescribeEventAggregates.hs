@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Returns the number of events of each event type (issue, scheduled change, and account notification). If no filter is specified, the counts of all events in each category are returned.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AWSHealth.DescribeEventAggregates
-  ( -- * Creating a Request
-    describeEventAggregates,
-    DescribeEventAggregates,
+  ( -- * Creating a request
+    DescribeEventAggregates (..),
+    mkDescribeEventAggregates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     deaNextToken,
     deaFilter,
     deaMaxResults,
     deaAggregateField,
 
-    -- * Destructuring the Response
-    describeEventAggregatesResponse,
-    DescribeEventAggregatesResponse,
+    -- * Destructuring the response
+    DescribeEventAggregatesResponse (..),
+    mkDescribeEventAggregatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsNextToken,
     drsEventAggregates,
     drsResponseStatus,
@@ -45,150 +38,174 @@ module Network.AWS.AWSHealth.DescribeEventAggregates
 where
 
 import Network.AWS.AWSHealth.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeEventAggregates' smart constructor.
+-- | /See:/ 'mkDescribeEventAggregates' smart constructor.
 data DescribeEventAggregates = DescribeEventAggregates'
-  { _deaNextToken ::
-      !(Maybe Text),
-    _deaFilter :: !(Maybe EventFilter),
-    _deaMaxResults :: !(Maybe Nat),
-    _deaAggregateField :: !EventAggregateField
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter :: Lude.Maybe EventFilter,
+    maxResults :: Lude.Maybe Lude.Natural,
+    aggregateField :: EventAggregateField
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventAggregates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'deaNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
---
--- * 'deaFilter' - Values to narrow the results returned.
---
--- * 'deaMaxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
---
--- * 'deaAggregateField' - The only currently supported value is @eventTypeCategory@ .
-describeEventAggregates ::
-  -- | 'deaAggregateField'
+-- * 'aggregateField' - The only currently supported value is @eventTypeCategory@ .
+-- * 'filter' - Values to narrow the results returned.
+-- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
+-- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+mkDescribeEventAggregates ::
+  -- | 'aggregateField'
   EventAggregateField ->
   DescribeEventAggregates
-describeEventAggregates pAggregateField_ =
+mkDescribeEventAggregates pAggregateField_ =
   DescribeEventAggregates'
-    { _deaNextToken = Nothing,
-      _deaFilter = Nothing,
-      _deaMaxResults = Nothing,
-      _deaAggregateField = pAggregateField_
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      aggregateField = pAggregateField_
     }
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-deaNextToken :: Lens' DescribeEventAggregates (Maybe Text)
-deaNextToken = lens _deaNextToken (\s a -> s {_deaNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deaNextToken :: Lens.Lens' DescribeEventAggregates (Lude.Maybe Lude.Text)
+deaNextToken = Lens.lens (nextToken :: DescribeEventAggregates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEventAggregates)
+{-# DEPRECATED deaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Values to narrow the results returned.
-deaFilter :: Lens' DescribeEventAggregates (Maybe EventFilter)
-deaFilter = lens _deaFilter (\s a -> s {_deaFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deaFilter :: Lens.Lens' DescribeEventAggregates (Lude.Maybe EventFilter)
+deaFilter = Lens.lens (filter :: DescribeEventAggregates -> Lude.Maybe EventFilter) (\s a -> s {filter = a} :: DescribeEventAggregates)
+{-# DEPRECATED deaFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
-deaMaxResults :: Lens' DescribeEventAggregates (Maybe Natural)
-deaMaxResults = lens _deaMaxResults (\s a -> s {_deaMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deaMaxResults :: Lens.Lens' DescribeEventAggregates (Lude.Maybe Lude.Natural)
+deaMaxResults = Lens.lens (maxResults :: DescribeEventAggregates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEventAggregates)
+{-# DEPRECATED deaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The only currently supported value is @eventTypeCategory@ .
-deaAggregateField :: Lens' DescribeEventAggregates EventAggregateField
-deaAggregateField = lens _deaAggregateField (\s a -> s {_deaAggregateField = a})
+--
+-- /Note:/ Consider using 'aggregateField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deaAggregateField :: Lens.Lens' DescribeEventAggregates EventAggregateField
+deaAggregateField = Lens.lens (aggregateField :: DescribeEventAggregates -> EventAggregateField) (\s a -> s {aggregateField = a} :: DescribeEventAggregates)
+{-# DEPRECATED deaAggregateField "Use generic-lens or generic-optics with 'aggregateField' instead." #-}
 
-instance AWSPager DescribeEventAggregates where
+instance Page.AWSPager DescribeEventAggregates where
   page rq rs
-    | stop (rs ^. drsNextToken) = Nothing
-    | stop (rs ^. drsEventAggregates) = Nothing
-    | otherwise = Just $ rq & deaNextToken .~ rs ^. drsNextToken
+    | Page.stop (rs Lens.^. drsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. drsEventAggregates) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& deaNextToken Lens..~ rs Lens.^. drsNextToken
 
-instance AWSRequest DescribeEventAggregates where
+instance Lude.AWSRequest DescribeEventAggregates where
   type Rs DescribeEventAggregates = DescribeEventAggregatesResponse
-  request = postJSON awsHealth
+  request = Req.postJSON awsHealthService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEventAggregatesResponse'
-            <$> (x .?> "nextToken")
-            <*> (x .?> "eventAggregates" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<*> (x Lude..?> "eventAggregates" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEventAggregates
-
-instance NFData DescribeEventAggregates
-
-instance ToHeaders DescribeEventAggregates where
+instance Lude.ToHeaders DescribeEventAggregates where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSHealth_20160804.DescribeEventAggregates" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSHealth_20160804.DescribeEventAggregates" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEventAggregates where
+instance Lude.ToJSON DescribeEventAggregates where
   toJSON DescribeEventAggregates' {..} =
-    object
-      ( catMaybes
-          [ ("nextToken" .=) <$> _deaNextToken,
-            ("filter" .=) <$> _deaFilter,
-            ("maxResults" .=) <$> _deaMaxResults,
-            Just ("aggregateField" .= _deaAggregateField)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("filter" Lude..=) Lude.<$> filter,
+            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("aggregateField" Lude..= aggregateField)
           ]
       )
 
-instance ToPath DescribeEventAggregates where
-  toPath = const "/"
+instance Lude.ToPath DescribeEventAggregates where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEventAggregates where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEventAggregates where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeEventAggregatesResponse' smart constructor.
+-- | /See:/ 'mkDescribeEventAggregatesResponse' smart constructor.
 data DescribeEventAggregatesResponse = DescribeEventAggregatesResponse'
-  { _drsNextToken ::
-      !(Maybe Text),
-    _drsEventAggregates ::
-      !(Maybe [EventAggregate]),
-    _drsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    eventAggregates ::
+      Lude.Maybe [EventAggregate],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventAggregatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsNextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
---
--- * 'drsEventAggregates' - The number of events in each category that meet the optional filter criteria.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeEventAggregatesResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'eventAggregates' - The number of events in each category that meet the optional filter criteria.
+-- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- * 'responseStatus' - The response status code.
+mkDescribeEventAggregatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEventAggregatesResponse
-describeEventAggregatesResponse pResponseStatus_ =
+mkDescribeEventAggregatesResponse pResponseStatus_ =
   DescribeEventAggregatesResponse'
-    { _drsNextToken = Nothing,
-      _drsEventAggregates = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      eventAggregates = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
-drsNextToken :: Lens' DescribeEventAggregatesResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\s a -> s {_drsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsNextToken :: Lens.Lens' DescribeEventAggregatesResponse (Lude.Maybe Lude.Text)
+drsNextToken = Lens.lens (nextToken :: DescribeEventAggregatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEventAggregatesResponse)
+{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of events in each category that meet the optional filter criteria.
-drsEventAggregates :: Lens' DescribeEventAggregatesResponse [EventAggregate]
-drsEventAggregates = lens _drsEventAggregates (\s a -> s {_drsEventAggregates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'eventAggregates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsEventAggregates :: Lens.Lens' DescribeEventAggregatesResponse (Lude.Maybe [EventAggregate])
+drsEventAggregates = Lens.lens (eventAggregates :: DescribeEventAggregatesResponse -> Lude.Maybe [EventAggregate]) (\s a -> s {eventAggregates = a} :: DescribeEventAggregatesResponse)
+{-# DEPRECATED drsEventAggregates "Use generic-lens or generic-optics with 'eventAggregates' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeEventAggregatesResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeEventAggregatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeEventAggregatesResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeEventAggregatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventAggregatesResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

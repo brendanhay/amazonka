@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Connect.Types.Grouping where
+module Network.AWS.Connect.Types.Grouping
+  ( Grouping
+      ( Grouping',
+        Channel,
+        Queue
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Grouping
-  = Channel
-  | Queue
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Grouping = Grouping' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Grouping where
-  parser =
-    takeLowerText >>= \case
-      "channel" -> pure Channel
-      "queue" -> pure Queue
-      e ->
-        fromTextError $
-          "Failure parsing Grouping from value: '" <> e
-            <> "'. Accepted values: channel, queue"
+pattern Channel :: Grouping
+pattern Channel = Grouping' "CHANNEL"
 
-instance ToText Grouping where
-  toText = \case
-    Channel -> "CHANNEL"
-    Queue -> "QUEUE"
+pattern Queue :: Grouping
+pattern Queue = Grouping' "QUEUE"
 
-instance Hashable Grouping
-
-instance NFData Grouping
-
-instance ToByteString Grouping
-
-instance ToQuery Grouping
-
-instance ToHeader Grouping
-
-instance ToJSON Grouping where
-  toJSON = toJSONText
+{-# COMPLETE
+  Channel,
+  Queue,
+  Grouping'
+  #-}

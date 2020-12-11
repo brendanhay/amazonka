@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,105 +14,116 @@
 --
 -- Starts replicating the specified application by creating replication jobs for each server in the application.
 module Network.AWS.SMS.StartAppReplication
-  ( -- * Creating a Request
-    startAppReplication,
-    StartAppReplication,
+  ( -- * Creating a request
+    StartAppReplication (..),
+    mkStartAppReplication,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sarAppId,
 
-    -- * Destructuring the Response
-    startAppReplicationResponse,
-    StartAppReplicationResponse,
+    -- * Destructuring the response
+    StartAppReplicationResponse (..),
+    mkStartAppReplicationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     srsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'startAppReplication' smart constructor.
+-- | /See:/ 'mkStartAppReplication' smart constructor.
 newtype StartAppReplication = StartAppReplication'
-  { _sarAppId ::
-      Maybe Text
+  { appId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAppReplication' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sarAppId' - The ID of the application.
-startAppReplication ::
+-- * 'appId' - The ID of the application.
+mkStartAppReplication ::
   StartAppReplication
-startAppReplication = StartAppReplication' {_sarAppId = Nothing}
+mkStartAppReplication = StartAppReplication' {appId = Lude.Nothing}
 
 -- | The ID of the application.
-sarAppId :: Lens' StartAppReplication (Maybe Text)
-sarAppId = lens _sarAppId (\s a -> s {_sarAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarAppId :: Lens.Lens' StartAppReplication (Lude.Maybe Lude.Text)
+sarAppId = Lens.lens (appId :: StartAppReplication -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: StartAppReplication)
+{-# DEPRECATED sarAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance AWSRequest StartAppReplication where
+instance Lude.AWSRequest StartAppReplication where
   type Rs StartAppReplication = StartAppReplicationResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveEmpty
-      (\s h x -> StartAppReplicationResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          StartAppReplicationResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable StartAppReplication
-
-instance NFData StartAppReplication
-
-instance ToHeaders StartAppReplication where
+instance Lude.ToHeaders StartAppReplication where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.StartAppReplication" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.StartAppReplication" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON StartAppReplication where
+instance Lude.ToJSON StartAppReplication where
   toJSON StartAppReplication' {..} =
-    object (catMaybes [("appId" .=) <$> _sarAppId])
+    Lude.object (Lude.catMaybes [("appId" Lude..=) Lude.<$> appId])
 
-instance ToPath StartAppReplication where
-  toPath = const "/"
+instance Lude.ToPath StartAppReplication where
+  toPath = Lude.const "/"
 
-instance ToQuery StartAppReplication where
-  toQuery = const mempty
+instance Lude.ToQuery StartAppReplication where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'startAppReplicationResponse' smart constructor.
+-- | /See:/ 'mkStartAppReplicationResponse' smart constructor.
 newtype StartAppReplicationResponse = StartAppReplicationResponse'
-  { _srsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAppReplicationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srsResponseStatus' - -- | The response status code.
-startAppReplicationResponse ::
-  -- | 'srsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkStartAppReplicationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartAppReplicationResponse
-startAppReplicationResponse pResponseStatus_ =
-  StartAppReplicationResponse'
-    { _srsResponseStatus =
-        pResponseStatus_
-    }
+mkStartAppReplicationResponse pResponseStatus_ =
+  StartAppReplicationResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StartAppReplicationResponse Int
-srsResponseStatus = lens _srsResponseStatus (\s a -> s {_srsResponseStatus = a})
-
-instance NFData StartAppReplicationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srsResponseStatus :: Lens.Lens' StartAppReplicationResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StartAppReplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartAppReplicationResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

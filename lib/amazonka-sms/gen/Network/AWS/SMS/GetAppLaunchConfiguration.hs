@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves the application launch configuration associated with the specified application.
 module Network.AWS.SMS.GetAppLaunchConfiguration
-  ( -- * Creating a Request
-    getAppLaunchConfiguration,
-    GetAppLaunchConfiguration,
+  ( -- * Creating a request
+    GetAppLaunchConfiguration (..),
+    mkGetAppLaunchConfiguration,
 
-    -- * Request Lenses
+    -- ** Request lenses
     galcAppId,
 
-    -- * Destructuring the Response
-    getAppLaunchConfigurationResponse,
-    GetAppLaunchConfigurationResponse,
+    -- * Destructuring the response
+    GetAppLaunchConfigurationResponse (..),
+    mkGetAppLaunchConfigurationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     galcrsServerGroupLaunchConfigurations,
     galcrsAutoLaunch,
     galcrsRoleName,
@@ -39,137 +34,155 @@ module Network.AWS.SMS.GetAppLaunchConfiguration
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'getAppLaunchConfiguration' smart constructor.
+-- | /See:/ 'mkGetAppLaunchConfiguration' smart constructor.
 newtype GetAppLaunchConfiguration = GetAppLaunchConfiguration'
-  { _galcAppId ::
-      Maybe Text
+  { appId ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppLaunchConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'galcAppId' - The ID of the application.
-getAppLaunchConfiguration ::
+-- * 'appId' - The ID of the application.
+mkGetAppLaunchConfiguration ::
   GetAppLaunchConfiguration
-getAppLaunchConfiguration =
-  GetAppLaunchConfiguration' {_galcAppId = Nothing}
+mkGetAppLaunchConfiguration =
+  GetAppLaunchConfiguration' {appId = Lude.Nothing}
 
 -- | The ID of the application.
-galcAppId :: Lens' GetAppLaunchConfiguration (Maybe Text)
-galcAppId = lens _galcAppId (\s a -> s {_galcAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galcAppId :: Lens.Lens' GetAppLaunchConfiguration (Lude.Maybe Lude.Text)
+galcAppId = Lens.lens (appId :: GetAppLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: GetAppLaunchConfiguration)
+{-# DEPRECATED galcAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance AWSRequest GetAppLaunchConfiguration where
+instance Lude.AWSRequest GetAppLaunchConfiguration where
   type
     Rs GetAppLaunchConfiguration =
       GetAppLaunchConfigurationResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetAppLaunchConfigurationResponse'
-            <$> (x .?> "serverGroupLaunchConfigurations" .!@ mempty)
-            <*> (x .?> "autoLaunch")
-            <*> (x .?> "roleName")
-            <*> (x .?> "appId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "serverGroupLaunchConfigurations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "autoLaunch")
+            Lude.<*> (x Lude..?> "roleName")
+            Lude.<*> (x Lude..?> "appId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetAppLaunchConfiguration
-
-instance NFData GetAppLaunchConfiguration
-
-instance ToHeaders GetAppLaunchConfiguration where
+instance Lude.ToHeaders GetAppLaunchConfiguration where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetAppLaunchConfiguration where
+instance Lude.ToJSON GetAppLaunchConfiguration where
   toJSON GetAppLaunchConfiguration' {..} =
-    object (catMaybes [("appId" .=) <$> _galcAppId])
+    Lude.object (Lude.catMaybes [("appId" Lude..=) Lude.<$> appId])
 
-instance ToPath GetAppLaunchConfiguration where
-  toPath = const "/"
+instance Lude.ToPath GetAppLaunchConfiguration where
+  toPath = Lude.const "/"
 
-instance ToQuery GetAppLaunchConfiguration where
-  toQuery = const mempty
+instance Lude.ToQuery GetAppLaunchConfiguration where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getAppLaunchConfigurationResponse' smart constructor.
+-- | /See:/ 'mkGetAppLaunchConfigurationResponse' smart constructor.
 data GetAppLaunchConfigurationResponse = GetAppLaunchConfigurationResponse'
-  { _galcrsServerGroupLaunchConfigurations ::
-      !( Maybe
-           [ServerGroupLaunchConfiguration]
-       ),
-    _galcrsAutoLaunch ::
-      !(Maybe Bool),
-    _galcrsRoleName ::
-      !(Maybe Text),
-    _galcrsAppId ::
-      !(Maybe Text),
-    _galcrsResponseStatus ::
-      !Int
+  { serverGroupLaunchConfigurations ::
+      Lude.Maybe
+        [ServerGroupLaunchConfiguration],
+    autoLaunch ::
+      Lude.Maybe Lude.Bool,
+    roleName ::
+      Lude.Maybe Lude.Text,
+    appId ::
+      Lude.Maybe Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppLaunchConfigurationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'galcrsServerGroupLaunchConfigurations' - The launch configurations for server groups in this application.
---
--- * 'galcrsAutoLaunch' - Indicates whether the application is configured to launch automatically after replication is complete.
---
--- * 'galcrsRoleName' - The name of the service role in the customer's account that AWS CloudFormation uses to launch the application.
---
--- * 'galcrsAppId' - The ID of the application.
---
--- * 'galcrsResponseStatus' - -- | The response status code.
-getAppLaunchConfigurationResponse ::
-  -- | 'galcrsResponseStatus'
-  Int ->
+-- * 'appId' - The ID of the application.
+-- * 'autoLaunch' - Indicates whether the application is configured to launch automatically after replication is complete.
+-- * 'responseStatus' - The response status code.
+-- * 'roleName' - The name of the service role in the customer's account that AWS CloudFormation uses to launch the application.
+-- * 'serverGroupLaunchConfigurations' - The launch configurations for server groups in this application.
+mkGetAppLaunchConfigurationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAppLaunchConfigurationResponse
-getAppLaunchConfigurationResponse pResponseStatus_ =
+mkGetAppLaunchConfigurationResponse pResponseStatus_ =
   GetAppLaunchConfigurationResponse'
-    { _galcrsServerGroupLaunchConfigurations =
-        Nothing,
-      _galcrsAutoLaunch = Nothing,
-      _galcrsRoleName = Nothing,
-      _galcrsAppId = Nothing,
-      _galcrsResponseStatus = pResponseStatus_
+    { serverGroupLaunchConfigurations =
+        Lude.Nothing,
+      autoLaunch = Lude.Nothing,
+      roleName = Lude.Nothing,
+      appId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The launch configurations for server groups in this application.
-galcrsServerGroupLaunchConfigurations :: Lens' GetAppLaunchConfigurationResponse [ServerGroupLaunchConfiguration]
-galcrsServerGroupLaunchConfigurations = lens _galcrsServerGroupLaunchConfigurations (\s a -> s {_galcrsServerGroupLaunchConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serverGroupLaunchConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galcrsServerGroupLaunchConfigurations :: Lens.Lens' GetAppLaunchConfigurationResponse (Lude.Maybe [ServerGroupLaunchConfiguration])
+galcrsServerGroupLaunchConfigurations = Lens.lens (serverGroupLaunchConfigurations :: GetAppLaunchConfigurationResponse -> Lude.Maybe [ServerGroupLaunchConfiguration]) (\s a -> s {serverGroupLaunchConfigurations = a} :: GetAppLaunchConfigurationResponse)
+{-# DEPRECATED galcrsServerGroupLaunchConfigurations "Use generic-lens or generic-optics with 'serverGroupLaunchConfigurations' instead." #-}
 
 -- | Indicates whether the application is configured to launch automatically after replication is complete.
-galcrsAutoLaunch :: Lens' GetAppLaunchConfigurationResponse (Maybe Bool)
-galcrsAutoLaunch = lens _galcrsAutoLaunch (\s a -> s {_galcrsAutoLaunch = a})
+--
+-- /Note:/ Consider using 'autoLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galcrsAutoLaunch :: Lens.Lens' GetAppLaunchConfigurationResponse (Lude.Maybe Lude.Bool)
+galcrsAutoLaunch = Lens.lens (autoLaunch :: GetAppLaunchConfigurationResponse -> Lude.Maybe Lude.Bool) (\s a -> s {autoLaunch = a} :: GetAppLaunchConfigurationResponse)
+{-# DEPRECATED galcrsAutoLaunch "Use generic-lens or generic-optics with 'autoLaunch' instead." #-}
 
 -- | The name of the service role in the customer's account that AWS CloudFormation uses to launch the application.
-galcrsRoleName :: Lens' GetAppLaunchConfigurationResponse (Maybe Text)
-galcrsRoleName = lens _galcrsRoleName (\s a -> s {_galcrsRoleName = a})
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galcrsRoleName :: Lens.Lens' GetAppLaunchConfigurationResponse (Lude.Maybe Lude.Text)
+galcrsRoleName = Lens.lens (roleName :: GetAppLaunchConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: GetAppLaunchConfigurationResponse)
+{-# DEPRECATED galcrsRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The ID of the application.
-galcrsAppId :: Lens' GetAppLaunchConfigurationResponse (Maybe Text)
-galcrsAppId = lens _galcrsAppId (\s a -> s {_galcrsAppId = a})
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galcrsAppId :: Lens.Lens' GetAppLaunchConfigurationResponse (Lude.Maybe Lude.Text)
+galcrsAppId = Lens.lens (appId :: GetAppLaunchConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: GetAppLaunchConfigurationResponse)
+{-# DEPRECATED galcrsAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
--- | -- | The response status code.
-galcrsResponseStatus :: Lens' GetAppLaunchConfigurationResponse Int
-galcrsResponseStatus = lens _galcrsResponseStatus (\s a -> s {_galcrsResponseStatus = a})
-
-instance NFData GetAppLaunchConfigurationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galcrsResponseStatus :: Lens.Lens' GetAppLaunchConfigurationResponse Lude.Int
+galcrsResponseStatus = Lens.lens (responseStatus :: GetAppLaunchConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppLaunchConfigurationResponse)
+{-# DEPRECATED galcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,186 +14,203 @@
 --
 -- Inserts or deletes 'Predicate' objects in a rule and updates the @RateLimit@ in the rule.
 --
---
 -- Each @Predicate@ object identifies a predicate, such as a 'ByteMatchSet' or an 'IPSet' , that specifies the web requests that you want to block or count. The @RateLimit@ specifies the number of requests every five minutes that triggers the rule.
---
 -- If you add more than one predicate to a @RateBasedRule@ , a request must match all the predicates and exceed the @RateLimit@ to be counted or blocked. For example, suppose you add the following to a @RateBasedRule@ :
 --
 --     * An @IPSet@ that matches the IP address @192.0.2.44/32@
 --
+--
 --     * A @ByteMatchSet@ that matches @BadBot@ in the @User-Agent@ header
 --
 --
---
 -- Further, you specify a @RateLimit@ of 1,000.
---
 -- You then add the @RateBasedRule@ to a @WebACL@ and specify that you want to block requests that satisfy the rule. For a request to be blocked, it must come from the IP address 192.0.2.44 /and/ the @User-Agent@ header in the request must contain the value @BadBot@ . Further, requests that match these two conditions much be received at a rate of more than 1,000 every five minutes. If the rate drops below this limit, AWS WAF no longer blocks the requests.
---
 -- As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a @RateBasedRule@ :
 --
 --     * A @ByteMatchSet@ with @FieldToMatch@ of @URI@
 --
+--
 --     * A @PositionalConstraint@ of @STARTS_WITH@
+--
 --
 --     * A @TargetString@ of @login@
 --
 --
---
 -- Further, you specify a @RateLimit@ of 1,000.
---
 -- By adding this @RateBasedRule@ to a @WebACL@ , you could limit requests to your login page without affecting the rest of your site.
 module Network.AWS.WAFRegional.UpdateRateBasedRule
-  ( -- * Creating a Request
-    updateRateBasedRule,
-    UpdateRateBasedRule,
+  ( -- * Creating a request
+    UpdateRateBasedRule (..),
+    mkUpdateRateBasedRule,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urbrRuleId,
     urbrChangeToken,
     urbrUpdates,
     urbrRateLimit,
 
-    -- * Destructuring the Response
-    updateRateBasedRuleResponse,
-    UpdateRateBasedRuleResponse,
+    -- * Destructuring the response
+    UpdateRateBasedRuleResponse (..),
+    mkUpdateRateBasedRuleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urbrrsChangeToken,
     urbrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'updateRateBasedRule' smart constructor.
+-- | /See:/ 'mkUpdateRateBasedRule' smart constructor.
 data UpdateRateBasedRule = UpdateRateBasedRule'
-  { _urbrRuleId ::
-      !Text,
-    _urbrChangeToken :: !Text,
-    _urbrUpdates :: ![RuleUpdate],
-    _urbrRateLimit :: !Nat
+  { ruleId ::
+      Lude.Text,
+    changeToken :: Lude.Text,
+    updates :: [RuleUpdate],
+    rateLimit :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRateBasedRule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urbrRuleId' - The @RuleId@ of the @RateBasedRule@ that you want to update. @RuleId@ is returned by @CreateRateBasedRule@ and by 'ListRateBasedRules' .
---
--- * 'urbrChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
---
--- * 'urbrUpdates' - An array of @RuleUpdate@ objects that you want to insert into or delete from a 'RateBasedRule' .
---
--- * 'urbrRateLimit' - The maximum number of requests, which have an identical value in the field specified by the @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
-updateRateBasedRule ::
-  -- | 'urbrRuleId'
-  Text ->
-  -- | 'urbrChangeToken'
-  Text ->
-  -- | 'urbrRateLimit'
-  Natural ->
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'rateLimit' - The maximum number of requests, which have an identical value in the field specified by the @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
+-- * 'ruleId' - The @RuleId@ of the @RateBasedRule@ that you want to update. @RuleId@ is returned by @CreateRateBasedRule@ and by 'ListRateBasedRules' .
+-- * 'updates' - An array of @RuleUpdate@ objects that you want to insert into or delete from a 'RateBasedRule' .
+mkUpdateRateBasedRule ::
+  -- | 'ruleId'
+  Lude.Text ->
+  -- | 'changeToken'
+  Lude.Text ->
+  -- | 'rateLimit'
+  Lude.Natural ->
   UpdateRateBasedRule
-updateRateBasedRule pRuleId_ pChangeToken_ pRateLimit_ =
+mkUpdateRateBasedRule pRuleId_ pChangeToken_ pRateLimit_ =
   UpdateRateBasedRule'
-    { _urbrRuleId = pRuleId_,
-      _urbrChangeToken = pChangeToken_,
-      _urbrUpdates = mempty,
-      _urbrRateLimit = _Nat # pRateLimit_
+    { ruleId = pRuleId_,
+      changeToken = pChangeToken_,
+      updates = Lude.mempty,
+      rateLimit = pRateLimit_
     }
 
 -- | The @RuleId@ of the @RateBasedRule@ that you want to update. @RuleId@ is returned by @CreateRateBasedRule@ and by 'ListRateBasedRules' .
-urbrRuleId :: Lens' UpdateRateBasedRule Text
-urbrRuleId = lens _urbrRuleId (\s a -> s {_urbrRuleId = a})
+--
+-- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urbrRuleId :: Lens.Lens' UpdateRateBasedRule Lude.Text
+urbrRuleId = Lens.lens (ruleId :: UpdateRateBasedRule -> Lude.Text) (\s a -> s {ruleId = a} :: UpdateRateBasedRule)
+{-# DEPRECATED urbrRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
-urbrChangeToken :: Lens' UpdateRateBasedRule Text
-urbrChangeToken = lens _urbrChangeToken (\s a -> s {_urbrChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urbrChangeToken :: Lens.Lens' UpdateRateBasedRule Lude.Text
+urbrChangeToken = Lens.lens (changeToken :: UpdateRateBasedRule -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateRateBasedRule)
+{-# DEPRECATED urbrChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | An array of @RuleUpdate@ objects that you want to insert into or delete from a 'RateBasedRule' .
-urbrUpdates :: Lens' UpdateRateBasedRule [RuleUpdate]
-urbrUpdates = lens _urbrUpdates (\s a -> s {_urbrUpdates = a}) . _Coerce
+--
+-- /Note:/ Consider using 'updates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urbrUpdates :: Lens.Lens' UpdateRateBasedRule [RuleUpdate]
+urbrUpdates = Lens.lens (updates :: UpdateRateBasedRule -> [RuleUpdate]) (\s a -> s {updates = a} :: UpdateRateBasedRule)
+{-# DEPRECATED urbrUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
 
 -- | The maximum number of requests, which have an identical value in the field specified by the @RateKey@ , allowed in a five-minute period. If the number of requests exceeds the @RateLimit@ and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.
-urbrRateLimit :: Lens' UpdateRateBasedRule Natural
-urbrRateLimit = lens _urbrRateLimit (\s a -> s {_urbrRateLimit = a}) . _Nat
+--
+-- /Note:/ Consider using 'rateLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urbrRateLimit :: Lens.Lens' UpdateRateBasedRule Lude.Natural
+urbrRateLimit = Lens.lens (rateLimit :: UpdateRateBasedRule -> Lude.Natural) (\s a -> s {rateLimit = a} :: UpdateRateBasedRule)
+{-# DEPRECATED urbrRateLimit "Use generic-lens or generic-optics with 'rateLimit' instead." #-}
 
-instance AWSRequest UpdateRateBasedRule where
+instance Lude.AWSRequest UpdateRateBasedRule where
   type Rs UpdateRateBasedRule = UpdateRateBasedRuleResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateRateBasedRuleResponse'
-            <$> (x .?> "ChangeToken") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateRateBasedRule
-
-instance NFData UpdateRateBasedRule
-
-instance ToHeaders UpdateRateBasedRule where
+instance Lude.ToHeaders UpdateRateBasedRule where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.UpdateRateBasedRule" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSWAF_Regional_20161128.UpdateRateBasedRule" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateRateBasedRule where
+instance Lude.ToJSON UpdateRateBasedRule where
   toJSON UpdateRateBasedRule' {..} =
-    object
-      ( catMaybes
-          [ Just ("RuleId" .= _urbrRuleId),
-            Just ("ChangeToken" .= _urbrChangeToken),
-            Just ("Updates" .= _urbrUpdates),
-            Just ("RateLimit" .= _urbrRateLimit)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("RuleId" Lude..= ruleId),
+            Lude.Just ("ChangeToken" Lude..= changeToken),
+            Lude.Just ("Updates" Lude..= updates),
+            Lude.Just ("RateLimit" Lude..= rateLimit)
           ]
       )
 
-instance ToPath UpdateRateBasedRule where
-  toPath = const "/"
+instance Lude.ToPath UpdateRateBasedRule where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateRateBasedRule where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateRateBasedRule where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateRateBasedRuleResponse' smart constructor.
+-- | /See:/ 'mkUpdateRateBasedRuleResponse' smart constructor.
 data UpdateRateBasedRuleResponse = UpdateRateBasedRuleResponse'
-  { _urbrrsChangeToken ::
-      !(Maybe Text),
-    _urbrrsResponseStatus :: !Int
+  { changeToken ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRateBasedRuleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urbrrsChangeToken' - The @ChangeToken@ that you used to submit the @UpdateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
---
--- * 'urbrrsResponseStatus' - -- | The response status code.
-updateRateBasedRuleResponse ::
-  -- | 'urbrrsResponseStatus'
-  Int ->
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @UpdateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- * 'responseStatus' - The response status code.
+mkUpdateRateBasedRuleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateRateBasedRuleResponse
-updateRateBasedRuleResponse pResponseStatus_ =
+mkUpdateRateBasedRuleResponse pResponseStatus_ =
   UpdateRateBasedRuleResponse'
-    { _urbrrsChangeToken = Nothing,
-      _urbrrsResponseStatus = pResponseStatus_
+    { changeToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRateBasedRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-urbrrsChangeToken :: Lens' UpdateRateBasedRuleResponse (Maybe Text)
-urbrrsChangeToken = lens _urbrrsChangeToken (\s a -> s {_urbrrsChangeToken = a})
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urbrrsChangeToken :: Lens.Lens' UpdateRateBasedRuleResponse (Lude.Maybe Lude.Text)
+urbrrsChangeToken = Lens.lens (changeToken :: UpdateRateBasedRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: UpdateRateBasedRuleResponse)
+{-# DEPRECATED urbrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
--- | -- | The response status code.
-urbrrsResponseStatus :: Lens' UpdateRateBasedRuleResponse Int
-urbrrsResponseStatus = lens _urbrrsResponseStatus (\s a -> s {_urbrrsResponseStatus = a})
-
-instance NFData UpdateRateBasedRuleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urbrrsResponseStatus :: Lens.Lens' UpdateRateBasedRuleResponse Lude.Int
+urbrrsResponseStatus = Lens.lens (responseStatus :: UpdateRateBasedRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRateBasedRuleResponse)
+{-# DEPRECATED urbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

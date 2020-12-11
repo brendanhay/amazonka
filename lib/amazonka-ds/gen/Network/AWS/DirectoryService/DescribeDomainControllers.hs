@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,25 +14,23 @@
 --
 -- Provides information about any domain controllers in your directory.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DirectoryService.DescribeDomainControllers
-  ( -- * Creating a Request
-    describeDomainControllers,
-    DescribeDomainControllers,
+  ( -- * Creating a request
+    DescribeDomainControllers (..),
+    mkDescribeDomainControllers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcNextToken,
     ddcDomainControllerIds,
     ddcLimit,
     ddcDirectoryId,
 
-    -- * Destructuring the Response
-    describeDomainControllersResponse,
-    DescribeDomainControllersResponse,
+    -- * Destructuring the response
+    DescribeDomainControllersResponse (..),
+    mkDescribeDomainControllersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcrsNextToken,
     ddcrsDomainControllers,
     ddcrsResponseStatus,
@@ -45,158 +38,181 @@ module Network.AWS.DirectoryService.DescribeDomainControllers
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDomainControllers' smart constructor.
+-- | /See:/ 'mkDescribeDomainControllers' smart constructor.
 data DescribeDomainControllers = DescribeDomainControllers'
-  { _ddcNextToken ::
-      !(Maybe Text),
-    _ddcDomainControllerIds ::
-      !(Maybe [Text]),
-    _ddcLimit :: !(Maybe Nat),
-    _ddcDirectoryId :: !Text
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    domainControllerIds ::
+      Lude.Maybe [Lude.Text],
+    limit :: Lude.Maybe Lude.Natural,
+    directoryId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainControllers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcNextToken' - The /DescribeDomainControllers.NextToken/ value from a previous call to 'DescribeDomainControllers' . Pass null if this is the first call.
---
--- * 'ddcDomainControllerIds' - A list of identifiers for the domain controllers whose information will be provided.
---
--- * 'ddcLimit' - The maximum number of items to return.
---
--- * 'ddcDirectoryId' - Identifier of the directory for which to retrieve the domain controller information.
-describeDomainControllers ::
-  -- | 'ddcDirectoryId'
-  Text ->
+-- * 'directoryId' - Identifier of the directory for which to retrieve the domain controller information.
+-- * 'domainControllerIds' - A list of identifiers for the domain controllers whose information will be provided.
+-- * 'limit' - The maximum number of items to return.
+-- * 'nextToken' - The /DescribeDomainControllers.NextToken/ value from a previous call to 'DescribeDomainControllers' . Pass null if this is the first call.
+mkDescribeDomainControllers ::
+  -- | 'directoryId'
+  Lude.Text ->
   DescribeDomainControllers
-describeDomainControllers pDirectoryId_ =
+mkDescribeDomainControllers pDirectoryId_ =
   DescribeDomainControllers'
-    { _ddcNextToken = Nothing,
-      _ddcDomainControllerIds = Nothing,
-      _ddcLimit = Nothing,
-      _ddcDirectoryId = pDirectoryId_
+    { nextToken = Lude.Nothing,
+      domainControllerIds = Lude.Nothing,
+      limit = Lude.Nothing,
+      directoryId = pDirectoryId_
     }
 
 -- | The /DescribeDomainControllers.NextToken/ value from a previous call to 'DescribeDomainControllers' . Pass null if this is the first call.
-ddcNextToken :: Lens' DescribeDomainControllers (Maybe Text)
-ddcNextToken = lens _ddcNextToken (\s a -> s {_ddcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcNextToken :: Lens.Lens' DescribeDomainControllers (Lude.Maybe Lude.Text)
+ddcNextToken = Lens.lens (nextToken :: DescribeDomainControllers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDomainControllers)
+{-# DEPRECATED ddcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of identifiers for the domain controllers whose information will be provided.
-ddcDomainControllerIds :: Lens' DescribeDomainControllers [Text]
-ddcDomainControllerIds = lens _ddcDomainControllerIds (\s a -> s {_ddcDomainControllerIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domainControllerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcDomainControllerIds :: Lens.Lens' DescribeDomainControllers (Lude.Maybe [Lude.Text])
+ddcDomainControllerIds = Lens.lens (domainControllerIds :: DescribeDomainControllers -> Lude.Maybe [Lude.Text]) (\s a -> s {domainControllerIds = a} :: DescribeDomainControllers)
+{-# DEPRECATED ddcDomainControllerIds "Use generic-lens or generic-optics with 'domainControllerIds' instead." #-}
 
 -- | The maximum number of items to return.
-ddcLimit :: Lens' DescribeDomainControllers (Maybe Natural)
-ddcLimit = lens _ddcLimit (\s a -> s {_ddcLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcLimit :: Lens.Lens' DescribeDomainControllers (Lude.Maybe Lude.Natural)
+ddcLimit = Lens.lens (limit :: DescribeDomainControllers -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeDomainControllers)
+{-# DEPRECATED ddcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | Identifier of the directory for which to retrieve the domain controller information.
-ddcDirectoryId :: Lens' DescribeDomainControllers Text
-ddcDirectoryId = lens _ddcDirectoryId (\s a -> s {_ddcDirectoryId = a})
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcDirectoryId :: Lens.Lens' DescribeDomainControllers Lude.Text
+ddcDirectoryId = Lens.lens (directoryId :: DescribeDomainControllers -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeDomainControllers)
+{-# DEPRECATED ddcDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance AWSPager DescribeDomainControllers where
+instance Page.AWSPager DescribeDomainControllers where
   page rq rs
-    | stop (rs ^. ddcrsNextToken) = Nothing
-    | stop (rs ^. ddcrsDomainControllers) = Nothing
-    | otherwise = Just $ rq & ddcNextToken .~ rs ^. ddcrsNextToken
+    | Page.stop (rs Lens.^. ddcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddcrsDomainControllers) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ddcNextToken Lens..~ rs Lens.^. ddcrsNextToken
 
-instance AWSRequest DescribeDomainControllers where
+instance Lude.AWSRequest DescribeDomainControllers where
   type
     Rs DescribeDomainControllers =
       DescribeDomainControllersResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDomainControllersResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "DomainControllers" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "DomainControllers" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDomainControllers
-
-instance NFData DescribeDomainControllers
-
-instance ToHeaders DescribeDomainControllers where
+instance Lude.ToHeaders DescribeDomainControllers where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "DirectoryService_20150416.DescribeDomainControllers" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.DescribeDomainControllers" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeDomainControllers where
+instance Lude.ToJSON DescribeDomainControllers where
   toJSON DescribeDomainControllers' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ddcNextToken,
-            ("DomainControllerIds" .=) <$> _ddcDomainControllerIds,
-            ("Limit" .=) <$> _ddcLimit,
-            Just ("DirectoryId" .= _ddcDirectoryId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("DomainControllerIds" Lude..=) Lude.<$> domainControllerIds,
+            ("Limit" Lude..=) Lude.<$> limit,
+            Lude.Just ("DirectoryId" Lude..= directoryId)
           ]
       )
 
-instance ToPath DescribeDomainControllers where
-  toPath = const "/"
+instance Lude.ToPath DescribeDomainControllers where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeDomainControllers where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDomainControllers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeDomainControllersResponse' smart constructor.
+-- | /See:/ 'mkDescribeDomainControllersResponse' smart constructor.
 data DescribeDomainControllersResponse = DescribeDomainControllersResponse'
-  { _ddcrsNextToken ::
-      !(Maybe Text),
-    _ddcrsDomainControllers ::
-      !( Maybe
-           [DomainController]
-       ),
-    _ddcrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    domainControllers ::
+      Lude.Maybe
+        [DomainController],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainControllersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcrsNextToken' - If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDomainControllers' retrieve the next set of items.
---
--- * 'ddcrsDomainControllers' - List of the 'DomainController' objects that were retrieved.
---
--- * 'ddcrsResponseStatus' - -- | The response status code.
-describeDomainControllersResponse ::
-  -- | 'ddcrsResponseStatus'
-  Int ->
+-- * 'domainControllers' - List of the 'DomainController' objects that were retrieved.
+-- * 'nextToken' - If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDomainControllers' retrieve the next set of items.
+-- * 'responseStatus' - The response status code.
+mkDescribeDomainControllersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDomainControllersResponse
-describeDomainControllersResponse pResponseStatus_ =
+mkDescribeDomainControllersResponse pResponseStatus_ =
   DescribeDomainControllersResponse'
-    { _ddcrsNextToken = Nothing,
-      _ddcrsDomainControllers = Nothing,
-      _ddcrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      domainControllers = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeDomainControllers' retrieve the next set of items.
-ddcrsNextToken :: Lens' DescribeDomainControllersResponse (Maybe Text)
-ddcrsNextToken = lens _ddcrsNextToken (\s a -> s {_ddcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsNextToken :: Lens.Lens' DescribeDomainControllersResponse (Lude.Maybe Lude.Text)
+ddcrsNextToken = Lens.lens (nextToken :: DescribeDomainControllersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeDomainControllersResponse)
+{-# DEPRECATED ddcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of the 'DomainController' objects that were retrieved.
-ddcrsDomainControllers :: Lens' DescribeDomainControllersResponse [DomainController]
-ddcrsDomainControllers = lens _ddcrsDomainControllers (\s a -> s {_ddcrsDomainControllers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'domainControllers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsDomainControllers :: Lens.Lens' DescribeDomainControllersResponse (Lude.Maybe [DomainController])
+ddcrsDomainControllers = Lens.lens (domainControllers :: DescribeDomainControllersResponse -> Lude.Maybe [DomainController]) (\s a -> s {domainControllers = a} :: DescribeDomainControllersResponse)
+{-# DEPRECATED ddcrsDomainControllers "Use generic-lens or generic-optics with 'domainControllers' instead." #-}
 
--- | -- | The response status code.
-ddcrsResponseStatus :: Lens' DescribeDomainControllersResponse Int
-ddcrsResponseStatus = lens _ddcrsResponseStatus (\s a -> s {_ddcrsResponseStatus = a})
-
-instance NFData DescribeDomainControllersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsResponseStatus :: Lens.Lens' DescribeDomainControllersResponse Lude.Int
+ddcrsResponseStatus = Lens.lens (responseStatus :: DescribeDomainControllersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDomainControllersResponse)
+{-# DEPRECATED ddcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

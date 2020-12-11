@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.ObjectLockLegalHoldStatus where
+module Network.AWS.S3.Types.ObjectLockLegalHoldStatus
+  ( ObjectLockLegalHoldStatus
+      ( ObjectLockLegalHoldStatus',
+        ON,
+        Off
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data ObjectLockLegalHoldStatus
-  = ON
-  | Off
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ObjectLockLegalHoldStatus = ObjectLockLegalHoldStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ObjectLockLegalHoldStatus where
-  parser =
-    takeLowerText >>= \case
-      "on" -> pure ON
-      "off" -> pure Off
-      e ->
-        fromTextError $
-          "Failure parsing ObjectLockLegalHoldStatus from value: '" <> e
-            <> "'. Accepted values: on, off"
+pattern ON :: ObjectLockLegalHoldStatus
+pattern ON = ObjectLockLegalHoldStatus' "ON"
 
-instance ToText ObjectLockLegalHoldStatus where
-  toText = \case
-    ON -> "ON"
-    Off -> "OFF"
+pattern Off :: ObjectLockLegalHoldStatus
+pattern Off = ObjectLockLegalHoldStatus' "OFF"
 
-instance Hashable ObjectLockLegalHoldStatus
-
-instance NFData ObjectLockLegalHoldStatus
-
-instance ToByteString ObjectLockLegalHoldStatus
-
-instance ToQuery ObjectLockLegalHoldStatus
-
-instance ToHeader ObjectLockLegalHoldStatus
-
-instance FromXML ObjectLockLegalHoldStatus where
-  parseXML = parseXMLText "ObjectLockLegalHoldStatus"
-
-instance ToXML ObjectLockLegalHoldStatus where
-  toXML = toXMLText
+{-# COMPLETE
+  ON,
+  Off,
+  ObjectLockLegalHoldStatus'
+  #-}

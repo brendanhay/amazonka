@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,75 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes where
+module Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes
+  ( StartLambdaFunctionFailedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStartLambdaFunctionFailedEventAttributes,
+
+    -- * Lenses
+    sScheduledEventId,
+    sCause,
+    sMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SWF.Types.StartLambdaFunctionFailedCause
 
 -- | Provides the details of the @StartLambdaFunctionFailed@ event. It isn't set for other event types.
 --
---
---
--- /See:/ 'startLambdaFunctionFailedEventAttributes' smart constructor.
+-- /See:/ 'mkStartLambdaFunctionFailedEventAttributes' smart constructor.
 data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAttributes'
-  { _sScheduledEventId ::
-      !( Maybe
-           Integer
-       ),
-    _sCause ::
-      !( Maybe
-           StartLambdaFunctionFailedCause
-       ),
-    _sMessage ::
-      !( Maybe
-           Text
-       )
+  { scheduledEventId ::
+      Lude.Maybe
+        Lude.Integer,
+    cause ::
+      Lude.Maybe
+        StartLambdaFunctionFailedCause,
+    message ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartLambdaFunctionFailedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sScheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
---
--- * 'sCause' - The cause of the failure. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
---
--- * 'sMessage' - A description that can help diagnose the cause of the fault.
-startLambdaFunctionFailedEventAttributes ::
+-- * 'cause' - The cause of the failure. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+-- * 'message' - A description that can help diagnose the cause of the fault.
+-- * 'scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+mkStartLambdaFunctionFailedEventAttributes ::
   StartLambdaFunctionFailedEventAttributes
-startLambdaFunctionFailedEventAttributes =
+mkStartLambdaFunctionFailedEventAttributes =
   StartLambdaFunctionFailedEventAttributes'
-    { _sScheduledEventId =
-        Nothing,
-      _sCause = Nothing,
-      _sMessage = Nothing
+    { scheduledEventId =
+        Lude.Nothing,
+      cause = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
-sScheduledEventId :: Lens' StartLambdaFunctionFailedEventAttributes (Maybe Integer)
-sScheduledEventId = lens _sScheduledEventId (\s a -> s {_sScheduledEventId = a})
+--
+-- /Note:/ Consider using 'scheduledEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sScheduledEventId :: Lens.Lens' StartLambdaFunctionFailedEventAttributes (Lude.Maybe Lude.Integer)
+sScheduledEventId = Lens.lens (scheduledEventId :: StartLambdaFunctionFailedEventAttributes -> Lude.Maybe Lude.Integer) (\s a -> s {scheduledEventId = a} :: StartLambdaFunctionFailedEventAttributes)
+{-# DEPRECATED sScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
 
 -- | The cause of the failure. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
-sCause :: Lens' StartLambdaFunctionFailedEventAttributes (Maybe StartLambdaFunctionFailedCause)
-sCause = lens _sCause (\s a -> s {_sCause = a})
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCause :: Lens.Lens' StartLambdaFunctionFailedEventAttributes (Lude.Maybe StartLambdaFunctionFailedCause)
+sCause = Lens.lens (cause :: StartLambdaFunctionFailedEventAttributes -> Lude.Maybe StartLambdaFunctionFailedCause) (\s a -> s {cause = a} :: StartLambdaFunctionFailedEventAttributes)
+{-# DEPRECATED sCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
 -- | A description that can help diagnose the cause of the fault.
-sMessage :: Lens' StartLambdaFunctionFailedEventAttributes (Maybe Text)
-sMessage = lens _sMessage (\s a -> s {_sMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMessage :: Lens.Lens' StartLambdaFunctionFailedEventAttributes (Lude.Maybe Lude.Text)
+sMessage = Lens.lens (message :: StartLambdaFunctionFailedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: StartLambdaFunctionFailedEventAttributes)
+{-# DEPRECATED sMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON StartLambdaFunctionFailedEventAttributes where
+instance Lude.FromJSON StartLambdaFunctionFailedEventAttributes where
   parseJSON =
-    withObject
+    Lude.withObject
       "StartLambdaFunctionFailedEventAttributes"
       ( \x ->
           StartLambdaFunctionFailedEventAttributes'
-            <$> (x .:? "scheduledEventId")
-            <*> (x .:? "cause")
-            <*> (x .:? "message")
+            Lude.<$> (x Lude..:? "scheduledEventId")
+            Lude.<*> (x Lude..:? "cause")
+            Lude.<*> (x Lude..:? "message")
       )
-
-instance Hashable StartLambdaFunctionFailedEventAttributes
-
-instance NFData StartLambdaFunctionFailedEventAttributes

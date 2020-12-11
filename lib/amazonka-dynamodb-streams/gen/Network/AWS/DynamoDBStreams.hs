@@ -15,8 +15,8 @@
 --
 -- Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html Capturing Table Activity with DynamoDB Streams> in the Amazon DynamoDB Developer Guide.
 module Network.AWS.DynamoDBStreams
-  ( -- * Service Configuration
-    dynamoDBStreams,
+  ( -- * Service configuration
+    dynamoDBStreamsService,
 
     -- * Errors
     -- $errors
@@ -57,8 +57,8 @@ module Network.AWS.DynamoDBStreams
     StreamViewType (..),
 
     -- ** AttributeValue
-    AttributeValue,
-    attributeValue,
+    AttributeValue (..),
+    mkAttributeValue,
     avL,
     avNS,
     avM,
@@ -71,20 +71,20 @@ module Network.AWS.DynamoDBStreams
     avBOOL,
 
     -- ** Identity
-    Identity,
-    identity,
+    Identity (..),
+    mkIdentity,
     iPrincipalId,
     iType,
 
     -- ** KeySchemaElement
-    KeySchemaElement,
-    keySchemaElement,
+    KeySchemaElement (..),
+    mkKeySchemaElement,
     kseAttributeName,
     kseKeyType,
 
     -- ** Record
-    Record,
-    record,
+    Record (..),
+    mkRecord,
     rUserIdentity,
     rEventVersion,
     rDynamodb,
@@ -94,28 +94,28 @@ module Network.AWS.DynamoDBStreams
     rEventId,
 
     -- ** SequenceNumberRange
-    SequenceNumberRange,
-    sequenceNumberRange,
+    SequenceNumberRange (..),
+    mkSequenceNumberRange,
     snrStartingSequenceNumber,
     snrEndingSequenceNumber,
 
     -- ** Shard
-    Shard,
-    shard,
+    Shard (..),
+    mkShard,
     sParentShardId,
     sSequenceNumberRange,
     sShardId,
 
     -- ** Stream
-    Stream,
-    stream,
+    Stream (..),
+    mkStream,
     sStreamLabel,
     sStreamARN,
     sTableName,
 
     -- ** StreamDescription
-    StreamDescription,
-    streamDescription,
+    StreamDescription (..),
+    mkStreamDescription,
     sdLastEvaluatedShardId,
     sdStreamLabel,
     sdStreamStatus,
@@ -127,8 +127,8 @@ module Network.AWS.DynamoDBStreams
     sdCreationRequestDateTime,
 
     -- ** StreamRecord
-    StreamRecord,
-    streamRecord,
+    StreamRecord (..),
+    mkStreamRecord,
     srSizeBytes,
     srSequenceNumber,
     srApproximateCreationDateTime,
@@ -136,6 +136,17 @@ module Network.AWS.DynamoDBStreams
     srKeys,
     srOldImage,
     srNewImage,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -145,6 +156,7 @@ import Network.AWS.DynamoDBStreams.GetShardIterator
 import Network.AWS.DynamoDBStreams.ListStreams
 import Network.AWS.DynamoDBStreams.Types
 import Network.AWS.DynamoDBStreams.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

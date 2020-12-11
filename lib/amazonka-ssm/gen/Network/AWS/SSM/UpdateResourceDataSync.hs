@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,154 @@
 --
 -- Update a resource data sync. After you create a resource data sync for a Region, you can't change the account options for that sync. For example, if you create a sync in the us-east-2 (Ohio) Region and you choose the Include only the current account option, you can't edit that sync later and choose the Include all accounts from my AWS Organizations configuration option. Instead, you must delete the first resource data sync, and create a new one.
 module Network.AWS.SSM.UpdateResourceDataSync
-  ( -- * Creating a Request
-    updateResourceDataSync,
-    UpdateResourceDataSync,
+  ( -- * Creating a request
+    UpdateResourceDataSync (..),
+    mkUpdateResourceDataSync,
 
-    -- * Request Lenses
+    -- ** Request lenses
     urdsSyncName,
     urdsSyncType,
     urdsSyncSource,
 
-    -- * Destructuring the Response
-    updateResourceDataSyncResponse,
-    UpdateResourceDataSyncResponse,
+    -- * Destructuring the response
+    UpdateResourceDataSyncResponse (..),
+    mkUpdateResourceDataSyncResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     urdsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'updateResourceDataSync' smart constructor.
+-- | /See:/ 'mkUpdateResourceDataSync' smart constructor.
 data UpdateResourceDataSync = UpdateResourceDataSync'
-  { _urdsSyncName ::
-      !Text,
-    _urdsSyncType :: !Text,
-    _urdsSyncSource :: !ResourceDataSyncSource
+  { syncName ::
+      Lude.Text,
+    syncType :: Lude.Text,
+    syncSource :: ResourceDataSyncSource
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceDataSync' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urdsSyncName' - The name of the resource data sync you want to update.
---
--- * 'urdsSyncType' - The type of resource data sync. The supported @SyncType@ is SyncFromSource.
---
--- * 'urdsSyncSource' - Specify information about the data sources to synchronize.
-updateResourceDataSync ::
-  -- | 'urdsSyncName'
-  Text ->
-  -- | 'urdsSyncType'
-  Text ->
-  -- | 'urdsSyncSource'
+-- * 'syncName' - The name of the resource data sync you want to update.
+-- * 'syncSource' - Specify information about the data sources to synchronize.
+-- * 'syncType' - The type of resource data sync. The supported @SyncType@ is SyncFromSource.
+mkUpdateResourceDataSync ::
+  -- | 'syncName'
+  Lude.Text ->
+  -- | 'syncType'
+  Lude.Text ->
+  -- | 'syncSource'
   ResourceDataSyncSource ->
   UpdateResourceDataSync
-updateResourceDataSync pSyncName_ pSyncType_ pSyncSource_ =
+mkUpdateResourceDataSync pSyncName_ pSyncType_ pSyncSource_ =
   UpdateResourceDataSync'
-    { _urdsSyncName = pSyncName_,
-      _urdsSyncType = pSyncType_,
-      _urdsSyncSource = pSyncSource_
+    { syncName = pSyncName_,
+      syncType = pSyncType_,
+      syncSource = pSyncSource_
     }
 
 -- | The name of the resource data sync you want to update.
-urdsSyncName :: Lens' UpdateResourceDataSync Text
-urdsSyncName = lens _urdsSyncName (\s a -> s {_urdsSyncName = a})
+--
+-- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdsSyncName :: Lens.Lens' UpdateResourceDataSync Lude.Text
+urdsSyncName = Lens.lens (syncName :: UpdateResourceDataSync -> Lude.Text) (\s a -> s {syncName = a} :: UpdateResourceDataSync)
+{-# DEPRECATED urdsSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
 
 -- | The type of resource data sync. The supported @SyncType@ is SyncFromSource.
-urdsSyncType :: Lens' UpdateResourceDataSync Text
-urdsSyncType = lens _urdsSyncType (\s a -> s {_urdsSyncType = a})
+--
+-- /Note:/ Consider using 'syncType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdsSyncType :: Lens.Lens' UpdateResourceDataSync Lude.Text
+urdsSyncType = Lens.lens (syncType :: UpdateResourceDataSync -> Lude.Text) (\s a -> s {syncType = a} :: UpdateResourceDataSync)
+{-# DEPRECATED urdsSyncType "Use generic-lens or generic-optics with 'syncType' instead." #-}
 
 -- | Specify information about the data sources to synchronize.
-urdsSyncSource :: Lens' UpdateResourceDataSync ResourceDataSyncSource
-urdsSyncSource = lens _urdsSyncSource (\s a -> s {_urdsSyncSource = a})
+--
+-- /Note:/ Consider using 'syncSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdsSyncSource :: Lens.Lens' UpdateResourceDataSync ResourceDataSyncSource
+urdsSyncSource = Lens.lens (syncSource :: UpdateResourceDataSync -> ResourceDataSyncSource) (\s a -> s {syncSource = a} :: UpdateResourceDataSync)
+{-# DEPRECATED urdsSyncSource "Use generic-lens or generic-optics with 'syncSource' instead." #-}
 
-instance AWSRequest UpdateResourceDataSync where
+instance Lude.AWSRequest UpdateResourceDataSync where
   type Rs UpdateResourceDataSync = UpdateResourceDataSyncResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          UpdateResourceDataSyncResponse' <$> (pure (fromEnum s))
+          UpdateResourceDataSyncResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateResourceDataSync
-
-instance NFData UpdateResourceDataSync
-
-instance ToHeaders UpdateResourceDataSync where
+instance Lude.ToHeaders UpdateResourceDataSync where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.UpdateResourceDataSync" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.UpdateResourceDataSync" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateResourceDataSync where
+instance Lude.ToJSON UpdateResourceDataSync where
   toJSON UpdateResourceDataSync' {..} =
-    object
-      ( catMaybes
-          [ Just ("SyncName" .= _urdsSyncName),
-            Just ("SyncType" .= _urdsSyncType),
-            Just ("SyncSource" .= _urdsSyncSource)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("SyncName" Lude..= syncName),
+            Lude.Just ("SyncType" Lude..= syncType),
+            Lude.Just ("SyncSource" Lude..= syncSource)
           ]
       )
 
-instance ToPath UpdateResourceDataSync where
-  toPath = const "/"
+instance Lude.ToPath UpdateResourceDataSync where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateResourceDataSync where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateResourceDataSync where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateResourceDataSyncResponse' smart constructor.
+-- | /See:/ 'mkUpdateResourceDataSyncResponse' smart constructor.
 newtype UpdateResourceDataSyncResponse = UpdateResourceDataSyncResponse'
-  { _urdsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceDataSyncResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'urdsrsResponseStatus' - -- | The response status code.
-updateResourceDataSyncResponse ::
-  -- | 'urdsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkUpdateResourceDataSyncResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateResourceDataSyncResponse
-updateResourceDataSyncResponse pResponseStatus_ =
+mkUpdateResourceDataSyncResponse pResponseStatus_ =
   UpdateResourceDataSyncResponse'
-    { _urdsrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-urdsrsResponseStatus :: Lens' UpdateResourceDataSyncResponse Int
-urdsrsResponseStatus = lens _urdsrsResponseStatus (\s a -> s {_urdsrsResponseStatus = a})
-
-instance NFData UpdateResourceDataSyncResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdsrsResponseStatus :: Lens.Lens' UpdateResourceDataSyncResponse Lude.Int
+urdsrsResponseStatus = Lens.lens (responseStatus :: UpdateResourceDataSyncResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateResourceDataSyncResponse)
+{-# DEPRECATED urdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

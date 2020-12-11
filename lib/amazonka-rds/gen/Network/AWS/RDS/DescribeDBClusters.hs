@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,184 +14,234 @@
 --
 -- Returns information about provisioned Aurora DB clusters. This API supports pagination.
 --
---
 -- For more information on Amazon Aurora, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?> in the /Amazon Aurora User Guide./
---
 --
 -- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBClusters
-  ( -- * Creating a Request
-    describeDBClusters,
-    DescribeDBClusters,
+  ( -- * Creating a request
+    DescribeDBClusters (..),
+    mkDescribeDBClusters,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddcDBClusterIdentifier,
     ddcIncludeShared,
     ddcFilters,
     ddcMarker,
     ddcMaxRecords,
 
-    -- * Destructuring the Response
-    describeDBClustersResponse,
-    DescribeDBClustersResponse,
+    -- * Destructuring the response
+    DescribeDBClustersResponse (..),
+    mkDescribeDBClustersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddcrsDBClusters,
     ddcrsMarker,
     ddcrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeDBClusters' smart constructor.
+-- /See:/ 'mkDescribeDBClusters' smart constructor.
 data DescribeDBClusters = DescribeDBClusters'
-  { _ddcDBClusterIdentifier ::
-      !(Maybe Text),
-    _ddcIncludeShared :: !(Maybe Bool),
-    _ddcFilters :: !(Maybe [Filter]),
-    _ddcMarker :: !(Maybe Text),
-    _ddcMaxRecords :: !(Maybe Int)
+  { dbClusterIdentifier ::
+      Lude.Maybe Lude.Text,
+    includeShared :: Lude.Maybe Lude.Bool,
+    filters :: Lude.Maybe [Filter],
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dbClusterIdentifier' - The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.
 --
--- * 'ddcDBClusterIdentifier' - The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive. Constraints:     * If supplied, must match an existing DBClusterIdentifier.
+-- Constraints:
 --
--- * 'ddcIncludeShared' - Optional Boolean parameter that specifies whether the output includes information about clusters shared from other AWS accounts.
+--     * If supplied, must match an existing DBClusterIdentifier.
 --
--- * 'ddcFilters' - A filter that specifies one or more DB clusters to describe. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB clusters identified by these ARNs.
 --
--- * 'ddcMarker' - An optional pagination token provided by a previous @DescribeDBClusters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'filters' - A filter that specifies one or more DB clusters to describe.
 --
--- * 'ddcMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-describeDBClusters ::
+-- Supported filters:
+--
+--     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB clusters identified by these ARNs.
+--
+--
+-- * 'includeShared' - Optional Boolean parameter that specifies whether the output includes information about clusters shared from other AWS accounts.
+-- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+mkDescribeDBClusters ::
   DescribeDBClusters
-describeDBClusters =
+mkDescribeDBClusters =
   DescribeDBClusters'
-    { _ddcDBClusterIdentifier = Nothing,
-      _ddcIncludeShared = Nothing,
-      _ddcFilters = Nothing,
-      _ddcMarker = Nothing,
-      _ddcMaxRecords = Nothing
+    { dbClusterIdentifier = Lude.Nothing,
+      includeShared = Lude.Nothing,
+      filters = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
--- | The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive. Constraints:     * If supplied, must match an existing DBClusterIdentifier.
-ddcDBClusterIdentifier :: Lens' DescribeDBClusters (Maybe Text)
-ddcDBClusterIdentifier = lens _ddcDBClusterIdentifier (\s a -> s {_ddcDBClusterIdentifier = a})
+-- | The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * If supplied, must match an existing DBClusterIdentifier.
+--
+--
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcDBClusterIdentifier :: Lens.Lens' DescribeDBClusters (Lude.Maybe Lude.Text)
+ddcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DescribeDBClusters -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DescribeDBClusters)
+{-# DEPRECATED ddcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 -- | Optional Boolean parameter that specifies whether the output includes information about clusters shared from other AWS accounts.
-ddcIncludeShared :: Lens' DescribeDBClusters (Maybe Bool)
-ddcIncludeShared = lens _ddcIncludeShared (\s a -> s {_ddcIncludeShared = a})
+--
+-- /Note:/ Consider using 'includeShared' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcIncludeShared :: Lens.Lens' DescribeDBClusters (Lude.Maybe Lude.Bool)
+ddcIncludeShared = Lens.lens (includeShared :: DescribeDBClusters -> Lude.Maybe Lude.Bool) (\s a -> s {includeShared = a} :: DescribeDBClusters)
+{-# DEPRECATED ddcIncludeShared "Use generic-lens or generic-optics with 'includeShared' instead." #-}
 
--- | A filter that specifies one or more DB clusters to describe. Supported filters:     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB clusters identified by these ARNs.
-ddcFilters :: Lens' DescribeDBClusters [Filter]
-ddcFilters = lens _ddcFilters (\s a -> s {_ddcFilters = a}) . _Default . _Coerce
+-- | A filter that specifies one or more DB clusters to describe.
+--
+-- Supported filters:
+--
+--     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB clusters identified by these ARNs.
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcFilters :: Lens.Lens' DescribeDBClusters (Lude.Maybe [Filter])
+ddcFilters = Lens.lens (filters :: DescribeDBClusters -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBClusters)
+{-# DEPRECATED ddcFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeDBClusters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-ddcMarker :: Lens' DescribeDBClusters (Maybe Text)
-ddcMarker = lens _ddcMarker (\s a -> s {_ddcMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcMarker :: Lens.Lens' DescribeDBClusters (Lude.Maybe Lude.Text)
+ddcMarker = Lens.lens (marker :: DescribeDBClusters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClusters)
+{-# DEPRECATED ddcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.  Default: 100 Constraints: Minimum 20, maximum 100.
-ddcMaxRecords :: Lens' DescribeDBClusters (Maybe Int)
-ddcMaxRecords = lens _ddcMaxRecords (\s a -> s {_ddcMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcMaxRecords :: Lens.Lens' DescribeDBClusters (Lude.Maybe Lude.Int)
+ddcMaxRecords = Lens.lens (maxRecords :: DescribeDBClusters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBClusters)
+{-# DEPRECATED ddcMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeDBClusters where
+instance Page.AWSPager DescribeDBClusters where
   page rq rs
-    | stop (rs ^. ddcrsMarker) = Nothing
-    | stop (rs ^. ddcrsDBClusters) = Nothing
-    | otherwise = Just $ rq & ddcMarker .~ rs ^. ddcrsMarker
+    | Page.stop (rs Lens.^. ddcrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddcrsDBClusters) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& ddcMarker Lens..~ rs Lens.^. ddcrsMarker
 
-instance AWSRequest DescribeDBClusters where
+instance Lude.AWSRequest DescribeDBClusters where
   type Rs DescribeDBClusters = DescribeDBClustersResponse
-  request = postQuery rds
+  request = Req.postQuery rdsService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "DescribeDBClustersResult"
       ( \s h x ->
           DescribeDBClustersResponse'
-            <$> (x .@? "DBClusters" .!@ mempty >>= may (parseXMLList "DBCluster"))
-            <*> (x .@? "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> ( x Lude..@? "DBClusters" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "DBCluster")
+                     )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDBClusters
+instance Lude.ToHeaders DescribeDBClusters where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeDBClusters
+instance Lude.ToPath DescribeDBClusters where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeDBClusters where
-  toHeaders = const mempty
-
-instance ToPath DescribeDBClusters where
-  toPath = const "/"
-
-instance ToQuery DescribeDBClusters where
+instance Lude.ToQuery DescribeDBClusters where
   toQuery DescribeDBClusters' {..} =
-    mconcat
-      [ "Action" =: ("DescribeDBClusters" :: ByteString),
-        "Version" =: ("2014-10-31" :: ByteString),
-        "DBClusterIdentifier" =: _ddcDBClusterIdentifier,
-        "IncludeShared" =: _ddcIncludeShared,
-        "Filters" =: toQuery (toQueryList "Filter" <$> _ddcFilters),
-        "Marker" =: _ddcMarker,
-        "MaxRecords" =: _ddcMaxRecords
+    Lude.mconcat
+      [ "Action" Lude.=: ("DescribeDBClusters" :: Lude.ByteString),
+        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
+        "IncludeShared" Lude.=: includeShared,
+        "Filters"
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "Marker" Lude.=: marker,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | Contains the result of a successful invocation of the @DescribeDBClusters@ action.
 --
---
---
--- /See:/ 'describeDBClustersResponse' smart constructor.
+-- /See:/ 'mkDescribeDBClustersResponse' smart constructor.
 data DescribeDBClustersResponse = DescribeDBClustersResponse'
-  { _ddcrsDBClusters ::
-      !(Maybe [DBCluster]),
-    _ddcrsMarker :: !(Maybe Text),
-    _ddcrsResponseStatus :: !Int
+  { dbClusters ::
+      Lude.Maybe [DBCluster],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClustersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcrsDBClusters' - Contains a list of DB clusters for the user.
---
--- * 'ddcrsMarker' - A pagination token that can be used in a later DescribeDBClusters request.
---
--- * 'ddcrsResponseStatus' - -- | The response status code.
-describeDBClustersResponse ::
-  -- | 'ddcrsResponseStatus'
-  Int ->
+-- * 'dbClusters' - Contains a list of DB clusters for the user.
+-- * 'marker' - A pagination token that can be used in a later DescribeDBClusters request.
+-- * 'responseStatus' - The response status code.
+mkDescribeDBClustersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDBClustersResponse
-describeDBClustersResponse pResponseStatus_ =
+mkDescribeDBClustersResponse pResponseStatus_ =
   DescribeDBClustersResponse'
-    { _ddcrsDBClusters = Nothing,
-      _ddcrsMarker = Nothing,
-      _ddcrsResponseStatus = pResponseStatus_
+    { dbClusters = Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Contains a list of DB clusters for the user.
-ddcrsDBClusters :: Lens' DescribeDBClustersResponse [DBCluster]
-ddcrsDBClusters = lens _ddcrsDBClusters (\s a -> s {_ddcrsDBClusters = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbClusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsDBClusters :: Lens.Lens' DescribeDBClustersResponse (Lude.Maybe [DBCluster])
+ddcrsDBClusters = Lens.lens (dbClusters :: DescribeDBClustersResponse -> Lude.Maybe [DBCluster]) (\s a -> s {dbClusters = a} :: DescribeDBClustersResponse)
+{-# DEPRECATED ddcrsDBClusters "Use generic-lens or generic-optics with 'dbClusters' instead." #-}
 
 -- | A pagination token that can be used in a later DescribeDBClusters request.
-ddcrsMarker :: Lens' DescribeDBClustersResponse (Maybe Text)
-ddcrsMarker = lens _ddcrsMarker (\s a -> s {_ddcrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsMarker :: Lens.Lens' DescribeDBClustersResponse (Lude.Maybe Lude.Text)
+ddcrsMarker = Lens.lens (marker :: DescribeDBClustersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClustersResponse)
+{-# DEPRECATED ddcrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-ddcrsResponseStatus :: Lens' DescribeDBClustersResponse Int
-ddcrsResponseStatus = lens _ddcrsResponseStatus (\s a -> s {_ddcrsResponseStatus = a})
-
-instance NFData DescribeDBClustersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcrsResponseStatus :: Lens.Lens' DescribeDBClustersResponse Lude.Int
+ddcrsResponseStatus = Lens.lens (responseStatus :: DescribeDBClustersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBClustersResponse)
+{-# DEPRECATED ddcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

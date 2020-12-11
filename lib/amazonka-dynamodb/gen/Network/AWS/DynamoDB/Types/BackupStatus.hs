@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DynamoDB.Types.BackupStatus where
+module Network.AWS.DynamoDB.Types.BackupStatus
+  ( BackupStatus
+      ( BackupStatus',
+        Available,
+        Creating,
+        Deleted
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BackupStatus
-  = Available
-  | Creating
-  | Deleted
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BackupStatus = BackupStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BackupStatus where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure Available
-      "creating" -> pure Creating
-      "deleted" -> pure Deleted
-      e ->
-        fromTextError $
-          "Failure parsing BackupStatus from value: '" <> e
-            <> "'. Accepted values: available, creating, deleted"
+pattern Available :: BackupStatus
+pattern Available = BackupStatus' "AVAILABLE"
 
-instance ToText BackupStatus where
-  toText = \case
-    Available -> "AVAILABLE"
-    Creating -> "CREATING"
-    Deleted -> "DELETED"
+pattern Creating :: BackupStatus
+pattern Creating = BackupStatus' "CREATING"
 
-instance Hashable BackupStatus
+pattern Deleted :: BackupStatus
+pattern Deleted = BackupStatus' "DELETED"
 
-instance NFData BackupStatus
-
-instance ToByteString BackupStatus
-
-instance ToQuery BackupStatus
-
-instance ToHeader BackupStatus
-
-instance FromJSON BackupStatus where
-  parseJSON = parseJSONText "BackupStatus"
+{-# COMPLETE
+  Available,
+  Creating,
+  Deleted,
+  BackupStatus'
+  #-}

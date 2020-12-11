@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.InsightRuleContributor where
+module Network.AWS.CloudWatch.Types.InsightRuleContributor
+  ( InsightRuleContributor (..),
+
+    -- * Smart constructor
+    mkInsightRuleContributor,
+
+    -- * Lenses
+    ircKeys,
+    ircApproximateAggregateValue,
+    ircDatapoints,
+  )
+where
 
 import Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | One of the unique contributors found by a Contributor Insights rule. If the rule contains multiple keys, then a unique contributor is a unique combination of values from all the keys in the rule.
 --
---
 -- If the rule contains a single key, then each unique contributor is each unique value for this key.
---
 -- For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetInsightRuleReport.html GetInsightRuleReport> .
 --
---
--- /See:/ 'insightRuleContributor' smart constructor.
+-- /See:/ 'mkInsightRuleContributor' smart constructor.
 data InsightRuleContributor = InsightRuleContributor'
-  { _ircKeys ::
-      ![Text],
-    _ircApproximateAggregateValue :: !Double,
-    _ircDatapoints ::
-      ![InsightRuleContributorDatapoint]
+  { keys ::
+      [Lude.Text],
+    approximateAggregateValue :: Lude.Double,
+    datapoints ::
+      [InsightRuleContributorDatapoint]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightRuleContributor' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ircKeys' - One of the log entry field keywords that is used to define contributors for this rule.
---
--- * 'ircApproximateAggregateValue' - An approximation of the aggregate value that comes from this contributor.
---
--- * 'ircDatapoints' - An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.
-insightRuleContributor ::
-  -- | 'ircApproximateAggregateValue'
-  Double ->
+-- * 'approximateAggregateValue' - An approximation of the aggregate value that comes from this contributor.
+-- * 'datapoints' - An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.
+-- * 'keys' - One of the log entry field keywords that is used to define contributors for this rule.
+mkInsightRuleContributor ::
+  -- | 'approximateAggregateValue'
+  Lude.Double ->
   InsightRuleContributor
-insightRuleContributor pApproximateAggregateValue_ =
+mkInsightRuleContributor pApproximateAggregateValue_ =
   InsightRuleContributor'
-    { _ircKeys = mempty,
-      _ircApproximateAggregateValue = pApproximateAggregateValue_,
-      _ircDatapoints = mempty
+    { keys = Lude.mempty,
+      approximateAggregateValue = pApproximateAggregateValue_,
+      datapoints = Lude.mempty
     }
 
 -- | One of the log entry field keywords that is used to define contributors for this rule.
-ircKeys :: Lens' InsightRuleContributor [Text]
-ircKeys = lens _ircKeys (\s a -> s {_ircKeys = a}) . _Coerce
+--
+-- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ircKeys :: Lens.Lens' InsightRuleContributor [Lude.Text]
+ircKeys = Lens.lens (keys :: InsightRuleContributor -> [Lude.Text]) (\s a -> s {keys = a} :: InsightRuleContributor)
+{-# DEPRECATED ircKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
 
 -- | An approximation of the aggregate value that comes from this contributor.
-ircApproximateAggregateValue :: Lens' InsightRuleContributor Double
-ircApproximateAggregateValue = lens _ircApproximateAggregateValue (\s a -> s {_ircApproximateAggregateValue = a})
+--
+-- /Note:/ Consider using 'approximateAggregateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ircApproximateAggregateValue :: Lens.Lens' InsightRuleContributor Lude.Double
+ircApproximateAggregateValue = Lens.lens (approximateAggregateValue :: InsightRuleContributor -> Lude.Double) (\s a -> s {approximateAggregateValue = a} :: InsightRuleContributor)
+{-# DEPRECATED ircApproximateAggregateValue "Use generic-lens or generic-optics with 'approximateAggregateValue' instead." #-}
 
 -- | An array of the data points where this contributor is present. Only the data points when this contributor appeared are included in the array.
-ircDatapoints :: Lens' InsightRuleContributor [InsightRuleContributorDatapoint]
-ircDatapoints = lens _ircDatapoints (\s a -> s {_ircDatapoints = a}) . _Coerce
+--
+-- /Note:/ Consider using 'datapoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ircDatapoints :: Lens.Lens' InsightRuleContributor [InsightRuleContributorDatapoint]
+ircDatapoints = Lens.lens (datapoints :: InsightRuleContributor -> [InsightRuleContributorDatapoint]) (\s a -> s {datapoints = a} :: InsightRuleContributor)
+{-# DEPRECATED ircDatapoints "Use generic-lens or generic-optics with 'datapoints' instead." #-}
 
-instance FromXML InsightRuleContributor where
+instance Lude.FromXML InsightRuleContributor where
   parseXML x =
     InsightRuleContributor'
-      <$> (x .@? "Keys" .!@ mempty >>= parseXMLList "member")
-      <*> (x .@ "ApproximateAggregateValue")
-      <*> (x .@? "Datapoints" .!@ mempty >>= parseXMLList "member")
-
-instance Hashable InsightRuleContributor
-
-instance NFData InsightRuleContributor
+      Lude.<$> ( x Lude..@? "Keys" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLList "member"
+               )
+      Lude.<*> (x Lude..@ "ApproximateAggregateValue")
+      Lude.<*> ( x Lude..@? "Datapoints" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLList "member"
+               )

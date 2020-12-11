@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,94 @@
 --
 -- Deregisters an Amazon EBS volume. The volume can then be registered by another stack. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management> .
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DeregisterVolume
-  ( -- * Creating a Request
-    deregisterVolume,
-    DeregisterVolume,
+  ( -- * Creating a request
+    DeregisterVolume (..),
+    mkDeregisterVolume,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvVolumeId,
 
-    -- * Destructuring the Response
-    deregisterVolumeResponse,
-    DeregisterVolumeResponse,
+    -- * Destructuring the response
+    DeregisterVolumeResponse (..),
+    mkDeregisterVolumeResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterVolume' smart constructor.
-newtype DeregisterVolume = DeregisterVolume' {_dvVolumeId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeregisterVolume' smart constructor.
+newtype DeregisterVolume = DeregisterVolume' {volumeId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterVolume' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvVolumeId' - The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
-deregisterVolume ::
-  -- | 'dvVolumeId'
-  Text ->
+-- * 'volumeId' - The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
+mkDeregisterVolume ::
+  -- | 'volumeId'
+  Lude.Text ->
   DeregisterVolume
-deregisterVolume pVolumeId_ =
-  DeregisterVolume' {_dvVolumeId = pVolumeId_}
+mkDeregisterVolume pVolumeId_ =
+  DeregisterVolume' {volumeId = pVolumeId_}
 
 -- | The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks assigned to the instance when you registered the volume with the stack, not the Amazon EC2 volume ID.
-dvVolumeId :: Lens' DeregisterVolume Text
-dvVolumeId = lens _dvVolumeId (\s a -> s {_dvVolumeId = a})
+--
+-- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvVolumeId :: Lens.Lens' DeregisterVolume Lude.Text
+dvVolumeId = Lens.lens (volumeId :: DeregisterVolume -> Lude.Text) (\s a -> s {volumeId = a} :: DeregisterVolume)
+{-# DEPRECATED dvVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
-instance AWSRequest DeregisterVolume where
+instance Lude.AWSRequest DeregisterVolume where
   type Rs DeregisterVolume = DeregisterVolumeResponse
-  request = postJSON opsWorks
-  response = receiveNull DeregisterVolumeResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DeregisterVolumeResponse'
 
-instance Hashable DeregisterVolume
-
-instance NFData DeregisterVolume
-
-instance ToHeaders DeregisterVolume where
+instance Lude.ToHeaders DeregisterVolume where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DeregisterVolume" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DeregisterVolume" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterVolume where
+instance Lude.ToJSON DeregisterVolume where
   toJSON DeregisterVolume' {..} =
-    object (catMaybes [Just ("VolumeId" .= _dvVolumeId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("VolumeId" Lude..= volumeId)])
 
-instance ToPath DeregisterVolume where
-  toPath = const "/"
+instance Lude.ToPath DeregisterVolume where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterVolume where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterVolume where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterVolumeResponse' smart constructor.
+-- | /See:/ 'mkDeregisterVolumeResponse' smart constructor.
 data DeregisterVolumeResponse = DeregisterVolumeResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterVolumeResponse' with the minimum fields required to make a request.
-deregisterVolumeResponse ::
+mkDeregisterVolumeResponse ::
   DeregisterVolumeResponse
-deregisterVolumeResponse = DeregisterVolumeResponse'
-
-instance NFData DeregisterVolumeResponse
+mkDeregisterVolumeResponse = DeregisterVolumeResponse'

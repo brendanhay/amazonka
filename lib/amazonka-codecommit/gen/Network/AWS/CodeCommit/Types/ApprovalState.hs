@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.ApprovalState where
+module Network.AWS.CodeCommit.Types.ApprovalState
+  ( ApprovalState
+      ( ApprovalState',
+        ASApprove,
+        ASRevoke
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ApprovalState
-  = ASApprove
-  | ASRevoke
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ApprovalState = ApprovalState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ApprovalState where
-  parser =
-    takeLowerText >>= \case
-      "approve" -> pure ASApprove
-      "revoke" -> pure ASRevoke
-      e ->
-        fromTextError $
-          "Failure parsing ApprovalState from value: '" <> e
-            <> "'. Accepted values: approve, revoke"
+pattern ASApprove :: ApprovalState
+pattern ASApprove = ApprovalState' "APPROVE"
 
-instance ToText ApprovalState where
-  toText = \case
-    ASApprove -> "APPROVE"
-    ASRevoke -> "REVOKE"
+pattern ASRevoke :: ApprovalState
+pattern ASRevoke = ApprovalState' "REVOKE"
 
-instance Hashable ApprovalState
-
-instance NFData ApprovalState
-
-instance ToByteString ApprovalState
-
-instance ToQuery ApprovalState
-
-instance ToHeader ApprovalState
-
-instance ToJSON ApprovalState where
-  toJSON = toJSONText
-
-instance FromJSON ApprovalState where
-  parseJSON = parseJSONText "ApprovalState"
+{-# COMPLETE
+  ASApprove,
+  ASRevoke,
+  ApprovalState'
+  #-}

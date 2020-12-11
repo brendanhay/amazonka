@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.NetworkConfiguration where
+module Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
+  ( NetworkConfiguration (..),
+
+    -- * Smart constructor
+    mkNetworkConfiguration,
+
+    -- * Lenses
+    ncAwsvpcConfiguration,
+  )
+where
 
 import Network.AWS.CloudWatchEvents.Types.AWSVPCConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This structure specifies the network configuration for an ECS task.
 --
---
---
--- /See:/ 'networkConfiguration' smart constructor.
+-- /See:/ 'mkNetworkConfiguration' smart constructor.
 newtype NetworkConfiguration = NetworkConfiguration'
-  { _ncAwsvpcConfiguration ::
-      Maybe AWSVPCConfiguration
+  { awsvpcConfiguration ::
+      Lude.Maybe AWSVPCConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ncAwsvpcConfiguration' - Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the @awsvpc@ network mode.
-networkConfiguration ::
+-- * 'awsvpcConfiguration' - Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the @awsvpc@ network mode.
+mkNetworkConfiguration ::
   NetworkConfiguration
-networkConfiguration =
-  NetworkConfiguration' {_ncAwsvpcConfiguration = Nothing}
+mkNetworkConfiguration =
+  NetworkConfiguration' {awsvpcConfiguration = Lude.Nothing}
 
 -- | Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the @awsvpc@ network mode.
-ncAwsvpcConfiguration :: Lens' NetworkConfiguration (Maybe AWSVPCConfiguration)
-ncAwsvpcConfiguration = lens _ncAwsvpcConfiguration (\s a -> s {_ncAwsvpcConfiguration = a})
+--
+-- /Note:/ Consider using 'awsvpcConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncAwsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Lude.Maybe AWSVPCConfiguration)
+ncAwsvpcConfiguration = Lens.lens (awsvpcConfiguration :: NetworkConfiguration -> Lude.Maybe AWSVPCConfiguration) (\s a -> s {awsvpcConfiguration = a} :: NetworkConfiguration)
+{-# DEPRECATED ncAwsvpcConfiguration "Use generic-lens or generic-optics with 'awsvpcConfiguration' instead." #-}
 
-instance FromJSON NetworkConfiguration where
+instance Lude.FromJSON NetworkConfiguration where
   parseJSON =
-    withObject
+    Lude.withObject
       "NetworkConfiguration"
-      (\x -> NetworkConfiguration' <$> (x .:? "awsvpcConfiguration"))
+      ( \x ->
+          NetworkConfiguration' Lude.<$> (x Lude..:? "awsvpcConfiguration")
+      )
 
-instance Hashable NetworkConfiguration
-
-instance NFData NetworkConfiguration
-
-instance ToJSON NetworkConfiguration where
+instance Lude.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
-    object
-      (catMaybes [("awsvpcConfiguration" .=) <$> _ncAwsvpcConfiguration])
+    Lude.object
+      ( Lude.catMaybes
+          [("awsvpcConfiguration" Lude..=) Lude.<$> awsvpcConfiguration]
+      )

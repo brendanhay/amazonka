@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.TextTypes where
+module Network.AWS.Rekognition.Types.TextTypes
+  ( TextTypes
+      ( TextTypes',
+        Line,
+        Word
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TextTypes
-  = Line
-  | Word
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TextTypes = TextTypes' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TextTypes where
-  parser =
-    takeLowerText >>= \case
-      "line" -> pure Line
-      "word" -> pure Word
-      e ->
-        fromTextError $
-          "Failure parsing TextTypes from value: '" <> e
-            <> "'. Accepted values: line, word"
+pattern Line :: TextTypes
+pattern Line = TextTypes' "LINE"
 
-instance ToText TextTypes where
-  toText = \case
-    Line -> "LINE"
-    Word -> "WORD"
+pattern Word :: TextTypes
+pattern Word = TextTypes' "WORD"
 
-instance Hashable TextTypes
-
-instance NFData TextTypes
-
-instance ToByteString TextTypes
-
-instance ToQuery TextTypes
-
-instance ToHeader TextTypes
-
-instance FromJSON TextTypes where
-  parseJSON = parseJSONText "TextTypes"
+{-# COMPLETE
+  Line,
+  Word,
+  TextTypes'
+  #-}

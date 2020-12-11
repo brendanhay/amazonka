@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,145 +14,163 @@
 --
 -- Creates a specified partition index in an existing table.
 module Network.AWS.Glue.CreatePartitionIndex
-  ( -- * Creating a Request
-    createPartitionIndex,
-    CreatePartitionIndex,
+  ( -- * Creating a request
+    CreatePartitionIndex (..),
+    mkCreatePartitionIndex,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpiCatalogId,
     cpiDatabaseName,
     cpiTableName,
     cpiPartitionIndex,
 
-    -- * Destructuring the Response
-    createPartitionIndexResponse,
-    CreatePartitionIndexResponse,
+    -- * Destructuring the response
+    CreatePartitionIndexResponse (..),
+    mkCreatePartitionIndexResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cpirsResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createPartitionIndex' smart constructor.
+-- | /See:/ 'mkCreatePartitionIndex' smart constructor.
 data CreatePartitionIndex = CreatePartitionIndex'
-  { _cpiCatalogId ::
-      !(Maybe Text),
-    _cpiDatabaseName :: !Text,
-    _cpiTableName :: !Text,
-    _cpiPartitionIndex :: !PartitionIndex
+  { catalogId ::
+      Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    tableName :: Lude.Text,
+    partitionIndex :: PartitionIndex
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePartitionIndex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpiCatalogId' - The catalog ID where the table resides.
---
--- * 'cpiDatabaseName' - Specifies the name of a database in which you want to create a partition index.
---
--- * 'cpiTableName' - Specifies the name of a table in which you want to create a partition index.
---
--- * 'cpiPartitionIndex' - Specifies a @PartitionIndex@ structure to create a partition index in an existing table.
-createPartitionIndex ::
-  -- | 'cpiDatabaseName'
-  Text ->
-  -- | 'cpiTableName'
-  Text ->
-  -- | 'cpiPartitionIndex'
+-- * 'catalogId' - The catalog ID where the table resides.
+-- * 'databaseName' - Specifies the name of a database in which you want to create a partition index.
+-- * 'partitionIndex' - Specifies a @PartitionIndex@ structure to create a partition index in an existing table.
+-- * 'tableName' - Specifies the name of a table in which you want to create a partition index.
+mkCreatePartitionIndex ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
+  -- | 'partitionIndex'
   PartitionIndex ->
   CreatePartitionIndex
-createPartitionIndex pDatabaseName_ pTableName_ pPartitionIndex_ =
+mkCreatePartitionIndex pDatabaseName_ pTableName_ pPartitionIndex_ =
   CreatePartitionIndex'
-    { _cpiCatalogId = Nothing,
-      _cpiDatabaseName = pDatabaseName_,
-      _cpiTableName = pTableName_,
-      _cpiPartitionIndex = pPartitionIndex_
+    { catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      tableName = pTableName_,
+      partitionIndex = pPartitionIndex_
     }
 
 -- | The catalog ID where the table resides.
-cpiCatalogId :: Lens' CreatePartitionIndex (Maybe Text)
-cpiCatalogId = lens _cpiCatalogId (\s a -> s {_cpiCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpiCatalogId :: Lens.Lens' CreatePartitionIndex (Lude.Maybe Lude.Text)
+cpiCatalogId = Lens.lens (catalogId :: CreatePartitionIndex -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreatePartitionIndex)
+{-# DEPRECATED cpiCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | Specifies the name of a database in which you want to create a partition index.
-cpiDatabaseName :: Lens' CreatePartitionIndex Text
-cpiDatabaseName = lens _cpiDatabaseName (\s a -> s {_cpiDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpiDatabaseName :: Lens.Lens' CreatePartitionIndex Lude.Text
+cpiDatabaseName = Lens.lens (databaseName :: CreatePartitionIndex -> Lude.Text) (\s a -> s {databaseName = a} :: CreatePartitionIndex)
+{-# DEPRECATED cpiDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | Specifies the name of a table in which you want to create a partition index.
-cpiTableName :: Lens' CreatePartitionIndex Text
-cpiTableName = lens _cpiTableName (\s a -> s {_cpiTableName = a})
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpiTableName :: Lens.Lens' CreatePartitionIndex Lude.Text
+cpiTableName = Lens.lens (tableName :: CreatePartitionIndex -> Lude.Text) (\s a -> s {tableName = a} :: CreatePartitionIndex)
+{-# DEPRECATED cpiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | Specifies a @PartitionIndex@ structure to create a partition index in an existing table.
-cpiPartitionIndex :: Lens' CreatePartitionIndex PartitionIndex
-cpiPartitionIndex = lens _cpiPartitionIndex (\s a -> s {_cpiPartitionIndex = a})
+--
+-- /Note:/ Consider using 'partitionIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpiPartitionIndex :: Lens.Lens' CreatePartitionIndex PartitionIndex
+cpiPartitionIndex = Lens.lens (partitionIndex :: CreatePartitionIndex -> PartitionIndex) (\s a -> s {partitionIndex = a} :: CreatePartitionIndex)
+{-# DEPRECATED cpiPartitionIndex "Use generic-lens or generic-optics with 'partitionIndex' instead." #-}
 
-instance AWSRequest CreatePartitionIndex where
+instance Lude.AWSRequest CreatePartitionIndex where
   type Rs CreatePartitionIndex = CreatePartitionIndexResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveEmpty
-      (\s h x -> CreatePartitionIndexResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          CreatePartitionIndexResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CreatePartitionIndex
-
-instance NFData CreatePartitionIndex
-
-instance ToHeaders CreatePartitionIndex where
+instance Lude.ToHeaders CreatePartitionIndex where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.CreatePartitionIndex" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.CreatePartitionIndex" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreatePartitionIndex where
+instance Lude.ToJSON CreatePartitionIndex where
   toJSON CreatePartitionIndex' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _cpiCatalogId,
-            Just ("DatabaseName" .= _cpiDatabaseName),
-            Just ("TableName" .= _cpiTableName),
-            Just ("PartitionIndex" .= _cpiPartitionIndex)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("TableName" Lude..= tableName),
+            Lude.Just ("PartitionIndex" Lude..= partitionIndex)
           ]
       )
 
-instance ToPath CreatePartitionIndex where
-  toPath = const "/"
+instance Lude.ToPath CreatePartitionIndex where
+  toPath = Lude.const "/"
 
-instance ToQuery CreatePartitionIndex where
-  toQuery = const mempty
+instance Lude.ToQuery CreatePartitionIndex where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createPartitionIndexResponse' smart constructor.
+-- | /See:/ 'mkCreatePartitionIndexResponse' smart constructor.
 newtype CreatePartitionIndexResponse = CreatePartitionIndexResponse'
-  { _cpirsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePartitionIndexResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpirsResponseStatus' - -- | The response status code.
-createPartitionIndexResponse ::
-  -- | 'cpirsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCreatePartitionIndexResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePartitionIndexResponse
-createPartitionIndexResponse pResponseStatus_ =
-  CreatePartitionIndexResponse'
-    { _cpirsResponseStatus =
-        pResponseStatus_
-    }
+mkCreatePartitionIndexResponse pResponseStatus_ =
+  CreatePartitionIndexResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-cpirsResponseStatus :: Lens' CreatePartitionIndexResponse Int
-cpirsResponseStatus = lens _cpirsResponseStatus (\s a -> s {_cpirsResponseStatus = a})
-
-instance NFData CreatePartitionIndexResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpirsResponseStatus :: Lens.Lens' CreatePartitionIndexResponse Lude.Int
+cpirsResponseStatus = Lens.lens (responseStatus :: CreatePartitionIndexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePartitionIndexResponse)
+{-# DEPRECATED cpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

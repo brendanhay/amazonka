@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AppImageConfigSortKey where
+module Network.AWS.SageMaker.Types.AppImageConfigSortKey
+  ( AppImageConfigSortKey
+      ( AppImageConfigSortKey',
+        AICSKCreationTime,
+        AICSKLastModifiedTime,
+        AICSKName
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AppImageConfigSortKey
-  = AICSKCreationTime
-  | AICSKLastModifiedTime
-  | AICSKName
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AppImageConfigSortKey = AppImageConfigSortKey' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AppImageConfigSortKey where
-  parser =
-    takeLowerText >>= \case
-      "creationtime" -> pure AICSKCreationTime
-      "lastmodifiedtime" -> pure AICSKLastModifiedTime
-      "name" -> pure AICSKName
-      e ->
-        fromTextError $
-          "Failure parsing AppImageConfigSortKey from value: '" <> e
-            <> "'. Accepted values: creationtime, lastmodifiedtime, name"
+pattern AICSKCreationTime :: AppImageConfigSortKey
+pattern AICSKCreationTime = AppImageConfigSortKey' "CreationTime"
 
-instance ToText AppImageConfigSortKey where
-  toText = \case
-    AICSKCreationTime -> "CreationTime"
-    AICSKLastModifiedTime -> "LastModifiedTime"
-    AICSKName -> "Name"
+pattern AICSKLastModifiedTime :: AppImageConfigSortKey
+pattern AICSKLastModifiedTime = AppImageConfigSortKey' "LastModifiedTime"
 
-instance Hashable AppImageConfigSortKey
+pattern AICSKName :: AppImageConfigSortKey
+pattern AICSKName = AppImageConfigSortKey' "Name"
 
-instance NFData AppImageConfigSortKey
-
-instance ToByteString AppImageConfigSortKey
-
-instance ToQuery AppImageConfigSortKey
-
-instance ToHeader AppImageConfigSortKey
-
-instance ToJSON AppImageConfigSortKey where
-  toJSON = toJSONText
+{-# COMPLETE
+  AICSKCreationTime,
+  AICSKLastModifiedTime,
+  AICSKName,
+  AppImageConfigSortKey'
+  #-}

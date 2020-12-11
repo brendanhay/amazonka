@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,59 +7,73 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.TargetGroupStickinessConfig where
+module Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
+  ( TargetGroupStickinessConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTargetGroupStickinessConfig,
+
+    -- * Lenses
+    tgscEnabled,
+    tgscDurationSeconds,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about the target group stickiness for a rule.
 --
---
---
--- /See:/ 'targetGroupStickinessConfig' smart constructor.
+-- /See:/ 'mkTargetGroupStickinessConfig' smart constructor.
 data TargetGroupStickinessConfig = TargetGroupStickinessConfig'
-  { _tgscEnabled ::
-      !(Maybe Bool),
-    _tgscDurationSeconds ::
-      !(Maybe Int)
+  { enabled ::
+      Lude.Maybe Lude.Bool,
+    durationSeconds ::
+      Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGroupStickinessConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tgscEnabled' - Indicates whether target group stickiness is enabled.
---
--- * 'tgscDurationSeconds' - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
-targetGroupStickinessConfig ::
+-- * 'durationSeconds' - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+-- * 'enabled' - Indicates whether target group stickiness is enabled.
+mkTargetGroupStickinessConfig ::
   TargetGroupStickinessConfig
-targetGroupStickinessConfig =
+mkTargetGroupStickinessConfig =
   TargetGroupStickinessConfig'
-    { _tgscEnabled = Nothing,
-      _tgscDurationSeconds = Nothing
+    { enabled = Lude.Nothing,
+      durationSeconds = Lude.Nothing
     }
 
 -- | Indicates whether target group stickiness is enabled.
-tgscEnabled :: Lens' TargetGroupStickinessConfig (Maybe Bool)
-tgscEnabled = lens _tgscEnabled (\s a -> s {_tgscEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgscEnabled :: Lens.Lens' TargetGroupStickinessConfig (Lude.Maybe Lude.Bool)
+tgscEnabled = Lens.lens (enabled :: TargetGroupStickinessConfig -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: TargetGroupStickinessConfig)
+{-# DEPRECATED tgscEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
-tgscDurationSeconds :: Lens' TargetGroupStickinessConfig (Maybe Int)
-tgscDurationSeconds = lens _tgscDurationSeconds (\s a -> s {_tgscDurationSeconds = a})
+--
+-- /Note:/ Consider using 'durationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgscDurationSeconds :: Lens.Lens' TargetGroupStickinessConfig (Lude.Maybe Lude.Int)
+tgscDurationSeconds = Lens.lens (durationSeconds :: TargetGroupStickinessConfig -> Lude.Maybe Lude.Int) (\s a -> s {durationSeconds = a} :: TargetGroupStickinessConfig)
+{-# DEPRECATED tgscDurationSeconds "Use generic-lens or generic-optics with 'durationSeconds' instead." #-}
 
-instance FromXML TargetGroupStickinessConfig where
+instance Lude.FromXML TargetGroupStickinessConfig where
   parseXML x =
     TargetGroupStickinessConfig'
-      <$> (x .@? "Enabled") <*> (x .@? "DurationSeconds")
+      Lude.<$> (x Lude..@? "Enabled") Lude.<*> (x Lude..@? "DurationSeconds")
 
-instance Hashable TargetGroupStickinessConfig
-
-instance NFData TargetGroupStickinessConfig
-
-instance ToQuery TargetGroupStickinessConfig where
+instance Lude.ToQuery TargetGroupStickinessConfig where
   toQuery TargetGroupStickinessConfig' {..} =
-    mconcat
-      [ "Enabled" =: _tgscEnabled,
-        "DurationSeconds" =: _tgscDurationSeconds
+    Lude.mconcat
+      [ "Enabled" Lude.=: enabled,
+        "DurationSeconds" Lude.=: durationSeconds
       ]

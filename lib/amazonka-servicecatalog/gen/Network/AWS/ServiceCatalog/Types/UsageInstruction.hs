@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.UsageInstruction where
+module Network.AWS.ServiceCatalog.Types.UsageInstruction
+  ( UsageInstruction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUsageInstruction,
+
+    -- * Lenses
+    uiValue,
+    uiType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Additional information provided by the administrator.
 --
---
---
--- /See:/ 'usageInstruction' smart constructor.
+-- /See:/ 'mkUsageInstruction' smart constructor.
 data UsageInstruction = UsageInstruction'
-  { _uiValue ::
-      !(Maybe Text),
-    _uiType :: !(Maybe Text)
+  { value ::
+      Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageInstruction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uiValue' - The usage instruction value for this type.
---
--- * 'uiType' - The usage instruction type for the value.
-usageInstruction ::
+-- * 'type'' - The usage instruction type for the value.
+-- * 'value' - The usage instruction value for this type.
+mkUsageInstruction ::
   UsageInstruction
-usageInstruction =
-  UsageInstruction' {_uiValue = Nothing, _uiType = Nothing}
+mkUsageInstruction =
+  UsageInstruction' {value = Lude.Nothing, type' = Lude.Nothing}
 
 -- | The usage instruction value for this type.
-uiValue :: Lens' UsageInstruction (Maybe Text)
-uiValue = lens _uiValue (\s a -> s {_uiValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiValue :: Lens.Lens' UsageInstruction (Lude.Maybe Lude.Text)
+uiValue = Lens.lens (value :: UsageInstruction -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: UsageInstruction)
+{-# DEPRECATED uiValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The usage instruction type for the value.
-uiType :: Lens' UsageInstruction (Maybe Text)
-uiType = lens _uiType (\s a -> s {_uiType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiType :: Lens.Lens' UsageInstruction (Lude.Maybe Lude.Text)
+uiType = Lens.lens (type' :: UsageInstruction -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: UsageInstruction)
+{-# DEPRECATED uiType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON UsageInstruction where
+instance Lude.FromJSON UsageInstruction where
   parseJSON =
-    withObject
+    Lude.withObject
       "UsageInstruction"
-      (\x -> UsageInstruction' <$> (x .:? "Value") <*> (x .:? "Type"))
-
-instance Hashable UsageInstruction
-
-instance NFData UsageInstruction
+      ( \x ->
+          UsageInstruction'
+            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Type")
+      )

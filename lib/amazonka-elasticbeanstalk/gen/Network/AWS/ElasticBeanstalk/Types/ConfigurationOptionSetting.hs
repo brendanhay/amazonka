@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionSetting where
+module Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionSetting
+  ( ConfigurationOptionSetting (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkConfigurationOptionSetting,
+
+    -- * Lenses
+    cosOptionName,
+    cosResourceName,
+    cosNamespace,
+    cosValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A specification identifying an individual configuration option along with its current value. For a list of possible namespaces and option values, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html Option Values> in the /AWS Elastic Beanstalk Developer Guide/ .
 --
---
---
--- /See:/ 'configurationOptionSetting' smart constructor.
+-- /See:/ 'mkConfigurationOptionSetting' smart constructor.
 data ConfigurationOptionSetting = ConfigurationOptionSetting'
-  { _cosOptionName ::
-      !(Maybe Text),
-    _cosResourceName :: !(Maybe Text),
-    _cosNamespace :: !(Maybe Text),
-    _cosValue :: !(Maybe Text)
+  { optionName ::
+      Lude.Maybe Lude.Text,
+    resourceName :: Lude.Maybe Lude.Text,
+    namespace :: Lude.Maybe Lude.Text,
+    value :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationOptionSetting' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cosOptionName' - The name of the configuration option.
---
--- * 'cosResourceName' - A unique resource name for the option setting. Use it for a time–based scaling configuration option.
---
--- * 'cosNamespace' - A unique namespace that identifies the option's associated AWS resource.
---
--- * 'cosValue' - The current value for the configuration option.
-configurationOptionSetting ::
+-- * 'namespace' - A unique namespace that identifies the option's associated AWS resource.
+-- * 'optionName' - The name of the configuration option.
+-- * 'resourceName' - A unique resource name for the option setting. Use it for a time–based scaling configuration option.
+-- * 'value' - The current value for the configuration option.
+mkConfigurationOptionSetting ::
   ConfigurationOptionSetting
-configurationOptionSetting =
+mkConfigurationOptionSetting =
   ConfigurationOptionSetting'
-    { _cosOptionName = Nothing,
-      _cosResourceName = Nothing,
-      _cosNamespace = Nothing,
-      _cosValue = Nothing
+    { optionName = Lude.Nothing,
+      resourceName = Lude.Nothing,
+      namespace = Lude.Nothing,
+      value = Lude.Nothing
     }
 
 -- | The name of the configuration option.
-cosOptionName :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosOptionName = lens _cosOptionName (\s a -> s {_cosOptionName = a})
+--
+-- /Note:/ Consider using 'optionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cosOptionName :: Lens.Lens' ConfigurationOptionSetting (Lude.Maybe Lude.Text)
+cosOptionName = Lens.lens (optionName :: ConfigurationOptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {optionName = a} :: ConfigurationOptionSetting)
+{-# DEPRECATED cosOptionName "Use generic-lens or generic-optics with 'optionName' instead." #-}
 
 -- | A unique resource name for the option setting. Use it for a time–based scaling configuration option.
-cosResourceName :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosResourceName = lens _cosResourceName (\s a -> s {_cosResourceName = a})
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cosResourceName :: Lens.Lens' ConfigurationOptionSetting (Lude.Maybe Lude.Text)
+cosResourceName = Lens.lens (resourceName :: ConfigurationOptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: ConfigurationOptionSetting)
+{-# DEPRECATED cosResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | A unique namespace that identifies the option's associated AWS resource.
-cosNamespace :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosNamespace = lens _cosNamespace (\s a -> s {_cosNamespace = a})
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cosNamespace :: Lens.Lens' ConfigurationOptionSetting (Lude.Maybe Lude.Text)
+cosNamespace = Lens.lens (namespace :: ConfigurationOptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: ConfigurationOptionSetting)
+{-# DEPRECATED cosNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The current value for the configuration option.
-cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
-cosValue = lens _cosValue (\s a -> s {_cosValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cosValue :: Lens.Lens' ConfigurationOptionSetting (Lude.Maybe Lude.Text)
+cosValue = Lens.lens (value :: ConfigurationOptionSetting -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ConfigurationOptionSetting)
+{-# DEPRECATED cosValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance FromXML ConfigurationOptionSetting where
+instance Lude.FromXML ConfigurationOptionSetting where
   parseXML x =
     ConfigurationOptionSetting'
-      <$> (x .@? "OptionName")
-      <*> (x .@? "ResourceName")
-      <*> (x .@? "Namespace")
-      <*> (x .@? "Value")
+      Lude.<$> (x Lude..@? "OptionName")
+      Lude.<*> (x Lude..@? "ResourceName")
+      Lude.<*> (x Lude..@? "Namespace")
+      Lude.<*> (x Lude..@? "Value")
 
-instance Hashable ConfigurationOptionSetting
-
-instance NFData ConfigurationOptionSetting
-
-instance ToQuery ConfigurationOptionSetting where
+instance Lude.ToQuery ConfigurationOptionSetting where
   toQuery ConfigurationOptionSetting' {..} =
-    mconcat
-      [ "OptionName" =: _cosOptionName,
-        "ResourceName" =: _cosResourceName,
-        "Namespace" =: _cosNamespace,
-        "Value" =: _cosValue
+    Lude.mconcat
+      [ "OptionName" Lude.=: optionName,
+        "ResourceName" Lude.=: resourceName,
+        "Namespace" Lude.=: namespace,
+        "Value" Lude.=: value
       ]

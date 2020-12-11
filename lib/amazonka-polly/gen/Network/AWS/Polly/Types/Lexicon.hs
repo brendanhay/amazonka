@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Polly.Types.Lexicon where
+module Network.AWS.Polly.Types.Lexicon
+  ( Lexicon (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLexicon,
+
+    -- * Lenses
+    lContent,
+    lName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides lexicon name and lexicon content in string format. For more information, see <https://www.w3.org/TR/pronunciation-lexicon/ Pronunciation Lexicon Specification (PLS) Version 1.0> .
 --
---
---
--- /See:/ 'lexicon' smart constructor.
+-- /See:/ 'mkLexicon' smart constructor.
 data Lexicon = Lexicon'
-  { _lContent :: !(Maybe (Sensitive Text)),
-    _lName :: !(Maybe Text)
+  { content ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    name :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Lexicon' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lContent' - Lexicon content in string format. The content of a lexicon must be in PLS format.
---
--- * 'lName' - Name of the lexicon.
-lexicon ::
+-- * 'content' - Lexicon content in string format. The content of a lexicon must be in PLS format.
+-- * 'name' - Name of the lexicon.
+mkLexicon ::
   Lexicon
-lexicon = Lexicon' {_lContent = Nothing, _lName = Nothing}
+mkLexicon = Lexicon' {content = Lude.Nothing, name = Lude.Nothing}
 
 -- | Lexicon content in string format. The content of a lexicon must be in PLS format.
-lContent :: Lens' Lexicon (Maybe Text)
-lContent = lens _lContent (\s a -> s {_lContent = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lContent :: Lens.Lens' Lexicon (Lude.Maybe (Lude.Sensitive Lude.Text))
+lContent = Lens.lens (content :: Lexicon -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {content = a} :: Lexicon)
+{-# DEPRECATED lContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | Name of the lexicon.
-lName :: Lens' Lexicon (Maybe Text)
-lName = lens _lName (\s a -> s {_lName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lName :: Lens.Lens' Lexicon (Lude.Maybe Lude.Text)
+lName = Lens.lens (name :: Lexicon -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Lexicon)
+{-# DEPRECATED lName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance FromJSON Lexicon where
+instance Lude.FromJSON Lexicon where
   parseJSON =
-    withObject
+    Lude.withObject
       "Lexicon"
-      (\x -> Lexicon' <$> (x .:? "Content") <*> (x .:? "Name"))
-
-instance Hashable Lexicon
-
-instance NFData Lexicon
+      ( \x ->
+          Lexicon'
+            Lude.<$> (x Lude..:? "Content") Lude.<*> (x Lude..:? "Name")
+      )

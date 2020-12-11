@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Retrieves the current status of a schema creation operation.
 module Network.AWS.AppSync.GetSchemaCreationStatus
-  ( -- * Creating a Request
-    getSchemaCreationStatus,
-    GetSchemaCreationStatus,
+  ( -- * Creating a request
+    GetSchemaCreationStatus (..),
+    mkGetSchemaCreationStatus,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gscsApiId,
 
-    -- * Destructuring the Response
-    getSchemaCreationStatusResponse,
-    GetSchemaCreationStatusResponse,
+    -- * Destructuring the response
+    GetSchemaCreationStatusResponse (..),
+    mkGetSchemaCreationStatusResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gscsrsStatus,
     gscsrsDetails,
     gscsrsResponseStatus,
@@ -38,103 +33,120 @@ module Network.AWS.AppSync.GetSchemaCreationStatus
 where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getSchemaCreationStatus' smart constructor.
+-- | /See:/ 'mkGetSchemaCreationStatus' smart constructor.
 newtype GetSchemaCreationStatus = GetSchemaCreationStatus'
-  { _gscsApiId ::
-      Text
+  { apiId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaCreationStatus' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gscsApiId' - The API ID.
-getSchemaCreationStatus ::
-  -- | 'gscsApiId'
-  Text ->
+-- * 'apiId' - The API ID.
+mkGetSchemaCreationStatus ::
+  -- | 'apiId'
+  Lude.Text ->
   GetSchemaCreationStatus
-getSchemaCreationStatus pApiId_ =
-  GetSchemaCreationStatus' {_gscsApiId = pApiId_}
+mkGetSchemaCreationStatus pApiId_ =
+  GetSchemaCreationStatus' {apiId = pApiId_}
 
 -- | The API ID.
-gscsApiId :: Lens' GetSchemaCreationStatus Text
-gscsApiId = lens _gscsApiId (\s a -> s {_gscsApiId = a})
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscsApiId :: Lens.Lens' GetSchemaCreationStatus Lude.Text
+gscsApiId = Lens.lens (apiId :: GetSchemaCreationStatus -> Lude.Text) (\s a -> s {apiId = a} :: GetSchemaCreationStatus)
+{-# DEPRECATED gscsApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
-instance AWSRequest GetSchemaCreationStatus where
+instance Lude.AWSRequest GetSchemaCreationStatus where
   type Rs GetSchemaCreationStatus = GetSchemaCreationStatusResponse
-  request = get appSync
+  request = Req.get appSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetSchemaCreationStatusResponse'
-            <$> (x .?> "status") <*> (x .?> "details") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "status")
+            Lude.<*> (x Lude..?> "details")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetSchemaCreationStatus
-
-instance NFData GetSchemaCreationStatus
-
-instance ToHeaders GetSchemaCreationStatus where
+instance Lude.ToHeaders GetSchemaCreationStatus where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath GetSchemaCreationStatus where
+instance Lude.ToPath GetSchemaCreationStatus where
   toPath GetSchemaCreationStatus' {..} =
-    mconcat ["/v1/apis/", toBS _gscsApiId, "/schemacreation"]
+    Lude.mconcat ["/v1/apis/", Lude.toBS apiId, "/schemacreation"]
 
-instance ToQuery GetSchemaCreationStatus where
-  toQuery = const mempty
+instance Lude.ToQuery GetSchemaCreationStatus where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getSchemaCreationStatusResponse' smart constructor.
+-- | /See:/ 'mkGetSchemaCreationStatusResponse' smart constructor.
 data GetSchemaCreationStatusResponse = GetSchemaCreationStatusResponse'
-  { _gscsrsStatus ::
-      !(Maybe SchemaStatus),
-    _gscsrsDetails ::
-      !(Maybe Text),
-    _gscsrsResponseStatus ::
-      !Int
+  { status ::
+      Lude.Maybe SchemaStatus,
+    details ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaCreationStatusResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gscsrsStatus' - The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
---
--- * 'gscsrsDetails' - Detailed information about the status of the schema creation operation.
---
--- * 'gscsrsResponseStatus' - -- | The response status code.
-getSchemaCreationStatusResponse ::
-  -- | 'gscsrsResponseStatus'
-  Int ->
+-- * 'details' - Detailed information about the status of the schema creation operation.
+-- * 'responseStatus' - The response status code.
+-- * 'status' - The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
+mkGetSchemaCreationStatusResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSchemaCreationStatusResponse
-getSchemaCreationStatusResponse pResponseStatus_ =
+mkGetSchemaCreationStatusResponse pResponseStatus_ =
   GetSchemaCreationStatusResponse'
-    { _gscsrsStatus = Nothing,
-      _gscsrsDetails = Nothing,
-      _gscsrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      details = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
-gscsrsStatus :: Lens' GetSchemaCreationStatusResponse (Maybe SchemaStatus)
-gscsrsStatus = lens _gscsrsStatus (\s a -> s {_gscsrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscsrsStatus :: Lens.Lens' GetSchemaCreationStatusResponse (Lude.Maybe SchemaStatus)
+gscsrsStatus = Lens.lens (status :: GetSchemaCreationStatusResponse -> Lude.Maybe SchemaStatus) (\s a -> s {status = a} :: GetSchemaCreationStatusResponse)
+{-# DEPRECATED gscsrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Detailed information about the status of the schema creation operation.
-gscsrsDetails :: Lens' GetSchemaCreationStatusResponse (Maybe Text)
-gscsrsDetails = lens _gscsrsDetails (\s a -> s {_gscsrsDetails = a})
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscsrsDetails :: Lens.Lens' GetSchemaCreationStatusResponse (Lude.Maybe Lude.Text)
+gscsrsDetails = Lens.lens (details :: GetSchemaCreationStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: GetSchemaCreationStatusResponse)
+{-# DEPRECATED gscsrsDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
--- | -- | The response status code.
-gscsrsResponseStatus :: Lens' GetSchemaCreationStatusResponse Int
-gscsrsResponseStatus = lens _gscsrsResponseStatus (\s a -> s {_gscsrsResponseStatus = a})
-
-instance NFData GetSchemaCreationStatusResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscsrsResponseStatus :: Lens.Lens' GetSchemaCreationStatusResponse Lude.Int
+gscsrsResponseStatus = Lens.lens (responseStatus :: GetSchemaCreationStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSchemaCreationStatusResponse)
+{-# DEPRECATED gscsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

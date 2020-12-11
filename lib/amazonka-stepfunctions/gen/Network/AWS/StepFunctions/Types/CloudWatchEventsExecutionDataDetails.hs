@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,57 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails where
+module Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails
+  ( CloudWatchEventsExecutionDataDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCloudWatchEventsExecutionDataDetails,
+
+    -- * Lenses
+    cweeddIncluded,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Provides details about execution input or output.
 --
---
---
--- /See:/ 'cloudWatchEventsExecutionDataDetails' smart constructor.
+-- /See:/ 'mkCloudWatchEventsExecutionDataDetails' smart constructor.
 newtype CloudWatchEventsExecutionDataDetails = CloudWatchEventsExecutionDataDetails'
-  { _cweeddIncluded ::
-      Maybe Bool
+  { included ::
+      Lude.Maybe
+        Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchEventsExecutionDataDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cweeddIncluded' - Indicates whether input or output was included in the response. Always @true@ for API calls.
-cloudWatchEventsExecutionDataDetails ::
+-- * 'included' - Indicates whether input or output was included in the response. Always @true@ for API calls.
+mkCloudWatchEventsExecutionDataDetails ::
   CloudWatchEventsExecutionDataDetails
-cloudWatchEventsExecutionDataDetails =
-  CloudWatchEventsExecutionDataDetails' {_cweeddIncluded = Nothing}
+mkCloudWatchEventsExecutionDataDetails =
+  CloudWatchEventsExecutionDataDetails' {included = Lude.Nothing}
 
 -- | Indicates whether input or output was included in the response. Always @true@ for API calls.
-cweeddIncluded :: Lens' CloudWatchEventsExecutionDataDetails (Maybe Bool)
-cweeddIncluded = lens _cweeddIncluded (\s a -> s {_cweeddIncluded = a})
+--
+-- /Note:/ Consider using 'included' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cweeddIncluded :: Lens.Lens' CloudWatchEventsExecutionDataDetails (Lude.Maybe Lude.Bool)
+cweeddIncluded = Lens.lens (included :: CloudWatchEventsExecutionDataDetails -> Lude.Maybe Lude.Bool) (\s a -> s {included = a} :: CloudWatchEventsExecutionDataDetails)
+{-# DEPRECATED cweeddIncluded "Use generic-lens or generic-optics with 'included' instead." #-}
 
-instance FromJSON CloudWatchEventsExecutionDataDetails where
+instance Lude.FromJSON CloudWatchEventsExecutionDataDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "CloudWatchEventsExecutionDataDetails"
       ( \x ->
-          CloudWatchEventsExecutionDataDetails' <$> (x .:? "included")
+          CloudWatchEventsExecutionDataDetails'
+            Lude.<$> (x Lude..:? "included")
       )
-
-instance Hashable CloudWatchEventsExecutionDataDetails
-
-instance NFData CloudWatchEventsExecutionDataDetails

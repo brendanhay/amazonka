@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,54 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.InventoryEncryption where
+module Network.AWS.S3.Types.InventoryEncryption
+  ( InventoryEncryption (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInventoryEncryption,
+
+    -- * Lenses
+    ieSSES3,
+    ieSSEKMS,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.SSEKMS
 import Network.AWS.S3.Types.SSES3
 
 -- | Contains the type of server-side encryption used to encrypt the inventory results.
 --
---
---
--- /See:/ 'inventoryEncryption' smart constructor.
+-- /See:/ 'mkInventoryEncryption' smart constructor.
 data InventoryEncryption = InventoryEncryption'
-  { _ieSSES3 ::
-      !(Maybe SSES3),
-    _ieSSEKMS :: !(Maybe SSEKMS)
+  { sSES3 ::
+      Lude.Maybe SSES3,
+    sSEKMS :: Lude.Maybe SSEKMS
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryEncryption' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ieSSES3' - Specifies the use of SSE-S3 to encrypt delivered inventory reports.
---
--- * 'ieSSEKMS' - Specifies the use of SSE-KMS to encrypt delivered inventory reports.
-inventoryEncryption ::
+-- * 'sSEKMS' - Specifies the use of SSE-KMS to encrypt delivered inventory reports.
+-- * 'sSES3' - Specifies the use of SSE-S3 to encrypt delivered inventory reports.
+mkInventoryEncryption ::
   InventoryEncryption
-inventoryEncryption =
-  InventoryEncryption' {_ieSSES3 = Nothing, _ieSSEKMS = Nothing}
+mkInventoryEncryption =
+  InventoryEncryption' {sSES3 = Lude.Nothing, sSEKMS = Lude.Nothing}
 
 -- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.
-ieSSES3 :: Lens' InventoryEncryption (Maybe SSES3)
-ieSSES3 = lens _ieSSES3 (\s a -> s {_ieSSES3 = a})
+--
+-- /Note:/ Consider using 'sSES3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieSSES3 :: Lens.Lens' InventoryEncryption (Lude.Maybe SSES3)
+ieSSES3 = Lens.lens (sSES3 :: InventoryEncryption -> Lude.Maybe SSES3) (\s a -> s {sSES3 = a} :: InventoryEncryption)
+{-# DEPRECATED ieSSES3 "Use generic-lens or generic-optics with 'sSES3' instead." #-}
 
 -- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.
-ieSSEKMS :: Lens' InventoryEncryption (Maybe SSEKMS)
-ieSSEKMS = lens _ieSSEKMS (\s a -> s {_ieSSEKMS = a})
+--
+-- /Note:/ Consider using 'sSEKMS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ieSSEKMS :: Lens.Lens' InventoryEncryption (Lude.Maybe SSEKMS)
+ieSSEKMS = Lens.lens (sSEKMS :: InventoryEncryption -> Lude.Maybe SSEKMS) (\s a -> s {sSEKMS = a} :: InventoryEncryption)
+{-# DEPRECATED ieSSEKMS "Use generic-lens or generic-optics with 'sSEKMS' instead." #-}
 
-instance FromXML InventoryEncryption where
+instance Lude.FromXML InventoryEncryption where
   parseXML x =
-    InventoryEncryption' <$> (x .@? "SSE-S3") <*> (x .@? "SSE-KMS")
+    InventoryEncryption'
+      Lude.<$> (x Lude..@? "SSE-S3") Lude.<*> (x Lude..@? "SSE-KMS")
 
-instance Hashable InventoryEncryption
-
-instance NFData InventoryEncryption
-
-instance ToXML InventoryEncryption where
+instance Lude.ToXML InventoryEncryption where
   toXML InventoryEncryption' {..} =
-    mconcat ["SSE-S3" @= _ieSSES3, "SSE-KMS" @= _ieSSEKMS]
+    Lude.mconcat ["SSE-S3" Lude.@= sSES3, "SSE-KMS" Lude.@= sSEKMS]

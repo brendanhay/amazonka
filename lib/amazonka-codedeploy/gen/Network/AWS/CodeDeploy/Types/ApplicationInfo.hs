@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,119 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeDeploy.Types.ApplicationInfo where
+module Network.AWS.CodeDeploy.Types.ApplicationInfo
+  ( ApplicationInfo (..),
+
+    -- * Smart constructor
+    mkApplicationInfo,
+
+    -- * Lenses
+    aiLinkedToGitHub,
+    aiComputePlatform,
+    aiApplicationId,
+    aiApplicationName,
+    aiGitHubAccountName,
+    aiCreateTime,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types.ComputePlatform
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an application.
 --
---
---
--- /See:/ 'applicationInfo' smart constructor.
+-- /See:/ 'mkApplicationInfo' smart constructor.
 data ApplicationInfo = ApplicationInfo'
-  { _aiLinkedToGitHub ::
-      !(Maybe Bool),
-    _aiComputePlatform :: !(Maybe ComputePlatform),
-    _aiApplicationId :: !(Maybe Text),
-    _aiApplicationName :: !(Maybe Text),
-    _aiGitHubAccountName :: !(Maybe Text),
-    _aiCreateTime :: !(Maybe POSIX)
+  { linkedToGitHub ::
+      Lude.Maybe Lude.Bool,
+    computePlatform :: Lude.Maybe ComputePlatform,
+    applicationId :: Lude.Maybe Lude.Text,
+    applicationName :: Lude.Maybe Lude.Text,
+    gitHubAccountName :: Lude.Maybe Lude.Text,
+    createTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationInfo' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aiLinkedToGitHub' - True if the user has authenticated with GitHub for the specified application. Otherwise, false.
---
--- * 'aiComputePlatform' - The destination platform type for deployment of the application (@Lambda@ or @Server@ ).
---
--- * 'aiApplicationId' - The application ID.
---
--- * 'aiApplicationName' - The application name.
---
--- * 'aiGitHubAccountName' - The name for a connection to a GitHub account.
---
--- * 'aiCreateTime' - The time at which the application was created.
-applicationInfo ::
+-- * 'applicationId' - The application ID.
+-- * 'applicationName' - The application name.
+-- * 'computePlatform' - The destination platform type for deployment of the application (@Lambda@ or @Server@ ).
+-- * 'createTime' - The time at which the application was created.
+-- * 'gitHubAccountName' - The name for a connection to a GitHub account.
+-- * 'linkedToGitHub' - True if the user has authenticated with GitHub for the specified application. Otherwise, false.
+mkApplicationInfo ::
   ApplicationInfo
-applicationInfo =
+mkApplicationInfo =
   ApplicationInfo'
-    { _aiLinkedToGitHub = Nothing,
-      _aiComputePlatform = Nothing,
-      _aiApplicationId = Nothing,
-      _aiApplicationName = Nothing,
-      _aiGitHubAccountName = Nothing,
-      _aiCreateTime = Nothing
+    { linkedToGitHub = Lude.Nothing,
+      computePlatform = Lude.Nothing,
+      applicationId = Lude.Nothing,
+      applicationName = Lude.Nothing,
+      gitHubAccountName = Lude.Nothing,
+      createTime = Lude.Nothing
     }
 
 -- | True if the user has authenticated with GitHub for the specified application. Otherwise, false.
-aiLinkedToGitHub :: Lens' ApplicationInfo (Maybe Bool)
-aiLinkedToGitHub = lens _aiLinkedToGitHub (\s a -> s {_aiLinkedToGitHub = a})
+--
+-- /Note:/ Consider using 'linkedToGitHub' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiLinkedToGitHub :: Lens.Lens' ApplicationInfo (Lude.Maybe Lude.Bool)
+aiLinkedToGitHub = Lens.lens (linkedToGitHub :: ApplicationInfo -> Lude.Maybe Lude.Bool) (\s a -> s {linkedToGitHub = a} :: ApplicationInfo)
+{-# DEPRECATED aiLinkedToGitHub "Use generic-lens or generic-optics with 'linkedToGitHub' instead." #-}
 
 -- | The destination platform type for deployment of the application (@Lambda@ or @Server@ ).
-aiComputePlatform :: Lens' ApplicationInfo (Maybe ComputePlatform)
-aiComputePlatform = lens _aiComputePlatform (\s a -> s {_aiComputePlatform = a})
+--
+-- /Note:/ Consider using 'computePlatform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiComputePlatform :: Lens.Lens' ApplicationInfo (Lude.Maybe ComputePlatform)
+aiComputePlatform = Lens.lens (computePlatform :: ApplicationInfo -> Lude.Maybe ComputePlatform) (\s a -> s {computePlatform = a} :: ApplicationInfo)
+{-# DEPRECATED aiComputePlatform "Use generic-lens or generic-optics with 'computePlatform' instead." #-}
 
 -- | The application ID.
-aiApplicationId :: Lens' ApplicationInfo (Maybe Text)
-aiApplicationId = lens _aiApplicationId (\s a -> s {_aiApplicationId = a})
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiApplicationId :: Lens.Lens' ApplicationInfo (Lude.Maybe Lude.Text)
+aiApplicationId = Lens.lens (applicationId :: ApplicationInfo -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: ApplicationInfo)
+{-# DEPRECATED aiApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The application name.
-aiApplicationName :: Lens' ApplicationInfo (Maybe Text)
-aiApplicationName = lens _aiApplicationName (\s a -> s {_aiApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiApplicationName :: Lens.Lens' ApplicationInfo (Lude.Maybe Lude.Text)
+aiApplicationName = Lens.lens (applicationName :: ApplicationInfo -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: ApplicationInfo)
+{-# DEPRECATED aiApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The name for a connection to a GitHub account.
-aiGitHubAccountName :: Lens' ApplicationInfo (Maybe Text)
-aiGitHubAccountName = lens _aiGitHubAccountName (\s a -> s {_aiGitHubAccountName = a})
+--
+-- /Note:/ Consider using 'gitHubAccountName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiGitHubAccountName :: Lens.Lens' ApplicationInfo (Lude.Maybe Lude.Text)
+aiGitHubAccountName = Lens.lens (gitHubAccountName :: ApplicationInfo -> Lude.Maybe Lude.Text) (\s a -> s {gitHubAccountName = a} :: ApplicationInfo)
+{-# DEPRECATED aiGitHubAccountName "Use generic-lens or generic-optics with 'gitHubAccountName' instead." #-}
 
 -- | The time at which the application was created.
-aiCreateTime :: Lens' ApplicationInfo (Maybe UTCTime)
-aiCreateTime = lens _aiCreateTime (\s a -> s {_aiCreateTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiCreateTime :: Lens.Lens' ApplicationInfo (Lude.Maybe Lude.Timestamp)
+aiCreateTime = Lens.lens (createTime :: ApplicationInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: ApplicationInfo)
+{-# DEPRECATED aiCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
-instance FromJSON ApplicationInfo where
+instance Lude.FromJSON ApplicationInfo where
   parseJSON =
-    withObject
+    Lude.withObject
       "ApplicationInfo"
       ( \x ->
           ApplicationInfo'
-            <$> (x .:? "linkedToGitHub")
-            <*> (x .:? "computePlatform")
-            <*> (x .:? "applicationId")
-            <*> (x .:? "applicationName")
-            <*> (x .:? "gitHubAccountName")
-            <*> (x .:? "createTime")
+            Lude.<$> (x Lude..:? "linkedToGitHub")
+            Lude.<*> (x Lude..:? "computePlatform")
+            Lude.<*> (x Lude..:? "applicationId")
+            Lude.<*> (x Lude..:? "applicationName")
+            Lude.<*> (x Lude..:? "gitHubAccountName")
+            Lude.<*> (x Lude..:? "createTime")
       )
-
-instance Hashable ApplicationInfo
-
-instance NFData ApplicationInfo

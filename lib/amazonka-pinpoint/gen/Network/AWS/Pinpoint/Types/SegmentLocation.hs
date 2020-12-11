@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,60 +7,77 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.SegmentLocation where
+module Network.AWS.Pinpoint.Types.SegmentLocation
+  ( SegmentLocation (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkSegmentLocation,
+
+    -- * Lenses
+    slCountry,
+    slGPSPoint,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.GPSPointDimension
 import Network.AWS.Pinpoint.Types.SetDimension
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies geographical dimension settings for a segment.
 --
---
---
--- /See:/ 'segmentLocation' smart constructor.
+-- /See:/ 'mkSegmentLocation' smart constructor.
 data SegmentLocation = SegmentLocation'
-  { _slCountry ::
-      !(Maybe SetDimension),
-    _slGPSPoint :: !(Maybe GPSPointDimension)
+  { country ::
+      Lude.Maybe SetDimension,
+    gPSPoint :: Lude.Maybe GPSPointDimension
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentLocation' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slCountry' - The country or region code, in ISO 3166-1 alpha-2 format, for the segment.
---
--- * 'slGPSPoint' - The GPS location and range for the segment.
-segmentLocation ::
+-- * 'country' - The country or region code, in ISO 3166-1 alpha-2 format, for the segment.
+-- * 'gPSPoint' - The GPS location and range for the segment.
+mkSegmentLocation ::
   SegmentLocation
-segmentLocation =
-  SegmentLocation' {_slCountry = Nothing, _slGPSPoint = Nothing}
+mkSegmentLocation =
+  SegmentLocation' {country = Lude.Nothing, gPSPoint = Lude.Nothing}
 
 -- | The country or region code, in ISO 3166-1 alpha-2 format, for the segment.
-slCountry :: Lens' SegmentLocation (Maybe SetDimension)
-slCountry = lens _slCountry (\s a -> s {_slCountry = a})
+--
+-- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slCountry :: Lens.Lens' SegmentLocation (Lude.Maybe SetDimension)
+slCountry = Lens.lens (country :: SegmentLocation -> Lude.Maybe SetDimension) (\s a -> s {country = a} :: SegmentLocation)
+{-# DEPRECATED slCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
 -- | The GPS location and range for the segment.
-slGPSPoint :: Lens' SegmentLocation (Maybe GPSPointDimension)
-slGPSPoint = lens _slGPSPoint (\s a -> s {_slGPSPoint = a})
+--
+-- /Note:/ Consider using 'gPSPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slGPSPoint :: Lens.Lens' SegmentLocation (Lude.Maybe GPSPointDimension)
+slGPSPoint = Lens.lens (gPSPoint :: SegmentLocation -> Lude.Maybe GPSPointDimension) (\s a -> s {gPSPoint = a} :: SegmentLocation)
+{-# DEPRECATED slGPSPoint "Use generic-lens or generic-optics with 'gPSPoint' instead." #-}
 
-instance FromJSON SegmentLocation where
+instance Lude.FromJSON SegmentLocation where
   parseJSON =
-    withObject
+    Lude.withObject
       "SegmentLocation"
       ( \x ->
-          SegmentLocation' <$> (x .:? "Country") <*> (x .:? "GPSPoint")
+          SegmentLocation'
+            Lude.<$> (x Lude..:? "Country") Lude.<*> (x Lude..:? "GPSPoint")
       )
 
-instance Hashable SegmentLocation
-
-instance NFData SegmentLocation
-
-instance ToJSON SegmentLocation where
+instance Lude.ToJSON SegmentLocation where
   toJSON SegmentLocation' {..} =
-    object
-      ( catMaybes
-          [("Country" .=) <$> _slCountry, ("GPSPoint" .=) <$> _slGPSPoint]
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Country" Lude..=) Lude.<$> country,
+            ("GPSPoint" Lude..=) Lude.<$> gPSPoint
+          ]
       )

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,21 @@
 --
 -- Undocumented operation.
 module Network.AWS.APIGateway.CreateDocumentationVersion
-  ( -- * Creating a Request
-    createDocumentationVersion,
-    CreateDocumentationVersion,
+  ( -- * Creating a request
+    CreateDocumentationVersion (..),
+    mkCreateDocumentationVersion,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdvStageName,
     cdvDescription,
     cdvRestAPIId,
     cdvDocumentationVersion,
 
-    -- * Destructuring the Response
-    documentationVersion,
-    DocumentationVersion,
+    -- * Destructuring the response
+    DocumentationVersion (..),
+    mkDocumentationVersion,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvCreatedDate,
     dvVersion,
     dvDescription,
@@ -41,93 +36,104 @@ module Network.AWS.APIGateway.CreateDocumentationVersion
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Creates a new documentation version of a given API.
 --
---
---
--- /See:/ 'createDocumentationVersion' smart constructor.
+-- /See:/ 'mkCreateDocumentationVersion' smart constructor.
 data CreateDocumentationVersion = CreateDocumentationVersion'
-  { _cdvStageName ::
-      !(Maybe Text),
-    _cdvDescription :: !(Maybe Text),
-    _cdvRestAPIId :: !Text,
-    _cdvDocumentationVersion :: !Text
+  { stageName ::
+      Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text,
+    restAPIId :: Lude.Text,
+    documentationVersion :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDocumentationVersion' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdvStageName' - The stage name to be associated with the new documentation snapshot.
---
--- * 'cdvDescription' - A description about the new documentation snapshot.
---
--- * 'cdvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'cdvDocumentationVersion' - [Required] The version identifier of the new snapshot.
-createDocumentationVersion ::
-  -- | 'cdvRestAPIId'
-  Text ->
-  -- | 'cdvDocumentationVersion'
-  Text ->
+-- * 'description' - A description about the new documentation snapshot.
+-- * 'documentationVersion' - [Required] The version identifier of the new snapshot.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'stageName' - The stage name to be associated with the new documentation snapshot.
+mkCreateDocumentationVersion ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'documentationVersion'
+  Lude.Text ->
   CreateDocumentationVersion
-createDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
+mkCreateDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
   CreateDocumentationVersion'
-    { _cdvStageName = Nothing,
-      _cdvDescription = Nothing,
-      _cdvRestAPIId = pRestAPIId_,
-      _cdvDocumentationVersion = pDocumentationVersion_
+    { stageName = Lude.Nothing,
+      description = Lude.Nothing,
+      restAPIId = pRestAPIId_,
+      documentationVersion = pDocumentationVersion_
     }
 
 -- | The stage name to be associated with the new documentation snapshot.
-cdvStageName :: Lens' CreateDocumentationVersion (Maybe Text)
-cdvStageName = lens _cdvStageName (\s a -> s {_cdvStageName = a})
+--
+-- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdvStageName :: Lens.Lens' CreateDocumentationVersion (Lude.Maybe Lude.Text)
+cdvStageName = Lens.lens (stageName :: CreateDocumentationVersion -> Lude.Maybe Lude.Text) (\s a -> s {stageName = a} :: CreateDocumentationVersion)
+{-# DEPRECATED cdvStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 -- | A description about the new documentation snapshot.
-cdvDescription :: Lens' CreateDocumentationVersion (Maybe Text)
-cdvDescription = lens _cdvDescription (\s a -> s {_cdvDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdvDescription :: Lens.Lens' CreateDocumentationVersion (Lude.Maybe Lude.Text)
+cdvDescription = Lens.lens (description :: CreateDocumentationVersion -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateDocumentationVersion)
+{-# DEPRECATED cdvDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-cdvRestAPIId :: Lens' CreateDocumentationVersion Text
-cdvRestAPIId = lens _cdvRestAPIId (\s a -> s {_cdvRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdvRestAPIId :: Lens.Lens' CreateDocumentationVersion Lude.Text
+cdvRestAPIId = Lens.lens (restAPIId :: CreateDocumentationVersion -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateDocumentationVersion)
+{-# DEPRECATED cdvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The version identifier of the new snapshot.
-cdvDocumentationVersion :: Lens' CreateDocumentationVersion Text
-cdvDocumentationVersion = lens _cdvDocumentationVersion (\s a -> s {_cdvDocumentationVersion = a})
+--
+-- /Note:/ Consider using 'documentationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdvDocumentationVersion :: Lens.Lens' CreateDocumentationVersion Lude.Text
+cdvDocumentationVersion = Lens.lens (documentationVersion :: CreateDocumentationVersion -> Lude.Text) (\s a -> s {documentationVersion = a} :: CreateDocumentationVersion)
+{-# DEPRECATED cdvDocumentationVersion "Use generic-lens or generic-optics with 'documentationVersion' instead." #-}
 
-instance AWSRequest CreateDocumentationVersion where
+instance Lude.AWSRequest CreateDocumentationVersion where
   type Rs CreateDocumentationVersion = DocumentationVersion
-  request = postJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable CreateDocumentationVersion
-
-instance NFData CreateDocumentationVersion
-
-instance ToHeaders CreateDocumentationVersion where
+instance Lude.ToHeaders CreateDocumentationVersion where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON CreateDocumentationVersion where
+instance Lude.ToJSON CreateDocumentationVersion where
   toJSON CreateDocumentationVersion' {..} =
-    object
-      ( catMaybes
-          [ ("stageName" .=) <$> _cdvStageName,
-            ("description" .=) <$> _cdvDescription,
-            Just ("documentationVersion" .= _cdvDocumentationVersion)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("stageName" Lude..=) Lude.<$> stageName,
+            ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("documentationVersion" Lude..= documentationVersion)
           ]
       )
 
-instance ToPath CreateDocumentationVersion where
+instance Lude.ToPath CreateDocumentationVersion where
   toPath CreateDocumentationVersion' {..} =
-    mconcat
-      ["/restapis/", toBS _cdvRestAPIId, "/documentation/versions"]
+    Lude.mconcat
+      ["/restapis/", Lude.toBS restAPIId, "/documentation/versions"]
 
-instance ToQuery CreateDocumentationVersion where
-  toQuery = const mempty
+instance Lude.ToQuery CreateDocumentationVersion where
+  toQuery = Lude.const Lude.mempty

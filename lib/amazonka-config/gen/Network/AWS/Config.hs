@@ -14,11 +14,10 @@
 -- __AWS Config__
 --
 -- AWS Config provides a way to keep track of the configurations of all the AWS resources associated with your AWS account. You can use AWS Config to get the current and historical configurations of each AWS resource and also to get information about the relationship between the resources. An AWS resource can be an Amazon Compute Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an elastic network Interface (ENI), or a security group. For a complete list of resources currently supported by AWS Config, see <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resources> .
---
 -- You can access and manage AWS Config through the AWS Management Console, the AWS Command Line Interface (AWS CLI), the AWS Config API, or the AWS SDKs for AWS Config. This reference guide contains documentation for the AWS Config API and the AWS CLI commands that you can use to manage AWS Config. The AWS Config API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> . For detailed information about AWS Config features and their associated actions or commands, as well as how to work with AWS Management Console, see <https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html What Is AWS Config> in the /AWS Config Developer Guide/ .
 module Network.AWS.Config
-  ( -- * Service Configuration
-    config,
+  ( -- * Service configuration
+    configService,
 
     -- * Errors
     -- $errors
@@ -347,29 +346,29 @@ module Network.AWS.Config
     ResourceValueType (..),
 
     -- ** AccountAggregationSource
-    AccountAggregationSource,
-    accountAggregationSource,
+    AccountAggregationSource (..),
+    mkAccountAggregationSource,
     aasAWSRegions,
     aasAllAWSRegions,
     aasAccountIds,
 
     -- ** AggregateComplianceByConfigRule
-    AggregateComplianceByConfigRule,
-    aggregateComplianceByConfigRule,
+    AggregateComplianceByConfigRule (..),
+    mkAggregateComplianceByConfigRule,
     acbcrCompliance,
     acbcrConfigRuleName,
     acbcrAccountId,
     acbcrAWSRegion,
 
     -- ** AggregateComplianceCount
-    AggregateComplianceCount,
-    aggregateComplianceCount,
+    AggregateComplianceCount (..),
+    mkAggregateComplianceCount,
     accGroupName,
     accComplianceSummary,
 
     -- ** AggregateEvaluationResult
-    AggregateEvaluationResult,
-    aggregateEvaluationResult,
+    AggregateEvaluationResult (..),
+    mkAggregateEvaluationResult,
     aerEvaluationResultIdentifier,
     aerAnnotation,
     aerConfigRuleInvokedTime,
@@ -379,8 +378,8 @@ module Network.AWS.Config
     aerAWSRegion,
 
     -- ** AggregateResourceIdentifier
-    AggregateResourceIdentifier,
-    aggregateResourceIdentifier,
+    AggregateResourceIdentifier (..),
+    mkAggregateResourceIdentifier,
     ariResourceName,
     ariSourceAccountId,
     ariSourceRegion,
@@ -388,8 +387,8 @@ module Network.AWS.Config
     ariResourceType,
 
     -- ** AggregatedSourceStatus
-    AggregatedSourceStatus,
-    aggregatedSourceStatus,
+    AggregatedSourceStatus (..),
+    mkAggregatedSourceStatus,
     assLastErrorCode,
     assLastUpdateStatus,
     assSourceType,
@@ -399,16 +398,16 @@ module Network.AWS.Config
     assLastUpdateTime,
 
     -- ** AggregationAuthorization
-    AggregationAuthorization,
-    aggregationAuthorization,
+    AggregationAuthorization (..),
+    mkAggregationAuthorization,
     aaCreationTime,
     aaAuthorizedAWSRegion,
     aaAggregationAuthorizationARN,
     aaAuthorizedAccountId,
 
     -- ** BaseConfigurationItem
-    BaseConfigurationItem,
-    baseConfigurationItem,
+    BaseConfigurationItem (..),
+    mkBaseConfigurationItem,
     bciResourceId,
     bciResourceType,
     bciConfigurationStateId,
@@ -425,46 +424,46 @@ module Network.AWS.Config
     bciConfiguration,
 
     -- ** Compliance
-    Compliance,
-    compliance,
+    Compliance (..),
+    mkCompliance,
     cComplianceContributorCount,
     cComplianceType,
 
     -- ** ComplianceByConfigRule
-    ComplianceByConfigRule,
-    complianceByConfigRule,
+    ComplianceByConfigRule (..),
+    mkComplianceByConfigRule,
     cbcrCompliance,
     cbcrConfigRuleName,
 
     -- ** ComplianceByResource
-    ComplianceByResource,
-    complianceByResource,
+    ComplianceByResource (..),
+    mkComplianceByResource,
     cbrResourceId,
     cbrResourceType,
     cbrCompliance,
 
     -- ** ComplianceContributorCount
-    ComplianceContributorCount,
-    complianceContributorCount,
+    ComplianceContributorCount (..),
+    mkComplianceContributorCount,
     cccCappedCount,
     cccCapExceeded,
 
     -- ** ComplianceSummary
-    ComplianceSummary,
-    complianceSummary,
+    ComplianceSummary (..),
+    mkComplianceSummary,
     csComplianceSummaryTimestamp,
     csCompliantResourceCount,
     csNonCompliantResourceCount,
 
     -- ** ComplianceSummaryByResourceType
-    ComplianceSummaryByResourceType,
-    complianceSummaryByResourceType,
+    ComplianceSummaryByResourceType (..),
+    mkComplianceSummaryByResourceType,
     csbrtResourceType,
     csbrtComplianceSummary,
 
     -- ** ConfigExportDeliveryInfo
-    ConfigExportDeliveryInfo,
-    configExportDeliveryInfo,
+    ConfigExportDeliveryInfo (..),
+    mkConfigExportDeliveryInfo,
     cediLastErrorCode,
     cediLastAttemptTime,
     cediLastSuccessfulTime,
@@ -473,8 +472,8 @@ module Network.AWS.Config
     cediNextDeliveryTime,
 
     -- ** ConfigRule
-    ConfigRule,
-    configRule,
+    ConfigRule (..),
+    mkConfigRule,
     crInputParameters,
     crConfigRuleName,
     crCreatedBy,
@@ -487,22 +486,22 @@ module Network.AWS.Config
     crSource,
 
     -- ** ConfigRuleComplianceFilters
-    ConfigRuleComplianceFilters,
-    configRuleComplianceFilters,
+    ConfigRuleComplianceFilters (..),
+    mkConfigRuleComplianceFilters,
     crcfConfigRuleName,
     crcfAccountId,
     crcfComplianceType,
     crcfAWSRegion,
 
     -- ** ConfigRuleComplianceSummaryFilters
-    ConfigRuleComplianceSummaryFilters,
-    configRuleComplianceSummaryFilters,
+    ConfigRuleComplianceSummaryFilters (..),
+    mkConfigRuleComplianceSummaryFilters,
     crcsfAccountId,
     crcsfAWSRegion,
 
     -- ** ConfigRuleEvaluationStatus
-    ConfigRuleEvaluationStatus,
-    configRuleEvaluationStatus,
+    ConfigRuleEvaluationStatus (..),
+    mkConfigRuleEvaluationStatus,
     cresLastErrorCode,
     cresLastFailedEvaluationTime,
     cresFirstActivatedTime,
@@ -517,21 +516,21 @@ module Network.AWS.Config
     cresConfigRuleARN,
 
     -- ** ConfigSnapshotDeliveryProperties
-    ConfigSnapshotDeliveryProperties,
-    configSnapshotDeliveryProperties,
+    ConfigSnapshotDeliveryProperties (..),
+    mkConfigSnapshotDeliveryProperties,
     csdpDeliveryFrequency,
 
     -- ** ConfigStreamDeliveryInfo
-    ConfigStreamDeliveryInfo,
-    configStreamDeliveryInfo,
+    ConfigStreamDeliveryInfo (..),
+    mkConfigStreamDeliveryInfo,
     csdiLastErrorCode,
     csdiLastStatusChangeTime,
     csdiLastStatus,
     csdiLastErrorMessage,
 
     -- ** ConfigurationAggregator
-    ConfigurationAggregator,
-    configurationAggregator,
+    ConfigurationAggregator (..),
+    mkConfigurationAggregator,
     caConfigurationAggregatorARN,
     caCreationTime,
     caOrganizationAggregationSource,
@@ -541,8 +540,8 @@ module Network.AWS.Config
     caConfigurationAggregatorName,
 
     -- ** ConfigurationItem
-    ConfigurationItem,
-    configurationItem,
+    ConfigurationItem (..),
+    mkConfigurationItem,
     ciResourceId,
     ciResourceType,
     ciConfigurationStateId,
@@ -563,15 +562,15 @@ module Network.AWS.Config
     ciTags,
 
     -- ** ConfigurationRecorder
-    ConfigurationRecorder,
-    configurationRecorder,
+    ConfigurationRecorder (..),
+    mkConfigurationRecorder,
     crName,
     crRecordingGroup,
     crRoleARN,
 
     -- ** ConfigurationRecorderStatus
-    ConfigurationRecorderStatus,
-    configurationRecorderStatus,
+    ConfigurationRecorderStatus (..),
+    mkConfigurationRecorderStatus,
     crsLastErrorCode,
     crsLastStopTime,
     crsLastStatusChangeTime,
@@ -582,20 +581,20 @@ module Network.AWS.Config
     crsLastStartTime,
 
     -- ** ConformancePackComplianceFilters
-    ConformancePackComplianceFilters,
-    conformancePackComplianceFilters,
+    ConformancePackComplianceFilters (..),
+    mkConformancePackComplianceFilters,
     cpcfConfigRuleNames,
     cpcfComplianceType,
 
     -- ** ConformancePackComplianceSummary
-    ConformancePackComplianceSummary,
-    conformancePackComplianceSummary,
+    ConformancePackComplianceSummary (..),
+    mkConformancePackComplianceSummary,
     cpcsConformancePackName,
     cpcsConformancePackComplianceStatus,
 
     -- ** ConformancePackDetail
-    ConformancePackDetail,
-    conformancePackDetail,
+    ConformancePackDetail (..),
+    mkConformancePackDetail,
     cpdDeliveryS3Bucket,
     cpdDeliveryS3KeyPrefix,
     cpdCreatedBy,
@@ -606,16 +605,16 @@ module Network.AWS.Config
     cpdConformancePackId,
 
     -- ** ConformancePackEvaluationFilters
-    ConformancePackEvaluationFilters,
-    conformancePackEvaluationFilters,
+    ConformancePackEvaluationFilters (..),
+    mkConformancePackEvaluationFilters,
     cpefResourceIds,
     cpefResourceType,
     cpefConfigRuleNames,
     cpefComplianceType,
 
     -- ** ConformancePackEvaluationResult
-    ConformancePackEvaluationResult,
-    conformancePackEvaluationResult,
+    ConformancePackEvaluationResult (..),
+    mkConformancePackEvaluationResult,
     cperAnnotation,
     cperComplianceType,
     cperEvaluationResultIdentifier,
@@ -623,20 +622,20 @@ module Network.AWS.Config
     cperResultRecordedTime,
 
     -- ** ConformancePackInputParameter
-    ConformancePackInputParameter,
-    conformancePackInputParameter,
+    ConformancePackInputParameter (..),
+    mkConformancePackInputParameter,
     cpipParameterName,
     cpipParameterValue,
 
     -- ** ConformancePackRuleCompliance
-    ConformancePackRuleCompliance,
-    conformancePackRuleCompliance,
+    ConformancePackRuleCompliance (..),
+    mkConformancePackRuleCompliance,
     cprcConfigRuleName,
     cprcComplianceType,
 
     -- ** ConformancePackStatusDetail
-    ConformancePackStatusDetail,
-    conformancePackStatusDetail,
+    ConformancePackStatusDetail (..),
+    mkConformancePackStatusDetail,
     cpsdConformancePackStatusReason,
     cpsdLastUpdateCompletedTime,
     cpsdConformancePackName,
@@ -647,8 +646,8 @@ module Network.AWS.Config
     cpsdLastUpdateRequestedTime,
 
     -- ** DeliveryChannel
-    DeliveryChannel,
-    deliveryChannel,
+    DeliveryChannel (..),
+    mkDeliveryChannel,
     dcS3KeyPrefix,
     dcSnsTopicARN,
     dcName,
@@ -656,16 +655,16 @@ module Network.AWS.Config
     dcS3BucketName,
 
     -- ** DeliveryChannelStatus
-    DeliveryChannelStatus,
-    deliveryChannelStatus,
+    DeliveryChannelStatus (..),
+    mkDeliveryChannelStatus,
     dcsConfigSnapshotDeliveryInfo,
     dcsConfigStreamDeliveryInfo,
     dcsConfigHistoryDeliveryInfo,
     dcsName,
 
     -- ** Evaluation
-    Evaluation,
-    evaluation,
+    Evaluation (..),
+    mkEvaluation,
     eAnnotation,
     eComplianceResourceType,
     eComplianceResourceId,
@@ -673,8 +672,8 @@ module Network.AWS.Config
     eOrderingTimestamp,
 
     -- ** EvaluationResult
-    EvaluationResult,
-    evaluationResult,
+    EvaluationResult (..),
+    mkEvaluationResult,
     erEvaluationResultIdentifier,
     erAnnotation,
     erConfigRuleInvokedTime,
@@ -683,55 +682,55 @@ module Network.AWS.Config
     erComplianceType,
 
     -- ** EvaluationResultIdentifier
-    EvaluationResultIdentifier,
-    evaluationResultIdentifier,
+    EvaluationResultIdentifier (..),
+    mkEvaluationResultIdentifier,
     eriEvaluationResultQualifier,
     eriOrderingTimestamp,
 
     -- ** EvaluationResultQualifier
-    EvaluationResultQualifier,
-    evaluationResultQualifier,
+    EvaluationResultQualifier (..),
+    mkEvaluationResultQualifier,
     erqResourceId,
     erqResourceType,
     erqConfigRuleName,
 
     -- ** ExecutionControls
-    ExecutionControls,
-    executionControls,
+    ExecutionControls (..),
+    mkExecutionControls,
     ecSsmControls,
 
     -- ** FailedDeleteRemediationExceptionsBatch
-    FailedDeleteRemediationExceptionsBatch,
-    failedDeleteRemediationExceptionsBatch,
+    FailedDeleteRemediationExceptionsBatch (..),
+    mkFailedDeleteRemediationExceptionsBatch,
     fdrebFailureMessage,
     fdrebFailedItems,
 
     -- ** FailedRemediationBatch
-    FailedRemediationBatch,
-    failedRemediationBatch,
+    FailedRemediationBatch (..),
+    mkFailedRemediationBatch,
     frbFailureMessage,
     frbFailedItems,
 
     -- ** FailedRemediationExceptionBatch
-    FailedRemediationExceptionBatch,
-    failedRemediationExceptionBatch,
+    FailedRemediationExceptionBatch (..),
+    mkFailedRemediationExceptionBatch,
     frebFailureMessage,
     frebFailedItems,
 
     -- ** FieldInfo
-    FieldInfo,
-    fieldInfo,
+    FieldInfo (..),
+    mkFieldInfo,
     fiName,
 
     -- ** GroupedResourceCount
-    GroupedResourceCount,
-    groupedResourceCount,
+    GroupedResourceCount (..),
+    mkGroupedResourceCount,
     grcGroupName,
     grcResourceCount,
 
     -- ** MemberAccountStatus
-    MemberAccountStatus,
-    memberAccountStatus,
+    MemberAccountStatus (..),
+    mkMemberAccountStatus,
     masErrorCode,
     masErrorMessage,
     masLastUpdateTime,
@@ -740,15 +739,15 @@ module Network.AWS.Config
     masMemberAccountRuleStatus,
 
     -- ** OrganizationAggregationSource
-    OrganizationAggregationSource,
-    organizationAggregationSource,
+    OrganizationAggregationSource (..),
+    mkOrganizationAggregationSource,
     oasAWSRegions,
     oasAllAWSRegions,
     oasRoleARN,
 
     -- ** OrganizationConfigRule
-    OrganizationConfigRule,
-    organizationConfigRule,
+    OrganizationConfigRule (..),
+    mkOrganizationConfigRule,
     ocrOrganizationManagedRuleMetadata,
     ocrExcludedAccounts,
     ocrOrganizationCustomRuleMetadata,
@@ -757,8 +756,8 @@ module Network.AWS.Config
     ocrOrganizationConfigRuleARN,
 
     -- ** OrganizationConfigRuleStatus
-    OrganizationConfigRuleStatus,
-    organizationConfigRuleStatus,
+    OrganizationConfigRuleStatus (..),
+    mkOrganizationConfigRuleStatus,
     ocrsErrorCode,
     ocrsErrorMessage,
     ocrsLastUpdateTime,
@@ -766,8 +765,8 @@ module Network.AWS.Config
     ocrsOrganizationRuleStatus,
 
     -- ** OrganizationConformancePack
-    OrganizationConformancePack,
-    organizationConformancePack,
+    OrganizationConformancePack (..),
+    mkOrganizationConformancePack,
     ocpDeliveryS3Bucket,
     ocpDeliveryS3KeyPrefix,
     ocpConformancePackInputParameters,
@@ -777,8 +776,8 @@ module Network.AWS.Config
     ocpLastUpdateTime,
 
     -- ** OrganizationConformancePackDetailedStatus
-    OrganizationConformancePackDetailedStatus,
-    organizationConformancePackDetailedStatus,
+    OrganizationConformancePackDetailedStatus (..),
+    mkOrganizationConformancePackDetailedStatus,
     ocpdsErrorCode,
     ocpdsErrorMessage,
     ocpdsLastUpdateTime,
@@ -787,8 +786,8 @@ module Network.AWS.Config
     ocpdsStatus,
 
     -- ** OrganizationConformancePackStatus
-    OrganizationConformancePackStatus,
-    organizationConformancePackStatus,
+    OrganizationConformancePackStatus (..),
+    mkOrganizationConformancePackStatus,
     ocpsErrorCode,
     ocpsErrorMessage,
     ocpsLastUpdateTime,
@@ -796,8 +795,8 @@ module Network.AWS.Config
     ocpsStatus,
 
     -- ** OrganizationCustomRuleMetadata
-    OrganizationCustomRuleMetadata,
-    organizationCustomRuleMetadata,
+    OrganizationCustomRuleMetadata (..),
+    mkOrganizationCustomRuleMetadata,
     ocrmInputParameters,
     ocrmResourceIdScope,
     ocrmTagValueScope,
@@ -809,8 +808,8 @@ module Network.AWS.Config
     ocrmOrganizationConfigRuleTriggerTypes,
 
     -- ** OrganizationManagedRuleMetadata
-    OrganizationManagedRuleMetadata,
-    organizationManagedRuleMetadata,
+    OrganizationManagedRuleMetadata (..),
+    mkOrganizationManagedRuleMetadata,
     omrmInputParameters,
     omrmResourceIdScope,
     omrmTagValueScope,
@@ -821,40 +820,40 @@ module Network.AWS.Config
     omrmRuleIdentifier,
 
     -- ** OrganizationResourceDetailedStatusFilters
-    OrganizationResourceDetailedStatusFilters,
-    organizationResourceDetailedStatusFilters,
+    OrganizationResourceDetailedStatusFilters (..),
+    mkOrganizationResourceDetailedStatusFilters,
     ordsfStatus,
     ordsfAccountId,
 
     -- ** PendingAggregationRequest
-    PendingAggregationRequest,
-    pendingAggregationRequest,
+    PendingAggregationRequest (..),
+    mkPendingAggregationRequest,
     parRequesterAccountId,
     parRequesterAWSRegion,
 
     -- ** QueryInfo
-    QueryInfo,
-    queryInfo,
+    QueryInfo (..),
+    mkQueryInfo,
     qiSelectFields,
 
     -- ** RecordingGroup
-    RecordingGroup,
-    recordingGroup,
+    RecordingGroup (..),
+    mkRecordingGroup,
     rgAllSupported,
     rgIncludeGlobalResourceTypes,
     rgResourceTypes,
 
     -- ** Relationship
-    Relationship,
-    relationship,
+    Relationship (..),
+    mkRelationship,
     rResourceId,
     rResourceType,
     rResourceName,
     rRelationshipName,
 
     -- ** RemediationConfiguration
-    RemediationConfiguration,
-    remediationConfiguration,
+    RemediationConfiguration (..),
+    mkRemediationConfiguration,
     rcResourceType,
     rcARN,
     rcAutomatic,
@@ -869,8 +868,8 @@ module Network.AWS.Config
     rcTargetId,
 
     -- ** RemediationException
-    RemediationException,
-    remediationException,
+    RemediationException (..),
+    mkRemediationException,
     reMessage,
     reExpirationTime,
     reConfigRuleName,
@@ -878,14 +877,14 @@ module Network.AWS.Config
     reResourceId,
 
     -- ** RemediationExceptionResourceKey
-    RemediationExceptionResourceKey,
-    remediationExceptionResourceKey,
+    RemediationExceptionResourceKey (..),
+    mkRemediationExceptionResourceKey,
     rerkResourceId,
     rerkResourceType,
 
     -- ** RemediationExecutionStatus
-    RemediationExecutionStatus,
-    remediationExecutionStatus,
+    RemediationExecutionStatus (..),
+    mkRemediationExecutionStatus,
     rState,
     rLastUpdatedTime,
     rResourceKey,
@@ -893,8 +892,8 @@ module Network.AWS.Config
     rInvocationTime,
 
     -- ** RemediationExecutionStep
-    RemediationExecutionStep,
-    remediationExecutionStep,
+    RemediationExecutionStep (..),
+    mkRemediationExecutionStep,
     resState,
     resStartTime,
     resName,
@@ -902,101 +901,112 @@ module Network.AWS.Config
     resErrorMessage,
 
     -- ** RemediationParameterValue
-    RemediationParameterValue,
-    remediationParameterValue,
+    RemediationParameterValue (..),
+    mkRemediationParameterValue,
     rpvStaticValue,
     rpvResourceValue,
 
     -- ** ResourceCount
-    ResourceCount,
-    resourceCount,
+    ResourceCount (..),
+    mkResourceCount,
     resResourceType,
     resCount,
 
     -- ** ResourceCountFilters
-    ResourceCountFilters,
-    resourceCountFilters,
+    ResourceCountFilters (..),
+    mkResourceCountFilters,
     rcfResourceType,
     rcfAccountId,
     rcfRegion,
 
     -- ** ResourceFilters
-    ResourceFilters,
-    resourceFilters,
+    ResourceFilters (..),
+    mkResourceFilters,
     rfResourceId,
     rfResourceName,
     rfAccountId,
     rfRegion,
 
     -- ** ResourceIdentifier
-    ResourceIdentifier,
-    resourceIdentifier,
+    ResourceIdentifier (..),
+    mkResourceIdentifier,
     riResourceId,
     riResourceType,
     riResourceName,
     riResourceDeletionTime,
 
     -- ** ResourceKey
-    ResourceKey,
-    resourceKey,
+    ResourceKey (..),
+    mkResourceKey,
     rkResourceType,
     rkResourceId,
 
     -- ** ResourceValue
-    ResourceValue,
-    resourceValue,
+    ResourceValue (..),
+    mkResourceValue,
     rvValue,
 
     -- ** RetentionConfiguration
-    RetentionConfiguration,
-    retentionConfiguration,
+    RetentionConfiguration (..),
+    mkRetentionConfiguration,
     rcName,
     rcRetentionPeriodInDays,
 
     -- ** Scope
-    Scope,
-    scope,
+    Scope (..),
+    mkScope,
     sComplianceResourceTypes,
     sComplianceResourceId,
     sTagValue,
     sTagKey,
 
     -- ** Source
-    Source,
-    source,
+    Source (..),
+    mkSource,
     sSourceDetails,
     sOwner,
     sSourceIdentifier,
 
     -- ** SourceDetail
-    SourceDetail,
-    sourceDetail,
+    SourceDetail (..),
+    mkSourceDetail,
     sdMessageType,
     sdMaximumExecutionFrequency,
     sdEventSource,
 
     -- ** SsmControls
-    SsmControls,
-    ssmControls,
+    SsmControls (..),
+    mkSsmControls,
     scConcurrentExecutionRatePercentage,
     scErrorPercentage,
 
     -- ** StaticValue
-    StaticValue,
-    staticValue,
+    StaticValue (..),
+    mkStaticValue,
     svValues,
 
     -- ** StatusDetailFilters
-    StatusDetailFilters,
-    statusDetailFilters,
+    StatusDetailFilters (..),
+    mkStatusDetailFilters,
     sdfMemberAccountRuleStatus,
     sdfAccountId,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -1081,6 +1091,7 @@ import Network.AWS.Config.TagResource
 import Network.AWS.Config.Types
 import Network.AWS.Config.UntagResource
 import Network.AWS.Config.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +14,18 @@
 --
 -- Start (run) the multiplex. Starting the multiplex does not start the channels. You must explicitly start each channel.
 module Network.AWS.MediaLive.StartMultiplex
-  ( -- * Creating a Request
-    startMultiplex,
-    StartMultiplex,
+  ( -- * Creating a request
+    StartMultiplex (..),
+    mkStartMultiplex,
 
-    -- * Request Lenses
+    -- ** Request lenses
     sMultiplexId,
 
-    -- * Destructuring the Response
-    startMultiplexResponse,
-    StartMultiplexResponse,
+    -- * Destructuring the response
+    StartMultiplexResponse (..),
+    mkStartMultiplexResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     starsState,
     starsARN,
     starsPipelinesRunningCount,
@@ -45,182 +40,217 @@ module Network.AWS.MediaLive.StartMultiplex
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Placeholder documentation for StartMultiplexRequest
 --
--- /See:/ 'startMultiplex' smart constructor.
-newtype StartMultiplex = StartMultiplex' {_sMultiplexId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkStartMultiplex' smart constructor.
+newtype StartMultiplex = StartMultiplex' {multiplexId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMultiplex' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sMultiplexId' - The ID of the multiplex.
-startMultiplex ::
-  -- | 'sMultiplexId'
-  Text ->
+-- * 'multiplexId' - The ID of the multiplex.
+mkStartMultiplex ::
+  -- | 'multiplexId'
+  Lude.Text ->
   StartMultiplex
-startMultiplex pMultiplexId_ =
-  StartMultiplex' {_sMultiplexId = pMultiplexId_}
+mkStartMultiplex pMultiplexId_ =
+  StartMultiplex' {multiplexId = pMultiplexId_}
 
 -- | The ID of the multiplex.
-sMultiplexId :: Lens' StartMultiplex Text
-sMultiplexId = lens _sMultiplexId (\s a -> s {_sMultiplexId = a})
+--
+-- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMultiplexId :: Lens.Lens' StartMultiplex Lude.Text
+sMultiplexId = Lens.lens (multiplexId :: StartMultiplex -> Lude.Text) (\s a -> s {multiplexId = a} :: StartMultiplex)
+{-# DEPRECATED sMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
-instance AWSRequest StartMultiplex where
+instance Lude.AWSRequest StartMultiplex where
   type Rs StartMultiplex = StartMultiplexResponse
-  request = postJSON mediaLive
+  request = Req.postJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           StartMultiplexResponse'
-            <$> (x .?> "state")
-            <*> (x .?> "arn")
-            <*> (x .?> "pipelinesRunningCount")
-            <*> (x .?> "availabilityZones" .!@ mempty)
-            <*> (x .?> "programCount")
-            <*> (x .?> "destinations" .!@ mempty)
-            <*> (x .?> "name")
-            <*> (x .?> "id")
-            <*> (x .?> "multiplexSettings")
-            <*> (x .?> "tags" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "state")
+            Lude.<*> (x Lude..?> "arn")
+            Lude.<*> (x Lude..?> "pipelinesRunningCount")
+            Lude.<*> (x Lude..?> "availabilityZones" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "programCount")
+            Lude.<*> (x Lude..?> "destinations" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "name")
+            Lude.<*> (x Lude..?> "id")
+            Lude.<*> (x Lude..?> "multiplexSettings")
+            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable StartMultiplex
-
-instance NFData StartMultiplex
-
-instance ToHeaders StartMultiplex where
+instance Lude.ToHeaders StartMultiplex where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON StartMultiplex where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON StartMultiplex where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath StartMultiplex where
+instance Lude.ToPath StartMultiplex where
   toPath StartMultiplex' {..} =
-    mconcat ["/prod/multiplexes/", toBS _sMultiplexId, "/start"]
+    Lude.mconcat
+      ["/prod/multiplexes/", Lude.toBS multiplexId, "/start"]
 
-instance ToQuery StartMultiplex where
-  toQuery = const mempty
+instance Lude.ToQuery StartMultiplex where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for StartMultiplexResponse
 --
--- /See:/ 'startMultiplexResponse' smart constructor.
+-- /See:/ 'mkStartMultiplexResponse' smart constructor.
 data StartMultiplexResponse = StartMultiplexResponse'
-  { _starsState ::
-      !(Maybe MultiplexState),
-    _starsARN :: !(Maybe Text),
-    _starsPipelinesRunningCount :: !(Maybe Int),
-    _starsAvailabilityZones :: !(Maybe [Text]),
-    _starsProgramCount :: !(Maybe Int),
-    _starsDestinations ::
-      !(Maybe [MultiplexOutputDestination]),
-    _starsName :: !(Maybe Text),
-    _starsId :: !(Maybe Text),
-    _starsMultiplexSettings ::
-      !(Maybe MultiplexSettings),
-    _starsTags :: !(Maybe (Map Text (Text))),
-    _starsResponseStatus :: !Int
+  { state ::
+      Lude.Maybe MultiplexState,
+    arn :: Lude.Maybe Lude.Text,
+    pipelinesRunningCount :: Lude.Maybe Lude.Int,
+    availabilityZones :: Lude.Maybe [Lude.Text],
+    programCount :: Lude.Maybe Lude.Int,
+    destinations ::
+      Lude.Maybe [MultiplexOutputDestination],
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    multiplexSettings ::
+      Lude.Maybe MultiplexSettings,
+    tags ::
+      Lude.Maybe
+        (Lude.HashMap Lude.Text (Lude.Text)),
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMultiplexResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'starsState' - The current state of the multiplex.
---
--- * 'starsARN' - The unique arn of the multiplex.
---
--- * 'starsPipelinesRunningCount' - The number of currently healthy pipelines.
---
--- * 'starsAvailabilityZones' - A list of availability zones for the multiplex.
---
--- * 'starsProgramCount' - The number of programs in the multiplex.
---
--- * 'starsDestinations' - A list of the multiplex output destinations.
---
--- * 'starsName' - The name of the multiplex.
---
--- * 'starsId' - The unique id of the multiplex.
---
--- * 'starsMultiplexSettings' - Configuration for a multiplex event.
---
--- * 'starsTags' - A collection of key-value pairs.
---
--- * 'starsResponseStatus' - -- | The response status code.
-startMultiplexResponse ::
-  -- | 'starsResponseStatus'
-  Int ->
+-- * 'arn' - The unique arn of the multiplex.
+-- * 'availabilityZones' - A list of availability zones for the multiplex.
+-- * 'destinations' - A list of the multiplex output destinations.
+-- * 'id' - The unique id of the multiplex.
+-- * 'multiplexSettings' - Configuration for a multiplex event.
+-- * 'name' - The name of the multiplex.
+-- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
+-- * 'programCount' - The number of programs in the multiplex.
+-- * 'responseStatus' - The response status code.
+-- * 'state' - The current state of the multiplex.
+-- * 'tags' - A collection of key-value pairs.
+mkStartMultiplexResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   StartMultiplexResponse
-startMultiplexResponse pResponseStatus_ =
+mkStartMultiplexResponse pResponseStatus_ =
   StartMultiplexResponse'
-    { _starsState = Nothing,
-      _starsARN = Nothing,
-      _starsPipelinesRunningCount = Nothing,
-      _starsAvailabilityZones = Nothing,
-      _starsProgramCount = Nothing,
-      _starsDestinations = Nothing,
-      _starsName = Nothing,
-      _starsId = Nothing,
-      _starsMultiplexSettings = Nothing,
-      _starsTags = Nothing,
-      _starsResponseStatus = pResponseStatus_
+    { state = Lude.Nothing,
+      arn = Lude.Nothing,
+      pipelinesRunningCount = Lude.Nothing,
+      availabilityZones = Lude.Nothing,
+      programCount = Lude.Nothing,
+      destinations = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      multiplexSettings = Lude.Nothing,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current state of the multiplex.
-starsState :: Lens' StartMultiplexResponse (Maybe MultiplexState)
-starsState = lens _starsState (\s a -> s {_starsState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsState :: Lens.Lens' StartMultiplexResponse (Lude.Maybe MultiplexState)
+starsState = Lens.lens (state :: StartMultiplexResponse -> Lude.Maybe MultiplexState) (\s a -> s {state = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The unique arn of the multiplex.
-starsARN :: Lens' StartMultiplexResponse (Maybe Text)
-starsARN = lens _starsARN (\s a -> s {_starsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsARN :: Lens.Lens' StartMultiplexResponse (Lude.Maybe Lude.Text)
+starsARN = Lens.lens (arn :: StartMultiplexResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The number of currently healthy pipelines.
-starsPipelinesRunningCount :: Lens' StartMultiplexResponse (Maybe Int)
-starsPipelinesRunningCount = lens _starsPipelinesRunningCount (\s a -> s {_starsPipelinesRunningCount = a})
+--
+-- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsPipelinesRunningCount :: Lens.Lens' StartMultiplexResponse (Lude.Maybe Lude.Int)
+starsPipelinesRunningCount = Lens.lens (pipelinesRunningCount :: StartMultiplexResponse -> Lude.Maybe Lude.Int) (\s a -> s {pipelinesRunningCount = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
 
 -- | A list of availability zones for the multiplex.
-starsAvailabilityZones :: Lens' StartMultiplexResponse [Text]
-starsAvailabilityZones = lens _starsAvailabilityZones (\s a -> s {_starsAvailabilityZones = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsAvailabilityZones :: Lens.Lens' StartMultiplexResponse (Lude.Maybe [Lude.Text])
+starsAvailabilityZones = Lens.lens (availabilityZones :: StartMultiplexResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | The number of programs in the multiplex.
-starsProgramCount :: Lens' StartMultiplexResponse (Maybe Int)
-starsProgramCount = lens _starsProgramCount (\s a -> s {_starsProgramCount = a})
+--
+-- /Note:/ Consider using 'programCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsProgramCount :: Lens.Lens' StartMultiplexResponse (Lude.Maybe Lude.Int)
+starsProgramCount = Lens.lens (programCount :: StartMultiplexResponse -> Lude.Maybe Lude.Int) (\s a -> s {programCount = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsProgramCount "Use generic-lens or generic-optics with 'programCount' instead." #-}
 
 -- | A list of the multiplex output destinations.
-starsDestinations :: Lens' StartMultiplexResponse [MultiplexOutputDestination]
-starsDestinations = lens _starsDestinations (\s a -> s {_starsDestinations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsDestinations :: Lens.Lens' StartMultiplexResponse (Lude.Maybe [MultiplexOutputDestination])
+starsDestinations = Lens.lens (destinations :: StartMultiplexResponse -> Lude.Maybe [MultiplexOutputDestination]) (\s a -> s {destinations = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The name of the multiplex.
-starsName :: Lens' StartMultiplexResponse (Maybe Text)
-starsName = lens _starsName (\s a -> s {_starsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsName :: Lens.Lens' StartMultiplexResponse (Lude.Maybe Lude.Text)
+starsName = Lens.lens (name :: StartMultiplexResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unique id of the multiplex.
-starsId :: Lens' StartMultiplexResponse (Maybe Text)
-starsId = lens _starsId (\s a -> s {_starsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsId :: Lens.Lens' StartMultiplexResponse (Lude.Maybe Lude.Text)
+starsId = Lens.lens (id :: StartMultiplexResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Configuration for a multiplex event.
-starsMultiplexSettings :: Lens' StartMultiplexResponse (Maybe MultiplexSettings)
-starsMultiplexSettings = lens _starsMultiplexSettings (\s a -> s {_starsMultiplexSettings = a})
+--
+-- /Note:/ Consider using 'multiplexSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsMultiplexSettings :: Lens.Lens' StartMultiplexResponse (Lude.Maybe MultiplexSettings)
+starsMultiplexSettings = Lens.lens (multiplexSettings :: StartMultiplexResponse -> Lude.Maybe MultiplexSettings) (\s a -> s {multiplexSettings = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
 
 -- | A collection of key-value pairs.
-starsTags :: Lens' StartMultiplexResponse (HashMap Text (Text))
-starsTags = lens _starsTags (\s a -> s {_starsTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsTags :: Lens.Lens' StartMultiplexResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+starsTags = Lens.lens (tags :: StartMultiplexResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | -- | The response status code.
-starsResponseStatus :: Lens' StartMultiplexResponse Int
-starsResponseStatus = lens _starsResponseStatus (\s a -> s {_starsResponseStatus = a})
-
-instance NFData StartMultiplexResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+starsResponseStatus :: Lens.Lens' StartMultiplexResponse Lude.Int
+starsResponseStatus = Lens.lens (responseStatus :: StartMultiplexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartMultiplexResponse)
+{-# DEPRECATED starsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

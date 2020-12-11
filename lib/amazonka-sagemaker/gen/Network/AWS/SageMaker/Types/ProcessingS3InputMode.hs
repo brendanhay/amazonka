@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ProcessingS3InputMode where
+module Network.AWS.SageMaker.Types.ProcessingS3InputMode
+  ( ProcessingS3InputMode
+      ( ProcessingS3InputMode',
+        PSIMFile,
+        PSIMPipe
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProcessingS3InputMode
-  = PSIMFile
-  | PSIMPipe
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProcessingS3InputMode = ProcessingS3InputMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProcessingS3InputMode where
-  parser =
-    takeLowerText >>= \case
-      "file" -> pure PSIMFile
-      "pipe" -> pure PSIMPipe
-      e ->
-        fromTextError $
-          "Failure parsing ProcessingS3InputMode from value: '" <> e
-            <> "'. Accepted values: file, pipe"
+pattern PSIMFile :: ProcessingS3InputMode
+pattern PSIMFile = ProcessingS3InputMode' "File"
 
-instance ToText ProcessingS3InputMode where
-  toText = \case
-    PSIMFile -> "File"
-    PSIMPipe -> "Pipe"
+pattern PSIMPipe :: ProcessingS3InputMode
+pattern PSIMPipe = ProcessingS3InputMode' "Pipe"
 
-instance Hashable ProcessingS3InputMode
-
-instance NFData ProcessingS3InputMode
-
-instance ToByteString ProcessingS3InputMode
-
-instance ToQuery ProcessingS3InputMode
-
-instance ToHeader ProcessingS3InputMode
-
-instance ToJSON ProcessingS3InputMode where
-  toJSON = toJSONText
-
-instance FromJSON ProcessingS3InputMode where
-  parseJSON = parseJSONText "ProcessingS3InputMode"
+{-# COMPLETE
+  PSIMFile,
+  PSIMPipe,
+  ProcessingS3InputMode'
+  #-}

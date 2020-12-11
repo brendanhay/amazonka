@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,107 +14,118 @@
 --
 -- Obtains directory limit information for the current Region.
 module Network.AWS.DirectoryService.GetDirectoryLimits
-  ( -- * Creating a Request
-    getDirectoryLimits,
-    GetDirectoryLimits,
+  ( -- * Creating a request
+    GetDirectoryLimits (..),
+    mkGetDirectoryLimits,
 
-    -- * Destructuring the Response
-    getDirectoryLimitsResponse,
-    GetDirectoryLimitsResponse,
+    -- * Destructuring the response
+    GetDirectoryLimitsResponse (..),
+    mkGetDirectoryLimitsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdlrsDirectoryLimits,
     gdlrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Contains the inputs for the 'GetDirectoryLimits' operation.
 --
---
---
--- /See:/ 'getDirectoryLimits' smart constructor.
+-- /See:/ 'mkGetDirectoryLimits' smart constructor.
 data GetDirectoryLimits = GetDirectoryLimits'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDirectoryLimits' with the minimum fields required to make a request.
-getDirectoryLimits ::
+mkGetDirectoryLimits ::
   GetDirectoryLimits
-getDirectoryLimits = GetDirectoryLimits'
+mkGetDirectoryLimits = GetDirectoryLimits'
 
-instance AWSRequest GetDirectoryLimits where
+instance Lude.AWSRequest GetDirectoryLimits where
   type Rs GetDirectoryLimits = GetDirectoryLimitsResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDirectoryLimitsResponse'
-            <$> (x .?> "DirectoryLimits") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "DirectoryLimits")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDirectoryLimits
-
-instance NFData GetDirectoryLimits
-
-instance ToHeaders GetDirectoryLimits where
+instance Lude.ToHeaders GetDirectoryLimits where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.GetDirectoryLimits" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "DirectoryService_20150416.GetDirectoryLimits" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetDirectoryLimits where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON GetDirectoryLimits where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath GetDirectoryLimits where
-  toPath = const "/"
+instance Lude.ToPath GetDirectoryLimits where
+  toPath = Lude.const "/"
 
-instance ToQuery GetDirectoryLimits where
-  toQuery = const mempty
+instance Lude.ToQuery GetDirectoryLimits where
+  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'GetDirectoryLimits' operation.
 --
---
---
--- /See:/ 'getDirectoryLimitsResponse' smart constructor.
+-- /See:/ 'mkGetDirectoryLimitsResponse' smart constructor.
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
-  { _gdlrsDirectoryLimits ::
-      !(Maybe DirectoryLimits),
-    _gdlrsResponseStatus :: !Int
+  { directoryLimits ::
+      Lude.Maybe DirectoryLimits,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDirectoryLimitsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdlrsDirectoryLimits' - A 'DirectoryLimits' object that contains the directory limits for the current rRegion.
---
--- * 'gdlrsResponseStatus' - -- | The response status code.
-getDirectoryLimitsResponse ::
-  -- | 'gdlrsResponseStatus'
-  Int ->
+-- * 'directoryLimits' - A 'DirectoryLimits' object that contains the directory limits for the current rRegion.
+-- * 'responseStatus' - The response status code.
+mkGetDirectoryLimitsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDirectoryLimitsResponse
-getDirectoryLimitsResponse pResponseStatus_ =
+mkGetDirectoryLimitsResponse pResponseStatus_ =
   GetDirectoryLimitsResponse'
-    { _gdlrsDirectoryLimits = Nothing,
-      _gdlrsResponseStatus = pResponseStatus_
+    { directoryLimits = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A 'DirectoryLimits' object that contains the directory limits for the current rRegion.
-gdlrsDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
-gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\s a -> s {_gdlrsDirectoryLimits = a})
+--
+-- /Note:/ Consider using 'directoryLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdlrsDirectoryLimits :: Lens.Lens' GetDirectoryLimitsResponse (Lude.Maybe DirectoryLimits)
+gdlrsDirectoryLimits = Lens.lens (directoryLimits :: GetDirectoryLimitsResponse -> Lude.Maybe DirectoryLimits) (\s a -> s {directoryLimits = a} :: GetDirectoryLimitsResponse)
+{-# DEPRECATED gdlrsDirectoryLimits "Use generic-lens or generic-optics with 'directoryLimits' instead." #-}
 
--- | -- | The response status code.
-gdlrsResponseStatus :: Lens' GetDirectoryLimitsResponse Int
-gdlrsResponseStatus = lens _gdlrsResponseStatus (\s a -> s {_gdlrsResponseStatus = a})
-
-instance NFData GetDirectoryLimitsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdlrsResponseStatus :: Lens.Lens' GetDirectoryLimitsResponse Lude.Int
+gdlrsResponseStatus = Lens.lens (responseStatus :: GetDirectoryLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDirectoryLimitsResponse)
+{-# DEPRECATED gdlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

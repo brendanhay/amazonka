@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.MonitoringInput where
+module Network.AWS.SageMaker.Types.MonitoringInput
+  ( MonitoringInput (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkMonitoringInput,
+
+    -- * Lenses
+    miEndpointInput,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.EndpointInput
 
 -- | The inputs for a monitoring job.
 --
---
---
--- /See:/ 'monitoringInput' smart constructor.
+-- /See:/ 'mkMonitoringInput' smart constructor.
 newtype MonitoringInput = MonitoringInput'
-  { _miEndpointInput ::
+  { endpointInput ::
       EndpointInput
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringInput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'miEndpointInput' - The endpoint for a monitoring job.
-monitoringInput ::
-  -- | 'miEndpointInput'
+-- * 'endpointInput' - The endpoint for a monitoring job.
+mkMonitoringInput ::
+  -- | 'endpointInput'
   EndpointInput ->
   MonitoringInput
-monitoringInput pEndpointInput_ =
-  MonitoringInput' {_miEndpointInput = pEndpointInput_}
+mkMonitoringInput pEndpointInput_ =
+  MonitoringInput' {endpointInput = pEndpointInput_}
 
 -- | The endpoint for a monitoring job.
-miEndpointInput :: Lens' MonitoringInput EndpointInput
-miEndpointInput = lens _miEndpointInput (\s a -> s {_miEndpointInput = a})
+--
+-- /Note:/ Consider using 'endpointInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miEndpointInput :: Lens.Lens' MonitoringInput EndpointInput
+miEndpointInput = Lens.lens (endpointInput :: MonitoringInput -> EndpointInput) (\s a -> s {endpointInput = a} :: MonitoringInput)
+{-# DEPRECATED miEndpointInput "Use generic-lens or generic-optics with 'endpointInput' instead." #-}
 
-instance FromJSON MonitoringInput where
+instance Lude.FromJSON MonitoringInput where
   parseJSON =
-    withObject
+    Lude.withObject
       "MonitoringInput"
-      (\x -> MonitoringInput' <$> (x .: "EndpointInput"))
+      (\x -> MonitoringInput' Lude.<$> (x Lude..: "EndpointInput"))
 
-instance Hashable MonitoringInput
-
-instance NFData MonitoringInput
-
-instance ToJSON MonitoringInput where
+instance Lude.ToJSON MonitoringInput where
   toJSON MonitoringInput' {..} =
-    object (catMaybes [Just ("EndpointInput" .= _miEndpointInput)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("EndpointInput" Lude..= endpointInput)]
+      )

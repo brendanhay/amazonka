@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,169 @@
 --
 -- Retrieves the current storage configurations for the specified resource type, association ID, and instance ID.
 module Network.AWS.Connect.DescribeInstanceStorageConfig
-  ( -- * Creating a Request
-    describeInstanceStorageConfig,
-    DescribeInstanceStorageConfig,
+  ( -- * Creating a request
+    DescribeInstanceStorageConfig (..),
+    mkDescribeInstanceStorageConfig,
 
-    -- * Request Lenses
+    -- ** Request lenses
     discInstanceId,
     discAssociationId,
     discResourceType,
 
-    -- * Destructuring the Response
-    describeInstanceStorageConfigResponse,
-    DescribeInstanceStorageConfigResponse,
+    -- * Destructuring the response
+    DescribeInstanceStorageConfigResponse (..),
+    mkDescribeInstanceStorageConfigResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     discrsStorageConfig,
     discrsResponseStatus,
   )
 where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeInstanceStorageConfig' smart constructor.
+-- | /See:/ 'mkDescribeInstanceStorageConfig' smart constructor.
 data DescribeInstanceStorageConfig = DescribeInstanceStorageConfig'
-  { _discInstanceId ::
-      !Text,
-    _discAssociationId :: !Text,
-    _discResourceType ::
-      !InstanceStorageResourceType
+  { instanceId ::
+      Lude.Text,
+    associationId :: Lude.Text,
+    resourceType ::
+      InstanceStorageResourceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceStorageConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'discInstanceId' - The identifier of the Amazon Connect instance.
---
--- * 'discAssociationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
---
--- * 'discResourceType' - A valid resource type.
-describeInstanceStorageConfig ::
-  -- | 'discInstanceId'
-  Text ->
-  -- | 'discAssociationId'
-  Text ->
-  -- | 'discResourceType'
+-- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'resourceType' - A valid resource type.
+mkDescribeInstanceStorageConfig ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'associationId'
+  Lude.Text ->
+  -- | 'resourceType'
   InstanceStorageResourceType ->
   DescribeInstanceStorageConfig
-describeInstanceStorageConfig
+mkDescribeInstanceStorageConfig
   pInstanceId_
   pAssociationId_
   pResourceType_ =
     DescribeInstanceStorageConfig'
-      { _discInstanceId = pInstanceId_,
-        _discAssociationId = pAssociationId_,
-        _discResourceType = pResourceType_
+      { instanceId = pInstanceId_,
+        associationId = pAssociationId_,
+        resourceType = pResourceType_
       }
 
 -- | The identifier of the Amazon Connect instance.
-discInstanceId :: Lens' DescribeInstanceStorageConfig Text
-discInstanceId = lens _discInstanceId (\s a -> s {_discInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+discInstanceId :: Lens.Lens' DescribeInstanceStorageConfig Lude.Text
+discInstanceId = Lens.lens (instanceId :: DescribeInstanceStorageConfig -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstanceStorageConfig)
+{-# DEPRECATED discInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-discAssociationId :: Lens' DescribeInstanceStorageConfig Text
-discAssociationId = lens _discAssociationId (\s a -> s {_discAssociationId = a})
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+discAssociationId :: Lens.Lens' DescribeInstanceStorageConfig Lude.Text
+discAssociationId = Lens.lens (associationId :: DescribeInstanceStorageConfig -> Lude.Text) (\s a -> s {associationId = a} :: DescribeInstanceStorageConfig)
+{-# DEPRECATED discAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | A valid resource type.
-discResourceType :: Lens' DescribeInstanceStorageConfig InstanceStorageResourceType
-discResourceType = lens _discResourceType (\s a -> s {_discResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+discResourceType :: Lens.Lens' DescribeInstanceStorageConfig InstanceStorageResourceType
+discResourceType = Lens.lens (resourceType :: DescribeInstanceStorageConfig -> InstanceStorageResourceType) (\s a -> s {resourceType = a} :: DescribeInstanceStorageConfig)
+{-# DEPRECATED discResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
-instance AWSRequest DescribeInstanceStorageConfig where
+instance Lude.AWSRequest DescribeInstanceStorageConfig where
   type
     Rs DescribeInstanceStorageConfig =
       DescribeInstanceStorageConfigResponse
-  request = get connect
+  request = Req.get connectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeInstanceStorageConfigResponse'
-            <$> (x .?> "StorageConfig") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "StorageConfig")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeInstanceStorageConfig
-
-instance NFData DescribeInstanceStorageConfig
-
-instance ToHeaders DescribeInstanceStorageConfig where
+instance Lude.ToHeaders DescribeInstanceStorageConfig where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeInstanceStorageConfig where
+instance Lude.ToPath DescribeInstanceStorageConfig where
   toPath DescribeInstanceStorageConfig' {..} =
-    mconcat
+    Lude.mconcat
       [ "/instance/",
-        toBS _discInstanceId,
+        Lude.toBS instanceId,
         "/storage-config/",
-        toBS _discAssociationId
+        Lude.toBS associationId
       ]
 
-instance ToQuery DescribeInstanceStorageConfig where
+instance Lude.ToQuery DescribeInstanceStorageConfig where
   toQuery DescribeInstanceStorageConfig' {..} =
-    mconcat ["resourceType" =: _discResourceType]
+    Lude.mconcat ["resourceType" Lude.=: resourceType]
 
--- | /See:/ 'describeInstanceStorageConfigResponse' smart constructor.
+-- | /See:/ 'mkDescribeInstanceStorageConfigResponse' smart constructor.
 data DescribeInstanceStorageConfigResponse = DescribeInstanceStorageConfigResponse'
-  { _discrsStorageConfig ::
-      !( Maybe
-           InstanceStorageConfig
-       ),
-    _discrsResponseStatus ::
-      !Int
+  { storageConfig ::
+      Lude.Maybe
+        InstanceStorageConfig,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceStorageConfigResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'discrsStorageConfig' - A valid storage type.
---
--- * 'discrsResponseStatus' - -- | The response status code.
-describeInstanceStorageConfigResponse ::
-  -- | 'discrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'storageConfig' - A valid storage type.
+mkDescribeInstanceStorageConfigResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeInstanceStorageConfigResponse
-describeInstanceStorageConfigResponse pResponseStatus_ =
+mkDescribeInstanceStorageConfigResponse pResponseStatus_ =
   DescribeInstanceStorageConfigResponse'
-    { _discrsStorageConfig =
-        Nothing,
-      _discrsResponseStatus = pResponseStatus_
+    { storageConfig =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A valid storage type.
-discrsStorageConfig :: Lens' DescribeInstanceStorageConfigResponse (Maybe InstanceStorageConfig)
-discrsStorageConfig = lens _discrsStorageConfig (\s a -> s {_discrsStorageConfig = a})
+--
+-- /Note:/ Consider using 'storageConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+discrsStorageConfig :: Lens.Lens' DescribeInstanceStorageConfigResponse (Lude.Maybe InstanceStorageConfig)
+discrsStorageConfig = Lens.lens (storageConfig :: DescribeInstanceStorageConfigResponse -> Lude.Maybe InstanceStorageConfig) (\s a -> s {storageConfig = a} :: DescribeInstanceStorageConfigResponse)
+{-# DEPRECATED discrsStorageConfig "Use generic-lens or generic-optics with 'storageConfig' instead." #-}
 
--- | -- | The response status code.
-discrsResponseStatus :: Lens' DescribeInstanceStorageConfigResponse Int
-discrsResponseStatus = lens _discrsResponseStatus (\s a -> s {_discrsResponseStatus = a})
-
-instance NFData DescribeInstanceStorageConfigResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+discrsResponseStatus :: Lens.Lens' DescribeInstanceStorageConfigResponse Lude.Int
+discrsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceStorageConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceStorageConfigResponse)
+{-# DEPRECATED discrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

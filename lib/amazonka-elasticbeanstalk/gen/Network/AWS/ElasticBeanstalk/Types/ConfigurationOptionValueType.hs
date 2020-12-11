@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType where
+module Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType
+  ( ConfigurationOptionValueType
+      ( ConfigurationOptionValueType',
+        List,
+        Scalar
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ConfigurationOptionValueType
-  = List
-  | Scalar
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ConfigurationOptionValueType = ConfigurationOptionValueType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ConfigurationOptionValueType where
-  parser =
-    takeLowerText >>= \case
-      "list" -> pure List
-      "scalar" -> pure Scalar
-      e ->
-        fromTextError $
-          "Failure parsing ConfigurationOptionValueType from value: '" <> e
-            <> "'. Accepted values: list, scalar"
+pattern List :: ConfigurationOptionValueType
+pattern List = ConfigurationOptionValueType' "List"
 
-instance ToText ConfigurationOptionValueType where
-  toText = \case
-    List -> "List"
-    Scalar -> "Scalar"
+pattern Scalar :: ConfigurationOptionValueType
+pattern Scalar = ConfigurationOptionValueType' "Scalar"
 
-instance Hashable ConfigurationOptionValueType
-
-instance NFData ConfigurationOptionValueType
-
-instance ToByteString ConfigurationOptionValueType
-
-instance ToQuery ConfigurationOptionValueType
-
-instance ToHeader ConfigurationOptionValueType
-
-instance FromXML ConfigurationOptionValueType where
-  parseXML = parseXMLText "ConfigurationOptionValueType"
+{-# COMPLETE
+  List,
+  Scalar,
+  ConfigurationOptionValueType'
+  #-}

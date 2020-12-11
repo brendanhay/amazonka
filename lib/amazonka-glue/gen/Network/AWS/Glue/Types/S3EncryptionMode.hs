@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.S3EncryptionMode where
+module Network.AWS.Glue.Types.S3EncryptionMode
+  ( S3EncryptionMode
+      ( S3EncryptionMode',
+        Disabled,
+        SseKMS,
+        SseS3
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data S3EncryptionMode
-  = Disabled
-  | SseKMS
-  | SseS3
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype S3EncryptionMode = S3EncryptionMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText S3EncryptionMode where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "sse-kms" -> pure SseKMS
-      "sse-s3" -> pure SseS3
-      e ->
-        fromTextError $
-          "Failure parsing S3EncryptionMode from value: '" <> e
-            <> "'. Accepted values: disabled, sse-kms, sse-s3"
+pattern Disabled :: S3EncryptionMode
+pattern Disabled = S3EncryptionMode' "DISABLED"
 
-instance ToText S3EncryptionMode where
-  toText = \case
-    Disabled -> "DISABLED"
-    SseKMS -> "SSE-KMS"
-    SseS3 -> "SSE-S3"
+pattern SseKMS :: S3EncryptionMode
+pattern SseKMS = S3EncryptionMode' "SSE-KMS"
 
-instance Hashable S3EncryptionMode
+pattern SseS3 :: S3EncryptionMode
+pattern SseS3 = S3EncryptionMode' "SSE-S3"
 
-instance NFData S3EncryptionMode
-
-instance ToByteString S3EncryptionMode
-
-instance ToQuery S3EncryptionMode
-
-instance ToHeader S3EncryptionMode
-
-instance ToJSON S3EncryptionMode where
-  toJSON = toJSONText
-
-instance FromJSON S3EncryptionMode where
-  parseJSON = parseJSONText "S3EncryptionMode"
+{-# COMPLETE
+  Disabled,
+  SseKMS,
+  SseS3,
+  S3EncryptionMode'
+  #-}

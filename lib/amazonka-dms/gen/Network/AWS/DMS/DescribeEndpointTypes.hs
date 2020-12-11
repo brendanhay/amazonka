@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Returns information about the type of endpoints available.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DMS.DescribeEndpointTypes
-  ( -- * Creating a Request
-    describeEndpointTypes,
-    DescribeEndpointTypes,
+  ( -- * Creating a request
+    DescribeEndpointTypes (..),
+    mkDescribeEndpointTypes,
 
-    -- * Request Lenses
+    -- ** Request lenses
     detFilters,
     detMarker,
     detMaxRecords,
 
-    -- * Destructuring the Response
-    describeEndpointTypesResponse,
-    DescribeEndpointTypesResponse,
+    -- * Destructuring the response
+    DescribeEndpointTypesResponse (..),
+    mkDescribeEndpointTypesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     detrsSupportedEndpointTypes,
     detrsMarker,
     detrsResponseStatus,
@@ -44,149 +37,174 @@ module Network.AWS.DMS.DescribeEndpointTypes
 where
 
 import Network.AWS.DMS.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- |
 --
---
---
--- /See:/ 'describeEndpointTypes' smart constructor.
+-- /See:/ 'mkDescribeEndpointTypes' smart constructor.
 data DescribeEndpointTypes = DescribeEndpointTypes'
-  { _detFilters ::
-      !(Maybe [Filter]),
-    _detMarker :: !(Maybe Text),
-    _detMaxRecords :: !(Maybe Int)
+  { filters ::
+      Lude.Maybe [Filter],
+    marker :: Lude.Maybe Lude.Text,
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointTypes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'filters' - Filters applied to the endpoint types.
 --
--- * 'detFilters' - Filters applied to the endpoint types. Valid filter names: engine-name | endpoint-type
+-- Valid filter names: engine-name | endpoint-type
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
--- * 'detMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'detMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-describeEndpointTypes ::
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+mkDescribeEndpointTypes ::
   DescribeEndpointTypes
-describeEndpointTypes =
+mkDescribeEndpointTypes =
   DescribeEndpointTypes'
-    { _detFilters = Nothing,
-      _detMarker = Nothing,
-      _detMaxRecords = Nothing
+    { filters = Lude.Nothing,
+      marker = Lude.Nothing,
+      maxRecords = Lude.Nothing
     }
 
--- | Filters applied to the endpoint types. Valid filter names: engine-name | endpoint-type
-detFilters :: Lens' DescribeEndpointTypes [Filter]
-detFilters = lens _detFilters (\s a -> s {_detFilters = a}) . _Default . _Coerce
+-- | Filters applied to the endpoint types.
+--
+-- Valid filter names: engine-name | endpoint-type
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detFilters :: Lens.Lens' DescribeEndpointTypes (Lude.Maybe [Filter])
+detFilters = Lens.lens (filters :: DescribeEndpointTypes -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEndpointTypes)
+{-# DEPRECATED detFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-detMarker :: Lens' DescribeEndpointTypes (Maybe Text)
-detMarker = lens _detMarker (\s a -> s {_detMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detMarker :: Lens.Lens' DescribeEndpointTypes (Lude.Maybe Lude.Text)
+detMarker = Lens.lens (marker :: DescribeEndpointTypes -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEndpointTypes)
+{-# DEPRECATED detMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-detMaxRecords :: Lens' DescribeEndpointTypes (Maybe Int)
-detMaxRecords = lens _detMaxRecords (\s a -> s {_detMaxRecords = a})
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detMaxRecords :: Lens.Lens' DescribeEndpointTypes (Lude.Maybe Lude.Int)
+detMaxRecords = Lens.lens (maxRecords :: DescribeEndpointTypes -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEndpointTypes)
+{-# DEPRECATED detMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance AWSPager DescribeEndpointTypes where
+instance Page.AWSPager DescribeEndpointTypes where
   page rq rs
-    | stop (rs ^. detrsMarker) = Nothing
-    | stop (rs ^. detrsSupportedEndpointTypes) = Nothing
-    | otherwise = Just $ rq & detMarker .~ rs ^. detrsMarker
+    | Page.stop (rs Lens.^. detrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. detrsSupportedEndpointTypes) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& detMarker Lens..~ rs Lens.^. detrsMarker
 
-instance AWSRequest DescribeEndpointTypes where
+instance Lude.AWSRequest DescribeEndpointTypes where
   type Rs DescribeEndpointTypes = DescribeEndpointTypesResponse
-  request = postJSON dms
+  request = Req.postJSON dmsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeEndpointTypesResponse'
-            <$> (x .?> "SupportedEndpointTypes" .!@ mempty)
-            <*> (x .?> "Marker")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "SupportedEndpointTypes" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "Marker")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeEndpointTypes
-
-instance NFData DescribeEndpointTypes
-
-instance ToHeaders DescribeEndpointTypes where
+instance Lude.ToHeaders DescribeEndpointTypes where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonDMSv20160101.DescribeEndpointTypes" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonDMSv20160101.DescribeEndpointTypes" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeEndpointTypes where
+instance Lude.ToJSON DescribeEndpointTypes where
   toJSON DescribeEndpointTypes' {..} =
-    object
-      ( catMaybes
-          [ ("Filters" .=) <$> _detFilters,
-            ("Marker" .=) <$> _detMarker,
-            ("MaxRecords" .=) <$> _detMaxRecords
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Filters" Lude..=) Lude.<$> filters,
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("MaxRecords" Lude..=) Lude.<$> maxRecords
           ]
       )
 
-instance ToPath DescribeEndpointTypes where
-  toPath = const "/"
+instance Lude.ToPath DescribeEndpointTypes where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeEndpointTypes where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeEndpointTypes where
+  toQuery = Lude.const Lude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeEndpointTypesResponse' smart constructor.
+-- /See:/ 'mkDescribeEndpointTypesResponse' smart constructor.
 data DescribeEndpointTypesResponse = DescribeEndpointTypesResponse'
-  { _detrsSupportedEndpointTypes ::
-      !( Maybe
-           [SupportedEndpointType]
-       ),
-    _detrsMarker :: !(Maybe Text),
-    _detrsResponseStatus :: !Int
+  { supportedEndpointTypes ::
+      Lude.Maybe
+        [SupportedEndpointType],
+    marker :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointTypesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'detrsSupportedEndpointTypes' - The types of endpoints that are supported.
---
--- * 'detrsMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'detrsResponseStatus' - -- | The response status code.
-describeEndpointTypesResponse ::
-  -- | 'detrsResponseStatus'
-  Int ->
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'responseStatus' - The response status code.
+-- * 'supportedEndpointTypes' - The types of endpoints that are supported.
+mkDescribeEndpointTypesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEndpointTypesResponse
-describeEndpointTypesResponse pResponseStatus_ =
+mkDescribeEndpointTypesResponse pResponseStatus_ =
   DescribeEndpointTypesResponse'
-    { _detrsSupportedEndpointTypes =
-        Nothing,
-      _detrsMarker = Nothing,
-      _detrsResponseStatus = pResponseStatus_
+    { supportedEndpointTypes =
+        Lude.Nothing,
+      marker = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The types of endpoints that are supported.
-detrsSupportedEndpointTypes :: Lens' DescribeEndpointTypesResponse [SupportedEndpointType]
-detrsSupportedEndpointTypes = lens _detrsSupportedEndpointTypes (\s a -> s {_detrsSupportedEndpointTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'supportedEndpointTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsSupportedEndpointTypes :: Lens.Lens' DescribeEndpointTypesResponse (Lude.Maybe [SupportedEndpointType])
+detrsSupportedEndpointTypes = Lens.lens (supportedEndpointTypes :: DescribeEndpointTypesResponse -> Lude.Maybe [SupportedEndpointType]) (\s a -> s {supportedEndpointTypes = a} :: DescribeEndpointTypesResponse)
+{-# DEPRECATED detrsSupportedEndpointTypes "Use generic-lens or generic-optics with 'supportedEndpointTypes' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-detrsMarker :: Lens' DescribeEndpointTypesResponse (Maybe Text)
-detrsMarker = lens _detrsMarker (\s a -> s {_detrsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsMarker :: Lens.Lens' DescribeEndpointTypesResponse (Lude.Maybe Lude.Text)
+detrsMarker = Lens.lens (marker :: DescribeEndpointTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEndpointTypesResponse)
+{-# DEPRECATED detrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DescribeEndpointTypesResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\s a -> s {_detrsResponseStatus = a})
-
-instance NFData DescribeEndpointTypesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrsResponseStatus :: Lens.Lens' DescribeEndpointTypesResponse Lude.Int
+detrsResponseStatus = Lens.lens (responseStatus :: DescribeEndpointTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEndpointTypesResponse)
+{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

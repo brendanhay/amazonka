@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,110 +14,123 @@
 --
 -- Deletes a dynamic thing group.
 module Network.AWS.IoT.DeleteDynamicThingGroup
-  ( -- * Creating a Request
-    deleteDynamicThingGroup,
-    DeleteDynamicThingGroup,
+  ( -- * Creating a request
+    DeleteDynamicThingGroup (..),
+    mkDeleteDynamicThingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddtgExpectedVersion,
     ddtgThingGroupName,
 
-    -- * Destructuring the Response
-    deleteDynamicThingGroupResponse,
-    DeleteDynamicThingGroupResponse,
+    -- * Destructuring the response
+    DeleteDynamicThingGroupResponse (..),
+    mkDeleteDynamicThingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddtgrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteDynamicThingGroup' smart constructor.
+-- | /See:/ 'mkDeleteDynamicThingGroup' smart constructor.
 data DeleteDynamicThingGroup = DeleteDynamicThingGroup'
-  { _ddtgExpectedVersion ::
-      !(Maybe Integer),
-    _ddtgThingGroupName :: !Text
+  { expectedVersion ::
+      Lude.Maybe Lude.Integer,
+    thingGroupName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDynamicThingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddtgExpectedVersion' - The expected version of the dynamic thing group to delete.
---
--- * 'ddtgThingGroupName' - The name of the dynamic thing group to delete.
-deleteDynamicThingGroup ::
-  -- | 'ddtgThingGroupName'
-  Text ->
+-- * 'expectedVersion' - The expected version of the dynamic thing group to delete.
+-- * 'thingGroupName' - The name of the dynamic thing group to delete.
+mkDeleteDynamicThingGroup ::
+  -- | 'thingGroupName'
+  Lude.Text ->
   DeleteDynamicThingGroup
-deleteDynamicThingGroup pThingGroupName_ =
+mkDeleteDynamicThingGroup pThingGroupName_ =
   DeleteDynamicThingGroup'
-    { _ddtgExpectedVersion = Nothing,
-      _ddtgThingGroupName = pThingGroupName_
+    { expectedVersion = Lude.Nothing,
+      thingGroupName = pThingGroupName_
     }
 
 -- | The expected version of the dynamic thing group to delete.
-ddtgExpectedVersion :: Lens' DeleteDynamicThingGroup (Maybe Integer)
-ddtgExpectedVersion = lens _ddtgExpectedVersion (\s a -> s {_ddtgExpectedVersion = a})
+--
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddtgExpectedVersion :: Lens.Lens' DeleteDynamicThingGroup (Lude.Maybe Lude.Integer)
+ddtgExpectedVersion = Lens.lens (expectedVersion :: DeleteDynamicThingGroup -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: DeleteDynamicThingGroup)
+{-# DEPRECATED ddtgExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
 
 -- | The name of the dynamic thing group to delete.
-ddtgThingGroupName :: Lens' DeleteDynamicThingGroup Text
-ddtgThingGroupName = lens _ddtgThingGroupName (\s a -> s {_ddtgThingGroupName = a})
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddtgThingGroupName :: Lens.Lens' DeleteDynamicThingGroup Lude.Text
+ddtgThingGroupName = Lens.lens (thingGroupName :: DeleteDynamicThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: DeleteDynamicThingGroup)
+{-# DEPRECATED ddtgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
-instance AWSRequest DeleteDynamicThingGroup where
+instance Lude.AWSRequest DeleteDynamicThingGroup where
   type Rs DeleteDynamicThingGroup = DeleteDynamicThingGroupResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
+    Res.receiveEmpty
       ( \s h x ->
-          DeleteDynamicThingGroupResponse' <$> (pure (fromEnum s))
+          DeleteDynamicThingGroupResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteDynamicThingGroup
+instance Lude.ToHeaders DeleteDynamicThingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteDynamicThingGroup
-
-instance ToHeaders DeleteDynamicThingGroup where
-  toHeaders = const mempty
-
-instance ToPath DeleteDynamicThingGroup where
+instance Lude.ToPath DeleteDynamicThingGroup where
   toPath DeleteDynamicThingGroup' {..} =
-    mconcat ["/dynamic-thing-groups/", toBS _ddtgThingGroupName]
+    Lude.mconcat ["/dynamic-thing-groups/", Lude.toBS thingGroupName]
 
-instance ToQuery DeleteDynamicThingGroup where
+instance Lude.ToQuery DeleteDynamicThingGroup where
   toQuery DeleteDynamicThingGroup' {..} =
-    mconcat ["expectedVersion" =: _ddtgExpectedVersion]
+    Lude.mconcat ["expectedVersion" Lude.=: expectedVersion]
 
--- | /See:/ 'deleteDynamicThingGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteDynamicThingGroupResponse' smart constructor.
 newtype DeleteDynamicThingGroupResponse = DeleteDynamicThingGroupResponse'
-  { _ddtgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDynamicThingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddtgrsResponseStatus' - -- | The response status code.
-deleteDynamicThingGroupResponse ::
-  -- | 'ddtgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteDynamicThingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteDynamicThingGroupResponse
-deleteDynamicThingGroupResponse pResponseStatus_ =
+mkDeleteDynamicThingGroupResponse pResponseStatus_ =
   DeleteDynamicThingGroupResponse'
-    { _ddtgrsResponseStatus =
+    { responseStatus =
         pResponseStatus_
     }
 
--- | -- | The response status code.
-ddtgrsResponseStatus :: Lens' DeleteDynamicThingGroupResponse Int
-ddtgrsResponseStatus = lens _ddtgrsResponseStatus (\s a -> s {_ddtgrsResponseStatus = a})
-
-instance NFData DeleteDynamicThingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddtgrsResponseStatus :: Lens.Lens' DeleteDynamicThingGroupResponse Lude.Int
+ddtgrsResponseStatus = Lens.lens (responseStatus :: DeleteDynamicThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDynamicThingGroupResponse)
+{-# DEPRECATED ddtgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

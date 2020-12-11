@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,138 @@
 --
 -- Retrieves attributes for a list of configuration item IDs.
 module Network.AWS.Discovery.DescribeConfigurations
-  ( -- * Creating a Request
-    describeConfigurations,
-    DescribeConfigurations,
+  ( -- * Creating a request
+    DescribeConfigurations (..),
+    mkDescribeConfigurations,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dcConfigurationIds,
 
-    -- * Destructuring the Response
-    describeConfigurationsResponse,
-    DescribeConfigurationsResponse,
+    -- * Destructuring the response
+    DescribeConfigurationsResponse (..),
+    mkDescribeConfigurationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dcrsConfigurations,
     dcrsResponseStatus,
   )
 where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeConfigurations' smart constructor.
+-- | /See:/ 'mkDescribeConfigurations' smart constructor.
 newtype DescribeConfigurations = DescribeConfigurations'
-  { _dcConfigurationIds ::
-      [Text]
+  { configurationIds ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurations' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcConfigurationIds' - One or more configuration IDs.
-describeConfigurations ::
+-- * 'configurationIds' - One or more configuration IDs.
+mkDescribeConfigurations ::
   DescribeConfigurations
-describeConfigurations =
-  DescribeConfigurations' {_dcConfigurationIds = mempty}
+mkDescribeConfigurations =
+  DescribeConfigurations' {configurationIds = Lude.mempty}
 
 -- | One or more configuration IDs.
-dcConfigurationIds :: Lens' DescribeConfigurations [Text]
-dcConfigurationIds = lens _dcConfigurationIds (\s a -> s {_dcConfigurationIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'configurationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcConfigurationIds :: Lens.Lens' DescribeConfigurations [Lude.Text]
+dcConfigurationIds = Lens.lens (configurationIds :: DescribeConfigurations -> [Lude.Text]) (\s a -> s {configurationIds = a} :: DescribeConfigurations)
+{-# DEPRECATED dcConfigurationIds "Use generic-lens or generic-optics with 'configurationIds' instead." #-}
 
-instance AWSRequest DescribeConfigurations where
+instance Lude.AWSRequest DescribeConfigurations where
   type Rs DescribeConfigurations = DescribeConfigurationsResponse
-  request = postJSON discovery
+  request = Req.postJSON discoveryService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeConfigurationsResponse'
-            <$> (x .?> "configurations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "configurations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeConfigurations
-
-instance NFData DescribeConfigurations
-
-instance ToHeaders DescribeConfigurations where
+instance Lude.ToHeaders DescribeConfigurations where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSPoseidonService_V2015_11_01.DescribeConfigurations" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSPoseidonService_V2015_11_01.DescribeConfigurations" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeConfigurations where
+instance Lude.ToJSON DescribeConfigurations where
   toJSON DescribeConfigurations' {..} =
-    object
-      (catMaybes [Just ("configurationIds" .= _dcConfigurationIds)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("configurationIds" Lude..= configurationIds)]
+      )
 
-instance ToPath DescribeConfigurations where
-  toPath = const "/"
+instance Lude.ToPath DescribeConfigurations where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeConfigurations where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeConfigurations where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeConfigurationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeConfigurationsResponse' smart constructor.
 data DescribeConfigurationsResponse = DescribeConfigurationsResponse'
-  { _dcrsConfigurations ::
-      !(Maybe [Map Text (Text)]),
-    _dcrsResponseStatus :: !Int
+  { configurations ::
+      Lude.Maybe
+        [ Lude.HashMap
+            Lude.Text
+            (Lude.Text)
+        ],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsConfigurations' - A key in the response map. The value is an array of data.
---
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeConfigurationsResponse ::
-  -- | 'dcrsResponseStatus'
-  Int ->
+-- * 'configurations' - A key in the response map. The value is an array of data.
+-- * 'responseStatus' - The response status code.
+mkDescribeConfigurationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConfigurationsResponse
-describeConfigurationsResponse pResponseStatus_ =
+mkDescribeConfigurationsResponse pResponseStatus_ =
   DescribeConfigurationsResponse'
-    { _dcrsConfigurations = Nothing,
-      _dcrsResponseStatus = pResponseStatus_
+    { configurations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A key in the response map. The value is an array of data.
-dcrsConfigurations :: Lens' DescribeConfigurationsResponse [HashMap Text (Text)]
-dcrsConfigurations = lens _dcrsConfigurations (\s a -> s {_dcrsConfigurations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsConfigurations :: Lens.Lens' DescribeConfigurationsResponse (Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)])
+dcrsConfigurations = Lens.lens (configurations :: DescribeConfigurationsResponse -> Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)]) (\s a -> s {configurations = a} :: DescribeConfigurationsResponse)
+{-# DEPRECATED dcrsConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeConfigurationsResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\s a -> s {_dcrsResponseStatus = a})
-
-instance NFData DescribeConfigurationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrsResponseStatus :: Lens.Lens' DescribeConfigurationsResponse Lude.Int
+dcrsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationsResponse)
+{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

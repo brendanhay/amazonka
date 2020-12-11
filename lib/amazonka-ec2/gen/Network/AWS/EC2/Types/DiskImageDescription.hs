@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,72 +7,95 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DiskImageDescription where
+module Network.AWS.EC2.Types.DiskImageDescription
+  ( DiskImageDescription (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkDiskImageDescription,
+
+    -- * Lenses
+    dSize,
+    dChecksum,
+    dFormat,
+    dImportManifestURL,
+  )
+where
+
 import Network.AWS.EC2.Types.DiskImageFormat
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes a disk image.
 --
---
---
--- /See:/ 'diskImageDescription' smart constructor.
+-- /See:/ 'mkDiskImageDescription' smart constructor.
 data DiskImageDescription = DiskImageDescription'
-  { _dSize ::
-      !(Maybe Integer),
-    _dChecksum :: !(Maybe Text),
-    _dFormat :: !(Maybe DiskImageFormat),
-    _dImportManifestURL :: !(Maybe Text)
+  { size ::
+      Lude.Maybe Lude.Integer,
+    checksum :: Lude.Maybe Lude.Text,
+    format :: Lude.Maybe DiskImageFormat,
+    importManifestURL :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiskImageDescription' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'checksum' - The checksum computed for the disk image.
+-- * 'format' - The disk image format.
+-- * 'importManifestURL' - A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ .
 --
--- * 'dSize' - The size of the disk image, in GiB.
---
--- * 'dChecksum' - The checksum computed for the disk image.
---
--- * 'dFormat' - The disk image format.
---
--- * 'dImportManifestURL' - A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
-diskImageDescription ::
+-- For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+-- * 'size' - The size of the disk image, in GiB.
+mkDiskImageDescription ::
   DiskImageDescription
-diskImageDescription =
+mkDiskImageDescription =
   DiskImageDescription'
-    { _dSize = Nothing,
-      _dChecksum = Nothing,
-      _dFormat = Nothing,
-      _dImportManifestURL = Nothing
+    { size = Lude.Nothing,
+      checksum = Lude.Nothing,
+      format = Lude.Nothing,
+      importManifestURL = Lude.Nothing
     }
 
 -- | The size of the disk image, in GiB.
-dSize :: Lens' DiskImageDescription (Maybe Integer)
-dSize = lens _dSize (\s a -> s {_dSize = a})
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSize :: Lens.Lens' DiskImageDescription (Lude.Maybe Lude.Integer)
+dSize = Lens.lens (size :: DiskImageDescription -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: DiskImageDescription)
+{-# DEPRECATED dSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The checksum computed for the disk image.
-dChecksum :: Lens' DiskImageDescription (Maybe Text)
-dChecksum = lens _dChecksum (\s a -> s {_dChecksum = a})
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dChecksum :: Lens.Lens' DiskImageDescription (Lude.Maybe Lude.Text)
+dChecksum = Lens.lens (checksum :: DiskImageDescription -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: DiskImageDescription)
+{-# DEPRECATED dChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The disk image format.
-dFormat :: Lens' DiskImageDescription (Maybe DiskImageFormat)
-dFormat = lens _dFormat (\s a -> s {_dFormat = a})
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dFormat :: Lens.Lens' DiskImageDescription (Lude.Maybe DiskImageFormat)
+dFormat = Lens.lens (format :: DiskImageDescription -> Lude.Maybe DiskImageFormat) (\s a -> s {format = a} :: DiskImageDescription)
+{-# DEPRECATED dFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
--- | A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ . For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
-dImportManifestURL :: Lens' DiskImageDescription (Maybe Text)
-dImportManifestURL = lens _dImportManifestURL (\s a -> s {_dImportManifestURL = a})
+-- | A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html Authenticating REST Requests> topic in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- For information about the import manifest referenced by this API action, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest> .
+--
+-- /Note:/ Consider using 'importManifestURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dImportManifestURL :: Lens.Lens' DiskImageDescription (Lude.Maybe Lude.Text)
+dImportManifestURL = Lens.lens (importManifestURL :: DiskImageDescription -> Lude.Maybe Lude.Text) (\s a -> s {importManifestURL = a} :: DiskImageDescription)
+{-# DEPRECATED dImportManifestURL "Use generic-lens or generic-optics with 'importManifestURL' instead." #-}
 
-instance FromXML DiskImageDescription where
+instance Lude.FromXML DiskImageDescription where
   parseXML x =
     DiskImageDescription'
-      <$> (x .@? "size")
-      <*> (x .@? "checksum")
-      <*> (x .@? "format")
-      <*> (x .@? "importManifestUrl")
-
-instance Hashable DiskImageDescription
-
-instance NFData DiskImageDescription
+      Lude.<$> (x Lude..@? "size")
+      Lude.<*> (x Lude..@? "checksum")
+      Lude.<*> (x Lude..@? "format")
+      Lude.<*> (x Lude..@? "importManifestUrl")

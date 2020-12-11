@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DirectConnect.Types.LagState where
+module Network.AWS.DirectConnect.Types.LagState
+  ( LagState
+      ( LagState',
+        LSAvailable,
+        LSDeleted,
+        LSDeleting,
+        LSDown,
+        LSPending,
+        LSRequested,
+        LSUnknown
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data LagState
-  = LSAvailable
-  | LSDeleted
-  | LSDeleting
-  | LSDown
-  | LSPending
-  | LSRequested
-  | LSUnknown
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype LagState = LagState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText LagState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure LSAvailable
-      "deleted" -> pure LSDeleted
-      "deleting" -> pure LSDeleting
-      "down" -> pure LSDown
-      "pending" -> pure LSPending
-      "requested" -> pure LSRequested
-      "unknown" -> pure LSUnknown
-      e ->
-        fromTextError $
-          "Failure parsing LagState from value: '" <> e
-            <> "'. Accepted values: available, deleted, deleting, down, pending, requested, unknown"
+pattern LSAvailable :: LagState
+pattern LSAvailable = LagState' "available"
 
-instance ToText LagState where
-  toText = \case
-    LSAvailable -> "available"
-    LSDeleted -> "deleted"
-    LSDeleting -> "deleting"
-    LSDown -> "down"
-    LSPending -> "pending"
-    LSRequested -> "requested"
-    LSUnknown -> "unknown"
+pattern LSDeleted :: LagState
+pattern LSDeleted = LagState' "deleted"
 
-instance Hashable LagState
+pattern LSDeleting :: LagState
+pattern LSDeleting = LagState' "deleting"
 
-instance NFData LagState
+pattern LSDown :: LagState
+pattern LSDown = LagState' "down"
 
-instance ToByteString LagState
+pattern LSPending :: LagState
+pattern LSPending = LagState' "pending"
 
-instance ToQuery LagState
+pattern LSRequested :: LagState
+pattern LSRequested = LagState' "requested"
 
-instance ToHeader LagState
+pattern LSUnknown :: LagState
+pattern LSUnknown = LagState' "unknown"
 
-instance FromJSON LagState where
-  parseJSON = parseJSONText "LagState"
+{-# COMPLETE
+  LSAvailable,
+  LSDeleted,
+  LSDeleting,
+  LSDown,
+  LSPending,
+  LSRequested,
+  LSUnknown,
+  LagState'
+  #-}

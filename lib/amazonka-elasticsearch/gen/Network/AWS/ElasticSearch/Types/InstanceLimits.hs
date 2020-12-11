@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticSearch.Types.InstanceLimits where
+module Network.AWS.ElasticSearch.Types.InstanceLimits
+  ( InstanceLimits (..),
+
+    -- * Smart constructor
+    mkInstanceLimits,
+
+    -- * Lenses
+    ilInstanceCountLimits,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types.InstanceCountLimits
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | InstanceLimits represents the list of instance related attributes that are available for given InstanceType.
 --
---
---
--- /See:/ 'instanceLimits' smart constructor.
+-- /See:/ 'mkInstanceLimits' smart constructor.
 newtype InstanceLimits = InstanceLimits'
-  { _ilInstanceCountLimits ::
-      Maybe InstanceCountLimits
+  { instanceCountLimits ::
+      Lude.Maybe InstanceCountLimits
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceLimits' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ilInstanceCountLimits' - Undocumented member.
-instanceLimits ::
+-- * 'instanceCountLimits' - Undocumented field.
+mkInstanceLimits ::
   InstanceLimits
-instanceLimits = InstanceLimits' {_ilInstanceCountLimits = Nothing}
+mkInstanceLimits =
+  InstanceLimits' {instanceCountLimits = Lude.Nothing}
 
--- | Undocumented member.
-ilInstanceCountLimits :: Lens' InstanceLimits (Maybe InstanceCountLimits)
-ilInstanceCountLimits = lens _ilInstanceCountLimits (\s a -> s {_ilInstanceCountLimits = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'instanceCountLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilInstanceCountLimits :: Lens.Lens' InstanceLimits (Lude.Maybe InstanceCountLimits)
+ilInstanceCountLimits = Lens.lens (instanceCountLimits :: InstanceLimits -> Lude.Maybe InstanceCountLimits) (\s a -> s {instanceCountLimits = a} :: InstanceLimits)
+{-# DEPRECATED ilInstanceCountLimits "Use generic-lens or generic-optics with 'instanceCountLimits' instead." #-}
 
-instance FromJSON InstanceLimits where
+instance Lude.FromJSON InstanceLimits where
   parseJSON =
-    withObject
+    Lude.withObject
       "InstanceLimits"
-      (\x -> InstanceLimits' <$> (x .:? "InstanceCountLimits"))
-
-instance Hashable InstanceLimits
-
-instance NFData InstanceLimits
+      ( \x ->
+          InstanceLimits' Lude.<$> (x Lude..:? "InstanceCountLimits")
+      )

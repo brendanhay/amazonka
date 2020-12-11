@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.DimensionValueOperator where
+module Network.AWS.IoT.Types.DimensionValueOperator
+  ( DimensionValueOperator
+      ( DimensionValueOperator',
+        IN,
+        NotIn
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DimensionValueOperator
-  = IN
-  | NotIn
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DimensionValueOperator = DimensionValueOperator' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DimensionValueOperator where
-  parser =
-    takeLowerText >>= \case
-      "in" -> pure IN
-      "not_in" -> pure NotIn
-      e ->
-        fromTextError $
-          "Failure parsing DimensionValueOperator from value: '" <> e
-            <> "'. Accepted values: in, not_in"
+pattern IN :: DimensionValueOperator
+pattern IN = DimensionValueOperator' "IN"
 
-instance ToText DimensionValueOperator where
-  toText = \case
-    IN -> "IN"
-    NotIn -> "NOT_IN"
+pattern NotIn :: DimensionValueOperator
+pattern NotIn = DimensionValueOperator' "NOT_IN"
 
-instance Hashable DimensionValueOperator
-
-instance NFData DimensionValueOperator
-
-instance ToByteString DimensionValueOperator
-
-instance ToQuery DimensionValueOperator
-
-instance ToHeader DimensionValueOperator
-
-instance ToJSON DimensionValueOperator where
-  toJSON = toJSONText
-
-instance FromJSON DimensionValueOperator where
-  parseJSON = parseJSONText "DimensionValueOperator"
+{-# COMPLETE
+  IN,
+  NotIn,
+  DimensionValueOperator'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,73 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.WavSettings where
+module Network.AWS.MediaLive.Types.WavSettings
+  ( WavSettings (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkWavSettings,
+
+    -- * Lenses
+    wsBitDepth,
+    wsCodingMode,
+    wsSampleRate,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.WavCodingMode
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Wav Settings
 --
--- /See:/ 'wavSettings' smart constructor.
+-- /See:/ 'mkWavSettings' smart constructor.
 data WavSettings = WavSettings'
-  { _wsBitDepth :: !(Maybe Double),
-    _wsCodingMode :: !(Maybe WavCodingMode),
-    _wsSampleRate :: !(Maybe Double)
+  { bitDepth :: Lude.Maybe Lude.Double,
+    codingMode :: Lude.Maybe WavCodingMode,
+    sampleRate :: Lude.Maybe Lude.Double
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WavSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'wsBitDepth' - Bits per sample.
---
--- * 'wsCodingMode' - The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
---
--- * 'wsSampleRate' - Sample rate in Hz.
-wavSettings ::
+-- * 'bitDepth' - Bits per sample.
+-- * 'codingMode' - The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
+-- * 'sampleRate' - Sample rate in Hz.
+mkWavSettings ::
   WavSettings
-wavSettings =
+mkWavSettings =
   WavSettings'
-    { _wsBitDepth = Nothing,
-      _wsCodingMode = Nothing,
-      _wsSampleRate = Nothing
+    { bitDepth = Lude.Nothing,
+      codingMode = Lude.Nothing,
+      sampleRate = Lude.Nothing
     }
 
 -- | Bits per sample.
-wsBitDepth :: Lens' WavSettings (Maybe Double)
-wsBitDepth = lens _wsBitDepth (\s a -> s {_wsBitDepth = a})
+--
+-- /Note:/ Consider using 'bitDepth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wsBitDepth :: Lens.Lens' WavSettings (Lude.Maybe Lude.Double)
+wsBitDepth = Lens.lens (bitDepth :: WavSettings -> Lude.Maybe Lude.Double) (\s a -> s {bitDepth = a} :: WavSettings)
+{-# DEPRECATED wsBitDepth "Use generic-lens or generic-optics with 'bitDepth' instead." #-}
 
 -- | The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
-wsCodingMode :: Lens' WavSettings (Maybe WavCodingMode)
-wsCodingMode = lens _wsCodingMode (\s a -> s {_wsCodingMode = a})
+--
+-- /Note:/ Consider using 'codingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wsCodingMode :: Lens.Lens' WavSettings (Lude.Maybe WavCodingMode)
+wsCodingMode = Lens.lens (codingMode :: WavSettings -> Lude.Maybe WavCodingMode) (\s a -> s {codingMode = a} :: WavSettings)
+{-# DEPRECATED wsCodingMode "Use generic-lens or generic-optics with 'codingMode' instead." #-}
 
 -- | Sample rate in Hz.
-wsSampleRate :: Lens' WavSettings (Maybe Double)
-wsSampleRate = lens _wsSampleRate (\s a -> s {_wsSampleRate = a})
+--
+-- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wsSampleRate :: Lens.Lens' WavSettings (Lude.Maybe Lude.Double)
+wsSampleRate = Lens.lens (sampleRate :: WavSettings -> Lude.Maybe Lude.Double) (\s a -> s {sampleRate = a} :: WavSettings)
+{-# DEPRECATED wsSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
-instance FromJSON WavSettings where
+instance Lude.FromJSON WavSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "WavSettings"
       ( \x ->
           WavSettings'
-            <$> (x .:? "bitDepth")
-            <*> (x .:? "codingMode")
-            <*> (x .:? "sampleRate")
+            Lude.<$> (x Lude..:? "bitDepth")
+            Lude.<*> (x Lude..:? "codingMode")
+            Lude.<*> (x Lude..:? "sampleRate")
       )
 
-instance Hashable WavSettings
-
-instance NFData WavSettings
-
-instance ToJSON WavSettings where
+instance Lude.ToJSON WavSettings where
   toJSON WavSettings' {..} =
-    object
-      ( catMaybes
-          [ ("bitDepth" .=) <$> _wsBitDepth,
-            ("codingMode" .=) <$> _wsCodingMode,
-            ("sampleRate" .=) <$> _wsSampleRate
+    Lude.object
+      ( Lude.catMaybes
+          [ ("bitDepth" Lude..=) Lude.<$> bitDepth,
+            ("codingMode" Lude..=) Lude.<$> codingMode,
+            ("sampleRate" Lude..=) Lude.<$> sampleRate
           ]
       )

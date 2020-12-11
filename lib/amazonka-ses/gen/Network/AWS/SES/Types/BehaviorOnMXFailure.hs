@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.BehaviorOnMXFailure where
+module Network.AWS.SES.Types.BehaviorOnMXFailure
+  ( BehaviorOnMXFailure
+      ( BehaviorOnMXFailure',
+        RejectMessage,
+        UseDefaultValue
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BehaviorOnMXFailure
-  = RejectMessage
-  | UseDefaultValue
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BehaviorOnMXFailure = BehaviorOnMXFailure' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BehaviorOnMXFailure where
-  parser =
-    takeLowerText >>= \case
-      "rejectmessage" -> pure RejectMessage
-      "usedefaultvalue" -> pure UseDefaultValue
-      e ->
-        fromTextError $
-          "Failure parsing BehaviorOnMXFailure from value: '" <> e
-            <> "'. Accepted values: rejectmessage, usedefaultvalue"
+pattern RejectMessage :: BehaviorOnMXFailure
+pattern RejectMessage = BehaviorOnMXFailure' "RejectMessage"
 
-instance ToText BehaviorOnMXFailure where
-  toText = \case
-    RejectMessage -> "RejectMessage"
-    UseDefaultValue -> "UseDefaultValue"
+pattern UseDefaultValue :: BehaviorOnMXFailure
+pattern UseDefaultValue = BehaviorOnMXFailure' "UseDefaultValue"
 
-instance Hashable BehaviorOnMXFailure
-
-instance NFData BehaviorOnMXFailure
-
-instance ToByteString BehaviorOnMXFailure
-
-instance ToQuery BehaviorOnMXFailure
-
-instance ToHeader BehaviorOnMXFailure
-
-instance FromXML BehaviorOnMXFailure where
-  parseXML = parseXMLText "BehaviorOnMXFailure"
+{-# COMPLETE
+  RejectMessage,
+  UseDefaultValue,
+  BehaviorOnMXFailure'
+  #-}

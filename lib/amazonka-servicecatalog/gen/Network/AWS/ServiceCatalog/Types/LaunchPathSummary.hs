@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,76 +7,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.LaunchPathSummary where
+module Network.AWS.ServiceCatalog.Types.LaunchPathSummary
+  ( LaunchPathSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkLaunchPathSummary,
+
+    -- * Lenses
+    lpsConstraintSummaries,
+    lpsName,
+    lpsId,
+    lpsTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.ConstraintSummary
 import Network.AWS.ServiceCatalog.Types.Tag
 
 -- | Summary information about a product path for a user.
 --
---
---
--- /See:/ 'launchPathSummary' smart constructor.
+-- /See:/ 'mkLaunchPathSummary' smart constructor.
 data LaunchPathSummary = LaunchPathSummary'
-  { _lpsConstraintSummaries ::
-      !(Maybe [ConstraintSummary]),
-    _lpsName :: !(Maybe Text),
-    _lpsId :: !(Maybe Text),
-    _lpsTags :: !(Maybe [Tag])
+  { constraintSummaries ::
+      Lude.Maybe [ConstraintSummary],
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe [Tag]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchPathSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpsConstraintSummaries' - The constraints on the portfolio-product relationship.
---
--- * 'lpsName' - The name of the portfolio to which the user was assigned.
---
--- * 'lpsId' - The identifier of the product path.
---
--- * 'lpsTags' - The tags associated with this product path.
-launchPathSummary ::
+-- * 'constraintSummaries' - The constraints on the portfolio-product relationship.
+-- * 'id' - The identifier of the product path.
+-- * 'name' - The name of the portfolio to which the user was assigned.
+-- * 'tags' - The tags associated with this product path.
+mkLaunchPathSummary ::
   LaunchPathSummary
-launchPathSummary =
+mkLaunchPathSummary =
   LaunchPathSummary'
-    { _lpsConstraintSummaries = Nothing,
-      _lpsName = Nothing,
-      _lpsId = Nothing,
-      _lpsTags = Nothing
+    { constraintSummaries = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The constraints on the portfolio-product relationship.
-lpsConstraintSummaries :: Lens' LaunchPathSummary [ConstraintSummary]
-lpsConstraintSummaries = lens _lpsConstraintSummaries (\s a -> s {_lpsConstraintSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'constraintSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpsConstraintSummaries :: Lens.Lens' LaunchPathSummary (Lude.Maybe [ConstraintSummary])
+lpsConstraintSummaries = Lens.lens (constraintSummaries :: LaunchPathSummary -> Lude.Maybe [ConstraintSummary]) (\s a -> s {constraintSummaries = a} :: LaunchPathSummary)
+{-# DEPRECATED lpsConstraintSummaries "Use generic-lens or generic-optics with 'constraintSummaries' instead." #-}
 
 -- | The name of the portfolio to which the user was assigned.
-lpsName :: Lens' LaunchPathSummary (Maybe Text)
-lpsName = lens _lpsName (\s a -> s {_lpsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpsName :: Lens.Lens' LaunchPathSummary (Lude.Maybe Lude.Text)
+lpsName = Lens.lens (name :: LaunchPathSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LaunchPathSummary)
+{-# DEPRECATED lpsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the product path.
-lpsId :: Lens' LaunchPathSummary (Maybe Text)
-lpsId = lens _lpsId (\s a -> s {_lpsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpsId :: Lens.Lens' LaunchPathSummary (Lude.Maybe Lude.Text)
+lpsId = Lens.lens (id :: LaunchPathSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: LaunchPathSummary)
+{-# DEPRECATED lpsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The tags associated with this product path.
-lpsTags :: Lens' LaunchPathSummary [Tag]
-lpsTags = lens _lpsTags (\s a -> s {_lpsTags = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpsTags :: Lens.Lens' LaunchPathSummary (Lude.Maybe [Tag])
+lpsTags = Lens.lens (tags :: LaunchPathSummary -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LaunchPathSummary)
+{-# DEPRECATED lpsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON LaunchPathSummary where
+instance Lude.FromJSON LaunchPathSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "LaunchPathSummary"
       ( \x ->
           LaunchPathSummary'
-            <$> (x .:? "ConstraintSummaries" .!= mempty)
-            <*> (x .:? "Name")
-            <*> (x .:? "Id")
-            <*> (x .:? "Tags" .!= mempty)
+            Lude.<$> (x Lude..:? "ConstraintSummaries" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Id")
+            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable LaunchPathSummary
-
-instance NFData LaunchPathSummary

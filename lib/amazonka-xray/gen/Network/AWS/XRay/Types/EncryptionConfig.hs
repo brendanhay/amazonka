@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.EncryptionConfig where
+module Network.AWS.XRay.Types.EncryptionConfig
+  ( EncryptionConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEncryptionConfig,
+
+    -- * Lenses
+    ecStatus,
+    ecKeyId,
+    ecType,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.EncryptionStatus
 import Network.AWS.XRay.Types.EncryptionType
 
 -- | A configuration document that specifies encryption configuration settings.
 --
---
---
--- /See:/ 'encryptionConfig' smart constructor.
+-- /See:/ 'mkEncryptionConfig' smart constructor.
 data EncryptionConfig = EncryptionConfig'
-  { _ecStatus ::
-      !(Maybe EncryptionStatus),
-    _ecKeyId :: !(Maybe Text),
-    _ecType :: !(Maybe EncryptionType)
+  { status ::
+      Lude.Maybe EncryptionStatus,
+    keyId :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe EncryptionType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ecStatus' - The encryption status. While the status is @UPDATING@ , X-Ray may encrypt data with a combination of the new and old settings.
---
--- * 'ecKeyId' - The ID of the customer master key (CMK) used for encryption, if applicable.
---
--- * 'ecType' - The type of encryption. Set to @KMS@ for encryption with CMKs. Set to @NONE@ for default encryption.
-encryptionConfig ::
+-- * 'keyId' - The ID of the customer master key (CMK) used for encryption, if applicable.
+-- * 'status' - The encryption status. While the status is @UPDATING@ , X-Ray may encrypt data with a combination of the new and old settings.
+-- * 'type'' - The type of encryption. Set to @KMS@ for encryption with CMKs. Set to @NONE@ for default encryption.
+mkEncryptionConfig ::
   EncryptionConfig
-encryptionConfig =
+mkEncryptionConfig =
   EncryptionConfig'
-    { _ecStatus = Nothing,
-      _ecKeyId = Nothing,
-      _ecType = Nothing
+    { status = Lude.Nothing,
+      keyId = Lude.Nothing,
+      type' = Lude.Nothing
     }
 
 -- | The encryption status. While the status is @UPDATING@ , X-Ray may encrypt data with a combination of the new and old settings.
-ecStatus :: Lens' EncryptionConfig (Maybe EncryptionStatus)
-ecStatus = lens _ecStatus (\s a -> s {_ecStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecStatus :: Lens.Lens' EncryptionConfig (Lude.Maybe EncryptionStatus)
+ecStatus = Lens.lens (status :: EncryptionConfig -> Lude.Maybe EncryptionStatus) (\s a -> s {status = a} :: EncryptionConfig)
+{-# DEPRECATED ecStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID of the customer master key (CMK) used for encryption, if applicable.
-ecKeyId :: Lens' EncryptionConfig (Maybe Text)
-ecKeyId = lens _ecKeyId (\s a -> s {_ecKeyId = a})
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecKeyId :: Lens.Lens' EncryptionConfig (Lude.Maybe Lude.Text)
+ecKeyId = Lens.lens (keyId :: EncryptionConfig -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: EncryptionConfig)
+{-# DEPRECATED ecKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The type of encryption. Set to @KMS@ for encryption with CMKs. Set to @NONE@ for default encryption.
-ecType :: Lens' EncryptionConfig (Maybe EncryptionType)
-ecType = lens _ecType (\s a -> s {_ecType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecType :: Lens.Lens' EncryptionConfig (Lude.Maybe EncryptionType)
+ecType = Lens.lens (type' :: EncryptionConfig -> Lude.Maybe EncryptionType) (\s a -> s {type' = a} :: EncryptionConfig)
+{-# DEPRECATED ecType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance FromJSON EncryptionConfig where
+instance Lude.FromJSON EncryptionConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "EncryptionConfig"
       ( \x ->
           EncryptionConfig'
-            <$> (x .:? "Status") <*> (x .:? "KeyId") <*> (x .:? "Type")
+            Lude.<$> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "KeyId")
+            Lude.<*> (x Lude..:? "Type")
       )
-
-instance Hashable EncryptionConfig
-
-instance NFData EncryptionConfig

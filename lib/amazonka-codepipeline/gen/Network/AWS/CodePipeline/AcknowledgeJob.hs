@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,137 +14,150 @@
 --
 -- Returns information about a specified job and whether that job has been received by the job worker. Used for custom actions only.
 module Network.AWS.CodePipeline.AcknowledgeJob
-  ( -- * Creating a Request
-    acknowledgeJob,
-    AcknowledgeJob,
+  ( -- * Creating a request
+    AcknowledgeJob (..),
+    mkAcknowledgeJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ajJobId,
     ajNonce,
 
-    -- * Destructuring the Response
-    acknowledgeJobResponse,
-    AcknowledgeJobResponse,
+    -- * Destructuring the response
+    AcknowledgeJobResponse (..),
+    mkAcknowledgeJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ajrsStatus,
     ajrsResponseStatus,
   )
 where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of an AcknowledgeJob action.
 --
---
---
--- /See:/ 'acknowledgeJob' smart constructor.
+-- /See:/ 'mkAcknowledgeJob' smart constructor.
 data AcknowledgeJob = AcknowledgeJob'
-  { _ajJobId :: !Text,
-    _ajNonce :: !Text
+  { jobId :: Lude.Text,
+    nonce :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcknowledgeJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ajJobId' - The unique system-generated ID of the job for which you want to confirm receipt.
---
--- * 'ajNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response of the 'PollForJobs' request that returned this job.
-acknowledgeJob ::
-  -- | 'ajJobId'
-  Text ->
-  -- | 'ajNonce'
-  Text ->
+-- * 'jobId' - The unique system-generated ID of the job for which you want to confirm receipt.
+-- * 'nonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response of the 'PollForJobs' request that returned this job.
+mkAcknowledgeJob ::
+  -- | 'jobId'
+  Lude.Text ->
+  -- | 'nonce'
+  Lude.Text ->
   AcknowledgeJob
-acknowledgeJob pJobId_ pNonce_ =
-  AcknowledgeJob' {_ajJobId = pJobId_, _ajNonce = pNonce_}
+mkAcknowledgeJob pJobId_ pNonce_ =
+  AcknowledgeJob' {jobId = pJobId_, nonce = pNonce_}
 
 -- | The unique system-generated ID of the job for which you want to confirm receipt.
-ajJobId :: Lens' AcknowledgeJob Text
-ajJobId = lens _ajJobId (\s a -> s {_ajJobId = a})
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ajJobId :: Lens.Lens' AcknowledgeJob Lude.Text
+ajJobId = Lens.lens (jobId :: AcknowledgeJob -> Lude.Text) (\s a -> s {jobId = a} :: AcknowledgeJob)
+{-# DEPRECATED ajJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response of the 'PollForJobs' request that returned this job.
-ajNonce :: Lens' AcknowledgeJob Text
-ajNonce = lens _ajNonce (\s a -> s {_ajNonce = a})
+--
+-- /Note:/ Consider using 'nonce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ajNonce :: Lens.Lens' AcknowledgeJob Lude.Text
+ajNonce = Lens.lens (nonce :: AcknowledgeJob -> Lude.Text) (\s a -> s {nonce = a} :: AcknowledgeJob)
+{-# DEPRECATED ajNonce "Use generic-lens or generic-optics with 'nonce' instead." #-}
 
-instance AWSRequest AcknowledgeJob where
+instance Lude.AWSRequest AcknowledgeJob where
   type Rs AcknowledgeJob = AcknowledgeJobResponse
-  request = postJSON codePipeline
+  request = Req.postJSON codePipelineService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AcknowledgeJobResponse'
-            <$> (x .?> "status") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AcknowledgeJob
-
-instance NFData AcknowledgeJob
-
-instance ToHeaders AcknowledgeJob where
+instance Lude.ToHeaders AcknowledgeJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodePipeline_20150709.AcknowledgeJob" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodePipeline_20150709.AcknowledgeJob" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AcknowledgeJob where
+instance Lude.ToJSON AcknowledgeJob where
   toJSON AcknowledgeJob' {..} =
-    object
-      ( catMaybes
-          [Just ("jobId" .= _ajJobId), Just ("nonce" .= _ajNonce)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("jobId" Lude..= jobId),
+            Lude.Just ("nonce" Lude..= nonce)
+          ]
       )
 
-instance ToPath AcknowledgeJob where
-  toPath = const "/"
+instance Lude.ToPath AcknowledgeJob where
+  toPath = Lude.const "/"
 
-instance ToQuery AcknowledgeJob where
-  toQuery = const mempty
+instance Lude.ToQuery AcknowledgeJob where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of an AcknowledgeJob action.
 --
---
---
--- /See:/ 'acknowledgeJobResponse' smart constructor.
+-- /See:/ 'mkAcknowledgeJobResponse' smart constructor.
 data AcknowledgeJobResponse = AcknowledgeJobResponse'
-  { _ajrsStatus ::
-      !(Maybe JobStatus),
-    _ajrsResponseStatus :: !Int
+  { status ::
+      Lude.Maybe JobStatus,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcknowledgeJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ajrsStatus' - Whether the job worker has received the specified job.
---
--- * 'ajrsResponseStatus' - -- | The response status code.
-acknowledgeJobResponse ::
-  -- | 'ajrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'status' - Whether the job worker has received the specified job.
+mkAcknowledgeJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AcknowledgeJobResponse
-acknowledgeJobResponse pResponseStatus_ =
+mkAcknowledgeJobResponse pResponseStatus_ =
   AcknowledgeJobResponse'
-    { _ajrsStatus = Nothing,
-      _ajrsResponseStatus = pResponseStatus_
+    { status = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Whether the job worker has received the specified job.
-ajrsStatus :: Lens' AcknowledgeJobResponse (Maybe JobStatus)
-ajrsStatus = lens _ajrsStatus (\s a -> s {_ajrsStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ajrsStatus :: Lens.Lens' AcknowledgeJobResponse (Lude.Maybe JobStatus)
+ajrsStatus = Lens.lens (status :: AcknowledgeJobResponse -> Lude.Maybe JobStatus) (\s a -> s {status = a} :: AcknowledgeJobResponse)
+{-# DEPRECATED ajrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | -- | The response status code.
-ajrsResponseStatus :: Lens' AcknowledgeJobResponse Int
-ajrsResponseStatus = lens _ajrsResponseStatus (\s a -> s {_ajrsResponseStatus = a})
-
-instance NFData AcknowledgeJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ajrsResponseStatus :: Lens.Lens' AcknowledgeJobResponse Lude.Int
+ajrsResponseStatus = Lens.lens (responseStatus :: AcknowledgeJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AcknowledgeJobResponse)
+{-# DEPRECATED ajrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

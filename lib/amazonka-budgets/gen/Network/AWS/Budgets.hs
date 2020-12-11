@@ -13,43 +13,44 @@
 --
 -- The AWS Budgets API enables you to use AWS Budgets to plan your service usage, service costs, and instance reservations. The API reference provides descriptions, syntax, and usage examples for each of the actions and data types for AWS Budgets.
 --
---
 -- Budgets provide you with a way to see the following information:
 --
 --     * How close your plan is to your budgeted amount or to the free tier limits
 --
+--
 --     * Your usage-to-date, including how much you've used of your Reserved Instances (RIs)
+--
 --
 --     * Your current estimated charges from AWS, and how much your predicted usage will accrue in charges by the end of the month
 --
---     * How much of your budget has been used
 --
+--     * How much of your budget has been used
 --
 --
 -- AWS updates your budget status several times a day. Budgets track your unblended costs, subscriptions, refunds, and RIs. You can create the following types of budgets:
 --
 --     * __Cost budgets__ - Plan how much you want to spend on a service.
 --
+--
 --     * __Usage budgets__ - Plan how much you want to use one or more services.
 --
+--
 --     * __RI utilization budgets__ - Define a utilization threshold, and receive alerts when your RI usage falls below that threshold. This lets you see if your RIs are unused or under-utilized.
+--
 --
 --     * __RI coverage budgets__ - Define a coverage threshold, and receive alerts when the number of your instance hours that are covered by RIs fall below that threshold. This lets you see how much of your instance usage is covered by a reservation.
 --
 --
---
 -- Service Endpoint
---
 -- The AWS Budgets API provides the following endpoint:
 --
 --     * https://budgets.amazonaws.com
 --
 --
---
 -- For information about costs that are associated with the AWS Budgets API, see <https://aws.amazon.com/aws-cost-management/pricing/ AWS Cost Management Pricing> .
 module Network.AWS.Budgets
-  ( -- * Service Configuration
-    budgets,
+  ( -- * Service configuration
+    budgetsService,
 
     -- * Errors
     -- $errors
@@ -168,8 +169,8 @@ module Network.AWS.Budgets
     TimeUnit (..),
 
     -- ** Action
-    Action,
-    action,
+    Action (..),
+    mkAction,
     aActionId,
     aBudgetName,
     aNotificationType,
@@ -182,28 +183,28 @@ module Network.AWS.Budgets
     aSubscribers,
 
     -- ** ActionHistory
-    ActionHistory,
-    actionHistory,
+    ActionHistory (..),
+    mkActionHistory,
     ahTimestamp,
     ahStatus,
     ahEventType,
     ahActionHistoryDetails,
 
     -- ** ActionHistoryDetails
-    ActionHistoryDetails,
-    actionHistoryDetails,
+    ActionHistoryDetails (..),
+    mkActionHistoryDetails,
     ahdMessage,
     ahdAction,
 
     -- ** ActionThreshold
-    ActionThreshold,
-    actionThreshold,
+    ActionThreshold (..),
+    mkActionThreshold,
     atActionThresholdValue,
     atActionThresholdType,
 
     -- ** Budget
-    Budget,
-    budget,
+    Budget (..),
+    mkBudget,
     bCalculatedSpend,
     bPlannedBudgetLimits,
     bLastUpdatedTime,
@@ -216,8 +217,8 @@ module Network.AWS.Budgets
     bBudgetType,
 
     -- ** BudgetPerformanceHistory
-    BudgetPerformanceHistory,
-    budgetPerformanceHistory,
+    BudgetPerformanceHistory (..),
+    mkBudgetPerformanceHistory,
     bphBudgetedAndActualAmountsList,
     bphTimeUnit,
     bphBudgetName,
@@ -226,21 +227,21 @@ module Network.AWS.Budgets
     bphCostFilters,
 
     -- ** BudgetedAndActualAmounts
-    BudgetedAndActualAmounts,
-    budgetedAndActualAmounts,
+    BudgetedAndActualAmounts (..),
+    mkBudgetedAndActualAmounts,
     baaaTimePeriod,
     baaaActualAmount,
     baaaBudgetedAmount,
 
     -- ** CalculatedSpend
-    CalculatedSpend,
-    calculatedSpend,
+    CalculatedSpend (..),
+    mkCalculatedSpend,
     csForecastedSpend,
     csActualSpend,
 
     -- ** CostTypes
-    CostTypes,
-    costTypes,
+    CostTypes (..),
+    mkCostTypes,
     ctUseAmortized,
     ctIncludeRecurring,
     ctUseBlended,
@@ -254,23 +255,23 @@ module Network.AWS.Budgets
     ctIncludeCredit,
 
     -- ** Definition
-    Definition,
-    definition,
+    Definition (..),
+    mkDefinition,
     dScpActionDefinition,
     dIAMActionDefinition,
     dSsmActionDefinition,
 
     -- ** IAMActionDefinition
-    IAMActionDefinition,
-    iamActionDefinition,
+    IAMActionDefinition (..),
+    mkIAMActionDefinition,
     iadGroups,
     iadRoles,
     iadUsers,
     iadPolicyARN,
 
     -- ** Notification
-    Notification,
-    notification,
+    Notification (..),
+    mkNotification,
     nThresholdType,
     nNotificationState,
     nNotificationType,
@@ -278,41 +279,52 @@ module Network.AWS.Budgets
     nThreshold,
 
     -- ** NotificationWithSubscribers
-    NotificationWithSubscribers,
-    notificationWithSubscribers,
+    NotificationWithSubscribers (..),
+    mkNotificationWithSubscribers,
     nwsNotification,
     nwsSubscribers,
 
     -- ** ScpActionDefinition
-    ScpActionDefinition,
-    scpActionDefinition,
+    ScpActionDefinition (..),
+    mkScpActionDefinition,
     sadPolicyId,
     sadTargetIds,
 
     -- ** Spend
-    Spend,
-    spend,
+    Spend (..),
+    mkSpend,
     sAmount,
     sUnit,
 
     -- ** SsmActionDefinition
-    SsmActionDefinition,
-    ssmActionDefinition,
+    SsmActionDefinition (..),
+    mkSsmActionDefinition,
     sadActionSubType,
     sadRegion,
     sadInstanceIds,
 
     -- ** Subscriber
-    Subscriber,
-    subscriber,
+    Subscriber (..),
+    mkSubscriber,
     sSubscriptionType,
     sAddress,
 
     -- ** TimePeriod
-    TimePeriod,
-    timePeriod,
+    TimePeriod (..),
+    mkTimePeriod,
     tpStart,
     tpEnd,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -340,6 +352,7 @@ import Network.AWS.Budgets.UpdateBudgetAction
 import Network.AWS.Budgets.UpdateNotification
 import Network.AWS.Budgets.UpdateSubscriber
 import Network.AWS.Budgets.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

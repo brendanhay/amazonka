@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.AppType where
+module Network.AWS.OpsWorks.Types.AppType
+  ( AppType
+      ( AppType',
+        ATAWSFlowRuby,
+        ATJava,
+        ATNodejs,
+        ATOther,
+        ATPHP,
+        ATRails,
+        ATStatic
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AppType
-  = ATAWSFlowRuby
-  | ATJava
-  | ATNodejs
-  | ATOther
-  | ATPHP
-  | ATRails
-  | ATStatic
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AppType = AppType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AppType where
-  parser =
-    takeLowerText >>= \case
-      "aws-flow-ruby" -> pure ATAWSFlowRuby
-      "java" -> pure ATJava
-      "nodejs" -> pure ATNodejs
-      "other" -> pure ATOther
-      "php" -> pure ATPHP
-      "rails" -> pure ATRails
-      "static" -> pure ATStatic
-      e ->
-        fromTextError $
-          "Failure parsing AppType from value: '" <> e
-            <> "'. Accepted values: aws-flow-ruby, java, nodejs, other, php, rails, static"
+pattern ATAWSFlowRuby :: AppType
+pattern ATAWSFlowRuby = AppType' "aws-flow-ruby"
 
-instance ToText AppType where
-  toText = \case
-    ATAWSFlowRuby -> "aws-flow-ruby"
-    ATJava -> "java"
-    ATNodejs -> "nodejs"
-    ATOther -> "other"
-    ATPHP -> "php"
-    ATRails -> "rails"
-    ATStatic -> "static"
+pattern ATJava :: AppType
+pattern ATJava = AppType' "java"
 
-instance Hashable AppType
+pattern ATNodejs :: AppType
+pattern ATNodejs = AppType' "nodejs"
 
-instance NFData AppType
+pattern ATOther :: AppType
+pattern ATOther = AppType' "other"
 
-instance ToByteString AppType
+pattern ATPHP :: AppType
+pattern ATPHP = AppType' "php"
 
-instance ToQuery AppType
+pattern ATRails :: AppType
+pattern ATRails = AppType' "rails"
 
-instance ToHeader AppType
+pattern ATStatic :: AppType
+pattern ATStatic = AppType' "static"
 
-instance ToJSON AppType where
-  toJSON = toJSONText
-
-instance FromJSON AppType where
-  parseJSON = parseJSONText "AppType"
+{-# COMPLETE
+  ATAWSFlowRuby,
+  ATJava,
+  ATNodejs,
+  ATOther,
+  ATPHP,
+  ATRails,
+  ATStatic,
+  AppType'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,88 +14,101 @@
 --
 -- Deletes a stream.
 module Network.AWS.IoT.DeleteStream
-  ( -- * Creating a Request
-    deleteStream,
-    DeleteStream,
+  ( -- * Creating a request
+    DeleteStream (..),
+    mkDeleteStream,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dsStreamId,
 
-    -- * Destructuring the Response
-    deleteStreamResponse,
-    DeleteStreamResponse,
+    -- * Destructuring the response
+    DeleteStreamResponse (..),
+    mkDeleteStreamResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dsrsResponseStatus,
   )
 where
 
 import Network.AWS.IoT.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteStream' smart constructor.
-newtype DeleteStream = DeleteStream' {_dsStreamId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteStream' smart constructor.
+newtype DeleteStream = DeleteStream' {streamId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsStreamId' - The stream ID.
-deleteStream ::
-  -- | 'dsStreamId'
-  Text ->
+-- * 'streamId' - The stream ID.
+mkDeleteStream ::
+  -- | 'streamId'
+  Lude.Text ->
   DeleteStream
-deleteStream pStreamId_ = DeleteStream' {_dsStreamId = pStreamId_}
+mkDeleteStream pStreamId_ = DeleteStream' {streamId = pStreamId_}
 
 -- | The stream ID.
-dsStreamId :: Lens' DeleteStream Text
-dsStreamId = lens _dsStreamId (\s a -> s {_dsStreamId = a})
+--
+-- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStreamId :: Lens.Lens' DeleteStream Lude.Text
+dsStreamId = Lens.lens (streamId :: DeleteStream -> Lude.Text) (\s a -> s {streamId = a} :: DeleteStream)
+{-# DEPRECATED dsStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
 
-instance AWSRequest DeleteStream where
+instance Lude.AWSRequest DeleteStream where
   type Rs DeleteStream = DeleteStreamResponse
-  request = delete ioT
+  request = Req.delete ioTService
   response =
-    receiveEmpty
-      (\s h x -> DeleteStreamResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteStreamResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteStream
+instance Lude.ToHeaders DeleteStream where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DeleteStream
+instance Lude.ToPath DeleteStream where
+  toPath DeleteStream' {..} =
+    Lude.mconcat ["/streams/", Lude.toBS streamId]
 
-instance ToHeaders DeleteStream where
-  toHeaders = const mempty
+instance Lude.ToQuery DeleteStream where
+  toQuery = Lude.const Lude.mempty
 
-instance ToPath DeleteStream where
-  toPath DeleteStream' {..} = mconcat ["/streams/", toBS _dsStreamId]
-
-instance ToQuery DeleteStream where
-  toQuery = const mempty
-
--- | /See:/ 'deleteStreamResponse' smart constructor.
+-- | /See:/ 'mkDeleteStreamResponse' smart constructor.
 newtype DeleteStreamResponse = DeleteStreamResponse'
-  { _dsrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteStreamResponse ::
-  -- | 'dsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteStreamResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteStreamResponse
-deleteStreamResponse pResponseStatus_ =
-  DeleteStreamResponse' {_dsrsResponseStatus = pResponseStatus_}
+mkDeleteStreamResponse pResponseStatus_ =
+  DeleteStreamResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteStreamResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\s a -> s {_dsrsResponseStatus = a})
-
-instance NFData DeleteStreamResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsrsResponseStatus :: Lens.Lens' DeleteStreamResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DeleteStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteStreamResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

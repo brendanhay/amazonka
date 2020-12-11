@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- Restarts selected nodes of a previous partially completed workflow run and resumes the workflow run. The selected nodes and all nodes that are downstream from the selected nodes are run.
 module Network.AWS.Glue.ResumeWorkflowRun
-  ( -- * Creating a Request
-    resumeWorkflowRun,
-    ResumeWorkflowRun,
+  ( -- * Creating a request
+    ResumeWorkflowRun (..),
+    mkResumeWorkflowRun,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rwrName,
     rwrRunId,
     rwrNodeIds,
 
-    -- * Destructuring the Response
-    resumeWorkflowRunResponse,
-    ResumeWorkflowRunResponse,
+    -- * Destructuring the response
+    ResumeWorkflowRunResponse (..),
+    mkResumeWorkflowRunResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rwrrsNodeIds,
     rwrrsRunId,
     rwrrsResponseStatus,
@@ -40,133 +35,153 @@ module Network.AWS.Glue.ResumeWorkflowRun
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'resumeWorkflowRun' smart constructor.
+-- | /See:/ 'mkResumeWorkflowRun' smart constructor.
 data ResumeWorkflowRun = ResumeWorkflowRun'
-  { _rwrName :: !Text,
-    _rwrRunId :: !Text,
-    _rwrNodeIds :: ![Text]
+  { name :: Lude.Text,
+    runId :: Lude.Text,
+    nodeIds :: [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeWorkflowRun' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rwrName' - The name of the workflow to resume.
---
--- * 'rwrRunId' - The ID of the workflow run to resume.
---
--- * 'rwrNodeIds' - A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.
-resumeWorkflowRun ::
-  -- | 'rwrName'
-  Text ->
-  -- | 'rwrRunId'
-  Text ->
+-- * 'name' - The name of the workflow to resume.
+-- * 'nodeIds' - A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.
+-- * 'runId' - The ID of the workflow run to resume.
+mkResumeWorkflowRun ::
+  -- | 'name'
+  Lude.Text ->
+  -- | 'runId'
+  Lude.Text ->
   ResumeWorkflowRun
-resumeWorkflowRun pName_ pRunId_ =
+mkResumeWorkflowRun pName_ pRunId_ =
   ResumeWorkflowRun'
-    { _rwrName = pName_,
-      _rwrRunId = pRunId_,
-      _rwrNodeIds = mempty
+    { name = pName_,
+      runId = pRunId_,
+      nodeIds = Lude.mempty
     }
 
 -- | The name of the workflow to resume.
-rwrName :: Lens' ResumeWorkflowRun Text
-rwrName = lens _rwrName (\s a -> s {_rwrName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrName :: Lens.Lens' ResumeWorkflowRun Lude.Text
+rwrName = Lens.lens (name :: ResumeWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: ResumeWorkflowRun)
+{-# DEPRECATED rwrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the workflow run to resume.
-rwrRunId :: Lens' ResumeWorkflowRun Text
-rwrRunId = lens _rwrRunId (\s a -> s {_rwrRunId = a})
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrRunId :: Lens.Lens' ResumeWorkflowRun Lude.Text
+rwrRunId = Lens.lens (runId :: ResumeWorkflowRun -> Lude.Text) (\s a -> s {runId = a} :: ResumeWorkflowRun)
+{-# DEPRECATED rwrRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
 -- | A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.
-rwrNodeIds :: Lens' ResumeWorkflowRun [Text]
-rwrNodeIds = lens _rwrNodeIds (\s a -> s {_rwrNodeIds = a}) . _Coerce
+--
+-- /Note:/ Consider using 'nodeIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrNodeIds :: Lens.Lens' ResumeWorkflowRun [Lude.Text]
+rwrNodeIds = Lens.lens (nodeIds :: ResumeWorkflowRun -> [Lude.Text]) (\s a -> s {nodeIds = a} :: ResumeWorkflowRun)
+{-# DEPRECATED rwrNodeIds "Use generic-lens or generic-optics with 'nodeIds' instead." #-}
 
-instance AWSRequest ResumeWorkflowRun where
+instance Lude.AWSRequest ResumeWorkflowRun where
   type Rs ResumeWorkflowRun = ResumeWorkflowRunResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ResumeWorkflowRunResponse'
-            <$> (x .?> "NodeIds" .!@ mempty)
-            <*> (x .?> "RunId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NodeIds" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "RunId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResumeWorkflowRun
-
-instance NFData ResumeWorkflowRun
-
-instance ToHeaders ResumeWorkflowRun where
+instance Lude.ToHeaders ResumeWorkflowRun where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.ResumeWorkflowRun" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSGlue.ResumeWorkflowRun" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ResumeWorkflowRun where
+instance Lude.ToJSON ResumeWorkflowRun where
   toJSON ResumeWorkflowRun' {..} =
-    object
-      ( catMaybes
-          [ Just ("Name" .= _rwrName),
-            Just ("RunId" .= _rwrRunId),
-            Just ("NodeIds" .= _rwrNodeIds)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("RunId" Lude..= runId),
+            Lude.Just ("NodeIds" Lude..= nodeIds)
           ]
       )
 
-instance ToPath ResumeWorkflowRun where
-  toPath = const "/"
+instance Lude.ToPath ResumeWorkflowRun where
+  toPath = Lude.const "/"
 
-instance ToQuery ResumeWorkflowRun where
-  toQuery = const mempty
+instance Lude.ToQuery ResumeWorkflowRun where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'resumeWorkflowRunResponse' smart constructor.
+-- | /See:/ 'mkResumeWorkflowRunResponse' smart constructor.
 data ResumeWorkflowRunResponse = ResumeWorkflowRunResponse'
-  { _rwrrsNodeIds ::
-      !(Maybe [Text]),
-    _rwrrsRunId :: !(Maybe Text),
-    _rwrrsResponseStatus :: !Int
+  { nodeIds ::
+      Lude.Maybe [Lude.Text],
+    runId :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeWorkflowRunResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rwrrsNodeIds' - A list of the node IDs for the nodes that were actually restarted.
---
--- * 'rwrrsRunId' - The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.
---
--- * 'rwrrsResponseStatus' - -- | The response status code.
-resumeWorkflowRunResponse ::
-  -- | 'rwrrsResponseStatus'
-  Int ->
+-- * 'nodeIds' - A list of the node IDs for the nodes that were actually restarted.
+-- * 'responseStatus' - The response status code.
+-- * 'runId' - The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.
+mkResumeWorkflowRunResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResumeWorkflowRunResponse
-resumeWorkflowRunResponse pResponseStatus_ =
+mkResumeWorkflowRunResponse pResponseStatus_ =
   ResumeWorkflowRunResponse'
-    { _rwrrsNodeIds = Nothing,
-      _rwrrsRunId = Nothing,
-      _rwrrsResponseStatus = pResponseStatus_
+    { nodeIds = Lude.Nothing,
+      runId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A list of the node IDs for the nodes that were actually restarted.
-rwrrsNodeIds :: Lens' ResumeWorkflowRunResponse [Text]
-rwrrsNodeIds = lens _rwrrsNodeIds (\s a -> s {_rwrrsNodeIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'nodeIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrrsNodeIds :: Lens.Lens' ResumeWorkflowRunResponse (Lude.Maybe [Lude.Text])
+rwrrsNodeIds = Lens.lens (nodeIds :: ResumeWorkflowRunResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {nodeIds = a} :: ResumeWorkflowRunResponse)
+{-# DEPRECATED rwrrsNodeIds "Use generic-lens or generic-optics with 'nodeIds' instead." #-}
 
 -- | The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.
-rwrrsRunId :: Lens' ResumeWorkflowRunResponse (Maybe Text)
-rwrrsRunId = lens _rwrrsRunId (\s a -> s {_rwrrsRunId = a})
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrrsRunId :: Lens.Lens' ResumeWorkflowRunResponse (Lude.Maybe Lude.Text)
+rwrrsRunId = Lens.lens (runId :: ResumeWorkflowRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: ResumeWorkflowRunResponse)
+{-# DEPRECATED rwrrsRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
--- | -- | The response status code.
-rwrrsResponseStatus :: Lens' ResumeWorkflowRunResponse Int
-rwrrsResponseStatus = lens _rwrrsResponseStatus (\s a -> s {_rwrrsResponseStatus = a})
-
-instance NFData ResumeWorkflowRunResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrrsResponseStatus :: Lens.Lens' ResumeWorkflowRunResponse Lude.Int
+rwrrsResponseStatus = Lens.lens (responseStatus :: ResumeWorkflowRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResumeWorkflowRunResponse)
+{-# DEPRECATED rwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

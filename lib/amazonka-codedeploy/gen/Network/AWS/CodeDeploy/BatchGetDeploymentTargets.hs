@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,221 @@
 --
 -- Returns an array of one or more targets associated with a deployment. This method works with all compute types and should be used instead of the deprecated @BatchGetDeploymentInstances@ . The maximum number of targets that can be returned is 25.
 --
---
 -- The type of targets returned depends on the deployment's compute platform or deployment method:
 --
 --     * __EC2/On-premises__ : Information about EC2 instance targets.
 --
+--
 --     * __AWS Lambda__ : Information about Lambda functions targets.
+--
 --
 --     * __Amazon ECS__ : Information about Amazon ECS service targets.
 --
+--
 --     * __CloudFormation__ : Information about targets of blue/green deployments initiated by a CloudFormation stack update.
 module Network.AWS.CodeDeploy.BatchGetDeploymentTargets
-  ( -- * Creating a Request
-    batchGetDeploymentTargets,
-    BatchGetDeploymentTargets,
+  ( -- * Creating a request
+    BatchGetDeploymentTargets (..),
+    mkBatchGetDeploymentTargets,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bgdtDeploymentId,
     bgdtTargetIds,
 
-    -- * Destructuring the Response
-    batchGetDeploymentTargetsResponse,
-    BatchGetDeploymentTargetsResponse,
+    -- * Destructuring the response
+    BatchGetDeploymentTargetsResponse (..),
+    mkBatchGetDeploymentTargetsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bgdtrsDeploymentTargets,
     bgdtrsResponseStatus,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchGetDeploymentTargets' smart constructor.
+-- | /See:/ 'mkBatchGetDeploymentTargets' smart constructor.
 data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
-  { _bgdtDeploymentId ::
-      !(Maybe Text),
-    _bgdtTargetIds :: !(Maybe [Text])
+  { deploymentId ::
+      Lude.Maybe Lude.Text,
+    targetIds :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDeploymentTargets' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deploymentId' - The unique ID of a deployment.
+-- * 'targetIds' - The unique IDs of the deployment targets. The compute platform of the deployment determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.
 --
--- * 'bgdtDeploymentId' - The unique ID of a deployment.
 --
--- * 'bgdtTargetIds' - The unique IDs of the deployment targets. The compute platform of the deployment determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.     * For deployments that use the EC2/On-premises compute platform, the target IDs are EC2 or on-premises instances IDs, and their target type is @instanceTarget@ .      * For deployments that use the AWS Lambda compute platform, the target IDs are the names of Lambda functions, and their target type is @instanceTarget@ .      * For deployments that use the Amazon ECS compute platform, the target IDs are pairs of Amazon ECS clusters and services specified using the format @<clustername>:<servicename>@ . Their target type is @ecsTarget@ .      * For deployments that are deployed with AWS CloudFormation, the target IDs are CloudFormation stack IDs. Their target type is @cloudFormationTarget@ .
-batchGetDeploymentTargets ::
+--     * For deployments that use the EC2/On-premises compute platform, the target IDs are EC2 or on-premises instances IDs, and their target type is @instanceTarget@ .
+--
+--
+--     * For deployments that use the AWS Lambda compute platform, the target IDs are the names of Lambda functions, and their target type is @instanceTarget@ .
+--
+--
+--     * For deployments that use the Amazon ECS compute platform, the target IDs are pairs of Amazon ECS clusters and services specified using the format @<clustername>:<servicename>@ . Their target type is @ecsTarget@ .
+--
+--
+--     * For deployments that are deployed with AWS CloudFormation, the target IDs are CloudFormation stack IDs. Their target type is @cloudFormationTarget@ .
+mkBatchGetDeploymentTargets ::
   BatchGetDeploymentTargets
-batchGetDeploymentTargets =
+mkBatchGetDeploymentTargets =
   BatchGetDeploymentTargets'
-    { _bgdtDeploymentId = Nothing,
-      _bgdtTargetIds = Nothing
+    { deploymentId = Lude.Nothing,
+      targetIds = Lude.Nothing
     }
 
 -- | The unique ID of a deployment.
-bgdtDeploymentId :: Lens' BatchGetDeploymentTargets (Maybe Text)
-bgdtDeploymentId = lens _bgdtDeploymentId (\s a -> s {_bgdtDeploymentId = a})
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdtDeploymentId :: Lens.Lens' BatchGetDeploymentTargets (Lude.Maybe Lude.Text)
+bgdtDeploymentId = Lens.lens (deploymentId :: BatchGetDeploymentTargets -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: BatchGetDeploymentTargets)
+{-# DEPRECATED bgdtDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
--- | The unique IDs of the deployment targets. The compute platform of the deployment determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.     * For deployments that use the EC2/On-premises compute platform, the target IDs are EC2 or on-premises instances IDs, and their target type is @instanceTarget@ .      * For deployments that use the AWS Lambda compute platform, the target IDs are the names of Lambda functions, and their target type is @instanceTarget@ .      * For deployments that use the Amazon ECS compute platform, the target IDs are pairs of Amazon ECS clusters and services specified using the format @<clustername>:<servicename>@ . Their target type is @ecsTarget@ .      * For deployments that are deployed with AWS CloudFormation, the target IDs are CloudFormation stack IDs. Their target type is @cloudFormationTarget@ .
-bgdtTargetIds :: Lens' BatchGetDeploymentTargets [Text]
-bgdtTargetIds = lens _bgdtTargetIds (\s a -> s {_bgdtTargetIds = a}) . _Default . _Coerce
+-- | The unique IDs of the deployment targets. The compute platform of the deployment determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.
+--
+--
+--     * For deployments that use the EC2/On-premises compute platform, the target IDs are EC2 or on-premises instances IDs, and their target type is @instanceTarget@ .
+--
+--
+--     * For deployments that use the AWS Lambda compute platform, the target IDs are the names of Lambda functions, and their target type is @instanceTarget@ .
+--
+--
+--     * For deployments that use the Amazon ECS compute platform, the target IDs are pairs of Amazon ECS clusters and services specified using the format @<clustername>:<servicename>@ . Their target type is @ecsTarget@ .
+--
+--
+--     * For deployments that are deployed with AWS CloudFormation, the target IDs are CloudFormation stack IDs. Their target type is @cloudFormationTarget@ .
+--
+--
+--
+-- /Note:/ Consider using 'targetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdtTargetIds :: Lens.Lens' BatchGetDeploymentTargets (Lude.Maybe [Lude.Text])
+bgdtTargetIds = Lens.lens (targetIds :: BatchGetDeploymentTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {targetIds = a} :: BatchGetDeploymentTargets)
+{-# DEPRECATED bgdtTargetIds "Use generic-lens or generic-optics with 'targetIds' instead." #-}
 
-instance AWSRequest BatchGetDeploymentTargets where
+instance Lude.AWSRequest BatchGetDeploymentTargets where
   type
     Rs BatchGetDeploymentTargets =
       BatchGetDeploymentTargetsResponse
-  request = postJSON codeDeploy
+  request = Req.postJSON codeDeployService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchGetDeploymentTargetsResponse'
-            <$> (x .?> "deploymentTargets" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "deploymentTargets" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchGetDeploymentTargets
-
-instance NFData BatchGetDeploymentTargets
-
-instance ToHeaders BatchGetDeploymentTargets where
+instance Lude.ToHeaders BatchGetDeploymentTargets where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.BatchGetDeploymentTargets" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeDeploy_20141006.BatchGetDeploymentTargets" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchGetDeploymentTargets where
+instance Lude.ToJSON BatchGetDeploymentTargets where
   toJSON BatchGetDeploymentTargets' {..} =
-    object
-      ( catMaybes
-          [ ("deploymentId" .=) <$> _bgdtDeploymentId,
-            ("targetIds" .=) <$> _bgdtTargetIds
+    Lude.object
+      ( Lude.catMaybes
+          [ ("deploymentId" Lude..=) Lude.<$> deploymentId,
+            ("targetIds" Lude..=) Lude.<$> targetIds
           ]
       )
 
-instance ToPath BatchGetDeploymentTargets where
-  toPath = const "/"
+instance Lude.ToPath BatchGetDeploymentTargets where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchGetDeploymentTargets where
-  toQuery = const mempty
+instance Lude.ToQuery BatchGetDeploymentTargets where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchGetDeploymentTargetsResponse' smart constructor.
+-- | /See:/ 'mkBatchGetDeploymentTargetsResponse' smart constructor.
 data BatchGetDeploymentTargetsResponse = BatchGetDeploymentTargetsResponse'
-  { _bgdtrsDeploymentTargets ::
-      !( Maybe
-           [DeploymentTarget]
-       ),
-    _bgdtrsResponseStatus ::
-      !Int
+  { deploymentTargets ::
+      Lude.Maybe
+        [DeploymentTarget],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDeploymentTargetsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deploymentTargets' - A list of target objects for a deployment. Each target object contains details about the target, such as its status and lifecycle events. The type of the target objects depends on the deployment' compute platform.
 --
--- * 'bgdtrsDeploymentTargets' - A list of target objects for a deployment. Each target object contains details about the target, such as its status and lifecycle events. The type of the target objects depends on the deployment' compute platform.      * __EC2/On-premises__ : Each target object is an EC2 or on-premises instance.      * __AWS Lambda__ : The target object is a specific version of an AWS Lambda function.      * __Amazon ECS__ : The target object is an Amazon ECS service.      * __CloudFormation__ : The target object is an AWS CloudFormation blue/green deployment.
 --
--- * 'bgdtrsResponseStatus' - -- | The response status code.
-batchGetDeploymentTargetsResponse ::
-  -- | 'bgdtrsResponseStatus'
-  Int ->
+--     * __EC2/On-premises__ : Each target object is an EC2 or on-premises instance.
+--
+--
+--     * __AWS Lambda__ : The target object is a specific version of an AWS Lambda function.
+--
+--
+--     * __Amazon ECS__ : The target object is an Amazon ECS service.
+--
+--
+--     * __CloudFormation__ : The target object is an AWS CloudFormation blue/green deployment.
+--
+--
+-- * 'responseStatus' - The response status code.
+mkBatchGetDeploymentTargetsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchGetDeploymentTargetsResponse
-batchGetDeploymentTargetsResponse pResponseStatus_ =
+mkBatchGetDeploymentTargetsResponse pResponseStatus_ =
   BatchGetDeploymentTargetsResponse'
-    { _bgdtrsDeploymentTargets =
-        Nothing,
-      _bgdtrsResponseStatus = pResponseStatus_
+    { deploymentTargets =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | A list of target objects for a deployment. Each target object contains details about the target, such as its status and lifecycle events. The type of the target objects depends on the deployment' compute platform.      * __EC2/On-premises__ : Each target object is an EC2 or on-premises instance.      * __AWS Lambda__ : The target object is a specific version of an AWS Lambda function.      * __Amazon ECS__ : The target object is an Amazon ECS service.      * __CloudFormation__ : The target object is an AWS CloudFormation blue/green deployment.
-bgdtrsDeploymentTargets :: Lens' BatchGetDeploymentTargetsResponse [DeploymentTarget]
-bgdtrsDeploymentTargets = lens _bgdtrsDeploymentTargets (\s a -> s {_bgdtrsDeploymentTargets = a}) . _Default . _Coerce
+-- | A list of target objects for a deployment. Each target object contains details about the target, such as its status and lifecycle events. The type of the target objects depends on the deployment' compute platform.
+--
+--
+--     * __EC2/On-premises__ : Each target object is an EC2 or on-premises instance.
+--
+--
+--     * __AWS Lambda__ : The target object is a specific version of an AWS Lambda function.
+--
+--
+--     * __Amazon ECS__ : The target object is an Amazon ECS service.
+--
+--
+--     * __CloudFormation__ : The target object is an AWS CloudFormation blue/green deployment.
+--
+--
+--
+-- /Note:/ Consider using 'deploymentTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdtrsDeploymentTargets :: Lens.Lens' BatchGetDeploymentTargetsResponse (Lude.Maybe [DeploymentTarget])
+bgdtrsDeploymentTargets = Lens.lens (deploymentTargets :: BatchGetDeploymentTargetsResponse -> Lude.Maybe [DeploymentTarget]) (\s a -> s {deploymentTargets = a} :: BatchGetDeploymentTargetsResponse)
+{-# DEPRECATED bgdtrsDeploymentTargets "Use generic-lens or generic-optics with 'deploymentTargets' instead." #-}
 
--- | -- | The response status code.
-bgdtrsResponseStatus :: Lens' BatchGetDeploymentTargetsResponse Int
-bgdtrsResponseStatus = lens _bgdtrsResponseStatus (\s a -> s {_bgdtrsResponseStatus = a})
-
-instance NFData BatchGetDeploymentTargetsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdtrsResponseStatus :: Lens.Lens' BatchGetDeploymentTargetsResponse Lude.Int
+bgdtrsResponseStatus = Lens.lens (responseStatus :: BatchGetDeploymentTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetDeploymentTargetsResponse)
+{-# DEPRECATED bgdtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

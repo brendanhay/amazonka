@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,99 +14,155 @@
 --
 -- Permanently deletes an AWS Firewall Manager policy.
 module Network.AWS.FMS.DeletePolicy
-  ( -- * Creating a Request
-    deletePolicy,
-    DeletePolicy,
+  ( -- * Creating a request
+    DeletePolicy (..),
+    mkDeletePolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dpDeleteAllPolicyResources,
     dpPolicyId,
 
-    -- * Destructuring the Response
-    deletePolicyResponse,
-    DeletePolicyResponse,
+    -- * Destructuring the response
+    DeletePolicyResponse (..),
+    mkDeletePolicyResponse,
   )
 where
 
 import Network.AWS.FMS.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deletePolicy' smart constructor.
+-- | /See:/ 'mkDeletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
-  { _dpDeleteAllPolicyResources ::
-      !(Maybe Bool),
-    _dpPolicyId :: !Text
+  { deleteAllPolicyResources ::
+      Lude.Maybe Lude.Bool,
+    policyId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'deleteAllPolicyResources' - If @True@ , the request performs cleanup according to the policy type.
 --
--- * 'dpDeleteAllPolicyResources' - If @True@ , the request performs cleanup according to the policy type.  For AWS WAF and Shield Advanced policies, the cleanup does the following:     * Deletes rule groups created by AWS Firewall Manager     * Removes web ACLs from in-scope resources     * Deletes web ACLs that contain no rules or rule groups For security group policies, the cleanup does the following for each security group in the policy:     * Disassociates the security group from in-scope resources      * Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
+-- For AWS WAF and Shield Advanced policies, the cleanup does the following:
 --
--- * 'dpPolicyId' - The ID of the policy that you want to delete. You can retrieve this ID from @PutPolicy@ and @ListPolicies@ .
-deletePolicy ::
-  -- | 'dpPolicyId'
-  Text ->
+--     * Deletes rule groups created by AWS Firewall Manager
+--
+--
+--     * Removes web ACLs from in-scope resources
+--
+--
+--     * Deletes web ACLs that contain no rules or rule groups
+--
+--
+-- For security group policies, the cleanup does the following for each security group in the policy:
+--
+--     * Disassociates the security group from in-scope resources
+--
+--
+--     * Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy
+--
+--
+-- After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
+-- * 'policyId' - The ID of the policy that you want to delete. You can retrieve this ID from @PutPolicy@ and @ListPolicies@ .
+mkDeletePolicy ::
+  -- | 'policyId'
+  Lude.Text ->
   DeletePolicy
-deletePolicy pPolicyId_ =
+mkDeletePolicy pPolicyId_ =
   DeletePolicy'
-    { _dpDeleteAllPolicyResources = Nothing,
-      _dpPolicyId = pPolicyId_
+    { deleteAllPolicyResources = Lude.Nothing,
+      policyId = pPolicyId_
     }
 
--- | If @True@ , the request performs cleanup according to the policy type.  For AWS WAF and Shield Advanced policies, the cleanup does the following:     * Deletes rule groups created by AWS Firewall Manager     * Removes web ACLs from in-scope resources     * Deletes web ACLs that contain no rules or rule groups For security group policies, the cleanup does the following for each security group in the policy:     * Disassociates the security group from in-scope resources      * Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
-dpDeleteAllPolicyResources :: Lens' DeletePolicy (Maybe Bool)
-dpDeleteAllPolicyResources = lens _dpDeleteAllPolicyResources (\s a -> s {_dpDeleteAllPolicyResources = a})
+-- | If @True@ , the request performs cleanup according to the policy type.
+--
+-- For AWS WAF and Shield Advanced policies, the cleanup does the following:
+--
+--     * Deletes rule groups created by AWS Firewall Manager
+--
+--
+--     * Removes web ACLs from in-scope resources
+--
+--
+--     * Deletes web ACLs that contain no rules or rule groups
+--
+--
+-- For security group policies, the cleanup does the following for each security group in the policy:
+--
+--     * Disassociates the security group from in-scope resources
+--
+--
+--     * Deletes the security group if it was created through Firewall Manager and if it's no longer associated with any resources through another policy
+--
+--
+-- After the cleanup, in-scope resources are no longer protected by web ACLs in this policy. Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you create and accounts that you associate with the policy. When creating the policy, if you specify that only resources in specific accounts or with specific tags are in scope of the policy, those accounts and resources are handled by the policy. All others are out of scope. If you don't specify tags or accounts, all resources are in scope.
+--
+-- /Note:/ Consider using 'deleteAllPolicyResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpDeleteAllPolicyResources :: Lens.Lens' DeletePolicy (Lude.Maybe Lude.Bool)
+dpDeleteAllPolicyResources = Lens.lens (deleteAllPolicyResources :: DeletePolicy -> Lude.Maybe Lude.Bool) (\s a -> s {deleteAllPolicyResources = a} :: DeletePolicy)
+{-# DEPRECATED dpDeleteAllPolicyResources "Use generic-lens or generic-optics with 'deleteAllPolicyResources' instead." #-}
 
 -- | The ID of the policy that you want to delete. You can retrieve this ID from @PutPolicy@ and @ListPolicies@ .
-dpPolicyId :: Lens' DeletePolicy Text
-dpPolicyId = lens _dpPolicyId (\s a -> s {_dpPolicyId = a})
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpPolicyId :: Lens.Lens' DeletePolicy Lude.Text
+dpPolicyId = Lens.lens (policyId :: DeletePolicy -> Lude.Text) (\s a -> s {policyId = a} :: DeletePolicy)
+{-# DEPRECATED dpPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
-instance AWSRequest DeletePolicy where
+instance Lude.AWSRequest DeletePolicy where
   type Rs DeletePolicy = DeletePolicyResponse
-  request = postJSON fms
-  response = receiveNull DeletePolicyResponse'
+  request = Req.postJSON fmsService
+  response = Res.receiveNull DeletePolicyResponse'
 
-instance Hashable DeletePolicy
-
-instance NFData DeletePolicy
-
-instance ToHeaders DeletePolicy where
+instance Lude.ToHeaders DeletePolicy where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSFMS_20180101.DeletePolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AWSFMS_20180101.DeletePolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeletePolicy where
+instance Lude.ToJSON DeletePolicy where
   toJSON DeletePolicy' {..} =
-    object
-      ( catMaybes
-          [ ("DeleteAllPolicyResources" .=) <$> _dpDeleteAllPolicyResources,
-            Just ("PolicyId" .= _dpPolicyId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("DeleteAllPolicyResources" Lude..=)
+              Lude.<$> deleteAllPolicyResources,
+            Lude.Just ("PolicyId" Lude..= policyId)
           ]
       )
 
-instance ToPath DeletePolicy where
-  toPath = const "/"
+instance Lude.ToPath DeletePolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery DeletePolicy where
-  toQuery = const mempty
+instance Lude.ToQuery DeletePolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deletePolicyResponse' smart constructor.
+-- | /See:/ 'mkDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
-deletePolicyResponse ::
+mkDeletePolicyResponse ::
   DeletePolicyResponse
-deletePolicyResponse = DeletePolicyResponse'
-
-instance NFData DeletePolicyResponse
+mkDeletePolicyResponse = DeletePolicyResponse'

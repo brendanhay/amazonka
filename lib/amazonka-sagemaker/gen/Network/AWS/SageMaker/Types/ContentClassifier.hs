@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.ContentClassifier where
+module Network.AWS.SageMaker.Types.ContentClassifier
+  ( ContentClassifier
+      ( ContentClassifier',
+        FreeOfAdultContent,
+        FreeOfPersonallyIdentifiableInformation
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ContentClassifier
-  = FreeOfAdultContent
-  | FreeOfPersonallyIdentifiableInformation
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ContentClassifier = ContentClassifier' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ContentClassifier where
-  parser =
-    takeLowerText >>= \case
-      "freeofadultcontent" -> pure FreeOfAdultContent
-      "freeofpersonallyidentifiableinformation" -> pure FreeOfPersonallyIdentifiableInformation
-      e ->
-        fromTextError $
-          "Failure parsing ContentClassifier from value: '" <> e
-            <> "'. Accepted values: freeofadultcontent, freeofpersonallyidentifiableinformation"
+pattern FreeOfAdultContent :: ContentClassifier
+pattern FreeOfAdultContent = ContentClassifier' "FreeOfAdultContent"
 
-instance ToText ContentClassifier where
-  toText = \case
-    FreeOfAdultContent -> "FreeOfAdultContent"
-    FreeOfPersonallyIdentifiableInformation -> "FreeOfPersonallyIdentifiableInformation"
+pattern FreeOfPersonallyIdentifiableInformation :: ContentClassifier
+pattern FreeOfPersonallyIdentifiableInformation = ContentClassifier' "FreeOfPersonallyIdentifiableInformation"
 
-instance Hashable ContentClassifier
-
-instance NFData ContentClassifier
-
-instance ToByteString ContentClassifier
-
-instance ToQuery ContentClassifier
-
-instance ToHeader ContentClassifier
-
-instance ToJSON ContentClassifier where
-  toJSON = toJSONText
-
-instance FromJSON ContentClassifier where
-  parseJSON = parseJSONText "ContentClassifier"
+{-# COMPLETE
+  FreeOfAdultContent,
+  FreeOfPersonallyIdentifiableInformation,
+  ContentClassifier'
+  #-}

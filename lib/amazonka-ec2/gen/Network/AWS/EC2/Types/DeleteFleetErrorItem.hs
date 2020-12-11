@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.DeleteFleetErrorItem where
+module Network.AWS.EC2.Types.DeleteFleetErrorItem
+  ( DeleteFleetErrorItem (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkDeleteFleetErrorItem,
+
+    -- * Lenses
+    dfeiError,
+    dfeiFleetId,
+  )
+where
+
 import Network.AWS.EC2.Types.DeleteFleetError
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an EC2 Fleet that was not successfully deleted.
 --
---
---
--- /See:/ 'deleteFleetErrorItem' smart constructor.
+-- /See:/ 'mkDeleteFleetErrorItem' smart constructor.
 data DeleteFleetErrorItem = DeleteFleetErrorItem'
-  { _dfeiError ::
-      !(Maybe DeleteFleetError),
-    _dfeiFleetId :: !(Maybe Text)
+  { error ::
+      Lude.Maybe DeleteFleetError,
+    fleetId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFleetErrorItem' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dfeiError' - The error.
---
--- * 'dfeiFleetId' - The ID of the EC2 Fleet.
-deleteFleetErrorItem ::
+-- * 'error' - The error.
+-- * 'fleetId' - The ID of the EC2 Fleet.
+mkDeleteFleetErrorItem ::
   DeleteFleetErrorItem
-deleteFleetErrorItem =
+mkDeleteFleetErrorItem =
   DeleteFleetErrorItem'
-    { _dfeiError = Nothing,
-      _dfeiFleetId = Nothing
+    { error = Lude.Nothing,
+      fleetId = Lude.Nothing
     }
 
 -- | The error.
-dfeiError :: Lens' DeleteFleetErrorItem (Maybe DeleteFleetError)
-dfeiError = lens _dfeiError (\s a -> s {_dfeiError = a})
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfeiError :: Lens.Lens' DeleteFleetErrorItem (Lude.Maybe DeleteFleetError)
+dfeiError = Lens.lens (error :: DeleteFleetErrorItem -> Lude.Maybe DeleteFleetError) (\s a -> s {error = a} :: DeleteFleetErrorItem)
+{-# DEPRECATED dfeiError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The ID of the EC2 Fleet.
-dfeiFleetId :: Lens' DeleteFleetErrorItem (Maybe Text)
-dfeiFleetId = lens _dfeiFleetId (\s a -> s {_dfeiFleetId = a})
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfeiFleetId :: Lens.Lens' DeleteFleetErrorItem (Lude.Maybe Lude.Text)
+dfeiFleetId = Lens.lens (fleetId :: DeleteFleetErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: DeleteFleetErrorItem)
+{-# DEPRECATED dfeiFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance FromXML DeleteFleetErrorItem where
+instance Lude.FromXML DeleteFleetErrorItem where
   parseXML x =
-    DeleteFleetErrorItem' <$> (x .@? "error") <*> (x .@? "fleetId")
-
-instance Hashable DeleteFleetErrorItem
-
-instance NFData DeleteFleetErrorItem
+    DeleteFleetErrorItem'
+      Lude.<$> (x Lude..@? "error") Lude.<*> (x Lude..@? "fleetId")

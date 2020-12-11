@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.ComputeType where
+module Network.AWS.ElasticBeanstalk.Types.ComputeType
+  ( ComputeType
+      ( ComputeType',
+        BuildGENERAL1Large,
+        BuildGENERAL1Medium,
+        BuildGENERAL1Small
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ComputeType
-  = BuildGENERAL1Large
-  | BuildGENERAL1Medium
-  | BuildGENERAL1Small
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ComputeType = ComputeType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ComputeType where
-  parser =
-    takeLowerText >>= \case
-      "build_general1_large" -> pure BuildGENERAL1Large
-      "build_general1_medium" -> pure BuildGENERAL1Medium
-      "build_general1_small" -> pure BuildGENERAL1Small
-      e ->
-        fromTextError $
-          "Failure parsing ComputeType from value: '" <> e
-            <> "'. Accepted values: build_general1_large, build_general1_medium, build_general1_small"
+pattern BuildGENERAL1Large :: ComputeType
+pattern BuildGENERAL1Large = ComputeType' "BUILD_GENERAL1_LARGE"
 
-instance ToText ComputeType where
-  toText = \case
-    BuildGENERAL1Large -> "BUILD_GENERAL1_LARGE"
-    BuildGENERAL1Medium -> "BUILD_GENERAL1_MEDIUM"
-    BuildGENERAL1Small -> "BUILD_GENERAL1_SMALL"
+pattern BuildGENERAL1Medium :: ComputeType
+pattern BuildGENERAL1Medium = ComputeType' "BUILD_GENERAL1_MEDIUM"
 
-instance Hashable ComputeType
+pattern BuildGENERAL1Small :: ComputeType
+pattern BuildGENERAL1Small = ComputeType' "BUILD_GENERAL1_SMALL"
 
-instance NFData ComputeType
-
-instance ToByteString ComputeType
-
-instance ToQuery ComputeType
-
-instance ToHeader ComputeType
+{-# COMPLETE
+  BuildGENERAL1Large,
+  BuildGENERAL1Medium,
+  BuildGENERAL1Small,
+  ComputeType'
+  #-}

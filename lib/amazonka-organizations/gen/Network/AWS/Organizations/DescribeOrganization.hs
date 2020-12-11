@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,113 @@
 --
 -- Retrieves information about the organization that the user's account belongs to.
 --
---
 -- This operation can be called from any account in the organization.
 module Network.AWS.Organizations.DescribeOrganization
-  ( -- * Creating a Request
-    describeOrganization,
-    DescribeOrganization,
+  ( -- * Creating a request
+    DescribeOrganization (..),
+    mkDescribeOrganization,
 
-    -- * Destructuring the Response
-    describeOrganizationResponse,
-    DescribeOrganizationResponse,
+    -- * Destructuring the response
+    DescribeOrganizationResponse (..),
+    mkDescribeOrganizationResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dorsOrganization,
     dorsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeOrganization' smart constructor.
+-- | /See:/ 'mkDescribeOrganization' smart constructor.
 data DescribeOrganization = DescribeOrganization'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganization' with the minimum fields required to make a request.
-describeOrganization ::
+mkDescribeOrganization ::
   DescribeOrganization
-describeOrganization = DescribeOrganization'
+mkDescribeOrganization = DescribeOrganization'
 
-instance AWSRequest DescribeOrganization where
+instance Lude.AWSRequest DescribeOrganization where
   type Rs DescribeOrganization = DescribeOrganizationResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeOrganizationResponse'
-            <$> (x .?> "Organization") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Organization") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeOrganization
-
-instance NFData DescribeOrganization
-
-instance ToHeaders DescribeOrganization where
+instance Lude.ToHeaders DescribeOrganization where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSOrganizationsV20161128.DescribeOrganization" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSOrganizationsV20161128.DescribeOrganization" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeOrganization where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeOrganization where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeOrganization where
-  toPath = const "/"
+instance Lude.ToPath DescribeOrganization where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeOrganization where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeOrganization where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeOrganizationResponse' smart constructor.
+-- | /See:/ 'mkDescribeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
-  { _dorsOrganization ::
-      !(Maybe Organization),
-    _dorsResponseStatus :: !Int
+  { organization ::
+      Lude.Maybe Organization,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'organization' - A structure that contains information about the organization.
 --
--- * 'dorsOrganization' - A structure that contains information about the organization. /Important:/ The @AvailablePolicyTypes@ part of the response is deprecated, and you shouldn't use it in your apps. It doesn't include any policy type supported by Organizations other than SCPs. To determine which policy types are enabled in your organization, use the @'ListRoots' @ operation.
---
--- * 'dorsResponseStatus' - -- | The response status code.
-describeOrganizationResponse ::
-  -- | 'dorsResponseStatus'
-  Int ->
+-- /Important:/ The @AvailablePolicyTypes@ part of the response is deprecated, and you shouldn't use it in your apps. It doesn't include any policy type supported by Organizations other than SCPs. To determine which policy types are enabled in your organization, use the @'ListRoots' @ operation.
+-- * 'responseStatus' - The response status code.
+mkDescribeOrganizationResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeOrganizationResponse
-describeOrganizationResponse pResponseStatus_ =
+mkDescribeOrganizationResponse pResponseStatus_ =
   DescribeOrganizationResponse'
-    { _dorsOrganization = Nothing,
-      _dorsResponseStatus = pResponseStatus_
+    { organization = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | A structure that contains information about the organization. /Important:/ The @AvailablePolicyTypes@ part of the response is deprecated, and you shouldn't use it in your apps. It doesn't include any policy type supported by Organizations other than SCPs. To determine which policy types are enabled in your organization, use the @'ListRoots' @ operation.
-dorsOrganization :: Lens' DescribeOrganizationResponse (Maybe Organization)
-dorsOrganization = lens _dorsOrganization (\s a -> s {_dorsOrganization = a})
+-- | A structure that contains information about the organization.
+--
+-- /Important:/ The @AvailablePolicyTypes@ part of the response is deprecated, and you shouldn't use it in your apps. It doesn't include any policy type supported by Organizations other than SCPs. To determine which policy types are enabled in your organization, use the @'ListRoots' @ operation.
+--
+-- /Note:/ Consider using 'organization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsOrganization :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Organization)
+dorsOrganization = Lens.lens (organization :: DescribeOrganizationResponse -> Lude.Maybe Organization) (\s a -> s {organization = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsOrganization "Use generic-lens or generic-optics with 'organization' instead." #-}
 
--- | -- | The response status code.
-dorsResponseStatus :: Lens' DescribeOrganizationResponse Int
-dorsResponseStatus = lens _dorsResponseStatus (\s a -> s {_dorsResponseStatus = a})
-
-instance NFData DescribeOrganizationResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dorsResponseStatus :: Lens.Lens' DescribeOrganizationResponse Lude.Int
+dorsResponseStatus = Lens.lens (responseStatus :: DescribeOrganizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOrganizationResponse)
+{-# DEPRECATED dorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

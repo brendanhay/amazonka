@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CognitoIdentityProvider.Types.StatusType where
+module Network.AWS.CognitoIdentityProvider.Types.StatusType
+  ( StatusType
+      ( StatusType',
+        Disabled,
+        Enabled
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StatusType
-  = Disabled
-  | Enabled
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StatusType = StatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StatusType where
-  parser =
-    takeLowerText >>= \case
-      "disabled" -> pure Disabled
-      "enabled" -> pure Enabled
-      e ->
-        fromTextError $
-          "Failure parsing StatusType from value: '" <> e
-            <> "'. Accepted values: disabled, enabled"
+pattern Disabled :: StatusType
+pattern Disabled = StatusType' "Disabled"
 
-instance ToText StatusType where
-  toText = \case
-    Disabled -> "Disabled"
-    Enabled -> "Enabled"
+pattern Enabled :: StatusType
+pattern Enabled = StatusType' "Enabled"
 
-instance Hashable StatusType
-
-instance NFData StatusType
-
-instance ToByteString StatusType
-
-instance ToQuery StatusType
-
-instance ToHeader StatusType
-
-instance FromJSON StatusType where
-  parseJSON = parseJSONText "StatusType"
+{-# COMPLETE
+  Disabled,
+  Enabled,
+  StatusType'
+  #-}

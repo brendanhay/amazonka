@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,65 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.Parent where
+module Network.AWS.SageMaker.Types.Parent
+  ( Parent (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkParent,
+
+    -- * Lenses
+    pExperimentName,
+    pTrialName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The trial that a trial component is associated with and the experiment the trial is part of. A component might not be associated with a trial. A component can be associated with multiple trials.
 --
---
---
--- /See:/ 'parent' smart constructor.
+-- /See:/ 'mkParent' smart constructor.
 data Parent = Parent'
-  { _pExperimentName :: !(Maybe Text),
-    _pTrialName :: !(Maybe Text)
+  { experimentName :: Lude.Maybe Lude.Text,
+    trialName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parent' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pExperimentName' - The name of the experiment.
---
--- * 'pTrialName' - The name of the trial.
-parent ::
+-- * 'experimentName' - The name of the experiment.
+-- * 'trialName' - The name of the trial.
+mkParent ::
   Parent
-parent = Parent' {_pExperimentName = Nothing, _pTrialName = Nothing}
+mkParent =
+  Parent' {experimentName = Lude.Nothing, trialName = Lude.Nothing}
 
 -- | The name of the experiment.
-pExperimentName :: Lens' Parent (Maybe Text)
-pExperimentName = lens _pExperimentName (\s a -> s {_pExperimentName = a})
+--
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pExperimentName :: Lens.Lens' Parent (Lude.Maybe Lude.Text)
+pExperimentName = Lens.lens (experimentName :: Parent -> Lude.Maybe Lude.Text) (\s a -> s {experimentName = a} :: Parent)
+{-# DEPRECATED pExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 -- | The name of the trial.
-pTrialName :: Lens' Parent (Maybe Text)
-pTrialName = lens _pTrialName (\s a -> s {_pTrialName = a})
+--
+-- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pTrialName :: Lens.Lens' Parent (Lude.Maybe Lude.Text)
+pTrialName = Lens.lens (trialName :: Parent -> Lude.Maybe Lude.Text) (\s a -> s {trialName = a} :: Parent)
+{-# DEPRECATED pTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
-instance FromJSON Parent where
+instance Lude.FromJSON Parent where
   parseJSON =
-    withObject
+    Lude.withObject
       "Parent"
       ( \x ->
-          Parent' <$> (x .:? "ExperimentName") <*> (x .:? "TrialName")
+          Parent'
+            Lude.<$> (x Lude..:? "ExperimentName") Lude.<*> (x Lude..:? "TrialName")
       )
-
-instance Hashable Parent
-
-instance NFData Parent

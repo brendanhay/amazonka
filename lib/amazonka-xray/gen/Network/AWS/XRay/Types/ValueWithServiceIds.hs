@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,72 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.XRay.Types.ValueWithServiceIds where
+module Network.AWS.XRay.Types.ValueWithServiceIds
+  ( ValueWithServiceIds (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkValueWithServiceIds,
+
+    -- * Lenses
+    vwsiServiceIds,
+    vwsiAnnotationValue,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.XRay.Types.AnnotationValue
 import Network.AWS.XRay.Types.ServiceId
 
 -- | Information about a segment annotation.
 --
---
---
--- /See:/ 'valueWithServiceIds' smart constructor.
+-- /See:/ 'mkValueWithServiceIds' smart constructor.
 data ValueWithServiceIds = ValueWithServiceIds'
-  { _vwsiServiceIds ::
-      !(Maybe [ServiceId]),
-    _vwsiAnnotationValue :: !(Maybe AnnotationValue)
+  { serviceIds ::
+      Lude.Maybe [ServiceId],
+    annotationValue :: Lude.Maybe AnnotationValue
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValueWithServiceIds' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vwsiServiceIds' - Services to which the annotation applies.
---
--- * 'vwsiAnnotationValue' - Values of the annotation.
-valueWithServiceIds ::
+-- * 'annotationValue' - Values of the annotation.
+-- * 'serviceIds' - Services to which the annotation applies.
+mkValueWithServiceIds ::
   ValueWithServiceIds
-valueWithServiceIds =
+mkValueWithServiceIds =
   ValueWithServiceIds'
-    { _vwsiServiceIds = Nothing,
-      _vwsiAnnotationValue = Nothing
+    { serviceIds = Lude.Nothing,
+      annotationValue = Lude.Nothing
     }
 
 -- | Services to which the annotation applies.
-vwsiServiceIds :: Lens' ValueWithServiceIds [ServiceId]
-vwsiServiceIds = lens _vwsiServiceIds (\s a -> s {_vwsiServiceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'serviceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vwsiServiceIds :: Lens.Lens' ValueWithServiceIds (Lude.Maybe [ServiceId])
+vwsiServiceIds = Lens.lens (serviceIds :: ValueWithServiceIds -> Lude.Maybe [ServiceId]) (\s a -> s {serviceIds = a} :: ValueWithServiceIds)
+{-# DEPRECATED vwsiServiceIds "Use generic-lens or generic-optics with 'serviceIds' instead." #-}
 
 -- | Values of the annotation.
-vwsiAnnotationValue :: Lens' ValueWithServiceIds (Maybe AnnotationValue)
-vwsiAnnotationValue = lens _vwsiAnnotationValue (\s a -> s {_vwsiAnnotationValue = a})
+--
+-- /Note:/ Consider using 'annotationValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vwsiAnnotationValue :: Lens.Lens' ValueWithServiceIds (Lude.Maybe AnnotationValue)
+vwsiAnnotationValue = Lens.lens (annotationValue :: ValueWithServiceIds -> Lude.Maybe AnnotationValue) (\s a -> s {annotationValue = a} :: ValueWithServiceIds)
+{-# DEPRECATED vwsiAnnotationValue "Use generic-lens or generic-optics with 'annotationValue' instead." #-}
 
-instance FromJSON ValueWithServiceIds where
+instance Lude.FromJSON ValueWithServiceIds where
   parseJSON =
-    withObject
+    Lude.withObject
       "ValueWithServiceIds"
       ( \x ->
           ValueWithServiceIds'
-            <$> (x .:? "ServiceIds" .!= mempty) <*> (x .:? "AnnotationValue")
+            Lude.<$> (x Lude..:? "ServiceIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AnnotationValue")
       )
-
-instance Hashable ValueWithServiceIds
-
-instance NFData ValueWithServiceIds

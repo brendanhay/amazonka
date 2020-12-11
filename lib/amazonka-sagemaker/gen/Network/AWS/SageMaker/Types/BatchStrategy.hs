@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.BatchStrategy where
+module Network.AWS.SageMaker.Types.BatchStrategy
+  ( BatchStrategy
+      ( BatchStrategy',
+        MultiRecord,
+        SingleRecord
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data BatchStrategy
-  = MultiRecord
-  | SingleRecord
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype BatchStrategy = BatchStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText BatchStrategy where
-  parser =
-    takeLowerText >>= \case
-      "multirecord" -> pure MultiRecord
-      "singlerecord" -> pure SingleRecord
-      e ->
-        fromTextError $
-          "Failure parsing BatchStrategy from value: '" <> e
-            <> "'. Accepted values: multirecord, singlerecord"
+pattern MultiRecord :: BatchStrategy
+pattern MultiRecord = BatchStrategy' "MultiRecord"
 
-instance ToText BatchStrategy where
-  toText = \case
-    MultiRecord -> "MultiRecord"
-    SingleRecord -> "SingleRecord"
+pattern SingleRecord :: BatchStrategy
+pattern SingleRecord = BatchStrategy' "SingleRecord"
 
-instance Hashable BatchStrategy
-
-instance NFData BatchStrategy
-
-instance ToByteString BatchStrategy
-
-instance ToQuery BatchStrategy
-
-instance ToHeader BatchStrategy
-
-instance ToJSON BatchStrategy where
-  toJSON = toJSONText
-
-instance FromJSON BatchStrategy where
-  parseJSON = parseJSONText "BatchStrategy"
+{-# COMPLETE
+  MultiRecord,
+  SingleRecord,
+  BatchStrategy'
+  #-}

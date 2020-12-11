@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,138 +14,150 @@
 --
 -- Deletes a database snapshot in Amazon Lightsail.
 --
---
 -- The @delete relational database snapshot@ operation supports tag-based access control via resource tags applied to the resource identified by relationalDatabaseName. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot
-  ( -- * Creating a Request
-    deleteRelationalDatabaseSnapshot,
-    DeleteRelationalDatabaseSnapshot,
+  ( -- * Creating a request
+    DeleteRelationalDatabaseSnapshot (..),
+    mkDeleteRelationalDatabaseSnapshot,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drdsRelationalDatabaseSnapshotName,
 
-    -- * Destructuring the Response
-    deleteRelationalDatabaseSnapshotResponse,
-    DeleteRelationalDatabaseSnapshotResponse,
+    -- * Destructuring the response
+    DeleteRelationalDatabaseSnapshotResponse (..),
+    mkDeleteRelationalDatabaseSnapshotResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drdsrsOperations,
     drdsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deleteRelationalDatabaseSnapshot' smart constructor.
+-- | /See:/ 'mkDeleteRelationalDatabaseSnapshot' smart constructor.
 newtype DeleteRelationalDatabaseSnapshot = DeleteRelationalDatabaseSnapshot'
-  { _drdsRelationalDatabaseSnapshotName ::
-      Text
+  { relationalDatabaseSnapshotName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRelationalDatabaseSnapshot' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drdsRelationalDatabaseSnapshotName' - The name of the database snapshot that you are deleting.
-deleteRelationalDatabaseSnapshot ::
-  -- | 'drdsRelationalDatabaseSnapshotName'
-  Text ->
+-- * 'relationalDatabaseSnapshotName' - The name of the database snapshot that you are deleting.
+mkDeleteRelationalDatabaseSnapshot ::
+  -- | 'relationalDatabaseSnapshotName'
+  Lude.Text ->
   DeleteRelationalDatabaseSnapshot
-deleteRelationalDatabaseSnapshot pRelationalDatabaseSnapshotName_ =
+mkDeleteRelationalDatabaseSnapshot pRelationalDatabaseSnapshotName_ =
   DeleteRelationalDatabaseSnapshot'
-    { _drdsRelationalDatabaseSnapshotName =
+    { relationalDatabaseSnapshotName =
         pRelationalDatabaseSnapshotName_
     }
 
 -- | The name of the database snapshot that you are deleting.
-drdsRelationalDatabaseSnapshotName :: Lens' DeleteRelationalDatabaseSnapshot Text
-drdsRelationalDatabaseSnapshotName = lens _drdsRelationalDatabaseSnapshotName (\s a -> s {_drdsRelationalDatabaseSnapshotName = a})
+--
+-- /Note:/ Consider using 'relationalDatabaseSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdsRelationalDatabaseSnapshotName :: Lens.Lens' DeleteRelationalDatabaseSnapshot Lude.Text
+drdsRelationalDatabaseSnapshotName = Lens.lens (relationalDatabaseSnapshotName :: DeleteRelationalDatabaseSnapshot -> Lude.Text) (\s a -> s {relationalDatabaseSnapshotName = a} :: DeleteRelationalDatabaseSnapshot)
+{-# DEPRECATED drdsRelationalDatabaseSnapshotName "Use generic-lens or generic-optics with 'relationalDatabaseSnapshotName' instead." #-}
 
-instance AWSRequest DeleteRelationalDatabaseSnapshot where
+instance Lude.AWSRequest DeleteRelationalDatabaseSnapshot where
   type
     Rs DeleteRelationalDatabaseSnapshot =
       DeleteRelationalDatabaseSnapshotResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteRelationalDatabaseSnapshotResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteRelationalDatabaseSnapshot
-
-instance NFData DeleteRelationalDatabaseSnapshot
-
-instance ToHeaders DeleteRelationalDatabaseSnapshot where
+instance Lude.ToHeaders DeleteRelationalDatabaseSnapshot where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Lightsail_20161128.DeleteRelationalDatabaseSnapshot" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Lightsail_20161128.DeleteRelationalDatabaseSnapshot" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteRelationalDatabaseSnapshot where
+instance Lude.ToJSON DeleteRelationalDatabaseSnapshot where
   toJSON DeleteRelationalDatabaseSnapshot' {..} =
-    object
-      ( catMaybes
-          [ Just
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
               ( "relationalDatabaseSnapshotName"
-                  .= _drdsRelationalDatabaseSnapshotName
+                  Lude..= relationalDatabaseSnapshotName
               )
           ]
       )
 
-instance ToPath DeleteRelationalDatabaseSnapshot where
-  toPath = const "/"
+instance Lude.ToPath DeleteRelationalDatabaseSnapshot where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteRelationalDatabaseSnapshot where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteRelationalDatabaseSnapshot where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteRelationalDatabaseSnapshotResponse' smart constructor.
+-- | /See:/ 'mkDeleteRelationalDatabaseSnapshotResponse' smart constructor.
 data DeleteRelationalDatabaseSnapshotResponse = DeleteRelationalDatabaseSnapshotResponse'
-  { _drdsrsOperations ::
-      !( Maybe
-           [Operation]
-       ),
-    _drdsrsResponseStatus ::
-      !Int
+  { operations ::
+      Lude.Maybe
+        [Operation],
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRelationalDatabaseSnapshotResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drdsrsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'drdsrsResponseStatus' - -- | The response status code.
-deleteRelationalDatabaseSnapshotResponse ::
-  -- | 'drdsrsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkDeleteRelationalDatabaseSnapshotResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteRelationalDatabaseSnapshotResponse
-deleteRelationalDatabaseSnapshotResponse pResponseStatus_ =
+mkDeleteRelationalDatabaseSnapshotResponse pResponseStatus_ =
   DeleteRelationalDatabaseSnapshotResponse'
-    { _drdsrsOperations =
-        Nothing,
-      _drdsrsResponseStatus = pResponseStatus_
+    { operations =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-drdsrsOperations :: Lens' DeleteRelationalDatabaseSnapshotResponse [Operation]
-drdsrsOperations = lens _drdsrsOperations (\s a -> s {_drdsrsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdsrsOperations :: Lens.Lens' DeleteRelationalDatabaseSnapshotResponse (Lude.Maybe [Operation])
+drdsrsOperations = Lens.lens (operations :: DeleteRelationalDatabaseSnapshotResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteRelationalDatabaseSnapshotResponse)
+{-# DEPRECATED drdsrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-drdsrsResponseStatus :: Lens' DeleteRelationalDatabaseSnapshotResponse Int
-drdsrsResponseStatus = lens _drdsrsResponseStatus (\s a -> s {_drdsrsResponseStatus = a})
-
-instance NFData DeleteRelationalDatabaseSnapshotResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdsrsResponseStatus :: Lens.Lens' DeleteRelationalDatabaseSnapshotResponse Lude.Int
+drdsrsResponseStatus = Lens.lens (responseStatus :: DeleteRelationalDatabaseSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRelationalDatabaseSnapshotResponse)
+{-# DEPRECATED drdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

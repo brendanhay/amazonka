@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,119 +14,133 @@
 --
 -- Registers with AWS CodeDeploy a revision for the specified application.
 module Network.AWS.CodeDeploy.RegisterApplicationRevision
-  ( -- * Creating a Request
-    registerApplicationRevision,
-    RegisterApplicationRevision,
+  ( -- * Creating a request
+    RegisterApplicationRevision (..),
+    mkRegisterApplicationRevision,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rarDescription,
     rarApplicationName,
     rarRevision,
 
-    -- * Destructuring the Response
-    registerApplicationRevisionResponse,
-    RegisterApplicationRevisionResponse,
+    -- * Destructuring the response
+    RegisterApplicationRevisionResponse (..),
+    mkRegisterApplicationRevisionResponse,
   )
 where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents the input of a RegisterApplicationRevision operation.
 --
---
---
--- /See:/ 'registerApplicationRevision' smart constructor.
+-- /See:/ 'mkRegisterApplicationRevision' smart constructor.
 data RegisterApplicationRevision = RegisterApplicationRevision'
-  { _rarDescription ::
-      !(Maybe Text),
-    _rarApplicationName :: !Text,
-    _rarRevision :: !RevisionLocation
+  { description ::
+      Lude.Maybe Lude.Text,
+    applicationName :: Lude.Text,
+    revision :: RevisionLocation
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterApplicationRevision' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rarDescription' - A comment about the revision.
---
--- * 'rarApplicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
---
--- * 'rarRevision' - Information about the application revision to register, including type and location.
-registerApplicationRevision ::
-  -- | 'rarApplicationName'
-  Text ->
-  -- | 'rarRevision'
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+-- * 'description' - A comment about the revision.
+-- * 'revision' - Information about the application revision to register, including type and location.
+mkRegisterApplicationRevision ::
+  -- | 'applicationName'
+  Lude.Text ->
+  -- | 'revision'
   RevisionLocation ->
   RegisterApplicationRevision
-registerApplicationRevision pApplicationName_ pRevision_ =
+mkRegisterApplicationRevision pApplicationName_ pRevision_ =
   RegisterApplicationRevision'
-    { _rarDescription = Nothing,
-      _rarApplicationName = pApplicationName_,
-      _rarRevision = pRevision_
+    { description = Lude.Nothing,
+      applicationName = pApplicationName_,
+      revision = pRevision_
     }
 
 -- | A comment about the revision.
-rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
-rarDescription = lens _rarDescription (\s a -> s {_rarDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarDescription :: Lens.Lens' RegisterApplicationRevision (Lude.Maybe Lude.Text)
+rarDescription = Lens.lens (description :: RegisterApplicationRevision -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RegisterApplicationRevision)
+{-# DEPRECATED rarDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-rarApplicationName :: Lens' RegisterApplicationRevision Text
-rarApplicationName = lens _rarApplicationName (\s a -> s {_rarApplicationName = a})
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarApplicationName :: Lens.Lens' RegisterApplicationRevision Lude.Text
+rarApplicationName = Lens.lens (applicationName :: RegisterApplicationRevision -> Lude.Text) (\s a -> s {applicationName = a} :: RegisterApplicationRevision)
+{-# DEPRECATED rarApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Information about the application revision to register, including type and location.
-rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
-rarRevision = lens _rarRevision (\s a -> s {_rarRevision = a})
+--
+-- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarRevision :: Lens.Lens' RegisterApplicationRevision RevisionLocation
+rarRevision = Lens.lens (revision :: RegisterApplicationRevision -> RevisionLocation) (\s a -> s {revision = a} :: RegisterApplicationRevision)
+{-# DEPRECATED rarRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
 
-instance AWSRequest RegisterApplicationRevision where
+instance Lude.AWSRequest RegisterApplicationRevision where
   type
     Rs RegisterApplicationRevision =
       RegisterApplicationRevisionResponse
-  request = postJSON codeDeploy
-  response = receiveNull RegisterApplicationRevisionResponse'
+  request = Req.postJSON codeDeployService
+  response = Res.receiveNull RegisterApplicationRevisionResponse'
 
-instance Hashable RegisterApplicationRevision
-
-instance NFData RegisterApplicationRevision
-
-instance ToHeaders RegisterApplicationRevision where
+instance Lude.ToHeaders RegisterApplicationRevision where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeDeploy_20141006.RegisterApplicationRevision" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "CodeDeploy_20141006.RegisterApplicationRevision" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON RegisterApplicationRevision where
+instance Lude.ToJSON RegisterApplicationRevision where
   toJSON RegisterApplicationRevision' {..} =
-    object
-      ( catMaybes
-          [ ("description" .=) <$> _rarDescription,
-            Just ("applicationName" .= _rarApplicationName),
-            Just ("revision" .= _rarRevision)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("applicationName" Lude..= applicationName),
+            Lude.Just ("revision" Lude..= revision)
           ]
       )
 
-instance ToPath RegisterApplicationRevision where
-  toPath = const "/"
+instance Lude.ToPath RegisterApplicationRevision where
+  toPath = Lude.const "/"
 
-instance ToQuery RegisterApplicationRevision where
-  toQuery = const mempty
+instance Lude.ToQuery RegisterApplicationRevision where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'registerApplicationRevisionResponse' smart constructor.
+-- | /See:/ 'mkRegisterApplicationRevisionResponse' smart constructor.
 data RegisterApplicationRevisionResponse = RegisterApplicationRevisionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterApplicationRevisionResponse' with the minimum fields required to make a request.
-registerApplicationRevisionResponse ::
+mkRegisterApplicationRevisionResponse ::
   RegisterApplicationRevisionResponse
-registerApplicationRevisionResponse =
+mkRegisterApplicationRevisionResponse =
   RegisterApplicationRevisionResponse'
-
-instance NFData RegisterApplicationRevisionResponse

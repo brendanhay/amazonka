@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,135 +14,142 @@
 --
 -- Detects the key noun phrases found in the text.
 module Network.AWS.Comprehend.DetectKeyPhrases
-  ( -- * Creating a Request
-    detectKeyPhrases,
-    DetectKeyPhrases,
+  ( -- * Creating a request
+    DetectKeyPhrases (..),
+    mkDetectKeyPhrases,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dkpText,
     dkpLanguageCode,
 
-    -- * Destructuring the Response
-    detectKeyPhrasesResponse,
-    DetectKeyPhrasesResponse,
+    -- * Destructuring the response
+    DetectKeyPhrasesResponse (..),
+    mkDetectKeyPhrasesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dkprsKeyPhrases,
     dkprsResponseStatus,
   )
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'detectKeyPhrases' smart constructor.
+-- | /See:/ 'mkDetectKeyPhrases' smart constructor.
 data DetectKeyPhrases = DetectKeyPhrases'
-  { _dkpText ::
-      !(Sensitive Text),
-    _dkpLanguageCode :: !LanguageCode
+  { text ::
+      Lude.Sensitive Lude.Text,
+    languageCode :: LanguageCode
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectKeyPhrases' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dkpText' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
---
--- * 'dkpLanguageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-detectKeyPhrases ::
-  -- | 'dkpText'
-  Text ->
-  -- | 'dkpLanguageCode'
+-- * 'languageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+-- * 'text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+mkDetectKeyPhrases ::
+  -- | 'text'
+  Lude.Sensitive Lude.Text ->
+  -- | 'languageCode'
   LanguageCode ->
   DetectKeyPhrases
-detectKeyPhrases pText_ pLanguageCode_ =
-  DetectKeyPhrases'
-    { _dkpText = _Sensitive # pText_,
-      _dkpLanguageCode = pLanguageCode_
-    }
+mkDetectKeyPhrases pText_ pLanguageCode_ =
+  DetectKeyPhrases' {text = pText_, languageCode = pLanguageCode_}
 
 -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-dkpText :: Lens' DetectKeyPhrases Text
-dkpText = lens _dkpText (\s a -> s {_dkpText = a}) . _Sensitive
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpText :: Lens.Lens' DetectKeyPhrases (Lude.Sensitive Lude.Text)
+dkpText = Lens.lens (text :: DetectKeyPhrases -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: DetectKeyPhrases)
+{-# DEPRECATED dkpText "Use generic-lens or generic-optics with 'text' instead." #-}
 
 -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-dkpLanguageCode :: Lens' DetectKeyPhrases LanguageCode
-dkpLanguageCode = lens _dkpLanguageCode (\s a -> s {_dkpLanguageCode = a})
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkpLanguageCode :: Lens.Lens' DetectKeyPhrases LanguageCode
+dkpLanguageCode = Lens.lens (languageCode :: DetectKeyPhrases -> LanguageCode) (\s a -> s {languageCode = a} :: DetectKeyPhrases)
+{-# DEPRECATED dkpLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
-instance AWSRequest DetectKeyPhrases where
+instance Lude.AWSRequest DetectKeyPhrases where
   type Rs DetectKeyPhrases = DetectKeyPhrasesResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DetectKeyPhrasesResponse'
-            <$> (x .?> "KeyPhrases" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "KeyPhrases" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DetectKeyPhrases
-
-instance NFData DetectKeyPhrases
-
-instance ToHeaders DetectKeyPhrases where
+instance Lude.ToHeaders DetectKeyPhrases where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.DetectKeyPhrases" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.DetectKeyPhrases" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DetectKeyPhrases where
+instance Lude.ToJSON DetectKeyPhrases where
   toJSON DetectKeyPhrases' {..} =
-    object
-      ( catMaybes
-          [ Just ("Text" .= _dkpText),
-            Just ("LanguageCode" .= _dkpLanguageCode)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Text" Lude..= text),
+            Lude.Just ("LanguageCode" Lude..= languageCode)
           ]
       )
 
-instance ToPath DetectKeyPhrases where
-  toPath = const "/"
+instance Lude.ToPath DetectKeyPhrases where
+  toPath = Lude.const "/"
 
-instance ToQuery DetectKeyPhrases where
-  toQuery = const mempty
+instance Lude.ToQuery DetectKeyPhrases where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'detectKeyPhrasesResponse' smart constructor.
+-- | /See:/ 'mkDetectKeyPhrasesResponse' smart constructor.
 data DetectKeyPhrasesResponse = DetectKeyPhrasesResponse'
-  { _dkprsKeyPhrases ::
-      !(Maybe [KeyPhrase]),
-    _dkprsResponseStatus :: !Int
+  { keyPhrases ::
+      Lude.Maybe [KeyPhrase],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectKeyPhrasesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dkprsKeyPhrases' - A collection of key phrases that Amazon Comprehend identified in the input text. For each key phrase, the response provides the text of the key phrase, where the key phrase begins and ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection.
---
--- * 'dkprsResponseStatus' - -- | The response status code.
-detectKeyPhrasesResponse ::
-  -- | 'dkprsResponseStatus'
-  Int ->
+-- * 'keyPhrases' - A collection of key phrases that Amazon Comprehend identified in the input text. For each key phrase, the response provides the text of the key phrase, where the key phrase begins and ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection.
+-- * 'responseStatus' - The response status code.
+mkDetectKeyPhrasesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DetectKeyPhrasesResponse
-detectKeyPhrasesResponse pResponseStatus_ =
+mkDetectKeyPhrasesResponse pResponseStatus_ =
   DetectKeyPhrasesResponse'
-    { _dkprsKeyPhrases = Nothing,
-      _dkprsResponseStatus = pResponseStatus_
+    { keyPhrases = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A collection of key phrases that Amazon Comprehend identified in the input text. For each key phrase, the response provides the text of the key phrase, where the key phrase begins and ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection.
-dkprsKeyPhrases :: Lens' DetectKeyPhrasesResponse [KeyPhrase]
-dkprsKeyPhrases = lens _dkprsKeyPhrases (\s a -> s {_dkprsKeyPhrases = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'keyPhrases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkprsKeyPhrases :: Lens.Lens' DetectKeyPhrasesResponse (Lude.Maybe [KeyPhrase])
+dkprsKeyPhrases = Lens.lens (keyPhrases :: DetectKeyPhrasesResponse -> Lude.Maybe [KeyPhrase]) (\s a -> s {keyPhrases = a} :: DetectKeyPhrasesResponse)
+{-# DEPRECATED dkprsKeyPhrases "Use generic-lens or generic-optics with 'keyPhrases' instead." #-}
 
--- | -- | The response status code.
-dkprsResponseStatus :: Lens' DetectKeyPhrasesResponse Int
-dkprsResponseStatus = lens _dkprsResponseStatus (\s a -> s {_dkprsResponseStatus = a})
-
-instance NFData DetectKeyPhrasesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dkprsResponseStatus :: Lens.Lens' DetectKeyPhrasesResponse Lude.Int
+dkprsResponseStatus = Lens.lens (responseStatus :: DetectKeyPhrasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectKeyPhrasesResponse)
+{-# DEPRECATED dkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

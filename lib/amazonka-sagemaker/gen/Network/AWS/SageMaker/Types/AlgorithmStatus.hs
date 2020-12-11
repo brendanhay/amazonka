@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.AlgorithmStatus where
+module Network.AWS.SageMaker.Types.AlgorithmStatus
+  ( AlgorithmStatus
+      ( AlgorithmStatus',
+        ACompleted,
+        ADeleting,
+        AFailed,
+        AInProgress,
+        APending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AlgorithmStatus
-  = ACompleted
-  | ADeleting
-  | AFailed
-  | AInProgress
-  | APending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AlgorithmStatus = AlgorithmStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AlgorithmStatus where
-  parser =
-    takeLowerText >>= \case
-      "completed" -> pure ACompleted
-      "deleting" -> pure ADeleting
-      "failed" -> pure AFailed
-      "inprogress" -> pure AInProgress
-      "pending" -> pure APending
-      e ->
-        fromTextError $
-          "Failure parsing AlgorithmStatus from value: '" <> e
-            <> "'. Accepted values: completed, deleting, failed, inprogress, pending"
+pattern ACompleted :: AlgorithmStatus
+pattern ACompleted = AlgorithmStatus' "Completed"
 
-instance ToText AlgorithmStatus where
-  toText = \case
-    ACompleted -> "Completed"
-    ADeleting -> "Deleting"
-    AFailed -> "Failed"
-    AInProgress -> "InProgress"
-    APending -> "Pending"
+pattern ADeleting :: AlgorithmStatus
+pattern ADeleting = AlgorithmStatus' "Deleting"
 
-instance Hashable AlgorithmStatus
+pattern AFailed :: AlgorithmStatus
+pattern AFailed = AlgorithmStatus' "Failed"
 
-instance NFData AlgorithmStatus
+pattern AInProgress :: AlgorithmStatus
+pattern AInProgress = AlgorithmStatus' "InProgress"
 
-instance ToByteString AlgorithmStatus
+pattern APending :: AlgorithmStatus
+pattern APending = AlgorithmStatus' "Pending"
 
-instance ToQuery AlgorithmStatus
-
-instance ToHeader AlgorithmStatus
-
-instance FromJSON AlgorithmStatus where
-  parseJSON = parseJSONText "AlgorithmStatus"
+{-# COMPLETE
+  ACompleted,
+  ADeleting,
+  AFailed,
+  AInProgress,
+  APending,
+  AlgorithmStatus'
+  #-}

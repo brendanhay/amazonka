@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,89 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.IdentityDkimAttributes where
+module Network.AWS.SES.Types.IdentityDkimAttributes
+  ( IdentityDkimAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkIdentityDkimAttributes,
+
+    -- * Lenses
+    idaDkimTokens,
+    idaDkimEnabled,
+    idaDkimVerificationStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SES.Types.VerificationStatus
 
 -- | Represents the DKIM attributes of a verified email address or a domain.
 --
---
---
--- /See:/ 'identityDkimAttributes' smart constructor.
+-- /See:/ 'mkIdentityDkimAttributes' smart constructor.
 data IdentityDkimAttributes = IdentityDkimAttributes'
-  { _idaDkimTokens ::
-      !(Maybe [Text]),
-    _idaDkimEnabled :: !Bool,
-    _idaDkimVerificationStatus ::
-      !VerificationStatus
+  { dkimTokens ::
+      Lude.Maybe [Lude.Text],
+    dkimEnabled :: Lude.Bool,
+    dkimVerificationStatus :: VerificationStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityDkimAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dkimEnabled' - Is true if DKIM signing is enabled for email sent from the identity. It's false otherwise. The default value is true.
+-- * 'dkimTokens' - A set of character strings that represent the domain's identity. Using these tokens, you need to create DNS CNAME records that point to DKIM public keys that are hosted by Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection process might take up to 72 hours. After successful detection, Amazon SES is able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)
 --
--- * 'idaDkimTokens' - A set of character strings that represent the domain's identity. Using these tokens, you need to create DNS CNAME records that point to DKIM public keys that are hosted by Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection process might take up to 72 hours. After successful detection, Amazon SES is able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.) For more information about creating DNS records using DKIM tokens, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
---
--- * 'idaDkimEnabled' - Is true if DKIM signing is enabled for email sent from the identity. It's false otherwise. The default value is true.
---
--- * 'idaDkimVerificationStatus' - Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)
-identityDkimAttributes ::
-  -- | 'idaDkimEnabled'
-  Bool ->
-  -- | 'idaDkimVerificationStatus'
+-- For more information about creating DNS records using DKIM tokens, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
+-- * 'dkimVerificationStatus' - Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)
+mkIdentityDkimAttributes ::
+  -- | 'dkimEnabled'
+  Lude.Bool ->
+  -- | 'dkimVerificationStatus'
   VerificationStatus ->
   IdentityDkimAttributes
-identityDkimAttributes pDkimEnabled_ pDkimVerificationStatus_ =
+mkIdentityDkimAttributes pDkimEnabled_ pDkimVerificationStatus_ =
   IdentityDkimAttributes'
-    { _idaDkimTokens = Nothing,
-      _idaDkimEnabled = pDkimEnabled_,
-      _idaDkimVerificationStatus = pDkimVerificationStatus_
+    { dkimTokens = Lude.Nothing,
+      dkimEnabled = pDkimEnabled_,
+      dkimVerificationStatus = pDkimVerificationStatus_
     }
 
--- | A set of character strings that represent the domain's identity. Using these tokens, you need to create DNS CNAME records that point to DKIM public keys that are hosted by Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection process might take up to 72 hours. After successful detection, Amazon SES is able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.) For more information about creating DNS records using DKIM tokens, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
-idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
-idaDkimTokens = lens _idaDkimTokens (\s a -> s {_idaDkimTokens = a}) . _Default . _Coerce
+-- | A set of character strings that represent the domain's identity. Using these tokens, you need to create DNS CNAME records that point to DKIM public keys that are hosted by Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection process might take up to 72 hours. After successful detection, Amazon SES is able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)
+--
+-- For more information about creating DNS records using DKIM tokens, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
+--
+-- /Note:/ Consider using 'dkimTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idaDkimTokens :: Lens.Lens' IdentityDkimAttributes (Lude.Maybe [Lude.Text])
+idaDkimTokens = Lens.lens (dkimTokens :: IdentityDkimAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {dkimTokens = a} :: IdentityDkimAttributes)
+{-# DEPRECATED idaDkimTokens "Use generic-lens or generic-optics with 'dkimTokens' instead." #-}
 
 -- | Is true if DKIM signing is enabled for email sent from the identity. It's false otherwise. The default value is true.
-idaDkimEnabled :: Lens' IdentityDkimAttributes Bool
-idaDkimEnabled = lens _idaDkimEnabled (\s a -> s {_idaDkimEnabled = a})
+--
+-- /Note:/ Consider using 'dkimEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idaDkimEnabled :: Lens.Lens' IdentityDkimAttributes Lude.Bool
+idaDkimEnabled = Lens.lens (dkimEnabled :: IdentityDkimAttributes -> Lude.Bool) (\s a -> s {dkimEnabled = a} :: IdentityDkimAttributes)
+{-# DEPRECATED idaDkimEnabled "Use generic-lens or generic-optics with 'dkimEnabled' instead." #-}
 
 -- | Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)
-idaDkimVerificationStatus :: Lens' IdentityDkimAttributes VerificationStatus
-idaDkimVerificationStatus = lens _idaDkimVerificationStatus (\s a -> s {_idaDkimVerificationStatus = a})
+--
+-- /Note:/ Consider using 'dkimVerificationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idaDkimVerificationStatus :: Lens.Lens' IdentityDkimAttributes VerificationStatus
+idaDkimVerificationStatus = Lens.lens (dkimVerificationStatus :: IdentityDkimAttributes -> VerificationStatus) (\s a -> s {dkimVerificationStatus = a} :: IdentityDkimAttributes)
+{-# DEPRECATED idaDkimVerificationStatus "Use generic-lens or generic-optics with 'dkimVerificationStatus' instead." #-}
 
-instance FromXML IdentityDkimAttributes where
+instance Lude.FromXML IdentityDkimAttributes where
   parseXML x =
     IdentityDkimAttributes'
-      <$> (x .@? "DkimTokens" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@ "DkimEnabled")
-      <*> (x .@ "DkimVerificationStatus")
-
-instance Hashable IdentityDkimAttributes
-
-instance NFData IdentityDkimAttributes
+      Lude.<$> ( x Lude..@? "DkimTokens" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@ "DkimEnabled")
+      Lude.<*> (x Lude..@ "DkimVerificationStatus")

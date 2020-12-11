@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,124 @@
 --
 -- Deletes the specified replication job.
 --
---
 -- After you delete a replication job, there are no further replication runs. AWS deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created by the replication runs are not deleted.
 module Network.AWS.SMS.DeleteReplicationJob
-  ( -- * Creating a Request
-    deleteReplicationJob,
-    DeleteReplicationJob,
+  ( -- * Creating a request
+    DeleteReplicationJob (..),
+    mkDeleteReplicationJob,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drjReplicationJobId,
 
-    -- * Destructuring the Response
-    deleteReplicationJobResponse,
-    DeleteReplicationJobResponse,
+    -- * Destructuring the response
+    DeleteReplicationJobResponse (..),
+    mkDeleteReplicationJobResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drjrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
--- | /See:/ 'deleteReplicationJob' smart constructor.
+-- | /See:/ 'mkDeleteReplicationJob' smart constructor.
 newtype DeleteReplicationJob = DeleteReplicationJob'
-  { _drjReplicationJobId ::
-      Text
+  { replicationJobId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReplicationJob' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drjReplicationJobId' - The ID of the replication job.
-deleteReplicationJob ::
-  -- | 'drjReplicationJobId'
-  Text ->
+-- * 'replicationJobId' - The ID of the replication job.
+mkDeleteReplicationJob ::
+  -- | 'replicationJobId'
+  Lude.Text ->
   DeleteReplicationJob
-deleteReplicationJob pReplicationJobId_ =
-  DeleteReplicationJob' {_drjReplicationJobId = pReplicationJobId_}
+mkDeleteReplicationJob pReplicationJobId_ =
+  DeleteReplicationJob' {replicationJobId = pReplicationJobId_}
 
 -- | The ID of the replication job.
-drjReplicationJobId :: Lens' DeleteReplicationJob Text
-drjReplicationJobId = lens _drjReplicationJobId (\s a -> s {_drjReplicationJobId = a})
+--
+-- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drjReplicationJobId :: Lens.Lens' DeleteReplicationJob Lude.Text
+drjReplicationJobId = Lens.lens (replicationJobId :: DeleteReplicationJob -> Lude.Text) (\s a -> s {replicationJobId = a} :: DeleteReplicationJob)
+{-# DEPRECATED drjReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
 
-instance AWSRequest DeleteReplicationJob where
+instance Lude.AWSRequest DeleteReplicationJob where
   type Rs DeleteReplicationJob = DeleteReplicationJobResponse
-  request = postJSON sms
+  request = Req.postJSON smsService
   response =
-    receiveEmpty
-      (\s h x -> DeleteReplicationJobResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteReplicationJobResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteReplicationJob
-
-instance NFData DeleteReplicationJob
-
-instance ToHeaders DeleteReplicationJob where
+instance Lude.ToHeaders DeleteReplicationJob where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteReplicationJob where
+instance Lude.ToJSON DeleteReplicationJob where
   toJSON DeleteReplicationJob' {..} =
-    object
-      (catMaybes [Just ("replicationJobId" .= _drjReplicationJobId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("replicationJobId" Lude..= replicationJobId)]
+      )
 
-instance ToPath DeleteReplicationJob where
-  toPath = const "/"
+instance Lude.ToPath DeleteReplicationJob where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteReplicationJob where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteReplicationJob where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteReplicationJobResponse' smart constructor.
+-- | /See:/ 'mkDeleteReplicationJobResponse' smart constructor.
 newtype DeleteReplicationJobResponse = DeleteReplicationJobResponse'
-  { _drjrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReplicationJobResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drjrsResponseStatus' - -- | The response status code.
-deleteReplicationJobResponse ::
-  -- | 'drjrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteReplicationJobResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteReplicationJobResponse
-deleteReplicationJobResponse pResponseStatus_ =
-  DeleteReplicationJobResponse'
-    { _drjrsResponseStatus =
-        pResponseStatus_
-    }
+mkDeleteReplicationJobResponse pResponseStatus_ =
+  DeleteReplicationJobResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-drjrsResponseStatus :: Lens' DeleteReplicationJobResponse Int
-drjrsResponseStatus = lens _drjrsResponseStatus (\s a -> s {_drjrsResponseStatus = a})
-
-instance NFData DeleteReplicationJobResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drjrsResponseStatus :: Lens.Lens' DeleteReplicationJobResponse Lude.Int
+drjrsResponseStatus = Lens.lens (responseStatus :: DeleteReplicationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReplicationJobResponse)
+{-# DEPRECATED drjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

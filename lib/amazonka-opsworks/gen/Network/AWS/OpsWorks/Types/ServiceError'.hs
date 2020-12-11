@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,91 +7,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.OpsWorks.Types.ServiceError' where
+module Network.AWS.OpsWorks.Types.ServiceError'
+  ( ServiceError' (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkServiceError',
+
+    -- * Lenses
+    seInstanceId,
+    seCreatedAt,
+    seServiceErrorId,
+    seType,
+    seStackId,
+    seMessage,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an AWS OpsWorks Stacks service error.
 --
---
---
--- /See:/ 'serviceError'' smart constructor.
+-- /See:/ 'mkServiceError'' smart constructor.
 data ServiceError' = ServiceError''
-  { _seInstanceId :: !(Maybe Text),
-    _seCreatedAt :: !(Maybe Text),
-    _seServiceErrorId :: !(Maybe Text),
-    _seType :: !(Maybe Text),
-    _seStackId :: !(Maybe Text),
-    _seMessage :: !(Maybe Text)
+  { instanceId ::
+      Lude.Maybe Lude.Text,
+    createdAt :: Lude.Maybe Lude.Text,
+    serviceErrorId :: Lude.Maybe Lude.Text,
+    type' :: Lude.Maybe Lude.Text,
+    stackId :: Lude.Maybe Lude.Text,
+    message :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceError'' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'seInstanceId' - The instance ID.
---
--- * 'seCreatedAt' - When the error occurred.
---
--- * 'seServiceErrorId' - The error ID.
---
--- * 'seType' - The error type.
---
--- * 'seStackId' - The stack ID.
---
--- * 'seMessage' - A message that describes the error.
-serviceError' ::
+-- * 'createdAt' - When the error occurred.
+-- * 'instanceId' - The instance ID.
+-- * 'message' - A message that describes the error.
+-- * 'serviceErrorId' - The error ID.
+-- * 'stackId' - The stack ID.
+-- * 'type'' - The error type.
+mkServiceError' ::
   ServiceError'
-serviceError' =
+mkServiceError' =
   ServiceError''
-    { _seInstanceId = Nothing,
-      _seCreatedAt = Nothing,
-      _seServiceErrorId = Nothing,
-      _seType = Nothing,
-      _seStackId = Nothing,
-      _seMessage = Nothing
+    { instanceId = Lude.Nothing,
+      createdAt = Lude.Nothing,
+      serviceErrorId = Lude.Nothing,
+      type' = Lude.Nothing,
+      stackId = Lude.Nothing,
+      message = Lude.Nothing
     }
 
 -- | The instance ID.
-seInstanceId :: Lens' ServiceError' (Maybe Text)
-seInstanceId = lens _seInstanceId (\s a -> s {_seInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seInstanceId :: Lens.Lens' ServiceError' (Lude.Maybe Lude.Text)
+seInstanceId = Lens.lens (instanceId :: ServiceError' -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: ServiceError')
+{-# DEPRECATED seInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | When the error occurred.
-seCreatedAt :: Lens' ServiceError' (Maybe Text)
-seCreatedAt = lens _seCreatedAt (\s a -> s {_seCreatedAt = a})
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seCreatedAt :: Lens.Lens' ServiceError' (Lude.Maybe Lude.Text)
+seCreatedAt = Lens.lens (createdAt :: ServiceError' -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: ServiceError')
+{-# DEPRECATED seCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The error ID.
-seServiceErrorId :: Lens' ServiceError' (Maybe Text)
-seServiceErrorId = lens _seServiceErrorId (\s a -> s {_seServiceErrorId = a})
+--
+-- /Note:/ Consider using 'serviceErrorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seServiceErrorId :: Lens.Lens' ServiceError' (Lude.Maybe Lude.Text)
+seServiceErrorId = Lens.lens (serviceErrorId :: ServiceError' -> Lude.Maybe Lude.Text) (\s a -> s {serviceErrorId = a} :: ServiceError')
+{-# DEPRECATED seServiceErrorId "Use generic-lens or generic-optics with 'serviceErrorId' instead." #-}
 
 -- | The error type.
-seType :: Lens' ServiceError' (Maybe Text)
-seType = lens _seType (\s a -> s {_seType = a})
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seType :: Lens.Lens' ServiceError' (Lude.Maybe Lude.Text)
+seType = Lens.lens (type' :: ServiceError' -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ServiceError')
+{-# DEPRECATED seType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The stack ID.
-seStackId :: Lens' ServiceError' (Maybe Text)
-seStackId = lens _seStackId (\s a -> s {_seStackId = a})
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seStackId :: Lens.Lens' ServiceError' (Lude.Maybe Lude.Text)
+seStackId = Lens.lens (stackId :: ServiceError' -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: ServiceError')
+{-# DEPRECATED seStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | A message that describes the error.
-seMessage :: Lens' ServiceError' (Maybe Text)
-seMessage = lens _seMessage (\s a -> s {_seMessage = a})
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seMessage :: Lens.Lens' ServiceError' (Lude.Maybe Lude.Text)
+seMessage = Lens.lens (message :: ServiceError' -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ServiceError')
+{-# DEPRECATED seMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance FromJSON ServiceError' where
+instance Lude.FromJSON ServiceError' where
   parseJSON =
-    withObject
+    Lude.withObject
       "ServiceError'"
       ( \x ->
           ServiceError''
-            <$> (x .:? "InstanceId")
-            <*> (x .:? "CreatedAt")
-            <*> (x .:? "ServiceErrorId")
-            <*> (x .:? "Type")
-            <*> (x .:? "StackId")
-            <*> (x .:? "Message")
+            Lude.<$> (x Lude..:? "InstanceId")
+            Lude.<*> (x Lude..:? "CreatedAt")
+            Lude.<*> (x Lude..:? "ServiceErrorId")
+            Lude.<*> (x Lude..:? "Type")
+            Lude.<*> (x Lude..:? "StackId")
+            Lude.<*> (x Lude..:? "Message")
       )
-
-instance Hashable ServiceError'
-
-instance NFData ServiceError'

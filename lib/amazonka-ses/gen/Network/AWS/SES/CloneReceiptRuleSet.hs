@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,128 +14,154 @@
 --
 -- Creates a receipt rule set by cloning an existing one. All receipt rules and configurations are copied to the new receipt rule set and are completely independent of the source rule set.
 --
---
 -- For information about setting up rule sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html Amazon SES Developer Guide> .
---
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.CloneReceiptRuleSet
-  ( -- * Creating a Request
-    cloneReceiptRuleSet,
-    CloneReceiptRuleSet,
+  ( -- * Creating a request
+    CloneReceiptRuleSet (..),
+    mkCloneReceiptRuleSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cRuleSetName,
     cOriginalRuleSetName,
 
-    -- * Destructuring the Response
-    cloneReceiptRuleSetResponse,
-    CloneReceiptRuleSetResponse,
+    -- * Destructuring the response
+    CloneReceiptRuleSetResponse (..),
+    mkCloneReceiptRuleSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     crsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | Represents a request to create a receipt rule set by cloning an existing one. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
---
---
--- /See:/ 'cloneReceiptRuleSet' smart constructor.
+-- /See:/ 'mkCloneReceiptRuleSet' smart constructor.
 data CloneReceiptRuleSet = CloneReceiptRuleSet'
-  { _cRuleSetName ::
-      !Text,
-    _cOriginalRuleSetName :: !Text
+  { ruleSetName ::
+      Lude.Text,
+    originalRuleSetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloneReceiptRuleSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'originalRuleSetName' - The name of the rule set to clone.
+-- * 'ruleSetName' - The name of the rule set to create. The name must:
 --
--- * 'cRuleSetName' - The name of the rule set to create. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
 --
--- * 'cOriginalRuleSetName' - The name of the rule set to clone.
-cloneReceiptRuleSet ::
-  -- | 'cRuleSetName'
-  Text ->
-  -- | 'cOriginalRuleSetName'
-  Text ->
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Start and end with a letter or number.
+--
+--
+--     * Contain less than 64 characters.
+mkCloneReceiptRuleSet ::
+  -- | 'ruleSetName'
+  Lude.Text ->
+  -- | 'originalRuleSetName'
+  Lude.Text ->
   CloneReceiptRuleSet
-cloneReceiptRuleSet pRuleSetName_ pOriginalRuleSetName_ =
+mkCloneReceiptRuleSet pRuleSetName_ pOriginalRuleSetName_ =
   CloneReceiptRuleSet'
-    { _cRuleSetName = pRuleSetName_,
-      _cOriginalRuleSetName = pOriginalRuleSetName_
+    { ruleSetName = pRuleSetName_,
+      originalRuleSetName = pOriginalRuleSetName_
     }
 
--- | The name of the rule set to create. The name must:     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).     * Start and end with a letter or number.     * Contain less than 64 characters.
-cRuleSetName :: Lens' CloneReceiptRuleSet Text
-cRuleSetName = lens _cRuleSetName (\s a -> s {_cRuleSetName = a})
+-- | The name of the rule set to create. The name must:
+--
+--
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Start and end with a letter or number.
+--
+--
+--     * Contain less than 64 characters.
+--
+--
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cRuleSetName :: Lens.Lens' CloneReceiptRuleSet Lude.Text
+cRuleSetName = Lens.lens (ruleSetName :: CloneReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: CloneReceiptRuleSet)
+{-# DEPRECATED cRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 -- | The name of the rule set to clone.
-cOriginalRuleSetName :: Lens' CloneReceiptRuleSet Text
-cOriginalRuleSetName = lens _cOriginalRuleSetName (\s a -> s {_cOriginalRuleSetName = a})
+--
+-- /Note:/ Consider using 'originalRuleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cOriginalRuleSetName :: Lens.Lens' CloneReceiptRuleSet Lude.Text
+cOriginalRuleSetName = Lens.lens (originalRuleSetName :: CloneReceiptRuleSet -> Lude.Text) (\s a -> s {originalRuleSetName = a} :: CloneReceiptRuleSet)
+{-# DEPRECATED cOriginalRuleSetName "Use generic-lens or generic-optics with 'originalRuleSetName' instead." #-}
 
-instance AWSRequest CloneReceiptRuleSet where
+instance Lude.AWSRequest CloneReceiptRuleSet where
   type Rs CloneReceiptRuleSet = CloneReceiptRuleSetResponse
-  request = postQuery ses
+  request = Req.postQuery sesService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "CloneReceiptRuleSetResult"
-      (\s h x -> CloneReceiptRuleSetResponse' <$> (pure (fromEnum s)))
+      ( \s h x ->
+          CloneReceiptRuleSetResponse'
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable CloneReceiptRuleSet
+instance Lude.ToHeaders CloneReceiptRuleSet where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CloneReceiptRuleSet
+instance Lude.ToPath CloneReceiptRuleSet where
+  toPath = Lude.const "/"
 
-instance ToHeaders CloneReceiptRuleSet where
-  toHeaders = const mempty
-
-instance ToPath CloneReceiptRuleSet where
-  toPath = const "/"
-
-instance ToQuery CloneReceiptRuleSet where
+instance Lude.ToQuery CloneReceiptRuleSet where
   toQuery CloneReceiptRuleSet' {..} =
-    mconcat
-      [ "Action" =: ("CloneReceiptRuleSet" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
-        "RuleSetName" =: _cRuleSetName,
-        "OriginalRuleSetName" =: _cOriginalRuleSetName
+    Lude.mconcat
+      [ "Action" Lude.=: ("CloneReceiptRuleSet" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "RuleSetName" Lude.=: ruleSetName,
+        "OriginalRuleSetName" Lude.=: originalRuleSetName
       ]
 
 -- | An empty element returned on a successful request.
 --
---
---
--- /See:/ 'cloneReceiptRuleSetResponse' smart constructor.
+-- /See:/ 'mkCloneReceiptRuleSetResponse' smart constructor.
 newtype CloneReceiptRuleSetResponse = CloneReceiptRuleSetResponse'
-  { _crsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloneReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crsResponseStatus' - -- | The response status code.
-cloneReceiptRuleSetResponse ::
-  -- | 'crsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkCloneReceiptRuleSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CloneReceiptRuleSetResponse
-cloneReceiptRuleSetResponse pResponseStatus_ =
-  CloneReceiptRuleSetResponse'
-    { _crsResponseStatus =
-        pResponseStatus_
-    }
+mkCloneReceiptRuleSetResponse pResponseStatus_ =
+  CloneReceiptRuleSetResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-crsResponseStatus :: Lens' CloneReceiptRuleSetResponse Int
-crsResponseStatus = lens _crsResponseStatus (\s a -> s {_crsResponseStatus = a})
-
-instance NFData CloneReceiptRuleSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsResponseStatus :: Lens.Lens' CloneReceiptRuleSetResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CloneReceiptRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CloneReceiptRuleSetResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

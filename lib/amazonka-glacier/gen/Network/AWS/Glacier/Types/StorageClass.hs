@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glacier.Types.StorageClass where
+module Network.AWS.Glacier.Types.StorageClass
+  ( StorageClass
+      ( StorageClass',
+        ReducedRedundancy,
+        Standard,
+        StandardIA
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StorageClass
-  = ReducedRedundancy
-  | Standard
-  | StandardIA
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StorageClass = StorageClass' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StorageClass where
-  parser =
-    takeLowerText >>= \case
-      "reduced_redundancy" -> pure ReducedRedundancy
-      "standard" -> pure Standard
-      "standard_ia" -> pure StandardIA
-      e ->
-        fromTextError $
-          "Failure parsing StorageClass from value: '" <> e
-            <> "'. Accepted values: reduced_redundancy, standard, standard_ia"
+pattern ReducedRedundancy :: StorageClass
+pattern ReducedRedundancy = StorageClass' "REDUCED_REDUNDANCY"
 
-instance ToText StorageClass where
-  toText = \case
-    ReducedRedundancy -> "REDUCED_REDUNDANCY"
-    Standard -> "STANDARD"
-    StandardIA -> "STANDARD_IA"
+pattern Standard :: StorageClass
+pattern Standard = StorageClass' "STANDARD"
 
-instance Hashable StorageClass
+pattern StandardIA :: StorageClass
+pattern StandardIA = StorageClass' "STANDARD_IA"
 
-instance NFData StorageClass
-
-instance ToByteString StorageClass
-
-instance ToQuery StorageClass
-
-instance ToHeader StorageClass
-
-instance ToJSON StorageClass where
-  toJSON = toJSONText
-
-instance FromJSON StorageClass where
-  parseJSON = parseJSONText "StorageClass"
+{-# COMPLETE
+  ReducedRedundancy,
+  Standard,
+  StandardIA,
+  StorageClass'
+  #-}

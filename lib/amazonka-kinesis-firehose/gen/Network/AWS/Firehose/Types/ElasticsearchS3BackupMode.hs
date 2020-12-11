@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Firehose.Types.ElasticsearchS3BackupMode where
+module Network.AWS.Firehose.Types.ElasticsearchS3BackupMode
+  ( ElasticsearchS3BackupMode
+      ( ElasticsearchS3BackupMode',
+        AllDocuments,
+        FailedDocumentsOnly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ElasticsearchS3BackupMode
-  = AllDocuments
-  | FailedDocumentsOnly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ElasticsearchS3BackupMode = ElasticsearchS3BackupMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ElasticsearchS3BackupMode where
-  parser =
-    takeLowerText >>= \case
-      "alldocuments" -> pure AllDocuments
-      "faileddocumentsonly" -> pure FailedDocumentsOnly
-      e ->
-        fromTextError $
-          "Failure parsing ElasticsearchS3BackupMode from value: '" <> e
-            <> "'. Accepted values: alldocuments, faileddocumentsonly"
+pattern AllDocuments :: ElasticsearchS3BackupMode
+pattern AllDocuments = ElasticsearchS3BackupMode' "AllDocuments"
 
-instance ToText ElasticsearchS3BackupMode where
-  toText = \case
-    AllDocuments -> "AllDocuments"
-    FailedDocumentsOnly -> "FailedDocumentsOnly"
+pattern FailedDocumentsOnly :: ElasticsearchS3BackupMode
+pattern FailedDocumentsOnly = ElasticsearchS3BackupMode' "FailedDocumentsOnly"
 
-instance Hashable ElasticsearchS3BackupMode
-
-instance NFData ElasticsearchS3BackupMode
-
-instance ToByteString ElasticsearchS3BackupMode
-
-instance ToQuery ElasticsearchS3BackupMode
-
-instance ToHeader ElasticsearchS3BackupMode
-
-instance ToJSON ElasticsearchS3BackupMode where
-  toJSON = toJSONText
-
-instance FromJSON ElasticsearchS3BackupMode where
-  parseJSON = parseJSONText "ElasticsearchS3BackupMode"
+{-# COMPLETE
+  AllDocuments,
+  FailedDocumentsOnly,
+  ElasticsearchS3BackupMode'
+  #-}

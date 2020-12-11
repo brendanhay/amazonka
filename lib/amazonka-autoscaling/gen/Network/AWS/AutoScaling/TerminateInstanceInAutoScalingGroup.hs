@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,152 +14,155 @@
 --
 -- Terminates the specified instance and optionally adjusts the desired group size.
 --
---
 -- This call simply makes a termination request. The instance is not terminated immediately. When an instance is terminated, the instance status changes to @terminated@ . You can't connect to or start an instance after you've terminated it.
---
 -- If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are terminated.
---
 -- By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you decrement the desired capacity, your Auto Scaling group can become unbalanced between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might terminate instances in other zones. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage Rebalancing activities> in the /Amazon EC2 Auto Scaling User Guide/ .
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
-  ( -- * Creating a Request
-    terminateInstanceInAutoScalingGroup,
-    TerminateInstanceInAutoScalingGroup,
+  ( -- * Creating a request
+    TerminateInstanceInAutoScalingGroup (..),
+    mkTerminateInstanceInAutoScalingGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     tiiasgInstanceId,
     tiiasgShouldDecrementDesiredCapacity,
 
-    -- * Destructuring the Response
-    terminateInstanceInAutoScalingGroupResponse,
-    TerminateInstanceInAutoScalingGroupResponse,
+    -- * Destructuring the response
+    TerminateInstanceInAutoScalingGroupResponse (..),
+    mkTerminateInstanceInAutoScalingGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     tiiasgrsActivity,
     tiiasgrsResponseStatus,
   )
 where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
+-- | /See:/ 'mkTerminateInstanceInAutoScalingGroup' smart constructor.
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
-  { _tiiasgInstanceId ::
-      !Text,
-    _tiiasgShouldDecrementDesiredCapacity ::
-      !Bool
+  { instanceId ::
+      Lude.Text,
+    shouldDecrementDesiredCapacity ::
+      Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateInstanceInAutoScalingGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tiiasgInstanceId' - The ID of the instance.
---
--- * 'tiiasgShouldDecrementDesiredCapacity' - Indicates whether terminating the instance also decrements the size of the Auto Scaling group.
-terminateInstanceInAutoScalingGroup ::
-  -- | 'tiiasgInstanceId'
-  Text ->
-  -- | 'tiiasgShouldDecrementDesiredCapacity'
-  Bool ->
+-- * 'instanceId' - The ID of the instance.
+-- * 'shouldDecrementDesiredCapacity' - Indicates whether terminating the instance also decrements the size of the Auto Scaling group.
+mkTerminateInstanceInAutoScalingGroup ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'shouldDecrementDesiredCapacity'
+  Lude.Bool ->
   TerminateInstanceInAutoScalingGroup
-terminateInstanceInAutoScalingGroup
+mkTerminateInstanceInAutoScalingGroup
   pInstanceId_
   pShouldDecrementDesiredCapacity_ =
     TerminateInstanceInAutoScalingGroup'
-      { _tiiasgInstanceId =
-          pInstanceId_,
-        _tiiasgShouldDecrementDesiredCapacity =
+      { instanceId = pInstanceId_,
+        shouldDecrementDesiredCapacity =
           pShouldDecrementDesiredCapacity_
       }
 
 -- | The ID of the instance.
-tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
-tiiasgInstanceId = lens _tiiasgInstanceId (\s a -> s {_tiiasgInstanceId = a})
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiiasgInstanceId :: Lens.Lens' TerminateInstanceInAutoScalingGroup Lude.Text
+tiiasgInstanceId = Lens.lens (instanceId :: TerminateInstanceInAutoScalingGroup -> Lude.Text) (\s a -> s {instanceId = a} :: TerminateInstanceInAutoScalingGroup)
+{-# DEPRECATED tiiasgInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Indicates whether terminating the instance also decrements the size of the Auto Scaling group.
-tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
-tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\s a -> s {_tiiasgShouldDecrementDesiredCapacity = a})
+--
+-- /Note:/ Consider using 'shouldDecrementDesiredCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiiasgShouldDecrementDesiredCapacity :: Lens.Lens' TerminateInstanceInAutoScalingGroup Lude.Bool
+tiiasgShouldDecrementDesiredCapacity = Lens.lens (shouldDecrementDesiredCapacity :: TerminateInstanceInAutoScalingGroup -> Lude.Bool) (\s a -> s {shouldDecrementDesiredCapacity = a} :: TerminateInstanceInAutoScalingGroup)
+{-# DEPRECATED tiiasgShouldDecrementDesiredCapacity "Use generic-lens or generic-optics with 'shouldDecrementDesiredCapacity' instead." #-}
 
-instance AWSRequest TerminateInstanceInAutoScalingGroup where
+instance Lude.AWSRequest TerminateInstanceInAutoScalingGroup where
   type
     Rs TerminateInstanceInAutoScalingGroup =
       TerminateInstanceInAutoScalingGroupResponse
-  request = postQuery autoScaling
+  request = Req.postQuery autoScalingService
   response =
-    receiveXMLWrapper
+    Res.receiveXMLWrapper
       "TerminateInstanceInAutoScalingGroupResult"
       ( \s h x ->
           TerminateInstanceInAutoScalingGroupResponse'
-            <$> (x .@? "Activity") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "Activity") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable TerminateInstanceInAutoScalingGroup
+instance Lude.ToHeaders TerminateInstanceInAutoScalingGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData TerminateInstanceInAutoScalingGroup
+instance Lude.ToPath TerminateInstanceInAutoScalingGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders TerminateInstanceInAutoScalingGroup where
-  toHeaders = const mempty
-
-instance ToPath TerminateInstanceInAutoScalingGroup where
-  toPath = const "/"
-
-instance ToQuery TerminateInstanceInAutoScalingGroup where
+instance Lude.ToQuery TerminateInstanceInAutoScalingGroup where
   toQuery TerminateInstanceInAutoScalingGroup' {..} =
-    mconcat
-      [ "Action" =: ("TerminateInstanceInAutoScalingGroup" :: ByteString),
-        "Version" =: ("2011-01-01" :: ByteString),
-        "InstanceId" =: _tiiasgInstanceId,
+    Lude.mconcat
+      [ "Action"
+          Lude.=: ("TerminateInstanceInAutoScalingGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "InstanceId" Lude.=: instanceId,
         "ShouldDecrementDesiredCapacity"
-          =: _tiiasgShouldDecrementDesiredCapacity
+          Lude.=: shouldDecrementDesiredCapacity
       ]
 
--- | /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
+-- | /See:/ 'mkTerminateInstanceInAutoScalingGroupResponse' smart constructor.
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
-  { _tiiasgrsActivity ::
-      !( Maybe
-           Activity
-       ),
-    _tiiasgrsResponseStatus ::
-      !Int
+  { activity ::
+      Lude.Maybe
+        Activity,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateInstanceInAutoScalingGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tiiasgrsActivity' - A scaling activity.
---
--- * 'tiiasgrsResponseStatus' - -- | The response status code.
-terminateInstanceInAutoScalingGroupResponse ::
-  -- | 'tiiasgrsResponseStatus'
-  Int ->
+-- * 'activity' - A scaling activity.
+-- * 'responseStatus' - The response status code.
+mkTerminateInstanceInAutoScalingGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   TerminateInstanceInAutoScalingGroupResponse
-terminateInstanceInAutoScalingGroupResponse pResponseStatus_ =
+mkTerminateInstanceInAutoScalingGroupResponse pResponseStatus_ =
   TerminateInstanceInAutoScalingGroupResponse'
-    { _tiiasgrsActivity =
-        Nothing,
-      _tiiasgrsResponseStatus = pResponseStatus_
+    { activity =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A scaling activity.
-tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
-tiiasgrsActivity = lens _tiiasgrsActivity (\s a -> s {_tiiasgrsActivity = a})
+--
+-- /Note:/ Consider using 'activity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiiasgrsActivity :: Lens.Lens' TerminateInstanceInAutoScalingGroupResponse (Lude.Maybe Activity)
+tiiasgrsActivity = Lens.lens (activity :: TerminateInstanceInAutoScalingGroupResponse -> Lude.Maybe Activity) (\s a -> s {activity = a} :: TerminateInstanceInAutoScalingGroupResponse)
+{-# DEPRECATED tiiasgrsActivity "Use generic-lens or generic-optics with 'activity' instead." #-}
 
--- | -- | The response status code.
-tiiasgrsResponseStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
-tiiasgrsResponseStatus = lens _tiiasgrsResponseStatus (\s a -> s {_tiiasgrsResponseStatus = a})
-
-instance NFData TerminateInstanceInAutoScalingGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiiasgrsResponseStatus :: Lens.Lens' TerminateInstanceInAutoScalingGroupResponse Lude.Int
+tiiasgrsResponseStatus = Lens.lens (responseStatus :: TerminateInstanceInAutoScalingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TerminateInstanceInAutoScalingGroupResponse)
+{-# DEPRECATED tiiasgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

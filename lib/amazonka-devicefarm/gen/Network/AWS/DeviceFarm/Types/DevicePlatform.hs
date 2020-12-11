@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.DevicePlatform where
+module Network.AWS.DeviceFarm.Types.DevicePlatform
+  ( DevicePlatform
+      ( DevicePlatform',
+        Android,
+        IOS
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DevicePlatform
-  = Android
-  | Ios
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DevicePlatform = DevicePlatform' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DevicePlatform where
-  parser =
-    takeLowerText >>= \case
-      "android" -> pure Android
-      "ios" -> pure Ios
-      e ->
-        fromTextError $
-          "Failure parsing DevicePlatform from value: '" <> e
-            <> "'. Accepted values: android, ios"
+pattern Android :: DevicePlatform
+pattern Android = DevicePlatform' "ANDROID"
 
-instance ToText DevicePlatform where
-  toText = \case
-    Android -> "ANDROID"
-    Ios -> "IOS"
+pattern IOS :: DevicePlatform
+pattern IOS = DevicePlatform' "IOS"
 
-instance Hashable DevicePlatform
-
-instance NFData DevicePlatform
-
-instance ToByteString DevicePlatform
-
-instance ToQuery DevicePlatform
-
-instance ToHeader DevicePlatform
-
-instance FromJSON DevicePlatform where
-  parseJSON = parseJSONText "DevicePlatform"
+{-# COMPLETE
+  Android,
+  IOS,
+  DevicePlatform'
+  #-}

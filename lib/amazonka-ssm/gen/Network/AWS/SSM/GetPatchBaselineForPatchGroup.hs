@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Retrieves the patch baseline that should be used for the specified patch group.
 module Network.AWS.SSM.GetPatchBaselineForPatchGroup
-  ( -- * Creating a Request
-    getPatchBaselineForPatchGroup,
-    GetPatchBaselineForPatchGroup,
+  ( -- * Creating a request
+    GetPatchBaselineForPatchGroup (..),
+    mkGetPatchBaselineForPatchGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpbfpgOperatingSystem,
     gpbfpgPatchGroup,
 
-    -- * Destructuring the Response
-    getPatchBaselineForPatchGroupResponse,
-    GetPatchBaselineForPatchGroupResponse,
+    -- * Destructuring the response
+    GetPatchBaselineForPatchGroupResponse (..),
+    mkGetPatchBaselineForPatchGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gpbfpgrsOperatingSystem,
     gpbfpgrsBaselineId,
     gpbfpgrsPatchGroup,
@@ -39,142 +34,162 @@ module Network.AWS.SSM.GetPatchBaselineForPatchGroup
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'getPatchBaselineForPatchGroup' smart constructor.
+-- | /See:/ 'mkGetPatchBaselineForPatchGroup' smart constructor.
 data GetPatchBaselineForPatchGroup = GetPatchBaselineForPatchGroup'
-  { _gpbfpgOperatingSystem ::
-      !(Maybe OperatingSystem),
-    _gpbfpgPatchGroup :: !Text
+  { operatingSystem ::
+      Lude.Maybe OperatingSystem,
+    patchGroup :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPatchBaselineForPatchGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpbfpgOperatingSystem' - Returns he operating system rule specified for patch groups using the patch baseline.
---
--- * 'gpbfpgPatchGroup' - The name of the patch group whose patch baseline should be retrieved.
-getPatchBaselineForPatchGroup ::
-  -- | 'gpbfpgPatchGroup'
-  Text ->
+-- * 'operatingSystem' - Returns he operating system rule specified for patch groups using the patch baseline.
+-- * 'patchGroup' - The name of the patch group whose patch baseline should be retrieved.
+mkGetPatchBaselineForPatchGroup ::
+  -- | 'patchGroup'
+  Lude.Text ->
   GetPatchBaselineForPatchGroup
-getPatchBaselineForPatchGroup pPatchGroup_ =
+mkGetPatchBaselineForPatchGroup pPatchGroup_ =
   GetPatchBaselineForPatchGroup'
-    { _gpbfpgOperatingSystem = Nothing,
-      _gpbfpgPatchGroup = pPatchGroup_
+    { operatingSystem = Lude.Nothing,
+      patchGroup = pPatchGroup_
     }
 
 -- | Returns he operating system rule specified for patch groups using the patch baseline.
-gpbfpgOperatingSystem :: Lens' GetPatchBaselineForPatchGroup (Maybe OperatingSystem)
-gpbfpgOperatingSystem = lens _gpbfpgOperatingSystem (\s a -> s {_gpbfpgOperatingSystem = a})
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbfpgOperatingSystem :: Lens.Lens' GetPatchBaselineForPatchGroup (Lude.Maybe OperatingSystem)
+gpbfpgOperatingSystem = Lens.lens (operatingSystem :: GetPatchBaselineForPatchGroup -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: GetPatchBaselineForPatchGroup)
+{-# DEPRECATED gpbfpgOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
 -- | The name of the patch group whose patch baseline should be retrieved.
-gpbfpgPatchGroup :: Lens' GetPatchBaselineForPatchGroup Text
-gpbfpgPatchGroup = lens _gpbfpgPatchGroup (\s a -> s {_gpbfpgPatchGroup = a})
+--
+-- /Note:/ Consider using 'patchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbfpgPatchGroup :: Lens.Lens' GetPatchBaselineForPatchGroup Lude.Text
+gpbfpgPatchGroup = Lens.lens (patchGroup :: GetPatchBaselineForPatchGroup -> Lude.Text) (\s a -> s {patchGroup = a} :: GetPatchBaselineForPatchGroup)
+{-# DEPRECATED gpbfpgPatchGroup "Use generic-lens or generic-optics with 'patchGroup' instead." #-}
 
-instance AWSRequest GetPatchBaselineForPatchGroup where
+instance Lude.AWSRequest GetPatchBaselineForPatchGroup where
   type
     Rs GetPatchBaselineForPatchGroup =
       GetPatchBaselineForPatchGroupResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetPatchBaselineForPatchGroupResponse'
-            <$> (x .?> "OperatingSystem")
-            <*> (x .?> "BaselineId")
-            <*> (x .?> "PatchGroup")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OperatingSystem")
+            Lude.<*> (x Lude..?> "BaselineId")
+            Lude.<*> (x Lude..?> "PatchGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetPatchBaselineForPatchGroup
-
-instance NFData GetPatchBaselineForPatchGroup
-
-instance ToHeaders GetPatchBaselineForPatchGroup where
+instance Lude.ToHeaders GetPatchBaselineForPatchGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.GetPatchBaselineForPatchGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AmazonSSM.GetPatchBaselineForPatchGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetPatchBaselineForPatchGroup where
+instance Lude.ToJSON GetPatchBaselineForPatchGroup where
   toJSON GetPatchBaselineForPatchGroup' {..} =
-    object
-      ( catMaybes
-          [ ("OperatingSystem" .=) <$> _gpbfpgOperatingSystem,
-            Just ("PatchGroup" .= _gpbfpgPatchGroup)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("OperatingSystem" Lude..=) Lude.<$> operatingSystem,
+            Lude.Just ("PatchGroup" Lude..= patchGroup)
           ]
       )
 
-instance ToPath GetPatchBaselineForPatchGroup where
-  toPath = const "/"
+instance Lude.ToPath GetPatchBaselineForPatchGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery GetPatchBaselineForPatchGroup where
-  toQuery = const mempty
+instance Lude.ToQuery GetPatchBaselineForPatchGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getPatchBaselineForPatchGroupResponse' smart constructor.
+-- | /See:/ 'mkGetPatchBaselineForPatchGroupResponse' smart constructor.
 data GetPatchBaselineForPatchGroupResponse = GetPatchBaselineForPatchGroupResponse'
-  { _gpbfpgrsOperatingSystem ::
-      !( Maybe
-           OperatingSystem
-       ),
-    _gpbfpgrsBaselineId ::
-      !(Maybe Text),
-    _gpbfpgrsPatchGroup ::
-      !(Maybe Text),
-    _gpbfpgrsResponseStatus ::
-      !Int
+  { operatingSystem ::
+      Lude.Maybe
+        OperatingSystem,
+    baselineId ::
+      Lude.Maybe
+        Lude.Text,
+    patchGroup ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPatchBaselineForPatchGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpbfpgrsOperatingSystem' - The operating system rule specified for patch groups using the patch baseline.
---
--- * 'gpbfpgrsBaselineId' - The ID of the patch baseline that should be used for the patch group.
---
--- * 'gpbfpgrsPatchGroup' - The name of the patch group.
---
--- * 'gpbfpgrsResponseStatus' - -- | The response status code.
-getPatchBaselineForPatchGroupResponse ::
-  -- | 'gpbfpgrsResponseStatus'
-  Int ->
+-- * 'baselineId' - The ID of the patch baseline that should be used for the patch group.
+-- * 'operatingSystem' - The operating system rule specified for patch groups using the patch baseline.
+-- * 'patchGroup' - The name of the patch group.
+-- * 'responseStatus' - The response status code.
+mkGetPatchBaselineForPatchGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPatchBaselineForPatchGroupResponse
-getPatchBaselineForPatchGroupResponse pResponseStatus_ =
+mkGetPatchBaselineForPatchGroupResponse pResponseStatus_ =
   GetPatchBaselineForPatchGroupResponse'
-    { _gpbfpgrsOperatingSystem =
-        Nothing,
-      _gpbfpgrsBaselineId = Nothing,
-      _gpbfpgrsPatchGroup = Nothing,
-      _gpbfpgrsResponseStatus = pResponseStatus_
+    { operatingSystem =
+        Lude.Nothing,
+      baselineId = Lude.Nothing,
+      patchGroup = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The operating system rule specified for patch groups using the patch baseline.
-gpbfpgrsOperatingSystem :: Lens' GetPatchBaselineForPatchGroupResponse (Maybe OperatingSystem)
-gpbfpgrsOperatingSystem = lens _gpbfpgrsOperatingSystem (\s a -> s {_gpbfpgrsOperatingSystem = a})
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbfpgrsOperatingSystem :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Lude.Maybe OperatingSystem)
+gpbfpgrsOperatingSystem = Lens.lens (operatingSystem :: GetPatchBaselineForPatchGroupResponse -> Lude.Maybe OperatingSystem) (\s a -> s {operatingSystem = a} :: GetPatchBaselineForPatchGroupResponse)
+{-# DEPRECATED gpbfpgrsOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
 -- | The ID of the patch baseline that should be used for the patch group.
-gpbfpgrsBaselineId :: Lens' GetPatchBaselineForPatchGroupResponse (Maybe Text)
-gpbfpgrsBaselineId = lens _gpbfpgrsBaselineId (\s a -> s {_gpbfpgrsBaselineId = a})
+--
+-- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbfpgrsBaselineId :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Lude.Maybe Lude.Text)
+gpbfpgrsBaselineId = Lens.lens (baselineId :: GetPatchBaselineForPatchGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {baselineId = a} :: GetPatchBaselineForPatchGroupResponse)
+{-# DEPRECATED gpbfpgrsBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
 
 -- | The name of the patch group.
-gpbfpgrsPatchGroup :: Lens' GetPatchBaselineForPatchGroupResponse (Maybe Text)
-gpbfpgrsPatchGroup = lens _gpbfpgrsPatchGroup (\s a -> s {_gpbfpgrsPatchGroup = a})
+--
+-- /Note:/ Consider using 'patchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbfpgrsPatchGroup :: Lens.Lens' GetPatchBaselineForPatchGroupResponse (Lude.Maybe Lude.Text)
+gpbfpgrsPatchGroup = Lens.lens (patchGroup :: GetPatchBaselineForPatchGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {patchGroup = a} :: GetPatchBaselineForPatchGroupResponse)
+{-# DEPRECATED gpbfpgrsPatchGroup "Use generic-lens or generic-optics with 'patchGroup' instead." #-}
 
--- | -- | The response status code.
-gpbfpgrsResponseStatus :: Lens' GetPatchBaselineForPatchGroupResponse Int
-gpbfpgrsResponseStatus = lens _gpbfpgrsResponseStatus (\s a -> s {_gpbfpgrsResponseStatus = a})
-
-instance NFData GetPatchBaselineForPatchGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbfpgrsResponseStatus :: Lens.Lens' GetPatchBaselineForPatchGroupResponse Lude.Int
+gpbfpgrsResponseStatus = Lens.lens (responseStatus :: GetPatchBaselineForPatchGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPatchBaselineForPatchGroupResponse)
+{-# DEPRECATED gpbfpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

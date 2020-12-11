@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.QueueTransition where
+module Network.AWS.MediaConvert.Types.QueueTransition
+  ( QueueTransition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkQueueTransition,
+
+    -- * Lenses
+    qtSourceQueue,
+    qtDestinationQueue,
+    qtTimestamp,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Description of the source and destination queues between which the job has moved, along with the timestamp of the move
 --
--- /See:/ 'queueTransition' smart constructor.
+-- /See:/ 'mkQueueTransition' smart constructor.
 data QueueTransition = QueueTransition'
-  { _qtSourceQueue ::
-      !(Maybe Text),
-    _qtDestinationQueue :: !(Maybe Text),
-    _qtTimestamp :: !(Maybe POSIX)
+  { sourceQueue ::
+      Lude.Maybe Lude.Text,
+    destinationQueue :: Lude.Maybe Lude.Text,
+    timestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueueTransition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'qtSourceQueue' - The queue that the job was on before the transition.
---
--- * 'qtDestinationQueue' - The queue that the job was on after the transition.
---
--- * 'qtTimestamp' - The time, in Unix epoch format, that the job moved from the source queue to the destination queue.
-queueTransition ::
+-- * 'destinationQueue' - The queue that the job was on after the transition.
+-- * 'sourceQueue' - The queue that the job was on before the transition.
+-- * 'timestamp' - The time, in Unix epoch format, that the job moved from the source queue to the destination queue.
+mkQueueTransition ::
   QueueTransition
-queueTransition =
+mkQueueTransition =
   QueueTransition'
-    { _qtSourceQueue = Nothing,
-      _qtDestinationQueue = Nothing,
-      _qtTimestamp = Nothing
+    { sourceQueue = Lude.Nothing,
+      destinationQueue = Lude.Nothing,
+      timestamp = Lude.Nothing
     }
 
 -- | The queue that the job was on before the transition.
-qtSourceQueue :: Lens' QueueTransition (Maybe Text)
-qtSourceQueue = lens _qtSourceQueue (\s a -> s {_qtSourceQueue = a})
+--
+-- /Note:/ Consider using 'sourceQueue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtSourceQueue :: Lens.Lens' QueueTransition (Lude.Maybe Lude.Text)
+qtSourceQueue = Lens.lens (sourceQueue :: QueueTransition -> Lude.Maybe Lude.Text) (\s a -> s {sourceQueue = a} :: QueueTransition)
+{-# DEPRECATED qtSourceQueue "Use generic-lens or generic-optics with 'sourceQueue' instead." #-}
 
 -- | The queue that the job was on after the transition.
-qtDestinationQueue :: Lens' QueueTransition (Maybe Text)
-qtDestinationQueue = lens _qtDestinationQueue (\s a -> s {_qtDestinationQueue = a})
+--
+-- /Note:/ Consider using 'destinationQueue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtDestinationQueue :: Lens.Lens' QueueTransition (Lude.Maybe Lude.Text)
+qtDestinationQueue = Lens.lens (destinationQueue :: QueueTransition -> Lude.Maybe Lude.Text) (\s a -> s {destinationQueue = a} :: QueueTransition)
+{-# DEPRECATED qtDestinationQueue "Use generic-lens or generic-optics with 'destinationQueue' instead." #-}
 
 -- | The time, in Unix epoch format, that the job moved from the source queue to the destination queue.
-qtTimestamp :: Lens' QueueTransition (Maybe UTCTime)
-qtTimestamp = lens _qtTimestamp (\s a -> s {_qtTimestamp = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qtTimestamp :: Lens.Lens' QueueTransition (Lude.Maybe Lude.Timestamp)
+qtTimestamp = Lens.lens (timestamp :: QueueTransition -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: QueueTransition)
+{-# DEPRECATED qtTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance FromJSON QueueTransition where
+instance Lude.FromJSON QueueTransition where
   parseJSON =
-    withObject
+    Lude.withObject
       "QueueTransition"
       ( \x ->
           QueueTransition'
-            <$> (x .:? "sourceQueue")
-            <*> (x .:? "destinationQueue")
-            <*> (x .:? "timestamp")
+            Lude.<$> (x Lude..:? "sourceQueue")
+            Lude.<*> (x Lude..:? "destinationQueue")
+            Lude.<*> (x Lude..:? "timestamp")
       )
-
-instance Hashable QueueTransition
-
-instance NFData QueueTransition

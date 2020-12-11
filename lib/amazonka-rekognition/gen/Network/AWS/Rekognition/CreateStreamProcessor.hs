@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,179 +14,202 @@
 --
 -- Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces in a streaming video.
 --
---
 -- Amazon Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. Amazon Rekognition Video sends analysis results to Amazon Kinesis Data Streams.
---
 -- You provide as input a Kinesis video stream (@Input@ ) and a Kinesis data stream (@Output@ ) stream. You also specify the face recognition criteria in @Settings@ . For example, the collection containing faces that you want to recognize. Use @Name@ to assign an identifier for the stream processor. You use @Name@ to manage the stream processor. For example, you can start processing the source video by calling 'StartStreamProcessor' with the @Name@ field.
---
 -- After you have finished analyzing a streaming video, use 'StopStreamProcessor' to stop processing. You can delete the stream processor by calling 'DeleteStreamProcessor' .
 module Network.AWS.Rekognition.CreateStreamProcessor
-  ( -- * Creating a Request
-    createStreamProcessor,
-    CreateStreamProcessor,
+  ( -- * Creating a request
+    CreateStreamProcessor (..),
+    mkCreateStreamProcessor,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cspInput,
     cspOutput,
     cspName,
     cspSettings,
     cspRoleARN,
 
-    -- * Destructuring the Response
-    createStreamProcessorResponse,
-    CreateStreamProcessorResponse,
+    -- * Destructuring the response
+    CreateStreamProcessorResponse (..),
+    mkCreateStreamProcessorResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     csprsStreamProcessorARN,
     csprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createStreamProcessor' smart constructor.
+-- | /See:/ 'mkCreateStreamProcessor' smart constructor.
 data CreateStreamProcessor = CreateStreamProcessor'
-  { _cspInput ::
-      !StreamProcessorInput,
-    _cspOutput :: !StreamProcessorOutput,
-    _cspName :: !Text,
-    _cspSettings :: !StreamProcessorSettings,
-    _cspRoleARN :: !Text
+  { input ::
+      StreamProcessorInput,
+    output :: StreamProcessorOutput,
+    name :: Lude.Text,
+    settings :: StreamProcessorSettings,
+    roleARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamProcessor' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cspInput' - Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is @StreamProcessorInput@ .
---
--- * 'cspOutput' - Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is @StreamProcessorOutput@ .
---
--- * 'cspName' - An identifier you assign to the stream processor. You can use @Name@ to manage the stream processor. For example, you can get the current status of the stream processor by calling 'DescribeStreamProcessor' . @Name@ is idempotent.
---
--- * 'cspSettings' - Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
---
--- * 'cspRoleARN' - ARN of the IAM role that allows access to the stream processor.
-createStreamProcessor ::
-  -- | 'cspInput'
+-- * 'input' - Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is @StreamProcessorInput@ .
+-- * 'name' - An identifier you assign to the stream processor. You can use @Name@ to manage the stream processor. For example, you can get the current status of the stream processor by calling 'DescribeStreamProcessor' . @Name@ is idempotent.
+-- * 'output' - Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is @StreamProcessorOutput@ .
+-- * 'roleARN' - ARN of the IAM role that allows access to the stream processor.
+-- * 'settings' - Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
+mkCreateStreamProcessor ::
+  -- | 'input'
   StreamProcessorInput ->
-  -- | 'cspOutput'
+  -- | 'output'
   StreamProcessorOutput ->
-  -- | 'cspName'
-  Text ->
-  -- | 'cspSettings'
+  -- | 'name'
+  Lude.Text ->
+  -- | 'settings'
   StreamProcessorSettings ->
-  -- | 'cspRoleARN'
-  Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   CreateStreamProcessor
-createStreamProcessor pInput_ pOutput_ pName_ pSettings_ pRoleARN_ =
-  CreateStreamProcessor'
-    { _cspInput = pInput_,
-      _cspOutput = pOutput_,
-      _cspName = pName_,
-      _cspSettings = pSettings_,
-      _cspRoleARN = pRoleARN_
-    }
+mkCreateStreamProcessor
+  pInput_
+  pOutput_
+  pName_
+  pSettings_
+  pRoleARN_ =
+    CreateStreamProcessor'
+      { input = pInput_,
+        output = pOutput_,
+        name = pName_,
+        settings = pSettings_,
+        roleARN = pRoleARN_
+      }
 
 -- | Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is @StreamProcessorInput@ .
-cspInput :: Lens' CreateStreamProcessor StreamProcessorInput
-cspInput = lens _cspInput (\s a -> s {_cspInput = a})
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspInput :: Lens.Lens' CreateStreamProcessor StreamProcessorInput
+cspInput = Lens.lens (input :: CreateStreamProcessor -> StreamProcessorInput) (\s a -> s {input = a} :: CreateStreamProcessor)
+{-# DEPRECATED cspInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is @StreamProcessorOutput@ .
-cspOutput :: Lens' CreateStreamProcessor StreamProcessorOutput
-cspOutput = lens _cspOutput (\s a -> s {_cspOutput = a})
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspOutput :: Lens.Lens' CreateStreamProcessor StreamProcessorOutput
+cspOutput = Lens.lens (output :: CreateStreamProcessor -> StreamProcessorOutput) (\s a -> s {output = a} :: CreateStreamProcessor)
+{-# DEPRECATED cspOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | An identifier you assign to the stream processor. You can use @Name@ to manage the stream processor. For example, you can get the current status of the stream processor by calling 'DescribeStreamProcessor' . @Name@ is idempotent.
-cspName :: Lens' CreateStreamProcessor Text
-cspName = lens _cspName (\s a -> s {_cspName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspName :: Lens.Lens' CreateStreamProcessor Lude.Text
+cspName = Lens.lens (name :: CreateStreamProcessor -> Lude.Text) (\s a -> s {name = a} :: CreateStreamProcessor)
+{-# DEPRECATED cspName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
-cspSettings :: Lens' CreateStreamProcessor StreamProcessorSettings
-cspSettings = lens _cspSettings (\s a -> s {_cspSettings = a})
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspSettings :: Lens.Lens' CreateStreamProcessor StreamProcessorSettings
+cspSettings = Lens.lens (settings :: CreateStreamProcessor -> StreamProcessorSettings) (\s a -> s {settings = a} :: CreateStreamProcessor)
+{-# DEPRECATED cspSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 -- | ARN of the IAM role that allows access to the stream processor.
-cspRoleARN :: Lens' CreateStreamProcessor Text
-cspRoleARN = lens _cspRoleARN (\s a -> s {_cspRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspRoleARN :: Lens.Lens' CreateStreamProcessor Lude.Text
+cspRoleARN = Lens.lens (roleARN :: CreateStreamProcessor -> Lude.Text) (\s a -> s {roleARN = a} :: CreateStreamProcessor)
+{-# DEPRECATED cspRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance AWSRequest CreateStreamProcessor where
+instance Lude.AWSRequest CreateStreamProcessor where
   type Rs CreateStreamProcessor = CreateStreamProcessorResponse
-  request = postJSON rekognition
+  request = Req.postJSON rekognitionService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateStreamProcessorResponse'
-            <$> (x .?> "StreamProcessorArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "StreamProcessorArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateStreamProcessor
-
-instance NFData CreateStreamProcessor
-
-instance ToHeaders CreateStreamProcessor where
+instance Lude.ToHeaders CreateStreamProcessor where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("RekognitionService.CreateStreamProcessor" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("RekognitionService.CreateStreamProcessor" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CreateStreamProcessor where
+instance Lude.ToJSON CreateStreamProcessor where
   toJSON CreateStreamProcessor' {..} =
-    object
-      ( catMaybes
-          [ Just ("Input" .= _cspInput),
-            Just ("Output" .= _cspOutput),
-            Just ("Name" .= _cspName),
-            Just ("Settings" .= _cspSettings),
-            Just ("RoleArn" .= _cspRoleARN)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Input" Lude..= input),
+            Lude.Just ("Output" Lude..= output),
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Settings" Lude..= settings),
+            Lude.Just ("RoleArn" Lude..= roleARN)
           ]
       )
 
-instance ToPath CreateStreamProcessor where
-  toPath = const "/"
+instance Lude.ToPath CreateStreamProcessor where
+  toPath = Lude.const "/"
 
-instance ToQuery CreateStreamProcessor where
-  toQuery = const mempty
+instance Lude.ToQuery CreateStreamProcessor where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'createStreamProcessorResponse' smart constructor.
+-- | /See:/ 'mkCreateStreamProcessorResponse' smart constructor.
 data CreateStreamProcessorResponse = CreateStreamProcessorResponse'
-  { _csprsStreamProcessorARN ::
-      !(Maybe Text),
-    _csprsResponseStatus :: !Int
+  { streamProcessorARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamProcessorResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csprsStreamProcessorARN' - ARN for the newly create stream processor.
---
--- * 'csprsResponseStatus' - -- | The response status code.
-createStreamProcessorResponse ::
-  -- | 'csprsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'streamProcessorARN' - ARN for the newly create stream processor.
+mkCreateStreamProcessorResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateStreamProcessorResponse
-createStreamProcessorResponse pResponseStatus_ =
+mkCreateStreamProcessorResponse pResponseStatus_ =
   CreateStreamProcessorResponse'
-    { _csprsStreamProcessorARN =
-        Nothing,
-      _csprsResponseStatus = pResponseStatus_
+    { streamProcessorARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | ARN for the newly create stream processor.
-csprsStreamProcessorARN :: Lens' CreateStreamProcessorResponse (Maybe Text)
-csprsStreamProcessorARN = lens _csprsStreamProcessorARN (\s a -> s {_csprsStreamProcessorARN = a})
+--
+-- /Note:/ Consider using 'streamProcessorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csprsStreamProcessorARN :: Lens.Lens' CreateStreamProcessorResponse (Lude.Maybe Lude.Text)
+csprsStreamProcessorARN = Lens.lens (streamProcessorARN :: CreateStreamProcessorResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamProcessorARN = a} :: CreateStreamProcessorResponse)
+{-# DEPRECATED csprsStreamProcessorARN "Use generic-lens or generic-optics with 'streamProcessorARN' instead." #-}
 
--- | -- | The response status code.
-csprsResponseStatus :: Lens' CreateStreamProcessorResponse Int
-csprsResponseStatus = lens _csprsResponseStatus (\s a -> s {_csprsResponseStatus = a})
-
-instance NFData CreateStreamProcessorResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csprsResponseStatus :: Lens.Lens' CreateStreamProcessorResponse Lude.Int
+csprsResponseStatus = Lens.lens (responseStatus :: CreateStreamProcessorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStreamProcessorResponse)
+{-# DEPRECATED csprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

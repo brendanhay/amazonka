@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,93 +7,108 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata where
+module Network.AWS.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
+  ( PullRequestSourceReferenceUpdatedEventMetadata (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPullRequestSourceReferenceUpdatedEventMetadata,
+
+    -- * Lenses
+    prsruemAfterCommitId,
+    prsruemBeforeCommitId,
+    prsruemMergeBase,
+    prsruemRepositoryName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about an update to the source branch of a pull request.
 --
---
---
--- /See:/ 'pullRequestSourceReferenceUpdatedEventMetadata' smart constructor.
+-- /See:/ 'mkPullRequestSourceReferenceUpdatedEventMetadata' smart constructor.
 data PullRequestSourceReferenceUpdatedEventMetadata = PullRequestSourceReferenceUpdatedEventMetadata'
-  { _prsruemAfterCommitId ::
-      !( Maybe
-           Text
-       ),
-    _prsruemBeforeCommitId ::
-      !( Maybe
-           Text
-       ),
-    _prsruemMergeBase ::
-      !( Maybe
-           Text
-       ),
-    _prsruemRepositoryName ::
-      !( Maybe
-           Text
-       )
+  { afterCommitId ::
+      Lude.Maybe
+        Lude.Text,
+    beforeCommitId ::
+      Lude.Maybe
+        Lude.Text,
+    mergeBase ::
+      Lude.Maybe
+        Lude.Text,
+    repositoryName ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'PullRequestSourceReferenceUpdatedEventMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'prsruemAfterCommitId' - The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.
---
--- * 'prsruemBeforeCommitId' - The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.
---
--- * 'prsruemMergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
---
--- * 'prsruemRepositoryName' - The name of the repository where the pull request was updated.
-pullRequestSourceReferenceUpdatedEventMetadata ::
+-- * 'afterCommitId' - The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.
+-- * 'beforeCommitId' - The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.
+-- * 'mergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
+-- * 'repositoryName' - The name of the repository where the pull request was updated.
+mkPullRequestSourceReferenceUpdatedEventMetadata ::
   PullRequestSourceReferenceUpdatedEventMetadata
-pullRequestSourceReferenceUpdatedEventMetadata =
+mkPullRequestSourceReferenceUpdatedEventMetadata =
   PullRequestSourceReferenceUpdatedEventMetadata'
-    { _prsruemAfterCommitId =
-        Nothing,
-      _prsruemBeforeCommitId = Nothing,
-      _prsruemMergeBase = Nothing,
-      _prsruemRepositoryName = Nothing
+    { afterCommitId =
+        Lude.Nothing,
+      beforeCommitId = Lude.Nothing,
+      mergeBase = Lude.Nothing,
+      repositoryName = Lude.Nothing
     }
 
 -- | The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.
-prsruemAfterCommitId :: Lens' PullRequestSourceReferenceUpdatedEventMetadata (Maybe Text)
-prsruemAfterCommitId = lens _prsruemAfterCommitId (\s a -> s {_prsruemAfterCommitId = a})
+--
+-- /Note:/ Consider using 'afterCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prsruemAfterCommitId :: Lens.Lens' PullRequestSourceReferenceUpdatedEventMetadata (Lude.Maybe Lude.Text)
+prsruemAfterCommitId = Lens.lens (afterCommitId :: PullRequestSourceReferenceUpdatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {afterCommitId = a} :: PullRequestSourceReferenceUpdatedEventMetadata)
+{-# DEPRECATED prsruemAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
 
 -- | The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.
-prsruemBeforeCommitId :: Lens' PullRequestSourceReferenceUpdatedEventMetadata (Maybe Text)
-prsruemBeforeCommitId = lens _prsruemBeforeCommitId (\s a -> s {_prsruemBeforeCommitId = a})
+--
+-- /Note:/ Consider using 'beforeCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prsruemBeforeCommitId :: Lens.Lens' PullRequestSourceReferenceUpdatedEventMetadata (Lude.Maybe Lude.Text)
+prsruemBeforeCommitId = Lens.lens (beforeCommitId :: PullRequestSourceReferenceUpdatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {beforeCommitId = a} :: PullRequestSourceReferenceUpdatedEventMetadata)
+{-# DEPRECATED prsruemBeforeCommitId "Use generic-lens or generic-optics with 'beforeCommitId' instead." #-}
 
 -- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
-prsruemMergeBase :: Lens' PullRequestSourceReferenceUpdatedEventMetadata (Maybe Text)
-prsruemMergeBase = lens _prsruemMergeBase (\s a -> s {_prsruemMergeBase = a})
+--
+-- /Note:/ Consider using 'mergeBase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prsruemMergeBase :: Lens.Lens' PullRequestSourceReferenceUpdatedEventMetadata (Lude.Maybe Lude.Text)
+prsruemMergeBase = Lens.lens (mergeBase :: PullRequestSourceReferenceUpdatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {mergeBase = a} :: PullRequestSourceReferenceUpdatedEventMetadata)
+{-# DEPRECATED prsruemMergeBase "Use generic-lens or generic-optics with 'mergeBase' instead." #-}
 
 -- | The name of the repository where the pull request was updated.
-prsruemRepositoryName :: Lens' PullRequestSourceReferenceUpdatedEventMetadata (Maybe Text)
-prsruemRepositoryName = lens _prsruemRepositoryName (\s a -> s {_prsruemRepositoryName = a})
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prsruemRepositoryName :: Lens.Lens' PullRequestSourceReferenceUpdatedEventMetadata (Lude.Maybe Lude.Text)
+prsruemRepositoryName = Lens.lens (repositoryName :: PullRequestSourceReferenceUpdatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: PullRequestSourceReferenceUpdatedEventMetadata)
+{-# DEPRECATED prsruemRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance FromJSON PullRequestSourceReferenceUpdatedEventMetadata where
+instance
+  Lude.FromJSON
+    PullRequestSourceReferenceUpdatedEventMetadata
+  where
   parseJSON =
-    withObject
+    Lude.withObject
       "PullRequestSourceReferenceUpdatedEventMetadata"
       ( \x ->
           PullRequestSourceReferenceUpdatedEventMetadata'
-            <$> (x .:? "afterCommitId")
-            <*> (x .:? "beforeCommitId")
-            <*> (x .:? "mergeBase")
-            <*> (x .:? "repositoryName")
+            Lude.<$> (x Lude..:? "afterCommitId")
+            Lude.<*> (x Lude..:? "beforeCommitId")
+            Lude.<*> (x Lude..:? "mergeBase")
+            Lude.<*> (x Lude..:? "repositoryName")
       )
-
-instance Hashable PullRequestSourceReferenceUpdatedEventMetadata
-
-instance NFData PullRequestSourceReferenceUpdatedEventMetadata

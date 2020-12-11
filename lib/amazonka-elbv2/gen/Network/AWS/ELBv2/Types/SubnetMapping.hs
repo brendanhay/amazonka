@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,91 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELBv2.Types.SubnetMapping where
+module Network.AWS.ELBv2.Types.SubnetMapping
+  ( SubnetMapping (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSubnetMapping,
+
+    -- * Lenses
+    smIPv6Address,
+    smAllocationId,
+    smPrivateIPv4Address,
+    smSubnetId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a subnet mapping.
 --
---
---
--- /See:/ 'subnetMapping' smart constructor.
+-- /See:/ 'mkSubnetMapping' smart constructor.
 data SubnetMapping = SubnetMapping'
-  { _smIPv6Address ::
-      !(Maybe Text),
-    _smAllocationId :: !(Maybe Text),
-    _smPrivateIPv4Address :: !(Maybe Text),
-    _smSubnetId :: !(Maybe Text)
+  { ipv6Address ::
+      Lude.Maybe Lude.Text,
+    allocationId :: Lude.Maybe Lude.Text,
+    privateIPv4Address :: Lude.Maybe Lude.Text,
+    subnetId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetMapping' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'smIPv6Address' - [Network Load Balancers] The IPv6 address.
---
--- * 'smAllocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
---
--- * 'smPrivateIPv4Address' - [Network Load Balancers] The private IPv4 address for an internal load balancer.
---
--- * 'smSubnetId' - The ID of the subnet.
-subnetMapping ::
+-- * 'allocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
+-- * 'ipv6Address' - [Network Load Balancers] The IPv6 address.
+-- * 'privateIPv4Address' - [Network Load Balancers] The private IPv4 address for an internal load balancer.
+-- * 'subnetId' - The ID of the subnet.
+mkSubnetMapping ::
   SubnetMapping
-subnetMapping =
+mkSubnetMapping =
   SubnetMapping'
-    { _smIPv6Address = Nothing,
-      _smAllocationId = Nothing,
-      _smPrivateIPv4Address = Nothing,
-      _smSubnetId = Nothing
+    { ipv6Address = Lude.Nothing,
+      allocationId = Lude.Nothing,
+      privateIPv4Address = Lude.Nothing,
+      subnetId = Lude.Nothing
     }
 
 -- | [Network Load Balancers] The IPv6 address.
-smIPv6Address :: Lens' SubnetMapping (Maybe Text)
-smIPv6Address = lens _smIPv6Address (\s a -> s {_smIPv6Address = a})
+--
+-- /Note:/ Consider using 'ipv6Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smIPv6Address :: Lens.Lens' SubnetMapping (Lude.Maybe Lude.Text)
+smIPv6Address = Lens.lens (ipv6Address :: SubnetMapping -> Lude.Maybe Lude.Text) (\s a -> s {ipv6Address = a} :: SubnetMapping)
+{-# DEPRECATED smIPv6Address "Use generic-lens or generic-optics with 'ipv6Address' instead." #-}
 
 -- | [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
-smAllocationId :: Lens' SubnetMapping (Maybe Text)
-smAllocationId = lens _smAllocationId (\s a -> s {_smAllocationId = a})
+--
+-- /Note:/ Consider using 'allocationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smAllocationId :: Lens.Lens' SubnetMapping (Lude.Maybe Lude.Text)
+smAllocationId = Lens.lens (allocationId :: SubnetMapping -> Lude.Maybe Lude.Text) (\s a -> s {allocationId = a} :: SubnetMapping)
+{-# DEPRECATED smAllocationId "Use generic-lens or generic-optics with 'allocationId' instead." #-}
 
 -- | [Network Load Balancers] The private IPv4 address for an internal load balancer.
-smPrivateIPv4Address :: Lens' SubnetMapping (Maybe Text)
-smPrivateIPv4Address = lens _smPrivateIPv4Address (\s a -> s {_smPrivateIPv4Address = a})
+--
+-- /Note:/ Consider using 'privateIPv4Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smPrivateIPv4Address :: Lens.Lens' SubnetMapping (Lude.Maybe Lude.Text)
+smPrivateIPv4Address = Lens.lens (privateIPv4Address :: SubnetMapping -> Lude.Maybe Lude.Text) (\s a -> s {privateIPv4Address = a} :: SubnetMapping)
+{-# DEPRECATED smPrivateIPv4Address "Use generic-lens or generic-optics with 'privateIPv4Address' instead." #-}
 
 -- | The ID of the subnet.
-smSubnetId :: Lens' SubnetMapping (Maybe Text)
-smSubnetId = lens _smSubnetId (\s a -> s {_smSubnetId = a})
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smSubnetId :: Lens.Lens' SubnetMapping (Lude.Maybe Lude.Text)
+smSubnetId = Lens.lens (subnetId :: SubnetMapping -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: SubnetMapping)
+{-# DEPRECATED smSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
-instance Hashable SubnetMapping
-
-instance NFData SubnetMapping
-
-instance ToQuery SubnetMapping where
+instance Lude.ToQuery SubnetMapping where
   toQuery SubnetMapping' {..} =
-    mconcat
-      [ "IPv6Address" =: _smIPv6Address,
-        "AllocationId" =: _smAllocationId,
-        "PrivateIPv4Address" =: _smPrivateIPv4Address,
-        "SubnetId" =: _smSubnetId
+    Lude.mconcat
+      [ "IPv6Address" Lude.=: ipv6Address,
+        "AllocationId" Lude.=: allocationId,
+        "PrivateIPv4Address" Lude.=: privateIPv4Address,
+        "SubnetId" Lude.=: subnetId
       ]

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,23 @@
 --
 -- Lists the identities in an identity pool.
 --
---
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.ListIdentities
-  ( -- * Creating a Request
-    listIdentities,
-    ListIdentities,
+  ( -- * Creating a request
+    ListIdentities (..),
+    mkListIdentities,
 
-    -- * Request Lenses
+    -- ** Request lenses
     liHideDisabled,
     liNextToken,
     liIdentityPoolId,
     liMaxResults,
 
-    -- * Destructuring the Response
-    listIdentitiesResponse,
-    ListIdentitiesResponse,
+    -- * Destructuring the response
+    ListIdentitiesResponse (..),
+    mkListIdentitiesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lirsIdentityPoolId,
     lirsNextToken,
     lirsIdentities,
@@ -45,162 +39,181 @@ module Network.AWS.CognitoIdentity.ListIdentities
 where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input to the ListIdentities action.
 --
---
---
--- /See:/ 'listIdentities' smart constructor.
+-- /See:/ 'mkListIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-  { _liHideDisabled ::
-      !(Maybe Bool),
-    _liNextToken :: !(Maybe Text),
-    _liIdentityPoolId :: !Text,
-    _liMaxResults :: !Nat
+  { hideDisabled ::
+      Lude.Maybe Lude.Bool,
+    nextToken :: Lude.Maybe Lude.Text,
+    identityPoolId :: Lude.Text,
+    maxResults :: Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liHideDisabled' - An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
---
--- * 'liNextToken' - A pagination token.
---
--- * 'liIdentityPoolId' - An identity pool ID in the format REGION:GUID.
---
--- * 'liMaxResults' - The maximum number of identities to return.
-listIdentities ::
-  -- | 'liIdentityPoolId'
-  Text ->
-  -- | 'liMaxResults'
-  Natural ->
+-- * 'hideDisabled' - An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
+-- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+-- * 'maxResults' - The maximum number of identities to return.
+-- * 'nextToken' - A pagination token.
+mkListIdentities ::
+  -- | 'identityPoolId'
+  Lude.Text ->
+  -- | 'maxResults'
+  Lude.Natural ->
   ListIdentities
-listIdentities pIdentityPoolId_ pMaxResults_ =
+mkListIdentities pIdentityPoolId_ pMaxResults_ =
   ListIdentities'
-    { _liHideDisabled = Nothing,
-      _liNextToken = Nothing,
-      _liIdentityPoolId = pIdentityPoolId_,
-      _liMaxResults = _Nat # pMaxResults_
+    { hideDisabled = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      identityPoolId = pIdentityPoolId_,
+      maxResults = pMaxResults_
     }
 
 -- | An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
-liHideDisabled :: Lens' ListIdentities (Maybe Bool)
-liHideDisabled = lens _liHideDisabled (\s a -> s {_liHideDisabled = a})
+--
+-- /Note:/ Consider using 'hideDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liHideDisabled :: Lens.Lens' ListIdentities (Lude.Maybe Lude.Bool)
+liHideDisabled = Lens.lens (hideDisabled :: ListIdentities -> Lude.Maybe Lude.Bool) (\s a -> s {hideDisabled = a} :: ListIdentities)
+{-# DEPRECATED liHideDisabled "Use generic-lens or generic-optics with 'hideDisabled' instead." #-}
 
 -- | A pagination token.
-liNextToken :: Lens' ListIdentities (Maybe Text)
-liNextToken = lens _liNextToken (\s a -> s {_liNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liNextToken :: Lens.Lens' ListIdentities (Lude.Maybe Lude.Text)
+liNextToken = Lens.lens (nextToken :: ListIdentities -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentities)
+{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An identity pool ID in the format REGION:GUID.
-liIdentityPoolId :: Lens' ListIdentities Text
-liIdentityPoolId = lens _liIdentityPoolId (\s a -> s {_liIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liIdentityPoolId :: Lens.Lens' ListIdentities Lude.Text
+liIdentityPoolId = Lens.lens (identityPoolId :: ListIdentities -> Lude.Text) (\s a -> s {identityPoolId = a} :: ListIdentities)
+{-# DEPRECATED liIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | The maximum number of identities to return.
-liMaxResults :: Lens' ListIdentities Natural
-liMaxResults = lens _liMaxResults (\s a -> s {_liMaxResults = a}) . _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liMaxResults :: Lens.Lens' ListIdentities Lude.Natural
+liMaxResults = Lens.lens (maxResults :: ListIdentities -> Lude.Natural) (\s a -> s {maxResults = a} :: ListIdentities)
+{-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSRequest ListIdentities where
+instance Lude.AWSRequest ListIdentities where
   type Rs ListIdentities = ListIdentitiesResponse
-  request = postJSON cognitoIdentity
+  request = Req.postJSON cognitoIdentityService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListIdentitiesResponse'
-            <$> (x .?> "IdentityPoolId")
-            <*> (x .?> "NextToken")
-            <*> (x .?> "Identities" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "IdentityPoolId")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "Identities" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListIdentities
-
-instance NFData ListIdentities
-
-instance ToHeaders ListIdentities where
+instance Lude.ToHeaders ListIdentities where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityService.ListIdentities" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSCognitoIdentityService.ListIdentities" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListIdentities where
+instance Lude.ToJSON ListIdentities where
   toJSON ListIdentities' {..} =
-    object
-      ( catMaybes
-          [ ("HideDisabled" .=) <$> _liHideDisabled,
-            ("NextToken" .=) <$> _liNextToken,
-            Just ("IdentityPoolId" .= _liIdentityPoolId),
-            Just ("MaxResults" .= _liMaxResults)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("HideDisabled" Lude..=) Lude.<$> hideDisabled,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
+            Lude.Just ("MaxResults" Lude..= maxResults)
           ]
       )
 
-instance ToPath ListIdentities where
-  toPath = const "/"
+instance Lude.ToPath ListIdentities where
+  toPath = Lude.const "/"
 
-instance ToQuery ListIdentities where
-  toQuery = const mempty
+instance Lude.ToQuery ListIdentities where
+  toQuery = Lude.const Lude.mempty
 
 -- | The response to a ListIdentities request.
 --
---
---
--- /See:/ 'listIdentitiesResponse' smart constructor.
+-- /See:/ 'mkListIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-  { _lirsIdentityPoolId ::
-      !(Maybe Text),
-    _lirsNextToken :: !(Maybe Text),
-    _lirsIdentities ::
-      !(Maybe [IdentityDescription]),
-    _lirsResponseStatus :: !Int
+  { identityPoolId ::
+      Lude.Maybe Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    identities ::
+      Lude.Maybe [IdentityDescription],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirsIdentityPoolId' - An identity pool ID in the format REGION:GUID.
---
--- * 'lirsNextToken' - A pagination token.
---
--- * 'lirsIdentities' - An object containing a set of identities and associated mappings.
---
--- * 'lirsResponseStatus' - -- | The response status code.
-listIdentitiesResponse ::
-  -- | 'lirsResponseStatus'
-  Int ->
+-- * 'identities' - An object containing a set of identities and associated mappings.
+-- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+-- * 'nextToken' - A pagination token.
+-- * 'responseStatus' - The response status code.
+mkListIdentitiesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListIdentitiesResponse
-listIdentitiesResponse pResponseStatus_ =
+mkListIdentitiesResponse pResponseStatus_ =
   ListIdentitiesResponse'
-    { _lirsIdentityPoolId = Nothing,
-      _lirsNextToken = Nothing,
-      _lirsIdentities = Nothing,
-      _lirsResponseStatus = pResponseStatus_
+    { identityPoolId = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      identities = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsIdentityPoolId = lens _lirsIdentityPoolId (\s a -> s {_lirsIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsIdentityPoolId :: Lens.Lens' ListIdentitiesResponse (Lude.Maybe Lude.Text)
+lirsIdentityPoolId = Lens.lens (identityPoolId :: ListIdentitiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {identityPoolId = a} :: ListIdentitiesResponse)
+{-# DEPRECATED lirsIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A pagination token.
-lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\s a -> s {_lirsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsNextToken :: Lens.Lens' ListIdentitiesResponse (Lude.Maybe Lude.Text)
+lirsNextToken = Lens.lens (nextToken :: ListIdentitiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentitiesResponse)
+{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An object containing a set of identities and associated mappings.
-lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirsIdentities = lens _lirsIdentities (\s a -> s {_lirsIdentities = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'identities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsIdentities :: Lens.Lens' ListIdentitiesResponse (Lude.Maybe [IdentityDescription])
+lirsIdentities = Lens.lens (identities :: ListIdentitiesResponse -> Lude.Maybe [IdentityDescription]) (\s a -> s {identities = a} :: ListIdentitiesResponse)
+{-# DEPRECATED lirsIdentities "Use generic-lens or generic-optics with 'identities' instead." #-}
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListIdentitiesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\s a -> s {_lirsResponseStatus = a})
-
-instance NFData ListIdentitiesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsResponseStatus :: Lens.Lens' ListIdentitiesResponse Lude.Int
+lirsResponseStatus = Lens.lens (responseStatus :: ListIdentitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIdentitiesResponse)
+{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

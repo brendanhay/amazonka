@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MigrationHub.Types
-  ( -- * Service Configuration
-    migrationHub,
+  ( -- * Service configuration
+    migrationHubService,
 
     -- * Errors
 
@@ -25,27 +23,27 @@ module Network.AWS.MigrationHub.Types
     ResourceAttributeType (..),
 
     -- * ApplicationState
-    ApplicationState,
-    applicationState,
+    ApplicationState (..),
+    mkApplicationState,
     asLastUpdatedTime,
     asApplicationId,
     asApplicationStatus,
 
     -- * CreatedArtifact
-    CreatedArtifact,
-    createdArtifact,
+    CreatedArtifact (..),
+    mkCreatedArtifact,
     caDescription,
     caName,
 
     -- * DiscoveredResource
-    DiscoveredResource,
-    discoveredResource,
+    DiscoveredResource (..),
+    mkDiscoveredResource,
     drDescription,
     drConfigurationId,
 
     -- * MigrationTask
-    MigrationTask,
-    migrationTask,
+    MigrationTask (..),
+    mkMigrationTask,
     mtUpdateDateTime,
     mtResourceAttributeList,
     mtTask,
@@ -53,8 +51,8 @@ module Network.AWS.MigrationHub.Types
     mtMigrationTaskName,
 
     -- * MigrationTaskSummary
-    MigrationTaskSummary,
-    migrationTaskSummary,
+    MigrationTaskSummary (..),
+    mkMigrationTaskSummary,
     mtsStatus,
     mtsUpdateDateTime,
     mtsProgressPercent,
@@ -63,26 +61,26 @@ module Network.AWS.MigrationHub.Types
     mtsMigrationTaskName,
 
     -- * ProgressUpdateStreamSummary
-    ProgressUpdateStreamSummary,
-    progressUpdateStreamSummary,
+    ProgressUpdateStreamSummary (..),
+    mkProgressUpdateStreamSummary,
     pussProgressUpdateStreamName,
 
     -- * ResourceAttribute
-    ResourceAttribute,
-    resourceAttribute,
+    ResourceAttribute (..),
+    mkResourceAttribute,
     raType,
     raValue,
 
     -- * Task
-    Task,
-    task,
+    Task (..),
+    mkTask,
     tProgressPercent,
     tStatusDetail,
     tStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types.ApplicationState
 import Network.AWS.MigrationHub.Types.ApplicationStatus
 import Network.AWS.MigrationHub.Types.CreatedArtifact
@@ -94,47 +92,59 @@ import Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary
 import Network.AWS.MigrationHub.Types.ResourceAttribute
 import Network.AWS.MigrationHub.Types.ResourceAttributeType
 import Network.AWS.MigrationHub.Types.Task
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-05-31@ of the Amazon Migration Hub SDK configuration.
-migrationHub :: Service
-migrationHub =
-  Service
-    { _svcAbbrev = "MigrationHub",
-      _svcSigner = v4,
-      _svcPrefix = "mgh",
-      _svcVersion = "2017-05-31",
-      _svcEndpoint = defaultEndpoint migrationHub,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "MigrationHub",
-      _svcRetry = retry
+migrationHubService :: Lude.Service
+migrationHubService =
+  Lude.Service
+    { Lude._svcAbbrev = "MigrationHub",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "mgh",
+      Lude._svcVersion = "2017-05-31",
+      Lude._svcEndpoint = Lude.defaultEndpoint migrationHubService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "MigrationHub",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ServiceCatalog.Types.AccessLevelFilter where
+module Network.AWS.ServiceCatalog.Types.AccessLevelFilter
+  ( AccessLevelFilter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAccessLevelFilter,
+
+    -- * Lenses
+    alfValue,
+    alfKey,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
 
 -- | The access level to use to filter results.
 --
---
---
--- /See:/ 'accessLevelFilter' smart constructor.
+-- /See:/ 'mkAccessLevelFilter' smart constructor.
 data AccessLevelFilter = AccessLevelFilter'
-  { _alfValue ::
-      !(Maybe Text),
-    _alfKey :: !(Maybe AccessLevelFilterKey)
+  { value ::
+      Lude.Maybe Lude.Text,
+    key :: Lude.Maybe AccessLevelFilterKey
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessLevelFilter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'key' - The access level.
 --
--- * 'alfValue' - The user to which the access level applies. The only supported value is @Self@ .
 --
--- * 'alfKey' - The access level.     * @Account@ - Filter results based on the account.     * @Role@ - Filter results based on the federated role of the specified user.     * @User@ - Filter results based on the specified user.
-accessLevelFilter ::
+--     * @Account@ - Filter results based on the account.
+--
+--
+--     * @Role@ - Filter results based on the federated role of the specified user.
+--
+--
+--     * @User@ - Filter results based on the specified user.
+--
+--
+-- * 'value' - The user to which the access level applies. The only supported value is @Self@ .
+mkAccessLevelFilter ::
   AccessLevelFilter
-accessLevelFilter =
-  AccessLevelFilter' {_alfValue = Nothing, _alfKey = Nothing}
+mkAccessLevelFilter =
+  AccessLevelFilter' {value = Lude.Nothing, key = Lude.Nothing}
 
 -- | The user to which the access level applies. The only supported value is @Self@ .
-alfValue :: Lens' AccessLevelFilter (Maybe Text)
-alfValue = lens _alfValue (\s a -> s {_alfValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alfValue :: Lens.Lens' AccessLevelFilter (Lude.Maybe Lude.Text)
+alfValue = Lens.lens (value :: AccessLevelFilter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: AccessLevelFilter)
+{-# DEPRECATED alfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | The access level.     * @Account@ - Filter results based on the account.     * @Role@ - Filter results based on the federated role of the specified user.     * @User@ - Filter results based on the specified user.
-alfKey :: Lens' AccessLevelFilter (Maybe AccessLevelFilterKey)
-alfKey = lens _alfKey (\s a -> s {_alfKey = a})
+-- | The access level.
+--
+--
+--     * @Account@ - Filter results based on the account.
+--
+--
+--     * @Role@ - Filter results based on the federated role of the specified user.
+--
+--
+--     * @User@ - Filter results based on the specified user.
+--
+--
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alfKey :: Lens.Lens' AccessLevelFilter (Lude.Maybe AccessLevelFilterKey)
+alfKey = Lens.lens (key :: AccessLevelFilter -> Lude.Maybe AccessLevelFilterKey) (\s a -> s {key = a} :: AccessLevelFilter)
+{-# DEPRECATED alfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Hashable AccessLevelFilter
-
-instance NFData AccessLevelFilter
-
-instance ToJSON AccessLevelFilter where
+instance Lude.ToJSON AccessLevelFilter where
   toJSON AccessLevelFilter' {..} =
-    object
-      (catMaybes [("Value" .=) <$> _alfValue, ("Key" .=) <$> _alfKey])
+    Lude.object
+      ( Lude.catMaybes
+          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
+      )

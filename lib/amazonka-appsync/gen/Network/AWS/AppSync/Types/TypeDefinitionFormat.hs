@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AppSync.Types.TypeDefinitionFormat where
+module Network.AWS.AppSync.Types.TypeDefinitionFormat
+  ( TypeDefinitionFormat
+      ( TypeDefinitionFormat',
+        JSON,
+        Sdl
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TypeDefinitionFormat
-  = JSON
-  | Sdl
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TypeDefinitionFormat = TypeDefinitionFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TypeDefinitionFormat where
-  parser =
-    takeLowerText >>= \case
-      "json" -> pure JSON
-      "sdl" -> pure Sdl
-      e ->
-        fromTextError $
-          "Failure parsing TypeDefinitionFormat from value: '" <> e
-            <> "'. Accepted values: json, sdl"
+pattern JSON :: TypeDefinitionFormat
+pattern JSON = TypeDefinitionFormat' "JSON"
 
-instance ToText TypeDefinitionFormat where
-  toText = \case
-    JSON -> "JSON"
-    Sdl -> "SDL"
+pattern Sdl :: TypeDefinitionFormat
+pattern Sdl = TypeDefinitionFormat' "SDL"
 
-instance Hashable TypeDefinitionFormat
-
-instance NFData TypeDefinitionFormat
-
-instance ToByteString TypeDefinitionFormat
-
-instance ToQuery TypeDefinitionFormat
-
-instance ToHeader TypeDefinitionFormat
-
-instance ToJSON TypeDefinitionFormat where
-  toJSON = toJSONText
-
-instance FromJSON TypeDefinitionFormat where
-  parseJSON = parseJSONText "TypeDefinitionFormat"
+{-# COMPLETE
+  JSON,
+  Sdl,
+  TypeDefinitionFormat'
+  #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result. Root services process incoming requests and make calls to downstream services. Root services are applications that use the <https://docs.aws.amazon.com/xray/index.html AWS X-Ray SDK> . Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL databases.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.XRay.GetServiceGraph
-  ( -- * Creating a Request
-    getServiceGraph,
-    GetServiceGraph,
+  ( -- * Creating a request
+    GetServiceGraph (..),
+    mkGetServiceGraph,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsgNextToken,
     gsgGroupARN,
     gsgGroupName,
     gsgStartTime,
     gsgEndTime,
 
-    -- * Destructuring the Response
-    getServiceGraphResponse,
-    GetServiceGraphResponse,
+    -- * Destructuring the response
+    GetServiceGraphResponse (..),
+    mkGetServiceGraphResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsgrsContainsOldGroupVersions,
     gsgrsStartTime,
     gsgrsNextToken,
@@ -48,182 +41,212 @@ module Network.AWS.XRay.GetServiceGraph
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.XRay.Types
 
--- | /See:/ 'getServiceGraph' smart constructor.
+-- | /See:/ 'mkGetServiceGraph' smart constructor.
 data GetServiceGraph = GetServiceGraph'
-  { _gsgNextToken ::
-      !(Maybe Text),
-    _gsgGroupARN :: !(Maybe Text),
-    _gsgGroupName :: !(Maybe Text),
-    _gsgStartTime :: !POSIX,
-    _gsgEndTime :: !POSIX
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    groupARN :: Lude.Maybe Lude.Text,
+    groupName :: Lude.Maybe Lude.Text,
+    startTime :: Lude.Timestamp,
+    endTime :: Lude.Timestamp
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceGraph' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsgNextToken' - Pagination token.
---
--- * 'gsgGroupARN' - The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.
---
--- * 'gsgGroupName' - The name of a group based on which you want to generate a graph.
---
--- * 'gsgStartTime' - The start of the time frame for which to generate a graph.
---
--- * 'gsgEndTime' - The end of the timeframe for which to generate a graph.
-getServiceGraph ::
-  -- | 'gsgStartTime'
-  UTCTime ->
-  -- | 'gsgEndTime'
-  UTCTime ->
+-- * 'endTime' - The end of the timeframe for which to generate a graph.
+-- * 'groupARN' - The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.
+-- * 'groupName' - The name of a group based on which you want to generate a graph.
+-- * 'nextToken' - Pagination token.
+-- * 'startTime' - The start of the time frame for which to generate a graph.
+mkGetServiceGraph ::
+  -- | 'startTime'
+  Lude.Timestamp ->
+  -- | 'endTime'
+  Lude.Timestamp ->
   GetServiceGraph
-getServiceGraph pStartTime_ pEndTime_ =
+mkGetServiceGraph pStartTime_ pEndTime_ =
   GetServiceGraph'
-    { _gsgNextToken = Nothing,
-      _gsgGroupARN = Nothing,
-      _gsgGroupName = Nothing,
-      _gsgStartTime = _Time # pStartTime_,
-      _gsgEndTime = _Time # pEndTime_
+    { nextToken = Lude.Nothing,
+      groupARN = Lude.Nothing,
+      groupName = Lude.Nothing,
+      startTime = pStartTime_,
+      endTime = pEndTime_
     }
 
 -- | Pagination token.
-gsgNextToken :: Lens' GetServiceGraph (Maybe Text)
-gsgNextToken = lens _gsgNextToken (\s a -> s {_gsgNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgNextToken :: Lens.Lens' GetServiceGraph (Lude.Maybe Lude.Text)
+gsgNextToken = Lens.lens (nextToken :: GetServiceGraph -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetServiceGraph)
+{-# DEPRECATED gsgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.
-gsgGroupARN :: Lens' GetServiceGraph (Maybe Text)
-gsgGroupARN = lens _gsgGroupARN (\s a -> s {_gsgGroupARN = a})
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgGroupARN :: Lens.Lens' GetServiceGraph (Lude.Maybe Lude.Text)
+gsgGroupARN = Lens.lens (groupARN :: GetServiceGraph -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: GetServiceGraph)
+{-# DEPRECATED gsgGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The name of a group based on which you want to generate a graph.
-gsgGroupName :: Lens' GetServiceGraph (Maybe Text)
-gsgGroupName = lens _gsgGroupName (\s a -> s {_gsgGroupName = a})
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgGroupName :: Lens.Lens' GetServiceGraph (Lude.Maybe Lude.Text)
+gsgGroupName = Lens.lens (groupName :: GetServiceGraph -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GetServiceGraph)
+{-# DEPRECATED gsgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The start of the time frame for which to generate a graph.
-gsgStartTime :: Lens' GetServiceGraph UTCTime
-gsgStartTime = lens _gsgStartTime (\s a -> s {_gsgStartTime = a}) . _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgStartTime :: Lens.Lens' GetServiceGraph Lude.Timestamp
+gsgStartTime = Lens.lens (startTime :: GetServiceGraph -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetServiceGraph)
+{-# DEPRECATED gsgStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end of the timeframe for which to generate a graph.
-gsgEndTime :: Lens' GetServiceGraph UTCTime
-gsgEndTime = lens _gsgEndTime (\s a -> s {_gsgEndTime = a}) . _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgEndTime :: Lens.Lens' GetServiceGraph Lude.Timestamp
+gsgEndTime = Lens.lens (endTime :: GetServiceGraph -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetServiceGraph)
+{-# DEPRECATED gsgEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance AWSPager GetServiceGraph where
+instance Page.AWSPager GetServiceGraph where
   page rq rs
-    | stop (rs ^. gsgrsNextToken) = Nothing
-    | stop (rs ^. gsgrsServices) = Nothing
-    | otherwise = Just $ rq & gsgNextToken .~ rs ^. gsgrsNextToken
+    | Page.stop (rs Lens.^. gsgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. gsgrsServices) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gsgNextToken Lens..~ rs Lens.^. gsgrsNextToken
 
-instance AWSRequest GetServiceGraph where
+instance Lude.AWSRequest GetServiceGraph where
   type Rs GetServiceGraph = GetServiceGraphResponse
-  request = postJSON xRay
+  request = Req.postJSON xRayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetServiceGraphResponse'
-            <$> (x .?> "ContainsOldGroupVersions")
-            <*> (x .?> "StartTime")
-            <*> (x .?> "NextToken")
-            <*> (x .?> "EndTime")
-            <*> (x .?> "Services" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ContainsOldGroupVersions")
+            Lude.<*> (x Lude..?> "StartTime")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "EndTime")
+            Lude.<*> (x Lude..?> "Services" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetServiceGraph
+instance Lude.ToHeaders GetServiceGraph where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData GetServiceGraph
-
-instance ToHeaders GetServiceGraph where
-  toHeaders = const mempty
-
-instance ToJSON GetServiceGraph where
+instance Lude.ToJSON GetServiceGraph where
   toJSON GetServiceGraph' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _gsgNextToken,
-            ("GroupARN" .=) <$> _gsgGroupARN,
-            ("GroupName" .=) <$> _gsgGroupName,
-            Just ("StartTime" .= _gsgStartTime),
-            Just ("EndTime" .= _gsgEndTime)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("GroupARN" Lude..=) Lude.<$> groupARN,
+            ("GroupName" Lude..=) Lude.<$> groupName,
+            Lude.Just ("StartTime" Lude..= startTime),
+            Lude.Just ("EndTime" Lude..= endTime)
           ]
       )
 
-instance ToPath GetServiceGraph where
-  toPath = const "/ServiceGraph"
+instance Lude.ToPath GetServiceGraph where
+  toPath = Lude.const "/ServiceGraph"
 
-instance ToQuery GetServiceGraph where
-  toQuery = const mempty
+instance Lude.ToQuery GetServiceGraph where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getServiceGraphResponse' smart constructor.
+-- | /See:/ 'mkGetServiceGraphResponse' smart constructor.
 data GetServiceGraphResponse = GetServiceGraphResponse'
-  { _gsgrsContainsOldGroupVersions ::
-      !(Maybe Bool),
-    _gsgrsStartTime :: !(Maybe POSIX),
-    _gsgrsNextToken :: !(Maybe Text),
-    _gsgrsEndTime :: !(Maybe POSIX),
-    _gsgrsServices :: !(Maybe [ServiceInfo]),
-    _gsgrsResponseStatus :: !Int
+  { containsOldGroupVersions ::
+      Lude.Maybe Lude.Bool,
+    startTime :: Lude.Maybe Lude.Timestamp,
+    nextToken :: Lude.Maybe Lude.Text,
+    endTime :: Lude.Maybe Lude.Timestamp,
+    services :: Lude.Maybe [ServiceInfo],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceGraphResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsgrsContainsOldGroupVersions' - A flag indicating whether the group's filter expression has been consistent, or if the returned service graph may show traces from an older version of the group's filter expression.
---
--- * 'gsgrsStartTime' - The start of the time frame for which the graph was generated.
---
--- * 'gsgrsNextToken' - Pagination token.
---
--- * 'gsgrsEndTime' - The end of the time frame for which the graph was generated.
---
--- * 'gsgrsServices' - The services that have processed a traced request during the specified time frame.
---
--- * 'gsgrsResponseStatus' - -- | The response status code.
-getServiceGraphResponse ::
-  -- | 'gsgrsResponseStatus'
-  Int ->
+-- * 'containsOldGroupVersions' - A flag indicating whether the group's filter expression has been consistent, or if the returned service graph may show traces from an older version of the group's filter expression.
+-- * 'endTime' - The end of the time frame for which the graph was generated.
+-- * 'nextToken' - Pagination token.
+-- * 'responseStatus' - The response status code.
+-- * 'services' - The services that have processed a traced request during the specified time frame.
+-- * 'startTime' - The start of the time frame for which the graph was generated.
+mkGetServiceGraphResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetServiceGraphResponse
-getServiceGraphResponse pResponseStatus_ =
+mkGetServiceGraphResponse pResponseStatus_ =
   GetServiceGraphResponse'
-    { _gsgrsContainsOldGroupVersions =
-        Nothing,
-      _gsgrsStartTime = Nothing,
-      _gsgrsNextToken = Nothing,
-      _gsgrsEndTime = Nothing,
-      _gsgrsServices = Nothing,
-      _gsgrsResponseStatus = pResponseStatus_
+    { containsOldGroupVersions = Lude.Nothing,
+      startTime = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      endTime = Lude.Nothing,
+      services = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A flag indicating whether the group's filter expression has been consistent, or if the returned service graph may show traces from an older version of the group's filter expression.
-gsgrsContainsOldGroupVersions :: Lens' GetServiceGraphResponse (Maybe Bool)
-gsgrsContainsOldGroupVersions = lens _gsgrsContainsOldGroupVersions (\s a -> s {_gsgrsContainsOldGroupVersions = a})
+--
+-- /Note:/ Consider using 'containsOldGroupVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgrsContainsOldGroupVersions :: Lens.Lens' GetServiceGraphResponse (Lude.Maybe Lude.Bool)
+gsgrsContainsOldGroupVersions = Lens.lens (containsOldGroupVersions :: GetServiceGraphResponse -> Lude.Maybe Lude.Bool) (\s a -> s {containsOldGroupVersions = a} :: GetServiceGraphResponse)
+{-# DEPRECATED gsgrsContainsOldGroupVersions "Use generic-lens or generic-optics with 'containsOldGroupVersions' instead." #-}
 
 -- | The start of the time frame for which the graph was generated.
-gsgrsStartTime :: Lens' GetServiceGraphResponse (Maybe UTCTime)
-gsgrsStartTime = lens _gsgrsStartTime (\s a -> s {_gsgrsStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgrsStartTime :: Lens.Lens' GetServiceGraphResponse (Lude.Maybe Lude.Timestamp)
+gsgrsStartTime = Lens.lens (startTime :: GetServiceGraphResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: GetServiceGraphResponse)
+{-# DEPRECATED gsgrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Pagination token.
-gsgrsNextToken :: Lens' GetServiceGraphResponse (Maybe Text)
-gsgrsNextToken = lens _gsgrsNextToken (\s a -> s {_gsgrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgrsNextToken :: Lens.Lens' GetServiceGraphResponse (Lude.Maybe Lude.Text)
+gsgrsNextToken = Lens.lens (nextToken :: GetServiceGraphResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetServiceGraphResponse)
+{-# DEPRECATED gsgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The end of the time frame for which the graph was generated.
-gsgrsEndTime :: Lens' GetServiceGraphResponse (Maybe UTCTime)
-gsgrsEndTime = lens _gsgrsEndTime (\s a -> s {_gsgrsEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgrsEndTime :: Lens.Lens' GetServiceGraphResponse (Lude.Maybe Lude.Timestamp)
+gsgrsEndTime = Lens.lens (endTime :: GetServiceGraphResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: GetServiceGraphResponse)
+{-# DEPRECATED gsgrsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The services that have processed a traced request during the specified time frame.
-gsgrsServices :: Lens' GetServiceGraphResponse [ServiceInfo]
-gsgrsServices = lens _gsgrsServices (\s a -> s {_gsgrsServices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgrsServices :: Lens.Lens' GetServiceGraphResponse (Lude.Maybe [ServiceInfo])
+gsgrsServices = Lens.lens (services :: GetServiceGraphResponse -> Lude.Maybe [ServiceInfo]) (\s a -> s {services = a} :: GetServiceGraphResponse)
+{-# DEPRECATED gsgrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
--- | -- | The response status code.
-gsgrsResponseStatus :: Lens' GetServiceGraphResponse Int
-gsgrsResponseStatus = lens _gsgrsResponseStatus (\s a -> s {_gsgrsResponseStatus = a})
-
-instance NFData GetServiceGraphResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsgrsResponseStatus :: Lens.Lens' GetServiceGraphResponse Lude.Int
+gsgrsResponseStatus = Lens.lens (responseStatus :: GetServiceGraphResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServiceGraphResponse)
+{-# DEPRECATED gsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

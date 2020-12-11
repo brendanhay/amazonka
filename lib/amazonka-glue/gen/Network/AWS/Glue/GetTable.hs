@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,160 @@
 --
 -- Retrieves the @Table@ definition in a Data Catalog for a specified table.
 module Network.AWS.Glue.GetTable
-  ( -- * Creating a Request
-    getTable,
-    GetTable,
+  ( -- * Creating a request
+    GetTable (..),
+    mkGetTable,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gttCatalogId,
     gttDatabaseName,
     gttName,
 
-    -- * Destructuring the Response
-    getTableResponse,
-    GetTableResponse,
+    -- * Destructuring the response
+    GetTableResponse (..),
+    mkGetTableResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     getersTable,
     getersResponseStatus,
   )
 where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'getTable' smart constructor.
+-- | /See:/ 'mkGetTable' smart constructor.
 data GetTable = GetTable'
-  { _gttCatalogId :: !(Maybe Text),
-    _gttDatabaseName :: !Text,
-    _gttName :: !Text
+  { catalogId :: Lude.Maybe Lude.Text,
+    databaseName :: Lude.Text,
+    name :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTable' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gttCatalogId' - The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
---
--- * 'gttDatabaseName' - The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
---
--- * 'gttName' - The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.
-getTable ::
-  -- | 'gttDatabaseName'
-  Text ->
-  -- | 'gttName'
-  Text ->
+-- * 'catalogId' - The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
+-- * 'databaseName' - The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
+-- * 'name' - The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.
+mkGetTable ::
+  -- | 'databaseName'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   GetTable
-getTable pDatabaseName_ pName_ =
+mkGetTable pDatabaseName_ pName_ =
   GetTable'
-    { _gttCatalogId = Nothing,
-      _gttDatabaseName = pDatabaseName_,
-      _gttName = pName_
+    { catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_,
+      name = pName_
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
-gttCatalogId :: Lens' GetTable (Maybe Text)
-gttCatalogId = lens _gttCatalogId (\s a -> s {_gttCatalogId = a})
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gttCatalogId :: Lens.Lens' GetTable (Lude.Maybe Lude.Text)
+gttCatalogId = Lens.lens (catalogId :: GetTable -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetTable)
+{-# DEPRECATED gttCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
-gttDatabaseName :: Lens' GetTable Text
-gttDatabaseName = lens _gttDatabaseName (\s a -> s {_gttDatabaseName = a})
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gttDatabaseName :: Lens.Lens' GetTable Lude.Text
+gttDatabaseName = Lens.lens (databaseName :: GetTable -> Lude.Text) (\s a -> s {databaseName = a} :: GetTable)
+{-# DEPRECATED gttDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.
-gttName :: Lens' GetTable Text
-gttName = lens _gttName (\s a -> s {_gttName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gttName :: Lens.Lens' GetTable Lude.Text
+gttName = Lens.lens (name :: GetTable -> Lude.Text) (\s a -> s {name = a} :: GetTable)
+{-# DEPRECATED gttName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance AWSRequest GetTable where
+instance Lude.AWSRequest GetTable where
   type Rs GetTable = GetTableResponse
-  request = postJSON glue
+  request = Req.postJSON glueService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetTableResponse' <$> (x .?> "Table") <*> (pure (fromEnum s))
+          GetTableResponse'
+            Lude.<$> (x Lude..?> "Table") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetTable
-
-instance NFData GetTable
-
-instance ToHeaders GetTable where
+instance Lude.ToHeaders GetTable where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AWSGlue.GetTable" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetTable" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetTable where
+instance Lude.ToJSON GetTable where
   toJSON GetTable' {..} =
-    object
-      ( catMaybes
-          [ ("CatalogId" .=) <$> _gttCatalogId,
-            Just ("DatabaseName" .= _gttDatabaseName),
-            Just ("Name" .= _gttName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
-instance ToPath GetTable where
-  toPath = const "/"
+instance Lude.ToPath GetTable where
+  toPath = Lude.const "/"
 
-instance ToQuery GetTable where
-  toQuery = const mempty
+instance Lude.ToQuery GetTable where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getTableResponse' smart constructor.
+-- | /See:/ 'mkGetTableResponse' smart constructor.
 data GetTableResponse = GetTableResponse'
-  { _getersTable ::
-      !(Maybe Table),
-    _getersResponseStatus :: !Int
+  { table ::
+      Lude.Maybe Table,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTableResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'getersTable' - The @Table@ object that defines the specified table.
---
--- * 'getersResponseStatus' - -- | The response status code.
-getTableResponse ::
-  -- | 'getersResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'table' - The @Table@ object that defines the specified table.
+mkGetTableResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTableResponse
-getTableResponse pResponseStatus_ =
+mkGetTableResponse pResponseStatus_ =
   GetTableResponse'
-    { _getersTable = Nothing,
-      _getersResponseStatus = pResponseStatus_
+    { table = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The @Table@ object that defines the specified table.
-getersTable :: Lens' GetTableResponse (Maybe Table)
-getersTable = lens _getersTable (\s a -> s {_getersTable = a})
+--
+-- /Note:/ Consider using 'table' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getersTable :: Lens.Lens' GetTableResponse (Lude.Maybe Table)
+getersTable = Lens.lens (table :: GetTableResponse -> Lude.Maybe Table) (\s a -> s {table = a} :: GetTableResponse)
+{-# DEPRECATED getersTable "Use generic-lens or generic-optics with 'table' instead." #-}
 
--- | -- | The response status code.
-getersResponseStatus :: Lens' GetTableResponse Int
-getersResponseStatus = lens _getersResponseStatus (\s a -> s {_getersResponseStatus = a})
-
-instance NFData GetTableResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getersResponseStatus :: Lens.Lens' GetTableResponse Lude.Int
+getersResponseStatus = Lens.lens (responseStatus :: GetTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTableResponse)
+{-# DEPRECATED getersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

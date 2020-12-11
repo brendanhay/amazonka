@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,142 +14,164 @@
 --
 -- Renames the specified organizational unit (OU). The ID and ARN don't change. The child OUs and accounts remain in place, and any attached policies of the OU remain attached.
 --
---
 -- This operation can be called only from the organization's management account.
 module Network.AWS.Organizations.UpdateOrganizationalUnit
-  ( -- * Creating a Request
-    updateOrganizationalUnit,
-    UpdateOrganizationalUnit,
+  ( -- * Creating a request
+    UpdateOrganizationalUnit (..),
+    mkUpdateOrganizationalUnit,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uouName,
     uouOrganizationalUnitId,
 
-    -- * Destructuring the Response
-    updateOrganizationalUnitResponse,
-    UpdateOrganizationalUnitResponse,
+    -- * Destructuring the response
+    UpdateOrganizationalUnitResponse (..),
+    mkUpdateOrganizationalUnitResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uoursOrganizationalUnit,
     uoursResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateOrganizationalUnit' smart constructor.
+-- | /See:/ 'mkUpdateOrganizationalUnit' smart constructor.
 data UpdateOrganizationalUnit = UpdateOrganizationalUnit'
-  { _uouName ::
-      !(Maybe Text),
-    _uouOrganizationalUnitId :: !Text
+  { name ::
+      Lude.Maybe Lude.Text,
+    organizationalUnitId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOrganizationalUnit' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'name' - The new name that you want to assign to the OU.
 --
--- * 'uouName' - The new name that you want to assign to the OU. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- * 'organizationalUnitId' - The unique identifier (ID) of the OU that you want to rename. You can get the ID from the 'ListOrganizationalUnitsForParent' operation.
 --
--- * 'uouOrganizationalUnitId' - The unique identifier (ID) of the OU that you want to rename. You can get the ID from the 'ListOrganizationalUnitsForParent' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-updateOrganizationalUnit ::
-  -- | 'uouOrganizationalUnitId'
-  Text ->
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+mkUpdateOrganizationalUnit ::
+  -- | 'organizationalUnitId'
+  Lude.Text ->
   UpdateOrganizationalUnit
-updateOrganizationalUnit pOrganizationalUnitId_ =
+mkUpdateOrganizationalUnit pOrganizationalUnitId_ =
   UpdateOrganizationalUnit'
-    { _uouName = Nothing,
-      _uouOrganizationalUnitId = pOrganizationalUnitId_
+    { name = Lude.Nothing,
+      organizationalUnitId = pOrganizationalUnitId_
     }
 
--- | The new name that you want to assign to the OU. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
-uouName :: Lens' UpdateOrganizationalUnit (Maybe Text)
-uouName = lens _uouName (\s a -> s {_uouName = a})
+-- | The new name that you want to assign to the OU.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uouName :: Lens.Lens' UpdateOrganizationalUnit (Lude.Maybe Lude.Text)
+uouName = Lens.lens (name :: UpdateOrganizationalUnit -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateOrganizationalUnit)
+{-# DEPRECATED uouName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The unique identifier (ID) of the OU that you want to rename. You can get the ID from the 'ListOrganizationalUnitsForParent' operation. The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-uouOrganizationalUnitId :: Lens' UpdateOrganizationalUnit Text
-uouOrganizationalUnitId = lens _uouOrganizationalUnitId (\s a -> s {_uouOrganizationalUnitId = a})
+-- | The unique identifier (ID) of the OU that you want to rename. You can get the ID from the 'ListOrganizationalUnitsForParent' operation.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+--
+-- /Note:/ Consider using 'organizationalUnitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uouOrganizationalUnitId :: Lens.Lens' UpdateOrganizationalUnit Lude.Text
+uouOrganizationalUnitId = Lens.lens (organizationalUnitId :: UpdateOrganizationalUnit -> Lude.Text) (\s a -> s {organizationalUnitId = a} :: UpdateOrganizationalUnit)
+{-# DEPRECATED uouOrganizationalUnitId "Use generic-lens or generic-optics with 'organizationalUnitId' instead." #-}
 
-instance AWSRequest UpdateOrganizationalUnit where
+instance Lude.AWSRequest UpdateOrganizationalUnit where
   type Rs UpdateOrganizationalUnit = UpdateOrganizationalUnitResponse
-  request = postJSON organizations
+  request = Req.postJSON organizationsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateOrganizationalUnitResponse'
-            <$> (x .?> "OrganizationalUnit") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "OrganizationalUnit")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateOrganizationalUnit
-
-instance NFData UpdateOrganizationalUnit
-
-instance ToHeaders UpdateOrganizationalUnit where
+instance Lude.ToHeaders UpdateOrganizationalUnit where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "AWSOrganizationsV20161128.UpdateOrganizationalUnit" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSOrganizationsV20161128.UpdateOrganizationalUnit" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateOrganizationalUnit where
+instance Lude.ToJSON UpdateOrganizationalUnit where
   toJSON UpdateOrganizationalUnit' {..} =
-    object
-      ( catMaybes
-          [ ("Name" .=) <$> _uouName,
-            Just ("OrganizationalUnitId" .= _uouOrganizationalUnitId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Name" Lude..=) Lude.<$> name,
+            Lude.Just ("OrganizationalUnitId" Lude..= organizationalUnitId)
           ]
       )
 
-instance ToPath UpdateOrganizationalUnit where
-  toPath = const "/"
+instance Lude.ToPath UpdateOrganizationalUnit where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateOrganizationalUnit where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateOrganizationalUnit where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateOrganizationalUnitResponse' smart constructor.
+-- | /See:/ 'mkUpdateOrganizationalUnitResponse' smart constructor.
 data UpdateOrganizationalUnitResponse = UpdateOrganizationalUnitResponse'
-  { _uoursOrganizationalUnit ::
-      !( Maybe
-           OrganizationalUnit
-       ),
-    _uoursResponseStatus ::
-      !Int
+  { organizationalUnit ::
+      Lude.Maybe
+        OrganizationalUnit,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOrganizationalUnitResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uoursOrganizationalUnit' - A structure that contains the details about the specified OU, including its new name.
---
--- * 'uoursResponseStatus' - -- | The response status code.
-updateOrganizationalUnitResponse ::
-  -- | 'uoursResponseStatus'
-  Int ->
+-- * 'organizationalUnit' - A structure that contains the details about the specified OU, including its new name.
+-- * 'responseStatus' - The response status code.
+mkUpdateOrganizationalUnitResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateOrganizationalUnitResponse
-updateOrganizationalUnitResponse pResponseStatus_ =
+mkUpdateOrganizationalUnitResponse pResponseStatus_ =
   UpdateOrganizationalUnitResponse'
-    { _uoursOrganizationalUnit =
-        Nothing,
-      _uoursResponseStatus = pResponseStatus_
+    { organizationalUnit =
+        Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A structure that contains the details about the specified OU, including its new name.
-uoursOrganizationalUnit :: Lens' UpdateOrganizationalUnitResponse (Maybe OrganizationalUnit)
-uoursOrganizationalUnit = lens _uoursOrganizationalUnit (\s a -> s {_uoursOrganizationalUnit = a})
+--
+-- /Note:/ Consider using 'organizationalUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uoursOrganizationalUnit :: Lens.Lens' UpdateOrganizationalUnitResponse (Lude.Maybe OrganizationalUnit)
+uoursOrganizationalUnit = Lens.lens (organizationalUnit :: UpdateOrganizationalUnitResponse -> Lude.Maybe OrganizationalUnit) (\s a -> s {organizationalUnit = a} :: UpdateOrganizationalUnitResponse)
+{-# DEPRECATED uoursOrganizationalUnit "Use generic-lens or generic-optics with 'organizationalUnit' instead." #-}
 
--- | -- | The response status code.
-uoursResponseStatus :: Lens' UpdateOrganizationalUnitResponse Int
-uoursResponseStatus = lens _uoursResponseStatus (\s a -> s {_uoursResponseStatus = a})
-
-instance NFData UpdateOrganizationalUnitResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uoursResponseStatus :: Lens.Lens' UpdateOrganizationalUnitResponse Lude.Int
+uoursResponseStatus = Lens.lens (responseStatus :: UpdateOrganizationalUnitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateOrganizationalUnitResponse)
+{-# DEPRECATED uoursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

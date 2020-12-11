@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets a list of the document classifiers that you have created.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Comprehend.ListDocumentClassifiers
-  ( -- * Creating a Request
-    listDocumentClassifiers,
-    ListDocumentClassifiers,
+  ( -- * Creating a request
+    ListDocumentClassifiers (..),
+    mkListDocumentClassifiers,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ldcNextToken,
     ldcFilter,
     ldcMaxResults,
 
-    -- * Destructuring the Response
-    listDocumentClassifiersResponse,
-    ListDocumentClassifiersResponse,
+    -- * Destructuring the response
+    ListDocumentClassifiersResponse (..),
+    mkListDocumentClassifiersResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ldcrsNextToken,
     ldcrsDocumentClassifierPropertiesList,
     ldcrsResponseStatus,
@@ -44,143 +37,166 @@ module Network.AWS.Comprehend.ListDocumentClassifiers
 where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listDocumentClassifiers' smart constructor.
+-- | /See:/ 'mkListDocumentClassifiers' smart constructor.
 data ListDocumentClassifiers = ListDocumentClassifiers'
-  { _ldcNextToken ::
-      !(Maybe Text),
-    _ldcFilter ::
-      !(Maybe DocumentClassifierFilter),
-    _ldcMaxResults :: !(Maybe Nat)
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    filter ::
+      Lude.Maybe DocumentClassifierFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocumentClassifiers' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldcNextToken' - Identifies the next page of results to return.
---
--- * 'ldcFilter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
---
--- * 'ldcMaxResults' - The maximum number of results to return in each page. The default is 100.
-listDocumentClassifiers ::
+-- * 'filter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
+-- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
+-- * 'nextToken' - Identifies the next page of results to return.
+mkListDocumentClassifiers ::
   ListDocumentClassifiers
-listDocumentClassifiers =
+mkListDocumentClassifiers =
   ListDocumentClassifiers'
-    { _ldcNextToken = Nothing,
-      _ldcFilter = Nothing,
-      _ldcMaxResults = Nothing
+    { nextToken = Lude.Nothing,
+      filter = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | Identifies the next page of results to return.
-ldcNextToken :: Lens' ListDocumentClassifiers (Maybe Text)
-ldcNextToken = lens _ldcNextToken (\s a -> s {_ldcNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcNextToken :: Lens.Lens' ListDocumentClassifiers (Lude.Maybe Lude.Text)
+ldcNextToken = Lens.lens (nextToken :: ListDocumentClassifiers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDocumentClassifiers)
+{-# DEPRECATED ldcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
-ldcFilter :: Lens' ListDocumentClassifiers (Maybe DocumentClassifierFilter)
-ldcFilter = lens _ldcFilter (\s a -> s {_ldcFilter = a})
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcFilter :: Lens.Lens' ListDocumentClassifiers (Lude.Maybe DocumentClassifierFilter)
+ldcFilter = Lens.lens (filter :: ListDocumentClassifiers -> Lude.Maybe DocumentClassifierFilter) (\s a -> s {filter = a} :: ListDocumentClassifiers)
+{-# DEPRECATED ldcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page. The default is 100.
-ldcMaxResults :: Lens' ListDocumentClassifiers (Maybe Natural)
-ldcMaxResults = lens _ldcMaxResults (\s a -> s {_ldcMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcMaxResults :: Lens.Lens' ListDocumentClassifiers (Lude.Maybe Lude.Natural)
+ldcMaxResults = Lens.lens (maxResults :: ListDocumentClassifiers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDocumentClassifiers)
+{-# DEPRECATED ldcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListDocumentClassifiers where
+instance Page.AWSPager ListDocumentClassifiers where
   page rq rs
-    | stop (rs ^. ldcrsNextToken) = Nothing
-    | stop (rs ^. ldcrsDocumentClassifierPropertiesList) = Nothing
-    | otherwise = Just $ rq & ldcNextToken .~ rs ^. ldcrsNextToken
+    | Page.stop (rs Lens.^. ldcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. ldcrsDocumentClassifierPropertiesList) =
+      Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& ldcNextToken Lens..~ rs Lens.^. ldcrsNextToken
 
-instance AWSRequest ListDocumentClassifiers where
+instance Lude.AWSRequest ListDocumentClassifiers where
   type Rs ListDocumentClassifiers = ListDocumentClassifiersResponse
-  request = postJSON comprehend
+  request = Req.postJSON comprehendService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListDocumentClassifiersResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "DocumentClassifierPropertiesList" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> ( x Lude..?> "DocumentClassifierPropertiesList"
+                         Lude..!@ Lude.mempty
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListDocumentClassifiers
-
-instance NFData ListDocumentClassifiers
-
-instance ToHeaders ListDocumentClassifiers where
+instance Lude.ToHeaders ListDocumentClassifiers where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Comprehend_20171127.ListDocumentClassifiers" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Comprehend_20171127.ListDocumentClassifiers" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListDocumentClassifiers where
+instance Lude.ToJSON ListDocumentClassifiers where
   toJSON ListDocumentClassifiers' {..} =
-    object
-      ( catMaybes
-          [ ("NextToken" .=) <$> _ldcNextToken,
-            ("Filter" .=) <$> _ldcFilter,
-            ("MaxResults" .=) <$> _ldcMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Filter" Lude..=) Lude.<$> filter,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListDocumentClassifiers where
-  toPath = const "/"
+instance Lude.ToPath ListDocumentClassifiers where
+  toPath = Lude.const "/"
 
-instance ToQuery ListDocumentClassifiers where
-  toQuery = const mempty
+instance Lude.ToQuery ListDocumentClassifiers where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listDocumentClassifiersResponse' smart constructor.
+-- | /See:/ 'mkListDocumentClassifiersResponse' smart constructor.
 data ListDocumentClassifiersResponse = ListDocumentClassifiersResponse'
-  { _ldcrsNextToken ::
-      !(Maybe Text),
-    _ldcrsDocumentClassifierPropertiesList ::
-      !( Maybe
-           [DocumentClassifierProperties]
-       ),
-    _ldcrsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    documentClassifierPropertiesList ::
+      Lude.Maybe
+        [DocumentClassifierProperties],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDocumentClassifiersResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldcrsNextToken' - Identifies the next page of results to return.
---
--- * 'ldcrsDocumentClassifierPropertiesList' - A list containing the properties of each job returned.
---
--- * 'ldcrsResponseStatus' - -- | The response status code.
-listDocumentClassifiersResponse ::
-  -- | 'ldcrsResponseStatus'
-  Int ->
+-- * 'documentClassifierPropertiesList' - A list containing the properties of each job returned.
+-- * 'nextToken' - Identifies the next page of results to return.
+-- * 'responseStatus' - The response status code.
+mkListDocumentClassifiersResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDocumentClassifiersResponse
-listDocumentClassifiersResponse pResponseStatus_ =
+mkListDocumentClassifiersResponse pResponseStatus_ =
   ListDocumentClassifiersResponse'
-    { _ldcrsNextToken = Nothing,
-      _ldcrsDocumentClassifierPropertiesList = Nothing,
-      _ldcrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      documentClassifierPropertiesList = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Identifies the next page of results to return.
-ldcrsNextToken :: Lens' ListDocumentClassifiersResponse (Maybe Text)
-ldcrsNextToken = lens _ldcrsNextToken (\s a -> s {_ldcrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcrsNextToken :: Lens.Lens' ListDocumentClassifiersResponse (Lude.Maybe Lude.Text)
+ldcrsNextToken = Lens.lens (nextToken :: ListDocumentClassifiersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDocumentClassifiersResponse)
+{-# DEPRECATED ldcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list containing the properties of each job returned.
-ldcrsDocumentClassifierPropertiesList :: Lens' ListDocumentClassifiersResponse [DocumentClassifierProperties]
-ldcrsDocumentClassifierPropertiesList = lens _ldcrsDocumentClassifierPropertiesList (\s a -> s {_ldcrsDocumentClassifierPropertiesList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'documentClassifierPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcrsDocumentClassifierPropertiesList :: Lens.Lens' ListDocumentClassifiersResponse (Lude.Maybe [DocumentClassifierProperties])
+ldcrsDocumentClassifierPropertiesList = Lens.lens (documentClassifierPropertiesList :: ListDocumentClassifiersResponse -> Lude.Maybe [DocumentClassifierProperties]) (\s a -> s {documentClassifierPropertiesList = a} :: ListDocumentClassifiersResponse)
+{-# DEPRECATED ldcrsDocumentClassifierPropertiesList "Use generic-lens or generic-optics with 'documentClassifierPropertiesList' instead." #-}
 
--- | -- | The response status code.
-ldcrsResponseStatus :: Lens' ListDocumentClassifiersResponse Int
-ldcrsResponseStatus = lens _ldcrsResponseStatus (\s a -> s {_ldcrsResponseStatus = a})
-
-instance NFData ListDocumentClassifiersResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldcrsResponseStatus :: Lens.Lens' ListDocumentClassifiersResponse Lude.Int
+ldcrsResponseStatus = Lens.lens (responseStatus :: ListDocumentClassifiersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDocumentClassifiersResponse)
+{-# DEPRECATED ldcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

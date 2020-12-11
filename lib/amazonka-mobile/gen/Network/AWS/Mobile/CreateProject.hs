@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,153 +14,169 @@
 --
 -- Creates an AWS Mobile Hub project.
 module Network.AWS.Mobile.CreateProject
-  ( -- * Creating a Request
-    createProject,
-    CreateProject,
+  ( -- * Creating a request
+    CreateProject (..),
+    mkCreateProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cpContents,
     cpName,
     cpRegion,
     cpSnapshotId,
 
-    -- * Destructuring the Response
-    createProjectResponse,
-    CreateProjectResponse,
+    -- * Destructuring the response
+    CreateProjectResponse (..),
+    mkCreateProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cprsDetails,
     cprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request structure used to request a project be created.
 --
---
---
--- /See:/ 'createProject' smart constructor.
+-- /See:/ 'mkCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpContents ::
-      !(Maybe ByteString),
-    _cpName :: !(Maybe Text),
-    _cpRegion :: !(Maybe Text),
-    _cpSnapshotId :: !(Maybe Text)
+  { contents ::
+      Lude.Maybe Lude.ByteString,
+    name :: Lude.Maybe Lude.Text,
+    region :: Lude.Maybe Lude.Text,
+    snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpContents' - ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation.
---
--- * 'cpName' - Name of the project.
---
--- * 'cpRegion' - Default region where project resources should be created.
---
--- * 'cpSnapshotId' - Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported.
-createProject ::
+-- * 'contents' - ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation.
+-- * 'name' - Name of the project.
+-- * 'region' - Default region where project resources should be created.
+-- * 'snapshotId' - Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported.
+mkCreateProject ::
   CreateProject
-createProject =
+mkCreateProject =
   CreateProject'
-    { _cpContents = Nothing,
-      _cpName = Nothing,
-      _cpRegion = Nothing,
-      _cpSnapshotId = Nothing
+    { contents = Lude.Nothing,
+      name = Lude.Nothing,
+      region = Lude.Nothing,
+      snapshotId = Lude.Nothing
     }
 
 -- | ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation.
-cpContents :: Lens' CreateProject (Maybe ByteString)
-cpContents = lens _cpContents (\s a -> s {_cpContents = a})
+--
+-- /Note:/ Consider using 'contents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpContents :: Lens.Lens' CreateProject (Lude.Maybe Lude.ByteString)
+cpContents = Lens.lens (contents :: CreateProject -> Lude.Maybe Lude.ByteString) (\s a -> s {contents = a} :: CreateProject)
+{-# DEPRECATED cpContents "Use generic-lens or generic-optics with 'contents' instead." #-}
 
 -- | Name of the project.
-cpName :: Lens' CreateProject (Maybe Text)
-cpName = lens _cpName (\s a -> s {_cpName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CreateProject (Lude.Maybe Lude.Text)
+cpName = Lens.lens (name :: CreateProject -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateProject)
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Default region where project resources should be created.
-cpRegion :: Lens' CreateProject (Maybe Text)
-cpRegion = lens _cpRegion (\s a -> s {_cpRegion = a})
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpRegion :: Lens.Lens' CreateProject (Lude.Maybe Lude.Text)
+cpRegion = Lens.lens (region :: CreateProject -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: CreateProject)
+{-# DEPRECATED cpRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported.
-cpSnapshotId :: Lens' CreateProject (Maybe Text)
-cpSnapshotId = lens _cpSnapshotId (\s a -> s {_cpSnapshotId = a})
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpSnapshotId :: Lens.Lens' CreateProject (Lude.Maybe Lude.Text)
+cpSnapshotId = Lens.lens (snapshotId :: CreateProject -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CreateProject)
+{-# DEPRECATED cpSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
-instance AWSRequest CreateProject where
+instance Lude.AWSRequest CreateProject where
   type Rs CreateProject = CreateProjectResponse
-  request = postBody mobile
+  request = Req.postBody mobileService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            <$> (x .?> "details") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "details") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateProject
+instance Lude.ToBody CreateProject where
+  toBody = Lude.toBody Lude.. contents
 
-instance NFData CreateProject
-
-instance ToBody CreateProject where
-  toBody = toBody . _cpContents
-
-instance ToHeaders CreateProject where
+instance Lude.ToHeaders CreateProject where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath CreateProject where
-  toPath = const "/projects"
+instance Lude.ToPath CreateProject where
+  toPath = Lude.const "/projects"
 
-instance ToQuery CreateProject where
+instance Lude.ToQuery CreateProject where
   toQuery CreateProject' {..} =
-    mconcat
-      [ "name" =: _cpName,
-        "region" =: _cpRegion,
-        "snapshotId" =: _cpSnapshotId
+    Lude.mconcat
+      [ "name" Lude.=: name,
+        "region" Lude.=: region,
+        "snapshotId" Lude.=: snapshotId
       ]
 
 -- | Result structure used in response to a request to create a project.
 --
---
---
--- /See:/ 'createProjectResponse' smart constructor.
+-- /See:/ 'mkCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-  { _cprsDetails ::
-      !(Maybe ProjectDetails),
-    _cprsResponseStatus :: !Int
+  { details ::
+      Lude.Maybe ProjectDetails,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cprsDetails' - Detailed information about the created AWS Mobile Hub project.
---
--- * 'cprsResponseStatus' - -- | The response status code.
-createProjectResponse ::
-  -- | 'cprsResponseStatus'
-  Int ->
+-- * 'details' - Detailed information about the created AWS Mobile Hub project.
+-- * 'responseStatus' - The response status code.
+mkCreateProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateProjectResponse
-createProjectResponse pResponseStatus_ =
+mkCreateProjectResponse pResponseStatus_ =
   CreateProjectResponse'
-    { _cprsDetails = Nothing,
-      _cprsResponseStatus = pResponseStatus_
+    { details = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Detailed information about the created AWS Mobile Hub project.
-cprsDetails :: Lens' CreateProjectResponse (Maybe ProjectDetails)
-cprsDetails = lens _cprsDetails (\s a -> s {_cprsDetails = a})
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsDetails :: Lens.Lens' CreateProjectResponse (Lude.Maybe ProjectDetails)
+cprsDetails = Lens.lens (details :: CreateProjectResponse -> Lude.Maybe ProjectDetails) (\s a -> s {details = a} :: CreateProjectResponse)
+{-# DEPRECATED cprsDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreateProjectResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\s a -> s {_cprsResponseStatus = a})
-
-instance NFData CreateProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsResponseStatus :: Lens.Lens' CreateProjectResponse Lude.Int
+cprsResponseStatus = Lens.lens (responseStatus :: CreateProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProjectResponse)
+{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

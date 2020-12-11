@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DMS.Types.Filter where
+module Network.AWS.DMS.Types.Filter
+  ( Filter (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFilter,
+
+    -- * Lenses
+    fName,
+    fValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Identifies the name and value of a filter object. This filter is used to limit the number and type of AWS DMS objects that are returned for a particular @Describe*@ call or similar operation. Filters are used as an optional parameter to the following APIs.
 --
---
---
--- /See:/ 'filter'' smart constructor.
-data Filter = Filter' {_fName :: !Text, _fValues :: ![Text]}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkFilter' smart constructor.
+data Filter = Filter' {name :: Lude.Text, values :: [Lude.Text]}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fName' - The name of the filter as specified for a @Describe*@ or similar operation.
---
--- * 'fValues' - The filter value, which can specify one or more values used to narrow the returned results.
-filter' ::
-  -- | 'fName'
-  Text ->
+-- * 'name' - The name of the filter as specified for a @Describe*@ or similar operation.
+-- * 'values' - The filter value, which can specify one or more values used to narrow the returned results.
+mkFilter ::
+  -- | 'name'
+  Lude.Text ->
   Filter
-filter' pName_ = Filter' {_fName = pName_, _fValues = mempty}
+mkFilter pName_ = Filter' {name = pName_, values = Lude.mempty}
 
 -- | The name of the filter as specified for a @Describe*@ or similar operation.
-fName :: Lens' Filter Text
-fName = lens _fName (\s a -> s {_fName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fName :: Lens.Lens' Filter Lude.Text
+fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
+{-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The filter value, which can specify one or more values used to narrow the returned results.
-fValues :: Lens' Filter [Text]
-fValues = lens _fValues (\s a -> s {_fValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fValues :: Lens.Lens' Filter [Lude.Text]
+fValues = Lens.lens (values :: Filter -> [Lude.Text]) (\s a -> s {values = a} :: Filter)
+{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Hashable Filter
-
-instance NFData Filter
-
-instance ToJSON Filter where
+instance Lude.ToJSON Filter where
   toJSON Filter' {..} =
-    object
-      (catMaybes [Just ("Name" .= _fName), Just ("Values" .= _fValues)])
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("Values" Lude..= values)
+          ]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,62 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.JourneyPushMessage where
+module Network.AWS.Pinpoint.Types.JourneyPushMessage
+  ( JourneyPushMessage (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkJourneyPushMessage,
+
+    -- * Lenses
+    jpmTimeToLive,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Specifies the message configuration for a push notification that's sent to participants in a journey.
 --
---
---
--- /See:/ 'journeyPushMessage' smart constructor.
+-- /See:/ 'mkJourneyPushMessage' smart constructor.
 newtype JourneyPushMessage = JourneyPushMessage'
-  { _jpmTimeToLive ::
-      Maybe Text
+  { timeToLive ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyPushMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'timeToLive' - The number of seconds that the push notification service should keep the message, if the service is unable to deliver the notification the first time. This value is converted to an expiration value when it's sent to a push-notification service. If this value is 0, the service treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again.
 --
--- * 'jpmTimeToLive' - The number of seconds that the push notification service should keep the message, if the service is unable to deliver the notification the first time. This value is converted to an expiration value when it's sent to a push-notification service. If this value is 0, the service treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again. This value doesn't apply to messages that are sent through the Amazon Device Messaging (ADM) service.
-journeyPushMessage ::
+-- This value doesn't apply to messages that are sent through the Amazon Device Messaging (ADM) service.
+mkJourneyPushMessage ::
   JourneyPushMessage
-journeyPushMessage = JourneyPushMessage' {_jpmTimeToLive = Nothing}
+mkJourneyPushMessage =
+  JourneyPushMessage' {timeToLive = Lude.Nothing}
 
--- | The number of seconds that the push notification service should keep the message, if the service is unable to deliver the notification the first time. This value is converted to an expiration value when it's sent to a push-notification service. If this value is 0, the service treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again. This value doesn't apply to messages that are sent through the Amazon Device Messaging (ADM) service.
-jpmTimeToLive :: Lens' JourneyPushMessage (Maybe Text)
-jpmTimeToLive = lens _jpmTimeToLive (\s a -> s {_jpmTimeToLive = a})
+-- | The number of seconds that the push notification service should keep the message, if the service is unable to deliver the notification the first time. This value is converted to an expiration value when it's sent to a push-notification service. If this value is 0, the service treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again.
+--
+-- This value doesn't apply to messages that are sent through the Amazon Device Messaging (ADM) service.
+--
+-- /Note:/ Consider using 'timeToLive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jpmTimeToLive :: Lens.Lens' JourneyPushMessage (Lude.Maybe Lude.Text)
+jpmTimeToLive = Lens.lens (timeToLive :: JourneyPushMessage -> Lude.Maybe Lude.Text) (\s a -> s {timeToLive = a} :: JourneyPushMessage)
+{-# DEPRECATED jpmTimeToLive "Use generic-lens or generic-optics with 'timeToLive' instead." #-}
 
-instance FromJSON JourneyPushMessage where
+instance Lude.FromJSON JourneyPushMessage where
   parseJSON =
-    withObject
+    Lude.withObject
       "JourneyPushMessage"
-      (\x -> JourneyPushMessage' <$> (x .:? "TimeToLive"))
+      (\x -> JourneyPushMessage' Lude.<$> (x Lude..:? "TimeToLive"))
 
-instance Hashable JourneyPushMessage
-
-instance NFData JourneyPushMessage
-
-instance ToJSON JourneyPushMessage where
+instance Lude.ToJSON JourneyPushMessage where
   toJSON JourneyPushMessage' {..} =
-    object (catMaybes [("TimeToLive" .=) <$> _jpmTimeToLive])
+    Lude.object
+      (Lude.catMaybes [("TimeToLive" Lude..=) Lude.<$> timeToLive])

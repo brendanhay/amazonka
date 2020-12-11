@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,102 +14,115 @@
 --
 -- Deletes the specified IP access control group.
 --
---
 -- You cannot delete an IP access control group that is associated with a directory.
 module Network.AWS.WorkSpaces.DeleteIPGroup
-  ( -- * Creating a Request
-    deleteIPGroup,
-    DeleteIPGroup,
+  ( -- * Creating a request
+    DeleteIPGroup (..),
+    mkDeleteIPGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     digGroupId,
 
-    -- * Destructuring the Response
-    deleteIPGroupResponse,
-    DeleteIPGroupResponse,
+    -- * Destructuring the response
+    DeleteIPGroupResponse (..),
+    mkDeleteIPGroupResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dipgrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'deleteIPGroup' smart constructor.
-newtype DeleteIPGroup = DeleteIPGroup' {_digGroupId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkDeleteIPGroup' smart constructor.
+newtype DeleteIPGroup = DeleteIPGroup' {groupId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIPGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'digGroupId' - The identifier of the IP access control group.
-deleteIPGroup ::
-  -- | 'digGroupId'
-  Text ->
+-- * 'groupId' - The identifier of the IP access control group.
+mkDeleteIPGroup ::
+  -- | 'groupId'
+  Lude.Text ->
   DeleteIPGroup
-deleteIPGroup pGroupId_ = DeleteIPGroup' {_digGroupId = pGroupId_}
+mkDeleteIPGroup pGroupId_ = DeleteIPGroup' {groupId = pGroupId_}
 
 -- | The identifier of the IP access control group.
-digGroupId :: Lens' DeleteIPGroup Text
-digGroupId = lens _digGroupId (\s a -> s {_digGroupId = a})
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digGroupId :: Lens.Lens' DeleteIPGroup Lude.Text
+digGroupId = Lens.lens (groupId :: DeleteIPGroup -> Lude.Text) (\s a -> s {groupId = a} :: DeleteIPGroup)
+{-# DEPRECATED digGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance AWSRequest DeleteIPGroup where
+instance Lude.AWSRequest DeleteIPGroup where
   type Rs DeleteIPGroup = DeleteIPGroupResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveEmpty
-      (\s h x -> DeleteIPGroupResponse' <$> (pure (fromEnum s)))
+    Res.receiveEmpty
+      ( \s h x ->
+          DeleteIPGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+      )
 
-instance Hashable DeleteIPGroup
-
-instance NFData DeleteIPGroup
-
-instance ToHeaders DeleteIPGroup where
+instance Lude.ToHeaders DeleteIPGroup where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DeleteIpGroup" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("WorkspacesService.DeleteIpGroup" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteIPGroup where
+instance Lude.ToJSON DeleteIPGroup where
   toJSON DeleteIPGroup' {..} =
-    object (catMaybes [Just ("GroupId" .= _digGroupId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GroupId" Lude..= groupId)])
 
-instance ToPath DeleteIPGroup where
-  toPath = const "/"
+instance Lude.ToPath DeleteIPGroup where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteIPGroup where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteIPGroup where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteIPGroupResponse' smart constructor.
+-- | /See:/ 'mkDeleteIPGroupResponse' smart constructor.
 newtype DeleteIPGroupResponse = DeleteIPGroupResponse'
-  { _dipgrsResponseStatus ::
-      Int
+  { responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIPGroupResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dipgrsResponseStatus' - -- | The response status code.
-deleteIPGroupResponse ::
-  -- | 'dipgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+mkDeleteIPGroupResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteIPGroupResponse
-deleteIPGroupResponse pResponseStatus_ =
-  DeleteIPGroupResponse' {_dipgrsResponseStatus = pResponseStatus_}
+mkDeleteIPGroupResponse pResponseStatus_ =
+  DeleteIPGroupResponse' {responseStatus = pResponseStatus_}
 
--- | -- | The response status code.
-dipgrsResponseStatus :: Lens' DeleteIPGroupResponse Int
-dipgrsResponseStatus = lens _dipgrsResponseStatus (\s a -> s {_dipgrsResponseStatus = a})
-
-instance NFData DeleteIPGroupResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipgrsResponseStatus :: Lens.Lens' DeleteIPGroupResponse Lude.Int
+dipgrsResponseStatus = Lens.lens (responseStatus :: DeleteIPGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteIPGroupResponse)
+{-# DEPRECATED dipgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

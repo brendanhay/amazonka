@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Lists all enabled skills in a specific skill group.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AlexaBusiness.ListSkills
-  ( -- * Creating a Request
-    listSkills,
-    ListSkills,
+  ( -- * Creating a request
+    ListSkills (..),
+    mkListSkills,
 
-    -- * Request Lenses
+    -- ** Request lenses
     lsSkillGroupARN,
     lsSkillType,
     lsNextToken,
     lsEnablementType,
     lsMaxResults,
 
-    -- * Destructuring the Response
-    listSkillsResponse,
-    ListSkillsResponse,
+    -- * Destructuring the response
+    ListSkillsResponse (..),
+    mkListSkillsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lsrsNextToken,
     lsrsSkillSummaries,
     lsrsResponseStatus,
@@ -46,154 +39,182 @@ module Network.AWS.AlexaBusiness.ListSkills
 where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'listSkills' smart constructor.
+-- | /See:/ 'mkListSkills' smart constructor.
 data ListSkills = ListSkills'
-  { _lsSkillGroupARN :: !(Maybe Text),
-    _lsSkillType :: !(Maybe SkillTypeFilter),
-    _lsNextToken :: !(Maybe Text),
-    _lsEnablementType :: !(Maybe EnablementTypeFilter),
-    _lsMaxResults :: !(Maybe Nat)
+  { skillGroupARN ::
+      Lude.Maybe Lude.Text,
+    skillType :: Lude.Maybe SkillTypeFilter,
+    nextToken :: Lude.Maybe Lude.Text,
+    enablementType :: Lude.Maybe EnablementTypeFilter,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSkills' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsSkillGroupARN' - The ARN of the skill group for which to list enabled skills.
---
--- * 'lsSkillType' - Whether the skill is publicly available or is a private skill.
---
--- * 'lsNextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
---
--- * 'lsEnablementType' - Whether the skill is enabled under the user's account.
---
--- * 'lsMaxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-listSkills ::
+-- * 'enablementType' - Whether the skill is enabled under the user's account.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- * 'skillGroupARN' - The ARN of the skill group for which to list enabled skills.
+-- * 'skillType' - Whether the skill is publicly available or is a private skill.
+mkListSkills ::
   ListSkills
-listSkills =
+mkListSkills =
   ListSkills'
-    { _lsSkillGroupARN = Nothing,
-      _lsSkillType = Nothing,
-      _lsNextToken = Nothing,
-      _lsEnablementType = Nothing,
-      _lsMaxResults = Nothing
+    { skillGroupARN = Lude.Nothing,
+      skillType = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      enablementType = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
 
 -- | The ARN of the skill group for which to list enabled skills.
-lsSkillGroupARN :: Lens' ListSkills (Maybe Text)
-lsSkillGroupARN = lens _lsSkillGroupARN (\s a -> s {_lsSkillGroupARN = a})
+--
+-- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsSkillGroupARN :: Lens.Lens' ListSkills (Lude.Maybe Lude.Text)
+lsSkillGroupARN = Lens.lens (skillGroupARN :: ListSkills -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: ListSkills)
+{-# DEPRECATED lsSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
 -- | Whether the skill is publicly available or is a private skill.
-lsSkillType :: Lens' ListSkills (Maybe SkillTypeFilter)
-lsSkillType = lens _lsSkillType (\s a -> s {_lsSkillType = a})
+--
+-- /Note:/ Consider using 'skillType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsSkillType :: Lens.Lens' ListSkills (Lude.Maybe SkillTypeFilter)
+lsSkillType = Lens.lens (skillType :: ListSkills -> Lude.Maybe SkillTypeFilter) (\s a -> s {skillType = a} :: ListSkills)
+{-# DEPRECATED lsSkillType "Use generic-lens or generic-optics with 'skillType' instead." #-}
 
 -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-lsNextToken :: Lens' ListSkills (Maybe Text)
-lsNextToken = lens _lsNextToken (\s a -> s {_lsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsNextToken :: Lens.Lens' ListSkills (Lude.Maybe Lude.Text)
+lsNextToken = Lens.lens (nextToken :: ListSkills -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSkills)
+{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Whether the skill is enabled under the user's account.
-lsEnablementType :: Lens' ListSkills (Maybe EnablementTypeFilter)
-lsEnablementType = lens _lsEnablementType (\s a -> s {_lsEnablementType = a})
+--
+-- /Note:/ Consider using 'enablementType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsEnablementType :: Lens.Lens' ListSkills (Lude.Maybe EnablementTypeFilter)
+lsEnablementType = Lens.lens (enablementType :: ListSkills -> Lude.Maybe EnablementTypeFilter) (\s a -> s {enablementType = a} :: ListSkills)
+{-# DEPRECATED lsEnablementType "Use generic-lens or generic-optics with 'enablementType' instead." #-}
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
-lsMaxResults :: Lens' ListSkills (Maybe Natural)
-lsMaxResults = lens _lsMaxResults (\s a -> s {_lsMaxResults = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsMaxResults :: Lens.Lens' ListSkills (Lude.Maybe Lude.Natural)
+lsMaxResults = Lens.lens (maxResults :: ListSkills -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSkills)
+{-# DEPRECATED lsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance AWSPager ListSkills where
+instance Page.AWSPager ListSkills where
   page rq rs
-    | stop (rs ^. lsrsNextToken) = Nothing
-    | stop (rs ^. lsrsSkillSummaries) = Nothing
-    | otherwise = Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
+    | Page.stop (rs Lens.^. lsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lsrsSkillSummaries) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& lsNextToken Lens..~ rs Lens.^. lsrsNextToken
 
-instance AWSRequest ListSkills where
+instance Lude.AWSRequest ListSkills where
   type Rs ListSkills = ListSkillsResponse
-  request = postJSON alexaBusiness
+  request = Req.postJSON alexaBusinessService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListSkillsResponse'
-            <$> (x .?> "NextToken")
-            <*> (x .?> "SkillSummaries" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<*> (x Lude..?> "SkillSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListSkills
-
-instance NFData ListSkills
-
-instance ToHeaders ListSkills where
+instance Lude.ToHeaders ListSkills where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("AlexaForBusiness.ListSkills" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("AlexaForBusiness.ListSkills" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListSkills where
+instance Lude.ToJSON ListSkills where
   toJSON ListSkills' {..} =
-    object
-      ( catMaybes
-          [ ("SkillGroupArn" .=) <$> _lsSkillGroupARN,
-            ("SkillType" .=) <$> _lsSkillType,
-            ("NextToken" .=) <$> _lsNextToken,
-            ("EnablementType" .=) <$> _lsEnablementType,
-            ("MaxResults" .=) <$> _lsMaxResults
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN,
+            ("SkillType" Lude..=) Lude.<$> skillType,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("EnablementType" Lude..=) Lude.<$> enablementType,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
-instance ToPath ListSkills where
-  toPath = const "/"
+instance Lude.ToPath ListSkills where
+  toPath = Lude.const "/"
 
-instance ToQuery ListSkills where
-  toQuery = const mempty
+instance Lude.ToQuery ListSkills where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'listSkillsResponse' smart constructor.
+-- | /See:/ 'mkListSkillsResponse' smart constructor.
 data ListSkillsResponse = ListSkillsResponse'
-  { _lsrsNextToken ::
-      !(Maybe Text),
-    _lsrsSkillSummaries :: !(Maybe [SkillSummary]),
-    _lsrsResponseStatus :: !Int
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    skillSummaries :: Lude.Maybe [SkillSummary],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSkillsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsrsNextToken' - The token returned to indicate that there is more data available.
---
--- * 'lsrsSkillSummaries' - The list of enabled skills requested. Required.
---
--- * 'lsrsResponseStatus' - -- | The response status code.
-listSkillsResponse ::
-  -- | 'lsrsResponseStatus'
-  Int ->
+-- * 'nextToken' - The token returned to indicate that there is more data available.
+-- * 'responseStatus' - The response status code.
+-- * 'skillSummaries' - The list of enabled skills requested. Required.
+mkListSkillsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListSkillsResponse
-listSkillsResponse pResponseStatus_ =
+mkListSkillsResponse pResponseStatus_ =
   ListSkillsResponse'
-    { _lsrsNextToken = Nothing,
-      _lsrsSkillSummaries = Nothing,
-      _lsrsResponseStatus = pResponseStatus_
+    { nextToken = Lude.Nothing,
+      skillSummaries = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token returned to indicate that there is more data available.
-lsrsNextToken :: Lens' ListSkillsResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\s a -> s {_lsrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsNextToken :: Lens.Lens' ListSkillsResponse (Lude.Maybe Lude.Text)
+lsrsNextToken = Lens.lens (nextToken :: ListSkillsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSkillsResponse)
+{-# DEPRECATED lsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of enabled skills requested. Required.
-lsrsSkillSummaries :: Lens' ListSkillsResponse [SkillSummary]
-lsrsSkillSummaries = lens _lsrsSkillSummaries (\s a -> s {_lsrsSkillSummaries = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'skillSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsSkillSummaries :: Lens.Lens' ListSkillsResponse (Lude.Maybe [SkillSummary])
+lsrsSkillSummaries = Lens.lens (skillSummaries :: ListSkillsResponse -> Lude.Maybe [SkillSummary]) (\s a -> s {skillSummaries = a} :: ListSkillsResponse)
+{-# DEPRECATED lsrsSkillSummaries "Use generic-lens or generic-optics with 'skillSummaries' instead." #-}
 
--- | -- | The response status code.
-lsrsResponseStatus :: Lens' ListSkillsResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\s a -> s {_lsrsResponseStatus = a})
-
-instance NFData ListSkillsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsResponseStatus :: Lens.Lens' ListSkillsResponse Lude.Int
+lsrsResponseStatus = Lens.lens (responseStatus :: ListSkillsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSkillsResponse)
+{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

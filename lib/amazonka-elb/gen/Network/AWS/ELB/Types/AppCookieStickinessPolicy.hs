@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ELB.Types.AppCookieStickinessPolicy where
+module Network.AWS.ELB.Types.AppCookieStickinessPolicy
+  ( AppCookieStickinessPolicy (..),
+
+    -- * Smart constructor
+    mkAppCookieStickinessPolicy,
+
+    -- * Lenses
+    acspPolicyName,
+    acspCookieName,
+  )
+where
 
 import Network.AWS.ELB.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information about a policy for application-controlled session stickiness.
 --
---
---
--- /See:/ 'appCookieStickinessPolicy' smart constructor.
+-- /See:/ 'mkAppCookieStickinessPolicy' smart constructor.
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
-  { _acspPolicyName ::
-      !(Maybe Text),
-    _acspCookieName :: !(Maybe Text)
+  { policyName ::
+      Lude.Maybe Lude.Text,
+    cookieName :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppCookieStickinessPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'acspPolicyName' - The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.
---
--- * 'acspCookieName' - The name of the application cookie used for stickiness.
-appCookieStickinessPolicy ::
+-- * 'cookieName' - The name of the application cookie used for stickiness.
+-- * 'policyName' - The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.
+mkAppCookieStickinessPolicy ::
   AppCookieStickinessPolicy
-appCookieStickinessPolicy =
+mkAppCookieStickinessPolicy =
   AppCookieStickinessPolicy'
-    { _acspPolicyName = Nothing,
-      _acspCookieName = Nothing
+    { policyName = Lude.Nothing,
+      cookieName = Lude.Nothing
     }
 
 -- | The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.
-acspPolicyName :: Lens' AppCookieStickinessPolicy (Maybe Text)
-acspPolicyName = lens _acspPolicyName (\s a -> s {_acspPolicyName = a})
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acspPolicyName :: Lens.Lens' AppCookieStickinessPolicy (Lude.Maybe Lude.Text)
+acspPolicyName = Lens.lens (policyName :: AppCookieStickinessPolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: AppCookieStickinessPolicy)
+{-# DEPRECATED acspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The name of the application cookie used for stickiness.
-acspCookieName :: Lens' AppCookieStickinessPolicy (Maybe Text)
-acspCookieName = lens _acspCookieName (\s a -> s {_acspCookieName = a})
+--
+-- /Note:/ Consider using 'cookieName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acspCookieName :: Lens.Lens' AppCookieStickinessPolicy (Lude.Maybe Lude.Text)
+acspCookieName = Lens.lens (cookieName :: AppCookieStickinessPolicy -> Lude.Maybe Lude.Text) (\s a -> s {cookieName = a} :: AppCookieStickinessPolicy)
+{-# DEPRECATED acspCookieName "Use generic-lens or generic-optics with 'cookieName' instead." #-}
 
-instance FromXML AppCookieStickinessPolicy where
+instance Lude.FromXML AppCookieStickinessPolicy where
   parseXML x =
     AppCookieStickinessPolicy'
-      <$> (x .@? "PolicyName") <*> (x .@? "CookieName")
-
-instance Hashable AppCookieStickinessPolicy
-
-instance NFData AppCookieStickinessPolicy
+      Lude.<$> (x Lude..@? "PolicyName") Lude.<*> (x Lude..@? "CookieName")

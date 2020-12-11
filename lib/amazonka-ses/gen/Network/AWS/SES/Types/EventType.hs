@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SES.Types.EventType where
+module Network.AWS.SES.Types.EventType
+  ( EventType
+      ( EventType',
+        ETBounce,
+        ETClick,
+        ETComplaint,
+        ETDelivery,
+        ETOpen,
+        ETReject,
+        ETRenderingFailure,
+        ETSend
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EventType
-  = ETBounce
-  | ETClick
-  | ETComplaint
-  | ETDelivery
-  | ETOpen
-  | ETReject
-  | ETRenderingFailure
-  | ETSend
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EventType = EventType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EventType where
-  parser =
-    takeLowerText >>= \case
-      "bounce" -> pure ETBounce
-      "click" -> pure ETClick
-      "complaint" -> pure ETComplaint
-      "delivery" -> pure ETDelivery
-      "open" -> pure ETOpen
-      "reject" -> pure ETReject
-      "renderingfailure" -> pure ETRenderingFailure
-      "send" -> pure ETSend
-      e ->
-        fromTextError $
-          "Failure parsing EventType from value: '" <> e
-            <> "'. Accepted values: bounce, click, complaint, delivery, open, reject, renderingfailure, send"
+pattern ETBounce :: EventType
+pattern ETBounce = EventType' "bounce"
 
-instance ToText EventType where
-  toText = \case
-    ETBounce -> "bounce"
-    ETClick -> "click"
-    ETComplaint -> "complaint"
-    ETDelivery -> "delivery"
-    ETOpen -> "open"
-    ETReject -> "reject"
-    ETRenderingFailure -> "renderingFailure"
-    ETSend -> "send"
+pattern ETClick :: EventType
+pattern ETClick = EventType' "click"
 
-instance Hashable EventType
+pattern ETComplaint :: EventType
+pattern ETComplaint = EventType' "complaint"
 
-instance NFData EventType
+pattern ETDelivery :: EventType
+pattern ETDelivery = EventType' "delivery"
 
-instance ToByteString EventType
+pattern ETOpen :: EventType
+pattern ETOpen = EventType' "open"
 
-instance ToQuery EventType
+pattern ETReject :: EventType
+pattern ETReject = EventType' "reject"
 
-instance ToHeader EventType
+pattern ETRenderingFailure :: EventType
+pattern ETRenderingFailure = EventType' "renderingFailure"
 
-instance FromXML EventType where
-  parseXML = parseXMLText "EventType"
+pattern ETSend :: EventType
+pattern ETSend = EventType' "send"
+
+{-# COMPLETE
+  ETBounce,
+  ETClick,
+  ETComplaint,
+  ETDelivery,
+  ETOpen,
+  ETReject,
+  ETRenderingFailure,
+  ETSend,
+  EventType'
+  #-}

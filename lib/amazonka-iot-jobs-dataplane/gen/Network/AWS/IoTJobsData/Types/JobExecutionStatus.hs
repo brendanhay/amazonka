@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoTJobsData.Types.JobExecutionStatus where
+module Network.AWS.IoTJobsData.Types.JobExecutionStatus
+  ( JobExecutionStatus
+      ( JobExecutionStatus',
+        Canceled,
+        Failed,
+        InProgress,
+        Queued,
+        Rejected,
+        Removed,
+        Succeeded,
+        TimedOut
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data JobExecutionStatus
-  = Canceled
-  | Failed
-  | InProgress
-  | Queued
-  | Rejected
-  | Removed
-  | Succeeded
-  | TimedOut
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype JobExecutionStatus = JobExecutionStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText JobExecutionStatus where
-  parser =
-    takeLowerText >>= \case
-      "canceled" -> pure Canceled
-      "failed" -> pure Failed
-      "in_progress" -> pure InProgress
-      "queued" -> pure Queued
-      "rejected" -> pure Rejected
-      "removed" -> pure Removed
-      "succeeded" -> pure Succeeded
-      "timed_out" -> pure TimedOut
-      e ->
-        fromTextError $
-          "Failure parsing JobExecutionStatus from value: '" <> e
-            <> "'. Accepted values: canceled, failed, in_progress, queued, rejected, removed, succeeded, timed_out"
+pattern Canceled :: JobExecutionStatus
+pattern Canceled = JobExecutionStatus' "CANCELED"
 
-instance ToText JobExecutionStatus where
-  toText = \case
-    Canceled -> "CANCELED"
-    Failed -> "FAILED"
-    InProgress -> "IN_PROGRESS"
-    Queued -> "QUEUED"
-    Rejected -> "REJECTED"
-    Removed -> "REMOVED"
-    Succeeded -> "SUCCEEDED"
-    TimedOut -> "TIMED_OUT"
+pattern Failed :: JobExecutionStatus
+pattern Failed = JobExecutionStatus' "FAILED"
 
-instance Hashable JobExecutionStatus
+pattern InProgress :: JobExecutionStatus
+pattern InProgress = JobExecutionStatus' "IN_PROGRESS"
 
-instance NFData JobExecutionStatus
+pattern Queued :: JobExecutionStatus
+pattern Queued = JobExecutionStatus' "QUEUED"
 
-instance ToByteString JobExecutionStatus
+pattern Rejected :: JobExecutionStatus
+pattern Rejected = JobExecutionStatus' "REJECTED"
 
-instance ToQuery JobExecutionStatus
+pattern Removed :: JobExecutionStatus
+pattern Removed = JobExecutionStatus' "REMOVED"
 
-instance ToHeader JobExecutionStatus
+pattern Succeeded :: JobExecutionStatus
+pattern Succeeded = JobExecutionStatus' "SUCCEEDED"
 
-instance ToJSON JobExecutionStatus where
-  toJSON = toJSONText
+pattern TimedOut :: JobExecutionStatus
+pattern TimedOut = JobExecutionStatus' "TIMED_OUT"
 
-instance FromJSON JobExecutionStatus where
-  parseJSON = parseJSONText "JobExecutionStatus"
+{-# COMPLETE
+  Canceled,
+  Failed,
+  InProgress,
+  Queued,
+  Rejected,
+  Removed,
+  Succeeded,
+  TimedOut,
+  JobExecutionStatus'
+  #-}

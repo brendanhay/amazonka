@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,139 +7,182 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.DBClusterEndpoint where
+module Network.AWS.RDS.Types.DBClusterEndpoint
+  ( DBClusterEndpoint (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDBClusterEndpoint,
+
+    -- * Lenses
+    dceStatus,
+    dceDBClusterIdentifier,
+    dceDBClusterEndpointARN,
+    dceCustomEndpointType,
+    dceStaticMembers,
+    dceEndpointType,
+    dceDBClusterEndpointIdentifier,
+    dceEndpoint,
+    dceDBClusterEndpointResourceIdentifier,
+    dceExcludedMembers,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | This data type represents the information you need to connect to an Amazon Aurora DB cluster. This data type is used as a response element in the following actions:
 --
 --
 --     * @CreateDBClusterEndpoint@
 --
+--
 --     * @DescribeDBClusterEndpoints@
 --
+--
 --     * @ModifyDBClusterEndpoint@
+--
 --
 --     * @DeleteDBClusterEndpoint@
 --
 --
---
 -- For the data structure that represents Amazon RDS DB instance endpoints, see @Endpoint@ .
 --
---
--- /See:/ 'dbClusterEndpoint' smart constructor.
+-- /See:/ 'mkDBClusterEndpoint' smart constructor.
 data DBClusterEndpoint = DBClusterEndpoint'
-  { _dceStatus ::
-      !(Maybe Text),
-    _dceDBClusterIdentifier :: !(Maybe Text),
-    _dceDBClusterEndpointARN :: !(Maybe Text),
-    _dceCustomEndpointType :: !(Maybe Text),
-    _dceStaticMembers :: !(Maybe [Text]),
-    _dceEndpointType :: !(Maybe Text),
-    _dceDBClusterEndpointIdentifier :: !(Maybe Text),
-    _dceEndpoint :: !(Maybe Text),
-    _dceDBClusterEndpointResourceIdentifier ::
-      !(Maybe Text),
-    _dceExcludedMembers :: !(Maybe [Text])
+  { status ::
+      Lude.Maybe Lude.Text,
+    dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    dbClusterEndpointARN :: Lude.Maybe Lude.Text,
+    customEndpointType :: Lude.Maybe Lude.Text,
+    staticMembers :: Lude.Maybe [Lude.Text],
+    endpointType :: Lude.Maybe Lude.Text,
+    dbClusterEndpointIdentifier :: Lude.Maybe Lude.Text,
+    endpoint :: Lude.Maybe Lude.Text,
+    dbClusterEndpointResourceIdentifier ::
+      Lude.Maybe Lude.Text,
+    excludedMembers :: Lude.Maybe [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterEndpoint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dceStatus' - The current status of the endpoint. One of: @creating@ , @available@ , @deleting@ , @inactive@ , @modifying@ . The @inactive@ state applies to an endpoint that can't be used for a certain kind of cluster, such as a @writer@ endpoint for a read-only secondary cluster in a global database.
---
--- * 'dceDBClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
---
--- * 'dceDBClusterEndpointARN' - The Amazon Resource Name (ARN) for the endpoint.
---
--- * 'dceCustomEndpointType' - The type associated with a custom endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
---
--- * 'dceStaticMembers' - List of DB instance identifiers that are part of the custom endpoint group.
---
--- * 'dceEndpointType' - The type of the endpoint. One of: @READER@ , @WRITER@ , @CUSTOM@ .
---
--- * 'dceDBClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as a lowercase string.
---
--- * 'dceEndpoint' - The DNS address of the endpoint.
---
--- * 'dceDBClusterEndpointResourceIdentifier' - A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.
---
--- * 'dceExcludedMembers' - List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-dbClusterEndpoint ::
+-- * 'customEndpointType' - The type associated with a custom endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
+-- * 'dbClusterEndpointARN' - The Amazon Resource Name (ARN) for the endpoint.
+-- * 'dbClusterEndpointIdentifier' - The identifier associated with the endpoint. This parameter is stored as a lowercase string.
+-- * 'dbClusterEndpointResourceIdentifier' - A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.
+-- * 'dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
+-- * 'endpoint' - The DNS address of the endpoint.
+-- * 'endpointType' - The type of the endpoint. One of: @READER@ , @WRITER@ , @CUSTOM@ .
+-- * 'excludedMembers' - List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+-- * 'staticMembers' - List of DB instance identifiers that are part of the custom endpoint group.
+-- * 'status' - The current status of the endpoint. One of: @creating@ , @available@ , @deleting@ , @inactive@ , @modifying@ . The @inactive@ state applies to an endpoint that can't be used for a certain kind of cluster, such as a @writer@ endpoint for a read-only secondary cluster in a global database.
+mkDBClusterEndpoint ::
   DBClusterEndpoint
-dbClusterEndpoint =
+mkDBClusterEndpoint =
   DBClusterEndpoint'
-    { _dceStatus = Nothing,
-      _dceDBClusterIdentifier = Nothing,
-      _dceDBClusterEndpointARN = Nothing,
-      _dceCustomEndpointType = Nothing,
-      _dceStaticMembers = Nothing,
-      _dceEndpointType = Nothing,
-      _dceDBClusterEndpointIdentifier = Nothing,
-      _dceEndpoint = Nothing,
-      _dceDBClusterEndpointResourceIdentifier = Nothing,
-      _dceExcludedMembers = Nothing
+    { status = Lude.Nothing,
+      dbClusterIdentifier = Lude.Nothing,
+      dbClusterEndpointARN = Lude.Nothing,
+      customEndpointType = Lude.Nothing,
+      staticMembers = Lude.Nothing,
+      endpointType = Lude.Nothing,
+      dbClusterEndpointIdentifier = Lude.Nothing,
+      endpoint = Lude.Nothing,
+      dbClusterEndpointResourceIdentifier = Lude.Nothing,
+      excludedMembers = Lude.Nothing
     }
 
 -- | The current status of the endpoint. One of: @creating@ , @available@ , @deleting@ , @inactive@ , @modifying@ . The @inactive@ state applies to an endpoint that can't be used for a certain kind of cluster, such as a @writer@ endpoint for a read-only secondary cluster in a global database.
-dceStatus :: Lens' DBClusterEndpoint (Maybe Text)
-dceStatus = lens _dceStatus (\s a -> s {_dceStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceStatus :: Lens.Lens' DBClusterEndpoint (Lude.Maybe Lude.Text)
+dceStatus = Lens.lens (status :: DBClusterEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
-dceDBClusterIdentifier :: Lens' DBClusterEndpoint (Maybe Text)
-dceDBClusterIdentifier = lens _dceDBClusterIdentifier (\s a -> s {_dceDBClusterIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceDBClusterIdentifier :: Lens.Lens' DBClusterEndpoint (Lude.Maybe Lude.Text)
+dceDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DBClusterEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the endpoint.
-dceDBClusterEndpointARN :: Lens' DBClusterEndpoint (Maybe Text)
-dceDBClusterEndpointARN = lens _dceDBClusterEndpointARN (\s a -> s {_dceDBClusterEndpointARN = a})
+--
+-- /Note:/ Consider using 'dbClusterEndpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceDBClusterEndpointARN :: Lens.Lens' DBClusterEndpoint (Lude.Maybe Lude.Text)
+dceDBClusterEndpointARN = Lens.lens (dbClusterEndpointARN :: DBClusterEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterEndpointARN = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceDBClusterEndpointARN "Use generic-lens or generic-optics with 'dbClusterEndpointARN' instead." #-}
 
 -- | The type associated with a custom endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
-dceCustomEndpointType :: Lens' DBClusterEndpoint (Maybe Text)
-dceCustomEndpointType = lens _dceCustomEndpointType (\s a -> s {_dceCustomEndpointType = a})
+--
+-- /Note:/ Consider using 'customEndpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceCustomEndpointType :: Lens.Lens' DBClusterEndpoint (Lude.Maybe Lude.Text)
+dceCustomEndpointType = Lens.lens (customEndpointType :: DBClusterEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {customEndpointType = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceCustomEndpointType "Use generic-lens or generic-optics with 'customEndpointType' instead." #-}
 
 -- | List of DB instance identifiers that are part of the custom endpoint group.
-dceStaticMembers :: Lens' DBClusterEndpoint [Text]
-dceStaticMembers = lens _dceStaticMembers (\s a -> s {_dceStaticMembers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'staticMembers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceStaticMembers :: Lens.Lens' DBClusterEndpoint (Lude.Maybe [Lude.Text])
+dceStaticMembers = Lens.lens (staticMembers :: DBClusterEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {staticMembers = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceStaticMembers "Use generic-lens or generic-optics with 'staticMembers' instead." #-}
 
 -- | The type of the endpoint. One of: @READER@ , @WRITER@ , @CUSTOM@ .
-dceEndpointType :: Lens' DBClusterEndpoint (Maybe Text)
-dceEndpointType = lens _dceEndpointType (\s a -> s {_dceEndpointType = a})
+--
+-- /Note:/ Consider using 'endpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceEndpointType :: Lens.Lens' DBClusterEndpoint (Lude.Maybe Lude.Text)
+dceEndpointType = Lens.lens (endpointType :: DBClusterEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpointType = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceEndpointType "Use generic-lens or generic-optics with 'endpointType' instead." #-}
 
 -- | The identifier associated with the endpoint. This parameter is stored as a lowercase string.
-dceDBClusterEndpointIdentifier :: Lens' DBClusterEndpoint (Maybe Text)
-dceDBClusterEndpointIdentifier = lens _dceDBClusterEndpointIdentifier (\s a -> s {_dceDBClusterEndpointIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterEndpointIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceDBClusterEndpointIdentifier :: Lens.Lens' DBClusterEndpoint (Lude.Maybe Lude.Text)
+dceDBClusterEndpointIdentifier = Lens.lens (dbClusterEndpointIdentifier :: DBClusterEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterEndpointIdentifier = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceDBClusterEndpointIdentifier "Use generic-lens or generic-optics with 'dbClusterEndpointIdentifier' instead." #-}
 
 -- | The DNS address of the endpoint.
-dceEndpoint :: Lens' DBClusterEndpoint (Maybe Text)
-dceEndpoint = lens _dceEndpoint (\s a -> s {_dceEndpoint = a})
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceEndpoint :: Lens.Lens' DBClusterEndpoint (Lude.Maybe Lude.Text)
+dceEndpoint = Lens.lens (endpoint :: DBClusterEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.
-dceDBClusterEndpointResourceIdentifier :: Lens' DBClusterEndpoint (Maybe Text)
-dceDBClusterEndpointResourceIdentifier = lens _dceDBClusterEndpointResourceIdentifier (\s a -> s {_dceDBClusterEndpointResourceIdentifier = a})
+--
+-- /Note:/ Consider using 'dbClusterEndpointResourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceDBClusterEndpointResourceIdentifier :: Lens.Lens' DBClusterEndpoint (Lude.Maybe Lude.Text)
+dceDBClusterEndpointResourceIdentifier = Lens.lens (dbClusterEndpointResourceIdentifier :: DBClusterEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterEndpointResourceIdentifier = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceDBClusterEndpointResourceIdentifier "Use generic-lens or generic-optics with 'dbClusterEndpointResourceIdentifier' instead." #-}
 
 -- | List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-dceExcludedMembers :: Lens' DBClusterEndpoint [Text]
-dceExcludedMembers = lens _dceExcludedMembers (\s a -> s {_dceExcludedMembers = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'excludedMembers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceExcludedMembers :: Lens.Lens' DBClusterEndpoint (Lude.Maybe [Lude.Text])
+dceExcludedMembers = Lens.lens (excludedMembers :: DBClusterEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {excludedMembers = a} :: DBClusterEndpoint)
+{-# DEPRECATED dceExcludedMembers "Use generic-lens or generic-optics with 'excludedMembers' instead." #-}
 
-instance FromXML DBClusterEndpoint where
+instance Lude.FromXML DBClusterEndpoint where
   parseXML x =
     DBClusterEndpoint'
-      <$> (x .@? "Status")
-      <*> (x .@? "DBClusterIdentifier")
-      <*> (x .@? "DBClusterEndpointArn")
-      <*> (x .@? "CustomEndpointType")
-      <*> (x .@? "StaticMembers" .!@ mempty >>= may (parseXMLList "member"))
-      <*> (x .@? "EndpointType")
-      <*> (x .@? "DBClusterEndpointIdentifier")
-      <*> (x .@? "Endpoint")
-      <*> (x .@? "DBClusterEndpointResourceIdentifier")
-      <*> ( x .@? "ExcludedMembers" .!@ mempty
-              >>= may (parseXMLList "member")
-          )
-
-instance Hashable DBClusterEndpoint
-
-instance NFData DBClusterEndpoint
+      Lude.<$> (x Lude..@? "Status")
+      Lude.<*> (x Lude..@? "DBClusterIdentifier")
+      Lude.<*> (x Lude..@? "DBClusterEndpointArn")
+      Lude.<*> (x Lude..@? "CustomEndpointType")
+      Lude.<*> ( x Lude..@? "StaticMembers" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )
+      Lude.<*> (x Lude..@? "EndpointType")
+      Lude.<*> (x Lude..@? "DBClusterEndpointIdentifier")
+      Lude.<*> (x Lude..@? "Endpoint")
+      Lude.<*> (x Lude..@? "DBClusterEndpointResourceIdentifier")
+      Lude.<*> ( x Lude..@? "ExcludedMembers" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

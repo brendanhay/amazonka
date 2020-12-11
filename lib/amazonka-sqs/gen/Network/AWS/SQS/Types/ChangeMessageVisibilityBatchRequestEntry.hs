@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,92 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry where
+module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
+  ( ChangeMessageVisibilityBatchRequestEntry (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkChangeMessageVisibilityBatchRequestEntry,
+
+    -- * Lenses
+    cVisibilityTimeout,
+    cId,
+    cReceiptHandle,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Encloses a receipt handle and an entry id for each message in @'ChangeMessageVisibilityBatch' .@
 --
---
 -- /Important:/ All of the following list parameters must be prefixed with @ChangeMessageVisibilityBatchRequestEntry.n@ , where @n@ is an integer value starting with @1@ . For example, a parameter list for this action might look like this:
---
 -- @&ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2@
---
 -- @&ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=your_receipt_handle@
---
 -- @&ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45@
 --
---
--- /See:/ 'changeMessageVisibilityBatchRequestEntry' smart constructor.
+-- /See:/ 'mkChangeMessageVisibilityBatchRequestEntry' smart constructor.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
-  { _cVisibilityTimeout ::
-      !( Maybe
-           Int
-       ),
-    _cId ::
-      !Text,
-    _cReceiptHandle ::
-      !Text
+  { visibilityTimeout ::
+      Lude.Maybe
+        Lude.Int,
+    id ::
+      Lude.Text,
+    receiptHandle ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeMessageVisibilityBatchRequestEntry' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cVisibilityTimeout' - The new value (in seconds) for the message's visibility timeout.
---
--- * 'cId' - An identifier for this particular receipt handle used to communicate the result.
---
--- * 'cReceiptHandle' - A receipt handle.
-changeMessageVisibilityBatchRequestEntry ::
-  -- | 'cId'
-  Text ->
-  -- | 'cReceiptHandle'
-  Text ->
+-- * 'id' - An identifier for this particular receipt handle used to communicate the result.
+-- * 'receiptHandle' - A receipt handle.
+-- * 'visibilityTimeout' - The new value (in seconds) for the message's visibility timeout.
+mkChangeMessageVisibilityBatchRequestEntry ::
+  -- | 'id'
+  Lude.Text ->
+  -- | 'receiptHandle'
+  Lude.Text ->
   ChangeMessageVisibilityBatchRequestEntry
-changeMessageVisibilityBatchRequestEntry pId_ pReceiptHandle_ =
+mkChangeMessageVisibilityBatchRequestEntry pId_ pReceiptHandle_ =
   ChangeMessageVisibilityBatchRequestEntry'
-    { _cVisibilityTimeout =
-        Nothing,
-      _cId = pId_,
-      _cReceiptHandle = pReceiptHandle_
+    { visibilityTimeout =
+        Lude.Nothing,
+      id = pId_,
+      receiptHandle = pReceiptHandle_
     }
 
 -- | The new value (in seconds) for the message's visibility timeout.
-cVisibilityTimeout :: Lens' ChangeMessageVisibilityBatchRequestEntry (Maybe Int)
-cVisibilityTimeout = lens _cVisibilityTimeout (\s a -> s {_cVisibilityTimeout = a})
+--
+-- /Note:/ Consider using 'visibilityTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cVisibilityTimeout :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry (Lude.Maybe Lude.Int)
+cVisibilityTimeout = Lens.lens (visibilityTimeout :: ChangeMessageVisibilityBatchRequestEntry -> Lude.Maybe Lude.Int) (\s a -> s {visibilityTimeout = a} :: ChangeMessageVisibilityBatchRequestEntry)
+{-# DEPRECATED cVisibilityTimeout "Use generic-lens or generic-optics with 'visibilityTimeout' instead." #-}
 
 -- | An identifier for this particular receipt handle used to communicate the result.
-cId :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
-cId = lens _cId (\s a -> s {_cId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cId :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Lude.Text
+cId = Lens.lens (id :: ChangeMessageVisibilityBatchRequestEntry -> Lude.Text) (\s a -> s {id = a} :: ChangeMessageVisibilityBatchRequestEntry)
+{-# DEPRECATED cId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A receipt handle.
-cReceiptHandle :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
-cReceiptHandle = lens _cReceiptHandle (\s a -> s {_cReceiptHandle = a})
+--
+-- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cReceiptHandle :: Lens.Lens' ChangeMessageVisibilityBatchRequestEntry Lude.Text
+cReceiptHandle = Lens.lens (receiptHandle :: ChangeMessageVisibilityBatchRequestEntry -> Lude.Text) (\s a -> s {receiptHandle = a} :: ChangeMessageVisibilityBatchRequestEntry)
+{-# DEPRECATED cReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
 
-instance Hashable ChangeMessageVisibilityBatchRequestEntry
-
-instance NFData ChangeMessageVisibilityBatchRequestEntry
-
-instance ToQuery ChangeMessageVisibilityBatchRequestEntry where
+instance Lude.ToQuery ChangeMessageVisibilityBatchRequestEntry where
   toQuery ChangeMessageVisibilityBatchRequestEntry' {..} =
-    mconcat
-      [ "VisibilityTimeout" =: _cVisibilityTimeout,
-        "Id" =: _cId,
-        "ReceiptHandle" =: _cReceiptHandle
+    Lude.mconcat
+      [ "VisibilityTimeout" Lude.=: visibilityTimeout,
+        "Id" Lude.=: id,
+        "ReceiptHandle" Lude.=: receiptHandle
       ]

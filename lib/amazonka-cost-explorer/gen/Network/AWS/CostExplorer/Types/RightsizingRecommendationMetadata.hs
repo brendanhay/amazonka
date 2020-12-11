@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,71 +7,87 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.RightsizingRecommendationMetadata where
+module Network.AWS.CostExplorer.Types.RightsizingRecommendationMetadata
+  ( RightsizingRecommendationMetadata (..),
+
+    -- * Smart constructor
+    mkRightsizingRecommendationMetadata,
+
+    -- * Lenses
+    rrmRecommendationId,
+    rrmGenerationTimestamp,
+    rrmLookbackPeriodInDays,
+  )
+where
 
 import Network.AWS.CostExplorer.Types.LookbackPeriodInDays
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Metadata for this recommendation set.
 --
---
---
--- /See:/ 'rightsizingRecommendationMetadata' smart constructor.
+-- /See:/ 'mkRightsizingRecommendationMetadata' smart constructor.
 data RightsizingRecommendationMetadata = RightsizingRecommendationMetadata'
-  { _rrmRecommendationId ::
-      !(Maybe Text),
-    _rrmGenerationTimestamp ::
-      !(Maybe Text),
-    _rrmLookbackPeriodInDays ::
-      !( Maybe
-           LookbackPeriodInDays
-       )
+  { recommendationId ::
+      Lude.Maybe Lude.Text,
+    generationTimestamp ::
+      Lude.Maybe Lude.Text,
+    lookbackPeriodInDays ::
+      Lude.Maybe
+        LookbackPeriodInDays
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RightsizingRecommendationMetadata' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrmRecommendationId' - The ID for this specific recommendation.
---
--- * 'rrmGenerationTimestamp' - The timestamp for when AWS made this recommendation.
---
--- * 'rrmLookbackPeriodInDays' - How many days of previous usage that AWS considers when making this recommendation.
-rightsizingRecommendationMetadata ::
+-- * 'generationTimestamp' - The timestamp for when AWS made this recommendation.
+-- * 'lookbackPeriodInDays' - How many days of previous usage that AWS considers when making this recommendation.
+-- * 'recommendationId' - The ID for this specific recommendation.
+mkRightsizingRecommendationMetadata ::
   RightsizingRecommendationMetadata
-rightsizingRecommendationMetadata =
+mkRightsizingRecommendationMetadata =
   RightsizingRecommendationMetadata'
-    { _rrmRecommendationId =
-        Nothing,
-      _rrmGenerationTimestamp = Nothing,
-      _rrmLookbackPeriodInDays = Nothing
+    { recommendationId =
+        Lude.Nothing,
+      generationTimestamp = Lude.Nothing,
+      lookbackPeriodInDays = Lude.Nothing
     }
 
 -- | The ID for this specific recommendation.
-rrmRecommendationId :: Lens' RightsizingRecommendationMetadata (Maybe Text)
-rrmRecommendationId = lens _rrmRecommendationId (\s a -> s {_rrmRecommendationId = a})
+--
+-- /Note:/ Consider using 'recommendationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrmRecommendationId :: Lens.Lens' RightsizingRecommendationMetadata (Lude.Maybe Lude.Text)
+rrmRecommendationId = Lens.lens (recommendationId :: RightsizingRecommendationMetadata -> Lude.Maybe Lude.Text) (\s a -> s {recommendationId = a} :: RightsizingRecommendationMetadata)
+{-# DEPRECATED rrmRecommendationId "Use generic-lens or generic-optics with 'recommendationId' instead." #-}
 
 -- | The timestamp for when AWS made this recommendation.
-rrmGenerationTimestamp :: Lens' RightsizingRecommendationMetadata (Maybe Text)
-rrmGenerationTimestamp = lens _rrmGenerationTimestamp (\s a -> s {_rrmGenerationTimestamp = a})
+--
+-- /Note:/ Consider using 'generationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrmGenerationTimestamp :: Lens.Lens' RightsizingRecommendationMetadata (Lude.Maybe Lude.Text)
+rrmGenerationTimestamp = Lens.lens (generationTimestamp :: RightsizingRecommendationMetadata -> Lude.Maybe Lude.Text) (\s a -> s {generationTimestamp = a} :: RightsizingRecommendationMetadata)
+{-# DEPRECATED rrmGenerationTimestamp "Use generic-lens or generic-optics with 'generationTimestamp' instead." #-}
 
 -- | How many days of previous usage that AWS considers when making this recommendation.
-rrmLookbackPeriodInDays :: Lens' RightsizingRecommendationMetadata (Maybe LookbackPeriodInDays)
-rrmLookbackPeriodInDays = lens _rrmLookbackPeriodInDays (\s a -> s {_rrmLookbackPeriodInDays = a})
+--
+-- /Note:/ Consider using 'lookbackPeriodInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrmLookbackPeriodInDays :: Lens.Lens' RightsizingRecommendationMetadata (Lude.Maybe LookbackPeriodInDays)
+rrmLookbackPeriodInDays = Lens.lens (lookbackPeriodInDays :: RightsizingRecommendationMetadata -> Lude.Maybe LookbackPeriodInDays) (\s a -> s {lookbackPeriodInDays = a} :: RightsizingRecommendationMetadata)
+{-# DEPRECATED rrmLookbackPeriodInDays "Use generic-lens or generic-optics with 'lookbackPeriodInDays' instead." #-}
 
-instance FromJSON RightsizingRecommendationMetadata where
+instance Lude.FromJSON RightsizingRecommendationMetadata where
   parseJSON =
-    withObject
+    Lude.withObject
       "RightsizingRecommendationMetadata"
       ( \x ->
           RightsizingRecommendationMetadata'
-            <$> (x .:? "RecommendationId")
-            <*> (x .:? "GenerationTimestamp")
-            <*> (x .:? "LookbackPeriodInDays")
+            Lude.<$> (x Lude..:? "RecommendationId")
+            Lude.<*> (x Lude..:? "GenerationTimestamp")
+            Lude.<*> (x Lude..:? "LookbackPeriodInDays")
       )
-
-instance Hashable RightsizingRecommendationMetadata
-
-instance NFData RightsizingRecommendationMetadata

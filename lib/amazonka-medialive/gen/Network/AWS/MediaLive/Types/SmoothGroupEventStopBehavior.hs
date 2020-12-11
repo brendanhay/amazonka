@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.SmoothGroupEventStopBehavior where
+module Network.AWS.MediaLive.Types.SmoothGroupEventStopBehavior
+  ( SmoothGroupEventStopBehavior
+      ( SmoothGroupEventStopBehavior',
+        SGESBNone,
+        SGESBSendEos
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Smooth Group Event Stop Behavior
-data SmoothGroupEventStopBehavior
-  = SGESBNone
-  | SGESBSendEos
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype SmoothGroupEventStopBehavior = SmoothGroupEventStopBehavior' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText SmoothGroupEventStopBehavior where
-  parser =
-    takeLowerText >>= \case
-      "none" -> pure SGESBNone
-      "send_eos" -> pure SGESBSendEos
-      e ->
-        fromTextError $
-          "Failure parsing SmoothGroupEventStopBehavior from value: '" <> e
-            <> "'. Accepted values: none, send_eos"
+pattern SGESBNone :: SmoothGroupEventStopBehavior
+pattern SGESBNone = SmoothGroupEventStopBehavior' "NONE"
 
-instance ToText SmoothGroupEventStopBehavior where
-  toText = \case
-    SGESBNone -> "NONE"
-    SGESBSendEos -> "SEND_EOS"
+pattern SGESBSendEos :: SmoothGroupEventStopBehavior
+pattern SGESBSendEos = SmoothGroupEventStopBehavior' "SEND_EOS"
 
-instance Hashable SmoothGroupEventStopBehavior
-
-instance NFData SmoothGroupEventStopBehavior
-
-instance ToByteString SmoothGroupEventStopBehavior
-
-instance ToQuery SmoothGroupEventStopBehavior
-
-instance ToHeader SmoothGroupEventStopBehavior
-
-instance ToJSON SmoothGroupEventStopBehavior where
-  toJSON = toJSONText
-
-instance FromJSON SmoothGroupEventStopBehavior where
-  parseJSON = parseJSONText "SmoothGroupEventStopBehavior"
+{-# COMPLETE
+  SGESBNone,
+  SGESBSendEos,
+  SmoothGroupEventStopBehavior'
+  #-}

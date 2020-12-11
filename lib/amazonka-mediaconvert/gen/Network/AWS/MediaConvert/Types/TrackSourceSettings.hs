@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,44 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.TrackSourceSettings where
+module Network.AWS.MediaConvert.Types.TrackSourceSettings
+  ( TrackSourceSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrackSourceSettings,
+
+    -- * Lenses
+    tssTrackNumber,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
 --
--- /See:/ 'trackSourceSettings' smart constructor.
+-- /See:/ 'mkTrackSourceSettings' smart constructor.
 newtype TrackSourceSettings = TrackSourceSettings'
-  { _tssTrackNumber ::
-      Maybe Nat
+  { trackNumber ::
+      Lude.Maybe Lude.Natural
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrackSourceSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tssTrackNumber' - Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
-trackSourceSettings ::
+-- * 'trackNumber' - Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
+mkTrackSourceSettings ::
   TrackSourceSettings
-trackSourceSettings =
-  TrackSourceSettings' {_tssTrackNumber = Nothing}
+mkTrackSourceSettings =
+  TrackSourceSettings' {trackNumber = Lude.Nothing}
 
 -- | Use this setting to select a single captions track from a source. Track numbers correspond to the order in the captions source file. For IMF sources, track numbering is based on the order that the captions appear in the CPL. For example, use 1 to select the captions asset that is listed first in the CPL. To include more than one captions track in your job outputs, create multiple input captions selectors. Specify one track per selector.
-tssTrackNumber :: Lens' TrackSourceSettings (Maybe Natural)
-tssTrackNumber = lens _tssTrackNumber (\s a -> s {_tssTrackNumber = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'trackNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tssTrackNumber :: Lens.Lens' TrackSourceSettings (Lude.Maybe Lude.Natural)
+tssTrackNumber = Lens.lens (trackNumber :: TrackSourceSettings -> Lude.Maybe Lude.Natural) (\s a -> s {trackNumber = a} :: TrackSourceSettings)
+{-# DEPRECATED tssTrackNumber "Use generic-lens or generic-optics with 'trackNumber' instead." #-}
 
-instance FromJSON TrackSourceSettings where
+instance Lude.FromJSON TrackSourceSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrackSourceSettings"
-      (\x -> TrackSourceSettings' <$> (x .:? "trackNumber"))
+      (\x -> TrackSourceSettings' Lude.<$> (x Lude..:? "trackNumber"))
 
-instance Hashable TrackSourceSettings
-
-instance NFData TrackSourceSettings
-
-instance ToJSON TrackSourceSettings where
+instance Lude.ToJSON TrackSourceSettings where
   toJSON TrackSourceSettings' {..} =
-    object (catMaybes [("trackNumber" .=) <$> _tssTrackNumber])
+    Lude.object
+      (Lude.catMaybes [("trackNumber" Lude..=) Lude.<$> trackNumber])

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,69 +7,88 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WAF.Types.SubscribedRuleGroupSummary where
+module Network.AWS.WAF.Types.SubscribedRuleGroupSummary
+  ( SubscribedRuleGroupSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSubscribedRuleGroupSummary,
+
+    -- * Lenses
+    srgsRuleGroupId,
+    srgsName,
+    srgsMetricName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A summary of the rule groups you are subscribed to.
 --
---
---
--- /See:/ 'subscribedRuleGroupSummary' smart constructor.
+-- /See:/ 'mkSubscribedRuleGroupSummary' smart constructor.
 data SubscribedRuleGroupSummary = SubscribedRuleGroupSummary'
-  { _srgsRuleGroupId ::
-      !Text,
-    _srgsName :: !Text,
-    _srgsMetricName :: !Text
+  { ruleGroupId ::
+      Lude.Text,
+    name :: Lude.Text,
+    metricName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscribedRuleGroupSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'srgsRuleGroupId' - A unique identifier for a @RuleGroup@ .
---
--- * 'srgsName' - A friendly name or description of the @RuleGroup@ . You can't change the name of a @RuleGroup@ after you create it.
---
--- * 'srgsMetricName' - A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
-subscribedRuleGroupSummary ::
-  -- | 'srgsRuleGroupId'
-  Text ->
-  -- | 'srgsName'
-  Text ->
-  -- | 'srgsMetricName'
-  Text ->
+-- * 'metricName' - A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
+-- * 'name' - A friendly name or description of the @RuleGroup@ . You can't change the name of a @RuleGroup@ after you create it.
+-- * 'ruleGroupId' - A unique identifier for a @RuleGroup@ .
+mkSubscribedRuleGroupSummary ::
+  -- | 'ruleGroupId'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'metricName'
+  Lude.Text ->
   SubscribedRuleGroupSummary
-subscribedRuleGroupSummary pRuleGroupId_ pName_ pMetricName_ =
+mkSubscribedRuleGroupSummary pRuleGroupId_ pName_ pMetricName_ =
   SubscribedRuleGroupSummary'
-    { _srgsRuleGroupId = pRuleGroupId_,
-      _srgsName = pName_,
-      _srgsMetricName = pMetricName_
+    { ruleGroupId = pRuleGroupId_,
+      name = pName_,
+      metricName = pMetricName_
     }
 
 -- | A unique identifier for a @RuleGroup@ .
-srgsRuleGroupId :: Lens' SubscribedRuleGroupSummary Text
-srgsRuleGroupId = lens _srgsRuleGroupId (\s a -> s {_srgsRuleGroupId = a})
+--
+-- /Note:/ Consider using 'ruleGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srgsRuleGroupId :: Lens.Lens' SubscribedRuleGroupSummary Lude.Text
+srgsRuleGroupId = Lens.lens (ruleGroupId :: SubscribedRuleGroupSummary -> Lude.Text) (\s a -> s {ruleGroupId = a} :: SubscribedRuleGroupSummary)
+{-# DEPRECATED srgsRuleGroupId "Use generic-lens or generic-optics with 'ruleGroupId' instead." #-}
 
 -- | A friendly name or description of the @RuleGroup@ . You can't change the name of a @RuleGroup@ after you create it.
-srgsName :: Lens' SubscribedRuleGroupSummary Text
-srgsName = lens _srgsName (\s a -> s {_srgsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srgsName :: Lens.Lens' SubscribedRuleGroupSummary Lude.Text
+srgsName = Lens.lens (name :: SubscribedRuleGroupSummary -> Lude.Text) (\s a -> s {name = a} :: SubscribedRuleGroupSummary)
+{-# DEPRECATED srgsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A friendly name or description for the metrics for this @RuleGroup@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change the name of the metric after you create the @RuleGroup@ .
-srgsMetricName :: Lens' SubscribedRuleGroupSummary Text
-srgsMetricName = lens _srgsMetricName (\s a -> s {_srgsMetricName = a})
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srgsMetricName :: Lens.Lens' SubscribedRuleGroupSummary Lude.Text
+srgsMetricName = Lens.lens (metricName :: SubscribedRuleGroupSummary -> Lude.Text) (\s a -> s {metricName = a} :: SubscribedRuleGroupSummary)
+{-# DEPRECATED srgsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
-instance FromJSON SubscribedRuleGroupSummary where
+instance Lude.FromJSON SubscribedRuleGroupSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "SubscribedRuleGroupSummary"
       ( \x ->
           SubscribedRuleGroupSummary'
-            <$> (x .: "RuleGroupId") <*> (x .: "Name") <*> (x .: "MetricName")
+            Lude.<$> (x Lude..: "RuleGroupId")
+            Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..: "MetricName")
       )
-
-instance Hashable SubscribedRuleGroupSummary
-
-instance NFData SubscribedRuleGroupSummary

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +14,20 @@
 --
 -- For Redis engine version 6.x onwards: Creates a Redis user group. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html Using Role Based Access Control (RBAC)>
 module Network.AWS.ElastiCache.CreateUserGroup
-  ( -- * Creating a Request
-    createUserGroup,
-    CreateUserGroup,
+  ( -- * Creating a request
+    CreateUserGroup (..),
+    mkCreateUserGroup,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cugUserIds,
     cugUserGroupId,
     cugEngine,
 
-    -- * Destructuring the Response
-    userGroup,
-    UserGroup,
+    -- * Destructuring the response
+    UserGroup (..),
+    mkUserGroup,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ugStatus,
     ugUserIds,
     ugARN,
@@ -44,76 +39,87 @@ module Network.AWS.ElastiCache.CreateUserGroup
 where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'createUserGroup' smart constructor.
+-- | /See:/ 'mkCreateUserGroup' smart constructor.
 data CreateUserGroup = CreateUserGroup'
-  { _cugUserIds ::
-      !(Maybe (List1 Text)),
-    _cugUserGroupId :: !Text,
-    _cugEngine :: !Text
+  { userIds ::
+      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    userGroupId :: Lude.Text,
+    engine :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserGroup' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cugUserIds' - The list of user IDs that belong to the user group.
---
--- * 'cugUserGroupId' - The ID of the user group.
---
--- * 'cugEngine' - Must be Redis.
-createUserGroup ::
-  -- | 'cugUserGroupId'
-  Text ->
-  -- | 'cugEngine'
-  Text ->
+-- * 'engine' - Must be Redis.
+-- * 'userGroupId' - The ID of the user group.
+-- * 'userIds' - The list of user IDs that belong to the user group.
+mkCreateUserGroup ::
+  -- | 'userGroupId'
+  Lude.Text ->
+  -- | 'engine'
+  Lude.Text ->
   CreateUserGroup
-createUserGroup pUserGroupId_ pEngine_ =
+mkCreateUserGroup pUserGroupId_ pEngine_ =
   CreateUserGroup'
-    { _cugUserIds = Nothing,
-      _cugUserGroupId = pUserGroupId_,
-      _cugEngine = pEngine_
+    { userIds = Lude.Nothing,
+      userGroupId = pUserGroupId_,
+      engine = pEngine_
     }
 
 -- | The list of user IDs that belong to the user group.
-cugUserIds :: Lens' CreateUserGroup (Maybe (NonEmpty Text))
-cugUserIds = lens _cugUserIds (\s a -> s {_cugUserIds = a}) . mapping _List1
+--
+-- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cugUserIds :: Lens.Lens' CreateUserGroup (Lude.Maybe (Lude.NonEmpty Lude.Text))
+cugUserIds = Lens.lens (userIds :: CreateUserGroup -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {userIds = a} :: CreateUserGroup)
+{-# DEPRECATED cugUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
 
 -- | The ID of the user group.
-cugUserGroupId :: Lens' CreateUserGroup Text
-cugUserGroupId = lens _cugUserGroupId (\s a -> s {_cugUserGroupId = a})
+--
+-- /Note:/ Consider using 'userGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cugUserGroupId :: Lens.Lens' CreateUserGroup Lude.Text
+cugUserGroupId = Lens.lens (userGroupId :: CreateUserGroup -> Lude.Text) (\s a -> s {userGroupId = a} :: CreateUserGroup)
+{-# DEPRECATED cugUserGroupId "Use generic-lens or generic-optics with 'userGroupId' instead." #-}
 
 -- | Must be Redis.
-cugEngine :: Lens' CreateUserGroup Text
-cugEngine = lens _cugEngine (\s a -> s {_cugEngine = a})
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cugEngine :: Lens.Lens' CreateUserGroup Lude.Text
+cugEngine = Lens.lens (engine :: CreateUserGroup -> Lude.Text) (\s a -> s {engine = a} :: CreateUserGroup)
+{-# DEPRECATED cugEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
-instance AWSRequest CreateUserGroup where
+instance Lude.AWSRequest CreateUserGroup where
   type Rs CreateUserGroup = UserGroup
-  request = postQuery elastiCache
+  request = Req.postQuery elastiCacheService
   response =
-    receiveXMLWrapper "CreateUserGroupResult" (\s h x -> parseXML x)
+    Res.receiveXMLWrapper
+      "CreateUserGroupResult"
+      (\s h x -> Lude.parseXML x)
 
-instance Hashable CreateUserGroup
+instance Lude.ToHeaders CreateUserGroup where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData CreateUserGroup
+instance Lude.ToPath CreateUserGroup where
+  toPath = Lude.const "/"
 
-instance ToHeaders CreateUserGroup where
-  toHeaders = const mempty
-
-instance ToPath CreateUserGroup where
-  toPath = const "/"
-
-instance ToQuery CreateUserGroup where
+instance Lude.ToQuery CreateUserGroup where
   toQuery CreateUserGroup' {..} =
-    mconcat
-      [ "Action" =: ("CreateUserGroup" :: ByteString),
-        "Version" =: ("2015-02-02" :: ByteString),
-        "UserIds" =: toQuery (toQueryList "member" <$> _cugUserIds),
-        "UserGroupId" =: _cugUserGroupId,
-        "Engine" =: _cugEngine
+    Lude.mconcat
+      [ "Action" Lude.=: ("CreateUserGroup" :: Lude.ByteString),
+        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "UserIds"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> userIds),
+        "UserGroupId" Lude.=: userGroupId,
+        "Engine" Lude.=: engine
       ]

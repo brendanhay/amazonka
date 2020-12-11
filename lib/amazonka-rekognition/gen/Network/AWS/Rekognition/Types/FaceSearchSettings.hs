@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.FaceSearchSettings where
+module Network.AWS.Rekognition.Types.FaceSearchSettings
+  ( FaceSearchSettings (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkFaceSearchSettings,
+
+    -- * Lenses
+    fssFaceMatchThreshold,
+    fssCollectionId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Input face recognition parameters for an Amazon Rekognition stream processor. @FaceRecognitionSettings@ is a request parameter for 'CreateStreamProcessor' .
 --
---
---
--- /See:/ 'faceSearchSettings' smart constructor.
+-- /See:/ 'mkFaceSearchSettings' smart constructor.
 data FaceSearchSettings = FaceSearchSettings'
-  { _fssFaceMatchThreshold ::
-      !(Maybe Double),
-    _fssCollectionId :: !(Maybe Text)
+  { faceMatchThreshold ::
+      Lude.Maybe Lude.Double,
+    collectionId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaceSearchSettings' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'fssFaceMatchThreshold' - Minimum face match confidence score that must be met to return a result for a recognized face. Default is 80. 0 is the lowest confidence. 100 is the highest confidence.
---
--- * 'fssCollectionId' - The ID of a collection that contains faces that you want to search for.
-faceSearchSettings ::
+-- * 'collectionId' - The ID of a collection that contains faces that you want to search for.
+-- * 'faceMatchThreshold' - Minimum face match confidence score that must be met to return a result for a recognized face. Default is 80. 0 is the lowest confidence. 100 is the highest confidence.
+mkFaceSearchSettings ::
   FaceSearchSettings
-faceSearchSettings =
+mkFaceSearchSettings =
   FaceSearchSettings'
-    { _fssFaceMatchThreshold = Nothing,
-      _fssCollectionId = Nothing
+    { faceMatchThreshold = Lude.Nothing,
+      collectionId = Lude.Nothing
     }
 
 -- | Minimum face match confidence score that must be met to return a result for a recognized face. Default is 80. 0 is the lowest confidence. 100 is the highest confidence.
-fssFaceMatchThreshold :: Lens' FaceSearchSettings (Maybe Double)
-fssFaceMatchThreshold = lens _fssFaceMatchThreshold (\s a -> s {_fssFaceMatchThreshold = a})
+--
+-- /Note:/ Consider using 'faceMatchThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fssFaceMatchThreshold :: Lens.Lens' FaceSearchSettings (Lude.Maybe Lude.Double)
+fssFaceMatchThreshold = Lens.lens (faceMatchThreshold :: FaceSearchSettings -> Lude.Maybe Lude.Double) (\s a -> s {faceMatchThreshold = a} :: FaceSearchSettings)
+{-# DEPRECATED fssFaceMatchThreshold "Use generic-lens or generic-optics with 'faceMatchThreshold' instead." #-}
 
 -- | The ID of a collection that contains faces that you want to search for.
-fssCollectionId :: Lens' FaceSearchSettings (Maybe Text)
-fssCollectionId = lens _fssCollectionId (\s a -> s {_fssCollectionId = a})
+--
+-- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fssCollectionId :: Lens.Lens' FaceSearchSettings (Lude.Maybe Lude.Text)
+fssCollectionId = Lens.lens (collectionId :: FaceSearchSettings -> Lude.Maybe Lude.Text) (\s a -> s {collectionId = a} :: FaceSearchSettings)
+{-# DEPRECATED fssCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
-instance FromJSON FaceSearchSettings where
+instance Lude.FromJSON FaceSearchSettings where
   parseJSON =
-    withObject
+    Lude.withObject
       "FaceSearchSettings"
       ( \x ->
           FaceSearchSettings'
-            <$> (x .:? "FaceMatchThreshold") <*> (x .:? "CollectionId")
+            Lude.<$> (x Lude..:? "FaceMatchThreshold")
+            Lude.<*> (x Lude..:? "CollectionId")
       )
 
-instance Hashable FaceSearchSettings
-
-instance NFData FaceSearchSettings
-
-instance ToJSON FaceSearchSettings where
+instance Lude.ToJSON FaceSearchSettings where
   toJSON FaceSearchSettings' {..} =
-    object
-      ( catMaybes
-          [ ("FaceMatchThreshold" .=) <$> _fssFaceMatchThreshold,
-            ("CollectionId" .=) <$> _fssCollectionId
+    Lude.object
+      ( Lude.catMaybes
+          [ ("FaceMatchThreshold" Lude..=) Lude.<$> faceMatchThreshold,
+            ("CollectionId" Lude..=) Lude.<$> collectionId
           ]
       )

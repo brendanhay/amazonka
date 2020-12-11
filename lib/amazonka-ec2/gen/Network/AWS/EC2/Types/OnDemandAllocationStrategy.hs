@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,50 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.OnDemandAllocationStrategy where
+module Network.AWS.EC2.Types.OnDemandAllocationStrategy
+  ( OnDemandAllocationStrategy
+      ( OnDemandAllocationStrategy',
+        ODASLowestPrice,
+        ODASPrioritized
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OnDemandAllocationStrategy
-  = ODASLowestPrice
-  | ODASPrioritized
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OnDemandAllocationStrategy = OnDemandAllocationStrategy' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OnDemandAllocationStrategy where
-  parser =
-    takeLowerText >>= \case
-      "lowestprice" -> pure ODASLowestPrice
-      "prioritized" -> pure ODASPrioritized
-      e ->
-        fromTextError $
-          "Failure parsing OnDemandAllocationStrategy from value: '" <> e
-            <> "'. Accepted values: lowestprice, prioritized"
+pattern ODASLowestPrice :: OnDemandAllocationStrategy
+pattern ODASLowestPrice = OnDemandAllocationStrategy' "lowestPrice"
 
-instance ToText OnDemandAllocationStrategy where
-  toText = \case
-    ODASLowestPrice -> "lowestPrice"
-    ODASPrioritized -> "prioritized"
+pattern ODASPrioritized :: OnDemandAllocationStrategy
+pattern ODASPrioritized = OnDemandAllocationStrategy' "prioritized"
 
-instance Hashable OnDemandAllocationStrategy
-
-instance NFData OnDemandAllocationStrategy
-
-instance ToByteString OnDemandAllocationStrategy
-
-instance ToQuery OnDemandAllocationStrategy
-
-instance ToHeader OnDemandAllocationStrategy
-
-instance FromXML OnDemandAllocationStrategy where
-  parseXML = parseXMLText "OnDemandAllocationStrategy"
+{-# COMPLETE
+  ODASLowestPrice,
+  ODASPrioritized,
+  OnDemandAllocationStrategy'
+  #-}

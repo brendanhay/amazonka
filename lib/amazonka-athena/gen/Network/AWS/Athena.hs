@@ -13,13 +13,11 @@
 --
 -- Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries. For more information, see <http://docs.aws.amazon.com/athena/latest/ug/what-is.html What is Amazon Athena> in the /Amazon Athena User Guide/ .
 --
---
 -- If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier version drivers do not support the API. For more information and to download the driver, see <https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html Accessing Amazon Athena with JDBC> .
---
 -- For code samples using the AWS SDK for Java, see <https://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples> in the /Amazon Athena User Guide/ .
 module Network.AWS.Athena
-  ( -- * Service Configuration
-    athena,
+  ( -- * Service configuration
+    athenaService,
 
     -- * Errors
     -- $errors
@@ -135,15 +133,15 @@ module Network.AWS.Athena
     WorkGroupState (..),
 
     -- ** Column
-    Column,
-    column,
+    Column (..),
+    mkColumn,
     cType,
     cComment,
     cName,
 
     -- ** ColumnInfo
-    ColumnInfo,
-    columnInfo,
+    ColumnInfo (..),
+    mkColumnInfo,
     ciScale,
     ciPrecision,
     ciSchemaName,
@@ -156,40 +154,40 @@ module Network.AWS.Athena
     ciType,
 
     -- ** DataCatalog
-    DataCatalog,
-    dataCatalog,
+    DataCatalog (..),
+    mkDataCatalog,
     dcParameters,
     dcDescription,
     dcName,
     dcType,
 
     -- ** DataCatalogSummary
-    DataCatalogSummary,
-    dataCatalogSummary,
+    DataCatalogSummary (..),
+    mkDataCatalogSummary,
     dcsCatalogName,
     dcsType,
 
     -- ** Database
-    Database,
-    database,
+    Database (..),
+    mkDatabase,
     dParameters,
     dDescription,
     dName,
 
     -- ** Datum
-    Datum,
-    datum,
+    Datum (..),
+    mkDatum,
     dVarCharValue,
 
     -- ** EncryptionConfiguration
-    EncryptionConfiguration,
-    encryptionConfiguration,
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
     ecKMSKey,
     ecEncryptionOption,
 
     -- ** NamedQuery
-    NamedQuery,
-    namedQuery,
+    NamedQuery (..),
+    mkNamedQuery,
     nqNamedQueryId,
     nqDescription,
     nqWorkGroup,
@@ -198,8 +196,8 @@ module Network.AWS.Athena
     nqQueryString,
 
     -- ** QueryExecution
-    QueryExecution,
-    queryExecution,
+    QueryExecution (..),
+    mkQueryExecution,
     qeStatus,
     qeQueryExecutionContext,
     qeResultConfiguration,
@@ -210,14 +208,14 @@ module Network.AWS.Athena
     qeWorkGroup,
 
     -- ** QueryExecutionContext
-    QueryExecutionContext,
-    queryExecutionContext,
+    QueryExecutionContext (..),
+    mkQueryExecutionContext,
     qecDatabase,
     qecCatalog,
 
     -- ** QueryExecutionStatistics
-    QueryExecutionStatistics,
-    queryExecutionStatistics,
+    QueryExecutionStatistics (..),
+    mkQueryExecutionStatistics,
     qesTotalExecutionTimeInMillis,
     qesEngineExecutionTimeInMillis,
     qesQueryPlanningTimeInMillis,
@@ -227,46 +225,46 @@ module Network.AWS.Athena
     qesServiceProcessingTimeInMillis,
 
     -- ** QueryExecutionStatus
-    QueryExecutionStatus,
-    queryExecutionStatus,
+    QueryExecutionStatus (..),
+    mkQueryExecutionStatus,
     qesState,
     qesStateChangeReason,
     qesSubmissionDateTime,
     qesCompletionDateTime,
 
     -- ** ResultConfiguration
-    ResultConfiguration,
-    resultConfiguration,
+    ResultConfiguration (..),
+    mkResultConfiguration,
     rcEncryptionConfiguration,
     rcOutputLocation,
 
     -- ** ResultConfigurationUpdates
-    ResultConfigurationUpdates,
-    resultConfigurationUpdates,
+    ResultConfigurationUpdates (..),
+    mkResultConfigurationUpdates,
     rcuRemoveOutputLocation,
     rcuRemoveEncryptionConfiguration,
     rcuEncryptionConfiguration,
     rcuOutputLocation,
 
     -- ** ResultSet
-    ResultSet,
-    resultSet,
+    ResultSet (..),
+    mkResultSet,
     rsRows,
     rsResultSetMetadata,
 
     -- ** ResultSetMetadata
-    ResultSetMetadata,
-    resultSetMetadata,
+    ResultSetMetadata (..),
+    mkResultSetMetadata,
     rsmColumnInfo,
 
     -- ** Row
-    Row,
-    row,
-    rowData,
+    Row (..),
+    mkRow,
+    rData,
 
     -- ** TableMetadata
-    TableMetadata,
-    tableMetadata,
+    TableMetadata (..),
+    mkTableMetadata,
     tmTableType,
     tmParameters,
     tmColumns,
@@ -276,28 +274,28 @@ module Network.AWS.Athena
     tmName,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- ** UnprocessedNamedQueryId
-    UnprocessedNamedQueryId,
-    unprocessedNamedQueryId,
+    UnprocessedNamedQueryId (..),
+    mkUnprocessedNamedQueryId,
     unqiNamedQueryId,
     unqiErrorCode,
     unqiErrorMessage,
 
     -- ** UnprocessedQueryExecutionId
-    UnprocessedQueryExecutionId,
-    unprocessedQueryExecutionId,
+    UnprocessedQueryExecutionId (..),
+    mkUnprocessedQueryExecutionId,
     uqeiErrorCode,
     uqeiQueryExecutionId,
     uqeiErrorMessage,
 
     -- ** WorkGroup
-    WorkGroup,
-    workGroup,
+    WorkGroup (..),
+    mkWorkGroup,
     wgCreationTime,
     wgState,
     wgConfiguration,
@@ -305,8 +303,8 @@ module Network.AWS.Athena
     wgName,
 
     -- ** WorkGroupConfiguration
-    WorkGroupConfiguration,
-    workGroupConfiguration,
+    WorkGroupConfiguration (..),
+    mkWorkGroupConfiguration,
     wgcRequesterPaysEnabled,
     wgcResultConfiguration,
     wgcBytesScannedCutoffPerQuery,
@@ -314,8 +312,8 @@ module Network.AWS.Athena
     wgcPublishCloudWatchMetricsEnabled,
 
     -- ** WorkGroupConfigurationUpdates
-    WorkGroupConfigurationUpdates,
-    workGroupConfigurationUpdates,
+    WorkGroupConfigurationUpdates (..),
+    mkWorkGroupConfigurationUpdates,
     wgcuRequesterPaysEnabled,
     wgcuResultConfigurationUpdates,
     wgcuBytesScannedCutoffPerQuery,
@@ -324,12 +322,23 @@ module Network.AWS.Athena
     wgcuPublishCloudWatchMetricsEnabled,
 
     -- ** WorkGroupSummary
-    WorkGroupSummary,
-    workGroupSummary,
+    WorkGroupSummary (..),
+    mkWorkGroupSummary,
     wgsCreationTime,
     wgsState,
     wgsName,
     wgsDescription,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -363,6 +372,7 @@ import Network.AWS.Athena.UntagResource
 import Network.AWS.Athena.UpdateDataCatalog
 import Network.AWS.Athena.UpdateWorkGroup
 import Network.AWS.Athena.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

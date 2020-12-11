@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Glue.Types.PartitionValueList where
+module Network.AWS.Glue.Types.PartitionValueList
+  ( PartitionValueList (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkPartitionValueList,
+
+    -- * Lenses
+    pvlValues,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains a list of values defining partitions.
 --
---
---
--- /See:/ 'partitionValueList' smart constructor.
+-- /See:/ 'mkPartitionValueList' smart constructor.
 newtype PartitionValueList = PartitionValueList'
-  { _pvlValues ::
-      [Text]
+  { values ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartitionValueList' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pvlValues' - The list of values.
-partitionValueList ::
+-- * 'values' - The list of values.
+mkPartitionValueList ::
   PartitionValueList
-partitionValueList = PartitionValueList' {_pvlValues = mempty}
+mkPartitionValueList = PartitionValueList' {values = Lude.mempty}
 
 -- | The list of values.
-pvlValues :: Lens' PartitionValueList [Text]
-pvlValues = lens _pvlValues (\s a -> s {_pvlValues = a}) . _Coerce
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvlValues :: Lens.Lens' PartitionValueList [Lude.Text]
+pvlValues = Lens.lens (values :: PartitionValueList -> [Lude.Text]) (\s a -> s {values = a} :: PartitionValueList)
+{-# DEPRECATED pvlValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance FromJSON PartitionValueList where
+instance Lude.FromJSON PartitionValueList where
   parseJSON =
-    withObject
+    Lude.withObject
       "PartitionValueList"
-      (\x -> PartitionValueList' <$> (x .:? "Values" .!= mempty))
+      ( \x ->
+          PartitionValueList'
+            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
+      )
 
-instance Hashable PartitionValueList
-
-instance NFData PartitionValueList
-
-instance ToJSON PartitionValueList where
+instance Lude.ToJSON PartitionValueList where
   toJSON PartitionValueList' {..} =
-    object (catMaybes [Just ("Values" .= _pvlValues)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("Values" Lude..= values)])

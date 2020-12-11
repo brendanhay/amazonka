@@ -16,16 +16,17 @@
 --
 --     * Automatically invoke an AWS Lambda function to update DNS entries when an event notifies you that Amazon EC2 instance enters the running state.
 --
+--
 --     * Direct specific API records from AWS CloudTrail to an Amazon Kinesis data stream for detailed analysis of potential security or availability risks.
+--
 --
 --     * Periodically invoke a built-in target to create a snapshot of an Amazon EBS volume.
 --
 --
---
 -- For more information about the features of Amazon EventBridge, see the <https://docs.aws.amazon.com/eventbridge/latest/userguide Amazon EventBridge User Guide> .
 module Network.AWS.CloudWatchEvents
-  ( -- * Service Configuration
-    cloudWatchEvents,
+  ( -- * Service configuration
+    cloudWatchEventsService,
 
     -- * Errors
     -- $errors
@@ -177,15 +178,15 @@ module Network.AWS.CloudWatchEvents
     RuleState (..),
 
     -- ** AWSVPCConfiguration
-    AWSVPCConfiguration,
-    awsVPCConfiguration,
+    AWSVPCConfiguration (..),
+    mkAWSVPCConfiguration,
     avcSecurityGroups,
     avcAssignPublicIP,
     avcSubnets,
 
     -- ** Archive
-    Archive,
-    archive,
+    Archive (..),
+    mkArchive,
     aCreationTime,
     aSizeBytes,
     aEventSourceARN,
@@ -196,38 +197,38 @@ module Network.AWS.CloudWatchEvents
     aStateReason,
 
     -- ** BatchArrayProperties
-    BatchArrayProperties,
-    batchArrayProperties,
+    BatchArrayProperties (..),
+    mkBatchArrayProperties,
     bapSize,
 
     -- ** BatchParameters
-    BatchParameters,
-    batchParameters,
+    BatchParameters (..),
+    mkBatchParameters,
     bpRetryStrategy,
     bpArrayProperties,
     bpJobDefinition,
     bpJobName,
 
     -- ** BatchRetryStrategy
-    BatchRetryStrategy,
-    batchRetryStrategy,
+    BatchRetryStrategy (..),
+    mkBatchRetryStrategy,
     brsAttempts,
 
     -- ** Condition
-    Condition,
-    condition,
+    Condition (..),
+    mkCondition,
     cType,
     cKey,
     cValue,
 
     -- ** DeadLetterConfig
-    DeadLetterConfig,
-    deadLetterConfig,
+    DeadLetterConfig (..),
+    mkDeadLetterConfig,
     dlcARN,
 
     -- ** EcsParameters
-    EcsParameters,
-    ecsParameters,
+    EcsParameters (..),
+    mkEcsParameters,
     epGroup,
     epPlatformVersion,
     epLaunchType,
@@ -236,15 +237,15 @@ module Network.AWS.CloudWatchEvents
     epTaskDefinitionARN,
 
     -- ** EventBus
-    EventBus,
-    eventBus,
+    EventBus (..),
+    mkEventBus,
     ebARN,
     ebName,
     ebPolicy,
 
     -- ** EventSource
-    EventSource,
-    eventSource,
+    EventSource (..),
+    mkEventSource,
     esCreationTime,
     esState,
     esARN,
@@ -253,45 +254,45 @@ module Network.AWS.CloudWatchEvents
     esExpirationTime,
 
     -- ** HTTPParameters
-    HTTPParameters,
-    hTTPParameters,
+    HTTPParameters (..),
+    mkHTTPParameters,
     httppPathParameterValues,
     httppQueryStringParameters,
     httppHeaderParameters,
 
     -- ** InputTransformer
-    InputTransformer,
-    inputTransformer,
+    InputTransformer (..),
+    mkInputTransformer,
     itInputPathsMap,
     itInputTemplate,
 
     -- ** KinesisParameters
-    KinesisParameters,
-    kinesisParameters,
+    KinesisParameters (..),
+    mkKinesisParameters,
     kpPartitionKeyPath,
 
     -- ** NetworkConfiguration
-    NetworkConfiguration,
-    networkConfiguration,
+    NetworkConfiguration (..),
+    mkNetworkConfiguration,
     ncAwsvpcConfiguration,
 
     -- ** PartnerEventSource
-    PartnerEventSource,
-    partnerEventSource,
+    PartnerEventSource (..),
+    mkPartnerEventSource,
     pesARN,
     pesName,
 
     -- ** PartnerEventSourceAccount
-    PartnerEventSourceAccount,
-    partnerEventSourceAccount,
+    PartnerEventSourceAccount (..),
+    mkPartnerEventSourceAccount,
     pesaCreationTime,
     pesaState,
     pesaAccount,
     pesaExpirationTime,
 
     -- ** PutEventsRequestEntry
-    PutEventsRequestEntry,
-    putEventsRequestEntry,
+    PutEventsRequestEntry (..),
+    mkPutEventsRequestEntry,
     pereTime,
     pereDetailType,
     pereResources,
@@ -300,15 +301,15 @@ module Network.AWS.CloudWatchEvents
     pereDetail,
 
     -- ** PutEventsResultEntry
-    PutEventsResultEntry,
-    putEventsResultEntry,
+    PutEventsResultEntry (..),
+    mkPutEventsResultEntry,
     pereErrorCode,
     pereErrorMessage,
     pereEventId,
 
     -- ** PutPartnerEventsRequestEntry
-    PutPartnerEventsRequestEntry,
-    putPartnerEventsRequestEntry,
+    PutPartnerEventsRequestEntry (..),
+    mkPutPartnerEventsRequestEntry,
     ppereTime,
     ppereDetailType,
     ppereResources,
@@ -316,22 +317,22 @@ module Network.AWS.CloudWatchEvents
     ppereDetail,
 
     -- ** PutPartnerEventsResultEntry
-    PutPartnerEventsResultEntry,
-    putPartnerEventsResultEntry,
+    PutPartnerEventsResultEntry (..),
+    mkPutPartnerEventsResultEntry,
     ppereErrorCode,
     ppereErrorMessage,
     ppereEventId,
 
     -- ** PutTargetsResultEntry
-    PutTargetsResultEntry,
-    putTargetsResultEntry,
+    PutTargetsResultEntry (..),
+    mkPutTargetsResultEntry,
     ptreTargetId,
     ptreErrorCode,
     ptreErrorMessage,
 
     -- ** RedshiftDataParameters
-    RedshiftDataParameters,
-    redshiftDataParameters,
+    RedshiftDataParameters (..),
+    mkRedshiftDataParameters,
     rdpDBUser,
     rdpSecretManagerARN,
     rdpStatementName,
@@ -340,15 +341,15 @@ module Network.AWS.CloudWatchEvents
     rdpSql,
 
     -- ** RemoveTargetsResultEntry
-    RemoveTargetsResultEntry,
-    removeTargetsResultEntry,
+    RemoveTargetsResultEntry (..),
+    mkRemoveTargetsResultEntry,
     rtreTargetId,
     rtreErrorCode,
     rtreErrorMessage,
 
     -- ** Replay
-    Replay,
-    replay,
+    Replay (..),
+    mkReplay,
     repEventSourceARN,
     repState,
     repEventEndTime,
@@ -360,20 +361,20 @@ module Network.AWS.CloudWatchEvents
     repStateReason,
 
     -- ** ReplayDestination
-    ReplayDestination,
-    replayDestination,
+    ReplayDestination (..),
+    mkReplayDestination,
     rdFilterARNs,
     rdARN,
 
     -- ** RetryPolicy
-    RetryPolicy,
-    retryPolicy,
+    RetryPolicy (..),
+    mkRetryPolicy,
     rpMaximumEventAgeInSeconds,
     rpMaximumRetryAttempts,
 
     -- ** Rule
-    Rule,
-    rule,
+    Rule (..),
+    mkRule,
     rEventPattern,
     rState,
     rARN,
@@ -385,30 +386,30 @@ module Network.AWS.CloudWatchEvents
     rRoleARN,
 
     -- ** RunCommandParameters
-    RunCommandParameters,
-    runCommandParameters,
+    RunCommandParameters (..),
+    mkRunCommandParameters,
     rcpRunCommandTargets,
 
     -- ** RunCommandTarget
-    RunCommandTarget,
-    runCommandTarget,
+    RunCommandTarget (..),
+    mkRunCommandTarget,
     rctKey,
     rctValues,
 
     -- ** SqsParameters
-    SqsParameters,
-    sqsParameters,
+    SqsParameters (..),
+    mkSqsParameters,
     spMessageGroupId,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** Target
-    Target,
-    target,
+    Target (..),
+    mkTarget,
     tRunCommandParameters,
     tHTTPParameters,
     tKinesisParameters,
@@ -424,6 +425,17 @@ module Network.AWS.CloudWatchEvents
     tRoleARN,
     tId,
     tARN,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -469,6 +481,7 @@ import Network.AWS.CloudWatchEvents.Types
 import Network.AWS.CloudWatchEvents.UntagResource
 import Network.AWS.CloudWatchEvents.UpdateArchive
 import Network.AWS.CloudWatchEvents.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,148 +14,166 @@
 --
 -- Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.
 --
---
 -- This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.
 module Network.AWS.CognitoSync.DescribeDataset
-  ( -- * Creating a Request
-    describeDataset,
-    DescribeDataset,
+  ( -- * Creating a request
+    DescribeDataset (..),
+    mkDescribeDataset,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ddIdentityPoolId,
     ddIdentityId,
     ddDatasetName,
 
-    -- * Destructuring the Response
-    describeDatasetResponse,
-    DescribeDatasetResponse,
+    -- * Destructuring the response
+    DescribeDatasetResponse (..),
+    mkDescribeDatasetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ddrsDataset,
     ddrsResponseStatus,
   )
 where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request for meta data about a dataset (creation date, number of records, size) by owner and dataset name.
 --
--- /See:/ 'describeDataset' smart constructor.
+-- /See:/ 'mkDescribeDataset' smart constructor.
 data DescribeDataset = DescribeDataset'
-  { _ddIdentityPoolId :: !Text,
-    _ddIdentityId :: !Text,
-    _ddDatasetName :: !Text
+  { identityPoolId ::
+      Lude.Text,
+    identityId :: Lude.Text,
+    datasetName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDataset' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- * 'ddIdentityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- * 'ddDatasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
-describeDataset ::
-  -- | 'ddIdentityPoolId'
-  Text ->
-  -- | 'ddIdentityId'
-  Text ->
-  -- | 'ddDatasetName'
-  Text ->
+-- * 'datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+-- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+mkDescribeDataset ::
+  -- | 'identityPoolId'
+  Lude.Text ->
+  -- | 'identityId'
+  Lude.Text ->
+  -- | 'datasetName'
+  Lude.Text ->
   DescribeDataset
-describeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
+mkDescribeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
   DescribeDataset'
-    { _ddIdentityPoolId = pIdentityPoolId_,
-      _ddIdentityId = pIdentityId_,
-      _ddDatasetName = pDatasetName_
+    { identityPoolId = pIdentityPoolId_,
+      identityId = pIdentityId_,
+      datasetName = pDatasetName_
     }
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-ddIdentityPoolId :: Lens' DescribeDataset Text
-ddIdentityPoolId = lens _ddIdentityPoolId (\s a -> s {_ddIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddIdentityPoolId :: Lens.Lens' DescribeDataset Lude.Text
+ddIdentityPoolId = Lens.lens (identityPoolId :: DescribeDataset -> Lude.Text) (\s a -> s {identityPoolId = a} :: DescribeDataset)
+{-# DEPRECATED ddIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-ddIdentityId :: Lens' DescribeDataset Text
-ddIdentityId = lens _ddIdentityId (\s a -> s {_ddIdentityId = a})
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddIdentityId :: Lens.Lens' DescribeDataset Lude.Text
+ddIdentityId = Lens.lens (identityId :: DescribeDataset -> Lude.Text) (\s a -> s {identityId = a} :: DescribeDataset)
+{-# DEPRECATED ddIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
-ddDatasetName :: Lens' DescribeDataset Text
-ddDatasetName = lens _ddDatasetName (\s a -> s {_ddDatasetName = a})
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddDatasetName :: Lens.Lens' DescribeDataset Lude.Text
+ddDatasetName = Lens.lens (datasetName :: DescribeDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DescribeDataset)
+{-# DEPRECATED ddDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance AWSRequest DescribeDataset where
+instance Lude.AWSRequest DescribeDataset where
   type Rs DescribeDataset = DescribeDatasetResponse
-  request = get cognitoSync
+  request = Req.get cognitoSyncService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            <$> (x .?> "Dataset") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Dataset") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDataset
-
-instance NFData DescribeDataset
-
-instance ToHeaders DescribeDataset where
+instance Lude.ToHeaders DescribeDataset where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToPath DescribeDataset where
+instance Lude.ToPath DescribeDataset where
   toPath DescribeDataset' {..} =
-    mconcat
+    Lude.mconcat
       [ "/identitypools/",
-        toBS _ddIdentityPoolId,
+        Lude.toBS identityPoolId,
         "/identities/",
-        toBS _ddIdentityId,
+        Lude.toBS identityId,
         "/datasets/",
-        toBS _ddDatasetName
+        Lude.toBS datasetName
       ]
 
-instance ToQuery DescribeDataset where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeDataset where
+  toQuery = Lude.const Lude.mempty
 
 -- | Response to a successful DescribeDataset request.
 --
--- /See:/ 'describeDatasetResponse' smart constructor.
+-- /See:/ 'mkDescribeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
-  { _ddrsDataset ::
-      !(Maybe Dataset),
-    _ddrsResponseStatus :: !Int
+  { dataset ::
+      Lude.Maybe Dataset,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDatasetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddrsDataset' - Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
---
--- * 'ddrsResponseStatus' - -- | The response status code.
-describeDatasetResponse ::
-  -- | 'ddrsResponseStatus'
-  Int ->
+-- * 'dataset' - Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+-- * 'responseStatus' - The response status code.
+mkDescribeDatasetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDatasetResponse
-describeDatasetResponse pResponseStatus_ =
+mkDescribeDatasetResponse pResponseStatus_ =
   DescribeDatasetResponse'
-    { _ddrsDataset = Nothing,
-      _ddrsResponseStatus = pResponseStatus_
+    { dataset = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
-ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
-ddrsDataset = lens _ddrsDataset (\s a -> s {_ddrsDataset = a})
+--
+-- /Note:/ Consider using 'dataset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsDataset :: Lens.Lens' DescribeDatasetResponse (Lude.Maybe Dataset)
+ddrsDataset = Lens.lens (dataset :: DescribeDatasetResponse -> Lude.Maybe Dataset) (\s a -> s {dataset = a} :: DescribeDatasetResponse)
+{-# DEPRECATED ddrsDataset "Use generic-lens or generic-optics with 'dataset' instead." #-}
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DescribeDatasetResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\s a -> s {_ddrsResponseStatus = a})
-
-instance NFData DescribeDatasetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrsResponseStatus :: Lens.Lens' DescribeDatasetResponse Lude.Int
+ddrsResponseStatus = Lens.lens (responseStatus :: DescribeDatasetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDatasetResponse)
+{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

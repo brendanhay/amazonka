@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.S3Location where
+module Network.AWS.S3.Types.S3Location
+  ( S3Location (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkS3Location,
+
+    -- * Lenses
+    slCannedACL,
+    slAccessControlList,
+    slUserMetadata,
+    slEncryption,
+    slStorageClass,
+    slTagging,
+    slBucketName,
+    slPrefix,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Encryption
 import Network.AWS.S3.Types.Grant
@@ -27,106 +37,116 @@ import Network.AWS.S3.Types.Tagging
 
 -- | Describes an Amazon S3 location that will receive the results of the restore request.
 --
---
---
--- /See:/ 's3Location' smart constructor.
+-- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
-  { _slCannedACL ::
-      !(Maybe ObjectCannedACL),
-    _slAccessControlList :: !(Maybe [Grant]),
-    _slUserMetadata :: !(Maybe [MetadataEntry]),
-    _slEncryption :: !(Maybe Encryption),
-    _slStorageClass :: !(Maybe StorageClass),
-    _slTagging :: !(Maybe Tagging),
-    _slBucketName :: !BucketName,
-    _slPrefix :: !Text
+  { cannedACL ::
+      Lude.Maybe ObjectCannedACL,
+    accessControlList :: Lude.Maybe [Grant],
+    userMetadata :: Lude.Maybe [MetadataEntry],
+    encryption :: Lude.Maybe Encryption,
+    storageClass :: Lude.Maybe StorageClass,
+    tagging :: Lude.Maybe Tagging,
+    bucketName :: BucketName,
+    prefix :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'slCannedACL' - The canned ACL to apply to the restore results.
---
--- * 'slAccessControlList' - A list of grants that control access to the staged results.
---
--- * 'slUserMetadata' - A list of metadata to store with the restore results in S3.
---
--- * 'slEncryption' - Undocumented member.
---
--- * 'slStorageClass' - The class of storage used to store the restore results.
---
--- * 'slTagging' - The tag-set that is applied to the restore results.
---
--- * 'slBucketName' - The name of the bucket where the restore results will be placed.
---
--- * 'slPrefix' - The prefix that is prepended to the restore results for this request.
-s3Location ::
-  -- | 'slBucketName'
+-- * 'accessControlList' - A list of grants that control access to the staged results.
+-- * 'bucketName' - The name of the bucket where the restore results will be placed.
+-- * 'cannedACL' - The canned ACL to apply to the restore results.
+-- * 'encryption' - Undocumented field.
+-- * 'prefix' - The prefix that is prepended to the restore results for this request.
+-- * 'storageClass' - The class of storage used to store the restore results.
+-- * 'tagging' - The tag-set that is applied to the restore results.
+-- * 'userMetadata' - A list of metadata to store with the restore results in S3.
+mkS3Location ::
+  -- | 'bucketName'
   BucketName ->
-  -- | 'slPrefix'
-  Text ->
+  -- | 'prefix'
+  Lude.Text ->
   S3Location
-s3Location pBucketName_ pPrefix_ =
+mkS3Location pBucketName_ pPrefix_ =
   S3Location'
-    { _slCannedACL = Nothing,
-      _slAccessControlList = Nothing,
-      _slUserMetadata = Nothing,
-      _slEncryption = Nothing,
-      _slStorageClass = Nothing,
-      _slTagging = Nothing,
-      _slBucketName = pBucketName_,
-      _slPrefix = pPrefix_
+    { cannedACL = Lude.Nothing,
+      accessControlList = Lude.Nothing,
+      userMetadata = Lude.Nothing,
+      encryption = Lude.Nothing,
+      storageClass = Lude.Nothing,
+      tagging = Lude.Nothing,
+      bucketName = pBucketName_,
+      prefix = pPrefix_
     }
 
 -- | The canned ACL to apply to the restore results.
-slCannedACL :: Lens' S3Location (Maybe ObjectCannedACL)
-slCannedACL = lens _slCannedACL (\s a -> s {_slCannedACL = a})
+--
+-- /Note:/ Consider using 'cannedACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slCannedACL :: Lens.Lens' S3Location (Lude.Maybe ObjectCannedACL)
+slCannedACL = Lens.lens (cannedACL :: S3Location -> Lude.Maybe ObjectCannedACL) (\s a -> s {cannedACL = a} :: S3Location)
+{-# DEPRECATED slCannedACL "Use generic-lens or generic-optics with 'cannedACL' instead." #-}
 
 -- | A list of grants that control access to the staged results.
-slAccessControlList :: Lens' S3Location [Grant]
-slAccessControlList = lens _slAccessControlList (\s a -> s {_slAccessControlList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'accessControlList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slAccessControlList :: Lens.Lens' S3Location (Lude.Maybe [Grant])
+slAccessControlList = Lens.lens (accessControlList :: S3Location -> Lude.Maybe [Grant]) (\s a -> s {accessControlList = a} :: S3Location)
+{-# DEPRECATED slAccessControlList "Use generic-lens or generic-optics with 'accessControlList' instead." #-}
 
 -- | A list of metadata to store with the restore results in S3.
-slUserMetadata :: Lens' S3Location [MetadataEntry]
-slUserMetadata = lens _slUserMetadata (\s a -> s {_slUserMetadata = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'userMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slUserMetadata :: Lens.Lens' S3Location (Lude.Maybe [MetadataEntry])
+slUserMetadata = Lens.lens (userMetadata :: S3Location -> Lude.Maybe [MetadataEntry]) (\s a -> s {userMetadata = a} :: S3Location)
+{-# DEPRECATED slUserMetadata "Use generic-lens or generic-optics with 'userMetadata' instead." #-}
 
--- | Undocumented member.
-slEncryption :: Lens' S3Location (Maybe Encryption)
-slEncryption = lens _slEncryption (\s a -> s {_slEncryption = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slEncryption :: Lens.Lens' S3Location (Lude.Maybe Encryption)
+slEncryption = Lens.lens (encryption :: S3Location -> Lude.Maybe Encryption) (\s a -> s {encryption = a} :: S3Location)
+{-# DEPRECATED slEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
 -- | The class of storage used to store the restore results.
-slStorageClass :: Lens' S3Location (Maybe StorageClass)
-slStorageClass = lens _slStorageClass (\s a -> s {_slStorageClass = a})
+--
+-- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slStorageClass :: Lens.Lens' S3Location (Lude.Maybe StorageClass)
+slStorageClass = Lens.lens (storageClass :: S3Location -> Lude.Maybe StorageClass) (\s a -> s {storageClass = a} :: S3Location)
+{-# DEPRECATED slStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
 
 -- | The tag-set that is applied to the restore results.
-slTagging :: Lens' S3Location (Maybe Tagging)
-slTagging = lens _slTagging (\s a -> s {_slTagging = a})
+--
+-- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slTagging :: Lens.Lens' S3Location (Lude.Maybe Tagging)
+slTagging = Lens.lens (tagging :: S3Location -> Lude.Maybe Tagging) (\s a -> s {tagging = a} :: S3Location)
+{-# DEPRECATED slTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
 
 -- | The name of the bucket where the restore results will be placed.
-slBucketName :: Lens' S3Location BucketName
-slBucketName = lens _slBucketName (\s a -> s {_slBucketName = a})
+--
+-- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slBucketName :: Lens.Lens' S3Location BucketName
+slBucketName = Lens.lens (bucketName :: S3Location -> BucketName) (\s a -> s {bucketName = a} :: S3Location)
+{-# DEPRECATED slBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
 -- | The prefix that is prepended to the restore results for this request.
-slPrefix :: Lens' S3Location Text
-slPrefix = lens _slPrefix (\s a -> s {_slPrefix = a})
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slPrefix :: Lens.Lens' S3Location Lude.Text
+slPrefix = Lens.lens (prefix :: S3Location -> Lude.Text) (\s a -> s {prefix = a} :: S3Location)
+{-# DEPRECATED slPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
-instance Hashable S3Location
-
-instance NFData S3Location
-
-instance ToXML S3Location where
+instance Lude.ToXML S3Location where
   toXML S3Location' {..} =
-    mconcat
-      [ "CannedACL" @= _slCannedACL,
+    Lude.mconcat
+      [ "CannedACL" Lude.@= cannedACL,
         "AccessControlList"
-          @= toXML (toXMLList "Grant" <$> _slAccessControlList),
+          Lude.@= Lude.toXML (Lude.toXMLList "Grant" Lude.<$> accessControlList),
         "UserMetadata"
-          @= toXML (toXMLList "MetadataEntry" <$> _slUserMetadata),
-        "Encryption" @= _slEncryption,
-        "StorageClass" @= _slStorageClass,
-        "Tagging" @= _slTagging,
-        "BucketName" @= _slBucketName,
-        "Prefix" @= _slPrefix
+          Lude.@= Lude.toXML (Lude.toXMLList "MetadataEntry" Lude.<$> userMetadata),
+        "Encryption" Lude.@= encryption,
+        "StorageClass" Lude.@= storageClass,
+        "Tagging" Lude.@= tagging,
+        "BucketName" Lude.@= bucketName,
+        "Prefix" Lude.@= prefix
       ]

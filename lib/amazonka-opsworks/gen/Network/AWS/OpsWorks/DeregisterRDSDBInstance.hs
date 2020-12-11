@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,91 +14,100 @@
 --
 -- Deregisters an Amazon RDS instance.
 --
---
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DeregisterRDSDBInstance
-  ( -- * Creating a Request
-    deregisterRDSDBInstance,
-    DeregisterRDSDBInstance,
+  ( -- * Creating a request
+    DeregisterRDSDBInstance (..),
+    mkDeregisterRDSDBInstance,
 
-    -- * Request Lenses
+    -- ** Request lenses
     drdiRDSDBInstanceARN,
 
-    -- * Destructuring the Response
-    deregisterRDSDBInstanceResponse,
-    DeregisterRDSDBInstanceResponse,
+    -- * Destructuring the response
+    DeregisterRDSDBInstanceResponse (..),
+    mkDeregisterRDSDBInstanceResponse,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'deregisterRDSDBInstance' smart constructor.
+-- | /See:/ 'mkDeregisterRDSDBInstance' smart constructor.
 newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'
-  { _drdiRDSDBInstanceARN ::
-      Text
+  { rdsDBInstanceARN ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterRDSDBInstance' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drdiRDSDBInstanceARN' - The Amazon RDS instance's ARN.
-deregisterRDSDBInstance ::
-  -- | 'drdiRDSDBInstanceARN'
-  Text ->
+-- * 'rdsDBInstanceARN' - The Amazon RDS instance's ARN.
+mkDeregisterRDSDBInstance ::
+  -- | 'rdsDBInstanceARN'
+  Lude.Text ->
   DeregisterRDSDBInstance
-deregisterRDSDBInstance pRDSDBInstanceARN_ =
-  DeregisterRDSDBInstance'
-    { _drdiRDSDBInstanceARN =
-        pRDSDBInstanceARN_
-    }
+mkDeregisterRDSDBInstance pRDSDBInstanceARN_ =
+  DeregisterRDSDBInstance' {rdsDBInstanceARN = pRDSDBInstanceARN_}
 
 -- | The Amazon RDS instance's ARN.
-drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
-drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\s a -> s {_drdiRDSDBInstanceARN = a})
+--
+-- /Note:/ Consider using 'rdsDBInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drdiRDSDBInstanceARN :: Lens.Lens' DeregisterRDSDBInstance Lude.Text
+drdiRDSDBInstanceARN = Lens.lens (rdsDBInstanceARN :: DeregisterRDSDBInstance -> Lude.Text) (\s a -> s {rdsDBInstanceARN = a} :: DeregisterRDSDBInstance)
+{-# DEPRECATED drdiRDSDBInstanceARN "Use generic-lens or generic-optics with 'rdsDBInstanceARN' instead." #-}
 
-instance AWSRequest DeregisterRDSDBInstance where
+instance Lude.AWSRequest DeregisterRDSDBInstance where
   type Rs DeregisterRDSDBInstance = DeregisterRDSDBInstanceResponse
-  request = postJSON opsWorks
-  response = receiveNull DeregisterRDSDBInstanceResponse'
+  request = Req.postJSON opsWorksService
+  response = Res.receiveNull DeregisterRDSDBInstanceResponse'
 
-instance Hashable DeregisterRDSDBInstance
-
-instance NFData DeregisterRDSDBInstance
-
-instance ToHeaders DeregisterRDSDBInstance where
+instance Lude.ToHeaders DeregisterRDSDBInstance where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OpsWorks_20130218.DeregisterRdsDbInstance" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OpsWorks_20130218.DeregisterRdsDbInstance" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterRDSDBInstance where
+instance Lude.ToJSON DeregisterRDSDBInstance where
   toJSON DeregisterRDSDBInstance' {..} =
-    object
-      (catMaybes [Just ("RdsDbInstanceArn" .= _drdiRDSDBInstanceARN)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("RdsDbInstanceArn" Lude..= rdsDBInstanceARN)]
+      )
 
-instance ToPath DeregisterRDSDBInstance where
-  toPath = const "/"
+instance Lude.ToPath DeregisterRDSDBInstance where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterRDSDBInstance where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterRDSDBInstance where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterRDSDBInstanceResponse' smart constructor.
+-- | /See:/ 'mkDeregisterRDSDBInstanceResponse' smart constructor.
 data DeregisterRDSDBInstanceResponse = DeregisterRDSDBInstanceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterRDSDBInstanceResponse' with the minimum fields required to make a request.
-deregisterRDSDBInstanceResponse ::
+mkDeregisterRDSDBInstanceResponse ::
   DeregisterRDSDBInstanceResponse
-deregisterRDSDBInstanceResponse = DeregisterRDSDBInstanceResponse'
-
-instance NFData DeregisterRDSDBInstanceResponse
+mkDeregisterRDSDBInstanceResponse =
+  DeregisterRDSDBInstanceResponse'

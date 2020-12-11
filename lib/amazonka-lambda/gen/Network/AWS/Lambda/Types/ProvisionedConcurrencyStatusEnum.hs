@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum where
+module Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum
+  ( ProvisionedConcurrencyStatusEnum
+      ( ProvisionedConcurrencyStatusEnum',
+        PCSEFailed,
+        PCSEInProgress,
+        PCSEReady
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ProvisionedConcurrencyStatusEnum
-  = PCSEFailed
-  | PCSEInProgress
-  | PCSEReady
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ProvisionedConcurrencyStatusEnum = ProvisionedConcurrencyStatusEnum' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ProvisionedConcurrencyStatusEnum where
-  parser =
-    takeLowerText >>= \case
-      "failed" -> pure PCSEFailed
-      "in_progress" -> pure PCSEInProgress
-      "ready" -> pure PCSEReady
-      e ->
-        fromTextError $
-          "Failure parsing ProvisionedConcurrencyStatusEnum from value: '" <> e
-            <> "'. Accepted values: failed, in_progress, ready"
+pattern PCSEFailed :: ProvisionedConcurrencyStatusEnum
+pattern PCSEFailed = ProvisionedConcurrencyStatusEnum' "FAILED"
 
-instance ToText ProvisionedConcurrencyStatusEnum where
-  toText = \case
-    PCSEFailed -> "FAILED"
-    PCSEInProgress -> "IN_PROGRESS"
-    PCSEReady -> "READY"
+pattern PCSEInProgress :: ProvisionedConcurrencyStatusEnum
+pattern PCSEInProgress = ProvisionedConcurrencyStatusEnum' "IN_PROGRESS"
 
-instance Hashable ProvisionedConcurrencyStatusEnum
+pattern PCSEReady :: ProvisionedConcurrencyStatusEnum
+pattern PCSEReady = ProvisionedConcurrencyStatusEnum' "READY"
 
-instance NFData ProvisionedConcurrencyStatusEnum
-
-instance ToByteString ProvisionedConcurrencyStatusEnum
-
-instance ToQuery ProvisionedConcurrencyStatusEnum
-
-instance ToHeader ProvisionedConcurrencyStatusEnum
-
-instance FromJSON ProvisionedConcurrencyStatusEnum where
-  parseJSON = parseJSONText "ProvisionedConcurrencyStatusEnum"
+{-# COMPLETE
+  PCSEFailed,
+  PCSEInProgress,
+  PCSEReady,
+  ProvisionedConcurrencyStatusEnum'
+  #-}

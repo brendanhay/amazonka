@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,76 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.SalesforceAction where
+module Network.AWS.IoT.Types.SalesforceAction
+  ( SalesforceAction (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkSalesforceAction,
+
+    -- * Lenses
+    saToken,
+    saUrl,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes an action to write a message to a Salesforce IoT Cloud Input Stream.
 --
---
---
--- /See:/ 'salesforceAction' smart constructor.
+-- /See:/ 'mkSalesforceAction' smart constructor.
 data SalesforceAction = SalesforceAction'
-  { _saToken :: !Text,
-    _saUrl :: !Text
+  { token :: Lude.Text,
+    url :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SalesforceAction' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'saToken' - The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
---
--- * 'saUrl' - The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
-salesforceAction ::
-  -- | 'saToken'
-  Text ->
-  -- | 'saUrl'
-  Text ->
+-- * 'token' - The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+-- * 'url' - The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+mkSalesforceAction ::
+  -- | 'token'
+  Lude.Text ->
+  -- | 'url'
+  Lude.Text ->
   SalesforceAction
-salesforceAction pToken_ pUrl_ =
-  SalesforceAction' {_saToken = pToken_, _saUrl = pUrl_}
+mkSalesforceAction pToken_ pUrl_ =
+  SalesforceAction' {token = pToken_, url = pUrl_}
 
 -- | The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
-saToken :: Lens' SalesforceAction Text
-saToken = lens _saToken (\s a -> s {_saToken = a})
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saToken :: Lens.Lens' SalesforceAction Lude.Text
+saToken = Lens.lens (token :: SalesforceAction -> Lude.Text) (\s a -> s {token = a} :: SalesforceAction)
+{-# DEPRECATED saToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
-saUrl :: Lens' SalesforceAction Text
-saUrl = lens _saUrl (\s a -> s {_saUrl = a})
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saUrl :: Lens.Lens' SalesforceAction Lude.Text
+saUrl = Lens.lens (url :: SalesforceAction -> Lude.Text) (\s a -> s {url = a} :: SalesforceAction)
+{-# DEPRECATED saUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
-instance FromJSON SalesforceAction where
+instance Lude.FromJSON SalesforceAction where
   parseJSON =
-    withObject
+    Lude.withObject
       "SalesforceAction"
-      (\x -> SalesforceAction' <$> (x .: "token") <*> (x .: "url"))
+      ( \x ->
+          SalesforceAction'
+            Lude.<$> (x Lude..: "token") Lude.<*> (x Lude..: "url")
+      )
 
-instance Hashable SalesforceAction
-
-instance NFData SalesforceAction
-
-instance ToJSON SalesforceAction where
+instance Lude.ToJSON SalesforceAction where
   toJSON SalesforceAction' {..} =
-    object
-      (catMaybes [Just ("token" .= _saToken), Just ("url" .= _saUrl)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("token" Lude..= token), Lude.Just ("url" Lude..= url)]
+      )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,49 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType where
+module Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType
+  ( EnvironmentInfoType
+      ( EnvironmentInfoType',
+        Bundle,
+        Tail
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data EnvironmentInfoType
-  = Bundle
-  | Tail
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype EnvironmentInfoType = EnvironmentInfoType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText EnvironmentInfoType where
-  parser =
-    takeLowerText >>= \case
-      "bundle" -> pure Bundle
-      "tail" -> pure Tail
-      e ->
-        fromTextError $
-          "Failure parsing EnvironmentInfoType from value: '" <> e
-            <> "'. Accepted values: bundle, tail"
+pattern Bundle :: EnvironmentInfoType
+pattern Bundle = EnvironmentInfoType' "bundle"
 
-instance ToText EnvironmentInfoType where
-  toText = \case
-    Bundle -> "bundle"
-    Tail -> "tail"
+pattern Tail :: EnvironmentInfoType
+pattern Tail = EnvironmentInfoType' "tail"
 
-instance Hashable EnvironmentInfoType
-
-instance NFData EnvironmentInfoType
-
-instance ToByteString EnvironmentInfoType
-
-instance ToQuery EnvironmentInfoType
-
-instance ToHeader EnvironmentInfoType
-
-instance FromXML EnvironmentInfoType where
-  parseXML = parseXMLText "EnvironmentInfoType"
+{-# COMPLETE
+  Bundle,
+  Tail,
+  EnvironmentInfoType'
+  #-}

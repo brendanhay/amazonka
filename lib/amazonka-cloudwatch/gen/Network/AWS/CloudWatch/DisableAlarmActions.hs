@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,75 +14,85 @@
 --
 -- Disables the actions for the specified alarms. When an alarm's actions are disabled, the alarm actions do not execute when the alarm state changes.
 module Network.AWS.CloudWatch.DisableAlarmActions
-  ( -- * Creating a Request
-    disableAlarmActions,
-    DisableAlarmActions,
+  ( -- * Creating a request
+    DisableAlarmActions (..),
+    mkDisableAlarmActions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     daaAlarmNames,
 
-    -- * Destructuring the Response
-    disableAlarmActionsResponse,
-    DisableAlarmActionsResponse,
+    -- * Destructuring the response
+    DisableAlarmActionsResponse (..),
+    mkDisableAlarmActionsResponse,
   )
 where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'disableAlarmActions' smart constructor.
+-- | /See:/ 'mkDisableAlarmActions' smart constructor.
 newtype DisableAlarmActions = DisableAlarmActions'
-  { _daaAlarmNames ::
-      [Text]
+  { alarmNames ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableAlarmActions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daaAlarmNames' - The names of the alarms.
-disableAlarmActions ::
+-- * 'alarmNames' - The names of the alarms.
+mkDisableAlarmActions ::
   DisableAlarmActions
-disableAlarmActions = DisableAlarmActions' {_daaAlarmNames = mempty}
+mkDisableAlarmActions =
+  DisableAlarmActions' {alarmNames = Lude.mempty}
 
 -- | The names of the alarms.
-daaAlarmNames :: Lens' DisableAlarmActions [Text]
-daaAlarmNames = lens _daaAlarmNames (\s a -> s {_daaAlarmNames = a}) . _Coerce
+--
+-- /Note:/ Consider using 'alarmNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daaAlarmNames :: Lens.Lens' DisableAlarmActions [Lude.Text]
+daaAlarmNames = Lens.lens (alarmNames :: DisableAlarmActions -> [Lude.Text]) (\s a -> s {alarmNames = a} :: DisableAlarmActions)
+{-# DEPRECATED daaAlarmNames "Use generic-lens or generic-optics with 'alarmNames' instead." #-}
 
-instance AWSRequest DisableAlarmActions where
+instance Lude.AWSRequest DisableAlarmActions where
   type Rs DisableAlarmActions = DisableAlarmActionsResponse
-  request = postQuery cloudWatch
-  response = receiveNull DisableAlarmActionsResponse'
+  request = Req.postQuery cloudWatchService
+  response = Res.receiveNull DisableAlarmActionsResponse'
 
-instance Hashable DisableAlarmActions
+instance Lude.ToHeaders DisableAlarmActions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DisableAlarmActions
+instance Lude.ToPath DisableAlarmActions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DisableAlarmActions where
-  toHeaders = const mempty
-
-instance ToPath DisableAlarmActions where
-  toPath = const "/"
-
-instance ToQuery DisableAlarmActions where
+instance Lude.ToQuery DisableAlarmActions where
   toQuery DisableAlarmActions' {..} =
-    mconcat
-      [ "Action" =: ("DisableAlarmActions" :: ByteString),
-        "Version" =: ("2010-08-01" :: ByteString),
-        "AlarmNames" =: toQueryList "member" _daaAlarmNames
+    Lude.mconcat
+      [ "Action" Lude.=: ("DisableAlarmActions" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "AlarmNames" Lude.=: Lude.toQueryList "member" alarmNames
       ]
 
--- | /See:/ 'disableAlarmActionsResponse' smart constructor.
+-- | /See:/ 'mkDisableAlarmActionsResponse' smart constructor.
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableAlarmActionsResponse' with the minimum fields required to make a request.
-disableAlarmActionsResponse ::
+mkDisableAlarmActionsResponse ::
   DisableAlarmActionsResponse
-disableAlarmActionsResponse = DisableAlarmActionsResponse'
-
-instance NFData DisableAlarmActionsResponse
+mkDisableAlarmActionsResponse = DisableAlarmActionsResponse'

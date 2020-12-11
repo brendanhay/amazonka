@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,63 +7,82 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AlexaBusiness.Types.GatewayGroupSummary where
+module Network.AWS.AlexaBusiness.Types.GatewayGroupSummary
+  ( GatewayGroupSummary (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkGatewayGroupSummary,
+
+    -- * Lenses
+    ggsARN,
+    ggsName,
+    ggsDescription,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The summary of a gateway group.
 --
---
---
--- /See:/ 'gatewayGroupSummary' smart constructor.
+-- /See:/ 'mkGatewayGroupSummary' smart constructor.
 data GatewayGroupSummary = GatewayGroupSummary'
-  { _ggsARN ::
-      !(Maybe Text),
-    _ggsName :: !(Maybe Text),
-    _ggsDescription :: !(Maybe Text)
+  { arn ::
+      Lude.Maybe Lude.Text,
+    name :: Lude.Maybe Lude.Text,
+    description :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GatewayGroupSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ggsARN' - The ARN of the gateway group.
---
--- * 'ggsName' - The name of the gateway group.
---
--- * 'ggsDescription' - The description of the gateway group.
-gatewayGroupSummary ::
+-- * 'arn' - The ARN of the gateway group.
+-- * 'description' - The description of the gateway group.
+-- * 'name' - The name of the gateway group.
+mkGatewayGroupSummary ::
   GatewayGroupSummary
-gatewayGroupSummary =
+mkGatewayGroupSummary =
   GatewayGroupSummary'
-    { _ggsARN = Nothing,
-      _ggsName = Nothing,
-      _ggsDescription = Nothing
+    { arn = Lude.Nothing,
+      name = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | The ARN of the gateway group.
-ggsARN :: Lens' GatewayGroupSummary (Maybe Text)
-ggsARN = lens _ggsARN (\s a -> s {_ggsARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggsARN :: Lens.Lens' GatewayGroupSummary (Lude.Maybe Lude.Text)
+ggsARN = Lens.lens (arn :: GatewayGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GatewayGroupSummary)
+{-# DEPRECATED ggsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The name of the gateway group.
-ggsName :: Lens' GatewayGroupSummary (Maybe Text)
-ggsName = lens _ggsName (\s a -> s {_ggsName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggsName :: Lens.Lens' GatewayGroupSummary (Lude.Maybe Lude.Text)
+ggsName = Lens.lens (name :: GatewayGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GatewayGroupSummary)
+{-# DEPRECATED ggsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The description of the gateway group.
-ggsDescription :: Lens' GatewayGroupSummary (Maybe Text)
-ggsDescription = lens _ggsDescription (\s a -> s {_ggsDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggsDescription :: Lens.Lens' GatewayGroupSummary (Lude.Maybe Lude.Text)
+ggsDescription = Lens.lens (description :: GatewayGroupSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GatewayGroupSummary)
+{-# DEPRECATED ggsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance FromJSON GatewayGroupSummary where
+instance Lude.FromJSON GatewayGroupSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "GatewayGroupSummary"
       ( \x ->
           GatewayGroupSummary'
-            <$> (x .:? "Arn") <*> (x .:? "Name") <*> (x .:? "Description")
+            Lude.<$> (x Lude..:? "Arn")
+            Lude.<*> (x Lude..:? "Name")
+            Lude.<*> (x Lude..:? "Description")
       )
-
-instance Hashable GatewayGroupSummary
-
-instance NFData GatewayGroupSummary

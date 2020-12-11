@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,103 +14,114 @@
 --
 -- Lists the virtual private gateways owned by the AWS account.
 --
---
 -- You can create one or more AWS Direct Connect private virtual interfaces linked to a virtual private gateway.
 module Network.AWS.DirectConnect.DescribeVirtualGateways
-  ( -- * Creating a Request
-    describeVirtualGateways,
-    DescribeVirtualGateways,
+  ( -- * Creating a request
+    DescribeVirtualGateways (..),
+    mkDescribeVirtualGateways,
 
-    -- * Destructuring the Response
-    describeVirtualGatewaysResponse,
-    DescribeVirtualGatewaysResponse,
+    -- * Destructuring the response
+    DescribeVirtualGatewaysResponse (..),
+    mkDescribeVirtualGatewaysResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvgrsVirtualGateways,
     dvgrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVirtualGateways' smart constructor.
+-- | /See:/ 'mkDescribeVirtualGateways' smart constructor.
 data DescribeVirtualGateways = DescribeVirtualGateways'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVirtualGateways' with the minimum fields required to make a request.
-describeVirtualGateways ::
+mkDescribeVirtualGateways ::
   DescribeVirtualGateways
-describeVirtualGateways = DescribeVirtualGateways'
+mkDescribeVirtualGateways = DescribeVirtualGateways'
 
-instance AWSRequest DescribeVirtualGateways where
+instance Lude.AWSRequest DescribeVirtualGateways where
   type Rs DescribeVirtualGateways = DescribeVirtualGatewaysResponse
-  request = postJSON directConnect
+  request = Req.postJSON directConnectService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeVirtualGatewaysResponse'
-            <$> (x .?> "virtualGateways" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "virtualGateways" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVirtualGateways
-
-instance NFData DescribeVirtualGateways
-
-instance ToHeaders DescribeVirtualGateways where
+instance Lude.ToHeaders DescribeVirtualGateways where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("OvertureService.DescribeVirtualGateways" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("OvertureService.DescribeVirtualGateways" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeVirtualGateways where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON DescribeVirtualGateways where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath DescribeVirtualGateways where
-  toPath = const "/"
+instance Lude.ToPath DescribeVirtualGateways where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeVirtualGateways where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeVirtualGateways where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeVirtualGatewaysResponse' smart constructor.
+-- | /See:/ 'mkDescribeVirtualGatewaysResponse' smart constructor.
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
-  { _dvgrsVirtualGateways ::
-      !(Maybe [VirtualGateway]),
-    _dvgrsResponseStatus ::
-      !Int
+  { virtualGateways ::
+      Lude.Maybe [VirtualGateway],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVirtualGatewaysResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvgrsVirtualGateways' - The virtual private gateways.
---
--- * 'dvgrsResponseStatus' - -- | The response status code.
-describeVirtualGatewaysResponse ::
-  -- | 'dvgrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'virtualGateways' - The virtual private gateways.
+mkDescribeVirtualGatewaysResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVirtualGatewaysResponse
-describeVirtualGatewaysResponse pResponseStatus_ =
+mkDescribeVirtualGatewaysResponse pResponseStatus_ =
   DescribeVirtualGatewaysResponse'
-    { _dvgrsVirtualGateways = Nothing,
-      _dvgrsResponseStatus = pResponseStatus_
+    { virtualGateways = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The virtual private gateways.
-dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
-dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\s a -> s {_dvgrsVirtualGateways = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'virtualGateways' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvgrsVirtualGateways :: Lens.Lens' DescribeVirtualGatewaysResponse (Lude.Maybe [VirtualGateway])
+dvgrsVirtualGateways = Lens.lens (virtualGateways :: DescribeVirtualGatewaysResponse -> Lude.Maybe [VirtualGateway]) (\s a -> s {virtualGateways = a} :: DescribeVirtualGatewaysResponse)
+{-# DEPRECATED dvgrsVirtualGateways "Use generic-lens or generic-optics with 'virtualGateways' instead." #-}
 
--- | -- | The response status code.
-dvgrsResponseStatus :: Lens' DescribeVirtualGatewaysResponse Int
-dvgrsResponseStatus = lens _dvgrsResponseStatus (\s a -> s {_dvgrsResponseStatus = a})
-
-instance NFData DescribeVirtualGatewaysResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvgrsResponseStatus :: Lens.Lens' DescribeVirtualGatewaysResponse Lude.Int
+dvgrsResponseStatus = Lens.lens (responseStatus :: DescribeVirtualGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVirtualGatewaysResponse)
+{-# DEPRECATED dvgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

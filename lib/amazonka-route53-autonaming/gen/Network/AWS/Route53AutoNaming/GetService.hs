@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,111 +14,126 @@
 --
 -- Gets the settings for a specified service.
 module Network.AWS.Route53AutoNaming.GetService
-  ( -- * Creating a Request
-    getService,
-    GetService,
+  ( -- * Creating a request
+    GetService (..),
+    mkGetService,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gsId,
 
-    -- * Destructuring the Response
-    getServiceResponse,
-    GetServiceResponse,
+    -- * Destructuring the response
+    GetServiceResponse (..),
+    mkGetServiceResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gsrsService,
     gsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53AutoNaming.Types
 
--- | /See:/ 'getService' smart constructor.
-newtype GetService = GetService' {_gsId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkGetService' smart constructor.
+newtype GetService = GetService' {id :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetService' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsId' - The ID of the service that you want to get settings for.
-getService ::
-  -- | 'gsId'
-  Text ->
+-- * 'id' - The ID of the service that you want to get settings for.
+mkGetService ::
+  -- | 'id'
+  Lude.Text ->
   GetService
-getService pId_ = GetService' {_gsId = pId_}
+mkGetService pId_ = GetService' {id = pId_}
 
 -- | The ID of the service that you want to get settings for.
-gsId :: Lens' GetService Text
-gsId = lens _gsId (\s a -> s {_gsId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsId :: Lens.Lens' GetService Lude.Text
+gsId = Lens.lens (id :: GetService -> Lude.Text) (\s a -> s {id = a} :: GetService)
+{-# DEPRECATED gsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance AWSRequest GetService where
+instance Lude.AWSRequest GetService where
   type Rs GetService = GetServiceResponse
-  request = postJSON route53AutoNaming
+  request = Req.postJSON route53AutoNamingService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetServiceResponse' <$> (x .?> "Service") <*> (pure (fromEnum s))
+          GetServiceResponse'
+            Lude.<$> (x Lude..?> "Service") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetService
-
-instance NFData GetService
-
-instance ToHeaders GetService where
+instance Lude.ToHeaders GetService where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Route53AutoNaming_v20170314.GetService" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Route53AutoNaming_v20170314.GetService" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetService where
-  toJSON GetService' {..} = object (catMaybes [Just ("Id" .= _gsId)])
+instance Lude.ToJSON GetService where
+  toJSON GetService' {..} =
+    Lude.object (Lude.catMaybes [Lude.Just ("Id" Lude..= id)])
 
-instance ToPath GetService where
-  toPath = const "/"
+instance Lude.ToPath GetService where
+  toPath = Lude.const "/"
 
-instance ToQuery GetService where
-  toQuery = const mempty
+instance Lude.ToQuery GetService where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getServiceResponse' smart constructor.
+-- | /See:/ 'mkGetServiceResponse' smart constructor.
 data GetServiceResponse = GetServiceResponse'
-  { _gsrsService ::
-      !(Maybe ServiceInfo),
-    _gsrsResponseStatus :: !Int
+  { service ::
+      Lude.Maybe ServiceInfo,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gsrsService' - A complex type that contains information about the service.
---
--- * 'gsrsResponseStatus' - -- | The response status code.
-getServiceResponse ::
-  -- | 'gsrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'service' - A complex type that contains information about the service.
+mkGetServiceResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetServiceResponse
-getServiceResponse pResponseStatus_ =
+mkGetServiceResponse pResponseStatus_ =
   GetServiceResponse'
-    { _gsrsService = Nothing,
-      _gsrsResponseStatus = pResponseStatus_
+    { service = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | A complex type that contains information about the service.
-gsrsService :: Lens' GetServiceResponse (Maybe ServiceInfo)
-gsrsService = lens _gsrsService (\s a -> s {_gsrsService = a})
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsService :: Lens.Lens' GetServiceResponse (Lude.Maybe ServiceInfo)
+gsrsService = Lens.lens (service :: GetServiceResponse -> Lude.Maybe ServiceInfo) (\s a -> s {service = a} :: GetServiceResponse)
+{-# DEPRECATED gsrsService "Use generic-lens or generic-optics with 'service' instead." #-}
 
--- | -- | The response status code.
-gsrsResponseStatus :: Lens' GetServiceResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\s a -> s {_gsrsResponseStatus = a})
-
-instance NFData GetServiceResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsResponseStatus :: Lens.Lens' GetServiceResponse Lude.Int
+gsrsResponseStatus = Lens.lens (responseStatus :: GetServiceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServiceResponse)
+{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

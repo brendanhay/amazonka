@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,126 +14,130 @@
 --
 -- Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.
 module Network.AWS.AppStream.BatchAssociateUserStack
-  ( -- * Creating a Request
-    batchAssociateUserStack,
-    BatchAssociateUserStack,
+  ( -- * Creating a request
+    BatchAssociateUserStack (..),
+    mkBatchAssociateUserStack,
 
-    -- * Request Lenses
+    -- ** Request lenses
     bausUserStackAssociations,
 
-    -- * Destructuring the Response
-    batchAssociateUserStackResponse,
-    BatchAssociateUserStackResponse,
+    -- * Destructuring the response
+    BatchAssociateUserStackResponse (..),
+    mkBatchAssociateUserStackResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     bausrsErrors,
     bausrsResponseStatus,
   )
 where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'batchAssociateUserStack' smart constructor.
+-- | /See:/ 'mkBatchAssociateUserStack' smart constructor.
 newtype BatchAssociateUserStack = BatchAssociateUserStack'
-  { _bausUserStackAssociations ::
-      List1 UserStackAssociation
+  { userStackAssociations ::
+      Lude.NonEmpty UserStackAssociation
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAssociateUserStack' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bausUserStackAssociations' - The list of UserStackAssociation objects.
-batchAssociateUserStack ::
-  -- | 'bausUserStackAssociations'
-  NonEmpty UserStackAssociation ->
+-- * 'userStackAssociations' - The list of UserStackAssociation objects.
+mkBatchAssociateUserStack ::
+  -- | 'userStackAssociations'
+  Lude.NonEmpty UserStackAssociation ->
   BatchAssociateUserStack
-batchAssociateUserStack pUserStackAssociations_ =
+mkBatchAssociateUserStack pUserStackAssociations_ =
   BatchAssociateUserStack'
-    { _bausUserStackAssociations =
-        _List1 # pUserStackAssociations_
+    { userStackAssociations =
+        pUserStackAssociations_
     }
 
 -- | The list of UserStackAssociation objects.
-bausUserStackAssociations :: Lens' BatchAssociateUserStack (NonEmpty UserStackAssociation)
-bausUserStackAssociations = lens _bausUserStackAssociations (\s a -> s {_bausUserStackAssociations = a}) . _List1
+--
+-- /Note:/ Consider using 'userStackAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bausUserStackAssociations :: Lens.Lens' BatchAssociateUserStack (Lude.NonEmpty UserStackAssociation)
+bausUserStackAssociations = Lens.lens (userStackAssociations :: BatchAssociateUserStack -> Lude.NonEmpty UserStackAssociation) (\s a -> s {userStackAssociations = a} :: BatchAssociateUserStack)
+{-# DEPRECATED bausUserStackAssociations "Use generic-lens or generic-optics with 'userStackAssociations' instead." #-}
 
-instance AWSRequest BatchAssociateUserStack where
+instance Lude.AWSRequest BatchAssociateUserStack where
   type Rs BatchAssociateUserStack = BatchAssociateUserStackResponse
-  request = postJSON appStream
+  request = Req.postJSON appStreamService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           BatchAssociateUserStackResponse'
-            <$> (x .?> "errors" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "errors" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable BatchAssociateUserStack
-
-instance NFData BatchAssociateUserStack
-
-instance ToHeaders BatchAssociateUserStack where
+instance Lude.ToHeaders BatchAssociateUserStack where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("PhotonAdminProxyService.BatchAssociateUserStack" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "PhotonAdminProxyService.BatchAssociateUserStack" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON BatchAssociateUserStack where
+instance Lude.ToJSON BatchAssociateUserStack where
   toJSON BatchAssociateUserStack' {..} =
-    object
-      ( catMaybes
-          [Just ("UserStackAssociations" .= _bausUserStackAssociations)]
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just
+              ("UserStackAssociations" Lude..= userStackAssociations)
+          ]
       )
 
-instance ToPath BatchAssociateUserStack where
-  toPath = const "/"
+instance Lude.ToPath BatchAssociateUserStack where
+  toPath = Lude.const "/"
 
-instance ToQuery BatchAssociateUserStack where
-  toQuery = const mempty
+instance Lude.ToQuery BatchAssociateUserStack where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'batchAssociateUserStackResponse' smart constructor.
+-- | /See:/ 'mkBatchAssociateUserStackResponse' smart constructor.
 data BatchAssociateUserStackResponse = BatchAssociateUserStackResponse'
-  { _bausrsErrors ::
-      !( Maybe
-           [UserStackAssociationError]
-       ),
-    _bausrsResponseStatus ::
-      !Int
+  { errors ::
+      Lude.Maybe
+        [UserStackAssociationError],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAssociateUserStackResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bausrsErrors' - The list of UserStackAssociationError objects.
---
--- * 'bausrsResponseStatus' - -- | The response status code.
-batchAssociateUserStackResponse ::
-  -- | 'bausrsResponseStatus'
-  Int ->
+-- * 'errors' - The list of UserStackAssociationError objects.
+-- * 'responseStatus' - The response status code.
+mkBatchAssociateUserStackResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   BatchAssociateUserStackResponse
-batchAssociateUserStackResponse pResponseStatus_ =
+mkBatchAssociateUserStackResponse pResponseStatus_ =
   BatchAssociateUserStackResponse'
-    { _bausrsErrors = Nothing,
-      _bausrsResponseStatus = pResponseStatus_
+    { errors = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of UserStackAssociationError objects.
-bausrsErrors :: Lens' BatchAssociateUserStackResponse [UserStackAssociationError]
-bausrsErrors = lens _bausrsErrors (\s a -> s {_bausrsErrors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bausrsErrors :: Lens.Lens' BatchAssociateUserStackResponse (Lude.Maybe [UserStackAssociationError])
+bausrsErrors = Lens.lens (errors :: BatchAssociateUserStackResponse -> Lude.Maybe [UserStackAssociationError]) (\s a -> s {errors = a} :: BatchAssociateUserStackResponse)
+{-# DEPRECATED bausrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
--- | -- | The response status code.
-bausrsResponseStatus :: Lens' BatchAssociateUserStackResponse Int
-bausrsResponseStatus = lens _bausrsResponseStatus (\s a -> s {_bausrsResponseStatus = a})
-
-instance NFData BatchAssociateUserStackResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bausrsResponseStatus :: Lens.Lens' BatchAssociateUserStackResponse Lude.Int
+bausrsResponseStatus = Lens.lens (responseStatus :: BatchAssociateUserStackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchAssociateUserStackResponse)
+{-# DEPRECATED bausrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +14,13 @@
 --
 -- Updates an existing Amazon Lightsail content delivery network (CDN) distribution.
 --
---
 -- Use this action to update the configuration of your existing distribution
 module Network.AWS.Lightsail.UpdateDistribution
-  ( -- * Creating a Request
-    updateDistribution,
-    UpdateDistribution,
+  ( -- * Creating a request
+    UpdateDistribution (..),
+    mkUpdateDistribution,
 
-    -- * Request Lenses
+    -- ** Request lenses
     udOrigin,
     udCacheBehaviorSettings,
     udIsEnabled,
@@ -34,161 +28,192 @@ module Network.AWS.Lightsail.UpdateDistribution
     udCacheBehaviors,
     udDistributionName,
 
-    -- * Destructuring the Response
-    updateDistributionResponse,
-    UpdateDistributionResponse,
+    -- * Destructuring the response
+    UpdateDistributionResponse (..),
+    mkUpdateDistributionResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     udrsOperation,
     udrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateDistribution' smart constructor.
+-- | /See:/ 'mkUpdateDistribution' smart constructor.
 data UpdateDistribution = UpdateDistribution'
-  { _udOrigin ::
-      !(Maybe InputOrigin),
-    _udCacheBehaviorSettings :: !(Maybe CacheSettings),
-    _udIsEnabled :: !(Maybe Bool),
-    _udDefaultCacheBehavior :: !(Maybe CacheBehavior),
-    _udCacheBehaviors :: !(Maybe [CacheBehaviorPerPath]),
-    _udDistributionName :: !Text
+  { origin ::
+      Lude.Maybe InputOrigin,
+    cacheBehaviorSettings :: Lude.Maybe CacheSettings,
+    isEnabled :: Lude.Maybe Lude.Bool,
+    defaultCacheBehavior :: Lude.Maybe CacheBehavior,
+    cacheBehaviors :: Lude.Maybe [CacheBehaviorPerPath],
+    distributionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDistribution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'cacheBehaviorSettings' - An object that describes the cache behavior settings for the distribution.
+-- * 'cacheBehaviors' - An array of objects that describe the per-path cache behavior for the distribution.
+-- * 'defaultCacheBehavior' - An object that describes the default cache behavior for the distribution.
+-- * 'distributionName' - The name of the distribution to update.
 --
--- * 'udOrigin' - An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer. The distribution pulls, caches, and serves content from the origin.
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+-- * 'isEnabled' - Indicates whether to enable the distribution.
+-- * 'origin' - An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.
 --
--- * 'udCacheBehaviorSettings' - An object that describes the cache behavior settings for the distribution.
---
--- * 'udIsEnabled' - Indicates whether to enable the distribution.
---
--- * 'udDefaultCacheBehavior' - An object that describes the default cache behavior for the distribution.
---
--- * 'udCacheBehaviors' - An array of objects that describe the per-path cache behavior for the distribution.
---
--- * 'udDistributionName' - The name of the distribution to update. Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-updateDistribution ::
-  -- | 'udDistributionName'
-  Text ->
+-- The distribution pulls, caches, and serves content from the origin.
+mkUpdateDistribution ::
+  -- | 'distributionName'
+  Lude.Text ->
   UpdateDistribution
-updateDistribution pDistributionName_ =
+mkUpdateDistribution pDistributionName_ =
   UpdateDistribution'
-    { _udOrigin = Nothing,
-      _udCacheBehaviorSettings = Nothing,
-      _udIsEnabled = Nothing,
-      _udDefaultCacheBehavior = Nothing,
-      _udCacheBehaviors = Nothing,
-      _udDistributionName = pDistributionName_
+    { origin = Lude.Nothing,
+      cacheBehaviorSettings = Lude.Nothing,
+      isEnabled = Lude.Nothing,
+      defaultCacheBehavior = Lude.Nothing,
+      cacheBehaviors = Lude.Nothing,
+      distributionName = pDistributionName_
     }
 
--- | An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer. The distribution pulls, caches, and serves content from the origin.
-udOrigin :: Lens' UpdateDistribution (Maybe InputOrigin)
-udOrigin = lens _udOrigin (\s a -> s {_udOrigin = a})
+-- | An object that describes the origin resource for the distribution, such as a Lightsail instance or load balancer.
+--
+-- The distribution pulls, caches, and serves content from the origin.
+--
+-- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udOrigin :: Lens.Lens' UpdateDistribution (Lude.Maybe InputOrigin)
+udOrigin = Lens.lens (origin :: UpdateDistribution -> Lude.Maybe InputOrigin) (\s a -> s {origin = a} :: UpdateDistribution)
+{-# DEPRECATED udOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
 
 -- | An object that describes the cache behavior settings for the distribution.
-udCacheBehaviorSettings :: Lens' UpdateDistribution (Maybe CacheSettings)
-udCacheBehaviorSettings = lens _udCacheBehaviorSettings (\s a -> s {_udCacheBehaviorSettings = a})
+--
+-- /Note:/ Consider using 'cacheBehaviorSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udCacheBehaviorSettings :: Lens.Lens' UpdateDistribution (Lude.Maybe CacheSettings)
+udCacheBehaviorSettings = Lens.lens (cacheBehaviorSettings :: UpdateDistribution -> Lude.Maybe CacheSettings) (\s a -> s {cacheBehaviorSettings = a} :: UpdateDistribution)
+{-# DEPRECATED udCacheBehaviorSettings "Use generic-lens or generic-optics with 'cacheBehaviorSettings' instead." #-}
 
 -- | Indicates whether to enable the distribution.
-udIsEnabled :: Lens' UpdateDistribution (Maybe Bool)
-udIsEnabled = lens _udIsEnabled (\s a -> s {_udIsEnabled = a})
+--
+-- /Note:/ Consider using 'isEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udIsEnabled :: Lens.Lens' UpdateDistribution (Lude.Maybe Lude.Bool)
+udIsEnabled = Lens.lens (isEnabled :: UpdateDistribution -> Lude.Maybe Lude.Bool) (\s a -> s {isEnabled = a} :: UpdateDistribution)
+{-# DEPRECATED udIsEnabled "Use generic-lens or generic-optics with 'isEnabled' instead." #-}
 
 -- | An object that describes the default cache behavior for the distribution.
-udDefaultCacheBehavior :: Lens' UpdateDistribution (Maybe CacheBehavior)
-udDefaultCacheBehavior = lens _udDefaultCacheBehavior (\s a -> s {_udDefaultCacheBehavior = a})
+--
+-- /Note:/ Consider using 'defaultCacheBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDefaultCacheBehavior :: Lens.Lens' UpdateDistribution (Lude.Maybe CacheBehavior)
+udDefaultCacheBehavior = Lens.lens (defaultCacheBehavior :: UpdateDistribution -> Lude.Maybe CacheBehavior) (\s a -> s {defaultCacheBehavior = a} :: UpdateDistribution)
+{-# DEPRECATED udDefaultCacheBehavior "Use generic-lens or generic-optics with 'defaultCacheBehavior' instead." #-}
 
 -- | An array of objects that describe the per-path cache behavior for the distribution.
-udCacheBehaviors :: Lens' UpdateDistribution [CacheBehaviorPerPath]
-udCacheBehaviors = lens _udCacheBehaviors (\s a -> s {_udCacheBehaviors = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'cacheBehaviors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udCacheBehaviors :: Lens.Lens' UpdateDistribution (Lude.Maybe [CacheBehaviorPerPath])
+udCacheBehaviors = Lens.lens (cacheBehaviors :: UpdateDistribution -> Lude.Maybe [CacheBehaviorPerPath]) (\s a -> s {cacheBehaviors = a} :: UpdateDistribution)
+{-# DEPRECATED udCacheBehaviors "Use generic-lens or generic-optics with 'cacheBehaviors' instead." #-}
 
--- | The name of the distribution to update. Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-udDistributionName :: Lens' UpdateDistribution Text
-udDistributionName = lens _udDistributionName (\s a -> s {_udDistributionName = a})
+-- | The name of the distribution to update.
+--
+-- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+--
+-- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDistributionName :: Lens.Lens' UpdateDistribution Lude.Text
+udDistributionName = Lens.lens (distributionName :: UpdateDistribution -> Lude.Text) (\s a -> s {distributionName = a} :: UpdateDistribution)
+{-# DEPRECATED udDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
-instance AWSRequest UpdateDistribution where
+instance Lude.AWSRequest UpdateDistribution where
   type Rs UpdateDistribution = UpdateDistributionResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdateDistributionResponse'
-            <$> (x .?> "operation") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable UpdateDistribution
-
-instance NFData UpdateDistribution
-
-instance ToHeaders UpdateDistribution where
+instance Lude.ToHeaders UpdateDistribution where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.UpdateDistribution" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.UpdateDistribution" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdateDistribution where
+instance Lude.ToJSON UpdateDistribution where
   toJSON UpdateDistribution' {..} =
-    object
-      ( catMaybes
-          [ ("origin" .=) <$> _udOrigin,
-            ("cacheBehaviorSettings" .=) <$> _udCacheBehaviorSettings,
-            ("isEnabled" .=) <$> _udIsEnabled,
-            ("defaultCacheBehavior" .=) <$> _udDefaultCacheBehavior,
-            ("cacheBehaviors" .=) <$> _udCacheBehaviors,
-            Just ("distributionName" .= _udDistributionName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("origin" Lude..=) Lude.<$> origin,
+            ("cacheBehaviorSettings" Lude..=) Lude.<$> cacheBehaviorSettings,
+            ("isEnabled" Lude..=) Lude.<$> isEnabled,
+            ("defaultCacheBehavior" Lude..=) Lude.<$> defaultCacheBehavior,
+            ("cacheBehaviors" Lude..=) Lude.<$> cacheBehaviors,
+            Lude.Just ("distributionName" Lude..= distributionName)
           ]
       )
 
-instance ToPath UpdateDistribution where
-  toPath = const "/"
+instance Lude.ToPath UpdateDistribution where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdateDistribution where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateDistribution where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updateDistributionResponse' smart constructor.
+-- | /See:/ 'mkUpdateDistributionResponse' smart constructor.
 data UpdateDistributionResponse = UpdateDistributionResponse'
-  { _udrsOperation ::
-      !(Maybe Operation),
-    _udrsResponseStatus :: !Int
+  { operation ::
+      Lude.Maybe Operation,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDistributionResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'udrsOperation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'udrsResponseStatus' - -- | The response status code.
-updateDistributionResponse ::
-  -- | 'udrsResponseStatus'
-  Int ->
+-- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkUpdateDistributionResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDistributionResponse
-updateDistributionResponse pResponseStatus_ =
+mkUpdateDistributionResponse pResponseStatus_ =
   UpdateDistributionResponse'
-    { _udrsOperation = Nothing,
-      _udrsResponseStatus = pResponseStatus_
+    { operation = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-udrsOperation :: Lens' UpdateDistributionResponse (Maybe Operation)
-udrsOperation = lens _udrsOperation (\s a -> s {_udrsOperation = a})
+--
+-- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsOperation :: Lens.Lens' UpdateDistributionResponse (Lude.Maybe Operation)
+udrsOperation = Lens.lens (operation :: UpdateDistributionResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: UpdateDistributionResponse)
+{-# DEPRECATED udrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
--- | -- | The response status code.
-udrsResponseStatus :: Lens' UpdateDistributionResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\s a -> s {_udrsResponseStatus = a})
-
-instance NFData UpdateDistributionResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udrsResponseStatus :: Lens.Lens' UpdateDistributionResponse Lude.Int
+udrsResponseStatus = Lens.lens (responseStatus :: UpdateDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDistributionResponse)
+{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

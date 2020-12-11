@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,151 +14,185 @@
 --
 -- Checks whether a domain name can be transferred to Amazon Route 53.
 module Network.AWS.Route53Domains.CheckDomainTransferability
-  ( -- * Creating a Request
-    checkDomainTransferability,
-    CheckDomainTransferability,
+  ( -- * Creating a request
+    CheckDomainTransferability (..),
+    mkCheckDomainTransferability,
 
-    -- * Request Lenses
+    -- ** Request lenses
     cdtAuthCode,
     cdtDomainName,
 
-    -- * Destructuring the Response
-    checkDomainTransferabilityResponse,
-    CheckDomainTransferabilityResponse,
+    -- * Destructuring the response
+    CheckDomainTransferabilityResponse (..),
+    mkCheckDomainTransferabilityResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cdtrsResponseStatus,
     cdtrsTransferability,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Route53Domains.Types
 
 -- | The CheckDomainTransferability request contains the following elements.
 --
---
---
--- /See:/ 'checkDomainTransferability' smart constructor.
+-- /See:/ 'mkCheckDomainTransferability' smart constructor.
 data CheckDomainTransferability = CheckDomainTransferability'
-  { _cdtAuthCode ::
-      !(Maybe (Sensitive Text)),
-    _cdtDomainName :: !Text
+  { authCode ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    domainName :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckDomainTransferability' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'authCode' - If the registrar for the top-level domain (TLD) requires an authorization code to transfer the domain, the code that you got from the current registrar for the domain.
+-- * 'domainName' - The name of the domain that you want to transfer to Route 53. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
--- * 'cdtAuthCode' - If the registrar for the top-level domain (TLD) requires an authorization code to transfer the domain, the code that you got from the current registrar for the domain.
+-- The domain name can contain only the following characters:
 --
--- * 'cdtDomainName' - The name of the domain that you want to transfer to Route 53. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ . The domain name can contain only the following characters:     * Letters a through z. Domain names are not case sensitive.     * Numbers 0 through 9.     * Hyphen (-). You can't specify a hyphen at the beginning or end of a label.      * Period (.) to separate the labels in the name, such as the @.@ in @example.com@ .
-checkDomainTransferability ::
-  -- | 'cdtDomainName'
-  Text ->
+--     * Letters a through z. Domain names are not case sensitive.
+--
+--
+--     * Numbers 0 through 9.
+--
+--
+--     * Hyphen (-). You can't specify a hyphen at the beginning or end of a label.
+--
+--
+--     * Period (.) to separate the labels in the name, such as the @.@ in @example.com@ .
+mkCheckDomainTransferability ::
+  -- | 'domainName'
+  Lude.Text ->
   CheckDomainTransferability
-checkDomainTransferability pDomainName_ =
+mkCheckDomainTransferability pDomainName_ =
   CheckDomainTransferability'
-    { _cdtAuthCode = Nothing,
-      _cdtDomainName = pDomainName_
+    { authCode = Lude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | If the registrar for the top-level domain (TLD) requires an authorization code to transfer the domain, the code that you got from the current registrar for the domain.
-cdtAuthCode :: Lens' CheckDomainTransferability (Maybe Text)
-cdtAuthCode = lens _cdtAuthCode (\s a -> s {_cdtAuthCode = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtAuthCode :: Lens.Lens' CheckDomainTransferability (Lude.Maybe (Lude.Sensitive Lude.Text))
+cdtAuthCode = Lens.lens (authCode :: CheckDomainTransferability -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authCode = a} :: CheckDomainTransferability)
+{-# DEPRECATED cdtAuthCode "Use generic-lens or generic-optics with 'authCode' instead." #-}
 
--- | The name of the domain that you want to transfer to Route 53. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ . The domain name can contain only the following characters:     * Letters a through z. Domain names are not case sensitive.     * Numbers 0 through 9.     * Hyphen (-). You can't specify a hyphen at the beginning or end of a label.      * Period (.) to separate the labels in the name, such as the @.@ in @example.com@ .
-cdtDomainName :: Lens' CheckDomainTransferability Text
-cdtDomainName = lens _cdtDomainName (\s a -> s {_cdtDomainName = a})
+-- | The name of the domain that you want to transfer to Route 53. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
+--
+-- The domain name can contain only the following characters:
+--
+--     * Letters a through z. Domain names are not case sensitive.
+--
+--
+--     * Numbers 0 through 9.
+--
+--
+--     * Hyphen (-). You can't specify a hyphen at the beginning or end of a label.
+--
+--
+--     * Period (.) to separate the labels in the name, such as the @.@ in @example.com@ .
+--
+--
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtDomainName :: Lens.Lens' CheckDomainTransferability Lude.Text
+cdtDomainName = Lens.lens (domainName :: CheckDomainTransferability -> Lude.Text) (\s a -> s {domainName = a} :: CheckDomainTransferability)
+{-# DEPRECATED cdtDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance AWSRequest CheckDomainTransferability where
+instance Lude.AWSRequest CheckDomainTransferability where
   type
     Rs CheckDomainTransferability =
       CheckDomainTransferabilityResponse
-  request = postJSON route53Domains
+  request = Req.postJSON route53DomainsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           CheckDomainTransferabilityResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "Transferability")
+            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<*> (x Lude..:> "Transferability")
       )
 
-instance Hashable CheckDomainTransferability
-
-instance NFData CheckDomainTransferability
-
-instance ToHeaders CheckDomainTransferability where
+instance Lude.ToHeaders CheckDomainTransferability where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ( "Route53Domains_v20140515.CheckDomainTransferability" ::
-                     ByteString
-                 ),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "Route53Domains_v20140515.CheckDomainTransferability" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON CheckDomainTransferability where
+instance Lude.ToJSON CheckDomainTransferability where
   toJSON CheckDomainTransferability' {..} =
-    object
-      ( catMaybes
-          [ ("AuthCode" .=) <$> _cdtAuthCode,
-            Just ("DomainName" .= _cdtDomainName)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("AuthCode" Lude..=) Lude.<$> authCode,
+            Lude.Just ("DomainName" Lude..= domainName)
           ]
       )
 
-instance ToPath CheckDomainTransferability where
-  toPath = const "/"
+instance Lude.ToPath CheckDomainTransferability where
+  toPath = Lude.const "/"
 
-instance ToQuery CheckDomainTransferability where
-  toQuery = const mempty
+instance Lude.ToQuery CheckDomainTransferability where
+  toQuery = Lude.const Lude.mempty
 
 -- | The CheckDomainTransferability response includes the following elements.
 --
---
---
--- /See:/ 'checkDomainTransferabilityResponse' smart constructor.
+-- /See:/ 'mkCheckDomainTransferabilityResponse' smart constructor.
 data CheckDomainTransferabilityResponse = CheckDomainTransferabilityResponse'
-  { _cdtrsResponseStatus ::
-      !Int,
-    _cdtrsTransferability ::
-      !DomainTransferability
+  { responseStatus ::
+      Lude.Int,
+    transferability ::
+      DomainTransferability
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckDomainTransferabilityResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdtrsResponseStatus' - -- | The response status code.
---
--- * 'cdtrsTransferability' - A complex type that contains information about whether the specified domain can be transferred to Route 53.
-checkDomainTransferabilityResponse ::
-  -- | 'cdtrsResponseStatus'
-  Int ->
-  -- | 'cdtrsTransferability'
+-- * 'responseStatus' - The response status code.
+-- * 'transferability' - A complex type that contains information about whether the specified domain can be transferred to Route 53.
+mkCheckDomainTransferabilityResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'transferability'
   DomainTransferability ->
   CheckDomainTransferabilityResponse
-checkDomainTransferabilityResponse
+mkCheckDomainTransferabilityResponse
   pResponseStatus_
   pTransferability_ =
     CheckDomainTransferabilityResponse'
-      { _cdtrsResponseStatus =
+      { responseStatus =
           pResponseStatus_,
-        _cdtrsTransferability = pTransferability_
+        transferability = pTransferability_
       }
 
--- | -- | The response status code.
-cdtrsResponseStatus :: Lens' CheckDomainTransferabilityResponse Int
-cdtrsResponseStatus = lens _cdtrsResponseStatus (\s a -> s {_cdtrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtrsResponseStatus :: Lens.Lens' CheckDomainTransferabilityResponse Lude.Int
+cdtrsResponseStatus = Lens.lens (responseStatus :: CheckDomainTransferabilityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CheckDomainTransferabilityResponse)
+{-# DEPRECATED cdtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains information about whether the specified domain can be transferred to Route 53.
-cdtrsTransferability :: Lens' CheckDomainTransferabilityResponse DomainTransferability
-cdtrsTransferability = lens _cdtrsTransferability (\s a -> s {_cdtrsTransferability = a})
-
-instance NFData CheckDomainTransferabilityResponse
+--
+-- /Note:/ Consider using 'transferability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtrsTransferability :: Lens.Lens' CheckDomainTransferabilityResponse DomainTransferability
+cdtrsTransferability = Lens.lens (transferability :: CheckDomainTransferabilityResponse -> DomainTransferability) (\s a -> s {transferability = a} :: CheckDomainTransferabilityResponse)
+{-# DEPRECATED cdtrsTransferability "Use generic-lens or generic-optics with 'transferability' instead." #-}

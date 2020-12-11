@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,112 +14,127 @@
 --
 -- Attaches a resource-based policy to a private CA.
 --
---
 -- A policy can also be applied by <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html sharing> a private CA through AWS Resource Access Manager (RAM).
---
 -- The policy can be displayed with <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html GetPolicy> and removed with <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html DeletePolicy> .
---
 -- __About Policies__
 --
 --     * A policy grants access on a private CA to an AWS customer account, to AWS Organizations, or to an AWS Organizations unit. Policies are under the control of a CA administrator. For more information, see <acm-pca/latest/userguide/pca-rbp.html Using a Resource Based Policy with ACM Private CA> .
 --
+--
 --     * A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates signed by a CA in another account.
+--
 --
 --     * For ACM to manage automatic renewal of these certificates, the ACM user must configure a Service Linked Role (SLR). The SLR allows the ACM service to assume the identity of the user, subject to confirmation against the ACM Private CA policy. For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html Using a Service Linked Role with ACM> .
 --
+--
 --     * Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information, see <acm-pca/latest/userguide/pca-ram.html Using AWS Resource Access Manager (RAM) with ACM Private CA> .
 module Network.AWS.CertificateManagerPCA.PutPolicy
-  ( -- * Creating a Request
-    putPolicy,
-    PutPolicy,
+  ( -- * Creating a request
+    PutPolicy (..),
+    mkPutPolicy,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ppResourceARN,
     ppPolicy,
 
-    -- * Destructuring the Response
-    putPolicyResponse,
-    PutPolicyResponse,
+    -- * Destructuring the response
+    PutPolicyResponse (..),
+    mkPutPolicyResponse,
   )
 where
 
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'putPolicy' smart constructor.
+-- | /See:/ 'mkPutPolicy' smart constructor.
 data PutPolicy = PutPolicy'
-  { _ppResourceARN :: !Text,
-    _ppPolicy :: !Text
+  { resourceARN :: Lude.Text,
+    policy :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPolicy' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ppResourceARN' - The Amazon Resource Number (ARN) of the private CA to associate with the policy. The ARN of the CA can be found by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
---
--- * 'ppPolicy' - The path and filename of a JSON-formatted IAM policy to attach to the specified private CA resource. If this policy does not contain all required statements or if it includes any statement that is not allowed, the @PutPolicy@ action returns an @InvalidPolicyException@ . For information about IAM policy and statement structure, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json Overview of JSON Policies> .
-putPolicy ::
-  -- | 'ppResourceARN'
-  Text ->
-  -- | 'ppPolicy'
-  Text ->
+-- * 'policy' - The path and filename of a JSON-formatted IAM policy to attach to the specified private CA resource. If this policy does not contain all required statements or if it includes any statement that is not allowed, the @PutPolicy@ action returns an @InvalidPolicyException@ . For information about IAM policy and statement structure, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json Overview of JSON Policies> .
+-- * 'resourceARN' - The Amazon Resource Number (ARN) of the private CA to associate with the policy. The ARN of the CA can be found by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
+mkPutPolicy ::
+  -- | 'resourceARN'
+  Lude.Text ->
+  -- | 'policy'
+  Lude.Text ->
   PutPolicy
-putPolicy pResourceARN_ pPolicy_ =
-  PutPolicy' {_ppResourceARN = pResourceARN_, _ppPolicy = pPolicy_}
+mkPutPolicy pResourceARN_ pPolicy_ =
+  PutPolicy' {resourceARN = pResourceARN_, policy = pPolicy_}
 
 -- | The Amazon Resource Number (ARN) of the private CA to associate with the policy. The ARN of the CA can be found by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
-ppResourceARN :: Lens' PutPolicy Text
-ppResourceARN = lens _ppResourceARN (\s a -> s {_ppResourceARN = a})
+--
+--
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppResourceARN :: Lens.Lens' PutPolicy Lude.Text
+ppResourceARN = Lens.lens (resourceARN :: PutPolicy -> Lude.Text) (\s a -> s {resourceARN = a} :: PutPolicy)
+{-# DEPRECATED ppResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The path and filename of a JSON-formatted IAM policy to attach to the specified private CA resource. If this policy does not contain all required statements or if it includes any statement that is not allowed, the @PutPolicy@ action returns an @InvalidPolicyException@ . For information about IAM policy and statement structure, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json Overview of JSON Policies> .
-ppPolicy :: Lens' PutPolicy Text
-ppPolicy = lens _ppPolicy (\s a -> s {_ppPolicy = a})
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppPolicy :: Lens.Lens' PutPolicy Lude.Text
+ppPolicy = Lens.lens (policy :: PutPolicy -> Lude.Text) (\s a -> s {policy = a} :: PutPolicy)
+{-# DEPRECATED ppPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance AWSRequest PutPolicy where
+instance Lude.AWSRequest PutPolicy where
   type Rs PutPolicy = PutPolicyResponse
-  request = postJSON certificateManagerPCA
-  response = receiveNull PutPolicyResponse'
+  request = Req.postJSON certificateManagerPCAService
+  response = Res.receiveNull PutPolicyResponse'
 
-instance Hashable PutPolicy
-
-instance NFData PutPolicy
-
-instance ToHeaders PutPolicy where
+instance Lude.ToHeaders PutPolicy where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("ACMPrivateCA.PutPolicy" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("ACMPrivateCA.PutPolicy" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON PutPolicy where
+instance Lude.ToJSON PutPolicy where
   toJSON PutPolicy' {..} =
-    object
-      ( catMaybes
-          [ Just ("ResourceArn" .= _ppResourceARN),
-            Just ("Policy" .= _ppPolicy)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
+            Lude.Just ("Policy" Lude..= policy)
           ]
       )
 
-instance ToPath PutPolicy where
-  toPath = const "/"
+instance Lude.ToPath PutPolicy where
+  toPath = Lude.const "/"
 
-instance ToQuery PutPolicy where
-  toQuery = const mempty
+instance Lude.ToQuery PutPolicy where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'putPolicyResponse' smart constructor.
+-- | /See:/ 'mkPutPolicyResponse' smart constructor.
 data PutPolicyResponse = PutPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPolicyResponse' with the minimum fields required to make a request.
-putPolicyResponse ::
+mkPutPolicyResponse ::
   PutPolicyResponse
-putPolicyResponse = PutPolicyResponse'
-
-instance NFData PutPolicyResponse
+mkPutPolicyResponse = PutPolicyResponse'

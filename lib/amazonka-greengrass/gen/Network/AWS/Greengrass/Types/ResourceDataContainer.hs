@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,134 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Greengrass.Types.ResourceDataContainer where
+module Network.AWS.Greengrass.Types.ResourceDataContainer
+  ( ResourceDataContainer (..),
+
+    -- * Smart constructor
+    mkResourceDataContainer,
+
+    -- * Lenses
+    rdcS3MachineLearningModelResourceData,
+    rdcSageMakerMachineLearningModelResourceData,
+    rdcLocalVolumeResourceData,
+    rdcLocalDeviceResourceData,
+    rdcSecretsManagerSecretResourceData,
+  )
+where
 
 import Network.AWS.Greengrass.Types.LocalDeviceResourceData
 import Network.AWS.Greengrass.Types.LocalVolumeResourceData
 import Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData
 import Network.AWS.Greengrass.Types.SageMakerMachineLearningModelResourceData
 import Network.AWS.Greengrass.Types.SecretsManagerSecretResourceData
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A container for resource data. The container takes only one of the following supported resource data types: ''LocalDeviceResourceData'', ''LocalVolumeResourceData'', ''SageMakerMachineLearningModelResourceData'', ''S3MachineLearningModelResourceData'', ''SecretsManagerSecretResourceData''.
 --
--- /See:/ 'resourceDataContainer' smart constructor.
+-- /See:/ 'mkResourceDataContainer' smart constructor.
 data ResourceDataContainer = ResourceDataContainer'
-  { _rdcS3MachineLearningModelResourceData ::
-      !(Maybe S3MachineLearningModelResourceData),
-    _rdcSageMakerMachineLearningModelResourceData ::
-      !( Maybe
-           SageMakerMachineLearningModelResourceData
-       ),
-    _rdcLocalVolumeResourceData ::
-      !(Maybe LocalVolumeResourceData),
-    _rdcLocalDeviceResourceData ::
-      !(Maybe LocalDeviceResourceData),
-    _rdcSecretsManagerSecretResourceData ::
-      !(Maybe SecretsManagerSecretResourceData)
+  { s3MachineLearningModelResourceData ::
+      Lude.Maybe S3MachineLearningModelResourceData,
+    sageMakerMachineLearningModelResourceData ::
+      Lude.Maybe
+        SageMakerMachineLearningModelResourceData,
+    localVolumeResourceData ::
+      Lude.Maybe LocalVolumeResourceData,
+    localDeviceResourceData ::
+      Lude.Maybe LocalDeviceResourceData,
+    secretsManagerSecretResourceData ::
+      Lude.Maybe SecretsManagerSecretResourceData
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDataContainer' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rdcS3MachineLearningModelResourceData' - Attributes that define an Amazon S3 machine learning resource.
---
--- * 'rdcSageMakerMachineLearningModelResourceData' - Attributes that define an Amazon SageMaker machine learning resource.
---
--- * 'rdcLocalVolumeResourceData' - Attributes that define the local volume resource.
---
--- * 'rdcLocalDeviceResourceData' - Attributes that define the local device resource.
---
--- * 'rdcSecretsManagerSecretResourceData' - Attributes that define a secret resource, which references a secret from AWS Secrets Manager.
-resourceDataContainer ::
+-- * 'localDeviceResourceData' - Attributes that define the local device resource.
+-- * 'localVolumeResourceData' - Attributes that define the local volume resource.
+-- * 's3MachineLearningModelResourceData' - Attributes that define an Amazon S3 machine learning resource.
+-- * 'sageMakerMachineLearningModelResourceData' - Attributes that define an Amazon SageMaker machine learning resource.
+-- * 'secretsManagerSecretResourceData' - Attributes that define a secret resource, which references a secret from AWS Secrets Manager.
+mkResourceDataContainer ::
   ResourceDataContainer
-resourceDataContainer =
+mkResourceDataContainer =
   ResourceDataContainer'
-    { _rdcS3MachineLearningModelResourceData =
-        Nothing,
-      _rdcSageMakerMachineLearningModelResourceData = Nothing,
-      _rdcLocalVolumeResourceData = Nothing,
-      _rdcLocalDeviceResourceData = Nothing,
-      _rdcSecretsManagerSecretResourceData = Nothing
+    { s3MachineLearningModelResourceData =
+        Lude.Nothing,
+      sageMakerMachineLearningModelResourceData = Lude.Nothing,
+      localVolumeResourceData = Lude.Nothing,
+      localDeviceResourceData = Lude.Nothing,
+      secretsManagerSecretResourceData = Lude.Nothing
     }
 
 -- | Attributes that define an Amazon S3 machine learning resource.
-rdcS3MachineLearningModelResourceData :: Lens' ResourceDataContainer (Maybe S3MachineLearningModelResourceData)
-rdcS3MachineLearningModelResourceData = lens _rdcS3MachineLearningModelResourceData (\s a -> s {_rdcS3MachineLearningModelResourceData = a})
+--
+-- /Note:/ Consider using 's3MachineLearningModelResourceData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcS3MachineLearningModelResourceData :: Lens.Lens' ResourceDataContainer (Lude.Maybe S3MachineLearningModelResourceData)
+rdcS3MachineLearningModelResourceData = Lens.lens (s3MachineLearningModelResourceData :: ResourceDataContainer -> Lude.Maybe S3MachineLearningModelResourceData) (\s a -> s {s3MachineLearningModelResourceData = a} :: ResourceDataContainer)
+{-# DEPRECATED rdcS3MachineLearningModelResourceData "Use generic-lens or generic-optics with 's3MachineLearningModelResourceData' instead." #-}
 
 -- | Attributes that define an Amazon SageMaker machine learning resource.
-rdcSageMakerMachineLearningModelResourceData :: Lens' ResourceDataContainer (Maybe SageMakerMachineLearningModelResourceData)
-rdcSageMakerMachineLearningModelResourceData = lens _rdcSageMakerMachineLearningModelResourceData (\s a -> s {_rdcSageMakerMachineLearningModelResourceData = a})
+--
+-- /Note:/ Consider using 'sageMakerMachineLearningModelResourceData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcSageMakerMachineLearningModelResourceData :: Lens.Lens' ResourceDataContainer (Lude.Maybe SageMakerMachineLearningModelResourceData)
+rdcSageMakerMachineLearningModelResourceData = Lens.lens (sageMakerMachineLearningModelResourceData :: ResourceDataContainer -> Lude.Maybe SageMakerMachineLearningModelResourceData) (\s a -> s {sageMakerMachineLearningModelResourceData = a} :: ResourceDataContainer)
+{-# DEPRECATED rdcSageMakerMachineLearningModelResourceData "Use generic-lens or generic-optics with 'sageMakerMachineLearningModelResourceData' instead." #-}
 
 -- | Attributes that define the local volume resource.
-rdcLocalVolumeResourceData :: Lens' ResourceDataContainer (Maybe LocalVolumeResourceData)
-rdcLocalVolumeResourceData = lens _rdcLocalVolumeResourceData (\s a -> s {_rdcLocalVolumeResourceData = a})
+--
+-- /Note:/ Consider using 'localVolumeResourceData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcLocalVolumeResourceData :: Lens.Lens' ResourceDataContainer (Lude.Maybe LocalVolumeResourceData)
+rdcLocalVolumeResourceData = Lens.lens (localVolumeResourceData :: ResourceDataContainer -> Lude.Maybe LocalVolumeResourceData) (\s a -> s {localVolumeResourceData = a} :: ResourceDataContainer)
+{-# DEPRECATED rdcLocalVolumeResourceData "Use generic-lens or generic-optics with 'localVolumeResourceData' instead." #-}
 
 -- | Attributes that define the local device resource.
-rdcLocalDeviceResourceData :: Lens' ResourceDataContainer (Maybe LocalDeviceResourceData)
-rdcLocalDeviceResourceData = lens _rdcLocalDeviceResourceData (\s a -> s {_rdcLocalDeviceResourceData = a})
+--
+-- /Note:/ Consider using 'localDeviceResourceData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcLocalDeviceResourceData :: Lens.Lens' ResourceDataContainer (Lude.Maybe LocalDeviceResourceData)
+rdcLocalDeviceResourceData = Lens.lens (localDeviceResourceData :: ResourceDataContainer -> Lude.Maybe LocalDeviceResourceData) (\s a -> s {localDeviceResourceData = a} :: ResourceDataContainer)
+{-# DEPRECATED rdcLocalDeviceResourceData "Use generic-lens or generic-optics with 'localDeviceResourceData' instead." #-}
 
 -- | Attributes that define a secret resource, which references a secret from AWS Secrets Manager.
-rdcSecretsManagerSecretResourceData :: Lens' ResourceDataContainer (Maybe SecretsManagerSecretResourceData)
-rdcSecretsManagerSecretResourceData = lens _rdcSecretsManagerSecretResourceData (\s a -> s {_rdcSecretsManagerSecretResourceData = a})
+--
+-- /Note:/ Consider using 'secretsManagerSecretResourceData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdcSecretsManagerSecretResourceData :: Lens.Lens' ResourceDataContainer (Lude.Maybe SecretsManagerSecretResourceData)
+rdcSecretsManagerSecretResourceData = Lens.lens (secretsManagerSecretResourceData :: ResourceDataContainer -> Lude.Maybe SecretsManagerSecretResourceData) (\s a -> s {secretsManagerSecretResourceData = a} :: ResourceDataContainer)
+{-# DEPRECATED rdcSecretsManagerSecretResourceData "Use generic-lens or generic-optics with 'secretsManagerSecretResourceData' instead." #-}
 
-instance FromJSON ResourceDataContainer where
+instance Lude.FromJSON ResourceDataContainer where
   parseJSON =
-    withObject
+    Lude.withObject
       "ResourceDataContainer"
       ( \x ->
           ResourceDataContainer'
-            <$> (x .:? "S3MachineLearningModelResourceData")
-            <*> (x .:? "SageMakerMachineLearningModelResourceData")
-            <*> (x .:? "LocalVolumeResourceData")
-            <*> (x .:? "LocalDeviceResourceData")
-            <*> (x .:? "SecretsManagerSecretResourceData")
+            Lude.<$> (x Lude..:? "S3MachineLearningModelResourceData")
+            Lude.<*> (x Lude..:? "SageMakerMachineLearningModelResourceData")
+            Lude.<*> (x Lude..:? "LocalVolumeResourceData")
+            Lude.<*> (x Lude..:? "LocalDeviceResourceData")
+            Lude.<*> (x Lude..:? "SecretsManagerSecretResourceData")
       )
 
-instance Hashable ResourceDataContainer
-
-instance NFData ResourceDataContainer
-
-instance ToJSON ResourceDataContainer where
+instance Lude.ToJSON ResourceDataContainer where
   toJSON ResourceDataContainer' {..} =
-    object
-      ( catMaybes
-          [ ("S3MachineLearningModelResourceData" .=)
-              <$> _rdcS3MachineLearningModelResourceData,
-            ("SageMakerMachineLearningModelResourceData" .=)
-              <$> _rdcSageMakerMachineLearningModelResourceData,
-            ("LocalVolumeResourceData" .=) <$> _rdcLocalVolumeResourceData,
-            ("LocalDeviceResourceData" .=) <$> _rdcLocalDeviceResourceData,
-            ("SecretsManagerSecretResourceData" .=)
-              <$> _rdcSecretsManagerSecretResourceData
+    Lude.object
+      ( Lude.catMaybes
+          [ ("S3MachineLearningModelResourceData" Lude..=)
+              Lude.<$> s3MachineLearningModelResourceData,
+            ("SageMakerMachineLearningModelResourceData" Lude..=)
+              Lude.<$> sageMakerMachineLearningModelResourceData,
+            ("LocalVolumeResourceData" Lude..=)
+              Lude.<$> localVolumeResourceData,
+            ("LocalDeviceResourceData" Lude..=)
+              Lude.<$> localDeviceResourceData,
+            ("SecretsManagerSecretResourceData" Lude..=)
+              Lude.<$> secretsManagerSecretResourceData
           ]
       )

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ImageState where
+module Network.AWS.EC2.Types.ImageState
+  ( ImageState
+      ( ImageState',
+        ISAvailable,
+        ISDeregistered,
+        ISError,
+        ISFailed,
+        ISInvalid,
+        ISPending,
+        ISTransient
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ImageState
-  = ISAvailable
-  | ISDeregistered
-  | ISError'
-  | ISFailed
-  | ISInvalid
-  | ISPending
-  | ISTransient
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ImageState = ImageState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ImageState where
-  parser =
-    takeLowerText >>= \case
-      "available" -> pure ISAvailable
-      "deregistered" -> pure ISDeregistered
-      "error" -> pure ISError'
-      "failed" -> pure ISFailed
-      "invalid" -> pure ISInvalid
-      "pending" -> pure ISPending
-      "transient" -> pure ISTransient
-      e ->
-        fromTextError $
-          "Failure parsing ImageState from value: '" <> e
-            <> "'. Accepted values: available, deregistered, error, failed, invalid, pending, transient"
+pattern ISAvailable :: ImageState
+pattern ISAvailable = ImageState' "available"
 
-instance ToText ImageState where
-  toText = \case
-    ISAvailable -> "available"
-    ISDeregistered -> "deregistered"
-    ISError' -> "error"
-    ISFailed -> "failed"
-    ISInvalid -> "invalid"
-    ISPending -> "pending"
-    ISTransient -> "transient"
+pattern ISDeregistered :: ImageState
+pattern ISDeregistered = ImageState' "deregistered"
 
-instance Hashable ImageState
+pattern ISError :: ImageState
+pattern ISError = ImageState' "error"
 
-instance NFData ImageState
+pattern ISFailed :: ImageState
+pattern ISFailed = ImageState' "failed"
 
-instance ToByteString ImageState
+pattern ISInvalid :: ImageState
+pattern ISInvalid = ImageState' "invalid"
 
-instance ToQuery ImageState
+pattern ISPending :: ImageState
+pattern ISPending = ImageState' "pending"
 
-instance ToHeader ImageState
+pattern ISTransient :: ImageState
+pattern ISTransient = ImageState' "transient"
 
-instance FromXML ImageState where
-  parseXML = parseXMLText "ImageState"
+{-# COMPLETE
+  ISAvailable,
+  ISDeregistered,
+  ISError,
+  ISFailed,
+  ISInvalid,
+  ISPending,
+  ISTransient,
+  ImageState'
+  #-}

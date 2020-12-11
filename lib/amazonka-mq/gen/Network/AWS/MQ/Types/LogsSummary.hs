@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,81 +7,106 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MQ.Types.LogsSummary where
+module Network.AWS.MQ.Types.LogsSummary
+  ( LogsSummary (..),
 
-import Network.AWS.Lens
+    -- * Smart constructor
+    mkLogsSummary,
+
+    -- * Lenses
+    lsPending,
+    lsAudit,
+    lsGeneral,
+    lsGeneralLogGroup,
+    lsAuditLogGroup,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.PendingLogs
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | The list of information about logs currently enabled and pending to be deployed for the specified broker.
 --
--- /See:/ 'logsSummary' smart constructor.
+-- /See:/ 'mkLogsSummary' smart constructor.
 data LogsSummary = LogsSummary'
-  { _lsPending :: !(Maybe PendingLogs),
-    _lsAudit :: !(Maybe Bool),
-    _lsGeneral :: !(Maybe Bool),
-    _lsGeneralLogGroup :: !(Maybe Text),
-    _lsAuditLogGroup :: !(Maybe Text)
+  { pending :: Lude.Maybe PendingLogs,
+    audit :: Lude.Maybe Lude.Bool,
+    general :: Lude.Maybe Lude.Bool,
+    generalLogGroup :: Lude.Maybe Lude.Text,
+    auditLogGroup :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogsSummary' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsPending' - The list of information about logs pending to be deployed for the specified broker.
---
--- * 'lsAudit' - Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
---
--- * 'lsGeneral' - Enables general logging.
---
--- * 'lsGeneralLogGroup' - The location of the CloudWatch Logs log group where general logs are sent.
---
--- * 'lsAuditLogGroup' - The location of the CloudWatch Logs log group where audit logs are sent.
-logsSummary ::
+-- * 'audit' - Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
+-- * 'auditLogGroup' - The location of the CloudWatch Logs log group where audit logs are sent.
+-- * 'general' - Enables general logging.
+-- * 'generalLogGroup' - The location of the CloudWatch Logs log group where general logs are sent.
+-- * 'pending' - The list of information about logs pending to be deployed for the specified broker.
+mkLogsSummary ::
   LogsSummary
-logsSummary =
+mkLogsSummary =
   LogsSummary'
-    { _lsPending = Nothing,
-      _lsAudit = Nothing,
-      _lsGeneral = Nothing,
-      _lsGeneralLogGroup = Nothing,
-      _lsAuditLogGroup = Nothing
+    { pending = Lude.Nothing,
+      audit = Lude.Nothing,
+      general = Lude.Nothing,
+      generalLogGroup = Lude.Nothing,
+      auditLogGroup = Lude.Nothing
     }
 
 -- | The list of information about logs pending to be deployed for the specified broker.
-lsPending :: Lens' LogsSummary (Maybe PendingLogs)
-lsPending = lens _lsPending (\s a -> s {_lsPending = a})
+--
+-- /Note:/ Consider using 'pending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsPending :: Lens.Lens' LogsSummary (Lude.Maybe PendingLogs)
+lsPending = Lens.lens (pending :: LogsSummary -> Lude.Maybe PendingLogs) (\s a -> s {pending = a} :: LogsSummary)
+{-# DEPRECATED lsPending "Use generic-lens or generic-optics with 'pending' instead." #-}
 
 -- | Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.
-lsAudit :: Lens' LogsSummary (Maybe Bool)
-lsAudit = lens _lsAudit (\s a -> s {_lsAudit = a})
+--
+-- /Note:/ Consider using 'audit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsAudit :: Lens.Lens' LogsSummary (Lude.Maybe Lude.Bool)
+lsAudit = Lens.lens (audit :: LogsSummary -> Lude.Maybe Lude.Bool) (\s a -> s {audit = a} :: LogsSummary)
+{-# DEPRECATED lsAudit "Use generic-lens or generic-optics with 'audit' instead." #-}
 
 -- | Enables general logging.
-lsGeneral :: Lens' LogsSummary (Maybe Bool)
-lsGeneral = lens _lsGeneral (\s a -> s {_lsGeneral = a})
+--
+-- /Note:/ Consider using 'general' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsGeneral :: Lens.Lens' LogsSummary (Lude.Maybe Lude.Bool)
+lsGeneral = Lens.lens (general :: LogsSummary -> Lude.Maybe Lude.Bool) (\s a -> s {general = a} :: LogsSummary)
+{-# DEPRECATED lsGeneral "Use generic-lens or generic-optics with 'general' instead." #-}
 
 -- | The location of the CloudWatch Logs log group where general logs are sent.
-lsGeneralLogGroup :: Lens' LogsSummary (Maybe Text)
-lsGeneralLogGroup = lens _lsGeneralLogGroup (\s a -> s {_lsGeneralLogGroup = a})
+--
+-- /Note:/ Consider using 'generalLogGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsGeneralLogGroup :: Lens.Lens' LogsSummary (Lude.Maybe Lude.Text)
+lsGeneralLogGroup = Lens.lens (generalLogGroup :: LogsSummary -> Lude.Maybe Lude.Text) (\s a -> s {generalLogGroup = a} :: LogsSummary)
+{-# DEPRECATED lsGeneralLogGroup "Use generic-lens or generic-optics with 'generalLogGroup' instead." #-}
 
 -- | The location of the CloudWatch Logs log group where audit logs are sent.
-lsAuditLogGroup :: Lens' LogsSummary (Maybe Text)
-lsAuditLogGroup = lens _lsAuditLogGroup (\s a -> s {_lsAuditLogGroup = a})
+--
+-- /Note:/ Consider using 'auditLogGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsAuditLogGroup :: Lens.Lens' LogsSummary (Lude.Maybe Lude.Text)
+lsAuditLogGroup = Lens.lens (auditLogGroup :: LogsSummary -> Lude.Maybe Lude.Text) (\s a -> s {auditLogGroup = a} :: LogsSummary)
+{-# DEPRECATED lsAuditLogGroup "Use generic-lens or generic-optics with 'auditLogGroup' instead." #-}
 
-instance FromJSON LogsSummary where
+instance Lude.FromJSON LogsSummary where
   parseJSON =
-    withObject
+    Lude.withObject
       "LogsSummary"
       ( \x ->
           LogsSummary'
-            <$> (x .:? "pending")
-            <*> (x .:? "audit")
-            <*> (x .:? "general")
-            <*> (x .:? "generalLogGroup")
-            <*> (x .:? "auditLogGroup")
+            Lude.<$> (x Lude..:? "pending")
+            Lude.<*> (x Lude..:? "audit")
+            Lude.<*> (x Lude..:? "general")
+            Lude.<*> (x Lude..:? "generalLogGroup")
+            Lude.<*> (x Lude..:? "auditLogGroup")
       )
-
-instance Hashable LogsSummary
-
-instance NFData LogsSummary

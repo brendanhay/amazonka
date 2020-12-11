@@ -28,853 +28,853 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestCloseInstancePublicPorts $
---             closeInstancePublicPorts
+--             mkCloseInstancePublicPorts
 --
 --         , requestGetRelationalDatabaseMetricData $
---             getRelationalDatabaseMetricData
+--             mkGetRelationalDatabaseMetricData
 --
 --         , requestAllocateStaticIP $
---             allocateStaticIP
+--             mkAllocateStaticIP
 --
 --         , requestDeleteKeyPair $
---             deleteKeyPair
+--             mkDeleteKeyPair
 --
 --         , requestDeleteInstanceSnapshot $
---             deleteInstanceSnapshot
+--             mkDeleteInstanceSnapshot
 --
 --         , requestGetInstances $
---             getInstances
+--             mkGetInstances
 --
 --         , requestGetLoadBalancer $
---             getLoadBalancer
+--             mkGetLoadBalancer
 --
 --         , requestDisableAddOn $
---             disableAddOn
+--             mkDisableAddOn
 --
 --         , requestGetDistributions $
---             getDistributions
+--             mkGetDistributions
 --
 --         , requestCreateContainerServiceDeployment $
---             createContainerServiceDeployment
+--             mkCreateContainerServiceDeployment
 --
 --         , requestGetInstance $
---             getInstance
+--             mkGetInstance
 --
 --         , requestGetRelationalDatabaseEvents $
---             getRelationalDatabaseEvents
+--             mkGetRelationalDatabaseEvents
 --
 --         , requestAttachCertificateToDistribution $
---             attachCertificateToDistribution
+--             mkAttachCertificateToDistribution
 --
 --         , requestGetContainerServices $
---             getContainerServices
+--             mkGetContainerServices
 --
 --         , requestUpdateDistributionBundle $
---             updateDistributionBundle
+--             mkUpdateDistributionBundle
 --
 --         , requestGetRelationalDatabaseSnapshots $
---             getRelationalDatabaseSnapshots
+--             mkGetRelationalDatabaseSnapshots
 --
 --         , requestAttachStaticIP $
---             attachStaticIP
+--             mkAttachStaticIP
 --
 --         , requestGetRelationalDatabaseParameters $
---             getRelationalDatabaseParameters
+--             mkGetRelationalDatabaseParameters
 --
 --         , requestDetachDisk $
---             detachDisk
+--             mkDetachDisk
 --
 --         , requestGetContactMethods $
---             getContactMethods
+--             mkGetContactMethods
 --
 --         , requestDownloadDefaultKeyPair $
---             downloadDefaultKeyPair
+--             mkDownloadDefaultKeyPair
 --
 --         , requestDeleteLoadBalancerTLSCertificate $
---             deleteLoadBalancerTLSCertificate
+--             mkDeleteLoadBalancerTLSCertificate
 --
 --         , requestTestAlarm $
---             testAlarm
+--             mkTestAlarm
 --
 --         , requestGetDomains $
---             getDomains
+--             mkGetDomains
 --
 --         , requestGetContainerImages $
---             getContainerImages
+--             mkGetContainerImages
 --
 --         , requestUpdateRelationalDatabaseParameters $
---             updateRelationalDatabaseParameters
+--             mkUpdateRelationalDatabaseParameters
 --
 --         , requestCreateLoadBalancerTLSCertificate $
---             createLoadBalancerTLSCertificate
+--             mkCreateLoadBalancerTLSCertificate
 --
 --         , requestCreateDomainEntry $
---             createDomainEntry
+--             mkCreateDomainEntry
 --
 --         , requestGetContainerServicePowers $
---             getContainerServicePowers
+--             mkGetContainerServicePowers
 --
 --         , requestImportKeyPair $
---             importKeyPair
+--             mkImportKeyPair
 --
 --         , requestGetInstanceSnapshots $
---             getInstanceSnapshots
+--             mkGetInstanceSnapshots
 --
 --         , requestExportSnapshot $
---             exportSnapshot
+--             mkExportSnapshot
 --
 --         , requestCreateRelationalDatabaseFromSnapshot $
---             createRelationalDatabaseFromSnapshot
+--             mkCreateRelationalDatabaseFromSnapshot
 --
 --         , requestCreateCloudFormationStack $
---             createCloudFormationStack
+--             mkCreateCloudFormationStack
 --
 --         , requestGetExportSnapshotRecords $
---             getExportSnapshotRecords
+--             mkGetExportSnapshotRecords
 --
 --         , requestReleaseStaticIP $
---             releaseStaticIP
+--             mkReleaseStaticIP
 --
 --         , requestDeleteInstance $
---             deleteInstance
+--             mkDeleteInstance
 --
 --         , requestCreateContainerServiceRegistryLogin $
---             createContainerServiceRegistryLogin
+--             mkCreateContainerServiceRegistryLogin
 --
 --         , requestGetCertificates $
---             getCertificates
+--             mkGetCertificates
 --
 --         , requestGetContainerServiceMetricData $
---             getContainerServiceMetricData
+--             mkGetContainerServiceMetricData
 --
 --         , requestGetDistributionMetricData $
---             getDistributionMetricData
+--             mkGetDistributionMetricData
 --
 --         , requestRebootInstance $
---             rebootInstance
+--             mkRebootInstance
 --
 --         , requestDeleteLoadBalancer $
---             deleteLoadBalancer
+--             mkDeleteLoadBalancer
 --
 --         , requestCreateDiskFromSnapshot $
---             createDiskFromSnapshot
+--             mkCreateDiskFromSnapshot
 --
 --         , requestGetRelationalDatabases $
---             getRelationalDatabases
+--             mkGetRelationalDatabases
 --
 --         , requestGetInstanceSnapshot $
---             getInstanceSnapshot
+--             mkGetInstanceSnapshot
 --
 --         , requestGetRelationalDatabaseLogEvents $
---             getRelationalDatabaseLogEvents
+--             mkGetRelationalDatabaseLogEvents
 --
 --         , requestCreateContactMethod $
---             createContactMethod
+--             mkCreateContactMethod
 --
 --         , requestGetRelationalDatabaseLogStreams $
---             getRelationalDatabaseLogStreams
+--             mkGetRelationalDatabaseLogStreams
 --
 --         , requestGetDomain $
---             getDomain
+--             mkGetDomain
 --
 --         , requestGetAutoSnapshots $
---             getAutoSnapshots
+--             mkGetAutoSnapshots
 --
 --         , requestGetActiveNames $
---             getActiveNames
+--             mkGetActiveNames
 --
 --         , requestDeleteContactMethod $
---             deleteContactMethod
+--             mkDeleteContactMethod
 --
 --         , requestCreateDistribution $
---             createDistribution
+--             mkCreateDistribution
 --
 --         , requestStopRelationalDatabase $
---             stopRelationalDatabase
+--             mkStopRelationalDatabase
 --
 --         , requestCreateRelationalDatabaseSnapshot $
---             createRelationalDatabaseSnapshot
+--             mkCreateRelationalDatabaseSnapshot
 --
 --         , requestDetachCertificateFromDistribution $
---             detachCertificateFromDistribution
+--             mkDetachCertificateFromDistribution
 --
 --         , requestCreateContainerService $
---             createContainerService
+--             mkCreateContainerService
 --
 --         , requestGetInstanceAccessDetails $
---             getInstanceAccessDetails
+--             mkGetInstanceAccessDetails
 --
 --         , requestEnableAddOn $
---             enableAddOn
+--             mkEnableAddOn
 --
 --         , requestStopInstance $
---             stopInstance
+--             mkStopInstance
 --
 --         , requestDetachInstancesFromLoadBalancer $
---             detachInstancesFromLoadBalancer
+--             mkDetachInstancesFromLoadBalancer
 --
 --         , requestRegisterContainerImage $
---             registerContainerImage
+--             mkRegisterContainerImage
 --
 --         , requestCreateCertificate $
---             createCertificate
+--             mkCreateCertificate
 --
 --         , requestCreateInstanceSnapshot $
---             createInstanceSnapshot
+--             mkCreateInstanceSnapshot
 --
 --         , requestCopySnapshot $
---             copySnapshot
+--             mkCopySnapshot
 --
 --         , requestGetRelationalDatabaseSnapshot $
---             getRelationalDatabaseSnapshot
+--             mkGetRelationalDatabaseSnapshot
 --
 --         , requestIsVPCPeered $
---             isVPCPeered
+--             mkIsVPCPeered
 --
 --         , requestGetStaticIPs $
---             getStaticIPs
+--             mkGetStaticIPs
 --
 --         , requestUnpeerVPC $
---             unpeerVPC
+--             mkUnpeerVPC
 --
 --         , requestDeleteDisk $
---             deleteDisk
+--             mkDeleteDisk
 --
 --         , requestCreateInstancesFromSnapshot $
---             createInstancesFromSnapshot
+--             mkCreateInstancesFromSnapshot
 --
 --         , requestGetCloudFormationStackRecords $
---             getCloudFormationStackRecords
+--             mkGetCloudFormationStackRecords
 --
 --         , requestCreateDomain $
---             createDomain
+--             mkCreateDomain
 --
 --         , requestGetRelationalDatabaseBlueprints $
---             getRelationalDatabaseBlueprints
+--             mkGetRelationalDatabaseBlueprints
 --
 --         , requestDeleteCertificate $
---             deleteCertificate
+--             mkDeleteCertificate
 --
 --         , requestGetDiskSnapshots $
---             getDiskSnapshots
+--             mkGetDiskSnapshots
 --
 --         , requestGetContainerAPIMetadata $
---             getContainerAPIMetadata
+--             mkGetContainerAPIMetadata
 --
 --         , requestPeerVPC $
---             peerVPC
+--             mkPeerVPC
 --
 --         , requestGetRelationalDatabaseBundles $
---             getRelationalDatabaseBundles
+--             mkGetRelationalDatabaseBundles
 --
 --         , requestGetLoadBalancers $
---             getLoadBalancers
+--             mkGetLoadBalancers
 --
 --         , requestRebootRelationalDatabase $
---             rebootRelationalDatabase
+--             mkRebootRelationalDatabase
 --
 --         , requestAttachLoadBalancerTLSCertificate $
---             attachLoadBalancerTLSCertificate
+--             mkAttachLoadBalancerTLSCertificate
 --
 --         , requestUpdateLoadBalancerAttribute $
---             updateLoadBalancerAttribute
+--             mkUpdateLoadBalancerAttribute
 --
 --         , requestDeleteRelationalDatabase $
---             deleteRelationalDatabase
+--             mkDeleteRelationalDatabase
 --
 --         , requestGetDiskSnapshot $
---             getDiskSnapshot
+--             mkGetDiskSnapshot
 --
 --         , requestUpdateRelationalDatabase $
---             updateRelationalDatabase
+--             mkUpdateRelationalDatabase
 --
 --         , requestGetStaticIP $
---             getStaticIP
+--             mkGetStaticIP
 --
 --         , requestGetRelationalDatabaseMasterUserPassword $
---             getRelationalDatabaseMasterUserPassword
+--             mkGetRelationalDatabaseMasterUserPassword
 --
 --         , requestGetBlueprints $
---             getBlueprints
+--             mkGetBlueprints
 --
 --         , requestPutAlarm $
---             putAlarm
+--             mkPutAlarm
 --
 --         , requestDeleteAlarm $
---             deleteAlarm
+--             mkDeleteAlarm
 --
 --         , requestGetInstancePortStates $
---             getInstancePortStates
+--             mkGetInstancePortStates
 --
 --         , requestDeleteAutoSnapshot $
---             deleteAutoSnapshot
+--             mkDeleteAutoSnapshot
 --
 --         , requestCreateRelationalDatabase $
---             createRelationalDatabase
+--             mkCreateRelationalDatabase
 --
 --         , requestSendContactMethodVerification $
---             sendContactMethodVerification
+--             mkSendContactMethodVerification
 --
 --         , requestGetContainerLog $
---             getContainerLog
+--             mkGetContainerLog
 --
 --         , requestCreateDiskSnapshot $
---             createDiskSnapshot
+--             mkCreateDiskSnapshot
 --
 --         , requestDeleteDomainEntry $
---             deleteDomainEntry
+--             mkDeleteDomainEntry
 --
 --         , requestUpdateDomainEntry $
---             updateDomainEntry
+--             mkUpdateDomainEntry
 --
 --         , requestGetRegions $
---             getRegions
+--             mkGetRegions
 --
 --         , requestDeleteDiskSnapshot $
---             deleteDiskSnapshot
+--             mkDeleteDiskSnapshot
 --
 --         , requestGetLoadBalancerMetricData $
---             getLoadBalancerMetricData
+--             mkGetLoadBalancerMetricData
 --
 --         , requestGetInstanceState $
---             getInstanceState
+--             mkGetInstanceState
 --
 --         , requestGetKeyPairs $
---             getKeyPairs
+--             mkGetKeyPairs
 --
 --         , requestGetOperations $
---             getOperations
+--             mkGetOperations
 --
 --         , requestGetDisks $
---             getDisks
+--             mkGetDisks
 --
 --         , requestGetRelationalDatabase $
---             getRelationalDatabase
+--             mkGetRelationalDatabase
 --
 --         , requestAttachInstancesToLoadBalancer $
---             attachInstancesToLoadBalancer
+--             mkAttachInstancesToLoadBalancer
 --
 --         , requestTagResource $
---             tagResource
+--             mkTagResource
 --
 --         , requestGetOperation $
---             getOperation
+--             mkGetOperation
 --
 --         , requestResetDistributionCache $
---             resetDistributionCache
+--             mkResetDistributionCache
 --
 --         , requestUpdateDistribution $
---             updateDistribution
+--             mkUpdateDistribution
 --
 --         , requestDeleteDistribution $
---             deleteDistribution
+--             mkDeleteDistribution
 --
 --         , requestUpdateContainerService $
---             updateContainerService
+--             mkUpdateContainerService
 --
 --         , requestDeleteRelationalDatabaseSnapshot $
---             deleteRelationalDatabaseSnapshot
+--             mkDeleteRelationalDatabaseSnapshot
 --
 --         , requestDeleteContainerService $
---             deleteContainerService
+--             mkDeleteContainerService
 --
 --         , requestGetInstanceMetricData $
---             getInstanceMetricData
+--             mkGetInstanceMetricData
 --
 --         , requestGetKeyPair $
---             getKeyPair
+--             mkGetKeyPair
 --
 --         , requestUntagResource $
---             untagResource
+--             mkUntagResource
 --
 --         , requestPutInstancePublicPorts $
---             putInstancePublicPorts
+--             mkPutInstancePublicPorts
 --
 --         , requestGetDistributionBundles $
---             getDistributionBundles
+--             mkGetDistributionBundles
 --
 --         , requestGetDisk $
---             getDisk
+--             mkGetDisk
 --
 --         , requestGetDistributionLatestCacheReset $
---             getDistributionLatestCacheReset
+--             mkGetDistributionLatestCacheReset
 --
 --         , requestCreateLoadBalancer $
---             createLoadBalancer
+--             mkCreateLoadBalancer
 --
 --         , requestGetContainerServiceDeployments $
---             getContainerServiceDeployments
+--             mkGetContainerServiceDeployments
 --
 --         , requestDeleteKnownHostKeys $
---             deleteKnownHostKeys
+--             mkDeleteKnownHostKeys
 --
 --         , requestAttachDisk $
---             attachDisk
+--             mkAttachDisk
 --
 --         , requestDetachStaticIP $
---             detachStaticIP
+--             mkDetachStaticIP
 --
 --         , requestCreateInstances $
---             createInstances
+--             mkCreateInstances
 --
 --         , requestGetAlarms $
---             getAlarms
+--             mkGetAlarms
 --
 --         , requestOpenInstancePublicPorts $
---             openInstancePublicPorts
+--             mkOpenInstancePublicPorts
 --
 --         , requestStartRelationalDatabase $
---             startRelationalDatabase
+--             mkStartRelationalDatabase
 --
 --         , requestDeleteContainerImage $
---             deleteContainerImage
+--             mkDeleteContainerImage
 --
 --         , requestGetBundles $
---             getBundles
+--             mkGetBundles
 --
 --         , requestDeleteDomain $
---             deleteDomain
+--             mkDeleteDomain
 --
 --         , requestGetLoadBalancerTLSCertificates $
---             getLoadBalancerTLSCertificates
+--             mkGetLoadBalancerTLSCertificates
 --
 --         , requestCreateDisk $
---             createDisk
+--             mkCreateDisk
 --
 --         , requestGetOperationsForResource $
---             getOperationsForResource
+--             mkGetOperationsForResource
 --
 --         , requestCreateKeyPair $
---             createKeyPair
+--             mkCreateKeyPair
 --
 --         , requestStartInstance $
---             startInstance
+--             mkStartInstance
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseCloseInstancePublicPorts $
---             closeInstancePublicPortsResponse
+--             mkCloseInstancePublicPortsResponse
 --
 --         , responseGetRelationalDatabaseMetricData $
---             getRelationalDatabaseMetricDataResponse
+--             mkGetRelationalDatabaseMetricDataResponse
 --
 --         , responseAllocateStaticIP $
---             allocateStaticIPResponse
+--             mkAllocateStaticIPResponse
 --
 --         , responseDeleteKeyPair $
---             deleteKeyPairResponse
+--             mkDeleteKeyPairResponse
 --
 --         , responseDeleteInstanceSnapshot $
---             deleteInstanceSnapshotResponse
+--             mkDeleteInstanceSnapshotResponse
 --
 --         , responseGetInstances $
---             getInstancesResponse
+--             mkGetInstancesResponse
 --
 --         , responseGetLoadBalancer $
---             getLoadBalancerResponse
+--             mkGetLoadBalancerResponse
 --
 --         , responseDisableAddOn $
---             disableAddOnResponse
+--             mkDisableAddOnResponse
 --
 --         , responseGetDistributions $
---             getDistributionsResponse
+--             mkGetDistributionsResponse
 --
 --         , responseCreateContainerServiceDeployment $
---             createContainerServiceDeploymentResponse
+--             mkCreateContainerServiceDeploymentResponse
 --
 --         , responseGetInstance $
---             getInstanceResponse
+--             mkGetInstanceResponse
 --
 --         , responseGetRelationalDatabaseEvents $
---             getRelationalDatabaseEventsResponse
+--             mkGetRelationalDatabaseEventsResponse
 --
 --         , responseAttachCertificateToDistribution $
---             attachCertificateToDistributionResponse
+--             mkAttachCertificateToDistributionResponse
 --
 --         , responseGetContainerServices $
---             getContainerServicesResponse
+--             mkGetContainerServicesResponse
 --
 --         , responseUpdateDistributionBundle $
---             updateDistributionBundleResponse
+--             mkUpdateDistributionBundleResponse
 --
 --         , responseGetRelationalDatabaseSnapshots $
---             getRelationalDatabaseSnapshotsResponse
+--             mkGetRelationalDatabaseSnapshotsResponse
 --
 --         , responseAttachStaticIP $
---             attachStaticIPResponse
+--             mkAttachStaticIPResponse
 --
 --         , responseGetRelationalDatabaseParameters $
---             getRelationalDatabaseParametersResponse
+--             mkGetRelationalDatabaseParametersResponse
 --
 --         , responseDetachDisk $
---             detachDiskResponse
+--             mkDetachDiskResponse
 --
 --         , responseGetContactMethods $
---             getContactMethodsResponse
+--             mkGetContactMethodsResponse
 --
 --         , responseDownloadDefaultKeyPair $
---             downloadDefaultKeyPairResponse
+--             mkDownloadDefaultKeyPairResponse
 --
 --         , responseDeleteLoadBalancerTLSCertificate $
---             deleteLoadBalancerTLSCertificateResponse
+--             mkDeleteLoadBalancerTLSCertificateResponse
 --
 --         , responseTestAlarm $
---             testAlarmResponse
+--             mkTestAlarmResponse
 --
 --         , responseGetDomains $
---             getDomainsResponse
+--             mkGetDomainsResponse
 --
 --         , responseGetContainerImages $
---             getContainerImagesResponse
+--             mkGetContainerImagesResponse
 --
 --         , responseUpdateRelationalDatabaseParameters $
---             updateRelationalDatabaseParametersResponse
+--             mkUpdateRelationalDatabaseParametersResponse
 --
 --         , responseCreateLoadBalancerTLSCertificate $
---             createLoadBalancerTLSCertificateResponse
+--             mkCreateLoadBalancerTLSCertificateResponse
 --
 --         , responseCreateDomainEntry $
---             createDomainEntryResponse
+--             mkCreateDomainEntryResponse
 --
 --         , responseGetContainerServicePowers $
---             getContainerServicePowersResponse
+--             mkGetContainerServicePowersResponse
 --
 --         , responseImportKeyPair $
---             importKeyPairResponse
+--             mkImportKeyPairResponse
 --
 --         , responseGetInstanceSnapshots $
---             getInstanceSnapshotsResponse
+--             mkGetInstanceSnapshotsResponse
 --
 --         , responseExportSnapshot $
---             exportSnapshotResponse
+--             mkExportSnapshotResponse
 --
 --         , responseCreateRelationalDatabaseFromSnapshot $
---             createRelationalDatabaseFromSnapshotResponse
+--             mkCreateRelationalDatabaseFromSnapshotResponse
 --
 --         , responseCreateCloudFormationStack $
---             createCloudFormationStackResponse
+--             mkCreateCloudFormationStackResponse
 --
 --         , responseGetExportSnapshotRecords $
---             getExportSnapshotRecordsResponse
+--             mkGetExportSnapshotRecordsResponse
 --
 --         , responseReleaseStaticIP $
---             releaseStaticIPResponse
+--             mkReleaseStaticIPResponse
 --
 --         , responseDeleteInstance $
---             deleteInstanceResponse
+--             mkDeleteInstanceResponse
 --
 --         , responseCreateContainerServiceRegistryLogin $
---             createContainerServiceRegistryLoginResponse
+--             mkCreateContainerServiceRegistryLoginResponse
 --
 --         , responseGetCertificates $
---             getCertificatesResponse
+--             mkGetCertificatesResponse
 --
 --         , responseGetContainerServiceMetricData $
---             getContainerServiceMetricDataResponse
+--             mkGetContainerServiceMetricDataResponse
 --
 --         , responseGetDistributionMetricData $
---             getDistributionMetricDataResponse
+--             mkGetDistributionMetricDataResponse
 --
 --         , responseRebootInstance $
---             rebootInstanceResponse
+--             mkRebootInstanceResponse
 --
 --         , responseDeleteLoadBalancer $
---             deleteLoadBalancerResponse
+--             mkDeleteLoadBalancerResponse
 --
 --         , responseCreateDiskFromSnapshot $
---             createDiskFromSnapshotResponse
+--             mkCreateDiskFromSnapshotResponse
 --
 --         , responseGetRelationalDatabases $
---             getRelationalDatabasesResponse
+--             mkGetRelationalDatabasesResponse
 --
 --         , responseGetInstanceSnapshot $
---             getInstanceSnapshotResponse
+--             mkGetInstanceSnapshotResponse
 --
 --         , responseGetRelationalDatabaseLogEvents $
---             getRelationalDatabaseLogEventsResponse
+--             mkGetRelationalDatabaseLogEventsResponse
 --
 --         , responseCreateContactMethod $
---             createContactMethodResponse
+--             mkCreateContactMethodResponse
 --
 --         , responseGetRelationalDatabaseLogStreams $
---             getRelationalDatabaseLogStreamsResponse
+--             mkGetRelationalDatabaseLogStreamsResponse
 --
 --         , responseGetDomain $
---             getDomainResponse
+--             mkGetDomainResponse
 --
 --         , responseGetAutoSnapshots $
---             getAutoSnapshotsResponse
+--             mkGetAutoSnapshotsResponse
 --
 --         , responseGetActiveNames $
---             getActiveNamesResponse
+--             mkGetActiveNamesResponse
 --
 --         , responseDeleteContactMethod $
---             deleteContactMethodResponse
+--             mkDeleteContactMethodResponse
 --
 --         , responseCreateDistribution $
---             createDistributionResponse
+--             mkCreateDistributionResponse
 --
 --         , responseStopRelationalDatabase $
---             stopRelationalDatabaseResponse
+--             mkStopRelationalDatabaseResponse
 --
 --         , responseCreateRelationalDatabaseSnapshot $
---             createRelationalDatabaseSnapshotResponse
+--             mkCreateRelationalDatabaseSnapshotResponse
 --
 --         , responseDetachCertificateFromDistribution $
---             detachCertificateFromDistributionResponse
+--             mkDetachCertificateFromDistributionResponse
 --
 --         , responseCreateContainerService $
---             createContainerServiceResponse
+--             mkCreateContainerServiceResponse
 --
 --         , responseGetInstanceAccessDetails $
---             getInstanceAccessDetailsResponse
+--             mkGetInstanceAccessDetailsResponse
 --
 --         , responseEnableAddOn $
---             enableAddOnResponse
+--             mkEnableAddOnResponse
 --
 --         , responseStopInstance $
---             stopInstanceResponse
+--             mkStopInstanceResponse
 --
 --         , responseDetachInstancesFromLoadBalancer $
---             detachInstancesFromLoadBalancerResponse
+--             mkDetachInstancesFromLoadBalancerResponse
 --
 --         , responseRegisterContainerImage $
---             registerContainerImageResponse
+--             mkRegisterContainerImageResponse
 --
 --         , responseCreateCertificate $
---             createCertificateResponse
+--             mkCreateCertificateResponse
 --
 --         , responseCreateInstanceSnapshot $
---             createInstanceSnapshotResponse
+--             mkCreateInstanceSnapshotResponse
 --
 --         , responseCopySnapshot $
---             copySnapshotResponse
+--             mkCopySnapshotResponse
 --
 --         , responseGetRelationalDatabaseSnapshot $
---             getRelationalDatabaseSnapshotResponse
+--             mkGetRelationalDatabaseSnapshotResponse
 --
 --         , responseIsVPCPeered $
---             isVPCPeeredResponse
+--             mkIsVPCPeeredResponse
 --
 --         , responseGetStaticIPs $
---             getStaticIPsResponse
+--             mkGetStaticIPsResponse
 --
 --         , responseUnpeerVPC $
---             unpeerVPCResponse
+--             mkUnpeerVPCResponse
 --
 --         , responseDeleteDisk $
---             deleteDiskResponse
+--             mkDeleteDiskResponse
 --
 --         , responseCreateInstancesFromSnapshot $
---             createInstancesFromSnapshotResponse
+--             mkCreateInstancesFromSnapshotResponse
 --
 --         , responseGetCloudFormationStackRecords $
---             getCloudFormationStackRecordsResponse
+--             mkGetCloudFormationStackRecordsResponse
 --
 --         , responseCreateDomain $
---             createDomainResponse
+--             mkCreateDomainResponse
 --
 --         , responseGetRelationalDatabaseBlueprints $
---             getRelationalDatabaseBlueprintsResponse
+--             mkGetRelationalDatabaseBlueprintsResponse
 --
 --         , responseDeleteCertificate $
---             deleteCertificateResponse
+--             mkDeleteCertificateResponse
 --
 --         , responseGetDiskSnapshots $
---             getDiskSnapshotsResponse
+--             mkGetDiskSnapshotsResponse
 --
 --         , responseGetContainerAPIMetadata $
---             getContainerAPIMetadataResponse
+--             mkGetContainerAPIMetadataResponse
 --
 --         , responsePeerVPC $
---             peerVPCResponse
+--             mkPeerVPCResponse
 --
 --         , responseGetRelationalDatabaseBundles $
---             getRelationalDatabaseBundlesResponse
+--             mkGetRelationalDatabaseBundlesResponse
 --
 --         , responseGetLoadBalancers $
---             getLoadBalancersResponse
+--             mkGetLoadBalancersResponse
 --
 --         , responseRebootRelationalDatabase $
---             rebootRelationalDatabaseResponse
+--             mkRebootRelationalDatabaseResponse
 --
 --         , responseAttachLoadBalancerTLSCertificate $
---             attachLoadBalancerTLSCertificateResponse
+--             mkAttachLoadBalancerTLSCertificateResponse
 --
 --         , responseUpdateLoadBalancerAttribute $
---             updateLoadBalancerAttributeResponse
+--             mkUpdateLoadBalancerAttributeResponse
 --
 --         , responseDeleteRelationalDatabase $
---             deleteRelationalDatabaseResponse
+--             mkDeleteRelationalDatabaseResponse
 --
 --         , responseGetDiskSnapshot $
---             getDiskSnapshotResponse
+--             mkGetDiskSnapshotResponse
 --
 --         , responseUpdateRelationalDatabase $
---             updateRelationalDatabaseResponse
+--             mkUpdateRelationalDatabaseResponse
 --
 --         , responseGetStaticIP $
---             getStaticIPResponse
+--             mkGetStaticIPResponse
 --
 --         , responseGetRelationalDatabaseMasterUserPassword $
---             getRelationalDatabaseMasterUserPasswordResponse
+--             mkGetRelationalDatabaseMasterUserPasswordResponse
 --
 --         , responseGetBlueprints $
---             getBlueprintsResponse
+--             mkGetBlueprintsResponse
 --
 --         , responsePutAlarm $
---             putAlarmResponse
+--             mkPutAlarmResponse
 --
 --         , responseDeleteAlarm $
---             deleteAlarmResponse
+--             mkDeleteAlarmResponse
 --
 --         , responseGetInstancePortStates $
---             getInstancePortStatesResponse
+--             mkGetInstancePortStatesResponse
 --
 --         , responseDeleteAutoSnapshot $
---             deleteAutoSnapshotResponse
+--             mkDeleteAutoSnapshotResponse
 --
 --         , responseCreateRelationalDatabase $
---             createRelationalDatabaseResponse
+--             mkCreateRelationalDatabaseResponse
 --
 --         , responseSendContactMethodVerification $
---             sendContactMethodVerificationResponse
+--             mkSendContactMethodVerificationResponse
 --
 --         , responseGetContainerLog $
---             getContainerLogResponse
+--             mkGetContainerLogResponse
 --
 --         , responseCreateDiskSnapshot $
---             createDiskSnapshotResponse
+--             mkCreateDiskSnapshotResponse
 --
 --         , responseDeleteDomainEntry $
---             deleteDomainEntryResponse
+--             mkDeleteDomainEntryResponse
 --
 --         , responseUpdateDomainEntry $
---             updateDomainEntryResponse
+--             mkUpdateDomainEntryResponse
 --
 --         , responseGetRegions $
---             getRegionsResponse
+--             mkGetRegionsResponse
 --
 --         , responseDeleteDiskSnapshot $
---             deleteDiskSnapshotResponse
+--             mkDeleteDiskSnapshotResponse
 --
 --         , responseGetLoadBalancerMetricData $
---             getLoadBalancerMetricDataResponse
+--             mkGetLoadBalancerMetricDataResponse
 --
 --         , responseGetInstanceState $
---             getInstanceStateResponse
+--             mkGetInstanceStateResponse
 --
 --         , responseGetKeyPairs $
---             getKeyPairsResponse
+--             mkGetKeyPairsResponse
 --
 --         , responseGetOperations $
---             getOperationsResponse
+--             mkGetOperationsResponse
 --
 --         , responseGetDisks $
---             getDisksResponse
+--             mkGetDisksResponse
 --
 --         , responseGetRelationalDatabase $
---             getRelationalDatabaseResponse
+--             mkGetRelationalDatabaseResponse
 --
 --         , responseAttachInstancesToLoadBalancer $
---             attachInstancesToLoadBalancerResponse
+--             mkAttachInstancesToLoadBalancerResponse
 --
 --         , responseTagResource $
---             tagResourceResponse
+--             mkTagResourceResponse
 --
 --         , responseGetOperation $
---             getOperationResponse
+--             mkGetOperationResponse
 --
 --         , responseResetDistributionCache $
---             resetDistributionCacheResponse
+--             mkResetDistributionCacheResponse
 --
 --         , responseUpdateDistribution $
---             updateDistributionResponse
+--             mkUpdateDistributionResponse
 --
 --         , responseDeleteDistribution $
---             deleteDistributionResponse
+--             mkDeleteDistributionResponse
 --
 --         , responseUpdateContainerService $
---             updateContainerServiceResponse
+--             mkUpdateContainerServiceResponse
 --
 --         , responseDeleteRelationalDatabaseSnapshot $
---             deleteRelationalDatabaseSnapshotResponse
+--             mkDeleteRelationalDatabaseSnapshotResponse
 --
 --         , responseDeleteContainerService $
---             deleteContainerServiceResponse
+--             mkDeleteContainerServiceResponse
 --
 --         , responseGetInstanceMetricData $
---             getInstanceMetricDataResponse
+--             mkGetInstanceMetricDataResponse
 --
 --         , responseGetKeyPair $
---             getKeyPairResponse
+--             mkGetKeyPairResponse
 --
 --         , responseUntagResource $
---             untagResourceResponse
+--             mkUntagResourceResponse
 --
 --         , responsePutInstancePublicPorts $
---             putInstancePublicPortsResponse
+--             mkPutInstancePublicPortsResponse
 --
 --         , responseGetDistributionBundles $
---             getDistributionBundlesResponse
+--             mkGetDistributionBundlesResponse
 --
 --         , responseGetDisk $
---             getDiskResponse
+--             mkGetDiskResponse
 --
 --         , responseGetDistributionLatestCacheReset $
---             getDistributionLatestCacheResetResponse
+--             mkGetDistributionLatestCacheResetResponse
 --
 --         , responseCreateLoadBalancer $
---             createLoadBalancerResponse
+--             mkCreateLoadBalancerResponse
 --
 --         , responseGetContainerServiceDeployments $
---             getContainerServiceDeploymentsResponse
+--             mkGetContainerServiceDeploymentsResponse
 --
 --         , responseDeleteKnownHostKeys $
---             deleteKnownHostKeysResponse
+--             mkDeleteKnownHostKeysResponse
 --
 --         , responseAttachDisk $
---             attachDiskResponse
+--             mkAttachDiskResponse
 --
 --         , responseDetachStaticIP $
---             detachStaticIPResponse
+--             mkDetachStaticIPResponse
 --
 --         , responseCreateInstances $
---             createInstancesResponse
+--             mkCreateInstancesResponse
 --
 --         , responseGetAlarms $
---             getAlarmsResponse
+--             mkGetAlarmsResponse
 --
 --         , responseOpenInstancePublicPorts $
---             openInstancePublicPortsResponse
+--             mkOpenInstancePublicPortsResponse
 --
 --         , responseStartRelationalDatabase $
---             startRelationalDatabaseResponse
+--             mkStartRelationalDatabaseResponse
 --
 --         , responseDeleteContainerImage $
---             deleteContainerImageResponse
+--             mkDeleteContainerImageResponse
 --
 --         , responseGetBundles $
---             getBundlesResponse
+--             mkGetBundlesResponse
 --
 --         , responseDeleteDomain $
---             deleteDomainResponse
+--             mkDeleteDomainResponse
 --
 --         , responseGetLoadBalancerTLSCertificates $
---             getLoadBalancerTLSCertificatesResponse
+--             mkGetLoadBalancerTLSCertificatesResponse
 --
 --         , responseCreateDisk $
---             createDiskResponse
+--             mkCreateDiskResponse
 --
 --         , responseGetOperationsForResource $
---             getOperationsForResourceResponse
+--             mkGetOperationsForResourceResponse
 --
 --         , responseCreateKeyPair $
---             createKeyPairResponse
+--             mkCreateKeyPairResponse
 --
 --         , responseStartInstance $
---             startInstanceResponse
+--             mkStartInstanceResponse
 --
 --           ]
 --     ]
@@ -1734,7 +1734,7 @@ responseCloseInstancePublicPorts =
   res
     "CloseInstancePublicPortsResponse"
     "fixture/CloseInstancePublicPortsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CloseInstancePublicPorts)
 
 responseGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricDataResponse -> TestTree
@@ -1742,7 +1742,7 @@ responseGetRelationalDatabaseMetricData =
   res
     "GetRelationalDatabaseMetricDataResponse"
     "fixture/GetRelationalDatabaseMetricDataResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseMetricData)
 
 responseAllocateStaticIP :: AllocateStaticIPResponse -> TestTree
@@ -1750,7 +1750,7 @@ responseAllocateStaticIP =
   res
     "AllocateStaticIPResponse"
     "fixture/AllocateStaticIPResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy AllocateStaticIP)
 
 responseDeleteKeyPair :: DeleteKeyPairResponse -> TestTree
@@ -1758,7 +1758,7 @@ responseDeleteKeyPair =
   res
     "DeleteKeyPairResponse"
     "fixture/DeleteKeyPairResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteKeyPair)
 
 responseDeleteInstanceSnapshot :: DeleteInstanceSnapshotResponse -> TestTree
@@ -1766,7 +1766,7 @@ responseDeleteInstanceSnapshot =
   res
     "DeleteInstanceSnapshotResponse"
     "fixture/DeleteInstanceSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteInstanceSnapshot)
 
 responseGetInstances :: GetInstancesResponse -> TestTree
@@ -1774,7 +1774,7 @@ responseGetInstances =
   res
     "GetInstancesResponse"
     "fixture/GetInstancesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetInstances)
 
 responseGetLoadBalancer :: GetLoadBalancerResponse -> TestTree
@@ -1782,7 +1782,7 @@ responseGetLoadBalancer =
   res
     "GetLoadBalancerResponse"
     "fixture/GetLoadBalancerResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetLoadBalancer)
 
 responseDisableAddOn :: DisableAddOnResponse -> TestTree
@@ -1790,7 +1790,7 @@ responseDisableAddOn =
   res
     "DisableAddOnResponse"
     "fixture/DisableAddOnResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DisableAddOn)
 
 responseGetDistributions :: GetDistributionsResponse -> TestTree
@@ -1798,7 +1798,7 @@ responseGetDistributions =
   res
     "GetDistributionsResponse"
     "fixture/GetDistributionsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDistributions)
 
 responseCreateContainerServiceDeployment :: CreateContainerServiceDeploymentResponse -> TestTree
@@ -1806,7 +1806,7 @@ responseCreateContainerServiceDeployment =
   res
     "CreateContainerServiceDeploymentResponse"
     "fixture/CreateContainerServiceDeploymentResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateContainerServiceDeployment)
 
 responseGetInstance :: GetInstanceResponse -> TestTree
@@ -1814,7 +1814,7 @@ responseGetInstance =
   res
     "GetInstanceResponse"
     "fixture/GetInstanceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetInstance)
 
 responseGetRelationalDatabaseEvents :: GetRelationalDatabaseEventsResponse -> TestTree
@@ -1822,7 +1822,7 @@ responseGetRelationalDatabaseEvents =
   res
     "GetRelationalDatabaseEventsResponse"
     "fixture/GetRelationalDatabaseEventsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseEvents)
 
 responseAttachCertificateToDistribution :: AttachCertificateToDistributionResponse -> TestTree
@@ -1830,7 +1830,7 @@ responseAttachCertificateToDistribution =
   res
     "AttachCertificateToDistributionResponse"
     "fixture/AttachCertificateToDistributionResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy AttachCertificateToDistribution)
 
 responseGetContainerServices :: GetContainerServicesResponse -> TestTree
@@ -1838,7 +1838,7 @@ responseGetContainerServices =
   res
     "GetContainerServicesResponse"
     "fixture/GetContainerServicesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetContainerServices)
 
 responseUpdateDistributionBundle :: UpdateDistributionBundleResponse -> TestTree
@@ -1846,7 +1846,7 @@ responseUpdateDistributionBundle =
   res
     "UpdateDistributionBundleResponse"
     "fixture/UpdateDistributionBundleResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy UpdateDistributionBundle)
 
 responseGetRelationalDatabaseSnapshots :: GetRelationalDatabaseSnapshotsResponse -> TestTree
@@ -1854,7 +1854,7 @@ responseGetRelationalDatabaseSnapshots =
   res
     "GetRelationalDatabaseSnapshotsResponse"
     "fixture/GetRelationalDatabaseSnapshotsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseSnapshots)
 
 responseAttachStaticIP :: AttachStaticIPResponse -> TestTree
@@ -1862,7 +1862,7 @@ responseAttachStaticIP =
   res
     "AttachStaticIPResponse"
     "fixture/AttachStaticIPResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy AttachStaticIP)
 
 responseGetRelationalDatabaseParameters :: GetRelationalDatabaseParametersResponse -> TestTree
@@ -1870,7 +1870,7 @@ responseGetRelationalDatabaseParameters =
   res
     "GetRelationalDatabaseParametersResponse"
     "fixture/GetRelationalDatabaseParametersResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseParameters)
 
 responseDetachDisk :: DetachDiskResponse -> TestTree
@@ -1878,7 +1878,7 @@ responseDetachDisk =
   res
     "DetachDiskResponse"
     "fixture/DetachDiskResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DetachDisk)
 
 responseGetContactMethods :: GetContactMethodsResponse -> TestTree
@@ -1886,7 +1886,7 @@ responseGetContactMethods =
   res
     "GetContactMethodsResponse"
     "fixture/GetContactMethodsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetContactMethods)
 
 responseDownloadDefaultKeyPair :: DownloadDefaultKeyPairResponse -> TestTree
@@ -1894,7 +1894,7 @@ responseDownloadDefaultKeyPair =
   res
     "DownloadDefaultKeyPairResponse"
     "fixture/DownloadDefaultKeyPairResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DownloadDefaultKeyPair)
 
 responseDeleteLoadBalancerTLSCertificate :: DeleteLoadBalancerTLSCertificateResponse -> TestTree
@@ -1902,7 +1902,7 @@ responseDeleteLoadBalancerTLSCertificate =
   res
     "DeleteLoadBalancerTLSCertificateResponse"
     "fixture/DeleteLoadBalancerTLSCertificateResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteLoadBalancerTLSCertificate)
 
 responseTestAlarm :: TestAlarmResponse -> TestTree
@@ -1910,7 +1910,7 @@ responseTestAlarm =
   res
     "TestAlarmResponse"
     "fixture/TestAlarmResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy TestAlarm)
 
 responseGetDomains :: GetDomainsResponse -> TestTree
@@ -1918,7 +1918,7 @@ responseGetDomains =
   res
     "GetDomainsResponse"
     "fixture/GetDomainsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDomains)
 
 responseGetContainerImages :: GetContainerImagesResponse -> TestTree
@@ -1926,7 +1926,7 @@ responseGetContainerImages =
   res
     "GetContainerImagesResponse"
     "fixture/GetContainerImagesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetContainerImages)
 
 responseUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParametersResponse -> TestTree
@@ -1934,7 +1934,7 @@ responseUpdateRelationalDatabaseParameters =
   res
     "UpdateRelationalDatabaseParametersResponse"
     "fixture/UpdateRelationalDatabaseParametersResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy UpdateRelationalDatabaseParameters)
 
 responseCreateLoadBalancerTLSCertificate :: CreateLoadBalancerTLSCertificateResponse -> TestTree
@@ -1942,7 +1942,7 @@ responseCreateLoadBalancerTLSCertificate =
   res
     "CreateLoadBalancerTLSCertificateResponse"
     "fixture/CreateLoadBalancerTLSCertificateResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateLoadBalancerTLSCertificate)
 
 responseCreateDomainEntry :: CreateDomainEntryResponse -> TestTree
@@ -1950,7 +1950,7 @@ responseCreateDomainEntry =
   res
     "CreateDomainEntryResponse"
     "fixture/CreateDomainEntryResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateDomainEntry)
 
 responseGetContainerServicePowers :: GetContainerServicePowersResponse -> TestTree
@@ -1958,7 +1958,7 @@ responseGetContainerServicePowers =
   res
     "GetContainerServicePowersResponse"
     "fixture/GetContainerServicePowersResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetContainerServicePowers)
 
 responseImportKeyPair :: ImportKeyPairResponse -> TestTree
@@ -1966,7 +1966,7 @@ responseImportKeyPair =
   res
     "ImportKeyPairResponse"
     "fixture/ImportKeyPairResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy ImportKeyPair)
 
 responseGetInstanceSnapshots :: GetInstanceSnapshotsResponse -> TestTree
@@ -1974,7 +1974,7 @@ responseGetInstanceSnapshots =
   res
     "GetInstanceSnapshotsResponse"
     "fixture/GetInstanceSnapshotsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetInstanceSnapshots)
 
 responseExportSnapshot :: ExportSnapshotResponse -> TestTree
@@ -1982,7 +1982,7 @@ responseExportSnapshot =
   res
     "ExportSnapshotResponse"
     "fixture/ExportSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy ExportSnapshot)
 
 responseCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshotResponse -> TestTree
@@ -1990,7 +1990,7 @@ responseCreateRelationalDatabaseFromSnapshot =
   res
     "CreateRelationalDatabaseFromSnapshotResponse"
     "fixture/CreateRelationalDatabaseFromSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateRelationalDatabaseFromSnapshot)
 
 responseCreateCloudFormationStack :: CreateCloudFormationStackResponse -> TestTree
@@ -1998,7 +1998,7 @@ responseCreateCloudFormationStack =
   res
     "CreateCloudFormationStackResponse"
     "fixture/CreateCloudFormationStackResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateCloudFormationStack)
 
 responseGetExportSnapshotRecords :: GetExportSnapshotRecordsResponse -> TestTree
@@ -2006,7 +2006,7 @@ responseGetExportSnapshotRecords =
   res
     "GetExportSnapshotRecordsResponse"
     "fixture/GetExportSnapshotRecordsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetExportSnapshotRecords)
 
 responseReleaseStaticIP :: ReleaseStaticIPResponse -> TestTree
@@ -2014,7 +2014,7 @@ responseReleaseStaticIP =
   res
     "ReleaseStaticIPResponse"
     "fixture/ReleaseStaticIPResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy ReleaseStaticIP)
 
 responseDeleteInstance :: DeleteInstanceResponse -> TestTree
@@ -2022,7 +2022,7 @@ responseDeleteInstance =
   res
     "DeleteInstanceResponse"
     "fixture/DeleteInstanceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteInstance)
 
 responseCreateContainerServiceRegistryLogin :: CreateContainerServiceRegistryLoginResponse -> TestTree
@@ -2030,7 +2030,7 @@ responseCreateContainerServiceRegistryLogin =
   res
     "CreateContainerServiceRegistryLoginResponse"
     "fixture/CreateContainerServiceRegistryLoginResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateContainerServiceRegistryLogin)
 
 responseGetCertificates :: GetCertificatesResponse -> TestTree
@@ -2038,7 +2038,7 @@ responseGetCertificates =
   res
     "GetCertificatesResponse"
     "fixture/GetCertificatesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetCertificates)
 
 responseGetContainerServiceMetricData :: GetContainerServiceMetricDataResponse -> TestTree
@@ -2046,7 +2046,7 @@ responseGetContainerServiceMetricData =
   res
     "GetContainerServiceMetricDataResponse"
     "fixture/GetContainerServiceMetricDataResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetContainerServiceMetricData)
 
 responseGetDistributionMetricData :: GetDistributionMetricDataResponse -> TestTree
@@ -2054,7 +2054,7 @@ responseGetDistributionMetricData =
   res
     "GetDistributionMetricDataResponse"
     "fixture/GetDistributionMetricDataResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDistributionMetricData)
 
 responseRebootInstance :: RebootInstanceResponse -> TestTree
@@ -2062,7 +2062,7 @@ responseRebootInstance =
   res
     "RebootInstanceResponse"
     "fixture/RebootInstanceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy RebootInstance)
 
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
@@ -2070,7 +2070,7 @@ responseDeleteLoadBalancer =
   res
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteLoadBalancer)
 
 responseCreateDiskFromSnapshot :: CreateDiskFromSnapshotResponse -> TestTree
@@ -2078,7 +2078,7 @@ responseCreateDiskFromSnapshot =
   res
     "CreateDiskFromSnapshotResponse"
     "fixture/CreateDiskFromSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateDiskFromSnapshot)
 
 responseGetRelationalDatabases :: GetRelationalDatabasesResponse -> TestTree
@@ -2086,7 +2086,7 @@ responseGetRelationalDatabases =
   res
     "GetRelationalDatabasesResponse"
     "fixture/GetRelationalDatabasesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabases)
 
 responseGetInstanceSnapshot :: GetInstanceSnapshotResponse -> TestTree
@@ -2094,7 +2094,7 @@ responseGetInstanceSnapshot =
   res
     "GetInstanceSnapshotResponse"
     "fixture/GetInstanceSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetInstanceSnapshot)
 
 responseGetRelationalDatabaseLogEvents :: GetRelationalDatabaseLogEventsResponse -> TestTree
@@ -2102,7 +2102,7 @@ responseGetRelationalDatabaseLogEvents =
   res
     "GetRelationalDatabaseLogEventsResponse"
     "fixture/GetRelationalDatabaseLogEventsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseLogEvents)
 
 responseCreateContactMethod :: CreateContactMethodResponse -> TestTree
@@ -2110,7 +2110,7 @@ responseCreateContactMethod =
   res
     "CreateContactMethodResponse"
     "fixture/CreateContactMethodResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateContactMethod)
 
 responseGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreamsResponse -> TestTree
@@ -2118,7 +2118,7 @@ responseGetRelationalDatabaseLogStreams =
   res
     "GetRelationalDatabaseLogStreamsResponse"
     "fixture/GetRelationalDatabaseLogStreamsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseLogStreams)
 
 responseGetDomain :: GetDomainResponse -> TestTree
@@ -2126,7 +2126,7 @@ responseGetDomain =
   res
     "GetDomainResponse"
     "fixture/GetDomainResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDomain)
 
 responseGetAutoSnapshots :: GetAutoSnapshotsResponse -> TestTree
@@ -2134,7 +2134,7 @@ responseGetAutoSnapshots =
   res
     "GetAutoSnapshotsResponse"
     "fixture/GetAutoSnapshotsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetAutoSnapshots)
 
 responseGetActiveNames :: GetActiveNamesResponse -> TestTree
@@ -2142,7 +2142,7 @@ responseGetActiveNames =
   res
     "GetActiveNamesResponse"
     "fixture/GetActiveNamesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetActiveNames)
 
 responseDeleteContactMethod :: DeleteContactMethodResponse -> TestTree
@@ -2150,7 +2150,7 @@ responseDeleteContactMethod =
   res
     "DeleteContactMethodResponse"
     "fixture/DeleteContactMethodResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteContactMethod)
 
 responseCreateDistribution :: CreateDistributionResponse -> TestTree
@@ -2158,7 +2158,7 @@ responseCreateDistribution =
   res
     "CreateDistributionResponse"
     "fixture/CreateDistributionResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateDistribution)
 
 responseStopRelationalDatabase :: StopRelationalDatabaseResponse -> TestTree
@@ -2166,7 +2166,7 @@ responseStopRelationalDatabase =
   res
     "StopRelationalDatabaseResponse"
     "fixture/StopRelationalDatabaseResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy StopRelationalDatabase)
 
 responseCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshotResponse -> TestTree
@@ -2174,7 +2174,7 @@ responseCreateRelationalDatabaseSnapshot =
   res
     "CreateRelationalDatabaseSnapshotResponse"
     "fixture/CreateRelationalDatabaseSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateRelationalDatabaseSnapshot)
 
 responseDetachCertificateFromDistribution :: DetachCertificateFromDistributionResponse -> TestTree
@@ -2182,7 +2182,7 @@ responseDetachCertificateFromDistribution =
   res
     "DetachCertificateFromDistributionResponse"
     "fixture/DetachCertificateFromDistributionResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DetachCertificateFromDistribution)
 
 responseCreateContainerService :: CreateContainerServiceResponse -> TestTree
@@ -2190,7 +2190,7 @@ responseCreateContainerService =
   res
     "CreateContainerServiceResponse"
     "fixture/CreateContainerServiceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateContainerService)
 
 responseGetInstanceAccessDetails :: GetInstanceAccessDetailsResponse -> TestTree
@@ -2198,7 +2198,7 @@ responseGetInstanceAccessDetails =
   res
     "GetInstanceAccessDetailsResponse"
     "fixture/GetInstanceAccessDetailsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetInstanceAccessDetails)
 
 responseEnableAddOn :: EnableAddOnResponse -> TestTree
@@ -2206,7 +2206,7 @@ responseEnableAddOn =
   res
     "EnableAddOnResponse"
     "fixture/EnableAddOnResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy EnableAddOn)
 
 responseStopInstance :: StopInstanceResponse -> TestTree
@@ -2214,7 +2214,7 @@ responseStopInstance =
   res
     "StopInstanceResponse"
     "fixture/StopInstanceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy StopInstance)
 
 responseDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancerResponse -> TestTree
@@ -2222,7 +2222,7 @@ responseDetachInstancesFromLoadBalancer =
   res
     "DetachInstancesFromLoadBalancerResponse"
     "fixture/DetachInstancesFromLoadBalancerResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DetachInstancesFromLoadBalancer)
 
 responseRegisterContainerImage :: RegisterContainerImageResponse -> TestTree
@@ -2230,7 +2230,7 @@ responseRegisterContainerImage =
   res
     "RegisterContainerImageResponse"
     "fixture/RegisterContainerImageResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy RegisterContainerImage)
 
 responseCreateCertificate :: CreateCertificateResponse -> TestTree
@@ -2238,7 +2238,7 @@ responseCreateCertificate =
   res
     "CreateCertificateResponse"
     "fixture/CreateCertificateResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateCertificate)
 
 responseCreateInstanceSnapshot :: CreateInstanceSnapshotResponse -> TestTree
@@ -2246,7 +2246,7 @@ responseCreateInstanceSnapshot =
   res
     "CreateInstanceSnapshotResponse"
     "fixture/CreateInstanceSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateInstanceSnapshot)
 
 responseCopySnapshot :: CopySnapshotResponse -> TestTree
@@ -2254,7 +2254,7 @@ responseCopySnapshot =
   res
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CopySnapshot)
 
 responseGetRelationalDatabaseSnapshot :: GetRelationalDatabaseSnapshotResponse -> TestTree
@@ -2262,7 +2262,7 @@ responseGetRelationalDatabaseSnapshot =
   res
     "GetRelationalDatabaseSnapshotResponse"
     "fixture/GetRelationalDatabaseSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseSnapshot)
 
 responseIsVPCPeered :: IsVPCPeeredResponse -> TestTree
@@ -2270,7 +2270,7 @@ responseIsVPCPeered =
   res
     "IsVPCPeeredResponse"
     "fixture/IsVPCPeeredResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy IsVPCPeered)
 
 responseGetStaticIPs :: GetStaticIPsResponse -> TestTree
@@ -2278,7 +2278,7 @@ responseGetStaticIPs =
   res
     "GetStaticIPsResponse"
     "fixture/GetStaticIPsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetStaticIPs)
 
 responseUnpeerVPC :: UnpeerVPCResponse -> TestTree
@@ -2286,7 +2286,7 @@ responseUnpeerVPC =
   res
     "UnpeerVPCResponse"
     "fixture/UnpeerVPCResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy UnpeerVPC)
 
 responseDeleteDisk :: DeleteDiskResponse -> TestTree
@@ -2294,7 +2294,7 @@ responseDeleteDisk =
   res
     "DeleteDiskResponse"
     "fixture/DeleteDiskResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteDisk)
 
 responseCreateInstancesFromSnapshot :: CreateInstancesFromSnapshotResponse -> TestTree
@@ -2302,7 +2302,7 @@ responseCreateInstancesFromSnapshot =
   res
     "CreateInstancesFromSnapshotResponse"
     "fixture/CreateInstancesFromSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateInstancesFromSnapshot)
 
 responseGetCloudFormationStackRecords :: GetCloudFormationStackRecordsResponse -> TestTree
@@ -2310,7 +2310,7 @@ responseGetCloudFormationStackRecords =
   res
     "GetCloudFormationStackRecordsResponse"
     "fixture/GetCloudFormationStackRecordsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetCloudFormationStackRecords)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
@@ -2318,7 +2318,7 @@ responseCreateDomain =
   res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateDomain)
 
 responseGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprintsResponse -> TestTree
@@ -2326,7 +2326,7 @@ responseGetRelationalDatabaseBlueprints =
   res
     "GetRelationalDatabaseBlueprintsResponse"
     "fixture/GetRelationalDatabaseBlueprintsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseBlueprints)
 
 responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
@@ -2334,7 +2334,7 @@ responseDeleteCertificate =
   res
     "DeleteCertificateResponse"
     "fixture/DeleteCertificateResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteCertificate)
 
 responseGetDiskSnapshots :: GetDiskSnapshotsResponse -> TestTree
@@ -2342,7 +2342,7 @@ responseGetDiskSnapshots =
   res
     "GetDiskSnapshotsResponse"
     "fixture/GetDiskSnapshotsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDiskSnapshots)
 
 responseGetContainerAPIMetadata :: GetContainerAPIMetadataResponse -> TestTree
@@ -2350,7 +2350,7 @@ responseGetContainerAPIMetadata =
   res
     "GetContainerAPIMetadataResponse"
     "fixture/GetContainerAPIMetadataResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetContainerAPIMetadata)
 
 responsePeerVPC :: PeerVPCResponse -> TestTree
@@ -2358,7 +2358,7 @@ responsePeerVPC =
   res
     "PeerVPCResponse"
     "fixture/PeerVPCResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy PeerVPC)
 
 responseGetRelationalDatabaseBundles :: GetRelationalDatabaseBundlesResponse -> TestTree
@@ -2366,7 +2366,7 @@ responseGetRelationalDatabaseBundles =
   res
     "GetRelationalDatabaseBundlesResponse"
     "fixture/GetRelationalDatabaseBundlesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseBundles)
 
 responseGetLoadBalancers :: GetLoadBalancersResponse -> TestTree
@@ -2374,7 +2374,7 @@ responseGetLoadBalancers =
   res
     "GetLoadBalancersResponse"
     "fixture/GetLoadBalancersResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetLoadBalancers)
 
 responseRebootRelationalDatabase :: RebootRelationalDatabaseResponse -> TestTree
@@ -2382,7 +2382,7 @@ responseRebootRelationalDatabase =
   res
     "RebootRelationalDatabaseResponse"
     "fixture/RebootRelationalDatabaseResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy RebootRelationalDatabase)
 
 responseAttachLoadBalancerTLSCertificate :: AttachLoadBalancerTLSCertificateResponse -> TestTree
@@ -2390,7 +2390,7 @@ responseAttachLoadBalancerTLSCertificate =
   res
     "AttachLoadBalancerTLSCertificateResponse"
     "fixture/AttachLoadBalancerTLSCertificateResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy AttachLoadBalancerTLSCertificate)
 
 responseUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttributeResponse -> TestTree
@@ -2398,7 +2398,7 @@ responseUpdateLoadBalancerAttribute =
   res
     "UpdateLoadBalancerAttributeResponse"
     "fixture/UpdateLoadBalancerAttributeResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy UpdateLoadBalancerAttribute)
 
 responseDeleteRelationalDatabase :: DeleteRelationalDatabaseResponse -> TestTree
@@ -2406,7 +2406,7 @@ responseDeleteRelationalDatabase =
   res
     "DeleteRelationalDatabaseResponse"
     "fixture/DeleteRelationalDatabaseResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteRelationalDatabase)
 
 responseGetDiskSnapshot :: GetDiskSnapshotResponse -> TestTree
@@ -2414,7 +2414,7 @@ responseGetDiskSnapshot =
   res
     "GetDiskSnapshotResponse"
     "fixture/GetDiskSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDiskSnapshot)
 
 responseUpdateRelationalDatabase :: UpdateRelationalDatabaseResponse -> TestTree
@@ -2422,7 +2422,7 @@ responseUpdateRelationalDatabase =
   res
     "UpdateRelationalDatabaseResponse"
     "fixture/UpdateRelationalDatabaseResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy UpdateRelationalDatabase)
 
 responseGetStaticIP :: GetStaticIPResponse -> TestTree
@@ -2430,7 +2430,7 @@ responseGetStaticIP =
   res
     "GetStaticIPResponse"
     "fixture/GetStaticIPResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetStaticIP)
 
 responseGetRelationalDatabaseMasterUserPassword :: GetRelationalDatabaseMasterUserPasswordResponse -> TestTree
@@ -2438,7 +2438,7 @@ responseGetRelationalDatabaseMasterUserPassword =
   res
     "GetRelationalDatabaseMasterUserPasswordResponse"
     "fixture/GetRelationalDatabaseMasterUserPasswordResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabaseMasterUserPassword)
 
 responseGetBlueprints :: GetBlueprintsResponse -> TestTree
@@ -2446,7 +2446,7 @@ responseGetBlueprints =
   res
     "GetBlueprintsResponse"
     "fixture/GetBlueprintsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetBlueprints)
 
 responsePutAlarm :: PutAlarmResponse -> TestTree
@@ -2454,7 +2454,7 @@ responsePutAlarm =
   res
     "PutAlarmResponse"
     "fixture/PutAlarmResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy PutAlarm)
 
 responseDeleteAlarm :: DeleteAlarmResponse -> TestTree
@@ -2462,7 +2462,7 @@ responseDeleteAlarm =
   res
     "DeleteAlarmResponse"
     "fixture/DeleteAlarmResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteAlarm)
 
 responseGetInstancePortStates :: GetInstancePortStatesResponse -> TestTree
@@ -2470,7 +2470,7 @@ responseGetInstancePortStates =
   res
     "GetInstancePortStatesResponse"
     "fixture/GetInstancePortStatesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetInstancePortStates)
 
 responseDeleteAutoSnapshot :: DeleteAutoSnapshotResponse -> TestTree
@@ -2478,7 +2478,7 @@ responseDeleteAutoSnapshot =
   res
     "DeleteAutoSnapshotResponse"
     "fixture/DeleteAutoSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteAutoSnapshot)
 
 responseCreateRelationalDatabase :: CreateRelationalDatabaseResponse -> TestTree
@@ -2486,7 +2486,7 @@ responseCreateRelationalDatabase =
   res
     "CreateRelationalDatabaseResponse"
     "fixture/CreateRelationalDatabaseResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateRelationalDatabase)
 
 responseSendContactMethodVerification :: SendContactMethodVerificationResponse -> TestTree
@@ -2494,7 +2494,7 @@ responseSendContactMethodVerification =
   res
     "SendContactMethodVerificationResponse"
     "fixture/SendContactMethodVerificationResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy SendContactMethodVerification)
 
 responseGetContainerLog :: GetContainerLogResponse -> TestTree
@@ -2502,7 +2502,7 @@ responseGetContainerLog =
   res
     "GetContainerLogResponse"
     "fixture/GetContainerLogResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetContainerLog)
 
 responseCreateDiskSnapshot :: CreateDiskSnapshotResponse -> TestTree
@@ -2510,7 +2510,7 @@ responseCreateDiskSnapshot =
   res
     "CreateDiskSnapshotResponse"
     "fixture/CreateDiskSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateDiskSnapshot)
 
 responseDeleteDomainEntry :: DeleteDomainEntryResponse -> TestTree
@@ -2518,7 +2518,7 @@ responseDeleteDomainEntry =
   res
     "DeleteDomainEntryResponse"
     "fixture/DeleteDomainEntryResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteDomainEntry)
 
 responseUpdateDomainEntry :: UpdateDomainEntryResponse -> TestTree
@@ -2526,7 +2526,7 @@ responseUpdateDomainEntry =
   res
     "UpdateDomainEntryResponse"
     "fixture/UpdateDomainEntryResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy UpdateDomainEntry)
 
 responseGetRegions :: GetRegionsResponse -> TestTree
@@ -2534,7 +2534,7 @@ responseGetRegions =
   res
     "GetRegionsResponse"
     "fixture/GetRegionsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRegions)
 
 responseDeleteDiskSnapshot :: DeleteDiskSnapshotResponse -> TestTree
@@ -2542,7 +2542,7 @@ responseDeleteDiskSnapshot =
   res
     "DeleteDiskSnapshotResponse"
     "fixture/DeleteDiskSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteDiskSnapshot)
 
 responseGetLoadBalancerMetricData :: GetLoadBalancerMetricDataResponse -> TestTree
@@ -2550,7 +2550,7 @@ responseGetLoadBalancerMetricData =
   res
     "GetLoadBalancerMetricDataResponse"
     "fixture/GetLoadBalancerMetricDataResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetLoadBalancerMetricData)
 
 responseGetInstanceState :: GetInstanceStateResponse -> TestTree
@@ -2558,7 +2558,7 @@ responseGetInstanceState =
   res
     "GetInstanceStateResponse"
     "fixture/GetInstanceStateResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetInstanceState)
 
 responseGetKeyPairs :: GetKeyPairsResponse -> TestTree
@@ -2566,7 +2566,7 @@ responseGetKeyPairs =
   res
     "GetKeyPairsResponse"
     "fixture/GetKeyPairsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetKeyPairs)
 
 responseGetOperations :: GetOperationsResponse -> TestTree
@@ -2574,7 +2574,7 @@ responseGetOperations =
   res
     "GetOperationsResponse"
     "fixture/GetOperationsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetOperations)
 
 responseGetDisks :: GetDisksResponse -> TestTree
@@ -2582,7 +2582,7 @@ responseGetDisks =
   res
     "GetDisksResponse"
     "fixture/GetDisksResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDisks)
 
 responseGetRelationalDatabase :: GetRelationalDatabaseResponse -> TestTree
@@ -2590,7 +2590,7 @@ responseGetRelationalDatabase =
   res
     "GetRelationalDatabaseResponse"
     "fixture/GetRelationalDatabaseResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetRelationalDatabase)
 
 responseAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancerResponse -> TestTree
@@ -2598,7 +2598,7 @@ responseAttachInstancesToLoadBalancer =
   res
     "AttachInstancesToLoadBalancerResponse"
     "fixture/AttachInstancesToLoadBalancerResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy AttachInstancesToLoadBalancer)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -2606,7 +2606,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy TagResource)
 
 responseGetOperation :: GetOperationResponse -> TestTree
@@ -2614,7 +2614,7 @@ responseGetOperation =
   res
     "GetOperationResponse"
     "fixture/GetOperationResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetOperation)
 
 responseResetDistributionCache :: ResetDistributionCacheResponse -> TestTree
@@ -2622,7 +2622,7 @@ responseResetDistributionCache =
   res
     "ResetDistributionCacheResponse"
     "fixture/ResetDistributionCacheResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy ResetDistributionCache)
 
 responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
@@ -2630,7 +2630,7 @@ responseUpdateDistribution =
   res
     "UpdateDistributionResponse"
     "fixture/UpdateDistributionResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy UpdateDistribution)
 
 responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
@@ -2638,7 +2638,7 @@ responseDeleteDistribution =
   res
     "DeleteDistributionResponse"
     "fixture/DeleteDistributionResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteDistribution)
 
 responseUpdateContainerService :: UpdateContainerServiceResponse -> TestTree
@@ -2646,7 +2646,7 @@ responseUpdateContainerService =
   res
     "UpdateContainerServiceResponse"
     "fixture/UpdateContainerServiceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy UpdateContainerService)
 
 responseDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshotResponse -> TestTree
@@ -2654,7 +2654,7 @@ responseDeleteRelationalDatabaseSnapshot =
   res
     "DeleteRelationalDatabaseSnapshotResponse"
     "fixture/DeleteRelationalDatabaseSnapshotResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteRelationalDatabaseSnapshot)
 
 responseDeleteContainerService :: DeleteContainerServiceResponse -> TestTree
@@ -2662,7 +2662,7 @@ responseDeleteContainerService =
   res
     "DeleteContainerServiceResponse"
     "fixture/DeleteContainerServiceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteContainerService)
 
 responseGetInstanceMetricData :: GetInstanceMetricDataResponse -> TestTree
@@ -2670,7 +2670,7 @@ responseGetInstanceMetricData =
   res
     "GetInstanceMetricDataResponse"
     "fixture/GetInstanceMetricDataResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetInstanceMetricData)
 
 responseGetKeyPair :: GetKeyPairResponse -> TestTree
@@ -2678,7 +2678,7 @@ responseGetKeyPair =
   res
     "GetKeyPairResponse"
     "fixture/GetKeyPairResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetKeyPair)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -2686,7 +2686,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy UntagResource)
 
 responsePutInstancePublicPorts :: PutInstancePublicPortsResponse -> TestTree
@@ -2694,7 +2694,7 @@ responsePutInstancePublicPorts =
   res
     "PutInstancePublicPortsResponse"
     "fixture/PutInstancePublicPortsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy PutInstancePublicPorts)
 
 responseGetDistributionBundles :: GetDistributionBundlesResponse -> TestTree
@@ -2702,7 +2702,7 @@ responseGetDistributionBundles =
   res
     "GetDistributionBundlesResponse"
     "fixture/GetDistributionBundlesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDistributionBundles)
 
 responseGetDisk :: GetDiskResponse -> TestTree
@@ -2710,7 +2710,7 @@ responseGetDisk =
   res
     "GetDiskResponse"
     "fixture/GetDiskResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDisk)
 
 responseGetDistributionLatestCacheReset :: GetDistributionLatestCacheResetResponse -> TestTree
@@ -2718,7 +2718,7 @@ responseGetDistributionLatestCacheReset =
   res
     "GetDistributionLatestCacheResetResponse"
     "fixture/GetDistributionLatestCacheResetResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetDistributionLatestCacheReset)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
@@ -2726,7 +2726,7 @@ responseCreateLoadBalancer =
   res
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateLoadBalancer)
 
 responseGetContainerServiceDeployments :: GetContainerServiceDeploymentsResponse -> TestTree
@@ -2734,7 +2734,7 @@ responseGetContainerServiceDeployments =
   res
     "GetContainerServiceDeploymentsResponse"
     "fixture/GetContainerServiceDeploymentsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetContainerServiceDeployments)
 
 responseDeleteKnownHostKeys :: DeleteKnownHostKeysResponse -> TestTree
@@ -2742,7 +2742,7 @@ responseDeleteKnownHostKeys =
   res
     "DeleteKnownHostKeysResponse"
     "fixture/DeleteKnownHostKeysResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteKnownHostKeys)
 
 responseAttachDisk :: AttachDiskResponse -> TestTree
@@ -2750,7 +2750,7 @@ responseAttachDisk =
   res
     "AttachDiskResponse"
     "fixture/AttachDiskResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy AttachDisk)
 
 responseDetachStaticIP :: DetachStaticIPResponse -> TestTree
@@ -2758,7 +2758,7 @@ responseDetachStaticIP =
   res
     "DetachStaticIPResponse"
     "fixture/DetachStaticIPResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DetachStaticIP)
 
 responseCreateInstances :: CreateInstancesResponse -> TestTree
@@ -2766,7 +2766,7 @@ responseCreateInstances =
   res
     "CreateInstancesResponse"
     "fixture/CreateInstancesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateInstances)
 
 responseGetAlarms :: GetAlarmsResponse -> TestTree
@@ -2774,7 +2774,7 @@ responseGetAlarms =
   res
     "GetAlarmsResponse"
     "fixture/GetAlarmsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetAlarms)
 
 responseOpenInstancePublicPorts :: OpenInstancePublicPortsResponse -> TestTree
@@ -2782,7 +2782,7 @@ responseOpenInstancePublicPorts =
   res
     "OpenInstancePublicPortsResponse"
     "fixture/OpenInstancePublicPortsResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy OpenInstancePublicPorts)
 
 responseStartRelationalDatabase :: StartRelationalDatabaseResponse -> TestTree
@@ -2790,7 +2790,7 @@ responseStartRelationalDatabase =
   res
     "StartRelationalDatabaseResponse"
     "fixture/StartRelationalDatabaseResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy StartRelationalDatabase)
 
 responseDeleteContainerImage :: DeleteContainerImageResponse -> TestTree
@@ -2798,7 +2798,7 @@ responseDeleteContainerImage =
   res
     "DeleteContainerImageResponse"
     "fixture/DeleteContainerImageResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteContainerImage)
 
 responseGetBundles :: GetBundlesResponse -> TestTree
@@ -2806,7 +2806,7 @@ responseGetBundles =
   res
     "GetBundlesResponse"
     "fixture/GetBundlesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetBundles)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
@@ -2814,7 +2814,7 @@ responseDeleteDomain =
   res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy DeleteDomain)
 
 responseGetLoadBalancerTLSCertificates :: GetLoadBalancerTLSCertificatesResponse -> TestTree
@@ -2822,7 +2822,7 @@ responseGetLoadBalancerTLSCertificates =
   res
     "GetLoadBalancerTLSCertificatesResponse"
     "fixture/GetLoadBalancerTLSCertificatesResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetLoadBalancerTLSCertificates)
 
 responseCreateDisk :: CreateDiskResponse -> TestTree
@@ -2830,7 +2830,7 @@ responseCreateDisk =
   res
     "CreateDiskResponse"
     "fixture/CreateDiskResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateDisk)
 
 responseGetOperationsForResource :: GetOperationsForResourceResponse -> TestTree
@@ -2838,7 +2838,7 @@ responseGetOperationsForResource =
   res
     "GetOperationsForResourceResponse"
     "fixture/GetOperationsForResourceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy GetOperationsForResource)
 
 responseCreateKeyPair :: CreateKeyPairResponse -> TestTree
@@ -2846,7 +2846,7 @@ responseCreateKeyPair =
   res
     "CreateKeyPairResponse"
     "fixture/CreateKeyPairResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy CreateKeyPair)
 
 responseStartInstance :: StartInstanceResponse -> TestTree
@@ -2854,5 +2854,5 @@ responseStartInstance =
   res
     "StartInstanceResponse"
     "fixture/StartInstanceResponse.proto"
-    lightsail
+    lightsailService
     (Proxy :: Proxy StartInstance)

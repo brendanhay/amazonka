@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Comprehend.Types.EntityRecognizerDocuments where
+module Network.AWS.Comprehend.Types.EntityRecognizerDocuments
+  ( EntityRecognizerDocuments (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkEntityRecognizerDocuments,
+
+    -- * Lenses
+    erdS3URI,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the training documents submitted with an entity recognizer.
 --
---
---
--- /See:/ 'entityRecognizerDocuments' smart constructor.
+-- /See:/ 'mkEntityRecognizerDocuments' smart constructor.
 newtype EntityRecognizerDocuments = EntityRecognizerDocuments'
-  { _erdS3URI ::
-      Text
+  { s3URI ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerDocuments' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'erdS3URI' - Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.
-entityRecognizerDocuments ::
-  -- | 'erdS3URI'
-  Text ->
+-- * 's3URI' - Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.
+mkEntityRecognizerDocuments ::
+  -- | 's3URI'
+  Lude.Text ->
   EntityRecognizerDocuments
-entityRecognizerDocuments pS3URI_ =
-  EntityRecognizerDocuments' {_erdS3URI = pS3URI_}
+mkEntityRecognizerDocuments pS3URI_ =
+  EntityRecognizerDocuments' {s3URI = pS3URI_}
 
 -- | Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.
-erdS3URI :: Lens' EntityRecognizerDocuments Text
-erdS3URI = lens _erdS3URI (\s a -> s {_erdS3URI = a})
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erdS3URI :: Lens.Lens' EntityRecognizerDocuments Lude.Text
+erdS3URI = Lens.lens (s3URI :: EntityRecognizerDocuments -> Lude.Text) (\s a -> s {s3URI = a} :: EntityRecognizerDocuments)
+{-# DEPRECATED erdS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
-instance FromJSON EntityRecognizerDocuments where
+instance Lude.FromJSON EntityRecognizerDocuments where
   parseJSON =
-    withObject
+    Lude.withObject
       "EntityRecognizerDocuments"
-      (\x -> EntityRecognizerDocuments' <$> (x .: "S3Uri"))
+      (\x -> EntityRecognizerDocuments' Lude.<$> (x Lude..: "S3Uri"))
 
-instance Hashable EntityRecognizerDocuments
-
-instance NFData EntityRecognizerDocuments
-
-instance ToJSON EntityRecognizerDocuments where
+instance Lude.ToJSON EntityRecognizerDocuments where
   toJSON EntityRecognizerDocuments' {..} =
-    object (catMaybes [Just ("S3Uri" .= _erdS3URI)])
+    Lude.object (Lude.catMaybes [Lude.Just ("S3Uri" Lude..= s3URI)])

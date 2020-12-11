@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,144 +14,163 @@
 --
 -- Retrieves a list that describes modifications to the configuration of Bring Your Own License (BYOL) for the specified account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.WorkSpaces.DescribeAccountModifications
-  ( -- * Creating a Request
-    describeAccountModifications,
-    DescribeAccountModifications,
+  ( -- * Creating a request
+    DescribeAccountModifications (..),
+    mkDescribeAccountModifications,
 
-    -- * Request Lenses
+    -- ** Request lenses
     damNextToken,
 
-    -- * Destructuring the Response
-    describeAccountModificationsResponse,
-    DescribeAccountModificationsResponse,
+    -- * Destructuring the response
+    DescribeAccountModificationsResponse (..),
+    mkDescribeAccountModificationsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     damrsAccountModifications,
     damrsNextToken,
     damrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
--- | /See:/ 'describeAccountModifications' smart constructor.
+-- | /See:/ 'mkDescribeAccountModifications' smart constructor.
 newtype DescribeAccountModifications = DescribeAccountModifications'
-  { _damNextToken ::
-      Maybe Text
+  { nextToken ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountModifications' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'damNextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-describeAccountModifications ::
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+mkDescribeAccountModifications ::
   DescribeAccountModifications
-describeAccountModifications =
-  DescribeAccountModifications' {_damNextToken = Nothing}
+mkDescribeAccountModifications =
+  DescribeAccountModifications' {nextToken = Lude.Nothing}
 
 -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-damNextToken :: Lens' DescribeAccountModifications (Maybe Text)
-damNextToken = lens _damNextToken (\s a -> s {_damNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damNextToken :: Lens.Lens' DescribeAccountModifications (Lude.Maybe Lude.Text)
+damNextToken = Lens.lens (nextToken :: DescribeAccountModifications -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAccountModifications)
+{-# DEPRECATED damNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance AWSPager DescribeAccountModifications where
+instance Page.AWSPager DescribeAccountModifications where
   page rq rs
-    | stop (rs ^. damrsNextToken) = Nothing
-    | stop (rs ^. damrsAccountModifications) = Nothing
-    | otherwise = Just $ rq & damNextToken .~ rs ^. damrsNextToken
+    | Page.stop (rs Lens.^. damrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. damrsAccountModifications) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& damNextToken Lens..~ rs Lens.^. damrsNextToken
 
-instance AWSRequest DescribeAccountModifications where
+instance Lude.AWSRequest DescribeAccountModifications where
   type
     Rs DescribeAccountModifications =
       DescribeAccountModificationsResponse
-  request = postJSON workSpaces
+  request = Req.postJSON workSpacesService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeAccountModificationsResponse'
-            <$> (x .?> "AccountModifications" .!@ mempty)
-            <*> (x .?> "NextToken")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "AccountModifications" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeAccountModifications
-
-instance NFData DescribeAccountModifications
-
-instance ToHeaders DescribeAccountModifications where
+instance Lude.ToHeaders DescribeAccountModifications where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("WorkspacesService.DescribeAccountModifications" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "WorkspacesService.DescribeAccountModifications" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeAccountModifications where
+instance Lude.ToJSON DescribeAccountModifications where
   toJSON DescribeAccountModifications' {..} =
-    object (catMaybes [("NextToken" .=) <$> _damNextToken])
+    Lude.object
+      (Lude.catMaybes [("NextToken" Lude..=) Lude.<$> nextToken])
 
-instance ToPath DescribeAccountModifications where
-  toPath = const "/"
+instance Lude.ToPath DescribeAccountModifications where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeAccountModifications where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeAccountModifications where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'describeAccountModificationsResponse' smart constructor.
+-- | /See:/ 'mkDescribeAccountModificationsResponse' smart constructor.
 data DescribeAccountModificationsResponse = DescribeAccountModificationsResponse'
-  { _damrsAccountModifications ::
-      !( Maybe
-           [AccountModification]
-       ),
-    _damrsNextToken ::
-      !(Maybe Text),
-    _damrsResponseStatus ::
-      !Int
+  { accountModifications ::
+      Lude.Maybe
+        [AccountModification],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountModificationsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'damrsAccountModifications' - The list of modifications to the configuration of BYOL.
---
--- * 'damrsNextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
---
--- * 'damrsResponseStatus' - -- | The response status code.
-describeAccountModificationsResponse ::
-  -- | 'damrsResponseStatus'
-  Int ->
+-- * 'accountModifications' - The list of modifications to the configuration of BYOL.
+-- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
+-- * 'responseStatus' - The response status code.
+mkDescribeAccountModificationsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeAccountModificationsResponse
-describeAccountModificationsResponse pResponseStatus_ =
+mkDescribeAccountModificationsResponse pResponseStatus_ =
   DescribeAccountModificationsResponse'
-    { _damrsAccountModifications =
-        Nothing,
-      _damrsNextToken = Nothing,
-      _damrsResponseStatus = pResponseStatus_
+    { accountModifications =
+        Lude.Nothing,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The list of modifications to the configuration of BYOL.
-damrsAccountModifications :: Lens' DescribeAccountModificationsResponse [AccountModification]
-damrsAccountModifications = lens _damrsAccountModifications (\s a -> s {_damrsAccountModifications = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'accountModifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damrsAccountModifications :: Lens.Lens' DescribeAccountModificationsResponse (Lude.Maybe [AccountModification])
+damrsAccountModifications = Lens.lens (accountModifications :: DescribeAccountModificationsResponse -> Lude.Maybe [AccountModification]) (\s a -> s {accountModifications = a} :: DescribeAccountModificationsResponse)
+{-# DEPRECATED damrsAccountModifications "Use generic-lens or generic-optics with 'accountModifications' instead." #-}
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
-damrsNextToken :: Lens' DescribeAccountModificationsResponse (Maybe Text)
-damrsNextToken = lens _damrsNextToken (\s a -> s {_damrsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damrsNextToken :: Lens.Lens' DescribeAccountModificationsResponse (Lude.Maybe Lude.Text)
+damrsNextToken = Lens.lens (nextToken :: DescribeAccountModificationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAccountModificationsResponse)
+{-# DEPRECATED damrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | -- | The response status code.
-damrsResponseStatus :: Lens' DescribeAccountModificationsResponse Int
-damrsResponseStatus = lens _damrsResponseStatus (\s a -> s {_damrsResponseStatus = a})
-
-instance NFData DescribeAccountModificationsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+damrsResponseStatus :: Lens.Lens' DescribeAccountModificationsResponse Lude.Int
+damrsResponseStatus = Lens.lens (responseStatus :: DescribeAccountModificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountModificationsResponse)
+{-# DEPRECATED damrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

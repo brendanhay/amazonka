@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,65 +7,80 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CodeSigningCertificateChain where
+module Network.AWS.IoT.Types.CodeSigningCertificateChain
+  ( CodeSigningCertificateChain (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkCodeSigningCertificateChain,
+
+    -- * Lenses
+    csccCertificateName,
+    csccInlineDocument,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the certificate chain being used when code signing a file.
 --
---
---
--- /See:/ 'codeSigningCertificateChain' smart constructor.
+-- /See:/ 'mkCodeSigningCertificateChain' smart constructor.
 data CodeSigningCertificateChain = CodeSigningCertificateChain'
-  { _csccCertificateName ::
-      !(Maybe Text),
-    _csccInlineDocument ::
-      !(Maybe Text)
+  { certificateName ::
+      Lude.Maybe Lude.Text,
+    inlineDocument ::
+      Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSigningCertificateChain' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csccCertificateName' - The name of the certificate.
---
--- * 'csccInlineDocument' - A base64 encoded binary representation of the code signing certificate chain.
-codeSigningCertificateChain ::
+-- * 'certificateName' - The name of the certificate.
+-- * 'inlineDocument' - A base64 encoded binary representation of the code signing certificate chain.
+mkCodeSigningCertificateChain ::
   CodeSigningCertificateChain
-codeSigningCertificateChain =
+mkCodeSigningCertificateChain =
   CodeSigningCertificateChain'
-    { _csccCertificateName = Nothing,
-      _csccInlineDocument = Nothing
+    { certificateName = Lude.Nothing,
+      inlineDocument = Lude.Nothing
     }
 
 -- | The name of the certificate.
-csccCertificateName :: Lens' CodeSigningCertificateChain (Maybe Text)
-csccCertificateName = lens _csccCertificateName (\s a -> s {_csccCertificateName = a})
+--
+-- /Note:/ Consider using 'certificateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csccCertificateName :: Lens.Lens' CodeSigningCertificateChain (Lude.Maybe Lude.Text)
+csccCertificateName = Lens.lens (certificateName :: CodeSigningCertificateChain -> Lude.Maybe Lude.Text) (\s a -> s {certificateName = a} :: CodeSigningCertificateChain)
+{-# DEPRECATED csccCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
 
 -- | A base64 encoded binary representation of the code signing certificate chain.
-csccInlineDocument :: Lens' CodeSigningCertificateChain (Maybe Text)
-csccInlineDocument = lens _csccInlineDocument (\s a -> s {_csccInlineDocument = a})
+--
+-- /Note:/ Consider using 'inlineDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csccInlineDocument :: Lens.Lens' CodeSigningCertificateChain (Lude.Maybe Lude.Text)
+csccInlineDocument = Lens.lens (inlineDocument :: CodeSigningCertificateChain -> Lude.Maybe Lude.Text) (\s a -> s {inlineDocument = a} :: CodeSigningCertificateChain)
+{-# DEPRECATED csccInlineDocument "Use generic-lens or generic-optics with 'inlineDocument' instead." #-}
 
-instance FromJSON CodeSigningCertificateChain where
+instance Lude.FromJSON CodeSigningCertificateChain where
   parseJSON =
-    withObject
+    Lude.withObject
       "CodeSigningCertificateChain"
       ( \x ->
           CodeSigningCertificateChain'
-            <$> (x .:? "certificateName") <*> (x .:? "inlineDocument")
+            Lude.<$> (x Lude..:? "certificateName")
+            Lude.<*> (x Lude..:? "inlineDocument")
       )
 
-instance Hashable CodeSigningCertificateChain
-
-instance NFData CodeSigningCertificateChain
-
-instance ToJSON CodeSigningCertificateChain where
+instance Lude.ToJSON CodeSigningCertificateChain where
   toJSON CodeSigningCertificateChain' {..} =
-    object
-      ( catMaybes
-          [ ("certificateName" .=) <$> _csccCertificateName,
-            ("inlineDocument" .=) <$> _csccInlineDocument
+    Lude.object
+      ( Lude.catMaybes
+          [ ("certificateName" Lude..=) Lude.<$> certificateName,
+            ("inlineDocument" Lude..=) Lude.<$> inlineDocument
           ]
       )

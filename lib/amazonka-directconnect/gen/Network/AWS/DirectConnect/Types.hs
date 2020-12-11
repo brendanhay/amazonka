@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types
-  ( -- * Service Configuration
-    directConnect,
+  ( -- * Service configuration
+    directConnectService,
 
     -- * Errors
 
@@ -61,16 +59,16 @@ module Network.AWS.DirectConnect.Types
     VirtualInterfaceState (..),
 
     -- * AssociatedGateway
-    AssociatedGateway,
-    associatedGateway,
+    AssociatedGateway (..),
+    mkAssociatedGateway,
     agId,
     agOwnerAccount,
     agRegion,
     agType,
 
     -- * BGPPeer
-    BGPPeer,
-    bgpPeer,
+    BGPPeer (..),
+    mkBGPPeer,
     bpCustomerAddress,
     bpAmazonAddress,
     bpAddressFamily,
@@ -82,8 +80,8 @@ module Network.AWS.DirectConnect.Types
     bpAwsDeviceV2,
 
     -- * Connection
-    Connection,
-    connection,
+    Connection (..),
+    mkConnection,
     cLagId,
     cVlan,
     cLocation,
@@ -103,13 +101,13 @@ module Network.AWS.DirectConnect.Types
     cTags,
 
     -- * Connections
-    Connections,
-    connections,
+    Connections (..),
+    mkConnections,
     cConnections,
 
     -- * DirectConnectGateway
-    DirectConnectGateway,
-    directConnectGateway,
+    DirectConnectGateway (..),
+    mkDirectConnectGateway,
     dcgDirectConnectGatewayId,
     dcgStateChangeError,
     dcgAmazonSideASN,
@@ -118,8 +116,8 @@ module Network.AWS.DirectConnect.Types
     dcgOwnerAccount,
 
     -- * DirectConnectGatewayAssociation
-    DirectConnectGatewayAssociation,
-    directConnectGatewayAssociation,
+    DirectConnectGatewayAssociation (..),
+    mkDirectConnectGatewayAssociation,
     dcgaVirtualGatewayId,
     dcgaAssociationId,
     dcgaDirectConnectGatewayId,
@@ -132,8 +130,8 @@ module Network.AWS.DirectConnect.Types
     dcgaAssociationState,
 
     -- * DirectConnectGatewayAssociationProposal
-    DirectConnectGatewayAssociationProposal,
-    directConnectGatewayAssociationProposal,
+    DirectConnectGatewayAssociationProposal (..),
+    mkDirectConnectGatewayAssociationProposal,
     dcgapExistingAllowedPrefixesToDirectConnectGateway,
     dcgapDirectConnectGatewayId,
     dcgapProposalId,
@@ -143,8 +141,8 @@ module Network.AWS.DirectConnect.Types
     dcgapRequestedAllowedPrefixesToDirectConnectGateway,
 
     -- * DirectConnectGatewayAttachment
-    DirectConnectGatewayAttachment,
-    directConnectGatewayAttachment,
+    DirectConnectGatewayAttachment (..),
+    mkDirectConnectGatewayAttachment,
     dDirectConnectGatewayId,
     dAttachmentState,
     dStateChangeError,
@@ -154,8 +152,8 @@ module Network.AWS.DirectConnect.Types
     dAttachmentType,
 
     -- * Interconnect
-    Interconnect,
-    interconnect,
+    Interconnect (..),
+    mkInterconnect,
     iLagId,
     iInterconnectId,
     iLocation,
@@ -172,8 +170,8 @@ module Network.AWS.DirectConnect.Types
     iTags,
 
     -- * Lag
-    Lag,
-    lag,
+    Lag (..),
+    mkLag,
     lagLagId,
     lagConnectionsBandwidth,
     lagMinimumLinks,
@@ -193,8 +191,8 @@ module Network.AWS.DirectConnect.Types
     lagTags,
 
     -- * Location
-    Location,
-    location,
+    Location (..),
+    mkLocation,
     lAvailablePortSpeeds,
     lLocationName,
     lLocationCode,
@@ -202,8 +200,8 @@ module Network.AWS.DirectConnect.Types
     lAvailableProviders,
 
     -- * NewBGPPeer
-    NewBGPPeer,
-    newBGPPeer,
+    NewBGPPeer (..),
+    mkNewBGPPeer,
     nbpCustomerAddress,
     nbpAmazonAddress,
     nbpAddressFamily,
@@ -211,8 +209,8 @@ module Network.AWS.DirectConnect.Types
     nbpAuthKey,
 
     -- * NewPrivateVirtualInterface
-    NewPrivateVirtualInterface,
-    newPrivateVirtualInterface,
+    NewPrivateVirtualInterface (..),
+    mkNewPrivateVirtualInterface,
     nVirtualGatewayId,
     nMtu,
     nCustomerAddress,
@@ -226,8 +224,8 @@ module Network.AWS.DirectConnect.Types
     nAsn,
 
     -- * NewPrivateVirtualInterfaceAllocation
-    NewPrivateVirtualInterfaceAllocation,
-    newPrivateVirtualInterfaceAllocation,
+    NewPrivateVirtualInterfaceAllocation (..),
+    mkNewPrivateVirtualInterfaceAllocation,
     npviaMtu,
     npviaCustomerAddress,
     npviaAmazonAddress,
@@ -239,8 +237,8 @@ module Network.AWS.DirectConnect.Types
     npviaAsn,
 
     -- * NewPublicVirtualInterface
-    NewPublicVirtualInterface,
-    newPublicVirtualInterface,
+    NewPublicVirtualInterface (..),
+    mkNewPublicVirtualInterface,
     npviRouteFilterPrefixes,
     npviCustomerAddress,
     npviAmazonAddress,
@@ -252,8 +250,8 @@ module Network.AWS.DirectConnect.Types
     npviAsn,
 
     -- * NewPublicVirtualInterfaceAllocation
-    NewPublicVirtualInterfaceAllocation,
-    newPublicVirtualInterfaceAllocation,
+    NewPublicVirtualInterfaceAllocation (..),
+    mkNewPublicVirtualInterfaceAllocation,
     newRouteFilterPrefixes,
     newCustomerAddress,
     newAmazonAddress,
@@ -265,8 +263,8 @@ module Network.AWS.DirectConnect.Types
     newAsn,
 
     -- * NewTransitVirtualInterface
-    NewTransitVirtualInterface,
-    newTransitVirtualInterface,
+    NewTransitVirtualInterface (..),
+    mkNewTransitVirtualInterface,
     ntviMtu,
     ntviCustomerAddress,
     ntviVlan,
@@ -279,8 +277,8 @@ module Network.AWS.DirectConnect.Types
     ntviTags,
 
     -- * NewTransitVirtualInterfaceAllocation
-    NewTransitVirtualInterfaceAllocation,
-    newTransitVirtualInterfaceAllocation,
+    NewTransitVirtualInterfaceAllocation (..),
+    mkNewTransitVirtualInterfaceAllocation,
     ntviaMtu,
     ntviaCustomerAddress,
     ntviaVlan,
@@ -292,31 +290,31 @@ module Network.AWS.DirectConnect.Types
     ntviaTags,
 
     -- * ResourceTag
-    ResourceTag,
-    resourceTag,
+    ResourceTag (..),
+    mkResourceTag,
     rtResourceARN,
     rtTags,
 
     -- * RouteFilterPrefix
-    RouteFilterPrefix,
-    routeFilterPrefix,
+    RouteFilterPrefix (..),
+    mkRouteFilterPrefix,
     rfpCidr,
 
     -- * Tag
-    Tag,
-    tag,
-    tagValue,
-    tagKey,
+    Tag (..),
+    mkTag,
+    tValue,
+    tKey,
 
     -- * VirtualGateway
-    VirtualGateway,
-    virtualGateway,
+    VirtualGateway (..),
+    mkVirtualGateway,
     vgVirtualGatewayId,
     vgVirtualGatewayState,
 
     -- * VirtualInterface
-    VirtualInterface,
-    virtualInterface,
+    VirtualInterface (..),
+    mkVirtualInterface,
     viBgpPeers,
     viVirtualGatewayId,
     viMtu,
@@ -343,8 +341,8 @@ module Network.AWS.DirectConnect.Types
     viTags,
 
     -- * VirtualInterfaceTestHistory
-    VirtualInterfaceTestHistory,
-    virtualInterfaceTestHistory,
+    VirtualInterfaceTestHistory (..),
+    mkVirtualInterfaceTestHistory,
     vithBgpPeers,
     vithStatus,
     vithTestDurationInMinutes,
@@ -395,48 +393,60 @@ import Network.AWS.DirectConnect.Types.VirtualGateway
 import Network.AWS.DirectConnect.Types.VirtualInterface
 import Network.AWS.DirectConnect.Types.VirtualInterfaceState
 import Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-10-25@ of the Amazon Direct Connect SDK configuration.
-directConnect :: Service
-directConnect =
-  Service
-    { _svcAbbrev = "DirectConnect",
-      _svcSigner = v4,
-      _svcPrefix = "directconnect",
-      _svcVersion = "2012-10-25",
-      _svcEndpoint = defaultEndpoint directConnect,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "DirectConnect",
-      _svcRetry = retry
+directConnectService :: Lude.Service
+directConnectService =
+  Lude.Service
+    { Lude._svcAbbrev = "DirectConnect",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "directconnect",
+      Lude._svcVersion = "2012-10-25",
+      Lude._svcEndpoint = Lude.defaultEndpoint directConnectService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "DirectConnect",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

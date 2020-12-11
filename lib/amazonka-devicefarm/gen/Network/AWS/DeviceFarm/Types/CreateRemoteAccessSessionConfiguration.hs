@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,62 +7,74 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration where
+module Network.AWS.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration
+  ( CreateRemoteAccessSessionConfiguration (..),
+
+    -- * Smart constructor
+    mkCreateRemoteAccessSessionConfiguration,
+
+    -- * Lenses
+    crascBillingMethod,
+    crascVpceConfigurationARNs,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types.BillingMethod
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration settings for a remote access session, including billing method.
 --
---
---
--- /See:/ 'createRemoteAccessSessionConfiguration' smart constructor.
+-- /See:/ 'mkCreateRemoteAccessSessionConfiguration' smart constructor.
 data CreateRemoteAccessSessionConfiguration = CreateRemoteAccessSessionConfiguration'
-  { _crascBillingMethod ::
-      !( Maybe
-           BillingMethod
-       ),
-    _crascVpceConfigurationARNs ::
-      !( Maybe
-           [Text]
-       )
+  { billingMethod ::
+      Lude.Maybe
+        BillingMethod,
+    vpceConfigurationARNs ::
+      Lude.Maybe
+        [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRemoteAccessSessionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crascBillingMethod' - The billing method for the remote access session.
---
--- * 'crascVpceConfigurationARNs' - An array of ARNs included in the VPC endpoint configuration.
-createRemoteAccessSessionConfiguration ::
+-- * 'billingMethod' - The billing method for the remote access session.
+-- * 'vpceConfigurationARNs' - An array of ARNs included in the VPC endpoint configuration.
+mkCreateRemoteAccessSessionConfiguration ::
   CreateRemoteAccessSessionConfiguration
-createRemoteAccessSessionConfiguration =
+mkCreateRemoteAccessSessionConfiguration =
   CreateRemoteAccessSessionConfiguration'
-    { _crascBillingMethod =
-        Nothing,
-      _crascVpceConfigurationARNs = Nothing
+    { billingMethod =
+        Lude.Nothing,
+      vpceConfigurationARNs = Lude.Nothing
     }
 
 -- | The billing method for the remote access session.
-crascBillingMethod :: Lens' CreateRemoteAccessSessionConfiguration (Maybe BillingMethod)
-crascBillingMethod = lens _crascBillingMethod (\s a -> s {_crascBillingMethod = a})
+--
+-- /Note:/ Consider using 'billingMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crascBillingMethod :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Lude.Maybe BillingMethod)
+crascBillingMethod = Lens.lens (billingMethod :: CreateRemoteAccessSessionConfiguration -> Lude.Maybe BillingMethod) (\s a -> s {billingMethod = a} :: CreateRemoteAccessSessionConfiguration)
+{-# DEPRECATED crascBillingMethod "Use generic-lens or generic-optics with 'billingMethod' instead." #-}
 
 -- | An array of ARNs included in the VPC endpoint configuration.
-crascVpceConfigurationARNs :: Lens' CreateRemoteAccessSessionConfiguration [Text]
-crascVpceConfigurationARNs = lens _crascVpceConfigurationARNs (\s a -> s {_crascVpceConfigurationARNs = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpceConfigurationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crascVpceConfigurationARNs :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Lude.Maybe [Lude.Text])
+crascVpceConfigurationARNs = Lens.lens (vpceConfigurationARNs :: CreateRemoteAccessSessionConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {vpceConfigurationARNs = a} :: CreateRemoteAccessSessionConfiguration)
+{-# DEPRECATED crascVpceConfigurationARNs "Use generic-lens or generic-optics with 'vpceConfigurationARNs' instead." #-}
 
-instance Hashable CreateRemoteAccessSessionConfiguration
-
-instance NFData CreateRemoteAccessSessionConfiguration
-
-instance ToJSON CreateRemoteAccessSessionConfiguration where
+instance Lude.ToJSON CreateRemoteAccessSessionConfiguration where
   toJSON CreateRemoteAccessSessionConfiguration' {..} =
-    object
-      ( catMaybes
-          [ ("billingMethod" .=) <$> _crascBillingMethod,
-            ("vpceConfigurationArns" .=) <$> _crascVpceConfigurationARNs
+    Lude.object
+      ( Lude.catMaybes
+          [ ("billingMethod" Lude..=) Lude.<$> billingMethod,
+            ("vpceConfigurationArns" Lude..=) Lude.<$> vpceConfigurationARNs
           ]
       )

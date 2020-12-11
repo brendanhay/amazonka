@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,79 +7,102 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Config.Types.ConformancePackEvaluationFilters where
+module Network.AWS.Config.Types.ConformancePackEvaluationFilters
+  ( ConformancePackEvaluationFilters (..),
+
+    -- * Smart constructor
+    mkConformancePackEvaluationFilters,
+
+    -- * Lenses
+    cpefResourceIds,
+    cpefResourceType,
+    cpefConfigRuleNames,
+    cpefComplianceType,
+  )
+where
 
 import Network.AWS.Config.Types.ConformancePackComplianceType
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Filters a conformance pack by AWS Config rule names, compliance types, AWS resource types, and resource IDs.
 --
---
---
--- /See:/ 'conformancePackEvaluationFilters' smart constructor.
+-- /See:/ 'mkConformancePackEvaluationFilters' smart constructor.
 data ConformancePackEvaluationFilters = ConformancePackEvaluationFilters'
-  { _cpefResourceIds ::
-      !(Maybe [Text]),
-    _cpefResourceType ::
-      !(Maybe Text),
-    _cpefConfigRuleNames ::
-      !(Maybe [Text]),
-    _cpefComplianceType ::
-      !( Maybe
-           ConformancePackComplianceType
-       )
+  { resourceIds ::
+      Lude.Maybe [Lude.Text],
+    resourceType ::
+      Lude.Maybe Lude.Text,
+    configRuleNames ::
+      Lude.Maybe [Lude.Text],
+    complianceType ::
+      Lude.Maybe
+        ConformancePackComplianceType
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConformancePackEvaluationFilters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'complianceType' - Filters the results by compliance.
 --
--- * 'cpefResourceIds' - Filters the results by resource IDs.
---
--- * 'cpefResourceType' - Filters the results by the resource type (for example, @"AWS::EC2::Instance"@ ).
---
--- * 'cpefConfigRuleNames' - Filters the results by AWS Config rule names.
---
--- * 'cpefComplianceType' - Filters the results by compliance. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
-conformancePackEvaluationFilters ::
+-- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
+-- * 'configRuleNames' - Filters the results by AWS Config rule names.
+-- * 'resourceIds' - Filters the results by resource IDs.
+-- * 'resourceType' - Filters the results by the resource type (for example, @"AWS::EC2::Instance"@ ).
+mkConformancePackEvaluationFilters ::
   ConformancePackEvaluationFilters
-conformancePackEvaluationFilters =
+mkConformancePackEvaluationFilters =
   ConformancePackEvaluationFilters'
-    { _cpefResourceIds = Nothing,
-      _cpefResourceType = Nothing,
-      _cpefConfigRuleNames = Nothing,
-      _cpefComplianceType = Nothing
+    { resourceIds = Lude.Nothing,
+      resourceType = Lude.Nothing,
+      configRuleNames = Lude.Nothing,
+      complianceType = Lude.Nothing
     }
 
 -- | Filters the results by resource IDs.
-cpefResourceIds :: Lens' ConformancePackEvaluationFilters [Text]
-cpefResourceIds = lens _cpefResourceIds (\s a -> s {_cpefResourceIds = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'resourceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpefResourceIds :: Lens.Lens' ConformancePackEvaluationFilters (Lude.Maybe [Lude.Text])
+cpefResourceIds = Lens.lens (resourceIds :: ConformancePackEvaluationFilters -> Lude.Maybe [Lude.Text]) (\s a -> s {resourceIds = a} :: ConformancePackEvaluationFilters)
+{-# DEPRECATED cpefResourceIds "Use generic-lens or generic-optics with 'resourceIds' instead." #-}
 
 -- | Filters the results by the resource type (for example, @"AWS::EC2::Instance"@ ).
-cpefResourceType :: Lens' ConformancePackEvaluationFilters (Maybe Text)
-cpefResourceType = lens _cpefResourceType (\s a -> s {_cpefResourceType = a})
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpefResourceType :: Lens.Lens' ConformancePackEvaluationFilters (Lude.Maybe Lude.Text)
+cpefResourceType = Lens.lens (resourceType :: ConformancePackEvaluationFilters -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: ConformancePackEvaluationFilters)
+{-# DEPRECATED cpefResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Filters the results by AWS Config rule names.
-cpefConfigRuleNames :: Lens' ConformancePackEvaluationFilters [Text]
-cpefConfigRuleNames = lens _cpefConfigRuleNames (\s a -> s {_cpefConfigRuleNames = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'configRuleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpefConfigRuleNames :: Lens.Lens' ConformancePackEvaluationFilters (Lude.Maybe [Lude.Text])
+cpefConfigRuleNames = Lens.lens (configRuleNames :: ConformancePackEvaluationFilters -> Lude.Maybe [Lude.Text]) (\s a -> s {configRuleNames = a} :: ConformancePackEvaluationFilters)
+{-# DEPRECATED cpefConfigRuleNames "Use generic-lens or generic-optics with 'configRuleNames' instead." #-}
 
--- | Filters the results by compliance. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
-cpefComplianceType :: Lens' ConformancePackEvaluationFilters (Maybe ConformancePackComplianceType)
-cpefComplianceType = lens _cpefComplianceType (\s a -> s {_cpefComplianceType = a})
+-- | Filters the results by compliance.
+--
+-- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
+--
+-- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpefComplianceType :: Lens.Lens' ConformancePackEvaluationFilters (Lude.Maybe ConformancePackComplianceType)
+cpefComplianceType = Lens.lens (complianceType :: ConformancePackEvaluationFilters -> Lude.Maybe ConformancePackComplianceType) (\s a -> s {complianceType = a} :: ConformancePackEvaluationFilters)
+{-# DEPRECATED cpefComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
-instance Hashable ConformancePackEvaluationFilters
-
-instance NFData ConformancePackEvaluationFilters
-
-instance ToJSON ConformancePackEvaluationFilters where
+instance Lude.ToJSON ConformancePackEvaluationFilters where
   toJSON ConformancePackEvaluationFilters' {..} =
-    object
-      ( catMaybes
-          [ ("ResourceIds" .=) <$> _cpefResourceIds,
-            ("ResourceType" .=) <$> _cpefResourceType,
-            ("ConfigRuleNames" .=) <$> _cpefConfigRuleNames,
-            ("ComplianceType" .=) <$> _cpefComplianceType
+    Lude.object
+      ( Lude.catMaybes
+          [ ("ResourceIds" Lude..=) Lude.<$> resourceIds,
+            ("ResourceType" Lude..=) Lude.<$> resourceType,
+            ("ConfigRuleNames" Lude..=) Lude.<$> configRuleNames,
+            ("ComplianceType" Lude..=) Lude.<$> complianceType
           ]
       )

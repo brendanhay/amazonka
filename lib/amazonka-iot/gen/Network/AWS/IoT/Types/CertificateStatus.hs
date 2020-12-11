@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.CertificateStatus where
+module Network.AWS.IoT.Types.CertificateStatus
+  ( CertificateStatus
+      ( CertificateStatus',
+        CSActive,
+        CSInactive,
+        CSPendingActivation,
+        CSPendingTransfer,
+        CSRegisterInactive,
+        CSRevoked
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CertificateStatus
-  = CSActive
-  | CSInactive
-  | CSPendingActivation
-  | CSPendingTransfer
-  | CSRegisterInactive
-  | CSRevoked
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CertificateStatus = CertificateStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CertificateStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure CSActive
-      "inactive" -> pure CSInactive
-      "pending_activation" -> pure CSPendingActivation
-      "pending_transfer" -> pure CSPendingTransfer
-      "register_inactive" -> pure CSRegisterInactive
-      "revoked" -> pure CSRevoked
-      e ->
-        fromTextError $
-          "Failure parsing CertificateStatus from value: '" <> e
-            <> "'. Accepted values: active, inactive, pending_activation, pending_transfer, register_inactive, revoked"
+pattern CSActive :: CertificateStatus
+pattern CSActive = CertificateStatus' "ACTIVE"
 
-instance ToText CertificateStatus where
-  toText = \case
-    CSActive -> "ACTIVE"
-    CSInactive -> "INACTIVE"
-    CSPendingActivation -> "PENDING_ACTIVATION"
-    CSPendingTransfer -> "PENDING_TRANSFER"
-    CSRegisterInactive -> "REGISTER_INACTIVE"
-    CSRevoked -> "REVOKED"
+pattern CSInactive :: CertificateStatus
+pattern CSInactive = CertificateStatus' "INACTIVE"
 
-instance Hashable CertificateStatus
+pattern CSPendingActivation :: CertificateStatus
+pattern CSPendingActivation = CertificateStatus' "PENDING_ACTIVATION"
 
-instance NFData CertificateStatus
+pattern CSPendingTransfer :: CertificateStatus
+pattern CSPendingTransfer = CertificateStatus' "PENDING_TRANSFER"
 
-instance ToByteString CertificateStatus
+pattern CSRegisterInactive :: CertificateStatus
+pattern CSRegisterInactive = CertificateStatus' "REGISTER_INACTIVE"
 
-instance ToQuery CertificateStatus
+pattern CSRevoked :: CertificateStatus
+pattern CSRevoked = CertificateStatus' "REVOKED"
 
-instance ToHeader CertificateStatus
-
-instance ToJSON CertificateStatus where
-  toJSON = toJSONText
-
-instance FromJSON CertificateStatus where
-  parseJSON = parseJSONText "CertificateStatus"
+{-# COMPLETE
+  CSActive,
+  CSInactive,
+  CSPendingActivation,
+  CSPendingTransfer,
+  CSRegisterInactive,
+  CSRevoked,
+  CertificateStatus'
+  #-}

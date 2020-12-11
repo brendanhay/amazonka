@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,134 @@
 --
 -- Deletes an Amazon SageMaker experiment. All trials associated with the experiment must be deleted first. Use the 'ListTrials' API to get a list of the trials associated with the experiment.
 module Network.AWS.SageMaker.DeleteExperiment
-  ( -- * Creating a Request
-    deleteExperiment,
-    DeleteExperiment,
+  ( -- * Creating a request
+    DeleteExperiment (..),
+    mkDeleteExperiment,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dExperimentName,
 
-    -- * Destructuring the Response
-    deleteExperimentResponse,
-    DeleteExperimentResponse,
+    -- * Destructuring the response
+    DeleteExperimentResponse (..),
+    mkDeleteExperimentResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     delersExperimentARN,
     delersResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
--- | /See:/ 'deleteExperiment' smart constructor.
+-- | /See:/ 'mkDeleteExperiment' smart constructor.
 newtype DeleteExperiment = DeleteExperiment'
-  { _dExperimentName ::
-      Text
+  { experimentName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteExperiment' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dExperimentName' - The name of the experiment to delete.
-deleteExperiment ::
-  -- | 'dExperimentName'
-  Text ->
+-- * 'experimentName' - The name of the experiment to delete.
+mkDeleteExperiment ::
+  -- | 'experimentName'
+  Lude.Text ->
   DeleteExperiment
-deleteExperiment pExperimentName_ =
-  DeleteExperiment' {_dExperimentName = pExperimentName_}
+mkDeleteExperiment pExperimentName_ =
+  DeleteExperiment' {experimentName = pExperimentName_}
 
 -- | The name of the experiment to delete.
-dExperimentName :: Lens' DeleteExperiment Text
-dExperimentName = lens _dExperimentName (\s a -> s {_dExperimentName = a})
+--
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dExperimentName :: Lens.Lens' DeleteExperiment Lude.Text
+dExperimentName = Lens.lens (experimentName :: DeleteExperiment -> Lude.Text) (\s a -> s {experimentName = a} :: DeleteExperiment)
+{-# DEPRECATED dExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
-instance AWSRequest DeleteExperiment where
+instance Lude.AWSRequest DeleteExperiment where
   type Rs DeleteExperiment = DeleteExperimentResponse
-  request = postJSON sageMaker
+  request = Req.postJSON sageMakerService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeleteExperimentResponse'
-            <$> (x .?> "ExperimentArn") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ExperimentArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeleteExperiment
-
-instance NFData DeleteExperiment
-
-instance ToHeaders DeleteExperiment where
+instance Lude.ToHeaders DeleteExperiment where
   toHeaders =
-    const
-      ( mconcat
-          [ "X-Amz-Target" =# ("SageMaker.DeleteExperiment" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.const
+      ( Lude.mconcat
+          [ "X-Amz-Target"
+              Lude.=# ("SageMaker.DeleteExperiment" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteExperiment where
+instance Lude.ToJSON DeleteExperiment where
   toJSON DeleteExperiment' {..} =
-    object (catMaybes [Just ("ExperimentName" .= _dExperimentName)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ExperimentName" Lude..= experimentName)]
+      )
 
-instance ToPath DeleteExperiment where
-  toPath = const "/"
+instance Lude.ToPath DeleteExperiment where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteExperiment where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteExperiment where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteExperimentResponse' smart constructor.
+-- | /See:/ 'mkDeleteExperimentResponse' smart constructor.
 data DeleteExperimentResponse = DeleteExperimentResponse'
-  { _delersExperimentARN ::
-      !(Maybe Text),
-    _delersResponseStatus :: !Int
+  { experimentARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteExperimentResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'delersExperimentARN' - The Amazon Resource Name (ARN) of the experiment that is being deleted.
---
--- * 'delersResponseStatus' - -- | The response status code.
-deleteExperimentResponse ::
-  -- | 'delersResponseStatus'
-  Int ->
+-- * 'experimentARN' - The Amazon Resource Name (ARN) of the experiment that is being deleted.
+-- * 'responseStatus' - The response status code.
+mkDeleteExperimentResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteExperimentResponse
-deleteExperimentResponse pResponseStatus_ =
+mkDeleteExperimentResponse pResponseStatus_ =
   DeleteExperimentResponse'
-    { _delersExperimentARN = Nothing,
-      _delersResponseStatus = pResponseStatus_
+    { experimentARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the experiment that is being deleted.
-delersExperimentARN :: Lens' DeleteExperimentResponse (Maybe Text)
-delersExperimentARN = lens _delersExperimentARN (\s a -> s {_delersExperimentARN = a})
+--
+-- /Note:/ Consider using 'experimentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delersExperimentARN :: Lens.Lens' DeleteExperimentResponse (Lude.Maybe Lude.Text)
+delersExperimentARN = Lens.lens (experimentARN :: DeleteExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {experimentARN = a} :: DeleteExperimentResponse)
+{-# DEPRECATED delersExperimentARN "Use generic-lens or generic-optics with 'experimentARN' instead." #-}
 
--- | -- | The response status code.
-delersResponseStatus :: Lens' DeleteExperimentResponse Int
-delersResponseStatus = lens _delersResponseStatus (\s a -> s {_delersResponseStatus = a})
-
-instance NFData DeleteExperimentResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+delersResponseStatus :: Lens.Lens' DeleteExperimentResponse Lude.Int
+delersResponseStatus = Lens.lens (responseStatus :: DeleteExperimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteExperimentResponse)
+{-# DEPRECATED delersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

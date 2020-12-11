@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +14,19 @@
 --
 -- Retrieves information about a data store.
 module Network.AWS.IoTAnalytics.DescribeDatastore
-  ( -- * Creating a Request
-    describeDatastore,
-    DescribeDatastore,
+  ( -- * Creating a request
+    DescribeDatastore (..),
+    mkDescribeDatastore,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dIncludeStatistics,
     dDatastoreName,
 
-    -- * Destructuring the Response
-    describeDatastoreResponse,
-    DescribeDatastoreResponse,
+    -- * Destructuring the response
+    DescribeDatastoreResponse (..),
+    mkDescribeDatastoreResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     drsDatastore,
     drsStatistics,
     drsResponseStatus,
@@ -39,111 +34,127 @@ module Network.AWS.IoTAnalytics.DescribeDatastore
 where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeDatastore' smart constructor.
+-- | /See:/ 'mkDescribeDatastore' smart constructor.
 data DescribeDatastore = DescribeDatastore'
-  { _dIncludeStatistics ::
-      !(Maybe Bool),
-    _dDatastoreName :: !Text
+  { includeStatistics ::
+      Lude.Maybe Lude.Bool,
+    datastoreName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDatastore' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dIncludeStatistics' - If true, additional statistical information about the data store is included in the response. This feature cannot be used with a data store whose S3 storage is customer-managed.
---
--- * 'dDatastoreName' - The name of the data store
-describeDatastore ::
-  -- | 'dDatastoreName'
-  Text ->
+-- * 'datastoreName' - The name of the data store
+-- * 'includeStatistics' - If true, additional statistical information about the data store is included in the response. This feature cannot be used with a data store whose S3 storage is customer-managed.
+mkDescribeDatastore ::
+  -- | 'datastoreName'
+  Lude.Text ->
   DescribeDatastore
-describeDatastore pDatastoreName_ =
+mkDescribeDatastore pDatastoreName_ =
   DescribeDatastore'
-    { _dIncludeStatistics = Nothing,
-      _dDatastoreName = pDatastoreName_
+    { includeStatistics = Lude.Nothing,
+      datastoreName = pDatastoreName_
     }
 
 -- | If true, additional statistical information about the data store is included in the response. This feature cannot be used with a data store whose S3 storage is customer-managed.
-dIncludeStatistics :: Lens' DescribeDatastore (Maybe Bool)
-dIncludeStatistics = lens _dIncludeStatistics (\s a -> s {_dIncludeStatistics = a})
+--
+-- /Note:/ Consider using 'includeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dIncludeStatistics :: Lens.Lens' DescribeDatastore (Lude.Maybe Lude.Bool)
+dIncludeStatistics = Lens.lens (includeStatistics :: DescribeDatastore -> Lude.Maybe Lude.Bool) (\s a -> s {includeStatistics = a} :: DescribeDatastore)
+{-# DEPRECATED dIncludeStatistics "Use generic-lens or generic-optics with 'includeStatistics' instead." #-}
 
 -- | The name of the data store
-dDatastoreName :: Lens' DescribeDatastore Text
-dDatastoreName = lens _dDatastoreName (\s a -> s {_dDatastoreName = a})
+--
+-- /Note:/ Consider using 'datastoreName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDatastoreName :: Lens.Lens' DescribeDatastore Lude.Text
+dDatastoreName = Lens.lens (datastoreName :: DescribeDatastore -> Lude.Text) (\s a -> s {datastoreName = a} :: DescribeDatastore)
+{-# DEPRECATED dDatastoreName "Use generic-lens or generic-optics with 'datastoreName' instead." #-}
 
-instance AWSRequest DescribeDatastore where
+instance Lude.AWSRequest DescribeDatastore where
   type Rs DescribeDatastore = DescribeDatastoreResponse
-  request = get ioTAnalytics
+  request = Req.get ioTAnalyticsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DescribeDatastoreResponse'
-            <$> (x .?> "datastore")
-            <*> (x .?> "statistics")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "datastore")
+            Lude.<*> (x Lude..?> "statistics")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeDatastore
+instance Lude.ToHeaders DescribeDatastore where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeDatastore
-
-instance ToHeaders DescribeDatastore where
-  toHeaders = const mempty
-
-instance ToPath DescribeDatastore where
+instance Lude.ToPath DescribeDatastore where
   toPath DescribeDatastore' {..} =
-    mconcat ["/datastores/", toBS _dDatastoreName]
+    Lude.mconcat ["/datastores/", Lude.toBS datastoreName]
 
-instance ToQuery DescribeDatastore where
+instance Lude.ToQuery DescribeDatastore where
   toQuery DescribeDatastore' {..} =
-    mconcat ["includeStatistics" =: _dIncludeStatistics]
+    Lude.mconcat ["includeStatistics" Lude.=: includeStatistics]
 
--- | /See:/ 'describeDatastoreResponse' smart constructor.
+-- | /See:/ 'mkDescribeDatastoreResponse' smart constructor.
 data DescribeDatastoreResponse = DescribeDatastoreResponse'
-  { _drsDatastore ::
-      !(Maybe Datastore),
-    _drsStatistics ::
-      !(Maybe DatastoreStatistics),
-    _drsResponseStatus :: !Int
+  { datastore ::
+      Lude.Maybe Datastore,
+    statistics ::
+      Lude.Maybe DatastoreStatistics,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDatastoreResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drsDatastore' - Information about the data store.
---
--- * 'drsStatistics' - Additional statistical information about the data store. Included if the @includeStatistics@ parameter is set to @true@ in the request.
---
--- * 'drsResponseStatus' - -- | The response status code.
-describeDatastoreResponse ::
-  -- | 'drsResponseStatus'
-  Int ->
+-- * 'datastore' - Information about the data store.
+-- * 'responseStatus' - The response status code.
+-- * 'statistics' - Additional statistical information about the data store. Included if the @includeStatistics@ parameter is set to @true@ in the request.
+mkDescribeDatastoreResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDatastoreResponse
-describeDatastoreResponse pResponseStatus_ =
+mkDescribeDatastoreResponse pResponseStatus_ =
   DescribeDatastoreResponse'
-    { _drsDatastore = Nothing,
-      _drsStatistics = Nothing,
-      _drsResponseStatus = pResponseStatus_
+    { datastore = Lude.Nothing,
+      statistics = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | Information about the data store.
-drsDatastore :: Lens' DescribeDatastoreResponse (Maybe Datastore)
-drsDatastore = lens _drsDatastore (\s a -> s {_drsDatastore = a})
+--
+-- /Note:/ Consider using 'datastore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsDatastore :: Lens.Lens' DescribeDatastoreResponse (Lude.Maybe Datastore)
+drsDatastore = Lens.lens (datastore :: DescribeDatastoreResponse -> Lude.Maybe Datastore) (\s a -> s {datastore = a} :: DescribeDatastoreResponse)
+{-# DEPRECATED drsDatastore "Use generic-lens or generic-optics with 'datastore' instead." #-}
 
 -- | Additional statistical information about the data store. Included if the @includeStatistics@ parameter is set to @true@ in the request.
-drsStatistics :: Lens' DescribeDatastoreResponse (Maybe DatastoreStatistics)
-drsStatistics = lens _drsStatistics (\s a -> s {_drsStatistics = a})
+--
+-- /Note:/ Consider using 'statistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsStatistics :: Lens.Lens' DescribeDatastoreResponse (Lude.Maybe DatastoreStatistics)
+drsStatistics = Lens.lens (statistics :: DescribeDatastoreResponse -> Lude.Maybe DatastoreStatistics) (\s a -> s {statistics = a} :: DescribeDatastoreResponse)
+{-# DEPRECATED drsStatistics "Use generic-lens or generic-optics with 'statistics' instead." #-}
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeDatastoreResponse Int
-drsResponseStatus = lens _drsResponseStatus (\s a -> s {_drsResponseStatus = a})
-
-instance NFData DescribeDatastoreResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeDatastoreResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeDatastoreResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDatastoreResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

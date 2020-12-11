@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,174 +14,190 @@
 --
 -- Removes a target from a maintenance window.
 module Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
-  ( -- * Creating a Request
-    deregisterTargetFromMaintenanceWindow,
-    DeregisterTargetFromMaintenanceWindow,
+  ( -- * Creating a request
+    DeregisterTargetFromMaintenanceWindow (..),
+    mkDeregisterTargetFromMaintenanceWindow,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dtfmwSafe,
     dtfmwWindowId,
     dtfmwWindowTargetId,
 
-    -- * Destructuring the Response
-    deregisterTargetFromMaintenanceWindowResponse,
-    DeregisterTargetFromMaintenanceWindowResponse,
+    -- * Destructuring the response
+    DeregisterTargetFromMaintenanceWindowResponse (..),
+    mkDeregisterTargetFromMaintenanceWindowResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dtfmwrsWindowTargetId,
     dtfmwrsWindowId,
     dtfmwrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
--- | /See:/ 'deregisterTargetFromMaintenanceWindow' smart constructor.
+-- | /See:/ 'mkDeregisterTargetFromMaintenanceWindow' smart constructor.
 data DeregisterTargetFromMaintenanceWindow = DeregisterTargetFromMaintenanceWindow'
-  { _dtfmwSafe ::
-      !(Maybe Bool),
-    _dtfmwWindowId ::
-      !Text,
-    _dtfmwWindowTargetId ::
-      !Text
+  { safe ::
+      Lude.Maybe
+        Lude.Bool,
+    windowId ::
+      Lude.Text,
+    windowTargetId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTargetFromMaintenanceWindow' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtfmwSafe' - The system checks if the target is being referenced by a task. If the target is being referenced, the system returns an error and does not deregister the target from the maintenance window.
---
--- * 'dtfmwWindowId' - The ID of the maintenance window the target should be removed from.
---
--- * 'dtfmwWindowTargetId' - The ID of the target definition to remove.
-deregisterTargetFromMaintenanceWindow ::
-  -- | 'dtfmwWindowId'
-  Text ->
-  -- | 'dtfmwWindowTargetId'
-  Text ->
+-- * 'safe' - The system checks if the target is being referenced by a task. If the target is being referenced, the system returns an error and does not deregister the target from the maintenance window.
+-- * 'windowId' - The ID of the maintenance window the target should be removed from.
+-- * 'windowTargetId' - The ID of the target definition to remove.
+mkDeregisterTargetFromMaintenanceWindow ::
+  -- | 'windowId'
+  Lude.Text ->
+  -- | 'windowTargetId'
+  Lude.Text ->
   DeregisterTargetFromMaintenanceWindow
-deregisterTargetFromMaintenanceWindow pWindowId_ pWindowTargetId_ =
+mkDeregisterTargetFromMaintenanceWindow pWindowId_ pWindowTargetId_ =
   DeregisterTargetFromMaintenanceWindow'
-    { _dtfmwSafe = Nothing,
-      _dtfmwWindowId = pWindowId_,
-      _dtfmwWindowTargetId = pWindowTargetId_
+    { safe = Lude.Nothing,
+      windowId = pWindowId_,
+      windowTargetId = pWindowTargetId_
     }
 
 -- | The system checks if the target is being referenced by a task. If the target is being referenced, the system returns an error and does not deregister the target from the maintenance window.
-dtfmwSafe :: Lens' DeregisterTargetFromMaintenanceWindow (Maybe Bool)
-dtfmwSafe = lens _dtfmwSafe (\s a -> s {_dtfmwSafe = a})
+--
+-- /Note:/ Consider using 'safe' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfmwSafe :: Lens.Lens' DeregisterTargetFromMaintenanceWindow (Lude.Maybe Lude.Bool)
+dtfmwSafe = Lens.lens (safe :: DeregisterTargetFromMaintenanceWindow -> Lude.Maybe Lude.Bool) (\s a -> s {safe = a} :: DeregisterTargetFromMaintenanceWindow)
+{-# DEPRECATED dtfmwSafe "Use generic-lens or generic-optics with 'safe' instead." #-}
 
 -- | The ID of the maintenance window the target should be removed from.
-dtfmwWindowId :: Lens' DeregisterTargetFromMaintenanceWindow Text
-dtfmwWindowId = lens _dtfmwWindowId (\s a -> s {_dtfmwWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfmwWindowId :: Lens.Lens' DeregisterTargetFromMaintenanceWindow Lude.Text
+dtfmwWindowId = Lens.lens (windowId :: DeregisterTargetFromMaintenanceWindow -> Lude.Text) (\s a -> s {windowId = a} :: DeregisterTargetFromMaintenanceWindow)
+{-# DEPRECATED dtfmwWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 -- | The ID of the target definition to remove.
-dtfmwWindowTargetId :: Lens' DeregisterTargetFromMaintenanceWindow Text
-dtfmwWindowTargetId = lens _dtfmwWindowTargetId (\s a -> s {_dtfmwWindowTargetId = a})
+--
+-- /Note:/ Consider using 'windowTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfmwWindowTargetId :: Lens.Lens' DeregisterTargetFromMaintenanceWindow Lude.Text
+dtfmwWindowTargetId = Lens.lens (windowTargetId :: DeregisterTargetFromMaintenanceWindow -> Lude.Text) (\s a -> s {windowTargetId = a} :: DeregisterTargetFromMaintenanceWindow)
+{-# DEPRECATED dtfmwWindowTargetId "Use generic-lens or generic-optics with 'windowTargetId' instead." #-}
 
-instance AWSRequest DeregisterTargetFromMaintenanceWindow where
+instance Lude.AWSRequest DeregisterTargetFromMaintenanceWindow where
   type
     Rs DeregisterTargetFromMaintenanceWindow =
       DeregisterTargetFromMaintenanceWindowResponse
-  request = postJSON ssm
+  request = Req.postJSON ssmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           DeregisterTargetFromMaintenanceWindowResponse'
-            <$> (x .?> "WindowTargetId")
-            <*> (x .?> "WindowId")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "WindowTargetId")
+            Lude.<*> (x Lude..?> "WindowId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DeregisterTargetFromMaintenanceWindow
-
-instance NFData DeregisterTargetFromMaintenanceWindow
-
-instance ToHeaders DeregisterTargetFromMaintenanceWindow where
+instance Lude.ToHeaders DeregisterTargetFromMaintenanceWindow where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AmazonSSM.DeregisterTargetFromMaintenanceWindow" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AmazonSSM.DeregisterTargetFromMaintenanceWindow" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeregisterTargetFromMaintenanceWindow where
+instance Lude.ToJSON DeregisterTargetFromMaintenanceWindow where
   toJSON DeregisterTargetFromMaintenanceWindow' {..} =
-    object
-      ( catMaybes
-          [ ("Safe" .=) <$> _dtfmwSafe,
-            Just ("WindowId" .= _dtfmwWindowId),
-            Just ("WindowTargetId" .= _dtfmwWindowTargetId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("Safe" Lude..=) Lude.<$> safe,
+            Lude.Just ("WindowId" Lude..= windowId),
+            Lude.Just ("WindowTargetId" Lude..= windowTargetId)
           ]
       )
 
-instance ToPath DeregisterTargetFromMaintenanceWindow where
-  toPath = const "/"
+instance Lude.ToPath DeregisterTargetFromMaintenanceWindow where
+  toPath = Lude.const "/"
 
-instance ToQuery DeregisterTargetFromMaintenanceWindow where
-  toQuery = const mempty
+instance Lude.ToQuery DeregisterTargetFromMaintenanceWindow where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deregisterTargetFromMaintenanceWindowResponse' smart constructor.
+-- | /See:/ 'mkDeregisterTargetFromMaintenanceWindowResponse' smart constructor.
 data DeregisterTargetFromMaintenanceWindowResponse = DeregisterTargetFromMaintenanceWindowResponse'
-  { _dtfmwrsWindowTargetId ::
-      !( Maybe
-           Text
-       ),
-    _dtfmwrsWindowId ::
-      !( Maybe
-           Text
-       ),
-    _dtfmwrsResponseStatus ::
-      !Int
+  { windowTargetId ::
+      Lude.Maybe
+        Lude.Text,
+    windowId ::
+      Lude.Maybe
+        Lude.Text,
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DeregisterTargetFromMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtfmwrsWindowTargetId' - The ID of the removed target definition.
---
--- * 'dtfmwrsWindowId' - The ID of the maintenance window the target was removed from.
---
--- * 'dtfmwrsResponseStatus' - -- | The response status code.
-deregisterTargetFromMaintenanceWindowResponse ::
-  -- | 'dtfmwrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'windowId' - The ID of the maintenance window the target was removed from.
+-- * 'windowTargetId' - The ID of the removed target definition.
+mkDeregisterTargetFromMaintenanceWindowResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DeregisterTargetFromMaintenanceWindowResponse
-deregisterTargetFromMaintenanceWindowResponse pResponseStatus_ =
+mkDeregisterTargetFromMaintenanceWindowResponse pResponseStatus_ =
   DeregisterTargetFromMaintenanceWindowResponse'
-    { _dtfmwrsWindowTargetId =
-        Nothing,
-      _dtfmwrsWindowId = Nothing,
-      _dtfmwrsResponseStatus = pResponseStatus_
+    { windowTargetId =
+        Lude.Nothing,
+      windowId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The ID of the removed target definition.
-dtfmwrsWindowTargetId :: Lens' DeregisterTargetFromMaintenanceWindowResponse (Maybe Text)
-dtfmwrsWindowTargetId = lens _dtfmwrsWindowTargetId (\s a -> s {_dtfmwrsWindowTargetId = a})
+--
+-- /Note:/ Consider using 'windowTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfmwrsWindowTargetId :: Lens.Lens' DeregisterTargetFromMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+dtfmwrsWindowTargetId = Lens.lens (windowTargetId :: DeregisterTargetFromMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowTargetId = a} :: DeregisterTargetFromMaintenanceWindowResponse)
+{-# DEPRECATED dtfmwrsWindowTargetId "Use generic-lens or generic-optics with 'windowTargetId' instead." #-}
 
 -- | The ID of the maintenance window the target was removed from.
-dtfmwrsWindowId :: Lens' DeregisterTargetFromMaintenanceWindowResponse (Maybe Text)
-dtfmwrsWindowId = lens _dtfmwrsWindowId (\s a -> s {_dtfmwrsWindowId = a})
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfmwrsWindowId :: Lens.Lens' DeregisterTargetFromMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+dtfmwrsWindowId = Lens.lens (windowId :: DeregisterTargetFromMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: DeregisterTargetFromMaintenanceWindowResponse)
+{-# DEPRECATED dtfmwrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
--- | -- | The response status code.
-dtfmwrsResponseStatus :: Lens' DeregisterTargetFromMaintenanceWindowResponse Int
-dtfmwrsResponseStatus = lens _dtfmwrsResponseStatus (\s a -> s {_dtfmwrsResponseStatus = a})
-
-instance NFData DeregisterTargetFromMaintenanceWindowResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfmwrsResponseStatus :: Lens.Lens' DeregisterTargetFromMaintenanceWindowResponse Lude.Int
+dtfmwrsResponseStatus = Lens.lens (responseStatus :: DeregisterTargetFromMaintenanceWindowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterTargetFromMaintenanceWindowResponse)
+{-# DEPRECATED dtfmwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

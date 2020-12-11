@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,24 +14,22 @@
 --
 -- Gets the 'RequestValidators' collection of a given 'RestApi' .
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetRequestValidators
-  ( -- * Creating a Request
-    getRequestValidators,
-    GetRequestValidators,
+  ( -- * Creating a request
+    GetRequestValidators (..),
+    mkGetRequestValidators,
 
-    -- * Request Lenses
+    -- ** Request lenses
     grvLimit,
     grvPosition,
     grvRestAPIId,
 
-    -- * Destructuring the Response
-    getRequestValidatorsResponse,
-    GetRequestValidatorsResponse,
+    -- * Destructuring the response
+    GetRequestValidatorsResponse (..),
+    mkGetRequestValidatorsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     grvrsItems,
     grvrsPosition,
     grvrsResponseStatus,
@@ -44,137 +37,158 @@ module Network.AWS.APIGateway.GetRequestValidators
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Gets the 'RequestValidators' collection of a given 'RestApi' .
 --
---
---
--- /See:/ 'getRequestValidators' smart constructor.
+-- /See:/ 'mkGetRequestValidators' smart constructor.
 data GetRequestValidators = GetRequestValidators'
-  { _grvLimit ::
-      !(Maybe Int),
-    _grvPosition :: !(Maybe Text),
-    _grvRestAPIId :: !Text
+  { limit ::
+      Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text,
+    restAPIId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRequestValidators' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grvLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'grvPosition' - The current pagination position in the paged result set.
---
--- * 'grvRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-getRequestValidators ::
-  -- | 'grvRestAPIId'
-  Text ->
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'position' - The current pagination position in the paged result set.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+mkGetRequestValidators ::
+  -- | 'restAPIId'
+  Lude.Text ->
   GetRequestValidators
-getRequestValidators pRestAPIId_ =
+mkGetRequestValidators pRestAPIId_ =
   GetRequestValidators'
-    { _grvLimit = Nothing,
-      _grvPosition = Nothing,
-      _grvRestAPIId = pRestAPIId_
+    { limit = Lude.Nothing,
+      position = Lude.Nothing,
+      restAPIId = pRestAPIId_
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-grvLimit :: Lens' GetRequestValidators (Maybe Int)
-grvLimit = lens _grvLimit (\s a -> s {_grvLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grvLimit :: Lens.Lens' GetRequestValidators (Lude.Maybe Lude.Int)
+grvLimit = Lens.lens (limit :: GetRequestValidators -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetRequestValidators)
+{-# DEPRECATED grvLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-grvPosition :: Lens' GetRequestValidators (Maybe Text)
-grvPosition = lens _grvPosition (\s a -> s {_grvPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grvPosition :: Lens.Lens' GetRequestValidators (Lude.Maybe Lude.Text)
+grvPosition = Lens.lens (position :: GetRequestValidators -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetRequestValidators)
+{-# DEPRECATED grvPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-grvRestAPIId :: Lens' GetRequestValidators Text
-grvRestAPIId = lens _grvRestAPIId (\s a -> s {_grvRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grvRestAPIId :: Lens.Lens' GetRequestValidators Lude.Text
+grvRestAPIId = Lens.lens (restAPIId :: GetRequestValidators -> Lude.Text) (\s a -> s {restAPIId = a} :: GetRequestValidators)
+{-# DEPRECATED grvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
-instance AWSPager GetRequestValidators where
+instance Page.AWSPager GetRequestValidators where
   page rq rs
-    | stop (rs ^. grvrsPosition) = Nothing
-    | stop (rs ^. grvrsItems) = Nothing
-    | otherwise = Just $ rq & grvPosition .~ rs ^. grvrsPosition
+    | Page.stop (rs Lens.^. grvrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. grvrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& grvPosition Lens..~ rs Lens.^. grvrsPosition
 
-instance AWSRequest GetRequestValidators where
+instance Lude.AWSRequest GetRequestValidators where
   type Rs GetRequestValidators = GetRequestValidatorsResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetRequestValidatorsResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetRequestValidators
-
-instance NFData GetRequestValidators
-
-instance ToHeaders GetRequestValidators where
+instance Lude.ToHeaders GetRequestValidators where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetRequestValidators where
+instance Lude.ToPath GetRequestValidators where
   toPath GetRequestValidators' {..} =
-    mconcat ["/restapis/", toBS _grvRestAPIId, "/requestvalidators"]
+    Lude.mconcat
+      ["/restapis/", Lude.toBS restAPIId, "/requestvalidators"]
 
-instance ToQuery GetRequestValidators where
+instance Lude.ToQuery GetRequestValidators where
   toQuery GetRequestValidators' {..} =
-    mconcat ["limit" =: _grvLimit, "position" =: _grvPosition]
+    Lude.mconcat ["limit" Lude.=: limit, "position" Lude.=: position]
 
 -- | A collection of 'RequestValidator' resources of a given 'RestApi' .
 --
---
 -- In OpenAPI, the 'RequestValidators' of an API is defined by the <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.html x-amazon-apigateway-request-validators> extension.
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html Enable Basic Request Validation in API Gateway>
 --
--- /See:/ 'getRequestValidatorsResponse' smart constructor.
+-- /See:/ 'mkGetRequestValidatorsResponse' smart constructor.
 data GetRequestValidatorsResponse = GetRequestValidatorsResponse'
-  { _grvrsItems ::
-      !(Maybe [RequestValidator]),
-    _grvrsPosition :: !(Maybe Text),
-    _grvrsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [RequestValidator],
+    position :: Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRequestValidatorsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grvrsItems' - The current page of elements from this collection.
---
--- * 'grvrsPosition' - Undocumented member.
---
--- * 'grvrsResponseStatus' - -- | The response status code.
-getRequestValidatorsResponse ::
-  -- | 'grvrsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetRequestValidatorsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRequestValidatorsResponse
-getRequestValidatorsResponse pResponseStatus_ =
+mkGetRequestValidatorsResponse pResponseStatus_ =
   GetRequestValidatorsResponse'
-    { _grvrsItems = Nothing,
-      _grvrsPosition = Nothing,
-      _grvrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-grvrsItems :: Lens' GetRequestValidatorsResponse [RequestValidator]
-grvrsItems = lens _grvrsItems (\s a -> s {_grvrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grvrsItems :: Lens.Lens' GetRequestValidatorsResponse (Lude.Maybe [RequestValidator])
+grvrsItems = Lens.lens (items :: GetRequestValidatorsResponse -> Lude.Maybe [RequestValidator]) (\s a -> s {items = a} :: GetRequestValidatorsResponse)
+{-# DEPRECATED grvrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-grvrsPosition :: Lens' GetRequestValidatorsResponse (Maybe Text)
-grvrsPosition = lens _grvrsPosition (\s a -> s {_grvrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grvrsPosition :: Lens.Lens' GetRequestValidatorsResponse (Lude.Maybe Lude.Text)
+grvrsPosition = Lens.lens (position :: GetRequestValidatorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetRequestValidatorsResponse)
+{-# DEPRECATED grvrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-grvrsResponseStatus :: Lens' GetRequestValidatorsResponse Int
-grvrsResponseStatus = lens _grvrsResponseStatus (\s a -> s {_grvrsResponseStatus = a})
-
-instance NFData GetRequestValidatorsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grvrsResponseStatus :: Lens.Lens' GetRequestValidatorsResponse Lude.Int
+grvrsResponseStatus = Lens.lens (responseStatus :: GetRequestValidatorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRequestValidatorsResponse)
+{-# DEPRECATED grvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

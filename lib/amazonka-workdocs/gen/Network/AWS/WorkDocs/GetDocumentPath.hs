@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,157 +14,172 @@
 --
 -- Retrieves the path information (the hierarchy from the root folder) for the requested document.
 --
---
 -- By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the requested document and only includes the IDs of the parent folders in the path. You can limit the maximum number of levels. You can also request the names of the parent folders.
 module Network.AWS.WorkDocs.GetDocumentPath
-  ( -- * Creating a Request
-    getDocumentPath,
-    GetDocumentPath,
+  ( -- * Creating a request
+    GetDocumentPath (..),
+    mkGetDocumentPath,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gdpAuthenticationToken,
     gdpMarker,
     gdpLimit,
     gdpFields,
     gdpDocumentId,
 
-    -- * Destructuring the Response
-    getDocumentPathResponse,
-    GetDocumentPathResponse,
+    -- * Destructuring the response
+    GetDocumentPathResponse (..),
+    mkGetDocumentPathResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gdprsPath,
     gdprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WorkDocs.Types
 
--- | /See:/ 'getDocumentPath' smart constructor.
+-- | /See:/ 'mkGetDocumentPath' smart constructor.
 data GetDocumentPath = GetDocumentPath'
-  { _gdpAuthenticationToken ::
-      !(Maybe (Sensitive Text)),
-    _gdpMarker :: !(Maybe Text),
-    _gdpLimit :: !(Maybe Nat),
-    _gdpFields :: !(Maybe Text),
-    _gdpDocumentId :: !Text
+  { authenticationToken ::
+      Lude.Maybe (Lude.Sensitive Lude.Text),
+    marker :: Lude.Maybe Lude.Text,
+    limit :: Lude.Maybe Lude.Natural,
+    fields :: Lude.Maybe Lude.Text,
+    documentId :: Lude.Text
   }
-  deriving (Eq, Show, Data, Typeable, Generic)
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentPath' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdpAuthenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- * 'gdpMarker' - This value is not supported.
---
--- * 'gdpLimit' - The maximum number of levels in the hierarchy to return.
---
--- * 'gdpFields' - A comma-separated list of values. Specify @NAME@ to include the names of the parent folders.
---
--- * 'gdpDocumentId' - The ID of the document.
-getDocumentPath ::
-  -- | 'gdpDocumentId'
-  Text ->
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'documentId' - The ID of the document.
+-- * 'fields' - A comma-separated list of values. Specify @NAME@ to include the names of the parent folders.
+-- * 'limit' - The maximum number of levels in the hierarchy to return.
+-- * 'marker' - This value is not supported.
+mkGetDocumentPath ::
+  -- | 'documentId'
+  Lude.Text ->
   GetDocumentPath
-getDocumentPath pDocumentId_ =
+mkGetDocumentPath pDocumentId_ =
   GetDocumentPath'
-    { _gdpAuthenticationToken = Nothing,
-      _gdpMarker = Nothing,
-      _gdpLimit = Nothing,
-      _gdpFields = Nothing,
-      _gdpDocumentId = pDocumentId_
+    { authenticationToken = Lude.Nothing,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing,
+      fields = Lude.Nothing,
+      documentId = pDocumentId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-gdpAuthenticationToken :: Lens' GetDocumentPath (Maybe Text)
-gdpAuthenticationToken = lens _gdpAuthenticationToken (\s a -> s {_gdpAuthenticationToken = a}) . mapping _Sensitive
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpAuthenticationToken :: Lens.Lens' GetDocumentPath (Lude.Maybe (Lude.Sensitive Lude.Text))
+gdpAuthenticationToken = Lens.lens (authenticationToken :: GetDocumentPath -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: GetDocumentPath)
+{-# DEPRECATED gdpAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | This value is not supported.
-gdpMarker :: Lens' GetDocumentPath (Maybe Text)
-gdpMarker = lens _gdpMarker (\s a -> s {_gdpMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpMarker :: Lens.Lens' GetDocumentPath (Lude.Maybe Lude.Text)
+gdpMarker = Lens.lens (marker :: GetDocumentPath -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: GetDocumentPath)
+{-# DEPRECATED gdpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of levels in the hierarchy to return.
-gdpLimit :: Lens' GetDocumentPath (Maybe Natural)
-gdpLimit = lens _gdpLimit (\s a -> s {_gdpLimit = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpLimit :: Lens.Lens' GetDocumentPath (Lude.Maybe Lude.Natural)
+gdpLimit = Lens.lens (limit :: GetDocumentPath -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetDocumentPath)
+{-# DEPRECATED gdpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | A comma-separated list of values. Specify @NAME@ to include the names of the parent folders.
-gdpFields :: Lens' GetDocumentPath (Maybe Text)
-gdpFields = lens _gdpFields (\s a -> s {_gdpFields = a})
+--
+-- /Note:/ Consider using 'fields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpFields :: Lens.Lens' GetDocumentPath (Lude.Maybe Lude.Text)
+gdpFields = Lens.lens (fields :: GetDocumentPath -> Lude.Maybe Lude.Text) (\s a -> s {fields = a} :: GetDocumentPath)
+{-# DEPRECATED gdpFields "Use generic-lens or generic-optics with 'fields' instead." #-}
 
 -- | The ID of the document.
-gdpDocumentId :: Lens' GetDocumentPath Text
-gdpDocumentId = lens _gdpDocumentId (\s a -> s {_gdpDocumentId = a})
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpDocumentId :: Lens.Lens' GetDocumentPath Lude.Text
+gdpDocumentId = Lens.lens (documentId :: GetDocumentPath -> Lude.Text) (\s a -> s {documentId = a} :: GetDocumentPath)
+{-# DEPRECATED gdpDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
-instance AWSRequest GetDocumentPath where
+instance Lude.AWSRequest GetDocumentPath where
   type Rs GetDocumentPath = GetDocumentPathResponse
-  request = get workDocs
+  request = Req.get workDocsService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetDocumentPathResponse'
-            <$> (x .?> "Path") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Path") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetDocumentPath
-
-instance NFData GetDocumentPath
-
-instance ToHeaders GetDocumentPath where
+instance Lude.ToHeaders GetDocumentPath where
   toHeaders GetDocumentPath' {..} =
-    mconcat
-      [ "Authentication" =# _gdpAuthenticationToken,
-        "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+    Lude.mconcat
+      [ "Authentication" Lude.=# authenticationToken,
+        "Content-Type"
+          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
       ]
 
-instance ToPath GetDocumentPath where
+instance Lude.ToPath GetDocumentPath where
   toPath GetDocumentPath' {..} =
-    mconcat ["/api/v1/documents/", toBS _gdpDocumentId, "/path"]
+    Lude.mconcat
+      ["/api/v1/documents/", Lude.toBS documentId, "/path"]
 
-instance ToQuery GetDocumentPath where
+instance Lude.ToQuery GetDocumentPath where
   toQuery GetDocumentPath' {..} =
-    mconcat
-      [ "marker" =: _gdpMarker,
-        "limit" =: _gdpLimit,
-        "fields" =: _gdpFields
+    Lude.mconcat
+      [ "marker" Lude.=: marker,
+        "limit" Lude.=: limit,
+        "fields" Lude.=: fields
       ]
 
--- | /See:/ 'getDocumentPathResponse' smart constructor.
+-- | /See:/ 'mkGetDocumentPathResponse' smart constructor.
 data GetDocumentPathResponse = GetDocumentPathResponse'
-  { _gdprsPath ::
-      !(Maybe ResourcePath),
-    _gdprsResponseStatus :: !Int
+  { path ::
+      Lude.Maybe ResourcePath,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentPathResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gdprsPath' - The path information.
---
--- * 'gdprsResponseStatus' - -- | The response status code.
-getDocumentPathResponse ::
-  -- | 'gdprsResponseStatus'
-  Int ->
+-- * 'path' - The path information.
+-- * 'responseStatus' - The response status code.
+mkGetDocumentPathResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDocumentPathResponse
-getDocumentPathResponse pResponseStatus_ =
+mkGetDocumentPathResponse pResponseStatus_ =
   GetDocumentPathResponse'
-    { _gdprsPath = Nothing,
-      _gdprsResponseStatus = pResponseStatus_
+    { path = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The path information.
-gdprsPath :: Lens' GetDocumentPathResponse (Maybe ResourcePath)
-gdprsPath = lens _gdprsPath (\s a -> s {_gdprsPath = a})
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdprsPath :: Lens.Lens' GetDocumentPathResponse (Lude.Maybe ResourcePath)
+gdprsPath = Lens.lens (path :: GetDocumentPathResponse -> Lude.Maybe ResourcePath) (\s a -> s {path = a} :: GetDocumentPathResponse)
+{-# DEPRECATED gdprsPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
--- | -- | The response status code.
-gdprsResponseStatus :: Lens' GetDocumentPathResponse Int
-gdprsResponseStatus = lens _gdprsResponseStatus (\s a -> s {_gdprsResponseStatus = a})
-
-instance NFData GetDocumentPathResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdprsResponseStatus :: Lens.Lens' GetDocumentPathResponse Lude.Int
+gdprsResponseStatus = Lens.lens (responseStatus :: GetDocumentPathResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDocumentPathResponse)
+{-# DEPRECATED gdprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

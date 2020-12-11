@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,118 +14,155 @@
 --
 -- Returns the 'ByteMatchSet' specified by @ByteMatchSetId@ .
 module Network.AWS.WAFRegional.GetByteMatchSet
-  ( -- * Creating a Request
-    getByteMatchSet,
-    GetByteMatchSet,
+  ( -- * Creating a request
+    GetByteMatchSet (..),
+    mkGetByteMatchSet,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gbmsByteMatchSetId,
 
-    -- * Destructuring the Response
-    getByteMatchSetResponse,
-    GetByteMatchSetResponse,
+    -- * Destructuring the response
+    GetByteMatchSetResponse (..),
+    mkGetByteMatchSetResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gbmsrsByteMatchSet,
     gbmsrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.WAFRegional.Types
 
--- | /See:/ 'getByteMatchSet' smart constructor.
+-- | /See:/ 'mkGetByteMatchSet' smart constructor.
 newtype GetByteMatchSet = GetByteMatchSet'
-  { _gbmsByteMatchSetId ::
-      Text
+  { byteMatchSetId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetByteMatchSet' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gbmsByteMatchSetId' - The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to get. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
-getByteMatchSet ::
-  -- | 'gbmsByteMatchSetId'
-  Text ->
+-- * 'byteMatchSetId' - The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to get. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
+mkGetByteMatchSet ::
+  -- | 'byteMatchSetId'
+  Lude.Text ->
   GetByteMatchSet
-getByteMatchSet pByteMatchSetId_ =
-  GetByteMatchSet' {_gbmsByteMatchSetId = pByteMatchSetId_}
+mkGetByteMatchSet pByteMatchSetId_ =
+  GetByteMatchSet' {byteMatchSetId = pByteMatchSetId_}
 
 -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to get. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
-gbmsByteMatchSetId :: Lens' GetByteMatchSet Text
-gbmsByteMatchSetId = lens _gbmsByteMatchSetId (\s a -> s {_gbmsByteMatchSetId = a})
+--
+-- /Note:/ Consider using 'byteMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbmsByteMatchSetId :: Lens.Lens' GetByteMatchSet Lude.Text
+gbmsByteMatchSetId = Lens.lens (byteMatchSetId :: GetByteMatchSet -> Lude.Text) (\s a -> s {byteMatchSetId = a} :: GetByteMatchSet)
+{-# DEPRECATED gbmsByteMatchSetId "Use generic-lens or generic-optics with 'byteMatchSetId' instead." #-}
 
-instance AWSRequest GetByteMatchSet where
+instance Lude.AWSRequest GetByteMatchSet where
   type Rs GetByteMatchSet = GetByteMatchSetResponse
-  request = postJSON wAFRegional
+  request = Req.postJSON wAFRegionalService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetByteMatchSetResponse'
-            <$> (x .?> "ByteMatchSet") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "ByteMatchSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetByteMatchSet
-
-instance NFData GetByteMatchSet
-
-instance ToHeaders GetByteMatchSet where
+instance Lude.ToHeaders GetByteMatchSet where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSWAF_Regional_20161128.GetByteMatchSet" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("AWSWAF_Regional_20161128.GetByteMatchSet" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetByteMatchSet where
+instance Lude.ToJSON GetByteMatchSet where
   toJSON GetByteMatchSet' {..} =
-    object
-      (catMaybes [Just ("ByteMatchSetId" .= _gbmsByteMatchSetId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("ByteMatchSetId" Lude..= byteMatchSetId)]
+      )
 
-instance ToPath GetByteMatchSet where
-  toPath = const "/"
+instance Lude.ToPath GetByteMatchSet where
+  toPath = Lude.const "/"
 
-instance ToQuery GetByteMatchSet where
-  toQuery = const mempty
+instance Lude.ToQuery GetByteMatchSet where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'getByteMatchSetResponse' smart constructor.
+-- | /See:/ 'mkGetByteMatchSetResponse' smart constructor.
 data GetByteMatchSetResponse = GetByteMatchSetResponse'
-  { _gbmsrsByteMatchSet ::
-      !(Maybe ByteMatchSet),
-    _gbmsrsResponseStatus :: !Int
+  { byteMatchSet ::
+      Lude.Maybe ByteMatchSet,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetByteMatchSetResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'byteMatchSet' - Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:
 --
--- * 'gbmsrsByteMatchSet' - Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@      * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
 --
--- * 'gbmsrsResponseStatus' - -- | The response status code.
-getByteMatchSetResponse ::
-  -- | 'gbmsrsResponseStatus'
-  Int ->
+--     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@
+--
+--
+--     * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@
+--
+--
+--     * 'FieldToMatch' : Contains @Data@ and @Type@
+--
+--
+-- * 'responseStatus' - The response status code.
+mkGetByteMatchSetResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetByteMatchSetResponse
-getByteMatchSetResponse pResponseStatus_ =
+mkGetByteMatchSetResponse pResponseStatus_ =
   GetByteMatchSetResponse'
-    { _gbmsrsByteMatchSet = Nothing,
-      _gbmsrsResponseStatus = pResponseStatus_
+    { byteMatchSet = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@      * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@      * 'FieldToMatch' : Contains @Data@ and @Type@
-gbmsrsByteMatchSet :: Lens' GetByteMatchSetResponse (Maybe ByteMatchSet)
-gbmsrsByteMatchSet = lens _gbmsrsByteMatchSet (\s a -> s {_gbmsrsByteMatchSet = a})
+-- | Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:
+--
+--
+--     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@
+--
+--
+--     * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@
+--
+--
+--     * 'FieldToMatch' : Contains @Data@ and @Type@
+--
+--
+--
+-- /Note:/ Consider using 'byteMatchSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbmsrsByteMatchSet :: Lens.Lens' GetByteMatchSetResponse (Lude.Maybe ByteMatchSet)
+gbmsrsByteMatchSet = Lens.lens (byteMatchSet :: GetByteMatchSetResponse -> Lude.Maybe ByteMatchSet) (\s a -> s {byteMatchSet = a} :: GetByteMatchSetResponse)
+{-# DEPRECATED gbmsrsByteMatchSet "Use generic-lens or generic-optics with 'byteMatchSet' instead." #-}
 
--- | -- | The response status code.
-gbmsrsResponseStatus :: Lens' GetByteMatchSetResponse Int
-gbmsrsResponseStatus = lens _gbmsrsResponseStatus (\s a -> s {_gbmsrsResponseStatus = a})
-
-instance NFData GetByteMatchSetResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbmsrsResponseStatus :: Lens.Lens' GetByteMatchSetResponse Lude.Int
+gbmsrsResponseStatus = Lens.lens (responseStatus :: GetByteMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetByteMatchSetResponse)
+{-# DEPRECATED gbmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

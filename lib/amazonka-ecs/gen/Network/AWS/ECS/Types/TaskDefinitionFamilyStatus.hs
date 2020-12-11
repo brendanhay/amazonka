@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECS.Types.TaskDefinitionFamilyStatus where
+module Network.AWS.ECS.Types.TaskDefinitionFamilyStatus
+  ( TaskDefinitionFamilyStatus
+      ( TaskDefinitionFamilyStatus',
+        TDFSActive,
+        TDFSAll,
+        TDFSInactive
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data TaskDefinitionFamilyStatus
-  = TDFSActive
-  | TDFSAll
-  | TDFSInactive
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype TaskDefinitionFamilyStatus = TaskDefinitionFamilyStatus' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText TaskDefinitionFamilyStatus where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure TDFSActive
-      "all" -> pure TDFSAll
-      "inactive" -> pure TDFSInactive
-      e ->
-        fromTextError $
-          "Failure parsing TaskDefinitionFamilyStatus from value: '" <> e
-            <> "'. Accepted values: active, all, inactive"
+pattern TDFSActive :: TaskDefinitionFamilyStatus
+pattern TDFSActive = TaskDefinitionFamilyStatus' "ACTIVE"
 
-instance ToText TaskDefinitionFamilyStatus where
-  toText = \case
-    TDFSActive -> "ACTIVE"
-    TDFSAll -> "ALL"
-    TDFSInactive -> "INACTIVE"
+pattern TDFSAll :: TaskDefinitionFamilyStatus
+pattern TDFSAll = TaskDefinitionFamilyStatus' "ALL"
 
-instance Hashable TaskDefinitionFamilyStatus
+pattern TDFSInactive :: TaskDefinitionFamilyStatus
+pattern TDFSInactive = TaskDefinitionFamilyStatus' "INACTIVE"
 
-instance NFData TaskDefinitionFamilyStatus
-
-instance ToByteString TaskDefinitionFamilyStatus
-
-instance ToQuery TaskDefinitionFamilyStatus
-
-instance ToHeader TaskDefinitionFamilyStatus
-
-instance ToJSON TaskDefinitionFamilyStatus where
-  toJSON = toJSONText
+{-# COMPLETE
+  TDFSActive,
+  TDFSAll,
+  TDFSInactive,
+  TaskDefinitionFamilyStatus'
+  #-}

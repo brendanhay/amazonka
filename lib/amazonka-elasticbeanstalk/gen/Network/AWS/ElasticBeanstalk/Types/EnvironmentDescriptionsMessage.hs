@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage where
+module Network.AWS.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage
+  ( EnvironmentDescriptionsMessage (..),
+
+    -- * Smart constructor
+    mkEnvironmentDescriptionsMessage,
+
+    -- * Lenses
+    edmNextToken,
+    edmEnvironments,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types.EnvironmentDescription
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Result message containing a list of environment descriptions.
 --
---
---
--- /See:/ 'environmentDescriptionsMessage' smart constructor.
+-- /See:/ 'mkEnvironmentDescriptionsMessage' smart constructor.
 data EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
-  { _edmNextToken ::
-      !(Maybe Text),
-    _edmEnvironments ::
-      !( Maybe
-           [EnvironmentDescription]
-       )
+  { nextToken ::
+      Lude.Maybe Lude.Text,
+    environments ::
+      Lude.Maybe
+        [EnvironmentDescription]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentDescriptionsMessage' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'edmNextToken' - In a paginated request, the token that you can pass in a subsequent request to get the next response page.
---
--- * 'edmEnvironments' - Returns an 'EnvironmentDescription' list.
-environmentDescriptionsMessage ::
+-- * 'environments' - Returns an 'EnvironmentDescription' list.
+-- * 'nextToken' - In a paginated request, the token that you can pass in a subsequent request to get the next response page.
+mkEnvironmentDescriptionsMessage ::
   EnvironmentDescriptionsMessage
-environmentDescriptionsMessage =
+mkEnvironmentDescriptionsMessage =
   EnvironmentDescriptionsMessage'
-    { _edmNextToken = Nothing,
-      _edmEnvironments = Nothing
+    { nextToken = Lude.Nothing,
+      environments = Lude.Nothing
     }
 
 -- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
-edmNextToken :: Lens' EnvironmentDescriptionsMessage (Maybe Text)
-edmNextToken = lens _edmNextToken (\s a -> s {_edmNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edmNextToken :: Lens.Lens' EnvironmentDescriptionsMessage (Lude.Maybe Lude.Text)
+edmNextToken = Lens.lens (nextToken :: EnvironmentDescriptionsMessage -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: EnvironmentDescriptionsMessage)
+{-# DEPRECATED edmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Returns an 'EnvironmentDescription' list.
-edmEnvironments :: Lens' EnvironmentDescriptionsMessage [EnvironmentDescription]
-edmEnvironments = lens _edmEnvironments (\s a -> s {_edmEnvironments = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'environments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edmEnvironments :: Lens.Lens' EnvironmentDescriptionsMessage (Lude.Maybe [EnvironmentDescription])
+edmEnvironments = Lens.lens (environments :: EnvironmentDescriptionsMessage -> Lude.Maybe [EnvironmentDescription]) (\s a -> s {environments = a} :: EnvironmentDescriptionsMessage)
+{-# DEPRECATED edmEnvironments "Use generic-lens or generic-optics with 'environments' instead." #-}
 
-instance FromXML EnvironmentDescriptionsMessage where
+instance Lude.FromXML EnvironmentDescriptionsMessage where
   parseXML x =
     EnvironmentDescriptionsMessage'
-      <$> (x .@? "NextToken")
-      <*> (x .@? "Environments" .!@ mempty >>= may (parseXMLList "member"))
-
-instance Hashable EnvironmentDescriptionsMessage
-
-instance NFData EnvironmentDescriptionsMessage
+      Lude.<$> (x Lude..@? "NextToken")
+      Lude.<*> ( x Lude..@? "Environments" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+               )

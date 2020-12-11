@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,58 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.InventorySchedule where
+module Network.AWS.S3.Types.InventorySchedule
+  ( InventorySchedule (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkInventorySchedule,
+
+    -- * Lenses
+    isFrequency,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.InventoryFrequency
 
 -- | Specifies the schedule for generating inventory results.
 --
---
---
--- /See:/ 'inventorySchedule' smart constructor.
+-- /See:/ 'mkInventorySchedule' smart constructor.
 newtype InventorySchedule = InventorySchedule'
-  { _isFrequency ::
+  { frequency ::
       InventoryFrequency
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventorySchedule' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'isFrequency' - Specifies how frequently inventory results are produced.
-inventorySchedule ::
-  -- | 'isFrequency'
+-- * 'frequency' - Specifies how frequently inventory results are produced.
+mkInventorySchedule ::
+  -- | 'frequency'
   InventoryFrequency ->
   InventorySchedule
-inventorySchedule pFrequency_ =
-  InventorySchedule' {_isFrequency = pFrequency_}
+mkInventorySchedule pFrequency_ =
+  InventorySchedule' {frequency = pFrequency_}
 
 -- | Specifies how frequently inventory results are produced.
-isFrequency :: Lens' InventorySchedule InventoryFrequency
-isFrequency = lens _isFrequency (\s a -> s {_isFrequency = a})
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isFrequency :: Lens.Lens' InventorySchedule InventoryFrequency
+isFrequency = Lens.lens (frequency :: InventorySchedule -> InventoryFrequency) (\s a -> s {frequency = a} :: InventorySchedule)
+{-# DEPRECATED isFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
-instance FromXML InventorySchedule where
-  parseXML x = InventorySchedule' <$> (x .@ "Frequency")
+instance Lude.FromXML InventorySchedule where
+  parseXML x = InventorySchedule' Lude.<$> (x Lude..@ "Frequency")
 
-instance Hashable InventorySchedule
-
-instance NFData InventorySchedule
-
-instance ToXML InventorySchedule where
+instance Lude.ToXML InventorySchedule where
   toXML InventorySchedule' {..} =
-    mconcat ["Frequency" @= _isFrequency]
+    Lude.mconcat ["Frequency" Lude.@= frequency]

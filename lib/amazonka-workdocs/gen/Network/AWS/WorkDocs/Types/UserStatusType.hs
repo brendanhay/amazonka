@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.UserStatusType where
+module Network.AWS.WorkDocs.Types.UserStatusType
+  ( UserStatusType
+      ( UserStatusType',
+        Active,
+        Inactive,
+        Pending
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data UserStatusType
-  = Active
-  | Inactive
-  | Pending
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype UserStatusType = UserStatusType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText UserStatusType where
-  parser =
-    takeLowerText >>= \case
-      "active" -> pure Active
-      "inactive" -> pure Inactive
-      "pending" -> pure Pending
-      e ->
-        fromTextError $
-          "Failure parsing UserStatusType from value: '" <> e
-            <> "'. Accepted values: active, inactive, pending"
+pattern Active :: UserStatusType
+pattern Active = UserStatusType' "ACTIVE"
 
-instance ToText UserStatusType where
-  toText = \case
-    Active -> "ACTIVE"
-    Inactive -> "INACTIVE"
-    Pending -> "PENDING"
+pattern Inactive :: UserStatusType
+pattern Inactive = UserStatusType' "INACTIVE"
 
-instance Hashable UserStatusType
+pattern Pending :: UserStatusType
+pattern Pending = UserStatusType' "PENDING"
 
-instance NFData UserStatusType
-
-instance ToByteString UserStatusType
-
-instance ToQuery UserStatusType
-
-instance ToHeader UserStatusType
-
-instance FromJSON UserStatusType where
-  parseJSON = parseJSONText "UserStatusType"
+{-# COMPLETE
+  Active,
+  Inactive,
+  Pending,
+  UserStatusType'
+  #-}

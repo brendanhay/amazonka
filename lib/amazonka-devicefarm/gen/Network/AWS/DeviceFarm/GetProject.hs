@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,120 +14,130 @@
 --
 -- Gets information about a project.
 module Network.AWS.DeviceFarm.GetProject
-  ( -- * Creating a Request
-    getProject,
-    GetProject,
+  ( -- * Creating a request
+    GetProject (..),
+    mkGetProject,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gpArn,
 
-    -- * Destructuring the Response
-    getProjectResponse,
-    GetProjectResponse,
+    -- * Destructuring the response
+    GetProjectResponse (..),
+    mkGetProjectResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gprsProject,
     gprsResponseStatus,
   )
 where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Represents a request to the get project operation.
 --
---
---
--- /See:/ 'getProject' smart constructor.
-newtype GetProject = GetProject' {_gpArn :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkGetProject' smart constructor.
+newtype GetProject = GetProject' {arn :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProject' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gpArn' - The project's ARN.
-getProject ::
-  -- | 'gpArn'
-  Text ->
+-- * 'arn' - The project's ARN.
+mkGetProject ::
+  -- | 'arn'
+  Lude.Text ->
   GetProject
-getProject pArn_ = GetProject' {_gpArn = pArn_}
+mkGetProject pArn_ = GetProject' {arn = pArn_}
 
 -- | The project's ARN.
-gpArn :: Lens' GetProject Text
-gpArn = lens _gpArn (\s a -> s {_gpArn = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpArn :: Lens.Lens' GetProject Lude.Text
+gpArn = Lens.lens (arn :: GetProject -> Lude.Text) (\s a -> s {arn = a} :: GetProject)
+{-# DEPRECATED gpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance AWSRequest GetProject where
+instance Lude.AWSRequest GetProject where
   type Rs GetProject = GetProjectResponse
-  request = postJSON deviceFarm
+  request = Req.postJSON deviceFarmService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          GetProjectResponse' <$> (x .?> "project") <*> (pure (fromEnum s))
+          GetProjectResponse'
+            Lude.<$> (x Lude..?> "project") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetProject
-
-instance NFData GetProject
-
-instance ToHeaders GetProject where
+instance Lude.ToHeaders GetProject where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DeviceFarm_20150623.GetProject" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DeviceFarm_20150623.GetProject" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON GetProject where
+instance Lude.ToJSON GetProject where
   toJSON GetProject' {..} =
-    object (catMaybes [Just ("arn" .= _gpArn)])
+    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
 
-instance ToPath GetProject where
-  toPath = const "/"
+instance Lude.ToPath GetProject where
+  toPath = Lude.const "/"
 
-instance ToQuery GetProject where
-  toQuery = const mempty
+instance Lude.ToQuery GetProject where
+  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of a get project request.
 --
---
---
--- /See:/ 'getProjectResponse' smart constructor.
+-- /See:/ 'mkGetProjectResponse' smart constructor.
 data GetProjectResponse = GetProjectResponse'
-  { _gprsProject ::
-      !(Maybe Project),
-    _gprsResponseStatus :: !Int
+  { project ::
+      Lude.Maybe Project,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProjectResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gprsProject' - The project to get information about.
---
--- * 'gprsResponseStatus' - -- | The response status code.
-getProjectResponse ::
-  -- | 'gprsResponseStatus'
-  Int ->
+-- * 'project' - The project to get information about.
+-- * 'responseStatus' - The response status code.
+mkGetProjectResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetProjectResponse
-getProjectResponse pResponseStatus_ =
+mkGetProjectResponse pResponseStatus_ =
   GetProjectResponse'
-    { _gprsProject = Nothing,
-      _gprsResponseStatus = pResponseStatus_
+    { project = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The project to get information about.
-gprsProject :: Lens' GetProjectResponse (Maybe Project)
-gprsProject = lens _gprsProject (\s a -> s {_gprsProject = a})
+--
+-- /Note:/ Consider using 'project' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsProject :: Lens.Lens' GetProjectResponse (Lude.Maybe Project)
+gprsProject = Lens.lens (project :: GetProjectResponse -> Lude.Maybe Project) (\s a -> s {project = a} :: GetProjectResponse)
+{-# DEPRECATED gprsProject "Use generic-lens or generic-optics with 'project' instead." #-}
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetProjectResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\s a -> s {_gprsResponseStatus = a})
-
-instance NFData GetProjectResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprsResponseStatus :: Lens.Lens' GetProjectResponse Lude.Int
+gprsResponseStatus = Lens.lens (responseStatus :: GetProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetProjectResponse)
+{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

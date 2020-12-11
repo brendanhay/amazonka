@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,114 +14,142 @@
 --
 -- Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: @TagsToAdd@ for tags to add or update, and @TagsToRemove@ .
 --
---
 -- Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html Tagging Application Resources> .
---
 -- If you create a custom IAM user policy to control permission to this operation, specify one of the following two virtual actions (or both) instead of the API operation name:
 --
---     * elasticbeanstalk:AddTags    * Controls permission to call @UpdateTagsForResource@ and pass a list of tags to add in the @TagsToAdd@ parameter.
+--     * elasticbeanstalk:AddTags
 --
---     * elasticbeanstalk:RemoveTags    * Controls permission to call @UpdateTagsForResource@ and pass a list of tag keys to remove in the @TagsToRemove@ parameter.
+--     * Controls permission to call @UpdateTagsForResource@ and pass a list of tags to add in the @TagsToAdd@ parameter.
 --
+--
+--     * elasticbeanstalk:RemoveTags
+--
+--     * Controls permission to call @UpdateTagsForResource@ and pass a list of tag keys to remove in the @TagsToRemove@ parameter.
 --
 --
 -- For details about creating a custom user policy, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies Creating a Custom User Policy> .
 module Network.AWS.ElasticBeanstalk.UpdateTagsForResource
-  ( -- * Creating a Request
-    updateTagsForResource,
-    UpdateTagsForResource,
+  ( -- * Creating a request
+    UpdateTagsForResource (..),
+    mkUpdateTagsForResource,
 
-    -- * Request Lenses
+    -- ** Request lenses
     utfrTagsToRemove,
     utfrTagsToAdd,
     utfrResourceARN,
 
-    -- * Destructuring the Response
-    updateTagsForResourceResponse,
-    UpdateTagsForResourceResponse,
+    -- * Destructuring the response
+    UpdateTagsForResourceResponse (..),
+    mkUpdateTagsForResourceResponse,
   )
 where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateTagsForResource' smart constructor.
+-- | /See:/ 'mkUpdateTagsForResource' smart constructor.
 data UpdateTagsForResource = UpdateTagsForResource'
-  { _utfrTagsToRemove ::
-      !(Maybe [Text]),
-    _utfrTagsToAdd :: !(Maybe [Tag]),
-    _utfrResourceARN :: !Text
+  { tagsToRemove ::
+      Lude.Maybe [Lude.Text],
+    tagsToAdd :: Lude.Maybe [Tag],
+    resourceARN :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagsForResource' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the resouce to be updated.
 --
--- * 'utfrTagsToRemove' - A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored. Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+-- Must be the ARN of an Elastic Beanstalk resource.
+-- * 'tagsToAdd' - A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.
 --
--- * 'utfrTagsToAdd' - A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated. Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+-- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+-- * 'tagsToRemove' - A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.
 --
--- * 'utfrResourceARN' - The Amazon Resource Name (ARN) of the resouce to be updated. Must be the ARN of an Elastic Beanstalk resource.
-updateTagsForResource ::
-  -- | 'utfrResourceARN'
-  Text ->
+-- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+mkUpdateTagsForResource ::
+  -- | 'resourceARN'
+  Lude.Text ->
   UpdateTagsForResource
-updateTagsForResource pResourceARN_ =
+mkUpdateTagsForResource pResourceARN_ =
   UpdateTagsForResource'
-    { _utfrTagsToRemove = Nothing,
-      _utfrTagsToAdd = Nothing,
-      _utfrResourceARN = pResourceARN_
+    { tagsToRemove = Lude.Nothing,
+      tagsToAdd = Lude.Nothing,
+      resourceARN = pResourceARN_
     }
 
--- | A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored. Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
-utfrTagsToRemove :: Lens' UpdateTagsForResource [Text]
-utfrTagsToRemove = lens _utfrTagsToRemove (\s a -> s {_utfrTagsToRemove = a}) . _Default . _Coerce
+-- | A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.
+--
+-- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+--
+-- /Note:/ Consider using 'tagsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utfrTagsToRemove :: Lens.Lens' UpdateTagsForResource (Lude.Maybe [Lude.Text])
+utfrTagsToRemove = Lens.lens (tagsToRemove :: UpdateTagsForResource -> Lude.Maybe [Lude.Text]) (\s a -> s {tagsToRemove = a} :: UpdateTagsForResource)
+{-# DEPRECATED utfrTagsToRemove "Use generic-lens or generic-optics with 'tagsToRemove' instead." #-}
 
--- | A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated. Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
-utfrTagsToAdd :: Lens' UpdateTagsForResource [Tag]
-utfrTagsToAdd = lens _utfrTagsToAdd (\s a -> s {_utfrTagsToAdd = a}) . _Default . _Coerce
+-- | A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.
+--
+-- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+--
+-- /Note:/ Consider using 'tagsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utfrTagsToAdd :: Lens.Lens' UpdateTagsForResource (Lude.Maybe [Tag])
+utfrTagsToAdd = Lens.lens (tagsToAdd :: UpdateTagsForResource -> Lude.Maybe [Tag]) (\s a -> s {tagsToAdd = a} :: UpdateTagsForResource)
+{-# DEPRECATED utfrTagsToAdd "Use generic-lens or generic-optics with 'tagsToAdd' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the resouce to be updated. Must be the ARN of an Elastic Beanstalk resource.
-utfrResourceARN :: Lens' UpdateTagsForResource Text
-utfrResourceARN = lens _utfrResourceARN (\s a -> s {_utfrResourceARN = a})
+-- | The Amazon Resource Name (ARN) of the resouce to be updated.
+--
+-- Must be the ARN of an Elastic Beanstalk resource.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utfrResourceARN :: Lens.Lens' UpdateTagsForResource Lude.Text
+utfrResourceARN = Lens.lens (resourceARN :: UpdateTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UpdateTagsForResource)
+{-# DEPRECATED utfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
-instance AWSRequest UpdateTagsForResource where
+instance Lude.AWSRequest UpdateTagsForResource where
   type Rs UpdateTagsForResource = UpdateTagsForResourceResponse
-  request = postQuery elasticBeanstalk
-  response = receiveNull UpdateTagsForResourceResponse'
+  request = Req.postQuery elasticBeanstalkService
+  response = Res.receiveNull UpdateTagsForResourceResponse'
 
-instance Hashable UpdateTagsForResource
+instance Lude.ToHeaders UpdateTagsForResource where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateTagsForResource
+instance Lude.ToPath UpdateTagsForResource where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateTagsForResource where
-  toHeaders = const mempty
-
-instance ToPath UpdateTagsForResource where
-  toPath = const "/"
-
-instance ToQuery UpdateTagsForResource where
+instance Lude.ToQuery UpdateTagsForResource where
   toQuery UpdateTagsForResource' {..} =
-    mconcat
-      [ "Action" =: ("UpdateTagsForResource" :: ByteString),
-        "Version" =: ("2010-12-01" :: ByteString),
+    Lude.mconcat
+      [ "Action" Lude.=: ("UpdateTagsForResource" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
         "TagsToRemove"
-          =: toQuery (toQueryList "member" <$> _utfrTagsToRemove),
-        "TagsToAdd" =: toQuery (toQueryList "member" <$> _utfrTagsToAdd),
-        "ResourceArn" =: _utfrResourceARN
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tagsToRemove),
+        "TagsToAdd"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tagsToAdd),
+        "ResourceArn" Lude.=: resourceARN
       ]
 
--- | /See:/ 'updateTagsForResourceResponse' smart constructor.
+-- | /See:/ 'mkUpdateTagsForResourceResponse' smart constructor.
 data UpdateTagsForResourceResponse = UpdateTagsForResourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagsForResourceResponse' with the minimum fields required to make a request.
-updateTagsForResourceResponse ::
+mkUpdateTagsForResourceResponse ::
   UpdateTagsForResourceResponse
-updateTagsForResourceResponse = UpdateTagsForResourceResponse'
-
-instance NFData UpdateTagsForResourceResponse
+mkUpdateTagsForResourceResponse = UpdateTagsForResourceResponse'

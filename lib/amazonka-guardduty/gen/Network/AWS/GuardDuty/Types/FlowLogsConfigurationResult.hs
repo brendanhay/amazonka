@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult where
+module Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult
+  ( FlowLogsConfigurationResult (..),
+
+    -- * Smart constructor
+    mkFlowLogsConfigurationResult,
+
+    -- * Lenses
+    flcrStatus,
+  )
+where
 
 import Network.AWS.GuardDuty.Types.DataSourceStatus
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Contains information on the status of VPC flow logs as a data source.
 --
---
---
--- /See:/ 'flowLogsConfigurationResult' smart constructor.
+-- /See:/ 'mkFlowLogsConfigurationResult' smart constructor.
 newtype FlowLogsConfigurationResult = FlowLogsConfigurationResult'
-  { _flcrStatus ::
+  { status ::
       DataSourceStatus
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlowLogsConfigurationResult' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'flcrStatus' - Denotes whether VPC flow logs is enabled as a data source.
-flowLogsConfigurationResult ::
-  -- | 'flcrStatus'
+-- * 'status' - Denotes whether VPC flow logs is enabled as a data source.
+mkFlowLogsConfigurationResult ::
+  -- | 'status'
   DataSourceStatus ->
   FlowLogsConfigurationResult
-flowLogsConfigurationResult pStatus_ =
-  FlowLogsConfigurationResult' {_flcrStatus = pStatus_}
+mkFlowLogsConfigurationResult pStatus_ =
+  FlowLogsConfigurationResult' {status = pStatus_}
 
 -- | Denotes whether VPC flow logs is enabled as a data source.
-flcrStatus :: Lens' FlowLogsConfigurationResult DataSourceStatus
-flcrStatus = lens _flcrStatus (\s a -> s {_flcrStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flcrStatus :: Lens.Lens' FlowLogsConfigurationResult DataSourceStatus
+flcrStatus = Lens.lens (status :: FlowLogsConfigurationResult -> DataSourceStatus) (\s a -> s {status = a} :: FlowLogsConfigurationResult)
+{-# DEPRECATED flcrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance FromJSON FlowLogsConfigurationResult where
+instance Lude.FromJSON FlowLogsConfigurationResult where
   parseJSON =
-    withObject
+    Lude.withObject
       "FlowLogsConfigurationResult"
-      (\x -> FlowLogsConfigurationResult' <$> (x .: "status"))
-
-instance Hashable FlowLogsConfigurationResult
-
-instance NFData FlowLogsConfigurationResult
+      (\x -> FlowLogsConfigurationResult' Lude.<$> (x Lude..: "status"))

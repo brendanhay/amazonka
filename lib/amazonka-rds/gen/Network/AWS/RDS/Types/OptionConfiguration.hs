@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,101 +7,130 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.RDS.Types.OptionConfiguration where
+module Network.AWS.RDS.Types.OptionConfiguration
+  ( OptionConfiguration (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkOptionConfiguration,
+
+    -- * Lenses
+    ocOptionSettings,
+    ocVPCSecurityGroupMemberships,
+    ocDBSecurityGroupMemberships,
+    ocOptionVersion,
+    ocPort,
+    ocOptionName,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.RDS.Types.OptionSetting
 
 -- | A list of all available options
 --
---
---
--- /See:/ 'optionConfiguration' smart constructor.
+-- /See:/ 'mkOptionConfiguration' smart constructor.
 data OptionConfiguration = OptionConfiguration'
-  { _ocOptionSettings ::
-      !(Maybe [OptionSetting]),
-    _ocVPCSecurityGroupMemberships :: !(Maybe [Text]),
-    _ocDBSecurityGroupMemberships :: !(Maybe [Text]),
-    _ocOptionVersion :: !(Maybe Text),
-    _ocPort :: !(Maybe Int),
-    _ocOptionName :: !Text
+  { optionSettings ::
+      Lude.Maybe [OptionSetting],
+    vpcSecurityGroupMemberships ::
+      Lude.Maybe [Lude.Text],
+    dbSecurityGroupMemberships ::
+      Lude.Maybe [Lude.Text],
+    optionVersion :: Lude.Maybe Lude.Text,
+    port :: Lude.Maybe Lude.Int,
+    optionName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ocOptionSettings' - The option settings to include in an option group.
---
--- * 'ocVPCSecurityGroupMemberships' - A list of VpcSecurityGroupMembership name strings used for this option.
---
--- * 'ocDBSecurityGroupMemberships' - A list of DBSecurityGroupMembership name strings used for this option.
---
--- * 'ocOptionVersion' - The version for the option.
---
--- * 'ocPort' - The optional port for the option.
---
--- * 'ocOptionName' - The configuration of options to include in a group.
-optionConfiguration ::
-  -- | 'ocOptionName'
-  Text ->
+-- * 'dbSecurityGroupMemberships' - A list of DBSecurityGroupMembership name strings used for this option.
+-- * 'optionName' - The configuration of options to include in a group.
+-- * 'optionSettings' - The option settings to include in an option group.
+-- * 'optionVersion' - The version for the option.
+-- * 'port' - The optional port for the option.
+-- * 'vpcSecurityGroupMemberships' - A list of VpcSecurityGroupMembership name strings used for this option.
+mkOptionConfiguration ::
+  -- | 'optionName'
+  Lude.Text ->
   OptionConfiguration
-optionConfiguration pOptionName_ =
+mkOptionConfiguration pOptionName_ =
   OptionConfiguration'
-    { _ocOptionSettings = Nothing,
-      _ocVPCSecurityGroupMemberships = Nothing,
-      _ocDBSecurityGroupMemberships = Nothing,
-      _ocOptionVersion = Nothing,
-      _ocPort = Nothing,
-      _ocOptionName = pOptionName_
+    { optionSettings = Lude.Nothing,
+      vpcSecurityGroupMemberships = Lude.Nothing,
+      dbSecurityGroupMemberships = Lude.Nothing,
+      optionVersion = Lude.Nothing,
+      port = Lude.Nothing,
+      optionName = pOptionName_
     }
 
 -- | The option settings to include in an option group.
-ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
-ocOptionSettings = lens _ocOptionSettings (\s a -> s {_ocOptionSettings = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocOptionSettings :: Lens.Lens' OptionConfiguration (Lude.Maybe [OptionSetting])
+ocOptionSettings = Lens.lens (optionSettings :: OptionConfiguration -> Lude.Maybe [OptionSetting]) (\s a -> s {optionSettings = a} :: OptionConfiguration)
+{-# DEPRECATED ocOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
 
 -- | A list of VpcSecurityGroupMembership name strings used for this option.
-ocVPCSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
-ocVPCSecurityGroupMemberships = lens _ocVPCSecurityGroupMemberships (\s a -> s {_ocVPCSecurityGroupMemberships = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'vpcSecurityGroupMemberships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocVPCSecurityGroupMemberships :: Lens.Lens' OptionConfiguration (Lude.Maybe [Lude.Text])
+ocVPCSecurityGroupMemberships = Lens.lens (vpcSecurityGroupMemberships :: OptionConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {vpcSecurityGroupMemberships = a} :: OptionConfiguration)
+{-# DEPRECATED ocVPCSecurityGroupMemberships "Use generic-lens or generic-optics with 'vpcSecurityGroupMemberships' instead." #-}
 
 -- | A list of DBSecurityGroupMembership name strings used for this option.
-ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
-ocDBSecurityGroupMemberships = lens _ocDBSecurityGroupMemberships (\s a -> s {_ocDBSecurityGroupMemberships = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'dbSecurityGroupMemberships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocDBSecurityGroupMemberships :: Lens.Lens' OptionConfiguration (Lude.Maybe [Lude.Text])
+ocDBSecurityGroupMemberships = Lens.lens (dbSecurityGroupMemberships :: OptionConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {dbSecurityGroupMemberships = a} :: OptionConfiguration)
+{-# DEPRECATED ocDBSecurityGroupMemberships "Use generic-lens or generic-optics with 'dbSecurityGroupMemberships' instead." #-}
 
 -- | The version for the option.
-ocOptionVersion :: Lens' OptionConfiguration (Maybe Text)
-ocOptionVersion = lens _ocOptionVersion (\s a -> s {_ocOptionVersion = a})
+--
+-- /Note:/ Consider using 'optionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocOptionVersion :: Lens.Lens' OptionConfiguration (Lude.Maybe Lude.Text)
+ocOptionVersion = Lens.lens (optionVersion :: OptionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {optionVersion = a} :: OptionConfiguration)
+{-# DEPRECATED ocOptionVersion "Use generic-lens or generic-optics with 'optionVersion' instead." #-}
 
 -- | The optional port for the option.
-ocPort :: Lens' OptionConfiguration (Maybe Int)
-ocPort = lens _ocPort (\s a -> s {_ocPort = a})
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocPort :: Lens.Lens' OptionConfiguration (Lude.Maybe Lude.Int)
+ocPort = Lens.lens (port :: OptionConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: OptionConfiguration)
+{-# DEPRECATED ocPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
 -- | The configuration of options to include in a group.
-ocOptionName :: Lens' OptionConfiguration Text
-ocOptionName = lens _ocOptionName (\s a -> s {_ocOptionName = a})
+--
+-- /Note:/ Consider using 'optionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocOptionName :: Lens.Lens' OptionConfiguration Lude.Text
+ocOptionName = Lens.lens (optionName :: OptionConfiguration -> Lude.Text) (\s a -> s {optionName = a} :: OptionConfiguration)
+{-# DEPRECATED ocOptionName "Use generic-lens or generic-optics with 'optionName' instead." #-}
 
-instance Hashable OptionConfiguration
-
-instance NFData OptionConfiguration
-
-instance ToQuery OptionConfiguration where
+instance Lude.ToQuery OptionConfiguration where
   toQuery OptionConfiguration' {..} =
-    mconcat
+    Lude.mconcat
       [ "OptionSettings"
-          =: toQuery (toQueryList "OptionSetting" <$> _ocOptionSettings),
+          Lude.=: Lude.toQuery
+            (Lude.toQueryList "OptionSetting" Lude.<$> optionSettings),
         "VpcSecurityGroupMemberships"
-          =: toQuery
-            ( toQueryList "VpcSecurityGroupId"
-                <$> _ocVPCSecurityGroupMemberships
+          Lude.=: Lude.toQuery
+            ( Lude.toQueryList "VpcSecurityGroupId"
+                Lude.<$> vpcSecurityGroupMemberships
             ),
         "DBSecurityGroupMemberships"
-          =: toQuery
-            ( toQueryList "DBSecurityGroupName"
-                <$> _ocDBSecurityGroupMemberships
+          Lude.=: Lude.toQuery
+            ( Lude.toQueryList "DBSecurityGroupName"
+                Lude.<$> dbSecurityGroupMemberships
             ),
-        "OptionVersion" =: _ocOptionVersion,
-        "Port" =: _ocPort,
-        "OptionName" =: _ocOptionName
+        "OptionVersion" Lude.=: optionVersion,
+        "Port" Lude.=: port,
+        "OptionName" Lude.=: optionName
       ]

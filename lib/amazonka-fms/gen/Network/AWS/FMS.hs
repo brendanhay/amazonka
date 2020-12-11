@@ -14,11 +14,10 @@
 -- __AWS Firewall Manager__
 --
 -- This is the /AWS Firewall Manager API Reference/ . This guide is for developers who need detailed information about the AWS Firewall Manager API actions, data types, and errors. For detailed information about AWS Firewall Manager features, see the <https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html AWS Firewall Manager Developer Guide> .
---
 -- Some API actions require explicit resource permissions. For information, see the developer guide topic <https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html Firewall Manager required permissions for API actions> .
 module Network.AWS.FMS
-  ( -- * Service Configuration
-    fms,
+  ( -- * Service configuration
+    fmsService,
 
     -- * Errors
     -- $errors
@@ -131,35 +130,35 @@ module Network.AWS.FMS
     ViolationReason (..),
 
     -- ** AWSEC2InstanceViolation
-    AWSEC2InstanceViolation,
-    awsEC2InstanceViolation,
+    AWSEC2InstanceViolation (..),
+    mkAWSEC2InstanceViolation,
     aeivViolationTarget,
     aeivAWSEC2NetworkInterfaceViolations,
 
     -- ** AWSEC2NetworkInterfaceViolation
-    AWSEC2NetworkInterfaceViolation,
-    awsEC2NetworkInterfaceViolation,
+    AWSEC2NetworkInterfaceViolation (..),
+    mkAWSEC2NetworkInterfaceViolation,
     aenivViolatingSecurityGroups,
     aenivViolationTarget,
 
     -- ** AWSVPCSecurityGroupViolation
-    AWSVPCSecurityGroupViolation,
-    awsVPCSecurityGroupViolation,
+    AWSVPCSecurityGroupViolation (..),
+    mkAWSVPCSecurityGroupViolation,
     avsgvViolationTargetDescription,
     avsgvPossibleSecurityGroupRemediationActions,
     avsgvViolationTarget,
     avsgvPartialMatches,
 
     -- ** App
-    App,
-    app,
-    appAppName,
-    appProtocol,
-    appPort,
+    App (..),
+    mkApp,
+    aAppName,
+    aProtocol,
+    aPort,
 
     -- ** AppsListData
-    AppsListData,
-    appsListData,
+    AppsListData (..),
+    mkAppsListData,
     aldListUpdateToken,
     aldListId,
     aldLastUpdateTime,
@@ -169,30 +168,30 @@ module Network.AWS.FMS
     aldAppsList,
 
     -- ** AppsListDataSummary
-    AppsListDataSummary,
-    appsListDataSummary,
+    AppsListDataSummary (..),
+    mkAppsListDataSummary,
     aldsListARN,
     aldsAppsList,
     aldsListId,
     aldsListName,
 
     -- ** ComplianceViolator
-    ComplianceViolator,
-    complianceViolator,
+    ComplianceViolator (..),
+    mkComplianceViolator,
     cvResourceId,
     cvResourceType,
     cvViolationReason,
 
     -- ** EvaluationResult
-    EvaluationResult,
-    evaluationResult,
+    EvaluationResult (..),
+    mkEvaluationResult,
     erViolatorCount,
     erComplianceStatus,
     erEvaluationLimitExceeded,
 
     -- ** NetworkFirewallMissingExpectedRTViolation
-    NetworkFirewallMissingExpectedRTViolation,
-    networkFirewallMissingExpectedRTViolation,
+    NetworkFirewallMissingExpectedRTViolation (..),
+    mkNetworkFirewallMissingExpectedRTViolation,
     nfmertvCurrentRouteTable,
     nfmertvAvailabilityZone,
     nfmertvVPC,
@@ -200,24 +199,24 @@ module Network.AWS.FMS
     nfmertvExpectedRouteTable,
 
     -- ** NetworkFirewallMissingFirewallViolation
-    NetworkFirewallMissingFirewallViolation,
-    networkFirewallMissingFirewallViolation,
+    NetworkFirewallMissingFirewallViolation (..),
+    mkNetworkFirewallMissingFirewallViolation,
     nfmfvTargetViolationReason,
     nfmfvAvailabilityZone,
     nfmfvVPC,
     nfmfvViolationTarget,
 
     -- ** NetworkFirewallMissingSubnetViolation
-    NetworkFirewallMissingSubnetViolation,
-    networkFirewallMissingSubnetViolation,
+    NetworkFirewallMissingSubnetViolation (..),
+    mkNetworkFirewallMissingSubnetViolation,
     nfmsvTargetViolationReason,
     nfmsvAvailabilityZone,
     nfmsvVPC,
     nfmsvViolationTarget,
 
     -- ** NetworkFirewallPolicyDescription
-    NetworkFirewallPolicyDescription,
-    networkFirewallPolicyDescription,
+    NetworkFirewallPolicyDescription (..),
+    mkNetworkFirewallPolicyDescription,
     nfpdStatefulRuleGroups,
     nfpdStatelessRuleGroups,
     nfpdStatelessFragmentDefaultActions,
@@ -225,21 +224,21 @@ module Network.AWS.FMS
     nfpdStatelessDefaultActions,
 
     -- ** NetworkFirewallPolicyModifiedViolation
-    NetworkFirewallPolicyModifiedViolation,
-    networkFirewallPolicyModifiedViolation,
+    NetworkFirewallPolicyModifiedViolation (..),
+    mkNetworkFirewallPolicyModifiedViolation,
     nfpmvCurrentPolicyDescription,
     nfpmvViolationTarget,
     nfpmvExpectedPolicyDescription,
 
     -- ** PartialMatch
-    PartialMatch,
-    partialMatch,
+    PartialMatch (..),
+    mkPartialMatch,
     pmTargetViolationReasons,
     pmReference,
 
     -- ** Policy
-    Policy,
-    policy,
+    Policy (..),
+    mkPolicy,
     pPolicyId,
     pResourceTypeList,
     pResourceTags,
@@ -253,8 +252,8 @@ module Network.AWS.FMS
     pRemediationEnabled,
 
     -- ** PolicyComplianceDetail
-    PolicyComplianceDetail,
-    policyComplianceDetail,
+    PolicyComplianceDetail (..),
+    mkPolicyComplianceDetail,
     pcdExpiredAt,
     pcdPolicyId,
     pcdViolators,
@@ -264,8 +263,8 @@ module Network.AWS.FMS
     pcdMemberAccount,
 
     -- ** PolicyComplianceStatus
-    PolicyComplianceStatus,
-    policyComplianceStatus,
+    PolicyComplianceStatus (..),
+    mkPolicyComplianceStatus,
     pcsEvaluationResults,
     pcsLastUpdated,
     pcsPolicyName,
@@ -275,8 +274,8 @@ module Network.AWS.FMS
     pcsMemberAccount,
 
     -- ** PolicySummary
-    PolicySummary,
-    policySummary,
+    PolicySummary (..),
+    mkPolicySummary,
     psPolicyName,
     psRemediationEnabled,
     psResourceType,
@@ -285,8 +284,8 @@ module Network.AWS.FMS
     psSecurityServiceType,
 
     -- ** ProtocolsListData
-    ProtocolsListData,
-    protocolsListData,
+    ProtocolsListData (..),
+    mkProtocolsListData,
     pldListUpdateToken,
     pldListId,
     pldLastUpdateTime,
@@ -296,22 +295,22 @@ module Network.AWS.FMS
     pldProtocolsList,
 
     -- ** ProtocolsListDataSummary
-    ProtocolsListDataSummary,
-    protocolsListDataSummary,
+    ProtocolsListDataSummary (..),
+    mkProtocolsListDataSummary,
     pldsProtocolsList,
     pldsListARN,
     pldsListId,
     pldsListName,
 
     -- ** ResourceTag
-    ResourceTag,
-    resourceTag,
+    ResourceTag (..),
+    mkResourceTag,
     rtValue,
     rtKey,
 
     -- ** ResourceViolation
-    ResourceViolation,
-    resourceViolation,
+    ResourceViolation (..),
+    mkResourceViolation,
     rvNetworkFirewallMissingExpectedRTViolation,
     rvNetworkFirewallMissingFirewallViolation,
     rvNetworkFirewallMissingSubnetViolation,
@@ -321,16 +320,16 @@ module Network.AWS.FMS
     rvAWSEC2NetworkInterfaceViolation,
 
     -- ** SecurityGroupRemediationAction
-    SecurityGroupRemediationAction,
-    securityGroupRemediationAction,
+    SecurityGroupRemediationAction (..),
+    mkSecurityGroupRemediationAction,
     sgraIsDefaultAction,
     sgraRemediationResult,
     sgraDescription,
     sgraRemediationActionType,
 
     -- ** SecurityGroupRuleDescription
-    SecurityGroupRuleDescription,
-    securityGroupRuleDescription,
+    SecurityGroupRuleDescription (..),
+    mkSecurityGroupRuleDescription,
     sgrdFromPort,
     sgrdProtocol,
     sgrdIPV4Range,
@@ -339,33 +338,33 @@ module Network.AWS.FMS
     sgrdIPV6Range,
 
     -- ** SecurityServicePolicyData
-    SecurityServicePolicyData,
-    securityServicePolicyData,
+    SecurityServicePolicyData (..),
+    mkSecurityServicePolicyData,
     sspdManagedServiceData,
     sspdType,
 
     -- ** StatefulRuleGroup
-    StatefulRuleGroup,
-    statefulRuleGroup,
+    StatefulRuleGroup (..),
+    mkStatefulRuleGroup,
     srgResourceId,
     srgRuleGroupName,
 
     -- ** StatelessRuleGroup
-    StatelessRuleGroup,
-    statelessRuleGroup,
+    StatelessRuleGroup (..),
+    mkStatelessRuleGroup,
     sResourceId,
     sPriority,
     sRuleGroupName,
 
     -- ** Tag
-    Tag,
-    tag,
-    tagKey,
-    tagValue,
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** ViolationDetail
-    ViolationDetail,
-    violationDetail,
+    ViolationDetail (..),
+    mkViolationDetail,
     vdResourceTags,
     vdResourceDescription,
     vdPolicyId,
@@ -373,6 +372,17 @@ module Network.AWS.FMS
     vdResourceId,
     vdResourceType,
     vdResourceViolations,
+
+    -- * Serialization types
+    Lude.Base64 (..),
+    Lude._Base64,
+    Lude.Sensitive (..),
+    Lude._Sensitive,
+    Lude.Time (..),
+    Lude._Time,
+    Lude.ISO8601,
+    Lude.Timestamp,
+    Lude.UTCTime,
   )
 where
 
@@ -404,6 +414,7 @@ import Network.AWS.FMS.TagResource
 import Network.AWS.FMS.Types
 import Network.AWS.FMS.UntagResource
 import Network.AWS.FMS.Waiters
+import qualified Network.AWS.Prelude as Lude
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

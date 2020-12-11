@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.ImportImageLicenseConfigurationRequest where
+module Network.AWS.EC2.Types.ImportImageLicenseConfigurationRequest
+  ( ImportImageLicenseConfigurationRequest (..),
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkImportImageLicenseConfigurationRequest,
+
+    -- * Lenses
+    iilcrLicenseConfigurationARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The request information of license configurations.
 --
---
---
--- /See:/ 'importImageLicenseConfigurationRequest' smart constructor.
+-- /See:/ 'mkImportImageLicenseConfigurationRequest' smart constructor.
 newtype ImportImageLicenseConfigurationRequest = ImportImageLicenseConfigurationRequest'
-  { _iilcrLicenseConfigurationARN ::
-      Maybe Text
+  { licenseConfigurationARN ::
+      Lude.Maybe
+        Lude.Text
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
     )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportImageLicenseConfigurationRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'iilcrLicenseConfigurationARN' - The ARN of a license configuration.
-importImageLicenseConfigurationRequest ::
+-- * 'licenseConfigurationARN' - The ARN of a license configuration.
+mkImportImageLicenseConfigurationRequest ::
   ImportImageLicenseConfigurationRequest
-importImageLicenseConfigurationRequest =
+mkImportImageLicenseConfigurationRequest =
   ImportImageLicenseConfigurationRequest'
-    { _iilcrLicenseConfigurationARN =
-        Nothing
+    { licenseConfigurationARN =
+        Lude.Nothing
     }
 
 -- | The ARN of a license configuration.
-iilcrLicenseConfigurationARN :: Lens' ImportImageLicenseConfigurationRequest (Maybe Text)
-iilcrLicenseConfigurationARN = lens _iilcrLicenseConfigurationARN (\s a -> s {_iilcrLicenseConfigurationARN = a})
+--
+-- /Note:/ Consider using 'licenseConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iilcrLicenseConfigurationARN :: Lens.Lens' ImportImageLicenseConfigurationRequest (Lude.Maybe Lude.Text)
+iilcrLicenseConfigurationARN = Lens.lens (licenseConfigurationARN :: ImportImageLicenseConfigurationRequest -> Lude.Maybe Lude.Text) (\s a -> s {licenseConfigurationARN = a} :: ImportImageLicenseConfigurationRequest)
+{-# DEPRECATED iilcrLicenseConfigurationARN "Use generic-lens or generic-optics with 'licenseConfigurationARN' instead." #-}
 
-instance Hashable ImportImageLicenseConfigurationRequest
-
-instance NFData ImportImageLicenseConfigurationRequest
-
-instance ToQuery ImportImageLicenseConfigurationRequest where
+instance Lude.ToQuery ImportImageLicenseConfigurationRequest where
   toQuery ImportImageLicenseConfigurationRequest' {..} =
-    mconcat
-      ["LicenseConfigurationArn" =: _iilcrLicenseConfigurationARN]
+    Lude.mconcat
+      ["LicenseConfigurationArn" Lude.=: licenseConfigurationARN]

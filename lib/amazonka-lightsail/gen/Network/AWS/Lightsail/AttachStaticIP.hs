@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,134 +14,150 @@
 --
 -- Attaches a static IP address to a specific Amazon Lightsail instance.
 module Network.AWS.Lightsail.AttachStaticIP
-  ( -- * Creating a Request
-    attachStaticIP,
-    AttachStaticIP,
+  ( -- * Creating a request
+    AttachStaticIP (..),
+    mkAttachStaticIP,
 
-    -- * Request Lenses
+    -- ** Request lenses
     asipStaticIPName,
     asipInstanceName,
 
-    -- * Destructuring the Response
-    attachStaticIPResponse,
-    AttachStaticIPResponse,
+    -- * Destructuring the response
+    AttachStaticIPResponse (..),
+    mkAttachStaticIPResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     asiprsOperations,
     asiprsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'attachStaticIP' smart constructor.
+-- | /See:/ 'mkAttachStaticIP' smart constructor.
 data AttachStaticIP = AttachStaticIP'
-  { _asipStaticIPName :: !Text,
-    _asipInstanceName :: !Text
+  { staticIPName :: Lude.Text,
+    instanceName :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachStaticIP' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asipStaticIPName' - The name of the static IP.
---
--- * 'asipInstanceName' - The instance name to which you want to attach the static IP address.
-attachStaticIP ::
-  -- | 'asipStaticIPName'
-  Text ->
-  -- | 'asipInstanceName'
-  Text ->
+-- * 'instanceName' - The instance name to which you want to attach the static IP address.
+-- * 'staticIPName' - The name of the static IP.
+mkAttachStaticIP ::
+  -- | 'staticIPName'
+  Lude.Text ->
+  -- | 'instanceName'
+  Lude.Text ->
   AttachStaticIP
-attachStaticIP pStaticIPName_ pInstanceName_ =
+mkAttachStaticIP pStaticIPName_ pInstanceName_ =
   AttachStaticIP'
-    { _asipStaticIPName = pStaticIPName_,
-      _asipInstanceName = pInstanceName_
+    { staticIPName = pStaticIPName_,
+      instanceName = pInstanceName_
     }
 
 -- | The name of the static IP.
-asipStaticIPName :: Lens' AttachStaticIP Text
-asipStaticIPName = lens _asipStaticIPName (\s a -> s {_asipStaticIPName = a})
+--
+-- /Note:/ Consider using 'staticIPName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asipStaticIPName :: Lens.Lens' AttachStaticIP Lude.Text
+asipStaticIPName = Lens.lens (staticIPName :: AttachStaticIP -> Lude.Text) (\s a -> s {staticIPName = a} :: AttachStaticIP)
+{-# DEPRECATED asipStaticIPName "Use generic-lens or generic-optics with 'staticIPName' instead." #-}
 
 -- | The instance name to which you want to attach the static IP address.
-asipInstanceName :: Lens' AttachStaticIP Text
-asipInstanceName = lens _asipInstanceName (\s a -> s {_asipInstanceName = a})
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asipInstanceName :: Lens.Lens' AttachStaticIP Lude.Text
+asipInstanceName = Lens.lens (instanceName :: AttachStaticIP -> Lude.Text) (\s a -> s {instanceName = a} :: AttachStaticIP)
+{-# DEPRECATED asipInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance AWSRequest AttachStaticIP where
+instance Lude.AWSRequest AttachStaticIP where
   type Rs AttachStaticIP = AttachStaticIPResponse
-  request = postJSON lightsail
+  request = Req.postJSON lightsailService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           AttachStaticIPResponse'
-            <$> (x .?> "operations" .!@ mempty) <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable AttachStaticIP
-
-instance NFData AttachStaticIP
-
-instance ToHeaders AttachStaticIP where
+instance Lude.ToHeaders AttachStaticIP where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Lightsail_20161128.AttachStaticIp" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Lightsail_20161128.AttachStaticIp" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON AttachStaticIP where
+instance Lude.ToJSON AttachStaticIP where
   toJSON AttachStaticIP' {..} =
-    object
-      ( catMaybes
-          [ Just ("staticIpName" .= _asipStaticIPName),
-            Just ("instanceName" .= _asipInstanceName)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("staticIpName" Lude..= staticIPName),
+            Lude.Just ("instanceName" Lude..= instanceName)
           ]
       )
 
-instance ToPath AttachStaticIP where
-  toPath = const "/"
+instance Lude.ToPath AttachStaticIP where
+  toPath = Lude.const "/"
 
-instance ToQuery AttachStaticIP where
-  toQuery = const mempty
+instance Lude.ToQuery AttachStaticIP where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'attachStaticIPResponse' smart constructor.
+-- | /See:/ 'mkAttachStaticIPResponse' smart constructor.
 data AttachStaticIPResponse = AttachStaticIPResponse'
-  { _asiprsOperations ::
-      !(Maybe [Operation]),
-    _asiprsResponseStatus :: !Int
+  { operations ::
+      Lude.Maybe [Operation],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachStaticIPResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'asiprsOperations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
---
--- * 'asiprsResponseStatus' - -- | The response status code.
-attachStaticIPResponse ::
-  -- | 'asiprsResponseStatus'
-  Int ->
+-- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+-- * 'responseStatus' - The response status code.
+mkAttachStaticIPResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   AttachStaticIPResponse
-attachStaticIPResponse pResponseStatus_ =
+mkAttachStaticIPResponse pResponseStatus_ =
   AttachStaticIPResponse'
-    { _asiprsOperations = Nothing,
-      _asiprsResponseStatus = pResponseStatus_
+    { operations = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-asiprsOperations :: Lens' AttachStaticIPResponse [Operation]
-asiprsOperations = lens _asiprsOperations (\s a -> s {_asiprsOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asiprsOperations :: Lens.Lens' AttachStaticIPResponse (Lude.Maybe [Operation])
+asiprsOperations = Lens.lens (operations :: AttachStaticIPResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: AttachStaticIPResponse)
+{-# DEPRECATED asiprsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
--- | -- | The response status code.
-asiprsResponseStatus :: Lens' AttachStaticIPResponse Int
-asiprsResponseStatus = lens _asiprsResponseStatus (\s a -> s {_asiprsResponseStatus = a})
-
-instance NFData AttachStaticIPResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asiprsResponseStatus :: Lens.Lens' AttachStaticIPResponse Lude.Int
+asiprsResponseStatus = Lens.lens (responseStatus :: AttachStaticIPResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachStaticIPResponse)
+{-# DEPRECATED asiprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

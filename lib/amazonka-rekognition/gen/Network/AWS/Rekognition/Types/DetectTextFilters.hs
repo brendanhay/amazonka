@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,57 +7,71 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Rekognition.Types.DetectTextFilters where
+module Network.AWS.Rekognition.Types.DetectTextFilters
+  ( DetectTextFilters (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDetectTextFilters,
+
+    -- * Lenses
+    dtfRegionsOfInterest,
+    dtfWordFilter,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.Rekognition.Types.DetectionFilter
 import Network.AWS.Rekognition.Types.RegionOfInterest
 
 -- | A set of optional parameters that you can use to set the criteria that the text must meet to be included in your response. @WordFilter@ looks at a word’s height, width, and minimum confidence. @RegionOfInterest@ lets you set a specific region of the image to look for text in.
 --
---
---
--- /See:/ 'detectTextFilters' smart constructor.
+-- /See:/ 'mkDetectTextFilters' smart constructor.
 data DetectTextFilters = DetectTextFilters'
-  { _dtfRegionsOfInterest ::
-      !(Maybe [RegionOfInterest]),
-    _dtfWordFilter :: !(Maybe DetectionFilter)
+  { regionsOfInterest ::
+      Lude.Maybe [RegionOfInterest],
+    wordFilter :: Lude.Maybe DetectionFilter
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectTextFilters' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dtfRegionsOfInterest' - A Filter focusing on a certain area of the image. Uses a @BoundingBox@ object to set the region of the image.
---
--- * 'dtfWordFilter' - Undocumented member.
-detectTextFilters ::
+-- * 'regionsOfInterest' - A Filter focusing on a certain area of the image. Uses a @BoundingBox@ object to set the region of the image.
+-- * 'wordFilter' - Undocumented field.
+mkDetectTextFilters ::
   DetectTextFilters
-detectTextFilters =
+mkDetectTextFilters =
   DetectTextFilters'
-    { _dtfRegionsOfInterest = Nothing,
-      _dtfWordFilter = Nothing
+    { regionsOfInterest = Lude.Nothing,
+      wordFilter = Lude.Nothing
     }
 
 -- | A Filter focusing on a certain area of the image. Uses a @BoundingBox@ object to set the region of the image.
-dtfRegionsOfInterest :: Lens' DetectTextFilters [RegionOfInterest]
-dtfRegionsOfInterest = lens _dtfRegionsOfInterest (\s a -> s {_dtfRegionsOfInterest = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'regionsOfInterest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfRegionsOfInterest :: Lens.Lens' DetectTextFilters (Lude.Maybe [RegionOfInterest])
+dtfRegionsOfInterest = Lens.lens (regionsOfInterest :: DetectTextFilters -> Lude.Maybe [RegionOfInterest]) (\s a -> s {regionsOfInterest = a} :: DetectTextFilters)
+{-# DEPRECATED dtfRegionsOfInterest "Use generic-lens or generic-optics with 'regionsOfInterest' instead." #-}
 
--- | Undocumented member.
-dtfWordFilter :: Lens' DetectTextFilters (Maybe DetectionFilter)
-dtfWordFilter = lens _dtfWordFilter (\s a -> s {_dtfWordFilter = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'wordFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfWordFilter :: Lens.Lens' DetectTextFilters (Lude.Maybe DetectionFilter)
+dtfWordFilter = Lens.lens (wordFilter :: DetectTextFilters -> Lude.Maybe DetectionFilter) (\s a -> s {wordFilter = a} :: DetectTextFilters)
+{-# DEPRECATED dtfWordFilter "Use generic-lens or generic-optics with 'wordFilter' instead." #-}
 
-instance Hashable DetectTextFilters
-
-instance NFData DetectTextFilters
-
-instance ToJSON DetectTextFilters where
+instance Lude.ToJSON DetectTextFilters where
   toJSON DetectTextFilters' {..} =
-    object
-      ( catMaybes
-          [ ("RegionsOfInterest" .=) <$> _dtfRegionsOfInterest,
-            ("WordFilter" .=) <$> _dtfWordFilter
+    Lude.object
+      ( Lude.catMaybes
+          [ ("RegionsOfInterest" Lude..=) Lude.<$> regionsOfInterest,
+            ("WordFilter" Lude..=) Lude.<$> wordFilter
           ]
       )

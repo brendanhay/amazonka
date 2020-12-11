@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,53 +7,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaConvert.Types.CmafManifestDurationFormat where
+module Network.AWS.MediaConvert.Types.CmafManifestDurationFormat
+  ( CmafManifestDurationFormat
+      ( CmafManifestDurationFormat',
+        FloatingPoint,
+        Integer
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Indicates whether the output manifest should use floating point values for segment duration.
-data CmafManifestDurationFormat
-  = FloatingPoint
-  | Integer
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CmafManifestDurationFormat = CmafManifestDurationFormat' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CmafManifestDurationFormat where
-  parser =
-    takeLowerText >>= \case
-      "floating_point" -> pure FloatingPoint
-      "integer" -> pure Integer
-      e ->
-        fromTextError $
-          "Failure parsing CmafManifestDurationFormat from value: '" <> e
-            <> "'. Accepted values: floating_point, integer"
+pattern FloatingPoint :: CmafManifestDurationFormat
+pattern FloatingPoint = CmafManifestDurationFormat' "FLOATING_POINT"
 
-instance ToText CmafManifestDurationFormat where
-  toText = \case
-    FloatingPoint -> "FLOATING_POINT"
-    Integer -> "INTEGER"
+pattern Integer :: CmafManifestDurationFormat
+pattern Integer = CmafManifestDurationFormat' "INTEGER"
 
-instance Hashable CmafManifestDurationFormat
-
-instance NFData CmafManifestDurationFormat
-
-instance ToByteString CmafManifestDurationFormat
-
-instance ToQuery CmafManifestDurationFormat
-
-instance ToHeader CmafManifestDurationFormat
-
-instance ToJSON CmafManifestDurationFormat where
-  toJSON = toJSONText
-
-instance FromJSON CmafManifestDurationFormat where
-  parseJSON = parseJSONText "CmafManifestDurationFormat"
+{-# COMPLETE
+  FloatingPoint,
+  Integer,
+  CmafManifestDurationFormat'
+  #-}

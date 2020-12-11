@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,40 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SSM.Types.StepExecution where
+module Network.AWS.SSM.Types.StepExecution
+  ( StepExecution (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStepExecution,
+
+    -- * Lenses
+    seFailureDetails,
+    seIsEnd,
+    seInputs,
+    seStepName,
+    seExecutionEndTime,
+    seFailureMessage,
+    seResponse,
+    seAction,
+    seResponseCode,
+    seStepStatus,
+    seTargetLocation,
+    seOverriddenParameters,
+    seOutputs,
+    seExecutionStartTime,
+    seMaxAttempts,
+    seTargets,
+    seNextStep,
+    seStepExecutionId,
+    seValidNextSteps,
+    seTimeoutSeconds,
+    seOnFailure,
+    seIsCritical,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SSM.Types.AutomationExecutionStatus
 import Network.AWS.SSM.Types.FailureDetails
 import Network.AWS.SSM.Types.Target
@@ -24,229 +48,274 @@ import Network.AWS.SSM.Types.TargetLocation
 
 -- | Detailed information about an the execution state of an Automation step.
 --
---
---
--- /See:/ 'stepExecution' smart constructor.
+-- /See:/ 'mkStepExecution' smart constructor.
 data StepExecution = StepExecution'
-  { _seFailureDetails ::
-      !(Maybe FailureDetails),
-    _seIsEnd :: !(Maybe Bool),
-    _seInputs :: !(Maybe (Map Text (Text))),
-    _seStepName :: !(Maybe Text),
-    _seExecutionEndTime :: !(Maybe POSIX),
-    _seFailureMessage :: !(Maybe Text),
-    _seResponse :: !(Maybe Text),
-    _seAction :: !(Maybe Text),
-    _seResponseCode :: !(Maybe Text),
-    _seStepStatus :: !(Maybe AutomationExecutionStatus),
-    _seTargetLocation :: !(Maybe TargetLocation),
-    _seOverriddenParameters :: !(Maybe (Map Text ([Text]))),
-    _seOutputs :: !(Maybe (Map Text ([Text]))),
-    _seExecutionStartTime :: !(Maybe POSIX),
-    _seMaxAttempts :: !(Maybe Int),
-    _seTargets :: !(Maybe [Target]),
-    _seNextStep :: !(Maybe Text),
-    _seStepExecutionId :: !(Maybe Text),
-    _seValidNextSteps :: !(Maybe [Text]),
-    _seTimeoutSeconds :: !(Maybe Integer),
-    _seOnFailure :: !(Maybe Text),
-    _seIsCritical :: !(Maybe Bool)
+  { failureDetails ::
+      Lude.Maybe FailureDetails,
+    isEnd :: Lude.Maybe Lude.Bool,
+    inputs :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    stepName :: Lude.Maybe Lude.Text,
+    executionEndTime :: Lude.Maybe Lude.Timestamp,
+    failureMessage :: Lude.Maybe Lude.Text,
+    response :: Lude.Maybe Lude.Text,
+    action :: Lude.Maybe Lude.Text,
+    responseCode :: Lude.Maybe Lude.Text,
+    stepStatus :: Lude.Maybe AutomationExecutionStatus,
+    targetLocation :: Lude.Maybe TargetLocation,
+    overriddenParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    outputs :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    executionStartTime :: Lude.Maybe Lude.Timestamp,
+    maxAttempts :: Lude.Maybe Lude.Int,
+    targets :: Lude.Maybe [Target],
+    nextStep :: Lude.Maybe Lude.Text,
+    stepExecutionId :: Lude.Maybe Lude.Text,
+    validNextSteps :: Lude.Maybe [Lude.Text],
+    timeoutSeconds :: Lude.Maybe Lude.Integer,
+    onFailure :: Lude.Maybe Lude.Text,
+    isCritical :: Lude.Maybe Lude.Bool
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepExecution' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'seFailureDetails' - Information about the Automation failure.
---
--- * 'seIsEnd' - The flag which can be used to end automation no matter whether the step succeeds or fails.
---
--- * 'seInputs' - Fully-resolved values passed into the step before execution.
---
--- * 'seStepName' - The name of this execution step.
---
--- * 'seExecutionEndTime' - If a step has finished execution, this contains the time the execution ended. If the step has not yet concluded, this field is not populated.
---
--- * 'seFailureMessage' - If a step failed, this message explains why the execution failed.
---
--- * 'seResponse' - A message associated with the response code for an execution.
---
--- * 'seAction' - The action this step performs. The action determines the behavior of the step.
---
--- * 'seResponseCode' - The response code returned by the execution of the step.
---
--- * 'seStepStatus' - The execution status for this step.
---
--- * 'seTargetLocation' - The combination of AWS Regions and accounts targeted by the current Automation execution.
---
--- * 'seOverriddenParameters' - A user-specified list of parameters to override when running a step.
---
--- * 'seOutputs' - Returned values from the execution of the step.
---
--- * 'seExecutionStartTime' - If a step has begun execution, this contains the time the step started. If the step is in Pending status, this field is not populated.
---
--- * 'seMaxAttempts' - The maximum number of tries to run the action of the step. The default value is 1.
---
--- * 'seTargets' - The targets for the step execution.
---
--- * 'seNextStep' - The next step after the step succeeds.
---
--- * 'seStepExecutionId' - The unique ID of a step execution.
---
--- * 'seValidNextSteps' - Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step fails. Continue will ignore the failure of current step and allow automation to run the next step. With conditional branching, we add step:stepName to support the automation to go to another specific step.
---
--- * 'seTimeoutSeconds' - The timeout seconds of the step.
---
--- * 'seOnFailure' - The action to take if the step fails. The default value is Abort.
---
--- * 'seIsCritical' - The flag which can be used to help decide whether the failure of current step leads to the Automation failure.
-stepExecution ::
+-- * 'action' - The action this step performs. The action determines the behavior of the step.
+-- * 'executionEndTime' - If a step has finished execution, this contains the time the execution ended. If the step has not yet concluded, this field is not populated.
+-- * 'executionStartTime' - If a step has begun execution, this contains the time the step started. If the step is in Pending status, this field is not populated.
+-- * 'failureDetails' - Information about the Automation failure.
+-- * 'failureMessage' - If a step failed, this message explains why the execution failed.
+-- * 'inputs' - Fully-resolved values passed into the step before execution.
+-- * 'isCritical' - The flag which can be used to help decide whether the failure of current step leads to the Automation failure.
+-- * 'isEnd' - The flag which can be used to end automation no matter whether the step succeeds or fails.
+-- * 'maxAttempts' - The maximum number of tries to run the action of the step. The default value is 1.
+-- * 'nextStep' - The next step after the step succeeds.
+-- * 'onFailure' - The action to take if the step fails. The default value is Abort.
+-- * 'outputs' - Returned values from the execution of the step.
+-- * 'overriddenParameters' - A user-specified list of parameters to override when running a step.
+-- * 'response' - A message associated with the response code for an execution.
+-- * 'responseCode' - The response code returned by the execution of the step.
+-- * 'stepExecutionId' - The unique ID of a step execution.
+-- * 'stepName' - The name of this execution step.
+-- * 'stepStatus' - The execution status for this step.
+-- * 'targetLocation' - The combination of AWS Regions and accounts targeted by the current Automation execution.
+-- * 'targets' - The targets for the step execution.
+-- * 'timeoutSeconds' - The timeout seconds of the step.
+-- * 'validNextSteps' - Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step fails. Continue will ignore the failure of current step and allow automation to run the next step. With conditional branching, we add step:stepName to support the automation to go to another specific step.
+mkStepExecution ::
   StepExecution
-stepExecution =
+mkStepExecution =
   StepExecution'
-    { _seFailureDetails = Nothing,
-      _seIsEnd = Nothing,
-      _seInputs = Nothing,
-      _seStepName = Nothing,
-      _seExecutionEndTime = Nothing,
-      _seFailureMessage = Nothing,
-      _seResponse = Nothing,
-      _seAction = Nothing,
-      _seResponseCode = Nothing,
-      _seStepStatus = Nothing,
-      _seTargetLocation = Nothing,
-      _seOverriddenParameters = Nothing,
-      _seOutputs = Nothing,
-      _seExecutionStartTime = Nothing,
-      _seMaxAttempts = Nothing,
-      _seTargets = Nothing,
-      _seNextStep = Nothing,
-      _seStepExecutionId = Nothing,
-      _seValidNextSteps = Nothing,
-      _seTimeoutSeconds = Nothing,
-      _seOnFailure = Nothing,
-      _seIsCritical = Nothing
+    { failureDetails = Lude.Nothing,
+      isEnd = Lude.Nothing,
+      inputs = Lude.Nothing,
+      stepName = Lude.Nothing,
+      executionEndTime = Lude.Nothing,
+      failureMessage = Lude.Nothing,
+      response = Lude.Nothing,
+      action = Lude.Nothing,
+      responseCode = Lude.Nothing,
+      stepStatus = Lude.Nothing,
+      targetLocation = Lude.Nothing,
+      overriddenParameters = Lude.Nothing,
+      outputs = Lude.Nothing,
+      executionStartTime = Lude.Nothing,
+      maxAttempts = Lude.Nothing,
+      targets = Lude.Nothing,
+      nextStep = Lude.Nothing,
+      stepExecutionId = Lude.Nothing,
+      validNextSteps = Lude.Nothing,
+      timeoutSeconds = Lude.Nothing,
+      onFailure = Lude.Nothing,
+      isCritical = Lude.Nothing
     }
 
 -- | Information about the Automation failure.
-seFailureDetails :: Lens' StepExecution (Maybe FailureDetails)
-seFailureDetails = lens _seFailureDetails (\s a -> s {_seFailureDetails = a})
+--
+-- /Note:/ Consider using 'failureDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seFailureDetails :: Lens.Lens' StepExecution (Lude.Maybe FailureDetails)
+seFailureDetails = Lens.lens (failureDetails :: StepExecution -> Lude.Maybe FailureDetails) (\s a -> s {failureDetails = a} :: StepExecution)
+{-# DEPRECATED seFailureDetails "Use generic-lens or generic-optics with 'failureDetails' instead." #-}
 
 -- | The flag which can be used to end automation no matter whether the step succeeds or fails.
-seIsEnd :: Lens' StepExecution (Maybe Bool)
-seIsEnd = lens _seIsEnd (\s a -> s {_seIsEnd = a})
+--
+-- /Note:/ Consider using 'isEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seIsEnd :: Lens.Lens' StepExecution (Lude.Maybe Lude.Bool)
+seIsEnd = Lens.lens (isEnd :: StepExecution -> Lude.Maybe Lude.Bool) (\s a -> s {isEnd = a} :: StepExecution)
+{-# DEPRECATED seIsEnd "Use generic-lens or generic-optics with 'isEnd' instead." #-}
 
 -- | Fully-resolved values passed into the step before execution.
-seInputs :: Lens' StepExecution (HashMap Text (Text))
-seInputs = lens _seInputs (\s a -> s {_seInputs = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'inputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seInputs :: Lens.Lens' StepExecution (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+seInputs = Lens.lens (inputs :: StepExecution -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {inputs = a} :: StepExecution)
+{-# DEPRECATED seInputs "Use generic-lens or generic-optics with 'inputs' instead." #-}
 
 -- | The name of this execution step.
-seStepName :: Lens' StepExecution (Maybe Text)
-seStepName = lens _seStepName (\s a -> s {_seStepName = a})
+--
+-- /Note:/ Consider using 'stepName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seStepName :: Lens.Lens' StepExecution (Lude.Maybe Lude.Text)
+seStepName = Lens.lens (stepName :: StepExecution -> Lude.Maybe Lude.Text) (\s a -> s {stepName = a} :: StepExecution)
+{-# DEPRECATED seStepName "Use generic-lens or generic-optics with 'stepName' instead." #-}
 
 -- | If a step has finished execution, this contains the time the execution ended. If the step has not yet concluded, this field is not populated.
-seExecutionEndTime :: Lens' StepExecution (Maybe UTCTime)
-seExecutionEndTime = lens _seExecutionEndTime (\s a -> s {_seExecutionEndTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'executionEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seExecutionEndTime :: Lens.Lens' StepExecution (Lude.Maybe Lude.Timestamp)
+seExecutionEndTime = Lens.lens (executionEndTime :: StepExecution -> Lude.Maybe Lude.Timestamp) (\s a -> s {executionEndTime = a} :: StepExecution)
+{-# DEPRECATED seExecutionEndTime "Use generic-lens or generic-optics with 'executionEndTime' instead." #-}
 
 -- | If a step failed, this message explains why the execution failed.
-seFailureMessage :: Lens' StepExecution (Maybe Text)
-seFailureMessage = lens _seFailureMessage (\s a -> s {_seFailureMessage = a})
+--
+-- /Note:/ Consider using 'failureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seFailureMessage :: Lens.Lens' StepExecution (Lude.Maybe Lude.Text)
+seFailureMessage = Lens.lens (failureMessage :: StepExecution -> Lude.Maybe Lude.Text) (\s a -> s {failureMessage = a} :: StepExecution)
+{-# DEPRECATED seFailureMessage "Use generic-lens or generic-optics with 'failureMessage' instead." #-}
 
 -- | A message associated with the response code for an execution.
-seResponse :: Lens' StepExecution (Maybe Text)
-seResponse = lens _seResponse (\s a -> s {_seResponse = a})
+--
+-- /Note:/ Consider using 'response' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seResponse :: Lens.Lens' StepExecution (Lude.Maybe Lude.Text)
+seResponse = Lens.lens (response :: StepExecution -> Lude.Maybe Lude.Text) (\s a -> s {response = a} :: StepExecution)
+{-# DEPRECATED seResponse "Use generic-lens or generic-optics with 'response' instead." #-}
 
 -- | The action this step performs. The action determines the behavior of the step.
-seAction :: Lens' StepExecution (Maybe Text)
-seAction = lens _seAction (\s a -> s {_seAction = a})
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seAction :: Lens.Lens' StepExecution (Lude.Maybe Lude.Text)
+seAction = Lens.lens (action :: StepExecution -> Lude.Maybe Lude.Text) (\s a -> s {action = a} :: StepExecution)
+{-# DEPRECATED seAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The response code returned by the execution of the step.
-seResponseCode :: Lens' StepExecution (Maybe Text)
-seResponseCode = lens _seResponseCode (\s a -> s {_seResponseCode = a})
+--
+-- /Note:/ Consider using 'responseCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seResponseCode :: Lens.Lens' StepExecution (Lude.Maybe Lude.Text)
+seResponseCode = Lens.lens (responseCode :: StepExecution -> Lude.Maybe Lude.Text) (\s a -> s {responseCode = a} :: StepExecution)
+{-# DEPRECATED seResponseCode "Use generic-lens or generic-optics with 'responseCode' instead." #-}
 
 -- | The execution status for this step.
-seStepStatus :: Lens' StepExecution (Maybe AutomationExecutionStatus)
-seStepStatus = lens _seStepStatus (\s a -> s {_seStepStatus = a})
+--
+-- /Note:/ Consider using 'stepStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seStepStatus :: Lens.Lens' StepExecution (Lude.Maybe AutomationExecutionStatus)
+seStepStatus = Lens.lens (stepStatus :: StepExecution -> Lude.Maybe AutomationExecutionStatus) (\s a -> s {stepStatus = a} :: StepExecution)
+{-# DEPRECATED seStepStatus "Use generic-lens or generic-optics with 'stepStatus' instead." #-}
 
 -- | The combination of AWS Regions and accounts targeted by the current Automation execution.
-seTargetLocation :: Lens' StepExecution (Maybe TargetLocation)
-seTargetLocation = lens _seTargetLocation (\s a -> s {_seTargetLocation = a})
+--
+-- /Note:/ Consider using 'targetLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seTargetLocation :: Lens.Lens' StepExecution (Lude.Maybe TargetLocation)
+seTargetLocation = Lens.lens (targetLocation :: StepExecution -> Lude.Maybe TargetLocation) (\s a -> s {targetLocation = a} :: StepExecution)
+{-# DEPRECATED seTargetLocation "Use generic-lens or generic-optics with 'targetLocation' instead." #-}
 
 -- | A user-specified list of parameters to override when running a step.
-seOverriddenParameters :: Lens' StepExecution (HashMap Text ([Text]))
-seOverriddenParameters = lens _seOverriddenParameters (\s a -> s {_seOverriddenParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'overriddenParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seOverriddenParameters :: Lens.Lens' StepExecution (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+seOverriddenParameters = Lens.lens (overriddenParameters :: StepExecution -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {overriddenParameters = a} :: StepExecution)
+{-# DEPRECATED seOverriddenParameters "Use generic-lens or generic-optics with 'overriddenParameters' instead." #-}
 
 -- | Returned values from the execution of the step.
-seOutputs :: Lens' StepExecution (HashMap Text ([Text]))
-seOutputs = lens _seOutputs (\s a -> s {_seOutputs = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'outputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seOutputs :: Lens.Lens' StepExecution (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+seOutputs = Lens.lens (outputs :: StepExecution -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {outputs = a} :: StepExecution)
+{-# DEPRECATED seOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
 
 -- | If a step has begun execution, this contains the time the step started. If the step is in Pending status, this field is not populated.
-seExecutionStartTime :: Lens' StepExecution (Maybe UTCTime)
-seExecutionStartTime = lens _seExecutionStartTime (\s a -> s {_seExecutionStartTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'executionStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seExecutionStartTime :: Lens.Lens' StepExecution (Lude.Maybe Lude.Timestamp)
+seExecutionStartTime = Lens.lens (executionStartTime :: StepExecution -> Lude.Maybe Lude.Timestamp) (\s a -> s {executionStartTime = a} :: StepExecution)
+{-# DEPRECATED seExecutionStartTime "Use generic-lens or generic-optics with 'executionStartTime' instead." #-}
 
 -- | The maximum number of tries to run the action of the step. The default value is 1.
-seMaxAttempts :: Lens' StepExecution (Maybe Int)
-seMaxAttempts = lens _seMaxAttempts (\s a -> s {_seMaxAttempts = a})
+--
+-- /Note:/ Consider using 'maxAttempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seMaxAttempts :: Lens.Lens' StepExecution (Lude.Maybe Lude.Int)
+seMaxAttempts = Lens.lens (maxAttempts :: StepExecution -> Lude.Maybe Lude.Int) (\s a -> s {maxAttempts = a} :: StepExecution)
+{-# DEPRECATED seMaxAttempts "Use generic-lens or generic-optics with 'maxAttempts' instead." #-}
 
 -- | The targets for the step execution.
-seTargets :: Lens' StepExecution [Target]
-seTargets = lens _seTargets (\s a -> s {_seTargets = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seTargets :: Lens.Lens' StepExecution (Lude.Maybe [Target])
+seTargets = Lens.lens (targets :: StepExecution -> Lude.Maybe [Target]) (\s a -> s {targets = a} :: StepExecution)
+{-# DEPRECATED seTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The next step after the step succeeds.
-seNextStep :: Lens' StepExecution (Maybe Text)
-seNextStep = lens _seNextStep (\s a -> s {_seNextStep = a})
+--
+-- /Note:/ Consider using 'nextStep' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seNextStep :: Lens.Lens' StepExecution (Lude.Maybe Lude.Text)
+seNextStep = Lens.lens (nextStep :: StepExecution -> Lude.Maybe Lude.Text) (\s a -> s {nextStep = a} :: StepExecution)
+{-# DEPRECATED seNextStep "Use generic-lens or generic-optics with 'nextStep' instead." #-}
 
 -- | The unique ID of a step execution.
-seStepExecutionId :: Lens' StepExecution (Maybe Text)
-seStepExecutionId = lens _seStepExecutionId (\s a -> s {_seStepExecutionId = a})
+--
+-- /Note:/ Consider using 'stepExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seStepExecutionId :: Lens.Lens' StepExecution (Lude.Maybe Lude.Text)
+seStepExecutionId = Lens.lens (stepExecutionId :: StepExecution -> Lude.Maybe Lude.Text) (\s a -> s {stepExecutionId = a} :: StepExecution)
+{-# DEPRECATED seStepExecutionId "Use generic-lens or generic-optics with 'stepExecutionId' instead." #-}
 
 -- | Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step fails. Continue will ignore the failure of current step and allow automation to run the next step. With conditional branching, we add step:stepName to support the automation to go to another specific step.
-seValidNextSteps :: Lens' StepExecution [Text]
-seValidNextSteps = lens _seValidNextSteps (\s a -> s {_seValidNextSteps = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'validNextSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seValidNextSteps :: Lens.Lens' StepExecution (Lude.Maybe [Lude.Text])
+seValidNextSteps = Lens.lens (validNextSteps :: StepExecution -> Lude.Maybe [Lude.Text]) (\s a -> s {validNextSteps = a} :: StepExecution)
+{-# DEPRECATED seValidNextSteps "Use generic-lens or generic-optics with 'validNextSteps' instead." #-}
 
 -- | The timeout seconds of the step.
-seTimeoutSeconds :: Lens' StepExecution (Maybe Integer)
-seTimeoutSeconds = lens _seTimeoutSeconds (\s a -> s {_seTimeoutSeconds = a})
+--
+-- /Note:/ Consider using 'timeoutSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seTimeoutSeconds :: Lens.Lens' StepExecution (Lude.Maybe Lude.Integer)
+seTimeoutSeconds = Lens.lens (timeoutSeconds :: StepExecution -> Lude.Maybe Lude.Integer) (\s a -> s {timeoutSeconds = a} :: StepExecution)
+{-# DEPRECATED seTimeoutSeconds "Use generic-lens or generic-optics with 'timeoutSeconds' instead." #-}
 
 -- | The action to take if the step fails. The default value is Abort.
-seOnFailure :: Lens' StepExecution (Maybe Text)
-seOnFailure = lens _seOnFailure (\s a -> s {_seOnFailure = a})
+--
+-- /Note:/ Consider using 'onFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seOnFailure :: Lens.Lens' StepExecution (Lude.Maybe Lude.Text)
+seOnFailure = Lens.lens (onFailure :: StepExecution -> Lude.Maybe Lude.Text) (\s a -> s {onFailure = a} :: StepExecution)
+{-# DEPRECATED seOnFailure "Use generic-lens or generic-optics with 'onFailure' instead." #-}
 
 -- | The flag which can be used to help decide whether the failure of current step leads to the Automation failure.
-seIsCritical :: Lens' StepExecution (Maybe Bool)
-seIsCritical = lens _seIsCritical (\s a -> s {_seIsCritical = a})
+--
+-- /Note:/ Consider using 'isCritical' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seIsCritical :: Lens.Lens' StepExecution (Lude.Maybe Lude.Bool)
+seIsCritical = Lens.lens (isCritical :: StepExecution -> Lude.Maybe Lude.Bool) (\s a -> s {isCritical = a} :: StepExecution)
+{-# DEPRECATED seIsCritical "Use generic-lens or generic-optics with 'isCritical' instead." #-}
 
-instance FromJSON StepExecution where
+instance Lude.FromJSON StepExecution where
   parseJSON =
-    withObject
+    Lude.withObject
       "StepExecution"
       ( \x ->
           StepExecution'
-            <$> (x .:? "FailureDetails")
-            <*> (x .:? "IsEnd")
-            <*> (x .:? "Inputs" .!= mempty)
-            <*> (x .:? "StepName")
-            <*> (x .:? "ExecutionEndTime")
-            <*> (x .:? "FailureMessage")
-            <*> (x .:? "Response")
-            <*> (x .:? "Action")
-            <*> (x .:? "ResponseCode")
-            <*> (x .:? "StepStatus")
-            <*> (x .:? "TargetLocation")
-            <*> (x .:? "OverriddenParameters" .!= mempty)
-            <*> (x .:? "Outputs" .!= mempty)
-            <*> (x .:? "ExecutionStartTime")
-            <*> (x .:? "MaxAttempts")
-            <*> (x .:? "Targets" .!= mempty)
-            <*> (x .:? "NextStep")
-            <*> (x .:? "StepExecutionId")
-            <*> (x .:? "ValidNextSteps" .!= mempty)
-            <*> (x .:? "TimeoutSeconds")
-            <*> (x .:? "OnFailure")
-            <*> (x .:? "IsCritical")
+            Lude.<$> (x Lude..:? "FailureDetails")
+            Lude.<*> (x Lude..:? "IsEnd")
+            Lude.<*> (x Lude..:? "Inputs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "StepName")
+            Lude.<*> (x Lude..:? "ExecutionEndTime")
+            Lude.<*> (x Lude..:? "FailureMessage")
+            Lude.<*> (x Lude..:? "Response")
+            Lude.<*> (x Lude..:? "Action")
+            Lude.<*> (x Lude..:? "ResponseCode")
+            Lude.<*> (x Lude..:? "StepStatus")
+            Lude.<*> (x Lude..:? "TargetLocation")
+            Lude.<*> (x Lude..:? "OverriddenParameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Outputs" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "ExecutionStartTime")
+            Lude.<*> (x Lude..:? "MaxAttempts")
+            Lude.<*> (x Lude..:? "Targets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "NextStep")
+            Lude.<*> (x Lude..:? "StepExecutionId")
+            Lude.<*> (x Lude..:? "ValidNextSteps" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "TimeoutSeconds")
+            Lude.<*> (x Lude..:? "OnFailure")
+            Lude.<*> (x Lude..:? "IsCritical")
       )
-
-instance Hashable StepExecution
-
-instance NFData StepExecution

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,58 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Pinpoint.Types.Duration where
+module Network.AWS.Pinpoint.Types.Duration
+  ( Duration
+      ( Duration',
+        Day14,
+        Day30,
+        Day7,
+        Hr24
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data Duration
-  = Day14
-  | Day30
-  | Day7
-  | Hr24
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype Duration = Duration' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText Duration where
-  parser =
-    takeLowerText >>= \case
-      "day_14" -> pure Day14
-      "day_30" -> pure Day30
-      "day_7" -> pure Day7
-      "hr_24" -> pure Hr24
-      e ->
-        fromTextError $
-          "Failure parsing Duration from value: '" <> e
-            <> "'. Accepted values: day_14, day_30, day_7, hr_24"
+pattern Day14 :: Duration
+pattern Day14 = Duration' "DAY_14"
 
-instance ToText Duration where
-  toText = \case
-    Day14 -> "DAY_14"
-    Day30 -> "DAY_30"
-    Day7 -> "DAY_7"
-    Hr24 -> "HR_24"
+pattern Day30 :: Duration
+pattern Day30 = Duration' "DAY_30"
 
-instance Hashable Duration
+pattern Day7 :: Duration
+pattern Day7 = Duration' "DAY_7"
 
-instance NFData Duration
+pattern Hr24 :: Duration
+pattern Hr24 = Duration' "HR_24"
 
-instance ToByteString Duration
-
-instance ToQuery Duration
-
-instance ToHeader Duration
-
-instance ToJSON Duration where
-  toJSON = toJSONText
-
-instance FromJSON Duration where
-  parseJSON = parseJSONText "Duration"
+{-# COMPLETE
+  Day14,
+  Day30,
+  Day7,
+  Hr24,
+  Duration'
+  #-}

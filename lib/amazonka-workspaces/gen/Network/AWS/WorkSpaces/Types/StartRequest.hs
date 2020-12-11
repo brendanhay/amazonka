@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,36 +7,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkSpaces.Types.StartRequest where
+module Network.AWS.WorkSpaces.Types.StartRequest
+  ( StartRequest (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStartRequest,
+
+    -- * Lenses
+    sWorkspaceId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Information used to start a WorkSpace.
 --
---
---
--- /See:/ 'startRequest' smart constructor.
-newtype StartRequest = StartRequest' {_sWorkspaceId :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkStartRequest' smart constructor.
+newtype StartRequest = StartRequest'
+  { workspaceId ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartRequest' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'sWorkspaceId' - The identifier of the WorkSpace.
-startRequest ::
+-- * 'workspaceId' - The identifier of the WorkSpace.
+mkStartRequest ::
   StartRequest
-startRequest = StartRequest' {_sWorkspaceId = Nothing}
+mkStartRequest = StartRequest' {workspaceId = Lude.Nothing}
 
 -- | The identifier of the WorkSpace.
-sWorkspaceId :: Lens' StartRequest (Maybe Text)
-sWorkspaceId = lens _sWorkspaceId (\s a -> s {_sWorkspaceId = a})
+--
+-- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sWorkspaceId :: Lens.Lens' StartRequest (Lude.Maybe Lude.Text)
+sWorkspaceId = Lens.lens (workspaceId :: StartRequest -> Lude.Maybe Lude.Text) (\s a -> s {workspaceId = a} :: StartRequest)
+{-# DEPRECATED sWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
-instance Hashable StartRequest
-
-instance NFData StartRequest
-
-instance ToJSON StartRequest where
+instance Lude.ToJSON StartRequest where
   toJSON StartRequest' {..} =
-    object (catMaybes [("WorkspaceId" .=) <$> _sWorkspaceId])
+    Lude.object
+      (Lude.catMaybes [("WorkspaceId" Lude..=) Lude.<$> workspaceId])

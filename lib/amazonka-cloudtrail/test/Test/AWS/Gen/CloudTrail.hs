@@ -28,115 +28,115 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestDescribeTrails $
---             describeTrails
+--             mkDescribeTrails
 --
 --         , requestListPublicKeys $
---             listPublicKeys
+--             mkListPublicKeys
 --
 --         , requestRemoveTags $
---             removeTags
+--             mkRemoveTags
 --
 --         , requestLookupEvents $
---             lookupEvents
+--             mkLookupEvents
 --
 --         , requestStopLogging $
---             stopLogging
+--             mkStopLogging
 --
 --         , requestDeleteTrail $
---             deleteTrail
+--             mkDeleteTrail
 --
 --         , requestUpdateTrail $
---             updateTrail
+--             mkUpdateTrail
 --
 --         , requestCreateTrail $
---             createTrail
+--             mkCreateTrail
 --
 --         , requestPutInsightSelectors $
---             putInsightSelectors
+--             mkPutInsightSelectors
 --
 --         , requestGetEventSelectors $
---             getEventSelectors
+--             mkGetEventSelectors
 --
 --         , requestGetTrail $
---             getTrail
+--             mkGetTrail
 --
 --         , requestGetTrailStatus $
---             getTrailStatus
+--             mkGetTrailStatus
 --
 --         , requestAddTags $
---             addTags
+--             mkAddTags
 --
 --         , requestListTags $
---             listTags
+--             mkListTags
 --
 --         , requestPutEventSelectors $
---             putEventSelectors
+--             mkPutEventSelectors
 --
 --         , requestStartLogging $
---             startLogging
+--             mkStartLogging
 --
 --         , requestListTrails $
---             listTrails
+--             mkListTrails
 --
 --         , requestGetInsightSelectors $
---             getInsightSelectors
+--             mkGetInsightSelectors
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseDescribeTrails $
---             describeTrailsResponse
+--             mkDescribeTrailsResponse
 --
 --         , responseListPublicKeys $
---             listPublicKeysResponse
+--             mkListPublicKeysResponse
 --
 --         , responseRemoveTags $
---             removeTagsResponse
+--             mkRemoveTagsResponse
 --
 --         , responseLookupEvents $
---             lookupEventsResponse
+--             mkLookupEventsResponse
 --
 --         , responseStopLogging $
---             stopLoggingResponse
+--             mkStopLoggingResponse
 --
 --         , responseDeleteTrail $
---             deleteTrailResponse
+--             mkDeleteTrailResponse
 --
 --         , responseUpdateTrail $
---             updateTrailResponse
+--             mkUpdateTrailResponse
 --
 --         , responseCreateTrail $
---             createTrailResponse
+--             mkCreateTrailResponse
 --
 --         , responsePutInsightSelectors $
---             putInsightSelectorsResponse
+--             mkPutInsightSelectorsResponse
 --
 --         , responseGetEventSelectors $
---             getEventSelectorsResponse
+--             mkGetEventSelectorsResponse
 --
 --         , responseGetTrail $
---             getTrailResponse
+--             mkGetTrailResponse
 --
 --         , responseGetTrailStatus $
---             getTrailStatusResponse
+--             mkGetTrailStatusResponse
 --
 --         , responseAddTags $
---             addTagsResponse
+--             mkAddTagsResponse
 --
 --         , responseListTags $
---             listTagsResponse
+--             mkListTagsResponse
 --
 --         , responsePutEventSelectors $
---             putEventSelectorsResponse
+--             mkPutEventSelectorsResponse
 --
 --         , responseStartLogging $
---             startLoggingResponse
+--             mkStartLoggingResponse
 --
 --         , responseListTrails $
---             listTrailsResponse
+--             mkListTrailsResponse
 --
 --         , responseGetInsightSelectors $
---             getInsightSelectorsResponse
+--             mkGetInsightSelectorsResponse
 --
 --           ]
 --     ]
@@ -258,7 +258,7 @@ responseDescribeTrails =
   res
     "DescribeTrailsResponse"
     "fixture/DescribeTrailsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy DescribeTrails)
 
 responseListPublicKeys :: ListPublicKeysResponse -> TestTree
@@ -266,7 +266,7 @@ responseListPublicKeys =
   res
     "ListPublicKeysResponse"
     "fixture/ListPublicKeysResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy ListPublicKeys)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
@@ -274,7 +274,7 @@ responseRemoveTags =
   res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy RemoveTags)
 
 responseLookupEvents :: LookupEventsResponse -> TestTree
@@ -282,7 +282,7 @@ responseLookupEvents =
   res
     "LookupEventsResponse"
     "fixture/LookupEventsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy LookupEvents)
 
 responseStopLogging :: StopLoggingResponse -> TestTree
@@ -290,7 +290,7 @@ responseStopLogging =
   res
     "StopLoggingResponse"
     "fixture/StopLoggingResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy StopLogging)
 
 responseDeleteTrail :: DeleteTrailResponse -> TestTree
@@ -298,7 +298,7 @@ responseDeleteTrail =
   res
     "DeleteTrailResponse"
     "fixture/DeleteTrailResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy DeleteTrail)
 
 responseUpdateTrail :: UpdateTrailResponse -> TestTree
@@ -306,7 +306,7 @@ responseUpdateTrail =
   res
     "UpdateTrailResponse"
     "fixture/UpdateTrailResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy UpdateTrail)
 
 responseCreateTrail :: CreateTrailResponse -> TestTree
@@ -314,7 +314,7 @@ responseCreateTrail =
   res
     "CreateTrailResponse"
     "fixture/CreateTrailResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy CreateTrail)
 
 responsePutInsightSelectors :: PutInsightSelectorsResponse -> TestTree
@@ -322,7 +322,7 @@ responsePutInsightSelectors =
   res
     "PutInsightSelectorsResponse"
     "fixture/PutInsightSelectorsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy PutInsightSelectors)
 
 responseGetEventSelectors :: GetEventSelectorsResponse -> TestTree
@@ -330,7 +330,7 @@ responseGetEventSelectors =
   res
     "GetEventSelectorsResponse"
     "fixture/GetEventSelectorsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy GetEventSelectors)
 
 responseGetTrail :: GetTrailResponse -> TestTree
@@ -338,7 +338,7 @@ responseGetTrail =
   res
     "GetTrailResponse"
     "fixture/GetTrailResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy GetTrail)
 
 responseGetTrailStatus :: GetTrailStatusResponse -> TestTree
@@ -346,7 +346,7 @@ responseGetTrailStatus =
   res
     "GetTrailStatusResponse"
     "fixture/GetTrailStatusResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy GetTrailStatus)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -354,7 +354,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy AddTags)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -362,7 +362,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy ListTags)
 
 responsePutEventSelectors :: PutEventSelectorsResponse -> TestTree
@@ -370,7 +370,7 @@ responsePutEventSelectors =
   res
     "PutEventSelectorsResponse"
     "fixture/PutEventSelectorsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy PutEventSelectors)
 
 responseStartLogging :: StartLoggingResponse -> TestTree
@@ -378,7 +378,7 @@ responseStartLogging =
   res
     "StartLoggingResponse"
     "fixture/StartLoggingResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy StartLogging)
 
 responseListTrails :: ListTrailsResponse -> TestTree
@@ -386,7 +386,7 @@ responseListTrails =
   res
     "ListTrailsResponse"
     "fixture/ListTrailsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy ListTrails)
 
 responseGetInsightSelectors :: GetInsightSelectorsResponse -> TestTree
@@ -394,5 +394,5 @@ responseGetInsightSelectors =
   res
     "GetInsightSelectorsResponse"
     "fixture/GetInsightSelectorsResponse.proto"
-    cloudTrail
+    cloudTrailService
     (Proxy :: Proxy GetInsightSelectors)

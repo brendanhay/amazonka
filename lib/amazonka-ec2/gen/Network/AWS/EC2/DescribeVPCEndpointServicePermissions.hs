@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,26 +14,24 @@
 --
 -- Describes the principals (service consumers) that are permitted to discover your VPC endpoint service.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EC2.DescribeVPCEndpointServicePermissions
-  ( -- * Creating a Request
-    describeVPCEndpointServicePermissions,
-    DescribeVPCEndpointServicePermissions,
+  ( -- * Creating a request
+    DescribeVPCEndpointServicePermissions (..),
+    mkDescribeVPCEndpointServicePermissions,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dvespFilters,
     dvespNextToken,
     dvespDryRun,
     dvespMaxResults,
     dvespServiceId,
 
-    -- * Destructuring the Response
-    describeVPCEndpointServicePermissionsResponse,
-    DescribeVPCEndpointServicePermissionsResponse,
+    -- * Destructuring the response
+    DescribeVPCEndpointServicePermissionsResponse (..),
+    mkDescribeVPCEndpointServicePermissionsResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     dvesprsNextToken,
     dvesprsAllowedPrincipals,
     dvesprsResponseStatus,
@@ -46,173 +39,210 @@ module Network.AWS.EC2.DescribeVPCEndpointServicePermissions
 where
 
 import Network.AWS.EC2.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'describeVPCEndpointServicePermissions' smart constructor.
+-- | /See:/ 'mkDescribeVPCEndpointServicePermissions' smart constructor.
 data DescribeVPCEndpointServicePermissions = DescribeVPCEndpointServicePermissions'
-  { _dvespFilters ::
-      !( Maybe
-           [Filter]
-       ),
-    _dvespNextToken ::
-      !(Maybe Text),
-    _dvespDryRun ::
-      !(Maybe Bool),
-    _dvespMaxResults ::
-      !(Maybe Int),
-    _dvespServiceId ::
-      !Text
+  { filters ::
+      Lude.Maybe
+        [Filter],
+    nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    dryRun ::
+      Lude.Maybe
+        Lude.Bool,
+    maxResults ::
+      Lude.Maybe
+        Lude.Int,
+    serviceId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointServicePermissions' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'filters' - One or more filters.
 --
--- * 'dvespFilters' - One or more filters.     * @principal@ - The ARN of the principal.     * @principal-type@ - The principal type (@All@ | @Service@ | @OrganizationUnit@ | @Account@ | @User@ | @Role@ ).
 --
--- * 'dvespNextToken' - The token to retrieve the next page of results.
+--     * @principal@ - The ARN of the principal.
 --
--- * 'dvespDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- * 'dvespMaxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
+--     * @principal-type@ - The principal type (@All@ | @Service@ | @OrganizationUnit@ | @Account@ | @User@ | @Role@ ).
 --
--- * 'dvespServiceId' - The ID of the service.
-describeVPCEndpointServicePermissions ::
-  -- | 'dvespServiceId'
-  Text ->
+--
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
+-- * 'nextToken' - The token to retrieve the next page of results.
+-- * 'serviceId' - The ID of the service.
+mkDescribeVPCEndpointServicePermissions ::
+  -- | 'serviceId'
+  Lude.Text ->
   DescribeVPCEndpointServicePermissions
-describeVPCEndpointServicePermissions pServiceId_ =
+mkDescribeVPCEndpointServicePermissions pServiceId_ =
   DescribeVPCEndpointServicePermissions'
-    { _dvespFilters = Nothing,
-      _dvespNextToken = Nothing,
-      _dvespDryRun = Nothing,
-      _dvespMaxResults = Nothing,
-      _dvespServiceId = pServiceId_
+    { filters = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing,
+      serviceId = pServiceId_
     }
 
--- | One or more filters.     * @principal@ - The ARN of the principal.     * @principal-type@ - The principal type (@All@ | @Service@ | @OrganizationUnit@ | @Account@ | @User@ | @Role@ ).
-dvespFilters :: Lens' DescribeVPCEndpointServicePermissions [Filter]
-dvespFilters = lens _dvespFilters (\s a -> s {_dvespFilters = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+--
+--     * @principal@ - The ARN of the principal.
+--
+--
+--     * @principal-type@ - The principal type (@All@ | @Service@ | @OrganizationUnit@ | @Account@ | @User@ | @Role@ ).
+--
+--
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvespFilters :: Lens.Lens' DescribeVPCEndpointServicePermissions (Lude.Maybe [Filter])
+dvespFilters = Lens.lens (filters :: DescribeVPCEndpointServicePermissions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeVPCEndpointServicePermissions)
+{-# DEPRECATED dvespFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token to retrieve the next page of results.
-dvespNextToken :: Lens' DescribeVPCEndpointServicePermissions (Maybe Text)
-dvespNextToken = lens _dvespNextToken (\s a -> s {_dvespNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvespNextToken :: Lens.Lens' DescribeVPCEndpointServicePermissions (Lude.Maybe Lude.Text)
+dvespNextToken = Lens.lens (nextToken :: DescribeVPCEndpointServicePermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCEndpointServicePermissions)
+{-# DEPRECATED dvespNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dvespDryRun :: Lens' DescribeVPCEndpointServicePermissions (Maybe Bool)
-dvespDryRun = lens _dvespDryRun (\s a -> s {_dvespDryRun = a})
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvespDryRun :: Lens.Lens' DescribeVPCEndpointServicePermissions (Lude.Maybe Lude.Bool)
+dvespDryRun = Lens.lens (dryRun :: DescribeVPCEndpointServicePermissions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeVPCEndpointServicePermissions)
+{-# DEPRECATED dvespDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
-dvespMaxResults :: Lens' DescribeVPCEndpointServicePermissions (Maybe Int)
-dvespMaxResults = lens _dvespMaxResults (\s a -> s {_dvespMaxResults = a})
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvespMaxResults :: Lens.Lens' DescribeVPCEndpointServicePermissions (Lude.Maybe Lude.Int)
+dvespMaxResults = Lens.lens (maxResults :: DescribeVPCEndpointServicePermissions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeVPCEndpointServicePermissions)
+{-# DEPRECATED dvespMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the service.
-dvespServiceId :: Lens' DescribeVPCEndpointServicePermissions Text
-dvespServiceId = lens _dvespServiceId (\s a -> s {_dvespServiceId = a})
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvespServiceId :: Lens.Lens' DescribeVPCEndpointServicePermissions Lude.Text
+dvespServiceId = Lens.lens (serviceId :: DescribeVPCEndpointServicePermissions -> Lude.Text) (\s a -> s {serviceId = a} :: DescribeVPCEndpointServicePermissions)
+{-# DEPRECATED dvespServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
-instance AWSPager DescribeVPCEndpointServicePermissions where
+instance Page.AWSPager DescribeVPCEndpointServicePermissions where
   page rq rs
-    | stop (rs ^. dvesprsNextToken) = Nothing
-    | stop (rs ^. dvesprsAllowedPrincipals) = Nothing
-    | otherwise = Just $ rq & dvespNextToken .~ rs ^. dvesprsNextToken
+    | Page.stop (rs Lens.^. dvesprsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dvesprsAllowedPrincipals) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& dvespNextToken Lens..~ rs Lens.^. dvesprsNextToken
 
-instance AWSRequest DescribeVPCEndpointServicePermissions where
+instance Lude.AWSRequest DescribeVPCEndpointServicePermissions where
   type
     Rs DescribeVPCEndpointServicePermissions =
       DescribeVPCEndpointServicePermissionsResponse
-  request = postQuery ec2
+  request = Req.postQuery ec2Service
   response =
-    receiveXML
+    Res.receiveXML
       ( \s h x ->
           DescribeVPCEndpointServicePermissionsResponse'
-            <$> (x .@? "nextToken")
-            <*> ( x .@? "allowedPrincipals" .!@ mempty
-                    >>= may (parseXMLList "item")
-                )
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..@? "nextToken")
+            Lude.<*> ( x Lude..@? "allowedPrincipals" Lude..!@ Lude.mempty
+                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+                     )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable DescribeVPCEndpointServicePermissions
+instance Lude.ToHeaders DescribeVPCEndpointServicePermissions where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData DescribeVPCEndpointServicePermissions
+instance Lude.ToPath DescribeVPCEndpointServicePermissions where
+  toPath = Lude.const "/"
 
-instance ToHeaders DescribeVPCEndpointServicePermissions where
-  toHeaders = const mempty
-
-instance ToPath DescribeVPCEndpointServicePermissions where
-  toPath = const "/"
-
-instance ToQuery DescribeVPCEndpointServicePermissions where
+instance Lude.ToQuery DescribeVPCEndpointServicePermissions where
   toQuery DescribeVPCEndpointServicePermissions' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("DescribeVpcEndpointServicePermissions" :: ByteString),
-        "Version" =: ("2016-11-15" :: ByteString),
-        toQuery (toQueryList "Filter" <$> _dvespFilters),
-        "NextToken" =: _dvespNextToken,
-        "DryRun" =: _dvespDryRun,
-        "MaxResults" =: _dvespMaxResults,
-        "ServiceId" =: _dvespServiceId
+          Lude.=: ("DescribeVpcEndpointServicePermissions" :: Lude.ByteString),
+        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "NextToken" Lude.=: nextToken,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults,
+        "ServiceId" Lude.=: serviceId
       ]
 
--- | /See:/ 'describeVPCEndpointServicePermissionsResponse' smart constructor.
+-- | /See:/ 'mkDescribeVPCEndpointServicePermissionsResponse' smart constructor.
 data DescribeVPCEndpointServicePermissionsResponse = DescribeVPCEndpointServicePermissionsResponse'
-  { _dvesprsNextToken ::
-      !( Maybe
-           Text
-       ),
-    _dvesprsAllowedPrincipals ::
-      !( Maybe
-           [AllowedPrincipal]
-       ),
-    _dvesprsResponseStatus ::
-      !Int
+  { nextToken ::
+      Lude.Maybe
+        Lude.Text,
+    allowedPrincipals ::
+      Lude.Maybe
+        [AllowedPrincipal],
+    responseStatus ::
+      Lude.Int
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'DescribeVPCEndpointServicePermissionsResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dvesprsNextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- * 'dvesprsAllowedPrincipals' - Information about one or more allowed principals.
---
--- * 'dvesprsResponseStatus' - -- | The response status code.
-describeVPCEndpointServicePermissionsResponse ::
-  -- | 'dvesprsResponseStatus'
-  Int ->
+-- * 'allowedPrincipals' - Information about one or more allowed principals.
+-- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'responseStatus' - The response status code.
+mkDescribeVPCEndpointServicePermissionsResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeVPCEndpointServicePermissionsResponse
-describeVPCEndpointServicePermissionsResponse pResponseStatus_ =
+mkDescribeVPCEndpointServicePermissionsResponse pResponseStatus_ =
   DescribeVPCEndpointServicePermissionsResponse'
-    { _dvesprsNextToken =
-        Nothing,
-      _dvesprsAllowedPrincipals = Nothing,
-      _dvesprsResponseStatus = pResponseStatus_
+    { nextToken =
+        Lude.Nothing,
+      allowedPrincipals = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-dvesprsNextToken :: Lens' DescribeVPCEndpointServicePermissionsResponse (Maybe Text)
-dvesprsNextToken = lens _dvesprsNextToken (\s a -> s {_dvesprsNextToken = a})
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesprsNextToken :: Lens.Lens' DescribeVPCEndpointServicePermissionsResponse (Lude.Maybe Lude.Text)
+dvesprsNextToken = Lens.lens (nextToken :: DescribeVPCEndpointServicePermissionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCEndpointServicePermissionsResponse)
+{-# DEPRECATED dvesprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about one or more allowed principals.
-dvesprsAllowedPrincipals :: Lens' DescribeVPCEndpointServicePermissionsResponse [AllowedPrincipal]
-dvesprsAllowedPrincipals = lens _dvesprsAllowedPrincipals (\s a -> s {_dvesprsAllowedPrincipals = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'allowedPrincipals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesprsAllowedPrincipals :: Lens.Lens' DescribeVPCEndpointServicePermissionsResponse (Lude.Maybe [AllowedPrincipal])
+dvesprsAllowedPrincipals = Lens.lens (allowedPrincipals :: DescribeVPCEndpointServicePermissionsResponse -> Lude.Maybe [AllowedPrincipal]) (\s a -> s {allowedPrincipals = a} :: DescribeVPCEndpointServicePermissionsResponse)
+{-# DEPRECATED dvesprsAllowedPrincipals "Use generic-lens or generic-optics with 'allowedPrincipals' instead." #-}
 
--- | -- | The response status code.
-dvesprsResponseStatus :: Lens' DescribeVPCEndpointServicePermissionsResponse Int
-dvesprsResponseStatus = lens _dvesprsResponseStatus (\s a -> s {_dvesprsResponseStatus = a})
-
-instance NFData DescribeVPCEndpointServicePermissionsResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvesprsResponseStatus :: Lens.Lens' DescribeVPCEndpointServicePermissionsResponse Lude.Int
+dvesprsResponseStatus = Lens.lens (responseStatus :: DescribeVPCEndpointServicePermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCEndpointServicePermissionsResponse)
+{-# DEPRECATED dvesprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,48 +7,59 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.IoT.Types.TopicRuleDestinationConfiguration where
+module Network.AWS.IoT.Types.TopicRuleDestinationConfiguration
+  ( TopicRuleDestinationConfiguration (..),
+
+    -- * Smart constructor
+    mkTopicRuleDestinationConfiguration,
+
+    -- * Lenses
+    trdcHttpURLConfiguration,
+  )
+where
 
 import Network.AWS.IoT.Types.HTTPURLDestinationConfiguration
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Configuration of the topic rule destination.
 --
---
---
--- /See:/ 'topicRuleDestinationConfiguration' smart constructor.
+-- /See:/ 'mkTopicRuleDestinationConfiguration' smart constructor.
 newtype TopicRuleDestinationConfiguration = TopicRuleDestinationConfiguration'
-  { _trdcHttpURLConfiguration ::
-      Maybe
+  { httpURLConfiguration ::
+      Lude.Maybe
         HTTPURLDestinationConfiguration
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TopicRuleDestinationConfiguration' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'trdcHttpURLConfiguration' - Configuration of the HTTP URL.
-topicRuleDestinationConfiguration ::
+-- * 'httpURLConfiguration' - Configuration of the HTTP URL.
+mkTopicRuleDestinationConfiguration ::
   TopicRuleDestinationConfiguration
-topicRuleDestinationConfiguration =
+mkTopicRuleDestinationConfiguration =
   TopicRuleDestinationConfiguration'
-    { _trdcHttpURLConfiguration =
-        Nothing
+    { httpURLConfiguration =
+        Lude.Nothing
     }
 
 -- | Configuration of the HTTP URL.
-trdcHttpURLConfiguration :: Lens' TopicRuleDestinationConfiguration (Maybe HTTPURLDestinationConfiguration)
-trdcHttpURLConfiguration = lens _trdcHttpURLConfiguration (\s a -> s {_trdcHttpURLConfiguration = a})
+--
+-- /Note:/ Consider using 'httpURLConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trdcHttpURLConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Lude.Maybe HTTPURLDestinationConfiguration)
+trdcHttpURLConfiguration = Lens.lens (httpURLConfiguration :: TopicRuleDestinationConfiguration -> Lude.Maybe HTTPURLDestinationConfiguration) (\s a -> s {httpURLConfiguration = a} :: TopicRuleDestinationConfiguration)
+{-# DEPRECATED trdcHttpURLConfiguration "Use generic-lens or generic-optics with 'httpURLConfiguration' instead." #-}
 
-instance Hashable TopicRuleDestinationConfiguration
-
-instance NFData TopicRuleDestinationConfiguration
-
-instance ToJSON TopicRuleDestinationConfiguration where
+instance Lude.ToJSON TopicRuleDestinationConfiguration where
   toJSON TopicRuleDestinationConfiguration' {..} =
-    object
-      ( catMaybes
-          [("httpUrlConfiguration" .=) <$> _trdcHttpURLConfiguration]
+    Lude.object
+      ( Lude.catMaybes
+          [("httpUrlConfiguration" Lude..=) Lude.<$> httpURLConfiguration]
       )

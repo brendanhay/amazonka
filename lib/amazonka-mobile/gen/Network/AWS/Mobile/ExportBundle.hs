@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,141 +14,157 @@
 --
 -- Generates customized software development kit (SDK) and or tool packages used to integrate mobile web or mobile app clients with backend AWS resources.
 module Network.AWS.Mobile.ExportBundle
-  ( -- * Creating a Request
-    exportBundle,
-    ExportBundle,
+  ( -- * Creating a request
+    ExportBundle (..),
+    mkExportBundle,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ebPlatform,
     ebProjectId,
     ebBundleId,
 
-    -- * Destructuring the Response
-    exportBundleResponse,
-    ExportBundleResponse,
+    -- * Destructuring the response
+    ExportBundleResponse (..),
+    mkExportBundleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ebrsDownloadURL,
     ebrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Request structure used to request generation of custom SDK and tool packages required to integrate mobile web or app clients with backed AWS resources.
 --
---
---
--- /See:/ 'exportBundle' smart constructor.
+-- /See:/ 'mkExportBundle' smart constructor.
 data ExportBundle = ExportBundle'
-  { _ebPlatform :: !(Maybe Platform),
-    _ebProjectId :: !(Maybe Text),
-    _ebBundleId :: !Text
+  { platform :: Lude.Maybe Platform,
+    projectId :: Lude.Maybe Lude.Text,
+    bundleId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportBundle' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ebPlatform' - Developer desktop or target application platform.
---
--- * 'ebProjectId' - Unique project identifier.
---
--- * 'ebBundleId' - Unique bundle identifier.
-exportBundle ::
-  -- | 'ebBundleId'
-  Text ->
+-- * 'bundleId' - Unique bundle identifier.
+-- * 'platform' - Developer desktop or target application platform.
+-- * 'projectId' - Unique project identifier.
+mkExportBundle ::
+  -- | 'bundleId'
+  Lude.Text ->
   ExportBundle
-exportBundle pBundleId_ =
+mkExportBundle pBundleId_ =
   ExportBundle'
-    { _ebPlatform = Nothing,
-      _ebProjectId = Nothing,
-      _ebBundleId = pBundleId_
+    { platform = Lude.Nothing,
+      projectId = Lude.Nothing,
+      bundleId = pBundleId_
     }
 
 -- | Developer desktop or target application platform.
-ebPlatform :: Lens' ExportBundle (Maybe Platform)
-ebPlatform = lens _ebPlatform (\s a -> s {_ebPlatform = a})
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebPlatform :: Lens.Lens' ExportBundle (Lude.Maybe Platform)
+ebPlatform = Lens.lens (platform :: ExportBundle -> Lude.Maybe Platform) (\s a -> s {platform = a} :: ExportBundle)
+{-# DEPRECATED ebPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | Unique project identifier.
-ebProjectId :: Lens' ExportBundle (Maybe Text)
-ebProjectId = lens _ebProjectId (\s a -> s {_ebProjectId = a})
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebProjectId :: Lens.Lens' ExportBundle (Lude.Maybe Lude.Text)
+ebProjectId = Lens.lens (projectId :: ExportBundle -> Lude.Maybe Lude.Text) (\s a -> s {projectId = a} :: ExportBundle)
+{-# DEPRECATED ebProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
 -- | Unique bundle identifier.
-ebBundleId :: Lens' ExportBundle Text
-ebBundleId = lens _ebBundleId (\s a -> s {_ebBundleId = a})
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebBundleId :: Lens.Lens' ExportBundle Lude.Text
+ebBundleId = Lens.lens (bundleId :: ExportBundle -> Lude.Text) (\s a -> s {bundleId = a} :: ExportBundle)
+{-# DEPRECATED ebBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
-instance AWSRequest ExportBundle where
+instance Lude.AWSRequest ExportBundle where
   type Rs ExportBundle = ExportBundleResponse
-  request = postJSON mobile
+  request = Req.postJSON mobileService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ExportBundleResponse'
-            <$> (x .?> "downloadUrl") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "downloadUrl") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ExportBundle
-
-instance NFData ExportBundle
-
-instance ToHeaders ExportBundle where
+instance Lude.ToHeaders ExportBundle where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+          ]
       )
 
-instance ToJSON ExportBundle where
-  toJSON = const (Object mempty)
+instance Lude.ToJSON ExportBundle where
+  toJSON = Lude.const (Lude.Object Lude.mempty)
 
-instance ToPath ExportBundle where
-  toPath ExportBundle' {..} = mconcat ["/bundles/", toBS _ebBundleId]
+instance Lude.ToPath ExportBundle where
+  toPath ExportBundle' {..} =
+    Lude.mconcat ["/bundles/", Lude.toBS bundleId]
 
-instance ToQuery ExportBundle where
+instance Lude.ToQuery ExportBundle where
   toQuery ExportBundle' {..} =
-    mconcat ["platform" =: _ebPlatform, "projectId" =: _ebProjectId]
+    Lude.mconcat
+      ["platform" Lude.=: platform, "projectId" Lude.=: projectId]
 
 -- | Result structure which contains link to download custom-generated SDK and tool packages used to integrate mobile web or app clients with backed AWS resources.
 --
---
---
--- /See:/ 'exportBundleResponse' smart constructor.
+-- /See:/ 'mkExportBundleResponse' smart constructor.
 data ExportBundleResponse = ExportBundleResponse'
-  { _ebrsDownloadURL ::
-      !(Maybe Text),
-    _ebrsResponseStatus :: !Int
+  { downloadURL ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportBundleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ebrsDownloadURL' - URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project.
---
--- * 'ebrsResponseStatus' - -- | The response status code.
-exportBundleResponse ::
-  -- | 'ebrsResponseStatus'
-  Int ->
+-- * 'downloadURL' - URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project.
+-- * 'responseStatus' - The response status code.
+mkExportBundleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ExportBundleResponse
-exportBundleResponse pResponseStatus_ =
+mkExportBundleResponse pResponseStatus_ =
   ExportBundleResponse'
-    { _ebrsDownloadURL = Nothing,
-      _ebrsResponseStatus = pResponseStatus_
+    { downloadURL = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project.
-ebrsDownloadURL :: Lens' ExportBundleResponse (Maybe Text)
-ebrsDownloadURL = lens _ebrsDownloadURL (\s a -> s {_ebrsDownloadURL = a})
+--
+-- /Note:/ Consider using 'downloadURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebrsDownloadURL :: Lens.Lens' ExportBundleResponse (Lude.Maybe Lude.Text)
+ebrsDownloadURL = Lens.lens (downloadURL :: ExportBundleResponse -> Lude.Maybe Lude.Text) (\s a -> s {downloadURL = a} :: ExportBundleResponse)
+{-# DEPRECATED ebrsDownloadURL "Use generic-lens or generic-optics with 'downloadURL' instead." #-}
 
--- | -- | The response status code.
-ebrsResponseStatus :: Lens' ExportBundleResponse Int
-ebrsResponseStatus = lens _ebrsResponseStatus (\s a -> s {_ebrsResponseStatus = a})
-
-instance NFData ExportBundleResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebrsResponseStatus :: Lens.Lens' ExportBundleResponse Lude.Int
+ebrsResponseStatus = Lens.lens (responseStatus :: ExportBundleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExportBundleResponse)
+{-# DEPRECATED ebrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

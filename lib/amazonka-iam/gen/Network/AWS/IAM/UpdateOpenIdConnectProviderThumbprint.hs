@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,109 +14,118 @@
 --
 -- Replaces the existing list of server certificate thumbprints associated with an OpenID Connect (OIDC) provider resource object with a new list of thumbprints.
 --
---
 -- The list that you pass with this operation completely replaces the existing list of thumbprints. (The lists are not merged.)
---
 -- Typically, you need to update a thumbprint only when the identity provider's certificate changes, which occurs rarely. However, if the provider's certificate /does/ change, any attempt to assume an IAM role that specifies the OIDC provider as a principal fails until the certificate thumbprint is updated.
 module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
-  ( -- * Creating a Request
-    updateOpenIdConnectProviderThumbprint,
-    UpdateOpenIdConnectProviderThumbprint,
+  ( -- * Creating a request
+    UpdateOpenIdConnectProviderThumbprint (..),
+    mkUpdateOpenIdConnectProviderThumbprint,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uoicptOpenIdConnectProviderARN,
     uoicptThumbprintList,
 
-    -- * Destructuring the Response
-    updateOpenIdConnectProviderThumbprintResponse,
-    UpdateOpenIdConnectProviderThumbprintResponse,
+    -- * Destructuring the response
+    UpdateOpenIdConnectProviderThumbprintResponse (..),
+    mkUpdateOpenIdConnectProviderThumbprintResponse,
   )
 where
 
 import Network.AWS.IAM.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updateOpenIdConnectProviderThumbprint' smart constructor.
+-- | /See:/ 'mkUpdateOpenIdConnectProviderThumbprint' smart constructor.
 data UpdateOpenIdConnectProviderThumbprint = UpdateOpenIdConnectProviderThumbprint'
-  { _uoicptOpenIdConnectProviderARN ::
-      !Text,
-    _uoicptThumbprintList ::
-      ![Text]
+  { openIdConnectProviderARN ::
+      Lude.Text,
+    thumbprintList ::
+      [Lude.Text]
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOpenIdConnectProviderThumbprint' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'openIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
 --
--- * 'uoicptOpenIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- * 'uoicptThumbprintList' - A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider' .
-updateOpenIdConnectProviderThumbprint ::
-  -- | 'uoicptOpenIdConnectProviderARN'
-  Text ->
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'thumbprintList' - A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider' .
+mkUpdateOpenIdConnectProviderThumbprint ::
+  -- | 'openIdConnectProviderARN'
+  Lude.Text ->
   UpdateOpenIdConnectProviderThumbprint
-updateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN_ =
+mkUpdateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN_ =
   UpdateOpenIdConnectProviderThumbprint'
-    { _uoicptOpenIdConnectProviderARN =
+    { openIdConnectProviderARN =
         pOpenIdConnectProviderARN_,
-      _uoicptThumbprintList = mempty
+      thumbprintList = Lude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-uoicptOpenIdConnectProviderARN :: Lens' UpdateOpenIdConnectProviderThumbprint Text
-uoicptOpenIdConnectProviderARN = lens _uoicptOpenIdConnectProviderARN (\s a -> s {_uoicptOpenIdConnectProviderARN = a})
+-- | The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'openIdConnectProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uoicptOpenIdConnectProviderARN :: Lens.Lens' UpdateOpenIdConnectProviderThumbprint Lude.Text
+uoicptOpenIdConnectProviderARN = Lens.lens (openIdConnectProviderARN :: UpdateOpenIdConnectProviderThumbprint -> Lude.Text) (\s a -> s {openIdConnectProviderARN = a} :: UpdateOpenIdConnectProviderThumbprint)
+{-# DEPRECATED uoicptOpenIdConnectProviderARN "Use generic-lens or generic-optics with 'openIdConnectProviderARN' instead." #-}
 
 -- | A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see 'CreateOpenIDConnectProvider' .
-uoicptThumbprintList :: Lens' UpdateOpenIdConnectProviderThumbprint [Text]
-uoicptThumbprintList = lens _uoicptThumbprintList (\s a -> s {_uoicptThumbprintList = a}) . _Coerce
+--
+-- /Note:/ Consider using 'thumbprintList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uoicptThumbprintList :: Lens.Lens' UpdateOpenIdConnectProviderThumbprint [Lude.Text]
+uoicptThumbprintList = Lens.lens (thumbprintList :: UpdateOpenIdConnectProviderThumbprint -> [Lude.Text]) (\s a -> s {thumbprintList = a} :: UpdateOpenIdConnectProviderThumbprint)
+{-# DEPRECATED uoicptThumbprintList "Use generic-lens or generic-optics with 'thumbprintList' instead." #-}
 
-instance AWSRequest UpdateOpenIdConnectProviderThumbprint where
+instance Lude.AWSRequest UpdateOpenIdConnectProviderThumbprint where
   type
     Rs UpdateOpenIdConnectProviderThumbprint =
       UpdateOpenIdConnectProviderThumbprintResponse
-  request = postQuery iam
+  request = Req.postQuery iamService
   response =
-    receiveNull UpdateOpenIdConnectProviderThumbprintResponse'
+    Res.receiveNull UpdateOpenIdConnectProviderThumbprintResponse'
 
-instance Hashable UpdateOpenIdConnectProviderThumbprint
+instance Lude.ToHeaders UpdateOpenIdConnectProviderThumbprint where
+  toHeaders = Lude.const Lude.mempty
 
-instance NFData UpdateOpenIdConnectProviderThumbprint
+instance Lude.ToPath UpdateOpenIdConnectProviderThumbprint where
+  toPath = Lude.const "/"
 
-instance ToHeaders UpdateOpenIdConnectProviderThumbprint where
-  toHeaders = const mempty
-
-instance ToPath UpdateOpenIdConnectProviderThumbprint where
-  toPath = const "/"
-
-instance ToQuery UpdateOpenIdConnectProviderThumbprint where
+instance Lude.ToQuery UpdateOpenIdConnectProviderThumbprint where
   toQuery UpdateOpenIdConnectProviderThumbprint' {..} =
-    mconcat
+    Lude.mconcat
       [ "Action"
-          =: ("UpdateOpenIDConnectProviderThumbprint" :: ByteString),
-        "Version" =: ("2010-05-08" :: ByteString),
-        "OpenIDConnectProviderArn" =: _uoicptOpenIdConnectProviderARN,
-        "ThumbprintList" =: toQueryList "member" _uoicptThumbprintList
+          Lude.=: ("UpdateOpenIDConnectProviderThumbprint" :: Lude.ByteString),
+        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "OpenIDConnectProviderArn" Lude.=: openIdConnectProviderARN,
+        "ThumbprintList" Lude.=: Lude.toQueryList "member" thumbprintList
       ]
 
--- | /See:/ 'updateOpenIdConnectProviderThumbprintResponse' smart constructor.
+-- | /See:/ 'mkUpdateOpenIdConnectProviderThumbprintResponse' smart constructor.
 data UpdateOpenIdConnectProviderThumbprintResponse = UpdateOpenIdConnectProviderThumbprintResponse'
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'UpdateOpenIdConnectProviderThumbprintResponse' with the minimum fields required to make a request.
-updateOpenIdConnectProviderThumbprintResponse ::
+mkUpdateOpenIdConnectProviderThumbprintResponse ::
   UpdateOpenIdConnectProviderThumbprintResponse
-updateOpenIdConnectProviderThumbprintResponse =
+mkUpdateOpenIdConnectProviderThumbprintResponse =
   UpdateOpenIdConnectProviderThumbprintResponse'
-
-instance NFData UpdateOpenIdConnectProviderThumbprintResponse

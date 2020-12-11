@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,128 +7,167 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.APIKey where
+module Network.AWS.APIGateway.Types.APIKey
+  ( APIKey (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAPIKey,
+
+    -- * Lenses
+    akEnabled,
+    akValue,
+    akCustomerId,
+    akCreatedDate,
+    akName,
+    akId,
+    akStageKeys,
+    akLastUpdatedDate,
+    akDescription,
+    akTags,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A resource that can be distributed to callers for executing 'Method' resources that require an API key. API keys can be mapped to any 'Stage' on any 'RestApi' , which indicates that the callers with the API key can make requests to that stage.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
 --
--- /See:/ 'apiKey' smart constructor.
+-- /See:/ 'mkAPIKey' smart constructor.
 data APIKey = APIKey'
-  { _akEnabled :: !(Maybe Bool),
-    _akValue :: !(Maybe Text),
-    _akCustomerId :: !(Maybe Text),
-    _akCreatedDate :: !(Maybe POSIX),
-    _akName :: !(Maybe Text),
-    _akId :: !(Maybe Text),
-    _akStageKeys :: !(Maybe [Text]),
-    _akLastUpdatedDate :: !(Maybe POSIX),
-    _akDescription :: !(Maybe Text),
-    _akTags :: !(Maybe (Map Text (Text)))
+  { enabled :: Lude.Maybe Lude.Bool,
+    value :: Lude.Maybe Lude.Text,
+    customerId :: Lude.Maybe Lude.Text,
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    name :: Lude.Maybe Lude.Text,
+    id :: Lude.Maybe Lude.Text,
+    stageKeys :: Lude.Maybe [Lude.Text],
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APIKey' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'akEnabled' - Specifies whether the API Key can be used by callers.
---
--- * 'akValue' - The value of the API Key.
---
--- * 'akCustomerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
---
--- * 'akCreatedDate' - The timestamp when the API Key was created.
---
--- * 'akName' - The name of the API Key.
---
--- * 'akId' - The identifier of the API Key.
---
--- * 'akStageKeys' - A list of 'Stage' resources that are associated with the 'ApiKey' resource.
---
--- * 'akLastUpdatedDate' - The timestamp when the API Key was last updated.
---
--- * 'akDescription' - The description of the API Key.
---
--- * 'akTags' - The collection of tags. Each tag element is associated with a given resource.
-apiKey ::
+-- * 'createdDate' - The timestamp when the API Key was created.
+-- * 'customerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
+-- * 'description' - The description of the API Key.
+-- * 'enabled' - Specifies whether the API Key can be used by callers.
+-- * 'id' - The identifier of the API Key.
+-- * 'lastUpdatedDate' - The timestamp when the API Key was last updated.
+-- * 'name' - The name of the API Key.
+-- * 'stageKeys' - A list of 'Stage' resources that are associated with the 'ApiKey' resource.
+-- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
+-- * 'value' - The value of the API Key.
+mkAPIKey ::
   APIKey
-apiKey =
+mkAPIKey =
   APIKey'
-    { _akEnabled = Nothing,
-      _akValue = Nothing,
-      _akCustomerId = Nothing,
-      _akCreatedDate = Nothing,
-      _akName = Nothing,
-      _akId = Nothing,
-      _akStageKeys = Nothing,
-      _akLastUpdatedDate = Nothing,
-      _akDescription = Nothing,
-      _akTags = Nothing
+    { enabled = Lude.Nothing,
+      value = Lude.Nothing,
+      customerId = Lude.Nothing,
+      createdDate = Lude.Nothing,
+      name = Lude.Nothing,
+      id = Lude.Nothing,
+      stageKeys = Lude.Nothing,
+      lastUpdatedDate = Lude.Nothing,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | Specifies whether the API Key can be used by callers.
-akEnabled :: Lens' APIKey (Maybe Bool)
-akEnabled = lens _akEnabled (\s a -> s {_akEnabled = a})
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akEnabled :: Lens.Lens' APIKey (Lude.Maybe Lude.Bool)
+akEnabled = Lens.lens (enabled :: APIKey -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: APIKey)
+{-# DEPRECATED akEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The value of the API Key.
-akValue :: Lens' APIKey (Maybe Text)
-akValue = lens _akValue (\s a -> s {_akValue = a})
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akValue :: Lens.Lens' APIKey (Lude.Maybe Lude.Text)
+akValue = Lens.lens (value :: APIKey -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: APIKey)
+{-# DEPRECATED akValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
-akCustomerId :: Lens' APIKey (Maybe Text)
-akCustomerId = lens _akCustomerId (\s a -> s {_akCustomerId = a})
+--
+-- /Note:/ Consider using 'customerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akCustomerId :: Lens.Lens' APIKey (Lude.Maybe Lude.Text)
+akCustomerId = Lens.lens (customerId :: APIKey -> Lude.Maybe Lude.Text) (\s a -> s {customerId = a} :: APIKey)
+{-# DEPRECATED akCustomerId "Use generic-lens or generic-optics with 'customerId' instead." #-}
 
 -- | The timestamp when the API Key was created.
-akCreatedDate :: Lens' APIKey (Maybe UTCTime)
-akCreatedDate = lens _akCreatedDate (\s a -> s {_akCreatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akCreatedDate :: Lens.Lens' APIKey (Lude.Maybe Lude.Timestamp)
+akCreatedDate = Lens.lens (createdDate :: APIKey -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: APIKey)
+{-# DEPRECATED akCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The name of the API Key.
-akName :: Lens' APIKey (Maybe Text)
-akName = lens _akName (\s a -> s {_akName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akName :: Lens.Lens' APIKey (Lude.Maybe Lude.Text)
+akName = Lens.lens (name :: APIKey -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: APIKey)
+{-# DEPRECATED akName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the API Key.
-akId :: Lens' APIKey (Maybe Text)
-akId = lens _akId (\s a -> s {_akId = a})
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akId :: Lens.Lens' APIKey (Lude.Maybe Lude.Text)
+akId = Lens.lens (id :: APIKey -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: APIKey)
+{-# DEPRECATED akId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A list of 'Stage' resources that are associated with the 'ApiKey' resource.
-akStageKeys :: Lens' APIKey [Text]
-akStageKeys = lens _akStageKeys (\s a -> s {_akStageKeys = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'stageKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akStageKeys :: Lens.Lens' APIKey (Lude.Maybe [Lude.Text])
+akStageKeys = Lens.lens (stageKeys :: APIKey -> Lude.Maybe [Lude.Text]) (\s a -> s {stageKeys = a} :: APIKey)
+{-# DEPRECATED akStageKeys "Use generic-lens or generic-optics with 'stageKeys' instead." #-}
 
 -- | The timestamp when the API Key was last updated.
-akLastUpdatedDate :: Lens' APIKey (Maybe UTCTime)
-akLastUpdatedDate = lens _akLastUpdatedDate (\s a -> s {_akLastUpdatedDate = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akLastUpdatedDate :: Lens.Lens' APIKey (Lude.Maybe Lude.Timestamp)
+akLastUpdatedDate = Lens.lens (lastUpdatedDate :: APIKey -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: APIKey)
+{-# DEPRECATED akLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | The description of the API Key.
-akDescription :: Lens' APIKey (Maybe Text)
-akDescription = lens _akDescription (\s a -> s {_akDescription = a})
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akDescription :: Lens.Lens' APIKey (Lude.Maybe Lude.Text)
+akDescription = Lens.lens (description :: APIKey -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: APIKey)
+{-# DEPRECATED akDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The collection of tags. Each tag element is associated with a given resource.
-akTags :: Lens' APIKey (HashMap Text (Text))
-akTags = lens _akTags (\s a -> s {_akTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akTags :: Lens.Lens' APIKey (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+akTags = Lens.lens (tags :: APIKey -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: APIKey)
+{-# DEPRECATED akTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance FromJSON APIKey where
+instance Lude.FromJSON APIKey where
   parseJSON =
-    withObject
+    Lude.withObject
       "APIKey"
       ( \x ->
           APIKey'
-            <$> (x .:? "enabled")
-            <*> (x .:? "value")
-            <*> (x .:? "customerId")
-            <*> (x .:? "createdDate")
-            <*> (x .:? "name")
-            <*> (x .:? "id")
-            <*> (x .:? "stageKeys" .!= mempty)
-            <*> (x .:? "lastUpdatedDate")
-            <*> (x .:? "description")
-            <*> (x .:? "tags" .!= mempty)
+            Lude.<$> (x Lude..:? "enabled")
+            Lude.<*> (x Lude..:? "value")
+            Lude.<*> (x Lude..:? "customerId")
+            Lude.<*> (x Lude..:? "createdDate")
+            Lude.<*> (x Lude..:? "name")
+            Lude.<*> (x Lude..:? "id")
+            Lude.<*> (x Lude..:? "stageKeys" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "lastUpdatedDate")
+            Lude.<*> (x Lude..:? "description")
+            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
       )
-
-instance Hashable APIKey
-
-instance NFData APIKey

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudFront.Types.OriginRequestPolicyType where
+module Network.AWS.CloudFront.Types.OriginRequestPolicyType
+  ( OriginRequestPolicyType
+      ( OriginRequestPolicyType',
+        Custom,
+        Managed
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data OriginRequestPolicyType
-  = Custom
-  | Managed
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype OriginRequestPolicyType = OriginRequestPolicyType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText OriginRequestPolicyType where
-  parser =
-    takeLowerText >>= \case
-      "custom" -> pure Custom
-      "managed" -> pure Managed
-      e ->
-        fromTextError $
-          "Failure parsing OriginRequestPolicyType from value: '" <> e
-            <> "'. Accepted values: custom, managed"
+pattern Custom :: OriginRequestPolicyType
+pattern Custom = OriginRequestPolicyType' "custom"
 
-instance ToText OriginRequestPolicyType where
-  toText = \case
-    Custom -> "custom"
-    Managed -> "managed"
+pattern Managed :: OriginRequestPolicyType
+pattern Managed = OriginRequestPolicyType' "managed"
 
-instance Hashable OriginRequestPolicyType
-
-instance NFData OriginRequestPolicyType
-
-instance ToByteString OriginRequestPolicyType
-
-instance ToQuery OriginRequestPolicyType
-
-instance ToHeader OriginRequestPolicyType
-
-instance FromXML OriginRequestPolicyType where
-  parseXML = parseXMLText "OriginRequestPolicyType"
-
-instance ToXML OriginRequestPolicyType where
-  toXML = toXMLText
+{-# COMPLETE
+  Custom,
+  Managed,
+  OriginRequestPolicyType'
+  #-}

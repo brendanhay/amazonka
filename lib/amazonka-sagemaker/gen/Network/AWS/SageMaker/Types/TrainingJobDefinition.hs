@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,10 +7,24 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.TrainingJobDefinition where
+module Network.AWS.SageMaker.Types.TrainingJobDefinition
+  ( TrainingJobDefinition (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkTrainingJobDefinition,
+
+    -- * Lenses
+    tjdHyperParameters,
+    tjdTrainingInputMode,
+    tjdInputDataConfig,
+    tjdOutputDataConfig,
+    tjdResourceConfig,
+    tjdStoppingCondition,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.Channel
 import Network.AWS.SageMaker.Types.OutputDataConfig
 import Network.AWS.SageMaker.Types.ResourceConfig
@@ -25,113 +33,133 @@ import Network.AWS.SageMaker.Types.TrainingInputMode
 
 -- | Defines the input needed to run a training job using the algorithm.
 --
---
---
--- /See:/ 'trainingJobDefinition' smart constructor.
+-- /See:/ 'mkTrainingJobDefinition' smart constructor.
 data TrainingJobDefinition = TrainingJobDefinition'
-  { _tjdHyperParameters ::
-      !(Maybe (Map Text (Text))),
-    _tjdTrainingInputMode :: !TrainingInputMode,
-    _tjdInputDataConfig :: !(List1 Channel),
-    _tjdOutputDataConfig :: !OutputDataConfig,
-    _tjdResourceConfig :: !ResourceConfig,
-    _tjdStoppingCondition :: !StoppingCondition
+  { hyperParameters ::
+      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    trainingInputMode :: TrainingInputMode,
+    inputDataConfig :: Lude.NonEmpty Channel,
+    outputDataConfig :: OutputDataConfig,
+    resourceConfig :: ResourceConfig,
+    stoppingCondition :: StoppingCondition
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrainingJobDefinition' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'hyperParameters' - The hyperparameters used for the training job.
+-- * 'inputDataConfig' - An array of @Channel@ objects, each of which specifies an input source.
+-- * 'outputDataConfig' - the path to the S3 bucket where you want to store model artifacts. Amazon SageMaker creates subfolders for the artifacts.
+-- * 'resourceConfig' - The resources, including the ML compute instances and ML storage volumes, to use for model training.
+-- * 'stoppingCondition' - Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
 --
--- * 'tjdHyperParameters' - The hyperparameters used for the training job.
+-- To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts.
+-- * 'trainingInputMode' - The input mode used by the algorithm for the training job. For the input modes that Amazon SageMaker algorithms support, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> .
 --
--- * 'tjdTrainingInputMode' - The input mode used by the algorithm for the training job. For the input modes that Amazon SageMaker algorithms support, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> . If an algorithm supports the @File@ input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the @Pipe@ input mode, Amazon SageMaker streams data directly from S3 to the container.
---
--- * 'tjdInputDataConfig' - An array of @Channel@ objects, each of which specifies an input source.
---
--- * 'tjdOutputDataConfig' - the path to the S3 bucket where you want to store model artifacts. Amazon SageMaker creates subfolders for the artifacts.
---
--- * 'tjdResourceConfig' - The resources, including the ML compute instances and ML storage volumes, to use for model training.
---
--- * 'tjdStoppingCondition' - Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs. To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts.
-trainingJobDefinition ::
-  -- | 'tjdTrainingInputMode'
+-- If an algorithm supports the @File@ input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the @Pipe@ input mode, Amazon SageMaker streams data directly from S3 to the container.
+mkTrainingJobDefinition ::
+  -- | 'trainingInputMode'
   TrainingInputMode ->
-  -- | 'tjdInputDataConfig'
-  NonEmpty Channel ->
-  -- | 'tjdOutputDataConfig'
+  -- | 'inputDataConfig'
+  Lude.NonEmpty Channel ->
+  -- | 'outputDataConfig'
   OutputDataConfig ->
-  -- | 'tjdResourceConfig'
+  -- | 'resourceConfig'
   ResourceConfig ->
-  -- | 'tjdStoppingCondition'
+  -- | 'stoppingCondition'
   StoppingCondition ->
   TrainingJobDefinition
-trainingJobDefinition
+mkTrainingJobDefinition
   pTrainingInputMode_
   pInputDataConfig_
   pOutputDataConfig_
   pResourceConfig_
   pStoppingCondition_ =
     TrainingJobDefinition'
-      { _tjdHyperParameters = Nothing,
-        _tjdTrainingInputMode = pTrainingInputMode_,
-        _tjdInputDataConfig = _List1 # pInputDataConfig_,
-        _tjdOutputDataConfig = pOutputDataConfig_,
-        _tjdResourceConfig = pResourceConfig_,
-        _tjdStoppingCondition = pStoppingCondition_
+      { hyperParameters = Lude.Nothing,
+        trainingInputMode = pTrainingInputMode_,
+        inputDataConfig = pInputDataConfig_,
+        outputDataConfig = pOutputDataConfig_,
+        resourceConfig = pResourceConfig_,
+        stoppingCondition = pStoppingCondition_
       }
 
 -- | The hyperparameters used for the training job.
-tjdHyperParameters :: Lens' TrainingJobDefinition (HashMap Text (Text))
-tjdHyperParameters = lens _tjdHyperParameters (\s a -> s {_tjdHyperParameters = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'hyperParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdHyperParameters :: Lens.Lens' TrainingJobDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+tjdHyperParameters = Lens.lens (hyperParameters :: TrainingJobDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {hyperParameters = a} :: TrainingJobDefinition)
+{-# DEPRECATED tjdHyperParameters "Use generic-lens or generic-optics with 'hyperParameters' instead." #-}
 
--- | The input mode used by the algorithm for the training job. For the input modes that Amazon SageMaker algorithms support, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> . If an algorithm supports the @File@ input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the @Pipe@ input mode, Amazon SageMaker streams data directly from S3 to the container.
-tjdTrainingInputMode :: Lens' TrainingJobDefinition TrainingInputMode
-tjdTrainingInputMode = lens _tjdTrainingInputMode (\s a -> s {_tjdTrainingInputMode = a})
+-- | The input mode used by the algorithm for the training job. For the input modes that Amazon SageMaker algorithms support, see <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms> .
+--
+-- If an algorithm supports the @File@ input mode, Amazon SageMaker downloads the training data from S3 to the provisioned ML storage Volume, and mounts the directory to docker volume for training container. If an algorithm supports the @Pipe@ input mode, Amazon SageMaker streams data directly from S3 to the container.
+--
+-- /Note:/ Consider using 'trainingInputMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdTrainingInputMode :: Lens.Lens' TrainingJobDefinition TrainingInputMode
+tjdTrainingInputMode = Lens.lens (trainingInputMode :: TrainingJobDefinition -> TrainingInputMode) (\s a -> s {trainingInputMode = a} :: TrainingJobDefinition)
+{-# DEPRECATED tjdTrainingInputMode "Use generic-lens or generic-optics with 'trainingInputMode' instead." #-}
 
 -- | An array of @Channel@ objects, each of which specifies an input source.
-tjdInputDataConfig :: Lens' TrainingJobDefinition (NonEmpty Channel)
-tjdInputDataConfig = lens _tjdInputDataConfig (\s a -> s {_tjdInputDataConfig = a}) . _List1
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdInputDataConfig :: Lens.Lens' TrainingJobDefinition (Lude.NonEmpty Channel)
+tjdInputDataConfig = Lens.lens (inputDataConfig :: TrainingJobDefinition -> Lude.NonEmpty Channel) (\s a -> s {inputDataConfig = a} :: TrainingJobDefinition)
+{-# DEPRECATED tjdInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | the path to the S3 bucket where you want to store model artifacts. Amazon SageMaker creates subfolders for the artifacts.
-tjdOutputDataConfig :: Lens' TrainingJobDefinition OutputDataConfig
-tjdOutputDataConfig = lens _tjdOutputDataConfig (\s a -> s {_tjdOutputDataConfig = a})
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdOutputDataConfig :: Lens.Lens' TrainingJobDefinition OutputDataConfig
+tjdOutputDataConfig = Lens.lens (outputDataConfig :: TrainingJobDefinition -> OutputDataConfig) (\s a -> s {outputDataConfig = a} :: TrainingJobDefinition)
+{-# DEPRECATED tjdOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
 
 -- | The resources, including the ML compute instances and ML storage volumes, to use for model training.
-tjdResourceConfig :: Lens' TrainingJobDefinition ResourceConfig
-tjdResourceConfig = lens _tjdResourceConfig (\s a -> s {_tjdResourceConfig = a})
+--
+-- /Note:/ Consider using 'resourceConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdResourceConfig :: Lens.Lens' TrainingJobDefinition ResourceConfig
+tjdResourceConfig = Lens.lens (resourceConfig :: TrainingJobDefinition -> ResourceConfig) (\s a -> s {resourceConfig = a} :: TrainingJobDefinition)
+{-# DEPRECATED tjdResourceConfig "Use generic-lens or generic-optics with 'resourceConfig' instead." #-}
 
--- | Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs. To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts.
-tjdStoppingCondition :: Lens' TrainingJobDefinition StoppingCondition
-tjdStoppingCondition = lens _tjdStoppingCondition (\s a -> s {_tjdStoppingCondition = a})
+-- | Specifies a limit to how long a model training job can run. When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.
+--
+-- To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts.
+--
+-- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdStoppingCondition :: Lens.Lens' TrainingJobDefinition StoppingCondition
+tjdStoppingCondition = Lens.lens (stoppingCondition :: TrainingJobDefinition -> StoppingCondition) (\s a -> s {stoppingCondition = a} :: TrainingJobDefinition)
+{-# DEPRECATED tjdStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
 
-instance FromJSON TrainingJobDefinition where
+instance Lude.FromJSON TrainingJobDefinition where
   parseJSON =
-    withObject
+    Lude.withObject
       "TrainingJobDefinition"
       ( \x ->
           TrainingJobDefinition'
-            <$> (x .:? "HyperParameters" .!= mempty)
-            <*> (x .: "TrainingInputMode")
-            <*> (x .: "InputDataConfig")
-            <*> (x .: "OutputDataConfig")
-            <*> (x .: "ResourceConfig")
-            <*> (x .: "StoppingCondition")
+            Lude.<$> (x Lude..:? "HyperParameters" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "TrainingInputMode")
+            Lude.<*> (x Lude..: "InputDataConfig")
+            Lude.<*> (x Lude..: "OutputDataConfig")
+            Lude.<*> (x Lude..: "ResourceConfig")
+            Lude.<*> (x Lude..: "StoppingCondition")
       )
 
-instance Hashable TrainingJobDefinition
-
-instance NFData TrainingJobDefinition
-
-instance ToJSON TrainingJobDefinition where
+instance Lude.ToJSON TrainingJobDefinition where
   toJSON TrainingJobDefinition' {..} =
-    object
-      ( catMaybes
-          [ ("HyperParameters" .=) <$> _tjdHyperParameters,
-            Just ("TrainingInputMode" .= _tjdTrainingInputMode),
-            Just ("InputDataConfig" .= _tjdInputDataConfig),
-            Just ("OutputDataConfig" .= _tjdOutputDataConfig),
-            Just ("ResourceConfig" .= _tjdResourceConfig),
-            Just ("StoppingCondition" .= _tjdStoppingCondition)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("HyperParameters" Lude..=) Lude.<$> hyperParameters,
+            Lude.Just ("TrainingInputMode" Lude..= trainingInputMode),
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
+            Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
+            Lude.Just ("ResourceConfig" Lude..= resourceConfig),
+            Lude.Just ("StoppingCondition" Lude..= stoppingCondition)
           ]
       )

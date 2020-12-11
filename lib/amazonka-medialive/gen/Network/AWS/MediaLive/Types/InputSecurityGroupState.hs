@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,56 +7,60 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.MediaLive.Types.InputSecurityGroupState where
+module Network.AWS.MediaLive.Types.InputSecurityGroupState
+  ( InputSecurityGroupState
+      ( InputSecurityGroupState',
+        ISGSDeleted,
+        ISGSIdle,
+        ISGSInUse,
+        ISGSUpdating
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
 -- | Placeholder documentation for InputSecurityGroupState
-data InputSecurityGroupState
-  = ISGSDeleted
-  | ISGSIdle
-  | ISGSInUse
-  | ISGSUpdating
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype InputSecurityGroupState = InputSecurityGroupState' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText InputSecurityGroupState where
-  parser =
-    takeLowerText >>= \case
-      "deleted" -> pure ISGSDeleted
-      "idle" -> pure ISGSIdle
-      "in_use" -> pure ISGSInUse
-      "updating" -> pure ISGSUpdating
-      e ->
-        fromTextError $
-          "Failure parsing InputSecurityGroupState from value: '" <> e
-            <> "'. Accepted values: deleted, idle, in_use, updating"
+pattern ISGSDeleted :: InputSecurityGroupState
+pattern ISGSDeleted = InputSecurityGroupState' "DELETED"
 
-instance ToText InputSecurityGroupState where
-  toText = \case
-    ISGSDeleted -> "DELETED"
-    ISGSIdle -> "IDLE"
-    ISGSInUse -> "IN_USE"
-    ISGSUpdating -> "UPDATING"
+pattern ISGSIdle :: InputSecurityGroupState
+pattern ISGSIdle = InputSecurityGroupState' "IDLE"
 
-instance Hashable InputSecurityGroupState
+pattern ISGSInUse :: InputSecurityGroupState
+pattern ISGSInUse = InputSecurityGroupState' "IN_USE"
 
-instance NFData InputSecurityGroupState
+pattern ISGSUpdating :: InputSecurityGroupState
+pattern ISGSUpdating = InputSecurityGroupState' "UPDATING"
 
-instance ToByteString InputSecurityGroupState
-
-instance ToQuery InputSecurityGroupState
-
-instance ToHeader InputSecurityGroupState
-
-instance FromJSON InputSecurityGroupState where
-  parseJSON = parseJSONText "InputSecurityGroupState"
+{-# COMPLETE
+  ISGSDeleted,
+  ISGSIdle,
+  ISGSInUse,
+  ISGSUpdating,
+  InputSecurityGroupState'
+  #-}

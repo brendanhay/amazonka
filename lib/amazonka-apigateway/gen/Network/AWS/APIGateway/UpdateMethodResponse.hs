@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,22 +14,22 @@
 --
 -- Updates an existing 'MethodResponse' resource.
 module Network.AWS.APIGateway.UpdateMethodResponse
-  ( -- * Creating a Request
-    updateMethodResponse,
-    UpdateMethodResponse,
+  ( -- * Creating a request
+    UpdateMethodResponse (..),
+    mkUpdateMethodResponse,
 
-    -- * Request Lenses
+    -- ** Request lenses
     umPatchOperations,
     umRestAPIId,
     umResourceId,
     umHttpMethod,
     umStatusCode,
 
-    -- * Destructuring the Response
-    methodResponse,
-    MethodResponse,
+    -- * Destructuring the response
+    MethodResponse (..),
+    mkMethodResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     mResponseModels,
     mStatusCode,
     mResponseParameters,
@@ -42,112 +37,127 @@ module Network.AWS.APIGateway.UpdateMethodResponse
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to update an existing 'MethodResponse' resource.
 --
---
---
--- /See:/ 'updateMethodResponse' smart constructor.
+-- /See:/ 'mkUpdateMethodResponse' smart constructor.
 data UpdateMethodResponse = UpdateMethodResponse'
-  { _umPatchOperations ::
-      !(Maybe [PatchOperation]),
-    _umRestAPIId :: !Text,
-    _umResourceId :: !Text,
-    _umHttpMethod :: !Text,
-    _umStatusCode :: !Text
+  { patchOperations ::
+      Lude.Maybe [PatchOperation],
+    restAPIId :: Lude.Text,
+    resourceId :: Lude.Text,
+    httpMethod :: Lude.Text,
+    statusCode :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMethodResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'umPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- * 'umRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
---
--- * 'umResourceId' - [Required] The 'Resource' identifier for the 'MethodResponse' resource.
---
--- * 'umHttpMethod' - [Required] The HTTP verb of the 'Method' resource.
---
--- * 'umStatusCode' - [Required] The status code for the 'MethodResponse' resource.
-updateMethodResponse ::
-  -- | 'umRestAPIId'
-  Text ->
-  -- | 'umResourceId'
-  Text ->
-  -- | 'umHttpMethod'
-  Text ->
-  -- | 'umStatusCode'
-  Text ->
+-- * 'httpMethod' - [Required] The HTTP verb of the 'Method' resource.
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- * 'resourceId' - [Required] The 'Resource' identifier for the 'MethodResponse' resource.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'statusCode' - [Required] The status code for the 'MethodResponse' resource.
+mkUpdateMethodResponse ::
+  -- | 'restAPIId'
+  Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
+  -- | 'httpMethod'
+  Lude.Text ->
+  -- | 'statusCode'
+  Lude.Text ->
   UpdateMethodResponse
-updateMethodResponse
+mkUpdateMethodResponse
   pRestAPIId_
   pResourceId_
   pHttpMethod_
   pStatusCode_ =
     UpdateMethodResponse'
-      { _umPatchOperations = Nothing,
-        _umRestAPIId = pRestAPIId_,
-        _umResourceId = pResourceId_,
-        _umHttpMethod = pHttpMethod_,
-        _umStatusCode = pStatusCode_
+      { patchOperations = Lude.Nothing,
+        restAPIId = pRestAPIId_,
+        resourceId = pResourceId_,
+        httpMethod = pHttpMethod_,
+        statusCode = pStatusCode_
       }
 
 -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-umPatchOperations :: Lens' UpdateMethodResponse [PatchOperation]
-umPatchOperations = lens _umPatchOperations (\s a -> s {_umPatchOperations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umPatchOperations :: Lens.Lens' UpdateMethodResponse (Lude.Maybe [PatchOperation])
+umPatchOperations = Lens.lens (patchOperations :: UpdateMethodResponse -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateMethodResponse)
+{-# DEPRECATED umPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
-umRestAPIId :: Lens' UpdateMethodResponse Text
-umRestAPIId = lens _umRestAPIId (\s a -> s {_umRestAPIId = a})
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umRestAPIId :: Lens.Lens' UpdateMethodResponse Lude.Text
+umRestAPIId = Lens.lens (restAPIId :: UpdateMethodResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateMethodResponse)
+{-# DEPRECATED umRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The 'Resource' identifier for the 'MethodResponse' resource.
-umResourceId :: Lens' UpdateMethodResponse Text
-umResourceId = lens _umResourceId (\s a -> s {_umResourceId = a})
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umResourceId :: Lens.Lens' UpdateMethodResponse Lude.Text
+umResourceId = Lens.lens (resourceId :: UpdateMethodResponse -> Lude.Text) (\s a -> s {resourceId = a} :: UpdateMethodResponse)
+{-# DEPRECATED umResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] The HTTP verb of the 'Method' resource.
-umHttpMethod :: Lens' UpdateMethodResponse Text
-umHttpMethod = lens _umHttpMethod (\s a -> s {_umHttpMethod = a})
+--
+-- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umHttpMethod :: Lens.Lens' UpdateMethodResponse Lude.Text
+umHttpMethod = Lens.lens (httpMethod :: UpdateMethodResponse -> Lude.Text) (\s a -> s {httpMethod = a} :: UpdateMethodResponse)
+{-# DEPRECATED umHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
 
 -- | [Required] The status code for the 'MethodResponse' resource.
-umStatusCode :: Lens' UpdateMethodResponse Text
-umStatusCode = lens _umStatusCode (\s a -> s {_umStatusCode = a})
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umStatusCode :: Lens.Lens' UpdateMethodResponse Lude.Text
+umStatusCode = Lens.lens (statusCode :: UpdateMethodResponse -> Lude.Text) (\s a -> s {statusCode = a} :: UpdateMethodResponse)
+{-# DEPRECATED umStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance AWSRequest UpdateMethodResponse where
+instance Lude.AWSRequest UpdateMethodResponse where
   type Rs UpdateMethodResponse = MethodResponse
-  request = patchJSON apiGateway
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.patchJSON apiGatewayService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable UpdateMethodResponse
-
-instance NFData UpdateMethodResponse
-
-instance ToHeaders UpdateMethodResponse where
+instance Lude.ToHeaders UpdateMethodResponse where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToJSON UpdateMethodResponse where
+instance Lude.ToJSON UpdateMethodResponse where
   toJSON UpdateMethodResponse' {..} =
-    object
-      (catMaybes [("patchOperations" .=) <$> _umPatchOperations])
+    Lude.object
+      ( Lude.catMaybes
+          [("patchOperations" Lude..=) Lude.<$> patchOperations]
+      )
 
-instance ToPath UpdateMethodResponse where
+instance Lude.ToPath UpdateMethodResponse where
   toPath UpdateMethodResponse' {..} =
-    mconcat
+    Lude.mconcat
       [ "/restapis/",
-        toBS _umRestAPIId,
+        Lude.toBS restAPIId,
         "/resources/",
-        toBS _umResourceId,
+        Lude.toBS resourceId,
         "/methods/",
-        toBS _umHttpMethod,
+        Lude.toBS httpMethod,
         "/responses/",
-        toBS _umStatusCode
+        Lude.toBS statusCode
       ]
 
-instance ToQuery UpdateMethodResponse where
-  toQuery = const mempty
+instance Lude.ToQuery UpdateMethodResponse where
+  toQuery = Lude.const Lude.mempty

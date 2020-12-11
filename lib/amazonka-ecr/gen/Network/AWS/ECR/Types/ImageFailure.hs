@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ECR.Types.ImageFailure where
+module Network.AWS.ECR.Types.ImageFailure
+  ( ImageFailure (..),
+
+    -- * Smart constructor
+    mkImageFailure,
+
+    -- * Lenses
+    ifFailureReason,
+    ifFailureCode,
+    ifImageId,
+  )
+where
 
 import Network.AWS.ECR.Types.ImageFailureCode
 import Network.AWS.ECR.Types.ImageIdentifier
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An object representing an Amazon ECR image failure.
 --
---
---
--- /See:/ 'imageFailure' smart constructor.
+-- /See:/ 'mkImageFailure' smart constructor.
 data ImageFailure = ImageFailure'
-  { _ifFailureReason ::
-      !(Maybe Text),
-    _ifFailureCode :: !(Maybe ImageFailureCode),
-    _ifImageId :: !(Maybe ImageIdentifier)
+  { failureReason ::
+      Lude.Maybe Lude.Text,
+    failureCode :: Lude.Maybe ImageFailureCode,
+    imageId :: Lude.Maybe ImageIdentifier
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageFailure' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ifFailureReason' - The reason for the failure.
---
--- * 'ifFailureCode' - The code associated with the failure.
---
--- * 'ifImageId' - The image ID associated with the failure.
-imageFailure ::
+-- * 'failureCode' - The code associated with the failure.
+-- * 'failureReason' - The reason for the failure.
+-- * 'imageId' - The image ID associated with the failure.
+mkImageFailure ::
   ImageFailure
-imageFailure =
+mkImageFailure =
   ImageFailure'
-    { _ifFailureReason = Nothing,
-      _ifFailureCode = Nothing,
-      _ifImageId = Nothing
+    { failureReason = Lude.Nothing,
+      failureCode = Lude.Nothing,
+      imageId = Lude.Nothing
     }
 
 -- | The reason for the failure.
-ifFailureReason :: Lens' ImageFailure (Maybe Text)
-ifFailureReason = lens _ifFailureReason (\s a -> s {_ifFailureReason = a})
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifFailureReason :: Lens.Lens' ImageFailure (Lude.Maybe Lude.Text)
+ifFailureReason = Lens.lens (failureReason :: ImageFailure -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: ImageFailure)
+{-# DEPRECATED ifFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | The code associated with the failure.
-ifFailureCode :: Lens' ImageFailure (Maybe ImageFailureCode)
-ifFailureCode = lens _ifFailureCode (\s a -> s {_ifFailureCode = a})
+--
+-- /Note:/ Consider using 'failureCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifFailureCode :: Lens.Lens' ImageFailure (Lude.Maybe ImageFailureCode)
+ifFailureCode = Lens.lens (failureCode :: ImageFailure -> Lude.Maybe ImageFailureCode) (\s a -> s {failureCode = a} :: ImageFailure)
+{-# DEPRECATED ifFailureCode "Use generic-lens or generic-optics with 'failureCode' instead." #-}
 
 -- | The image ID associated with the failure.
-ifImageId :: Lens' ImageFailure (Maybe ImageIdentifier)
-ifImageId = lens _ifImageId (\s a -> s {_ifImageId = a})
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifImageId :: Lens.Lens' ImageFailure (Lude.Maybe ImageIdentifier)
+ifImageId = Lens.lens (imageId :: ImageFailure -> Lude.Maybe ImageIdentifier) (\s a -> s {imageId = a} :: ImageFailure)
+{-# DEPRECATED ifImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
-instance FromJSON ImageFailure where
+instance Lude.FromJSON ImageFailure where
   parseJSON =
-    withObject
+    Lude.withObject
       "ImageFailure"
       ( \x ->
           ImageFailure'
-            <$> (x .:? "failureReason")
-            <*> (x .:? "failureCode")
-            <*> (x .:? "imageId")
+            Lude.<$> (x Lude..:? "failureReason")
+            Lude.<*> (x Lude..:? "failureCode")
+            Lude.<*> (x Lude..:? "imageId")
       )
-
-instance Hashable ImageFailure
-
-instance NFData ImageFailure

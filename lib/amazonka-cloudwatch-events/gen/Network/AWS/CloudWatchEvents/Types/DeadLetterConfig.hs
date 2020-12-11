@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,42 +7,56 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.DeadLetterConfig where
+module Network.AWS.CloudWatchEvents.Types.DeadLetterConfig
+  ( DeadLetterConfig (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkDeadLetterConfig,
+
+    -- * Lenses
+    dlcARN,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | A @DeadLetterConfig@ object that contains information about a dead-letter queue configuration.
 --
---
---
--- /See:/ 'deadLetterConfig' smart constructor.
-newtype DeadLetterConfig = DeadLetterConfig' {_dlcARN :: Maybe Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkDeadLetterConfig' smart constructor.
+newtype DeadLetterConfig = DeadLetterConfig'
+  { arn ::
+      Lude.Maybe Lude.Text
+  }
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeadLetterConfig' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlcARN' - The ARN of the SQS queue specified as the target for the dead-letter queue.
-deadLetterConfig ::
+-- * 'arn' - The ARN of the SQS queue specified as the target for the dead-letter queue.
+mkDeadLetterConfig ::
   DeadLetterConfig
-deadLetterConfig = DeadLetterConfig' {_dlcARN = Nothing}
+mkDeadLetterConfig = DeadLetterConfig' {arn = Lude.Nothing}
 
 -- | The ARN of the SQS queue specified as the target for the dead-letter queue.
-dlcARN :: Lens' DeadLetterConfig (Maybe Text)
-dlcARN = lens _dlcARN (\s a -> s {_dlcARN = a})
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcARN :: Lens.Lens' DeadLetterConfig (Lude.Maybe Lude.Text)
+dlcARN = Lens.lens (arn :: DeadLetterConfig -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DeadLetterConfig)
+{-# DEPRECATED dlcARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance FromJSON DeadLetterConfig where
+instance Lude.FromJSON DeadLetterConfig where
   parseJSON =
-    withObject
+    Lude.withObject
       "DeadLetterConfig"
-      (\x -> DeadLetterConfig' <$> (x .:? "Arn"))
+      (\x -> DeadLetterConfig' Lude.<$> (x Lude..:? "Arn"))
 
-instance Hashable DeadLetterConfig
-
-instance NFData DeadLetterConfig
-
-instance ToJSON DeadLetterConfig where
+instance Lude.ToJSON DeadLetterConfig where
   toJSON DeadLetterConfig' {..} =
-    object (catMaybes [("Arn" .=) <$> _dlcARN])
+    Lude.object (Lude.catMaybes [("Arn" Lude..=) Lude.<$> arn])

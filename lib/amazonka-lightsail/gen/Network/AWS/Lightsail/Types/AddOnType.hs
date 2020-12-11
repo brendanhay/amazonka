@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,45 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lightsail.Types.AddOnType where
+module Network.AWS.Lightsail.Types.AddOnType
+  ( AddOnType
+      ( AddOnType',
+        AutoSnapshot
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AddOnType = AutoSnapshot
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AddOnType = AddOnType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AddOnType where
-  parser =
-    takeLowerText >>= \case
-      "autosnapshot" -> pure AutoSnapshot
-      e ->
-        fromTextError $
-          "Failure parsing AddOnType from value: '" <> e
-            <> "'. Accepted values: autosnapshot"
+pattern AutoSnapshot :: AddOnType
+pattern AutoSnapshot = AddOnType' "AutoSnapshot"
 
-instance ToText AddOnType where
-  toText = \case
-    AutoSnapshot -> "AutoSnapshot"
-
-instance Hashable AddOnType
-
-instance NFData AddOnType
-
-instance ToByteString AddOnType
-
-instance ToQuery AddOnType
-
-instance ToHeader AddOnType
-
-instance ToJSON AddOnType where
-  toJSON = toJSONText
+{-# COMPLETE
+  AutoSnapshot,
+  AddOnType'
+  #-}

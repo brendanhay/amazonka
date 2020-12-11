@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,104 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.GameLift.Types.AttributeValue where
+module Network.AWS.GameLift.Types.AttributeValue
+  ( AttributeValue (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkAttributeValue,
+
+    -- * Lenses
+    avSL,
+    avSDM,
+    avN,
+    avS,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Values for use in 'Player' attribute key-value pairs. This object lets you specify an attribute value using any of the valid data types: string, number, string array, or data map. Each @AttributeValue@ object can use only one of the available properties.
 --
---
---
--- /See:/ 'attributeValue' smart constructor.
+-- /See:/ 'mkAttributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-  { _avSL :: !(Maybe [Text]),
-    _avSDM :: !(Maybe (Map Text (Double))),
-    _avN :: !(Maybe Double),
-    _avS :: !(Maybe Text)
+  { sL :: Lude.Maybe [Lude.Text],
+    sDM :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+    n :: Lude.Maybe Lude.Double,
+    s :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'avSL' - For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
---
--- * 'avSDM' - For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
---
--- * 'avN' - For number values, expressed as double.
---
--- * 'avS' - For single string values. Maximum string length is 100 characters.
-attributeValue ::
+-- * 'n' - For number values, expressed as double.
+-- * 's' - For single string values. Maximum string length is 100 characters.
+-- * 'sDM' - For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
+-- * 'sL' - For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
+mkAttributeValue ::
   AttributeValue
-attributeValue =
+mkAttributeValue =
   AttributeValue'
-    { _avSL = Nothing,
-      _avSDM = Nothing,
-      _avN = Nothing,
-      _avS = Nothing
+    { sL = Lude.Nothing,
+      sDM = Lude.Nothing,
+      n = Lude.Nothing,
+      s = Lude.Nothing
     }
 
 -- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
-avSL :: Lens' AttributeValue [Text]
-avSL = lens _avSL (\s a -> s {_avSL = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'sL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avSL :: Lens.Lens' AttributeValue (Lude.Maybe [Lude.Text])
+avSL = Lens.lens (sL :: AttributeValue -> Lude.Maybe [Lude.Text]) (\s a -> s {sL = a} :: AttributeValue)
+{-# DEPRECATED avSL "Use generic-lens or generic-optics with 'sL' instead." #-}
 
 -- | For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
-avSDM :: Lens' AttributeValue (HashMap Text (Double))
-avSDM = lens _avSDM (\s a -> s {_avSDM = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'sDM' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avSDM :: Lens.Lens' AttributeValue (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)))
+avSDM = Lens.lens (sDM :: AttributeValue -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double))) (\s a -> s {sDM = a} :: AttributeValue)
+{-# DEPRECATED avSDM "Use generic-lens or generic-optics with 'sDM' instead." #-}
 
 -- | For number values, expressed as double.
-avN :: Lens' AttributeValue (Maybe Double)
-avN = lens _avN (\s a -> s {_avN = a})
+--
+-- /Note:/ Consider using 'n' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avN :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Double)
+avN = Lens.lens (n :: AttributeValue -> Lude.Maybe Lude.Double) (\s a -> s {n = a} :: AttributeValue)
+{-# DEPRECATED avN "Use generic-lens or generic-optics with 'n' instead." #-}
 
 -- | For single string values. Maximum string length is 100 characters.
-avS :: Lens' AttributeValue (Maybe Text)
-avS = lens _avS (\s a -> s {_avS = a})
+--
+-- /Note:/ Consider using 's' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avS :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Text)
+avS = Lens.lens (s :: AttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {s = a} :: AttributeValue)
+{-# DEPRECATED avS "Use generic-lens or generic-optics with 's' instead." #-}
 
-instance FromJSON AttributeValue where
+instance Lude.FromJSON AttributeValue where
   parseJSON =
-    withObject
+    Lude.withObject
       "AttributeValue"
       ( \x ->
           AttributeValue'
-            <$> (x .:? "SL" .!= mempty)
-            <*> (x .:? "SDM" .!= mempty)
-            <*> (x .:? "N")
-            <*> (x .:? "S")
+            Lude.<$> (x Lude..:? "SL" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "SDM" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "N")
+            Lude.<*> (x Lude..:? "S")
       )
 
-instance Hashable AttributeValue
-
-instance NFData AttributeValue
-
-instance ToJSON AttributeValue where
+instance Lude.ToJSON AttributeValue where
   toJSON AttributeValue' {..} =
-    object
-      ( catMaybes
-          [ ("SL" .=) <$> _avSL,
-            ("SDM" .=) <$> _avSDM,
-            ("N" .=) <$> _avN,
-            ("S" .=) <$> _avS
+    Lude.object
+      ( Lude.catMaybes
+          [ ("SL" Lude..=) Lude.<$> sL,
+            ("SDM" Lude..=) Lude.<$> sDM,
+            ("N" Lude..=) Lude.<$> n,
+            ("S" Lude..=) Lude.<$> s
           ]
       )

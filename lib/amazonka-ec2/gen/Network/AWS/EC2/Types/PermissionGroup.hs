@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,44 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.PermissionGroup where
+module Network.AWS.EC2.Types.PermissionGroup
+  ( PermissionGroup
+      ( PermissionGroup',
+        All
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data PermissionGroup = All
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype PermissionGroup = PermissionGroup' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText PermissionGroup where
-  parser =
-    takeLowerText >>= \case
-      "all" -> pure All
-      e ->
-        fromTextError $
-          "Failure parsing PermissionGroup from value: '" <> e
-            <> "'. Accepted values: all"
+pattern All :: PermissionGroup
+pattern All = PermissionGroup' "all"
 
-instance ToText PermissionGroup where
-  toText = \case
-    All -> "all"
-
-instance Hashable PermissionGroup
-
-instance NFData PermissionGroup
-
-instance ToByteString PermissionGroup
-
-instance ToQuery PermissionGroup
-
-instance ToHeader PermissionGroup
-
-instance FromXML PermissionGroup where
-  parseXML = parseXMLText "PermissionGroup"
+{-# COMPLETE
+  All,
+  PermissionGroup'
+  #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,67 +7,84 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Budgets.Types.BudgetedAndActualAmounts where
+module Network.AWS.Budgets.Types.BudgetedAndActualAmounts
+  ( BudgetedAndActualAmounts (..),
+
+    -- * Smart constructor
+    mkBudgetedAndActualAmounts,
+
+    -- * Lenses
+    baaaTimePeriod,
+    baaaActualAmount,
+    baaaBudgetedAmount,
+  )
+where
 
 import Network.AWS.Budgets.Types.Spend
 import Network.AWS.Budgets.Types.TimePeriod
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | The amount of cost or usage that you created the budget for, compared to your actual costs or usage.
 --
---
---
--- /See:/ 'budgetedAndActualAmounts' smart constructor.
+-- /See:/ 'mkBudgetedAndActualAmounts' smart constructor.
 data BudgetedAndActualAmounts = BudgetedAndActualAmounts'
-  { _baaaTimePeriod ::
-      !(Maybe TimePeriod),
-    _baaaActualAmount :: !(Maybe Spend),
-    _baaaBudgetedAmount :: !(Maybe Spend)
+  { timePeriod ::
+      Lude.Maybe TimePeriod,
+    actualAmount :: Lude.Maybe Spend,
+    budgetedAmount :: Lude.Maybe Spend
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BudgetedAndActualAmounts' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'baaaTimePeriod' - The time period covered by this budget comparison.
---
--- * 'baaaActualAmount' - Your actual costs or usage for a budget period.
---
--- * 'baaaBudgetedAmount' - The amount of cost or usage that you created the budget for.
-budgetedAndActualAmounts ::
+-- * 'actualAmount' - Your actual costs or usage for a budget period.
+-- * 'budgetedAmount' - The amount of cost or usage that you created the budget for.
+-- * 'timePeriod' - The time period covered by this budget comparison.
+mkBudgetedAndActualAmounts ::
   BudgetedAndActualAmounts
-budgetedAndActualAmounts =
+mkBudgetedAndActualAmounts =
   BudgetedAndActualAmounts'
-    { _baaaTimePeriod = Nothing,
-      _baaaActualAmount = Nothing,
-      _baaaBudgetedAmount = Nothing
+    { timePeriod = Lude.Nothing,
+      actualAmount = Lude.Nothing,
+      budgetedAmount = Lude.Nothing
     }
 
 -- | The time period covered by this budget comparison.
-baaaTimePeriod :: Lens' BudgetedAndActualAmounts (Maybe TimePeriod)
-baaaTimePeriod = lens _baaaTimePeriod (\s a -> s {_baaaTimePeriod = a})
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baaaTimePeriod :: Lens.Lens' BudgetedAndActualAmounts (Lude.Maybe TimePeriod)
+baaaTimePeriod = Lens.lens (timePeriod :: BudgetedAndActualAmounts -> Lude.Maybe TimePeriod) (\s a -> s {timePeriod = a} :: BudgetedAndActualAmounts)
+{-# DEPRECATED baaaTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
 -- | Your actual costs or usage for a budget period.
-baaaActualAmount :: Lens' BudgetedAndActualAmounts (Maybe Spend)
-baaaActualAmount = lens _baaaActualAmount (\s a -> s {_baaaActualAmount = a})
+--
+-- /Note:/ Consider using 'actualAmount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baaaActualAmount :: Lens.Lens' BudgetedAndActualAmounts (Lude.Maybe Spend)
+baaaActualAmount = Lens.lens (actualAmount :: BudgetedAndActualAmounts -> Lude.Maybe Spend) (\s a -> s {actualAmount = a} :: BudgetedAndActualAmounts)
+{-# DEPRECATED baaaActualAmount "Use generic-lens or generic-optics with 'actualAmount' instead." #-}
 
 -- | The amount of cost or usage that you created the budget for.
-baaaBudgetedAmount :: Lens' BudgetedAndActualAmounts (Maybe Spend)
-baaaBudgetedAmount = lens _baaaBudgetedAmount (\s a -> s {_baaaBudgetedAmount = a})
+--
+-- /Note:/ Consider using 'budgetedAmount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+baaaBudgetedAmount :: Lens.Lens' BudgetedAndActualAmounts (Lude.Maybe Spend)
+baaaBudgetedAmount = Lens.lens (budgetedAmount :: BudgetedAndActualAmounts -> Lude.Maybe Spend) (\s a -> s {budgetedAmount = a} :: BudgetedAndActualAmounts)
+{-# DEPRECATED baaaBudgetedAmount "Use generic-lens or generic-optics with 'budgetedAmount' instead." #-}
 
-instance FromJSON BudgetedAndActualAmounts where
+instance Lude.FromJSON BudgetedAndActualAmounts where
   parseJSON =
-    withObject
+    Lude.withObject
       "BudgetedAndActualAmounts"
       ( \x ->
           BudgetedAndActualAmounts'
-            <$> (x .:? "TimePeriod")
-            <*> (x .:? "ActualAmount")
-            <*> (x .:? "BudgetedAmount")
+            Lude.<$> (x Lude..:? "TimePeriod")
+            Lude.<*> (x Lude..:? "ActualAmount")
+            Lude.<*> (x Lude..:? "BudgetedAmount")
       )
-
-instance Hashable BudgetedAndActualAmounts
-
-instance NFData BudgetedAndActualAmounts

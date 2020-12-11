@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,108 +7,141 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.Purchase where
+module Network.AWS.EC2.Types.Purchase
+  ( Purchase (..),
 
-import Network.AWS.EC2.Internal
+    -- * Smart constructor
+    mkPurchase,
+
+    -- * Lenses
+    pInstanceFamily,
+    pCurrencyCode,
+    pHostReservationId,
+    pHourlyPrice,
+    pUpfrontPrice,
+    pHostIdSet,
+    pDuration,
+    pPaymentOption,
+  )
+where
+
 import Network.AWS.EC2.Types.CurrencyCodeValues
 import Network.AWS.EC2.Types.PaymentOption
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | Describes the result of the purchase.
 --
---
---
--- /See:/ 'purchase' smart constructor.
+-- /See:/ 'mkPurchase' smart constructor.
 data Purchase = Purchase'
-  { _pInstanceFamily :: !(Maybe Text),
-    _pCurrencyCode :: !(Maybe CurrencyCodeValues),
-    _pHostReservationId :: !(Maybe Text),
-    _pHourlyPrice :: !(Maybe Text),
-    _pUpfrontPrice :: !(Maybe Text),
-    _pHostIdSet :: !(Maybe [Text]),
-    _pDuration :: !(Maybe Int),
-    _pPaymentOption :: !(Maybe PaymentOption)
+  { instanceFamily :: Lude.Maybe Lude.Text,
+    currencyCode :: Lude.Maybe CurrencyCodeValues,
+    hostReservationId :: Lude.Maybe Lude.Text,
+    hourlyPrice :: Lude.Maybe Lude.Text,
+    upfrontPrice :: Lude.Maybe Lude.Text,
+    hostIdSet :: Lude.Maybe [Lude.Text],
+    duration :: Lude.Maybe Lude.Int,
+    paymentOption :: Lude.Maybe PaymentOption
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Purchase' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pInstanceFamily' - The instance family on the Dedicated Host that the reservation can be associated with.
---
--- * 'pCurrencyCode' - The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
---
--- * 'pHostReservationId' - The ID of the reservation.
---
--- * 'pHourlyPrice' - The hourly price of the reservation per hour.
---
--- * 'pUpfrontPrice' - The upfront price of the reservation.
---
--- * 'pHostIdSet' - The IDs of the Dedicated Hosts associated with the reservation.
---
--- * 'pDuration' - The duration of the reservation's term in seconds.
---
--- * 'pPaymentOption' - The payment option for the reservation.
-purchase ::
+-- * 'currencyCode' - The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
+-- * 'duration' - The duration of the reservation's term in seconds.
+-- * 'hostIdSet' - The IDs of the Dedicated Hosts associated with the reservation.
+-- * 'hostReservationId' - The ID of the reservation.
+-- * 'hourlyPrice' - The hourly price of the reservation per hour.
+-- * 'instanceFamily' - The instance family on the Dedicated Host that the reservation can be associated with.
+-- * 'paymentOption' - The payment option for the reservation.
+-- * 'upfrontPrice' - The upfront price of the reservation.
+mkPurchase ::
   Purchase
-purchase =
+mkPurchase =
   Purchase'
-    { _pInstanceFamily = Nothing,
-      _pCurrencyCode = Nothing,
-      _pHostReservationId = Nothing,
-      _pHourlyPrice = Nothing,
-      _pUpfrontPrice = Nothing,
-      _pHostIdSet = Nothing,
-      _pDuration = Nothing,
-      _pPaymentOption = Nothing
+    { instanceFamily = Lude.Nothing,
+      currencyCode = Lude.Nothing,
+      hostReservationId = Lude.Nothing,
+      hourlyPrice = Lude.Nothing,
+      upfrontPrice = Lude.Nothing,
+      hostIdSet = Lude.Nothing,
+      duration = Lude.Nothing,
+      paymentOption = Lude.Nothing
     }
 
 -- | The instance family on the Dedicated Host that the reservation can be associated with.
-pInstanceFamily :: Lens' Purchase (Maybe Text)
-pInstanceFamily = lens _pInstanceFamily (\s a -> s {_pInstanceFamily = a})
+--
+-- /Note:/ Consider using 'instanceFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pInstanceFamily :: Lens.Lens' Purchase (Lude.Maybe Lude.Text)
+pInstanceFamily = Lens.lens (instanceFamily :: Purchase -> Lude.Maybe Lude.Text) (\s a -> s {instanceFamily = a} :: Purchase)
+{-# DEPRECATED pInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
 
 -- | The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
-pCurrencyCode :: Lens' Purchase (Maybe CurrencyCodeValues)
-pCurrencyCode = lens _pCurrencyCode (\s a -> s {_pCurrencyCode = a})
+--
+-- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pCurrencyCode :: Lens.Lens' Purchase (Lude.Maybe CurrencyCodeValues)
+pCurrencyCode = Lens.lens (currencyCode :: Purchase -> Lude.Maybe CurrencyCodeValues) (\s a -> s {currencyCode = a} :: Purchase)
+{-# DEPRECATED pCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | The ID of the reservation.
-pHostReservationId :: Lens' Purchase (Maybe Text)
-pHostReservationId = lens _pHostReservationId (\s a -> s {_pHostReservationId = a})
+--
+-- /Note:/ Consider using 'hostReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pHostReservationId :: Lens.Lens' Purchase (Lude.Maybe Lude.Text)
+pHostReservationId = Lens.lens (hostReservationId :: Purchase -> Lude.Maybe Lude.Text) (\s a -> s {hostReservationId = a} :: Purchase)
+{-# DEPRECATED pHostReservationId "Use generic-lens or generic-optics with 'hostReservationId' instead." #-}
 
 -- | The hourly price of the reservation per hour.
-pHourlyPrice :: Lens' Purchase (Maybe Text)
-pHourlyPrice = lens _pHourlyPrice (\s a -> s {_pHourlyPrice = a})
+--
+-- /Note:/ Consider using 'hourlyPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pHourlyPrice :: Lens.Lens' Purchase (Lude.Maybe Lude.Text)
+pHourlyPrice = Lens.lens (hourlyPrice :: Purchase -> Lude.Maybe Lude.Text) (\s a -> s {hourlyPrice = a} :: Purchase)
+{-# DEPRECATED pHourlyPrice "Use generic-lens or generic-optics with 'hourlyPrice' instead." #-}
 
 -- | The upfront price of the reservation.
-pUpfrontPrice :: Lens' Purchase (Maybe Text)
-pUpfrontPrice = lens _pUpfrontPrice (\s a -> s {_pUpfrontPrice = a})
+--
+-- /Note:/ Consider using 'upfrontPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pUpfrontPrice :: Lens.Lens' Purchase (Lude.Maybe Lude.Text)
+pUpfrontPrice = Lens.lens (upfrontPrice :: Purchase -> Lude.Maybe Lude.Text) (\s a -> s {upfrontPrice = a} :: Purchase)
+{-# DEPRECATED pUpfrontPrice "Use generic-lens or generic-optics with 'upfrontPrice' instead." #-}
 
 -- | The IDs of the Dedicated Hosts associated with the reservation.
-pHostIdSet :: Lens' Purchase [Text]
-pHostIdSet = lens _pHostIdSet (\s a -> s {_pHostIdSet = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'hostIdSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pHostIdSet :: Lens.Lens' Purchase (Lude.Maybe [Lude.Text])
+pHostIdSet = Lens.lens (hostIdSet :: Purchase -> Lude.Maybe [Lude.Text]) (\s a -> s {hostIdSet = a} :: Purchase)
+{-# DEPRECATED pHostIdSet "Use generic-lens or generic-optics with 'hostIdSet' instead." #-}
 
 -- | The duration of the reservation's term in seconds.
-pDuration :: Lens' Purchase (Maybe Int)
-pDuration = lens _pDuration (\s a -> s {_pDuration = a})
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDuration :: Lens.Lens' Purchase (Lude.Maybe Lude.Int)
+pDuration = Lens.lens (duration :: Purchase -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: Purchase)
+{-# DEPRECATED pDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | The payment option for the reservation.
-pPaymentOption :: Lens' Purchase (Maybe PaymentOption)
-pPaymentOption = lens _pPaymentOption (\s a -> s {_pPaymentOption = a})
+--
+-- /Note:/ Consider using 'paymentOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPaymentOption :: Lens.Lens' Purchase (Lude.Maybe PaymentOption)
+pPaymentOption = Lens.lens (paymentOption :: Purchase -> Lude.Maybe PaymentOption) (\s a -> s {paymentOption = a} :: Purchase)
+{-# DEPRECATED pPaymentOption "Use generic-lens or generic-optics with 'paymentOption' instead." #-}
 
-instance FromXML Purchase where
+instance Lude.FromXML Purchase where
   parseXML x =
     Purchase'
-      <$> (x .@? "instanceFamily")
-      <*> (x .@? "currencyCode")
-      <*> (x .@? "hostReservationId")
-      <*> (x .@? "hourlyPrice")
-      <*> (x .@? "upfrontPrice")
-      <*> (x .@? "hostIdSet" .!@ mempty >>= may (parseXMLList "item"))
-      <*> (x .@? "duration")
-      <*> (x .@? "paymentOption")
-
-instance Hashable Purchase
-
-instance NFData Purchase
+      Lude.<$> (x Lude..@? "instanceFamily")
+      Lude.<*> (x Lude..@? "currencyCode")
+      Lude.<*> (x Lude..@? "hostReservationId")
+      Lude.<*> (x Lude..@? "hourlyPrice")
+      Lude.<*> (x Lude..@? "upfrontPrice")
+      Lude.<*> ( x Lude..@? "hostIdSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )
+      Lude.<*> (x Lude..@? "duration")
+      Lude.<*> (x Lude..@? "paymentOption")

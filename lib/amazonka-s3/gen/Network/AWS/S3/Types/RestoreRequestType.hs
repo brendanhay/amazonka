@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.RestoreRequestType where
+module Network.AWS.S3.Types.RestoreRequestType
+  ( RestoreRequestType
+      ( RestoreRequestType',
+        Select
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
-data RestoreRequestType = Select
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RestoreRequestType = RestoreRequestType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RestoreRequestType where
-  parser =
-    takeLowerText >>= \case
-      "select" -> pure Select
-      e ->
-        fromTextError $
-          "Failure parsing RestoreRequestType from value: '" <> e
-            <> "'. Accepted values: select"
+pattern Select :: RestoreRequestType
+pattern Select = RestoreRequestType' "SELECT"
 
-instance ToText RestoreRequestType where
-  toText = \case
-    Select -> "SELECT"
-
-instance Hashable RestoreRequestType
-
-instance NFData RestoreRequestType
-
-instance ToByteString RestoreRequestType
-
-instance ToQuery RestoreRequestType
-
-instance ToHeader RestoreRequestType
-
-instance ToXML RestoreRequestType where
-  toXML = toXMLText
+{-# COMPLETE
+  Select,
+  RestoreRequestType'
+  #-}

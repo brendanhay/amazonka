@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,46 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.ElastiCache.Types.AZMode where
+module Network.AWS.ElastiCache.Types.AZMode
+  ( AZMode
+      ( AZMode',
+        CrossAz,
+        SingleAz
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AZMode
-  = CrossAz
-  | SingleAz
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AZMode = AZMode' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AZMode where
-  parser =
-    takeLowerText >>= \case
-      "cross-az" -> pure CrossAz
-      "single-az" -> pure SingleAz
-      e ->
-        fromTextError $
-          "Failure parsing AZMode from value: '" <> e
-            <> "'. Accepted values: cross-az, single-az"
+pattern CrossAz :: AZMode
+pattern CrossAz = AZMode' "cross-az"
 
-instance ToText AZMode where
-  toText = \case
-    CrossAz -> "cross-az"
-    SingleAz -> "single-az"
+pattern SingleAz :: AZMode
+pattern SingleAz = AZMode' "single-az"
 
-instance Hashable AZMode
-
-instance NFData AZMode
-
-instance ToByteString AZMode
-
-instance ToQuery AZMode
-
-instance ToHeader AZMode
+{-# COMPLETE
+  CrossAz,
+  SingleAz,
+  AZMode'
+  #-}

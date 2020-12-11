@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,123 +14,133 @@
 --
 -- AWS Directory Service for Microsoft Active Directory allows you to configure and verify trust relationships.
 --
---
 -- This action verifies a trust relationship between your AWS Managed Microsoft AD directory and an external domain.
 module Network.AWS.DirectoryService.VerifyTrust
-  ( -- * Creating a Request
-    verifyTrust,
-    VerifyTrust,
+  ( -- * Creating a request
+    VerifyTrust (..),
+    mkVerifyTrust,
 
-    -- * Request Lenses
+    -- ** Request lenses
     vtTrustId,
 
-    -- * Destructuring the Response
-    verifyTrustResponse,
-    VerifyTrustResponse,
+    -- * Destructuring the response
+    VerifyTrustResponse (..),
+    mkVerifyTrustResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     vtrsTrustId,
     vtrsResponseStatus,
   )
 where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Initiates the verification of an existing trust relationship between an AWS Managed Microsoft AD directory and an external domain.
 --
---
---
--- /See:/ 'verifyTrust' smart constructor.
-newtype VerifyTrust = VerifyTrust' {_vtTrustId :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'mkVerifyTrust' smart constructor.
+newtype VerifyTrust = VerifyTrust' {trustId :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerifyTrust' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vtTrustId' - The unique Trust ID of the trust relationship to verify.
-verifyTrust ::
-  -- | 'vtTrustId'
-  Text ->
+-- * 'trustId' - The unique Trust ID of the trust relationship to verify.
+mkVerifyTrust ::
+  -- | 'trustId'
+  Lude.Text ->
   VerifyTrust
-verifyTrust pTrustId_ = VerifyTrust' {_vtTrustId = pTrustId_}
+mkVerifyTrust pTrustId_ = VerifyTrust' {trustId = pTrustId_}
 
 -- | The unique Trust ID of the trust relationship to verify.
-vtTrustId :: Lens' VerifyTrust Text
-vtTrustId = lens _vtTrustId (\s a -> s {_vtTrustId = a})
+--
+-- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtTrustId :: Lens.Lens' VerifyTrust Lude.Text
+vtTrustId = Lens.lens (trustId :: VerifyTrust -> Lude.Text) (\s a -> s {trustId = a} :: VerifyTrust)
+{-# DEPRECATED vtTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
-instance AWSRequest VerifyTrust where
+instance Lude.AWSRequest VerifyTrust where
   type Rs VerifyTrust = VerifyTrustResponse
-  request = postJSON directoryService
+  request = Req.postJSON directoryServiceService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          VerifyTrustResponse' <$> (x .?> "TrustId") <*> (pure (fromEnum s))
+          VerifyTrustResponse'
+            Lude.<$> (x Lude..?> "TrustId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable VerifyTrust
-
-instance NFData VerifyTrust
-
-instance ToHeaders VerifyTrust where
+instance Lude.ToHeaders VerifyTrust where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("DirectoryService_20150416.VerifyTrust" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("DirectoryService_20150416.VerifyTrust" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON VerifyTrust where
+instance Lude.ToJSON VerifyTrust where
   toJSON VerifyTrust' {..} =
-    object (catMaybes [Just ("TrustId" .= _vtTrustId)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("TrustId" Lude..= trustId)])
 
-instance ToPath VerifyTrust where
-  toPath = const "/"
+instance Lude.ToPath VerifyTrust where
+  toPath = Lude.const "/"
 
-instance ToQuery VerifyTrust where
-  toQuery = const mempty
+instance Lude.ToQuery VerifyTrust where
+  toQuery = Lude.const Lude.mempty
 
 -- | Result of a VerifyTrust request.
 --
---
---
--- /See:/ 'verifyTrustResponse' smart constructor.
+-- /See:/ 'mkVerifyTrustResponse' smart constructor.
 data VerifyTrustResponse = VerifyTrustResponse'
-  { _vtrsTrustId ::
-      !(Maybe Text),
-    _vtrsResponseStatus :: !Int
+  { trustId ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerifyTrustResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'vtrsTrustId' - The unique Trust ID of the trust relationship that was verified.
---
--- * 'vtrsResponseStatus' - -- | The response status code.
-verifyTrustResponse ::
-  -- | 'vtrsResponseStatus'
-  Int ->
+-- * 'responseStatus' - The response status code.
+-- * 'trustId' - The unique Trust ID of the trust relationship that was verified.
+mkVerifyTrustResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   VerifyTrustResponse
-verifyTrustResponse pResponseStatus_ =
+mkVerifyTrustResponse pResponseStatus_ =
   VerifyTrustResponse'
-    { _vtrsTrustId = Nothing,
-      _vtrsResponseStatus = pResponseStatus_
+    { trustId = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The unique Trust ID of the trust relationship that was verified.
-vtrsTrustId :: Lens' VerifyTrustResponse (Maybe Text)
-vtrsTrustId = lens _vtrsTrustId (\s a -> s {_vtrsTrustId = a})
+--
+-- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtrsTrustId :: Lens.Lens' VerifyTrustResponse (Lude.Maybe Lude.Text)
+vtrsTrustId = Lens.lens (trustId :: VerifyTrustResponse -> Lude.Maybe Lude.Text) (\s a -> s {trustId = a} :: VerifyTrustResponse)
+{-# DEPRECATED vtrsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
--- | -- | The response status code.
-vtrsResponseStatus :: Lens' VerifyTrustResponse Int
-vtrsResponseStatus = lens _vtrsResponseStatus (\s a -> s {_vtrsResponseStatus = a})
-
-instance NFData VerifyTrustResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtrsResponseStatus :: Lens.Lens' VerifyTrustResponse Lude.Int
+vtrsResponseStatus = Lens.lens (responseStatus :: VerifyTrustResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: VerifyTrustResponse)
+{-# DEPRECATED vtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +14,11 @@
 --
 -- Create an input
 module Network.AWS.MediaLive.CreateInput
-  ( -- * Creating a Request
-    createInput,
-    CreateInput,
+  ( -- * Creating a request
+    CreateInput (..),
+    mkCreateInput,
 
-    -- * Request Lenses
+    -- ** Request lenses
     ciRequestId,
     ciInputDevices,
     ciSources,
@@ -36,203 +31,254 @@ module Network.AWS.MediaLive.CreateInput
     ciTags,
     ciRoleARN,
 
-    -- * Destructuring the Response
-    createInputResponse,
-    CreateInputResponse,
+    -- * Destructuring the response
+    CreateInputResponse (..),
+    mkCreateInputResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     cirsInput,
     cirsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | The name of the input
 --
--- /See:/ 'createInput' smart constructor.
+-- /See:/ 'mkCreateInput' smart constructor.
 data CreateInput = CreateInput'
-  { _ciRequestId :: !(Maybe Text),
-    _ciInputDevices :: !(Maybe [InputDeviceSettings]),
-    _ciSources :: !(Maybe [InputSourceRequest]),
-    _ciInputSecurityGroups :: !(Maybe [Text]),
-    _ciDestinations :: !(Maybe [InputDestinationRequest]),
-    _ciName :: !(Maybe Text),
-    _ciVPC :: !(Maybe InputVPCRequest),
-    _ciType :: !(Maybe InputType),
-    _ciMediaConnectFlows :: !(Maybe [MediaConnectFlowRequest]),
-    _ciTags :: !(Maybe (Map Text (Text))),
-    _ciRoleARN :: !(Maybe Text)
+  { requestId :: Lude.Maybe Lude.Text,
+    inputDevices :: Lude.Maybe [InputDeviceSettings],
+    sources :: Lude.Maybe [InputSourceRequest],
+    inputSecurityGroups :: Lude.Maybe [Lude.Text],
+    destinations :: Lude.Maybe [InputDestinationRequest],
+    name :: Lude.Maybe Lude.Text,
+    vpc :: Lude.Maybe InputVPCRequest,
+    type' :: Lude.Maybe InputType,
+    mediaConnectFlows :: Lude.Maybe [MediaConnectFlowRequest],
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInput' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'destinations' - Destination settings for PUSH type inputs.
+-- * 'inputDevices' - Settings for the devices.
+-- * 'inputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
+-- * 'mediaConnectFlows' - A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
 --
--- * 'ciRequestId' - Unique identifier of the request to ensure the request is handled exactly once in case of retries.
+-- Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+-- separate Availability Zone as this ensures your EML input is redundant to AZ issues.
+-- * 'name' - Name of the input.
+-- * 'requestId' - Unique identifier of the request to ensure the request is handled
 --
--- * 'ciInputDevices' - Settings for the devices.
+-- exactly once in case of retries.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+-- * 'sources' - The source URLs for a PULL-type input. Every PULL type input needs
 --
--- * 'ciSources' - The source URLs for a PULL-type input. Every PULL type input needs exactly two source URLs for redundancy. Only specify sources for PULL type Inputs. Leave Destinations empty.
---
--- * 'ciInputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
---
--- * 'ciDestinations' - Destination settings for PUSH type inputs.
---
--- * 'ciName' - Name of the input.
---
--- * 'ciVPC' - Undocumented member.
---
--- * 'ciType' - Undocumented member.
---
--- * 'ciMediaConnectFlows' - A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a separate Availability Zone as this ensures your EML input is redundant to AZ issues.
---
--- * 'ciTags' - A collection of key-value pairs.
---
--- * 'ciRoleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-createInput ::
+-- exactly two source URLs for redundancy.
+-- Only specify sources for PULL type Inputs. Leave Destinations empty.
+-- * 'tags' - A collection of key-value pairs.
+-- * 'type'' - Undocumented field.
+-- * 'vpc' - Undocumented field.
+mkCreateInput ::
   CreateInput
-createInput =
+mkCreateInput =
   CreateInput'
-    { _ciRequestId = Nothing,
-      _ciInputDevices = Nothing,
-      _ciSources = Nothing,
-      _ciInputSecurityGroups = Nothing,
-      _ciDestinations = Nothing,
-      _ciName = Nothing,
-      _ciVPC = Nothing,
-      _ciType = Nothing,
-      _ciMediaConnectFlows = Nothing,
-      _ciTags = Nothing,
-      _ciRoleARN = Nothing
+    { requestId = Lude.Nothing,
+      inputDevices = Lude.Nothing,
+      sources = Lude.Nothing,
+      inputSecurityGroups = Lude.Nothing,
+      destinations = Lude.Nothing,
+      name = Lude.Nothing,
+      vpc = Lude.Nothing,
+      type' = Lude.Nothing,
+      mediaConnectFlows = Lude.Nothing,
+      tags = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
 
--- | Unique identifier of the request to ensure the request is handled exactly once in case of retries.
-ciRequestId :: Lens' CreateInput (Maybe Text)
-ciRequestId = lens _ciRequestId (\s a -> s {_ciRequestId = a})
+-- | Unique identifier of the request to ensure the request is handled
+--
+-- exactly once in case of retries.
+--
+-- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciRequestId :: Lens.Lens' CreateInput (Lude.Maybe Lude.Text)
+ciRequestId = Lens.lens (requestId :: CreateInput -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: CreateInput)
+{-# DEPRECATED ciRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | Settings for the devices.
-ciInputDevices :: Lens' CreateInput [InputDeviceSettings]
-ciInputDevices = lens _ciInputDevices (\s a -> s {_ciInputDevices = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciInputDevices :: Lens.Lens' CreateInput (Lude.Maybe [InputDeviceSettings])
+ciInputDevices = Lens.lens (inputDevices :: CreateInput -> Lude.Maybe [InputDeviceSettings]) (\s a -> s {inputDevices = a} :: CreateInput)
+{-# DEPRECATED ciInputDevices "Use generic-lens or generic-optics with 'inputDevices' instead." #-}
 
--- | The source URLs for a PULL-type input. Every PULL type input needs exactly two source URLs for redundancy. Only specify sources for PULL type Inputs. Leave Destinations empty.
-ciSources :: Lens' CreateInput [InputSourceRequest]
-ciSources = lens _ciSources (\s a -> s {_ciSources = a}) . _Default . _Coerce
+-- | The source URLs for a PULL-type input. Every PULL type input needs
+--
+-- exactly two source URLs for redundancy.
+-- Only specify sources for PULL type Inputs. Leave Destinations empty.
+--
+-- /Note:/ Consider using 'sources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciSources :: Lens.Lens' CreateInput (Lude.Maybe [InputSourceRequest])
+ciSources = Lens.lens (sources :: CreateInput -> Lude.Maybe [InputSourceRequest]) (\s a -> s {sources = a} :: CreateInput)
+{-# DEPRECATED ciSources "Use generic-lens or generic-optics with 'sources' instead." #-}
 
 -- | A list of security groups referenced by IDs to attach to the input.
-ciInputSecurityGroups :: Lens' CreateInput [Text]
-ciInputSecurityGroups = lens _ciInputSecurityGroups (\s a -> s {_ciInputSecurityGroups = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'inputSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciInputSecurityGroups :: Lens.Lens' CreateInput (Lude.Maybe [Lude.Text])
+ciInputSecurityGroups = Lens.lens (inputSecurityGroups :: CreateInput -> Lude.Maybe [Lude.Text]) (\s a -> s {inputSecurityGroups = a} :: CreateInput)
+{-# DEPRECATED ciInputSecurityGroups "Use generic-lens or generic-optics with 'inputSecurityGroups' instead." #-}
 
 -- | Destination settings for PUSH type inputs.
-ciDestinations :: Lens' CreateInput [InputDestinationRequest]
-ciDestinations = lens _ciDestinations (\s a -> s {_ciDestinations = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDestinations :: Lens.Lens' CreateInput (Lude.Maybe [InputDestinationRequest])
+ciDestinations = Lens.lens (destinations :: CreateInput -> Lude.Maybe [InputDestinationRequest]) (\s a -> s {destinations = a} :: CreateInput)
+{-# DEPRECATED ciDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | Name of the input.
-ciName :: Lens' CreateInput (Maybe Text)
-ciName = lens _ciName (\s a -> s {_ciName = a})
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciName :: Lens.Lens' CreateInput (Lude.Maybe Lude.Text)
+ciName = Lens.lens (name :: CreateInput -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateInput)
+{-# DEPRECATED ciName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Undocumented member.
-ciVPC :: Lens' CreateInput (Maybe InputVPCRequest)
-ciVPC = lens _ciVPC (\s a -> s {_ciVPC = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciVPC :: Lens.Lens' CreateInput (Lude.Maybe InputVPCRequest)
+ciVPC = Lens.lens (vpc :: CreateInput -> Lude.Maybe InputVPCRequest) (\s a -> s {vpc = a} :: CreateInput)
+{-# DEPRECATED ciVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
--- | Undocumented member.
-ciType :: Lens' CreateInput (Maybe InputType)
-ciType = lens _ciType (\s a -> s {_ciType = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciType :: Lens.Lens' CreateInput (Lude.Maybe InputType)
+ciType = Lens.lens (type' :: CreateInput -> Lude.Maybe InputType) (\s a -> s {type' = a} :: CreateInput)
+{-# DEPRECATED ciType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a separate Availability Zone as this ensures your EML input is redundant to AZ issues.
-ciMediaConnectFlows :: Lens' CreateInput [MediaConnectFlowRequest]
-ciMediaConnectFlows = lens _ciMediaConnectFlows (\s a -> s {_ciMediaConnectFlows = a}) . _Default . _Coerce
+-- | A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
+--
+-- Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+-- separate Availability Zone as this ensures your EML input is redundant to AZ issues.
+--
+-- /Note:/ Consider using 'mediaConnectFlows' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciMediaConnectFlows :: Lens.Lens' CreateInput (Lude.Maybe [MediaConnectFlowRequest])
+ciMediaConnectFlows = Lens.lens (mediaConnectFlows :: CreateInput -> Lude.Maybe [MediaConnectFlowRequest]) (\s a -> s {mediaConnectFlows = a} :: CreateInput)
+{-# DEPRECATED ciMediaConnectFlows "Use generic-lens or generic-optics with 'mediaConnectFlows' instead." #-}
 
 -- | A collection of key-value pairs.
-ciTags :: Lens' CreateInput (HashMap Text (Text))
-ciTags = lens _ciTags (\s a -> s {_ciTags = a}) . _Default . _Map
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciTags :: Lens.Lens' CreateInput (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ciTags = Lens.lens (tags :: CreateInput -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateInput)
+{-# DEPRECATED ciTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-ciRoleARN :: Lens' CreateInput (Maybe Text)
-ciRoleARN = lens _ciRoleARN (\s a -> s {_ciRoleARN = a})
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciRoleARN :: Lens.Lens' CreateInput (Lude.Maybe Lude.Text)
+ciRoleARN = Lens.lens (roleARN :: CreateInput -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: CreateInput)
+{-# DEPRECATED ciRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance AWSRequest CreateInput where
+instance Lude.AWSRequest CreateInput where
   type Rs CreateInput = CreateInputResponse
-  request = postJSON mediaLive
+  request = Req.postJSON mediaLiveService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
-          CreateInputResponse' <$> (x .?> "input") <*> (pure (fromEnum s))
+          CreateInputResponse'
+            Lude.<$> (x Lude..?> "input") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable CreateInput
-
-instance NFData CreateInput
-
-instance ToHeaders CreateInput where
+instance Lude.ToHeaders CreateInput where
   toHeaders =
-    const
-      ( mconcat
-          ["Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)]
-      )
-
-instance ToJSON CreateInput where
-  toJSON CreateInput' {..} =
-    object
-      ( catMaybes
-          [ ("requestId" .=) <$> _ciRequestId,
-            ("inputDevices" .=) <$> _ciInputDevices,
-            ("sources" .=) <$> _ciSources,
-            ("inputSecurityGroups" .=) <$> _ciInputSecurityGroups,
-            ("destinations" .=) <$> _ciDestinations,
-            ("name" .=) <$> _ciName,
-            ("vpc" .=) <$> _ciVPC,
-            ("type" .=) <$> _ciType,
-            ("mediaConnectFlows" .=) <$> _ciMediaConnectFlows,
-            ("tags" .=) <$> _ciTags,
-            ("roleArn" .=) <$> _ciRoleARN
+    Lude.const
+      ( Lude.mconcat
+          [ "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToPath CreateInput where
-  toPath = const "/prod/inputs"
+instance Lude.ToJSON CreateInput where
+  toJSON CreateInput' {..} =
+    Lude.object
+      ( Lude.catMaybes
+          [ ("requestId" Lude..=) Lude.<$> requestId,
+            ("inputDevices" Lude..=) Lude.<$> inputDevices,
+            ("sources" Lude..=) Lude.<$> sources,
+            ("inputSecurityGroups" Lude..=) Lude.<$> inputSecurityGroups,
+            ("destinations" Lude..=) Lude.<$> destinations,
+            ("name" Lude..=) Lude.<$> name,
+            ("vpc" Lude..=) Lude.<$> vpc,
+            ("type" Lude..=) Lude.<$> type',
+            ("mediaConnectFlows" Lude..=) Lude.<$> mediaConnectFlows,
+            ("tags" Lude..=) Lude.<$> tags,
+            ("roleArn" Lude..=) Lude.<$> roleARN
+          ]
+      )
 
-instance ToQuery CreateInput where
-  toQuery = const mempty
+instance Lude.ToPath CreateInput where
+  toPath = Lude.const "/prod/inputs"
+
+instance Lude.ToQuery CreateInput where
+  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for CreateInputResponse
 --
--- /See:/ 'createInputResponse' smart constructor.
+-- /See:/ 'mkCreateInputResponse' smart constructor.
 data CreateInputResponse = CreateInputResponse'
-  { _cirsInput ::
-      !(Maybe Input),
-    _cirsResponseStatus :: !Int
+  { input ::
+      Lude.Maybe Input,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInputResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cirsInput' - Undocumented member.
---
--- * 'cirsResponseStatus' - -- | The response status code.
-createInputResponse ::
-  -- | 'cirsResponseStatus'
-  Int ->
+-- * 'input' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkCreateInputResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateInputResponse
-createInputResponse pResponseStatus_ =
+mkCreateInputResponse pResponseStatus_ =
   CreateInputResponse'
-    { _cirsInput = Nothing,
-      _cirsResponseStatus = pResponseStatus_
+    { input = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-cirsInput :: Lens' CreateInputResponse (Maybe Input)
-cirsInput = lens _cirsInput (\s a -> s {_cirsInput = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirsInput :: Lens.Lens' CreateInputResponse (Lude.Maybe Input)
+cirsInput = Lens.lens (input :: CreateInputResponse -> Lude.Maybe Input) (\s a -> s {input = a} :: CreateInputResponse)
+{-# DEPRECATED cirsInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
--- | -- | The response status code.
-cirsResponseStatus :: Lens' CreateInputResponse Int
-cirsResponseStatus = lens _cirsResponseStatus (\s a -> s {_cirsResponseStatus = a})
-
-instance NFData CreateInputResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirsResponseStatus :: Lens.Lens' CreateInputResponse Lude.Int
+cirsResponseStatus = Lens.lens (responseStatus :: CreateInputResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateInputResponse)
+{-# DEPRECATED cirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

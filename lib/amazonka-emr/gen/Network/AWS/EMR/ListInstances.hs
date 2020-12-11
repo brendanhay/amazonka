@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +14,13 @@
 --
 -- Provides information for all active EC2 instances and EC2 instances terminated in the last 30 days, up to a maximum of 2,000. EC2 instances in any of the following states are considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListInstances
-  ( -- * Creating a Request
-    listInstances,
-    ListInstances,
+  ( -- * Creating a request
+    ListInstances (..),
+    mkListInstances,
 
-    -- * Request Lenses
+    -- ** Request lenses
     liInstanceGroupTypes,
     liInstanceFleetType,
     liMarker,
@@ -36,11 +29,11 @@ module Network.AWS.EMR.ListInstances
     liInstanceGroupId,
     liClusterId,
 
-    -- * Destructuring the Response
-    listInstancesResponse,
-    ListInstancesResponse,
+    -- * Destructuring the response
+    ListInstancesResponse (..),
+    mkListInstancesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     lirsMarker,
     lirsInstances,
     lirsResponseStatus,
@@ -48,184 +41,208 @@ module Network.AWS.EMR.ListInstances
 where
 
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | This input determines which instances to list.
 --
---
---
--- /See:/ 'listInstances' smart constructor.
+-- /See:/ 'mkListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { _liInstanceGroupTypes ::
-      !(Maybe [InstanceGroupType]),
-    _liInstanceFleetType :: !(Maybe InstanceFleetType),
-    _liMarker :: !(Maybe Text),
-    _liInstanceFleetId :: !(Maybe Text),
-    _liInstanceStates :: !(Maybe [InstanceState]),
-    _liInstanceGroupId :: !(Maybe Text),
-    _liClusterId :: !Text
+  { instanceGroupTypes ::
+      Lude.Maybe [InstanceGroupType],
+    instanceFleetType :: Lude.Maybe InstanceFleetType,
+    marker :: Lude.Maybe Lude.Text,
+    instanceFleetId :: Lude.Maybe Lude.Text,
+    instanceStates :: Lude.Maybe [InstanceState],
+    instanceGroupId :: Lude.Maybe Lude.Text,
+    clusterId :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstances' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liInstanceGroupTypes' - The type of instance group for which to list the instances.
---
--- * 'liInstanceFleetType' - The node type of the instance fleet. For example MASTER, CORE, or TASK.
---
--- * 'liMarker' - The pagination token that indicates the next set of results to retrieve.
---
--- * 'liInstanceFleetId' - The unique identifier of the instance fleet.
---
--- * 'liInstanceStates' - A list of instance states that will filter the instances returned with this request.
---
--- * 'liInstanceGroupId' - The identifier of the instance group for which to list the instances.
---
--- * 'liClusterId' - The identifier of the cluster for which to list the instances.
-listInstances ::
-  -- | 'liClusterId'
-  Text ->
+-- * 'clusterId' - The identifier of the cluster for which to list the instances.
+-- * 'instanceFleetId' - The unique identifier of the instance fleet.
+-- * 'instanceFleetType' - The node type of the instance fleet. For example MASTER, CORE, or TASK.
+-- * 'instanceGroupId' - The identifier of the instance group for which to list the instances.
+-- * 'instanceGroupTypes' - The type of instance group for which to list the instances.
+-- * 'instanceStates' - A list of instance states that will filter the instances returned with this request.
+-- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+mkListInstances ::
+  -- | 'clusterId'
+  Lude.Text ->
   ListInstances
-listInstances pClusterId_ =
+mkListInstances pClusterId_ =
   ListInstances'
-    { _liInstanceGroupTypes = Nothing,
-      _liInstanceFleetType = Nothing,
-      _liMarker = Nothing,
-      _liInstanceFleetId = Nothing,
-      _liInstanceStates = Nothing,
-      _liInstanceGroupId = Nothing,
-      _liClusterId = pClusterId_
+    { instanceGroupTypes = Lude.Nothing,
+      instanceFleetType = Lude.Nothing,
+      marker = Lude.Nothing,
+      instanceFleetId = Lude.Nothing,
+      instanceStates = Lude.Nothing,
+      instanceGroupId = Lude.Nothing,
+      clusterId = pClusterId_
     }
 
 -- | The type of instance group for which to list the instances.
-liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
-liInstanceGroupTypes = lens _liInstanceGroupTypes (\s a -> s {_liInstanceGroupTypes = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceGroupTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liInstanceGroupTypes :: Lens.Lens' ListInstances (Lude.Maybe [InstanceGroupType])
+liInstanceGroupTypes = Lens.lens (instanceGroupTypes :: ListInstances -> Lude.Maybe [InstanceGroupType]) (\s a -> s {instanceGroupTypes = a} :: ListInstances)
+{-# DEPRECATED liInstanceGroupTypes "Use generic-lens or generic-optics with 'instanceGroupTypes' instead." #-}
 
 -- | The node type of the instance fleet. For example MASTER, CORE, or TASK.
-liInstanceFleetType :: Lens' ListInstances (Maybe InstanceFleetType)
-liInstanceFleetType = lens _liInstanceFleetType (\s a -> s {_liInstanceFleetType = a})
+--
+-- /Note:/ Consider using 'instanceFleetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liInstanceFleetType :: Lens.Lens' ListInstances (Lude.Maybe InstanceFleetType)
+liInstanceFleetType = Lens.lens (instanceFleetType :: ListInstances -> Lude.Maybe InstanceFleetType) (\s a -> s {instanceFleetType = a} :: ListInstances)
+{-# DEPRECATED liInstanceFleetType "Use generic-lens or generic-optics with 'instanceFleetType' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
-liMarker :: Lens' ListInstances (Maybe Text)
-liMarker = lens _liMarker (\s a -> s {_liMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liMarker :: Lens.Lens' ListInstances (Lude.Maybe Lude.Text)
+liMarker = Lens.lens (marker :: ListInstances -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstances)
+{-# DEPRECATED liMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The unique identifier of the instance fleet.
-liInstanceFleetId :: Lens' ListInstances (Maybe Text)
-liInstanceFleetId = lens _liInstanceFleetId (\s a -> s {_liInstanceFleetId = a})
+--
+-- /Note:/ Consider using 'instanceFleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liInstanceFleetId :: Lens.Lens' ListInstances (Lude.Maybe Lude.Text)
+liInstanceFleetId = Lens.lens (instanceFleetId :: ListInstances -> Lude.Maybe Lude.Text) (\s a -> s {instanceFleetId = a} :: ListInstances)
+{-# DEPRECATED liInstanceFleetId "Use generic-lens or generic-optics with 'instanceFleetId' instead." #-}
 
 -- | A list of instance states that will filter the instances returned with this request.
-liInstanceStates :: Lens' ListInstances [InstanceState]
-liInstanceStates = lens _liInstanceStates (\s a -> s {_liInstanceStates = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instanceStates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liInstanceStates :: Lens.Lens' ListInstances (Lude.Maybe [InstanceState])
+liInstanceStates = Lens.lens (instanceStates :: ListInstances -> Lude.Maybe [InstanceState]) (\s a -> s {instanceStates = a} :: ListInstances)
+{-# DEPRECATED liInstanceStates "Use generic-lens or generic-optics with 'instanceStates' instead." #-}
 
 -- | The identifier of the instance group for which to list the instances.
-liInstanceGroupId :: Lens' ListInstances (Maybe Text)
-liInstanceGroupId = lens _liInstanceGroupId (\s a -> s {_liInstanceGroupId = a})
+--
+-- /Note:/ Consider using 'instanceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liInstanceGroupId :: Lens.Lens' ListInstances (Lude.Maybe Lude.Text)
+liInstanceGroupId = Lens.lens (instanceGroupId :: ListInstances -> Lude.Maybe Lude.Text) (\s a -> s {instanceGroupId = a} :: ListInstances)
+{-# DEPRECATED liInstanceGroupId "Use generic-lens or generic-optics with 'instanceGroupId' instead." #-}
 
 -- | The identifier of the cluster for which to list the instances.
-liClusterId :: Lens' ListInstances Text
-liClusterId = lens _liClusterId (\s a -> s {_liClusterId = a})
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liClusterId :: Lens.Lens' ListInstances Lude.Text
+liClusterId = Lens.lens (clusterId :: ListInstances -> Lude.Text) (\s a -> s {clusterId = a} :: ListInstances)
+{-# DEPRECATED liClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance AWSPager ListInstances where
+instance Page.AWSPager ListInstances where
   page rq rs
-    | stop (rs ^. lirsMarker) = Nothing
-    | stop (rs ^. lirsInstances) = Nothing
-    | otherwise = Just $ rq & liMarker .~ rs ^. lirsMarker
+    | Page.stop (rs Lens.^. lirsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. lirsInstances) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$ rq Lude.& liMarker Lens..~ rs Lens.^. lirsMarker
 
-instance AWSRequest ListInstances where
+instance Lude.AWSRequest ListInstances where
   type Rs ListInstances = ListInstancesResponse
-  request = postJSON emr
+  request = Req.postJSON emrService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            <$> (x .?> "Marker")
-            <*> (x .?> "Instances" .!@ mempty)
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "Marker")
+            Lude.<*> (x Lude..?> "Instances" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ListInstances
-
-instance NFData ListInstances
-
-instance ToHeaders ListInstances where
+instance Lude.ToHeaders ListInstances where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("ElasticMapReduce.ListInstances" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("ElasticMapReduce.ListInstances" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ListInstances where
+instance Lude.ToJSON ListInstances where
   toJSON ListInstances' {..} =
-    object
-      ( catMaybes
-          [ ("InstanceGroupTypes" .=) <$> _liInstanceGroupTypes,
-            ("InstanceFleetType" .=) <$> _liInstanceFleetType,
-            ("Marker" .=) <$> _liMarker,
-            ("InstanceFleetId" .=) <$> _liInstanceFleetId,
-            ("InstanceStates" .=) <$> _liInstanceStates,
-            ("InstanceGroupId" .=) <$> _liInstanceGroupId,
-            Just ("ClusterId" .= _liClusterId)
+    Lude.object
+      ( Lude.catMaybes
+          [ ("InstanceGroupTypes" Lude..=) Lude.<$> instanceGroupTypes,
+            ("InstanceFleetType" Lude..=) Lude.<$> instanceFleetType,
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("InstanceFleetId" Lude..=) Lude.<$> instanceFleetId,
+            ("InstanceStates" Lude..=) Lude.<$> instanceStates,
+            ("InstanceGroupId" Lude..=) Lude.<$> instanceGroupId,
+            Lude.Just ("ClusterId" Lude..= clusterId)
           ]
       )
 
-instance ToPath ListInstances where
-  toPath = const "/"
+instance Lude.ToPath ListInstances where
+  toPath = Lude.const "/"
 
-instance ToQuery ListInstances where
-  toQuery = const mempty
+instance Lude.ToQuery ListInstances where
+  toQuery = Lude.const Lude.mempty
 
 -- | This output contains the list of instances.
 --
---
---
--- /See:/ 'listInstancesResponse' smart constructor.
+-- /See:/ 'mkListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
-  { _lirsMarker ::
-      !(Maybe Text),
-    _lirsInstances :: !(Maybe [Instance]),
-    _lirsResponseStatus :: !Int
+  { marker ::
+      Lude.Maybe Lude.Text,
+    instances :: Lude.Maybe [Instance],
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirsMarker' - The pagination token that indicates the next set of results to retrieve.
---
--- * 'lirsInstances' - The list of instances for the cluster and given filters.
---
--- * 'lirsResponseStatus' - -- | The response status code.
-listInstancesResponse ::
-  -- | 'lirsResponseStatus'
-  Int ->
+-- * 'instances' - The list of instances for the cluster and given filters.
+-- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- * 'responseStatus' - The response status code.
+mkListInstancesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ListInstancesResponse
-listInstancesResponse pResponseStatus_ =
+mkListInstancesResponse pResponseStatus_ =
   ListInstancesResponse'
-    { _lirsMarker = Nothing,
-      _lirsInstances = Nothing,
-      _lirsResponseStatus = pResponseStatus_
+    { marker = Lude.Nothing,
+      instances = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
-lirsMarker = lens _lirsMarker (\s a -> s {_lirsMarker = a})
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsMarker :: Lens.Lens' ListInstancesResponse (Lude.Maybe Lude.Text)
+lirsMarker = Lens.lens (marker :: ListInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListInstancesResponse)
+{-# DEPRECATED lirsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The list of instances for the cluster and given filters.
-lirsInstances :: Lens' ListInstancesResponse [Instance]
-lirsInstances = lens _lirsInstances (\s a -> s {_lirsInstances = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsInstances :: Lens.Lens' ListInstancesResponse (Lude.Maybe [Instance])
+lirsInstances = Lens.lens (instances :: ListInstancesResponse -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: ListInstancesResponse)
+{-# DEPRECATED lirsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListInstancesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\s a -> s {_lirsResponseStatus = a})
-
-instance NFData ListInstancesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsResponseStatus :: Lens.Lens' ListInstancesResponse Lude.Int
+lirsResponseStatus = Lens.lens (responseStatus :: ListInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstancesResponse)
+{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,204 +7,271 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SWF.Types.StartChildWorkflowExecutionInitiatedEventAttributes where
+module Network.AWS.SWF.Types.StartChildWorkflowExecutionInitiatedEventAttributes
+  ( StartChildWorkflowExecutionInitiatedEventAttributes (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkStartChildWorkflowExecutionInitiatedEventAttributes,
+
+    -- * Lenses
+    scweieaControl,
+    scweieaTagList,
+    scweieaTaskStartToCloseTimeout,
+    scweieaLambdaRole,
+    scweieaInput,
+    scweieaExecutionStartToCloseTimeout,
+    scweieaTaskPriority,
+    scweieaWorkflowId,
+    scweieaWorkflowType,
+    scweieaTaskList,
+    scweieaDecisionTaskCompletedEventId,
+    scweieaChildPolicy,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SWF.Types.ChildPolicy
 import Network.AWS.SWF.Types.TaskList
 import Network.AWS.SWF.Types.WorkflowType
 
 -- | Provides the details of the @StartChildWorkflowExecutionInitiated@ event.
 --
---
---
--- /See:/ 'startChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
+-- /See:/ 'mkStartChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExecutionInitiatedEventAttributes'
-  { _scweieaControl ::
-      !( Maybe
-           Text
-       ),
-    _scweieaTagList ::
-      !( Maybe
-           [Text]
-       ),
-    _scweieaTaskStartToCloseTimeout ::
-      !( Maybe
-           Text
-       ),
-    _scweieaLambdaRole ::
-      !( Maybe
-           Text
-       ),
-    _scweieaInput ::
-      !( Maybe
-           Text
-       ),
-    _scweieaExecutionStartToCloseTimeout ::
-      !( Maybe
-           Text
-       ),
-    _scweieaTaskPriority ::
-      !( Maybe
-           Text
-       ),
-    _scweieaWorkflowId ::
-      !Text,
-    _scweieaWorkflowType ::
-      !WorkflowType,
-    _scweieaTaskList ::
-      !TaskList,
-    _scweieaDecisionTaskCompletedEventId ::
-      !Integer,
-    _scweieaChildPolicy ::
-      !ChildPolicy
+  { control ::
+      Lude.Maybe
+        Lude.Text,
+    tagList ::
+      Lude.Maybe
+        [Lude.Text],
+    taskStartToCloseTimeout ::
+      Lude.Maybe
+        Lude.Text,
+    lambdaRole ::
+      Lude.Maybe
+        Lude.Text,
+    input ::
+      Lude.Maybe
+        Lude.Text,
+    executionStartToCloseTimeout ::
+      Lude.Maybe
+        Lude.Text,
+    taskPriority ::
+      Lude.Maybe
+        Lude.Text,
+    workflowId ::
+      Lude.Text,
+    workflowType ::
+      WorkflowType,
+    taskList ::
+      TaskList,
+    decisionTaskCompletedEventId ::
+      Lude.Integer,
+    childPolicy ::
+      ChildPolicy
   }
-  deriving
-    ( Eq,
-      Read,
-      Show,
-      Data,
-      Typeable,
-      Generic
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass
+    ( Lude.Hashable,
+      Lude.NFData
     )
 
 -- | Creates a value of 'StartChildWorkflowExecutionInitiatedEventAttributes' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- * 'childPolicy' - The policy to use for the child workflow executions if this execution gets terminated by explicitly calling the 'TerminateWorkflowExecution' action or due to an expired timeout.
 --
--- * 'scweieaControl' - Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.
+-- The supported child policies are:
 --
--- * 'scweieaTagList' - The list of tags to associated with the child workflow execution.
+--     * @TERMINATE@ – The child executions are terminated.
 --
--- * 'scweieaTaskStartToCloseTimeout' - The maximum duration allowed for the decision tasks for this workflow execution. The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
--- * 'scweieaLambdaRole' - The IAM role to attach to the child workflow execution.
+--     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
 --
--- * 'scweieaInput' - The inputs provided to the child workflow execution.
 --
--- * 'scweieaExecutionStartToCloseTimeout' - The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated. The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+--     * @ABANDON@ – No action is taken. The child executions continue to run.
 --
--- * 'scweieaTaskPriority' - The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
 --
--- * 'scweieaWorkflowId' - The @workflowId@ of the child workflow execution.
+-- * 'control' - Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartChildWorkflowExecution@ 'Decision' to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.
+-- * 'executionStartToCloseTimeout' - The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated.
 --
--- * 'scweieaWorkflowType' - The type of the child workflow execution.
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+-- * 'input' - The inputs provided to the child workflow execution.
+-- * 'lambdaRole' - The IAM role to attach to the child workflow execution.
+-- * 'tagList' - The list of tags to associated with the child workflow execution.
+-- * 'taskList' - The name of the task list used for the decision tasks of the child workflow execution.
+-- * 'taskPriority' - The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
 --
--- * 'scweieaTaskList' - The name of the task list used for the decision tasks of the child workflow execution.
+-- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
+-- * 'taskStartToCloseTimeout' - The maximum duration allowed for the decision tasks for this workflow execution.
 --
--- * 'scweieaDecisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartChildWorkflowExecution@ 'Decision' to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.
---
--- * 'scweieaChildPolicy' - The policy to use for the child workflow executions if this execution gets terminated by explicitly calling the 'TerminateWorkflowExecution' action or due to an expired timeout. The supported child policies are:     * @TERMINATE@ – The child executions are terminated.     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.     * @ABANDON@ – No action is taken. The child executions continue to run.
-startChildWorkflowExecutionInitiatedEventAttributes ::
-  -- | 'scweieaWorkflowId'
-  Text ->
-  -- | 'scweieaWorkflowType'
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+-- * 'workflowId' - The @workflowId@ of the child workflow execution.
+-- * 'workflowType' - The type of the child workflow execution.
+mkStartChildWorkflowExecutionInitiatedEventAttributes ::
+  -- | 'workflowId'
+  Lude.Text ->
+  -- | 'workflowType'
   WorkflowType ->
-  -- | 'scweieaTaskList'
+  -- | 'taskList'
   TaskList ->
-  -- | 'scweieaDecisionTaskCompletedEventId'
-  Integer ->
-  -- | 'scweieaChildPolicy'
+  -- | 'decisionTaskCompletedEventId'
+  Lude.Integer ->
+  -- | 'childPolicy'
   ChildPolicy ->
   StartChildWorkflowExecutionInitiatedEventAttributes
-startChildWorkflowExecutionInitiatedEventAttributes
+mkStartChildWorkflowExecutionInitiatedEventAttributes
   pWorkflowId_
   pWorkflowType_
   pTaskList_
   pDecisionTaskCompletedEventId_
   pChildPolicy_ =
     StartChildWorkflowExecutionInitiatedEventAttributes'
-      { _scweieaControl =
-          Nothing,
-        _scweieaTagList = Nothing,
-        _scweieaTaskStartToCloseTimeout = Nothing,
-        _scweieaLambdaRole = Nothing,
-        _scweieaInput = Nothing,
-        _scweieaExecutionStartToCloseTimeout =
-          Nothing,
-        _scweieaTaskPriority = Nothing,
-        _scweieaWorkflowId = pWorkflowId_,
-        _scweieaWorkflowType = pWorkflowType_,
-        _scweieaTaskList = pTaskList_,
-        _scweieaDecisionTaskCompletedEventId =
+      { control =
+          Lude.Nothing,
+        tagList = Lude.Nothing,
+        taskStartToCloseTimeout = Lude.Nothing,
+        lambdaRole = Lude.Nothing,
+        input = Lude.Nothing,
+        executionStartToCloseTimeout =
+          Lude.Nothing,
+        taskPriority = Lude.Nothing,
+        workflowId = pWorkflowId_,
+        workflowType = pWorkflowType_,
+        taskList = pTaskList_,
+        decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_,
-        _scweieaChildPolicy = pChildPolicy_
+        childPolicy = pChildPolicy_
       }
 
 -- | Data attached to the event that can be used by the decider in subsequent decision tasks. This data isn't sent to the activity.
-scweieaControl :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
-scweieaControl = lens _scweieaControl (\s a -> s {_scweieaControl = a})
+--
+-- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaControl :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
+scweieaControl = Lens.lens (control :: StartChildWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {control = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaControl "Use generic-lens or generic-optics with 'control' instead." #-}
 
 -- | The list of tags to associated with the child workflow execution.
-scweieaTagList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes [Text]
-scweieaTagList = lens _scweieaTagList (\s a -> s {_scweieaTagList = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaTagList :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Lude.Maybe [Lude.Text])
+scweieaTagList = Lens.lens (tagList :: StartChildWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {tagList = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
--- | The maximum duration allowed for the decision tasks for this workflow execution. The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-scweieaTaskStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
-scweieaTaskStartToCloseTimeout = lens _scweieaTaskStartToCloseTimeout (\s a -> s {_scweieaTaskStartToCloseTimeout = a})
+-- | The maximum duration allowed for the decision tasks for this workflow execution.
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+--
+-- /Note:/ Consider using 'taskStartToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaTaskStartToCloseTimeout :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
+scweieaTaskStartToCloseTimeout = Lens.lens (taskStartToCloseTimeout :: StartChildWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {taskStartToCloseTimeout = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaTaskStartToCloseTimeout "Use generic-lens or generic-optics with 'taskStartToCloseTimeout' instead." #-}
 
 -- | The IAM role to attach to the child workflow execution.
-scweieaLambdaRole :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
-scweieaLambdaRole = lens _scweieaLambdaRole (\s a -> s {_scweieaLambdaRole = a})
+--
+-- /Note:/ Consider using 'lambdaRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaLambdaRole :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
+scweieaLambdaRole = Lens.lens (lambdaRole :: StartChildWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {lambdaRole = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaLambdaRole "Use generic-lens or generic-optics with 'lambdaRole' instead." #-}
 
 -- | The inputs provided to the child workflow execution.
-scweieaInput :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
-scweieaInput = lens _scweieaInput (\s a -> s {_scweieaInput = a})
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaInput :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
+scweieaInput = Lens.lens (input :: StartChildWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {input = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
--- | The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated. The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-scweieaExecutionStartToCloseTimeout :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
-scweieaExecutionStartToCloseTimeout = lens _scweieaExecutionStartToCloseTimeout (\s a -> s {_scweieaExecutionStartToCloseTimeout = a})
+-- | The maximum duration for the child workflow execution. If the workflow execution isn't closed within this duration, it is timed out and force-terminated.
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+--
+-- /Note:/ Consider using 'executionStartToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaExecutionStartToCloseTimeout :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
+scweieaExecutionStartToCloseTimeout = Lens.lens (executionStartToCloseTimeout :: StartChildWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {executionStartToCloseTimeout = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaExecutionStartToCloseTimeout "Use generic-lens or generic-optics with 'executionStartToCloseTimeout' instead." #-}
 
--- | The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority. For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
-scweieaTaskPriority :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe Text)
-scweieaTaskPriority = lens _scweieaTaskPriority (\s a -> s {_scweieaTaskPriority = a})
+-- | The priority assigned for the decision tasks for this workflow execution. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
+--
+-- /Note:/ Consider using 'taskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaTaskPriority :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Lude.Maybe Lude.Text)
+scweieaTaskPriority = Lens.lens (taskPriority :: StartChildWorkflowExecutionInitiatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {taskPriority = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaTaskPriority "Use generic-lens or generic-optics with 'taskPriority' instead." #-}
 
 -- | The @workflowId@ of the child workflow execution.
-scweieaWorkflowId :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes Text
-scweieaWorkflowId = lens _scweieaWorkflowId (\s a -> s {_scweieaWorkflowId = a})
+--
+-- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaWorkflowId :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes Lude.Text
+scweieaWorkflowId = Lens.lens (workflowId :: StartChildWorkflowExecutionInitiatedEventAttributes -> Lude.Text) (\s a -> s {workflowId = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
 
 -- | The type of the child workflow execution.
-scweieaWorkflowType :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes WorkflowType
-scweieaWorkflowType = lens _scweieaWorkflowType (\s a -> s {_scweieaWorkflowType = a})
+--
+-- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaWorkflowType :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes WorkflowType
+scweieaWorkflowType = Lens.lens (workflowType :: StartChildWorkflowExecutionInitiatedEventAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
 -- | The name of the task list used for the decision tasks of the child workflow execution.
-scweieaTaskList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes TaskList
-scweieaTaskList = lens _scweieaTaskList (\s a -> s {_scweieaTaskList = a})
+--
+-- /Note:/ Consider using 'taskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaTaskList :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes TaskList
+scweieaTaskList = Lens.lens (taskList :: StartChildWorkflowExecutionInitiatedEventAttributes -> TaskList) (\s a -> s {taskList = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaTaskList "Use generic-lens or generic-optics with 'taskList' instead." #-}
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartChildWorkflowExecution@ 'Decision' to request this child workflow execution. This information can be useful for diagnosing problems by tracing back the cause of events.
-scweieaDecisionTaskCompletedEventId :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes Integer
-scweieaDecisionTaskCompletedEventId = lens _scweieaDecisionTaskCompletedEventId (\s a -> s {_scweieaDecisionTaskCompletedEventId = a})
+--
+-- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaDecisionTaskCompletedEventId :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes Lude.Integer
+scweieaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: StartChildWorkflowExecutionInitiatedEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
--- | The policy to use for the child workflow executions if this execution gets terminated by explicitly calling the 'TerminateWorkflowExecution' action or due to an expired timeout. The supported child policies are:     * @TERMINATE@ – The child executions are terminated.     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.     * @ABANDON@ – No action is taken. The child executions continue to run.
-scweieaChildPolicy :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes ChildPolicy
-scweieaChildPolicy = lens _scweieaChildPolicy (\s a -> s {_scweieaChildPolicy = a})
+-- | The policy to use for the child workflow executions if this execution gets terminated by explicitly calling the 'TerminateWorkflowExecution' action or due to an expired timeout.
+--
+-- The supported child policies are:
+--
+--     * @TERMINATE@ – The child executions are terminated.
+--
+--
+--     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
+--
+--
+--     * @ABANDON@ – No action is taken. The child executions continue to run.
+--
+--
+--
+-- /Note:/ Consider using 'childPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scweieaChildPolicy :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes ChildPolicy
+scweieaChildPolicy = Lens.lens (childPolicy :: StartChildWorkflowExecutionInitiatedEventAttributes -> ChildPolicy) (\s a -> s {childPolicy = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+{-# DEPRECATED scweieaChildPolicy "Use generic-lens or generic-optics with 'childPolicy' instead." #-}
 
 instance
-  FromJSON
+  Lude.FromJSON
     StartChildWorkflowExecutionInitiatedEventAttributes
   where
   parseJSON =
-    withObject
+    Lude.withObject
       "StartChildWorkflowExecutionInitiatedEventAttributes"
       ( \x ->
           StartChildWorkflowExecutionInitiatedEventAttributes'
-            <$> (x .:? "control")
-            <*> (x .:? "tagList" .!= mempty)
-            <*> (x .:? "taskStartToCloseTimeout")
-            <*> (x .:? "lambdaRole")
-            <*> (x .:? "input")
-            <*> (x .:? "executionStartToCloseTimeout")
-            <*> (x .:? "taskPriority")
-            <*> (x .: "workflowId")
-            <*> (x .: "workflowType")
-            <*> (x .: "taskList")
-            <*> (x .: "decisionTaskCompletedEventId")
-            <*> (x .: "childPolicy")
+            Lude.<$> (x Lude..:? "control")
+            Lude.<*> (x Lude..:? "tagList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "taskStartToCloseTimeout")
+            Lude.<*> (x Lude..:? "lambdaRole")
+            Lude.<*> (x Lude..:? "input")
+            Lude.<*> (x Lude..:? "executionStartToCloseTimeout")
+            Lude.<*> (x Lude..:? "taskPriority")
+            Lude.<*> (x Lude..: "workflowId")
+            Lude.<*> (x Lude..: "workflowType")
+            Lude.<*> (x Lude..: "taskList")
+            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
+            Lude.<*> (x Lude..: "childPolicy")
       )
-
-instance
-  Hashable
-    StartChildWorkflowExecutionInitiatedEventAttributes
-
-instance NFData StartChildWorkflowExecutionInitiatedEventAttributes

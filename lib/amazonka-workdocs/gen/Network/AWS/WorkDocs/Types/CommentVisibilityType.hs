@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.WorkDocs.Types.CommentVisibilityType where
+module Network.AWS.WorkDocs.Types.CommentVisibilityType
+  ( CommentVisibilityType
+      ( CommentVisibilityType',
+        Private,
+        Public
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data CommentVisibilityType
-  = Private
-  | Public
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype CommentVisibilityType = CommentVisibilityType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText CommentVisibilityType where
-  parser =
-    takeLowerText >>= \case
-      "private" -> pure Private
-      "public" -> pure Public
-      e ->
-        fromTextError $
-          "Failure parsing CommentVisibilityType from value: '" <> e
-            <> "'. Accepted values: private, public"
+pattern Private :: CommentVisibilityType
+pattern Private = CommentVisibilityType' "PRIVATE"
 
-instance ToText CommentVisibilityType where
-  toText = \case
-    Private -> "PRIVATE"
-    Public -> "PUBLIC"
+pattern Public :: CommentVisibilityType
+pattern Public = CommentVisibilityType' "PUBLIC"
 
-instance Hashable CommentVisibilityType
-
-instance NFData CommentVisibilityType
-
-instance ToByteString CommentVisibilityType
-
-instance ToQuery CommentVisibilityType
-
-instance ToHeader CommentVisibilityType
-
-instance ToJSON CommentVisibilityType where
-  toJSON = toJSONText
-
-instance FromJSON CommentVisibilityType where
-  parseJSON = parseJSONText "CommentVisibilityType"
+{-# COMPLETE
+  Private,
+  Public,
+  CommentVisibilityType'
+  #-}

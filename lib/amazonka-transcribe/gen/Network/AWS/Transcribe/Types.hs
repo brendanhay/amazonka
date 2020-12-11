@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -10,8 +8,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types
-  ( -- * Service Configuration
-    transcribe,
+  ( -- * Service configuration
+    transcribeService,
 
     -- * Errors
 
@@ -55,27 +53,27 @@ module Network.AWS.Transcribe.Types
     VocabularyState (..),
 
     -- * ContentRedaction
-    ContentRedaction,
-    contentRedaction,
+    ContentRedaction (..),
+    mkContentRedaction,
     crRedactionType,
     crRedactionOutput,
 
     -- * InputDataConfig
-    InputDataConfig,
-    inputDataConfig,
+    InputDataConfig (..),
+    mkInputDataConfig,
     idcTuningDataS3URI,
     idcS3URI,
     idcDataAccessRoleARN,
 
     -- * JobExecutionSettings
-    JobExecutionSettings,
-    jobExecutionSettings,
+    JobExecutionSettings (..),
+    mkJobExecutionSettings,
     jesDataAccessRoleARN,
     jesAllowDeferredExecution,
 
     -- * LanguageModel
-    LanguageModel,
-    languageModel,
+    LanguageModel (..),
+    mkLanguageModel,
     lmFailureReason,
     lmLanguageCode,
     lmModelName,
@@ -87,18 +85,18 @@ module Network.AWS.Transcribe.Types
     lmCreateTime,
 
     -- * Media
-    Media,
-    media,
+    Media (..),
+    mkMedia,
     mMediaFileURI,
 
     -- * MedicalTranscript
-    MedicalTranscript,
-    medicalTranscript,
+    MedicalTranscript (..),
+    mkMedicalTranscript,
     mtTranscriptFileURI,
 
     -- * MedicalTranscriptionJob
-    MedicalTranscriptionJob,
-    medicalTranscriptionJob,
+    MedicalTranscriptionJob (..),
+    mkMedicalTranscriptionJob,
     mtjCreationTime,
     mtjSpecialty,
     mtjFailureReason,
@@ -115,8 +113,8 @@ module Network.AWS.Transcribe.Types
     mtjMediaSampleRateHertz,
 
     -- * MedicalTranscriptionJobSummary
-    MedicalTranscriptionJobSummary,
-    medicalTranscriptionJobSummary,
+    MedicalTranscriptionJobSummary (..),
+    mkMedicalTranscriptionJobSummary,
     mtjsCreationTime,
     mtjsSpecialty,
     mtjsFailureReason,
@@ -129,8 +127,8 @@ module Network.AWS.Transcribe.Types
     mtjsType,
 
     -- * MedicalTranscriptionSetting
-    MedicalTranscriptionSetting,
-    medicalTranscriptionSetting,
+    MedicalTranscriptionSetting (..),
+    mkMedicalTranscriptionSetting,
     mtsVocabularyName,
     mtsMaxAlternatives,
     mtsChannelIdentification,
@@ -139,13 +137,13 @@ module Network.AWS.Transcribe.Types
     mtsShowSpeakerLabels,
 
     -- * ModelSettings
-    ModelSettings,
-    modelSettings,
+    ModelSettings (..),
+    mkModelSettings,
     msLanguageModelName,
 
     -- * Settings
-    Settings,
-    settings,
+    Settings (..),
+    mkSettings,
     sVocabularyName,
     sMaxAlternatives,
     sChannelIdentification,
@@ -156,14 +154,14 @@ module Network.AWS.Transcribe.Types
     sVocabularyFilterMethod,
 
     -- * Transcript
-    Transcript,
-    transcript,
+    Transcript (..),
+    mkTranscript,
     tRedactedTranscriptFileURI,
     tTranscriptFileURI,
 
     -- * TranscriptionJob
-    TranscriptionJob,
-    transcriptionJob,
+    TranscriptionJob (..),
+    mkTranscriptionJob,
     tjCreationTime,
     tjFailureReason,
     tjContentRedaction,
@@ -184,8 +182,8 @@ module Network.AWS.Transcribe.Types
     tjMediaSampleRateHertz,
 
     -- * TranscriptionJobSummary
-    TranscriptionJobSummary,
-    transcriptionJobSummary,
+    TranscriptionJobSummary (..),
+    mkTranscriptionJobSummary,
     tjsCreationTime,
     tjsFailureReason,
     tjsContentRedaction,
@@ -200,15 +198,15 @@ module Network.AWS.Transcribe.Types
     tjsIdentifyLanguage,
 
     -- * VocabularyFilterInfo
-    VocabularyFilterInfo,
-    vocabularyFilterInfo,
+    VocabularyFilterInfo (..),
+    mkVocabularyFilterInfo,
     vfiLanguageCode,
     vfiLastModifiedTime,
     vfiVocabularyFilterName,
 
     -- * VocabularyInfo
-    VocabularyInfo,
-    vocabularyInfo,
+    VocabularyInfo (..),
+    mkVocabularyInfo,
     viLanguageCode,
     viVocabularyName,
     viLastModifiedTime,
@@ -216,9 +214,9 @@ module Network.AWS.Transcribe.Types
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.Transcribe.Types.BaseModelName
 import Network.AWS.Transcribe.Types.CLMLanguageCode
 import Network.AWS.Transcribe.Types.ContentRedaction
@@ -250,43 +248,55 @@ import Network.AWS.Transcribe.Types.VocabularyInfo
 import Network.AWS.Transcribe.Types.VocabularyState
 
 -- | API version @2017-10-26@ of the Amazon Transcribe Service SDK configuration.
-transcribe :: Service
-transcribe =
-  Service
-    { _svcAbbrev = "Transcribe",
-      _svcSigner = v4,
-      _svcPrefix = "transcribe",
-      _svcVersion = "2017-10-26",
-      _svcEndpoint = defaultEndpoint transcribe,
-      _svcTimeout = Just 70,
-      _svcCheck = statusSuccess,
-      _svcError = parseJSONError "Transcribe",
-      _svcRetry = retry
+transcribeService :: Lude.Service
+transcribeService =
+  Lude.Service
+    { Lude._svcAbbrev = "Transcribe",
+      Lude._svcSigner = Sign.v4,
+      Lude._svcPrefix = "transcribe",
+      Lude._svcVersion = "2017-10-26",
+      Lude._svcEndpoint = Lude.defaultEndpoint transcribeService,
+      Lude._svcTimeout = Lude.Just 70,
+      Lude._svcCheck = Lude.statusSuccess,
+      Lude._svcError = Lude.parseJSONError "Transcribe",
+      Lude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2,
-          _retryGrowth = 2,
-          _retryAttempts = 5,
-          _retryCheck = check
+      Lude.Exponential
+        { Lude._retryBase = 5.0e-2,
+          Lude._retryGrowth = 2,
+          Lude._retryAttempts = 5,
+          Lude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has
-          (hasCode "ProvisionedThroughputExceededException" . hasStatus 400)
+      | Lens.has
+          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
-        Just "throughput_exceeded"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+        Lude.Just "throttled_exception"
+      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+      | Lens.has
+          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "throttling_exception"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "throttling"
+      | Lens.has
+          ( Lude.hasCode "ProvisionedThroughputExceededException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "throughput_exceeded"
+      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+      | Lens.has
+          ( Lude.hasCode "RequestThrottledException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "request_throttled_exception"
+      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
+      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lude.otherwise = Lude.Nothing

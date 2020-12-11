@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,116 +14,129 @@
 --
 -- Resets all cache disks that have encountered an error and makes the disks available for reconfiguration as cache storage. If your cache disk encounters an error, the gateway prevents read and write operations on virtual tapes in the gateway. For example, an error can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the gateway loses its cache storage. At this point, you can reconfigure the disks as cache disks. This operation is only supported in the cached volume and tape types.
 --
---
 -- /Important:/ If the cache disk you are resetting contains data that has not been uploaded to Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no configured cache disks left in the gateway, so you must configure at least one new cache disk for your gateway to function properly.
 module Network.AWS.StorageGateway.ResetCache
-  ( -- * Creating a Request
-    resetCache,
-    ResetCache,
+  ( -- * Creating a request
+    ResetCache (..),
+    mkResetCache,
 
-    -- * Request Lenses
+    -- ** Request lenses
     rcGatewayARN,
 
-    -- * Destructuring the Response
-    resetCacheResponse,
-    ResetCacheResponse,
+    -- * Destructuring the response
+    ResetCacheResponse (..),
+    mkResetCacheResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     rrsGatewayARN,
     rrsResponseStatus,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
--- | /See:/ 'resetCache' smart constructor.
-newtype ResetCache = ResetCache' {_rcGatewayARN :: Text}
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'mkResetCache' smart constructor.
+newtype ResetCache = ResetCache' {gatewayARN :: Lude.Text}
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetCache' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcGatewayARN' - Undocumented member.
-resetCache ::
-  -- | 'rcGatewayARN'
-  Text ->
+-- * 'gatewayARN' - Undocumented field.
+mkResetCache ::
+  -- | 'gatewayARN'
+  Lude.Text ->
   ResetCache
-resetCache pGatewayARN_ = ResetCache' {_rcGatewayARN = pGatewayARN_}
+mkResetCache pGatewayARN_ = ResetCache' {gatewayARN = pGatewayARN_}
 
--- | Undocumented member.
-rcGatewayARN :: Lens' ResetCache Text
-rcGatewayARN = lens _rcGatewayARN (\s a -> s {_rcGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcGatewayARN :: Lens.Lens' ResetCache Lude.Text
+rcGatewayARN = Lens.lens (gatewayARN :: ResetCache -> Lude.Text) (\s a -> s {gatewayARN = a} :: ResetCache)
+{-# DEPRECATED rcGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance AWSRequest ResetCache where
+instance Lude.AWSRequest ResetCache where
   type Rs ResetCache = ResetCacheResponse
-  request = postJSON storageGateway
+  request = Req.postJSON storageGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           ResetCacheResponse'
-            <$> (x .?> "GatewayARN") <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable ResetCache
-
-instance NFData ResetCache
-
-instance ToHeaders ResetCache where
+instance Lude.ToHeaders ResetCache where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("StorageGateway_20130630.ResetCache" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("StorageGateway_20130630.ResetCache" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON ResetCache where
+instance Lude.ToJSON ResetCache where
   toJSON ResetCache' {..} =
-    object (catMaybes [Just ("GatewayARN" .= _rcGatewayARN)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
 
-instance ToPath ResetCache where
-  toPath = const "/"
+instance Lude.ToPath ResetCache where
+  toPath = Lude.const "/"
 
-instance ToQuery ResetCache where
-  toQuery = const mempty
+instance Lude.ToQuery ResetCache where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'resetCacheResponse' smart constructor.
+-- | /See:/ 'mkResetCacheResponse' smart constructor.
 data ResetCacheResponse = ResetCacheResponse'
-  { _rrsGatewayARN ::
-      !(Maybe Text),
-    _rrsResponseStatus :: !Int
+  { gatewayARN ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetCacheResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rrsGatewayARN' - Undocumented member.
---
--- * 'rrsResponseStatus' - -- | The response status code.
-resetCacheResponse ::
-  -- | 'rrsResponseStatus'
-  Int ->
+-- * 'gatewayARN' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkResetCacheResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   ResetCacheResponse
-resetCacheResponse pResponseStatus_ =
+mkResetCacheResponse pResponseStatus_ =
   ResetCacheResponse'
-    { _rrsGatewayARN = Nothing,
-      _rrsResponseStatus = pResponseStatus_
+    { gatewayARN = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
--- | Undocumented member.
-rrsGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
-rrsGatewayARN = lens _rrsGatewayARN (\s a -> s {_rrsGatewayARN = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsGatewayARN :: Lens.Lens' ResetCacheResponse (Lude.Maybe Lude.Text)
+rrsGatewayARN = Lens.lens (gatewayARN :: ResetCacheResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ResetCacheResponse)
+{-# DEPRECATED rrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
--- | -- | The response status code.
-rrsResponseStatus :: Lens' ResetCacheResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\s a -> s {_rrsResponseStatus = a})
-
-instance NFData ResetCacheResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrsResponseStatus :: Lens.Lens' ResetCacheResponse Lude.Int
+rrsResponseStatus = Lens.lens (responseStatus :: ResetCacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetCacheResponse)
+{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

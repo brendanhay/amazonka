@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,52 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatch.Types.StateValue where
+module Network.AWS.CloudWatch.Types.StateValue
+  ( StateValue
+      ( StateValue',
+        Alarm,
+        InsufficientData,
+        OK
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data StateValue
-  = Alarm
-  | InsufficientData
-  | OK
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype StateValue = StateValue' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText StateValue where
-  parser =
-    takeLowerText >>= \case
-      "alarm" -> pure Alarm
-      "insufficient_data" -> pure InsufficientData
-      "ok" -> pure OK
-      e ->
-        fromTextError $
-          "Failure parsing StateValue from value: '" <> e
-            <> "'. Accepted values: alarm, insufficient_data, ok"
+pattern Alarm :: StateValue
+pattern Alarm = StateValue' "ALARM"
 
-instance ToText StateValue where
-  toText = \case
-    Alarm -> "ALARM"
-    InsufficientData -> "INSUFFICIENT_DATA"
-    OK -> "OK"
+pattern InsufficientData :: StateValue
+pattern InsufficientData = StateValue' "INSUFFICIENT_DATA"
 
-instance Hashable StateValue
+pattern OK :: StateValue
+pattern OK = StateValue' "OK"
 
-instance NFData StateValue
-
-instance ToByteString StateValue
-
-instance ToQuery StateValue
-
-instance ToHeader StateValue
-
-instance FromXML StateValue where
-  parseXML = parseXMLText "StateValue"
+{-# COMPLETE
+  Alarm,
+  InsufficientData,
+  OK,
+  StateValue'
+  #-}

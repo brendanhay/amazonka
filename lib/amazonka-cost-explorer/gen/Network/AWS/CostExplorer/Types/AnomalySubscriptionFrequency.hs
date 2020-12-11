@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,55 +7,54 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency where
+module Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency
+  ( AnomalySubscriptionFrequency
+      ( AnomalySubscriptionFrequency',
+        ASFDaily,
+        ASFImmediate,
+        ASFWeekly
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data AnomalySubscriptionFrequency
-  = ASFDaily
-  | ASFImmediate
-  | ASFWeekly
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype AnomalySubscriptionFrequency = AnomalySubscriptionFrequency' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText AnomalySubscriptionFrequency where
-  parser =
-    takeLowerText >>= \case
-      "daily" -> pure ASFDaily
-      "immediate" -> pure ASFImmediate
-      "weekly" -> pure ASFWeekly
-      e ->
-        fromTextError $
-          "Failure parsing AnomalySubscriptionFrequency from value: '" <> e
-            <> "'. Accepted values: daily, immediate, weekly"
+pattern ASFDaily :: AnomalySubscriptionFrequency
+pattern ASFDaily = AnomalySubscriptionFrequency' "DAILY"
 
-instance ToText AnomalySubscriptionFrequency where
-  toText = \case
-    ASFDaily -> "DAILY"
-    ASFImmediate -> "IMMEDIATE"
-    ASFWeekly -> "WEEKLY"
+pattern ASFImmediate :: AnomalySubscriptionFrequency
+pattern ASFImmediate = AnomalySubscriptionFrequency' "IMMEDIATE"
 
-instance Hashable AnomalySubscriptionFrequency
+pattern ASFWeekly :: AnomalySubscriptionFrequency
+pattern ASFWeekly = AnomalySubscriptionFrequency' "WEEKLY"
 
-instance NFData AnomalySubscriptionFrequency
-
-instance ToByteString AnomalySubscriptionFrequency
-
-instance ToQuery AnomalySubscriptionFrequency
-
-instance ToHeader AnomalySubscriptionFrequency
-
-instance ToJSON AnomalySubscriptionFrequency where
-  toJSON = toJSONText
-
-instance FromJSON AnomalySubscriptionFrequency where
-  parseJSON = parseJSONText "AnomalySubscriptionFrequency"
+{-# COMPLETE
+  ASFDaily,
+  ASFImmediate,
+  ASFWeekly,
+  AnomalySubscriptionFrequency'
+  #-}

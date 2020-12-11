@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,23 +14,21 @@
 --
 -- Gets a collection of 'ClientCertificate' resources.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.APIGateway.GetClientCertificates
-  ( -- * Creating a Request
-    getClientCertificates,
-    GetClientCertificates,
+  ( -- * Creating a request
+    GetClientCertificates (..),
+    mkGetClientCertificates,
 
-    -- * Request Lenses
+    -- ** Request lenses
     gccLimit,
     gccPosition,
 
-    -- * Destructuring the Response
-    getClientCertificatesResponse,
-    GetClientCertificatesResponse,
+    -- * Destructuring the response
+    GetClientCertificatesResponse (..),
+    mkGetClientCertificatesResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     gccrsItems,
     gccrsPosition,
     gccrsResponseStatus,
@@ -43,124 +36,144 @@ module Network.AWS.APIGateway.GetClientCertificates
 where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Page
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | A request to get information about a collection of 'ClientCertificate' resources.
 --
---
---
--- /See:/ 'getClientCertificates' smart constructor.
+-- /See:/ 'mkGetClientCertificates' smart constructor.
 data GetClientCertificates = GetClientCertificates'
-  { _gccLimit ::
-      !(Maybe Int),
-    _gccPosition :: !(Maybe Text)
+  { limit ::
+      Lude.Maybe Lude.Int,
+    position :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClientCertificates' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gccLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- * 'gccPosition' - The current pagination position in the paged result set.
-getClientCertificates ::
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'position' - The current pagination position in the paged result set.
+mkGetClientCertificates ::
   GetClientCertificates
-getClientCertificates =
+mkGetClientCertificates =
   GetClientCertificates'
-    { _gccLimit = Nothing,
-      _gccPosition = Nothing
+    { limit = Lude.Nothing,
+      position = Lude.Nothing
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gccLimit :: Lens' GetClientCertificates (Maybe Int)
-gccLimit = lens _gccLimit (\s a -> s {_gccLimit = a})
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccLimit :: Lens.Lens' GetClientCertificates (Lude.Maybe Lude.Int)
+gccLimit = Lens.lens (limit :: GetClientCertificates -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetClientCertificates)
+{-# DEPRECATED gccLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The current pagination position in the paged result set.
-gccPosition :: Lens' GetClientCertificates (Maybe Text)
-gccPosition = lens _gccPosition (\s a -> s {_gccPosition = a})
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccPosition :: Lens.Lens' GetClientCertificates (Lude.Maybe Lude.Text)
+gccPosition = Lens.lens (position :: GetClientCertificates -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetClientCertificates)
+{-# DEPRECATED gccPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
-instance AWSPager GetClientCertificates where
+instance Page.AWSPager GetClientCertificates where
   page rq rs
-    | stop (rs ^. gccrsPosition) = Nothing
-    | stop (rs ^. gccrsItems) = Nothing
-    | otherwise = Just $ rq & gccPosition .~ rs ^. gccrsPosition
+    | Page.stop (rs Lens.^. gccrsPosition) = Lude.Nothing
+    | Page.stop (rs Lens.^. gccrsItems) = Lude.Nothing
+    | Lude.otherwise =
+      Lude.Just Lude.$
+        rq
+          Lude.& gccPosition Lens..~ rs Lens.^. gccrsPosition
 
-instance AWSRequest GetClientCertificates where
+instance Lude.AWSRequest GetClientCertificates where
   type Rs GetClientCertificates = GetClientCertificatesResponse
-  request = get apiGateway
+  request = Req.get apiGatewayService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           GetClientCertificatesResponse'
-            <$> (x .?> "item" .!@ mempty)
-            <*> (x .?> "position")
-            <*> (pure (fromEnum s))
+            Lude.<$> (x Lude..?> "item" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "position")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
-instance Hashable GetClientCertificates
-
-instance NFData GetClientCertificates
-
-instance ToHeaders GetClientCertificates where
+instance Lude.ToHeaders GetClientCertificates where
   toHeaders =
-    const (mconcat ["Accept" =# ("application/json" :: ByteString)])
+    Lude.const
+      ( Lude.mconcat
+          ["Accept" Lude.=# ("application/json" :: Lude.ByteString)]
+      )
 
-instance ToPath GetClientCertificates where
-  toPath = const "/clientcertificates"
+instance Lude.ToPath GetClientCertificates where
+  toPath = Lude.const "/clientcertificates"
 
-instance ToQuery GetClientCertificates where
+instance Lude.ToQuery GetClientCertificates where
   toQuery GetClientCertificates' {..} =
-    mconcat ["limit" =: _gccLimit, "position" =: _gccPosition]
+    Lude.mconcat ["limit" Lude.=: limit, "position" Lude.=: position]
 
 -- | Represents a collection of 'ClientCertificate' resources.
 --
---
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate>
 --
--- /See:/ 'getClientCertificatesResponse' smart constructor.
+-- /See:/ 'mkGetClientCertificatesResponse' smart constructor.
 data GetClientCertificatesResponse = GetClientCertificatesResponse'
-  { _gccrsItems ::
-      !(Maybe [ClientCertificate]),
-    _gccrsPosition :: !(Maybe Text),
-    _gccrsResponseStatus :: !Int
+  { items ::
+      Lude.Maybe [ClientCertificate],
+    position ::
+      Lude.Maybe Lude.Text,
+    responseStatus :: Lude.Int
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClientCertificatesResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gccrsItems' - The current page of elements from this collection.
---
--- * 'gccrsPosition' - Undocumented member.
---
--- * 'gccrsResponseStatus' - -- | The response status code.
-getClientCertificatesResponse ::
-  -- | 'gccrsResponseStatus'
-  Int ->
+-- * 'items' - The current page of elements from this collection.
+-- * 'position' - Undocumented field.
+-- * 'responseStatus' - The response status code.
+mkGetClientCertificatesResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
   GetClientCertificatesResponse
-getClientCertificatesResponse pResponseStatus_ =
+mkGetClientCertificatesResponse pResponseStatus_ =
   GetClientCertificatesResponse'
-    { _gccrsItems = Nothing,
-      _gccrsPosition = Nothing,
-      _gccrsResponseStatus = pResponseStatus_
+    { items = Lude.Nothing,
+      position = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
 
 -- | The current page of elements from this collection.
-gccrsItems :: Lens' GetClientCertificatesResponse [ClientCertificate]
-gccrsItems = lens _gccrsItems (\s a -> s {_gccrsItems = a}) . _Default . _Coerce
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccrsItems :: Lens.Lens' GetClientCertificatesResponse (Lude.Maybe [ClientCertificate])
+gccrsItems = Lens.lens (items :: GetClientCertificatesResponse -> Lude.Maybe [ClientCertificate]) (\s a -> s {items = a} :: GetClientCertificatesResponse)
+{-# DEPRECATED gccrsItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
--- | Undocumented member.
-gccrsPosition :: Lens' GetClientCertificatesResponse (Maybe Text)
-gccrsPosition = lens _gccrsPosition (\s a -> s {_gccrsPosition = a})
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccrsPosition :: Lens.Lens' GetClientCertificatesResponse (Lude.Maybe Lude.Text)
+gccrsPosition = Lens.lens (position :: GetClientCertificatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetClientCertificatesResponse)
+{-# DEPRECATED gccrsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
--- | -- | The response status code.
-gccrsResponseStatus :: Lens' GetClientCertificatesResponse Int
-gccrsResponseStatus = lens _gccrsResponseStatus (\s a -> s {_gccrsResponseStatus = a})
-
-instance NFData GetClientCertificatesResponse
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gccrsResponseStatus :: Lens.Lens' GetClientCertificatesResponse Lude.Int
+gccrsResponseStatus = Lens.lens (responseStatus :: GetClientCertificatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetClientCertificatesResponse)
+{-# DEPRECATED gccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

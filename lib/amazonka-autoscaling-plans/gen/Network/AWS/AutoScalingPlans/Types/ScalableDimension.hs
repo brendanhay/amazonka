@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,70 +7,79 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.AutoScalingPlans.Types.ScalableDimension where
+module Network.AWS.AutoScalingPlans.Types.ScalableDimension
+  ( ScalableDimension
+      ( ScalableDimension',
+        AutoscalingAutoScalingGroupDesiredCapacity,
+        DynamodbIndexReadCapacityUnits,
+        DynamodbIndexWriteCapacityUnits,
+        DynamodbTableReadCapacityUnits,
+        DynamodbTableWriteCapacityUnits,
+        EC2SpotFleetRequestTargetCapacity,
+        EcsServiceDesiredCount,
+        RDSClusterReadReplicaCount
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data ScalableDimension
-  = AutoscalingAutoScalingGroupDesiredCapacity
-  | DynamodbIndexReadCapacityUnits
-  | DynamodbIndexWriteCapacityUnits
-  | DynamodbTableReadCapacityUnits
-  | DynamodbTableWriteCapacityUnits
-  | EC2SpotFleetRequestTargetCapacity
-  | EcsServiceDesiredCount
-  | RDSClusterReadReplicaCount
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype ScalableDimension = ScalableDimension' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText ScalableDimension where
-  parser =
-    takeLowerText >>= \case
-      "autoscaling:autoscalinggroup:desiredcapacity" -> pure AutoscalingAutoScalingGroupDesiredCapacity
-      "dynamodb:index:readcapacityunits" -> pure DynamodbIndexReadCapacityUnits
-      "dynamodb:index:writecapacityunits" -> pure DynamodbIndexWriteCapacityUnits
-      "dynamodb:table:readcapacityunits" -> pure DynamodbTableReadCapacityUnits
-      "dynamodb:table:writecapacityunits" -> pure DynamodbTableWriteCapacityUnits
-      "ec2:spot-fleet-request:targetcapacity" -> pure EC2SpotFleetRequestTargetCapacity
-      "ecs:service:desiredcount" -> pure EcsServiceDesiredCount
-      "rds:cluster:readreplicacount" -> pure RDSClusterReadReplicaCount
-      e ->
-        fromTextError $
-          "Failure parsing ScalableDimension from value: '" <> e
-            <> "'. Accepted values: autoscaling:autoscalinggroup:desiredcapacity, dynamodb:index:readcapacityunits, dynamodb:index:writecapacityunits, dynamodb:table:readcapacityunits, dynamodb:table:writecapacityunits, ec2:spot-fleet-request:targetcapacity, ecs:service:desiredcount, rds:cluster:readreplicacount"
+pattern AutoscalingAutoScalingGroupDesiredCapacity :: ScalableDimension
+pattern AutoscalingAutoScalingGroupDesiredCapacity = ScalableDimension' "autoscaling:autoScalingGroup:DesiredCapacity"
 
-instance ToText ScalableDimension where
-  toText = \case
-    AutoscalingAutoScalingGroupDesiredCapacity -> "autoscaling:autoScalingGroup:DesiredCapacity"
-    DynamodbIndexReadCapacityUnits -> "dynamodb:index:ReadCapacityUnits"
-    DynamodbIndexWriteCapacityUnits -> "dynamodb:index:WriteCapacityUnits"
-    DynamodbTableReadCapacityUnits -> "dynamodb:table:ReadCapacityUnits"
-    DynamodbTableWriteCapacityUnits -> "dynamodb:table:WriteCapacityUnits"
-    EC2SpotFleetRequestTargetCapacity -> "ec2:spot-fleet-request:TargetCapacity"
-    EcsServiceDesiredCount -> "ecs:service:DesiredCount"
-    RDSClusterReadReplicaCount -> "rds:cluster:ReadReplicaCount"
+pattern DynamodbIndexReadCapacityUnits :: ScalableDimension
+pattern DynamodbIndexReadCapacityUnits = ScalableDimension' "dynamodb:index:ReadCapacityUnits"
 
-instance Hashable ScalableDimension
+pattern DynamodbIndexWriteCapacityUnits :: ScalableDimension
+pattern DynamodbIndexWriteCapacityUnits = ScalableDimension' "dynamodb:index:WriteCapacityUnits"
 
-instance NFData ScalableDimension
+pattern DynamodbTableReadCapacityUnits :: ScalableDimension
+pattern DynamodbTableReadCapacityUnits = ScalableDimension' "dynamodb:table:ReadCapacityUnits"
 
-instance ToByteString ScalableDimension
+pattern DynamodbTableWriteCapacityUnits :: ScalableDimension
+pattern DynamodbTableWriteCapacityUnits = ScalableDimension' "dynamodb:table:WriteCapacityUnits"
 
-instance ToQuery ScalableDimension
+pattern EC2SpotFleetRequestTargetCapacity :: ScalableDimension
+pattern EC2SpotFleetRequestTargetCapacity = ScalableDimension' "ec2:spot-fleet-request:TargetCapacity"
 
-instance ToHeader ScalableDimension
+pattern EcsServiceDesiredCount :: ScalableDimension
+pattern EcsServiceDesiredCount = ScalableDimension' "ecs:service:DesiredCount"
 
-instance ToJSON ScalableDimension where
-  toJSON = toJSONText
+pattern RDSClusterReadReplicaCount :: ScalableDimension
+pattern RDSClusterReadReplicaCount = ScalableDimension' "rds:cluster:ReadReplicaCount"
 
-instance FromJSON ScalableDimension where
-  parseJSON = parseJSONText "ScalableDimension"
+{-# COMPLETE
+  AutoscalingAutoScalingGroupDesiredCapacity,
+  DynamodbIndexReadCapacityUnits,
+  DynamodbIndexWriteCapacityUnits,
+  DynamodbTableReadCapacityUnits,
+  DynamodbTableWriteCapacityUnits,
+  EC2SpotFleetRequestTargetCapacity,
+  EcsServiceDesiredCount,
+  RDSClusterReadReplicaCount,
+  ScalableDimension'
+  #-}

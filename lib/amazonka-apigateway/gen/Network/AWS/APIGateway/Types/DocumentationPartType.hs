@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,82 +7,99 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.APIGateway.Types.DocumentationPartType where
+module Network.AWS.APIGateway.Types.DocumentationPartType
+  ( DocumentationPartType
+      ( DocumentationPartType',
+        DPTAPI,
+        DPTAuthorizer,
+        DPTMethod,
+        DPTModel,
+        DPTPathParameter,
+        DPTQueryParameter,
+        DPTRequestBody,
+        DPTRequestHeader,
+        DPTResource,
+        DPTResponse,
+        DPTResponseBody,
+        DPTResponseHeader
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data DocumentationPartType
-  = DPTAPI
-  | DPTAuthorizer
-  | DPTMethod
-  | DPTModel
-  | DPTPathParameter
-  | DPTQueryParameter
-  | DPTRequestBody
-  | DPTRequestHeader
-  | DPTResource
-  | DPTResponse
-  | DPTResponseBody
-  | DPTResponseHeader
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype DocumentationPartType = DocumentationPartType' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText DocumentationPartType where
-  parser =
-    takeLowerText >>= \case
-      "api" -> pure DPTAPI
-      "authorizer" -> pure DPTAuthorizer
-      "method" -> pure DPTMethod
-      "model" -> pure DPTModel
-      "path_parameter" -> pure DPTPathParameter
-      "query_parameter" -> pure DPTQueryParameter
-      "request_body" -> pure DPTRequestBody
-      "request_header" -> pure DPTRequestHeader
-      "resource" -> pure DPTResource
-      "response" -> pure DPTResponse
-      "response_body" -> pure DPTResponseBody
-      "response_header" -> pure DPTResponseHeader
-      e ->
-        fromTextError $
-          "Failure parsing DocumentationPartType from value: '" <> e
-            <> "'. Accepted values: api, authorizer, method, model, path_parameter, query_parameter, request_body, request_header, resource, response, response_body, response_header"
+pattern DPTAPI :: DocumentationPartType
+pattern DPTAPI = DocumentationPartType' "API"
 
-instance ToText DocumentationPartType where
-  toText = \case
-    DPTAPI -> "API"
-    DPTAuthorizer -> "AUTHORIZER"
-    DPTMethod -> "METHOD"
-    DPTModel -> "MODEL"
-    DPTPathParameter -> "PATH_PARAMETER"
-    DPTQueryParameter -> "QUERY_PARAMETER"
-    DPTRequestBody -> "REQUEST_BODY"
-    DPTRequestHeader -> "REQUEST_HEADER"
-    DPTResource -> "RESOURCE"
-    DPTResponse -> "RESPONSE"
-    DPTResponseBody -> "RESPONSE_BODY"
-    DPTResponseHeader -> "RESPONSE_HEADER"
+pattern DPTAuthorizer :: DocumentationPartType
+pattern DPTAuthorizer = DocumentationPartType' "AUTHORIZER"
 
-instance Hashable DocumentationPartType
+pattern DPTMethod :: DocumentationPartType
+pattern DPTMethod = DocumentationPartType' "METHOD"
 
-instance NFData DocumentationPartType
+pattern DPTModel :: DocumentationPartType
+pattern DPTModel = DocumentationPartType' "MODEL"
 
-instance ToByteString DocumentationPartType
+pattern DPTPathParameter :: DocumentationPartType
+pattern DPTPathParameter = DocumentationPartType' "PATH_PARAMETER"
 
-instance ToQuery DocumentationPartType
+pattern DPTQueryParameter :: DocumentationPartType
+pattern DPTQueryParameter = DocumentationPartType' "QUERY_PARAMETER"
 
-instance ToHeader DocumentationPartType
+pattern DPTRequestBody :: DocumentationPartType
+pattern DPTRequestBody = DocumentationPartType' "REQUEST_BODY"
 
-instance ToJSON DocumentationPartType where
-  toJSON = toJSONText
+pattern DPTRequestHeader :: DocumentationPartType
+pattern DPTRequestHeader = DocumentationPartType' "REQUEST_HEADER"
 
-instance FromJSON DocumentationPartType where
-  parseJSON = parseJSONText "DocumentationPartType"
+pattern DPTResource :: DocumentationPartType
+pattern DPTResource = DocumentationPartType' "RESOURCE"
+
+pattern DPTResponse :: DocumentationPartType
+pattern DPTResponse = DocumentationPartType' "RESPONSE"
+
+pattern DPTResponseBody :: DocumentationPartType
+pattern DPTResponseBody = DocumentationPartType' "RESPONSE_BODY"
+
+pattern DPTResponseHeader :: DocumentationPartType
+pattern DPTResponseHeader = DocumentationPartType' "RESPONSE_HEADER"
+
+{-# COMPLETE
+  DPTAPI,
+  DPTAuthorizer,
+  DPTMethod,
+  DPTModel,
+  DPTPathParameter,
+  DPTQueryParameter,
+  DPTRequestBody,
+  DPTRequestHeader,
+  DPTResource,
+  DPTResponse,
+  DPTResponseBody,
+  DPTResponseHeader,
+  DocumentationPartType'
+  #-}

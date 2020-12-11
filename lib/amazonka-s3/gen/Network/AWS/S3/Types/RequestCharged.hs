@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.S3.Types.RequestCharged where
+module Network.AWS.S3.Types.RequestCharged
+  ( RequestCharged
+      ( RequestCharged',
+        RCRequester
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.S3.Internal
 
 -- | If present, indicates that the requester was successfully charged for the request.
-data RequestCharged = RCRequester
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype RequestCharged = RequestCharged' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText RequestCharged where
-  parser =
-    takeLowerText >>= \case
-      "requester" -> pure RCRequester
-      e ->
-        fromTextError $
-          "Failure parsing RequestCharged from value: '" <> e
-            <> "'. Accepted values: requester"
+pattern RCRequester :: RequestCharged
+pattern RCRequester = RequestCharged' "requester"
 
-instance ToText RequestCharged where
-  toText = \case
-    RCRequester -> "requester"
-
-instance Hashable RequestCharged
-
-instance NFData RequestCharged
-
-instance ToByteString RequestCharged
-
-instance ToQuery RequestCharged
-
-instance ToHeader RequestCharged
-
-instance FromXML RequestCharged where
-  parseXML = parseXMLText "RequestCharged"
+{-# COMPLETE
+  RCRequester,
+  RequestCharged'
+  #-}

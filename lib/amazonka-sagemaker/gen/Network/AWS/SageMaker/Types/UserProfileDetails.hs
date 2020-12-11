@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,84 +7,107 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.SageMaker.Types.UserProfileDetails where
+module Network.AWS.SageMaker.Types.UserProfileDetails
+  ( UserProfileDetails (..),
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Smart constructor
+    mkUserProfileDetails,
+
+    -- * Lenses
+    updCreationTime,
+    updStatus,
+    updUserProfileName,
+    updLastModifiedTime,
+    updDomainId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 import Network.AWS.SageMaker.Types.UserProfileStatus
 
 -- | The user profile details.
 --
---
---
--- /See:/ 'userProfileDetails' smart constructor.
+-- /See:/ 'mkUserProfileDetails' smart constructor.
 data UserProfileDetails = UserProfileDetails'
-  { _updCreationTime ::
-      !(Maybe POSIX),
-    _updStatus :: !(Maybe UserProfileStatus),
-    _updUserProfileName :: !(Maybe Text),
-    _updLastModifiedTime :: !(Maybe POSIX),
-    _updDomainId :: !(Maybe Text)
+  { creationTime ::
+      Lude.Maybe Lude.Timestamp,
+    status :: Lude.Maybe UserProfileStatus,
+    userProfileName :: Lude.Maybe Lude.Text,
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    domainId :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserProfileDetails' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'updCreationTime' - The creation time.
---
--- * 'updStatus' - The status.
---
--- * 'updUserProfileName' - The user profile name.
---
--- * 'updLastModifiedTime' - The last modified time.
---
--- * 'updDomainId' - The domain ID.
-userProfileDetails ::
+-- * 'creationTime' - The creation time.
+-- * 'domainId' - The domain ID.
+-- * 'lastModifiedTime' - The last modified time.
+-- * 'status' - The status.
+-- * 'userProfileName' - The user profile name.
+mkUserProfileDetails ::
   UserProfileDetails
-userProfileDetails =
+mkUserProfileDetails =
   UserProfileDetails'
-    { _updCreationTime = Nothing,
-      _updStatus = Nothing,
-      _updUserProfileName = Nothing,
-      _updLastModifiedTime = Nothing,
-      _updDomainId = Nothing
+    { creationTime = Lude.Nothing,
+      status = Lude.Nothing,
+      userProfileName = Lude.Nothing,
+      lastModifiedTime = Lude.Nothing,
+      domainId = Lude.Nothing
     }
 
 -- | The creation time.
-updCreationTime :: Lens' UserProfileDetails (Maybe UTCTime)
-updCreationTime = lens _updCreationTime (\s a -> s {_updCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updCreationTime :: Lens.Lens' UserProfileDetails (Lude.Maybe Lude.Timestamp)
+updCreationTime = Lens.lens (creationTime :: UserProfileDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: UserProfileDetails)
+{-# DEPRECATED updCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status.
-updStatus :: Lens' UserProfileDetails (Maybe UserProfileStatus)
-updStatus = lens _updStatus (\s a -> s {_updStatus = a})
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updStatus :: Lens.Lens' UserProfileDetails (Lude.Maybe UserProfileStatus)
+updStatus = Lens.lens (status :: UserProfileDetails -> Lude.Maybe UserProfileStatus) (\s a -> s {status = a} :: UserProfileDetails)
+{-# DEPRECATED updStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The user profile name.
-updUserProfileName :: Lens' UserProfileDetails (Maybe Text)
-updUserProfileName = lens _updUserProfileName (\s a -> s {_updUserProfileName = a})
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updUserProfileName :: Lens.Lens' UserProfileDetails (Lude.Maybe Lude.Text)
+updUserProfileName = Lens.lens (userProfileName :: UserProfileDetails -> Lude.Maybe Lude.Text) (\s a -> s {userProfileName = a} :: UserProfileDetails)
+{-# DEPRECATED updUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
 -- | The last modified time.
-updLastModifiedTime :: Lens' UserProfileDetails (Maybe UTCTime)
-updLastModifiedTime = lens _updLastModifiedTime (\s a -> s {_updLastModifiedTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updLastModifiedTime :: Lens.Lens' UserProfileDetails (Lude.Maybe Lude.Timestamp)
+updLastModifiedTime = Lens.lens (lastModifiedTime :: UserProfileDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: UserProfileDetails)
+{-# DEPRECATED updLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The domain ID.
-updDomainId :: Lens' UserProfileDetails (Maybe Text)
-updDomainId = lens _updDomainId (\s a -> s {_updDomainId = a})
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updDomainId :: Lens.Lens' UserProfileDetails (Lude.Maybe Lude.Text)
+updDomainId = Lens.lens (domainId :: UserProfileDetails -> Lude.Maybe Lude.Text) (\s a -> s {domainId = a} :: UserProfileDetails)
+{-# DEPRECATED updDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
-instance FromJSON UserProfileDetails where
+instance Lude.FromJSON UserProfileDetails where
   parseJSON =
-    withObject
+    Lude.withObject
       "UserProfileDetails"
       ( \x ->
           UserProfileDetails'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "Status")
-            <*> (x .:? "UserProfileName")
-            <*> (x .:? "LastModifiedTime")
-            <*> (x .:? "DomainId")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "Status")
+            Lude.<*> (x Lude..:? "UserProfileName")
+            Lude.<*> (x Lude..:? "LastModifiedTime")
+            Lude.<*> (x Lude..:? "DomainId")
       )
-
-instance Hashable UserProfileDetails
-
-instance NFData UserProfileDetails

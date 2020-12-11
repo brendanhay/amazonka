@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,64 +7,69 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.MatchOption where
+module Network.AWS.CostExplorer.Types.MatchOption
+  ( MatchOption
+      ( MatchOption',
+        CaseInsensitive,
+        CaseSensitive,
+        Contains,
+        EndsWith,
+        Equals,
+        StartsWith
+      ),
+  )
+where
 
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data MatchOption
-  = CaseInsensitive
-  | CaseSensitive
-  | Contains
-  | EndsWith
-  | Equals
-  | StartsWith
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype MatchOption = MatchOption' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText MatchOption where
-  parser =
-    takeLowerText >>= \case
-      "case_insensitive" -> pure CaseInsensitive
-      "case_sensitive" -> pure CaseSensitive
-      "contains" -> pure Contains
-      "ends_with" -> pure EndsWith
-      "equals" -> pure Equals
-      "starts_with" -> pure StartsWith
-      e ->
-        fromTextError $
-          "Failure parsing MatchOption from value: '" <> e
-            <> "'. Accepted values: case_insensitive, case_sensitive, contains, ends_with, equals, starts_with"
+pattern CaseInsensitive :: MatchOption
+pattern CaseInsensitive = MatchOption' "CASE_INSENSITIVE"
 
-instance ToText MatchOption where
-  toText = \case
-    CaseInsensitive -> "CASE_INSENSITIVE"
-    CaseSensitive -> "CASE_SENSITIVE"
-    Contains -> "CONTAINS"
-    EndsWith -> "ENDS_WITH"
-    Equals -> "EQUALS"
-    StartsWith -> "STARTS_WITH"
+pattern CaseSensitive :: MatchOption
+pattern CaseSensitive = MatchOption' "CASE_SENSITIVE"
 
-instance Hashable MatchOption
+pattern Contains :: MatchOption
+pattern Contains = MatchOption' "CONTAINS"
 
-instance NFData MatchOption
+pattern EndsWith :: MatchOption
+pattern EndsWith = MatchOption' "ENDS_WITH"
 
-instance ToByteString MatchOption
+pattern Equals :: MatchOption
+pattern Equals = MatchOption' "EQUALS"
 
-instance ToQuery MatchOption
+pattern StartsWith :: MatchOption
+pattern StartsWith = MatchOption' "STARTS_WITH"
 
-instance ToHeader MatchOption
-
-instance ToJSON MatchOption where
-  toJSON = toJSONText
-
-instance FromJSON MatchOption where
-  parseJSON = parseJSONText "MatchOption"
+{-# COMPLETE
+  CaseInsensitive,
+  CaseSensitive,
+  Contains,
+  EndsWith,
+  Equals,
+  StartsWith,
+  MatchOption'
+  #-}

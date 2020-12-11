@@ -28,37 +28,37 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestPutObject $
---             putObject
+--             mkPutObject
 --
 --         , requestDeleteObject $
---             deleteObject
+--             mkDeleteObject
 --
 --         , requestDescribeObject $
---             describeObject
+--             mkDescribeObject
 --
 --         , requestGetObject $
---             getObject
+--             mkGetObject
 --
 --         , requestListItems $
---             listItems
+--             mkListItems
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responsePutObject $
---             putObjectResponse
+--             mkPutObjectResponse
 --
 --         , responseDeleteObject $
---             deleteObjectResponse
+--             mkDeleteObjectResponse
 --
 --         , responseDescribeObject $
---             describeObjectResponse
+--             mkDescribeObjectResponse
 --
 --         , responseGetObject $
---             getObjectResponse
+--             mkGetObjectResponse
 --
 --         , responseListItems $
---             listItemsResponse
+--             mkListItemsResponse
 --
 --           ]
 --     ]
@@ -96,7 +96,7 @@ responsePutObject =
   res
     "PutObjectResponse"
     "fixture/PutObjectResponse.proto"
-    mediaStoreData
+    mediaStoreDataService
     (Proxy :: Proxy PutObject)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
@@ -104,7 +104,7 @@ responseDeleteObject =
   res
     "DeleteObjectResponse"
     "fixture/DeleteObjectResponse.proto"
-    mediaStoreData
+    mediaStoreDataService
     (Proxy :: Proxy DeleteObject)
 
 responseDescribeObject :: DescribeObjectResponse -> TestTree
@@ -112,7 +112,7 @@ responseDescribeObject =
   res
     "DescribeObjectResponse"
     "fixture/DescribeObjectResponse.proto"
-    mediaStoreData
+    mediaStoreDataService
     (Proxy :: Proxy DescribeObject)
 
 responseListItems :: ListItemsResponse -> TestTree
@@ -120,5 +120,5 @@ responseListItems =
   res
     "ListItemsResponse"
     "fixture/ListItemsResponse.proto"
-    mediaStoreData
+    mediaStoreDataService
     (Proxy :: Proxy ListItems)

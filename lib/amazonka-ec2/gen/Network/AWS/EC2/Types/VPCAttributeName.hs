@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,47 +7,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EC2.Types.VPCAttributeName where
+module Network.AWS.EC2.Types.VPCAttributeName
+  ( VPCAttributeName
+      ( VPCAttributeName',
+        EnableDNSHostnames,
+        EnableDNSSupport
+      ),
+  )
+where
 
-import Network.AWS.EC2.Internal
-import Network.AWS.Prelude
+import qualified Network.AWS.Prelude as Lude
 
-data VPCAttributeName
-  = EnableDNSHostnames
-  | EnableDNSSupport
-  deriving
-    ( Eq,
-      Ord,
-      Read,
-      Show,
-      Enum,
-      Bounded,
-      Data,
-      Typeable,
-      Generic
+newtype VPCAttributeName = VPCAttributeName' Lude.Text
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype
+    ( Lude.Hashable,
+      Lude.NFData,
+      Lude.ToJSONKey,
+      Lude.FromJSONKey,
+      Lude.ToJSON,
+      Lude.FromJSON,
+      Lude.ToXML,
+      Lude.FromXML,
+      Lude.ToText,
+      Lude.FromText,
+      Lude.ToByteString,
+      Lude.ToQuery,
+      Lude.ToHeader
     )
 
-instance FromText VPCAttributeName where
-  parser =
-    takeLowerText >>= \case
-      "enablednshostnames" -> pure EnableDNSHostnames
-      "enablednssupport" -> pure EnableDNSSupport
-      e ->
-        fromTextError $
-          "Failure parsing VPCAttributeName from value: '" <> e
-            <> "'. Accepted values: enablednshostnames, enablednssupport"
+pattern EnableDNSHostnames :: VPCAttributeName
+pattern EnableDNSHostnames = VPCAttributeName' "enableDnsHostnames"
 
-instance ToText VPCAttributeName where
-  toText = \case
-    EnableDNSHostnames -> "enableDnsHostnames"
-    EnableDNSSupport -> "enableDnsSupport"
+pattern EnableDNSSupport :: VPCAttributeName
+pattern EnableDNSSupport = VPCAttributeName' "enableDnsSupport"
 
-instance Hashable VPCAttributeName
-
-instance NFData VPCAttributeName
-
-instance ToByteString VPCAttributeName
-
-instance ToQuery VPCAttributeName
-
-instance ToHeader VPCAttributeName
+{-# COMPLETE
+  EnableDNSHostnames,
+  EnableDNSSupport,
+  VPCAttributeName'
+  #-}

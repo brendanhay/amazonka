@@ -28,913 +28,913 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestCreateNotebookInstance $
---             createNotebookInstance
+--             mkCreateNotebookInstance
 --
 --         , requestDeleteModelPackage $
---             deleteModelPackage
+--             mkDeleteModelPackage
 --
 --         , requestDescribeMonitoringSchedule $
---             describeMonitoringSchedule
+--             mkDescribeMonitoringSchedule
 --
 --         , requestListTrialComponents $
---             listTrialComponents
+--             mkListTrialComponents
 --
 --         , requestDescribeEndpointConfig $
---             describeEndpointConfig
+--             mkDescribeEndpointConfig
 --
 --         , requestDescribeApp $
---             describeApp
+--             mkDescribeApp
 --
 --         , requestListImageVersions $
---             listImageVersions
+--             mkListImageVersions
 --
 --         , requestDescribeAutoMLJob $
---             describeAutoMLJob
+--             mkDescribeAutoMLJob
 --
 --         , requestStopProcessingJob $
---             stopProcessingJob
+--             mkStopProcessingJob
 --
 --         , requestListLabelingJobsForWorkteam $
---             listLabelingJobsForWorkteam
+--             mkListLabelingJobsForWorkteam
 --
 --         , requestCreateTransformJob $
---             createTransformJob
+--             mkCreateTransformJob
 --
 --         , requestListCompilationJobs $
---             listCompilationJobs
+--             mkListCompilationJobs
 --
 --         , requestDisassociateTrialComponent $
---             disassociateTrialComponent
+--             mkDisassociateTrialComponent
 --
 --         , requestStopHyperParameterTuningJob $
---             stopHyperParameterTuningJob
+--             mkStopHyperParameterTuningJob
 --
 --         , requestListHumanTaskUis $
---             listHumanTaskUis
+--             mkListHumanTaskUis
 --
 --         , requestCreateEndpoint $
---             createEndpoint
+--             mkCreateEndpoint
 --
 --         , requestGetSearchSuggestions $
---             getSearchSuggestions
+--             mkGetSearchSuggestions
 --
 --         , requestDescribeTrial $
---             describeTrial
+--             mkDescribeTrial
 --
 --         , requestCreatePresignedDomainURL $
---             createPresignedDomainURL
+--             mkCreatePresignedDomainURL
 --
 --         , requestDescribeCodeRepository $
---             describeCodeRepository
+--             mkDescribeCodeRepository
 --
 --         , requestDescribeImage $
---             describeImage
+--             mkDescribeImage
 --
 --         , requestDescribeTrainingJob $
---             describeTrainingJob
+--             mkDescribeTrainingJob
 --
 --         , requestDeleteEndpoint $
---             deleteEndpoint
+--             mkDeleteEndpoint
 --
 --         , requestUpdateEndpoint $
---             updateEndpoint
+--             mkUpdateEndpoint
 --
 --         , requestCreateHumanTaskUi $
---             createHumanTaskUi
+--             mkCreateHumanTaskUi
 --
 --         , requestCreateCompilationJob $
---             createCompilationJob
+--             mkCreateCompilationJob
 --
 --         , requestDeleteAppImageConfig $
---             deleteAppImageConfig
+--             mkDeleteAppImageConfig
 --
 --         , requestUpdateAppImageConfig $
---             updateAppImageConfig
+--             mkUpdateAppImageConfig
 --
 --         , requestDeleteNotebookInstanceLifecycleConfig $
---             deleteNotebookInstanceLifecycleConfig
+--             mkDeleteNotebookInstanceLifecycleConfig
 --
 --         , requestUpdateNotebookInstanceLifecycleConfig $
---             updateNotebookInstanceLifecycleConfig
+--             mkUpdateNotebookInstanceLifecycleConfig
 --
 --         , requestDeleteWorkforce $
---             deleteWorkforce
+--             mkDeleteWorkforce
 --
 --         , requestUpdateWorkforce $
---             updateWorkforce
+--             mkUpdateWorkforce
 --
 --         , requestListProcessingJobs $
---             listProcessingJobs
+--             mkListProcessingJobs
 --
 --         , requestCreateLabelingJob $
---             createLabelingJob
+--             mkCreateLabelingJob
 --
 --         , requestDescribeNotebookInstance $
---             describeNotebookInstance
+--             mkDescribeNotebookInstance
 --
 --         , requestCreateMonitoringSchedule $
---             createMonitoringSchedule
+--             mkCreateMonitoringSchedule
 --
 --         , requestListAppImageConfigs $
---             listAppImageConfigs
+--             mkListAppImageConfigs
 --
 --         , requestCreateEndpointConfig $
---             createEndpointConfig
+--             mkCreateEndpointConfig
 --
 --         , requestStopNotebookInstance $
---             stopNotebookInstance
+--             mkStopNotebookInstance
 --
 --         , requestUpdateEndpointWeightsAndCapacities $
---             updateEndpointWeightsAndCapacities
+--             mkUpdateEndpointWeightsAndCapacities
 --
 --         , requestCreateAppImageConfig $
---             createAppImageConfig
+--             mkCreateAppImageConfig
 --
 --         , requestDeleteTags $
---             deleteTags
+--             mkDeleteTags
 --
 --         , requestListExperiments $
---             listExperiments
+--             mkListExperiments
 --
 --         , requestListAutoMLJobs $
---             listAutoMLJobs
+--             mkListAutoMLJobs
 --
 --         , requestListApps $
---             listApps
+--             mkListApps
 --
 --         , requestCreateProcessingJob $
---             createProcessingJob
+--             mkCreateProcessingJob
 --
 --         , requestDeleteMonitoringSchedule $
---             deleteMonitoringSchedule
+--             mkDeleteMonitoringSchedule
 --
 --         , requestDescribeModelPackage $
---             describeModelPackage
+--             mkDescribeModelPackage
 --
 --         , requestDeleteEndpointConfig $
---             deleteEndpointConfig
+--             mkDeleteEndpointConfig
 --
 --         , requestUpdateMonitoringSchedule $
---             updateMonitoringSchedule
+--             mkUpdateMonitoringSchedule
 --
 --         , requestDeleteApp $
---             deleteApp
+--             mkDeleteApp
 --
 --         , requestCreateAlgorithm $
---             createAlgorithm
+--             mkCreateAlgorithm
 --
 --         , requestStopTransformJob $
---             stopTransformJob
+--             mkStopTransformJob
 --
 --         , requestCreateModel $
---             createModel
+--             mkCreateModel
 --
 --         , requestListUserProfiles $
---             listUserProfiles
+--             mkListUserProfiles
 --
 --         , requestCreateCodeRepository $
---             createCodeRepository
+--             mkCreateCodeRepository
 --
 --         , requestCreateHyperParameterTuningJob $
---             createHyperParameterTuningJob
+--             mkCreateHyperParameterTuningJob
 --
 --         , requestDeleteTrial $
---             deleteTrial
+--             mkDeleteTrial
 --
 --         , requestUpdateTrial $
---             updateTrial
+--             mkUpdateTrial
 --
 --         , requestListCodeRepositories $
---             listCodeRepositories
+--             mkListCodeRepositories
 --
 --         , requestDescribeCompilationJob $
---             describeCompilationJob
+--             mkDescribeCompilationJob
 --
 --         , requestListHyperParameterTuningJobs $
---             listHyperParameterTuningJobs
+--             mkListHyperParameterTuningJobs
 --
 --         , requestListAlgorithms $
---             listAlgorithms
+--             mkListAlgorithms
 --
 --         , requestRenderUiTemplate $
---             renderUiTemplate
+--             mkRenderUiTemplate
 --
 --         , requestDeleteFlowDefinition $
---             deleteFlowDefinition
+--             mkDeleteFlowDefinition
 --
 --         , requestCreateTrial $
---             createTrial
+--             mkCreateTrial
 --
 --         , requestDeleteModel $
---             deleteModel
+--             mkDeleteModel
 --
 --         , requestListModels $
---             listModels
+--             mkListModels
 --
 --         , requestDeleteAlgorithm $
---             deleteAlgorithm
+--             mkDeleteAlgorithm
 --
 --         , requestAssociateTrialComponent $
---             associateTrialComponent
+--             mkAssociateTrialComponent
 --
 --         , requestDescribeNotebookInstanceLifecycleConfig $
---             describeNotebookInstanceLifecycleConfig
+--             mkDescribeNotebookInstanceLifecycleConfig
 --
 --         , requestDescribeWorkforce $
---             describeWorkforce
+--             mkDescribeWorkforce
 --
 --         , requestCreateModelPackage $
---             createModelPackage
+--             mkCreateModelPackage
 --
 --         , requestStopMonitoringSchedule $
---             stopMonitoringSchedule
+--             mkStopMonitoringSchedule
 --
 --         , requestDescribeAppImageConfig $
---             describeAppImageConfig
+--             mkDescribeAppImageConfig
 --
 --         , requestListNotebookInstances $
---             listNotebookInstances
+--             mkListNotebookInstances
 --
 --         , requestStopLabelingJob $
---             stopLabelingJob
+--             mkStopLabelingJob
 --
 --         , requestDeleteNotebookInstance $
---             deleteNotebookInstance
+--             mkDeleteNotebookInstance
 --
 --         , requestUpdateNotebookInstance $
---             updateNotebookInstance
+--             mkUpdateNotebookInstance
 --
 --         , requestListModelPackages $
---             listModelPackages
+--             mkListModelPackages
 --
 --         , requestDeleteImageVersion $
---             deleteImageVersion
+--             mkDeleteImageVersion
 --
 --         , requestDescribeExperiment $
---             describeExperiment
+--             mkDescribeExperiment
 --
 --         , requestDeleteTrialComponent $
---             deleteTrialComponent
+--             mkDeleteTrialComponent
 --
 --         , requestUpdateTrialComponent $
---             updateTrialComponent
+--             mkUpdateTrialComponent
 --
 --         , requestDescribeLabelingJob $
---             describeLabelingJob
+--             mkDescribeLabelingJob
 --
 --         , requestCreateDomain $
---             createDomain
+--             mkCreateDomain
 --
 --         , requestDescribeUserProfile $
---             describeUserProfile
+--             mkDescribeUserProfile
 --
 --         , requestListMonitoringExecutions $
---             listMonitoringExecutions
+--             mkListMonitoringExecutions
 --
 --         , requestDeleteHumanTaskUi $
---             deleteHumanTaskUi
+--             mkDeleteHumanTaskUi
 --
 --         , requestStopTrainingJob $
---             stopTrainingJob
+--             mkStopTrainingJob
 --
 --         , requestDescribeAlgorithm $
---             describeAlgorithm
+--             mkDescribeAlgorithm
 --
 --         , requestDescribeModel $
---             describeModel
+--             mkDescribeModel
 --
 --         , requestListTransformJobs $
---             listTransformJobs
+--             mkListTransformJobs
 --
 --         , requestDescribeHyperParameterTuningJob $
---             describeHyperParameterTuningJob
+--             mkDescribeHyperParameterTuningJob
 --
 --         , requestListEndpoints $
---             listEndpoints
+--             mkListEndpoints
 --
 --         , requestDescribeFlowDefinition $
---             describeFlowDefinition
+--             mkDescribeFlowDefinition
 --
 --         , requestCreatePresignedNotebookInstanceURL $
---             createPresignedNotebookInstanceURL
+--             mkCreatePresignedNotebookInstanceURL
 --
 --         , requestListTrainingJobsForHyperParameterTuningJob $
---             listTrainingJobsForHyperParameterTuningJob
+--             mkListTrainingJobsForHyperParameterTuningJob
 --
 --         , requestDescribeDomain $
---             describeDomain
+--             mkDescribeDomain
 --
 --         , requestUpdateWorkteam $
---             updateWorkteam
+--             mkUpdateWorkteam
 --
 --         , requestDeleteWorkteam $
---             deleteWorkteam
+--             mkDeleteWorkteam
 --
 --         , requestListWorkteams $
---             listWorkteams
+--             mkListWorkteams
 --
 --         , requestCreateAutoMLJob $
---             createAutoMLJob
+--             mkCreateAutoMLJob
 --
 --         , requestCreateApp $
---             createApp
+--             mkCreateApp
 --
 --         , requestCreateExperiment $
---             createExperiment
+--             mkCreateExperiment
 --
 --         , requestListNotebookInstanceLifecycleConfigs $
---             listNotebookInstanceLifecycleConfigs
+--             mkListNotebookInstanceLifecycleConfigs
 --
 --         , requestListWorkforces $
---             listWorkforces
+--             mkListWorkforces
 --
 --         , requestDescribeSubscribedWorkteam $
---             describeSubscribedWorkteam
+--             mkDescribeSubscribedWorkteam
 --
 --         , requestCreateWorkteam $
---             createWorkteam
+--             mkCreateWorkteam
 --
 --         , requestCreateNotebookInstanceLifecycleConfig $
---             createNotebookInstanceLifecycleConfig
+--             mkCreateNotebookInstanceLifecycleConfig
 --
 --         , requestListMonitoringSchedules $
---             listMonitoringSchedules
+--             mkListMonitoringSchedules
 --
 --         , requestListLabelingJobs $
---             listLabelingJobs
+--             mkListLabelingJobs
 --
 --         , requestStartNotebookInstance $
---             startNotebookInstance
+--             mkStartNotebookInstance
 --
 --         , requestUpdateExperiment $
---             updateExperiment
+--             mkUpdateExperiment
 --
 --         , requestDeleteExperiment $
---             deleteExperiment
+--             mkDeleteExperiment
 --
 --         , requestAddTags $
---             addTags
+--             mkAddTags
 --
 --         , requestCreateWorkforce $
---             createWorkforce
+--             mkCreateWorkforce
 --
 --         , requestDescribeTrialComponent $
---             describeTrialComponent
+--             mkDescribeTrialComponent
 --
 --         , requestDescribeImageVersion $
---             describeImageVersion
+--             mkDescribeImageVersion
 --
 --         , requestListEndpointConfigs $
---             listEndpointConfigs
+--             mkListEndpointConfigs
 --
 --         , requestCreateFlowDefinition $
---             createFlowDefinition
+--             mkCreateFlowDefinition
 --
 --         , requestListTags $
---             listTags
+--             mkListTags
 --
 --         , requestDescribeHumanTaskUi $
---             describeHumanTaskUi
+--             mkDescribeHumanTaskUi
 --
 --         , requestCreateTrainingJob $
---             createTrainingJob
+--             mkCreateTrainingJob
 --
 --         , requestDeleteUserProfile $
---             deleteUserProfile
+--             mkDeleteUserProfile
 --
 --         , requestUpdateUserProfile $
---             updateUserProfile
+--             mkUpdateUserProfile
 --
 --         , requestCreateImage $
---             createImage
+--             mkCreateImage
 --
 --         , requestListTrials $
---             listTrials
+--             mkListTrials
 --
 --         , requestStopCompilationJob $
---             stopCompilationJob
+--             mkStopCompilationJob
 --
 --         , requestListImages $
---             listImages
+--             mkListImages
 --
 --         , requestCreateUserProfile $
---             createUserProfile
+--             mkCreateUserProfile
 --
 --         , requestSearch $
---             search
+--             mkSearch
 --
 --         , requestUpdateCodeRepository $
---             updateCodeRepository
+--             mkUpdateCodeRepository
 --
 --         , requestDeleteCodeRepository $
---             deleteCodeRepository
+--             mkDeleteCodeRepository
 --
 --         , requestDescribeTransformJob $
---             describeTransformJob
+--             mkDescribeTransformJob
 --
 --         , requestListCandidatesForAutoMLJob $
---             listCandidatesForAutoMLJob
+--             mkListCandidatesForAutoMLJob
 --
 --         , requestDeleteImage $
---             deleteImage
+--             mkDeleteImage
 --
 --         , requestUpdateImage $
---             updateImage
+--             mkUpdateImage
 --
 --         , requestListFlowDefinitions $
---             listFlowDefinitions
+--             mkListFlowDefinitions
 --
 --         , requestDescribeEndpoint $
---             describeEndpoint
+--             mkDescribeEndpoint
 --
 --         , requestListTrainingJobs $
---             listTrainingJobs
+--             mkListTrainingJobs
 --
 --         , requestDescribeWorkteam $
---             describeWorkteam
+--             mkDescribeWorkteam
 --
 --         , requestListSubscribedWorkteams $
---             listSubscribedWorkteams
+--             mkListSubscribedWorkteams
 --
 --         , requestDeleteDomain $
---             deleteDomain
+--             mkDeleteDomain
 --
 --         , requestUpdateDomain $
---             updateDomain
+--             mkUpdateDomain
 --
 --         , requestListDomains $
---             listDomains
+--             mkListDomains
 --
 --         , requestCreateImageVersion $
---             createImageVersion
+--             mkCreateImageVersion
 --
 --         , requestStartMonitoringSchedule $
---             startMonitoringSchedule
+--             mkStartMonitoringSchedule
 --
 --         , requestStopAutoMLJob $
---             stopAutoMLJob
+--             mkStopAutoMLJob
 --
 --         , requestCreateTrialComponent $
---             createTrialComponent
+--             mkCreateTrialComponent
 --
 --         , requestDescribeProcessingJob $
---             describeProcessingJob
+--             mkDescribeProcessingJob
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseCreateNotebookInstance $
---             createNotebookInstanceResponse
+--             mkCreateNotebookInstanceResponse
 --
 --         , responseDeleteModelPackage $
---             deleteModelPackageResponse
+--             mkDeleteModelPackageResponse
 --
 --         , responseDescribeMonitoringSchedule $
---             describeMonitoringScheduleResponse
+--             mkDescribeMonitoringScheduleResponse
 --
 --         , responseListTrialComponents $
---             listTrialComponentsResponse
+--             mkListTrialComponentsResponse
 --
 --         , responseDescribeEndpointConfig $
---             describeEndpointConfigResponse
+--             mkDescribeEndpointConfigResponse
 --
 --         , responseDescribeApp $
---             describeAppResponse
+--             mkDescribeAppResponse
 --
 --         , responseListImageVersions $
---             listImageVersionsResponse
+--             mkListImageVersionsResponse
 --
 --         , responseDescribeAutoMLJob $
---             describeAutoMLJobResponse
+--             mkDescribeAutoMLJobResponse
 --
 --         , responseStopProcessingJob $
---             stopProcessingJobResponse
+--             mkStopProcessingJobResponse
 --
 --         , responseListLabelingJobsForWorkteam $
---             listLabelingJobsForWorkteamResponse
+--             mkListLabelingJobsForWorkteamResponse
 --
 --         , responseCreateTransformJob $
---             createTransformJobResponse
+--             mkCreateTransformJobResponse
 --
 --         , responseListCompilationJobs $
---             listCompilationJobsResponse
+--             mkListCompilationJobsResponse
 --
 --         , responseDisassociateTrialComponent $
---             disassociateTrialComponentResponse
+--             mkDisassociateTrialComponentResponse
 --
 --         , responseStopHyperParameterTuningJob $
---             stopHyperParameterTuningJobResponse
+--             mkStopHyperParameterTuningJobResponse
 --
 --         , responseListHumanTaskUis $
---             listHumanTaskUisResponse
+--             mkListHumanTaskUisResponse
 --
 --         , responseCreateEndpoint $
---             createEndpointResponse
+--             mkCreateEndpointResponse
 --
 --         , responseGetSearchSuggestions $
---             getSearchSuggestionsResponse
+--             mkGetSearchSuggestionsResponse
 --
 --         , responseDescribeTrial $
---             describeTrialResponse
+--             mkDescribeTrialResponse
 --
 --         , responseCreatePresignedDomainURL $
---             createPresignedDomainURLResponse
+--             mkCreatePresignedDomainURLResponse
 --
 --         , responseDescribeCodeRepository $
---             describeCodeRepositoryResponse
+--             mkDescribeCodeRepositoryResponse
 --
 --         , responseDescribeImage $
---             describeImageResponse
+--             mkDescribeImageResponse
 --
 --         , responseDescribeTrainingJob $
---             describeTrainingJobResponse
+--             mkDescribeTrainingJobResponse
 --
 --         , responseDeleteEndpoint $
---             deleteEndpointResponse
+--             mkDeleteEndpointResponse
 --
 --         , responseUpdateEndpoint $
---             updateEndpointResponse
+--             mkUpdateEndpointResponse
 --
 --         , responseCreateHumanTaskUi $
---             createHumanTaskUiResponse
+--             mkCreateHumanTaskUiResponse
 --
 --         , responseCreateCompilationJob $
---             createCompilationJobResponse
+--             mkCreateCompilationJobResponse
 --
 --         , responseDeleteAppImageConfig $
---             deleteAppImageConfigResponse
+--             mkDeleteAppImageConfigResponse
 --
 --         , responseUpdateAppImageConfig $
---             updateAppImageConfigResponse
+--             mkUpdateAppImageConfigResponse
 --
 --         , responseDeleteNotebookInstanceLifecycleConfig $
---             deleteNotebookInstanceLifecycleConfigResponse
+--             mkDeleteNotebookInstanceLifecycleConfigResponse
 --
 --         , responseUpdateNotebookInstanceLifecycleConfig $
---             updateNotebookInstanceLifecycleConfigResponse
+--             mkUpdateNotebookInstanceLifecycleConfigResponse
 --
 --         , responseDeleteWorkforce $
---             deleteWorkforceResponse
+--             mkDeleteWorkforceResponse
 --
 --         , responseUpdateWorkforce $
---             updateWorkforceResponse
+--             mkUpdateWorkforceResponse
 --
 --         , responseListProcessingJobs $
---             listProcessingJobsResponse
+--             mkListProcessingJobsResponse
 --
 --         , responseCreateLabelingJob $
---             createLabelingJobResponse
+--             mkCreateLabelingJobResponse
 --
 --         , responseDescribeNotebookInstance $
---             describeNotebookInstanceResponse
+--             mkDescribeNotebookInstanceResponse
 --
 --         , responseCreateMonitoringSchedule $
---             createMonitoringScheduleResponse
+--             mkCreateMonitoringScheduleResponse
 --
 --         , responseListAppImageConfigs $
---             listAppImageConfigsResponse
+--             mkListAppImageConfigsResponse
 --
 --         , responseCreateEndpointConfig $
---             createEndpointConfigResponse
+--             mkCreateEndpointConfigResponse
 --
 --         , responseStopNotebookInstance $
---             stopNotebookInstanceResponse
+--             mkStopNotebookInstanceResponse
 --
 --         , responseUpdateEndpointWeightsAndCapacities $
---             updateEndpointWeightsAndCapacitiesResponse
+--             mkUpdateEndpointWeightsAndCapacitiesResponse
 --
 --         , responseCreateAppImageConfig $
---             createAppImageConfigResponse
+--             mkCreateAppImageConfigResponse
 --
 --         , responseDeleteTags $
---             deleteTagsResponse
+--             mkDeleteTagsResponse
 --
 --         , responseListExperiments $
---             listExperimentsResponse
+--             mkListExperimentsResponse
 --
 --         , responseListAutoMLJobs $
---             listAutoMLJobsResponse
+--             mkListAutoMLJobsResponse
 --
 --         , responseListApps $
---             listAppsResponse
+--             mkListAppsResponse
 --
 --         , responseCreateProcessingJob $
---             createProcessingJobResponse
+--             mkCreateProcessingJobResponse
 --
 --         , responseDeleteMonitoringSchedule $
---             deleteMonitoringScheduleResponse
+--             mkDeleteMonitoringScheduleResponse
 --
 --         , responseDescribeModelPackage $
---             describeModelPackageResponse
+--             mkDescribeModelPackageResponse
 --
 --         , responseDeleteEndpointConfig $
---             deleteEndpointConfigResponse
+--             mkDeleteEndpointConfigResponse
 --
 --         , responseUpdateMonitoringSchedule $
---             updateMonitoringScheduleResponse
+--             mkUpdateMonitoringScheduleResponse
 --
 --         , responseDeleteApp $
---             deleteAppResponse
+--             mkDeleteAppResponse
 --
 --         , responseCreateAlgorithm $
---             createAlgorithmResponse
+--             mkCreateAlgorithmResponse
 --
 --         , responseStopTransformJob $
---             stopTransformJobResponse
+--             mkStopTransformJobResponse
 --
 --         , responseCreateModel $
---             createModelResponse
+--             mkCreateModelResponse
 --
 --         , responseListUserProfiles $
---             listUserProfilesResponse
+--             mkListUserProfilesResponse
 --
 --         , responseCreateCodeRepository $
---             createCodeRepositoryResponse
+--             mkCreateCodeRepositoryResponse
 --
 --         , responseCreateHyperParameterTuningJob $
---             createHyperParameterTuningJobResponse
+--             mkCreateHyperParameterTuningJobResponse
 --
 --         , responseDeleteTrial $
---             deleteTrialResponse
+--             mkDeleteTrialResponse
 --
 --         , responseUpdateTrial $
---             updateTrialResponse
+--             mkUpdateTrialResponse
 --
 --         , responseListCodeRepositories $
---             listCodeRepositoriesResponse
+--             mkListCodeRepositoriesResponse
 --
 --         , responseDescribeCompilationJob $
---             describeCompilationJobResponse
+--             mkDescribeCompilationJobResponse
 --
 --         , responseListHyperParameterTuningJobs $
---             listHyperParameterTuningJobsResponse
+--             mkListHyperParameterTuningJobsResponse
 --
 --         , responseListAlgorithms $
---             listAlgorithmsResponse
+--             mkListAlgorithmsResponse
 --
 --         , responseRenderUiTemplate $
---             renderUiTemplateResponse
+--             mkRenderUiTemplateResponse
 --
 --         , responseDeleteFlowDefinition $
---             deleteFlowDefinitionResponse
+--             mkDeleteFlowDefinitionResponse
 --
 --         , responseCreateTrial $
---             createTrialResponse
+--             mkCreateTrialResponse
 --
 --         , responseDeleteModel $
---             deleteModelResponse
+--             mkDeleteModelResponse
 --
 --         , responseListModels $
---             listModelsResponse
+--             mkListModelsResponse
 --
 --         , responseDeleteAlgorithm $
---             deleteAlgorithmResponse
+--             mkDeleteAlgorithmResponse
 --
 --         , responseAssociateTrialComponent $
---             associateTrialComponentResponse
+--             mkAssociateTrialComponentResponse
 --
 --         , responseDescribeNotebookInstanceLifecycleConfig $
---             describeNotebookInstanceLifecycleConfigResponse
+--             mkDescribeNotebookInstanceLifecycleConfigResponse
 --
 --         , responseDescribeWorkforce $
---             describeWorkforceResponse
+--             mkDescribeWorkforceResponse
 --
 --         , responseCreateModelPackage $
---             createModelPackageResponse
+--             mkCreateModelPackageResponse
 --
 --         , responseStopMonitoringSchedule $
---             stopMonitoringScheduleResponse
+--             mkStopMonitoringScheduleResponse
 --
 --         , responseDescribeAppImageConfig $
---             describeAppImageConfigResponse
+--             mkDescribeAppImageConfigResponse
 --
 --         , responseListNotebookInstances $
---             listNotebookInstancesResponse
+--             mkListNotebookInstancesResponse
 --
 --         , responseStopLabelingJob $
---             stopLabelingJobResponse
+--             mkStopLabelingJobResponse
 --
 --         , responseDeleteNotebookInstance $
---             deleteNotebookInstanceResponse
+--             mkDeleteNotebookInstanceResponse
 --
 --         , responseUpdateNotebookInstance $
---             updateNotebookInstanceResponse
+--             mkUpdateNotebookInstanceResponse
 --
 --         , responseListModelPackages $
---             listModelPackagesResponse
+--             mkListModelPackagesResponse
 --
 --         , responseDeleteImageVersion $
---             deleteImageVersionResponse
+--             mkDeleteImageVersionResponse
 --
 --         , responseDescribeExperiment $
---             describeExperimentResponse
+--             mkDescribeExperimentResponse
 --
 --         , responseDeleteTrialComponent $
---             deleteTrialComponentResponse
+--             mkDeleteTrialComponentResponse
 --
 --         , responseUpdateTrialComponent $
---             updateTrialComponentResponse
+--             mkUpdateTrialComponentResponse
 --
 --         , responseDescribeLabelingJob $
---             describeLabelingJobResponse
+--             mkDescribeLabelingJobResponse
 --
 --         , responseCreateDomain $
---             createDomainResponse
+--             mkCreateDomainResponse
 --
 --         , responseDescribeUserProfile $
---             describeUserProfileResponse
+--             mkDescribeUserProfileResponse
 --
 --         , responseListMonitoringExecutions $
---             listMonitoringExecutionsResponse
+--             mkListMonitoringExecutionsResponse
 --
 --         , responseDeleteHumanTaskUi $
---             deleteHumanTaskUiResponse
+--             mkDeleteHumanTaskUiResponse
 --
 --         , responseStopTrainingJob $
---             stopTrainingJobResponse
+--             mkStopTrainingJobResponse
 --
 --         , responseDescribeAlgorithm $
---             describeAlgorithmResponse
+--             mkDescribeAlgorithmResponse
 --
 --         , responseDescribeModel $
---             describeModelResponse
+--             mkDescribeModelResponse
 --
 --         , responseListTransformJobs $
---             listTransformJobsResponse
+--             mkListTransformJobsResponse
 --
 --         , responseDescribeHyperParameterTuningJob $
---             describeHyperParameterTuningJobResponse
+--             mkDescribeHyperParameterTuningJobResponse
 --
 --         , responseListEndpoints $
---             listEndpointsResponse
+--             mkListEndpointsResponse
 --
 --         , responseDescribeFlowDefinition $
---             describeFlowDefinitionResponse
+--             mkDescribeFlowDefinitionResponse
 --
 --         , responseCreatePresignedNotebookInstanceURL $
---             createPresignedNotebookInstanceURLResponse
+--             mkCreatePresignedNotebookInstanceURLResponse
 --
 --         , responseListTrainingJobsForHyperParameterTuningJob $
---             listTrainingJobsForHyperParameterTuningJobResponse
+--             mkListTrainingJobsForHyperParameterTuningJobResponse
 --
 --         , responseDescribeDomain $
---             describeDomainResponse
+--             mkDescribeDomainResponse
 --
 --         , responseUpdateWorkteam $
---             updateWorkteamResponse
+--             mkUpdateWorkteamResponse
 --
 --         , responseDeleteWorkteam $
---             deleteWorkteamResponse
+--             mkDeleteWorkteamResponse
 --
 --         , responseListWorkteams $
---             listWorkteamsResponse
+--             mkListWorkteamsResponse
 --
 --         , responseCreateAutoMLJob $
---             createAutoMLJobResponse
+--             mkCreateAutoMLJobResponse
 --
 --         , responseCreateApp $
---             createAppResponse
+--             mkCreateAppResponse
 --
 --         , responseCreateExperiment $
---             createExperimentResponse
+--             mkCreateExperimentResponse
 --
 --         , responseListNotebookInstanceLifecycleConfigs $
---             listNotebookInstanceLifecycleConfigsResponse
+--             mkListNotebookInstanceLifecycleConfigsResponse
 --
 --         , responseListWorkforces $
---             listWorkforcesResponse
+--             mkListWorkforcesResponse
 --
 --         , responseDescribeSubscribedWorkteam $
---             describeSubscribedWorkteamResponse
+--             mkDescribeSubscribedWorkteamResponse
 --
 --         , responseCreateWorkteam $
---             createWorkteamResponse
+--             mkCreateWorkteamResponse
 --
 --         , responseCreateNotebookInstanceLifecycleConfig $
---             createNotebookInstanceLifecycleConfigResponse
+--             mkCreateNotebookInstanceLifecycleConfigResponse
 --
 --         , responseListMonitoringSchedules $
---             listMonitoringSchedulesResponse
+--             mkListMonitoringSchedulesResponse
 --
 --         , responseListLabelingJobs $
---             listLabelingJobsResponse
+--             mkListLabelingJobsResponse
 --
 --         , responseStartNotebookInstance $
---             startNotebookInstanceResponse
+--             mkStartNotebookInstanceResponse
 --
 --         , responseUpdateExperiment $
---             updateExperimentResponse
+--             mkUpdateExperimentResponse
 --
 --         , responseDeleteExperiment $
---             deleteExperimentResponse
+--             mkDeleteExperimentResponse
 --
 --         , responseAddTags $
---             addTagsResponse
+--             mkAddTagsResponse
 --
 --         , responseCreateWorkforce $
---             createWorkforceResponse
+--             mkCreateWorkforceResponse
 --
 --         , responseDescribeTrialComponent $
---             describeTrialComponentResponse
+--             mkDescribeTrialComponentResponse
 --
 --         , responseDescribeImageVersion $
---             describeImageVersionResponse
+--             mkDescribeImageVersionResponse
 --
 --         , responseListEndpointConfigs $
---             listEndpointConfigsResponse
+--             mkListEndpointConfigsResponse
 --
 --         , responseCreateFlowDefinition $
---             createFlowDefinitionResponse
+--             mkCreateFlowDefinitionResponse
 --
 --         , responseListTags $
---             listTagsResponse
+--             mkListTagsResponse
 --
 --         , responseDescribeHumanTaskUi $
---             describeHumanTaskUiResponse
+--             mkDescribeHumanTaskUiResponse
 --
 --         , responseCreateTrainingJob $
---             createTrainingJobResponse
+--             mkCreateTrainingJobResponse
 --
 --         , responseDeleteUserProfile $
---             deleteUserProfileResponse
+--             mkDeleteUserProfileResponse
 --
 --         , responseUpdateUserProfile $
---             updateUserProfileResponse
+--             mkUpdateUserProfileResponse
 --
 --         , responseCreateImage $
---             createImageResponse
+--             mkCreateImageResponse
 --
 --         , responseListTrials $
---             listTrialsResponse
+--             mkListTrialsResponse
 --
 --         , responseStopCompilationJob $
---             stopCompilationJobResponse
+--             mkStopCompilationJobResponse
 --
 --         , responseListImages $
---             listImagesResponse
+--             mkListImagesResponse
 --
 --         , responseCreateUserProfile $
---             createUserProfileResponse
+--             mkCreateUserProfileResponse
 --
 --         , responseSearch $
---             searchResponse
+--             mkSearchResponse
 --
 --         , responseUpdateCodeRepository $
---             updateCodeRepositoryResponse
+--             mkUpdateCodeRepositoryResponse
 --
 --         , responseDeleteCodeRepository $
---             deleteCodeRepositoryResponse
+--             mkDeleteCodeRepositoryResponse
 --
 --         , responseDescribeTransformJob $
---             describeTransformJobResponse
+--             mkDescribeTransformJobResponse
 --
 --         , responseListCandidatesForAutoMLJob $
---             listCandidatesForAutoMLJobResponse
+--             mkListCandidatesForAutoMLJobResponse
 --
 --         , responseDeleteImage $
---             deleteImageResponse
+--             mkDeleteImageResponse
 --
 --         , responseUpdateImage $
---             updateImageResponse
+--             mkUpdateImageResponse
 --
 --         , responseListFlowDefinitions $
---             listFlowDefinitionsResponse
+--             mkListFlowDefinitionsResponse
 --
 --         , responseDescribeEndpoint $
---             describeEndpointResponse
+--             mkDescribeEndpointResponse
 --
 --         , responseListTrainingJobs $
---             listTrainingJobsResponse
+--             mkListTrainingJobsResponse
 --
 --         , responseDescribeWorkteam $
---             describeWorkteamResponse
+--             mkDescribeWorkteamResponse
 --
 --         , responseListSubscribedWorkteams $
---             listSubscribedWorkteamsResponse
+--             mkListSubscribedWorkteamsResponse
 --
 --         , responseDeleteDomain $
---             deleteDomainResponse
+--             mkDeleteDomainResponse
 --
 --         , responseUpdateDomain $
---             updateDomainResponse
+--             mkUpdateDomainResponse
 --
 --         , responseListDomains $
---             listDomainsResponse
+--             mkListDomainsResponse
 --
 --         , responseCreateImageVersion $
---             createImageVersionResponse
+--             mkCreateImageVersionResponse
 --
 --         , responseStartMonitoringSchedule $
---             startMonitoringScheduleResponse
+--             mkStartMonitoringScheduleResponse
 --
 --         , responseStopAutoMLJob $
---             stopAutoMLJobResponse
+--             mkStopAutoMLJobResponse
 --
 --         , responseCreateTrialComponent $
---             createTrialComponentResponse
+--             mkCreateTrialComponentResponse
 --
 --         , responseDescribeProcessingJob $
---             describeProcessingJobResponse
+--             mkDescribeProcessingJobResponse
 --
 --           ]
 --     ]
@@ -1854,7 +1854,7 @@ responseCreateNotebookInstance =
   res
     "CreateNotebookInstanceResponse"
     "fixture/CreateNotebookInstanceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateNotebookInstance)
 
 responseDeleteModelPackage :: DeleteModelPackageResponse -> TestTree
@@ -1862,7 +1862,7 @@ responseDeleteModelPackage =
   res
     "DeleteModelPackageResponse"
     "fixture/DeleteModelPackageResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteModelPackage)
 
 responseDescribeMonitoringSchedule :: DescribeMonitoringScheduleResponse -> TestTree
@@ -1870,7 +1870,7 @@ responseDescribeMonitoringSchedule =
   res
     "DescribeMonitoringScheduleResponse"
     "fixture/DescribeMonitoringScheduleResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeMonitoringSchedule)
 
 responseListTrialComponents :: ListTrialComponentsResponse -> TestTree
@@ -1878,7 +1878,7 @@ responseListTrialComponents =
   res
     "ListTrialComponentsResponse"
     "fixture/ListTrialComponentsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListTrialComponents)
 
 responseDescribeEndpointConfig :: DescribeEndpointConfigResponse -> TestTree
@@ -1886,7 +1886,7 @@ responseDescribeEndpointConfig =
   res
     "DescribeEndpointConfigResponse"
     "fixture/DescribeEndpointConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeEndpointConfig)
 
 responseDescribeApp :: DescribeAppResponse -> TestTree
@@ -1894,7 +1894,7 @@ responseDescribeApp =
   res
     "DescribeAppResponse"
     "fixture/DescribeAppResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeApp)
 
 responseListImageVersions :: ListImageVersionsResponse -> TestTree
@@ -1902,7 +1902,7 @@ responseListImageVersions =
   res
     "ListImageVersionsResponse"
     "fixture/ListImageVersionsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListImageVersions)
 
 responseDescribeAutoMLJob :: DescribeAutoMLJobResponse -> TestTree
@@ -1910,7 +1910,7 @@ responseDescribeAutoMLJob =
   res
     "DescribeAutoMLJobResponse"
     "fixture/DescribeAutoMLJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeAutoMLJob)
 
 responseStopProcessingJob :: StopProcessingJobResponse -> TestTree
@@ -1918,7 +1918,7 @@ responseStopProcessingJob =
   res
     "StopProcessingJobResponse"
     "fixture/StopProcessingJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StopProcessingJob)
 
 responseListLabelingJobsForWorkteam :: ListLabelingJobsForWorkteamResponse -> TestTree
@@ -1926,7 +1926,7 @@ responseListLabelingJobsForWorkteam =
   res
     "ListLabelingJobsForWorkteamResponse"
     "fixture/ListLabelingJobsForWorkteamResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListLabelingJobsForWorkteam)
 
 responseCreateTransformJob :: CreateTransformJobResponse -> TestTree
@@ -1934,7 +1934,7 @@ responseCreateTransformJob =
   res
     "CreateTransformJobResponse"
     "fixture/CreateTransformJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateTransformJob)
 
 responseListCompilationJobs :: ListCompilationJobsResponse -> TestTree
@@ -1942,7 +1942,7 @@ responseListCompilationJobs =
   res
     "ListCompilationJobsResponse"
     "fixture/ListCompilationJobsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListCompilationJobs)
 
 responseDisassociateTrialComponent :: DisassociateTrialComponentResponse -> TestTree
@@ -1950,7 +1950,7 @@ responseDisassociateTrialComponent =
   res
     "DisassociateTrialComponentResponse"
     "fixture/DisassociateTrialComponentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DisassociateTrialComponent)
 
 responseStopHyperParameterTuningJob :: StopHyperParameterTuningJobResponse -> TestTree
@@ -1958,7 +1958,7 @@ responseStopHyperParameterTuningJob =
   res
     "StopHyperParameterTuningJobResponse"
     "fixture/StopHyperParameterTuningJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StopHyperParameterTuningJob)
 
 responseListHumanTaskUis :: ListHumanTaskUisResponse -> TestTree
@@ -1966,7 +1966,7 @@ responseListHumanTaskUis =
   res
     "ListHumanTaskUisResponse"
     "fixture/ListHumanTaskUisResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListHumanTaskUis)
 
 responseCreateEndpoint :: CreateEndpointResponse -> TestTree
@@ -1974,7 +1974,7 @@ responseCreateEndpoint =
   res
     "CreateEndpointResponse"
     "fixture/CreateEndpointResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateEndpoint)
 
 responseGetSearchSuggestions :: GetSearchSuggestionsResponse -> TestTree
@@ -1982,7 +1982,7 @@ responseGetSearchSuggestions =
   res
     "GetSearchSuggestionsResponse"
     "fixture/GetSearchSuggestionsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy GetSearchSuggestions)
 
 responseDescribeTrial :: DescribeTrialResponse -> TestTree
@@ -1990,7 +1990,7 @@ responseDescribeTrial =
   res
     "DescribeTrialResponse"
     "fixture/DescribeTrialResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeTrial)
 
 responseCreatePresignedDomainURL :: CreatePresignedDomainURLResponse -> TestTree
@@ -1998,7 +1998,7 @@ responseCreatePresignedDomainURL =
   res
     "CreatePresignedDomainURLResponse"
     "fixture/CreatePresignedDomainURLResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreatePresignedDomainURL)
 
 responseDescribeCodeRepository :: DescribeCodeRepositoryResponse -> TestTree
@@ -2006,7 +2006,7 @@ responseDescribeCodeRepository =
   res
     "DescribeCodeRepositoryResponse"
     "fixture/DescribeCodeRepositoryResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeCodeRepository)
 
 responseDescribeImage :: DescribeImageResponse -> TestTree
@@ -2014,7 +2014,7 @@ responseDescribeImage =
   res
     "DescribeImageResponse"
     "fixture/DescribeImageResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeImage)
 
 responseDescribeTrainingJob :: DescribeTrainingJobResponse -> TestTree
@@ -2022,7 +2022,7 @@ responseDescribeTrainingJob =
   res
     "DescribeTrainingJobResponse"
     "fixture/DescribeTrainingJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeTrainingJob)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
@@ -2030,7 +2030,7 @@ responseDeleteEndpoint =
   res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteEndpoint)
 
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
@@ -2038,7 +2038,7 @@ responseUpdateEndpoint =
   res
     "UpdateEndpointResponse"
     "fixture/UpdateEndpointResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateEndpoint)
 
 responseCreateHumanTaskUi :: CreateHumanTaskUiResponse -> TestTree
@@ -2046,7 +2046,7 @@ responseCreateHumanTaskUi =
   res
     "CreateHumanTaskUiResponse"
     "fixture/CreateHumanTaskUiResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateHumanTaskUi)
 
 responseCreateCompilationJob :: CreateCompilationJobResponse -> TestTree
@@ -2054,7 +2054,7 @@ responseCreateCompilationJob =
   res
     "CreateCompilationJobResponse"
     "fixture/CreateCompilationJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateCompilationJob)
 
 responseDeleteAppImageConfig :: DeleteAppImageConfigResponse -> TestTree
@@ -2062,7 +2062,7 @@ responseDeleteAppImageConfig =
   res
     "DeleteAppImageConfigResponse"
     "fixture/DeleteAppImageConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteAppImageConfig)
 
 responseUpdateAppImageConfig :: UpdateAppImageConfigResponse -> TestTree
@@ -2070,7 +2070,7 @@ responseUpdateAppImageConfig =
   res
     "UpdateAppImageConfigResponse"
     "fixture/UpdateAppImageConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateAppImageConfig)
 
 responseDeleteNotebookInstanceLifecycleConfig :: DeleteNotebookInstanceLifecycleConfigResponse -> TestTree
@@ -2078,7 +2078,7 @@ responseDeleteNotebookInstanceLifecycleConfig =
   res
     "DeleteNotebookInstanceLifecycleConfigResponse"
     "fixture/DeleteNotebookInstanceLifecycleConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteNotebookInstanceLifecycleConfig)
 
 responseUpdateNotebookInstanceLifecycleConfig :: UpdateNotebookInstanceLifecycleConfigResponse -> TestTree
@@ -2086,7 +2086,7 @@ responseUpdateNotebookInstanceLifecycleConfig =
   res
     "UpdateNotebookInstanceLifecycleConfigResponse"
     "fixture/UpdateNotebookInstanceLifecycleConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateNotebookInstanceLifecycleConfig)
 
 responseDeleteWorkforce :: DeleteWorkforceResponse -> TestTree
@@ -2094,7 +2094,7 @@ responseDeleteWorkforce =
   res
     "DeleteWorkforceResponse"
     "fixture/DeleteWorkforceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteWorkforce)
 
 responseUpdateWorkforce :: UpdateWorkforceResponse -> TestTree
@@ -2102,7 +2102,7 @@ responseUpdateWorkforce =
   res
     "UpdateWorkforceResponse"
     "fixture/UpdateWorkforceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateWorkforce)
 
 responseListProcessingJobs :: ListProcessingJobsResponse -> TestTree
@@ -2110,7 +2110,7 @@ responseListProcessingJobs =
   res
     "ListProcessingJobsResponse"
     "fixture/ListProcessingJobsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListProcessingJobs)
 
 responseCreateLabelingJob :: CreateLabelingJobResponse -> TestTree
@@ -2118,7 +2118,7 @@ responseCreateLabelingJob =
   res
     "CreateLabelingJobResponse"
     "fixture/CreateLabelingJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateLabelingJob)
 
 responseDescribeNotebookInstance :: DescribeNotebookInstanceResponse -> TestTree
@@ -2126,7 +2126,7 @@ responseDescribeNotebookInstance =
   res
     "DescribeNotebookInstanceResponse"
     "fixture/DescribeNotebookInstanceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeNotebookInstance)
 
 responseCreateMonitoringSchedule :: CreateMonitoringScheduleResponse -> TestTree
@@ -2134,7 +2134,7 @@ responseCreateMonitoringSchedule =
   res
     "CreateMonitoringScheduleResponse"
     "fixture/CreateMonitoringScheduleResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateMonitoringSchedule)
 
 responseListAppImageConfigs :: ListAppImageConfigsResponse -> TestTree
@@ -2142,7 +2142,7 @@ responseListAppImageConfigs =
   res
     "ListAppImageConfigsResponse"
     "fixture/ListAppImageConfigsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListAppImageConfigs)
 
 responseCreateEndpointConfig :: CreateEndpointConfigResponse -> TestTree
@@ -2150,7 +2150,7 @@ responseCreateEndpointConfig =
   res
     "CreateEndpointConfigResponse"
     "fixture/CreateEndpointConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateEndpointConfig)
 
 responseStopNotebookInstance :: StopNotebookInstanceResponse -> TestTree
@@ -2158,7 +2158,7 @@ responseStopNotebookInstance =
   res
     "StopNotebookInstanceResponse"
     "fixture/StopNotebookInstanceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StopNotebookInstance)
 
 responseUpdateEndpointWeightsAndCapacities :: UpdateEndpointWeightsAndCapacitiesResponse -> TestTree
@@ -2166,7 +2166,7 @@ responseUpdateEndpointWeightsAndCapacities =
   res
     "UpdateEndpointWeightsAndCapacitiesResponse"
     "fixture/UpdateEndpointWeightsAndCapacitiesResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateEndpointWeightsAndCapacities)
 
 responseCreateAppImageConfig :: CreateAppImageConfigResponse -> TestTree
@@ -2174,7 +2174,7 @@ responseCreateAppImageConfig =
   res
     "CreateAppImageConfigResponse"
     "fixture/CreateAppImageConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateAppImageConfig)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
@@ -2182,7 +2182,7 @@ responseDeleteTags =
   res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteTags)
 
 responseListExperiments :: ListExperimentsResponse -> TestTree
@@ -2190,7 +2190,7 @@ responseListExperiments =
   res
     "ListExperimentsResponse"
     "fixture/ListExperimentsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListExperiments)
 
 responseListAutoMLJobs :: ListAutoMLJobsResponse -> TestTree
@@ -2198,7 +2198,7 @@ responseListAutoMLJobs =
   res
     "ListAutoMLJobsResponse"
     "fixture/ListAutoMLJobsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListAutoMLJobs)
 
 responseListApps :: ListAppsResponse -> TestTree
@@ -2206,7 +2206,7 @@ responseListApps =
   res
     "ListAppsResponse"
     "fixture/ListAppsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListApps)
 
 responseCreateProcessingJob :: CreateProcessingJobResponse -> TestTree
@@ -2214,7 +2214,7 @@ responseCreateProcessingJob =
   res
     "CreateProcessingJobResponse"
     "fixture/CreateProcessingJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateProcessingJob)
 
 responseDeleteMonitoringSchedule :: DeleteMonitoringScheduleResponse -> TestTree
@@ -2222,7 +2222,7 @@ responseDeleteMonitoringSchedule =
   res
     "DeleteMonitoringScheduleResponse"
     "fixture/DeleteMonitoringScheduleResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteMonitoringSchedule)
 
 responseDescribeModelPackage :: DescribeModelPackageResponse -> TestTree
@@ -2230,7 +2230,7 @@ responseDescribeModelPackage =
   res
     "DescribeModelPackageResponse"
     "fixture/DescribeModelPackageResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeModelPackage)
 
 responseDeleteEndpointConfig :: DeleteEndpointConfigResponse -> TestTree
@@ -2238,7 +2238,7 @@ responseDeleteEndpointConfig =
   res
     "DeleteEndpointConfigResponse"
     "fixture/DeleteEndpointConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteEndpointConfig)
 
 responseUpdateMonitoringSchedule :: UpdateMonitoringScheduleResponse -> TestTree
@@ -2246,7 +2246,7 @@ responseUpdateMonitoringSchedule =
   res
     "UpdateMonitoringScheduleResponse"
     "fixture/UpdateMonitoringScheduleResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateMonitoringSchedule)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
@@ -2254,7 +2254,7 @@ responseDeleteApp =
   res
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteApp)
 
 responseCreateAlgorithm :: CreateAlgorithmResponse -> TestTree
@@ -2262,7 +2262,7 @@ responseCreateAlgorithm =
   res
     "CreateAlgorithmResponse"
     "fixture/CreateAlgorithmResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateAlgorithm)
 
 responseStopTransformJob :: StopTransformJobResponse -> TestTree
@@ -2270,7 +2270,7 @@ responseStopTransformJob =
   res
     "StopTransformJobResponse"
     "fixture/StopTransformJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StopTransformJob)
 
 responseCreateModel :: CreateModelResponse -> TestTree
@@ -2278,7 +2278,7 @@ responseCreateModel =
   res
     "CreateModelResponse"
     "fixture/CreateModelResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateModel)
 
 responseListUserProfiles :: ListUserProfilesResponse -> TestTree
@@ -2286,7 +2286,7 @@ responseListUserProfiles =
   res
     "ListUserProfilesResponse"
     "fixture/ListUserProfilesResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListUserProfiles)
 
 responseCreateCodeRepository :: CreateCodeRepositoryResponse -> TestTree
@@ -2294,7 +2294,7 @@ responseCreateCodeRepository =
   res
     "CreateCodeRepositoryResponse"
     "fixture/CreateCodeRepositoryResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateCodeRepository)
 
 responseCreateHyperParameterTuningJob :: CreateHyperParameterTuningJobResponse -> TestTree
@@ -2302,7 +2302,7 @@ responseCreateHyperParameterTuningJob =
   res
     "CreateHyperParameterTuningJobResponse"
     "fixture/CreateHyperParameterTuningJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateHyperParameterTuningJob)
 
 responseDeleteTrial :: DeleteTrialResponse -> TestTree
@@ -2310,7 +2310,7 @@ responseDeleteTrial =
   res
     "DeleteTrialResponse"
     "fixture/DeleteTrialResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteTrial)
 
 responseUpdateTrial :: UpdateTrialResponse -> TestTree
@@ -2318,7 +2318,7 @@ responseUpdateTrial =
   res
     "UpdateTrialResponse"
     "fixture/UpdateTrialResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateTrial)
 
 responseListCodeRepositories :: ListCodeRepositoriesResponse -> TestTree
@@ -2326,7 +2326,7 @@ responseListCodeRepositories =
   res
     "ListCodeRepositoriesResponse"
     "fixture/ListCodeRepositoriesResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListCodeRepositories)
 
 responseDescribeCompilationJob :: DescribeCompilationJobResponse -> TestTree
@@ -2334,7 +2334,7 @@ responseDescribeCompilationJob =
   res
     "DescribeCompilationJobResponse"
     "fixture/DescribeCompilationJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeCompilationJob)
 
 responseListHyperParameterTuningJobs :: ListHyperParameterTuningJobsResponse -> TestTree
@@ -2342,7 +2342,7 @@ responseListHyperParameterTuningJobs =
   res
     "ListHyperParameterTuningJobsResponse"
     "fixture/ListHyperParameterTuningJobsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListHyperParameterTuningJobs)
 
 responseListAlgorithms :: ListAlgorithmsResponse -> TestTree
@@ -2350,7 +2350,7 @@ responseListAlgorithms =
   res
     "ListAlgorithmsResponse"
     "fixture/ListAlgorithmsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListAlgorithms)
 
 responseRenderUiTemplate :: RenderUiTemplateResponse -> TestTree
@@ -2358,7 +2358,7 @@ responseRenderUiTemplate =
   res
     "RenderUiTemplateResponse"
     "fixture/RenderUiTemplateResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy RenderUiTemplate)
 
 responseDeleteFlowDefinition :: DeleteFlowDefinitionResponse -> TestTree
@@ -2366,7 +2366,7 @@ responseDeleteFlowDefinition =
   res
     "DeleteFlowDefinitionResponse"
     "fixture/DeleteFlowDefinitionResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteFlowDefinition)
 
 responseCreateTrial :: CreateTrialResponse -> TestTree
@@ -2374,7 +2374,7 @@ responseCreateTrial =
   res
     "CreateTrialResponse"
     "fixture/CreateTrialResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateTrial)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
@@ -2382,7 +2382,7 @@ responseDeleteModel =
   res
     "DeleteModelResponse"
     "fixture/DeleteModelResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteModel)
 
 responseListModels :: ListModelsResponse -> TestTree
@@ -2390,7 +2390,7 @@ responseListModels =
   res
     "ListModelsResponse"
     "fixture/ListModelsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListModels)
 
 responseDeleteAlgorithm :: DeleteAlgorithmResponse -> TestTree
@@ -2398,7 +2398,7 @@ responseDeleteAlgorithm =
   res
     "DeleteAlgorithmResponse"
     "fixture/DeleteAlgorithmResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteAlgorithm)
 
 responseAssociateTrialComponent :: AssociateTrialComponentResponse -> TestTree
@@ -2406,7 +2406,7 @@ responseAssociateTrialComponent =
   res
     "AssociateTrialComponentResponse"
     "fixture/AssociateTrialComponentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy AssociateTrialComponent)
 
 responseDescribeNotebookInstanceLifecycleConfig :: DescribeNotebookInstanceLifecycleConfigResponse -> TestTree
@@ -2414,7 +2414,7 @@ responseDescribeNotebookInstanceLifecycleConfig =
   res
     "DescribeNotebookInstanceLifecycleConfigResponse"
     "fixture/DescribeNotebookInstanceLifecycleConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeNotebookInstanceLifecycleConfig)
 
 responseDescribeWorkforce :: DescribeWorkforceResponse -> TestTree
@@ -2422,7 +2422,7 @@ responseDescribeWorkforce =
   res
     "DescribeWorkforceResponse"
     "fixture/DescribeWorkforceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeWorkforce)
 
 responseCreateModelPackage :: CreateModelPackageResponse -> TestTree
@@ -2430,7 +2430,7 @@ responseCreateModelPackage =
   res
     "CreateModelPackageResponse"
     "fixture/CreateModelPackageResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateModelPackage)
 
 responseStopMonitoringSchedule :: StopMonitoringScheduleResponse -> TestTree
@@ -2438,7 +2438,7 @@ responseStopMonitoringSchedule =
   res
     "StopMonitoringScheduleResponse"
     "fixture/StopMonitoringScheduleResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StopMonitoringSchedule)
 
 responseDescribeAppImageConfig :: DescribeAppImageConfigResponse -> TestTree
@@ -2446,7 +2446,7 @@ responseDescribeAppImageConfig =
   res
     "DescribeAppImageConfigResponse"
     "fixture/DescribeAppImageConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeAppImageConfig)
 
 responseListNotebookInstances :: ListNotebookInstancesResponse -> TestTree
@@ -2454,7 +2454,7 @@ responseListNotebookInstances =
   res
     "ListNotebookInstancesResponse"
     "fixture/ListNotebookInstancesResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListNotebookInstances)
 
 responseStopLabelingJob :: StopLabelingJobResponse -> TestTree
@@ -2462,7 +2462,7 @@ responseStopLabelingJob =
   res
     "StopLabelingJobResponse"
     "fixture/StopLabelingJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StopLabelingJob)
 
 responseDeleteNotebookInstance :: DeleteNotebookInstanceResponse -> TestTree
@@ -2470,7 +2470,7 @@ responseDeleteNotebookInstance =
   res
     "DeleteNotebookInstanceResponse"
     "fixture/DeleteNotebookInstanceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteNotebookInstance)
 
 responseUpdateNotebookInstance :: UpdateNotebookInstanceResponse -> TestTree
@@ -2478,7 +2478,7 @@ responseUpdateNotebookInstance =
   res
     "UpdateNotebookInstanceResponse"
     "fixture/UpdateNotebookInstanceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateNotebookInstance)
 
 responseListModelPackages :: ListModelPackagesResponse -> TestTree
@@ -2486,7 +2486,7 @@ responseListModelPackages =
   res
     "ListModelPackagesResponse"
     "fixture/ListModelPackagesResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListModelPackages)
 
 responseDeleteImageVersion :: DeleteImageVersionResponse -> TestTree
@@ -2494,7 +2494,7 @@ responseDeleteImageVersion =
   res
     "DeleteImageVersionResponse"
     "fixture/DeleteImageVersionResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteImageVersion)
 
 responseDescribeExperiment :: DescribeExperimentResponse -> TestTree
@@ -2502,7 +2502,7 @@ responseDescribeExperiment =
   res
     "DescribeExperimentResponse"
     "fixture/DescribeExperimentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeExperiment)
 
 responseDeleteTrialComponent :: DeleteTrialComponentResponse -> TestTree
@@ -2510,7 +2510,7 @@ responseDeleteTrialComponent =
   res
     "DeleteTrialComponentResponse"
     "fixture/DeleteTrialComponentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteTrialComponent)
 
 responseUpdateTrialComponent :: UpdateTrialComponentResponse -> TestTree
@@ -2518,7 +2518,7 @@ responseUpdateTrialComponent =
   res
     "UpdateTrialComponentResponse"
     "fixture/UpdateTrialComponentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateTrialComponent)
 
 responseDescribeLabelingJob :: DescribeLabelingJobResponse -> TestTree
@@ -2526,7 +2526,7 @@ responseDescribeLabelingJob =
   res
     "DescribeLabelingJobResponse"
     "fixture/DescribeLabelingJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeLabelingJob)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
@@ -2534,7 +2534,7 @@ responseCreateDomain =
   res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateDomain)
 
 responseDescribeUserProfile :: DescribeUserProfileResponse -> TestTree
@@ -2542,7 +2542,7 @@ responseDescribeUserProfile =
   res
     "DescribeUserProfileResponse"
     "fixture/DescribeUserProfileResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeUserProfile)
 
 responseListMonitoringExecutions :: ListMonitoringExecutionsResponse -> TestTree
@@ -2550,7 +2550,7 @@ responseListMonitoringExecutions =
   res
     "ListMonitoringExecutionsResponse"
     "fixture/ListMonitoringExecutionsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListMonitoringExecutions)
 
 responseDeleteHumanTaskUi :: DeleteHumanTaskUiResponse -> TestTree
@@ -2558,7 +2558,7 @@ responseDeleteHumanTaskUi =
   res
     "DeleteHumanTaskUiResponse"
     "fixture/DeleteHumanTaskUiResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteHumanTaskUi)
 
 responseStopTrainingJob :: StopTrainingJobResponse -> TestTree
@@ -2566,7 +2566,7 @@ responseStopTrainingJob =
   res
     "StopTrainingJobResponse"
     "fixture/StopTrainingJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StopTrainingJob)
 
 responseDescribeAlgorithm :: DescribeAlgorithmResponse -> TestTree
@@ -2574,7 +2574,7 @@ responseDescribeAlgorithm =
   res
     "DescribeAlgorithmResponse"
     "fixture/DescribeAlgorithmResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeAlgorithm)
 
 responseDescribeModel :: DescribeModelResponse -> TestTree
@@ -2582,7 +2582,7 @@ responseDescribeModel =
   res
     "DescribeModelResponse"
     "fixture/DescribeModelResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeModel)
 
 responseListTransformJobs :: ListTransformJobsResponse -> TestTree
@@ -2590,7 +2590,7 @@ responseListTransformJobs =
   res
     "ListTransformJobsResponse"
     "fixture/ListTransformJobsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListTransformJobs)
 
 responseDescribeHyperParameterTuningJob :: DescribeHyperParameterTuningJobResponse -> TestTree
@@ -2598,7 +2598,7 @@ responseDescribeHyperParameterTuningJob =
   res
     "DescribeHyperParameterTuningJobResponse"
     "fixture/DescribeHyperParameterTuningJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeHyperParameterTuningJob)
 
 responseListEndpoints :: ListEndpointsResponse -> TestTree
@@ -2606,7 +2606,7 @@ responseListEndpoints =
   res
     "ListEndpointsResponse"
     "fixture/ListEndpointsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListEndpoints)
 
 responseDescribeFlowDefinition :: DescribeFlowDefinitionResponse -> TestTree
@@ -2614,7 +2614,7 @@ responseDescribeFlowDefinition =
   res
     "DescribeFlowDefinitionResponse"
     "fixture/DescribeFlowDefinitionResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeFlowDefinition)
 
 responseCreatePresignedNotebookInstanceURL :: CreatePresignedNotebookInstanceURLResponse -> TestTree
@@ -2622,7 +2622,7 @@ responseCreatePresignedNotebookInstanceURL =
   res
     "CreatePresignedNotebookInstanceURLResponse"
     "fixture/CreatePresignedNotebookInstanceURLResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreatePresignedNotebookInstanceURL)
 
 responseListTrainingJobsForHyperParameterTuningJob :: ListTrainingJobsForHyperParameterTuningJobResponse -> TestTree
@@ -2630,7 +2630,7 @@ responseListTrainingJobsForHyperParameterTuningJob =
   res
     "ListTrainingJobsForHyperParameterTuningJobResponse"
     "fixture/ListTrainingJobsForHyperParameterTuningJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListTrainingJobsForHyperParameterTuningJob)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
@@ -2638,7 +2638,7 @@ responseDescribeDomain =
   res
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeDomain)
 
 responseUpdateWorkteam :: UpdateWorkteamResponse -> TestTree
@@ -2646,7 +2646,7 @@ responseUpdateWorkteam =
   res
     "UpdateWorkteamResponse"
     "fixture/UpdateWorkteamResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateWorkteam)
 
 responseDeleteWorkteam :: DeleteWorkteamResponse -> TestTree
@@ -2654,7 +2654,7 @@ responseDeleteWorkteam =
   res
     "DeleteWorkteamResponse"
     "fixture/DeleteWorkteamResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteWorkteam)
 
 responseListWorkteams :: ListWorkteamsResponse -> TestTree
@@ -2662,7 +2662,7 @@ responseListWorkteams =
   res
     "ListWorkteamsResponse"
     "fixture/ListWorkteamsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListWorkteams)
 
 responseCreateAutoMLJob :: CreateAutoMLJobResponse -> TestTree
@@ -2670,7 +2670,7 @@ responseCreateAutoMLJob =
   res
     "CreateAutoMLJobResponse"
     "fixture/CreateAutoMLJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateAutoMLJob)
 
 responseCreateApp :: CreateAppResponse -> TestTree
@@ -2678,7 +2678,7 @@ responseCreateApp =
   res
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateApp)
 
 responseCreateExperiment :: CreateExperimentResponse -> TestTree
@@ -2686,7 +2686,7 @@ responseCreateExperiment =
   res
     "CreateExperimentResponse"
     "fixture/CreateExperimentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateExperiment)
 
 responseListNotebookInstanceLifecycleConfigs :: ListNotebookInstanceLifecycleConfigsResponse -> TestTree
@@ -2694,7 +2694,7 @@ responseListNotebookInstanceLifecycleConfigs =
   res
     "ListNotebookInstanceLifecycleConfigsResponse"
     "fixture/ListNotebookInstanceLifecycleConfigsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListNotebookInstanceLifecycleConfigs)
 
 responseListWorkforces :: ListWorkforcesResponse -> TestTree
@@ -2702,7 +2702,7 @@ responseListWorkforces =
   res
     "ListWorkforcesResponse"
     "fixture/ListWorkforcesResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListWorkforces)
 
 responseDescribeSubscribedWorkteam :: DescribeSubscribedWorkteamResponse -> TestTree
@@ -2710,7 +2710,7 @@ responseDescribeSubscribedWorkteam =
   res
     "DescribeSubscribedWorkteamResponse"
     "fixture/DescribeSubscribedWorkteamResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeSubscribedWorkteam)
 
 responseCreateWorkteam :: CreateWorkteamResponse -> TestTree
@@ -2718,7 +2718,7 @@ responseCreateWorkteam =
   res
     "CreateWorkteamResponse"
     "fixture/CreateWorkteamResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateWorkteam)
 
 responseCreateNotebookInstanceLifecycleConfig :: CreateNotebookInstanceLifecycleConfigResponse -> TestTree
@@ -2726,7 +2726,7 @@ responseCreateNotebookInstanceLifecycleConfig =
   res
     "CreateNotebookInstanceLifecycleConfigResponse"
     "fixture/CreateNotebookInstanceLifecycleConfigResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateNotebookInstanceLifecycleConfig)
 
 responseListMonitoringSchedules :: ListMonitoringSchedulesResponse -> TestTree
@@ -2734,7 +2734,7 @@ responseListMonitoringSchedules =
   res
     "ListMonitoringSchedulesResponse"
     "fixture/ListMonitoringSchedulesResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListMonitoringSchedules)
 
 responseListLabelingJobs :: ListLabelingJobsResponse -> TestTree
@@ -2742,7 +2742,7 @@ responseListLabelingJobs =
   res
     "ListLabelingJobsResponse"
     "fixture/ListLabelingJobsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListLabelingJobs)
 
 responseStartNotebookInstance :: StartNotebookInstanceResponse -> TestTree
@@ -2750,7 +2750,7 @@ responseStartNotebookInstance =
   res
     "StartNotebookInstanceResponse"
     "fixture/StartNotebookInstanceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StartNotebookInstance)
 
 responseUpdateExperiment :: UpdateExperimentResponse -> TestTree
@@ -2758,7 +2758,7 @@ responseUpdateExperiment =
   res
     "UpdateExperimentResponse"
     "fixture/UpdateExperimentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateExperiment)
 
 responseDeleteExperiment :: DeleteExperimentResponse -> TestTree
@@ -2766,7 +2766,7 @@ responseDeleteExperiment =
   res
     "DeleteExperimentResponse"
     "fixture/DeleteExperimentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteExperiment)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -2774,7 +2774,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy AddTags)
 
 responseCreateWorkforce :: CreateWorkforceResponse -> TestTree
@@ -2782,7 +2782,7 @@ responseCreateWorkforce =
   res
     "CreateWorkforceResponse"
     "fixture/CreateWorkforceResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateWorkforce)
 
 responseDescribeTrialComponent :: DescribeTrialComponentResponse -> TestTree
@@ -2790,7 +2790,7 @@ responseDescribeTrialComponent =
   res
     "DescribeTrialComponentResponse"
     "fixture/DescribeTrialComponentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeTrialComponent)
 
 responseDescribeImageVersion :: DescribeImageVersionResponse -> TestTree
@@ -2798,7 +2798,7 @@ responseDescribeImageVersion =
   res
     "DescribeImageVersionResponse"
     "fixture/DescribeImageVersionResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeImageVersion)
 
 responseListEndpointConfigs :: ListEndpointConfigsResponse -> TestTree
@@ -2806,7 +2806,7 @@ responseListEndpointConfigs =
   res
     "ListEndpointConfigsResponse"
     "fixture/ListEndpointConfigsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListEndpointConfigs)
 
 responseCreateFlowDefinition :: CreateFlowDefinitionResponse -> TestTree
@@ -2814,7 +2814,7 @@ responseCreateFlowDefinition =
   res
     "CreateFlowDefinitionResponse"
     "fixture/CreateFlowDefinitionResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateFlowDefinition)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -2822,7 +2822,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListTags)
 
 responseDescribeHumanTaskUi :: DescribeHumanTaskUiResponse -> TestTree
@@ -2830,7 +2830,7 @@ responseDescribeHumanTaskUi =
   res
     "DescribeHumanTaskUiResponse"
     "fixture/DescribeHumanTaskUiResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeHumanTaskUi)
 
 responseCreateTrainingJob :: CreateTrainingJobResponse -> TestTree
@@ -2838,7 +2838,7 @@ responseCreateTrainingJob =
   res
     "CreateTrainingJobResponse"
     "fixture/CreateTrainingJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateTrainingJob)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
@@ -2846,7 +2846,7 @@ responseDeleteUserProfile =
   res
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteUserProfile)
 
 responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
@@ -2854,7 +2854,7 @@ responseUpdateUserProfile =
   res
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateUserProfile)
 
 responseCreateImage :: CreateImageResponse -> TestTree
@@ -2862,7 +2862,7 @@ responseCreateImage =
   res
     "CreateImageResponse"
     "fixture/CreateImageResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateImage)
 
 responseListTrials :: ListTrialsResponse -> TestTree
@@ -2870,7 +2870,7 @@ responseListTrials =
   res
     "ListTrialsResponse"
     "fixture/ListTrialsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListTrials)
 
 responseStopCompilationJob :: StopCompilationJobResponse -> TestTree
@@ -2878,7 +2878,7 @@ responseStopCompilationJob =
   res
     "StopCompilationJobResponse"
     "fixture/StopCompilationJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StopCompilationJob)
 
 responseListImages :: ListImagesResponse -> TestTree
@@ -2886,7 +2886,7 @@ responseListImages =
   res
     "ListImagesResponse"
     "fixture/ListImagesResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListImages)
 
 responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
@@ -2894,7 +2894,7 @@ responseCreateUserProfile =
   res
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateUserProfile)
 
 responseSearch :: SearchResponse -> TestTree
@@ -2902,7 +2902,7 @@ responseSearch =
   res
     "SearchResponse"
     "fixture/SearchResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy Search)
 
 responseUpdateCodeRepository :: UpdateCodeRepositoryResponse -> TestTree
@@ -2910,7 +2910,7 @@ responseUpdateCodeRepository =
   res
     "UpdateCodeRepositoryResponse"
     "fixture/UpdateCodeRepositoryResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateCodeRepository)
 
 responseDeleteCodeRepository :: DeleteCodeRepositoryResponse -> TestTree
@@ -2918,7 +2918,7 @@ responseDeleteCodeRepository =
   res
     "DeleteCodeRepositoryResponse"
     "fixture/DeleteCodeRepositoryResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteCodeRepository)
 
 responseDescribeTransformJob :: DescribeTransformJobResponse -> TestTree
@@ -2926,7 +2926,7 @@ responseDescribeTransformJob =
   res
     "DescribeTransformJobResponse"
     "fixture/DescribeTransformJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeTransformJob)
 
 responseListCandidatesForAutoMLJob :: ListCandidatesForAutoMLJobResponse -> TestTree
@@ -2934,7 +2934,7 @@ responseListCandidatesForAutoMLJob =
   res
     "ListCandidatesForAutoMLJobResponse"
     "fixture/ListCandidatesForAutoMLJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListCandidatesForAutoMLJob)
 
 responseDeleteImage :: DeleteImageResponse -> TestTree
@@ -2942,7 +2942,7 @@ responseDeleteImage =
   res
     "DeleteImageResponse"
     "fixture/DeleteImageResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteImage)
 
 responseUpdateImage :: UpdateImageResponse -> TestTree
@@ -2950,7 +2950,7 @@ responseUpdateImage =
   res
     "UpdateImageResponse"
     "fixture/UpdateImageResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateImage)
 
 responseListFlowDefinitions :: ListFlowDefinitionsResponse -> TestTree
@@ -2958,7 +2958,7 @@ responseListFlowDefinitions =
   res
     "ListFlowDefinitionsResponse"
     "fixture/ListFlowDefinitionsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListFlowDefinitions)
 
 responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
@@ -2966,7 +2966,7 @@ responseDescribeEndpoint =
   res
     "DescribeEndpointResponse"
     "fixture/DescribeEndpointResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeEndpoint)
 
 responseListTrainingJobs :: ListTrainingJobsResponse -> TestTree
@@ -2974,7 +2974,7 @@ responseListTrainingJobs =
   res
     "ListTrainingJobsResponse"
     "fixture/ListTrainingJobsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListTrainingJobs)
 
 responseDescribeWorkteam :: DescribeWorkteamResponse -> TestTree
@@ -2982,7 +2982,7 @@ responseDescribeWorkteam =
   res
     "DescribeWorkteamResponse"
     "fixture/DescribeWorkteamResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeWorkteam)
 
 responseListSubscribedWorkteams :: ListSubscribedWorkteamsResponse -> TestTree
@@ -2990,7 +2990,7 @@ responseListSubscribedWorkteams =
   res
     "ListSubscribedWorkteamsResponse"
     "fixture/ListSubscribedWorkteamsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListSubscribedWorkteams)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
@@ -2998,7 +2998,7 @@ responseDeleteDomain =
   res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DeleteDomain)
 
 responseUpdateDomain :: UpdateDomainResponse -> TestTree
@@ -3006,7 +3006,7 @@ responseUpdateDomain =
   res
     "UpdateDomainResponse"
     "fixture/UpdateDomainResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy UpdateDomain)
 
 responseListDomains :: ListDomainsResponse -> TestTree
@@ -3014,7 +3014,7 @@ responseListDomains =
   res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy ListDomains)
 
 responseCreateImageVersion :: CreateImageVersionResponse -> TestTree
@@ -3022,7 +3022,7 @@ responseCreateImageVersion =
   res
     "CreateImageVersionResponse"
     "fixture/CreateImageVersionResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateImageVersion)
 
 responseStartMonitoringSchedule :: StartMonitoringScheduleResponse -> TestTree
@@ -3030,7 +3030,7 @@ responseStartMonitoringSchedule =
   res
     "StartMonitoringScheduleResponse"
     "fixture/StartMonitoringScheduleResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StartMonitoringSchedule)
 
 responseStopAutoMLJob :: StopAutoMLJobResponse -> TestTree
@@ -3038,7 +3038,7 @@ responseStopAutoMLJob =
   res
     "StopAutoMLJobResponse"
     "fixture/StopAutoMLJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy StopAutoMLJob)
 
 responseCreateTrialComponent :: CreateTrialComponentResponse -> TestTree
@@ -3046,7 +3046,7 @@ responseCreateTrialComponent =
   res
     "CreateTrialComponentResponse"
     "fixture/CreateTrialComponentResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy CreateTrialComponent)
 
 responseDescribeProcessingJob :: DescribeProcessingJobResponse -> TestTree
@@ -3054,5 +3054,5 @@ responseDescribeProcessingJob =
   res
     "DescribeProcessingJobResponse"
     "fixture/DescribeProcessingJobResponse.proto"
-    sageMaker
+    sageMakerService
     (Proxy :: Proxy DescribeProcessingJob)

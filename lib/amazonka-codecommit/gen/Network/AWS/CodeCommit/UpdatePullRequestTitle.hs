@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,139 +14,153 @@
 --
 -- Replaces the title of a pull request.
 module Network.AWS.CodeCommit.UpdatePullRequestTitle
-  ( -- * Creating a Request
-    updatePullRequestTitle,
-    UpdatePullRequestTitle,
+  ( -- * Creating a request
+    UpdatePullRequestTitle (..),
+    mkUpdatePullRequestTitle,
 
-    -- * Request Lenses
+    -- ** Request lenses
     uprtPullRequestId,
     uprtTitle,
 
-    -- * Destructuring the Response
-    updatePullRequestTitleResponse,
-    UpdatePullRequestTitleResponse,
+    -- * Destructuring the response
+    UpdatePullRequestTitleResponse (..),
+    mkUpdatePullRequestTitleResponse,
 
-    -- * Response Lenses
+    -- ** Response lenses
     uprtrsResponseStatus,
     uprtrsPullRequest,
   )
 where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
--- | /See:/ 'updatePullRequestTitle' smart constructor.
+-- | /See:/ 'mkUpdatePullRequestTitle' smart constructor.
 data UpdatePullRequestTitle = UpdatePullRequestTitle'
-  { _uprtPullRequestId ::
-      !Text,
-    _uprtTitle :: !Text
+  { pullRequestId ::
+      Lude.Text,
+    title :: Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePullRequestTitle' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uprtPullRequestId' - The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
---
--- * 'uprtTitle' - The updated title of the pull request. This replaces the existing title.
-updatePullRequestTitle ::
-  -- | 'uprtPullRequestId'
-  Text ->
-  -- | 'uprtTitle'
-  Text ->
+-- * 'pullRequestId' - The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+-- * 'title' - The updated title of the pull request. This replaces the existing title.
+mkUpdatePullRequestTitle ::
+  -- | 'pullRequestId'
+  Lude.Text ->
+  -- | 'title'
+  Lude.Text ->
   UpdatePullRequestTitle
-updatePullRequestTitle pPullRequestId_ pTitle_ =
+mkUpdatePullRequestTitle pPullRequestId_ pTitle_ =
   UpdatePullRequestTitle'
-    { _uprtPullRequestId = pPullRequestId_,
-      _uprtTitle = pTitle_
+    { pullRequestId = pPullRequestId_,
+      title = pTitle_
     }
 
 -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
-uprtPullRequestId :: Lens' UpdatePullRequestTitle Text
-uprtPullRequestId = lens _uprtPullRequestId (\s a -> s {_uprtPullRequestId = a})
+--
+-- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprtPullRequestId :: Lens.Lens' UpdatePullRequestTitle Lude.Text
+uprtPullRequestId = Lens.lens (pullRequestId :: UpdatePullRequestTitle -> Lude.Text) (\s a -> s {pullRequestId = a} :: UpdatePullRequestTitle)
+{-# DEPRECATED uprtPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The updated title of the pull request. This replaces the existing title.
-uprtTitle :: Lens' UpdatePullRequestTitle Text
-uprtTitle = lens _uprtTitle (\s a -> s {_uprtTitle = a})
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprtTitle :: Lens.Lens' UpdatePullRequestTitle Lude.Text
+uprtTitle = Lens.lens (title :: UpdatePullRequestTitle -> Lude.Text) (\s a -> s {title = a} :: UpdatePullRequestTitle)
+{-# DEPRECATED uprtTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
-instance AWSRequest UpdatePullRequestTitle where
+instance Lude.AWSRequest UpdatePullRequestTitle where
   type Rs UpdatePullRequestTitle = UpdatePullRequestTitleResponse
-  request = postJSON codeCommit
+  request = Req.postJSON codeCommitService
   response =
-    receiveJSON
+    Res.receiveJSON
       ( \s h x ->
           UpdatePullRequestTitleResponse'
-            <$> (pure (fromEnum s)) <*> (x .:> "pullRequest")
+            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "pullRequest")
       )
 
-instance Hashable UpdatePullRequestTitle
-
-instance NFData UpdatePullRequestTitle
-
-instance ToHeaders UpdatePullRequestTitle where
+instance Lude.ToHeaders UpdatePullRequestTitle where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("CodeCommit_20150413.UpdatePullRequestTitle" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("CodeCommit_20150413.UpdatePullRequestTitle" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON UpdatePullRequestTitle where
+instance Lude.ToJSON UpdatePullRequestTitle where
   toJSON UpdatePullRequestTitle' {..} =
-    object
-      ( catMaybes
-          [ Just ("pullRequestId" .= _uprtPullRequestId),
-            Just ("title" .= _uprtTitle)
+    Lude.object
+      ( Lude.catMaybes
+          [ Lude.Just ("pullRequestId" Lude..= pullRequestId),
+            Lude.Just ("title" Lude..= title)
           ]
       )
 
-instance ToPath UpdatePullRequestTitle where
-  toPath = const "/"
+instance Lude.ToPath UpdatePullRequestTitle where
+  toPath = Lude.const "/"
 
-instance ToQuery UpdatePullRequestTitle where
-  toQuery = const mempty
+instance Lude.ToQuery UpdatePullRequestTitle where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'updatePullRequestTitleResponse' smart constructor.
+-- | /See:/ 'mkUpdatePullRequestTitleResponse' smart constructor.
 data UpdatePullRequestTitleResponse = UpdatePullRequestTitleResponse'
-  { _uprtrsResponseStatus ::
-      !Int,
-    _uprtrsPullRequest ::
-      !PullRequest
+  { responseStatus ::
+      Lude.Int,
+    pullRequest :: PullRequest
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePullRequestTitleResponse' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uprtrsResponseStatus' - -- | The response status code.
---
--- * 'uprtrsPullRequest' - Information about the updated pull request.
-updatePullRequestTitleResponse ::
-  -- | 'uprtrsResponseStatus'
-  Int ->
-  -- | 'uprtrsPullRequest'
+-- * 'pullRequest' - Information about the updated pull request.
+-- * 'responseStatus' - The response status code.
+mkUpdatePullRequestTitleResponse ::
+  -- | 'responseStatus'
+  Lude.Int ->
+  -- | 'pullRequest'
   PullRequest ->
   UpdatePullRequestTitleResponse
-updatePullRequestTitleResponse pResponseStatus_ pPullRequest_ =
+mkUpdatePullRequestTitleResponse pResponseStatus_ pPullRequest_ =
   UpdatePullRequestTitleResponse'
-    { _uprtrsResponseStatus =
+    { responseStatus =
         pResponseStatus_,
-      _uprtrsPullRequest = pPullRequest_
+      pullRequest = pPullRequest_
     }
 
--- | -- | The response status code.
-uprtrsResponseStatus :: Lens' UpdatePullRequestTitleResponse Int
-uprtrsResponseStatus = lens _uprtrsResponseStatus (\s a -> s {_uprtrsResponseStatus = a})
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprtrsResponseStatus :: Lens.Lens' UpdatePullRequestTitleResponse Lude.Int
+uprtrsResponseStatus = Lens.lens (responseStatus :: UpdatePullRequestTitleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePullRequestTitleResponse)
+{-# DEPRECATED uprtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the updated pull request.
-uprtrsPullRequest :: Lens' UpdatePullRequestTitleResponse PullRequest
-uprtrsPullRequest = lens _uprtrsPullRequest (\s a -> s {_uprtrsPullRequest = a})
-
-instance NFData UpdatePullRequestTitleResponse
+--
+-- /Note:/ Consider using 'pullRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprtrsPullRequest :: Lens.Lens' UpdatePullRequestTitleResponse PullRequest
+uprtrsPullRequest = Lens.lens (pullRequest :: UpdatePullRequestTitleResponse -> PullRequest) (\s a -> s {pullRequest = a} :: UpdatePullRequestTitleResponse)
+{-# DEPRECATED uprtrsPullRequest "Use generic-lens or generic-optics with 'pullRequest' instead." #-}

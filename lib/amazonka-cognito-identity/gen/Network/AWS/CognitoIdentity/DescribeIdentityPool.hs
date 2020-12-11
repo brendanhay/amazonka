@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +14,20 @@
 --
 -- Gets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.
 --
---
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.DescribeIdentityPool
-  ( -- * Creating a Request
-    describeIdentityPool,
-    DescribeIdentityPool,
+  ( -- * Creating a request
+    DescribeIdentityPool (..),
+    mkDescribeIdentityPool,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dipIdentityPoolId,
 
-    -- * Destructuring the Response
-    identityPool,
-    IdentityPool,
+    -- * Destructuring the response
+    IdentityPool (..),
+    mkIdentityPool,
 
-    -- * Response Lenses
+    -- ** Response lenses
     ipSamlProviderARNs,
     ipSupportedLoginProviders,
     ipAllowClassicFlow,
@@ -48,64 +42,71 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
 where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 
 -- | Input to the DescribeIdentityPool action.
 --
---
---
--- /See:/ 'describeIdentityPool' smart constructor.
+-- /See:/ 'mkDescribeIdentityPool' smart constructor.
 newtype DescribeIdentityPool = DescribeIdentityPool'
-  { _dipIdentityPoolId ::
-      Text
+  { identityPoolId ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityPool' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dipIdentityPoolId' - An identity pool ID in the format REGION:GUID.
-describeIdentityPool ::
-  -- | 'dipIdentityPoolId'
-  Text ->
+-- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
+mkDescribeIdentityPool ::
+  -- | 'identityPoolId'
+  Lude.Text ->
   DescribeIdentityPool
-describeIdentityPool pIdentityPoolId_ =
-  DescribeIdentityPool' {_dipIdentityPoolId = pIdentityPoolId_}
+mkDescribeIdentityPool pIdentityPoolId_ =
+  DescribeIdentityPool' {identityPoolId = pIdentityPoolId_}
 
 -- | An identity pool ID in the format REGION:GUID.
-dipIdentityPoolId :: Lens' DescribeIdentityPool Text
-dipIdentityPoolId = lens _dipIdentityPoolId (\s a -> s {_dipIdentityPoolId = a})
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipIdentityPoolId :: Lens.Lens' DescribeIdentityPool Lude.Text
+dipIdentityPoolId = Lens.lens (identityPoolId :: DescribeIdentityPool -> Lude.Text) (\s a -> s {identityPoolId = a} :: DescribeIdentityPool)
+{-# DEPRECATED dipIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
-instance AWSRequest DescribeIdentityPool where
+instance Lude.AWSRequest DescribeIdentityPool where
   type Rs DescribeIdentityPool = IdentityPool
-  request = postJSON cognitoIdentity
-  response = receiveJSON (\s h x -> eitherParseJSON x)
+  request = Req.postJSON cognitoIdentityService
+  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
 
-instance Hashable DescribeIdentityPool
-
-instance NFData DescribeIdentityPool
-
-instance ToHeaders DescribeIdentityPool where
+instance Lude.ToHeaders DescribeIdentityPool where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("AWSCognitoIdentityService.DescribeIdentityPool" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ( "AWSCognitoIdentityService.DescribeIdentityPool" ::
+                          Lude.ByteString
+                      ),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DescribeIdentityPool where
+instance Lude.ToJSON DescribeIdentityPool where
   toJSON DescribeIdentityPool' {..} =
-    object
-      (catMaybes [Just ("IdentityPoolId" .= _dipIdentityPoolId)])
+    Lude.object
+      ( Lude.catMaybes
+          [Lude.Just ("IdentityPoolId" Lude..= identityPoolId)]
+      )
 
-instance ToPath DescribeIdentityPool where
-  toPath = const "/"
+instance Lude.ToPath DescribeIdentityPool where
+  toPath = Lude.const "/"
 
-instance ToQuery DescribeIdentityPool where
-  toQuery = const mempty
+instance Lude.ToQuery DescribeIdentityPool where
+  toQuery = Lude.const Lude.mempty

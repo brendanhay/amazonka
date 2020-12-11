@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
@@ -13,110 +7,142 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.Archive where
+module Network.AWS.CloudWatchEvents.Types.Archive
+  ( Archive (..),
+
+    -- * Smart constructor
+    mkArchive,
+
+    -- * Lenses
+    aCreationTime,
+    aSizeBytes,
+    aEventSourceARN,
+    aState,
+    aEventCount,
+    aArchiveName,
+    aRetentionDays,
+    aStateReason,
+  )
+where
 
 import Network.AWS.CloudWatchEvents.Types.ArchiveState
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
 
 -- | An @Archive@ object that contains details about an archive.
 --
---
---
--- /See:/ 'archive' smart constructor.
+-- /See:/ 'mkArchive' smart constructor.
 data Archive = Archive'
-  { _aCreationTime :: !(Maybe POSIX),
-    _aSizeBytes :: !(Maybe Integer),
-    _aEventSourceARN :: !(Maybe Text),
-    _aState :: !(Maybe ArchiveState),
-    _aEventCount :: !(Maybe Integer),
-    _aArchiveName :: !(Maybe Text),
-    _aRetentionDays :: !(Maybe Nat),
-    _aStateReason :: !(Maybe Text)
+  { creationTime :: Lude.Maybe Lude.Timestamp,
+    sizeBytes :: Lude.Maybe Lude.Integer,
+    eventSourceARN :: Lude.Maybe Lude.Text,
+    state :: Lude.Maybe ArchiveState,
+    eventCount :: Lude.Maybe Lude.Integer,
+    archiveName :: Lude.Maybe Lude.Text,
+    retentionDays :: Lude.Maybe Lude.Natural,
+    stateReason :: Lude.Maybe Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Archive' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aCreationTime' - The time stamp for the time that the archive was created.
---
--- * 'aSizeBytes' - The size of the archive, in bytes.
---
--- * 'aEventSourceARN' - The ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
---
--- * 'aState' - The current state of the archive.
---
--- * 'aEventCount' - The number of events in the archive.
---
--- * 'aArchiveName' - The name of the archive.
---
--- * 'aRetentionDays' - The number of days to retain events in the archive before they are deleted.
---
--- * 'aStateReason' - A description for the reason that the archive is in the current state.
-archive ::
+-- * 'archiveName' - The name of the archive.
+-- * 'creationTime' - The time stamp for the time that the archive was created.
+-- * 'eventCount' - The number of events in the archive.
+-- * 'eventSourceARN' - The ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
+-- * 'retentionDays' - The number of days to retain events in the archive before they are deleted.
+-- * 'sizeBytes' - The size of the archive, in bytes.
+-- * 'state' - The current state of the archive.
+-- * 'stateReason' - A description for the reason that the archive is in the current state.
+mkArchive ::
   Archive
-archive =
+mkArchive =
   Archive'
-    { _aCreationTime = Nothing,
-      _aSizeBytes = Nothing,
-      _aEventSourceARN = Nothing,
-      _aState = Nothing,
-      _aEventCount = Nothing,
-      _aArchiveName = Nothing,
-      _aRetentionDays = Nothing,
-      _aStateReason = Nothing
+    { creationTime = Lude.Nothing,
+      sizeBytes = Lude.Nothing,
+      eventSourceARN = Lude.Nothing,
+      state = Lude.Nothing,
+      eventCount = Lude.Nothing,
+      archiveName = Lude.Nothing,
+      retentionDays = Lude.Nothing,
+      stateReason = Lude.Nothing
     }
 
 -- | The time stamp for the time that the archive was created.
-aCreationTime :: Lens' Archive (Maybe UTCTime)
-aCreationTime = lens _aCreationTime (\s a -> s {_aCreationTime = a}) . mapping _Time
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCreationTime :: Lens.Lens' Archive (Lude.Maybe Lude.Timestamp)
+aCreationTime = Lens.lens (creationTime :: Archive -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Archive)
+{-# DEPRECATED aCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The size of the archive, in bytes.
-aSizeBytes :: Lens' Archive (Maybe Integer)
-aSizeBytes = lens _aSizeBytes (\s a -> s {_aSizeBytes = a})
+--
+-- /Note:/ Consider using 'sizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aSizeBytes :: Lens.Lens' Archive (Lude.Maybe Lude.Integer)
+aSizeBytes = Lens.lens (sizeBytes :: Archive -> Lude.Maybe Lude.Integer) (\s a -> s {sizeBytes = a} :: Archive)
+{-# DEPRECATED aSizeBytes "Use generic-lens or generic-optics with 'sizeBytes' instead." #-}
 
 -- | The ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-aEventSourceARN :: Lens' Archive (Maybe Text)
-aEventSourceARN = lens _aEventSourceARN (\s a -> s {_aEventSourceARN = a})
+--
+-- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aEventSourceARN :: Lens.Lens' Archive (Lude.Maybe Lude.Text)
+aEventSourceARN = Lens.lens (eventSourceARN :: Archive -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceARN = a} :: Archive)
+{-# DEPRECATED aEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
 
 -- | The current state of the archive.
-aState :: Lens' Archive (Maybe ArchiveState)
-aState = lens _aState (\s a -> s {_aState = a})
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aState :: Lens.Lens' Archive (Lude.Maybe ArchiveState)
+aState = Lens.lens (state :: Archive -> Lude.Maybe ArchiveState) (\s a -> s {state = a} :: Archive)
+{-# DEPRECATED aState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The number of events in the archive.
-aEventCount :: Lens' Archive (Maybe Integer)
-aEventCount = lens _aEventCount (\s a -> s {_aEventCount = a})
+--
+-- /Note:/ Consider using 'eventCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aEventCount :: Lens.Lens' Archive (Lude.Maybe Lude.Integer)
+aEventCount = Lens.lens (eventCount :: Archive -> Lude.Maybe Lude.Integer) (\s a -> s {eventCount = a} :: Archive)
+{-# DEPRECATED aEventCount "Use generic-lens or generic-optics with 'eventCount' instead." #-}
 
 -- | The name of the archive.
-aArchiveName :: Lens' Archive (Maybe Text)
-aArchiveName = lens _aArchiveName (\s a -> s {_aArchiveName = a})
+--
+-- /Note:/ Consider using 'archiveName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aArchiveName :: Lens.Lens' Archive (Lude.Maybe Lude.Text)
+aArchiveName = Lens.lens (archiveName :: Archive -> Lude.Maybe Lude.Text) (\s a -> s {archiveName = a} :: Archive)
+{-# DEPRECATED aArchiveName "Use generic-lens or generic-optics with 'archiveName' instead." #-}
 
 -- | The number of days to retain events in the archive before they are deleted.
-aRetentionDays :: Lens' Archive (Maybe Natural)
-aRetentionDays = lens _aRetentionDays (\s a -> s {_aRetentionDays = a}) . mapping _Nat
+--
+-- /Note:/ Consider using 'retentionDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRetentionDays :: Lens.Lens' Archive (Lude.Maybe Lude.Natural)
+aRetentionDays = Lens.lens (retentionDays :: Archive -> Lude.Maybe Lude.Natural) (\s a -> s {retentionDays = a} :: Archive)
+{-# DEPRECATED aRetentionDays "Use generic-lens or generic-optics with 'retentionDays' instead." #-}
 
 -- | A description for the reason that the archive is in the current state.
-aStateReason :: Lens' Archive (Maybe Text)
-aStateReason = lens _aStateReason (\s a -> s {_aStateReason = a})
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStateReason :: Lens.Lens' Archive (Lude.Maybe Lude.Text)
+aStateReason = Lens.lens (stateReason :: Archive -> Lude.Maybe Lude.Text) (\s a -> s {stateReason = a} :: Archive)
+{-# DEPRECATED aStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
-instance FromJSON Archive where
+instance Lude.FromJSON Archive where
   parseJSON =
-    withObject
+    Lude.withObject
       "Archive"
       ( \x ->
           Archive'
-            <$> (x .:? "CreationTime")
-            <*> (x .:? "SizeBytes")
-            <*> (x .:? "EventSourceArn")
-            <*> (x .:? "State")
-            <*> (x .:? "EventCount")
-            <*> (x .:? "ArchiveName")
-            <*> (x .:? "RetentionDays")
-            <*> (x .:? "StateReason")
+            Lude.<$> (x Lude..:? "CreationTime")
+            Lude.<*> (x Lude..:? "SizeBytes")
+            Lude.<*> (x Lude..:? "EventSourceArn")
+            Lude.<*> (x Lude..:? "State")
+            Lude.<*> (x Lude..:? "EventCount")
+            Lude.<*> (x Lude..:? "ArchiveName")
+            Lude.<*> (x Lude..:? "RetentionDays")
+            Lude.<*> (x Lude..:? "StateReason")
       )
-
-instance Hashable Archive
-
-instance NFData Archive

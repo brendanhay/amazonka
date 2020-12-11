@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,84 +14,95 @@
 --
 -- Deletes a custom language model using its name.
 module Network.AWS.Transcribe.DeleteLanguageModel
-  ( -- * Creating a Request
-    deleteLanguageModel,
-    DeleteLanguageModel,
+  ( -- * Creating a request
+    DeleteLanguageModel (..),
+    mkDeleteLanguageModel,
 
-    -- * Request Lenses
+    -- ** Request lenses
     dlmModelName,
 
-    -- * Destructuring the Response
-    deleteLanguageModelResponse,
-    DeleteLanguageModelResponse,
+    -- * Destructuring the response
+    DeleteLanguageModelResponse (..),
+    mkDeleteLanguageModelResponse,
   )
 where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Request as Req
+import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
--- | /See:/ 'deleteLanguageModel' smart constructor.
+-- | /See:/ 'mkDeleteLanguageModel' smart constructor.
 newtype DeleteLanguageModel = DeleteLanguageModel'
-  { _dlmModelName ::
-      Text
+  { modelName ::
+      Lude.Text
   }
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLanguageModel' with the minimum fields required to make a request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dlmModelName' - The name of the model you're choosing to delete.
-deleteLanguageModel ::
-  -- | 'dlmModelName'
-  Text ->
+-- * 'modelName' - The name of the model you're choosing to delete.
+mkDeleteLanguageModel ::
+  -- | 'modelName'
+  Lude.Text ->
   DeleteLanguageModel
-deleteLanguageModel pModelName_ =
-  DeleteLanguageModel' {_dlmModelName = pModelName_}
+mkDeleteLanguageModel pModelName_ =
+  DeleteLanguageModel' {modelName = pModelName_}
 
 -- | The name of the model you're choosing to delete.
-dlmModelName :: Lens' DeleteLanguageModel Text
-dlmModelName = lens _dlmModelName (\s a -> s {_dlmModelName = a})
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlmModelName :: Lens.Lens' DeleteLanguageModel Lude.Text
+dlmModelName = Lens.lens (modelName :: DeleteLanguageModel -> Lude.Text) (\s a -> s {modelName = a} :: DeleteLanguageModel)
+{-# DEPRECATED dlmModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
-instance AWSRequest DeleteLanguageModel where
+instance Lude.AWSRequest DeleteLanguageModel where
   type Rs DeleteLanguageModel = DeleteLanguageModelResponse
-  request = postJSON transcribe
-  response = receiveNull DeleteLanguageModelResponse'
+  request = Req.postJSON transcribeService
+  response = Res.receiveNull DeleteLanguageModelResponse'
 
-instance Hashable DeleteLanguageModel
-
-instance NFData DeleteLanguageModel
-
-instance ToHeaders DeleteLanguageModel where
+instance Lude.ToHeaders DeleteLanguageModel where
   toHeaders =
-    const
-      ( mconcat
+    Lude.const
+      ( Lude.mconcat
           [ "X-Amz-Target"
-              =# ("Transcribe.DeleteLanguageModel" :: ByteString),
-            "Content-Type" =# ("application/x-amz-json-1.1" :: ByteString)
+              Lude.=# ("Transcribe.DeleteLanguageModel" :: Lude.ByteString),
+            "Content-Type"
+              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
           ]
       )
 
-instance ToJSON DeleteLanguageModel where
+instance Lude.ToJSON DeleteLanguageModel where
   toJSON DeleteLanguageModel' {..} =
-    object (catMaybes [Just ("ModelName" .= _dlmModelName)])
+    Lude.object
+      (Lude.catMaybes [Lude.Just ("ModelName" Lude..= modelName)])
 
-instance ToPath DeleteLanguageModel where
-  toPath = const "/"
+instance Lude.ToPath DeleteLanguageModel where
+  toPath = Lude.const "/"
 
-instance ToQuery DeleteLanguageModel where
-  toQuery = const mempty
+instance Lude.ToQuery DeleteLanguageModel where
+  toQuery = Lude.const Lude.mempty
 
--- | /See:/ 'deleteLanguageModelResponse' smart constructor.
+-- | /See:/ 'mkDeleteLanguageModelResponse' smart constructor.
 data DeleteLanguageModelResponse = DeleteLanguageModelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+  deriving stock
+    ( Lude.Eq,
+      Lude.Ord,
+      Lude.Read,
+      Lude.Show,
+      Lude.Generic
+    )
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLanguageModelResponse' with the minimum fields required to make a request.
-deleteLanguageModelResponse ::
+mkDeleteLanguageModelResponse ::
   DeleteLanguageModelResponse
-deleteLanguageModelResponse = DeleteLanguageModelResponse'
-
-instance NFData DeleteLanguageModelResponse
+mkDeleteLanguageModelResponse = DeleteLanguageModelResponse'
